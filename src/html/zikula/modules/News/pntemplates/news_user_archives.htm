@@ -1,0 +1,76 @@
+<!--[*  $Id: news_user_archives.htm 75 2009-02-24 04:51:52Z mateo $  *]-->
+
+<!--[pnpageaddvar name='javascript' value='modules/News/pnjavascript/simpletree.js']-->
+<!--[pnpageaddvar name='stylesheet' value='modules/News/pnstyle/news_treeview.css']-->
+
+<!--[nocache]--><!--[include file='news_user_menu.htm']--><!--[/nocache]-->
+<!--[insert name='getstatusmsg']-->
+
+<!--[* Check if overview display is needed or detail display for a month *]-->
+<!--[if $archiveitems eq '']-->
+<!--[* assign page title *]-->
+<!--[gt text='News archive' assign='NewsArchiveTitle']-->
+<!--[pnpagesetvar name='title' value=$NewsArchiveTitle]-->
+
+<h3><!--[gt text='News archive']--></h3>
+<p><a href="javascript:ddtreemenu.flatten('news-archive', 'expand')"><!--[gt text='Expand all']--></a> | <a href="javascript:ddtreemenu.flatten('news-archive', 'contract')"><!--[gt text='Contract all']--></a></p>
+
+<ul id="news-archive" class="news_treeview">
+    <!--[foreach from=$archivemonths key='year' item='years']-->
+    <li>
+        <h4><!--[$year]--></h4>
+        <ul>
+            <!--[foreach from=$years item='month']-->
+            <li>
+                <a href="<!--[$month.url|pnvarprepfordisplay]-->"><!--[$month.title|pnvarprepfordisplay]--></a>
+                <span class="z-sub">(<!--[if $month.nrofarticles gt 0]--><!--[gt text='%s article' plural='%s articles' count=$month.nrofarticles tag1=$month.nrofarticles]--><!--[/if]-->)</span>
+            </li>
+            <!--[/foreach]-->
+        </ul>
+    </li>
+    <!--[/foreach]-->
+</ul>
+
+<script type="text/javascript">
+    //ddtreemenu.createTree(treeid, enablepersist, opt_persist_in_days (default is 1))
+    ddtreemenu.closefolder = "<!--[$baseurl]-->modules/News/pnimages/expand.gif"; //set image path to "closed" folder image
+    ddtreemenu.openfolder = "<!--[$baseurl]-->modules/News/pnimages/contract.gif"; //set image path to "open" folder image
+    ddtreemenu.createTree("news-archive", true);
+    ddtreemenu.flatten('news-archive', 'expand');
+</script>
+
+<!--[else]-->
+<!--[* assign page title *]-->
+<!--[gt text='News archive for %1$s, %2$s' tag1=$month tag2=$year assign='NewsArchiveTitle']-->
+<!--[pnpagesetvar name='title' value=$NewsArchiveTitle]-->
+
+<h3><!--[$NewsArchiveTitle]--></h3>
+
+<table class="z-datatable">
+    <thead>
+        <tr>
+            <th><!--[gt text='Title']--></th>
+            <!--[if $enablecategorization]-->
+            <th><!--[gt text='Category']--></th>
+            <!--[/if]-->
+            <th><!--[gt text='Pageviews']--></th>
+            <th><!--[gt text='Contributed']--></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--[section name='items' loop=$archiveitems]-->
+        <tr>
+            <td><a href="<!--[pnmodurl modname='News' type='user' func='display' sid=$archiveitems[items].sid|pnvarprepfordisplay]-->"><!--[$archiveitems[items].title|pnvarprepfordisplay]--></a></td>
+            <!--[if $enablecategorization]-->
+            <td>
+                <!--[* assignedcategorieslist item=$archiveitems[items] format=1 start='' end='' seperator=',' possible after http://code.zikula.org/core/ticket/1043 plugin enhancements *]-->
+                <!--[assignedcategorieslist item=$archiveitems[items]]-->
+            </td>
+            <!--[/if]-->
+            <td><!--[$archiveitems[items].counter|pnvarprepfordisplay]--></td>
+            <td><!--[gt text='by %1$s on %2$s' tag1=$archiveitems[items].contributor|pnvarprepfordisplay tag2=$archiveitems[items].from|pndate_format|pnvarprepfordisplay]--></td>
+        </tr>
+        <!--[/section]-->
+    </tbody>
+</table>
+<!--[/if]-->

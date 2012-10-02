@@ -1,0 +1,141 @@
+/** indicator **/
+.mymap_indicator {
+  	position: relative;
+  	left:60px;
+  	top:60px;
+  	width:60px;
+  	height:60px;
+  	background-color: #ffffff;
+  	background-image: url('http://localhost/pn8/modules/MyMap/pnimages/ajax.gif');
+  	border: 1px dotted;
+  	border-color: #ffffff;
+  	z-index: 9999;
+}
+
+/** fullscreen mode **/
+.mymap_closefullscreen {
+  	position: fixed;
+	left:10px; 
+	top:10px; 
+	background-color:#000000; 
+	font-size:20px; 
+	padding:10px; 
+	margin: 0px; 
+	z-index:5001;
+}
+.mymap_graybackground {
+  	position: fixed; 
+	left: 0px; 
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color:#4C4C4C;
+	opacity:0.9;
+	moz-opacity:0.9;
+	z-index:500;
+}
+.mymap_minimizelink {
+	color:#ff3333;
+}
+
+/** design around the displayed map **/
+.mymap_map {
+  	background-color:#ffffff;
+  	z-index: 510;
+}
+.mymap_mapheader {
+	height:18px;
+}
+.mymap_mapheader_link {
+	float: right;
+}
+.mymap_mapheader_title {
+	float: left;
+}
+
+/** table of listed markers etc **/
+#mymap_hiddendiv_overview {
+	display: none;
+}
+
+/** add or modify markers **/
+#mymap_hiddendiv_addmarkers {
+	display: none;
+}
+
+/** the gpx waypoints export function **/
+.mymap_exportpopup {
+	width: 400px;
+	height: 400px;
+	text-align: left;
+	border: 1px solid #000;
+	background-color: #cccccc;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -200px;
+	margin-top: -200px;
+	z-index: 6200;
+	padding: 10px;
+}
+/** mapcontrol parts **/
+.mymap_mapcontrol_menu {
+	position: relative;
+	left: 10px;
+	top: 30px;
+	z-index: 2000;
+}
+#mymap_menu {
+	position:relative;
+}
+
+#mymap_menu .mymap_menu_border {
+	float: left;
+	display: block;
+	overflow: right;
+	width: 9em;
+	height: 1.3em;
+	font-weight: bold;
+	text-align: center;
+	background-color: #dec79a;
+	color: #513913;
+	border: 1px solid;
+	border-color: #d0843e #78561d #78561d #d0843e;
+}
+
+#mymap_menu .mymap_menu_border:hover {
+	height: auto;
+	background-color: #624617;
+	color: #fff;
+}
+
+a.mymap_menu_inside {
+	display: block;
+	width: 8.9em;
+	padding: 2px 0;
+	text-decoration: none;
+	font-weight: normal;
+	border-bottom: 1px solid #78561d;
+	background-color: #ecd8ae;
+	color: #600;
+}
+
+a:visited.mymap_menu_inside {
+	background-color: #ecd8ae;
+	color:#555;
+}
+
+a:hover.mymap_menu_inside {
+	background-color: #f7eedb;
+	color: #900;
+}
+
+.mymap_hidden {
+  	display: none;
+}
+
+.mymap_noscriptbox {
+	border: 1px solid #000;
+	background-color: #ecd8ae;
+	padding: 10px;
+}

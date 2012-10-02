@@ -1,0 +1,127 @@
+<p align="center"><b>Εισαγωγή αρχείων τύπου "WebCT Quiz"</b></p>
+
+<p>Το φίλτρο εισαγωγής αρχείων τύπου WebCT είναι ακόμη σε εξέλιξη και δεν υποστηρίζει όλες τις WebCT ερωτήσεις
+όλων των τύπων.</p>
+
+<p>Ως τη συγγραφή του παρόντος υποστηρίζονται μόνο ερωτήσεις πολλαπλής επιλογής και ερωτήσεις με σύντομες απαντήσεις.</p>
+
+<p>Ακολουθούν τα σχετικά παραδείγματα σε αρχεία κειμένου:</p>
+
+<pre>
+# Αρχή ερώτησης: Ερώτηση με σύντομη απάντηση
+:TYPE:S:
+:TITLE:Ερώτηση με σύντομη απάντηση
+:QUESTION:H
+Ποιο είναι το όνομα του WebCT Learning Hub?
+&lt;br />
+:IMAGE:dotcomLogoc.gif
+:ANSWERS:1
+:CASE:0
+:ANSWER1:WebCT.com:100:0:20:0
+:FEEDBACK1:H
+Επισκευτείτε το Learning Hub\: www.WebCT.com
+:CAT:Default
+# Τέλος ερώτησης: Ερώτηση με σύντομη απάντηση
+
+
+
+# Αρχή ερώτησης: Ερώτηση πολλαπλής επιλογής
+:TYPE:MC:1:0:C
+:TITLE:Ερώτηση πολλαπλής επιλογής
+:FEEDBACK
+Ο Δαρβίνος εφηύρε τη θεωρία της εξέλιξης και έτσι ξεκίνησε ο δαρβινισμός.
+:QUESTION:H
+Πού βρίσκεται το Κέντρο Ερευνών Δαρβίνου (Darwin Research Center);
+:IMAGE:
+:LAYOUT:vertical
+:ANSWER1:0:H
+στο Menlo Park, Καλιφόρνια, ΗΠΑ
+:REASON1:H
+Λυπάμαι, λάθος!
+:ANSWER2:0:H
+στο Vancouver, Καναδάς
+:REASON2:H
+Λυπάμαι, λάθος!
+:ANSWER3:100:H
+στα νησιά Galapagos, στον Ισημερινό
+:REASON3:H
+Σωστή απάντηση!
+:ANSWER4:0:H
+στο Λονδίνο, Αγγλία
+:REASON4:H
+Λυπάμαι, λάθος!
+:ANSWER5:0:H
+στο Sidney, Αυστραλία
+:REASON5:H
+Λυπάμαι, λάθος!
+:CAT:Default
+# Τέλος ερώτησης: Ερώτηση πολλαπλής επιλογής
+
+</pre>
+
+
+
+
+
+<p align="center"><b>Importing "WebCT Quiz Format" files</b></p>
+
+<p>The WebCT import filter is in development and does not support
+   all of the WebCT question types.</p>
+
+<p>At the time of writing this, only Multiple Choice and Short answer
+   questions are supported.</p>
+
+<p>Here are some examples of these questions in a text file:</p>
+
+<pre>
+# Start of question: Short Answer Question
+:TYPE:S:
+:TITLE:Short Answer Question
+:QUESTION:H
+What is the name of the WebCT Learning Hub?
+&lt;br />
+:IMAGE:dotcomLogoc.gif
+:ANSWERS:1
+:CASE:0
+:ANSWER1:WebCT.com:100:0:20:0
+:FEEDBACK1:H
+Be sure to visit the Learning Hub\: www.WebCT.com
+:CAT:Default
+# End of question: Short Answer Question
+
+
+
+# Start of question: Multiple Choice Question
+:TYPE:MC:1:0:C
+:TITLE:Multiple Choice Question
+:FEEDBACK
+Darwin invented the theory of evolution and created Darwinism.
+:QUESTION:H
+Where is the Darwin Research Center?
+:IMAGE:
+:LAYOUT:vertical
+:ANSWER1:0:H
+Menlo Park, California
+:REASON1:H
+Sorry!
+:ANSWER2:0:H
+Vancouver, Canada
+:REASON2:H
+Sorry!
+:ANSWER3:100:H
+Galapagos Islands, Ecuador
+:REASON3:H
+Correct Answer!
+:ANSWER4:0:H
+London, England
+:REASON4:H
+Sorry!
+:ANSWER5:0:H
+Sidney, Australia
+:REASON5:H
+Sorry!
+:CAT:Default
+# End of question: Multiple Choice Question
+
+</pre>
+

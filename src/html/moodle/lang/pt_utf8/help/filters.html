@@ -1,0 +1,161 @@
+<!-- $Id: filters.html,v 1.5 2008/01/20 19:06:51 villate Exp $ -->
+<h1>Gestão de filtros</h1>
+
+<p>
+A página de gestão de filtros permite-lhe definir os filtros que serão
+aplicados ao texto mostrado e em que ordem. Igualmente fornece o
+acesso à página de configurações fornecida por alguns filtros. Os
+filtros são aplicados à maioria do texto dos utilizadores no Moodle
+imediatamente antes de ser mostrado. permitindo assim uma modificação
+de "última hora" do texto.
+</p>
+
+<p>
+Os filtros são um recurso que pode ser ligado ou desligado. Pode haver
+mais filtros disponíveis
+na <a href="http://moodle.org/mod/data/view.php?id=6009">Base de dados
+de módulos e plugins</a>.
+</p>
+
+<p>
+Seleccione os filtros que quiser usar, tornando-os visíveis com o
+ícone do olho. Se tiver mais do que um filtro visível, poderá mudar a
+ordem em que são aplicados com as setas de cima e baixo.
+</p>
+
+<h2>Notação TeX</h2>
+
+<div class="indent">
+<p> A notação de TeX é usada primariamente para gerar fórmulas
+matemáticas dentro dos recursos do Moodle. Por exemplo $$\sqrt{a+b}$$
+(o $$ é a "Etiqueta" para o começo e o fim deste formato).
+</p>
+<p> Moodle usa programas externos para mostrar as imagens que
+precisarem de alguma configuração no seu sistema. O filtro verifica
+primeiramente a presença de um processador de LaTeX (Ghostscript é
+também exigido para este filtro) e falhando isso, usará o programa
+mais simples <i>mimetex</i> incluído na distribuição do Moodle. O
+LaTeX aceita toda a sintaxe completa, enquanto que o mimetex suporta
+somente um subconjunto matemático.
+</p>
+
+<p>
+Ghostscript está disponível para Windows e há uma implementação do
+LaTeX chamada MikTeX também disponível.
+</p>   
+
+<p>
+A página de definições permite configurar os caminhos para os
+programas do LaTeX e do Ghostscript, junto com o preâmbulo do látex.
+</p>
+
+  <h3>Mais informações</h3>
+ <p><a href="http://www.miktex.org/">MiKTeX</a><br />
+     <a href="http://www.forkosh.com/mimetex.html">MimeTeX</a><br />
+     <a href="http://www.latex-project.org/">LaTeX</a><br />
+     <a href="http://www.ghostscript.com/">Ghostscript</a></p>
+</div>
+
+
+ <h2>Censura de palavras</h2>
+<div class="indent">
+<p>
+O texto de censura da palavras procura no texto &quot;palavras
+más&quot; de uma lista predefinida, coultando-as com um quadro preto.
+Deverá definir a lista de palavras más nas definições para o filtro.
+</p>
+</div>
+ 
+ 
+<h2>Apontadores automáticos para nomes de recursos</h2>
+
+<div class="indent">
+<p>
+O filtro de apontadores automáticos para nomes de recursos procura no
+texto os títulos dos recursos existentes na disciplina.  Cada vez que
+encontrar um desses títulos, será sublinhado e será criado um
+apontador para esse recurso. Note que para usar este filtro
+eficazmente, deverá usar títulos descritivos. Por exemplo, um título
+de &quot;Introdução&quot; é pobre porque <strong>qualquer</strong> uso
+da palavra &quot;Introdução&quot; no texto produzirá um apontador para
+essa secção, independentemente do sentido em que essa palavra estiver
+a ser usada.
+</p>
+</div>
+
+<h2>Apontadores automáticos para nomes de actividades</h2>
+
+<div class="indent">
+<p>
+O filtro de apontadores automáticos para nomes de actividades procura
+no texto os títulos das actividades existentes na disciplina. Cada vez
+que encontrar um desses títulos, será sublinhado e será criado um
+apontador para essa actividade. Note que para usar este filtro
+eficazmente, deverá usar títulos descritivos. Por exemplo, um título
+de &quot;Teste&quot; é pobre porque <strong>qualquer</strong> uso da
+palavra &quot;Teste&quot; no texto produzirá um apontador para essa
+actividade, independentemente do sentido em que essa palavra estiver a
+ser usada.
+</p>
+</div>
+
+
+<h2>Apontadores automáticos para o glossário</h2>
+
+<div class="indent">
+<p>
+Este filtro procura no texto os termos em algum glossário da
+disciplina.
+No entanto, será necessário que cada termo nesse glossário tenha sido
+definido permitindo o uso de apontadores automáticos. Os termos
+encontrados serão sublinhados e será criado um apontador.
+</p>
+</div>
+
+
+
+<h2>Protecção de correio electrónico</h2>
+
+<div class="indent">
+<p>
+O filtro de protecção de correio electrónico procura endereços de
+correio electrónico no texto, alterando-os de forma a evitar que sejam
+descobertos por programas de pesquisa automática de endereços. Assim,
+poderá diminuir o risco de obter spam, se algumas partes do seu sítio
+Moodle estiverem abertas ao público.
+</p>
+</div>
+
+
+
+<h2>Validação HTML</h2>
+
+<div class="indent">
+<p>
+Este filtro procura marcas HTML no texto. Quando as encontrar aplica
+regras que tentam tornar o código HTML válido. Note que para poder
+usar este filtro, essa funcionalidade (&quot;tidy&quot;) deverá estar
+incluida na sua instalação do PHP.
+</p>
+</div>
+
+  
+<h2>Conteúdo Multilinguístico</h2>
+ 
+<div class="indent">
+<p>
+Este filtro permite a criação de recursos em múltiplas línguas. Assim,
+o texto do recurso mudará quando o utilizador mudar a sua definição da
+língua no Moodle. Para usar este filtro, comece por escrever os seus
+conteúdos nas várias línguas (dentro do mesmo recurso). A seguir, encerre
+cada bloco em cada língua usando as marcas seguintes:
+</p>
+<pre>
+      &lt;span lang="XX" class="multilang"&gt;o_seu_conteúdo_aqui&lt;/span&gt;
+</pre>
+<p>Pode ainda usar as marcas usadas antigamente (já obsoletas); por
+  exemplo:</p>
+<pre>
+      &lt;lang lang="XX" &gt;o_seu_conteúdo_aqui&lt;/lang&gt;
+</pre>
+</div>

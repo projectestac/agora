@@ -1,0 +1,17 @@
+<!--[include file=Export_admin_menu.htm]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Delete the backup"]--></h2>
+	
+	<form action="<!--[pnmodurl modname="export" type="admin" func="backup_del"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="backup_file" value="<!--[$backup_file]-->" />
+		<input type="hidden" name="confirm" value="1" />
+		<!--[gt text="Are you really sure to delete the backup?"]--> 
+		<div class="formOptions" style="text-align: center;">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Delete" __title="Delete"]-->
+			<a href="<!--[pnmodurl modname="export" type="admin" func="backup"]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel the deletion" __title="Cancel the deletion"]--></a>
+		</div>
+	</form>
+	
+</div>

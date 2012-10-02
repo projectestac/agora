@@ -1,0 +1,86 @@
+<h1>Subir usuarios</h1>
+
+<p>En primer lugar tenga en cuenta que <strong>normalmente no es necesario importar
+usuarios en bloque</strong>: para tener su trabajo de mantenimiento bajo control,
+debería explorar formas de autenticación que no requieran mantenimiento manual,
+tales como conectarse con una base de datos externa, o dejar que los usuarios
+creen sus propias cuentas. Vea la sección de Autenticación en el menú del adminitrador.</p>
+<p>Si está seguro que quiere importar múltiples cuentas de usuario desde un archivo
+de texto, entonces necesitará darle formato a su archivo de texto como se indica:</p>
+
+<ul>
+  <li>Cada línea del archivo contiene un registro.</li>
+  <li>Cada registro es una serie de datos separados por comas.</li>
+  <li>El primer registro del archivo es especial, y contiene una lista de nombres
+    de campos. Este registro define el formato del resto del archivo.
+    <blockquote>
+      <p><strong>Campos requeridos:</strong> Estos campos deben estar presentes en el primer registro, y deben definirse para cada usuario.</p>
+      <p><code>firstname, lastname</code></p>
+      <p><strong>Campos opcionales: </strong>Todos estos son opcionales. Si el campo del archivo contiene un valor, se usará dicho valor; en caso contrario, se usará el valor por defecto del campo.</p>
+      <p> <code>institution, department, city, country, lang, auth, timezone, idnumber, icq, phone1, phone2, address, url, description, mailformat, maildisplay, htmleditor, autosubscribe, emailstop, deleted</code></p>
+      <p><strong>Campos de matriculación (opcional): </strong>Los nombres de curso son sus &quot;shortnames&quot; - si están presentes, el usuario será matriculado en tales cursos. Para los grupos, utilice el nombre del grupo; para los roles, use id. Los nombres de los grupos deben estar asociados a los cursos correspondientes, i.e., grupo1 a curso1, etc.</p>
+      <p><code>course1, group1, type1, role1, course2, group2, type2, role2, etc.</code></p>
+    </blockquote>
+    </li>
+  <li>Las comas entre los datos se codificarán como &amp;#44 -el script las decodificará automáticamente como comas. </li>
+  <li>Para campos boleanos use 0 para falso y 1 para verdadero. </li>
+  <li>Los tipos se usan para informar a Moodle si el usuario es un estudiante o un profesor en el caso de que el correspondiente curso exista (e.g., type2 corresponde a course2). 1 = Estudiante, 2 = Profesor editor y 3 = Profesor no editor. Si el tipo se deja en blanco, o si no se especifica curso, el usuario por defecto será el estudiante. </li>
+  <li>.Nota: Si un usuario ya está registrado en la base de datos de Moodle, el script devolverá el número userid (índice de la base de datos) de ese usuario, e inscribirá al usuario en los cursos SIN alterar la información anterior.</li>
+</ul>
+<p>Éste es un ejemplo de un archivo de importación válido:</p>
+<p><code>username, password, firstname, lastname, email, lang, idnumber, maildisplay, course1, group1, type1<br />
+juanb, secreto, Juan, Benítez, janb@algo.edu, es, 3663737, 1, Intro101, Seccion1, 1<br />
+saraf, secreta, Sara, Fernández, sarara@alomas.edu, es, 6736733, 0, Avanzado202, Seccion3, 3
+</code></p>
+<p>El archivo CSV debe contener informaciones completas en el caso de algunos usuarios y usa valores por defecto en otros casos (utilice comas extra para asociar correctamente los datos a las cabeceras). Por ejemplo, el siguiente archivo utiliza valores por defecto para nombre de usuario (username), ciudad (city) y país (country) para el usuario Paco López:</p>
+
+<p><code>username, password, firstname, lastname, country, city<br />
+carlosp, secreto1, Carlos, Pérez, ES, Valencia<br />
+, secreto2, Paco, López, ,
+</code></p>
+
+<h2>Plantillas</h2>
+<p>Los valores por defecto se procesan como plantillas en las que se permiten los códigos siguientes:</p>
+<ul>
+<li><code>%l</code> - se reemplazará por el apellido (lastname)</li>
+<li><code>%f</code> - se reemplazará por el nombre (firstname)</li>
+<li><code>%u</code> - se reemplazará por el nombre de usuario (username)</li>
+<li><code>%%</code> - se reemplazará por el %</li>
+</ul>
+<p>Entre el signo de porcentaje (%) y cualquier letra de código (l, f o u) se permiten los siguientes modificadores:</p>
+<ul>
+<li>signo menos (-) - la información especificada por el código se convertirá en minúsculas</li>
+<li>signo más (+) - la información especificada por el código se convertirá en mayúsculas</li>
+<li>un número decimal - la información especificada por el código será truncada a ese número de caracteres</li>
+</ul>
+
+<p>Por ejemplo, si el nombre es Marta y el apellido Casas, se obtendrán los valores siguientes con las plantillas especificadas:</p>
+<ul>
+<li>%l%f = CasasMarta</li>
+<li>%l%1f = CasasM</li>
+<li>%-l%+f = casasMARTA</li>
+<li>%-f_%-l = marta_casas</li>
+<li>http://www.example.com/~%u/ = http://www.example.com/~jdoe/ (si el nombre de usuario es mcasas o %-1f%-l)</li>
+</ul>
+<p>El procesamiento de plantillas se lleva a cabo únicamente sobre valores por defecto, y no sobre los valores recuperados del archivo CSV.</p>
+<p>Para crear nombres de usuario correctos en Moodle, el nombre de usuario se convierte siempre a minúsculas. Es más, si la opción &quot;Permitir caracteres extendidos en nombres de usuario&quot; en la página de política del sitio está deshabilitada, se eliminarán los caracteres que no sean letras, dígitos, guiones (-) y puntos (.).
+Por ejemplo, si el nombre es Marta M. y el apellido Casas, el nombre de usuario %-f_%-l producirá marta m._casas cuando esté habilitada la opción Permitir caracteres extendidos en nombres de usuario, y martam.casas cuando esté deshabilitada.</p>
+<p>Cuando en el campo &quot;Gestión de duplicados de nuevo nombre de usuario&quot; está seleccionada la opción Agregar contador, se agregará un contador auto-incrementado a los nombres de usuario duplicados producidos por la plantilla.
+Por ejemplo, si el archivo CSV contiene los usuarios Marta Casas, Mario Casas y Maribel Casas sin nombres explícitos de usuario, el nombre de usuario por defecto es %-1f%-l y en Gestión de duplicados de nuevo nombre de usuario se ha seleccionado la opción Agregar contador, entonces los nombres de usuario producidos serán mcasas, mcasas2 y mcasas3.
+</p>
+
+<h2>Actualización de cuentas existentes</h2>
+
+<p>Moodle asume por defecto que usted está creando cuentas de nuevos usuarios, y pasa por alto los registros en los que el nombre de usuario coincide con una cuenta existente. Sin embargo, si elige la opción <b>Sí</b> en "Actualizar cuentas existentes", la cuenta correspondiente quedará actualizada. </p>
+
+<p>Al actualizar cuentas existentes, usted puede cambiar también los nombres de usuario. Seleccione <b>Sí</b> en "Permitir renombrar" e incluya en su archivo un campo denominado <code class="example1">oldusername</code>.</p>
+
+<p><b>Atención:</b> cualquier error al actualizar cuentas existentes puede afectar negativamente a los usuarios. Sea cuidadoso a la hora de usar las opciones de actualización.</p>
+
+<h2>Eliminación de cuentas</h2>
+<p>Si está presente el campo <code>deleted</code>, los usuarios que tengan el valor 1 en dicho campo serán eliminados. En este caso, se omitirán todos los campos excepto <code>username</code> (que debería estar presente en el archivo CSV, o bien estar disponible un valor por defecto para dicho campo).</p>
+<p>Tanto la eliminación como la subida de cuentas podrían hacerse con un solo archivo CSV. Por ejemplo, el archivo siguiente agregaría al usuario Tom Jones y eliminaría al usuario reznort:</p>
+<p><code>username, firstname, lastname, deleted<br />
+jonest, Tom, Jones, 0<br />
+reznort, , , 1
+</code></p>

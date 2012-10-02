@@ -1,0 +1,11 @@
+# File: $Id: .htaccess 13838 2004-06-29 04:07:47Z larry $
+# ----------------------------------------------------------------------
+# Purpose of file: block any web access to files stored under
+#                  the pnTemp directory
+# ----------------------------------------------------------------------
+SetEnvIf Request_URI "\.css$" object_is_css=css
+SetEnvIf Request_URI "\.js$" object_is_js=js
+Order deny,allow
+Deny from all
+Allow from env=object_is_css
+Allow from env=object_is_js

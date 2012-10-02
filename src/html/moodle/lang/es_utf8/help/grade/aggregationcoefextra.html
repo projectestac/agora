@@ -1,0 +1,11 @@
+<h1>Coeficiente de crédito extra</h1>
+<p>Un valor mayor que 0 trata las calificaciones de este elemento de calificación como crédito extra durante la agregación. El número es un factor por el cual se multiplicará el valor de la calificación antes de agregarse a la suma de todas las calificaciones, pero el elemento en sí mismo no será contado en la división. Por ejemplo:</p>
+
+<ul>
+    <li>El elemento 1 es calificado de 0 a 100 y el valor de su "crédito extra" se fija en 2</li>
+    <li>El elemento 2 es calificado de 0 a 100 y el valor de su "crédito extra" se deja en 0.0000</li>
+    <li>El elemento 2 es calificado de 0 a 100 y el valor de su "crédito extra" se deja en 0.0000</li>
+    <li>Los 3 elementos pertenecen a la Categoría 1, que tiene como estrategia de agregación "Media de las calificaciones (con créditos extra)"</li>
+    <li>Un estudiante consigue una calificación de 20 en el elemento 1, 40 en el 2 y 70 en el 3</li>
+    <li>El total del estudiante en la Categoría 1 será de 95/100 puesto que 20*2 + (40 + 70)/2 = 95</li>
+</ul>

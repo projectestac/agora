@@ -1,0 +1,59 @@
+<!--[*  $Id: groups_admin_groupmembership.htm 27150 2009-10-25 02:46:23Z drak $  *]-->
+<!--[gt text="Group membership" assign=templatetitle]-->
+<!--[include file="groups_admin_menu.htm"]-->
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=agt_family.gif set=icons/large alt=$templatetitle]--></div>
+    <h2><!--[$templatetitle]--> (<!--[$name|pnvarprepfordisplay]-->)</h2>
+    <table class="z-admintable">
+        <thead>
+            <tr>
+                <th><!--[gt text="User name"]--></th>
+                <th><!--[gt text="User ID"]--></th>
+                <th><!--[gt text="Actions"]--></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--[section name=groupmembers loop=$groupmembers]-->
+            <tr class="<!--[cycle values="z-odd,z-even"]-->">
+                <td><!--[$groupmembers[groupmembers].uname|pnvarprepfordisplay]--> <!--[if $groupmembers[groupmembers].name neq '']-->(<!--[$groupmembers[groupmembers].name|pnvarprepfordisplay]-->)<!--[/if]--></td>
+                <td><!--[$groupmembers[groupmembers].uid|pnvarprepfordisplay]--></td>
+                <td>
+                    <!--[assign var="options" value=$groupmembers[groupmembers].options]-->
+                    <!--[section name=options loop=$options]-->
+                    <a href="<!--[$options[options].url|pnvarprepfordisplay]-->"><!--[pnimg src=$options[options].imgfile modname=core set=icons/extrasmall title=$options[options].title alt=$options[options].title]--></a>
+                    <!--[/section]-->
+                </td>
+            </tr>
+            <!--[/section]-->
+        </tbody>
+    </table>
+    <!--[pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum]-->
+    <h2><!--[gt text="Add users to group"]--></h2>
+    <div class="group-membership-alphanav">
+        [<!--[pagerabc posvar="letter" separator="&nbsp;|&nbsp;" names="*;A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;Q;R;S;T;U;V;W;X;Y;Z;?" forwardvars="module,type,func,gid"]-->&nbsp;]
+    </div>
+    <br />
+
+    <!--[if $uids]-->
+    <form class="z-form" action="<!--[pnmodurl modname="Groups" type="admin" func="adduser"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Groups"]-->" />
+            <input type="hidden" name="gid" value="<!--[$gid|pnvarprepfordisplay]-->" />
+            <fieldset>
+                <div class="z-formrow">
+                    <label for="groups_uid"><!--[gt text="Users to add"]--></label>
+                    <select id="groups_uid" name="uid[]" multiple="multiple" size="10">
+                        <!--[html_options options=$uids]-->
+                    </select>
+                </div>
+            </fieldset>
+            <div class="z-formbuttons">
+                <input name="submit" type="submit" value="<!--[gt text="Save"]-->" />
+            </div>
+        </div>
+    </form>
+    <!--[else]-->
+    <!--[gt text="Notice: Please select one or more users to add to the group. To select multiple users, use 'Shift-Click' or 'Control-Click'."]-->
+    <!--[/if]-->
+</div>

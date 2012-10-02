@@ -1,0 +1,59 @@
+/*
+Admin interface stylesheet
+
+This stylesheet overrides styles defined in admin.css for darker themes
+*/
+
+/* first import the main stylesheet */
+@import "admin.css";
+
+/* the following styles then override certain parts of the orginal stylesheet,
+mostly those with specific colors for borders, backgrounds etc., so that the
+admin panel looks better with themes whose background colors are primarily
+darker
+
+When overriding a style any rules that we want to stay the same are excluded.
+
+*/
+
+/* styles for module admin menus */
+.z-menuitem-title,
+.pn-menuitem-title {
+    background: none;
+    border-left: none;
+    border-right: none;
+}
+
+/* style to highlight a defaut row in a table */
+table.z-admintable tr.z-defaulttablerow,
+table.pn-admintable tr.pn-defaulttablerow {
+    background-color: lightgrey;
+}
+
+/* styling for status messages */
+div.z-statusmsg,
+div.z-errormsg {
+    color: black;
+}
+
+div.z-statusmsg {
+    background-color: inherit;
+}
+div.z-errormsg,
+div#z-securityanalyzer {
+    background-color: inherit;
+}
+
+/* classes to define two colors for alternating rows in admin views */
+table.pn-admintable tbody tr.pn-even,
+div.pn-admincontainer ul li.pn-even,
+div.pn-admincontainer ol li.pn-even {
+    background-color: inherit;
+    color: inherit;
+}
+table.pn-admintable tbody tr.pn-odd,
+div.pn-admincontainer ul li.pn-odd,
+div.pn-admincontainer ol li.pn-odd {
+    background-color: grey;
+    color: inherit;
+}

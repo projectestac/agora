@@ -1,0 +1,75 @@
+<!--[*  $Id: feeds_admin_modifyconfig.htm 344 2009-11-09 15:33:57Z herr.vorragend $  *]-->
+
+<!--[include file='feeds_admin_menu.htm']-->
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname='core' src='configure.gif' set='icons/large' __alt='Settings']--></div>
+
+    <h2><!--[gt text='Settings']--></h2>
+
+    <form class="z-form" action="<!--[pnmodurl modname='Feeds' type='admin' func='updateconfig']-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name='generateauthkey' module='Feeds']-->" />
+            <fieldset>
+                <legend><!--[gt text='General Settings']--></legend>
+                <div class="z-formrow">
+                    <label for="feeds_enablecategorization"><!--[gt text='Enable categorization']--></label>
+                    <input id="feeds_enablecategorization" type="checkbox" name="enablecategorization"<!--[if $enablecategorization]--> checked="checked"<!--[/if]--> />
+                </div>
+                <div class="z-formrow">
+                    <label for="feeds_bold"><!--[gt text='Display item names in bold']--></label>
+                    <input id="feeds_bold" name="bold" type="checkbox" value="1"<!--[if $bold eq 1]--> checked="checked"<!--[/if]--> />
+                </div>
+                <div class="z-formrow">
+                    <label for="feeds_openinnewwindow"><!--[gt text='Open links in new browser window']--></label>
+                    <input id="feeds_openinnewwindow" name="openinnewwindow" type="checkbox" value="1"<!--[if $openinnewwindow eq 1]--> checked="checked"<!--[/if]--> />
+                </div>
+                <div class="z-formrow">
+                    <label for="feeds_itemsperpage"><!--[gt text='Items per page']--></label>
+                    <input id="feeds_itemsperpage" type="text" name="itemsperpage" size="3" value="<!--[$itemsperpage|pnvarprepfordisplay]-->" />
+                </div>
+                <div class="z-formrow">
+                    <label for="feeds_feedsperpage"><!--[gt text='Number of feeds to list per page']--></label>
+                    <input id="feeds_feedsperpage" type="text" name="feedsperpage" size="3" value="<!--[$feedsperpage|pnvarprepfordisplay]-->" />
+                </div>
+                <div class="z-formrow">
+                    <label for="feeds_multifeedlimit"><!--[gt text='Maximum items to add per feed']--></label>
+                    <input id="feeds_multifeedlimit" type="text" name="multifeedlimit" size="3" value="<!--[$multifeedlimit|pnvarprepfordisplay]-->" />
+                    <em class="z-formnote"><!--[gt text='for combined feeds (0 to add all)']--></em>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><!--[gt text='Cache Settings']--></legend>
+                <div class="z-formrow">
+                    <label for="feeds_cachedirectory"><!--[gt text='Cache directory for feeds']--></label>
+                    <input id="feeds_cachedirectory" type="text" name="cachedirectory" size="30" value="<!--[$cachedirectory|pnvarprepfordisplay]-->" />
+                    <em class="z-formnote"><!--[gt text='(relative to pnTemp)']--></em>
+                </div>
+                <div class="z-formrow">
+                    <label for="feeds_cacheinterval"><!--[gt text='Cache interval for feeds']--></label>
+                    <input id="feeds_cacheinterval" type="text" name="cacheinterval" size="3" value="<!--[$cacheinterval|pnvarprepfordisplay]-->" />
+                    <em class="z-formnote"><!--[gt text='in seconds (3600 = 1 hour)']--></em>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><!--[gt text='Cron Job Settings']--></legend>
+                <div class="z-formrow">
+                    <label for="feeds_usingcronjob"><!--[gt text='Using a Cron Job to update the cache']--></label>
+                    <input id="feeds_usingcronjob" name="usingcronjob" type="checkbox" value="1"<!--[if $usingcronjob eq 1]--> checked="checked"<!--[/if]--> />
+                    <em class="z-formnote"><!--[gt text='(see instructions)']--></em>
+                </div>
+                <div class="z-formrow">
+                    <label><!--[gt text='Link for using a Cron Job']--></label>
+                    <span><a href="<!--[pnmodurl fqurl=true modname='Feeds' type='user' func='updatecache' key=$key]-->"><!--[pnmodurl fqurl=true modname='Feeds' type='user' func='updatecache' key=$key]--></a></span>
+                </div>
+            </fieldset>
+
+            <!--[pnmodcallhooks hookobject='module' hookaction='modifyconfig' module='Feeds']-->
+
+            <div class="z-formbuttons">
+                <!--[pnbutton src='button_ok.gif' set='icons/small' __alt='Save' __title='Save']-->
+                <a href="<!--[pnmodurl modname='Feeds' type='admin' func='view']-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small' __alt='Cancel' __title='Cancel']--></a>
+            </div>
+        </div>
+    </form>
+</div>

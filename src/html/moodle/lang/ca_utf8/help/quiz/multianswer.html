@@ -1,0 +1,106 @@
+<h1>Respostes incrustades (format Cloze)</h1>
+
+<p>Aquest tipus de pregunta, molt flexible, és similar al format Cloze.</p>
+
+<p>Les preguntes consisteixen en un text (en format Moodle) que inclou les diferents respostes incrustades dins d'ell. Poden ser preguntes d'opcions múltiples, de resposta breu o numèriques.</p>
+
+<p>De moment no hi ha una interfície gràfica per a crear aquestes preguntes, així que heu d'especificar el format de les preguntes mitjançant un camp de text o important-les d'un fitxer extern.</p>
+
+<p>Aquí teniu un exemple d'un text que especifica una pregunta d'aquest tipus: </p>
+
+<form action="">
+
+<center>
+
+    <textarea rows="15" cols="60" wrap="virtual">Aquesta pregunta consisteix en un text amb una resposta incrustada just aquí {1:MULTICHOICE:Resposta incorrecta#Retroacció per a resposta incorrecta~Una altra resposta incorrecta#Retroacció per a una altra resposta incorrecta~=Resposta correcta#Retroacció per a resposta correcta~%50% de la resposta que dóna la meitat de punts#Retroacció per a resposta meitat de punts} i ara haureu d'enfrontar-vos a aquesta resposta breu {1:SHORTANSWER:Resposta incorrecta#Retroacció per a resposta incorrecta~=Resposta correcta#Retroacció per a resposta correcta~%50%de la resposta que dóna la meitat de punts#Retroacció per a resposta meitat de punts} i per acabar un número decimal {2:NUMERICAL:=23.8:0.1#Retroacció per a resposta correcta 23.8~%50%N/A#Retroacció per la meitat de la resposta en la zona propera a la resposta correcta}.
+
+Fixeu-vos que les adreces com ara www.moodle.org i les emoticones :-) funcionen com de costum:
+
+ a) T'agrada? {:MULTICHOICE:=Sí#Correcte~No#Em sembla que pensem diferent}
+
+ b) Quina nota li posaries? {3:NUMERICAL:=3:2}
+
+Bona sort!
+
+</textarea>
+
+</center>
+
+</form>
+
+<p>Aquest exemple es mostraria als estudiants d'aquesta manera:</p>
+
+<form action="">
+
+<table align="center" width="90%" class="generalbox" border="0" cellpadding="5" cellspacing="0"><tr><td bgcolor="#FFFFFF" class="generalboxcontent"><table width="100%" cellspacing="10"><tr><td nowrap="nowrap" width="100" valign="top"><h1>3</h1>
+
+              <p align="center"><font size="1">8 punts</font></p>
+
+              <img height="1" width="100" src="pix/spacer.gif" alt="" /><br />
+
+</td>
+
+            <td valign="top"> 
+
+              <p>Aquesta pregunta consisteix en un text amb una resposta incrustada 
+
+                just aquí; 
+
+                <select   name="q4ma1" >
+		  <option>&nbsp;</option>
+
+                  <option value="4" >Resposta incorrecta</option>
+
+                  <option value="5" >Una altra resposta incorrecta</option>
+
+                  <option value="6" >Resposta correcta</option>
+
+                  <option value="7" >Resposta que dóna la meitat de punts</option>
+
+                </select>
+
+                i ara haureu d'enfrontar-vos a aquesta resposta breu 
+
+                <input   name="q4ma2"  value="" type="TEXT" size="8"/>
+
+                i per acabar un número decimal 
+
+                <input   name="q4ma3"  value="" type="TEXT" size="8"/>
+
+                .<br />
+
+                <br />
+
+                Fixeu-vos que les adreces com ara www.moodle.org i les emoticones 
+
+                <img alt="" border="0" src="pix/s/smiley.gif" width="15" height="15">
+
+                funcionen com de costum:<br />
+
+                a) T'agrada? 
+
+                <select   name="q4ma4" >
+
+                  <option>&nbsp;</option>
+
+                  <option value="13" >Sí</option>
+
+                  <option value="14" >No</option>
+
+                </select>
+
+                <br />
+
+                b) Quina nota li posaries?
+
+                <input   name="q4ma5"  value="" type="tekst" size="8"/>
+
+                <br />
+
+                <br />
+
+                Bona sort!</p>
+
+            </td></tr></table></td></tr></table>
+
+</form>

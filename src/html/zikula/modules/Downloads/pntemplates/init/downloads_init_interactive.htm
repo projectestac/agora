@@ -1,0 +1,106 @@
+<h2><!--[gt text="Downloads 2.3.1 installation"]--></h2>
+<br />
+<div style="text-align:center;">
+<!--[gt text='Welcome to the Downloads 2.2 installation.']--><br />
+<br /><br />
+<textarea rows="80" cols="80">
+<!--[gt text="
+================================================
+            [Downloads 2.3.1] 
+================================================
+
+General Information:
+--------------------
+
+			**** Make a backup of your Database!!!!! ****
+
+
+ - You can import the data from CmodsDownloads 1.9.6 & UpDownload 2.3
+ - You can upgrade from Downloads 1.3.1 to Downloads 2.3.1
+ - To use the search function under pn 0.7x rename pnsearchapi07.php to pnsearchapi.php
+ - Tested under Zikula 1.1.0
+
+
+Required Addons for pn 0.764:
+-----------------
+
+ - You need the actual Ajax Support Package for proper use of the screenshot function
+ - http://noc.postnuke.com/frs/?group_id=8&release_id=1189
+
+
+Known Problems:
+---------------
+
+ - None
+
+
+Notice:
+-------
+
+**** Make a backup of your Database!!!!! ****
+
+
+Folder Structure:
+-----------------
+
+--root
+	--modules
+		--Downloads
+	--pnTemp
+		--downloads_cache
+		--downloads_screenshots
+		--downloads_upload
+
+
+Installation:
+-------------
+
+ - copy the module folder to your PostNuke root directory onto your server
+ - in the administration of postnuke choosen Modules --> Regenerate
+ - Initialize and activate Downloads 2.3.1
+ - Make your settings in the administration of the module
+
+
+IMPORTANT:
+----------
+
+Before you start the upgrade make sure you delete all .htaccess files under your upload folder of CmodsDownload or Updownload.
+All means all htaccess files in all subfolders of your upload folder!
+
+Upgrade:
+--------
+
+ - remove the old Downloads folder from your server (Downloads 1.31 only!)
+ - copy the new Downloads folder to your PostNuke modules directory onto your server
+ - in the administration of PostNuke choosen Modules --> Regenerate --> and upgrade the module
+
+
+Folder Permissions:
+-------------------
+ 
+ - set the permissions of the following folders to chmod 777
+
+	--downloads_cache
+	--downloads_screenshots
+	--downloads_upload
+
+
+If you delete the module all tables in the database will be deleted !!!!!!!!!!
+
+
+
+--------------
+02.02.2009
+
+Lindbergh
+"]-->
+</textarea>
+<form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="init" func="step2"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div>
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	<div class="dl_admin_row">
+	<input name="start" type="submit" value="<!--[gt text="Start installation "]-->" />
+	</div>
+</div>
+</form>
+</div>

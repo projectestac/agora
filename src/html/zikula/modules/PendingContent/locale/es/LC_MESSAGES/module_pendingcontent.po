@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-08 12:52+0000\n"
+"PO-Revision-Date: 2009-11-25 16:30+0200\n"
+"Last-Translator:  <info@delosduendeszahories.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.0-rc1\n"
+
+#: pnadmin.php:86
+msgid "Element created"
+msgstr "Elemento creado"
+
+#: pnadmin.php:116
+msgid "No such item found."
+msgstr "No se ha encontrado el tema."
+
+#: pnadmin.php:164
+msgid "Element updated"
+msgstr "Elemento actualizado"
+
+#: pnadmin.php:191 pnadminapi.php:68 pnadminapi.php:109
+msgid "Element not found"
+msgstr "Elemento no encontrado"
+
+#: pnadmin.php:225
+msgid "Element deleted"
+msgstr "Elemento suprimido"
+
+#: pnadmin.php:264
+msgid "Edit"
+msgstr "Editar"
+
+#: pnadmin.php:268
+msgid "Delete"
+msgstr "Borrar"
+
+#: pnadmin.php:336
+msgid "Done! Module configuration updated."
+msgstr "Hecho! Configuración del módulo actualizada."
+
+#: pnversion.php:17 pnblocks/pending.php:29
+#: pntemplates/pendingcontent_admin_menu.htm:4
+msgid "Pending Content"
+msgstr "Contenido Pendiente"
+
+#: pnversion.php:18
+msgid "pendingcontent"
+msgstr "contenido pendiente"
+
+#: pnversion.php:19
+msgid "Display any unapproved content items."
+msgstr "Mostrar los elementos de contenido no aprobados."
+
+#: pnuserapi.php:47
+msgid "Error! Could not load items."
+msgstr "¡Error! No es posible cargar los objetos."
+
+#: pnuserapi.php:66 pnadminapi.php:29 pnadminapi.php:62 pnadminapi.php:103
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+"¡Error! No es posible el realizar la acción solicitada. Por favor, revise su "
+"entrada."
+
+#: pnblocks/pending.php:30
+msgid "Pending Block"
+msgstr "Bloque pendiente"
+
+#: pnadminapi.php:34 pnadminapi.php:73 pnadminapi.php:114 pnadminapi.php:117
+msgid "Sorry! No authorization to access this module."
+msgstr "No dispone de autorización para acceder a este módulo."
+
+#: pnadminapi.php:40 pnadminapi.php:123
+msgid "Error! Creation attempt failed."
+msgstr "Error! Fallo en la creación."
+
+#: pnadminapi.php:77
+msgid "Error! Deletion attempt failed."
+msgstr "Error! Fallo en el borrado."
+
+#: pnadminapi.php:142 pntemplates/pendingcontent_admin_view.htm:2
+msgid "Show all elements"
+msgstr "Mostrar todos los elementos"
+
+#: pnadminapi.php:145
+msgid "Create element"
+msgstr "Crear un elemento"
+
+#: pnadminapi.php:148 pntemplates/pendingcontent_admin_modifyconfig.htm:2
+msgid "Settings"
+msgstr "Configuración"
+
+#: pntemplates/pendingcontent_admin_modifyconfig.htm:13
+msgid "Items per page"
+msgstr "Elementos por página"
+
+#: pntemplates/pendingcontent_admin_modifyconfig.htm:19
+msgid "Update Configuration"
+msgstr "Actualizar configuración"
+
+#: pntemplates/pendingcontent_admin_modifyconfig.htm:20
+#: pntemplates/pendingcontent_admin_modify.htm:29
+#: pntemplates/pendingcontent_admin_new.htm:28
+#: pntemplates/pendingcontent_admin_delete.htm:17
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: pntemplates/pendingcontent_admin_modify.htm:2
+msgid "Edit element"
+msgstr "Editar elemento"
+
+#: pntemplates/pendingcontent_admin_modify.htm:14
+#: pntemplates/pendingcontent_admin_new.htm:13
+#: pntemplates/pendingcontent_admin_view.htm:10
+msgid "Name"
+msgstr "Nombre"
+
+#: pntemplates/pendingcontent_admin_modify.htm:18
+#: pntemplates/pendingcontent_admin_new.htm:17
+#: pntemplates/pendingcontent_admin_view.htm:11
+msgid "URL"
+msgstr "URL"
+
+#: pntemplates/pendingcontent_admin_modify.htm:22
+#: pntemplates/pendingcontent_admin_new.htm:21
+#: pntemplates/pendingcontent_admin_view.htm:12
+msgid "SQL Command"
+msgstr "Comando SQL"
+
+#: pntemplates/pendingcontent_admin_modify.htm:28
+msgid "Update element"
+msgstr "Actualizar elemento"
+
+#: pntemplates/pendingcontent_admin_new.htm:2
+msgid "Add element"
+msgstr "Agregar elelemto"
+
+#: pntemplates/pendingcontent_admin_new.htm:27
+msgid "Save"
+msgstr "Guardar"
+
+#: pntemplates/pendingcontent_admin_delete.htm:2
+msgid "Delete element"
+msgstr "Eliminar elemento"
+
+#: pntemplates/pendingcontent_admin_delete.htm:7
+msgid "Do you really want to delete this element?"
+msgstr "¿Está seguro que quiere eliminar este elemento?"
+
+#: pntemplates/pendingcontent_admin_delete.htm:14
+msgid "Confirmation prompt"
+msgstr "Mensaje de confirmación"
+
+#: pntemplates/pendingcontent_admin_delete.htm:16
+msgid "Confirm deletion?"
+msgstr "¿Confirma el borrado?"
+
+#: pntemplates/pendingcontent_admin_view.htm:13
+msgid "Options"
+msgstr "Opciones"
+
+#: pntemplates/pendingcontent_admin_view.htm:30
+msgid "No items found."
+msgstr "No existen elementos"
+
+#: pntemplates/pendingcontent_block_pending.htm:12
+msgid "admin"
+msgstr "admin"

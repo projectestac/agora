@@ -1,0 +1,5 @@
+
+  CHANGELOG
+    2.5
+      'stories' table renamed to 'news'
+      Blocks permission schemas changed to use the ID instead the Title

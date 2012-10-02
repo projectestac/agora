@@ -1,0 +1,20 @@
+<h2>"Moodle XML" Format</h2>
+
+<p>Dies ist ein Moodle eigenes Format zur Beschreibung von Testfragen. Sie können es verwenden, um Testfragen aus einem Moodle-System zu exportieren und es in einer anderen Moodle-Installation zu importieren. Die Struktur der Daten erkennen Sie am Besten wenn sie eine Fragekategorie exportieren und die XML-Datei öffnen. Das Moodle-XML-Format ermöglicht den Ex- und Import von eingebundenen Bldern.
+</p>
+
+<p>Optionale Fragetyp-Plugins erweitern dieses Format.</p>
+
+<h3>Wechsel zwischen Kategorien</h3>
+
+<p>Tragen Sie eine gesonderte Dummy-Frage in die XML-Datei ein, um einen Kategorienpfad anzulegen in den die nachfolgenden Fragen eingefügt werden. Falls die Kategorien noch nicht existieren, werden sie neu angelegt. Die Option <b>from file:</b> (aus Datei) muss auf der Importseite aktiviert werden, sonst wird der Code komplett ignoriert. In einer XML-Dtaei können beliebig viele Kategorien angelegt werden.</p>
+
+<p>Beispiel für die Beschreibung:</p>
+
+<pre>
+&lt;question type="category"&gt;
+    &lt;category&gt;
+        tom/dick/harry
+    &lt;/category&gt;
+&lt;/question&gt;
+</pre>

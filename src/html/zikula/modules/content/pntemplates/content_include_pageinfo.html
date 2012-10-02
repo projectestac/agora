@@ -1,0 +1,31 @@
+<!--[if $access.pageEditAllowed && !$preview]-->
+<!--[pnajaxheader modname=content nobehaviour=1]-->
+<!--[pnusergetvar name=uname uid=$page.cr_uid assign=authorName]-->
+<!--[pnusergetvar name=uname uid=$page.lu_uid assign=updaterName]-->
+<!--[pnmodapifunc modname=content type=history func=getPageVersionNo pageId=$page.id assign=versionNo]-->
+<div class="content-pageinfo">
+    <a href="#" onclick="return content.pageInfo.toggle()" class="info" ><!--[pnimg src=utilities.gif modname=core set=icons/extrasmall alt=Properties ]--></a>
+    <div class="content" id="contentPageInfo" style="display: none" onmouseover="content.pageInfo.mouseover()" onmouseout="content.pageInfo.mouseout()">
+        <h4><!--[$page.title|truncate:200]--></h4>
+        <ul>
+            <!--[if $editmode]-->
+            <li><a class="con_image editoff" href="<!--[pnmodurl modname=content type=user func=view pid=$page.id editmode="0"]-->"><!--[gt text="Edit-mode off" domain="module_content"]--></a></li>
+            <!--[else]-->
+            <li><a class="con_image editon" href="<!--[pnmodurl modname=content type=user func=view pid=$page.id editmode="1"]-->"><!--[gt text="Edit-mode on" domain="module_content"]--></a></li>
+            <!--[/if]-->
+            <li><a class="con_image edit" href="<!--[pnmodurl modname=content type=edit func=editpage pid=$page.id back=1]-->"><!--[gt text="Edit page" domain="module_content"]--></a></li>
+            <!--[if $multilingual==1]-->
+            <li><a class="con_image translate" href="<!--[pnmodurl modname=content type=edit func=translatepage pid=$page.id back=1]-->"><!--[gt text="Translate page" domain="module_content"]--></a></li>
+            <!--[/if]-->
+            <li><a class="con_image insertsub" href="<!--[pnmodurl modname=content type=edit func=newpage pid=$page.id loc=sub]-->"><!--[gt text="New sub-page" domain="module_content"]--></a></li>
+            <li><a class="con_image insertpage" href="<!--[pnmodurl modname=content type=edit func=newpage pid=$page.id]-->"><!--[gt text="Add new page" domain="module_content"]--></a></li>
+            <li><a class="con_image pagelist" href="<!--[pnmodurl modname=content type=edit func=main]-->"><!--[gt text="Page list" domain="module_content"]--></a></li>
+        </ul>
+        <ul>
+            <li><!--[gt text='Created by %1$s on %2$s' tag1=$page.cr_date|pndate_format:"datebrief" tag2=$authorName|userprofilelink domain="module_content"]--></li>
+            <li><!--[gt text='Last updated by %1$s on %2$s' tag1=$page.lu_date|pndate_format:"datebrief" tag2=$updaterName|userprofilelink domain="module_content"]--></li>
+            <li><!--[gt text="Version" domain="module_content"]--> #<!--[$versionNo]--> | <!--[gt text="Language" domain="module_content"]-->: <!--[$page.language]--></li>
+        </ul>
+    </div>
+</div>
+<!--[/if]-->

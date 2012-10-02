@@ -1,0 +1,519 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-12 17:10+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnversion.php:31
+msgid "BBCode is a transform hook that converts usual bbcode tags into html."
+msgstr ""
+
+#: pnversion.php:32
+msgid "BBCode Hook"
+msgstr ""
+
+#. ! module url (lower case without spaces and different to displayname)
+#: pnversion.php:34
+msgid "bbcode"
+msgstr ""
+
+#: pnuserapi.php:219
+msgid "Spoiler follows"
+msgstr ""
+
+#: pnuserapi.php:329 pntemplates/bbcode_admin_config.html:42
+#: pntemplates/bbcode_user_bbcodes.html:27
+msgid "Quote"
+msgstr ""
+
+#: pnuserapi.php:494
+msgid "From"
+msgstr ""
+
+#: pnuserapi.php:496 pntemplates/bbcode_admin_config.html:19
+#: pntemplates/bbcode_user_bbcodes.html:34
+#: pntemplates/bbcode_user_bbcodes.html:38
+msgid "Code"
+msgstr ""
+
+#: pnuserapi.php:698 pnuserapi.php:700 pnuserapi.php:744 pnuserapi.php:746
+#: pnuserapi.php:778 pnuserapi.php:787 pnuserapi.php:789 pnuserapi.php:829
+#: pnuserapi.php:838 pnuserapi.php:840
+msgid "*Not allowed to see the external links*"
+msgstr ""
+
+#: pnuserapi.php:865 pnuserapi.php:867
+msgid "*Not allowed to see emails*"
+msgstr ""
+
+#: pnincludes/bbcode_admin_confighandler.class.php:32
+msgid "No highlighting"
+msgstr ""
+
+#: pnincludes/bbcode_admin_confighandler.class.php:33
+msgid "GeSHi with line numbers"
+msgstr ""
+
+#: pnincludes/bbcode_admin_confighandler.class.php:34
+msgid "GeSHi without line numbers"
+msgstr ""
+
+#: pnincludes/bbcode_admin_confighandler.class.php:35
+msgid "Google Code Prettifier"
+msgstr ""
+
+#: pnincludes/bbcode_admin_confighandler.class.php:78
+#: pnincludes/bbcode_admin_confighandler.class.php:83
+#: pnincludes/bbcode_admin_confighandler.class.php:88
+#: pnincludes/bbcode_admin_confighandler.class.php:93
+#: pnincludes/bbcode_admin_confighandler.class.php:98
+msgid ""
+"Illegal value, allowed format: up to four decimal places + dot + two decimal "
+"places followed by unit, one out of cm,em,ex,in,mm,pc,pt,px or %. Example: "
+"1.05em or 95%."
+msgstr ""
+
+#: pnincludes/bbcode_admin_confighandler.class.php:138
+msgid "Done! Configuration has been updated"
+msgstr ""
+
+#: pnadminapi.php:37
+msgid "Start"
+msgstr ""
+
+#: pnadminapi.php:38 pntemplates/bbcode_admin_config.html:4
+#: pntemplates/bbcode_admin_menu.html:10
+msgid "Settings"
+msgstr ""
+
+#: pninit.php:39
+msgid "Error! Could not register BBCode transform hook"
+msgstr ""
+
+#: pninit.php:126 pninit.php:138
+msgid "Error! Could not register BBCode display hook"
+msgstr ""
+
+#: pninit.php:194
+msgid "Error! Failed to upgrade hook (smodule)"
+msgstr ""
+
+#: pninit.php:201
+msgid "Error! Failed to upgrade hook (tmodule)"
+msgstr ""
+
+#: pninit.php:223
+msgid "Error! Could not unregister BBCode transform hook"
+msgstr ""
+
+#: pntemplates/bbcode_admin_main.html:5
+msgid "Actually the bbcode hook is used with the following modules"
+msgstr ""
+
+#: pntemplates/bbcode_admin_main.html:10
+msgid "Module"
+msgstr ""
+
+#: pntemplates/bbcode_admin_main.html:11
+msgid "Displayname"
+msgstr ""
+
+#: pntemplates/bbcode_admin_main.html:12
+msgid "Options"
+msgstr ""
+
+#: pntemplates/bbcode_admin_main.html:21
+msgid "Hook settings"
+msgstr ""
+
+#: pntemplates/bbcode_admin_main.html:25
+msgid "bbcode is not used with any module"
+msgstr ""
+
+#: pntemplates/bbcode_admin_main.html:27
+msgid "Activate bbcode for more modules"
+msgstr ""
+
+#: pntemplates/bbcode_admin_footer.html:4
+msgid "Visit the bbcode project site"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:6
+msgid "Notice! Please allow the used HTML tags in the SecurityCenter."
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:12
+msgid "Configuration [code][/code]"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:14
+msgid "Enable code highlighting"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:21
+msgid ""
+"%h = Header (Code), %c=lines of code, %j=lines of code, escaped for "
+"javascript."
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:24
+msgid "Select code highlight mode"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:28
+#: pntemplates/bbcode_admin_config.html:47
+#: pntemplates/bbcode_admin_config.html:166
+msgid "Preview"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:35
+msgid "Configuration [quote][/quote]"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:37
+msgid "Enable quote highlighting"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:44
+msgid "%u = username, %t=quoted text"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:54
+msgid "Configuration [color][/color]"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:56
+msgid "Enable flexible text colors"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:60
+msgid "Allow userdefined text color"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:66
+msgid "Configuration [size][/size]"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:68
+msgid "Enable flexible text size"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:73
+#: pntemplates/bbcode_user_bbcodes.html:87
+msgid "Tiny"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:80
+#: pntemplates/bbcode_user_bbcodes.html:88
+msgid "Small"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:87
+#: pntemplates/bbcode_user_bbcodes.html:89
+msgid "Normal"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:94
+#: pntemplates/bbcode_user_bbcodes.html:90
+msgid "Large"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:101
+#: pntemplates/bbcode_user_bbcodes.html:91
+msgid "Huge"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:108
+msgid "Allow userdefined text size"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:115
+msgid "Configuration of mimeTeX integration [math][/math]"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:117
+msgid "Enable mimeTeX support"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:122
+msgid "Full URL to the mimeTeX cgi script"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:124
+msgid "Please use an own mimeTeX installation for your website!"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:128
+msgid "Test image for mimeTeX"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:131
+msgid ""
+"Enter URl to your mimeTeX installation and you will see a test image here"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:138
+msgid "Miscellaneous settings"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:140
+msgid "Shrink links to"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:141
+msgid "chars"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:142
+msgid "Shrinks the urls shown to the specified length (0=no action)."
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:145
+msgid "Use Lightbox in img-tag"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:150
+msgid "Width of preview image"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:151
+msgid "(50-1000px)"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:152
+msgid "Height will be calculated by the browser automatically."
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:156
+msgid "Enable spoiler tag"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:161
+msgid "HTML for spoiler tag"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:163
+msgid "%h = Heading (Spoiler follows), %s = text"
+msgstr ""
+
+#: pntemplates/bbcode_admin_config.html:173
+msgid "Update"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:7
+#: pntemplates/bbcode_user_bbcodes.html:23
+msgid "Insert a link"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:8
+#: pntemplates/bbcode_user_bbcodes.html:24
+msgid "Insert an email address"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:9
+#: pntemplates/bbcode_user_bbcodes.html:25
+msgid "Insert an image"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:10
+#: pntemplates/bbcode_user_bbcodes.html:27
+msgid "Insert quote"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:11
+#: pntemplates/bbcode_user_bbcodes.html:34
+#: pntemplates/bbcode_user_bbcodes.html:39
+msgid "Insert code"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:14
+#: pntemplates/bbcode_user_bbcodes.html:50
+msgid "Open list"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:15
+#: pntemplates/bbcode_user_bbcodes.html:51
+msgid "Add list entry"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:16
+#: pntemplates/bbcode_user_bbcodes.html:52
+msgid "Close list"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:17
+#: pntemplates/bbcode_user_bbcodes.html:53
+msgid "Bold text"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:18
+#: pntemplates/bbcode_user_bbcodes.html:54
+msgid "Italic text"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:19
+#: pntemplates/bbcode_user_bbcodes.html:55
+msgid "Underlined text"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:23
+msgid "URL"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:24
+msgid "E-Mail"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:25
+msgid "Image"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:30
+msgid "Hide text"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:30
+msgid "Spoiler"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:40
+msgid "Select code type"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:41
+msgid "No special code"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:50
+msgid "ul"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:51
+msgid "li"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:52
+msgid "/ul"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:53
+msgid "b"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:54
+msgid "i"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:55
+msgid "u"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:61
+msgid "Font color"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:62
+msgid "Select font color"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:63
+msgid "Black"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:64
+msgid "Dark Red"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:65
+msgid "Red"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:66
+msgid "Orange"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:67
+msgid "Brown"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:68
+msgid "Yellow"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:69
+msgid "Green"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:70
+msgid "Olive"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:71
+msgid "Cyan"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:72
+msgid "Blue"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:73
+msgid "Dark Blue"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:74
+msgid "Indigo"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:75
+msgid "Violet"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:76
+msgid "White"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:78
+msgid "Enter color code"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:78
+msgid "Self defined color"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:85
+msgid "Font size"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:86
+msgid "Select font size"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:93
+msgid "Enter text size"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:93
+msgid "Self defined size"
+msgstr ""
+
+#: pntemplates/bbcode_user_bbcodes.html:102
+msgid ""
+"Your browser does not support javascript or you turned it off. The BBCode "
+"interface has been disabled."
+msgstr ""
+
+#: pntemplates/bbcode_admin_menu.html:5
+msgid "bbcode Administration"
+msgstr ""

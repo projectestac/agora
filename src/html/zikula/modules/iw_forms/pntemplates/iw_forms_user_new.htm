@@ -1,0 +1,83 @@
+<script language="javascript">
+	function sendNote(){
+		var error;
+		var f = document.newNote;
+		<!--[$requiredJS]-->
+		<!--[$checkJS]-->
+	
+		if(!error){resposta=confirm("<!--[gt text="Confirms that want to send the annotation"]-->");}
+		
+		if(!error && resposta){
+			f.submit();
+		}
+	}
+	/**
+	 * DHTML email validation script. Courtesy of SmartWebby.com (http://www.smartwebby.com/dhtml/)
+	 */
+	function echeck(str) {
+		var at="@"
+		var dot="."
+		var lat=str.indexOf(at)
+		var lstr=str.length
+		var ldot=str.indexOf(dot)
+		if (str.indexOf(at)==-1){
+		   return false
+		}
+		if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
+		   return false
+		}
+		if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
+		    return false
+		}
+		 if (str.indexOf(at,(lat+1))!=-1){
+		    return false
+		 }
+		 if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
+		    return false
+		 }
+		 if (str.indexOf(dot,(lat+2))==-1){
+		    return false
+		 }
+		 if (str.indexOf(" ")!=-1){
+		    return false
+		 }
+ 		 return true
+	}
+</script>
+<link rel="stylesheet" type="text/css" href="modules/iw_main/js/calendar/css/calendar-blue.css" />	
+<script type="text/javascript" src="modules/iw_main/js/calendar/calendar.js"></script>
+<script type="text/javascript" src="modules/iw_main/js/calendar/calendar-setup.js"></script>
+<script type="text/javascript" src="modules/iw_main/js/calendar/calendar-ca.js"></script>
+<script type="text/javascript" src="modules/iw_main/js/overlay.js"></script>
+<!--[if $form.skinForm neq '']-->
+	<!--[add_additional_header header=$form.skincssurl]-->
+<!--[/if]-->
+<!--[if not isset($adminView)]-->
+	<!--[include file="iw_forms_user_menu.htm"]-->
+<!--[/if]-->
+
+<div class="userForm">
+	<div class="formTitle"><!--[$form.title]--></div>
+	<form name="newNote" id="newNote" class="pn-adminform" <!--[if not isset($adminView)]-->action="<!--[pnmodurl modname="iw_forms" type="user" func="submitNote"]-->"<!--[/if]--> method="post" enctype="multipart/form-data">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forms"]-->" />
+		<input type="hidden" name="fid" value="<!--[$fid]-->" />
+		<!--[$content]-->
+		<!--[if $requiredText]-->
+			<div class="fieldContent">
+				<!--[gt text="Fields marked with an"]--> <span class="required">*</span> <!--[gt text="are required"]-->
+			</div>
+		<!--[/if]-->
+		<div>&nbsp;</div>
+
+		<!--[if $captcha]-->
+			<!--[pnmodcallhooks hookobject=item hookaction=display]-->
+		<!--[/if]-->
+
+		<!--[if not isset($adminView)]-->
+			<div style="text-align:center; margin-top:20px;">
+				<a style="cursor:pointer;" onClick="javascript:sendNote()" title="<!--[gt text="Send"]-->"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small']--></a><!--[gt text="Send"]-->
+				<a href="<!--[pnmodurl modname="iw_forms" type="user" func="main"]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+			</div>
+		<!--[/if]-->
+	</form>
+</div>

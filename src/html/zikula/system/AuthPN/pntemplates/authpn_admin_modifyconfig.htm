@@ -1,0 +1,24 @@
+<!--[*  $Id: authpn_admin_modifyconfig.htm 27187 2009-10-26 13:52:33Z drak $  *]-->
+<!--[include file="authpn_admin_menu.htm"]-->
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=configure.gif set=icons/large __alt='Settings' ]--></div>
+    <h2><!--[gt text="Settings"]--></h2>
+    <form class="z-form" action="<!--[pnmodurl modname="AuthPN" type="admin" func="updateconfig"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="AuthPN"]-->" />
+            <fieldset>
+                <legend><!--[gt text="General settings"]--></legend>
+                <div class="z-formrow">
+                    <label for="authpn_authmodules"><!--[gt text="Authentication modules"]--></label>
+                    <input id="authpn_authmodules" type="text" name="authmodules" size="40" maxlength="255" value="<!--[$authmodules|pnvarprepfordisplay]-->" />
+                    <em class="z-formnote"><!--[gt text="Notice: This is a comma-separated list of modules to be used for authentication on the site."]--></em>
+                </div>
+            </fieldset>
+            <!--[pnmodcallhooks hookobject=module hookaction=modifyconfig module=AuthPN]-->
+            <div class="z-formbuttons">
+                <!--[pnbutton src=button_ok.gif set=icons/small __alt="Save" __title="Save"]-->
+                <a href="<!--[pnmodurl modname=AuthPN type=admin func=main]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small __alt="Cancel" __title="Cancel"]--></a>
+            </div>
+        </div>
+    </form>
+</div>

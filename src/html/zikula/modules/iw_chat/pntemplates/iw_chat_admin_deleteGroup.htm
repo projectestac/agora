@@ -1,0 +1,18 @@
+<!--[include file="iw_chat_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='iw_forums' src='delete_group_large.gif' set='pnimages']--></div>
+	<h2><!--[gt text="Delete the access to the chat room "]--> -> <!--[$room_name]--></h2>
+	<form class="pn-adminform" action="<!--[pnmodurl modname="iw_chat" type="admin" func="deleteGroup"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_chat"]-->" />
+		<input type="hidden" name="rid" value="<!--[$rid]-->" />
+		<input type="hidden" name="gid" value="<!--[$gid]-->" />
+		<input type="hidden" name="confirm" value="1" />
+		<div>
+			<!--[gt text="Confirm the deletion of the group "]--> <strong><!--[$groupName]--></strong>
+		</div>
+		<div class="formOptions" align="center">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Add" __title="Add"]-->
+			<a href="<!--[pnmodurl modname="iw_chat" type="admin" func="main"]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+		</div>
+	</form>
+</div>

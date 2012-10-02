@@ -1,0 +1,22 @@
+<!--[* $Id: profile_dudedit_textarea.htm 69 2009-12-05 10:28:06Z mateo $ *]-->
+
+<div class="<!--[$class|default:'z-formrow']-->">
+    <!--[if $required]-->
+    <p id="advice-required-prop_<!--[$attributename]-->" class="custom-advice z-formnote" style="display:none">
+        <!--[gt text='Sorry! A required personal info item is missing. Please correct and try again.']-->
+    </p>
+    <!--[/if]-->
+
+    <label for="prop_<!--[$attributename]-->">
+        <!--[gt text=$proplabeltext]--> 
+        <!--[if $required]--><span class="z-mandatorysym"><!--[gt text='*']--></span><!--[/if]-->
+    </label>
+    <textarea id="prop_<!--[$attributename]-->" cols="40" rows="5" name="dynadata[<!--[$attributename]-->]"<!--[if $required]--> class="required"<!--[/if]-->><!--[$value]--></textarea><br />
+
+    <!--[if $note neq '']-->
+    <em class="z-sub z-formnote"><!--[gt text='Notice:']-->: <!--[$note]--></em>
+    <!--[/if]-->
+    <!--[if $pncore.Profile.dudtextdisplaytags|default:0 eq 1]-->
+    <p class="z-formnote"><!--[gt text="Permitted HTML tags:"]--> <!--[allowedhtml]--></p>
+    <!--[/if]-->
+</div>

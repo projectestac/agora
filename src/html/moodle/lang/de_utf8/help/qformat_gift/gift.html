@@ -1,0 +1,280 @@
+<h2>Dateiformat "GIFT"</h2>
+
+<p>GIFT ist das am meisten verbreitete Austauschformat, um Testfragen von Moodle in Textdateien zu exportieren oder solche aus Textdateien nach Moodle zu importieren. GIFT unterstützt die Fragetypen MultipleChoice, Wahr/Falsch, Kurzantwort, Zuordnung und numerische Fragen genauso wie das Einfügen von _____ für das Lückentext-Format. Verschiedene Fragetypen können zusammen in einer einzigen Textdatei vorkommen. GIFT erlaubt außerdem Zeilenkommentare, Fragennamen, Feedback und prozentgewichtete Bewertungen.</p>
+   
+<p>Optionale Erweiterungen (questiontype plugins) können das Format erweitern.</p>   
+
+<p>Die Textcodierung Ihrer Textdatei muss UTF-8 sein (solange Sie nicht ausschließlich ASCII-Buchstaben verwenden). 
+ Eine Textdatei mit Beispielen kann hier gefunden werden: <a href="<?php echo $CFG->wwwroot; ?>/question/format/gift/examples.txt">gift/examples.txt</a>.</p>
+
+<h3>Grundlagen</h3>
+
+<p>Jede einzelne Frage in der GIFT-Datei ist ein kompakter Block, der keine einzige Leerzeile enthalten darf. Jede Frage wird abgegrenzt durch genau eine Leerzeile am Ende. Falls Sie eine Leerzeile innerhalb Ihrer Frage verwenden möchten, so müssen Sie als Ersatz <b>\n</b> verwenden. Sie dürfen Kommentare verwenden, wann immer Sie dies wünschen, aber diese müssen jeweils mit zwei vorwärtsgerichteten Slashes <b>//</b> am Anfang der Zeile beginnen.</p>
+
+<h3>Fragetypen</h3>
+
+<p><u>MultipleChoice:</u><br />
+In MultipleChoice-Fragen werden falsche Antworten mit einer vorangestellten Tilde (~) markiert, richtige Antworten mit einem Gleichheitszeichen (=).</p>
+<pre>
+Who's buried in Grant's tomb?{~Grant ~Jefferson =no one}
+</pre>
+    
+<p><u>Lückentext:</u><br />
+Das Lückentext-Format erzeugt automatisch eine Lückenlinie (etwa wie diese ______ hier) im Inneren des Satzes. Um das Lückentext-Format zu verwenden, platzieren Sie die Antworten genau an der Stelle im Satz, wo die Linie erscheinen soll.</p>
+<pre>
+Grant is {~buried =entombed ~living} in Grant's tomb.
+</pre>
+
+<p>Wenn die Antworten vor dem schließenden Punkt stehen, dann wird die Lückenlinie für das &quot;Lückentext&quot;-Format verwendet. Alle Fragetypen können in diesem Format geschrieben werden.</p>
+    
+<p>Fragen müssen mittels einer Leerzeile voneinander getrennt werden (zweifacher Zeilenvorschub). Zur klareren Darstellung dürfen die Antworten auch in jeweils separaten Zeilen und sogar eingerückt geschrieben werden, z.B.</p>
+<pre>
+The American holiday of Thanksgiving is celebrated on the {
+    ~second
+    ~third
+    =fourth
+} Thursday of November.
+
+Japanese characters originally came from what country? {
+    ~India
+    =China
+    ~Korea
+    ~Egypt
+}
+</pre>
+
+<p><u>Kurzantwort:</u><br />
+Antworten bei Fragetyp Kurzantwort sind alle mit einem vorangestellten Gleichheitszeichen (=) markiert, was anzeigt, dass dies alles richtige Antworten sind. Die Antworten dürfen keine Tilde (~) enthalten.
+<pre>
+Who's buried in Grant's tomb?{=no one =nobody}
+
+Two plus two equals {=four =4}.
+</pre>
+
+<p>Falls es nur eine <u>einzige</u> richtige Kurzantwort gibt, darf sie auch ohne vorangestelltes Gleichheitszeichen geschrieben werden, solange sie nicht mit dem Fragetyp Wahr-Falsch verwechselt werden kann.</p>
+
+<p><u>Wahr/Falsch:</u><br />
+In diesem Fragetyp zeigt die Antwort an, ob die vorgegebene Aussage wahr oder falsch ist. Die Antwort sollte in der Form {TRUE} bzw. {FALSE} geschrieben oder aber abgekürzt als {T} bzw. {F} werden.</p>
+<pre>
+Grant is buried in Grant's tomb.{F}
+
+The sun rises in the east.{T}
+</pre>
+
+<p><u>Zuordnung:</u><br />
+Zuordnungspaare beginnen mit einem Gleichheitszeichen (=) und werden mit dem Pfeilsymbol (->) verbunden. Es müssen mindestens drei Zuordnungspaare vorhanden sein.</p>
+<pre>
+Matching Question. {
+    =subquestion1 -> subanswer1
+    =subquestion2 -> subanswer2
+    =subquestion3 -> subanswer3
+}
+
+Match the following countries with their corresponding capitals. {
+    =Canada -> Ottawa
+    =Italy  -> Rome
+    =Japan  -> Tokyo
+    =India  -> New Delhi
+}
+</pre>
+
+<p>Zuordnungsfragen erlauben kein Feedback oder prozentuale Antwortgewichtungen</p>
+
+<p><u>Numerisch:</u><br />
+Der Antwortbereich für numerische Fragen muss mit einem Nummernzeichen (#) beginnen. Numerische Antworten dürfen eine Fehlerbandbreite beinhalten, welche der richtigen Antwort folgend aufgeschieben wird, abgetrennt durch ein Doppelpunkt (:). Falls also beispielsweise die korrekte Antwort irgendein Wert zwischen 1.5 und 2.5 ist, so würde dies folgendermaßen aufgeschrieben werden: <u>{#2:0.5}</u>. Dies zeigt an, dass 2 innerhalb einer Fehlerbandbreite von 0.5 richtig ist (also der Bereich 1.5 bis 2.5). Falls keine Fehlerbandbreite angegeben ist, so wird sie automatisch als Null angenommen.</p>
+
+<p>Beachten Sie bitte, dass in Moodle alle Dezimalzahlen in der amerikanischen Notation verwendet werden, nämlich mit einem Dezimalpunkt zwischen der Ganzzahl und nachfolgenden Bruchzahlwert. </p>
+<pre>
+When was Ulysses S. Grant born? {#1822}
+
+What is the value of pi (to 3 decimal places)? {#3.1415:0.0005}.
+</pre>
+
+<p>Optional dürfen numerische Antworten auch als Bereichangabe in folgendem Format geschrieben werden {#<i>MinimumValue</i>..<i>MaximumValue</i>}.</p>
+<pre>
+What is the value of pi (to 3 decimal places)? {#3.141..3.142}.
+</pre>
+
+<p>Die Browser-Oberfläche von Moodle unterstützt keine mehrfach-numerischen Antworten, aber sowohl in Moodle wie auch in GIFT lässt sich dies umsetzen. Folgendermaßen lässt sich eine numerische Antwort mit mehreren Bandbreiten festlegen und mit prozentgewichteter Bewertung kombinieren. Falls mehrere Antworten benutzt werden, müssen sie mit einem Gleichheitszeichen (=) voneinander getrennt sein, genau wie bei Kurzantwort-Fragen.</p>
+<pre>
+When was Ulysses S. Grant born? {#
+    =1822:0
+    =%50%1822:2
+}
+</pre>
+
+<p>Beachten Sie, dass wegen der fehlenden Unterstützung von Mehrfachantworten für numerische Fragen im der grafischen Browseroberfläche von Moodle keine Möglichkeit gibt, solche Antworten in Moodle anzuzeigen oder zu bearbeiten. Der einzige Weg, eine numerische Mehrfachantwort nachträglich zu ändern, liegt im Löschen der Frage und dem erneuten Import über eine GIFT-Datei (oder Sie benutzen etwas wie phpMyAdmin).</p>
+
+<p><u>Freitext:</u><br />
+Eine Freitext-Frage ist einfach eine Frage mit einem leeren Antwortfeld. Zwischen den geschweiften Klammern ist keine Eingabe erlaubt.</p>
+<pre>
+Write a short biography of Ulysses S. Grant {}
+</pre>
+
+<p><u>Beschreibung:</u><br />
+Eine Beschreibungs-"Frage" besitzt überhaupt keinen Antwortteil.</p>
+<pre>
+The next set of questions will concern arithmatic.
+</pre>
+
+<h3>Optionen</h3>
+<p>In Ergänzung zu diesen grundlegenden Fragetypen bietet der GIFT-Filter die folgenden Optionen: Zeilenkommentare, Fragename, Feedback und prozentuale Antwortgewichtung.</p>
+
+<p><u>Zeilenkommentare:</u><br />
+Kommentare, die nicht nach Moodle importiert werden, können in die Textdatei eingefügt sein. Dies kann benutzt werden, um Überschriften zu setzen oder zusätzliche Informationen zu den Fragen zu schreiben. Alle Zeilen, die mit einem doppelten Slash beginnen (ohne vorangestellte Tabulatoren oder Leerzeichen), werden beim Import durch den Filter ignoriert.</p>
+<pre>
+// Subheading: Numerical questions below
+What's 2 plus 2? {#4}
+</pre>
+
+<p><u>Fragename:</u><br />
+Der Fragename wird vor die Frage gesetzt und mit doppelten Doppelpunkten (::) vor und hinter dem Namen umrahmt.</p>
+<pre>
+::Kanji Origins::Japanese characters originally
+came from what country? {=China}
+
+::Thanksgiving Date::The American holiday of Thanksgiving is 
+celebrated on the {~second ~third =fourth} Thursday of November.
+</pre>
+
+<p>Falls kein Fragename angegeben ist, wird die Frage selber standardmäßig auch als Name verwendet.</p>
+
+<p><u>Feedback:</u><br />
+Ein Feedback ist für jede Antwort ergänzend möglich, indem anschließend an die Antwort mit dem Nummernzeichen (# auch als Hash bekannt) das Feedback angehängt wird.</p>
+<pre>
+What's the answer to this multiple-choice question? {
+    ~wrong answer#feedback comment on the wrong answer
+    ~another wrong answer#feedback comment on this wrong answer
+    =right answer#Very good!
+}
+     
+Who's buried in Grant's tomb? {
+    =no one#excellent answer!
+    =nobody#excellent answer!
+}
+     
+Grant is buried in Grant's tomb.{FALSE#Wrong, No one is buried in Grant's tomb.#Right, well done.}
+</pre>
+
+<p>Bei MultipleChoice-Fragen wird das Feedback nur für die von den Teilnehmer/innen ausgewählte Antwort gezeigt. Bei Kurzantworten wird das Feedback nur dann gezeigt, wenn die gegebene Antwort mit der vorgegebenen richtigen Antwort übereinstimmt. Bei Wahr/Falsch-Fragen kann es eine oder zwei Feedback-Texte geben, der erste wird bei einer falschen Beantwortung gezeigt, der zweite bei der richtigen Beantwortung.</p>
+
+<p><u>Percentage Answer Weights:</u><br />
+    Percentage answer weights are available for both Multiple Choice and Short Answer questions. 
+    Percentage answer weights can be included by following the tilde (for Multiple Choice) or 
+    equal sign (for Short Answer) with the desired percent enclosed within percent signs (e.g., %50%). 
+    This option can be combined with feedback comments.</p>
+<pre>
+Difficult question.{~wrong answer ~%50%half credit answer =full credit answer}
+
+::Jesus' hometown::Jesus Christ was from {
+    ~Jerusalem#This was an important city, but the wrong answer.
+    ~%25%Bethlehem#He was born here, but not raised here.
+    ~%50%Galilee#You need to be more specific.
+    =Nazareth#Yes! That's right!
+}.
+     
+::Jesus' hometown:: Jesus Christ was from {
+    =Nazareth#Yes! That's right!
+    =%75%Nazereth#Right, but misspelled.
+    =%25%Bethlehem#He was born here, but not raised here.
+}</pre>
+    <p>Note that the last two examples are essentially the same question, first as multiple choice and then as short answer.</p>
+
+    <p><font size="-1">Note that it is possible to specify percentage answer weights that are NOT 
+    available through the browser interface. The <b>Match Grades</b> drop-down on the import
+    page determines how these are handled. You can either request that an error be reported
+    or that the answer weight be adjusted to the nearest valid answer weight.</font></p>
+
+<p><u>Specify text-formatting for the question</u><br />
+    The question text (only) may have an optional text format specified. Currently the available formats are
+    <b>moodle</b> (Moodle Auto-Format), <b>html</b> (HTML format), <b>plain</b> (Plain text format) and
+    <b>markdown</b> (Markdown format). The format is specified in square brackets immediately before the 
+    question text. <a href="help.php?file=textformat.html">More information on text formats in Moodle.</a></p>
+
+<pre>
+[markdown]The *American holiday of Thanksgiving* is celebrated on the {
+    ~second
+    ~third
+    =fourth
+} Thursday of November.
+</pre>
+
+<p><u>Multiple Answers:</u><br />
+    The Multiple Answers option is used for multiple choice questions when two or more answers must 
+    be selected in order to obtain full credit. The multiple answers option is enabled by assigning 
+    partial answer weight to multiple answers, while allowing no single answer to receive full credit.</p>
+<pre>
+What two people are entombed in Grant's tomb? {
+    ~No one
+    ~%50%Grant
+    ~%50%Grant's wife
+    ~Grant's father
+}
+</pre>
+    <p>Note that there is no equal sign (=) in any answer and the answers should total no more than 100%, 
+    otherwise Moodle will return an error. 
+    To avoid the problem of students automatically getting 100% by simply checking all of the answers, 
+    it is best to include negative answer weights for wrong answers.</p>
+<pre>
+What two people are entombed in Grant's tomb? {
+    ~%-50%No one
+    ~%50%Grant
+    ~%50%Grant's wife
+    ~%-50%Grant's father
+}
+</pre>
+
+<p><u>Special Characters ~ = # { } :</u><br />
+    These symbols <b> ~ = # { } : </b> control the operation of this filter and cannot be used as normal text within questions.
+    Since these symbols have a special role in determining the operation of this filter, they are called "control characters."
+    But sometimes you may want to use one of these characters, for example to show a mathematical formula in a question. 
+    The way to get around this problem is "escaping" the control characters. 
+    This means simply putting a backslash (\) before a control character so the filter will know that you want to use
+    it as a literal character instead of as a control character.
+    For example:</p>
+<pre>
+Which answer equals 5? {
+    ~ \= 2 + 2
+    = \= 2 + 3
+    ~ \= 2 + 4
+}
+
+::GIFT Control Characters::
+Which of the following is NOT a control character for the GIFT import format? {
+   ~ \~     # \~ is a control character.
+   ~ \=     # \= is a control character.
+   ~ \#     # \# is a control character.
+   ~ \{     # \{ is a control character.
+   ~ \}     # \} is a control character.
+   = \      # Correct! \ (backslash) is not a control character. BUT,
+              it is used to escape the control characters.
+}</pre>
+    <p>When the question is processed, the backslash is removed and is not saved in Moodle.</p>
+
+<h3>Specifying Categories</h3>
+
+<p>It is possible to change the category into which the questions are added within the GIFT file. 
+You can change the category as many times as you wish within the file. All questions after the modifier 
+up to the next modifier or the end of the file will be added to the specified category. Up to the first
+category modifier the category specified on the import screen will be used. Note that for this to work
+the <b>from file:</b> box must be ticked on the import screen.</p>
+
+<p>To include a category modifier include a line like this (with a blank line before and after):
+
+<pre>
+$CATEGORY: tom/dick/harry
+</pre>
+
+or simply
+
+<pre>
+$CATEGORY: mycategory
+</pre>
+
+...the first example specifies a path of nested categories. In this cae the questions will go into <i>harry</i>. The 
+categories are created if they do not exist.</p>
+
+<p><u>Other Options:</u><br />
+    Short Answer questions can be made case sensitive by changing &quot;0&quot; to &quot;1&quot; in the following line:<br />
+    <tt>$question-&gt;usecase = 0;  // Ignore case</tt></p>
+<p></p>

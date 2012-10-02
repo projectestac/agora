@@ -1,0 +1,36 @@
+<!--[*  $Id: stats_admin_modifyconfig.htm 9 2008-11-05 21:42:16Z Guite $  *]-->
+<!--[include file="stats_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+<div class="pn-adminpageicon"><!--[pnimg modname='core' src='configure.gif' set='icons/large' __alt='Settings' ]--></div>
+<h2><!--[gt text="Settings"]--></h2>
+<form class="pn-adminform" action="<!--[pnmodurl modname="Stats" type="admin" func="updateconfig"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div>
+	<input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Stats"]-->" />
+	<div class="pn-adminformrow">
+		<label for="stats_excludeip"><!--[gt text="IP address to exclude"]--></label>
+		<input id="stats_excludeip" type="text" name="excludeip" size="16" maxlength="15" value="<!--[$excludeip|pnvarprepfordisplay]-->" />
+	</div>
+	<div class="pn-adminformrow">
+		<label for="stats_collect"><!--[gt text="Enable collection of stats"]--></label>
+		<!--[if $collect eq 1]-->
+			<input id="stats_collect" type="checkbox" name="collect" value="1" checked="checked" />
+		<!--[else]-->
+			<input id="stats_collect" type="checkbox" name="collect" value="1" />
+		<!--[/if]-->
+	</div>
+	<div class="pn-adminformrow">
+		<label for="stats_twentyfourhour"><!--[gt text="Use 24 clock for hourly stats"]--></label>
+		<!--[if $twentyfourhour eq 1]-->
+			<input id="stats_twentyfourhour" type="checkbox" name="twentyfourhour" value="1" checked="checked" />
+		<!--[else]-->
+			<input id="stats_twentyfourhour" type="checkbox" name="twentyfourhour" value="1" />
+		<!--[/if]-->
+	</div>
+	<!--[pnmodcallhooks hookobject=module hookaction=modifyconfig module=Stats]-->
+    <div class="pn-adminformrow pn-adminformbuttons">
+    <!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Update Configuration" __title="Update Configuration"]-->
+    <a href="<!--[pnmodurl modname=Stats type=admin]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+    </div>
+</div>
+</form>
+</div>

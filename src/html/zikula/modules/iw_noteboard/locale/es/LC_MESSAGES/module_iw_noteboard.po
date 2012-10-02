@@ -1,0 +1,913 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-27 10:50+0100\n"
+"PO-Revision-Date: 2010-04-15 14:24+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnblocks/nbtopics.php:25
+msgid "NoteBoard topics"
+msgstr "Muestra los temas del tablón de notas"
+
+#: pnblocks/nbheadlines.php:25
+msgid "Show the NoteBoard headlines"
+msgstr "Muestra los titulares del tablón de notas"
+
+#: pnblocks/nbheadlines.php:89
+#: pnblocks/nbheadlines.php:101
+#: pnuser.php:71
+msgid "Not classified"
+msgstr "No clasificado"
+
+#: pnblocks/nbheadlines.php:104
+msgid "Topic not found"
+msgstr "No se puede encontrar el tema"
+
+#: pnuserapi.php:38
+#: pnuser.php:342
+#: pnuser.php:410
+#: pnuser.php:949
+#: pnuser.php:1123
+#: pnuser.php:1223
+#: pnuser.php:1230
+msgid "The note has not been found"
+msgstr "No se ha encontrado la nota sobre la que realizar la acción solicitada"
+
+#: pnuserapi.php:57
+#: pnuserapi.php:83
+#: pnuserapi.php:176
+#: pnuserapi.php:316
+#: pnuserapi.php:358
+#: pnuserapi.php:390
+#: pnuserapi.php:538
+#: pnuserapi.php:580
+#: pnuserapi.php:681
+#: pnuserapi.php:798
+#: pnuserapi.php:835
+#: pnuserapi.php:868
+#: pnuserapi.php:899
+msgid "Error! Could not load items."
+msgstr "Error! No se logró cargar los elementos."
+
+#: pnuserapi.php:105
+#: pnuserapi.php:170
+#: pnuserapi.php:198
+#: pnuserapi.php:248
+#: pnuserapi.php:348
+#: pnuserapi.php:380
+#: pnuserapi.php:416
+#: pnuserapi.php:458
+#: pnuserapi.php:497
+#: pnuserapi.php:662
+#: pnuserapi.php:734
+#: pnuserapi.php:821
+#: pnuserapi.php:858
+#: pnuserapi.php:967
+#: pnuserapi.php:987
+#: pnuser.php:333
+#: pnadminapi.php:22
+#: pnadminapi.php:60
+#: pnadminapi.php:101
+#: pnadminapi.php:144
+#: pnadminapi.php:181
+#: pnadminapi.php:221
+#: pnadmin.php:594
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "Error! Argumentos erróneos. Por favor verifica los datos e inténtalo de nuevo."
+
+#: pnuserapi.php:116
+#: pnuserapi.php:211
+#: pnuserapi.php:216
+#: pnuserapi.php:264
+#: pnuserapi.php:453
+#: pnuserapi.php:492
+#: pnuserapi.php:562
+#: pnuserapi.php:657
+#: pnuser.php:364
+#: pnuser.php:423
+#: pnuser.php:432
+#: pnuser.php:440
+#: pnuser.php:529
+#: pnuser.php:958
+#: pnuser.php:1131
+#: pnuser.php:1178
+#: pnuser.php:1242
+#: pnuser.php:1249
+#: pnuser.php:1263
+#: pnuser.php:1316
+#: pnuser.php:1353
+#: pnajax.php:15
+#: pnajax.php:64
+#: pnajax.php:118
+#: pnajax.php:178
+#: pnajax.php:183
+msgid "You are not allowed to do this action"
+msgstr "No estás autorizado a hacer esta acción"
+
+#: pnuserapi.php:145
+#: pnadminapi.php:35
+#: pnadminapi.php:156
+msgid "Error! Creation attempt failed."
+msgstr "Error! Intento de creación fallido."
+
+#: pnuserapi.php:204
+#: pnuserapi.php:254
+#: pnuserapi.php:422
+#: pnuserapi.php:463
+#: pnuserapi.php:502
+#: pnuserapi.php:668
+#: pnadminapi.php:66
+#: pnadminapi.php:107
+#: pnadminapi.php:187
+#: pnadminapi.php:227
+#: pnadmin.php:601
+msgid "No such item found."
+msgstr "No se encontró tal elemento."
+
+#: pnuserapi.php:220
+#: pnadminapi.php:70
+#: pnadminapi.php:191
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr "Error! Intento de borrado fallido."
+
+#: pnuserapi.php:303
+#: pnuserapi.php:324
+#: pnuserapi.php:430
+#: pnuserapi.php:470
+#: pnuserapi.php:509
+#: pnadminapi.php:119
+#: pnadminapi.php:238
+msgid "Error! Update attempt failed."
+msgstr "Error! Intento de actualización fallido."
+
+#: pninit.php:26
+#: pninit.php:115
+#: pnadmin.php:20
+msgid "Module iw_main is required. You have to install the iw_main module previously to install it."
+msgstr "El módulo iw_main debe estar instalado. Instálalo antes de instalar este módulo."
+
+#: pnuser.php:19
+#: pnuser.php:306
+#: pnuser.php:328
+#: pnuser.php:401
+#: pnuser.php:620
+#: pnuser.php:756
+#: pnuser.php:933
+#: pnuser.php:1114
+#: pnuser.php:1164
+#: pnuser.php:1214
+#: pnuser.php:1296
+#: pnuser.php:1349
+#: pnajax.php:12
+#: pnajax.php:61
+#: pnajax.php:111
+#: pnajax.php:160
+#: pnajax.php:232
+#: pnajax.php:274
+#: pnajax.php:308
+#: pnajax.php:331
+#: pnadmin.php:12
+#: pnadmin.php:159
+#: pnadmin.php:205
+#: pnadmin.php:274
+#: pnadmin.php:309
+#: pnadmin.php:352
+#: pnadmin.php:400
+#: pnadmin.php:434
+#: pnadmin.php:462
+#: pnadmin.php:513
+#: pnadmin.php:553
+#: pnadmin.php:658
+msgid "Sorry! No authorization to access this module."
+msgstr "Disculpa! No tienes autorización para ejecutar esa acción en este módulo."
+
+#: pnuser.php:35
+#: pnuser.php:544
+#: pnuser.php:632
+#: pnadmin.php:75
+#: pnadmin.php:220
+msgid "Unregistered"
+msgstr "No registrados"
+
+#: pnuser.php:69
+msgid "All the topics"
+msgstr "Todos los temas"
+
+#: pnuser.php:443
+#: pnuser.php:1252
+#: pntemplates/iw_noteboard_user_main.htm:85
+#: pntemplates/iw_noteboard_user_main.htm:118
+msgid "Validate"
+msgstr "Valida"
+
+#: pnuser.php:444
+msgid "Validate a note"
+msgstr "Validación de una nota"
+
+#: pnuser.php:448
+#: pntemplates/iw_noteboard_admin_conf.htm:246
+msgid "Modify the configuration"
+msgstr "Modifica la configuración"
+
+#: pnuser.php:449
+#: pnuser.php:1256
+msgid "Modify"
+msgstr "Modifica"
+
+#: pnuser.php:453
+msgid "Add a note"
+msgstr "Añadir una nota"
+
+#: pnuser.php:454
+msgid "Send"
+msgstr "Envía"
+
+#: pnuser.php:537
+#: pnuser.php:539
+msgid "More information"
+msgstr "Más información"
+
+#: pnuser.php:844
+#: pnuser.php:1052
+msgid "Probably the note have been sent without the attached file"
+msgstr "Probablemente la nota se ha enviado sin el archivo adjunto"
+
+#: pnuser.php:872
+#: pnuser.php:877
+msgid "The note has been created successfully"
+msgstr "La nota se ha creado correctamente"
+
+#: pnuser.php:879
+msgid "The note has been sent successfully, but is waiting for administrator's validation."
+msgstr "La nota se ha enviado correctamente, pero está a la espera de ser validada por un administrador/a."
+
+#: pnuser.php:1084
+msgid "The note has been modified"
+msgstr "Se ha modificado la nota"
+
+#: pnuser.php:1139
+#: pnuser.php:1140
+msgid "Send the comment"
+msgstr "Envía un comentario"
+
+#: pnuser.php:1191
+msgid "A new comment has been created"
+msgstr "Se ha creado un comentario nuevo"
+
+#: pnuser.php:1193
+msgid "The comment has been sent successfully, but is waiting for administrator's validation."
+msgstr "El comentario se ha enviado correctamente, pero está a la espera de ser validado por un administrador/a."
+
+#: pnuser.php:1253
+msgid "Comment validation"
+msgstr "Validación de un comentario"
+
+#: pnuser.php:1255
+msgid "Modify a comment"
+msgstr "Modificación de un comentario"
+
+#: pnuser.php:1328
+msgid "The comment has been modified"
+msgstr "Se ha modificado el comentario"
+
+#: pntemplates/plugins/function.iwnoteboardusermenulinks.php:27
+msgid "Add a new note"
+msgstr "Añadir una nota nueva"
+
+#: pntemplates/plugins/function.iwnoteboardusermenulinks.php:31
+msgid "View notes list"
+msgstr "Mostrar lista de notas"
+
+#: pntemplates/iw_noteboard_admin_menu.htm:6
+msgid "Return to the configuration of the module"
+msgstr "Volver a la pantalla de configuración del módulo"
+
+#: pntemplates/plugins/function.iwnoteboardusermenulinks.php:35
+msgid "Show the notes stored (expired)"
+msgstr "Mostrar las notas almacenadas (caducadas)"
+
+#: pnajax.php:39
+#: pnajax.php:88
+#: pnajax.php:138
+#: pnajax.php:209
+#: pnajax.php:251
+#: pnajax.php:293
+msgid "The action has failed"
+msgstr "Se ha producido un error"
+
+#: pnajax.php:190
+msgid "The note cannot be deleted because it has comments. Remove the comments previously."
+msgstr "No se puede borrar la nota porque tiene comentarios. Antes se deben borrar los comentarios."
+
+#: pnajax.php:198
+msgid "The note has been deleted"
+msgstr "El registro se ha borrado con éxito"
+
+#: pnajax.php:235
+#: pnajax.php:277
+#: index.php:50
+msgid "Invalid 'authkey':  this probably means that you pressed the 'Back' button, or that the page 'authkey' expired. Please refresh the page and try again."
+msgstr "'authkey' no válida:  esto probablemente significa que has presionado el botón 'Atras', o que el 'authkey' de la página ha expirado. Por favor actualiza la página y vuelve a intentarlo."
+
+#: index.php:57
+msgid "Error! Could not load module."
+msgstr "Error! No se logró cargar el módulo."
+
+#: pnadmin.php:238
+msgid "The shared URL has been modified. Remember to notify it to everybody you need"
+msgstr "Se ha modificado la URL compartida. Recuerde notificarlo a quien crea conveniente"
+
+#: pnadmin.php:261
+msgid "The configuration has been modified"
+msgstr "Se ha modificado la configuración del módulo"
+
+#: pnadmin.php:279
+#: pnadmin.php:367
+#: pntemplates/iw_noteboard_user_nova.htm:211
+#: pnadmin:42
+msgid "All"
+msgstr "Todos"
+
+#: pnadmin.php:287
+#: pntemplates/iw_noteboard_admin_conf.htm:54
+msgid "Create a new topic"
+msgstr "Crea un tema nuevo"
+
+#: pnadmin.php:288
+msgid "Create the topic"
+msgstr "Crea el tema"
+
+#: pnadmin.php:324
+#: pnadmin.php:484
+msgid "A new topic has been created"
+msgstr "Se ha creado un tema nuevo"
+
+#: pnadmin.php:361
+#: pnadmin.php:522
+msgid "The topic has not been found"
+msgstr "No se ha encontrado el tema sobre el que hacer la acción solicitada"
+
+#: pnadmin.php:372
+#: pnadmin.php:527
+msgid "Edit a topic"
+msgstr "Edita un tema"
+
+#: pnadmin.php:377
+#: pnadmin.php:530
+msgid "Modify the topic"
+msgstr "Modifica el tema"
+
+#: pnadmin.php:414
+msgid "The topic has been modified"
+msgstr "Se ha modificado el tema"
+
+#: pnadmin.php:441
+#: pntemplates/iw_noteboard_admin_conf.htm:110
+msgid "Create a new linked noteboard"
+msgstr "Crear un enlace a tablón nuevo"
+
+#: pnadmin.php:442
+#: pntemplates/iw_noteboard_user_nova.htm:331
+msgid "Create"
+msgstr "Crear"
+
+#: pnadmin.php:478
+msgid "The noteboard is not available or is not shared"
+msgstr "El tablón no está disponible o no es compartido"
+
+#: pnadmin.php:566
+msgid "The shared noteboard URL has been modified"
+msgstr "Se ha modificado el enlace de tablón"
+
+#: pnadmin.php:607
+msgid "The noteboard is shared and it is available"
+msgstr "El tablón esta compartido y es accesible"
+
+#: pnadmin.php:609
+msgid "The noteboard is not shared or it is not available in this moment"
+msgstr "El tablón no esta compartido o en estos momentos no es accesible"
+
+#: pnversion.php:9
+#: pnversion.php:13
+msgid "iw_noteboard"
+msgstr "iw_noteboard"
+
+#: pnversion.php:11
+msgid "Provides a system to send small pieces of information to selected users. It has file support."
+msgstr "Permite enviar informaciones a los usuarios designados"
+
+#: pnversion.php:12
+msgid "NoteBoard"
+msgstr "Tablón"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:8
+msgid "Module configuration"
+msgstr "Configuración del módulo"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:14
+msgid "List of topics"
+msgstr "Relación de temas"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:17
+#: pntemplates/iw_noteboard_user_main.htm:23
+msgid "Topic"
+msgstr "Tema"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:18
+msgid "Description"
+msgstr "Descripción"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:19
+#: pntemplates/iw_noteboard_admin_noutema.htm:22
+msgid "Group with access"
+msgstr "Grupo que tiene acceso"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:20
+#: pntemplates/iw_noteboard_admin_conf.htm:76
+#: pntemplates/iw_noteboard_user_main.htm:29
+msgid "Options"
+msgstr "Opciones"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:38
+#: pntemplates/iw_noteboard_admin_conf.htm:41
+#: pntemplates/iw_noteboard_admin_conf.htm:94
+#: pntemplates/iw_noteboard_admin_conf.htm:97
+#: pntemplates/iw_noteboard_user_main.htm:89
+#: pntemplates/iw_noteboard_user_main.htm:121
+msgid "Edit"
+msgstr "Edita"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:40
+#: pntemplates/iw_noteboard_user_main.htm:92
+#: pntemplates/iw_noteboard_user_main.htm:124
+#: pntemplates/iw_noteboard_user_main.htm:127
+msgid "Confirm the action"
+msgstr "Confirma el borrado del tema"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:40
+msgid "Delete the topic"
+msgstr "Borra un tema"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:41
+#: pntemplates/iw_noteboard_admin_conf.htm:96
+#: pntemplates/iw_noteboard_admin_conf.htm:97
+#: pntemplates/iw_noteboard_user_main.htm:92
+#: pntemplates/iw_noteboard_user_main.htm:124
+msgid "Delete"
+msgstr "Borra"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:48
+msgid "There are no defined topics"
+msgstr "No hay temas definidos"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:71
+msgid "Linked noteboards"
+msgstr "Tablones enlazados"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:74
+#: pntemplates/iw_noteboard_admin_newShared.htm:16
+msgid "Name"
+msgstr "Nombre"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:75
+msgid "URL"
+msgstr "URL"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:91
+msgid "Make test"
+msgstr "Realiza el test"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:96
+msgid "Confirm that you want to eliminate the access to the module"
+msgstr "Confirme que desea eliminar el acceso a este módulo"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:104
+msgid "There are no linked noteboards"
+msgstr "No hay tablones enlazados definidos"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:117
+msgid "Groups"
+msgstr "Grupos"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:118
+msgid "Groups that can be chosen when sending a note"
+msgstr "Destinatarios que se pueden seleccionar al enviar una nota"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:119
+msgid "Permission level of the users"
+msgstr "Nivel de permisos de los usuarios con las notas"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:122
+msgid "Can be chosen"
+msgstr "Se puede escoger"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:123
+msgid "Checked by default"
+msgstr "Marcado por defecto"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:124
+msgid "Permissions"
+msgstr "Permisos"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:125
+msgid "Validation required"
+msgstr "Requiere verificación"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:143
+#: pntemplates/iw_noteboard_admin_conf.htm:152
+msgid "1 - Read"
+msgstr "1 - Leer"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:144
+msgid "2 - Comment"
+msgstr "2 - Comentar"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:145
+msgid "3 - Write"
+msgstr "3 - Redactar"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:146
+msgid "4 - Choose users who are going to see the note"
+msgstr "4 - Escoger destinatarios"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:147
+msgid "5 - Edit the own notes"
+msgstr "5 - Editar propias"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:148
+msgid "6 - Delete the own notes"
+msgstr "6 - Borrar propias"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:149
+msgid "7 - Edit and delete notes sent by others"
+msgstr "7 - Editar y borrar ajenas"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:166
+msgid "Warning: "
+msgstr "Atención: "
+
+#: pntemplates/iw_noteboard_admin_conf.htm:166
+msgid "Every permission level includes lower levels"
+msgstr "Cada nivel de permisos incluye todos los anteriores"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:170
+msgid "Root of the file folder"
+msgstr "Raíz del directorio de archivos"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:175
+msgid "Server folder for attached files"
+msgstr "Carpeta del servidor donde se almacenan los archivos adjuntos de las notas"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:180
+msgid "The attached files folder have not been found"
+msgstr "No se ha encontrado el directorio para los archivos adjuntos"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:185
+msgid "(This folder needs write permissions)"
+msgstr "(Esta carpeta debe tener permisos de escritura)"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:189
+msgid "Group to verify notes"
+msgstr "Indica que grupo puede verificar las notas"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:200
+msgid "The notes expire at"
+msgstr "Por defecto las notas caducan a los"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:201
+msgid "days from their creation"
+msgstr "días de ser creadas"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:204
+msgid "Inform about edition after the minutes given from creation time (-1 = never)"
+msgstr "Informa de la edición pasados los minutos indicados después de la publicación (-1 = nunca)"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:208
+msgid "When addressee cannot be chosen are"
+msgstr "Los destinatarios, cuando no se pueden escoger son"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:210
+msgid "All users"
+msgstr "todos los usuarios"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:211
+msgid "Users from groups checked by default"
+msgstr "los usuarios de los grupos marcados por defecto"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:212
+msgid "Users chosen during the validation of the note"
+msgstr "los que se decidan en el momento de verificar la nota"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:217
+msgid "Unregistered cannot see who has sent the notes"
+msgstr "Los no registrados no pueden ver quien ha enviado las notas"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:221
+msgid "Multi language notes are allowed"
+msgstr "El tablón admite notas en diferentes idiomas"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:230
+msgid "Row color one for visited notes"
+msgstr "Color de fondo de las filas impares para las notas visitadas"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:231
+#: pntemplates/iw_noteboard_admin_conf.htm:235
+#: pntemplates/iw_noteboard_admin_conf.htm:239
+#: pntemplates/iw_noteboard_admin_conf.htm:243
+msgid "Try a color"
+msgstr "Escoge el color"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:234
+msgid "Row color two for visited notes"
+msgstr "Color de fondo de las filas pares para las notas visitadas"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:238
+msgid "Row color one for not visited notes"
+msgstr "Color de fondo de las filas impares para las notas no visitadas"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:242
+msgid "Row color tho for not visited notes"
+msgstr "Color de fondo de las filas pares para las notas no visitadas"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:249
+#: pntemplates/iw_noteboard_user_main.htm:156
+msgid "About this module"
+msgstr "Acerca de este módulo"
+
+#: pntemplates/iw_noteboard_admin_conf.htm:254
+msgid "...deleting topic..."
+msgstr "...borrando el tema..."
+
+#: pntemplates/iw_noteboard_admin_conf.htm:255
+msgid "...deleting shared noteboard..."
+msgstr "...eliminando el bloc de notas compartido..."
+
+#: pntemplates/iw_noteboard_admin_conf.htm:256
+msgid "...deleting shared URL..."
+msgstr "...eliminando la URL compartida..."
+
+#: pntemplates/iw_noteboard_admin_menu.htm:4
+#: pntemplates/iw_noteboard_user_menu.htm:3
+msgid "Noteboard"
+msgstr "Tablón de notas"
+
+#: pntemplates/iw_noteboard_admin_noutema.htm:14
+msgid "Topic name"
+msgstr "Nombre del tema"
+
+#: pntemplates/iw_noteboard_admin_noutema.htm:18
+msgid "Topic description"
+msgstr "Descripción del tema"
+
+#: pntemplates/iw_noteboard_admin_noutema.htm:34
+#: pntemplates/iw_noteboard_user_comenta.htm:44
+#: pntemplates/iw_noteboard_admin_newShared.htm:26
+#: pntemplates/iw_noteboard_user_nova.htm:327
+#: pntemplates/iw_noteboard_user_nova.htm:332
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: pntemplates/iw_noteboard_admin_noutema.htm:43
+msgid "The topic name is empty"
+msgstr "No has indicado el nombre del tema"
+
+#: pntemplates/iw_noteboard_user_main.htm:6
+#: pntemplates/iw_noteboard_user_nova.htm:143
+msgid "Choose a topic"
+msgstr "Escoge un tema"
+
+#: pntemplates/iw_noteboard_user_main.htm:15
+msgid "List of expired notes"
+msgstr "Lista de anotaciones caducadas"
+
+#: pntemplates/iw_noteboard_user_main.htm:19
+#: pntemplates/iw_noteboard_admin_sharedURL.htm:2
+#: pntemplates/iw_noteboard_admin_newShared.htm:20
+#: pntemplates/iw_noteboard_admin_confSharedOptions.htm:12
+msgid "Shared URL"
+msgstr "URL Compartida"
+
+#: pntemplates/iw_noteboard_user_main.htm:23
+msgid "Date"
+msgstr "Fecha"
+
+#: pntemplates/iw_noteboard_user_main.htm:24
+#: pntemplates/iw_noteboard_user_comenta.htm:48
+#: pntemplates/iw_noteboard_user_nova.htm:140
+msgid "Note content"
+msgstr "Contenido de la nota"
+
+#: pntemplates/iw_noteboard_user_main.htm:26
+msgid "Informant"
+msgstr "Informa"
+
+#: pntemplates/iw_noteboard_user_main.htm:37
+#: pntemplates/iw_noteboard_user_main.htm:39
+#: pntemplates/iw_noteboard_user_main.htm:130
+#: pntemplates/iw_noteboard_user_main.htm:132
+msgid "Mark the note with a flag"
+msgstr "Marca la nota con una bandera"
+
+#: pntemplates/iw_noteboard_user_main.htm:44
+msgid "Edited by"
+msgstr "Editada por"
+
+#: pntemplates/iw_noteboard_user_main.htm:46
+msgid "at date"
+msgstr "en la fecha"
+
+#: pntemplates/iw_noteboard_user_main.htm:57
+#: pntemplates/iw_noteboard_admin_confSharedOptions.htm:3
+#: pntemplates/iw_noteboard_admin_confSharedOptions.htm:26
+msgid "Shared noteboard between groups of different websites"
+msgstr "El tablón admite notas compartidas entre grupos de diferents webs"
+
+#: pntemplates/iw_noteboard_user_main.htm:77
+msgid "Comments"
+msgstr "Comentarios"
+
+#: pntemplates/iw_noteboard_user_main.htm:127
+msgid "Hide"
+msgstr "Oculta"
+
+#: pntemplates/iw_noteboard_user_main.htm:128
+msgid "Has been seen by"
+msgstr "La han visto"
+
+#: pntemplates/iw_noteboard_user_main.htm:130
+#: pntemplates/iw_noteboard_user_main.htm:132
+msgid "Remove the mark"
+msgstr "Elimina la marca"
+
+#: pntemplates/iw_noteboard_user_main.htm:136
+msgid "Confirm that you want to force the expiration of the note"
+msgstr "Confirma que quieres hacer caducar la nota"
+
+#: pntemplates/iw_noteboard_user_main.htm:136
+msgid "Force the expiration of the note"
+msgstr "Haz que la nota caduque"
+
+#: pntemplates/iw_noteboard_user_main.htm:139
+#: pntemplates/iw_noteboard_user_comenta.htm:36
+msgid "Comment"
+msgstr "Comentario"
+
+#: pntemplates/iw_noteboard_user_main.htm:147
+msgid "There are no notes in the noteboard"
+msgstr "En estos momentos no hay notas"
+
+#: pntemplates/iw_noteboard_user_main.htm:160
+msgid "...deleting the note..."
+msgstr "...borrando la nota..."
+
+#: pntemplates/iw_noteboard_user_main.htm:161
+msgid "...modifying note flag status..."
+msgstr "...modificando la marca de la nota..."
+
+#: pntemplates/iw_noteboard_user_main.htm:162
+msgid "...hidding note..."
+msgstr "...ocultando la nota..."
+
+#: pntemplates/iw_noteboard_user_main.htm:163
+msgid "...saving note..."
+msgstr "...almacenando la nota..."
+
+#: pntemplates/iw_noteboard_user_hanvist.htm:2
+msgid "Have seen the note"
+msgstr "Han visto la nota"
+
+#: pntemplates/iw_noteboard_user_hanvist.htm:16
+msgid "Back to previous table"
+msgstr "Vuelve a la tabla anterior"
+
+#: pntemplates/iw_noteboard_user_comenta.htm:5
+msgid "The text of the note is empty!"
+msgstr "No has escrito la nota"
+
+#: pntemplates/iw_noteboard_user_comenta.htm:9
+#: pntemplates/iw_noteboard_user_nova.htm:35
+msgid "Do you really want to send the note?"
+msgstr "¿Estás seguro de querer enviar la nota?"
+
+#: pntemplates/iw_noteboard_admin_newShared.htm:34
+msgid "The shared URL is empty"
+msgstr "No has escrito la URL del tablón compartido"
+
+#: pntemplates/iw_noteboard_admin_confSharedOptions.htm:6
+msgid "You are going to change the shared noteboard URL. This will disconnect the websites sindicated to your noteboard. Do you want continue?"
+msgstr "Vas a cambiar la URL del tablón compartido. Esto desconnectará los tablones de los portales que estén sindicados con este. ¿Desea continuar?"
+
+#: pntemplates/iw_noteboard_admin_confSharedOptions.htm:6
+msgid "Regenerate shared URL"
+msgstr "Regenera la URL compartida"
+
+#: pntemplates/iw_noteboard_admin_confSharedOptions.htm:16
+msgid "Show the shared URL in the public noteboard"
+msgstr "Muestra la URL compartida en el tablón público"
+
+#: pntemplates/iw_noteboard_admin_confSharedOptions.htm:19
+msgid "Name to show in linked noteboards"
+msgstr "Nombre a mostrar en los tablones enlazados"
+
+#: pntemplates/iw_noteboard_user_nova.htm:5
+msgid "The extension of the attached file is not accepted. Allowed extensions are: "
+msgstr "La extensión del archivo adjunto no está permitida. Las extensiones posibles son: "
+
+#: pntemplates/iw_noteboard_user_nova.htm:30
+msgid "There are no chosen addressee for the note"
+msgstr "No has seleccionado a los destinatarios de la nota"
+
+#: pntemplates/iw_noteboard_user_nova.htm:61
+#: pntemplates/iw_noteboard_user_nova.htm:63
+#: pntemplates/iw_noteboard_user_nova.htm:65
+#: pntemplates/iw_noteboard_user_nova.htm:68
+#: pntemplates/iw_noteboard_user_nova.htm:71
+msgid "Some of the dates in the form are not correct"
+msgstr "Alguna de las fechas introducidas en el formulario es incorrecta. Compruébalas."
+
+#: pntemplates/iw_noteboard_user_nova.htm:114
+msgid "The closing date is incorrect"
+msgstr "La fecha de caducidad es inferior a la fecha de publicación"
+
+#: pntemplates/iw_noteboard_user_nova.htm:154
+msgid "Choose a language"
+msgstr "Escoge un idioma"
+
+#: pntemplates/iw_noteboard_user_nova.htm:166
+msgid "Publish date"
+msgstr "Fecha de publicación"
+
+#: pntemplates/iw_noteboard_user_nova.htm:170
+msgid "Closing date"
+msgstr "Fecha de caducidad"
+
+#: pntemplates/iw_noteboard_user_nova.htm:179
+msgid "Headline"
+msgstr "Titular"
+
+#: pntemplates/iw_noteboard_user_nova.htm:184
+msgid "Since"
+msgstr "Desde"
+
+#: pntemplates/iw_noteboard_user_nova.htm:189
+msgid "Up to"
+msgstr "Hasta"
+
+#: pntemplates/iw_noteboard_user_nova.htm:200
+msgid "Link to find more information"
+msgstr "Enlace donde encontrar más información"
+
+#: pntemplates/iw_noteboard_user_nova.htm:206
+msgid "Addressee"
+msgstr "Destinatarios"
+
+#: pntemplates/iw_noteboard_user_nova.htm:214
+msgid "Check all"
+msgstr "Revisar todo "
+
+#: pntemplates/iw_noteboard_user_nova.htm:230
+msgid "This note will be sent to all registered users"
+msgstr "Esta nota llegará a todos los usuarios"
+
+#: pntemplates/iw_noteboard_user_nova.htm:241
+msgid "Comments allowed"
+msgstr "Admite comentarios"
+
+#: pntemplates/iw_noteboard_user_nova.htm:250
+msgid "Shared"
+msgstr "Compartida"
+
+#: pntemplates/iw_noteboard_user_nova.htm:260
+msgid "Put me as the sender of the note"
+msgstr "Ponme como remitente de la nota"
+
+#: pntemplates/iw_noteboard_user_nova.htm:277
+msgid "Text for the link"
+msgstr "Texto del enlace"
+
+#: pntemplates/iw_noteboard_user_nova.htm:292
+msgid "Add an attached file"
+msgstr "Adjunta un archivo informativo"
+
+#: pntemplates/iw_noteboard_user_nova.htm:292
+msgid "Allowed extensions - "
+msgstr "Extensiones permitidas - "
+
+#: pntemplates/iw_noteboard_user_nova.htm:308
+msgid "Erase the file attached to the note"
+msgstr "Borra el archivo adjunto de la nota"
+
+#: pntemplates/iw_noteboard_user_nova.htm:315
+msgid "Attached file text"
+msgstr "Texto del enlace con el archivo"
+

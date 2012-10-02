@@ -1,0 +1,104 @@
+<!-- $Id$ -->
+
+<h1>Importation de questions</h1>
+
+<p>Cette fonction vous permet d'importer des questions à partir de fichiers externes en format texte, déposés à l'aide d'un formulaire, ou en choisissant un fichier texte approprié existant déjà dans la zone des fichiers.</p>
+
+<h2>Remarque sur l'encodage des caractères</h2>
+
+<p>Si votre fichier d'importation comporte des caractères ne faisant pas partie du jeu de base ASCII, il doit être formaté dans l'encodage UTF-8. Il est possible de convertir ou d'exporter votre fichier en format UTF-8 à l'aide de votre éditeur de texte favori. Soyez particulièrement prudent avec les fichiers générés par les applications de Microsoft Office, qui utilisent un encodage non standard qu'il n'est pas possible de traiter correctement. Les fichiers d'importation basé sur le langage XML seront traités automatiquement pour autant que votre serveur Moodle utilise PHP 5 ou une version ultérieure.</p>
+
+<p>Les formats de fichiers ci-dessous sont supportés.</p>
+
+<h2>Format GIFT</h2>
+
+<p>Le format GIFT est le plus complet des formats d'importation de questions disponible dans Moodle. Il a été conçu pour permettre aux enseignants d'écrire simplement des questions dans un fichier texte. Il permet la saisie des questions à Choix multiples, Vrai-Faux, à Réponse courte ou à Réponse numérique, ainsi que l'insertion de _____ pour le format Mot manquant. Les différents types de questions peuvent être mélangés dans un même fichier texte, et le format permet également l'insertion de commentaires, titres de questions, feedbacks et pondération des points en %. Voici quelques exemples :</p>
+
+ <pre>
+ Quelle était la couleur de la jument blanche
+ de Napoléon ?{~Verte ~Noire =Blanche}
+ 
+ La jument blanche de Napoléon était {~verte =blanche ~noire}.
+ 
+ La jument blanche de Napoléon était verte.{FALSE}
+ 
+ Qui Napoléon a-t-il épousé ?{=Marie-Louise =Joséphine}
+ 
+ Quelle est la date de naissance de Napoléon ?{#1769:5}
+ </pre>
+
+<p class="moreinfo">Plus d'informations au sujet du format <a href="help.php?file=formatgift.html&amp;module=quiz">GIFT</a>.</p>
+  	 
+<h2>Format Aiken</h2>
+
+<p>Ce format simple permet d'importer des questions à choix multiple à partir d'un fichier texte.</p>
+
+<p class="moreinfo">Plus d'informations au sujet du format<a href="help.php?file=formataiken.html&amp;module=quiz">Aiken</a>.</p>
+
+<h2>Format XML Moodle</h2>
+
+<p>Ce format spécifique à Moodle importe des questions ayant été exportées auparavant dans le même format. Son utilisation est immédiate. On peut la tester facilement en exportant une catégorie dans le format XML Moodle. Ce format permet l'importation de fichiers images. </p>
+
+<p class="moreinfo">Plus d'informations au sujet du format <a href="help.php?file=formatxml.html&amp;module=quiz">XML Moodle</a>.</p>
+
+<h2>Format Mot manquant</h2>
+
+<p>Ce format ne supporte que des questions à choix multiples ou à réponse courte, suivant le nombre de réponses possibles. Lorsqu'il n'y a qu'une réponse proposée, une question à réponse courte est générée. S'il y a deux ou plus de réponses proposées, une question à choix multiples est générée. Chaque réponse est précédée d'un tilde (~), sauf la réponse correcte qui est précédée d'un signe d'égalité (=). Voici un exemple pour une question à choix multiples :</p>
+
+<blockquote><p>Durant l'enfance, quand nous commençons à explorer les parties de notre corps, nous devenons des étudiants {=en anatomie et physiologie ~en science ~en réflexologie}, et dans un sens, nous demeurons des étudiants pour toute la vie.</p></blockquote>
+
+<p>Et voici un exemple pour une question à réponse courte :</p>
+
+<blockquote><p>Durant l'enfance, quand nous commençons à explorer les parties de notre corps, nous devenons des étudiants {=en anatomie et physiologie}, et dans un sens, nous demeurons des étudiants pour toute la vie.</p></blockquote>
+
+<p class="moreinfo">Plus d'informations au sujet du format <a href="help.php?file=formatmissingword.html&amp;module=quiz">Mot manquant</a>.</p>
+
+<h2>Format BlackBoard</h2>
+
+<p>Ce module permet d'importer des questions enregistrées dans le format « POOL » de BlackBoard. Il utilise les fonctions XML du PHP utilisé par Moodle. Il vous sera nécessaire de décompresser le fichier ZIP exporté de BlackBoard et de fournir à Moodle le fichier .dat adéquat. Cette version <b>ne fonctionne pas</b> avec les versions 6 et ultérieures de BlackBoard.</p>
+
+<p class="moreinfo">Plus d'informations au sujet du format <a href="help.php?file=formatblackboard.html&amp;module=quiz">BlackBoard</a>.</p>
+
+<h2>Blackboard V6+</h2>
+
+<p>Ce format permet l'importation de questions exportées dans le format Blackboard. Il fournit un support partiel des fonctionnalités de Blackboard Version 6 et 7. Il utilise les fonctions XML du PHP utilisé par Moodle. Vous devez déposer le fichier ZIP exporté par Blackboard.</p>
+
+<h2>WebCT</h2>
+
+<p>Ce format permet l'importation de questions exportées dans le format texte de WebCT.</p>
+
+<p class="moreinfo">Plus d'informations au sujet du format <a href="help.php?file=formatwebct.html&amp;module=quiz">WebCT</a>.</p>
+
+<!-- <h2>Format Course Test Manager (CTM)</h2>
+
+<p>Ce format permet l'importation de questions exportées dans le format banque de test Course Test Manager. Il utilise différentes façon d'accéder à la banque de questions (une base de données Microsoft Access), suivant que le serveur Moodle tourne sur un serveur Windows ou Linux.</p>
+
+<p>Sur Windows, vous pouvez déposer la base de données Access comme tout autre fichier d'importation.</p>
+
+<p>Sur Linux, vous devez configurer une machine Windows dans le même réseau, avec la base de données Course Test Manager et un logiciel appelé ODBC Socket Server, qui utilise XML pour transférer les données vers le Moodle sur le serveur Linux.</p>
+
+<p>Veuillez lire attentivement le fichier d'aide indiqué ci-dessous avant d'utiliser de format d'importation.</p>
+
+<p class="moreinfo">Plus d'informations au sujet du format <a href="help.php?file=formatctm.html&amp;module=quiz">CTM</a>.</p> -->
+
+<h2>Format Cloze</h2>
+
+<p>Ce type particulier de format n'importe qu'un seul type de questions, le type Cloze.</p>
+
+<p class="moreinfo">Plus d'informations au sujet du format <a href="help.php?file=multianswer.html&amp;module=quiz">Cloze</a>.</p>
+
+<h2>Format Learnwise</h2>
+
+<p>Ce format permet d'importer des questions à choix multiples enregistrées en format XML Learnwise.</p>
+
+<h2>Format Examview</h2>
+
+<p>Ce format permet d'importer des questions à partir de fichier XML Examview 4. Les versions plus anciennes d'Examview ne sont pas supportées.</p>
+
+<!-- <h2>Format Personnalisé</h2>
+
+<p>Si vous avez votre propre format que vous désirez importer, vous pouvez en programmer son importation en éditant le fichier modèle « mod/quiz/format/custom.php ». Le bout de programme requis est minimal puisqu'il n'a qu'à analyser le texte d'une question.</p>
+
+<p class="moreinfo">Plus d'informations au sujet du format <a href="help.php?file=formatcustom.html&amp;module=quiz">« personnalisé »</a></p> -->
+
+<p>Les formats d'importation et d'exportation sont des ressources facilement installables (plug-in). D'autres formats sont disponibles dans la base de données « Modules et Plugins ».</p>

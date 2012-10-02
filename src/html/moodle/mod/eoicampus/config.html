@@ -1,0 +1,47 @@
+<form method="post" action="module.php" name="form">
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+
+<table cellpadding="9" cellspacing="0" >
+<tr valign="top">
+    <td align="right">eoicampus_server:</td>
+    <td>
+    <input name="eoicampus_server" type="text" size="50" value="<?php p($CFG->eoicampus_server) ?>" />
+    </td>
+    <td>
+    <?php print_string("eoicampus_server", "eoicampus") ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">eoicampus_servlets_server:</td>
+    <td>
+    <input name="eoicampus_servlets_server" type="text" size="50" value="<?php p($CFG->eoicampus_servlets_server) ?>" />
+    </td>
+    <td>
+    <?php print_string("eoicampus_servlets_server", "eoicampus") ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">eoicampus_servlets_port:</td>
+    <td>
+    <input name="eoicampus_servlets_port" type="text" size="50" value="<?php p($CFG->eoicampus_servlets_port) ?>" />
+    </td>
+    <td>
+    <?php print_string("eoicampus_servlets_port", "eoicampus") ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">eoicampus_servlets_getPathways:</td>
+    <td>
+    <input name="eoicampus_servlets_getPathways" type="text" size="50" value="<?php p($CFG->eoicampus_servlets_getPathways) ?>" />
+    </td>
+    <td>
+    <?php print_string("eoicampus_servlets_getPathways", "eoicampus") ?>
+    </td>
+</tr>
+<tr>
+    <td colspan="3" align="center">
+        <input type="submit" value="<?php print_string("savechanges") ?>" /></td>
+</tr>
+</table>
+
+</form>

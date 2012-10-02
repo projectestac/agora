@@ -1,0 +1,39 @@
+<h1>Calculations</h1>
+<!-- TRANSLATORS BEWARE!! The comma (,) sign used in the calculations may be a semi-colon (;)
+in your language. Please use whichever is used in your spreadsheet application. -->
+
+<p>Los cálculos para el libro de calificaciones se ajustan a las fórmulas y funciones habituales en las hojas de cálculo más populares. Comienzan con el signo igual (=), y utilizan operadores y funciones matemáticas comunes para producir una única salida numérica. Esta salida se usa luego como el valor calculado para el elemento de calificación que usted esté editando.</p>
+
+<p>Se presenta seguidamente una lista de las funciones admitidas por el cálculo. Se usa el carácter 'coma' (,) para separar los argumentos dentro de los corchetes que delimitan la función.</p>
+
+<ul>
+    <li><strong>average</strong>([[item1]], [[item2]]...): Devuelve la media de una muestra</li>
+    <li><strong>max</strong>([[item1]], [[item2]]...): Devuelve el valor máximo de una lista de argumentos</li>
+    <li><strong>min</strong>([[item1]], [[item2]]...): Devuelve el valor mínimo de una lista de argumentos</li>
+    <li><strong>mod</strong>(dividend, divisor): Calcula el residuo de una división</li>
+    <li><strong>pi</strong>(): Devuelve el valor de Pi</li>
+    <li><strong>power</strong>(base, power): Eleva un número a la potencia de otro</li>
+    <li><strong>round</strong>(number, count): Redondea un número a una precisión determinada</li>
+    <li><strong>sum</strong>([[item1]], [[item2]]...): Devuelve la suma de todos los argumentos</li>
+</ul>
+
+<p>Se admiten asimismo una serie de funciones matemáticas:</p>
+<ul>
+    <li>sin</li><li>sinh</li><li>arcsin</li><li>asin</li><li>arcsinh</li><li>asinh</li>
+    <li>cos</li><li>cosh</li><li>arccos</li><li>acos</li><li>arccosh</li><li>acosh</li>
+    <li>tan</li><li>tanh</li><li>arctan</li><li>atan</li><li>arctanh</li><li>atanh</li>
+    <li>sqrt</li><li>abs</li><li>ln</li><li>log</li><li>exp</li>
+</ul>
+
+<p>Usted puede incluir los valores de otros elementos sometidos a calificación usando sus números de identificación ('idnumber') como referencias en las fórmulas. El 'idnumber' se rodea con dos pares de corchetes con el fin de evitar confundir al motor de cálculo cuando el 'idnumber' contiene caracteres infrecuentes. Por ejemplo, si usted tiene un elemento para calificar cuyo 'idnumber' es Cuest.3, deberá referirse a ese elemento como [[Cuest.3]] en su cálculo. </p>
+
+<p>Debajo del campo de cálculo hay un dendograma de su curso con sus categorías y elementos de calificación. Junto al total de cada elemento o categoría se muestra el 'idnumber' que usted puede usar en su cálculo (ya delimitado por los correspondientes corchetes). Sin embargo, puesto que el 'idnumber' es opcional, algunos elementos pueden no tenerlo. Estos elementos que carecen de 'idnumber' tienen en su lugar un campo de formulario que le permite introducir el 'idnumber' directamente, de modo que usted podrá usarlo en el cálculo sin tener que abandonar la página. Este formulario no le permitirá editar los números de identificación existentes, si bien podrá ir directamente al elemento de calificación y editarlo si así lo desea.</p>
+
+<p>Tan pronto como haya asignado los números de identificación que necesite, puede presionar "agregar números de identificación", y la página volverá a cargarse y mostrará el mismo dendograma con los números de identificación que acaba de asignar. En ese momento podrá usar tales referencias en su cálculo.</p>
+
+<p>He aquí una lista de ejemplos prácticos de cálculos que usted podría usar en su libro de calificaciones:</p>
+
+<ul>
+    <li>=average([[Cuest.1]], [[Cuest.4]], [[Tarea.1]])</li>
+    <li>=average(max([[Cuest.1]], [[Cuest.4]], [[Tarea.1]]), min([[Cuest.1]], [[Cuest.4]], [[Tarea.1]]))</li>
+</ul>

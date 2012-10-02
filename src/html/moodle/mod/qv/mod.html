@@ -1,0 +1,185 @@
+<!-- This page defines the form to create or edit an instance of this module -->
+<!-- It is used from /course/mod.php.  The whole instance is available as $form. -->
+
+<?php // $Id: mod.html,v 1.2 2008/05/15 18:40:51 llastarri Exp $
+
+require_once("../mod/qv/lib.php");
+
+/// First we check that form variables have been initialised
+if (!isset($form->name)) {
+    $form->name = '';
+}
+if (!isset($form->assessmenturl)) {
+    $form->assessmenturl = '';
+}
+
+$strtargetself = get_string("targetself","qv");
+$strtargetblank = get_string("targetblank","qv");
+?>
+
+<form name="form" method="post" action="mod.php">
+<center>
+<table cellpadding="5">
+<tr valign="top">
+    <td align="right"><b><?php  print_string("name") ?>:</b></td>
+    <td align="left">
+        <input type="text" name="name" size="30" value="<?php  p($form->name) ?>">
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right"><b><?php  print_string("description", "qv") ?>:</b></td>
+    <td align="left">
+        <?php print_textarea($usehtmleditor, 10, 50, 680, 400, "description", $form->DESCRIPTION); ?>
+    </td>
+</tr>
+
+<tr valign="top">
+    <td align="right"><b><?php  print_string("assessmenturl", "qv") ?>:</b></td>
+    <td align="left">
+        <input type="text" name="assessmenturl" size="80" value="<?php  p($form->assessmenturl) ?>">
+        <?php echo helpbutton('qvurl', get_string('assessmenturl','qv'), 'qv', true, false, '', true); ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right"></td>
+    <td align="left">
+        <?php
+          $url = "/files/index.php?id=$course->id&choose=form.assessmenturl"; 
+          $strchooseafile = get_string("chooseafile", "resource");
+				  button_to_popup_window ($url, 'coursefiles', $strchooseafile, 500, 750, $strchooseafile);
+       ?>
+       <?php echo helpbutton('qvunzip', get_string('assessmenturl','qv'), 'qv', true, false, '', true); ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right"><b><?php  print_string("assessmentskin", "qv") ?>:</b></td>
+    <td align="left">
+        <?php $array = qv_get_skins();
+        $selected= $form->skin!=''?$form->skin:-1;
+		echo choose_from_menu($array, 'skin', $selected, '');?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right"><b><?php  print_string("assessmentlang", "qv") ?>:</b></td>
+    <td align="left">
+        <?php $array = qv_get_languages();
+        $selected= $form->assessmentlang!=''?$form->assessmentlang:-1;
+        echo choose_from_menu($array, 'assessmentlang', $form->assessmentlang, '', '', '', true);
+		//echo choose_from_menu($array, 'skin', $selected, '');
+    ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right"><b><?php  print_string("assessmentmaxdeliver", "qv") ?>:</b></td>
+    <td align="left">
+        <?php $array = array(-1 => get_string('unlimited','qv'), 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 10 => 10);
+        $selected= $form->maxdeliver!=''?$form->maxdeliver:-1;
+		echo choose_from_menu($array, 'maxdeliver', $selected, '');?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right"><b><?php  print_string("assessmentmaxgrade", "qv") ?>:</b></td>
+    <td align="left">
+        <input type="text" name="maxgrade" size="5" value="<?php  p($form->maxgrade) ?>">
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right"><b><?php  print_string("showcorrection", "qv") ?>:</b></td>
+    <td align="left">
+        <?php $array = array(1 => get_string('yes'), 0 => get_string('no'));
+        $selected= $form->showcorrection!=''?$form->showcorrection:1;
+		echo choose_from_menu($array, 'showcorrection', $selected, '');?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right"><b><?php  print_string("showinteraction", "qv") ?>:</b></td>
+    <td align="left">
+        <?php $array = array(1 => get_string('yes'), 0 => get_string('no'));
+        $selected= $form->showinteraction!=''?$form->showinteraction:1;
+		echo choose_from_menu($array, 'showinteraction', $selected, '');?>
+    </td>
+</tr>
+<tr valign="top"><!--Albert-->
+    <td align="right"><b><?php  print_string("ordersections", "qv") ?>:</b></td>
+    <td align="left">
+        <?php $array = array(1 => get_string('yes'), 0 => get_string('no'));
+        $selected= $form->ordersections!=''?$form->ordersections:0;
+		echo choose_from_menu($array, 'ordersections', $selected, '');?>
+    </td>
+</tr>
+<tr valign="top"><!--Albert-->
+    <td align="right"><b><?php  print_string("orderitems", "qv") ?>:</b></td>
+    <td align="left">
+        <?php $array = array(1 => get_string('yes'), 0 => get_string('no'));
+        $selected= $form->orderitems!=''?$form->ordersections:0;
+		echo choose_from_menu($array, 'orderitems', $selected, '');?>
+    </td>
+</tr>
+
+<tr valign="top">
+    <td align="right"><b><?php  print_string("target", "qv") ?>:</b></td>
+    <td align="left">
+        <?php $array = array('self' => $strtargetself, 'blank' => $strtargetblank);
+        $selected= $form->target!=''?$form->target:'self';
+		echo choose_from_menu($array, 'target', $selected, '');
+		?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right"><b><?php  print_string("size", "qv") ?>:</b></td>
+    <td align="left">
+		<?php  print_string("width", "qv") ?>: <input type="text" name="width" size="5" value="<?php  p($form->width!=''?$form->width:'100%') ?>">
+   	    <?php  print_string("height", "qv") ?>: <input type="text" name="height" size="5" value="<?php  p($form->height!=''?$form->height:'400') ?>">	
+    </td>
+</tr>
+
+</div>
+<script language="javascript" type="text/javascript">
+    function showelement (id, set) {
+        divobj = document.getElementById(id);
+		if (set) divobj.style.display = 'inline';
+		else divobj.style.display = 'none';
+    }
+</script>
+
+<!-- The following line for Moodle 1.5 prints the visibility setting form element -->
+<?php print_visible_setting($form); ?>
+
+
+</table>
+<script type="text/javascript">
+	function previewQV(form){
+	
+		var url = form.assessmenturl.value;
+		url=(url.substring(0,4)=='http')?url:'<?=$CFG->wwwroot?>/file.php/<?=$course->id?>/'+url;
+		
+		if (url!=null && url.trim()!=""){
+			url+="?appl=<?=$CFG->qv_qvdistplugin_appl?>&js=<?=$CFG->qv_qvdistplugin_scripts?>&css=<?=$CFG->qv_qvdistplugin_css?>";
+  		var skin = form.skin.value;
+			if (skin!=null) url+="&skin="+skin;
+  		var lang = form.assessmentlang.value;
+			if (lang!=null) url+="&lang="+lang;
+			window.open(url,'QV','resizable=yes,scrollbars=yes,width=600,height=400');
+		} else{
+			alert("<?php  print_string('noassessmenturl', 'qv') ?>");
+		}
+	}
+	
+</script>
+
+
+<!-- These hidden variables are always the same -->
+<input type="hidden" name=course        value="<?php  p($form->course) ?>" />
+<input type="hidden" name="sesskey"     value="<?php  p($form->sesskey) ?>" />
+<input type="hidden" name=coursemodule  value="<?php  p($form->coursemodule) ?>" />
+<input type="hidden" name=section       value="<?php  p($form->section) ?>" />
+<input type="hidden" name=module        value="<?php  p($form->module) ?>" />
+<input type="hidden" name=modulename    value="<?php  p($form->modulename) ?>" />
+<input type="hidden" name=instance      value="<?php  p($form->instance) ?>" />
+<input type="hidden" name=mode          value="<?php  p($form->mode) ?>" />
+<input type="button" value="<?php  print_string("preview") ?>" onclick="previewQV(this.form);" />
+<input type="submit" value="<?php  print_string("savechanges") ?>" />
+<input type="submit" name="cancel" value="<?php  print_string("cancel") ?>" />
+</center>
+
+</form>

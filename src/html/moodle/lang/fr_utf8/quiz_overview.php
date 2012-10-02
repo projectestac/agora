@@ -1,0 +1,52 @@
+<?php // $Id: quiz_overview.php,v 1.20 2009/04/10 19:24:57 martignoni Exp $
+
+$string['attemptprogress'] = 'Tentative $a->done sur $a->todo';
+$string['attemptsonly'] = 'N\'afficher que les $a avec tentatives';
+$string['allattempts'] = 'Afficher toutes les tentatives';
+$string['allattemptscontributetograde'] = 'Toutes les tentatives comptent pour la note finale du participant.';
+$string['allstudents'] = 'Afficher tous les $a';
+$string['attemptsprepage'] = 'Tentatives affichées par page';
+$string['deleteselected'] = 'Supprimer les tentatives sélectionnées';
+$string['done'] = 'Effectué';
+$string['err_failedtorecalculateattemptgrades'] = 'Échec du re-calcul des notes de la tentative';
+$string['err_failedtodeleteregrades'] = 'Échec de la suppression des notes calculées de la tentative';
+$string['highlightinggraded'] = 'La tentative comptant pour la note finale est surlignée pour chaque participant.';
+$string['needed'] = 'Nécessaire';
+$string['noattemptstoregrade'] = 'Aucune tentative ne doit être ré-évaluée';
+$string['noattemptsonly'] = 'N\'afficher / télécharger que les $a sans tentatives';
+$string['nogradepermission'] = 'Vous n\'avez le droit d\'évaluer ce test.';
+$string['onlyoneattemptallowed'] = 'Une seule tentative par participant est autorisée pour ce test.';
+$string['optallattempts'] = 'toutes les tentatives';
+$string['optallstudents'] = 'Tous les $a';
+$string['optattemptsonly'] = '$a ayant effectué le test';
+$string['optnoattemptsonly'] = '$a n\'ayant pas effectué le test';
+$string['optonlygradedattempts'] = 'évaluées de chaque participant ($a)';
+$string['optonlyregradedattempts'] = 'ré-évaluées ou marquées comme devant être ré-évaluées';
+$string['overview'] = 'Notes';
+$string['overviewdownload'] = 'Téléchargement vue d\'ensemble';
+$string['overviewreport'] = 'Rapport d\'évaluation';
+$string['overviewreportgraph'] = 'Nombre total de participants avec intervalle des notes';
+$string['overviewreportgraphgroup'] = 'Nombre total de participants du groupe « {$a} » avec intervalle des notes';
+$string['pagesize'] = 'Taille de page';
+$string['preferencespage'] = 'Préférences pour cette page';
+$string['preferencessave'] = 'Afficher le rapport';
+$string['preferencesuser'] = 'Vos préférences pour ce rapport';
+$string['qprogress'] = 'Question $a->done sur $a->todo';
+$string['regrade'] = 'Ré-évaluer';
+$string['regradeall'] = 'Tout ré-évaluer';
+$string['regradeallgroup'] = 'Ré-évaluation complète pour le groupe « {$a->groupname} »';
+$string['regradealldry'] = 'Ré-évaluer complètement à blanc';
+$string['regradealldrydo'] = 'Ré-évaluer les tentatives marquées comme devant être ré-évaluées ($a)';
+$string['regradealldrydogroup'] = 'Ré-évaluer les tentatives ($a->countregradeneeded) marquées comme devant être ré-évaluées dans le groupe « {$a->groupname} »';
+$string['regradealldrygroup'] = 'Ré-évaluer complètement le groupe « {$a->groupname} » à blanc';
+$string['regradeheader'] = 'Ré-évaluation';
+$string['regradeselected'] = 'Ré-évaluer les tentatives sélectionnées';
+$string['show'] = 'Afficher / télécharger';
+$string['showattempts'] = 'Afficher / télécharger les tentatives seulement';
+$string['showdetailedmarks'] = 'Afficher / télécharger les points pour chaque question';
+$string['showinggraded'] = 'Afficher seulement les tentatives évaluées de chaque participant.';
+$string['showinggradedandungraded'] = 'Afficher toutes les tentatives de chaque participant. La tentative évaluée est surlignée pour chaque utilisateur. La méthode d\'évaluation pour ce test est $a.';
+$string['studentingroup'] = '$a->coursestudent du groupe $a->groupname';
+$string['studentingrouplong'] = '« {$a->coursestudent} » dans ce groupe';
+
+?>

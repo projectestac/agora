@@ -1,0 +1,57 @@
+<!-- Version: $Id$ -->
+
+<h1>Importer des utilisateurs</h1>
+
+<p>Notons avant tout qu'<strong>il n'est habituellement pas nécessaire d'importer des utilisateurs</strong> pour les inscrire. Pour réduire les interventions manuelles dans la gestion du site, il est préférable d'utiliser l'une des méthodes d'authentification proposées par Moodle. Par exemple, Moodle peut se connecter à une base de données externe, ou bien les utilisateurs peuvent créer leurs propres comptes. Voyez la section Authentification dans la page d'administration de votre site.</p>
+
+<p>Si vous désirez toutefois importer manuellement des comptes utilisateurs à partir d'un fichier texte, ce fichier doit être formaté de la façon suivante :</p>
+
+<ul>
+
+<li>chaque ligne du fichier contient un enregistrement ;</li>
+
+<li>les données de chaque enregistrement sont séparées par une virgule ;</li>
+
+<li>le premier enregistrement contient le nom des champs qui composent les enregistrements.
+
+<blockquote>
+
+<p><strong>Champs requis :</strong> ces champs doivent être mentionnés dans le premier enregistrement et définis pour tous les utilisateurs</p>
+
+<p><code class="example1">username, password, firstname, lastname, email</code></p>
+
+<p><strong>Champs par défaut :</strong> ces champs sont optionnels - s'ils ne sont pas inclus, leurs valeurs seront les mêmes que celles de l'administrateur principal du site</p>
+
+<p><code class="example1">institution, department, city, country, lang, auth, timezone</code></p>
+
+<p><strong>Champs optionnels :</strong> tous ces champs sont optionnels. Les noms de cours utilisés (course1, course2, etc.) sont les « Noms abrégés » des cours. Si un ou des noms de cours sont mentionnés, l'utilisateur sera inscrit comme étudiant à ce ou ces cours. Les noms des groupes doivent correspondre au cours dans lesquels ils sont définis. Dans l'exemple ci-dessous, le <code>group1</code> est défini dans le <code>course1</code>, etc.</p>
+
+<p><code class="example1">idnumber, icq, phone1, phone2, address, url, description, mailformat, maildisplay, htmleditor, autosubscribe, course1, course2, course3, course4, course5, group1, group2, group3, group4, group5, type1, type2, type3, type4, type5, role1, role2, role3, role4, role5, emailstop</code></p>
+
+</blockquote>
+
+</li>
+
+<li>les virgules faisant partie des données doivent être remplacées par le code &amp;#44. Le script d'importation transformera automatiquement ce code en virgule ;</li>
+
+<li>utilisez 1 pour oui/vrai et 0 pour non/faux dans les champs Oui/Non ou Vrai/Faux.</li>
+
+<li>si un utilisateur existe déjà dans la base de données de Moodle, le script inscrira l'utilisateur dans les cours indiqués, mais ne modifiera pas ses données. Il retournera en outre le numéro de cet utilisateur.</li>
+
+</ul>
+
+<p>Voici un exemple d'un fichier valide :</p>
+
+<p><code class="example1">username, password, firstname, lastname, email, lang, idnumber, maildisplay, course1, group1, type1<br />
+
+lebidon, topsecret, Jules, Lebidon, jlebidon@undomaine.ch, fr, 3663737, 1, Astro101, Groupe A, 1<br />
+
+marieuntel, ultrasecret, Marie, Untel, marieu@someplace.ca, fr_ca, 6736733, 0, Crypt202, Groupe C, 3</code></p>
+
+<h2>Mettre à jour des comptes existants</h2>
+
+<p>Par défaut, Moodle suppose que vous voulez créer de nouveaux comptes, et par conséquent ne traite pas les enregistrements où le nom d'utilisateur correspond à un compte existant. Cependant, si vous choisissez « Oui » pour l'option <i>Modifier les comptes existants</i>, les comptes existants seront modifiés.</p>
+
+<p>Lors de la modification des comptes existants, vous pouvez changer également les noms d'utilisateur. Pour ce faire, choisissez « Oui » pour l'option <i>Permettre de changer les noms</i> et placez dans votre fichier un champ nommé <code class="example1">oldusername</code>.</p>
+
+<p><b>Attention !</b> Les éventuelles erreurs lors de la modification de comptes existants peuvent méchamment affecter vos utilisateurs. Soyez très prudent lorsque vous utilisez les options de modification.</p>

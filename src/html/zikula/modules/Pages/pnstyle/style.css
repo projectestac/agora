@@ -1,0 +1,38 @@
+
+/* admin panel */
+div#pages_category_selectors {
+	display: inline;
+}
+
+/* UI */
+.pages_page_container {
+    margin-bottom: 5px;
+}
+
+.pages_page_header {
+    border-bottom: 1px solid #ddd;
+    font-size: smaller;
+    padding: 5px;
+}
+
+.pages_page_body {
+    margin: 10px;
+}
+
+.pages_page_footer {
+    border-top: 1px solid #ddd;
+    font-size: smaller;
+    padding: 5px;
+    position: relative;
+}
+
+.pages_page_printerlink {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+}
+
+.text_separator {
+    color: #BBBBBB;
+    padding: 0 2px;
+}

@@ -1,0 +1,93 @@
+<h1>Importazione di domande</h1>
+
+<p>Questa funzione permette di importare domande da file di testo esterni, caricati tramite un opportuno form, oppure scegliendo un file predisposto già presente tra i files del corso.</p>
+
+<h2>Una nota sulla codifica dei caratteri</h2>
+
+<p>Se il file da caricare contiene caratteri non ascii, deve essere utilizzata la codifica UTF-8. Si può usare il proprio editor preferito per selezionare e convertire a UTF-8 oppure può essere una opzione nel software di esportazione. I formati di importazione basati su XML gestiranno la trasformazione automaticamente ammesso che il server su cui gira Moodle utilizzi il PHP 5.</p> 
+
+<p>Sono supportati diversi formati di file:</p>
+
+<h2>Formato GIFT</h2>
+
+<p>GIFT è il più completo formato di importazione disponibile per caricare le domande di un quiz da un file di testo. E' stato progettato per offrire ai docenti un metodo semplice per scrivere le domande sotto forma di un semplice testo. Supporta i vari tipi di domande a Risposta multipla, Vero/Falso, Risposta breve, Corrispondenze, Numeriche e anche l'inserimento di un _____ per il formato "parola mancante". Differenti tipi di domanda possono essere mischiati in un unico file di testo, e il formato supporta anche righe di commento, nomi di domande, feedback, e voti pesati su base percentuale. Seguono alcuni esempi:</p>
+
+<pre>
+      In quale isola è morto Napoleone? {~Elba ~Corsica =Sant'Elena}
+
+      Napoleone è morto nell'isola di {~Corsica =Sant'Elena ~Elba}.
+
+      Napoleone è morto in Corsica.{FALSE}
+
+      Napoleone è morto in un'isola?{=si =vero}
+
+      Quando è morto Napoleone?{#1821}
+</pre>
+
+<p class=moreinfo"><a href="help.php?file=formatgift.html&module=quiz">Altre informazioni sul formato "GIFT"</a></p>
+
+<h2>Formato Aiken</h2>
+
+<p>Il formato Aiken costituisce un modo molto semplice di creare domande a risposta multipla usando un linguaggio molto leggibile. Di seguito è riportato un esempio di utilizzo:</p>
+<pre>
+Quale è l'obiettivo di un primo intervento di assistenza?
+A. Salvare la vita, prevenire ulteriori infortuni, conservare una buona salute
+B. Fornire trattamenti medici ad ogni persona infortunata o ferita
+C. Prevenire ulteriori infortuni
+D. Aiutare le vittime che cercano aiuto
+ANSWER: A
+</pre>
+
+<p class=moreinfo"><a href="help.php?file=formataiken.html&module=quiz">Altre informazioni sul formato "Aiken"</a></p>
+
+<h2>Formato Missing Word</h2>
+
+<p>Questo formato supporta solamente domande a risposta multipla e domande a risposta breve. Ogni domanda è separata da una tilde (~), e la risposta corretta è preceduta da un segno uguale (=). Segue un esempio di domanda a risposta multipla:</p>
+
+<blockquote>Appena, da bambini, cominciamo a esplorare le parti del nostro corpo diventiamo studenti di {=anatomia e psicologia ~riflessologia ~scienza ~sperimentazione}, e in un certo senso rimaniamo studenti per tutta la vita.
+</blockquote>
+
+<p>E qui è un esempio di domanda a risposta breve:</p>
+
+<blockquote>Appena, da bambini, cominciamo a esplorare le parti del nostro corpo diventiamo studenti di {=anatomia e psicologia}, e in un certo senso rimaniamo studenti per tutta la vita.
+</blockquote>
+
+<p class=moreinfo"><a href="help.php?file=formatmissingword.html&module=quiz">Altre informazioni sul formato "Missing Word"</a></p>
+
+<h2>Formato Blackboard</h2>
+
+<p>Questo programma filtro può importare domande salvate nel formato di esportazione di Blackboard. E' basato sulle funzioni XML presenti all'interno del PHP. Da notare che bisogna prima unzippare il file zippato esportato e fornire a Moodle l'appropriato file .dat. Da notare anche che questa versione <strong>non</strong> funziona con Blackboard Versione 6 e oltre.</p>
+
+<p class=moreinfo"><a href="help.php?file=formatblackboard.html&module=quiz">Altre informazioni sul formato  "Blackboard"</a></p>
+
+<h2>Blackboard V6+</h2>
+<p>Questo modulo può importare domande salvate nel formato d esportazione di Blackboard. Fornisce un limitato supporto per Blackboard Versione 6 e 7. E' basato su funzioni XML compilate nella propria installazioni di PHP. Bisogna caricare lo zip file esportato da Blackboard.</p>
+
+<h2>Formato WebCT</h2>
+<p>Questo filtro può importare domande salvate nel formato a base testuale di WebCT.</p>
+
+<p class=moreinfo"><a href="help.php?file=formatwebct.html&module=quiz">Altre informazioni sul formato "WebCT"</a></p>
+
+<h2>Formato Course Test Manager</h2>
+<p>Questo filtro permette di importare domande salvate in una banca dati prodotta dal programma Course Test Manager. Esistono diversi modi per accedere alla banca dati, che è un database Microsoft Access, a seconda che Moodle gira su un web server Windows oppure Linux.</p>
+<p>Su Windows esso permette di accedere al database come ogni file di importazione di dati.</p>
+<p>Su Linux, bisogna avere una macchina Windows sulla stessa rete sulla quale si trova il database del Course Test Manager e un pezzo di software che si chiama ODBC Socket Server, che usa l'XML per trasferire i dati a Moodle sul server Linux.</p>  
+<p>Si legga l'help file sotto indicato prima di usare questo filtro d'importazione.</p>
+
+<p class=moreinfo"><a href="help.php?file=formatctm.html&module=quiz">Altre informazioni sul formato "CTM"</a></p>
+
+<h2>Risposte a riempimento di vuoti (Cloze)</h2>
+<p>Questo filtro particolare serve per importare solamente un tipo di domande, quelle con le risposte a riempimento di vuoti (anche dette Cloze).</p>
+
+<p class=moreinfo"><a href="help.php?file=multianswer.html&module=quiz">Altre informazioni sul formato &quot;Cloze&quot;</a></p>
+
+<h2>Formato Learnwise</h2>
+<p>Possono essere importate domande a scelta multipla salvate nel formato XML di Learnwise.</p>
+
+<h2>Formato Examview</h2>
+<p>Possono essere importati files XML prodotti con Examview 4. Da notare che le vecchie versioni di Examview non sono supportate.</p>
+
+<h2>Formato Moodle XML</h2>
+<p>Questo formato specifico di Moodle permette di importare domande precedentemente esportate nello stesso formato. Il formato è molto chiaro e può essere verificato esportando una categoria di domande nel formato stesso.</p>
+
+<p>I formati di importazione e esportazione sono risorse di tipo plugin. Altri formati opzionali possono quindi essere disponibili nel database dei Moduli e dei plugins.</p>

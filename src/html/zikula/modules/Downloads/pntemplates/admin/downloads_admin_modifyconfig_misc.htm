@@ -1,0 +1,83 @@
+<!--[include file="admin/downloads_admin_main_menu.htm"]-->
+<!--[include file="admin/downloads_admin_header.htm"]-->
+
+<!--[*pndebug*]-->
+
+<h2 class="dl_admin_h2"><!--[pnimg src="admin/stats.gif" __alt="General Settings" ]-->&nbsp;&nbsp;<!--[gt text="General Settings"]--></h2>
+<fieldset class="dl_fieldset">
+<legend><!--[gt text="General Settings"]--></legend>
+<form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="admin" func="updateconfig_misc"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div class="dl_conf_list">
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />	
+	<input type="hidden" name="oldthumbwidht" value="<!--[$thumbnailwidth]-->" />
+	<input type="hidden" name="oldthumbheight" value="<!--[$thumbnailheight]-->" />	
+	<dl>
+		<dt><!--[gt text="Use full-text search:"]--></dt>
+		<dd>
+			<select id="downloads_fulltext" name="fulltext">
+	        <!--[$fulltext_set]-->
+	        </select>
+		</dd>		
+		<dt><!--[gt text="Downloads sorted by:"]--></dt>
+		<dd>	
+			 <select id="downloads_sortby" name="sortby">
+	        <!--[$sortby_set]-->
+	        </select>
+		</dd>		
+		<dt><!--[gt text="Sorting:"]--></dt>
+		<dd> 	
+			 <select id="downloads_cclause" name="cclause">
+	        <!--[$cclause_set]-->
+	        </select>
+		</dd>		
+		<dt><!--[gt text="Downloads per page"]--></dt>
+		<dd>	
+			<input id="downloads_perpage" type="text" name="perpage" size="3" value="<!--[$perpage]-->" />
+		</dd>		
+		<dt><!--[gt text="Number of 'Latest Downloads'"]--></dt>
+		<dd>	
+			<input id="downloads_newdownloads" type="text" name="newdownloads" size="3" value="<!--[$newdownloads]-->" />
+		</dd>		
+		<dt><!--[gt text="Number of 'Toprated Downloads'"]--></dt>
+		<dd>	
+			<input id="downloads_topdownloads" type="text" name="topdownloads" size="3" value="<!--[$topdownloads]-->" />
+		</dd>			
+		<dt><!--[gt text="Number of 'Popular download'"]--></dt>
+		<dd>	
+			<input id="downloads_popular" type="text" name="popular" size="3" value="<!--[$popular|pnvarprepfordisplay]-->" />
+		</dd>						
+		<dt><!--[gt text="Activate screenshot for downloads?"]--></dt>
+		<dd>
+			<input type="radio" name="showscreenshot" value="yes" <!--[$showscreenshotonchecked]-->/>&nbsp;<!--[gt text='Yes']-->
+	        <input type="radio" name="showscreenshot" value="no" <!--[$showscreenshotoffchecked]-->/>&nbsp;<!--[gt text='No']-->		
+		</dd>		
+		<dt><!--[gt text="Max. file size for screenshots: "]--></dt>
+		<dd>
+		   	<input id="downloads_screenshotmaxsize" type="text" name="screenshotmaxsize" size="8" value="<!--[$screenshotmaxsize]-->" />
+		   	<select id="downloads_sc_sizetype" name="scsizetype">
+	        	<!--[$scsizetype_set]-->
+	        </select>		   	
+		</dd>	
+		<dt><!--[gt text="Max. file size for thumbnails: "]--></dt>
+		<dd>   	
+			   <input id="downloads_thumbnailmaxsize" type="text" name="thumbnailmaxsize" size="8" value="<!--[$thumbnailmaxsize]-->" />		   	
+		   	<select id="downloads_tn_sizetype" name="tnsizetype">
+	        	<!--[$tnsizetype_set]-->
+	        </select>	        
+		</dd>		
+		<dt><!--[gt text="Max. thumbnailwidth (pixels)"]--></dt>
+		<dd>   	
+			   <input id="downloads_thumbnailwidth" type="text" name="thumbnailwidth" size="5" value="<!--[$thumbnailwidth]-->" />
+		</dd>		
+		<dt><!--[gt text="Max. thumbnail height (pixels)"]--></dt>
+		<dd>  	
+			   <input id="downloads_thumbnailheight" type="text" name="thumbnailheight" size="5" value="<!--[$thumbnailheight]-->" />
+		</dd>		
+		<dt>
+			<input name="submit" type="submit" value="<!--[gt text="Save configuration"]-->" />
+		</dt>
+	</dl>
+</div>
+</form>
+</fieldset>
+<!--[include file="admin/downloads_admin_footer.htm"]-->

@@ -1,0 +1,21 @@
+<!--[include file="iw_users_user_menu.htm"]-->
+<h2>
+	<!--[if $all]-->
+		<!--[gt text="All the groups"]-->
+	<!--[else]-->
+		<!--[gt text="Groups you're already a member"]-->
+	<!--[/if]-->
+</h2>
+<table class="usertable">
+	<th><!--[gt text="Group"]--></th>
+	<th><!--[gt text="N. components"]--></th>
+	<!--[foreach item=group from=$groups]-->
+		<tr bgcolor="<!--[cycle values="#ffffff, #eeeeee"]-->">
+			<td><a href="<!--[pnmodurl modname=iw_users type=user func=members gid=$group.gid]-->"><!--[$group.name]--></a></td>
+			<td align="right"><!--[$group.members]--></td>
+		</tr>
+	<!--[/foreach]-->
+</table>
+<div>
+	<a href="<!--[pnmodurl modname=iw_users type=user func=module]-->"><!--[gt text="About this module"]--></a>
+</div>

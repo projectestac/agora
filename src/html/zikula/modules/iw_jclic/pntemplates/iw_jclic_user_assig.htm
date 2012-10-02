@@ -1,0 +1,275 @@
+<script language="javascript">
+	function send(){
+		var resposta;
+		var error = false;
+		var f = document.assignment_form;
+		if (f.name.value == '') {
+			alert("<!--[gt text="You must enter the name of the activity"]-->");
+			error = true;
+		}
+
+		if (f.url.value == '' && f.file.value == '' && !error) {
+			alert("<!--[gt text="You have not written the url where to find the activity or any file has been chosen to be uploaded to the server"]-->");
+			error = true;
+		}
+
+		if (f.url.value.indexOf("http") != 0 && f.file.value == '' && !error) {
+			alert("<!--[gt text="The format of the link is wrong"]-->");
+			error = true;
+		}
+
+		if (f.file.value.indexOf("zip") == '-1' && f.url.value == '' && !error) {
+			alert("<!--[gt text="The file that you upload to the server has an invalid."]-->");
+			error = true;
+		}
+		
+		
+		if(!error){
+			resposta = confirm("<!--[gt text="Confirms the assignment of the activity"]-->");
+		}
+		
+		if(resposta){
+			document.assignment_form.submit();
+		}
+	}
+
+	function iwjclicUpdateSelectedGroups(){
+		var selectedgroupsstr = document.assignment_form.groups.value;					
+		if (selectedgroupsstr.indexOf('$', 1)>0){
+			var selectedgroups = selectedgroupsstr.substr(1,selectedgroupsstr.length-2).split('$');
+			var groupscontent="";
+			for(i=0;i<selectedgroups.length;i++){
+				groupscontent+=allgroups[selectedgroups[i]];
+				groupscontent+='&nbsp;&nbsp;<a href=\"javascript:void(0);\" onclick =\"iwjclicDeleteGroupToAssignment('+selectedgroups[i]+');\"><!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Delete" __title="Delete"]--></a>';	
+				groupscontent+="<br>";
+			}	
+			document.getElementById('iwjclic-selected-groups').innerHTML=groupscontent+"<br>";	
+		}else{
+			document.getElementById('iwjclic-selected-groups').innerHTML="<br>";
+		}
+	}
+</script>
+<link rel="stylesheet" type="text/css" href="modules/iw_main/js/calendar/css/calendar-blue.css" />	
+<script type="text/javascript" src="modules/iw_main/js/calendar/calendar.js"></script>
+<script type="text/javascript" src="modules/iw_main/js/calendar/calendar-setup.js"></script>
+<script type="text/javascript" src="modules/iw_main/js/calendar/calendar-ca.js"></script>
+
+<!--[include file="iw_jclic_user_menu.htm"]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='filenew.gif' set='icons/large']--></div>
+	<h2><!--[gt text="Assign activities"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+	
+	<form  method="post" name="assignment_form" id="assignment_form" action="<!--[pnmodurl modname="iw_jclic" func="submitAssig"]-->" enctype="multipart/form-data">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_jclic"]-->" />
+		<input type="hidden" name="mode" value="<!--[$mode]-->" />
+		<input type="hidden" name="jid" value="<!--[$jclic.jid]-->" />
+		<fieldset id="general">
+			<legend><!--[gt text="General Parameters"]--></legend>
+			<div>
+				<label for="name">
+					<!--[gt text="Name"]-->:
+					<!--[pnimg modname='jclic' src='req.gif' set='pnimages']-->
+				</label>
+			</div>
+			<div>
+				<input size="64" name="name" type="text" id="name" value="<!--[$jclic.name]-->" />
+			</div>
+			<div style="height:15px;">&nbsp;</div>
+			<div>
+				<label for="description">
+					<!--[gt text="Statement"]-->:
+				</label>
+			</div>
+			<div>
+				<textarea id="intraweb" name="description" rows="7" cols="45"><!--[$jclic.description]--></textarea>
+			</div>
+		</fieldset>
+
+		<fieldset id="header_jclic">
+			<legend>
+				<!--[gt text="Parameters JClic"]-->
+			</legend>
+			<div>
+				<div style="float: left;">
+					<label for="url">
+						<!--[gt text="Link or file activity"]-->:
+						<!--[if $mode neq "edit"]-->
+							<!--[pnimg modname='jclic' src='req.gif' set='pnimages']-->
+						<!--[/if]-->
+					</label>
+				</div>
+				<!--[if $mode eq "edit"]-->
+					<input name="url" type="hidden" value="<!--[$jclic.url]-->"/>
+					<input name="file" type="hidden" value="<!--[$jclic.file]-->"/>
+					<!--[if $jclic.url neq '']-->
+						&nbsp;<strong><!--[$jclic.url]--></strong>
+					<!--[else]-->
+						&nbsp;<strong><!--[$jclic.file]--></strong>
+					<!--[/if]-->
+				<!--[else]-->
+					<div style="float: left;">
+						<input size="50" name="url" type="text" value="" id="url" />
+						<!--[if not $noFolder and not $noWriteable]-->
+							<br />
+							<!--[gt text="or, upload the file from the server activity"]-->
+							<br />
+							<input size="50" name="file" type="file" />
+						<!--[else]-->
+							<input name="file" type="hidden" value=""/>
+						<!--[/if]-->
+					</div>
+					<!--[if $noFolder || $noWriteable]-->
+						<div class="pn-errormsg" style="clear: both;">
+							<!--[gt text="This module supports activities JClic directly to the server, but for a configuration error is not possible. Please contact the portal administrator."]-->
+						</div>
+					<!--[/if]-->
+				<!--[/if]-->
+			</div>
+			<div style="clear: both;"></div>
+			<!--[if $mode neq "edit"]-->
+				<div class="pn-informationmsg">
+					<!--[$iwJclicUrlHelp]-->
+				</div>
+			<!--[/if]-->
+			<div>
+				<label for="skin">
+					<!--[gt text="Skin"]-->:
+				</label>
+				<select name="skin" id="skin">
+					<!--[foreach item="skin" key="k" from="$skinsArray"]-->
+						<option <!--[if $k eq $jclic.skin]-->selected<!--[/if]--> value="<!--[$k]-->"><!--[$skin]--></option>
+					<!--[/foreach]-->
+				</select>
+			</div>
+			<div>
+				<label for="width">
+					<!--[gt text="Width"]-->:
+				</label>
+				<input size="5" name="width" type="text" value="<!--[$jclic.width]-->" id="width" />
+			</div>
+			<div>
+				<label for="height">
+					<!--[gt text="Height"]-->:
+				</label>
+				<input size="5" name="height" type="text" value="<!--[$jclic.height]-->" id="height" />
+			</div>
+		</fieldset>
+		<fieldset id="header_score">
+			<legend>
+				<!--[gt text="Parameters of evaluation"]-->
+			</legend>
+			<div>
+				<label for="maxattempts">
+					<!--[gt text="Maximum number of attempts"]-->:
+				</label>
+				<select name="maxattempts" id="maxattempts">
+					<option value="-1" selected="selected"><!--[gt text="Unlimited"]--></option>
+					<!--[foreach item="maxattempts" from="$maxattemptsArray"]-->
+						<option <!--[if $maxattempts eq $jclic.maxattempts]-->selected<!--[/if]--> value="<!--[$maxattempts]-->"><!--[$maxattempts]--></option>
+					<!--[/foreach]-->
+				</select>
+			</div>
+			<div>
+				<label for="avaluation">
+					<!--[gt text="Evaluation criterion"]-->:
+				</label>
+			</div>
+			<div>
+				<label for="scoreToOptain">
+					<!--[gt text="Scoring average to achieve"]-->:
+				</label>
+				<input size="3" maxlength="2" name="scoreToOptain" type="text" value="<!--[$jclic.scoreToOptain]-->" id="scoreToOptain" /> %
+			</div>
+			<div>
+				<label for="solvedToOptain">
+					<!--[gt text="Number of different activities resolved correctly"]-->:
+				</label>
+				<input size="3" maxlength="2" name="solvedToOptain" type="text" value="<!--[$jclic.solvedToOptain]-->" id="solvedToOptain" />
+			</div>
+		</fieldset>
+		
+		<fieldset id="assig_paremeters">
+			<legend>
+				<!--[gt text="Parameters of the assignment"]-->
+			</legend>
+			<div>
+				<label for="groups">
+					<strong><!--[gt text="List of selected groups"]--></strong>
+				</label>
+				<input name="groups" type="hidden" value="<!--[$groupsString]-->">
+				<div id="iwjclic-selected-groups"><br></div>
+				<script>
+					var allgroups = new Array();
+					<!--[section name=group loop=$groups]-->
+						allgroups['<!--[$groups[group].id]-->']='<!--[$groups[group].name]-->';
+					<!--[/section]-->
+					iwjclicUpdateSelectedGroups();					
+				</script>
+				<label for="width"><!--[gt text="New group"]-->:</label>
+				<select id="newgroup" name="newgroup" style="width: 200px;">
+					<option selected="selected" value="0"><!--[gt text="Select a group ..."]--></option>
+					<!--[foreach item="group" from="$groups"]-->
+						<option value="<!--[$group.id]-->"><!--[$group.name]--></option>
+					<!--[/foreach]-->
+				</select>
+				<a href="javascript:void(0);" onclick="iwjclicAddGroupToAssignment();"><!--[gt text="Add"]--></a> (<!--[gt text="It will not be changed until click the Send link"]-->)
+			</div>
+			<div>
+				<label for="initDate">
+					<!--[gt text="Minimum starting date of the activity"]-->:
+				</label>
+				<input type="text" name="initDate" id="initDate" maxlength="8" size="8" onFocus="blur();" value="<!--[$jclic.initDate]-->" />
+				<a><img id="trigBegin0" name="trigBegin1" src="modules/iw_jclic/pnimages/calendar.gif" style="cursor:pointer;"/> </a>
+			</div>
+
+			<div>
+				<label for="limitDate">
+					<!--[gt text="Deadline"]-->:
+				</label>
+				<input type="text" name="limitDate" id="limitDate" maxlength="8" size="8" onFocus="blur();" value="<!--[$jclic.limitDate]-->" />
+				<a><img id="trigBegin1" name="trigBegin1" src="modules/iw_jclic/pnimages/calendar.gif" style="cursor:pointer;"/> </a>
+			</div>
+
+
+			<div>
+				<label for="observations">
+					<!--[gt text="Comment"]-->:
+				</label>
+				<textarea id="intraweb" name="observations" rows="7" cols="45"><!--[$jclic.observations]--></textarea>
+			</div>
+			<div>
+				<!--[gt text="Active"]-->
+				<input type="checkbox" name="active" <!--[if $jclic.active eq 1]-->checked<!--[/if]--> value="1">
+			</div>
+		</fieldset>
+		<div>
+			<!--[gt text="This form contains fields marked with an"]--> <!--[pnimg modname='jclic' src='req.gif' set='pnimages']-->
+		</div>
+
+		<div class="formOptions" style="text-align:center;">
+			<a href="javascript:send()"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small'   __alt="Send" __title="Send"]--></a><!--[gt text="Send"]-->
+			<a href="<!--[pnmodurl modname="iw_jclic" type="user" func="mian"]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+		</div>
+	</form>
+</div>
+
+<script type="text/javascript">
+	Calendar.setup({
+		inputField     :    "limitDate",      // id of the input field
+		ifFormat       :    "%d/%m/%y",       // format of the input field
+		showsTime      :    true,            // will display a time selector
+		button         :    "trigBegin1",   // trigger for the calendar (button ID)
+		singleClick    :    true,           // double-click mode
+		step           :    1                // show all years in drop-down boxes (instead of every other year as default)
+	});
+	Calendar.setup({
+		inputField     :    "initDate",      // id of the input field
+		ifFormat       :    "%d/%m/%y",       // format of the input field
+		showsTime      :    true,            // will display a time selector
+		button         :    "trigBegin0",   // trigger for the calendar (button ID)
+		singleClick    :    true,           // double-click mode
+		step           :    1                // show all years in drop-down boxes (instead of every other year as default)
+	});
+</script>
+

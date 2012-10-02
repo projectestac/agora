@@ -1,0 +1,12 @@
+<IfModule mod_security.c>
+  # Turn off mod_security filtering.
+  SecFilterEngine Off
+
+  # The below probably isn't needed,
+  # but better safe than sorry.
+  SecFilterScanPOST Off
+</IfModule>
+
+<IfModule mod_gzip.c>
+mod_gzip_on No
+</IfModule>

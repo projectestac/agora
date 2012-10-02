@@ -1,0 +1,30 @@
+<h1>グループのアップロード</h1>
+
+<p>この機能により、Moodleにグループを一括アップロードすることができます。</p>
+
+<ul>
+  <li>ファイルのそれぞれの行に1レコード記述します。</li>
+  <li>それぞれのレコードをカンマで区切ります。</li>
+  <li>最初のレコードは特別な意味を持ち、フィールド名一覧を記述します。 これは残りのレコードフォーマットを定義します。
+    <blockquote>
+      <p><strong>必須フィールド名:</strong> これらのフィールドは最初のレコードに記述し、ユーザごとに定義する必要があります。</p>
+      <p></p>
+      <code class="example1">groupname</code>
+      <p><strong>デフォルト フィールド名:</strong> これらは任意です - レコードに記述されない場合、現在の言語またはコースより値が取得されます。</p>
+      <p><code class="example1">idnumber, coursename, lang</code></p>
+      <p><strong>オプション フィールド名: </strong>これらはすべて完全に任意です。</p>
+      <p> <code class="example1">description, enrolmentkey, picture, hidepicture</code></p>
+    </blockquote>
+    </li>
+  <li>データ中のカンマは &amp;#44 にエンコードしてください - エンコードされたものをスクリプトが自動的にカンマにデコードします。</li>
+  <li>論理型フィールドには false の場合 0 を、true の場合 1 を設定してください。</li>
+  <li>idnumber または coursename のどちらかがコースの確認に使用されます。idnumber はcoursename に優先します。どちらも指令されていない場合、グループは現在のコースに追加されます。</li>
+  <li>Coursenameはコースの省略名です。</li>
+  <li>注意: グループがすでにMoodleデータベースに登録されている場合、このスクリプトはグループのグループ名を返します。 教師は編集権限のあるコースにのみグループをアップロードすることができます。</li>
+</ul>
+   
+<p>下記は有効なインポートファイルの例です:</p>
+<p><code>groupname,idnumber,lang,description,picture <br />
+group1, Phil101, en, this group requires extra attention!, 0 <br />
+group2, Math243, , ,
+</code></p>

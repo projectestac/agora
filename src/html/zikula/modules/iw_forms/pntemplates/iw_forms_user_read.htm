@@ -1,0 +1,45 @@
+<script language="javascript">
+	function send(){
+		document.order.submit();
+	}
+</script>
+<!--[include file="iw_forms_user_menu.htm" fid=$form.fid]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+	<h2><!--[gt text="List of entries submitted"]--></h2>
+	<!--[if $form.showFormName eq 1]-->
+		<div><!--[gt text="Form name"]-->: <!--[$form.formName]--></div>
+	<!--[/if]-->
+	<!--[if $form.showNotesTitle eq 1]-->
+		<div><!--[gt text="Title of the annotations "]-->: <!--[$form.title]--></div>
+	<!--[/if]-->
+	<!--[if !$oneRecord]-->
+		<form name="order" id="order" action="<!--[pnmodurl modname="iw_forms" type="user" func="read"]-->" method="post" enctype="application/x-www-form-urlencoded">
+			<input type="hidden" name="fidReload" value="<!--[$fid]-->">
+			<div style="float: left;">
+				<!--[gt text="N. Entries"]-->:
+				<select name="ipp" onchange="javascript:send()">
+					<option <!--[if $ipp eq 10]-->selected<!--[/if]--> value="10">10</option>
+					<option <!--[if $ipp eq 20]-->selected<!--[/if]--> value="20">20</option>
+					<option <!--[if $ipp eq 30]-->selected<!--[/if]--> value="30">30</option>
+					<option <!--[if $ipp eq 50]-->selected<!--[/if]--> value="50">50</option>
+					<option <!--[if $ipp eq 100]-->selected<!--[/if]--> value="100">100</option>
+				</select>
+			</div>
+		</form>
+	<!--[/if]-->
+	<div style="float: left; margin-left: 20px;"><!--[$pager]--></div>
+	<div style="height:15px; clear:both;">&nbsp;</div>
+	<!--[foreach item="note" from=$notes]-->
+		<!--[if $note.contentBySkin eq '']-->
+			<!--[include file="iw_forms_user_readNoteContent.htm"]-->
+			<div>&nbsp;</div>
+		<!--[else]-->
+			<!--[add_additional_header header=$form.skincssurl]-->
+			<!--[$note.contentBySkin|pnvarcensor|pnvarprephtmldisplay|replace:"|per|":"%"|replace:"|par|":"#"|replace:"|int|":"?"|replace:"|amp|":"&"]-->
+		<!--[/if]-->
+	<!--[foreachelse]-->
+		<div><!--[gt text="Not annotations found"]--></div>
+	<!--[/foreach]-->
+	<div style="float: left; margin-left: 20px;"><!--[$pager]--></div>
+</div>

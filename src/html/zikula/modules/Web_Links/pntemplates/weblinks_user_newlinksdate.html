@@ -1,0 +1,26 @@
+<!--[*  $Id: weblinks_user_newlinksdate.html 46 2009-01-24 22:51:07Z Petzi-Juist $  *]-->
+<!--[include file="weblinks_user_header.html"]-->
+<div class="wl-borderbox">
+
+  <h3><!--[$dateview|pnvarprepfordisplay]--> - <!--[$totallinks|pnvarprepfordisplay]--> <!--[if $totallinks == 1]--><!--[gt text="New link"]--><!--[else]--><!--[gt text="New links"]--><!--[/if]--></h3>
+
+  <!--[foreach from=$weblinks item=weblinks]-->
+  <dl class="wl-linkbox">
+    <dt><a href="<!--[pnmodurl modname=Web_Links type=user func=visit lid=$weblinks.lid]-->"<!--[if $tb eq 1]--> target="_blank"<!--[/if]-->><!--[$weblinks.title|pnvarprepfordisplay]--></a><!--[newlinkgraphic time=$weblinks.date]--><!--[popgraphic hits=$weblinks.hits]--></dt>
+    <dd><!--[gt text="Category"]-->: <!--[catpath cid=$weblinks.cid start=1 links=1 linkmyself=1]--></dd>
+    <!--[if $weblinks.description]-->
+    <dd><p><!--[$weblinks.description|pnvarprephtmldisplay|pnmodcallhooks:"Web_Links"]--></p></dd>
+    <!--[/if]-->
+    <dd><!--[gt text="Added on"]-->: <!--[$weblinks.date|pndate_format:"%d.%m.%Y"]--> | <!--[gt text="Hits"]-->: <!--[$weblinks.hits]--></dd>
+    <!--[pnmodcallhooks hookobject=item hookaction=display hookid=$weblinks.lid module=Web_Links returnurl=$returnurl implode=false]-->
+    <!--[if $hooks.Ratings]-->
+    <dd><!--[$hooks.Ratings]--></dd>
+    <!--[/if]-->
+    <dd>
+      <!--[include file="weblinks_user_linkbottommenu.html"]-->
+    </dd>
+  </dl>
+  <!--[/foreach]-->
+
+</div>
+<!--[include file="weblinks_user_footer.html"]-->

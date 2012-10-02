@@ -1,0 +1,13 @@
+<h2>Teilnehmer/innen und Trainer/innen aus einem Kurs löschen</h2>
+
+<p>Die IMS-Daten erlauben sowohl das Einschreiben von Teilnehmer/innen in einen Kurs als auch das Löschen derselben aus einem Kurs. Wenn diese Funktion aktiviert ist, löscht Moodle Teilnehmer/innen aus einem Kurs, wenn das in der IMS-Datei entsprechend spezifiziert ist.</p>
+
+<p>Es gibt 3 Möglichkeit, das Löschen von Teilnehmer/innen in der IMS-Datei zu spezifizieren:</p>
+
+<ul><li>Ein &lt;member&gt; Element definiert Teilnehmer/in und Kurs. Das "recstatus" Attribut des  &lt;role&gt; Elements mit dem Wert 3 bedeutet 'löschen'. DIESE FUNKTION IST ZUR ZEIT IN MOODLE NICHT IMPLEMENTIERT.</li>
+
+<li> A &lt;member&gt; Element definiert Teilnehmer/in und Kurs. Das "status" Element mit dem Wert 0 bedeutet 'inaktiv'.</li></ul>
+
+<p>Die dritte Möglichkeit ist ein wenig anders aufgebaut. Dazu müssen Sie diese Funktion hier nicht aktivieren. Die Festlegung erfolgt durch ein Ablaufdatum (unenrolement date) wie folgt:</p>
+
+<ul><li>Ein &lt;member&gt; Element definiert einen &lt;timeframe&gt; (Zeitrahmen) für die Teilnahmedauer. Sie können Start- und Endzeitpunkt für jede/n einzelne/n Teilnehmer/in festlegen. Diese Daten werden in die Moodle-Datenbank übernommen. Nach Ablauf der Teilnahmedauer kann der/die Teilnehmer/in den Kursraum nicht mehr betreten.</li></ul>

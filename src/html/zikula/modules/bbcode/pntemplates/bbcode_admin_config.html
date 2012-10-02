@@ -1,0 +1,178 @@
+<!--[* $Id: bbcode_admin_config.html 217 2009-11-12 17:06:36Z herr.vorragend $ *]-->
+<!--[pnajaxheader modname=bbcode nobehaviour=true noscriptaculous=true effects=true]-->
+<!--[include file=bbcode_admin_menu.html]-->
+<h2><!--[gt text='Settings']--></h2>
+
+<p class="z-warningmsg"><!--[gt text="Notice! Please allow the used HTML tags in the SecurityCenter."]--></p>
+
+<!--[pnform cssClass="z-form"]-->
+<!--[pnformvalidationsummary]-->
+
+<fieldset>
+    <legend><!--[gt text='Configuration [code][/code]']--></legend>
+    <div class="z-formrow">
+        <!--[pnformlabel for="code_enabled" __text="Enable code highlighting"]-->
+        <!--[pnformcheckbox id="code_enabled" checked=$pncore.bbcode.code_enabled onchange="switchdisplaystate('codeconfig');"]-->
+    </div>
+    <div id="codeconfig">
+        <div class="z-formrow">
+            <!--[pnformlabel for="code" __text="Code"]-->
+            <!--[pnformtextinput id="code" textMode="multiline" rows="3" cols="50" maxLength="200" text=$pncore.bbcode.code]-->
+            <p class="z-formnote z-informationmsg"><!--[gt text='%h = Header (Code), %c=lines of code, %j=lines of code, escaped for javascript.']--></p>
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="syntaxhilite" __text="Select code highlight mode"]-->
+            <!--[pnformdropdownlist id="syntaxhilite" items=$hiliteoptions selectedValue=$pncore.bbcode.syntaxhilite]-->
+        </div>
+        <div class="z-formrow">
+            <label><!--[gt text='Preview']--></label>
+        </div>
+        <div class="z-formnote"><!--[$code_preview|pnvarprephtmldisplay]--></div>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend><!--[gt text='Configuration [quote][/quote]']--></legend>
+    <div class="z-formrow">
+        <!--[pnformlabel for="quote_enabled" __text="Enable quote highlighting"]-->
+        <!--[pnformcheckbox id="quote_enabled" checked=$pncore.bbcode.quote_enabled onchange="switchdisplaystate('quoteconfig');"]-->
+    </div>
+    <div id="quoteconfig">
+        <div class="z-formrow">
+            <!--[pnformlabel for="quote" __text="Quote"]-->
+            <!--[pnformtextinput id="quote" textMode="multiline" rows="3" cols="50" maxLength="200" text=$pncore.bbcode.quote]-->
+            <p class="z-formnote z-informationmsg"><!--[gt text='%u = username, %t=quoted text']--></p>
+        </div>
+        <div class="z-formrow">
+            <label><!--[gt text='Preview']--></label>
+        </div>
+        <div class="z-formnote"><!--[$quote_preview|pnvarprephtmldisplay]--></div>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend><!--[gt text='Configuration [color][/color]']--></legend>
+    <div class="z-formrow">
+        <!--[pnformlabel for="color_enabled" __text="Enable flexible text colors"]-->
+        <!--[pnformcheckbox id="color_enabled" checked=$pncore.bbcode.color_enabled onchange="switchdisplaystate('colorconfig');"]-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="allow_usercolor" __text="Allow userdefined text color"]-->
+        <!--[pnformcheckbox id="allow_usercolor" checked=$pncore.bbcode.allow_usercolor]-->
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend><!--[gt text='Configuration [size][/size]']--></legend>
+    <div class="z-formrow">
+        <!--[pnformlabel for="size_enabled" __text="Enable flexible text size"]-->
+        <!--[pnformcheckbox id="size_enabled" checked=$pncore.bbcode.size_enabled onchange="switchdisplaystate('sizeconfig');"]-->
+    </div>
+    <div id="sizeconfig">
+        <div class="z-formrow">
+            <!--[pnformlabel for="size_tiny" __text="Tiny"]-->
+            <div>
+                <!--[pnformtextinput id="size_tiny" text=$pncore.bbcode.size_tiny|pnvarprepfordisplay size="20" maxLength="30"]-->
+                <span style="font-size: <!--[$pncore.bbcode.size_tiny]-->;">TestTESTtest</span>
+            </div>
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="size_small" __text="Small"]-->
+            <div>
+                <!--[pnformtextinput id="size_small" text=$pncore.bbcode.size_small|pnvarprepfordisplay size="20" maxLength="30"]-->
+                <span style="font-size: <!--[$pncore.bbcode.size_small]-->;">TestTESTtest</span>
+            </div>
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="size_normal" __text="Normal"]-->
+            <div>
+                <!--[pnformtextinput id="size_normal" text=$pncore.bbcode.size_normal|pnvarprepfordisplay size="20" maxLength="30"]-->
+                <span style="font-size: <!--[$pncore.bbcode.size_normal]-->;">TestTESTtest</span>
+            </div>
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="size_large" __text="Large"]-->
+            <div>
+                <!--[pnformtextinput id="size_large" text=$pncore.bbcode.size_large|pnvarprepfordisplay size="20" maxLength="30"]-->
+                <span style="font-size: <!--[$pncore.bbcode.size_large]-->;">TestTESTtest</span>
+            </div>
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="size_huge" __text="Huge"]-->
+            <div>
+                <!--[pnformtextinput id="size_huge" text=$pncore.bbcode.size_huge|pnvarprepfordisplay size="20" maxLength="30"]-->
+                <span style="font-size: <!--[$pncore.bbcode.size_huge]-->;">TestTESTtest</span>
+            </div>
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="allow_usersize" __text="Allow userdefined text size"]-->
+            <!--[pnformcheckbox id="allow_usersize" checked=$pncore.bbcode.allow_usersize]-->
+        </div>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend><!--[gt text='Configuration of mimeTeX integration [math][/math]']--></legend>
+    <div class="z-formrow">
+        <!--[pnformlabel for="mimetex_enabled" __text="Enable mimeTeX support"]-->
+        <!--[pnformcheckbox id="mimetex_enabled" checked=$pncore.bbcode.mimetex_enabled onchange="switchdisplaystate('mimetexconfig');"]-->
+    </div>
+    <div id="mimetexconfig">
+        <div class="z-formrow">
+            <!--[pnformlabel for="mimetex_url" __text="Full URL to the mimeTeX cgi script"]-->
+            <!--[pnformtextinput id="mimetex_url" text=$pncore.bbcode.mimetex_url|pnvarprepfordisplay size="20" maxLength="99"]-->
+            <p class="z-formnote z-sub"><!--[gt text="Please use an own mimeTeX installation for your website!"]--></p>
+        </div>
+        <div class="z-formrow z-formnote">
+            <!--[if $mimetex_url ne ""]-->
+            <!--[gt text="Test image for mimeTeX"]-->: [math]a^2+b^2=c^2[/math]<br />
+            <img src="<!--[$mimetex_url]-->?a^2+b^2=c^2" alt='' />
+            <!--[else]-->
+            <!--[gt text="Enter URl to your mimeTeX installation and you will see a test image here"]-->
+            <!--[/if]-->
+        </div>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend><!--[gt text='Miscellaneous settings']--></legend>
+    <div class="z-formrow">
+        <!--[pnformlabel for="link_shrinksize" __text="Shrink links to"]-->
+        <div><!--[pnformintinput id="link_shrinksize" minValue="0" maxValue="50" size="2" text=$pncore.bbcode.link_shrinksize]-->&nbsp;<!--[gt text="chars"]--></div>
+        <p class="z-formnote z-informationmsg"><!--[gt text="Shrinks the urls shown to the specified length (0=no action)."]--></p>
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="lightbox_enabled" __text="Use Lightbox in img-tag"]-->
+        <!--[pnformcheckbox id="lightbox_enabled" checked=$pncore.bbcode.lightbox_enabled onchange="switchdisplaystate('lightboxconfig');"]-->
+    </div>
+    <div id="lightboxconfig">
+        <div class="z-formrow">
+            <!--[pnformlabel for="lightbox_previewwidth" __text="Width of preview image"]-->
+            <div><!--[pnformintinput id="lightbox_previewwidth" minValue="50" maxValue="1000" size="4" text=$pncore.bbcode.lightbox_previewwidth]--> px&nbsp;<!--[gt text="(50-1000px)"]--></div>
+            <p class="z-formnote z-informationmsg"><!--[gt text="Height will be calculated by the browser automatically."]--></p>
+        </div>
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="spoiler_enabled" __text="Enable spoiler tag"]-->
+        <!--[pnformcheckbox id="spoiler_enabled" checked=$pncore.bbcode.spoiler_enabled onchange="switchdisplaystate('spoilerconfig');"]-->
+    </div>
+    <div id="spoilerconfig">
+        <div class="z-formrow">
+            <!--[pnformlabel for="spoiler" __text="HTML for spoiler tag"]-->
+            <!--[pnformtextinput id="spoiler" textMode="multiline" rows="3" cols="50" maxLength="200" text=$pncore.bbcode.spoiler]-->
+            <p class="z-formnote z-informationmsg"><!--[gt text='%h = Heading (Spoiler follows), %s = text']--></p>
+        </div>
+        <div class="z-formrow">
+            <label><!--[gt text='Preview']--></label>
+        </div>
+        <div class="z-formnote"><!--[$spoiler_preview|pnvarprephtmldisplay]--></div>
+    </div>
+</fieldset>
+
+<div class="z-formbuttons">
+    <!--[pnformbutton id="submit" commandName="submit" __text="Update"]-->
+</div>
+
+<!--[/pnform]-->
+
+<!--[include file="bbcode_admin_footer.html"]-->

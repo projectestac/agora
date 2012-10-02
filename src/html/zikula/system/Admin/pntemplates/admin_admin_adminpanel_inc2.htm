@@ -1,0 +1,24 @@
+<!--[* $Id: admin_admin_adminpanel_inc2.htm 27790 2009-11-30 10:12:34Z herr.vorragend $ *]-->
+
+<div id="z-adminiconlist" class="z-clearfix">
+    <!--[assign var="count" value="0"]-->
+    <!--[foreach from=$adminlinks item=adminlink]-->
+        <!--[math equation="$count+1" assign="count"]-->
+        <dl class="z-adminiconcontainer z-admincenter" style="width:<!--[math equation='100/x' x=$modulesperrow format='%.0f']-->%;">
+            <!--[if $admingraphic eq 1]-->
+            <dd class="z-adminimg">
+                <a class="admininfo" title="<!--[$adminlink.menutexttitle]-->" href="<!--[$adminlink.menutexturl|pnvarprepfordisplay]-->">
+                    <img src="<!--[$adminlink.adminicon]-->" title="<!--[$adminlink.menutexttitle|pnvarprepfordisplay]-->" alt="<!--[$adminlink.menutext|pnvarprepfordisplay]-->" />
+                </a>
+            </dd>
+            <!--[/if]-->
+            <dt>
+                <a class="z-adminmodtitle" title="<!--[$adminlink.menutexttitle]-->" href="<!--[$adminlink.menutexturl|pnvarprepfordisplay]-->"><!--[$adminlink.menutext|pnvarprepfordisplay]--></a>
+            </dt>
+        </dl>
+        <!--[if $count eq $modulesperrow]-->
+        <!--[assign var="count" value="0"]-->
+        <br class="z-clearer" />
+        <!--[/if]-->
+    <!--[/foreach]-->
+</div>

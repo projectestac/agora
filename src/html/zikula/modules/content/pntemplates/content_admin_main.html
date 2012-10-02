@@ -1,0 +1,29 @@
+<!--[gt text="Module administration" assign=templatetitle]-->
+<!--[admincategorymenu]-->
+<!--[pnmodgetinfo module=content info=all assign=modinfo]-->
+
+<div class="z-adminbox">
+    <h2><!--[$modinfo.displayname]--></h2>
+    <div class="z-menu"><!--[moduleadminlinks modname=content]--></div>
+</div>
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=windowlist.gif set=icons/large alt=$templatetitle]--></div>
+    <h3><!--[$templatetitle]--></h3>
+
+    <p><!--[gt text="Welcome to your content administration. We have split the editing and administrative setup into separate systems. So please select from the list below or the menu above."]--></p>
+
+    <ul>
+        <li><a href="<!--[pnmodurl modname=content type=edit]-->"><!--[gt text="Edit contents"]--></a></li>
+        <li><a href="<!--[pnmodurl modname=content type=admin func=settings]-->"><!--[gt text="Settings"]--></a></li>
+        <li><a href="<!--[pnmodurl modname=content type=user func=sitemap]-->"><!--[gt text="Sitemap"]--></a></li>
+        <li><a href="<!--[pnmodurl modname=content type=user func=extlist]-->"><!--[gt text="Extended page list (showing page headers)"]--></a></li>
+        <li><a href="<!--[pnmodurl modname=content type=user func=pagelist]-->"><!--[gt text="Complete page list (showing complete pages)"]--></a></li>
+        <li><a href="<!--[pnmodurl modname=content type=user func=categories]-->"><!--[gt text="Show content by category"]--></a></li>
+    </ul>
+
+    <p class="z-center">
+        <a href="http://code.zikula.org/content/" title="content"><!--[$modinfo.name]--> v<!--[$modinfo.version]--></a>
+    </p>
+
+</div>

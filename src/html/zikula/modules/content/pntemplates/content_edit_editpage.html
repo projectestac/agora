@@ -1,0 +1,132 @@
+<!--[pnajaxheader modname=content dragdrop=1 builder=1 noscriptaculous=1 nobehaviour=1]-->
+<!--[contentpagepath pageId=$page.id language=$page.language assign='subheader']-->
+<!--[contentpageheading __header='Edit page' subheader=$subheader]-->
+
+<!--[pnpageaddvar name="javascript" value="modules/content/pnjavascript/portal.js"]-->
+<script type="text/javascript" >
+    //<![CDATA[
+    content.pageId = <!--[$page.id]-->;
+    Event.observe(window, 'load', content.editPageOnLoad);
+    //]]>
+</script>
+<!--[pnmodurl modname=content type=edit func=editcontent cid="{commandArgument}" assign=editUrl]-->
+<!--[pnmodurl modname=content type=edit func=newcontent above=1 cid="{commandArgument}" assign=aboveUrl]-->
+<!--[pnmodurl modname=content type=edit func=newcontent above=0 cid="{commandArgument}" assign=belowUrl]-->
+<!--[pnmodurl modname=content type=edit func=translatecontent cid="{commandArgument}" assign=translateUrl]-->
+
+<!--[insert name="getstatusmsg"]-->
+
+<!--[pnform cssClass='z-form']-->
+
+<!--[pnformcontextmenu id="contentEditMenu" width="auto"]-->
+<!--[pnformcontextmenuitem __title='Edit' imageURL="images/icons/extrasmall/edit.gif" commandRedirect=$editUrl]-->
+<!--[pnformcontextmenuitem __title='Add new content above' imageURL="images/icons/extrasmall/insert_table_row_above.gif" commandRedirect=$aboveUrl]-->
+<!--[pnformcontextmenuitem __title='Add new content below' imageURL="images/icons/extrasmall/insert_table_row.gif" commandRedirect=$belowUrl]-->
+<!--[pnformcontextmenuitem __title='Delete' imageURL="images/icons/extrasmall/delete_table_row.gif" commandName='deleteContent' __confirmMessage='Delete']-->
+<!--[if $multilingual==1]-->
+<!--[pnformcontextmenuitem __title='Translate' imageURL="images/icons/extrasmall/voice-support.gif" commandRedirect=$translateUrl]-->
+<!--[/if]-->
+<!--[/pnformcontextmenu]-->
+
+<!--[pnmodurl modname=content type=edit func=editcontent cid="{commandArgument}" assign=editUrl]-->
+
+
+<!--[pnformerrormessage id='error']-->
+
+<!--[contentformframe]-->
+
+<!--[pnformtabbedpanelset]-->
+
+<!--[pnmodgetvar module="Content" name="enableVersioning" assign=enableVersioning]-->
+<!--[if !empty($enableVersioning)]-->
+<ul class="content-subtabs">
+    <li><a href="<!--[pnmodurl modname=content type=edit func=history pid=$page.id]-->"><!--[gt text="History"]--></a></li>
+</ul>
+<!--[/if]-->
+
+<!--[pnformtabbedpanel __title='Content']-->
+<!--[include file=$layoutTemplate]-->
+<!--[/pnformtabbedpanel]-->
+
+<!--[pnformtabbedpanel __title='Options']-->
+<fieldset>
+    <legend><!--[gt text="Page settings"]--></legend>
+    <div class="z-formrow">
+        <!--[pnformlabel for='title' __text='Page title']-->
+        <!--[pnformtextinput id='title' mandatory='1' maxLength='255' group='page']-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for='urlname' __text='Permalink URL name']-->
+        <!--[pnformtextinput id='urlname' maxLength='255' group='page']-->
+        <!--[contentlabelhelp __text='Used to refer this page in short URLs mode. Leave as blank for default value.']-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for='inMenu' __text='Page language']-->
+        <!--[pnformlanguageselector id='language' group='page' addAllOption='0']-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for='inMenu' __text='Include page in menu']-->
+        <!--[pnformcheckbox id='inMenu' group='page']-->
+    </div>
+</fieldset>
+<fieldset>
+    <legend><!--[gt text="Page state"]--></legend>
+    <div class="z-formrow">
+        <!--[pnformlabel for='active' __text='Online']-->
+        <!--[pnformcheckbox id='active' group='page']-->
+        <!--[contentlabelhelp __text='You can set the page online/offline as well as supply a date interval for the page to be online. The checkbox overrides the dates.']-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for='activeFrom' __text='Start date']-->
+        <!--[pnformdateinput id='activeFrom' group='page']-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for='activeTo' __text='End date']-->
+        <!--[pnformdateinput id='activeTo' group='page']-->
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend><!--[gt text="Categories"]--></legend>
+    <div class="z-formrow">
+        <!--[pnformlabel for='categoryId' __text='Primary category']-->
+        <div>
+            <!--[pnformcategoryselector id='categoryId' group='page' category=$mainCategory includeEmptyElement='1']-->
+        </div>
+    </div>
+    <div class="z-formrow">
+        <label><!--[gt text="Secondary categories"]--></label>
+        <!--[pnformcategorycheckboxlist id='categories' group='page' category=$mainCategory repeatcolumns='1']-->
+    </div>
+</fieldset>
+
+
+<!--[/pnformtabbedpanel]-->
+
+<!--[pnformtabbedpanel __title='Layout']-->
+<fieldset>
+    <legend><!--[gt text="Page layout"]--></legend>
+    <div class="z-formrow">
+        <!--[pnformlabel for='layout' __text='Page layout']-->
+        <!--[contentlayoutselector id='layout' group='page']-->
+    </div>
+</fieldset>
+
+<!--[/pnformtabbedpanel]-->
+
+<!--[/pnformtabbedpanelset]-->
+
+<!--[contentbuttons]-->
+<!--[pnformbutton commandName="save" __text="Save"]-->
+<!--[pnformbutton commandName="deletePage" __text="Delete" __confirmMessage='Delete']-->
+<input type="submit" value="<!--[gt text="Preview"]-->" onclick="window.open('<!--[pnmodurl modname=content type=user func=view preview=1 pid=$page.id]-->')" />
+<!--[pnformbutton commandName="saveAndView" __text="Save & View"]-->
+<!--[if $multilingual==1]-->
+<!--[pnformbutton commandName="translate" __text="Translate"]-->
+<!--[/if]-->
+<!--[pnformbutton commandName="cancel" __text="Cancel"]-->
+<!--[/contentbuttons]-->
+
+<!--[/contentformframe]-->
+
+<!--[/pnform]-->

@@ -1,0 +1,31 @@
+<?php
+
+    print_container_end(); // content container
+
+    print_container_start(false, '', 'footer');
+    echo '<p class="helplink">';
+    echo page_doc_link(get_string('moodledocslink'));
+    echo '</p>';
+
+    echo $loggedinas;
+	echo '<a href="http://agora.xtec.cat/" title="Portal Àgora de la XTEC"><img src="'.$CFG->themewww .'/'. current_theme().'/images/logo_agora.gif" alt="Portal Àgora de la XTEC" border="0"></a>';
+	echo '<a href="http://moodle.org/" title="Moodle"><img src="'.$CFG->themewww .'/'. current_theme().'/images/logo_moodle.gif" alt="Moodle" border="0"></a>';
+	
+    //echo $homelink;
+
+    if (!empty($performanceinfo)) {
+        echo $performanceinfo;
+    }
+
+    if (debugging()) { ?>
+        <div class="validators"><ul>
+          <li><a href="http://validator.w3.org/check?verbose=1&amp;ss=1&amp;uri=<?php echo urlencode(qualified_me()) ?>">Validate HTML</a></li>
+          <li><a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=-1&amp;url1=<?php echo urlencode(qualified_me()) ?>">Section 508 Check</a></li>
+          <li><a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=0&amp;warnp2n3e=1&amp;url1=<?php echo urlencode(qualified_me()) ?>">WCAG 1 (2,3) Check</a></li>
+        </ul></div>
+<?php }
+?>
+
+</div>
+</body>
+</html>

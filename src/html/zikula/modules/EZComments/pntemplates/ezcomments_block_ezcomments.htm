@@ -1,0 +1,22 @@
+<ul>
+    <!--[foreach from=$comments item=comment]-->
+    <li>
+        <!--[if $comment.subject neq '']-->
+        <a href="<!--[$comment.url|pnvarprepfordisplay]-->#comment<!--[$comment.id|pnvarprepfordisplay]-->"><!--[$comment.subject|pnvarprepfordisplay]--></a>
+        <!--[else]-->
+        <a href="<!--[$comment.url|pnvarprepfordisplay]-->#comment<!--[$comment.id|pnvarprepfordisplay]-->"><!--[$comment.comment|strip_tags:false|truncate:30|pnvarprepfordisplay]--></a>
+        <!--[/if]-->
+        <!--[if $showusername and $comment.uname neq '']-->
+        <!--[gt text="by" domain="module_ezcomments"]-->
+        <!--[if $linkusername]-->
+        <!--[$comment.uid|userprofilelink]-->
+        <!--[else]-->
+        <!--[$comment.uname|pnvarprepfordisplay]-->
+        <!--[/if]-->
+        <!--[/if]-->
+        <!--[if $showdate]-->
+        <!--[gt text="on" domain="module_ezcomments"]-->&nbsp;<!--[$comment.date|pndate_format|pnvarprephtmldisplay]-->
+        <!--[/if]-->
+    </li>
+    <!--[/foreach]-->
+</ul>

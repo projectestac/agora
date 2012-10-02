@@ -1,0 +1,23 @@
+<!-- $Id: aggregationcoefextra.html,v 1.3 2008/04/18 20:26:54 martignoni Exp $ -->
+
+<h1>Coefficient de points supplémentaires</h1>
+
+<p>Une valeur supérieure à 0 dans ce champ aura pour effet que la note obtenue pour cet élément d'évaluation sera traitée comme des points supplémentaires lors du calcul de la tendance centrale. Cette valeur est un facteur par lequel la valeur de la note sera multipliée avant d'être ajoutée à la somme de toutes les notes. L'élément lui-même ne sera pas utilisé dans la division.</p>
+
+<p>Voici un exemple :</p>
+
+<ul>
+
+    <li>l'élément 1 est noté de 0 à 100 et sa valeur pour le coefficient de points supplémentaires est 2 ;</li>
+
+    <li>l'élément 2 est noté de 0 à 100 et sa valeur pour le coefficient de points supplémentaires est laissée à 0 ;</li>
+
+    <li>l'élément 3 est noté de 0 à 100 et sa valeur pour le coefficient de points supplémentaires est laissée à 0 ;</li>
+
+    <li>Tous les 3 éléments font partie de la catégorie 1, dont la tendance centrale choisie est la « Moyenne des notes (avec points supplémentaires) » ;</li>
+    
+    <li>Un participant obtient la note 20 pour l'élément 1, 40  pour l'élément 2 et 70 pour l'élément 3 ;</li>
+    
+    <li>La note du participant pour la catégorie 1 sera de 95/100 puisque 95 = 20*2 + (40 + 70)/2.</li>
+
+</ul>

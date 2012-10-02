@@ -1,0 +1,31 @@
+<!--[include file="iw_chat_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='filenew.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<!--[if $rid]-->
+		<h2><!--[gt text="Edit chat room"]--></h2>
+	<!--[else]-->
+		<h2><!--[gt text="Create a new chat room"]--></h2>
+	<!--[/if]-->
+	<form  class="pn-adminform" method="post" name="new_chat_room" id="new_chat_room" action="<!--[pnmodurl modname="iw_chat" type="admin" func="newEdit"]-->" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="rid" value="<!--[$rid]-->" />
+		<input type="hidden" name="confirm" value="1" />
+		<input type="hidden" name="groups" value="<!--[$groups]-->" />
+		<div class="pn-adminformrow">
+			<label for="room_name"><!--[gt text="Room name"]--></label>
+			<input id="room_name" name="room_name" type="text" size="25" maxlength="200" value="<!--[$room_name]-->"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="room_desc"><!--[gt text="Description"]--></label>
+			<input id="room_desc" name="room_desc" type="text" size="50" maxlength="200" value="<!--[$room_desc]-->"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="active"><!--[gt text="Active"]--></label>
+			<input id="active" name="active" type="checkbox" value="1" <!--[if $active eq 1]-->checked<!--[/if]--> />
+		</div>
+		<div class="formOptions" align="center">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Create" __title="Create"]-->
+			<a href="<!--[pnmodurl modname=iw_chat type=admin func=main]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+		</div>
+	</form>
+</div>

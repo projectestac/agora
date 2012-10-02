@@ -1,0 +1,36 @@
+<!--[include file=user/downloads_user_header.htm]-->
+	
+	<!--[dl_mainuserlinks id="dl_usermain_menu"]-->
+	
+		<div id="dl_user_catnavpath">
+			<!--[$nav_path]-->
+		</div>
+	
+		<h3><!--[$catinfo.title|pnvarprepfordisplay]--></h3>
+		<p><!--[gt text="Description:"]-->&nbsp;&nbsp;<!--[$catinfo.description|pnvarprepfordisplay]-->&nbsp;</p>
+		
+		<!--[dl_show_childs cid=$cid assign=thechilds]-->
+		<div class="dl_childs_container">
+		<h3><!--[gt text="Subcategories in this category:"]--></h3>
+		<!--[foreach item=child from=$thechilds]-->
+		<span class="dl_childs"><!--[pnimg src="user/foldersmall.png" __alt="General Settings" ]-->&nbsp;&nbsp;<!--[$child]--></span>
+		<!--[/foreach]-->
+		</div>
+
+	<!--[if $numitems > 1]-->
+
+		<!--[dl_user_sublevel_sortlinks  cid=$cid]-->	
+
+	<!--[/if]-->	
+
+	<div>
+	<!--[dl_view_pager total=$numitems start=$start cid=$cid cclause=$cclause sortby=$sortby]-->
+	
+	
+	<!--[include file=user/downloads_user_downloadcontainer.htm]-->
+	
+	
+	<!--[dl_view_pager total=$numitems start=$start cid=$cid cclause=$cclause sortby=$sortby]-->
+	
+	</div>
+<!--[include file=user/downloads_user_footer.htm]-->

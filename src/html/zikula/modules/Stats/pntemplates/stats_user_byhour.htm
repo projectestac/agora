@@ -1,0 +1,12 @@
+<!--[*  $Id: stats_user_byhour.htm 9 2008-11-05 21:42:16Z Guite $  *]-->
+<h2><!--[gt text="Visits by hour"]--></h2>
+<table class="pn-datatable">
+    <tbody>
+	<!--[foreach from=$byhour item=hour]-->
+		<tr>
+    	    <td align="left"><!--[$hour.label]-->:</td>
+        	<td><!--[makepercentbar percent=$hour.percent label="`$hour.percent`%" width=200]--> <!--[$hour.percent]-->% (<!--[$hour.hits]-->)</td>
+		</tr>
+	<!--[/foreach]-->
+	</tbody>
+</table>

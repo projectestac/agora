@@ -1,0 +1,12 @@
+Changelog
+
+07-06-2001:Alarion - Baselined
+07-06-2001:Wandrer - Changed if/else block to switch/case blocks
+07-06-2001:Wandrer - Changed mysql to use count(*) instead of
+                     mysql_num_rows for speed increase
+03-05-2005:markwest - complete re-write to pnAPI compliance and template using pnRender
+		      added support for mozilla, firefox(and firebird), safari browsers
+                      added macosx support
+                      module specific stats move to plugins
+                      new graphics from bbclone
+                      option to reset site and browser/os stats added

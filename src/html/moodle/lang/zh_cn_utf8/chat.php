@@ -1,0 +1,76 @@
+<?PHP // $Id$ 
+      // chat.php - created with Moodle 1.9.5 (Build: 20090520) (2007101550)
+
+
+$string['autoscroll'] = '自动滚屏';
+$string['beep'] = '呼叫';
+$string['chat:chat'] = '参与聊天';
+$string['chat:deletelog'] = '删除聊天日志';
+$string['chat:readlog'] = '阅读聊天日志';
+$string['chat:talk'] = '发言';
+$string['chatintro'] = '简要描述';
+$string['chatname'] = '聊天室名称';
+$string['chatreport'] = '聊天话题';
+$string['chattime'] = '聊天开始时间';
+$string['configmethod'] = '普通的聊天室模式让客户端持续的联系服务器以获取更新。这种方式无需任何配置便可在所有环境下工作，但当很多人一起聊天时会给服务器带来极大负荷。使用聊天服务器程序需要访问 Unix 的 Shell，但却可以得到一个快速而稳定的聊天环境。';
+$string['confignormalupdatemode'] = '聊天室更新可以使用 HTTP 1.1 的 <em>Keep-Alive</em> 特性而高效地服务，但事实上这样仍然给服务器带来很大的负荷。更好的方法是使用 <em>Stream</em> 来满足更新需求。使用 <em>Stream</em> 的方式会带来很大的改善（类似chatd方式），但是您的服务器可能并不支持。';
+$string['configoldping'] = '用户多久(秒)不发言被认为是离开了？这只是一个上限，通常用户的离开是可以马上被检测到的。您可以根据需要设置较低的值，但如果您使用普通的聊天模式，那么<strong>永远不要</strong>让它低于 2*chat_refresh_room';
+$string['configrefreshroom'] = '聊天室自动刷新时间(秒),如果太短将耗费大量服务器资源';
+$string['configrefreshuserlist'] = '用户列表自动刷新时间(秒)';
+$string['configserverhost'] = '运行聊天室服务器的计算机的域名';
+$string['configserverip'] = '与上面的域名相对应的 IP 地址';
+$string['configservermax'] = '最多允许多少客户端';
+$string['configserverport'] = '服务器上聊天室进程所使用的端口';
+$string['currentchats'] = '当前话题';
+$string['currentusers'] = '当前用户';
+$string['deletesession'] = '删除该主题';
+$string['deletesessionsure'] = '确定删除该主题吗?';
+$string['donotusechattime'] = '不显示聊天时间';
+$string['enterchat'] = '进入聊天室';
+$string['errornousers'] = '没有用户';
+$string['explaingeneralconfig'] = '这些设置会<strong>立即</strong>生效';
+$string['explainmethoddaemon'] = '这些设置<strong>只有</strong>在您选择了“聊天室服务器进程”的聊天模式时才会有效';
+$string['explainmethodnormal'] = '这些设置<strong>只有</strong>在您选择了“普通方式”的聊天模式时才会有效';
+$string['generalconfig'] = '常规设置';
+$string['helpchatting'] = '聊天室帮助';
+$string['idle'] = '空闲';
+$string['messagebeepseveryone'] = '{$a} 呼叫所有人';
+$string['messagebeepsyou'] = '{$a} 呼叫您';
+$string['messageenter'] = '{$a} 加入聊天室';
+$string['messageexit'] = '{$a} 退出聊天室';
+$string['messages'] = '消息';
+$string['method'] = '聊天方式';
+$string['methoddaemon'] = '聊天室服务器进程';
+$string['methodnormal'] = '普通方式';
+$string['modulename'] = '聊天';
+$string['modulenameplural'] = '聊天';
+$string['neverdeletemessages'] = '不删除聊天记录';
+$string['nextsession'] = '下一个议定主题';
+$string['noguests'] = '此聊天室不对访客开放';
+$string['nomessages'] = '无消息';
+$string['normalkeepalive'] = '保持在线';
+$string['normalstream'] = '流';
+$string['noscheduledsession'] = '无固定的主题';
+$string['notallowenter'] = '您无权进入聊天室。';
+$string['oldping'] = '断开时间';
+$string['pastchats'] = '过去聊天的会话';
+$string['refreshroom'] = '刷新聊天室';
+$string['refreshuserlist'] = '刷新用户列表';
+$string['removemessages'] = '删除所有消息';
+$string['repeatdaily'] = '每天的此刻';
+$string['repeatnone'] = '不重复';
+$string['repeattimes'] = '重复时间';
+$string['repeatweekly'] = '每周的此刻';
+$string['savemessages'] = '保存聊天记录的时间';
+$string['seesession'] = '查看聊天记录';
+$string['serverhost'] = '服务器名称';
+$string['serverip'] = '服务器 IP';
+$string['servermax'] = '最大用户数';
+$string['serverport'] = '服务器端口';
+$string['sessions'] = '聊天记录';
+$string['strftimemessage'] = '%%H:%%M';
+$string['studentseereports'] = '是否所有人都可查看聊天记录';
+$string['updatemethod'] = '更新方式';
+$string['viewreport'] = '查看聊天记录';
+
+?>

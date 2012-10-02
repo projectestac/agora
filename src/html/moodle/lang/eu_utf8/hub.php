@@ -1,0 +1,73 @@
+<?PHP // $Id: hub.php,v 1.3 2010/06/28 14:40:00 ueu_ueu Exp $ 
+      // hub.php - created with Moodle 1.9.4+ (Build: 20090218) (2007101541)
+
+
+$string['all'] = 'Guztiak';
+$string['audience'] = 'Publikoa';
+$string['audienceadmins'] = 'Kudeatzaileak';
+$string['audienceeducators'] = 'Irakasleak';
+$string['audiencestudents'] = 'Ikasleak';
+$string['community'] = 'Komunitatea';
+$string['confirmregistration'] = 'Erregistroa baieztatu';
+$string['contactemail'] = 'Kontakturako e-posta';
+$string['contactname'] = 'Kontakturako izena';
+$string['contactphone'] = 'Telefonoa';
+$string['coursemap'] = 'Ikastaroaren mapa';
+$string['coursename'] = 'Izena';
+$string['courseprivate'] = 'Pribatua';
+$string['coursepublic'] = 'Publikoa';
+$string['coursepublished'] = 'Ikastaroa argitaratura';
+$string['courseshortname'] = 'Izen laburra';
+$string['coursesnumber'] = 'Ikastaro-kopurua: ({$a})';
+$string['courseurl'] = 'Ikastaroaren URLa';
+$string['creatorname'] = 'Sortzailearen izena';
+$string['creatornotes'] = 'Sortzailearen oharrak';
+$string['demourl'] = 'Demoaren URLa';
+$string['description'] = 'Deskribapena';
+$string['downloadable'] = 'Jaits daiteke';
+$string['educationallevel'] = 'Hezkuntza-maila';
+$string['edulevelassociation'] = 'Elkartea';
+$string['edulevelgovernment'] = 'Gobernua';
+$string['edulevelother'] = 'Bestelakoa';
+$string['edulevelprimary'] = 'Lehen hezkuntza';
+$string['edulevelsecondary'] = 'Bigarren hezkuntza';
+$string['eduleveltertiary'] = 'Hirugarren hezkuntza';
+$string['geolocation'] = 'latitudea - longitudea';
+$string['hub'] = 'Bilgunea';
+$string['imageurl'] = 'Irudiaren URLa';
+$string['information'] = 'Informazioa';
+$string['language'] = 'Hizkuntza';
+$string['licence'] = 'Lizentzia';
+$string['logourl'] = 'Logoaren URLa';
+$string['moodleorg'] = 'Moodle.org';
+$string['name'] = 'Izena';
+$string['no'] = 'Ez';
+$string['nohubselected'] = 'Ez da bilgunea aukeratu';
+$string['operation'] = 'Aukerak';
+$string['postaladdress'] = 'Helbidea';
+$string['postsnumber'] = 'Mezu-kopurua: ({$a})';
+$string['privacy'] = 'Pribatutasuna';
+$string['private'] = 'Pribatua';
+$string['privatehuburl'] = 'Gune pribatuaren URLa';
+$string['publichub'] = 'Gune publikoa';
+$string['questionsnumber'] = 'Galdera-kopurua: ({$a})';
+$string['registeredcourses'] = 'Erregistratutako ikastaroak';
+$string['registeredsites'] = 'Erregistratutako guneak';
+$string['registeron'] = 'Erregistratu zeure gunea';
+$string['registeronmoodleorg'] = 'Erregistratu Moodle.org-n orain';
+$string['search'] = 'Bilatu';
+$string['settings'] = 'Ezarpenak';
+$string['share'] = 'Eguneratu zeure ikastaroa';
+$string['siteadmin'] = 'Kudeatzailea';
+$string['sitedesc'] = 'Deskribapena';
+$string['sitelang'] = 'Hizkuntza';
+$string['sitename'] = 'Izena';
+$string['siteprivacy'] = 'Pribatutasuna';
+$string['siteurl'] = 'Gunearen URLa';
+$string['specifichubregistrationdetail'] = 'Zeure gunea beste komunitate-gune batzuetan ere erregistra dezakezu';
+$string['subject'] = 'Gaia';
+$string['tags'] = 'Etiketak';
+$string['trustme'] = 'Egia';
+$string['usersnumber'] = 'Erabiltzaile-kopurua: ({$a})';
+
+?>

@@ -1,0 +1,40 @@
+<h1>Càlculs</h1>
+<!-- TRANSLATORS BEWARE!! The comma (,) sign used in the calculations may be a semi-colon (;)
+in your language. Please use whichever is used in your spreadsheet application. -->
+
+<p>En el butlletí de qualificacions, els càlculs segueixen el patró habitual dels programes de full de càlcul. Comencen amb un signe igual (=) i fan servir els operadors matemàtics i funcions comuns per donar com a resultat un valor numèric únic. Aquest resultat s'utilitzarà com a valor de l'element de qualificació que esteu editant.</p>
+
+<p>Tot seguit teniu una llista de les funcions que es poden utilitzar en els càlculs. El caràcter de punt i coma (;)
+s'utilitza per separar els arguments de les funcions, dins dels parèntesis.</p>
+
+<ul>
+    <li><strong>average</strong>([[element1]]; [[element2]]...): retorna la mitjana d'una mostra</li>
+    <li><strong>max</strong>([[element1]]; [[element2]]...): retorna el valor màxim d'una llista d'arguments</li>
+    <li><strong>min</strong>([[element1]]; [[element2]]...): retorna el valor mínim d'una llista d'arguments</li>
+    <li><strong>mod</strong>(dividend; divisor): calcula la resta d'una divisió</li>
+    <li><strong>pi</strong>(): retorna el valor del número Pi</li>
+    <li><strong>power</strong>(base; potència): eleva un nombre a una potència/li>
+    <li><strong>round</strong>(nombre, precisió): arrodoneix un nombre amb una precisió determinada</li>
+    <li><strong>sum</strong>([[element1]], [[element2]]...): retorna la suma dels arguments</li>
+</ul>
+
+<p>Més funcions matemàtiques:</p>
+<ul>
+    <li>sin</li><li>sinh</li><li>arcsin</li><li>asin</li><li>arcsinh</li><li>asinh</li>
+    <li>cos</li><li>cosh</li><li>arccos</li><li>acos</li><li>arccosh</li><li>acosh</li>
+    <li>tan</li><li>tanh</li><li>arctan</li><li>atan</li><li>arctanh</li><li>atanh</li>
+    <li>sqrt</li><li>abs</li><li>ln</li><li>log</li><li>exp</li>
+</ul>
+
+<p>Podeu fer referència als valors d'altres elements de qualificació en les vostres fórmules mitjançant els números ID corresponents, dins de claudàtors dobles. Per exemple, si teniu un element de qualificació de tipus qüestionari amb número iD Q3, podeu fer referència a aquest element en les vostres fórmules així: [[Q3]]. </p>
+
+<p>A sota del camp de càlcul es mostra un arbre del vostre curs amb totes les categories i tots els elements de qualificació. Al costat de cada element, o total de la categoria, trobareu el número ID que podeu utilitzar en la vostra fórmula (ja dins de claudàtors). Tanmateix, com que el número ID és opcional, potser alguns elements no en tindran. Aquests elements sense número ID us ofereixen un camp de formulari on podeu introduir directament un número ID per utilitzar-lo en el càlcul, sense necessitar d'abandonar la pàgina. No podreu, però, editar un número ID ja existent. Per a fer això, si voleu fer-ho, haureu d'anar a editar l'element de qualificació.</p>
+
+<p>Quan tingueu assignats els números ID que necessiteu, podeu fer clic en "Afegeix números ID" i la pàgina s'actualitzarà amb els números ID que acabeu d'assignar. Llavors ja podreu utilitzar-los en els càlculs.</p>
+
+<p>Tot seguit teniu una llista d'exemples pràctics de càlculs que podeu utilitzar en el vostre butlletí de qualificacions:</p>
+
+<ul>
+    <li>=average([[Q1]]; [[Q4]]; [[TASCA1]])</li>
+    <li>=average(max([[Q1]]; [[Q4]]; [[TASCA1]]); min([[Q1]]; [[Q4]]; [[TASCA1]]))</li>
+</ul>

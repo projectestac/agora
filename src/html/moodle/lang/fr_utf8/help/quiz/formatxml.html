@@ -1,0 +1,17 @@
+<!-- $Id: formatxml.html,v 1.2 2007/02/12 21:57:03 martignoni Exp $ -->
+
+<h1>Importer des fichiers en format « Moodle XML »</h1>
+
+<h3>Indiquer une catégorie</h3>
+
+<p>Pour spécifier une catégorie dans laquelle les questions suivantes seront placées, il est possible d'insérer un type de « question » dans le fichier XML. Si la catégorie indiquée n'existe pas, elle sera créée. Pour que l'importation des catégories ait lieu, la case à cocher <b>Depuis le fichier</b> doit être cochée. Si ce n'est pas le cas, les questions seront placées dans la catégorie spécifiée dans l'interface, quelles que soient les instructions du fichier. Vous pouvez changer cette catégorie autant de fois que vous le voulez à l'intérieur du fichier.</p>
+
+<p>Voici un exemple de format :</p>
+
+<pre>
+&lt;question type="category"&gt;
+    &lt;category&gt;
+        sciences/maths/analyse
+    &lt;/category&gt;
+&lt;/question&gt;
+</pre>

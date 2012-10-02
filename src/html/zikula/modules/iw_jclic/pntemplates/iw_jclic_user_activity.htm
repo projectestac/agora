@@ -1,0 +1,25 @@
+<!--[include file="iw_jclic_user_menu.htm"]-->
+<script language="JavaScript" src="<!--[$jclicJarBase]-->/jclicplugin.js"></script>
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='run.gif' set='icons/large']--></div>
+	<!--[if $test eq 1]-->
+		<h2><!--[gt text="Text of the activity"]--></h2>
+	<!--[else]-->
+		<h2><!--[gt text="Activity"]--></h2>
+	<!--[/if]-->
+
+	<div style="height:15px;">&nbsp;</div>
+	<div style="text-align:center;padding-top:10px;">
+		<script language="JavaScript">
+			<!--[if $test neq 1]-->
+				setReporter('TCPReporter','path=<!--[pngetbaseurl|replace:"http://":""]-->;service=iw_jclic_beans.php;user=<!--[$userid]-->;key=<!--[$jclic.jid]-->;lap=<!--[$timeLap]-->');
+			<!--[/if]-->
+			setSkin('<!--[$jclic.skin]-->');
+			<!--[if $file]-->
+				writePlugin('<!--[pnmodurl modname=iw_jclic type=user func=getFile fileName=$url]-->', '<!--[$jclic.width]-->', '<!--[$jclic.height]-->');
+			<!--[else]-->
+				writePlugin('<!--[$url]-->', '<!--[$jclic.width]-->', '<!--[$jclic.height]-->');
+			<!--[/if]-->
+		</script>
+	</div>
+</div>

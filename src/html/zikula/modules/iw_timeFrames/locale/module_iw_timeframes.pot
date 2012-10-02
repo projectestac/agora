@@ -1,0 +1,277 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-28 09:21+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:26 pnuserapi.php:50 pnadminapi.php:39 pnadminapi.php:82
+#: pnadminapi.php:125 pnadminapi.php:158 pnadminapi.php:189 pnadminapi.php:220
+#: pnadminapi.php:262 pnadminapi.php:291 pnadminapi.php:323 pnadminapi.php:354
+#: pnadmin.php:26 pnadmin.php:68 pnadmin.php:121 pnadmin.php:171
+#: pnadmin.php:189 pnadmin.php:243 pnadmin.php:286 pnadmin.php:372
+#: pnadmin.php:439 pnadmin.php:467 pnadmin.php:517 pnadmin.php:544
+msgid "Not authorized to manage timeFrames."
+msgstr ""
+
+#: pnuserapi.php:54 pnuserapi.php:99 pnadminapi.php:34 pnadminapi.php:64
+#: pnadminapi.php:107 pnadminapi.php:185 pnadminapi.php:271 pnadminapi.php:298
+#: pnadminapi.php:333
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: pnadminapi.php:45
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnadminapi.php:69 pnadminapi.php:112 pnadminapi.php:304 pnadminapi.php:339
+#: pnadmin.php:80 pnadmin.php:136 pnadmin.php:176 pnadmin.php:248
+#: pnadmin.php:342 pnadmin.php:405 pnadmin.php:449 pnadmin.php:490
+#: pnadmin.php:570
+msgid "Error! Could not load module."
+msgstr ""
+
+#: pnadminapi.php:77 pnadminapi.php:120 pnadmin.php:184 pnadmin.php:333
+#: pnadmin.php:462 pnadmin.php:528
+msgid "Can not find the timeFrame over which do the action."
+msgstr ""
+
+#: pnadminapi.php:90 pnadminapi.php:362
+msgid "The modify of the frame time failed."
+msgstr ""
+
+#: pnadminapi.php:348
+msgid "Could not find the time over to do the action"
+msgstr ""
+
+#: pntemplates/plugins/function.iwtimeframesadminmenulinks.php:22
+#: pnadmin.php:90
+msgid "Add new timeFrame"
+msgstr ""
+
+#: pntemplates/plugins/function.iwtimeframesadminmenulinks.php:24
+msgid "Show the timeFrames"
+msgstr ""
+
+#: pnadmin.php:47
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnadmin.php:91
+msgid "Creates the timeFrame"
+msgstr ""
+
+#: pnadmin.php:94 pnadmin.php:328
+msgid "Edit the TimeFrame"
+msgstr ""
+
+#: pnadmin.php:95 pnadmin.php:329
+msgid "Change"
+msgstr ""
+
+#: pnadmin.php:144
+msgid "We have created a new timeFrame."
+msgstr ""
+
+#: pnadmin.php:150
+msgid "timeFrame was updated"
+msgstr ""
+
+#: pnadmin.php:220
+msgid "Has been deleted the timeFrame"
+msgstr ""
+
+#: pnadmin.php:281 pnadmin.php:377 pnadmin.php:444 pnadmin.php:522
+msgid "Operation unavailable. There are reservations on this time frame."
+msgstr ""
+
+#: pnadmin.php:323
+msgid "New time"
+msgstr ""
+
+#: pnadmin.php:324
+msgid "Add time at timeFrame "
+msgstr ""
+
+#: pnadmin.php:398 pnadmin.php:563
+msgid "The time allocated is not correct."
+msgstr ""
+
+#: pnadmin.php:412 pnadmin.php:577
+msgid "Warning! The new time is overlaps with some of the existing ones."
+msgstr ""
+
+#: pnadmin.php:420
+msgid "Have created a new time in timeFrame"
+msgstr ""
+
+#: pnadmin.php:496
+msgid "Was deleted the time in timeFrame"
+msgstr ""
+
+#: pnadmin.php:586
+msgid "Has changed the time."
+msgstr ""
+
+#: pnversion.php:12
+msgid "iw_TimeFrames"
+msgstr ""
+
+#: pnversion.php:14
+msgid "Allows to set timetables frames."
+msgstr ""
+
+#: pnversion.php:15 pntemplates/iw_timeframes_admin_main.htm:5
+msgid "TimeFrames"
+msgstr ""
+
+#: pnversion.php:16
+msgid "iw_timeFrames"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:7
+#: pntemplates/iw_timeframes_admin_deletehour.htm:6
+msgid "Edition of timeFrame"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:45
+#: pntemplates/iw_timeframes_admin_timetables.htm:61
+#: pntemplates/iw_timeframes_admin_main.htm:12
+#: pntemplates/iw_timeframes_admin_new.htm:31
+#: pntemplates/iw_timeframes_admin_deletehour.htm:17
+msgid "Description"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:53
+msgid "Add new time"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:60
+#: pntemplates/iw_timeframes_admin_deletehour.htm:16
+msgid "Time"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:63
+#: pntemplates/iw_timeframes_admin_main.htm:13
+#: pntemplates/iw_timeframes_admin_deletehour.htm:18
+msgid "Accions"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:72
+#: pntemplates/iw_timeframes_admin_main.htm:19
+#: pntemplates/iw_timeframes_admin_deletehour.htm:24
+msgid "Edit"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:73
+#: pntemplates/iw_timeframes_admin_main.htm:20
+#: pntemplates/iw_timeframes_admin_deletehour.htm:25
+msgid "Delete"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:82
+msgid "This timeFrame does not have any set hours"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:86
+#: pntemplates/iw_timeframes_admin_main.htm:33
+#: pntemplates/iw_timeframes_admin_new.htm:38
+#: pntemplates/iw_timeframes_admin_deletehour.htm:33
+msgid "About this module"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_main.htm:11
+#: pntemplates/iw_timeframes_admin_new.htm:27
+msgid "Name of the timeFrame"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_main.htm:21
+msgid "Time table"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_main.htm:29
+msgid "There is no set any timeFrame"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_new.htm:5
+msgid "You have not provided the name of the timeFrame."
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_del.htm:7
+msgid "Delete the timeFrame"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_del.htm:9
+#: pntemplates/iw_timeframes_admin_del.htm:17
+#: pntemplates/iw_timeframes_admin_deletehour.htm:9
+msgid "Confirm the deletion of the timeFrame."
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_del.htm:17
+#: pntemplates/iw_timeframes_admin_deletehour.htm:9
+msgid "Confirm"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_del.htm:18
+#: pntemplates/iw_timeframes_admin_del.htm:33
+#: pntemplates/iw_timeframes_admin_deletehour.htm:10
+msgid "Suspended the file"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_del.htm:18
+#: pntemplates/iw_timeframes_admin_del.htm:33
+#: pntemplates/iw_timeframes_admin_deletehour.htm:10
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_del.htm:27
+msgid "Note: there are areas of reserves that refer to this timeFrame."
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_del.htm:30
+msgid "Clear framework and associated reserves"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_del.htm:30
+msgid "Delete all"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_del.htm:32
+msgid "Conserve the reserves"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_del.htm:32
+msgid "Conserve reserves"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_menu.htm:3
+msgid "TimeFrames definition"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:24
+msgid "Start time (hh:mm)"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:35
+msgid "Finish time (hh:mm)"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_deletehour.htm:7
+msgid "Clear the time in timeFrame"
+msgstr ""
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:7
+msgid "Have bookings"
+msgstr ""
+

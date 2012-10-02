@@ -1,0 +1,445 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-01 14:43+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnadmin.php:71 pnadmin.php:176 pnuser.php:301 pnadminapi.php:32
+#: pnadminapi.php:75
+msgid "No such review found."
+msgstr ""
+
+#: pnadmin.php:88 pnadmin.php:253 pnuser.php:49 pnuser.php:95 pnuser.php:181
+msgid "Error! Unable to load class [%s%]"
+msgstr ""
+
+#: pnadmin.php:140
+msgid "Done! Review updated."
+msgstr ""
+
+#: pnadmin.php:207
+msgid "Done! Review deleted."
+msgstr ""
+
+#: pnadmin.php:236
+msgid "Purging of the pemalinks was successful"
+msgstr ""
+
+#: pnadmin.php:238
+msgid "Purging of the pemalinks has failed"
+msgstr ""
+
+#: pnadmin.php:292
+msgid "View"
+msgstr ""
+
+#: pnadmin.php:297
+msgid "Edit"
+msgstr ""
+
+#: pnadmin.php:302
+msgid "Delete"
+msgstr ""
+
+#: pnadmin.php:395
+msgid "Done! Module configuration updated."
+msgstr ""
+
+#: pnversion.php:16
+msgid "Reviews system"
+msgstr ""
+
+#: pnversion.php:17 pninit.php:172
+msgid "Reviews system module"
+msgstr ""
+
+#. ! this defines the module's url
+#: pnversion.php:19
+msgid "reviews"
+msgstr ""
+
+#: pntemplates/plugins/function.reviewsuserlinks.php:52
+#: pntemplates/reviews_user_main.htm:2
+msgid "Reviews index"
+msgstr ""
+
+#: pntemplates/plugins/function.reviewsuserlinks.php:56
+#: pntemplates/reviews_user_view.htm:2
+msgid "View reviews"
+msgstr ""
+
+#: pntemplates/plugins/function.reviewsuserlinks.php:60
+msgid "Submit a review"
+msgstr ""
+
+#: pnsearchapi.php:70 pnsearchapi.php:97 pnuserapi.php:125
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pnuserapi.php:235
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnuser.php:137
+msgid "Done! Review created"
+msgstr ""
+
+#: pnuser.php:208
+msgid "Invalid category passed."
+msgstr ""
+
+#: pnuser.php:312
+msgid "No such review page found."
+msgstr ""
+
+#: pnadminapi.php:41
+msgid "Error! Deletion attempt failed."
+msgstr ""
+
+#: pnadminapi.php:97 pninit.php:91 pninit.php:100 pninit.php:116
+#: pninit.php:214 pninit.php:247
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: pnadminapi.php:173
+msgid "View reviews list"
+msgstr ""
+
+#: pnadminapi.php:177
+msgid "Create a review"
+msgstr ""
+
+#: pnadminapi.php:181
+msgid "Purge permalinks"
+msgstr ""
+
+#: pnadminapi.php:183 pntemplates/reviews_admin_modifyconfig.htm:2
+msgid "Settings"
+msgstr ""
+
+#: pninit.php:34
+msgid ""
+"Warning! Could not create the default Reviews category tree. If you want to "
+"use categorization for the reviews, register at least one property for the "
+"module in the Category Registry."
+msgstr ""
+
+#: pninit.php:63
+#, php-format
+msgid "Module '%s' not available."
+msgstr ""
+
+#: pninit.php:171 pntemplates/reviews_search_options.htm:5
+#: pntemplates/reviews_admin_menu.htm:5 pntemplates/reviews_user_menu.htm:3
+msgid "Reviews"
+msgstr ""
+
+#: pninit.php:224
+msgid "Imported reviews"
+msgstr ""
+
+#: pninit.php:225
+msgid "Reviews imported from .7x version"
+msgstr ""
+
+#: pntemplates/reviews_user_view.htm:16 pntemplates/reviews_admin_new.htm:16
+#: pntemplates/reviews_admin_view.htm:49 pntemplates/reviews_user_new.htm:12
+#: pntemplates/reviews_admin_modify.htm:18
+msgid "Title"
+msgstr ""
+
+#: pntemplates/reviews_user_view.htm:17
+#: pntemplates/reviews_user_display.htm:14
+msgid "Reviewer"
+msgstr ""
+
+#: pntemplates/reviews_user_view.htm:18 pntemplates/reviews_admin_new.htm:50
+#: pntemplates/reviews_user_display.htm:17
+#: pntemplates/reviews_admin_modify.htm:58
+msgid "Score"
+msgstr ""
+
+#: pntemplates/reviews_user_view.htm:19
+#: pntemplates/reviews_user_display.htm:24
+msgid "Hits"
+msgstr ""
+
+#: pntemplates/reviews_user_view.htm:25 pntemplates/reviews_user_view.htm:42
+#: pntemplates/reviews_admin_view.htm:75
+msgid "No items found."
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:2
+msgid "Create a Review"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:18 pntemplates/reviews_user_new.htm:14
+#: pntemplates/reviews_admin_modify.htm:20
+msgid "Name of the reviewed product."
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:21
+#: pntemplates/reviews_admin_modify.htm:23
+msgid "PermaLink URL title"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:23
+#: pntemplates/reviews_admin_modify.htm:25
+msgid "(Blank = auto-generate)"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:27 pntemplates/reviews_admin_view.htm:16
+#: pntemplates/reviews_admin_view.htm:52 pntemplates/reviews_user_new.htm:18
+#: pntemplates/reviews_admin_modify.htm:29
+msgid "Category"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:28 pntemplates/reviews_admin_view.htm:17
+#: pntemplates/reviews_user_new.htm:19 pntemplates/reviews_admin_modify.htm:30
+msgid "Choose Category"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:39 pntemplates/reviews_user_new.htm:30
+#: pntemplates/reviews_admin_modify.htm:47
+msgid "Language"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:44 pntemplates/reviews_user_new.htm:35
+#: pntemplates/reviews_admin_modify.htm:52
+msgid "Review"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:46 pntemplates/reviews_user_new.htm:37
+#: pntemplates/reviews_admin_modify.htm:54
+msgid ""
+"If you want multiple pages you can write &lt;!--pagebreak--&gt; where you "
+"want to cut."
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:47 pntemplates/reviews_user_new.htm:38
+#: pntemplates/reviews_admin_modify.htm:55
+msgid ""
+"Your actual review. Please observe proper grammar! Make it at least 100 "
+"words, OK? You may also use HTML tags if you know how to use them"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:52
+msgid "Your Score"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:53 pntemplates/reviews_admin_new.htm:54
+#: pntemplates/reviews_admin_new.htm:55 pntemplates/reviews_admin_new.htm:56
+#: pntemplates/reviews_admin_new.htm:57 pntemplates/reviews_admin_new.htm:58
+#: pntemplates/reviews_admin_new.htm:59 pntemplates/reviews_admin_new.htm:60
+#: pntemplates/reviews_admin_modify.htm:60
+#: pntemplates/reviews_admin_modify.htm:61
+#: pntemplates/reviews_admin_modify.htm:62
+#: pntemplates/reviews_admin_modify.htm:63
+#: pntemplates/reviews_admin_modify.htm:64
+#: pntemplates/reviews_admin_modify.htm:65
+#: pntemplates/reviews_admin_modify.htm:66
+#: pntemplates/reviews_admin_modify.htm:67
+msgid "Stars"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:61 pntemplates/reviews_admin_new.htm:62
+#: pntemplates/reviews_admin_modify.htm:68
+#: pntemplates/reviews_admin_modify.htm:69
+msgid "Star"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:66 pntemplates/reviews_user_new.htm:41
+#: pntemplates/reviews_admin_modify.htm:73
+msgid "Your name"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:68 pntemplates/reviews_user_new.htm:43
+#: pntemplates/reviews_admin_modify.htm:75
+msgid "Your full name. Required."
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:71 pntemplates/reviews_user_new.htm:46
+#: pntemplates/reviews_admin_modify.htm:78
+msgid "Your e-mail"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:73 pntemplates/reviews_user_new.htm:48
+#: pntemplates/reviews_admin_modify.htm:80
+msgid "Your e-mail address. Required."
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:76 pntemplates/reviews_user_new.htm:51
+#: pntemplates/reviews_user_display.htm:21
+#: pntemplates/reviews_admin_modify.htm:83
+msgid "Related Link"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:78 pntemplates/reviews_user_new.htm:53
+#: pntemplates/reviews_admin_modify.htm:85
+msgid "Product's official website. Make sure your URL starts with 'http://'"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:81 pntemplates/reviews_user_new.htm:56
+#: pntemplates/reviews_admin_modify.htm:88
+msgid "Link title"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:83 pntemplates/reviews_user_new.htm:58
+#: pntemplates/reviews_admin_modify.htm:90
+msgid "Required if you have a related link, otherwise not required."
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:86 pntemplates/reviews_user_new.htm:61
+#: pntemplates/reviews_admin_modify.htm:93
+msgid "Image filename"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:88 pntemplates/reviews_user_new.htm:63
+#: pntemplates/reviews_admin_modify.htm:95
+#, php-format
+msgid "Name of the cover image, located in %s. Not required."
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:90 pntemplates/reviews_user_new.htm:65
+#: pntemplates/reviews_admin_modify.htm:97
+msgid ""
+"Please make sure that the information entered is 100% valid and uses proper "
+"grammar and capitalization. For instance, please do not enter your text in "
+"ALL CAPS, as it will be rejected."
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:96 pntemplates/reviews_user_new.htm:71
+msgid "Create"
+msgstr ""
+
+#: pntemplates/reviews_admin_new.htm:97 pntemplates/reviews_user_new.htm:72
+#: pntemplates/reviews_admin_modifyconfig.htm:37
+#: pntemplates/reviews_admin_delete.htm:22
+#: pntemplates/reviews_admin_modify.htm:115
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/reviews_admin_view.htm:3
+msgid "View Reviews List"
+msgstr ""
+
+#: pntemplates/reviews_admin_view.htm:39
+msgid "Filter"
+msgstr ""
+
+#: pntemplates/reviews_admin_view.htm:40
+msgid "Reset"
+msgstr ""
+
+#: pntemplates/reviews_admin_view.htm:50
+msgid "Internal ID"
+msgstr ""
+
+#: pntemplates/reviews_admin_view.htm:54
+msgid "Options"
+msgstr ""
+
+#: pntemplates/reviews_user_new.htm:2
+msgid "Submit a Review"
+msgstr ""
+
+#: pntemplates/reviews_user_display.htm:12
+msgid "Published on"
+msgstr ""
+
+#: pntemplates/reviews_admin_modifyconfig.htm:15
+msgid "General Settings"
+msgstr ""
+
+#: pntemplates/reviews_admin_modifyconfig.htm:17
+msgid "Enable categorization"
+msgstr ""
+
+#: pntemplates/reviews_admin_modifyconfig.htm:21
+msgid "Items per page"
+msgstr ""
+
+#: pntemplates/reviews_admin_modifyconfig.htm:26
+msgid "Permalinks settings"
+msgstr ""
+
+#: pntemplates/reviews_admin_modifyconfig.htm:28
+msgid "Add category title to PermaLink"
+msgstr ""
+
+#: pntemplates/reviews_admin_modifyconfig.htm:36
+msgid "Update Configuration"
+msgstr ""
+
+#: pntemplates/reviews_user_main.htm:6
+msgid "10 Most Popular Reviews"
+msgstr ""
+
+#: pntemplates/reviews_user_main.htm:19
+msgid "10 Most Recent Reviews"
+msgstr ""
+
+#: pntemplates/reviews_user_main.htm:33
+msgid "Categories"
+msgstr ""
+
+#: pntemplates/reviews_admin_delete.htm:2
+msgid "Delete Review"
+msgstr ""
+
+#: pntemplates/reviews_admin_delete.htm:11
+msgid "Do you really want to delete this review?"
+msgstr ""
+
+#: pntemplates/reviews_admin_delete.htm:16
+#: pntemplates/reviews_admin_delete.htm:21
+msgid "Confirm deletion?"
+msgstr ""
+
+#: pntemplates/reviews_admin_modify.htm:2
+msgid "Edit Review"
+msgstr ""
+
+#: pntemplates/reviews_admin_modify.htm:16
+msgid "Content"
+msgstr ""
+
+#: pntemplates/reviews_admin_modify.htm:100
+msgid "Meta data"
+msgstr ""
+
+#: pntemplates/reviews_admin_modify.htm:103
+#, php-format
+msgid "Created by %s"
+msgstr ""
+
+#: pntemplates/reviews_admin_modify.htm:104
+#, php-format
+msgid "Created on %s"
+msgstr ""
+
+#: pntemplates/reviews_admin_modify.htm:106
+#, php-format
+msgid "Last update by %s"
+msgstr ""
+
+#: pntemplates/reviews_admin_modify.htm:107
+#, php-format
+msgid "Updated on %s"
+msgstr ""
+
+#: pntemplates/reviews_admin_modify.htm:114
+msgid "Update"
+msgstr ""

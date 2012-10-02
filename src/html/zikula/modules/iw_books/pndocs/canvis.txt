@@ -1,0 +1,163 @@
+-------------------
+Mòdul iw_booksres
+-------------------
+
+Novetats versió 2.0 (07/2010)
+===============================
+- Passat tot el mòdul a Gettext
+
+- La imatge de capçalera se selecciona des de la configuració del mòdul i ha d'estar sempre
+dins el directori arrel definit a iw_main. En cas de que no hi hagi cap capçalera seleccionada
+no se'n mostra cap
+
+- Des de la interficie d'usuari es poden mostar tots els llibres (totes les assignatures) d'un
+mateix curs
+
+
+
+Novetats versió 1.2.0 (06/2010)
+===============================
+- Passat tot el mòdul a plantilles
+- Canvi a codificació dels fitxers a utf-8
+- Afegides algunes cadenes que faltaven
+- Modificats els nivells. Ara es poden definir els nivells que es vulguin. Per mantenir
+la compatibilitat amb entrades d'anys anteriors, simplement cal definir bé els nivells
+i el seu significat. 
+Ex: 1|1r
+2|2n
+etc
+  
+
+Novetats versió 1.0.4 (06/2008)
+===============================
+- Corregit: s'oculta $sql en cas d'error
+
+- Corregit mostra observacions a llistats des d'administrador
+
+- Afegit define('_LLIBPDFOPTATIVA','Matèries optatives'); a fitxer a pnlang/cat/user.php
+
+- Afegits separadors a les opcions del menú d'administració
+
+- Afegida llegenda per interpretar codis de matèria al capdavall de les taules
+de visualització de llibres, tant per a usuari com per a administrador
+(Ex.: ECL=ESO (Grup classe...)
+
+- Afegit avís al capdamunt de la taula de visualització de llibres, en cas que el
+contingut encara sigui provisional (podem marcar-ho o desmarcar-ho aquesta opció
+des de 'Configuració'). Es manté la marca d'aigua 'Provisional' en els llistats pdf.
+
+- A la taula de visualització de llibres des d'administració es mantenen, quan
+s'hi torna a entrar, les opcions de filtratge seleccionades anteriorment
+
+- S'ha millorat la presentació quan es canvia el valor 'Mida font dels llistats',
+des de 'Configuració'. Això permet triar una mida de font més petita i
+que els interliniats variïn també en relació a aquesta nova mida. Això és útil
+si ens cal ajustar algun llistat per fer-lo cabre en una sola pàgina, per exemple.
+Aquest valor només afecta, de manera general, els llistats d'usuari i no els
+d'administrador.
+
+- Possibilitat d'afegir materials generals per a un nivell (com si fos una matèria),
+sense lligar-los a cap altra matèria. Es poden definir diverses 'matèries' d'aquesta mena.
+Per a poder-ho fer, cal definir una matèria amb el codi començat per 'AA' i
+la descripció que vulguem.
+Exemples:
+'AA1' -> 'Material general per al nivell'
+'AA2' -> 'Materials que dóna l'escola'
+'AA3' -> 'Quaderns i material'
+Després definim un "llibre" per a aquesta matèria, amb el nom que vulguem.
+Aquest llibre no apareixerà en el llistat pdf (sempre que el codi comenci
+per 'AA '), però sí que hi sortiran els materials entrats, a l'apartat corresponent.
+Això implica, també que no podem definir cap matèria a la qual vulguem assignar
+un llibre amb un codi començat per 'AA'
+
+
+Novetats versió 1.0 (06/2007)
+=============================
+
+- Corregit error desinstal·lació mòdul
+
+- Afegit camp 'Observacions' a la taula de llibres
+
+- Afegit camp 'Materials' a la taula llibres
+
+- Afegides les variables de mòdul 'llista_materials' i 'mida_font'
+
+- Corregit error (espai en blanc)en modificació de configuració
+
+- Afegides icones (Edició, Esborrar, Copiar) a la taula de llibres
+
+- Menú s'adapta als permisos d'administrador o usuari
+
+- Els materials entrats es mostren als llistats pdf
+
+- Veure matèries: apareix la columna d'opcions quan es té el rol d'administrador
+
+- Retocs estètics al menú d'administració
+
+- Filtratge de dades persistent a 'Veure tots els llibres entrats'. Les opcions
+triades es mantenen encara que vinguem d'una altra opció del menú.
+
+
+
+Novetats versió 0.9 Revisió 2
+=============================
+
+- Afegida opció 'Darrer nivell' a 'Configuració'.  El valor que posem aquí
+serà el darrer que es mostrarà a l'hora de triar un nivell. Això permet
+d'establir tants nivells com es desitgi.
+
+- Afegida opció 'Copiar al següent any' que permet de copiar tots els llibres
+de l'any actual cap al següent curs. Abans de tirar endavant aquest procés,
+es demana confirmació.
+
+- En la visualització de tots els llibres des d'administració, ara es pot triar
+l'any acadèmic des d'un desplegable que es genera automàticament amb els
+anys que són presents a la taula de llibres. És a dir, es pot triar qualsevol
+any dels que tingui llibres entrats.
+
+
+
+Novetats versió 0.9
+===================
+
+- Des de configuració es poden definir els plans que es vulgui:
+    Primària
+    Diferents grups d'ESO (grup classe, diversitat, flexible...)
+    Diferents batxillerats (Humanístic,...)
+Cal seguir la següent sintaxi, utilitzant # per separar el codi de
+la seva descripció i | per separar un pla de l'altre. Per exemple:
+ESO#Educació Secundària Obligatòria|
+CIN#Cicle inicial
+Ni el primer ni el darrer pla no han  de començar o acabar amb |
+
+- Lligat amb el punt anterior, ara a cada llibre se li pot assignar
+més d'un pla. Per exemple, es pot entrar un llibre d'una matèria
+comuna i assignar-lo a tots els Batxillerats, a tots els ESO, a tots
+els Cicles Formatius...
+
+- S'ha suprimit el camp 'tipus' ja que ara es pot gestionar amb la
+definició de plans, tal com s'acaba d'explicar.
+
+- Noves possibilitats de filtratge des de l'administració: per pla
+i per nivell.
+
+- Control de coherència del camí on es troba la biblioteca 'fpdf',
+a 'Configuració'. Si no és un camí correcte no es deixa passar
+endavant.
+
+- Control de coherència de l'entrada de dades d'un llibre. Si no
+es posa contingut en algun dels camps obligatoris, marcats amb
+asterisc (*), no es desa el llibre entrat i surt un avís.
+Els camps marcats són: Títol, Matèria, Any acadèmic, Pla i Nivell.
+
+- Exportació de dades a format CSV. Des del menú d'administració del
+mòdul es pot fer una exportació a aquest format, que pot ser llegida per
+OpenOffice Calc o bé per Excel.
+
+- S'ha corregit alguns problemes de funcionament, entre els quals
+ la paginació amb filtratge de la taula de visualitació dels llibres.
+
+- S'ha canviat la icona identificactiva del mòdul a Administració.
+
+- S'ha afegit un fitxer /pndocs/materies.sql amb una proposta de contingut
+de matèries per a ESO i Batxillerat.

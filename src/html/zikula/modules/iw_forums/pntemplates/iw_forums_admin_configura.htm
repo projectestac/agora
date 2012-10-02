@@ -1,0 +1,38 @@
+<!--[include file="iw_forums_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='package_settings.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Create a new forum"]--></h2>
+	<form  class="pn-adminform" method="post" name="configura" id="configura" action="<!--[pnmodurl modname="iw_forums" type="admin" func="update_conf"]-->" >
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forums"]-->" />
+		<div style="height:40px;">&nbsp;</div>
+		<!--[if not $multizk]-->
+			<div class="pn-adminformrow">
+				<label for="directoriroot"><!--[gt text="Root of the file folder"]--></label>
+				<input type="text" name="directoriroot" size="50" maxlength="50" value="<!--[$directoriroot]-->" onFocus='blur()' />
+			</div>
+		<!--[/if]-->
+		<div class="pn-adminformrow">
+			<label for="urladjunts"><!--[gt text="Server folder where will be save the attached files"]--></label>
+			<input type="text" name="urladjunts" size="30" maxlength="30" value="<!--[$urladjunts]-->" />
+		</div>
+		<!--[if $noFolder]-->
+			<div class="pn-errormsg">
+				<!--[gt text="The attached files folder have not been found"]-->
+			</div>
+		<!--[/if]-->
+		<!--[if $noWriteable]-->
+			<div class="pn-errormsg">
+				<!--[gt text="(This folder needs writting atributes)"]-->
+			</div>
+		<!--[/if]-->
+		<div class="pn-adminformrow">
+			<label for="avatarsVisible"><!--[gt text="The unregistered users can view messages writers avatars"]--></label>
+			<input type="checkbox" name="avatarsVisible" value="1" <!--[if $avatarsVisible eq 1]-->checked<!--[/if]--> />
+		</div>
+		<div class="formOptions" align="center">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Create" __title="Create"]-->
+			<a href="<!--[pnmodurl modname=iw_forums type=admin func=conf]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+		</div>
+</form>	
+</div>

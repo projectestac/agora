@@ -1,0 +1,39 @@
+<div><!--[$menu]--></div>
+<div class="opentable1">
+	<form method="post" name="delete_nota" action="<!--[pnmodurl modname="iw_agendas" func="meva"]-->">
+		<input name="authid" value="<!--[$authid]-->" type="hidden" />
+		<input name="aid" value="<!--[$aid]-->" type="hidden" />
+		<input name="mes" value="<!--[$mes]-->" type="hidden" />
+		<input name="any" value="<!--[$any]-->" type="hidden" />
+		<input name="dia" value="<!--[$dia]-->" type="hidden" />
+		<input name="daid" value="<!--[$daid]-->" type="hidden" />
+
+		<p style="margin:15px;">
+			<span style="font-weight:bold;"><!--[gt text="Date"]-->:&nbsp;</span>
+			<span><!--[$datevalue]--></span>
+		</p>
+		<p style="margin:15px;">
+			<span style="font-weight:bold;"><!--[gt text="Time"]-->:&nbsp;</span>
+			<span><!--[$hourvalue]--></span>
+		</p>
+		<fieldset style="margin:15px;">
+			<legend>&nbsp;<!--[gt text="Event"]-->&nbsp;</legend>
+			<p><!--[$notevaluec1]--></p>
+		</fieldset>
+		<fieldset style="margin:15px;">
+			<legend>&nbsp;<!--[gt text="More information"]-->&nbsp;</legend>
+			<p><!--[$notevaluec2]--></p>
+		</fieldset>
+		<fieldset style="margin:15px; text-align:center;">
+			<legend>&nbsp;<!--[gt text="Select agenda(s) to send the event"]-->&nbsp;</legend>
+			<select id="adaid[]" name="adaid[]" size="5" multiple>
+				<!--[section name=agenda loop=$selectvalues]-->
+					<option value="<!--[$selectvalues[agenda].id]-->" title="<!--[$selectvalues[agenda].desc]-->"><!--[$selectvalues[agenda].name]--></option>
+				<!--[/section]-->
+			</select>
+		</fieldset>
+		<div style="text-align:center; margin:15px;">
+			<input value="<!--[gt text="Send"]-->" type="submit" />
+		</div>
+	</form>
+</div>

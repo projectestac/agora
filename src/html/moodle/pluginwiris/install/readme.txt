@@ -1,0 +1,1 @@
+Copy this files and directory into the moodle root directory

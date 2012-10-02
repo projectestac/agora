@@ -1,0 +1,34 @@
+<!--[include file="admin/downloads_admin_main_menu.htm"]-->
+<!--[include file="admin/downloads_admin_header.htm"]-->
+
+<!--[*pndebug*]-->
+
+<h2 class="dl_admin_h2"><!--[pnimg src="admin/cat_new.gif" __alt="Move category" ]-->&nbsp;&nbsp;<!--[gt text="Move category"]--></h2>
+<fieldset class="dl_fieldset">
+<legend><!--[gt text="Move category"]--></legend>
+<form class="dl_admin_form" action="<!--[pnmodurl modname="Downloads" type="admin" func="do_move_category"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div class="dl_conf_list">
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	<dl>
+		<dt><!--[gt text="Choose category to move:"]--></dt>
+		<dd>
+		 	<select id="downloads_oldcid" name="oldcid">
+	        <option value="0"><!--[gt text="Choose category-->"]--></option>
+	        <!--[$catSelectList]-->
+	        </select>
+		 </dd>	 
+		 <dt><!--[gt text="Move category to:"]--></dt>
+		 <dd>
+		 	<select id="downloads_newcid" name="newcid">
+	        <option value="0"><!--[gt text="Choose category-->"]--></option>
+	        <!--[$catSelectList]-->
+	        </select>
+		 </dd>
+		<dt>
+			<input name="submit" type="submit" value="<!--[gt text="Submit changes"]-->" />
+		</dt>
+	</dl>
+</div>
+</form>
+</fieldset>
+<!--[include file="admin/downloads_admin_footer.htm"]-->

@@ -1,0 +1,528 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="moodle-quick-install_files/filelist.xml">
+<title>WIRIS Plugin for moodle quick installation</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Template>web.dot</o:Template>
+  <o:LastAuthor>Juan</o:LastAuthor>
+  <o:Revision>16</o:Revision>
+  <o:TotalTime>114</o:TotalTime>
+  <o:Created>2009-01-29T15:58:00Z</o:Created>
+  <o:LastSaved>2009-09-25T09:43:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>118</o:Words>
+  <o:Characters>655</o:Characters>
+  <o:Company>M4M</o:Company>
+  <o:Lines>5</o:Lines>
+  <o:Paragraphs>1</o:Paragraphs>
+  <o:CharactersWithSpaces>772</o:CharactersWithSpaces>
+  <o:Version>11.5606</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+  <w:UpdateStylesOnOpen/>
+  <w:HyphenationZone>21</w:HyphenationZone>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin-top:2.0pt;
+	margin-right:0cm;
+	margin-bottom:4.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:21.6pt;
+	text-align:justify;
+	text-indent:-21.6pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	mso-list:l0 level1 lfo2;
+	tab-stops:list 21.6pt;
+	border:none;
+	mso-border-bottom-alt:solid #A0A000 2.25pt;
+	padding:0cm;
+	mso-padding-alt:0cm 0cm 1.0pt 0cm;
+	font-size:18.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:Arial;
+	color:olive;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:28.8pt;
+	text-align:justify;
+	text-indent:-28.8pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	mso-list:l0 level2 lfo2;
+	tab-stops:list 28.8pt;
+	border:none;
+	mso-border-bottom-alt:solid #666633 1.0pt;
+	padding:0cm;
+	mso-padding-alt:0cm 0cm 1.0pt 0cm;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:#666633;
+	mso-ansi-language:EN-US;
+	font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:36.0pt;
+	text-align:justify;
+	text-indent:-36.0pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	mso-list:l0 level3 lfo2;
+	tab-stops:list 36.0pt;
+	font-size:13.0pt;
+	font-family:Arial;
+	mso-ansi-language:EN-US;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:43.2pt;
+	text-align:justify;
+	text-indent:-43.2pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	mso-list:l0 level4 lfo2;
+	tab-stops:list 43.2pt;
+	font-size:11.0pt;
+	mso-bidi-font-size:14.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:50.4pt;
+	text-align:justify;
+	text-indent:-50.4pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	mso-list:l0 level5 lfo2;
+	tab-stops:list 50.4pt;
+	font-size:13.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:EN-US;
+	font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:57.6pt;
+	text-align:justify;
+	text-indent:-57.6pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	mso-list:l0 level6 lfo2;
+	tab-stops:list 57.6pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:EN-US;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:64.8pt;
+	text-align:justify;
+	text-indent:-64.8pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:7;
+	mso-list:l0 level7 lfo2;
+	tab-stops:list 64.8pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:72.0pt;
+	text-align:justify;
+	text-indent:-72.0pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:8;
+	mso-list:l0 level8 lfo2;
+	tab-stops:list 72.0pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;
+	font-style:italic;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:79.2pt;
+	text-align:justify;
+	text-indent:-79.2pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:9;
+	mso-list:l0 level9 lfo2;
+	tab-stops:list 79.2pt;
+	font-size:11.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin-top:2.0pt;
+	margin-right:0cm;
+	margin-bottom:4.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	tab-stops:center 212.6pt right 425.2pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin-top:2.0pt;
+	margin-right:0cm;
+	margin-bottom:4.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	tab-stops:center 212.6pt right 425.2pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin-top:2.0pt;
+	margin-right:0cm;
+	margin-bottom:4.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;}
+p.pcode, li.pcode, div.pcode
+	{mso-style-name:pcode;
+	margin-top:2.0pt;
+	margin-right:0cm;
+	margin-bottom:4.0pt;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:#333399;
+	mso-ansi-language:EN-US;
+	mso-no-proof:yes;}
+span.code
+	{mso-style-name:code;
+	mso-ansi-font-size:11.0pt;
+	font-family:Arial;
+	mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	color:#333399;
+	mso-ansi-language:EN-US;
+	mso-no-proof:yes;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 57.6pt 70.85pt 57.6pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:2107458469;
+	mso-list-template-ids:391394850;}
+@list l0:level1
+	{mso-level-style-link:"Heading 1";
+	mso-level-text:%1;
+	mso-level-tab-stop:21.6pt;
+	mso-level-number-position:left;
+	margin-left:21.6pt;
+	text-indent:-21.6pt;}
+@list l0:level2
+	{mso-level-style-link:"Heading 2";
+	mso-level-text:"%1\.%2";
+	mso-level-tab-stop:28.8pt;
+	mso-level-number-position:left;
+	margin-left:28.8pt;
+	text-indent:-28.8pt;}
+@list l0:level3
+	{mso-level-style-link:"Heading 3";
+	mso-level-text:"%1\.%2\.%3";
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	margin-left:36.0pt;
+	text-indent:-36.0pt;}
+@list l0:level4
+	{mso-level-style-link:"Heading 4";
+	mso-level-text:"%1\.%2\.%3\.%4";
+	mso-level-tab-stop:43.2pt;
+	mso-level-number-position:left;
+	margin-left:43.2pt;
+	text-indent:-43.2pt;}
+@list l0:level5
+	{mso-level-style-link:"Heading 5";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5";
+	mso-level-tab-stop:50.4pt;
+	mso-level-number-position:left;
+	margin-left:50.4pt;
+	text-indent:-50.4pt;}
+@list l0:level6
+	{mso-level-style-link:"Heading 6";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6";
+	mso-level-tab-stop:57.6pt;
+	mso-level-number-position:left;
+	margin-left:57.6pt;
+	text-indent:-57.6pt;}
+@list l0:level7
+	{mso-level-style-link:"Heading 7";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7";
+	mso-level-tab-stop:64.8pt;
+	mso-level-number-position:left;
+	margin-left:64.8pt;
+	text-indent:-64.8pt;}
+@list l0:level8
+	{mso-level-style-link:"Heading 8";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8";
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	margin-left:72.0pt;
+	text-indent:-72.0pt;}
+@list l0:level9
+	{mso-level-style-link:"Heading 9";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9";
+	mso-level-tab-stop:79.2pt;
+	mso-level-number-position:left;
+	margin-left:79.2pt;
+	text-indent:-79.2pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin-top:2.0pt;
+	mso-para-margin-right:0cm;
+	mso-para-margin-bottom:4.0pt;
+	mso-para-margin-left:0cm;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+table.Defaulttable
+	{mso-style-name:"Default table";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border:solid #A0A000 1.0pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:1.0pt solid #A0A000;
+	mso-border-insidev:1.0pt solid #A0A000;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+table.DefaulttableFirstRow
+	{mso-style-name:"Default table";
+	mso-table-condition:first-row;
+	mso-tstyle-shading:#DAFE66;
+	text-align:center;
+	word-break:normal;
+	mso-ansi-font-weight:bold;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=ES link=blue vlink=purple style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid #A0A000 2.25pt;
+padding:0cm 0cm 1.0pt 0cm'>
+
+<h1><![if !supportLists]><span lang=EN-GB style='mso-fareast-font-family:Arial;
+mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-GB style='mso-ansi-language:EN-GB'>WIRIS
+Plugin for moodle quick installation<o:p></o:p></span></h1>
+
+</div>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid #666633 1.0pt;
+padding:0cm 0cm 1.0pt 0cm'>
+
+<h2><![if !supportLists]><span lang=EN-GB style='mso-fareast-font-family:Arial;
+mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>1.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>Uncompressing the package<o:p></o:p></span></h2>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>Download <a
+href="http://www.wiris.com/download/moodle/download?file=pluginwiris.zip">WIRIS
+Plugin</a> and unzip it on your moodle’s root directory.<o:p></o:p></span></p>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid #666633 1.0pt;
+padding:0cm 0cm 1.0pt 0cm'>
+
+<h2><![if !supportLists]><span lang=EN-GB style='mso-fareast-font-family:Arial;
+mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>1.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>Checking rights<o:p></o:p></span></h2>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>Check that PHP
+user has read and write rights on </span><span class=code><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt'>pluginwiris</span></span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'> directory, </span><span class=code><span
+lang=EN-US style='font-size:11.0pt;mso-bidi-font-size:12.0pt'>filter</span></span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'> directory and </span><span
+class=code><span lang=EN-US style='font-size:11.0pt;mso-bidi-font-size:12.0pt'>lib/weblib.php</span></span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'> file.<o:p></o:p></span></p>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid #666633 1.0pt;
+padding:0cm 0cm 1.0pt 0cm'>
+
+<h2><![if !supportLists]><span lang=EN-GB style='mso-fareast-font-family:Arial;
+mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>1.3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>Installing<o:p></o:p></span></h2>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>Open <a
+href="http://your_server/moodle_path/pluginwiris/install.php">http://your_server/moodle_path/pluginwiris/install.php</a>
+on your web browser and follow the steps.<o:p></o:p></span></p>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid #666633 1.0pt;
+padding:0cm 0cm 1.0pt 0cm'>
+
+<h2><![if !supportLists]><span lang=EN-GB style='mso-fareast-font-family:Arial;
+mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>1.4<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>Troubleshooting<o:p></o:p></span></h2>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>If you have
+any problem using this quick installation, you can use <a
+href="moodle-install.html">manual WIRIS Plugin for moodle installation</a> or
+send an e-mail to <a href="mailto:info@wiris.com">info@wiris.com</a>. <o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<h1>Categorie aggregatie</h1>
+<p>Met dit menu kun je kiezen voor een aggregatiestrategie die gebruikt zal worden om het totaalcijfer van elke deelnemer te berekenen. De verschillende mogelijkheden zijn hieronder uitgelegd.</p>
+
+<p>De cijfers worden eerst omgezet naar procentuele waarden (interval van 0 tot 1, dit heet normalisatie), dan geaggregeerd via één van onderstaande functies en uiteindelijk geconverteerd naar de gevraagde schaal of het geassocieerde categorie-itembereik (tussen <em>Minimum cijfer</em> en <em>Maximum cijfer</em>).</p>
+
+<p><strong>Belangrijk</strong>: Een lege beoordeling is gewoon een ontbrekende beoordeling in de cijferlijst en dat kan allerlei oorzaken hebben. Bijvoorbeeld een leerling die nog geen opdracht ingestuurd heeft, een opdracht die nog niet beoordeeld is door de leraar of een beoordeling die manueel verwijderd is door de beheerder van de cijferlijst. Het is dus belangrijk voorzichtig te zijn bij de interpretatie van deze "lege beoordelingen".</p>
+
+<dl id="grade-aggregation-help">
+    <dt>Gemiddelde van alle beoordelingen</dt>
+        <dd>Alle cijfers worden opgeteld en dan gedeeld door het aantal cijfers. Lege cijfers worden meegerekend (zij worden geïnterpreteerd als de minimumwaarde voor het beoordelingsitem).</dd>
+        <dd class="example">A1 70/100, A2 20/80, A3 10/10, category max 100:<br /><code>(0.7 + 0.25 + 1.0)/3 = 0.65 --> 65/100</code></dd>
+        
+    <dt>Gewogen gemiddelde</dt>
+        <dd>Elk beoordelingsitem kan een weging gegeven worden, die dan gebruikt wordt in het berekening van het aggregatiegemiddelde om het balang van elk item voor het algemeen gemiddelde te beïnvloeden.</dd>
+        <dd class="example">A1 70/100 weging 10, A2 20/80 weging 5, A3 10/10 weging 3, categorie max 100:<br /><code>(0.7*10 + 0.25*5 + 1.0*3)/18 = 0.625 --> 62.5/100</code></dd>
+        
+    
+    <dt>Eenvoudig gewogen gemiddelde</dt>
+        <dd>Het verschil met <em>Gewogen gemiddelde</em> is dat de weging berekend is als <em>Maximum cijfer</em> - <em>Minimum cijfer</em> voor elk item. Een opdracht voor 100 punten krijgt een weging 100, een opdracht voor 10 punten krijgt een weging 10/</dd>
+        <dd class="example">A1 70/100, A2 20/80, A3 10/10, categorie max 100:<br /><code>(0.7*100 + 0.25*80 + 1.0*10)/190 = 0.526 --> 52.6/100</code></dd>
+        
+    <dt>Gemiddelde van cijfers (met bonuspunten)</dt>
+        <dd>Rekenkundig gemiddelde met een truukje. Een oude, nu niet meer ondersteunde manier van aggregeren, enkel hier voorzien voor terugwaartse compatibiliteit met oudere activiteitenmodules.</dd>
+
+    <dt>Mediaan van alle beoordelingen</dt>
+        <dd>De mediaan wordt berekend door alle beoordelingen in volgorde te zetten en de middelste beoordelingen te nemen (of het gemiddelde van de twee middelste beoordelingen als het om een even aantal beoordelingen gaat). Het voordeel van de mediaan is dat die niet beïnvloed wordt door cijfers die ongewoon ver van het gemiddelde liggen. Lege beoordelingen worden meegerekend.</dd>
+        <dd class="example">A1 70/100, A2 20/80, A3 10/10, categorie max 100:<br />
+                         <code>median(0.7 ; 0.25 ; 1.0) = 0.7 --> 70/100</code></dd>
+    
+     <dt>Laagste cijfer</dt>
+        <dd>Het resultaat is het laagste cijfer na normalisatie. Dit is gewoonlijk gebruikt in combinatie met <em>Aggregeer alleen niet-lege cijfers</em>.</dd>
+        <dd class="example">A1 70/100, A2 20/80, A3 10/10, categorie max 100:<br /><code>min(0.7 + 0.25 + 1.0) = 0.25 --> 25/100</code></dd>
+                         
+    <dt>Hoogste cijfer</dt>
+        <dd>Het resultaat is het hoogste cijfer na normalisatie.</dd>
+        <dd class="example">A1 70/100, A2 20/80, A3 10/10, categorie max 100:<br /><code>max(0.7 + 0.25 + 1.0) = 1.0 --> 100/100</code></dd>
+    
+    <dt>Modus van cijfers</dt>
+        <dd>De modus is de beoordeling die het meest voorkomt. Dit wordt meer gebruikt voor niet-numerieke beoordelingen. Het voordeel boven het gemiddelde is dat het niet beïnvloed wordt door cijfers die uitzonderlijk ver van het gemiddelde liggen. De modus verliest wel zijn betekenis als er meer dan één cijfer het meest voorkomt (er wordt slechts één weerhouden) of wanneer alle cijfers verschillend zijn. Lege beoordelingen worden meegerekend.</dd>
+        <dd class="example">A1 70/100, A2 35/50, A3 20/80, A4 10/10, A5 7/10 categorie max 100:<br /><code>mode(0.7; 0.7; 0.25; 1.0; 0.7) = 0.7 --> 70/100</code></dd>
+    
+    <dt>Som van cijfers</dt>
+        <dd>De som van alle cijferwaarden. Schaalwaarden worden genegeerd. Dit is het enige type dat intern de cijfers niet naar percentages converteert (normalisatie). Het <em>Maximum cijfer</em> van een geassocieerde categorie-item wordt automatisch berekend als de som van de maxima van alle geaggregeerde items.</dd>
+        <dd class="example">A1 70/100, A2 20/80, A3 10/10:<br />
+                         <code>70 + 20 + 10 = 100/190</code></dd>
+</dl>

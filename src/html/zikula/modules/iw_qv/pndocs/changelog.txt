@@ -1,0 +1,13 @@
+Release notes for iw_qv Zikula module
+
+More information on each of the fixes can be found in the project 
+development home at http://phobos.xtec.cat/intraweb
+
+Changes in 2.0.0 (in progress)
+---------------------------------------------------------------------------------------
+
+
+Changes in 2.0.0rc (2008-08-28)
+---------------------------------------------------------------------------------------
+- Re-implemented all the module to include the qv information (responses, scores...) into
+the zikula database.

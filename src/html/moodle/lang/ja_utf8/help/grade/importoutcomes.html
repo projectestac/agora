@@ -1,0 +1,15 @@
+<h1>アウトカムをインポートする</h1>
+<p>あなたはCSVファイル形式でアウトカムをインポートすることができます。下記のフォーマットに従ってください:</p>
+<table class="generaltable" cellpadding="4">
+    <tr> <th class="header">フィールド名</th> <th class="header">説明</th> <th class="header">必須</th> <th class="header">フォーマット</th> </tr>
+    <tr> <td class="cell">outcome_name</td> <td class="cell">アウトカムの長い名称です。</td> <td class="cell">Yes</td><td class="cell">文字列</td> </tr>
+    <tr> <td class="cell">outcome_shortname</td><td class="cell">アウトカムの省略名です。</td> <td class="cell">Yes</td> <td class="cell">文字列</td> </tr>
+    <tr> <td class="cell">outcome_description</td><td class="cell">アウトカムの説明です。</td> <td class="cell">No</td> <td class="cell">文字列</td> </tr>
+    <tr> <td class="cell">scale_name</td><td class="cell">使用される評価尺度の名称です。</td> <td class="cell">Yes</td> <td class="cell">文字列</td> </tr>
+    <tr> <td class="cell">scale_items</td><td class="cell">カンマ区切りの評価尺度アイテム一覧です。</td> <td class="cell">Yes</td> <td class="cell">文字列</td> </tr>
+    <tr> <td class="cell">scale_description</td><td class="cell">評価尺度の説明です。</td> <td class="cell">No</td> <td class="cell">文字列</td> </tr>
+</table>
+
+<p>以下、インポートファイルの例です:</p>
+<pre>outcome_name;outcome_shortname;outcome_description;scale_name;scale_items;scale_description
+Assiduity outcome;assiduity;;Assiduity scale;"Absent,Half-way there,Assiduous,Omnipresent";</pre>

@@ -1,0 +1,18 @@
+<!--[include file="iw_forms_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='kcmdf.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<div style="height:10px;">&nbsp;</div>
+	<h2><!--[gt text="Import a form"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+
+	<form  class="pn-adminform" enctype="multipart/form-data" method="post" name="import" id="import" action="<!--[pnmodurl modname="iw_forms" type="admin" func="import"]-->">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forms"]-->" />
+		<input type="hidden" name="confirm" value="1" />
+		<div>
+			<input type="file" name="import" size="50">
+		</div>	
+		<div style="margin-top:10px; text-align: center;">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="OK" __title="OK"]--> <!--[gt text="OK"]-->
+		</div>
+	</form>
+</div>

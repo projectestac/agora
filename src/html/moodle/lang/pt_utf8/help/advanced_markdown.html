@@ -1,0 +1,225 @@
+<!-- $Id: advanced_markdown.html,v 1.4 2008/01/20 19:06:49 villate Exp $ -->
+<h2>Uso avançado do Markdown </h2>
+
+<div id="Main">
+
+<div class="article">
+<p>
+Esta secção estende a informação básica dada na secção intitulada
+"Texto no formato Markdown" para dar àqueles com exigências
+especiais a informação necessária para tirar máximo partido do
+Markdown. Se não reconhece, ou não precisa, o formato listado
+abaixo então pode ignorar esta secção e voltar
+a ela quando chegar a ser necessário.
+</p>
+<ul>
+  <li><a href="#linebreaks">Quebras de Linha </a></li>
+  <li><a href="#hr">Barras Horizontais </a></li>
+  <li><a href="#image_links">Imagens com Apontadores</a></li>
+  <li><a href="#embedded">Inclusão de HTML</a></li>
+  <li><a href="#preformatted">Código Pré formatado</a></li>
+  <li><a href="#special_char">Uso de Caracteres Especiais</a></li>
+  <li><a href="#further">Referências</a></li>
+</ul>
+	
+<h2><a id="linebreaks">Quebras de Linha </a></h2>	
+	
+<p>
+Em alguns textos, por exemplo, na poesia e no verso, é frequentemente
+necessário introduzir quebras de linha.  Tentar fazer isso com a tecla
+&quot;enter&quot; não dará o efeito pretendido porque por omissão as
+linhas juntam-se para criar um parágrafo. Por exemplo:
+</p>
+	
+<p><strong><code>
+As armas e os barões assinalados,<br />
+Que da ocidental praia Lusitana,<br />
+Por mares nunca de antes navegados,<br />
+Passaram ainda além da Taprobana,<br />
+Em perigos e guerras esforçados,<br />
+Mais do que prometia a força humana,<br />
+E entre gente remota edificaram<br />
+Novo Reino, que tanto sublimaram;
+</code></strong></p>
+
+<p>
+Se o texto acima fosse escrito como aparece, em linhas separadas, as
+mudanças de linha seriam ignoradas e o texto ficava assim:
+</p>
+	
+<p>As armas e os barões assinalados, Que da ocidental praia Lusitana,
+Por mares nunca de antes navegados, Passaram ainda além da Taprobana,
+Em perigos e guerras esforçados, Mais do que prometia a força humana,
+E entre gente remota edificaram Novo Reino, que tanto sublimaram;</p>
+
+<p>Mas terminando cada linha com dois espaços, pode forçar uma quebra
+de linha como segue:</p>
+	 
+<p>As armas e os barões assinalados,  <br />
+Que da ocidental praia Lusitana,  <br />
+Por mares nunca de antes navegados,  <br />
+Passaram ainda além da Taprobana,  <br />
+Em perigos e guerras esforçados,  <br />
+Mais do que prometia a força humana,  <br />
+E entre gente remota edificaram  <br />
+Novo Reino, que tanto sublimaram;  </p>
+
+<h2><a id="hr">Barras Horizontais </a></h2>
+
+<p>
+As barras horizontais podem ser criadas colocando três ou mais
+asteriscos (*), hífenes (-) ou underscores (_) numa linha.
+</p>
+
+<p>Isto é suficiente: </p>
+
+<p><strong><code>***</code></strong></p>
+
+<p>
+mas pode adicionar espaços ou mais caracteres para tornar mais
+evidente a quebra de secção na janela de edição de texto; por exemplo:
+</p>
+
+<p><strong><code>* * * * *</code></strong></p>
+
+<p><strong><code>-------------------------</code></strong></p>
+
+<p><strong><code>_ _ _ _ _</code></strong></p>
+
+
+<p> Todos estes métodos dão o mesmo exacto resultado:
+
+<hr />
+
+<h2><a id="image_links">Imagens com Apontadores</a></h2>
+
+<p>
+No documento &quot;Texto no formato Markdown&quot; explica-se como
+criar apontadores e introduzir imagens. Pode não ser óbvio que estes
+podem ser combinados para criar imagens que sejam também apontadores
+que actuam quando se carregar neles:
+</p>
+
+<p><strong><code>[o motor de pesquisa do Google][google]</code></strong></p>
+
+<p><strong><code>![o logo do Google][logo]</code></strong></p>
+
+<p>
+Acima temos um apontador e uma imagem. Colocando a imagem onde se
+devia colocar o texto do apontador obtemos:
+</p>
+
+<p><strong><code>[![o logo do Google][logo]][google]</code></strong></p>
+
+<p>
+Esta linha acima, em combinação com as seguintes definições do
+apontador e imagem, numa outra parte no documento:
+
+<p><strong><code>[logo]: http://www.google.com/images/logo.gif</code></strong><br />
+<strong><code>[google]: http://www.google.com/ "Carregue para visitar Google.com"</code></strong></p>
+
+<p>
+produz a seguinte imagem com um apontador (com ajuda quando se colocar
+o rato sobre ela):
+</p>
+
+<p><a href="http://www.google.com/" title="Carregue para visitar Google.com"><img src="http://www.google.com/images/logo.gif" alt="o logo do Google" /></a></p>
+
+<p>
+Um exemplo onde esta técnica pode ser útil consiste em associar
+imagens pequenas (<em>thumbnail</em>) a fotos maiores.
+</p>
+
+<h2><a id="embedded">Inclusão de HTML</a></h2>
+
+<p>
+Se já souber codificar em HTML então podem existir ocasiões quando o
+Markdown não lhe permite o mesmo controlo ao que está
+habituado. Felizmente o Markdown foi projectado para esta
+eventualidade, permitindo a inclusão directa de HTML dentro do texto
+em formato Markdown. Por exemplo:
+</p>
+
+<p><strong><code>* &lt;small&gt;texto pequeno&lt;/small&gt;</code></strong><br />
+
+<strong><code>* &lt;big&gt;texto grande&lt;/big&gt;</code></strong> </p>
+
+<ul>
+<li><small>texto pequeno</small>  </li>
+<li><big>texto grande</big> </li>
+</ul>
+
+<p>
+Repare que o código HTML coexiste com o código do Markdown para lista
+de pontos. Isso permite a utilização da sintaxe mais simples do
+Markdown para algumas tarefas habituais como parágrafos e listas,
+reservando o poder do HTML para situações mais específicas.
+</p>
+
+<h2><a id="preformatted">Código Pré formatado/a></h2>
+
+<p>
+Se, ao contrário da secção acima, deseja que o código HTML escrito
+seja mostrado exactamente como foi escrito, em vez de ser processado
+como HTML, pode começar cada linha com quatro espaços.
+</p>
+
+<pre><code>&lt;p&gt;Um parágrafo em &lt;strong&gt;HTML&lt;/strong&gt; mostrado como código&lt;/p&gt;
+</code></pre>
+
+<p>
+O mesmo método (4 espaços no início da linha) pode ser usado para
+apresentar código de computador:
+</p>
+
+<pre><code>print "Argumentos da linha de Comando: (@ARGV)\n";
+</code></pre>
+
+<p>
+Como este formato é usado para listagens de programas e ooutro texto
+que pode conter os caracteres que o Markdown usa para indicar tipos
+diferentes de formato, a formatação do Markdown é desligada para estas
+linhas:
+</p>
+
+<pre><code>Normalmente esta palavra seria escrita em **negrito**.
+</code></pre>
+
+<p>
+Para incluir tais caracteres dentro do texto normal, veja a secção abaixo.
+</p>
+
+<h2><a id="special_char">Uso de Caracteres Especiais </a></h2>
+
+<p>
+Se quiser usar qualquer um dos caracteres especiais que definem o
+formato do Markdown sem que seja interpretado como caracter especial,
+simplesmente preceda-o com o carácter (\). Isto é designado de
+&quot;escapar&quot; o carácter. O carácter \ não é mostrado mas o
+carácter imediatamente depois dele sim é mostrado, exactamente como
+introduzido.
+</p>
+
+<p><strong><code>\*asteriscos, não ênfase\* </code></strong></p>
+
+<p>É apresentado como:</p>
+
+<p>*asteriscos, não ênfase*</p>
+
+<p>em vez de</p>
+
+<p><strong><code>*ênfase, não asteriscos*</code></strong></p>
+
+<p>o que dá:</p>
+
+<p><em>ênfase, não asteriscos</em></p>
+
+<h2><a id="further">Referências</a></h2>
+
+<p>
+O sistema Markdown não é próprio do Moodle; é usado num número
+crescente de ferramentas de publicação na Web. Pode obter mais
+informações
+em <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a>
+</p>
+</div></div>

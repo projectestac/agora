@@ -1,0 +1,260 @@
+<!-- $Id: markdown.html,v 1.5 2009/10/21 16:44:22 martignoni Exp $ -->
+
+<h2>Enrichir des textes avec le format Markdown</h2>
+
+<div id="Main">
+
+<div class="article">
+
+<p>Le format Markdown étend le simple mode de saisie de texte disponible dans Moodle en vous permettant d'ajouter facilement des accentuations (gras, italique), de la structure (points de listes et titres) et des liens (vers des images ou d'autres ressources web). Vous pouvez utiliser Markdown à de nombreux endroits de Moodle, en sélectionnant simplement ce format dans le menu déroulant <strong>Format</strong>, que l'on trouve au-dessous de la zone de texte lorsque vous avez le choix.</p>
+
+<ul>
+
+<li><a href="#concepts">Concept de base</a></li>
+
+<li><a href="#emphasis">Accentuer du texte</a></li>
+
+<li><a href="#headings">Titres</a></li>
+
+<li><a href="#lists">Listes</a></li>
+
+<li><a href="#quotes">Paragraphes de citations</a></li>
+
+<li><a href="#links">Liens web</a></li>
+
+<li><a href="#images">Images</a></li>
+
+<li><a href="#advanced">Utilisation avancée</a></li>
+
+</ul>
+
+<h2><a id="concepts">Concept de base</a></h2>
+
+<p>Pour saisir du texte, tapez simplement dans la zone de texte, en pressant deux fois sur la touche retour à la fin d'un paragraphe, pour insérer une ligne vide entre la fin d'un paragraphe et le début du suivant.</p>
+
+<h2><a id="emphasis">Accentuer du texte</a></h2>
+
+<p>Il est possible d'accentuer du texte de trois façons, avec Markdown : texte en <em>italique</em>, texte en <strong>gras</strong> et texte en <strong><em>gras et italique</em></strong>. Pour obtenir ces accentuations, vous entourez le texte en question par des astérisques, de la façon suivante :</p>
+
+<p><strong><code>*italique*</code></strong> -&gt; <em>italique</em> <br />
+<strong><code>**gras**</code></strong> -&gt; <strong>gras</strong> <br />
+<strong><code>***gras italique***</code></strong> -&gt; <strong><em>gras italique</em></strong></p>
+
+<p>On peut accentuer de simples mots, une suite de mots ou même des parties de mots :</p>
+
+<p><strong><code>un *unique* mot</code></strong> -&gt; un <em>unique</em> mot <br />
+<strong><code>***une suite de mots***</code></strong> -&gt; <strong><em>une suite de mots</em></strong> <br />
+<strong><code>il**lisi**ble</code></strong> -&gt; il<strong>lisi</strong>ble</p>
+
+<p>Des caractères soulignés (_) peuvent être utilisés en lieu et place des astérisques pour le même résultat.</p>
+
+<h2><a id="headings">Titres</a></h2>
+
+<p>Markdown vous permet de subdiviser votre texte avec des titres et sous-titres. Six différents niveaux sont disponibles, bien qu'il soit inhabituel d'en utiliser plus de trois dans un texte normal. Par exemple, il y a trous niveaux de titres dans le texte que vous lisez maintenant.</p>
+
+<p>Vous pouvez créer un titre en commençant une ligne avec un ou plusieurs caractères dièze (#). Un seul dièze donne le niveau de titre le plus élevé, et six dièzes le niveau le moins important.</p>
+
+<p><strong><code># Titre de section</code></strong> <br />
+<strong><code>## Titre de sous-section</code></strong> <br />
+<strong><code>### Titre de sous-sous-section</code></strong> <br />
+etc.</p>
+
+<p>Les deux premiers niveaux de titres sont les plus utilisés et peuvent aussi être créés d'un autre façon pour les faire ressortir dans la version non formattée du texte (même si l'aspect formatté est le même qu'avec la méthode précédente). Cette méthode alternative utilise une ligne de signes égal (=) ou de tirets (-) sous le texte du titre, de cette façon :</p>
+
+<p><strong><code>Titre de section</code></strong> <br />
+<strong><code>===============</code></strong></p>
+
+<p><strong><code>Titre de sous-section</code></strong> <br />
+<strong><code>------------------</code></strong>   </p>
+
+<h2><a id="lists">Listes</a></h2>
+
+<h3>Listes de points</h3>
+
+<p>Les listes de points peuvent être créées en commençant chacune des lignes concernées par un astérisque, suivi d'un espace avant le contenu de l'élément de la liste. L'espace est important et ne doit pas être oublié.</p>
+
+<p><strong><code>* premier point</code></strong> <br />
+<strong><code>* deuxième point</code></strong> <br />
+<strong><code>* troisième point</code></strong>  </p>
+
+<p>devient</p>
+
+<ul>
+
+<li>premier point</li>
+
+<li>deuxième point</li>
+
+<li>troisième point</li>
+
+</ul>
+
+<h3>Listes numérotées</h3>
+
+<p>De façon analogue, les listes numérotées peuvent être créées en commençant chacune des lignes concernées par un chiffre et un point, suivi d'un espace avant le contenu de l'élément de la liste.</p>
+
+<p><strong><code>1. Premier point</code></strong> <br />
+<strong><code>2. Deuxième point</code></strong> <br />
+<strong><code>3. Troisième point</code></strong></p>
+
+<p>devient</p>
+
+<ol>
+
+<li>Premier point</li>
+
+<li>Deuxième point</li>
+
+<li>Troisième point</li>
+
+</ol>
+
+<h3>Listes imbriquées</h3>
+
+<p>L'on peut imbriquer les listes de points ou numérotées, en les mélangeant au besoin dans la même structure :</p>
+
+<b><pre>
+    * point un, niveau un
+      * niveau deux 
+      * point deux, niveau deux
+    * point deux, niveau un  
+      1. point un, liste numérotée
+         1. point un, niveau deux liste numérotée
+      2. point deux, liste numérotée
+</pre></b>
+
+<p>devient</p>
+
+<ul>
+
+<li>point un, niveau un
+
+<ul>
+
+<li>niveau deux</li>
+
+<li>point deux, niveau deux</li>
+
+</ul>
+
+</li>
+
+<li>point deux, niveau un
+
+<ol>
+
+<li>point un, liste numérotée
+
+<ol>
+
+<li>point un, niveau deux liste numérotée</li>
+
+</ol>
+
+</li>
+
+<li>point deux, liste numérotée</li>
+
+</ol>
+
+</li>
+
+</ul>
+
+<h2><a id="quotes">Paragraphes de citations</a></h2>
+
+<p>Vous pouvez indiquer une section de citation de texte en commençant chaque ligne avec un signe plus rand que (>). Ce caractères a été choisi dans de nombreux programmes de courriel pour indiquer le texte cité. La sortie formattée sera en général en retrait par rapport au texte normal.</p>
+
+<p><strong><code>&gt; Une citation sur</code> <br />
+<code>&gt; deux lignes</code></strong>  </p>
+
+<p>devient</p>
+
+<blockquote>
+  <p>Une citation
+  sur deux lignes</p>
+</blockquote>
+
+<p>Il est possible de vous épargner la saisie de texte en ne tapant qu'un signe plus grand que au début de la première ligne du paragraphe, ainsi :</p>
+
+<p><strong><code>&gt; ceci est le texte</code> <br />
+<code>d'une unique citation, même si elle est</code> <br />
+<code>présentée sur plusieurs lignes.</code></strong></p>
+
+<p>devient</p>
+
+<blockquote>
+  <p>ceci est le texte
+  d'une unique citation, même si elle est
+  présentée sur plusieurs lignes.</p>
+</blockquote>
+
+<h2><a id="links">Liens web</a></h2>
+
+<p>Il y a deux façons de créer des liens vers des ressources web : la première est de taper directement l'URL entre parenthèses, et de le précéder immédiatement (sans espace) du texte devant être affiché à sa place entre crochets ; un titre peut être optionnellement adjoint entre guillemets après l'URL.</p>
+
+<p><strong><code>Un [exemple de lien](http://exemple.fr/ "Titre optionnel") dans une phrase.</code></strong></p>
+
+<p>devient</p>
+
+<p>Un <a href="http://exemple.fr/" title="Titre optionnel">exemple de lien</a> dans une phrase.</p>
+
+<p>Le titre, s'il est fourni, est affiché dans une bulle lorsque le pointeur reste au-dessus du texte du lien. Essayez sur le lien ci-dessus.</p>
+
+<p>Pour des liens plus long, on peut utiliser une notation style note de bas de page, en donnant un nom bref (un simple mot ou un nombre) identifiant le lien entre deux crochets supplémentaires.</p>
+
+<p><strong><code>Un [exemple de lien][ex] dans une phrase.</code></strong></p>
+
+<p>Puis, n'importe où ailleurs dans le document, mais de préférence directement à la suite du paragraphe contenant le lien, ou rassemblé au bas du document en tant que liste de liens, vous définirez les URLs associés aux différents identifiants :</p>
+
+<p><strong><code>[ex]: http://exemple.fr/  "Titre optionnel"</code></strong></p>
+
+<p>L'effet produit par ce deuxième exemple est exactement le même que le premier. Ce type de notation est surtout utile pour garder une bonne vue d'ensemble du document en travail, notamment pour permettre de le retravailler facilement dans une phase ultérieure, par exemple si l'on y travaille à plusieurs.</p>
+
+<p>Une dernière méthode est de typer simplement l'URL entre deux signes plus grand que et pls petit que, si vous désirez que l'URL apparaisse comme texte du lien :</p>
+
+<p><strong><code>&lt;http://moodle.org/&gt;</code></strong></p>
+
+<p>devient</p>
+
+<p><a href="http://moodle.org">http://moodle.org</a></p>
+
+<h2><a id="images">Images</a></h2>
+
+<p>Les images sont incluses de façon très similaire aux liens web. La seule différence est que la notation est précédée d'un point d'exclamation. Le texte alternatif étant fourni aux utilisateurs ne pouvant voir l'image pour diverses raisons, il doit donner une information sur le contenu ou le but de l'image. Il donnera en outre dans ce cas une indication supplémentaire sur l'image aux autres personnes modifiant le texte.</p>
+
+<p>Le titre, s'il est fourni, est affiché dans une bulle lorsque le pointeur reste au-dessus du texte du lien.</p>
+
+<p><strong><code>![texte alternatif](/chemin/image.jpg "Titre optionnel")</code></strong></p>
+
+<p>Tout comme pour les liens web, vous pouvez organiser votre document en gardant rassemblées toutes les références en style note de bas de page. Donnez alors un simple mot ou nombre comme identifiant de l'image :</p>
+
+<p><strong><code>![texte alternatif][photo]</code></strong></p>
+
+<p>et n'importe où dans le document, faites l'association entre le nom et le fichier de l'image :</p>
+
+<p><strong><code>[photo]: /url/de/image.jpg "Titre optionnel"</code></strong></p>
+
+<p>Voici un exemple et l'affichage du résultat :</p>
+
+<p><strong><code>![Logo Google](http://www.google.com/images/logo.gif "Le logo Google")</code></strong></p>
+
+<p><img src="http://www.google.com/images/logo.gif" alt="Logo Google" title="Le logo Google" /></p>
+
+<p>Le texte alternatif, important pour des raisons d'accessibilité, sera souvent utilisé par les navigateurs pour remplacer une image dont le lien est cassé ou qui n'est pas disponible actuellement :</p>
+
+<p><strong><code>![Texte alternatif d'une image non disponible](http://exemple.com/lien-cassé-intentionnellement "Cette image ne sera jamais affichée")</code></strong></p>
+
+<p>devient (l'affichage exact dépend de votre navigateur)</p>
+
+<p><img src="http://exemple.com/lien-cassé-intentionnellement" alt="Texte alternatif d'une image non disponible" title="Cette image ne sera jamais affichée" /></p>
+
+<h2><a id="advanced">Utilisation avancée</a></h2>
+
+<p>Cette brève introduction couvre les fonctions les plus fréquemment utilisées du format Markdown. Il est possible d'obtenir de résultats plus complexes, notmamment si vous connaissez le format HTML. Ces aspects sont traités dans le document Utilisation avancée du format Markdown.</p>
+
+<p class="moreinfo"><a href="help.php?file=advanced_markdown.html">Utilisation avancée du format Markdown</a></p>
+
+</div>
+
+</div>

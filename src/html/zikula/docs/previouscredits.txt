@@ -1,0 +1,484 @@
+Zikula Credits
+==============
+
+This credits file contains the credits for the .7x PostNuke series, and many of 
+the developers mentioned here are no longer with the project.  We wish to 
+acknowledge their contribution to making PostNuke what it is today, this file is
+a demonstration of the strength of the Zikula community and the number of people 
+who have been, and still are involved.
+
+Zikula is, as with many successful open-source products, a huge
+collaborative effort spanning many diverse talents from across the globe.  The
+list below gives an idea of some of the people that have helped in
+
+Zikula was originally a fork of PHPNuke by Francisco Burzi, and many of
+the concepts in that program survive even though the code does not.  We (and
+PHPNuke, of course) were also influenced by earlier products such as slash and
+thatware, and I'm sure that we could trace the lineage back to the earliest
+weblog if we wanted to.  Open source at work is taking the best ideas floating
+around the web and building a product out of them, and that's where we hope
+that Zikula is heading.
+
+The Road to Zikula 1.0
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Following are listed people who helped us on the road to Zikula 1.0 but sadly 
+left us before the journey was completed.  We acknowledge their contributions, 
+and hope that some day we will welcome them back into the fold.
+
+Franz Skaaning
+Chris Miller
+Ralph Alberti
+Mark Ouellet
+Frank DeRosa
+Patrick Cornelissen
+Wendell Harness
+
+
+Previous Releases
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Jim McDonald
+     Based in the United Kingdom, is responsible for bits of the core and
+     modules architecture, and various security features  that seem to cause
+     more trouble than they're worth.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Greg Allan (adam_baum)
+     One of them there Canadian boys :)  General layabout/drifter within
+     the PN development framework. Other then that, one of the 4 who initially 
+     launched Zikula. Greg tragically passed away in June 2002.
+     Zikula is his legacy.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Gregor J. Rothfuss
+     Hailing from Switzerland, worked on everything from bug hunting to
+     XML-RPC to architecture suggestions / core API implementations.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Jan Schrage
+     Based in Germany, tried to keep the code repository usable. Looked
+     for the perfect solution other than banning all access to it.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Frank Besler (besfred)
+     Born, raised and still living in southern Germany, came up occasionally
+     with new ideas for the architecture of PN, tested the development versions
+     and fixed bugs. He was also the Quality Manager of PN.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Sascha Endlicher (Karateka)
+     Is one of ze Germans (with his heart beating for Austin, Texas) and was
+     often found on IRC or the website live support. Other than that, he
+     jumped in here and there, found security holes, ported modules to Zikula
+     and is interested in content syndication and usability of websites.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Carl P. Corliss (aka Rabbitt -- aka FrogBoy George)
+     Based in the scenic, Oil Rich, Heavily polluted area known as Martinez,
+     California USA (30 minutes north of San Fransisco). Carl was working on the
+     new Comments API and also worked on bug hunting/fixing and supporting 
+     users of Zikula in the #Zikula-support channel on irc.zikula.org -- 
+     also well known for being a dirty hippie.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Michael M. Wechsler (aka Slinky)
+     Logging in from New York City, he is a lawyer-coder (really) and provided
+     support and docs for business and legal issues, including the occasional
+     code hack.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Steve MacGregor (aka Grape)
+     Gets the thankless task of running the entire documentation effort for the
+     PN Project including hosting and maintaining the documentation web
+     presence along with his partner in crime, Stephen Feather (aka Wolf-).
+     Steve also provided live technical support on the IRC support channel.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Prateep Kulapalanont (Kulapalanont)
+     Thai/American working on Thai translation and multi-lingual Yellowpages
+     module (YellowPHP). Most of his work came from the beach in Phuket island.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Sebastian Fränk (Lothrien)
+     Living and working in Germany, is a originally a database coder, but worked
+     on the Zikula project as bug fixer and was updating the german language
+     files.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Roger Mauseth (Rabalder)
+     Norwegian transalation, some documentation and bugtracking/testing.
+     <martyrblock>
+     the one that had to install PHPNuke for upgrade testing.
+     <martyrblock/>
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Ingimar Robertsson
+     Icelander sitting in the snow^H^H^Hun, translating Zikula to Icelandic.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Johnny Robeson
+    Living and studyin' in Virginia Beach, VA. Although not coder by trade,
+    he has been known to fix some bugs and provided support for PN users.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Andy Varganov
+    Lives in Manchester/UK, works with young people. In his free time, drinks
+    lots of beer - Guinness Original is his favourite, battles with MacOS X
+    (both server and client), programmes his own pn modules and decided which
+    (third party) module to release on SF or not :)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+John Cox
+    American, living just North of Philadelphia, PA, that mainly just reads
+    email now. John's contribution to Zikula was mainly towards the
+    administrative side, but has been known to fix a bug or two when football
+    season is over. One of the original four to launch Zikula.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Pedro Innecco
+    Responsible for Brazillian translation along with various changes to the
+    administration interface
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Harry Zink
+    When not busy evangelizing Apple's Macintosh computer's or working for 
+    unnamed entities in the entertainment industry, has been known to
+    contribute a press release or two. He lives with his dog Vladi in
+    Los Angeles, CA.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Francisco Sam Castillo (Neo)
+    Locked away in his secret laboratory in South America, he comes up with
+    some pretty nifty technologies, and has perfected the art of not needing
+    any sleep, ever. He lives in Mexico.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Brandon Keith Harvey (bharvey42)
+    Living in his apartment In Lake Orion MI, usually he is locked in shackles
+    attached to his desk he spends most of his time on the support forums, coding
+    and brainstorming ideas for PN.  He also makes some interesting music that is
+    available at www.mp3.com/voi.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Alexander Graef (MagicX)
+    Busy running his own community (portalzine)and doesnt seem to sleep. Loves
+    to combine code and design. Centered his life around coding and runs his
+	own company. He lives in Germany.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Andreas Krapohl (larsneo)
+    When not travelling around for some mountain climbing busy on bugfixing - 
+    especially related to ml and permission system. Originally born in 
+    the 'rhineland' and now living and working in southern germany.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Luis Cabrera Sauco
+    I live in the Canary Islands, Spain. After being born I, the Beatles still
+    gave enough concerts.
+    I dedicate my work to my wife Elsa and my daughter Caterina :)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Vanessa Haakenson (aka vworld)
+    American, living in California, provides her graphic skills, usability
+	knowledge and leadership to the project.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Sebastian Schurmann (aka dabase)
+    Thanks for all his work with unit testing and Quality Assurance
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Brook Humphrey (aka webmedic)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Larry Masters (aka phpnut)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Giovanni Van Geel (aka bravecobra)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Luis Cabrera (aka lcabrera)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Devin Hayes (aka InvalidResponse)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Lee Eason (aka leason)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Jean-Michel Vedrine (aka jmvedrine)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Carl Slaughter (aka Carls)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Valerio Santinelli (aka tanis)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Everyone Else 
+    (The nameless fixers & translators, & especially the docs and support people)
+    Thanks to all of you who have contributed to this project, it certainly
+    could not have been done without you.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Below are the credits starting from the first bug patch ( FallOut .51 ).
+
+PHP-Nuke was the initial project from which the PostNuke series was forked.  
+Hardly a line of code remains, however PHP-Nuke is what caused this project to 
+exist.
+    
+Andreas Krapohl aka [larsneo] <andreas@krapohl.net> - ( http://www.post-nuke.net/ )
+	-- Phoenix Releases 0.7.2.0 - 0.7.5.0
+	
+Francisco Sam Castillo A.K.A. [Neo] <neo@samstech.net> - ( http://www.samstech.net/ )
+	-- Phoenix Releases 0.7.2.0 - 0.7.2.3
+
+Michael Cortez <mcortez@fullcoll.edu> - ( http://www.TiniResources.com )
+    -- user redirection fix for strange login problem with cookie not being set.
+    -- Links sub-section graphics
+    -- Advance FAQ
+
+Edgar Miller ( http://www.bosna.de/ )
+    -- from his post on PHP-Nuke for the module directory name hack.
+    ( http://phpnuke.org/article.php?sid=2010&mode=nested&order=0&thold=0 )
+
+Joao Inacio (jcinacio@icqmail.com)
+    -- quick fix on pollcomments.php in ReplyPreview function.
+    -- fixed downloads admin. Would not let you add downloads in some cases.
+    -- Corrections to lang_portuguese.php language file.
+
+Wandrer
+    -- changed the modules/Stats/index.php file to use a switch/case block at the core
+    -- changed the modules/Stats/index.php file to use a "select count(*) from"
+    clause instead of mysql_num_rows for counting records
+
+Mahmood ( http://www.mahmood.tv/ )
+    -- Updated the Arabic Translation
+
+Dai ( http://www.dezineasite.co.uk )
+    -- Updated the README-FIRST document for better instructions on upgrading.
+
+Michael Bäcker (michael@baecker.com)
+    -- Fix for German Language File on line 1036
+
+timlitw
+    -- error handling,  error.php
+    -- Netscape CSS
+
+Sire
+    -- Fix for advance headlines and php error call.
+
+tonypro
+    -- Fix for avantgo to point url to config variable.
+
+nemo ( cptnemo@subdimension.com )
+    -- Modified index.php to allow $morelink to be borken down to individual components
+    -- Addition of no comments per story.
+
+Andy Varganov <email@andyv.co.uk>
+    -- Fix for IE Mac display problem with search module.
+    -- FIX for ExtraLite theme css
+    -- FIX for Zikula theme css
+
+messner_007
+    -- Added the functionality to view links in admin and edit from there, instead of looking up id number.
+
+Jens (jw@nusite.de)
+    -- AutoLink mod
+
+SMcD
+    -- Added changes for building the related links array in article.php - ereg replaced with stristr.
+
+Viking
+    -- Added Malay Translation
+
+Frank Besler <besler@web.de>
+    -- Updated the online manual files
+
+Magnus Skjegstad <magnus@skjegstad.com>
+    -- Alert and fix to article.php security hole.
+
+daviesjp (jon@blackfrock.com)
+	-- De-Hardcoded name of the Zikula Theme
+
+Hinrich <hd@tiro.de>
+    -- Move config to table
+    -- More or less fixes
+
+Andrea M. (an_mo)
+    -- Added plural and singular translation to pmessages.
+
+Fred B.
+    -- TimeZone Fix for .71 Rogue.
+    -- Theme Upgrade Guide for .71
+
+Gösta Boström
+    -- New to the dev team.
+
+Christoher Grote [Ender] (cmgrote@thethird.net)
+    -- Fixed module upgrade system to actually run API upgrade functions
+    -- Code conversion for the now all-lowercased module directory names
+    -- Fixed various formatting errors in code and display (esp. comments module)
+
+Xiaoyu Huang (007pig) (class007@sina.com)
+    -- Fixed issue when register_global = off
+    -- Fixed admin Online Manual issue
+    
+Marc Maes (admin@mmaes.com)
+    -- new permission module
+    
+Michael Cohen
+	-- some nice Sourcecode auditing
+
+Eric Barr, Roger Raymond
+     -- New database connection methodology
+
+The current Zikula Development Team
+Names and Site addresses can be found on our main site ( http://www.zikula.org ).
+
+=== Zikula pnDevs Credits ===
+[Release / Generation 0.7.2.6, 0.7.5.0]
+
+bharvey42 / *bharvey4zikula.org
+class007 / class007@zikula.org
+lcabrera / lcabrera@zikula.org
+larsneo / larsneo@zikula.org
+markwest / markwest@zikula.org
+nunizgb / *nunizgb@zikula.org
+tanis / tanis@zikula.org
+vworld / vanessa@designs4nuke.com
+roger / roger@asphyxia.com (postcalendar)
+jna /*
+phpnut / nut@phpnut.com
+webmedia / *
+landseer / *
+jornlind / *
+bravecobra / *
+invalidrepsonse / *
+(*) Pending email update
+
+=== Zikula pnCorps Credits ===
+[Release / Generation 0.7.2.6, 0.7.5.0]
+
+Thanks to all that help make Zikula all it can be at the forums, support, irc, documentation,
+Quality Assurance (beta testing) and more.
+
+Chuck Wadlow aka infopro
+Simon Birtwistle aka hammerhead
+Carl Ross aka Grizzly
+Dave Stites aka Geekster
+Michael Halbrook
+Alan Arthur aka alana
+Jim Hadfield
+Aleksi Ceder
+Alf Refsum
+Cena Mayo
+Andrei aka chAM
+Duster
+Jamie Dodd
+Jeff Ivins
+Keith McCammon
+Nate Neelsmith
+Gregory-Eric
+Roland k
+Namtrak
+zbert
+Pete99
+David Nelson
+
+=== Zikula Translation Teams Credits ===
+* Brazilian Portuguese Team:
+    CVS: Mikhail Miguel <mikhail@underpop.com> - http://www.underpop.com
+    Albert E. Mota de Souza <albert.einstein@ieg.com.br> - www.einstein.f2s.com
+    Alexandre Altair de Melo <am2net@ig.com.br> - http://www.pirabeiraba.com
+    Alexandre Morato <alex182br@yahoo.com.br> - http://www.putol.cjb.net
+    Átila Cavalcante <atila@interligados.net> - http://www.interligados.net
+    Fábio Akira Yoshida <fabioseno@hotmail.com>
+    Jonatas Andr?Pabst <jonnyramones@bol.com.br> - http://www.pirabeiraba.com
+    Luciano Millnitz <millnitz@terra.com.br> - http://www.pirabeiraba.com
+    Marcelo Domingues <abroba@yahoo.com.br> - http://www.ciaencontro.com/oposicao
+    Mauricio Bonani <webmaster@aboutlinux.com.br> - http://www.aboutlinux.com.br
+    Newman <newman@engebras.com.br> - http://www.engebras.com.br
+    Tarcila Maciel Vel Broder <tarcila@belleatec.com> - http://www.belleatec.com
+
+* Chinese Simp. Translation:
+    Xiaoyu Huang (class007@sina.com)
+
+* French Translation Team:
+    Albert Bruc (al@linuxfrench.net)
+    Philippe LEVIEZ (pleviez@vintagevw.org)
+    Fabian Rodriguez (Fabian.Rodriguez@toxik.com)
+    AmigaPhil (AmigaPhil@ping.be)
+    Philippe Belin (philippe@belin.fr)
+
+* German Translations:
+    Andreas Krapohl <andreas@krapohl.net> - ( http://www.post-nuke.net/ )
+    Hinrich Donner (hdonner@users.sourceforge.net)
+    Jan Huebener (www.nukethemes.de)
+
+* Icelandic Translation:
+    Ingimar Robertsson <iar@pjus.is>
+    
+* Norwegian Transalation:
+    Roger Mauseth (Rabalder) <rabalder@users.sourceforge.net>   
+
+* Russian Translation Team:
+    Volodymyr Metenchuk http://www.solidno.ru/
+    Vladimir Shundalov (navigator@pwp.ru)
+
+* Spanish Translation Team:
+    Amaya Rodrigo <amaya@debian.org> http://www.amayita.com/
+    Adriana de Hoyos (adria1964) adriana@Zikula-espanol.org www.imagenymovimiento.com
+    Antonio Delgado (addf) addf@gentepalm.com www.gentepalm.com 
+    Enrique Ploder (beplo) ploder@solositios.com www.solositios.com 
+    Julio Meneses (taih) taih@Zikula-espanol.org www.mipcdebolsillo.com
+    Luis Cabrera (lcabrera) lcabrera@gulic.org www.gulic.org
+    Marino Carlos (xaplo) xaplo@Zikula-espanol.org www.Zikula-espanol.org
+    Ricardo Barrios (ElGranAzul) elgranazikula.org61@hotmail.com 
+    Sergio Barrachina Mir
+
+* Swedish Translations:
+    Joakim Schramm (moonwalker@users.sourceforge.net)
+
+* Thai Translations
+    Prateep Kulapalanont http://www.kul.com (kulapalanont@hotmail.com)    
+
+* Italian Translation Team:
+    Zikula.it staff  staff@Zikula.it
+    Fabrizio Busca (aka Fabrix)  fabrix@Zikula.it
+    Massimiliano Tiraboschi (aka TiMax) timax@Zikula.it
+    Davide Riboli (aka Inverno muto) posta@invernomuto.it
+    Marco Cigolotti (aka Marcolinux) marcolinux@inwind.it
+    Andrea Lazzarini (aka Andy)  andy04@libero.it
+
+* Sessions Fix for 4.01 problem
+    M.W.Herbert http://blueyonder.co.uk
+
+* Backend Fix and enhancements
+    Craig R. Saunders (coldrolledsteel) https://sourceforge.net/users/coldrolledsteel
+
+
+_____________________________________
+Funny Error Message Inspiration
+_____________________________________
+Douglas Adams and Marvin the paranoid android.
+
+Douglas Adams was the author of the Hitchhikers Guide 
+to the galaxy and many other things as well. He was a 
+true modern rennaisance man with interests in Science, 
+the natural world, art, literature etc.
+
+Douglas also had a profound theoretical and practical 
+understanding of the potential of the Internet. Douglas 
+Adams' early death in May 2001 was a true loss to humanity. 
+
+http://www.h2g2.com
+http://www.bbc.co.uk/dna/hub/
+
+
+CREDITS for PHP-NUKE
+====================
+
+* PHP-Nuke
+Copyright (c) 2001 by Francisco Burzi (fbc@mandrakesoft.com)
+http://phpnuke.org
+
+* Thatware
+Copyright (c) 2000 by David Norman
+http://thatware.org
+Note: Most of the code was based initialy on Thatware, PHP-Nuke 5.0 is
+practicaly a complete rewrite of the code to improve speed, performance,
+security, etc.
+
+* Web Links Hacks
+Copyright (c) 2000 by James Knickelbein
+Journey Milwaukee (http://www.journeymilwaukee.com)
+James did a very good job hacking on my initial Web Links code and added
+a lot of new and very cool features. I just take his changes and re-added
+to the core code.
+
+* FAQ Manager and Private Messages
+Copyright (c) 2000 by Richard Tirtadji
+http://www.nukeaddon.com
+Note: Richard is a very cool guy that ported phpBB to PHP-Nuke and did a very
+nice job. He also is the creator of Addons Website at http://www.nukeaddon.com
+So, if you want PHP-Nuke Addons you will love Richard's site.
+
+* Download Manager
+Copyright (c) 2001 by Francisco Burzi
+http://phpnuke.org
+Based on the Web Links hack
+Copyright (c) 2000 by James Knickelbein
+Journey Milwaukee (http://www.journeymilwaukee.com)
+
+* Multi Tier Admin
+Based on Multi Tier Admin addon
+Copyright (c) 2000 by Richard Tirtadji
+http://www.nukeaddon.com
+
+* Translations
+

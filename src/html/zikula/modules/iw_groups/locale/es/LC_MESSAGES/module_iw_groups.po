@@ -1,0 +1,356 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-26 09:53+0100\n"
+"PO-Revision-Date: 2010-04-15 13:14+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:29
+#: pnuserapi.php:68
+#: pnadminapi.php:202
+#: pnadminapi.php:241
+#: pnadminapi.php:415
+#: pnadminapi.php:516
+msgid "An error has occurred while trying to select records in the database. Contact with the intranet administrator"
+msgstr "Se ha producido un error al intentar seleccionar registros de la base de datos. Pongase en contacto con el administrador/a de la web."
+
+#: pnuserapi.php:57
+#: pnadminapi.php:16
+#: pnadminapi.php:65
+#: pnadminapi.php:127
+#: pnadminapi.php:284
+#: pnadminapi.php:346
+#: pnadminapi.php:396
+#: pnadminapi.php:502
+#: pnadminapi.php:543
+#: pnadminapi.php:590
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "Error! Argumentos erróneos. Por favor verifica los datos e inténtalo de nuevo."
+
+#: pnuserapi.php:94
+#: pnuserapi.php:99
+msgid "Error! Could not load items."
+msgstr "Error! No se logró cargar los elementos."
+
+#: pnadminapi.php:39
+msgid "An error has occurred while creating the group"
+msgstr "Se ha producido un error en la creación de un grupo."
+
+#: pnadminapi.php:84
+#: pnadminapi.php:92
+#: pnadminapi.php:101
+#: pnadminapi.php:309
+#: pnadminapi.php:320
+#: pnadminapi.php:369
+#: pnadminapi.php:464
+#: pnadminapi.php:470
+#: pnadminapi.php:631
+#: pnadminapi.php:640
+msgid "An error has occurred while trying to delete a record from the data base"
+msgstr "Se ha producido un error tratando de borrar un registro de la base de datos"
+
+#: pnadminapi.php:134
+#: pnadmin.php:181
+#: pnadmin.php:242
+msgid "The group where the action had to be carried out hasn't been found"
+msgstr "No se ha encontrado el grupo sobre el cual hacer la acción solicitada."
+
+#: pnadminapi.php:150
+msgid "The modification of the group has failed"
+msgstr "La modificación del grupo ha fallado."
+
+#: pnadminapi.php:290
+#: pnadminapi.php:352
+#: pnadminapi.php:402
+#: pnadminapi.php:446
+#: pnadminapi.php:508
+#: pnadminapi.php:549
+#: pnadminapi.php:611
+msgid "You aren't allowed to administer the groups"
+msgstr "No está autorizado a administrar los grupos de la intranet."
+
+#: pnadminapi.php:440
+#: pnadmin.php:611
+#: pnadmin.php:642
+#: pnadmin.php:715
+#: pnadmin.php:739
+#: pnadmin.php:807
+#: pnadmin.php:956
+msgid "Incorrect action during the group change"
+msgstr "Acción incorrecta en el cambio de grupos."
+
+#: pnadminapi.php:568
+msgid "An error has occurred while creating the subgroup"
+msgstr "Se ha producido un error en la creación de un subgrupo."
+
+#: pnadminapi.php:596
+msgid "Error! Could not load module."
+msgstr "Error! No se logró cargar el módulo."
+
+#: pntemplates/plugins/function.iwgroupsadminmenulinks.php:22
+#: pntemplates/iw_groups_admin_new.htm:5
+msgid "Add a new group"
+msgstr "Añade un nuevo grupo"
+
+#: pntemplates/plugins/function.iwgroupsadminmenulinks.php:26
+msgid "View the groups"
+msgstr "Muestra los grupos"
+
+#: pntemplates/plugins/function.iwgroupsadminmenulinks.php:30
+msgid "Administer the members of the groups "
+msgstr "Gestiona los miembros de los grupos"
+
+#: pntemplates/plugins/function.iwgroupsadminmenulinks.php:34
+msgid "Configure the module"
+msgstr "Configura el módulo"
+
+#: pnadmin.php:19
+msgid "There isn't any group defined"
+msgstr "No hay ningún grupo creado."
+
+#: pnadmin.php:43
+#: pnadmin.php:64
+#: pnadmin.php:127
+#: pnadmin.php:174
+#: pnadmin.php:235
+#: pnadmin.php:310
+#: pnadmin.php:357
+#: pnadmin.php:618
+#: pnadmin.php:951
+#: pnadmin.php:1000
+#: pnadmin.php:1074
+msgid "Sorry! No authorization to access this module."
+msgstr "Disculpa! No tienes autorización para ejecutar esa acción en este módulo."
+
+#: pnadmin.php:80
+#: pnadmin.php:262
+#: pntemplates/iw_groups_admin_main.htm:10
+msgid "Group name"
+msgstr "Nombre del grupo"
+
+#: pnadmin.php:89
+#: pnadmin.php:271
+#: pntemplates/iw_groups_admin_main.htm:11
+msgid "Description"
+msgstr "Descripción"
+
+#: pnadmin.php:101
+msgid "Create the group"
+msgstr "Crea el grupo"
+
+#: pnadmin.php:139
+#: pnadmin.php:324
+#: pnadmin.php:971
+#: pntemplates/iw_groups_admin_menu.htm:4
+msgid "Groups"
+msgstr "Grupos"
+
+#: pnadmin.php:140
+#: pnadmin.php:325
+msgid "You didn't state the group name."
+msgstr "No ha escrito el nombre del grupo."
+
+#: pnadmin.php:142
+#: pnadmin.php:327
+#: pnadmin.php:635
+#: pnadmin.php:707
+#: pnadmin.php:730
+#: pnadmin.php:799
+#: pnadmin.php:821
+#: pnadmin.php:902
+#: pnadmin.php:924
+msgid "Return to the previous form"
+msgstr "Vuelve al formulario anterior."
+
+#: pnadmin.php:152
+msgid "A group ha been created"
+msgstr "Se ha creado un nuevo grupo."
+
+#: pnadmin.php:194
+msgid "Confirm the deletion of the group"
+msgstr "Confirma el borrado del grupo."
+
+#: pnadmin.php:194
+#: pnadmin.php:881
+msgid "Cancel the deletion"
+msgstr "Cancela el borrado."
+
+#: pnadmin.php:214
+msgid "Group deleted"
+msgstr "El grupo ha sido borrado."
+
+#: pnadmin.php:283
+#: pnadmin.php:1049
+msgid "Modify"
+msgstr "Modifica"
+
+#: pnadmin.php:336
+msgid "Group updated"
+msgstr "El grupo ha sido actualizado."
+
+#: pnadmin.php:376
+#: pnadmin.php:415
+msgid "Empty Group "
+msgstr "Grupo vacío"
+
+#: pnadmin.php:384
+#: pnadmin.php:388
+msgid "Choose a group..."
+msgstr "Escoje un grupo..."
+
+#: pnadmin.php:428
+#: pnadmin.php:434
+msgid "Group"
+msgstr "Grupo"
+
+#: pnadmin.php:431
+#: pntemplates/iw_groups_admin_main.htm:12
+msgid "Options"
+msgstr "Opciones"
+
+#: pnadmin.php:449
+#: pnadmin.php:464
+msgid "Change"
+msgstr "Cambia"
+
+#: pnadmin.php:482
+#: pnadmin.php:569
+msgid "Without group"
+msgstr "Sin grupo:"
+
+#: pnadmin.php:504
+msgid "Move to the group >> "
+msgstr "Mueve al grupo >>"
+
+#: pnadmin.php:510
+msgid "Add to the group >> "
+msgstr "Añade al grupo >>"
+
+#: pnadmin.php:524
+msgid "<< Move to the group"
+msgstr "<< Mueve al grupo"
+
+#: pnadmin.php:530
+msgid "<< add to the group"
+msgstr "<< Añade al grupo"
+
+#: pnadmin.php:544
+msgid "Remove from the groups"
+msgstr "Saca de los grupos"
+
+#: pnadmin.php:550
+msgid "Member of the following groups"
+msgstr "¿De qué grupos es miembro?"
+
+#: pnadmin.php:631
+#: pnadmin.php:703
+#: pnadmin.php:726
+#: pnadmin.php:795
+#: pnadmin.php:817
+#: pnadmin.php:899
+msgid "No user selected"
+msgstr "No ha escogido ningún usuario/ninguna usuaria de la lista para llevar a cabo la acción."
+
+#: pnadmin.php:664
+#: pnadmin.php:761
+msgid "Move users between groups"
+msgstr "Mueve los miembros entre los grupos"
+
+#: pnadmin.php:683
+#: pnadmin.php:779
+msgid "Confirm the transfer of users between groups"
+msgstr "Confirma el traspaso de los usuarios/las usuarias entre grupos."
+
+#: pnadmin.php:683
+#: pnadmin.php:779
+msgid "Cancel the action"
+msgstr "Cancela el traspaso de los usuarios/las usuarias entre grupos."
+
+#: pnadmin.php:835
+msgid "Delete the members of the groups "
+msgstr "Borra los miembros de los grupos"
+
+#: pnadmin.php:881
+msgid "Confirm the action"
+msgstr "Confirma el borrado de los miembros de los grupos."
+
+#: pnadmin.php:967
+msgid "Groups to which the users belong "
+msgstr "Grupos a los que pertenecen los usuarios/las usuarias "
+
+#: pnadmin.php:1021
+msgid "Initial group"
+msgstr "Grupo inicial en la administración de los miembros de los grupos"
+
+#: pnadmin.php:1030
+msgid "Confirm the deletion of groups membership"
+msgstr "Solicita confirmación antes de borrar miembros de los grupos"
+
+#: pnadmin.php:1039
+msgid "Confirm the transfer of members between groups"
+msgstr "Solicita confirmación antes de mover miembros de un grupo a otro grupo"
+
+#: pnadmin.php:1089
+msgid "Configuration updated"
+msgstr "Se ha modificado la configuración del módulo grupos."
+
+#: pnversion.php:13
+#: pnversion.php:17
+msgid "iw_groups"
+msgstr "iw_groups"
+
+#: pnversion.php:15
+msgid "Allow the creation, edition and removing of user groups"
+msgstr "Permite la creación, modificación y eliminación de grupos para los usuarios"
+
+#: pnversion.php:16
+msgid "IW Groups"
+msgstr "IW Grupos"
+
+#: pntemplates/iw_groups_admin_main.htm:5
+msgid "Groups list"
+msgstr "Llista de grupos"
+
+#: pntemplates/iw_groups_admin_main.htm:9
+msgid "id"
+msgstr "id"
+
+#: pntemplates/iw_groups_admin_main.htm:29
+msgid "Edit"
+msgstr "Editar"
+
+#: pntemplates/iw_groups_admin_main.htm:30
+msgid "Delete"
+msgstr "Borrar"
+
+#: pntemplates/iw_groups_admin_main.htm:37
+msgid "About this module"
+msgstr "Por lo que al módulo se refiere"
+
+#: pntemplates/iw_groups_admin_members.htm:5
+#: pntemplates/iw_groups_admin_grups.htm:5
+msgid "Groups membership administration"
+msgstr "Administración de los miembros de los grupos"
+
+#: pntemplates/iw_groups_admin_delete.htm:5
+msgid "Delete the group"
+msgstr "Borra el grupo"
+
+#: pntemplates/iw_groups_admin_conf.htm:5
+msgid "Modify the group module configuration"
+msgstr "Modifica la configuración del módulo de grupos"
+
+#: pntemplates/iw_groups_admin_edit.htm:5
+msgid "Edit the group"
+msgstr "Edita el grupo"
+

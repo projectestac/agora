@@ -1,0 +1,78 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>Moodle DragMath v 0.7.8.2 Integration - README</title>
+</head>
+
+<body>
+<span
+style=" color: #000099; font-size: x-large; font-family: Arial;"><strong>Moodle
+DragMath README </strong></span> <span
+style=" font-size: small; font-family: Arial;"><br>
+</span>
+
+<p><span style=" font-size: small; font-family: Arial;"><b>Package
+Integration:</b></span></p>
+
+<P>PLEASE read the documentation at Moodle.org on using DragMath before installing.  
+The documentation can be found at: <a href="http://docs.moodle.org/en/DragMath_equation_editor" 
+target="_blank">http://docs.moodle.org/en/DragMath_equation_editor</a>. 
+The zip archive for installing DragMath with Moodle integration can be downloaded  
+<a href="http://sourceforge.net/projects/dragmath/files/DragMath/0.7.8.2/Moodle_DragMath_v0.7.8.2_Integration.zip/download">by clicking here</a>
+
+<p>In order to make DragMath installation for Moodle users as simple as
+possible, the DragMath package (see <a
+href="README.html"><b>README.html</b></a> has been integrated with Moodle and
+a zip created so that the user can simply place the new zip in their Moodle
+root and unzip (no file shifting necessary). To accomodate this installation
+method a replacement for the file adminlib.php is not provided, though
+/lib/adminlib_exampleonly.php has been provided so that you can compare this
+version to your own version so as to make the quick line change in your own
+adinlib.php to allow you to hide the dragmath icon (by adding the icon to the
+adminlib.php icon array for the GUI.</p>
+
+<p>The package include some changes, including but not limited to:</p>
+<ul>
+  <li>Moving the DragMath directory to /lib/DragMath - it was thought that
+    with changes to the actual DragMath infrastructure, leaving DragMath in
+    its previous location might result in more confusion that start9ing
+    afresh, and /lib/DragMath is the location where DragMath will be found in
+    Moodle 2.</li>
+  <li>Adding a language variable in dlg_ins_dragmath.php so that DragMath
+    will, to the extent of its own language files, use the same language as
+    set in Moodle.</li>
+  <li>Change the reference to codebase in the applet in dlg_ins_dragmath.php
+    so that it is relative to Moodle root and can be changed to pass
+    different locations</li>
+  <li>Employing the new Moodle DragMath icon presently adopted for Moodle 2
+    (the old icon is still present, and you need only change file names in
+    the /lib/editor/htmlarea/images directory to revert.</li>
+  <li>And, of course, addressing all the changes made to DragMath by its
+    authors</li>
+</ul>
+
+<p>Since the zip created will install on unzip, this file is located in the
+DragMath directory so that /lib is not populated with install READMEs. Once
+installed, you should be able to update to future version of DragMath simply
+by replacing the current /lib/DragMath with the DragMath folder available on
+sourceforge; the integration will not change.</p>
+
+<p>The integration files are located in /lib/editor/htmlarea/ and include a
+replacement dialog.js, a replacement htmlarea.php, a new
+popups/dlg_ins_dragmath.php, and three icons in images/. Only
+dlg_ins_dragmath.php has been altered for this version.</p>
+
+<p>Credit for making the integration possible goes of course to Chris, Alex
+and the DragMath folks as well as to Mauno Korpelainen</p>
+<address>
+  NB: There has been discussion that a line in dialog.js has produced some
+  problems in Moodle version 1.9.5+ (the editor disappears) and that by
+  deleting the line that adds the dragmath icon the problem is resolved. This
+  may be an artifact of the impact of the icon sizing, so if you discover
+  such a situation please post at once to the Math Tools forum on Moodle.org
+  so that the situation can be fully documented and resolved.
+</address>
+
+<p>Marc Grober</p>
+</body>
+</html>

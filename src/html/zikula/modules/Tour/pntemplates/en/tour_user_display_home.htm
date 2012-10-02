@@ -1,0 +1,24 @@
+<!--[include file="tour_user_menu.htm"]-->
+
+<h1>Welcome to Zikula!</h1>
+<p>Thank you for installing the Zikula Application Framework.  Zikula is free, Open Source software, which you may use subject to the terms of the GPL License.</p>
+<p>These pages are designed to help you familiarize yourself with the system.  The links below should help you get started, simply choose one that interests you.  </p>
+
+<h2>Other Places to Go</h2>
+<ul>
+    <li><a href="http://community.zikula.org" title="Zikula Community">Zikula Community</a></li>
+    <li><a href="http://community.zikula.org/Wiki.htm" title="Zikula Documentation Wiki">Zikula Documentation Wiki</a></li>
+    <li><a href="http://community.zikula.org/module-Forum.htm" title="Zikula Support Forums">Zikula Support Forums</a></li>
+    <li><a href="http://community.zikula.org/module-Database-main-tid-3.htm" title="Extensions Database">Extensions Database</a></li>
+    <li><a href="http://community.zikula.org/module-Database-main-tid-4.htm" title="Themes database">Themes database</a></li>
+</ul>
+
+<h2>Alternatively, get started right away!</h2>
+<!--[pnsecauthaction comp="::" inst="::" level=ACCESS_ADMIN assign="perm"]-->
+<!--[if $perm]-->
+<p>You can jump to the administration panel by clicking the <a href="<!--[pnmodurl modname=Admin type=admin func=adminpanel]-->">Administration</a> link (normally located in the top left).  If you log out, this link will disappear, and you can log back in using the user login block (on the right, normally), or by navigating to the <a href="<!--[pnmodurl modname=Users func=loginscreen]-->">login screen</a>.</p>
+<!--[else]-->
+<p>You are currently not logged in.  You can log in using the administration user details you set up during the installation process using the login block (on the right, normally), or alternatively using the <a href="<!--[pnmodurl modname=Users func=loginscreen]-->">login screen</a>.  Once you are logged in you will see an Administration link in the Main Menu (normally located in the top left), and this link will give you access to the administration panel.</p>
+<!--[/if]-->
+<p><strong>Finally, to remove this module and start working on your site...</strong></p>
+<p>Simply go to the administration panel, click the System tab, and enter the Settings section.  To place a different module's output on the homepage, change the start page module setting.  You can remove this module through the 'Modules' administration section whever you wish, but until you do so, this module will always be available through the link <a href="<!--[pnmodurl modname=Tour]-->"><!--[pnmodurl modname=Tour]--></a>.</p>

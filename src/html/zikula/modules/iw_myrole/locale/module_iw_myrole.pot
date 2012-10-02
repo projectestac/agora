@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-27 09:38+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnblocks/myrole.php:29
+msgid "Show the groups or roles available and allow users change the group"
+msgstr ""
+
+#: pninit.php:27
+msgid ""
+"Module iw_main is required. You have to install the iw_main module "
+"previously to install it."
+msgstr ""
+
+#: pninit.php:52
+msgid "Initial group of users that can change the role"
+msgstr ""
+
+#: pninit.php:54
+msgid "Done! %i% created."
+msgstr ""
+
+#: pnadminapi.php:14 pnadminapi.php:45 pnadminapi.php:102 pnadminapi.php:141
+#: pnadmin.php:17 pnadmin.php:64 pnadmin.php:90 pnadmin.php:137
+#: pnadmin.php:233
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnadminapi.php:22
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: pnadminapi.php:84
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnadminapi.php:119
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pnadmin.php:109
+msgid "The group change has been made."
+msgstr ""
+
+#: pnadmin.php:111
+msgid "The group change has not been made."
+msgstr ""
+
+#: pnadmin.php:214
+msgid "Error in the role change"
+msgstr ""
+
+#: pnversion.php:9 pnversion.php:13
+msgid "iw_myrole"
+msgstr ""
+
+#: pnversion.php:11
+msgid "Allow users to change their roles or groups."
+msgstr ""
+
+#: pnversion.php:12 pntemplates/iw_myrole_admin_main.htm:3
+msgid "myRole"
+msgstr ""
+
+#: pntemplates/iw_myrole_admin_main.htm:8
+msgid "Group selection"
+msgstr ""
+
+#: pntemplates/iw_myrole_admin_main.htm:13
+msgid "Choose the change role group"
+msgstr ""
+
+#: pntemplates/iw_myrole_admin_main.htm:23
+msgid "Groups not listed in the chooseable groups list"
+msgstr ""
+
+#: pntemplates/iw_myrole_admin_main.htm:33
+msgid "Modify"
+msgstr ""
+
+#: pntemplates/iw_myrole_admin_main.htm:35
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/iw_myrole_admin_main.htm:39
+msgid "About this module "
+msgstr ""
+
+#: pntemplates/iw_myrole_block_change.htm:4
+msgid "Choose the groups..."
+msgstr ""
+
+#: pntemplates/iw_myrole_block_change.htm:15
+msgid "Set as default"
+msgstr ""
+
+#: pntemplates/iw_myrole_block_change.htm:20
+msgid ""
+"No change has been made due to possible lost of previous roles. Review the "
+"permissions related with the change roles group. Be sure that this "
+"permission is in second place in the permissions list."
+msgstr ""
+
+#: pntemplates/iw_myrole_block_change.htm:26
+msgid "The permissions for all users are applied."
+msgstr ""
+
+#: pntemplates/iw_myrole_block_change.htm:30
+msgid "Reset"
+msgstr ""
+
+#: pntemplates/iw_myrole_block_change.htm:33
+msgid "Apply new roles"
+msgstr ""
+
+#: pntemplates/iw_myrole_block_change.htm:39
+msgid "Administration"
+msgstr ""

@@ -1,0 +1,10 @@
+....::::    v. 2011092291 - IECISA (mmartinez)    ::::....
+
+- mod_form.php
+  Check if there are groups and take info from the first one
+  
+- mod_form.php
+  Use the new variable $course_shortname
+
+
+....::::    ::::....

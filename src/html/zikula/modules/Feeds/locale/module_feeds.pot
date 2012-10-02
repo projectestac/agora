@@ -1,0 +1,404 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-20 10:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnadmin.php:44 pnadmin.php:120 pnadmin.php:266 pnuserapi.php:81
+#: pnuser.php:30 pnuser.php:77 pnuser.php:295
+#, php-format
+msgid "Error! Unable to load class [%s]"
+msgstr ""
+
+#: pnadmin.php:83
+msgid "Done! Feed created."
+msgstr ""
+
+#: pnadmin.php:110 pnadmin.php:189 pnadminapi.php:78 pnadminapi.php:118
+msgid "No such Feed found."
+msgstr ""
+
+#: pnadmin.php:163
+msgid "Done! Feed updated."
+msgstr ""
+
+#: pnadmin.php:222
+msgid "Done! Feed deleted."
+msgstr ""
+
+#: pnadmin.php:248
+msgid "Purging of the pemalinks was successful"
+msgstr ""
+
+#: pnadmin.php:250
+msgid "Purging of the pemalinks has failed"
+msgstr ""
+
+#: pnadmin.php:306
+msgid "Edit"
+msgstr ""
+
+#: pnadmin.php:311
+msgid "Delete"
+msgstr ""
+
+#: pnadmin.php:419
+msgid "Done! Module configuration updated."
+msgstr ""
+
+#: pnversion.php:16 pninit.php:178 pntemplates/feeds_admin_menu.htm:5
+#: pntemplates/feeds_search_options.htm:5
+msgid "Feeds"
+msgstr ""
+
+#. ! this defines the module's url
+#: pnversion.php:18
+msgid "feeds"
+msgstr ""
+
+#: pnversion.php:20 pninit.php:179
+msgid "Feed Reader."
+msgstr ""
+
+#: pnsearchapi.php:69 pnsearchapi.php:96 pnuserapi.php:74
+msgid "Error! Could not load any Feed."
+msgstr ""
+
+#: pnblocks/displayfeed.php:30
+msgid "Display feed"
+msgstr ""
+
+#: pnblocks/displayfeed.php:31
+msgid "Show a feed item"
+msgstr ""
+
+#: pnuser.php:106 pnuser.php:286 pnuser.php:318
+msgid "Invalid category"
+msgstr ""
+
+#: pnuser.php:149 pnuser.php:327 pnuser.php:390
+#: pntemplates/feeds_admin_view.htm:75
+msgid "No Feeds found."
+msgstr ""
+
+#: pnuser.php:226
+msgid "Error! Could not load any Feeds."
+msgstr ""
+
+#: pnuser.php:384
+msgid "Incorrect Key given. No update performed."
+msgstr ""
+
+#: pnuser.php:410
+msgid "Items updated in Feed cache"
+msgstr ""
+
+#: pnuser.php:412
+msgid "Error"
+msgstr ""
+
+#: pnadminapi.php:35 pnadminapi.php:131
+msgid "The provided URL is too long (200 chars max.)."
+msgstr ""
+
+#: pnadminapi.php:41 pnadminapi.php:137
+msgid "Invalid protocol selected. Only http and https are allowed."
+msgstr ""
+
+#: pnadminapi.php:50
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnadminapi.php:87
+msgid "Error! Deletion attempt failed."
+msgstr ""
+
+#: pnadminapi.php:146 pninit.php:85 pninit.php:92 pninit.php:105
+#: pninit.php:116
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: pnadminapi.php:220 pntemplates/feeds_admin_view.htm:3
+msgid "View Feeds"
+msgstr ""
+
+#: pnadminapi.php:223 pntemplates/feeds_admin_new.htm:2
+msgid "Create a Feed"
+msgstr ""
+
+#: pnadminapi.php:226
+msgid "Purge PermaLinks"
+msgstr ""
+
+#: pnadminapi.php:227 pntemplates/feeds_admin_modifyconfig.htm:6
+#: pntemplates/feeds_admin_modifyconfig.htm:8
+msgid "Settings"
+msgstr ""
+
+#: pninit.php:44
+msgid ""
+"Warning! Could not create the default Feeds category tree. If you want to "
+"use categorisation with Feeds, register at least one property for the module "
+"in the Category Registry."
+msgstr ""
+
+#: pntemplates/feeds_user_view.htm:8
+#, php-format
+msgid "Welcome to the Feeds of %s"
+msgstr ""
+
+#: pntemplates/feeds_user_view.htm:11
+msgid "Choose a category to see the Feeds that belongs to it"
+msgstr ""
+
+#: pntemplates/feeds_user_view.htm:29 pntemplates/feeds_user_category.htm:11
+#: pntemplates/feeds_user_category.htm:13
+#, php-format
+msgid "Category: %s"
+msgstr ""
+
+#: pntemplates/feeds_user_view.htm:32
+msgid "The Feeds of this category are as follows:"
+msgstr ""
+
+#: pntemplates/feeds_user_view.htm:34
+msgid "View all feeds"
+msgstr ""
+
+#: pntemplates/feeds_user_view.htm:37
+msgid "Feeds list"
+msgstr ""
+
+#: pntemplates/feeds_user_view.htm:40
+msgid "Available feeds"
+msgstr ""
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:4
+#: pntemplates/feeds_user_display.htm:18
+msgid "Feed"
+msgstr ""
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:11
+msgid "Display feed image"
+msgstr ""
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:13
+#: pntemplates/feeds_block_displayfeed_modify.htm:19
+msgid "(if available in feed)"
+msgstr ""
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:17
+msgid "Display feed description"
+msgstr ""
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:23
+msgid "Use alternate layout"
+msgstr ""
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:28
+msgid "Number of items to display"
+msgstr ""
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:30
+msgid "(upto the maximum supplied by the feed or -1 for all items)"
+msgstr ""
+
+#: pntemplates/feeds_admin_delete.htm:2
+msgid "Delete Feed"
+msgstr ""
+
+#: pntemplates/feeds_admin_delete.htm:9
+msgid "Do you really want to delete this Feed?"
+msgstr ""
+
+#: pntemplates/feeds_admin_delete.htm:17
+msgid "Confirm deletion?"
+msgstr ""
+
+#: pntemplates/feeds_admin_delete.htm:18 pntemplates/feeds_admin_modify.htm:64
+#: pntemplates/feeds_admin_new.htm:46
+#: pntemplates/feeds_admin_modifyconfig.htm:71
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/feeds_user_updatecache.htm:2
+msgid "Cache Updated"
+msgstr ""
+
+#: pntemplates/feeds_admin_modify.htm:2
+msgid "Update Feed"
+msgstr ""
+
+#: pntemplates/feeds_admin_modify.htm:16
+msgid "Content"
+msgstr ""
+
+#: pntemplates/feeds_admin_modify.htm:18 pntemplates/feeds_admin_new.htm:17
+#: pntemplates/feeds_admin_view.htm:47
+msgid "Name"
+msgstr ""
+
+#: pntemplates/feeds_admin_modify.htm:23 pntemplates/feeds_admin_new.htm:27
+#: pntemplates/feeds_admin_view.htm:15 pntemplates/feeds_admin_view.htm:50
+msgid "Category"
+msgstr ""
+
+#: pntemplates/feeds_admin_modify.htm:39 pntemplates/feeds_admin_new.htm:21
+msgid "PermaLink URL title"
+msgstr ""
+
+#: pntemplates/feeds_admin_modify.htm:41 pntemplates/feeds_admin_new.htm:23
+msgid "(Blank = auto-generate)"
+msgstr ""
+
+#: pntemplates/feeds_admin_modify.htm:44 pntemplates/feeds_user_display.htm:21
+#: pntemplates/feeds_admin_new.htm:37 pntemplates/feeds_admin_view.htm:48
+msgid "URL"
+msgstr ""
+
+#: pntemplates/feeds_admin_modify.htm:49
+msgid "Meta data"
+msgstr ""
+
+#: pntemplates/feeds_admin_modify.htm:52
+#, php-format
+msgid "Created by %s"
+msgstr ""
+
+#: pntemplates/feeds_admin_modify.htm:53
+#, php-format
+msgid "Created on %s"
+msgstr ""
+
+#: pntemplates/feeds_admin_modify.htm:55
+#, php-format
+msgid "Last update by %s"
+msgstr ""
+
+#: pntemplates/feeds_admin_modify.htm:56
+#, php-format
+msgid "Updated on %s"
+msgstr ""
+
+#: pntemplates/feeds_admin_modify.htm:63
+msgid "Update"
+msgstr ""
+
+#: pntemplates/feeds_user_display.htm:40
+#: pntemplates/feeds_user_category.htm:41
+#, php-format
+msgid "by %s"
+msgstr ""
+
+#: pntemplates/feeds_user_display.htm:46
+#: pntemplates/feeds_user_category.htm:48
+msgid "Read more"
+msgstr ""
+
+#: pntemplates/feeds_admin_new.htm:14
+msgid "New Feed"
+msgstr ""
+
+#: pntemplates/feeds_admin_new.htm:28 pntemplates/feeds_admin_view.htm:16
+msgid "Choose a category"
+msgstr ""
+
+#: pntemplates/feeds_admin_new.htm:45
+msgid "Create"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:14
+msgid "General Settings"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:16
+msgid "Enable categorization"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:20
+msgid "Display item names in bold"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:24
+msgid "Open links in new browser window"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:28
+msgid "Items per page"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:32
+msgid "Number of feeds to list per page"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:36
+msgid "Maximum items to add per feed"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:38
+msgid "for combined feeds (0 to add all)"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:42
+msgid "Cache Settings"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:44
+msgid "Cache directory for feeds"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:46
+msgid "(relative to pnTemp)"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:49
+msgid "Cache interval for feeds"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:51
+msgid "in seconds (3600 = 1 hour)"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:55
+msgid "Cron Job Settings"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:57
+msgid "Using a Cron Job to update the cache"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:59
+msgid "(see instructions)"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:62
+msgid "Link for using a Cron Job"
+msgstr ""
+
+#: pntemplates/feeds_admin_modifyconfig.htm:70
+msgid "Save"
+msgstr ""
+
+#: pntemplates/feeds_admin_view.htm:38
+msgid "Filter"
+msgstr ""
+
+#: pntemplates/feeds_admin_view.htm:39
+msgid "Reset"
+msgstr ""
+
+#: pntemplates/feeds_admin_view.htm:52
+msgid "Actions"
+msgstr ""

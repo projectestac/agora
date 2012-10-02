@@ -1,0 +1,22 @@
+<div class="formContent">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/medium']--></div>
+	<h2><!--[gt text="Delete the group"]--></h2>
+
+	<form class="pn-adminform" action="<!--[pnmodurl modname="iw_forms" type="admin" func="deleteGroup"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forms"]-->" />
+		<input type="hidden" name="fid" value="<!--[$item.fid]-->" />
+		<input type="hidden" name="confirm" value="1" />
+		<input type="hidden" name="gfid" value="<!--[$groupId]-->" />
+		<input type="hidden" name="aio" value="<!--[$aio]-->" />
+		
+		<!--[gt text="Confirms delete access to the group"]--> <strong><!--[$groupName]--></strong>
+		<div class="formOptions">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Delete" __title="Delete"]-->
+			<!--[if isset($aio)]-->
+				<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="infoForm" fid=$item.fid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+			<!--[else]-->
+				<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="form" action="group" fid=$item.fid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+			<!--[/if]-->
+		</div>
+	</form>
+</div>

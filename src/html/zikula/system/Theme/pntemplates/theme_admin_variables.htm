@@ -1,0 +1,67 @@
+<!--[*  $Id: theme_admin_variables.htm 27196 2009-10-26 20:09:12Z herr.vorragend $  *]-->
+<!--[include file="theme_admin_menu.htm"]-->
+<div class="z-admincontainer">
+    <!--[include file="theme_admin_modifymenu.htm"]-->
+    <!--[gt text="Variables" assign=templatetitle]-->
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=xedit.gif set=icons/large alt=$templatetitle]--></div>
+    <h2><!--[$templatetitle]--></h2>
+    <form class="z-form" action="<!--[pnmodurl modname="Theme" type="admin" func="updatevariables"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module=Theme]-->" />
+            <input type="hidden" name="themename" value="<!--[$themename|pnvarprepfordisplay]-->" />
+            <table class="z-admintable">
+                <thead>
+                    <tr>
+                        <th><!--[gt text="Name"]--></th>
+                        <th><!--[gt text="Value"]--></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--[foreach from=$variables.variables key=name item=value]-->
+                    <tr class="<!--[cycle values=z-odd,z-even]-->">
+                        <td>
+                            <!--[if $variables.$name.editable]-->
+                            <input type="text" name="variablesnames[<!--[$name|pnvarprepfordisplay]-->]" value="<!--[$name|pnvarprepfordisplay]-->" />
+                            <!--[else]-->
+                            <input type="hidden" name="variablesnames[<!--[$name|pnvarprepfordisplay]-->]" value="<!--[$name|pnvarprepfordisplay]-->" />
+                            <!--[if $variables.$name.language]-->
+                            <!--[gt text=$variables.$name.language]-->
+                            <!--[else]-->
+                            <!--[$name|pnvarprepfordisplay]-->
+                            <!--[/if]-->
+                            <!--[/if]-->
+                        </td>
+                        <td>
+                            <!--[if $variables.$name.type eq 'yesno']-->
+                            <input type="radio" name="variablesvalues[<!--[$name|pnvarprepfordisplay]-->]" value="1"<!--[if $value eq 1]--> checked="checked"<!--[/if]--> />&nbsp;<!--[gt text="Yes"]-->&nbsp;
+                            <input type="radio" name="variablesvalues[<!--[$name|pnvarprepfordisplay]-->]" value="0"<!--[if $value eq 0]--> checked="checked"<!--[/if]--> />&nbsp;<!--[gt text="No"]-->
+                            <!--[elseif $variables.$name.type eq 'select']-->
+                            <!--[html_options name=variablesvalues[$name] values=$variables.$name.values output=$variables.$name.output selected=$value]-->
+                            <!--[else]-->
+                            <input type="text" name="variablesvalues[<!--[$name|pnvarprepfordisplay]-->]" value="<!--[$value|pnvarprepfordisplay]-->" />
+                            <!--[/if]-->
+                        </td>
+                    </tr>
+                    <!--[foreachelse]-->
+                    <tr class="z-admintableempty"><td colspan="2"><!--[gt text="No items found."]--></td></tr>
+                    <!--[/foreach]-->
+                </tbody>
+            </table>
+            <fieldset>
+                <legend><!--[gt text="Add new theme variable"]--></legend>
+                <div class="z-formrow">
+                    <label for="theme_newvariablename"><!--[gt text="Name"]--></label>
+                    <input id="theme_newvariablename" type="text" name="newvariablename" size="30" />
+                </div>
+                <div class="z-formrow">
+                    <label for="theme_newvariablevalue"><!--[gt text="Value"]--></label>
+                    <input id="theme_newvariablevalue" type="text" name="newvariablevalue" size="30" />
+                </div>
+                <div class="z-formbuttons">
+                    <!--[pnbutton src=button_ok.gif set=icons/small __alt="Save" __title="Save"]-->
+                    <a href="<!--[pnmodurl modname=Theme type=admin func=view]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small __alt="Cancel" __title="Cancel"]--></a>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,37 @@
+<h1>모둠 올리기</h1>
+
+<p>이 기능은 모둠을 무들로 배치 업로드를 하게 해 줍니다.</p>
+
+<ul>
+  <li>파일의 각 줄은 한 개의 레코드를 포함합니다</li>
+  <li>각 레코드들은 콤마로 분리된 데이터의 연속입니다</li>
+  <li>파일의 첫 레코드는 특수하며 필드이름 목록을 포함합니다. 이것이 파일의 나머지 부분의 형식을
+       정의합니다.
+    <blockquote>
+      <p><strong>필수 파일 이름:</strong> 다음 필드들은 첫 레코드에 포함되어야 하며 각 사용자에 대해 
+       정의되어야 합니다.</p>
+      <p></p>
+      <font color="#990000" face="Courier New, Courier, mono">groupname</font></p>
+</p>
+      <p><strong>기본 필드이름:</strong> 이것들은 선택적입니다. - 만일 이것들이 포함되지 않으면 현재 언어와
+       현재 배움터에서 값들이 가져오게 될 것입니다</p>
+      <p><font color="#990000" face="Courier New, Courier, mono">idnumber, coursename, lang</font> </p>
+      <p><strong>선택적 필드 이름: </strong>다음 것들은 완전히 선택적인 것입니다. </p>
+      <p> <font color="#990000" face="Courier New, Courier, mono">description, picture, hidepicture</font></p>
+    </blockquote>
+    </li>
+  <li>데이터 안의 콤마는&amp;#44 로 엔코딩 되어야 합니다.- 스크립트가 자동적으로 콤마로 디코드 할 것입니다. </li>
+  <li>불리안 필드에 대해서는 거짓에 대하여 0, 참에 대하여 1을 사용하십시요. </li>
+  <li>idnumber 나 coursename 이 배움터를 대표하는데 사용될 수 있습니다. Idnumber는 coursename을 덮어쓰기 
+       합니다. 아무것도 명시되지 않으면 모둠은 현재 배움터에 추가될 것입니다.
+  <li>Coursename 은 배움터의 간단한 이름입니다.</li>
+  <li>노트: 만일 모둠이 이미 어느 배움터를 위해서 이미 무들 데이터베이스에 등록이 되었다면 이 스크립트는 
+       그 모둠에 대한 모둠 이름을 돌려줄 것입니다. 교수자는 그들이 편집할 수 있는 배움터에 모둠을 업로드 
+       하는 것이 허용됩니다</li>
+</ul>
+   
+<p>올바른 가져오기 파일의 예 입니다:</p>
+<p><font size="-1" face="Courier New, Courier, mono"></font>groupname,idnumber,lang,description,picture <br />
+group1, Phil101, en, this group requires extra attention!, 0 <br />
+group2, Math243, , ,
+</font></p>

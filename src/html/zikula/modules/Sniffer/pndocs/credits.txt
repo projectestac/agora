@@ -1,0 +1,11 @@
+Sniffer Module
+
+The initial inspiration for this module came from the module of the same name is xaraya but 
+after an initial glance at the logic I realised that this module only exposed a small subset 
+of the information available from phpSniff so a complete, from the ground up, rewrite was 
+required.
+
+Full credits for the original module go to Frank Besler. Full credit for the heart of this 
+module (phpSniff) goes to Roger Raymond (he of PostCalendar).
+
+-Mark

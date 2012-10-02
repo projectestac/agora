@@ -1,0 +1,46 @@
+<!--[include file=Export_admin_menu.htm]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='folder_tar.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Manage backups"]--></h2>
+	
+	<!--[if $backup_files neq '']-->
+		<form method="post" action="index.php?module=Export&func=export">
+		<table class="pn-admintable" style="margin-top:10px;">
+			<th><!--[gt text="Backup date"]--></th>
+			<th><!--[gt text="Modules"]--></th>
+			<th><!--[gt text="Actions"]--></th>				
+			<!--[foreach from=$backup_files item=file name=i]-->
+				<tr align="left" style="background-color:<!--[cycle values="#eee,#fff"]-->;" id="msg<!--[$smarty.foreach.i.iteration]-->">
+				<td><!--[$file.date]--></td>
+				<td>
+					<!--[if $file.modules.Available neq '']-->
+						<i><!--[gt text="Availables"]--></i>
+						<!--[foreach from=$file.modules.Available item=module name=i]-->
+							<br />- <!--[$module.displayname]-->
+						<!--[/foreach]-->
+					<!--[/if]-->
+					<!--[if $file.modules.Unavailable neq '']-->
+						<!--[if $file.modules.Available neq '']-->
+							<br /><br />
+						<!--[/if]-->
+						<i><!--[gt text="Unavailables"]--></i>
+						<!--[foreach from=$file.modules.Unavailable item=module name=i]-->
+							<br />- <!--[$module]-->
+						<!--[/foreach]-->
+					<!--[/if]-->
+				</td>
+				<td align="center">
+					<a href="<!--[pnmodurl modname="export" type="admin" func="backup_del" backup_file=$file.file]-->"><!--[pnimg modname='core' src='editdelete.gif' set='icons/small'  __alt="Delete backup" __title="Delete backup"]--></a>
+					<a href="<!--[pnmodurl modname="export" type="admin" func="backup_restore" backup_file=$file.file]-->"><!--[pnimg modname='core' src='agt_update_drivers.gif' set='icons/small'  __alt="Restore backup" __title="Restore backup"]--></a>
+				</td>					
+				</tr>
+			<!--[/foreach]-->
+		</table>
+		</form>
+	<!--[else]-->
+		<!--[gt text="<b>No backups found</b>"]-->
+	<!--[/if]-->	
+	
+</div>
+	

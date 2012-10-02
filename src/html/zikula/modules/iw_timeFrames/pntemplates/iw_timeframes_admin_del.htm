@@ -1,0 +1,37 @@
+<!--[include file="iw_timeframes_admin_menu.htm"]-->
+<!--[pngetstatusmsg]-->
+<!--[if $statusmsg neq ""]--><!--[$statusmsg]--><!--[/if]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='db_remove.gif' set='icons/large']--></div>
+	<div style="height:10px;">&nbsp;</div>
+<h2><!--[gt text="Delete the timeFrame"]-->: <!--[$nom_marc]--></h2>
+<!--[if not $referenced]-->
+	<!--[gt text="Confirm the deletion of the timeFrame."]-->
+	<form name="delete" method="post" id="delete" action="index.php?module=iw_TimeFrames&type=admin&func=delete">
+	<input type="hidden" name="mdid" value="<!--[$mdid]-->">
+	<input type="hidden" name="m" value="noref">
+	<input type="hidden" name="confirmacio" value="true">
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_timeFrames"]-->">
+	<br>
+	<div class="formOptions" style="text-align:left;">
+	  <!--[pnbutton src='button_ok.gif' set='icons/small'   __alt="Confirm the deletion of the timeFrame." __title="Confirm the deletion of the timeFrame."]--><!--[gt text="Confirm"]-->
+	  <a href=<!--[pnmodurl modname="iw_TimeFrames" type="admin" func="main"]-->><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Suspended the file" __title="Suspended the file"]--></a>  <!--[gt text="Cancel"]-->
+	</div>
+<!--[else]-->
+	<form name="delete" method="post" id="delete" action="index.php?module=iw_TimeFrames&type=admin&func=delete">
+	<input type="hidden" name="mdid" value="<!--[$mdid]-->">
+	<input type="hidden" name="m" value="all">
+	<input type="hidden" name="r" value="<!--[$referenced]-->">
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_timeFrames"]-->">
+
+	<!--[gt text="Note: there are areas of reserves that refer to this timeFrame."]-->
+	<br><br>
+	<div class="formOptions" style="text-align:left;">	
+	  <!--[pnbutton src='button_ok.gif' set='icons/small'   __alt="Clear framework and associated reserves" __title="Clear framework and associated reserves"]--><!--[gt text="Delete all"]--> 
+
+	  <a href=<!--[pnmodurl modname="iw_TimeFrames" type="admin" func="delete" mdid=$mdid m="keep" r=$referenced]-->><!--[pnimg modname='core' src='reload_page.gif' set='icons/small'   __alt="Conserve the reserves" __title="Conserve the reserves"]--></a>  <!--[gt text="Conserve reserves"]--> 
+	  <a href=<!--[pnmodurl modname="iw_TimeFrames" type="admin" func="main"]-->><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Suspended the file" __title="Suspended the file"]--></a>  <!--[gt text="Cancel"]-->
+	</div>
+<!--[/if]-->
+</form> </div>
+

@@ -1,0 +1,71 @@
+<STYLE type="text/css">
+<!--
+    DD {font-size:0.8em; margin-top:0.5em;}
+-->
+</STYLE>
+<P align="center">
+    <B>Seleccionando un tipo de Informe</B>
+</P>
+<P>
+    Usted puede especificar diferentes criterios de selección y diferentes formatos de salida para los informes del módulo de Hot Potatoes.
+</P>
+<?php
+    if (isadmin()) { // only admins can select a course
+?>
+<DL>
+    <DT><B>Selección de un curso</B></DT>
+  <DD><B>este curso</B><BR>
+    El informe mostrará las respuestas por participante en el curso actual</DD>
+    <DD><B>todos mis cursos</B><BR>
+        El informe mostrará las respuestas por participantes en todos los cursos que utilicen este ejercicio, en los que usted es un profesor.
+        Para que un ejercicio pueda ser utilizado en varios cursos, el ejercicio deberá estar situado en el directorio de Archivos del Sitio. Esta opción solamente está disponible para los administradores del sitio. </DD>
+    </DD>
+</DL>
+<?php
+    }
+?>
+<DL>
+    <DT><B>Selección de usuarios</B></DT>
+    <DD><B>Estudiantes</B><BR>
+        El informe mostrará las respuestas por cada uno de los estudiantes que participa en el curso.
+        Las respuestas del profesorado no serán incluidas en el informe.</DD>
+
+    <DD><B>Todos los participantes</B><BR>  
+    El informe mostrará las respuestas por cada uno de los estudiantes, profesores, creadores del curso y administradores. Si el curso tiene &quot;invitados&quot;, sus respuestas también serán incluidas.</DD>
+</DL>
+<DL>
+    <DT><B>Selección por puntuaciones</B></DT>
+  <DD><B>el mejor intento</B><BR>
+    El informe solamente incluirá las respuestas del mejor intento de cada usuario.</DD>
+
+    <DD><B>todos los intentos</B><BR>
+    El informe incluirá las respuestas de todos los intentos de cada usuario.</DD>
+</DL>
+<DL>
+    <DT><B>Selección del formato de salida</B></DT>
+    <DD><B>Vista general</B><BR>
+        Este informe muestra un listado de intentos de realización del ejercicio.
+        Los intentos &quot;abandonados&quot; también se incluyen pero no los intentos &quot;en progreso&quot;.
+
+        El informe muestra la fotografía, el nombre y la mejor puntuación de cada participante, la fecha y hora en que se realizó y la duración de cada intento. Los intentos pueden ser seleccionados y eliminados si se desea. </DD>
+    <DD><B>Estadísticas simples</B><BR>
+        Este informe muestra un listado de todos los intentos finalizados para este ejercicio. Los intentos marcados como &quot;abandonado&quot; o&quot;en progreso&quot; no se incluyen.
+
+        El informe  muestra la fotografía, el nombre y la mejor puntuación de cada participante, también muestra la puntuación de cada pregunta en cada intento.
+
+        Asimismo se incluye la puntuación promedio de las preguntas individuales y del ejercicio completo. Los detalles de los intentos podrían descargarse en formato de hoja de cálculo o en formato texto. </DD>
+    <DD><B>Estadísticas detalladas</B><BR>
+        Este informe muestra los detalles completos de todos los intentos finalizados del ejercicio.
+
+        Los intentos marcados como &quot;abandonado&quot; o&quot;en progreso&quot; no se incluyen.
+
+        El informe contiene las siguientes tablas:
+        <UL>
+            <LI>
+                La <B>tabla de respuestas</B>, que muestra las respuestas de los participantes a cada pregunta en cada uno de sus intentos de resolver el ejercicio.</LI>
+            <LI>
+                La <B>tabla de análisis de respuestas por ítem</B>, que enumera las respuestas a cada pregunta y la frecuencia de cada respuesta.
+            </LI>
+        </UL>
+        Los detalles mostrados en este informe podrían descargarse en formato de hoja de cálculo o en formato texto.</DD>
+</DL>

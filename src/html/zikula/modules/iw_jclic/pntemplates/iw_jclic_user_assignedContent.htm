@@ -1,0 +1,85 @@
+<fieldset>
+	<!--[if $activity.state eq 1]-->
+		<legend style="font-size: 20px;">
+			<a href="<!--[pnmodurl modname=iw_jclic type=user func=activity jid=$activity.jid]-->">
+				<!--[$activity.name]-->
+			</a>
+		</legend>
+	<!--[else]-->
+		<legend style="font-size: 20px;"><!--[$activity.name]--></legend>
+	<!--[/if]-->
+	<div style="float: right; padding-top: 10px;">
+		<!--[if $activity.state eq 1]-->
+			<!--[pnimg modname='core' src='greenled.gif' set='icons/extrasmall'   __alt="Open" __title="Open"]--> <!--[gt text="Open"]-->
+		<!--[else]-->
+			<!--[pnimg modname='core' src='redled.gif' set='icons/extrasmall'   __alt="Closed" __title="Closed"]--> <!--[gt text="Closed"]-->
+		<!--[/if]-->
+	</div>
+
+	<!--[if $activity.description neq '']-->
+		<div class = "activityObservations">
+			<!--[$activity.description|pnvarprepfordisplay|nl2br]-->
+		</div>
+	<!--[/if]-->
+
+	<div>
+		<!--[gt text="Was assigned activity"]-->:
+		<strong><!--[$activity.user]--></strong>
+	</div>
+	<div>
+		<!--[gt text="Date of assignment"]-->:
+		<strong><!--[$activity.date]--></strong>
+	</div>
+	<!--[if $activity.initDate != 0]-->
+		<div>
+			<!--[gt text="Minimum starting date of the activity"]-->:
+			<strong><!--[$activity.initDate]--></strong>
+		</div>
+	<!--[/if]-->
+	<!--[if $activity.limitDate != 0]-->
+		<div>
+			<!--[gt text="Deadline"]-->:
+			<strong><!--[$activity.limitDate]--></strong>
+		</div>
+	<!--[/if]-->
+	<div style="float: right;">
+		<div class="pn-hide" style="float:left; margin-right: 20px;" id="wait_<!--[$activity.jid]-->">&nbsp;</div>
+		<a href="javascript:hideShow(<!--[$activity.jid]-->)">
+			<!--[if $activity.extended eq 0]-->
+				<!--[pnimg modname='core' src='db_comit.gif' set='icons/extrasmall'   __alt="Hide Details" __title="Hide Details"]--> <!--[gt text="Hide Details"]-->
+			<!--[else]-->
+				<!--[pnimg modname='core' src='db_update.gif' set='icons/extrasmall'   __alt="Show details" __title="Show details"]--> <!--[gt text="Show details"]-->
+			<!--[/if]-->
+		</a>
+	</div>
+	<!--[if $activity.extended eq 0]-->
+		<div>
+			<!--[gt text="Sometimes you have carried out the activity"]-->:
+			<strong><!--[$activity.attempsMade]--></strong>
+		</div>
+		<div>
+			<!--[gt text="Times you can do the activity"]-->:
+			<strong>
+				<!--[if $activity.attempsToDo gt 0]-->
+					<!--[$activity.attempsToDo]-->
+				<!--[else]-->
+					<!--[$activity.attempsToDo]-->
+				<!--[/if]-->
+			</strong>
+		</div>		
+		<div id="results_<!--[$activity.jid]-->">
+			<!--[if $activity.attempsMade neq 0]-->
+				<div><a href="javascript:results(<!--[$activity.jid]-->)"><!--[gt text="View results"]--></a></div>
+			<!--[/if]-->
+		</div>
+		<div style="height:10px;">&nbsp;</div>
+		<!--[if $activity.state eq 1]-->
+			<div style="text-align: right;">
+				<a href="<!--[pnmodurl modname=iw_jclic type=user func=activity jid=$activity.jid]-->"><!--[pnimg modname='iw_jclic' src='jclicIconLarge.png' set='pnimages']--> <!--[gt text="Do the activity"]--></a>
+			</div>
+		<!--[/if]-->
+	<!--[/if]-->
+</fieldset>
+<script type="text/javascript">
+	var showResults = '<!--[gt text='View results']-->';
+</script>

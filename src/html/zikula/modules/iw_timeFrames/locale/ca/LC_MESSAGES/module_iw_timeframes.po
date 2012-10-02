@@ -1,0 +1,322 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-28 09:21+0100\n"
+"PO-Revision-Date: 2010-06-08 08:51+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:26
+#: pnuserapi.php:50
+#: pnadminapi.php:39
+#: pnadminapi.php:82
+#: pnadminapi.php:125
+#: pnadminapi.php:158
+#: pnadminapi.php:189
+#: pnadminapi.php:220
+#: pnadminapi.php:262
+#: pnadminapi.php:291
+#: pnadminapi.php:323
+#: pnadminapi.php:354
+#: pnadmin.php:26
+#: pnadmin.php:68
+#: pnadmin.php:121
+#: pnadmin.php:171
+#: pnadmin.php:189
+#: pnadmin.php:243
+#: pnadmin.php:286
+#: pnadmin.php:372
+#: pnadmin.php:439
+#: pnadmin.php:467
+#: pnadmin.php:517
+#: pnadmin.php:544
+msgid "Not authorized to manage timeFrames."
+msgstr "No teniu autorització per administrar els marcs horaris."
+
+#: pnuserapi.php:54
+#: pnuserapi.php:99
+#: pnadminapi.php:34
+#: pnadminapi.php:64
+#: pnadminapi.php:107
+#: pnadminapi.php:185
+#: pnadminapi.php:271
+#: pnadminapi.php:298
+#: pnadminapi.php:333
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "No s'ha pogut carregar el que volíeu. Reviseu les dades"
+
+#: pnadminapi.php:45
+msgid "Error! Creation attempt failed."
+msgstr "L'intent de creació ha fallat"
+
+#: pnadminapi.php:69
+#: pnadminapi.php:112
+#: pnadminapi.php:304
+#: pnadminapi.php:339
+#: pnadmin.php:80
+#: pnadmin.php:136
+#: pnadmin.php:176
+#: pnadmin.php:248
+#: pnadmin.php:342
+#: pnadmin.php:405
+#: pnadmin.php:449
+#: pnadmin.php:490
+#: pnadmin.php:570
+msgid "Error! Could not load module."
+msgstr "No s'ha pogut carregar el mòdul"
+
+#: pnadminapi.php:77
+#: pnadminapi.php:120
+#: pnadmin.php:184
+#: pnadmin.php:333
+#: pnadmin.php:462
+#: pnadmin.php:528
+msgid "Can not find the timeFrame over which do the action."
+msgstr "No s'ha trobat el marc horari sobre el qual fer l'acció sol·licitada."
+
+#: pnadminapi.php:90
+#: pnadminapi.php:362
+msgid "The modify of the frame time failed."
+msgstr "La modificació del marc horari ha fallat."
+
+#: pnadminapi.php:348
+msgid "Could not find the time over to do the action"
+msgstr "No s'ha trobat l'hora sobre la qual fer l'acció sol·licitada"
+
+#: pntemplates/plugins/function.iwtimeframesadminmenulinks.php:22
+#: pnadmin.php:90
+msgid "Add new timeFrame"
+msgstr "Afegeix un nou marc horari"
+
+#: pntemplates/plugins/function.iwtimeframesadminmenulinks.php:24
+msgid "Show the timeFrames"
+msgstr "Mostra els marcs horaris"
+
+#: pnadmin.php:47
+msgid "Sorry! No authorization to access this module."
+msgstr "No teniu autorització per accedir a aquest mòdul"
+
+#: pnadmin.php:91
+msgid "Creates the timeFrame"
+msgstr "Crea el marc horari"
+
+#: pnadmin.php:94
+#: pnadmin.php:328
+msgid "Edit the TimeFrame"
+msgstr "Edita el marc horari"
+
+#: pnadmin.php:95
+#: pnadmin.php:329
+msgid "Change"
+msgstr "Modifica"
+
+#: pnadmin.php:144
+msgid "We have created a new timeFrame."
+msgstr "S'ha creat un nou marc horari."
+
+#: pnadmin.php:150
+msgid "timeFrame was updated"
+msgstr "S'ha actualitzat el marc horari."
+
+#: pnadmin.php:220
+msgid "Has been deleted the timeFrame"
+msgstr "S'ha esborrat el marc horari"
+
+#: pnadmin.php:281
+#: pnadmin.php:377
+#: pnadmin.php:444
+#: pnadmin.php:522
+msgid "Operation unavailable. There are reservations on this time frame."
+msgstr "Operació no disponible. Existeixen reserves basades en aquest marc horari."
+
+#: pnadmin.php:323
+msgid "New time"
+msgstr "Nova hora"
+
+#: pnadmin.php:324
+msgid "Add time at timeFrame "
+msgstr "Afegeix l'hora al marc horari"
+
+#: pnadmin.php:398
+#: pnadmin.php:563
+msgid "The time allocated is not correct."
+msgstr "La franja horària assignada no és correcta."
+
+#: pnadmin.php:412
+#: pnadmin.php:577
+msgid "Warning! The new time is overlaps with some of the existing ones."
+msgstr "Atenció! La nova franja horària es superposa amb alguna de les existents."
+
+#: pnadmin.php:420
+msgid "Have created a new time in timeFrame"
+msgstr "S'ha creat una nova hora en el marc horari"
+
+#: pnadmin.php:496
+msgid "Was deleted the time in timeFrame"
+msgstr "S'ha esborrat l'hora del marc horari."
+
+#: pnadmin.php:586
+msgid "Has changed the time."
+msgstr "S'ha modificat la franja horària."
+
+#: pnversion.php:12
+msgid "iw_TimeFrames"
+msgstr "iw_TimeFrames"
+
+#: pnversion.php:14
+msgid "Allows to set timetables frames."
+msgstr "Permet definir marcs horaris."
+
+#: pnversion.php:15
+#: pntemplates/iw_timeframes_admin_main.htm:5
+msgid "TimeFrames"
+msgstr "Marcs horaris"
+
+#: pnversion.php:16
+msgid "iw_timeFrames"
+msgstr "iw_timeFrames"
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:7
+#: pntemplates/iw_timeframes_admin_deletehour.htm:6
+msgid "Edition of timeFrame"
+msgstr "Edició de marc horari"
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:45
+#: pntemplates/iw_timeframes_admin_timetables.htm:61
+#: pntemplates/iw_timeframes_admin_main.htm:12
+#: pntemplates/iw_timeframes_admin_new.htm:31
+#: pntemplates/iw_timeframes_admin_deletehour.htm:17
+msgid "Description"
+msgstr "Descripció"
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:53
+msgid "Add new time"
+msgstr "Afegeix una nova hora"
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:60
+#: pntemplates/iw_timeframes_admin_deletehour.htm:16
+msgid "Time"
+msgstr "Hora"
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:63
+#: pntemplates/iw_timeframes_admin_main.htm:13
+#: pntemplates/iw_timeframes_admin_deletehour.htm:18
+msgid "Accions"
+msgstr "Accions"
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:72
+#: pntemplates/iw_timeframes_admin_main.htm:19
+#: pntemplates/iw_timeframes_admin_deletehour.htm:24
+msgid "Edit"
+msgstr "Edició"
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:73
+#: pntemplates/iw_timeframes_admin_main.htm:20
+#: pntemplates/iw_timeframes_admin_deletehour.htm:25
+msgid "Delete"
+msgstr "Esborrament"
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:82
+msgid "This timeFrame does not have any set hours"
+msgstr "Aquest marc horari encara no té hores definides."
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:86
+#: pntemplates/iw_timeframes_admin_main.htm:33
+#: pntemplates/iw_timeframes_admin_new.htm:38
+#: pntemplates/iw_timeframes_admin_deletehour.htm:33
+msgid "About this module"
+msgstr "Pel que fa a aquest mòdul"
+
+#: pntemplates/iw_timeframes_admin_main.htm:11
+#: pntemplates/iw_timeframes_admin_new.htm:27
+msgid "Name of the timeFrame"
+msgstr "Nom del marc horari"
+
+#: pntemplates/iw_timeframes_admin_main.htm:21
+msgid "Time table"
+msgstr "Horari"
+
+#: pntemplates/iw_timeframes_admin_main.htm:29
+msgid "There is no set any timeFrame"
+msgstr "No hi ha cap marc horari definit."
+
+#: pntemplates/iw_timeframes_admin_new.htm:5
+msgid "You have not provided the name of the timeFrame."
+msgstr "No heu indicat el nom del marc horari."
+
+#: pntemplates/iw_timeframes_admin_del.htm:7
+msgid "Delete the timeFrame"
+msgstr "Esborra el marc horari"
+
+#: pntemplates/iw_timeframes_admin_del.htm:9
+#: pntemplates/iw_timeframes_admin_del.htm:17
+#: pntemplates/iw_timeframes_admin_deletehour.htm:9
+msgid "Confirm the deletion of the timeFrame."
+msgstr "Confirma l'esborrament del marc horari."
+
+#: pntemplates/iw_timeframes_admin_del.htm:17
+#: pntemplates/iw_timeframes_admin_deletehour.htm:9
+msgid "Confirm"
+msgstr "Confirma"
+
+#: pntemplates/iw_timeframes_admin_del.htm:18
+#: pntemplates/iw_timeframes_admin_del.htm:33
+#: pntemplates/iw_timeframes_admin_deletehour.htm:10
+msgid "Suspended the file"
+msgstr "Cancel·la l'esborrament."
+
+#: pntemplates/iw_timeframes_admin_del.htm:18
+#: pntemplates/iw_timeframes_admin_del.htm:33
+#: pntemplates/iw_timeframes_admin_deletehour.htm:10
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: pntemplates/iw_timeframes_admin_del.htm:27
+msgid "Note: there are areas of reserves that refer to this timeFrame."
+msgstr "Atenció: hi ha espais de reserva que fan referència a aquest marc horari."
+
+#: pntemplates/iw_timeframes_admin_del.htm:30
+msgid "Clear framework and associated reserves"
+msgstr "Esborrar marc i reserves associades"
+
+#: pntemplates/iw_timeframes_admin_del.htm:30
+msgid "Delete all"
+msgstr "Esborrar-ho tot"
+
+#: pntemplates/iw_timeframes_admin_del.htm:32
+msgid "Conserve the reserves"
+msgstr "Conservar les reserves"
+
+#: pntemplates/iw_timeframes_admin_del.htm:32
+msgid "Conserve reserves"
+msgstr "Conservar reserves"
+
+#: pntemplates/iw_timeframes_admin_menu.htm:3
+msgid "TimeFrames definition"
+msgstr "Definició de marcs horaris"
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:24
+msgid "Start time (hh:mm)"
+msgstr "Inici hora (hh:mm)"
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:35
+msgid "Finish time (hh:mm)"
+msgstr "Final hora (hh:mm)"
+
+#: pntemplates/iw_timeframes_admin_deletehour.htm:7
+msgid "Clear the time in timeFrame"
+msgstr "Esborra l'hora"
+
+#: pntemplates/iw_timeframes_admin_timetables.htm:7
+msgid "Have bookings"
+msgstr "Hi ha reserves"
+

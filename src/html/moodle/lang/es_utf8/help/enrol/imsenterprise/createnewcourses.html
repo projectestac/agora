@@ -1,0 +1,7 @@
+<h1>Creación automática de nuevos cursos</h1>
+
+<p>El 'plugin' de matriculación de IMS Enterprise puede crear nuevos cursos para cualquiera que encuentre en los datos IMS, pero no en la base de datos de Moodle si esta opción está activada.</p>
+
+<p>Los cursos son en primer lugar buscados por su "idnumber" - un campo alfanumérico en la tabla de cursos de Moodle, que puede especificar el código usado para identificar el curso en el Sistema de Información del Estudiante (por ejemplo). Si no se encuentra, se buscará en la tabla de cursos la "descripción corta" que en Moodle es el identificador de curso tal como se muestra, por ejemplo, en los 'breadcrumbs' (en algunos sistemas estos dos campos pueden ser idénticos). Sólo cuando la búsqueda no haya tenido resultado podrá opcionalmente el 'plugin' crear nuevos cursos.</p>
+
+<p>Los cursos nuevos así generados estarán OCULTOS cuando son creados, a fin de evitar que los estudiantes deambulen por cursos enteramente vacíos sin que el profesor tenga constancia de ello.</p>

@@ -1,0 +1,9 @@
+$Id: credits.txt 53 2009-11-08 14:38:41Z drak $
+========================================================================
+Credits
+========================================================================
+
+AuthLDAP v 0.2
+Created by mikegoldfinger@linuxmail.org
+
+Maked API compliant by markwest@digitalme.com, Many tanks!

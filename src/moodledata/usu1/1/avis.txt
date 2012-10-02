@@ -1,0 +1,25 @@
+﻿
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<style>
+  body{ font-family:Arial, Helvetica, sans-serif; margin:50px;}
+  h2{ font-size:24pt; color:#ad0404; font-weight:bold; margin:0px 0px 20px 20px; padding:0px;}
+  .lin{ border-bottom:1px solid #ccc;}
+  p{ line-height:16pt; color:#444;}
+  .alerta{margin-top:40px; min-height:103px;}
+  img{float:left; margin-right:20px;}
+</style>
+</head>
+
+<body>
+<div class="lin">
+  <h2>El Moodle està fora de servei, disculpeu les molèsties.</h2>
+</div>
+<div class="alerta">
+  <img src="ko.png" width="96" height="103" />
+  <p style="color:#F00; font-weight:bold; font-size:16pt;">No s'ha pogut connectar a la base de dades</p>
+  <p>És possible que la base de dades estigui saturada o fora de servei. Torneu-ho a provar més tard.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<style type="text/css">
+<!--
+.STYLE2 {
+	color: #000000;
+	font-weight: bold;
+}
+.STYLE3 {color: #000000}
+-->
+</style>
+<p align="center"><b>筛选器管理</b></p>
+
+<p>筛选器管理页面允许您指定显示文本时运用哪些筛选器，以及怎样安排这些筛选器的顺序。并且，筛选器管理页面还提供通向一些筛选器设置页面的途径。在Moodle中，大部分用户文本显示之前都运用筛选器。并且筛选器允许对文本的“最后一刻”修改。</p>
+
+<p>筛选器是一种“嵌入式”资源。 点击可得到更多的筛选器 
+   <a href="http://download.moodle.org/modules/filters.php">
+   http://download.moodle.org/modules/filters.php</a>.</p>
+
+<p>通过隐藏眼睛图标，可以选择您希望使用的筛选器。如果您拥有多个被隐藏的筛选器，您可以通过点击上下箭头，改变运用这些筛选器的顺序。</p> 
+   
+<p class="STYLE2">TeX 表示法</p>
+<div class="indent">
+  <p>TeX 表示法主要用来在 Moodle 资源里产生成行的数学公式。 例如： $$sqrt(一+b)$$(  $$ 是格式开始和结束的标签)。</p>
+  <p>Moodle 使用外部二进制来呈现系统需要建立的图像。筛选器首先进行LaTeX显示检测（在这种方法中，Ghostscript是必需的），如果失败的话，将会运用Moodle分类中包含的简要的mimetex二进制来呈现。<span class="STYLE3"> LaTex允许整个范围的语法,然而 mimetex 只支持一个数学的子集。</span></p>
+  <p>Windows操作系统环境中，Ghostscript是可用的，并且MikTex（一种<span class="STYLE3">LaTeX实现</span>）也是可用的。</p>
+  <p>设定页允许设置LaTeX、 Ghostscript二进制路径,以及LaTeX preamble。
+  </p>
+  <p><b>更多的信息</b></p>
+  <p><a href="http://www.miktex.org/">MiKTeX</a><br/ >
+     <a href="http://www.forkosh.com/mimetex.html">MimeTeX</a><br />
+     <a href="http://www.latex-project.org/">LaTeX</a><br/ >
+     <a href="http://www.ghostscript.com/">ghostscript</a></p>
+</div>
+
+<p><b>字符检查机制</b></p>
+
+<div class="indent">
+  <p>“字符检查机制”筛选器根据预定义好的字符列表，浏览文本，查找“<span class="STYLE3">不恰当的字符</span>”。每种语言包都有自身默认的列表，同时您也能够定义自己的列表。定义自己的列表，您需要进入设置页面，并且制定自己的单词列表。对于查找到的“<span class="STYLE3">不恰当的字符</span>”，使用者将看到一个黑色的区域，并且单词也会变暗。但是，如果将鼠标移动到单词上面，会呈现原单词。</p>
+</div>
+
+<p><b>自动链接资源名称</b></p>
+
+<div class="indent">
+  <p>“自动链接资源名称”筛选器通过浏览文本，寻找属于同一课程的资源标题。被找到的资源标题，将会加亮显示，并且产生相应的链接。如果想有效地运用这一项功能，您应该使用描述性的名称。例如，以“介绍”作为标题，是不恰当的。因为文本中所有用到“介绍”这个单词的地方，无论此处的介绍指的是什么，都将会产生链接。</p>
+</div>
+
+<p><b>自动链接活动名称</b></p>
+
+<div class="indent">
+  <p>“自动链接活动名称”筛选器通过浏览文本，寻找属于同一课程的活动标题。被找到的活动标题，将会加亮显示，并且产生相应的链接。如果想有效地运用这一项功能，您应该使用描述性的名称。例如，以“测验”作为标题，是不恰当的。因为文本中所有用到“测验”这个单词的地方，无论此处的测验指的是什么，都将会产生链接。</p>
+</div>
+
+<p><b>自动链接术语</b></p>
+
+<div class="indent">
+  <p>“自动链接术语”筛选器通过浏览文本，寻找同一课程中任何术语用到的关键词。注释：每一个术语都必须拥有可链接的入口。被找到的任何关键词，都将会加亮显示，并且产生相应的链接。</p>
+</div>
+
+<p><b>保护电子邮件</b></p>
+
+<div class="indent">
+  <p>“保护电子邮件”筛选器通过浏览文本，寻找任何电子邮件地址。通过发现一些电子邮件地址是“模糊”的，将有助于阻止自动电子邮件收集系统捕获电子邮件地址。如果您的Moodle站点部分是开放的话，这能够降您被兜售信息的可能性。</p>
+</div>
+
+<p><b>整理</b></p>
+
+<div class="indent">
+  <p>“整理”筛选器通过浏览文本，寻找HTML结构。如果发现HTML结构，则将运用规则，以使HTML有效。注释：您的PHP系统必须建立了整理功能，“整理”筛选器才能够起作用。</p>
+</div>
+
+<p><span class="STYLE3"><b>内容</b><b>呈现的语言<b>多样</b>化</b></span></p>
+<div class="indent">
+  <p>本筛选器使资源能够以多样的语言产生。当用户改变他们所选择的Moodle语言时，资源语言也随之而改变。如果想运用这项特性，首先在同一个资源当中，应当用多样的语言来创建同一项内容。然后用以下的标签来关闭您的每一个语言段： </p>
+  <p>&lt;lang lang=&quot; XX&quot;&gt;此处是您的内容&lt;/lang&gt;</p>
+  <p> 如果您愿意,也可以改为使用指距标签,例如:</p>
+  <p> &lt;span lang=&quot; XX&quot;&gt;此处是您的内容&lt;/span&gt;</p>
+</div>
+<p align="right">上海师范大学06级研究生<br />
+  李莹译 <br />
+  Email:mychina_ying@hotmail.com<br />
+  罗丹校 <br />
+Email:luodan0119@hotmail.com</p>

@@ -1,0 +1,74 @@
+<script type="text/javascript">
+    //<![CDATA[
+    <!--[pnmodurl modname=content type=user func=view preview=1 pid=__PID__ assign=previewUrl]-->
+    content.previewUrl = "<!--[$previewUrl]-->";
+
+    function contentToggle(id)
+    {
+        $('contentTogglePageId').value = id;
+        contentPost();
+    }
+    //]]>
+</script>
+
+<!--[pnformpostbackfunction function='contentPost' commandName='toggleExpand']-->
+<input type="hidden" id="contentTogglePageId" name="contentTogglePageId" />
+<!--[pnmodurl modname=content type=edit func=translatepage pid="{commandArgument}" assign=translateUrl]-->
+
+<!--[pnformcontextmenu id="contentTocMenu" width="auto"]-->
+<!--[pnformcontextmenuitem __title='Edit' imageURL="images/icons/extrasmall/edit.gif" commandName="edit"]-->
+<!--[pnformcontextmenuitem __title='Preview' imageURL="images/icons/extrasmall/demo.gif" commandScript="content.popupPreviewWindow(commandArgument)"]-->
+<!--[pnformcontextmenuseparator]-->
+<!--[pnformcontextmenuitem __title='New page' imageURL="images/icons/extrasmall/insert_table_row.gif" commandName="newPage"]-->
+<!--[pnformcontextmenuitem __title='New sub-page' imageURL="images/icons/extrasmall/insertcell.gif" commandName="newSubPage"]-->
+<!--[pnformcontextmenuitem __title='Decrease indent' imageURL="images/icons/extrasmall/format_decreaseindent.gif" commandName="decIndent"]-->
+<!--[pnformcontextmenuitem __title='Increase indent' imageURL="images/icons/extrasmall/format_increaseindent.gif" commandName="incIndent"]-->
+<!--[pnformcontextmenuitem __title='Translate' imageURL="images/icons/extrasmall/voice-support.gif" commandRedirect=$translateUrl]-->
+<!--[pnformcontextmenuitem __title='Delete' imageURL="images/icons/extrasmall/delete_table_row.gif" commandName='deletePage' __confirmMessage='Delete']-->
+<!--[pnformcontextmenuitem __title='History' imageURL="images/icons/extrasmall/clock.gif" commandName='history']-->
+<!--[/pnformcontextmenu]-->
+
+<div class="content-toc">
+    <table class="z-datatable">
+        <thead>
+            <tr>
+                <th><!--[gt text="Page title"]--></th>
+                <th><!--[gt text="Last updated"]--></th>
+                <th><!--[gt text="Created By"]--></th>
+                <!--[if $multilingual]--><th><!--[gt text="Language"]--></th><!--[/if]-->
+                <!--[if $multilingual]--><th><!--[gt text="Translated"]--></th><!--[/if]-->
+            </tr>
+        </thead>
+        <tbody>
+            <!--[foreach from=$pages item=page]-->
+            <tr class="<!--[cycle values="z-odd,z-even"]-->">
+                <td style="padding-left: <!--[$page.level]-->em">
+                    <div id="page_<!--[$page.id]-->">
+                        <!--[if $page.setRight - $page.setLeft != 1]-->
+                        <!--[if $page.isExpanded]--><img src="modules/content/pnimages/page-expanded.gif" onclick="contentToggle(<!--[$page.id]-->)" alt="" class="clickable" /><!--[else]--><img src="modules/content/pnimages/page-collapsed.gif" onclick="contentToggle(<!--[$page.id]-->)" alt="" class="clickable" /><!--[/if]-->
+                        <!--[else]-->
+                        <img src="modules/content/pnimages/page-none.gif" alt="" />
+                        <!--[/if]-->
+
+                        <!--[if $access.pageEditAllowed]-->
+                        <!--[if $page.isInMenu]-->
+                        <img src="modules/content/pnimages/menupageactive.gif" alt="<!--[gt text="Page online and in menu"]-->" title="<!--[gt text="Page online and in menu"]-->" class="dragable"/>
+                        <!--[else]-->
+                        <img src="modules/content/pnimages/menupageinactive.gif" alt="<!--[gt text="Page offline or not in menu"]-->" title="<!--[gt text="Page offline or not in menu"]-->" class="dragable"/>
+                        <!--[/if]-->
+                        <!--[/if]-->
+
+                        <a href="<!--[pnmodurl modname=content type=edit func=editpage pid=$page.id]-->" id="anchor_<!--[$page.id]-->"><!--[$page.title]--> [<!--[$page.id]--><!--( <!--[$page.position]-->|<!--[$page.setLeft]-->/<!--[$page.setRight]-->)-->]</a>&nbsp;<!--[if $access.pageEditAllowed]--><!--[pnformcontextmenureference menuId="contentTocMenu" commandArgument=$page.id]--><!--[/if]-->
+                    </div>
+                </td>
+                <td><!--[$page.lu_date|pndate_format:datetimebrief]--></td>
+                <td><!--[$page.uname|userprofilelink]--></td>
+                <!--[if $multilingual]--><td><!--[$page.language]--></td><!--[/if]-->
+                <!--[if $multilingual]--><td><!--[if $page.isTranslated]-->x<!--[/if]--></td><!--[/if]-->
+            </tr>
+            <!--[foreachelse]-->
+            <tr class="z-datatableempty"><td colspan="<!--[if $multilingual]-->5<!--[else]-->3<!--[/if]-->"><!--[gt text="No page available."]--></td></tr>
+            <!--[/foreach]-->
+        </tbody>
+    </table>
+</div>

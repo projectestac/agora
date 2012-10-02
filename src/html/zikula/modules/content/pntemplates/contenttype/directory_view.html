@@ -1,0 +1,11 @@
+<!--[if $directory.directory]-->
+<ul class="content-directory">
+    <!--[foreach from=$directory.directory item="item"]-->
+    <li><a href="<!--[$item.url|pnvarprepfordisplay]-->"><!--[$item.title]--></a>
+        <!--[if !empty($item.directory)]-->
+        <!--[include file="contenttype/directory_view.html" directory=$item]-->
+        <!--[/if]-->
+    </li>
+    <!--[/foreach]-->
+</ul>
+<!--[/if]-->

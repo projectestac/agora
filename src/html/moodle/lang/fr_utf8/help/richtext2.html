@@ -1,0 +1,64 @@
+<!-- $Id: richtext2.html,v 1.4 2009/04/10 19:28:55 martignoni Exp $ -->
+
+<h1>Éditeur WYSIWYG intégré</h1>
+
+<p>Disponibilité :<strong>
+<?php  if (!$CFG->htmleditor) {
+       print_string("htmleditordisabledadmin");
+   } else if (!$USER->htmleditor) {
+       print_string("htmleditordisabled");
+   } else if (!can_use_html_editor()) {
+       print_string("htmleditordisabledbrowser");
+   } else {
+       print_string("htmleditoravailable");
+   }
+?>
+</strong></p>
+
+<p>L'éditeur WYSIWYG présente une interface semblable à celle des traitements de textes. Il permet d'éditer un texte intuitivement et produit du code HTML normal.</p>
+
+<p>En plus du formatage du texte, l'éditeur a les fonctionnalités suivantes :</p>
+
+<h2>Coller du texte en provenance d'une autre application</h2>
+
+<div class="indent">
+
+<p>Vous pouvez copier et coller du texte formaté dans d'autres applications, par exemple Word, directement dans cet éditeur et tout le formatage sera conservé. On utilise pour cela les commandes Copier et Coller du navigateur.</p>
+
+</div>
+
+<h2>Insérer des images <img alt="" src="lib/editor/htmlarea/images/ed_image.gif"></h2>
+
+<div class="indent">
+
+<p>Vous pouvez insérer des images déjà publiées sur un site web en cliquant sur le bouton « Insérer image » et en tapant l'URL de l'image.</p>
+
+</div>
+
+<h2>Insérer un tableau <img alt="" src="lib/editor/htmlarea/images/insert_table.gif"></h2>
+
+<div class="indent">
+
+<p>On peut insérer un tableau dans le texte en utilisant le bouton correspondant.</p>
+
+</div>
+
+<h2>Insérer un lien hypertexte <img alt="" src="lib/editor/htmlarea/images/ed_link.gif"></h2>
+
+<div class="indent">
+
+<p>Pour insérer un lien hypertexte, tapez tout d'abord le texte qui servira de lien. Sélectionnez ce texte et cliquez sur le bouton d'insertion de lien. Tapez ensuite l'URL désirée.</p>
+
+</div>
+
+<h2>Insérer des binettes (emoticons) <img src="pix/s/smiley.gif" class="icon" alt="" /></h2>
+
+<div class="indent">
+
+<p>Pour insérer des binettes dans votre texte, cliquez sur l'icône sourire dans la barre d'icônes. Une fenêtre s'ouvrira, avec la liste des binettes disponibles. Cliquez sur une des binettes ou copiez le code correspondant, que vous pourrez taper directement dans votre texte.</p>
+
+<div id="emoticons">##emoticons_html##</div>
+
+</div>
+
+<div style="clear:both"> </div>

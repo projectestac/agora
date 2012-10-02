@@ -1,0 +1,61 @@
+<!--[include file="iw_forums_user_menu.htm" m10=1 fid=$fid ftid=$ftid]-->
+<!--[pnuserloggedin assign=userid]-->
+<!--[foreach item=missatge from=$missatges]-->
+<table width="100%" style="border-color:#aaaaaa;border-width:2px; border-style:solid">
+	<!--[if $missatge.photo neq '' AND ($userid neq '' OR $avatarsVisible eq 1)]-->
+		<tr>
+			<td rowspan="5" width="5%">
+				<img src="<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_forums type=user func=getFile fileName=$missatge.photo]-->" />
+			</td>
+		</tr>
+	<!--[/if]-->
+	<tr>
+		<td>
+			<font face=Arial color="#0080C0"><b><!--[$missatge.titol]--></b></font>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<!--[gt text="From: "]-->
+			<font color=green><b><!--[$users[$missatge.usuari]]--></b></font>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<!--[gt text="Date"]-->: <font face=Arial size=2 color="#696969"><b><!--[$missatge.data]--></b></font>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<!--[gt text="Time"]-->: <font face=Arial size=2 color="#696969"><b><!--[$missatge.hora]--></b></font>
+		</td>
+	</tr>
+	<!--[if $missatge.adjunt neq ""]-->
+	<tr>
+		<td colspan="2">
+			<br>
+			<img src="modules/iw_main/pnimages/fileIcons/<!--[$missatge.fileIcon]-->"/>
+			<a href="<!--[pnmodurl modname="iw_forums" func="download" fileName=$missatge.adjunt fmid=$missatge.fmid fid=$fid]-->">
+				<!--[$missatge.adjunt|pnvarprepfordisplay]-->
+			</a>
+		</td>
+	</tr>
+	<!--[/if]-->
+	<tr>
+		<td colspan="2">
+			<hr>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<!--[$missatge.missatge|nl2br]-->
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<hr>
+		</td>
+	</tr>
+</table>
+<br>
+<!--[/foreach]-->

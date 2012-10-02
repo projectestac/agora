@@ -1,0 +1,120 @@
+<!--[*  $Id: weblinks_admin_getconfig.html 46 2009-01-24 22:51:07Z Petzi-Juist $  *]-->
+<!--[include file="weblinks_admin_header.html"]-->
+<div class="pn-admincontainer">
+  <div class="pn-adminpageicon"><!--[pnimg modname='core' src='configure.gif' set='icons/large' __alt='Settings' ]--></div>
+  <h2><!--[gt text="Configuration"]--></h2>
+
+  <form class="pn-adminform" action="<!--[pnmodurl modname="Web_Links" type="admin" func="updateconfig"]-->" method="post" enctype="application/x-www-form-urlencoded">
+    <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Web_Links"]-->" />
+    <fieldset>
+      <legend><!--[gt text="Number of links"]--></legend>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Links per page"]--></label>
+        <select name="config[perpage]" size="1">
+          <option value="10"<!--[if $config.perpage eq '10']--> selected="selected"<!--[/if]-->>10</option>
+          <option value="15"<!--[if $config.perpage eq '15']--> selected="selected"<!--[/if]-->>15</option>
+          <option value="20"<!--[if $config.perpage eq '20']--> selected="selected"<!--[/if]-->>20</option>
+          <option value="25"<!--[if $config.perpage eq '25']--> selected="selected"<!--[/if]-->>25</option>
+          <option value="30"<!--[if $config.perpage eq '30']--> selected="selected"<!--[/if]-->>30</option>
+          <option value="50"<!--[if $config.perpage eq '50']--> selected="selected"<!--[/if]-->>50</option>
+        </select>
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Number of links as new"]--></label>
+        <select name="config[newlinks]" size="1">
+          <option value="10"<!--[if $config.newlinks eq '10']--> selected="selected"<!--[/if]-->>10</option>
+          <option value="15"<!--[if $config.newlinks eq '15']--> selected="selected"<!--[/if]-->>15</option>
+          <option value="20"<!--[if $config.newlinks eq '20']--> selected="selected"<!--[/if]-->>20</option>
+          <option value="25"<!--[if $config.newlinks eq '25']--> selected="selected"<!--[/if]-->>25</option>
+          <option value="30"<!--[if $config.newlinks eq '30']--> selected="selected"<!--[/if]-->>30</option>
+          <option value="50"<!--[if $config.newlinks eq '50']--> selected="selected"<!--[/if]-->>50</option>
+        </select>
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Number of links required to qualify as best"]--></label>
+        <select name="config[bestlinks]" size="1">
+          <option value="10"<!--[if $config.bestlinks eq '10']--> selected="selected"<!--[/if]-->>10</option>
+          <option value="15"<!--[if $config.bestlinks eq '15']--> selected="selected"<!--[/if]-->>15</option>
+          <option value="20"<!--[if $config.bestlinks eq '20']--> selected="selected"<!--[/if]-->>20</option>
+          <option value="25"<!--[if $config.bestlinks eq '25']--> selected="selected"<!--[/if]-->>25</option>
+          <option value="30"<!--[if $config.bestlinks eq '30']--> selected="selected"<!--[/if]-->>30</option>
+          <option value="50"<!--[if $config.bestlinks eq '50']--> selected="selected"<!--[/if]-->>50</option>
+        </select>
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Links in search results"]--></label>
+        <select name="config[linksresults]">
+          <option value="10"<!--[if $config.linksresults eq '10']--> selected="selected"<!--[/if]-->>10</option>
+          <option value="15"<!--[if $config.linksresults eq '15']--> selected="selected"<!--[/if]-->>15</option>
+          <option value="20"<!--[if $config.linksresults eq '20']--> selected="selected"<!--[/if]-->>20</option>
+          <option value="25"<!--[if $config.linksresults eq '25']--> selected="selected"<!--[/if]-->>25</option>
+          <option value="30"<!--[if $config.linksresults eq '30']--> selected="selected"<!--[/if]-->>30</option>
+          <option value="50"<!--[if $config.linksresults eq '50']--> selected="selected"<!--[/if]-->>50</option>
+        </select>
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Number of links in the block"]--></label>
+        <input type="text" name="config[linksinblock]" value="<!--[$config.linksinblock]-->" size="4" />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend><!--[gt text="Popular"]--></legend>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Number of hits required to qualify as popular"]--></label>
+        <select name="config[popular]" size="1">
+          <option value="100"<!--[if $config.popular eq '100']--> selected="selected"<!--[/if]-->>100</option>
+          <option value="250"<!--[if $config.popular eq '250']--> selected="selected"<!--[/if]-->>250</option>
+          <option value="500"<!--[if $config.popular eq '500']--> selected="selected"<!--[/if]-->>500</option>
+          <option value="1000"<!--[if $config.popular eq '1000']--> selected="selected"<!--[/if]-->>1000</option>
+          <option value="1500"<!--[if $config.popular eq '1500']--> selected="selected"<!--[/if]-->>1500</option>
+          <option value="2000"<!--[if $config.popular eq '2000']--> selected="selected"<!--[/if]-->>2000</option>
+        </select>
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Enter 1 to show most-popular links as a percentage (otherwise, enter the number of links to show)"]--></label>
+        <input type="text" name="config[mostpoplinkspercentrigger]" value="<!--[$config.mostpoplinkspercentrigger]-->" size="4" />
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Most-popular links: either a number of links or the percentage to display (percentage as whole number, such as 25/100)"]--></label>
+        <input type="text" name="config[mostpoplinks]" value="<!--[$config.mostpoplinks]-->" size="4" />
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Leading links: either number of links or the  percentage of links to show (percentage as whole number, such as 25/100)"]--></label>
+        <input type="text" name="config[toplinks]" value="<!--[$config.toplinks]-->" size="4" />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend><!--[gt text="Settings"]--></legend>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Show featured link box on web links main page?"]--></label>
+        <input type="radio" name="config[featurebox]" value="1"<!--[if $config.featurebox eq '1']--> checked="checked"<!--[/if]--> /><!--[gt text="yes"]-->&nbsp;
+        <input type="radio" name="config[featurebox]" value="0"<!--[if $config.featurebox eq '0']--> checked="checked"<!--[/if]--> /><!--[gt text="no"]-->
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Open link in a new window"]--></label>
+        <input type="radio" name="config[targetblank]" value="1"<!--[if $config.targetblank eq '1']--> checked="checked"<!--[/if]--> /><!--[gt text="yes"]-->&nbsp;
+        <input type="radio" name="config[targetblank]" value="0"<!--[if $config.targetblank eq '0']--> checked="checked"<!--[/if]--> /><!--[gt text="no"]-->
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Disable unregistered users from suggesting link changes?"]--></label>
+        <input type="radio" name="config[blockunregmodify]" value="1"<!--[if $config.blockunregmodify eq '1']--> checked="checked"<!--[/if]--> /><!--[gt text="yes"]-->&nbsp;
+        <input type="radio" name="config[blockunregmodify]" value="0"<!--[if $config.blockunregmodify eq '0']--> checked="checked"<!--[/if]--> /><!--[gt text="no"]-->
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Disable unregistered users to post new links?"]--></label>
+        <input type="radio" name="config[links_anonaddlinklock]" value="1"<!--[if $config.links_anonaddlinklock eq '1']--> checked="checked"<!--[/if]--> /><!--[gt text="yes"]-->&nbsp;
+        <input type="radio" name="config[links_anonaddlinklock]" value="0"<!--[if $config.links_anonaddlinklock eq '0']--> checked="checked"<!--[/if]--> /><!--[gt text="no"]-->
+      </div>
+    </fieldset>
+
+    <div class="pn-adminformrow pn-clearfix pn-adminformbuttons">
+      <!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Modify configuration" __title="Modify configuration"]-->
+      <a href="<!--[pnmodurl modname=Web_Links type=admin func=view]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Back" __title="Back"]--></a>
+    </div>
+
+  </form>
+</div>
+
+<!--[include file="weblinks_admin_footer.html"]-->

@@ -1,0 +1,39 @@
+<!--[include file="iw_users_user_menu.htm"]-->
+<h2>
+	<!--[if $gid gt 0]-->
+		<!--[gt text="List of users of the group"]-->: <!--[$groupName]-->
+	<!--[else]-->
+		<!--[gt text="Contacts'"]-->
+	<!--[/if]-->
+</h2>
+<table class="usertable">
+	<!--[foreach item=member from=$members]-->
+		<tr bgcolor="<!--[cycle values="#ffffff, #eeeeee"]-->" id="row_<!--[$member.uid]-->">
+			<td width="10">
+				<!--[if $member.photo neq '']-->
+					<img src="<!--[pnmodurl modname=iw_main type=user func=getPhoto fileName=$member.photo]-->" />
+				<!--[else]-->
+					&nbsp;
+				<!--[/if]-->
+			</td>
+			<td><!--[$member.name]--></td>
+			<td><!--[$member.uname]--></td>
+			<td align="right" id="<!--[$member.uid]-->">
+				<!--[if $friendsSystemAvailable eq 1]-->
+					<!--[if $member.isFriend]-->
+						<a href="javascript:delContact(<!--[$member.uid]-->,<!--[$gid]-->)">
+							<img src="images/icons/small/delete_user.gif" id="img_<!--[$member.uid]-->" name="img_<!--[$member.uid]-->" alt="<!--[gt text="Delete from contacts' list"]-->" title="<!--[gt text="Delete from contacts' list"]-->" />
+						</a>
+					<!--[else]-->
+						<a href="javascript:addContact(<!--[$member.uid]-->,<!--[$gid]-->)">
+							<img src="images/icons/small/add_user.gif" id="img_<!--[$member.uid]-->" name="img_<!--[$member.uid]-->" alt="<!--[gt text="Add to contacts' list"]-->" title="<!--[gt text="Add to contacts' list"]-->" />
+						</a>
+					<!--[/if]-->
+				<!--[/if]-->
+				<a href="<!--[pnmodurl modname=iw_messages type=user func=compose uname=$member.uname]-->"><!--[pnimg modname='core' src='mail_send.gif' set='icons/small'   __alt="Send a private message" __title="Send a private message"]--></a>
+			</td>
+		</tr>
+	<!--[foreachelse]-->
+		<!--[gt text="N users found"]-->
+	<!--[/foreach]-->
+</table>

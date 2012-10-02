@@ -1,0 +1,45 @@
+<script language="javascript">
+	function send(valor) {
+		var f=document.new_menu;
+		f.action="index.php?module=iw_vhmenu&type=admin&func=create_add_group";
+		f.submit();
+	}
+</script>
+
+<!--[include file="iw_vhmenu_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='agt_forum.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<h2><!--[gt text="Add a group"]--></h2>
+	<div style="height:20px;">&nbsp;</div>
+	<form  method="post" name="new_menu" id="new_menu">
+		<input type="hidden" name="authid" value="<!--[$security]-->"-->
+		<input type="hidden" name="mid" value="<!--[$mid]-->">
+		<input type="hidden" name="groups_db" value="<!--[$groups_db]-->">	
+
+		<div class="pn-adminformrow">
+			<label for="text"><!--[gt text="Text of the option"]--></label>
+			<span><!--[$text]--></span>
+		</div>
+
+		<div class="pn-adminformrow">
+			<label for="url"><!--[gt text="URL"]--></label>
+			<span><!--[$url]--></span>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="descriu"><!--[gt text="Description"]--></label>
+			<span><!--[$descriu]--></span>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="grup"><!--[gt text="Group that can access the option"]--></label>
+			<select name="grup">
+				<!--[foreach from=$grups item=element]-->
+					<option value="<!--[$element.id]-->"><!--[$element.name]--></option>
+				<!--[/foreach]-->
+			</select>
+		</div>
+		
+		<div style="text-align: center;">
+			<a onClick="javascript:send(0)" title="<!--[gt text="Grant access to the group"]-->"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small']--></a><!--[gt text="Grant access to the group"]-->
+		</div>
+	</form>
+</div>

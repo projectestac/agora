@@ -1,0 +1,36 @@
+<!--[*  $Id: users_admin_viewapplications.htm 27353 2009-11-02 11:56:33Z mateo $  *]-->
+<!--[insert name='generateauthkey' module='Users' assign='authid']-->
+<!--[gt text="Registration applications list" assign=templatetitle]-->
+
+<!--[include file="users_admin_menu.htm"]-->
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><img src="system/Users/pnimages/admin.gif" alt="<!--[$templatetitle]-->" /></div>
+
+    <h2><!--[$templatetitle]--></h2>
+
+    <table class="z-admintable">
+        <thead>
+            <tr>
+                <th><!--[gt text="User name"]--></th>
+                <th><!--[gt text="E-mail address"]--></th>
+                <th><!--[gt text="Actions"]--></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--[section name="usersitems" loop=$usersitems]-->
+            <tr class="<!--[cycle values='z-odd,z-even']-->">
+                <td><!--[$usersitems[usersitems].uname|pnvarprephtmldisplay]--></td>
+                <td><!--[$usersitems[usersitems].email|pnvarprephtmldisplay]--></td>
+                <td>
+                    <!--[if $usersitems[usersitems].options.optitems]--><a href="<!--[pnmodurl modname='Users' type='admin' func='viewtempuserinfo' userid=$usersitems[usersitems].tid]-->"><!--[pnimg modname='core' src='list.gif' set='icons/extrasmall' __alt="Details" __title="Details"]--></a><!--[/if]-->
+                    <!--[if $usersitems[usersitems].options.approve]--><a href="<!--[pnmodurl modname='Users' type='admin' func='confirmApproval' userid=$usersitems[usersitems].tid]-->"><!--[pnimg modname='core' src='add_user.gif' set='icons/extrasmall' __alt="Approve" __title="Approve"]--></a><!--[/if]-->
+                    <!--[if $usersitems[usersitems].options.deny]--><a href="<!--[pnmodurl modname='Users' type='admin' func='confirmDenial' userid=$usersitems[usersitems].tid]-->"><!--[pnimg modname='core' src='delete_user.gif' set='icons/extrasmall' __alt="Deny" __title="Deny"]--></a><!--[/if]-->
+                </td>
+            </tr>
+            <!--[/section]-->
+        </tbody>
+    </table>
+
+    <!--[pager show="page" rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum shift=1]-->
+</div>

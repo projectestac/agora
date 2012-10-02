@@ -1,0 +1,236 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: Traduction du module Quotes 2.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-10-24 02:55-0500\n"
+"PO-Revision-Date: 2010-04-01 22:13+0200\n"
+"Last-Translator: Gilles <gilles@pilloud.fr>\n"
+"Language-Team: Zikula-France <zkfrance@zikula.fr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Pootle 2.0.1\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: FRANCE\n"
+
+#: pnversion.php:16 pninit.php:137 pntemplates/quotes_admin_menu.htm:6
+msgid "Quotes"
+msgstr "Citations"
+
+#: pnversion.php:17 pninit.php:138
+msgid "Random quotes"
+msgstr "Citations aléatoires"
+
+#: pnblocks/quote.php:35 pntemplates/quotes_admin_view.htm:57
+msgid "Quote"
+msgstr "Citation"
+
+#: pnblocks/quote.php:36
+msgid "Random quote block"
+msgstr "Bloc de citation aléatoire"
+
+#: pnblocks/quote.php:76
+msgid "There are too few Quotes in the database"
+msgstr "Il y a trop peu de citations dans la base de données"
+
+#: pnadminapi.php:33 pnadminapi.php:115 pnadminapi.php:118 pnadmin.php:310
+msgid "Sorry! No authorization to access this module."
+msgstr "Désolé ! Vous n'avez pas l'autorisation d'accéder à ce module."
+
+#: pnadminapi.php:39
+msgid "Error! Quote creation failed."
+msgstr "Erreur ! La création de la citation a échoué."
+
+#: pnadminapi.php:68 pnadminapi.php:109 pnadmin.php:204 pnadmin.php:259
+msgid "No such Quote found."
+msgstr "Aucune citation de ce type n'a été trouvée."
+
+#: pnadminapi.php:74
+msgid "Error! Quote deletion failed."
+msgstr "Erreur ! La suppression de la citation a échoué."
+
+#: pnadminapi.php:124
+msgid "Error! Quote update failed."
+msgstr "Erreur ! La mise à jour de la citation a échoué."
+
+#: pnadminapi.php:147 pntemplates/quotes_admin_view.htm:3
+msgid "View Quotes List"
+msgstr "Afficher la liste des citations"
+
+#: pnadminapi.php:150 pntemplates/quotes_admin_new.htm:2
+msgid "Create a Quote"
+msgstr "Créer une citation"
+
+#: pnadminapi.php:153 pntemplates/quotes_admin_modifyconfig.htm:2
+msgid "Settings"
+msgstr "Paramètres"
+
+#: pnadminform.php:37
+msgid "Done! Quote created."
+msgstr "Terminé ! Citation créée."
+
+#: pnadminform.php:74
+msgid "Done! Quote updated."
+msgstr "Terminé ! Citation mise à jour."
+
+#: pnadminform.php:112
+msgid "Done! Module configuration updated."
+msgstr "Terminé ! Configuration du module mise à jour."
+
+#: pninit.php:29
+msgid "Error! Creation attempt failed."
+msgstr "Erreur ! La tentative de création a échoué."
+
+#: pninit.php:71 pninit.php:211
+msgid "Error! Update attempt failed."
+msgstr "Erreur ! La tentative de mise à jour a échoué."
+
+#: pninit.php:188
+msgid "Imported quotes"
+msgstr "Importer les citations"
+
+#: pninit.php:189
+msgid "Quotes imported from .7x version"
+msgstr "Citations de la version 0.7x importées"
+
+#: pnuserapi.php:114
+msgid "Error! Could not load the quotes."
+msgstr "Erreur ! Impossible de charger les citations."
+
+#: pnadmin.php:53 pnadmin.php:97 pnadmin.php:221
+msgid "Error! Unable to load class [%s%]"
+msgstr "Erreur ! Impossible de charger la classe [%s]"
+
+#: pnadmin.php:136
+msgid "Edit"
+msgstr "Modifier"
+
+#: pnadmin.php:141
+msgid "Delete"
+msgstr "Supprimer"
+
+#: pnadmin.php:291
+msgid "Done! Quote deleted."
+msgstr "Terminé ! Citation supprimée."
+
+#: pntemplates/quotes_admin_delete.htm:2
+msgid "Delete Quote"
+msgstr "Supprimer la citation"
+
+#: pntemplates/quotes_admin_delete.htm:11
+msgid "Do you really want to delete this Quote?"
+msgstr "Confirmez-vous la suppression de cette citation ?"
+
+#: pntemplates/quotes_admin_delete.htm:18
+msgid "Confirm deletion?"
+msgstr "Confirmez-vous la suppression ?"
+
+#: pntemplates/quotes_admin_delete.htm:19
+#: pntemplates/quotes_admin_modifyconfig.htm:28
+#: pntemplates/quotes_admin_modify.htm:60 pntemplates/quotes_admin_new.htm:41
+msgid "Cancel"
+msgstr "Annuler"
+
+#: pntemplates/quotes_admin_modifyconfig.htm:15
+msgid "Enable categorization"
+msgstr "Activer la catégorisation"
+
+#: pntemplates/quotes_admin_modifyconfig.htm:19
+msgid "Items per page"
+msgstr "Éléments par page"
+
+#: pntemplates/quotes_admin_modifyconfig.htm:27
+msgid "Save"
+msgstr "Enregistrer"
+
+#: pntemplates/quotes_admin_modify.htm:2
+msgid "Update Quote"
+msgstr "Mettre à jour la citation"
+
+#: pntemplates/quotes_admin_modify.htm:15
+msgid "Content"
+msgstr "Contenu"
+
+#: pntemplates/quotes_admin_modify.htm:17 pntemplates/quotes_admin_new.htm:15
+msgid "Quote Text"
+msgstr "Texte de la citation"
+
+#: pntemplates/quotes_admin_modify.htm:21 pntemplates/quotes_admin_view.htm:45
+#: pntemplates/quotes_admin_view.htm:58 pntemplates/quotes_admin_new.htm:19
+msgid "Author"
+msgstr "Auteur"
+
+#: pntemplates/quotes_admin_modify.htm:26 pntemplates/quotes_admin_new.htm:24
+msgid "Categories"
+msgstr "Catégories"
+
+#: pntemplates/quotes_admin_modify.htm:45
+msgid "Meta data"
+msgstr "Données 'meta'"
+
+#: pntemplates/quotes_admin_modify.htm:48
+#, php-format
+msgid "Created by %s"
+msgstr "Créé par %s"
+
+#: pntemplates/quotes_admin_modify.htm:49
+#, php-format
+msgid "Created on %s"
+msgstr "Créé le %s"
+
+#: pntemplates/quotes_admin_modify.htm:51
+#, php-format
+msgid "Last update by %s"
+msgstr "Dernière mise à jour par %s"
+
+#: pntemplates/quotes_admin_modify.htm:52
+#, php-format
+msgid "Updated on %s"
+msgstr "Mis à jour le %s"
+
+#: pntemplates/quotes_admin_modify.htm:59
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: pntemplates/quotes_admin_view.htm:16 pntemplates/quotes_admin_view.htm:60
+msgid "Category"
+msgstr "Catégorie"
+
+#: pntemplates/quotes_admin_view.htm:17
+msgid "All"
+msgstr "Tous"
+
+#: pntemplates/quotes_admin_view.htm:41
+msgid "Search by keyword"
+msgstr "Rechercher par mots-clés"
+
+#: pntemplates/quotes_admin_view.htm:49
+msgid "Filter"
+msgstr "Filtrer"
+
+#: pntemplates/quotes_admin_view.htm:50
+msgid "Clear"
+msgstr "Effacer"
+
+#: pntemplates/quotes_admin_view.htm:62
+msgid "Actions"
+msgstr "Actions"
+
+#: pntemplates/quotes_admin_view.htm:82
+msgid "No Quotes found."
+msgstr "Aucune citation n'a été trouvée."
+
+#: pntemplates/quotes_admin_new.htm:25
+msgid "Choose a category"
+msgstr "Choisissez une catégorie"
+
+#: pntemplates/quotes_admin_new.htm:40
+msgid "Create"
+msgstr "Créer"

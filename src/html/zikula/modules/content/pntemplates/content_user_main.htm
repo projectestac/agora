@@ -1,0 +1,19 @@
+<!--[gt text="Contents" assign=title]-->
+<!--[pnpagesetvar name='title' value=$title]-->
+<!--[sitename assign=sitename]-->
+<h2><!--[gt text='Welcome to the contents for %s' tag1=$sitename]--></h2>
+
+<!--[if !empty($categories)]-->
+    <p><!--[gt text="The available sections are as follows:"]--></p>
+    <ul>
+        <!--[foreach from=$categories item=category]-->
+        <!--[if $shorturls and $shorturlstype==0 and 0]-->
+        <li><a href="<!--[pnmodurl modname=Content func=view cat=$category.path|replace:$rootCategory.path:'']-->" title="<!--[$category.display_desc.$lang]-->"><!--[$category.display_name.$lang]--></a></li>
+        <!--[else]-->
+        <li><a href="<!--[pnmodurl modname=Content func=list cat=$category.id]-->" title="<!--[$category.display_desc.$lang]-->"><!--[$category.display_name.$lang]--></a></li>
+        <!--[/if]-->
+        <!--[/foreach]-->
+    </ul>
+<!--[else]-->
+    <p><!--[gt text="There are no pages to display."]--></p>
+<!--[/if]-->

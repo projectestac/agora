@@ -1,0 +1,65 @@
+<!--[include file="admin/downloads_admin_main_menu.htm"]-->
+<!--[include file="admin/downloads_admin_header.htm"]-->
+
+<!--[*pndebug*]-->
+<h2 class="dl_admin_h2"><!--[pnimg src="admin/fileimport.gif" __alt="Add" ]-->&nbsp;&nbsp;<!--[gt text="Add"]--></h2>
+<div class="dl_admin_menu">
+<fieldset class="dl_fieldset">
+<legend><!--[gt text="Add"]--></legend>
+<span><!--[pnimg src="admin/mandatory.png" __alt="Mandatory fields" ]--><!--[gt text="Mandatory fields"]--></span>
+	<form class="dl_user_form" action="<!--[pnmodurl modname="Downloads" type="admin" func="newdownload_add"]-->" method="post" enctype="multipart/form-data">		
+	<div class="dl_conf_list">	
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />	
+		<dl>
+		<dt><!--[pnimg src="admin/mandatory.png" __alt="Mandatory fields" ]--><!--[gt text="Download title:"]--></dt>
+		<dd><input id="downloads_title" type="text" name="title" size="30" value="<!--[$title]-->" /></dd>				
+		<!--[if $showfileinput == 'yes']-->
+		<dt><!--[pnimg src="admin/mandatory.png" __alt="Mandatory fields" ]--><!--[gt text="Choose file for upload:"]--></dt>
+		<dd><input id="downloads_userfile" type="file" name="userfile" size="30" /></dd>
+		<dt><strong><!--[gt text="or"]--></strong></dt>
+		<dd>&nbsp;</dd>
+		 <!--[/if]-->		 
+		<dt><!--[pnimg src="admin/mandatory.png" __alt="Mandatory fields" ]--><!--[gt text="Download link"]-->&nbsp;-&nbsp;<!--[gt text="File size"]--></dt>
+		<dd>
+		<input id="downloads_userurl" type="text" name="userurl" size="30" value="<!--[$userurl]-->" />
+		&nbsp;-&nbsp;
+		<input id="downloads_filesize" type="text" name="filesize" size="10" value="<!--[$filesize]-->" />
+		<select id="downloads_sizetype" name="sizetype">
+	        <option value="Kb">Kb&nbsp;&nbsp;</option>
+	        <option value="Mb">Mb&nbsp;&nbsp;</option>
+	        <option value="Gb">Gb&nbsp;&nbsp;</option>
+	    </select>
+		</dd>		
+		<!--[if $showscreenshotinput == 'yes']-->
+		<dt><!--[gt text="Screenshot"]-->&nbsp;&nbsp;<!--[gt text='(GIF, JPG, PNG)']--></dt>
+		<dd><input id="downloads_screenshot" type="file" name="screenshot[]" size="30" /></dd>		
+		<!--[if $gdbythumbnail == 0]-->
+		<dt><!--[gt text="Thumbmail"]-->&nbsp;&nbsp;<!--[gt text='(GIF, JPG, PNG)']--></dt>
+		<dd><input id="downloads_thumbnail" type="file" name="screenshot[]" size="30" /></dd>
+		<!--[/if]-->	
+		<!--[/if]-->		
+		<dt><!--[gt text="Choose category:"]--></dt>
+		<dd>
+			<select id="downloads_selcats" name="selcats">
+			<!--[$catSelectList]-->
+			</select>
+		</dd>		
+		<dt class="dl_conf_list_desc"><!--[pnimg src="admin/mandatory.png" __alt="Mandatory fields" ]--><!--[gt text="Download description:"]--></dt>
+		<dd class="dl_conf_list_desc"><textarea name="description" cols="30" rows="5"><!--[$description]--></textarea></dd>	
+		<dt><!--[pnimg src="admin/mandatory.png" __alt="Mandatory fields" ]--><!--[gt text="Submitted by:"]--></dt>
+		<dd><input id="downloads_submitter" type="text" name="submitter" value="<!--[$user]-->" size="30" /></dd>	
+		<dt><!--[gt text="Email adress:"]--></dt>
+		<dd><input id="downloads_submittermail" type="text" name="submittermail" value="<!--[$usermail]-->" size="30" /></dd>	
+		<dt><!--[gt text="Homepage:"]--></dt>
+		<dd><input id="downloads_homepage" type="text" name="homepage" value="<!--[$userhomepage]-->" size="30" /></dd>
+		<dt><!--[gt text="Version:"]--></dt>
+		<dd><input id="downloads_version" type="text" name="version" value="<!--[$version]-->" size="20" /></dd>
+		<dt>
+			<input name="submit" type="submit" value="<!--[gt text="Add download"]-->" />
+		</dt>
+		</dl>
+	</div>	
+</form>
+</fieldset>
+</div>
+<!--[include file="admin/downloads_admin_footer.htm"]-->

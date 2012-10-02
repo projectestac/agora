@@ -1,0 +1,16 @@
+<!--[include file="iw_forms_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/medium']--></div>
+	<h2><!--[gt text="Delete category"]--></h2>
+
+	<form class="pn-adminform" action="<!--[pnmodurl modname="iw_forms" type="admin" func="deleteCat"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forms"]-->" />
+		<input type="hidden" name="confirm" value="1" />
+		<input type="hidden" name="cid" value="<!--[$item.cid]-->" />
+		<!--[gt text="Confirms delete the category"]--> <strong><!--[$item.catName]--></strong>
+		<div class="formOptions">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Delete" __title="Delete"]-->
+			<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="conf"]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+		</div>
+	</form>
+</div>

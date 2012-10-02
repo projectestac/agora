@@ -1,0 +1,169 @@
+Version: $Id$
+
+Traduction française de Moodle
+---------------------------------------------------------------------------------
+Début de la traduction          : 21-09-2002
+Dernière modification           : 25-05-2011
+---------------------------------------------------------------------------------
+
+La traduction française de Moodle est gérée et coordonnée par Nicolas Martignoni
+<nicolas%martignoni.net>.
+
+Contributeurs à la traduction de Moodle
+---------------------------------------
+
+Nicolas Martignoni <nicolas%martignoni.net>
+  Traduction des chaînes de caractères et des fichiers de fr_utf8 (à part ceux
+  cités ci-dessous)
+  Gestion, coordination et contrôle de qualité de la traduction en français
+  Facilitateur de l'espace « Moodle en français » (http://moodle.org/course/view.php?id=20)
+  Gestion de la documentation en français de Moodle (http://docs.moodle.org/fr/)
+  
+Séverin Terrier <severin.terrier%univ-tlse1.fr>
+  Relecture et découverte de fautes de frappes
+  Facilitateur de l'espace « Moodle en français »
+  Gestion de la documentation en français de Moodle
+
+Thomas Poinsot <thomas.poinsot%free.fr>
+  Traduction de fr_utf8/help/quiz/analysisoptions.html
+  Traduction de fr_utf8/help/quiz/calculated.html
+  Traduction de fr_utf8/help/quiz/categories_edit.html
+  Traduction de fr_utf8/help/quiz/decimalpoints.html
+  Traduction de fr_utf8/help/quiz/essay.html
+  Traduction de fr_utf8/help/quiz/generalfeedback.html
+  Traduction de fr_utf8/help/quiz/itemanalysis.html
+  Traduction de fr_utf8/help/quiz/matchgrades.html
+  Traduction de fr_utf8/help/quiz/matchshuffle.html
+  Traduction de fr_utf8/help/quiz/multichoiceshuffle.html
+  Traduction de fr_utf8/help/quiz/overviewdownload.html
+  Traduction de fr_utf8/help/quiz/penalty.html
+  Traduction de fr_utf8/help/quiz/penaltyscheme.html
+  Traduction de fr_utf8/help/quiz/popup.html
+  Traduction de fr_utf8/help/quiz/questiondatasets.html
+  Traduction de fr_utf8/help/quiz/questionsperpage.html
+  Traduction de fr_utf8/help/quiz/questiontext.html
+  Traduction de fr_utf8/help/quiz/reorderingtool.html
+  Traduction de fr_utf8/help/quiz/responsesdownload.html
+  Traduction de fr_utf8/help/quiz/responsesoptions.html
+  Traduction de fr_utf8/help/quiz/review2.html
+  Traduction de fr_utf8/help/quiz/rqp.html
+  Traduction de fr_utf8/help/quiz/shufflewithin.html
+  Traduction de fr_utf8/help/quiz/timedelay1.html
+  Traduction de fr_utf8/help/quiz/timedelay2.html
+  Traduction de fr_utf8/help/scorm/hidebrowse.html
+  Traduction de fr_utf8/help/scorm/maxattempt.html
+  Traduction de fr_utf8/help/scorm/skipview.html
+  Traduction de fr_utf8/help/scorm/stagesize.html
+  Traduction de fr_utf8/help/scorm/whatgrade.html
+  Traduction de fr_utf8/help/workshop/assessmentend.html
+  Traduction de fr_utf8/help/workshop/assessmentstart.html
+  Traduction de fr_utf8/help/workshop/releasegrades.html
+  Traduction de fr_utf8/help/workshop/submissionend.html
+  Traduction de fr_utf8/help/workshop/submissionstart.html
+  Traduction de fr_utf8/help/uploadusers2.html
+  Traduction de fr_utf8/help/uploadusers3.html
+  Amélioration de fr_utf8/help/advanced_markdown.html
+  Amélioration de fr_utf8/help/quiz/multichoice.html
+  Traduction de fr_utf8/help/hotpot/clickreporting.html
+  Traduction de fr_utf8/help/hotpot/clickreporttable.html
+  Traduction de fr_utf8/help/hotpot/reportcontent.html
+  Traduction de fr_utf8/help/hotpot/reportformat.html
+  Traduction de fr_utf8/help/hotpot/studentfeedback.html
+
+Valéry Frémaux <vf%eisti.fr>
+  Traduction de fr_utf8/help/scorm
+  Traduction de fr_utf8/help/exercise
+  Traduction de fr_utf8/help/resource/window.html
+  Traduction de fr_utf8/help/workshop/addcommenttobank.html
+  Traduction de fr_utf8/help/workshop/comparisonofassessments.html
+  Traduction de fr_utf8/help/workshop/gradinggrade.html
+  Traduction de fr_utf8/help/workshop/managing2.html
+  Traduction de fr_utf8/help/workshop/nattachments.html
+  Traduction de fr_utf8/help/workshop/password.html
+  Traduction de fr_utf8/help/workshop/regrading.html
+  Traduction de fr_utf8/help/workshop/teacherweight.html
+  Traduction de fr_utf8/help/workshop/ungradedassessments.html
+  Traduction de fr_utf8/help/workshop/usepassword.html
+  Traduction de fr_utf8/help/wiki
+  
+Didier Rambeau <didier.rambeau%bbs.afpa.fr>
+  Traduction de fr_utf8/help/questionnaire
+  Traduction de fr_utf8/help/resource/deploy.html
+  Traduction de fr_utf8/help/resource/imsparameters.html
+  Traduction de fr_utf8/help/resource/type/ims.html
+  Traduction de fr_utf8/help/dialogue
+  Traduction de fr_utf8/help/grade/category.html
+  Traduction de fr_utf8/help/grade/exceptions.html
+  Traduction de fr_utf8/help/grade/index.html
+  Traduction de fr_utf8/help/grade/letter.html
+  Traduction de fr_utf8/help/grade/preferences.html
+  Traduction de fr_utf8/help/grade/weight.html
+  
+Stéphane Wattier <stephane.wattier%gmail.com>
+  Traduction de fr_utf8/help/blockip.html
+  Traduction de fr_utf8/help/localfiltersettings.html
+  Traduction de fr_utf8/help/blog/description.html
+  Traduction de fr_utf8/help/blog/name.html
+  Traduction de fr_utf8/help/blog/tags.html
+  Traduction de fr_utf8/help/blog/url.html
+  Traduction de fr_utf8/help/completion/completion.html
+  Traduction de fr_utf8/help/completion/completionexpected.html
+  Traduction de fr_utf8/help/completion/completionicons.html
+  Traduction de fr_utf8/help/completion/completionlocked.html
+  Traduction de fr_utf8/help/completion/completionusegrade.html
+  Traduction de fr_utf8/help/completion/completionview.html
+  
+Étienne Rozé <etienne.roze%medecine.uhp-nancy.fr>
+  Traduction de fr_utf8/help/blog/index.html
+  Traduction de fr_utf8/help/blog/publish_state.html
+  Traduction de fr_utf8/help/grade/teacher.html
+  
+Nicolas Galante <nicolas.galante%grenoble-em.com>
+  Traduction de fr_utf8/help/grade/student.html
+  
+Joseph Rézeau <moodle%rezeau.org>
+  Relecture et découverte de fautes de frappes
+  Traduction de fr_utf8/help/qtype_multianswer/multianswer.html
+
+Jean-François Nadeau <nadeau.jf%videotron.ca>
+  Adaptations à de nombreux fichiers de fr_utf8/help
+  
+Sébastien Namèche <sebastien%nameche.fr>
+  Premières contributions à la traduction. Grâce à Sébastien, le français a été,
+  après l'anglais, la première langue dans laquelle Moodle a été proposé !
+
+---------------------------------------------------------------------------------
+Une liste des termes utilisés pour la traduction est disponible dans le
+glossaire du cours « Moodle en français » à l'URL suivante :
+http://moodle.org/mod/glossary/view.php?id=997
+
+Cette liste comprend également certains termes canadiens-français
+qui diffèrent de l'usage du français d'Europe, et qui sont utilisés dans
+la traduction en canadien-français.
+
+Si vous avez des suggestions ou des propositions d'amélioration au
+sujet de la traduction de certains termes, merci d'utiliser le forum
+« Traduction en français » à l'URL suivante :
+http://moodle.org/mod/forum/view.php?id=1683
+
+Voici quelques liens utilisés :
+  - Le grand dictionnaire terminologique
+      http://www.granddictionnaire.com/
+  - Le Trésor de la Langue Française Informatisé
+      http://atilf.atilf.fr/
+  - Dictionnaire des synonymes
+      http://elsap1.unicaen.fr/dicosyn.html
+  - Dictionnaire de l'internaute
+      http://www-03.ibm.com/ondemand/ca/fr/dictionary/
+
+Quelques conventions :
+  - pour la ponctuation de fin de texte et les majuscules,
+    on essaie de suivre strictement le texte anglais original ;
+  - les majuscules *sont* accentuées, même le « à » en début de phrase ;
+  - les guillemets français sont « », avec les espaces insécables
+    si possible (à coder  ).
+
+Quelques liens en français qui traitent du constructivisme social :
+  - http://www.acelf.ca/revue/XXV1/articles/rxxv1-10.html
+  - http://www.schule.suedtirol.it/blikk/angebote/reformpaedagogik/rp70110b.htm
+  - http://www.chevaleyre.com/cc/Apprentissage/apprent4.htm

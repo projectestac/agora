@@ -1,0 +1,62 @@
+<!--[include file="admin/downloads_admin_main_menu.htm"]-->
+<!--[include file="admin/downloads_admin_header.htm"]-->
+
+<!--[*pndebug*]-->
+
+
+<h2 class="dl_admin_h2"><!--[pnimg src="admin/view.gif" __alt="Main Page Settings" ]-->&nbsp;&nbsp;<!--[gt text="Main Page Settings"]--></h2>
+<fieldset class="dl_fieldset">
+<legend><!--[gt text="Main Page Settings"]--></legend>
+<form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="admin" func="updateconfig_frontend"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div class="dl_conf_list">
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	
+	<dl>
+	
+		<dt><!--[gt text="Use tree view on start page"]--></dt>
+		<dd>
+			<input type="radio" name="treeview" value="1" <!--[$treeviewonchecked]-->/>&nbsp;<!--[gt text='Yes']-->
+	        <input type="radio" name="treeview" value="0" <!--[$treeviewoffchecked]-->/>&nbsp;<!--[gt text='No']-->
+		</dd>
+		
+		<dt><!--[gt text="Show 'Latest downloads'?"]--></dt>
+		<dd>
+			<input type="radio" name="lastxdlsactive" value="yes" <!--[$lastxdlsactiveonchecked]-->/>&nbsp;<!--[gt text='Yes']-->
+	        <input type="radio" name="lastxdlsactive" value="no" <!--[$lastxdlsactiveoffchecked]-->/>&nbsp;<!--[gt text='No']-->
+		</dd>
+		
+		<dt><!--[gt text="Number of 'Latest Downloads' on start page"]--></dt>
+		<dd>   	
+			   <input id="downloads_lastxdlsamount" type="text" name="lastxdlsamount" size="3" value="<!--[$lastxdlsamount|pnvarprepfordisplay]-->" />
+		</dd>
+		
+		<dt><!--[gt text="Show 'Popular Downloads'?"]--></dt>
+		<dd>
+			<input type="radio" name="topxdlsactive" value="yes" <!--[$topxdlsactiveonchecked]-->/>&nbsp;<!--[gt text='Yes']-->
+	        <input type="radio" name="topxdlsactive" value="no" <!--[$topxdlsactiveoffchecked]-->/>&nbsp;<!--[gt text='No']-->
+		</dd>
+		
+		<dt><!--[gt text="Number of 'Popular Downloads' on start page"]--></dt>
+		<dd>
+		   	<input id="downloads_topxdlsamount" type="text" name="topxdlsamount" size="3" value="<!--[$topxdlsamount|pnvarprepfordisplay]-->" />
+		</dd>
+		
+		<dt><!--[gt text="Show 'Top-Rated Downloads'?"]--></dt>
+		<dd>
+			<input type="radio" name="ratexdlsactive" value="yes" <!--[$ratexdlsactiveonchecked]-->/>&nbsp;<!--[gt text='Yes']-->
+	        <input type="radio" name="ratexdlsactive" value="no" <!--[$ratexdlsactiveoffchecked]-->/>&nbsp;<!--[gt text='No']-->
+		</dd>
+		
+		<dt><!--[gt text="Number of 'Top-Rated Downloads' on start page"]--></dt>
+		<dd>
+		   	<input id="downloads_ratexdlsamount" type="text" name="ratexdlsamount" size="3" value="<!--[$ratexdlsamount|pnvarprepfordisplay]-->" />
+		</dd>
+	
+		<dt>
+			<input name="submit" type="submit" value="<!--[gt text="Save configuration"]-->" />
+		</dt>
+	</dl>
+</div>
+</form>
+</fieldset>
+<!--[include file="admin/downloads_admin_footer.htm"]-->

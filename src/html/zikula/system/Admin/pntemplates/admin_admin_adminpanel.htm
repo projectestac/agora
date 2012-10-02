@@ -1,0 +1,17 @@
+<!--[*  $Id: admin_admin_adminpanel.htm 27048 2009-10-21 14:55:13Z drak $  *]-->
+<!--[pnpageaddvar name="javascript" value="javascript/ajax/prototype.js"]-->
+<!--[$menu]-->
+<div class="z-admincontainer">
+    <h2><!--[$category.catname|pnvarprepfordisplay]--></h2>
+    <div class="z-admincategorydescription"><!--[$category.description|pnvarprepfordisplay]--></div>
+
+    <!--[if empty($adminlinks)]-->
+    <!--[gt text="There are currently no modules in this category."]-->
+    <!--[/if]-->
+
+    <!--[if $moduledescription eq 1]-->
+    <!--[include file="admin_admin_adminpanel_inc1.htm"]-->
+    <!--[else]-->
+    <!--[include file="admin_admin_adminpanel_inc2.htm"]-->
+    <!--[/if]-->
+</div>

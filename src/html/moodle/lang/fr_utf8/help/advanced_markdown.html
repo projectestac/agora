@@ -1,0 +1,257 @@
+<!-- $Id: advanced_markdown.html,v 1.4 2009/10/21 15:48:06 martignoni Exp $ -->
+
+<h2>Utilisation avancée du format Markdown</h2>
+
+<div id="Main">
+
+<div class="article">
+
+<p>Cette page complète les informations sur le formatage de texte avec le format Markdown. Si le formattage décrit ici ne vous est pas familier ou si vous n'en avez pas besoin, vous pouvez sans dommage sauter le reste de ce texte et y revenir au besoin.</p>
+
+<ul>
+
+<li><a href="#linebreaks">Fins de ligne</a></li>
+
+<li><a href="#hr">Filets horizontaux</a></li>
+
+<li><a href="#image_links">Images liées</a></li>
+
+<li><a href="#tables">Tableaux</a></li>
+
+<li><a href="#definition">Listes de définitions</a></li>
+
+<li><a href="#footnotes">Notes de bas de page</a></li>
+
+<li><a href="#embedded">Incorporer du code HTML</a></li>
+
+<li><a href="#preformatted">Code préformatté</a></li>
+
+<li><a href="#special_char">Utilisation de caractères spéciaux</a></li>
+
+<li><a href="#further">Pour en savoir plus</a></li>
+
+</ul>
+
+<h2><a id="linebreaks">Fins de ligne</a></h2>
+
+<p>Dans certains textes, par exemple dans les poèmes, il est nécessaire d'insérer des fins de lignes. Si vous essayez de le faire avec la touche retour de votre clavier, vous n'obtiendrez pas l'effet désiré, car par défaut les lignes seront accolées pour faire un même paragraphe.</p>
+
+<p><strong><code>Maître Corbeau, sur un arbre perché,<br />
+Tenait en son bec un fromage.<br />
+Maître Renard, par l'odeur alléché,<br />
+Lui tint à peu près ce langage.</code></strong></p>
+
+<p>En tapant les vers ci-dessus, avec la touche retour pour insérer des fins de ligne, vous obtiendrez ceci, puisque les fins de ligne seront ignorés :</p>
+
+<p>Maître Corbeau, sur un arbre perché,
+Tenait en son bec un fromage.
+Maître Renard, par l'odeur alléché,
+Lui tint à peu près ce langage.</p>
+
+<p>En revanche, en terminant chaque ligne par 2 espaces, vous pourrez forcer une fin de ligne pour obtenir ceci :</p>
+
+<p>Maître Corbeau, sur un arbre perché,<br />
+Tenait en son bec un fromage.<br />
+Maître Renard, par l'odeur alléché,<br />
+Lui tint à peu près ce langage.</p>
+
+<h2><a id="hr">Filets horizontaux</a></h2>
+
+<p>Les filets horizontaux peuvent être créés en tapant trois ou quatre astérisques (*), tirets (-) ou caractères soulignés (_) tous seuls sur une ligne.</p>
+
+<p>Le code suivant fonctionnera :</p>
+
+<p><strong><code>***</code></strong></p>
+
+<p>mais vous pouvez ajouter des espaces ou plus de mêmes caractères pour rendre plus visible un saut de section dans la fenêtre d'édition du texte, par exemple</p>
+
+<p><strong><code>* * * * *</code></strong></p>
+
+<p><strong><code>-------------------------</code></strong></p>
+
+<p><strong><code>_ _ _ _ _</code></strong></p>
+
+<p>Toutes ces méthodes donneront exactement le même résultat :</p>
+
+<hr />
+
+<h2><a id="image_links">Images liées</a></h2>
+
+<p>Le document Enrichir des textes avec le format Markdown donne des instructions pour créer des liens web et insérer des images. Mais il n'est pas spécialement évident de combiner liens et images pour créer des images cliquables.</p>
+
+<p><strong><code>[le moteur de recherche][google]</code></strong></p>
+
+<p><strong><code>![le logo google][logo]</code></strong></p>
+
+<p>Ci-dessus sont présentés un lien web standard et une image. En plaçant l'image là où devrait être le texte du lien, on obtient ceci :</p>
+
+<p><strong><code>[![le logo google][logo]][google]</code></strong></p>
+
+<p>La ligne ci-dessus, combinée avec les définitions suivantes ailleurs dans le document :</p>
+
+<p><strong><code>[logo]: http://www.google.com/images/logo.gif</code></strong><br />
+<strong><code>[google]: http://www.google.com/ "Cliquer pour visiter Google"</code></strong></p>
+
+<p>donne l'image cliquable (avec titre dans une bulle) ci-dessous :</p>
+
+<p><a href="http://www.google.com/" title="Cliquer pour visiter Google"><img src="http://www.google.com/images/logo.gif" alt="le logo google" /></a></p>
+
+<p>Un exemple d'utilisation futée de cette technique est de lier des petites vignettes vers le téléchagement d'images plus grandes.</p>
+
+<h2><a id="tables">Tableaux</a></h2>
+
+<p>Des tableaux peuvent être créés simplement avec le format Markdown. Par exemple :</p>
+
+<pre>
+Nom     |   Age
+--------|------
+Julie   |   29
+Lionel  |   47
+Martin  |   32
+</pre>
+
+<table>
+
+<thead>
+
+<tr>
+
+  <th>Nom</th>
+
+  <th>Age</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+  <td>Julie</td>
+
+  <td>29</td>
+
+</tr>
+
+<tr>
+
+  <td>Lionel</td>
+
+  <td>47</td>
+
+</tr>
+
+<tr>
+
+  <td>Martin</td>
+
+  <td>32</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<p>Les possibilités habituelles de formatage s'appliquent au contenu des cellules. Vous pouvez aligner les colonnes à gauche ou à droite en ajoutant un | à la gauche ou à la droite de la ligne horizontale (voir indications complémentaires).</p>
+
+<h2><a id="definition">Listes de définitions</a></h2>
+
+<p>À l'instar d'un dictionnaire, une liste de définitions comporte des termes suivis de leur définition. Par exemple :</p>
+
+<pre>
+Moodle
+:   plate-forme de formation en ligne réputée
+
+PHP
+:   Langage de programmation de scripts.
+    Principalement utilisé pour le développement d'applications web.
+</pre>
+
+<dl>
+
+<dt>Moodle</dt>
+
+<dd>plate-forme de formation en ligne réputée</dd>
+
+<dt>PHP</dt>
+
+<dd>Langage de programmation de scripts. Principalement utilisé pour le développement d'applications web.</dd>
+
+</dl>
+
+<h2><a id="footnotes">Notes de bas de page</a></h2>
+
+<p>Une note de bas de page comporte deux éléments. Un renvoi, au sein du texte, qui apparaîtra sous forme la forme d'un exposant, et le contenu de la note qui se trouvera à la fin du document. Par exemple :</p>
+
+<pre>
+Ce point est abordé dans mon livre.[^1]
+
+[^1]: Les références de mon livre.
+</pre>
+
+<p>Le contenu des notes peut être placé n'importe où. Les notes suivront l'ordre de leur apparition dans le texte. On ne peut créer qu'un lien vers chaque note.</p>
+
+<h2><a id="embedded">Incorporer du code HTML</a></h2>
+
+<p>Si vous connaissez bien le code HTML, vous pouvez l'utilisez dans les cas où Markdown ne suffirait pas. Markdown est en effet conçu dans cette éventualité et vous permet d'incorporer directement du code HTML dans le texte.</p>
+
+<p><strong><code>* &lt;small&gt;texte petit&lt;/small&gt;</code></strong><br />
+
+<strong><code>* &lt;big&gt;texte grand&lt;/big&gt;</code></strong> </p>
+
+<ul>
+
+<li><small>texte petit</small>  </li>
+
+<li><big>texte grand</big> </li>
+
+</ul>
+
+<p>Remarquez que le code HTML coexiste avec le code Markdown des listes. Cela vous permet de vous libérer de tâches fastidieuses d'écriture de code HTML complexe pour du formattage de base tout en vous permettant d'accéder à toute la puissance du HTML dans des cas spécifiques.</p>
+
+<h2><a id="preformatted">Affichage de code HTML ou de code préformatté</a></h2>
+
+<p>Si contrairement à la section ci-dessus, vous désirez afficher du code HTML exactement comme il est tapé, plutôt que de faire afficher son interprétation, vous commencerez chaque ligne par quatre espaces.</p>
+
+<pre><code>&lt;p&gt;Un paragraphe en &lt;b&gt;HTML&lt;/b&gt; affiché comme du code&lt;/p&gt;</code></pre>
+
+<p>Ceci fonctionne également pour afficher de la programmation :</p>
+
+<pre><code>print "Arguments passés : (@ARGV)\n";
+</code></pre>
+
+<p>Comme ce formattage est souvent utilisé dans des listings de programmes et d'autres textes contenant probablement des caractères utilisés par Markdown pour indiquer différents types de formattage, le format Markdown est désactivé dans ces lignes :</p>
+
+<pre><code>Normalement, ce mot devrait être en **gras**.</code></pre>
+
+<p>Pour inclure de tels caractères dans du texte normal, voir la section suivante.</p>
+
+<h2><a id="special_char">Utilisation de caractères spéciaux</a></h2>
+
+<p>Si vous voulez utiliser l'un des caractères spéciaux utilisés par Markdown pour le formattage du texte sans qu'il ne soit interprété, il vous suffit de le précéder par une barre oblique inversée (backslash \). Cette méthode est appelée échappement d'un caractère. La barre oblique inversée ne sera pas affichée, mais le caractère qui la suit immédiatement sera affiché tel qu'il a été tapé.</p>
+
+<p><strong><code>\*astérisques, pas accentuation\*</code></strong></p>
+
+<p>devient</p>
+
+<p>*astérisques, pas accentuation*</p>
+
+<p>au lieu de</p>
+
+<p><strong><code>*accentuation, pas astérisques*</code></strong></p>
+
+<p>qui donne</p>
+
+<p><em>accentuation, pas astérisques</em></p>
+
+<h2><a id="further">Pour en savoir plus</a></h2>
+
+<p>Le format Markdown n'est pas propre à Moodle. Il est utilisé dans un grand nombre d'autres outils de publication web. Vous trouverez plus d'informations à ce sujet sur <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a>.</p>
+
+<p>Moodle utilise une version enrichie du format Markdown, connue sous le nom de « Markdown Extra ». Pour en savoir plus, reportez-vous à <a href="http://www.michelf.com/projects/php-markdown/extra/">http://www.michelf.com/projects/php-markdown/extra/</a>.</p>
+
+</div>
+
+</div>

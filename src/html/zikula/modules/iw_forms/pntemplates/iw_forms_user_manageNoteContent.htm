@@ -1,0 +1,98 @@
+<table id="note_<!--[$note.fmid]-->" class="noteContent" bgcolor="<!--[$note.color]-->">
+	<tr>
+		<td width="10%">
+			<!--[if $note.photo neq '']-->
+				<div style="height:10px; text-align:center;">&nbsp;</div>
+				<img src="<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_forms type=user func=getFile fileName=$note.photo]-->" />
+			<!--[/if]-->
+		</td>
+		<td width="30%">
+			<!--[if $note.user eq '-1' || $users[$note.user] neq '']-->
+				<div>
+					<!--[gt text="User who sent the note"]-->
+				</div>
+			<!--[/if]-->
+			<div>
+				<!--[gt text="Date of sending the note"]-->
+			</div>
+			<div>
+				<!--[gt text="Time of sending the note"]-->
+			</div>
+			<div>
+				<!--[if $note.marked eq 1]-->
+					<!--[pnimg modname='core' src='flag.gif' set='icons/small' id=$note.fmid]-->
+				<!--[else]-->
+					<!--[pnimg modname='iw_forms' src='none.gif' set='pnimages' id=$note.fmid]-->
+				<!--[/if]-->
+			</div>
+		</td>
+		<td width="60%">
+			<div>
+				<!--[if $note.user neq 0 && $note.user neq '-1']-->
+					<!--[$users[$note.user]]--> (<!--[$note.userName]-->)
+				<!--[/if]-->
+				<!--[if $note.user eq '-1']-->
+					<!--[gt text="User not registered"]-->
+				<!--[/if]-->
+			</div>
+			<div>
+				<!--[$note.day]-->
+			</div>
+			<div>
+				<!--[$note.time]-->
+			</div>
+		</td>
+	</tr>
+	<!--[foreach item="content" from=$note.content]-->
+		<tr>
+			<td bgcolor="<!--[$fieldsColor]-->" colspan="2" width="40%">
+				<!--[$content.fieldName]-->
+			</td>
+			<td bgcolor="<!--[$contentColor]-->" width="60%">
+				<div id="note_content_<!--[$content.fnid]-->">
+					<div style="float:left;" class="messageBody">
+						<!--[if $content.fieldType eq 7 && $content.content neq '']-->
+							<img src="modules/iw_main/pnimages/fileIcons/<!--[iwformsfileicon fileName=$content.content]-->"/>
+							<a href="<!--[pnmodurl modname=iw_forms type=user func=download fid=$fid fndid=$content.fndid fileName=$content.content]-->"><!--[$content.content|nl2br|pnvarcensor|pnvarprephtmldisplay|replace:"|per|":"%"|replace:"|par|":"#"|replace:"|int|":"?"|replace:"|amp|":"&"]--></a>
+						<!--[else]-->
+							<!--[$content.content|nl2br|pnvarcensor|pnvarprephtmldisplay|replace:"|per|":"%"|replace:"|par|":"#"|replace:"|int|":"?"|replace:"|amp|":"&"]-->
+						<!--[/if]-->
+					</div>
+					<!--[if $content.editable eq 1]-->
+						<div style="float:right;">
+							<a href="javascript:editNoteManageContent(<!--[$content.fnid]-->,'content')">
+								<!--[pnimg modname='core' src='xedit.gif' set='icons/extrasmall' __alt="Edit content" __title="Edit content"]-->
+							</a>
+						</div>
+					<!--[/if]-->
+				</div>
+			</td>
+		</tr>
+	<!--[/foreach]-->
+	<tr>
+		<td colspan="2" width="40%"><!--[gt text="Private notes of those responsible"]--></td>
+		<td width="60%">
+				<!--[include file="iw_forms_user_manageNoteContentObs.htm" do="print"]-->
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" width="40%"><!--[gt text="Answer"]--></td>
+		<td width="60%">
+				<!--[include file="iw_forms_user_manageNoteContentRenote.htm" do="print"]-->
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" width="100%">
+			<!--[if $note.synchronize]-->
+				<div style="float: right; margin-left: 5px;">
+					| <a href="<!--[pnmodurl modname="iw_forms" func="synchro" fid=$fid init=$init filterValue=$filterValue filter=$filter fmid=$note.fmid order=$order ipp=$ipp]-->">
+						<!--[pnimg modname='core' src='recur.gif' set='icons/extrasmall' __alt="Synchronize fields" __title="Synchronize fields"]-->
+					</a>
+				</div>
+			<!--[/if]-->
+			<div style="float:right" id="note_options_<!--[$note.fmid]-->">
+				<!--[include file="iw_forms_user_manageNoteContentOptions.htm"]-->
+			</div>
+		</td>
+	</tr>
+</table>

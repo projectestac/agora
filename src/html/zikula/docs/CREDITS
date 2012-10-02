@@ -1,0 +1,99 @@
+
+Zikula 1.2.8 (Forest) Release Credits
+======================================
+
+Zikula is, as with many successful open-source products, a huge
+collaborative effort spanning many diverse talents from across the 
+globe.  The list below gives an idea of some of the people that have 
+helped in creating this release, and also those in other areas 
+such as support and documentation.
+
+Please note that this credits file only contains credits relevant to
+this particular release.  For full credits, please refer 
+to the file docs/previouscredits.txt. For credits of the many third party 
+applications and tools used to build Zikula please refer to the file
+docs/thirdpartycredits.txt
+
+
+Zikula Software Foundation
+==========================
+
+Vanessa Haakenson (vworld)
+Mark West (markwest)
+Andreas Krapohl (larsneo)
+Karma Dordrak (drak)
+
+
+Zikula Steering Committee
+===========================
+
+Simon Birtwistle (hammerhead)
+Steffen Voss (kafferinge)
+Axel Guckelsberger (guite)
+
+
+Development Team
+================
+
+Axel Guckelsberger (guite)
+Frank Schummertz (landseer)
+Andreas Krapohl (larsneo)
+Karma Dordrak (drak)
+Robert Gasch (rgasch)
+Bernd Plagge (bplagge)
+Simon Birtwistle (hammerhead)
+Mateo Tibaquira Palacios (nestormateo)
+Philipp Niethammer (philipp.ni)
+Carsten Volmer (herr.vorragend)
+Albert Perez Monfort (aperezm)
+Philipp Bescht (ph)
+Pawel Preneta (jusuff)
+Christophe Beaujean (yokav)
+Kyle Giovannetti (kylegio)
+Roland Bär (planetenkiller)
+
+Zikula Working Groups
+=====================
+
+Continuous Integration WG
+  Arjen Tebbenhof (teb)
+Testing WG
+  Axel Guckelsberger (guite)
+  Sebastian Schuermann (dabase)
+Value Addon Adaption WG
+  Mateo Tibaquira Palacios (nestormateo)
+Gettext WG
+  Karma Dordrak (drak)
+  Bernd Plagge (bp)
+Localisation WG
+  Carsten Volmer (herr.vorragend)
+  David Nelson (davidnelson)  
+  Karma Dordrak (drak)
+Documentation WG
+  Michael Halbrook (mhalbrook)
+Site Maintenance WG
+  David Pahl (ammodump)
+  Gabriel Freinbichler (gf)
+Distribution WG
+  Philipp Niethammer (philipp.ni)
+Further Zikula Team members
+  Florian Schiessl (quan)
+  Peter Elias (pheski)
+
+
+Zikula Translations
+===================
+
+Thanks also go to the many translation teams around the world who
+translate Zikula.  Without translations, Zikula could not be a 
+truly multi-national project, with contributions from around the
+world.
+
+
+Zikula Users
+============
+
+All users of the Zikula project deserve a mention here.  In one
+way or another, everyone has contributed to Zikula, either by
+downloading and installing the system, submitting
+bug fixes, helping in the forums or in many many different ways.

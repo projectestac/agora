@@ -1,0 +1,53 @@
+<!--
+TODO:  Update as accessibility status changes.
+FILE:  lang/en_utf8/docs/accessibility.html
+NOTES: Hard-coded links need to be edited/ scripted.
+       May need editing for local Moodle sites.
+-->
+
+<h1>Accessibilidad</h1>
+
+<h2>Declaración de Accesibilidad</h2>
+
+<p>Este sitio ha sido probado en un conjunto de diversos exploradores, así como con software lector de pantalla.</p>
+
+<p>Moodle utiliza marcas semánticas para ayudar a los usuarios, entre otros, con el uso de cabeceras de sitio, página y bloque &lt;h1&gt;, &lt;h2&gt;, con bloques de navegación que son listas &lt;ul&gt; y muchas marcas más.</p>
+
+<p>Moodle cumple con las normas de nivel 1 del World Wide Web Consortium [<a href="http://www.w3.org/TR/WCAG10/" title="Web Content Accessibility Guidelines 1.0">Web
+ Content Accessibility Guidelines 1.0</a>], con la mayoría de las de nivel 2
+ [<a href="http://www.w3.org/WAI/WCAG1AA-Conformance"  title="About Double-A WCAG conformance">about Double-A conformance</a>]
+ y con algunas de nivel 3. A través de estas guías tenemos el propósito de cumplir con las leyes locales en lo que hace referencia al acceso de personas con discapacidad. Estamos en la actualidad trabajando para mejorar la accesibilidad y facilidad de uso de Moodle.
+ En este momento aún existen algunas tablas utilizadas en el diseño de la página, pero en general la presentación (mediante el uso de hojas de estilo) está separada del contenido.
+</p>
+
+<p>Agradecemos cualquier comentario al respecto, en especial información sobre contenidos inaccesibles.
+ Por favor, [<a href="./message/discussion.php?id=2">contacte con el administrador</a>].
+</p>
+
+<h2>Teclas de acceso</h2>
+
+<p>Por el momento no disponemos de teclas de acceso específicas, pero intentamos incluirlas en futuras versiones de Moodle.</p>
+
+<h2>Enlaces</h2>
+
+<p>Hay un enlace antes de cada bloque lateral, lo que permite a los usuarios pasar por alto los bloques. Advierta que el enlace está oculto en navegadores gráficos.</p>
+
+<p>Muchos enlaces tienen atributos de título que describen el enlace con mayor detalle, a menos que el texto del enlace ya describa completamente el objetivo (como sucede, por ejemplo, en la cabecera de un artículo). Si un enlace tiene una tecla de acceso, esta circunstancia se notificará en el título del enlace.</p>
+
+<p>Siempre que es posible, los enlaces están redactados de forma que tengan sentido fuera de contexto. No existen pseudo-enlaces javascript:. </p>
+
+<h2>Imágenes</h2>
+
+<p>Todas las imágenes usan el atributo alt para proporcionar un texto alternativo siempre que esto resulta apropiado; las imágenes meramente decorativas carecen de ese atributo. Las imágenes (e.g., mapas) que presentan información compleja tienen un atributo de descripción extensa (longdesc) enlazado a una descripción en texto de su contenido.</p>
+
+<h2>Conformidad con los estándares</h2>
+
+<p>Este sitio está construído usando
+ <acronym title="Extensible Hyper-Text Markup Language">XHTML</acronym>
+ válido para las marcas y utiliza CSS para las presentaciones.</p>
+
+<p style="text-align:center">
+  <a href="http://validator.w3.org/check?verbose=1&amp;ss=1&amp;uri=<?php echo $CFG->wwwroot; ?>" title="Use the W3C validator">Validar HTML</a>
+| <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=-1&amp;url1=<?php echo $CFG->wwwroot; ?>" title="Test with Cynthia">Comprobar Section 508</a>
+| <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=0&amp;warnp2n3e=1&amp;url1=<?php echo $CFG->wwwroot; ?>" title="Test with Cynthia">Comprobar WCAG 1 (2,3)</a>
+</p>

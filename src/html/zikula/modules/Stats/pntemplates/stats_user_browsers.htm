@@ -1,0 +1,111 @@
+<!--[*  $Id: stats_user_browsers.htm 9 2008-11-05 21:42:16Z Guite $  *]-->
+<h2><!--[gt text="Browsers"]--></h2>
+<table class="pn-datatable">
+    <tbody>
+	<tr>
+		<td><!--[pnimg src='browser_explorer.png']--></td>
+		<td><!--[gt text="Internet Explorer"]--> </td>
+		<td>
+			<!--[makepercentbar percent=$browsers.msie.1 label="`$browsers.msie.1` %" width=200]--> <!--[$browsers.msie.1]-->% (<!--[$browsers.msie.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_mozilla.png']--></td>
+		<td><!--[gt text="Mozilla"]--> </td>
+		<td>
+			<!--[makepercentbar percent=$browsers.mozilla.1 label="`$browsers.mozilla.1` %" width=200]--> <!--[$browsers.mozilla.1|default:0]-->% (<!--[$browsers.mozilla.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_firefox.png']--></td>
+		<td><!--[gt text="Firefox"]--> </td>
+		<td>
+			<!--[makepercentbar percent=$browsers.firefox.1 label="`$browsers.firefox.1` %" width=200]--> <!--[$browsers.firefox.1]-->% (<!--[$browsers.firefox.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_netscape.png']--></td>
+		<td><!--[gt text="Netscape"]--></td>
+		<td>
+			<!--[makepercentbar percent=$browsers.netscape.1 label="`$browsers.netscape.1` %" width=200]--> <!--[$browsers.netscape.1]-->% (<!--[$browsers.netscape.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_safari.png']--></td>
+		<td><!--[gt text="Safari"]--> </td>
+		<td>
+			<!--[makepercentbar percent=$browsers.safari.1 label="`$browsers.safari.1` %" width=200]--> <!--[$browsers.safari.1]-->% (<!--[$browsers.safari.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_camino.png']--></td>
+		<td><!--[gt text="Camino"]--> </td>
+		<td>
+			<!--[makepercentbar percent=$browsers.camino.1 label="`$browsers.camino.1` %" width=200]--> <!--[$browsers.camino.1]-->% (<!--[$browsers.camino.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_chimera.png']--></td>
+		<td><!--[gt text="Chimera"]--> </td>
+		<td>
+			<!--[makepercentbar percent=$browsers.chimera.1 label="`$browsers.chimera.1` %" width=200]--> <!--[$browsers.chimera.1]-->% (<!--[$browsers.chimera.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_opera.png']--></td>
+		<td><!--[gt text="Opera"]--> </td>
+		<td>
+			<!--[makepercentbar percent=$browsers.opera.1 label="`$browsers.opera.1` %" width=200]--> <!--[$browsers.opera.1]-->% (<!--[$browsers.opera.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_konqueror.png']--></td>
+		<td><!--[gt text="Konqueror"]--> </td>
+		<td>
+			<!--[makepercentbar percent=$browsers.konqueror.1 label="`$browsers.konqueror.1` %" width=200]--> <!--[$browsers.konqueror.1]-->% (<!--[$browsers.konqueror.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_epiphany.png']--></td>
+		<td><!--[gt text="Epiphany"]--> </td>
+		<td>
+			<!--[makepercentbar percent=$browsers.epiphany.1 label="`$browsers.epiphany.1` %" width=200]--> <!--[$browsers.epiphany.1]-->% (<!--[$browsers.epiphany.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_galeon.png']--></td>
+		<td><!--[gt text="Galeon"]--> </td>
+		<td>
+			<!--[makepercentbar percent=$browsers.galeon.1 label="`$browsers.galeon.1` %" width=200]--> <!--[$browsers.galeon.1]-->% (<!--[$browsers.galeon.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_lynx.png']--></td>
+		<td><!--[gt text="Lynx"]--></td>
+		<td>
+			<!--[makepercentbar percent=$browsers.lynx.1 label="`$browsers.lynx.1` %" width=200]--> <!--[$browsers.lynx.1]-->% (<!--[$browsers.lynx.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_k-meleon.png']--></td>
+		<td><!--[gt text="K-Meleon"]--></td>
+		<td>
+			<!--[makepercentbar percent=$browsers.kmeleon.1 label="`$browsers.kmeleon.1` %" width=200]--> <!--[$browsers.kmeleon.1]-->% (<!--[$browsers.kmeleon.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='robot_google.png']--></td>
+		<td><!--[gt text="Search engines"]--> </td>
+		<td>
+			<!--[makepercentbar percent=$browsers.bot.1 label="`$browsers.bot.1` %" width=200]--> <!--[$browsers.bot.1]-->% (<!--[$browsers.bot.0]-->)
+		</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_question.png']--></td>
+		<td><!--[gt text="Unknown user agent"]--> </td>
+		<td>
+			<!--[makepercentbar percent=$browsers.b_other.1 label="`$browsers.b_other.1` %" width=200]--> <!--[$browsers.b_other.1]-->% (<!--[$browsers.b_other.0]-->)
+		</td>
+	</tr>
+	</tbody>
+</table>

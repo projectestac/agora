@@ -1,0 +1,22 @@
+Release notes for GeoGebra Module for Moodle (http://moodle.org/plugins/pluginversions.php?plugin=mod_geogebra)
+
+More information on each of the fixes can be found in the project 
+development home at https://github.com/projectestac/moodle-mod_geogebra
+
+Changes in 1.1.0 (2012/08/22)
+---------------------------------------------------------------------------------------
+- Fixed some problems related with installation in Oracle (renamed date field, reviewed some SQL queries...)
+- Fixed some bugs reported by beta-testers
+- Reviewed Catalan translation
+
+
+Changes in 1.0.1 (2012/08/16)
+---------------------------------------------------------------------------------------
+- Added new option to evaluate manually the attempts 
+- Fixed some bugs
+
+
+Changes in 1.0.0 (2011/11/18)
+---------------------------------------------------------------------------------------
+- First version of the GeoGebra module for Moodle 1.9
+

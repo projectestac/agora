@@ -1,0 +1,18 @@
+<!--[include file="iw_forums_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='iw_forums' src='delete_group_large.gif' set='pnimages']--></div>
+	<h2><!--[gt text="Delete the access to the group "]--> -> <!--[$item.nom_forum]--></h2>
+	<form class="pn-adminform" action="<!--[pnmodurl modname="iw_forums" type="admin" func="deleteGroup"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forums"]-->" />
+		<input type="hidden" name="fid" value="<!--[$item.fid]-->" />
+		<input type="hidden" name="id" value="<!--[$id]-->" />
+		<input type="hidden" name="confirm" value="1" />
+		<div>
+			<!--[gt text="Confirm the deletion"]--> <strong><!--[$groupName]--></strong>
+		</div>
+		<div class="formOptions" align="center">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Add" __title="Add"]-->
+			<a href="<!--[pnmodurl modname="iw_forums" type="admin" func="main"]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+		</div>
+	</form>
+</div>

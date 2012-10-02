@@ -1,0 +1,7 @@
+<h2>Automatische Erstellung neuer Kurse</h2>
+
+<p>Das IMS Enterprise Kurs-Anmeldeverfahren kann neue Kurse anlegen, wenn es einen neuen Kurs in den IMS-Daten findet, der noch nicht in der Moodle Datenbank existiert. Aktivieren Sie dazu diese Funktion.</p>
+
+<p>Kurse werden zunächst anhand der "idnumber" - ein alphanumerisches Feld in der 'course'-Tabelle in der Moodle-Datenbank - gesucht. Wenn der Wert nicht gefunden wird, wird in der 'course'-Tabelle nach der Kurzbezeichnung des Kurses gesucht. Diese Bezeichnung wird in der Kursraumnavigation für die Kursseite angezeigt. Wenn beide Datenbank-Anfragen zu keinem Ergebnis führen, kann ein neuer Kurs angelegt werden.</p>
+
+<p>Jeder neu angelegte Kurs wird zunächst vor dem Nutzerzugriff verborgen. Damit wird verhindert, dass Teilnehmer/innen einen Kursraum betreten können, der von Trainer/innen noch nicht eingerichtet wurde.</p>

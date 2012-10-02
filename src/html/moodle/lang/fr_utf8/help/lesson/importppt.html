@@ -1,0 +1,31 @@
+<!-- $Id: importppt.html,v 1.2 2009/04/14 16:16:23 martignoni Exp $ -->
+
+<h1>Importer une présentation PowerPoint</h1>
+
+<h2>Avertissement</h2>
+
+<p>Cette fonctionnalité présente des problèmes d'utilisation importants, qui ont fait l'objet d'une longue discussion dans les forums de Moodle. Vous pouvez utilement <a href="http://moodle.org/mod/forum/discuss.php?d=86054">vous y reporter</a>. Il y est notamment suggéré de convertir la présentation au format Flash, à l'aide d'outils tels que Speechi, Flashpoint ou OpenOffice.Org. Une autre possibilité évoquée consiste à générer un document PDF à partir de la présentation. Les documents Flash ou PDF ainsi obtenus sont, eux, aisément intégrables dans Moodle.</p>
+
+<h2>Utilisation de l'importation PowerPoint</h2>
+
+<p>Toutes les diapositives de la présentation PowerPoint sont importées comme des tables de branchement, comportant des boutons Précédent et Suivant.</p>
+
+<ol>
+
+<li>Ouvrez votre présentation PowerPoint.</li>
+
+<li>Enregistrez-la au format HTML (sans option particulière).</li>
+
+<li>Vous obtenez un fichier .htm et un dossier contenant toutes les diapositives converties en pages web.<br />Compressez en ZIP le dossier <b>uniquement</b>.</li>
+
+<li>Rendez-vous sur votre site Moodle et créez une nouvelle leçon.</li>
+
+<li>Après avoir défini les paramètres de la leçon, à la question « Par quoi voulez-vous commencer ? », quatres propositions vous sont faites. Cliquez sur « Importer Powerpoint ».</li>
+
+<li>À l'aide du bouton « Parcourir » retrouvez le fichier ZIP créé à l'étape 3. Puis cliquez sur « Déposer ce fichier ».</li>
+
+<li>Si tout s'est bien déroulé, la page suivante affiche un bouton « Continuer ».</li>
+
+</ol>
+
+<p>Si votre présentation comporte des images, elles sont enregistrées avec les fichiers du cours, dans le dossier moddata/XY, où X représente le nom de votre leçon, et Y est un chiffre (habituellement 0). De même, à l'occasion de l'importation, des fichiers sont créés dans le répertoire moodledata, dans un dossier temp/lesson. A priori, ces fichiers ne sont pas supprimés par importppt.php.</p>

@@ -1,0 +1,16 @@
+<h1>Importar resultados</h1>
+<p>Usted puede importar resultados en la forma de archivos .csv (Comma-Space Value). El formato debe ser como sigue:</p>
+
+<table class="generaltable" cellpadding="4">
+    <tr> <th class="header">Field name</th> <th class="header">Descripción</th> <th class="header">Requerido</th> <th class="header">Formato</th> </tr>
+    <tr> <td class="cell">outcome_name</td> <td class="cell">El nombre completo del resultado </td> <td class="cell">Sí</td><td class="cell">Cadena texto</td> </tr>
+    <tr> <td class="cell">outcome_shortname</td><td class="cell">El nombre corto del resultado </td> <td class="cell">Sí</td> <td class="cell">Cadena texto</td> </tr>
+    <tr> <td class="cell">outcome_description</td><td class="cell">La descripción del resultado </td> <td class="cell">No</td> <td class="cell">Cadena texto</td> </tr>
+    <tr> <td class="cell">scale_name</td><td class="cell">El nombre de la escala utilizada </td> <td class="cell">Sí</td> <td class="cell">Cadena texto</td> </tr>
+    <tr> <td class="cell">scale_items</td><td class="cell">Una lista separada por comas de ítems de escala</td> <td class="cell">Sí</td> <td class="cell">Cadena texto</td> </tr>
+    <tr> <td class="cell">scale_description</td><td class="cell">La descripción de la escala </td> <td class="cell">No</td> <td class="cell">Cadena texto</td> </tr>
+</table>
+
+<p>Aquí se muestra un ejemplo:</p>
+<pre>outcome_name;outcome_shortname;outcome_description;scale_name;scale_items;scale_description
+Participación;participación;;Escala de participación;"Poca participación, Participación satisfactoria, Participación total";</pre>

@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-05-31 10:08+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: version.php:14 version.php:15
+msgid "iw_mobile"
+msgstr ""
+
+#: version.php:16
+msgid "Intraweb mobile"
+msgstr ""
+
+#: version.php:17
+msgid "Theme for devices with small screens, such as PDA's o 3G phones."
+msgstr ""
+
+#: templates/master.htm:23 templates/home.htm:23
+msgid "Home page"
+msgstr ""
+
+#: templates/master.htm:23 templates/home.htm:23
+msgid "Home"
+msgstr ""
+
+#: templates/master.htm:24 templates/home.htm:24
+msgid "Website news"
+msgstr ""
+
+#: templates/master.htm:24 templates/home.htm:24
+msgid "News"
+msgstr ""
+
+#: templates/master.htm:25 templates/home.htm:25
+msgid "Leave the website"
+msgstr ""
+
+#: templates/master.htm:25 templates/home.htm:25
+msgid "Logout"
+msgstr ""
+
+#: templates/master.htm:31 templates/home.htm:37
+msgid "Website powered by"
+msgstr ""
+
+#: templates/master.htm:31 templates/home.htm:37
+msgid "Address - ZIP code and town"
+msgstr ""
+
+#: templates/master.htm:31 templates/home.htm:37
+msgid "webmaster@example.com"
+msgstr ""
+
+#: templates/master.htm:31 templates/home.htm:37
+msgid "Contact"
+msgstr ""
+
+#: templates/modules/News/news_user_articlecontent.htm:7
+#: templates/modules/News/news_user_index.htm:6
+msgid "Posted by"
+msgstr ""
+
+#: templates/modules/News/news_user_articlecontent.htm:7
+#: templates/modules/News/news_user_index.htm:6
+msgid "on"
+msgstr ""
+
+#: templates/modules/News/news_user_articlecontent.htm:24
+msgid "characters"
+msgstr ""
+
+#: templates/modules/News/news_user_articlecontent.htm:27
+#: templates/modules/News/news_user_index.htm:18
+msgid "reads"
+msgstr ""
+
+#: templates/modules/News/news_user_articlecontent.htm:31
+#: templates/modules/News/news_user_index.htm:25
+msgid "Create PDF file"
+msgstr ""
+
+#: templates/modules/News/news_user_index.htm:21
+msgid "Full story"
+msgstr ""

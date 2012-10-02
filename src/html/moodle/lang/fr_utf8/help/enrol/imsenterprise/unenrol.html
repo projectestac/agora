@@ -1,0 +1,26 @@
+<!-- $Id: unenrol.html,v 1.2 2008/10/13 11:05:54 martignoni Exp $ -->
+
+<h1>Désinscrire des participants</h1>
+
+<p>Les données IMS Enterprise peuvent ajouter, mais aussi retirer des inscriptions aux cours, pour tous les participants. Si ce réglage est activé, Moodle effectuera effectivement les désinscriptions indiquées dans les données.</p>
+
+<p>Il y a trois façon de désinscrire les participants dans les données IMS entreprise :</p>
+
+<ul>
+
+<li>un élément <code>&lt;member&gt;</code> qui indique le participant et le cours, et dont l'attribut « recstatus » a la valeur 3, pour l'élément <code>&lt;role&gt;</code> (ce qui signifie suppression). CECI N'EST PAS ENCORE IMPLÉMENTÉ DANS LA MÉTHODE D'INSCRIPTION.</li>
+
+<li>un élément <code>&lt;member&gt;</code> qui indique le participant et le cours, et dont l'élément <code>&lt;status&gt;</code> a la valeur 0 (qui signifie inactif).</li>
+
+</ul>
+
+<p>La troisième façon est légèrement différente.  Elle ne requiert pas l'activation de la présente option, et peut être spécifiée à l'avance :</p>
+
+<ul>
+
+<li>un élément <code>&lt;member&gt;</code> qui spécifie un élément <code>&lt;timeframe&gt;</code> pour l'inscription peut indiquer le début et/ou la fin de l'inscription d'un participant. Ces dates, si elles sont présentes, sont enregistrées dans la table des données d'inscription de Moodle, ce qui a pour conséquence de désinscrire automatiquement l'étudiant à la date d'échéance.</li>
+
+</ul>
+
+
+

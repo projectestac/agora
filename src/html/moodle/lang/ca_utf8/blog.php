@@ -1,0 +1,73 @@
+<?PHP // $Id: blog.php,v 1.14 2008/07/16 08:48:32 carlesbellver Exp $ 
+      // blog.php - created with Moodle 1.9.1+ (Build: 20080618) (2007101514)
+
+
+$string['addnewentry'] = 'Afegeix una nova entrada';
+$string['backupblogshelp'] = 'Si habiliteu aquesta opció les bitàcoles s\'inclouran en les còpies de seguretat automàtiques del lloc.';
+$string['blockmenutitle'] = 'Menú de bitàcola';
+$string['blocktagstitle'] = 'Etiquetes de bitàcoles';
+$string['blocktitle'] = 'Títol del bloc d\'etiquetes de bitàcoles';
+$string['blog'] = 'Bitàcola';
+$string['blogdeleteconfirm'] = 'Suprimiu aquesta bitàcola?';
+$string['blogdisable'] = 'Les bitàcoles estan inhabilitades';
+$string['blogpreferences'] = 'Preferències de la bitàcola';
+$string['blogs'] = 'Bitàcoles';
+$string['blogtags'] = 'Etiquetes de bitàcoles';
+$string['cannotviewcourseblog'] = 'No teniu permís per a veure bitàcoles en aquest curs';
+$string['cannotviewcourseorgroupblog'] = 'No teniu permís per a veure bitàcoles en aquest curs/grup';
+$string['cannotviewsiteblog'] = 'No teniu permís per a veure totes les bitàcoles del lloc';
+$string['cannotviewuserblog'] = 'No teniu permís per a veure les bitàcoles dels usuaris';
+$string['courseblog'] = 'Bitàcola de curs: $a';
+$string['courseblogdisable'] = 'Les bitàcoles del curs no estan habilitades';
+$string['courseblogs'] = 'Bitàcoles amb l\'accés restringit als membres del curs';
+$string['deleteotagswarn'] = 'Segur que voleu treure aquesta etiqueta o etiquetes<br />de totes les bitàcoles i suprimir-la del sistema?';
+$string['deleteposterror'] = 'S\'ha produït un error en suprimir l\'entrada';
+$string['disableblogs'] = 'Inhabilita completament el sistema de bitàcoles';
+$string['emptybody'] = 'No es pot deixar buit el cos d\'una entrada de bitàcola';
+$string['emptytitle'] = 'No es pot deixar buit el títol d\'una entrada de bitàcola';
+$string['entrybody'] = 'Text de l\'entrada';
+$string['entrybodyonlydesc'] = 'Descripció de l\'entrada';
+$string['entryerrornotyours'] = 'Aquesta entrada no és vostra';
+$string['entrysaved'] = 'S\'ha desat la vostra entrada';
+$string['entrytitle'] = 'Títol de l\'entrada';
+$string['entryupdated'] = 'S\'ha actualitzat aquesta entrada';
+$string['groupblog'] = 'Bitàcola de grup: $a';
+$string['groupblogdisable'] = 'La bitàcola del grup no està habilitada';
+$string['groupblogs'] = 'Bitàcoles amb l\'accés restringit als membres del grup';
+$string['incorrectblogfilter'] = 'S\'ha especificat un tipus incorrecte de filtre de bitàcola';
+$string['intro'] = 'Aquest canal RSS ha estat generat automàticament a partir d\'una o més bitàcoles.';
+$string['noentriesyet'] = 'Aquí no hi ha entrades visibles';
+$string['noguestpost'] = 'Els visitants no poden publicar bitàcoles.';
+$string['norighttodeletetag'] = 'No teniu drets per a suprimir aquesta etiqueta: $a';
+$string['notallowedtoedit'] = 'No teniu permís per a editar aquesta entrada';
+$string['numberofentries'] = 'Entrades: $a';
+$string['numberoftags'] = 'Nombre d\'etiquetes per visualitzar';
+$string['pagesize'] = 'Nombre d\'entrades per pàgina';
+$string['permalink'] = 'Enllaç permanent';
+$string['personalblogs'] = 'Bitàcoles privades amb accés restringit a l\'autor';
+$string['publishto'] = 'Publica per a';
+$string['publishtonoone'] = 'Privat (esborrany)';
+$string['publishtosite'] = 'Usuaris del lloc';
+$string['publishtoworld'] = 'Tothom';
+$string['settingsupdatederror'] = 'S\'ha produït un error. El paràmetre no s\'ha pogut actualitzar.';
+$string['siteblog'] = 'Bitàcola del lloc: $a';
+$string['siteblogdisable'] = 'La bitàcola del lloc no està habilitada';
+$string['siteblogs'] = 'Bitàcoles amb l\'accés restringit als usuaris del lloc';
+$string['tagdatelastused'] = 'Darrera utilització de l\'etiqueta';
+$string['tags'] = 'Etiquetes';
+$string['tagsort'] = 'Ordena la visualització de les etiquetes per';
+$string['tagtext'] = 'Text de l\'etiqueta';
+$string['timewithin'] = 'Mostra etiquetes utilitzades en aquest període';
+$string['updateentrywithid'] = 'S\'està actualitzant l\'entrada';
+$string['userblog'] = 'Bitàcola d\'usuari: $a';
+$string['viewcourseentries'] = 'Mostra entrades del curs';
+$string['viewmyentries'] = 'Mostra les meves entrades';
+$string['viewsiteentries'] = 'Mostra entrades del lloc';
+$string['worldblogs'] = 'Bitàcoles obertes amb accés lliure des de l\'exterior';
+$string['wrongpostid'] = 'L\'ID de l\'entrada de la bitàcola és incorrecte';
+$string['addotags'] = 'Afegeix etiquetes oficials'; // ORPHANED
+$string['addptags'] = 'Afegeix etiquetes definides per l\'usuari'; // ORPHANED
+$string['otags'] = 'Etiquetes oficials'; // ORPHANED
+$string['ptags'] = 'Etiquetes definides pels usuaris'; // ORPHANED
+
+?>

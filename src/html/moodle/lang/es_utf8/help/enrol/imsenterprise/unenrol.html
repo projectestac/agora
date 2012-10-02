@@ -1,0 +1,13 @@
+<h1>Desmatriculación de estudiantes/profesores</h1>
+
+<p>Los datos Enterprise pueden agregar o quitar matriculaciones en el curso tanto de estudiantes como de profesores. Si la opción está deshabilitada, Moodle llevará a cabo las desmatriculaciones cuando así se especifique en los datos.</p>
+
+<p>Hay tres modos de dar de baja a los estudiantes con los datos IMS:</p>
+
+<ul><li>Un elemento &lt;miembro&gt; que especifica el estudiante y el curso, y con el atributo "recstatus" del elemento &lt;rol&gt; fijado a 3 (lo que significa "eliminar"). ESTA CARACTERÍSTICA AÚN NO ESTÁ IMPLEMENTADA EN EL PLUGIN DE MOODLE.</li>
+
+<li> Un elemento &lt;miembro&gt; que especifica el estudiante y el curso, y con el elemento &lt;status&gt; fijado a 0 (que significa "inactivo").</li></ul>
+
+<p>El tercer método es algo diferente. No requiere que el ajuste de configuración esté activado, y puede especificarse antes de la fecha de matriculación :</p>
+
+<ul><li>Un elemento <member> que especifica un <timeframe> para la matriculación puede especificar la fecha inicial y/o final de matriculación de ese estudiante en particular. Estas fechas se cargan en la tabla de datos de matriculación de Moodle si está presente, de modo que después de la fecha final el estudiante no podrá acceder al curso.</li></ul>

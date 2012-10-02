@@ -1,0 +1,56 @@
+/*******************************************************************
+ print.css
+*******************************************************************/
+.navbar,
+#left-column,
+#right-column,
+#footer,
+.headermenu,
+.jumpmenu,
+div.right,
+td.right{
+	display:none;
+	width: 0px;
+}
+
+#course-view tr.section,
+#course-view li.section{
+  border: 1px solid #CCC !important;
+}
+
+#middle-column,
+.weekscss-format #middle-column{
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+h1,
+h2,
+h2.headingblock{
+  color: black;
+  border: 0;
+  background: none;
+ -moz-border-radius: 0 !important;
+ -moz-box-shadow: 0 !important;
+}
+
+body,
+.unlist,
+.header,
+.content,
+.section,
+.forumpost,
+.forumaddnew,
+.subscribelink,
+tr,
+li,
+table,
+div,
+.topics,
+#course-view ul.weekscss,
+#course-view .weeks,
+.headingblock
+{
+ -moz-border-radius: 0 !important;
+ -moz-box-shadow: 0 !important;
+}

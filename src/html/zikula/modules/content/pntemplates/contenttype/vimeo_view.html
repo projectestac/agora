@@ -1,0 +1,24 @@
+<!--[if $displayMode=='inline']-->
+<dl class="content-video content-vimeo">
+    <dt>
+        <object type="application/x-shockwave-flash" style="width:320px; height:200px" data="http://vimeo.com/moogaloop.swf?clip_id=<!--[$clipId]-->&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1">
+            <param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=<!--[$clipId]-->&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" />
+        </object>
+    </dt>
+    <dd><!--[$text]-->&nbsp;|&nbsp;<a href="http://vimeo.com/<!--[$clipId]-->">vimeo.com</a></dd>
+</dl>
+<!--[else]-->
+<!--[pnpageaddvar name="javascript" value="javascript/ajax/prototype.js,javascript/ajax/scriptaculous.js?load=effects,modules/content/pnincludes/lightwindow/javascript/lightwindow.js"]-->
+<!--[pnpageaddvar name="stylesheet" value="modules/content/pnincludes/lightwindow/css/lightwindow.css"]-->
+
+<!--[assign var="image" value=http://i.ytimg.com/vi/`$clipId`/default.jpg]-->
+<!--[assign var="imageSize" value=$image|getimagesize]-->
+
+<dl class="content-video content-vimeo" style="width:<!--[$imageSize[0]]-->px;">
+    <dt>
+        <a title="<!--[$text]-->" href="http://vimeo.com/<!--[$clipId]-->" class="lightwindow page-options" params="lightwindow_width=425,lightwindow_height=340,lightwindow_loading_animation=false"><img src="http://i.ytimg.com/vi/<!--[$clipId]-->/default.jpg" alt="<!--[$text]-->" /></a>
+    </dt>
+    <dd><!--[$text]--></dd>
+    <dd><a title="<!--[$text]-->" href="http://vimeo.com/<!--[$clipId]-->" class="play-icon lightwindow page-options" params="lightwindow_width=425,lightwindow_height=340,lightwindow_loading_animation=false"><!--[ gt text='Play Video']--></a></dd>
+</dl>
+<!--[/if]-->

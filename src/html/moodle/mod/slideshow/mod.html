@@ -1,0 +1,195 @@
+<?php
+/// First we check that form variables have been initialised
+if (!isset($form->name)) {
+    $form->name = '';
+    $form->location='';
+    $form->layout=0;
+    $form->filename=0;
+    $form->delaytime=0;
+    $form->centred=0;
+    $form->autobgcolor=0;
+    $form->htmlcaptions=0;
+}
+
+if (!extension_loaded('gd')) {
+    echo'<p>'.get_string("no_GD_no_thumbs","slideshow");
+}
+// More similar blocks go here...
+?>
+<form name="form" method="post" action="mod.php">
+<center>
+<table cellpadding="5">
+<tr valign="top">
+    <td align="right"><b><?php  print_string("name") ?>:</b></td>
+    <td>
+        <input type="text" name="name" size="30" value="<?php  p($form->name) ?>">
+    </td>
+</tr>
+<!-- More rows go in here... -->
+<?php
+    $strfilename = get_string("coursepacket", "slideshow");
+    $strchooseafile = get_string("chooseapacket", "slideshow");
+    $strdisplayname = get_string("display_filename", "slideshow");
+    $strdelaytime = get_string("showtime", "slideshow");
+    $stronblack = get_string("onblack", "slideshow");
+    $strcentred = get_string("centred", "slideshow");
+    $strnoautoplay = get_string("noautoplay", "slideshow");
+    $strhtmlcaptions = get_string("htmlcaptions", "slideshow");
+    
+    $option_arr = array (   get_string("display_none", "slideshow"),
+                            get_string("display_over", "slideshow"), 
+                            get_string("display_under", "slideshow"),
+                            get_string("display_right", "slideshow")
+                        ); 
+// artmod // extra layout control    
+    $strlayoutname = get_string("thumbnail_layout", "slideshow");
+    $layout_arr = array (   get_string("display_over", "slideshow"),
+                            get_string("display_under", "slideshow")
+                        );  
+    
+?>
+  <tr valign="top">
+            <td align="right" nowrap="nowrap">
+                <b><?php echo $strfilename ?>:</b>
+            </td>
+            <td>
+                <?php
+                    $valueaslabel = array();
+                    foreach(get_directory_list($CFG->dataroot.'/'.$course->id, $CFG->moddata,1,1,0) as $key=>$value){
+                        $valueaslabel[$value] = $value;
+                    }               
+                    choose_from_menu($valueaslabel, "location", $form->location, get_string("maindirectory", "slideshow"), '', '');
+                    helpbutton("directory", get_string("coursepacket", "slideshow"), "slideshow", true);
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" nowrap="nowrap">
+                <b><?php echo $strdisplayname?></b>
+            </td>
+            <td>
+                <?php
+                    $option = 0;
+                    while ($option < count($option_arr)) {
+                        echo '<INPUT TYPE=RADIO NAME="filename" VALUE="'.$option.'"';
+                            if ( $form->filename == $option ){
+                                echo' checked';
+                            }
+                        echo'>'.$option_arr[$option].'<br>';
+                        $option++;
+                    }
+                ?>
+            </td>
+        </tr>
+        <!-- // layout - artmod -->
+        <tr>
+            <td align="right" nowrap="nowrap">
+                <b><?php echo $strlayoutname ?></b>
+            </td>
+            <td>
+                <?php
+                    $layout = 0;
+                    while ($layout < count($layout_arr)) {
+                        echo '<INPUT TYPE=RADIO NAME="layout" VALUE="'.$layout.'"';
+                            if ( $form->layout == $layout ){
+                                echo' checked';
+                            }
+                        echo'>'.$layout_arr[$layout].'<br>';
+                        $layout ++;
+                    }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" nowrap="nowrap">
+                <b><?php echo $strcentred ?></b>
+            </td>
+            <td>
+                <?php
+                    echo '<INPUT TYPE=HIDDEN NAME="centred" VALUE="0">';
+                    echo '<INPUT TYPE=CHECKBOX NAME="centred" VALUE="1"';
+                        if ( $form->centred == 1 ){
+                            echo' checked';
+                        }
+                    echo'>';
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" nowrap="nowrap">
+                <b><?php echo $strhtmlcaptions ?></b>
+            </td>
+            <td>
+                <?php
+                    echo '<INPUT TYPE=HIDDEN NAME="htmlcaptions" VALUE="0">';
+                    echo '<INPUT TYPE=CHECKBOX NAME="htmlcaptions" VALUE="1"';
+                        if ( $form->htmlcaptions == 1 ){
+                            echo' checked';
+                        }
+                    echo'>';
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" nowrap="nowrap">
+                <b><?php echo $stronblack ?></b>
+            </td>
+            <td>
+                <?php
+                    echo '<INPUT TYPE=HIDDEN NAME="autobgcolor" VALUE="0">';
+                    echo '<INPUT TYPE=CHECKBOX NAME="autobgcolor" VALUE="1"';
+                        if ( $form->autobgcolor == 1 ){
+                            echo' checked';
+                        }
+                    echo'>';
+                ?>
+            </td>
+        </tr>
+        <tr valign="top">
+            <td align="right"><b><?php  echo $strdelaytime ?></b></td>
+            <td>
+                
+                <?php
+                    $dtimes = array (0=>$strnoautoplay, 1=>'1s',
+                                                        2=>'2s',
+                                                        3=>'3s',
+                                                        4=>'4s',
+                                                        5=>'5s',
+                                                        6=>'6s',
+                                                        7=>'7s',
+                                                        8=>'8s',
+                                                        9=>'9s',
+                                                        10=>'10s',
+                                                        15=>'15s',
+                                                        20=>'20s',
+                                                        30=>'30s',
+                                                        40=>'40s',
+                                                        60=>'1 min',
+                                                        300=>'5 min'
+                                                    );
+                    choose_from_menu($dtimes, "delaytime", $form->delaytime, '', '', '');
+                ?>
+            </td>
+        </tr>
+<!-- The following line for Moodle 1.5 prints the visibility setting form element -->
+<?php print_visible_setting($form); ?>
+</table>
+
+   
+<!-- These hidden variables are always the same -->
+<input type="hidden" name=course        value="<?php  p($form->course) ?>" />
+<input type="hidden" name="sesskey"     value="<?php  p($form->sesskey) ?>" />
+<input type="hidden" name=coursemodule  value="<?php  p($form->coursemodule) ?>" />
+<input type="hidden" name=section       value="<?php  p($form->section) ?>" />
+<input type="hidden" name=module        value="<?php  p($form->module) ?>" />
+<input type="hidden" name=modulename    value="<?php  p($form->modulename) ?>" />
+<input type="hidden" name=instance      value="<?php  p($form->instance) ?>" />
+<input type="hidden" name=mode          value="<?php  p($form->mode) ?>" />
+<input type="submit" value="<?php  print_string("savechanges") ?>" />
+</center>
+
+</form>
+<p>
+<?php 
+ //   echo('<br><a href="../mod/slideshow/view.php?id='.$form->coursemodule.'&recompress=1">force recompression: '.$CFG->slideshow_maxwidth.'x'.$CFG->slideshow_maxheight.'px, '.$CFG->slideshow_maxsize.'k</a>');
+?> 

@@ -1,0 +1,7 @@
+/* style.css */
+div.warning{
+	background-color: #FFE1DA;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 2px solid #FFB19F;
+}

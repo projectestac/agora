@@ -1,0 +1,15 @@
+<h1>Importa obiettivi</h1>
+<p>E' possibile importare obiettivi da un file .csv. Il file deve rispettare il formato seguente:</p>
+<table class="generaltable" cellpadding="4">
+    <tr> <th class="header">Nome del campo</th> <th class="header">Descrizione</th> <th class="header">Obbligatorio</th> <th class="header">Tipo</th> </tr>
+    <tr> <td class="cell">outcome_name</td> <td class="cell">Nome dell'obiettivo </td> <td class="cell">Si</td><td class="cell">Stringa</td> </tr>
+    <tr> <td class="cell">outcome_shortname</td><td class="cell">Nome abbreviato dell'obiettivo </td> <td class="cell">Si</td> <td class="cell">Stringa</td> </tr>
+    <tr> <td class="cell">outcome_description</td><td class="cell">Descrizione dell'obiettivo </td> <td class="cell">No</td> <td class="cell">Stringa</td> </tr>
+    <tr> <td class="cell">scale_name</td><td class="cell">Nome della scala da associare</td> <td class="cell">Si</td> <td class="cell">Stringa</td> </tr>
+    <tr> <td class="cell">scale_items</td><td class="cell">Elenco separato da virgole degli elementi che compongono la scala</td> <td class="cell">Si</td> <td class="cell">Stringa</td> </tr>
+    <tr> <td class="cell">scale_description</td><td class="cell">Descrizione della scala </td> <td class="cell">No</td> <td class="cell">Stringa</td> </tr>
+</table>
+
+<p>Esempio:</p>
+<pre>outcome_name;outcome_shortname;outcome_description;scale_name;scale_items;scale_description
+Participazione;participazione;;Scala della partecipazione;"Partecipazione scarsa, Partecipazione sufficiente, Partecipazione completa";</pre>

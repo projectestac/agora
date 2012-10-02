@@ -1,0 +1,18 @@
+<!--[*  $Id: users_user_view.htm 27353 2009-11-02 11:56:33Z mateo $  *]-->
+<!--[gt text='Log-in and registration' assign='templatetitle']-->
+
+<!--[include file='users_user_menu.htm']-->
+
+<p><!--[gt text="Please choose an action:"]--></p>
+<ul>
+    <li><a href="<!--[pnmodurl modname='Users' type='user' func='loginscreen']-->"><!--[gt text="Log in"]--></a></li>
+
+    <!--[if $reg_allowreg]-->
+    <li><a href="<!--[pnmodurl modname='Users' type='user' func='register']-->"><!--[gt text="Register new account"]--></a></li>
+    <!--[else]-->
+    <li><!--[gt text="Notice: New user registration is currently disabled."]--><br /><!--[gt text="Reasons"]-->:&nbsp;
+    <!--[$reg_noregreasons|pnvarprepfordisplay|pnmodcallhooks]--></li>
+    <!--[/if]-->
+
+    <li><a href="<!--[pnmodurl modname='Users' type='user' func='lostpassword']-->"><!--[gt text="Recover lost password"]--></a></li>
+</ul>

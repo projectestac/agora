@@ -1,0 +1,31 @@
+<h1>Càrrega de grups</h1>
+
+<p>Aquesta facilitat us permet la càrrega massiva de grups en Moodle.</p>
+
+<ul>
+  <li>Cada línia del fitxer conté un registre.</li>
+  <li>Cada registre és una seqüència de dades separades per comes.</li>
+  <li>El primer registre del fitxer és especial: conté una llista de noms de camps que defineixen el format de la resta del fitxer.
+    <blockquote>
+      <p><strong>Camps requerits:</strong> aquests camps s'han d'incloure necessàriament en el primer registre, i han d'estar definits per a cada usuari.</p>
+      <p></p>
+      <font color="#990000" face="mono">groupname</font></p>
+</p>
+      <p><strong>Camps per defecte:</strong> aquests són opcionals. Si no els incloeu, els valors s'agafaran de l'idioma actual i del curs actual.</p>
+      <p><font color="#990000" face="mono">idnumber, coursename, lang</font> </p>
+      <p><strong>Camps opcionals:</strong> aquests són completament opcionals.</p>
+      <p> <font color="#990000" face="mono">description, picture, hidepicture</font></p>
+    </blockquote>
+    </li>
+  <li>Les comes dins de les dades s'haurien de codificar com "&amp;#44". El programari farà la decodificació automàticament.</li>
+  <li>En els camps booleans, utilitzeu 0 per fals i 1 per vertader.</li>
+  <li>Es pot utilitzar idnumber o coursename per identificar el curs. Si especifiqueu tots dos, idnumber té preferència. Si no n'especifiqueu cap, els grups s'afegiran al curs actual.
+  <li>El camp coursename és el nom curt del curs.</li>
+  <li>Nota: si la base de dades de Moodle ja té registrat un grup, en aquest curs concret, el programari tornarà el nom del grup. Els professors només poden carregar grups en aquells cursos on tenen permís d'edició.</li>
+</ul>
+   
+<p>Heus ací un exemple d'un fitxer d'importació vàlid:</p>
+<p><font size="-1" face="mono"></font>groupname,idnumber,lang,description,picture <br />
+grup1, Phil101, ca_utf8, Aquest grup requereix una atenció especial, 0 <br />
+grup2, Math243, ca_utf8, ,
+</font></p>

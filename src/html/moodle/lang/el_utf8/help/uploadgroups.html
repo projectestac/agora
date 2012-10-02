@@ -1,0 +1,102 @@
+<p align=center style='text-align:center'><b><span style='mso-ansi-language:
+EL'>Φορτώστε τις ομάδες <o:p></o:p></span></b></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-autospace:none'><span
+style='mso-ansi-language:EL'>Αυτή η δυνατότητα επιτρέπει τη συγκεντρωτική
+φόρτωση των ομάδων στην πλατφόρμα </span><span lang=EN-US>Moodle</span><span
+style='mso-ansi-language:EL'>. <o:p></o:p></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Κάθε γραμμή του αρχείου περιέχει μια σειρά δεδομένων <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Κάθε σειρά δεδομένων είναι μια σειρά από δεδομένα που χωρίζονται με
+     κόμματα <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Η πρώτη σειρά του αρχείου έχει ιδιαίτερο χαρακτήρα: περιέχει τα
+     ονόματα των πεδίων δεδομένων (</span><span lang=EN-US>fieldnames</span><span
+     style='mso-ansi-language:EL'>). Η σειρά αυτή καθορίζει τη δομή του
+     υπόλοιπου αρχείου.<span style="mso-spacerun: yes">  </span><o:p></o:p></span></li>
+</ul>
+
+<p style='margin-left:36.0pt'><b><span style='mso-ansi-language:EL'>Απαιτούμενα
+</span><span lang=EN-US>fieldnames</span></b><b><span style='mso-ansi-language:
+EL'>: </span></b><span style='mso-ansi-language:EL'><span style="mso-spacerun:
+yes"> </span>υποχρεωτικά πρέπει να περιληφθούν στην πρώτη σειρά, και να
+καθοριστούν για κάθε χρήστη <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;tab-stops:195.0pt'><span style='font-family:"Courier New";
+color:#990000;mso-ansi-language:EL'>όνομαομάδας <span style='mso-tab-count:
+1'> </span></span><span style='mso-ansi-language:EL'><o:p></o:p></span></p>
+
+<p style='margin-left:36.0pt'><b><span style='mso-ansi-language:EL'>Προεπιλεγμένα
+</span><span lang=EN-US>fieldnames</span></b><b><span style='mso-ansi-language:
+EL'>: </span></b><span style='mso-ansi-language:EL'><span style="mso-spacerun:
+yes"> </span>είναι προαιρετικά - εάν δεν συμπεριλαμβάνονται, τότε οι τιμές τους
+λαμβάνονται από την τρέχουσα γλώσσα και την τρέχουσα σειρά μαθημάτων <o:p></o:p></span></p>
+
+<p style='margin-left:36.0pt'><span style='font-family:"Courier New";
+color:#990000;mso-ansi-language:EL'>αριθμοςταυτότητας, όνομαενότητας, γλώσσα </span><span
+style='mso-ansi-language:EL'><o:p></o:p></span></p>
+
+<p style='margin-left:36.0pt'><b><span style='mso-ansi-language:EL'>Προαιρετικά
+</span><span lang=EN-US>fieldnames</span></b><b><span style='mso-ansi-language:
+EL'>:<span style="mso-spacerun: yes">  </span></span></b><span
+style='mso-ansi-language:EL'>είναι απολύτως προαιρετικά.<span
+style="mso-spacerun: yes">  </span><o:p></o:p></span></p>
+
+<p style='margin-left:36.0pt'><span style='font-family:"Courier New";
+color:#990000;mso-ansi-language:EL'>περιγραφή, εικόνα, απόκρυψηεικονας </span><span
+style='mso-ansi-language:EL'><o:p></o:p></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Τα κόμματα μέσα στα στοιχεία πρέπει να κωδικοποιηθούν ως &amp;#44 - το
+     αρχείο τύπου </span><span lang=EN-US>script</span><span style='mso-ansi-language:
+     EL'> θα τα αποκωδικοποιήσει αυτόματα ως τα κόμματα.<span
+     style="mso-spacerun: yes">  </span><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Για τα πεδία τύπου </span><span lang=EN-US>Boolean</span><span
+     style='mso-ansi-language:EL'>, χρησιμοποιήστε 0 για λάθος και 1 για
+     σωστό.<span style="mso-spacerun: yes">  </span><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Είτε το πεδίο </span><span lang=EN-US>idnumber</span><span
+     style='mso-ansi-language:EL'> είτε το πεδίο </span><span lang=EN-US>coursename</span><span
+     style='mso-ansi-language:EL'> μπορούν να χρησιμοποιηθούν για να
+     προσδιοριστεί η σειρά μαθημάτων. Το πεδίο </span><span lang=EN-US>Idnumber</span><span
+     style='mso-ansi-language:EL'> υπερισχύει του πεδίου </span><span
+     lang=EN-US>coursename</span><span style='mso-ansi-language:EL'>. Εάν
+     κανένα από τα δυο δεν οριστεί, οι ομάδες θα προστεθούν στην τρέχουσα σειρά
+     μαθημάτων. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Το πεδίο </span><span lang=EN-US>Coursename</span><span
+     style='mso-ansi-language:EL'> είναι για το συντομευμένο όνομα μιας σειράς
+     μαθημάτων.<span style="mso-spacerun: yes">  </span><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Σημείωση: Εάν μια ομάδα έχει ήδη καταχωρηθεί στη βάση δεδομένων της
+     πλατφόρμας </span><span lang=EN-US>ΠΗΛΕΑΣ</span><span style='mso-ansi-language:
+     EL'> για μια σειρά μαθημάτων, αυτό το αρχείο τύπου </span><span
+     lang=EN-US>script</span><span style='mso-ansi-language:EL'> θα
+     χρησιμοποιήσει το όνομα εκείνης της ομάδας. Μόνο στους εκπαιδευτές
+     επιτρέπεται να φορτώνουν ομάδες στις σειρές μαθημάτων για τις οποίες έχουν
+     άδεια να επεξεργάζονται.<span style="mso-spacerun: yes">  </span><o:p></o:p></span></li>
+</ul>
+
+<p><span style='mso-ansi-language:EL'>Ακολουθεί παράδειγμα έγκυρου αρχείου
+εισαγωγής δεδομένων: <o:p></o:p></span></p>
+
+<p><span style='mso-ansi-language:EL'><span style="mso-spacerun:
+yes"> </span>Ονομαομάδας, αριθμόςταυτότητας, γλώσσα, περιγραφή, εικόνα<br>
+<span style="mso-spacerun: yes"> </span>ομάδα1, Φιλιππος01, Ελλ, αυτή η ομάδα
+απαιτεί την πρόσθετη προσοχή σας!,<span style="mso-spacerun: yes"> 
+</span>0<span style="mso-spacerun: yes">  </span><br>
+<span style="mso-spacerun: yes"> </span>ομάδα2, Ματθαίος243,…<o:p></o:p></span></p>

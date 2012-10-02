@@ -1,0 +1,33 @@
+<!--[include file=Export_admin_menu.htm]-->
+<div class="pn-admincontainer">
+	<!--[if $variable eq '']-->
+		<div class="pn-adminpageicon"><!--[pnimg modname='core' src='edit_add.gif' set='icons/large']--></div>
+		<div style="height:20px;">&nbsp;</div>
+		<h2><!--[gt text="Add variable"]--></h2>
+	<!--[else]-->
+		<div class="pn-adminpageicon"><!--[pnimg modname='core' src='edit.gif' set='icons/large']--></div>
+		<div style="height:20px;">&nbsp;</div>
+		<h2><!--[gt text="Edit variable"]--></h2>
+	<!--[/if]-->
+	<form class="pn-adminform" action="index.php?module=Export&type=admin&func=addVariable" method="post" enctype="application/x-www-form-urlencoded">
+		<div class="pn-adminformrow">
+			<input type="hidden" name="confirm" value="1" />
+			<input type="hidden" name="var_id" value="<!--[$var_id]-->" />
+			<label for="mod" style="text-align: left; width: auto;"><!--[gt text="Module:"]--></label>
+			<input type="text" size="15" value="<!--[$module]-->" name="mod" readonly="readonly"/><br />
+			<label for="variable" style="text-align: left; width: auto;"><!--[gt text="Variable:"]--></label>
+			<input type="text" size="15" value="<!--[$variable]-->" name="variable" />
+			<p class="z-informationmsg">
+				<!--[gt text="If is necessary, you can define the varible of the module that contain the root directory of the actual directory"]--><br>
+				<label for="root_module" style="text-align: left; width: auto;"><!--[gt text="Module:"]--></label>
+				<input type="text" size="15" value="<!--[$root_module]-->" name="root_module"/><br />
+				<label for="root_variable" style="text-align: left; width: auto;"><!--[gt text="Variable:"]--></label>
+				<input type="text" size="15" value="<!--[$root_variable]-->" name="root_variable" />
+			</p>
+		</div>
+		<div class="formOptions" style="text-align: center;">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Submit" __title="Submit"]-->
+			<a href=<!--[pnmodurl modname="Export" type="admin" func="exportModules"]-->><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Delete" __title="Delete"]--></a>
+		</div>
+	</form>
+</div>

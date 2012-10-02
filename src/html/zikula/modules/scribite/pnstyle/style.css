@@ -1,0 +1,26 @@
+/**
+* Zikula Application Framework
+*
+* @copyright (c) 2001, Zikula Development Team
+* @link http://www.zikula.org
+* @license GNU/GPL - http://www.gnu.org/copyleft/gpl.html
+*
+* @package scribite!
+* @license http://www.gnu.org/copyleft/gpl.html
+*
+* @author sven schomacker
+* @version $Id: style.css 56 2008-08-05 07:55:41Z hilope $
+ */
+
+
+/* scribite! related */
+div.analyzer {
+	border: 1px solid red;
+	background: InfoBackground url(../../../images/icons/large/flag.gif) no-repeat 2% 5%;
+	margin: 0 auto;
+	font-weight: bold;
+	padding: 2em 1em 1em 8em; /* top, right, bottom, left */
+	width: 80%;
+	min-height: 2.5em;
+	margin-bottom: 1em;
+}

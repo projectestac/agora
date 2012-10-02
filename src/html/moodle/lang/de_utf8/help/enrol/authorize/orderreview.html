@@ -1,0 +1,11 @@
+<h2>Verwenden Sie diese Einstellungen, wenn Sie die Zahlungsvorgänge prüfen wollen, bevor die Kreditkarte belastet wird.</h2>
+<p>Lassen Sie die 'an_review' Box leer, wenn die Teilnehmer/innen sofort in den Kurs eingeschrieben werden sollen, sobald sie ihre Kreditkartennummer angegeben haben.<br />
+   Wenn Sie die 'an_review' Box ausgewählt haben, wird die Kreditkarte geprüft, aber nicht sofort    
+   belastet, sondern Sie haben 2 Optionen:
+   'Manuelle Abwicklung' und 'Automatische Abwicklung'.
+   <ul>
+      <li>Bei manueller Abwicklung wählen Sie '0' im an_capture_day Eingabefeld. Die Transaktionen werden dann zurückgewiesen, wenn Sie sie nicht innerhalb von 30 Tagen manuell bearbeiten. Keine Panik! In den E-Mail-Einstellungen können Sie festlegen, dass Sie X Tage vor Ablauf dieser Frist benachrichtigt werden, wenn Sie den Cron Job für Ihre Moodle-Installation richtig konfiguriert haben.</li>
+      <li>Bei automatischer Abwicklung geben Sie eine Zahl zwischen 1 und 29 im an_capture_day Eingabefeld ein. Beachten Sie, dass der Cron Job für Ihre Moodle-Installation aktiviert sein muss! Die Kreditkarte wird automatisch belastet, und der/die Teilnehmer/in wird in den Kurs eingeschrieben. Bei automatischer Abwicklung wird die Kreditkarte an_capture_day Tage später belastet. Wenn Sie eher vorsichtig sind, können Sie Zahlungen akzeptieren oder ablehnen, nachdem Sie eine E-Mail-Benachrrichtigung über offene Zahlungsvorgänge erhalten haben (siehe E-Mail-Einstellungen). Teilnehmer/innen können auch eine Willkommensnachricht per E-Mail zugesendet bekommen, wenn Sie enrol_mailstudents auswählen.</li>
+   </ul>
+
+<p align="center"><strong>In Moodle 1.6, können Sie auf der Zahlungsabwicklung-Seite Zahlungen akzeptieren/ablehnen/rückgängig machen.</strong></p>

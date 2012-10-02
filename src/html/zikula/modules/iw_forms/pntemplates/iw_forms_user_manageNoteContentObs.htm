@@ -1,0 +1,22 @@
+<!--[if $do eq 'print']-->
+	<div id="note_observations_<!--[$note.fmid]-->">
+		<!--[$note.observations|nl2br|pnvarcensor|pnvarprephtmldisplay|replace:"|per|":"%"|replace:"|par|":"#"|replace:"|int|":"?"|replace:"|amp|":"&"]-->
+		<div style="text-align: right;">
+			<a href="javascript:editNoteManageContent(<!--[$note.fmid]-->,'observations')">
+				<!--[pnimg modname='core' src='xedit.gif' set='icons/extrasmall'   __alt="Create private notes" __title="Create private notes"]-->
+			</a>
+		</div>
+	</div>
+<!--[/if]-->
+
+<!--[if $do eq 'edit']-->
+	<form name="submitValueFormO_<!--[$note.fmid]-->" id="submitValueFormO_<!--[$note.fmid]-->" class="pn-adminform" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forms"]-->" />
+		<input type="hidden" name="fmid" value="<!--[$note.fmid]-->" />
+		<input type="hidden" name="toDo" value="observations" />
+		<textarea name="observations" style="width: 90%; margin: 10px;"><!--[$note.observations|replace:"|per|":"%"|replace:"|int|":"?"|replace:"|amp|":"&"]--></textarea>
+		<div style="text-align: right; cursor:pointer;">
+			<a onClick="javascript:submitValue('observations',<!--[$note.fmid]-->);" title="<!--[gt text="Send"]-->"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small']--></a><!--[gt text="Send"]-->
+		</div>
+	</form>
+<!--[/if]-->

@@ -1,0 +1,255 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-28 13:05+0100\n"
+"PO-Revision-Date: 2010-04-16 09:06+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:34
+msgid "Error! Could not load items."
+msgstr "Error! No se logró cargar los elementos."
+
+#: pnuserapi.php:51
+#: pnuserapi.php:67
+#: pnadminapi.php:27
+#: pnadminapi.php:57
+#: pnadminapi.php:108
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "Error! Argumentos erróneos. Por favor verifica los datos e inténtalo de nuevo."
+
+#: pnuser.php:45
+msgid "URL not found. Please check the reference"
+msgstr "No se ha encontrado la dirección URL solicitada. Compruebe que la referencia dada sea correcta."
+
+#: pnadminapi.php:37
+msgid "Error! Creation attempt failed."
+msgstr "Error! Intento de creación fallido."
+
+#: pnadminapi.php:64
+#: pnadminapi.php:117
+#: pnadmin.php:94
+msgid "No such item found."
+msgstr "No se encontró tal elemento."
+
+#: pnadminapi.php:73
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr "Error! Intento de borrado fallido."
+
+#: pnadminapi.php:126
+msgid "Error! Update attempt failed."
+msgstr "Error! Intento de actualización fallido."
+
+#: pntemplates/plugins/function.iwwebboxmenulinks.php:22
+msgid "Show existing URL"
+msgstr "Muestra las direcciones creadas"
+
+#: pnadmin.php:14
+#: pnadmin.php:40
+#: pnadmin.php:157
+msgid "Sorry! No authorization to access this module."
+msgstr "Disculpa! No tienes autorización para ejecutar esa acción en este módulo."
+
+#: pnadmin.php:71
+msgid "A new URL reference has been created"
+msgstr "Se ha creado una nueva dirección URL."
+
+#: pnadmin.php:131
+msgid "URL reference updated"
+msgstr "Se ha actualizado la referencia."
+
+#: pnadmin.php:152
+msgid "URL not found"
+msgstr "No se ha encontrado la dirección sobre la cual hacer la acción solicitada."
+
+#: pnadmin.php:182
+msgid "URL reference removed"
+msgstr "Se ha borrado la referencia."
+
+#: pnadmin.php:245
+msgid "Done! Module configuration updated."
+msgstr "Hecho! Configuración del módulo actualizada."
+
+#: pnversion.php:9
+#: pnversion.php:13
+msgid "iw_webbox"
+msgstr "iw_webbox"
+
+#: pnversion.php:11
+#: pntemplates/iw_webbox_admin_new.htm:16
+#: pntemplates/iw_webbox_admin_edit.htm:18
+#: pntemplates/iw_webbox_admin_main.htm:12
+msgid "Description"
+msgstr "Descripción"
+
+#: pnversion.php:12
+msgid "Webbox"
+msgstr "Webbox"
+
+#: pntemplates/iw_webbox_admin_menu.htm:4
+msgid "URL administration"
+msgstr "Definición de direcciones URL"
+
+#: pntemplates/iw_webbox_admin_new.htm:4
+#: pntemplates/iw_webbox_admin_edit.htm:4
+#: pntemplates/plugins/function.iwwebboxmenulinks.php:25
+msgid "Add new URL"
+msgstr "Añadir una nueva dirección URL"
+
+#: pntemplates/iw_webbox_admin_new.htm:8
+#: pntemplates/iw_webbox_admin_edit.htm:10
+#: pntemplates/iw_webbox_admin_main.htm:10
+msgid "Reference"
+msgstr "Referencia"
+
+#: pntemplates/iw_webbox_admin_new.htm:12
+#: pntemplates/iw_webbox_admin_edit.htm:14
+#: pntemplates/iw_webbox_admin_main.htm:11
+#: pntemplates/iw_webbox_block_edit.htm:2
+msgid "URL"
+msgstr "URL"
+
+#: pntemplates/iw_webbox_admin_new.htm:20
+#: pntemplates/iw_webbox_admin_edit.htm:22
+#: pntemplates/iw_webbox_admin_main.htm:13
+#: pntemplates/iw_webbox_block_edit.htm:6
+#: pntemplates/iw_webbox_admin_config.htm:12
+msgid "Width (%)"
+msgstr "Anchura (%)"
+
+#: pntemplates/iw_webbox_admin_new.htm:28
+#: pntemplates/iw_webbox_admin_edit.htm:30
+#: pntemplates/iw_webbox_admin_main.htm:14
+#: pntemplates/iw_webbox_block_edit.htm:10
+#: pntemplates/iw_webbox_admin_config.htm:20
+msgid "Height (pixels)"
+msgstr "Altura (pixels)"
+
+#: pntemplates/iw_webbox_admin_new.htm:32
+#: pntemplates/iw_webbox_admin_edit.htm:34
+#: pntemplates/iw_webbox_admin_main.htm:15
+#: pntemplates/iw_webbox_block_edit.htm:24
+#: pntemplates/iw_webbox_admin_config.htm:24
+msgid "Show scroll"
+msgstr "Scrolls"
+
+#: pntemplates/iw_webbox_admin_new.htm:33
+#: pntemplates/iw_webbox_admin_edit.htm:35
+#: pntemplates/iw_webbox_admin_config.htm:25
+msgid "(recommended)"
+msgstr "(Es aconsejable marcar la opción)"
+
+#: pntemplates/iw_webbox_admin_new.htm:36
+msgid "Create"
+msgstr "Crear"
+
+#: pntemplates/iw_webbox_admin_new.htm:38
+#: pntemplates/iw_webbox_admin_delete.htm:16
+#: pntemplates/iw_webbox_admin_edit.htm:40
+#: pntemplates/iw_webbox_admin_config.htm:30
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: pntemplates/iw_webbox_admin_new.htm:49
+#: pntemplates/iw_webbox_admin_edit.htm:51
+msgid "You must introduce a reference"
+msgstr "No habéis puesto la referencia de la URL."
+
+#: pntemplates/iw_webbox_admin_new.htm:53
+#: pntemplates/iw_webbox_admin_edit.htm:55
+#: pntemplates/iw_webbox_admin_config.htm:41
+msgid "You must introduce an URL address"
+msgstr "No habéis escrito la URL"
+
+#: pntemplates/iw_webbox_admin_new.htm:57
+#: pntemplates/iw_webbox_admin_edit.htm:59
+#: pntemplates/iw_webbox_admin_config.htm:45
+msgid "Width introduced is not valid. The maximum value for percentual unit is 100"
+msgstr "El ancho puesto no es válido. Si la unidad para el ancho es de porcentage, el valor máximo es 100."
+
+#: pntemplates/iw_webbox_admin_new.htm:61
+#: pntemplates/iw_webbox_admin_edit.htm:63
+#: pntemplates/iw_webbox_admin_config.htm:49
+msgid "Height introduced is not valid"
+msgstr "La altura puesta no es válida."
+
+#: pntemplates/iw_webbox_admin_delete.htm:4
+msgid "Remove URL reference"
+msgstr "Borra la referencia"
+
+#: pntemplates/iw_webbox_admin_delete.htm:11
+msgid "Confirm remove the URL reference"
+msgstr "Confirma el borrado de la referencia."
+
+#: pntemplates/iw_webbox_admin_delete.htm:14
+msgid "Confirm deletion?"
+msgstr "Confirmar borrado?"
+
+#: pntemplates/iw_webbox_admin_edit.htm:38
+#: pntemplates/iw_webbox_admin_config.htm:28
+msgid "Modify"
+msgstr "Modificar"
+
+#: pntemplates/iw_webbox_admin_main.htm:4
+msgid "References List"
+msgstr "Lista de referencias"
+
+#: pntemplates/iw_webbox_admin_main.htm:16
+msgid "Options"
+msgstr "Opciones"
+
+#: pntemplates/iw_webbox_admin_main.htm:41
+msgid "Yes"
+msgstr "Sí"
+
+#: pntemplates/iw_webbox_admin_main.htm:43
+msgid "No"
+msgstr "No"
+
+#: pntemplates/iw_webbox_admin_main.htm:48
+#: pntemplates/iw_webbox_admin_main.htm:51
+msgid "Edit"
+msgstr "Editar"
+
+#: pntemplates/iw_webbox_admin_main.htm:51
+msgid "Delete"
+msgstr "Borrar"
+
+#: pntemplates/iw_webbox_admin_main.htm:59
+msgid "To call a reference it is necessary to write 'module=iw_webbox&ref=Reference'"
+msgstr "Para crear una referencia debe escribir 'module=iw_webbox&ref=Referencia'"
+
+#: pntemplates/iw_webbox_admin_main.htm:62
+msgid "There are not URL created"
+msgstr "No hay ninguna dirección definida."
+
+#: pntemplates/iw_webbox_admin_main.htm:65
+msgid "About this module"
+msgstr "Acerca de este módulo"
+
+#: pntemplates/iw_webbox_block_edit.htm:14
+msgid "Hide block title"
+msgstr "No muestres el título del bloque"
+
+#: pntemplates/iw_webbox_block_edit.htm:34
+msgid "Only visible for unregistered users"
+msgstr "Solamente visible por los usuarios no registrados"
+
+#: pntemplates/iw_webbox_admin_config.htm:4
+#: pntemplates/plugins/function.iwwebboxmenulinks.php:28
+msgid "Module configuration"
+msgstr "Configura el módulo"
+
+#: pntemplates/iw_webbox_admin_config.htm:8
+msgid "Home URL for the module"
+msgstr "Página inicial del contenedor"
+

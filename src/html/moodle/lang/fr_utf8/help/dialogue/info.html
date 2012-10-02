@@ -1,0 +1,51 @@
+<!-- $Id: info.html,v 1.1 2007/04/17 20:19:16 martignoni Exp $ -->
+
+<img alt="" src="<?php echo $CFG->wwwroot?>/mod/dialogue/icon.gif" /> <b>Dialogues</b></p>
+
+<p>Ce module fournit une moyen de communication simple entre
+   catégories d'utilisateurs. Un enseignant peut démarrer un dialogue
+   avec un étudiant, un étudiant peut démarrer un dialogue avec un
+   enseignant, et (en option) un étudiant peut démarrer un dialogue
+   avec un autre étudiant. Un enseignant ou un étudiant peut
+   prendre part à beaucoup de dialogues parallèles à tout moment.</p>
+
+<p>Un dialogue peut contenir un nombre illimité d'entrées,
+   normalement la "conversation" se déroule comme une suite
+   de réponses intercalées. Ce format n'est pas imposé et
+   l'une ou l'autre partie peut prendre part au dialogue
+   à tout moment.</p>
+
+<p>Un dialogue peut être fermé par chacunes des parties à tout
+   moment. Les dialogues fermés ne peuvent pas être réouvert.
+   Cependant un dialogue fermé peut être vu par chacunes des
+   parties tant qu'il existe... </p>
+    
+<p>...La suppression de ce module entraine la suppression des
+   dialogues fermés et de toutes leurs entrées après un certains
+   délai. Celui-ci est défini ici lors de la création du Dialogue.</p>
+
+<p>Si le cours inclut des groupes les points suivants s'appliquent.</p>
+
+<ul>
+
+<li>Lors de l'ouverture d'un nouveau dialogue le mode groupe
+        est proposé à l'enseignant ainsi que les groupes actuels.
+        Ces informations sont affichées juste en dessous de la
+        barre de bouton.</li>
+
+   <li>Un enseignant peut commencer des dialogues avec
+tous les étudiants dans leur groupe courant en
+choisissant le nom du groupe dans le menu-déroulant
+des noms. Une fois démarré les dialogues fonctionnent
+de façon normale, c'est-à-dire, ils sont des dialogues de
+pair à pair entre l'enseignant et chaque étudiant de
+façon individuelle.</li>
+
+<li>Si le dialogue est en mode GROUPES SÉPARÉS alors
+les étudiants ne voient que les étudiants appartenant à
+leur propre groupe (en supposant que le dialogue
+autorise les dialogues étudiant à étudiant). Dans ce
+mode les étudiants qui n'appartiennent à aucun groupe
+ne voient aucun autre étudiant.</li>
+
+</ul>

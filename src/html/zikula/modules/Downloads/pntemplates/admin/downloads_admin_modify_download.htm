@@ -1,0 +1,53 @@
+<!--[include file="admin/downloads_admin_main_menu.htm"]-->
+<!--[include file="admin/downloads_admin_header.htm"]-->
+
+<!--[*pndebug*]-->
+<h2 class="dl_admin_h2"><!--[pnimg src="admin/moddl.gif" __alt="Modify Download" ]-->&nbsp;&nbsp;<!--[gt text="Modify Download"]--></h2>
+<div class="dl_admin_menu">
+<fieldset class="dl_fieldset">
+<legend><!--[gt text="Edit download in category:"]--></legend>
+<form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="admin" func="modify_download"]-->" method="post" enctype="multipart/form-data">
+<div class="dl_conf_list">		
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	<dl>
+	<dt><!--[gt text="Choose category:"]--></dt>
+	<dd>
+		<select id="downloads_selcats" name="cid">
+			<!--[$catSelectList]-->
+		</select>
+	</dd>
+	<dt>
+		<input name="submit" type="submit" value="<!--[gt text="Submit"]-->" />
+	</dt>
+	</dl>
+</div>
+</form>
+</fieldset>
+<br /><br />
+
+<div class="dl_nothingtoedit"><!--[$nothing_found]--></div>
+
+<!--[if $download_show_list == true]-->
+<fieldset class="dl_fieldset">
+<legend><!--[gt text="Choose download:"]--></legend>
+<form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="admin" func="do_download_modify"]-->" method="post" enctype="multipart/form-data">
+<div class="dl_conf_list">	
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	<dl>
+	<dt><!--[gt text="Choose download:"]--></dt>
+	<dd>
+		<select id="downloads_seldls" name="dlid">
+			<!--[$cid_downloads_list]-->
+		</select>
+	</dd>
+	<dt>
+		<input name="submit" type="submit" value="<!--[gt text="Modify choosen download"]-->" />
+	</dt>
+	</dl>
+</div>
+</form>
+</fieldset>
+<!--[/if]-->
+
+</div>
+<!--[include file="admin/downloads_admin_footer.htm"]-->

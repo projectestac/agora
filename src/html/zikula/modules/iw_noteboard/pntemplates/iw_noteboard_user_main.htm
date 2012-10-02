@@ -1,0 +1,164 @@
+<!--[include file="iw_noteboard_user_menu.htm"]-->
+<!--[pnajaxheader modname=iw_noteboard filename=iw_noteboard.js]-->
+<!--[if $temes_MS|@count gt 2 && $loggedIn]-->
+	<form method="post" name="main" action="<!--[pnmodurl modname="iw_noteboard" func="main" tema=$tema]-->">
+		<input type="hidden" name="saved" value="<!--[$saved]-->">
+		<!--[gt text="Choose a topic"]-->
+		<select name="tema" onchange='submit()'>
+			<!--[section name=temes_MS loop=$temes_MS]-->
+				<option <!--[if $tema eq $temes_MS[temes_MS].id]-->selected<!--[/if]--> value="<!--[$temes_MS[temes_MS].id]-->"><!--[$temes_MS[temes_MS].name|pnvarprepfordisplay]--></option>
+			<!--[/section]-->
+		</select>
+	</form>
+<!--[/if]-->
+<!--[if $saved eq 1]-->
+	<strong><!--[gt text="List of expired notes"]--></strong>
+<!--[/if]-->
+<div style="height:10px;">&nbsp;</div>
+<!--[if $publicAllowed && $showSharedURL]-->
+	<div><!--[gt text="Shared URL"]-->: <!--[pngetbaseurl]--><!--[pnmodurl modname=iw_noteboard]-->&amp;func=rss&amp;sid=<!--[$publicSharedURL]--><br><br></div>
+<!--[/if]-->
+<table cellspacing="0" width="100%" border="1">
+	<tr align="left">
+		<td style="background-color:<!--[pnthemegetvar name="color1"]-->; padding: 5px;" align="center" valign="middle"><strong><!--[gt text="Date"]-->/<!--[gt text="Topic"]--></strong></td>
+		<td style="background-color:<!--[pnthemegetvar name="color1"]-->; padding: 5px;" align="center" valign="middle"><strong><!--[gt text="Note content"]--></strong></td>
+		<!--[if $loggedIn || !$notRegisteredSeeRedactors]-->
+			<td style="background-color:<!--[pnthemegetvar name="color1"]-->; padding: 5px;" align="center" valign="middle"><strong><!--[gt text="Informant"]--></strong></td>
+		<!--[/if]-->
+		<!--[if $loggedIn]-->
+			<td style="background-color:<!--[pnthemegetvar name="color1"]-->; padding: 5px;" align="center" valign="middle"><strong><!--[gt text="Options"]--></strong></td>
+		<!--[/if]-->
+	</tr>
+	<!--[foreach item=note from=$anotacions]-->
+		<tr id="note_<!--[$note.nid]-->">
+			<td style="padding: 5px; background-color:<!--[$note.bgcolor]-->" valign="top" width="80px">
+				<div>
+					<!--[if $note.marca eq 1]-->
+						<!--[pnimg src='flag.gif' modname='core' set='icons/extrasmall' __alt='Mark the note with a flag'  id="flag_`$note.nid`"]-->
+					<!--[else]-->
+						<!--[pnimg src='flag.gif' modname='core' set='icons/extrasmall' __alt='Mark the note with a flag'  style="display: none;" id="flag_`$note.nid`"]-->
+					<!--[/if]-->
+				</div>
+				<!--[$note.data|pnvarprepfordisplay]-->
+				<!--[if $note.data neq $note.edited and $note.edited neq '']-->
+					<div><!--[gt text="Edited by"]--></div>
+					<!--[$note.edited_by]-->
+					<div><!--[gt text="at date"]--></div>
+					<!--[$note.edited|pnvarprepfordisplay]-->
+				<!--[/if]-->
+
+				<!--[if $note.acces_tema]-->
+					<div style="height:10px;">&nbsp;</div>
+					<strong><!--[$note.tema_anotacio|pnvarprepfordisplay]--></strong>
+
+				<!--[/if]-->
+				<!--[if $note.public]-->
+					<div style="height:10px;">&nbsp;</div>
+					<strong><!--[gt text="Shared noteboard between groups of different websites"]--></strong>
+
+				<!--[/if]-->
+
+			</td>
+			<td style="padding: 5px; background-color:<!--[$note.bgcolor]-->" valign="top" align="left">
+                <div class="messageBody"><!--[$note.noticia|nl2br]--></div>
+				<!--[if $note.mes_info neq '' and $note.mes_info neq 'http://' and $note.text neq '']-->
+					<div style="height:10px;">&nbsp;</div>
+					<a href="<!--[$note.mes_info]-->" target="_blanc"><!--[$note.text|pnvarprepfordisplay]--></a>
+				<!--[/if]-->
+				<!--[if $note.fitxer neq '' and $note.textfitxer neq '']-->
+					<div style="height:10px;">&nbsp;</div>
+					<img src="modules/iw_main/pnimages/fileIcons/<!--[$note.fileIcon]-->"/>
+					<a href="<!--[pnmodurl modname="iw_noteboard" func="download" fileName=$note.fitxer nid=$note.nid]-->"><!--[$note.textfitxer|pnvarprepfordisplay]--></a>
+				<!--[/if]-->
+				<div id="noteinfo_<!--[$note.nid]-->" class="pn-hide pn-noteinfo">&nbsp;</div>
+				<!--[if $note.admet_comentaris and $note.n_comentaris > 0]-->
+				<div id="noteinfo_<!--[$comment.nid]-->" class="pn-hide pn-noteinfo">&nbsp;</div>
+					<div style="height:15px;">&nbsp;</div>
+					<strong><!--[gt text="Comments"]--></strong>
+					<!--[foreach item=comment from=$note.comentaris]-->
+						<!--[if $comment.verifica eq 1 or $permisos.potverificar]-->
+							<table cellspacing="0" bgcolor="<!--[$comment.bgcolorcomentari]-->" border="1" width="100%" id="note_<!--[$comment.nid]-->">
+								<tr>
+									<td style="padding: 10px;">
+										<strong><!--[$comment.data|pnvarprepfordisplay]--> <!--[$comment.hora|pnvarprepfordisplay]--> - <!--[$users[$comment.id_user_informa]|pnvarprepfordisplay]--></strong>
+										<!--[if $permisos.potverificar and $comment.verifica eq 0]-->
+											<a href="<!--[pnmodurl modname=iw_noteboard type=user func=editacomentari nid=$comment.nid v=1]-->" title="<!--[gt text="Validate"]-->"><!--[pnimg modname='iw_noteboard' src='verifica.gif' set='pnimages']--></a>
+										<!--[/if]-->
+										<!--[if $permisos.potverificar || $comment.id_user eq $comment.id_user_informa]-->
+											<!--[if $permisos.potverificar || $permisos.nivell >=5]-->
+												<a href="<!--[pnmodurl modname=iw_noteboard type=user func=editacomentari nid=$comment.nid]-->" title="<!--[gt text="Edit"]-->"><!--[pnimg modname='iw_noteboard' src='editar.gif' set='pnimages']--></a>
+											<!--[/if]-->
+											<!--[if $permisos.potverificar || $permisos.nivell >=6]-->
+												<a href="javascript:del(<!--[$comment.nid]-->,'<!--[gt text="Confirm the action"]-->')" title="<!--[gt text="Delete"]-->"><img src="modules/iw_noteboard/pnimages/del.gif" alt="<!--[gt text="Delete"]-->"></a>
+											<!--[/if]-->
+										<!--[/if]-->
+										<div style="height:10px;">&nbsp;</div>
+										<!--[$comment.noticia|nl2br]-->
+										<div id="noteinfo_<!--[$comment.nid]-->" class="pn-hide pn-noteinfo">&nbsp;</div>
+									</td>	
+								</tr>
+							</table>
+							<div style="height:10px;">&nbsp;</div>
+						<!--[/if]-->
+ 					<!--[/foreach]-->
+				<!--[/if]-->
+			</td>
+			<!--[if $loggedIn || !$notRegisteredSeeRedactors]-->
+				<td style="padding: 5px; background-color:<!--[$note.bgcolor]-->" valign="top" width="150px" align="left">
+					<!--[if $note.created_by_url neq '']--><a href="<!--[$note.created_by_url]-->" target="_blank"><!--[/if]--><!--[$users[$note.created_by]]--><!--[if $note.created_by_url neq '']--></a><!--[/if]-->
+					<!--[if $note.photo neq '']-->
+						<div style="height:10px; text-align:center;">&nbsp;</div>
+						<img src="<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_noteboard type=user func=getFile fileName=$note.photo]-->" />
+					<!--[/if]-->
+				</td>
+			<!--[/if]-->
+			<!--[if $loggedIn]-->
+				<td style="padding: 5px; background-color:<!--[$note.bgcolor]-->" align=center valign=top width="10px">
+					<!--[if $note.verifica eq 0]-->
+						<a href="<!--[pnmodurl modname=iw_noteboard type=user func=nova nid=$note.nid tema=$tema m=v]-->" title="<!--[gt text="Validate"]-->"><!--[pnimg modname='iw_noteboard' src='verifica.gif' set='pnimages']--></a><br>
+					<!--[/if]-->
+					<!--[if $note.pot_editar || ($permisos.potverificar && $saved eq 1)]-->			
+						<a href="<!--[pnmodurl modname=iw_noteboard type=user func=nova nid=$note.nid tema=$tema m=e saved=$saved]-->" title="<!--[gt text="Edit"]-->"><!--[pnimg modname='iw_noteboard' src='editar.gif' set='pnimages']--></a><br>
+					<!--[/if]-->
+					<!--[if $note.pot_esborrar || ($permisos.potverificar && $saved eq 1)]-->			
+						<a href="javascript:del(<!--[$note.nid]-->,'<!--[gt text="Confirm the action"]-->')" title="<!--[gt text="Delete"]-->"><!--[pnimg modname='iw_noteboard' src='del.gif' set='pnimages']--></a><br>
+					<!--[/if]-->
+					<!--[if $saved neq 1]-->
+						<a href="javascript:hide(<!--[$note.nid]-->,'<!--[gt text="Confirm the action"]-->')" title="<!--[gt text="Hide"]-->"><!--[pnimg modname='iw_noteboard' src='ocultar.gif' set='pnimages']--></a><br>
+						<a href="<!--[pnmodurl modname=iw_noteboard type=user func=hanvist nid=$note.nid tema=$tema]-->" title="<!--[gt text="Has been seen by"]-->"><!--[pnimg modname='iw_noteboard' src='vist.gif' set='pnimages']--></a><br>
+						<!--[if $note.marca eq 1]-->					
+							<a href="javascript:void(0);" onclick="marca(<!--[$note.nid]-->)"><!--[pnimg src='marcat.gif' modname='iw_noteboard' set='pnimages' __alt='Mark the note with a flag'  style="display: none;" id="marca_`$note.nid`"]--><!--[pnimg src='nmarcat.gif' modname='iw_noteboard' set='pnimages' __alt='Remove the mark'  id="nomarca_`$note.nid`"]--></a><br>
+						<!--[else]-->
+							<a href="javascript:void(0);" onclick="marca(<!--[$note.nid]-->)" title="<!--[gt text="Mark the note with a flag"]-->"><!--[pnimg src='marcat.gif' modname='iw_noteboard' set='pnimages' __alt='Mark the note with a flag'  id="marca_`$note.nid`"]--><!--[pnimg src='nmarcat.gif' modname='iw_noteboard' set='pnimages' __alt='Remove the mark'  style="display: none;" id="nomarca_`$note.nid`"]--></a><br>
+						<!--[/if]-->
+					<!--[/if]-->
+					<!--[if $permisos.potverificar and $saved eq 0]-->
+						<a href="javascript:save(<!--[$note.nid]-->,'<!--[gt text="Confirm that you want to force the expiration of the note"]-->')" title="<!--[gt text="Force the expiration of the note"]-->"><!--[pnimg modname='iw_noteboard' src='save.gif' set='pnimages']--></a><br>
+					<!--[/if]-->
+					<!--[if $permisos.nivell >= 2 and $saved eq 0 and $note.admet_comentaris]-->
+						<a href="<!--[pnmodurl modname=iw_noteboard type=user func=comenta nid=$note.nid tema=$tema]-->" title="<!--[gt text="Comment"]-->"><!--[pnimg modname='iw_noteboard' src='comentar.gif' set='pnimages']--></a><br>
+					<!--[/if]-->
+				</td>
+			<!--[/if]-->
+		</tr>
+	<!--[foreachelse]-->
+		<tr>
+			<td style="padding: 5px;" valign="top" colspan="5">
+				<!--[gt text="There are no notes in the noteboard"]-->
+			</td>
+		</tr>
+ 	<!--[/foreach]-->
+</table>
+
+<div style="height:20px;">&nbsp;</div>
+
+<div style="height:20px;">&nbsp;</div>
+<a href="<!--[pnmodurl modname=iw_noteboard type=user func=module]-->"><!--[gt text="About this module"]--></a>
+
+
+<script type="text/javascript">
+	var deletingnote = '<!--[gt text='...deleting the note...']-->';
+	var addingflag = '<!--[gt text='...modifying note flag status...']-->';
+	var hidingnote = '<!--[gt text='...hidding note...']-->';
+	var savingnote = '<!--[gt text='...saving note...']-->';
+</script>

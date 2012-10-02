@@ -1,0 +1,37 @@
+
+/* Admin panel */
+div#reviews_category_selectors {
+    display: inline;
+}
+
+/* UI */
+.pn-module-Reviews .z-menu {
+    margin-bottom: 1em;
+}
+
+div.reviews-alphapager {
+    margin: 1em 0;
+}
+
+div#reviews-popular,
+div#reviews-recent {
+    float: left;
+    margin: 2em auto;
+    width: 50%;
+}
+
+div#reviews-categories {
+    width: 100%;
+}
+
+#review-body {
+    border-bottom: 1px solid #ddd;
+    margin: 1em;
+    padding-bottom: 1em;
+}
+
+dl#review-meta dt {
+    float: left;
+    padding-right: 0.5em;
+    margin:0;
+}

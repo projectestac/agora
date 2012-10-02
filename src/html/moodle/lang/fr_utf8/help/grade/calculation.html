@@ -1,0 +1,59 @@
+<!-- Version: $Id: calculation.html,v 1.5 2008/10/14 15:58:16 martignoni Exp $ -->
+
+<h1>Calculs</h1>
+
+<!-- TRANSLATORS BEWARE!! The comma (,) sign used in the calculations may be a semi-colon (;) in your language. Please use whichever is used in your spreadsheet application. -->
+
+<p>Les calculs du carnet de notes utilisent une syntaxe similaire à celle des formules ou fonctions des tableurs. Ils commencent par un signe d'égalité (=) et emploient des opérateurs et fonctions mathématiques usuel pour produire un résultat numérique. Ce résultat est ensuite utilisé comme valeur calculée pour l'élément d'évaluation que vous modifiez.</p>
+
+<p>Les fonctions permises dans les calculs sont présentées ci-dessous. Le caractère point-virgule (;) est utilisé pour séparer les paramètres, à l'intérieur des parenthèses des fonctions. Attention : si vous utilisez d'autres langues dans Moodle, le séparateur sera adapté aux habitudes de la langue. Pour la langue anglaise par exemple, le séparateur est la virgule (,).</p>
+
+<ul>
+
+<li><strong>average</strong>([[param1]]; [[param2]]; ...) : calcule la moyenne des nombres fournis</li>
+
+<li><strong>max</strong>([[param1]]; [[param2]]; ...) : calcule la valeur maximale des nombres fournis</li>
+
+<li><strong>min</strong>([[param1]]; [[param2]]; ...) : calcule la valeur minimale des nombres fournis</li>
+
+<li><strong>mod</strong>(dividende; diviseur) : calcule le reste de la division</li>
+
+<li><strong>pi</strong>() : donne la valeur du nombre π</li>
+
+<li><strong>power</strong>(base; puissance) : élève un nombre à une puissance d'un autre</li>
+
+<li><strong>round</strong>(nombre; précision) : arrondit un nombre à la précision donnée</li>
+
+<li><strong>sum</strong>([[param1]]; [[param2]]; ...) : calcule la somme des nombres fournis</li>
+
+</ul>
+
+<p>Un certain nombre de fonctions mathématiques sont également supportées :</p>
+
+<ul>
+
+<li>sin</li><li>sinh</li><li>arcsin</li><li>asin</li><li>arcsinh</li><li>asinh</li>
+
+<li>cos</li><li>cosh</li><li>arccos</li><li>acos</li><li>arccosh</li><li>acosh</li>
+
+<li>tan</li><li>tanh</li><li>arctan</li><li>atan</li><li>arctanh</li><li>atanh</li>
+
+<li>sqrt</li><li>abs</li><li>ln</li><li>log</li><li>exp</li>
+
+</ul>
+
+<p>Il est possible d'inclure dans vos formules les valeurs d'autres éléments d'évaluations en utilisant leur identifiant comme référence. L'identifiant doit alors être entouré de deux paires de crochets [[...]], afin d'éviter que l'analyseur de formules ne soit trompé, si l'identifiant comporte des caractères spéciaux. Par exemple, si un élément d'évaluation a l'identifiant « Test.3 », vous vous y référerez par [[Test.3]] dans votre formule.</p>
+
+<p>Au-dessous du champ de calcul est affichée une arborescence de vos cours avec leurs catégories de notes et leurs éléments d'évaluation. Près du total de chaque catégorie ou élément est affiché l'identifiant que vous pouvez utiliser dans votre formule (déjà entouré de crochets). Néanmoins, puisque l'identifiant est optionnel, certains éléments n'en auront pas. Ces éléments sans identifiant ont en lieu et place un champ vous permettant de saisir directement l'identifiant, de sorte que vous puissiez l'utiliser dans votre formule sans changer de page. Toutefois, ce formulaire ne vous permet pas de modifier les identifiants existants. Pour ce faire, vous devrez modifier directement l'élément d'évaluation en question.</p>
+
+<p>Une fois que vous aurez spécifié les identifiants dont vous avez besoin, vous pourrez cliquer « Ajouter les identifiants » ; la page se rechargera et vous montrera la même arborescence avec les identifiants que vous aurez saisi. Vous pourrez alors utiliser ces références dans vos formules.</p>
+
+<p>Voici quelques exemples de formules que vous pouvez utiliser dans votre carnet de notes :</p>
+
+<ul>
+
+<li>=average([[Test.1]]; [[Test.4]]; [[Assignment.1]])</li>
+
+<li>=average(max([[Test.1]]; [[Test.4]]; [[Devoir.1]]); min([[Test.1]]; [[Test.4]]; [[Devoir.1]]))</li>
+
+</ul>

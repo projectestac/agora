@@ -1,0 +1,27 @@
+body {
+    background-color: #fff;
+    margin: 20px;
+}
+img {
+    border: 0;
+}
+a:link, a:visited, a:active {
+    text-decoration: none;
+    color: #333;
+}
+h2 {
+    font-size: 18px;
+}
+.externalClose{
+    clear: both;
+    float: right;
+    cursor: pointer;
+}
+
+.imageBoxContent{
+    float: left;
+    padding: 10px;
+    border: 1px solid #777;
+    margin: 10px;
+    text-align: center;
+}

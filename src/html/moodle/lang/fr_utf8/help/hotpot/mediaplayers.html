@@ -1,0 +1,38 @@
+<!-- $Id$ -->
+
+<p align="center">
+
+<b>URLs relatives, lecteurs multimédias et Hot Potatoes</b></p>
+
+<h2>Définitions</h2>
+
+<dl>
+
+<dt><i>URL</i></dt>
+
+<dd>L'adresse d'une ressource internet, telle qu'une page web, une image ou un fichier son.</dd>
+
+<dt><i>URL absolue</i></dt>
+
+<dd>Une URL qui commence par « http:// » est appelée URL absolue. Où qu'elle soit utilisée, elle pointe toujours vers la même ressource.</dd>
+
+<dt><i>URL relative</i></dt>
+
+<dd>Une URL qui ne commence pas par « http:// » est appelée URL relative. Elle peut être combinée avec l'URL absolue d'une page de « base » pour obtenir l'URL absolue de la ressource à désigner.</dd>
+
+</dl>
+
+<h2>URLs relatives dans les activités Hot Potatoes</h2>
+
+<p>Les URLs relatives constituent une manière pratique de spécifier des images, des sons et des vidéos dans une activité Hot Potatoes, parce qu'elle permettent à l'activité d'être présentée et testée sur un ordinateur local avant d'être téléchargé sur un site Moodle. Lorsque l'activité est téléchargée sur le site Moodle, les fichiers multimédias doivent également être y téléchargés, afin qu'ils soient disponibles lorsque l'activité est administrée et effectuée depuis Moodle.</p>
+
+<p>Pour des raisons de sécurité, Moodle ne permet l'accès direct aux fichiers d'un cours. Toutes les requêtes de fichiers d'un cours passent par script « gardien » qui vérifie que la personne demandant le fichier est inscrite au cours. Cependant, ce mécanisme peut casser les liens relatifs utilisés dans l'activité, parce que les règles habituelles pour obtenir une URL absolue à partir d'une URL relative ne fonctionnent pas.</p>
+
+<p>La solution est simple : <font color="red"><b>toutes les URLs relatives doivent être converties en URLs absolues</b></font> au moment où l'activité est visualisée dans un navigateur. Dans le cas d'activités Hot Potatoes, les URLs seront converties par Moodle, afin que les créateurs de contenus n'aient pas à se soucier de cette tâche pénible et source d'erreurs.</p>
+
+<h2>Lecteurs multimédias dans les activités Hot Potatoes</h2>
+
+<p>Certains lecteurs multimédias n'acceptent pas un fichier multimédia s'il provient du script qui gardien du cours. Dans cette situation, il est nécessaire de remplacer le lecteur multimédia par un autre qui est compatible with Moodle. Vous pouvez effectuer cette tâche vous-même en modifiant la référence au lecteur multimédia dans l'activité, ou vous pouvez forcer Moodle à le faire en choisissant « Oui » pour l'option « Lecteurs multimédias compatibles » sur la page de configuration de l'activité.</p>
+
+
+

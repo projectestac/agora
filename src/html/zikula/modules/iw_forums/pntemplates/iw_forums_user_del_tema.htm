@@ -1,0 +1,24 @@
+<!--[include file="iw_forums_user_menu.htm" m1=1 m2=1 m4=1 m3=1 m9=1 fid=$fid]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/large']--></div>
+	<h2><!--[$name]--> => <!--[if $ftid neq 0]--><!--[$tema]--> => <!--[/if]--><!--[gt text="Topic and messages deletion"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+	<!--[gt text="Confirmation of deletion of the topic and its messages"]-->
+
+	<form name="deltema" method="post" id="deltema" action="<!--[pnmodurl modname=iw_forums type=user func=deltema]-->">
+		<input type="hidden" name="ftid" value="<!--[$ftid]-->" />
+		<input type="hidden" name="fid" value="<!--[$fid]-->" />
+		<input type="hidden" name="confirmation" value="true" />
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forums"]-->" />
+		<div class="formOptions" style="text-align:center;">
+			<a href="javascript:send()"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small'   __alt="Confirm the deletion of the topic" __title="Confirm the deletion of the topic"]--></a><!--[gt text="Confirm the deletion of the topic"]-->
+			<a href="<!--[pnmodurl modname="iw_forums" type="user" func="forum" fid=$fid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+		</div>
+	</form>
+</div>
+
+<script type="text/javascript">
+	function send(){
+		document.deltema.submit();
+	}
+</script>

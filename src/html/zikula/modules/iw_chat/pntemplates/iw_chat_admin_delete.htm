@@ -1,0 +1,15 @@
+<!--[include file="iw_chat_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/large']--></div>
+	<h2><!--[gt text="Delete the chat room"]--></h2>
+	<form class="pn-adminform" action="<!--[pnmodurl modname="iw_chat" type="admin" func="delete"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_chat"]-->" />
+		<input type="hidden" name="rid" value="<!--[$item.rid]-->" />
+		<input type="hidden" name="confirm" value="1" />
+		<!--[gt text="Confirm the deletion of the chat room"]--> <strong><!--[$item.room_name]--></strong>
+		<div class="formOptions" style="text-align: center;">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Delete" __title="Delete"]-->
+			<a href="<!--[pnmodurl modname="iw_chat" type="admin" func="main"]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel the deletion of the chat room" __title="Cancel the deletion of the chat room"]--></a>
+		</div>
+	</form>
+</div>

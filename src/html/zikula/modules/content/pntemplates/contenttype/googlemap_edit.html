@@ -1,0 +1,38 @@
+<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<!--[$googlemapApiKey]-->"></script>
+
+<div class="content-googlemap">
+    <div id="googlemap" class="map" style="width: 100%; height: 200px"></div>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    function googlemapInit() { googlemap.editMap("<!--[$data.latitude]-->", "<!--[$data.longitude]-->", "<!--[$data.zoom]-->"); }
+    Event.observe(window, 'load', googlemapInit, false);
+    //]]>
+</script>
+
+<p><!--[gt text="Select geographic position either by point and click or writing the position directly. You can drag the map with your mouse, and double-click to zoom and select position."]--></p>
+
+<!--[if empty($googlemapApiKey)]-->
+<p class="z-errormsg"><!--[gt text="No Google API key available! You must specify a Google maps API key to use this feature. Get a key from <a href="http://www.google.com/apis/maps/signup.html">google.com</a> and enter it in the admin section."]--></p>
+<!--[/if]-->
+
+<div class="z-formrow">
+    <!--[pnformlabel for='longitude' __text='Longitude']-->
+    <!--[pnformtextinput id='longitude' group='data' mandatory='1' maxLength='30']-->
+</div>
+
+<div class="z-formrow">
+    <!--[pnformlabel for='latitude' __text='Latitude']-->
+    <!--[pnformtextinput id='latitude' group='data' mandatory='1' maxLength='30']-->
+</div>
+
+<div class="z-formrow">
+    <!--[pnformlabel for='zoom' __text='Zoom level']-->
+    <!--[pnformtextinput id='zoom' group='data' mandatory='1' maxLength='30']-->
+</div>
+
+<div class="z-formrow">
+    <!--[pnformlabel for='text' __text='Description']-->
+    <!--[pnformtextinput id='text' group='data' maxLength='255']-->
+</div>

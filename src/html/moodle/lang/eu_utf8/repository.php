@@ -1,0 +1,77 @@
+<?PHP // $Id: repository.php,v 1.3 2009/06/08 16:04:49 ueu_ueu Exp $ 
+      // repository.php - created with Moodle 1.9.4+ (Build: 20090218) (2007101541)
+
+
+$string['activaterep'] = 'Biltegi aktiboa';
+$string['add'] = 'Gehitu';
+$string['addplugin'] = 'Gehitu biltegi-plugina';
+$string['areabackup'] = 'Segurtasun-kopiak';
+$string['areacategoryintro'] = 'Kategoriaren sarrera';
+$string['areacourseintro'] = 'Ikastaroaren sarrera';
+$string['arearoot'] = 'Sistema';
+$string['areauserdraft'] = 'Zirriborroak';
+$string['areauserpersonal'] = 'Pertsonala';
+$string['areauserprofile'] = 'Profila';
+$string['attachment'] = 'Eranskina';
+$string['clicktohide'] = 'Sakatu hemen eskutatzeko';
+$string['clicktoshow'] = 'Sakatu hemen erakusteko';
+$string['close'] = 'Itxi';
+$string['configsaved'] = 'Ezarpenak gordeta!';
+$string['confirmdelete'] = 'Ziur al zaude biltegi hau ezabatu nahi duzula - $a?';
+$string['confirmdeletefile'] = 'Ziur al zaude fitxategi hau ezbatu nahi duzula?';
+$string['copying'] = 'Kopiatzen';
+$string['create'] = 'Sortu';
+$string['createinstance'] = 'Biltegi-instantzia sortu';
+$string['createrepository'] = 'Biltegi-instantzia sortu';
+$string['date'] = 'Data';
+$string['deleted'] = 'Biltegia ezabatuta';
+$string['deleterepository'] = 'Biltegi hau ezabatu';
+$string['download'] = 'Jaitsi';
+$string['downloadsucc'] = 'Fitxategia ondo jaitsi da';
+$string['editrepositoryinstance'] = 'Editatu biltegi-instantzia';
+$string['emptytype'] = 'Ezin da bltegi-mota sortu: motaren zena hutsik dago';
+$string['enablecourseinstances'] = 'Gaitu ikastaro-biltegiak';
+$string['enableuserinstances'] = 'Erabiltzailearen biltegiak gaitu';
+$string['error'] = 'Errore ezezagun bat gertatu da!';
+$string['existingrepository'] = 'Biltegia lehendik bazen';
+$string['filename'] = 'Fitxategiaren izena';
+$string['filesaved'] = 'Fitxategia gorde egin da';
+$string['getfile'] = 'Aukeratu fitxategi hau';
+$string['hiddenshow'] = 'Ezkutatu/Erakutsi';
+$string['instance'] = 'instantzia';
+$string['instancedeleted'] = 'Instantzia ezabatuta';
+$string['instances'] = 'Biltegi-instantziak';
+$string['listview'] = 'Zerrenda bezala ikusi';
+$string['loading'] = 'Kargatzen...';
+$string['login'] = 'Saioa hasi';
+$string['logout'] = 'Saioa amaitu';
+$string['manage'] = 'Biltegiak kudeatu';
+$string['manageurl'] = 'Kudeatu';
+$string['nopermissiontoaccess'] = 'Ez duzu biltegi honetara sartzeko baimenik';
+$string['noresult'] = 'Ez dago bilaketaren emaitzarik';
+$string['openpicker'] = 'Aukeratu fitxategia...';
+$string['operation'] = 'Eragiketa';
+$string['personalrepositories'] = 'Norberaren biltegiak';
+$string['plugin'] = 'Biltegi-pluginak';
+$string['preview'] = 'Aurreikusi';
+$string['refresh'] = 'Freskatu';
+$string['removed'] = 'Biltegia kenduta';
+$string['repositories'] = 'Biltegiak';
+$string['repository'] = 'Biltegia';
+$string['repositorycourse'] = 'Ikastaro-biltegiak';
+$string['save'] = 'Gorde';
+$string['saveas'] = 'Gorde honela';
+$string['saved'] = 'Gordeta';
+$string['saving'] = 'Gordetzen';
+$string['search'] = 'Bilatu';
+$string['searching'] = 'Bilatu hemen';
+$string['settings'] = 'Ezarpenak';
+$string['size'] = 'Tamaina';
+$string['submit'] = 'Bidali';
+$string['thumbview'] = 'Ikono bezala ikusi';
+$string['title'] = 'Aukeratu fitxategia...';
+$string['upload'] = 'Igo fitxategi hau';
+$string['uploading'] = 'Igotzen...';
+$string['wrongcontext'] = 'Ez duzu testuinguru honetarako sarbiderik';
+
+?>

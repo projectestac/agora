@@ -1,0 +1,23 @@
+<h1>Bloquear</h1>
+<p>Permite decidir si las calificaciones aceptan actualizaciones automáticas de la actividad a la que están vinculadas. Normalmente la opción está activada (bloqueadas) tan pronto como termina la actividad y ya no se aceptan más envíos. Una secuencia típica de eventos podría ser la siguiente:
+</p>
+<table class="generaltable boxaligncenter" cellpadding="4" cellspacing="1" summary="Eventos principales en el proceso de calificación, y emparejamiento de estados de bloqueo y ocultamiento">
+    <tr>
+        <th class="header">Evento</th><th class="header">Bloqueadas</th><th class="header">Ocultas</th>
+    </tr>
+    <tr>
+        <td class="cell">Comienzo de la actividad y envíos de los participantes</td>
+        <td class="cell">No</td>
+        <td class="cell">Sí</td>
+    </tr>
+    <tr>
+        <td class="cell">Final de la actividad y comienzo de la calificación/retroalimentación</td>
+        <td class="cell">Sí</td>
+        <td class="cell">Sí</td>
+    </tr>
+    <tr>
+        <td class="cell">Final de la calificación/retroalimentación y publicación de las calificaciones</td>
+        <td class="cell">Sí</td>
+        <td class="cell">No</td>
+    </tr>
+</table>

@@ -1,0 +1,59 @@
+<h2>Category aggregation</h2><b>ToDo</b>
+<p>In dieser Einstellung können Sie auswählen, wie die Gesamtbewertung eines Teilnehmenden für diese Kategorie berechnet wird.</p>
+<p><strong>Wichtig</strong>: Eine leere Bewertung ist ein fehlender Eintrag in den Bewertungen und kann verschiedenes bedeuten: Z.B. kann es sich um einen Teilnehmenden handeln, der eine Aufgabe noch nicht eingereicht hat. Oder es handelt sich um eine Aufgabe, die noch nicht von den Trainer/innen bewertet wurde. Oder es handelt sich um eine Bewertung, die von jemandem manuell gelöscht wurde, der berechtigt ist, die Bewertungen zu verwalten. Daher ist bei der Interpretation von "leeren Bewertungen" Vorsicht geboten.</p>
+<p>Folgende Auswahlmöglichkeiten zur Berechnung der Gesamtbewertung für eine Kategorie stehen zur Verfügung:</p>
+<table class="generaltable boxaligncenter" cellpadding="4" cellspacing="1" summary="Berechnungsmöglichkeiten für Gesamtbewertungen in einer Bewertungskategorie">
+    <tr>
+        <th class="header">Berechnungsmöglichkeit</th><th class="header">Beschreibung</th>
+    </tr>
+    <tr>
+        <td class="cell">Durchschnitt aller Bewertungen</td>
+        <td class="cell">Alle Bewertungen werden addiert und anschließend durch die Anzahl der Bewertungen geteilt. Leere Bewertungen werden mitgezählt (sie gehen mit Wert gleich 0 in die Aufsummierung ein).</td>
+    </tr>
+    <tr>
+        <td class="cell">Mean of non-empty grades</td>
+        <td class="cell">Same as above, except that empty grades are ignored.</td>
+    </tr>
+    <tr>
+        <td class="cell">Median of all grades</td>
+        <td class="cell">The median is calculated by counting all the grades and selecting the grade that falls in the middle of that count (or the mean between the two middle grades if there is an even number of grades). The advantage over the mean is that it is not affected by outliers (grades which are uncommonly far from the mean). Empty grades are included.</td>
+    </tr>
+    <tr>
+        <td class="cell">Median of non-empty grades</td>
+        <td class="cell">Same as above, except that empty grades are ignored.</td>
+    </tr>
+    <tr>
+        <td class="cell">Smallest grade of non-empty grades</td>
+        <td class="cell">Only the smallest grade is kept. Empty grades are ignored.</td>
+    </tr>
+    <tr>
+        <td class="cell">Highest grade of non-empty grades</td>
+        <td class="cell">Only the highest grade is kept. Empty grades are ignored.</td>
+    </tr>
+    <tr>
+        <td class="cell">Mode of all grades</td>
+        <td class="cell">The mode is the grade that occurs the most frequently. It is more often used for non-numerical  The advantage over the mean is that it is not affected by outliers (grades which are uncommonly far from the mean). Empty grades are included.</td>
+    </tr>
+    <tr>
+        <td class="cell">Mode of non-empty grades</td>
+        <td class="cell">Same as above, except that empty grades are ignored.</td>
+    </tr>
+    <tr>
+        <td class="cell">Weighted mean of all grades</td>
+        <td class="cell">Each grade item can be given a weight, which is then used in the arithmetic mean aggregation to influence the importance of each item in the overall mean. Empty grades are included.</td>
+    </tr>
+    <tr>
+        <td class="cell">Weighted mean of non-empty grades</td>
+        <td class="cell">Same as above, except that empty grades are ignored.</td>
+    </tr>
+    <tr>
+        <td class="cell">Mean of all grades (extra credits)</td>
+        <td class="cell">Arithmetic mean with a twist. An old, now unsupported aggregation strategy provided here only
+            for backward compatibility with old activities. Empty grades are included.</td>
+    </tr>
+    <tr>
+        <td class="cell">Mean of non-empty grades (extra credits)</td>
+        <td class="cell">Same as above, except that empty grades are ignored.</td>
+    </tr>
+
+</table>

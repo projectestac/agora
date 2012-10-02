@@ -1,0 +1,29 @@
+<!--[*  $Id: weblinks_admin_modcategory.html 44 2009-01-11 13:47:00Z herr.vorragend $  *]-->
+<!--[include file="weblinks_admin_header.html"]-->
+<div class="pn-admincontainer">
+  <div class="pn-adminpageicon"><!--[pnimg modname='core' src='folder.gif' set='icons/large' __alt='Modify a category' ]--></div>
+
+  <form class="pn-adminform" action="<!--[pnmodurl modname=Web_Links type=admin func=savemodcategory]-->" method="post" enctype="application/x-www-form-urlencoded">
+    <fieldset>
+      <legend><!--[gt text="Modify a category"]--></legend>
+      <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Web_Links"]-->" />
+      <input type="hidden" name="cid" value="<!--[$category.cid]-->" />
+
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Name"]--></label>
+        <input type="text" name="title" value="<!--[$category.title|pnvarprepfordisplay]-->" size="51" maxlength="50" />
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Description:"]--></label>
+        <textarea name="cdescription" cols="50" rows="10"><!--[$category.cdescription|pnvarprepfordisplay]--></textarea>
+      </div>
+    </fieldset>
+
+    <div class="pn-adminformrow pn-clearfix pn-adminformbuttons">
+      <!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Modify a category" __title="Modify a category"]-->
+      <a href="<!--[pnmodurl modname=Web_Links type=admin func=catview]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Back" __title="Back"]--></a>
+    </div>
+
+  </form>
+</div>
+<!--[include file="weblinks_admin_footer.html"]-->

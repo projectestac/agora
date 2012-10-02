@@ -1,0 +1,41 @@
+<!--[*  $Id: legal_admin_modifyconfig.htm 27333 2009-11-01 12:31:38Z herr.vorragend $  *]-->
+<!--[include file="legal_admin_menu.htm"]-->
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=configure.gif set=icons/large __alt="Settings"]--></div>
+    <h2><!--[gt text="Settings"]--></h2>
+    <p class="z-warningmsg"><!--[gt text='<strong>Important Usage Note</strong>: The provided legal statements are samples only. They need to be adapted to specific needs and locales. You will find the content of the statements in files in the "modules/legal/pntemplates/en" directory. These templates can be <a href="http://community.zikula.org/Wiki-TemplateOverridng.htm">overridden</a> by theme templates, or by global templates you would create in the "config/templates/legal/" directory (in the appropriate sub-directory for the language you are writing for).']--></p>
+    <form class="z-form" action="<!--[pnmodurl modname="legal" type="admin" func="updateconfig"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="legal"]-->" />
+            <fieldset>
+                <legend><!--[gt text="General settings"]--></legend>
+                <div class="z-formrow">
+                    <label for="legal_termsofuse"><!--[gt text="Terms of use"]--></label>
+                    <input id="legal_termsofuse" name="termsofuse" type="checkbox" value="1" <!--[if $termsofuse eq 1]-->checked="checked" <!--[/if]-->/>
+                </div>
+                <div class="z-formrow">
+                    <label for="legal_privacypolicy"><!--[gt text="Privacy policy"]--></label>
+                    <input id="legal_privacypolicy" name="privacypolicy" type="checkbox" value="1" <!--[if $privacypolicy eq 1]-->checked="checked" <!--[/if]-->/>
+                </div>
+                <div class="z-formrow">
+                    <label for="legal_accessibilitystatement"><!--[gt text="Accessibility statement"]--></label>
+                    <input id="legal_accessibilitystatement" name="accessibilitystatement" type="checkbox" value="1" <!--[if $accessibilitystatement eq 1]-->checked="checked" <!--[/if]-->/>
+                </div>
+                <div class="z-formrow">
+                    <label for="legal_resetagreement"><!--[gt text="Reset user group's acceptance of 'Terms of use'"]--></label>
+                    <select id="legal_resetagreement" name="resetagreement">
+                        <!--[foreach item=group from=$groups]-->
+                        <option value="<!--[$group.gid|pnvarprepfordisplay]-->"><!--[$group.name|pnvarprepfordisplay]--></option>
+                        <!--[/foreach]-->
+                    </select>
+                    <p class="z-formnote z-informationmsg"><!--[gt text="Notice: This setting resets the acceptance of the 'Terms of use' for all users in this group. Next time they want to log-in, they will have to acknowledge their acceptance of them again, and will not be able to log-in if they do not. This action does not affect the main administrator account. You can perform the same operation for individual users by visiting the Users manager in the site admin panel."]--></p>
+                </div>
+                <!--[pnmodcallhooks hookobject="module" hookaction="modifyconfig" hookid="legal" module="legal"]-->
+            </fieldset>
+            <div class="z-formbuttons">
+                <!--[pnbutton src=button_ok.gif set=icons/small __alt="Save" __title="Save"]-->
+                <a href="<!--[pnmodurl modname=Admin type=admin func=adminpanel]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small __alt="Cancel" __title="Cancel"]--></a>
+            </div>
+        </div>
+    </form>
+</div>

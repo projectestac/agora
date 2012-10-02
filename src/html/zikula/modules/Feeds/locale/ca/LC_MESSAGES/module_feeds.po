@@ -1,0 +1,391 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-10-24 04:48-0500\n"
+"PO-Revision-Date: 2010-04-27 12:56+0200\n"
+"Last-Translator: Albert Pérez Monfort <aperezm@xtec.cat>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
+
+#: pnversion.php:16 pninit.php:160 pntemplates/feeds_search_options.htm:5
+#: pntemplates/feeds_admin_menu.htm:6
+msgid "Feeds"
+msgstr "Fonts"
+
+#: pnversion.php:17 pninit.php:161
+msgid "Feed Reader."
+msgstr "Lector de fonts de notícies."
+
+#: pnblocks/displayfeed.php:30
+msgid "Display feed"
+msgstr "Mostra la font"
+
+#: pnblocks/displayfeed.php:31
+msgid "Show a feed item"
+msgstr "Mostra una entrada de la font"
+
+#: pnadminapi.php:35 pnadminapi.php:131
+msgid "The provided URL is too long (200 chars max.)."
+msgstr "La URL indicada és massa llarga (200 caràcters com a màxim)"
+
+#: pnadminapi.php:41 pnadminapi.php:137
+msgid "Invalid protocol selected. Only http and https are allowed."
+msgstr "El protocol seleccionat no és vàlid. Només s'accepten http i https."
+
+#: pnadminapi.php:50 pninit.php:42
+msgid "Error! Creation attempt failed."
+msgstr "L'intent de creació ha fallat."
+
+#: pnadminapi.php:78 pnadminapi.php:118 pnadmin.php:110 pnadmin.php:189
+msgid "No such Feed found."
+msgstr "No s'ha trobat la font."
+
+#: pnadminapi.php:87
+msgid "Error! Deletion attempt failed."
+msgstr "L'intent d'esborrament ha fallat."
+
+#: pnadminapi.php:146 pninit.php:79 pninit.php:85 pninit.php:97 pninit.php:108
+msgid "Error! Update attempt failed."
+msgstr "No s'ha pogut actualitzar"
+
+#: pnadminapi.php:220 pntemplates/feeds_admin_view.htm:3
+msgid "View Feeds"
+msgstr "Veure les fonts"
+
+#: pnadminapi.php:223 pntemplates/feeds_admin_new.htm:2
+msgid "Create a Feed"
+msgstr "Crea una font"
+
+#: pnadminapi.php:226
+msgid "Purge PermaLinks"
+msgstr "Esborra els enllaços permanents"
+
+#: pnadminapi.php:227 pntemplates/feeds_admin_modifyconfig.htm:6
+#: pntemplates/feeds_admin_modifyconfig.htm:8
+msgid "Settings"
+msgstr "Modifica la configuració"
+
+#: pnuser.php:30 pnuser.php:77 pnuser.php:295 pnuserapi.php:81 pnadmin.php:44
+#: pnadmin.php:120 pnadmin.php:266
+msgid "Error! Unable to load class [%s%]"
+msgstr "No s'ha pogut carregar la classe [%s%]"
+
+#: pnuser.php:106 pnuser.php:286 pnuser.php:318
+msgid "Invalid category"
+msgstr "La categoria no és vàlida"
+
+#: pnuser.php:149 pnuser.php:327 pnuser.php:390
+#: pntemplates/feeds_admin_view.htm:75
+msgid "No Feeds found."
+msgstr "No s'ha trobat la font."
+
+#: pnuser.php:226
+msgid "Error! Could not load any Feeds."
+msgstr "No s'ha pogut carregar cap font."
+
+#: pnuser.php:384
+msgid "Incorrect Key given. No update performed."
+msgstr "La clau proporcionada és incorrecta. No s'ha pogut actualitzar."
+
+#: pnuser.php:410
+msgid "Items updated in Feed cache"
+msgstr "Entrades modificades a la memòria cau de la font"
+
+#: pnuser.php:412
+msgid "Error"
+msgstr "Error"
+
+#: pnsearchapi.php:69 pnsearchapi.php:96 pnuserapi.php:74
+msgid "Error! Could not load any Feed."
+msgstr "No s'ha pogut carregar cap font."
+
+#: pnadmin.php:83
+msgid "Done! Feed created."
+msgstr "S'ha creat la font."
+
+#: pnadmin.php:163
+msgid "Done! Feed updated."
+msgstr "Font actualitzada."
+
+#: pnadmin.php:222
+msgid "Done! Feed deleted."
+msgstr "Font esborrada."
+
+#: pnadmin.php:248
+msgid "Purging of the pemalinks was successful"
+msgstr "Els enllaços permanents s'han esborrat correctament"
+
+#: pnadmin.php:250
+msgid "Purging of the pemalinks has failed"
+msgstr "No s'han pogut esborrar els enllaços permanents"
+
+#: pnadmin.php:306
+msgid "Edit"
+msgstr "Edició"
+
+#: pnadmin.php:311
+msgid "Delete"
+msgstr "Esborrament"
+
+#: pnadmin.php:419
+msgid "Done! Module configuration updated."
+msgstr "S'ha actualitzat la configuració del mòdul."
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:4
+#: pntemplates/feeds_user_display.htm:18
+msgid "Feed"
+msgstr "Font"
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:11
+msgid "Display feed image"
+msgstr "Mostra la imatge de la font"
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:13
+#: pntemplates/feeds_block_displayfeed_modify.htm:19
+msgid "(if available in feed)"
+msgstr "(si està disponible)"
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:17
+msgid "Display feed description"
+msgstr "Mostra la descripció de la font"
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:23
+msgid "Use alternate layout"
+msgstr "Utilitza una disposició alternativa"
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:28
+msgid "Number of items to display"
+msgstr "Nombre d'entrades que s'han de mostrar"
+
+#: pntemplates/feeds_block_displayfeed_modify.htm:30
+msgid "(upto the maximum supplied by the feed or -1 for all items)"
+msgstr "(fins el màxim subministrats per la font o -1 per a tots els articles)"
+
+#: pntemplates/feeds_user_display.htm:21 pntemplates/feeds_admin_view.htm:48
+#: pntemplates/feeds_admin_new.htm:39 pntemplates/feeds_admin_modify.htm:46
+msgid "URL"
+msgstr "URL"
+
+#: pntemplates/feeds_user_display.htm:40
+#: pntemplates/feeds_user_category.htm:41
+#, php-format
+msgid "by %s"
+msgstr "per %s"
+
+#: pntemplates/feeds_user_display.htm:46
+#: pntemplates/feeds_user_category.htm:48
+msgid "Read more"
+msgstr "Llegeix més"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:14
+msgid "General Settings"
+msgstr "Configuració general"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:16
+msgid "Enable categorization"
+msgstr "Activa l'ús de categories"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:20
+msgid "Display item names in bold"
+msgstr "Mostra els títols dels articles en negreta"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:24
+msgid "Open links in new browser window"
+msgstr "Obre els enllaços en una finestra nova"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:28
+msgid "Items per page"
+msgstr "Elements per pàgina"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:32
+msgid "Number of feeds to list per page"
+msgstr "Nombre de fonts que s'han de mostrar per pàgina"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:36
+msgid "Maximum items to add per feed"
+msgstr "Nombre màxim d'entrades que s'han d'afegir a cada font"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:38
+msgid "for combined feeds (0 to add all)"
+msgstr "per a fonts combinades (o per afegir-les totes)"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:42
+msgid "Cache Settings"
+msgstr "Configuració de la memòria cau"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:44
+msgid "Cache directory for feeds"
+msgstr "Directori de la memòria cau per a les fonts"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:46
+msgid "(relative to pnTemp)"
+msgstr "(relatives a pnTemp)"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:49
+msgid "Cache interval for feeds"
+msgstr "Memòria cau interna per a les fonts"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:51
+msgid "in seconds (3600 = 1 hour)"
+msgstr "en segons (3600 = 1 hora)"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:55
+msgid "Cron Job Settings"
+msgstr "Configuració del cron"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:57
+msgid "Using a Cron Job to update the cache"
+msgstr "Fes ús d'un cron per actualitzar la memòria cau"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:59
+msgid "(see instructions)"
+msgstr "(veure les instruccions)"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:62
+msgid "Link for using a Cron Job"
+msgstr "Enllaç per a fer ús d'un cron"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:70
+msgid "Save"
+msgstr "Desa"
+
+#: pntemplates/feeds_admin_modifyconfig.htm:71
+#: pntemplates/feeds_admin_delete.htm:20 pntemplates/feeds_admin_new.htm:48
+#: pntemplates/feeds_admin_modify.htm:66
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: pntemplates/feeds_admin_view.htm:15 pntemplates/feeds_admin_view.htm:50
+#: pntemplates/feeds_admin_new.htm:27 pntemplates/feeds_admin_modify.htm:23
+msgid "Category"
+msgstr "Categoria"
+
+#: pntemplates/feeds_admin_view.htm:16 pntemplates/feeds_admin_new.htm:28
+msgid "Choose a category"
+msgstr "Tria una categoria"
+
+#: pntemplates/feeds_admin_view.htm:38
+msgid "Filter"
+msgstr "Filtra"
+
+#: pntemplates/feeds_admin_view.htm:39
+msgid "Reset"
+msgstr "Reinicia"
+
+#: pntemplates/feeds_admin_view.htm:47 pntemplates/feeds_admin_new.htm:17
+#: pntemplates/feeds_admin_modify.htm:18
+msgid "Name"
+msgstr "Nom"
+
+#: pntemplates/feeds_admin_view.htm:52
+msgid "Actions"
+msgstr "Accions"
+
+#: pntemplates/feeds_admin_delete.htm:2
+msgid "Delete Feed"
+msgstr "Esborra la font"
+
+#: pntemplates/feeds_admin_delete.htm:11
+msgid "Do you really want to delete this Feed?"
+msgstr "Esteu segur/a de que voleu esborrar aquesta font?"
+
+#: pntemplates/feeds_admin_delete.htm:19
+msgid "Confirm deletion?"
+msgstr "Confirmació de l'esborrament de l'element"
+
+#: pntemplates/feeds_admin_new.htm:14
+msgid "New Feed"
+msgstr "Crea una font nova"
+
+#: pntemplates/feeds_admin_new.htm:21 pntemplates/feeds_admin_modify.htm:41
+msgid "PermaLink URL title"
+msgstr "Títol de l'enllaç permanent"
+
+#: pntemplates/feeds_admin_new.htm:23 pntemplates/feeds_admin_modify.htm:43
+msgid "(Blank = auto-generate)"
+msgstr "(En blanc = generat automàticament)"
+
+#: pntemplates/feeds_admin_new.htm:47
+msgid "Create"
+msgstr "Crea"
+
+#: pntemplates/feeds_admin_modify.htm:2
+msgid "Update Feed"
+msgstr "Actualitza la font"
+
+#: pntemplates/feeds_admin_modify.htm:16
+msgid "Content"
+msgstr "Contingut"
+
+#: pntemplates/feeds_admin_modify.htm:51
+msgid "Meta data"
+msgstr "Metadades"
+
+#: pntemplates/feeds_admin_modify.htm:54
+#, php-format
+msgid "Created by %s"
+msgstr "Creat per %s"
+
+#: pntemplates/feeds_admin_modify.htm:55
+#, php-format
+msgid "Created on %s"
+msgstr "Creat el %s"
+
+#: pntemplates/feeds_admin_modify.htm:57
+#, php-format
+msgid "Last update by %s"
+msgstr "Darrera actualització per %s"
+
+#: pntemplates/feeds_admin_modify.htm:58
+#, php-format
+msgid "Updated on %s"
+msgstr "Actualitzat el %s"
+
+#: pntemplates/feeds_admin_modify.htm:65
+msgid "Update"
+msgstr "Valida"
+
+#: pntemplates/feeds_user_view.htm:8
+#, php-format
+msgid "Welcome to the Feeds of %s"
+msgstr "Benvingut/da a la font de %s"
+
+#: pntemplates/feeds_user_view.htm:11
+msgid "Choose a category to see the Feeds that belongs to it"
+msgstr "Trieu la categoria a la qual pertanyen les fonts que voleu veure"
+
+#: pntemplates/feeds_user_view.htm:29 pntemplates/feeds_user_category.htm:11
+#: pntemplates/feeds_user_category.htm:13
+#, php-format
+msgid "Category: %s"
+msgstr "Categoria: %s"
+
+#: pntemplates/feeds_user_view.htm:32
+msgid "The Feeds of this category are as follows:"
+msgstr "Les fonts d'aquesta categoria són les següents:"
+
+#: pntemplates/feeds_user_view.htm:34
+msgid "View all feeds"
+msgstr "Veure totes les fonts"
+
+#: pntemplates/feeds_user_view.htm:37
+msgid "Feeds list"
+msgstr "Llista de fonts"
+
+#: pntemplates/feeds_user_view.htm:40
+msgid "Available feeds"
+msgstr "Fonts disponibles"
+
+#: pntemplates/feeds_user_updatecache.htm:3
+msgid "Cache Updated"
+msgstr "S'ha actualitzat la memòria cau"

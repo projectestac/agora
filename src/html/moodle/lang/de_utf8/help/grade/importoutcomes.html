@@ -1,0 +1,15 @@
+<h2>Importieren von Lernzielen</h2>
+<p>Lernziele können aus einer .csv Datei importiert werden. Das Format muss wie folgt gestaltet sein:</p>
+<table class="generaltable" cellpadding="4">
+    <tr> <th class="header">Feldname</th> <th class="header">Beschreibung</th> <th class="header">Erforderlich</th> <th class="header">Format</th> </tr>
+    <tr> <td class="cell">outcome_name</td> <td class="cell">Vollständiger Titel des Lernziels </td> <td class="cell">Ja</td><td class="cell">String</td> </tr>
+    <tr> <td class="cell">outcome_shortname</td><td class="cell">Kurzbezeichnung des Lernziels </td> <td class="cell">Ja</td> <td class="cell">String</td> </tr>
+    <tr> <td class="cell">outcome_description</td><td class="cell">Beschreibung des Lernziels </td> <td class="cell">Nein</td> <td class="cell">String</td> </tr>
+    <tr> <td class="cell">scale_name</td><td class="cell">Name der verwendeten Bewertungsskala</td> <td class="cell">Ja</td> <td class="cell">String</td> </tr>
+    <tr> <td class="cell">scale_items</td><td class="cell">Kommaseparierte Liste der Bewertungspunkte</td> <td class="cell">Ja</td> <td class="cell">String</td> </tr>
+    <tr> <td class="cell">scale_description</td><td class="cell">Beschreibung der Bewertungsskala  </td> <td class="cell">Nein</td> <td class="cell">String</td> </tr>
+</table>
+
+<p>Dies ist ein Beispiel:</p>
+<pre>outcome_name;outcome_shortname;outcome_description;scale_name;scale_items;scale_description
+Beteiligung;beteiligung;;Beteiligungsbewertung;"wenig oder keine Beteiligung, Befriedigende Beteiligung, Sehr gute Beteiligung";</pre>

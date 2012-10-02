@@ -1,0 +1,58 @@
+<h1>Agregación de categorías</h1>
+<p>Este menú le permite elegir la estrategia de agregación que se usará para calcular la puntuación global de cada participante en esta categoría. Las distintas opciones se explican en la tabla siguiente.</p>
+<p><strong>Importante</strong>: Una calificación vacía es simplemente una entrada ausente en el libro de calificaciones, y puede significar diferentes cosas. Por ejemplo, podría ser un participante que aún no ha enviado una tarea, una tarea enviada aún no calificada por el profesor, o una calificación que ha sido borrada manualmente por el administrador del libro de calificaciones. Por tanto, se recomienda precaución a la hora de interpretar estas "calificaciones vacías".</p>
+
+<table class="generaltable boxaligncenter" cellpadding="4" cellspacing="1" summary="Estrategias de agregación para calificar categorías">
+    <tr>
+        <th class="header">Estrategia</th><th class="header">Descripción</th>
+    </tr>
+    <tr>
+        <td class="cell">Media de todas las calificaciones</td>
+        <td class="cell">Se suman todas las calificaciones y se divide el total por el número de calificaciones. Se incluyen las calificaciones vacías (que se interpretan como el valor más bajo del elemento calificado).</td>
+    </tr>
+    <tr>
+        <td class="cell">Media de calificaciones no vacías</td>
+        <td class="cell">Lo mismo que la anterior, pero sin tener en cuenta las calificaciones vacías.</td>
+    </tr>
+    <tr>
+        <td class="cell">Mediana de todas las calificaciones</td>
+        <td class="cell">La mediana se calcula contando todas las calificaciones y seleccionando aquella que ocupa el lugar central (o la media de las dos calificaciones centrales en el caso de que el número de calificaciones sea par). La ventaja de la mediana sobre la media es que no está afectada por 'outliers' (valores muy alejados de la media). Se incluyen las calificaciones vacías.</td>
+    </tr>
+    <tr>
+        <td class="cell">Mediana de las calificaciones no vacías</td>
+        <td class="cell">Igual que la anterior, pero sin tener en cuenta las calificaciones vacías.</td>
+    </tr>
+    <tr>
+        <td class="cell">Calificación más baja de las no vacías</td>
+        <td class="cell">Sólo se mantiene la calificación más baja. Las calificaciones vacías no se tienen en cuenta.</td>
+    </tr>
+    <tr>
+        <td class="cell">Calificación más alta de las no vacías</td>
+        <td class="cell">Sólo se mantiene la calificación más alta. Las calificaciones vacías no se tienen en cuenta.</td>
+    </tr>
+    <tr>
+        <td class="cell">Moda de todas las calificaciones</td>
+        <td class="cell">La moda es la calificación más frecuente. A menudo se usa con calificaciones no numéricas. Su ventaja sobre la media es que no se ve afectada por valores 'outliers' (muy alejados de la media). Se incluyen las calificaciones vacías.</td>
+    </tr>
+    <tr>
+        <td class="cell">Moda de las calificaciones no vacías</td>
+        <td class="cell">Igual que la anterior, salvo que las calificaciones vacías no se tienen en cuenta.</td>
+    </tr>
+    <tr>
+        <td class="cell">Media ponderada de todas las calificaciones</td>
+        <td class="cell">Se otorga a cada elemento calificado un peso que se usa luego en la agregación de la media aritmética de modo que la importancia de cada elemento influye de forma diferencial sobre la media global. Se incluyen las calificaciones vacías.</td>
+    </tr>
+    <tr>
+        <td class="cell">Media ponderada de las calificaciones no vacías</td>
+        <td class="cell">Igual que la anterior, salvo que las calificaciones vacías no se tienen en cuenta.</td>
+    </tr>
+    <tr>
+        <td class="cell">Media de todas las calificaciones (créditos extra)</td>
+        <td class="cell">Media aritmética con un giro. Se trata de una estrategia antigua, en la actualidad no admitida, que se ofrece sólo para facilitar la compatibilidad retrospectiva con actividades anteriores. Se incluyen las calificaciones vacías.</td>
+    </tr>
+    <tr>
+        <td class="cell">Media de las calificaciones no vacías (créditos extra)</td>
+        <td class="cell">Igual que la anterior, salvo que las calificaciones vacías no se tienen en cuenta.</td>
+    </tr>
+
+</table>

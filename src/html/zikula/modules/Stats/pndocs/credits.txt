@@ -1,0 +1,5 @@
+Based on php-nuke stats moduke rriginal author Francisco Burzi
+
+The enhanced stats have been ported to PN by Karateka (pn@secid.de), come from an addon by warpspeed <warp_speed@gmx.net> (http://www.warp-speed.de) and are based on NetPhoenix Stats Datenbanken by PSIplus <psiplus@gmx.net> (http://www.netphoenix.at)
+
+Updated images from bbclone (http://bbclone.de/)

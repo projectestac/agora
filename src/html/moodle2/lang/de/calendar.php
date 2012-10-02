@@ -1,0 +1,166 @@
+<?php
+
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * Strings for component 'calendar', language 'de', branch 'MOODLE_23_STABLE'
+ *
+ * @package   calendar
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+defined('MOODLE_INTERNAL') || die();
+
+$string['advancedoptions'] = 'Weiterte Optionen';
+$string['allday'] = 'ganztägig';
+$string['calendar'] = 'Kalender';
+$string['calendarheading'] = '{$a} Kalender';
+$string['calendarpreferences'] = 'Kalendereinstellungen';
+$string['calendarurl'] = 'Kalender-URL: {$a}';
+$string['clickhide'] = 'Zum Verbergen klicken';
+$string['clickshow'] = 'Zum Anzeigen klicken';
+$string['commontasks'] = 'Optionen';
+$string['confirmeventdelete'] = 'Möchten Sie diesen Termin wirklich löschen?';
+$string['course'] = 'Kurs';
+$string['courseevent'] = 'Kurstermin';
+$string['courseevents'] = 'Kurstermine';
+$string['courses'] = 'Kurse';
+$string['dayview'] = 'Tagesansicht';
+$string['daywithnoevents'] = 'Heute keine Termine';
+$string['default'] = 'Grundeinstellung';
+$string['deleteevent'] = 'Termin löschen';
+$string['deleteevents'] = 'Termine löschen';
+$string['detailedmonthview'] = 'Monatsansicht';
+$string['durationminutes'] = 'Dauer in Minuten';
+$string['durationnone'] = 'Ohne Zeitangabe';
+$string['durationuntil'] = 'Bis';
+$string['editevent'] = 'Termin bearbeiten';
+$string['errorbeforecoursestart'] = 'Der angegebene Termin liegt vor dem Kursbeginn. Bitte korrigieren Sie den Eintrag.';
+$string['errorinvaliddate'] = 'Ungültiges Datum';
+$string['errorinvalidminutes'] = 'Geben Sie die Dauer in Minuten ein (Zahl zwischen 1 und 999)';
+$string['errorinvalidrepeats'] = 'Geben Sie die Zahl der Termine ein (Zahl zwischen 1 und 99)';
+$string['errornodescription'] = 'Eine Beschreibung für den Termin ist erforderlich';
+$string['errornoeventname'] = 'Eine Bezeichnung für den Termin ist erforderlich';
+$string['eventdate'] = 'Datum';
+$string['eventdescription'] = 'Beschreibung';
+$string['eventduration'] = 'Dauer';
+$string['eventendtime'] = 'Endzeit';
+$string['eventinstanttime'] = 'Zeit';
+$string['eventkind'] = 'Art des Termins';
+$string['eventname'] = 'Name';
+$string['eventnone'] = 'Keine Termine vorhanden';
+$string['eventrepeat'] = 'Wiederholungen';
+$string['eventsall'] = 'Alle Termine';
+$string['eventsfor'] = '{$a} Termine';
+$string['eventskey'] = 'Terminschlüssel';
+$string['eventsrelatedtocourses'] = 'Kursverbundene Termine';
+$string['eventstarttime'] = 'Anfangszeit';
+$string['eventtime'] = 'Zeit';
+$string['eventview'] = 'Details zu den Terminen';
+$string['expired'] = 'Abgeschlossen';
+$string['explain_site_timeformat'] = 'Sie können auswählen, ob die Zeiten für die gesamte Website im Format mit 12 oder 24 Stunden angezeigt werden. Wenn Sie das Standardformat wählen, wird das Format automatisch aus den gewählten Spracheinstellungen verwendet. Die Einstellung kann im Nutzerprofil überschrieben werden.';
+$string['export'] = 'Export';
+$string['exportbutton'] = 'Export';
+$string['exportcalendar'] = 'Kalender exportieren';
+$string['for'] = 'für';
+$string['fri'] = 'Fr';
+$string['friday'] = 'Freitag';
+$string['generateurlbutton'] = 'Kalender-URL abfragen';
+$string['global'] = 'Allgemein';
+$string['globalevent'] = 'Allgemeiner Termin';
+$string['globalevents'] = 'Allgemeine Termine';
+$string['gotocalendar'] = 'Zum Kalender';
+$string['group'] = 'Gruppe';
+$string['groupevent'] = 'Gruppentermin';
+$string['groupevents'] = 'Gruppentermine';
+$string['hidden'] = 'verborgen';
+$string['ical'] = 'iCal';
+$string['invalidtimedurationminutes'] = 'Die von Ihnen angegebene Dauer in Minuten ist ungültig. Bitte tragen Sie eine Zahl größer als 0 ein oder wählen Sie \'Ohne Zeitangabe\' aus.';
+$string['invalidtimedurationuntil'] = 'Der von Ihnen gewählten Wert für Datum und Zeit der Einstellung \'Dauer bis\' liegt vor der Startzeit des Termins. Bitte korrigieren Sie dies, bevor Sie weitermachen.';
+$string['iwanttoexport'] = 'Export';
+$string['manyevents'] = '{$a} Termine';
+$string['mon'] = 'Mo';
+$string['monday'] = 'Montag';
+$string['monthlyview'] = 'Monatsübersicht';
+$string['monthnext'] = 'Nächster Monat';
+$string['monththis'] = 'Dieser Monat';
+$string['newevent'] = 'Neuer Termin';
+$string['noupcomingevents'] = 'Es gibt keine weiteren Termine';
+$string['oneevent'] = '1 Termin';
+$string['preferences'] = 'Einstellungen';
+$string['preferences_available'] = 'Persönliche Einstellungen';
+$string['pref_lookahead'] = 'Terminvorschau';
+$string['pref_lookahead_help'] = 'Diese Einstellung setzt die (maximale) Anzahl von Tagen, die ein bevorstehender Termin in der Zukunft liegen darf, um in der Terminvorschau angezeigt zu werden. Noch spätere Termine werden nicht angezeigt.
+
+Bitte bedenken Sie, dass eventuell nicht alle Termine in diesem Zeitfenster angezeigt werden können, wenn es zu viele, nämlich mehr Termine als die "Höchstzahl bevorstehender Termine" sind.';
+$string['pref_maxevents'] = 'Höchstzahl bevorstehender Termine';
+$string['pref_maxevents_help'] = 'Diese Einstellung setzt die  Höchstzahl bevorstehender Termine, die angezeigt werden. Wenn Sie hier eine große Zahl wählen, ist es möglich, dass die Anzeige der bevorstehenden Termine viel Platz auf der Webseite verbraucht.
+';
+$string['pref_persistflt'] = 'Filtereinstellungen merken';
+$string['pref_persistflt_help'] = 'Wenn diese Option aktiviert ist, wird Moodle sich Ihre letzten Terminfiltereinstellungen merken und immer automatisch wiederherstellen, wenn Sie sich einloggen.';
+$string['pref_startwday'] = 'Wochenbeginn';
+$string['pref_startwday_help'] = 'Kalenderwochen werden mit dem von Ihnen hier ausgewählten Wochenbeginn angezeigt';
+$string['pref_timeformat'] = 'Zeitanzeigeformat';
+$string['pref_timeformat_help'] = 'Sie können auswählen, ob die Zeiten im Format mit 12 oder 24 Stunden angezeigt werden. Wenn Sie das Standardformat wählen, wird das Format automatisch aus den gewählten Spracheinstellungen verwendet.';
+$string['quickdownloadcalendar'] = 'Schneller Download / Kalender-Abo';
+$string['recentupcoming'] = 'Vergangene und nachfolgende 60 Tage';
+$string['repeatedevents'] = 'Sich wiederholende Termine';
+$string['repeateditall'] = 'Änderungen für alle {$a} Termine der Reihe übernehmen';
+$string['repeateditthis'] = 'Veränderungen nur an diesem einen Termin vornehmen';
+$string['repeatevent'] = 'Termin wiederholen';
+$string['repeatnone'] = 'Keine Wiederholungen';
+$string['repeatweeksl'] = 'Wöchentliche Wiederholung, automatische Erstellung';
+$string['repeatweeksr'] = 'Termine';
+$string['sat'] = 'Sa';
+$string['saturday'] = 'Samstag';
+$string['shown'] = 'angezeigt';
+$string['spanningevents'] = 'Folgetermin/e';
+$string['sun'] = 'So';
+$string['sunday'] = 'Sonntag';
+$string['thu'] = 'Do';
+$string['thursday'] = 'Donnerstag';
+$string['timeformat_12'] = '12-Stunden-Anzeige';
+$string['timeformat_24'] = '24-Stunden-Anzeige';
+$string['today'] = 'Heute';
+$string['tomorrow'] = 'Morgen';
+$string['tt_deleteevent'] = 'Termin löschen';
+$string['tt_editevent'] = 'Termin bearbeiten';
+$string['tt_hidecourse'] = 'Kurstermine werden angezeigt (klicken Sie hier, um sie zu verbergen).';
+$string['tt_hideglobal'] = 'Globale Termine werden angezeigt (klicken Sie hier, um sie zu verbergen ).';
+$string['tt_hidegroups'] = 'Gruppentermine werden angezeigt (klicken Sie hier, um sie zu verbergen).';
+$string['tt_hideuser'] = 'Teilnehmertermine werden angezeigt (klicken Sie hier, um sie zu verbergen).';
+$string['tt_showcourse'] = 'Kurstermine sind verborgen (klicken Sie hier, um sie anzuzeigen).';
+$string['tt_showglobal'] = 'Globale Termine sind verborgen (klicken Sie hier, um sie anzuzeigen).';
+$string['tt_showgroups'] = 'Gruppentermine sind verborgen (klicken Sie hier, um sie anzuzeigen).';
+$string['tt_showuser'] = 'Teilnehmertermine sind verborgen (klicken Sie hier, um sie anzuzeigen).';
+$string['tue'] = 'Di';
+$string['tuesday'] = 'Dienstag';
+$string['typecourse'] = 'Kurstermin';
+$string['typegroup'] = 'Termin meiner Gruppen';
+$string['typesite'] = 'Allgemeiner Termin';
+$string['typeuser'] = 'Persönlicher Termin';
+$string['upcomingevents'] = 'Aktuelle Termine';
+$string['urlforical'] = 'URL des iCal-Exports für ein Kalender-Abo';
+$string['user'] = 'Teilnehmer/in';
+$string['userevent'] = 'Persönlicher Termin';
+$string['userevents'] = 'Persönliche Termine';
+$string['wed'] = 'Mi';
+$string['wednesday'] = 'Mittwoch';
+$string['weeknext'] = 'Nächste Woche';
+$string['weekthis'] = 'Diese Woche';
+$string['yesterday'] = 'Gestern';
+$string['youcandeleteallrepeats'] = 'Dieser Termin ist Teil einer ganzen Reihe von Terminen. Sie können diesen einzelnen Termin oder alle {$a} Termine dieser Reihe auf einmal löschen.';

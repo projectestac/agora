@@ -1,0 +1,1934 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-29 12:41+0100\n"
+"PO-Revision-Date: 2010-06-23 10:41+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnblocks/calendar.php:50
+msgid "Calendar"
+msgstr "Calendario"
+
+#: pnblocks/next.php:52
+msgid "Notes for the next days"
+msgstr "Anotaciones para los próximos días"
+
+#: pnblocks/next.php:106
+#: pnuser.php:246
+#: pnuser.php:384
+#: pnuser.php:1600
+#: pnuser.php:2889
+#: pnuser.php:3427
+#: pnuser.php:3820
+#: pntemplates/iw_agendas_user_edit.htm:112
+#: pntemplates/iw_agendas_user_new.htm:198
+msgid "All day"
+msgstr "Todo el día"
+
+#: pnblocks/next.php:119
+msgid "There are no events in the agenda for the next "
+msgstr "No tiene anotaciones en la agenda en los próximos "
+
+#: pnblocks/next.php:119
+#: pntemplates/iw_agendas_block_next.htm:99
+msgid " days"
+msgstr " días"
+
+#: pnblocks/next.php:161
+msgid "Number of days to show in the block"
+msgstr "Días vista que se mostrarán en el bloque"
+
+#: pnuserapi.php:16
+#: pnuserapi.php:87
+#: pnuserapi.php:162
+#: pnuserapi.php:192
+#: pnuserapi.php:233
+#: pnuserapi.php:283
+#: pnuserapi.php:326
+#: pnuserapi.php:368
+#: pnuserapi.php:400
+#: pnuserapi.php:425
+#: pnuserapi.php:454
+#: pnuserapi.php:478
+#: pnuserapi.php:506
+#: pnuserapi.php:550
+#: pnuserapi.php:585
+#: pnuserapi.php:621
+#: pnuserapi.php:666
+#: pnuserapi.php:708
+#: pnuserapi.php:759
+#: pnuserapi.php:836
+#: pnuserapi.php:908
+#: pnuserapi.php:1007
+#: pnuserapi.php:1049
+#: pnuserapi.php:1091
+#: pnuserapi.php:1166
+#: pnuserapi.php:1202
+#: pnuserapi.php:1241
+#: pnuserapi.php:1295
+#: pnuserapi.php:1348
+#: pnuserapi.php:1372
+#: pnuserapi.php:1412
+#: pnuserapi.php:1479
+#: pnuserapi.php:1516
+#: pnuser.php:37
+#: pnuser.php:507
+#: pnuser.php:615
+#: pnuser.php:642
+#: pnuser.php:879
+#: pnuser.php:942
+#: pnuser.php:991
+#: pnuser.php:1242
+#: pnuser.php:1663
+#: pnuser.php:1754
+#: pnuser.php:1931
+#: pnuser.php:2077
+#: pnuser.php:2254
+#: pnuser.php:2480
+#: pnuser.php:2536
+#: pnuser.php:2744
+#: pnuser.php:2811
+#: pnuser.php:2926
+#: pnuser.php:2960
+#: pnuser.php:3003
+#: pnuser.php:3052
+#: pnuser.php:3131
+#: pnuser.php:3200
+#: pnuser.php:3247
+#: pnuser.php:3587
+#: pnuser.php:3612
+#: pnuser.php:3626
+#: pnuser.php:3646
+#: pnuser.php:3689
+#: pnuser.php:3704
+#: pnuser.php:3732
+#: pnadminapi.php:22
+#: pnadminapi.php:78
+#: pnadminapi.php:140
+#: pnajax.php:13
+#: pnajax.php:41
+#: pnajax.php:107
+#: pnajax.php:199
+#: pnajax.php:237
+#: pnajax.php:262
+#: pnajax.php:294
+#: pnajax.php:331
+#: pnajax.php:364
+#: pnajax.php:399
+#: pnadmin.php:12
+#: pnadmin.php:67
+#: pnadmin.php:87
+#: pnadmin.php:107
+#: pnadmin.php:176
+#: pnadmin.php:251
+#: pnadmin.php:287
+#: pnadmin.php:372
+#: pnadmin.php:449
+#: pnadmin.php:534
+#: pnadmin.php:615
+#: pnadmin.php:670
+#: pnadmin.php:719
+#: pnadmin.php:920
+#: pnadmin.php:975
+#: pnadmin.php:1105
+#: pnadmin.php:1304
+msgid "Sorry! No authorization to access this module."
+msgstr "Disculpa! No tienes autorización para ejecutar esa acción en este módulo."
+
+#: pnuserapi.php:36
+#: pnuserapi.php:64
+#: pnuserapi.php:146
+#: pnuserapi.php:173
+#: pnuserapi.php:202
+#: pnuserapi.php:254
+#: pnuserapi.php:294
+#: pnuserapi.php:342
+#: pnuserapi.php:385
+#: pnuserapi.php:435
+#: pnuserapi.php:488
+#: pnuserapi.php:533
+#: pnuserapi.php:564
+#: pnuserapi.php:631
+#: pnuserapi.php:680
+#: pnuserapi.php:1059
+#: pnuserapi.php:1130
+#: pnuserapi.php:1183
+#: pnuserapi.php:1357
+#: pnuserapi.php:1394
+#: pnuserapi.php:1431
+#: pnuserapi.php:1458
+#: pnuserapi.php:1499
+#: pnuserapi.php:1533
+msgid "Error! Could not load items."
+msgstr "Error! No se logró cargar los elementos."
+
+#: pnuserapi.php:58
+#: pnuserapi.php:330
+#: pnuserapi.php:372
+#: pnuserapi.php:510
+#: pnuserapi.php:554
+#: pnuserapi.php:589
+#: pnuserapi.php:625
+#: pnuserapi.php:670
+#: pnuserapi.php:712
+#: pnuserapi.php:763
+#: pnuserapi.php:840
+#: pnuserapi.php:912
+#: pnuserapi.php:1011
+#: pnuserapi.php:1095
+#: pnuserapi.php:1170
+#: pnuserapi.php:1206
+#: pnuserapi.php:1299
+#: pnuserapi.php:1452
+#: pnuser.php:564
+#: pnuser.php:1667
+#: pnuser.php:1758
+#: pnuser.php:2260
+#: pnuser.php:2815
+#: pnuser.php:3007
+#: pnuser.php:3210
+#: pnadminapi.php:27
+#: pnadminapi.php:83
+#: pnadminapi.php:145
+#: pnadmin.php:184
+#: pnadmin.php:380
+#: pnadmin.php:480
+#: pnadmin.php:572
+#: pnadmin.php:643
+#: pnadmin.php:696
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "Error! Argumentos erróneos. Por favor verifica los datos e inténtalo de nuevo."
+
+#: pnuserapi.php:209
+#: pnuserapi.php:880
+#: pnuserapi.php:985
+#: pnadminapi.php:115
+msgid "Error! Creation attempt failed."
+msgstr "Error! Intento de creación fallido."
+
+#: pnuserapi.php:215
+#: pnuserapi.php:349
+#: pnuserapi.php:408
+#: pnuserapi.php:462
+#: pnuserapi.php:605
+#: pnuserapi.php:690
+#: pnuserapi.php:889
+#: pnuserapi.php:1148
+#: pnuserapi.php:1223
+#: pnadminapi.php:33
+msgid "Error! Update attempt failed."
+msgstr "Error! Intento de actualización fallido."
+
+#: pnuserapi.php:239
+#: pnuserapi.php:523
+#: pnuserapi.php:599
+#: pnuserapi.php:647
+#: pnuserapi.php:732
+#: pnuserapi.php:776
+#: pnuserapi.php:846
+#: pnuserapi.php:931
+#: pnuserapi.php:961
+#: pnuserapi.php:1022
+#: pnuserapi.php:1026
+#: pnuserapi.php:1106
+#: pnuserapi.php:1110
+#: pnuserapi.php:1216
+#: pnuserapi.php:1256
+#: pnuserapi.php:1309
+#: pnuser.php:143
+#: pnuser.php:674
+#: pnuser.php:1689
+#: pnuser.php:1696
+#: pnuser.php:1781
+#: pnuser.php:1837
+#: pnuser.php:1952
+#: pnuser.php:1965
+#: pnuser.php:2001
+#: pnuser.php:2055
+#: pnuser.php:2292
+#: pnuser.php:2572
+#: pnuser.php:2581
+#: pnuser.php:2764
+#: pnuser.php:2773
+#: pnuser.php:2837
+#: pnuser.php:2845
+#: pnuser.php:3019
+#: pnuser.php:3026
+#: pnuser.php:3064
+#: pnuser.php:3485
+#: pnajax.php:67
+#: pnajax.php:73
+#: pnajax.php:78
+#: pnajax.php:139
+msgid "You are not allowed to administrate the agendas"
+msgstr "No está autorizado/a para administrar las agendas."
+
+#: pnuserapi.php:260
+#: pnuserapi.php:300
+#: pnuserapi.php:735
+#: pnuserapi.php:1030
+#: pnadminapi.php:148
+#: pnadminapi.php:158
+#: pnadminapi.php:164
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr "Error! Intento de borrado fallido."
+
+#: pnuserapi.php:514
+#: pnuserapi.php:593
+#: pnuserapi.php:638
+#: pnuserapi.php:716
+#: pnuserapi.php:722
+#: pnuserapi.php:767
+#: pnuserapi.php:916
+#: pnuserapi.php:922
+#: pnuserapi.php:1015
+#: pnuserapi.php:1099
+#: pnuserapi.php:1174
+#: pnuserapi.php:1210
+#: pnuserapi.php:1250
+#: pnuserapi.php:1303
+#: pnuser.php:664
+#: pnuser.php:1674
+#: pnuser.php:1766
+#: pnuser.php:1937
+#: pnuser.php:2266
+#: pnuser.php:2555
+#: pnuser.php:2749
+#: pnuser.php:2819
+#: pnuser.php:3012
+#: pnajax.php:54
+#: pnajax.php:122
+msgid "Event not found"
+msgstr "No se ha encontrado la anotación sobre la que hacer la acción solicitada."
+
+#: pnuserapi.php:951
+#: pnuser.php:264
+#: pnuser.php:431
+#: pnuser.php:2438
+msgid " on "
+msgstr " el día "
+
+#: pnuserapi.php:951
+#: pnuser.php:264
+#: pnuser.php:431
+#: pnuser.php:2438
+msgid " at "
+msgstr " a las "
+
+#: pnuserapi.php:1277
+#: pnuserapi.php:1330
+msgid "An error has occurred while updating the subscription to the agenda"
+msgstr "Se ha producido un error al modificar la suscripción a la agenda."
+
+#: pninit.php:24
+#: pninit.php:110
+msgid "Module iw_main is required. You have to install the iw_main module previously to install it."
+msgstr "El módulo iw_main debe estar instalado. Instálalo antes de instalar este módulo."
+
+#: pninit.php:62
+msgid "You has been added to a new agenda as moderator. You can access the agenda throught the main menu. <br><br>The administrator"
+msgstr "Ha sido dado de alta como responsable a una agenda nueva. Podrá acceder a esta agenda des del menú.<br><br>El administrador"
+
+#: pninit.php:63
+#: pntemplates/iw_agendas_admin_addGroup.htm:33
+#: pntemplates/iw_agendas_admin_addManager.htm:34
+msgid "You has been added to a new agenda. You can access the agenda throught the main menu. <br><br>The administrator"
+msgstr "Ha sido añadido a una nueva agenda. Puede acceder a la agenda a través del menú principal. <br><br>El administrador"
+
+#: pnuser.php:81
+#: pnuser.php:724
+#: pnuser.php:1135
+#: pnuser.php:2091
+#: pnuser.php:2317
+#: pnuser.php:3767
+#: pnadmin.php:722
+#: pnadmin.php:1018
+msgid "January"
+msgstr "Enero"
+
+#: pnuser.php:82
+#: pnuser.php:726
+#: pnuser.php:1137
+#: pnuser.php:2092
+#: pnuser.php:2319
+#: pnuser.php:3768
+#: pnadmin.php:722
+#: pnadmin.php:1020
+msgid "February"
+msgstr "Febrero"
+
+#: pnuser.php:83
+#: pnuser.php:728
+#: pnuser.php:1139
+#: pnuser.php:2093
+#: pnuser.php:2321
+#: pnuser.php:3769
+#: pnadmin.php:722
+#: pnadmin.php:1022
+msgid "March"
+msgstr "Marzo"
+
+#: pnuser.php:84
+#: pnuser.php:730
+#: pnuser.php:1141
+#: pnuser.php:2094
+#: pnuser.php:2323
+#: pnuser.php:3770
+#: pnadmin.php:722
+#: pnadmin.php:1024
+msgid "April"
+msgstr "Abril"
+
+#: pnuser.php:85
+#: pnuser.php:732
+#: pnuser.php:1143
+#: pnuser.php:2095
+#: pnuser.php:2325
+#: pnuser.php:3771
+#: pnadmin.php:722
+#: pnadmin.php:1026
+msgid "May"
+msgstr "Mayo"
+
+#: pnuser.php:86
+#: pnuser.php:734
+#: pnuser.php:1145
+#: pnuser.php:2096
+#: pnuser.php:2327
+#: pnuser.php:3772
+#: pnadmin.php:722
+#: pnadmin.php:1028
+msgid "June"
+msgstr "Junio"
+
+#: pnuser.php:87
+#: pnuser.php:736
+#: pnuser.php:1147
+#: pnuser.php:2097
+#: pnuser.php:2329
+#: pnuser.php:3773
+#: pnadmin.php:722
+#: pnadmin.php:1030
+msgid "July"
+msgstr "Julio"
+
+#: pnuser.php:88
+#: pnuser.php:738
+#: pnuser.php:1149
+#: pnuser.php:2098
+#: pnuser.php:2331
+#: pnuser.php:3774
+#: pnadmin.php:722
+#: pnadmin.php:1032
+msgid "August"
+msgstr "Agosto"
+
+#: pnuser.php:89
+#: pnuser.php:740
+#: pnuser.php:1151
+#: pnuser.php:2087
+#: pnuser.php:2333
+#: pnuser.php:3775
+#: pnadmin.php:722
+#: pnadmin.php:1034
+msgid "September"
+msgstr "Setiembre"
+
+#: pnuser.php:90
+#: pnuser.php:742
+#: pnuser.php:1153
+#: pnuser.php:2088
+#: pnuser.php:2335
+#: pnuser.php:3776
+#: pnadmin.php:722
+#: pnadmin.php:1036
+msgid "October"
+msgstr "Octubre"
+
+#: pnuser.php:91
+#: pnuser.php:744
+#: pnuser.php:1155
+#: pnuser.php:2089
+#: pnuser.php:2337
+#: pnuser.php:3777
+#: pnadmin.php:722
+#: pnadmin.php:1038
+msgid "November"
+msgstr "Noviembre"
+
+#: pnuser.php:92
+#: pnuser.php:746
+#: pnuser.php:1157
+#: pnuser.php:2090
+#: pnuser.php:2339
+#: pnuser.php:3778
+#: pnadmin.php:722
+#: pnadmin.php:1040
+msgid "December"
+msgstr "Diciembre"
+
+#: pnuser.php:94
+#: pnadmin.php:726
+msgid "January of"
+msgstr "de enero de"
+
+#: pnuser.php:95
+#: pnadmin.php:726
+msgid "February of"
+msgstr "de febrero de"
+
+#: pnuser.php:96
+#: pnadmin.php:726
+msgid "March of"
+msgstr "de marzo de"
+
+#: pnuser.php:97
+#: pnadmin.php:726
+msgid "April of"
+msgstr "de abril de"
+
+#: pnuser.php:98
+#: pnadmin.php:726
+msgid "May of"
+msgstr "de mayo de"
+
+#: pnuser.php:99
+#: pnadmin.php:726
+msgid "June of"
+msgstr "de junio de"
+
+#: pnuser.php:100
+#: pnadmin.php:726
+msgid "July of"
+msgstr "de julio de"
+
+#: pnuser.php:101
+#: pnadmin.php:726
+msgid "August of"
+msgstr "de agosto de"
+
+#: pnuser.php:102
+#: pnadmin.php:726
+msgid "September of"
+msgstr "de setiembre de"
+
+#: pnuser.php:103
+#: pnadmin.php:726
+msgid "October of"
+msgstr "de octubre de"
+
+#: pnuser.php:104
+#: pnadmin.php:726
+msgid "November of"
+msgstr "de noviembre de"
+
+#: pnuser.php:105
+#: pnadmin.php:726
+msgid "December of"
+msgstr "de diciembre de"
+
+#: pnuser.php:107
+#: pnuser.php:114
+#: pnuser.php:2117
+#: pnuser.php:3780
+msgid "Sunday"
+msgstr "Domingo"
+
+#: pnuser.php:108
+#: pnuser.php:2111
+#: pnuser.php:3781
+msgid "Monday"
+msgstr "Lunes"
+
+#: pnuser.php:109
+#: pnuser.php:2112
+#: pnuser.php:3782
+msgid "Tuesday"
+msgstr "Martes"
+
+#: pnuser.php:110
+#: pnuser.php:2113
+#: pnuser.php:3783
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#: pnuser.php:111
+#: pnuser.php:2114
+#: pnuser.php:3784
+msgid "Thursday"
+msgstr "Jueves"
+
+#: pnuser.php:112
+#: pnuser.php:2115
+#: pnuser.php:3785
+msgid "Friday"
+msgstr "Viernes"
+
+#: pnuser.php:113
+#: pnuser.php:2116
+#: pnuser.php:3786
+msgid "Saturday"
+msgstr "Sábado"
+
+#: pnuser.php:244
+#: pnuser.php:246
+#: pnuser.php:382
+#: pnuser.php:1002
+#: pnuser.php:1805
+#: pnuser.php:2285
+msgid "Task"
+msgstr "Tarea"
+
+#: pnuser.php:326
+#: pnuser.php:1079
+#: pnuser.php:1812
+#: pnuser.php:2389
+#: pntemplates/iw_agendas_user_selectagenda.htm:12
+msgid "Date"
+msgstr "Fecha"
+
+#: pnuser.php:327
+#: pntemplates/iw_agendas_user_selectagenda.htm:16
+#: pntemplates/iw_agendas_user_edit.htm:96
+#: pntemplates/iw_agendas_user_new.htm:140
+msgid "Time"
+msgstr "Hora"
+
+#: pnuser.php:332
+#: pntemplates/iw_agendas_admin_main.htm:22
+#: pntemplates/iw_agendas_admin_conf.htm:211
+#: pntemplates/iw_agendas_admin_conf.htm:253
+#: pntemplates/iw_agendas_admin_conf.htm:319
+#: pntemplates/iw_agendas_admin_conf.htm:375
+msgid "Options"
+msgstr "Opciones"
+
+#: pnuser.php:343
+#: pnuser.php:3832
+#: pnadmin.php:817
+msgid "There are no events on this date"
+msgstr "No hay ninguna anotación en esta fecha."
+
+#: pnuser.php:345
+msgid "There are no events in the agenda"
+msgstr "Este mes no tiene anotaciones en la agenda."
+
+#: pnuser.php:384
+msgid "Task expiration"
+msgstr "Vencimiento de la tarea"
+
+#: pnuser.php:512
+#: pnajax.php:91
+msgid "Delete protection against automatic deletion for this event"
+msgstr "Elimina la protección de borrado automático de la nota"
+
+#: pnuser.php:512
+#: pnajax.php:91
+#: pntemplates/iw_agendas_admin_mainChars.htm:11
+#: pntemplates/iw_agendas_user_edit.htm:138
+#: pntemplates/iw_agendas_user_new.htm:225
+msgid "Protected? "
+msgstr "¿Protegidas? "
+
+#: pnuser.php:515
+#: pnajax.php:176
+msgid "Show"
+msgstr "Muestra"
+
+#: pnuser.php:515
+#: pnajax.php:176
+msgid "Mark as not completed"
+msgstr "Marca como no completada"
+
+#: pnuser.php:518
+#: pnajax.php:179
+#: pntemplates/iw_agendas_admin_conf.htm:92
+#: pntemplates/iw_agendas_admin_conf.htm:109
+msgid "Hide"
+msgstr "Esconde"
+
+#: pnuser.php:518
+#: pnajax.php:179
+msgid "Mark as completed"
+msgstr "Marca como completada"
+
+#: pnuser.php:521
+#: pntemplates/iw_agendas_admin_edit.htm:8
+#: pntemplates/iw_agendas_admin_main.htm:77
+#: pntemplates/iw_agendas_admin_conf.htm:90
+#: pntemplates/iw_agendas_admin_conf.htm:107
+#: pntemplates/iw_agendas_admin_conf.htm:225
+#: pntemplates/iw_agendas_admin_conf.htm:267
+#: pntemplates/iw_agendas_admin_conf.htm:340
+#: pntemplates/iw_agendas_admin_conf.htm:389
+msgid "Edit"
+msgstr "Edita la agenda"
+
+#: pnuser.php:525
+#: pnuser.php:527
+#: pntemplates/iw_agendas_admin_main.htm:46
+#: pntemplates/iw_agendas_admin_main.htm:60
+#: pntemplates/iw_agendas_admin_main.htm:80
+#: pntemplates/iw_agendas_user_menu.htm:31
+#: pntemplates/iw_agendas_admin_conf.htm:91
+#: pntemplates/iw_agendas_admin_conf.htm:108
+#: pntemplates/iw_agendas_admin_conf.htm:228
+#: pntemplates/iw_agendas_admin_conf.htm:270
+#: pntemplates/iw_agendas_admin_conf.htm:343
+#: pntemplates/iw_agendas_admin_conf.htm:392
+#: pntemplates/iw_agendas_admin_delete.htm:11
+msgid "Delete"
+msgstr "Borra"
+
+#: pnuser.php:540
+msgid "Send register to my personal agenda"
+msgstr "Envía el registro a mi agenda personal"
+
+#: pnuser.php:570
+#: pnajax.php:214
+#: pnajax.php:309
+#: pnadmin.php:92
+#: pnadmin.php:256
+#: pnadmin.php:292
+#: pnadmin.php:454
+#: pnadmin.php:539
+#: pnadmin.php:620
+#: pnadmin.php:675
+msgid "The agenda was not found"
+msgstr "No se ha encontrado la agenda sobre la cual hacer la acción solicitada."
+
+#: pnuser.php:679
+#: pnuser.php:890
+#: pnuser.php:1078
+#: pnuser.php:2858
+#: pnuser.php:2859
+msgid "Personal"
+msgstr "Personal"
+
+#: pnuser.php:793
+#: pnuser.php:1078
+#: pntemplates/iw_agendas_user_main.htm:115
+msgid "Insert a new event"
+msgstr "Inserta una nueva anotación en la agenda"
+
+#: pnuser.php:801
+#: pnuser.php:1084
+msgid "Add a new task"
+msgstr "Inserta una nueva tarea en la agenda"
+
+#: pnuser.php:810
+msgid "Calendar view"
+msgstr "Muestra en forma de calendario"
+
+#: pnuser.php:816
+msgid "List view"
+msgstr "Muestra en forma de lista"
+
+#: pnuser.php:825
+msgid "Subscribe automaticaly everybody with access to this agenda"
+msgstr "Subscribe automáticamente a esta agenda a quien tenga accesso a ella"
+
+#: pnuser.php:832
+msgid "Refresh"
+msgstr "Actualiza"
+
+#: pnuser.php:839
+#: pntemplates/iw_agendas_admin_conf.htm:289
+msgid "School calendar"
+msgstr "Calendario escolar"
+
+#: pnuser.php:852
+msgid "Delete events previous to given date"
+msgstr "Borra las anotaciones anteriores a una fecha determina "
+
+#: pnuser.php:892
+#: pnuser.php:999
+#: pnuser.php:1803
+#: pnuser.php:2282
+#: pntemplates/iw_agendas_user_selectagenda.htm:20
+msgid "Event"
+msgstr "Anotación"
+
+#: pnuser.php:893
+#: pnuser.php:1006
+#: pnuser.php:2288
+#: pntemplates/iw_agendas_user_selectagenda.htm:24
+#: pntemplates/iw_agendas_admin_conf.htm:89
+#: pntemplates/iw_agendas_admin_conf.htm:106
+#: pntemplates/iw_agendas_user_delete.htm:11
+msgid "More information"
+msgstr "Más información"
+
+#: pnuser.php:1022
+#: pnuser.php:1263
+#: pnuser.php:2305
+#: pnuser.php:3165
+#: pnuser.php:3220
+msgid "You are not allowed to do that"
+msgstr "No está autoritzado a llevar a cabo esta acción."
+
+#: pnuser.php:1055
+msgid "on"
+msgstr "en"
+
+#: pnuser.php:1055
+msgid "at"
+msgstr "a las"
+
+#: pnuser.php:1076
+#: pnuser.php:2386
+msgid "Create event"
+msgstr "Crea la anotación"
+
+#: pnuser.php:1077
+#: pnuser.php:1305
+#: pnuser.php:2387
+#: pnuser.php:2590
+msgid "You haven't written the event"
+msgstr "No habéis escrito la anotación."
+
+#: pnuser.php:1082
+#: pnuser.php:2391
+msgid "Create task"
+msgstr "Crea la tarea"
+
+#: pnuser.php:1083
+#: pnuser.php:1305
+#: pnuser.php:2392
+msgid "You haven't written the task"
+msgstr "No habéis escrito la tarea."
+
+#: pnuser.php:1085
+#: pnuser.php:1814
+#: pnuser.php:2394
+msgid "Expiry date "
+msgstr "Fecha de vencimiento"
+
+#: pnuser.php:1183
+msgid "Daily"
+msgstr "A diario"
+
+#: pnuser.php:1185
+msgid "Weekly"
+msgstr "Semanalmente"
+
+#: pnuser.php:1187
+msgid "Monthly"
+msgstr "Mensualmente"
+
+#: pnuser.php:1189
+msgid "Every year"
+msgstr "Anualmente"
+
+#: pnuser.php:1191
+msgid "Every (days)"
+msgstr "Cada el número de días que indico a continuación"
+
+#: pnuser.php:1270
+#: pnuser.php:1306
+#: pnuser.php:1347
+#: pnuser.php:1378
+#: pntemplates/iw_agendas_user_error.htm:2
+#: pntemplates/iw_agendas_user_menu.htm:2
+#: pntemplates/iw_agendas_admin_menu.htm:4
+msgid "Agenda administration"
+msgstr "Administración de las agendas"
+
+#: pnuser.php:1271
+#: pnuser.php:2546
+#: pnuser.php:3143
+#: pnadmin.php:1146
+#: pnadmin.php:1177
+#: pntemplates/iw_agendas_user_edit.htm:15
+#: pntemplates/iw_agendas_user_edit.htm:46
+#: pntemplates/iw_agendas_user_edit.htm:48
+#: pntemplates/iw_agendas_user_edit.htm:50
+#: pntemplates/iw_agendas_user_edit.htm:52
+#: pntemplates/iw_agendas_user_edit.htm:54
+#: pntemplates/iw_agendas_user_edit.htm:57
+#: pntemplates/iw_agendas_user_new.htm:41
+#: pntemplates/iw_agendas_user_new.htm:87
+#: pntemplates/iw_agendas_user_new.htm:89
+#: pntemplates/iw_agendas_user_new.htm:91
+#: pntemplates/iw_agendas_user_new.htm:93
+#: pntemplates/iw_agendas_user_new.htm:95
+#: pntemplates/iw_agendas_user_new.htm:98
+#: pntemplates/iw_agendas_user_edit.htm:60
+#: pntemplates/iw_agendas_user_new.htm:101
+msgid "Incorrect date"
+msgstr "La fecha indicada es incorrecta."
+
+#: pnuser.php:1299
+#: pnuser.php:1335
+#: pnuser.php:1374
+#: pnuser.php:1405
+#: pnuser.php:1448
+#: pnuser.php:2631
+msgid "Back to previous form"
+msgstr "Vuelve al formulario anterior"
+
+#: pnuser.php:1348
+msgid "Ending date of repetitions is incorrect. Please verify it"
+msgstr "La fecha escogida hasta donde es necesario hacer  la repetición es incorrecta. Es necesario que la compruebes."
+
+#: pnuser.php:1379
+msgid "Number of days for repetition is incorrect"
+msgstr "El numero de días puestos para la repetición es incorrecto."
+
+#: pnuser.php:1422
+#: pnuser.php:2610
+msgid "File size incorrect. Maximum size is "
+msgstr "La medida del archivo es incorrecta. La medida máxima es de "
+
+#: pnuser.php:1422
+#: pnuser.php:2610
+msgid "bits."
+msgstr "bits."
+
+#: pnuser.php:1589
+#: pnuser.php:3570
+msgid "Error produced during gCalendar's event creation"
+msgstr "Se ha producido un error durante la creación del evento en gCalendar"
+
+#: pnuser.php:1600
+#: pnuser.php:3427
+msgid "Foreseen time to finish"
+msgstr "Tiempo previsto para terminar"
+
+#: pnuser.php:1639
+#: pnuser.php:2672
+msgid "New event created"
+msgstr "Se ha creado una nueva anotación en la agenda."
+
+#: pnuser.php:1710
+#: pnuser.php:1727
+msgid "Event status (completed/not completed) updated"
+msgstr "Se ha modificado el estado (completada/no completada) de una anotación de la agenda."
+
+#: pnuser.php:1797
+#: pntemplates/iw_agendas_admin_delete.htm:4
+msgid "Delete the agenda"
+msgstr "Borra la agenda"
+
+#: pnuser.php:1799
+msgid "Delete task"
+msgstr "Borra la tarea de la agenda"
+
+#: pnuser.php:1848
+#: pnuser.php:1880
+#: pnuser.php:1903
+#: pnadmin.php:271
+msgid "The agenda has been deleted"
+msgstr "La agenda ha sido borrada."
+
+#: pnuser.php:1855
+#: pnuser.php:1889
+#: pnuser.php:1909
+msgid "Repeated events deleted"
+msgstr "Las anotaciones repetidas han sido borradas"
+
+#: pnuser.php:2083
+msgid "The scholar calendar is not actived"
+msgstr "El calendario escolar esta desactivado"
+
+#: pnuser.php:2103
+#: pnuser.php:3788
+#: pnadmin.php:724
+msgid "Mo"
+msgstr "Ln"
+
+#: pnuser.php:2104
+#: pnuser.php:3789
+#: pnadmin.php:724
+msgid "Tu"
+msgstr "Mt"
+
+#: pnuser.php:2105
+#: pnuser.php:3790
+#: pnadmin.php:724
+msgid "We"
+msgstr "Mc"
+
+#: pnuser.php:2106
+#: pnuser.php:3791
+#: pnadmin.php:724
+msgid "Th"
+msgstr "Jv"
+
+#: pnuser.php:2107
+#: pnuser.php:3792
+#: pnadmin.php:724
+msgid "Fr"
+msgstr "Vn"
+
+#: pnuser.php:2108
+#: pnuser.php:3793
+#: pnadmin.php:724
+msgid "Sa"
+msgstr "Sb"
+
+#: pnuser.php:2109
+#: pnuser.php:3794
+#: pnadmin.php:724
+msgid "Su"
+msgstr "Dg"
+
+#: pnuser.php:2132
+msgid "School calendar of course "
+msgstr "Calendario escolar del curso"
+
+#: pnuser.php:2233
+#: pntemplates/iw_agendas_admin_edit.htm:74
+#: pntemplates/iw_agendas_admin_main.htm:92
+#: pntemplates/iw_agendas_user_main.htm:258
+#: pntemplates/iw_agendas_admin_new.htm:73
+msgid "About this module"
+msgstr "Por lo que al módulo se refiere"
+
+#: pnuser.php:2388
+msgid "Edit event"
+msgstr "Edita la anotación de la agenda"
+
+#: pnuser.php:2393
+msgid "Edit task"
+msgstr "Edita la tarea de la agenda"
+
+#: pnuser.php:2454
+msgid "Only this event"
+msgstr "Solamente esta anotación"
+
+#: pnuser.php:2456
+msgid "This event and its repetitions"
+msgstr "Esta anotación y sus repeticiones"
+
+#: pnuser.php:2460
+msgid "Modify event"
+msgstr "Modifica la anotación"
+
+#: pnuser.php:2462
+msgid "Modify task"
+msgstr "Modifica la tarea"
+
+#: pnuser.php:2721
+msgid "Event updated"
+msgstr "Se ha modificado la anotación de la agenda."
+
+#: pnuser.php:2787
+msgid "Protection status updated"
+msgstr "Se ha modificado el estado de protección de la anotación"
+
+#: pnuser.php:2905
+msgid "Event moved to other agendas"
+msgstr "La anotación se ha transferido a otras agendas"
+
+#: pnuser.php:3106
+msgid "Subscribe them"
+msgstr "Subscribirles"
+
+#: pnuser.php:3149
+msgid "Future events cannot be deleted"
+msgstr "Está intentando borrar anotaciones futura. Acción incorrecta."
+
+#: pnuser.php:3176
+msgid "Previous events to selected date deleted"
+msgstr "Las anotaciones anteriores a la fecha escogida han sido borradas"
+
+#: pnuser.php:3230
+msgid "Automatic subscription completed succesfully"
+msgstr "La suscripción automática de los usuarios se ha hecho satisfactoriamente"
+
+#: pnuser.php:3281
+#: pnuser.php:3288
+msgid "Connection with Google failed. Imposible to synchronize the agenda"
+msgstr "La conexión con Google ha fallado. Ha sido imposible sincronizar la agenda"
+
+#: pnuser.php:3316
+msgid "What"
+msgstr "Que"
+
+#: pnuser.php:3317
+#: pntemplates/iw_agendas_admin_conf.htm:316
+msgid "End"
+msgstr "Final"
+
+#: pnuser.php:3318
+msgid "Where"
+msgstr "Donde"
+
+#: pnuser.php:3319
+msgid "Content"
+msgstr "Contenido"
+
+#: pnuser.php:3320
+msgid "Author"
+msgstr "Autor"
+
+#: pnuser.php:3707
+msgid "The synchronization with gCalendar is only posible with validated users"
+msgstr "La sincronización con gCalendar solo funciona con usuarios validados"
+
+#: pnuser.php:3719
+msgid "Synchronization with gCalendar failed. You must indicate your Google username"
+msgstr "La sincronización con gCalendar ha fallado. Debe indicar su usuario de Google"
+
+#: pnadminapi.php:17
+#: pnadminapi.php:135
+msgid "Agenda not found"
+msgstr "Agenda no encontrada"
+
+#: pntemplates/plugins/function.iwagendasadminmenulinks.php:22
+#: pntemplates/iw_agendas_admin_new.htm:8
+msgid "Add a new agenda"
+msgstr "Añade una nueva agenda"
+
+#: pntemplates/plugins/function.iwagendasadminmenulinks.php:26
+msgid "Show existing agendas"
+msgstr "Muestra las agendas creadas"
+
+#: pntemplates/plugins/function.iwagendasadminmenulinks.php:30
+msgid "Module configuration"
+msgstr "Configuración del módulo"
+
+#: pnadmin.php:109
+#: pnadmin.php:295
+msgid "Nota name"
+msgstr "Nombre de la anotación"
+
+#: pnadmin.php:110
+#: pnadmin.php:111
+#: pnadmin.php:112
+#: pnadmin.php:113
+#: pnadmin.php:114
+#: pnadmin.php:296
+#: pnadmin.php:297
+#: pnadmin.php:298
+#: pnadmin.php:299
+#: pnadmin.php:300
+msgid "Secondary field"
+msgstr "Campo secundario"
+
+#: pnadmin.php:117
+#: pnadmin.php:121
+#: pnadmin.php:303
+#: pnadmin.php:307
+#: pnadmin.php:727
+msgid "Text"
+msgstr "Texto"
+
+#: pnadmin.php:119
+#: pnadmin.php:123
+#: pnadmin.php:305
+#: pnadmin.php:309
+msgid "Text area"
+msgstr "Area de texto"
+
+#: pnadmin.php:125
+#: pnadmin.php:311
+msgid "Event author"
+msgstr "Ha hecho la anotación"
+
+#: pnadmin.php:127
+#: pnadmin.php:313
+msgid "Event date"
+msgstr "Ha hecho la anotación en la fecha"
+
+#: pnadmin.php:129
+#: pnadmin.php:315
+msgid "Selection"
+msgstr "Selección"
+
+#: pnadmin.php:200
+#: pnadmin.php:396
+msgid "Defined fields must be consecutive"
+msgstr "Los campos definidos deben ir seguidos"
+
+#: pnadmin.php:232
+msgid "New agenda created"
+msgstr "Se ha creado una nueva agenda."
+
+#: pnadmin.php:427
+#: pntemplates/iw_agendas_block_next.htm:16
+#: pntemplates/iw_agendas_user_mainCell.htm:10
+#: pntemplates/iw_agendas_user_main.htm:163
+msgid "Agenda updated"
+msgstr "La agenda ha sido actualizada."
+
+#: pnadmin.php:497
+msgid "A group has been added"
+msgstr "Se ha añadido un grupo"
+
+#: pnadmin.php:510
+#: pnadmin.php:593
+msgid "Agendas module - Automatic message"
+msgstr "Módulo de agendas - Mensaje automático"
+
+#: pnadmin.php:546
+#: pntemplates/iw_agendas_admin_addGroup.htm:12
+msgid "Choose a group..."
+msgstr "Escoge un grupo..."
+
+#: pnadmin.php:585
+msgid "A manager has been added"
+msgstr "Se ha añadido un responsable"
+
+#: pnadmin.php:651
+msgid "A group has been deleted"
+msgstr "Se ha borrado un grupo"
+
+#: pnadmin.php:704
+msgid "A manager has been deleted"
+msgstr "Se ha borrado un responsable"
+
+#: pnadmin.php:727
+msgid "Title background"
+msgstr "Fondo título"
+
+#: pnadmin.php:727
+msgid "Month link background"
+msgstr "Fondo enlace mes"
+
+#: pnadmin.php:727
+msgid "Header background"
+msgstr "Fondo Cabezalera"
+
+#: pnadmin.php:727
+msgid "Header text"
+msgstr "Text Cabezalera"
+
+#: pnadmin.php:727
+msgid "Table background"
+msgstr "Fondo tabla"
+
+#: pnadmin.php:727
+msgid "Days link"
+msgstr "Enlace días"
+
+#: pnadmin.php:727
+msgid "Bank holidays link"
+msgstr "Enlace días festivos"
+
+#: pnadmin.php:727
+msgid "Table border"
+msgstr "Marco tabla"
+
+#: pnadmin.php:727
+msgid "Bank holidays background"
+msgstr "Fondo festivos"
+
+#: pnadmin.php:727
+msgid "Working days background"
+msgstr "Fondo días no festivos"
+
+#: pnadmin.php:727
+msgid "Present day background"
+msgstr "Fondo hoy"
+
+#: pnadmin.php:727
+msgid "New events background"
+msgstr "Fondo fecha nuevas"
+
+#: pnadmin.php:727
+msgid "Seen events background"
+msgstr "Fondo fechas no nuevas"
+
+#: pnadmin.php:727
+msgid "Text background"
+msgstr "Fondo del texto"
+
+#: pnadmin.php:727
+msgid "Completed background"
+msgstr "Fondo completadas"
+
+#: pnadmin.php:926
+#: pntemplates/iw_agendas_admin_conf.htm:140
+msgid "Restore"
+msgstr "Restaura"
+
+#: pnadmin.php:934
+msgid "Date given as initial year is incorrect"
+msgstr "La fecha puesta como año de inicio del curso es incorrecta."
+
+#: pnadmin.php:951
+msgid "Agenda configuration updated"
+msgstr "Se ha modificado la configuración de la agenda."
+
+#: pnadmin.php:1048
+msgid "Create a new bank holiday repeated every year"
+msgstr "Crea un nuevo festivo que se repite cada año"
+
+#: pnadmin.php:1049
+msgid "Date of bank holiday repeated every year"
+msgstr "Fecha del festivo que se repite todos los años"
+
+#: pnadmin.php:1052
+msgid "Create a bank holiday"
+msgstr "Crea un festivo"
+
+#: pnadmin.php:1053
+msgid "Bank holiday"
+msgstr "Fecha del festivo"
+
+#: pnadmin.php:1056
+msgid "Create a new period"
+msgstr "Crea un nuevo periodo"
+
+#: pnadmin.php:1057
+msgid "Date of the beginning of the period"
+msgstr "Fecha de inicio del periodo"
+
+#: pnadmin.php:1060
+msgid "Create a new information icon"
+msgstr "Crea un nuevo icono informativo"
+
+#: pnadmin.php:1061
+msgid "Date to show the information icon"
+msgstr "Fecha en que se mostrará el icono informativo"
+
+#: pnadmin.php:1141
+msgid "Label text is empty"
+msgstr "No habéis puesto el texto de la etiqueta."
+
+#: pnadmin.php:1170
+msgid "Date repeated. Only one date per bank holiday allowed"
+msgstr "La fecha está repetida. Solamente es posible una fecha por día festivo."
+
+#: pnadmin.php:1182
+msgid "Incorrect selected period"
+msgstr "El periodo escogido es incorrecto."
+
+#: pnadmin.php:1197
+msgid "Incorrect selected colour for the period "
+msgstr "El color escogido para el periodo es incorrecto"
+
+#: pnadmin.php:1308
+msgid "Data not found"
+msgstr "No se ha encontrado el dato sobre el cual hacer la acción solicitada."
+
+#: pnversion.php:9
+#: pnversion.php:13
+msgid "iw_agendas"
+msgstr "iw_agendas"
+
+#: pnversion.php:11
+msgid "Allow create and use shared agendas"
+msgstr "Permite crear y hacer uso de agendas compartidas"
+
+#: pnversion.php:12
+#: pntemplates/iw_agendas_admin_main.htm:14
+msgid "Agendas"
+msgstr "Agendas"
+
+#: pntemplates/iw_agendas_admin_mainChars.htm:1
+#: pntemplates/iw_agendas_admin_mainChars.htm:10
+#: pntemplates/iw_agendas_admin_mainChars.htm:26
+#: pntemplates/iw_agendas_admin_conf.htm:225
+#: pntemplates/iw_agendas_admin_conf.htm:267
+#: pntemplates/iw_agendas_admin_conf.htm:340
+#: pntemplates/iw_agendas_admin_conf.htm:389
+msgid "Modify"
+msgstr "Modifica"
+
+#: pntemplates/iw_agendas_admin_mainChars.htm:2
+msgid "Attachments?"
+msgstr "¿Adjuntos? "
+
+#: pntemplates/iw_agendas_admin_mainChars.htm:4
+#: pntemplates/iw_agendas_admin_mainChars.htm:13
+msgid "Yes"
+msgstr "Si"
+
+#: pntemplates/iw_agendas_admin_mainChars.htm:6
+#: pntemplates/iw_agendas_admin_mainChars.htm:15
+msgid "No"
+msgstr "No"
+
+#: pntemplates/iw_agendas_admin_mainChars.htm:20
+#: pntemplates/iw_agendas_admin_mainChars.htm:23
+#: pntemplates/iw_agendas_admin_edit.htm:22
+#: pntemplates/iw_agendas_admin_conf.htm:318
+#: pntemplates/iw_agendas_admin_new.htm:21
+msgid "Colour"
+msgstr "Color"
+
+#: pntemplates/iw_agendas_admin_mainChars.htm:27
+msgid "Status: "
+msgstr "Estado: "
+
+#: pntemplates/iw_agendas_admin_mainChars.htm:29
+msgid "Active"
+msgstr "Activa"
+
+#: pntemplates/iw_agendas_admin_mainChars.htm:31
+msgid "Inactive"
+msgstr "No activa"
+
+#: pntemplates/iw_agendas_user_selectagenda.htm:28
+msgid "Select agenda(s) to send the event"
+msgstr "Indica a que agenda o agendas quiere enviar la nota"
+
+#: pntemplates/iw_agendas_user_selectagenda.htm:36
+msgid "Send"
+msgstr "Enviar"
+
+#: pntemplates/iw_agendas_user_edit.htm:10
+#: pntemplates/iw_agendas_user_new.htm:35
+msgid "Extension for attached file "
+msgstr "La extensión del archivo adjunto "
+
+#: pntemplates/iw_agendas_user_edit.htm:10
+#: pntemplates/iw_agendas_user_new.htm:35
+msgid " is not allowed. Possible extensions are: "
+msgstr " no se admite. Las extensiones posibles son: "
+
+#: pntemplates/iw_agendas_user_edit.htm:24
+#: pntemplates/iw_agendas_user_new.htm:64
+msgid "You are going to send an event to a shared agenda where there can be subscribed users. Proceed?"
+msgstr "Está a punto de enviar una anotación a una agenda compartida en la que puede haber usuarios/as suscritos. Quiere continuar?"
+
+#: pntemplates/iw_agendas_user_edit.htm:119
+#: pntemplates/iw_agendas_user_new.htm:205
+msgid "Display initially hidden"
+msgstr "Muestra inicialmente oculta"
+
+#: pntemplates/iw_agendas_user_edit.htm:127
+#: pntemplates/iw_agendas_user_new.htm:213
+msgid "Priority level"
+msgstr "Nivel de prioridad"
+
+#: pntemplates/iw_agendas_user_edit.htm:163
+#: pntemplates/iw_agendas_user_new.htm:240
+msgid "Attached file"
+msgstr "Archivo adjunto a la anotación"
+
+#: pntemplates/iw_agendas_user_edit.htm:163
+#: pntemplates/iw_agendas_user_new.htm:240
+msgid "Allowed extensions - "
+msgstr "Extensiones permitidas - "
+
+#: pntemplates/iw_agendas_user_edit.htm:174
+msgid "Erase the file attached to the note"
+msgstr "Borra el archivo adjunto a la anotación"
+
+#: pntemplates/iw_agendas_user_edit.htm:181
+msgid "Select to modify"
+msgstr "¿Cuáles quiere modificar?"
+
+#: pntemplates/iw_agendas_user_edit.htm:191
+msgid "Warning: change of date does not affect the repeated registers"
+msgstr "Atención: el cambio de fecha no se lleva a cabo en los registros repetidos."
+
+#: pntemplates/iw_agendas_user_edit.htm:195
+msgid "Copy event"
+msgstr "Genera una copia nueva"
+
+#: pntemplates/iw_agendas_admin_edit.htm:14
+#: pntemplates/iw_agendas_admin_main.htm:17
+#: pntemplates/iw_agendas_admin_new.htm:13
+msgid "Name"
+msgstr "Nombre de la agenda"
+
+#: pntemplates/iw_agendas_admin_edit.htm:18
+#: pntemplates/iw_agendas_admin_main.htm:18
+#: pntemplates/iw_agendas_admin_new.htm:17
+msgid "Description"
+msgstr "Descripción"
+
+#: pntemplates/iw_agendas_admin_edit.htm:24
+#: pntemplates/iw_agendas_admin_new.htm:23
+msgid "Choose a color"
+msgstr "Escoge un color"
+
+#: pntemplates/iw_agendas_admin_edit.htm:30
+#: pntemplates/iw_agendas_admin_new.htm:29
+msgid "Descriptive"
+msgstr "Descriptivo"
+
+#: pntemplates/iw_agendas_admin_edit.htm:34
+#: pntemplates/iw_agendas_admin_new.htm:33
+msgid "Type"
+msgstr "Tipo"
+
+#: pntemplates/iw_agendas_admin_edit.htm:43
+#: pntemplates/iw_agendas_admin_new.htm:42
+msgid "Options*"
+msgstr "Opciones*"
+
+#: pntemplates/iw_agendas_admin_edit.htm:51
+#: pntemplates/iw_agendas_admin_new.htm:50
+msgid "Agenda allows attached files"
+msgstr "La agenda admite archivos adjuntos"
+
+#: pntemplates/iw_agendas_admin_edit.htm:55
+#: pntemplates/iw_agendas_admin_new.htm:54
+msgid "Events protected default"
+msgstr "Anotaciones protegidas por defecto"
+
+#: pntemplates/iw_agendas_admin_edit.htm:59
+#: pntemplates/iw_agendas_admin_new.htm:58
+msgid "Active/Inactive"
+msgstr "Activa/No activa"
+
+#: pntemplates/iw_agendas_admin_edit.htm:63
+#: pntemplates/iw_agendas_admin_new.htm:62
+msgid "*The options in the selection fields must be separated with a hyphen (-). To leave first option empty, add a hyphen before first option"
+msgstr "*En el campo de tipo \"Selección\" las opciones se deben separar con el guión (-). Para dejar la primera opción vacía, ser debe escribir un guión antes de la primera opción."
+
+#: pntemplates/iw_agendas_admin_edit.htm:67
+#: pntemplates/iw_agendas_admin_conf.htm:137
+msgid "Update"
+msgstr "Cambia"
+
+#: pntemplates/iw_agendas_admin_edit.htm:69
+#: pntemplates/iw_agendas_admin_deleteManager.htm:15
+#: pntemplates/iw_agendas_admin_addGroup.htm:38
+#: pntemplates/iw_agendas_admin_addManager.htm:39
+#: pntemplates/iw_agendas_user_new.htm:289
+#: pntemplates/iw_agendas_admin_new.htm:68
+#: pntemplates/iw_agendas_admin_deleteGroup.htm:15
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: pntemplates/iw_agendas_admin_edit.htm:81
+#: pntemplates/iw_agendas_admin_new.htm:80
+msgid "Agenda name is needed"
+msgstr "Debes escribir el nombre de la agenda"
+
+#: pntemplates/iw_agendas_admin_edit.htm:85
+#: pntemplates/iw_agendas_admin_new.htm:84
+msgid "Descriptive in first field is needed"
+msgstr "Debes de escribir el descriptivo del primer campo"
+
+#: pntemplates/iw_agendas_admin_main.htm:9
+msgid "List of defined agendas"
+msgstr "Lista de agendas definidas"
+
+#: pntemplates/iw_agendas_admin_main.htm:19
+#: pntemplates/iw_agendas_admin_addManager.htm:11
+msgid "Group"
+msgstr "Grupo"
+
+#: pntemplates/iw_agendas_admin_main.htm:20
+msgid "In charge"
+msgstr "Responsables"
+
+#: pntemplates/iw_agendas_admin_main.htm:21
+msgid "Features"
+msgstr "Características"
+
+#: pntemplates/iw_agendas_admin_main.htm:37
+#: pntemplates/iw_agendas_admin_addGroup.htm:13
+msgid "Unregistered"
+msgstr "No registrados"
+
+#: pntemplates/iw_agendas_admin_main.htm:39
+#: pntemplates/iw_agendas_admin_addGroup.htm:23
+msgid "Read and write"
+msgstr "Solamentes escritura"
+
+#: pntemplates/iw_agendas_admin_main.htm:41
+#: pntemplates/iw_agendas_admin_addGroup.htm:24
+msgid "Manage own"
+msgstr "Gestión de las anotaciones propias"
+
+#: pntemplates/iw_agendas_admin_main.htm:43
+#: pntemplates/iw_agendas_admin_addGroup.htm:22
+msgid "Read only"
+msgstr "Solamente lectura"
+
+#: pntemplates/iw_agendas_admin_main.htm:52
+#: pntemplates/iw_agendas_admin_addGroup.htm:4
+msgid "Add a group"
+msgstr "Añade un grupo"
+
+#: pntemplates/iw_agendas_admin_main.htm:66
+#: pntemplates/iw_agendas_admin_addManager.htm:4
+msgid "Add a manager"
+msgstr "Añade un responsable"
+
+#: pntemplates/iw_agendas_admin_main.htm:86
+msgid "There are no agendas created"
+msgstr "No hay ninguna agenda definida."
+
+#: pntemplates/iw_agendas_admin_main.htm:95
+msgid "...modifying..."
+msgstr "...modificando..."
+
+#: pntemplates/iw_agendas_block_calendarContent.htm:6
+#: pntemplates/iw_agendas_admin_conf.htm:43
+#: pntemplates/iw_agendas_user_main.htm:56
+#: pntemplates/iw_agendas_user_main.htm:58
+msgid "Previous month"
+msgstr "Mes anterior"
+
+#: pntemplates/iw_agendas_block_calendarContent.htm:12
+#: pntemplates/iw_agendas_admin_conf.htm:49
+#: pntemplates/iw_agendas_user_main.htm:71
+#: pntemplates/iw_agendas_user_main.htm:73
+msgid "Next month"
+msgstr "Mes siguiente"
+
+#: pntemplates/iw_agendas_user_subscribeall.htm:3
+msgid "Automatic subscription"
+msgstr "Suscripción automática a la agenda a quien tiene acceso a ella"
+
+#: pntemplates/iw_agendas_user_subscribeall.htm:5
+msgid "Users already subscribed:"
+msgstr "Los usuarios y usuarias siguientes ya estaban subscritos a la agenda:"
+
+#: pntemplates/iw_agendas_user_subscribeall.htm:12
+#: pntemplates/iw_agendas_user_subscribeall.htm:21
+#: pntemplates/iw_agendas_user_subscribeall.htm:44
+msgid "No users found"
+msgstr "No se han hallado usuarios o usuarias"
+
+#: pntemplates/iw_agendas_user_subscribeall.htm:18
+msgid "Users to be subscribed to the agenda:"
+msgstr "Los siguientes usuarios y usuarias serán subscritos automáticamente a la agenda:"
+
+#: pntemplates/iw_agendas_user_subscribeall.htm:33
+msgid "Users unsubscribed voluntarily:"
+msgstr "Los usuarios y usuarias siguientes se han dado de baja voluntariamente de la agenda:"
+
+#: pntemplates/iw_agendas_user_subscribeall.htm:36
+msgid "To subscribe unconditionaly, mark them and click the button"
+msgstr "Si quiere subscribirles igualmente márquelos y haga clic en el botón."
+
+#: pntemplates/iw_agendas_admin_newElement.htm:55
+msgid "Date of the end of the period"
+msgstr "Fecha final del periodo"
+
+#: pntemplates/iw_agendas_admin_newElement.htm:76
+msgid "Period colour. Format (#RRGGBB)"
+msgstr "Indica un color para el periodo. Formato (#RRGGBB)"
+
+#: pntemplates/iw_agendas_admin_newElement.htm:78
+#: pntemplates/iw_agendas_admin_conf.htm:132
+msgid "Colour picker"
+msgstr "Muestrario de colores"
+
+#: pntemplates/iw_agendas_admin_newElement.htm:82
+msgid "Label text"
+msgstr "Texto de la etiqueta"
+
+#: pntemplates/iw_agendas_admin_newElement.htm:86
+msgid "Add to the list"
+msgstr "Añade a la lista"
+
+#: pntemplates/iw_agendas_admin_deleteManager.htm:4
+msgid "Delete manager"
+msgstr "Borra el responsable"
+
+#: pntemplates/iw_agendas_admin_deleteManager.htm:11
+msgid "Confirm the deletion of the manager"
+msgstr "Confirma el borrado del responsable"
+
+#: pntemplates/iw_agendas_admin_deleteManager.htm:14
+#: pntemplates/iw_agendas_admin_addGroup.htm:37
+#: pntemplates/iw_agendas_admin_addManager.htm:38
+#: pntemplates/iw_agendas_admin_new.htm:66
+#: pntemplates/iw_agendas_admin_deleteGroup.htm:14
+msgid "Add"
+msgstr "Añadir"
+
+#: pntemplates/iw_agendas_user_menu.htm:25
+msgid "Too many events in this agenda"
+msgstr "Tiene demasiadas anotaciones acumuladas en esta agenda."
+
+#: pntemplates/iw_agendas_user_menu.htm:27
+msgid "Delete events previous to date: "
+msgstr "Borra todas las anotaciones anteriores a la fecha siguiente: "
+
+#: pntemplates/iw_agendas_user_menu.htm:40
+msgid "Automatically subscribed to agendas:"
+msgstr "Ha sido subscrito automáticamente a las agendas siguientes:"
+
+#: pntemplates/iw_agendas_user_menu.htm:44
+msgid "Subscription can be cancelled"
+msgstr "Si lo desea puede anular la suscripción desde dentro de las agendas."
+
+#: pntemplates/iw_agendas_user_menu.htm:55
+msgid "Total number of events: "
+msgstr "Número total de anotaciones: "
+
+#: pntemplates/iw_agendas_user_menu.htm:56
+msgid "Usage percentage:"
+msgstr "Porcentage de uso:"
+
+#: pntemplates/iw_agendas_block_next.htm:16
+#: pntemplates/iw_agendas_user_mainCell.htm:13
+#: pntemplates/iw_agendas_user_main.htm:166
+msgid "Deleted"
+msgstr "Borrada"
+
+#: pntemplates/iw_agendas_block_next.htm:99
+msgid "In the next"
+msgstr "Durante los próximos"
+
+#: pntemplates/iw_agendas_admin_conf.htm:30
+msgid "Agenda configuration"
+msgstr "Configuración de la agenda"
+
+#: pntemplates/iw_agendas_admin_conf.htm:34
+msgid "Agenda colour configuration"
+msgstr "Configuración de los colores de la agenda"
+
+#: pntemplates/iw_agendas_admin_conf.htm:95
+msgid "Note content"
+msgstr "Contenido de la anotación"
+
+#: pntemplates/iw_agendas_admin_conf.htm:112
+msgid "Here there is the content for a new note"
+msgstr "Aqui hay el contenido de una anotación nueva"
+
+#: pntemplates/iw_agendas_admin_conf.htm:148
+msgid "Default view on table format"
+msgstr "Vista por defecto de las agendas en formato de tabla"
+
+#: pntemplates/iw_agendas_admin_conf.htm:151
+msgid "(Otherwise, default view is on calendar format)"
+msgstr "(Si no se marca la opción, la vista por defecto de las agendas es en forma de calendario)"
+
+#: pntemplates/iw_agendas_admin_conf.htm:154
+msgid "Maximum number of events for users"
+msgstr "Número máximo de anotaciones acumulables por los usuarios"
+
+#: pntemplates/iw_agendas_admin_conf.htm:157
+msgid "(Keeping zero value implies no limit)"
+msgstr "(Dejar el valor a cero implica no poner límites)"
+
+#: pntemplates/iw_agendas_admin_conf.htm:160
+msgid "Personal agendas allow attached files"
+msgstr "Las agendas personales admiten archivos adjuntos"
+
+#: pntemplates/iw_agendas_admin_conf.htm:164
+msgid "Events are automatically deleted after "
+msgstr "Las anotaciones se borran automáticamente pasados "
+
+#: pntemplates/iw_agendas_admin_conf.htm:165
+msgid " days from the date"
+msgstr " días de la fecha."
+
+#: pntemplates/iw_agendas_admin_conf.htm:170
+msgid "Allow to sincronize with Google Calendar"
+msgstr "Permitir la sincronización con Google Calendar"
+
+#: pntemplates/iw_agendas_admin_conf.htm:174
+msgid "If these funcions are available and you check this option users will be able to sincronize their agendas with Google Calendar."
+msgstr "Si estas funciones están disponibles y se marca la opción los usuarios podrán sincronizar su agenda con Google Calendar."
+
+#: pntemplates/iw_agendas_admin_conf.htm:179
+msgid "If you check this function and the Zend Gdata functions are not available the module will not work and an error will occurs."
+msgstr "Si se marca esta opción y las funciones Gdata de Zend no están disponibles el módulo de agendas dejarà de funcionar y se producirà un error."
+
+#: pntemplates/iw_agendas_admin_conf.htm:186
+msgid "Root of the file folder"
+msgstr "Inicio del directori de archivos"
+
+#: pntemplates/iw_agendas_admin_conf.htm:191
+msgid "Attached files folder"
+msgstr "Carpeta del servidor donde se almacenan los archivos adjuntos a las anotaciones"
+
+#: pntemplates/iw_agendas_admin_conf.htm:195
+msgid "The attached files folder have not been found"
+msgstr "No se ha encontrado el directorio para los archivos adjuntos"
+
+#: pntemplates/iw_agendas_admin_conf.htm:200
+msgid "This folder must be writable"
+msgstr "(A esta carpeta debe darse permisos de escritura)"
+
+#: pntemplates/iw_agendas_admin_conf.htm:205
+msgid "Bank holidays repeated every year"
+msgstr "Días festivos que se repiten cada año"
+
+#: pntemplates/iw_agendas_admin_conf.htm:209
+#: pntemplates/iw_agendas_admin_conf.htm:251
+#: pntemplates/iw_agendas_admin_conf.htm:373
+msgid "Day"
+msgstr "Día"
+
+#: pntemplates/iw_agendas_admin_conf.htm:210
+#: pntemplates/iw_agendas_admin_conf.htm:252
+#: pntemplates/iw_agendas_admin_conf.htm:317
+msgid "Label"
+msgstr "Etiqueta"
+
+#: pntemplates/iw_agendas_admin_conf.htm:235
+#: pntemplates/iw_agendas_admin_conf.htm:277
+msgid "There are no bank holidays defined in this list"
+msgstr "No tenéis definidos días festivos en esta lista."
+
+#: pntemplates/iw_agendas_admin_conf.htm:241
+#: pntemplates/iw_agendas_admin_conf.htm:283
+msgid "Add a new bank holiday to the list"
+msgstr "Añade un festivo a esta lista."
+
+#: pntemplates/iw_agendas_admin_conf.htm:247
+msgid "Other bank holidays"
+msgstr "Otros días festivos"
+
+#: pntemplates/iw_agendas_admin_conf.htm:291
+msgid "of the course"
+msgstr "del curso"
+
+#: pntemplates/iw_agendas_admin_conf.htm:296
+msgid "Initial year of the course"
+msgstr "Año de inicio del curso"
+
+#: pntemplates/iw_agendas_admin_conf.htm:300
+msgid "The rest of the parameters of the school calendar cannot be configured until there is a valid initial year introduced"
+msgstr "El resto de parámetros del calendario escolar no se pueden configurar hasta que no se haya puesto un valor de año de inicio válido."
+
+#: pntemplates/iw_agendas_admin_conf.htm:302
+#: pntemplates/iw_agendas_admin_conf.htm:422
+msgid "Modify configuration"
+msgstr "Modifica la configuración"
+
+#: pntemplates/iw_agendas_admin_conf.htm:307
+msgid "Show school calendar"
+msgstr "Muestra el calendario escolar"
+
+#: pntemplates/iw_agendas_admin_conf.htm:311
+msgid "School periods to show on the school calendar"
+msgstr "Periodos escolares que se deben mostrar en el calendario escolar"
+
+#: pntemplates/iw_agendas_admin_conf.htm:315
+msgid "Beginning"
+msgstr "Inicio"
+
+#: pntemplates/iw_agendas_admin_conf.htm:352
+msgid "There are no school periods defined"
+msgstr "No tenéis definidos periodos escolares"
+
+#: pntemplates/iw_agendas_admin_conf.htm:358
+msgid "Add a new period to this list"
+msgstr "Añade un nuevo periodo a esta lista."
+
+#: pntemplates/iw_agendas_admin_conf.htm:365
+msgid "Show the legend of the defined periods"
+msgstr "Muestra la leyenda de los períodos definidos"
+
+#: pntemplates/iw_agendas_admin_conf.htm:369
+msgid "Icons to show in the school calendar"
+msgstr "Iconos informativos que se deben mostrar en el calendario escolar"
+
+#: pntemplates/iw_agendas_admin_conf.htm:374
+msgid "Information"
+msgstr "Información"
+
+#: pntemplates/iw_agendas_admin_conf.htm:399
+msgid "There are no icons defined"
+msgstr "No tenéis definidos iconos informativos"
+
+#: pntemplates/iw_agendas_admin_conf.htm:405
+msgid "Add a new icon"
+msgstr "Añade un nuevo icono informativo"
+
+#: pntemplates/iw_agendas_admin_conf.htm:412
+msgid "Show the legend of the icons"
+msgstr "Muestra la leyenda de los iconos informativos"
+
+#: pntemplates/iw_agendas_admin_conf.htm:417
+msgid "Comments to show with school calendar (HTML allowed)"
+msgstr "Comentarios que se deben mostrar con el calendario escolar (admite código HTML)"
+
+#: pntemplates/iw_agendas_admin_delete.htm:9
+#: pntemplates/iw_agendas_user_main.htm:261
+#: pntemplates/iw_agendas_user_delete.htm:24
+msgid "Confirm deletion of the agenda"
+msgstr "Confirma el borrado de la agenda."
+
+#: pntemplates/iw_agendas_admin_delete.htm:12
+#: pntemplates/iw_agendas_user_delete.htm:34
+msgid "Cancel deletion"
+msgstr "Cancela el borrado."
+
+#: pntemplates/iw_agendas_admin_addGroup.htm:10
+msgid "Group with access to this agenda"
+msgstr "Grupo que tiene acceso a esta agenda"
+
+#: pntemplates/iw_agendas_admin_addGroup.htm:20
+msgid "Access Type"
+msgstr "Tipo de acceso"
+
+#: pntemplates/iw_agendas_admin_addGroup.htm:29
+msgid "Automatic private message to users with access to the agenda"
+msgstr "Mensaje privado para los usuarios que tienen acceso a la agenda"
+
+#: pntemplates/iw_agendas_admin_addManager.htm:19
+msgid "Choose a manager"
+msgstr "Escoge un responsable"
+
+#: pntemplates/iw_agendas_admin_addManager.htm:30
+msgid "Automatic private message to users who can manage the agenda"
+msgstr "Mensaje privado para los usuarios que son responsables de la agenda"
+
+#: pntemplates/iw_agendas_user_new.htm:54
+msgid "The  finish date has to be main or equal to the start date"
+msgstr "La fecha de finalización debe ser posterior o igual a la fecha de inicio"
+
+#: pntemplates/iw_agendas_user_new.htm:58
+msgid "Finish time is wrong"
+msgstr "La hora de finalización es errónea"
+
+#: pntemplates/iw_agendas_user_new.htm:159
+msgid "Finish date"
+msgstr "Fecha de finalización"
+
+#: pntemplates/iw_agendas_user_new.htm:179
+msgid "Finish time"
+msgstr "Hora de finalización"
+
+#: pntemplates/iw_agendas_user_new.htm:249
+msgid "Repeat event"
+msgstr "Repite la anotación"
+
+#: pntemplates/iw_agendas_user_new.htm:260
+msgid "up to date"
+msgstr "hasta la fecha"
+
+#: pntemplates/iw_agendas_user_new.htm:288
+msgid "Create"
+msgstr "Crea la agenda"
+
+#: pntemplates/iw_agendas_user_main.htm:76
+msgid "Today"
+msgstr "Hoy"
+
+#: pntemplates/iw_agendas_user_main.htm:138
+msgid "Previous day"
+msgstr "Día anterior"
+
+#: pntemplates/iw_agendas_user_main.htm:138
+msgid "Next day"
+msgstr "Día siguiente"
+
+#: pntemplates/iw_agendas_user_main.htm:200
+msgid "My agendas"
+msgstr "Mis agendas"
+
+#: pntemplates/iw_agendas_user_delete.htm:32
+msgid "Confirm deletion of this event and its repetitions"
+msgstr "Confirma el borrado de esta anotación i de las repetidas."
+
+#: pntemplates/iw_agendas_admin_deleteGroup.htm:4
+msgid "Delete the access to group"
+msgstr "Borra el acceso del grupo"
+
+#: pntemplates/iw_agendas_admin_deleteGroup.htm:11
+msgid "Confirm the deletion of the access to the group"
+msgstr "Confirma el borrado del acceso del grupo"
+
+#: pntemplates/iw_agendas_user_cescolar.htm:43
+msgid "Go back to agendas"
+msgstr "Vuelve a las agendas"
+

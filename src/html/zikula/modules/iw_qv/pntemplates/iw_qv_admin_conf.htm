@@ -1,0 +1,58 @@
+<!--[include file="iw_qv_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<form name="conf_form" action="<!--[pnmodurl modname="iw_qv" type="admin" func="confupdate"]-->" method="POST" class="pn-adminform" >
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_qv"]-->" />
+		<fieldset>
+		<legend><!--[gt text="Setting parameters"]--></legend>
+			<div class="pn-adminformrow">
+				<label for="skins"><!--[gt text="Assessment skins"]--></label>
+				<input type="text" id="skins" name="skins" value="<!--[$skins]-->" size="50" />
+				<span class="iwqv_help"><!--[gt text="[separated by commas]"]--></span>
+			</div>
+			<div class="pn-adminformrow">
+				<label for="langs"><!--[gt text="Assessment languages"]--></label>
+				<input type="text" id="langs" name="langs" value="<!--[$langs]-->" size="50" />
+				<span class="iwqv_help"><!--[gt text="[separated by commas]"]--></span>
+			</div>
+			<div class="pn-adminformrow">
+				<label for="maxdelivers"><!--[gt text="Maximum number of deliveries"]--></label>
+				<input type="text" id="maxdelivers" name="maxdelivers" value="<!--[$maxdelivers]-->" size="50" />
+				<span class="iwqv_help"><!--[gt text="[separated by commas. -1 = unlimited]"]--></span>
+			</div>
+			<div class="pn-adminformrow">
+				<label for="basedisturl"><!--[gt text="Web adress directory dist/html"]--></label>
+				<input type="basedisturl" id="basedisturl" name="basedisturl" value="<!--[$basedisturl]-->" size="50" />
+				<span class="iwqv_help"><!--[gt text="[Web adress like http://clic.xtec.cat/qv_viewer/dist/html/]"]--></span>
+			</div>
+		</fieldset>
+	    <div class="pn-adminformrow pn-adminformbuttons">
+			<a href="#" onClick="javascript:iwqvSendConfForm();" ><!--[pnimg modname='core' src='button_ok.gif' set='icons/small']--></a>
+		    <a href="<!--[pnmodurl modname="Admin" type="admin" func="adminpanel"]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+	    </div>		
+	</form>
+	<a href="<!--[pnmodurl modname=iw_qv type=admin func=module]-->"><!--[gt text="About this module"]--></a>
+</div>
+
+<script language="javascript">
+function iwqvSendConfForm(){
+	var form = document.conf_form;
+	
+	// Check form restrictions
+	var error='';
+	if (form.skins.value==''){
+		error = '<!--[gt text="form.skins: required"]-->';
+	}
+	
+	// If there are errors, alert and don't send the form
+	/*if (error != '') {
+		window.scrollTo(0,0);
+		field.focus();
+		alert(error);
+		return false;
+	}*/
+	
+	// If there aren't errors, send the form
+	form.submit();		
+	return true;
+}
+</script>

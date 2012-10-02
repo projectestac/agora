@@ -1,0 +1,156 @@
+<h1>답 내장형(Cloze)</h1>
+
+<br>이 유형은 널리 알려져 있는 Cloze형과 유사한 문제 유형으로
+매우 융통성있는 문제 유형이다. </br>
+
+<br>문제는 (무들 형식의) 일반 문서의 구절로 구성되어 있어
+그 안에 다양한 답안을 내장할 수 있으며, 선다형이나 주관식 단답형
+그리고 수치형 답을 포함시킬 수 있다.</br>
+
+<br>필요에 따라 선다형 요소를 표준 라디오 버튼 <input type="radio">으로 대치해 표현할 수 있으며
+이를 수평이나 수직으로 배치할 수도 있다.</br>
+<br>Note however that these buttons are displayed in a table and not imbedded in the text as the select element.</br>
+<br>아직 이러한 문항을 만드는 데 그래픽인터페이스는 사용하고 있지 않다 -
+입력창을 사용하려면 특정 문형을 지정하거나
+외부 파일을 가져와 사용할 필요가 있다.</br>
+
+<br>다음은 이러한 문항을 지정한는 데 쓰는 입력 문구의 예를 보여 준다.</br>
+
+<form action="">
+<center>
+<textarea rows="15" cols="60" wrap="virtual">This question consists of some text with an answer embedded right here {1:MULTICHOICE:Wrong answer#Feedback for this wrong answer~Another wrong answer#Feedback for the other wrong answer~=Correct answer#Feedback for correct answer~%50%Answer that gives half the credit#Feedback for half credit answer} and right after that you will have to deal with this short answer {1:SHORTANSWER:Wrong answer#Feedback for this wrong answer~=Correct answer#Feedback for correct answer~%50%Answer that gives half the credit#Feedback for half credit answer} and finally we have a floating point number {2:NUMERICAL:=23.8:0.1#Feedback for correct answer 23.8~%50%23.8:2#Feedback for half credit answer in the nearby region of the correct answer}.
+<br>The  multichoice question can also be shown in the vertical display of the standard moodle multiple choice.</br>
+<br>{2:MCV:Wrong answer#Feedback for this wrong answer~Another wrong answer#Feedback for the other wrong answer~=Correct answer#Feedback for correct answer~%50%Answer that gives half the credit#Feedback for half credit answer}</br>
+<br/>
+<br/>
+<br/>
+<br/> 
+<br>Or in an horizontal display that is included here in a table</br>
+<br/> 
+<br>
+<table border="1">
+<tbody>
+<tr>
+<td>The same multichoice in horizontal mode</td>
+<td>{2:MCH:Wrong answer#Feedback for this wrong answer~Another wrong answer#Feedback for the other wrong answer~=Correct answer#Feedback for correct answer~%50%Answer that gives half the credit#Feedback for half credit answer}</td>
+</tr>
+</tbody>
+</table>
+</br>
+<br/>.<br/>
+Note that addresses like www.moodle.org and smileys :-) all work as normal:
+ a) How good is this? {:MULTICHOICE:=Yes#Correct~No#We have a different opinion}
+ b) What grade would you give it? {3:NUMERICAL:=3:2}
+
+Good luck!
+</textarea>
+</center>
+</form>
+
+<br>위 입력 문항은 다음과 같이 학생들에게 나타난다. 
+(중괄호 안의 특정 요소(대문자로 된 단어 - 예: MULTICHOICE,MCV 등)만 주의하여 작성하면 한글로도 잘 나온다) </br>
+
+<form action="">
+    <div id="middle-column"><div><span id="maincontent"></span><div id="q6" class="que multianswer clearfix">
+  <div class="info">
+    <span class="accesshide">Question </span>1      
+<div class="grade">
+        Marks: --/12.00      </div>
+      </div>
+
+  <div class="content">
+    <div class="ablock clearfix"><label><br> </br><br>This question consists of some text with an answer embedded right here <span ><select    name="resp3796_1"><option></option><option value="8919">Wrong answer</option><option value="8920">Another wrong answer</option><option value="8921">Correct answer</option><option value="8922">Answer that gives half the credit</option></select></span></label><label>and right after that you will have to deal with this short answer <input    name="resp3796_2"  type="text" value="" size="33" /> </label><label> and finally we have a floating point number <input    name="resp3796_3"  type="text" value="" size="4" /> </label><label>.</br><br>The  multichoice question can also be shown in the vertical display of the standard moodle multiple choice</br><br><table width="50%"><tbody><tr><td>                              <table class="answer">
+
+                                          <tr class="r0">
+                        <td class="c0 control">
+                          <input  id="resp3796_8960" name="resp3796_4"  type="radio" value="8960" />                        </td>
+                        <td class="c1 text ">
+                          <label for="resp3796_8960">
+                            <span class="anun">1<span class="anumsep">.</span></span> Wrong answer                                                      </label>
+
+                        </td>
+                        <td class="c0 feedback">
+                                                  </td>
+                      </tr>
+                                          <tr class="r1">
+                        <td class="c0 control">
+                          <input  id="resp3796_8961" name="resp3796_4"  type="radio" value="8961" />                        </td>
+                        <td class="c1 text ">
+
+                          <label for="resp3796_8961">
+                            <span class="anun">2<span class="anumsep">.</span></span> Another wrong answer                                                      </label>
+                        </td>
+                        <td class="c0 feedback">
+                                                  </td>
+                      </tr>
+                                          <tr class="r0">
+
+                        <td class="c0 control">
+                          <input  id="resp3796_8962" name="resp3796_4"  type="radio" value="8962" />                        </td>
+                        <td class="c1 text ">
+                          <label for="resp3796_8962">
+                            <span class="anun">3<span class="anumsep">.</span></span> Correct answer                                                      </label>
+                        </td>
+
+                        <td class="c0 feedback">
+                                                  </td>
+                      </tr>
+                                          <tr class="r1">
+                        <td class="c0 control">
+                          <input  id="resp3796_8963" name="resp3796_4"  type="radio" value="8963" />                        </td>
+                        <td class="c1 text ">
+                          <label for="resp3796_8963">
+
+                            <span class="anun">4<span class="anumsep">.</span></span> Answer that gives half the credit                                                      </label>
+                        </td>
+                        <td class="c0 feedback">
+                                                  </td>
+                      </tr>
+                                      </table>
+                  </label><label>.</td></tr><tr></tr></tbody></table></br><br>Or in an horizontal display that is included here in a table</br><br> </br><br><table border="1"><tbody><tr><td>The same multichoice in horizontal mode</td><td>                       
+                  <table class="answer">
+
+                      <tr class="r0">
+                                            <td class="c0 control">
+                          <input  id="resp3796_8964" name="resp3796_5"  type="radio" value="8964" />                        </td>
+                        <td class="c1 text ">
+                          <label for="resp3796_8964">
+                            <span class="anun">1<span class="anumsep">.</span></span> Wrong answer                                                      </label>
+
+                        </td>
+                        <td class="c0 feedback">
+                                                  </td>
+                                            <td class="c0 control">
+                          <input  id="resp3796_8965" name="resp3796_5"  type="radio" value="8965" />                        </td>
+                        <td class="c1 text ">
+                          <label for="resp3796_8965">
+                            <span class="anun">2<span class="anumsep">.</span></span> Another wrong answer                                                      </label>
+
+                        </td>
+                        <td class="c0 feedback">
+                                                  </td>
+                                            <td class="c0 control">
+                          <input  id="resp3796_8966" name="resp3796_5"  type="radio" value="8966" />                        </td>
+                        <td class="c1 text ">
+                          <label for="resp3796_8966">
+                            <span class="anun">3<span class="anumsep">.</span></span> Correct answer                                                      </label>
+
+                        </td>
+                        <td class="c0 feedback">
+                                                  </td>
+                                            <td class="c0 control">
+                          <input  id="resp3796_8967" name="resp3796_5"  type="radio" value="8967" />                        </td>
+                        <td class="c1 text ">
+                          <label for="resp3796_8967">
+                            <span class="anun">4<span class="anumsep">.</span></span> Answer that gives half the credit                                                      </label>
+
+                        </td>
+                        <td class="c0 feedback">
+                                                  </td>
+                                          </tr>
+                  </table>
+                  </label><label></td></tr></tbody></table></br><br>.</br><br>Note that addresses like <a href="http://www.moodle.org" target="_blank">www.moodle.org</a> and smileys <img alt="smile" width="15" height="15" src="http://132.208.141.198/moodle_head/pix/s/smiley.gif" /> all work as normal:<br /> a) How good is this? <span ><select    name="resp3796_6"><option></option><option value="8968">Yes</option><option value="8969">No</option></select></span></label><label><br /> b) What grade would you give it? <input    name="resp3796_7"  type="text" value="" size="1" /> </label><br /><br />Good luck!<br /></br><input type="submit" name="resp3796_submit" value="Submit" class="submit btn" /></div>    <div class="grading">
+
+          </div>  </div>
+</div>
+</form>

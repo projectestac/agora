@@ -1,0 +1,20 @@
+<!--[include file="iw_vhmenu_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<h2><!--[gt text="Delete the option"]-->: <!--[$text]--></h2>
+	<form class="pn-adminform" name="delete" id="delete" action="<!--[pnmodurl modname=iw_vhmenu type=admin func=delete]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<div>
+			<input type="hidden" name="mid" value="<!--[$mid]-->">
+			<input type="hidden" name="submenusId" value="<!--[$submenusId]-->">
+			<input type="hidden" name="confirmation" value="true">
+			<input type="hidden" name="authid" value="<!--[$security]-->">
+			<div class="pn-adminformrow">
+				<p><!--[gt text="Please, confirm that you want to delete the option and all its submenus"]-->: <strong><!--[$ref]--></strong></p>
+			</div>
+			<div class="pn-adminformrow pn-adminformbuttons">
+				<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Confirm deletion?" __title="Confirm deletion?"]-->
+				<a href="<!--[pnmodurl modname=iw_vhmenu type=admin func=main]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+			</div>
+		</div>
+	</form>
+</div>

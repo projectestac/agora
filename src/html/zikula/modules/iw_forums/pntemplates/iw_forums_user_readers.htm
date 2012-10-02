@@ -1,0 +1,14 @@
+<!--[include file="iw_forums_user_menu.htm" m5=1 m7=1 m8=1 fid=$fid ftid=$ftid fmid=$fmid u=$u]-->
+<h2><!--[gt text="The message has been read by:"]--></h2>
+<table>
+	<!--[foreach item=reader from=$readers]-->
+		<tr>
+			<td>
+				<!--[$reader.user]-->
+			</td>
+		</tr>
+	<!--[/foreach]-->
+</table>
+
+
+

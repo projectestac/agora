@@ -1,0 +1,64 @@
+<!--[include file="iw_forms_user_menu.htm"]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+	<h2><!--[gt text="Forms list"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+
+	<table class="usertable">
+		<!--[foreach item="form" from=$forms]-->
+			<tr bgcolor="<!--[cycle values="#ffffff, #eeeeee"]-->">
+				<td valign="top">
+					<!--[if $form.accessLevel eq 7]-->
+						<!--[if $form.isFlagged eq 1]-->
+							<div>
+								<!--[pnimg modname='core' src='flag.gif' set='icons/extrasmall'   __alt="Open the entry of annotations and editing" __title="Open the entry of annotations and editing"]-->
+							</div>
+						<!--[/if]-->
+						<!--[if $form.needValidation eq 1]-->
+							<div>
+								<!--[pnimg modname='core' src='14_layer_visible.gif' set='icons/extrasmall'   __alt="Open the entry of annotations and editing" __title="Open the entry of annotations and editing"]-->
+							</div>
+						<!--[/if]-->
+					<!--[/if]-->
+					<!--[if $form.newLabel]-->
+							<div style="color: red; background-color: #ffffaf;"><!--[gt text="New"]--></div>
+					<!--[/if]-->
+				</td>	
+				<td valign="top">
+					<!--[$form.formName]-->
+				</td>
+				<td valign="top">
+					<!--[$form.title]-->
+				</td>
+				<td valign="top">
+					<!--[if $form.accessLevel eq 1]-->
+						<!--[gt text="Only writing"]-->
+					<!--[elseif $form.accessLevel eq 2]-->
+						<!--[gt text="Only reading"]-->
+					<!--[elseif $form.accessLevel eq 3]-->
+						<!--[gt text="Reading and writing"]-->
+					<!--[elseif $form.accessLevel eq 4]-->
+						<!--[gt text="Validation of fields"]-->
+					<!--[elseif $form.accessLevel eq 7]-->
+						<!--[gt text="Validation"]-->
+					<!--[/if]-->
+					<!--[if $form.accessLevel < 7 AND $form.defaultValidation eq 0]-->
+						<div><!--[gt text="Validation is required"]--></div>
+					<!--[/if]-->
+				</td>
+				<td valign="top">
+					<!--[include file="iw_forms_user_mainOptions.htm" form=$form]-->
+				</td>
+			</tr>
+		<!--[foreachelse]-->
+			<tr>
+				<td colspan="10">
+					<!--[gt text="You do not have any form available"]-->
+				</td>
+			</tr>
+		<!--[/foreach]-->
+	</table>
+</div>
+
+<div style="height:20px;">&nbsp;</div>
+<a href="<!--[pnmodurl modname=iw_forms type=user func=module]-->"><!--[gt text="About this module"]--></a>

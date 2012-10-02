@@ -1,0 +1,11 @@
+<!--[*  $Id: weblinks_block_lastweblinks.html 46 2009-01-24 22:51:07Z Petzi-Juist $  *]-->
+<!--[if $weblinks]-->
+<ol class="lastweblinks">
+  <!--[foreach from=$weblinks item=weblinks name=loop]-->
+  <!--[* $smarty.foreach.loop.iteration *]-->
+  <li>
+    <a href="<!--[pnmodurl modname=Web_Links type=user func=visit lid=$weblinks.lid]-->"<!--[if $tb eq 1]--> target="_blank"<!--[/if]-->><!--[$weblinks.title|pnvarprepfordisplay]--></a>
+  </li>
+  <!--[/foreach]-->
+</ol>
+<!--[/if]-->

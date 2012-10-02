@@ -1,0 +1,26 @@
+<!--[include file="iw_main_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='package_system.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<h2><!--[gt text="Programmed sequences information"]--></h2>
+	<!--[if $noCron]-->
+		<div class="pn-errormsg">
+			<!--[gt text="The cron.php file does not exists in the root directory of your site. The programmed sequences are not available. The programmed sequences improve the work of Intraweb modules."]-->
+		</div>
+	<!--[elseif $noMailer]-->
+		<div class="pn-errormsg">
+			<!--[gt text="The Mailer module is not active and the cron can not be executed. You should active the Mailer module and configure it properly."]-->
+		</div>
+	<!--[else]-->
+		<div style="border: solid 2px #ddd; margin: 20px; padding: 20px;"><!--[$cronResponse]--></div>
+		<!--[if isset($executeCron)]-->
+			<div class="pn-errormsg">
+				<!--[gt text="The cron has not been executed for long time. Now could be a good moment to execute it."]-->
+			</div>
+		<!--[/if]-->
+		<!--[if not $noCronTime]-->
+		<div><a href="<!--[pnmodurl modname=iw_main type=admin func=executeCron]-->"><!--[gt text="Execute the cron now"]--></a></div>
+		<!--[/if]-->
+	<!--[/if]-->
+	<div style="height: 20px">&nbsp;</div>
+	<a href="<!--[pnmodurl modname=iw_main type=admin func=module]-->"><!--[gt text="About this module"]--></a>
+</div>

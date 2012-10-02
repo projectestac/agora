@@ -1,0 +1,34 @@
+<!--[contentpageheading __header='Add new page' __subheader="Select layout"]-->
+<!--[if isset($page)]--><div class="content-page-path"><!--[$locationLabel]--><!--[contentpagepath pageId=$page.id]--></div><!--[/if]-->
+
+<!--[insert name="getstatusmsg"]-->
+<!--[pnform cssClass='z-form']-->
+<!--[pnformsetinitialfocus inputId='title']-->
+<!--[pnformerrormessage id='error']-->
+
+<!--[contentformframe]-->
+<fieldset>
+    <div class="z-formrow">
+        <!--[pnformlabel for='title' __text='Page title']-->
+        <!--[pnformtextinput id='title' mandatory='1' maxLength='255']-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for='urlname' __text='Permalink URL name']-->
+        <!--[pnformtextinput id='urlname' maxLength='255']-->
+        <!--[contentlabelhelp __text='Used to refer this page in short URLs mode. Leave as blank for default value.']-->
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend><!--[gt text="Please select a specific layout for your page"]--></legend>
+    <!--[include file=content_include_layoutselection.html]-->
+</fieldset>
+
+<!--[contentbuttons]-->
+<!--[pnformbutton commandName="create" __text="Create"]-->
+<!--[pnformbutton commandName="cancel" __text="Cancel"]-->
+<!--[/contentbuttons]-->
+
+<!--[/contentformframe]-->
+
+<!--[/pnform]-->

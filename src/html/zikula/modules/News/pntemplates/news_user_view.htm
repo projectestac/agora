@@ -1,0 +1,18 @@
+<!--[*  $Id: news_user_view.htm 75 2009-02-24 04:51:52Z mateo $  *]-->
+
+<!--[nocache]--><!--[include file='news_user_menu.htm']--><!--[/nocache]-->
+<!--[insert name='getstatusmsg']-->
+
+<!--[section name='newsview' loop=$newsitems]-->
+    <!--[$newsitems[newsview]]-->
+    <!--[if $smarty.section.newsview.last neq true]-->
+    <hr />
+    <!--[/if]-->
+<!--[/section]-->
+
+<!--[if $newsitems]-->
+<!--[pager display='page' rowcount=$pager.numitems limit=$pager.itemsperpage posvar='page']-->
+<!--[/if]-->
+
+<!--[pnmodurl modname='News' func='view' startnum=$startnum assign='returnurl']-->
+<!--[pnmodcallhooks hookobject='category' hookaction='display' module='News' returnurl=$returnurl]-->

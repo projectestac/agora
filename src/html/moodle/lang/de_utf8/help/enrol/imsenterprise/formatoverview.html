@@ -1,0 +1,76 @@
+<h2>Format-Übersicht</h2>
+<p>Dies ist eine einfache Übersicht über die Grundstruktur einer IMS-Datei. Weitere Informationen finden Sie unter <a href="http://www.imsglobal.org/enterprise/">IMS Enterprise Web-Site</a>.</p>
+
+<p>Lesen Sie die <a href="./enrol/imsenterprise/entv1p1_conformance_summary.html">Zusammenfassung </a>. Sie beschreibt, welche IMS-Datenelemente Moodle verarbeiten kann.</p>
+
+<h1>Einführung zum IMS-Datenformat</h1>
+
+<p>Für jede IMS-kompatible Anmeldung von Nutzern in einem Kurs benötigen Sie ein &lt;group&gt; Element, das den Kurs angibt, ein &lt;person&gt; Element für den Nutzerzugang sowie ein &lt;membership&gt; Element und darin ein &lt;member&gt; Element mit der Rollendefinition für die Person innerhalb des Kurses.</p><p>
+</p>
+
+<p>Hinweis: Der Nummerierungsschlüssel (id) in der Moodle-Datenbank ist keine austauschbare Information zwischen Systemen, da kein Nutzerverwaltungssystem wissen kann, das Teilnehmer Joe gerade der zwanzigste Nutzer im Moodle-System ist. Dieser Wert kann also nicht zum Austausch von Informationen zwischen Systemen verwendet werden.</p><p>
+</p>
+
+<p>Typischerweise hat ein Kurs einen Referenzcode und einen Namen. Nehmen wir an, dieser Referenzcode lautet MOODLE101. Der Kurs kann nun wie folgt definiert werden:</p><p>
+</p>
+
+<p>
+&nbsp; &lt;group&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;MOODLE101&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;description&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;short&gt;Moodle 101&lt;/short&gt;<br />
+&nbsp; &nbsp; &lt;/description&gt;<br />
+&nbsp; &lt;/group&gt;<br />
+</p>
+
+<p>Das Anmeldescript (enrolment script) sucht nun nach einem Kurs mit dem Code MOODLE101 und erstellt ihn falls, er noch nicht in der Moodle-Datenbank existiert. Ähnliches gilt für einen Nutzer, z.B. &quot;jmoodle&quot;:</p><p>
+</p>
+
+<p>
+&nbsp; &lt;person&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;jmoodle&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;userid&gt;jmoodle&lt;/userid&gt;<br />
+&nbsp; &nbsp; &lt;name&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;fn&gt;Joe Moodle&lt;/fn&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;n&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;family&gt;MOODLE&lt;/family&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;given&gt;JOE&lt;/given&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/n&gt;<br />
+&nbsp; &nbsp; &lt;/name&gt;<br />
+&nbsp; &lt;/person&gt;<br />
+</p>
+
+<p>Wenn für Joe noch kein Nutzerdatensatz existiert, kann dieser für ihn erstellt werden.</p>
+
+<p>Betrachten wir nun die Zugehörigkeit (membership) zum Kurs:</p><p>
+</p>
+
+<p>
+&nbsp; &lt;membership&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;MOODLE101&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;member&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;id&gt;jmoodle&lt;/id&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;role roletype=&quot;01&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;status&gt;1&lt;/status&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;extension&gt;&lt;cohort&gt;unit 2&lt;/cohort&gt;&lt;/extension&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/role&gt;<br />
+&nbsp; &nbsp; &lt;/member&gt;<br />
+&nbsp; &lt;/membership&gt;<br />
+</p>
+
+<p>Die IMS Enterprise Specifikation enthält eine Funktion zur Festlegung eines Start-/Endzeitpunkts für die Teilnahme. Dies kann - falls erforderlich - mit Hilfe des &lt;timeframe&gt;-Tags definiert werden.</p><p>
+</p>
+
+<p>Wenn eine Person bereits einer Gruppe innerhalb eines Kurses zugeordnet ist, wird das Skript diese Zuordnung nicht verändern. Andernfalls wird - sofern vorhanden - eine Zuordnung zu einer Gruppe im Kurs vorgenommen.</p><p>

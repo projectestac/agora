@@ -1,0 +1,100 @@
+<script language="javascript">
+	function esborra_fitxer(){
+		document.new_msg.action="index.php?module=iw_forums&func=del_adjunt"
+		document.new_msg.submit();
+	}
+	
+	function send(){
+		document.new_msg.action="index.php?module=iw_forums&func=update_msg"
+		if(document.new_msg.titol.value==""){
+			alert("<!--[gt text="You didn't write a title for the message."]-->");
+			var error=true;
+		}
+		<!--[if $adjunts neq "0"]-->
+			if(document.new_msg.adjunt.value!="" && "<!--[$extensions]-->".indexOf(document.new_msg.adjunt.value.substring(document.new_msg.adjunt.value.length-3,document.new_msg.adjunt.value.length))==-1  && !error){
+				alert("<!--[gt text="The extension of the attached file isn't correct. The valid extensions are: "]--><!--[$extensions]-->");
+				var error=true;
+			}		
+		<!--[/if]-->
+		if(!error){document.new_msg.submit();}
+	}
+</script>
+<!--[include file="iw_forums_user_menu.htm" m2=1 m7=1 fid=$fid ftid=$ftid]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='edit.gif' set='icons/large']--></div>
+	<h2><!--[$name]--> => <!--[gt text="Edit the message"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+	<form  method="post" name="new_msg" id="new_msg" enctype="multipart/form-data">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forums"]-->" />
+		<input type="hidden" name="fid" value="<!--[$fid]-->" />
+		<input type="hidden" name="ftid" value="<!--[$ftid]-->" />
+		<input type="hidden" name="u" value="<!--[$u]-->" />
+		<input type="hidden" name="fmid" value="<!--[$missatge.fmid]-->" />
+		<table class="usertable">
+			<tr>
+				<td width="150"><!--[gt text="Title of the message"]--></td>
+				<td><input type="text" name="titol" maxlength="100" size="60" value="<!--[$missatge.titol]-->"></td>
+			</tr>
+			<!--[if $adjunts neq "0"]-->
+				<tr>
+					<td><!--[gt text="Attached file"]--></td>
+					<!--[if $missatge.adjunt eq ""]-->
+						<td><input type="file" name="adjunt" size="50"></td>
+					<!--[else]-->
+						<td>
+							<input type="hidden" name="adjunt" size="50" value="">
+							<!--[$missatge.adjunt]-->
+							&nbsp;&nbsp;|&nbsp;&nbsp;
+							<input type="button" onClick="javascript:esborra_fitxer()" value="<!--[gt text="Delete the attached file"]-->">
+							&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" name="segur">&nbsp;&nbsp;<!--[gt text="I'm sure"]-->
+						</td>
+					<!--[/if]-->
+				</tr>
+			<!--[/if]-->
+			<!--[if $icons neq '']-->
+				<tr>
+					<td><!--[gt text="Icon"]--></td>
+					<td>
+						<input type="radio" name="icon" value="" <!--[if $missatge.icon eq '']-->checked<!--[/if]--> />						
+						<!--[section name=icons loop=$icons]-->
+							<input type="radio" name="icon" <!--[if $missatge.icon eq $icons[icons].imgsrc]-->checked<!--[/if]--> value="<!--[$icons[icons].imgsrc]-->" />
+							<!--[pnimg modname='core' src=$icons[icons].imgsrc set='smilies']-->
+						<!--[/section]-->
+					</td>
+				</tr>
+			<!--[else]-->
+				<input type="hidden" name="icon" value="" />
+			<!--[/if]-->
+			<tr>
+				<td colspan="2"><!--[gt text="Message"]--></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<textarea name="msg" cols="80" rows="10" id="intraweb"><!--[$missatge.missatge]--></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div class="formOptions" style="text-align:center;">
+						<a href="javascript:send()"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small'   __alt="Modify the message" __title="Modify the message"]--></a><!--[gt text="Modify the message"]-->
+						<!--[if $ftid neq 0]-->
+							<a href="<!--[pnmodurl modname="iw_forums" type="user" func="llista_msg" fid=$fid ftid=$ftid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+						<!--[else]-->
+							<a href="<!--[pnmodurl modname="iw_forums" type="user" func="forum" fid=$fid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+						<!--[/if]-->
+					</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="2">
+					<div style="margin:30px;">
+						<!--[$missatge.quotes|nl2br|pnmodcallhooks|pnvarcensor]-->
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div style="visibility:hidden;"><textarea name="oldmsg" cols="80" rows="10" id="oldintraweb"><!--[$missatge.quotes]--></textarea></div>
+	</form>
+</div>

@@ -1,0 +1,56 @@
+<!--[*  $Id: feeds_user_display.htm 407 2010-04-20 10:21:04Z herr.vorragend $  *]-->
+
+<!--[include file='feeds_user_menu.htm']-->
+
+<!--[assign var=link value=$feed->get_image_link()]-->
+<!--[if $link neq '']-->
+<div class="feed-image">
+    <!--[assign var='image' value=$feed->get_image_url()]-->
+    <!--[assign var='title' value=$feed->get_image_title()]-->
+    <!--[if $link neq '']-->
+    <a href="<!--[$link|pnvarprepfordisplay]-->"><img src="<!--[$image]-->" alt="<!--[$title|pnvarprepfordisplay]-->" /></a>
+    <!--[else]-->
+    <img src="<!--[$link|pnvarprepfordisplay]-->" alt="<!--[$title|pnvarprepfordisplay]-->" />
+    <!--[/if]-->
+</div>
+<!--[/if]-->
+<h3 class="feed-title">
+    <!--[gt text='Feed']--> : <!--[$item.name|pnvarprephtmldisplay]-->
+</h3>
+<div class="feed-list">
+    <p><!--[gt text='URL']--> : <!--[$item.url]--></p>
+    <!--[assign var='feeditems' value=$feed->get_items($feedstartnum, $itemsperpage)]-->
+    <!--[foreach from=$feeditems item='feeditem']-->
+    <div class="feeditem">
+        <!--[assign var='feeditemlink' value=$feeditem->get_link()]-->
+        <!--[assign var='feeditemdescription' value=$feeditem->get_description()]-->
+        <!--[assign var='feeditemtitle' value=$feeditem->get_title()]-->
+        <!--[assign var='feeditemdate' value=$feeditem->get_date()]-->
+        <!--[assign var='feeditemauthorid' value=$feeditem->get_author()]-->
+        <!--[if $feeditemauthorid]-->
+            <!--[assign var='feeditemauthor' value=$feeditemauthorid->get_name()]-->
+        <!--[/if]-->
+        <h4 class="feeditem-title">
+            <a href="<!--[$feeditemlink|pnvarprepfordisplay]-->" <!--[if $openinnewwindow eq 1]-->target="_blank"<!--[/if]-->><!--[$feeditemtitle|pnvarprepfordisplay]--></a>
+        </h4>
+        <span class="feeditem-info" >
+            <!--[$feeditemdate|date_format:'%I:%M %p %A, %B %e, %Y']-->
+            &nbsp;
+            <!--[if $feeditemauthor neq '']-->
+                <!--[gt text='by %s' tag1=$feeditemauthor|pnvarprepfordisplay]-->
+            <!--[/if]-->
+        </span>
+        <!--[if $feeditemdescription neq '']-->
+        <p class="feeditem-text"><!--[$feeditemdescription|pnvarprephtmldisplay]--></p>
+        <span class="feeditem-more">
+            <a href="<!--[$feeditemlink|pnvarprepfordisplay]-->" <!--[if $openinnewwindow eq 1]-->target="_blank"<!--[/if]-->><!--[gt text='Read more']--></a>
+        </span>
+        <!--[/if]-->
+    </div>
+    <!--[/foreach]-->
+</div>
+<div class="feed-bottom" >
+    <!--[pager show='page' rowcount=$pager.numitems limit=$pager.itemsperpage posvar='startnum' shift=1]-->
+    <!--[pnmodurl modname='Feeds' func='display' fid=$item.fid assign='returnurl']-->
+    <!--[pnmodcallhooks hookobject='item' hookaction='display' hookid=$item.fid module='Feeds' returnurl=$returnurl]-->
+</div>

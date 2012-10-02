@@ -1,0 +1,108 @@
+/**
+ * stylesheet for basic theme
+ */
+
+/**
+ * styles recommended for the basic PostNuke framework
+ */
+
+/** styles for the main container elements **/
+body {
+
+}
+p {
+
+}
+div {
+
+}
+
+/** header styles **/
+h1 {
+
+}
+h2 {
+
+}
+h3 {
+
+}
+h4 {
+
+}
+h5 {
+
+}
+h6 {
+
+}
+
+/** link styles **/
+a {
+}
+
+/** list styles **/
+ul {
+
+}
+ol {
+
+}
+li {
+
+}
+dl {
+
+}
+dd {
+
+}
+dt {
+
+}
+
+/** form control styles **/
+input {
+
+}
+select {
+
+}
+textarea {
+
+}
+
+/** table styles **/
+table.pn-datatable {
+
+}
+table.pn-datatable caption {
+
+}
+table.pn-datatable thead {
+
+}
+table.pn-datatable thead tr{
+
+}
+table.pn-datatable thead tr th{
+
+}
+table.pn-datatable tbody {
+
+}
+table.pn-datatable tbody tr{
+
+}
+table.pn-datatable tbody tr td{
+
+}
+table.pn-datatable tfoot {
+
+}
+table.pn-datatable tfoot tr{
+
+}
+table.pn-datatable tfoot tr td {
+
+}

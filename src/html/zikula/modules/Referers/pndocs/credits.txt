@@ -1,0 +1,1 @@
+Original php-nuke module by Michael Yarbrough (gte649i@prism.gatech.edu)

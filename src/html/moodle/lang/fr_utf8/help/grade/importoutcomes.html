@@ -1,0 +1,20 @@
+<!-- $Id: importoutcomes.html,v 1.1 2009/07/30 19:34:30 martignoni Exp $ -->
+
+<h1>Importer des objectifs</h1>
+
+<p>Il est possible d'importer des objectifs sous la forme de fichiers CSV, avec séparateur point-virgule (;). Le format de ces fichiers doit être le suivant :</p>
+
+<table class="generaltable" cellpadding="4">
+    <tr> <th class="header">Nom du champ</th> <th class="header">Description</th> <th class="header">Requis</th> <th class="header">Format</th> </tr>
+    <tr> <td class="cell">outcome_name</td> <td class="cell">Le nom complet de l'objectif</td> <td class="cell">Oui</td><td class="cell">String</td> </tr>
+    <tr> <td class="cell">outcome_shortname</td><td class="cell">Le nom abrégé de l'objectif</td> <td class="cell">Oui</td> <td class="cell">String</td> </tr>
+    <tr> <td class="cell">outcome_description</td><td class="cell">La description de l'objectif</td> <td class="cell">Non</td> <td class="cell">String</td> </tr>
+    <tr> <td class="cell">scale_name</td><td class="cell">Le nom du barème utilisé</td> <td class="cell">Oui</td> <td class="cell">String</td> </tr>
+    <tr> <td class="cell">scale_items</td><td class="cell">Une liste des éléments du barème, séparée par des virgules</td> <td class="cell">Oui</td> <td class="cell">String</td> </tr>
+    <tr> <td class="cell">scale_description</td><td class="cell">La description du barème</td> <td class="cell">Non</td> <td class="cell">String</td> </tr>
+</table>
+
+<p>Voici un exemple :</p>
+
+<pre>outcome_name;outcome_shortname;outcome_description;scale_name;scale_items;scale_description
+Participation;participation;;Barème de participation;"Peu ou pas de participation, Participation satisfaisante, Participation active";</pre>

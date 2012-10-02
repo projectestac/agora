@@ -1,0 +1,69 @@
+<script language="javascript">
+
+
+</script>
+
+<!--[include file="iwmoodle_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+    <div class="pn-adminpageicon"><!--[pnimg modname='core' src='agt_family.gif' set='icons/large' __alt=$templatetitle]--></div>
+    <h2><!--[$fullname|pnvarprepfordisplay]--> -> <!--[gt text="Enrole users in the course"]--></h2>
+    <form  method="post" name="enrole" id="enrole">
+        <input type="hidden" name="authid" value="<!--[$security]-->"-->
+               <input type="hidden" name="id" value="<!--[$id]-->">
+        <input type="hidden" name="who" value="<!--[$who]-->">
+        <input type="hidden" name="m" value="<!--[$m]-->">
+        <input type="hidden" name="canvi" value="1">	
+
+        <table width="100%">		
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <!--[gt text="People"]-->
+                </td>
+                <td colspan="1">
+                    <!--[gt text="Group"]-->			
+                </td>
+                <td colspan="1">
+                    <!--[gt text="Role"]-->
+                </td>		
+            </tr>
+            <tr>
+                <td>
+                    <!--[gt text="People to register"]-->
+                </td>
+                <td>
+                    <select multiple size="5" name="person[]" id="person">
+                        <!--[section name=people loop=$people]-->
+                        <option <!--[if $person eq $people[people].id]-->selected<!--[/if]--> value="<!--[$people[people].id]-->"><!--[$people[people].name]--></option>
+                        <!--[/section]-->
+                    </select>
+                    <div id="chgInfo" class="pn-hide pn-noteinfo" style="float:left; margin-left:20px;">&nbsp;</div>
+                </td>
+                <td>
+                    <select name="group" id="group" onchange="javascript:chgUsers(this.value)">
+                        <!--[section name=groups loop=$groups]-->
+                        <option <!--[if $group eq $groups[groups].id]-->selected<!--[/if]--> value="<!--[$groups[groups].id]-->"><!--[$groups[groups].name]--></option>
+                        <!--[/section]-->
+                    </select>
+                </td>
+                <td>
+                    <select name="role">
+                        <option value="0"><!--[gt text="Choose a role..."]--></option>
+                        <!--[section name=roles loop=$roles]-->
+                        <option <!--[if $role eq $roles[roles].id]-->selected<!--[/if]--> value="<!--[$roles[roles].id]-->"><!--[$roles[roles].name]--></option>
+                        <!--[/section]-->
+                    </select>
+                </td>		
+            </tr>
+        </table>
+        <div style="text-align: right;">
+            <img style="cursor: pointer;" src="images/icons/small/button_ok.gif" onClick="javascript:send(0)" /> <!--[gt text="Send"]-->
+            <a href="<!--[pnmodurl modname=IWmoodle type=admin func=list id=$id]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small' __alt=$templatetitle]--> <!--[gt text="Cancel"]--></a>
+        </div>
+    </form>
+</div>
+<script>
+    var notRoleSelected = '<!--[gt text="No role selected for users"]-->'
+    var notUsersSelected = '<!--[gt text="No users selected"]-->'
+</script>

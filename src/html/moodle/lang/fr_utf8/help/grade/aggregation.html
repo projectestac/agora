@@ -1,0 +1,117 @@
+<!-- $Id: aggregation.html,v 1.3 2008/03/17 21:41:53 martignoni Exp $ -->
+
+<h1>Tendance centrale de la catégorie</h1>
+
+<p>Ce menu vous permet de choisir quelle stratégie sera utilisée pour le calcul d'une tendance centrale pour la note globale des participants, dans cette catégorie. Les différentes options sont expliquées ci-dessous.</p>
+
+<p>Les notes sont d'abord converties en pourcentages (intervalle de 0 à 1, cette étape est appelée normalisation), puis la tendance centrale est calculée à l'aide d'une des fonctions décrites ci-dessous, puis finalement convertie dans l'intervalle des valeurs possibles associé à la catégorie de l'élément (entre la <em>Note minimale</em> et la <em>Note maximale</em>).</p>
+
+<p><strong>Important</strong> : une « note vide » est considérée simplement comme une entrée manquante du carnet de notes. Elle pourrait cependant signifier différentes situations. Par exemple, ce pourrait être une participant qui n'a pas encore rendu un devoir, un devoir rendu, mais pas encore évalué par l'enseignant, ou une note ayant été supprimée manuellement par le gestionnaire du carnet de notes. Il convient d'être prudent lors de l'interprétation de ces « notes vides.»</p>
+
+<table class="generaltable boxaligncenter" cellpadding="4" cellspacing="1" summary="Stratégies de calcul pour les catégories de notes">
+
+<tr>
+
+<th class="header">Stratégie</th>
+
+<th class="header">Description</th>
+
+</tr>
+
+<tr>
+
+<td class="cell">Moyenne de toutes les notes</td>
+
+<td class="cell">Toutes les notes sont additionnées, puis la somme est divisée par le nombre total des notes. Les notes vides sont incluses dans le calcul (elles sont interprétées comme la valeur minimale de l'élément d'évaluation).</td>
+
+</tr>
+
+<tr>
+
+<td class="cell">Moyenne des notes non vides</td>
+
+<td class="cell">Même chose que ci-dessus, sauf que les notes vides sont exclues du calcul.</td>
+
+</tr>
+
+<tr>
+
+<td class="cell">Médiane de toutes les notes</td>
+
+<td class="cell">La médiane est calculée en comptant toutes les notes triées et sélectionnant la note du milieu (ou la moyenne des deux notes du milieu s'il y a un nombre pair de notes). L'avantage de la médiane sur la moyenne est qu'elle est beaucoup moins influencée par les valeurs extrêmes (notes anormalement éloignées de la moyenne). Les notes vides sont incluses dans le calcul.</td>
+
+</tr>
+
+<tr>
+
+<td class="cell">Médiane des notes non vides</td>
+
+<td class="cell">Même chose que ci-dessus, sauf que les notes vides sont exclues du calcul.</td>
+
+</tr>
+
+<tr>
+
+<td class="cell">La plus basse des notes non vides</td>
+
+<td class="cell">Seule la note la plus basse est conservée. Les notes vides sont exclues du calcul.</td>
+
+</tr>
+
+<tr>
+
+<td class="cell">La plus haute des notes non vides</td>
+
+<td class="cell">Seule la note la plus haute est conservée. Les notes vides sont exclues du calcul.</td>
+
+</tr>
+
+<tr>
+
+<td class="cell">Mode de toutes les notes</td>
+
+<td class="cell">Le mode est la note qui survient le plus fréquemment. Il est utilisé le plus souvent avec les notes non numériques. L'avantage du mode sur la moyenne est qu'il est beaucoup moins influencé par les valeurs extrêmes (notes anormalement éloignées de la moyenne). Les notes vides sont incluses dans le calcul.</td>
+
+</tr>
+
+<tr>
+
+<td class="cell">Mode des notes non vides</td>
+
+<td class="cell">Même chose que ci-dessus, sauf que les notes vides sont exclues du calcul.</td>
+
+</tr>
+
+<tr>
+
+<td class="cell">Moyenne pondérée de toutes les notes</td>
+
+<td class="cell">Chaque élément d'évaluation peut être associé à un coefficient qui sera utilisé lors du calcul de la moyenne arithmétique pour influencer l'importance de chacun des éléments dans la moyenne globale. Les notes vides sont incluses dans le calcul.</td>
+
+</tr>
+
+<tr>
+
+<td class="cell">Moyenne pondérée des notes non vides</td>
+
+<td class="cell">Même chose que ci-dessus, sauf que les notes vides sont exclues du calcul.</td>
+
+</tr>
+
+<tr>
+
+<td class="cell">Moyenne de toutes les notes (points supplémentaires)</td>
+
+<td class="cell">La moyenne arithmétique, avec un facteur de correction. Cette option n'est plus supportée et n'est fournie ici que pour être compatible avec d'anciennes activités. Les notes vides sont incluses dans le calcul.</td>
+
+</tr>
+
+<tr>
+
+<td class="cell">Moyenne des notes non vides (points supplémentaires)</td>
+
+<td class="cell">Même chose que ci-dessus, sauf que les notes vides sont exclues du calcul.</td>
+
+</tr>
+
+</table>

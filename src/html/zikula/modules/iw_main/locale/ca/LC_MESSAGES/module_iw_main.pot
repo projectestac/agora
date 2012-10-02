@@ -1,0 +1,612 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: iw_main module\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-05-10 13:41+0200\n"
+"PO-Revision-Date: 2010-09-01 14:20+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
+"Language-Team: Intraweb <intraweb@xtec.cat>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: pninit.php:41
+#: pninit.php:101
+#: pntemplates/iw_main_admin_conf.htm:87
+msgid "Header text of the cron automatic emails with the new things to see"
+msgstr "Text de l'encapçalament dels missatges automàtics amb les novetats"
+
+#: pninit.php:42
+#: pninit.php:102
+#: pntemplates/iw_main_admin_conf.htm:92
+msgid "Footer text of the email"
+msgstr "Text del peu del missatge"
+
+#: pnajax.php:12
+#: pnajax.php:81
+#: pnajax.php:138
+#: pnadmin.php:120
+#: pnadmin.php:135
+#: pnuser.php:12
+#: pnuser.php:138
+#: pnuser.php:303
+#: pnuser.php:339
+#: pnuser.php:373
+#: pnuser.php:941
+msgid "Sorry! No authorization to access this module."
+msgstr "No teniu autorització per accedir a aquest mòdul"
+
+#: pnajax.php:35
+msgid "Error deleting avatar"
+msgstr "S'ha produït un error en l'esborrament de la imatge"
+
+#: pnajax.php:54
+msgid "Error changing avatar"
+msgstr "S'ha produït un error en fer el canvi d'avatar"
+
+#: pnuserapi.php:14
+#: pnuserapi.php:101
+#: pnuserapi.php:131
+#: pnuserapi.php:157
+#: pnuserapi.php:186
+#: pnuserapi.php:218
+#: pnuserapi.php:244
+#: pnuserapi.php:279
+#: pnuserapi.php:326
+#: pnuserapi.php:363
+#: pnuserapi.php:406
+#: pnuserapi.php:441
+#: pnuserapi.php:476
+#: pnuserapi.php:530
+#: pnuserapi.php:559
+#: pnuserapi.php:587
+#: pnuserapi.php:620
+#: pnuserapi.php:649
+#: pnuser.php:1289
+#: pnuser.php:1496
+#: pnuser.php:1522
+#: pnuser.php:1566
+#: pnuser.php:1771
+msgid "You are not allowed to access to some information."
+msgstr "No teniu autorització per accedir a algunes de les dades."
+
+#: pnuserapi.php:41
+#: pnuserapi.php:83
+#: pnuserapi.php:112
+#: pnuserapi.php:141
+#: pnuserapi.php:168
+#: pnuserapi.php:226
+#: pnuserapi.php:259
+#: pnuserapi.php:294
+#: pnuserapi.php:340
+#: pnuserapi.php:377
+msgid "Error! Could not load items."
+msgstr "S'ha produït un error en carregar elements"
+
+#: pnuserapi.php:247
+#: pnuserapi.php:330
+#: pnuserapi.php:367
+#: pnuserapi.php:410
+#: pnuserapi.php:445
+#: pnuserapi.php:480
+#: pnuserapi.php:534
+#: pnuserapi.php:591
+#: pnuserapi.php:624
+#: pnuserapi.php:653
+#: pnuser.php:1211
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "No s'ha pogut carregar el que volíeu. Reviseu les dades"
+
+#: pnuserapi.php:418
+msgid "Error! Creation attempt failed."
+msgstr "L'intent de creació ha fallat"
+
+#: pnuserapi.php:453
+#: pnuserapi.php:502
+#: pnuserapi.php:542
+msgid "Error! Update attempt failed."
+msgstr "No s'ha pogut actualitzar"
+
+#: pnuserapi.php:566
+#: pnuserapi.php:597
+#: pnuserapi.php:630
+#: pnuserapi.php:659
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr "L'intent d'esborrament ha fallat"
+
+#: pnadmin.php:122
+msgid "The cron has been executed"
+msgstr "S'ha executat el cron"
+
+#: pnadmin.php:174
+msgid "The value of the life time for users variables is incorrect"
+msgstr "El valor del temps de vida de les variables d'usuari no és vàlid."
+
+#: pnadmin.php:193
+msgid "The configuration have been updated"
+msgstr "S'ha modificat la configuració"
+
+#: pnadmin.php:276
+msgid "The current version of iw_main module is incorrect. You must upgrade it before install, upgrade or use this module."
+msgstr "La versió actual del mòdul iw_main module no és vàlida. L'heu d'actualitzar per poder instal·lar, actualitzar i utilitzar aquest mòdul."
+
+#: pntemplates/plugins/function.iwmainmenulinks.php:22
+#: pntemplates/iw_main_admin_main.htm:4
+msgid "Programmed sequences information"
+msgstr "Informació de les seqüències programades"
+
+#: pntemplates/plugins/function.iwmainmenulinks.php:23
+msgid "Configure parameters"
+msgstr "Paràmetres de configuració"
+
+#: pntemplates/plugins/function.iwmainmenulinks.php:24
+#: pntemplates/iw_main_admin_changeAvatarView.htm:4
+msgid "Avatar change request"
+msgstr "Sol·licituds de canvi d'avatar"
+
+#: pntemplates/plugins/function.iwmainmenulinks.php:25
+msgid "Manage files"
+msgstr "Gestiona els fitxers"
+
+#: iwcron.php:23
+#: iwcron.php:26
+msgid "The cron has been executed too recenty"
+msgstr "El cron ha estat executat fa massa poc"
+
+#: iwcron.php:40
+msgid "The Mailer module is not active. The cron can not send emails to users."
+msgstr "El mòdul d'enviament de correu no està activat. El cron no pot enviar missatges als usuaris."
+
+#: iwcron.php:61
+msgid "Never"
+msgstr "Mai"
+
+#: iwcron.php:62
+msgid "Last cron execution"
+msgstr "Darrera execució del cron"
+
+#: iwcron.php:63
+msgid "Last successful cron execution"
+msgstr "Darrera execució amb èxit del cron"
+
+#: iwcron.php:66
+msgid "Cron results"
+msgstr "Resultat de l'execució del cron"
+
+#: iwcron.php:68
+msgid "It has executed correctly"
+msgstr "S'ha executat el cron"
+
+#: iwcron.php:70
+msgid "It has worked incorrectly"
+msgstr "Ha funcionat de forma incorrecta"
+
+#: iwcron.php:72
+#: pntemplates/iw_main_user_main.htm:14
+msgid "It has not worked"
+msgstr "No ha funcionat"
+
+#: iwcron.php:114
+msgid "This email is a resume of the new things to see in the site"
+msgstr "Aquest correu és un resum de les novetats en el portal"
+
+#: iwcron.php:145
+#: pnuser.php:635
+msgid "Nothing to show"
+msgstr "No tens novetats"
+
+#: iwcron.php:163
+msgid "The 5 firsts tries of cron execution has failed. The cron execution has been aborted."
+msgstr "El cinc primers intents d'enviament de correus han fallat. S'ha parat l'execució del cron."
+
+#: iwcron.php:171
+msgid "Your site have users without email address. You should correct this."
+msgstr "El teu portal té usuaris sense correu electrònic. Ho hauries de corregir."
+
+#: iwcron.php:176
+msgid "There have not found emails to send."
+msgstr "No s'han trobat missatge per enviar."
+
+#: iwcron.php:179
+msgid "The information about the new things to see has been send to users via email."
+msgstr "Informació sobre les novetats que han estat enviades als usuaris per correu electrònic."
+
+#: iwcron.php:179
+msgid "The number of send emails has been of "
+msgstr "El nombre de missatges enviats ha estat de"
+
+#: iwcron.php:182
+msgid "Not has been possible to send all the resume messages with the new things to see to users. Some of them have failed."
+msgstr "No ha estat possible enviar tots els missatges amb les novetats als usuaris. Alguns dels enviaments han fallat."
+
+#: iwcron.php:182
+msgid "of"
+msgstr "de"
+
+#: iwcron.php:185
+msgid "All the tries of sending messages have failed. The number of tries has been of"
+msgstr "Tots els intents d'enviament de missatges han fallat. El nombre de vegades que s'ha provat ha estat de"
+
+#: pnversion.php:13
+#: pntemplates/iw_main_user_module_info.htm:14
+msgid "Module description"
+msgstr "Funcionalitats base utilitzades per la resta de mòduls IW"
+
+#: pnversion.php:15
+msgid "iw_main"
+msgstr "iw_main"
+
+#: pnblocks/iwnews.php:29
+msgid "Show news of the user"
+msgstr "Mostra les novetats de l'usuari/ària"
+
+#: pnuser.php:241
+msgid "The information has been modified, but the uplaod of the avatar has failed because the file extension is not allowed. The allowed extensions are: png, jpg and gif"
+msgstr "La informació s'ha modificat, però la pujada del teu avatar al servidor ha fallat perquè l'extenxió del fitxer pujat és incorrecte. Les extensions permeses són: png, jpg i gif"
+
+#: pnuser.php:277
+msgid "The values have changed correctly"
+msgstr "Els valors han canviat correctament"
+
+#: pnuser.php:447
+#: pnuser.php:732
+msgid "Noteboard notes"
+msgstr "Tauler de notes"
+
+#: pnuser.php:475
+msgid "Personal agenda"
+msgstr "Agenda personal"
+
+#: pnuser.php:502
+#: pnuser.php:767
+msgid "Private messages"
+msgstr "Missatges privats"
+
+#: pnuser.php:543
+#: pnuser.php:823
+msgid "Forum"
+msgstr "Fòrum"
+
+#: pnuser.php:600
+#: pnuser.php:603
+#: pnuser.php:875
+msgid "Form"
+msgstr "Formulari"
+
+#: pnuser.php:623
+#: pntemplates/iw_main_user_main.htm:33
+msgid "Avatar replacement"
+msgstr "Canvi d'avatar"
+
+#: pnuser.php:885
+msgid "sent at "
+msgstr "enviat el "
+
+#: pnuser.php:885
+msgid "by "
+msgstr "per "
+
+#: pnuser.php:1293
+msgid "The folder for attached files haven't been found."
+msgstr "No s'ha trobat el directori per als fitxers adjunts."
+
+#: pnuser.php:1305
+msgid "The file extension is not allowed."
+msgstr "L'extensió del fitxer no està permesa."
+
+#: pnuser.php:1310
+msgid "File size not allowed."
+msgstr "La mida del fitxer no es correcta."
+
+#: pnuser.php:1329
+msgid "The attached file haven't been updated because an error."
+msgstr "No s'ha pujat el fitxer a causa d'un error."
+
+#: pnuser.php:1369
+msgid "You are not allowed to access to use this functionality."
+msgstr "No teniu autorització per accedir a aquesta funcionalitat."
+
+#: pnuser.php:1376
+msgid "Error! The parameters receiver are not correct."
+msgstr "Els paràmetres rebuts no són correctes."
+
+#: pnuser.php:1384
+#: pnuser.php:1416
+#: pnuser.php:1425
+#: pnuser.php:1440
+#: pnuser.php:1443
+#: pnuser.php:1448
+#: pnuser.php:1451
+#: pnuser.php:1454
+#: pnuser.php:1459
+#: pnuser.php:1471
+#: pnuser.php:1474
+msgid "Error! Thumbnailing the image file."
+msgstr "S'ha produït un error en crear la imatge en miniatura"
+
+#: pnuser.php:1499
+msgid "Failed to deleted"
+msgstr "S'ha produït un error en esborrar un fitxer del servidor."
+
+#: pnaccountapi.php:22
+#: pntemplates/iw_main_block_iwnews.htm:29
+msgid "Configure"
+msgstr "Configura"
+
+#: pntemplates/iw_main_admin_main.htm:7
+msgid "The cron.php file does not exists in the root directory of your site. The programmed sequences are not available. The programmed sequences improve the work of Intraweb modules."
+msgstr "El fitxer cron.php no existeix a l'arrel del teu portal. No es poden portar a terme seqüències programades. Es recomana l'us de les seqüències programades perquè optimitzen el funcionament dels portals basats en Intraweb."
+
+#: pntemplates/iw_main_admin_main.htm:11
+msgid "The Mailer module is not active and the cron can not be executed. You should active the Mailer module and configure it properly."
+msgstr "No tens activat el mòdul Mailer i el cron no es pot executar. Tingués present que a part d'activar-lo també l'hauràs de configurar."
+
+#: pntemplates/iw_main_admin_main.htm:17
+msgid "The cron has not been executed for long time. Now could be a good moment to execute it."
+msgstr "Fa massa temps que no s'executa el cron. Ara, podria ser un bon moment per fer-ho."
+
+#: pntemplates/iw_main_admin_main.htm:21
+msgid "Execute the cron now"
+msgstr "Executa el cron ara"
+
+#: pntemplates/iw_main_admin_main.htm:25
+#: pntemplates/iw_main_user_module_info.htm:2
+#: pntemplates/iw_main_user_module_info.htm:43
+#: pntemplates/iw_main_user_main.htm:111
+#: pntemplates/iw_main_admin_conf.htm:99
+#: pntemplates/iw_main_admin_changeAvatarView.htm:49
+msgid "About this module"
+msgstr "Pel que fa a aquest mòdul"
+
+#: pntemplates/iw_main_block_iwnews.htm:9
+msgid "Flagged items"
+msgstr "Elements marcats"
+
+#: pntemplates/iw_main_block_iwnews.htm:24
+msgid "Regenerate"
+msgstr "Regenera"
+
+#: pntemplates/iw_main_user_file_not_found.htm:2
+msgid "File not found"
+msgstr "No s'ha trobat el fitxer"
+
+#: pntemplates/iw_main_user_file_not_found.htm:3
+msgid "File name"
+msgstr "Nom del fitxer"
+
+#: pntemplates/iw_main_user_file_not_found.htm:5
+#: pntemplates/iw_main_user_module_info.htm:49
+msgid "Go back"
+msgstr "Torna enrere"
+
+#: pntemplates/iw_main_admin_menu.htm:4
+#: pntemplates/iw_main_user_menu.htm:2
+msgid "Intraweb"
+msgstr "Intraweb"
+
+#: pntemplates/iw_main_admin_menu.htm:4
+#: pntemplates/iw_main_user_menu.htm:2
+#: pntemplates/iw_main_user_main.htm:2
+msgid "Intraweb main module"
+msgstr "Mòdul principal Intraweb"
+
+#: pntemplates/iw_main_user_module_info.htm:6
+msgid "Module name"
+msgstr "Nom del mòdul"
+
+#: pntemplates/iw_main_user_module_info.htm:22
+msgid "Version"
+msgstr "Versió"
+
+#: pntemplates/iw_main_user_module_info.htm:30
+msgid "Author"
+msgstr "Autor/a"
+
+#: pntemplates/iw_main_user_module_info.htm:43
+msgid "This is a"
+msgstr "Aquest és un"
+
+#: pntemplates/iw_main_user_module_info.htm:45
+msgid "Contact us through the email address"
+msgstr "Contacta amb nosaltres per mitjà de l'adreça de correu"
+
+#: pntemplates/iw_main_user_main.htm:3
+msgid "User configurable blocks values"
+msgstr "Configuració dels paràmetres de comportament dels blocs."
+
+#: pntemplates/iw_main_user_main.htm:7
+msgid "News and marked blocks"
+msgstr "Bloc de novetats i marcats"
+
+#: pntemplates/iw_main_user_main.htm:9
+msgid "I want that block will show details"
+msgstr "Vull que en el bloc d'elements marcats es mostrin els detalls"
+
+#: pntemplates/iw_main_user_main.htm:18
+msgid "If you want the system would be able to send you emails with a dayly resume of things to see, but it is not possible because your email has not been found. You can define your email address form"
+msgstr "Si volguessis el sistema et podria donar la possibilitat de rebre per correu electrònic resums diàris de les novetats, pero no s'ha trobat el teu correu electrònic. Pots definir la teva adreça de correu electrònic des"
+
+#: pntemplates/iw_main_user_main.htm:19
+msgid "this link."
+msgstr "d'aquest enllaç."
+
+#: pntemplates/iw_main_user_main.htm:23
+msgid "I want to be subscribed to thinks to see"
+msgstr "Vull estar subscrit a les novetats"
+
+#: pntemplates/iw_main_user_main.htm:25
+msgid "The subscrition mail is:"
+msgstr "L'adreça de la subscripció és:"
+
+#: pntemplates/iw_main_user_main.htm:41
+#: pntemplates/iw_main_admin_changeAvatarView.htm:36
+msgid "Delete"
+msgstr "Esborrament"
+
+#: pntemplates/iw_main_user_main.htm:47
+msgid "Upload your avatar"
+msgstr "Puja el teu avatar"
+
+#: pntemplates/iw_main_user_main.htm:49
+msgid "If you want, you cam change your avatar from here:"
+msgstr "Si vols pots canviar el teu avatar des d'aquí:"
+
+#: pntemplates/iw_main_user_main.htm:53
+msgid "(The avatar change required administrator validation)"
+msgstr "(El canvi d'avatar requereix la validació d'un administrador/a)"
+
+#: pntemplates/iw_main_user_main.htm:59
+msgid "Your avatar's image sizes must be 90x120 px aproximately with one of the next formats: jpg, gif or png."
+msgstr "La imatge del teu avatar ha de ser d'aproximadament 90x120 px, en els formats jpg, gif o png."
+
+#: pntemplates/iw_main_user_main.htm:64
+msgid "Your avatar changement request is waiting for an administrator validation."
+msgstr "La teva sol·licitud de canvi d'avatar està pendent de validació."
+
+#: pntemplates/iw_main_user_main.htm:75
+msgid "Google account"
+msgstr "Compte de Google"
+
+#: pntemplates/iw_main_user_main.htm:77
+msgid "Sincronize agenda with Google calendar"
+msgstr "Sincronitza l'agenda amb Google calendar"
+
+#: pntemplates/iw_main_user_main.htm:82
+msgid "Google e-mail"
+msgstr "Correu electrònic a Google"
+
+#: pntemplates/iw_main_user_main.htm:86
+msgid "Google password"
+msgstr "Contrasenya a Google"
+
+#: pntemplates/iw_main_user_main.htm:90
+msgid "Refresh time for gCalendar sincronitation"
+msgstr "Temps de refresc per a la sincronització en minuts"
+
+#: pntemplates/iw_main_user_main.htm:99
+msgid "As many small this value the navigation into agendas will be slower. In any moment the automatical sincronization is possible"
+msgstr "Com més petit sigui aquest valor més lenta serà la navegació pel calendari. En tot moment es pot fer una sincronització no automàtica"
+
+#: pntemplates/iw_main_user_main.htm:107
+msgid "OK"
+msgstr "D'acord"
+
+#: pntemplates/iw_main_admin_conf.htm:4
+msgid "Modify the configuration"
+msgstr "Modifica la configuració"
+
+#: pntemplates/iw_main_admin_conf.htm:9
+msgid "Server files directori"
+msgstr "Directori dels fitxers al servidor"
+
+#: pntemplates/iw_main_admin_conf.htm:14
+msgid "Attached files directory hasn't been found"
+msgstr "El directori pels fitxers adjunts no s'ha trobat"
+
+#: pntemplates/iw_main_admin_conf.htm:19
+#: pntemplates/iw_main_admin_conf.htm:34
+#: pntemplates/iw_main_admin_conf.htm:70
+msgid "This folder is not writeable."
+msgstr "Aquest directori ha de tenir permisos d'escriptura."
+
+#: pntemplates/iw_main_admin_conf.htm:24
+msgid "Folder where to look for the users pictures"
+msgstr "Directori on buscar les fotos dels usuaris"
+
+#: pntemplates/iw_main_admin_conf.htm:29
+msgid "Users pictures directori hasn't been found"
+msgstr "El directori de fotos dels usuaris no s'ha trobat"
+
+#: pntemplates/iw_main_admin_conf.htm:40
+msgid "The user can change theirs avatars"
+msgstr "Els usuaris es poden canviar l'avatar."
+
+#: pntemplates/iw_main_admin_conf.htm:44
+msgid "The avatar replacement needs validation"
+msgstr "El canvi d'avatar requereix validació per part d'un administrador/a."
+
+#: pntemplates/iw_main_admin_conf.htm:50
+msgid "The users can change theirs avatars because the directori of pictures or the temporal directori don' exist or them have not got the correct permissions."
+msgstr "Els usuaris no es poden canviar l'avatar perquè el directori de fotos o el directori temporal no existeixen o no tenen permisos d'escriptura."
+
+#: pntemplates/iw_main_admin_conf.htm:55
+msgid "The users can change theirs avatars because the php's gd extensión is not available"
+msgstr "Els usuaris no es poden canviar l'avatar perquè la llibreria de php gd no està disponible."
+
+#: pntemplates/iw_main_admin_conf.htm:60
+msgid "Folder for temporal files"
+msgstr "Directori de fitxers temporals"
+
+#: pntemplates/iw_main_admin_conf.htm:65
+msgid "Temporal files directory hasn't been found"
+msgstr "El directori de fitxers temporals no s'ha trobat"
+
+#: pntemplates/iw_main_admin_conf.htm:74
+msgid "Extensions allowed"
+msgstr "Extensions permeses"
+
+#: pntemplates/iw_main_admin_conf.htm:78
+msgid "Maximum size for uploaded files"
+msgstr "Mida màxima dels fitxers"
+
+#: pntemplates/iw_main_admin_conf.htm:82
+msgid "Life time of users vars (days)"
+msgstr "Temps de vida de les variables d'usuari (dies)"
+
+#: pntemplates/iw_main_admin_conf.htm:96
+msgid "Execute"
+msgstr "Executa"
+
+#: pntemplates/iw_main_admin_conf.htm:96
+msgid "Save the changes"
+msgstr "Desa els canvis"
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:9
+msgid "User"
+msgstr "Usuari/ària"
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:10
+msgid "Current avatar"
+msgstr "Avatar actual"
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:11
+msgid "New avatar"
+msgstr "Avatar nou"
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:12
+msgid "Options"
+msgstr "Opcions"
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:32
+msgid "Confirm the avatar change"
+msgstr "Confirma que permets canviar"
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:33
+msgid "Approve the avatar changer"
+msgstr "Aprova el canvi d'avatar"
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:35
+msgid "Confirm the deletion"
+msgstr "Confirma que vols esborrar"
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:43
+msgid "Not requests found"
+msgstr "No s'han trobat sol·licituds"
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:52
+msgid "--- Deleting the avatar ---"
+msgstr "--- Esborrant l'avatar ---"
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:53
+msgid "--- Changing the avatar ---"
+msgstr "--- Canviant l'avatar ---"
+

@@ -1,0 +1,27 @@
+This file lists scripts/styles used in News that originate from 
+others. E.Spaan, 18 Jan 2010.
+
+---
+Datepicker used in new/modify templates originates from Jeremy Jongsma
+URL: http://home.jongsma.org/software/js/datepicker
+License: Gnu Public License
+
+---
+Collapsing tree view in Archive taken from DynamicDrive (Simple Tree Menu)
+URL: http://www.dynamicdrive.com/dynamicindex1/navigate1.htm
+License: http://www.dynamicdrive.com/notice.htm - Terms of Use
+
+---
+Button layout inspiration in new/modify forms:
+http://particletree.com/features/rediscovering-the-button-element/
+http://www.zurb.com/article/266/super-awesome-buttons-with-css3-and-rgba
+
+---
+Storiesext block scrolling scripts:
+Memory Ticker script from Dynamic Drive
+Cross browser Marquee II from Dynamic Drive
+Pausing up-down scroller from Dynamic Drive
+
+---
+IE6 buttonfix used in user_new template:
+http://www.kopz.org/public/documents/css/multiple_buttons_ie_workaround.html

@@ -1,0 +1,28 @@
+Downloads 2.x:
+--------------
+
+
+People who support me with code or ideas:
+-----------------------------------------
+
+Karl Pütz aka Charlie
+Frank Schummertz 
+Andreas Krapohl 
+Mark West
+Arjen Tebbenhof
+Christian L. 
+Katja Zedel
+Reiner Maiwald
+Robert Burkhead
+Sladuis 
+Carsten Volmer
+Steffen Voss
+Markus Tacker - File_Bittorrent2
+Justin Jones - File_Bittorrent2
+
+
+Translation:
+-----------------
+German: Sascha Jost 
+English: Sascha Jost / Robert Burkhead
+Russian: Sladuis

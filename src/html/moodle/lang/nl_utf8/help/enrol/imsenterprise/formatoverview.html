@@ -1,0 +1,82 @@
+<h1>Format overzicht</h1>
+<p>Hieronder is een eenvoudige gids voor de structuur van een typisch IMS Enterprise databestand. Veel meer informatie kun je vinden op de <a href="http://www.imsglobal.org/enterprise/">IMS Enterprise official website</a>.</p>
+
+<p>Lees de <a href="./enrol/imsenterprise/entv1p1_conformance_summary.html">conformance summary</a> die beschrijft welke IMS data-elementen je met deze plugin kan verwerken.</p>
+
+<h1>Basisgids voor het IMS Enterprise bestandsformaat</h1>
+
+<p>Voor alle IMS aanmeldingen heb je een &lt;group&gt; tag die de cursus bepaalt, een &lt;person&gt; tag die de gebruikersaccount specifieert, en een &lt;membership&gt; tag die &lt;member&gt; tags bevat. Die specifiëren welke rol iemand heeft binnen een cursus.</p><p>
+</p>
+
+<p>
+Denk er aan dat de numerieke sleutelwaarden die gebruikt worden in de Moodle databank, niet als werkbare gegevens kunnen gebruikt worden - een leerlingengegevenssyseem gaat nooit op voorhand weten dat Jan de 20ste gebruiker is die aan de Moodledatabank is toegevoegd - dus die sleutels worden niet uitgewisseld.</p><p>
+</p>
+
+<p>
+Om een cursus te definiëren moet die zowel een referentiecode als een naam hebben, laat ons er vanuitgaan dat de code MOODLE101 is. Om je cursus te definiëren, kun je het volgende gebruiken</p><p>
+</p>
+
+<p>
+&nbsp; &lt;group&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;MOODLE101&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;description&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;short&gt;Moodle 101&lt;/short&gt;<br />
+&nbsp; &nbsp; &lt;/description&gt;<br />
+&nbsp; &lt;/group&gt;<br />
+</p>
+
+<p>
+Het aanmeldingsscript zal zoeken naar een cursus met code MOODLE101, en (optionneel) de cursus aanmaken als die niet bestaat. Hetzelfde geldt voor gebruikers - laat ons uitgaan van een gebruiker  &quot;jmoodle&quot;:</p><p>
+</p>
+
+<p>
+&nbsp; &lt;person&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;jmoodle&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;userid&gt;jmoodle&lt;/userid&gt;<br />
+&nbsp; &nbsp; &lt;name&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;fn&gt;Joe Moodle&lt;/fn&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;n&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;family&gt;MOODLE&lt;/family&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;given&gt;JOE&lt;/given&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/n&gt;<br />
+&nbsp; &nbsp; &lt;/name&gt;<br />
+&nbsp; &lt;/person&gt;<br />
+</p>
+
+<p>Als Joe nog geen account heeft, kan het script(optionneel) een nieuwe account voor hem aanmaken.</p>
+
+<p>
+We zorgen nu voor het lidmaatschap door de gebruiker aan de cursus toe te voegen:</p><p>
+</p>
+
+<p>
+&nbsp; &lt;membership&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;MOODLE101&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;member&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;id&gt;jmoodle&lt;/id&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;role roletype=&quot;01&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;status&gt;1&lt;/status&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;extension&gt;&lt;cohort&gt;unit 2&lt;/cohort&gt;&lt;/extension&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/role&gt;<br />
+&nbsp; &nbsp; &lt;/member&gt;<br />
+&nbsp; &lt;/membership&gt;<br />
+</p>
+
+<p>
+De IMS Enterprise specificatie geeft ook de mogelijkheid om start/eind datums voor aanmeldingen mee te geven, zodat deze in de &lt;timeframe&gt; tag gezet kunnen worden als nodig.</p><p>
+</p>
+
+<p>
+Als iemand al in een groep in de cursus zit, dan zal het script dat niet wijzigen. Als de leerlingen niet gegroepeerd zijn, dan wordt de ingestelde groepering toegepast.</p><p>

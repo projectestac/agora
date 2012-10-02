@@ -1,0 +1,51 @@
+<!--[if $jclicTeacher|@count > 0]-->
+	<div style="float: left;" class="left_block_content">
+		<strong><!--[gt text="Activities assigned" domain="module_iw_jclic"]--></strong>
+	</div><div style="clear: both;"></div>
+	
+	<!--[foreach from=$jclicTeacher item=activity]-->
+		<div style="float: left;">
+			<!--[$activity.name]-->
+		</div>
+		<div style="float: right;">
+			<a href="<!--[pnmodurl modname="iw_jclic" type="user" func="correct" jid=$activity.jid]-->">
+				<!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall'   __alt="Correct" __title="Correct"]-->
+			</a>
+		</div>
+		<div style="clear: both"></div>
+	<!--[/foreach]-->
+	<div style="float: right;">
+		<a href="<!--[pnmodurl modname="iw_jclic" type="user" func="main"]-->">
+			<!--[gt text="Details" domain="module_iw_jclic"]-->
+		</a>
+	</div>
+	<div style="clear: both; height: 10px"></div>
+<!--[/if]-->
+
+<!--[if $jclicStudent|@count > 0]-->
+	<div style="float: left;" class="left_block_content">
+		<strong><!--[gt text="Activities to do" domain="module_iw_jclic"]--></strong>
+	</div><div style="clear: both;"></div>
+	<!--[foreach from=$jclicStudent item=activity]-->
+		<div style="float: left;">
+			<!--[$activity.name]-->
+		</div>
+		<div style="float: right;">
+			<a href="<!--[pnmodurl modname="iw_jclic" type="user" func="activity" jid=$activity.jid]-->">
+				<!--[pnimg modname='iw_jclic' src='jclicIcon.png' set='pnimages'   __alt="Correct" __title="Correct"]-->
+			</a>
+		</div>
+		<div style="clear: both"></div>
+	<!--[/foreach]-->
+	<div style="float: right;">
+		<a href="<!--[pnmodurl modname="iw_jclic" type="user" func="assigned"]-->">
+			<!--[gt text="Details" domain="module_iw_jclic"]-->
+		</a>
+	</div>
+	<div style="clear: both"></div>
+<!--[/if]-->
+
+<!--[if $jclicTeacher|@count == 0 && $jclicStudent|@count == 0]-->
+	<!--[gt text="You don't have access to any activity jclic" domain="module_iw_jclic"]-->
+<!--[/if]-->
+<div style="height: 20px;">&nbsp;</div>

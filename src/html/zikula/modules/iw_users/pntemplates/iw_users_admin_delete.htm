@@ -1,0 +1,33 @@
+<!--[include file="iw_users_admin_menu.htm" inici=$inici numitems=$numitems campfiltre=$campfiltre filtre=$filtre]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/large']--></div>
+	<h2><!--[gt text="Delete users"]--></h2>
+
+
+
+
+
+
+
+
+
+
+	<form  class="pn-adminform" enctype="application/x-www-form-urlencoded" method="post" name="usersList" action="<!--[pnmodurl modname="iw_users" type="admin" func="delete"]-->">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_users"]-->" />
+		<input type="hidden" name="confirmation" value="1" />
+		<ul>
+			<!--[foreach item=user from=$users]-->
+				<input type="hidden" name="uid[]" value="<!--[$user.uid]-->" />
+				<input type="hidden" name="uname[]" value="<!--[$user.uname]-->" />
+				<li><!--[$user.uname]--> => <!--[$user.nom]--> <!--[$user.cognom1]--> <!--[$user.cognom2]--></li>
+			<!--[/foreach]-->
+		</ul>
+		<div>
+			<!--[gt text="Confirms that what users want to delete from the list"]-->
+		</div>
+		<div style="text-align: center;">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Delete users" __title="Delete users"]--><!--[gt text="Delete users"]-->
+			<a href="<!--[pnmodurl modname="iw_users" type="admin" func="main"]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+		</div>
+	</form>
+</div>

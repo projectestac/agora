@@ -1,0 +1,10 @@
+/* style.css */
+.pn-noteinfo {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+
+.messageBody br {
+    display: none;
+}

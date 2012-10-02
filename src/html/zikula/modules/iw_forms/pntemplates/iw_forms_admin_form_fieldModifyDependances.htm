@@ -1,0 +1,24 @@
+<div class="formContent">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/medium']--></div>
+	<h2><!--[gt text="Change the dependencies"]--></h2>
+
+	<form class="pn-adminform" action="<!--[pnmodurl modname="iw_forms" type="admin" func="modifyFieldDependances"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forms"]-->" />
+		<input type="hidden" name="fid" value="<!--[$item.fid]-->" />
+		<input type="hidden" name="confirm" value="1" />
+		<input type="hidden" name="fndid" value="<!--[$itemField.fndid]-->" />
+		<!--[gt text="Choose depend on the field"]--> <strong><!--[$itemField.fieldName]--></strong>
+		<div><strong><!--[gt text="List of possible dependencies"]--></strong>:</div>
+		<ul>
+			<!--[foreach item=field from=$fields]-->
+				<!--[if $field.fndid neq $itemField.fndid]-->
+					<li><input type="checkbox" id="dep[<!--[$field.fndid]-->]" name="dep[<!--[$field.fndid]-->]" value="<!--[$field.fndid]-->" <!--[if $field.checked]-->checked<!--[/if]-->/> <!--[$field.fndid]--> - <!--[$field.fieldName]--></li>
+				<!--[/if]-->
+			<!--[/foreach]-->
+		</ul>
+		<div class="formOptions">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Delete" __title="Delete"]-->
+			<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="form" action="field" fid=$item.fid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+		</div>
+	</form>
+</div>

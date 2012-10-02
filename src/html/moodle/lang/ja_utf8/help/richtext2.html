@@ -1,0 +1,45 @@
+<h1>リッチテキストHTMLエディタに関して</h1>
+
+<p>利用可能な機能: <b>
+<?php  if (!$CFG->htmleditor) {
+       print_string("htmleditordisabledadmin");
+   } else if (!$USER->htmleditor) {
+       print_string("htmleditordisabled");
+   } else if (!can_use_html_editor()) {
+       print_string("htmleditordisabledbrowser");
+   } else {
+       print_string("htmleditoravailable");
+   }
+?>
+</b></p>
+
+<p>リッチテキストHTMLエディタはブラウザ上でワードプロセッサの機能を実現します。ここでは直感的にテキストを編集することができ、通常のHTMLコードが自動生成されます。</p>
+
+<p>このエディタにはテキストの整形に加えて数多くの便利な機能があります。</p>
+
+<h2>他のアプリケーションからテキストをコピーする</h2>
+<div class="indent">
+<p>Microsoft Word等の他のWindowsアプリケーションからリッチテキストをコピー&ペーストすることができます。コピー元のフォーマットはそのまま保持されます。ブラウザのメニューより通常のコピー＆ペースト(またはControl-C および Control-V) を使用してください。</p>
+</div>
+
+<h2>イメージを挿入する <img alt="" src="lib/editor/htmlarea/images/ed_image.gif" /></h2>
+<div class="indent">
+<p>あなたがすでにイメージをウェブ上に公開し、URIでアクセス可能な場合、「Insert Image」ボタンを使ってイメージ挿入することができます。</p>
+</div>
+
+<h2>テーブルを挿入する<img alt="" src="lib/editor/htmlarea/images/insert_table.gif" /></h2>
+<div class="indent">
+<p>テキストにレイアウトを追加する場合、ツールバーの「Insert Tables」ボタンを使用できます。</p>
+</div>
+
+<h2>リンクを挿入する <img alt="" src="lib/editor/htmlarea/images/ed_link.gif" /> /</h2>
+<div class="indent">
+<p>新しいリンクを作成する場合はまずリンクを張りたいテキストを入力してください。そしてそのテキストを選択して、ツールバーのリンクボタンをクリックしてください。リンクしたいURIを入力して完了です!</p>
+</div>
+
+<h2>スマイリー (感情表現アイコン) を挿入する <img alt="" src="pix/s/smiley.gif" class="icon" /></h2>
+<div class="indent">
+<p>テキストにこれらの小さなアイコンを挿入する場合、ツールバーのスマイリーアイコンをクリックしてください (代わりに該当するコードをテキストに入力することもできます。入力したコードはスマイリーに変換されます)。</p>
+<div id="emoticons">##emoticons_html##</div>
+</div>
+<div style="clear:both">&nbsp;</div>

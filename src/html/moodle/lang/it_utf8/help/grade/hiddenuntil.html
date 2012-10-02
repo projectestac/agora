@@ -1,0 +1,23 @@
+<h1>Elemento Nascosto a fino al/h1>
+<p>Data fino alla quale i voti rimarranno <strong>nascosti</strong> ai partecipanti, ad esempio dopo il completamento di un attività in attesa del processo di valutazione. Una sequenza tipica di eventi potrebbe essere la seguente:
+</p>
+<table class="generaltable boxaligncenter" cellpadding="4" cellspacing="1" summary="Sequenza di eventi in un processo di valutazione e corrispondenti stati (Protetto e Nascosto) del voto">
+    <tr>
+        <th class="header">Evento</th><th class="header">Bloccato</th><th class="header">Nascosto</th>
+    </tr>
+    <tr>
+        <td class="cell">Inizio attività e consegne dei partecipanti</td>
+        <td class="cell">No</td>
+        <td class="cell">Si</td>
+    </tr>
+    <tr>
+        <td class="cell">Fine attività e inizio della valutazione/feedback</td>
+        <td class="cell">Si</td>
+        <td class="cell">Si</td>
+    </tr>
+    <tr>
+        <td class="cell">Fine valutazione/feedback e rilascio delle valutazioni</td>
+        <td class="cell">Si</td>
+        <td class="cell">No</td>
+    </tr>
+</table>

@@ -1,0 +1,36 @@
+<!--[*
+* Zikula Application Framework
+* @copyright (c) 2001, Zikula Development Team
+* @link http://www.zikula.org
+* @version $Id: recommendus_user_display.htm 343 2009-11-09 14:43:48Z herr.vorragend $
+* @license GNU/GPL - http://www.gnu.org/copyleft/gpl.html
+* @package Zikula_Value_Addons
+* @subpackage Recommend_Us
+*
+* Important: All variables assigned to this template ($currenturl, $title and $objectid)
+*            are already sanitized via DataUtil::formatForDisplayHTML and can be used
+*            without any further treatment.
+*]-->
+
+<div class="diggers">
+    <label for="digger<!--[$objectid]-->"><!--[gt text='Post this page at...' domain='module_recommend_us']--></label>
+    <ul id="digger<!--[$objectid]-->">
+        <li><a title="Mister Wong" href="http://www.mister-wong.de/index.php?action=addurl&amp;bm_url=<!--[$currenturl]-->&amp;bm_description=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/mister-wong.gif" alt="mister-wong icon" /></a></li>
+        <li><a title="del.icio.us" href="http://del.icio.us/post?url=<!--[$currenturl]-->&amp;title=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/delicious.gif" alt="del.icio.us icon" /></a></li>
+        <li><a title="Digg" href="http://digg.com/submit?phase=2&amp;url=<!--[$currenturl]-->&amp;title=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/digg.gif" alt="digg icon" /></a></li>
+        <li><a title="Furl" href="http://furl.net/storeIt.jsp?u=<!--[$currenturl]-->&amp;t=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/furl.gif" alt="furl icon" /></a></li>
+        <li><a title="Netscape" href="http://www.netscape.com/submit/?U=<!--[$currenturl]-->&amp;T=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/netscape.gif" alt="netscape.icon" /></a></li>
+        <li><a title="Yahoo" href="http://myweb2.search.yahoo.com/myresults/bookmarklet?u=<!--[$currenturl]-->&amp;t=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/yahoo_myweb.gif" alt="yahoo_myweb icon" /></a></li>
+        <li><a title="StumpleUpon" href="http://www.stumbleupon.com/submit?url=<!--[$currenturl]-->&amp;title=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/stumbleupon.gif" alt="stumbleupon icon" /></a></li>
+        <li><a title="Google" href="http://www.google.com/bookmarks/mark?op=edit&amp;bkmk=<!--[$currenturl]-->&amp;title=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/google_bmarks.gif" alt="google icon" /></a></li>
+        <li><a title="Technorati" href="http://www.technorati.com/faves?add=<!--[$currenturl]-->"><img src="modules/Recommend_Us/pnimages/technorati.gif" alt="technorati icon" /></a></li>
+        <li><a title="Blinklist" href="http://blinklist.com/index.php?Action=Blink/addblink.php&amp;Url=<!--[$currenturl]-->&amp;Title=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/blinklist.gif" alt="blinklist icon" /></a></li>
+        <li><a title="Newsvine" href="http://www.newsvine.com/_wine/save?u=<!--[$currenturl]-->&amp;h=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/newsvine.gif" alt="newsvine icon" /></a></li>
+        <li><a title="ma.gnolia" href="http://ma.gnolia.com/bookmarklet/add?url=<!--[$currenturl]-->&amp;title=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/magnolia.gif" alt="magnolia icon" /></a></li>
+        <li><a title="Reddit" href="http://reddit.com/submit?url=<!--[$currenturl]-->&amp;title=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/reddit.gif" alt="reddit icon" /></a></li>
+        <li><a title="Windows Live" href="https://favorites.live.com/quickadd.aspx?marklet=1&amp;mkt=en-us&amp;url=<!--[$currenturl]-->&amp;title=<!--[$title]-->&amp;top=1"><img src="modules/Recommend_Us/pnimages/windows_live.gif" alt="windows icon" /></a></li>
+        <li><a title="Tailrank" href="http://tailrank.com/share/?link_href=<!--[$currenturl]-->&amp;title=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/tailrank.gif" alt="tailrank icon" /></a></li>
+        <li><a title="Blogmarks" href="http://blogmarks.net/my/new.php?mini=1&amp;simple=1&amp;url=<!--[$currenturl]-->&amp;title=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/blogmarks.gif" alt="blogmark icon" /></a></li>
+        <li><a title="Simpy" href="http://www.simpy.com/simpy/LinkAdd.do?href=<!--[$currenturl]-->&amp;title=<!--[$title]-->"><img src="modules/Recommend_Us/pnimages/simpy.gif" alt="simpy icon" /></a></li>
+    </ul>
+</div>

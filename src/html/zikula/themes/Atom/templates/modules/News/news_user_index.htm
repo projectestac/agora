@@ -1,0 +1,11 @@
+<!--[* Template for the atom theme *]-->
+
+<entry>
+    <title><!--[$info.title]--></title>
+    <link rel="alternate" type="text/html" href="<!--[pnmodurl modname=News type=user func=display sid=$info.sid]-->" />
+    <author><name><!--[$info.contributor]--></name></author>
+    <id><!--[pnmodurl modname=News type=user func=display sid=$info.sid fqurl=true]--></id>
+    <published><!--[$info.from|published]--></published>
+    <updated><!--[$info.lu_date|updated]--></updated>
+    <summary type="html"><!--[$info.hometext|pnvarprephtmldisplay|htmlentities]--></summary>
+</entry>

@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: legal 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-04 04:57-0500\n"
+"PO-Revision-Date: 2010-07-13 03:10+0200\n"
+"Last-Translator: Mateo <nestormateo@gmail.com>\n"
+"Language-Team: Zikula Spanish Community <equipo@zikula.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: pnadmin.php:64
+msgid "All users"
+msgstr "Todos los usuarios"
+
+#: pnadmin.php:67
+msgid "No groups"
+msgstr "No hay grupos"
+
+#: pnadmin.php:123
+msgid "Done! Saved module configuration."
+msgstr "¡Hecho! Configuración del módulo guardada."
+
+#: pnuser.php:48
+msgid "'Terms of use' not activated."
+msgstr "'Términos de uso' no activado."
+
+#: pnuser.php:89
+msgid "'Privacy policy' not activated."
+msgstr "'Política de privacidad' no activada."
+
+#: pnuser.php:128
+msgid "'Accessibility statement' not activated."
+msgstr "'Declaración de accesibilidad' no activada."
+
+#: pnversion.php:16 pntemplates/legal_admin_menu.htm:4
+msgid "Legal info manager"
+msgstr "Gestor de Información Legal"
+
+#: pnversion.php:17
+msgid ""
+"Provides an interface for managing the site's 'Terms of use', 'Privacy "
+"statement' and 'Accessibility statement'."
+msgstr ""
+"Proporciona una interfaz para la gestión de los 'Términos de uso', 'Política "
+"de privacidad' y 'Declaración de accesibilidad'."
+
+#. ! module name that appears in URL
+#: pnversion.php:19
+msgid "legalmod"
+msgstr "legal"
+
+#: pntemplates/plugins/function.legaluserlinks.php:44
+#: pntemplates/legal_admin_modifyconfig.htm:13
+msgid "Terms of use"
+msgstr "Términos de uso"
+
+#: pntemplates/plugins/function.legaluserlinks.php:47
+#: pntemplates/legal_admin_modifyconfig.htm:17
+msgid "Privacy policy"
+msgstr "Política de privacidad"
+
+#: pntemplates/plugins/function.legaluserlinks.php:50
+#: pntemplates/legal_admin_modifyconfig.htm:21
+msgid "Accessibility statement"
+msgstr "Declaración de accesibilidad"
+
+#: pntemplates/legal_user_menu.htm:3
+msgid "Legal information"
+msgstr "Información legal"
+
+#: pntemplates/legal_admin_modifyconfig.htm:4
+#: pntemplates/legal_admin_modifyconfig.htm:5
+msgid "Settings"
+msgstr "Configuración"
+
+#: pntemplates/legal_admin_modifyconfig.htm:6
+msgid ""
+"<strong>Important Usage Note</strong>: The provided legal statements are "
+"samples only. They need to be adapted to specific needs and locales. You "
+"will find the content of the statements in files in the \"modules/legal/"
+"pntemplates/en\" directory. These templates can be <a href=\"http://"
+"community.zikula.org/Wiki-TemplateOverridng.htm\">overridden</a> by theme "
+"templates, or by global templates you would create in the \"config/templates/"
+"legal/\" directory (in the appropriate sub-directory for the language you "
+"are writing for)."
+msgstr ""
+"<strong>Nota importante de uso</strong>: Las declaraciones jurídicas son "
+"meros ejemplos. Deberán ser adaptados a las necesidades específicas y "
+"locales. Encontrará el contenido de las declaraciones en los archivos "
+"ubicados en la carpeta \"modules/legal/pntemplates/es\". Estas plantillas se "
+"pueden <a href=\"http://community.zikula.org/Wiki-TemplateOverridng.htm"
+"\">reemplazar</ a> por plantillas en el theme, creándose nuevas plantillas "
+"en la carpeta \"/templates/legal/\" (o en el subdirectorio correspondiente "
+"para el idioma que se esté creando)."
+
+#: pntemplates/legal_admin_modifyconfig.htm:11
+msgid "General settings"
+msgstr "Configuración general"
+
+#: pntemplates/legal_admin_modifyconfig.htm:25
+msgid "Reset user group's acceptance of 'Terms of use'"
+msgstr ""
+"Inicializar la aceptación por parte de los grupos de usuario de las "
+"'Términos de uso'"
+
+#: pntemplates/legal_admin_modifyconfig.htm:31
+msgid ""
+"Notice: This setting resets the acceptance of the 'Terms of use' for all "
+"users in this group. Next time they want to log-in, they will have to "
+"acknowledge their acceptance of them again, and will not be able to log-in "
+"if they do not. This action does not affect the main administrator account. "
+"You can perform the same operation for individual users by visiting the "
+"Users manager in the site admin panel."
+msgstr ""
+"Aviso: Esta opción restablece la aceptación de los 'Términos de uso' para "
+"todos los usuarios en este grupo. La próxima vez que inicie sesión un "
+"usuario perteneciente a este grupo en este sitio, tendrán que volver a "
+"aceptar los 'Términos de uso', y no podrán entrar si estos no son aceptados. "
+"Esta acción no afecta a la cuenta de administrador principal. Es posible "
+"realizar esta operación para los usuarios individuales, visite el "
+"administrador de usuarios en el panel de administración del sitio."
+
+#: pntemplates/legal_admin_modifyconfig.htm:36
+msgid "Save"
+msgstr "Guardar"
+
+#: pntemplates/legal_admin_modifyconfig.htm:37
+msgid "Cancel"
+msgstr "Cancelar"

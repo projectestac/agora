@@ -1,0 +1,42 @@
+/**
+ * Zikula Application Framework
+ * @copyright (c) 2001, Zikula Development Team
+ * @link http://www.zikula.org
+ * @version $Id: recommendus.css 338 2009-11-09 09:49:45Z herr.vorragend $
+ * @license GNU/GPL - http://www.gnu.org/copyleft/gpl.html
+ * @package Zikula_Value_Addons
+ * @subpackage Recommend_Us
+ */
+
+div.diggers {
+    margin-top: 1em;
+    padding:5px;
+    background:#eee;
+    border:1px solid #ccc;
+}
+
+div.diggers label {
+    display: block;
+    font-size: 90%;
+    margin-bottom: 3px;
+}
+
+div.diggers ul {
+    list-style-type: none;
+}
+
+div.diggers ul li {
+    display: inline;
+    margin-left: 10px;
+}
+/*
+div.diggers ul li:first-child {
+display: inline;
+margin-left: -10px;
+}
+*/
+
+div.diggers ul li a {
+    padding-left: 0 ! important;
+    background: none no-repeat bottom left ! important;
+}

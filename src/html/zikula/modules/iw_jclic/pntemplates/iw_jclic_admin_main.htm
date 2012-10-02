@@ -1,0 +1,53 @@
+<!--[include file="iw_jclic_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='package_settings.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<div style="height:5px;">&nbsp;</div>
+	<h2><!--[gt text="Change the settings"]--></h2>
+	<form  class="pn-adminform" enctype="application/x-www-form-urlencoded" method="post" name="conf" id="conf" action="<!--[pnmodurl modname="iw_jclic" type="admin" func="updateConf"]-->">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_jclic"]-->" />
+		<div class="pn-adminformrow">
+			<label for="jclicJarBase"><!--[gt text="Address of the server that manages files jar"]-->:</label>
+			<input type="text" name="jclicJarBase" size="50" maxlength="100" value="<!--[$jclicJarBase]-->" />
+		</div>
+		<div class="pn-adminformrow">
+			<label for="timeLap"><!--[gt text="Time is left between the client-server transactions (in seconds)"]-->:</label>
+			<input type="text" name="timeLap" size="3" maxlength="3" value="<!--[$timeLap]-->" />
+		</div>
+		<div class="pn-informationmsg">
+			<!--[gt text="Be careful with these parameters: Incorrect values may cause problems."]-->
+		</div>
+		<div class="pn-adminformrow">
+			<label for="jclicUpdatedFiles"><!--[gt text="Directory server to store the JClic"]-->:</label>
+			<input type="text" name="jclicUpdatedFiles" size="30" maxlength="30" value="<!--[$jclicUpdatedFiles]-->" />
+		</div>
+		<!--[if $noFolder]-->
+			<div class="pn-errormsg">
+				<!--[gt text="Can not find the directory for storing information activities"]-->
+			</div>
+		<!--[/if]-->
+		<!--[if $noWriteable]-->
+			<div class="pn-errormsg">
+				<!--[gt text="In this folder you must give write permissions"]-->
+			</div>
+		<!--[/if]-->
+
+
+		<div class="pn-adminformrow" style="float: left;">
+			<label for="timeLap"><!--[gt text="Groups that can be chosen at the time of assignments"]-->:</label>
+		</div>
+		<div class="pn-adminformrow" style="float: left;">
+			<!--[foreach item=group from=$groupsArray]-->
+				<input type="checkbox" name="groups[<!--[$group.id]-->]" value="<!--[$group.id]-->" <!--[if $group.checked]-->checked<!--[/if]--> /><!--[$group.name]--> <br />
+			<!--[/foreach]-->
+		</div>
+		
+		<div style="clear:both;"></div>
+		
+		<div style="text-align: center;">
+			<a title="<!--[gt text="Change the settings"]-->" onClick="javascript:send()"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small']--></a> <!--[gt text="Change the settings"]-->
+		</div>
+	</form>
+	<div>
+		<a href="<!--[pnmodurl modname=iw_jclic type=admin func=module]-->"><!--[gt text="About this module"]--></a>
+	</div>
+</div>

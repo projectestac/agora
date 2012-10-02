@@ -1,0 +1,27 @@
+<!--[*  $Id: ezcomments_admin_purge.htm 663 2010-02-04 12:57:41Z herr.vorragend $  *]-->
+<!--[include file="ezcomments_admin_menu.htm"]-->
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname='EZComments' src='admin.gif' alt='' ]--></div>
+    <h2><!--[gt text="Purge comments"]--></h2>
+    <form class="z-form" action="<!--[pnmodurl modname="EZComments" type="admin" func="purge"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name='generateauthkey' module='EZComments']-->" />
+            <input type="hidden" name="confirmation" value="1" />
+            <fieldset>
+                <legend><!--[gt text="Options"]--></legend>
+                <div class="z-formrow">
+                    <label for="ezcomments_purgepending"><!--[gt text="Purge all pending comments"]--></label>
+                    <input id="ezcomments_purgepending" name="purgepending" type="checkbox" />
+                </div>
+                <div class="z-formrow">
+                    <label for="ezcomments_purgerejected"><!--[gt text="Purge all rejected comments"]--></label>
+                    <input id="ezcomments_purgerejected" name="purgerejected" type="checkbox" />
+                </div>
+            </fieldset>
+            <div class="z-formbuttons">
+                <!--[pnbutton src='button_ok.gif' set='icons/small' __alt='Delete' __title='Delete']-->
+                <a href="<!--[pnmodurl modname='EZComments' type='admin' func='main']-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small' __alt='Cancel' __title='Cancel']--></a>
+            </div>
+        </div>
+    </form>
+</div>

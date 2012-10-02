@@ -1,0 +1,393 @@
+/*******************************************************************
+ styles_css3.css
+  
+ This CSS file uses the next-generation CSS3
+ to add round corners to the current theme. When css3
+ become common it has to be merged with styles_layout
+
+ Styles are organised into the following sections:
+  core
+  header
+  footer
+
+  admin
+  blocks
+  calendar
+  course
+  doc
+  login
+  message
+  tabs
+  user
+
+  various modules
+
+*******************************************************************/
+
+
+
+/***
+ *** Core
+ ***/
+
+.notifyproblem {
+  border-radius:10px;
+}
+
+.notifysuccess {
+  border-radius:10px;
+}
+.generalbox {
+  border-radius:5px;
+ border-bottom-left-radius:5px;
+ border-bottom-right-radius:5px;
+ box-shadow: 3px 3px 3px #bbb;
+}
+
+.generalboxcontent {
+  border-radius:5px;
+}
+
+.noticebox {
+  border-radius:5px;
+}
+
+.informationbox {
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+
+.informationboxcontent {
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+
+.sitetopiccontent {
+  border-radius:10px;
+}
+
+.headingblock {
+  border-top-left-radius:5px;
+  border-top-right-radius:5px;
+  box-shadow: 3px 3px 3px #bbb;
+}
+
+.topics, #course-view ul.weekscss,
+#course-view .weeks{
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;
+  box-shadow: 3px 3px 3px #bbb;
+}
+
+#course-view .weeks tr:nth-last-child(-n+2),
+.topics tr:nth-last-child(-n+2),
+#course-view ul.weekscss li:last-child,
+ul.unlist li:last-child{
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;
+ }
+
+
+#course-view .weeks tr:nth-last-child(-n+2) td.left,
+.topics tr:nth-last-child(-n+2) td.left{
+  border-bottom-left-radius:5px;
+}
+
+#course-view .weeks tr:nth-last-child(-n+2) td.right,
+.topics tr:nth-last-child(-n+2) td.right{
+  border-bottom-right-radius:5px;
+}
+
+ul.unlist{
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;
+  box-shadow: 3px 3px 3px #bbb;
+}
+
+.boxwidthwide{
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;
+  box-shadow: 3px 3px 3px #bbb;
+}
+
+
+
+/* kept for backward compatibility with some non-standard modules
+   which use these classes for various things */
+.generaltab, .generaltabinactive{
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+}
+
+.generaltabselected {
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], button {
+  border-radius:5px;
+}
+
+
+/***
+ *** Header
+ ***/
+
+/***
+ *** Footer
+ ***/
+
+/***
+ *** Admin
+ ***/
+
+/***
+ *** Blocks
+ ***/
+
+.sideblock.hidden {
+  border-radius: 0px;
+}
+
+.sideblock .content {
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;
+  box-shadow: 3px 3px 3px #bbb;
+}
+
+.sideblock .header{
+  border-top-left-radius:5px;
+  border-top-right-radius:5px;
+  box-shadow: 3px 3px 3px #bbb;
+}
+
+.block_course_summary, .block_course_summary .content {
+  border-radius:5px;
+}
+
+.editing .block_course_summary .content {
+  border-top-left-radius:0;
+  border-top-right-radius:0;
+}
+
+
+/***
+ *** Calendar
+ ***/
+
+#calendar .eventlist .event {
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+
+#calendar .eventlist .event .side {
+  border-bottom-left-radius:10px;
+}
+
+#calendar .eventlist .event .description {
+  border-bottom-right-radius:10px;
+}
+
+#calendar .maincalendar,
+#calendar .sidecalendar
+{
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;
+}
+
+#calendar td.sidecalendar .sideblock {
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;
+}
+
+#calendar .maincalendar .filters table,
+#calendar .sidecalendar .filters table,
+.sideblock.block_calendar_month .filters table
+{
+  border-radius:4px;
+}
+
+table.minicalendar {
+  border-radius:10px;
+}
+
+table.minicalendar td {
+  border-radius:4px;
+}
+
+#calendar .maincalendar li.event_course,
+#calendar .maincalendar li.event_global,
+#calendar .maincalendar li.event_user,
+#calendar .maincalendar li.event_group,
+#calendar .filters td.event_course,
+#calendar .filters td.event_global,
+#calendar .filters td.event_user,
+#calendar .filters td.event_group {
+  border-radius:4px;
+}
+
+/***
+ *** Course
+ ***/
+body#course-user .section {
+  border-radius:10px;
+}
+
+
+/***
+ *** Doc
+ ***/
+
+/***
+ *** Login
+ ***/
+.loginbox {
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;
+}
+
+.loginbox .content.left {
+  border-bottom-left-radius:5px;
+}
+.loginbox .content.right {
+  border-bottom-right-radius:5px;
+}
+
+/***
+ *** Message
+ ***/
+
+/***
+ *** Tabs
+ ***/
+
+/***
+ *** User
+ ***/
+.userinfobox {
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+
+.groupinfobox {
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+#user-view .left {
+  border-bottom-left-radius:10px;
+}
+
+/***
+ *** Modules: Assignment
+ ***/
+
+/***
+ *** Modules: Chat
+ ***/
+
+/***
+ *** Modules: Choice
+ ***/
+
+/***
+ *** Modules: Forum
+ ***/
+.forumpost {
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:0px;
+  box-shadow: 3px 3px 3px #bbb;
+}
+
+.forumpost:last-child{ 
+  border-bottom-right-radius:5px;
+}
+
+
+.forumaddnew, .subscribelink{
+  box-shadow: 3px 3px 3px #bbb;
+}
+
+.forumpost .side {
+  border-bottom-left-radius:5px;
+}
+
+.forumpost .content {
+  border-bottom-right-radius:5px;
+}
+
+.forumpost .message {
+  border-bottom-right-radius:5px;
+}
+
+.forumpost .link {
+  border-bottom-right-radius:5px;
+}
+
+/***
+ *** Modules: Glossary
+ ***/
+.glossarycategoryheader {
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+}
+
+.glossaryformatheader {
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+}
+
+.entryboxheader {
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+}
+
+.entrybox {
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+
+.glossarypost {
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+
+.glossarypost .side {
+  border-bottom-left-radius:10px;
+}
+
+.encyclopedia .entrylowersection {
+  border-bottom-right-radius:10px;
+}
+.glossarycomment {
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+
+.glossarycomment .side {
+  border-bottom-left-radius:10px;
+}
+
+.glossarycomment .entry {
+  border-bottom-right-radius:10px;
+}
+
+
+/***
+ *** Modules: Journal
+ ***/
+
+#mod-journal-view .feedbackbox {
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+#mod-journal-view .feedbackbox .side {
+  border-bottom-left-radius:10px;
+}
+#mod-journal-view .feedbackbox .entrycontent {
+  border-bottom-right-radius:10px;
+}
+

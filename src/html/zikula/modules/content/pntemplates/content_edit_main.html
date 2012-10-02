@@ -1,0 +1,37 @@
+<!--[pnajaxheader modname=content nobehaviour=1]-->
+<!--[pnform cssClass='z-form']-->
+
+<h2><!--[gt text="Page list and content structure"]--></h2>
+
+<!--[if $access.pageEditAllowed]-->
+<div class="z-menu">
+    <span class="z-menuitem-title">
+        [ <a href="<!--[pnmodurl modname=content type=edit func=newpage]-->"><!--[gt text="Add new page"]--></a>
+        <!--[securityutil_checkpermission_block component='content::' instance='::' level=ACCESS_ADMIN]-->
+        | <a href="<!--[pnmodurl modname=content type=admin func=settings]-->"><!--[gt text="Settings"]--></a>
+        <!--[/securityutil_checkpermission_block]-->
+        ]
+    </span>
+</div>
+<!--[/if]-->
+
+<p><!--[gt text="This is where you manage all your pages. You can add/edit/delete pages as well as drag them around to get the content structure right."]--></p>
+
+<!--[include file=content_include_tocedit.html]-->
+
+<!--[if $access.pageEditAllowed]-->
+<p class="z-sub"><!--[gt text="To drag and drop a page you must select the icon left of the title and drop it on the title of another page."]--></p>
+<!--[/if]-->
+
+<script type="text/javascript">
+    <!--[include file=content_include_tocedit3.html pages=$pages]-->
+</script>
+
+<div>
+    <input type="hidden" name="contentTocDragSrcId" id="contentTocDragSrcId"/>
+    <input type="hidden" name="contentTocDragDstId" id="contentTocDragDstId"/>
+</div>
+
+<!--[pnformpostbackfunction function="content.tocPageDrag" commandName='drag']-->
+
+<!--[/pnform]-->

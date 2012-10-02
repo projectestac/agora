@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-11 15:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnadmin.php:98
+msgid "Smilies have been read from filesystem successfully."
+msgstr ""
+
+#: pnadmin.php:151
+msgid "The edited smilies have been saved."
+msgstr ""
+
+#: pnversion.php:33
+msgid "Smilie Hook (Autoincluded)"
+msgstr ""
+
+#: pnversion.php:34
+msgid "BBSmile Hook"
+msgstr ""
+
+#: pnversion.php:35
+msgid "bbsmile"
+msgstr ""
+
+#: pnincludes/bbsmile_admin_modifyconfighandler.class.php:52
+#: pnincludes/bbsmile_admin_modifyconfighandler.class.php:59
+msgid "The path does not exists or the system cannot read it."
+msgstr ""
+
+#: pnincludes/bbsmile_admin_modifyconfighandler.class.php:72
+msgid "bbsmile configuration updated"
+msgstr ""
+
+#: pnadminapi.php:205
+msgid "Start"
+msgstr ""
+
+#: pnadminapi.php:207 pnadminapi.php:210
+msgid "Read smilies out of the directory"
+msgstr ""
+
+#: pnadminapi.php:208 pnadminapi.php:211
+msgid "Edit the defined smilies"
+msgstr ""
+
+#: pnadminapi.php:210 pnadminapi.php:211
+msgid "Extended Smilies not yet activated!"
+msgstr ""
+
+#: pnadminapi.php:213 pntemplates/bbsmile_admin_modifyconfig.html:3
+#: pntemplates/bbsmile_admin_header.html:9
+msgid "Settings"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_editsmiles.html:3
+msgid "Currently defined Smilies"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_editsmiles.html:5
+msgid "Aliases are seperated by \",\". Please don't use spaces."
+msgstr ""
+
+#: pntemplates/bbsmile_admin_editsmiles.html:13
+msgid "Smilie"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_editsmiles.html:14
+msgid "Shortcut/Trigger"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_editsmiles.html:15
+msgid "Filename"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_editsmiles.html:16
+msgid "alternative text"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_editsmiles.html:17
+msgid "Aliases for this smilie"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_editsmiles.html:18
+msgid "Active"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_editsmiles.html:52
+#: pntemplates/bbsmile_admin_readsmilies.html:25
+#: pntemplates/bbsmile_admin_modifyconfig.html:29
+msgid "Apply"
+msgstr ""
+
+#: pntemplates/bbsmile_user_bbsmiles.html:6
+msgid ""
+"Your browser does not support javascript or you turned it off. The bbsmile "
+"interface has been disabled."
+msgstr ""
+
+#: pntemplates/bbsmile_user_bbsmiles.html:22
+msgid "More Smilies"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_readsmilies.html:3
+msgid "Read smilies from filesystem"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_readsmilies.html:5
+msgid ""
+"With confirmation all smilies out of the directory are read. Smilies without "
+"a image in the directory will be deleted. Changes on smilie information will "
+"be kept."
+msgstr ""
+
+#: pntemplates/bbsmile_admin_readsmilies.html:10
+msgid "Should the smilies be read out of the directory?"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_readsmilies.html:14
+#: pntemplates/bbsmile_admin_modifyconfig.html:11
+msgid "Path to the smilies"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_readsmilies.html:19
+msgid "Force reload of smilies, all data will be overwritten!"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_modifyconfig.html:9
+msgid "General settings"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_modifyconfig.html:15
+msgid "Activate auto smilies"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_modifyconfig.html:19
+msgid "Path to the automatically included smilies"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_modifyconfig.html:23
+msgid "Remove inactive smilie shortcuts"
+msgstr ""
+
+#: pntemplates/bbsmile_ajax_bbsmiles.html:5
+msgid "Click outside this window to close it"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_header.html:4
+msgid "bbsmile Administration"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_main.html:4
+msgid "Actually bbsmile is used with the following modules"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_main.html:9
+msgid "** bbsmile is not used with any module **"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_main.html:12
+msgid "Activate bbsmile for more modules"
+msgstr ""
+
+#: pntemplates/bbsmile_admin_footer.html:4
+msgid "Visit the bbsmile-project"
+msgstr ""

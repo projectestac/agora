@@ -1,0 +1,2 @@
+// Copyright Zikula Foundation 2010 - license GNU/LGPLv3 (or at your option, any later version).
+var FormTabbedPanelSet={handleTabClick:function(d,c,j){for(var g=1;g<=c;++g){var e=j+"_"+g;var b=j+"Tab_"+g;var a=document.getElementById(e);var h=document.getElementById(b);if(g==d){a.style.display="block";h.className="linktab selected"}else{a.style.display="none";h.className="linktab"}}var f=document.getElementById(j+"SelectedIndex");f.value=d;return false}};

@@ -1,0 +1,178 @@
+/* style.css */
+.formOptions {
+    text-align: center;
+}
+.formField{
+	background: #eeeeee;
+	padding: 10px;
+}
+.formTitle{
+	float: left;
+	padding: 10px 20px 20px 20px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.formAdd{
+	float: left;
+}
+
+.formContent{
+	clear: both;
+}
+
+.active{
+	color: green;
+}
+
+.inactive{
+	color: red;
+}
+.formRowDefinitionDBField{
+
+}
+
+/*User form definition*/
+.fieldContent{
+	margin: 10px;
+	clear: both;
+	padding: 10px;
+}
+
+.fieldTitle{
+	float: left;
+	width: 200px;
+	padding-right: 10px;
+	font-weight:bold;
+}
+
+.fieldTitleInnactive{
+	color: #999999;
+	float: left;
+	width: 200px;
+	padding-right: 10px;
+	font-weight:bold;
+}
+
+.field{
+	float: left;
+}
+
+.fieldInnactive{
+	float: left;
+	font-style: italic;
+	background-color: #EEEEEE;
+}
+
+span.required{
+	color: red;
+}
+
+.pn-noteinfo {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+
+div.helpBox{
+	background:url(../../iw_main/pnimages/postitleft.png) repeat-y;
+	padding-left:5px;
+	position:absolute;
+	width: 300px;
+	display:none;
+	margin:20px 0px 0px -200px;
+}
+
+div.helpHeader{
+	background:url(../../iw_main/pnimages/postittop.png) no-repeat;
+	height:32px;
+}
+
+div.helpContent{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color:#FFFDC8;
+	padding:10px 10px 0px 20px;
+}
+
+div.helpBoxClose{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	text-align:right;
+	font-weight:bold;
+	padding:10px 5px 10px 0px;
+}
+
+div.helpBoxClose a{
+	color:#929292;
+	text-decoration:none;
+}
+
+div.helpTitle{
+	padding: 12px 0px 0px 40px;
+	color: red;
+}
+
+/* style for main user tables */
+table.usertable {
+	width: 100%;
+	color: inherit;
+	margin-top: 0px;
+	margin-bottom: 1em;
+	padding: 5px; /* top, right, bottom, left */
+}
+
+table.usertable td  {
+	padding: 5px; /* top, right, bottom, left */
+}
+
+table.usertable th  {
+	background-color: #CFCFCF;
+	padding: 5px 5px 10px 5px; /* top, right, bottom, left */
+}
+
+div.usercontainer h2 {
+	text-align: left;
+	border-bottom: 1px solid #cccccc;
+	margin-top: 0px;
+}
+
+/* styling for a page icon */
+div.userpageicon {
+	padding: 0px 0px 10px 5px; /* top, right, bottom, left */
+}
+
+div.userpageicon img{
+    	float: right;
+	padding-top: 5px;
+}
+
+/* Notes style */
+table.noteContent {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table.noteContent td  {
+	border: 1px solid #AAAAAA;
+	padding-left: 5px;
+	padding-right: 10px;
+	vertical-align: top;
+}
+
+.button {
+	border: solid 1px #000;
+	padding: 2px 5px 2px 5px;
+	background-color: #eee;
+	margin-left: 10px;
+}
+
+.messageBody p>br {
+    display: none;
+}
+
+div.formSkin{
+	border: 1px solid #333;
+	padding: 10px;
+	margin: 0px 10px 0px 10px;
+}

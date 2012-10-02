@@ -1,0 +1,21 @@
+<!--[*  $Id: groups_user_grouprow_overview.htm 27408 2009-11-04 17:51:39Z herr.vorragend $  *]-->
+
+<td><strong><!--[$name]--></strong></td>
+<td><!--[gt text=$typelbl]--></td>
+<td><!--[$description|pnvarprephtmldisplay]--></td>
+<td><!--[gt text=$statelbl]--></td>
+<td><!--[$nbuser]--></td>
+<!--[if $nbumax eq 0]-->
+<!--[gt text="Unlimited" assign=nbumax]-->
+<!--[/if]-->
+<td><!--[$nbumax]--></td>
+<!--[if $pncore.logged_in eq true]-->
+<td>Private</td>
+<!--[else]-->
+<td><a href="<!--[pnmodurl modname='Users' type='user' func='view']-->" title="<!--[gt text="Sorry! You must register for a user account on this site before you can apply for membership of a group."]-->"> <!--[gt text="Log in or register"]--></a></td>
+<!--[/if]-->
+<!--[if $canview eq true]-->
+<td><a href="<!--[pnmodurl modname="Groups" type="user" func="memberslist" gid=$gid]-->" title="<!--[gt text="Members list"]-->"><!--[gt text="Members list"]--></a></td>
+<!--[else]-->
+<td>&nbsp;</td>
+<!--[/if]-->

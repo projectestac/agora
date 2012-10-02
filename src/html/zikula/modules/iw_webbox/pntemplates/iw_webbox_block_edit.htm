@@ -1,0 +1,42 @@
+<tr>
+	<td><label for="feeds_feedid"><!--[gt text="URL" domain="module_iw_webbox"]--></label></td>
+	<td><input type="text" name="weburlvalue" size="30" maxlength="255" value="<!--[$weburlvalue]-->" /></td>
+</tr>
+<tr>
+	<td><label for="feeds_feedid"><!--[gt text="Width (%)" domain="module_iw_webbox"]--></label></td>
+	<td><input type="text" name="widthvalue" size="30" maxlength="255" value="<!--[$widthvalue]-->" /></td>
+</tr>
+<tr>
+	<td><label for="feeds_feedid"><!--[gt text="Height (pixels)" domain="module_iw_webbox"]--></label></td>
+	<td><input type="text" name="heightvalue" size="30" maxlength="255" value="<!--[$heightvalue]-->" /></td>
+</tr>
+<tr>
+	<td><label for="feeds_feedid"><!--[gt text="Hide block title" domain="module_iw_webbox"]--></label></td>
+	<td>
+		<!--[if $titlevalue eq 1]-->
+			<input type="checkbox" name="titlevalue" checked="checked" value="1" />
+		<!--[else]-->
+			<input type="checkbox" name="titlevalue" value="1" />
+		<!--[/if]-->
+	</td>
+</tr>
+<tr>
+	<td><label for="feeds_feedid"><!--[gt text="Show scroll" domain="module_iw_webbox"]--></label></td>
+	<td>
+		<!--[if $scrollvalue eq 1]-->
+			<input type="checkbox" name="scrollvalue" checked="checked" value="1" />
+		<!--[else]-->
+			<input type="checkbox" name="scrollvalue" value="1" />		
+		<!--[/if]-->
+	</td>		
+</tr>
+<tr>
+	<td><label for="feeds_feedid"><!--[gt text="Only visible for unregistered users" domain="module_iw_webbox"]--></label></td>
+	<td>
+		<!--[if $notunregvalue eq 1]-->
+			<input type="checkbox" name="notunregvalue" checked="checked" value="1" />
+		<!--[else]-->
+			<input type="checkbox" name="notunregvalue" value="1" />		
+		<!--[/if]-->
+	</td>		
+</tr>

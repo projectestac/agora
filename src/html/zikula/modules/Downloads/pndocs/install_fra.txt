@@ -1,0 +1,110 @@
+================================================
+            [Downloads 2.3] 
+================================================
+
+Information Générale :
+----------------------
+
+			**** Faites une sauvegarde de votre base de données!!!!! ****
+
+
+ - Vous pouvez importer des données de CmodsDownloads 1.9.6 & UpDownload 2.3
+ - Vous pouvez mettre à jour la version Downloads 1.3.1 à la version Downloads 2.3
+ - Pour bénéficier de la fonction de recherche sous pn 0.8 renommez pnsearchapi08.php en pnsearchapi.php
+
+
+Extensions requises :
+---------------------
+
+ - Vous aurez besoin de Ajax Support Package pour pouvoir utiliser correctement la fonction concernant les captures d'écran
+ - http://noc.postnuke.com/frs/?group_id=8&release_id=1189
+
+
+Problèmes connus :
+------------------
+
+ - Aucun
+
+
+Notice :
+--------
+
+**** Faites une sauvegarde de votre base de données!!!!! ****
+ - Il n'y a aucun support pour Downloads 2.2 et PN 0.8 sur le site officiel du module Downloads!
+
+
+Structure des dossiers :
+------------------------
+
+--root
+	--modules
+		--Downloads
+	--pnTemp
+		--downloads_cache
+		--downloads_screenshots
+		--downloads_upload
+
+
+Installation :
+--------------
+
+ - Copier le dossier "module" dans le répertoire principal de PostNuke sur votre hébergement
+ - Dans l'administration de postnuke choisir Modules --> Régénérer
+ - Initialiser et activer Downloads 2.2
+ - Introduire les paramètres désirés dans l'administration du module
+
+
+IMPORTANT :
+-----------
+
+Avant de commencer la mise à jour, soyez certain d'avoir supprimé tous les fichiers .htaccess de votre dossier d'envois de fichiers pour les modules CmodsDownload/UpDownload ou Updownload.
+Tous les fichiers htaccess de tous les sous-dossiers de votre dossier d'envois de fichiers!
+
+Mise à jour à partir de Downloads 1.31 :
+----------------------------------------
+
+ - Supprimer l'ancien dossier de Downloads de votre hébergement 
+ - Copier le nouveau dossier Downloads dans le répertoire "modules" de PostNuke situé sur votre hébergement
+ - Dans l'administration de PostNuke, choisir Modules --> Régénérer --> et ensuite mettre à jour le module
+
+
+Mis à jour à partir de CmodsDownload 1.9.6 :
+--------------------------------------------
+
+ - Copier le nouveau dossier de Downloads 2.3 dans le répertoire "modules" de PostNuke situé sur votre hébergement
+ - Installer Downloads 2.3, vérifier que tous les dossiers appartenant à Downloads 2.3 et qui sont dans le dossier pnTemp soient inscriptibles.
+ - Supprimer tous les fichiers .htaccess de tous les dossiers d'envois de fichiers / de captures d'écran appartenant à CmodsDownload.
+ - Se rendre dans le panneau d'administration de Downloads 2.3.
+ - Le module détectera CmodsDownload et affichera un bouton permettant d'exécuter l'importation.
+
+
+Mise à jour à partir de UpDownload 2.3 :
+----------------------------------------
+
+ - Copier le nouveau dossier de Downloads 2.3 dans le répertoire "modules" de PostNuke situé sur votre hébergement
+ - Installer Downloads 2.3, vérifier que tous les dossiers appartenant à Downloads 2.3 et qui sont dans le dossier pnTemp soient inscriptibles.
+ - Supprimer tous les fichiers .htaccess de tous les dossiers d'envois de fichiers / de captures d'écran appartenant à UpDownload.
+ - Se rendre dans le panneau d'administration de Downloads 2.3.
+ - Le module détectera UpDownload et affichera un bouton permettant d'exécuter l'importation.
+
+Permissions des dossiers :
+--------------------------
+ 
+ - mettre pour les dossiers suivants un chmod 777
+
+	--downloads_cache
+	--downloads_screenshots
+	--downloads_upload
+
+
+Si vous supprimez le module, toutes les tables de la base de données seront supprimées !!!!!!!!!!
+
+
+
+--------------
+11.03.2008
+Lindbergh
+--------------
+02.04.2008
+Traduit par Beaujean Christophe aka Yokav
+--------------

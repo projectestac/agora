@@ -1,0 +1,69 @@
+<h1>Περιγραφή μορφής</h1>
+<p>Παρακάτω θα βρείτε έναν απλό οδηγό για τη βασική δομή των αρχείων δεδομένων IMS. Περισσότερες πληροφορίες είναι διαθέσιμες στον <a href="http://www.imsglobal.org/enterprise/">επίσημο διαδικτυακό τόπο του IMS</a>.</p>
+<p>Μπορείτε να διαβάσετε την <a href="./enrol/imsenterprise/entv1p1_conformance_summary.html">περίληψη συμμόρφωσης</a> που περιγράφει ποια στοιχεία IMS μπορεί να επεξεργάζεται αυτό το άρθρωμα.</p>
+
+<h1>Οδηγός για τη μορφή αρχείου IMS Enterprise</h1>
+<p>Για κάθε εγγραφή τύπου IMS χρειάζεστε μια ετικέτα &lt;group &gt; που διευκρινίζει το μάθημα, μια ετικέτα &lt;person &gt; που ορίζει το χρήστη, και μια ετικέτα &lt;membership &gt; που περιέχει ετικέτες &lt;member &gt; οι οποίες καθορίζουν το ρόλο του χρήστη στο συγκεκριμένο μάθημα.</p>
+
+<p>Θυμηθείτε ότι τα αριθμητικά κλειδιά που χρησιμοποιούνται στη βάση δεδομένων του Moodle δεν είναι διαλειτουργικά - οποιοδήποτε σύστημα στοιχείων μαθητών δεν μπορεί να γνωρίζει εκ των προτέρων ότι ο Χ είναι ο 20ός χρήστης που προστέθηκε στη βάση δεδομένων του Moodle - κι έτσι δεν είναι αυτά τα κλειδιά που ανταλλάσσονται σε αυτόν τον τύπο δεδομένων. </p>
+<p>Τυπικά ένα μάθημα έχει εκτός από όνομα κι έναν κωδικό, υποθέτουμε λοιπόν ότι ο κωδικός αυτός είναι MOODLE101. Για να ορίσετε το μάθημα αυτό θα μπορούσατε να γράψετε:</p>
+<p>
+</p>
+
+<p>
+&nbsp; &lt;group&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;MOODLE101&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;description&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;short&gt;Moodle 101&lt;/short&gt;<br />
+&nbsp; &nbsp; &lt;/description&gt;<br />
+&nbsp; &lt;/group&gt;<br />
+</p>
+
+<p>Το πρόγραμμα εγγραφής θα ψάξει για ένα μάθημα με τον κωδικό MOODLE101, και (προαιρετικά) θα το δημιουργήσει εάν δεν υπάρχει ήδη. Ομοίως για το πρόσωπο - υποθέστε ότι είναι &quot;jmoodle &quot;: </p>
+
+<p>
+&nbsp; &lt;person&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;jmoodle&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;userid&gt;jmoodle&lt;/userid&gt;<br />
+&nbsp; &nbsp; &lt;name&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;fn&gt;Joe Moodle&lt;/fn&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;n&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;family&gt;MOODLE&lt;/family&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;given&gt;JOE&lt;/given&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/n&gt;<br />
+&nbsp; &nbsp; &lt;/name&gt;<br />
+&nbsp; &lt;/person&gt;<br />
+</p>
+
+<p>Εάν o Joe δεν έχει ήδη λογαριασμό χρήστη, το άρθρωμα μπορεί (προαιρετικά) να δημιουργήσει έναν λογαριασμό γι' αυτόν. </p>
+
+<p>Ας δούμε τώρα πώς προσθέτουμε το χρήστη στο μάθημα:</p>
+
+<p>
+&nbsp; &lt;membership&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;MOODLE101&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;member&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;id&gt;jmoodle&lt;/id&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;role roletype=&quot;01&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;status&gt;1&lt;/status&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;extension&gt;&lt;cohort&gt;unit 2&lt;/cohort&gt;&lt;/extension&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/role&gt;<br />
+&nbsp; &nbsp; &lt;/member&gt;<br />
+&nbsp; &lt;/membership&gt;<br />
+</p>
+
+<p>Οι προδιαγραφές IMS προσφέρουν δυνατότητα για τον καθορισμό ημερομηνιών έναρξης/λήξης για τις εγγραφές στα μαθήματα, κι έτσι αυτές μπορούν να συμπεριληφθούν με τη χρήση της ετικέτας &lt;timeframe &gt;, εάν είναι επιθυμητό. </p>
+
+<p>Εάν ένα πρόσωπο είναι ήδη σε μια ομάδα μέσα στο μάθημα, το άρθρωμα δεν θα τροποποιήσει αυτή την ομαδοποίηση. Εάν όμως δεν είναι ήδη μέλος ομάδας, τότε θα εφαρμοστεί η επιλεγμένη ομαδοποίηση. </p>

@@ -1,0 +1,659 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-07-13 12:19+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:429
+msgid "Your map has been modified"
+msgstr ""
+
+#: pnuser.php:52
+msgid "All waypoints for this map have been deleted successfully!"
+msgstr ""
+
+#: pnuser.php:53 pnuser.php:58
+msgid "Error while deleting waypoints"
+msgstr ""
+
+#: pnuser.php:57
+msgid "Waypoint deleted successfully"
+msgstr ""
+
+#: pnuser.php:96 pnneedleapi/mymap.php:38 pnajax.php:84 pnajax.php:130
+#: pnajax.php:131
+msgid "Map with given ID not found"
+msgstr ""
+
+#: pnuser.php:121
+msgid "The markered point was deleted successfully"
+msgstr ""
+
+#: pnuser.php:122 pnuser.php:124
+msgid "An error occured while trying to delete a markered point"
+msgstr ""
+
+#: pnuser.php:209
+msgid ""
+"No coordinate was given. Please specify more information like country code, "
+"zip code, city name"
+msgstr ""
+
+#: pnuser.php:223
+msgid "Geo information encoded to coordinage"
+msgstr ""
+
+#: pnuser.php:227
+msgid "please choose the postalcode and / or the countrycode you need"
+msgstr ""
+
+#: pnuser.php:228
+msgid "More than one place was found:"
+msgstr ""
+
+#: pnuser.php:238
+msgid ""
+"The longitude and the latitude are missing. Please give us the countrycode "
+"and postalcode of your target. Also the name of the place might help us."
+msgstr ""
+
+#: pnuser.php:244
+msgid "The marker was updated"
+msgstr ""
+
+#: pnuser.php:251
+msgid "The marker was added"
+msgstr ""
+
+#: pnuser.php:255
+msgid ""
+"A notification Email was sent to the author of the map that you added a new "
+"marker"
+msgstr ""
+
+#: pnuser.php:271
+msgid "No"
+msgstr ""
+
+#: pnuser.php:272
+msgid "Yes"
+msgstr ""
+
+#: pnuser.php:273
+msgid "normal"
+msgstr ""
+
+#: pnuser.php:274
+msgid "hybrid"
+msgstr ""
+
+#: pnuser.php:275
+msgid "satellite"
+msgstr ""
+
+#: pnuser.php:303
+msgid "The map was deleted successfully"
+msgstr ""
+
+#: pnuser.php:304
+msgid "An error occured while deleting the map"
+msgstr ""
+
+#: pnuser.php:310
+msgid "The map was updated successfully"
+msgstr ""
+
+#: pnuser.php:315
+msgid "New map was successfully created"
+msgstr ""
+
+#: pnuser.php:343
+msgid "Waypoint added successfully"
+msgstr ""
+
+#: pnuser.php:353
+msgid "File upload error or empty data submitted"
+msgstr ""
+
+#: pnuser.php:355
+msgid "The file has been imported"
+msgstr ""
+
+#: pnuser.php:356
+msgid "An error occured while importing the file"
+msgstr ""
+
+#: pnaccountapi.php:22 pntemplates/mymap_user_main.htm:6
+msgid "My maps and routes"
+msgstr ""
+
+#: common.php:22
+msgid "Hook display error for the MyMap hook"
+msgstr ""
+
+#: pnuserdeletionapi.php:41
+msgid "All maps deleted for Account"
+msgstr ""
+
+#: pnadmin.php:33
+msgid "Google"
+msgstr ""
+
+#: pnadmin.php:34
+msgid "yahoo!"
+msgstr ""
+
+#: pnadmin.php:35
+msgid "Microsoft"
+msgstr ""
+
+#: pnadmin.php:36
+msgid "OpenStreetMap"
+msgstr ""
+
+#: pnadmin.php:37
+msgid "Map24"
+msgstr ""
+
+#: pnadmin.php:38
+msgid "MapQuest"
+msgstr ""
+
+#: pnadmin.php:39
+msgid "MultiMap"
+msgstr ""
+
+#: pnadmin.php:40
+msgid "FreeEarth"
+msgstr ""
+
+#: pnadmin.php:41
+msgid "OpenLayers"
+msgstr ""
+
+#: pnadmin.php:97
+msgid "Configuration was successfully updated"
+msgstr ""
+
+#: pntemplates/mymap_user_routes.htm:3 pntemplates/mymap_user_display.htm:49
+msgid "Route / waypoint management"
+msgstr ""
+
+#: pntemplates/mymap_user_routes.htm:5
+msgid ""
+"You can add a route to the map. You have to define waypoints on the map. "
+"Then, a line will be drawn from waypoint to waypoint."
+msgstr ""
+
+#: pntemplates/mymap_user_routes.htm:10
+msgid "Back to map's marker management"
+msgstr ""
+
+#: pntemplates/mymap_user_routes.htm:11
+msgid "or add a waypoint"
+msgstr ""
+
+#: pntemplates/mymap_user_routes.htm:16
+#: pntemplates/mymap_user_notify_newmarker.htm:10
+#: pntemplates/mymap_user_display.htm:31
+msgid "Latitude"
+msgstr ""
+
+#: pntemplates/mymap_user_routes.htm:16
+#: pntemplates/mymap_user_notify_newmarker.htm:11
+#: pntemplates/mymap_user_display.htm:34
+msgid "Longitude"
+msgstr ""
+
+#: pntemplates/mymap_user_routes.htm:19
+msgid ""
+"or use the import function (click add button after selecting file to import)"
+msgstr ""
+
+#: pntemplates/mymap_user_routes.htm:21
+msgid "add"
+msgstr ""
+
+#: pntemplates/mymap_user_routes.htm:25
+msgid "Number of stored waypoints for this map"
+msgstr ""
+
+#: pntemplates/mymap_user_routes.htm:26
+msgid "Actions"
+msgstr ""
+
+#: pntemplates/mymap_user_routes.htm:27
+msgid "Delete last waypoint"
+msgstr ""
+
+#: pntemplates/mymap_user_routes.htm:28
+msgid "Delete all waypoints"
+msgstr ""
+
+#: pntemplates/mymap_hook_error.htm:1
+msgid "MyMap error"
+msgstr ""
+
+#: pntemplates/mymap_hook_error.htm:1
+msgid "Map not found with ID"
+msgstr ""
+
+#: pntemplates/mymap_hook_error.htm:2
+msgid ""
+"What does this mean? The author of this page wanted to include a graphical "
+"map here - but the map that should be included does not exist in the "
+"database. If you are the owner of this page check the value of the map's ID "
+"number or contact the website administrator if you do not know how to solve "
+"the problem. If you are \"only\" a normal visitor just ignore this error or "
+"write a lovely email to the owner of this page :-)"
+msgstr ""
+
+#: pntemplates/mymap_user_editmap.htm:4
+#: pntemplates/mymap_ajax_display_markeroverview.htm:2
+#: pntemplates/mymap_user_display.htm:19
+msgid "Title"
+msgstr ""
+
+#: pntemplates/mymap_user_editmap.htm:7 pntemplates/mymap_user_display.htm:22
+msgid "Description"
+msgstr ""
+
+#: pntemplates/mymap_user_editmap.htm:10
+msgid "Width (pixels) of the map)"
+msgstr ""
+
+#: pntemplates/mymap_user_editmap.htm:13
+msgid "Height (pixels) of the map)"
+msgstr ""
+
+#: pntemplates/mymap_user_editmap.htm:16
+msgid "Zoomfactor (1 is maximum) of the map"
+msgstr ""
+
+#: pntemplates/mymap_user_editmap.htm:19
+msgid "Should other users be allowed to add own markers to your map"
+msgstr ""
+
+#: pntemplates/mymap_user_editmap.htm:22
+msgid ""
+"Should an additional table be shown next to the map that lists all markers"
+msgstr ""
+
+#: pntemplates/mymap_user_editmap.htm:25
+msgid "How should the map be displayed"
+msgstr ""
+
+#: pntemplates/mymap_user_editmap.htm:30
+msgid "Delete map and all markers"
+msgstr ""
+
+#: pntemplates/mymap_user_editmap.htm:34
+msgid "Update or create map"
+msgstr ""
+
+#: pntemplates/mymap_user_editmap.htm:37
+msgid "Return to main page"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:2
+#: pntemplates/mymap_user_display_map_ajax.htm:2
+msgid "Minimize"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:10
+#: pntemplates/mymap_user_display_map_ajax.htm:10
+msgid "Fullscreen mode"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:20
+#: pntemplates/mymap_user_display_map_ajax.htm:18
+msgid "close menu"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:21
+#: pntemplates/mymap_user_display_map_ajax.htm:19
+msgid "hide markers"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:22
+#: pntemplates/mymap_user_display_map_ajax.htm:20
+msgid "show markers"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:23
+#: pntemplates/mymap_user_display_map_ajax.htm:21
+msgid "hide route"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:24
+#: pntemplates/mymap_user_display_map_ajax.htm:22
+msgid "show route"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:25
+#: pntemplates/mymap_user_display_map_ajax.htm:23
+msgid "export gpx"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:26
+#: pntemplates/mymap_user_display_map_ajax.htm:24
+msgid "export kml"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:33
+msgid "Please enable javascript to see the map that should be displayed here"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:35
+msgid ""
+"If this map is integrated into another content and is not display correctly "
+"and javascript is enabled then"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:36
+msgid "click here to display the map on a single page"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:43
+#: pntemplates/mymap_user_display_map_ajax.htm:33
+msgid "Please wait while the export data is beeing generated!"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:3
+msgid "Administration interface for MyMap"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:8
+msgid ""
+"To use the MyMap module you need to register to at least one of the listed "
+"providers. Please store the API key that was genrated for your site here!"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:10
+msgid "MyMap backend configuration"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:12
+msgid ""
+"Please choose the provider you want to use on your site. At least one key "
+"for one provider has to be stored here!"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:15
+msgid "API key to use Google Maps"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:18
+msgid "Yahoo's application ID"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:21
+msgid "Map24 application key"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:24
+msgid "MapQuest Key"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:27
+msgid "MultiMap Key"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:30
+msgid ""
+"Notify the owner of a map whenever another person adds markers to another map"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:32
+msgid "Show a small overview map inside the displayed map"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:34
+msgid "Use scribite's WYSIWYG editor for the marker's description textarea"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:36
+msgid ""
+"Path to the GPSBabel programm (including the binary / executable file! Enter "
+"full path or relative path. Start at the postnuke root directory if you want "
+"to use a relative path!). This program can optimize the import of GPX data "
+"files."
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:39
+msgid "Waypoint error when importing gpx files"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:42
+msgid "update config"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:47
+msgid "Support the MyMap module"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:48
+msgid ""
+"You like this module and it is usefull for you? Thank you for some little "
+"donation for the programmer! OK - I like programming very much and this "
+"module is free and open source - but if you spend some money I'll go out for "
+"a nice candlelight dinner with my girlfriend and it will be much easier next "
+"time to get free time for programming ;-)"
+msgstr ""
+
+#: pntemplates/mymap_admin_main.htm:64
+msgid "Donate with PayPal!"
+msgstr ""
+
+#: pntemplates/mymap_user_notify_newmarker.htm:1
+msgid ""
+"This is a notification email for you. You are the owner of a map and someone "
+"else in your community added a new marker in your map. If you do not want "
+"other users being able to add new markers on your map please change the "
+"settings for the affected map!"
+msgstr ""
+
+#: pntemplates/mymap_user_notify_newmarker.htm:3
+msgid "Information about the affected map"
+msgstr ""
+
+#: pntemplates/mymap_user_notify_newmarker.htm:5
+msgid "Internal ID number of the map"
+msgstr ""
+
+#: pntemplates/mymap_user_notify_newmarker.htm:6
+msgid "Title of your map"
+msgstr ""
+
+#: pntemplates/mymap_user_notify_newmarker.htm:8
+msgid "The new marker's title"
+msgstr ""
+
+#: pntemplates/mymap_user_notify_newmarker.htm:9
+msgid "Additional text for the marker"
+msgstr ""
+
+#: pntemplates/mymap_user_notify_newmarker.htm:12
+#: pntemplates/mymap_user_display.htm:40
+msgid "Date of this entry or markered event"
+msgstr ""
+
+#: pntemplates/mymap_user_notify_newmarker.htm:14
+msgid "The marker was added by"
+msgstr ""
+
+#: pntemplates/mymap_user_notify_newmarker.htm:14
+msgid "User-ID"
+msgstr ""
+
+#: pntemplates/mymap_user_notify_newmarker.htm:16
+msgid "See the map"
+msgstr ""
+
+#: pntemplates/mymap_user_notify_newmarker.htm:18
+msgid ""
+"Please do not reply to this email! This is just an automatical generated "
+"text..."
+msgstr ""
+
+#: pntemplates/mymap_ajax_display_markeroverview.htm:4
+#: pntemplates/mymap_user_display.htm:28
+msgid "Postal code"
+msgstr ""
+
+#: pntemplates/mymap_ajax_display_markeroverview.htm:5
+msgid "Name"
+msgstr ""
+
+#: pntemplates/mymap_ajax_display_markeroverview.htm:6
+msgid "LNG"
+msgstr ""
+
+#: pntemplates/mymap_ajax_display_markeroverview.htm:7
+msgid "LAT"
+msgstr ""
+
+#: pntemplates/mymap_ajax_display_markeroverview.htm:8
+msgid "Author"
+msgstr ""
+
+#: pntemplates/mymap_ajax_display_markeroverview.htm:9
+msgid "Date"
+msgstr ""
+
+#: pntemplates/mymap_ajax_display_markeroverview.htm:25
+#: pntemplates/mymap_user_main.htm:12
+#: pntemplates/mymap_user_display_map_js_code.htm:30
+msgid "modify"
+msgstr ""
+
+#: pntemplates/mymap_ajax_display_markeroverview.htm:26
+#: pntemplates/mymap_user_display_map_js_code.htm:30
+msgid "Do you really want to delete this point?"
+msgstr ""
+
+#: pntemplates/mymap_ajax_display_markeroverview.htm:26
+#: pntemplates/mymap_user_display_map_js_code.htm:30
+msgid "delete"
+msgstr ""
+
+#: pntemplates/mymap_user_main.htm:2
+msgid "MyMap - create maps with markers"
+msgstr ""
+
+#: pntemplates/mymap_user_main.htm:3
+msgid ""
+"With this module you can create maps and place markers in the map. So you "
+"can show your home, a meeting point, the homes of your friends etc."
+msgstr ""
+
+#: pntemplates/mymap_user_main.htm:4
+msgid "Create a new map"
+msgstr ""
+
+#: pntemplates/mymap_user_main.htm:7
+msgid "You can manage your maps here (delete or edit existing maps)"
+msgstr ""
+
+#: pntemplates/mymap_user_main.htm:12
+msgid "show / add markers or waypoints"
+msgstr ""
+
+#: pntemplates/mymap_user_main.htm:14
+msgid "There is no map associated with your account"
+msgstr ""
+
+#: pntemplates/mymap_user_display.htm:3
+msgid "author of this map"
+msgstr ""
+
+#: pntemplates/mymap_user_display.htm:14
+msgid "Add new markers"
+msgstr ""
+
+#: pntemplates/mymap_user_display.htm:16
+msgid "Insert new elements"
+msgstr ""
+
+#: pntemplates/mymap_user_display.htm:17
+msgid ""
+"You can add markers for this map. As description you can also use HTML-code. "
+"This might help you to insert videos into the map. If you do not know the "
+"exact coordinate for the marker fill out the countrycode and postal code "
+"input field. We will look up the exact coordinate for you. Note: You can "
+"also klick at a point on the map. The clicked point's coordinate will be "
+"shown in the form below! So it is really easy, isn't it?"
+msgstr ""
+
+#: pntemplates/mymap_user_display.htm:25
+msgid "2-letter-country code"
+msgstr ""
+
+#: pntemplates/mymap_user_display.htm:37
+msgid "Name of markered place"
+msgstr ""
+
+#: pntemplates/mymap_user_display.htm:43
+msgid "update / add point"
+msgstr ""
+
+#: pntemplates/mymap_user_display.htm:52
+msgid "Show a list of all markers"
+msgstr ""
+
+#: pntemplates/mymap_user_display.htm:54
+msgid "If you are the owner or authorized, you can manage the markers here!"
+msgstr ""
+
+#: pntemplates/mymap_user_display.htm:64
+msgid "You want to share this map"
+msgstr ""
+
+#: pntemplates/mymap_user_display.htm:65
+msgid ""
+"If you want to insert this map into a forum posting or into a weblog posting "
+"you just have to insert the following code into the plain text"
+msgstr ""
+
+#: pntemplates/mymap_user_export.htm:3
+msgid ""
+"Just mark all the text in the textbox below and save it as an .gpx-file. You "
+"can than import this file with any program."
+msgstr ""
+
+#: pntemplates/mymap_user_export.htm:4
+msgid "Close window"
+msgstr ""
+
+#: pntemplates/mymap_user_display_map.htm:14
+#: pntemplates/mymap_user_display_map_ajax.htm:13
+msgid "show mapControl"
+msgstr ""
+
+#: pnblocks/MyMap.php:29
+msgid "Show a map into a block"
+msgstr ""
+
+msgid "How should the map be displayed?"
+msgstr ""
+
+msgid "Width (pixels of the map in the block)"
+msgstr ""
+
+msgid "Height (pixels of the map in the block)"
+msgstr ""
+
+msgid "Show map controls"
+msgstr ""

@@ -1,0 +1,90 @@
+<!-- $Id: filters.html,v 1.4 2007/10/10 09:24:14 martignoni Exp $ -->
+
+<h1>Administration des filtres</h1>
+
+<p>La page d'administration des filtres vous permet de spécifier quels filtres seront appliqués aux textes affichés et dans quel l'ordre. Il fournit aussi l'accès aux pages de réglages proposées par certains filtres. Les filtres sont appliqués à la plupart des textes des utilisateurs avant qu'ils soient affichés. Ils permettent des modifications de « dernière minute » du texte avant son affichage.</p>
+
+<p>Les filtres sont des ressources facilement installables. Vous pourrez trouver des filtres supplémentaires dans la <a href="http://moodle.org/mod/data/view.php?id=6009">base de données des modules</a> de Moodle.</p>
+
+<p>Sélectionnez les filtres que vous voulez utiliser en les activant à l'aide de l'icône d'oeil. Si plusieurs filtres sont actifs, vous pouvez changer l'ordre dans lequel ils sont appliqués avec les flèches haut et bas.</p>
+
+<h2>Notation TeX</h2>
+
+<div class="indent">
+
+<p>La notation TeX est utilisée avant tout pour générer des formules mathématiques dans les ressources de Moodle. Par exemple, on pourra écrire $$ sqrt(a+b) $$ (les $$ sont les balises désignant le début et la fin de ce format).</p>
+
+<p>Moodle utilise pour composer les images des formules des programmes externes pouvant nécessiter une configuration sur votre système. Le filtre cherchera en premier lieu un programme LaTeX (Ghostscript est aussi requis pour cette méthode), et s'il ne le trouve pas, utilisera le programme plus rudimentaire <i>MimeTeX</i> inclus dans la distribution de Moodle. LaTeX offre la totalité de la syntaxe, tandis que MimeTeX n'en supporte qu'une partie, principalement concernant les mathématiques.</p>
+
+<p>Des installations de LaTeX et de Ghostscript sont disponibles pour Mac OS X, Unix et Windows.</p>
+
+<p>La page des réglages de ce filtre permet de spécifier les chemins d'accès aux programmes LaTeX et Ghostscript, ainsi que le préambule de LaTeX.</p>
+
+<h2>Voir aussi</h2>
+
+<p>
+<a href="http://www.tug.org/texlive/">TeXLive</a><br /> <a href="http://www.miktex.org/">MiKTeX</a><br/ > <a href="http://www.forkosh.com/mimetex.html">MimeTeX</a><br /> <a href="http://www.latex-project.org/">LaTeX</a><br/ > <a href="http://www.ghostscript.com/">ghostscript</a></p>
+
+</div>
+
+<h2>Censure de mots inadéquats</h2>
+
+<div class="indent">
+
+<p>La censure de mots inadéquats recherche dans les textes des « gros mots » définis dans une liste et les caviarde. Pour définir la liste des mots à censurer, consultez la page de réglages du filtre et indiquez votre liste de mots. Pour l'utilisateur ces mots seront caviardés, mais en sélectionnant un mot, on pourra voir le texte original.</p>
+
+</div>
+
+<h2>Liens automatiques du nom des ressources</h2>
+
+<div class="indent">
+
+<p>Ce filtre cherche dans les textes les noms de ressources dans le même cours. Les titres trouvés sont surlignés et un lien vers la ressource est créé. Pour que le fonctionnement de ce filtre soit optimal, il est nécessaire de donner à vos ressources des noms descriptifs. Par exemple, le titre « Introduction » serait un choix médiocre, parce que toutes les occurrences du terme « Introduction » dans les textes du cours seront liés à cette ressource, même si cela n'a dans certains cas rien à y voir.</p>
+
+</div>
+
+<h2>Liens automatiques du nom des activités</h2>
+
+<div class="indent">
+
+<p>Ce filtre cherche dans les textes les noms d'activités dans le même cours. Les titres trouvés sont surlignés et un lien vers l'activité est créé. Pour que le fonctionnement de ce filtre soit optimal, il est nécessaire de donner à vos ressources des noms descriptifs. Par exemple, le titre « Test » serait un choix médiocre, parce que toutes les occurrences du terme « Test » dans les textes du cours seront liés à cette activité, même si cela n'a dans certains cas rien à y voir.</p>
+
+</div>
+
+<h2>Liens automatiques des glossaires</h2>
+
+<div class="indent">
+
+<p>Ce filtre cherche dans les textes les mots-clefs et concepts utilisés dans tous les glossaires du cours. Il cependant est nécessaire d'activer la liaison automatique pour chaque article de glossaire devant être lié. Les termes trouvés sont surlignés et un lien vers la définition est créé.</p>
+
+</div>
+
+<h2>Protection adresses de courriel</h2>
+
+<div class="indent">
+
+<p>Ce filtre transforme toutes les adresses de courriel rencontrées en un code empêchant les systèmes de collecte automatique d'adresses de les enregistrer. Il permet de réduire notablement les risques de spam, en particulier si des cours de votre Moodle sont ouverts.</p>
+
+</div>
+
+<h2>Tidy</h2>
+
+<div class="indent">
+
+<p>Le filtre Tidy recherche dans les ressources le code HTML et lui applique un certain nombre de transformation dans le but de le rendre syntaxiquement correct. Pour que cela fonctionne, la fonction tidy doit être compilée dans votre installation PHP.</p>
+
+</div>
+
+<h2>Contenus multilingues</h2>
+
+<div class="indent">
+
+<p>Ce filtre permet de créer des ressources et des textes multilingues. La langue de la ressource changera alors suivant la langue de l'utilisateur (ou du cours, lorsqu'une langue y est imposée). pour utiliser cette fonctionnalité, veuillez créer votre texte dans les diverses langues voulues (dans la même ressource), puis entourez les différentes versions linguistiques comme dans l'exemple ci-dessous.</p>
+
+<pre>
+&lt;span lang="fr" class="multilang"&gt;Contenu en français&lt;/span&gt;
+&lt;span lang="de" class="multilang"&gt;Text auf deutsch&lt;/span&gt;
+&lt;span lang="en" class="multilang"&gt;Content in english&lt;/span&gt;
+</pre>
+
+</div>

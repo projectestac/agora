@@ -1,0 +1,176 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-08 12:52+0000\n"
+"PO-Revision-Date: 2010-04-22 16:11+0200\n"
+"Last-Translator: Albert Pérez Monfort <aperezm@xtec.cat>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
+
+#: pnadmin.php:86
+msgid "Element created"
+msgstr "S'ha creat l'element"
+
+#: pnadmin.php:116
+msgid "No such item found."
+msgstr "No s'ha trobat l'element"
+
+#: pnadmin.php:164
+msgid "Element updated"
+msgstr "S'ha actualitzat l'element"
+
+#: pnadmin.php:191 pnadminapi.php:68 pnadminapi.php:109
+msgid "Element not found"
+msgstr "No s'ha trobat l'element"
+
+#: pnadmin.php:225
+msgid "Element deleted"
+msgstr "S'ha esborrat l'element"
+
+#: pnadmin.php:264
+msgid "Edit"
+msgstr "Edició"
+
+#: pnadmin.php:268
+msgid "Delete"
+msgstr "Esborrament"
+
+#: pnadmin.php:336
+msgid "Done! Module configuration updated."
+msgstr "S'ha actualitzat la configuració del mòdul"
+
+#: pnversion.php:17 pnblocks/pending.php:29
+#: pntemplates/pendingcontent_admin_menu.htm:4
+msgid "Pending Content"
+msgstr "Contingut en espera"
+
+#: pnversion.php:18
+msgid "pendingcontent"
+msgstr "contingut en espera"
+
+#: pnversion.php:19
+msgid "Display any unapproved content items."
+msgstr "Mostra contingut pendent d'aprovació"
+
+#: pnuserapi.php:47
+msgid "Error! Could not load items."
+msgstr "S'ha produït un error en carregar elements"
+
+#: pnuserapi.php:66 pnadminapi.php:29 pnadminapi.php:62 pnadminapi.php:103
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "No s'ha pogut carregar el que volíeu. Reviseu les dades"
+
+#: pnblocks/pending.php:30
+msgid "Pending Block"
+msgstr "Bloc de contingut en espera"
+
+#: pnadminapi.php:34 pnadminapi.php:73 pnadminapi.php:114 pnadminapi.php:117
+msgid "Sorry! No authorization to access this module."
+msgstr "No teniu autorització per accedir a aquest mòdul"
+
+#: pnadminapi.php:40 pnadminapi.php:123
+msgid "Error! Creation attempt failed."
+msgstr "L'intent de creació ha fallat"
+
+#: pnadminapi.php:77
+msgid "Error! Deletion attempt failed."
+msgstr "No s'ha pogut esborrar"
+
+#: pnadminapi.php:142 pntemplates/pendingcontent_admin_view.htm:2
+msgid "Show all elements"
+msgstr "Mostra tots els elements"
+
+#: pnadminapi.php:145
+msgid "Create element"
+msgstr "Crea un element"
+
+#: pnadminapi.php:148 pntemplates/pendingcontent_admin_modifyconfig.htm:2
+msgid "Settings"
+msgstr "Modifica la configuració"
+
+#: pntemplates/pendingcontent_admin_modifyconfig.htm:13
+msgid "Items per page"
+msgstr "Elements per pàgina"
+
+#: pntemplates/pendingcontent_admin_modifyconfig.htm:19
+msgid "Update Configuration"
+msgstr "Actualitza la configuració"
+
+#: pntemplates/pendingcontent_admin_modifyconfig.htm:20
+#: pntemplates/pendingcontent_admin_modify.htm:29
+#: pntemplates/pendingcontent_admin_new.htm:28
+#: pntemplates/pendingcontent_admin_delete.htm:17
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: pntemplates/pendingcontent_admin_modify.htm:2
+msgid "Edit element"
+msgstr "Edita l'element"
+
+#: pntemplates/pendingcontent_admin_modify.htm:14
+#: pntemplates/pendingcontent_admin_new.htm:13
+#: pntemplates/pendingcontent_admin_view.htm:10
+msgid "Name"
+msgstr "Nom"
+
+#: pntemplates/pendingcontent_admin_modify.htm:18
+#: pntemplates/pendingcontent_admin_new.htm:17
+#: pntemplates/pendingcontent_admin_view.htm:11
+msgid "URL"
+msgstr "URL"
+
+#: pntemplates/pendingcontent_admin_modify.htm:22
+#: pntemplates/pendingcontent_admin_new.htm:21
+#: pntemplates/pendingcontent_admin_view.htm:12
+msgid "SQL Command"
+msgstr "Comanda SQL"
+
+#: pntemplates/pendingcontent_admin_modify.htm:28
+msgid "Update element"
+msgstr "Actualitza l'element"
+
+#: pntemplates/pendingcontent_admin_new.htm:2
+msgid "Add element"
+msgstr "Afegeix un element"
+
+#: pntemplates/pendingcontent_admin_new.htm:27
+msgid "Save"
+msgstr "Desa"
+
+#: pntemplates/pendingcontent_admin_delete.htm:2
+msgid "Delete element"
+msgstr "Esborra l'element"
+
+#: pntemplates/pendingcontent_admin_delete.htm:7
+msgid "Do you really want to delete this element?"
+msgstr "Confirma l'esborrament de l'element"
+
+#: pntemplates/pendingcontent_admin_delete.htm:14
+msgid "Confirmation prompt"
+msgstr "Avís de confirmació"
+
+#: pntemplates/pendingcontent_admin_delete.htm:16
+msgid "Confirm deletion?"
+msgstr "Confirmació de l'esborrament de l'element"
+
+#: pntemplates/pendingcontent_admin_view.htm:13
+msgid "Options"
+msgstr "Opcions"
+
+#: pntemplates/pendingcontent_admin_view.htm:30
+msgid "No items found."
+msgstr "No s'ha trobat cap element"
+
+#: pntemplates/pendingcontent_block_pending.htm:12
+msgid "admin"
+msgstr "admin"

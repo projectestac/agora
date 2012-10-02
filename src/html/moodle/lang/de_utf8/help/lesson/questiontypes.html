@@ -1,0 +1,159 @@
+<h2>Fragetypen</h2>
+<p>Folgende Fragetypen werden derzeit im Lektionen-Modul unterstützt:</p>
+<ol>
+<li>
+<p><b>Multiple-Choice</b>: Multiple-Choice-Fragen bestehen aus
+Fragen mit einer Reihe von Antworten, von denen jedoch
+nur eine richtig ist. Diese Frageform ist als Standard
+eingestellt. Die richtige Antwort führt zur nächsten Seite der Lektion, die falschen Antworten tun dies nicht. Die
+falschen Antworten werden häufig auch als &quot;Störungen&quot; bezeichnet; gut gewählte falsche Antworten führen zu einem Nachdenkprozess und unterstützen den Lerneffekt.</p>
+
+<p>Optional kann jede Antwort mit einer Rückmeldung
+verbunden werden, die nach dem Anklicken der Antwort angezeigt
+wird. Wenn Sie keine Rückmeldung festlegen, wird die Standardrückmeldung (Richtig/Falsch) angezeigt.</p>
+
+<p>Es ist möglich, mehr als eine richtige Antwort bei einer
+Multiple-Choice-Frage zu definieren. Die verschiedenen richtigen
+Antworten können unterschiedliche Rückmeldungen
+haben und auf unterschiedliche Folgeseiten innerhalb der Lektion führen.
+Verschiedene richtige Antworten werden bei der Bewertung immer
+gleich gewertet. Es ist möglich, alle Antworten als richtig
+zu definieren und von jeder Antwort auf eine andere Folgeseite zu
+führen.</p>
+
+<p>Eine weitere Variante ("Multiple-Choice-Frage mit mehreren
+richtigen Antworten") erfordert von den Teilnehmer/innen, alle richtigen Antworten zu finden, um eine Frage insgesamt richtig zu beantworten. Sie können bei
+der Formulierung der Frage darauf hinweisen, wieviele Antworten
+richtig sind oder darauf verzichten. Diese Frageform kann auch
+nur eine richtige Antwort umfassen. Die Teilnehmer/innen können
+dann dennoch mehrere Antworten markieren, richtig ist dann jedoch
+nur die Markierung der einen richtigen Antwort.</p>
+
+<p>Wenn mehrere
+Antworten richtig sind, sollte jede richtige Antwort zur selben Folgeseite führen, (gleiches gilt für falsche Antworten). Wenn dies nicht so eingerichtet wird, erscheint ein Warnhinweis. Rückmeldungen auf die Antworten sollten jeweils bei der ersten richtigen
+Antwort bzw. bei der ersten falschen Antwort angegeben werden. 
+Rückmeldungen bei allen anderen Antworten werden ohne Warnhinweis
+ignoriert.</p>
+</li>
+<li>
+<p><b>Kurzantwort:</b> Die Teilnehmer/innen müssen einen
+kurzen Text als Antwort eingeben. Diese Antwort wird mit einer oder
+mehreren Antworten verglichen. Für jede Antwort kann eine
+Rückmeldung festgelegt werden. Wenn keine Rückmeldung
+definiert ist, wird eine Standardrückmeldung angezeigt
+(s.o.) Wenn die eingebene Antwort zu keiner der vorgegebenen Antworten passt, wird die
+Antwort als falsch bewertet.</p>
+<p>Standardmäßig wird die Groß- und Kleinschreibung
+der Antworten ignoriert. Sie können die Berücksichtigung der Groß- und Kleinschreibung jedoch durch Auswahl der entsprechenden Zusatzoption
+aktivieren.</p>
+  <ul>
+    <li><strong>Einfache Analyse der Antwort</strong>
+      <p>In dieser Standardeinstellung wird beim Vergleich der Teilnehmerantwort mit den vorgegebenen Antworten die Groß- und Kleinschreibung nicht berücksichtigt. In den vorgegebenen Antworten kann ein Asterisk (*) als Joker verwendet werden. Dieses Zeichen steht für eine beliebige Anzahl von Zeichen (auch null Zeichen). <br/>Beispiel: Die vorgegebene Antwort &quot;Weit*&quot; bewirkt, dass die Teilnehmerantworten &quot;weiter&quot;, &quot;weitestgehend&quot; und &quot;weit&quot; als richtig erkannt werden. Wenn eine der vorgegebenen Antworten einfach &quot;*&quot; (ein einfaches *) ist, dann wird jede beliebige Antwort als richtig erkannt. Diese Antwort wird normalerweise als letzte vorgegeben, um alle denkbaren Antworten der Teilnehmer/innen abzufangen. Der Vergleichsalgorithmus geht die vorgegebenen Antworten in der Reihenfolge durch, wie sie durch den/die Trainer/in angegeben wurde. Sobald eine Antwort als richtig erkannt wurde, wird der Vergleichsalgorithmus beendet, und die zugehörige Rückmeldung wird angezeigt. Beispiel: Wenn die vorgegebenen Antworten &quot;Weitestgehend&quot;, &quot;Weit*&quot; und * (in dieser Reihenfolge) lauten, dann passt die Eingabe &quot;weiter&quot; zur zweiten vorgegebenen Antwort, und die dritte vorgegebene Antwort wird ignoriert (obwohl sie ebenfalls passt).</p>
+      <p> Wenn in einer vorgegebenen Antwort ein Asterisk (*) verwendet werden soll, muss es als \* (Backslash Asterisk) angegeben werden.</p>
+    </li>
+  </ul>
+  <ul>
+    <li><strong>Analyse mittels regulärer Ausdrücke unter Berücksichtigung der Groß- und Kleinschreibung</strong>
+      <p>Diese Variante nutzt einen mächtigeren, aber auch komplexeren Vergleichsalgorithmus. Eine umfassende Einführung in diese Thematik finden Sie auf dieser <a href="http://www.zend.com/zend/tut/tutorial-delin2.php" target="_blank">Webseite</a> oder auf <a href="http://perso.wanadoo.fr/joseph.rezeau/eao/developpement/expandRegexpToString.htm#" 
+          target="_blank">rezeau.org</a>. </p>
+      <strong>Richtige Antworten mittels regulärer Ausdrücke definieren</strong>
+      <p>Es ist nicht möglich, die Komplexität des Vergleichsalgorithmus anhand einer vollständigen Beispielliste zu demonstrieren. Die folgenden Beispiele zeigen nur einige Möglichkeiten.</p>
+      <p><strong>Beispiel 1.</strong> Angenommen, Ihre Frage lautet: &quot;Welche Farben hat die französische Flagge?&quot; In Antwort 1 geben Sie folgenden regulären Ausdruck vor: &quot;<span class="c_computeroutput">blau, weiß(,| und) 
+          rot</span>/i&quot;. Damit werden folgende Teilnehmerantworten als richtig erkannt:</p>
+      <ul>
+        <li>blau, weiß, rot</li>
+        <li>blau, weiß und rot</li>
+        <li>Blau, weiß, rot</li>
+        <li>Blau, weiß und rot</li>
+      </ul>
+      <p>Beachten Sie bitte, dass bei regulären Ausdrücken standardmäßig die Groß- und Kleinschreibung berücksichtigt wird. Wenn Sie das nicht wollen, müssen Sie am Ende Ihres regulären Ausdrucks ein <strong>/i</strong> anhängen (wie im obigen Beispiel).</p>
+      <p><strong>Beispiel 2</strong>. Frage: &quot;Was bezeichnet blau oder rot oder gelb?&quot;. 
+          Antwort: &quot;(|Das sind )Farben?&quot;. Damit werden folgende Teilnehmerantworten als richtig erkannt:</p>
+      <ul>
+        <li>Das sind Farben</li>
+        <li>Farben</li>
+        <li>Farbe</li>
+      </ul>
+      <p>Bemerkung: Der Anfang des regulären Ausdrucks &quot;(|Das sind )&quot; erlaubt sowohl Antworten, die mit &quot;Das sind  &quot; beginnen als auch Antworten, in denen nur &quot;Farbe&quot; oder &quot;Farben&quot; steht. Das Fragezeichen ? bedeutet: das davorstehende Zeichen darf einmal oder keinmal auftreten - deshalb ist sowohl &quot;Farbe&quot; als auch &quot;Farben&quot; richtig.</p>
+      <p><strong>Beispiel 3.</strong> Frage: &quot;Nennen Sie ein Tier mit 4 Buchstaben, wobei die beiden mittleren Buchstaben <em>au</em> lauten&quot;. Antwort: 
+          &quot;[ML]aus&quot;. Richtige Teilnehmerantworten sind dann: Maus und Laus. </p>
+      <strong>Fehlende Zeichen und Zeichenketten entdecken</strong>
+      <p>Mittels regulärer Ausdrücke allein können keine fehlenden Zeichen oder Zeichenketten entdeckt werden. Stattdessen müssen Sie Ihre Antwort auf eine ganz bestimmte Art und Weise codieren, um diese Fälle abzufangen. Wenn eine vorgegebene Antwort mit einem doppelten Bindestrich (--) beginnt, dann wird geprüft, ob die nachstehende Zeichenkette fehlt oder nicht. Wenn die entsprechende Zeichenkette in der Teilnehmerantwort vorhanden ist, wird die Antwort als richtig gewertet, wenn sie fehlt, wird die Antwort als falsch gewertet, der Vergleichsalgorithmus abgebrochen und die entsprechende Rückmeldung angezeigt.</p>
+      <p><strong>Beispiel 4.  </strong>Frage: &quot;Welche Farben hat die französische Flagge?&quot;</p>
+      <ul>
+        <li>Antwort 2: <span class="c_computeroutput">--.*blau.*</span>/i</li>
+        <li>Teilnehmerantwort: &quot;rot und weiß&quot; </li>
+        <li>Rückmeldung 2: <span class="c_computeroutput">Die Farbe des Himmels fehlt!</span></li>
+        <li>Sprung 2: <span class="c_computeroutput">Diese Seite</span></li>
+      </ul>
+      <p>Der . (Punkt) steht für ein &ldquo;beliebiges Zeichen&rdquo;, und * (Asterisk) 
+          bedeutet, dass das &ldquo;voranstehende Zeichen beliebig oft wiederholt vorkommen kann&rdquo;. 
+          Der Ausdruck in Antwort 2 bedeutet also: Prüfe, ob die Zeichenkette         &quot;blau&quot; vor oder nach einer beliebigen Zeichenkette in der Teilnehmerantwort fehlt. <br/>
+          Achtung: Die Verwendung von * (Asterisk) unterscheidet sich bei der einfachen Analyse und der komplexen Analyse mittels regulärer Ausdrücke!</p>
+      <p><strong>Beispiel 5.</strong> Frage: &quot;Nennen Sie ein Tier mit 4 Buchstaben, wobei die beiden mittleren Buchstaben <em>au</em> lauten&quot;. Antwort: &quot;--[M|L]&quot;. Rückmeldung: &quot;Ihre Antwort sollte mit M oder L beginnen.&quot; </p>
+      <strong>Unerwünschte (falsche) Zeichen oder Zeichenketten entdecken</strong>
+      <p>Sie wollen in der Teilnehmerantwort Zeichen oder Zeichenketten entdecken, die <strong>nicht</strong> vorkommen sollen (weil sie falsch sind). Dann muss die vorgegebene Antwort mit einem doppelten Pluszeichen (++) beginnen, gefolgt von der entsprechenden Zeichenkette.</p>
+      <p><strong>Beispiel 6</strong>. Frage: &quot;Welche Farben hat die französische Flagge?&quot;</p>
+      <ul>
+        <li>Antwort 3: ++(gelb|schwarz|orange|grün|rosa)/i</li>
+        <li>Teilnehmerantwort: &quot;blau, orange und weiß&quot; </li>
+        <li>Rückmeldung 3: Eine oder mehrere Farben sind falsch!</li>
+        <li>Sprung 3: Diese Seite</li></ul>
+        <p>Wenn eine oder mehrere dieser (falschen) Farben in der Teilnehmerantwort stehen, dann wird die negative Rückmeldung 3 angezeigt, und die falschen Farben (d.h. die falschen Zeichenketten) werden farblich markiert.</p>
+      <p><strong>Beispiel 7</strong>. Frage: &quot;Nennen Sie ein Tier mit 4 Buchstaben, wobei die beiden mittleren Buchstaben <em>au</em> lauten&quot;. Antwort: &quot;++Haus&quot;. Rückmeldung: &quot;Das Tier könnte zwar darin wohnen, aber ein Haus kann nicht als Tier betrachtet werden.&quot;   </p>
+      <strong>Sonderzeichen berücksichtigen</strong>
+      <p>Wenn Sie in Ihren Antworten Zeichen verwenden wollen, die in regulären Ausdrücken als Sonderzeichen spezielle Funktionen haben, dann müssen Sie dem Zeichen ein \ (Backslash) voranstellen. Folgende Zeichen sind so zu behandeln: . ^ $ * ( ) [ ] + ? | <br /> Wenn Sie also z.B. folgende Antwort akzeptieren wollen: &quot;Mein Computer 
+          kostet 1000$&quot;, dann müssen Sie in Ihrer Antwort folgenden regulären Ausdruck vorgeben: &quot;Mein Computer 
+          kostet 1000\$&quot;.</p>
+    </li>
+  </ul>
+</li>
+<li><b>Wahr-Falsch:</b> Als Antwort auf diese Fragen gibt es
+nur zwei Optionen: Richtig oder Falsch.</li>
+<li>
+<p><b>Zuordnung:</b> Dies ist ein sehr mächtiger und flexibler
+Fragetyp. Er besteht aus einer Liste von Namen oder Aussagen,
+die zu passenden Namen oder Aussagen aus einer zweiten Liste zugeordnet werden müssen.<br />Beispiel:
+Ordnen Sie die Hauptstädte den Ländern zu mit den Listen
+Kanada, Japan, Italien und Tokio, Ottawa, Rom. Einträge in
+den Listen können sich wiederholen, sie müssen dann
+jedoch eine identische Schreibweise aufweisen. <br /> Beispiel:
+Ordnen Sie die Kreaturen den Gattungen zu: Lerche, Kuh, Ameise,
+Elefant und Vogel, Tier, Insekt, Tier.</p>
+<p>Wenn Sie eine Zuordnungsfrage erstellen, dann tragen Sie die Begriffe der ersten Liste in die Antwortfelder, die der zweiten Liste in die zugeordneten Antwortfelder ein. Wenn die Teilnehmer/innen die Begriffe richtig zugeordnet haben, wird zu der Seite gesprungen, die im Sprungverweis der ersten Antwort angegeben wurde. Rückmeldungen bei richtiger bzw. falscher Antwort geben Sie in den entsprechenden Rückmeldungsfeldern ein.</p>
+<p>Im Unterschied zu Multiple-Choice-Fragen, wo die Antwortmöglichkeiten in zufälliger Reihenfolge angezeigt werden, werden bei Zuordnungsfragen die Begriffe der ersten Liste in der angegebenen Reihenfolge angezeigt. Auf diese Weise können Fragen gestellt werden, bei denen die richtige Reihenfolge eine Rolle spielt. <br />Beispiel:
+"Ordnen Sie die folgenden Politiker in der Reihenfolge Ihres
+Geburtsjahres" mit der Liste "1., 2., 3., 4." und "Sokrates,
+Caesar, Bismark, Napoleon". Die Begriffe der zweiten Liste werden in zufälliger Reihenfolge angezeigt. Die Einträge der ersten Liste werden in der angegebenen Reihenfolge angezeigt.</p>
+</li>
+<li>
+<p><b>Numerische Fragen</b>: Dieser Fragetyp erfordert
+Zahlenangaben als Antwort. In der einfachsten Form wird eine
+zuvor festgelegt Zahl als Antwort erwartet. Beispiel: "Was ist 2
+plus 2?". Die Antwort 4 führt zur nächsten Seite.
+Häufig ist es sinnvoll, als richtige Antwort eine Bandbreite von
+Zahlen zu akzeptieren und dazu ein Minimum und ein Maximum
+festzulegen. Die Antwort wird dann wie folgt angegeben: Minimum:Maximum (durch Doppelpunkt getrennt). <br />
+Beispiel: Aufgabe: "Wieviel ist 10 geteilt durch 3?". Richtige
+Antwortbandbreite ist 3.33:3.34. Alle dazwischen liegenden
+Antworten werden als richtig bewertet. Die Antworten 3.3 oder 3.4
+wären hingegen falsch.</p>
+<p>Es ist möglich, mehr als eine richtige Antwort anzugegeben. Die Antworten können einzelne Zahlen oder Minimum:Maximum-Paare sein. Dabei
+sollten die Antworten in der Reihenfolge von der exakt richtigen
+zu einer noch akzeptablen Antwort erstellt werden. <br />Beispiel: Wann
+wurde Larkin geboren? Antwort: "1922" als exakte Antwort oder
+"1920:1929", also in den 20er Jahren, als noch akzeptable
+Antwort. Die erste Antwort könnte als Rückmeldung 
+enthalten: "Das ist exakt die richtige Antwort." Die andere
+Rückmeldung könnte lauten: "Das ist das richtige
+Jahrzehnt."</p>
+<p>Sie können auch falsche Antwortvorgaben definieren
+(z.B. häufige Falschberechnungen einer Aufgabe). Achten Sie jedoch darauf, dass falsche Antworten &quot;nach&quot; richtigen Antworten definiert werden müssen. Wenn Sie auf die
+obige Frage "10 geteilt durch 3" als richtige Antwort 3.33:3.34
+vorgeben, können Sie danach 3:4 als falsche Antwort
+definieren. Alle Antworten zwischen 3 und 4, die nicht zwischen
+3.33 und 3.34 liegen, werden als falsch bewertet. Sie können
+dann z.B. als Rückmeldung angeben: "Falsche Antwort, aber
+nicht weit von der richtigen Lösung entfernt."</p>
+</li>
+</ol>

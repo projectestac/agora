@@ -1,0 +1,74 @@
+/* $Id: unipager.txt 18547 2006-04-02 21:33:59Z markwest $ */
+
+
+the new .8 pager - a flexible pnRender-based pagination for PostNuke
+
+What is it?
+--------------------------
+  the new .8 pager plugin provides different pagers by the flexible use of templates.
+
+
+Using it
+--------------------------
+  Since the pager is a normal plugin it is very simple to include it into your templates.
+  There are two parameters which you must specify:
+      total is the number of all items
+      perpage is the number of items per page
+
+  So the basic call looks like
+      <!--[pager total="400" perpage="50"]-->
+
+  Per default $pos is the variable which stores the current position.
+  If you want to use another var name, just add the name with the optional posvar parameter:
+      <!--[pager total="400" perpage="50" posvar="myposvar"]-->
+
+  A mighty option is the ability to define other templates:
+      <!--[pager total="432" perpage="25" template="pagercss.html"]-->
+
+  The last parameter allows you to limit the amount of displayed pages.
+  The other ones will be hidden or suppressed (depends on used template).
+      <!--[pager total="1200" perpage="40" template="pagercss.html" maxpages="10"]-->
+      <!--[pager total="1200" perpage="40" template="pagercss2.html" maxpages="20"]-->
+
+
+
+The templates
+--------------------------
+  pager.html               standard template for page numbers, handles maxpages
+  pagercss.html            example for css styling, handles maxpages
+  pagercss2.html           advanced pager from erweiterungen.de build with this pager, handles maxpages
+  pagerimage.html          example for including images
+  pagerintervals.html      shows item intervals instead of page numbers
+  pageritems.html          shows item numbers instead of page numbers
+  pagerjs.html             js example for maxpage handling
+
+
+
+Template data
+--------------------------
+All assigned data is made available in one array called $pager.
+In detail it contains the following fields:
+
+  total                       the number of all items
+  perpage                     the number of items per page
+  posvar                      the position var name
+  pos                         the current position
+  countPages                  the number of pages
+  currentPage                 the current page
+  maxPages                    the maximum number of displayed pages if defined
+  baseurl                     the complete request string without $posvar
+  pages                       array with page information
+      pagenr                  the page number
+      url                     the page url
+      isVisible               1/0
+      isCurrentPage           true/false
+  first                       item number for first page
+  firstUrl                    url for first page
+  prev                        item number for prev page
+  prevUrl                     url for prev page
+  next                        item number for next page
+  nextUrl                     url for next page
+  last                        item number for last page
+  lastUrl                     url for last page
+  itemStart                   current start item
+  itemEnd                     current end item

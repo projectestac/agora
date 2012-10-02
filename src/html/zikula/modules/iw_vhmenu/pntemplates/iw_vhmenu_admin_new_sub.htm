@@ -1,0 +1,121 @@
+<script language="javascript">
+	function send(valor){
+		var error=false;
+		var f=document.new_menu;
+		var i=1;
+		if(f.text.value=="" && valor!=1){
+			alert("<!--[gt text="You have not written the text of the option of the submenu"]-->");
+			var error=true;
+		}
+ 		if(valor==1){
+			f.action="index.php?module=iw_vhmenu&type=admin&func=new_sub";
+		}else{
+			f.action="index.php?module=iw_vhmenu&type=admin&func=create_sub";
+		}
+		if(!error){document.new_menu.submit();}		
+	}
+</script>
+
+<!--[include file="iw_vhmenu_admin_menu.htm"]-->
+
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='filenew.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<h2><!--[gt text="Add a new option"]--></h2>
+	<div style="height:20px;">&nbsp;</div>
+	<form  method="post" name="new_menu" id="new_menu">
+		<input type="hidden" name="authid" value="<!--[$security]-->"-->
+		<input type="hidden" name="mid" value="<!--[$mid]-->">
+		<input type="hidden" name="level" value="<!--[$level]-->">
+		<input type="hidden" name="canvi" value="1">	
+
+		<div class="pn-adminformrow">
+			<label for="text"><!--[gt text="Text of the option"]--></label>
+			<input type="text" name="text" size="32" maxlength="50" value="<!--[$text]-->" />
+		</div>
+
+		<div class="pn-adminformrow">
+			<label for="checkbox"><!--[gt text="Graphic menu (you must specify rollover images 1 and 2)"]--></label>
+			<input type="checkbox" name="grafic" <!--[if $grafic]-->checked<!--[/if]--> onClick="javascript:send(1)" />
+		</div>
+		<!--[if $grafic]-->
+			<div class="pn-adminformrow">
+				<label for="image1"><!--[gt text="Background image"]--></label>
+				<select name="image1" onChange="document.images.image1.src='<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_vhmenu type=user func=getFile fileName=$initImagePath]-->/'+document.new_menu.image1.options[document.new_menu.image1.selectedIndex].value"">
+					<option value=""></option>
+					<!--[section name=images loop=$images]-->
+						<option <!--[if $image1 eq $images[images].filename]-->selected<!--[/if]--> value="<!--[$images[images].filename]-->"><!--[$images[images].filename]--></option>
+					<!--[/section]-->
+				</select>
+				<img name="image1" src="<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_vhmenu type=user func=getFile fileName=$initImagePath]-->/<!--[$image1]-->" />
+			</div>
+
+			<div class="pn-adminformrow">
+				<label for="image2"><!--[gt text="Background image"]--></label>
+				<select name="image2" onChange="document.images.image2.src='<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_vhmenu type=user func=getFile fileName=$initImagePath]-->/'+document.new_menu.image2.options[document.new_menu.image2.selectedIndex].value"">
+					<option value=""></option>
+					<!--[section name=images loop=$images]-->
+						<option <!--[if $image2 eq $images[images].filename]-->selected<!--[/if]--> value="<!--[$images[images].filename]-->"><!--[$images[images].filename]--></option>
+					<!--[/section]-->
+				</select>
+				<img name="image2" src="<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_vhmenu type=user func=getFile fileName=$initImagePath]-->/<!--[$image2]-->" />
+			</div>
+		<!--[/if]-->
+
+		<div class="pn-adminformrow">
+			<label for="url"><!--[gt text="URL"]--></label>
+			<input type="text" name="url" size="50" maxlength="250" value="<!--[$url]-->" />
+		</div>
+
+		<div class="pn-adminformrow">
+			<label for="descriu"><!--[gt text="Description"]--></label>
+			<input type="text" name="descriu" size="50" maxlength="200" value="<!--[$descriu]-->" />
+		</div>
+
+		<div class="pn-adminformrow">
+			<label for="grup"><!--[gt text="Group that can access the option"]--></label>
+			<select name="grup">
+                <!--[foreach item="group" from="$grups"]-->
+                    <option <!--[if $grup eq $group.id]-->selected<!--[/if]--> value="<!--[$group.id]-->"><!--[$group.name]--></option>
+                <!--[/foreach]-->
+			</select>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="target"><!--[gt text="Link target"]--></label>
+			<select name="target">
+				<option <!--[if $target eq 0]-->selected<!--[/if]--> value="0"><!--[gt text="In the Same window"]--></option>
+				<!---<option <!--[if $target eq 1]-->selected<!--[/if]--> value="1"><!--[gt text="In a new window"]--></option>--->
+				<option <!--[if $target eq 2]-->selected<!--[/if]--> value="2"><!--[gt text="Within the webbox"]--></option>
+			</select>
+		</div>
+
+		<div class="pn-adminformrow">
+			<label for="bg_image"><!--[gt text="Background image"]--></label>
+			<select name="bg_image" onChange="document.images.bgimage.src='<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_vhmenu type=user func=getFile fileName=$initImagePath]-->/'+document.new_menu.bg_image.options[document.new_menu.bg_image.selectedIndex].value">
+				<option value=""></option>
+				<!--[section name=images loop=$images]-->
+					<option <!--[if $bg_image eq $images[images].filename]-->selected<!--[/if]--> value="<!--[$images[images].filename]-->"><!--[$images[images].filename]--></option>
+				<!--[/section]-->
+			</select>
+			<img name="bgimage" src="<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_vhmenu type=user func=getFile fileName=$initImagePath]-->/<!--[$bg_image]-->" />
+		</div>
+
+		<div class="pn-adminformrow">
+			<label for="width"><!--[gt text="Width"]--></label>
+			<input type="text" name="width" size="5" maxlength="5" value="<!--[$width]-->" />
+		</div>
+
+		<div class="pn-adminformrow">
+			<label for="height"><!--[gt text="Height"]--></label>
+			<input type="text" name="height" size="5" maxlength="5" value="<!--[$height]-->" />
+		</div>
+
+		<div class="pn-adminformrow">
+			<label for="active"><!--[gt text="State (Active/Inactive)"]--></label>
+			<input type="checkbox" name="active" <!--[if $active]-->checked<!--[/if]--> />
+		</div>
+
+		<div style="text-align: center;">
+			<a onClick="javascript:send(0)" title="<!--[gt text="Create the option"]-->"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small']--></a><!--[gt text="Create the option"]-->
+		</div>
+	</form>
+</div>

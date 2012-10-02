@@ -1,0 +1,1249 @@
+<h2>Markdown formatua erabili web orriak idazteko</h2>
+
+<div id="Main">
+
+<div class="article">
+<p>(Testu hau Markdown sintaxi-orri
+originalaren kopia da)</span></p>
+
+<h2><Oinarrizko kontzeptuak</span></h2>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Filosofia</span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownen asmoa da ahal bezain irakurterraza eta idazterraza izatea.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Garrantzitsuena, dena den, irakurterraza izatea da.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Markdown formatua duen dokumentuak diren
+bezalakoak argitaratzeko modukoak izan behar dute, testu lau gisa, etiketekin
+edo formatu-argibideekin hobetu direnaren antza eduki gabe.</span><span
+lang=EU> </span><span lang=EU style='mso-ansi-language:EU'>Markdownen sintaxian
+eragina izan dute dauden HTML iragazki bihurgailu batzuk �<a
+href="http://docutils.sourceforge.net/mirror/setext.html"><span
+style='color:windowtext'>Setext</span></a>, <a
+href="http://www.aaronsw.com/2002/atx/"><span style='color:windowtext'>atx</span></a>,
+<a href="http://textism.com/tools/textile/"><span style='color:windowtext'>Textile</span></a>,
+<a href="http://docutils.sourceforge.net/rst.html"><span style='color:windowtext'>reStructuredText</span></a>,
+<a href="http://www.triptico.com/software/grutatxt.html"><span
+style='color:windowtext'>Grutatext</span></a> eta <a
+href="http://ettext.taint.org/doc/"><span style='color:windowtext'>EtText</span></a>
+barne�; baina, Markdownen sintaxirako inspirazio-iturri nagusia posta
+elektronikoaren testu laua da.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownen sintaxia puntuazio-zeinuez osatua dago; zeinuak kontu handiz aukeratuta
+daude, esan nahi dutenaren irudia izan dezaten.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Adibidez, hitzen inguruko asteriskoak
+*emphasis* gisa agertzen dira.</span><span lang=EU> </span><span lang=EU
+style='mso-ansi-language:EU'>Markdown-zerrendek horixe dirudite, zerrendak.</span><span
+lang=EU> </span><span lang=EU style='mso-ansi-language:EU'>Aipuek ere
+testu-zati itxura dute.</span></p>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>HTML linean</span> </h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownen helburua hau da:</span><span lang=EU> </span><span lang=EU
+style='mso-ansi-language:EU'>weberako idazteko formatu gisa erabiltzea.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdown ez da HTMLren ordezkoa, ez da antzekoa ere.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Sintaxia oso mugatua da, HTML etiketen
+azpimultzo txiki bat bakarrik hartzen du.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Asmoa ez da HTMLn etiketak errazago
+sartzeko sintaxi bat sortzea.</span><span lang=EU> </span><span lang=EU
+style='mso-ansi-language:EU'>Nire iritziz, HTML etiketak sartzen errazak dira
+dagoeneko.</span><span lang=EU> </span><span lang=EU style='mso-ansi-language:
+EU'>Markdownen xedea da testua irakurtzeko, idazteko eta editatzeko erraza
+izatea.</span><span lang=EU> </span><span lang=EU style='mso-ansi-language:
+EU'>HTML argitaratzeko formatu bat da, Markdown, berriz, idaztekoa.</span><span
+lang=EU> </span><span lang=EU style='mso-ansi-language:EU'>Gainera, Markdown
+formatuko sintaxia testu lauan adierazi daitekeen edukian bakarrik erabiltzekoa
+da.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek hartzen ez dituen marketan, HTML bera erabil dezakezu.</span><span
+lang=EU> </span><span lang=EU style='mso-ansi-language:EU'>Ez daukazu zertan
+adierazi behar Markdownetik HTMLra pasa zarela; etiketak erabili besterik ez
+duzu.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Muga bakarrak HTML blokeetan daude (adibidez:</span><span lang=EU> </span><code><span
+lang=EU style='font-size:10.0pt;mso-ansi-language:EU'>&lt;div&gt;</span></code><span
+lang=EU style='mso-ansi-language:EU'>, </span><code><span lang=EU
+style='font-size:10.0pt;mso-ansi-language:EU'>&lt;table&gt;</span></code><span
+lang=EU style='mso-ansi-language:EU'>, </span><code><span lang=EU
+style='font-size:10.0pt;mso-ansi-language:EU'>&lt;pre&gt;</span></code><span
+lang=EU style='mso-ansi-language:EU'>, </span><code><span lang=EU
+style='font-size:10.0pt;mso-ansi-language:EU'>&lt;p&gt;</span></code><span
+lang=EU style='mso-ansi-language:EU'>, e.a.);</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>izan ere, inguratzen dituen edukiaz lerro
+hutsekin bereiztu behar dira eta blokearen hasierako eta bukaerako etiketek ez
+dute tabuladorerik eta espaziorik eduki behar.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Markdown bizkorra da: ez ditu </span><code><span
+lang=EU style='font-size:10.0pt;mso-ansi-language:EU'>&lt;p&gt;</span></code><span
+lang=EU style='mso-ansi-language:EU'> etiketa gehigarriak (nahi ez direnak)
+jartzen HTML blokeen etiketen inguruan.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Adibidez, HTML taula bat Markdown artikulu batean jartzeko:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>Hau paragrafo normal bat da.</span><o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&lt;table&gt;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">��� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>&lt;tr&gt;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">������� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>&lt;td&gt;Foo&lt;/td&gt;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">��� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>&lt;/tr&gt;</span><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&lt;/table&gt;</span><o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>Hau beste paragrafo normal bat da.</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdown formatuaren sintaxia ez da HTML blokeetako etiketen barruan
+prozesatzen.</span><span lang=EU> </span><span lang=EU style='mso-ansi-language:
+EU'>Adibidez: ezin da </span><code><span lang=EU style='font-size:10.0pt;
+mso-ansi-language:EU'>*emphasis*</span></code><span lang=EU style='mso-ansi-language:
+EU'> estiloa HTML bloke baten barruan erabili.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Spaneko HTML etiketak (adibidez:</span><span lang=EU> </span><code><span
+lang=EU style='font-size:10.0pt;mso-ansi-language:EU'>&lt;span&gt;</span></code><span
+lang=EU style='mso-ansi-language:EU'>, </span><code><span lang=EU
+style='font-size:10.0pt;mso-ansi-language:EU'>&lt;cite&gt;</span></code><span
+lang=EU style='mso-ansi-language:EU'>, o </span><code><span lang=EU
+style='font-size:10.0pt;mso-ansi-language:EU'>&lt;del&gt;</span></code><span
+lang=EU style='mso-ansi-language:EU'>) Markdownen edozein paragrafo,
+item-zerrenda edo goiburutan erabil daitezke.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Nahi baduzu, Markdown formatuaren ordez
+HTML etiketak erabil ditzakezu; esaterako, Markdownen esteken edo irudien
+sintaxiaren ordez </span><code><span lang=EU style='font-size:10.0pt;
+mso-ansi-language:EU'>&lt;a&gt;</span></code><span lang=EU style='mso-ansi-language:
+EU'> o </span><code><span lang=EU style='font-size:10.0pt;mso-ansi-language:
+EU'>&lt;img&gt;</span></code><span lang=EU style='mso-ansi-language:EU'> HTML
+etiketak erabil ditzakezu. </span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>HTMLren bloke-etiketak ez bezala, Markdownen sintaxia span etiketen barruan
+prozesatzen da.</span></p>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Karaktere berezietarako ihes
+automatikoa</span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>HTMLn bi ikurrek tratamendu berezia behar dute:</span><span lang=EU> </span><code><span
+lang=EU style='font-size:10.0pt;mso-ansi-language:EU'>&lt;</span></code><span
+lang=EU style='mso-ansi-language:EU'> eta </span><code><span lang=EU
+style='font-size:10.0pt;mso-ansi-language:EU'>&amp;</span></code><span lang=EU
+style='mso-ansi-language:EU'>.</span><span lang=EU> </span><span lang=EU
+style='mso-ansi-language:EU'>Ezker angeluaren ikurra etiketak hasteko
+erabiltzen da eta ampersand direlakoak entitateak adierazteko.</span><span
+lang=EU> </span><span lang=EU style='mso-ansi-language:EU'>Ikur literal gisa
+erabili nahi badituzu, ihes-karaktereak erabili behar dituzu markatzeko;
+adibidez:</span><span lang=EU> </span><code><span lang=EU style='font-size:
+10.0pt;mso-ansi-language:EU'>&amp;lt;</span></code><span lang=EU
+style='mso-ansi-language:EU'>, y </span><code><span lang=EU style='font-size:
+10.0pt;mso-ansi-language:EU'>&amp;amp;</span></code><span lang=EU
+style='mso-ansi-language:EU'>.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Ampersand direlakoak web-idazleentzat oztopo besterik ez dira.</span><span
+lang=EU style='mso-ansi-language:EN-GB'> </span><span lang=EU style='mso-ansi-language:
+EU'>�AT&amp;T� adierazteko �</span><code><span lang=EU style='font-size:10.0pt;
+mso-ansi-language:EU'>AT&amp;amp;T</span></code><span lang=EU style='mso-ansi-language:
+EU'>� idatzi behar da.</span><span lang=EU> </span><span lang=EU
+style='mso-ansi-language:EU'>URLetan ere ampersandetan ihesa aplikatu behar da.</span><span
+lang=EU> </span><span lang=EU style='mso-ansi-language:EU'>Orrialde honetarako
+lotura egin nahi baduzu:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>http://images.google.com/images?num=30&amp;q=larry+bird</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>URL era honetan kodetu behar duzu:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>http://images.google.com/images?num=30&amp;amp;q=larry+bird</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><code><span lang=EU
+style='font-size:10.0pt;mso-ansi-language:EU'>href</span></code><span lang=EU
+style='mso-ansi-language:EU'> etiketaren atributuan.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Hori erraz ahazten da; horregatik, HTML
+akatsen iturri nagusia da.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek ikur horiek natural erabiltzeko aukera ematen du, ihesak
+sistemak berak egiten ditu.</span><span lang=EU> </span><span lang=EU
+style='mso-ansi-language:EU'>Ampersand HTML entitate baten zati gisa erabiltzen
+baduzu, ez du aldatzen; bestela, </span><code><span lang=EU style='font-size:
+10.0pt;mso-ansi-language:EU'>&amp;amp;</span></code><span lang=EU
+style='mso-ansi-language:EU'> itzuliko litzateke.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Beraz, artikuluan copyright ikurra jarri nahi baduzu, hau idatz dezakezu:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&amp;copy;</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>eta Markdownek bere horretan utziko du.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Aldiz, hau idazten baduzu:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>AT&amp;T</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek era honetan itzuliko du:</span><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>AT&amp;amp;T</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Halaber, Markdownek lineako HTML onartzen duenez, angelu-ikurrak HTML
+etiketak mugatzeko erabiltzen badituzu, Markdownek bere horretan hartuko ditu.</span><span
+lang=EU style='mso-ansi-language:EN-GB'> </span><span lang=EU style='mso-ansi-language:
+EU'>Baina, hau idazten baduzu:</span></p>
+
+<pre><code>4 &lt; 5<o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek era honetan itzuliko du:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>4 &amp;lt; 5</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Hala eta guztiz, Markdown kodean, spanak eta blokeak, angeluak eta
+ampersandak beti automatikoki kodetzen dira.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Horregatik, Markdown HTML kodean idazteko
+erabilerraza da</span><span lang=EU> </span><span lang=EU style='mso-ansi-language:
+EU'>(HTML sintaxiaren gainean idaztea, ordea, nekagarria da, </span><code><span
+lang=EU style='font-size:10.0pt;mso-ansi-language:EU'>&lt;</span></code><span
+lang=EU style='mso-ansi-language:EU'> eta </span><code><span lang=EU
+style='font-size:10.0pt;mso-ansi-language:EU'>&amp;</span></code><span lang=EU
+style='mso-ansi-language:EU'> ikurrek ihesa behar dutelako).</span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span lang=EU>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Paragrafoak eta lerro-jauziak</span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Paragrafo bat lerro zuri batek edo gehiagok bereiztutako goitik beherako
+eta ondoz ondoko testu-lerroez osatua dago.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>(Lerro zuria itxura hori duen edozein
+lerro da; tabulazioak edo zuriuneak dituen edozein lerro lerro zuritzat hartzen
+da).</span><span lang=EU> </span><span lang=EU style='mso-ansi-language:EU'>Paragrafo
+normalei ez zaie koskarik jarri behar.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>�Ondoz ondoko testu-lerroak� edukitzeak esan nahi du Markdownek
+�hard-wrapped� testuen paragrafoak onartzen dituela (Movable Typeko
+�Lerro-jauziak bihurtzea� aukera barne.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>HTML testua formateatzeko gainerako
+sistemek ez dute aukera hori ematen; izan ere, lerro-jauziak </span><code><span
+lang=EU style='font-size:10.0pt;mso-ansi-language:EU'>&lt;br /&gt;</span></code><span
+lang=EU style='mso-ansi-language:EU'> markan itxitako par�grafo bihurtzen
+dituzte.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownen lerro-jauziaren </span><code><span lang=EU style='font-size:
+10.0pt;mso-ansi-language:EU'>&lt;br /&gt;</span></code><span lang=EU
+style='mso-ansi-language:EU'> marka sartu nahi baduzu, lerro bat bi zuriune edo
+gehiagorekin amaitu eta gero jauzi-tekla sakatu besterik ez duzu.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Nekezagoa da </span><code><span lang=EU style='font-size:10.0pt;mso-ansi-language:
+EU'>&lt;br /&gt;</span></code><span lang=EU style='mso-ansi-language:EU'> bat
+sortzea baino, baina �lerro-jauzi bakoitza </span><code><span lang=EU
+style='font-size:10.0pt;mso-ansi-language:EU'>&lt;br /&gt;</span></code><span
+lang=EU style='mso-ansi-language:EU'> da� arauak ez du funtzionatzen
+Markdownen.</span><span lang=EU> </span><span lang=EU style='mso-ansi-language:
+EU'>Markdownen <a
+href="..\..\..\..\..\..\..\..\..\..\lgsugiba.LIPX62\Escritorio\eu\help\markdown.html#blockquote"><span
+style='color:windowtext'>blockquoting</span></a> e-posta estiloak eta <a
+href="..\..\..\..\..\..\..\..\..\..\lgsugiba.LIPX62\Escritorio\eu\help\markdown.html#list"><span
+style='color:windowtext'>list items</span></a> paragrafo-anitzak hobeto
+funtzionatzen dute (eta itxura hobea dute) lerro-jauzi gogorrekin formateatzen
+badira.</span></p>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Goiburuak</span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek bi goiburu-estilo onartzen ditu: <a
+href="http://docutils.sourceforge.net/mirror/setext.html"><span
+style='color:windowtext'>Setext</span></a> eta <a
+href="http://www.aaronsw.com/2002/atx/"><span style='color:windowtext'>atx</span></a>.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Setext estiloko goiburuak �azpimarratuta� daude eta �=� ikurra (lehen
+mailako goiburuetan) eta �-� marratxo motzak (bigarren mailako goiburuetan)
+erabiltzen dituzte. </span><span lang=EU><span style="mso-spacerun:
+yes">�</span></span><span lang=EU style='mso-ansi-language:EU'>Adibidez:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>Hau H1 da</span><o:p></o:p></code></pre><pre><code>=============<o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>Hau H2 da</span><o:p></o:p></code></pre><pre><code>-------------<o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Edozein zenbaki-ikurrek funtzionatuko du: </span><code><span lang=EU
+style='font-size:10.0pt;mso-ansi-language:EU'>=</span></code><span lang=EU
+style='mso-ansi-language:EU'>; edo </span><code><span lang=EU style='font-size:
+10.0pt;mso-ansi-language:EU'>-</span></code><span lang=EU style='mso-ansi-language:
+EU'>;.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Atx estiloko goiburuek lerro bakoitzaren hasieran 1-6 traol erabiltzen
+dituzte; traol horiek goiburuen mailei dagozkie. Adibidez:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'># Hau H1 da.</span><o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>## Hau H2 da</span><o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>###### Hau H6 da.</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Nahi baduzu, Atx estiloko goiburuak itxi ditzakezu.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Hori erabat kosmetikoa da; aukera hori
+erabil dezakezu, hobeto geratzen dela iruditzen bazaizu.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Ixteko traol-kopuruak ez du zertan
+goiburua irekitzeko traol-kopuru berbera izan behar.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>(Irekierako traol-kopuruak goiburuan maila
+zehazten du).</span> :</p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'># Hau H1 da #</span><o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>## Hau H2 da ##</span><o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>### Hau H3 da ######</span><o:p></o:p></code></pre>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Aipuak</span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek e-postaren antzeko </span><code><span lang=EU style='font-size:
+10.0pt;mso-ansi-language:EU'>&gt;</span></code><span lang=EU style='mso-ansi-language:
+EU'> karaktereak erabiltzen ditu.</span><span lang=EU> </span><span lang=EU
+style='mso-ansi-language:EU'>E-postako mezuetan aipuak jartzen ohituta bazaude,
+seguru asko jakingo duzu Markdownen aipuak sortzen. </span><span lang=EU><span
+style="mso-spacerun: yes">�</span></span><span lang=EU style='mso-ansi-language:
+EU'>Itxura hobea izaten du lerro-jauzi gogorrak erabiltzen badituzu eta lerro
+bakoitzaren aurrean </span><code><span lang=EU style='font-size:10.0pt;
+mso-ansi-language:EU'>&gt;</span></code><span lang=EU style='mso-ansi-language:
+EU'> jartzen baduzu:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&gt; Hau bi paragrafoko aipu bat da.</span></code><code><span
+lang=EU style='mso-ansi-language:FR'> </span></code><code><span lang=EU
+style='mso-ansi-language:EU'>Lorem ipsum dolor sit amet,</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&gt; consectetuer adipiscing elit.</span></code><code><span
+lang=EU style='mso-ansi-language:EN-GB'> </span></code><code><span lang=EU
+style='mso-ansi-language:EU'>Aliquam hendrerit mi posuere lectus.</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&gt; <o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&gt; Donec sit amet nisl.</span></code><code><span
+lang=EU style='mso-ansi-language:EN-GB'> </span></code><code><span lang=EU
+style='mso-ansi-language:EU'>Aliquam semper ipsum sit amet velit.</span></code><code><span
+lang=EU style='mso-ansi-language:EN-GB'> </span></code><code><span lang=EU
+style='mso-ansi-language:EU'>Suspendisse</span></code><code><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&gt; id sem consectetuer libero luctus adipiscing.</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek nagi izatek baimena ematen dizu; beraz, lerro-jauzi gogordun
+paragrafoak osatu eta lehen lerroaren aurrean </span><code><span lang=EU
+style='font-size:10.0pt;mso-ansi-language:EU'>&gt;</span></code><span lang=EU
+style='mso-ansi-language:EU'> jarri besterik ez duzu.</span><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&gt; Hau bi paragrafoko aipu bat da.</span></code><code><span
+lang=EU style='mso-ansi-language:FR'> </span></code><code><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Lorem ipsum dolor sit amet,<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>id sem consectetuer libero luctus adipiscing.<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Aipuak habiaratu egin daitezke (adibidez: aipu bat beste baten barruan jar
+daiteke) </span><code><span lang=EU style='font-size:10.0pt;mso-ansi-language:
+EU'>&gt;</span></code><span lang=EU style='mso-ansi-language:EU'> maila
+gehigarriak jarrita:</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&gt; Hau aipuaren lehen maila da.</span><o:p></o:p></code></pre><pre><code>&gt;<o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&gt; &gt; Hau aipu habiaratua da.</span><o:p></o:p></code></pre><pre><code>&gt;<o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&gt; Lehen mailara bueltatzea.</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Aipuek beste Markdown elementu batzuk izan ditzakete, goiburuak, zerrendak
+eta kode-blokeak barne:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&gt; ## Hau goiburu bat da.</span></code><code><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></code></pre><pre><code>&gt; <o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&gt; 1.<span style="mso-spacerun: yes">�� </span>Hau zerrendako lehen itema da.</span><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&gt; 2.<span style="mso-spacerun: yes">� </span>Hau zerrendako bigarren itema da.</span><o:p></o:p></code></pre><pre><code>&gt; <o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&gt; Hona hemen kodeen adibide batzuk:</span><o:p></o:p></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&gt; <o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&gt;<span style="mso-spacerun: yes">���� </span>return shell_exec(&quot;echo $input | $markdown_script&quot;);</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Edozein testu-editore txukunek e-posta moduko aipuak jartzea erraztu beharko
+luke.</span><span lang=EU style='mso-ansi-language:EN-GB'> </span><span
+lang=EU style='mso-ansi-language:EU'>BBEditekin, adibidez, hautaketa bat egin
+eta Text menuan Increase Quote Level aukera dezakezu.</span><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Zerrendak</span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek ordenatutako zerrendak (zenbakidunak) eta ordenatu gabeko
+zerrendak (bi�etadunak) onartzen ditu.</span><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p></o:p></span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Ordenatu gabeko zerrendetan asteriskoak, + ikurra eta gidoiak erabiltzen
+dira zerrenda-markagailu gisa:</span><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>*<span style="mso-spacerun: yes">�� </span>Gorria</span><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>*<span style="mso-spacerun: yes">�� </span>Berdea</span><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>*<span style="mso-spacerun: yes">�� </span>Urdina</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>hauen baliokideak dira:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>+<span style="mso-spacerun: yes">� </span>Gorria</span><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>+<span style="mso-spacerun: yes">� </span>Berdea</span><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>+<span style="mso-spacerun: yes">� </span>Urdina</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>baita hauen baliokideak ere:</span></p>
+
+<pre><code>-<span style="mso-spacerun: yes">�� </span></code><code><span
+lang=EU style='mso-ansi-language:EU'>Gorria</span><o:p></o:p></code></pre><pre><code>-<span style="mso-spacerun: yes">�� </span></code><code><span
+lang=EU style='mso-ansi-language:EU'>Berdea</span><o:p></o:p></code></pre><pre><code>-<span style="mso-spacerun: yes">�� </span></code><code><span
+lang=EU style='mso-ansi-language:EU'>Urdina</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Ordenatutako zerrendetan zenbakiak erabiltzen dira, ondoren puntua jarrita:</span></p>
+
+<pre><code>1.<span style="mso-spacerun: yes">� </span></code><code><span
+lang=EU style='mso-ansi-language:EU'>Bird</span><o:p></o:p></code></pre><pre><code>2.<span style="mso-spacerun: yes">� </span></code><code><span
+lang=EU style='mso-ansi-language:EU'>McHale</span><o:p></o:p></code></pre><pre><code>3.<span style="mso-spacerun: yes">� </span></code><code><span
+lang=EU style='mso-ansi-language:EU'>Parish</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Zerrenda markatzen erabiltzen diren zenbakiek ez dute eraginik Markdownen
+sortutako HTML irteeran.</span><span lang=EU> </span><span lang=EU
+style='mso-ansi-language:EU'>Aurreko zerrendaren HTML irteera hau da:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&lt;ol&gt;</span><o:p></o:p></code></pre><pre><code><span
+lang=FR style='mso-ansi-language:FR'>&lt;li&gt;Bird&lt;/li&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=FR style='mso-ansi-language:FR'>&lt;li&gt;McHale&lt;/li&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;li&gt;Parish&lt;/li&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;/ol&gt;<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Aldiz, Markdownen zerrenda honela idatziz gero:</span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>1.<span style="mso-spacerun: yes">� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>Bird</span></code><code><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>1.<span style="mso-spacerun: yes">� </span>McHale<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>1.<span style="mso-spacerun: yes">� </span>Parish<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>edo honela:</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>3. Bird<o:p></o:p></span></code></pre><pre><code>1. McHale<o:p></o:p></code></pre><pre><code>8. Parish<o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>HTML irteera berbera izango da.</span><span lang=EU> </span><span lang=EU
+style='mso-ansi-language:EU'>Gauzak horrela, Markdownen zerrenda ordenatuetan
+zenbaki ordinalak erabil ditzakezu, iturri-kodeko zenbakiak argitaratutako
+HTMLren zenbakiekin bat etor daitezen.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Nagi izatea aukeratzen baduzu, ez daukazu
+hori egin beharrik.</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Dena den, zenbaki nagiak erabili nahi badituzu, zerrenda 1 zenbakiarekin
+hasi behar duzu.</span><span lang=EU style='mso-ansi-language:EN-GB'> </span><span
+lang=EU style='mso-ansi-language:EU'>Aurrera begira, Markdownek ordenatutako
+zerrendak edozein zenbakirekin hastea onartuko du.</span><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Zerrendako markagailuak normalean ezkerreko marjinan hasten dira, baina
+koska utz daiteke, gehienez hiru zuriunekoa.</span><span lang=EU
+style='mso-ansi-language:EN-GB'> </span><span lang=EU style='mso-ansi-language:
+EU'>Zerrenda-markagailuen ondoren zuriune bat edo gehiago edo tabulazio bat
+utzi behar da.</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Zerrendak ondo geratzeko, itemak koska zintzilikatuekin bereiz daitezke:</span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>*<span style="mso-spacerun: yes">�� </span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">��� </span>Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">��� </span>viverra nec, fringilla in, laoreet vitae, risus.<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>*<span style="mso-spacerun: yes">�� </span>Donec sit amet nisl. Aliquam semper ipsum sit amet velit.<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">��� </span>Suspendisse id sem consectetuer libero luctus adipiscing.<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Nagi izatea aukeratzen baduzu, ordea, hori egin beharrik ere ez duzu:</span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>*<span style="mso-spacerun: yes">�� </span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>viverra nec, fringilla in, laoreet vitae, risus.<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>*<span style="mso-spacerun: yes">�� </span>Donec sit amet nisl. Aliquam semper ipsum sit amet velit.<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>Suspendisse id sem consectetuer libero luctus adipiscing.<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Itemak lerro zuriekin bereiztuta badaude, Markdownek itemak </span><code><span
+lang=EU style='font-size:10.0pt;mso-ansi-language:EU'>&lt;p&gt;</span></code><span
+lang=EU style='mso-ansi-language:EU'> markatan banatuko ditu HTML irteeran.</span><span
+lang=EU style='mso-ansi-language:EN-GB'> </span><span lang=EU style='mso-ansi-language:
+EU'>Sarrera hau, adibidez:</span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>*<span style="mso-spacerun: yes">�� </span>Bird<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>*<span style="mso-spacerun: yes">�� </span>Magic<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>hau bihurtuko da:</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&lt;ul&gt;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;li&gt;Bird&lt;/li&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=FR style='mso-ansi-language:FR'>&lt;li&gt;Magic&lt;/li&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;/ul&gt;<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Hau, ordea:</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>*<span style="mso-spacerun: yes">�� </span>Bird</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>*<span style="mso-spacerun: yes">�� </span>Magic</span></code><code><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>hau bihurtuko da:</span><span lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;ul&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;li&gt;&lt;p&gt;Bird&lt;/p&gt;&lt;/li&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;li&gt;&lt;p&gt;Magic&lt;/p&gt;&lt;/li&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;/ul&gt;<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Zerrendako itemek hainbat paragrafo izan ditzakete.</span><span lang=EU
+style='mso-ansi-language:EN-GB'> </span><span lang=EU style='mso-ansi-language:
+EU'>Paragrafoei koska jarri behar zaie, 4 zuriunekoa edo tabulazio batekoa:</span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code>1.<span style="mso-spacerun: yes">� </span></code><code><span
+lang=FR style='mso-ansi-language:FR'>Hau bi paragrafoko item bat da. </span>Lorem ipsum dolor<o:p></o:p></code></pre><pre><code><span style="mso-spacerun: yes">��� </span>sit amet, consectetuer adipiscing elit. Aliquam hendrerit<o:p></o:p></code></pre><pre><code><span style="mso-spacerun: yes">��� </span>mi posuere lectus.<o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code><span style="mso-spacerun: yes">��� </span>Vestibulum enim wisi, viverra nec, fringilla in, laoreet<o:p></o:p></code></pre><pre><code><span style="mso-spacerun: yes">��� </span>vitae, risus. Donec sit amet nisl. Aliquam semper ipsum<o:p></o:p></code></pre><pre><code><span style="mso-spacerun: yes">��� </span>sit amet velit.<o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code>2.<span style="mso-spacerun: yes">� </span>Suspendisse id sem consectetuer libero luctus adipiscing.<o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Paragrafoetako lerroei koska uzteak testuari itxura hobea ematen dio, baina
+Markdownek nagi izaten uzten dizu:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>*<span style="mso-spacerun: yes">�� </span>Hau bi paragrafoko itema da.</span><o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code><span style="mso-spacerun: yes">��� </span></code><code><span
+lang=EU style='mso-ansi-language:EU'>Hau zerrendako itemaren bigarren paragrafoa da.</span><span
+lang=EU> </span></code><code><span lang=EU style='mso-ansi-language:EU'>Lehen lerroan bakarrik eskatzen da koska uztea.</span><span
+lang=EU> </span></code><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>Lorem ipsum dolor<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>sit amet, consectetuer adipiscing elit.<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>*<span style="mso-spacerun: yes">�� </span>Zerrendako beste item bat.</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Zerrendako item batean aipu bat sartzeko, aipuko mugatzaileek koska eduki
+behar dute:</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>*<span style="mso-spacerun: yes">�� </span>Zerrendako item bat aipu batekin:</span></code><code><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></code></pre><pre><code><span
+lang=FR style='mso-ansi-language:FR'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=FR style='mso-ansi-language:FR'><span style="mso-spacerun: yes">��� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>&gt; Hau aipu bat da</span></code><code><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></code></pre><pre><code><span
+lang=FR style='mso-ansi-language:FR'><span style="mso-spacerun: yes">��� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>&gt; zerrendako item baten barruan.</span></code><code><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Kode-bloke bat zerrenda bateko item batean sartzeko, kode-blokeak bi koska
+izan behar ditu (zortzi zuriune edo bi tabulazio):</span><span lang=FR
+style='mso-ansi-language:FR'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>*<span style="mso-spacerun: yes">� </span>Zerrendako item bat kode-bloke batekin:</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">������� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>&lt;kodea hemen jarri behar da&gt;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Esan beharra dago konturatu gabe zerrenda ordenatu bat has daitekeela, era
+honetako zerbait idatzita:</span><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>1986. </span></code><code><span
+lang=EU style='mso-ansi-language:EU'>What a great season.</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Hau da, lerro hasieran zenbaki bat, puntu bat eta zuriune bat segidan
+jarrita.</span><span lang=EU> </span><span lang=EU style='mso-ansi-language:
+EU'>Hori ez gertatzeko, puntuaren aurretik barra alderantzikatu bat (\) jar
+dezakezu: </span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>1986\. </span></code><code><span
+lang=EU style='mso-ansi-language:EU'>What a great season.</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Kode-blokeak</span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Aurretik formateatutako kode-blokeak programazioan edo marken iturri-kodean
+idazteko erabiltzen dira.</span><span lang=EU style='mso-ansi-language:EN-GB'> </span><span
+lang=EU style='mso-ansi-language:EU'>Paragrafo normalak osatu beharrean,
+kode-blokeetako lerroak hitzez hitz interpretatzen dira.</span><span lang=EU
+style='mso-ansi-language:EN-GB'> </span><span lang=EU style='mso-ansi-language:
+EU'>Markdownek kode-blokeak </span><code><span lang=EU style='font-size:10.0pt;
+mso-ansi-language:EU'>&lt;pre&gt;</span></code><span lang=EU style='mso-ansi-language:
+EU'> zein </span><code><span lang=EU style='font-size:10.0pt;mso-ansi-language:
+EU'>&lt;code&gt;</span></code><span lang=EU style='mso-ansi-language:EU'>
+marketan mugitzen ditu.</span><span lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownen kode-bloke bat egiteko, blokeko lerroei gutxienez lau zuriuneko
+edo tabuladore bateko koska utzi besterik ez dago.</span><span lang=EU
+style='mso-ansi-language:FR'> </span><span lang=EU style='mso-ansi-language:
+EU'>Sarrera honekin, adibidez:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>Hau paragrafo normal bat da.</span><o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code><span style="mso-spacerun: yes">��� </span></code><code><span
+lang=EU style='mso-ansi-language:EU'>Hau kode-bloke bat da.</span></code><code><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek hau sortuko du:</span><span lang=FR style='mso-ansi-language:
+FR'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&lt;p&gt;Hau paragrafo normal bat da:&lt;p&gt;</span><o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&lt;pre&gt;&lt;code&gt;Hau kode-bloke bat da.</span></code><code><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&lt;/code&gt;&lt;/pre&gt;</span></code><code><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Koska-maila (lau zuriune edo tabuladore bat) mugitu egiten da kode-blokeko
+lerro bakoitzetik.</span><span lang=EU style='mso-ansi-language:FR'> </span><span
+lang=EU style='mso-ansi-language:EU'>Hau, adibidez:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>Hona hemen AppleScripten adibide bat:</span><o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code><span style="mso-spacerun: yes">��� </span></code><code><span
+lang=EU style='mso-ansi-language:EU'>tell application &quot;Foo&quot;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">������� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>beep</span></code><code><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">��� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>end tell</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>hau bihurtuko da:</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&lt;p&gt;Hona hemen AppleScripten adibide bat:&lt;p&gt;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&lt;pre&gt;&lt;code&gt;tell application &quot;Foo&quot;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">��� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>beep</span></code><code><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>end tell</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&lt;/code&gt;&lt;/pre&gt;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Kode-blokeek koskarik gabeko lerro batera heldu arte (edo artikuluaren
+bukaerara arte) jarraitzen dute.</span><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p></o:p></span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Kode-blokean, ampersandak (</span><code><span lang=EU style='font-size:
+10.0pt;mso-ansi-language:EU'>&amp;</span></code><span lang=EU style='mso-ansi-language:
+EU'>) eta angelu-kortxeteak (</span><code><span lang=EU style='font-size:10.0pt;
+mso-ansi-language:EU'>&lt;</span></code><span lang=EU style='mso-ansi-language:
+EU'> y </span><code><span lang=EU style='font-size:10.0pt;mso-ansi-language:
+EU'>&gt;</span></code><span lang=EU style='mso-ansi-language:EU'>) HTML
+entitate bihurtzen dira automatikoki.</span><span lang=EU style='mso-ansi-language:
+EN-GB'> </span><span lang=EU style='mso-ansi-language:EU'>Hala, Markdown medio
+HTML iturri-kodeak adibide gisa jartzea erraza da: erantsi eta koska jarri
+besterik ez da egin behar; a bilduak eta angelu-kortxeteak Markdownek kodetuko
+ditu.</span><span lang=EU style='mso-ansi-language:EN-GB'> </span><span
+lang=EU style='mso-ansi-language:EU'>Hau, adibidez:</span><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">��� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>&lt;div class=&quot;footer&quot;&gt;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">������� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>&amp;copy; 2004 Foo Corporation</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">��� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>&lt;/div&gt;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>hau bihurtuko da:</span><span lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&quot;footer&quot;&amp;gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">��� </span>&amp;amp;copy; 2004 Foo Corporation<o:p></o:p></span></code></pre><pre><code><span
+lang=FR style='mso-ansi-language:FR'>&amp;lt;/div&amp;gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=FR style='mso-ansi-language:FR'>&lt;/code&gt;&lt;/pre&gt;<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdown formatuaren ohiko sintaxia ez da bloke-kodeen barruan prozesatzen.</span><span
+lang=EU style='mso-ansi-language:FR'> </span><span lang=EU style='mso-ansi-language:
+EU'>Asteriskoak, adibidez, asteriskoak dira bloke-kodean.</span><span lang=EU
+style='mso-ansi-language:FR'> </span><span lang=EU style='mso-ansi-language:
+EU'>Horrek esan nahi du Markdownen sintaxiaren gainean idazteko Markdown
+erabiltzea oso erraza dela.</span></p>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Erregela horizontalak</span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Erregela horizontalek marka bat sor dezakezu (</span><code><span lang=EU
+style='font-size:10.0pt;mso-ansi-language:EU'>&lt;hr /&gt;</span></code><span
+lang=EU style='mso-ansi-language:EU'>), lerro batean hiru marratxo edo gehiago
+edo hiru asterisko gehiago idatzita.</span><span lang=EU> </span><span lang=EU
+style='mso-ansi-language:EU'>Nahi izanez gero, marratxoen eta asteriskoen
+artean zuriuneak utz ditzakezu.</span><span lang=EU> </span><span lang=EU
+style='mso-ansi-language:EU'>Lerro hauek lerro horizontalak sortuko dituzte:</span></p>
+
+<pre><code>* * *<o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code>***<o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code>*****<o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre><pre><code>- - -<o:p></o:p></code></pre><pre><code><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></code></pre>
+
+<div class=MsoNormal align=center style='text-align:center'><span lang=EU>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<h2><span lang=EU style='mso-ansi-language:EU'>Span Elements<o:p></o:p></span></h2>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Estekak<o:p></o:p></span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek bi estiloko estekak onartzen ditu: <i>lineakoak eta
+erreferentziak.</i><o:p></o:p></span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Bi estiloetan, estekako testua [kortxeteek] mugatzen dute.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Lineako estekak sortzeko, estekaren testuko itxiera-kortxetearen ondoren bi
+parentesi arrunt jarri besterik ez da egin behar.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Parentesi artean URLa jarri behar da eta
+ondoan aukerako estekaren izenburua, komatxo artean.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Honek, adibidez:</span><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>This is [an example](http://example.com/ &quot;Title&quot;) inline link.<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>[This link](http://example.net/) has no title attribute.<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Hau sortuko du:</span><span lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;p&gt;This is &lt;a href=&quot;http://example.com/&quot; title=&quot;Title&quot;&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>an example&lt;/a&gt; inline link.&lt;/p&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;p&gt;&lt;a href=&quot;http://example.net/&quot;&gt;This link&lt;/a&gt; has no<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>title attribute.&lt;/p&gt;<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Zerbitzari bereko tokiko baliabide bat aipatzen ari bagara, erreferentzia
+erlatiboak erabil ditzakegu:</span><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>See my [About](/about/) page for details.</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Erreferentzia-estiloko estekek beste kortxete-multzo bat erabiltzen dute;
+kortxete horien barruan nahi dugun etiketa jar dezakegu, esteka
+identifikatzeko:</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>This is [an example][id] reference-style link.</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Nahi izanez gero, kortxeteak banatzeko zuriunea erabil dezakegu:</span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>This is [an example] [id] reference-style link.</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Gero, dokumentuaren edozein lekutan, gure estekaren etiketa definitu
+dezakegu, lerroan bertan:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>[id]:</span></code><code><span
+lang=EU style='mso-ansi-language:EN-GB'> </span></code><code><span lang=EU
+style='mso-ansi-language:EU'>http://example.com/ <span style="mso-spacerun: yes">�</span>&quot;Optional Title Here&quot;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Hau da:</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo8;tab-stops:list 36.0pt'><span lang=EU>estekaren
+     identifikatzailea duten kortxeteak (ezkerreko marjinan koska egin daiteke,
+     zuriune edo tabuladoreekin); </span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo8;tab-stops:list 36.0pt'><span lang=EU>ondoren bi
+     puntu; </span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo8;tab-stops:list 36.0pt'><span lang=EU>gero zuriune
+     (edo tabuladore) bat edo gehiago; </span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo8;tab-stops:list 36.0pt'><span lang=EU>ondoren
+     estekaren URLa; </span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo8;tab-stops:list 36.0pt'><span lang=EU>eta gero,
+     nahi izanez gero, estekaren atributu-titulua, komatxo artean. </span></li>
+</ul>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Estekaren URLa &lt;&gt; ikurrekin bildu daiteke:</span><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>[id]:</span></code><code><span
+lang=EU style='mso-ansi-language:EN-GB'> </span></code><code><span lang=EU
+style='mso-ansi-language:EU'>&lt;http://example.com/&gt;<span style="mso-spacerun: yes">� </span>&quot;Optional Title Here&quot;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Atributu-titulua hurrengo lerroan jar dezakegu eta koska egiteko zuriune
+edo tabuladore gehigarriak jarri, URL luzeak hobeto ikusteko:</span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>[id]: http://example.com/longish/path/to/resource/here<o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'><span style="mso-spacerun: yes">��� </span>&quot;Optional Title Here&quot;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Esteken definizioak Markdown prozesuan estekak sortzeko bakarrik erabiltzen
+dira; HTML irteera-dokumentuan kendu egiten dira.</span><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Esteken definizioko izenak letrak, zenbakiak, zuriuneak eta
+puntuazio-zeinuak izan daitezke (letra larriak eta xeheak ez dira bereizten).</span><span
+lang=EU style='mso-ansi-language:EN-GB'> </span><span lang=EU style='mso-ansi-language:
+EU'>Bi atrake hauek, adibidez:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>[link text][a]</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>[link text][A]</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>baliokideak dira.</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><i><span lang=EU style='mso-ansi-language:
+EU'>Estekaren izena inplizitua</span></i><span lang=EU style='mso-ansi-language:
+EU'> laburbideak estekaren izena kentzeko aukera ematen du; kasu horretan,
+estekaren testua bera izen bezala erabiltzen da.</span><span lang=EU
+style='mso-ansi-language:EN-GB'> </span><span lang=EU style='mso-ansi-language:
+EU'>Bi kortxete huts bakarrik erabiliko ditugu; �Google� hitza ggogle.com web
+guneari lotzeko, hau idatzi besterik ez dugu:</span><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>[Google][]</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>eta gero esteka definitu:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>[Google]:</span></code><code><span
+lang=EU style='mso-ansi-language:EN-GB'> </span></code><code><span lang=EU
+style='mso-ansi-language:EU'>http://google.com/</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Esteken izenek zuriuneak izan ditzaketenez, laburbideek estekaren testuko
+hitz anitzetan ere funtzionatzen dute:</span><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>Visit [Daring Fireball][] for more information.</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>eta gero esteka definitu:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>[Daring Fireball]:</span></code><code><span
+lang=EU style='mso-ansi-language:EN-GB'> </span></code><code><span lang=EU
+style='mso-ansi-language:EU'>http://daringfireball.net/</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Estekaren definizioak Markdown dokumentuaren edozein lekutan jar daitezke.</span><span
+lang=EU style='mso-ansi-language:EN-GB'> </span><span lang=EU style='mso-ansi-language:
+EU'>Normalean erabiltzen diren paragrafoaren ondoren jartzen dira, baina, nahi
+izanez gero, guztiak dokumentuaren bukaeran jar ditzakezu, orri-oin gisa.</span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Hona hemen erreferentzia-esteken adibide bat:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>I get 10 times more traffic from [Google] [1] than from</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>[Yahoo] [2] or [MSN] [3].</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>[1]: http://google.com/<span style="mso-spacerun: yes">������� </span>&quot;Google&quot;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>[2]: http://search.yahoo.com/<span style="mso-spacerun: yes">� </span>&quot;Yahoo Search&quot;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>[3]: http://search.msn.com/<span style="mso-spacerun: yes">��� </span>&quot;MSN Search&quot;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Esteken izeneko laburbide inplizitua erabiliz gero, era honetan idatz
+genezake:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>I get 10 times more traffic from [Google][] than from</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>[Yahoo][] or [MSN][].</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">� </span></span></code><code><span
+lang=EU style='mso-ansi-language:EU'>[google]:</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'> http://google.com/<span style="mso-spacerun: yes">������� </span>&quot;Google&quot;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">� </span>[yahoo]:<span style="mso-spacerun: yes">� </span>http://search.yahoo.com/<span style="mso-spacerun: yes">� </span>&quot;Yahoo Search&quot;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">� </span>[msn]:<span style="mso-spacerun: yes">��� </span>http://search.msn.com/<span style="mso-spacerun: yes">��� </span>&quot;MSN Search&quot;<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'>Ambos ejemplos anteriores
+producir�n el siguiente HTML de salida:</p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;p&gt;I get 10 times more traffic from &lt;a href=&quot;http://google.com/&quot;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>title=&quot;Google&quot;&gt;Google&lt;/a&gt; than from<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;a href=&quot;http://search.yahoo.com/&quot; title=&quot;Yahoo Search&quot;&gt;Yahoo&lt;/a&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>or &lt;a href=&quot;http://search.msn.com/&quot; title=&quot;MSN Search&quot;&gt;MSN&lt;/a&gt;.&lt;/p&gt;<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Alderatzeko, hona hemen paragrafo bera Markdownen esteken lineako estiloa
+erabiliz idatzia:</span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>I get 10 times more traffic from [Google](http://google.com/ &quot;Google&quot;)<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>than from [Yahoo](http://search.yahoo.com/ &quot;Yahoo Search&quot;) or<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>[MSN](http://search.msn.com/ &quot;MSN Search&quot;).<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Erreferentzia-estiloko estekak ez dira errazago idazten.</span><span
+lang=EU> </span><span lang=EU style='mso-ansi-language:EU'>Baina,
+erreferentzia-estiloko estekekin iturri-dokumentua askoz irakurterrazagoa da.</span><span
+lang=EU> </span><span lang=EU style='mso-ansi-language:EU'>Aldera itzazu
+aurreko adibidea:</span><span lang=EU> </span><span lang=EU style='mso-ansi-language:
+EU'>erreferentzia-estiloak erabiliz gero, paragrafoak 81 karaktere ditu;
+lineako estekekin 176 karaktere; eta HTML gisa 234.</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>HTMLn testu baino etiketa gehiago dago.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownen erreferentzia-estiloko estekekin, iturri-dokumentuak
+nabigatzailean agertuko den azken dokumentuaren antz gehiago dauka.</span><span
+lang=EU> </span><span lang=EU style='mso-ansi-language:EU'>Metadatuen etiketak
+paragrafotik kanpo utzita, estekak prosa eten gabe erantsi ahal izango dituzu.</span></p>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Enfasia</span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek asteriskoa (*) eta marratxo baxuak (_) erabiltzen ditu enfasia
+adierazteko.</span><span lang=EU> </span><span lang=EU style='mso-ansi-language:
+EU'>Testua ikur hauekin biltzen badugu: * edo _ , HTML etiketan &lt; em &gt;
+bihurtuko da; eta *&nbsp;bikoitza edo '_ ' HTMLko &lt; strong &gt; etiketaren
+bilduko da.</span><span lang=EU> </span><span lang=EU style='mso-ansi-language:
+EU'>Lerro hauek, adibidez:</span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>*single asterisks*<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>_single underscores_<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>**double asterisks**<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>__double underscores__<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>hau eragingo dute:</span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;em&gt;single asterisks&lt;/em&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;em&gt;single underscores&lt;/em&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;strong&gt;double asterisks&lt;/strong&gt;<o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>&lt;strong&gt;double underscores&lt;/strong&gt;<o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Edozein estilo erabil dezakegu, nahi dugun lekuan; muga bakarra da enfasia
+irekitzeko eta ixteko karaktere bera erabiltzea.</span><span lang=EN-GB
+style='mso-ansi-language:EN-GB'> <o:p></o:p></span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Enfasia hitz baten erdian erabil daiteke:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>un*fucking*believable</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Baina * edo _ zuriuneekin biltzen baduzu, asterisko edo marra literal gisa
+tratatuko da.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Asterisko edo marra literal bat sortzeko, \<span style="mso-spacerun:
+yes">� </span>erabili behar da:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>\*this text is surrounded by literal asterisks\*</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Kodea</span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Kodea adierazteko, parentesi artean bildu: (`).</span><span lang=EU> </span><span
+lang=EU style='mso-ansi-language:EU'>Kodearen aurretik formateatutako bloke bat
+agertuko da; etiketa horrek paragrafo arrunt batean kodea adierazten du.</span><span
+lang=EU> </span><span lang=EU style='mso-ansi-language:EU'>Honek, adibidez:</span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>Use the `printf()` function.</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Hau sortuko du:</span><span lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&lt;p&gt;Use the &lt;code&gt;printf()&lt;/code&gt; function.&lt;/p&gt;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>` karaktere literal bat sartzeko, \ eta gero `&nbsp;jarri behar dugu:</span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>`There is a literal backtick (\`) here.`</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Bestela, nahi izanez gero, ` anitz erabil ditzakezu, irekiera eta itxiera
+mugatzaile gisa:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>``There is a literal backtick (`) here.``</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Aurreko bi adibideek hau sortzeko dute:</span><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&lt;p&gt;&lt;code&gt;There is a literal backtick (`) here.&lt;/code&gt;&lt;/p&gt;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Kode-etiketarekin, &quot;&amp;&quot; zeinua eta &quot;&lt;&quot; y
+&quot;&gt;&quot; zeinuak HTMLko entitate gisa kodetzen dira automatikoki; era
+horretan HTMLko adibide-etiketak jartzea erraza da.</span><span lang=EU
+style='mso-ansi-language:EN-GB'> </span><span lang=EU style='mso-ansi-language:
+EU'>Markdownek hau:</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>Please don't use any `&lt;blink&gt;` tags.</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>hau bihurtuko du:</span><span lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&lt;p&gt;Please don't use any &lt;code&gt;&amp;lt;blink&amp;gt;&lt;/code&gt; tags.&lt;/p&gt;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Hau idatz dezakegu:</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>`&amp;#8212;` is the decimal-encoded equivalent of `&amp;mdash;`.</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>hau sortzeko:</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&lt;p&gt;&lt;code&gt;&amp;amp;#8212;&lt;/code&gt; is the decimal-encoded</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>equivalent of &lt;code&gt;&amp;amp;mdash;&lt;/code&gt;.&lt;/p&gt;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Irudiak</span><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Testu-dokumentuen formatuan irudiak jartzeko sintaxi �naturala� sortzea
+zaila da, noski.</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek, irudietarako, esteken sintaxiaren antzekoa erabiltzen du; bi
+estilo daude:</span><span lang=EU style='mso-ansi-language:EN-GB'> </span><i><span
+lang=EU style='mso-ansi-language:EU'>lineakoa eta erreferentzia.</span></i><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Lineako irudi-sintaxia honela agertzen da:</span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>!</span></code><code><span
+lang=EU style='mso-ansi-language:EU'>[Alt text](/path/to/img.jpg)</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></pre><pre><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>!</span></code><code><span lang=EU
+style='mso-ansi-language:EU'>[Alt text](/path/to/img.jpg &quot;Optional title&quot;)</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Hau da:</span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo9;tab-stops:list 36.0pt'><span lang=EU>harridura-etiketa
+     bat: </span><code><span lang=EU style='font-size:10.0pt;font-family:"Arial Unicode MS"'>!</span></code><span
+     lang=EU>; </span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo9;tab-stops:list 36.0pt'><span lang=EU>gero pare bat
+     kortxete, irudiaren atributuaren testua barruan dutela; </span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo9;tab-stops:list 36.0pt'><span lang=EU>eta ondoren bi
+     parentesi, URLa edo irudiaren bidea barruan dutela, eta, nahi izanez gero,
+     titulu-atributua apostrofe artean. </span></li>
+</ul>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Erreferentzia-estiloko irudiaren sintaxiak itxura hau dauka:</span></p>
+
+<pre><code><span lang=EN-GB style='mso-ansi-language:EN-GB'>!</span></code><code><span
+lang=EU style='mso-ansi-language:EU'>[Alt text][id]</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><code><span lang=EU
+style='font-size:10.0pt;mso-ansi-language:EU'>&quot;id&quot; </span></code><span
+lang=EU style='mso-ansi-language:EU'>irudiaren erreferentzia definitu baten
+identifikazioaren izena da.</span><span lang=EU> </span><span lang=EU
+style='mso-ansi-language:EU'>Irudiaren erreferentziak esteken erreferentzietako
+sintaxi bera erabiliz zehazten dira:</span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>[id]:</span></code><code><span
+lang=EU style='mso-ansi-language:EN-GB'> </span></code><code><span lang=EU
+style='mso-ansi-language:EU'>url/to/image<span style="mso-spacerun: yes">� </span>&quot;Optional title attribute&quot;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Oraingoz, Markdownek ez dauka irudien neurriak zehazteko sintaxirik; hori
+garrantzitsua iruditzen bazaizu, HTMLko &lt; img &gt; etiketa arruntak erabil
+ditzakezu.</span><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span lang=EU>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<h2><span lang=EU style='mso-ansi-language:EU'>Hainbat<o:p></o:p></span></h2>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Esteka automatikoak<o:p></o:p></span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek laburbide-estiloa dauka URLen eta helbide elektronikoen esteka
+�automatikoak� sortzeko: URLa edo helbide elektronikoa &lt;&gt; ikurrekin bildu
+besterik ez duzu. Hala, URLaren edo helbide elektronikoaren benetako testua
+agertuko da eta esteka klik egiteko modukoa izango da. Hau, adibidez:</span><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&lt;http://example.com/&gt;</span></code><code><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek hau bihurtuko du:</span><span lang=FR style='mso-ansi-language:
+FR'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&lt;a href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;</span></code><code><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Helbide elektronikoen lotura automatikoek antzera funtzionatzen dute. Dena
+den, Markdownek bihurketa hamaseitarra egiten du, ausaz, helbide elektronikoak
+spam egiteko biltzen dituzten programei helbidea ezkutatzeko. Hau, adibidez:</span><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&lt;address@example.com&gt;</span></code><code><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek hau bihurtuko du:</span><span lang=FR style='mso-ansi-language:
+FR'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>&lt;a href=&quot;&amp;#x6D;&amp;#x61;i&amp;#x6C;&amp;#x74;&amp;#x6F;:&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;&amp;#109;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;</span><o:p></o:p></code></pre><pre><code>&amp;#109;&quot;&gt;&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;<o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>&amp;#109;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;</span><o:p></o:p></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Nabigatzailean era honetan agertuko da: �address@example.com�.</span></p>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>(Kodetze-trikimailu hori medio, spam-programa asko engainatzen dira,
+guztiak ez, ordea.</span><span lang=EU> </span><span lang=EU style='mso-ansi-language:
+EU'>Ezer baino hobe da, baina kodetu gabe argitaratutako helbideak spam
+jasotzen hasiko dira, seguru asko).</span></p>
+
+<h3><span lang=EU style='mso-ansi-language:EU'>Backslash Escapes</span></h3>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek backlash-ihesak erabiltzeko aukera ematen du Markdownen
+formatuko sintaxian esanahi berezia izango luketen karaktere literalak
+sortzeko.</span><span lang=EU> </span><span lang=EU style='mso-ansi-language:
+EU'>Adibidez, hitz bat asterisko literalekin bildu nahi baduzu (HTML &lt; em
+&gt; etiketarekin beharrean), asteriskoen aurretik backlashak erabil ditzakezu:</span>
+</p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>\*literal asterisks\*</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre>
+
+<p style='margin:0pt;margin-bottom:.0001pt'><span lang=EU style='mso-ansi-language:
+EU'>Markdownek karaktere hauetarako bakclash-ihesak eskaintzen ditu:</span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<pre><code><span lang=EU style='mso-ansi-language:EU'>\<span style="mso-spacerun: yes">�� </span>backslash (alderantzikako barra)</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>`<span style="mso-spacerun: yes">�� </span>backtick (azentu kamutsa)</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>*<span style="mso-spacerun: yes">�� </span>asterisk (asteriskoa)</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>_<span style="mso-spacerun: yes">�� </span>underscore (azpimarra)</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>{}<span style="mso-spacerun: yes">� </span>curly braces (giltzak)</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>[]<span style="mso-spacerun: yes">� </span>square brackets (kortxeteak)</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>()<span style="mso-spacerun: yes">� </span>parentheses (parentesiak)</span><o:p></o:p></code></pre><pre><code><span
+lang=EU style='mso-ansi-language:EU'>#<span style="mso-spacerun: yes">�� </span>hash mark (traola)</span></code><code><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></code></pre><pre><code>.<span style="mso-spacerun: yes">�� </span></code><code><span
+lang=EU style='mso-ansi-language:EU'>dot (puntua)</span><o:p></o:p></code></pre><pre><code>!<span style="mso-spacerun: yes">�� </span></code><code><span
+lang=EU style='mso-ansi-language:EU'>exclamation mark (harridura)</span></code><code><span
+lang=FR style='mso-ansi-language:FR'><o:p></o:p></span></code></pre>
+
+<p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

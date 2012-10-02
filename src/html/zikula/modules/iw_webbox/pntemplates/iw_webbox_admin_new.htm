@@ -1,0 +1,87 @@
+<!--[include file="iw_webbox_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='filenew.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<h2><!--[gt text="Add new URL"]--></h2>
+	<form class="pn-adminform" action="<!--[pnmodurl modname="iw_webbox" type="admin" func="create"]-->" method="post" enctype="application/x-www-form-urlencoded" onSubmit="return send()">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_webbox"]-->" />
+		<div class="pn-adminformrow">
+			<label for="webbox_ref"><!--[gt text="Reference"]--></label>
+			<input id="ref" name="webbox[ref]" type="text" size="10" maxlength="10" />
+		</div>
+		<div class="pn-adminformrow">
+			<label for="webbox_url"><!--[gt text="URL"]--></label>
+			<input id="url" name="webbox[url]" type="text" size="70" maxlength="255" value="http://" />
+		</div>
+		<div class="pn-adminformrow">
+			<label for="webbox_description"><!--[gt text="Description"]--></label>
+			<input id="description" name="webbox[description]" type="text" size="70" maxlength="255" />
+		</div>
+		<div class="pn-adminformrow">
+			<label for="webbox_width"><!--[gt text="Width (%)"]--></label>
+			<input id="width" name="webbox[width]" type="text" size="4" maxlength="10" value="100" />
+			<select id="widthunit" name="webbox[widthunit]">
+				<option value="%" selected>%</option>
+				<option value="px">px</option>
+			</select>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="webbox_height"><!--[gt text="Height (pixels)"]--></label>
+			<input id="height" name="webbox[height]" type="text" size="4" maxlength="10" value="600" /> px
+		</div>
+		<div class="pn-adminformrow">
+			<label for="webbox_scrolls"><!--[gt text="Show scroll"]--></label>
+			<input id="scrolls" name="webbox[scrolls]" type="checkbox" checked /> <!--[gt text="(recommended)"]-->
+		</div>
+		<div class="pn-adminformrow pn-adminformbuttons">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Create" __title="Create"]--><!--[gt text="Create"]-->
+			<a href="<!--[pnmodurl modname=iw_webbox type=admin func=main]-->">
+				<!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]-->
+			</a>
+		</div>		
+	</form>
+</div>
+
+<script>
+ 	function send(){
+		var f=document.new_url;
+		var error=false;
+		if($('ref').value == ""){
+			alert("<!--[gt text="You must introduce a reference"]-->");
+			error=true;		
+		}
+		if($('url').value == "" && !error){
+			alert("<!--[gt text="You must introduce an URL address"]-->");
+			error=true;		
+		}
+		if((!IsNumeric($('width').value) || ($('width').value >100  && $('widthunit').value=='%')) && !error){
+			alert("<!--[gt text="Width introduced is not valid. The maximum value for percentual unit is 100"]-->");
+			error=true;		
+		}
+		if(!IsNumeric($('height').value) && !error){
+			alert("<!--[gt text="Height introduced is not valid"]-->");
+			error=true;		
+		}
+		if(!error){return true;}
+		return false;
+	}
+
+	function IsNumeric(strString){
+	   //  check for valid numeric strings	
+	   var strValidChars = "0123456789.-";
+	   var strChar;
+	   var blnResult = true;
+	
+	   if (strString.length == 0) return false;
+	
+	   //  test strString consists of valid characters listed above
+	   for (i = 0; i < strString.length && blnResult == true; i++)
+		  {
+		  strChar = strString.charAt(i);
+		  if (strValidChars.indexOf(strChar) == -1)
+			 {
+			 blnResult = false;
+			 }
+		  }
+	   return blnResult;
+   }
+</script>

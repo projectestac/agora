@@ -1,0 +1,25 @@
+<!--[if $action eq 'chgUsers']-->
+<option value="0"><!--[gt text="All"]--></option>
+<!--[foreach item=member from=$groupMembers]-->
+<option value="<!--[$member.id]-->"><!--[$member.name]--></option>
+<!--[/foreach]-->
+<!--[/if]-->
+<!--[if $action eq 'noUsers']-->
+<option value="0"><!--[gt text="Not users"]--></option>
+<!--[/if]-->
+<!--[if $action eq 'chgCourseState']-->
+<!--[if $state eq 0]-->
+<a href="javascript:chgCourseState(<!--[$id]-->)" style="font-weight: 400;"><span class="inactive"><!--[gt text="Disabled"]--></span></a>
+<!--[else]-->
+<a href="javascript:chgCourseState(<!--[$id]-->)" style="font-weight: 400;"><span class="active"><!--[gt text="Enabled"]--></span></a>
+<!--[/if]-->
+<!--[/if]-->
+<!--[if $action eq 'chgCourseOptions']-->
+<a href="<!--[pnmodurl modname=IWmoodle type=admin func=list id=$id]-->"><!--[gt text="List"]--></a>
+<br />
+<!--[if $state eq 0]-->
+<a href="javascript:chgCourseState(<!--[$id]-->)" style="font-weight: 400;"><!--[gt text="Active"]--></a>
+<!--[else]-->
+<a href="javascript:chgCourseState(<!--[$id]-->)" style="font-weight: 400;"><!--[gt text="Inactive"]--></a>
+<!--[/if]-->
+<!--[/if]-->

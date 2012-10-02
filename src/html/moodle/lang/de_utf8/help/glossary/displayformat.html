@@ -1,0 +1,33 @@
+<h2>Anzeigeformat</h2>
+<p>Diese Einstellung bestimmt die Art, wie Einträge im Glossar angezeigt werden. Folgende 
+Formate sind verfügbar:</p>
+<blockquote>
+<dl>
+<dt><b>Wörterbuch (mit Synonymen):</b></dt>
+<dd>Sieht wie ein konventionelles Wörterbuch mit einzelnen
+Einträgen aus. Begriff und Erläuterung werden in einem Absatz angezeigt, mit Angabe von synonymen Begriffen. Autor/innen werden nicht angezeigt, Anhänge werden als Links angezeigt.</dd>
+<dt><b>Wörterbuch (ohne Synonyme)</b></dt>
+<dd>Zeigt die Einträge fortlaufend mit Begriff und Erläuterung, ohne Angabe synonymer Begriffe.</dd>
+<dt><b>Vollständig mit Autor/in:</b></dt>
+<dd>Einträge werden wie Forenbeiträge angezeigt mit Angabe der Autor/innen, Anhänge werden als Links angezeigt.</dd>
+<dt><b>Vollständig ohne Autor/in:</b></dt>
+<dd>Einträge werden wie Forenbeiträge angezeigt ohne Angabe der Autor/innen, Anhänge werden als Links angezeigt.</dd>
+<dt><b>Enzyklopädie:</b></dt>
+<dd>Analog zu 'Vollständig mit Autor/in', mit dem Unterschied, dass
+angehängte Bilder angezeigt werden.</dd>
+<dt><b>FAQ</b>:</dt>
+<dd>Hilfreich um eine Liste häufig gestellter Fragen
+(Frequently Asked Questions) anzuzeigen. Die Worte FRAGE und
+ANTWORT werden im Eintrag automatisch hinzugefügt.</dd>
+<dt><b>Liste</b>:</dt>
+<dd>Alphabetische Auflistung der Einträge ohne Erläuterung. Die Einträge werden als Links angezeigt, die zur zugehörigen Erläuterung des jeweiligen Begriffs führen.</dd></dl>
+</blockquote>
+<hr>
+<p>Moodle Administrator/innen können neue Formate wie folgt erstellen (siehe auch <b>mod/glossary/formats/README.txt</b>):</p>
+<ol>
+<li>Schauen Sie in mod/glossary/formats. In diesem Verzeichnis gibt es für jedes Format ein Unterverzeichnis, das die zugehörige Format-Datei enthält.</li>
+<li>Legen Sie in mod/glossary/formats ein neues Verzeichnis <i>IhrFormatName</i> für Ihr Format an und kopieren Sie eine der existierenden Format-Dateien dort hinein.</li>
+<li>Bearbeiten Sie diese Datei, um Ihr eigenes Format zu
+erstellen (PHP-Kenntnisse sind erforderlich).</li>
+<li>Fügen Sie einen neuen Eintrag <b>displayformat<i>IhrFormatName</i></b> in der Datei glossary.php in jedem Sprachpaket, das Sie benutzen, hinzu und geben ihm einen kurzen, aussagekräftigen Namen.</li>
+</ol>

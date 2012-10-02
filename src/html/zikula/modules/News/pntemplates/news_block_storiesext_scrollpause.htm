@@ -1,0 +1,29 @@
+<!--[*  $Id:  $  *]-->
+<!--[pnpageaddvar name='javascript' value='modules/News/pnjavascript/storiesext_pausing.js']-->
+<!--[assign var='divid' value='#storiesext'|cat:$bid]-->
+<!--[assign var='parsedstyle' value=$scrollstyle|replace:'%DIVID%':$divid]-->
+<!--[pnpageaddvar name="rawtext" value='<style type="text/css">'|cat:$parsedstyle|cat:'</style>']-->
+
+<!--[foreach from=$stories key='k' item='story']-->
+<div id="storiesext<!--[$bid]--><!--[$k]-->"><!--[$story]--></div>
+<!--[/foreach]-->
+
+<script type="text/javascript">
+    // <![CDATA[
+    var scrollcontent = new Array();
+    var inc = 0;
+    while (document.getElementById("storiesext<!--[$bid]-->"+inc)) {
+        scrollcontent[inc] = document.getElementById("storiesext<!--[$bid]-->"+inc).innerHTML;
+        document.getElementById("storiesext<!--[$bid]-->"+inc).style.display = "none";
+        inc++
+    }
+    new pausescroller(scrollcontent, "storiesext<!--[$bid]-->", "storiesextscroll", <!--[$scrolldelay]-->)
+    // ]]>
+</script>
+
+<!--[securityutil_checkpermission_block component='Storiesextblock::' instance='$title::' level=ACCESS_ADMIN]-->
+<div style="position: relative; top: -1em; margin-bottom: -1em; text-align: right;">
+    <!--[gt text='Edit this block' domain=$dom assign='editlink']-->
+    <a href="<!--[pnmodurl modname='Blocks' type='admin' func='modify' bid=$bid]-->"><!--[pnimg modname='core' set='icons/extrasmall' src='edit.gif' title=$editlink alt=$editlink]--></a>
+</div>
+<!--[/securityutil_checkpermission_block]-->

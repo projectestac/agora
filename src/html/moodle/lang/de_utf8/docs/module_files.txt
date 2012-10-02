@@ -1,0 +1,18 @@
+ÜBER DIESES VERZEICHNIS
+----------------------- 
+
+SIE SOLLTEN KEINE DER DATEIEN IN DIESEM VERZEICHNIS 
+VERÄNDERN, UMBENENNEN ODER VERSCHIEBEN, wenn Sie 
+sich nicht ABSOLUT ganz sicher sind, was Sie tun. 
+
+Unüberlegte Veränderungen dieser Dateien können die 
+Funktionsfähigkeit Ihrer Kurse beeinträchtigen.
+
+Dieses Verzeichnis enthält Dateien, die in verschiedenen 
+Anwendungsbereichen (zumeist von Teilnehmer/innen) 
+hochgeladen wurden. Dies können zum Beispiel eingereichte 
+Prüfungsarbeiten oder Forumsbeiträge sein. 
+
+Die Namen der Verzeichnisse und die Namen der Dateien 
+wurden automatisch von Moodle erstellt und dürfen auf 
+keinen Fall verändert werden!

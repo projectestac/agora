@@ -1,0 +1,988 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: Profile catalan translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-08 02:11-0500\n"
+"PO-Revision-Date: 2010-07-21 16:43+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
+"Language-Team: Intraweb translation team <intraweb@xtec.cat>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: pnadmin.php:89
+#: pnadmin.php:123
+#: pnadmin.php:128
+#: pnadmin.php:132
+msgid "Required"
+msgstr "Requerit"
+
+#: pnadmin.php:99
+#: pntemplates/profile_admin_view.htm:57
+msgid "Deactivate"
+msgstr "Desactiva"
+
+#: pnadmin.php:108
+#: pntemplates/profile_admin_view.htm:58
+msgid "Activate"
+msgstr "Activa"
+
+#: pnadmin.php:115
+msgid "Not editable field"
+msgstr "Camp no editable"
+
+#: pnadmin.php:119
+msgid "Third-party (not editable)"
+msgstr "Terceres parts (no es pot editar)"
+
+#: pnadmin.php:123
+#: pnadmin.php:132
+msgid "Third-party"
+msgstr "Terceres parts"
+
+#: pnadmin.php:128
+msgid "Normal"
+msgstr "Normal"
+
+#: pnadmin.php:143
+#: pntemplates/profile_user_members_recent.htm:55
+#: pntemplates/profile_user_members_view.htm:89
+msgid "Edit"
+msgstr "Edita"
+
+#: pnadmin.php:149
+msgid "Up"
+msgstr "Amunt"
+
+#: pnadmin.php:156
+msgid "Down"
+msgstr "Avall"
+
+#: pnadmin.php:163
+#: pntemplates/profile_user_members_recent.htm:57
+#: pntemplates/profile_user_members_view.htm:91
+#: pntemplates/profile_admin_delete.htm:20
+msgid "Delete"
+msgstr "Esborra"
+
+#: pnadmin.php:208
+#: pnadmin.php:349
+msgid "Text box"
+msgstr "Quadre de text"
+
+#: pnadmin.php:209
+#: pnadmin.php:350
+msgid "Text area"
+msgstr "Àrea de text"
+
+#: pnadmin.php:210
+#: pnadmin.php:351
+msgid "Checkbox"
+msgstr "Casella de selecció"
+
+#: pnadmin.php:211
+#: pnadmin.php:352
+msgid "Radio button"
+msgstr "Botó d'opcions"
+
+#: pnadmin.php:212
+#: pnadmin.php:353
+msgid "Dropdown list"
+msgstr "Llista d'opcions"
+
+#: pnadmin.php:213
+#: pnadmin.php:354
+msgid "Date"
+msgstr "Data"
+
+#: pnadmin.php:214
+#: pnadmin.php:355
+msgid "Multiple checkbox set"
+msgstr "Llista de selecció múltiple"
+
+#: pnadmin.php:216
+#: pnadmin.php:357
+#: pntemplates/profile_admin_modifyconfig.htm:43
+#: pntemplates/profile_admin_modifyconfig.htm:48
+msgid "No"
+msgstr "No"
+
+#: pnadmin.php:217
+#: pnadmin.php:358
+#: pntemplates/profile_admin_modifyconfig.htm:41
+#: pntemplates/profile_admin_modifyconfig.htm:46
+msgid "Yes"
+msgstr "Sí"
+
+#: pnadmin.php:219
+#: pnadmin.php:360
+msgid "Everyone"
+msgstr "Tothom"
+
+#: pnadmin.php:220
+#: pnadmin.php:361
+msgid "Registered users only"
+msgstr "Només els usuaris validats"
+
+#: pnadmin.php:221
+#: pnadmin.php:362
+msgid "Admins and account owner only"
+msgstr "Només els administradors i el propietari/ària del compte"
+
+#: pnadmin.php:222
+#: pnadmin.php:363
+msgid "Admins only"
+msgstr "Només els administradors"
+
+#: pnadmin.php:264
+msgid "Error! The personal info item must have a label. An example of a recommended label is: '_MYDUDLABEL'."
+msgstr "El camp d'informació personal ha de tenir una etiqueta. Un exemple d'etiqueta recomanada és: '_MYDUDLABEL'."
+
+#: pnadmin.php:268
+msgid "Error! The personal info item must have an attribute name. An example of an acceptable name is: 'mydudfield'."
+msgstr "El camp d'informació personal ha de tenir un nom d'atribut. Un exemple d'atribut acceptable és: 'mydudfield'."
+
+#: pnadmin.php:272
+msgid "Error! There is already an personal info item label with this naming."
+msgstr "Ja existeix un camp d'informació personal amb aquesta etiqueta."
+
+#: pnadmin.php:276
+msgid "Error! There is already an attribute name with this naming."
+msgstr "Ja existeix un atribut amb aquest nom."
+
+#: pnadmin.php:282
+msgid "Warning! The personal info item label has been accepted, but was filtered and altered to ensure it contains no special characters or spaces in its naming."
+msgstr "El camp d'informació personal ha estat acceptat, però ha estat filtrat i modificat per assegurar que no conté caràcters especials ni espais en blanc."
+
+#: pnadmin.php:299
+msgid "Done! Created new personal info item."
+msgstr "S'ha creat un camp d'informació personal nou."
+
+#: pnadmin.php:332
+#: pnadmin.php:454
+#: pnadmin.php:510
+#: pnadmin.php:545
+#: pnadminapi.php:112
+#: pnadminapi.php:225
+#: pnadminapi.php:315
+msgid "Error! No such personal info item found."
+msgstr "No s'ha trobat el camp d'informació personal."
+
+#: pnadmin.php:420
+#: pnadmin.php:523
+#: pnadmin.php:562
+#: pnadmin.php:585
+#: pnadmin.php:615
+msgid "Done! Saved your changes."
+msgstr "S'han desat els canvis."
+
+#: pnadmin.php:487
+msgid "Done! Deleted the personal info item."
+msgstr "S'ha esborrat el camp d'informació personal."
+
+#: pnadmin.php:554
+msgid "Error! You cannot decrease the weight of this account property."
+msgstr "No podeu reduir el pes d'aquesta propietat."
+
+#: pnadmin.php:709
+msgid "Done! Saved your settings changes."
+msgstr "S'han desat els canvis."
+
+#: pnmemberslistapi.php:202
+#: pnmemberslistapi.php:379
+#: pnmemberslistapi.php:423
+#: pnmemberslistapi.php:474
+#: pnmemberslistapi.php:524
+#: pnmemberslistapi.php:577
+#: pnmemberslistapi.php:644
+msgid "Error! Could not load data."
+msgstr "No s'ha pogut carregar la informació."
+
+#: pndudapi.php:49
+#, php-format
+msgid "Error! Could not find the specified module (%s)."
+msgstr "No s'ha trobat el mòdul especificat (%s)."
+
+#: pndudapi.php:55
+#: pnajax.php:36
+#, php-format
+msgid "Error! Invalid '%s' passed."
+msgstr "El '%s' que s'ha passat no és vàlid."
+
+#: pndudapi.php:66
+#: pnadminapi.php:46
+#: pnadminapi.php:132
+#, php-format
+msgid "Error! There is already an personal info item with the label '%s'."
+msgstr "Ja existeix un camp d'informació personal amb l'etiqueta '%s'."
+
+#: pndudapi.php:70
+#: pnadminapi.php:50
+#, php-format
+msgid "Error! There is already an personal info item with the attribute name '%s'."
+msgstr "Ja existeix un camp d'informació personal amb l'atribut '%s'."
+
+#: pndudapi.php:90
+msgid "Error! Could not create the new personal info item."
+msgstr "No s'ha pogut crear el camp d'informació personal."
+
+#: pndudapi.php:146
+#: pndudapi.php:152
+#: pnadminapi.php:247
+#: pnadminapi.php:253
+msgid "Error! Could not delete the personal info item."
+msgstr "No s'ha pogut esborrar el camp d'informació personal."
+
+#: pnversion.php:17
+#: pntemplates/profile_admin_menu.htm:5
+msgid "Profile manager"
+msgstr "Gestor de perfils"
+
+#: pnversion.php:18
+msgid "Provides a personal account control panel for each registered user, an interface to administer the personal information items displayed within it, and a registered users list functionality. Works in close unison with the 'Users' module."
+msgstr "Proporciona una interfície per a que els usuaris gestionin la seva informació personal i una altra per a que els administradors configurin les dades del perfil que es mostren. Està lligat al mòdul d'usuaris."
+
+#. ! module name that appears in URL
+#: pnversion.php:20
+msgid "profile"
+msgstr "perfil"
+
+#: pnajax.php:25
+#: pnajax.php:76
+#: pnajax.php:118
+msgid "Sorry! You do not have authorisation for this module."
+msgstr "No teniu autorització per accedir a aquest mòdul."
+
+#: pnajax.php:29
+msgid "Invalid authorisation key ('authkey'). This is probably either because you pressed the 'Back' button to return to a page which does not allow that, or else because the page's authorisation key expired due to prolonged inactivity. Please refresh the page and try again."
+msgstr "La clau d'autorització ('authkey') no és vàlida. Causes possibles d'aquest error són haver clicat el botó de tornar enrere del navegador, navegar simultàniament amb vàries pestanyes o un període llarg d'inactivitat. Torneu a carregar la pàgina i torneu-ho a provar."
+
+#: pnajax.php:57
+#: pnajax.php:96
+#: pnadminapi.php:193
+msgid "Error! Could not save your changes."
+msgstr "No s'han pogut desar els canvis."
+
+#: pnajax.php:136
+msgid "Error! Could not load the section."
+msgstr "No s'ha pogut carregar la secció."
+
+#: pninit.php:84
+msgid "Error! The 'Users' module must be upgraded to version 1.10 before you can upgrade the 'Profile' module."
+msgstr "El mòdul d'usuaris s'ha d'actualitzar a la versió 1.10 abans de poder actualitzar el mòdul 'Profile'."
+
+#: pninit.php:212
+msgid "Error! Could not update table."
+msgstr "No s'ha pogut actualitzar la taula."
+
+#. ! account panel link
+#: pnaccountapi.php:42
+#: pntemplates/profile_form_edit.htm:4
+msgid "Personal info"
+msgstr "Informació personal"
+
+#: pnaccountapi.php:48
+#: pntemplates/plugins/function.profileuserlinks.php:71
+#: pntemplates/profile_user_members_view.htm:2
+msgid "Registered users list"
+msgstr "Llista d'usuaris"
+
+#: pnadminapi.php:81
+msgid "Error! Could not create new attribute."
+msgstr "No s'ha pogut crear l'atribut."
+
+#: pnadminapi.php:230
+msgid "Error! You cannot delete this personal info item."
+msgstr "No podeu esborrar aquest camp d'informació personal."
+
+#: pnadminapi.php:290
+msgid "Error! Activation failed."
+msgstr "No s'ha pogut fer l'activació."
+
+#: pnadminapi.php:320
+msgid "Error! You cannot deactivate this personal info item."
+msgstr "No podeu desactivar aquest camp d'informació personal."
+
+#: pnadminapi.php:331
+#: pnadminapi.php:349
+msgid "Error! Could not deactivate the personal info item."
+msgstr "No s'ha pogut desactivar el camp d'informació personal."
+
+#: pnadminapi.php:369
+#: pntemplates/profile_admin_view.htm:3
+msgid "Personal info items list"
+msgstr "Llista de camps d'informació personal"
+
+#: pnadminapi.php:373
+#: pntemplates/profile_admin_new.htm:3
+msgid "Create new personal info item"
+msgstr "Crea un camp d'informació personal nou"
+
+#: pnadminapi.php:377
+#: pntemplates/profile_admin_modifyconfig.htm:6
+#: pntemplates/profile_admin_modifyconfig.htm:8
+msgid "User account panel settings"
+msgstr "Tauler de configuració dels comptes"
+
+#: pnadminapi.php:381
+msgid "Help"
+msgstr "Ajuda"
+
+#: pnuser.php:54
+#: pnuser.php:61
+msgid "Error! Could not find this user."
+msgstr "No s'ha trobat l'usuari/ària."
+
+#: pnuser.php:100
+#, php-format
+msgid "Error! Could not find profile page [%s]."
+msgstr "No s'ha pogut trobar la pàgina de perfil [%s]."
+
+#: pnuser.php:126
+msgid "Error! Could not load personal info items."
+msgstr "No s'han pogut carregar els camps d'informació personal."
+
+#: pnuser.php:173
+#, php-format
+msgid "Error! A required profile item [%s] is missing."
+msgstr "No s'ha trobat el camp d'informació requerit [%s]"
+
+#: pnuser.php:192
+msgid "Done! Saved your changes to your personal information."
+msgstr "S'han desat els canvis a la informació personal."
+
+#: pnblocks/featureduser.php:37
+msgid "Featured user"
+msgstr "Usuari/ària destacat"
+
+#: pnblocks/featureduser.php:38
+msgid "Show featured user"
+msgstr "Mostra l'usuari/ària destacat"
+
+#: pnblocks/lastxusers.php:37
+msgid "Last X registered users"
+msgstr "Darrers X usuaris registrats"
+
+#: pnblocks/lastxusers.php:38
+msgid "Show last X registered users"
+msgstr "Mostra els darrers X usuaris registrats"
+
+#: pnblocks/membersonline.php:37
+msgid "Users on-line"
+msgstr "Usuaris connectats"
+
+#: pnblocks/membersonline.php:38
+msgid "Show which registered users are currently on-line"
+msgstr "Mostra quins usuaris estan connectats en aquests moments"
+
+#: pnblocks/lastseen.php:35
+msgid "Recent visitors"
+msgstr "Visitants recents"
+
+#: pnblocks/lastseen.php:36
+msgid "Show registered users having visited the site recently"
+msgstr "Mostra els usuaris registrats que han visitat la pàgina recentment"
+
+#: pnform.php:25
+#: pnform.php:74
+#: pnform.php:122
+msgid "Error! You cannot access form functions directly."
+msgstr "No podeu accedir directament a les funcions del formulari."
+
+#: pntemplates/plugins/function.duditemmodify.php:141
+msgid "Go to the Avatar manager"
+msgstr "Vés a l'administració dels avatars"
+
+#: pntemplates/plugins/function.profilesection.php:29
+#: pntemplates/plugins/function.profilesection.php:35
+#, php-format
+msgid "Error! in %1$s: the %2$s parameter must be specified."
+msgstr "S'ha produït un error a %1$s: s'ha d'especificar el paràmetre %2$s."
+
+#. ! string to describe the user's site
+#: pntemplates/plugins/function.duditemdisplay.php:207
+#, php-format
+msgid "%s's site"
+msgstr "Lloc web de %s"
+
+#: pntemplates/plugins/function.profileuserlinks.php:68
+#: pntemplates/plugins/function.profileuserlinks.php:105
+#: pntemplates/plugins/function.profileuserlinks.php:140
+msgid "User account panel"
+msgstr "El meu compte"
+
+#: pntemplates/plugins/function.profileuserlinks.php:74
+#: pntemplates/profile_user_members_recent.htm:2
+#, php-format
+msgid "Last %s registered users"
+msgstr "Darrers %s usuaris registrats"
+
+#: pntemplates/plugins/function.profileuserlinks.php:77
+#: pntemplates/profile_user_members_online.htm:2
+msgid "Users currently on-line"
+msgstr "Usuaris connectats en aquests moments"
+
+#: pntemplates/plugins/function.profileuserlinks.php:109
+#: pntemplates/profile_user_modify.htm:2
+msgid "Edit personal info"
+msgstr "Edita la informació personal"
+
+#: pntemplates/plugins/function.profileuserlinks.php:113
+msgid "View personal info"
+msgstr "Mostra la informació personal"
+
+#: pntemplates/plugins/function.profileuserlinks.php:120
+#: pntemplates/profile_user_members_online.htm:22
+#: pntemplates/profile_user_members_recent.htm:42
+#: pntemplates/profile_user_members_view.htm:76
+#: pntemplates/profile_block_membersonline.htm:12
+msgid "Send private message"
+msgstr "Envia un missatge privat"
+
+#: pntemplates/plugins/function.profileuserlinks.php:142
+#, php-format
+msgid "Show %s's contacts"
+msgstr "Mostra els contactes de %s"
+
+#: pntemplates/plugins/function.profileuserlinks.php:144
+msgid "Edit contact"
+msgstr "Edita el contacte"
+
+#: pntemplates/plugins/function.profileuserlinks.php:146
+msgid "Add as contact"
+msgstr "Afegeix com a contacte"
+
+#: pntemplates/profile_dudedit_text.htm:6
+#: pntemplates/profile_dudedit_textarea.htm:6
+#: pntemplates/profile_dudedit_date.htm:6
+#: pntemplates/profile_dudedit_radio.htm:6
+msgid "Sorry! A required personal info item is missing. Please correct and try again."
+msgstr "Falta un paràmetre d'informació personal que és requerit. Corregiu l'error i torneu-ho a intentar."
+
+#: pntemplates/profile_dudedit_text.htm:12
+#: pntemplates/profile_dudedit_textarea.htm:12
+#: pntemplates/profile_dudedit_multicheckbox.htm:6
+#: pntemplates/profile_dudedit_date.htm:12
+#: pntemplates/profile_dudedit_radio.htm:12
+#: pntemplates/profile_dudedit_select.htm:7
+msgid "*"
+msgstr "*"
+
+#: pntemplates/profile_dudedit_text.htm:17
+#: pntemplates/profile_dudedit_textarea.htm:17
+#: pntemplates/profile_dudedit_multicheckbox.htm:16
+#: pntemplates/profile_dudedit_date.htm:22
+#: pntemplates/profile_dudedit_checkbox.htm:10
+#: pntemplates/profile_dudedit_link.htm:7
+#: pntemplates/profile_dudedit_radio.htm:20
+#: pntemplates/profile_dudedit_select.htm:20
+msgid "Notice:"
+msgstr "Atenció:"
+
+#: pntemplates/profile_dudedit_textarea.htm:20
+msgid "Permitted HTML tags:"
+msgstr "Etiquetes HTML permeses:"
+
+#: pntemplates/profile_admin_help.htm:2
+msgid "About Profile"
+msgstr "Sobre el mòdul Perfil"
+
+#: pntemplates/profile_admin_help.htm:11
+msgid "There are some details that you may know about Profile and how it let you translate the Account Properties labels and values of your site."
+msgstr "Hi ha alguns detalls que hauríeu de saber sobre el mòdul de perfils i de com es poden traduir les etiquetes de les propietats dels comptes i els valors del lloc web."
+
+#: pntemplates/profile_admin_help.htm:12
+msgid "First of all, it's recommended to move the translation files of Profile to the /config directory to custom them there."
+msgstr "Es recomana moure els fitxers de la traducció del mòdul Perfil al directori /config per personalitzar la traducció"
+
+#: pntemplates/profile_admin_help.htm:13
+msgid "Copy all the files of the /modules/Profile/locale directory to /config/locale. There you will customize the catalog module_profile.pot and the translations afterwards."
+msgstr "Copieu tots els fitxers del directori /modules/Profile/locale al directori /config/locale. Hi podreu personalitzar el fitxer de catàleg module_profile.pot i les traduccions."
+
+#: pntemplates/profile_admin_help.htm:16
+msgid "About the property labels"
+msgstr "Sobre les etiquetes de les propietats"
+
+#: pntemplates/profile_admin_help.htm:18
+msgid "It's recommended to use unique words for the labels, for that reason we use the format: _DUDLABEL and translate them for each available language in the site to a readable text."
+msgstr "Es recomana utilitzar paraules úniques per a les etiquetes. Per aquesta raó trobareu el format _DUDLABEL, que ha d'estar traduït a cada idioma disponible en el lloc web."
+
+#: pntemplates/profile_admin_help.htm:19
+msgid "After you create a new property label (such as _MYDUDLABEL), you must add the msgid to your catalog (POT file). You will need two lines per label: <strong>msgid '_MYDUDLABEL'</strong> then one line after the <strong>msgstr ''</strong> (study the default catalog content)."
+msgstr "Després de crear una etiqueta de propietat (per exemple _MYDUDLABEL), heu d'afegir la clau msgid al catàleg (fitxer POT). Necessitareu dues línies per etiqueta: <strong>msgid '_MYDUDLABEL'</strong> i <strong>msgstr ''</strong> (mireu el catàleg per veure'n el format)."
+
+#: pntemplates/profile_admin_help.htm:20
+msgid "With the updated POT, you can syncronize the translations (.PO files) for each available language, or even create a new .PO from the catalog with a tool like poEdit."
+msgstr "Amb el fitxer POT actualitzat podeu sincronitzar les traduccions (fitxers .po) per a cada idioma disponible o, fins i tot, crear un fitxer .po nou a partir del catàleg amb el programa poEdit o algun d'equivalent."
+
+#: pntemplates/profile_admin_help.htm:21
+msgid "In the .PO file you will be able to translate _MYDUDLABEL to the corresponding text for each specific language, to provide a legible display string like 'My DUD Label'."
+msgstr "En el fitxer .po podreu traduir el text _MYDUDLABEL al text corresponent a cada idioma per mostrar textos llegibles, com 'La meva etiqueta'."
+
+#: pntemplates/profile_admin_help.htm:24
+msgid "About the property values"
+msgstr "Sobre els valors de les propietats"
+
+#: pntemplates/profile_admin_help.htm:26
+msgid "Some display types like checkboxes, radio buttons, dropdown lists and multicheckboxes, allows to define a specific set of options to show."
+msgstr "Alguns tipus de camps com les caselles de selecció, els botons d'opcions, les llistes d'opcions i els quadres de selecció múltiple permeten definir les opcions que s'han de mostrar."
+
+#: pntemplates/profile_admin_help.htm:27
+msgid "Each option can be added in the catalog to be translated. Also, if you use a custom date format that needs translation, it can be added to the catalog too.<br />Enjoy!"
+msgstr "Cada opció es pot afegir al catàleg per ser traduïda. Si utilitzeu un format de data personalitzat que s'ha de traduir, també es pot afegir al catàleg."
+
+#: pntemplates/profile_admin_new.htm:16
+#: pntemplates/profile_admin_modify.htm:17
+msgid "Personal info item"
+msgstr "Element d'informació personal"
+
+#: pntemplates/profile_admin_new.htm:17
+#: pntemplates/profile_admin_modify.htm:18
+msgid "Notice: No special characters or spaces are allowed in the personal info item's label or attribute name."
+msgstr "No es permeten caràcters especials ni espais en blanc a les etiquetes dels elements d'informació personal ni als noms dels atributs"
+
+#: pntemplates/profile_admin_new.htm:19
+#: pntemplates/profile_admin_modify.htm:20
+#: pntemplates/profile_admin_view.htm:19
+msgid "Label"
+msgstr "Etiqueta"
+
+#: pntemplates/profile_admin_new.htm:23
+#: pntemplates/profile_admin_modify.htm:24
+#, php-format
+msgid "Check the <strong><a href=\"%s\">help page</a></strong> to get more information about labels and translatable stuff."
+msgstr "Mireu la <strong><a href=\"%s\">pàgina d'ajuda</a></strong> per a més informació relativa a les etiquetes i a les traduccions."
+
+#: pntemplates/profile_admin_new.htm:26
+#: pntemplates/profile_admin_modify.htm:27
+#: pntemplates/profile_admin_view.htm:20
+msgid "Attribute name"
+msgstr "Nom de l'atribut"
+
+#: pntemplates/profile_admin_new.htm:28
+msgid "Notice: The attribute name you enter cannot be changed afterwards, so you should choose it carefully."
+msgstr "El nom de l'atribut no es podrà canviar posteriorment, així que l'heu de triar amb compte."
+
+#: pntemplates/profile_admin_new.htm:31
+#: pntemplates/profile_admin_modify.htm:31
+msgid "Make this a 'Required' item"
+msgstr "Aquest element és requerit"
+
+#: pntemplates/profile_admin_new.htm:37
+#: pntemplates/profile_admin_modify.htm:37
+msgid "Visibility"
+msgstr "Visibilitat"
+
+#: pntemplates/profile_admin_new.htm:43
+#: pntemplates/profile_admin_modify.htm:44
+msgid "Type of control to display"
+msgstr "Tipus de control que es mostra"
+
+#: pntemplates/profile_admin_new.htm:49
+#: pntemplates/profile_admin_modify.htm:50
+msgid "Content"
+msgstr "Contingut"
+
+#: pntemplates/profile_admin_new.htm:52
+#: pntemplates/profile_admin_modify.htm:53
+msgid "Notice: Precede output options by '@@'. Example: '@@No@@Yes', '@@Disabled@@Enabled'. The order is important. If you want to have a different label in the edit form, you can use the following format: 'EditLabel@@DisplayNo@@DisplayYes'. All the values are translatable."
+msgstr "Les opcions han d'anar precedides per '@@'. Per exemple: '@@No@@Sí', '@@Desactivat@@Activat'. L'ordre és important. Si voleu tenir etiquetes diferents en el formulari d'edició podeu utilitzar el format següent: 'EditEtiqueta@@DisplayNo@@DisplaySí'. Tots els valors es poden traduir."
+
+#: pntemplates/profile_admin_new.htm:53
+#: pntemplates/profile_admin_modify.htm:54
+msgid "Notice: Use the following format for each option: '@@label@id'. Example: '@@radio option 1@id1@@radio option 2@id2@@radio option 3@id3'. The options are translatable."
+msgstr "Per a cada opció, utilitzeu el format següent: '@@etiqueta@id'. Per exemple: '@@opció 1@id1@@opció 2@id2@@opció 3@id3'. Les opcions es poden traduir."
+
+#: pntemplates/profile_admin_new.htm:54
+#: pntemplates/profile_admin_modify.htm:55
+msgid "Notice: Use the following format for each option: '@@label@id'. Example for a simple list: '@@option 1@id1@@option 2@id2@@option 3@id3'. Example for a multiple checkbox set: '1@@option 1@id1@@option 2@id2@@option 3@id3'. The options are translatable."
+msgstr "Per a cada opció, utilitzeu el format següent: '@@etiqueta@id'. Per exemple, per a una llista simple: '@@opció 1@id1@@opció 2@id2@@opció 3@id3'. Exemple per a una llista múltiple: '1@@opció 1@id1@@opció 2@id2@@opció 3@id3' Les opcions es poden traduir."
+
+#: pntemplates/profile_admin_new.htm:55
+#: pntemplates/profile_admin_modify.htm:56
+msgid "Notice: You can specify the date format to use, either via Zikula core templating variables ('datelong', 'datebrief', 'datestring', 'datestring2', 'datetimebrief', 'datetimelong', 'timebrief' or 'timelong'), or via a custom format such as '%b %d of %Y', possibly using PHP options (see the <a href=\"http://www.php.net/manual/en/function.strftime.php\">PHP documentation</a> for more information). The format is translatable."
+msgstr "Podeu especificar el format de data a través de les variables de les plantilles del nucli ('datelong', 'datebrief', 'datestring', 'datestring2', 'datetimebrief', 'datetimelong', 'timebrief' i 'timelong') o mitjançant un format personalitzat com, per exemple, '%b %d de %Y'. Podeu utilitzar les opcions del PHP (trobareu més informació a la <a href=\"http://www.php.net/manual/en/function.strftime.php\">documentació del PHP</a>). El format es pot traduir."
+
+#: pntemplates/profile_admin_new.htm:56
+#: pntemplates/profile_admin_modify.htm:57
+msgid "Notice: Use the following format for each option: 'id,label;'. Example: 'id1,label1;id2,label2;id3,label3'. Each property should be separated with a semicolon (';'). The ID and label of each property should be separated by a comma (','). The labels are translatable."
+msgstr "Per a cada opció, utilitzeu el format següent: 'id,etiqueta;'. Per exemple: 'id1,etiqueta1;id2,etiqueta2;id3,etiqueta3'. Les propietats s'han de separar amb un punt i coma (';'). L'ID i l'etiqueta s'han de separar amb una coma (','). Les etiquetes es poden traduir."
+
+#: pntemplates/profile_admin_new.htm:59
+#: pntemplates/profile_admin_modify.htm:61
+msgid "Notice: Entering an ID is optional. If you do not specify an ID, the option position will be used for the ID (starting from zero), instead of the user-defined ID you can enter here. You are recommended to choose an ID that is unique, and to avoid subsequently modifying it."
+msgstr "Introduir un ID és opcional. Si no n'especifiqueu cap, el text indicat com a opció s'utilitzarà per a l'ID (començant amb un zero). Es recomana escollir un ID que sigui únic i no canviar-lo mai."
+
+#: pntemplates/profile_admin_new.htm:63
+#: pntemplates/profile_admin_modify.htm:65
+msgid "Notice to display with personal info item"
+msgstr "Informació que es mostrarà juntament amb l'element d'informació personal"
+
+#: pntemplates/profile_admin_new.htm:71
+#: pntemplates/profile_user_modify.htm:17
+#: pntemplates/profile_admin_modifyconfig.htm:87
+#: pntemplates/profile_admin_modify.htm:73
+msgid "Save"
+msgstr "Desa"
+
+#: pntemplates/profile_admin_new.htm:72
+#: pntemplates/profile_user_modify.htm:18
+#: pntemplates/profile_admin_modifyconfig.htm:88
+#: pntemplates/profile_admin_delete.htm:21
+#: pntemplates/profile_admin_modify.htm:74
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: pntemplates/profile_user_view.htm:4
+#, php-format
+msgid "Personal info for %s"
+msgstr "Dades personals de %s"
+
+#: pntemplates/profile_user_view.htm:20
+msgid "User name:"
+msgstr "Nom d'usuari:"
+
+#: pntemplates/profile_user_view.htm:30
+msgid "Registration date:"
+msgstr "Data de registre:"
+
+#: pntemplates/profile_user_members_online.htm:8
+#: pntemplates/profile_user_members_recent.htm:10
+#: pntemplates/profile_user_members_view.htm:46
+#: pntemplates/profile_block_featureduser_modify.htm:4
+msgid "User name"
+msgstr "Usuari/ària"
+
+#: pntemplates/profile_user_members_online.htm:9
+#: pntemplates/profile_user_members_recent.htm:13
+#: pntemplates/profile_user_members_view.htm:48
+msgid "Real name"
+msgstr "Nom real"
+
+#: pntemplates/profile_user_members_online.htm:11
+#: pntemplates/profile_user_members_recent.htm:16
+#: pntemplates/profile_user_members_view.htm:51
+msgid "PM"
+msgstr "MP"
+
+#: pntemplates/profile_user_members_online.htm:13
+#: pntemplates/profile_user_members_recent.htm:19
+#: pntemplates/profile_user_members_view.htm:54
+msgid "Site"
+msgstr "Lloc web"
+
+#: pntemplates/profile_user_members_online.htm:33
+msgid "No registered users are currently on-line."
+msgstr "No hi ha cap usuari/ària registrat en línia"
+
+#: pntemplates/profile_user_members_recent.htm:11
+msgid "Registration date"
+msgstr "Data de registre"
+
+#: pntemplates/profile_user_members_recent.htm:22
+#: pntemplates/profile_user_members_view.htm:57
+#: pntemplates/profile_admin_view.htm:23
+msgid "Actions"
+msgstr "Accions"
+
+#: pntemplates/profile_user_members_recent.htm:31
+#: pntemplates/profile_user_members_view.htm:66
+msgid "On-line"
+msgstr "En línia"
+
+#: pntemplates/profile_user_members_recent.htm:33
+#: pntemplates/profile_user_members_view.htm:68
+msgid "Off-line"
+msgstr "Fora de línia"
+
+#: pntemplates/profile_user_members_recent.htm:63
+msgid "No recently-registered users found."
+msgstr "No s'ha trobat cap usuari/ària registrat recentment"
+
+#: pntemplates/profile_user_modify.htm:10
+msgid "Items marked with an asterisk ('*') are required entries."
+msgstr "Els elements marcats amb un asterisc (*) són requerits"
+
+#: pntemplates/profile_block_featureduser.htm:18
+#, php-format
+msgid "Registered on %s"
+msgstr "Registrat el %s"
+
+#: pntemplates/profile_block_lastseen_modify.htm:5
+msgid "Error! This block cannot be used because saving of a user's last log-in date has been disabled."
+msgstr "Aquest bloc no es pot utilitzar perquè no s'està desant la data de la darrera entrada dels usuaris."
+
+#: pntemplates/profile_block_lastseen_modify.htm:10
+msgid "Number of recent visitors to display"
+msgstr "Nombre de visitants recents que es mostren"
+
+#: pntemplates/profile_block_membersonline_modify.htm:4
+msgid "Maximum number of characters to display"
+msgstr "Nombre màxim de caràcters que es mostren"
+
+#: pntemplates/sections/profile_section_news.htm:5
+#, php-format
+msgid "Latest articles of %s"
+msgstr "Darreres notícies de %s"
+
+#: pntemplates/sections/profile_section_news.htm:10
+#: pntemplates/sections/profile_section_ezcomments.htm:10
+#, php-format
+msgid "On %s"
+msgstr "El %s"
+
+#: pntemplates/sections/profile_section_news.htm:17
+msgid "No recent articles found."
+msgstr "No s'ha trobat cap notícia recent."
+
+#: pntemplates/sections/profile_section_ezcomments.htm:5
+#, php-format
+msgid "Latest comments of %s"
+msgstr "Darrers comentaris de %s"
+
+#: pntemplates/sections/profile_section_ezcomments.htm:17
+msgid "No recent commets found."
+msgstr "No s'ha trobat cap comentari recent"
+
+#: pntemplates/profile_admin_modifyconfig.htm:15
+msgid "Registered users list settings"
+msgstr "Paràmetres de la llista d'usuaris registrats"
+
+#: pntemplates/profile_admin_modifyconfig.htm:17
+msgid "Display the user's registration date"
+msgstr "Mostra la data de registre dels usuaris"
+
+#: pntemplates/profile_admin_modifyconfig.htm:25
+msgid "Users per page in 'Registered users list'"
+msgstr "Usuaris per pàgina a la 'Llista d'usuaris registrats'"
+
+#: pntemplates/profile_admin_modifyconfig.htm:29
+msgid "Users per page in 'Users currently on-line' page"
+msgstr "Usuaris per pàgina a la pàgina de 'Usuaris connectats en aquests moments'"
+
+#: pntemplates/profile_admin_modifyconfig.htm:33
+msgid "Users per page in 'Recent registrations' page"
+msgstr "Usuaris per pàgina a la 'Llista d'usuaris registrats recentment'"
+
+#: pntemplates/profile_admin_modifyconfig.htm:37
+msgid "Filter unverified users from 'Registered users list'"
+msgstr "Filtra els usuaris no verificats a la 'Llista d'usuaris registrats'"
+
+#: pntemplates/profile_admin_modifyconfig.htm:54
+msgid "Personal info item settings"
+msgstr "Paràmetres d'informació personal"
+
+#: pntemplates/profile_admin_modifyconfig.htm:56
+msgid "Display 'Allowed HTML tags' notice with each personal info item that is a 'textarea'"
+msgstr "Mostra la llista d'etiquetes HTML permeses amb els quadres de text d'informació personal"
+
+#: pntemplates/profile_admin_modifyconfig.htm:65
+msgid "User registration form settings"
+msgstr "Paràmetres del registre d'usuaris"
+
+#: pntemplates/profile_admin_modifyconfig.htm:66
+msgid "The personal info items that you activate below will be displayed in the user registration form if the 'Users' module is configured to display personal info items during user registration, and if the 'Profile' module is specified in the 'General settings manager' as the module to provide the site's user profile management functionality. Personal info items that are configured as 'Required' will always be displayed in the user registration form. The list below only includes properties that are not 'Required' items."
+msgstr "Els elements d'informació personal actius es mostren en el formulari de registre d'usuaris si el mòdul 'Usuaris' està configurat per mostrar informació personal durant el registre i si el mòdul 'Perfil' està configurat en els 'Paràmetres del propietari' com al mòdul de gestió de perfils del sistema. Els elements d'informació personal marcats com a requerits sempre es mostren en el formulari de registre. La llista següent només inclou les propietats no requerides."
+
+#: pntemplates/profile_admin_modifyconfig.htm:68
+msgid "Personal info items to include in user registration form"
+msgstr "Elements d'informació personal que s'han de mostrar en el formulari de registre."
+
+#: pntemplates/profile_user_main.htm:2
+msgid "Account Panel"
+msgstr "Configuració del compte"
+
+#: pntemplates/profile_user_members_view.htm:11
+msgid "Search"
+msgstr "Cerca"
+
+#: pntemplates/profile_user_members_view.htm:14
+msgid "Go search"
+msgstr "Cerca"
+
+#: pntemplates/profile_user_members_view.htm:20
+msgid "Search in user names"
+msgstr "Cerca en els noms d'usuari"
+
+#: pntemplates/profile_user_members_view.htm:25
+msgid "Search in real names"
+msgstr "Cerca en els noms reals"
+
+#: pntemplates/profile_user_members_view.htm:31
+msgid "Search in site"
+msgstr "Cerca en el lloc web"
+
+#: pntemplates/profile_user_members_view.htm:38
+msgid "All"
+msgstr "Tots"
+
+#: pntemplates/profile_user_members_view.htm:97
+msgid "No users found."
+msgstr "No s'han trobat usuaris"
+
+#: pntemplates/profile_user_members_view.htm:104
+msgid "Membership statistics"
+msgstr "Estadístiques dels membres"
+
+#: pntemplates/profile_user_members_view.htm:106
+msgid "Registered:"
+msgstr "Usuaris registrats:"
+
+#: pntemplates/profile_user_members_view.htm:107
+msgid "On-line:"
+msgstr "En línia:"
+
+#: pntemplates/profile_user_members_view.htm:108
+msgid "Newest user:"
+msgstr "Usuari/ària més recent:"
+
+#: pntemplates/profile_admin_delete.htm:2
+msgid "Delete personal info item"
+msgstr "Esborra l'element d'informació personal"
+
+#: pntemplates/profile_admin_delete.htm:11
+msgid "Do you really want to delete this personal info item?"
+msgstr "Esteu segur/a de voler esborrar aquest element d'informació personal?"
+
+#: pntemplates/profile_admin_delete.htm:18
+msgid "Confirmation prompt"
+msgstr "Pregunta de confirmació"
+
+#: pntemplates/profile_block_membersonline.htm:10
+msgid "unread"
+msgstr "no llegits"
+
+#: pntemplates/profile_block_membersonline.htm:10
+msgid "total"
+msgstr "total"
+
+#: pntemplates/profile_block_membersonline.htm:20
+#: pntemplates/profile_block_membersonline.htm:26
+#, php-format
+msgid "%s registered user"
+msgid_plural "%s registered users"
+msgstr[0] "%s usuari/ària registrat"
+msgstr[1] "%s usuaris registrats"
+
+#: pntemplates/profile_block_membersonline.htm:21
+#: pntemplates/profile_block_membersonline.htm:24
+#, php-format
+msgid "%s on-line."
+msgstr "%s en línia"
+
+#: pntemplates/profile_block_membersonline.htm:23
+#: pntemplates/profile_block_membersonline.htm:27
+#, php-format
+msgid "%s anonymous guest"
+msgid_plural "%s anonymous guests"
+msgstr[0] "%s usuari/ària anònim"
+msgstr[1] "%s usuaris anònims"
+
+#: pntemplates/profile_block_membersonline.htm:28
+#, php-format
+msgid "%1$s and %2$s online."
+msgstr "%1$s i %2$s estan en línia."
+
+#: pntemplates/profile_block_lastxusers_modify.htm:4
+msgid "Number of recently-registered users to display"
+msgstr "Nombre d'usuaris registrats recentment a mostrar"
+
+#: pntemplates/profile_admin_modify.htm:3
+msgid "Edit personal info item"
+msgstr "Edita l'element d'informació personal"
+
+#: pntemplates/profile_admin_modify.htm:60
+msgid "Warning! If you want to edit the ID of an option without losing associated user data in the database, its label must not be renamed simultaneously. Also, do not assign IDs and labels the same naming. You are recommended to give each option an unique ID and a unique name, and to try to avoid renaming an ID once it has been created."
+msgstr "Si voleu modificar l'ID d'una opció sense perdre la seva informació existent a la base de dades, la seva etiqueta no ha de canviar simultàniament. Així mateix, no assigneu el mateix nom als ID i a les etiquetes. Es recomana donar un ID únic i un nom únic a cada opció i evitar canviar l'ID."
+
+#: pntemplates/profile_user_view_example.htm:4
+#, php-format
+msgid "Latest submissions of %s"
+msgstr "Darrers enviaments de %s"
+
+#: pntemplates/profile_block_featureduser_modify.htm:9
+msgid "Information to show"
+msgstr "Informació que es mostra"
+
+#: pntemplates/profile_block_featureduser_modify.htm:21
+msgid "Show registration date"
+msgstr "Mostra la data de registre"
+
+#: pntemplates/profile_admin_view.htm:16
+msgid "Notice: Use drag and drop to arrange the arrange the personal info items into your desired order. The new order will be saved automatically when you drop the item into place."
+msgstr "Arrossegueu i deixeu anar els elements d'informació personal organitzant-los en l'ordre que vulgueu. El nou ordre es desarà automàticament en deixar anar un element en una posició nova."
+
+#: pntemplates/profile_admin_view.htm:21
+msgid "Type"
+msgstr "Tipus"
+
+#: pntemplates/profile_admin_view.htm:22
+msgid "Status"
+msgstr "Estat"
+
+#: pninit.php:262
+msgid "_UREALNAME"
+msgstr "Nom real"
+
+#: pninit.php:272
+msgid "_UFAKEMAIL"
+msgstr "Adreça de correu electrònic falsa (per mostrar)"
+
+#: pninit.php:282
+msgid "_YOURHOMEPAGE"
+msgstr "Pàgina web"
+
+#: pninit.php:292
+msgid "_TIMEZONEOFFSET"
+msgstr "Fus horari"
+
+#: pninit.php:302
+msgid "_YOURAVATAR"
+msgstr "Avatar"
+
+#: pninit.php:312
+msgid "_YICQ"
+msgstr "Número ICQ"
+
+#: pninit.php:322
+msgid "_YAIM"
+msgstr "Compte AIM"
+
+#: pninit.php:332
+msgid "_YYIM"
+msgstr "Compte YIM"
+
+#: pninit.php:342
+msgid "_YMSNM"
+msgstr "Compte MSN"
+
+#: pninit.php:352
+msgid "_YLOCATION"
+msgstr "Localitat"
+
+#: pninit.php:362
+msgid "_YOCCUPATION"
+msgstr "Ocupació"
+
+#: pninit.php:372
+msgid "_SIGNATURE"
+msgstr "Signatura"
+
+#: pninit.php:382
+msgid "_EXTRAINFO"
+msgstr "Informació addicional"
+
+#: pninit.php:392
+msgid "_YINTERESTS"
+msgstr "Interessos"
+

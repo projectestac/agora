@@ -1,0 +1,2044 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: pntemplates/iw_forms_admin_form_fieldChar.htm:27
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-09-01 09:13+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pninit.php:26
+msgid ""
+"Module iw_main is needed. You have to install the iw_main module before "
+"installing it."
+msgstr ""
+
+#: pnajax.php:12 pnajax.php:44 pnajax.php:86 pnajax.php:150 pnajax.php:201
+#: pnajax.php:249 pnajax.php:301 pnajax.php:352 pnajax.php:401 pnajax.php:472
+#: pnajax.php:576 pnajax.php:613 pnajax.php:644 pnajax.php:670 pnajax.php:741
+#: pnajax.php:778 pnajax.php:807 pnajax.php:842 pnajax.php:856 pnajax.php:904
+#: pnuserapi.php:11 pnuserapi.php:42 pnuserapi.php:79 pnuserapi.php:128
+#: pnuserapi.php:182 pnuserapi.php:262 pnuserapi.php:916 pnuserapi.php:1703
+#: pnuserapi.php:1778 pnadmin.php:12 pnadmin.php:59 pnadmin.php:103
+#: pnadmin.php:164 pnadmin.php:273 pnadmin.php:311 pnadmin.php:355
+#: pnadmin.php:376 pnadmin.php:420 pnadmin.php:600 pnadmin.php:620
+#: pnadmin.php:669 pnadmin.php:714 pnadmin.php:779 pnadmin.php:835
+#: pnadmin.php:892 pnadmin.php:933 pnadmin.php:991 pnadmin.php:1048
+#: pnadmin.php:1114 pnadmin.php:1184 pnadmin.php:1248 pnadmin.php:1352
+#: pnadmin.php:1428 pnadmin.php:1499 pnadmin.php:1568 pnadmin.php:1599
+#: pnadmin.php:1622 pnadmin.php:1670 pnadmin.php:1691 pnadmin.php:1722
+#: pnadmin.php:1762 pnadmin.php:1791 pnadmin.php:1822 pnadmin.php:1861
+#: pnadmin.php:1893 pnadmin.php:2062 pnadminapi.php:28 pnadminapi.php:65
+#: pnadminapi.php:72 pnadminapi.php:93 pnadminapi.php:100 pnadminapi.php:122
+#: pnadminapi.php:154 pnadminapi.php:182 pnadminapi.php:209 pnadminapi.php:236
+#: pnadminapi.php:263 pnadminapi.php:290 pnadminapi.php:328 pnadminapi.php:355
+#: pnadminapi.php:382 pnadminapi.php:416 pnadminapi.php:443 pnadminapi.php:627
+#: pnadminapi.php:758 pnuser.php:12 pnuser.php:81 pnuser.php:180
+#: pnuser.php:355 pnuser.php:619 pnuser.php:664 pnuser.php:693 pnuser.php:790
+#: pnuser.php:812 pnuser.php:841 pnuser.php:973 pnuser.php:1259
+#: pnuser.php:1466 pnuser.php:1507 pnuser.php:1720
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnajax.php:58 pnajax.php:96 pnajax.php:160 pnajax.php:446 pnajax.php:590
+#: pnajax.php:623 pnajax.php:916 pnuserapi.php:88 pnuserapi.php:142
+#: pnuserapi.php:201 pnuserapi.php:272 pnuserapi.php:922 pnuserapi.php:1031
+#: pnuserapi.php:1085 pnuserapi.php:1135 pnadmin.php:173 pnadmin.php:282
+#: pnadmin.php:320 pnadmin.php:385 pnadmin.php:429 pnadmin.php:541
+#: pnadmin.php:547 pnadmin.php:674 pnadmin.php:680 pnadmin.php:719
+#: pnadmin.php:725 pnadmin.php:784 pnadmin.php:840 pnadmin.php:897
+#: pnadmin.php:938 pnadmin.php:996 pnadmin.php:1053 pnadmin.php:1059
+#: pnadmin.php:1119 pnadmin.php:1125 pnadmin.php:1131 pnadmin.php:1189
+#: pnadmin.php:1259 pnadmin.php:1358 pnadmin.php:1365 pnadmin.php:1434
+#: pnadmin.php:1441 pnadmin.php:1632 pnadmin.php:1833 pnadmin.php:1914
+#: pnadminapi.php:127 pnadminapi.php:159 pnadminapi.php:191 pnadminapi.php:218
+#: pnadminapi.php:245 pnadminapi.php:272 pnadminapi.php:299 pnadminapi.php:337
+#: pnadminapi.php:425 pnadminapi.php:452 pnadminapi.php:491 pnadminapi.php:636
+#: pnadminapi.php:672 pnadminapi.php:702 pnadminapi.php:712 pnuser.php:93
+#: pnuser.php:194 pnuser.php:375 pnuser.php:723 pnuser.php:856 pnuser.php:983
+#: pnuser.php:1513 pnuser.php:1601
+msgid "Could not find form"
+msgstr ""
+
+#: pnajax.php:166 pnajax.php:217 pnajax.php:262 pnajax.php:314 pnajax.php:365
+#: pnajax.php:432 pnajax.php:503 pnajax.php:655 pnuserapi.php:1170
+#: pnuserapi.php:1203 pnuserapi.php:1247 pnuserapi.php:1285 pnuserapi.php:1315
+#: pnuserapi.php:1347 pnuserapi.php:1453 pnuserapi.php:1591 pnuserapi.php:1623
+msgid "You do not have access to manage form"
+msgstr ""
+
+#: pnajax.php:172 pnajax.php:269 pnajax.php:321 pnajax.php:371 pnajax.php:519
+#: pnajax.php:661
+msgid "There was an error in the modified form"
+msgstr ""
+
+#: pnajax.php:185
+msgid "Has closed input data on the form"
+msgstr ""
+
+#: pnajax.php:185
+msgid "Has opened input data on the form"
+msgstr ""
+
+#: pnajax.php:221
+msgid "There was an error to remove the annotation"
+msgstr ""
+
+#: pnajax.php:417 pnajax.php:492
+msgid "For some reason it is not possible to edit the field's content."
+msgstr ""
+
+#: pnajax.php:420 pnuserapi.php:1354
+msgid "You can not edit this note."
+msgstr ""
+
+#: pnajax.php:546
+msgid "Forms: automatic message"
+msgstr ""
+
+#: pnajax.php:717 pnadmin.php:395 pnuser.php:534
+#: pntemplates/iw_forms_admin_formChars.htm:7
+#: pntemplates/iw_forms_admin_formChars.htm:18
+#: pntemplates/iw_forms_admin_formChars.htm:29
+#: pntemplates/iw_forms_admin_formChars.htm:40
+#: pntemplates/iw_forms_admin_formChars.htm:50
+#: pntemplates/iw_forms_admin_formChars.htm:60
+#: pntemplates/iw_forms_admin_formChars.htm:70
+#: pntemplates/iw_forms_admin_formChars.htm:80
+#: pntemplates/iw_forms_admin_formChars.htm:90
+#: pntemplates/iw_forms_admin_formChars.htm:100
+#: pntemplates/iw_forms_admin_form_definition.htm:31
+#: pntemplates/iw_forms_admin_form_definition.htm:39
+#: pntemplates/iw_forms_admin_form_definition.htm:47
+#: pntemplates/iw_forms_admin_form_definition.htm:55
+#: pntemplates/iw_forms_admin_form_definition.htm:63
+#: pntemplates/iw_forms_admin_form_definition.htm:71
+#: pntemplates/iw_forms_admin_form_definition.htm:79
+#: pntemplates/iw_forms_admin_form_definition.htm:87
+#: pntemplates/iw_forms_admin_form_definition.htm:103
+#: pntemplates/iw_forms_admin_form_definition.htm:111
+#: pntemplates/iw_forms_admin_form_definition.htm:119
+#: pntemplates/iw_forms_admin_form_definition.htm:144
+#: pntemplates/iw_forms_admin_form_definition.htm:152
+#: pntemplates/iw_forms_user_fieldContent.htm:321
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:26
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:48
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:59
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:81
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:107
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:119
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:132
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:146
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:160
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:191
+msgid "No"
+msgstr ""
+
+#: pnajax.php:718 pnadmin.php:395 pnuser.php:535
+#: pntemplates/iw_forms_admin_formChars.htm:5
+#: pntemplates/iw_forms_admin_formChars.htm:16
+#: pntemplates/iw_forms_admin_formChars.htm:27
+#: pntemplates/iw_forms_admin_formChars.htm:38
+#: pntemplates/iw_forms_admin_formChars.htm:48
+#: pntemplates/iw_forms_admin_formChars.htm:58
+#: pntemplates/iw_forms_admin_formChars.htm:68
+#: pntemplates/iw_forms_admin_formChars.htm:78
+#: pntemplates/iw_forms_admin_formChars.htm:88
+#: pntemplates/iw_forms_admin_formChars.htm:98
+#: pntemplates/iw_forms_admin_form_definition.htm:29
+#: pntemplates/iw_forms_admin_form_definition.htm:37
+#: pntemplates/iw_forms_admin_form_definition.htm:45
+#: pntemplates/iw_forms_admin_form_definition.htm:53
+#: pntemplates/iw_forms_admin_form_definition.htm:61
+#: pntemplates/iw_forms_admin_form_definition.htm:69
+#: pntemplates/iw_forms_admin_form_definition.htm:77
+#: pntemplates/iw_forms_admin_form_definition.htm:85
+#: pntemplates/iw_forms_admin_form_definition.htm:101
+#: pntemplates/iw_forms_admin_form_definition.htm:109
+#: pntemplates/iw_forms_admin_form_definition.htm:117
+#: pntemplates/iw_forms_admin_form_definition.htm:142
+#: pntemplates/iw_forms_admin_form_definition.htm:150
+#: pntemplates/iw_forms_user_fieldContent.htm:319
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:24
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:46
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:57
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:79
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:105
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:117
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:130
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:144
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:158
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:189
+msgid "Yes"
+msgstr ""
+
+#: pnajax.php:750
+msgid "Has been removed the fields of the form"
+msgstr ""
+
+#: pnajax.php:755
+msgid "Has been removed the groups of the form"
+msgstr ""
+
+#: pnajax.php:760
+msgid "Has been removed the validators of the form"
+msgstr ""
+
+#: pnajax.php:764 pnadmin.php:913
+msgid "Dropped the annotations of the form"
+msgstr ""
+
+#: pnajax.php:769
+msgid "Has been removed form"
+msgstr ""
+
+#: pnajax.php:820 pnadmin.php:633
+msgid "Field name"
+msgstr ""
+
+#: pnajax.php:830 pnadmin.php:584 pnadmin.php:643
+msgid "Final box"
+msgstr ""
+
+#: pnuserapi.php:17 pnuserapi.php:83 pnuserapi.php:134 pnuserapi.php:188
+#: pnuserapi.php:266 pnuserapi.php:320 pnuserapi.php:366 pnuserapi.php:393
+#: pnuserapi.php:420 pnuserapi.php:453 pnuserapi.php:524 pnuserapi.php:568
+#: pnuserapi.php:622 pnuserapi.php:692 pnuserapi.php:860 pnuserapi.php:969
+#: pnuserapi.php:1019 pnuserapi.php:1073 pnuserapi.php:1123 pnuserapi.php:1550
+#: pnuserapi.php:1585 pnadmin.php:168 pnadmin.php:277 pnadmin.php:315
+#: pnadmin.php:380 pnadmin.php:424 pnadmin.php:1626 pnadmin.php:1865
+#: pnadmin.php:1897 pnadminapi.php:32 pnadminapi.php:76 pnadminapi.php:132
+#: pnadminapi.php:164 pnadminapi.php:186 pnadminapi.php:213 pnadminapi.php:240
+#: pnadminapi.php:267 pnadminapi.php:294 pnadminapi.php:332 pnadminapi.php:359
+#: pnadminapi.php:386 pnadminapi.php:420 pnadminapi.php:447 pnadminapi.php:531
+#: pnadminapi.php:562 pnadminapi.php:596 pnadminapi.php:631 pnadminapi.php:762
+#: pnuser.php:1470
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: pnuserapi.php:25 pnuserapi.php:65 pnuserapi.php:107 pnuserapi.php:157
+#: pnuserapi.php:223 pnuserapi.php:244 pnuserapi.php:286 pnuserapi.php:343
+#: pnuserapi.php:374 pnuserapi.php:401 pnuserapi.php:428 pnuserapi.php:474
+#: pnuserapi.php:505 pnuserapi.php:532 pnuserapi.php:584 pnuserapi.php:667
+#: pnuserapi.php:730 pnuserapi.php:774 pnuserapi.php:835 pnuserapi.php:868
+#: pnuserapi.php:986 pnuserapi.php:1395 pnuserapi.php:1427 pnuserapi.php:1468
+#: pnuserapi.php:1525 pnuserapi.php:1563 pnuserapi.php:1676
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pnuserapi.php:459
+msgid "Can not find the form field"
+msgstr ""
+
+#: pnuserapi.php:563 pnuserapi.php:617 pnuserapi.php:820 pnuserapi.php:1510
+#: pnuserapi.php:1709 pnuserapi.php:1784 pnuser.php:186 pnuser.php:361
+#: pnuser.php:625 pnuser.php:677 pnuser.php:1476
+msgid "You can not access this form to view the annotations"
+msgstr ""
+
+#: pnuserapi.php:698 pnuserapi.php:780 pnuserapi.php:791 pnuserapi.php:929
+#: pnuserapi.php:1025 pnuserapi.php:1036 pnuserapi.php:1079 pnuserapi.php:1091
+#: pnuserapi.php:1129 pnuser.php:863 pnuser.php:869 pnuser.php:990
+#: pnuser.php:1279 pnuser.php:1593
+msgid "You can not access this form to send annotations"
+msgstr ""
+
+#: pnuserapi.php:896 pnuserapi.php:1099 pnuserapi.php:1147 pnuserapi.php:1224
+#: pnuserapi.php:1260 pnuserapi.php:1294 pnuserapi.php:1325 pnuserapi.php:1364
+#: pnuserapi.php:1603 pnuserapi.php:1633 pnadminapi.php:431 pnadminapi.php:464
+#: pnadminapi.php:508 pnadminapi.php:609 pnadminapi.php:649 pnadminapi.php:680
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: pnuserapi.php:942 pnuserapi.php:1045 pnadminapi.php:54 pnadminapi.php:82
+#: pnadminapi.php:107 pnadminapi.php:140 pnadminapi.php:170 pnadminapi.php:540
+#: pnadminapi.php:792
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnuserapi.php:1175 pnuserapi.php:1180 pnadminapi.php:195 pnadminapi.php:225
+#: pnadminapi.php:252 pnadminapi.php:279 pnadminapi.php:309 pnadminapi.php:317
+#: pnadminapi.php:341 pnadminapi.php:368 pnadminapi.php:395 pnadminapi.php:570
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: pnuserapi.php:1717 pnuserapi.php:1792
+msgid "Note content not found"
+msgstr ""
+
+#: pnuserapi.php:1735 pnuserapi.php:1810
+msgid "Note fields not found"
+msgstr ""
+
+#: pnuserapi.php:1758
+msgid "Error! Creation attempt failed during field synchronization."
+msgstr ""
+
+#: pnuserapi.php:1831
+msgid "Error! delete attempt failed during field synchronization."
+msgstr ""
+
+#: pnadmin.php:136
+msgid "The form was created successfully"
+msgstr ""
+
+#: pnadmin.php:328
+msgid "Global validator"
+msgstr ""
+
+#: pnadmin.php:394 pntemplates/iw_forms_admin_form_addGroup.htm:22
+#: pntemplates/iw_forms_user_main.htm:35
+msgid "Only writing"
+msgstr ""
+
+#: pnadmin.php:394 pntemplates/iw_forms_admin_form_addGroup.htm:23
+#: pntemplates/iw_forms_user_main.htm:37
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:175
+msgid "Only reading"
+msgstr ""
+
+#: pnadmin.php:394 pntemplates/iw_forms_admin_form_addGroup.htm:24
+#: pntemplates/iw_forms_user_main.htm:39
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:172
+msgid "Reading and writing"
+msgstr ""
+
+#: pnadmin.php:396 pnadmin.php:1011
+msgid "Unregistered users"
+msgstr ""
+
+#: pnadmin.php:555
+msgid "Has changed the order of the fields"
+msgstr ""
+
+#: pnadmin.php:572 pntemplates/iw_forms_admin_form_fieldAdd.htm:11
+msgid "Choose a type of field"
+msgstr ""
+
+#: pnadmin.php:573 pnuser.php:1540
+#: pntemplates/iw_forms_admin_form_fieldAdd.htm:12
+msgid "Text"
+msgstr ""
+
+#: pnadmin.php:574 pnuser.php:1541
+#: pntemplates/iw_forms_admin_form_fieldAdd.htm:13
+msgid "Text area"
+msgstr ""
+
+#: pnadmin.php:575 pnuser.php:1542 pnuser.php:1634
+#: pntemplates/iw_forms_admin_form_fieldAdd.htm:14
+msgid "URL"
+msgstr ""
+
+#: pnadmin.php:576 pnuser.php:1537 pnuser.php:1543 pnuser.php:1630
+#: pntemplates/iw_forms_admin_form_fieldAdd.htm:15
+msgid "Date"
+msgstr ""
+
+#: pnadmin.php:577 pnuser.php:1544
+#: pntemplates/iw_forms_admin_form_fieldAdd.htm:16
+msgid "Time"
+msgstr ""
+
+#: pnadmin.php:578 pnuser.php:1545
+#: pntemplates/iw_forms_admin_form_fieldAdd.htm:17
+msgid "List of options"
+msgstr ""
+
+#: pnadmin.php:579 pntemplates/iw_forms_admin_form_fieldAdd.htm:18
+msgid "File"
+msgstr ""
+
+#: pnadmin.php:580 pnuser.php:1546
+#: pntemplates/iw_forms_admin_form_fieldAdd.htm:19
+msgid "Yes/No"
+msgstr ""
+
+#: pnadmin.php:581 pntemplates/iw_forms_admin_form_fieldAdd.htm:20
+msgid "Information"
+msgstr ""
+
+#: pnadmin.php:582 pntemplates/iw_forms_admin_form_fieldAdd.htm:21
+msgid "Dividing line"
+msgstr ""
+
+#: pnadmin.php:583 pntemplates/iw_forms_admin_form_fieldAdd.htm:22
+msgid "Box"
+msgstr ""
+
+#: pnadmin.php:637
+msgid "We have created a new field. Edit the characteristics of the field"
+msgstr ""
+
+#: pnadmin.php:693
+msgid "Deleted validator"
+msgstr ""
+
+#: pnadmin.php:756
+msgid "Added validator"
+msgstr ""
+
+#: pnadmin.php:792
+msgid "Unregistered"
+msgstr ""
+
+#: pnadmin.php:810
+msgid "Added a group of access to the form"
+msgstr ""
+
+#: pnadmin.php:870
+msgid "Has added a new validator"
+msgstr ""
+
+#: pnadmin.php:944
+msgid "Not Found validator"
+msgstr ""
+
+#: pnadmin.php:967
+msgid "Has deleted a validator"
+msgstr ""
+
+#: pnadmin.php:1002 pnadminapi.php:363 pnadminapi.php:390
+msgid "Can not find the group"
+msgstr ""
+
+#: pnadmin.php:1025
+msgid "Has been cleared access to the group"
+msgstr ""
+
+#: pnadmin.php:1081
+msgid "Has been deleted the field"
+msgstr ""
+
+#: pnadmin.php:1165
+msgid "Have changed the dependencies"
+msgstr ""
+
+#: pnadmin.php:1329
+msgid "The main points of the form have been published successfully"
+msgstr ""
+
+#: pnadmin.php:1370 pnuser.php:1236
+msgid "Name_field"
+msgstr ""
+
+#: pnadmin.php:1377
+msgid "Choose a group..."
+msgstr ""
+
+#: pnadmin.php:1482
+msgid "The field of the form has been published successfully"
+msgstr ""
+
+#: pnadmin.php:1575
+msgid ""
+"The name of the directory of the files public is not valid because it "
+"matches the name of the home directory of files on the site."
+msgstr ""
+
+#: pnadmin.php:1586
+msgid "Has changed the configuration of the module"
+msgstr ""
+
+#: pnadmin.php:1703
+msgid "New category created"
+msgstr ""
+
+#: pnadmin.php:1728 pnadmin.php:1767
+msgid "No such category found"
+msgstr ""
+
+#: pnadmin.php:1743
+msgid "Has deleted the category"
+msgstr ""
+
+#: pnadmin.php:1803
+msgid "Has changed the category"
+msgstr ""
+
+#: pnadmin.php:1871
+msgid ""
+"Has made a copy of the form. Edit the characteristics that create appropriate"
+msgstr ""
+
+#: pnadmin.php:1876
+msgid "There was an error in the copy of the forum"
+msgstr ""
+
+#: pnadmin.php:2025
+msgid "Error exporting file"
+msgstr ""
+
+#: pnadmin.php:2078
+msgid "The import file is not correct. It need the xml extension"
+msgstr ""
+
+#: pnadmin.php:2094
+msgid "Error updating the import file to the server"
+msgstr ""
+
+#: pnadmin.php:2104
+msgid "Error loading xml document."
+msgstr ""
+
+#: pnadmin.php:2160 pnadmin.php:2222
+msgid "The form creation has failt"
+msgstr ""
+
+#: pnadmin.php:2226
+msgid "The form has been imported correcty"
+msgstr ""
+
+#: pntemplates/plugins/function.iwformsadminmenulinks.php:22
+#: pntemplates/iw_forms_admin_create.htm:9
+msgid "Create a new form"
+msgstr ""
+
+#: pntemplates/plugins/function.iwformsadminmenulinks.php:26
+#: pntemplates/plugins/function.iwformsusermenulinks.php:37
+msgid "Show the forms"
+msgstr ""
+
+#: pntemplates/plugins/function.iwformsadminmenulinks.php:30
+#: pntemplates/iw_forms_admin_import.htm:5
+msgid "Import a form"
+msgstr ""
+
+#: pntemplates/plugins/function.iwformsadminmenulinks.php:34
+#: pntemplates/iw_forms_admin_conf.htm:7
+msgid "Configure the module"
+msgstr ""
+
+#: pntemplates/plugins/function.iwformsusermenulinks.php:41
+#: pntemplates/iw_forms_user_mainOptions.htm:5
+#: pntemplates/iw_forms_block_formsList.htm:25
+msgid "Send an annotation"
+msgstr ""
+
+#: pntemplates/plugins/function.iwformsusermenulinks.php:45
+#: pntemplates/iw_forms_user_mainOptions.htm:18
+msgid "Show the notes I sent"
+msgstr ""
+
+#: pntemplates/plugins/function.iwformsusermenulinks.php:49
+#: pntemplates/iw_forms_user_export.htm:4
+msgid "Export to CSV"
+msgstr ""
+
+#: pnversion.php:11 pntemplates/iw_forms_admin_editCat.htm:14
+#: pntemplates/iw_forms_admin_form_fields.htm:20
+#: pntemplates/iw_forms_admin_conf.htm:16
+#: pntemplates/iw_forms_admin_addCat.htm:13
+msgid "Description"
+msgstr ""
+
+#: pnversion.php:12
+msgid "IWForms"
+msgstr ""
+
+#: pnversion.php:13
+msgid "iw_forms"
+msgstr ""
+
+#: pnblocks/formslist.php:50
+msgid "Display the list of forms where you can access the user"
+msgstr ""
+
+#: pnblocks/formslist.php:189
+msgid "Identities of the categories to show (default is all)"
+msgstr ""
+
+#: pnblocks/formslist.php:190
+msgid "Show forms into a list"
+msgstr ""
+
+#: pnblocks/formnote.php:50
+msgid "Display the content of a note in a block"
+msgstr ""
+
+#: pnblocks/formnote.php:227
+msgid "Identity of the note that must be schown"
+msgstr ""
+
+#: pnblocks/formnote.php:228
+msgid "Hide block title"
+msgstr ""
+
+#: pnblocks/formnote.php:229
+msgid "Block content"
+msgstr ""
+
+#: pnblocks/formnote.php:230
+#: pntemplates/iw_forms_admin_form_definition.htm:177
+#: pntemplates/iw_forms_admin_form_definitionExpertMode.htm:61
+msgid ""
+"[$formId$] =>Identity of the form, [$noteId$] =>Identity of the note, [%id%] "
+"=> Title of the field, [$id$] => Content of the field, [$user$] => Username, "
+"[$date$] => Note creation date, [$time$] => Note creation time, [$avatar$] "
+"=> User avatar, [$reply$] => Reply to the user if the reply is public"
+msgstr ""
+
+#: pnadminapi.php:567 pnadminapi.php:601
+msgid "No such item found."
+msgstr ""
+
+#: pnuser.php:486 pnuser.php:1629
+msgid "user"
+msgstr ""
+
+#: pnuser.php:640
+msgid "Field synchronized successfully."
+msgstr ""
+
+#: pnuser.php:878
+msgid ""
+"The form is only one answer and know that you've already sent an annotation."
+msgstr ""
+
+#: pnuser.php:888
+msgid "Has not been found fields in the form"
+msgstr ""
+
+#: pnuser.php:1269
+msgid "Error with the capcha protect system"
+msgstr ""
+
+#: pnuser.php:1358 pnuser.php:1423
+msgid "The entry has been edited"
+msgstr ""
+
+#: pnuser.php:1360 pnuser.php:1425
+msgid "There was an error in the edition of the annotation"
+msgstr ""
+
+#: pnuser.php:1374 pnuser.php:1439
+msgid "The entry has been created"
+msgstr ""
+
+#: pnuser.php:1376 pnuser.php:1441
+msgid "There was an error in the creation of the annotation"
+msgstr ""
+
+#: pnuser.php:1391 pnuser.php:1407
+msgid ""
+"There was a problem in the attachment file. Probably the annotation was sent "
+"without the file or attachment."
+msgstr ""
+
+#: pnuser.php:1520
+msgid "You do not have access to this form"
+msgstr ""
+
+#: pnuser.php:1526
+msgid ""
+"The export is not possible because the directory for temporary files don't "
+"exist on the server. If the problem persists it communicates to the "
+"administrator at the portal."
+msgstr ""
+
+#: pnuser.php:1535 pntemplates/iw_forms_user_userNoteContent.htm:38
+msgid "State of the note"
+msgstr ""
+
+#: pnuser.php:1539
+msgid "Referring"
+msgstr ""
+
+#: pnuser.php:1552 pntemplates/iw_forms_user_export.htm:106
+#: pntemplates/iw_forms_admin_form_minitab.htm:5
+msgid "Field"
+msgstr ""
+
+#: pnuser.php:1631
+msgid "Observations"
+msgstr ""
+
+#: pnuser.php:1632
+msgid "Renotes"
+msgstr ""
+
+#: pnuser.php:1633
+msgid "State"
+msgstr ""
+
+#: pnuser.php:1682
+msgid ""
+"There was an error in the creation of information. The export was not "
+"possible"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldChar.htm:36
+#: pntemplates/iw_forms_admin_form_validators.htm:42
+#: pntemplates/iw_forms_admin_form_validators.htm:44
+#: pntemplates/iw_forms_admin_form_validatorDelete.htm:3
+msgid "Delete the validator"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldChar.htm:40
+#: pntemplates/iw_forms_admin_form_validators.htm:4
+#: pntemplates/iw_forms_admin_form_validators.htm:5
+#: pntemplates/iw_forms_admin_form_validators.htm:9
+#: pntemplates/iw_forms_admin_form_validators.htm:10
+#: pntemplates/iw_forms_admin_form_addFieldValidator.htm:3
+#: pntemplates/iw_forms_admin_form_addValidator.htm:3
+msgid "Add a validator"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldChar.htm:46
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:3
+msgid "Edit the field"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldChar.htm:47
+#: pntemplates/iw_forms_admin_form_fieldChar.htm:48
+#: pntemplates/iw_forms_admin_form_fieldDelete.htm:3
+msgid "Delete the field"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldChar.htm:50
+msgid "A low"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldChar.htm:53
+msgid "Up one place"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldDelete.htm:11
+#: pntemplates/iw_forms_admin_form.htm:31
+msgid "Confirms delete the field"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldDelete.htm:11
+msgid "type"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldDelete.htm:13
+msgid ""
+"Unable to delete the field as there are other areas that are depending on. "
+"Clear dependencies before deleting the field. Here is the list of areas "
+"affected:"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldDelete.htm:22
+#: pntemplates/iw_forms_admin_form_catDelete.htm:12
+#: pntemplates/iw_forms_admin_form_deleteNotes.htm:12
+#: pntemplates/iw_forms_admin_main.htm:67
+#: pntemplates/iw_forms_admin_form_validatorDelete.htm:14
+#: pntemplates/iw_forms_admin_conf.htm:37
+#: pntemplates/iw_forms_admin_form_groupDelete.htm:14
+#: pntemplates/iw_forms_admin_form_fieldModifyDependances.htm:20
+msgid "Delete"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldDelete.htm:24
+#: pntemplates/iw_forms_user_new.htm:63
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:101
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:103
+#: pntemplates/iw_forms_admin_form_addGroup.htm:34
+#: pntemplates/iw_forms_admin_form_addGroup.htm:36
+#: pntemplates/iw_forms_admin_form_catDelete.htm:13
+#: pntemplates/iw_forms_admin_form_deleteNotes.htm:13
+#: pntemplates/iw_forms_admin_editCat.htm:20
+#: pntemplates/iw_forms_admin_form_validatorDelete.htm:16
+#: pntemplates/iw_forms_admin_form_validatorDelete.htm:18
+#: pntemplates/iw_forms_admin_form_groupDelete.htm:16
+#: pntemplates/iw_forms_admin_form_groupDelete.htm:18
+#: pntemplates/iw_forms_admin_create.htm:111
+#: pntemplates/iw_forms_admin_form_addFieldValidator.htm:25
+#: pntemplates/iw_forms_admin_form_fieldModifyDependances.htm:21
+#: pntemplates/iw_forms_admin_addCat.htm:19
+#: pntemplates/iw_forms_admin_form_addValidator.htm:36
+#: pntemplates/iw_forms_admin_form_addValidator.htm:38
+#: pntemplates/iw_forms_admin_form_fieldAdd.htm:28
+#: pntemplates/iw_forms_user_export.htm:133
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:206
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/iw_forms_user_new.htm:51
+msgid "Fields marked with an"
+msgstr ""
+
+#: pntemplates/iw_forms_user_new.htm:51
+msgid "are required"
+msgstr ""
+
+#: pntemplates/iw_forms_user_new.htm:62
+#: pntemplates/iw_forms_user_manageNoteContentObs.htm:19
+#: pntemplates/iw_forms_user_manageNoteContentRenote.htm:35
+#: pntemplates/iw_forms_user_manageNoteContentEdit.htm:19
+msgid "Send"
+msgstr ""
+
+#: pntemplates/iw_forms_user_sendedView.htm:4
+#: pntemplates/iw_forms_user_sendedWhatForm.htm:4
+#: pntemplates/iw_forms_block_formsList.htm:66
+msgid "Notes sent"
+msgstr ""
+
+#: pntemplates/iw_forms_user_sendedView.htm:5
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:9
+#: pntemplates/iw_forms_admin_form_definition.htm:11
+#: pntemplates/iw_forms_admin_main.htm:10
+#: pntemplates/iw_forms_admin_create.htm:20
+#: pntemplates/iw_forms_user_read.htm:9 pntemplates/iw_forms_user_export.htm:5
+msgid "Form name"
+msgstr ""
+
+#: pntemplates/iw_forms_user_sendedView.htm:6
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:13
+#: pntemplates/iw_forms_admin_form_definition.htm:15
+#: pntemplates/iw_forms_admin_main.htm:11
+#: pntemplates/iw_forms_admin_create.htm:24
+#: pntemplates/iw_forms_user_read.htm:12
+#: pntemplates/iw_forms_user_manage.htm:11
+#: pntemplates/iw_forms_user_export.htm:6
+msgid "Title of the annotations "
+msgstr ""
+
+#: pntemplates/iw_forms_user_sendedView.htm:10
+msgid "Has not been found sent notes"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageAllNotesContent.htm:1
+#: pntemplates/iw_forms_user_manageAllNotesContent.htm:9
+msgid "Notes number"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageAllNotesContent.htm:7
+#: pntemplates/iw_forms_user_read.htm:40
+msgid "Not annotations found"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:2
+#: pntemplates/iw_forms_admin_formChars.htm:13
+#: pntemplates/iw_forms_admin_formChars.htm:24
+#: pntemplates/iw_forms_admin_formChars.htm:35
+#: pntemplates/iw_forms_admin_formChars.htm:45
+#: pntemplates/iw_forms_admin_formChars.htm:55
+#: pntemplates/iw_forms_admin_formChars.htm:65
+#: pntemplates/iw_forms_admin_formChars.htm:75
+#: pntemplates/iw_forms_admin_formChars.htm:117
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:3
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:9
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:21
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:43
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:54
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:76
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:102
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:114
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:127
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:141
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:155
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:169
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:186
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:213
+msgid "Change the state"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:3
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:48
+#: pntemplates/iw_forms_admin_form_definition.htm:35
+#: pntemplates/iw_forms_admin_create.htm:59
+msgid "Only answer"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:14
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:44
+#: pntemplates/iw_forms_admin_form_definition.htm:27
+#: pntemplates/iw_forms_admin_create.htm:55
+msgid "Anonymous"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:25
+msgid "Closed notes"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:36
+msgid "Closed form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:46
+msgid "Initially closed"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:56
+msgid "NR can not see users information"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:66
+msgid "NR can not export"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:76
+msgid "Public answer"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:85
+#: pntemplates/iw_forms_admin_formChars.htm:86
+msgid "Allow comments"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:95
+#: pntemplates/iw_forms_admin_formChars.htm:96
+msgid "Expert mode"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:106
+msgid "New to"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:112
+msgid "Expires in"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:118
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:214
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:199
+msgid "Active/no active"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:120
+#: pntemplates/iw_forms_admin_form_definition.htm:189
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:216
+msgid "Active"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_formChars.htm:122
+#: pntemplates/iw_forms_admin_form_definition.htm:191
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:218
+msgid "No active"
+msgstr ""
+
+#: pntemplates/iw_forms_user_requiredJS.htm:3
+#: pntemplates/iw_forms_user_requiredJS.htm:10
+#: pntemplates/iw_forms_user_requiredJS.htm:17
+#: pntemplates/iw_forms_user_requiredJS.htm:24
+#: pntemplates/iw_forms_user_requiredJS.htm:31
+#: pntemplates/iw_forms_user_requiredJS.htm:38
+msgid ""
+"There are one or more form fields that are required and you have not filled"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_import.htm:15
+msgid "OK"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:3
+#: pntemplates/iw_forms_admin_form_definition.htm:196
+msgid "Edit the main form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:17
+#: pntemplates/iw_forms_admin_form_definition.htm:19
+#: pntemplates/iw_forms_admin_main.htm:12
+#: pntemplates/iw_forms_admin_create.htm:28
+msgid "Category"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:20
+#: pntemplates/iw_forms_admin_create.htm:31
+msgid "Chosse one category..."
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:26
+#: pntemplates/iw_forms_admin_conf.htm:44
+#: pntemplates/iw_forms_admin_create.htm:37
+msgid "There is no defined categories"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:30
+#: pntemplates/iw_forms_admin_form_definition.htm:23
+#: pntemplates/iw_forms_admin_main.htm:13
+#: pntemplates/iw_forms_admin_create.htm:41
+msgid "Form description"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:34
+#: pntemplates/iw_forms_admin_form_definition.htm:91
+#: pntemplates/iw_forms_admin_create.htm:45
+msgid "As a new until a..."
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:39
+#: pntemplates/iw_forms_admin_form_definition.htm:95
+#: pntemplates/iw_forms_admin_create.htm:50
+msgid "Make it expires automatically a..."
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:53
+#: pntemplates/iw_forms_admin_form_definition.htm:43
+#: pntemplates/iw_forms_admin_create.htm:64
+msgid "Validators can close the annotations"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:58
+#: pntemplates/iw_forms_admin_form_definition.htm:51
+#: pntemplates/iw_forms_admin_create.htm:69
+msgid "Validators can close the entries or the release of the book-entry form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:62
+#: pntemplates/iw_forms_admin_form_definition.htm:59
+#: pntemplates/iw_forms_admin_create.htm:73
+msgid "The form is initially closed"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:66
+#: pntemplates/iw_forms_admin_form_definition.htm:67
+#: pntemplates/iw_forms_admin_create.htm:77
+msgid "Unregistered users can not see the data of senders of entries"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:70
+#: pntemplates/iw_forms_admin_form_definition.htm:75
+#: pntemplates/iw_forms_admin_create.htm:81
+msgid "Unregistered users can not export the contents of the annotations"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:74
+#: pntemplates/iw_forms_admin_form_definition.htm:83
+#: pntemplates/iw_forms_user_manageNoteContentRenote.htm:8
+#: pntemplates/iw_forms_user_manageNoteContentRenote.htm:28
+#: pntemplates/iw_forms_admin_create.htm:85
+msgid "The answer is visible to all users who have access to information"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:79
+#: pntemplates/iw_forms_admin_form_definition.htm:99
+#: pntemplates/iw_forms_admin_create.htm:90
+msgid "The notes allow comments"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:83
+#: pntemplates/iw_forms_admin_form_definition.htm:107
+#: pntemplates/iw_forms_admin_create.htm:94
+msgid "The validators can decide if a particular note allow comments"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:88
+#: pntemplates/iw_forms_admin_form_definition.htm:115
+msgid "Use expert mode"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:95
+#: pntemplates/iw_forms_admin_form_definition.htm:187
+#: pntemplates/iw_forms_admin_create.htm:106
+msgid "Active / non-active"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionEdit.htm:99
+#: pntemplates/iw_forms_admin_infoForm.htm:7
+#: pntemplates/iw_forms_admin_infoForm.htm:13
+#: pntemplates/iw_forms_admin_editCat.htm:19
+#: pntemplates/iw_forms_admin_main.htm:47
+#: pntemplates/iw_forms_admin_conf.htm:34
+#: pntemplates/iw_forms_user_manageNoteContentEdit.htm:6
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:205
+msgid "Edit"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_addGroup.htm:3
+#: pntemplates/iw_forms_admin_form_groups.htm:4
+#: pntemplates/iw_forms_admin_form_groups.htm:5
+#: pntemplates/iw_forms_admin_form_groups.htm:9
+#: pntemplates/iw_forms_admin_form_groups.htm:10
+msgid "Add a new group"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_addGroup.htm:12
+#: pntemplates/iw_forms_admin_form_addFieldValidator.htm:12
+msgid "Choose the group that should have access to the form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_addGroup.htm:20
+#: pntemplates/iw_forms_admin_form_groups.htm:25
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:170
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:182
+msgid "Type of acces"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_addGroup.htm:28
+#: pntemplates/iw_forms_user_main.htm:46
+msgid "Validation is required"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_addGroup.htm:32
+#: pntemplates/iw_forms_admin_form_addFieldValidator.htm:24
+#: pntemplates/iw_forms_admin_addCat.htm:18
+#: pntemplates/iw_forms_admin_form_addValidator.htm:34
+msgid "Add"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_catDelete.htm:4
+msgid "Delete category"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_catDelete.htm:10
+msgid "Confirms delete the category"
+msgstr ""
+
+#: pntemplates/iw_forms_user_userNoteContent.htm:6
+#: pntemplates/iw_forms_user_manageNoteContent.htm:16
+#: pntemplates/iw_forms_user_readNoteContent.htm:16
+msgid "Date of sending the note"
+msgstr ""
+
+#: pntemplates/iw_forms_user_userNoteContent.htm:9
+#: pntemplates/iw_forms_user_manageNoteContent.htm:19
+#: pntemplates/iw_forms_user_readNoteContent.htm:19
+msgid "Time of sending the note"
+msgstr ""
+
+#: pntemplates/iw_forms_user_userNoteContent.htm:42
+msgid "To view"
+msgstr ""
+
+#: pntemplates/iw_forms_user_userNoteContent.htm:42
+msgid "to"
+msgstr ""
+
+#: pntemplates/iw_forms_user_userNoteContent.htm:45
+msgid "Not seen by any validator"
+msgstr ""
+
+#: pntemplates/iw_forms_user_userNoteContent.htm:48
+msgid "The note needs validation"
+msgstr ""
+
+#: pntemplates/iw_forms_user_userNoteContent.htm:53
+#: pntemplates/iw_forms_user_manageNoteContent.htm:79
+#: pntemplates/iw_forms_user_readNoteContent.htm:63
+msgid "Answer"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_infoForm.htm:4
+msgid "Skin of the form and complete information"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_infoForm.htm:7
+msgid "Skin form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_infoForm.htm:13
+#: pntemplates/iw_forms_admin_create.htm:12
+#: pntemplates/iw_forms_admin_form_minitab.htm:2
+msgid "Define the form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_infoForm.htm:19
+#: pntemplates/iw_forms_admin_form_groups.htm:17
+msgid "List of groups that have access to the form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_infoForm.htm:25
+#: pntemplates/iw_forms_admin_form_validators.htm:17
+msgid "List of validators of the form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_infoForm.htm:31
+#: pntemplates/iw_forms_user_main.htm:64
+#: pntemplates/iw_forms_admin_main.htm:84
+#: pntemplates/iw_forms_admin_conf.htm:142
+#: pntemplates/iw_forms_admin_create.htm:118
+#: pntemplates/iw_forms_admin_form.htm:25
+msgid "About this module"
+msgstr ""
+
+#: pntemplates/iw_forms_user_checkJS.htm:5
+msgid "E-mail writing is not correct"
+msgstr ""
+
+#: pntemplates/iw_forms_user_checkJS.htm:13
+msgid "The date value is incorrect"
+msgstr ""
+
+#: pntemplates/iw_forms_user_checkJS.htm:20
+msgid "The value of time is wrong"
+msgstr ""
+
+#: pntemplates/iw_forms_user_checkJS.htm:27
+msgid ""
+"The extension of the attachment is not supported. The extensions are "
+"possible:"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_validators.htm:23
+msgid "Validator"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_validators.htm:24
+msgid "Type of validator"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_validators.htm:25
+#: pntemplates/iw_forms_admin_form_fields.htm:25
+#: pntemplates/iw_forms_admin_main.htm:15
+#: pntemplates/iw_forms_admin_conf.htm:17
+#: pntemplates/iw_forms_admin_form_groups.htm:27
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:65
+msgid "Options"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_validators.htm:52
+msgid "This form don't have defined validators"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageFilter.htm:2
+msgid "It is the same as"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageFilter.htm:5
+msgid "All"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageFilter.htm:7
+msgid "Choose a value..."
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageFilter.htm:16
+msgid "It have got the words"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageFilter.htm:19
+msgid "Return to init"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_deleteNotes.htm:4
+msgid "Delete the form notes"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_deleteNotes.htm:10
+msgid "Confirm the deletion of the form notes for the form"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentObs.htm:6
+msgid "Create private notes"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definition.htm:7
+msgid "Form definition"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definition.htm:124
+#: pntemplates/iw_forms_admin_form_definitionExpertMode.htm:4
+msgid "Templates for the notes (expert mode)"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definition.htm:127
+#: pntemplates/iw_forms_admin_form_definitionExpertMode.htm:13
+msgid "Template to aply for the form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definition.htm:131
+#: pntemplates/iw_forms_admin_form_definitionExpertMode.htm:17
+msgid "Template to aply for the set of notes"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definition.htm:135
+#: pntemplates/iw_forms_admin_form_definitionExpertMode.htm:21
+msgid "Template to aply for an alone note"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definition.htm:140
+#: pntemplates/iw_forms_admin_form_definitionExpertMode.htm:26
+msgid "Show the form name"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definition.htm:148
+#: pntemplates/iw_forms_admin_form_definitionExpertMode.htm:30
+msgid "Show the notes title"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definition.htm:157
+#: pntemplates/iw_forms_admin_form_definitionExpertMode.htm:35
+msgid "Form aspect"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definition.htm:162
+#: pntemplates/iw_forms_admin_form_definitionExpertMode.htm:42
+msgid "[$id$] => Form field"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definition.htm:166
+#: pntemplates/iw_forms_admin_form_definitionExpertMode.htm:46
+msgid "Set of notes of the form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definition.htm:172
+#: pntemplates/iw_forms_admin_form_definitionExpertMode.htm:54
+msgid "An individual note"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definition.htm:180
+msgid "Styles sheet to aply"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentOptions.htm:4
+msgid "Validates the note"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentOptions.htm:8
+msgid "Invalidates the note"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentOptions.htm:12
+#: pntemplates/iw_forms_user_manage.htm:85
+#: pntemplates/iw_forms_user_sended.htm:7
+msgid "Delete the note"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentOptions.htm:16
+msgid "Show the note as not completed"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentOptions.htm:20
+msgid "Shows like complete"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentOptions.htm:25
+msgid "Delete the mark"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentOptions.htm:29
+msgid "Mark"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentOptions.htm:34
+msgid "Respond with a private message"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentOptions.htm:38
+msgid "View note"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentRenote.htm:10
+#: pntemplates/iw_forms_user_manageNoteContentRenote.htm:30
+msgid "The answer only sees the user sender"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentRenote.htm:16
+msgid "Edit the response to senders"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentRenote.htm:39
+msgid "Send a copy to the private"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_editCat.htm:4
+msgid "Change to the category"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_editCat.htm:10
+#: pntemplates/iw_forms_admin_conf.htm:15
+#: pntemplates/iw_forms_admin_addCat.htm:9
+msgid "Name"
+msgstr ""
+
+#: pntemplates/iw_forms_user_pager.htm:1
+msgid "Page"
+msgstr ""
+
+#: pntemplates/iw_forms_user_mainOptions.htm:12
+#: pntemplates/iw_forms_block_formsList.htm:32
+msgid "Show annotations"
+msgstr ""
+
+#: pntemplates/iw_forms_user_mainOptions.htm:24
+#: pntemplates/iw_forms_user_manage.htm:10
+#: pntemplates/iw_forms_block_formsList.htm:39
+msgid "Managing annotations"
+msgstr ""
+
+#: pntemplates/iw_forms_user_mainOptions.htm:32
+msgid "Close the entry of annotations and editing"
+msgstr ""
+
+#: pntemplates/iw_forms_user_mainOptions.htm:34
+#: pntemplates/iw_forms_user_main.htm:14 pntemplates/iw_forms_user_main.htm:19
+#: pntemplates/iw_forms_block_formsList.htm:7
+#: pntemplates/iw_forms_block_formsList.htm:12
+msgid "Open the entry of annotations and editing"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fields.htm:4
+#: pntemplates/iw_forms_admin_form_fields.htm:5
+#: pntemplates/iw_forms_admin_form_fieldAdd.htm:4
+msgid "Create a new form field"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fields.htm:10
+msgid "List of form fields"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fields.htm:17
+msgid "Order"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fields.htm:19
+#: pntemplates/iw_forms_user_export.htm:107
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:20
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:21
+msgid "Name field"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fields.htm:21
+#: pntemplates/iw_forms_admin_form_fieldAdd.htm:9
+#: pntemplates/iw_forms_user_export.htm:108
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:10
+msgid "Type field"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fields.htm:22
+#: pntemplates/iw_forms_admin_main.htm:14
+msgid "Characteristics"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fields.htm:23
+msgid "Dependence"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fields.htm:24
+#: pntemplates/iw_forms_admin_form_minitab.htm:11
+msgid "Validators"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fields.htm:34
+msgid "No fields have been found for this form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fields.htm:42
+msgid "Change order"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fields.htm:45
+#: pntemplates/iw_forms_admin_form_fields.htm:46
+msgid "Expand all"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fields.htm:48
+#: pntemplates/iw_forms_admin_form_fields.htm:49
+msgid "Collapse all"
+msgstr ""
+
+#: pntemplates/iw_forms_user_main.htm:4 pntemplates/iw_forms_admin_main.htm:5
+msgid "Forms list"
+msgstr ""
+
+#: pntemplates/iw_forms_user_main.htm:24
+#: pntemplates/iw_forms_block_formsList.htm:18
+msgid "New"
+msgstr ""
+
+#: pntemplates/iw_forms_user_main.htm:41
+msgid "Validation of fields"
+msgstr ""
+
+#: pntemplates/iw_forms_user_main.htm:43
+#: pntemplates/iw_forms_admin_form_groups.htm:26
+msgid "Validation"
+msgstr ""
+
+#: pntemplates/iw_forms_user_main.htm:56
+#: pntemplates/iw_forms_user_sendedWhatForm.htm:15
+msgid "You do not have any form available"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_main.htm:42
+msgid "Full Form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_main.htm:52
+msgid "Copy"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_main.htm:57
+#: pntemplates/iw_forms_user_export.htm:38
+#: pntemplates/iw_forms_user_export.htm:109
+#: pntemplates/iw_forms_user_export.htm:132
+msgid "Export"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_main.htm:61
+msgid "Delete all the notes"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_main.htm:62
+msgid "Delete notes"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_main.htm:66
+msgid "Delete the topic"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_main.htm:75
+msgid "No forms have been found"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_main.htm:88
+#: pntemplates/iw_forms_admin_form.htm:29
+msgid "...changing the information..."
+msgstr ""
+
+#: pntemplates/iw_forms_admin_main.htm:89
+msgid "Confirms delete the form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_validatorDelete.htm:12
+msgid "Confirms delete the validator"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:11
+msgid "Categories"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:51
+#: pntemplates/iw_forms_admin_addCat.htm:4
+msgid "Creates a new category"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:58
+msgid "Home directory of files"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:63
+msgid "Folder on the server where the files are stored in the notes attached"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:68
+msgid "Can not find the directory for attachments"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:73
+msgid "You should give write permissions in this folder"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:77
+msgid "Directory for the public files attached to the notes"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:82
+msgid "Can not find the directory for the files public."
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:87
+msgid "You should give write permissions in this folder or set it as public"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:92
+msgid "This directory has not been declared as public."
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:97
+msgid ""
+"DpCaptcha module is not available. If you are planning to open the forms to "
+"unregistered users you may want to install them this module."
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:100
+#: pntemplates/iw_forms_admin_conf.htm:108
+msgid ""
+"The module dpCaptcha prevents robots can send notes to forms automatically. "
+"With this module successfully activated and you get linked to when a user "
+"sends an unregistered entry, is obliged to recognize and write a set of "
+"characters that can not recognize an automated system."
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:105
+msgid ""
+"The module is not bound dpCaptcha (hook). If you are planning to open the "
+"forms to unregistered users recommend linking this module. You can do this "
+"from the administration of the modules."
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:113
+msgid "Color for the new notes"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:114
+#: pntemplates/iw_forms_admin_conf.htm:118
+#: pntemplates/iw_forms_admin_conf.htm:122
+#: pntemplates/iw_forms_admin_conf.htm:126
+#: pntemplates/iw_forms_admin_conf.htm:130
+#: pntemplates/iw_forms_admin_conf.htm:134
+msgid "Change the color"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:117
+msgid "Color for the visit notes"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:121
+msgid "Color to the notes given as completed"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:125
+msgid "Color per a les notes pendents de validació"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:129
+msgid "Color for the names of the fields"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:133
+msgid "Color for the contents of the fields"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_conf.htm:137
+msgid "Change the configuration"
+msgstr ""
+
+#: pntemplates/iw_forms_user_fieldContent.htm:17
+#: pntemplates/iw_forms_user_fieldContent.htm:42
+#: pntemplates/iw_forms_user_fieldContent.htm:93
+#: pntemplates/iw_forms_user_fieldContent.htm:100
+#: pntemplates/iw_forms_user_fieldContent.htm:162
+#: pntemplates/iw_forms_user_fieldContent.htm:200
+#: pntemplates/iw_forms_user_fieldContent.htm:230
+#: pntemplates/iw_forms_user_fieldContent.htm:281
+msgid "Non-editable"
+msgstr ""
+
+#: pntemplates/iw_forms_user_fieldContent.htm:70
+#: pntemplates/iw_forms_user_fieldContent.htm:97
+msgid "Link text"
+msgstr ""
+
+#: pntemplates/iw_forms_user_fieldContent.htm:251
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:22
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:39
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:211
+msgid "Public File"
+msgstr ""
+
+#: pntemplates/iw_forms_user_fieldContent.htm:253
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:213
+msgid "If the file is public will be accessible to everyone from a URL like:"
+msgstr ""
+
+#: pntemplates/iw_forms_user_fieldContent.htm:254
+#: pntemplates/iw_forms_user_fieldContentHelp.htm:10
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:214
+msgid "Close the window"
+msgstr ""
+
+#: pntemplates/iw_forms_user_fieldContent.htm:263
+msgid "Allowed files extensions: "
+msgstr ""
+
+#: pntemplates/iw_forms_user_fieldContent.htm:268
+#, php-format
+msgid "Maximum width: %spx"
+msgstr ""
+
+#: pntemplates/iw_forms_user_fieldContent.htm:273
+#, php-format
+msgid "Maximum height: %spx"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_groups.htm:24
+msgid "Name of the group"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_groups.htm:44
+#: pntemplates/iw_forms_admin_form_groups.htm:46
+#: pntemplates/iw_forms_admin_form_groupDelete.htm:3
+msgid "Delete the group"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_groups.htm:53
+msgid "No defined groups with access to the form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionExpertMode.htm:7
+msgid "Use skin by templates"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_definitionExpertMode.htm:64
+msgid "Styles sheet to aply (give full URL)"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContent.htm:12
+#: pntemplates/iw_forms_user_readNoteContent.htm:12
+msgid "User who sent the note"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContent.htm:35
+#: pntemplates/iw_forms_user_readNoteContent.htm:35
+msgid "User not registered"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContent.htm:64
+#: pntemplates/iw_forms_block_formNote.htm:5
+msgid "Edit content"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContent.htm:73
+msgid "Private notes of those responsible"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContent.htm:89
+msgid "Synchronize fields"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_groupDelete.htm:12
+msgid "Confirms delete access to the group"
+msgstr ""
+
+#: pntemplates/iw_forms_block_formNote.htm:10
+msgid "Edit estructure"
+msgstr ""
+
+#: pntemplates/iw_forms_user_menu.htm:3 pntemplates/iw_forms_admin_menu.htm:4
+msgid "Forms"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_create.htm:12
+#: pntemplates/iw_forms_admin_form_minitab.htm:2
+msgid "Definition"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_create.htm:99
+msgid "Use expert mode (options available after creation during edition)"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_create.htm:110
+#: pntemplates/iw_forms_admin_form_fieldAdd.htm:26
+#: pntemplates/iw_forms_admin_form_fieldAdd.htm:27
+msgid "Create"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form.htm:13
+#: pntemplates/iw_forms_user_export.htm:36
+msgid "Managing a form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form.htm:30
+msgid "...expand/collapse..."
+msgstr ""
+
+#: pntemplates/iw_forms_user_manageNoteContentEdit.htm:6
+msgid "Edit "
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_addFieldValidator.htm:10
+msgid "Choose a new validator for the field"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_addFieldValidator.htm:20
+msgid "There is no validators available for this form"
+msgstr ""
+
+#: pntemplates/iw_forms_user_read.htm:7
+msgid "List of entries submitted"
+msgstr ""
+
+#: pntemplates/iw_forms_user_read.htm:18
+#: pntemplates/iw_forms_user_manage.htm:26
+msgid "N. Entries"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldModifyDependances.htm:3
+msgid "Change the dependencies"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldModifyDependances.htm:10
+msgid "Choose depend on the field"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldModifyDependances.htm:11
+msgid "List of possible dependencies"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:4
+msgid "Expand"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:10
+msgid "Collapse"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:15
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:58
+msgid "Size of the box"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:33
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:65
+msgid "No. Column"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:38
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:72
+msgid "No. Row"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:44
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:79
+msgid "Incorporates the HTML editor"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:55
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:89
+msgid "Default yes"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:70
+msgid "Op. group"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:77
+msgid "JavaScript Calendar"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:87
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:127
+msgid "Thickness of the line"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:92
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:135
+msgid "Color Line"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:97
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:143
+msgid "Background color"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:103
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:151
+msgid "Required"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:115
+msgid "Filterable"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:128
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:158
+msgid "Supports comments"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:142
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:166
+msgid "Need validation"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:156
+msgid "Msg to validators"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:178
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:186
+msgid "Only validators"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:187
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:193
+msgid "Editable"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:199
+msgid "Extensions"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:203
+msgid "Width"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldCharContent.htm:207
+msgid "Height"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manage.htm:18
+#: pntemplates/iw_forms_user_manage.htm:20
+msgid "State of the annotations"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manage.htm:21
+msgid "Date Posted"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manage.htm:39
+msgid "Filter by field"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manage.htm:63
+msgid "Color legend of the notes"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manage.htm:68
+msgid "Note not visited before"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manage.htm:72
+msgid "Note longer view"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manage.htm:76
+msgid "Note marked as completed"
+msgstr ""
+
+#: pntemplates/iw_forms_user_manage.htm:80
+msgid "The note has not yet been validated by the responsible"
+msgstr ""
+
+#: pntemplates/iw_forms_user_origenNote.htm:1
+msgid "See the entry in the original context"
+msgstr ""
+
+#: pntemplates/iw_forms_user_sendedWhatForm.htm:8
+#: pntemplates/iw_forms_block_formsList.htm:51
+msgid "Choose a form..."
+msgstr ""
+
+#: pntemplates/iw_forms_block_formsList.htm:46
+#: pntemplates/iw_forms_block_formsList.htm:55
+msgid "You do not have access to any form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_addValidator.htm:9
+msgid "Choose the group where you have the validator"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_addValidator.htm:18
+msgid "Choose a validator"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_addValidator.htm:29
+msgid "Only validator fields"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldAdd.htm:34
+msgid "Choose a field type"
+msgstr ""
+
+#: pntemplates/iw_forms_user_export.htm:14
+msgid "Order of the notes for export"
+msgstr ""
+
+#: pntemplates/iw_forms_user_export.htm:24
+msgid "Ascending order"
+msgstr ""
+
+#: pntemplates/iw_forms_user_export.htm:45
+msgid "Includes users senders of the notes"
+msgstr ""
+
+#: pntemplates/iw_forms_user_export.htm:55
+msgid "Include the date and time of sending notes"
+msgstr ""
+
+#: pntemplates/iw_forms_user_export.htm:67
+msgid "It includes the notes of private responsibility"
+msgstr ""
+
+#: pntemplates/iw_forms_user_export.htm:77
+msgid "Includes responses to senders"
+msgstr ""
+
+#: pntemplates/iw_forms_user_export.htm:87
+msgid "It includes the state (completed / not completed) of the notes"
+msgstr ""
+
+#: pntemplates/iw_forms_user_export.htm:97
+msgid "Include the annotations URL"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:15
+msgid "Informative text"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:27
+msgid "Description of the field"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:33
+msgid "Text of the help icon"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:44
+msgid "Restringed extensions (separated by commas)"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:48
+msgid "Thumbnail width (only images gif, jpg and png. 0 for original size)"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:52
+msgid "Thumbnail height (only images gif, jpg and png. 0 for original size)"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:83
+msgid "Available only if the editor is active and set on"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:96
+msgid "List options"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:98
+msgid ""
+"The options must be separated by the hyphen (-). To leave empty the first "
+"option, you must write a hyphen before the first one."
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:99
+msgid "List of members into a groups"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:107
+msgid "The group's members are added to the list defined in the option above."
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:113
+msgid "The validators can filter using this field"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:120
+msgid "Make your choice with a calendar in JavaScript"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:137
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:145
+msgid "Choose a color"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:174
+msgid "Send a private message to validators"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:184
+msgid "Users can read and write"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_fieldEdit.htm:185
+msgid "Users only can read"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_minitab.htm:5
+msgid "Form fields"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_minitab.htm:8
+msgid "Groups who have acces to the form"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_minitab.htm:8
+msgid "Groups"
+msgstr ""
+
+#: pntemplates/iw_forms_admin_form_minitab.htm:11
+msgid "People who validated the entries in the form"
+msgstr ""

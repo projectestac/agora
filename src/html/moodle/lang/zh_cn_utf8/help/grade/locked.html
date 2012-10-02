@@ -1,0 +1,23 @@
+<h1>锁定</h1>
+<p>成绩是否接受对应活动的分数更新。通常来说活动结束不再接受提交后，该功能就开启（锁定）。事件的一个典型顺序是：
+</p>
+<table class="generaltable boxaligncenter" cellpadding="4" cellspacing="1" summary="评分过程中的主要事件与对应的锁定、隐藏状态">
+    <tr>
+        <th class="header">事件</th><th class="header">锁定</th><th class="header">隐藏</th>
+    </tr>
+    <tr>
+        <td class="cell">活动开始，参与者提交</td>
+        <td class="cell">否</td>
+        <td class="cell">是</td>
+    </tr>
+    <tr>
+        <td class="cell">活动结束，开始评分</td>
+        <td class="cell">是</td>
+        <td class="cell">是</td>
+    </tr>
+    <tr>
+        <td class="cell">评分结束，发布成绩</td>
+        <td class="cell">是</td>
+        <td class="cell">否</td>
+    </tr>
+</table>

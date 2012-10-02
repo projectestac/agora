@@ -1,0 +1,199 @@
+[-*Smarty*-]
+<!-- main navigation -->
+[-*Load the Language Definitions*-]
+[-config_load file="lang.$USER_LANG"-]
+[-*Main Navigation*-]
+[-*include file="$TPL_NAME/views/global/navigation.html"*-]
+
+<form action="[-pc_url action="submit-admin"-]" method="post" enctype="application/x-www-form-urlencoded">
+<table border="0" cellpadding="1" cellspacing="0" bgcolor="[-$BGCOLOR2-]" width="100%">
+    <tr><td align="left" valign="middle" width="100%">
+        <table width="100%" border="0" cellpadding="2" cellspacing="0" bgcolor="[-$BGCOLOR1-]">
+
+<!-- EVENT INFO ROWS -->            
+            <tr>
+                <th bgcolor="[-$BGCOLOR2-]" colspan="2" align="left" valign="middle" width="100%">[-$NewEventHeader-]</th>
+            </tr>
+            <tr>
+                <td bgcolor="[-$BGCOLOR1-]" align="left" valign="top" width="50%">
+                [-$EventTitle-]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-$Required-]<br />
+                <input type="text" name="[-$InputEventTitle-]" value="[-$ValueEventTitle-]" /><br />
+                [-$DateTimeTitle-]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-$Required-]<br />
+                [-$SelectDateTime-]<br />
+                <table border="0" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <td valign="top" align="left"><input type="radio" name="[-$InputAllday-]" value="[-$ValueAllday-]" [-$SelectedAllday-] /></td>
+                        <td valign="top" align="left">[-$AlldayEventTitle-]</td>
+                    </tr>
+                    <tr>
+                        <td valign="top" align="left"><input type="radio" name="[-$InputTimed-]" value="[-$ValueTimed-]" [-$SelectedTimed-] /></td>
+                        <td valign="top" align="left">[-$TimedEventTitle-]</td>
+                        <td valign="top" align="left">[-$SelectTimedHours-] [-$SelectTimedMinutes-] [-$SelectTimedAMPM-]</td>
+                    </tr>
+                    <tr>
+                        <td valign="top" align="left">&nbsp;</td>
+                        <td valign="top" align="left">[-$TimedDurationTitle-]</td>
+                        <td valign="top" align="left">
+                        [-strip-]
+                            <select name="[-$InputTimedDurationHours-]">
+                            [-foreach item=time from=$TimedDurationHours-]
+                                <option value="[-$time.value-]" [-$time.selected-]>[-$time.name-]</option>
+                            [-/foreach-]
+                            </select>
+                        [-/strip-] 
+                        [-$TimedDurationHoursTitle-]
+                    
+                        [-strip-]
+                        <select name="[-$InputTimedDurationMinutes-]">
+                            [-foreach item=time from=$TimedDurationMinutes-]
+                                <option value="[-$time.value-]" [-$time.selected-]>[-$time.name-]</option>
+                            [-/foreach-]
+                        </select>
+                        [-/strip-]
+                        [-$TimedDurationMinutesTitle-]
+                        </td>
+                    </tr>
+                </table>
+                [-$EventDescTitle-]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-$Required-]<br />
+                <textarea id="description" name="[-$InputEventDesc-]" rows="15" cols="40">[-$ValueEventDesc-]</textarea>
+                </td>
+                
+                <td bgcolor="[-$BGCOLOR1-]" align="left" valign="top" width="50%">
+                [-if $displayTopics eq 1-]
+                    [-$EventTopicTitle-]<br />
+                    [-strip-]
+                    <select name="[-$InputEventTopic-]">
+                    [-foreach item=topic from=$topics-]
+                        <option value="[-$topic.value-]" [-$topic.selected-]>[-$topic.name-]</option>
+                    [-/foreach-]
+                    </select>
+                    [-/strip-]
+                    <br />
+                [-/if-]
+                [-$EventSharingTitle-]<br />
+                [-strip-]
+                <select name="[-$InputEventSharing-]">
+                [-foreach item=share from=$sharing-]
+                    <option value="[-$share.value-]" [-$share.selected-]>[-$share.name-]</option>
+                [-/foreach-]
+                </select>
+                [-/strip-]
+                <br />
+                [-$EventCategoriesTitle-]<br />
+                [-strip-]
+                <select name="[-$InputEventCategory-]">
+                [-foreach item=category from=$categories-]
+                    <option value="[-$category.value-]" [-$category.selected-]>[-$category.name-]</option>
+                [-/foreach-]
+                </select>
+                [-/strip-]
+                <br />
+                
+                <table border="0" cellpadding="0" cellspacing="2">
+                <tr>
+                    <td colspan="3">
+                        [-$EventLocationTitle-]<br />
+                        <input size="40" type="text" name="[-$InputLocation-]"  value="[-$ValueLocation-]" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        [-$EventStreetTitle-]<br />
+                        <input size="40" type="text" name="[-$InputStreet1-]"  value="[-$ValueStreet1-]" /><br />
+                        <input size="40" type="text" name="[-$InputStreet2-]"  value="[-$ValueStreet2-]" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>[-$EventCityTitle-]</td><td>[-$EventStateTitle-]</td><td>[-$EventPostalTitle-]</td>
+                </tr>
+                <tr>
+                    <td><input size="10" type="text" name="[-$InputCity-]"  value="[-$ValueCity-]" /></td>
+                    <td><input size="10" type="text" name="[-$InputState-]"  value="[-$ValueState-]" /></td>
+                    <td><input size="10" type="text" name="[-$InputPostal-]"  value="[-$ValuePostal-]" /></td>
+                </tr>
+                </table>
+                <br />
+                [-$EventContactTitle-]<br />
+                <input type="text" name="[-$InputContact-]"   value="[-$ValueContact-]" /><br />
+                [-$EventPhoneTitle-]<br />
+                <input type="text" name="[-$InputPhone-]"     value="[-$ValuePhone-]" /><br />
+                [-$EventEmailTitle-]<br />
+                <input type="text" name="[-$InputEmail-]"     value="[-$ValueEmail-]" /><br />
+                [-$EventWebsiteTitle-]<br />
+                <input type="text" name="[-$InputWebsite-]"   value="[-$ValueWebsite-]" /><br />
+                [-$EventFeeTitle-]<br />
+                <input type="text" name="[-$InputFee-]"       value="[-$ValueFee-]" /><br />
+                </td>
+            </tr>
+<!-- EVENT INFO ROWS -->
+
+<!-- REPEATING ROWS -->            
+            <tr>
+                <th bgcolor="[-$BGCOLOR2-]" colspan="2" align="left" valign="top" width="100%">
+                [-$RepeatingHeader-]
+                </th>
+            </tr>
+            <tr>
+                <td bgcolor="[-$BGCOLOR1-]" colspan="2" align="left" valign="middle" width="100%">
+                <input type="radio" name="[-$InputNoRepeat-]" value="[-$ValueNoRepeat-]" [-$SelectedNoRepeat-] />
+                [-$NoRepeatTitle-]<br />
+                
+                <input type="radio" name="[-$InputRepeat-]" value="[-$ValueRepeat-]" [-$SelectedRepeat-] /> 
+                [-$RepeatTitle-]
+				<input type="text" name="[-$InputRepeatFreq-]" value="[-$InputRepeatFreqVal-]" size="4" />
+				<!--
+                <select name="[-$InputRepeatFreq-]">
+                [-foreach item=repeat from=$repeat_freq-]
+                    <option value="[-$repeat.value-]" [-$repeat.selected-]>[-$repeat.name-]</option>
+                [-/foreach-]
+                </select>
+                -->
+				
+                <select name="[-$InputRepeatFreqType-]">
+                [-foreach item=repeat from=$repeat_freq_type-]
+                    <option value="[-$repeat.value-]" [-$repeat.selected-]>[-$repeat.name-]</option>
+                [-/foreach-]
+                </select>
+                <br />
+                
+                <input type="radio" name="[-$InputRepeatOn-]" value="[-$ValueRepeatOn-]" [-$SelectedRepeatOn-] /> 
+                [-$RepeatOnTitle-]
+                <select name="[-$InputRepeatOnNum-]">
+                [-foreach item=repeat from=$repeat_on_num-]
+                    <option value="[-$repeat.value-]" [-$repeat.selected-]>[-$repeat.name-]</option>
+                [-/foreach-]
+                </select>
+                <select name="[-$InputRepeatOnDay-]">
+                [-foreach item=repeat from=$repeat_on_day-]
+                    <option value="[-$repeat.value-]" [-$repeat.selected-]>[-$repeat.name-]</option>
+                [-/foreach-]
+                </select>&nbsp;
+                [-$OfTheMonthTitle-]&nbsp;
+				<input type="text" name="[-$InputRepeatOnFreq-]" value="[-$InputRepeatOnFreqVal-]" size="4" />
+				[-$MonthsTitle-].
+				<!--
+                <select name="[-$InputRepeatOnFreq-]">
+                [-foreach item=repeat from=$repeat_on_freq-]
+                    <option value="[-$repeat.value-]" [-$repeat.selected-]>[-$repeat.name-]</option>
+                [-/foreach-]
+                </select>
+				-->
+                <br /><br />
+                
+                [-$EndDateTitle-]<br />
+                <input type="radio" name="[-$InputEndOn-]" value="[-$ValueEndOn-]" [-$SelectedEndOn-] />&nbsp;
+                [-$SelectEndDate-]
+                <br />
+                <input type="radio" name="[-$InputNoEnd-]" value="[-$ValueNoEnd-]" [-$SelectedNoEnd-] />&nbsp;
+                [-$NoEndDateTitle-]
+                </td>
+            </tr>
+<!-- REPEATING ROWS -->
+        
+        </table>
+     </td></tr>
+</table>
+[-$EventHTMLorText-]
+[-$FormHidden-]
+[-$FormSubmit-]
+</form>

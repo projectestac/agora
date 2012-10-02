@@ -1,0 +1,88 @@
+<script language="javascript">
+	function sendChange(value){
+		if(value == 1){
+			//document.order.filterValue.value = 0;
+		}
+		document.order.submit();
+	}
+</script>
+<!--[include file="iw_forms_user_menu.htm" fid=$form.fid]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+	<h2><!--[gt text="Managing annotations"]--> => <!--[$form.formName]--></h2>
+	<div><!--[gt text="Title of the annotations "]-->: <!--[$form.title]--></div>
+
+	<fieldset>
+		<form name="order" id="order" action="<!--[pnmodurl modname="iw_forms" type="user" func="manage"]-->" method="post" enctype="application/x-www-form-urlencoded">
+			<input type="hidden" name="fidReload" value="<!--[$fid]-->">
+			<input type="hidden" name="user" value="<!--[$user]-->">
+			<div style="float: left; margin: 5px 30px 0px 0px;">
+				<!--[gt text="State of the annotations"]-->:
+				<select name="order" <!--[if $notes|@count > 1]-->onchange="javascript:sendChange(0)"<!--[/if]-->>
+					<option <!--[if $order eq 'state']-->selected<!--[/if]--> value="state"><!--[gt text="State of the annotations"]--></option>
+					<option <!--[if $order eq 'time']-->selected<!--[/if]--> value="time"><!--[gt text="Date Posted"]--></option>
+				</select>
+			</div>
+			<!--[if $pager neq '' || $total > 10]-->
+				<div id="itemsPerPage" style="float: left; margin: 5px 30px 0px 0px;">
+					<!--[gt text="N. Entries"]-->:
+					<select name="ipp" onchange="javascript:sendChange(0)">
+						<!--[foreach item=ippValue from=$ippArray]-->
+							<option <!--[if $ipp eq $ippValue]-->selected<!--[/if]--> value="<!--[$ippValue]-->"><!--[$ippValue]--></option></option>
+						<!--[/foreach]-->
+					</select>
+				</div>
+			<!--[else]-->
+				<div style="clear:both;"></div>
+			<!--[/if]-->
+			<!--[if $filters|@count gt 0]-->
+				<div>
+					<div style="clear:both; float: left; margin: 12px 15px 5px 0px;">
+						<!--[gt text="Filter by field"]-->
+						<!--[if $filters|@count gt 1]-->
+							<select name="filter"  onchange="javascript:changeFilter(<!--[$fid]-->,this.value)">
+								<!--[foreach item=filt from=$filters]-->
+									<option <!--[if $filter eq $filt.id]-->selected<!--[/if]--> value="<!--[$filt.id]-->"><!--[$filt.name]--></option>
+								<!--[/foreach]-->
+							</select> =>
+						<!--[else]-->
+							<strong><!--[$filters[0].name]--></strong>:
+							<input type="hidden" name="filter" value="<!--[$filters[0].id]-->">
+						<!--[/if]-->
+					</div>
+					<div id="filterValues" style="float: left; margin: 10px 15px 0px 0px;">
+						<!--[include file="iw_forms_user_manageFilter.htm"]-->
+					</div>
+				</div>
+			<!--[/if]-->
+		</form>
+	</fieldset>
+
+	<div id="allNotesContent" style="margin: 10px 0px 0px 0px;">
+		<!--[include file="iw_forms_user_manageAllNotesContent.htm"]-->
+	</div>
+	
+	<h3><!--[gt text="Color legend of the notes"]--></h3>
+
+	<table>
+		<tr>
+			<td bgcolor="<!--[$newsColor]-->">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td><!--[gt text="Note not visited before"]--></td>
+		</tr>
+		<tr>
+			<td bgcolor="<!--[$viewedColor]-->">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td><!--[gt text="Note longer view"]--></td>
+		</tr>
+		<tr>
+			<td bgcolor="<!--[$completedColor]-->">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td><!--[gt text="Note marked as completed"]--></td>
+		</tr>
+		<tr>
+			<td bgcolor="<!--[$validatedColor]-->">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td><!--[gt text="The note has not yet been validated by the responsible"]--></td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">
+	var deleteUserNote = '<!--[gt text="Delete the note"]-->';
+</script>

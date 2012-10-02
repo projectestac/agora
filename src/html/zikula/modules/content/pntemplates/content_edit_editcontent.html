@@ -1,0 +1,51 @@
+<!--[contentpageheading __header='Edit content item' subheader=$contentType.title]-->
+
+<p class="content-page-help"><!--[$contentType.description]--></p>
+
+<!--[pnformerrormessage id='error']-->
+
+<!--[pnform enctype="multipart/form-data" cssClass='z-form']--> <!--[* Always allow plugins to use upload *]-->
+
+<!--[contentformframe]-->
+<!--[pnformtabbedpanelset]-->
+
+<!--[pnformtabbedpanel __title='Content']-->
+<fieldset>
+    <legend><!--[$contentType.title]--> [<!--[gt text="ID"]--><!--[$content.id]-->]</legend>
+    <!--[include file=$contentTypeTemplate]-->
+</fieldset>
+<!--[/pnformtabbedpanel]-->
+
+<!--[pnformtabbedpanel __title='Layout']-->
+<fieldset>
+    <legend><!--[gt text="Layout"]--></legend>
+    <!--[contentlabelhelp __text='Positioning works only with fixed width!']-->
+    <div class="z-formrow">
+        <!--[pnformlabel for='stylePosition' __text='Position']-->
+        <!--[contentpositionselector id='stylePosition' group='content']-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for='styleWidth' __text='Width']-->
+        <!--[contentwidthselector id='styleWidth' group='content']-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for='styleClass' __text='Styling']-->
+        <!--[contentclassselector id='styleClass' group='content']-->
+    </div>
+</fieldset>
+<!--[/pnformtabbedpanel]-->
+
+<!--[/pnformtabbedpanelset]-->
+
+<!--[contentbuttons]-->
+<!--[pnformbutton commandName="save" __text="Save"]-->
+<!--[pnformbutton commandName="delete" __text="Delete" __confirmMessage='Delete']-->
+<!--[if $content.isTranslatable && $multilingual==1]-->
+<!--[pnformbutton commandName="translate" __text="Translate"]-->
+<!--[/if]-->
+<!--[pnformbutton commandName="cancel" __text="Cancel"]-->
+<!--[/contentbuttons]-->
+
+<!--[/contentformframe]-->
+
+<!--[/pnform]-->

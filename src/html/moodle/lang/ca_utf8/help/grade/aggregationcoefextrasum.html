@@ -1,0 +1,12 @@
+<h1>Actua com a crèdit extra</h1>
+<p>Quan s'utilitza l'estratègia d'agregació "Suma de qualificacions", un element de qualificació pot actuar com a crèdit extra per a la categoria. Això vol dir que la qualificació màxima de l'element no s'afegirà a la qualificació màxima total de la categoria, però la qualificació de l'element sí que es comptarà. Per exemple:</p>
+
+<ul>
+    <li>Element 1 qualificat 0-100</li>
+    <li>Element 2 qualificat 0-75</li>
+    <li>L'element 1 té activada la casella "Actua com a crèdit extra" checkbox. L'element 2 no.</li>
+    <li>Tots dos elements pertanyen a la categoria 1, amb estratègia d'agregació "Suma de qualificacions"</li>
+    <li>El total de la category 1 es qualificarà 0-75</li>
+    <li>Un estudiant obté una qualificació de 20 punts en l'element 1 i 70 en l'element 2</li>
+    <li>La qualificació total d'aquest estudiant en la categoria 1 serà 75/75 (20+70 = 90, però l'element 1 només compta com a crèdit extra, de manera que puja el total fins al màxim)</li>
+</ul>

@@ -1,0 +1,45 @@
+<h1>Caricamento degli utenti</h1>
+
+<p>Innanzitutto, occorre notare che <b>di solito non è necessario importare utenti in massa</b>. Per ridurre il proprio lavoro di manutenzione bisognerebbe, per prima cosa, esaminare i moduli di autenticazione che non richiedono la manutenzione manuale, come la connessione ad esistenti database esterni o consentire agli utenti la creazione di propri account. Consultare la sezione Autenticazione nei menu dell'amministratore.</p>
+
+<p>Se si è sicuri di voler importare molteplici account utente da un file di testo, allora occorre formattare il proprio file di testo come segue:</p>
+<ul>
+  <li>Ciascuna riga del file contiene un record</li>
+  <li>Ciascun record è una serie di dati separati da virgole</li>
+  <li>Il primo record del file è speciale e contiene un elenco di fieldname (nomi di campo). Ciò definisce il formato del resto del file.
+    <blockquote>
+      <p><b>Fieldname richiesti:</b> questi campi devono essere inclusi nel primo record e definiti per ciascun utente</p>
+      <p><code class="example1">username, password, firstname, lastname, email</code></p>
+
+      <p><b>Fieldname predefiniti:</b> sono facoltativi, se non sono inclusi allora i valori si prendono da quelli dell'amministratore principale</p>
+      <p><code class="example1">institution, department, city, country, lang, timezone</code></p>
+
+      <p><b>Fieldname facoltativi:</b> sono tutti completamente facoltativi. I nomi dei corsi sono i "nomi brevi" dei corsi - se presenti, l'utente sarà iscritto come studente in questi corsi. I nomi dei gruppi devono associarsi ai corsi corrispondenti, per esempio gruppo1 a corso1, ecc.</p>
+      <p><code class="example1">idnumber, icq, phone1, phone2, address, url, description, mailformat, maildisplay, htmleditor, autosubscribe, course1, course2, course3, course4, course5, group1, group2, group3, group4, group5, type1, type2, type3, type4, type5, role1, role2, role3, role4, role5, emailstop</code></p>
+    </blockquote>
+    </li>
+  <li>Le virgole all'interno dei dati dovrebbero essere codificate come &#44 - lo script le decodificherà automaticamente di nuovo in virgole. </li>
+  <li>Per i campi booleani, utilizzare 0 per falso e 1 per vero.</li>
+  <li>Types sono usati per dire a Moodle se l'utente è uno studente o un docente se il corso corrispondente esiste (cioè type2 corrisponde a course2). 1 = Studente, 2 = Docente editor, e 3 = Docente non-editor. Se type è lasciato vuoto, o non è specificato alcun corso, l'utente è per default uno studente.</li>
+
+  <li>Per i corsi usare la sigla; per i gruppi il nome gruppo; per i ruoli il corrispondente id.</li>
+
+  <li>Nota: se un utente è già registrato nel database utenti di Moodle, questa sequenza restituirà il numero di identificazione utente (indice database) di quell'utente ed iscriverà l'utente come studente in tutti i corsi specificati SENZA aggiornare gli altri dati specificati</li>
+</ul>
+  
+  
+<p>Ecco l'esempio di un file di importazione valido:</p>
+
+<p><code>username, password, firstname, lastname, email, lang, idnumber, maildisplay, course1, group1, type1<br />
+
+jonest, verysecret, Tom, Jones, jonest@someplace.edu, en, 3663737, 1, Intro101, Section 1, 1<br />
+reznort, somesecret, Trent, Reznor, reznort@someplace.edu, en_us, 6736733, 0, Advanced202, Section 3, 3
+</code></p>
+
+<h2>Aggiornamento account esistenti</h2>
+
+<p>Per default Moodle assume che si stanno creando nuovi account utenti e salta i records dove lo username corrisponde ad un account esistente. Comunque, se si imposta "Aggiorna account esistenti" a <b>SI</b>, l'account utente esistente sarà aggiornato.</p>
+
+<p>Quando si aggiornano account esistenti si possono anche cambiare gli username. Impostare "Permetti rinomina" a <b>SI</b> e includere nel file da caricare un campo chiamato <code class="example1">oldusername</code>.</p>
+
+<p><b>Attenzione:</b> ogni errore nell'aggiornamento degli account esistenti può incidere negativamente sui dati degli utenti. Porre molta attenzione quando si usano le opzioni per l'aggiornamento.</p>

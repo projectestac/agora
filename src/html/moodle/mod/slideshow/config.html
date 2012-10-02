@@ -1,0 +1,59 @@
+<form method="post" action="module.php" name="form">
+<input type="hidden" name="sesskey" value="<?php echo sesskey(); ?>" />
+
+<table cellpadding=9 cellspacing=0 >
+<tr valign=top>
+    <td align=right><p>slideshow_maxsize:</td>
+    <td>
+    <input type="text" name="slideshow_maxsize" value="<?php echo $CFG->slideshow_maxsize ?>" size="5" />
+    </td>
+    <td>
+    <?php print_string("configmaxbytes", "slideshow") ?>
+    </td>
+</tr>
+<tr valign=top>
+    <td align=right><p>slideshow_maxwidth:</td>
+    <td>
+    <input type="text" name="slideshow_maxwidth" value="<?php echo $CFG->slideshow_maxwidth ?>" size="5" />
+    </td>
+    <td>
+    <?php print_string("configmaxwidth", "slideshow") ?>
+    </td>
+</tr>
+<tr valign=top>
+    <td align=right><p>slideshow_maxheight:</td>
+    <td>
+    <input type="text" name="slideshow_maxheight" value="<?php echo $CFG->slideshow_maxheight ?>" size="5" />
+    </td>
+    <td>
+    <?php print_string("configmaxheight", "slideshow") ?>
+    </td>
+</tr>
+<tr valign=top>
+    <td align=right><p>slideshow_keeporiginals:</td>
+    <td>
+        <input type="radio" name="slideshow_keeporiginals" value="1"<?php if($CFG->slideshow_keeporiginals==1){echo " checked";}?>>Yes<br>
+        <input type="radio" name="slideshow_keeporiginals" value="0"<?php if($CFG->slideshow_keeporiginals==0){echo " checked";}?>> No<br>
+    </td>
+    <td>
+    <?php print_string("keeporiginals", "slideshow") ?>
+    </td>
+</tr>
+<tr valign=top>
+    <td align=right><p>slideshow_securepix:</td>
+    <td>
+        <INPUT TYPE=HIDDEN NAME="slideshow_securepix" VALUE="0">
+        <INPUT TYPE=CHECKBOX NAME="slideshow_securepix" VALUE="1"';
+        <?php if ( $CFG->slideshow_securepix == 1 ){ echo" checked";}?>>
+        </td>
+    <td>
+    <?php print_string("securepix", "slideshow") ?>
+    </td>
+</tr>
+<tr>
+    <td colspan=3 align=center>
+    <input type="submit" value="<?php print_string("savechanges") ?>"></td>
+</tr>
+</table>
+
+</form>

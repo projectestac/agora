@@ -1,0 +1,32 @@
+<p align="center"><b>上传组</b></p>
+
+<p>此设备允许成批上传组到Moodle。</p>
+
+<ul>
+  <li>文件的每一行包含一条记录</li>
+  <li>每条记录是一连串数据，并用逗号分开</li>
+  <li>文件的第一条记录是特殊的，包含一条属性列表。这定义了文件的剩余部分的格式。
+    <blockquote>
+      <p><strong>指定属性：</strong>这些字段必须包含在第一条记录里，对每个用户定义</p>
+      <p></p>
+      <font color="#990000" face="Courier New, Courier, mono">组名</font></p>
+</p>
+      <p><strong>默认属性：</strong>这些是可选择的-如果不包含它们-值来自当前的语言和当前的课程</p>
+      <p><font color="#990000" face="Courier New, Courier, mono">ID号码、课程名、语言</font> 
+</p>
+      <p><strong>可选的字段名: </strong>所有的这些完全可选。</p>
+      <p> <font color="#990000" face="Courier New, Courier, mono">描述、图片、隐藏图片</font></p>
+    </blockquote>
+    </li>
+  <li>在数据中的逗号应该作为&amp编码;#44-此脚本将自动将这些解码成逗号</li>
+  <li>对于布尔属性，用0表示错误，用1表示正确。</li>
+  <li>ID号和课程名都可以用于识别课程。ID号优先于课程名。如果两者都不确切，组将会添加到当前课程。</li>
+  <li>课程名是课程的简称。</li>
+  <li>注意：如果某个组已经在Moodle数据库被注册属于某一特定的课程，此脚本将那个组的组名称。老师仅允许在经认可可以编辑的课程中上传组。</li> 
+</ul>
+
+<p>一个有效的导入文件的例子：</p>
+<p><font size="-1" face="Courier New, Courier, mono"></font>组名称,ID号码,语言,描述，图片<br />
+group1, Phil101, en, this group requires extra attention!, 0 <br />
+group2, Math243, , ,
+</font></p>

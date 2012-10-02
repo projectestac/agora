@@ -1,0 +1,137 @@
+<h2>Importieren neuer Fragen</h2>
+<p>Diese Funktion ermöglicht das Importieren von Fragen aus
+externen Textdateien mit Hilfe eines Formulars oder einer hochgeladenen Datei.</p>
+
+<p><b>Anmerkung zu Zeichensatz-Codierungen</b></p>
+<p>Wenn Ihre Datei Non-ASCII-Zeichen enthält, muss die UTF-8-Codierung verwendet werden. Konvertieren Sie die Datei beim Export oder mit Hilfe eines Editors. XML-basierte Importformate übernehmen diese Aufgabe automatisch, wenn der Server unter PHP5 läuft.</p>
+
+<p>Eine ganze Reihe von Dateiformaten wird unterstützt:</p>
+
+<p><b>Aiken-Format</b></p>
+<ul>
+<p>The Aiken-Format ist ein einfacher Weg, Multiple-Choice Fragen zu erstellen in einem sehr einfachen und gut lesbaren Format. Hier ein Beispiel:</p>
+<pre>
+What is the purpose of first aid?
+A. To save life, prevent further injury, preserve good health
+B. To provide medical treatment to any injured or wounded person
+C. To prevent further injury
+D. To aid victims who may be seeking help
+ANSWER: A
+</pre>
+
+<p align="right"><a href="help.php?file=formataiken.html&module=quiz">Mehr über das Aiken-Format</a></p>
+</ul>
+
+<p><b>AON</b></p>
+<div style="margin-left: 2em">
+<p>Dieses Format entspricht dem Lückentext-Format, mit dem Unterschied, dass nach dem Import der Fragen alle Kurzantwort-Fragen in Fragen mit
+Antwortauswahlen (Matching Questions) umgewandelt werden.<br /></p>
+<p>Zusätzlich werden die Antworten von Multiple-Choice-Fragen während des Imports gemischt.</p>
+<p>Dieses Format ist nach einer Organisation benannt, die die
+Entwicklung vieler Testeigenschaften unterstützt hat.</p>
+</div>
+<p><b>Blackboard</b></p>
+<div style="margin-left: 2em">
+<p>Dieses Modul kann Fragen importieren, die im Blackboard-Export-Format gespeichert sind. Es basiert auf XML-Funktionen, die in
+Ihr PHP kompiliert werden. Dieses Format ist mit den Blackboard-Versionen 6 und neuer.</p>
+<p align="right"><a href=
+"help.php?file=formatblackboard.html&amp;module=quiz">Mehr über das Blackboard-Format</a></p>
+</div>
+<p><b>Course Test Manager</b></p>
+<div style="margin-left: 2em">
+<p>Dieses Modul kann Fragen importieren, die als Course-Test-Manager-Daten gespeichert sind. Es vertraut auf verschiedene
+Möglichkeiten, um die CTM-Daten zur Verfügung zu
+stellen. Diese Daten sind MS-Access-Datenbanken und es hängt
+davon ab, ob Moodle auf einem Windows- oder Linux-Webserver
+läuft.</p>
+<p>Benutzen Sie Windows, können Sie die Access-Datenbank wie
+jede andere Datenimportdatei einfach hochladen.</p>
+<p>Benutzen Sie Linux, müssen Sie einen Windows-PC im selben
+Netzwerk platzieren und auf diesem die Course-Test-Manager-Datenbanken sowie eine kleine Software namens ODBC Socket Server
+installieren. Dieses Programm benutzt XML, um die Daten zu Moodle
+auf dem Linux Server zu transferieren.</p>
+<p>Bitte lesen Sie die unten stehende komplette Hilfedatei, bevor
+Sie diese Importklasse benutzen.</p>
+<p align="right"><a href=
+"help.php?file=formatctm.html&amp;module=quiz">Mehr über das CTM-Format</a></p>
+</div></ul>
+
+<p><b>Examview-Format</b></p>
+<ul>
+<p>Dieses Format importiert Fragen aus Examview-4-XML-Dateien. Ältere Examview-Versionen werden nicht unterstützt.</p>
+</ul>
+<p><b>GIFT-Format</b></p>
+<ul>
+<p>GIFT ist das umfangreichste Format zum Import von Textdateien
+in das Testmodul von Moodle. Es unterstützt
+Multiple-Choice-Fragen, Wahr-Falsch-Fragen,
+Kurzantwort-Fragen, Zuordnungen und numerische Fragen, genauso
+wie Fragen mit Lückentexten. Verschiedene Fragetypen
+können in einer Textdatei kombiniert werden. Das
+Importformat unterstützt auch Kommentarzeilen, Fragenamen,
+Feedback und die prozentuale Gewichtung der Antworten.</p>
+<p>Ihre Textdatei muss kompatibel zum UTF-8-Code sein (falls Sie Non-ASCII-Zeichen benutzen). Unten sehen Sie einige Beispiele:</p>
+<pre>
+Who's buried in Grant's tomb?{~Grant ~Jefferson =no one}
+
+Grant is {~buried =entombed ~living} in Grant's tomb.
+
+Grant is buried in Grant's tomb.{FALSE}
+
+Who's buried in Grant's tomb?{=no one =nobody}
+
+When was Ulysses S. Grant born?{#1822}
+</pre>
+
+<p align="right"><a href="help.php?file=formatgift.html&module=quiz">Mehr über das GIFT-Format</a></p>
+</ul>
+
+Eine Beispieldatei finden Sie hier:<a href="<?php echo $CFG->wwwroot; ?>/question/format/gift/examples.txt">gift/examples.txt</a>.</p>
+</ul>
+
+<p><b>Lückentext (Cloze)</b></p>
+<ul>
+<p>Dieses spezielle Format importiert nur einen einzigen Fragentyp, den Lückentext (engl. embedded answers bzw. Cloze).
+</p>
+
+<p align="right"><a href="help.php?file=multianswer.html&module=quiz">Mehr über das Lückentext-Format (Cloze)</a></p>
+</ul>
+
+<p><b>Lückentext (Missing Word)<br /></b></p>
+<div style="margin-left: 2em">
+<p>Dieses Format unterstützt lediglich Multiple-Choice- und Kurzantwort-Fragen, je nach Anzahl der Antworten. Eine einzige Antwort führt zu einer Kurzantwort-Frage, zwei oder mehr Antworten zu einer Multiple-Choice-Frage. Jede Antwort ist getrennt durch eine Tilde (~). Die
+richtige Antwort ist durch ein vorangestelltes
+Gleichheitszeichen (=) gekennzeichnet. <p>Hier ein Beispiel für eine Multiple-Choice-Frage:</p>
+
+     
+
+<pre><blockquote>Sobald wir als Säuglinge beginnen, unsere
+Körperpartien zu erkunden, werden wir Schüler der
+{=Anatomie und Physiologie ~Reflexologie ~Wissenschaft
+~Experimente}, und eigentlich bleiben wir Schüler fürs
+Leben.</blockquote></pre>
+</p>
+<p>Hier ein Beispiel für eine Kurzantwort-Frage:</p>
+
+<blockquote>Sobald wir als Säuglinge beginnen, unsere Körperpartien zu erkunden, werden wir Schüler der  {=Anatomie und Physiologie},
+ und eigentlich bleiben wir Schüler fürs Leben.
+</blockquote>
+
+<p align="right"><a href=
+"help.php?file=formatmissingword.html&amp;module=quiz">Mehr über das Lückentext-Format (Missing Word)</a></p>
+</div>
+
+<p><b>Standard</b></p>
+<div style="margin-left: 2em">
+<p>Wenn Sie Ihr eigenes Format importieren müssen,
+können Sie dieses implementieren, indem Sie die Datei
+mod/quiz/format/custom.php editieren.</p>
+<p>Der benötigte Umfang des neuen Quellcodes ist relativ
+gering - gerade genug, um eine einzelne Frage aus dem gegebenen
+Text zu analysieren.<br /></p>
+<p align="right"><a href=
+"help.php?file=formatcustom.html&amp;module=quiz">Mehr über das Standard-Format</a></p>
+</div>
+<p>Weitere Formate folgen, einschließlich WebCT, IMS
+QTI und was immer Moodle-Benutzer noch beisteuern
+werden!</p>

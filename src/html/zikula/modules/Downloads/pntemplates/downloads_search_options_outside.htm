@@ -1,0 +1,30 @@
+<!--[add_additional_header header="<link rel=\"StyleSheet\" type=\"text/css\" href=\"modules/Downloads/pnstyle/style.css\" />"]-->
+<div id="dl_search"> 
+	<div>
+		<input type="checkbox" name="active_Downloads" id="active_Downloads" value="1" checked="checked" />&nbsp;<!--[gt text='Downloads']-->
+	</div>
+    <input type="hidden" name="Downloads_startnum" value="0" />
+    <input type="hidden" name="outside_flag" value="1" />
+ 
+    <div class="dl_searchbox">
+        <div>
+            <!--[gt text='Search for submitter']-->:
+        </div>
+        <div>
+            <input type="text" name="dl_uploader" id="uploader" size="20" maxlength="255" />
+        </div>
+    </div>
+    
+    <div class="dl_searchbox">
+        <div>
+            <!--[gt text='Search Limit']-->:
+        </div>
+        <div>
+            <select name="dl_search_limit" id="searchlimit" size="1">
+            <option value="10" selected="selected">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            </select>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<!--[include file=Export_admin_menu.htm]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='folder_tar.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Restore modules"]--></h2>
+	
+	<!--[gt text=" The following modules has been correctly restored:"]-->
+	<ul>
+		<!--[foreach from=$backup_modules item=module]-->
+		<li><!--[$module]--></li>
+		<!--[/foreach]-->
+	</ul>	
+</div>

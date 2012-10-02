@@ -1,0 +1,86 @@
+<h1>새 질문을 가져옴</h1>
+
+<p>이 기능은 특정 포맷으로 올려진 외부 문서 파일로부터 질문을 가져올 수 있게 한다.</p>
+
+<p>다음은 지원되는 파일의 유형이다.</p>
+
+<h2>GIFT 형식</h2>
+<div class="indent">
+<p>GIFT 형식은 문서파일로부터 무들 퀴즈의 질문을 가져오는데 쓸 수 있는 가장 보편적인 형식이다. 이것은 교사가 문서 파일로 문항을 작성하기에 적합하게 구성되어 있다. 선다형, OX, 단답형, 일치형, 수치형, 그리고 괄호넣기 등 다양한 문형을 제공한다. 여러 문형들은 하나의 문서 파일에 같이 쓸 수 있으며, 형태 또한 덧글, 문제명, 피드백 그리고 가중된 백분률을 지원한다. 아래는 몇 개의 예시를 보여준다.</p>
+<pre>
+Who's buried in Grant's tomb?{~Grant ~Jefferson =no one}
+
+Grant is {~buried =entombed ~living} in Grant's tomb.
+
+Grant is buried in Grant's tomb.{FALSE}
+
+Who's buried in Grant's tomb?{=no one =nobody}
+
+When was Ulysses S. Grant born?{#1822}
+</pre>
+
+<p class="moreinfo"><a href="help.php?file=formatgift.html&amp;module=quiz">"GIFT" 포맷에 대한 좀 더 자세한 정보</a></p>
+</div>
+
+<h2>Aiken 형식</h2>
+<div class="indent">
+<p>Aiken 형식은 매우 이해하기 쉬운 형태로 선다형 문제를 만들 수 있는 방법이다. 다음은 작성의 예제이다.</p>
+<pre>
+What is the purpose of first aid?
+A. To save life, prevent further injury, preserve good health
+B. To provide medical treatment to any injured or wounded person
+C. To prevent further injury
+D. To aid victims who may be seeking help
+ANSWER: A
+</pre>
+
+<p class="moreinfo"><a href="help.php?file=formataiken.html&amp;module=quiz">"Aiken" 포맷에 대한 좀 더 자세한 정보</a></p>
+</div>
+
+<h2>괄호 넣기</h2>
+<div class="indent">
+<p>이 형식은 단지 선다형 문형만 지원한다. 개개의 답안은 틸다(~) 표시로 구분하며 정답의 경우에는 '='로 표시하여 구분한다. 다음은 그 예를 보여준다.</p>
+
+<blockquote>As soon as we begin to explore our body parts as infants
+we become students of {=anatomy and physiology ~reflexology 
+~science ~experiment}, and in a sense we remain students for life.
+</blockquote>
+
+<p class="moreinfo"><a href="help.php?file=formatmissingword.html&amp;module=quiz">"Missing Word" 포맷에 대한 좀 더 자세한 정보</a></p>
+</div>
+
+<h2>AON</h2>
+<div class="indent">
+<p>이 유형은 모든 단답형 문항들은 가져오기 후에는 모두 일치형 문형으로 전환되는 것을 제외하고는, 괄호 넣기 형식과 동일하다.</p>
+<p>게다가 선다형 문제의 답안은 가져오기를 하는 동안 모두 임의로 답안이 섞이게 된다.</p>
+<p>이 것의 명칭은 여러 퀴즈 기능을 개발하는 동안 후원한 업체의 명칭에서 따왔다.</p>
+</div>
+
+<h2>Blackboard</h2>
+<div class="indent">
+<p>이 모듈은 Blackboard로 내보낸 문항 형식을 가져올 수 있게 하는 것이다. 이는 PHP로 컴파일된 XML함수에 의존한다.</p>
+
+<p class="moreinfo"><a href="help.php?file=formatblackboard.html&amp;module=quiz">"Blackboard" 포맷에 대한 좀 더 자세한 정보</a></p>
+</div>
+
+<h2>CTM</h2>
+<div class="indent">
+<p>본 모듈로 Course Test Manager의 문제은행에 저장된 질문들을 가져와 쓸 수 있다. MS의 Acess데이터베이스로 된 문제은행에 접근할 수 있는 다양한 방법에 따라 다르겠지만, 대체로 무들이 윈도우에 설치되었느냐 아니면 리눅스에 설치되었느냐가 관건이 된다.</p>
+<p>윈도우에서는 여타의 파일 가져오기와 다를 바 없이 엑시스 데이터베이스를 올릴 수 있다.</p>
+<p>리눅스에서는 먼저 윈도우 서버를 Course Test Manager 데이터베이스와 동일한 네트웍 설정을 한 후, 소위 ODBC Socket Server라고 불리는 소프트웨어를 설치하고, XML을 이용해서 데이터를 리눅스 서버에 있는 무들로 전송해야 한다.</p>  
+
+<p>이 가져오기 기능을 이용하기 전에 다음에 있는 도움문서를 충분히 읽어보기 바란다.</p>
+
+<p class="moreinfo"><a href="help.php?file=formatctm.html&amp;module=quiz">"CTM" 포맷에 대한 좀 더 자세한 정보</a></p>
+</div>
+
+<h2>맞춤설정</h2>
+<div class="indent">
+<p>만일 여러분이 자신만의 고유한 가져오기 유형이 필요하다면, 스스로 mod/quiz/format 안에 있는 custom.php를 분석하여 적용할 수 있다.</p>
+
+<p>새로 작성해야 할 코드는 그리 많지 않을 것이다. 대개 주어진 문장에서 하나의 질문을 분석하는 것만으로도 충분할 것이다.</p>
+
+<p class="moreinfo"><a href="help.php?file=formatcustom.html&amp;module=quiz">맞춤설정에 대한 좀 더 자세한 정보</a></p>
+</div>
+
+<p>WebCT, IMS QTI 등을 비롯해 아직 무들 사용자들이 기여하여 첨가해야 할 형식들이 많이 있다.</p>

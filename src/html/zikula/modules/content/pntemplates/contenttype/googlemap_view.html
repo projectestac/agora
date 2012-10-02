@@ -1,0 +1,14 @@
+<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<!--[$googlemapApiKey]-->"></script>
+
+<div class="content-googlemap">
+    <div id="googlemap<!--[$contentId]-->" class="map" style="width: 100%; height: 200px"></div>
+    <p class="content-description"><!--[$text]--></p>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    Event.observe(window, 'load',
+    function() { googlemap.showMap(<!--[$contentId]-->, "<!--[$latitude|pnvarprepfordisplay]-->", "<!--[$longitude|pnvarprepfordisplay]-->", "<!--[$zoom|pnvarprepfordisplay]-->"); },
+    false);
+    //]]>
+</script>

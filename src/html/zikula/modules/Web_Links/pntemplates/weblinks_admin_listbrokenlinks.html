@@ -1,0 +1,63 @@
+<!--[include file="weblinks_admin_header.html"]-->
+<div class="pn-admincontainer">
+  <div class="pn-adminpageicon"><!--[pnimg modname='core' src='info.gif' set='icons/large' __alt='Overview' ]--></div>
+  <h2><!--[gt text="User-reported broken links"]--> (<!--[$totalbrokenlinks|pnvarprepfordisplay]-->)</h2>
+
+  <div class="pn-informationmsg">
+    <!--[gt text="Ignore (deletes all <strong><em>requests</em></strong> for a given link)"]--><br />
+    <!--[gt text="Delete (deletes <strong><em>broken link</em></strong> and <strong><em>requests</em></strong> for a given link)"]-->
+  </div>
+
+  <!--[if $totalbrokenlinks == 0]-->
+  <div class="pn-warningmsg">
+    <!--[gt text="No broken links found"]-->
+  </div>
+  <!--[else]-->
+
+  <table class="pn-admintable">
+    <thead>
+      <tr>
+        <th><!--[gt text="Link"]--></th>
+        <th><!--[gt text="Submitter"]--></th>
+        <th><!--[gt text="Link owner"]--></th>
+        <th><!--[gt text="Ignore"]--></th>
+        <th><!--[gt text="Delete"]--></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--[foreach from=$brokenlinks item=brokenlinks]-->
+      <tr class="<!--[cycle values="pn-odd,pn-even" name=abacs]-->">
+
+        <td><a href="<!--[$brokenlinks.url|pnvarprepfordisplay]-->"><!--[$brokenlinks.title|pnvarprepfordisplay]--></a></td>
+        <!--[if $brokenlinks.email == ""]-->
+        <td><!--[$brokenlinks.modifysubmitter|pnvarprepfordisplay]--></td>
+        <!--[else]-->
+        <td><a href="mailto:<!--[$brokenlinks.email]-->"><!--[$brokenlinks.modifysubmitter|pnvarprepfordisplay]--></a></td>
+        <!--[/if]-->
+
+        <!--[if $brokenlinks.owneremail == ""]-->
+        <td><!--[$brokenlinks.owner|pnvarprepfordisplay]--></td>
+        <!--[else]-->
+        <td><a href="mailto:<!--[$brokenlinks.owneremail]-->"><!--[$brokenlinks.owner|pnvarprepfordisplay]--></a></td>
+        <!--[/if]-->
+
+        <td>
+          <a href="<!--[pnmodurl modname=Web_Links type=admin func=ignorebrokenlinks lid=$brokenlinks.lid authid=$authid]-->">
+            <!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall']-->
+          </a>
+        </td>
+        <td>
+          <a href="<!--[pnmodurl modname=Web_Links type=admin func=delbrokenlinks lid=$brokenlinks.lid authid=$authid]-->">
+            <!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall']-->
+          </a>
+        </td>
+
+      </tr>
+      <!--[/foreach]-->
+    </tbody>
+  </table>
+
+  <!--[/if]-->
+
+</div>
+<!--[include file="weblinks_admin_footer.html"]-->

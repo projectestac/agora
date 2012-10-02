@@ -1,0 +1,23 @@
+<!--[*  $Id: ezcomments_admin_cleanup.htm 663 2010-02-04 12:57:41Z herr.vorragend $  *]-->
+<!--[include file="ezcomments_admin_menu.htm"]-->
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname='EZComments' src='admin.gif' alt='' ]--></div>
+    <h2><!--[gt text="Delete all comments for this module"]--></h2>
+    <p class="z-warningmsg"><!--[gt text="This functionality allows you to delete comments that are in the database for removed modules."]--></p>
+    <form class="z-form" action="<!--[pnmodurl modname="EZComments" type="admin" func="cleanup_go"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name='generateauthkey' module='EZComments']-->" />
+            <fieldset>
+                <legend><!--[gt text="Confirmation prompt"]--></legend>
+                <div class="z-formrow">
+                    <label for="ezcomments_module"><!--[gt text="Select module"]--></label>
+                    <select id="ezcomments_module" name="ezcomments_module"><!--[html_options options=$selectitems]--></select>
+                </div>
+            </fieldset>
+            <div class="z-formbuttons">
+                <!--[pnbutton src='button_ok.gif' set='icons/small' __alt='Delete' __title='Delete']-->
+                <a href="<!--[pnmodurl modname='EZComments' type='admin' func='main']-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small' __alt='Cancel' __title='Cancel']--></a>
+            </div>
+        </div>
+    </form>
+</div>

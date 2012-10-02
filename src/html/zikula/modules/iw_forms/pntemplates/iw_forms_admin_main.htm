@@ -1,0 +1,90 @@
+<!--[include file="iw_forms_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<div style="height:10px;">&nbsp;</div>
+	<h2><!--[gt text="Forms list"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+	<table class="pn-admintable">
+		<thead>
+			<tr>
+				<th><!--[gt text="Form name"]--></th>
+				<th><!--[gt text="Title of the annotations "]--></th>
+				<th><!--[gt text="Category"]--></th>
+				<th><!--[gt text="Form description"]--></th>
+				<th><!--[gt text="Characteristics"]--></th>
+				<th><!--[gt text="Options"]--></th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--[foreach item=form from=$forms]-->
+				<tr class="<!--[cycle values="pn-odd,pn-even"]-->" id="formRow_<!--[$form.fid]-->">
+					<td align="left" valign="top">
+						<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="form" action="field" fid=$form.fid]-->"><!--[$form.formName]--></a>
+					</td>
+					<td align="left" valign="top">
+						<!--[$form.title]-->
+					</td>
+					<td align="left" valign="top">
+						<!--[$form.catName]-->
+					</td>
+					<td align="left" valign="top">
+						<!--[$form.description]-->
+						<div id="forminfo_<!--[$topic.tid]-->" class="pn-hide pn-noteinfo">&nbsp;</div>
+					</td>
+					<td align="left" valign="top" width="150">
+						<div id="form_<!--[$form.fid]-->" name="form_<!--[$form.fid]-->">
+							<!--[include file="iw_forms_admin_formChars.htm" form=$form]-->
+						</div>
+					</td>
+					<td align="center">
+						<div>
+							<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="infoForm" fid=$form.fid]-->">
+								<!--[pnimg modname='core' src='comment.gif' set='icons/extrasmall'   __alt="Full Form" __title="Full Form"]-->
+							</a>
+						</div>
+						<div>
+							<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="form" do="edit" fid=$form.fid]-->">
+								<!--[pnimg modname='core' src='edit.gif' set='icons/extrasmall'   __alt="Edit" __title="Edit"]-->
+							</a>
+						</div>
+						<div>
+							<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="copy" fid=$form.fid]-->">
+								<!--[pnimg modname='core' src='editcopy.gif' set='icons/extrasmall'   __alt="Copy" __title="Copy"]-->
+							</a>
+						</div>
+						<div>
+							<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="export" fid=$form.fid]-->">
+								<!--[pnimg modname='core' src='folder_inbox.gif' set='icons/extrasmall'   __alt="Export" __title="Export"]-->
+							</a>
+						</div>
+						<div>
+							<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="deleteNotes" fid=$form.fid]-->" title="<!--[gt text="Delete all the notes"]-->">
+								<!--[pnimg modname='core' src='editdelete.gif' set='icons/extrasmall'   __alt="Delete notes" __title="Delete notes"]-->
+							</a>
+						</div>
+						<div>
+							<a href="javascript:deleteForm(<!--[$form.fid]-->)" title="<!--[gt text="Delete the topic"]-->">
+								<!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Delete" __title="Delete"]-->
+							</a>
+						</div>
+					</td>
+				</tr>
+			<!--[foreachelse]-->
+				<tr>
+					<td colspan="5" align="left">
+						<!--[gt text="No forms have been found"]-->
+					</td>
+				</tr>
+			<!--[/foreach]-->
+		</tbody>
+	</table>
+
+	<div style="height: 20px;">&nbsp;</div>
+	<div style="clear:both; ">
+		<a href="<!--[pnmodurl modname=iw_forms type=admin func=module]-->"><!--[gt text="About this module"]--></a>
+	</div>
+</div>
+<script type="text/javascript">
+	var modifyingform = '<!--[gt text="...changing the information..."]-->';
+	var deleteFormText = '<!--[gt text="Confirms delete the form"]-->';
+</script>

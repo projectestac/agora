@@ -1,0 +1,21 @@
+<!--[include file="Export_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='package.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Import modules"]--></h2>
+	
+	<!--[if $no_allowed neq '1']-->
+		<p class="z-warningmsg"><!--[gt text="<b>Warning!</b><br>If you import some modules, data and files of the actual module, users and groups will be replaced!<br>Are you completly sure?"]--></p>
+		<form method="post" action="index.php?module=Export&type=admin&func=import" enctype="multipart/form-data">
+			<p><!--[gt text="Select the package that you want import"]-->
+			&nbsp;<input type="file" name="package" />
+			<br /><!--[gt text="Or enter the URL of your import package"]-->
+			&nbsp;<input type="text" name="package_url" value="http://" size="30"/>
+			<br /><input type="submit" value="<!--[gt text='Import']-->" />
+			
+			</p>
+		</form>
+	<!--[else]-->
+		<p class="z-errormsg"><!--[gt text="La importació només està permesa de forma centralitzada.<br />Si us plau posis en contacte amb el seu proveïdor."]--></p>
+	<!--[/if]-->
+</div>

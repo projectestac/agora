@@ -1,0 +1,275 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-09-22 10:21+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pninit.php:27 pnadmin.php:20
+msgid ""
+"Module iw_main is required. You have to install the iw_main module "
+"previously to install it."
+msgstr ""
+
+#: pnuser.php:14 pnadminapi.php:21 pnadminapi.php:65 pnadminapi.php:105
+#: pnadmin.php:12 pnadmin.php:69 pnadmin.php:97 pnadmin.php:145
+#: pnadmin.php:203 pnadmin.php:261 pnadmin.php:310
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnuser.php:60
+msgid "Chat room"
+msgstr ""
+
+#: pnuser.php:157
+msgid "Module is not configured correctly."
+msgstr ""
+
+#: pnadminapi.php:26
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: pnadminapi.php:38 pnadminapi.php:76
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnadminapi.php:86
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: pnadminapi.php:112
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: pnadminapi.php:149
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pntemplates/plugins/function.iwchatadminmenulinks.php:27
+#: pntemplates/iw_chat_admin_newEdit.htm:8
+msgid "Create a new chat room"
+msgstr ""
+
+#: pntemplates/plugins/function.iwchatadminmenulinks.php:31
+msgid "View the created chat rooms"
+msgstr ""
+
+#: pntemplates/plugins/function.iwchatadminmenulinks.php:34
+#: pntemplates/iw_chat_admin_configure.htm:5
+msgid "Configure the module"
+msgstr ""
+
+#: pntemplates/plugins/function.iwchatadminmenulinks.php:37
+#: pntemplates/iw_chat_admin_documentation.htm:5
+msgid "Documentation"
+msgstr ""
+
+#: pnadmin.php:105
+msgid "Cannot create/modify the room"
+msgstr ""
+
+#: pnadmin.php:166
+msgid "Please, select a group"
+msgstr ""
+
+#: pnadmin.php:183
+msgid "Group added"
+msgstr ""
+
+#: pnadmin.php:240
+msgid "The access has been deleted"
+msgstr ""
+
+#: pnadmin.php:267
+msgid "Chat room not found"
+msgstr ""
+
+#: pnadmin.php:285
+msgid "The chat room has been deleted"
+msgstr ""
+
+#: pnadmin.php:321
+msgid ""
+"Private directory don't extists or is not writable.<br />It's not possible "
+"to modify the configuration"
+msgstr ""
+
+#: pnadmin.php:345
+msgid "Changes success"
+msgstr ""
+
+#: pnversion.php:11
+msgid "Create chat rooms"
+msgstr ""
+
+#: pnversion.php:12
+msgid "IWChat"
+msgstr ""
+
+#: pnversion.php:13
+msgid "iw_chat"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_deleteGroup.htm:4
+msgid "Delete the access to the chat room "
+msgstr ""
+
+#: pntemplates/iw_chat_admin_deleteGroup.htm:11
+msgid "Confirm the deletion of the group "
+msgstr ""
+
+#: pntemplates/iw_chat_admin_deleteGroup.htm:14
+#: pntemplates/iw_chat_admin_addGroup.htm:19
+msgid "Add"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_deleteGroup.htm:15
+#: pntemplates/iw_chat_admin_addGroup.htm:20
+#: pntemplates/iw_chat_admin_newEdit.htm:28
+#: pntemplates/iw_chat_admin_configure.htm:43
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_addGroup.htm:4
+msgid "Add a group to the chat room"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_addGroup.htm:10
+msgid "Group"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_addGroup.htm:12
+msgid "Choose a group..."
+msgstr ""
+
+#: pntemplates/iw_chat_admin_menu.htm:4 pntemplates/iw_chat_user_main.htm:3
+msgid "Chat"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_documentation.htm:6
+msgid "Chat commands"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_documentation.htm:9
+msgid "here."
+msgstr ""
+
+#: pntemplates/iw_chat_admin_newEdit.htm:6
+msgid "Edit chat room"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_newEdit.htm:15
+#: pntemplates/iw_chat_admin_main.htm:9
+msgid "Room name"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_newEdit.htm:19
+#: pntemplates/iw_chat_admin_main.htm:10
+msgid "Description"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_newEdit.htm:23
+#: pntemplates/iw_chat_admin_main.htm:12
+msgid "Active"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_newEdit.htm:27
+#: pntemplates/iw_chat_admin_configure.htm:42
+msgid "Create"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_delete.htm:4
+msgid "Delete the chat room"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_delete.htm:9
+msgid "Confirm the deletion of the chat room"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_delete.htm:11
+#: pntemplates/iw_chat_admin_main.htm:26 pntemplates/iw_chat_admin_main.htm:43
+msgid "Delete"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_delete.htm:12
+msgid "Cancel the deletion of the chat room"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_configure.htm:9
+msgid "Refresh Delay (in millseconds) "
+msgstr ""
+
+#: pntemplates/iw_chat_admin_configure.htm:15
+msgid "Maximal length of a chat message "
+msgstr ""
+
+#: pntemplates/iw_chat_admin_configure.htm:21
+msgid "Theme "
+msgstr ""
+
+#: pntemplates/iw_chat_admin_configure.htm:31
+msgid "Start with sound notifications "
+msgstr ""
+
+#: pntemplates/iw_chat_admin_configure.htm:37
+msgid "Path of the private directory (from iw_main root directory) "
+msgstr ""
+
+#: pntemplates/iw_chat_user_main.htm:7
+msgid "Chat room: "
+msgstr ""
+
+#: pntemplates/iw_chat_user_main.htm:9
+msgid "// Select one //"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_main.htm:5
+msgid "Chat rooms list"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_main.htm:11
+msgid "Groups"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_main.htm:13
+msgid "Actions"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_main.htm:32
+msgid "Add a group with access to the chat room"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_main.htm:37
+msgid "Room active"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_main.htm:38
+msgid "Room inactive"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_main.htm:42
+msgid "Edit"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_main.htm:49
+msgid "There are no chat room created"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_main.htm:56
+msgid "About this module"
+msgstr ""
+
+#: pntemplates/iw_chat_admin_documentation.htm:7
+msgid "In the chat window itself there are a lot of commands available for all users. Some of them are for admins only. If a is determined by the Zikula permission system in the usual manner.<br /><br />You find a list of all available chat commands"
+msgstr ""

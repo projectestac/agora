@@ -1,0 +1,883 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: pnadmin.php:1910
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-28 10:15+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnblocks/welcome.php:50
+msgid "Show a welcome message wend user is in home page"
+msgstr ""
+
+#: pnblocks/welcome.php:90 pnblocks/welcome.php:126
+msgid "Hi"
+msgstr ""
+
+#: pnblocks/welcome.php:91 pnblocks/welcome.php:127
+msgid "welcome to the intranet"
+msgstr ""
+
+#: pnblocks/welcome.php:130
+msgid "Geeting"
+msgstr ""
+
+#: pnblocks/welcome.php:131
+msgid "Welcome text"
+msgstr ""
+
+#: pnblocks/welcome.php:132
+msgid "Include date and time"
+msgstr ""
+
+#: pnuserapi.php:113 pnadminapi.php:17 pnadminapi.php:48 pnadminapi.php:85
+#: pnadminapi.php:123 pnadminapi.php:155 pnadminapi.php:185 pnadminapi.php:215
+#: pnadminapi.php:252 pnadminapi.php:276 pnadminapi.php:346 pnadminapi.php:450
+#: pnadminapi.php:638 pnadminapi.php:682 pnadminapi.php:753 pnadminapi.php:811
+#: pnadminapi.php:863 pnadminapi.php:940 pnadminapi.php:1038
+#: pnadminapi.php:1102
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: pnuserapi.php:132 pnuserapi.php:214
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pnuserapi.php:236 pnadminapi.php:21 pnadminapi.php:62 pnadminapi.php:97
+#: pnadminapi.php:325
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnuserapi.php:259 pnadminapi.php:162 pnadminapi.php:192 pnadminapi.php:222
+#: pnadminapi.php:255 pnadminapi.php:279 pnadminapi.php:282 pnadminapi.php:285
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: pninit.php:25
+msgid ""
+"Module iw_main is needed. You have to install the iw_main module before "
+"installing it."
+msgstr ""
+
+#: pnuser.php:59 pnuser.php:81 pnuser.php:90 pnuser.php:99 pnajax.php:6
+#: pnajax.php:47 pnajax.php:69 pnajax.php:101 pnadmin.php:206 pnadmin.php:231
+#: pnadmin.php:315 pnadmin.php:415 pnadmin.php:473 pnadmin.php:616
+#: pnadmin.php:2148 pnadmin.php:2227 pnadmin.php:2287 pnadmin.php:2307
+#: pnadmin.php:2372 pnadmin.php:2432 pnadmin.php:2468
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnadminapi.php:133
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: pnadminapi.php:159 pnadminapi.php:189 pnadminapi.php:219
+msgid "You can not remove yourself"
+msgstr ""
+
+#: pnadminapi.php:693 pnadminapi.php:759 pnadminapi.php:947
+msgid "Could not find the user on which do the action."
+msgstr ""
+
+#: pnadminapi.php:698
+msgid "Not authorized to manage users."
+msgstr ""
+
+#: pntemplates/plugins/function.iwusersadminmenulinks.php:27
+#: pntemplates/iw_users_admin_new.htm:4 pntemplates/iw_users_admin_new.htm:98
+msgid "Create user"
+msgstr ""
+
+#: pntemplates/plugins/function.iwusersadminmenulinks.php:31
+msgid "Show the list of users"
+msgstr ""
+
+#: pntemplates/plugins/function.iwusersadminmenulinks.php:35
+#: pntemplates/iw_users_admin_import.htm:4
+msgid "Import from a file"
+msgstr ""
+
+#: pntemplates/plugins/function.iwusersadminmenulinks.php:39
+msgid "Export to CSV"
+msgstr ""
+
+#: pntemplates/plugins/function.iwusersadminmenulinks.php:43
+#: pntemplates/iw_users_admin_config.htm:5
+msgid "Configure the module"
+msgstr ""
+
+#: pntemplates/plugins/function.iwusersusermenulinks.php:20
+msgid "Shows the groups I belong"
+msgstr ""
+
+#: pntemplates/plugins/function.iwusersusermenulinks.php:23
+msgid "Show all the groups"
+msgstr ""
+
+#: pntemplates/plugins/function.iwusersusermenulinks.php:26
+msgid "Show contacts' list"
+msgstr ""
+
+#: pnadmin.php:172 pntemplates/iw_users_admin_main.htm:59
+#: pntemplates/iw_users_admin_new.htm:59
+msgid "User name"
+msgstr ""
+
+#: pnadmin.php:173 pnadmin.php:1418 pnadmin.php:1445 pnadmin.php:1587
+#: pntemplates/iw_users_admin_main.htm:60
+#: pntemplates/iw_users_admin_edit.htm:17
+#: pntemplates/iw_users_admin_new.htm:15
+msgid "Name"
+msgstr ""
+
+#: pnadmin.php:174 pnadmin.php:1421 pnadmin.php:1448 pnadmin.php:1588
+#: pntemplates/iw_users_admin_main.htm:61
+#: pntemplates/iw_users_admin_edit.htm:25
+#: pntemplates/iw_users_admin_new.htm:23
+msgid "1st surname"
+msgstr ""
+
+#: pnadmin.php:175 pnadmin.php:1424 pnadmin.php:1451 pnadmin.php:1589
+#: pntemplates/iw_users_admin_main.htm:62
+#: pntemplates/iw_users_admin_edit.htm:33
+#: pntemplates/iw_users_admin_new.htm:31
+msgid "2nd surname"
+msgstr ""
+
+#: pnadmin.php:235 pnadmin.php:620 pnadmin.php:2311
+msgid "No users have chosen"
+msgstr ""
+
+#: pnadmin.php:242 pnadmin.php:628 pnadmin.php:793 pnadmin.php:2318
+msgid "No users found"
+msgstr ""
+
+#: pnadmin.php:328
+msgid "There was some mistake while editing"
+msgstr ""
+
+#: pnadmin.php:400 pnadmin.php:2415
+msgid "The records have been published successfully"
+msgstr ""
+
+#: pnadmin.php:483
+msgid "You do not have written the name of user"
+msgstr ""
+
+#: pnadmin.php:489
+msgid "You do not have written the password of the user"
+msgstr ""
+
+#: pnadmin.php:495
+msgid "You do not have written the e-mail to the user"
+msgstr ""
+
+#: pnadmin.php:501
+msgid "You have not selected the initial group of the user"
+msgstr ""
+
+#: pnadmin.php:513 pnadmin.php:1586 pnadmin.php:2104 pnadmin.php:2243
+#: pnadmin.php:2395 pntemplates/iw_users_admin_editLogin.htm:17
+msgid "Username"
+msgstr ""
+
+#: pnadmin.php:513 pnadmin.php:2395
+msgid "already exists. You have to choose another."
+msgstr ""
+
+#: pnadmin.php:520
+msgid ""
+"The password chosen by the user is too short. The minimum character must "
+"have the password is"
+msgstr ""
+
+#: pnadmin.php:530
+msgid "There was an error in the creation of the user."
+msgstr ""
+
+#: pnadmin.php:548 pntemplates/iw_users_admin_menu.htm:4
+#: pntemplates/iw_users_user_menu.htm:3
+msgid "Users"
+msgstr ""
+
+#: pnadmin.php:582
+msgid ""
+"The user has been created but there was an error in the entry of personal "
+"information. Create this user and makes it the right information."
+msgstr ""
+
+#: pnadmin.php:591
+msgid ""
+"The user has been created but there was an error in the allocation of the "
+"initial group of the user. Put this user in a group/s that you think "
+"appropriate  from the management module group."
+msgstr ""
+
+#: pnadmin.php:595
+msgid "We have created a user new"
+msgstr ""
+
+#: pnadmin.php:672
+msgid "There was an error and failed to remove the information from the user"
+msgstr ""
+
+#: pnadmin.php:679
+msgid "There was an error deleting user groups. The user could not be removed"
+msgstr ""
+
+#: pnadmin.php:687
+msgid "There was an error deleting users from the database"
+msgstr ""
+
+#: pnadmin.php:691
+msgid "The user or users have been deleted"
+msgstr ""
+
+#: pnadmin.php:835
+msgid ""
+"An error occurred while creating the data file. Checks from the global "
+"configuration of the module (iw_main), the temporary directory exists."
+msgstr ""
+
+#: pnadmin.php:1160 pnadmin.php:1323
+msgid "Invalid "
+msgstr ""
+
+#: pnadmin.php:1183 pnadmin.php:1988
+msgid "Managing users who are on both tables, but have differences in data"
+msgstr ""
+
+#: pnadmin.php:1193 pnadmin.php:1381 pnadmin.php:1576
+msgid "We found no users to manage in this group."
+msgstr ""
+
+#: pnadmin.php:1200
+msgid "Import file"
+msgstr ""
+
+#: pnadmin.php:1202
+msgid "the intranet"
+msgstr ""
+
+#: pnadmin.php:1203
+msgid ""
+"The users are in the following two tables. In each case, select the most "
+"appropriate"
+msgstr ""
+
+#: pnadmin.php:1214
+msgid "Information import file"
+msgstr ""
+
+#: pnadmin.php:1217
+msgid "Information intranet"
+msgstr ""
+
+#: pnadmin.php:1284
+msgid "Group/s"
+msgstr ""
+
+#: pnadmin.php:1294
+msgid "I would have data"
+msgstr ""
+
+#: pnadmin.php:1303 pnadmin.php:1527 pnadmin.php:1627 pnadmin.php:1945
+msgid "Are"
+msgstr ""
+
+#: pnadmin.php:1303 pnadmin.php:1527 pnadmin.php:1627 pnadmin.php:1945
+msgid "manage records in this section "
+msgstr ""
+
+#: pnadmin.php:1305 pnadmin.php:1529 pnadmin.php:1947
+msgid "Next >>"
+msgstr ""
+
+#: pnadmin.php:1308 pnadmin.php:1315 pnadmin.php:1532 pnadmin.php:1539
+#: pnadmin.php:1630 pnadmin.php:1637 pnadmin.php:1949 pnadmin.php:1956
+#: pnadmin.php:1972
+msgid "Back to the menu of options"
+msgstr ""
+
+#: pnadmin.php:1372 pnadmin.php:2007
+msgid "Managing users who are on the table and not import to the intranet"
+msgstr ""
+
+#: pnadmin.php:1412
+msgid ""
+"The users are only following the import table of users. In each case, select "
+"the most appropriate"
+msgstr ""
+
+#: pnadmin.php:1427 pnadmin.php:1454 pnadmin.php:1590 pnadmin.php:1853
+msgid "Option"
+msgstr ""
+
+#: pnadmin.php:1430 pnadmin.php:1457
+msgid "For the 'Add new user' select a user name, a password and a group"
+msgstr ""
+
+#: pnadmin.php:1433
+msgid "For the 'Link to the user', choose which user you want to associate"
+msgstr ""
+
+#: pnadmin.php:1437 pnadmin.php:1461
+msgid "Creates the user"
+msgstr ""
+
+#: pnadmin.php:1439
+msgid "Attached to the user"
+msgstr ""
+
+#: pnadmin.php:1441 pnadmin.php:1463 pnadmin.php:1621 pnadmin.php:2001
+#: pnadmin.php:2020 pnadmin.php:2039
+msgid "Do not make any action"
+msgstr ""
+
+#: pnadmin.php:1547
+msgid ""
+"Invalid 'authkey':  this probably means that you pressed the 'Back' button, "
+"or that the page 'authkey' expired. Please refresh the page and try again."
+msgstr ""
+
+#: pnadmin.php:1553 pnadmin.php:1619
+msgid "Delete user of the intranet"
+msgstr ""
+
+#: pnadmin.php:1568 pnadmin.php:2026
+msgid ""
+"Managing users who are on the table on the intranet and not in the table to "
+"import"
+msgstr ""
+
+#: pnadmin.php:1583
+msgid ""
+"The users are only following in the table on the intranet. In each case, "
+"select the most appropriate"
+msgstr ""
+
+#: pnadmin.php:1617
+msgid "Flag"
+msgstr ""
+
+#: pnadmin.php:1617
+msgid "Unflag"
+msgstr ""
+
+#: pnadmin.php:1660 pnadmin.php:1677 pnadmin.php:1773 pnadmin.php:1788
+#: pnadmin.php:1802
+msgid "An error occurred at the time of carrying out the orders"
+msgstr ""
+
+#: pnadmin.php:1687
+msgid "You have not provided the user name. You'll need to discard the order."
+msgstr ""
+
+#: pnadmin.php:1690 pnadmin.php:1704 pnadmin.php:1719 pnadmin.php:1975
+msgid "Back to the table of execution."
+msgstr ""
+
+#: pnadmin.php:1701
+msgid ""
+"You have not provided the password for this user. You'll need to discard the "
+"first order of the list."
+msgstr ""
+
+#: pnadmin.php:1716
+msgid ""
+"The username is invalid because it already exists. You'll need to discard "
+"the first order of the list"
+msgstr ""
+
+#: pnadmin.php:1736
+msgid "There was an error to register a new user."
+msgstr ""
+
+#: pnadmin.php:1750
+msgid ""
+"We have created the user, but there was an error in entering the personal "
+"information."
+msgstr ""
+
+#: pnadmin.php:1761
+msgid ""
+"We have created the user, but there was a failure to assign it to the group"
+msgstr ""
+
+#: pnadmin.php:1831 pnadmin.php:2050
+msgid "Review and execute the orders"
+msgstr ""
+
+#: pnadmin.php:1839
+msgid "No orders have been found to manage."
+msgstr ""
+
+#: pnadmin.php:1850
+msgid "Action to be held"
+msgstr ""
+
+#: pnadmin.php:1866 pnadmin.php:1870 pnadmin.php:1890 pnadmin.php:1898
+#: pnadmin.php:1910
+msgid "The user"
+msgstr ""
+
+#: pnadmin.php:1866
+msgid "Is on the two tables and I want only  that are in the import file"
+msgstr ""
+
+#: pnadmin.php:1867
+msgid "Elect to the data of import file"
+msgstr ""
+
+#: pnadmin.php:1870
+msgid "On the two tables and so on with one on the intranet"
+msgstr ""
+
+#: pnadmin.php:1871
+msgid "Elect to the intranet data"
+msgstr ""
+
+#: pnadmin.php:1881
+msgid " in the group/s: "
+msgstr ""
+
+#: pnadmin.php:1885
+msgid "and"
+msgstr ""
+
+#: pnadmin.php:1890
+msgid "will be discharged to the intranet with the username "
+msgstr ""
+
+#: pnadmin.php:1891
+msgid "Discharged in the intranet"
+msgstr ""
+
+#: pnadmin.php:1894 pnadmin.php:1914
+msgid "There is no action on the user"
+msgstr ""
+
+#: pnadmin.php:1894 pnadmin.php:1895
+msgid "Import file "
+msgstr ""
+
+#: pnadmin.php:1895 pnadmin.php:1915
+msgid "Any action on the user"
+msgstr ""
+
+#: pnadmin.php:1898
+msgid "	associated with the user  "
+msgstr ""
+
+#: pnadmin.php:1898
+msgid "for the intranet "
+msgstr ""
+
+#: pnadmin.php:1901
+msgid "Association of users"
+msgstr ""
+
+#: pnadmin.php:1911
+msgid "Low users"
+msgstr ""
+
+#: pnadmin.php:1914 pnadmin.php:1915
+msgid "fot he intranet"
+msgstr ""
+
+#: pnadmin.php:1938
+msgid "Discard"
+msgstr ""
+
+#: pnadmin.php:1982
+msgid "Choose the action you want to do"
+msgstr ""
+
+#: pnadmin.php:1991 pnadmin.php:2010 pnadmin.php:2029 pnadmin.php:2053
+#: pntemplates/iw_users_admin_import.htm:74
+msgid "Registration "
+msgstr ""
+
+#: pnadmin.php:1996 pnadmin.php:2015 pnadmin.php:2034
+msgid "Cancel the changes"
+msgstr ""
+
+#: pnadmin.php:2060
+msgid "In the field import of users have"
+msgstr ""
+
+#: pnadmin.php:2062 pnadmin.php:2066
+msgid "Registration  to manage"
+msgstr ""
+
+#: pnadmin.php:2064
+msgid "In the table of users of the intranet have"
+msgstr ""
+
+#: pnadmin.php:2079
+msgid "The data import was successful."
+msgstr ""
+
+#: pnadmin.php:2086 pnadmin.php:2239
+msgid "Has not discharged any user."
+msgstr ""
+
+#: pnadmin.php:2089 pnadmin.php:2241
+msgid "Data connection of new users created"
+msgstr ""
+
+#: pnadmin.php:2109 pnadmin.php:2243
+#: pntemplates/iw_users_admin_editLogin.htm:25
+#: pntemplates/iw_users_admin_new.htm:67
+msgid "Password"
+msgstr ""
+
+#: pnadmin.php:2117
+msgid "To create a txt file with the data, click on the link"
+msgstr ""
+
+#: pnadmin.php:2121
+msgid "The process ends"
+msgstr ""
+
+#: pnadmin.php:2128
+msgid "Go to step"
+msgstr ""
+
+#: pnadmin.php:2480
+msgid "The configuration has changed"
+msgstr ""
+
+#: pnversion.php:11
+msgid "Improves the chances of users of the module"
+msgstr ""
+
+#: pnversion.php:12
+msgid "Extra users"
+msgstr ""
+
+#: pnversion.php:13
+msgid "iw_users"
+msgstr ""
+
+#: pntemplates/iw_users_admin_pager.htm:1
+msgid "Page"
+msgstr ""
+
+#: pntemplates/iw_users_admin_main.htm:4
+msgid "List of users"
+msgstr ""
+
+#: pntemplates/iw_users_admin_main.htm:24
+#: pntemplates/iw_users_admin_main.htm:27
+msgid "All"
+msgstr ""
+
+#: pntemplates/iw_users_admin_main.htm:33
+msgid "N. records"
+msgstr ""
+
+#: pntemplates/iw_users_admin_main.htm:41
+msgid "Order"
+msgstr ""
+
+#: pntemplates/iw_users_admin_main.htm:57
+msgid "Id"
+msgstr ""
+
+#: pntemplates/iw_users_admin_main.htm:63
+msgid "Group/a"
+msgstr ""
+
+#: pntemplates/iw_users_admin_main.htm:64
+msgid "Options"
+msgstr ""
+
+#: pntemplates/iw_users_admin_main.htm:110
+#: pntemplates/iw_users_admin_edit.htm:71
+#: pntemplates/iw_users_admin_editLogin.htm:47
+msgid "Edit"
+msgstr ""
+
+#: pntemplates/iw_users_admin_main.htm:111
+msgid "Delete"
+msgstr ""
+
+#: pntemplates/iw_users_admin_main.htm:112
+msgid "Edit Connection"
+msgstr ""
+
+#: pntemplates/iw_users_admin_main.htm:121
+msgid "No. Records"
+msgstr ""
+
+#: pntemplates/iw_users_admin_main.htm:133
+#: pntemplates/iw_users_user_main.htm:20
+#: pntemplates/iw_users_admin_config.htm:64
+msgid "About this module"
+msgstr ""
+
+#: pntemplates/iw_users_admin_delete.htm:4
+#: pntemplates/iw_users_admin_delete.htm:29
+msgid "Delete users"
+msgstr ""
+
+#: pntemplates/iw_users_admin_delete.htm:26
+msgid "Confirms that what users want to delete from the list"
+msgstr ""
+
+#: pntemplates/iw_users_admin_delete.htm:30
+#: pntemplates/iw_users_admin_edit.htm:72
+#: pntemplates/iw_users_admin_editLogin.htm:48
+#: pntemplates/iw_users_admin_new.htm:99
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/iw_users_user_main.htm:4
+msgid "All the groups"
+msgstr ""
+
+#: pntemplates/iw_users_user_main.htm:6
+msgid "Groups you're already a member"
+msgstr ""
+
+#: pntemplates/iw_users_user_main.htm:10
+msgid "Group"
+msgstr ""
+
+#: pntemplates/iw_users_user_main.htm:11
+msgid "N. components"
+msgstr ""
+
+#: pntemplates/iw_users_admin_config.htm:9
+msgid "Set contacts list available"
+msgstr ""
+
+#: pntemplates/iw_users_admin_config.htm:13
+#: pntemplates/iw_users_admin_config.htm:30
+msgid "Invisible groups in users search"
+msgstr ""
+
+#: pntemplates/iw_users_admin_config.htm:22
+msgid "Change avatar"
+msgstr ""
+
+#: pntemplates/iw_users_admin_config.htm:26
+msgid "Users policy"
+msgstr ""
+
+#: pntemplates/iw_users_admin_config.htm:31
+msgid "Impossible to change mail address"
+msgstr ""
+
+#: pntemplates/iw_users_admin_config.htm:32
+msgid "Impossible to change password"
+msgstr ""
+
+#: pntemplates/iw_users_admin_config.htm:33
+msgid "Avatar change needs validation"
+msgstr ""
+
+#: pntemplates/iw_users_admin_config.htm:60
+msgid "Modify the configuration"
+msgstr ""
+
+#: pntemplates/iw_users_admin_edit.htm:4
+msgid "Edit the users"
+msgstr ""
+
+#: pntemplates/iw_users_admin_edit.htm:12
+#: pntemplates/iw_users_admin_new.htm:10
+msgid "Data from the user"
+msgstr ""
+
+#: pntemplates/iw_users_admin_edit.htm:42
+#: pntemplates/iw_users_admin_new.htm:40
+msgid "Avatar"
+msgstr ""
+
+#: pntemplates/iw_users_admin_edit.htm:52
+msgid "Delete avatar"
+msgstr ""
+
+#: pntemplates/iw_users_admin_edit.htm:61
+#: pntemplates/iw_users_admin_new.htm:47
+msgid ""
+"The avatar image must be 90x120 px aproximately with the extensions jpg, gif "
+"or png"
+msgstr ""
+
+#: pntemplates/iw_users_admin_editLogin.htm:4
+msgid "Change data connection of users"
+msgstr ""
+
+#: pntemplates/iw_users_admin_editLogin.htm:4
+msgid "Change data connection to the user"
+msgstr ""
+
+#: pntemplates/iw_users_admin_editLogin.htm:33
+msgid "For Not change the password and keep the above, leave blank."
+msgstr ""
+
+#: pntemplates/iw_users_admin_editLogin.htm:38
+#: pntemplates/iw_users_admin_new.htm:75
+msgid "E-mail"
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:8
+msgid "First step: choosing the CSV file"
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:11
+msgid "Step two: check that the CSV file chosen is correct"
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:13
+msgid "Have not indicated the source of the data."
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:16
+#: pntemplates/iw_users_admin_import.htm:20
+msgid "Filename"
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:17
+#: pntemplates/iw_users_admin_import.htm:39
+msgid "The file chosen is not correct"
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:21
+msgid "There was an error uploading the file to the server."
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:24
+msgid "Source file data"
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:25
+msgid "Camps found in the CSV file"
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:32
+msgid "Correct"
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:34
+msgid "Wrong"
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:45
+msgid "The fields are not expected. Verify that the CSV file is correct."
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:49
+msgid ""
+"Has not been found, the fields are expected. In the import of users are "
+"missing fields"
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:57
+#: pntemplates/iw_users_admin_import.htm:64
+msgid "An error occurred while preparing databases"
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:66
+msgid "The records are not correct. Verify that the import file is correct."
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:68
+msgid "There was an error in entering the data in the database."
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:74
+msgid "Found"
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:75
+msgid ""
+"Have been successfully recovered the data. You can continue with the third "
+"step."
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:78
+msgid "Third step: synchronization of the tables"
+msgstr ""
+
+#: pntemplates/iw_users_admin_import.htm:81
+msgid "Fourth step: the end of the communication process"
+msgstr ""
+
+#: pntemplates/iw_users_user_members.htm:4
+msgid "List of users of the group"
+msgstr ""
+
+#: pntemplates/iw_users_user_members.htm:6
+msgid "Contacts'"
+msgstr ""
+
+#: pntemplates/iw_users_user_members.htm:25
+#: pntemplates/iw_users_user_members_optionsContent.htm:3
+msgid "Delete from contacts' list"
+msgstr ""
+
+#: pntemplates/iw_users_user_members.htm:29
+#: pntemplates/iw_users_user_members_optionsContent.htm:7
+msgid "Add to contacts' list"
+msgstr ""
+
+#: pntemplates/iw_users_user_members.htm:33
+#: pntemplates/iw_users_user_members_optionsContent.htm:10
+msgid "Send a private message"
+msgstr ""
+
+#: pntemplates/iw_users_user_members.htm:37
+msgid "N users found"
+msgstr ""
+
+#: pntemplates/iw_users_admin_new.htm:54
+msgid "Data Connection"
+msgstr ""
+
+#: pntemplates/iw_users_admin_new.htm:83
+msgid "Initial groups"
+msgstr ""
+
+#: pntemplates/iw_users_admin_new.htm:93
+msgid "The fields with * are required"
+msgstr ""
+
+#: pntemplates/iw_users_admin_addGroupForm.htm:3
+msgid "Choose a group..."
+msgstr ""
+
+#: pntemplates/iw_users_admin_addGroupRow.htm:3
+msgid "Add group"
+msgstr ""
+
+#: pntemplates/pnadmin.php:548
+msgid "User without avatar"
+msgstr ""
+
+#: pnadmin:365
+msgid "Probably the note have been sent without the attached file"
+msgstr ""
+
+#: pnadmin:1461
+msgid "For the \"Add new user\" select a user name, a password and a group"
+msgstr ""
+
+#: pnadmin:1464
+msgid "For the \"Link to the user\", choose which user you want to associate"
+msgstr ""
+

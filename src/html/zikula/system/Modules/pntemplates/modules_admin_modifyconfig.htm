@@ -1,0 +1,37 @@
+<!--[*  $Id: modules_admin_modifyconfig.htm 27381 2009-11-03 08:20:54Z herr.vorragend $  *]-->
+<!--[include file="modules_admin_menu.htm"]-->
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=configure.gif set=icons/large __alt="Settings"]--></div>
+    <h2><!--[gt text="Settings"]--></h2>
+    <form class="z-form" action="<!--[pnmodurl modname="Modules" type="admin" func="updateconfig"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <!--[securityutil_generateauthkey name="generateauthkey" module="Modules" assign="authid"]-->
+            <input type="hidden" name="authid" value="<!--[$authid]-->" />
+            <fieldset>
+                <legend><!--[gt text="General settings"]--></legend>
+                <div class="z-formrow">
+                    <label for="modules_itemsperpage"><!--[gt text="Items per page"]--></label>
+                    <input id="modules_itemsperpage" type="text" name="itemsperpage" size="3" value="<!--[$itemsperpage|pnvarprepfordisplay]-->" />
+                </div>
+                <div class="z-formrow">
+                    <label for="modules_loadlegacy"><!--[gt text="Load legacy module support"]--></label>
+                    <div id="modules_loadlegacy">
+                        <input id="modules_loadlegacy_yes" type="radio" name="loadlegacy" value="1" <!--[if $loadlegacy eq 1]--> checked="checked"<!--[/if]--> />
+                        <label for="modules_loadlegacy_yes"><!--[gt text="Yes"]--></label>
+                        <input id="modules_loadlegacy_no" type="radio" name="loadlegacy" value="0" <!--[if $loadlegacy eq 0]--> checked="checked"<!--[/if]--> />
+                        <label for="modules_loadlegacy_no"><!--[gt text="No"]--></label>
+                    </div>
+                </div>
+                <div class="z-formrow">
+                    <label><!--[gt text="Module defaults"]--></label>
+                    <span><a href="<!--[pnmodurl modname="Modules" type="admin" func="regenerate" defaults=true authid=$authid]-->"><!--[gt text="Hard module regenerate to reset displayname, url and description to defaults"]--></a></span>
+                </div>
+            </fieldset>
+            <!--[pnmodcallhooks hookobject=module hookaction=modifyconfig module=Modules]-->
+            <div class="z-formbuttons">
+                <!--[pnbutton src=button_ok.gif set=icons/small __alt="Save" __title="Save"]-->
+                <a href="<!--[pnmodurl modname=Modules type=admin func=view]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small __alt="Cancel" __title="Cancel"]--></a>
+            </div>
+        </div>
+    </form>
+</div>

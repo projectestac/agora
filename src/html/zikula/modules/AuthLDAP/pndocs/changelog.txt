@@ -1,0 +1,21 @@
+$Id: changelog.txt 53 2009-11-08 14:38:41Z drak $
+
+
+version 0.4
+(B. Plagge, 2008-09-19)
+changes from 0.3
+added optional password encryption methods, defaults to system encryption method (Users module)
+
+version 0.2
+changes from 0.1
+moved ldapauth_functions.php to userapi.php
+removed modifcation of pnuser.php for introduction in PN core
+moved update config function to pnadmin.php. pnadminapi.php is no longer needed.
+moved admin structure around to standardize with core modules and API compliant structure
+Added phpdoc comments
+
+Added a Parameter in the AuthLDAP administration interface to terminate where to do the ldapsearch on.
+Now the module should work on other directory services, needs back checking on other directories.
+
+abstracted all sql from execute statements for ease of debugging
+commented out some debug statements for clean user experience

@@ -1,0 +1,11 @@
+<h1>Coeficient de crèdit extra</h1>
+<p>Un valor major que 0 tracta les qualificacions d'aquest element de qualificació com a crèdit extra en l'agregació. El nombre que definiu s'utilitzarà com a factor pel qual es multiplicarà la qualificació abans d'afegir-la a la suma de qualificacions, però l'element no es comptarà per a la divisió. Per exemple:</p>
+
+<ul>
+    <li>Element 1 qualificat 0-100 amb crèdit extra = 2</li>
+    <li>Element 2 qualificat 0-100 amb crèdit extra = 0.0000</li>
+    <li>Element 3 qualificat 0-100 amb crèdit extra = 0.0000</li>
+    <li>Els tres elements pertanyen a la categoria 1, amb estratègia d'agregació "Mitjana de qualificacions (amb crèdit extra)"</li>
+    <li>Un estudiant obté una qualificació de 20 punts en l'element 1, 40 en l'element 2 i 70 en l'element 3</li>
+    <li>La qualificació total d'aquest estudiant en la categoria 1 serà de 95/100, ja que 20*2 + (40 + 70)/2 = 95</li>
+</ul>

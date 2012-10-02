@@ -1,0 +1,81 @@
+<h2>Nutzer/innen aus Datei hochladen (bulk upload)</h2>
+
+<p>Beachten Sie bitte: <strong>Es ist normalerweise nicht erforderlich, Nutzerdaten in großen Mengen nach Moodle zu importieren.</strong> Um den manuellen Administrationsaufwand zu begrenzen, sollten andere, von Moodle bereitgestellte Formen der Nutzerauthentifizierung geprüft werden, z.B. die Verbindung zu bestehenden externen Datenbanken oder die Selbstregistrierung von Nutzer/innen (per E-Mail). Weitere Hinweise dazu finden Sie im Bereich Nutzer/innen /Authentifizierung im Administrationsmenü der Website.</p>
+
+<h3>Felder in der Import-Datei</h3>
+<p>Wenn Sie dennoch eine große Zahl von Nutzern aus einer Textdatei importieren wollen, müssen Sie die Textdatei folgendermaßen aufbauen:</p>
+<ul>
+<li>Jede Zeile der Datei enthält genau einen einzelnen Datensatz</li>
+<li>Jeder Datensatz besteht aus einer Reihe von Datenfeldern, die durch Kommas getrennt sind.</li>
+<li>Der erste Datensatz (die erste Zeile) der Import-Datei enthält eine Liste der Feldnamen. Diese Zeile legt das Format der restlichen Zeilen fest. Die Feldnamen entsprechen den Datenfelder in der Nutzertabelle der Moodle-Datenbank
+<blockquote>
+<p><strong>Erforderliche Datenfeldnamen:</strong> Diese Datenfeldnamen müssen in der ersten Zeile eingetragen und in den folgenden Zeilen für jede/n Nutzer/in definiert werden.</p>
+<p><code>username, password, firstname, lastname, email</code></p>
+<p><strong>Optionale Datenfeldnamen:</strong> Jedes dieser Datenfelder ist optional. Wenn ein Datenfeld vorkommt (Datenfeldname im ersten Datensatz und zugehörige Werte in den folgenden Datensätzen für die einzelnen Nutzer/innen), werden diese Werte verwendet. Wenn ein Datenfeld nicht vorkommt, werden für diese Datenfelder Standardwerte verwendet, die die Moodle Adminstration bei der Konfiguration der Website festlegt.</p>
+<p> <code>institution, department, city, country, lang, auth, timezone, idnumber, icq, phone1, phone2, address, url, description, mailformat, maildisplay, htmleditor, autosubscribe, emailstop, deleted</code></p>
+      <p><strong>Datenfeldnamen, die die Einschreibung in Kurse und Gruppen sowie die Rollenzuweisung steuern (optional): </strong> Für Kurse (Datenfeldnamen: course1, course2, etc.) werden die Kurzbezeichnungen der Kurse verwendet - wenn die Kurse existieren, werden die Nutzer/innen automatisch in die Kurse eingeschrieben. Für Gruppen (Datenfeldnamen: group1, group2, etc.) werden die Gruppennamen verwendet. Für Rollen verwenden Sie die Rollen-ID (Datenfeldnamen: type1 / role1, type2 / role2, etc.). Gruppen werden den zugehörigen Kursen über die Datenfeldnamen zugeordnet: group1 zu course1, group2 zu course2, etc. Dasselbe gilt für die Rollen: type1 / role1 gehört zu course1, type2 / role2 gehört zu course2, etc.</p>
+      <p><code>course1, group1, type1, role1, course2, group2, type2, role2, etc.</code></p>
+    </blockquote>
+    </li>
+
+<li>Wenn in den Daten für die einzelnen Nutzer/innen Kommas vorkommen (z.B. im Passwort), verwenden Sie die Codierung &amp;#44; - das Skript wird diese dann automatisch in ein Komma umwandeln.</li>
+<li>Für Boolesche Felder verwenden Sie 0 für falsch und 1 für richtig/wahr.</li>
+  <li>Rollenzuweisungen erfolgen über type1, type2, etc. bzw. role1, role2, etc. Es gilt folgendes: type = 1: Teilnehmer/in, type = 2: Trainer/in, type = 3: Trainer/in ohne Editierrecht. Wenn type nicht angegeben ist oder kein Kurs spezifiziert ist, dann wird standardmäßig die Rolle Teilnehmer/in zugewiesen.</li>
+<li>Anmerkung: Wenn ein/e Nutzer/in bereits in der Moodle-Datenbank registriert ist, wird er/sie in die angegebenen Kurse als Teilnehmer/in eingetragen; alle anderen angegeben Nutzerdaten werden NICHT in der Moodle-Datenbank aktualisiert.</li>
+</ul>
+
+<h3>Beispiel für eine gültige Import-Datei</h3>
+<p><code>username, password, firstname, lastname, email, lang, idnumber, maildisplay, course1, group1, type1<br />
+jonest, verysecret, Tom, Jones, jonest@someplace.edu, en, 3663737, 1, Intro101, Section 1, 1<br />
+reznort, somesecret, Trent, Reznor, reznort@someplace.edu, en_us, 6736733, 0, Advanced202, Section 3, 3
+</code></p>
+<p>Die Importdatei kann für die einen Nutzer/innen Datensätze mit vollständigen Informationen enthalten, und für andere Nutzer/innen Datensätze mit unvollständigen Informationen. Die fehlenden Informationen werden dann durch die entsprechenden Standardwerte ersetzt. Achten Sie darauf, dass Sie auch die fehlenden Daten mit Kommas separieren, damit die Zuordnung Datenfeldname - Wert richtig funktioniert. Zum Beispiel verwendet die folgende Datei Standardwerte für username, city und country für den Nutzer Trent Reznor:</p>
+<p><code>username, password, firstname, lastname, country, city<br />
+jonest, verysecret, Tom, Jones, RO, Constanta<br />
+, somesecret, Trent, Reznor, ,
+</code></p>
+
+<h3>Vorlagen</h3>
+<p>Standardwerte werden als Vorlagen verarbeitet, wobei folgende Codierung erlaubt ist:</p>
+<ul>
+<li><code>%l</code> - wird ersetzt durch den Nachnamen</li>
+<li><code>%f</code> - wird ersetzt durch den Vornamen</li>
+<li><code>%u</code> - wird ersetzt durch den Anmeldenamen</li>
+<li><code>%%</code> - wird ersetzt durch %</li>
+</ul>
+<p>Zwischen dem Prozentzeichen (%) und dem Buchstaben (l, f oder u) sind folgende Zeichen erlaubt:</p>
+<ul>
+<li>Minuszeichen (-) - die Information, die durch den Buchstaben (l, f oder u) spezifiziert ist, wird umgewandelt in Kleinschreibung</li>
+<li>Pluszeichen (+) - die Information, die durch den Buchstaben (l, f oder u) spezifiziert ist, wird umgewandelt in Großschreibung</li>
+<li>Eine Dezimalzahl - die Information, die durch den Buchstaben (l, f oder u) spezifiziert ist, wird auf die angegebene Länge gekürzt</li>
+</ul>
+
+<p>Das folgende Beispiel zeigt einige Vorlagen und welche Werte sich daraus ergeben. Im Beispiel ist der Vorname John und der Nachname Doe:</p>
+<ul>
+<li>%l%f = DoeJohn</li>
+<li>%l%1f = DoeJ</li>
+<li>%-l%+f = doeJOHN</li>
+<li>%-f_%-l = john_doe</li>
+<li>http://www.example.com/~%u/ = http://www.example.com/~jdoe/ (wenn der Anmeldename jdoe oder %-1f%-l ist)</li>
+</ul>
+<p>Vorlagen werden nur für Standardwerte verarbeitet, nicht für Werte, die explizit in der Import-Datei angegeben sind.</p>
+<p>Um korrekte Anmeldenamen zu generieren, wird der Anmeldename immer in Kleinschreibung umgewandelt. Darüberhinaus gilt: Wenn die Einstellung "extendedusernamechars" auf der Website-Rechte-Seite nicht aktiviert ist, werden alle Sonderzeichen (alle Zeichen, die keine Buchstaben, Ziffern, Punkte und Unterstriche sind) im Anmeldenamen entfernt. 
+
+Beispiel: Bei einem Nutzer mit Vornamen John Jr. und Nachnamen Doe ergibt sich aus der Vorlage %-f_%-l der Anmeldename john jr._doe, wenn die Einstellung "extendedusernamechars" aktiviert ist, und johnjr.doe, wenn "extendedusernamechars" nicht aktiviert ist.</p>
+<p>Wenn die Einstellung "Neue Handhabung bei doppeltem Anmeldenamen" auf "Zähler hinzufügen" gesetzt ist, wird an doppelte Anmeldenamen, die von der Vorlage generiert werden, ein automatischer Zähler angehängt. Wenn z.B. die Import-Datei die Nutzer/innen John Doe, Jane Doe und Jenny Doe ohne explizite Angabe von Anmeldenamen enthält, dann ist der Standardanmeldename %-1f%-l, und wenn die Einstellung "Neue Handhabung bei doppeltem Anmeldenamen" auf "Zähler hinzufügen" gesetzt ist, dann ergeben sich die Anmeldenamen jdoe, jdoe2 and jdoe3.
+</p>
+<h3>Bestehende Nutzerprofile aktualisieren</h3>
+
+<p>Standardmäßig geht Moodle davon aus, dass Sie ausschließlich neue Nutzerprofile anlegen möchten. D.h. es werden standardmäßig alle Datensätze übersprungen, die Anmeldenamen enthalten, die bereits im System vorhanden sind. Wenn Sie die Einstellung "Update bestehender Accounts" auf "Ja" setzen, dann werden existierende Nutzerprofile in der Datenbank aktualisiert.</p>
+
+<p>Beim Aktualisieren von bereits bestehenden Nutzerprofilen können ebenfalls die Anmeldenamen geändert werden. Setzen Sie dazu die Option "Umbenennen zulassen" auf "Ja" und fügen Sie in Ihre Import-Datei ein Datenfeld <code>oldusername</code> für den alten Anmeldenamen ein.</p>
+
+<p><b>Achtung:</b> Alle Fehler, die beim Aktualisieren bestehender Nutzerprofile auftretn, können sich sehr negativ auswirken. Seien Sie bitte unbedingt vorsichtig beim Benutzen dieser Update-Funktionen!</p>
+
+<h3>Löschen von Nutzer/innen</h3>
+<p>Wenn die Import-Datei ein Datenfeld <code>deleted</code> enthält, werden Nutzer/innen gelöscht, bei denen der entsprechende Wert in der Import-Datei auf 1 gesetzt ist. In diesem Fall können alle anderen Werte weggelassen werden außer den Werten für <code>username</code>.</p>
+<p>Das Löschen von alten Nutzerprofilen und das Anlegen neuer Nutzerprofile kann mit ein und derselben Import-Datei geschehen. Z.B. wird mit der folgenden Import-Datei ein neuer Nutzer Tom Jones angelegt und der alte Nutzer reznort gelöscht:
+<p><code>username, firstname, lastname, deleted<br />
+jonest, Tom, Jones, 0<br />
+reznort, , , 1
+</code></p>

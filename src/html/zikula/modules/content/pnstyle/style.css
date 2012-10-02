@@ -1,0 +1,448 @@
+/* $Id: style.css 384 2010-01-08 08:38:49Z herr.vorragend $ */
+
+input.date {
+    width: 8em;
+}
+
+#pnFormForm ul.contentPositionSelector {
+    list-style: none;
+    margin: 0px 0px 10px 0px;
+    padding: 0px;
+    float: left;
+}
+
+#pnFormForm ul.contentPositionSelector li {
+    float: left;
+}
+
+#pnFormForm ul.contentPositionSelector label {
+    display: block;
+    float: none;
+}
+
+#pnFormForm ul.content-subtabs {
+    list-style: none;
+    display: block;
+    margin: -30px 0px 0px 0px; /* -30 = move above pnForms tabs */
+    padding: 0px;
+    float: right;
+}
+
+#pnFormForm ul.content-subtabs li {
+    display: inline;
+}
+
+div.content-page-heading h2 {
+    border-bottom: 1px solid #777;
+    margin-bottom: 0px !important;
+    padding-bottom: 0px;
+}
+
+div.content-page-heading h3 {
+    text-align: right;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+div.content-toc img.dragable {
+    cursor: move;
+    vertical-align: middle;
+}
+
+div.content-toc a.hover {
+    background-color: #AAA;
+    border: 1px solid #888;
+}
+
+div.content-label-help {
+    font-size: 0.9em;
+    margin-left:30%;
+    padding-left: 0.7em;
+}
+
+div.content-form {
+    float: left;
+    width: 100%;
+}
+
+div.content-form fieldset {
+    padding: 2px 10px 2px 10px;
+}
+
+div.content-form div.content_buttons {
+    margin: 10px 0px 10px 0px;
+}
+
+div.content-form div.content_buttons * {
+    vertical-align: middle;
+}
+
+div.content-actionbar {
+    background-color: #666;
+    color: #FFF;
+    padding: 2px 4px;
+}
+
+a.content-action {
+    text-decoration: none;
+    font-size: 80%;
+    font-weight: normal;
+}
+
+div.content-actionbar a.content-action {
+    color: #FFF;
+}
+
+div.content-page-path {
+    font-weight: bold;
+}
+
+div.content-editthis a {
+    display:block;
+    font-size: 0.9em;
+    color:#444;
+    padding:1px;
+    margin:1px 0;
+    border: 1px #ddd solid;
+    background: #fafafa;
+}
+
+div.content-editthis a:hover {
+    color:#000;
+    border:1px solid #AAAAAA;
+}
+
+div.pn-pager * {
+    vertical-align: middle;
+}
+
+div.content-sitemap ul {
+    margin-bottom: 0px !important; /* Andreas08 theme modifier */
+}
+
+p.content-versionpreview {
+    background-color: #D0D0D0;
+    border: 1px solid #404040;
+    color: #808080;
+    margin: 0px 0px 6px 0px;
+    padding: 4px;
+}
+
+p.content-versionpreview * {
+    vertical-align: middle;
+}
+
+div.content-pageinfo {
+    position: relative;
+}
+
+div.content-pageinfo .content {
+    background-color:#FFFFFF;
+    border:2px solid #000000;
+    display:block;
+    padding:7px;
+    position:absolute;
+    z-index:900;
+}
+
+div.content-pageinfo .content ul {
+    border-top: 1px solid #999;
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    margin:0 !important;
+    padding:5px 0 !important;
+}
+
+div.content-pageinfo .content li {
+    margin:0 !important;
+    padding:0 !important;
+}
+
+/* ----------------------------------------------------------------------------
+Layouts
+---------------------------------------------------------------------------- */
+
+.content-area-top {
+}
+
+div.content-layout.column2 p,
+div.content-layout.column3 p {
+    text-align:justify;
+}
+
+div.content-layout.column2 div.content-area-left {
+    width: 48%;
+    float: left;
+}
+
+div.content-layout.column2 div.content-area-right {
+    width: 48%;
+    float: right;
+}
+
+div.content-layout.column3 div.content-area-left {
+    width: 30%;
+    float: left;
+}
+
+div.content-layout.column3 div.content-area-center {
+    width: 30%;
+    float: left;
+    margin-left: 5%;
+}
+
+div.content-layout.column3 div.content-area-right {
+    width: 30%;
+    float: right;
+}
+
+div.content-layout.column3 div.content-area-bottom,
+div.content-layout.column2 div.content-area-bottom {
+    clear: both;
+}
+
+/* ----------------------------------------------------------------------------
+Content editing
+---------------------------------------------------------------------------- */
+
+.clickable {
+    cursor: pointer;
+}
+
+table.content-layout-edit {
+    width: 100%;
+    border-collapse: separate;
+}
+
+table.content-layout-edit td.content-area {
+    border: 1px dashed #777;
+    vertical-align: top;
+}
+
+/* Portal widget specific */
+
+.widget {
+    border: 1px solid #000;
+    margin-bottom: 10px;
+}
+
+.widget_nw {
+    height: 15px;
+    background-color: #999;
+    padding: 2px;
+}
+
+.widget_w {
+}
+
+.widget_sw {
+}
+
+.widget_title {
+    font-weight: bold;
+    text-align: left;
+}
+
+.widget_content {
+    padding: 2px;
+}
+
+.widget_draggable {
+    cursor: move;
+}
+
+.widget_ghost {
+    background: #AAA;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    position: relative;
+    border: 1px dashed #700;
+}
+
+/* ----------------------------------------------------------------------------
+Content styling
+---------------------------------------------------------------------------- */
+
+div.figure-topLeft {
+    margin: 0px 15px 5px 0px;
+}
+
+div.figure-topRight {
+    margin: 0px 0px 5px 15px;
+}
+
+div.w25 { width: 20%; }
+div.w33 { width: 30%; }
+div.w50 { width: 45%; }
+div.w66 { width: 60%; }
+div.w75 { width: 70%; }
+div.w100 { width: 100%; }
+div.wauto { width: auto; }
+
+div.greybox {
+    border:solid 1px #DEDEDE;
+    background:#EFEFEF;
+    color:#222222;
+    padding:0.5em;
+}
+
+div.redbox {
+    border:solid 1px #CC0000;
+    background:#F7CBCA;
+    color:#CC0000;
+    padding:0.5em;
+}
+
+div.yellowbox {
+    border:solid 1px #DEDEDE;
+    background:#FFFFCC;
+    color:#222222;
+    padding:0.5em;
+}
+
+div.greenbox {
+    border:solid 1px #349534;
+    background:#C9FFCA;
+    color:#008000;
+    padding:0.5em;
+}
+
+/* ----------------------------------------------------------------------------
+Various content plugins
+---------------------------------------------------------------------------- */
+
+div.content-item p.content-description {
+    font-style: italic;
+    margin-bottom: 0px;
+}
+
+.content-googlemap {
+    border: 1px solid #000;
+    background-color:#c0c0c0;
+    width:100%;
+    margin:0 0 10px 0 !important;
+    padding:0 !important;
+}
+.map {
+    height:200px;
+}
+.content-googlemap dd,
+.content-googlemap dt {
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.content-description {
+    font-style:italic;
+}
+
+.content-computercode {
+    overflow: auto;
+    border: 1px solid #000;
+}
+
+.content-layout-edit .content-computercode {
+    border: none;
+}
+
+.content-computercode li {
+    font: 100% monospace;
+}
+
+.content-computercode li pre {
+    margin: 0px;
+}
+
+.content-author .authoravatar {
+    background:#FFFFFF none repeat scroll 0 0;
+    border-color:#D9E0E6 #C8CDD2 #C8CDD2 #D9E0E6;
+    border-style:solid;
+    border-width:1px;
+    float:left;
+    margin:0 5px 5px 0;
+    padding:5px;
+}
+
+dl.content-video,
+dl.content-video dt,
+dl.content-video dd {
+    text-align: center;
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.content-video .play-icon {
+    background: url(../../../images/icons/extrasmall/agt_forward.gif) no-repeat 0 50%;
+    margin: 0 0.5em;
+    font-size: 1em;
+    padding: 2px 0 2px 19px;
+}
+
+.content-quote blockquote {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 0 2em;
+}
+
+.content-quote blockquote p {
+    margin: 0;
+    padding: 0;
+    text-align: left !important;
+}
+
+.content-quote p.source {
+    text-align: right !important;
+}
+
+.itemleft { /* used by MediaAttach */
+    float:left;
+    padding-right:5px;
+}
+.itemright { /* used by MediaAttach */
+    float:right;
+    padding-left:5px;
+}
+
+/*******************************************************************************/
+/* Styling of links and buttons with images
+/*******************************************************************************/
+/*
+* Note: When use a CSS3 feature to highlight external the following image
+*       normally would not be visisble. The !important fixes this.
+* a[href^="http:"],
+* a[href^="https:"] {
+*     padding-left: 1.5em;
+*     background: url('images/internet.gif') no-repeat bottom left;
+* }
+*
+/*******************************************************************************/
+
+#contentPageInfo a.con_image,
+#contentPageInfo button.con_image {
+    margin: 0 !important;
+    font-size: 1em !important;
+    padding: 2px 0 2px 22px !important; /* 16px image + spacer */
+    display: block !important;
+}
+#contentPageInfo a.translate {
+    background: url(../../../images/icons/extrasmall/voice-support.gif) no-repeat 0 50%;
+}
+#contentPageInfo a.edit {
+    background: url(../../../images/icons/extrasmall/edit.gif) no-repeat 0 50%;
+}
+#contentPageInfo a.insertsub {
+    background: url(../../../images/icons/extrasmall/insertcell.gif) no-repeat 0 50%;
+}
+#contentPageInfo a.insertpage {
+    background: url(../../../images/icons/extrasmall/insert_table_row.gif) no-repeat 0 50%;
+}
+#contentPageInfo a.pagelist {
+    background: url(../../../images/icons/extrasmall/enumList.gif) no-repeat 0 50%;
+}
+#contentPageInfo a.editoff {
+    background: url(../../../images/icons/extrasmall/redled.gif) no-repeat 0 50%;
+}
+#contentPageInfo a.editon {
+    background: url(../../../images/icons/extrasmall/greenled.gif) no-repeat 0 50%;
+}

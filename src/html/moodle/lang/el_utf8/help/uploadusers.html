@@ -1,0 +1,202 @@
+<p align=center style='text-align:center'><b><span style='mso-ansi-language:
+EL'>Φόρτωση λογαριασμών χρηστών </span></b><span style='mso-ansi-language:EL'><o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-autospace:none'><span
+style='mso-ansi-language:EL'>Αρχικά, σημειώνεται ότι<span style="mso-spacerun:
+yes">  </span><b>δεν είναι συνήθως απαραίτητο να εισάγονται χρήστες σε μεγάλη
+ποσότητα</b>. Για να μειώσετε τις εργασίες συντήρησης, πρέπει πρώτα να
+ερευνήσετε μορφές επικύρωσης που δεν απαιτούν χειροκίνητη συντήρηση, όπως η
+σύνδεση με τις υπάρχουσες εξωτερικές βάσεις δεδομένων ή να αφήσετε τους χρήστες
+να δημιουργήσουν τους δικούς τους λογαριασμούς. Δείτε το τμήμα Επικύρωσης στις
+επιλογές Διαχείρισης. <o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-autospace:none'><span
+style='mso-ansi-language:EL'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-autospace:none'><span
+style='mso-ansi-language:EL'>Εάν είστε βέβαιοι πως θέλετε να εισαγάγετε τους
+πολλούς λογαριασμούς χρηστών από ένα αρχείο κειμένου, τότε πρέπει να
+μορφοποιήσετε το αρχείο κειμένου σας ως εξής: <o:p></o:p></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo4;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Κάθε γραμμή του αρχείου περιέχει μια σειρά δεδομένων <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo4;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Κάθε σειρά δεδομένων είναι μια σειρά από δεδομένα που χωρίζονται με
+     κόμματα <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo4;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Η πρώτη σειρά του αρχείου έχει ιδιαίτερο χαρακτήρα: περιέχει τα
+     ονόματα των πεδίων δεδομένων (</span><span lang=EN-US>fieldnames</span><span
+     style='mso-ansi-language:EL'>). Η σειρά αυτή καθορίζει τη δομή του
+     υπολοίπου αρχείου.<span style="mso-spacerun: yes">  </span><o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt'><b><span style='mso-ansi-language:EL'>Απαιτούμενα </span><span
+lang=EN-US>fieldnames</span></b><b><span style='mso-ansi-language:EL'>: </span></b><span
+style='mso-ansi-language:EL'><span style="mso-spacerun:
+yes"> </span>υποχρεωτικά πρέπει να περιληφθούν στην πρώτη σειρά, και να
+καθοριστούν για κάθε χρήστη <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt'><span style='font-family:"Courier New";color:#990000;
+mso-ansi-language:EL'>όνομαχρήστη, κωδικόςπρόσβασης, όνομα, επώνυμο, </span><span
+lang=EN-US style='font-family:"Courier New";color:#990000'>email</span><span
+lang=EN-US style='font-family:"Courier New";color:#990000;mso-ansi-language:
+EL'> </span><span style='mso-ansi-language:EL'><o:p></o:p></span></p>
+
+<p style='margin-left:36.0pt'><b><span style='mso-ansi-language:EL'>Προεπιλεγμένα
+</span><span lang=EN-US>fieldnames</span></b><b><span style='mso-ansi-language:
+EL'>: </span></b><span style='mso-ansi-language:EL'><span style="mso-spacerun:
+yes"> </span>είναι προαιρετικά - εάν δεν συμπεριλαμβάνονται, τότε οι τιμές τους
+λαμβάνονται από τις αρχικές επιλογές Διαχείρισης <o:p></o:p></span></p>
+
+<p style='margin-left:36.0pt'><span style='font-family:"Courier New";
+color:#990000;mso-ansi-language:EL'>ίδρυμα, τμήμα, πόλη, χώρα, γλώσσα,
+επικύρωση, ζώνηώρας </span><span style='mso-ansi-language:EL'><o:p></o:p></span></p>
+
+<p style='margin-left:36.0pt'><b><span style='mso-ansi-language:EL'>Προαιρετικά
+</span><span lang=EN-US>fieldnames</span></b><b><span style='mso-ansi-language:
+EL'>:<span style="mso-spacerun: yes">  </span></span></b><span
+style='mso-ansi-language:EL'>είναι απολύτως προαιρετικά. Τα ονόματα σειράς
+μαθημάτων είναι τα &quot;συντομευμένα ονόματα &quot; των σειρών μαθημάτων – αν
+υπάρχουν, τότε ο χρήστης θα εγγραφεί ως εκπαιδευόμενος σε εκείνες τις σειρές
+μαθημάτων. Τα ονόματα Ομάδας πρέπει να συνδεθούν στις αντίστοιχες σειρές
+μαθημάτων, δηλ. ομάδα1 σε ενότητα1, κ.λπ. <o:p></o:p></span></p>
+
+<p style='margin-left:36.0pt'><span style='font-family:"Courier New";
+color:#990000;mso-ansi-language:EL'>αριθμόςταυτότητας, </span><span lang=EN-US
+style='font-family:"Courier New";color:#990000'>icq</span><span
+style='font-family:"Courier New";color:#990000;mso-ansi-language:EL'>, </span><span
+lang=EN-US style='font-family:"Courier New";color:#990000'>phone</span><span
+style='font-family:"Courier New";color:#990000;mso-ansi-language:EL'>1,
+τηλέφωνο2, διεύθυνση, </span><span lang=EN-US style='font-family:"Courier New";
+color:#990000'>url</span><span style='font-family:"Courier New";color:#990000;
+mso-ansi-language:EL'>, περιγραφή, </span><span lang=EN-US style='font-family:
+"Courier New";color:#990000'>mailformat</span><span style='font-family:"Courier New";
+color:#990000;mso-ansi-language:EL'>, </span><span lang=EN-US style='font-family:
+"Courier New";color:#990000'>maildisplay</span><span style='font-family:"Courier New";
+color:#990000;mso-ansi-language:EL'>, </span><span lang=EN-US style='font-family:
+"Courier New";color:#990000'>htmleditor</span><span style='font-family:"Courier New";
+color:#990000;mso-ansi-language:EL'>, αυτόματηεγγραφή, ενότητα1, ενότητα2,
+ενότητα3, ενότητα4, ενότητα5, ομάδα1, ομάδα2, ομάδα3, ομάδα4, ομάδα5, τύπος1,
+τύπος2, τύπος3, τύπος4, τύπος5, ρόλος1, </span><span lang=EN-US
+style='font-family:"Courier New";color:#990000'>r</span><span style='font-family:
+"Courier New";color:#990000;mso-ansi-language:EL'> ρόλος2, ρόλος3, ρόλος4,
+ρόλος5 </span><span style='mso-ansi-language:EL'><o:p></o:p></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo4;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Τα κόμματα μέσα στα στοιχεία πρέπει να κωδικοποιηθούν ως &amp;#44 - το
+     αρχείο τύπου </span><span lang=EN-US>script</span><span style='mso-ansi-language:
+     EL'> θα τα αποκωδικοποιήσει αυτόματα ως τα κόμματα.<span
+     style="mso-spacerun: yes">  </span><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo4;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Για τα πεδία τύπου </span><span lang=EN-US>Boolean</span><span
+     style='mso-ansi-language:EL'>, χρησιμοποιήστε 0 για λάθος και 1 για
+     σωστό.<span style="mso-spacerun: yes">  </span><o:p></o:p></span></li>
+</ul>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'><span style="mso-spacerun: yes"> </span><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Οι Τύποι χρησιμοποιούνται για να ενημερώσουν την πλατφόρμα </span><span
+     lang=EN-US>Moodle</span><span style='mso-ansi-language:EL'> εάν ο χρήστης
+     είναι εκπαιδευόμενος ή εκπαιδευτής, εάν μια αντίστοιχη σειρά μαθημάτων
+     υπάρχει (π.χ. αν ο τύπος2 αντιστοιχεί στην ενότητα2). 1 = Εκπαιδευόμενος,
+     2 = Εκπαιδευτής με δικαίωμα επεξεργασίας, και 3 = Εκπαιδευτής χωρίς
+     δικαίωμα επεξεργασίας. Εάν ένας Τύπος αφεθεί κενός, ή εάν δεν ορίζεται μια
+     σειρά μαθημάτων, ο χρήστης προεπιλέγεται ως εκπαιδευόμενος.<span
+     style="mso-spacerun: yes">  </span><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Για σειρές μαθημάτων προτείνεται η χρήση του συντομευμένου ονόματος,
+     για τις ομάδες προτείνεται η χρήση του ονόματος ομάδας, για τους ρόλους
+     προτείνεται η χρήση ταυτότητας. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-ansi-language:
+     EL'>Σημείωση: Εάν ένας χρήστης είναι ήδη καταχωρημένος στη βάση δεδομένων
+     χρηστών </span><span lang=EN-US>Moodle</span><span style='mso-ansi-language:
+     EL'>, αυτό το αρχείο τύπου </span><span lang=EN-US>script</span><span
+     style='mso-ansi-language:EL'> θα χρησιμοποιήσει το όνομα της ταυτότητας
+     του χρήστη (στο ευρετήριο βάσης δεδομένων) για εκείνο τον χρήστη, και θα
+     εγγράψει το χρήστη ως εκπαιδευόμενο σε οποιεσδήποτε από τις ορισμένες
+     σειρές μαθημάτων ΧΩΡΙΣ να ενημερώσει τα άλλα στοιχεία.<span
+     style="mso-spacerun: yes">  </span><o:p></o:p></span></li>
+</ul>
+
+<p><span style='mso-ansi-language:EL'>Ακολουθεί παράδειγμα έγκυρου αρχείου
+εισαγωγής δεδομένων χρηστών: <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New";mso-ansi-language:
+EL'>όνομαχρήστη, κωδικόςπρόσβασης, όνομα, επώνυμο, </span><span lang=EN-US
+style='font-size:10.0pt;font-family:"Courier New"'>email</span><span
+style='font-size:10.0pt;font-family:"Courier New";mso-ansi-language:EL'>,
+γλώσσα, αριθμοςταυτοτητας, </span><span lang=EN-US style='font-size:10.0pt;
+font-family:"Courier New"'>maildisplay</span><span style='font-size:10.0pt;
+font-family:"Courier New";mso-ansi-language:EL'>, ενότητα1, ομάδα1, τύπος1 <br>
+νικπαππα, απορρητο, Νικόλαος, Παππάς, </span><span lang=EN-US style='font-size:
+10.0pt;font-family:"Courier New"'>nikpappa</span><span style='font-size:10.0pt;
+font-family:"Courier New";mso-ansi-language:EL'>@</span><span lang=EN-US
+style='font-size:10.0pt;font-family:"Courier New"'>someplace</span><span
+style='font-size:10.0pt;font-family:"Courier New";mso-ansi-language:EL'>.</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>edu</span><span
+style='font-size:10.0pt;font-family:"Courier New";mso-ansi-language:EL'>, Ελλ,
+3663737, 1, εισαγ101, τομέας1, 1 <br>
+βασγεω, κρυψτο, Βασιλική, Γεωργίου, </span><span lang=EN-US style='font-size:
+10.0pt;font-family:"Courier New"'>vasgeo</span><span style='font-size:10.0pt;
+font-family:"Courier New";mso-ansi-language:EL'>@</span><span lang=EN-US
+style='font-size:10.0pt;font-family:"Courier New"'>someplace</span><span
+style='font-size:10.0pt;font-family:"Courier New";mso-ansi-language:EL'>.</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>edu</span><span
+style='font-size:10.0pt;font-family:"Courier New";mso-ansi-language:EL'>,
+ελλ_αγγλ, 6736733, 0, ειδικότητα202, τομέας3, 3 </span><span style='mso-ansi-language:
+EL'><o:p></o:p></span></p>
+
+<p align=center style='margin:0cm;margin-bottom:.0001pt;text-align:center;
+text-autospace:none'><b><span style='mso-ansi-language:EL'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p align=center style='margin:0cm;margin-bottom:.0001pt;text-align:center;
+text-autospace:none'><b><span style='mso-ansi-language:EL'>Ενημέρωση υπαρχόντων
+λογαριασμών <o:p></o:p></span></b></p>
+
+<p align=center style='margin:0cm;margin-bottom:.0001pt;text-align:center;
+text-autospace:none'><span style='mso-ansi-language:EL'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-autospace:none'><span
+style='mso-ansi-language:EL'>Ως προεπιλογή η πλατφόρμα </span><span lang=EN-US>Moodle</span><span
+style='mso-ansi-language:EL'> υποθέτει ότι θα δημιουργείτε νέους λογαριασμούς
+χρηστών. Επομένως αγνοεί σειρές δεδομένων όπου το όνομα χρήστη ταιριάζει με
+έναν υπάρχοντα λογαριασμό. Αν όμως θέσετε την επιλογή &quot;Ενημέρωση
+υπαρχόντων λογαριασμών&quot; στο <b>Ναι</b>, ο υπάρχων λογαριασμός χρηστη θα
+ενημερωθεί. <o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-autospace:none'><span
+style='mso-ansi-language:EL'><span style="mso-spacerun: yes"> </span><o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-autospace:none'><span
+style='mso-ansi-language:EL'>Όταν ενημερώνετε υπάρχοντες λογαριασμούς, μπορείτε
+επίσης να αλλάξετε τα ονόματα χρηστών. Θέστε την επιλογή &quot; Άδεια
+Μετονομασίας&quot; στο <b>Ναι</b> και περιλάβατε στο αρχείο σας ένα πεδίο
+δεδομένων (</span><span lang=EN-US>fieldname</span><span style='mso-ansi-language:
+EL'>)<span style="mso-spacerun: yes">  </span>με το όνομα </span><span
+style='font-family:"Courier New";color:#990000;mso-ansi-language:EL'>παλιοοναμαχρηστη</span><span
+style='mso-ansi-language:EL'>. <o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-autospace:none'><span
+style='mso-ansi-language:EL'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-autospace:none'><b><span
+style='mso-ansi-language:EL'>Προειδοποίηση: </span></b><span style='mso-ansi-language:
+EL'><span style="mso-spacerun: yes"> </span>οποιαδήποτε λάθη κατά την ενημέρωση
+υπαρχόντων λογαριασμών μπορούν να έχουν αρνητικές επιπτώσεις στους χρήστες σας.
+Να είστε προσεκτικός κατά τη χρησιμοποίηση των επιλογών ενημέρωσης λογαριασμών.
+<o:p></o:p></span></p>

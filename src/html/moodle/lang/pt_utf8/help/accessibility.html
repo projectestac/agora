@@ -1,0 +1,98 @@
+<!-- $Id: accessibility.html,v 1.4 2008/01/20 19:06:49 villate Exp $ -->
+<!--
+TODO:  Update as accessibility status changes.
+FILE:  lang/en_utf8/docs/accessibility.html
+NOTES: Hard-coded links need to be edited/ scripted.
+       May need editing for local Moodle sites.
+-->
+
+
+<h1>Acessibilidade</h1>
+
+<h2>Declaração da Acessibilidade </h2>
+
+<p>Este sítio foi testado em vários navegadores (browsers) e com
+software de leitura de ecrã.</p>
+
+<p>
+O Moodle usa marcas semânticas para ajudar os utilizadores de leitores
+de ecrã e outros &mdash; os cabeçalhos do sítio, páginas e blocos usam
+&lt;h1&gt;, &lt;h2&gt;; os blocos da navegação são listas
+&lt;ul&gt;... e assim por diante.
+</p>
+
+<p>
+O Moodle Segue as [<a href="http://www.w3.org/TR/WCAG10/" title="Web
+Content Accessibility Guidelines 1.0">Normas de Acessibilidade de
+Conteúdos, versão 1.0</a>], de nível 1, da World Wide Web Consortium,
+a maioria das do nível 2
+[<a href="http://www.w3.org/WAI/WCAG1AA-Conformance" title="About
+Double-A WCAG conformance"> sobre a conformidade Dupla-A</a>] e
+algumas de nível 3. Através destas directrizes esperamos cumprir com
+as leis locais a respeito do acesso para pessoas com
+deficiências. Actualmente estamos a trabalhar para melhorar a
+acessibilidade e a usabilidade do Moodle. Presentemente existem ainda
+algumas tabelas usadas para formatação, mas, em geral, a forma de
+apresentação é separada do conteúdo usando folhas de estilo.
+</p>
+
+<p>
+Agradecemos quaisquer comentários, em particular relatórios de algum
+conteúdo inacessível.  Por favor
+[<a href="./message/discussion.php?id=2"> envie uma mensagem para o
+administrador</a>].
+</p>
+
+
+
+<h2>Chaves de Acesso </h2>
+
+<p>Actualmente não se usam chaves de acesso, mas pretendemos usá-las
+numa versão futura do Moodle.
+</p>
+
+
+
+<h2>Apontadores</h2>
+
+<p>
+Há um apontador antes de cada bloco lateral, que permite que os
+utilizadores de leitores de ecrã avancem para o bloco seguinte. Note
+que o apontador é oculto nos navegadores gráficos.
+</p>
+
+<p>
+Muitos apontadores têm atributos de título que os descrevem em maior
+detalhe, a menos que o texto do apontador descreva já por inteiro o
+destino (tal como o título de um artigo). Se um apontador tiver uma
+chave de acesso esta será anunciada no título.
+</p>
+
+<p>
+Sempre que possível, os apontadores são escritos para fazer sentido fora do contexto. Não há nenhum pseudo apontador Javascript.
+</p>
+
+<h2>Imagens </h2>
+
+<p>
+Todas as imagens usam o atributo &quot;alt&quot; para fornecer o texto
+alternativo onde este for apropriado; as imagens que são puramente
+decorativas contêm um atributo nulo do &quot;alt&quot;. As imagens,
+tais como os mapas, que apresentam informação complexa têm um atributo
+de &quot;longdesc&quot; ligando-os a uma descrição do conteúdo da
+imagem.
+</p>
+
+<h2>Conformidade com os padrões </h2>
+
+<p>Este sítio foi construído usando, para o
+conteúdo, <acronym title="Extensible Hyper-Text Markup
+Language">XHTML</acronym> válido, e CSS para a apresentação.
+</p>
+ 
+<p style="text-align:center">
+  <a href="http://validator.w3.org/check?verbose=1&amp;ss=1&amp;uri=<?php echo $CFG->wwwroot; ?>" title="Usar validador W3C">Validar HTML</a> 
+| <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=-1&amp;url1=<?php echo $CFG->wwwroot; ?>" title="Testar com Cynthia">Verificar Secção 508</a> 
+| <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=0&amp;warnp2n3e=1&amp;url1=<?php echo $CFG->wwwroot; ?>" title="Testar com Cynthia">Verificar WCAG 1 (2,3)</a>
+</p>
+

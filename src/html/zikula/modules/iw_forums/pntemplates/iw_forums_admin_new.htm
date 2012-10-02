@@ -1,0 +1,53 @@
+<script language="javascript">
+	function send(){
+		var error=false;
+		if(document.new_forum.nom_forum.value==""){
+			alert("<!--[gt text="You haven't writte the name of the forum "]-->");
+			var error=true;
+		}
+		if(error){return false;}
+	}
+</script>
+<!--[include file="iw_forums_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='filenew.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Create a new forum"]--></h2>
+	<form  class="pn-adminform" method="post" name="new_forum" id="new_forum" action="<!--[pnmodurl modname="iw_forums" type="admin" func="create"]-->" enctype="application/x-www-form-urlencoded" onSubmit="return send()">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forums"]-->" />
+		<input type="hidden" name="m" value="<!--[$m]-->" />
+		<input type="hidden" name="fid" value="<!--[$forum.fid]-->" />
+		<div class="pn-adminformrow">
+			<label for="nom_forum"><!--[gt text="Forum name"]--></label>
+			<input id="nom_forum" name="nom_forum" type="text" size="50" maxlength="200" value="<!--[$forum.nom_forum]-->"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="descriu"><!--[gt text="Description"]--></label>
+			<input id="descriu" name="descriu" type="text" size="50" maxlength="200" value="<!--[$forum.descriu]-->"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="adjunts"><!--[gt text="Attached files are allowed"]--></label>
+			<input id="adjunts" name="adjunts" type="checkbox" <!--[if $forum.adjunts eq 1]-->checked<!--[/if]--> value="1"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="msgEditTime"><!--[gt text="Minutes, after the submission, during which the messages can be edited by theirs authors"]--></label>
+			<input id="msgEditTime" name="msgEditTime" type="text" size="5" maxlength="3" value="<!--[$forum.msgEditTime]-->"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="msgDelTime"><!--[gt text="Minutes, after the submission, during which the messages can be deleted by theirs authors"]--></label>
+			<input id="msgDelTime" name="msgDelTime" type="text" size="5" maxlength="3" value="<!--[$forum.msgDelTime]-->"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="observacions"><!--[gt text="Observations"]--></label>
+			<textarea type="text" name="observacions" cols="42" rows="5" style="width: 300px"><!--[$forum.observacions]--></textarea>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="actiu"><!--[gt text="Active?"]--></label>
+			<input id="actiu" name="actiu" type="checkbox" <!--[if $forum.actiu eq 1]-->checked<!--[/if]--> value="1"/>
+		</div>
+		<div class="formOptions" align="center">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Create" __title="Create"]-->
+			<a href="<!--[pnmodurl modname=iw_forums type=admin func=main]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+		</div>
+	</form>
+</div>

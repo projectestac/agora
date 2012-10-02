@@ -1,0 +1,154 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 09:46+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:59
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pnuserapi.php:156
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: pninit.php:30 pninit.php:63
+msgid "unable to create system init hook"
+msgstr ""
+
+#: pninit.php:33 pninit.php:66
+msgid ""
+"Referers have been enabled, you can change this in the hook settings "
+"(Administration -> Modules -> System hooks) by deactivating the Referers "
+"systeminit hook for Zikula itself"
+msgstr ""
+
+#: pninit.php:86
+msgid "unable to delete system init hook"
+msgstr ""
+
+#: pnadminapi.php:23
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnadminapi.php:28
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: pnadminapi.php:49
+msgid "View referers"
+msgstr ""
+
+#: pnadminapi.php:52
+msgid "Reset referers"
+msgstr ""
+
+#: pnadminapi.php:55 pntemplates/referers_admin_modifyconfig.htm:4
+#: pntemplates/referers_admin_modifyconfig.htm:5
+msgid "Settings"
+msgstr ""
+
+#: pnadmin.php:130
+msgid "Done! Module configuration updated."
+msgstr ""
+
+#: pnadmin.php:176
+msgid "All referers deleted"
+msgstr ""
+
+#: pnversion.php:15
+msgid "HTTP Referers"
+msgstr ""
+
+#: pnversion.php:16
+msgid "HTTP_Referers"
+msgstr ""
+
+#: pnversion.php:17
+msgid "View HTTP referer statistics."
+msgstr ""
+
+#: pntemplates/referers_admin_view.htm:4 pntemplates/referers_admin_view.htm:5
+msgid "Who's linking to this site."
+msgstr ""
+
+#: pntemplates/referers_admin_view.htm:9
+msgid "Frequency"
+msgstr ""
+
+#: pntemplates/referers_admin_view.htm:10
+msgid "URL"
+msgstr ""
+
+#: pntemplates/referers_admin_view.htm:11
+msgid "per cent"
+msgstr ""
+
+#: pntemplates/referers_admin_view.htm:28
+msgid "No items found."
+msgstr ""
+
+#: pntemplates/referers_admin_view.htm:32
+msgid "Total"
+msgstr ""
+
+#: pntemplates/referers_admin_menu.htm:4
+msgid "HTTP referers"
+msgstr ""
+
+#: pntemplates/referers_admin_delete.htm:4
+msgid "Delete"
+msgstr ""
+
+#: pntemplates/referers_admin_delete.htm:5
+msgid "Delete all referers"
+msgstr ""
+
+#: pntemplates/referers_admin_delete.htm:11
+msgid "Do you really want to delete all the referers?"
+msgstr ""
+
+#: pntemplates/referers_admin_delete.htm:14
+msgid "Confirm deletion?"
+msgstr ""
+
+#: pntemplates/referers_admin_delete.htm:15
+#: pntemplates/referers_admin_modifyconfig.htm:25
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/referers_admin_modifyconfig.htm:10
+msgid "Activate HTTP referers?"
+msgstr ""
+
+#: pntemplates/referers_admin_modifyconfig.htm:11
+msgid "Yes"
+msgstr ""
+
+#: pntemplates/referers_admin_modifyconfig.htm:12
+msgid "No"
+msgstr ""
+
+#: pntemplates/referers_admin_modifyconfig.htm:15
+msgid "Items per page"
+msgstr ""
+
+#: pntemplates/referers_admin_modifyconfig.htm:19
+msgid "Exclusions (separated by spaces)"
+msgstr ""
+
+#: pntemplates/referers_admin_modifyconfig.htm:24
+msgid "Update Configuration"
+msgstr ""

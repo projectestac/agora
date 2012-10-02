@@ -1,0 +1,12 @@
+<!--[*  $Id: stats_user_bymonth.htm 9 2008-11-05 21:42:16Z Guite $  *]-->
+<h2><!--[gt text="Visits by month"]--></h2>
+<table class="pn-datatable">
+    <tbody>
+	<!--[foreach from=$bymonth item=month key=monthid]-->
+		<tr>
+    	    <td align="left"><!--[$months.$monthid]-->:</td>
+        	<td><!--[makepercentbar percent=$month.percent label="`$month.percent`%" width=200]--> <!--[$month.percent]-->% (<!--[$month.hits]-->)</td>
+		</tr>
+	<!--[/foreach]-->
+	</tbody>
+</table>

@@ -1,0 +1,39 @@
+<h1>Correspondencia de Calificaciones</h1>
+
+<p>Las calificaciones importadas <b>deben</b> corresponderse con alguna de las que figuran en la lista fija de calificaciones válidas, de este modo:</p>
+
+<ul>
+  <li>100%</li>
+  <li>90%</li>
+  <li>80%</li>
+  <li>75%</li>
+  <li>70%</li>
+  <li>66.666%</li>
+  <li>60%</li>
+  <li>50%</li>
+  <li>40%</li>
+  <li>33.333</li>
+  <li>30%</li>
+  <li>25%</li>
+  <li>20%</li>
+  <li>16.666%</li>
+  <li>14.2857</li>
+  <li>12.5%</li>
+  <li>11.111%</li>
+  <li>10%</li>
+  <li>5%</li>
+  <li>0%</li>
+</ul>
+
+<p>se admiten asimismo los valores negativos de la lista anterior.</p>
+
+<p>Esta opción tiene dos posibilidades, que afectan a la forma en que la rutina de importación trata los valores que no se corresponden <strong>exactamente</strong> con cualquiera de los valores de la lista</p>
+
+<ul>
+  <li><strong>Error si la calificación no está en la lista</strong><br />
+  Si una pregunta contiene cualesquiera calificaciones que no se correspondan con los valores de la lista, se mostrará un mensaje de error y esa pregunta no se importará.</li>
+  <li><strong>Calificación más próxima si no está en la lista</strong><br />
+  Si se encuentra una calificación que no se corresponde con uno de los valores de la lista, se toma el valor más próximo de la lista</li>
+</ul>
+
+<p><i>Nota: algunos formatos de importación personalizados pueden escribir directamente en la base de datos y no quedar afectados por esta comprobación</i></p>

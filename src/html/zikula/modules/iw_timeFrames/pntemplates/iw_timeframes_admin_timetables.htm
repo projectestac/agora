@@ -1,0 +1,88 @@
+<!--[if $statusmsg neq ""]--><!--[$statusmsg]--><!--[/if]-->
+<!--[include file="iw_timeframes_admin_menu.htm"]-->
+
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='clock.gif' set='icons/large']--></div>
+	<div style="height:10px;">&nbsp;</div>
+	<h2><!--[gt text="Edition of timeFrame"]-->: <!--[$nom_marc]--></h2>
+<!--[if $nova_hora || $editmode]-->
+	
+	<!--[if $nova_hora]--> 
+		<form  method='post' name='new_hour' id='nhr' action='<!--[pnmodurl modname="iw_timeFrames" type="admin" func="create_hour"]-->'
+			enctype='application/x-www-form-urlencoded'>
+	<!--[else]-->
+		<form  method='post' name='new_hour' id='nhr' action='<!--[pnmodurl modname="iw_timeFrames" type="admin" func="update_hour"]-->'
+			enctype='application/x-www-form-urlencoded'>
+			<input type="hidden" name='hid'value="<!--[$hid]--> ">
+	<!--[/if]-->
+		<input type="hidden" name="nbookings" value="<!--[$nbookings]-->">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_timeFrames"]-->" />
+		<input type="hidden" name='mdid'value="<!--[$mdid]--> ">
+		
+		<h3 align='center'><!--[$accio]--></h3>
+		<table width='600' border='0'><tr><td  width='150'>
+			<!--[gt text = "Start time (hh:mm)"]--></td><td>
+			<select name="hora_i">
+				<!--[foreach item=hora from=$hores]-->
+					<option <!--[if $starth eq $hora.id]--> selected<!--[/if]--> value="<!--[$hora.id]-->"><!--[$hora.name]--></option>
+				<!--[/foreach]-->
+			</select>:<select name="minut_i">
+				<!--[foreach item=minut from=$minuts]-->
+					<option <!--[if $startm eq $minut.id]--> selected<!--[/if]--> value="<!--[$minut.id]-->"><!--[$minut.name]--></option>
+				<!--[/foreach]-->
+			</select>
+			</td></tr><tr><td>
+			<!--[gt text="Finish time (hh:mm)"]--></td><td>
+			<select name="hora_f">
+				<!--[foreach item=hora from=$hores]-->
+					<option <!--[if $endh eq $hora.id]-->  selected<!--[/if]--> value="<!--[$hora.id]-->"><!--[$hora.name]--></option>
+				<!--[/foreach]-->
+			</select>:<select name="minut_f">
+				<!--[foreach item=minut from=$minuts]-->
+					<option <!--[if $endm eq $minut.id]--> selected<!--[/if]--> value="<!--[$minut.id]-->"><!--[$minut.name]--></option>
+				<!--[/foreach]-->
+			</select>
+			</td></tr><tr><td><!--[gt text="Description"]--></td><td>
+			<input name= "descriu"  size='50' value='<!--[$descriu]-->'>
+			</td></tr>
+			<tr><td> <input type="submit" name="submit" value="<!--[$acciosubmit]-->"> </td></tr>
+		</table>
+	</form>
+<!--[/if]-->
+<!--[if ((not ($nova_hora || $editmode)) && (!$hasbookings))]-->
+	<a href=<!--[pnmodurl modname="iw_timeFrames" type = "admin" func="new_hour" mdid = $mdid m=n]-->><!--[pnimg modname='core' src='db_add.gif' set='icons/extrasmall'   __alt="Add new time" __title="Add new time"]-->  <!--[gt text="Add new time"]--></a>
+	<br><div style="height:15px;">&nbsp;</div>
+<!--[/if]-->
+<!--[if $hi_ha_hores]-->
+<table width ="100%" bodre="0">
+	<tr> <td align="center">
+	<table width="700" border="0">
+		<th align="center" bgcolor="silver"><!--[gt text="Time"]--></th>
+		<th align="center" bgcolor="silver"><!--[gt text="Description"]--></th>
+		<th align="center" bgcolor="silver"><!--[gt text="Accions"]--></th>
+		<!--[section name=hores loop=$horari]-->
+			<tr bgcolor='#ededed'>
+				<td align="center" width="25%"><!--[$horari[hores].hora]--></td>
+				<td align="center" ><!--[if $horari[hores].descriu]--><!--[$horari[hores].descriu]--><!--[else]-->---<!--[/if]--></td>
+				<td align="center">
+
+<!--[if !$hasbookings]-->
+				<a href=<!--[pnmodurl modname="iw_timeFrames" type="admin" func="edit_hour" hid= $horari[hores].hid mdid = $mdid]-->><!--[pnimg modname='core' src='edit.gif' set='icons/extrasmall'   __alt="Edit" __title="Edit"]--></a>
+				<a href=<!--[pnmodurl modname="iw_timeFrames" type="admin" func="delete_hour" hid=$horari[hores].hid mdid = $mdid]-->><!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Delete" __title="Delete"]--></a>
+<!--[else]-->
+                <!--[gt text="Have bookings"]-->
+<!--[/if]-->
+				</td>
+			</tr>
+		<!--[/section]-->
+	</table>
+	</> </tr>
+</table>
+<!--[else]-->
+	<!--[gt text="This timeFrame does not have any set hours"]-->
+<!--[/if]-->
+<br>
+</div>
+<a href=<!--[pnmodurl modname="iw_timeFrames" type="admin" func="module"]-->><!--[gt text="About this module"]--></a>
+
+

@@ -1,0 +1,987 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: Profile 1.5.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-08 02:11-0500\n"
+"PO-Revision-Date: 2010-07-12 13:08+0100\n"
+"Last-Translator: \n"
+"Language-Team: Zikula Spanish Community <equipo@zikula.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Translate Toolkit 1.5.1\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: pnadmin.php:89
+#: pnadmin.php:123
+#: pnadmin.php:128
+#: pnadmin.php:132
+msgid "Required"
+msgstr "Requerido"
+
+#: pnadmin.php:99
+#: pntemplates/profile_admin_view.htm:57
+msgid "Deactivate"
+msgstr "Desactivar"
+
+#: pnadmin.php:108
+#: pntemplates/profile_admin_view.htm:58
+msgid "Activate"
+msgstr "Activar"
+
+#: pnadmin.php:115
+msgid "Not editable field"
+msgstr "Campo no editable"
+
+#: pnadmin.php:119
+msgid "Third-party (not editable)"
+msgstr "De terceros (no editable)"
+
+#: pnadmin.php:123
+#: pnadmin.php:132
+msgid "Third-party"
+msgstr "De terceros"
+
+#: pnadmin.php:128
+msgid "Normal"
+msgstr "Normal"
+
+#: pnadmin.php:143
+#: pntemplates/profile_user_members_recent.htm:55
+#: pntemplates/profile_user_members_view.htm:89
+msgid "Edit"
+msgstr "Editar"
+
+#: pnadmin.php:149
+msgid "Up"
+msgstr "Subir"
+
+#: pnadmin.php:156
+msgid "Down"
+msgstr "Bajar"
+
+#: pnadmin.php:163
+#: pntemplates/profile_user_members_recent.htm:57
+#: pntemplates/profile_user_members_view.htm:91
+#: pntemplates/profile_admin_delete.htm:20
+msgid "Delete"
+msgstr "Eliminar"
+
+#: pnadmin.php:208
+#: pnadmin.php:349
+msgid "Text box"
+msgstr "Caja de texto"
+
+#: pnadmin.php:209
+#: pnadmin.php:350
+msgid "Text area"
+msgstr "Area de texto"
+
+#: pnadmin.php:210
+#: pnadmin.php:351
+msgid "Checkbox"
+msgstr "Caja de verificacion"
+
+#: pnadmin.php:211
+#: pnadmin.php:352
+msgid "Radio button"
+msgstr "Boton de radio"
+
+#: pnadmin.php:212
+#: pnadmin.php:353
+msgid "Dropdown list"
+msgstr "Lista desplegable"
+
+#: pnadmin.php:213
+#: pnadmin.php:354
+msgid "Date"
+msgstr "Fecha"
+
+#: pnadmin.php:214
+#: pnadmin.php:355
+msgid "Multiple checkbox set"
+msgstr "Conjunto de opciones múltiples"
+
+#: pnadmin.php:216
+#: pnadmin.php:357
+#: pntemplates/profile_admin_modifyconfig.htm:43
+#: pntemplates/profile_admin_modifyconfig.htm:48
+msgid "No"
+msgstr "No"
+
+#: pnadmin.php:217
+#: pnadmin.php:358
+#: pntemplates/profile_admin_modifyconfig.htm:41
+#: pntemplates/profile_admin_modifyconfig.htm:46
+msgid "Yes"
+msgstr "Sí"
+
+#: pnadmin.php:219
+#: pnadmin.php:360
+msgid "Everyone"
+msgstr "Todos"
+
+#: pnadmin.php:220
+#: pnadmin.php:361
+msgid "Registered users only"
+msgstr "Sólo usuarios registrados"
+
+#: pnadmin.php:221
+#: pnadmin.php:362
+msgid "Admins and account owner only"
+msgstr "Solo administradores y propietario de la cuenta"
+
+#: pnadmin.php:222
+#: pnadmin.php:363
+msgid "Admins only"
+msgstr "Solo administradores"
+
+#: pnadmin.php:264
+msgid "Error! The personal info item must have a label. An example of a recommended label is: '_MYDUDLABEL'."
+msgstr "¡Error! La propiedad debe tener una etiqueta. Un ejemplo de una etiqueta válida es: '_MIETIQUETA'."
+
+#: pnadmin.php:268
+msgid "Error! The personal info item must have an attribute name. An example of an acceptable name is: 'mydudfield'."
+msgstr "¡Error! La propiedad debe tener un nombre de atributo. Un ejemplo de un nombre válido es: 'mipropiedad'."
+
+#: pnadmin.php:272
+msgid "Error! There is already an personal info item label with this naming."
+msgstr "¡Error! Ya hay una propiedad con esa etiqueta."
+
+#: pnadmin.php:276
+msgid "Error! There is already an attribute name with this naming."
+msgstr "¡Error! Ya hay un atributo con este nombre."
+
+#: pnadmin.php:282
+msgid "Warning! The personal info item label has been accepted, but was filtered and altered to ensure it contains no special characters or spaces in its naming."
+msgstr "¡Advertencia! La etiqueta de la propiedad ha sido aceptada, pero fue filtrada y alterada para garantizar que no contenga caracteres especiales ni espacios."
+
+#: pnadmin.php:299
+msgid "Done! Created new personal info item."
+msgstr "¡Hecho! Nueva propiedad creada."
+
+#: pnadmin.php:332
+#: pnadmin.php:454
+#: pnadmin.php:510
+#: pnadmin.php:545
+#: pnadminapi.php:112
+#: pnadminapi.php:225
+#: pnadminapi.php:315
+msgid "Error! No such personal info item found."
+msgstr "¡Error! No se encontró tal propiedad."
+
+#: pnadmin.php:420
+#: pnadmin.php:523
+#: pnadmin.php:562
+#: pnadmin.php:585
+#: pnadmin.php:615
+msgid "Done! Saved your changes."
+msgstr "¡Hecho! Cambios guardados."
+
+#: pnadmin.php:487
+msgid "Done! Deleted the personal info item."
+msgstr "¡Hecho! Se eliminó la propiedad."
+
+#: pnadmin.php:554
+msgid "Error! You cannot decrease the weight of this account property."
+msgstr "¡Error! No se puede disminuir el peso de esta propiedad de cuenta."
+
+#: pnadmin.php:709
+msgid "Done! Saved your settings changes."
+msgstr "¡Hecho! Los cambios en la configuración han sido guardados."
+
+#: pnmemberslistapi.php:202
+#: pnmemberslistapi.php:379
+#: pnmemberslistapi.php:423
+#: pnmemberslistapi.php:474
+#: pnmemberslistapi.php:524
+#: pnmemberslistapi.php:577
+#: pnmemberslistapi.php:644
+msgid "Error! Could not load data."
+msgstr "¡Error! No fue posible cargar los datos."
+
+#: pndudapi.php:49
+#, php-format
+msgid "Error! Could not find the specified module (%s)."
+msgstr "¡Error! No fue posible encontrar el módulo especificado (%s)."
+
+#: pndudapi.php:55
+#: pnajax.php:36
+#, php-format
+msgid "Error! Invalid '%s' passed."
+msgstr "¡Error! Se proporcionó un '%s' no válido."
+
+#: pndudapi.php:66
+#: pnadminapi.php:46
+#: pnadminapi.php:132
+#, php-format
+msgid "Error! There is already an personal info item with the label '%s'."
+msgstr "¡Error! Ya hay una propiedad con la etiqueta '%s'."
+
+#: pndudapi.php:70
+#: pnadminapi.php:50
+#, php-format
+msgid "Error! There is already an personal info item with the attribute name '%s'."
+msgstr "¡Error! Ya hay una propiedad con el atributo '%s'."
+
+#: pndudapi.php:90
+msgid "Error! Could not create the new personal info item."
+msgstr "¡Error! No se pudo crear la nueva propiedad."
+
+#: pndudapi.php:146
+#: pndudapi.php:152
+#: pnadminapi.php:247
+#: pnadminapi.php:253
+msgid "Error! Could not delete the personal info item."
+msgstr "¡Error! No se pudo borrar la propiedad."
+
+#: pnversion.php:17
+#: pntemplates/profile_admin_menu.htm:5
+msgid "Profile manager"
+msgstr "Gestor de perfiles"
+
+#: pnversion.php:18
+msgid "Provides a personal account control panel for each registered user, an interface to administer the personal information items displayed within it, and a registered users list functionality. Works in close unison with the 'Users' module."
+msgstr "Proporciona un panel de control para las cuentas personales de cada usuario, una interfaz para administrar las propiedades de las cuentas de usuario, y una lista de funcionalidades para usuarios registrados. Trabaja en unísono con el módulo 'Usuarios'."
+
+#. ! module name that appears in URL
+#: pnversion.php:20
+msgid "profile"
+msgstr "perfil"
+
+#: pnajax.php:25
+#: pnajax.php:76
+#: pnajax.php:118
+msgid "Sorry! You do not have authorisation for this module."
+msgstr "¡Lo sentimos! No dispone de autorización para visualizar el contenido de esta página."
+
+#: pnajax.php:29
+msgid "Invalid authorisation key ('authkey'). This is probably either because you pressed the 'Back' button to return to a page which does not allow that, or else because the page's authorisation key expired due to prolonged inactivity. Please refresh the page and try again."
+msgstr "¡Error! Clave de autorización no válida ('authkey'). Esto puede ser debido a consecuencia de haber pulsado el botón 'Atrás' para volver a una página que no lo permitía, o que la clave de la página autorización expiró debido a la inactividad prolongada. Por favor, actualice la página y vuelva a intentarlo."
+
+#: pnajax.php:57
+#: pnajax.php:96
+#: pnadminapi.php:193
+msgid "Error! Could not save your changes."
+msgstr "¡Error! No fue posible guardar los cambios."
+
+#: pnajax.php:136
+msgid "Error! Could not load the section."
+msgstr "¡Error! No fue posible cargar la sección."
+
+#: pninit.php:84
+msgid "Error! The 'Users' module must be upgraded to version 1.10 before you can upgrade the 'Profile' module."
+msgstr "¡Error! El módulo 'Usuarios' debe actualizarse a la versión 1.10 antes de poder actualizar el módulo 'Profile'."
+
+#: pninit.php:212
+msgid "Error! Could not update table."
+msgstr "¡Error! No se pudo actualizar la tabla."
+
+#. ! account panel link
+#: pnaccountapi.php:42
+#: pntemplates/profile_form_edit.htm:4
+msgid "Personal info"
+msgstr "Información personal"
+
+#: pnaccountapi.php:48
+#: pntemplates/plugins/function.profileuserlinks.php:71
+#: pntemplates/profile_user_members_view.htm:2
+msgid "Registered users list"
+msgstr "Lista de usuarios registrados"
+
+#: pnadminapi.php:81
+msgid "Error! Could not create new attribute."
+msgstr "¡Error! No se pudo crear el nuevo atributo."
+
+#: pnadminapi.php:230
+msgid "Error! You cannot delete this personal info item."
+msgstr "¡Error! Usted no puede eliminar esta propiedad."
+
+#: pnadminapi.php:290
+msgid "Error! Activation failed."
+msgstr "¡Error! La activación ha fallado."
+
+#: pnadminapi.php:320
+msgid "Error! You cannot deactivate this personal info item."
+msgstr "¡Error! Usted no puede desactivar esta propiedad."
+
+#: pnadminapi.php:331
+#: pnadminapi.php:349
+msgid "Error! Could not deactivate the personal info item."
+msgstr "¡Error! No se pudo desactivar la propiedad."
+
+#: pnadminapi.php:369
+#: pntemplates/profile_admin_view.htm:3
+msgid "Personal info items list"
+msgstr "Lista de propiedades de cuenta"
+
+#: pnadminapi.php:373
+#: pntemplates/profile_admin_new.htm:3
+msgid "Create new personal info item"
+msgstr "Crear nueva propiedad de cuenta"
+
+#: pnadminapi.php:377
+#: pntemplates/profile_admin_modifyconfig.htm:6
+#: pntemplates/profile_admin_modifyconfig.htm:8
+msgid "User account panel settings"
+msgstr "Configuración de los perfiles"
+
+#: pnadminapi.php:381
+msgid "Help"
+msgstr "Ayuda"
+
+#: pnuser.php:54
+#: pnuser.php:61
+msgid "Error! Could not find this user."
+msgstr "¡Error¡ No se pudo encontrar este usuario."
+
+#: pnuser.php:100
+#, php-format
+msgid "Error! Could not find profile page [%s]."
+msgstr "¡Error! No se pudo encontrar el perfil [%s]."
+
+#: pnuser.php:126
+msgid "Error! Could not load personal info items."
+msgstr "¡Error! No fue posible cargar las propiedades de cuenta."
+
+#: pnuser.php:173
+#, php-format
+msgid "Error! A required profile item [%s] is missing."
+msgstr "¡Error! Falta una propiedad requerida [%s]."
+
+#: pnuser.php:192
+msgid "Done! Saved your changes to your personal information."
+msgstr "¡Hecho! Se guardaron sus cambios para su información personal."
+
+#: pnblocks/featureduser.php:37
+msgid "Featured user"
+msgstr "Usuario destacado"
+
+#: pnblocks/featureduser.php:38
+msgid "Show featured user"
+msgstr "Mostrar usuario destacado"
+
+#: pnblocks/lastxusers.php:37
+msgid "Last X registered users"
+msgstr "Ultimos X usuarios registrados"
+
+#: pnblocks/lastxusers.php:38
+msgid "Show last X registered users"
+msgstr "Mostrar los últimos N usuarios registrados"
+
+#: pnblocks/membersonline.php:37
+msgid "Users on-line"
+msgstr "Usuarios en línea"
+
+#: pnblocks/membersonline.php:38
+msgid "Show which registered users are currently on-line"
+msgstr "Mostrar los usuarios registrados que estén actualmente en línea"
+
+#: pnblocks/lastseen.php:35
+msgid "Recent visitors"
+msgstr "Visitantes recientes"
+
+#: pnblocks/lastseen.php:36
+msgid "Show registered users having visited the site recently"
+msgstr "Mostrar usuarios registrados que hayan visitado el sitio recientemente"
+
+#: pnform.php:25
+#: pnform.php:74
+#: pnform.php:122
+msgid "Error! You cannot access form functions directly."
+msgstr "¡Error! Usted no puede acceder a las funciones de formulario directamente."
+
+#: pntemplates/plugins/function.duditemmodify.php:141
+msgid "Go to the Avatar manager"
+msgstr "Ir a el gestor de Avatares"
+
+#: pntemplates/plugins/function.profilesection.php:29
+#: pntemplates/plugins/function.profilesection.php:35
+#, php-format
+msgid "Error! in %1$s: the %2$s parameter must be specified."
+msgstr "¡Error! En %1$s: el parámetro %2$s debe ser especificado."
+
+#. ! string to describe the user's site
+#: pntemplates/plugins/function.duditemdisplay.php:207
+#, php-format
+msgid "%s's site"
+msgstr "Sitio de %s"
+
+#: pntemplates/plugins/function.profileuserlinks.php:68
+#: pntemplates/plugins/function.profileuserlinks.php:105
+#: pntemplates/plugins/function.profileuserlinks.php:140
+msgid "User account panel"
+msgstr "Panel de usuario"
+
+#: pntemplates/plugins/function.profileuserlinks.php:74
+#: pntemplates/profile_user_members_recent.htm:2
+#, php-format
+msgid "Last %s registered users"
+msgstr "Últimos %s usuarios registrados"
+
+#: pntemplates/plugins/function.profileuserlinks.php:77
+#: pntemplates/profile_user_members_online.htm:2
+msgid "Users currently on-line"
+msgstr "Usuarios actualmente en línea"
+
+#: pntemplates/plugins/function.profileuserlinks.php:109
+#: pntemplates/profile_user_modify.htm:2
+msgid "Edit personal info"
+msgstr "Editar información personal"
+
+#: pntemplates/plugins/function.profileuserlinks.php:113
+msgid "View personal info"
+msgstr "Ver información personal"
+
+#: pntemplates/plugins/function.profileuserlinks.php:120
+#: pntemplates/profile_user_members_online.htm:22
+#: pntemplates/profile_user_members_recent.htm:42
+#: pntemplates/profile_user_members_view.htm:76
+#: pntemplates/profile_block_membersonline.htm:12
+msgid "Send private message"
+msgstr "Enviar mensaje privado"
+
+#: pntemplates/plugins/function.profileuserlinks.php:142
+#, php-format
+msgid "Show %s's contacts"
+msgstr "Mostrar los contactos de %s"
+
+#: pntemplates/plugins/function.profileuserlinks.php:144
+msgid "Edit contact"
+msgstr "Editar contacto"
+
+#: pntemplates/plugins/function.profileuserlinks.php:146
+msgid "Add as contact"
+msgstr "Añadir como contacto"
+
+#: pntemplates/profile_dudedit_text.htm:6
+#: pntemplates/profile_dudedit_textarea.htm:6
+#: pntemplates/profile_dudedit_date.htm:6
+#: pntemplates/profile_dudedit_radio.htm:6
+msgid "Sorry! A required personal info item is missing. Please correct and try again."
+msgstr "¡Lo sentimos! Falta un elemento de información requerido. Por favor corrija y vuelva a intentarlo."
+
+#: pntemplates/profile_dudedit_text.htm:12
+#: pntemplates/profile_dudedit_textarea.htm:12
+#: pntemplates/profile_dudedit_multicheckbox.htm:6
+#: pntemplates/profile_dudedit_date.htm:12
+#: pntemplates/profile_dudedit_radio.htm:12
+#: pntemplates/profile_dudedit_select.htm:7
+msgid "*"
+msgstr "*"
+
+#: pntemplates/profile_dudedit_text.htm:17
+#: pntemplates/profile_dudedit_textarea.htm:17
+#: pntemplates/profile_dudedit_multicheckbox.htm:16
+#: pntemplates/profile_dudedit_date.htm:22
+#: pntemplates/profile_dudedit_checkbox.htm:10
+#: pntemplates/profile_dudedit_link.htm:7
+#: pntemplates/profile_dudedit_radio.htm:20
+#: pntemplates/profile_dudedit_select.htm:20
+msgid "Notice:"
+msgstr "Nota:"
+
+#: pntemplates/profile_dudedit_textarea.htm:20
+msgid "Permitted HTML tags:"
+msgstr "Etiquetas HTML permitidas:"
+
+#: pntemplates/profile_admin_help.htm:2
+msgid "About Profile"
+msgstr "Sobre Profile"
+
+#: pntemplates/profile_admin_help.htm:11
+msgid "There are some details that you may know about Profile and how it let you translate the Account Properties labels and values of your site."
+msgstr "Hay algunos detalles que debe saber sobre Profile y la forma en que le permite traducir las etiquetas de las propiedades y sus valores."
+
+#: pntemplates/profile_admin_help.htm:12
+msgid "First of all, it's recommended to move the translation files of Profile to the /config directory to custom them there."
+msgstr "En primer lugar, se recomienda mover los archivos de traducción de Profile al directorio /config para allí personalizarla."
+
+#: pntemplates/profile_admin_help.htm:13
+msgid "Copy all the files of the /modules/Profile/locale directory to /config/locale. There you will customize the catalog module_profile.pot and the translations afterwards."
+msgstr "Copie todos los archivos del directorio /modules/Profile/locale a /config/locale. Allí usted podrá personalizar el catálogo module_profile.pot y posteriormente las traducciones."
+
+#: pntemplates/profile_admin_help.htm:16
+msgid "About the property labels"
+msgstr "Sobre las etiquetas de las propiedades"
+
+#: pntemplates/profile_admin_help.htm:18
+msgid "It's recommended to use unique words for the labels, for that reason we use the format: _DUDLABEL and translate them for each available language in the site to a readable text."
+msgstr "Se recomienda el uso de palabras únicas para las etiquetas, por eso usamos el formato: _ETIQUETAX y traducirlos para cada idioma disponible en el sitio a un texto legible."
+
+#: pntemplates/profile_admin_help.htm:19
+msgid "After you create a new property label (such as _MYDUDLABEL), you must add the msgid to your catalog (POT file). You will need two lines per label: <strong>msgid '_MYDUDLABEL'</strong> then one line after the <strong>msgstr ''</strong> (study the default catalog content)."
+msgstr "Después de crear una nueva etiqueta de propiedad (como _ETIQUETAX), debe agregar el msgid a su catálogo (archivo POT). Necesitará dos líneas por etiqueta: <strong>msgid '_ETIQUETAX'</strong> y una línea después de el <strong>msgstr ''</strong> (estudie el contenido predeterminado del catálogo)."
+
+#: pntemplates/profile_admin_help.htm:20
+msgid "With the updated POT, you can syncronize the translations (.PO files) for each available language, or even create a new .PO from the catalog with a tool like poEdit."
+msgstr "Con el POT actualizado, usted puede sincronizar las traducciones (archivos .PO) para cada idioma disponible, o incluso crear un nuevo .PO desde el catálogo con una herramienta como poEdit."
+
+#: pntemplates/profile_admin_help.htm:21
+msgid "In the .PO file you will be able to translate _MYDUDLABEL to the corresponding text for each specific language, to provide a legible display string like 'My DUD Label'."
+msgstr "En el archivo .PO usted será capaz de traducir _ETIQUETAX al texto correspondiente para cada idioma en específico, para proporcionar una cadena de visualización legible como 'Etiqueta X'."
+
+#: pntemplates/profile_admin_help.htm:24
+msgid "About the property values"
+msgstr "Acerca de los valores de las propiedades"
+
+#: pntemplates/profile_admin_help.htm:26
+msgid "Some display types like checkboxes, radio buttons, dropdown lists and multicheckboxes, allows to define a specific set of options to show."
+msgstr "Algunos tipos de visualización como casillas de verificación, botones de radio, listas desplegables y campos de verificación múltiples, permiten definir un conjunto específico de opciones para mostrar."
+
+#: pntemplates/profile_admin_help.htm:27
+msgid "Each option can be added in the catalog to be translated. Also, if you use a custom date format that needs translation, it can be added to the catalog too.<br />Enjoy!"
+msgstr "Cada opción se puede añadir en el catálogo para ser traducida. Además, si usted utiliza un formato de fecha personalizado que necesita traducción, puede ser añadido al catálogo también.<br />¡A disfrutar!"
+
+#: pntemplates/profile_admin_new.htm:16
+#: pntemplates/profile_admin_modify.htm:17
+msgid "Personal info item"
+msgstr "Propiedad de cuenta"
+
+#: pntemplates/profile_admin_new.htm:17
+#: pntemplates/profile_admin_modify.htm:18
+msgid "Notice: No special characters or spaces are allowed in the personal info item's label or attribute name."
+msgstr "Nota: No se permiten caracteres especiales o espacios en las etiquetas o nombres de atributos."
+
+#: pntemplates/profile_admin_new.htm:19
+#: pntemplates/profile_admin_modify.htm:20
+#: pntemplates/profile_admin_view.htm:19
+msgid "Label"
+msgstr "Etiqueta"
+
+#: pntemplates/profile_admin_new.htm:23
+#: pntemplates/profile_admin_modify.htm:24
+#, php-format
+msgid "Check the <strong><a href=\"%s\">help page</a></strong> to get more information about labels and translatable stuff."
+msgstr "Verifique la <strong><a href=\"%s\">página de ayuda</a></strong> para obtener más información acerca de etiquetas y material traducible."
+
+#: pntemplates/profile_admin_new.htm:26
+#: pntemplates/profile_admin_modify.htm:27
+#: pntemplates/profile_admin_view.htm:20
+msgid "Attribute name"
+msgstr "Nombre del atributo"
+
+#: pntemplates/profile_admin_new.htm:28
+msgid "Notice: The attribute name you enter cannot be changed afterwards, so you should choose it carefully."
+msgstr "Nota: El nombre del atributo que especifique no podrá cambiarse posteriormente, de modo que debe elegir con cuidado."
+
+#: pntemplates/profile_admin_new.htm:31
+#: pntemplates/profile_admin_modify.htm:31
+msgid "Make this a 'Required' item"
+msgstr "Hacer de éste un 'elemento obligatorio'"
+
+#: pntemplates/profile_admin_new.htm:37
+#: pntemplates/profile_admin_modify.htm:37
+msgid "Visibility"
+msgstr "Visibilidad"
+
+#: pntemplates/profile_admin_new.htm:43
+#: pntemplates/profile_admin_modify.htm:44
+msgid "Type of control to display"
+msgstr "Tipo de control a mostrar"
+
+#: pntemplates/profile_admin_new.htm:49
+#: pntemplates/profile_admin_modify.htm:50
+msgid "Content"
+msgstr "Contenido"
+
+#: pntemplates/profile_admin_new.htm:52
+#: pntemplates/profile_admin_modify.htm:53
+msgid "Notice: Precede output options by '@@'. Example: '@@No@@Yes', '@@Disabled@@Enabled'. The order is important. If you want to have a different label in the edit form, you can use the following format: 'EditLabel@@DisplayNo@@DisplayYes'. All the values are translatable."
+msgstr "Nota: Anteceder cada opciones de salida por '@@'. Por ejemplo: '@@No@@Si', '@@Deshabilitado@@Habilitado'. El orden es importante. Si usted desea tener una etiqueta diferente en el formulario de edición, puede utilizar el siguiente formato: 'Etiqueta de edición@@Mostrar No@@Mostrar Si'. Todos los valores son traducibles."
+
+#: pntemplates/profile_admin_new.htm:53
+#: pntemplates/profile_admin_modify.htm:54
+msgid "Notice: Use the following format for each option: '@@label@id'. Example: '@@radio option 1@id1@@radio option 2@id2@@radio option 3@id3'. The options are translatable."
+msgstr "Nota: Use el siguiente formato por cada opción: '@@etiqueta@id'. Por ejemplo: '@@opción radio 1@id1@@opción radio 2@@id2@@opción radio 3@id3'. Las opciones son traducibles."
+
+#: pntemplates/profile_admin_new.htm:54
+#: pntemplates/profile_admin_modify.htm:55
+msgid "Notice: Use the following format for each option: '@@label@id'. Example for a simple list: '@@option 1@id1@@option 2@id2@@option 3@id3'. Example for a multiple checkbox set: '1@@option 1@id1@@option 2@id2@@option 3@id3'. The options are translatable."
+msgstr "Nota: Use el siguiente formato para cada opción: '@@etiqueta@id'. Por ejemplo para una simple lista: '@@opción 1@id1@@opción 2@id2@@opción 3@id3'. O para un conjunto de verificación multiple: '1@@opción 1@id1@@poción 2@id@@opción 3@id3'. Las opciones son traducibles."
+
+#: pntemplates/profile_admin_new.htm:55
+#: pntemplates/profile_admin_modify.htm:56
+msgid "Notice: You can specify the date format to use, either via Zikula core templating variables ('datelong', 'datebrief', 'datestring', 'datestring2', 'datetimebrief', 'datetimelong', 'timebrief' or 'timelong'), or via a custom format such as '%b %d of %Y', possibly using PHP options (see the <a href=\"http://www.php.net/manual/en/function.strftime.php\">PHP documentation</a> for more information). The format is translatable."
+msgstr "Aviso: Usted puede especificar el formato de fecha a utilizar, ya sea a través de los valores del núcleo de Zikula ('datelong', 'datebrief', 'datestring', 'datestring2', 'datetimebrief', 'datetimelong', 'timebrief' o 'timelong'), o a través de un formato personalizado como '%d de %b de %Y', posiblemente utilizando las opciones de PHP (véase la <a href=\"http://www.php.net/manual/en/function.strftime.php\">documentación de PHP</a> para más información). El formato es traducible."
+
+#: pntemplates/profile_admin_new.htm:56
+#: pntemplates/profile_admin_modify.htm:57
+msgid "Notice: Use the following format for each option: 'id,label;'. Example: 'id1,label1;id2,label2;id3,label3'. Each property should be separated with a semicolon (';'). The ID and label of each property should be separated by a comma (','). The labels are translatable."
+msgstr "Atención: Utilice el siguiente formato para cada opción: 'id,label;'. Por ejemplo: 'id1,label1;id2,label2;id3,label3'. Cada propiedad debe estar separada por un punto y coma (';'). El ID y la etiqueta de cada propiedad debe estar separada por una coma (','). Las etiquetas son traducibles."
+
+#: pntemplates/profile_admin_new.htm:59
+#: pntemplates/profile_admin_modify.htm:61
+msgid "Notice: Entering an ID is optional. If you do not specify an ID, the option position will be used for the ID (starting from zero), instead of the user-defined ID you can enter here. You are recommended to choose an ID that is unique, and to avoid subsequently modifying it."
+msgstr "Atención: Proporcionar un ID es opcional. Si no especifica un ID, la posición de la opción se usará como ID (comenzando desde cero), en vez del ID definido aquí. Se recomienda elegir un identificador que sea único, para evitar su modificación posterior."
+
+#: pntemplates/profile_admin_new.htm:63
+#: pntemplates/profile_admin_modify.htm:65
+msgid "Notice to display with personal info item"
+msgstr "Nota a mostrar con la propiedad"
+
+#: pntemplates/profile_admin_new.htm:71
+#: pntemplates/profile_user_modify.htm:17
+#: pntemplates/profile_admin_modifyconfig.htm:87
+#: pntemplates/profile_admin_modify.htm:73
+msgid "Save"
+msgstr "Grabar"
+
+#: pntemplates/profile_admin_new.htm:72
+#: pntemplates/profile_user_modify.htm:18
+#: pntemplates/profile_admin_modifyconfig.htm:88
+#: pntemplates/profile_admin_delete.htm:21
+#: pntemplates/profile_admin_modify.htm:74
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: pntemplates/profile_user_view.htm:4
+#, php-format
+msgid "Personal info for %s"
+msgstr "Información personal de %s"
+
+#: pntemplates/profile_user_view.htm:20
+msgid "User name:"
+msgstr "Nombre de usuario:"
+
+#: pntemplates/profile_user_view.htm:30
+msgid "Registration date:"
+msgstr "Fecha de registro:"
+
+#: pntemplates/profile_user_members_online.htm:8
+#: pntemplates/profile_user_members_recent.htm:10
+#: pntemplates/profile_user_members_view.htm:46
+#: pntemplates/profile_block_featureduser_modify.htm:4
+msgid "User name"
+msgstr "Nombre de usuario"
+
+#: pntemplates/profile_user_members_online.htm:9
+#: pntemplates/profile_user_members_recent.htm:13
+#: pntemplates/profile_user_members_view.htm:48
+msgid "Real name"
+msgstr "Nombre real"
+
+#: pntemplates/profile_user_members_online.htm:11
+#: pntemplates/profile_user_members_recent.htm:16
+#: pntemplates/profile_user_members_view.htm:51
+msgid "PM"
+msgstr "MP"
+
+#: pntemplates/profile_user_members_online.htm:13
+#: pntemplates/profile_user_members_recent.htm:19
+#: pntemplates/profile_user_members_view.htm:54
+msgid "Site"
+msgstr "Sitio"
+
+#: pntemplates/profile_user_members_online.htm:33
+msgid "No registered users are currently on-line."
+msgstr "Ningún usuario registrado está actualmente en línea."
+
+#: pntemplates/profile_user_members_recent.htm:11
+msgid "Registration date"
+msgstr "Fecha de registro"
+
+#: pntemplates/profile_user_members_recent.htm:22
+#: pntemplates/profile_user_members_view.htm:57
+#: pntemplates/profile_admin_view.htm:23
+msgid "Actions"
+msgstr "Acciones"
+
+#: pntemplates/profile_user_members_recent.htm:31
+#: pntemplates/profile_user_members_view.htm:66
+msgid "On-line"
+msgstr "En línea"
+
+#: pntemplates/profile_user_members_recent.htm:33
+#: pntemplates/profile_user_members_view.htm:68
+msgid "Off-line"
+msgstr "Desconectado"
+
+#: pntemplates/profile_user_members_recent.htm:63
+msgid "No recently-registered users found."
+msgstr "No hay usuarios registrados recientemente."
+
+#: pntemplates/profile_user_modify.htm:10
+msgid "Items marked with an asterisk ('*') are required entries."
+msgstr "Los elementos marcados con un asterisco ('*') son datos requeridos."
+
+#: pntemplates/profile_block_featureduser.htm:18
+#, php-format
+msgid "Registered on %s"
+msgstr "Registrado el %s"
+
+#: pntemplates/profile_block_lastseen_modify.htm:5
+msgid "Error! This block cannot be used because saving of a user's last log-in date has been disabled."
+msgstr "¡Error! El bloque no puede ser utilizado porque el registro de último acceso está deshabilitado."
+
+#: pntemplates/profile_block_lastseen_modify.htm:10
+msgid "Number of recent visitors to display"
+msgstr "Número máximo de artículos a mostrar"
+
+#: pntemplates/profile_block_membersonline_modify.htm:4
+msgid "Maximum number of characters to display"
+msgstr "Número máximo de caracteres a mostrar"
+
+#: pntemplates/sections/profile_section_news.htm:5
+#, php-format
+msgid "Latest articles of %s"
+msgstr "Últimos artículos de %s"
+
+#: pntemplates/sections/profile_section_news.htm:10
+#: pntemplates/sections/profile_section_ezcomments.htm:10
+#, php-format
+msgid "On %s"
+msgstr "El %s"
+
+#: pntemplates/sections/profile_section_news.htm:17
+msgid "No recent articles found."
+msgstr "No se encontraron artículos recientes."
+
+#: pntemplates/sections/profile_section_ezcomments.htm:5
+#, php-format
+msgid "Latest comments of %s"
+msgstr "últimos comentarios de %s"
+
+#: pntemplates/sections/profile_section_ezcomments.htm:17
+msgid "No recent commets found."
+msgstr "No se encontraron comentarios recientes."
+
+#: pntemplates/profile_admin_modifyconfig.htm:15
+msgid "Registered users list settings"
+msgstr "Configuración de la lista de usuarios registrados"
+
+#: pntemplates/profile_admin_modifyconfig.htm:17
+msgid "Display the user's registration date"
+msgstr "Mostrar la fecha de registro del usuario"
+
+#: pntemplates/profile_admin_modifyconfig.htm:25
+msgid "Users per page in 'Registered users list'"
+msgstr "Usuarios por página en la 'Lista de usuarios registrados'"
+
+#: pntemplates/profile_admin_modifyconfig.htm:29
+msgid "Users per page in 'Users currently on-line' page"
+msgstr "Usuarios por página en la lista de 'Usuarios en linea'"
+
+#: pntemplates/profile_admin_modifyconfig.htm:33
+msgid "Users per page in 'Recent registrations' page"
+msgstr "Usuarios por página en los 'Registros recientes'"
+
+#: pntemplates/profile_admin_modifyconfig.htm:37
+msgid "Filter unverified users from 'Registered users list'"
+msgstr "Filtrar usuarios sin verificar en la 'Lista de usuarios registrados'"
+
+#: pntemplates/profile_admin_modifyconfig.htm:54
+msgid "Personal info item settings"
+msgstr "Configuración de elementos de información personal"
+
+#: pntemplates/profile_admin_modifyconfig.htm:56
+msgid "Display 'Allowed HTML tags' notice with each personal info item that is a 'textarea'"
+msgstr "Mostrar las 'Etiquetas HTML permitidas' para las áreas de texto"
+
+#: pntemplates/profile_admin_modifyconfig.htm:65
+msgid "User registration form settings"
+msgstr "Configuración del formulario de registro"
+
+#: pntemplates/profile_admin_modifyconfig.htm:66
+msgid "The personal info items that you activate below will be displayed in the user registration form if the 'Users' module is configured to display personal info items during user registration, and if the 'Profile' module is specified in the 'General settings manager' as the module to provide the site's user profile management functionality. Personal info items that are configured as 'Required' will always be displayed in the user registration form. The list below only includes properties that are not 'Required' items."
+msgstr "Las propiedades de cuenta que active a continuación se mostrarán en el formulario de registro si el módulo 'Usuarios' está configurado para mostrar las propiedades durante el registro de usuarios, y si el módulo 'Profile' se especifica en la configuración del sitio como el módulo administrador de los perfiles de usuario. Las propiedades configurados como 'requeridas' siempre se mostrarán en el formulario de registro de usuario. La siguiente lista sólo incluye las propiedades que no son 'requeridas'."
+
+#: pntemplates/profile_admin_modifyconfig.htm:68
+msgid "Personal info items to include in user registration form"
+msgstr "Propiedades a incluir en el formulario de registro"
+
+#: pntemplates/profile_user_main.htm:2
+msgid "Account Panel"
+msgstr "Cuenta de usuario"
+
+#: pntemplates/profile_user_members_view.htm:11
+msgid "Search"
+msgstr "Buscar"
+
+#: pntemplates/profile_user_members_view.htm:14
+msgid "Go search"
+msgstr "Ir a buscar"
+
+#: pntemplates/profile_user_members_view.htm:20
+msgid "Search in user names"
+msgstr "Buscar en nombres de usuario"
+
+#: pntemplates/profile_user_members_view.htm:25
+msgid "Search in real names"
+msgstr "Buscar en nombres reales"
+
+#: pntemplates/profile_user_members_view.htm:31
+msgid "Search in site"
+msgstr "Buscar en el sitio"
+
+#: pntemplates/profile_user_members_view.htm:38
+msgid "All"
+msgstr "Todos"
+
+#: pntemplates/profile_user_members_view.htm:97
+msgid "No users found."
+msgstr "No se encontraron usuarios."
+
+#: pntemplates/profile_user_members_view.htm:104
+msgid "Membership statistics"
+msgstr "Estadísticas de miembros"
+
+#: pntemplates/profile_user_members_view.htm:106
+msgid "Registered:"
+msgstr "Registrados:"
+
+#: pntemplates/profile_user_members_view.htm:107
+msgid "On-line:"
+msgstr "En linea:"
+
+#: pntemplates/profile_user_members_view.htm:108
+msgid "Newest user:"
+msgstr "Usuario más reciente:"
+
+#: pntemplates/profile_admin_delete.htm:2
+msgid "Delete personal info item"
+msgstr "Borrar propiedad"
+
+#: pntemplates/profile_admin_delete.htm:11
+msgid "Do you really want to delete this personal info item?"
+msgstr "¿Está seguro que quiere eliminar esta propiedad?"
+
+#: pntemplates/profile_admin_delete.htm:18
+msgid "Confirmation prompt"
+msgstr "Aviso de confirmación"
+
+#: pntemplates/profile_block_membersonline.htm:10
+msgid "unread"
+msgstr "no leído"
+
+#: pntemplates/profile_block_membersonline.htm:10
+msgid "total"
+msgstr "total"
+
+#: pntemplates/profile_block_membersonline.htm:20
+#: pntemplates/profile_block_membersonline.htm:26
+#, php-format
+msgid "%s registered user"
+msgid_plural "%s registered users"
+msgstr[0] "%s usuario registrado"
+msgstr[1] "%s usuarios registrados"
+
+#: pntemplates/profile_block_membersonline.htm:21
+#: pntemplates/profile_block_membersonline.htm:24
+#, php-format
+msgid "%s on-line."
+msgstr "%s en linea."
+
+#: pntemplates/profile_block_membersonline.htm:23
+#: pntemplates/profile_block_membersonline.htm:27
+#, php-format
+msgid "%s anonymous guest"
+msgid_plural "%s anonymous guests"
+msgstr[0] "%s usuario anónimo"
+msgstr[1] "%s usuarios anónimos"
+
+#: pntemplates/profile_block_membersonline.htm:28
+#, php-format
+msgid "%1$s and %2$s online."
+msgstr "%1$s y %2$s en linea."
+
+#: pntemplates/profile_block_lastxusers_modify.htm:4
+msgid "Number of recently-registered users to display"
+msgstr "Número de usuarios registrados recientemente a mostrar"
+
+#: pntemplates/profile_admin_modify.htm:3
+msgid "Edit personal info item"
+msgstr "Editar propiedad de cuenta"
+
+#: pntemplates/profile_admin_modify.htm:60
+msgid "Warning! If you want to edit the ID of an option without losing associated user data in the database, its label must not be renamed simultaneously. Also, do not assign IDs and labels the same naming. You are recommended to give each option an unique ID and a unique name, and to try to avoid renaming an ID once it has been created."
+msgstr "¡Advertencia! Si desea editar el ID de una opción sin perder los datos de usuario asociados en la base de datos, la etiqueta no se debe renombrarse simultáneamente. Además, no asigne identificadores o etiquetas iguales. Se recomienda darle a cada opción un ID único y un nombre único, y tratar de evitar el cambio de nombre de un ID, una vez que se ha creado."
+
+#: pntemplates/profile_user_view_example.htm:4
+#, php-format
+msgid "Latest submissions of %s"
+msgstr "Últimos envíos de %s"
+
+#: pntemplates/profile_block_featureduser_modify.htm:9
+msgid "Information to show"
+msgstr "Información a mostrar"
+
+#: pntemplates/profile_block_featureduser_modify.htm:21
+msgid "Show registration date"
+msgstr "Mostrar la fecha de registro"
+
+#: pntemplates/profile_admin_view.htm:16
+msgid "Notice: Use drag and drop to arrange the arrange the personal info items into your desired order. The new order will be saved automatically when you drop the item into place."
+msgstr "Notice: Use arrastrar y soltar para organizar las propiedades de cuenta en el orden deseado. El nuevo orden será guardado automáticamente al soltar la propiedad en su lugar."
+
+#: pntemplates/profile_admin_view.htm:21
+msgid "Type"
+msgstr "Tipo"
+
+#: pntemplates/profile_admin_view.htm:22
+msgid "Status"
+msgstr "Estado"
+
+#: pninit.php:262
+msgid "_UREALNAME"
+msgstr "Nombre real"
+
+#: pninit.php:272
+msgid "_UFAKEMAIL"
+msgstr "Correo público"
+
+#: pninit.php:282
+msgid "_YOURHOMEPAGE"
+msgstr "Sitio web"
+
+#: pninit.php:292
+msgid "_TIMEZONEOFFSET"
+msgstr "Zona horaria"
+
+#: pninit.php:302
+msgid "_YOURAVATAR"
+msgstr "Avatar"
+
+#: pninit.php:312
+msgid "_YICQ"
+msgstr "ICQ"
+
+#: pninit.php:322
+msgid "_YAIM"
+msgstr "AIM"
+
+#: pninit.php:332
+msgid "_YYIM"
+msgstr "Yahoo"
+
+#: pninit.php:342
+msgid "_YMSNM"
+msgstr "MSN"
+
+#: pninit.php:352
+msgid "_YLOCATION"
+msgstr "Ubicación"
+
+#: pninit.php:362
+msgid "_YOCCUPATION"
+msgstr "Ocupación"
+
+#: pninit.php:372
+msgid "_SIGNATURE"
+msgstr "Firma"
+
+#: pninit.php:382
+msgid "_EXTRAINFO"
+msgstr "Información extra"
+
+#: pninit.php:392
+msgid "_YINTERESTS"
+msgstr "Intereses"
+

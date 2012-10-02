@@ -1,0 +1,130 @@
+<!--[* $Id: bbcode_user_whatisbbcode.html 216 2009-11-11 16:25:59Z herr.vorragend $ *]-->
+
+<h2>What is BBCode?</h2>
+<p>BBCode is a variation on the HTML tags you may already be familiar with.  Basically, it allows you to add functionality or style
+    to your message that would normally require HTML.  You can use BBCode even if HTML is not enabled for the forum you are using.
+    You may want to use BBCode as opposed to HTML, even if HTML is enabled for your forum, because there is less coding required and it
+    is safer to use (incorrect coding syntax will not lead to as many problems).
+</p>
+
+<h3>URL Hyperlinking</h3>
+<p>NEW! If BBCode is enabled in a forum, you no longer need to use the [URL] code to create a hyperlink.
+Simply type the complete URL in either of the following manners and the hyperlink will be created automatically:</p>
+<ul>
+    <li>http://www.yourURL.com</li>
+    <li>www.yourURL.com</li>
+
+</ul>
+<p>Notice that you can either use the complete http:// address or shorten it to the www domain.  If the site does not begin with "www",
+you must use the complete "http://" address.  Also, you may use https and ftp URL prefixes in auto-link mode (when BBCode is ON).</p>
+
+<p>The old [URL] code will still work, as detailed below. Just encase the link as shown in the following example
+(BBCode is in <span style="color:#FF0000">red</span>).</p>
+    <pre><span style="color:red">[url]</span>www.totalgeek.org<span style="color:red">[/url]</span></pre>
+
+    <p>NEW! You can now have true hyperlinks using the [url] code.  Just use the following format:</p>
+    <pre><span style="color:red">[url=http://www.totalgeek.org]</span>totalgeek.org<span style="color:red">[/url]</span></pre>
+
+    <p>In the examples above, the BBCode automatically generates a hyperlink to the URL that is encased.  It will also ensure that
+        the link is opened in a new window when the user clicks on it. Note that the "http://" part of the URL is completely optional.
+        In the second example above, the URL will hypelink the text to whatever URL you provide after the equal sign.
+    Also note that you should NOT use quotation marks inside the URL tag.</p>
+
+    <h3>Email Links</h3>
+    <p>To add a hyperlinked email address within your message, just encase the email address as shown in the following example
+    (BBCode is in <span style="color:red">red</span>).</p>
+        <pre>
+            <span style="color:red">[email]</span>james@totalgeek.org<span style="color:red">[/email]</span>
+        </pre>
+        <p>In the example above, the BBCode automatically generates a hyperlink to the email address that is encased.</p>
+
+        <h3>Bold and Italics</h3>
+        <p>You can make italicized text or make text bold by encasing the applicable sections of your text with either the [b] [/b]
+        or [i] [/i] tags.</p>
+        <pre>Hello, <span style="color:red">[b]</span><strong>James</strong><span style="color:red">[/b]</span>
+        Hello, <span style="color:red">[i]</span><I>Mary</I><span style="color:red">[/i]</span></pre>
+
+            <h3>Bullets/Lists</h3>
+
+            <p>You can make bulleted lists or ordered lists (by number or letter).</p>
+
+            <h4>Unordered, bulleted list:</h4>
+            <pre>
+                <span style="color:red">[list]</span>
+                <span style="color:red">[*]</span> This is the first bulleted item.
+                <span style="color:red">[*]</span> This is the second bulleted item.
+                <span style="color:red">[/list]</span>
+            </pre>
+
+            <p>This produces:</p>
+            <ul>
+                <li> This is the first bulleted item.</li>
+                <li> This is the second bulleted item.</li>
+            </ul>
+
+            <p>Note that you must include a closing [/list] when you end each list.</p>
+
+            <h4>Ordered list:</h4>
+
+            <p>Making ordered lists is just as easy.  Just add either [LIST=A] or [LIST=1].  Typing [List=A] will produce a list from A to Z.
+            Using [List=1] will produce numbered lists.</p>
+            <p>Here's an example:</p>
+            <pre>
+                <span style="color:red">[list=A]</span>
+                <span style="color:red">[*]</span> This is the first bulleted item.
+                <span style="color:red">[*]</span> This is the second bulleted item.
+                <span style="color:red">[/list]</span>
+            </pre>
+            <p>This produces:</p>
+
+            <ol type="a">
+                <li>This is the first bulleted item.</li>
+                <li>This is the second bulleted item.</li>
+            </ol>
+
+            <h3>Adding Images</h3>
+            <p>To add a graphic within your message, just encase the URL of the graphic image as shown in the following example
+            (BBCode is in <span style="color:red">red</span>).</p>
+                <pre>
+                    <span style="color:red">[img]</span>http://www.yoursite.com/images/image.gif<span style="color:red">[/img]</span>
+
+                </pre>
+                <p>In the example above, the BBCode automatically makes the graphic visible in your message.  Note: the "http://" part of
+                    the URL is REQUIRED for the <span style="color:red">[img]</span> code.  Also note: some sites may disable the
+                <span style="color:red">[img]</span> tag support to prevent objectionable images from being viewed.</p>
+
+                    <h3>Quoting Other Messages</h3>
+                    <p>To reference something specific that someone has posted, just cut and paste the applicable verbiage and enclose it
+                        as shown below (BBCode is in <span style="color:red">red</span>).
+                        <pre>
+                            <span style="color:red">[QUOTE]</span>Ask not what
+                            your country can do for you....<br />ask what you can do for your country.<span style="color:red">[/QUOTE]</span>
+
+                        </pre>
+
+                        <p>In the example above, the BBCode automatically blockquotes the text you reference.</p>
+
+                        <h3>Code Tag</h3>
+                        <p>Similar to the Quote tage, the Code tag adds some &lt;PRE&gt; tags to preserve formatting.  This useful for displaying
+                        programming code, for instance.</p>
+                        <pre>
+                            <span style="color:red">[CODE]</span>
+                            #!/usr/bin/perl
+                            print "Content-type: text/html\n\n";
+                            print "Hello World!";
+                            <span style="color:red">[/CODE]</span>
+
+                        </pre>
+
+                        <p>In the example above, the BBCode automatically blockquotes the text you reference and preserves the formatting of the
+                        coded text.</p>
+
+                        <p>
+                            Note: You must not use both HTML and BBCode to do the same function.  Also note that the BBCode is not case-sensitive (thus, you could use <span style="color:red">[URL]</span> or <span style="color:red">[url]</span>).<br />
+                            <h4>Incorrect BBCode Usage:</h4>
+                            <ul>
+                                <li><span style="color:red">[url]</span> www.totalgeek.org <span style="color:red">[/url]</span> - don't put spaces between the bracketed
+                                code and the text you are applying the code to.</li>
+
+                                <li><span style="color:red">[email]</span>james@totalgeek.org<span style="color:red">[email]</span> - the end brackets must include a forward slash (<span style="color:red">[/email]</span>)</li>
+                            </ul>

@@ -1,0 +1,55 @@
+<!--
+TODO:  Update as accessibility status changes.
+FILE:  lang/en_utf8/docs/accessibility.html
+NOTES: Hard-coded links need to be edited/ scripted.
+       May need editing for local Moodle sites.
+-->
+
+<h1>Accessibilitat</h1>
+
+<h2>Declaració d'accessibilitat</h2>
+
+<p>Aquest lloc s'ha verificat amb diversos navegadors i també amb programari lector de pantalla.</p>
+
+<p>Moodle utilitza etiquetatge semàntic, entre altres coses a fi d'ajudar els usuaris de lectors de pantalla. Els encapçalaments de lloc, de pàgina i de bloc utilitzen &lt;h1&gt;, &lt;h2&gt;, els blocs de navegació són llistes &lt;ul&gt, etc. etc.
+</p>
+
+<p>Moodle és conforme amb les [<a href="http://www.w3.org/TR/WCAG10/" title="Web Content Accessibility Guidelines 1.0">Web
+ Content Accessibility Guidelines 1.0</a>] del World Wide Web Consortium nivell 1, amb la majoria dell nivell 2 
+ [<a href="http://www.w3.org/WAI/WCAG1AA-Conformance"  title="About Double-A WCAG conformance">conformitat Doble-A</a>] 
+ i part del nivell 3. Mitjançant aquestes guies intentem ser conformes amb les lleis locals sobre l'accés de persones amb minusvalideses. 
+ Continuem treballant per millorar l'accessibilitat i la usabilitat de Moodle. 
+ A hores d'ara encara s'utilitzen algunes taules per donar format a pàgines, però en general s'utilitzen fulls d'estil i la presentació està separada del contingut.
+</p>
+
+<p>Qualsevol comentari serà benvingut, particularment qualsevol informació sobre continguts no accessibles. 
+ Podeu enviar un missatge als administradors d'aquest lloc.
+</p>
+
+<h2>Tecles d'accés</h2>
+
+<p>A hores d'ara no especifiquem tecles d'accés, però tenim la intenció d'implementar-les en versions pròximes de Moodle.</p>
+
+<h2>Enllaços</h2>
+
+<p>Hi ha un enllaç abans de cadascun dels blocs laterals, la qual cosa permet que els usuaris de lectors de pantalla salten els blocs. Nota: aquest enllaç resta ocult per als navegadors gràfics.</p>
+
+<p>Molts enllaços tenen atributs de títol que descriuen l'enllaç amb més detall, tret que el text de l'enllaç ja sigui prou descriptiu (p. ex., l'encapçalament d'un article). Si un enllaç té una tecla d'accés, aquesta tecla s'anuncia al títol de l'enllaç.</p>
+
+<p>Sempre que resulta possible, els enllaços es generen de manera que tinguin sentit en el seu context. No hi ha pseudoenllaços javascript:. </p>
+
+<h2>Imatges</h2>
+
+<p>Les imatges, sempre que sigui adequat, utilitzen l'atribut alt per proporcionar un text alternatiu. Les imatges merament decoratives tenen un atribut alt nul. En aquelles imatges que presenten informació complexa, p. ex. mapes, l'atribut alt enllaça amb una descripció textual del contingut de la imatge.</p>
+
+<h2>Conformitat amb estàndards</h2>
+
+<p>Aquest lloc està construit mitjançant
+ <acronym title="Extensible Hyper-Text Markup Language">XHTML</acronym> vàlid
+ per a l'etiquetatge i CSS per a la presentació.</p>
+
+<p style="text-align:center">
+  <a href="http://validator.w3.org/check?verbose=1&amp;ss=1&amp;uri=<?php echo $CFG->wwwroot; ?>" title="Use the W3C validator">Validació HTML</a> 
+| <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=-1&amp;url1=<?php echo $CFG->wwwroot; ?>" title="Test with Cynthia">Verificació Secció 508</a> 
+| <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=0&amp;warnp2n3e=1&amp;url1=<?php echo $CFG->wwwroot; ?>" title="Test with Cynthia">Verificació WCAG 1 (2,3)</a>
+</p>

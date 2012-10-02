@@ -1,0 +1,9 @@
+<!--[foreach from=$layouts item=layout]-->
+<div class="z-formrow">
+    <div class="z-formnote">
+        <!--[pnformradiobutton id=$layout.name dataField='layout' mandatory='true']-->
+        <!--[pnformlabel text=$layout.title for=$layout.name]-->
+    </div>
+    <em class="z-sub z-formnote"><!--[$layout.description]--></em>
+</div>
+<!--[/foreach]-->

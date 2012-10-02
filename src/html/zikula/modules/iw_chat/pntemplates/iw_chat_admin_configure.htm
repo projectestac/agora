@@ -1,0 +1,46 @@
+<!--[include file="iw_chat_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='configure.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Configure the module"]--></h2>
+	<form  class="pn-adminform" method="post" name="configure" id="configure" action="<!--[pnmodurl modname="iw_chat" type="admin" func="configure"]-->" enctype="application/x-www-form-urlencoded">
+		<div class="pn-adminformrow">
+			<label for="delay">
+				<!--[gt text="Refresh Delay (in millseconds) "]-->
+			</label>
+			<input id="delay" name="delay" type="text" size="25" maxlength="200" value="<!--[$delay]-->"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="max_len">
+				<!--[gt text="Maximal length of a chat message "]-->
+			</label>
+			<input id="max_len" name="max_len" type="text" size="25" maxlength="200" value="<!--[$max_len]-->"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="theme">
+				<!--[gt text="Theme "]-->
+			</label>
+			<select id="theme" name="theme" />
+				<!--[foreach item=option from=$themes]-->
+					<option value="<!--[$option]-->" <!--[if $option eq $theme]-->selected<!--[/if]-->><!--[$option]-->
+				<!--[/foreach]-->
+			</select>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="sound">
+				<!--[gt text="Start with sound notifications "]-->
+			</label>
+			<input id="sound" name="sound" type="checkbox" <!--[if $sound eq 1]-->checked<!--[/if]--> value="1"/>
+		</div>	
+		<div class="pn-adminformrow">
+			<label for="private_dir">
+				<!--[gt text="Path of the private directory (from iw_main root directory) "]-->
+			</label>
+			<input id="private_dir" name="private_dir" type="text" size="25" maxlength="200" value="<!--[$private_dir]-->"/>
+		</div>
+		<div class="formOptions" align="center">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Create" __title="Create"]-->
+			<a href="<!--[pnmodurl modname=iw_chat type=admin func=main]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+		</div>
+	</form>
+</div>

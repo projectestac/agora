@@ -1,0 +1,15 @@
+<!--[include file="iw_forums_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/large']--></div>
+	<h2><!--[gt text="Delete the forum"]--></h2>
+	<form class="pn-adminform" action="<!--[pnmodurl modname="iw_forums" type="admin" func="delete"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forums"]-->" />
+		<input type="hidden" name="fid" value="<!--[$item.fid]-->" />
+		<input type="hidden" name="confirm" value="1" />
+		<!--[gt text="Confirm the deletion of the forum"]--> <strong><!--[$item.nom_forum]--></strong>
+		<div class="formOptions" style="text-align: center;">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Delete" __title="Delete"]-->
+			<a href="<!--[pnmodurl modname="iw_forums" type="admin" func="main"]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel the deletion of the forum" __title="Cancel the deletion of the forum"]--></a>
+		</div>
+	</form>
+</div>

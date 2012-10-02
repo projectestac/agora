@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-10-29 17:20-0400\n"
+"PO-Revision-Date: 2010-05-04 13:58+0200\n"
+"Last-Translator: Albert Pérez Monfort <aperezm@xtec.cat>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
+
+#: pnuserapi.php:36
+msgid "Start"
+msgstr "Inici"
+
+#: pnuserapi.php:37
+msgid "Themes"
+msgstr "Entorns visuals"
+
+#: pnuserapi.php:38
+msgid "Modules"
+msgstr "Mòduls"
+
+#: pnuserapi.php:39
+msgid "Blocks"
+msgstr "Blocs"
+
+#: pnuserapi.php:63
+#, php-format
+msgid "Unknown module %s in Tour_userapi_getsublinks."
+msgstr "Mòdul %s desconegut a Tour_userapi_getsublinks."
+
+#: pnuserapi.php:72
+#, php-format
+msgid "Unknown theme %s in Tour_userapi_getsublinks."
+msgstr "Entorn visual %s desconegut a Tour_userapi_getsublinks."
+
+#: pnuserapi.php:93
+#, php-format
+msgid "Page %s"
+msgstr "Pàgina %s"
+
+#: pnuser.php:97
+#, php-format
+msgid "Unknown module %s in Tour_user_exttour."
+msgstr "Mòdul %s desconegut a Tour_user_exttour."
+
+#: pnuser.php:106
+#, php-format
+msgid "Unknown theme %s in Tour_user_exttour."
+msgstr "Entorn visual %s desconegut a Tour_user_exttour."
+
+#: pnuser.php:128
+msgid "Tour file does not exist!"
+msgstr "El fitxer Passeig no existeix!"
+
+#: pnversion.php:16
+msgid "Tour"
+msgstr "Passeig"
+
+#. !module name that appears in URL
+#: pnversion.php:18
+msgid "tour"
+msgstr "passeig"
+
+#: pnversion.php:19
+msgid "First time configuration and Zikula Tour."
+msgstr "Mòdul que mostra informació general referent al Zikula."
+
+#: pntemplates/tour_user_menu.htm:1
+msgid "Zikula Tour"
+msgstr "Un passeig pel Zikula"
+
+#: pntemplates/tour_user_menu.htm:4
+msgid "Tour Home"
+msgstr "Inici del passeig"
+
+#: pntemplates/tour_user_menu.htm:5
+msgid "First Time Tour"
+msgstr "Presa de contacte"
+
+#: pntemplates/tour_user_menu.htm:6
+msgid "Your Distribution"
+msgstr "Aquesta distribució"
+
+#: pntemplates/tour_user_menu.htm:7
+msgid "New in Zikula"
+msgstr "Nou a Zikula"
+
+#: pntemplates/tour_user_menu.htm:8
+msgid "Extension Tours"
+msgstr "Passejos de les extensions"

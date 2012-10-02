@@ -1,0 +1,99 @@
+<script type="text/javascript" src="modules/IWmoodle/js/moodle.js"></script>
+
+<!--[include file="iwmoodle_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+    <div class="pn-adminpageicon"><!--[pnimg modname='core' src='lists.gif' set='icons/large' __alt=$templatetitle]--></div>
+    <h2><!--[$fullname]--> --> <!--[gt text="List of users in the course"]--></h2>
+    <div style="height:5px;">&nbsp;</div>
+    <!--[if $users|@count gt 0]-->
+    <form  class="pn-adminform" enctype="application/x-www-form-urlencoded" method="post" name="delete_users" action="<!--[pnmodurl modname="IWmoodle" type="admin" func="delete"]-->">
+           <input type="hidden" name="course" value="<!--[$course]-->">
+        <input type="hidden" name="authid" value="<!--[$security]-->"-->
+               <table class="pn-admintable">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th><!--[gt text="Lastname, Firstname"]--></th>
+                    <th><!--[gt text="Username"]--></th>
+                    <th><!--[gt text="Role"]--></th>
+                    <th><!--[gt text="Sign in"]--></th>
+                    <th><!--[gt text="Last Moodle access"]--></th>
+                    <th><!--[gt text="Delete"]--></th>
+                    <th><input name="allbox" onclick="CheckAllUsers();" type="checkbox" value="<!--[gt text="Check all"]-->" /></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--[section name=users loop=$users]-->
+                <tr class="<!--[cycle values="pn-odd,pn-even"]-->">
+                    <td width="10">
+                        <!--[if $users[users].photo neq '']-->
+                        <img src="<!--[pnmodurl modname=iw_main type=user func=getPhoto fileName=$users[users].photo]-->" />
+                        <!--[else]-->
+                        &nbsp;
+                        <!--[/if]-->
+                    </td>
+                    <td align="left"><!--[$users[users].userfullname|pnvarprepfordisplay]--></td>		
+                    <td align="left"><!--[$users[users].username|pnvarprepfordisplay]--></td>
+                    <td align="left"><!--[$users[users].rolename|pnvarprepfordisplay]--></td>
+                    <td align="center"><!--[$users[users].auth|pnvarprepfordisplay]--></td>
+                    <td align="center">
+                        <!--[if $users[users].lastaccess != 0]-->
+                        <!--[$users[users].lastaccess|pnvarprepfordisplay]-->
+                        <!--[else]-->
+                        ---
+                        <!--[/if]-->
+                    </td>
+                    <td align="center">
+                        <!--[if $users[users].state eq 0]-->
+                        <img src="modules/IWmoodle/pnimages/red.gif" title="<!--[gt text="Courses to which you are enrolled.:"]-->" alt="<!--[gt text="Courses to which you are enrolled.:"]-->">
+                             <!--[/if]-->
+                             <!--[if $users[users].state eq 1]--><img src="modules/IWmoodle/pnimages/yellow.gif" title="<!--[gt text="Users enrolled in the course but not in the intranet"]-->" alt="<!--[gt text="Users enrolled in the course but not in the intranet"]-->"><!--[/if]-->
+                             <!--[if $users[users].state eq 2]-->
+                             <img src="modules/IWmoodle/pnimages/green.gif" title="<!--[gt text="Users enrolled in the course"]-->" alt="<!--[gt text="Users enrolled in the course"]-->">
+                             <!--[/if]-->
+                    </td>
+                    <td align="center" colspan="2">
+                        <!--[if $users[users].state eq 0]-->
+                        <input type="checkbox" onclick="CheckCheckAllUsers();" name="delete_pre[<!--[$smarty.section.users.rownum-1]-->]" value="<!--[$users[users].mid]-->">
+                        <!--[else]-->
+                        <input type="checkbox" onclick="CheckCheckAllUsers();" name="delete[<!--[$smarty.section.users.rownum-1]-->]" value="<!--[$users[users].roleid]-->">
+                        <!--[/if]-->				
+                    </td>
+                </tr>	
+                <!--[/section]-->
+            </tbody>
+        </table>
+        <div style="text-align: right;">
+            <img src="images/icons/small/delete_user.gif" onclick='send_users("<!--[gt text="You have not selected any user!"]-->","<!--[gt text="Do you really want to delete the teachers selected from the course?"]-->")' /> <!--[gt text="Delete"]-->
+        </div>
+    </form>
+    <table>
+        <tr>
+            <td>
+                <!--[pnimg modname='IWmoodle' src='green.gif' set='pnimages']-->
+            </td>
+            <td>
+                <!--[gt text="Users enrolled in the course"]-->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!--[pnimg modname='IWmoodle' src='yellow.gif' set='pnimages']-->
+            </td>
+            <td>
+                <!--[gt text="Users enrolled in the course but not in the intranet"]-->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!--[pnimg modname='IWmoodle' src='red.gif' set='pnimages']-->
+            </td>
+            <td>
+                <!--[gt text="Courses to which you are enrolled.:"]-->
+            </td>
+        </tr>		
+    </table>
+    <!--[else]-->
+    <!--[gt text="This course has not assigned users"]-->
+    <!--[/if]-->
+</div>

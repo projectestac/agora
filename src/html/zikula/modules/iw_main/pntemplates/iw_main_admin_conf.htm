@@ -1,0 +1,100 @@
+<!--[include file="iw_main_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='package_settings.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<h2><!--[gt text="Modify the configuration"]--></h2>
+	<form  class="pn-adminform" enctype="application/x-www-form-urlencoded" method="post" name="conf" id="conf" action="<!--[pnmodurl modname="iw_main" type="admin" func="updateconfig"]-->">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_main"]-->" />
+		<!--[if not $multizk]-->
+			<div class="pn-adminformrow">
+				<label for="documentRoot"><!--[gt text="Server files directori"]--></label>
+				<input type="text" name="documentRoot" value="<!--[$documentRoot]-->" size="50" maxlength="255" />
+			</div>
+			<!--[if $noFolder]-->
+				<div class="pn-errormsg">
+					<!--[gt text="Attached files directory hasn't been found"]-->
+				</div>
+			<!--[/if]-->
+		<!--[if $noWriteabledocumentRoot]-->
+			<div class="pn-errormsg">
+				<!--[gt text="This folder is not writeable."]-->
+			</div>
+		<!--[/if]-->
+		<!--[/if]-->
+		<div class="pn-adminformrow">
+			<label for="usersPictureFolder"><!--[gt text="Folder where to look for the users pictures"]--></label>
+			<!--[if not $multizk]--><span><!--[$documentRoot]-->/</span><!--[/if]--><input type="text" name="usersPictureFolder" value="<!--[$usersPictureFolder]-->" size="30" maxlength="30" />
+		</div>
+		<!--[if $noPictureFolder]-->
+			<div class="pn-errormsg">
+				<!--[gt text="Users pictures directori hasn't been found"]-->
+			</div>
+		<!--[/if]-->
+		<!--[if $noWriteablePictureFolder]-->
+			<div class="pn-errormsg">
+				<!--[gt text="This folder is not writeable."]-->
+			</div>
+		<!--[/if]-->
+
+		<!--[if $gdAvailable && !$noPictureFolder && !$noWriteablePictureFolder && !$noTempFolder && !$noWriteableTempFolder]-->
+			<div class="pn-adminformrow">
+				<label for="allowUserChangeAvatar"><!--[gt text="The user can change theirs avatars"]--></label>
+				<input type="checkbox" <!--[if $allowUserChangeAvatar eq 1]-->checked<!--[/if]--> name="allowUserChangeAvatar" value="1" />
+			</div>
+			<div class="pn-adminformrow">
+				<label for="avatarChangeValidationNeeded"><!--[gt text="The avatar replacement needs validation"]--></label>
+				<input type="checkbox" <!--[if $avatarChangeValidationNeeded eq 1]-->checked<!--[/if]--> name="avatarChangeValidationNeeded" value="1" />
+			</div>
+		<!--[else]-->
+			<!--[if $noPictureFolder || $noWriteablePictureFolder || $noTempFolder || $noWriteableTempFolder]-->
+				<div class="pn-errormsg">
+					<!--[gt text="The users can change theirs avatars because the directori of pictures or the temporal directori don' exist or them have not got the correct permissions."]-->
+				</div>
+			<!--[/if]-->
+			<!--[if not $gdAvailable]-->
+				<div class="pn-errormsg">
+					<!--[gt text="The users can change theirs avatars because the php's gd extensión is not available"]-->
+				</div>
+			<!--[/if]-->
+		<!--[/if]-->
+		<div class="pn-adminformrow">
+			<label for="tempFolder"><!--[gt text="Folder for temporal files"]--></label>
+			<!--[if  not $multizk]--><span><!--[$documentRoot]-->/</span><!--[/if]--><input type="text" name="tempFolder" value="<!--[$tempFolder]-->" size="30" maxlength="30" />
+		</div>
+		<!--[if $noTempFolder]-->
+			<div class="pn-errormsg">
+				<!--[gt text="Temporal files directory hasn't been found"]-->
+			</div>
+		<!--[/if]-->		
+		<!--[if $noWriteableTempFolder]-->
+			<div class="pn-errormsg">
+				<!--[gt text="This folder is not writeable."]-->
+			</div>
+		<!--[/if]-->
+		<div class="pn-adminformrow">
+			<label for="extensions"><!--[gt text="Extensions allowed"]--></label>
+			<input type="text" name="extensions" value="<!--[$extensions]-->" size="50" maxlength="255" />
+		</div>
+		<div class="pn-adminformrow">
+			<label for="maxsize"><!--[gt text="Maximum size for uploaded files"]--></label>
+			<input type="text" name="maxsize" value="<!--[$maxsize]-->" size="10" maxlength="10" />
+		</div>
+		<div class="pn-adminformrow">
+			<label for="usersvarslife"><!--[gt text="Life time of users vars (days)"]--></label>
+			<input type="text" name="usersvarslife" value="<!--[$usersvarslife]-->" size="10" maxlength="10" />
+		</div>
+		
+		<div class="pn-adminformrow">
+			<label for="cronHeaderText"><!--[gt text="Header text of the cron automatic emails with the new things to see"]--></label>
+			<textarea name="cronHeaderText" style="width: 370px;" rows="5"><!--[$cronHeaderText]--></textarea>
+		</div>
+		
+		<div class="pn-adminformrow">
+			<label for="cronFooterText"><!--[gt text="Footer text of the email"]--></label>
+			<textarea name="cronFooterText" style="width: 370px;" rows="5"><!--[$cronFooterText]--></textarea>
+		</div>
+		<div style="text-align: center;">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Execute" __title="Execute"]--> <!--[gt text="Save the changes"]-->
+		</div>
+	</form>
+	<a href="<!--[pnmodurl modname=iw_main type=admin func=module]-->"><!--[gt text="About this module"]--></a>
+</div>

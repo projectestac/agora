@@ -1,0 +1,12 @@
+<p class="center"><strong>Gebruik deze instelling als je bestellingen wil bekijken, voor de kredietkaart verwerkt wordt.</strong></p>
+<p>Verwijder het vinkje bij het 'an_review'-veld als leerlingen onmiddellijk aangemeld moeten worden wanneer ze hun kaartnummer ingeven.<br />
+Als je wel een vinkje zet bij het 'an_review'-veld, dan zal de kredietkaart onmiddellijk geautoriseerd worden, maar nog niet gekrediteerd worden. Ze hebt dan twee opties:
+   'Manueel krediteren' en 'Gepland krediteren'.
+   <ul>
+      <li>Om manueel te krediteren zet je een '0' in het an_capture_day -veld. De transactie zal geanulleerd worden, tenzij je krediteerd binnen de 30 dagen.
+Geen paniek! Je bedrijf is belangrijk voor ons. Bij de instellingen voor het versturen van e-mail,  kun je kiezen om X aantal dagen voor het vervallen van wachtende bestellingen verwittigd te worden, op voorwaarde dat CRON goed geïnstalleerd is.</li>
+      <li>Voor gepland krediteren zet je een getal tussen 1 en 29 in het an_capture_day-veld. Merk op dat CRON MOET GECONFIGUREERD ZIJN.
+De kaart zal gekrediteerd worden en de leerling zal aangemeld worden in de cursus. Het gepland krediteren-syseem krediteert de kaart an_capture_day dagen later zoals je dat zelf verkiest. Als je graag alles zelf onder controle hebt, kun je ook manueel de betaling aanvaarden of wijgeren nadat je mail gekregen hebt over je wachtende bestellingen. Je kunt je gebruikers ook een welkomstbericht laten sturen als je een vinkje zet bijenrol_mailstudents.</li>
+   </ul>
+</p>
+<p align="center"><strong>In Moodle 1.6, kun je betalingen aanvaarden/weigeren/terugstorten via de betalingsbeheerpagina.</strong></p>

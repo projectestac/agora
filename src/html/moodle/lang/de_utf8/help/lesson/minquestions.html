@@ -1,0 +1,29 @@
+<h2>Mindestzahl der Fragen</h2>
+
+<p>Dieser Parameter sollte gesetzt werden, wenn eine
+Lektion eine oder mehrere Verzweigungsseiten enthält. Der
+Wert setzt eine untere Grenze für die Anzahl an Fragen, die in 
+die Bewertung eingehen. Teilnehmer/innen werden
+<b>nicht</b> gezwungen, diese
+Anzahl von Fragen innerhalb einer Lektion zu beantworten.</p>
+
+<p><b>Beispiel:</b> Wenn Sie diesen Parameter auf 20 setzen,
+wird sichergestellt, dass in die Bewertung mindestens 20 Fragen eingehen. Stellen Sie sich einen
+Teilnehmenden vor, der nur einen Zweig mit 5 Seiten bearbeitet und alle 5 Fragen korrekt
+beantwortet. Dann beendet der Teilnehmende die
+Lektion (sinnvollerweise sollte es eine solche Option geben). Wenn der Parameter nicht gesetzt wäre, würde die Bewertung 5 richtige von 5, also 100% richtige Antworten ergeben. Wäre der Parameter auf 20 gesetzt, dann hätte der Teilnehmende 5 richtige von 20, also 25% richtige Antworten. Ein anderer Teilnehmender, der alle Verzweigungen der Lektion durchläuft und dabei 25 Seiten / Fragen bearbeitet, 23 davon richtig, erhält dagegen die Bewertung 23 richtige von 25, also 92% richtige Antworten.</p>
+
+<p>Wenn Sie diesen Parameter benutzen, sollte auf der
+Einführungsseite Ihrer Lektion ungefähr dies
+stehen:</p>
+
+<p><blockquote>In dieser Lektion wird erwartet, dass Sie
+mindestens n Fragen beantworten. Wenn Sie möchten,
+können Sie auch mehr Fragen beantworten. Wenn Sie allerdings
+weniger als n Fragen beantworten (m < n Fragen), erfolgt die Bewertung so, als hätten Sie 
+<i>versucht</i>, n Fragen zu beantworten (also m von n).</blockquote></p>
+
+<p>Natürlich sollten Sie im obigen Text n durch den tatsächlich gewählten
+Wert des Parameters ersetzen.</p>
+
+<p>Wenn dieser Parameter gesetzt ist, wird den Teilnehmer/innen angezeigt, wieviele Fragen sie schon beantwortet haben und wieviele Fragen sie mindestens beantworten sollten.</p>

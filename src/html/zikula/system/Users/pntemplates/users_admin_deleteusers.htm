@@ -1,0 +1,32 @@
+<!--[*  $Id: users_admin_deleteusers.htm 27353 2009-11-02 11:56:33Z mateo $  *]-->
+<!--[gt text='Delete user account' assign=templatetitle]-->
+
+<!--[include file='users_admin_menu.htm']-->
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/large' alt=$templatetitle]--></div>
+
+    <h2><!--[$templatetitle]--></h2>
+
+    <p class="z-warningmsg"><!--[gt text='Do you really want to delete this user account?' plural='Do you really want to delete these user accounts?' count=$users|@count]--></p>
+
+    <form class="z-form" action="<!--[pnmodurl modname='Users' type='admin' func='remove']-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name='generateauthkey' module='Users']-->" />
+            <fieldset>
+                <legend><!--[gt text='Confirmation prompt']--></legend>
+                <!--[foreach from=$users key='uid' item='uname']-->
+                <input type="hidden" name="userid[]" value="<!--[$uid|pnvarprepfordisplay]-->" />
+                <div class="z-formrow">
+                    <label><!--[gt text='User name']--></label>
+                    <span><!--[$uname]--></span>
+                </div>
+                <!--[/foreach]-->
+            </fieldset>
+            <div class="z-formbuttons">
+                <!--[pnbutton src='button_ok.gif' set='icons/small' __alt='Delete user account' __title='Delete user account']-->
+                <a href="<!--[pnmodurl modname='Users' type='admin' func='view']-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small' __alt='Cancel' __title='Cancel']--></a>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,83 @@
+<h1>Visión general del formato</h1>
+<p>A continuación se proporciona una guía simple de la estructura básica de un archivo de datos típico de IMS Enterprise. Puede ver mucha más información en <a href="http://www.imsglobal.org/enterprise/">IMS Enterprise official website</a>.</p>
+
+<p>Quizás le interese leer el <a href="./enrol/imsenterprise/entv1p1_conformance_summary.html">sumario de conformidad</a>, que describe los elementos de datos IMS que este 'plugin' puede procesar.</p>
+
+<h1>Guía básica del formato de archivo IMS Enterprise</h1>
+
+<p>Para realizar cualquier matriculación IMS usted necesita una marca &lt;group&gt; que especifica el curso, una marca &lt;person&gt; que especifica la cuenta de usuario, y una marca &lt;membership&gt; que contiene marcas &lt;member&gt;, las cuales especifican el rol de una persona dentro de un curso dado.</p><p>
+</p>
+
+<p>
+Recuerde que las claves numéricas usadas en las bases de datos de Moodle no son datos interoperables -un sistema de datos de estudiantes nunca va a saber con antelación que Joe es el usuario número 20 agregado a la base de datos de Moodle-, de modo que las mencionadas no son las claves intercambiadas en este tipo de datos.</p><p>
+</p>
+
+<p>
+Normalmente un curso debería tener un código de referencia, así como un nombre, de manera que supongamos que su código es MOODLE101. Para definir el curso usted podría usar</p><p>
+</p>
+
+<p>
+&nbsp; &lt;group&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;MOODLE101&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;description&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;short&gt;Moodle 101&lt;/short&gt;<br />
+&nbsp; &nbsp; &lt;/description&gt;<br />
+&nbsp; &lt;/group&gt;<br />
+</p>
+
+<p>
+El script de matriculación buscará un curso con el código MOODLE101, y (opcionalmente) crearlo en caso de que no exista. Lo mismo hará con la persona - supongamos que es &quot;jmoodle&quot;:</p><p>
+</p>
+
+<p>
+&nbsp; &lt;person&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;jmoodle&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;userid&gt;jmoodle&lt;/userid&gt;<br />
+&nbsp; &nbsp; &lt;name&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;fn&gt;Joe Moodle&lt;/fn&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;n&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;family&gt;MOODLE&lt;/family&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;given&gt;JOE&lt;/given&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/n&gt;<br />
+&nbsp; &nbsp; &lt;/name&gt;<br />
+&nbsp; &lt;/person&gt;<br />
+</p>
+
+<p>
+Si Joe aún no dispone de una cuenta, el script puede (opcionalmente) crearla para él.</p>
+
+<p>
+Veamos ahora la pertenencia, agregando la persona al curso:</p><p>
+</p>
+
+<p>
+&nbsp; &lt;membership&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;MOODLE101&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;member&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;id&gt;jmoodle&lt;/id&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;role roletype=&quot;01&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;status&gt;1&lt;/status&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;extension&gt;&lt;cohort&gt;unit 2&lt;/cohort&gt;&lt;/extension&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/role&gt;<br />
+&nbsp; &nbsp; &lt;/member&gt;<br />
+&nbsp; &lt;/membership&gt;<br />
+</p>
+
+<p>
+La especificación IMS Enterprise ofrece una facultad de especificar las fechas de inicio y final de las matriculaciones, de modo que pueden incluirse usando la marca &lt;timeframe&gt; si fuera necesario.</p><p>
+</p>
+
+<p>
+Si una persona ya está agregada a un grupo dentro del curso, el script no la modificará. En caso contrario, se aplicará el agrupamiento especificado.</p><p>

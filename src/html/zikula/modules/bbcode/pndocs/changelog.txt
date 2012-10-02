@@ -1,0 +1,116 @@
+Version 2.0 
+===============================================================================
+IMPORTANT NOTICE:
+===============================================================================
+The permission component changed in v2.0 from pn_bbode to bbcode, please update
+your permission rules!!!
+===============================================================================
+Upgrade from pn_bbcode:
+* remove old pn_bbcode module in the filesystem, do not remove the module in
+  Zikula!
+* copy new bbcode files to your modules folder
+* regenerate modules list and continue upgrading as usual
+===============================================================================
+  - This version needs min. Zikula 1.0 or later to run, do not even try it 
+    with PostNuke .764 or older - it won't work
+  - renamed to bbcode to get rid of the pn_ prefix.
+  - added some config options
+  - added [#4596] Lightbox, credits for the code go to soultrain, see
+    http://support.pn-cms.de/module-CMS_Support_Forum-viewtopic-topic-26109.htm
+  - added [#2205] spoiler tag! Uses the same color for text and background, to be defined
+    in the bbspoiler css class. To read the text, highlight it using the mouse.
+  - added [noparse][/noparse] to avoid parsing bbcode
+  - updated GeSHi to 1.0.7.20
+  - added feature: mimetex-support.
+    
+Version 1.30 - last version for .764!
+   - This version needs the AjaxSupportPackage from http://noc.postnuke.com/frs/?group_id=8!!!
+   - code & template rework
+   - added Google Code Prettifier as option for code highlighting 
+
+Version 1.22: Dez 26, 2006
+    - PostNuke .8 fixes
+    - updated GeSHI to 1.0.7.16
+    
+Version 1.21: Nov 12, 2006
+    - added patch [#2953] Re-worked what is bbcode template
+    - .762 changes
+    - updated GeSHI to 1.0.7.15
+
+Version 1.20: Nov 22, 2005
+    - fixed bug in list tag
+    - added alt parameter to img tag (credits to Franky Chestnut)
+    - img tag now allows local paths
+    - added sorting of GeSHi languages
+
+Version 1.19: Oct 07, 2005
+    - minimum requirement now PN .760+
+    - removed displayhook due to compatibility problems
+      **********************************************
+      **                IMPORTANT!!!              **
+      **   You need to go the hooks settings      **
+      **   for all modules where this transform   **
+      **   hook is activated and submit this      **
+      **   page in order to activte the           **
+      **   display hooks too!!!                   **
+      **********************************************
+    - fixed bug with IMG-tag embedded in URL-tag
+    - fixed scrambling of bbcode tags in lists (credits to Norm Winkel for
+      finding this one)
+
+Version 1.18:
+    - showing bbcodes user interface now as display hook
+    - GeSHi updated to 1.0.7.3, fixed security bug
+
+Version 1.17: May 20, 2005
+    - fixed problem with empty code blocks
+    - special support for mail2forum feature of pnForum
+    - admin can allow access to links (url and mail) with permissions:
+      unreg. users (group) | bbcode:modname:Links | .* | ACCESS_NONE
+      unreg. users (group) | bbcode:modname:Emails | .* | ACCESS_NONE
+      e.g.
+      unreg. users (group) | bbcode:pnForum:Links | .* | ACCESS_NONE
+      unreg. users (group) | bbcode:pagesetter:Emails | .* | ACCESS_NONE
+	  code tags will be added at the cursor position now, marked textportions will be empbraced
+	  with tags
+	  IMPORTANT: the textarea needs an id now which has to be passed to the bbcode module:
+	  <!--[ pnmodfunc modname=bbcode type=user func=bbcodes textfieldid='mytextfieldid' ]-->
+	  shows the bbcode selection
+
+
+Version 1.16: March 6th, 2005
+    - using GeSHi (http://qbnz.com/highlighter/index.php) for optional syntax highlighting
+      in code tags
+
+Version 1.15:
+    - changed quote and code configuration to use one textarea now,
+      you can use %u for placing  the username and %t now for the quoted text in quote or
+      %h for the value of _BBCODE_CODE, %c for the code and %e for the urlencoded text in code.
+    - using external stylesheet now if existing.
+    - fixed a bug that only treated the first code tag block correctly
+    - fix in code settings template
+    - added user function to show some help about bbcode
+
+Version 1.14: January 10th, 2005
+    - further improvement in interaction with other hooks
+    - new bbcode tags for underlined text, text size and text color (configurable)
+
+Version 1.13:
+    - internal version
+
+Version 1.12: December 19th 2004
+    - code cleanups
+    - improved interaction with other hooks
+
+Version 1.11: October 12th 2004
+    - added configurable quote and code tags
+
+Version 1.10: July 2nd 2003
+	- fixed tags for better HTML compliance
+
+Version 1.00: January 17th 2003
+	- minor fix for br2nl function
+
+Version 0.99: January 11th 2003
+	- initial version
+

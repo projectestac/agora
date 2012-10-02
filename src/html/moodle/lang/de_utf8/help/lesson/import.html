@@ -1,0 +1,115 @@
+<h2>Fragen importieren</h2>
+<p>Mit dieser Funktion können Sie Fragen aus einer Textdatei
+importieren. Dazu müssen Sie die Datei auf den Server hochladen.<br />
+<br />
+Es werden folgende Dateiformate unterstützt:<br /></p>
+<p><b>GIFT-Format</b></p>
+<ul>
+<p>GIFT ist das umfangreichste Format für den Import von
+Fragen aus einer Textdatei. Es unterstützt
+Multiple-Choice-, Wahr-Falsch- und Kurzantwort-Fragen, Numerische Fragen, Zuordnungsfragen sowie die Benutzung von Unterstrichen ( _____
+)  für das Lückentext-Format. Sie können
+verschiedene Fragetypen in einer Textdatei mischen. Außerdem unterstützt das Format
+Kommentare, Rückmeldungen, Fragentitel und gewichtete Bewertungen. Hier einige
+Beispiele:<br /></p>
+<pre>
+Wer wurde im Grab von Ulysses S. Grant bestattet?{~Grant ~Jefferson =niemand}<br />
+<br />
+Grant wurde im Grab von Ulysses S. Grant {~beerdigt =verschüttet}.<br />
+<br />
+Grant ist im Grab von Ulysses S. Grant bestattet.{FALSE}<br />
+<br />
+Wer ist im im Grab von Ulysses S. Grant bestattet?{=niemand =keiner}<br />
+<br />
+Wann wurde Ulysses S. Grant geboren?{#1822}<br />
+</pre>
+<p align="right"><a href=
+"help.php?file=formatgift.html&amp;module=quiz">Weitere
+Informationen zum GIFT-Format</a></p>
+</ul>
+<p><b>Aiken-Format</b></p>
+<ul>
+<p>Das Aiken-Format ist eine sehr einfache Art, Multiple-Choice-
+Fragen in einer leicht verständlichen und lesbaren Form zu
+stellen. Hier ein Beispiel:</p>
+<pre>
+Was ist der Zweck von 'Erster Hilfe'?<br />
+A. Leben zu retten, weitere Verletzungen zu vermeiden und die Gesundheit zu bewahren.<br />
+B. Einer verletzten oder verwundeten Person medizinische Behandlung zukommen zu lassen<br />
+C. Weitere Verletzungen zu vermeiden<br />
+D. Opfern zu helfen, die medizinische Hilfe suchen<br />
+ANSWER: A<br />
+</pre>
+<p align="right"><a href=
+"help.php?file=formataiken.html&amp;module=quiz">Weitere
+Informationen zum Aiken-Format</a></p>
+</ul>
+<p><b>Lückentext-Format</b></p>
+<ul>
+<p>Dieses Format unterstützt nur Multiple-Choice-Fragen.
+Jede Antwort wird mit einer Tilde(~) getrennt, der korrekten
+Antwort wird ein Gleichheitszeichen (=) vorangestellt. Hier ein
+Beispiel:</p>
+<pre>Sobald wir als Kind anfangen, unseren Körper zu
+erforschen, werden wir zu Studenten der {=Anatomie und
+Physiologie ~Reflexologie ~Wissenschaft ~Philosophie}, und auf
+eine bestimmte Weise bleiben wir das unser ganzes
+Leben lang.<br /></pre>
+<p align="right"><a href=
+"help.php?file=formatmissingword.html&amp;module=quiz">Weitere
+Informationen zum Lückentext-Format</a></p>
+</ul>
+<p><b>AON</b></p>
+<ul>
+<p>Dieses Format ähnelt dem Lückentext-Format,
+mit dem Unterschied, dass beim Import je vier Kurzantwort-Fragen in
+Zuordnungsfragen umgewandelt werden.</p>
+<p>Zusätzlich werden beim Import die Antworten innerhalb der
+Multiple-Choice-Fragen zufällig gemischt.</p>
+<p>Dieses Format wurde nach einer Organisation benannt, die die
+Entwicklung von vielen Fragemöglichkeiten finanziell
+unterstützt hat.</p>
+</ul>
+<p><b>Blackboard</b></p>
+<ul>
+<p>Dieses Modul kann Fragen im Blackboard-Export-Format
+importieren. Es basiert auf  XML-Funktionen innerhalb von
+PHP.</p>
+<p align="right"><a href=
+"help.php?file=formatblackboard.html&amp;module=quiz">Weitere
+Informationen zum Blackboard-Format</a></p>
+</ul>
+<p><b>Course-Test-Manager (CTM)</b></p>
+<ul>
+<p>Dieses Modul kann Fragen importieren, die in einer Course-Test-Manager-Datenbank gespeichert wurden. Es versucht, auf verschiedenen
+Wegen auf die Daten der Fragendatenbank zuzugreifen, die sich in einer
+Microsoft-Access-Datenbank befinden - abhängig
+davon, ob Moodle auf einem Windows- oder Linux-Webserver
+läuft.</p>
+<p>Unter Windows können Sie die Access-Datenbank ganz normal
+wie jedes andere Importformat hochladen.</p>
+<p>Unter Linux müssen Sie einen Windows-Rechner im selben
+Netzwerk wie die Course-Text-Manager-Datenbank und eine Software
+namens "ODBC Socket Server" installieren, die mit Hilfe von XML die
+Daten an das Moodle-System auf dem Linux-Server
+übergibt.</p>
+<p>Bitte lesen Sie die weiteren Informationen zum CTM-Format, bevor
+Sie versuchen, dieses Format zu importieren.<br /></p>
+<p align="right"><a href=
+"help.php?file=formatctm.html&amp;module=quiz">Weitere
+Informationen zum CTM-Format</a></p>
+</ul>
+<p><b>Formate anpassen<br /></b></p>
+<ul>
+<p>Wenn Sie ein eigenes Format haben, das Sie gerne importieren
+möchten, dann können Sie dieses Format selbst implementieren,
+indem Sie die Datei mod/quiz/format/custom.php bearbeiten.</p>
+<p>Die Menge des zu implementierenden Codes ist ziemlich klein. Es
+lohnt sich schon, selbst wenn nur eine einzelne Frage aus einem gegebenen Text
+importiert werden soll.</p>
+<p align="right"><a href=
+"help.php?file=formatcustom.html&amp;module=quiz">Weitere
+Informationen zum Anpassen von Formaten</a></p>
+</ul>
+<p>Weitere Formate sind in Vorbereitung wie z.B. WebCT, IMS QTI
+oder welches Format auch immer die Moodle-Nutzern beisteuern werden.<br /></p>

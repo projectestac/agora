@@ -1,0 +1,3 @@
+<?
+	header('location:moodle/moodle/');
+?>

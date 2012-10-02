@@ -1,0 +1,13 @@
+<div style="float:left">
+	&nbsp;&nbsp;
+	<a style="cursor:pointer;" onClick="return overlay(this, 'info_<!--[$field.fndid]-->')">
+		<!--[pnimg modname='core' src='info.gif' set='icons/extrasmall' __alt=$templatetitle]-->
+	</a>
+	<div id="info_<!--[$field.fndid]-->" class="helpBox">
+		<div class="helpHeader"><div class="helpTitle"><!--[$field.fieldNameShort|pnvarprephtmldisplay]--></div></div>
+		<div class="helpContent"> 
+			<!--[$field.help|pnvarprephtmldisplay]-->
+			<div class="helpBoxClose"><a href="#" onClick="overlayclose('info_<!--[$field.fndid]-->'); return false"><!--[gt text="Close the window"]--> <!--[pnimg modname='iw_main' src='postitcloseicon.png' set='pnimages']--></a></div>		
+		</div>
+	</div>
+</div>

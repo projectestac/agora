@@ -1,0 +1,124 @@
+<script language="JavaScript">
+	<!-- overLIB configuration -->
+	ol_fgcolor = "lightyellow"; 
+	ol_bgcolor = "#FFFFFF"; 
+	ol_textcolor = "#000000";
+	ol_capcolor = "#e7e7e7";
+	ol_closecolor = "#000000"; 
+	ol_textfont = "Verdana,Arial,Helvetica"; 
+	ol_captionfont = "Verdana,Arial,Helvetica";
+	ol_captionsize = 2; 
+	ol_textsize = 2; 
+	ol_border = 2; 
+	ol_width = 350; 
+	ol_offsetx = 10; 
+	ol_offsety = 10;
+	ol_sticky = 0; 
+	ol_close = "Tancar"; 
+	ol_closeclick = 0; 
+	ol_autostatus = 2; 
+	ol_snapx = 0; 
+	ol_snapy = 0;
+	ol_fixx = -1; 
+	ol_fixy = -1; 
+	ol_background = ""; 
+	ol_fgbackground = ""; 
+	ol_bgbackground = "";
+	ol_padxl = 1; 
+	ol_padxr = 1; 
+	ol_padyt = 1; 
+	ol_padyb = 1; 
+	ol_capicon = ""; 
+	ol_hauto = 1; 
+	ol_vauto = 1;
+	if (document.getElementById('overDiv')==null) {
+		document.writeln('<div id="overDiv" style="position:absolute; top:0px; left:0px; visibility:hidden; z-index:1000;"></div>');
+	}
+</script>
+
+<script language="JavaScript" src="modules/iw_main/js/overlib.js">
+	<!-- overLIB (c) Erik Bosrup -->
+</script>
+
+<!--[include file="iw_vhmenu_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<h2 style="margin-top:1em; margin-bottom:2em;"><!--[gt text="Menu options"]--></h2>
+	<!--[if $menuarray|count gt 0]-->
+		<!--[section name=menuarray loop=$menuarray]-->
+			<div style=" clear:both; width:100%;">
+				<div style="width:230px; float:left">
+					<div style="float:left; width:30px; padding-left:<!--[$menuarray[menuarray].padding]-->;">
+						<!--[if $menuarray[menuarray].iorder gt 2]--><a href="<!--[pnmodurl modname=iw_vhmenu type=admin func=order mid=$menuarray[menuarray].mid id_parent=$menuarray[menuarray].id_parent puts=1]-->"  title="<!--[gt text="Move to left or up"]-->"><img src="modules/iw_vhmenu/pnimages/up.gif" border="0" alt="<!--[gt text="Move to left or up"]-->"></a><!--[/if]-->
+						<!--[if $menuarray[menuarray].downarrow]--><a href="<!--[pnmodurl modname=iw_vhmenu type=admin func=order mid=$menuarray[menuarray].mid id_parent=$menuarray[menuarray].id_parent puts=-1]-->" title="<!--[gt text="Move to right or down"]-->"><img src="modules/iw_vhmenu/pnimages/down.gif" border="0" alt="<!--[gt text="Move to right or down"]-->"></a><!--[else]-->&nbsp;<!--[/if]-->
+					</div>
+					<!--[if $menuarray[menuarray].level neq '']-->
+					<div style="float:left; padding-left:5px;">
+						<!--[$menuarray[menuarray].level]-->
+					</div>
+					<!--[else]-->
+					<div style="float:left; padding-left:5px;">
+						&nbsp;
+					</div>				
+					<!--[/if]-->				
+					<div style="float:left; padding-left:5px;">
+						<!--[if $menuarray[menuarray].grafic eq 0]-->
+							<!--[$menuarray[menuarray].text]-->
+						<!--[else]-->
+							<a title="<!--[gt text="Image 1"]-->"><img src="<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_vhmenu type=user func=getFile fileName=$menuarray[menuarray].imagepath1]-->"></a>
+							<br>
+							<a title="<!--[gt text="Image 2"]-->"><img src="<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_vhmenu type=user func=getFile fileName=$menuarray[menuarray].imagepath2]-->"></a>
+						<!--[/if]-->
+					</div>
+				</div>
+				<div style="float:left; width:90px;"><!--[$menuarray[menuarray].descriu]-->&nbsp;</div>
+				<div style="float:left; margin-left:1em;">
+					<div style="width:200px; padding-bottom:1em;"><!--[$menuarray[menuarray].groups_array]--></div>
+					<div><a href="<!--[pnmodurl modname=iw_vhmenu type=admin func=add_group mid=$menuarray[menuarray].mid]-->"><!--[gt text="Add a group"]--></a></div>
+				</div>
+				<div style="float:left; margin-left:1em;">
+					<!--[gt text="URL"]-->: 
+					<!--[if $menuarray[menuarray].url neq "---"]-->
+						<img src="modules/iw_vhmenu/pnimages/url.gif" border="0" onmouseout="nd();" onmouseover="overlib('<!--[$menuarray[menuarray].url]-->',CAPTION,'<!--[gt text="URL"]-->',BGCOLOR,'#316ac5',TIMEOUT,100000,DELAY,200,WIDTH,100)" />
+						<a href="<!--[$menuarray[menuarray].url]-->"  target="_blank"><!--[gt text="Test"]--></a>
+					<!--[else]-->
+						<!--[$menuarray[menuarray].url]-->
+					<!--[/if]-->
+					<br>
+					<!--[gt text="Width"]-->: <!--[$menuarray[menuarray].width]-->
+					<br>
+					<!--[gt text="Height"]-->: <!--[$menuarray[menuarray].height]-->
+					<br>
+					<!--[gt text="State"]-->: 
+					<!--[if $menuarray[menuarray].active eq 1]-->
+						<font color="green"><strong><!--[gt text="Active"]--></strong></font>
+					<!--[else]-->
+						<font color="red"><strong><!--[gt text="Inactive"]--></strong></font>
+					<!--[/if]-->
+					<!--[if $menuarray[menuarray].bg_image neq '']-->
+						<br>
+						<!--[gt text="Image"]-->: <strong><span onmouseout="nd();" onmouseover="overlib('<img src=<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_vhmenu type=user func=getFile fileName=$menuarray[menuarray].imagepath]--> />',CAPTION,'<!--[gt text="Background image"]-->',BGCOLOR,'#316ac5',TIMEOUT,100000,DELAY,200,WIDTH,100)"><!--[$menuarray[menuarray].bg_image]--></span></strong>
+					<!--[/if]-->
+				</div>
+				<div style=" float:right; width:auto; padding-left:5px;">
+					<a href="<!--[pnmodurl modname=iw_vhmenu type=admin func=new mid=$menuarray[menuarray].mid m=e]-->"><!--[gt text="Edit"]--></a><br>
+					<a href="<!--[pnmodurl modname=iw_vhmenu type=admin func=delete mid=$menuarray[menuarray].mid]-->"><!--[gt text="Delete"]--></a><br>
+					<a href="<!--[pnmodurl modname=iw_vhmenu type=admin func=new mid=$menuarray[menuarray].mid m=c]-->"><!--[gt text="Copy"]--></a><br>
+					<a href="<!--[pnmodurl modname=iw_vhmenu type=admin func=new_sub mid=$menuarray[menuarray].mid m=s]-->"><!--[gt text="Submenu"]--></a><br>
+					<a href="<!--[pnmodurl modname=iw_vhmenu type=admin func=movelevel mid=$menuarray[menuarray].mid]-->"><!--[gt text="Move level"]--></a>
+				</div>
+			</div>
+			<div style="clear:both; width:100%">
+				<hr />
+			</div>
+			<!--[if isset($menuarray[menuarray][0].mid)]-->Hola<!--[/if]-->
+		<!--[/section]-->
+	<!--[else]-->
+		<!--[gt text="There is no root option defined."]-->
+		<br>
+	<!--[/if]-->
+	<!--[* About this module message *]-->
+	<div style="clear:both ">
+		<a href="index.php?module=iw_vhmenu&func=module&type=admin"><!--[gt text="About this module"]--></a>
+	</div>
+</div>

@@ -1,0 +1,34 @@
+<!--[include file="iw_timeframes_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+	<div style="height:10px;">&nbsp;</div>
+	<h2><!--[gt text="TimeFrames"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+<!--[if $hi_ha_marcs]-->
+<table width ="100%" boder="0">
+	<tr> <td align="center">
+	<table width="700" border="0">
+		<th align="center" bgcolor="silver"><!--[gt text="Name of the timeFrame"]--></th>
+		<th align="center" bgcolor="silver"><!--[gt text="Description"]--></th>
+		<th align="center" bgcolor="silver"><!--[gt text="Accions"]--></th>
+		<!--[section name=marcs loop=$marcs]-->
+			<tr bgcolor='#ededed'>
+				<td width="25%"><!--[$marcs[marcs].nom_marc]--></td>
+				<td><!--[$marcs[marcs].descriu]--></td>
+				<td align="center">
+				<a href=<!--[pnmodurl modname="iw_TimeFrames" type="admin" func="new" mdid=$marcs[marcs].mdid m="e"]-->><!--[pnimg modname='core' src='edit.gif' set='icons/extrasmall'   __alt="Edit" __title="Edit"]--></a>
+				<a href=<!--[pnmodurl modname="iw_TimeFrames" type="admin" func="delete" mdid=$marcs[marcs].mdid]-->><!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Delete" __title="Delete"]--></a>
+				<a href=<!--[pnmodurl modname="iw_TimeFrames" type="admin" func="timetable" mdid=$marcs[marcs].mdid]-->><!--[pnimg modname='core' src='clock.gif' set='icons/extrasmall'   __alt="Time table" __title="Time table"]--></a>
+				</td>
+			</tr>
+		<!--[/section]-->
+	</table>
+	</> </tr>
+</table>
+<!--[else]-->
+	<!--[gt text="There is no set any timeFrame"]-->
+<!--[/if]-->
+<br>
+</div>
+<a href=<!--[pnmodurl modname="iw_TimeFrames" type="admin" func="module"]-->><!--[gt text="About this module"]--></a>
+

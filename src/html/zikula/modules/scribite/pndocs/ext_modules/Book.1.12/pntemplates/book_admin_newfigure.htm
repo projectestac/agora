@@ -1,0 +1,45 @@
+<!--[*  book_admin_newfigure.htm,v 1.3 2007/01/13 20:45:36 paustian Exp  *]-->
+<!--[include file="book_admin_menu.htm"]-->
+<h2><!--[pnml name="_BOOKADDFIGURE"]--></h2>
+<form class="form" action="<!--[pnmodurl modname="book" type="admin" func="createfigure"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Book"]-->" />
+<table>
+<tr>
+	<td><!--[pnml name="_BOOKFIGURENUMBER"]--></td>
+	<td><input type="text" name="fig_number" size="3" maxlength="10"/></td>
+</tr>
+<tr>
+	<td><!--[pnml name="_BOOKCHAPTERNUMBER"]--></td>
+	<td><input type="text" name="chap_number" size="3" maxlength="10"/></td>
+</tr>
+<tr>
+	<td><input type="checkbox" name="fig_perm" checked /></td>
+	<td><!--[pnml name="_BOOKPERMISSIONFORFIG"]--></td>
+</tr>
+<tr>
+	<td><!--[pnml name="_BOOKBOOKID"]--></td>
+	<td><select name="book_id">
+		<!--[html_options options=$books]-->
+		</select>	
+	</td>
+</tr>
+<tr>
+	<td><!--[pnml name="_BOOKFIGURETITLE"]--></td>
+	<td>
+  		<input type="text" name="fig_title" size="40" maxlength="256"/>
+	</td>
+</tr>
+<tr>
+	<td><!--[pnml name="_BOOKFIGURELEGEND"]--></td>
+	<td>
+  <textarea name="fig_content" id="content" rows="10" cols="80" wrap="virutal">
+  </textarea>
+  </td>
+</tr>
+<tr>
+	<td><!--[pnml name="_BOOKIMAGEPATH"]--></td>
+	<td><input type="text" name="img_link" size="40" value="images/book_/chapter_/" maxlength="256"></td>
+</tr>
+</table>
+<input name="submit" type="submit" value="<!--[pnml name="_BOOKADDFIGURE"]-->" />
+</form>

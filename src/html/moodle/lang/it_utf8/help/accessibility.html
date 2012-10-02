@@ -1,0 +1,52 @@
+<!--
+TODO:  Update as accessibility status changes.
+FILE:  lang/en_utf8/docs/accessibility.html
+NOTES: Hard-coded links need to be edited/ scripted.
+       May need editing for local Moodle sites.
+-->
+
+<h1>Accessibilità</h1>
+
+<h2>Dichiarazione di Accessibilità</h2>
+
+<p>Questo sito è stato testato con diversi browser e con programmi per la lettura dello schermo (screen reader).</p>
+
+<p>Moodle utilizza la marcatura semantica per assistere gli utilizzatori di screen reader e gli altri attraverso &mdash; sito, pagina e intestazioni blocchi utilizzo di &lt;h1&gt;, &lt;h2&gt;, i blocchi di navigazione sono liste &lt;ul&gt; e altro.</p>
+
+<p>Moodle è conforme con le World Wide Web Consortium [<a href="http://www.w3.org/TR/WCAG10/" title="Web Content Accessibility Guidelines 1.0">Web
+ Content Accessibility Guidelines 1.0</a>] livello 1, molto del livello 2 
+ [<a href="http://www.w3.org/WAI/WCAG1AA-Conformance"  title="A proposito della conformità Double-A (Doppia-A)">a proposito della conformità Double-A (Doppia-A)</a>] 
+ e qualcosa del livello 3. Attraverso queste linee guida noi abbiamo l'intenzione di conformarci con le leggi locali riguardanti l'accesso a quelli con disabilità. Stiamo attualmente lavorando per miglirare l'accessibiltà di Moodle. Al momento rimangono alcune tabelle utlizzate per la disposizione grafica, ma in generale la presentazione (utilizzando fogli di stile) è separata dal contenuto.</p>
+
+<p>Accogliamo graditamente le segnalazioni, in particolare riguardanti ogni contenuto non accessibile.
+ Vi preghiamo di [<a href="./message/discussion.php?id=2">mandare un messaggio all'amministratore</a>].
+</p>
+
+<h2>Chiavi d'accesso</h2>
+
+<p>Al momento non segnaliamo chiavi d'accesso, ma siamo intenzionati ad implementarle in una versione futura di Moodle.</p>
+
+<h2>Collegamenti</h2>
+
+<p>Ci sono collegamenti prima di blocco laterale, i quali permettono agli utilizzatori di screen reader di saltare il blocco.
+ Nota, il collegamento è nascosto per i browser grafici.</p>
+
+<p>Molti collegamenti hanno l'attributo titolo (title) che descrive il collegamento con maggiore dettaglio, eccetto quando il testo del collegamento già descrive in modo completo la destinazione (come il titolo di un articolo). Se il collegamento ha una chiave d'accesso questa verrà segnalata nel titolo del collegamento.</p>
+
+<p>Quando possibile, i collegamenti sono scritti per avere senso fuori dal contesto. Non ci sono javascript: psedo-collegamenti (pseudo-link). </p>
+
+<h2>Immagini</h2>
+
+<p>Tutte le immagini utilizzano l'attributo alt per fornire un testo alternativo dove appropriato; le immagini puramente decorative contengono l'attibuto alt vuoto. Immagini, come le mappe, che presentano un'informazione complessa hanno un attributo longdesc che le collega a una descrizione testuale del contenuto dell'immagine.</p>
+
+<h2>Rispondenza agli standard</h2>
+
+<p>Questo sito è costriuto utilizzando 
+ <acronym title="Extensible Hyper-Text Markup Language">XHTML</acronym> 
+ valido per la marcatura e utilizza <acronym title="Cascading Style Sheet">CSS</acronym> per la presentazione.</p>
+
+<p style="text-align:center">
+  <a href="http://validator.w3.org/check?verbose=1&amp;ss=1&amp;uri=<?php echo $CFG->wwwroot; ?>" title="Utilizzare il validatore W3C">Validare HTML</a> 
+| <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=-1&amp;url1=<?php echo $CFG->wwwroot; ?>" title="Test con Cynthia">Controllo Section 508</a> 
+| <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=0&amp;warnp2n3e=1&amp;url1=<?php echo $CFG->wwwroot; ?>" title="Test con Cynthia">Test WCAG 1 (2,3)</a>
+</p>

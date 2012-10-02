@@ -1,0 +1,20 @@
+<!--[* $Id: profile_block_featureduser.htm 69 2009-12-05 10:28:06Z mateo $ *]-->
+<!--[pnmodgetvar module='Users' name='avatarpath' assign='avatarpath']-->
+
+<div class="profile-block-featureduser">
+    <h5><!--[$userinfo.uname|userprofilelink]--></h5>
+    <p>
+        <!--[if @isset($userinfo.__ATTRIBUTES__.avatar) and $userinfo.__ATTRIBUTES__.avatar neq '' and $userinfo.__ATTRIBUTES__.avatar neq 'blank.gif']-->
+        <!--[$userinfo.uname|userprofilelink:'':"`$avatarpath`/`$userinfo.__ATTRIBUTES__.avatar`"]-->
+        <!--[else]-->
+        <!--[pnimg modname='core' src='personal.gif' set='icons/large' assign='profileicon']-->
+        <!--[$userinfo.uname|userprofilelink:'profileicon':$profileicon]-->
+        <!--[/if]-->
+    </p>
+    <!--[foreach from=$dudarray key='dudlabel' item='dudvalue']-->
+        <p><strong><!--[gt text=$dudlabel domain='module_profile']--></strong><br /><!--[$dudvalue|pnvarprephtmldisplay]--></p>
+    <!--[/foreach]-->
+    <!--[if $showregdate]-->
+        <span><!--[gt text='Registered on %s' tag1=$userinfo.user_regdate|pndate_format:'datebrief' domain='module_profile']--></span>
+    <!--[/if]-->
+</div>

@@ -1,0 +1,51 @@
+<h1>Agregació</h1>
+<p>Aquest menú us permet triar l'estratègia d'agregació que s'utilitzarà per calcular la qualificació global de cada participant en aquesta categoria. Més avall us expliquem les diferents opcions.</p>
+
+<p>En primer lloc, les qualificacions es converteixen en valors de percentatge (interval de 0 a 1: d'això se'n diu normalització). Després són agregades mitjançant una de les funcions que s'expliquen més avall. Finalment, es converteixen en un valor dins la gamma de la categoria associada a l'element (un valor entre la <em>qualificació mínima</em> i la <em>qualificació màxima</em>.</p>
+
+<p><strong>Important</strong>: una qualificació buida no és més que una entrada buida en el butlletí de qualificacions. Això pot significar coses diverses. Per exemple: el participant encara no ha tramès la tasca, o la tasca sí que ha estat tramesa però el professorat encara no l'ha qualificada, o l'administrador del butlletí de qualificacions ha suprimit manualment aquesta qualificació per algun motiu, etc. etc. Per tant, s'aconsella tenir una certa precaució a l'hora d'interpretar aquestes "qualificacions buides".</p>
+
+<dl id="grade-aggregation-help">
+    <dt>Mitjana de les qualificacions</dt>        
+    <dd>La suma de totes les qualificacions, dividida pel nombre total de qualificacions.</dd>
+    <dd class="example">A1 70/100, A2 20/80, A3 10/10, màxim de la categoria 100:<br />
+                     <code>(0.7 + 0.25 + 1.0)/3 = 0.65 --> 65/100</code></dd>
+ 
+    <dt>Mitjana ponderada</dt>
+        <dd>Es pot donar a cada element de qualificació un pes diferent, que després s'utilitzarà en el càlcul de la mitjana per modificar la importància relativa de cada element en el resultat final.</dd>
+        <dd class="example">A1 70/100 pes 10, A2 20/80 pes 5, A3
+                         10/10 pes 3, màxim de la categoria 100:<br /><code>(0.7*10 + 0.25*5 + 1.0*3)/18 = 0.625 --> 62.5/100</code></dd>
+
+    <dt>Mitjana ponderada simple</dt>
+        <dd>La diferència amb la <em>mitjana ponderada</em> és que el pes de cada element es calcula automàticament així: <em>qualificació màxima</em> - <em>qualificació mínima</em>. Una tasca qualificada sobre 100 punts té un pes 100, una tasca qualificada sobre 10 punts té un pes 10.</dd>
+        <dd class="example">A1 70/100, A2 20/80, A3 10/10, màxim de la categoria 100:<br />
+                         <code>(0.7*100 + 0.25*80 + 1.0*10)/190 = 0.526 --> 52.6/100</code></dd>
+
+    <dt>Mitjana de les qualificacions (amb crèdits extra)</dt>
+        <dd>Mitjana aritmètica "trucada". Una estratègia d'agregació antiga, inclosa aquí només per garantir la compatibilitat amb activitats velles.</dd>
+
+    <dt>Mediana de les qualificacions</dt>
+        <dd>La qualificació situada al centre de la seqüència ordenada de qualificacions (o la mitjana de les dues qualificacions centrals). L'avantatge de la mediana respecte a la mitjana és que no és afectada per qualificacions rares que s'allunyen molt de la mitjana.</dd>
+        <dd class="example">A1 70/100, A2 20/80, A3 10/10, màxim de la categoria 100:<br />
+                         <code>0.7 + 0.25 + 1.0 --> 0.25 --> 25/100</code></dd>
+
+    <dt>Qualificació més baixa</dt>
+        <dd>La qualificació més baixa, després de la normalització. Generalment s'utilitza en combinació amb <em>Agrega només les qualificacions no buides</em>.</dd>
+        <dd class="example">A1 70/100, A2 20/80, A3 10/10, màxim de la categoria 100:<br />
+                         <code>min(0.7 + 0.25 + 1.0) = 0.25 --> 25/100</code></dd>
+ 
+    <dt>Qualificació més alta</dt>
+        <dd>La qualificació més baixa, després de la normalització.</dd>
+        <dd class="example">A1 70/100, A2 20/80, A3 10/10, màxim de la categoria 100:<br />
+                         <code>max(0.7 + 0.25 + 1.0) = 1.0 --> 100/100</code></dd>
+    
+    <dt>Moda de les qualificacions</dt>
+        <dd>La moda és la qualificació més freqüent. S'utilitza més habitualment per a qualificacions no numèriques. L'avantatge respecte a la mitjana és que no és afectada per qualificacions rares que s'allunyen molt de la mitjana. Tanmateix, perd tot el sentit si hi ha més d'un valor freqüent (sols se'n conserva un), o quan cada qualificació és diferent de totes les altres.</dd>
+        <dd class="example">A1 70/100, A2 35/50, A3 20/80, A4 10/10, A5 7/10 màxim de la categoria 100:<br />
+                         <code>mode(0.7; 0.7; 0.25; 1.0; 0.7) = 0.7 --> 70/100</code></dd>
+
+    <dt>Suma de qualificacions</dt>
+        <dd>La suma de totes les qualificacions. Les escales s'ignoren. Aquest és l'únic mètode d'agregació que no normalitza les qualificacions (no les converteix internament en percentatges). La <em>qualificació màxima</em> de l'element de la categoria associada es calcula automàticament com a suma dels màxims de tots els elements agregats.</dd>
+        <dd class="example">A1 70/100, A2 20/80, A3 10/10:<br />
+                         <code>70 + 20 + 10 = 100/190</code></dd>
+</dl>

@@ -1,0 +1,187 @@
+<!--[include file="iwmoodle_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+    <div class="pn-adminpageicon"><!--[pnimg modname='core' src='folder_public.gif' set='icons/large' __alt=$templatetitle]--></div>
+    <h2><!--[gt text="Synchronize users"]--></h2>
+    <div style="height:5px;">&nbsp;</div>
+    <form  class="pn-adminform" enctype="application/x-www-form-urlencoded" method="post" name="sincro" action="<!--[pnmodurl modname="IWmoodle" type="admin" func="filtratge"]-->">
+           <input type="hidden" name="filtre" value="<!--[$filtre]-->" />
+        <input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="IWmoodle"]-->" />
+               <input type="hidden" name="campfiltre" value="<!--[$campfiltre]-->" />
+        <input type="hidden" name="numitems" value="<!--[$numitems]-->" />
+        <input type="hidden" name="inici" value="<!--[$inici]-->" />
+
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td align="left">
+                        [ 
+                        <!--[section name=leters loop=$leters]-->
+                        <!--[if $filtre neq $leters[leters]]-->
+                        <a href="<!--[pnmodurl modname=IWmoodle type=admin func=sincron campfiltre=$campfiltre filtre=$leters[leters] numitems=$numitems]-->"><!--[$leters[leters]]--></a> | 
+                        <!--[else]-->
+                        <strong><u><!--[$leters[leters]]--></u></strong> | 
+                        <!--[/if]-->
+                        <!--[/section]-->
+                        <!--[if $filtre eq '' or $filtre eq '0']-->
+                        <strong><u><!--[gt text="All"]--></u></strong>
+                        <!--[else]-->
+                        <a href="<!--[pnmodurl modname=IWmoodle type=admin func=sincron campfiltre=$campfiltre filtre=0 numitems=$numitems]-->">
+                            <!--[gt text="All"]-->
+                        </a>
+                        <!--[/if]-->
+                        ]
+                    </td>
+                    <td align="right">
+                        <!--[gt text="N. records"]-->:&nbsp;
+                        <select name="numitems" onchange='this.form.submit()'>
+                            <!--[section name=numitems_MS loop=$numitems_MS]-->
+                            <option <!--[if $numitems eq $numitems_MS[numitems_MS].id]-->selected<!--[/if]--> value="<!--[$numitems_MS[numitems_MS].id]-->"><!--[$numitems_MS[numitems_MS].name]--></option>
+                            <!--[/section]-->
+                        </select>
+                    </td>
+                    <td align="right">
+                        <!--[gt text="Group"]-->:&nbsp;
+                        <select name="campfiltre" onchange='this.form.submit()'>
+                            <!--[section name=campsfiltre_MS loop=$campsfiltre_MS]-->
+                            <option <!--[if $campfiltre eq $campsfiltre_MS[campsfiltre_MS].id]-->selected<!--[/if]--> value="<!--[$campsfiltre_MS[campsfiltre_MS].id]-->"><!--[$campsfiltre_MS[campsfiltre_MS].name]--></option>
+                            <!--[/section]-->
+                        </select>
+                    </td>				
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <!--[if $users_MS|@count gt 0]-->
+    <form  class="pn-adminform" enctype="application/x-www-form-urlencoded" method="post" action="<!--[pnmodurl modname="IWmoodle" type="admin" func="changeAuth"]-->">
+           <input type="hidden" name="filtre" value="<!--[$filtre]-->">
+        <input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="IWmoodle"]-->" />
+               <input type="hidden" name="campfiltre" value="<!--[$campfiltre]-->">
+        <input type="hidden" name="numitems" value="<!--[$numitems]-->">
+        <input type="hidden" name="maxitem" value="<!--[$maxitem]-->">
+        <input type="hidden" name="inici" value="<!--[$inici]-->">
+
+        <table class="pn-admintable">
+            <tbody>
+                <!--[section name=users_MS loop=$users_MS]-->
+            <input type="hidden" value="<!--[$users_MS[users_MS].pass]-->" name="user_pass[<!--[$users_MS[users_MS].uid]-->]">
+            <input type="hidden" value="<!--[$users_MS[users_MS].userConnect]-->" name="user_connect[<!--[$users_MS[users_MS].uid]-->]">
+            <tr class="<!--[cycle values="pn-odd,pn-even"]-->">
+                <td>
+                    <!--[$users_MS[users_MS].username]-->
+                </td>
+                <td>
+                    <!--[$users_MS[users_MS].user]-->
+                </td>
+                <td width="30px" align="center">
+                    <!--[if $users_MS[users_MS].userConnect eq 1]-->
+                    <!--[pnimg modname='IWmoodle' src='green.gif' set='pnimages']-->
+                    <!--[elseif $users_MS[users_MS].userConnect eq 0]-->
+                    <!--[pnimg modname='IWmoodle' src='yellow.gif' set='pnimages']-->
+                    <!--[else]-->
+                    <!--[pnimg modname='IWmoodle' src='red.gif' set='pnimages']-->
+                    <!--[/if]-->
+                </td>				
+                <td>
+                    <input type="checkbox" value="<!--[$users_MS[users_MS].uid]-->" name="user_id[<!--[$users_MS[users_MS].uid]-->]">
+                    <!--[if $users_MS[users_MS].userConnect eq 1]-->
+                    <!--[gt text="Change validation to do it from the Moodle"]-->						
+                    <!--[elseif $users_MS[users_MS].userConnect eq 0]-->
+                    <!--[gt text="Change validation to do it from the intranet"]-->
+                    <!--[else]-->
+                    <!--[gt text="Create Moodle user"]-->					
+                    <!--[/if]-->
+                </td>
+            </tr>
+            <!--[/section]-->
+            </tbody>
+        </table>
+        <div style="text-align: right; cursor: pointer;">
+            <!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Execute changes" __title="Execute changes"]--><!--[gt text="Execute changes"]-->
+        </div>
+    </form>
+    <table>
+        <tr>
+            <td>
+                <!--[$pager]-->
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td>
+                <!--[pnimg modname='IWmoodle' src='green.gif' set='pnimages']-->
+            </td>
+            <td>
+                <!--[gt text="User validated in Moodle from the intranet"]-->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!--[pnimg modname='IWmoodle' src='yellow.gif' set='pnimages']-->
+            </td>
+            <td>
+                <!--[gt text="User not validated in Moodle from the intranet"]-->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!--[pnimg modname='IWmoodle' src='red.gif' set='pnimages']-->
+            </td>
+            <td>
+                <!--[gt text="Not Moodle user"]-->
+            </td>
+        </tr>		
+    </table>
+    <!--[else]-->
+    <!--[gt text="Not found users"]-->
+    <!--[/if]-->
+
+    <br />
+    <br />
+    <br />
+    <div>
+        <strong><!--[gt text="Moodle users but not zikula users"]--></strong>
+    </div>
+    <!--[if $moodleUsers|@count gt 0]-->
+    <form  class="pn-adminform" enctype="application/x-www-form-urlencoded" method="post" action="<!--[pnmodurl modname="IWmoodle" type="admin" func="createUser"]-->">
+           <input type="hidden" name="filtre" value="<!--[$filtre]-->">
+        <input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="IWmoodle"]-->" />
+               <input type="hidden" name="campfiltre" value="<!--[$campfiltre]-->">
+        <input type="hidden" name="numitems" value="<!--[$numitems]-->">
+        <input type="hidden" name="inici" value="<!--[$inici]-->">
+
+        <table class="pn-admintable">
+            <tbody>
+                <!--[foreach item=user from=$moodleUsers]-->
+            <input type="hidden" value="<!--[$user.username]-->" name="user_username[<!--[$user.id]-->]">
+            <input type="hidden" value="<!--[$user.firstname]-->" name="user_firstname[<!--[$user.id]-->]">
+            <input type="hidden" value="<!--[$user.lastname]-->" name="user_lastname[<!--[$user.id]-->]">
+            <input type="hidden" value="<!--[$user.email]-->" name="user_email[<!--[$user.id]-->]">
+            <input type="hidden" value="<!--[$user.password]-->" name="user_password[<!--[$user.id]-->]">
+            <tr class="<!--[cycle values="pn-odd,pn-even"]-->">
+                <td>
+                    <!--[$user.username]-->
+                </td>
+                <td>
+                    <!--[$user.firstname]--> <!--[$user.lastname]-->
+                </td>
+                <td>
+                    <!--[$user.email]-->
+                </td>	
+                <td>
+                    <input type="checkbox" value="<!--[$user.id]-->" name="user_id[<!--[$user.id]-->]">
+                </td>
+            </tr>
+            <!--[/foreach]-->
+            </tbody>
+        </table>
+        <div style="text-align: right; cursor: pointer;">
+            <!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Create the user in the web site" __title="Create the user in the web site"]--><!--[gt text="Create the user in the web site"]-->
+        </div>
+    </form>
+    <!--[else]-->
+    <!--[gt text="All the Moodle users are web site users"]-->
+    <!--[/if]-->
+</div>

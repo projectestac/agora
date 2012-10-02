@@ -1,0 +1,139 @@
+<!--[*  $Id: ezcomments_admin_modifyconfig.htm 690 2010-05-12 16:08:51Z herr.vorragend $  *]-->
+<!--[include file="ezcomments_admin_menu.htm"]-->
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname='EZComments' src='admin.gif' alt='' ]--></div>
+    <h2><!--[gt text="Settings"]--></h2>
+    <!--[pnform cssClass="z-form"]-->
+    <!--[pnformvalidationsummary]-->
+    <fieldset>
+        <legend><!--[gt text="Miscellaneous"]--></legend>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_template" __text='Default template']-->
+            <!--[pnformdropdownlist id="ezcomments_template" items=$templates selectedValue=$pncore.EZComments.template]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_css" __text='Default stylesheet']-->
+            <!--[pnformtextinput id="ezcomments_css" text=$pncore.EZComments.css|pnvarprepfordisplay size="30" maxLength="30"]-->
+            <p class="z-informationmsg z-formnote">
+                <!--[gt text="By default, the following possibilities exists:"]--><br />
+                <strong>Standard:</strong> style1.css, style2.css, style3.css, style4.css<br />
+                <strong>Dizkus:</strong> style.css
+            </p>
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_anonusersinfo" __text='Allow unregistered users to set user information']-->
+            <!--[pnformcheckbox id="ezcomments_anonusersinfo" checked=$pncore.EZComments.anonusersinfo]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_anonusersrequirename" __text='Require name for unregistered user']-->
+            <!--[pnformcheckbox id="ezcomments_anonusersrequirename" checked=$pncore.EZComments.anonusersrequirename]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_logip" __text='Log IP addresses']-->
+            <!--[pnformcheckbox id="ezcomments_logip" checked=$pncore.EZComments.logip]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_itemsperpage" __text='Comments per page in admin view']-->
+            <!--[pnformtextinput id="ezcomments_itemsperpage" text=$pncore.EZComments.itemsperpage|pnvarprepfordisplay size="5" maxLength="5"]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_enablepager" __text='Enable pager in user view']-->
+            <!--[pnformcheckbox id="ezcomments_enablepager" checked=$pncore.EZComments.enablepager]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_commentsperpage" __text='Comments per page in user view']-->
+            <!--[pnformtextinput id="ezcomments_commentsperpage" text=$pncore.EZComments.commentsperpage|pnvarprepfordisplay size="5" maxLength="5"]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_useaccountpage" __text='Activate account page in user section']-->
+            <!--[pnformcheckbox id="ezcomments_useaccountpage" checked=$pncore.EZComments.useaccountpage]-->
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend><!--[gt text="Notification"]--></legend>
+        <p class="z-formnote z-informationmsg"><!--[gt text="The notification email will be sent to the owner of the content. If there is no owner known, the notification mail will be sent to the site administrator."]--></p>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_MailToAdmin" __text='Send mail on new comment']-->
+            <!--[pnformcheckbox id="ezcomments_MailToAdmin" checked=$pncore.EZComments.MailToAdmin]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_moderationmail" __text='Send mail on comment requiring moderation']-->
+            <!--[pnformcheckbox id="ezcomments_moderationmail" checked=$pncore.EZComments.moderationmail]-->
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend><!--[gt text="Moderation"]--></legend>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_moderation" __text='Enable comment moderation']-->
+            <!--[pnformcheckbox id="ezcomments_moderation" checked=$pncore.EZComments.moderation]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_alwaysmoderate" __text='All comments require moderation']-->
+            <!--[pnformcheckbox id="ezcomments_alwaysmoderate" checked=$pncore.EZComments.alwaysmoderate]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_dontmoderateifcommented" __text="Do not require moderation for comments from users who have already commented"]-->
+            <!--[pnformcheckbox id="ezcomments_dontmoderateifcommented" checked=$pncore.EZComments.dontmoderateifcommented]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_modlinkcount" __text='Number of links in comment before moderation']-->
+            <!--[pnformtextinput id="ezcomments_modlinkcount" text=$pncore.EZComments.modlinkcount|pnvarprepfordisplay size="5" maxLength="5"]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_modlist" __text='Words to trigger moderation']-->
+            <!--[pnformtextinput id="ezcomments_modlist" textMode="multiline" rows="5" cols="50" text=$pncore.EZComments.modlist|pnvarprepfordisplay]-->
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend><!--[gt text="Blacklisting"]--></legend>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_blacklinkcount" __text='Number of links in comment before blacklisting']-->
+            <!--[pnformtextinput id="ezcomments_blacklinkcount" text=$pncore.EZComments.blacklinkcount|pnvarprepfordisplay size="5" maxLength="5"]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_blacklist" __text='Words to blacklist from comments']-->
+            <!--[pnformtextinput id="ezcomments_blacklist" textMode="multiline" rows="5" cols="50" text=$pncore.EZComments.blacklist|pnvarprepfordisplay]-->
+            <em class="z-formnote z-sub"><!--[gt text="Notice: Comments containing words listed here will be completely ignored by the comments module"]--></em>
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_proxyblacklist" __text='Blacklist comments from insecure proxies']-->
+            <!--[pnformcheckbox id="ezcomments_proxyblacklist" checked=$pncore.EZComments.proxyblacklist]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_modifyowntime" __text='Number of hours where users are allowed to modify the text of own comments.']-->
+            <!--[pnformintinput id="ezcomments_modifyowntime" text=$pncore.EZComments.modifyowntime minValue="-1"]-->
+            <em class="z-formnote z-sub"><!--[gt text='The value -1 deactivates this function.']--></em>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend><!--[gt text="Akismet spam dectection service"]--></legend>
+        <p class="z-formnote z-informationmsg"><!--[gt text='Notice: <a href="http://akismet.com/">Akismet</a> is a spam detection service that can, in many cases, eliminate comment and trackback spam. To use akismet you need to install and configure the <a href="http://code.zikula.org/ezcomments/">Akismet module</a>.']--></p>
+        <!--[if $akismetavailable]-->
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_akismet" __text='Enable akismet']-->
+            <!--[pnformcheckbox id="ezcomments_akismet" checked=$pncore.EZComments.akismet]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_akismetstatus" __text='Status level to apply to comments flagged as spam by akismet']-->
+            <!--[pnformdropdownlist id="ezcomments_akismetstatus" items=$statuslevels selectedValue=$pncore.EZComments.akismetstatus]-->
+        </div>
+        <!--[/if]-->
+    </fieldset>
+    <fieldset>
+        <legend><!--[gt text="Feeds"]--></legend>
+        <p class="z-formnote z-informationmsg"><!--[gt text="Notice: both the feed type and feed count can be overriden using feedtype and feedcount parameters appended to the feed URL"]--></p>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_feedtype" __text='Type of feed']-->
+            <!--[pnformdropdownlist id="ezcomments_feedtype" items=$feeds selectedValue=$pncore.EZComments.feedtype]-->
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for="ezcomments_feedcount" __text='Number of items to display in feed']-->
+            <!--[pnformtextinput id="ezcomments_feedcount" text=$pncore.EZComments.feedcount|pnvarprepfordisplay size="5" maxLength="5"]-->
+        </div>
+    </fieldset>
+    <!--[pnmodcallhooks hookobject="module" hookaction="modifyconfig" hookid="EZComments" module="EZComments"]-->
+    <div class="z-formbuttons">
+        <!--[pnformbutton id="submit" commandName="submit" __text="Submit"]-->
+    </div>
+    <!--[/pnform]-->
+</div>

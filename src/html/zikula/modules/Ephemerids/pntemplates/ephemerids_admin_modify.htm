@@ -1,0 +1,37 @@
+<!--[*  $Id: ephemerids_admin_modify.htm 355 2009-11-11 13:10:50Z herr.vorragend $  *]-->
+<!--[include file="ephemerids_admin_menu.htm"]-->
+<!--[gt text="Edit ephemerid" assign=templatetitle]-->
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=edit.gif set=icons/large alt=$templatetitle]--></div>
+    <h2><!--[$templatetitle]--></h2>
+    <form class="z-form" action="<!--[pnmodurl modname="Ephemerids" type="admin" func="update"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Ephemerids"]-->" />
+            <input type="hidden" name="ephemerid[eid]" value="<!--[$eid|pnvarprepfordisplay]-->" />
+            <fieldset>
+                <legend><!--[$templatetitle]--></legend>
+                <div class="z-formrow">
+                    <label for="ephemerids_date"><!--[gt text="Date"]--></label>
+                    <div id="ephemerids_date"><!--[html_select_date year_as_text=true time=$date field_array=ephemerid]--></div>
+					<p class="z-formnote z-warningmsg"><!--[gt text="The year can't be lower than the unix epoch one (1970) or will be reseted to 1970 for formatting purposes."]--></p>
+                </div>
+                <!--[pnconfiggetvar name=multilingual assign=multilingual]-->
+                <!--[if $multilingual]-->
+                <div class="z-formrow">
+                    <label for="ephemerids_language"><!--[gt text="Language"]--></label>
+                    <!--[html_select_locales id=ephemerids_language name=ephemerid[language] all=true installed=true selected=$language]-->
+                </div>
+                <!--[/if]-->
+                <div class="z-formrow">
+                    <label for="ephemerids_content"><!--[gt text="Content"]--></label>
+                    <textarea id="ephemerids_content" name="ephemerid[content]" cols="50" rows="8"><!--[$content|pnvarprepfordisplay]--></textarea>
+                </div>
+            </fieldset>
+            <!--[pnmodcallhooks hookobject=item hookaction=modify hookid=$eid module=Ephemerids]-->
+            <div class="z-formbuttons">
+                <!--[pnbutton src=button_ok.gif set=icons/small __alt="Save" __title="Save"]-->
+                <a href="<!--[pnmodurl modname=Ephemerids type=admin func=view]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small __alt="Cancel" __title="Cancel"]--></a>
+            </div>
+        </div>
+    </form>
+</div>

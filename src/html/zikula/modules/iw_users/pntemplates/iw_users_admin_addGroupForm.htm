@@ -1,0 +1,12 @@
+<!--[if $list]-->
+	<select name="group" onChange="javascript:addGroupProceed(<!--[$uid]-->,this.value)">
+		<option value="0"><!--[gt text="Choose a group..."]--></option>
+		<!--[foreach item="group" from="$groups"]-->
+			<option value="<!--[$group.id]-->"><!--[$group.name]--></option>
+		<!--[/foreach]-->
+	</select>
+<!--[else]-->
+	<a href="javascript:addUserGroup(<!--[$user.uid]-->)">
+		<img id="iconGroup_<!--[$user.uid]-->_<!--[$group.id]-->" src="images/icons/extrasmall/add_group.gif" />
+	</a>
+<!--[/if]-->

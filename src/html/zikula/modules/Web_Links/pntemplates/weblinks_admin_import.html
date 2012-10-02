@@ -1,0 +1,44 @@
+<!--[*  $Id: weblinks_admin_import.html 60 2009-01-26 13:30:22Z Petzi-Juist $  *]-->
+<!--[include file="weblinks_admin_header.html"]-->
+<!--[pnmodgetinfo modname=Web_Links info=all assign=info]-->
+<div class="pn-admincontainer">
+  <div class="pn-adminpageicon"><!--[pnimg modname='core' src='configure.gif' set='icons/large' __alt='Settings' ]--></div>
+  <h2><!--[gt text="Import"]--></h2>
+    <form class="pn-adminform" action="<!--[pnmodurl modname=Web_Links type=admin func=importratings]-->" method="post" enctype="application/x-www-form-urlencoded">
+    <fieldset>
+      <legend><!--[gt text="Ratings"]--></legend>
+      <!--[if $ratings eq 1]-->
+      <div class="pn-informationmsg">
+      <!--[gt text="With this function <strong>Web_Links-Votes</strong> will be imported to the <strong>Rating</strong> module.<br /><strong>!Attention!</strong> - befor you use this function you should set the style of the Ratings."]-->
+      </div>
+      <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Web_Links"]-->" />
+      <div class="pn-adminformrow pn-clearfix pn-adminformbuttons">
+        <!--[pnbutton src='button_ok.gif' set='icons/small' __alt="OK" __title="OK"]-->
+      </div>
+      <!--[else]-->
+      <div class="pn-informationmsg">
+      <!--[gt text="Rating-Hook isn't activated for the Web_Links module!"]--> -&gt; <a href="<!--[pnmodurl modname=Module type=admin func=hooks id=$info.id]-->"><!--[gt text="to the hooks of Web_Links module"]--></a>
+      </div>
+      <!--[/if]-->
+    </fieldset>
+    </form>
+    <form class="pn-adminform" action="<!--[pnmodurl modname=Web_Links type=admin func=importezcomments]-->" method="post" enctype="application/x-www-form-urlencoded">
+    <fieldset>
+      <legend><!--[gt text="EZComments"]--></legend>
+      <!--[if $ezcomments eq 1]-->
+      <div class="pn-informationmsg">
+      <!--[gt text="With this function <strong>Web_Links-Comments</strong> will be imported to the <strong>EZComments</strong> module."]-->
+      </div>
+      <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Web_Links"]-->" />
+      <div class="pn-adminformrow pn-clearfix pn-adminformbuttons">
+        <!--[pnbutton src='button_ok.gif' set='icons/small' __alt="OK" __title="OK"]-->
+      </div>
+      <!--[else]-->
+      <div class="pn-informationmsg">
+      <!--[gt text="EZComments-Hook isn't activated for the Web_Links module!"]--> -&gt; <a href="<!--[pnmodurl modname=Module type=admin func=hooks id=$info.id]-->"><!--[gt text="to the hooks of Web_Links module"]--></a>
+      </div>
+      <!--[/if]-->
+    </fieldset>
+    </form>
+</div>
+<!--[include file="weblinks_admin_footer.html"]-->

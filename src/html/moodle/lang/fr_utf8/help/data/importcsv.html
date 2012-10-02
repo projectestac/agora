@@ -1,0 +1,22 @@
+<!-- $Id: importcsv.html,v 1.1 2007/04/09 20:40:32 martignoni Exp $ -->
+
+<h1>Importation fichier CSV</h1>
+
+<p>CSV est une abréviation de « Comma Separated Values », et désigne un format de fichier standard permettant l'échange de données, sous la forme de listes d'éléments <i>séparés par des virgules</i>.</p>
+
+<p>Le format de fichier attendu est un fichier texte pur, dont la première ligne contient la liste des noms des champs. Les lignes suivantes contiennent les données, une fiche par ligne.</p>
+
+<p>Le séparateur de champ est par défaut la virgule, et l'identificateur de texte est vide par défaut, c'est-à-dire que les champs ne sont pas entourés de caractères spéciaux (comme des guillemets droits, par exemple).</p>
+
+<p>Les données d'une même fiche doivent être placées sur la même ligne, et un caractère de fin de ligne (habituellement produit en tapant RETOUR ou ENTRÉE dans votre éditeur de textes) doit séparer chaque fiche. Si vous voulez indiquer dans un champ un tabulateur, écrivez simplement « \t ». De façon analogue, pour une nouvelle ligne, on écrira « \n ». </p>
+
+<p>Voici un exemple de fichier correct :</p>
+
+<pre>
+  nom,taille,poids
+  Héloïse,170cm,58kg
+  Caroline,168cm,57kg
+  Augustin,176cm,72kg
+</pre>
+
+<p>Attention ! Tous les types de champs ne sont pas encore supportés.</p>

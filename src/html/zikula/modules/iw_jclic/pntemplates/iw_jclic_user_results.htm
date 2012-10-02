@@ -1,0 +1,67 @@
+<!--[if $correct eq 0]-->
+	<div class="results">
+		<div><strong><!--[gt text="Results"]--></strong></div>
+<!--[/if]-->
+	<table class="usertable" style="background:#FFF;">
+		<thead>
+			<tr>
+				<th><!--[gt text="Start"]--></th>
+				<th><!--[gt text="Score"]--></th>
+				<th><!--[gt text="Total Time"]--></th>
+				<th><!--[gt text="Design"]--></th>
+				<th><!--[gt text="Right"]--></th>
+			</tr>
+		</thead>	
+		<!--[foreach item="result" name="r" from="$results"]-->
+			<!--[if $results|@count eq $smarty.foreach.r.iteration]-->
+			<tr>
+				<td colspan=10><hr></td>
+			</tr>
+			<!--[/if]-->
+			<!--[if $results|@count neq $smarty.foreach.r.iteration]-->
+				<tr bgcolor="<!--[cycle values="#ffffff, #eeeeee"]-->">
+					<td align="center">
+						<!--[$result.initDate]--><br /><!--[$result.initTime]-->
+					</td>
+			<!--[else]-->
+				<tr>
+					<td>
+						<strong><!--[gt text="Totals"]--> (<!--[$result.tries]-->)</strong>
+					</td>
+			<!--[/if]-->
+				<td align="center"><!--[$result.score]--><!--[if $results|@count neq $smarty.foreach.r.iteration]-->%<!--[/if]--></td>
+				<td align="center"><!--[$result.totalTime]--></td>
+				<td align="center"><!--[$result.activitiesNumber]--></td>
+				<td align="center"><!--[$result.activitiesOk]--></td>
+				<!--[if $results|@count eq $smarty.foreach.r.iteration]-->
+					<tr>
+						<td><strong><!--[gt text="Average"]--> (<!--[$result.tries]-->)</strong></td>
+						<td align="center" <!--[if $correct eq 1 and $result.scoreOk neq -1]--><!--[if $result.scoreOk]-->style="background-color: #96EF95;"<!--[else]-->style="background-color: #FF5F5F;"<!--[/if]--><!--[/if]-->>
+							<!--[$result.scoreAv]-->%
+						</td>
+						<td align="center"><!--[$result.totalTimeAv]--></td>
+						<td align="center">
+							<!--[$result.activitiesNumberAv]-->
+						</td>
+						<td align="center" <!--[if $correct eq 1 and $result.solvedOk neq -1]--><!--[if $result.solvedOk]-->style="background-color: #96EF95;"<!--[else]-->style="background-color: #FF5F5F;"<!--[/if]--><!--[/if]-->>
+							<!--[$result.activitiesOkAv]-->
+						</td>
+					</tr>
+				<!--[/if]-->
+			</tr>
+		<!--[foreachelse]-->
+			<tr bgcolor="<!--[cycle values="#ffffff, #eeeeee"]-->">
+				<td colspan="10">
+					<!--[gt text="No results found"]-->
+				</td>
+			</tr>
+		<!--[/foreach]-->
+	</table>
+	<div style="text-align:right;">
+		<!--[if $correct eq 0]-->
+			<a href="javascript:resultsOff(<!--[$jid]-->)"><!--[pnimg modname='core' src='cancel.gif' set='icons/extrasmall'   __alt="Hide Results Table" __title="Hide Results Table"]--> <!--[gt text="Hide Results Table"]--></a>
+		<!--[/if]-->
+	</div>
+<!--[if $correct eq 0]-->
+	</div>
+<!--[/if]-->

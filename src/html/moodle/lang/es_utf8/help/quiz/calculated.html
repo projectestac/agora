@@ -1,0 +1,117 @@
+<h1>Preguntas calculadas</h1>
+Las preguntas calculadas ofrecen una manera de crear preguntas numéricas
+individuales para el uso de comodines que son sustituidos por valores concretos
+cuando se realiza el cuestionario.<br/>
+Abajo aparece la página de edición principal con algunas entradas
+de ejemplo:<br/>
+
+<table><tbody>
+<tr valign="top">
+    <td align="right"><p><b>Pregunta:</b></p>
+    </td>
+    <td>
+        <textarea id="questiontext" name="questiontext" rows="5" cols="40" wrap="virtual">How much is {a} + {b} ?</textarea>
+</td>
+</tr>
+<tr valign="top">
+    <td align="right"><p><b>Imagen para mostrar:</b></p></td>
+    <td>
+    <select name="image"><option value="" selected="selected">None</option><option value="grevture.gif">grevture.gif</option></select>
+    </td>
+</tr>
+
+<tr valign="top">
+<td align="right"><p><b>Fórmula de la Respuesta Correcta:</b></p></td>
+    <td>
+    <input align="left" type="text" id="formula0" name="answer[]" size="20" value="{a} + {b}">&nbsp;&nbsp;
+    <input type="hidden" name="fraction[]" value="1.0">
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right"><p><b>Tolerancia:</b></p></td>
+    <td>
+    <input align="left" type="text" id="tolerance0&quot;" name="tolerance[]" size="15" value="0.01">±
+    </td>
+</tr>
+<tr valign="top">
+<td align="right"><p><b>Tipo de Tolerance:</b></p></td>
+    <td>
+    <select name="tolerancetype[]"><option value="1" selected="selected">Relative</option><option value="2">Nominal</option><option value="3">Geometric</option></select>
+    </td>
+</tr>
+<tr valign="top">
+<td align="right"><p><b>Cifras Significativas:</b></p></td>
+    <td>
+    <select name="correctanswerlength[]"><option value="1">1</option><option value="2" selected="selected">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select>
+    </td>
+</tr>
+</tbody></table>
+
+<br/>
+En el texto de entrada de la pregunta y en "Fórmula de la Respuesta Correcta"
+{a} y {b} se pueden ver. Estos y cualquier otro {nombre} pueden ser usados como
+un comodín que es sustituido por algún valor cuando se realiza el
+cuestionario. Además, la respuesta correcta es calculada cuando el cuestionario
+es enviado usando la expresión contenida en "Fórmula de la Respuesta
+Correcta", la cual se calcula como una expresión numérica después
+de la sustitución de los comodines. Los posibles valores comodín
+se ponen o se generan en una página posterior en &quot;asistente de edición"
+para preguntas calculadas... <br/>
+La fórmula del ejemplo usa el operador +. Otros operadores aceptados son
+-*/ y % donde % es el módulo operador. También es posible utilizar
+algunas funciones matemáticas de PHP. Entre ellas hay 24 funciones de un
+solo argumento:<br/>
+<b>
+abs, acos, acosh, asin, asinh, atan, atanh, ceil, cos, cosh, deg2rad, exp, expm1, floor, log, log10, log1p, rad2deg, round, sin, sinh, sprt, tan, tanh
+</b><br/>
+y dos funciones de dos argumentos<br/>
+<b>
+atan2, pow
+</b><br/>
+y las funciones <b>min</b> y <b>max</b> que pueden tener dos o más argumentos.
+También es posible usar la función <b>pi</b> que no toma ningún
+argumento pero no olvide utilizar los paréntesis - el uso correcto es <b>pi()</b>.
+De forma similar el resto de funciones deben tener su(s) argumento(s) entre paréntesis.
+Un posible uso es por ejemplo <b>sin({a}) + cos({b}) * 2</b>. No debería
+haber ningún problema en anidar funciones dentro de otras como <b>cos(deg2rad({a}
++ 90))</b> etc. <br/>
+Más detalles sobre cómo usar estas funciones de PHP se puede encontrar
+en la <a target="phpmathdoc" href="http://www.php.net/manual/en/ref.math.php">documentación
+del sitio web de PHP</a> <br/>
+<br/>
+Al igual que para las preguntas numéricas es posible permitir un margen
+dentro del cual todas las respuestas son aceptadas como correctas. El campo "Tolerancia"
+se usa para esto. Sin embargo, hay tres tipos diferentes de tolerancias:<b> Relativa,
+Nominal and Geométrica</b>. Si decimos que la respuesta correcta es 200
+y la tolerancia es establecida en 0.5 entonces los diferentes tipos de tolerancia
+funcionan como sigue: <br/>
+<br/>
+<b>Relativa:</b> Un intervalo de tolerancia es calculado multiplicando la respuesta
+por 0.5, con lo que en este caso tenemos una tolerancia de 100 de forma que la
+respuesta correcta debe estar entre 100 and 300. (200 ± 100)<br/>
+Esto es útil si la magnitud de la respuesta correcta puede diferir de forma
+notable entre los diferentes valores comodín.<br/>
+<br/>
+<b>Nominal:</b> Este es el tipo de tolerancia más simple pero no es muy
+potente. La respuesta correcta debe estar entre 199.5 y 200.5 (200 ± 0.5)<br/>
+Este tipo de tolerancia puede ser útil si las diferencias entre diferentes
+respuestas correctas son pequeñas. <br/>
+<br/>
+<b>Geométrica:</b> El límite superior del intervalo de tolerancia
+es calculado como 200 + 0.5*200 y es el mismo que para la tolerancia relativa.
+El límite inferior es calculado como 200/(1 + 0.5). La respuesta correcta
+debe entonces estar entre 133.33 y 300.<br/>
+Esto es útil para cálculos complejos que deben tener elevadas tolerancias
+donde las tolerancias relativas de 1 o más sería útil para
+el límite superior pero claramente no aceptable para el límite inferior
+que podría hacer que cero fuera una respuesta correcta para todos los casos.
+<br/>
+<br/>
+El campo <b>Cifras Significativas</b> se refiere a la forma en que la respuesta
+correcta debería presentarse en la revisión o los informes. Ejemplos:
+Si se establece en 3 entonces la respuesta correcta 13.333 se debería presentar
+como 13.3; 1236 se debería presentar como 1240; 23 se debería presentar
+como 23.0 etc. <br/>
+<br/>
+El campo de comentario y los campos opcionales de unidad funcionan igual que para
+las preguntas numéricas. <br/>

@@ -1,0 +1,15 @@
+
+  CHANGELOG
+
+  1.5
+    'Mandatory' and 'Core' field types are now deprecated
+    New field types list:
+      2  - Third party (normal) editable and deactivable
+      1  - Normal (site specific) editable and deactivable
+      0  - Third party (mandatory) editable and non-deactivable
+      -1 - Third party (hidden) managed by the third party instance
+    New criteria:
+      type > 0 are deactivable
+      type >= 0 are editable by the user
+    Checkbox fields cannot be required.
+    New module configuration to set the fields to show in the registration form

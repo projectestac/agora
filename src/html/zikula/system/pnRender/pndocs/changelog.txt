@@ -1,0 +1,31 @@
+$Id: changelog.txt 12875 2004-03-07 23:34:33Z markwest $
+
+
+Changelog
+
+Version 1.0 RC 1 November 6 2003
+    - First release candidate from PostNuke team released to pnCorps team only
+
+Version 1.0 RC 2 November 29 2003
+    - First public release
+
+Version 1.0 RC 3
+
+Fixed : pnmodfunc plugin now loads module if not previously loaded.
+Fixed : pager plugins not having php_self set in some instances.
+Fixed : Some E_ALL fixes.
+Updated : Caching now defaults to off.
+Updated : Plugins where approapriate now support assignment of results to template variable.
+Updated : Smarty updated to version 2.6.2.
+Updated : pnimg plugin now accepts alt tag as language define.
+New : pndate_format plugin - formats date in PN format.
+New : pnmodgetname plugin - returns current top level module name.
+New : pnversion plugin - returns current PN version.
+New : xanthia theme setting plugin - returns xanthia theme setting in pnrender template.
+New : pnml modifier - returns PN value of language define.
+New : pnblock function - returns output of specifc pn block.
+New : nocache block function now available in templates.
+New : Added additional template paths - allows hooked functions and blocks to use different templates depending on the top 
+level module.
+New : Xanthia plugins now available in pnRender templates.
+New : pnRender block to show templates from another module.

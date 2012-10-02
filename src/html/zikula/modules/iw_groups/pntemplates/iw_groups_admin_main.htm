@@ -1,0 +1,39 @@
+<!--[include file="iw_groups_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Groups list"]--></h2>
+	<table class="pn-admintable">
+		<thead>
+			<tr>
+				<th><!--[gt text="id"]--></th>
+				<th><!--[gt text="Group name"]--></th>
+				<th><!--[gt text="Description"]--></th>
+				<th><!--[gt text="Options"]--></th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--[foreach item=group from=$groups]-->
+				<tr class="<!--[cycle values="pn-odd,pn-even"]-->">
+					<td align="left" valign="top"><!--[$group.pn_gid]--></td>
+					<td align="left" valign="top"><!--[$group.pn_name]--></td>
+					<td align="left" valign="top">
+						<!--[if $group.pn_description != '']-->
+							<!--[$group.pn_description]-->
+						<!--[else]-->
+							---
+						<!--[/if]-->
+					</td>
+
+					<td align="right" valign="top">
+						<a href="<!--[pnmodurl modname=iw_groups type=admin func=edita gid=$group.pn_gid]-->"><!--[gt text="Edit"]--></a><br>
+						<a href="<!--[pnmodurl modname=iw_groups type=admin func=delete gid=$group.pn_gid]-->"><!--[gt text="Delete"]--></a>
+					</td>
+				</tr>
+			<!--[/foreach]-->
+		</tbody>
+	</table>
+	<div style="padding: 10px;">
+		<a href="<!--[pnmodurl modname=iw_groups type=admin func=module]-->"><!--[gt text="About this module"]--></a>
+	</div>
+</div>

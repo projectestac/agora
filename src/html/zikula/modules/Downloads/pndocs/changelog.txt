@@ -1,0 +1,185 @@
+================================================
+             [Downloads 2.x] 
+================================================
+
+V2.4 - 29.05.2009
+
+ - Fixed css for category layout
+ - Added truncate to last x downloads block
+ - Fixed delete category problem
+ - Simplyfied permissions for user upload
+ - Added possibillity to place upload folder ouside the webroot ticket #1
+ - Fixed ticket #5, #8, #7, #12, #16, #15, #14, #13, #9, 
+
+
+V2.3 - 08.01.2009
+
+ - Fixed double extension related to #15366
+ - Fixed empty url when rename file fails #15365
+ - Fixed #15361 Screenshots can't be deactivated in Downloads 2.2
+ - Fixed #15356 Problem importing from UpDownload 2.3 to Downloads 2.2
+ - Fixed #15491
+ - Fixed Upgrade #15672, #15673, #15582, #15583, #15671
+ - Added #15344
+ - Fixed #15941 Duplicate language define
+ - Added version field for download output
+ - Added torrent support #15251
+ - Fixed delete download problem (wrong redirect)
+ - Fixed screenshot upload when only an url is used
+ - Changed admin menu
+ - Mailer bug fixed
+
+
+V2.2 - 29.12.07
+
+ - Clean up of HTML & CSS
+ - Fixed #15327 wrong field type for title
+ - Changed hook function
+ - Fixed #15328 field type for version
+ - Fixed #15329 more secure id for subcategories during upgrade
+ - Fixed #15330 cosmetic sql changes
+ - Optimized title generation
+ - Added searchapi for .8
+
+
+V2.2 RC 2 - 03.12.07
+
+ - Fixed upgrade to 2.2
+ - Fixed HTML & CSS
+
+
+V2.2 RC 1 - 25.11.07
+	
+ - Fixed pager problem
+ - Added templates for categories and subcategories #3332
+ - Changed file type management to whitlist
+ - Added possibillity to use the module as a hook to show upload fields in other modules (News, pnForum, ...)
+ - Added possibillity to set standard sorting of downloads #3622
+ - Fixed pnVarPrepForDisplay bug in cat nav path
+ - Fixed wrong link in user sort links
+ - Added lightbox support for screenshots
+ - Added new template for the download container to simplfy modifications	
+ - Added a download is shown as updated only if a new file is supplied or the url changed
+ - Added new icon for download container #3805
+ - Changed templates for more stable design in different browsers and themes
+ - Added possibility to switch between to view sets
+ - Fixed some css problems
+ - Added new folder structure for templates
+ - Added new folder structure for images
+ - Fixed add slash problem during install
+ - Added header & footer template for admin part
+ - Added possibility  to edit waiting downloads #3874
+ - Changed search functions to fulltext
+ - Fixed Error when trying to edit download with screenshot (imported from UpDownload) #3845 
+ - Fixed If choose to 'not upgrade' or import UpDownload data this error appears... #3846 
+ - Fixed Wrong or missing argument passed to the function #4658 
+ - Fixed problem in upgrading from CmodsDownloads #4670 
+ - Fixed typo in pnupgradeapi.php #4671 
+ - Fixed problem in pager search outside #4676
+ - Removed unused mod vars
+ - Added support for png screenshots
+ - Added Fulltext search should be an option #4611
+ - Changed typo
+ - Fixed loosing sort order when using the pager
+ - Added last x downloads block
+ - Fixed Admin navigation has duplicate ID's #4956 
+ - Fixed Upgrade from old non-API version fails under .8x due missing entries from pntables #4954 
+ - Fixed Border attribute not valid in strict doctypes #4958 
+ - Fixed align attribute isn't valid under strict doctypes #4951 
+ - Fixed pager in search does not work as expected #4879 
+ - Fixed pnuserapi 533: Not accepting Screenshot #4739 
+ - Fixed pnsearchapi.php searches in inactive downloads #4878 
+ - Fixed Wrong permission check in Downloads_userapi_category_info #4877 
+ - Fixed line missing to include css file#4745 
+ - Fixed paging not working in popular downloads #4665
+ - Added lang string for choosing parent category #4682
+ - Added db changes for proper UpDownload import #5159
+ - Added include direct access URL in documentation#5105
+ - Added tabled layout in admin #5104 
+ - Fixed db changes for proper UpDownload import #5161
+ - Fixed wrong function call in upgrade api #5158
+ - Fixed fixed upgrade of files from UpDownload #5157
+ - Fixed db changes #5167
+ - Added log file function for upgrade
+ - Added possibility to choose unit for file links #3565
+ - Fixed Upgrade from old non-API version fails under mysql 5 strict mode #4953
+ - Added updated language files (eng) #5202
+ - Added Retain original file name on add or upgrade #5216
+ - Added eMail notification #7172
+ - Added automatic thumbnail resizing for upgrade & admin
+ - Fixed wrong number of downloads in toprated & popular function
+ - Fixed update download #13403, #13449
+
+
+V2.1 - 13.11.06
+	
+ - Fixed file replace problem
+ - Fixed status change problem #3500
+ - Changed typo
+ - Added performance patch for mainpage (Thanks chaos) #3296
+ - Added possibility to limit subcategory (Thanks chaos) #3320
+ - Fixed edit download when using an url #3444, #3474
+ - Changed file naming at server level,instead titel the download id is used
+ - Fixed file size editing problem #3556, #3559
+ - Fixed adding download by url when upload is not allowed #3557
+ - Changed leech protection from Authkey to Session
+ - Added support for duplicate titles in different categories #3436
+ - Changed download url to have it real relative #3477
+ - Added possibility to choose amount of characters used in the captcha
+ - Changed download filter menu from text to icons
+ - Added possibility to sort downloads by category before choose one to edit #3447
+ - Added direct edit link to download pages #3449
+ - Added pnVarPrepForOS checks
+ - Added view of sucategories for a specific category
+ - Fixed bug in verify downloads function
+ - Added update icon if download is modified by admin #3420
+
+
+V2.0 - 08.10.06
+	
+ - Changed persmission scheme #3338
+ - Added category id output for admins #3337
+ - Added permission check for categories & downloads #3339, #3352
+ - Added permission check to search #3367
+ - Added search plugin for .76x codebase #3359
+ - Changed installation settings if no gd library is found #3328
+ - Added missing icon #3329
+ - Improved error handling for add download page
+ - Changed import script for import without breaking UpDownoad & CmodDownload tables #3357, #3358
+ - Changed file import from UpDownload & CmodsDownload #3357, #3358
+ - Removed all 	javascript:history.go(-1) #3369
+ - Improved error handling for admin pages
+ - Fixed Typo #3409
+ - Added highlight tab in user / admin layout (Thanks Teb!) #3419
+ - Fixed filesize not stored when using in url #3398
+ - Fixed Could not find Screenshotfolder!#3415
+ - Added possibility to redefine upload folder, ....
+ - Added categories navigation 
+ - Added check for files outside current webspace
+
+
+V2.0 RC 2- 19.09.06
+	
+ - Fixed Error when upgrading from Downloads 1.31 (core .762) #3294, #3310
+ - Fixed Error when adding only a link not a file #3295
+ - Fixed english language defines
+ - Fixed Import of UpDownloads
+ - Removed all explicit API loads
+ - Changed homepage,version & submittermail from mandatory to optional
+
+
+V2.0 RC 1- 16.09.06
+	
+ - PostNuke API compliant module
+ - Fully templated (pnRender)
+ - Valid XHTML Templates
+ - New database structure
+ - New admin interface
+ - Enhanced hooks support
+ - Possibility to use more than two subcategries
+ - Improved upload function
+ - Will work with Safe-Mode ON
+ - Supports the GD Graphics Library for Thumbnail creation
+ - Captcha support for secure download
+ - Extension Manager
+

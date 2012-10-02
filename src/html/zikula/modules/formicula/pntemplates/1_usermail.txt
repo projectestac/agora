@@ -1,0 +1,25 @@
+<!--[* Smartytemplate *]-->
+<!--[* $Id: 1_usermail.txt 160 2009-11-10 18:51:14Z herr.vorragend $ *]-->
+
+ <!--[gt text='Hello,']-->
+
+<!--[gt text='This data was sent to us:']-->
+
+<!--[gt text='Contact or Theme']--> : <!--[ $contact.name ]-->
+<!--[gt text='Your Name']--> : <!--[ $userdata.uname ]-->
+<!--[gt text='E-Mail']--> : <!--[ $userdata.uemail ]-->
+<!--[gt text='Homepage']--> : <!--[ $userdata.url ]-->
+
+<!--[ foreach item=field from=$custom ]-->
+<!--[ $field.name ]--> : <!--[ $field.data ]-->
+<!--[ /foreach ]-->
+
+<!--[gt text='Comment']--> :
+<!--[ $userdata.comment|pnvarprepfordisplay ]-->
+
+<!--[gt text='Thanks for applying, we will keep your data strictly confidential']-->
+
+<!--[gt text='We will respond to your E-mail address as soon as possible.']-->
+
+<!--[gt text='The']--> <!--[$sitename]--> <!--[gt text='Team']-->
+

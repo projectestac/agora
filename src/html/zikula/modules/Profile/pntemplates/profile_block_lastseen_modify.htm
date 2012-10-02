@@ -1,0 +1,12 @@
+<!--[* $Id: profile_block_lastseen_modify.htm 69 2009-12-05 10:28:06Z mateo $ *]-->
+
+<!--[if $savelastlogindate neq true]-->
+<div class="z-errormsg">
+    <!--[gt text="Error! This block cannot be used because saving of a user's last log-in date has been disabled." domain='module_profile']-->
+</div>
+<!--[/if]-->
+
+<div class="z-formrow">
+    <label for="profile_block_amount"><!--[gt text='Number of recent visitors to display' domain='module_profile']--></label>
+    <input id="profile_block_amount" type="text" name="amount" value="<!--[$amount|pnvarprephtmldisplay]-->" size="5" maxlength="20" />
+</div>

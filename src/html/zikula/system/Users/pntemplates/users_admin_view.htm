@@ -1,0 +1,53 @@
+<!--[*  $Id: users_admin_view.htm 27353 2009-11-02 11:56:33Z mateo $  *]-->
+<!--[gt text="Users list" assign=templatetitle]-->
+<!--[pnajaxheader modname='Users']-->
+
+<!--[include file="users_admin_menu.htm"]-->
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=windowlist.gif set=icons/large alt=$templatetitle]--></div>
+
+    <h2><!--[$templatetitle]--></h2>
+
+    <div id="liveusersearch" class="z-hide">
+        <!--[gt text="Search"]-->:&nbsp;<input size="25" maxlength="25" type="text" id="username" value="" />
+        <a id="modifyuser" href="javascript:void(0);"><!--[pnimg modname=core set=icons/extrasmall src="xedit.gif" __title="Edit" __alt="Edit"]--></a>
+        <a id="deleteuser" href="javascript:void(0);"><!--[pnimg modname=core set=icons/extrasmall src="14_layer_deletelayer.gif" __title="Delete" __alt="Delete"]--></a>
+        <!--[pnimg id="ajax_indicator" style="display: none;" modname=core set=icons/extrasmall src="indicator_circle.gif" alt=""]-->
+
+        <div id="username_choices" class="autocomplete_user"></div>
+        <script type="text/javascript">
+            liveusersearch();
+        </script>
+    </div>
+
+    <p id="users-alphafilter">
+        <strong>[<!--[pagerabc posvar="letter" forwardvars="sortby"]-->]</strong>
+    </p>
+
+    <table class="z-admintable">
+        <thead>
+            <tr>
+                <th><!--[gt text="User name"]--></th>
+                <th><!--[gt text="Internal ID"]--></th>
+                <th><!--[gt text="Actions"]--></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--[section name="usersitems" loop=$usersitems]-->
+            <tr class="<!--[cycle values='z-odd,z-even']-->">
+                <td><!--[$usersitems[usersitems].uname|pnvarprephtmldisplay]--></td>
+                <td><!--[$usersitems[usersitems].uid|pnvarprephtmldisplay]--></td>
+                <td>
+                    <!--[assign var="options" value=$usersitems[usersitems].options]-->
+                    <!--[section name=options loop=$options]-->
+                    <a href="<!--[$options[options].url|pnvarprepfordisplay]-->"><!--[pnimg modname=core set=icons/extrasmall src=$options[options].image title=$options[options].title alt=$options[options].title]--></a>
+                    <!--[/section]-->
+                </td>
+            </tr>
+            <!--[/section]-->
+        </tbody>
+    </table>
+
+    <!--[pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum img_prev=images/icons/extrasmall/previous.gif img_next=images/icons/extrasmall/next.gif]-->
+</div>

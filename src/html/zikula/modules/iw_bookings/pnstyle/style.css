@@ -1,0 +1,22 @@
+/* style.css */
+.active{
+	color: green;
+}
+
+.inactive{
+	color: red;
+}
+
+.pn-noteinfo {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+
+.Diames {
+    color: #0000FF;
+    font-weight: bold;
+    font-style: italic;
+    align: right;
+    valign: top;
+}

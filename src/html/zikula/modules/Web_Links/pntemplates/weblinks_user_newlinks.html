@@ -1,0 +1,15 @@
+<!--[*  $Id: weblinks_user_newlinks.html 40 2009-01-09 14:13:23Z herr.vorragend $  *]-->
+<!--[include file="weblinks_user_header.html"]-->
+<div class="wl-borderbox wl-center">
+  <h3><!--[gt text="New links"]--></h3>
+  <p><!--[gt text="Total new links"]-->: <!--[gt text="Last week"]-->: <!--[allweeklinks]--> | <!--[gt text="Last 30 days"]-->: <!--[allmonthlinks]-->
+    <br />
+    <!--[gt text="Show"]-->:
+    <a href="<!--[pnmodurl modname=Web_Links type=user func=newlinks newlinkshowdays=7]-->"> <!--[gt text="1 week"]--></a> |
+    <a href="<!--[pnmodurl modname=Web_Links type=user func=newlinks newlinkshowdays=14]-->"> <!--[gt text="2 weeks"]--></a> |
+    <a href="<!--[pnmodurl modname=Web_Links type=user func=newlinks newlinkshowdays=30]-->"> <!--[gt text="30 days"]--></a>
+  </p>
+  <p><strong><!--[gt text="Total new links over the last"]--> <!--[$newlinkshowdays|pnvarprepfordisplay]--> <!--[gt text="Days"]--> :</strong></p>
+  <!--[newlinksbyday newlinkshowdays=$newlinkshowdays]-->
+</div>
+<!--[include file="weblinks_user_footer.html"]-->

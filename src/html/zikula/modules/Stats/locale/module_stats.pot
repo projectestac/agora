@@ -1,0 +1,259 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:04+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:33
+msgid "Sniffer module required to log stats"
+msgstr ""
+
+#: pnuserapi.php:210 pnuserapi.php:387 pnpluginapi/sectionsarticles.php:21
+#: pnpluginapi/links.php:21 pnpluginapi/users.php:21
+#: pnpluginapi/stories.php:21 pnpluginapi/topics.php:21
+#: pnpluginapi/queuedstories.php:21 pnpluginapi/comments.php:21
+#: pnpluginapi/linkscats.php:21 pnpluginapi/sections.php:21 pnadminapi.php:38
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pninit.php:78 pninit.php:134
+msgid "unable to create system init hook"
+msgstr ""
+
+#: pninit.php:81 pninit.php:137
+msgid ""
+"Stats have been enabled, you can change this in the hook settings "
+"(Administration -> Modules -> System hooks) by deactivating the Stats "
+"systeminit hook for Zikula itself"
+msgstr ""
+
+#: pninit.php:165
+msgid "unable to delete system init hook"
+msgstr ""
+
+#: pnpluginapi/sectionsarticles.php:41
+msgid "Articles in sections:"
+msgstr ""
+
+#: pnpluginapi/links.php:42
+msgid "Links in web links:"
+msgstr ""
+
+#: pnpluginapi/users.php:36
+msgid "Registered users:"
+msgstr ""
+
+#: pnpluginapi/stories.php:35
+msgid "News stories published:"
+msgstr ""
+
+#: pnpluginapi/topics.php:41
+msgid "Active topics:"
+msgstr ""
+
+#: pnpluginapi/queuedstories.php:35
+msgid "News stories waiting to be published:"
+msgstr ""
+
+#: pnpluginapi/comments.php:41
+msgid "Comments posted:"
+msgstr ""
+
+#: pnpluginapi/linkscats.php:41
+msgid "Categories in links:"
+msgstr ""
+
+#: pnpluginapi/sections.php:41
+msgid "Special sections:"
+msgstr ""
+
+#: pnadminapi.php:43
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: pnadminapi.php:66 pnadminapi.php:72 pnadminapi.php:78 pnadminapi.php:84
+#: pnadminapi.php:94
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: pnadminapi.php:116
+msgid "View"
+msgstr ""
+
+#: pnadminapi.php:119
+msgid "Reset"
+msgstr ""
+
+#: pnadminapi.php:122 pntemplates/stats_admin_modifyconfig.htm:4
+#: pntemplates/stats_admin_modifyconfig.htm:5
+msgid "Settings"
+msgstr ""
+
+#: pnadmin.php:76
+msgid "Stats reset"
+msgstr ""
+
+#: pnadmin.php:138
+msgid "Done! Module configuration updated."
+msgstr ""
+
+#: pnversion.php:15 
+msgid "Stats"
+msgstr ""
+
+#: pnversion.php:16
+msgid "statistics"
+msgstr ""
+
+#: pnversion.php:17
+msgid "Display site statistics."
+msgstr ""
+
+#: pntemplates/stats_admin_reset.htm:4 pntemplates/stats_admin_reset.htm:5
+msgid "Reset site statistics"
+msgstr ""
+
+#: pntemplates/stats_admin_reset.htm:11
+msgid "Reset main site stats"
+msgstr ""
+
+#: pntemplates/stats_admin_reset.htm:15
+msgid "Reset browser and OS stats"
+msgstr ""
+
+#: pntemplates/stats_admin_reset.htm:19
+msgid "Submit"
+msgstr ""
+
+#: pntemplates/stats_admin_reset.htm:20
+#: pntemplates/stats_admin_modifyconfig.htm:32
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/stats_user_os.htm:2
+msgid "Operating system"
+msgstr ""
+
+#: pntemplates/stats_user_os.htm:52 pntemplates/stats_user_browsers.htm:105
+msgid "Unknown user agent"
+msgstr ""
+
+#: pntemplates/stats_admin_modifyconfig.htm:10
+msgid "IP address to exclude"
+msgstr ""
+
+#: pntemplates/stats_admin_modifyconfig.htm:14
+msgid "Enable collection of stats"
+msgstr ""
+
+#: pntemplates/stats_admin_modifyconfig.htm:22
+msgid "Use 24 clock for hourly stats"
+msgstr ""
+
+#: pntemplates/stats_admin_modifyconfig.htm:31
+msgid "Update Configuration"
+msgstr ""
+
+#: pntemplates/stats_user_byhour.htm:2
+msgid "Visits by hour"
+msgstr ""
+
+#: pntemplates/stats_admin_menu.htm:4 pntemplates/stats_user_main.htm:2
+msgid "Site statistics"
+msgstr ""
+
+#: pntemplates/stats_user_misc.htm:2
+msgid "Miscellaneous statistics"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:2
+msgid "Browsers"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:7
+msgid "Internet Explorer"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:14
+msgid "Mozilla"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:21
+msgid "Firefox"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:28
+msgid "Netscape"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:35
+msgid "Safari"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:42
+msgid "Camino"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:49
+msgid "Chimera"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:56
+msgid "Opera"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:63
+msgid "Konqueror"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:70
+msgid "Epiphany"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:77
+msgid "Galeon"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:84
+msgid "Lynx"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:91
+msgid "K-Meleon"
+msgstr ""
+
+#: pntemplates/stats_user_browsers.htm:98
+msgid "Search engines"
+msgstr ""
+
+#: pntemplates/stats_user_bymonth.htm:2
+msgid "Visits by month"
+msgstr ""
+
+#: pntemplates/stats_user_byweek.htm:2
+msgid "Visits by day of the week"
+msgstr ""
+
+#: pntemplates/stats_user_prose.htm:4
+msgid "This site has received <strong>%1$s</strong> page views since <strong>%2$s</strong> <strong>%3$s</strong> today, and <strong>%4$s</strong> yesterday."
+msgstr ""
+
+#: pntemplates/stats_user_prose.htm:7
+msgid "The day on which there was the most traffic so far was %1$s (<strong>%2$s</strong> page views), while %3$s (<strong>%4$s</strong> page views) was the day with the fewest hits."
+msgstr ""
+
+#: pntemplates/stats_user_prose.htm:10
+msgid "Most people visit on <strong>%1$s</strong>, with a total of <strong>%2$s </strong> page views, while <strong>%3$s</strong> is the day with the fewest visits, with a total of <strong>%4$s </strong> page views. On average, the busiest hour (with <strong>%5$s</strong> page views ) starts at <strong>%6$s:00</strong>. The hour during which traffic has been lightest starts at <strong>%7$s:00</strong> (with only <strong>%8$s</strong> page views)."
+msgstr ""

@@ -1,0 +1,129 @@
+<!-- $Id: uploadusers3.html,v 1.3 2009/04/10 19:28:55 martignoni Exp $ -->
+
+<h1>Importation d'utilisateurs</h1>
+
+<p>Notons avant tout qu'<strong>il n'est habituellement pas nécessaire d'importer des utilisateurs</strong> pour les inscrire. Pour réduire les interventions manuelles dans la gestion du site, il est préférable d'utiliser l'une des méthodes d'authentification proposées par Moodle. Par exemple, Moodle peut se connecter à une base de données externe, ou bien les utilisateurs peuvent créer leurs propres comptes. Voyez la section Authentification dans la page d'administration de votre site.</p>
+
+<p>Si vous désirez toutefois importer manuellement des comptes utilisateurs à partir d'un fichier texte, ce fichier doit être formaté de la façon suivante :</p>
+
+<ul>
+
+<li>chaque ligne du fichier contient un enregistrement ;</li>
+
+<li>les données de chaque enregistrement sont séparées par une virgule (ou un autre caractère de séparation) ;</li>
+
+<li>le premier enregistrement contient le nom des champs qui composent les enregistrements, et détermine ainsi la structure de la suite du fichier
+
+    <blockquote>
+
+      <p><strong>Champs requis :</strong> ces champs doivent être mentionnés dans le premier enregistrement et définis pour tous les utilisateurs</p>
+
+      <p><code>firstname, lastname</code> pour un ajout ou <code>username</code> pour une mise à jour</p>
+
+      <p><strong>Champs optionnels :</strong> tous ces champs sont optionnels. Les valeurs éventuellement précisées dans le fichier seront utilisées. Sinon, c'est la valeur par défaut pour ce champ qui sera utilisée.</p>
+
+      <p><code>institution, department, city, country, lang, auth, ajax, timezone, idnumber, icq, phone1, phone2, address, url, description, mailformat, maildisplay, htmleditor, autosubscribe, emailstop</code></p>
+
+      <p><strong>Champs de profil personnalisés :</strong> optionnel, xxxxx doit être remplacé par le nom abrégé du champ personnalisé</p>
+
+      <p><code>profile_field_xxxxx</code></p>
+
+      <p><strong>Champs spécial :</strong> utile pour modifier les noms d'utilisateurs ou supprimer des utilisateurs, voir ci-dessous</p>
+
+      <p><code>deleted, oldusername</code></p>
+
+      <p><strong>Champs d'inscription (optionnel):</strong> Peuvent figurer ici les noms abrégés d'un ou de plusieurs cours. Dans ce cas, l'utilisateur y sera inscrit. Le champ « Type » représente le rôle à attribuer dans le cours. Il peut prendre la valeur 1 (rôle par défaut), 2 (enseignant) ou 3 (enseignant non éditeur). Alternativement, vous pouvez utiliser le champ « Role » pour indiquer directement le nom abrégé du rôle ou son id (les noms de rôle numériques ne sont pas utilisables). Vous pouvez également assigner les utilisateurs à des groupes dans les cours (group1 dans le course1, group2 in course2, etc.). De même, les groupes sont identifiés par leur nom ou leur identifiant (les noms de groupe numériques ne sont pas utilisables). Vous pouvez également définir une durée d'inscription pour chaque cours (enrolperiod1 pour course1, enrolperiod2 pour course 2, etc.).</p>
+
+      <p><code>course1, type1, role1, group1, enrolperiod1, course2, type2, role2, group2, enrolperiod2, etc.</code></p>
+
+    </blockquote>
+
+    </li>
+
+  <li>Les virgules séparant les données doivent être encodées &amp;#44 - le script les interprétera automatiquement comme des virgules.</li>
+
+  <li>Pour les données booléennes, utilisez 0 pour faux et 1 pour vrai. </li>
+
+</ul>
+
+<p>Voici un exemple de fichier d'importation correct :</p>
+
+<p><code>username, password, firstname, lastname, email, lang, idnumber, maildisplay, course1, group1, type1, enrolperiod1<br />
+jonest, verysecret, Tom, Jones, jonest@someplace.edu, en, 3663737, 1, Intro101, Section 1, 1, 30<br />
+reznort, somesecret, Trent, Reznor, reznort@someplace.edu, en_us, 6736733, 0, Advanced202, Section 3, 3, 90
+</code></p>
+
+<h2>Modèles</h2>
+
+<p>Il est possible d'utiliser des valeurs par défaut en guise de modèle de données :</p>
+
+<ul>
+
+<li><code>%l</code> - sera remplacé par le nom (<i>lastname</i>)</li>
+
+<li><code>%f</code> - sera remplacé par le prénom (<i>firstname</i>)</li>
+
+<li><code>%u</code> - sera remplacé par le nom d'utilisateur (<i>username</i>)</li>
+
+<li><code>%%</code> - sera remplacé par %</li>
+
+</ul>
+
+<p>Entre % et la lettre qui le suit (l, f ou u) les paramètres suivants sont acceptés :</p>
+
+<ul>
+
+<li>(-) signe moins - les données représentées par la lettre seront en caractères minuscules</li>
+
+<li>(+) signe plus - les données représentées par la lettre seront en caractères MAJUSCULES</li>
+
+<li>(~) tilde - pour les données représentées par la lettre, La Première Lettre de Chaque Mot Sera En Majuscule</li>
+
+<li>un nombre - les données représentées par la lettre seront tronquées au nombre de lettres correspondant</li>
+
+</ul>
+
+<p>Par exemple, si le prénom est Pascal et le nom est Meunier, les modèles permettront d'obtenir les valeurs suivantes :</p>
+
+<ul>
+
+<li><code>%l%f</code> = PascalMeunier</li>
+
+<li><code>%l%1f</code> = PascalM</li>
+
+<li><code>%-l%+f</code> = meunierPASCAL</li>
+
+<li><code>%-f_%-l</code> = pascal_meunier</li>
+
+<li><code>http://www.exemple.com/~%u/</code> = http://www.exemple.com/~pmeunier/ (si le nom d'utilisateur est pmeunier ou <code>%-1f%-l</code>)</li>
+
+</ul>
+
+<p>Les modèles n'utilisent que les seules valeurs par défaut, et non pas celles provenant de fichiers CVS.</p>
+
+<p>Afin de fiabiliser la création des noms d'utilisateurs, ceux-ci sont toujours convertis en lettres minuscules. En outre, si l'option « Autoriser les caractères spéciaux dans les noms d'utilisateur » est désactivée dans la page Règles du site, les caractères autres que les lettres, nombres les traits d'union (-) et les points (.) sont supprimés. Par exemple si le prénom est J. Pascal et le nom est Meunier, le nom d'utilisateur défini par <code>%-f_%-l</code> donnera j. pascal_meunier si « Autoriser les caractères spéciaux dans les noms d'utilisateur » est activé, et j.pascalmeunier sinon.</p>
+
+<p>Si le mode de création choisi est « Tout ajouter, y compris un compteur aux noms d'utilisateurs au besoin », un compteur automatique sera ajouté aux doublons générés par le modèle.
+
+Par exemple, supposons que le fichier CSV contienne des utilisateurs du nom de Pascal Meunier, Patricia Meunier et Pierrick Meunier, sans nom d'utilisateur spécifié. Avec un modèle de nom d'utilisateur défini par <code>%-1f%-l</code> avec l'ajout d'un compteur en cas de doublons, le modèle générera les noms d'utilisateurs pmeunier, pmeunier2 et pmeunier3.
+
+</p>
+
+<h2>Mise à jour de comptes existants</h2>
+
+<p>Par défaut, Moodle procède à la création de nouveaux comptes utilisateurs, ignorant ainsi les enregistrements correspondant à des noms d'utilisateurs qui existent déjà. Néanmoins, si vous permettez la mise à jour des données, les comptes utilisateurs seront actualisés.</p>
+
+<p>Lors de mise à jour de comptes existants, vous pouvez également modifier les noms d'utilisateurs. Réglez « Autoriser le changement des noms » sur <b>Oui</b> et ajoutez à votre fichier un champ nommé <code>oldusername</code>.</p>
+
+<p><b>Attention !</b> Des erreurs de mise à jour sur des comptes existants peuvent être très néfastes pour vos utilisateurs. Soyez très vigilant avec les options de mise à jour.</p>
+
+<h2>Suppression des comptes</h2>
+
+<p>Si le champ <code>deleted</code> est présent, les utilisateurs dont ce champ vaudra 1 seront supprimés. Dans ce cas, aucun autre champ n'est nécessaire, à l'exception de <code>username</code>.</p>
+
+<p>L'importation et la suppression de comptes peuvent être réalisés au moyen d'un seul fichier CSV. Par exemple, le fichier suivant ajoute l'utilisateur Pascal Meunier et supprime l'utilisateur reznort :</p>
+
+<p><code>username, firstname, lastname, deleted<br />
+meunierp, Pascal, Meunier, 0<br />
+reznort, , , 1
+</code></p>

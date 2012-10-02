@@ -1,0 +1,528 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-02 11:44+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnadminapi.php:127
+msgid "Variable is not defined"
+msgstr "La variable no s'ha definit"
+
+#: pnadminapi.php:128
+msgid "Additional module/variable is not defined"
+msgstr "El mòdul o la variable adicionals no s'han definit"
+
+#: pnadminapi.php:139
+msgid "Error! Creation attempt failed."
+msgstr "No s'ha pogut crear."
+
+#: pnadminapi.php:149
+msgid "Error! Update attempt failed."
+msgstr "No s'ha pogut actualitzar."
+
+#: pnadminapi.php:174
+msgid "Error! Remove attempt failed."
+msgstr "No s'ha pogut eliminar."
+
+#: pnadminapi.php:350
+msgid "Corrupt package"
+msgstr "Paquet corrupte"
+
+#: pnadminapi.php:364
+#, php-format
+msgid "Zikula version %s is required"
+msgstr "Es requereix la versió %s de Zikula"
+
+#: pnadminapi.php:417
+#, php-format
+msgid "The module %1$s requires the version %2$s"
+msgstr "El mòdul %1$s requereix la versió %2$s"
+
+#: pnadminapi.php:443
+#, php-format
+msgid "It's not possible to remove <i>%s</i> directory because it's not writable"
+msgstr "No ha estat possible eliminar el directori  <i>%s</i> perquè no té permisos d'escriptura"
+
+#: pnadminapi.php:445
+#, php-format
+msgid "It's not possible to remove <i>%s</i> directory"
+msgstr "No ha estat possible eliminar el directori  <i>%s</i>"
+
+#: pnadminapi.php:514
+msgid "It's not possible to open the package."
+msgstr "No ha estat possible obrir el paquet"
+
+#: pnadminapi.php:653
+msgid "Could not open package"
+msgstr "No s'ha pogut obrir el paquet"
+
+#: pnadminapi.php:750
+msgid "The backup package cannot be generated"
+msgstr "No s'ha pogut generar el paquet de copia de seguretat"
+
+#: pnadmin.php:28
+#: pnadmin.php:234
+#: pnadmin.php:285
+msgid "Backup folder don't exists"
+msgstr "No s'ha creat la carpeta de copies de seguretat"
+
+#: pnadmin.php:31
+#: pnadmin.php:236
+#: pnadmin.php:288
+msgid "Backup folder is not writeable"
+msgstr "El directori de copies de seguretat ha de tenir permisos d'escriptura."
+
+#: pnadmin.php:35
+msgid "Backup folder is not set"
+msgstr "No s'ha designat una carpeta per a copies de seguretat"
+
+#: pnadmin.php:62
+msgid "It's not possible to generate the export pack"
+msgstr "No ha estat possible generar el paquet d'exportació"
+
+#: pnadmin.php:156
+msgid "Variable succesfully removed."
+msgstr "La variable s'ha eliminat correctament"
+
+#: pnadmin.php:195
+msgid "It's not possible to import a local package and another from an URL together"
+msgstr "No és possible importar un paquet local i un altre des d'una URL a la vegada"
+
+#: pnadmin.php:208
+msgid "It's not possible to upload the package"
+msgstr "No ha estat possible pujar el paquet"
+
+#: pnadmin.php:220
+#, php-format
+msgid "Zikula version %s is required."
+msgstr "Es requereix la versió %s de Zikula"
+
+#: pnadmin.php:239
+#: pnadmin.php:292
+msgid "Backup folder is not set in the module configuration"
+msgstr "No s'ha designat una carpeta per a copies de seguretat a la configuració del mòdul"
+
+#: pnadmin.php:248
+msgid "Backup failure!"
+msgstr "No s'ha pogut generar la copia de seguretat!"
+
+#: pnadmin.php:338
+msgid "It's not possible to delete the backup"
+msgstr "No ha estat possible eliminar la copia de seguretat"
+
+#: pnadmin.php:404
+msgid "No modules to show"
+msgstr "No hi ha cap mòdul per mostrar"
+
+#: pnadmin.php:447
+msgid "The table doesn't exist "
+msgstr "La taula no existeix"
+
+#: pnadmin.php:454
+msgid "Error! Add attempt failed."
+msgstr "No s'ha pogut afegir."
+
+#: pnadmin.php:457
+#, php-format
+msgid "Table %1$s added.<a href=\"#%2$s\"> Follow in the last module</a>"
+msgstr "S'ha afegit la taula %1$s.<a href=\"#%2$s\"> Segueix a partir del darrer mòdul tractat</a>"
+
+#: pnadmin.php:464
+msgid "Error! Deletion attempt failed."
+msgstr "No s'ha pogut eliminar"
+
+#: pnadmin.php:466
+#, php-format
+msgid "Table %1$s deleted.<a href=\"#%2$s\"> Follow in the last module</a>"
+msgstr "La taula %1$s ha estat eliminada.<a href=\"#%2$s\"> Segueix a partir del darrer mòdul tractat</a>"
+
+#: pnversion.php:11
+msgid "Allow to export module's content from a Zikula's installation to another"
+msgstr "Permet exportar mòduls de Zikula d'una instal·lació a una altra"
+
+#: pnversion.php:12
+#: pnversion.php:13
+#: pntemplates/Export_admin_export_modules.htm:22
+#: pntemplates/Export_admin_export_modules.htm:36
+msgid "Export"
+msgstr "Exporta"
+
+#: pntemplates/Export_admin_manage_modules.htm:2
+msgid "Follow in the last module"
+msgstr "Segueix a partir del darrer mòdul tractat"
+
+#: pntemplates/Export_admin_manage_modules.htm:6
+#: pntemplates/Export_admin_menu.htm:8
+msgid "Manage modules"
+msgstr "Gestiona els mòduls"
+
+#: pntemplates/Export_admin_manage_modules.htm:10
+#: pntemplates/Export_admin_import_select.htm:22
+#: pntemplates/Export_admin_export_modules.htm:20
+#: pntemplates/Export_admin_backup_restore.htm:14
+msgid "Module name"
+msgstr "Nom del mòdul"
+
+#: pntemplates/Export_admin_manage_modules.htm:11
+msgid "Module tables"
+msgstr "Taules del mòdul"
+
+#: pntemplates/Export_admin_manage_modules.htm:12
+#: pntemplates/Export_admin_import_select.htm:26
+#: pntemplates/Export_admin_backup_restore.htm:17
+msgid "Variables of folders"
+msgstr "Variables dels directoris"
+
+#: pntemplates/Export_admin_manage_modules.htm:23
+msgid "Suggested tables:"
+msgstr "Taules proposades:"
+
+#: pntemplates/Export_admin_manage_modules.htm:32
+#: pntemplates/Export_admin_manage_modules.htm:39
+msgid "Add"
+msgstr "Afegeix"
+
+#: pntemplates/Export_admin_manage_modules.htm:36
+msgid "Add table:"
+msgstr "Afegeix taula:"
+
+#: pntemplates/Export_admin_manage_modules.htm:42
+msgid "Tables:"
+msgstr "Taules:"
+
+#: pntemplates/Export_admin_manage_modules.htm:51
+#: pntemplates/Export_admin_manage_modules.htm:87
+#: pntemplates/Export_admin_manage_modules.htm:92
+#: pntemplates/Export_admin_manage_modules.htm:97
+#: pntemplates/Export_admin_del_variable.htm:15
+#: pntemplates/Export_admin_add_variable.htm:30
+#: pntemplates/Export_admin_backup_delete.htm:12
+msgid "Delete"
+msgstr "Esborra"
+
+#: pntemplates/Export_admin_manage_modules.htm:60
+msgid "Variable: "
+msgstr "Variable:"
+
+#: pntemplates/Export_admin_manage_modules.htm:68
+msgid "Route: "
+msgstr "Ruta:"
+
+#: pntemplates/Export_admin_manage_modules.htm:70
+msgid "erroneous route"
+msgstr "ruta incorrecte"
+
+#: pntemplates/Export_admin_manage_modules.htm:72
+#: pntemplates/Export_admin_import_select.htm:51
+msgid " contains a route to an unwritable directory"
+msgstr " conté la ruta d'un directori sense permisos d'escriptura"
+
+#: pntemplates/Export_admin_manage_modules.htm:78
+msgid "This variable needs the value of the variable "
+msgstr "La variable requereix el valor de la variabla"
+
+#: pntemplates/Export_admin_manage_modules.htm:80
+msgid "From the module "
+msgstr "Del mòdul"
+
+#: pntemplates/Export_admin_manage_modules.htm:86
+msgid "Edit"
+msgstr "Edita"
+
+#: pntemplates/Export_admin_manage_modules.htm:92
+#: pntemplates/Export_admin_manage_modules.htm:97
+msgid " Add variable"
+msgstr " Afegeix variable"
+
+#: pntemplates/Export_admin_manage_modules.htm:95
+msgid "No variable is defined"
+msgstr "No hi ha cap variable definida"
+
+#: pntemplates/Export_admin_import_upload.htm:5
+#: pntemplates/Export_admin_import_report.htm:5
+#: pntemplates/Export_admin_import_select.htm:6
+#: pntemplates/Export_admin_menu.htm:7
+msgid "Import modules"
+msgstr "Importa mòduls"
+
+#: pntemplates/Export_admin_import_upload.htm:8
+msgid "<b>Warning!</b><br>If you import some modules, data and files of the actual module, users and groups will be replaced!<br>Are you completly sure?"
+msgstr "<b>Alerta!</b><br>Si importeu algun mòdul, les dades i els fitxers del mòdul actual, així com els usuaris i els grups del vostre sistema seran substituïts!<br>N'esteu segurs?"
+
+#: pntemplates/Export_admin_import_upload.htm:10
+msgid "Select the package that you want import"
+msgstr "Seleccioneu el paquet que voleu importar"
+
+#: pntemplates/Export_admin_import_upload.htm:12
+msgid "Or enter the URL of your import package"
+msgstr "O bé escriu la URL del paquet d'importació"
+
+#: pntemplates/Export_admin_import_upload.htm:14
+#: pntemplates/Export_admin_import_select.htm:24
+#: pntemplates/Export_admin_import_select.htm:85
+#: pntemplates/Export_admin_backup_restore.htm:46
+msgid "Import"
+msgstr "Importa"
+
+#: pntemplates/Export_admin_import_upload.htm:19
+msgid "La importació només està permesa de forma centralitzada.<br />Si us plau posis en contacte amb el seu proveïdor."
+msgstr "La importació només està permesa de forma centralitzada.<br />Si us plau posis en contacte amb el seu proveïdor."
+
+#: pntemplates/Export_admin_del_variable.htm:5
+msgid "Detele variable"
+msgstr "Esborra variable"
+
+#: pntemplates/Export_admin_del_variable.htm:11
+msgid "Do you really want to delete the variable "
+msgstr "Esteu segurs de que voleu eliminar la variable"
+
+#: pntemplates/Export_admin_del_variable.htm:11
+msgid " from de module "
+msgstr "del mòdul"
+
+#: pntemplates/Export_admin_del_variable.htm:14
+#: pntemplates/Export_admin_add_variable.htm:29
+#: pntemplates/Export_admin_main.htm:12
+msgid "Submit"
+msgstr "Tramet"
+
+#: pntemplates/Export_admin_add_variable.htm:6
+msgid "Add variable"
+msgstr "Afegeix variable"
+
+#: pntemplates/Export_admin_add_variable.htm:10
+msgid "Edit variable"
+msgstr "Edita la variable"
+
+#: pntemplates/Export_admin_add_variable.htm:16
+#: pntemplates/Export_admin_add_variable.htm:22
+msgid "Module:"
+msgstr "Mòdul:"
+
+#: pntemplates/Export_admin_add_variable.htm:18
+#: pntemplates/Export_admin_add_variable.htm:24
+msgid "Variable:"
+msgstr "Variable:"
+
+#: pntemplates/Export_admin_add_variable.htm:21
+msgid "If is necessary, you can define the varible of the module that contain the root directory of the actual directory"
+msgstr "Si cal, pots definir la variable del mòdul que conté la ruta cap al directori arrel del directori en qüestió"
+
+#: pntemplates/Export_admin_import_report.htm:6
+msgid " The following modules has been imported correctly:"
+msgstr "Els mòduls següents s'han importat correctament:"
+
+#: pntemplates/Export_admin_import_select.htm:8
+msgid "Select in the following table the modules that you want import."
+msgstr "Seleccioneu a la taula següent els mòduls que voleu importar."
+
+#: pntemplates/Export_admin_import_select.htm:12
+msgid "If there's any message in red in the \"Variables of folders\" column do the next:<br><b>- Variable is not defined in the module configuration:</b> Check the configuration of the module related<br><b>- Variable is not defined in the Export module:</b> Add the variable in the \"Manage modules\" menu of the Export module<br><b>- Variable contains an erroneous route:</b> Check if the directories specified in the module configuration are availables"
+msgstr "Si apareix algun missatge en vermell a la columna \"Variables dels directoris\" fes el següent:<br /><b>- La variable no està definida a la configuració del mòdul:</b> Comprova la configuració del mòdul relacionat amb la variable<br /><b>- La variable no està definida al mòdul Export:</b> Afegeix la variable al menú \"Gestiona mòduls\" del mòdul Export<br /><b>- La variable conté una ruta incorrecte:</b> Comprova que els directoris especificats en la configuració del mòdul estan disponibles"
+
+#: pntemplates/Export_admin_import_select.htm:15
+#: pntemplates/Export_admin_export_modules.htm:13
+msgid "Check all"
+msgstr "Marca-ho tot"
+
+#: pntemplates/Export_admin_import_select.htm:16
+#: pntemplates/Export_admin_export_modules.htm:14
+msgid "Uncheck all"
+msgstr "Desmarca-ho tot"
+
+#: pntemplates/Export_admin_import_select.htm:23
+#: pntemplates/Export_admin_export_modules.htm:21
+#: pntemplates/Export_admin_backup_restore.htm:15
+msgid "Display name"
+msgstr "Nom per mostrar"
+
+#: pntemplates/Export_admin_import_select.htm:25
+msgid "Version"
+msgstr "Versió"
+
+#: pntemplates/Export_admin_import_select.htm:39
+msgid "Required version: "
+msgstr "Versió requerida:"
+
+#: pntemplates/Export_admin_import_select.htm:39
+msgid "isn't the same of the local version: "
+msgstr "no és la mateixa que la versió instalada"
+
+#: pntemplates/Export_admin_import_select.htm:43
+#: pntemplates/Export_admin_backup_restore.htm:24
+msgid "The variable "
+msgstr "La variable "
+
+#: pntemplates/Export_admin_import_select.htm:45
+#: pntemplates/Export_admin_backup_restore.htm:26
+msgid " is not defined in the module configuration"
+msgstr "no està definida a la configuració del mòdul"
+
+#: pntemplates/Export_admin_import_select.htm:47
+#: pntemplates/Export_admin_backup_restore.htm:28
+msgid " contains an erroneous route"
+msgstr " conté una ruta incorrecte"
+
+#: pntemplates/Export_admin_import_select.htm:49
+#: pntemplates/Export_admin_backup_restore.htm:30
+msgid " is not defined in the Export module"
+msgstr " no s'ha definit en el mòdul Export"
+
+#: pntemplates/Export_admin_import_select.htm:53
+#: pntemplates/Export_admin_backup_restore.htm:32
+msgid " contains the route: "
+msgstr " conté la ruta:"
+
+#: pntemplates/Export_admin_import_select.htm:64
+msgid "There aren't modules available to import"
+msgstr "No hi ha mòduls disponibles per a importar"
+
+#: pntemplates/Export_admin_import_select.htm:68
+msgid "The follow modules are unavailable in the system:"
+msgstr "Els mòduls següents no estan actius en el sistema:"
+
+#: pntemplates/Export_admin_import_select.htm:74
+msgid "<b>Backup</b><br>"
+msgstr "<b>Còpia de seguretat</b><br>"
+
+#: pntemplates/Export_admin_import_select.htm:79
+msgid "Create a backup of the system and the selected modules and store it in the server."
+msgstr "Crea una copia de seguretat del sistema i dels mòduls seleccionats i la guarda al servidor."
+
+#: pntemplates/Export_admin_import_select.htm:86
+#: pntemplates/Export_admin_backup_delete.htm:13
+#: pntemplates/Export_admin_backup_restore.htm:47
+msgid "Cancel the deletion"
+msgstr "Cancel·la l'esborrament."
+
+#: pntemplates/Export_admin_backup_report.htm:5
+msgid "Restore modules"
+msgstr "Restaura mòduls"
+
+#: pntemplates/Export_admin_backup_report.htm:7
+msgid " The following modules has been correctly restored:"
+msgstr "Els mòduls següents s'han restaurat correctament:"
+
+#: pntemplates/Export_admin_export_modules.htm:6
+#: pntemplates/Export_admin_menu.htm:6
+msgid "Export modules"
+msgstr "Exporta mòduls"
+
+#: pntemplates/Export_admin_export_modules.htm:8
+msgid "Export pack generated. Download it "
+msgstr "S'ha generat el paquet d'exportació. Descarrega'l"
+
+#: pntemplates/Export_admin_export_modules.htm:8
+msgid "here."
+msgstr "aquí."
+
+#: pntemplates/Export_admin_export_modules.htm:10
+msgid "To export some modules, select them and click in the button \"Export\" in the bottom of the page."
+msgstr "Per tal d'exportar alguns mòduls, selecciona'ls de la llista i fes clic al botó \"Exporta\" a la part inferior de la pàgina"
+
+#: pntemplates/Export_admin_menu.htm:3
+msgid "Export and import modules"
+msgstr "Exporta i importa mòduls"
+
+#: pntemplates/Export_admin_menu.htm:9
+#: pntemplates/Export_admin_backup_list.htm:5
+msgid "Manage backups"
+msgstr "Gestiona les copies de seguretat"
+
+#: pntemplates/Export_admin_menu.htm:10
+#: pntemplates/Export_admin_main.htm:5
+msgid "Configure the module"
+msgstr "Configura el mòdul"
+
+#: pntemplates/Export_admin_backup_delete.htm:5
+msgid "Delete the backup"
+msgstr "Elimina la copia de seguretat"
+
+#: pntemplates/Export_admin_backup_delete.htm:10
+msgid "Are you really sure to delete the backup?"
+msgstr "Esteu segurs de que voleu eliminar la copia de seguretat?"
+
+#: pntemplates/Export_admin_backup_restore.htm:5
+msgid "Restore the backup"
+msgstr "Restaura la copia de seguretat"
+
+#: pntemplates/Export_admin_backup_restore.htm:10
+msgid "Confirm the restore of the backup"
+msgstr "Confirmeu que voleu restaurar la còpia de seguretat"
+
+#: pntemplates/Export_admin_backup_restore.htm:16
+msgid "Restore"
+msgstr "Restaura"
+
+#: pntemplates/Export_admin_backup_restore.htm:39
+msgid "<b>Warning!</b><br>If you restore some modules, data and files of the actual module, users and groups will be replaced!<br>Are you completly sure?"
+msgstr "<b>Alerta!</b><br>Si restaureu algun mòdul, les dades i els fitxers del mòdul actual, així com els usuaris i els grups del vostre sistema seran substituïts!<br>N'esteu segurs?"
+
+#: pntemplates/Export_admin_backup_restore.htm:42
+msgid "There aren't modules available to restore"
+msgstr "No hi ha mòduls disponibles per a restaurar"
+
+#: pntemplates/Export_admin_backup_list.htm:10
+msgid "Backup date"
+msgstr "Data de la copia de seguretat"
+
+#: pntemplates/Export_admin_backup_list.htm:11
+msgid "Modules"
+msgstr "Mòduls"
+
+#: pntemplates/Export_admin_backup_list.htm:12
+msgid "Actions"
+msgstr "Accions"
+
+#: pntemplates/Export_admin_backup_list.htm:18
+msgid "Availables"
+msgstr "Actius"
+
+#: pntemplates/Export_admin_backup_list.htm:27
+msgid "Unavailables"
+msgstr "Inactius"
+
+#: pntemplates/Export_admin_backup_list.htm:34
+msgid "Delete backup"
+msgstr "Elimina la còpia de seguretat"
+
+#: pntemplates/Export_admin_backup_list.htm:35
+msgid "Restore backup"
+msgstr "Restaura la còpia de seguretat"
+
+#: pntemplates/Export_admin_backup_list.htm:42
+msgid "<b>No backups found</b>"
+msgstr "<b>No s'ha trobat copies de seguretat</b>"
+
+#: pntemplates/Export_admin_main.htm:8
+msgid "Backup folder:"
+msgstr "Directori de copies de seguretat:"
+
+#: pntemplates/Export_admin_main.htm:13
+msgid "Modify the configuration"
+msgstr "Modifica la configuració"
+
+#~ msgid ""
+#~ "Module iw_main is required. You have to install the iw_main module "
+#~ "previously to install it."
+#~ msgstr ""
+#~ "El mòdul iw_main ha d'estar instal·lat. Instal·leu-lo per poder "
+#~ "instal·lar aquest mòdul."
+#~ msgid "Sorry! No authorization to access this module."
+#~ msgstr "No teniu autorització per accedir a aquest mòdul"
+#~ msgid "Select in the following table the modules that you want export."
+#~ msgstr "Seleccioneu en la taula següent els mòduls que voleu exportar."
+#~ msgid "The export package includes your users and groups configuration."
+#~ msgstr ""
+#~ "El paquet d'exportació inclou la vostra configuració de grups i usuaris."
+#~ msgid "Root folder:"
+#~ msgstr "Directori arrel:"
+#~ msgid "About this module"
+#~ msgstr "Pel que fa a aquest mòdul"
+

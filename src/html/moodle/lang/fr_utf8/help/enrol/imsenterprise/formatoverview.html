@@ -1,0 +1,73 @@
+<!-- $Id: formatoverview.html,v 1.1 2008/05/04 19:40:17 martignoni Exp $ -->
+
+<h1>Vue d'ensemble du format IMS Enterprise</h1>
+
+<p>Voici un guide abrégé de la structure de base d'un fichier de données IMS Enterprise. Pour des informations complètes, veuillez consulter le <a href="http://www.imsglobal.org/enterprise/">site web officiel de IMS Enterprise</a>.</p>
+
+<!--<p>Vous pouvez également lire notamment le <a href="./enrol/imsenterprise/entv1p1_conformance_summary.html">résumé de conformité</a> (en anglais), qui décrit les données IMS que la méthode d'inscription peut traiter.</p>-->
+
+<h1>Guide abrégé du format de fichier IMS Enterprise</h1>
+
+<p>Pour tous les types d'inscription IMS, vous devez spécifier une balise <code>&lt;group&gt;</code>, indiquant le cours, une balise <code>&lt;person&gt;</code>, indiquant le compte utilisateur, et une balise <code>&lt;membership&gt;</code>, contenant les balises <code>&lt;member&gt;</code> indiquant le rôle d'un utilisateur dans le cours.</p>
+
+<p>Il est important de se souvenir que les identifiants numériques utilisé dans la base de données  de Moodle ne sont pas ceux qui sont échangés dans ce type de données (les identifiants numériques sont attribués par Moodle de façon interne).</p>
+
+<p>Habituellement, un cours aura également un identifiant de référence, ainsi qu'un nom abrégé. Dans la suite de ce guide, nous allons admettre que le nom abrégé de ce cours est MOODLE101. Pour définir votre cours, vous pourriez utiliser par exemple</p>
+
+<pre>
+ &lt;group&gt;
+  &lt;sourcedid&gt;
+   &lt;source&gt;MyDataSystem&lt;/source&gt;
+   &lt;id&gt;MOODLE101&lt;/id&gt;
+  &lt;/sourcedid&gt;
+  &lt;description&gt;
+   &lt;short&gt;Moodle 101&lt;/short&gt;
+  &lt;/description&gt;
+ &lt;/group&gt;
+</pre>
+
+<p>Le script d'inscription va chercher dans la base de données de Moodle un cours dont le nom abrégé est MOODLE101, et optionnellement le créer s'il n'existe pas encore. Ceci fonctionne de façon analogue pour les personnes. Nous admettrons qu'un utilisateur ait le nom d'utilisateur « jmoodle » :</p>
+
+<pre>
+ &lt;person&gt;
+  &lt;sourcedid&gt;
+   &lt;source&gt;MyDataSystem&lt;/source&gt;
+   &lt;id&gt;jmoodle&lt;/id&gt;
+  &lt;/sourcedid&gt;
+  &lt;userid&gt;jmoodle&lt;/userid&gt;
+  &lt;name&gt;
+   &lt;fn&gt;Joe Moodle&lt;/fn&gt;
+   &lt;n&gt;
+    &lt;family&gt;MOODLE&lt;/family&gt;
+    &lt;given&gt;JOE&lt;/given&gt;
+   &lt;/n&gt;
+  &lt;/name&gt;
+ &lt;/person&gt;
+</pre>
+
+<p>Si Joe n'a pas encore de compte utilisateur, le script peut (optionnellement) créer un compte pour lui.</p>
+
+<p>Jetons maintenant un oeil au rôle de l'utilisateur, ou comment ajouter une personne au cours :</p>
+
+<pre>
+ &lt;membership&gt;
+  &lt;sourcedid&gt;
+   &lt;source&gt;MyDataSystem&lt;/source&gt;
+   &lt;id&gt;MOODLE101&lt;/id&gt;
+  &lt;/sourcedid&gt;
+  &lt;member&gt;
+   &lt;sourcedid&gt;
+    &lt;source&gt;MyDataSystem&lt;/source&gt;
+    &lt;id&gt;jmoodle&lt;/id&gt;
+   &lt;/sourcedid&gt;
+   &lt;role roletype=&quot;01&quot;&gt;
+    &lt;status&gt;1&lt;/status&gt;
+    &lt;extension&gt;&lt;cohort&gt;unit 2&lt;/cohort&gt;&lt;/extension&gt;
+   &lt;/role&gt;
+  &lt;/member&gt;
+ &lt;/membership&gt;
+</pre>
+
+<p>Les spécifications de IMS Enterprise propose un moyen de spécifier les dates de début et de fin d'inscription, qui peuvent ainsi être incluses dans la balise <code>&lt;timeframe&gt;</code> au besoin.</p>
+
+<p>Si une personne est déjà membre d'un groupe dans le cours, le script ne modifiera pas son appartenance. Dans le cas contraire, cependant, le groupement sera appliqué correctement.</p>

@@ -1,0 +1,56 @@
+<!--[*  $Id: stats_user_os.htm 9 2008-11-05 21:42:16Z Guite $  *]-->
+<h2><!--[gt text="Operating system"]--></h2>
+<table class="pn-datatable">
+    <tbody>
+	<tr>
+		<td><!--[pnimg src='os_windows.png']--></td>
+		<td>Windows</td>
+		<td><!--[makepercentbar percent=$os.windows.1 label="`$os.windows.1` %" width=200]--> <!--[$os.windows.1]-->% (<!--[$os.windows.0]-->)</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='os_linux.png']--></td>
+		<td>Linux</td>
+		<td><!--[makepercentbar percent=$os.linux.1 label="`$os.linux.1` %" width=200]--> <!--[$os.linux.1]-->% (<!--[$os.linux.0]-->)</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='os_macosx.png']--></td>
+		<td>Mac OS/X</td>
+		<td><!--[makepercentbar percent=$os.macosx.1 label="`$os.macosx.1` %" width=200]--> <!--[$os.macosx.1]-->% (<!--[$os.macosx.0]-->)</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='os_mac.png']--></td>
+		<td>Mac</td>
+		<td><!--[makepercentbar percent=$os.mac.1 label="`$os.mac.1` %" width=200]--> <!--[$os.mac.1]-->% (<!--[$os.mac.0]-->)</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='os_freebsd.png']--></td>
+		<td>FreeBSD</td>
+		<td><!--[makepercentbar percent=$os.freebsd.1 label="`$os.freebsd.1` %" width=200]--> <!--[$os.freebsd.1]-->% (<!--[$os.freebsd.0]-->)</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='os_sun.png']--></td>
+		<td>SunOS</td>
+		<td><!--[makepercentbar percent=$os.sunos.1 label="`$os.sunos.1` %" width=200]--> <!--[$os.sunos.1]-->% (<!--[$os.sunos.0]-->)</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='os_irix.png']--></td>
+		<td>IRIX</td>
+		<td><!--[makepercentbar percent=$os.irix.1 label="`$os.irix.1` %" width=200]--> <!--[$os.irix.1]-->% (<!--[$os.irix.0]-->)</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='os_os2.png']--></td>
+		<td>OS/2</td>
+		<td><!--[makepercentbar percent=$os.os2.1 label="`$os.os2.1` %" width=200]--> <!--[$os.os2.1]-->% (<!--[$os.os2.0]-->)</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='os_aix.png']--></td>
+		<td>AIX</td>
+		<td><!--[makepercentbar percent=$os.aix.1 label="`$os.aix.1` %" width=200]--> <!--[$os.aix.1]-->% (<!--[$os.aix.0]-->)</td>
+	</tr>
+	<tr>
+		<td><!--[pnimg src='browser_question.png']--></td>
+		<td><!--[gt text="Unknown user agent"]--></td>
+		<td><!--[makepercentbar percent=$os.os_other.1 label="`$os.os_other.1` %" width=200]--> <!--[$os.os_other.1]-->% (<!--[$os.os_other.0]-->)</td>
+	</tr>
+	</tbody>
+</table>

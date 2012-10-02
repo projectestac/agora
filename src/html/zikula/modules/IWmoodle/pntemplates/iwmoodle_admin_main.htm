@@ -1,0 +1,64 @@
+<!--[include file="iwmoodle_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+    <div class="pn-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large' __alt=$templatetitle]--></div>
+    <!--[if $courses|@count gt 0]-->
+    <h2><!--[gt text="List of available courses"]--></h2>
+    <div style="height:20px;">&nbsp;</div>
+    <table class="pn-admintable">
+        <thead>
+            <tr>
+                <th><!--[gt text="Code"]--></th>
+                <th><!--[gt text="Title"]--></th>
+                <th><!--[gt text="Summary"]--></th>
+                <th><!--[gt text="Type"]--></th>
+                <th><!--[gt text="State"]--></th>
+                <th><!--[gt text="Options"]--></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--[section name=courses loop=$courses]-->
+            <tr class="<!--[cycle values="pn-odd,pn-even"]-->">
+                <td valign="top">
+                    <!--[$courses[courses].shortname]-->
+                </td>		
+                <td valign="top">
+                    <!--[$courses[courses].fullname]-->
+                </td>
+                <td valign="top">
+                    <!--[$courses[courses].summary]-->
+                </td>
+                <td valign="top">
+                    <!--[$courses[courses].format]-->
+                </td>
+                <td valign="top">
+                    <div name="state_<!--[$courses[courses].id]-->" id="state_<!--[$courses[courses].id]-->">
+                        <!--[if $courses[courses].visible eq 0]-->
+                        <a href="javascript:chgCourseState(<!--[$courses[courses].id]-->)"><span class="inactive"><!--[gt text="Disabled"]--></span></a>
+                        <!--[else]-->
+                        <a href="javascript:chgCourseState(<!--[$courses[courses].id]-->)"><span class="active"><!--[gt text="Enabled"]--></span></a>
+                        <!--[/if]-->
+                    </div>
+                </td>
+                <td valign="top">
+                    <div name="options_<!--[$courses[courses].id]-->" id="options_<!--[$courses[courses].id]-->">
+                        <a href="<!--[pnmodurl modname=IWmoodle type=admin func=list id=$courses[courses].id]-->"><!--[gt text="List"]--></a>
+                        <br />
+                        <!--[if $courses[courses].visible eq 0]-->
+                        <a href="javascript:chgCourseState(<!--[$courses[courses].id]-->)"><!--[gt text="Active"]--></a>
+                        <!--[else]-->
+                        <a href="javascript:chgCourseState(<!--[$courses[courses].id]-->)"><!--[gt text="Inactive"]--></a>
+                        <!--[/if]-->
+                    </div>
+                </td>						
+            </tr>
+            <!--[/section]-->
+        </tbody>
+    </table>
+    <!--[else]-->
+    <!--[gt text="Not found courses"]-->
+    <!--[/if]-->
+    <div style="height: 20px;">&nbsp;</div>
+    <div style="clear:both; ">
+        <a href="<!--[pnmodurl modname=IWmoodle type=admin func=module]-->"><!--[gt text="About this module"]--></a>
+    </div>
+</div>

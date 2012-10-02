@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/advices/db" VERSION="20100628" COMMENT="XMLDB file for Moodle advice block tables">
+  <TABLES>
+    <TABLE NAME="block_advices" COMMENT="To store the advices">
+      <FIELDS>
+	    <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="msg"/>
+        <FIELD NAME="msg" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" DEFAULT="" ENUM="false" PREVIOUS="id" NEXT="date_start"/>
+		<FIELD NAME="date_start" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="msg" NEXT="date_stop" />
+		<FIELD NAME="date_stop" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="date_start" NEXT="show_only_admins"/>
+		<FIELD NAME="show_only_admins" TYPE="int" LENGTH="1" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" COMMENT="Show the message only for administrators of the site" PREVIOUS="date_stop"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+      </KEYS>
+	  <INDEXES>
+        <INDEX NAME="show_only_admins" UNIQUE="true" FIELDS="show_only_admins"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

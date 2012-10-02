@@ -1,0 +1,28 @@
+<!--[pnuserloggedin assign=userid]-->
+<div <!--[if $userid neq '']-->style="border: 2px solid <!--[if isset($days[day][events_day].gColor)]--><!--[$days[day][events_day].gColor]--><!--[else]--><!--[$days[day][events_day].agenda.color]--><!--[/if]-->; margin: 3px;"<!--[/if]--> id="note_<!--[$days[day][events_day].aid]-->">
+	<div style="margin:2px;">
+		<span style="background:#<!--[$days[day][events_day].hourcolor]-->; color:#<!--[$colors[5]]-->;"><!--[$days[day][events_day].hour]--></span><!--[if $days[day][events_day].gCalendar]-->&nbsp;<span style="vertical-align:middle;"><!--[pnimg modname='iw_agendas' src='gIcon.gif' set='pnimages']--></span><!--[/if]-->
+	</div>
+	<div style="margin:2px;">
+		<span id="noteText_<!--[$days[day][events_day].aid]-->" style="background:#<!--[$days[day][events_day].bgcolortext]-->; color:#<!--[$colors[15]]-->;"><!--[$days[day][events_day].text]--></span>
+		<!--[if $userid neq '']-->
+			<!--[if $days[day][events_day].modified eq 1 && $daid eq 0 && $days[day][events_day].agenda.daid neq 0]-->
+				<br /><strong><!--[gt text="Agenda updated"]--></strong>
+			<!--[/if]-->
+			<!--[if $days[day][events_day].deleted eq 1 && $daid eq 0 && ($days[day][events_day].agenda.daid neq 0 || $days[day][events_day].gCalendar)]-->
+				<br /><strong><!--[gt text="Deleted"]--></strong>
+			<!--[/if]-->
+		<!--[/if]-->
+	</div>
+	<div style="margin:2px;">
+		<!--[if isset($days[day][events_day].popuptitle) && $days[day][events_day].popupcontent neq '' && $days[day][events_day].popupcontent neq '---']-->
+			<img src="<!--[$days[day][events_day].popupimage]-->" onmouseout="nd();" onmouseover="overlib('<div style=\'padding:5px;\'><!--[$days[day][events_day].popupcontent]--></div>',CAPTION,'<div style=\'padding:5px;\'><!--[$days[day][events_day].popuptitle]--></div>',BGCOLOR,'#316ac5',TIMEOUT,100000,DELAY,200,WIDTH,300)" />
+		<!--[/if]-->
+		<!--[if isset($days[day][events_day].filename)]-->
+			<a href="<!--[pnmodurl modname="iw_agendas" func="download" fileName=$days[day][events_day].filename aid=$days[day][events_day].aid]-->">
+				<img src="modules/iw_agendas/pnimages/fitxer.gif" onmouseout="nd();" onmouseover="overlib('<div style=\'padding:5px;\'><img src=modules/iw_main/pnimages/fileIcons/<!--[$days[day][events_day].fileIcon]-->> <!--[$days[day][events_day].filename]--></div>',CAPTION,'<div style=\'padding:5px;\'><!--[$days[day][events_day].filetitle]--></div>',BGCOLOR,'#316ac5',TIMEOUT,100000,DELAY,200,WIDTH,200)" />
+			</a>
+		<!--[/if]-->
+		<!--[$days[day][events_day].images]-->
+	</div>
+</div>

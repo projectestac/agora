@@ -1,0 +1,18 @@
+<!--[include file=Export_admin_menu.htm]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Detele variable"]--></h2>
+	<form class="pn-adminform" action="index.php?module=Export&type=admin&func=delVariable" method="post" enctype="application/x-www-form-urlencoded">
+		<div class="pn-adminformrow">
+			<input type="hidden" name="confirm" value="1" />
+			<input type="hidden" value="<!--[$module]-->" name="mod" /><br />
+			<input type="hidden" value="<!--[$variable]-->" name="variable" />
+			<p><!--[gt text="Do you really want to delete the variable "]--><b><!--[$variable]--></b><!--[gt text=" from de module "]--><b><!--[$module]--></b>?</p>
+		</div>
+		<div class="formOptions" style="text-align: center;">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Submit" __title="Submit"]-->
+			<a href=<!--[pnmodurl modname="Export" type="admin" func="exportModules"]-->><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Delete" __title="Delete"]--></a>
+		</div>
+	</form>
+</div>

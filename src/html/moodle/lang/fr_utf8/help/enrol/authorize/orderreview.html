@@ -1,0 +1,17 @@
+<!-- $Id: orderreview.html,v 1.1 2008/05/03 11:38:53 martignoni Exp $ -->
+
+<h1>Revoir les commandes avant le traitement des cartes de crédit.</h1>
+
+<p>Décochez l'option « an_review » si les participants doivent être inscrits aux cours immédiatement après avoir tapé leur numéro de carte de crédit.</p>
+
+<p>Si vous avez coché l'option « an_review », la carte de crédit sera autorisée, mais pas saisie, et vous aurez alors deux choix possibles : « saisie manuelle » ou « saisie programmée ».</p>
+
+<ul>
+
+<li>Pour une saisie manuelle, tapez 0 dans le champ « an_capture_day ». La transaction sera annulée, à moins que vous ne l'acceptiez dans les 30 jours. Pas de panique ! Si vous configurez correctement le cron et la section Réglages de l'envoi des courriels, vous recevrez une notification quelques jours avant l'échéance des commandes en attente de traitement.</li>
+
+<li>Pour une saisie programmée, tapez un nombre entre 1 et 29 dans le champ « an_capture_day ». Le cron <b>doit être activé</b>. La carte sera saisie et l'étudiant inscrit à votre cours. Le système de saisie programmée traite la carte après le nombre de jours indiqué par « an_capture_day days ». Si vous êtes plutôt sceptique, vous pourrez accepter ou refuser le paiement après avoir reçu une notification par courriel d'une nouvelle commande en attente. Les utilisateurs recevront également un message de bienvenue, si vous cochez l'option « enrol_mailstudents ».</li>
+
+</ul>
+
+<p><strong>Dans Moodle 1.6, vous pouvez accepter, refuser ou rembourser les paiements dans la paeg de gestion des paiements.</strong></p>

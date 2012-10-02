@@ -1,0 +1,90 @@
+<h1>Caricamento degli utenti</h1>
+
+<p>Innanzitutto, occorre notare che <b>di solito non è necessario importare utenti in massa</b>. Per ridurre il proprio lavoro di manutenzione bisognerebbe, per prima cosa, esaminare i moduli di autenticazione che non richiedono la manutenzione manuale, come la connessione ad esistenti database esterni o consentire agli utenti la creazione di propri account. Consultare la sezione Autenticazione nei menu dell'amministratore.</p>
+
+<p>Se si è sicuri di voler importare molteplici account utente da un file di testo, allora occorre formattare il proprio file di testo come segue:</p>
+
+<ul>
+  <li>Ciascuna riga del file contiene un record</li>
+  <li>Ciascun record è una serie di dati separati da virgole (o altri delimitatori)</li>
+  <li>Il primo record del file è speciale e contiene un elenco di fieldname (nomi di campo). Ciò definisce il formato del resto del file.
+
+<blockquote>
+
+<p><b>Fieldname richiesti:</b> questi campi devono essere inclusi nel primo record e definiti per ciascun utente</p>
+<p><code>firstname, lastname</code> nell'inserimento o <code>username</code> nell'aggiornamento</p>
+
+<p><b>Fieldname facoltativi:</b> sono tutti completamente facoltativi. Se un valore è presente, per il campo, nel file, allora quel valore è usato; altrimenti è usato il valore di default per quel campo.</p>
+<p><code>institution, department, city, country, lang, auth, ajax, timezone, idnumber, icq, phone1, phone2, address, url, description, mailformat, maildisplay, htmleditor, autosubscribe, emailstop</code></p>
+
+<p><b>Fieldname del profilo personalizzato:</b> facoltativi, xxxxx è il nome campo del profilo personalizzato (cioè l'univoco nome breve)</p>
+<p><code>profile_field_xxxxx</code></p>
+
+<p><b>Fieldname speciali:</b> usati per la modifica degli username e per la cancellazione di utenti, guarda sotto</p>
+<p><code>deleted, oldusername</code></p>
+
+<p><b>Fieldname di iscrizione (facoltativi):</b> I nomi dei corsi sono le sigle dei corsi - se presenti, l'utente sarà iscritto come studente in questi corsi. "Type" significa tipo di ruolo da associare all'iscrizione al corso. Il valore 1 è il ruolo default di corso, 2 è il vecchio ruolo Docente e 3 il vecchio ruolo Docente non-editor. Si può però usare il campo ruolo per specificare direttamente i ruoli - usare o il nome breve del ruolo o l'id (nomi numerici di ruoli non sono supportati). Gli utenti possono anche essere assegnati a gruppi in un corso (group1 in course1, group2 in course2, ecc.). I gruppi anche sono identificati dal loro nome o dai propri id (nomi numerici di gruppi non sono supportati).</p>
+<p><code>course1, type1, role1, group1, course2, type2, role2, group2, ecc.</code></p>
+
+</blockquote>
+</li>
+<li>Le virgole all'interno dei dati dovrebbero essere codificate come &amp;#44 - lo script le decodificherà automaticamente di nuovo in virgole. </li>
+<li>Per i campi booleani, utilizzare 0 per falso e 1 per vero.</li>
+</ul>
+
+<p>Ecco l'esempio di un file di importazione valido:</p>
+
+<p><code>username, password, firstname, lastname, email, lang, idnumber, maildisplay, course1, group1, type1<br />
+jonest, verysecret, Tom, Jones, jonest@someplace.edu, en, 3663737, 1, Intro101, Section 1, 1<br />
+reznort, somesecret, Trent, Reznor, reznort@someplace.edu, en_us, 6736733, 0, Advanced202, Section 3, 3
+</code></p>
+
+<h2>Schemi</h2>
+<p>I valori default sono elaborati come schemi nei quali sono ammesse le seguenti codifiche:</p>
+<ul>
+<li><code>%l</code> - sarà sostituito dal lastname</li>
+<li><code>%f</code> - sarà sostituito dal firstname</li>
+<li><code>%u</code> - sarà sostituito dallo username</li>
+<li><code>%%</code> - sarà sostituito dal %</li>
+</ul>
+<p>Tra il carattere percento (%) e ogni codifica letterale (l, f or u) sono permessi i seguenti modificatori:</p>
+<ul>
+<li>(-) segno meno - l'informazione specificata dalla codifica letterale sarà convertita in minuscolo</li>
+<li>(+) segno più - l'informazione specificata dalla codifica letterale sarà convertita in MAIUSCOLO</li>
+<li>(~) segno tilde - l'informazione specificata dalla codifica letterale sarà convertita in Title Case</li>
+<li>un numero decimale - l'informazione specificata dalla codifica letterale sarà troncata a questo numero di caratteri</li>
+</ul>
+
+<p>Per esempio, se il nome è John e il cognome è Doe, i seguenti valori saranno ottenuti con gli schemi specificati:</p>
+<ul>
+<li>%l%f = DoeJohn</li>
+<li>%l%1f = DoeJ</li>
+<li>%-l%+f = doeJOHN</li>
+<li>%-f_%-l = john_doe</li>
+<li>http://www.example.com/~%u/ = http://www.example.com/~jdoe/ (se lo username è jdoe o %-1f%-l)</li>
+</ul>
+<p>L'elaborazione di schemi è effettuata solo sui valori default, e non sui valori presi dal file CSV.</p>
+
+<p>Affinché siano creati username Moodle corretti, gli username saranno convertiti sempre in minuscolo. Inoltre, se l'opzione "Permetti l'uso di caratteri speciali negli username" nella pagina Politiche del Sito è off, caratteri differenti da lettere, cifre, trattini (-) e punti (.) sono rimossi.
+Per esempio se il nome è John Jr. e il cognome è Doe, lo username %-f_%-l produrrà john jr._doe quando "Permetti l'uso di caratteri speciali negli username" è on, e johnjr.doe quando è off.</p>
+
+<p>Quando l'impostazione "Gestione duplicazione nuovi username" è settata a "Aggiungi contatore", un numero auto-incrementato sarà appeso agli username duplicati prodotti dallo schema.
+Per esempio, se il file CSV gli utenti che si chiamano John Doe, Jane Doe e Jenny Doe senza espliciti username, il default username è %-1f%-l e "Gestione duplicazione nuovi username" è impostato a "Aggiungi contatore", allora gli username prodotti saranno jdoe, jdoe2 and jdoe3.</p>
+
+<h2>Aggiornamento account esistenti</h2>
+
+<p>Per default Moodle assume che si stanno creando nuovi account utenti e salta i records dove lo username corrisponde ad un account esistente. Comunque, se si imposta "Aggiorna account esistenti" a <b>SI</b>, l'account utente esistente sarà aggiornato.</p>
+
+<p>Quando si aggiornano account esistenti si possono anche cambiare gli username. Impostare "Permetti rinomina" a <b>SI</b> e includere nel file da caricare un campo chiamato <code>oldusername</code>.</p>
+
+<p><b>Attenzione:</b> ogni errore nell'aggiornamento degli account esistenti può incidere negativamente sui dati degli utenti. Porre molta attenzione quando si usano le opzioni per l'aggiornamento.</p>
+
+<h2>Cancellazione account</h2>
+
+<p>Se è presente il campo <code>deleted</code>, gli utenti con il valore 1 per tale campo saranno cancellati. In questo caso tutti gli altri campi possono essere omessi ad eccezione di  <code>username</code>.</p>
+
+<p>Cancellazione e caricamento di account possono essere effettuati con un singolo CSV file. Per esempio, il seguente file aggiunge l'utente Tom Jones e cancella l'utente reznort:</p>
+<p><code>username, firstname, lastname, deleted<br />
+jonest, Tom, Jones, 0<br />
+reznort, , , 1
+</code></p>

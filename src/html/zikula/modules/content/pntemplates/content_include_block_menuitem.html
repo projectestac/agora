@@ -1,0 +1,11 @@
+<!--[if $page.isInMenu]-->
+<li<!--[if !empty($page.subPages)]--> class="sub"<!--[/if]-->><a href="<!--[pnmodurl modname=content func=view pid=$page.id]-->" title="<!--[$page.title]-->"><!--[$page.title]--></a>
+    <!--[if $page.subPages]-->
+    <ul>
+        <!--[foreach from=$page.subPages item=subpage]-->
+        <!--[include file=content_include_block_menuitem.html page=$subpage]-->
+        <!--[/foreach]-->
+    </ul>
+    <!--[/if]-->
+</li>
+<!--[/if]-->

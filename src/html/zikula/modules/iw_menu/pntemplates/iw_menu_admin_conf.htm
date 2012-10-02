@@ -1,0 +1,41 @@
+<!--[include file="iw_menu_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='package_settings.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<h2><!--[gt text="Configure the module"]--></h2>
+	<div style="height:20px;">&nbsp;</div>
+	<form  class="pn-adminform" enctype="application/x-www-form-urlencoded" method="post" id="menu" action="<!--[pnmodurl modname=iw_menu type=admin func=conf_update]-->">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_menu"]-->" />
+		<!--[if not $multizk]-->
+			<div class="pn-adminformrow">
+				<label for="directoriroot"><!--[gt text="Init of the file folder"]--></label>
+				<input type="text" name="directoriroot" size="50" maxlength="50" value="<!--[$directoriroot]-->" onFocus='blur()' />
+			</div>
+		<!--[/if]-->
+		<div class="pn-adminformrow">
+			<label for="imagedir"><!--[gt text="Server directory for the menu icons"]--></label>
+			<input type="text" name="imagedir" value="<!--[$menu_vars.imagedir]-->" size="30" maxlength="100" />
+		</div>
+		<!--[if $noFolder]-->
+			<div class="pn-errormsg">
+				<!--[gt text="The menu icons folder not have been found"]-->
+			</div>
+		<!--[/if]-->
+        <!--[if not $writeable]-->
+            <div class="pn-errormsg">
+                <!--[gt text="The menu icons folder is not writeable."]-->
+            </div>
+        <!--[/if]-->
+        <!--[*]-->
+		<div class="pn-adminformrow">
+			<label for="width"><!--[gt text="Width for the options"]--></label>
+			<input type="text" name="width" value="<!--[$menu_vars.width]-->" size="7" maxlength="11" />
+		</div>
+        <!--[*]-->
+		<div style="cursor:pointer; text-align: center;">
+			<a onClick="javascript:sendConf()"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small' __alt="Save" __title="Execute changes"]--></a><!--[gt text="Save"]-->
+		</div>
+	</form>
+</div>
+<script language="javascript">
+    var InvalidData = "<!--[gt text="The value of the field"]--> \"<!--[gt text="Default width for the options"]-->\" <!--[gt text="must be numeric."]-->";
+</script>

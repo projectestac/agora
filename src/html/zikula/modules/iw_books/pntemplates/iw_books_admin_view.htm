@@ -1,0 +1,95 @@
+<!--[pngetstatusmsg]-->
+<!--[include file="iw_books_admin_menu.htm"]-->
+
+<div class="z-admincontainer">
+<div class="z-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large' ]--></div>
+
+
+<h2><!--[gt text="See all the books entered"]--></h2>
+
+<div>
+<form id="filtra"  class="pn-form" action="<!--[pnmodurl modname="iw_books" type="admin" func="view"]-->" method="post" enctype="application/x-www-form-urlencoded">
+ <fieldset class="iw_books-fieldset">
+ 	<legend><!--[gt text="Options filter"]--></legend>
+	<label for="iw_books_any"><!--[gt text="Curs acad.: "]--></label>
+ 		<select id="iw_books_curs"  name="curs"><!--[html_options options=$aanys selected=$cursselec]--></select>
+	<label for="iw_books_etapa"><!--[gt text="Pla: "]--></label>
+ 		<select id="iw_books_etapa"  name="etapa"><!--[html_options options=$aplans selected=$plaselec]--></select>
+ 	<label for="iw_books_nivell"><!--[gt text="Nivell: "]--></label>
+ 		<select id="iw_books_nivell"  name="nivell"><!--[html_options options=$anivells selected=$nivellselec]--></select>
+ 	<label for="iw_books_materia"><!--[gt text="Matèria: "]--></label>
+ 		<select id="iw_books_materia"  name="materia"><!--[html_options options=$amateries selected=$materiaselec]--></select>
+
+
+  <input name="submit" type="submit" value="<!--[gt text="Filtra"]-->" />
+  <input name="pdf"    type="submit" value="<!--[gt text="Crea llistat PDF"]-->" />
+ </fieldset>
+ </form>
+
+</div>
+
+<br />
+
+<div>
+<h2>Llistat de Llibres de text · Curs: <!--[$cursacad]-->  <!--[$mostra_pla]--> <!--[$nivell_abre]--> <!--[$mostra_mat]--></h2>	
+</div>
+<div>
+<table class="z-admintable">
+  <thead>
+
+  <tr>
+      <th><!--[gt text="Autor"]--></th>
+      <th><!--[gt text="Tí­tol"]--></th>
+	  <th><!--[gt text="Editorial"]--></th>
+      <th><!--[gt text="Any"]--></th>
+	  <th><!--[gt text="Codi"]--></th>
+	  <th><!--[gt text="Pla"]--></th>
+      <th><!--[gt text="Nivell"]--></th>
+	  <th><!--[gt text="Lect?"]--></th>
+	  <th><!--[gt text="Aval"]--></th>
+	  <th><!--[gt text="Opt?"]--></th>
+      <th><!--[gt text="Mat"]--></th>
+      <th><!--[gt text="Opcions"]--></th>
+  </tr>
+  </thead>
+  <tbody>
+  <!--[section name="iw_booksitems" loop=$iw_booksitems]-->  
+    <tr class="<!--[cycle values=z-odd,z-even]-->">
+      <td><!--[$iw_booksitems[iw_booksitems].autor|pnvarprephtmldisplay]--></td>
+      <td><!--[$iw_booksitems[iw_booksitems].titol|pnvarprephtmldisplay]--></td>
+      <td><!--[$iw_booksitems[iw_booksitems].editorial|pnvarprephtmldisplay]--></td>
+      <td><!--[$iw_booksitems[iw_booksitems].any|pnvarprephtmldisplay]--></td>	  
+      <td><!--[$iw_booksitems[iw_booksitems].codi_mat|pnvarprephtmldisplay]--></td>
+      <td><!--[$iw_booksitems[iw_booksitems].etapa|pnvarprephtmldisplay]--></td>
+      <td><!--[$iw_booksitems[iw_booksitems].nivell|pnvarprephtmldisplay]--></td>	  
+      <td><!--[$iw_booksitems[iw_booksitems].lectura|pnvarprephtmldisplay]--></td>	  
+      <td><!--[$iw_booksitems[iw_booksitems].avaluacio|pnvarprephtmldisplay]--></td>
+      <td><!--[$iw_booksitems[iw_booksitems].optativa|pnvarprephtmldisplay]--></td>
+      <td><!--[$iw_booksitems[iw_booksitems].materials|pnvarprephtmldisplay]--></td>
+	  <td>
+
+	    <!--[assign var="options" value=$iw_booksitems[iw_booksitems].options]-->
+        <!--[section name=options loop=$options]-->
+          <a href="<!--[$options[options].url|pnvarprepfordisplay]-->"><!--[pnimg modname='core' set='icons/extrasmall' src=$options[options].image __alt=$options[options].title]--></a>
+        <!--[/section]-->
+      </td>
+    </tr>
+  <!--[sectionelse]-->
+	<tr class="pn-admintableempty"><td colspan="4"><!--[gt text="No items found."]--></td></tr>
+  <!--[/section]-->
+  
+  
+  </tbody>
+</table>
+<!--[pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum shift=1 img_prev=images/icons/extrasmall/previous.gif img_next=images/icons/extrasmall/next.gif]-->
+</div>
+
+<br /><br />
+Llegenda plans: <!--[$llegenda]-->
+<br />
+<div>
+<br />
+<a href="<!--[pnmodurl modname=iw_books type=user func=module]-->"><!--[gt text="About this module"]--></a>
+</div>
+
+</div>

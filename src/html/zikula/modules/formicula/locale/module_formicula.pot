@@ -1,0 +1,633 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-10 19:33+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnadmin.php:82 pnincludes/for_admin_edithandler.class.php:37
+msgid "Unknown Contact"
+msgstr ""
+
+#: pnadmin.php:101
+msgid "Contact has been deleted"
+msgstr ""
+
+#: pnadmin.php:185
+msgid "Mailer module is not available - unable to send emails!"
+msgstr ""
+
+#: pnadmin.php:193 pntemplates/plugins/function.simplecaptcha.php:52
+msgid "no image function available - captcha deactivated"
+msgstr ""
+
+#: pnadmin.php:199
+msgid ""
+"formicula_cache folder does not exist in Zikula's temporary folder or is not "
+"writable - captchas have been disabled"
+msgstr ""
+
+#: pnadmin.php:203
+msgid ".htaccess file needed in formicula_cache folder not exist"
+msgstr ""
+
+#: pnadmin.php:239
+msgid "The captcha image cached was cleared"
+msgstr ""
+
+#: pnversion.php:19
+msgid "Formicula forms module"
+msgstr ""
+
+#: pnversion.php:20 pntemplates/formicula_admin_header.html:6
+msgid "Formicula"
+msgstr ""
+
+#. ! module url shoudl be in lowercase without spaces different to displayname
+#: pnversion.php:22
+msgid "formicula"
+msgstr ""
+
+#: pnuserapi.php:58
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pnuserapi.php:198
+msgid "Contact Form"
+msgstr ""
+
+#: pnuserapi.php:262
+msgid "Error! No or incorrect E-Mail address supplied"
+msgstr ""
+
+#: pnuserapi.php:266
+msgid "Error! No username given"
+msgstr ""
+
+#: pnuserapi.php:271
+msgid "Error! No or invalid comment supplied (no HTML!)"
+msgstr ""
+
+#: pnuserapi.php:277
+msgid "Error! Mandatory field:"
+msgstr ""
+
+#: pnuserapi.php:280
+msgid "Error! Upload error"
+msgstr ""
+
+#: pnincludes/for_admin_modifyconfighandler.class.php:38
+#, php-format
+msgid "Set form #%1$s with %2$s templates"
+msgstr ""
+
+#: pnincludes/for_admin_modifyconfighandler.class.php:59
+msgid "The webserver cannot write into this folder!"
+msgstr ""
+
+#: pnincludes/for_admin_modifyconfighandler.class.php:75
+msgid "The configuration has been changed."
+msgstr ""
+
+#: pnincludes/for_admin_edithandler.class.php:68
+msgid "Error! No contact name"
+msgstr ""
+
+#: pnincludes/for_admin_edithandler.class.php:73
+msgid "Error! No or incorrect email address supplied"
+msgstr ""
+
+#: pnincludes/for_admin_edithandler.class.php:78
+msgid "Error! Incorrect email address supplied"
+msgstr ""
+
+#: pnincludes/for_admin_edithandler.class.php:90
+msgid "Contact created"
+msgstr ""
+
+#: pnincludes/for_admin_edithandler.class.php:92
+msgid "Error creating contact!"
+msgstr ""
+
+#: pnincludes/for_admin_edithandler.class.php:97
+msgid "Contact info has been updated"
+msgstr ""
+
+#: pnincludes/for_admin_edithandler.class.php:99
+msgid "Error updating contact!"
+msgstr ""
+
+#: pncontenttypesapi/form.php:35 pncontenttypesapi/form.php:40
+msgid "Formicula!"
+msgstr ""
+
+#: pncontenttypesapi/form.php:65
+msgid "no form selected"
+msgstr ""
+
+#: pnuser.php:156
+msgid "Bad in mathematics? You can do better, try again."
+msgstr ""
+
+#: pnuser.php:245
+msgid "There was an error sending the email."
+msgstr ""
+
+#: pnadminapi.php:93
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnadminapi.php:120
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: pnadminapi.php:178 pntemplates/formicula_admin_view.html:4
+msgid "View contacts"
+msgstr ""
+
+#: pnadminapi.php:179 pntemplates/formicula_admin_edit.html:6
+msgid "Add contact"
+msgstr ""
+
+#: pnadminapi.php:180
+msgid "Clear captcha image cache"
+msgstr ""
+
+#: pnadminapi.php:181 pntemplates/formicula_admin_modifyconfig.html:4
+#: pntemplates/formicula_admin_modifyconfig.html:9
+msgid "Modify configuration"
+msgstr ""
+
+#: pninit.php:40 pninit.php:162
+msgid ""
+"The installer could not create formicula_cache/index.html and/or "
+"formicula_cache/.htaccess, please refer to the manual before using the "
+"module!"
+msgstr ""
+
+#: pninit.php:43 pninit.php:165
+msgid ""
+"The installer could not create the formicula_cache folder, please refer to "
+"the manual before using the module!"
+msgstr ""
+
+#: pninit.php:47
+msgid ""
+"pnTemp folder found outside of the webroot, please consult the manual of how "
+"to create the formicula_cache folder in this case."
+msgstr ""
+
+#: pninit.php:52 pninit.php:109
+msgid "The installer could not create the formcontacts table"
+msgstr ""
+
+#: pninit.php:93
+msgid "Database upgrade failed"
+msgstr ""
+
+#: pntemplates/0_usermail.txt:4 pntemplates/2_adminmail.html:11
+#: pntemplates/1_adminmail.html:11 pntemplates/2_adminmail.txt:4
+#: pntemplates/2_usermail.txt:4 pntemplates/1_usermail.txt:4
+#: pntemplates/0_adminmail.html:12 pntemplates/0_usermail.html:12
+#: pntemplates/1_adminmail.txt:4 pntemplates/1_usermail.html:11
+#: pntemplates/2_usermail.html:11 pntemplates/0_adminmail.txt:4
+msgid "Hello,"
+msgstr ""
+
+#: pntemplates/0_usermail.txt:6 pntemplates/2_usermail.txt:6
+#: pntemplates/0_usermail.html:14 pntemplates/2_usermail.html:13
+msgid "Thank you for the comments posted from our Website. The sent data is:"
+msgstr ""
+
+#: pntemplates/0_usermail.txt:8 pntemplates/2_adminmail.html:16
+#: pntemplates/0_userform.html:21 pntemplates/1_adminmail.html:16
+#: pntemplates/2_adminmail.txt:9 pntemplates/2_usermail.txt:8
+#: pntemplates/1_usermail.txt:8 pntemplates/0_adminmail.html:17
+#: pntemplates/0_usermail.html:16 pntemplates/1_adminmail.txt:9
+#: pntemplates/1_usermail.html:15 pntemplates/2_userform.html:21
+#: pntemplates/2_userconfirm.html:15 pntemplates/2_usermail.html:15
+#: pntemplates/0_adminmail.txt:9 pntemplates/0_userconfirm.html:13
+msgid "Contact or Theme"
+msgstr ""
+
+#: pntemplates/0_usermail.txt:9 pntemplates/2_adminmail.html:17
+#: pntemplates/0_userform.html:32 pntemplates/1_adminmail.html:17
+#: pntemplates/2_adminmail.txt:10 pntemplates/2_usermail.txt:9
+#: pntemplates/1_usermail.txt:9 pntemplates/1_userform.html:33
+#: pntemplates/0_adminmail.html:18 pntemplates/0_usermail.html:17
+#: pntemplates/1_adminmail.txt:10 pntemplates/1_usermail.html:16
+#: pntemplates/2_userform.html:32 pntemplates/2_userconfirm.html:24
+#: pntemplates/1_userconfirm.html:17 pntemplates/2_usermail.html:16
+#: pntemplates/0_adminmail.txt:10 pntemplates/0_userconfirm.html:18
+msgid "Your Name"
+msgstr ""
+
+#: pntemplates/0_usermail.txt:10 pntemplates/2_adminmail.html:18
+#: pntemplates/0_userform.html:38 pntemplates/1_adminmail.html:18
+#: pntemplates/2_adminmail.txt:11 pntemplates/2_usermail.txt:10
+#: pntemplates/1_usermail.txt:10 pntemplates/1_userform.html:99
+#: pntemplates/0_adminmail.html:19 pntemplates/0_usermail.html:18
+#: pntemplates/1_adminmail.txt:11 pntemplates/1_usermail.html:17
+#: pntemplates/2_userform.html:38 pntemplates/formicula_admin_delete.html:17
+#: pntemplates/2_userconfirm.html:45 pntemplates/formicula_admin_edit.html:22
+#: pntemplates/1_userconfirm.html:37 pntemplates/formicula_admin_view.html:11
+#: pntemplates/2_usermail.html:17 pntemplates/0_adminmail.txt:11
+#: pntemplates/0_userconfirm.html:30
+msgid "E-Mail"
+msgstr ""
+
+#: pntemplates/0_usermail.txt:11 pntemplates/2_adminmail.html:19
+#: pntemplates/0_userform.html:47 pntemplates/1_adminmail.html:19
+#: pntemplates/2_adminmail.txt:12 pntemplates/2_usermail.txt:11
+#: pntemplates/1_usermail.txt:11 pntemplates/1_userform.html:92
+#: pntemplates/0_adminmail.html:20 pntemplates/0_usermail.html:19
+#: pntemplates/1_adminmail.txt:12 pntemplates/1_usermail.html:18
+#: pntemplates/2_userform.html:46 pntemplates/2_userconfirm.html:56
+#: pntemplates/1_userconfirm.html:46 pntemplates/2_usermail.html:18
+#: pntemplates/0_adminmail.txt:12 pntemplates/0_userconfirm.html:37
+msgid "Homepage"
+msgstr ""
+
+#: pntemplates/0_usermail.txt:12 pntemplates/2_adminmail.html:20
+#: pntemplates/0_userform.html:63 pntemplates/2_adminmail.txt:13
+#: pntemplates/2_usermail.txt:12 pntemplates/0_adminmail.html:21
+#: pntemplates/0_usermail.html:20 pntemplates/2_userform.html:61
+#: pntemplates/2_userconfirm.html:35 pntemplates/2_usermail.html:19
+#: pntemplates/0_adminmail.txt:13 pntemplates/0_userconfirm.html:25
+msgid "Company"
+msgstr ""
+
+#: pntemplates/0_usermail.txt:13 pntemplates/2_adminmail.html:21
+#: pntemplates/0_userform.html:56 pntemplates/2_adminmail.txt:14
+#: pntemplates/2_usermail.txt:13 pntemplates/1_userform.html:85
+#: pntemplates/1_userform.html:86 pntemplates/0_adminmail.html:22
+#: pntemplates/0_usermail.html:21 pntemplates/2_userform.html:54
+#: pntemplates/2_userconfirm.html:68 pntemplates/2_usermail.html:20
+#: pntemplates/0_adminmail.txt:14 pntemplates/0_userconfirm.html:45
+msgid "Phone Number"
+msgstr ""
+
+#: pntemplates/0_usermail.txt:14 pntemplates/2_adminmail.html:22
+#: pntemplates/0_userform.html:70 pntemplates/2_adminmail.txt:15
+#: pntemplates/2_usermail.txt:14 pntemplates/0_adminmail.html:23
+#: pntemplates/0_usermail.html:22 pntemplates/2_userform.html:68
+#: pntemplates/2_userconfirm.html:80 pntemplates/2_usermail.html:21
+#: pntemplates/0_adminmail.txt:15 pntemplates/0_userconfirm.html:53
+msgid "Location"
+msgstr ""
+
+#: pntemplates/0_usermail.txt:16 pntemplates/2_adminmail.html:24
+#: pntemplates/0_userform.html:76 pntemplates/1_adminmail.html:25
+#: pntemplates/2_adminmail.txt:17 pntemplates/2_usermail.txt:16
+#: pntemplates/1_usermail.txt:17 pntemplates/1_userform.html:106
+#: pntemplates/0_adminmail.html:25 pntemplates/0_usermail.html:24
+#: pntemplates/1_adminmail.txt:18 pntemplates/1_usermail.html:24
+#: pntemplates/2_userform.html:74 pntemplates/2_userconfirm.html:90
+#: pntemplates/1_userconfirm.html:55 pntemplates/2_usermail.html:23
+#: pntemplates/0_adminmail.txt:17 pntemplates/0_userconfirm.html:59
+msgid "Comment"
+msgstr ""
+
+#: pntemplates/0_usermail.txt:19 pntemplates/2_usermail.txt:19
+#: pntemplates/2_usermail.html:25
+msgid "We will respond to your e-mail as soon as possible."
+msgstr ""
+
+#: pntemplates/0_usermail.txt:21 pntemplates/2_usermail.txt:21
+#: pntemplates/1_usermail.txt:24 pntemplates/0_usermail.html:28
+#: pntemplates/1_usermail.html:31 pntemplates/2_usermail.html:27
+msgid "The"
+msgstr ""
+
+#: pntemplates/0_usermail.txt:21 pntemplates/2_usermail.txt:21
+#: pntemplates/1_usermail.txt:24 pntemplates/0_usermail.html:28
+#: pntemplates/1_usermail.html:31 pntemplates/2_usermail.html:27
+msgid "Team"
+msgstr ""
+
+#: pntemplates/2_adminmail.html:13 pntemplates/1_adminmail.html:13
+#: pntemplates/2_adminmail.txt:6 pntemplates/0_adminmail.html:14
+#: pntemplates/1_adminmail.txt:6 pntemplates/0_adminmail.txt:6
+msgid ""
+"A visitor of to your web site used the form for contact and sent the "
+"following:"
+msgstr ""
+
+#: pntemplates/2_adminmail.html:15 pntemplates/1_adminmail.html:15
+#: pntemplates/2_adminmail.txt:8 pntemplates/0_adminmail.html:16
+#: pntemplates/1_adminmail.txt:8 pntemplates/0_adminmail.txt:8
+msgid "Form #"
+msgstr ""
+
+#: pntemplates/2_adminmail.html:26 pntemplates/1_adminmail.html:28
+#: pntemplates/2_adminmail.txt:20 pntemplates/0_adminmail.html:27
+#: pntemplates/1_adminmail.txt:21 pntemplates/0_adminmail.txt:20
+msgid "The user has the following IP address/hostname: "
+msgstr ""
+
+#: pntemplates/0_userform.html:10 pntemplates/1_userform.html:20
+#: pntemplates/2_userform.html:17
+msgid "Mandatory field"
+msgstr ""
+
+#: pntemplates/0_userform.html:19 pntemplates/0_userheader.html:4
+#: pntemplates/2_userheader.html:6
+msgid "Contact our team"
+msgstr ""
+
+#: pntemplates/0_userform.html:34 pntemplates/0_userform.html:42
+#: pntemplates/0_userform.html:79 pntemplates/1_userform.html:29
+#: pntemplates/1_userform.html:35 pntemplates/1_userform.html:42
+#: pntemplates/1_userform.html:53 pntemplates/1_userform.html:60
+#: pntemplates/1_userform.html:71 pntemplates/1_userform.html:78
+#: pntemplates/1_userform.html:89 pntemplates/1_userform.html:101
+#: pntemplates/1_userform.html:109 pntemplates/2_userform.html:35
+#: pntemplates/2_userform.html:42 pntemplates/2_userform.html:77
+msgid "This is a mandatory field."
+msgstr ""
+
+#: pntemplates/0_userform.html:41 pntemplates/1_userform.html:102
+#: pntemplates/2_userform.html:41
+msgid "Please enter a valid E-mail address like user@example.com."
+msgstr ""
+
+#: pntemplates/0_userform.html:50 pntemplates/1_userform.html:94
+#: pntemplates/2_userform.html:49
+msgid "Please enter a valid internet address like http://www.example.com."
+msgstr ""
+
+#: pntemplates/0_userform.html:83 pntemplates/2_userform.html:80
+msgid "E-Mail Format"
+msgstr ""
+
+#: pntemplates/0_userform.html:85 pntemplates/2_userform.html:82
+msgid "HTML"
+msgstr ""
+
+#: pntemplates/0_userform.html:86 pntemplates/2_userform.html:83
+msgid "Text"
+msgstr ""
+
+#: pntemplates/0_userform.html:92 pntemplates/1_userform.html:113
+#: pntemplates/2_userform.html:89
+msgid "Please solve this simple math test"
+msgstr ""
+
+#: pntemplates/0_userform.html:103 pntemplates/1_userform.html:118
+#: pntemplates/2_userform.html:95
+msgid "Send"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:11
+msgid "Show phone number"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:15
+msgid "Show company"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:19
+msgid "Show URL"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:23
+msgid "Show location"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:27
+msgid "Show comments textarea"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:31
+msgid "Send confirmation email to user"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:35
+msgid "Folder for uploaded files"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:39
+msgid "Delete file after sending"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:43
+msgid "Activate spamcheck"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:46
+msgid ""
+"Make sure you the necessary form fields are available, see the docs for more "
+"information. This option will be turned off by Formicula automatically if no "
+"PHP-functions for creating images are available"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:48
+msgid "Do not use spam check in these forms"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:51
+msgid ""
+"Comma separated list of form ids, e.g. embedded forms in pagesetter. The "
+"redirect may not work here correctly"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:53
+msgid "Set the default form"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:55
+msgid "(used when no form is specified)"
+msgstr ""
+
+#: pntemplates/formicula_admin_modifyconfig.html:60
+#: pntemplates/formicula_admin_edit.html:46
+msgid "Submit"
+msgstr ""
+
+#: pntemplates/formicula_admin_footer.html:6
+msgid "Visit Formicula on http://code.zikula.org/formicula"
+msgstr ""
+
+#: pntemplates/1_usermail.txt:6 pntemplates/1_usermail.html:13
+#: pntemplates/2_userconfirm.html:9 pntemplates/1_userconfirm.html:7
+msgid "This data was sent to us:"
+msgstr ""
+
+#: pntemplates/1_usermail.txt:20 pntemplates/1_usermail.html:27
+#: pntemplates/1_userconfirm.html:9
+msgid "Thanks for applying, we will keep your data strictly confidential"
+msgstr ""
+
+#: pntemplates/1_usermail.txt:22 pntemplates/0_usermail.html:26
+#: pntemplates/1_usermail.html:29
+msgid "We will respond to your E-mail address as soon as possible."
+msgstr ""
+
+#: pntemplates/2_usererror.html:7 pntemplates/1_usererror.html:7
+#: pntemplates/0_usererror.html:6
+msgid "There is an error in your form"
+msgstr ""
+
+#: pntemplates/2_usererror.html:9 pntemplates/1_usererror.html:9
+#: pntemplates/0_usererror.html:8
+msgid "Back to Contact Form"
+msgstr ""
+
+#: pntemplates/1_userheader.html:6
+msgid "Apply online!"
+msgstr ""
+
+#: pntemplates/1_userform.html:24 pntemplates/1_userform.html:25
+msgid "Apply as"
+msgstr ""
+
+#: pntemplates/1_userform.html:38 pntemplates/1_userform.html:39
+msgid "Date of birth"
+msgstr ""
+
+#: pntemplates/1_userform.html:43 pntemplates/1_userform.html:79
+msgid "Please enter a valid date."
+msgstr ""
+
+#: pntemplates/1_userform.html:49 pntemplates/1_userform.html:50
+msgid "Street"
+msgstr ""
+
+#: pntemplates/1_userform.html:56 pntemplates/1_userform.html:57
+msgid "Salary"
+msgstr ""
+
+#: pntemplates/1_userform.html:61
+msgid "Please use only numeric characters."
+msgstr ""
+
+#: pntemplates/1_userform.html:67 pntemplates/1_userform.html:68
+msgid "Zip City"
+msgstr ""
+
+#: pntemplates/1_userform.html:74 pntemplates/1_userform.html:75
+msgid "Entry date"
+msgstr ""
+
+#: pntemplates/formicula_admin_delete.html:5
+#: pntemplates/formicula_admin_view.html:34
+msgid "Delete contact"
+msgstr ""
+
+#: pntemplates/formicula_admin_delete.html:6
+msgid "Do you really want to delete this contact?"
+msgstr ""
+
+#: pntemplates/formicula_admin_delete.html:9
+msgid "Confirmation prompt"
+msgstr ""
+
+#: pntemplates/formicula_admin_delete.html:13
+#: pntemplates/formicula_admin_edit.html:18
+msgid "Contact name"
+msgstr ""
+
+#: pntemplates/formicula_admin_delete.html:24
+msgid "Delete"
+msgstr ""
+
+#: pntemplates/formicula_admin_delete.html:25
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/2_userconfirm.html:7 pntemplates/0_userconfirm.html:6
+msgid ""
+"Thank you for your questions/comments to our website!<br />We will reply as "
+"soon as possible."
+msgstr ""
+
+#: pntemplates/2_userconfirm.html:101 pntemplates/1_userconfirm.html:66
+msgid ""
+"Confirmation of your submission will be emailed to you in a few minutes."
+msgstr ""
+
+#: pntemplates/2_userconfirm.html:103 pntemplates/1_userconfirm.html:68
+#: pntemplates/0_userconfirm.html:70
+msgid "There was an internal error when sending confirmation mail"
+msgstr ""
+
+#: pntemplates/formicula_admin_edit.html:8
+#: pntemplates/formicula_admin_view.html:31
+msgid "Edit contact"
+msgstr ""
+
+#: pntemplates/formicula_admin_edit.html:26
+#: pntemplates/formicula_admin_view.html:12
+msgid "Public"
+msgstr ""
+
+#: pntemplates/formicula_admin_edit.html:29
+msgid "Use this information in the users confirmation mail"
+msgstr ""
+
+#: pntemplates/formicula_admin_edit.html:31
+msgid "Sender E-Mail"
+msgstr ""
+
+#: pntemplates/formicula_admin_edit.html:35
+msgid "Sender name"
+msgstr ""
+
+#: pntemplates/formicula_admin_edit.html:39
+msgid "Subject"
+msgstr ""
+
+#: pntemplates/formicula_admin_edit.html:42
+msgid ""
+"with <ul>    <li>%s = sitename</li>    <li>%l = slogan</li>    <li>%u = site "
+"url</li>    <li>%c = contacts sender name</li>    <li>%n&lt;num&gt; = user "
+"defined field name &lt;num&gt;</li>    <li>%d&lt;num&gt; = user defined "
+"field data &lt;num&gt;</li></ul>"
+msgstr ""
+
+#: pntemplates/formicula_admin_header.html:11
+msgid "Settings"
+msgstr ""
+
+#: pntemplates/formicula_admin_view.html:9
+msgid "ID"
+msgstr ""
+
+#: pntemplates/formicula_admin_view.html:10
+msgid "Name"
+msgstr ""
+
+#: pntemplates/formicula_admin_view.html:13
+msgid "Options"
+msgstr ""
+
+#: pntemplates/formicula_admin_view.html:24
+msgid "Yes"
+msgstr ""
+
+#: pntemplates/formicula_admin_view.html:26
+msgid "No"
+msgstr ""
+
+#: pntemplates/formicula_admin_view.html:39
+msgid "No items found."
+msgstr ""
+
+#: pntemplates/0_userconfirm.html:10
+msgid "This data was sent to us"
+msgstr ""
+
+#: pntemplates/0_userconfirm.html:68
+msgid "Confirmation of your submission will be mailed to you in a few minutes."
+msgstr ""

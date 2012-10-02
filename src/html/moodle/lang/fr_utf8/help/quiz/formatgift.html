@@ -1,0 +1,286 @@
+<!-- $Id$ -->
+
+<h1>Importer des fichiers en format « GIFT »</h1>
+
+<p>Le format GIFT est le format le plus exhaustif pour l'importation de questions dans le module de tests de Moodle. Il permet l'importation de questions à Choix multiples, Vrai/Faux, à Réponses courtes, d'Appariement et Numériques, ainsi que l'insertion de _____  pour le format « Mot manquant ». Les différents types de questions peuvent être utilisés ensemble dans un seul fichier texte. Le format permet également l'insertion de commentaires, de titres de questions, de feedbacks et de coefficients.</p>
+
+<p>L'encodage de votre fichier doit être UTF-8 (à moins que vous n'utilisiez que des caractères ASCII). Un exemple de fichier  de questions peut être téléchargé ici : <a href="<?php echo $CFG->wwwroot; ?>/question/format/gift/examples.txt">gift/examples.txt</a>.</p>
+
+<h3>Préambule</h3>
+
+<p>Chaque question d'un fichier GIFT ne doit pas contenir de ligne vide, car les lignes vides servent à délimiter par les lignes vides. Si vous devez afficher une ligne vide dans votre question, vous pouvez utiliser la notation <b>\n</b>. Des lignes de commentaires peuvent être ajoutés n'importe où dans le fichier, mais elles doivent commencer alors par deux barres obliques (<b>//</b>) au début de la ligne.</p>
+
+<h3>Types de questions</h3>
+
+<h4>Choix multiples</h4>
+
+<p>Pour les questions à choix multiples, les réponses incorrectes sont préfixées d'un tilde (~) et la réponse correcte d'un signe égal (=).</p>
+
+<pre>     Quel est le nom du héros du Comte de Monte-Cristo ?{~Jean Valjean ~Étienne Lantier =Edmond Dantès}</pre>
+
+<p>Le format <strong>Mot manquant</strong> insère automatiquement une ligne à compléter (comme cela _____) au milieu du texte. Pour obtenir ce résultat, placez les réponses là où vous voulez que la ligne apparaisse. Les signes _____ ne sont insérés que si les réponses sont placées avant la ponctuation finale.</p>
+
+<pre>     Le héros du Comte de Monte-Cristo s'appelle {~Jean =Edmond ~Philippe} Dantès.</pre>
+
+<p>Tous les types de questions permettent ce format <strong>Mot manquant</strong>.</p>
+
+<p>Une ligne vide (deux retours de chariot) doit séparer les différentes questions. Les réponses peuvent être écrites sur des lignes séparées et même indentées, dans un souci de clarté :</p>
+
+<pre>
+     L'histoire des Trois Mousquetaires se déroule au {
+     ~quinzième
+     ~seizième
+     =dix-septième
+     } siècle.
+
+     De quelle pays sont originaires les caractères japonais ? {
+     ~Inde
+     =Chine
+     ~Corée
+     ~Égypte}
+</pre>
+
+<h4>Réponse courte</h4>
+
+<p>Dans ce format, les réponses sont toutes préfixées d'un signe égal (=), indiquant que toutes sont correctes. Les réponses ne peuvent contenir de tilde.</p>
+
+<pre>
+     Quel est le nom du héros du Comte de Monte-Cristo ?{=Dantès =Edmond Dantès}
+
+     Deux plus deux égale {=quatre =4 =IV =Quatre}.
+</pre>
+
+<p>S'il n'y a qu'une seule bonne Réponse courte, elle peut être écrite sans le signe égal, à moins qu'elle ne puisse être confondue avec une question Vrai/Faux.</p>
+
+<h4>Vrai/Faux</h4>
+
+<p>La réponse indique ici lequel des énoncés est vrai ou faux. La réponse s'écrit {TRUE} ou {FALSE}, ou de façon abrégée {T} ou {F}.</p>
+
+<pre>
+     Étienne Lantier est le héros du Comte de Monte-Cristo.{F}
+
+     Le Soleil se lève du côté Est.{T}
+</pre>
+
+<h4>Appariement</h4>
+
+<p>Les paires correspondantes doivent commencer par un signe égal (=) et sont séparées par le symbole « -> » (sans les guillemets). Il doit y avoir au moins trois paires.</p>
+
+<pre>
+     Question d'appariement. {
+     =Terme 1 -&gt; Correspondance 1
+     =Terme 2 -&gt; Correspondance 2
+     =Terme 3 -&gt; Correspondance 3
+     }
+
+     Faites correspondre les pays ci-dessous avec leur capitale. {
+     =Canada -&gt; Ottawa
+     =Italie -&gt; Rome
+     =Japon  -&gt; Tokyo
+     =Inde   -&gt; New Delhi
+     }
+</pre>
+
+<p>Les questions d'appariement ne permettent ni les feedbacks, ni les coefficients.</p>
+
+<h4>Numérique</h4>
+
+<p>La réponse d'une question numérique doit commencer par le signe dièze (#). Elle peut contenir une marge d'erreur, écrite immédiatement après la réponse correcte, séparée par un signe deux-points (:). Si par exemple la réponse est située entre 1.5 et 2.5, on écrira <strong>{#2:0.5}</strong>. Si aucune marge d'erreur n'est spécifiée, elle est assimilée à 0.</p>
+
+<pre>     
+     En quelle année est né Wolfgang Amadeus Mozart ? {#1756}
+
+     Quelle est la valeur de π (3 décimales) ? {#3.1415:0.0005}.
+</pre>
+
+<p>On peut aussi donner la réponse numérique sous la forme d'un intervalle de la façon suivante : {#<em>minimum</em>..<em>maximum</em>}.</p>
+
+<pre>
+     Quelle est la valeur de π (3 décimales) ? {#3.141..3.142}.
+</pre>
+
+<p>L'interface graphique (navigateur) de Moodle ne permet pas les réponses numériques multiples, mais le code de Moodle les permet, tout comme le format GIFT. On peut ainsi spécifier différents intervalles numériques, ce qui est particulièrement utile en le combinant avec des coefficients. Si plusieurs réponses numériques sont utilisées, elles doivent être séparées par un signe égal (=), comme les réponses courtes.</p>
+
+<pre>
+     En quelle année est né Wolfgang Amadeus Mozart ? {#
+     =1756:0
+     =%50%1756:2}
+</pre>
+
+<p>Comme l'interface de Moodle ne permet pas les réponses multiples pour les questions numériques, il n'y a aucun moyen de les voir, ni de les modifier autrement qu'en supprimant et en ré-important la question, ou en modifiant directement la base de données (DANGER !).</p>
+
+<h4>Composition</h4>
+
+<p>Une question de composition est simplement une question dont le champ réponse est vide. Il ne faut rien écrire du tout entre les deux accolades.</p>
+
+<pre>
+     Écrire une brève biographoie de Wolfgang Amadeus Mozart. {}
+</pre>
+
+<h4>Description</h4>
+
+<p>Une description n'est pas vraiment une question, puisqu'elle ne comporte pas de réponse du tout. Elle permet d'indiquer un commentaire entre des questions du test.</p>
+
+<pre>
+     Les questions ci-dessous auront pour sujet le roman Les trois Mousquetaires.
+</pre>
+
+<h3>Options</h3>
+
+<p>En plus de ces types de questions, les options suivantes sont offertes grâce à ce format : commentaires, nom de question, feedback et coefficients.</p>
+
+<h4>Commentaires</h4>
+
+<p>Les commentaires ne seront pas importés dans Moodle. Il servent à documenter les questions. Toutes les lignes de commentaire commencent par une double barre oblique (sans compter les espaces ou tabulations qui précèdent). Ces lignes seront simplement ignorées lors de l'importation.</p>
+
+<pre>
+     // Sous-titre : voici une question numérique
+     Combien font 2 + 2 ? {#4}
+</pre>
+
+<h4>Nom de question</h4>
+
+<p>Un nom de question peut être indiqué en le plaçant avant la question, entouré par des double deux-points.</p>
+
+<pre>     
+     ::Origine des caractères Kanji::De quel pays sont originaires les
+     les caractères japonais Kanji ? {=Chine}
+
+     ::Période des Trois Mousquetaires::L'histoire des Trois Mousquetaires
+      se déroule au {~quinzième ~seizième =dix-septième} siècle.
+</pre>
+
+<p>Si aucun nom de question n'est donné, la question elle-même est utilisée par défaut.</p>
+
+<h4>Feedback</h4>
+
+<p>Un feedback peut être inclus avec chaque réponse. Il suffit de placer le feedback immédiatement après la réponse, séparé par un dièze (#).</p>
+
+<pre>
+     Quelle est a réponse à cette question à choix multiples ?{
+     ~réponse fausse#Feedback pour la réponse fausse
+     ~autre réponse fausse#Autre feedback pour cette réponse fausse
+     =bonne réponse#Excellent !}
+
+     Quel est le nom du héros du Comte de Monte-Cristo ?{
+     =Dantès#Excellente réponse !
+     =Edmond Dantès#Excellente réponse !}
+
+     Étienne Lantier est le héros du Comte de Monte-Cristo.{
+     FALSE#Faux, il s'agit de Edmond Dantès.
+     #En effet, c'est Edmond Dantès}
+</pre>
+
+<p>Pour les questions à choix multiples, le feedback n'est affiché que pour la réponse sélectionnée par l'étudiant. Pour la réponse courte, le feedback est affichée uniquement si l'étudiant a donné la réponse correcte correspondante. Pour les questions Vrai/Faux, il peut y avoir une ou deux chaînes pour le feedback. La première est affichée si la réponse donnée est incorrecte, la deuxième si la réponse est fausse.</p>
+
+<h4>Coefficients (en %)</h4>
+
+<p>Les coefficients sont disponibles pour les questions à choix multiples et pour les questions à réponse courte. Les coefficients peuvent être inclus en faisant suivre le tilde (pour les questions à choix multiples) ou le signe égal (pour les questions à réponse courte) par le pourcentage désiré, entouré de signes pour-cent (par exemple %50%). Cette option peut être combinée avec les feedbacks.</p>
+
+<pre>
+     Une question.{
+     ~Réponse fausse
+     ~%50%Réponse valant la moitié des points
+     =Réponse donnant tous les points}
+
+     ::Résidence de Jésus::Jésus Christ résidait à {
+     ~Jérusalem#C'était une ville importante, mais de la mauvaise réponse.
+     ~%25%Bethléhem#Il y est né, mais n'y a pas grandi.
+     ~%50%Galilée#Soyez plus précis.
+     =Nazareth#Oui ! C'est cela !}.
+
+     ::Résidence de Jésus:: Jésus Christ résidait à {
+     =Nazareth#Oui ! C'est cela !
+     =%75%Nazireth#Juste, mais mauvaise orthographe.
+     =%25%Bethléhem#Il y est né, mais n'y a pas grandi.}
+</pre>
+
+<p>Les deux derniers exemples sont en fait une même question, une première fois comme question à choix multiples, la deuxième sous la forme de question à réponse courte.</p>
+
+<p><small>Il est possible de spécifier ainsi des coefficients non disponibles dans l'interface graphique (navigateur) de Moodle. Le menu <b>Correspondance des notes</b> sur la page d'importation détermine comment de tels coefficients sont traités. Vous pouvez soit demander qu'une erreur soit affichée, soit que le coefficient soit ajusté au plus proche d'un coefficient valable pour la question.</small></p>
+
+<h4>Spécifier un format texte pour la question</h4>
+
+Le texte de la question (et seulement ce texte) peut comporter un texte optionnel spécifiant son format. Les formats actuellement disponibles sont <b>moodle</b> (format automatique Moodle), <b>html</b> (format HTML), <b>plain</b> (texte pur) et <b>markdown</b> (format Markdown). Le format doit être indiqué entre crochets immediatement avant le texte de la question. <a href="help.php?file=textformat.html">Plus d'informations sur les formats de texte dans Moodle.</a></p>
+
+     ::Période des Trois Mousquetaires::L'histoire des Trois Mousquetaires
+      se déroule au {~quinzième ~seizième =dix-septième} siècle.
+
+
+<pre>
+     [markdown]L'histoire des *Trois Mousquetaires* se déroule au {
+     ~quinzième
+     ~seizième
+     =dix-septième
+     } siècle.
+</pre>
+
+<h4>Réponses multiples</h4>
+
+<p>L'option réponses multiples est utilisée pour des questions à choix multiples ou deux ou plusieurs réponses doivent être choisies afin d'obtenir tous les points. On active cette option en donnant aux diverses réponses des coefficients, aucune réponse ne donnant le total des points.</p>
+
+<pre>
+     Les personnages suivants apparaissent dans les Trois mousquetaires ? {
+     ~L'abbé Faria
+     ~%50%Constance Bonacieux
+     ~%50%L'abbé d'Herblay
+     ~Le capitaine Némo}
+</pre>
+
+<p>On remarque qu'il n'y a aucun signe égal dans aucune réponse. Le total des coefficients ne doit pas excéder 100%, sans quoi une erreur surviendrait dans Moodle. Pour éviter que les étudiants obtiennent 100% en sélectionnant systématiquement toutes les réponses, il est conseillé d'inclure des coefficients négatifs pour les réponses fausses.</p>
+
+<pre>
+     Les personnages suivants apparaissent dans les Trois mousquetaires ? {
+     ~%-50%L'abbé Faria
+     ~%50%Constance Bonacieux
+     ~%50%L'abbé d'Herblay
+     ~%-50%Le capitaine Némo}
+</pre>
+
+<h4>Caractères spéciaux ~ = # { } :</h4>
+
+<p>Ces symboles <b> ~ = # { } : </b> contrôlent le fonctionnement de ce filtre et ne peuvent pas être utilisés comme du texte normal à l'intérieur des questions. Ils sont appelés des caractères de contrôle. Vous aurez parfois besoin d'utiliser l'un de ces caractères, par exemple pour afficher une formule mathématique dans une question. Pour pouvoir contourner ce problème en « échappant » ces caractères de contrôle. Cela signifie simplement placer une barre oblique inverse (\) avant le caractère en question, de sorte que le filtre l'utilisera comme un caractère littéral plutôt que comme un caractère de contrôle. Par exemple :</p>
+
+<pre>
+     Quelle opération donne 5 ? {
+          ~ \= 2 + 2
+          = \= 2 + 3
+          ~ \= 2 + 4  }
+
+     ::Caractères de contrôle GIFT::
+     Lequel des caractères suivants n'est pas un caractère de contrôle pour le format d'importation GIFT ? {
+        ~ \~     # \~ est un caractère de contrôle.
+        ~ \=     # \= est un caractère de contrôle.
+        ~ \#     # \# est un caractère de contrôle.
+        ~ \{     # \{ est un caractère de contrôle.
+        ~ \}     # \} est un caractère de contrôle.
+        = \     # Correct ! la barre oblique inverse \ n'est pas un caractère de contrôle. Mais
+                  elle est utilisée pour "échapper" les caractères de contrôle.
+     }
+</pre>
+
+<p>Lorsque la question est importée, la barre oblique inverse est retirée, et n'est pas enregistrée dans Moodle.</p>
+
+<h3>Indiquer des catégories</h3>
+
+<p>Il est possible de modifier la catégorie dans laquelle les questions seront ajoutées, en l'indiquant dans le fichier d'importation GIFT. Vous pouvez changer cette catégorie autant de fois que vous le voulez à l'intérieur de ce fichier. Toutes les questions après l'indication de catégorie jusqu'à la prochaine indication (ou la fin du fichier) seront ajoutées à la catégorie indiquée. La catégorie spécifiée dans l'interface d'importation sera utilisée jusqu'à la première indication dans le fichier. Pour que ceci fonctionne, il est nécessaire de cocher la case <b>Depuis le fichier :</b> dans l'interface d'importation.</p>
+
+<p>Pour indiquer les catégories dans le fichier, placez-y une ligne comme ci-dessous (avec une ligne vide avant et après).
+
+<pre>
+$CATEGORY: sciences/maths/analyse
+</pre>
+
+or simply
+
+<pre>
+$CATEGORY: latin
+</pre>
+
+Le premier exemple indique une catégorie située dans une autre, etc. Dans l'exemple ci-dessus, les questions seront placéesdans la catégorie <i>analyse</i>. Les catégories seront créées si elles n'existent pas.</p>
+
+<h4>Autres options</h4>
+
+<p>Les réponses courtes peuvent être rendues sensibles à la casse des caractères en remplaçant « 0 » par « 1 » dans la ligne suivante :</p>
+
+<pre>     $question->usecase = 0;  // Ignore case</pre>

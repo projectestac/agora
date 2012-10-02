@@ -1,0 +1,60 @@
+<!--[*  $Id: users_user_loginscreen.htm 27353 2009-11-02 11:56:33Z mateo $  *]-->
+<!--[gt text='User log-in' assign='templatetitle']-->
+
+<div class="z-menu">
+    <span class="z-menuitem-title">
+        [
+        <!--[if $allowregistration]-->
+        <a href="<!--[pnmodurl modname="Users" func="register"]-->"><!--[gt text="New account"]--></a> |
+        <!--[/if]-->
+        <a href="<!--[pnmodurl modname="Users" func="lostpassword"]-->"><!--[gt text="Lost password"]--></a>
+        ]
+    </span>
+</div>
+
+<!--[include file='users_user_menu.htm']-->
+
+<form class="z-form" action="<!--[pnmodurl modname="Users" type="user" func="login"]-->" method="post">
+    <div>
+        <input type="hidden" name="url" value="<!--[$returnurl|pnvarprepfordisplay]-->" />
+        <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Users"]-->" />
+        <fieldset>
+            <legend><!--[gt text="User account"]--></legend>
+
+            <!--[if $loginviaoption eq 1]-->
+            <div class="z-formrow">
+                <label for="users_email"><!--[gt text="E-mail address"]--></label>
+                <input id="users_email" type="text" name="email" size="20" maxlength="64" />
+            </div>
+            <!--[else]-->
+            <div class="z-formrow">
+                <label for="users_uname"><!--[gt text="User name"]--></label>
+                <input id="users_uname" type="text" name="uname" size="20" maxlength="25" />
+            </div>
+            <!--[/if]-->
+
+            <div class="z-formrow">
+                <label for="users_pass"><!--[gt text="Password"]--></label>
+                <input id="users_pass" type="password" name="pass" size="20" maxlength="20" />
+            </div>
+
+            <!--[if $seclevel != "High"]-->
+            <div class="z-formrow">
+                <label for="users_rememberme"><!--[gt text="Remember me"]--></label>
+                <input id="users_rememberme" type="checkbox" name="rememberme" />
+            </div>
+            <!--[/if]-->
+
+            <!--[if $confirmtou eq 1]-->
+            <p class="z-warningmsg"><!--[gt text="Notice: Please be informed that the site's 'Terms of use' have changed. You are asked to read the new terms of use, and to state your acceptance of them by activating the following checkbox. This is required before you can log in. Thank you for your understanding."]--></p>
+            <div class="z-formrow">
+                <label for="users_touaccepted">&nbsp;<!--[gt text='I accept the <a href="index.php?module=Legal&amp;func=termsofuse">\'Terms of use\'</a>']--></label>
+                <input id="users_touaccepted" type="checkbox" name="touaccepted" value="1" />
+            </div>
+            <!--[/if]-->
+        </fieldset>
+        <div class="z-formbuttons">
+            <!--[pnbutton src=button_ok.gif set=icons/small __alt="Log in" __title="Log in"]-->
+        </div>
+    </div>
+</form>

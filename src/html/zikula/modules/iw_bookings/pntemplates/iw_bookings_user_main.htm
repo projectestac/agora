@@ -1,0 +1,33 @@
+<!--[*include file="iw_bookings_user_menu.htm"*]-->
+<!--[$menu]-->
+<!--[if $statusmsg neq ""]-->
+	<p style="border:1px solid #0f0; background-color:#ffc; padding:10px;"><!--[$statusmsg]--></p>
+<!--[/if]-->
+<div>
+	<div style="height:10px;">&nbsp;</div>
+
+<!--[if $hi_ha_espais]-->
+	<table width="99%" cellspacing="0" style="background-color:#DDDDFF">
+		<tr><th colspan = "100%" align="center" style="padding: 8px ; background-color:#FFFFFF"><h3><!--[gt text="Rooms and equipment to book"]--></h3></th></tr>
+		<th align="center" style="padding: 5px ;background-color:#DDDDFF"><!--[gt text="To book"]--></th>
+		<th align="center" width="50%" style="background-color:#DDDDFF"><!--[gt text="Description"]--></th>
+		<th align="center" style="background-color:#DDDDFF"><!--[gt text="Access"]--></th>
+		<tr><th colspan = "100%" style="padding:0.5px ;background-color:#666666"></th></tr>
+		<tr><th colspan = "100%" style="padding:0.5px ;background-color:#333333"></th></tr>
+		<!--[section name=espais loop=$espais]-->
+			<tr height="25">
+				<th align="center" bgcolor="<!--[$espais[espais].color]-->"><!--[$espais[espais].nom_espai]--></th>
+				<td align="center" bgcolor="<!--[$espais[espais].color]-->"><!--[$espais[espais].descriu]--></td>
+				<th align="center" bgcolor="<!--[$espais[espais].color]-->">
+				<a href=<!--[pnmodurl modname="iw_bookings" type="user" func="assigna" sid=$espais[espais].sid mensual=$mensual]-->><!--[$action]--></a>
+				</th>
+				<tr><th colspan = "100%" style="padding:0.5px ;background-color:#666666"></th></tr>
+
+		<!--[/section]-->
+	</table>
+<!--[else]-->
+	<!--[gt text="There are no rooms or equipment to book"]-->
+<!--[/if]-->
+<br>
+</div>
+<a href=<!--[pnmodurl modname="iw_bookings" type="user" func="module"]-->><!--[gt text="About this module"]--></a>

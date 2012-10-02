@@ -1,0 +1,118 @@
+/* $Id: style.css 89 2010-01-23 11:58:21Z herr.vorragend $ */
+
+/*******************************************************************************/
+/* Adminlist
+/*******************************************************************************/
+
+ol#profilelist .profilestatus_0:hover,
+ol#profilelist .profilestatus_1:hover {
+    text-decoration: none;
+}
+ol#profilelist .profilestatus_0 b,
+ol#profilelist .profilestatus_1 b {
+    font-weight: normal;
+}
+
+/*******************************************************************************/
+/* Modify-Form / DUD-templates
+/*******************************************************************************/
+
+p.profile_usererror {
+    color: red;
+    font-weight: bold;
+}
+#youravatarcontainer {
+    margin-bottom: 0;
+    margin-top: 1em;
+    padding: 0;
+    text-align: center;
+    width: 69%;
+}
+#youravatardisplay {
+    background: #FFFFFF;
+    border-color: #D9E0E6 #C8CDD2 #C8CDD2 #D9E0E6;
+    border-style: solid;
+    border-width: 1px;
+    padding: 4px;
+}
+.z-form .custom-advice {
+    color: red;
+    font-weight: bold;
+    margin: 0;
+}
+#modifyprofileform p.z-formnote {
+    font-style: italic;
+}
+#modifyprofileform .z-frontendformbuttons {
+    text-align: left;
+    margin-left: 14em;
+}
+#modifyprofileform .z-frontendformbuttons button {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
+.z-form .z-formrow .z-formnote label input[type="checkbox"] {
+    margin-right: 0.5em;
+}
+.z-form div.z-formrow .profile_dateinput {
+    width: 10em;
+}
+.z-form .z-formrow input.profile_l2input {
+    text-align: center;
+    width: 1.8em;
+}
+.z-form .z-formrow input.profile_l5input {
+    text-align: center;
+    width: 3em;
+}
+
+/*******************************************************************************/
+/* Others
+/*******************************************************************************/
+
+.pn-module-Profile .z-menu {
+    margin-bottom: 0.5em;
+}
+
+#profile_wrapper {
+    padding: 0 10px 2em;
+    position: relative;
+}
+
+.profileavatar {
+    background: #FFFFFF;
+    border-color: #D9E0E6 #C8CDD2 #C8CDD2 #D9E0E6;
+    border-style: solid;
+    border-width: 1px;
+    padding: 4px;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+}
+
+div.z-profilelink {
+    text-align: center;
+    float: left;
+    height: 9em;
+}
+
+/* styles for the navigation filter on main page */
+div#profile-alphafilter {
+    font-size: xx-small;
+}
+
+/* styles for the search form on main page*/
+form#profile-search {
+    margin-bottom: 2em;
+}
+
+form#profile-search .profile_letter {
+    line-height: 2em;
+}
+
+.profile-block-featureduser,
+.profile-block-featureduser h5,
+.profile-block-featureduser p {
+    text-align: center;
+}

@@ -1,0 +1,393 @@
+/*******************************************************************
+ styles_gecko.css
+  
+ This CSS file uses the non-standard Mozilla/Gecko CSS extensions
+ to add round corners to the current theme.
+
+ Styles are organised into the following sections:
+  core
+  header
+  footer
+
+  admin
+  blocks
+  calendar
+  course
+  doc
+  login
+  message
+  tabs
+  user
+
+  various modules
+
+*******************************************************************/
+
+
+
+/***
+ *** Core
+ ***/
+
+.notifyproblem {
+  -moz-border-radius:10px;
+}
+
+.notifysuccess {
+  -moz-border-radius:10px;
+}
+.generalbox {
+  -moz-border-radius-bottomleft:5px;
+  -moz-border-radius-bottomright:5px;
+  -moz-box-shadow: 3px 3px 3px #bbb;
+}
+
+.generalboxcontent {
+  -moz-border-radius:5px;
+}
+
+.noticebox {
+  -moz-border-radius:5px;
+}
+
+.informationbox {
+  -moz-border-radius-topleft:3px;
+  -moz-border-radius-topright:3px;
+  -moz-border-radius-bottomleft:10px;
+  -moz-border-radius-bottomright:10px;
+}
+
+.informationboxcontent {
+  -moz-border-radius-topleft:3px;
+  -moz-border-radius-topright:3px;
+  -moz-border-radius-bottomleft:10px;
+  -moz-border-radius-bottomright:10px;
+}
+
+.sitetopiccontent {
+  -moz-border-radius:10px;
+}
+
+.headingblock {
+  -moz-border-radius-topleft:5px;
+  -moz-border-radius-topright:5px;
+  -moz-box-shadow: 3px 3px 3px #bbb;
+}
+
+.topics,
+#course-view ul.weekscss,
+#course-view .weeks{
+  -moz-border-radius-bottomleft:5px;
+  -moz-border-radius-bottomright:5px;
+  -moz-box-shadow: 3px 3px 3px #bbb;
+}
+
+#course-view .weeks tr:nth-last-child(-n+2),
+.topics tr:nth-last-child(-n+2),
+#course-view ul.weekscss li:last-child,
+ul.unlist li:last-child{
+  -moz-border-radius-bottomleft:5px;
+  -moz-border-radius-bottomright:5px;
+ }
+
+
+#course-view .weeks tr:nth-last-child(-n+2) td.left,
+.topics tr:nth-last-child(-n+2) td.left{
+  -moz-border-radius-bottomleft:5px;
+}
+
+#course-view .weeks tr:nth-last-child(-n+2) td.right,
+.topics tr:nth-last-child(-n+2) td.right{
+  -moz-border-radius-bottomright:5px;
+}
+
+ul.unlist{
+  -moz-border-radius-bottomleft:5px;
+  -moz-border-radius-bottomright:5px;
+  -moz-box-shadow: 3px 3px 3px #bbb;
+}
+
+
+
+
+/* kept for backward compatibility with some non-standard modules
+   which use these classes for various things */
+.generaltab, .generaltabinactive{
+  -moz-border-radius-topleft:10px;
+  -moz-border-radius-topright:10px;
+}
+
+.generaltabselected {
+  -moz-border-radius-topleft:10px;
+  -moz-border-radius-topright:10px;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], button {
+  -moz-border-radius:5px;
+}
+
+.boxwidthwide{
+  -moz-border-radius-bottomleft:5px;
+  -moz-border-radius-bottomright:5px;
+  -moz-box-shadow: 3px 3px 3px #bbb;
+}
+
+/***
+ *** Header
+ ***/
+
+/***
+ *** Footer
+ ***/
+
+/***
+ *** Admin
+ ***/
+
+/***
+ *** Blocks
+ ***/
+
+.sideblock.hidden {
+  -moz-border-radius: 0px;
+}
+
+.sideblock .content {
+  -moz-border-radius-bottomleft:5px;
+  -moz-border-radius-bottomright:5px;
+  -moz-box-shadow: 3px 3px 3px #bbb;
+}
+
+.sideblock .header{
+  -moz-border-radius-topleft:5px;
+  -moz-border-radius-topright:5px;
+  -moz-box-shadow: 3px 3px 3px #bbb;
+}
+
+.block_course_summary, .block_course_summary .content {
+  -moz-border-radius:5px;
+}
+
+.editing .block_course_summary .content {
+  -moz-border-radius-topleft:0;
+  -moz-border-radius-topright:0;
+}
+
+
+/***
+ *** Calendar
+ ***/
+
+#calendar .eventlist .event {
+  -moz-border-radius-bottomleft:10px;
+  -moz-border-radius-bottomright:10px;
+}
+
+#calendar .eventlist .event .side {
+  -moz-border-radius-bottomleft:10px;
+}
+
+#calendar .eventlist .event .description {
+  -moz-border-radius-bottomright:10px;
+}
+
+#calendar .maincalendar,
+#calendar .sidecalendar
+{
+  -moz-border-radius-bottomright:10px;
+  -moz-border-radius-bottomleft:10px;
+}
+
+#calendar td.sidecalendar .sideblock {
+  -moz-border-radius-bottomright:10px;
+  -moz-border-radius-bottomleft:10px;
+}
+
+#calendar .maincalendar .filters table,
+#calendar .sidecalendar .filters table,
+.sideblock.block_calendar_month .filters table
+{
+  -moz-border-radius:4px;
+}
+
+table.minicalendar {
+  -moz-border-radius:10px;
+}
+
+table.minicalendar td {
+  -moz-border-radius:4px;
+}
+
+#calendar .maincalendar li.event_course,
+#calendar .maincalendar li.event_global,
+#calendar .maincalendar li.event_user,
+#calendar .maincalendar li.event_group,
+#calendar .filters td.event_course,
+#calendar .filters td.event_global,
+#calendar .filters td.event_user,
+#calendar .filters td.event_group {
+  -moz-border-radius:4px;
+}
+
+/***
+ *** Course
+ ***/
+body#course-user .section {
+  -moz-border-radius:10px;
+}
+
+
+/***
+ *** Doc
+ ***/
+
+/***
+ *** Login
+ ***/
+.loginbox {
+  -moz-border-radius-bottomleft:5px;
+  -moz-border-radius-bottomright:5px;
+}
+
+.loginbox .content.left {
+  -moz-border-radius-bottomleft:5px;
+}
+.loginbox .content.right {
+  -moz-border-radius-bottomright:5px;
+}
+
+/***
+ *** Message
+ ***/
+
+/***
+ *** Tabs
+ ***/
+
+/***
+ *** User
+ ***/
+.userinfobox {
+  -moz-border-radius-bottomleft:10px;
+  -moz-border-radius-bottomright:10px;
+}
+
+.groupinfobox {
+  -moz-border-radius-bottomleft:10px;
+  -moz-border-radius-bottomright:10px;
+}
+#user-view .left {
+  -moz-border-radius-bottomleft:10px;
+}
+
+/***
+ *** Modules: Assignment
+ ***/
+
+/***
+ *** Modules: Chat
+ ***/
+
+/***
+ *** Modules: Choice
+ ***/
+
+/***
+ *** Modules: Forum
+ ***/
+.forumpost {
+  -moz-border-radius-bottomleft:5px;
+  -moz-border-radius-bottomright:0px;
+  -moz-box-shadow: 3px 3px 3px #bbb;
+}
+
+.forumpost:last-child{ 
+  -moz-border-radius-bottomright:5px;
+}
+
+.forumaddnew, .subscribelink{
+  -moz-box-shadow: 3px 3px 3px #bbb;
+}
+
+.forumpost .side {
+  -moz-border-radius-bottomleft:5px;
+}
+
+.forumpost .content {
+  -moz-border-radius-bottomright:5px;
+}
+
+.forumpost .message {
+  -moz-border-radius-bottomright:5px;
+}
+
+.forumpost .link {
+  -moz-border-radius-bottomright:5px;
+}
+
+
+
+/***
+ *** Modules: Glossary
+ ***/
+.glossarycategoryheader {
+  -moz-border-radius-topleft:10px;
+  -moz-border-radius-topright:10px;
+}
+
+.glossaryformatheader {
+  -moz-border-radius-topleft:10px;
+  -moz-border-radius-topright:10px;
+}
+
+.entryboxheader {
+  -moz-border-radius-topleft:10px;
+  -moz-border-radius-topright:10px;
+}
+
+.entrybox {
+  -moz-border-radius-bottomleft:10px;
+  -moz-border-radius-bottomright:10px;
+}
+
+.glossarypost {
+  -moz-border-radius-bottomleft:10px;
+  -moz-border-radius-bottomright:10px;
+}
+
+.glossarypost .side {
+  -moz-border-radius-bottomleft:10px;
+}
+
+.encyclopedia .entrylowersection {
+  -moz-border-radius-bottomright:10px;
+}
+.glossarycomment {
+  -moz-border-radius-bottomleft:10px;
+  -moz-border-radius-bottomright:10px;
+}
+
+.glossarycomment .side {
+  -moz-border-radius-bottomleft:10px;
+}
+
+.glossarycomment .entry {
+  -moz-border-radius-bottomright:10px;
+}
+
+
+/***
+ *** Modules: Journal
+ ***/
+
+#mod-journal-view .feedbackbox {
+  -moz-border-radius-bottomleft:10px;
+  -moz-border-radius-bottomright:10px;
+}
+#mod-journal-view .feedbackbox .side {
+  -moz-border-radius-bottomleft:10px;
+}
+#mod-journal-view .feedbackbox .entrycontent {
+  -moz-border-radius-bottomright:10px;
+}
+

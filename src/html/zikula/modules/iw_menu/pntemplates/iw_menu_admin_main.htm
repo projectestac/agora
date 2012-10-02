@@ -1,0 +1,60 @@
+<!--[include file="iw_menu_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<h2 style="margin-top:1em; margin-bottom:2em;"><!--[gt text="Menu options"]--></h2>
+	<!--[if $menuarray|count gt 0]-->
+		<div id="iw_menu_admin">
+		<!--[foreach item=item from=$menuarray]-->
+		  <!--[if $item.active eq 1]-->
+		  <div class="iw_menu_item iw_menu_active">
+		      <img src="modules/iw_menu/pnimages/on.gif" alt="<!--[gt text="On"]-->">
+		  <!--[else]-->
+		  <div class="iw_menu_item iw_menu_inactive">
+		      <img src="modules/iw_menu/pnimages/off.gif" alt="<!--[gt text="Off"]-->">
+		  <!--[/if]-->
+				<div class="iw_menu_left">
+					<div class="iw_menu_arrows" style="padding-left:<!--[$item.padding]-->;">
+						<!--[if $item.iorder gt 2]--><a href="<!--[pnmodurl modname=iw_menu type=admin func=order mid=$item.mid id_parent=$item.id_parent puts=1]-->"  title="<!--[gt text="Move to left or up"]-->"><img src="modules/iw_menu/pnimages/up.gif" alt="<!--[gt text="Move to left or up"]-->"></a><!--[/if]-->
+						<!--[if $item.downarrow]--><a href="<!--[pnmodurl modname=iw_menu type=admin func=order mid=$item.mid id_parent=$item.id_parent puts=-1]-->" title="<!--[gt text="Move to right or down"]-->"><img src="modules/iw_menu/pnimages/down.gif" alt="<!--[gt text="Move to right or down"]-->"></a><!--[/if]-->
+					</div>
+					
+					<!--[if $item.level neq '']-->
+					<div class="iw_menu_level">
+						<!--[$item.level]-->
+					</div>			
+					<!--[/if]-->
+					<div class="iw_menu_icon">
+						<!--[if $item.icon neq '']-->
+							<img src=<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_menu type=user func=getFile fileName=$item.imagepath]--> />
+						<!--[/if]-->
+					</div>
+					<div class="iw_menu_main">
+						<!--[$item.text]--><br />
+						<!--[if $item.url neq "---"]-->
+							<!--[gt text="URL"]-->: <a href="<!--[$item.url]-->" target="_blank"><!--[$item.url]--></a><br />
+						<!--[/if]-->
+						<span class="iw_menu_description"><!--[$item.descriu]--></span>
+					</div>
+				</div>
+				<div class="iw_menu_groups">
+					<div class="iw_menu_group"><!--[$item.groups_array]--></div>
+					<div class="iw_menu_addgroup"><a href="<!--[pnmodurl modname=iw_menu type=admin func=add_group mid=$item.mid]-->"><img src="modules/iw_menu/pnimages/addgroup.gif" alt="<!--[gt text="Add a group"]-->"><!--[gt text="Add a group"]--></a></div>
+				</div>
+				<div class="iw_menu_actions">
+					<a href="<!--[pnmodurl modname=iw_menu type=admin func=new mid=$item.mid m=e]-->" title="<!--[gt text="Edit"]-->"><img src="modules/iw_menu/pnimages/edit.gif" alt="<!--[gt text="Edit"]-->"></a>
+					<a href="<!--[pnmodurl modname=iw_menu type=admin func=delete mid=$item.mid]-->" title="<!--[gt text="Delete"]-->"><img src="modules/iw_menu/pnimages/delete.gif" alt="<!--[gt text="Delete"]-->"></a>
+					<a href="<!--[pnmodurl modname=iw_menu type=admin func=new mid=$item.mid m=c]-->" title="<!--[gt text="Copy"]-->"><img src="modules/iw_menu/pnimages/copy.gif" alt="<!--[gt text="Copy"]-->"></a>
+					<a href="<!--[pnmodurl modname=iw_menu type=admin func=new_sub mid=$item.mid m=s]-->" title="<!--[gt text="Submenu"]-->"><img src="modules/iw_menu/pnimages/submenu.gif" alt="<!--[gt text="Submenu"]-->"></a>
+					<a href="<!--[pnmodurl modname=iw_menu type=admin func=movelevel mid=$item.mid]-->" title="<!--[gt text="Move level"]-->"><img src="modules/iw_menu/pnimages/movelevel.gif" alt="<!--[gt text="Move level"]-->"></a>
+				</div>
+			</div>
+		<!--[/foreach]-->
+		</div>
+	<!--[else]-->
+		<!--[gt text="There is no root option defined."]--><br>
+	<!--[/if]-->
+	<!--[* About this module message *]-->
+	<div style="clear:both ">
+		<a href="index.php?module=iw_menu&func=module&type=admin"><!--[gt text="About this module"]--></a>
+	</div>
+</div>

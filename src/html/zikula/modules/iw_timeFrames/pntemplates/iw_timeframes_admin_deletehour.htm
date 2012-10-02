@@ -1,0 +1,34 @@
+<!--[if $statusmsg neq ""]--><!--[$statusmsg]--><!--[/if]-->
+<!--[include file="iw_timeframes_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='clock.gif' set='icons/large']--></div>
+	<div style="height:10px;">&nbsp;</div>
+	<h2><!--[gt text="Edition of timeFrame"]-->: <!--[$nom_marc]--></h2>
+	<h3><!--[gt text="Clear the time in timeFrame"]-->: <!--[$start]--> - <!--[$end]--></h3>
+	<div class="formOptions" style="text-align:left;">
+	  <a href=<!--[pnmodurl modname="iw_timeFrames" type="admin" func="delete_hour" mdid=$mdid hid = $hid c=1]-->><!--[pnimg modname='core' src='button_ok.gif' set='icons/small'   __alt="Confirm the deletion of the timeFrame." __title="Confirm the deletion of the timeFrame."]--></a><!--[gt text="Confirm"]-->&nbsp;&nbsp;
+	  <a href=<!--[pnmodurl modname="iw_timeFrames" type="admin" func="timetable" mdid=$mdid]-->><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Suspended the file" __title="Suspended the file"]--></a>  <!--[gt text="Cancel"]-->
+	</div>
+<br><br>
+<table width ="100%" bodre="0">
+	<tr> <td align="center">
+	<table width="700" border="0">
+		<th align="center" bgcolor="silver"><!--[gt text="Time"]--></th>
+		<th align="center" bgcolor="silver"><!--[gt text="Description"]--></th>
+		<th align="center" bgcolor="silver"><!--[gt text="Accions"]--></th>
+		<!--[section name=hores loop=$horari]-->
+			<tr bgcolor='#ededed'>
+				<td align="center" width="25%"><!--[$horari[hores].hora]--></td>
+				<td align="center" ><!--[if $horari[hores].descriu]--><!--[$horari[hores].descriu]--><!--[else]-->---<!--[/if]--></td>
+				<td align="center">
+				<a href=<!--[pnmodurl modname="iw_timeFrames" type="admin" func="edit_hour" hid= $horari[hores].hid mdid = $mdid]-->><!--[pnimg modname='core' src='edit.gif' set='icons/extrasmall'   __alt="Edit" __title="Edit"]--></a>
+				<a href=<!--[pnmodurl modname="iw_timeFrames" type="admin" func="delete_hour" hid=$horari[hores].hid mdid = $mdid]-->><!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Delete" __title="Delete"]--></a>
+				</td>
+			</tr>
+		<!--[/section]-->
+	</table>
+	</> </tr>
+</table>
+</div>
+<a href=<!--[pnmodurl modname="iw_timeFrames" type="admin" func="module"]-->><!--[gt text="About this module"]--></a>
+

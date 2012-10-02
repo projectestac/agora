@@ -1,0 +1,8 @@
+========================================================================
+Credits
+========================================================================
+
+iw_qv v2.0.0
+Created by Sara Arjona Téllez (sarjona@xtec.cat)
+
+Special thanks to Albert Pérez and Toni Ginard!

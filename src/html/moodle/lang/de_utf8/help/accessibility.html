@@ -1,0 +1,45 @@
+<h2>Barrierefreiheit - Accessibility</h2>
+
+<h3>Prüfung der Barrierefreiheit</h3>
+
+<p>Diese Seite wurde in einer Reihe von Browsern und verschiedenene Screenreader-Programmen getestet.</p>
+
+<p>Moodle verwendet semantische Auszeichnungen zur Unterstützung von Screenreader Nutzern unter anderem &mdash; Site, Seitene und Überschriftenauszeichnungen &lt;h1&gt;, &lt;h3&gt;, Navigationsblocks werden mit &lt;ul&gt; ausgezeichnet und so weiter.
+</p>
+
+<p>Moodle erfüllt die Anforderungen des World Wide Web Consortium's [<a href="http://www.w3.org/TR/WCAG10/" title="Web Content Accessibility Guidelines 1.0">Web
+ Content Accessibility Guidelines 1.0</a>] Level 1, große Teile von Level 2 
+ [<a href="http://www.w3.org/WAI/WCAG1AA-Conformance"  title="About Double-A WCAG conformance">about Double-A conformance</a>] 
+ und Teile von Level 3. Entlang diesen Richtlinien bemühen wir uns die örtlichen gestzlichen Bestimmungen für die Nutzung durch Menschen mit Einschränkungen zu  erfüllen. Daran wird zur Zeit gearbeitet. Derzeit gibt es noch einige Bereiche in denen Tabellen  für ads layout genutzt werden. Überwiegend werden jedoch bereits Style Sheets verwandt und Inhalt und Gestaltung werden konsequent voneinander getrennt.</p>
+
+<p>Wir freuen uns, wenn Sie Rückmeldungen geben und Hinweise auf Bereiche in denen Inhalt noch nicht vollständig barrierfrei dargestellt wird. 
+ Bitte benachrichtigen Sie den [<a href="./message/discussion.php?id=2">Admin mit einer Nachricht</a>].
+</p>
+
+<h3>Tastaturkürzel</h3>
+
+<p>Zur Zeit werden noch keine Tastaturkürzel angeboten mit denen man sich auf der Seite bewegen kann. Dies ist für eine spätere Version von moodle vorgesehen.</p>
+
+<h3>Links</h3>
+
+<p>Vor jedem Block gibt es nun einen Link mit dem man den Block überspringen kann. Grafische Browser zeigen diesen Link nicht an.</p>
+
+<p>Viele Links verfügen über ein Attrribut, das den Link detaillierter beschreibt, sofern der Link nicht selber genau das Ziel beschreibt. Falls der Link ein Tastataurkürzel enthält wird dies im Link-Titel angeteigt.</p>
+
+<p>Falsl möglich, werden Links so erstellt, dass man daraus das Ziel und den Sinn erkennen kann. Pseudo-Links aus Java werden vermieden. </p>
+
+<h3>Bilder</h3>
+
+<p>Alle Bilder nutzen alt-Attribute zur Eingabe von alternativen Textinformationen, Bilder, die ausschließlich dekorativen Charakter haben erhalten einen null-Wert im alt-Attribut. Bild, wie z.B. Zeichnungen oder Karten, die eine komplexe Information beinhalten, erhalten ein longdesc Attribut, die auf eine Textdatei mit einer ausführlichen Beschreibung des Bildinhaltes verlinken.</p>
+
+<h3>Erfüllung der Anforderungen von Standards</h3>
+
+<p>Diese Seite enthält gültigen 
+ <acronym title="Extensible Hyper-Text Markup Language">XHTML</acronym> 
+ Code für Auszeichnungen und verwendet CSS für die Darstellung.</p>
+
+<p style="text-align:center">
+  <a href="http://validator.w3.org/check?verbose=1&amp;ss=1&amp;uri=<?php echo $CFG->wwwroot; ?>" title="Use the W3C validator">Validate HTML</a> 
+| <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=-1&amp;url1=<?php echo $CFG->wwwroot; ?>" title="Test with Cynthia">Section 508 Check</a> 
+| <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=0&amp;warnp2n3e=1&amp;url1=<?php echo $CFG->wwwroot; ?>" title="Test with Cynthia">WCAG 1 (2,3) Check</a>
+</p>

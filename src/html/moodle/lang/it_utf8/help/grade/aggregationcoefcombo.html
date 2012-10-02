@@ -1,0 +1,23 @@
+<h1>Credito extra</h1>
+<h2>Per il tipo di aggregazione Somma dei voti</h2>
+<p>Usando la strategia di aggregazione 'Somma dei voti' è possibile usare un elemento di valutazione come Credito Extra della categoria. In pratica l'elemento anziché essere aggregato sarà sommato al totale della categoria.il voto dell'elemento al posto del voto massimo. Esempio:
+<ul>
+    <li>Intervallo di voti per l'Elemento 1: 0-100</li>
+    <li>Intervallo di voti per l'Elemento 2: 0-75</li>
+    <li>Per l'Elemento 1 il checkbox "Credito Extra" è stato selezionato, mentre per l'elemento 2 no.</li>
+    <li>Entrambi gli elementi appartenegono alla Categoria 1, la cui strategia di aggregazione è "Somma dei voti.</li>
+    <li>L'intervallo dei voti della Categoria 1 è 0-75</li>
+    <li>Uno studente riceve i voti 20 nell'Elemento 1 e 70 nell'Elemento 2</li>
+    <li>Il totale ottenuto dallo studente nella Categoria 1 sarà  75/75 (20+70 = 90 tuttavia l'Elemento 1 funge solamente come Credito Extra e di conseguenza porta il totale al Voto massimo)</li>
+</ul>
+<h2>Per il tipo di aggregazione Voto medio (con crediti extra)</h2>
+<p>Con questo tipo di aggregazione impostando un valore maggiore di 0 in "Credito Extra", durante l'aggregazione l'elemento di valutazione sarà trattato come credito extra. Il valore impostato è il fattore moltiplicativo per il quale il voto ottenuto sarà moltiplicato prima di essere aggregato. L'elemento di valutazione però non sarà tenuto in considerazione durante la divisione. Esempio:</p>
+
+<ul>
+    <li>Elemento 1: intervallo di voti 0-100 e "Credito Extra" pari a 2</li>
+    <li>Elemento 2: intervallo di voti 0-100 e "Credito Extra" lasciato a 0.0000</li>
+    <li>Elemento 2: intervallo di voti 0-100 e "Credito Extra" lasciato a 0.0000</li>
+    <li>I tre elementi appartengono alla Categoria 1, la cui strategia di aggregazione è impostata a "Voto medio (con crediti extra)"</li>
+    <li>Uno studente riceve i voti 20 nell'Elemento 1, 40 nell'elemento 2, on Item 2 e 70 nell'elemento 3</li>
+    <li>Il totale ottenuto dallo studente nella Categoria 1 sarà 95/100 poiché 20*2 + (40 + 70)/2 = 95</li>
+</ul>

@@ -1,0 +1,96 @@
+<h2>Berechnungsfragen</h2>
+
+<p>Bei Berechnungsfragen beschreiben Sie eine mathematische Aufgabe, deren Lösung eine Formel zugrunde liegt. Die Variablen der Aufgabe werden im Test durch konkrete Zahlenwerte ersetzt. Sie definieren die Lösungsformel und eine Menge von Zahlensets (je ein Zahlenwert für jede Variable der Lösungsformel). In den Testversuchen wird aus dieser Menge ein Zahlenset zufällig ausgewählt werden.</p>
+
+<p>Nachfolgend sehen Sie einen Ausschnitt aus der Konfigurationsseite für eine Berechnungsfrage:</p>
+
+<table>
+<tbody>
+<tr valign="top">
+<td align="right">
+<p><b>Frage:</b></p>
+</td>
+<td>
+<textarea id="questiontext" name="questiontext" rows="5" cols=
+"40" wrap="virtual">
+Wieviel ist {a} + {b} ?
+</textarea></td>
+</tr>
+<tr valign="top">
+<td align="right">
+<p><b>Abbildung einfügen:</b></p>
+</td>
+<td><select name="image">
+<option value="" selected="selected">Nein</option>
+<option value="grevture.gif">grevture.gif</option>
+</select></td>
+</tr>
+<tr valign="top">
+<td align="right">
+<p><b>Formel für richtige Antwort:</b></p>
+</td>
+<td><input align="left" type="text" id="formula0" name="answer[]"
+size="20" value="{a} + {b}">   <input type="hidden" name=
+"fraction[]" value="1.0"></td>
+</tr>
+<tr valign="top">
+<td align="right">
+<p><b>Toleranz:</b></p>
+</td>
+<td><input align="left" type="text" id="tolerance0&quot;" name=
+"tolerance[]" size="15" value="0.01">&#177;</td>
+</tr>
+<tr valign="top">
+<td align="right">
+<p><b>Toleranztype:</b></p>
+</td>
+<td><select name="tolerancetype[]">
+<option value="1" selected="selected">Relativ</option>
+<option value="2">Nominal</option>
+<option value="3">Geometrisch</option>
+</select></td>
+</tr>
+<tr valign="top">
+<td align="right">
+<p><b>Signifikante Ziffern:</b></p>
+</td>
+<td><select name="correctanswerlength[]">
+<option value="1">1</option>
+<option value="2" selected="selected">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+</select></td>
+</tr>
+</tbody>
+</table>
+
+<p>Im Fragetext und in der Lösungsformel sehen Sie die Variablen {a} und
+{b}. Diese und jeder andere Bezeichner {name} können als Variable verwendet werden. Sie werden durch konkrete Zahlenwerte ersetzt, wenn der Test gestartet wird. Die richtige Lösung wird berechnet, indem die Zahlenwerte in die angegebene Lösungsformel eingesetzt werden, wenn der Prüfling die Antwort abschickt. Die Zahlenwerte, die in den Testversuchen zur Verfügung stehen, werden auf einer weiteren Konfigurationsseite für Berechnungsfragen gesetzt oder generiert.</p>
+
+<p>In der Beispielformel wird der Operator + verwendet. Andere mögliche Operatoren sind -, *, / und % (Modulo-Division). Es können auch einige mathematische Funktionen aus PHP verwendet werden, wie z.B. diese Funktionen mit einer Variablen:<br />
+<b>abs, acos, acosh, asin, asinh, atan, atanh, ceil, cos, cosh, deg2rad, exp, expm1, floor, log, log10, log1p, rad2deg, round, sin, sinh, sprt, tan, tanh</b><br />
+oder Funktionen mit zwei Variablen:<br />
+<b>atan2, pow</b><br />
+oder die Funktionen <b>min</b> und <b>max</b>, die zwei oder mehr Argumente haben dürfen. Es ist auch möglich, die Funktion <b>pi</b> zu verwenden, die keine Argumente hat, vergessen Sie jedoch nicht die Klammern - die korrekte Schreibweise lautet: <b>pi()</b>. Analog müssen auch alle anderen genannten Funktionen ihre Argumente in Klammern setzen, also z.B. <b>sin({a}) + cos({b}) * 2</b>. Man kann die Funktionen auch ineinander schachteln, z.B. <b>cos(deg2rad({a} + 90))</b> etc.<br />
+Weitere Informationen zu mathematischen Funktionen in PHP finden Sie in der <a target="phpmathdoc" href="http://www.php.net/manual/en/ref.math.php">Dokumentation auf der PHP Webseite</a>.</p>
+
+<p>Wie bei den numerischen Fragen ist es möglich, Fehlertoleranzen für Berechnungsfragen anzugeben, innerhalb derer Antworten als richtig gewertet werden. Dazu wird die Option "Toleranz" benutzt. Es gibt drei verschiedene Toleranztypen: <b>Relativ, Nominal und Geometrisch</b>. Wenn z.B die exakte Lösung in einem Testversuch 200 lautet und die Toleranz auf 0.5 gesetzt ist, dann bedeuten die verschiedenen Toleranztypen Folgendes:<br />
+<br />
+<b>Relativ:</b> Das Toleranzintervall wird berechnet, indem die exakte Lösung mit 0.5 multipliziert wird (d.h. in unserem Beispiel 200*0.5 = 100), und dann muss die Antwort zwischen 100 und 300 (200 &#177; 100) liegen, damit sie als richtig gewertet wird.<br />
+Dieser Toleranztyp ist sinnvoll, wenn die Größenordnung der exakten Lösungen für die verschiedenen Zahlensets stark variiert.<br />
+<br />
+<b>Nominal:</b> Das ist der einfachste Toleranztyp, der jedoch nicht sehr mächtig ist. Bei diesem Toleranztyp muss im obigen Beispiel die Antwort zwischen 199.5 und 200.5 liegen (200 &#177; 0.5), damit sie als richtig gewertet wird.<br />
+Dieser Toleranztyp ist sinnvoll, wenn die Größenordnung der exakten Lösungen für die verschiedenen Zahlensets nicht stark variiert.<br />
+<br />
+<b>Geometrisch:</b> Die obere Schranke für das Toleranzintervall wird berechnet als 200 + 0.5*200 und ist dieselbe wie beim relativen Toleranztyp. Die untere Schranke wird berechnet als 200/(1 + 0.5), d.h. die Antwort muss zwischen 133.33 und 300 liegen, damit sie als richtig gewertet wird.<br />
+Dieser Toleranztyp ist sinnvoll für Berechnungen, die große Fehlertoleranzen benötigen, bei denen relative Fehlertoleranzen von 1 und mehr für die obere Schranke nötig sind, jedoch nicht akzeptabel für die untere Schranke sind, da sie in jedem Fall die Null zur richtigen Lösung machen würden.</p>
+
+<p>Die Option <b>Signifikante Ziffern</b> gibt nur an, wie die exakte Lösung in der Ergebnisübersicht angezeigt wird. Beispiel: 3 signifikante Ziffern bedeutet, dass eine exakte Lösung 13.333 als 13.3 angezeigt wird, eine exakte Lösung 1236 würde als 1240 angezeigt werden. 2 Dezimalstellen würde bedeuten, dass eine exakte Lösung 13.333 als 13.33 angezeigt würde, eine exakte Lösung 1236 als 1236.00.</p>
+
+<p>Die Optionen "Feedback" und "Einheit" entsprechen den gleichnamigen Optionen bei numerischen Fragen.</p>

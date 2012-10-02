@@ -1,0 +1,34 @@
+<!--[*  $Id: weblinks_user_details.html 55 2009-01-26 09:03:07Z Petzi-Juist $  *]-->
+<!--[include file="weblinks_user_header.html"]-->
+
+<div class="wl-borderbox">
+  <h3><!--[gt text="Link profile"]-->: <!--[$weblink.title|pnvarprepfordisplay]--></h3>
+  <p><!--[gt text="Category"]-->: <!--[catpath cid=$weblink.cat_id start=1 links=1 linkmyself=1]--></p>
+
+  <p>
+    <!--[$weblink.description|pnvarprephtmldisplay|pnmodcallhooks:"Web_Links"]-->
+  </p>
+
+  <p><!--[gt text="Added on"]-->: <!--[$weblink.date|pndate_format:"%d.%m.%Y"]--> | <!--[gt text="Hits"]-->: <!--[$weblink.hits]--></p>
+
+  <!--[pnmodcallhooks hookobject=item hookaction=display hookid=$weblink.lid module=Web_Links returnurl=$returnurl implode=false]-->
+  <!--[$hooks.Ratings]-->
+
+  <p>
+    <!--[if $userpermission == "admin"]-->
+    <a href="<!--[pnmodurl modname=Web_Links type=admin func=modlink lid=$weblink.lid]-->"><!--[pnimg modname='core' src='editpaste.gif' set='icons/extrasmall'   __alt="Edit this link" __title="Edit this link"]--></a> |
+    <!--[/if]-->
+    <!--[if $access_comment_cat && $access_comment_link]-->
+    <a href="<!--[pnmodurl modname=Web_Links type=user func=modifylinkrequest lid=$weblink.lid]-->"><!--[gt text="modify"]--></a> |
+    <!--[/if]-->
+    <a href="<!--[pnmodurl modname=Web_Links type=user func=brokenlink lid=$weblink.lid]-->"><!--[gt text="Report broken link"]--></a>
+  </p>
+
+  <p>[ <a href="<!--[pnmodurl modname=Web_Links type=user func=visit lid=$weblink.lid]-->"<!--[if $tb eq 1]--> target="_blank"<!--[/if]-->><!--[gt text="Visit this web site"]--></a> ]</p>
+
+
+  <!--[pnmodcallhooks hookobject=item hookaction=display hookid=$weblink.lid module=Web_Links returnurl=$returnurl implode=false]-->
+  <!--[$hooks.EZComments]-->
+
+</div>
+<!--[include file="weblinks_user_footer.html"]-->

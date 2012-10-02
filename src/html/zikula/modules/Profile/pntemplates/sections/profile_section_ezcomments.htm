@@ -1,0 +1,19 @@
+<!--[* $Id: profile_section_ezcomments.htm 73 2009-12-05 18:13:25Z herr.vorragend $ *]-->
+
+<!--[if $section]-->
+
+<h4><!--[gt text='Latest comments of %s' tag1=$userinfo.uname]--></h4>
+<ul>
+<!--[foreach from=$section item='item']-->
+    <li>
+        <a href="<!--[$item.url|pnvarprepfordisplay]-->"><!--[if $item.subject]--><!--[$item.subject|pnvarprepfordisplay]--><!--[else]--><!--[$item.comment|pnvarprepfordisplay|truncate:50]--><!--[/if]--></a><br />
+        <span class="z-sub"><!--[gt text='On %s' tag1=$item.date|pndate_format:'datelong']--></span>
+    </li>
+<!--[/foreach]-->
+</ul>
+
+<!--[else]-->
+<p class="profile-emptysection">
+    <!--[gt text='No recent commets found.']-->
+</p>
+<!--[/if]-->

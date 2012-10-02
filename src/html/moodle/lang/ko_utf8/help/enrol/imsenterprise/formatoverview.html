@@ -1,0 +1,85 @@
+<h1>포멧 개요</h1>
+<p>아래는 전형적인 IMS 엔터프라이즈 데이터 파일의 기본 구조에 대한 간단한 가이드입니다. 더 자세한 정보는  <a href="http://www.imsglobal.org/enterprise/">IMS 엔터프라이즈 공식 웹사이트</a> 에 있습니다.</p>
+
+<p>이 플러그인이 처리할 수 있는 IMS 데이터 요소를 설명하는 <a href="./enrol/imsenterprise/entv1p1_conformance_summary.html">부합성 요약</a> 을 읽어 볼 수 도 있습니다.</p>
+
+<h1>엔터프라이즈 파일 포멧에 대한 간단한 가이드</h1>
+
+<p>어떤 IMS 계통의 등록에 대해서도 강좌를 표시하는 &lt;group&gt; 태그와 사용자 계정을 표시하는 lt;person&gt; 태그,  강좌에서 사용자의 역할을 나타내는 &lt;member&gt; 태그를 포함하는 &lt;membership&gt; 태그를 필요로 합니다</p><p>
+</p>
+
+<p>
+무들 데이터베이스에서 사용하는 숫자 키들은 상호 호환적인 데이터가 아님을 기억하십시요. 즉 예로 학생 데이터 시스템은 사전에 죠가 무들데이터베이스에 추가된 20번째 사용자라는 것을 알 수 없습니다. 따라서 그것들은 이런 형식의 데이터에서 교환되는 키가 아닙니다.
+</p><p>
+</p>
+
+<p>
+일반적으로 배움터는 이름뿐만 아니라 참조 코드를 가지고 있습니다. 그 코드가 MOODLE101이라고 합시다. 당신의 배움터를 정의하기 위해서, 다음과 같이 사용할 수 있습니다. </p><p>
+</p>
+
+<p>
+&nbsp; &lt;group&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;MOODLE101&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;description&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;short&gt;Moodle 101&lt;/short&gt;<br />
+&nbsp; &nbsp; &lt;/description&gt;<br />
+&nbsp; &lt;/group&gt;<br />
+</p>
+
+<p>
+등록 스크립트는 코드가 MOODLE101인 강좌를 찾게 될 것이며 (선택적으로) 존재하지 않는 경우 강좌를 새로 만들 것입니다. 사람에 대해서도 마찬가지 입니다. 사용자가 &quot;jmoodle&quot; 이라고 합시다:</p><p>
+</p>
+
+<p>
+&nbsp; &lt;person&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;jmoodle&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;userid&gt;jmoodle&lt;/userid&gt;<br />
+&nbsp; &nbsp; &lt;name&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;fn&gt;Joe Moodle&lt;/fn&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;n&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;family&gt;MOODLE&lt;/family&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;given&gt;JOE&lt;/given&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/n&gt;<br />
+&nbsp; &nbsp; &lt;/name&gt;<br />
+&nbsp; &lt;/person&gt;<br />
+</p>
+
+<p>
+만일 죠가 계정을 가지고 있지 않다면 스크립트는 (선택적으로) 계정을 만들어 줄 것입니다.</p>
+
+<p>
+사용자를 배움터에 추가하는 멤버쉽에 대해 봅시다:</p><p>
+</p>
+
+<p>
+&nbsp; &lt;membership&gt;<br />
+&nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;id&gt;MOODLE101&lt;/id&gt;<br />
+&nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &lt;member&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;source&gt;MyDataSystem&lt;/source&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;id&gt;jmoodle&lt;/id&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/sourcedid&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;role roletype=&quot;01&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;status&gt;1&lt;/status&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;extension&gt;&lt;cohort&gt;unit 2&lt;/cohort&gt;&lt;/extension&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/role&gt;<br />
+&nbsp; &nbsp; &lt;/member&gt;<br />
+&nbsp; &lt;/membership&gt;<br />
+</p>
+
+<p>
+IMS 엔터프라이즈 규격은 등록을 위한 시작일과 마감일을 표시하는 기능을 제공합니다. 그래서 필요하면 이런 것들은 &lt;timeframe&gt; 태그를 사용하여 포함될 수 있습니다.</p><p>
+</p>
+
+<p>
+만일 사용자가 강좌내 그룹에 이미 추가되었다면 스크립트는 그것을 사실상 수정하지 않을 것입니다. 그들이 모둠으로 분리되어 있지 않다면 명시된 그룹만들기가 적용될 것입니다.
+</p><p>

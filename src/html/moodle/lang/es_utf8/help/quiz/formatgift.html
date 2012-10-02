@@ -1,0 +1,234 @@
+<p align=center><b>Importar archivos en formato "GIFT"</b></p>
+
+<p>GIFT es el formato disponible más completo para importar preguntas de
+   cuestionario a partir de un archivo de texto. Admite preguntas de opción múltiple,
+   verdadero-falso, respuesta corta, preguntas de emparejamiento y preguntas
+   numéricas, así como la inserción de un espacio en blanco ('palabra perdida').
+   Pueden mezclarse varios tipos de pregunta en un único archivo
+   de texto, dado que este formato admite comentarios, nombres de
+   preguntas, comentarios relativos a las respuestas y calificaciones por porcentajes y ponderadas.</p>
+
+   <p>La codificación del texto debe estar en utf-8 (a menos que utilice únicamente caracteres ASCII).
+   En esta dirección puede encontrar un ejemplo preguntas en formato texto: <a href="<?php echo $CFG->wwwroot; ?>/question/format/gift/examples.txt">gift/examples.txt</a>.</p>
+
+<h3>Introducción</h3>
+
+<p>Ninguna pregunta individual en formato GIFT puede contener líneas en blanco. Cada pregunta está delimitada por al menos una línea en blanco. Si necesitara representar una línea en blanco en una pregunta determinada, utilice la marca <b>\n</b>. Puede incorporar comentarios en cualquier momento, pero deben comenzar con dos barras (<b>//</b>) en el inicio de la línea.</p>
+
+<h3>TIPOS DE PREGUNTA</h3>
+
+<p><u>Opción múltiple:</u><br />
+En las preguntas de opción múltiple, las respuestas erróneas llevan una
+tilde (~) como prefijo; las correctas, el signo igual(=).</p>
+<pre>     ¿Cuántos lados tiene un cuadrado?{~dos ~tres =cuatro}</pre>
+<p>El formato de <b>Palabra ausente (o rellenar el espacio en blanco)</b> inserta automáticamente una línea en blanco
+que el alumno debe completar (como ésta:_____) en medio de la frase. Para usar el
+este formato coloque la respuesta en el lugar en donde quiere que aparezca la línea de completar.</p>
+<pre>     El cuadrado tiene {~tres =cuatro ~cinco} lados.</pre>
+<p>Si la respuesta está antes del punto se insertará una línea para completar en el formato "Completar". En este formato se puede escribir todo tipo de preguntas.</p>
+<p>Siempre debe haber una línea en blanco (un doble retorno de carro) separando las preguntas. Para aumentar la claridad, las preguntas se pueden escribir en líneas separadas e incluso sangradas. Por ejemplo:</p>
+<pre>     Colón descubrió América el 12 de {
+         ~Agosto
+         ~Septiembre
+         =Octubre
+         } de 1492.
+
+¿De qué país provienen originalmente los caracteres japoneses? {
+         ~India
+         =China
+         ~Corea
+         ~Egipto}</pre>
+
+<p><u>Respuesta Corta:</u><br /> Las respuestas del tipo "Respuesta Corta"
+se prefijan siempre con un signo igual (=), indicando que todas ellas son respuestas
+correctas. No debe haber respuestas con tilde.</p>
+<pre>     ¿Quién es el mejor amigo del hombre?{=perro =can}
+
+Dos más dos es igual a {=cuatro =4}.</pre>
+<p>Si hubiera sólo <u>una</u> Respuesta Corta correcta, debería estar escrita
+sin el prefijo igual, de tal manera que no se pueda confundir con el tipo Verdadero-Falso.
+
+<p><u>Verdadero-Falso:</u><br />
+En este tipo de pregunta la respuesta indica si la frase es correcta
+o incorrecta. La respuesta debe ser descrita como {TRUE} o {FALSE}, o
+más brevemente {T} o {F}.</p>
+<pre>     Colón descubrió África.{F}
+
+El Sol nace por el Este.{T}</pre>
+
+<p><u>Emparejamiento:</u><br />
+Las parejas coincidentes comienzan con un signo igual(=) y se separan con
+este símbolo: "->". Debe haber al menos tres parejas coincidentes.</p>
+
+<pre>     Preguntas de emparejamiento. {
+         =subpregunta1 -> subrespuesta1
+         =subpregunta2 -> subrespuesta2
+         =subpregunta3 -> subrespuesta3
+         }
+
+Empareje las capitales con sus correspondientes países. {
+         =Canadá -> Ottawa
+         =Italia  -> Roma
+         =Japón  -> Tokio
+         =España  -> Madrid
+         }</pre>
+<p>Las preguntas de emparejamiento no admiten comentarios de retroalimentación ni permiten ponderar mediante porcentajes.</p>
+
+<p><u>Numéricas:</u><br />
+La sección de respuestas para las preguntas numéricas debe comenzar con el signo #.
+    Las respuestas numéricas pueden incluir un margen de error, el cual estará
+    escrito a continuación de la respuesta correcta, separado con dos puntos (:). Así, por ejemplo, si la respuesta correcta está entre 1.5 y 2.5, debería escribirse como sigue:
+     <u>{#2:0.5}</u>. Esto indica que 2, con un margen de error de 0,5 es una respuesta correcta.
+    (es decir, el margen va de 1.5 a 2.5). Si no se especifica ningún margen de
+    error, se asume que es igual a cero.</p>
+<pre>     ¿Cuándo se descubrió America? {#1492}
+
+     ¿Qué valor tiene Pi(con tres decimales de precisión)?
+    {#3.1415:0.0005}.</pre>
+<p>Opcionalmente, las respuestas numéricas pueden ser escritas en forma de intervalo con el siguiente formato {<i>Valor mínimo</i>..<i>Valor máximo</i>}.</p>
+<pre>     ¿Cuál es el valor de Pi(con tres decimales)?
+    {#3.141..3.142}.</pre>
+<p>La interfaz del navegador de Moodle no acepta respuestas numéricas múltiples,
+    pero sí el código interno de Moodle y también el formato GIFT. Esta característica puede usarse para especificar
+    múltiples intervalos numéricos, y puede ser particularmente útil cuando se combina con
+    calificaciones ponderadas porcentuales. Si se utilizan varias respuestas, deben estar
+    separadas por un signo igual como las preguntas de respuesta corta.</p>
+<pre>     ¿Cuándo se descubrió América? {#
+         =1492:0
+         =%50%1492:2}</pre>
+<p>Observe que, dado que el GUI del navegador de Moodle no acepta
+múltiples respuestas para las preguntas numéricas, no hay manera de verlas
+o editarlas con  Moodle. La única manera de modificar una respuesta
+numérica desde el principio es borrar la pregunta y volver a importarla
+(o usar algo como phpMyAdmin).</p>
+
+<h3>OPCIONES</h3>
+<p>Además de este tipo de preguntas básicas, este filtro ofrece las siguientes opciones: Líneas de comentario, nombre de la pregunta, comentario de retroalimentación al alumno y peso porcentual de la respuesta.</p>
+
+<p><u>Comentarios:</u><br />
+En el archivo de texto pueden incluirse comentarios que no serán importados a Moodle.
+Estas líneas pueden aprovecharse para incluir encabezados o información adicional sobre las preguntas.
+Todas las líneas que comienzan con una doble barra inclinada("//", no cuentan los
+tabuladores ni los espacios) serán pasadas por alto por el filtro.
+<pre>     // Sub-encabezado: Ahora, unas cuantas preguntas numéricas
+     ¿Cuánto es dos más dos?{#4}</pre>
+
+<p><u>Nombre de la Pregunta:</u><br />
+Los nombres de las preguntas se especifican poniéndolos en primer lugar y encerrándolos entre dobles signos
+de dos puntos <b>::</b>.
+    <pre>     ::Orígenes del Kanji::De qué país provienen originalmente los caracteres japoneses? {=China}
+
+::Día de Acción de Gracias::El día feriado en Estados Unidos en que
+se festeja el día de Acción de Gracias, es el {~segundo ~tercero =cuarto}
+jueves de noviembre.</pre>
+<p>Si no se especifica un nombre de pregunta, por defecto la pregunta entera
+será tomada como nombre.</p>
+
+<p><u>Retroalimentación al alumno:</u><br /> Cada respuesta puede ir acompañada de comentarios (retroalimentación) inmediatamente después de la respuesta y precedidos por el signo #, también conocido como "Almohadilla" o "Hash mark").</p>
+<pre>Cuál es la respuesta a estas opciones múltiples?{
+      ~Respuesta equivocada#comentario de retroalimentación sobre la respuesta errónea
+      ~Otra respuesta equivocada#comentario de retroalimentación acerca de la mala respuesta
+      =Respuesta correcta#¡Muy bien!}
+
+      ¿Quién descubrió América?{
+      =Colón#¡Excelente respuesta!
+      =Cristóbal Colón#¡Excelente respuesta!}
+
+      Napoleón descubrió América.{FALSE#¡No, Napoleón no descubrió América!.}</pre>
+
+<p>En las preguntas de opción múltiple, únicamente se muestran comentarios de retroalimentación correspondientes a la opción que marcó el alumno.
+En las preguntas de respuesta corta, los comentarios de retroalimentación se muestran sólo cuando el alumno dio la correspondiente respuesta correcta.
+En la preguntas tipo Verdadero-Falso, los comentarios de retroalimentación importados se guardarán para mostrarlos sólo cuando el estudiante responda incorrectamente. Así, en el último ejemplo de arriba, el estudiante vería el comentario de retroalimentación sólo si seleccionó Verdadero.</p>
+
+<p><u>Pesos Porcentuales de Respuesta:</u><br />
+Los Pesos porcentuales de respuesta están disponibles tanto para las opciones
+múltiples como para las preguntas de respuesta corta. Estos pesos pueden ser
+incluidos a continuación de la tilde (en el caso de las preguntas de Opción Múltiple) o del signo
+igual (en el caso de las preguntas de Respuesta Corta) con el porcentaje deseado de ponderación encerrado
+entre signos de porcentaje (e.g., %50%). Esta opción se puede combinar con comentarios de retroalimentación.</p>
+<pre>       Pregunta Difícil.{~Respuesta equivocada ~%50%Respuesta 'a medias' =respuesta totalmente correcta}
+
+       ::El pueblo de Jesús::Jesús era del pueblo de{
+       ~Jerusalén#Esta era una ciudad importante, pero no es la respuesta correcta.
+       ~%25%Belén#Nació allí, pero no creció en ese pueblo.
+       ~%50%Galilea#Sea más específico.
+       =Nazaret#¡Correcto! ¡Eso es!}.
+
+       ::El pueblo de Jesús:: Jesús era del pueblo de {
+       =Nazaret#¡Correcto! ¡Eso es!
+       =%75%Nazeret#Correcto, pero mal escrito.
+       =%25%Belén#Nació allí, pero no era de ese pueblo.}</pre>
+<p>Observe que los últimos dos ejemplos son en esencia la misma pregunta, la primera en formato de opción múltiple, la otra en formato de respuesta corta.</p>
+
+<p><font size="-1"> Observe que es posible asignar porcentajes de peso a las
+respuestas correctas que NO están disponibles mediante la interfaz del navegador.
+Tales 'pesos' o ponderaciones de cada respuesta se calcularán correctamente (de
+acuerdo al valor asignado cuando se importaron), y parecerán normales a los
+estudiantes que hagan el examen. Pero tales 'ponderaciones' no se mostrarán
+correctamente a los profesores cuando se las esté editando mediante la interfase
+del editor de preguntas de Moodle. El menú desplegable solamente permite ciertos
+valores prefijados y, si la ponderación de la pregunta no coincide exactamente
+con alguno de esos valores predeterminados, entonces éstos no se mostrarán
+correctamente. Si se edita la pregunta en cuestión  mediante la interfaz del
+navegador, el valor del peso de la respuesta se cambiará al mostrado.</font></p>
+
+<p><u>Especificar el formato de texto de la pregunta</u><br />
+    The question text (only) puede tener especificado un formato opcional de texto. Por el momento, los formatos disponibles son
+    <b>moodle</b> (autoformato de Moodle), <b>html</b> (formato HTML), <b>plano</b> (formato de texto plano) y
+    <b>markdown</b> (formato Markdown). El formato se especifica mediante corchetes inmediatamente antes del texto
+    de la pregunta. <a href="help.php?file=textformat.html">Más información sobre los formatos de texto en Moodle.</a></p>
+
+ <pre>[markdown]El *Día de Navidad* se celebra el {
+         ~veintitrés
+         ~veinticuatro
+         =veinticinco
+     } de Diciembre.    </pre>
+
+<p><u>Respuestas Múltiples:</u><br />
+La opción de Respuestas Múltiples se utiliza cuando en las preguntas de opción
+múltiple se desea seleccionar dos o más respuestas para obtener el máximo puntaje
+en esa pregunta. La opción de respuestas múltiples estará habilitada asignando
+pesos parciales a varias respuestas, en tanto que no se otorga a ninguna
+respuesta el carácter de 'correcto'.</p>
+<pre>      ¿Qué valores puede asumir la raíz cuadrada de 4?{
+      ~cero
+      ~%50%2
+      ~%50%-2
+      ~seis }</pre>
+ <p>Observe que no hay ningún signo igual (=) en ninguna respuesta, y que éstas
+ deben sumar en total no más de 100%; de lo contrario, Moodle devolverá un error.
+ Para evitar que los estudiantes hagan trampa y obtengan el 100% haciendo clic
+ en todas las respuestas, es preferible incluir pesos de respuesta negativos para
+ las respuestas erróneas.</p>
+<pre>Qué valores puede asumir la raíz cuadrada de 4?{
+      ~%-50%cero
+      ~%50%2
+      ~%50%-2
+      ~%-50%seis }</pre>
+
+<p><u>Caracteres especiales ~ = # { } :</u><br />
+    Estos símbolos <b> ~ = # { } </b> controlan la operación de este filtro y no pueden utilizarse como texto normal dentro de las preguntas. Puesto que los símbolos juegan un papel especial para determinar cómo opera el filtro, se denominan "caracteres de control". Con todo, es posible que en alguna ocasión usted quiera utilizar alguno de ellos, por ejemplo, como parte de una fórmula matemática en una pregunta.
+    El modo de hacerlo es "escapando" de los caracteres de control.
+    Esto se consigue simplemente escribiendo una barra invertida (\) antes de un carácter de control, lo que indica al filtro que usted va a utilizar un carácter literal en lugar de un carácter de control.
+    Por ejemplo:</p>
+    <pre>     ¿Qué suma es igual a 5? {
+          ~ \= 2 + 2
+          = \= 2 + 3
+          ~ \= 2 + 4  }
+
+     ::Caracteres de Control GIFT::
+     ¿Cuál de los siguientes caracteres NO es un carácter de control en el formato GIFT? {
+        ~ \~     # \~ es un carácter de control.
+        ~ \=     # \= es un carácter de control.
+        ~ \#     # \# es un carácter de control.
+        ~ \{     # \{ es un carácter de control.
+        ~ \}     # \} es un carácter de control.
+        = \     # ¡Correcto! \ (barra invertida) no es un carácter de control. PERO
+                   se usa para dejar sin efecto los caracteres de control.
+     }</pre>
+    <p>Cuando la pregunta se procese, la barra invertida se eliminará y no se guardará en Moodle.</p>
+
+<p><u>Otras opciones:</u><br />
+    Las preguntas de respuesta corta pueden hacerse sensibles a las mayúsculas cambiando &quot;0&quot; a &quot;1&quot; en la línea siguiente:<br />
+    <tt>$question-&gt;usecase = 0;  // Ignore case</tt></p>
+<p></p>

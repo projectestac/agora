@@ -1,0 +1,14 @@
+<!--[*  $Id:  $  *]-->
+
+<ul class="storiesext">
+    <!--[foreach from=$stories item='story']-->
+    <li><!--[$story]--></li>
+    <!--[/foreach]-->
+</ul>
+
+<!--[securityutil_checkpermission_block component='Storiesextblock::' instance="$bid::" level=ACCESS_ADMIN]-->
+<div style="position: relative; top: -1em; margin-bottom: -1em; text-align: right;">
+    <!--[gt text='Edit this block' domain=$dom assign='editlink']-->
+    <a href="<!--[pnmodurl modname='Blocks' type='admin' func='modify' bid=$bid]-->"><!--[pnimg modname='core' set='icons/extrasmall' src='edit.gif' title=$editlink alt=$editlink]--></a>
+</div>
+<!--[/securityutil_checkpermission_block]-->

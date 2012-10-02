@@ -1,0 +1,57 @@
+<!--[include file="iw_qv_user_menu.htm"]-->
+<!--[pnajaxheader modname=iw_qv filename=iw_qv.js]-->
+<div style="height:20px;">&nbsp;</div>
+
+<div id="assignment_<!--[$qv.qvid]-->" class="assignment">
+	<h2><!--[if $qv.active eq 1]--><!--[pnimg modname='core' src='greenled.gif' set='icons/extrasmall'   __alt="Active" __title="Active"]--><!--[else]--><!--[pnimg modname='core' src='redled.gif' set='icons/extrasmall'   __alt="Inactive" __title="Inactive"]--><!--[/if]-->&nbsp;<!--[$qv.title]--></h2>
+	<div id="iwqv_actionlinks">
+		<!--[iwqvuserassignmentactionmenulinks url=$qv.url skin=$qv.skin lang=qv.lang qvid=$qv.qvid viewas=$viewas hidecorrect=true]-->
+	</div>
+
+	<p class="iwqv_meta"><!--[gt text="Assigned for %s at %s" tag1=$qv.teachername tag2=$qv.briefcrdate]--></p>			
+	<!--[$qv.description]-->
+	<br><br>
+	<table class="pn-datatable" style="width: 100%;">
+	<thead>
+	<tr>
+		<th><!--[gt text="Name"]--></th>
+		<th><!--[gt text="State"]--></th>
+		<th><!--[gt text="Score"]--></th>
+		<th><!--[gt text="Deliveries"]--></th>
+		<th><!--[gt text="Time"]--></th>
+		<th><!--[gt text="Comments"]--></th>
+		<th><!--[gt text="Observations"]--></th>
+		<th><!--[gt text="Options"]--></th>
+	</tr>
+	</thead>
+	<tbody>
+	<!--[section name=assignment loop=$assignments]-->
+	<tr>
+			<td class="iwqv-row" ">
+				<!--[if $assignments[assignment].fullurl neq '']--><span id="fullurllink_<!--[$assignments[assignment].qvaid]-->"><a href="<!--[$assignments[assignment].fullurl]-->" target="_blank"><!--[$assignments[assignment].userfullname]--></a></span><!--[/if]-->
+				<span id="fullurl_<!--[$assignments[assignment].qvaid]-->"><!--[$assignments[assignment].userfullname]--></div>
+				<script>if ('<!--[$assignments[assignment].qvaid]-->' != '') Element.hide('fullurl_<!--[$assignments[assignment].qvaid]-->'); </script>
+			</td>
+			<td id="state_<!--[$assignments[assignment].qvaid]-->" class="iwqv-row center"><!--[iwqvuserprintstate states=$assignments[assignment].states sections=$assignments[assignment].sections]--></td>
+			<td id="score_<!--[$assignments[assignment].qvaid]-->" class="iwqv-row center"><!--[$assignments[assignment].score]--></td>
+			<td id="delivers_<!--[$assignments[assignment].qvaid]-->" class="iwqv-row center"><!--[if $assignments[assignment].qvaid neq '']--><!--[$assignments[assignment].delivers]--><!--[if $qv.maxdeliver>0]-->/<!--[$qv.maxdeliver]--><!--[/if]--><!--[/if]--></td>
+			<td id="totaltime_<!--[$assignments[assignment].qvaid]-->" class="iwqv-row center"><!--[$assignments[assignment].totaltime]--></td>
+			<td id="teachercomments_<!--[$assignments[assignment].userid]-->" class="iwqv-row"><!--[$assignments[assignment].teachercomments]--></td>
+			<td id="teacherobservations_<!--[$assignments[assignment].userid]-->" class="iwqv-row"><!--[$assignments[assignment].teacherobservations]--></td>
+			<td class="iwqv-row">
+				<a href="javascript:void(0);" onclick ="iwqvEditUserAssignment('<!--[$assignments[assignment].userid]-->', '<!--[$qv.qvid]-->');"><!--[pnimg modname='core' src='xedit.gif' set='icons/extrasmall'   __alt="Edit" __title="Edit"]--></a>
+				<!--[if $assignments[assignment].qvaid neq '']--><a id="bt_deleteuserassignment_<!--[$assignments[assignment].qvaid]-->" href="javascript:void(0);" onclick ="iwqvDeleteUserAssignment('<!--[$assignments[assignment].qvaid]-->');"><!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Delete" __title="Delete"]--></a><!--[/if]-->
+			</td>
+	</tr>
+	<!--[/section]-->
+	</tbody>
+	</table>
+
+	<!--[if $qv.observations neq '']-->
+		<br><br>
+		<strong><!--[gt text="Observations about the assessment:"]--></strong><br>
+		<!--[$qv.observations]-->
+	<!--[/if]-->		
+	
+</div>
+

@@ -1,0 +1,44 @@
+<!--[* Smartytemplate *]-->
+<!--[* $Id: formicula_admin_view.html 160 2009-11-10 18:51:14Z herr.vorragend $ *]-->
+<!--[include file=formicula_admin_header.html]-->
+<h2><!--[gt text="View contacts"]--></h2>
+
+<table class="z-admintable z-clearer">
+    <thead>
+        <tr>
+            <th><!--[gt text='ID']--></th>
+            <th><!--[gt text='Name']--></th>
+            <th><!--[gt text='E-Mail']--></th>
+            <th><!--[gt text='Public']--></th>
+            <th><!--[gt text='Options']--></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--[foreach item=contact from=$contacts]-->
+        <tr class="<!--[cycle values="z-odd,z-even" name=contacts]-->">
+            <td><!--[$contact.cid]--></td>
+            <td><!--[$contact.name]--></td>
+            <td><!--[$contact.email]--></td>
+            <td>
+                <!--[if $contact.public==1]-->
+                <!--[gt text="Yes"]-->
+                <!--[else]-->
+                <!--[gt text="No"]-->
+                <!--[/if]-->
+            </td>
+            <td>
+                <!--[if $contact.acc_edit==true]-->
+                <a href="<!--[pnmodurl modname=formicula type=admin func=edit cid=$contact.cid]-->" title="<!--[gt text="Edit contact"]-->"><!--[pnimg src="xedit.gif" modname="core" set="icons/extrasmall" __alt="Edit contact" ]--></a>
+                <!--[/if]-->
+                <!--[if $contact.acc_delete==true]-->
+                &nbsp;&nbsp;<a href="<!--[pnmodurl modname=formicula type=admin func=delete cid=$contact.cid]-->" title="<!--[gt text="Delete contact"]-->"><!--[pnimg src="14_layer_deletelayer.gif" modname="core" set="icons/extrasmall" __alt="Delete contact" ]--></a>
+                <!--[/if]-->
+            </td>
+        </tr>
+        <!--[foreachelse]-->
+        <tr class="z-admintableempty"><td colspan="5"><!--[gt text="No items found."]--></td></tr>
+        <!--[/foreach]-->
+    </tbody>
+</table>
+
+<!--[include file=formicula_admin_footer.html]-->

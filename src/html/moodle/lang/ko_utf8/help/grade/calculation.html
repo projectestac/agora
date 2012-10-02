@@ -1,0 +1,39 @@
+<h1>성적 계산</h1>
+<!-- TRANSLATORS BEWARE!! The comma (,) sign used in the calculations may be a semi-colon (;)
+in your language. Please use whichever is used in your spreadsheet application. -->
+
+<p>성적표상의 계산은 대중적인 스프레드쉬트의 수식/함수 형식을 따른다. 계산식은 등호(=)로 시작하고, 단순한 수치 결과를 얻을 때는 일반적인 산술 기호 및 함수를 사용한다. 이러한 출력결과는 편집하는 성적 항목의 계산 결과로서 쓰이게 된다.</p>
+
+<p>다음은 계산에서 지원하는 함수들의 목록이다. 쉼표(,)는 함수괄호 안의 개별 상수를 구분하는데 쓰이곤 한다.</p>
+
+<ul>
+    <li><strong>average</strong>([[item1]], [[item2]]...): 샘플의 평균값 계산</li>
+    <li><strong>max</strong>([[item1]], [[item2]]...): 인수 목록에서 최대값 추출</li>
+    <li><strong>min</strong>([[item1]], [[item2]]...): 인수 목록에서 최소값 추출</li>
+    <li><strong>mod</strong>(dividend, divisor): 나눈 나머지 계산</li>
+    <li><strong>pi</strong>(): 원주율(Pi)값</li>
+    <li><strong>power</strong>(base, power): 바탕수의 power제곱수 계산</li>
+    <li><strong>round</strong>(number, count): 지정한 정밀도로 사사오입</li>
+    <li><strong>sum</strong>([[item1]], [[item2]]...): 모든 인수의 핪 계산</li>
+</ul>
+
+<p>동시에 지원하는 수학 함수들:</p>
+<ul>
+    <li>sin</li><li>sinh</li><li>arcsin</li><li>asin</li><li>arcsinh</li><li>asinh</li>
+    <li>cos</li><li>cosh</li><li>arccos</li><li>acos</li><li>arccosh</li><li>acosh</li>
+    <li>tan</li><li>tanh</li><li>arctan</li><li>atan</li><li>arctanh</li><li>atanh</li>
+    <li>sqrt</li><li>abs</li><li>ln</li><li>log</li><li>exp</li>
+</ul>
+
+<p>기타 점수 항목들의 값은 그 항목의 식별번호를 인수로 사용하여 수식에 포함시킬 수 있다. 식별번호 안에 특별한 문자가 포함될 경우 계산구동자가 혼동할 것을 방지하기 위해, 식별번호는 두 쌍의 대괄호로 묶어 표시해야 한다. 예를들어 어떤 점수 항목의 식별번호로 Quiz.3를 썼다면, 수식에서 이 항목을 [[Quiz.3]]처럼 작성해 넣어야 한다.</p>
+
+<p>계산 영역 하단에는 성적 범주 및 성적 항목을 나타내는 가지 모양의 표가 나타난다. 각 항목이나 범주의 총계 다음에는  계산에서 실제 사용할 수 있는 식별번호가 나타난다.(이미 대괄호로 묶여져 있다) 하지만 식별번호가 선택 사항이기 때문에 어떤 항목에는 없는 경우도 있다. 이렇게 식별번호가 없는 항목은 즉시 식별번호를 입력할 수 있도록 별도 항목이 주어지기 때문에, 현재 화면을 떠나지 않고도 계산에 사용할 수 있다. 하지만 이미 식별번호가 있는 항목의 편집은 허용하지 않기 때문에 꼭 식별번호를 바꾸고 싶다면 점수 항목을 편집하는 곳으로 되돌아가 고칠 수 밖에 없다.</p>
+
+<p>필요로하는 식별번호를 기입한 즉시, "식별번호 추가"를 누를 수 있고, 화면은 즉시 이를 반영하여 식별번호가 매겨진 가지모양의 표를 다시 보여준다. 그 후에는 이 식별번호를 준거로 계산에 자유롭게 활용할 수 있다.</p>
+
+<p>다음은 실제 성적표 계산할 때 쓸 수 있는 예를 보인 것이다.</p>
+
+<ul>
+    <li>=average([[Quiz.1]], [[Quiz.4]], [[Assignment.1]])</li>
+    <li>=average(max([[Quiz.1]], [[Quiz.4]], [[Assignment.1]]), min([[Quiz.1]], [[Quiz.4]], [[Assignment.1]]))</li>
+</ul>

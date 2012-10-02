@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Documents de Moodle: Manual del professorat</title>
+<link rel="stylesheet" href="docstyles.css" type="TEXT/CSS" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<base href="http://yuggoth.cent.uji.es/moodle/doc/index.php" />
+</head>
+
+<body>
+<h1>Manual del professorat</h1>
+<p>Aquesta pàgina és una guia molt breu sobre creació de cursos en línia amb Moodle. Explica les funcions principals i també algunes de les decisions que haureu de prendre.</p>
+<p>Seccions d'aquest document:</p>
+<ol>
+  <li><a href="#started">Per començar</a></li>
+  <li><a href="#settings">Paràmetres del curs</a></li>
+  <li><a href="#upload">Penjar fitxers</a></li>
+  <li><a href="#activities">Configuració d'activitats</a></li>
+  <li><a href="#course">Desenvolupament del curs</a></li>
+  <li><a href="#further">Més informació</a></li>
+</ol>
+<h3 class="sectionheading"><a name="started"></a>Per començar</h3>
+<blockquote> 
+  <p>Aquest document pressuposa que l'administrador del vostre lloc ha configurat Moodle i us ha proporcionat un curs nou, buit, per començar. També pressuposa que heu entrat en aquest curs amb el vostre compte de professor o professora.</p>
+  <p>Heus ací tres consells generals que us ajudaran a posar-vos en marxa:</p>
+  <ol>
+    <li><strong>No tingueu por d'experimentar</strong>
+      <blockquote>Sentiu-vos lliures d'escorcollar i canviar coses. És difícil fer malbé res en un curs de Moodle, i encara que ho féssiu generalment és fàcil arreglar els desperfectes.
+    </blockquote>
+    <li><strong>Fixeu-vos en aquestes petites icones i utilitzeu-les</strong> 
+      <blockquote> 
+        <p>&nbsp;<img src="../pix/i/edit.gif" /> La <strong>icona d'edició</strong> 
+          permet editar l'element del costat.</p>
+        <p><img src="../pix/help.gif" width="22" height="17" /> La <strong>icona 
+          d'ajuda</strong> dóna accés a una <a target="helpwindow" href="../help.php?file=index.html">finestra d'ajuda emergent</a></p>
+        <p>&nbsp;<img src="../pix/i/hide.gif" width="16" height="16" /> La <strong>icona  
+          'ull obert'</strong> us permet ocultar un element als estudiants</p>
+        <p>&nbsp;<img src="../pix/i/show.gif" width="16" height="16" /> La <strong>icona 
+          'ull tancat'</strong> fa disponible un element que estava ocult</p>
+      </blockquote>
+    </li>
+    <li><strong>Utilitzeu la barra de navegació que hi ha al capdamunt de cada pàgina</strong>
+      <blockquote>Aquesta barra us recorda on sou i impedeix que us pugueu perdre.</blockquote>
+    </li>
+  </ol>
+  <p>&nbsp;</p>
+</blockquote>
+<h3 class="sectionheading"><a name="settings"></a>Paràmetres del curs</h3>
+<blockquote> 
+  <p>La primera cosa que heu de fer és cercar a sota d'&quot;Administració&quot; 
+    en la pàgina inicial del vostre curs i fer clic en &quot;<strong>Paràmetres</strong>&quot; 
+    (fixeu-vos que aquest enllaç, i de fet tota la secció d'administració, només està 
+    disponible per al professorat del curs (i per a l'administrador o administradora del lloc).
+    L'estudiantat ni tan sols no veurà aquests enllaços.)</p>
+  <p>En la pàgina de paràmetres podreu canviar alguns paràmetres del curs, 
+    per exemple el nom del curs o la data d'inici. Aquí no parlarem de tots els paràmetres, 
+    perquè tenen una icona d'ajuda que explica les opcions detalladament. 
+    Però sí que esmentarem el més important: el <strong>format 
+    del curs</strong>.</p>
+  <p>El format de curs que trieu determinarà l'esquema bàsic del curs, 
+    com una mena de plantilla. La versió 1 de Moodle inclou tres formats. En el futur probablement n'hi haurà més.</p>
+  <p>Aquí teniu algunes captures de pantalla de sengles cursos de mostra en aquests tres formats (no feu cas de la diversitat de colors, definits per l'administrador a cada lloc):</p>
+  <p align="center"><strong>Format setmanal:</strong></p>
+  <p align="center"><img src="pix/weekly.jpg" width="570" height="527" /></p>
+  <p align="center">&nbsp;</p>
+  <p align="center"><strong>Format per temes:</strong></p>
+  <p align="center"><img src="pix/topics.jpg" width="570" height="463" /></p>
+  <p align="center">&nbsp;</p>
+  <p align="center"><strong>Format social:</strong></p>
+  <p align="center"><img src="pix/social.jpg" width="570" height="429" /></p>
+  <p>&nbsp;</p>
+  <p>Fixeu-vos que els formats setmanal i per temes tenen una estructura molt semblant. 
+    La diferència principal és que en el format setmanal cada secció del curs abasta exactament una setmana, 
+    mentre que en el format per temes cada secció pot abastar tots els continguts que vulgueu. 
+    El format social no es basa en continguts, sinó en un fòrum únic, que es visualitza a la pàgina principal.</p>
+  <p>Per a més informació, utilitzeu els botons d'ajuda de la pàgina de paràmetres del curs.</p>
+  <p>&nbsp;</p>
+</blockquote>
+<h3 class="sectionheading"><a name="upload"></a>Penjar fitxers</h3>
+<blockquote> 
+  <p>Potser ja teniu materials que voldríeu afegir al vostre curs, com ara  
+    pàgines web, fitxers d'àudio, fitxers de vídeo, documents de text, animacions Flash, etc. 
+    Podeu penjar al curs qualsevol tipus de fitxer i tenir-lo emmagatzemar-lo al servidor.
+    Tot seguit podreu editar o suprimir aquests fitxers, moure'ls, o canviar-los de directori.</p>
+  <p>Tot això es fa per mitjà de l'enllaç <strong>Fitxers</strong> del menú d'administració. 
+    L'àrea de fitxers té aquest aspecte:</p>
+  <p align="center"><img src="pix/files.jpg" width="400" height="347" /></p>
+  <p>&nbsp;</p>
+  <p>Aquesta interfície només està disponible per al professorat. L'estudiantat no hi té accés. 
+    Els fitxers es fan accessibles un per un a l'estudiantat en un pas posterior (com a &quot;Recursos&quot; 
+    , vg. la secció següent).</p>
+  <p>Com podeu veure en la captura de pantalla, els fitxers es llisten juntament amb subdirectoris. 
+    Podeu crear tots els subdirectoris que necessiteu per organitzar els vostres fitxers i moure 
+    fitxers d'un subdirectori a un altre.</p>
+  <p>A hores d'ara només es pot penjar fitxers via web un per un. 
+    Si voleu penjar uns quants fitxers d'una vegada (per exemple un lloc web complet), 
+    pot resultar molt més senzill utilitzar un <strong>programa zip</strong> per comprimir-los 
+    en un sol fitxer .zip, penjar aquest .zip i descomprimir-lo en el servidor 
+    (veureu un ellaç &quot;unzip&quot; al costat dels arxius zip).</p>
+  <p>Podeu previsualitzar qualsevol fitxer que hàgiu penjat fent clic en el seu nom.
+    El vostre navegador s'encarregarà de visualitzar-lo o de baixar-lo al vostre ordinador.</p>
+  <p>Els fitxers de text o HTML es poden editar en línia mitjançant un formulari. Els altres tipus de fitxer 
+    s'han de baixar al vostre ordinador i tornar-los a penjar. Si pengeu un fitxer que tingui 
+    el mateix nom que un fitxer ja existent al servidor, se sobreescriurà automàticament.</p>
+  <p>Nota final: si els vostres materials ja resideixen al web, no cal que pengeu cap mena de fitxers.
+    Podeu enllaçar-los directament des de dins del curs (vg. el mòdul Recursos i la secció següent).</p>
+  <p>&nbsp;</p>
+</blockquote>
+<h3 class="sectionheading"><a name="activities"></a>Configuració d'activitats</h3>
+<blockquote> 
+  <p>Construir un curs implica afegir mòduls d'activitat a la pàgina principal
+    del curs, a fi que l'estudiantat els utilitzi. Podeu canviar l'ordre de les 
+    activitats sempre que vulgueu.</p>
+  <p>Per a activar l'edició, feu clic en el botó &quot;Activa edició&quot;. 
+    Aquest commutador mostra o oculta els controls extra que us permetran manipular 
+    la pàgina principal del curs. Fixeu-vos que en la primera captura de pantalla més amunt 
+    (la del curs en format setmanal) els controls d'edició són activats.</p>
+  <p>Per a afegir una nova activitat, simplement cal que aneu a la setmana o tema on vulgueu
+     afegir-la i seleccioneu el tipus d'activitat en el menú desplegable. Heus ací un resum
+     d'algunes de les activitats estàndard de Moodle:</p>
+  <dl>
+    <dt><strong>Tasques</strong></dt>
+    <dd>Una tasca és un treball que assigneu als estudiants, amb una data de lliurament
+      i una qualificació màxima. L'estudiantat pot penjar un fitxer i la data queda 
+      registada. Podeu veure tots els fitxers, amb les dates de lliurament, en una pàgina, i qualificar-los 
+      o posar comentaris. Al cap de mitja hora de posar una qualificació, l'estudiant 
+      rep una notificació per correu electrònic.
+    <br />
+    <br /></dd>
+    <dt><strong>Consultes</strong></dt>
+    <dd>L'activitat de consulta és molt simple: feu una pregunta i especifiqueu les
+      possibles respostes. Els estudiants poden triar cadascun la seva resposta i el 
+      professorat pot visualitzar un informe amb els resultats. Es pot utilitzar per
+      fer enquestes ràpides o votacions.
+    <br />
+    <br /></dd>
+    <dt><strong>Fòrums</strong></dt>
+    <dd>Aquest mòdul és el més important: és on té lloc tot el debat. Quan afegiu un nou
+      fòrum podeu triar tres tipus diferents: un fòrum simple amb un sol tema de debat, 
+      un fòrum general de debat lliure, o un fòrum amb un tema de debat per usuari.
+    <br />
+    <br /></dd>
+    <dt><strong>Recursos</strong></dt>
+    <dd>Els recursos són els materials del curs. Cada recurs pot ser un fitxer que heu
+      penjat en l'àrea de fitxers del curs o pot apuntar a un URL extern. També podeu crear
+      pàgines de text o HTML per mitjà de l'editor integrat en Moodle.
+    <br />
+    <br /></dd>
+    <dt><strong>Qüestionaris</strong></dt>
+    <dd>Aquest mòdul us permet dissenyar qüestionaris que constin de preguntes de resposta múltiple,
+      de vertader/fals, de resposta breu i d'altres tipus. Les preguntes es mantenen en una base
+      de dades, classificades per categories, i es poden reutilitzar en tots els vostres cursos. 
+      Un qüestionari pot permetre intents repetits. Cada intent es puntua automàticament i el
+      professorat pot triar si es proporciona retroacció o es mostren les respostes correctes.
+      Aquest mòdul també proporciona facilitats per a qualificar.
+    </dd>
+  </dl>
+  <br />
+  <p>Després d'afegir les activitats podeu moure-les amunt i avall en les diferents seccions del curs
+     fent clic en les icones de les fletxes (<img src="../pix/t/up.gif" width="9" height="10" /> 
+    <img src="../pix/t/down.gif" width="9" height="10" />) al costat de cada activitat. També podeu
+    suprimir-les per mitjà de la icona de la ics <img src="../pix/t/delete.gif" width="10" height="10" />, 
+    i fer canvis amb la icona d'edició <img src="../pix/t/edit.gif" width="10" height="11" />.</p>
+  <p>&nbsp;</p>
+</blockquote>
+<h3 class="sectionheading"><a name="course"></a>Desenvolupament del curs</h3>
+<blockquote> 
+  <p>Hi ha plans d'ampliar aquesta documentació. Mentrestant, aquí teniu unes poques idees:</p>
+  <ol>
+    <li>Subscriviu-vos a tots els fòrums per estar al corrent de l'activitat de la classe.</li>
+    <li>Encoratgeu els estudiants a emplenar els seus perfils (fotografies incloses) 
+      i llegiu-los tots. Això posarà en context els seus escrits posteriors i us ajudarà
+      a respondre d'una manera personalitzada a cadascun.</li>
+    <li>Manteniu les vostres anotacions privades en el &quot;<strong>Fòrum del professorat</strong>&quot; 
+      (sota Administració). Això resulta particularment útil quan hi ha un equip de professors
+      i professores.</li>
+    <li>Utilitzeu l'enllaç &quot;<strong>Registres</strong>&quot; (sota Administració) 
+      per accedir als registres d'activitat complets. Hi trobareu un enllaç a una finestra emergent
+      que s'actualitza cada minut i mostra l'activitat de la darrera hora. Podeu deixar oberta
+      aquesta finestra per estar al corrent d'allò que vagi passant al curs.</li>
+    <li>Utilitzeu els &quot;<strong>Informes d'activitat</strong>&quot; (al costat de cada nom 
+      en la llista de participants, o en el perfil de cada usuari). Aquests informes són una  
+      bona manera de veure el que ha fet cadascú en el curs.</li>
+    <li>Contesteu ràpidament als estudiants. No ho deixeu per a més tard, feu-ho ara.
+      No sols és fàcil deixar-se aclaparar pel volum de comunicacions que es pot generar,
+      sinó que una resposta ràpida és crucial per a crear i mantenir una sensació de comunitat
+      dins del curs.</li>
+  </ol>
+  <p>&nbsp;</p>
+</blockquote>
+<h3 class="sectionheading"><a name="further"></a>Més informació</h3>
+<blockquote> 
+  <p>Si teniu algun problema en particular amb el vostre lloc, hauríeu de contactar amb l'administrador o administradora del lloc.</p>
+  <p>Si teniu idees genials per a millorar Moodle, o alguna història interessant per contar, aneu a <a href="http://moodle.org/" target="_top">moodle.org</a> 
+    i entreu en el curs "<a href="http://moodle.org/course/view.php?id=5" target="_top" >Using 
+    Moodle</a>" (anglès) o en "<a href="http://moodle.org/course/view.php?id=39" target="_top" >Moodle en català</a>". Ens complaurà tenir notícies vostres.</p>
+  <p>Si voleu col·laborar desenvolupant nous mòduls, o escrivint documentació, 
+    o articles, utilitzeu també aquests cursos o exploreu el lloc <a href="http://moodle.org/bugs/" target="_top">moodle.org/bugs</a>.</p>
+  <p>Finalment, recordeu-vos d'utilitzar les icones d'ajuda. Aquí teniu un <a target="helpwindow" href="../help.php?file=index.html">índex de tots els fitxers d'ajuda de Moodle</a>.</p>
+  <p align="center">Gràcies per usar Moodle i que tingueu sort amb les classes!</p>
+  <hr />
+  <p>&nbsp;</p>
+</blockquote>
+<p align="center"><font size="1"><a href="." target="_top">Documentació de Moodle</a></font></p>
+<p align="center"><font size="1">Version: $Id: teacher.html,v 1.4 2002/08/18 10:00:01 
+  martin Exp $</font></p>
+</body>
+</html>

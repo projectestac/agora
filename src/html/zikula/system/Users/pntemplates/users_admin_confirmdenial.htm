@@ -1,0 +1,27 @@
+<!--[gt text='Deny registration application for %s' tag1=$item.uname assign='templatetitle']-->
+
+<!--[include file='users_admin_menu.htm']-->
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><img src="system/Users/pnimages/admin.gif" alt="<!--[$templatetitle]-->" /></div>
+
+    <h2><!--[$templatetitle]--></h2>
+
+    <form class="z-form" action="<!--[pnmodurl modname='Users' type='admin' func='deny']-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name='generateauthkey' module='Users']-->" />
+            <input type="hidden" name="userid" value="<!--[$userid|pnvarprepfordisplay]-->" />
+            <fieldset>
+                <legend><!--[$templatetitle]--></legend>
+                <div class="z-formrow">
+                    <label for="users_confirmed"><!--[gt text='Confirm denial of registration application']--></label>
+                    <input id="users_confirmed" name="confirmed" type="checkbox" />
+                </div>
+            </fieldset>
+            <div class="z-formbuttons">
+                <!--[pnbutton src='button_ok.gif' set='icons/small' __alt='Deny' __title='Deny']-->
+                <a href="<!--[pnmodurl modname='Users' type='admin' func='viewapplications']-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small' __alt='Cancel' __title='Cancel']--></a>
+            </div>
+        </div>
+    </form>
+</div>

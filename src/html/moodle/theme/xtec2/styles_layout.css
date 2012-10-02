@@ -1,0 +1,618 @@
+/*******************************************************************
+ styles_layout.css
+
+ This CSS file contains all layout definitions like positioning,
+ floats, margins, padding, borders etc.
+
+ Styles are organised into the following sections:
+  core
+  forms
+  header
+  footer
+
+  admin
+  blocks
+  blog
+  calendar
+  course
+  doc
+  grades
+  login
+  message
+  notes
+  mymoodle
+  question
+  tabs
+  tags
+  user
+  top-menu
+  Course quotes & Marsupial stats
+
+  various modules
+
+*******************************************************************/
+
+
+/***
+ *** Core
+ ***/
+
+body{
+	margin:0;
+}
+
+#layout-table {
+  margin-top:0px;
+}
+
+#content{
+padding: 18px 6px 10px 6px;
+}
+
+.generalbox {
+  background-image: url(images/borderbottom.png);
+  background-position: bottom;
+  background-repeat: repeat-x;
+}
+
+.admin .generalbox{
+  background-image: url(images/borderbottom.png);
+  background-position: bottom;
+  background-repeat: repeat-x;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], button {
+  background-image: url(images/button.png);
+  background-position: bottom;
+  background-repeat: repeat-x;
+  padding:2px;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-width: 1px;
+}
+
+
+img.icon {
+  width: auto;
+  height: auto;
+}
+
+/***
+ *** Header
+ ***/
+
+.headermain{
+  margin:0;
+  height:112px;
+  <?php
+  if(file_exists($CFG->dataroot."/1/theme/logo.png"))
+  	$logo = $CFG->wwwroot."/file.php/1/theme/logo.png";
+  else if(file_exists($CFG->dataroot."/1/theme/logo.jpg"))
+    $logo = $CFG->wwwroot."/file.php/1/theme/logo.jpg";
+  else
+  	$logo = 'images/top.jpg';
+  ?>
+  background-image: url('<?php echo $logo;?>');
+  background-repeat: no-repeat;
+  background-position:right;
+  width:100%;
+  border-bottom:1px solid;
+  clear:both;
+  float:none;
+}
+
+
+.headermain h1, h1.headermain{
+	margin-left:20px;
+    text-align:left;
+	margin-bottom:5px;
+	padding-top:27px;
+}
+	
+.headermain h2{
+	margin-left:20px;
+    text-align:left;
+	margin-top:3px;
+}
+
+.headermenu {
+  height: 34px;
+  width:100%;
+  padding-top: 10px;
+  clear:both; 
+  background-image: url(images/menubar.png);
+  background-position: top;
+  background-repeat: repeat-x;
+}
+
+.headermenu .logininfo a:link,
+.headermenu .logininfo a:visited,
+.headermenu .logininfo a:active{
+	text-decoration: underline;
+}
+
+.headermenu .logininfo a:hover{
+	text-decoration: none;
+}
+
+.logodepart{
+	margin-left:10px;
+	height:26px;
+	width:195px;
+	background-image: url(images/departament.png);
+	float:left;
+}
+
+.logoxtec{
+	margin-left: 10px;
+	height:26px;
+	width:97px;
+	background-image: url(images/xtec.png);
+	float:left;
+}
+
+#chooselang{
+	margin-right:20px;
+}
+
+.navigation ul{
+	margin-right:10px !important;
+}
+
+.navbar {
+  padding:6px 0.5em;
+  background-image: url('images/navigation.png');
+  background-position: bottom;
+  background-repeat: repeat-x;
+  border: 0;
+}
+
+.navbar .breadcrumb {
+  padding-left: 10px;
+  margin: 3px 0 !important;
+}
+
+.navbar .navbutton{
+    margin-top: 0px !important;
+}
+
+/***
+ *** Footer
+ ***/
+
+#footer {
+  margin-top: 15px;
+}
+
+#footer .logininfo{
+	margin-bottom: 10px;
+}
+
+#footer .navbar{
+  margin-top:0;
+}
+
+
+/***
+ *** Blocks
+ ***/
+
+.sideblock .header, .sideblock h2.header {
+  border: 1px solid;
+}
+.sideblock h2 {
+  padding-top:3px;
+}
+
+
+.sideblock .header {
+  background-image: url(images/topbar.png);
+  background-position: bottom;
+  background-repeat: repeat-x;	
+}
+
+
+td#left-column div{
+	margin-left: 1px;
+}
+
+td#right-column div{
+  margin-right: 5px;
+}
+
+.sideblock .content {
+  background-image: url(images/borderbottom.png);
+  background-position: bottom;
+  background-repeat: repeat-x;
+}
+
+.sideblock .content h2 {
+  padding-top:3px;
+}
+
+.sideblock .content hr {
+  border: 0;
+}
+
+.unlist{
+	border: 1px solid;
+	margin-left:-1px;
+}
+
+/***
+ *** Course
+ ***/
+table.topics{
+	border-collapse:separate;
+	border-spacing: 0;
+}
+
+#course-view tr.section,
+#course-view li.section{
+  border: 0;
+}
+
+#course-view .separator{
+  background-image: none;
+}
+
+
+#course-view .topics,
+#course-view .weeks,
+#course-view ul.weekscss  {
+	border-top: 1px solid;
+	padding:0;
+	margin-left:-1px;
+	margin-bottom: 16px;
+}
+
+#course-view .section td.content,
+#course-view .weekscss li.section,
+.categoryboxcontent,
+.coursebox {
+  padding-left: 15px;
+  padding-right: 5px;
+}
+
+#course-view .section td.left {
+	min-width:45px;
+}
+
+#course-view .section td.content,
+#course-view .section td.side,
+#course-view .section td.right,
+#course-view .section td.left,
+#course-view .section .left,
+#course-view .weekscss li.section,
+.categoryboxcontent,
+.coursebox {
+  background-image: url(images/borderbottom.png) !important;
+  background-position: bottom !important;
+  background-repeat: repeat-x !important;
+  padding-top: 15px;
+  padding-bottom:35px;
+  border:0;
+}
+
+#course-view li.section{
+	border-left: 1px solid #D0D0D0 !important;
+}
+
+
+#course-view .section .spacer {
+  display:none;
+}
+
+#course-view .section img.spacer {
+  display:inline;
+}
+
+
+.weekscss-format #left-column {
+  padding:1px;
+}
+.weekscss-format #left-column .sideblock {
+  padding-left:3px;
+}
+
+.weekscss-format #right-column {
+  padding-right:7px;
+}
+.weekscss li.section {
+  margin-bottom: 0;
+  border-top:0px;
+}
+
+.weekscss .content,
+.weekscss .side {
+  padding-bottom:35px;
+}
+
+.headingblock, h2.headingblock {
+  padding:5px;
+  margin:0;
+  margin-left: -1px;
+  border: 1px solid;
+  height: 24px;
+}
+
+.headingblock {
+  background-image: url(images/topbar.png);
+  background-position: bottom;
+  background-repeat: repeat-x;
+}
+
+body#site-index .headingblock,
+body#course-view .headingblock {
+  margin-bottom: 0px;
+}
+
+.coursebox {
+  width: auto;
+  border:0;
+  padding-bottom:15px;
+  margin-bottom:0px;
+}
+
+.boxwidthwide{
+  width: inherit;
+}
+
+/***
+ *** Login
+ ***/
+
+.headermenu .logininfo{
+	display:inline;
+	padding-right:10px;
+}
+
+/***
+ *** Top-menu
+ ***/
+
+#top_menu{
+    border:none;
+    border:0px;
+    margin:0px;
+    padding:0px;
+    height:35px;
+    clear:both;
+}
+
+#top_menu ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    float:left;
+
+}
+
+#top_menu li{
+    float:left;
+    padding:0px;
+}
+
+#top_menu ul li {
+    list-style:none;
+    float:left;
+    white-space:nowrap;
+    z-index: 9999;
+}
+
+#top_menu ul li div{
+    position:relative;
+}
+
+#top_menu ul li a {
+    display:block;
+    height:27px;
+    padding: 8px 17px 0 17px;
+}
+
+
+#top_menu ul li a{
+    display:block;
+    margin:0px;
+}
+
+#top_menu li ul{
+    display:none;
+    height:auto;
+    padding:0px;
+    margin:0px;
+    border:0px;
+    position:absolute;
+    min-width:225px;
+    z-index:200;
+}
+
+#top_menu li:hover ul{
+    display:block;
+}
+
+#top_menu li li {
+    display:block;
+    float:none;
+    margin:0px;
+    padding:0px;
+    min-width:225px;
+}
+
+#top_menu li ul a{
+    display:block;
+    height:35px;
+    line-height:35px;
+    margin:0px;
+    padding:0px 10px 0px 15px;
+}
+
+#top_menu li ul a:hover, #top_menu li ul li:hover a{
+    border:0px;
+}
+
+#top_menu p{
+    clear:left;
+}
+
+
+#top_menu_structure img{
+    margin-left: 1px;
+    margin-right: 2px;
+}
+
+#top_menu_structure div.item_div, div.son_div{
+    margin: 5px 0 5px 22px;
+}
+
+#top_menu_structure div.group_div{
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+#top_menu_structure img.son{
+    margin-top: -6px;
+    width: 17px;
+}
+
+#top_menu #home_icon{
+    width: 30px;
+    height: 18px;
+}
+
+.mform fieldset#menu_item_header{
+    width: 75%;
+}
+
+/***
+ *** Course quotes & Marsupial stats
+ ***/
+#admin-report-coursequotes-index .yui-nav,
+#blocks-rcommon-state-print_users .yui-nav{	
+	border-bottom-width: 0px;
+}
+
+#admin-report-coursequotes-index .yui-content h2,
+#blocks-rcommon-state-print_users .yui-content h2{
+	text-align: center;
+}
+
+#admin-report-coursequotes-index .yui-content,
+#blocks-rcommon-state-print_users .yui-content{
+	padding: 15px;
+	width: 95%;
+}
+
+#admin-report-coursequotes-index .yui-content td.category_title,
+#blocks-rcommon-state-print_users .yui-content td.category_title{
+	padding-top: 10px;
+}
+
+#admin-report-coursequotes-index td,
+#blocks-rcommon-state-print_users td{
+	padding: 3px 15px;
+}
+
+
+/***
+ *** Modules: Forum
+ ***/
+
+.forumheaderlist,
+.forumpost {
+    border-style:solid;
+    border-width: 1px;
+    width:98%;
+    margin-left: 1%;
+}
+
+.forumpost {
+  margin-top: 0px;
+}
+
+.forumaddnew{
+    padding-bottom:15px;
+    padding-top: 10px;
+    background-image: url(images/borderbottom.png);
+    background-position: bottom;
+    background-repeat: repeat-x;
+    border-style:solid;
+    border-width: 1px;
+    width: 98%;
+    margin-left: 1%;
+
+}
+
+#site-index .forumpost {
+ margin-left: 0%;
+}
+
+#site-index .forumaddnew{
+ margin-left: 0%;
+ width: 100%;
+}
+
+.subscribelink{
+	border-style:solid;
+    border-width: 1px 1px 0px 1px;
+}
+
+.forumpost .content {
+  background-image: url(images/borderbottom.png);
+  background-position: bottom;
+  background-repeat: repeat-x;
+}
+
+.forumpost .side {
+  background-image: url(images/borderbottom.png);
+  background-position: bottom;
+  background-repeat: repeat-x;
+}
+
+.forumpost td {
+    padding: 10px !important;
+}
+
+.forumheaderlist .header{
+  border-width: 1px;
+}
+
+.forumheaderlist td{
+   padding: 10px !important;
+}
+
+
+.forumheaderlist .discussion .starter,
+.discussion td{
+	border-width: 0 0 1px 0;
+	background-image: url(images/borderbottom.png);
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
+.discussioncontrols {
+    margin-bottom: 10px;
+    width: 98%;
+    margin-left: 1%;
+}
+
+.discussioncontrols td{
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.mod-forum .indent {
+   margin-left:43px;
+}
+
+#mod-forum-view .unread {
+  padding-left:0px;
+  padding-right:0px;
+  text-align:center;
+}
+
+#mod-forum-discuss .forumpost.unread .content {
+	border: 0;
+}
+
+

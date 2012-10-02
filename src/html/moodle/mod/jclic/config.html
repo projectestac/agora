@@ -1,0 +1,29 @@
+<form method="post" action="module.php" name="form">
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+
+<table cellpadding="9" cellspacing="0" >
+<tr valign="top">
+    <td align="right">jclic_jclicpluginjs:</td>
+    <td>
+    <input name="jclic_jclicpluginjs" type="text" size="50" value="<?php p($CFG->jclic_jclicpluginjs) ?>" />
+    </td>
+    <td>
+    <?php print_string("jclicpluginjs", "jclic") ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">jclic_lap:</td>
+    <td>
+    <input name="jclic_lap" type="text" size="50" value="<?php p($CFG->jclic_lap) ?>" />
+    </td>
+    <td>
+    <?php print_string("lap", "jclic") ?>
+    </td>
+</tr>
+<tr>
+    <td colspan="3" align="center">
+        <input type="submit" value="<?php print_string("savechanges") ?>" /></td>
+</tr>
+</table>
+
+</form>

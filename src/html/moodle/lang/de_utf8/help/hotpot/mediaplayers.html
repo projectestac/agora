@@ -1,0 +1,41 @@
+<h2>Relative URLs, Mediaplayer und Hot Potatoes</h2>
+
+<p><b>Definitionen:</b></p>
+
+<dl>
+	<dt><i>URL</i></dt>
+	<dd>die Adresse einer Internetquelle, wie z.B. eine Webseite, ein Bild oder eine Sound-Datei.</dd>
+
+	<dt><i>absolute URL</i></dt>
+	<dd>eine URL, die mit "http://" beginnt, wird absolute URL genannt. Wann immer sie verwendet wird, wird Bezug auf die gleiche Ressource genommen.</dd>
+
+	<dt><i>relative URL</i></dt>
+	<dd>eine URL, die nicht mit "http://" beginnt, wird relative URL genannt. Sie kann zusammen mit der absoluten URL der Basisseite verwendet werden, um die absolute URL einer gewünschten Zieldatei zu beschreiben.</dd>
+</dl>
+
+<p><b>Relative URLs in Hot Potatoes Tests</b></p>
+
+<p>Relative URLs bieten eine einfache Möglichkeit, um Bilder, Sounds und Videos in
+einem Hot Potatoes Test zu referenzieren, denn sie ermöglichen es,
+einen Hot Potatoes Test am lokalen PC anzuzeigen und zu testen, bevor er auf den Moodle-Server
+hochgeladen wird. Wird der Test auf einen Moodle-Server hochgeladen, dann
+müssen auch die Multimediadateien auf den Server hochgeladen werden, um das Funktionieren des Tests in Moodle zu gewährleisten.</p>
+<p>Aus Sicherheitsgründen erlaubt Moodle keinen
+direkten Zugriff auf die Kursdateien. Jede Dateianfrage innerhalb
+eines Kurses wird von einem Sicherheitsskript geprüft, um sicherzustellen, dass die Anfrage von einer Person gestellt wurde, die im
+Kurs eingeschrieben ist. Bei dieser Vorgehensweise kann es jedoch passieren, dass relative URLs in Hot Potatoes Quelldateien nicht richtig verarbeitet werden (weil die Regeln zur Ableitung von absoluten URLs aus relativen URLs nicht funktionieren).<br>
+</p>
+
+<p>Die Lösung des Problems ist einfach: <font color="red"><b>Alle
+relativen URLs müssen in absolute URLs umgewandelt sein, </b></font>wenn
+der Test den Browser erreicht. Im Falle der Hot Potatoes Tests werden
+die URLs durch Moodle konvertiert, so dass sich Ersteller von Hot Potatoes Tests >b>nicht</b> um dieses Problem kümmern müssen.<br>
+</p>
+
+<p><b>Mediaplayer in Hot Potatoes Tests</b></p>
+
+<p>Einige Mediaplayer akzeptieren Mediendateien nicht, wenn
+sie von dem o.g. Sicherheitsskript kommen. In
+diesem Fall ist es notwendig, den Mediaplayer durch einen
+Moodle-kompatiblen Mediaplayer zu ersetzen. Sie können dies wie folgt tun: Entweder Sie passen die Mediaplayer-Einstellungen in der Hot Potatoes Quelldatei entsprechend an oder Sie überlassen Moodle diese Arbeit, indem Sie die Einstellung "Moodle-kompatible Mediaplayer verwenden" für Hot Potatoes Tests auf "Ja" setzen.<br>
+</p>

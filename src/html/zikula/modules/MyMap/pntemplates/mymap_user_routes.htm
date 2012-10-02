@@ -1,0 +1,29 @@
+<!--[include file="mymap_user_header.htm"]-->
+
+<h1><!--[gt text="Route / waypoint management"]--></h1>
+
+<!--[gt text="You can add a route to the map. You have to define waypoints on the map. Then, a line will be drawn from waypoint to waypoint."]--><br /><br />
+
+<!--[*include file="mymap_user_display_map_ajax.htm"*]-->
+<!--[include file="mymap_user_display_map.htm"]-->
+
+<img name="indicator_markermanagement" src="<!--[pngetbaseurl]-->modules/MyMap/pnimages/show.gif" /> <a href="<!--[pnmodurl fqurl="true" modname="MyMap" type="user" func="display" mid=$map.id]-->"><!--[gt text="Back to map's marker management"]--></a><br />
+<!--[gt text="or add a waypoint"]-->:
+
+<!--[pnformvalidationsummary]-->
+
+	<!--[pnform enctype="multipart/form-data"]-->
+	    <!--[gt text="Latitude"]--> | <!--[gt text="Longitude"]-->: 
+	    <!--[pnformfloatinput id="lat"]-->
+	    <!--[pnformfloatinput id="lng"]--><br />
+		<!--[gt text="or use the import function (click add button after selecting file to import)"]--><br />
+	    <!--[pnformuploadinput id="file"]-->
+   	    <!--[pnformbutton commandName="add" __text="add"]--><br />
+	<!--[/pnform]-->
+
+<br />
+<!--[gt text="Number of stored waypoints for this map"]-->: <!--[$waypoints|@count]-->.<br /><br />
+<strong><!--[gt text="Actions"]-->:</strong>
+<a href="<!--[pnmodurl modname="MyMap" type="user" func="routes" action="delete_lastwaypoint"  mid=$map.id]-->"><!--[gt text="Delete last waypoint"]--></a>,
+<a href="<!--[pnmodurl modname="MyMap" type="user" func="routes" action="delete_waypoints"  mid=$map.id]-->"><!--[gt text="Delete all waypoints"]--></a>.
+<!--[include file="mymap_user_footer.htm"]-->

@@ -1,0 +1,1 @@
+document.write("<link rel='stylesheet' href='css/rgrade_print.css' media='print'/>");

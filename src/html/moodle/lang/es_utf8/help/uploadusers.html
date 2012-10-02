@@ -1,0 +1,67 @@
+<h1>Subir usuarios</h1>
+
+<p>En primer lugar tenga en cuenta que <strong>normalmente no es necesario importar usuarios en bloque</strong>: para tener su trabajo de mantenimiento bajo control, debería explorar formas de autenticación que no requieran mantenimiento manual, tales como conectarse con una base de datos externa, o dejando que los usuarios creen sus propias cuentas. Vea la sección de Autenticación en el menú de Administración.</p>
+
+<p>Si está seguro que quiere importar múltiples cuentas de usuario desde un archivo de texto, entonces necesitará dare formato a su archivo de texto como se indica:</p>
+
+<ul>
+
+  <li>Cada línea del archivo contiene un registro.</li>
+
+  <li>Cada registro es una serie de datos separados por comas.</li>
+
+  <li>El primer registro del archivo es especial, y contiene una lista de nombres de campos. Este registro define el formato del resto del archivo.
+
+    <blockquote>
+
+      <p><strong>Campos requeridos:</strong> Estos campos deben estar presentes en el primer registro, y deben definirse para cada usuario.</p>
+
+      <p><code class="example1">username, password, firstname, lastname, email</code></p>
+
+      <p><strong>Campos por defecto:</strong> Estos campos son opcionales -si no están presentes, se tomarán los valores del administrador primario</p>
+
+      <p><code class="example1">institution, department, city, country, lang, auth, timezone</code> </p>
+
+      <p><strong>Campos opcionales:</strong> Todos estos son opcionales. Los nombres de los cursos son sus "nombres cortos" -si se incluyen los nombres cortos de los cursos el alumno se incribirá automáticamente en esos cursos. Los nombres de los grupos deben estar asociados a los cursos correspondientes, e.g., group1 a course1, etc.</p>
+
+      <p> <code class="example1">idnumber,
+
+icq, phone1, phone2, address, url, description, mailformat,
+
+maildisplay, htmleditor, autosubscribe, course1, course2, course3,
+
+course4, course5, group1, group2, group3, group4, group5, type1, type2,
+
+type3, type4, type5, role1, role2, role3, role4, role5, emailstop</code></p>
+
+    </blockquote>
+
+    </li>
+
+  <li>Las comas entre los datos se codificarán como &amp;#44 -el script las decodificará automáticamente como comas.</li>
+
+  <li>Para campos boleanos use 0 para falso y 1 para verdadero.</li>
+
+  <li>Los tipos se usan para informar a Moodle si el usuario es un estudiante o un profesor en el caso de que el correspondiente curso exista (e.g., type2 corresponde a course2). 1 = Estudiante, 2 = Profesor editor y 3 = Profesor no editor. Si el tipo se deja en blanco, o si no se especifica curso, el usuario por defecto será el estudiante.</li>
+
+  <li>Para los cursos, utilice el nombre corto del curso.</li>
+
+  <li>Nota: Si un usuario ya está registrado en la base de datos de Moodle, el script devolverá el número userid (índice de la base de datos) de ese usuario, e inscribirá al usuario en los cursos SIN alterar la información anterior.</li>
+
+</ul>
+
+<p>Éste es un ejemplo de un archivo válido:</p>
+
+<p><code>username, password, firstname, lastname, email, lang, idnumber, maildisplay, course1, group1, type1<br />
+
+juanb, secreto, Juan, Benítez, janb@algo.edu, es, 3663737, 1, Intro101, Seccion1, 1<br />
+
+saraf, sercreta, Sara, Fernández, sarara@alomas.edu, es, 6736733, 0, Avanzado202, Seccion3, 3</code></p>
+
+<h2>Actualización de cuentas existentes</h2>
+
+<p>Moodle asume por defecto que usted está creando cuentas de nuevos usuarios, y pasa por alto los registros en los que el nombre de usuario coincide con una cuenta existente. Sin embargo, si elige la opción <b>Sí</b> en "Actualizar cuentas existentes", la cuenta correspondiente quedará actualizada.</p>
+
+<p>Al actualizar cuentas existentes, usted puede cambiar también los nombres de usuario. Seleccione <b>Sí</b> en "Permitir renombrar" e incluya en su archivo un campo denominado <code class="example1">oldusername</code>.</p>
+
+<p><b>Atención:</b> cualquier error al actualizar cuentas existentes puede afectar negativamente a los usuarios. Sea cuidadoso a la hora de usar las opciones de actualización.</p>

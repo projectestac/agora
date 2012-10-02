@@ -1,0 +1,68 @@
+<!--[*  $Id: weblinks_admin_linkview.html 62 2009-01-28 17:12:37Z Petzi-Juist $  *]-->
+<!--[include file="weblinks_admin_header.html"]-->
+<div class="pn-admincontainer">
+  <div class="pn-adminpageicon"><!--[pnimg modname='core' src='agt_internet.gif' set='icons/large' __alt='Links administer' ]--></div>
+  <h2><!--[gt text="Links administer"]--></h2>
+
+  <!--[if $catnum>0]-->
+
+  <form class="pn-adminform" action="<!--[pnmodurl modname=Web_Links type=admin func=addlink]-->" method="post" enctype="application/x-www-form-urlencoded">
+    <fieldset>
+      <legend><!--[gt text="Add link"]--></legend>
+      <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Web_Links"]-->" />
+      <input type="hidden" name="link[submitter]" value="<!--[$submitter]-->" />
+      <input type="hidden" name="link[new]" value="0" />
+      <input type="hidden" name="link[lid]" value="0" />
+
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Pagetitle"]--></label>
+        <input type="text" name="link[title]" size="50" maxlength="100" />
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="URL"]--></label>
+        <input type="text" name="link[url]" size="65" maxlength="254" value="http://" />
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Category"]--></label>
+        <select name="link[cat]"><!--[catlist scat=0 sel=0]--></select>
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Description: (255 characters max)"]--></label>
+        <textarea name="link[description]" cols="65" rows="10"></textarea>
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Name"]--></label>
+        <input type="text" name="link[name]" size="30" maxlength="60" />
+      </div>
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="E-mail address"]--></label>
+        <input type="text" name="link[email]" size="30" maxlength="60" />
+      </div>
+
+      <div class="pn-adminformrow pn-clearfix pn-adminformbuttons">
+        <!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Add link" __title="Add link"]-->
+      </div>
+    </fieldset>
+  </form>
+
+  <!--[if $numrows>0]-->
+  <form class="pn-adminform" action="<!--[pnmodurl modname=Web_Links type=admin func=modlink]-->" method="post" enctype="application/x-www-form-urlencoded">
+    <fieldset>
+      <legend><!--[gt text="Modify/Delete a link"]--></legend>
+      <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Web_Links"]-->" />
+      <div class="pn-adminformrow pn-clearfix">
+        <label><!--[gt text="Link ID"]--></label>
+        <input type="text" name="lid" size="12" maxlength="11" />
+      </div>
+      <div class="pn-adminformrow pn-clearfix pn-adminformbuttons">
+        <!--[pnbutton src='button_ok.gif' set='icons/small' __alt="_WL_MODLINK" __title="_WL_MODLINK"]-->
+      </div>
+    </fieldset>
+  </form>
+  <!--[/if]-->
+  <!--[else]-->
+  <!--[gt text="No link found"]-->
+  <!--[/if]-->
+
+</div>
+<!--[include file="weblinks_admin_footer.html"]-->

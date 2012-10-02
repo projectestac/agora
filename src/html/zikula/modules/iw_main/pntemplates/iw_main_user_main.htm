@@ -1,0 +1,111 @@
+<!--[pngetstatusmsg]-->
+<h1><!--[gt text="Intraweb main module"]--></h1>
+<h2><!--[gt text="User configurable blocks values"]--></h2>
+<form  class="pn-adminform" enctype="multipart/form-data" method="post" name="conf" id="conf" action="<!--[pnmodurl modname="iw_main" type="user" func="updateconfig"]-->">
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_main"]-->" />
+	<fieldset>
+		<legend><!--[gt text="News and marked blocks"]--></legend>
+		<div>
+			<!--[gt text="I want that block will show details"]-->
+			<input type="checkbox" <!--[if $blockFlaggedDetails]-->checked<!--[/if]--> name="details" />
+		</div>
+		<!--[if isset($cronNotWorks)]-->
+			<div style="background-color: #FFE1DA; padding: 10px;">
+				<!--[pnimg modname='core' src='error.gif' set='icons/small']--> <!--[gt text="It has not worked"]-->
+			</div>
+		<!--[elseif $userMail == '']-->
+			<div style="background-color: #FDD994; padding: 10px;">
+				<!--[pnimg modname='core' src='error.gif' set='icons/small']--> <!--[gt text="If you want the system would be able to send you emails with a dayly resume of things to see, but it is not possible because your email has not been found. You can define your email address form"]-->
+				<a href="<!--[pnmodurl modname=profile func=modify]-->"><!--[gt text="this link."]--></a>
+			</div>
+		<!--[else]-->
+			<div>
+				<!--[gt text="I want to be subscribed to thinks to see"]-->
+				<input type="checkbox" <!--[if $subscribeNews]-->checked<!--[/if]--> name="cron" />
+				(<!--[gt text="The subscrition mail is:"]--> <!--[$userMail]-->)
+			</div>
+			<input type="hidden" name="cronWorks" value="1" />
+		<!--[/if]-->
+	</fieldset>
+	<div>
+		<!--[if $canChangeAvatar]-->
+			<fieldset>
+				<legend><!--[gt text="Avatar replacement"]--></legend>
+				<div style="float:left;">
+					<!--[if $photo neq '']-->
+						<img src="<!--[pnmodurl modname=iw_main type=user func=getPhoto fileName=$photo]-->" />
+					<!--[else]-->
+						<!--[pnimg modname='iw_main' src='noImage.jpg' set='pnimages']-->
+					<!--[/if]-->
+					<div>
+						<input type="checkbox" name="deleteAvatar" value="1" /><!--[gt text="Delete"]-->
+					</div>
+				</div>
+				<div style="float:left; padding-left: 20px;">
+					<!--[if !$avatarChangeValidationNeeded || $photo_s eq '']-->
+						<!--[if $photo eq '']-->
+							<!--[gt text="Upload your avatar"]-->
+						<!--[else]-->
+							<!--[gt text="If you want, you cam change your avatar from here:"]-->
+						<!--[/if]-->
+						<!--[if $avatarChangeValidationNeeded eq 1]-->
+							<br />
+							<!--[gt text="(The avatar change required administrator validation)"]-->
+						<!--[/if]-->
+						<div style="margin-top: 20px;">
+							<input type="file" name="avatar" size="50">
+						</div>
+						<div style="margin-top: 20px;" class="pn-informationmsg">
+							<!--[gt text="Your avatar's image sizes must be 90x120 px aproximately with one of the next formats: jpg, gif or png."]-->
+						</div>
+					<!--[else]-->
+						<img src="<!--[pnmodurl modname=iw_main type=user func=getPhoto fileName=$photo_s]-->" />
+						<div>
+							<!--[gt text="Your avatar changement request is waiting for an administrator validation."]-->
+						</div>
+					<!--[/if]-->
+				</div>
+			</fieldset>
+		<!--[/if]-->
+	</div>
+	<div style="clear:both; height: 20px">&nbsp;</div>
+	<!--[* Working on it *]-->
+	<!--[if $zendFuncAvailable == 1]-->
+		<fieldset>
+			<legend><!--[gt text="Google account"]--></legend>
+			<div>
+				<!--[gt text="Sincronize agenda with Google calendar"]-->
+				<input type="checkbox" <!--[if $gCalendarUse]-->checked<!--[/if]--> name="gCalendarUse" onchange="javascript:activeGoogleUserAcoountData()" />
+			</div>
+			<div id="googleUser" <!--[if not $gCalendarUse]--> style="display: none;" <!--[/if]-->>
+				<div>
+					<!--[gt text="Google e-mail"]-->
+					<input type="text" name="gUserName" value="<!--[$gUserName]-->" />
+				</div>
+				<div>
+					<!--[gt text="Google password"]-->
+					<input type="password" name="gUserPass" value="" autocomplete="off"/>
+				</div>
+				<div>
+					<!--[gt text="Refresh time for gCalendar sincronitation"]-->
+					<select name="gRefreshTime">
+						<option <!--[if $gRefreshTime eq 15]-->selected<!--[/if]-->>15</option>
+						<option <!--[if $gRefreshTime eq 30]-->selected<!--[/if]-->>30</option>
+						<option <!--[if $gRefreshTime eq 45]-->selected<!--[/if]-->>45</option>
+						<option <!--[if $gRefreshTime eq 60]-->selected<!--[/if]-->>60</option>
+					</select>
+				</div>
+				<div style="margin-top: 20px;" class="pn-informationmsg">
+					<!--[gt text="As many small this value the navigation into agendas will be slower. In any moment the automatical sincronization is possible"]-->
+				</div>
+			</div>
+		</fieldset>
+		<div style="clear:both; height: 20px">&nbsp;</div>
+	<!--[/if]-->
+	<!--[* soon available *]-->
+	<div style="text-align: center;">
+		<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="OK" __title="OK"]--> <!--[gt text="OK"]-->
+	</div>
+</form>
+<div style="height: 20px">&nbsp;</div>
+<a href="<!--[pnmodurl modname=iw_main func=module]-->"><!--[gt text="About this module"]--></a>			

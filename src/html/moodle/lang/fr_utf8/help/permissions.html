@@ -1,0 +1,43 @@
+<!-- $Id: permissions.html,v 1.8 2009/10/10 14:06:43 martignoni Exp $ -->
+
+<h1>Permissions</h1>
+
+<p>Les permissions sont les réglages que vous accordez pour des capacités spécifiques.</p>
+
+<p>Par exemple, une capacité est « Commencer des discussions » (pour les forums).</p>
+
+<p>Pour chaque rôle, vous pouvez choisir comme permission pour une telle capacité l'une des quatre valeurs suivantes :</p>
+
+<dl>
+
+<dt>Non défini</dt>
+
+<dd>Ce réglage est habituellement le réglage par défaut. C'est un réglage neutre qui signifie « utiliser les réglages que l'utilisateur a déjà ». Si un rôle  qui a cette permission pour une capacité est attribué à quelqu'un, par exemple dans un cours, la permission que cette personne aura effectivement sera celle qu'elle avait déjà dans un contexte plus élevé, par exemple au niveau des catégories ou au niveau du système. Dans le cas extrême où une permission n\'est jamais attribué à aucun niveau, l'utilisateur n'aura alors aucune permission pour cette capacité.</dd>
+
+<dt>Autoriser</dt>
+
+<dd>En choisissant ce réglage, vous autorisez la capacité aux personnes ayant le rôle en question.  Cette permission est valable pour le contexte dans lequel ce rôle est attribué, plus tous les contextes inférieurs. Par exemple, si le rôle est un rôle d'étudiant dans un cours, les étudiants seront alors capable de « commencer des discussions » dans tous les forums de ce cours, À MOINS QUE l'un des forums contienne une dérogation ou une autre permission avec la valeur Empêcher ou Interdire pour ce forum. Dans ce cas, les étudiants ne pourront pas commencer de discussions dans ce forum uniquement.</dd>
+
+<dt>Empêcher</dt>
+
+<dd>En choisissant ce réglage, vous retirez une capacité aux utilisateurs, même si les utilisateurs ayant ce rôle l'avaient dans un contexte plus élevé.</dd>
+
+<dt>Interdire</dt>
+
+<dd>Ce choix est rarement nécessaire. Il permet de retirer une capacité à un rôle, de façon qu'il ne soit pas possible de l'autoriser dans un contexte inférieur. Par exemple, si un administrateur veut empêcher un utilisateur de commencer de nouvelles discussions dans tous les forums d'un système, il créera un rôle avec cette capacité réglée sur « Interdire » et attribuera ce rôle à l'utilisateur en question, dans le contexte du système.</dd>
+
+</dl>
+
+<h1>Résolution des conflits de permissions</h1>
+
+<p>Les permissions d'un contexte inférieur auront en général priorité sur celles d'un contexte supérieur (ceci s'applique aux dérogations et aux rôles attribués). L'exception est le réglage <b>Interdire</b>, pour laquelle une dérogation ne peut être mise en place aux niveaux inférieurs.</p>
+
+<p>Si deux rôles sont attribués à un utilisateur dans le même contexte, l'un avec le réglage <b>Autoriser</b> et l'autre avec le réglage <b>Interdire</b>, lequel des deux sera appliqué ? Dans un tel cas, Moodle recherchera dans l'arbre des contextes un indice de décision.</p>
+
+<p>Par exemple, supposons qu'un étudiant ait deux rôles dans un cours, l'un lui permettant de commencer des discussions et l'autre le lui empêchant. Dans ce cas, Moodle contrôlera les contextes catégories et système, à la recherche de la définition d'une autre permission pour tomber sur une décision. S'il n'en trouve pas, la permission sera par défaut mise à <b>Empêcher</b> (parce que les deux réglages s'annulent et qu'il n'y a alors pas de permission).</p>
+
+<h1>Exceptions spéciales</h1>
+
+<p>Le compte spécial « Anonyme » n'est pas autorisé à écrire du contenu (par exemple dans les forums, le calendrier, les blogs, etc.), même si on lui attribue un rôle avec la capacité de le faire.</p>
+
+<p>Voir aussi <a href="help.php?file=roles.html">Rôles</a>, <a href="help.php?file=contexts.html">Contextes</a>, <a href="help.php?file=assignroles.html">Attribuer des rôles</a> et <a href="help.php?file=overrides.html">Dérogations</a>.</p>

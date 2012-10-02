@@ -1,0 +1,12 @@
+<!--[*  $Id: stats_user_prose.htm 9 2008-11-05 21:42:16Z Guite $  *]-->
+<!--[if $total neq 0]-->
+<p>
+<!--[gt text='This site has received <strong>%1$s</strong> page views since <strong>%2$s</strong> <strong>%3$s</strong> today, and <strong>%4$s</strong> yesterday.' tag1=$total  tag2=$startdate  tag3=$valtoday tag4=$valyesday]-->
+</p>
+<p>
+<!--[gt text='The day on which there was the most traffic so far was %1$s (<strong>%2$s</strong> page views), while %3$s (<strong>%4$s</strong> page views) was the day with the fewest hits.' tag1=$best_day|pndate_format:datelong  tag2=$best_day_hits  tag3=$worst_day|pndate_format:datelong  tag4=$worst_day_hits]-->
+</p>
+<p>
+<!--[gt text='Most people visit on <strong>%1$s</strong>, with a total of <strong>%2$s </strong> page views, while <strong>%3$s</strong> is the day with the fewest visits, with a total of <strong>%4$s </strong> page views. On average, the busiest hour (with <strong>%5$s</strong> page views ) starts at <strong>%6$s:00</strong>. The hour during which traffic has been lightest starts at <strong>%7$s:00</strong> (with only <strong>%8$s</strong> page views).' tag1=$weekdaynames.$weekdaybest  tag2=$weekdaybesthits  tag3=$weekdaynames.$weekdaybad  tag4=$weekdaybadhits  tag5=$hourbest  tag6=$hourbesthits  tag7=$hourbad  tag8=$hourbadhits]-->
+</p>
+<!--[/if]-->

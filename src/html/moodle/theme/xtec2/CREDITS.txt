@@ -1,0 +1,52 @@
+AGORA XTEC Theme
+Generalitat de Catalunya - Departament d'Educació
+
+Version 10.06.21
+
+WWW:   http://agora.xtec.cat
+       http://projectes.lafarga.cat/projects/agora/
+       
+Developers:
+   Sara Arjona  (sarjona@xtec.cat)
+   Albert Bachiller (abachill@xtec.cat)
+   Pau Ferrer   (pferre22@xtec.cat)
+   Fèlix Casanellas (fcasanel@xtec.cat)
+   
+AGORA XTEC Theme uses code from the following projects:
+
+   Icons
+   Aardvark Theme created by Shaun Daubney (Newbury College) (http://moodle.org/mod/data/view.php?d=26&rid=2618)
+   
+   
+-----------------------------------------------------------------------------
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program (in a file called COPYING); if not, go
+to http://www.gnu.org/copyleft/gpl.html or write to 
+
+  Free Software Foundation, Inc.
+  59 Temple Place - Suite 330
+  Boston, MA 02111-1307 USA
+
+-----------------------------------------------------------------------------
+
+Source code to this program is always available; for more
+information visit our website at:
+
+  http://projectes.lafarga.cat/projects/agora/
+
+-----------------------------------------------------------------------------
+
+See http://projectes.lafarga.cat/mediawiki/index.php/Themes for installation instructions.
+
+-----------------------------------------------------------------------------

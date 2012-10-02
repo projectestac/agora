@@ -1,0 +1,40 @@
+<div id="note_options_<!--[$note.fmid]-->">
+	<!--[if $note.validate eq 0]-->
+		<a href="javascript:validateNote(<!--[$note.fmid]-->)">
+			<!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall' __alt="Validates the note" __title="Validates the note"]-->
+		</a> |
+    <!--[else]-->
+        <a href="javascript:validateNote(<!--[$note.fmid]-->)">
+			<!--[pnimg modname='core' src='button_cancel.gif' set='icons/extrasmall' __alt="Invalidates the note" __title="Invalidates the note"]-->
+		</a> |
+	<!--[/if]-->
+	<a href="javascript:iw_forms_deleteNote(<!--[$note.fmid]-->)">
+		<!--[pnimg modname='iw_forms' src='esborrar.gif' __alt="Delete the note" __title="Delete the note"]-->
+	</a>
+	<!--[if $note.state eq 1]-->
+		| <a href="javascript:setCompleted(<!--[$note.fmid]-->)">
+			<!--[pnimg modname='iw_forms' src='uncomplete.gif' __alt="Show the note as not completed" __title="Show the note as not completed"]-->
+		</a>
+	<!--[else]-->
+		| <a href="javascript:setCompleted(<!--[$note.fmid]-->)">
+			<!--[pnimg modname='iw_forms' src='complete.gif' __alt="Shows like complete" __title="Shows like complete"]-->
+		</a>
+	<!--[/if]-->
+	<!--[if $note.marked eq 1]-->
+		| <a href="javascript:markNote(<!--[$note.fmid]-->)">
+			<!--[pnimg modname='iw_forms' src='unmark.gif' __alt="Delete the mark" __title="Delete the mark"]-->
+		</a>
+	<!--[else]-->
+		| <a href="javascript:markNote(<!--[$note.fmid]-->)">
+			<!--[pnimg modname='iw_forms' src='mark.gif' __alt="Mark" __title="Mark"]-->
+		</a>
+	<!--[/if]-->
+	<!--[if $note.userName neq '']-->
+		| <a href="<!--[pnmodurl modname="iw_messages" func="compose" uname=$note.userName]-->">
+			<!--[pnimg modname='core' src='mail_send.gif' set='icons/extrasmall' __alt="Respond with a private message" __title="Respond with a private message"]-->
+		</a>
+	<!--[/if]-->
+	| <a href="<!--[pnmodurl modname="iw_forms" func="read" fmid=$note.fmid fid=$form.fid]-->" target="_blank">
+		<!--[pnimg modname='core' src='14_layer_visible.gif' set='icons/extrasmall' __alt="View note" __title="View note"]-->
+	</a>
+</div>

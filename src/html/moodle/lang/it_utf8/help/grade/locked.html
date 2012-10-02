@@ -1,0 +1,23 @@
+<h1>Elemento Bloccato</h1>
+<p>E' possibile evitare che un elemento di valutazione possa essere aggiornato dalla attività alla quale l'elemento stesso è collegato. Ad esempio, un elemento di valutazione potrebbe essere bloccato dopo il termine di una attività nella quale non si desidera che gli studenti affrontino nuovamente la prova. Una sequenza tipica di eventi potrebbe essere la segeunte:
+</p>
+<table class="generaltable boxaligncenter" cellpadding="4" cellspacing="1" summary="Sequenza di eventi in un processo di valutazione e corrispondenti stati (Protetto e Nascosto) del voto">
+    <tr>
+        <th class="header">Evento</th><th class="header">Bloccato</th><th class="header">Nascosto</th>
+    </tr>
+    <tr>
+        <td class="cell">Inizio attività e consegne dei partecipanti</td>
+        <td class="cell">No</td>
+        <td class="cell">Si</td>
+    </tr>
+    <tr>
+        <td class="cell">Fine attività e inizio della valutazione/feedback</td>
+        <td class="cell">Si</td>
+        <td class="cell">Si</td>
+    </tr>
+    <tr>
+        <td class="cell">Fine valutazione/feedback e rilascio delle valutazioni</td>
+        <td class="cell">Si</td>
+        <td class="cell">No</td>
+    </tr>
+</table>

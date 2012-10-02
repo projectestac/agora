@@ -1,0 +1,63 @@
+<!--[*  $Id: quotes_admin_modify.htm 358 2009-11-11 13:46:21Z herr.vorragend $  *]-->
+<!--[gt text='Update Quote' assign='templatetitle']-->
+
+<!--[include file='quotes_admin_menu.htm']-->
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname='core' src='edit.gif' set='icons/large' alt=$templatetitle]--></div>
+
+    <h2><!--[$templatetitle]--></h2>
+
+    <form class="z-form" action="<!--[pnmodurl modname='Quotes' type='adminform' func='update']-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name='generateauthkey' module='Quotes']-->" />
+            <input type="hidden" name="quote[qid]" value="<!--[$qid|pnvarprepfordisplay]-->" />
+            <fieldset>
+                <legend><!--[gt text='Content']--></legend>
+                <div class="z-formrow">
+                    <label for="quote_quote"><!--[gt text='Quote Text']--></label>
+                    <textarea id="quote_quote" rows="8" name="quote[quote]" cols="50"><!--[$quote|pnvarprepfordisplay]--></textarea>
+                </div>
+                <div class="z-formrow">
+                    <label for="quote_author"><!--[gt text='Author']--></label>
+                    <input id="quote_author" type="text" name="quote[author]" size="30" maxlength="128" value="<!--[$author|pnvarprepfordisplay]-->" />
+                </div>
+                <!--[if $enablecategorization]-->
+                <div class="z-formrow">
+                    <label><!--[gt text='Categories']--></label>
+                    <!--[gt name='Choose a category' assign='lblDef']-->
+                    <!--[nocache]-->
+                    <!--[foreach from=$catregistry key='property' item='category']-->
+                    <!--[array_field_isset array=$__CATEGORIES__ field=$property assign='catExists']-->
+                    <!--[if $catExists]-->
+                    <!--[array_field_isset array=$__CATEGORIES__.$property field='id' returnValue=1 assign='selectedValue']-->
+                    <!--[else]-->
+                    <!--[assign var='selectedValue' value='0']-->
+                    <!--[/if]-->
+                    <div class="z-formnote"><!--[selector_category category=$category name="quote[__CATEGORIES__][$property]" field='id' selectedValue=$selectedValue defaultValue='0' defaultText=$lblDef]--></div>
+                    <!--[/foreach]-->
+                    <!--[/nocache]-->
+                </div>
+                <!--[/if]-->
+            </fieldset>
+            <fieldset>
+                <legend><!--[gt text='Meta data']--></legend>
+                <ul>
+                    <!--[pnusergetvar name='uname' uid=$cr_uid assign='username']-->
+                    <li><!--[gt text='Created by %s' tag1=$username]--></li>
+                    <li><!--[gt text='Created on %s' tag1=$cr_date|pndate_format]--></li>
+                    <!--[pnusergetvar name='uname' uid=$lu_uid assign='username']-->
+                    <li><!--[gt text='Last update by %s' tag1=$username]--></li>
+                    <li><!--[gt text='Updated on %s' tag1=$lu_date|pndate_format]--></li>
+                </ul>
+            </fieldset>
+
+            <!--[pnmodcallhooks hookobject='item' hookaction='modify' hookid=$qid module='Quotes']-->
+
+            <div class="z-formbuttons">
+                <!--[pnbutton src='button_ok.gif' set='icons/small' __alt='Update' __title='Update']-->
+                <a href="<!--[pnmodurl modname='Quotes' type='admin' func='view']-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small' __alt='Cancel' __title='Cancel']--></a>
+            </div>
+        </div>
+    </form>
+</div>

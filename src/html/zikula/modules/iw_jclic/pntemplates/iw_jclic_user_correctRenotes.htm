@@ -1,0 +1,22 @@
+<!--[if $do eq 'print']-->
+	<div id="correct_renotes_<!--[$session.uid]-->">
+		<!--[if $session.renotes neq '']-->
+			<div style="background-color: #ffffaf; padding: 3px; margin: 3px;">
+				<!--[$session.renotes|nl2br|pnmodcallhooks|pnvarcensor|pnvarprephtmldisplay|replace:"|per|":"%"|replace:"|par|":"#"|replace:"|int|":"?"|replace:"|amp|":"&"]-->
+			</div>
+		<!--[/if]-->
+	</div>
+<!--[/if]-->
+
+<!--[if $do eq 'edit']-->
+	<form name="submitValueFormR_<!--[$uid]-->" id="submitValueFormR_<!--[$uid]-->" class="pn-adminform" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_jclic"]-->" />
+		<input type="hidden" name="jid" value="<!--[$jid]-->" />
+		<input type="hidden" name="uid" value="<!--[$uid]-->" />
+		<input type="hidden" name="toDo" value="renotes" />
+		<textarea name="renotes" style="width: 98%;"><!--[$content|replace:"|per|":"%"|replace:"|int|":"?"|replace:"|amp|":"&"]--></textarea>
+		<div style="text-align: right;">
+			<a onClick="javascript:submitValue(<!--[$jid]-->,<!--[$uid]-->,'renotes');" title="<!--[gt text="Send"]-->"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small']--></a><!--[gt text="Send"]-->
+		</div>
+	</form>
+<!--[/if]-->

@@ -1,0 +1,52 @@
+<h1>Permisos</h1>
+
+<p>
+Els permisos són les definicions de capacitats específiques que podeu atorgar.
+</p>
+
+<p>
+Per exemple, una capacitat és "Iniciar nous debats" (en els fòrums).
+</p>
+
+<p>
+En cada rol, podeu donar al permís corresponent a aquesta capacitat un dels quatre valors següents:
+<dl>
+<dt>HERETAT</dt>
+<dd>Generalment aquest és el valor per defecte. És una opció neutral que significa "utilitza el permís que ja tingui aquest usuari". Si a un usuari se li assigna un rol (p. ex. dins d'un curs) que tingui el permís "Heretat" per a una capacitat, llavors el permís que tindrà realment aquesta persona serà el mateix que ja tingui en un context superior (p. ex. en la categoria on és el curs, o en tot el lloc). Si el permís no es defineix mai en cap context, aquesta persona no tindrà permís per a utilitzar aquesta capacitat.
+    </dd>
+
+<dt>CONCEDIT</dt>
+<dd>Aquest valor implica atorgar el permís per a aquesta capacitat a les persones a les quals s'assigna aquest rol. Aquest permís s'aplica dins del context en el qual s'assigna el rol, més tots els contextos "inferiors". Per exemple, si aquest rol és un rol d'estudiant assignat en un curs, l'estudiantat podrà "iniciar nous debats" en tots els fòrums d'aquest curs, TRET que algun fòrum contingui excepcions o una altra assignació amb el valor "Denegat" o "Prohibit" en aquesta capacitat.</dd>
+
+<dt>DENEGAT</dt>
+<dd>Amb aquest valor se suprimeix el permís per a aquesta capacitat, fins i tot en cas que als usuaris que tinguin assignat aquest rol se'ls hagi atorgat el permís en un context superior.</dd>
+
+<dt>PROHIBIT</dt>
+<dd>Aquest valor només s'utilitza ocasionalment, quan es vol denegar completament el permís a un rol de manera que no es puguin definir excepcions en un nivell inferior. Un bon exemple d'això seria un cas en què l'administrador vol prohibir que cert usuari iniciï cap debat en cap fòrum del lloc. Llavors podria crear un rol amb el valor "Prohibit" en aquesta capacitat i assignar-lo a l'usuari en el context de tot el lloc.
+  </dd>
+
+</dl>
+</p>
+
+<h1>Resolució de conflictes de permisos</h1>
+
+<p>Els contextos "inferiors" generalment tenen preferència sobre els contextos superiors, tant pel que fa a les assignacions de rols com pel que fa a les excepcions. Tret del permís "Prohibit", que no permet excepcions en nivells més baixos.
+</p>
+
+<p>Si una persona té assignats dos rols en el mateix context, un amb el permís "Concedit" i l'altre amb el permís "Denegat", quin guanya? En aquest cas Moodle cercarà la jerarquia de contextos per decidir.</p>
+
+<p>Per exemple, un estudiant té dos rols en un curs, un que li permet iniciar nous debats i un altre que li ho impedeix. Llavors Moodle cercarà si s'ha definit el permís en els contextos superiors (categories, lloc). Si no en troba cap, el permís per defecte serà "Denegat" (perquè les dues definicions s'anul·len mútuament i llavors no hi ha cap permís).
+</p>
+
+<h1>Excepcions especials</h1>
+
+<p>Al compte d'usuari visitant generalment se li impedirà posar continguts (en els fòrums, en el calendari, en les bitàcoles) encara que se li atorguessin les capacitats corresponents.
+</p>
+
+<p>
+Vegeu també:  
+<a href="help.php?file=roles.html">rols</a>,
+<a href="help.php?file=contexts.html">contextos</a>,
+<a href="help.php?file=assignroles.html">assignació de rols</a> i
+<a href="help.php?file=overrides.html">excepcions</a>.
+</p>

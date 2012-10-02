@@ -1,0 +1,108 @@
+<!--[* iw_bookings_user_monthly_view.htm *]-->
+<script language="javascript">
+	<!-- overLIB configuration -->
+	ol_fgcolor = "lightyellow"; 
+	ol_bgcolor = "#FFFFFF"; 
+	ol_textcolor = "#000000";
+	ol_capcolor = "#e7e7e7";
+	ol_closecolor = "#000000"; 
+	ol_textfont = "Verdana,Arial,Helvetica"; 
+	ol_captionfont = "Verdana,Arial,Helvetica";
+	ol_captionsize = 2; 
+	ol_textsize = 2; 
+	ol_border = 2; 
+	ol_width = 350; 
+	ol_offsetx = 10; 
+	ol_offsety = 10;
+	ol_sticky = 0; 
+	ol_close = "Tanca"; 
+	ol_closeclick = 0; 
+	ol_autostatus = 2; 
+	ol_snapx = 0; 
+	ol_snapy = 0;
+	ol_fixx = -1; 
+	ol_fixy = -1; 
+	ol_background = ""; 
+	ol_fgbackground = ""; 
+	ol_bgbackground = "";
+	ol_padxl = 1; 
+	ol_padxr = 1; 
+	ol_padyt = 1; 
+	ol_padyb = 1; 
+	ol_capicon = ""; 
+	ol_hauto = 1; 
+	ol_vauto = 1;
+	if (document.getElementById('overDiv')==null) {
+		document.writeln('<div id="overDiv" style="position:absolute; top:0px; left:0px; visibility:hidden; z-index:1000;"></div>');
+	}
+</script>
+<script language="JavaScript" src="modules/iw_main/js/overlib.js"><!-- overLIB (c) Erik Bosrup --></script>
+
+<div class="z-informationmsg"><!--[gt text="If you want to book an equipment you must select it in the following list and go to the table of the week."]-->
+
+<form name="frm_monthlyview"  action = "<!--[pnmodurl modname="iw_bookings" type="user" func="assigna"]-->" method='post'>
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module='iw_bookings']-->">
+	<input type="hidden" name="mensual" value="1">
+	<input type="hidden" name="month" value="<!--[$month]-->">
+	<input type="hidden" name="year" value="<!--[$year]-->">
+
+	<!--[*gt text =' Chosse a room or equipment '*]--> 
+
+	<select name="sid" onchange='this.form.submit()'>
+		<!--[section name=sid loop=$spaces]-->
+			<option <!--[if $sid == $spaces[sid].id]-->selected<!--[/if]--> value="<!--[$spaces[sid].id]-->"> <!--[$spaces[sid].name]--></option>
+		<!--[/section]-->
+	</select>
+</form></div>
+	
+<table  style="background-color:#335555; " cellspacing="1">
+  <tr >
+	<td valign = "middle" align='center' bgcolor='#AACCDD' colspan='<!--[$tablerowlength]-->'>
+	<a href="<!--[pnmodurl modname="iw_bookings" type="user" func="assigna" sid = $sid mensual= 1 m=-1 month=$month year=$year]-->">
+	<!--[pnimg modname='core' src='1leftarrow.gif' set='icons/small' style="cursor:pointer;"   __alt="Previous month" __title="Previous month"]--></a>
+	<b><font size="3"> <!--[$monthNames[$month]]--> <!--[$year]--> </font></b>
+	<a href="<!--[pnmodurl modname="iw_bookings" type="user" func="assigna" sid = $sid mensual= 1 m=1 month=$month year=$year]-->">
+	<!--[pnimg modname='core' src='1rightarrow.gif' set='icons/small' style="cursor:pointer;"   __alt="Previous month" __title="Next month"]--></a>
+	</td>
+  </tr>
+<!--[*               D a y s  o f  w e e k                    *]-->
+  <tr><!--[foreach item=day from=$days]-->
+		<td align="center" bgcolor="#5588CC"><font color="#000000"><strong><!--[$day]--></strong></font></td>
+		<!--[/foreach]-->
+  </tr>
+  <tr>			
+	<!--[foreach name= mainloop from= $table key=d item=dia]-->	
+		<!--[if $smarty.foreach.mainloop.iteration % $tablerowlength == 1]--><tr><!--[/if]-->
+		<td align="left" valign="top" bgcolor="#FFFFCC" width="<!--[$width]-->" >
+		<!--[foreach name=sp from=$dia key=k item=spaces]-->
+			<!--[foreach name= books from=$spaces key=s item=book]--> 
+			  <table><tr>
+			  	<!--[if ($smarty.foreach.books.iteration == 1) && ($smarty.foreach.sp.iteration == 1)]-->
+					<div align="left"><span class="Diames"><!--[$book.day]--></span><br></div></td>
+				<!--[/if]-->
+				<!--[if !empty($book.date)]-->
+					<td width="<!--[$width]-->">
+					<div style='padding:1px;border:black solid 1px;BACKGROUND-COLOR:<!--[$book.color]-->;margin:0px 1px 3px 1px'>
+				<!--[/if]-->
+				<!--[$book.space]--><br>
+				<!--[$book.hour]--><br>
+				<!--[assign var="date" value= $book.date]-->
+				<!--[assign var="hour" value= $book.hour]-->
+				<!--[assign var="cont" value= $book.contingut]-->
+				<!--[if $book.space <> '']-->
+                    <!--[pnimg modname=core src=documentinfo.gif set=icons/extrasmall style="cursor:pointer;" onmouseout="nd();" onmouseover = "overlib('<div style=\'padding:5px;\'>$cont</div>',CAPTION,'<div style =\'padding:5px;\'>$date ($hour)</div>', BGCOLOR,'#316ac5',TIMEOUT,100000,DELAY,200,WIDTH,250)"]-->
+					<!--[if $book.candelete]-->
+					   <a href="<!--[pnmodurl modname="iw_bookings" type="user" func="anulla" sid = $book.sid mensual= 1 bid= $book.bid d= $book.date]-->">
+					   <!--[pnimg modname='core' src='cancel.gif' set='icons/extrasmall' style="cursor:pointer;"   __alt="Cancel" __title="Cancel"]--></a>
+					<!--[/if]-->
+					<!--[if $book.temp]-->
+						<img src= "modules/iw_bookings/pnimages/preferent.gif" altml='true' titleml='true' alt="<!--[gt text="Preferential"]-->" title="<!--[gt text="Preferential"]-->">
+					<!--[/if]-->
+					<br><!--[$book.shortuname]--><!--[*$book.uname*]-->
+				<!--[/if]-->
+				</span></div></td>
+			  </table>
+			<!--[/foreach]-->
+		<!--[/foreach]-->
+	<!--[/foreach]-->
+</table>

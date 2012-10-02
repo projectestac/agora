@@ -1,0 +1,11 @@
+<!-- $Id: createnewcourses.html,v 1.1 2008/05/04 14:32:13 martignoni Exp $ -->
+
+<h1>Création automatique de nouveaux cours</h1>
+
+<p>La méthode d'inscription IMS Enterprise peut créer de nouveaux cours pour ceux qui se trouvent dans les données IMS mais pas dans la base de données de Moodle, si ce réglage est activé.</p>
+
+<p>Les cours sont d'abord recherchés d'après leur identifiant (idnumber), un champ de la table des cours de la base de données de Moodle pouvant par exemple indiquer le code permettant d'identifier le cours dans le système d'information de votre établissement. Si un tel identifiant n'est pas trouvé, on cherche dans la table des cours le « nom abrégé du cours » (dans certains systèmes, ces deux champs contiennent les mêmes informations). Lorsque cette recherche ne retourne aucun résultat, cette méthode d'inscription créera optionnellement un nouveau cours.</p>
+
+<p>Tous les cours générés sont cachés lors de leur création, afin d'éviter que des participants n'aient accès à des cours complètement vides à l'insu de l'enseignant.</p>
+
+

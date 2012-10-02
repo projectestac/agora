@@ -1,0 +1,73 @@
+<!--[include file="mymap_user_header.htm"]-->
+<h1><!--[$map.title]--></h1>
+<!--[$map.description]--> (<!--[gt text="author of this map"]-->: <!--[$uname|userprofilelink]-->)
+<br /><br />
+<!--[pnformvalidationsummary]-->
+
+<!--[*include file="mymap_user_display_map_ajax.htm"*]-->
+<!--[include file="mymap_user_display_map.htm"]-->
+
+<a name="overviewtable"></a>
+<!--[pnsecauthaction realm="0" comp="MyMap::" inst=".$map.id" level="ACCESS_ADMIN" assign="auth"]-->
+<!--[if $map.wiki eq 1 or $uid eq $map.uid or $auth]-->
+
+<img name="indicator_addmarkers" src="modules/MyMap/pnimages/show.gif" /> <a href="#" onClick="javascript:toggledisplay('mymap_hiddendiv_addmarkers','indicator_addmarkers'); return false" title="<!--[gt text="Add new markers"]-->"><!--[gt text="Add new markers"]--></a><br />
+<div id="mymap_hiddendiv_addmarkers">
+	<fieldset><legend><!--[gt text="Insert new elements"]--></legend>
+	<!--[gt text="You can add markers for this map. As description you can also use HTML-code. This might help you to insert videos into the map. If you do not know the exact coordinate for the marker fill out the countrycode and postal code input field. We will look up the exact coordinate for you. Note: You can also klick at a point on the map. The clicked point's coordinate will be shown in the form below! So it is really easy, isn't it?"]-->
+	<!--[pnform]-->	    
+	    <!--[pnformlabel for="title" __text="Title"]-->:<br />
+	    <!--[pnformtextinput id="title" maxLength='90' mandatory="1"]-->
+	    <br /><br />
+	    <!--[pnformlabel for="text" __text="Description"]-->:<br />
+	    <!--[pnformtextinput id="text" textMode="multiline"]-->
+	    <br /><br />
+	    <!--[pnformlabel for="countrycode" __text="2-letter-country code"]-->:<br />
+	    <!--[pnformtextinput id="countrycode" maxLength="2" size="2"]-->
+	    <br /><br />
+	    <!--[pnformlabel for="postalcode" __text="Postal code"]-->:<br />
+	    <!--[pnformtextinput maxLength="6" id="postalcode" minValue="0"]-->
+	    <br /><br />
+	    <!--[pnformlabel for="lat" __text="Latitude"]-->:<br />
+	    <!--[pnformfloatinput id="lat" minValue="-90" maxValue="90"]-->
+	    <br /><br />
+	    <!--[pnformlabel for="lng" __text="Longitude"]-->:<br />
+	    <!--[pnformfloatinput id="lng" minValue="-180" maxValue="180"]-->
+	    <br /><br />
+	    <!--[pnformlabel for="placename" __text="Name of markered place"]-->:<br />
+	    <!--[pnformtextinput id="placename" maxLength="30"]-->
+	    <br /><br />
+	    <!--[pnformlabel for="date" __text="Date of this entry or markered event"]--><br />
+	    <!--[pnformdateinput id="date" mandatory="1" defaultValue="today"]-->
+	    <br /><br />
+	    <!--[pnformbutton commandName="update" __text="update / add point"]-->
+	<!--[/pnform]-->
+	</fieldset>
+</div>
+<!--[/if]-->
+<!--[if $uid eq $map.uid or $auth]-->
+<img name="indicator_routemanagement" src="<!--[pngetbaseurl]-->modules/MyMap/pnimages/show.gif" /> <a href="<!--[pnmodurl modname="MyMap" type="user" func="routes" mid=$map.id]-->"><!--[gt text="Route / waypoint management"]--></a><br />
+<!--[/if]-->
+<!--[if ($map.optionaltable eq 1 or $uid eq $map.uid) and ($markers|@count gt 0)]-->
+<img name="indicator_overview" src="<!--[pngetbaseurl]-->modules/MyMap/pnimages/show.gif" /> 
+<a href="#" onClick="javascript:change('<!--[pnmodurl fqurl="true" modname="MyMap" type="user" func="getOverviewTable" mid=$map.id]-->','overview');toggledisplay('mymap_hiddendiv_overview','indicator_overview'); return false;" title="<!--[gt text="Show a list of all markers"]-->"><!--[gt text="Show a list of all markers"]--></a><br />
+<div id="mymap_hiddendiv_overview">
+	<fieldset><legend><!--[gt text="If you are the owner or authorized, you can manage the markers here!"]--></legend>
+	<div id="overview">
+		<center><img src="<!--[pngetbaseurl]-->modules/MyMap/pnimages/ajax.gif" /)></center>
+	</div>
+	</fieldset>
+</div>
+<br />
+<!--[/if]-->
+<!--[if $map.uid eq $uid]-->
+<div>
+<h3><!--[gt text="You want to share this map"]-->?</h3>
+<!--[gt text="If you want to insert this map into a forum posting or into a weblog posting you just have to insert the following code into the plain text"]-->:
+<br />
+<textarea>
+MYMAP<!--[$map.id]-->
+</textarea>
+</div>
+<!--[/if]-->
+<!--[include file="mymap_user_footer.htm"]-->	

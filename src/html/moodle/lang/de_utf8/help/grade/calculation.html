@@ -1,0 +1,39 @@
+<h2>Berechnung von Bewertungen</h2>
+
+<p>Berechnungen von Bewertungen folgen dem Muster der gebräuchlichen Kalkulationsprogramme. Sie beginnen mit einem Gleichheitszeichen (=) und verwenden mathematische Ausdrücke und Funktionen zur Berechnung eines numerischen Ergebnisses. Dieses ist dann die automatisch berechnete Bewertung.</p>
+
+<p>Es folgt eine Liste von Funktionen, die bei der Berechnung unterstützt werden. Das Semikolon (;)
+trennt die einzelnen Argumente in den Funktionsklammern. <br/><strong> Achtung:  Bei der Verwendung von Moodle in anderen Sprachen (oder einer anderen Konfiguration) kann auch ein Komma als Trennzeichen zum Einsatz kommen. </strong></p>
+
+<ul>
+    <li><strong>average</strong>([[item1]]; [[item2]]...): liefert den Durchschnittswert aus der Liste</li>
+    <li><strong>max</strong>([[item1]]; [[item2]]...): liefert den höchsten Wert aus der Liste</li>
+    <li><strong>min</strong>([[item1]]; [[item2]]...): liefert den niedrigsten Wert aus der Liste</li>
+    <li><strong>mod</strong>(dividend, divisor): liefert den Rest bei ganzzahliger Division</li>
+    <li><strong>pi</strong>(): liefert den Wert der Zahl Pi</li>
+    <li><strong>power</strong>(base, power): liefert die Potenz "base hoch power" mit der Basis "base" und dem Exponenten "power"</li>
+    <li><strong>round</strong>(number, count): Rundet eine Zahl (number) bis zur angegebenen Genauigkeit (count)</li>
+    <li><strong>sum</strong>([[item1]]; [[item2]]...): liefert die Summe aller Werte aus der Liste</li>
+</ul>
+
+<p>Weiterhin werden folgende mathematische Funktionen unterstützt:</p>
+<ul>
+    <li>sin</li><li>sinh</li><li>arcsin</li><li>asin</li><li>arcsinh</li><li>asinh</li>
+    <li>cos</li><li>cosh</li><li>arccos</li><li>acos</li><li>arccosh</li><li>acosh</li>
+    <li>tan</li><li>tanh</li><li>arctan</li><li>atan</li><li>arctanh</li><li>atanh</li>
+    <li>sqrt</li><li>abs</li><li>ln</li><li>log</li><li>exp</li>
+</ul>
+
+<p>Sie können auch Werte aus anderen Bewertungen in die Berechnung einbeziehen, indem Sie die ID-Nummer der entsprechenden anderen Bewertungen als Referenzierung in die Formel einfügen. Die ID-Nummer wird dabei in zwei eckige öffnende und schließende Klammern eingeschlossen. <br/>
+Beispiel: Sie haben eine Bewertung mit der ID-Nummer Quiz.3, dann referenzieren Sie diese Bewertung in Ihrer Berechnungsformel mit [[Quiz.3]]. </p>
+
+<p>Unterhalb des Berechnungsfelds sehen Sie eine Baumstruktur mit den Bewertungskategorien und Bewertungen Ihres Kurses. Neben jedem Eintrag steht die zugehörige ID-Nummer, die Sie in Ihrer Berechnung verwenden können (bereits in eckige Klammern eingeschlossen). Beachten Sie, dass ID-Nummern optional sind. Es kann also Einträge geben, die noch keine ID-Nummer haben. Diese Einträge ohne ID-Nummer haben jedoch ein nebenstehendes Eingabefeld, wo Sie eine (neue) ID-Nummer direkt eingeben können (um sie anschließend in der Berechnung zu verwenden, ohne die Seite verlassen zu müssen). Sie können jedoch an dieser Stelle keine bereits existierenden ID-Nummer ändern (um dies zu tun, müssen Sie auf die entsprechende Seite wechseln, auf der Sie die Bewertungen bearbeiten können). </p>
+
+<p>Sobald Sie die nötigen ID-Nummern in den entsprechenden Eingabefeldern eingegeben haben, können Sie den Button "ID-Nummern hinzufügen" klicken. Dann wird die Seite neu geladen, und die Baumstruktur mit den Bewertungskategorien und Bewertungen enthält nun die ID-Nummern, die Sie gerade vergeben haben. Diese ID-Nummern können Sie nun in Ihren Berechnungsformeln verwenden.</p>
+
+<p>Es folgt eine Liste von Beispielberechnungen, die Sie in Ihren Bewertungen verwenden können:</p>
+
+<ul>
+    <li>=average([[Quiz.1]], [[Quiz.4]], [[Assignment.1]])</li>
+    <li>=average(max([[Quiz.1]], [[Quiz.4]], [[Assignment.1]]), min([[Quiz.1]], [[Quiz.4]], [[Assignment.1]]))</li>
+</ul>

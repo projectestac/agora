@@ -1,0 +1,21 @@
+<div class="usercontainer">
+    <div class="userpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+    <h2><!--[gt text="Chat"]--> (mòdul en versió beta)</h2>
+    <div style="height:15px;">&nbsp;</div>
+    <!--[pngetstatusmsg]-->
+    <div style="padding-bottom:20px;">
+    <!--[gt text="Chat room: "]-->
+        <select name="room_select" id="room_select" onchange="pfc.sendRequest('/join ' + document.getElementById('room_select').value); document.getElementById('chatBody').style.visibility = 'visible';">
+            <option value="none"]--><!--[gt text="// Select one //"]-->
+            <!--[foreach item=room from=$channels]-->
+                <option value="<!--[$room.id]-->" onmouseover="document.getElementById('room_desc').innerHTML='<!--[$room.desc]-->';" onmouseout="document.getElementById('room_desc').innerHTML='';"><!--[$room.name]-->
+            <!--[/foreach]-->
+        </select>
+        &nbsp;
+        <span id="room_desc"></span>
+    </div>
+    <span id="room_desc"></span>
+    <div id="chatBody" style="visibility:hidden">
+        <!--[ $chatBody ]-->
+    </div>
+</div>

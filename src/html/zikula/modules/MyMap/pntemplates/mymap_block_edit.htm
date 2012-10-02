@@ -1,0 +1,52 @@
+<tr>
+	<td><label for="lat"><!--[gt text="Latitude"]-->: </label></td>
+	<td><input type="text" name="lat" size="15" maxlength="15" value="<!--[$lat]-->" />*</td>
+</tr>
+<tr>
+	<td><label for="lng"><!--[gt text="Longitude"]-->: </label></td>
+	<td><input type="text" name="lng" size="15" maxlength="15" value="<!--[$lng]-->" />*</td>
+</tr>
+<tr>
+	<td><label for="maptitle"><!--[gt text="Title"]-->: </label></td>
+	<td><input type="text" name="maptitle" size="30" maxlength="255" value="<!--[$maptitle]-->" />*</td>
+</tr>
+<tr>
+	<td><label for="text"><!--[gt text="Description"]-->: </label></td>
+	<td><textarea name="text" rows="5" cols="40"><!--[$text]--></textarea></td>
+</tr>
+<tr>
+	<td><label for="maptype"><!--[gt text="How should the map be displayed?"]-->: </label></td>
+	<td>
+		<select name="maptype">
+			<option <!--[if $maptype eq 'NORMAL']-->selected<!--[/if]--> value="NORMAL"><!--[gt text="Normal"]--> </option>
+			<option <!--[if $maptype eq 'HYBRID']-->selected<!--[/if]--> value="HYBRID"><!--[gt text="Hybrid"]--> </option>
+			<option <!--[if $maptype eq 'SATELLITE']-->selected<!--[/if]--> value="SATELLITE"><!--[gt text="Satellite"]--> </option>
+		</select>
+	</td>		
+</tr>
+<tr>
+	<td><label for="width"><!--[gt text="Width (pixels of the map in the block)"]-->: </label></td>
+	<td><input type="text" name="width" size="5" maxlength="5" value="<!--[$width]-->" />*</td>
+</tr>
+<tr>
+	<td><label for="height"><!--[gt text="Height (pixels of the map in the block)"]-->: </label></td>
+	<td><input type="text" name="height" size="5" maxlength="5" value="<!--[$height]-->" />*</td>
+</tr>
+<tr>
+	<td><label for="zoomfactor"><!--[gt text="Zoomfactor (1 is maximum) of the map"]-->: </label></td>
+	<td>
+		<select name="zoomfactor">
+			<!--[foreach item=factor from=$zoomfactors]-->
+				<option <!--[if $zoomfactor eq $factor]-->selected<!--[/if]--> value="<!--[$factor]-->"><!--[$factor]--> </option>
+			<!--[/foreach]-->
+		</select>
+	</td>		
+</tr>
+<tr>
+	<td><label for="map_overview"><!--[gt text="Show a small overview map inside the displayed map"]-->: </label></td>
+	<td><input type="checkbox" name="map_overview" <!--[if $map_overview eq 1]-->checked="checked"<!--[/if]--> value="1" /></td>		
+</tr>
+<tr>
+	<td><label for="show_controls"><!--[gt text="Show map controls"]-->: </label></td>
+	<td><input type="checkbox" name="show_controls" <!--[if $show_controls eq 1]-->checked="checked"<!--[/if]--> value="1" /></td>		
+</tr>

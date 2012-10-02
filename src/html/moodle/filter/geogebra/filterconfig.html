@@ -1,0 +1,121 @@
+<?php
+/*
+ * GeoGebra Moodle filter
+ * Copyright (C) 2009 Sara Arjona, Florian Sonner
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
+/**
+ * @author Sara Arjona, Florian Sonner
+ * @version $Id: filterconfig.html, v2.0 2009/06/05 $
+ */
+
+// check the default settings
+// $forcerest to be set in calling page
+if (!isset($forcereset)) {
+	$forcereset = false;
+}
+require_once "defaultsettings.php";
+geogebra_defaultsettings( $forcereset );
+
+// get strings
+$txt = new Object;
+$txt->geogebra_settings = get_string( 'geogebra_settings','filter_geogebra' );
+$txt->geogebra_settings_desc = get_string( 'geogebra_settings_desc','filter_geogebra' );
+$txt->geogebra_jar = get_string( 'geogebra_jar','filter_geogebra' );
+$txt->geogebra_jar_desc = get_string( 'geogebra_jar_desc','filter_geogebra' );
+$txt->geogebra_defaultwidth = get_string( 'geogebra_defaultwidth','filter_geogebra' );
+$txt->geogebra_defaultheight = get_string( 'geogebra_defaultheight','filter_geogebra' );
+$txt->geogebra_use = get_string( 'geogebra_use','filter_geogebra' );
+$txt->geogebra_local = get_string( 'geogebra_local','filter_geogebra' );
+$txt->geogebra_external = get_string( 'geogebra_external','filter_geogebra' );
+$txt->geogebra_latest = get_string( 'geogebra_latest','filter_geogebra' );
+$txt->geogebra_params = get_string( 'geogebra_params','filter_geogebra' );
+$txt->geogebra_params_desc = get_string( 'geogebra_params_desc','filter_geogebra' );
+?>
+
+<script type="text/javascript">
+<!--
+function fillUrl(url) {
+	document.getElementsByName("filter_geogebra_urljar")[0].value = url;
+}
+-->
+</script>
+
+<table cellpadding="9" cellspacing="0">
+    <tr valign="top">
+        <th align="left" scope="col" colspan="2">
+			<?php echo $txt->geogebra_settings; ?>
+		</th>
+    </tr>
+    <tr valign="top">
+        <td align="left" scope="col" colspan="2">
+			<p><?php echo $txt->geogebra_settings_desc; ?></p>
+		</td>
+    </tr>
+    <tr valign="top">
+        <td align="right"><?php echo $txt->geogebra_jar; ?></td>
+        <td align="left">
+			<?php echo $txt->geogebra_jar_desc; ?>
+				
+			<ul>
+				<li>
+					<a href="javascript:fillUrl('<?php echo $CFG->wwwroot; ?>/filter/geogebra/32/geogebra.jar');">
+						<?php echo $txt->geogebra_use; ?> 3.2 <?php echo $txt->geogebra_local; ?>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:fillUrl('<?php echo $CFG->wwwroot; ?>/filter/geogebra/30/geogebra.jar');">
+						<?php echo $txt->geogebra_use; ?> 3.0 <?php echo $txt->geogebra_local; ?>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:fillUrl('http://www.geogebra.org/webstart/3.2/geogebra.jar');">
+						<?php echo $txt->geogebra_use; ?> 3.2 <?php echo $txt->geogebra_external; ?>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:fillUrl('http://www.geogebra.org/webstart/3.0/geogebra.jar');">
+						<?php echo $txt->geogebra_use; ?> 3.0 <?php echo $txt->geogebra_external; ?>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:fillUrl('http://www.geogebra.org/webstart/geogebra.jar');">
+						<?php echo $txt->geogebra_use; ?> <?php echo $txt->geogebra_latest; ?>
+					</a>
+				</li>
+			</ul>
+			
+			<input type="text" name="filter_geogebra_urljar" size="70"
+				value="<?php p($CFG->filter_geogebra_urljar) ?>" />
+		</td>
+    </tr>
+    <tr valign="top">
+        <td align="right"><?php echo $txt->geogebra_defaultwidth; ?></td>
+        <td align="left"><input type="text" name="filter_geogebra_defaultwidth" size="10"
+            value="<?php p($CFG->filter_geogebra_defaultwidth); ?>" /></td>
+    </tr>
+    <tr valign="top">
+        <td align="right"><?php echo $txt->geogebra_defaultheight; ?></td>
+        <td align="left"><input type="text" name="filter_geogebra_defaultheight" size="10"
+            value="<?php p($CFG->filter_geogebra_defaultheight); ?>" /></td>
+    </tr>
+    <tr valign="top">
+        <td align="right"><?php echo $txt->geogebra_params; ?></td>
+        <td align="left">
+			<?php echo $txt->geogebra_params_desc; ?><br /><br />
+			<textarea name="filter_geogebra_params" rows="7" cols="50"><?php p($CFG->filter_geogebra_params); ?></textarea>
+		</td>
+    </tr>
+</table>

@@ -1,0 +1,46 @@
+<h2>Statistische Analyse der Ergebnisse</h2>
+
+<p>Diese Tabelle bereitet die Testergebnisse so auf, dass die Beurteilung der Fragen und ihrer Aussagekraft für den Test erleichtert wird. Die statistischen Parameter werden berechnet wie in der klassischen Testtheorie. (ref. 1)</p>
+
+<p><b>Richtig % (Facility Index)</b></p>
+<p>Dies ist ein Wert, der den Schwierigkeitsgrad für die Teilnehmer/innen bestimmt. 
+Er errechnet sich aus:
+<br />
+FI = (X<sub>average</sub>) / X<sub>max</sub> 
+<br />
+
+dabei ist X<sub>average</sub> der mittlere Wert, der bei allen Teilnehmer/innen bei ihren Versuchen für diesen Wert erreicht wurde, <br>
+und X<sub>max</sub> ist der höchste Wert, der hier erzielt wurde.<br>
+Bei Fragen mit der Option Richtig/Falsch stellt dieser Wert den Prozentteil der Nutzer mit richtigen Antworten dar. </p>
+</p>
+
+<p><b>SD (Standardabweichung, standard deviation)</b></p>
+<p>Dieser Parameter stellt die Bandbreite der Antworten dar. Wenn alle Nutzer das Gleiche antworten, ist der Wert SD=0. SD wird ermittelt als statistische Standardabweichung  für eine Reihe von Teilmengen (Erreicht/Maximum) zu jeder einzelnen Frage.</p>
+
+<p><b>Unterscheidungswerte</br> </p>
+DI (Discrimination Index)</b></p>
+<p>Dies ist ein grober Indikator zur Unterscheidung von kompetenten <i>vs.</i> weniger kompetenten Nutzern/Nutzerinnen. Zunächst werden dazu die Teilnehmer/innen aufgrund ihrer Punktwerte in drei Gruppen aufgeteilt. Dann wird für jeden Wert der Durchschnitt für die Gruppe der Teilnehmer/innen mit den besten/schlechtesten Werten ermittelt und vom Durchschnitt abgezogen. Die Formel lautet: <br/>
+DI = (X<sub>top</sub> - X<sub>bottom</sub>)/ N 
+<br/>
+
+Dabei ist X<sub>top</sub> die Summe der Teilbereiche (Erreicht/Maximum), ermittelt aus den Werten des besten Drittels der Teilnehmer/innen im gesamten Test (z.B. Zahl der richtigen Antworten in der Gruppe), <br/>
+und X<sub>bottom</sub>) ist analog die Summe für die Teilnehmer/innen mit den schlechtesten Ergebnissen.</p> 
+
+<p>Der Parameter kann Werte zwischen +1 und -1 enthalten.  
+Ein Index rund um den Wert 0.0 bedeutet, dass hier mehr von den schlechteren Teilnehmern richtige Ergebnisse erzielten als von den besseren. Man kann die entsprechenden Fragen folglich als wertlos ansehen, da sie u.U. die Aussagekraft des Tests mindern. </p>
+
+<p><b>DC (Discrimination Coefficient)</b></p>
+<p>Dies ist ein anderer Maßstab zur Unterscheidung starker und schwacher Teilnehmer/innen.<br/>
+Der Discrimination Coefficient ist eine Beziehung zwischen den Punkten des einzelnen Wertes und des gesamten Tests. <br/>Er berechnet sich wie folgt:
+
+<br/>
+DC = Sum(xy)/ (N * s<sub>x</sub> * s<sub>y</sub>) 
+<br/>
+Dabei ist Sum(xy) die Summe der Produkte der Abweichungen des Einzelwertes und des gesamten Tests, <br>
+N ist die Zahl der Antworten, die bei der Frage gegeben wurde, <br/>
+s<sub>x</sub> ist die Standardabweichung der Teilpunkte für diese Frage, <br/>
+s<sub>y</sub> ist die Standardabweichung der Punkte beim gesamten Test.
+</p>
+<p>Auch hier ergeben sich Werte zwischen +1 und -1. Positive Werte bezeichnen solche Fragen, bei denen im Gesamtergebnis gute Lerner auch überdurchschnittlich gute Werte erzielten. Negative Werte hingegen kennzeichnen Fragen, bei denen insgesamt schlechte Teilnehmer/innen durchschnittlich besser abschnitten als ansonsten gute Teilnehmer/innen. Solche Fragen sollten deshalb vermieden werden.<br/><br/>
+
+Der Nutzen des Discrimination Coefficient (DC) im Vergleich zum Discrimination Index (DI) liegt darin, dass alle Ergebnisse berücksichtigt werden und nicht nur das jeweils beste oder schlechteste Drittel der Ergebnisse. Damit ist dieser Wert für die Beurteilung der Eignung/Leistungsfähigkeit der Fragen aussagekräftiger.</p>

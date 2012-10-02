@@ -1,0 +1,26 @@
+<!--[*  $Id: theme_admin_delete.htm 27134 2009-10-24 11:18:57Z drak $  *]-->
+<!--[include file="theme_admin_menu.htm"]-->
+<!--[gt text="Delete theme" assign=templatetitle]-->
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=editdelete.gif set=icons/large alt=$templatetitle]--></div>
+    <h2><!--[$templatetitle]--> <!--[$name|pnvarprepfordisplay]--></h2>
+    <p class="z-warningmsg"><!--[gt text="Do you really want to delete this theme?"]--></p>
+    <form class="z-form" action="<!--[pnmodurl modname=Theme type=admin func=delete]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module=Theme]-->" />
+            <input type="hidden" name="confirmation" value="1" />
+            <input type="hidden" name="themename" value="<!--[$name|pnvarprepfordisplay]-->" />
+            <fieldset>
+                <legend><!--[gt text="Confirmation prompt"]--></legend>
+                <div class="z-formrow">
+                    <label for="deletefiles"><!--[gt text="Also delete theme files, if possible"]--></label>
+                    <input type="checkbox" id="deletefiles" name="deletefiles" value="1" />
+                </div>
+            </fieldset>
+            <div class="z-formbuttons">
+                <!--[pnbutton src=button_ok.gif set=icons/small __alt="Delete" __title="Delete"]-->
+                <a href="<!--[pnmodurl modname=Theme type=admin func=view]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small __alt="Cancel" __title="Cancel"]--></a>
+            </div>
+        </div>
+    </form>
+</div>

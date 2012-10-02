@@ -1,0 +1,38 @@
+<!--[pnajaxheader modname=Export filename=Export.js]-->
+<!--[include file="Export_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Export modules"]--></h2>
+	<!--[if $export_pack neq '']-->
+		<p class="z-statusmsg"><!--[gt text="Export pack generated. Download it "]--><a href="<!--[$export_pack]-->"><!--[gt text="here."]--></a></p>
+	<!--[/if]-->
+	<p class="z-informationmsg"><!--[gt text="To export some modules, select them and click in the button \"Export\" in the bottom of the page."]--></p>
+	<form method="post" action="index.php?module=Export&type=admin&func=exportModules" name="modules_form">
+	<div style="float:right;">
+		<input type="button" onclick="CheckAllBoxes()" value="<!--[gt text="Check all"]-->" />
+		<input type="button" onclick="UnCheckAllBoxes()" value="<!--[gt text="Uncheck all"]-->" />
+	</div>
+	<div style="padding-top:30px;">
+	<table class="pn-admintable">
+		<thead>
+			<tr>
+				<th><!--[gt text="Module name"]--></th>
+				<th><!--[gt text="Display name"]--></th>
+				<th><!--[gt text="Export"]--></th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--[foreach item=module from=$modules_info]-->
+				<tr class="<!--[cycle values="pn-odd,pn-even"]-->">
+					<td align="left" valign="top"><!--[$module.name]--></td>
+					<td align="left" valign="top"><!--[$module.displayname]--></td>
+					<td align="center" valign="top"><input type="checkbox" name="modules_selected[]" value="<!--[$module.name]-->" /></td>
+				</tr>
+			<!--[/foreach]-->
+		</tbody>
+	</table>
+	</div>
+	<input type="submit" value="<!--[gt text='Export']-->" />
+	</form>
+</div>

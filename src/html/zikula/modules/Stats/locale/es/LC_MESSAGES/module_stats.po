@@ -1,0 +1,272 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:04+0200\n"
+"PO-Revision-Date: 2010-07-23 13:58+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:33
+msgid "Sniffer module required to log stats"
+msgstr "El módulo Sniffer requiere registrar estadísticas"
+
+#: pnuserapi.php:210
+#: pnuserapi.php:387
+#: pnpluginapi/sectionsarticles.php:21
+#: pnpluginapi/links.php:21
+#: pnpluginapi/users.php:21
+#: pnpluginapi/stories.php:21
+#: pnpluginapi/topics.php:21
+#: pnpluginapi/queuedstories.php:21
+#: pnpluginapi/comments.php:21
+#: pnpluginapi/linkscats.php:21
+#: pnpluginapi/sections.php:21
+#: pnadminapi.php:38
+msgid "Sorry! No authorization to access this module."
+msgstr "Disculpa! No tienes autorización para ejecutar esa acción en este módulo."
+
+#: pninit.php:78
+#: pninit.php:134
+msgid "unable to create system init hook"
+msgstr "no se puede crear el enlace de sistema"
+
+#: pninit.php:81
+#: pninit.php:137
+msgid "Stats have been enabled, you can change this in the hook settings (Administration -> Modules -> System hooks) by deactivating the Stats systeminit hook for Zikula itself"
+msgstr "Se ha activado el registro de estadísticas. Se puede desactivar desde la configuración de enlaces de sistema (Administración --> Sistema --> Módulos --> Enlaces de sistema).S'ha activat el registre de les estadístiques. Es pot desactivar des de la configuració dels lligams de sistema (Administració --> Sistema --> Mòduls --> Lligams de sistema)."
+
+#: pninit.php:165
+msgid "unable to delete system init hook"
+msgstr "no se puede eliminar el enlace de sistema"
+
+#: pnpluginapi/sectionsarticles.php:41
+msgid "Articles in sections:"
+msgstr "Artículos en las secciones:"
+
+#: pnpluginapi/links.php:42
+msgid "Links in web links:"
+msgstr "Enlaces publicados:"
+
+#: pnpluginapi/users.php:36
+msgid "Registered users:"
+msgstr "Usuarios registrados:"
+
+#: pnpluginapi/stories.php:35
+msgid "News stories published:"
+msgstr "Notícias publicadas"
+
+#: pnpluginapi/topics.php:41
+msgid "Active topics:"
+msgstr "Temas activos:"
+
+#: pnpluginapi/queuedstories.php:35
+msgid "News stories waiting to be published:"
+msgstr "Noticias esperando a ser aprobadas:"
+
+#: pnpluginapi/comments.php:41
+msgid "Comments posted:"
+msgstr "Comentarios publicados:"
+
+#: pnpluginapi/linkscats.php:41
+msgid "Categories in links:"
+msgstr "Categorías de enlaces:"
+
+#: pnpluginapi/sections.php:41
+msgid "Special sections:"
+msgstr "Secciones especiales:"
+
+#: pnadminapi.php:43
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "Error! Argumentos erróneos. Por favor verifica los datos e inténtalo de nuevo."
+
+#: pnadminapi.php:66
+#: pnadminapi.php:72
+#: pnadminapi.php:78
+#: pnadminapi.php:84
+#: pnadminapi.php:94
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr "Error! Intento de borrado fallido."
+
+#: pnadminapi.php:116
+msgid "View"
+msgstr "Ver"
+
+#: pnadminapi.php:119
+msgid "Reset"
+msgstr "Reiniciar"
+
+#: pnadminapi.php:122
+#: pntemplates/stats_admin_modifyconfig.htm:4
+#: pntemplates/stats_admin_modifyconfig.htm:5
+msgid "Settings"
+msgstr "Configuración"
+
+#: pnadmin.php:76
+msgid "Stats reset"
+msgstr "Reiniciar estadísticas"
+
+#: pnadmin.php:138
+msgid "Done! Module configuration updated."
+msgstr "Hecho! Configuración del módulo actualizada."
+
+#: pnversion.php:15
+msgid "Stats"
+msgstr "Estadisticas"
+
+#: pnversion.php:16
+msgid "statistics"
+msgstr "estadísticas"
+
+#: pnversion.php:17
+msgid "Display site statistics."
+msgstr "Muestra las estadísticas del sitio."
+
+#: pntemplates/stats_admin_reset.htm:4
+#: pntemplates/stats_admin_reset.htm:5
+msgid "Reset site statistics"
+msgstr "Reiniciar las estadísticas del sitio"
+
+#: pntemplates/stats_admin_reset.htm:11
+msgid "Reset main site stats"
+msgstr "Reiniciar las estadísticas del sitio principal"
+
+#: pntemplates/stats_admin_reset.htm:15
+msgid "Reset browser and OS stats"
+msgstr "Reiniciar estadísticas de navegadores y S.O."
+
+#: pntemplates/stats_admin_reset.htm:19
+msgid "Submit"
+msgstr "Enviar"
+
+#: pntemplates/stats_admin_reset.htm:20
+#: pntemplates/stats_admin_modifyconfig.htm:32
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: pntemplates/stats_user_os.htm:2
+msgid "Operating system"
+msgstr "Sistemas operativos"
+
+#: pntemplates/stats_user_os.htm:52
+#: pntemplates/stats_user_browsers.htm:105
+msgid "Unknown user agent"
+msgstr "Agente de usuario desconocido"
+
+#: pntemplates/stats_admin_modifyconfig.htm:10
+msgid "IP address to exclude"
+msgstr "Direcciones IP a excluir"
+
+#: pntemplates/stats_admin_modifyconfig.htm:14
+msgid "Enable collection of stats"
+msgstr "Habilitar la recopilación de estadísticas"
+
+#: pntemplates/stats_admin_modifyconfig.htm:22
+msgid "Use 24 clock for hourly stats"
+msgstr "Usar el formato de 24 horas para las estadísticas horarias"
+
+#: pntemplates/stats_admin_modifyconfig.htm:31
+msgid "Update Configuration"
+msgstr "Actualizar Configuración"
+
+#: pntemplates/stats_user_byhour.htm:2
+msgid "Visits by hour"
+msgstr "Visitas por hora"
+
+#: pntemplates/stats_admin_menu.htm:4
+#: pntemplates/stats_user_main.htm:2
+msgid "Site statistics"
+msgstr "Estadísticas de tráfico"
+
+#: pntemplates/stats_user_misc.htm:2
+msgid "Miscellaneous statistics"
+msgstr "Estadísticas misceláneas"
+
+#: pntemplates/stats_user_browsers.htm:2
+msgid "Browsers"
+msgstr "Navegadores"
+
+#: pntemplates/stats_user_browsers.htm:7
+msgid "Internet Explorer"
+msgstr "Internet Explorer"
+
+#: pntemplates/stats_user_browsers.htm:14
+msgid "Mozilla"
+msgstr "Mozilla"
+
+#: pntemplates/stats_user_browsers.htm:21
+msgid "Firefox"
+msgstr "Firefox"
+
+#: pntemplates/stats_user_browsers.htm:28
+msgid "Netscape"
+msgstr "Netscape"
+
+#: pntemplates/stats_user_browsers.htm:35
+msgid "Safari"
+msgstr "Safari"
+
+#: pntemplates/stats_user_browsers.htm:42
+msgid "Camino"
+msgstr "Camino"
+
+#: pntemplates/stats_user_browsers.htm:49
+msgid "Chimera"
+msgstr "Chimera"
+
+#: pntemplates/stats_user_browsers.htm:56
+msgid "Opera"
+msgstr "Opera"
+
+#: pntemplates/stats_user_browsers.htm:63
+msgid "Konqueror"
+msgstr "Konqueror"
+
+#: pntemplates/stats_user_browsers.htm:70
+msgid "Epiphany"
+msgstr "Epiphany"
+
+#: pntemplates/stats_user_browsers.htm:77
+msgid "Galeon"
+msgstr "Galeon"
+
+#: pntemplates/stats_user_browsers.htm:84
+msgid "Lynx"
+msgstr "Lynx"
+
+#: pntemplates/stats_user_browsers.htm:91
+msgid "K-Meleon"
+msgstr "K-Meleon"
+
+#: pntemplates/stats_user_browsers.htm:98
+msgid "Search engines"
+msgstr "Motores de búsqueda"
+
+#: pntemplates/stats_user_bymonth.htm:2
+msgid "Visits by month"
+msgstr "Visitas por mes"
+
+#: pntemplates/stats_user_byweek.htm:2
+msgid "Visits by day of the week"
+msgstr "Visitas día de la semana"
+
+#: pntemplates/stats_user_prose.htm:4
+msgid "This site has received <strong>%1$s</strong> page views since <strong>%2$s</strong> <strong>%3$s</strong> today, and <strong>%4$s</strong> yesterday."
+msgstr "Este sitio ha recibido <strong>%1$s</strong> peticiones de páginas desde el <strong>%2$s</strong>, de las cuales <strong>%3$s</strong> se han recibido hoy y <strong>%4$s</strong> ayer."
+
+#: pntemplates/stats_user_prose.htm:7
+msgid "The day on which there was the most traffic so far was %1$s (<strong>%2$s</strong> page views), while %3$s (<strong>%4$s</strong> page views) was the day with the fewest hits."
+msgstr "El día con más visitas fue el %1$s, con un total de <strong>%2$s</strong> peticiones, mientras que el día más tranquilo fue el %3$s, con un total de <strong>%4$s</strong> peticiones."
+
+#: pntemplates/stats_user_prose.htm:10
+msgid "Most people visit on <strong>%1$s</strong>, with a total of <strong>%2$s </strong> page views, while <strong>%3$s</strong> is the day with the fewest visits, with a total of <strong>%4$s </strong> page views. On average, the busiest hour (with <strong>%5$s</strong> page views ) starts at <strong>%6$s:00</strong>. The hour during which traffic has been lightest starts at <strong>%7$s:00</strong> (with only <strong>%8$s</strong> page views)."
+msgstr "El <strong>%1$s</strong> es el dia de la semana con más visitas, con un total de <strong>%2$s</strong> peticiones, mientras que el <strong>%3$s</strong> es el el dia con menos visitas, con un total de <strong>%4$s</strong> peticiones de páginas. De promedio, la hora con más concurréncia empieza a las <strong>%6$s:00</strong>, con un total de <strong>%5$s</strong> peticiones. La hora más tranquila empieza a las <strong>%7$s:00</strong>, con solo <strong>%8$s</strong> peticiones.El <strong>%1$s</strong> és el dia de la setmana amb més visites, amb un total de <strong>%2$s</strong> peticions, mentre que el <strong>%3$s</strong> és el dia amb menys visites, amb un total de <strong>%4$s</strong> peticions de pàgines. En promig, l'hora amb més concurrència comença a les <strong>%6$s:00</strong>, amb un total de <strong>%5$s</strong> peticions. L'hora més tranquil·la comença a les <strong>%7$s:00</strong>, amb només <strong>%8$s</strong> peticions."
+

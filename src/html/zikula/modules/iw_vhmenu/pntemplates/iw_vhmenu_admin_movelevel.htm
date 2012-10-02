@@ -1,0 +1,21 @@
+<!--[include file="iw_vhmenu_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='filenew.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<h2><!--[gt text="Increase the level of the option"]-->: <!--[$text]--></h2>
+	<form class="pn-adminform" name="uplevel" id="uplevel" action="<!--[pnmodurl modname=iw_vhmenu type=admin func=movelevel]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="mid" value="<!--[$mid]-->">
+		<input type="hidden" name="confirmation" value="true">
+		<input type="hidden" name="authid" value="<!--[$security]-->">
+		<div class="pn-adminformrow">
+			<p><!--[gt text="Choose the level to move the option"]-->: <strong><!--[$ref]--></strong></p>
+		</div>
+		<select name="upmid">
+			<!--[section loop=$registres name=menus]-->
+				<option value="<!--[$registres[menus].mid]-->"><!--[$registres[menus].text]--></option>
+			<!--[/section]-->
+		</select>		<div class="pn-adminformrow pn-adminformbuttons">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Confirm" __title="Confirm"]-->
+			<a href="<!--[pnmodurl modname=iw_vhmenu type=admin func=main]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel the increasing of the level" __title="Cancel the increasing of the level"]--></a>
+		</div>
+	</form>
+</div>

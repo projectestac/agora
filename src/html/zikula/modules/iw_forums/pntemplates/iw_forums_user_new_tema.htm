@@ -1,0 +1,65 @@
+<script language="javascript">
+	function send(){
+		if(document.new_tema.titol.value==""){
+			alert("<!--[gt text="You didn't write a title for the topic"]-->");
+			var error=true;
+		}
+		if(document.new_tema.titolmsg.value=="" && document.new_tema.msg.value!="" && !error){
+			alert("<!--[gt text="You didn't write a title for the message."]-->");
+			var error=true;			
+		}
+
+		<!--[if $adjunts neq "0"]-->
+			if(document.new_tema.adjunt.value!="" && "<!--[$extensions]-->".indexOf(document.new_tema.adjunt.value.substring(document.new_tema.adjunt.value.length-3,document.new_tema.adjunt.value.length))==-1  && !error){
+				alert("<!--[gt text="The extension of the attached file isn't correct. The valid extensions are: "]--><!--[$extensions]-->");
+				var error=true;
+			}
+		<!--[/if]-->
+		if(!error){resposta=confirm("<!--[gt text="Do you really want to send the message?"]-->");}
+		if(!error && resposta){document.new_tema.submit();}
+	}
+</script>
+<!--[include file="iw_forums_user_menu.htm" m3=1 m4=1]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='filenew.gif' set='icons/large']--></div>
+	<h2><!--[$name]--> => <!--[gt text="Add a new topic"]--></h2>
+	<div style="height:5px;">&nbsp;</div>
+	<form  method="post" name="new_tema" id="new_msg" action="index.php?module=iw_forums&func=crear_tema" enctype="multipart/form-data">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forums"]-->" />
+		<input type="hidden" name="fid" value="<!--[$fid]-->" />
+		<input type="hidden" name="ftid" value="<!--[$ftid]-->" />
+		<table class="usertable">
+			<tr>
+				<td><!--[gt text="Title of the topic"]--></td>
+				<td><input type="text" name="titol" maxlength="80" size="60"></td>
+			</tr>
+			<tr>
+				<td><!--[gt text="Description"]--></td>
+				<td><textarea name="descriu" cols="60" rows="6"></textarea></td>
+			</tr>
+			<tr><td></td><td colspan="1" align="left"><!--[gt text="First message of the topic (optional)"]--></td></tr>
+			<tr>
+				<td><!--[gt text="Title of the message"]--></td>
+				<td><input type="text" name="titolmsg" maxlength="80" size="60" value="<!--[$title]-->"></td>
+			</tr>
+			<tr>
+				<td><!--[gt text="Message"]--></td>
+				<td><textarea name="msg" cols="60" rows="10" id="intraweb"></textarea></td>
+			</tr>
+			<!--[if $adjunts neq "0"]-->
+				<tr>
+					<td><!--[gt text="Attached file"]--></td>
+					<td><input type="file" name="adjunt" size="50"></td>
+				</tr>
+			<!--[/if]-->
+		</table>
+		<div class="formOptions" style="text-align:center;">
+			<a href="javascript:send()"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small'   __alt="Add" __title="Add"]--></a><!--[gt text="Add"]-->
+
+			<a href="<!--[pnmodurl modname="iw_forums" type="user" func="forum" fid=$fid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+		</div>
+
+
+
+	</form>
+</div>

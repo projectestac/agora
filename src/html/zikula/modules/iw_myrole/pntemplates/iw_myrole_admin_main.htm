@@ -1,0 +1,37 @@
+<!--[admincategorymenu]-->
+<div class="pn-adminbox">
+	<h1><!--[gt text="myRole"]--></h1>
+</div>
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+	<div style="height:10px;">&nbsp;</div>
+	<h2><!--[gt text="Group selection"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+	<form class="pn-adminform" enctype="application/x-www-form-urlencoded" method="post" name="changeGroup" action="<!--[pnmodurl modname="iw_myrole" type="admin" func="changeGroup"]-->">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_myrole"]-->" />
+		<div class="pn-adminformrow">
+			<label for="gid"><!--[gt text="Choose the change role group"]-->:</label>
+			<select name="gid">
+				<!--[foreach item=group from=$groups]-->
+					<option <!--[if $group.id eq $roleGroup]-->selected<!--[/if]--> value="<!--[$group.id]-->"><!--[$group.name]--></option>.
+				<!--[/foreach]-->
+			</select>
+		</div>
+		<div style="float: left;">
+			<label for="groupsNotChangeable"><!--[gt text="Groups not listed in the chooseable groups list"]-->:</label>
+		</div>
+		<div style="float: left;">
+			<!--[foreach item=group from=$groupsArray]-->
+				<input type="checkbox" name="groups[<!--[$group.id]-->]" value="<!--[$group.id]-->" <!--[if $group.checked]-->checked<!--[/if]--> /><!--[$group.name]--> <br />
+			<!--[/foreach]-->
+		</div>
+		<div style="clear:both;"></div>
+		<div style="text-align:center;">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Modify" __title="Modify"]--> <!--[gt text="Modify"]-->
+			<a href="<!--[pnmodurl modname=iw_webbox type=admin func=main]-->">
+				<!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]-->
+			</a>
+		</div>
+	</form>
+    <br>
+    <a href=<!--[pnmodurl modname="iw_myrole" type="admin" func="module"]-->><!--[gt text="About this module "]--></a></div>

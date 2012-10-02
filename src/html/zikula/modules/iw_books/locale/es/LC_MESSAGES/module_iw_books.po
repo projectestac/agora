@@ -1,0 +1,634 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-28 10:48+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnfpdf.php:142
+msgid "Page"
+msgstr "Página"
+
+#: pnfpdf.php:142
+msgid "Information generated on"
+msgstr "Información generada el"
+
+#: pnfpdf.php:395
+#: pnuser.php:467
+msgid "There aren't books for your selection"
+msgstr "No hay libros para la selección solicitada"
+
+#: pnfpdf.php:403
+#: pnuser.php:477
+msgid "List of books · Course"
+msgstr "Lista de libros · Curso"
+
+#: pnfpdf.php:407
+#: pnfpdf.php:436
+#: pnuser.php:481
+#: pnuser.php:511
+msgid "Textbooks"
+msgstr "Libros de texto"
+
+#: pnfpdf.php:417
+#: pnfpdf.php:433
+#: pnuser.php:489
+#: pnuser.php:508
+msgid "Reading Books"
+msgstr "Libros de lectura"
+
+#: pnfpdf.php:441
+msgid "**"
+msgstr "**"
+
+#: pnfpdf.php:467
+#: pnuser.php:538
+msgid "to avaluation"
+msgstr "a evaluación"
+
+#: pnfpdf.php:505
+#: pnuser.php:580
+msgid "Materials"
+msgstr "Materiales"
+
+#: pnuserapi.php:53
+#: pnuserapi.php:155
+#: pnuserapi.php:361
+#: pnuserapi.php:412
+#: pnadminapi.php:156
+#: pnadminapi.php:322
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "Error! Argumentos erróneos. Por favor verifica los datos e inténtalo de nuevo."
+
+#: pnuserapi.php:250
+#: pnuserapi.php:256
+msgid "r"
+msgstr "r"
+
+#: pnuserapi.php:253
+msgid "n"
+msgstr "n"
+
+#: pnuserapi.php:259
+msgid "t"
+msgstr "t"
+
+#: pnuserapi.php:262
+msgid "e"
+msgstr "è"
+
+#: pnuserapi.php:302
+#: pnuserapi.php:387
+msgid "Error! Could not load items."
+msgstr "Error! No se han podido cargar los objetos."
+
+#: pninit.php:102
+#: pninit.php:130
+msgid "Failed to update the tables"
+msgstr "Error en la actualitzación de las tablas"
+
+#: pnuser.php:40
+#: pnuser.php:61
+#: pnuser.php:247
+#: pnuser.php:400
+#: pnadmin.php:57
+#: pnadmin.php:75
+#: pnadmin.php:916
+#: pnadmin.php:1380
+msgid "Sorry! No authorization to access this module."
+msgstr "Disculpa! No tienes autorización para ejecutar esa acción en este módulo."
+
+#: pnuser.php:208
+#: pnadmin.php:431
+#: pnadmin.php:1057
+msgid "Edit"
+msgstr "Editar"
+
+#: pnuser.php:212
+#: pnadmin.php:435
+#: pnadmin.php:1061
+msgid "Delete"
+msgstr "Borrar"
+
+#: pnuser.php:299
+#: pnuser.php:375
+#: pnadmin.php:568
+#: pnadmin.php:1325
+#: pntemplates/iw_books_admin_menu.htm:3
+#: pntemplates/iw_books_user_menu.htm:2
+msgid "Textbooks and lectures"
+msgstr "Libros de texto y lecturas"
+
+#: pnuser.php:311
+#: pntemplates/iw_books_user_view.htm:11
+msgid "Try course:"
+msgstr "Escoge curso: "
+
+#: pnuser.php:317
+#: pntemplates/iw_books_user_view.htm:13
+msgid "Plan:"
+msgstr "Plan: "
+
+#: pnuser.php:323
+#: pntemplates/iw_books_user_view.htm:15
+msgid "Level:"
+msgstr "Nivel"
+
+#: pnuser.php:331
+#: pntemplates/iw_books_user_display.htm:12
+#: pntemplates/iw_books_user_view.htm:17
+msgid "Subject:"
+msgstr "Materia: "
+
+#: pnuser.php:336
+#: pntemplates/iw_books_user_view.htm:19
+msgid "Reads:"
+msgstr "Lecturas: "
+
+#: pnuser.php:342
+msgid "See list of books"
+msgstr "Muestra la lista de libros"
+
+#: pnuser.php:347
+msgid "Creating listed on page PDF"
+msgstr "Creando listados en la página PDF"
+
+#: pnuser.php:380
+#: pnadmin.php:1328
+#: pntemplates/iw_books_user_display.htm:23
+msgid "Back"
+msgstr "Volver"
+
+#: pnuser.php:499
+msgid "Optional subjects"
+msgstr "Materias optativas"
+
+#: pnadminapi.php:59
+#: pnadminapi.php:218
+#: pnadminapi.php:305
+msgid "Error! Creation attempt failed."
+msgstr "Error! Intento de creación fallido."
+
+#: pnadminapi.php:171
+#: pnadminapi.php:342
+#: pnadmin.php:248
+#: pnadmin.php:1211
+msgid "You are not allowed to enter this module"
+msgstr "No tienes autorización para entrar en este módulo"
+
+#: pnadminapi.php:186
+#: pnadminapi.php:357
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr "Error! Intento de borrado fallido."
+
+#: pnadminapi.php:327
+#: pnadmin.php:231
+#: pnadmin.php:285
+#: pnadmin.php:1197
+#: pnadmin.php:1238
+msgid "Error! Could not load module."
+msgstr "Error! No se logró cargar el módulo."
+
+#: pnadminapi.php:384
+msgid "Error! Update attempt failed."
+msgstr "Error! Intento de actualización fallido."
+
+#: pntemplates/plugins/function.iw_booksadminlinks.php:83
+#: pntemplates/plugins/function.iw_booksuserlinks.php:84
+#: pnadmin.php:583
+#: pntemplates/iw_books_admin_view_mat.htm:8
+#: pntemplates/iw_books_admin_view.htm:8
+msgid "See all the books entered"
+msgstr "Ver todos los libros entrados"
+
+#: pntemplates/plugins/function.iw_booksadminlinks.php:86
+#: pntemplates/plugins/function.iw_booksuserlinks.php:87
+#: pnadmin.php:578
+msgid "Add a new book"
+msgstr "Entrar nuevo libro"
+
+#: pntemplates/plugins/function.iw_booksadminlinks.php:89
+#: pntemplates/plugins/function.iw_booksuserlinks.php:90
+#: pnadmin.php:597
+msgid "Show subjects"
+msgstr "Muestra materias"
+
+#: pntemplates/plugins/function.iw_booksadminlinks.php:92
+#: pntemplates/plugins/function.iw_booksuserlinks.php:93
+#: pnadmin.php:590
+#: pntemplates/iw_books_admin_modify_mat.htm:7
+#: pntemplates/iw_books_admin_new_mat.htm:7
+#: pntemplates/iw_books_admin_new.htm:7
+msgid "Enter new subject"
+msgstr "Entra materia nueva"
+
+#: pntemplates/plugins/function.iw_booksadminlinks.php:95
+#: pntemplates/plugins/function.iw_booksuserlinks.php:96
+msgid "Modification of the configuration module"
+msgstr "Modificación de la configuración del módulo"
+
+#: pntemplates/plugins/function.iw_booksadminlinks.php:99
+#: pntemplates/plugins/function.iw_booksuserlinks.php:100
+#: pnadmin.php:440
+#: pnadmin.php:610
+msgid "Copy the following year"
+msgstr "Copia"
+
+#: pntemplates/plugins/function.iw_booksadminlinks.php:103
+#: pntemplates/plugins/function.iw_booksuserlinks.php:104
+#: pnadmin.php:616
+msgid "Export books (CSV)"
+msgstr "Exportar libros (CSV)"
+
+#: pnadmin.php:115
+#: pnadmin.php:278
+#: pnadmin.php:513
+#: pnadmin.php:1233
+msgid "Invalid 'authkey':  this probably means that you pressed the 'Back' button, or that the page 'authkey' expired. Please refresh the page and try again."
+msgstr "'authkey' no válida:  esto probablemente significa que has presionado el botón 'Atras', o que el 'authkey' de la página ha expirado. Por favor actualiza la página y vuelve a intentarlo."
+
+#: pnadmin.php:126
+msgid "The new book has been created"
+msgstr "El nuevo libro ha sido creado"
+
+#: pnadmin.php:151
+#: pnadmin.php:660
+#: pnadmin.php:1274
+msgid "No such item found."
+msgstr "No se encontró tal elemento."
+
+#: pnadmin.php:205
+#: pnadmin.php:1307
+msgid "Done! Item updated."
+msgstr "Elemento actualizado"
+
+#: pnadmin.php:260
+msgid "Remove selected book"
+msgstr "Borra el libro seleccionado"
+
+#: pnadmin.php:262
+msgid "Confirm the elimination of the selected book"
+msgstr "Confirma la eliminació del libro seleccionado"
+
+#: pnadmin.php:266
+#: pnadmin.php:1225
+msgid "Cancel the elimination"
+msgstr "Cancela eliminación"
+
+#: pnadmin.php:295
+msgid "The book has been deleted"
+msgstr "Se ha borrado el libro"
+
+#: pnadmin.php:604
+msgid "Config"
+msgstr "Configuración"
+
+#: pnadmin.php:994
+msgid "Done! Item created."
+msgstr "Elemento creado"
+
+#: pnadmin.php:1222
+msgid "Delete selected subject"
+msgstr "Borrar materia seleccionada"
+
+#: pnadmin.php:1224
+msgid "Do you really want to delete?"
+msgstr "Seguro que quieres eliminarla?"
+
+#: pnadmin.php:1247
+msgid "The subject has been cleared"
+msgstr "Se ha borrado la materia"
+
+#: pntemplates/iw_books_admin_view_mat.htm:15
+#: pntemplates/iw_books_admin_view.htm:45
+msgid "Codi"
+msgstr "Código"
+
+#: pntemplates/iw_books_admin_view_mat.htm:16
+msgid "Matèria"
+msgstr "Materia"
+
+#: pntemplates/iw_books_admin_view_mat.htm:17
+#: pntemplates/iw_books_admin_view.htm:52
+msgid "Opcions"
+msgstr "Opciones"
+
+#: pntemplates/iw_books_admin_view_mat.htm:33
+#: pntemplates/iw_books_admin_view.htm:78
+msgid "No items found."
+msgstr "No se han encontrado elementos."
+
+#: pntemplates/iw_books_admin_modify_mat.htm:5
+#: pntemplates/iw_books_admin_new_mat.htm:5
+#: pntemplates/iw_books_admin_new.htm:5
+#: pntemplates/iw_books_admin_copi_prev.htm:6
+#: pntemplates/iw_books_admin_modifyconfig.htm:4
+#: pntemplates/iw_books_admin_modify.htm:5
+msgid "_EXAMPLEDBADD"
+msgstr "_EXAMPLEDBADD"
+
+#: pntemplates/iw_books_admin_modify_mat.htm:18
+#: pntemplates/iw_books_admin_new_mat.htm:18
+msgid "Code subject"
+msgstr "Código materia"
+
+#: pntemplates/iw_books_admin_modify_mat.htm:23
+#: pntemplates/iw_books_admin_new_mat.htm:23
+#: pntemplates/iw_books_admin_new.htm:42
+#: pntemplates/iw_books_user_view.htm:47
+#: pntemplates/iw_books_admin_modify.htm:52
+msgid "Subject"
+msgstr "Materia"
+
+#: pntemplates/iw_books_admin_modify_mat.htm:31
+#: pntemplates/iw_books_admin_new_mat.htm:33
+#: pntemplates/iw_books_admin_new.htm:99
+#: pntemplates/iw_books_admin_copi_prev.htm:32
+#: pntemplates/iw_books_admin_modify.htm:109
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: pntemplates/iw_books_admin_modify_mat.htm:32
+#: pntemplates/iw_books_admin_new_mat.htm:34
+#: pntemplates/iw_books_admin_new.htm:100
+#: pntemplates/iw_books_admin_copi_prev.htm:33
+msgid "Create"
+msgstr "Crear"
+
+#: pntemplates/iw_books_admin_main.htm:5
+#: pntemplates/iw_books_admin_view.htm:92
+msgid "About this module"
+msgstr "Acerca de éste módulo"
+
+#: pntemplates/iw_books_admin_view.htm:14
+msgid "Curs acad.: "
+msgstr "Curso acad.:"
+
+#: pntemplates/iw_books_admin_view.htm:16
+msgid "Pla: "
+msgstr "Plan:"
+
+#: pntemplates/iw_books_admin_view.htm:18
+msgid "Nivell: "
+msgstr "Nivel:"
+
+#: pntemplates/iw_books_admin_view.htm:20
+msgid "Matèria: "
+msgstr "Materia:"
+
+#: pntemplates/iw_books_admin_view.htm:24
+msgid "Filtra"
+msgstr "c"
+
+#: pntemplates/iw_books_admin_view.htm:25
+#: pntemplates/iw_books_user_view.htm:26
+#: pntemplates/iw_books_user_view.htm:40
+msgid "Crea llistat PDF"
+msgstr "Creando listados en la página PDF"
+
+#: pntemplates/iw_books_admin_view.htm:41
+msgid "Autor"
+msgstr "Autor"
+
+#: pntemplates/iw_books_admin_view.htm:42
+msgid "Tí­tol"
+msgstr "Título"
+
+#: pntemplates/iw_books_admin_view.htm:43
+#: pntemplates/iw_books_user_display.htm:9
+#: pntemplates/iw_books_admin_new.htm:26
+#: pntemplates/iw_books_user_view.htm:50
+#: pntemplates/iw_books_admin_modify.htm:36
+msgid "Editorial"
+msgstr "Editorial"
+
+#: pntemplates/iw_books_admin_view.htm:44
+msgid "Any"
+msgstr "Año"
+
+#: pntemplates/iw_books_admin_view.htm:46
+msgid "Pla"
+msgstr "Plan"
+
+#: pntemplates/iw_books_admin_view.htm:47
+msgid "Nivell"
+msgstr "Nivel"
+
+#: pntemplates/iw_books_admin_view.htm:48
+msgid "Lect?"
+msgstr "Lect?"
+
+#: pntemplates/iw_books_admin_view.htm:49
+msgid "Aval"
+msgstr "Eval"
+
+#: pntemplates/iw_books_admin_view.htm:50
+msgid "Opt?"
+msgstr "Opt.?"
+
+#: pntemplates/iw_books_admin_view.htm:51
+msgid "Mat"
+msgstr "Mat"
+
+#: pntemplates/iw_books_user_display.htm:7
+#: pntemplates/iw_books_admin_new.htm:16
+#: pntemplates/iw_books_user_view.htm:48
+#: pntemplates/iw_books_admin_modify.htm:26
+msgid "Author"
+msgstr "Autor"
+
+#: pntemplates/iw_books_user_display.htm:8
+#: pntemplates/iw_books_admin_new.htm:21
+#: pntemplates/iw_books_user_view.htm:49
+#: pntemplates/iw_books_admin_modify.htm:31
+msgid "Title"
+msgstr "Título"
+
+#: pntemplates/iw_books_user_display.htm:10
+#: pntemplates/iw_books_admin_new.htm:31
+#: pntemplates/iw_books_admin_modify.htm:41
+msgid "Release Year"
+msgstr "Año de publicación"
+
+#: pntemplates/iw_books_user_display.htm:11
+#: pntemplates/iw_books_admin_new.htm:36
+#: pntemplates/iw_books_admin_modify.htm:46
+msgid "ISBN"
+msgstr "ISBN"
+
+#: pntemplates/iw_books_user_display.htm:13
+#: pntemplates/iw_books_admin_new.htm:52
+#: pntemplates/iw_books_admin_modify.htm:62
+msgid "Plan (Key 'Ctrl' for choose more plans)"
+msgstr "Plan (Tecla  'Ctrl' para seleccionar más de un plan)"
+
+#: pntemplates/iw_books_user_display.htm:14
+#: pntemplates/iw_books_admin_new.htm:57
+#: pntemplates/iw_books_user_view.htm:51
+#: pntemplates/iw_books_admin_modify.htm:67
+msgid "Level"
+msgstr "Nivel"
+
+#: pntemplates/iw_books_user_display.htm:15
+#: pntemplates/iw_books_admin_new.htm:62
+#: pntemplates/iw_books_user_view.htm:52
+#: pntemplates/iw_books_admin_modify.htm:72
+msgid "Optional?"
+msgstr "Optativa?"
+
+#: pntemplates/iw_books_user_display.htm:16
+#: pntemplates/iw_books_admin_new.htm:71
+#: pntemplates/iw_books_user_view.htm:53
+#: pntemplates/iw_books_admin_modify.htm:81
+msgid "Read?"
+msgstr "Lectura?"
+
+#: pntemplates/iw_books_user_display.htm:17
+#: pntemplates/iw_books_admin_new.htm:80
+#: pntemplates/iw_books_admin_modify.htm:90
+msgid "Evaluation (Read Only)"
+msgstr "Evaluación (sólo para lecturas)"
+
+#: pntemplates/iw_books_user_display.htm:18
+#: pntemplates/iw_books_admin_new.htm:47
+#: pntemplates/iw_books_admin_modify.htm:57
+msgid "Academic Year"
+msgstr "Año académico"
+
+#: pntemplates/iw_books_user_display.htm:19
+#: pntemplates/iw_books_admin_new.htm:86
+#: pntemplates/iw_books_admin_modify.htm:96
+msgid "Comment"
+msgstr "Observaciones"
+
+#: pntemplates/iw_books_user_display.htm:20
+#: pntemplates/iw_books_admin_new.htm:91
+#: pntemplates/iw_books_admin_modify.htm:101
+msgid "Home course materials (books, brushes ...)"
+msgstr "Materiales inicio de curso (libretas, pinceles...)"
+
+#: pntemplates/iw_books_admin_copi_prev.htm:8
+msgid "Copy all the books in the following year"
+msgstr "Copiar todos los libros al siguiente año"
+
+#: pntemplates/iw_books_user_view.htm:10
+msgid "Options filter"
+msgstr "Filtra los mensajes"
+
+#: pntemplates/iw_books_user_view.htm:25
+msgid "Filter"
+msgstr "Filtro"
+
+#: pntemplates/iw_books_user_view.htm:43
+msgid "List of Textbooks"
+msgstr "Listado de Libros de texto "
+
+#: pntemplates/iw_books_user_view.htm:43
+msgid "and reading"
+msgstr "y leyendo"
+
+#: pntemplates/iw_books_user_view.htm:43
+msgid "Course"
+msgstr "Curso"
+
+#: pntemplates/iw_books_user_view.htm:54
+msgid "Eval."
+msgstr "Eval."
+
+#: pntemplates/iw_books_user_view.htm:78
+msgid "Total number of books for this selection"
+msgstr "Número máximo de libros por selección"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:6
+msgid "Settings"
+msgstr "Configuración"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:14
+msgid "Default Academic year"
+msgstr "Año académico por defecto"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:19
+msgid "Items per page (screen)"
+msgstr "Elementos por página (pantalla)"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:24
+msgid "Name and path of the image header listings"
+msgstr "Ruta y nombre de la imagen de encabezamiento de listados"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:29
+msgid "Road where the library FPDF (with / end)"
+msgstr "Camino donde se encuentra la biblioteca FPDF (con / al final)"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:34
+msgid "Highest level"
+msgstr "Nivel más alto con el que se trabajarà"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:40
+msgid "Syllabuses (Code # Desc. Code | Ex.: ESO # Ed. Sec. Request. |)"
+msgstr "Planes de estudio (Código#Desc. código| Ex.: ESO#Ed. Sec. Oblig.|)"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:49
+msgid "Font size of the list"
+msgstr "Medida fuente de los listados"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:54
+msgid "Listed materials too?"
+msgstr "Mostrar materiales también?"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:64
+msgid "Provisional (watermark)"
+msgstr "Provisional (marca de agua)"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:74
+msgid "Update Configuration"
+msgstr "Actualizar Configuración"
+
+#: pntemplates/iw_books_admin_modify.htm:8
+msgid "Copy the book"
+msgstr "Copia el libro"
+
+#: pntemplates/iw_books_admin_modify.htm:10
+msgid "Modification of the data book"
+msgstr "Modificación de los datos del libro"
+
+#: pntemplates/iw_books_admin_modify.htm:110
+msgid "Update"
+msgstr "Modifica"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:28
+msgid "Root directory defined on iw_main module"
+msgstr "Directorio raíz de los ficheros definido en el módulo iw_main"
+
+#: pnfpdf.php:355
+msgid "All subjects"
+msgstr "Todas las asignaturas"
+
+#: pnfpdf.php:361
+msgid "All courses"
+msgstr "Todos los cursos"
+
+#: pnfpdf.php:367
+msgid "All stages"
+msgstr "Todos los planes"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:24
+msgid "It's not possible to define an image header because iw_main module is not available or root directory is not defined."
+msgstr "No se puede definir una imagen de cabecera porque el módulo iw_main no está disponible o bien porque no se ha definido un directorio de ficheros"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:32
+msgid "Root directory don't exists"
+msgstr "El directorio de ficheros raíz no existe"
+
+#: pntemplates/iw_books_admin_modifyconfig.htm:39
+msgid "Header image don't exists"
+msgstr "La imagen de cabecera no existe"
+
+#: pnadmin.php:567
+msgid "Configuration correctly updated"
+msgstr "La configuración se ha actualizado correctamente"
+

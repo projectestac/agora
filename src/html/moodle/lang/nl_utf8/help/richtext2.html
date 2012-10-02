@@ -1,0 +1,51 @@
+<h1>Over de Richtext HTML editor</h1>
+
+<p>Beschikbaarheid: <b>
+<?php  if (!$CFG->htmleditor) {
+       print_string("htmleditordisabledadmin");
+   } else if (!$USER->htmleditor) {
+       print_string("htmleditordisabled");
+   } else if (!can_use_html_editor()) {
+       print_string("htmleditordisabledbrowser");
+   } else {
+       print_string("htmleditoravailable");
+   }
+?>
+</b></p>
+
+<p>De Richtext HTML-editor voorziet je van een tekstverwerkerinterface in je webpagina. Zo kun je tekst bewerken op een intuïtieve manier. Hij produceert gewone HTML-code.</p>
+
+<p>Buiten het maken van gewone tekstopmaak, voorziet deze teksteditor heel wat extra mogelijkheden die je misschien wel nuttig vindt.</p>
+
+<h2>Plakken van tekst vanuit andere applicaties</h2>
+
+<div class="indent">
+Je kunt opgemaakte tekst knippen en plakken vanuit andere Windowsapplicaties zoals Microsoft Word of OpenOffice.org Writer zonder verlies van je tekstopmaak. Gebruik de gewone knip- en plakmenu's in je browser (of control-c control-v)</p>
+</div>
+
+<h2>Afbeeldingen invoegen <img alt="" src="lib/editor/htmlarea/images/ed_image.gif" /></h2>
+
+<div class="indent">
+<p>Als je afbeeldingen wil invoegen die al op een website staan en die te bereiken zijn via een URL, dan kun je die in je tekst gebruiken door de knop "Insert Image".</p>
+</div>
+
+<h2>Tabellen invoegen <img alt="" src="lib/editor/htmlarea/images/insert_table.gif" /></h2>
+
+<div class="indent">
+<p>Om je teksten wat lay-out te geven, kun je de knop "Insert Tables" uit de werkbalk gebruiken.</p>
+</div>
+
+<h2>Links invoegen <img alt="" src="lib/editor/htmlarea/images/ed_link.gif" /> /</h2>
+
+<div class="indent">
+<p>Om een nieuwe link te maken type je eerst de tekst waarvan je wil dat het een link wordt. Selecteer die tekst
+in klik op de linkknop in de werkbalk. Geef de URL die je wil en je link is klaar!</p>
+</div>
+
+<h2>ISmilies (emoticons) invoegen <img alt="" src="pix/s/smiley.gif" class="icon" /></h2>
+
+<div class="indent">
+<p>Klik op de smiley in de werkbalk om die kleine icoontjes in je tekst te zetten. Er verschijnt een dialoogvenster waarmee je één van de volgende icoontjes kunt invoegen door erop te klikken.(Je kunt evengoed de code rechtstreeks in je tekst brengen. Die code zal later geconverteerd worden als je tekst getoond wordt.)</p>
+<div id="emoticons">##emoticons_html##</div>
+</div>
+<div style="clear:both">&nbsp;</div>

@@ -1,0 +1,111 @@
+﻿<p align="center">导入新问题</p>
+
+<p>该功能允许您通过表单或者通过在课程文件区域选择一个合适的文件，来上传外部文本文件，并导入问题。 </p>
+<p>&nbsp;</p>
+<p><strong>关于字符编码的说明</strong></p>
+
+<p>如果您的文件中包含非ASCII字符，您必须使用UTF-8编码。您可以用您喜欢的编辑器或者输出软件把文件转换成UTF-8编码。如果您的Moodle服务器在PHP 5上运行，那么将会自动处理基于XML的导入格式。</p>
+<p>支持的文件格式：</p>
+
+<p><strong>GIFT格式</strong></p>
+<p>GIFT是Moodle从文本文件导入问题的通用格式。它支持单选题、是非题、简答题、匹配题、数学题及填空题。在一个单独的文本文件中可以添加多种类型的题目，这种格式还支持整行注释、问题名称、反馈和百分比权重。下面是一个例子:</p>
+<ul><pre>
+Who's buried in Grant's tomb?{~Grant ~Jefferson =no one}
+
+Grant is {~buried =entombed ~living} in Grant's tomb.
+
+Grant is buried in Grant's tomb.{FALSE}
+
+Who's buried in Grant's tomb?{=no one =nobody}
+
+When was Ulysses S. Grant born?{#1822}
+</pre>
+
+<p align="right"><a href="help.php?file=formatgift.html&module=quiz">“GIFT”格式的更多信息</a></p>
+</ul>
+
+<p><strong>Aiken格式</strong></p>
+<ul>
+  <p>Aiken格式通常用来编写单选题，它简单易懂。下面就是这个格式的例子:</p>
+  <pre></pre>
+  <pre>
+What is the purpose of first aid?
+A. To save life, prevent further injury, preserve good health
+B. To provide medical treatment to any injured or wounded person
+C. To prevent further injury
+D. To aid victims who may be seeking help
+ANSWER: A
+</pre>
+
+<p align="right"><a href="help.php?file=formataiken.html&module=quiz">“Aiken”格式的更多信息</a></p>
+</ul>
+
+<p><b>Missing Word </b>格式</p>
+<ul>
+  <p>这个格式取决于答案的个数，只支持单选题和简答题。一个答案产生一个简答题，两个或更多答案产生一个单选题。答案之间以波浪号(~)分隔，正确答案则以等号为前缀(=)。下面是一个单选题的例子:</p>
+  <blockquote>As soon as we begin to explore our body parts as infants
+we become students of {=anatomy and physiology ~reflexology 
+~science ~experiment}, and in a sense we remain students for life.</blockquote>
+
+<p>下面是一个简答题的例子：</p>
+
+<blockquote>As soon as we begin to explore our body parts as infants
+ we become students of {=anatomy and physiology},
+ and in a sense we remain students for life.</blockquote>
+
+<p align="right"><a href="help.php?file=formatmissingword.html&module=quiz">“Missing Word”格式的更多信息</a></p>
+</ul>
+
+<p><b>AON</b>格式</p>
+<p align="left">在多数情况下，这个格式和Missing Word格式相同，但在导入后，所有简答题都会被转为匹配题。 <br />
+  此外，多个答案在导入的过程中其顺序也会被打乱。 <br />
+  这个格式是以一个组织的名称命名的，该组织开发了多种功能的测验。</p>
+<p><b>Blackboard</b></p>
+<ul>
+  <p>这个模块可以导入以Blackboard的导出格式保存的问题。要使用它，PHP必须具备XML处理函数。注意：这个版本不与Blackboard V6 以及更高版本兼容。</p>
+  <p align="right"><a href="help.php?file=formatblackboard.html&module=quiz"> “Blackboard”格式的更多信息</a></p>
+</ul>
+
+<p><b>Blackboard V6+</b></p>
+<ul>
+  <p>这个模块可以导入以Blackboard的导出格式保存的问题。它为Blackboard V6和Blackboard V7提供有限的支持。要使用它，PHP必须具备XML处理函数。您必须下载从Blackboard导出的压缩文件。</p>
+</ul>
+
+<p><b>WebCT</b></p>
+<ul>
+  <p>这个模块可以导入以WebCT的基于文本格式保存的问题。</p>
+  <p align="right"><a href="help.php?file=formatwebct.html&module=quiz">“WebCT”格式的更多信息</a></p>
+</ul>
+
+<p><b>Course Test Manager</b></p>
+<ul>
+<p align="left">这个模块可以导入Course Test Manager题库中的问题。由于题库保存于Micorsoft Access数据库中，对于访问题库的方式有较强的依赖性，特别是在Windows还是Linux服务器上运行的Moodle。 <br />
+  在Windows中，它允许您像上传其它文件一样上传Access数据库。 <br />
+  在Linux中，网络上必须有一台Windows计算机安装了Course Test Manager数据库，并通过ODBC Socket Server以XML格式将数据传到Linux服务器上。 <br />
+  在使用此功能前，请仔细阅读此帮助文档。 </p>
+<p>&nbsp;</p>
+<p align="right"><a href="help.php?file=formatctm.html&module=quiz">“CTM”格式的更多信息</a></p>
+</ul>
+
+<p>完形填空</p>
+<ul>
+  <p>这个格式的特殊用途是导入单一类型问题。  </p>
+  <p align="right"><a href="help.php?file=multianswer.html&module=quiz">“Cloze” 格式的更多信息</a></p>
+</ul>
+
+<p><b>Learnwise format</b> <b>Learnwise</b>格式</p>
+<ul>
+  <p>这个格式可以导入以Learnwise的XML格式保存的单选题。</p>
+</ul>
+
+<p><b>Examview format</b> <b>Examview</b>格式</p>
+<ul>
+  <p align="left">您可以从Examview 4 XML文件中导入该格式。注意该格式不支持老版本的Examview。 </p>
+  </ul>
+
+<p><b>Moodle XML format </b><b>Moodle XML</b>格式</p>
+<p align="left">Moodle的这种格式可以导入之前已经以相同的格式导出过的测试问题。这个格式很简单，在Moodle  XML格式中导出目录就是最好的证明。XML格式可以导入图像文件。 <br />
+  将来还会有更多的格式，包括WebCT、IMS QTI和其它Moodle用户可以提供的格式!</p>
+<p>上海师范大学 教育技术系 06级研究生 张志梅译 </p>
+<p>zzmei84@gmail.com</p>
+<p>上海师范大学 教育技术系 06级研究生 郑起运 夏丽君 刘启刚 李洁校&nbsp;</p>

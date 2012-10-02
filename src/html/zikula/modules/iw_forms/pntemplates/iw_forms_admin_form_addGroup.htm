@@ -1,0 +1,40 @@
+<div class="formContent">
+	<div class="pn-adminpageicon"><!--[pnimg modname='iw_forms' src='add_group_medium.gif' set='pnimages']--></div>
+	<h2><!--[gt text="Add a new group"]--></h2>
+
+	<form class="pn-adminform" action="<!--[pnmodurl modname="iw_forms" type="admin" func="addGroup"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forms"]-->" />
+		<input type="hidden" name="fid" value="<!--[$item.fid]-->" />
+		<input type="hidden" name="confirm" value="1" />
+		<input type="hidden" name="aio" value="<!--[$aio]-->" />
+				
+		<div class="pn-adminformrow">
+			<label for="group"><!--[gt text="Choose the group that should have access to the form"]--></label>
+			<select name="group">
+				<!--[foreach item=group from=$groups]-->
+					<option value="<!--[$group.id]-->"><!--[$group.name]--></option>
+				<!--[/foreach]-->
+			</select>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="accessType"><!--[gt text="Type of acces"]--></label>
+			<select name="accessType">
+				<option value="1"><!--[gt text="Only writing"]--></option>
+				<option value="2"><!--[gt text="Only reading"]--></option>
+				<option value="3"><!--[gt text="Reading and writing"]--></option>
+			</select>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="validationNeeded"><!--[gt text="Validation is required"]--></label>
+			<input id="validationNeeded" name="validationNeeded" type="checkbox" value="1" />
+		</div>
+		<div class="formOptions">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Add" __title="Add"]-->
+			<!--[if not isset($aio)]-->
+				<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="form" action="group" fid=$item.fid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+			<!--[else]-->
+				<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="infoForm" fid=$item.fid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+			<!--[/if]-->
+		</div>
+	</form>
+</div>

@@ -1,0 +1,28 @@
+<!-- $Id$ -->
+
+<h1>Restriction par adresse IP</h1>
+
+<p>Ce champ est optionnel.</p>
+
+<p>Vous pouvez restreindre l'accès à un test à des sous-réseaux particuliers d'un réseau local (LAN) ou de l'internet en spécifiant ici une liste d'adresses IP (complètes ou partielles), séparées par des virgules.</p>
+
+<p>Cela peut être spécialement utile lorsque vous désirez que seules les personnes dans une salle spécifique puissent accéder au test.</p>
+
+<p>Exemple : <strong>192.168. , 231.54.211.0/20, 231.3.56.211, 231.3.56.10-20</strong></p>
+
+<p>Vous pouvez indiquer ici quatre types d'adresses IP (il n'est pas possible d'utiliser des adresses sous la forme de nom de domaine, par exemple « mon-ecole.ch ») :</p>
+
+<ol>
+
+<li>des adresses IP complètes, comme <strong>192.168.10.1</strong>, qui correspondent à un seul ordinateur (ou un serveur proxy) ;</li>
+
+<li>des adresses IP partielles, comme <strong>192.168</strong>, qui correspondent à tous les ordinateurs dont l'adresse commence ainsi ;</li>
+
+<li>des adresses en notation CIDR, comme <strong>231.54.211.0/20</strong>, qui permettent de spécifier des sous-réseaux de manière plus détaillée.</li>
+
+<li>une plage d'adresses IP <strong>231.3.56.10-20</strong>. La plage spécifie un intervalle sur la dernière partie de l'adresse. L'exemple indique ici les adresses comprises dans l'intervalle de 231.3.56.10 à 231.3.56.20.</li>
+
+</ol>
+
+<p>Les espaces sont ignorés.</p>
+

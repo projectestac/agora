@@ -1,0 +1,54 @@
+<!--[include file=user/downloads_user_header.htm]-->
+
+	<!--[dl_mainuserlinks id="dl_usermain_menu" current="main"]-->
+
+	<div class="dl_user_info_float dl_floatbox">
+	
+	<!--[if $lastxisactive == true]-->
+	
+		<dl>
+		
+		<dd><h3><!--[gt text="Latest Downloads"]--></h3></dd>
+		
+		<!--[foreach item=files from=$lastx_prep]-->
+	
+		<dt><!--[pnimg src="lastx_block/lastx.png" __alt="Categories:" ]--></dt><dd><a title="<!--[$files.title]-->" href="<!--[pnmodurl modname="Downloads" type="user" func="display" lid=$files.lid]-->"><!--[$files.title]--></a></dd>
+	
+		<!--[/foreach]-->	
+		</dl>
+	<!--[/if]-->
+	
+	<!--[if $topxisactive == true]-->
+		<dl>
+		
+		<dd><h3><!--[gt text="Popular Downloads"]--></h3></dd>
+			
+		<!--[foreach item=files from=$topx_prep]-->
+	
+		<dt><!--[pnimg src="user/popular.png" __alt="Categories:" ]--></dt><dd><a title="<!--[$files.title]-->" href="<!--[pnmodurl modname="Downloads" type="user" func="display" lid=$files.lid]-->"><!--[$files.title]--></a></dd>
+	
+		<!--[/foreach]-->	
+		</dl>
+	<!--[/if]-->
+	
+	<!--[if $ratexisactive == true]-->
+		<dl>
+		
+		<dd><h3><!--[gt text="Top-Rated Downloads"]--></h3></dd>
+		
+		<!--[foreach item=files from=$ratex_prep]-->
+	
+		<dt><!--[pnimg src="user/rating.png" __alt="Categories:" ]--></dt><dd><a title="<!--[$files.title]-->" href="<!--[pnmodurl modname="Downloads" type="user" func="display" lid=$files.lid]-->"><!--[$files.title]--></a></dd>
+	
+		<!--[/foreach]-->	
+		</dl>
+	<!--[/if]-->
+	
+	</div>
+
+
+	<div id="dl_categorycontainer" class="dl_floatbox">
+		<!--[$categories_prep]-->
+	</div>
+	
+<!--[include file=user/downloads_user_footer.htm]-->

@@ -1,0 +1,27 @@
+<!--[include file="admin/downloads_admin_main_menu.htm"]-->
+<!--[include file="admin/downloads_admin_header.htm"]-->
+
+<!--[*pndebug*]-->
+<h2 class="dl_admin_h2"><!--[pnimg src="admin/stop.gif" __alt="Do you really want to delete this category?" ]-->&nbsp;&nbsp;<!--[gt text="Do you really want to delete this category?"]--></h2>
+<div class="dl_admin_menu">
+<fieldset class="dl_fieldset">
+<h2 class="dl_admin_h2"><!--[gt text="All files in this category will be deleted!"]--></h2>
+<legend><!--[gt text="CategoryID"]-->&nbsp;&nbsp;<!--[$cid|pnvarprepfordisplay]--></legend>
+<form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="admin" func="delete_category"]-->" method="post" enctype="multipart/form-data">
+<div>
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	<input type="hidden" name="cid" value="<!--[$cid]-->"/>
+	<div class="dl_admin_row">
+		<input name="delete" type="submit" value="<!--[gt text="Delete category"]-->" />
+	</div>
+</div>
+</form>
+<form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="admin" func="main"]-->" method="post" enctype="multipart/form-data">
+<div>
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+		<input name="delete" type="submit" value="<!--[gt text="Cancel deletion"]-->" />
+	</div>
+</form>
+</fieldset>
+</div>
+<!--[include file="admin/downloads_admin_footer.htm"]-->

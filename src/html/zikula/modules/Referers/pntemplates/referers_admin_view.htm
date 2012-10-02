@@ -1,0 +1,34 @@
+<!--[*  $Id: referers_admin_view.htm 9 2008-11-05 21:42:16Z Guite $  *]-->
+<!--[include file=referers_admin_menu.htm]-->
+<div class="pn-admincontainer">
+<div class="pn-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large' __alt='Who\'s linking to this site.' ]--></div>
+<h2><!--[gt text="Who's linking to this site."]--></h2>
+<table class="pn-admintable">
+	<thead>
+	<tr>
+		<th><a href="<!--[pnmodurl modname=Referers type=admin func=view sortby=pn_frequency]-->"><!--[gt text="Frequency"]--></a></th>
+		<th><a href="<!--[pnmodurl modname=Referers type=admin func=view sortby=pn_url]-->"><!--[gt text="URL"]--></a></th>
+		<th><!--[gt text="per cent"]--></th>
+	</tr>
+	</thead>
+	<tbody>
+	<!--[foreach from=$referers item=referer]-->
+	<tr class="<!--[cycle values=pn-odd,pn-even]-->">
+		<td><!--[$referer.freq|pnvarprepfordisplay]--></td>
+		<td>
+			<!--[if $referer.url neq "bookmark"]-->
+				<a href="<!--[$referer.url|pnvarprepfordisplay]-->"><!--[$referer.urls|pnvarprepfordisplay]--></a>
+			<!--[else]-->
+				<!--[$referer.urls|pnvarprepfordisplay]-->
+			<!--[/if]-->
+		</td>
+		<td><!--[$referer.percent|pnvarprepfordisplay]--> %</td>
+	</tr>
+	<!--[foreachelse]-->
+		<tr class="pn-admintableempty"><td colspan="3"><!--[gt text="No items found."]--></td></tr>
+	<!--[/foreach]-->
+	</tbody>
+</table>
+<div><strong><!--[gt text="Total"]--></strong>: <!--[$totalfreq|pnvarprepfordisplay]--></div>
+<!--[pager show="page" rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum shift=1]-->
+</div>

@@ -1,0 +1,10 @@
+<!--[if count($pages) > 0]-->
+<ul>
+    <!--[foreach from=$pages item=page]-->
+    <li>
+        <a href="<!--[pnmodurl modname=content type=user func=view pid=$page.id]-->"><!--[$page.title]--></a>
+        <!--[include file=content_include_sitemap.html pages=$page.subPages]-->
+    </li>
+    <!--[/foreach]-->
+</ul>
+<!--[/if]-->

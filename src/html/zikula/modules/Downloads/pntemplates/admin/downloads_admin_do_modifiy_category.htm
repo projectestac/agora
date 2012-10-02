@@ -1,0 +1,29 @@
+<!--[include file="admin/downloads_admin_main_menu.htm"]-->
+<!--[include file="admin/downloads_admin_header.htm"]-->
+
+<!--[*pndebug*]-->
+
+<h2 class="dl_admin_h2"><!--[pnimg src="admin/cat_new.gif" __alt="Edit category" ]-->&nbsp;&nbsp;<!--[gt text="Edit category"]--></h2>
+<fieldset class="dl_fieldset">
+<legend><!--[gt text="Edit category"]--></legend>
+<form class="dl_admin_form" action="<!--[pnmodurl modname="Downloads" type="admin" func="update_category"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div class="dl_conf_list">
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	<input type="hidden" name="cid" value="<!--[$cid]-->" />
+	<dl>
+		<dt><label for="downloads_title"><!--[gt text="Name:"]--></label></dt>
+		<dd>	
+			<input id="downloads_title" type="text" name="title" size="40" value="<!--[$catinfo.title|pnvarprepfordisplay]-->"/>
+		</dd>
+		<dt class="dl_conf_list_desc"><label for="downloads_description"><!--[gt text="Description:"]--></label></dt>
+		<dd class="dl_conf_list_desc">
+			<textarea id="downloads_description" name="description" cols="30" rows="5"><!--[$catinfo.description|pnvarprepfordisplay]--></textarea>
+		</dd>
+		<dt>
+			<input name="submit" type="submit" value="<!--[gt text="Update category"]-->" />
+		</dt>
+	</dl>
+</div>
+</form>
+</fieldset>
+<!--[include file="admin/downloads_admin_footer.htm"]-->

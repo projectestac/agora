@@ -1,0 +1,39 @@
+<!-- $Id: accessibility.html,v 1.2 2007/03/27 20:32:27 martignoni Exp $ -->
+
+<h1>Accessibilité</h1>
+
+<h2>Déclaration d'accessibilité</h2>
+
+<p>Ce site a été testé sur divers navigateurs web et lecteurs d'écran.</p>
+
+<p>Moodle utilise un marquage sémantique pour aider notamment les utilisateurs de lecteurs d'écran : les entêtes du site, des pages et des blocs utilisent &lt;h1&gt;, &lt;h2&gt;, les blocs de navigation sont des listes &lt;ul&gt; etc.</p>
+
+<p>Moodle observe les recommandations du World Wide Web Consortium niveau 1 [<a href="http://www.w3.org/TR/WCAG10/" title="Web Content Accessibility Guidelines 1.0">Web Content Accessibility Guidelines 1.0</a>], la plupart de celles de niveau 2 [<a href="http://www.w3.org/WAI/WCAG1AA-Conformance" title="Sur la conformité Double-A WCAG">Conformité Double-A</a>] et quelques-unes de niveau 3. Par ces recommandations, nous tentons de nous conformer aux lois locales sur l'accès aux personnes avec un handicap. Nous travaillons actuellement à l'amélioration de l'accessibilité et de la facilité d'utilition de Moodle. Il reste encore quelques tables utilisées pour la mise en page, mais de façon générale, la présentation (qui utilise des feuilles de style) est séparée du contenu.</p>
+
+<p>Nous serons heureux de recevoir votre feedback, notamment sur des contenus difficilement accessibles. Veuillez dans ce cas [<a href="./message/discussion.php?id=2">contacter l'administrateur</a>]. </p>
+
+
+<h2>Touches d'accès</h2>
+
+<p>Des touches d'accès (clavier) ne sont actuellement pas définies, vous nous avons l'intention de développer cet aspect dans une prochaine version de Moodle.</p>
+
+
+<h2>Liens</h2>
+
+<p>Avant chaque bloc latéral, un lien permet aux lecteurs d'écran de sauter le bloc. Ce lien est caché dans les navigateurs web graphiques.</p>
+
+<p>Beaucoup de liens ont un attribut « title » qui décrit le lien plus en détail, à moins que le texte du lien ne décrive déjà complètement la cible (par exemple le titre d'un article). Si un lien a une touche d'accès, elle est annoncée dans le titre du lien.</p>
+
+<p>Chaque fois que cela est possible, les liens sont écrits de façon à être compris même hors contexte. Il n'y a aucun pseudo-lien « javascript: ».</p>
+
+
+<h2>Images</h2>
+
+<p>Toutes les images utilisent l'attribut « alt » pour fournir un texte alternatif adéquat ; les images purement  décoratives contiennent un attribut « alt » vide. Les images présentant des informations complexes, telles que les cartes, ont un attribut « longdesc » qui les relie à une description en texte du contenu de l'image.</p>
+
+
+<h2>Conformité aux standards</h2>
+
+<p>Ce site est construit à l'aide de code <acronym title="Extensible Hyper-Text Markup Language">XHTML</acronym> standard, et utilise les CSS pour la présentation.</p>
+
+<p style="text-align:center"> <a href="http://validator.w3.org/check?verbose=1&amp;ss=1&amp;uri=<?php echo $CFG->wwwroot; ?>" title="Utiliser la validation W3C">Validation HTML</a> | <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=-1&amp;url1=<?php echo $CFG->wwwroot; ?>" title="Test avec Cynthia">Vérification section 508</a> | <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=0&amp;warnp2n3e=1&amp;url1=<?php echo $CFG->wwwroot; ?>" title="Test avec Cynthia">Vérification WCAG 1 (2,3)</a> </p>

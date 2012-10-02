@@ -1,0 +1,40 @@
+<!--[if $frontendstyle == 0]-->
+	<!--[if $sub_categories_data != false]-->
+	<dl class="description">
+		<dt class="iconcontainer">
+		&nbsp;
+		</dt>
+		<dd class="name">
+		<!--[gt text='Title / Description']-->
+		</dd>
+		<dd class="content">
+		<!--[gt text='Files / Folders']-->
+		</dd>
+	</dl>
+	<!--[/if]-->
+<!--[/if]-->
+
+<!--[section name=rows loop=$sub_categories_data]-->
+    <dl class="<!--[cycle name=categorylistlist values="folder-odd,folder-even"]-->">
+    	<dt>
+    	<!--[pnimg src="categories/folder.png" __alt="_DLFOLDER" ]-->
+    	</dt>
+        <dd class="catinfo">
+		<a title="<!--[$sub_categories_data[rows].description]-->" href="<!--[$sub_categories_data[rows].link]-->"><!--[$sub_categories_data[rows].title]--></a>
+		<br /><!--[$sub_categories_data[rows].description]-->
+		<!--[dl_cat_new cid=$sub_categories_data[rows].cid assign="newgrafx"]-->
+		<!--[if $newgrafx == 1]-->
+		<!--[pnimg src="user/new_1.gif" __alt="NewTODAY" ]-->
+		<!--[/if]-->
+		<!--[if $newgrafx == 3]-->
+		<!--[pnimg src="user/new_3.gif" __alt="NewTODAY" ]-->
+		<!--[/if]-->
+		<!--[if $newgrafx == 7]-->
+		<!--[pnimg src="user/new_7.gif" __alt="NewTODAY" ]-->
+		<!--[/if]-->
+		</dd>
+		<dd class="count">(<!--[$sub_categories_data[rows].count_downloads]--> / <!--[$sub_categories_data[rows].count_subcategories]-->)</dd>
+		
+		<dd>&nbsp;<!--[$sub_categories_data[rows].subcategories]--></dd>
+    </dl>
+<!--[/section]-->

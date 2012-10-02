@@ -1,0 +1,17 @@
+<!--[* $Id: Files_user_errorMsg.htm 120 2009-12-11 15:48:17Z herr.vorragend $ *]-->
+<!--[if $external eq 1]-->
+<!--[include file="Files_external_header.htm"]-->
+<!--[/if]-->
+
+<!--[insert name="getstatusmsg"]-->
+<div class="files_container">
+    <div class="z-clearfix">
+        <div class="userpageicon"><!--[pnimg modname='core' src='lists.gif' set='icons/large' alt=$templatetitle]--></div>
+        <h2><!--[gt text="List of files in folder"]--> <!--[$folderName]--></h2>
+    </div>
+    <div class="z-errormsg"><!--[$errorMsg]--></div>
+</div>
+
+<!--[if $external eq 1]-->
+<!--[include file="Files_external_footer.htm"]-->
+<!--[/if]-->

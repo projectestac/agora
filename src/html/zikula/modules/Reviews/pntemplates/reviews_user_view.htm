@@ -1,0 +1,48 @@
+<!--[*  $Id: reviews_user_view.htm 380 2009-12-06 12:21:17Z herr.vorragend $  *]-->
+<!--[gt text='View reviews' assign=templatetitle]-->
+<!--[include file='reviews_user_menu.htm']-->
+
+<div class="reviews-alphapager">
+    [<!--[pagerabc posvar='letter' forwardvars='']-->]
+</div>
+
+<!--[if $enablecategorization AND $category]-->
+<h3><!--[$category.display_name.$lang]--></h3>
+<!--[/if]-->
+
+<table class="z-datatable">
+    <thead>
+        <tr>
+            <th><!--[gt text='Title']--></th>
+            <th><!--[gt text='Reviewer']--></th>
+            <th><!--[gt text='Score']--></th>
+            <th><!--[gt text='Hits']--></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--[if empty($items)]-->
+        <tr>
+            <td colspan="4"><!--[gt text='No items found.']--></td>
+        </tr>
+        <!--[else]-->
+        <!--[section loop=$items name='k']-->
+        <tr class="<!--[cycle values='z-odd,z-even']-->">
+            <td>
+                <!--[if $enablecategorization and $shorturls and $shorturlstype eq 0 and $addcategorytitletopermalink]-->
+                <a href="<!--[pnmodurl modname='Reviews' func='display' id=$items[k].id cat=$items[k].__CATEGORIES__.Main.name]-->"><!--[$items[k].title|pnvarprephtmldisplay]--></a>
+                <!--[else]-->
+                <a href="<!--[pnmodurl modname='Reviews' func='display' id=$items[k].id]-->"><!--[$items[k].title|pnvarprephtmldisplay]--></a>
+                <!--[/if]-->
+            </td>
+            <td><!--[$items[k].reviewer|pnmodcallhooks:'Reviews'|pnvarprephtmldisplay]--></td>
+            <td><!--[$items[k].score|pnvarprepfordisplay]--></td>
+            <td><!--[$items[k].hits|pnvarprepfordisplay]--></td>
+        </tr>
+        <!--[sectionelse]-->
+        <tr class="z-datatableempty"><td colspan="4"><!--[gt text='No items found.']--></td></tr>
+        <!--[/section]-->
+        <!--[/if]-->
+    </tbody>
+</table>
+
+<!--[pager display='page' rowcount=$pager.numitems limit=$pager.itemsperpage posvar='page']-->

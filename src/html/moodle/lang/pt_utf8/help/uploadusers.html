@@ -1,0 +1,67 @@
+<!-- $Id: -->
+<h1>Enviar ficheiro de utilizadores</h1>
+
+<p>Primeiro que tudo, repare que <strong>normalmente não é preciso importar
+listas de utilizadores</strong>. Para reduzir o seu trabalho de actualização,
+deveria explorar primeiro formas de autenticação que não exijam manutenção
+manual, tais como ligação a bases de dados externas, ou permitir que os
+utilizadores criem as suas próprias contas. Consulte a secção de autenticação
+nos menus de administração.</p>
+<p>Se tiver a certeza que precisa importar uma lista de contas de utilizadores
+a partir dum ficheiro de texto, então terá que organizar o ficheiro na forma
+seguinte:</p>
+
+<ul>
+  <li>Cada linha no ficheiro deverá conter um registo</li>
+  <li>Cada registo consiste numa série de dados separados por vírgulas</li>
+  <li>O primeiro registo no ficheiro é especial, e contém uma lista de
+      nomes dos campos, usada para definir o formato do resto do ficheiro.
+      <blockquote>
+        <p><strong>Campos necessários:</strong> os campos seguintes deverão ser
+           incluidos no primeiro registo, e definidos para cada utilizador.</p>
+        <p><code class="example1">username, password, firstname, lastname, email
+        </code></p>
+        <p><strong>Campos por omissão:</strong> estes são opcionais. Se não
+           forem incluidos, os seus valores serão obtidos do administrador
+           principal.</p>
+        <p><code class="example1">institution, department, city, country, lang,
+           auth, timezone</code></p>
+        <p><strong>Campos opcionais:</strong> todos estes são completamente
+           opcionais. Os nomes das disciplinas serão os nomes curtos; se
+           estiverem presentes, o utilizador será inscrito nelas como aluno.
+           Os nomes dos grupos deverão estar associados às disciplinas
+           correspondentes, nomedamente, group1 será associado a course1, etc.
+        </p>
+        <p><code class="example1">idnumber, icq, phone1, phone2, address, url,
+           description, mailformat, maildisplay, htmleditor, autosubscribe,
+           course1, course2, course3, course4, course5, group1, group2, group3,
+           group4, group5, type1, type2, type3, type4, type5, role1, role2,
+           role3, role4, role5, picture, emailstop
+        </code></p>
+     </blockquote>
+   </li>
+   <li>As vírgulas dentro dos dados deverão ser codificadas como &amp;#44 . O
+       script descodifica-las-á automaticamente.
+   </li>
+   <li>Nos campos lógicos, use 0 para falso e 1 para verdadeiro.</li>
+   <li>Os tipos (type1, type2, ...) usam-se para dizer ao Moodle se o utilizador
+       será aluno ou professor, se a disciplina correspondente existir (por
+       exemplo, type2 corresponde a course2). 1 = Aluno, 2 = Professor editor,
+       3 = Professor não editor. Se o tipo for deixado em branco, ou se não for
+       especificado um tipo, o utilizador será, por omissão, aluno.</li>
+   <li>Para as disciplinas use o nome curto; para os grupos use o nome do grupo
+       e para os cargos (role1, role2, ...) use o número de identificação do
+       cargo.</li>
+   <li>Nota: se um utilizadore já existir na base de dados de utilizadores
+       do Moodle, este script devolverá o número de identificação desse
+       utilizador na base de dados (índice da base de dados), e fará a sua
+       inscrição nas disciplinas, sem actualizar os seus dados com os dados no
+       ficheiro.</li>
+</ul>
+
+<p>A seguir vem um exemplo de um ficheiro válido:</p>
+<p><code>
+username, password, firstname, lastname, email, lang, idnumber, maildisplay, course1, group1, type1<br>
+jramos, segredo, João, Ramos, jramos@algures.na.net, pt_utf8, 3663737, 1, Intro101, Turma 1, 1<br>
+fmagal, sabrosa, Fernão, de Magalhães, fernao@gmail.com, pt_utf8, 6736733, 0, Navegação202, Barco 3, 3
+</code></p>

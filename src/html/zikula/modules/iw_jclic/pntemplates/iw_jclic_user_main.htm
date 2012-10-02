@@ -1,0 +1,96 @@
+<!--[include file="iw_jclic_user_menu.htm"]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+	<h2><!--[gt text="List of activities that I have assigned"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+	<!--[if count($activitiesAssigned) > 0]-->
+		<table class="usertable">
+			<thead>
+				<tr>
+					<th><!--[gt text="Name"]--></th>
+					<th><!--[gt text="Statement"]--></th>
+					<th><!--[gt text="Groups"]--></th>
+					<th><!--[gt text="Comment"]--></th>
+					<th><!--[gt text="Features"]--></th>
+					<th><!--[gt text="options"]--></th>
+				</tr>
+			</thead>
+			<!--[foreach item="assigned" from="$activitiesAssigned"]-->
+				<tr id="assign_<!--[$assigned.jid]-->" bgcolor="<!--[cycle values="#ffffff, #eeeeee"]-->">
+					<td>
+						<!--[$assigned.name]-->
+					</td>
+					<td>
+						<!--[$assigned.description|pnvarprepfordisplay|nl2br]-->
+					</td>
+					<td>
+						<!--[$assigned.groups]-->
+					</td>
+					<td>
+						<!--[$assigned.observations|pnvarprepfordisplay|nl2br]-->
+					</td>
+					<td>
+						<!--[if $assigned.initDate neq '']-->
+							<div>
+								<!--[gt text="Start"]-->: <!--[$assigned.initDate]-->
+							</div>
+						<!--[/if]-->
+						<!--[if $assigned.limitDate neq '']-->
+							<div>
+								<!--[gt text="Limits"]-->: <!--[$assigned.limitDate]-->
+							</div>
+						<!--[/if]-->
+						<!--[if $assigned.scoreToOptain neq '']-->
+							<div>
+								<!--[gt text="Score"]-->: <!--[$assigned.scoreToOptain]-->%
+							</div>
+						<!--[/if]-->
+						<!--[if $assigned.solvedToOptain neq '']-->
+							<div>
+								<!--[gt text="N. activities"]-->: <!--[$assigned.solvedToOptain]-->
+							</div>
+						<!--[/if]-->
+						<div>
+							<!--[gt text="Skin"]-->: <!--[$skinsArray[$assigned.skin]]-->
+						</div>
+						<div>
+							<!--[gt text="Width"]-->: <!--[$assigned.width]-->
+						</div>
+						<div>
+							<!--[gt text="Height"]-->: <!--[$assigned.height]-->
+						</div>
+						<div>
+							<!--[gt text="State"]-->:
+							<!--[if $assigned.active]-->
+								<!--[gt text="Active"]-->
+							<!--[else]-->
+								<!--[gt text="No active"]-->
+							<!--[/if]-->							
+						</div>
+					</td>
+					<td>
+						<a href="<!--[pnmodurl modname="iw_jclic" type="user" func="assig" jid=$assigned.jid]-->">
+							<!--[pnimg modname='core' src='edit.gif' set='icons/extrasmall'   __alt="Edit" __title="Edit"]-->
+						</a>
+						<a href="<!--[pnmodurl modname="iw_jclic" type="user" func="correct" jid=$assigned.jid]-->">
+							<!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall'   __alt="Correct" __title="Correct"]-->
+						</a>
+						<a href="<!--[pnmodurl modname="iw_jclic" type="user" func="activity" test='1' jid=$assigned.jid]-->">
+							<!--[pnimg modname='core' src='run.gif' set='icons/extrasmall'   __alt="Test" __title="Test"]-->
+						</a>
+						<a href="javascript:del(<!--[$assigned.jid]-->,'<!--[gt text="Really want to delete it?"]-->')">
+							<!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Delete" __title="Delete"]-->
+						</a>
+						<div id="assigninfo_<!--[$assigned.jid]-->" class="pn-hide pn-noteinfo">&nbsp;</div>					
+					</td>
+				</tr>
+			<!--[/foreach]-->
+		</table>
+	<!--[/if]-->
+	<div style="height:20px;">&nbsp;</div>
+	<a href="<!--[pnmodurl modname=iw_jclic type=user func=module]-->"><!--[gt text="About this module"]--></a>
+</div>
+
+<script type="text/javascript">
+	var deletingassign = '<!--[gt text='... deleting ...']-->';
+</script>

@@ -1,0 +1,1743 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-03 08:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnadmin.php:85 pnadmin.php:243 pnadmin.php:354 pnajax.php:33 pnajax.php:124
+#: pnajax.php:164 pnajax.php:293 pnajax.php:346 pnuser.php:565 pnuser.php:911
+#: pnadminapi.php:35 pnadminapi.php:98
+msgid "Error! No such article found."
+msgstr ""
+
+#: pnadmin.php:148 pnadmin.php:444 pnadmin.php:694 pnadmin.php:771
+#: pnajax.php:69 pnuserapi.php:297 pnblocks/stories.php:93
+#: pnblocks/stories.php:167 pnblocks/storiesext.php:224
+#: pnblocks/storiesext.php:524 pncontenttypesapi/newsarticles.php:353
+#: pnuser.php:102 pnuser.php:347 pnuser.php:628 pnuser.php:809
+#, php-format
+msgid "Error! Could not load [%s] class."
+msgstr ""
+
+#: pnadmin.php:255 pnuser.php:221
+msgid "title"
+msgstr ""
+
+#: pnadmin.php:255 pnuser.php:221
+#, php-format
+msgid "Error! You did not enter a %s."
+msgstr ""
+
+#: pnadmin.php:259 pnuser.php:225
+msgid "article content"
+msgstr ""
+
+#: pnadmin.php:259 pnuser.php:225
+#, php-format
+msgid "Error! You did not enter the minimum necessary %s."
+msgstr ""
+
+#: pnadmin.php:319 pnajax.php:238
+msgid "Done! Saved your changes."
+msgstr ""
+
+#: pnadmin.php:386 pnajax.php:248
+msgid "Done! Deleted article."
+msgstr ""
+
+#: pnadmin.php:420
+msgid "Done! Purged permalinks."
+msgstr ""
+
+#: pnadmin.php:422
+msgid "Error! Could not purge permalinks."
+msgstr ""
+
+#: pnadmin.php:498 pnadmin.php:664 pntemplates/news_admin_view.htm:24
+#: pntemplates/news_block_storiesext_modify.htm:22
+msgid "All"
+msgstr ""
+
+#: pnadmin.php:499 pnadmin.php:612
+#: pntemplates/plugins/modifier.news_getstatustext.php:32
+#: pncontenttypesapi/newsarticles.php:368
+#: pntemplates/news_block_storiesext_modify.htm:36
+msgid "Published"
+msgstr ""
+
+#: pnadmin.php:500 pnadmin.php:658
+#: pntemplates/plugins/modifier.news_getstatustext.php:36
+#: pncontenttypesapi/newsarticles.php:369
+msgid "Rejected"
+msgstr ""
+
+#: pnadmin.php:501 pnadmin.php:631
+#: pntemplates/plugins/modifier.news_getstatustext.php:40
+#: pncontenttypesapi/newsarticles.php:370 pntemplates/news_admin_view.htm:97
+msgid "Pending Review"
+msgstr ""
+
+#: pnadmin.php:502 pnadmin.php:649
+#: pntemplates/plugins/modifier.news_getstatustext.php:44
+#: pncontenttypesapi/newsarticles.php:371
+#: pntemplates/news_block_storiesext_modify.htm:37
+msgid "Archived"
+msgstr ""
+
+#: pnadmin.php:503 pnadmin.php:640
+#: pntemplates/plugins/modifier.news_getstatustext.php:48
+#: pntemplates/news_admin_view.htm:98
+#: pntemplates/news_block_storiesext_modify.htm:38
+msgid "Draft"
+msgstr ""
+
+#: pnadmin.php:504 pnadmin.php:622
+msgid "Scheduled"
+msgstr ""
+
+#: pnadmin.php:527
+msgid "View"
+msgstr ""
+
+#: pnadmin.php:534
+msgid "Review"
+msgstr ""
+
+#: pnadmin.php:538 pntemplates/plugins/function.articleadminlinks.php:79
+#: pntemplates/plugins/function.articleadminlinks.php:81
+#: pntemplates/news_user_categorylist.htm:47
+#: pntemplates/news_user_categorylist.htm:90 pntemplates/news_admin_new.htm:73
+msgid "Edit"
+msgstr ""
+
+#: pnadmin.php:547 pntemplates/plugins/function.articleadminlinks.php:84
+#: pntemplates/news_admin_new.htm:246 pntemplates/news_admin_new.htm:266
+#: pntemplates/news_user_new.htm:234 pntemplates/news_user_new.htm:254
+#: pntemplates/news_admin_modify.htm:231 pntemplates/news_admin_modify.htm:251
+#: pntemplates/news_admin_modify.htm:306 pntemplates/news_ajax_modify.htm:189
+#: pntemplates/news_ajax_modify.htm:209 pntemplates/news_ajax_modify.htm:229
+#: pntemplates/news_admin_delete.htm:17
+msgid "Delete"
+msgstr ""
+
+#: pnadmin.php:555
+msgid "Unknown"
+msgstr ""
+
+#: pnadmin.php:559 pntemplates/news_block_storiesext_modify.htm:122
+#: pntemplates/news_block_storiesext_modify.htm:145
+#: pntemplates/news_admin_modifyconfig.htm:61
+msgid "Yes"
+msgstr ""
+
+#: pnadmin.php:561 pntemplates/news_block_storiesext_modify.htm:123
+#: pntemplates/news_block_storiesext_modify.htm:146
+#: pntemplates/news_admin_modifyconfig.htm:62
+msgid "No"
+msgstr ""
+
+#: pnadmin.php:583 pntemplates/news_admin_modifyconfig.htm:46
+msgid "Article date/time"
+msgstr ""
+
+#: pnadmin.php:584 pntemplates/news_admin_new.htm:202
+#: pntemplates/news_admin_modifyconfig.htm:45
+#: pntemplates/news_admin_modifyconfig.htm:176
+msgid "Article ID"
+msgstr ""
+
+#: pnadmin.php:585 pncontenttypesapi/newsarticles.php:378
+#: pntemplates/news_block_storiesext_modify.htm:46
+#: pntemplates/news_admin_new.htm:167 pntemplates/news_user_new.htm:161
+#: pntemplates/news_admin_modify.htm:157 pntemplates/news_ajax_modify.htm:115
+#: pntemplates/news_admin_modifyconfig.htm:47
+msgid "Article weight"
+msgstr ""
+
+#: pnadmin.php:790
+msgid "Done! Saved module settings."
+msgstr ""
+
+#: pnajax.php:39 pnajax.php:226 pnajax.php:298
+msgid "Sorry! You do not have authorisation for this page."
+msgstr ""
+
+#: pnajax.php:128
+msgid ""
+"Sorry! Invalid authorisation key ('authkey'). This is probably either "
+"because you pressed the 'Back' button to return to a page which does not "
+"allow that, or else because the page's authorisation key expired due to "
+"prolonged inactivity. Please refresh the page and try again."
+msgstr ""
+
+#: pnajax.php:218 pnajax.php:233 pnajax.php:320 pnajax.php:361
+#: pnuserapi.php:920 pnadminapi.php:158
+msgid "Error! Could not save your changes."
+msgstr ""
+
+#: pnajax.php:250 pnadminapi.php:45
+msgid "Error! Could not delete article."
+msgstr ""
+
+#: pnajax.php:322
+#, php-format
+msgid "Draft updated at %s"
+msgstr ""
+
+#: pnajax.php:349
+#, php-format
+msgid "Draft saved at %s"
+msgstr ""
+
+#: pnmailzapi.php:29
+msgid "News publisher articles list"
+msgstr ""
+
+#: pnmailzapi.php:30
+msgid ""
+"Show a list of News publisher articles published since the last newsletter."
+msgstr ""
+
+#: pnmailzapi.php:66 pntemplates/news_user_articlepdf.htm:3
+#: pntemplates/news_user_article.htm:25 pntemplates/news_user_index.htm:5
+#: pntemplates/news_user_archives.htm:71 pntemplates/news_admin_modify.htm:265
+#: pntemplates/news_admin_modify.htm:267
+#: pntemplates/news_mailz_listarticles.htm:5
+#: pntemplates/news_mailz_listarticles.htm:7
+#: pntemplates/news_user_articlecontent.htm:24
+#, php-format
+msgid "by %1$s on %2$s"
+msgstr ""
+
+#: pnmailzapi.php:75
+#, php-format
+msgid "No News publisher articles since last newsletter on %s."
+msgstr ""
+
+#: pnversion.php:20 pnuser.php:963 pninit.php:461
+#: pntemplates/news_admin_menu.htm:5
+msgid "News publisher"
+msgstr ""
+
+#: pnversion.php:21 pninit.php:462
+msgid ""
+"Provides the ability to publish and manage news articles contributed by site "
+"users, with support for news categories and various associated blocks."
+msgstr ""
+
+#. ! this defines the module's url
+#: pnversion.php:24
+msgid "news"
+msgstr ""
+
+#: pntemplates/plugins/modifier.news_getstatustext.php:27
+msgid "Unknown status"
+msgstr ""
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:53
+#, php-format
+msgid "%s day ago"
+msgid_plural "%s days ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:55
+msgid "yesterday"
+msgstr ""
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:63
+msgid "tomorrow"
+msgstr ""
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:65
+#, php-format
+msgid "%s day from now"
+msgid_plural "%s days from now"
+msgstr[0] ""
+msgstr[1] ""
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:70
+#, php-format
+msgid "%s hour ago"
+msgid_plural "%s hours ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:72
+#, php-format
+msgid "%s hour from now"
+msgid_plural "%s hours from now"
+msgstr[0] ""
+msgstr[1] ""
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:76
+#, php-format
+msgid "%s minute ago"
+msgid_plural "%s minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:78
+#, php-format
+msgid "%s minute from now"
+msgid_plural "%s minutes from now"
+msgstr[0] ""
+msgstr[1] ""
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:82
+#, php-format
+msgid "%s second ago"
+msgid_plural "%s seconds ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:84
+#, php-format
+msgid "%s second from now"
+msgid_plural "%s seconds from now"
+msgstr[0] ""
+msgstr[1] ""
+
+#: pnsearchapi.php:94 pnuserapi.php:209
+msgid "Error! Could not load any articles."
+msgstr ""
+
+#: pnuserapi.php:251
+msgid "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec"
+msgstr ""
+
+#: pnuserapi.php:707 pncontenttypesapi/newsarticles.php:326
+msgid "Read more..."
+msgstr ""
+
+#: pnuserapi.php:710
+#, php-format
+msgid "%s bytes more"
+msgstr ""
+
+#: pnuserapi.php:717
+msgid "Print"
+msgstr ""
+
+#: pnuserapi.php:717 pnuserapi.php:718
+msgid "Printer-friendly page"
+msgstr ""
+
+#: pnuserapi.php:729
+msgid "Comments?"
+msgstr ""
+
+#: pnuserapi.php:731 pntemplates/contenttype/newsarticles_view.html:18
+#: pntemplates/news_block_storiesext_row.htm:11
+#, php-format
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: pnuserapi.php:737
+#, php-format
+msgid "%1$s about %2$s"
+msgstr ""
+
+#: pnuserapi.php:746
+#, php-format
+msgid "Footnote: %s"
+msgstr ""
+
+#: pnuserapi.php:913
+msgid "Error! Could not create new article."
+msgstr ""
+
+#: pnblocks/stories.php:36
+msgid "Article titles"
+msgstr ""
+
+#: pnblocks/stories.php:37
+msgid "Display article titles"
+msgstr ""
+
+#: pnblocks/big.php:36
+msgid "Most-read article"
+msgstr ""
+
+#: pnblocks/big.php:37 pnblocks/big.php:95
+msgid "Today's most-read article"
+msgstr ""
+
+#: pnblocks/storiesext.php:72
+msgid "Extended article titles"
+msgstr ""
+
+#: pnblocks/storiesext.php:73
+msgid "Display article titles with extended options"
+msgstr ""
+
+#: pnblocks/storiesext.php:265
+msgid "No articles."
+msgstr ""
+
+#. ! default past block title
+#: pnblocks/past.php:36 pnblocks/past.php:128
+msgid "Past articles"
+msgstr ""
+
+#: pnblocks/past.php:37
+msgid "Display past articles"
+msgstr ""
+
+#: pnneedleapi/news.php:53
+#, php-format
+msgid "Error! Database contains no article with the title '%s'."
+msgstr ""
+
+#: pnneedleapi/news.php:58
+msgid "Error! No needle ID provided."
+msgstr ""
+
+#: pncontenttypesapi/newsarticles.php:59
+msgid "Recent news articles"
+msgstr ""
+
+#: pncontenttypesapi/newsarticles.php:65
+msgid ""
+"Displays a specific number of news articles from one or all categories "
+"available"
+msgstr ""
+
+#: pncontenttypesapi/newsarticles.php:304
+#, php-format
+msgid "News articles listed under the '%s' category"
+msgstr ""
+
+#: pncontenttypesapi/newsarticles.php:362
+#: pntemplates/news_block_stories_modify.htm:6
+#: pntemplates/news_block_storiesext_modify.htm:9
+msgid "Show all news articles"
+msgstr ""
+
+#: pncontenttypesapi/newsarticles.php:363
+#: pntemplates/news_block_stories_modify.htm:7
+#: pntemplates/news_block_storiesext_modify.htm:10
+msgid "Show only articles set for index page listing"
+msgstr ""
+
+#: pncontenttypesapi/newsarticles.php:364
+#: pntemplates/news_block_stories_modify.htm:8
+#: pntemplates/news_block_storiesext_modify.htm:11
+msgid "Show only articles not set for index page listing"
+msgstr ""
+
+#: pncontenttypesapi/newsarticles.php:376
+#: pntemplates/news_block_storiesext_modify.htm:44
+msgid "News publisher setting"
+msgstr ""
+
+#: pncontenttypesapi/newsarticles.php:377
+#: pntemplates/news_block_storiesext_modify.htm:45
+msgid "Number of pageviews"
+msgstr ""
+
+#: pncontenttypesapi/newsarticles.php:379
+#: pntemplates/news_block_storiesext_modify.htm:47
+msgid "Random"
+msgstr ""
+
+#: pnuser.php:256
+msgid "Done! Created new article."
+msgstr ""
+
+#: pnuser.php:267 pninit.php:52 pninit.php:235
+msgid "A News Publisher article has been submitted for review"
+msgstr ""
+
+#: pnuser.php:275
+#, php-format
+msgid ""
+"<br />A News Publisher article <strong>%1$s</strong> has been submitted by %2"
+"$s for review on website %3$s.<br />Index page teaser text of the article:"
+"<br /><hr />%4$s<hr /><br /><br />Go to the <a href=\"%5$s\">news publisher "
+"admin</a> pages to review and publish the <em>Pending Review</em> article(s)."
+"<br /><br />Regards,<br />%6$s"
+msgstr ""
+
+#: pnuser.php:277
+#, php-format
+msgid ""
+"\n"
+"A News Publisher article '%1$s' has been submitted by %2$s for review on "
+"website %3$s.\n"
+"Index page teaser text of the article:\n"
+"--------\n"
+"%4$s\n"
+"--------\n"
+"\n"
+"Go to the <a href=\"%5$s\">news publisher admin</a> pages to review and "
+"publish the 'Pending Review' article(s).\n"
+"\n"
+"Regards,\n"
+"%6$s"
+msgstr ""
+
+#: pnuser.php:297
+msgid "Done! E-mail about new pending article is sent."
+msgstr ""
+
+#: pnuser.php:299
+msgid "Warning! E-mail about new pending article could not be sent."
+msgstr ""
+
+#: pnuser.php:373
+msgid "Error! Invalid category passed."
+msgstr ""
+
+#: pnuser.php:390
+#, php-format
+msgid "No articles currently published under the '%s' category."
+msgstr ""
+
+#: pnuser.php:392
+msgid "No articles currently published."
+msgstr ""
+
+#: pnuser.php:601
+#, php-format
+msgid " :: page %s"
+msgstr ""
+
+#: pnuser.php:690
+msgid ""
+"January February March April May June July August September October November "
+"December"
+msgstr ""
+
+#: pnuser.php:962
+#, php-format
+msgid "Article %1$s by %2$s"
+msgstr ""
+
+#: pnaccountapi.php:37 pntemplates/news_user_menu.htm:45
+#: pntemplates/news_user_new.htm:20
+#: pntemplates/contenttype/newsarticles_view.html:49
+msgid "Submit an article"
+msgstr ""
+
+#: pnadminapi.php:238 pntemplates/news_admin_view.htm:3
+msgid "News articles list"
+msgstr ""
+
+#: pnadminapi.php:243 pntemplates/news_admin_new.htm:16
+#: pntemplates/contenttype/newsarticles_view.html:10
+msgid "Create new article"
+msgstr ""
+
+#: pnadminapi.php:248
+msgid "Purge permalinks"
+msgstr ""
+
+#: pnadminapi.php:251 pntemplates/news_admin_modifyconfig.htm:7
+#: pntemplates/news_admin_modifyconfig.htm:9
+msgid "Settings"
+msgstr ""
+
+#: pninit.php:31
+msgid ""
+"Warning! Could not create the default News category tree. If you want to use "
+"categorisation with News, register at least one property for the module in "
+"the Category Registry."
+msgstr ""
+
+#: pninit.php:101 pninit.php:168 pninit.php:223 pninit.php:589 pninit.php:638
+msgid "Error! Could not update table."
+msgstr ""
+
+#: pninit.php:113
+msgid "Error! Could not update articles."
+msgstr ""
+
+#: pninit.php:120
+#, php-format
+msgid "Error! The '%s' module is not installed."
+msgstr ""
+
+#: pninit.php:127 pninit.php:136 pninit.php:140
+msgid "Error! Could not delete table."
+msgstr ""
+
+#: pninit.php:152
+msgid "Error! Could not migrate categories."
+msgstr ""
+
+#: pninit.php:187
+msgid "Error! Could not rename table."
+msgstr ""
+
+#: pninit.php:195 pninit.php:199 pninit.php:203
+msgid "Error! Could not rename column."
+msgstr ""
+
+#: pninit.php:302
+msgid "News introduction article"
+msgstr ""
+
+#: pninit.php:303
+msgid "news_introduction_article"
+msgstr ""
+
+#: pninit.php:304
+msgid ""
+"A news article is divided into an article teaser text (which is the lead-in "
+"text you are reading now) and an article body text (which you can view by "
+"clicking on the article's title or the 'Read more' link). The teaser will "
+"generally be a short introduction to the article, but if you plan to publish "
+"only very short bulletins, the teaser can contain the full draft and the "
+"article body can be left empty. Click on the article title for more "
+"information about Zikula's News publisher module."
+msgstr ""
+
+#: pninit.php:305 pntemplates/news_user_menu.htm:24
+msgid "News"
+msgstr ""
+
+#: pninit.php:305
+#, php-format
+msgid ""
+"<h3>More about the News module</h3><p>You are now reading the body text of "
+"the article (starting as from the 'More about the News module' title above). "
+"Both the article teaser and the article body can contain URL links, images, "
+"mark-up (HTML tags and, if you have the additional necessary add-ons "
+"installed, other mark-up languages such as BBCode) You can learn more about "
+"the News module by reading the <a href=\"http://code.zikula.org/news/"
+"wiki#Documentation\">News Wiki Documentation</a>.</p><h3>Some more details</"
+"h3><p><img src=\"modules/News/pnimages/admin.gif\" width=\"48\" height=\"48"
+"\" class=\"z-floatleft\" alt=\"News publisher admin image\"/>To control what "
+"HTML tags can be included in an article to format and enhance it, the site "
+"administrator should set the desired tags to enabled status by visiting the "
+"<a href=\"index.php?module=SecurityCenter&type=admin&func=allowedhtml"
+"\">Security centre</a>. With the News module, you can take advantage of "
+"Zikula's permissions system to control who gets what access to which parts "
+"of the News module. A moderator group can be created, containing registered "
+"site users who can add, edit and delete articles. This is just a simple "
+"example: the Zikula permissions system is sufficiently flexible to let you "
+"implement practically any organisation you want.</p><p>You can edit or "
+"delete this introductory article by clicking on the link beside the article "
+"title, or you can visit to the <a href=\"index.php?module=%"
+"s&type=admin&func=view\">News admin pages</a>.</p>"
+msgstr ""
+
+#: pninit.php:321
+msgid "Warning! Could not create the default News introductory article."
+msgstr ""
+
+#: pninit.php:325
+msgid "Warning! Could not update the default News introductory article."
+msgstr ""
+
+#: pninit.php:423
+msgid "Error! Could not update the article categories."
+msgstr ""
+
+#: pninit.php:509
+msgid "Topics"
+msgstr ""
+
+#: pninit.php:510
+msgid "Display and manage topics"
+msgstr ""
+
+#: pntemplates/news_user_articlepdf.htm:3 pntemplates/news_user_index.htm:5
+#: pntemplates/news_user_archives.htm:57 pntemplates/news_admin_modify.htm:265
+#: pntemplates/news_user_articlecontent.htm:24
+msgid "Contributed"
+msgstr ""
+
+#: pntemplates/news_block_stories_modify.htm:4
+msgid "Scope of news article listing"
+msgstr ""
+
+#: pntemplates/news_block_stories_modify.htm:14
+#: pntemplates/news_admin_view.htm:23 pntemplates/news_admin_view.htm:84
+#: pntemplates/news_admin_new.htm:85 pntemplates/news_user_new.htm:83
+#: pntemplates/contenttype/newsarticles_edit.html:13
+#: pntemplates/news_user_archives.htm:54 pntemplates/news_admin_modify.htm:77
+#: pntemplates/news_ajax_modify.htm:35
+msgid "Category"
+msgstr ""
+
+#: pntemplates/news_block_stories_modify.htm:16
+#: pntemplates/news_admin_new.htm:86 pntemplates/news_user_new.htm:84
+#: pntemplates/news_admin_modify.htm:78 pntemplates/news_ajax_modify.htm:36
+msgid "Choose category"
+msgstr ""
+
+#: pntemplates/news_block_stories_modify.htm:25
+msgid "Maximum number of articles to display"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:47 pntemplates/news_admin_view.htm:65
+#: pntemplates/news_admin_new.htm:99 pntemplates/news_user_new.htm:97
+msgid "Language"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:52 pntemplates/news_admin_view.htm:69
+#: pntemplates/news_block_storiesext_modify.htm:34
+#: pntemplates/contenttype/newsarticles_edit.html:33
+msgid "Status"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:55
+#: pntemplates/news_block_storiesext_modify.htm:42
+#: pntemplates/contenttype/newsarticles_edit.html:44
+msgid "Order articles by"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:58 pntemplates/news_admin_view.htm:71
+msgid "Apply filter"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:59 pntemplates/news_admin_view.htm:72
+#: pntemplates/news_admin_view.htm:138
+msgid "Reset"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:80
+msgid "ID"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:81 pntemplates/news_admin_new.htm:64
+#: pntemplates/news_user_new.htm:66 pntemplates/news_user_archives.htm:52
+#: pntemplates/news_admin_modify.htm:62 pntemplates/news_ajax_modify.htm:20
+msgid "Title"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:82
+msgid "Contributor"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:86
+msgid "Index page<br />listing / Weight"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:87
+msgid "Date"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:88
+msgid "Actions"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:109
+msgid "Last edited on"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:112
+msgid "Scheduled for"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:117
+msgid "No comments allowed."
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:128
+msgid "No articles currently in database."
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:135
+msgid "Access a past article via its ID"
+msgstr ""
+
+#: pntemplates/news_admin_view.htm:137
+msgid "Go retrieve"
+msgstr ""
+
+#: pntemplates/news_user_menu.htm:17 pntemplates/news_user_menu.htm:30
+msgid "News index page"
+msgstr ""
+
+#: pntemplates/news_user_menu.htm:35 pntemplates/news_user_categorylist.htm:8
+msgid "News categories"
+msgstr ""
+
+#: pntemplates/news_user_menu.htm:40 pntemplates/news_user_archives.htm:12
+#: pntemplates/news_user_archives.htm:15
+msgid "News archive"
+msgstr ""
+
+#: pntemplates/news_user_menu.htm:52
+#, php-format
+msgid "%s pending article"
+msgid_plural "%s pending articles"
+msgstr[0] ""
+msgstr[1] ""
+
+#: pntemplates/news_user_article.htm:5 pntemplates/news_admin_new.htm:22
+#: pntemplates/news_admin_new.htm:149 pntemplates/news_admin_new.htm:160
+#: pntemplates/news_admin_new.htm:226 pntemplates/news_user_new.htm:28
+#: pntemplates/news_user_new.htm:143 pntemplates/news_user_new.htm:154
+#: pntemplates/news_user_new.htm:214 pntemplates/news_admin_modify.htm:26
+#: pntemplates/news_admin_modify.htm:141 pntemplates/news_admin_modify.htm:150
+#: pntemplates/news_admin_modify.htm:211 pntemplates/news_ajax_modify.htm:99
+#: pntemplates/news_ajax_modify.htm:108 pntemplates/news_ajax_modify.htm:169
+msgid "Show"
+msgstr ""
+
+#: pntemplates/news_user_article.htm:6 pntemplates/news_admin_new.htm:23
+#: pntemplates/news_user_new.htm:29 pntemplates/news_admin_modify.htm:27
+msgid "Hide"
+msgstr ""
+
+#: pntemplates/news_user_article.htm:19
+msgid "More articles in "
+msgstr ""
+
+#: pntemplates/news_block_storiesext_scrollmarquee.htm:25
+#: pntemplates/news_block_storiesext_witheditblock.htm:11
+#: pntemplates/news_block_storiesext_scrollfade.htm:26
+#: pntemplates/news_block_storiesext_scrollpause.htm:26
+msgid "Edit this block"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:5
+#: pntemplates/contenttype/newsarticles_edit.html:4
+#: pntemplates/news_admin_modifyconfig.htm:16
+msgid "General settings"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:7
+msgid "Articles to list"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:16
+msgid "Choose categories"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:16
+msgid "Category registry"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:23
+msgid "None"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:30
+#: pntemplates/news_block_past_modify.htm:4
+msgid "Maximum number of news articles to display"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:51
+msgid "Maximum age of articles"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:53
+#: pntemplates/contenttype/newsarticles_edit.html:40
+msgid "(Number of days; 0 for no limit)"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:56
+msgid "Maximum length of titles"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:58
+#: pntemplates/news_block_storiesext_modify.htm:131
+#: pntemplates/contenttype/newsarticles_edit.html:51
+#: pntemplates/contenttype/newsarticles_edit.html:138
+msgid "(Number of characters; 0 for no limit)"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:61
+#: pntemplates/contenttype/newsarticles_edit.html:55
+msgid "Suffix appended to truncated title"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:65
+msgid ""
+"Show 'No articles currently published' status message when no articles "
+"published"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:71
+msgid "Custom templates"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:72
+msgid ""
+"Notice: You can use your own custom templates instead of the default "
+"templates. You must specify them here.The default template for block rows is "
+"'news_block_storiesext_row.htm'. The default block template depends on the "
+"scroll setting. The default static template is 'news_block_storiesext.htm'. "
+"For scrolling content, 'news_block_storiesext_scrollNAME.htm' is used."
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:74
+msgid "Custom block template"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:76
+#: pntemplates/news_block_storiesext_modify.htm:81
+msgid "(Default template is used if this box is left blank)"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:79
+msgid "Custom row template"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:86
+msgid "Advanced block settings"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:88
+msgid "Show contributor's name"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:92
+msgid "Show article creation date"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:96
+#: pntemplates/contenttype/newsarticles_edit.html:72
+msgid "Date format"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:98
+msgid "Click here to read 'strftime' description in PHP documentation"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:101
+msgid "Show number of pageviews"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:107
+msgid "Show number of comments"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:112
+msgid "Separator character for additional information"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:118
+#: pntemplates/contenttype/newsarticles_edit.html:126
+msgid "Index page teaser settings"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:120
+msgid "Display article's index page teaser"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:127
+#: pntemplates/contenttype/newsarticles_edit.html:131
+msgid ""
+"Notice: When truncating the index page teaser text, incomplete HTML mark-up "
+"elements will be completed by the 'truncatehtml' plug-in."
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:129
+msgid "Maximum displayed length of index page teaser"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:134
+msgid "Suffix appended to truncated index page teaser"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:141
+msgid "Article recency settings"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:143
+msgid "Display image for recent article titles"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:151
+#: pntemplates/contenttype/newsarticles_edit.html:109
+msgid "Number of days during which article is considered recent"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:155
+#: pntemplates/contenttype/newsarticles_edit.html:114
+msgid "Image set for 'New' image"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:157
+#: pntemplates/news_block_storiesext_modify.htm:162
+#: pntemplates/contenttype/newsarticles_edit.html:116
+#: pntemplates/contenttype/newsarticles_edit.html:122
+msgid "(Used by 'pnimg' plug-in)"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:160
+#: pntemplates/contenttype/newsarticles_edit.html:120
+msgid "File name of 'New' image from image set"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:168
+msgid "News item scroll settings"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:169
+msgid ""
+"Notice: News articles can shown in a scrolling box. The provided scrollers "
+"are based upon code from the <a href=\"http://www.dynamicdrive.com/"
+"dynamicindex2/crosstick.htm\">dynamicdrive.com 'crosstick'</a> upward and "
+"downward pauseable vertical scroller, the <a href=\"http://www.dynamicdrive."
+"com/dynamicindex2/memoryticker.htm\">dynamicdrive.com 'memoryticker'</a> "
+"fading scroller (gradient wipe effect only works in IE), and the <a href="
+"\"http://www.dynamicdrive.com/dynamicindex2/cmarquee2.htm\" target=\"_new"
+"\">dynamicdrive.com 'marquee II'</a> marquee scroller."
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:171
+msgid "Choose scroller"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:173
+msgid "No scrolling"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:174
+msgid "Pauseable vertical scroller"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:175
+msgid "Fading scroller"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:176
+msgid "Marquee scroller"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:181
+msgid "Scroller CSS styles definition"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:185
+msgid "Delay between scrolls and starting delay for marquee"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:187
+msgid "(Number of milliseconds)"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:190
+msgid "Marquee scroller speed"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_modify.htm:192
+msgid "(Number from 1 to 10)"
+msgstr ""
+
+#: pntemplates/news_user_index.htm:17
+msgid "Filed under:"
+msgstr ""
+
+#: pntemplates/news_user_categorylist.htm:18
+#: pntemplates/news_user_archives.htm:26
+#, php-format
+msgid "%s article"
+msgid_plural "%s articles"
+msgstr[0] ""
+msgstr[1] ""
+
+#: pntemplates/news_user_categorylist.htm:20
+msgid "Currently no articles"
+msgstr ""
+
+#: pntemplates/news_user_categorylist.htm:41
+#: pntemplates/news_user_categorylist.htm:43
+#: pntemplates/news_user_categorylist.htm:84
+#: pntemplates/news_user_categorylist.htm:86
+msgid "RSS feed"
+msgstr ""
+
+#: pntemplates/news_user_categorylist.htm:47
+#: pntemplates/news_user_categorylist.htm:90
+msgid "Edit this category"
+msgstr ""
+
+#: pntemplates/news_user_categorylist.htm:59
+#: pntemplates/news_user_categorylist.htm:102
+#, php-format
+msgid "%s article."
+msgid_plural "%s articles."
+msgstr[0] ""
+msgstr[1] ""
+
+#: pntemplates/news_user_categorylist.htm:60
+#: pntemplates/news_user_categorylist.htm:103
+msgid "Total"
+msgstr ""
+
+#: pntemplates/news_user_categorylist.htm:61
+#: pntemplates/news_user_categorylist.htm:104
+#, php-format
+msgid "%s contributed by you."
+msgstr ""
+
+#: pntemplates/news_user_categorylist.htm:63
+#: pntemplates/news_user_categorylist.htm:106
+msgid "Currently no articles."
+msgstr ""
+
+#: pntemplates/news_block_big.htm:3
+msgid "Today's most-read article is:"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:21 pntemplates/news_user_new.htm:27
+#: pntemplates/news_user_new.htm:128 pntemplates/news_admin_modify.htm:25
+#: pntemplates/news_user_articlecontent.htm:5
+msgid "#{chars} characters out of 65,536"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:24 pntemplates/news_admin_new.htm:285
+#: pntemplates/news_user_new.htm:30 pntemplates/news_user_new.htm:272
+#: pntemplates/news_admin_modify.htm:28 pntemplates/news_admin_modify.htm:294
+#: pntemplates/news_admin_modify.htm:296
+msgid "Publish"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:25 pntemplates/news_user_new.htm:31
+#: pntemplates/news_admin_modify.htm:29
+msgid "Schedule"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:26 pntemplates/news_admin_new.htm:283
+#: pntemplates/news_admin_new.htm:284 pntemplates/news_user_new.htm:32
+#: pntemplates/news_user_new.htm:271 pntemplates/news_admin_modify.htm:30
+#: pntemplates/news_admin_modify.htm:288
+msgid "Save as draft"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:27 pntemplates/news_user_new.htm:33
+#: pntemplates/news_admin_modify.htm:31 pntemplates/news_admin_modify.htm:286
+msgid "Update draft"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:28 pntemplates/news_user_new.htm:34
+#: pntemplates/news_admin_modify.htm:32
+msgid "Saving draft..."
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:29 pntemplates/news_user_new.htm:35
+msgid "<strong>Title is empty, draft not saved!</strong>"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:67 pntemplates/news_user_new.htm:69
+#: pntemplates/news_admin_modify.htm:65 pntemplates/news_ajax_modify.htm:23
+msgid "Title text"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:72
+msgid "Permalink"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:78 pntemplates/news_user_new.htm:75
+#: pntemplates/news_admin_modify.htm:70 pntemplates/news_ajax_modify.htm:28
+msgid "Permalink URL"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:80 pntemplates/news_user_new.htm:77
+#: pntemplates/news_admin_modify.htm:72 pntemplates/news_ajax_modify.htm:30
+msgid "(Generated automatically if left blank)"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:110 pntemplates/news_user_new.htm:104
+#: pntemplates/news_admin_modify.htm:103 pntemplates/news_ajax_modify.htm:61
+msgid "Article"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:113 pntemplates/news_user_new.htm:107
+#: pntemplates/news_admin_modify.htm:106 pntemplates/news_ajax_modify.htm:64
+msgid "Permitted HTML tags"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:116 pntemplates/news_user_new.htm:110
+#: pntemplates/news_admin_modify.htm:109 pntemplates/news_ajax_modify.htm:67
+msgid "Index page teaser text"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:118 pntemplates/news_admin_new.htm:134
+#: pntemplates/news_admin_new.htm:152 pntemplates/news_user_new.htm:112
+#: pntemplates/news_user_new.htm:146 pntemplates/news_admin_modify.htm:111
+#: pntemplates/news_admin_modify.htm:127 pntemplates/news_admin_modify.htm:144
+#: pntemplates/news_ajax_modify.htm:69 pntemplates/news_ajax_modify.htm:85
+#: pntemplates/news_ajax_modify.htm:102
+msgid "(Limit: 65,536 characters)"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:123 pntemplates/news_user_new.htm:117
+#: pntemplates/news_admin_modify.htm:116 pntemplates/news_ajax_modify.htm:74
+msgid "Index page teaser format"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:125 pntemplates/news_admin_new.htm:141
+#: pntemplates/news_user_new.htm:119 pntemplates/news_user_new.htm:135
+#: pntemplates/news_admin_modify.htm:118 pntemplates/news_admin_modify.htm:134
+#: pntemplates/news_ajax_modify.htm:76 pntemplates/news_ajax_modify.htm:92
+msgid "Plain text"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:126 pntemplates/news_admin_new.htm:142
+#: pntemplates/news_user_new.htm:120 pntemplates/news_user_new.htm:136
+#: pntemplates/news_admin_modify.htm:119 pntemplates/news_admin_modify.htm:135
+#: pntemplates/news_ajax_modify.htm:77 pntemplates/news_ajax_modify.htm:93
+msgid "Text formatted with mark-up language"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:132 pntemplates/news_user_new.htm:126
+#: pntemplates/news_admin_modify.htm:125 pntemplates/news_ajax_modify.htm:83
+msgid "Article body text"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:139 pntemplates/news_user_new.htm:133
+#: pntemplates/news_admin_modify.htm:132 pntemplates/news_ajax_modify.htm:90
+msgid "Article body format"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:149 pntemplates/news_user_new.htm:143
+#: pntemplates/news_admin_modify.htm:141 pntemplates/news_ajax_modify.htm:99
+msgid "Footnote"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:160 pntemplates/news_user_new.htm:154
+#: pntemplates/news_admin_modify.htm:150 pntemplates/news_ajax_modify.htm:108
+msgid "Publishing options"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:163 pntemplates/news_user_new.htm:157
+#: pntemplates/news_admin_modify.htm:153 pntemplates/news_ajax_modify.htm:111
+msgid "Publish on news index page"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:173 pntemplates/news_user_new.htm:167
+#: pntemplates/news_admin_modify.htm:163 pntemplates/news_ajax_modify.htm:121
+msgid "No time limit"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:179 pntemplates/news_user_new.htm:172
+#: pntemplates/news_admin_modify.htm:169 pntemplates/news_ajax_modify.htm:127
+msgid "Start date"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:185 pntemplates/news_user_new.htm:178
+#: pntemplates/news_admin_modify.htm:175 pntemplates/news_ajax_modify.htm:133
+msgid "No end date"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:190 pntemplates/news_user_new.htm:183
+#: pntemplates/news_admin_modify.htm:180 pntemplates/news_ajax_modify.htm:138
+msgid "End date"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:198 pntemplates/news_user_new.htm:191
+#: pntemplates/news_admin_modify.htm:188 pntemplates/news_ajax_modify.htm:146
+msgid "Allow comments on this article"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:226 pntemplates/news_user_new.htm:214
+#: pntemplates/news_admin_modify.htm:211 pntemplates/news_ajax_modify.htm:169
+msgid "Article attributes"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:230 pntemplates/news_user_new.htm:218
+#: pntemplates/news_admin_modify.htm:215 pntemplates/news_ajax_modify.htm:173
+msgid "Create new attribute"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:246 pntemplates/news_admin_new.htm:266
+#: pntemplates/news_user_new.htm:234 pntemplates/news_user_new.htm:254
+#: pntemplates/news_admin_modify.htm:231 pntemplates/news_admin_modify.htm:251
+#: pntemplates/news_ajax_modify.htm:189 pntemplates/news_ajax_modify.htm:209
+msgid "Delete this attribute"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:279 pntemplates/news_user_new.htm:267
+#: pntemplates/news_admin_modify.htm:281
+msgid "Preview"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:279 pntemplates/news_user_new.htm:267
+#: pntemplates/news_admin_modify.htm:281
+msgid "Preview this article"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:281 pntemplates/news_user_new.htm:269
+#: pntemplates/news_admin_modify.htm:283
+msgid "Submit"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:281 pntemplates/news_user_new.htm:269
+#: pntemplates/news_admin_modify.htm:283
+msgid "Submit this article"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:283 pntemplates/news_admin_new.htm:284
+#: pntemplates/news_user_new.htm:271 pntemplates/news_admin_modify.htm:288
+msgid "Save this article as draft"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:285 pntemplates/news_user_new.htm:272
+#: pntemplates/news_admin_modify.htm:296
+msgid "Publish this article"
+msgstr ""
+
+#: pntemplates/news_admin_new.htm:287 pntemplates/news_user_new.htm:274
+#: pntemplates/news_admin_modify.htm:308 pntemplates/news_ajax_modify.htm:231
+#: pntemplates/news_admin_modifyconfig.htm:186
+#: pntemplates/news_admin_delete.htm:18
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/news_search_options.htm:5
+msgid "News articles"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_view.html:15
+#, php-format
+msgid "Contributed by %s"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_view.html:16
+#: pntemplates/news_block_storiesext_row.htm:9
+#, php-format
+msgid "on %s"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_view.html:17
+#: pntemplates/news_block_storiesext_row.htm:10
+#, php-format
+msgid "%s pageview"
+msgid_plural "%s pageviews"
+msgstr[0] ""
+msgstr[1] ""
+
+#: pntemplates/contenttype/newsarticles_view.html:44
+msgid "No articles published recently."
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:6
+msgid "Widget title"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:23
+msgid "Display"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:28
+msgid "Number of articles"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:38
+msgid "Limit of backward reach"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:49
+msgid "Maximum displayed length of title"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:59
+msgid "Information settings"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:62
+msgid "Display contributor's name"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:67
+msgid "Display article creation date"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:74
+msgid ""
+"Refer to the <a href=\"http://www.php.net/manual/function.strftime.php"
+"\">'strftime' description</a> in the PHP documentation."
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:78
+msgid "Display number of pageviews"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:85
+msgid "Display number of comments"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:91
+msgid "Separator character for article information"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:96
+msgid "Display 'Submit an article' link"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:100
+msgid "Article settings"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:103
+msgid "Display an icon to highlight recent article titles"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:129
+msgid "Display article's index page teaser text"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:136
+msgid "Maximum displayed length of index page teaser text"
+msgstr ""
+
+#: pntemplates/contenttype/newsarticles_edit.html:142
+msgid "Suffix appended to truncated index page teaser text"
+msgstr ""
+
+#: pntemplates/news_user_archives.htm:16
+msgid "Expand all"
+msgstr ""
+
+#: pntemplates/news_user_archives.htm:16
+msgid "Contract all"
+msgstr ""
+
+#: pntemplates/news_user_archives.htm:44
+#, php-format
+msgid "News archive for %1$s, %2$s"
+msgstr ""
+
+#: pntemplates/news_user_archives.htm:56
+msgid "Pageviews"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:16 pntemplates/news_ajax_modify.htm:4
+msgid "Edit news article"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:96 pntemplates/news_ajax_modify.htm:54
+msgid "Language(s) for which article should be displayed"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:261
+msgid "Meta data"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:267
+msgid "Last edited"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:270
+#, php-format
+msgid "Approved by %s"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:272
+#, php-format
+msgid "Status %s"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:273
+#, php-format
+msgid "Article ID: %s"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:291 pntemplates/news_ajax_modify.htm:227
+msgid "Mark this article as pending"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:291
+msgid "Pending"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:294
+msgid "Approve and publish this article"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:294
+msgid "Approve and Publish"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:294
+msgid "Approve and"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:299
+msgid "Archive this article"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:299
+msgid "Archive"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:302
+msgid "Reject this article"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:302
+msgid "Reject"
+msgstr ""
+
+#: pntemplates/news_admin_modify.htm:306 pntemplates/news_ajax_modify.htm:229
+msgid "Delete this article"
+msgstr ""
+
+#: pntemplates/news_ajax_modify.htm:226
+#: pntemplates/news_admin_modifyconfig.htm:185
+msgid "Save"
+msgstr ""
+
+#: pntemplates/news_ajax_modify.htm:226
+msgid "Save your changes"
+msgstr ""
+
+#: pntemplates/news_ajax_modify.htm:227
+msgid "Mark as pending"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_row.htm:4
+msgid "New"
+msgstr ""
+
+#: pntemplates/news_block_storiesext_row.htm:8
+#, php-format
+msgid "by %s"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:10
+msgid ""
+"Notice: Your theme could be using template overrides for the News publisher "
+"module (in themes/YourThemeName/templates/modules/News/...). They might lack "
+"behind in functionality to the current default News publisher templates, "
+"please remove them or check them carefully against the default News "
+"publisher templates (in modules/News/pntemplates/...)."
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:18
+msgid "Enable article attributes"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:24
+msgid "Category settings"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:26
+msgid "Enable categorisation"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:30
+msgid "Category to use for legacy 'Topics' module template variables"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:34
+msgid "Category image path (with trailing /)"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:36
+msgid ""
+"Notice: You can associate an image with each article category. The image "
+"must be located in the category image path entered in 'Category image path'. "
+"You must also go to the Categories manager in the site admin panel and then "
+"define the associated image. To do this, add a category attribute named "
+"'topic_image' to each article category, and then enter the associated image "
+"path and name."
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:41
+msgid "Display settings"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:43
+msgid "Order article listings by"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:51
+msgid "Number of articles in news index page"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:55
+msgid "Number of articles in archive page"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:59
+msgid "Check referer on printer-friendly pages"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:66
+msgid "Enable in-line editing of articles via JavaScript/Ajax controls"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:70
+msgid ""
+"When Scribite! is being used for editing, the <strong>display</strong> "
+"function needs to be added to the list of module functions that Scribite! "
+"uses for the News Publisher module."
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:73
+msgid "Enable 'More articles in category' when displaying an article"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:78
+msgid "Number of 'More articles in category' for every article"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:80
+msgid ""
+"When displaying an article, a number of additional articletitles in the same "
+"category can be shown.<br />To show the additional articletitles for every "
+"article set the value above to a number larger than 0. When the value is set "
+"to 0, the number of additional articletitles can be set per article by means "
+"of the article attribute 'morearticlesincat'. You need to enable 'article "
+"attributes' yourself. <br />When the setting above or the article attribute "
+"is set to 0, no titles will be extracted from the database."
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:84
+msgid "Notify moderators when a new pending article is submitted for review"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:89
+msgid ""
+"Whenever a new article is submitted as Pending Review, the admin or a list "
+"of E-mail addresses can be informed of this event with a notification E-mail."
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:90
+msgid "From name (leave empty for sitename)"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:94
+msgid "From address (leave empty for admin E-mail address)"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:98
+msgid "To name (leave empty for sitename)"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:102
+msgid ""
+"To address (comma seperated list of E-Mail addresses, leave empty for admin "
+"E-mail address)"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:106
+msgid "E-mail subject"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:110
+msgid "Send E-mail as HTML "
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:115
+msgid "Display a PDF link for the articles in the index page"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:120
+msgid "Path to the TCPDF main file"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:122
+msgid ""
+"The PDF link is based on <a href=\"http://www.tcpdf.org\">TCPDF</a>. You "
+"have to install the files yourself into the path specified above, when you "
+"want to use the pdflink. Download TCPDF from the link and place the 'tcpdf' "
+"folder into the correct location."
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:125
+msgid "TCPDF language file"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:129
+msgid "TCPDF Header logo image (absolute path or relative to tcpdf)"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:131
+msgid ""
+"Default Header logo is defined by TCPDF and in PathToTCPDF/images folder. "
+"tcpdf_logo.jpg with a width of 30"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:134
+msgid "TCPDF header logo width in mm"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:143
+msgid "Permalinks"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:144
+msgid ""
+"You can select a pre-defined permalink format, or define your custom format."
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:147
+msgid "Format based on date and name"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:150
+msgid "your-article-title"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:154
+msgid "Numeric format"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:161
+msgid "Custom format"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:165
+msgid "Custom format definition"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:167
+msgid ""
+"Notice: A custom format definition must contain at least either '%storyid%' "
+"or '%storytitle%', in order to be able to identify the article."
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:169
+msgid "Acceptable values for use in custom format definition:"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:171
+msgid "Year of publication (including century numerals)"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:172
+msgid "Month of publication, as a number (ergo 1 to 12)"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:173
+msgid "Month of publication as a name (ergo January to December)"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:174
+msgid "Day"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:175
+msgid "Article title"
+msgstr ""
+
+#: pntemplates/news_admin_modifyconfig.htm:177
+msgid "Article category"
+msgstr ""
+
+#: pntemplates/news_admin_delete.htm:2
+msgid "Delete news article"
+msgstr ""
+
+#: pntemplates/news_admin_delete.htm:8
+msgid "Do you really want to delete this news article?"
+msgstr ""
+
+#: pntemplates/news_admin_delete.htm:15
+msgid "Confirmation prompt"
+msgstr ""

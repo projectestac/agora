@@ -1,0 +1,29 @@
+<!--[*  $Id: admin_messages_admin_modifyconfig.htm 27108 2009-10-22 18:31:07Z herr.vorragend $  *]-->
+<!--[gt text="Settings" assign=templatetitle]-->
+<!--[include file="admin_messages_admin_menu.htm"]-->
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=configure.gif set=icons/large alt=$templatetitle]--></div>
+    <h2><!--[$templatetitle]--></h2>
+    <form class="z-form" action="<!--[pnmodurl modname="Admin_Messages" type="admin" func="updateconfig"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Admin_Messages"]-->" />
+            <fieldset>
+                <legend><!--[gt text="General settings"]--></legend>
+                <div class="z-formrow">
+                    <label for="admin_messages_itemsperpage"><!--[gt text="Items per page"]--></label>
+                    <input id="admin_messages_itemsperpage" name="itemsperpage" type="text" size="3" maxlength="3" value="<!--[$itemsperpage|pnvarprepfordisplay]-->" />
+                </div>
+                <div class="z-formrow">
+                    <label for="admin_messages_allowsearchinactive"><!--[gt text="Allow searching of inactive messages"]--></label>
+                    <input id="admin_messages_allowsearchinactive" name="allowsearchinactive" type="checkbox"<!--[if $allowsearchinactive]--> checked="checked"<!--[/if]--> />
+                </div>
+            </fieldset>
+            <!--[pnmodcallhooks hookobject=module hookaction=modifyconfig module=Admin_Messages]-->
+            <div class="z-formbuttons">
+                <!--[pnbutton src=button_ok.gif set=icons/small __alt="Save" __title="Save"]-->
+                <a href="<!--[pnmodurl modname=Admin_Messages type=admin func=view]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small __alt="Cancel" __title="Cancel"]--></a>
+            </div>
+        </div>
+    </form>
+</div>

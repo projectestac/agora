@@ -1,0 +1,55 @@
+<div class="formAdd">
+	<!--[*]--><a href="<!--[pnmodurl modname="iw_forms" type="admin" func="form" action="field" do="add" fid=$item.fid]-->"><!--[*]-->
+	<a href="javascript:newField(<!--[$item.fid]-->)">
+		<!--[pnimg modname='core' src='insert_table_row.gif' set='icons/extrasmall'   __alt="Create a new form field" __title="Create a new form field"]-->
+		<!--[gt text="Create a new form field"]-->
+	</a>
+</div>
+<div class="formContent" id="fieldsList">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='lists.gif' set='icons/medium']--></div>
+	<h2><!--[gt text="List of form fields"]--></h2>
+	<form name="fields" id="fields" class="pn-adminform" action="<!--[pnmodurl modname="iw_forms" type="admin" func="changeOrder"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forms"]-->" />
+		<input type="hidden" name="fid" value="<!--[$fid]-->" />
+		<table class="pn-admintable">
+			<thead>
+				<tr>
+					<th><!--[gt text="Order"]--></th>
+					<th>Id</th>
+					<th><!--[gt text="Name field"]--></th>
+					<th><!--[gt text="Description"]--></th>
+					<th><!--[gt text="Type field"]--></th>
+					<th><!--[gt text="Characteristics"]--></th>
+					<!--[*]--><th><!--[gt text="Dependence"]--></th><!--[*]-->
+					<!--[*]--><th><!--[gt text="Validators"]--></th><!--[*]-->
+					<th><!--[gt text="Options"]--></th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--[foreach item=field from=$fields]-->
+					<!--[include file="iw_forms_admin_form_fieldChar.htm" field=$field users=$users]-->
+				<!--[foreachelse]-->
+					<tr>
+						<td colspan="20">
+							<!--[gt text="No fields have been found for this form"]-->
+						</td>
+					</tr>
+				<!--[/foreach]-->
+			</tbody>
+		</table>
+		<div class="formOptions" style="text-align:left;">
+			<div style="width: 300px; float:left;">
+				<!--[pnimg modname='iw_forms' src='orderLine.gif' set='pnimages'   __alt="Change order" __title="Change order"]--><!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Change order" __title="Change order"]--><!--[gt text="Change order"]-->
+			</div>
+			<div style="float:left;">
+				<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="collexpand" value=0 fid=$item.fid]-->" title="<!--[gt text="Expand all"]-->">
+				<!--[pnimg modname='core' src='db_update.gif' set='icons/extrasmall'   __alt="Expand all" __title="Expand all"]--> <!--[gt text="Expand all"]-->
+				</a>
+				<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="collexpand" value=1 fid=$item.fid]-->" title="<!--[gt text="Collapse all"]-->">
+					<!--[pnimg modname='core' src='db_comit.gif' set='icons/extrasmall'   __alt="Collapse all" __title="Collapse all"]--> <!--[gt text="Collapse all"]-->
+				</a>
+			</div>
+		</div>
+		<div>&nbsp;</div>
+	</form>
+</div>

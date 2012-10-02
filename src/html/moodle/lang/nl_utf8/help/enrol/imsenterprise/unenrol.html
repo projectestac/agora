@@ -1,0 +1,13 @@
+<h1>Leerlingen en leraars afmelden bij een cursus</h1>
+
+<p>Met de Enterprise data kun je zowel aanmeldingen toevoegen als verwijderen, zowel voor leerlingen als leraren. Als deze functie is ingeschakeld, dan kan Moodle zowel aanmelden als afmelden wanneer dit nodig is volgens het databestand.</p>
+
+<p>Met IMS data zijn er drie manieren om leerlingen af te melden bij een cursus:</p>
+
+<ul><li>Een &lt;member&gt; element die de leerling en cursus specifiëert, en met het "recstatus" attribute van het &lt;role&gt; element op 3 gezet (wat "verwijder" betekent). DIT WERKT NOG NIET IN MOODLE.</li>
+
+<li> Een &lt;member&gt; element dat de leerling en cursus specifieëert en met het  &lt;status&gt; element op 0 gezet (wat "niet actief" betekent).</li></ul>
+
+<p>De derde methode is lichtjes anders. Het activeren van deze config-instellingen is er niet voor nodig en kan op voorhand ingesteld worden met een datum voor afmelden bij de cursus:</p>
+
+<ul><li>Een &lt;member&gt; element dat een &lt;timeframe&gt; specifieëert voor de aanmelding kan begin- en/of einddata krijgen voor de aanmelding van deze leerling Deze data worden geladen in de enrolment data tabel van Moodle als die geïnstalleerd is, en zo zal een leerling na de einddatum niet langer een bepaalde cursus kunnen gebruiken.</li></ul>

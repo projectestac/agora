@@ -1,0 +1,279 @@
+<script type="text/javascript" src="modules/iw_main/js/ColorPicker2.js"></script>
+<script type="text/javascript" src="modules/iw_main/js/AnchorPosition.js"></script>
+<script type="text/javascript" src="modules/iw_main/js/PopupWindow.js"></script>
+<!--[include file="iw_noteboard_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Module configuration"]--></h2>
+
+	<!--[if $topicsSystem eq 0]-->
+		<table class="pn-admintable">
+			<thead>
+				<tr align="left">
+					<th colspan="4"><!--[gt text="List of topics"]--></th>
+				</tr>
+				<tr>
+					<th><!--[gt text="Topic"]--></th>
+					<th><!--[gt text="Description"]--></th>
+					<th><!--[gt text="Group with access"]--></th>
+					<th><!--[gt text="Options"]--></th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--[foreach item=topic from=$temes]-->
+					<tr class="<!--[cycle values="pn-odd,pn-even"]-->" id="topic_<!--[$topic.tid]-->">
+						<td align="left">
+							<!--[$topic.nomtema]-->
+						</td>
+						<td align="left">
+							<!--[$topic.descriu]-->
+							<div id="topicinfo_<!--[$topic.tid]-->" class="pn-hide pn-noteinfo">&nbsp;</div>
+						</td>
+						<td align="left">
+							<!--[$topic.grup]-->
+						</td>
+						<td align="center">
+							<a href="<!--[pnmodurl modname="iw_noteboard" type="admin" func="editar" tid=$topic.tid]-->">
+								<!--[pnimg modname='core' src='xedit.gif' set='icons/extrasmall'   __alt="Edit" __title="Edit"]-->
+							</a>
+							<a href="javascript:deltopic(<!--[$topic.tid]-->,'<!--[gt text="Confirm the action"]-->','<!--[pnsecgenauthkey module="iw_noteboard"]-->')" title="<!--[gt text="Delete the topic"]-->">
+								<!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Edit" __title="Delete"]-->
+							</a>
+						</td>
+					</tr>
+				<!--[foreachelse]-->
+					<tr>
+						<td colspan="4" align="left">
+							<!--[gt text="There are no defined topics"]-->
+						</td>
+					</tr>
+	 			<!--[/foreach]-->
+			</tbody>
+		</table>
+		<a href="index.php?module=iw_noteboard&type=admin&func=noutema"><!--[gt text="Create a new topic"]--></a>
+	<!--[else]-->
+		<div class="pn-formrow">
+			<!--[nocache]-->
+    				<ul>
+				    <!--[foreach from=$cats key=property item=category]-->
+				        <li><!--[$category.name]--></li>
+				    <!--[/foreach]-->
+				</ul>
+			<!--[/nocache]-->
+		</div>
+	<!--[/if]-->
+	<!--[*]-->
+	<div style="height:20px;">&nbsp;</div>
+	<table class="pn-admintable">
+		<thead>
+			<tr align="left">
+				<th colspan="5"><!--[gt text="Linked noteboards"]--></th>
+			</tr>
+			<tr>
+				<th><!--[gt text="Name"]--></th>
+				<th><!--[gt text="URL"]--></th>
+				<th><!--[gt text="Options"]--></th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--[foreach item=shared from=$shareds]-->
+				<tr class="<!--[cycle values="pn-odd,pn-even"]-->" id="shared_<!--[$shared.pid]-->">
+					<td align="left">
+						<!--[$shared.descriu]-->
+					</td>
+					<td align="left">
+						<!--[$shared.url]-->
+						<div id="sharedinfo_<!--[$shared.pid]-->" class="pn-hide pn-noteinfo">&nbsp;</div>
+					</td>
+					<td align="center">
+						<a href="<!--[pnmodurl modname="iw_noteboard" type="admin" func="checkShared" pid=$shared.pid]-->">
+							<!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall'   __alt="Make test" __title="Make test"]-->
+						</a>
+						<a href="<!--[pnmodurl modname="iw_noteboard" type="admin" func="editShared" pid=$shared.pid]-->">
+							<!--[pnimg modname='core' src='xedit.gif' set='icons/extrasmall'   __alt="Edit" __title="Edit"]-->
+						</a>
+						<a href="javascript:delShared(<!--[$shared.pid]-->,'<!--[gt text="Confirm that you want to eliminate the access to the module"]-->','<!--[pnsecgenauthkey module="iw_noteboard"]-->')" title="<!--[gt text="Delete"]-->">
+							<!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Edit" __title="Delete"]-->
+						</a>
+					</td>
+				</tr>
+			<!--[foreachelse]-->
+				<tr>
+					<td colspan="4" align="left">
+						<!--[gt text="There are no linked noteboards"]-->
+					</td>
+				</tr>
+				<!--[/foreach]-->
+			</tbody>
+	</table>
+	<a href="index.php?module=iw_noteboard&type=admin&func=newShared"><!--[gt text="Create a new linked noteboard"]--></a>
+	<!--[*]-->
+	<form  class="pn-adminform" enctype="application/x-www-form-urlencoded" method="post" name="conf" id="conf" action="<!--[pnmodurl modname="iw_noteboard" type="admin" func="confupdate"]-->">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_noteboard"]-->" />
+		<table class="pn-admintable">
+			<thead>
+				<tr align="left">
+					<th rowspan="2" valign="bottom"><!--[gt text="Groups"]--></th>
+					<th colspan="2"><!--[gt text="Groups that can be chosen when sending a note"]--></th>
+					<th colspan="2"><!--[gt text="Permission level of the users"]--></th>			
+				</tr>
+				<tr>
+					<th><!--[gt text="Can be chosen"]--></th>		
+					<th><!--[gt text="Checked by default"]--></th>
+					<th><!--[gt text="Permissions"]--></th>		
+					<th><!--[gt text="Validation required"]--></th>			
+				</tr>
+			</thead>
+			<tbody>
+				<!--[section name=grups loop=$grups]-->
+					<tr class="<!--[cycle values="pn-odd,pn-even"]-->">
+						<td align="left" valign="top">
+							<!--[$grups[grups].name]-->						
+						</td>
+						<td valign="top" align="center">
+							<input type="checkbox" name="g[]" <!--[if $grups[grups].select]-->checked<!--[/if]--> value="<!--[$grups[grups].id]-->" />
+						</td>
+						<td valign="top" align="center">
+							<input type="checkbox" name="m[]" <!--[if $grups[grups].select1]-->checked<!--[/if]--> value="<!--[$grups[grups].id]-->" />
+						</td>			
+						<td valign="top" align="center">
+							<!--[if $grups[grups].id neq 0]-->
+								<select name="p[]">
+									<option value="1" <!--[if $grups[grups].permis eq 1]-->selected<!--[/if]-->><!--[gt text="1 - Read"]--></option>
+									<option value="2" <!--[if $grups[grups].permis eq 2]-->selected<!--[/if]-->><!--[gt text="2 - Comment"]--></option>
+									<option value="3" <!--[if $grups[grups].permis eq 3]-->selected<!--[/if]-->><!--[gt text="3 - Write"]--></option>
+									<option value="4" <!--[if $grups[grups].permis eq 4]-->selected<!--[/if]-->><!--[gt text="4 - Choose users who are going to see the note"]--></option>
+									<option value="5" <!--[if $grups[grups].permis eq 5]-->selected<!--[/if]-->><!--[gt text="5 - Edit the own notes"]--></option>
+									<option value="6" <!--[if $grups[grups].permis eq 6]-->selected<!--[/if]-->><!--[gt text="6 - Delete the own notes"]--></option>
+									<option value="7" <!--[if $grups[grups].permis eq 7]-->selected<!--[/if]-->><!--[gt text="7 - Edit and delete notes sent by others"]--></option>
+								</select>
+							<!--[else]-->
+								<input type="hidden" value="1" name="p[]" /><!--[gt text="1 - Read"]-->
+							<!--[/if]-->
+						</td>
+						<td valign="top" align="center">
+							<!--[if $grups[grups].id neq 0]-->
+								<input type="checkbox" name="v[]" <!--[if $grups[grups].select2]-->checked<!--[/if]--> value="<!--[$grups[grups].id]-->" />
+							<!--[else]-->
+								<input type="hidden" value="" name="v[]" />
+							<!--[/if]-->					
+						</td>			
+					</tr>			
+				<!--[/section]-->
+			</tbody>
+		</table>
+		<strong><!--[gt text="Warning: "]--></strong> <!--[gt text="Every permission level includes lower levels"]-->
+		<div style="height:40px;">&nbsp;</div>
+		<!--[if not $multizk]-->
+			<div class="pn-adminformrow">
+				<label for="directoriroot"><!--[gt text="Root of the file folder"]--></label>
+				<input type="text" name="directoriroot" size="50" maxlength="50" value="<!--[$directoriroot]-->" onFocus='blur()' />
+			</div>
+		<!--[/if]-->
+		<div class="pn-adminformrow">
+			<label for="attached"><!--[gt text="Server folder for attached files"]--></label>
+			<input type="text" name="attached" size="30" maxlength="30" value="<!--[$attached]-->" />
+		</div>
+		<!--[if $noFolder]-->
+			<div class="pn-errormsg">
+				<!--[gt text="The attached files folder have not been found"]-->
+			</div>
+		<!--[/if]-->
+		<!--[if $noWriteable]-->
+			<div class="pn-errormsg" style="margin-top: 10px;">
+				<!--[gt text="(This folder needs write permissions)"]-->
+			</div>
+		<!--[/if]-->
+		<div class="pn-adminformrow">
+			<label for="q"><!--[gt text="Group to verify notes"]--></label>
+			<select name="q">
+				<option></option>
+				<!--[section name=grups loop=$grups]-->
+					<!--[if $grups[grups].id neq 0]-->
+						<option <!--[if $grups[grups].id eq $quiverifica]-->selected<!--[/if]--> value="<!--[$grups[grups].id]-->"><!--[$grups[grups].name]--></option>
+					<!--[/if]-->
+				<!--[/section]-->
+			</select>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="c"><!--[gt text="The notes expire at"]--></label>
+			<input type="text" name="c" maxlength="3" size="3" value="<!--[$caducitat]-->" /> <!--[gt text="days from their creation"]-->
+		</div>
+		<div class="pn-adminformrow">
+			<label for="editPrintAfter"><!--[gt text="Inform about edition after the minutes given from creation time (-1 = never)"]--></label>
+			<input type="text" name="editPrintAfter" size="5" maxlength="5" value="<!--[$editPrintAfter]-->" />
+		</div>
+		<div class="pn-adminformrow">
+			<label for="r"><!--[gt text="When addressee cannot be chosen are"]--></label>
+			<select name="r">
+				<option value="0" <!--[if $repperdefecte eq 0]-->selected<!--[/if]-->><!--[gt text="All users"]--></option>
+				<option value="1" <!--[if $repperdefecte eq 1]-->selected<!--[/if]-->><!--[gt text="Users from groups checked by default"]--></option>
+				<option value="2" <!--[if $repperdefecte eq 2]-->selected<!--[/if]-->><!--[gt text="Users chosen during the validation of the note"]--></option>
+			</select>
+		</div>
+
+		<div class="pn-adminformrow">
+			<label for="notRegisteredSeeRedactors"><!--[gt text="Unregistered cannot see who has sent the notes"]--></label>
+			<input type="checkbox" <!--[if $notRegisteredSeeRedactors]-->checked<!--[/if]--> name="notRegisteredSeeRedactors" value="1"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="multiLanguage"><!--[gt text="Multi language notes are allowed"]--></label>
+			<input type="checkbox" <!--[if $multiLanguage]-->checked<!--[/if]--> name="multiLanguage" value="1"/>
+		</div>
+		<!--[*]-->
+		<div id="shareOptions">
+			<!--[include file="iw_noteboard_admin_confSharedOptions.htm"]-->
+		</div>
+		<!--[*]-->
+		<div class="pn-adminformrow">
+			<label for="color1"><!--[gt text="Row color one for visited notes"]--></label>
+			<input type="text" name="color1" id="color1" size="7" maxlength="7" style="background-color:<!--[$colorrow1]-->;" value="<!--[$colorrow1]-->" /> <a href="#" onClick="pick('pick','color1');return false;" name="pick" id="pick"><!--[gt text="Try a color"]--></a>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="color2"><!--[gt text="Row color two for visited notes"]--></label>
+			<input type="text" name="color2" id="color2" size="7" maxlength="7" style="background-color:<!--[$colorrow2]-->;" value="<!--[$colorrow2]-->" /> <a href="#" onClick="pick('pick','color2');return false;" name="pick" id="pick"><!--[gt text="Try a color"]--></a>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="colornew1"><!--[gt text="Row color one for not visited notes"]--></label>
+			<input type="text" name="colornew1" id="colornew1" size="7" maxlength="7" style="background-color:<!--[$colornewrow1]-->;" value="<!--[$colornewrow1]-->" /> <a href="#" onClick="pick('pick','colornew1');return false;" name="pick" id="pick"><!--[gt text="Try a color"]--></a>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="colornew2"><!--[gt text="Row color tho for not visited notes"]--></label>
+			<input type="text" name="colornew2" id="colornew2" size="7" maxlength="7" style="background-color:<!--[$colornewrow2]-->;" value="<!--[$colornewrow2]-->" /> <a href="#" onClick="pick('pick','colornew2');return false;" name="pick" id="pick"><!--[gt text="Try a color"]--></a>
+		</div>
+		<div style="cursor:pointer; text-align: center;">
+			<a onClick="javascript:send()"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small']--></a> <!--[gt text="Modify the configuration"]-->
+		</div>
+	</form>
+	<a href="<!--[pnmodurl modname=iw_noteboard type=admin func=module]-->"><!--[gt text="About this module"]--></a>
+</div>
+
+
+<script type="text/javascript">
+	var deletingtopic = '<!--[gt text="...deleting topic..."]-->';
+	var deletingshared = '<!--[gt text="...deleting shared noteboard..."]-->';
+	var changingsharedURL = '<!--[gt text="...deleting shared URL..."]-->';
+
+	var cp = new ColorPicker('window');
+	// Runs when a color is clicked
+
+	function pickColor(color) {
+		field.value = color;
+		//document.forms.conf.color1.style.backgroundColor=color;
+		changeColor();
+	}
+
+	var field;
+	function pick(anchorname,camp) {
+		field = eval('document.forms.conf.'+camp);
+		cp.show(anchorname);
+	}
+	
+	function changeColor(){
+		document.forms.conf.color1.style.backgroundColor=document.forms.conf.color1.value;
+		document.forms.conf.color2.style.backgroundColor=document.forms.conf.color2.value;
+		document.forms.conf.colornew1.style.backgroundColor=document.forms.conf.colornew1.value;
+		document.forms.conf.colornew2.style.backgroundColor=document.forms.conf.colornew2.value;		
+	}
+</script>

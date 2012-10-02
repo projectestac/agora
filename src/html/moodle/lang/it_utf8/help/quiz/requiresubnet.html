@@ -1,0 +1,19 @@
+<h1>Indirizzi di rete abilitati</h1>
+
+<p>Questo parametro è opzionale.</p>
+
+<p>E' possibile limitare l'accesso a un quiz ai soli computer presenti su una particolare sotto rete di una LAN o di Internet, specificando una lista di indirizzi IP, parziali o completi, separati da virgole.</p>
+
+<p>L'impostazion è particolarmente utile per "proteggere" un quiz, ad esempio quando si vuole consentire l'accesso al quiz solo alle persone presenti in un certa sala.</p>
+
+<p>Esempio:  <b>192.168. , 231.54.211.0/20, 231.3.56.211</b></p>
+
+<p>E' possibile usatr quattro tipi di sintassi (non possono essere usati nomi di dominio testuali come 'esempio.com'):
+<ol>
+<li>Indirizzi IP completi, come <b>192.168.10.1</b> che abiliterà un solo computer (o un proxy).</li>
+<li>Indirizzi IP parziali, come <b>192.168</b> che abiliteranno tutti i computer i cui IP iniziano con tali numeri.</li>
+<li>Notazioni CIDR, come <b>231.54.211.0/20</b> che permetteranno di specificare dettagliatamente una sottorete.</li>
+<li>Un range di indirizzi IP come <b>231.3.56.10-20</b>. Il range si applica all'ultima parte dell'indirizzo, per cui l'esempio significa tutti gli indirizzi da 231.3.56.10 a 231.3.56.20.</li>
+</ol>
+</p>
+<p>Gli spazi bianchi vengono ignorati.</p>

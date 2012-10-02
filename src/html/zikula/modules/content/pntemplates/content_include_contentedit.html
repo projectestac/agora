@@ -1,0 +1,18 @@
+<!--[contentinsertlink pageId=$pageId contentAreaIndex=$contentAreaIndex]-->
+<!--[if !empty($content[$contentAreaIndex])]-->
+<script type="text/javascript">
+    //<![CDATA[
+    <!--[foreach from=$content[$contentAreaIndex] item=c]-->
+    <!--[pnmodurl modname=content type=edit func=editcontent cid=$c.id fqurl=1 assign=editUrl]-->
+    <!--[pnformcontextmenureference menuId="contentEditMenu" commandArgument=$c.id assign='menuHandle']-->
+    content.items.push
+    ({ <!--[* XXX's added to avoid bad short URL handling in PN's short URL output filter *]-->
+        title: "<a hrefXXX=\"<!--[$editUrl|escape:html]-->\"><!--[$c.title]--> [<!--[gt text="ID"]--><!--[$c.id]-->]</a> <!--[$menuHandle|replace:src:srcXXX|escape:javascript]-->",
+        content: "<!--[$c.output|replace:" src=":" srcXXX="|replace:" href=":" hrefXXX="|escape:javascript]-->",
+        column: <!--[$contentAreaIndex]-->,
+        contentId: <!--[$c.id]-->
+    });
+    <!--[/foreach]-->
+    //]]>
+</script>
+<!--[/if]-->

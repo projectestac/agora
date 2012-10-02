@@ -1,0 +1,23 @@
+<!--[*  $Id: blocks_admin_deleteposition.htm 27108 2009-10-22 18:31:07Z herr.vorragend $  *]-->
+<!--[gt text="Delete block position" assign=templatetitle]-->
+<!--[include file="blocks_admin_menu.htm"]-->
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=editdelete.gif set=icons/large alt=$templatetitle]--></div>
+    <h2><!--[$templatetitle]--></h2>
+    <p class="z-warningmsg"><!--[gt text="Do you really want to delete this block position?"]--></p>
+    <form class="z-form" action="<!--[pnmodurl modname="Blocks" type="admin" func="deleteposition"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Blocks"]-->" />
+            <input type="hidden" name="confirmation" value="1" />
+            <input type="hidden" name="pid" value="<!--[$pid|pnvarprepfordisplay]-->" />
+            <fieldset>
+                <legend><!--[gt text="Confirmation prompt"]--></legend>
+                <div class="z-formbuttons">
+                    <!--[pnbutton src=button_ok.gif set=icons/small __alt="Delete" __title="Delete"]-->
+                    <a href="<!--[pnmodurl modname=Blocks type=admin func=view]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small __alt="Cancel" __title="Cancel"]--></a>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,11 @@
+<!-- $Id: adaptive.html,v 1.2 2007/04/21 15:45:50 martignoni Exp $ -->
+
+<h1>Mode adaptatif</h1>
+
+<p>Si vous activez cette option, les participants pourront alors essayer plusieurs réponses durant la même tentative du test. Par exemple, si la réponse du participant est marquée comme incorrecte, il pourra tout de suite y répondre différemment. Toutefois, une pénalité sera habituellement soustraite au score attribué à la question pour chaque essai erroné supplémentaire (la pénalité est déterminé par le facteur de pénalité, fixé dans l'option suivante).</p>
+
+<p>Ce mode permet également l'utilisation de questions pouvant se modifier selon la réponse des participants. Voici comment la spécification IMS QTI définit les questions adaptatives (éléments) :</p>
+
+<blockquote><p>Un élément adaptatif est un élément qui adapte soit son apparence, soit son évaluation (traitement de réponse) ou tous les deux en réponse à chacune des tentatives du candidat. Par exemple, un élément adaptatif peut commencer par proposer au candidat un champ de texte, mais suite à une réponse non satisfaisante, présenter un simple choix en lieu et place et fournir alors moins de points pour l'identification ultérieure de la réponse correcte. L'adaptativité permet aux auteurs de créer des éléments utilisables dans des situations formatives, guidant les candidats   dans une tâche à effectuer tout en fournissant un résultat tenant compte de leur cheminement.</p></blockquote>
+
+<p>En mode adaptatif, un bouton <?php print_string('mark', 'quiz') ?> supplémentaire est affiché pour chaque question. Si le participant presse ce bouton, la réponse à cette question est remise pour évaluation et les points obtenus sont affichés. Si la question est une question adaptative, elle est affichée dans son nouvel état, tenant compte de la réponse donnée par le participant, et la plupart du temps demandera au participant une autre saisie. Dans les questions adaptatives les plus simples peuvent différer seulement par le texte du feedback et demander au participant d'essayer à nouveau. Dans des questions plus compliquées, le texte pourra changer, tout comme les types d'interaction.</p>

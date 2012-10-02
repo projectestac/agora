@@ -1,0 +1,140 @@
+.block {
+    border: none;
+}
+
+.block .header {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    /* -moz-box-shadow: 3px 3px 3px #bbb;
+     box-shadow: 3px 3px 3px #bbb;*/
+    font-size: smaller;
+    background-color: [[setting:color2]];
+    color: [[setting:color3]];
+    /*  background-image: url([[pix:theme|theme/topbar]]);*/
+    background-position: bottom;
+    background-repeat: repeat-x;
+    padding: 0px 0px 0px 0px;
+}
+
+.block h2 {
+    padding: 4px 0px 3px 3px;
+    font-size: 1.4em;
+}
+
+.block .header h2 {
+    margin: 4px 4px 0px;
+}
+
+.block .content {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    /* box-shadow: 3px 3px 3px #bbb;
+    -moz-box-shadow: 3px 3px 3px #bbb;*/
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    margin-top: 0px;
+    border: 1px solid #ddd;
+}
+
+.block .block_action {
+    padding: 5px 0px 0px 0px;
+}
+
+#adminsearchquery {
+    width: 100px;
+}
+
+.block-region a {
+    text-decoration: none;
+}
+
+.block-region .singlebutton {
+    font-size: smaller;
+}
+.block-region .block_course_summary {
+    padding-top: .8em;
+    padding-left: .6em;
+}
+
+
+/* Course, entry-page, login */
+
+.headingblock {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    /*box-shadow: 3px 3px 3px #bbb;
+    -moz-box-shadow: 3px 3px 3px #bbb;*/
+    font-size: 1.2em;
+    background-color: [[setting:color2]];
+    color: [[setting:color3]];
+    /*  background-image: url([[pix:theme|theme/topbar]]);*/
+    background-position: bottom;
+    background-repeat: repeat-x;
+    padding: 3px 0px 5px 5px;
+    font-weight: bolder;
+    margin-top: 5px;
+    margin-bottom: 0px !important;
+}
+
+.block.hidden {
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+
+.block_course_summary, 
+.block_course_summary .content {
+    border-radius: 5px;
+    -moz-border-radius:5px;
+}
+
+.editing .block_course_summary .content {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright: 0px;
+}
+
+
+/* Calendar */
+
+.minicalendar .day, 
+.minicalendar .dayblank,
+.minicalendar th {
+    border: none;
+}
+
+.minicalendar .today {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+.minicalendar {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+.minicalendar a,
+.calendar-controls a {
+    text-decoration: none;
+}
+
+#page hr {
+    border: 0;
+    color: #dddddd;
+    background-color: #dddddd;
+    height: 1px;
+    width: 100%;
+}
+
+.block .block-hider-show, 
+.block .block-hider-hide {
+    cursor: pointer;
+    vertical-align: inherit;
+}

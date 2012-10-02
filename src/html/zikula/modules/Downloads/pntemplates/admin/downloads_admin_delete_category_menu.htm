@@ -1,0 +1,27 @@
+<!--[include file="admin/downloads_admin_main_menu.htm"]-->
+<!--[include file="admin/downloads_admin_header.htm"]-->
+
+<!--[*pndebug*]-->
+
+<h2 class="dl_admin_h2"><!--[pnimg src="admin/delete.gif" __alt="Delete category" ]-->&nbsp;&nbsp;<!--[gt text="Delete category"]--></h2>
+<fieldset class="dl_fieldset">
+<legend><!--[gt text="Edit category"]--></legend>
+<form class="dl_admin_form" action="<!--[pnmodurl modname="Downloads" type="admin" func="ask_delete_category"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div class="dl_conf_list">
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	<dl>
+		<dt><!--[gt text="Choose category:"]--></dt>
+		<dd>
+		 	<select id="downloads_cid" name="cid">
+	        <option value="0"><!--[gt text="Choose category-->"]--></option>
+	        <!--[$catSelectList]-->
+	        </select>
+		 </dd>
+		<dt>
+			<input name="submit" type="submit" value="<!--[gt text="Submit changes"]-->" />
+		</dt>
+	</dl>
+</div>
+</form>
+</fieldset>
+<!--[include file="admin/downloads_admin_footer.htm"]-->

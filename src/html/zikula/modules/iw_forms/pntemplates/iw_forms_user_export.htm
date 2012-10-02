@@ -1,0 +1,136 @@
+<!--[include file="iw_forms_user_menu.htm" fid=$form.fid]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+	<h2><!--[gt text="Export to CSV"]--></h2>
+	<div><!--[gt text="Form name"]-->: <!--[$form.formName]--></div>
+	<div><!--[gt text="Title of the annotations "]-->: <!--[$form.title]--></div>
+	<div style="height:15px;">&nbsp;</div>
+	<form class="pn-adminform" action="<!--[pnmodurl modname="iw_forms" type="user" func="generateCSV"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="fid" value="<!--[$form.fid]-->">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forms"]-->" />
+		<table class="pn-admintable" width="100%">
+			<tr>
+				<td>
+					<!--[gt text="Order of the notes for export"]-->
+				</td>
+				<td>
+					<select name="order">
+						<!--[foreach item=fieldOrder from=$fieldsOrder]-->
+							<option value="<!--[$fieldOrder.id]-->"><!--[$fieldOrder.name]--></option>
+						<!--[/foreach]-->
+					</select>
+				</td>
+				<td align="right">
+					<!--[gt text="Ascending order"]-->
+				</td>
+				<td>
+					<input type="checkbox" name="desc" value="1">
+				</td>
+			</tr>
+		</table>
+		<div style="height:15px;">&nbsp;</div>
+		<table class="pn-admintable" width="100%">
+			<thead>
+				<tr>
+					<th>&nbsp;</th>
+					<th><!--[gt text="Managing a form"]--></th>
+					<th>&nbsp;</th>
+					<th><!--[gt text="Export"]--></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center">&nbsp;</td>
+					<td align="left">
+						<!--[gt text="Includes users senders of the notes"]-->
+					</td>
+					<td align="left">&nbsp;</td>
+					<td align="center">
+						<input type="checkbox" checked name="user">					
+					</td>				
+				</tr>
+				<tr>
+					<td align="center">&nbsp;</td>
+					<td align="left">
+						<!--[gt text="Include the date and time of sending notes"]-->	
+					</td>
+					<td align="left">&nbsp;</td>
+					<td align="center">
+						<input type="checkbox" checked name="date">					
+					</td>				
+				</tr>
+				<tr>
+					<td align="center">&nbsp;
+						
+					</td>
+					<td align="left">
+						<!--[gt text="It includes the notes of private responsibility"]-->	
+					</td>
+					<td align="left">&nbsp;</td>
+					<td align="center">
+						<input type="checkbox" checked name="observations">					
+					</td>				
+				</tr>			
+				<tr>
+					<td align="center">&nbsp;</td>
+					<td align="left">
+						<!--[gt text="Includes responses to senders"]-->
+					</td>
+					<td align="left">&nbsp;</td>
+					<td align="center">
+						<input type="checkbox" checked name="renotes">
+					</td>
+				</tr>
+				<tr>
+					<td align="center">&nbsp;</td>
+					<td align="left">
+						<!--[gt text="It includes the state (completed / not completed) of the notes"]-->
+					</td>
+					<td align="left">&nbsp;</td>
+					<td align="center">
+						<input type="checkbox" checked name="state">
+					</td>	
+				</tr>
+				<tr>
+					<td align="center">&nbsp;</td>
+					<td align="left">
+						<!--[gt text="Include the annotations URL"]-->
+					</td>
+					<td align="left">&nbsp;</td>
+					<td align="center">
+						<input type="checkbox" checked name="url">
+					</td>	
+				</tr>
+			</tbody>
+			<thead>
+				<th><!--[gt text="Field"]--></th>
+				<th><!--[gt text="Name field"]--></th>
+				<th><!--[gt text="Type field"]--></th>
+				<th><!--[gt text="Export"]--></th>
+			<thead>
+			<!--[foreach name=i item=field from=$fields]-->
+				<!--[if $field.fieldType neq 7 && $field.fieldType neq 51 && $field.fieldType neq 52 &&  $field.fieldType neq 53 && $field.fieldType neq 100]-->
+					<tr class="<!--[cycle values="pn-odd,pn-even"]-->" >
+						<td align="center">
+							<!--[$smarty.foreach.i.iteration]-->
+						</td>
+						<td align="left">
+							<!--[$field.fieldName]-->
+						</td>
+						<td align="left">
+							<!--[$fieldsTypes[$field.fieldType]]-->
+						</td>
+						<td align="center">
+							<input type="checkbox" checked value="<!--[$field.fndid]-->" name="fields[]">					
+						</td>				
+					</tr>
+				<!--[/if]-->
+			<!--[/foreach]-->
+		</table>
+		<div style="height:15px;">&nbsp;</div>
+		<div class="formOptions" style="text-align:center">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Export" __title="Export"]--><!--[gt text="Export"]-->
+			<a href="<!--[pnmodurl modname="iw_forms" type="user" func="manage" fid=$form.fid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,51 @@
+<!--[include file=Export_admin_menu.htm]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='agt_update_drivers.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Restore the backup"]--></h2>
+	
+	<form action="<!--[pnmodurl modname="export" type="admin" func="backup_restore"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="backup_file" value="<!--[$backup_file]-->" />
+		<input type="hidden" name="confirm" value="1" />
+		<!--[gt text="Confirm the restore of the backup"]--> 
+		
+		<!--[if $modules_list neq '']-->
+			<table class="pn-admintable" style="margin-top:10px;">
+				<th><!--[gt text="Module name"]--></th>
+				<th><!--[gt text="Display name"]--></th>
+				<th><!--[gt text="Restore"]--></th>
+				<th><!--[gt text="Variables of folders"]--></th>
+				<!--[foreach from=$modules_list key=module_name item=module name=i]-->
+					<tr align="left" style="background-color:<!--[cycle values="#eee,#fff"]-->;" id="msg<!--[$smarty.foreach.i.iteration]-->">
+					<td><!--[$module_name]--></td>
+					<td><!--[$module.displayname]--></td>
+					<td align="center"><input type="checkbox" name="modules_selected[]" value="<!--[$module_name]-->"></td>
+					<td><!--[foreach from=$module.variables item=variable]-->
+							<!--[gt text="The variable "]--><b><!--[$variable]--></b>
+							<!--[if $module.var_chk.$variable eq '']-->
+								<span style="color:#FF0000; font-style:italic;"><!--[gt text=" is not defined in the module configuration"]--></span><br />
+							<!--[elseif $module.var_chk.$variable eq '0']-->
+								<span style="color:#FF0000; font-style:italic;"><!--[gt text=" contains an erroneous route"]--></span><br />
+								<!--[elseif $module.var_chk.$variable eq '-1']-->
+								<span style="color:#FF0000; font-style:italic;"><!--[gt text=" is not defined in the Export module"]--></span><br />
+							<!--[else]-->
+								<!--[gt text=" contains the route: "]--><span style="color:#009900;"><!--[$module.var_chk.$variable]--></span><br />
+							<!--[/if]-->
+						<!--[/foreach]-->
+					</td>
+					</tr>
+				<!--[/foreach]-->
+			</table>
+			<p class="z-warningmsg" style="text-align: left;"><!--[gt text="<b>Warning!</b><br>If you restore some modules, data and files of the actual module, users and groups will be replaced!<br>Are you completly sure?"]--></p>
+		<!--[else]-->
+			<p class="z-warningmsg" style="text-align: left;">
+				<!--[gt text="There aren't modules available to restore"]-->
+			</p>
+		<!--[/if]-->
+			<div class="formOptions" style="text-align: center; padding-top: 10px">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Import" __title="Import"]-->
+			<a href="<!--[pnmodurl modname="export" type="admin" func="backup"]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel the deletion" __title="Cancel the deletion"]--></a>
+		</div>
+	</form>
+</div>
+

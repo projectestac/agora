@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-27 09:38+0100\n"
+"PO-Revision-Date: 2010-04-15 14:10+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnblocks/myrole.php:29
+msgid "Show the groups or roles available and allow users change the group"
+msgstr "Muestra los grupos o roles disponibles y permite al usuario/a cambiar de rol"
+
+#: pninit.php:27
+msgid "Module iw_main is required. You have to install the iw_main module previously to install it."
+msgstr "El módulo iw_main debe estar instalado. Instálalo antes de instalar este módulo."
+
+#: pninit.php:52
+msgid "Initial group of users that can change the role"
+msgstr "Grupo inicial de usuarios que pueden cambiar de grupo"
+
+#: pninit.php:54
+msgid "Done! %i% created."
+msgstr "Hecho! %i% creado."
+
+#: pnadminapi.php:14
+#: pnadminapi.php:45
+#: pnadminapi.php:102
+#: pnadminapi.php:141
+#: pnadmin.php:17
+#: pnadmin.php:64
+#: pnadmin.php:90
+#: pnadmin.php:137
+#: pnadmin.php:233
+msgid "Sorry! No authorization to access this module."
+msgstr "Disculpa! No tienes autorización para ejecutar esa acción en este módulo."
+
+#: pnadminapi.php:22
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr "Error! Intento de borrado fallido."
+
+#: pnadminapi.php:84
+msgid "Error! Creation attempt failed."
+msgstr "Error! Intento de creación fallido."
+
+#: pnadminapi.php:119
+msgid "Error! Could not load items."
+msgstr "Error! No se logró cargar los elementos."
+
+#: pnadmin.php:109
+msgid "The group change has been made."
+msgstr "Se ha realizado el cambio de grupo."
+
+#: pnadmin.php:111
+msgid "The group change has not been made."
+msgstr "No se ha realizado el cambio de grupo."
+
+#: pnadmin.php:214
+msgid "Error in the role change"
+msgstr "Se ha producido un error en el cambio de rol"
+
+#: pnversion.php:9
+#: pnversion.php:13
+msgid "iw_myrole"
+msgstr "iw_myrole"
+
+#: pnversion.php:11
+msgid "Allow users to change their roles or groups."
+msgstr "Permite a los usuarios/as cambiar de rol o grupo"
+
+#: pnversion.php:12
+#: pntemplates/iw_myrole_admin_main.htm:3
+msgid "myRole"
+msgstr "myRole"
+
+#: pntemplates/iw_myrole_admin_main.htm:8
+msgid "Group selection"
+msgstr "Selección de grup"
+
+#: pntemplates/iw_myrole_admin_main.htm:13
+msgid "Choose the change role group"
+msgstr "Elige el grupo para cambios de rol"
+
+#: pntemplates/iw_myrole_admin_main.htm:23
+msgid "Groups not listed in the chooseable groups list"
+msgstr "Grupos que no salen en la llista de grupos a escoger"
+
+#: pntemplates/iw_myrole_admin_main.htm:33
+msgid "Modify"
+msgstr "Modificar"
+
+#: pntemplates/iw_myrole_admin_main.htm:35
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: pntemplates/iw_myrole_admin_main.htm:39
+msgid "About this module "
+msgstr "Por lo que al módulo se refiere"
+
+#: pntemplates/iw_myrole_block_change.htm:4
+msgid "Choose the groups..."
+msgstr "Escoge los grupos..."
+
+#: pntemplates/iw_myrole_block_change.htm:15
+msgid "Set as default"
+msgstr "Establece por defecto"
+
+#: pntemplates/iw_myrole_block_change.htm:20
+msgid "No change has been made due to possible lost of previous roles. Review the permissions related with the change roles group. Be sure that this permission is in second place in the permissions list."
+msgstr "El cambio de roles no ha sido posible porque se podia perder la capacidad de recuperar los roles previos. Revisa los permisos relacionados con el grupo de cambio de rol y asegúrate que este permiso ocupa la segunda posición en la lista de permisos."
+
+#: pntemplates/iw_myrole_block_change.htm:26
+msgid "The permissions for all users are applied."
+msgstr "Se aplican los permisos comunes a todos los grupos."
+
+#: pntemplates/iw_myrole_block_change.htm:30
+msgid "Reset"
+msgstr "Haz reset"
+
+#: pntemplates/iw_myrole_block_change.htm:33
+msgid "Apply new roles"
+msgstr "Aplica roles nuevos"
+
+#: pntemplates/iw_myrole_block_change.htm:39
+msgid "Managing annotations"
+msgstr "Gestión de anotaciones"
+

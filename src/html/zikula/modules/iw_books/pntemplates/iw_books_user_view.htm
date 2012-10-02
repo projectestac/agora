@@ -1,0 +1,88 @@
+<!--[include file="iw_books_user_menu.htm"]-->
+
+<div class="pn-menu">
+
+
+	
+	
+<form id="filtra" action="<!--[pnmodurl modname="iw_books" type="user" func="view"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div style="text-align:center;">
+	 <fieldset class="iw_books-fieldset">
+	 	<legend><!--[gt text="Options filter"]--></legend>
+		<label for="iw_books_any"><!--[gt text="Try course:"]--></label>
+	 		<select id="iw_books_curs"  name="curs"><!--[html_options options=$aanys selected=$cursselec]--></select>&nbsp;
+		<label for="iw_books_pla"><!--[gt text="Plan:"]--></label>
+	 		<select id="iw_books_pla"  name="etapa"><!--[html_options options=$aplans selected=$etapaselec]--></select>&nbsp;
+	 	<label for="iw_books_nivell"><!--[gt text="Level:"]--></label>
+	 		<select id="iw_books_nivell"  name="nivell"><!--[html_options options=$anivells selected=$nivellselec]--></select>&nbsp;
+	 	<label for="iw_books_materia"><!--[gt text="Subject:"]--></label>
+	 		<select id="iw_books_materia"  name="materia"><!--[html_options options=$amateries selected=$materiaselec]--></select>&nbsp;
+		<label for="iw_books_lectura"><!--[gt text="Reads:"]--></label>
+		<!--[if $lecturaselec eq 1]-->
+			<input id="iw_books_lectura" name="lectura" type="checkbox" value="1" checked="checked" />
+		<!--[else]-->
+			<input id="iw_books_lectura" name="lectura" type="checkbox" value="1" />
+		<!--[/if]-->
+  		<br><br><input name="submit" type="submit" value="<!--[gt text="Filter"]-->" />
+ 	</fieldset>
+</div>
+ </form>
+</div>
+
+
+<!--[if ($mostra eq "1" )]-->
+<h2><!--[gt text="List of Textbooks"]--> <!--[if ($lectura eq "1" )]--> <!--[gt text="and reading"]--> <!--[/if]--> · <!--[gt text="Course"]--> <!--[$cursacad]-->  <!--[$mostra_pla]--> <!--[$nivell_abre]--> <!--[$mostra_mat]--></h2>
+<form id="filtra" action="<!--[pnmodurl modname="iw_books" type="user" func="view"]-->" method="post" enctype="application/x-www-form-urlencoded">
+	<input type="hidden" name="curs" value="<!--[$cursselec]-->" />
+	<input type="hidden" name="etapa" value="<!--[$etapaselec]-->" />
+	<input type="hidden" name="nivell" value="<!--[$nivellselec]-->" />
+	<input type="hidden" name="materia" value="<!--[$materiaselec]-->" />
+	<!--[if $lecturaselec eq 1]-->
+		<input type="hidden" name="lectura" value="1" />
+	<!--[else]-->
+		<input type="hidden" name="lectura" value="0" />
+	<!--[/if]-->
+
+	<div style="padding-bottom:10px; float:right;">
+		<input name="pdf" type="submit" value="<!--[gt text="Crea llistat PDF"]-->" />
+		<img src="modules/iw_books/pnimages/pdf.gif" style="width:25px;vertical-align:bottom;" />
+	</div>		
+</form>
+
+<table class="pn-datatable">
+  <thead>
+	<th><!--[gt text="Subject"]--></th>
+    <th><!--[gt text="Author"]--></th>
+	<th><!--[gt text="Title"]--></th>
+	<th><!--[gt text="Editorial"]--></th>
+	<th><!--[gt text="Level"]--></th>
+	<th><!--[gt text="Optional?"]--></th>
+	<th><!--[gt text="Read?"]--></th>
+	<th><!--[gt text="Eval."]--></th>
+  </thead>
+
+  <!--[section name="iw_booksitems" loop=$iw_booksitems]-->  
+    <tr class="<!--[cycle values=pn-odd,pn-even]-->">
+    	<td><!--[$iw_booksitems[iw_booksitems].codi_mat|pnvarprephtmldisplay]--></td>
+		<td><!--[$iw_booksitems[iw_booksitems].autor|pnvarprephtmldisplay]--></td>
+    	<td><!--[$iw_booksitems[iw_booksitems].titol|pnvarprephtmldisplay]--></td>
+		<td><!--[$iw_booksitems[iw_booksitems].editorial|pnvarprephtmldisplay]--></td>
+		<td><!--[$iw_booksitems[iw_booksitems].nivell|pnvarprephtmldisplay]--></td>
+		<td><!--[$iw_booksitems[iw_booksitems].optativa|pnvarprephtmldisplay]--></td>
+		<td><!--[$iw_booksitems[iw_booksitems].lectura|pnvarprephtmldisplay]--></td>
+		<td><!--[$iw_booksitems[iw_booksitems].avaluacio|pnvarprephtmldisplay]--></td>
+		<!--[strip]-->
+        <!--[section name=options loop=$options]-->
+	    <a href="<!--[$options[options].url|pnvarprepfordisplay]-->" title="<!--[gt text="$options[options].descrip"]-->"><!--[gt text="$options[options].title"]--></a>
+		<!--[if !$smarty.section.options.last]--> <!--[/if]-->
+        <!--[/section]-->
+		<!--[/strip]-->
+		</td>
+    </tr>
+  <!--[/section]-->
+</table>
+
+<!--[gt text="Total number of books for this selection"]-->: <!--[$pager.numitems|pnvarprepfordisplay]-->
+<!--[pager show=page rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum shift=1]-->
+
+<!--[/if]-->

@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-09 14:48+0000\n"
+"PO-Revision-Date: 2009-11-25 16:46+0200\n"
+"Last-Translator:  <info@delosduendeszahories.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.0-rc1\n"
+
+#: pnversion.php:14 pntemplates/plugins/function.recommend.php:54
+#: pntemplates/recommendus_user_view.htm:19
+#: pntemplates/recommendus_user_menu.htm:3
+msgid "Recommend Us"
+msgstr "Recomiéndanos"
+
+#. ! module URL must be different to displayname
+#: pnversion.php:16
+msgid "recommend_us"
+msgstr "recomiéndanos"
+
+#: pnversion.php:17
+msgid "Recommend site/Send articles Module."
+msgstr "Recomendar la web / Enviar artículos al módulo."
+
+#: pntemplates/plugins/function.recommend.php:33
+msgid "recommend: attribute modname required"
+msgstr "recomendamos: El atributo ModName es obligatorio"
+
+#: pntemplates/plugins/function.recommend.php:38
+msgid "recommend: attribute itemid required"
+msgstr "recomendamos: El atributo itemid es obligatorio"
+
+#: pnuser.php:121
+msgid "A name is too long"
+msgstr "El nombre es demasiado largo"
+
+#: pnuser.php:126
+msgid "Friend's email address is invalid"
+msgstr "La dirección de correo electrónico del amigo es incorrecta"
+
+#: pnuser.php:131
+msgid "Your email address is invalid"
+msgstr "La dirección de correo electrónico es incorrecta"
+
+#: pnuser.php:148
+#, php-format
+msgid "Interesting item: %s"
+msgstr "Artículo interesante :%s"
+
+#: pnuser.php:151
+#, php-format
+msgid "Interesting site: %s"
+msgstr "Sitio web interesante :%s"
+
+#: pnuser.php:162
+#, php-format
+msgid ""
+"The reference to our site has been sent to %s, thanks for recommending us!"
+msgstr ""
+"La referencia de nuestro sitio web ha sido enviado a%s, gracias por "
+"recomendarnos!"
+
+#: pninit.php:26 pninit.php:47
+msgid "Error! Failed to register hook."
+msgstr "¡Error! No se pudo registrar el hook (gancho)."
+
+#: pninit.php:65
+msgid "Error! Could not deregister hook."
+msgstr "¡Error! No se pudo dar de baja el hook (gancho)."
+
+#: pntemplates/recommendus_user_send.htm:2
+#, php-format
+msgid "Hello %s"
+msgstr "Hola %s"
+
+#: pntemplates/recommendus_user_send.htm:6
+#, php-format
+msgid ""
+"Your friend %1$s considered the item %2$s interesting and wanted to send it "
+"to you."
+msgstr "Su amigo%1$s ha visto el tema %2$s y ha procedido a su envío."
+
+#: pntemplates/recommendus_user_send.htm:8
+#, php-format
+msgid ""
+"Your friend %1$s considered our site %2$s interesting and wanted to send it "
+"to you."
+msgstr "Su amigo%1$s ha visto el sitio web %2$s y ha procedido a su envío."
+
+#: pntemplates/recommendus_user_send.htm:12
+#, php-format
+msgid "Site name: %1$s - %2$s"
+msgstr "Nombre del sitio: %1$s - %2$s"
+
+#: pntemplates/recommendus_user_send.htm:15
+#: pntemplates/recommendus_user_send.htm:18
+#, php-format
+msgid "Site URL: %s"
+msgstr "URL del sitio: %s"
+
+#: pntemplates/recommendus_user_view.htm:5
+#: pntemplates/recommendus_user_view.htm:8
+#, php-format
+msgid "Recommend the item <a href=\"%1$s\">%2$s</a> to a friend."
+msgstr "Recomienda el elemento <a href=\"%1$s\">%2$s</a> a un amigo."
+
+#: pntemplates/recommendus_user_view.htm:21
+msgid "Your name"
+msgstr "Su nombre"
+
+#: pntemplates/recommendus_user_view.htm:25
+msgid "Your e-mail"
+msgstr "Su cuenta de correo electrónico"
+
+#: pntemplates/recommendus_user_view.htm:29
+msgid "Your friend's name"
+msgstr "El nombre de su amigo"
+
+#: pntemplates/recommendus_user_view.htm:33
+msgid "Your friend's e-mail"
+msgstr "La cuenta de correo electrónico de su amigo"
+
+#: pntemplates/recommendus_user_view.htm:38
+msgid "Submit"
+msgstr "Enviar"
+
+#: pntemplates/recommendus_user_display.htm:4
+msgid "Post this page at..."
+msgstr "Publicar esta página en ..."

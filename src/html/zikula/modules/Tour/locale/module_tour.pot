@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula component\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-10-29 17:20-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:36
+msgid "Start"
+msgstr ""
+
+#: pnuserapi.php:37
+msgid "Themes"
+msgstr ""
+
+#: pnuserapi.php:38
+msgid "Modules"
+msgstr ""
+
+#: pnuserapi.php:39
+msgid "Blocks"
+msgstr ""
+
+#: pnuserapi.php:63
+#, php-format
+msgid "Unknown module %s in Tour_userapi_getsublinks."
+msgstr ""
+
+#: pnuserapi.php:72
+#, php-format
+msgid "Unknown theme %s in Tour_userapi_getsublinks."
+msgstr ""
+
+#: pnuserapi.php:93
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: pnuser.php:97
+#, php-format
+msgid "Unknown module %s in Tour_user_exttour."
+msgstr ""
+
+#: pnuser.php:106
+#, php-format
+msgid "Unknown theme %s in Tour_user_exttour."
+msgstr ""
+
+#: pnuser.php:128
+msgid "Tour file does not exist!"
+msgstr ""
+
+#: pnversion.php:16
+msgid "Tour"
+msgstr ""
+
+#. !module name that appears in URL
+#: pnversion.php:18
+msgid "tour"
+msgstr ""
+
+#: pnversion.php:19
+msgid "First time configuration and Zikula Tour."
+msgstr ""
+
+#: pntemplates/tour_user_menu.htm:1
+msgid "Zikula Tour"
+msgstr ""
+
+#: pntemplates/tour_user_menu.htm:4
+msgid "Tour Home"
+msgstr ""
+
+#: pntemplates/tour_user_menu.htm:5
+msgid "First Time Tour"
+msgstr ""
+
+#: pntemplates/tour_user_menu.htm:6
+msgid "Your Distribution"
+msgstr ""
+
+#: pntemplates/tour_user_menu.htm:7
+msgid "New in Zikula"
+msgstr ""
+
+#: pntemplates/tour_user_menu.htm:8
+msgid "Extension Tours"
+msgstr ""

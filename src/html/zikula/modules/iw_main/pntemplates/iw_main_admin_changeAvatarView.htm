@@ -1,0 +1,54 @@
+<!--[include file="iw_main_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='utilities.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<h2><!--[gt text="Avatar change request"]--></h2>
+	<div style="height:20px;">&nbsp;</div>
+	<table class="pn-admintable" summary="table files">
+		<thead>
+			<tr>
+				<th><!--[gt text="User"]--></th>
+				<th><!--[gt text="Current avatar"]--></th>
+				<th><!--[gt text="New avatar"]--></th>
+				<th><!--[gt text="Options"]--></th>
+			</tr>
+		</thead>
+		<tbody>
+		<!--[foreach item=user from=$filesArray name="avatar"]-->
+			<tr class="<!--[cycle values="pn-odd,pn-even"]-->" id="change_<!--[$user.fileName]-->">
+				<td>
+					<!--[$users[$user.uid]]-->
+				</td>
+				<td align="center">
+					<!--[if $user.photo neq '']-->
+						<img src="<!--[pnmodurl modname=iw_main type=user func=getPhoto fileName=$user.photo]-->" />
+					<!--[else]-->
+						<!--[pnimg modname='iw_main' src='noImage.jpg' set='pnimages']-->
+					<!--[/if]-->
+				</td>
+				<td align="center">
+					<img src="<!--[pnmodurl modname=iw_main type=user func=getPhoto fileName=$user.photo_new]-->" />
+				</td>
+				<td align="center">
+					<a href="javascript:change('<!--[$user.fileName]-->','<!--[gt text="Confirm the avatar change"]-->','ch')">
+						<!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall'   __alt="Approve the avatar changer" __title="Approve the avatar changer"]-->
+					</a>
+					<a href="javascript:change('<!--[$user.fileName]-->','<!--[gt text="Confirm the deletion"]-->','del')">
+						<!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Delete" __title="Delete"]-->
+					</a>
+				</td>
+			</tr>
+		<!--[foreachelse]-->
+			<tr>
+				<td colspan="10">
+					<!--[gt text="Not requests found"]-->
+				</td>
+			</tr>
+		<!--[/foreach]-->
+		</tbody>
+	</table>
+	<a href="<!--[pnmodurl modname=iw_main type=admin func=module]-->"><!--[gt text="About this module"]--></a>
+</div>
+<script type="text/javascript">
+	var deletingAvatar = '<!--[gt text="--- Deleting the avatar ---"]-->';
+	var changingAvatar = '<!--[gt text="--- Changing the avatar ---"]-->';
+</script>

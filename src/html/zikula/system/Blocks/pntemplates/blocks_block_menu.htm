@@ -1,0 +1,12 @@
+<!--[*  $Id: blocks_block_menu.htm 26368 2009-08-27 11:20:11Z drak $  *]-->
+<div class="navcontainer">
+	<ul class="navlist">
+	<!--[foreach from=$menuitems item=item]-->
+		<!--[if $item.MENUITEMTITLE != '' && $item.MENUITEMURL != '']-->
+			<li><a href="<!--[$item.MENUITEMURL|pnvarprepfordisplay]-->" title="<!--[$item.MENUITEMCOMMENT]-->"><!--[$item.MENUITEMTITLE|pnvarprepfordisplay]--></a></li>
+		<!--[else]-->
+			<li style="list-style:none"><!--[$item.MENUITEMTITLE|pnvarprephtmldisplay]--></li>
+		<!--[/if]-->
+	<!--[/foreach]-->
+	</ul>
+</div>

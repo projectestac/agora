@@ -1,0 +1,45 @@
+
+html, body { 
+	height: 100%; 
+	margin: 0px; 
+	padding: 0px; 
+	background-color: #ece9d8;
+  color: #000000; 
+  font-family: sans-serif;
+}
+
+
+table{
+	height: 100%; 
+	width: 100%;
+	margin: 0px; 
+	padding: 0px; 
+}
+td.wirisdialog_controls2{
+	text-align: right;
+}
+td.wirisdialog_controls1{
+	text-align: left;
+}
+
+td#wirisdialog_controls{
+	height: 1.8em;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #444444;
+}
+
+td#wirisdialog_controls table{
+	font-size: 9pt;
+}
+
+td#wirisdialog_controls button{	
+	padding-left: 1em;
+	padding-right: 1em;
+	margin: 0.08em;
+}
+
+#manualLink {
+	float: left;
+	margin-left: 5px;
+	margin-top: 3px;
+}

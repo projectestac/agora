@@ -1,0 +1,67 @@
+<!--[include file="iw_webbox_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<h2><!--[gt text="References List"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+	<!--[if $iw_webbox|@count gt 0]-->
+		<table class="pn-admintable">
+			<thead>
+				<tr>
+					<th><!--[gt text="Reference"]--></th>
+					<th><!--[gt text="URL"]--></th>
+					<th><!--[gt text="Description"]--></th>
+					<th><!--[gt text="Width (%)"]--></th>
+					<th><!--[gt text="Height (pixels)"]--></th>
+					<th><!--[gt text="Show scroll"]--></th>
+					<th><!--[gt text="Options"]--></th>	
+				</tr>
+			</thead>
+			<tbody>
+				<!--[section name=iw_webbox loop=$iw_webbox]-->
+					<tr class="<!--[cycle values="pn-odd,pn-even"]-->">
+						<td><!--[$iw_webbox[iw_webbox].ref|pnvarprepfordisplay]--></td>
+						<td>
+							<a href="<!--[$iw_webbox[iw_webbox].url|pnvarprepfordisplay]-->" target="_blank">
+								<!--[$iw_webbox[iw_webbox].url|pnvarprepfordisplay]-->
+							</a>
+						</td>
+						<td>
+							<!--[if $iw_webbox[iw_webbox].description neq '']-->
+								<!--[$iw_webbox[iw_webbox].description|pnvarprepfordisplay]-->
+							<!--[else]-->
+								---
+							<!--[/if]-->
+						</td>
+						<td>
+							<!--[$iw_webbox[iw_webbox].width|pnvarprepfordisplay]--> <!--[$iw_webbox[iw_webbox].widthunit|pnvarprepfordisplay]-->
+						</td>
+						<td><!--[$iw_webbox[iw_webbox].height|pnvarprepfordisplay]--> px</td>
+						<td>
+							<!--[if $iw_webbox[iw_webbox].scrolls eq 1]-->
+								<!--[gt text="Yes"]-->
+							<!--[else]-->
+								<!--[gt text="No"]-->
+							<!--[/if]-->
+						</td>
+						<td>
+							<a href="<!--[pnmodurl modname="iw_webbox" type="admin" func="modify" pid=$iw_webbox[iw_webbox].pid]-->">
+								<!--[pnimg modname='core' src='xedit.gif' set='icons/extrasmall'   __alt="Edit" __title="Edit"]-->
+							</a>
+							<a href="<!--[pnmodurl modname="iw_webbox" type="admin" func="delete" pid=$iw_webbox[iw_webbox].pid]-->">
+								<!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Edit" __title="Delete"]-->
+							</a>
+						</td>
+					</tr>
+				<!--[/section]-->
+			</tbody>
+		</table>
+		<div style="clear:both; height: 30px;">
+			<!--[pnimg modname='core' src='info.gif' set='icons/extrasmall']--> <!--[gt text="To call a reference it is necessary to write 'module=iw_webbox&ref=Reference'"]-->
+		</div>
+	<!--[else]-->
+		<div style="height: 20px;"><!--[gt text="There are not URL created"]--></div>
+	<!--[/if]-->
+	<div style="clear:both; ">
+		<a href="<!--[pnmodurl modname=iw_webbox type=admin func=module]-->"><!--[gt text="About this module"]--></a>
+	</div>
+</div>

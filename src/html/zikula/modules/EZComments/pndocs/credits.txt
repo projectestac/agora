@@ -1,0 +1,20 @@
+EZComments Development Team (current status):
+----------------------------------------------------------
+Mateo Tibaquirá (aka mateo)
+  <mateo@zikula.org>
+  http://zikula.es/
+
+Carsten Volmer (aka herr.vorragend)
+  <carsten@zikula.org>
+  http://carsten-volmer.de/
+
+
+Contributors for pre 2.0.0 versions:
+----------------------------------------------------------
+Jörg Napp (aka jn)
+Mark West (aka markwest)
+Frank Schummertz (aka Landseer)
+Steffen Voss (aka kaffeeringe.de)
+Florian Schießl (aka quan)
+Carsten Volmer (aka herr.vorragend)
+Jean-Michel Vedrine

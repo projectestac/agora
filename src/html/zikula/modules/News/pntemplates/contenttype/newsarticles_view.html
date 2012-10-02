@@ -1,0 +1,50 @@
+<!--[*  $Id:  $  *]-->
+
+<h4><!--[$title]--></h4>
+
+<!--[if $stories]-->
+<ul class="content_stories">
+    <!--[foreach from=$stories item=story]-->
+    <li>
+        <!--[if $story.readperm]--><a href="<!--[pnmodurl modname=News func=display sid=$story.sid]-->"><!--[/if]-->
+            <!--[if $story.dispnewimage]--><!--[pnimg modname='core' set=$newimageset src=$newimagesrc __alt='Create new article' __title='Create new article' domain="module_news"]--><!--[/if]-->
+            <!--[$story.title|pnvarprephtmldisplay]--><!--[if $story.titlewrapped]--><!--[$titlewraptext|pnvarprephtmldisplay]--><!--[/if]-->
+        <!--[if $story.readperm]--></a><!--[/if]-->
+
+        <!--[* Optional additional info on the story *]-->
+        <!--[if $dispinfo]-->(<!--[if $dispuname]--><!--[gt text='Contributed by %s' tag1=$story.aid_uname|userprofilelink domain="module_news"]-->
+        <!--[if $dispdate]--> <!--[gt text='on %s' tag1=$story.from|pndate_format:$dateformat domain="module_news"]--> <!--[elseif $dispreads||$dispcomments]--><!--[$dispsplitchar]--> <!--[/if]--><!--[/if]-->
+        <!--[if $dispreads]--><!--[if $story.counter gt 0]--><!--[gt text='%s pageview' plural='%s pageviews' count=$story.counter tag1=$story.counter domain="module_news"]--><!--[/if]--><!--[if $dispcomments]--><!--[$dispsplitchar]--> <!--[/if]--><!--[/if]-->
+        <!--[if $dispcomments]--><!--[gt text='%s comment' plural='%s comments' count=$story.comments tag1=$story.comments domain="module_news"]--><!--[/if]-->)
+        <!--[/if]--><br />
+
+        <!--[* Optional hometext display *]-->
+        <!--[if $disphometext]-->
+        <div class="content_newsarticles_hometext">
+            <!--[if $story.hometextwrapped]-->
+            <!--[$story.hometext|truncatehtml:$maxhometextlength:''|pnvarprephtmldisplay domain="module_news"]-->
+            <!--[if $story.readperm]--><a href="<!--[pnmodurl modname=News func=display sid=$story.sid]-->"><!--[/if]-->
+                <!--[$hometextwraptext|pnvarprephtmldisplay]-->
+            <!--[if $story.readperm]--></a><!--[/if]-->
+            <!--[else]-->
+            <!--[$story.hometext|pnvarprephtmldisplay]-->
+            <!--[/if]-->
+        </div>
+        <!--[/if]-->
+
+        <!--[* Remove this line to use the topic link and topicimage per News item as below -->
+        <!--[if $story.topicsearchurl neq '']-->
+        <div class="content_newsarticles_news_meta"><a href="<!--[$story.topicsearchurl]-->"><!--[if $story.topicimage neq '']--><img src="<!--[$catimagepath]--><!--[$story.topicimage]-->" alt="<!--[$story.topicname|pnvarprephtmldisplay]-->" title="<!--[$story.topicname|pnvarprephtmldisplay]-->" /><!--[else]--><!--[$story.topicname|pnvarprephtmldisplay]--><!--[/if]--></a></div>
+        <!--[/if]-->
+        <!-- Remove this line to use the topic link and topicimage per News item as above *]-->
+    </li>
+    <!--[/foreach]-->
+</ul>
+<!--[else]-->
+<p><!--[gt text='No articles published recently.' domain="module_news"]--></p>
+<!--[/if]-->
+
+<!--[securityutil_checkpermission component='News::' instance='::' level=ACCESS_COMMENT assign='submitauth']-->
+<!--[if $linktosubmit && $submitauth]-->
+<a href="<!--[pnmodurl modname='News' type='user' func='new']-->"><!--[pnimg modname='core' set='icons/extrasmall' src='edit_add.gif' __alt='Submit an article' domain="module_news"]--><!--[gt text='Submit an article' domain="module_news"]--></a>
+<!--[/if]-->

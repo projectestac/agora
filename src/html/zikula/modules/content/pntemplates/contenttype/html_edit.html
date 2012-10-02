@@ -1,0 +1,22 @@
+<div class="z-linear">
+    <div class="z-formrow">
+        <!--[pnformlabel for='text' __text='Text']-->
+        <!--[pnformtextinput id='text' textMode='multiline' group='data' cols='60' rows='20']-->
+    </div>
+
+    <!--[pnmodavailable modname=scribite assign=scribite]-->
+
+    <div class="z-formrow">
+        <div>
+            <!--[if $scribite]-->
+            <!--[pnformradiobutton id='htmlButton' value='html' dataField='inputType' group='data' mandatory='1' autoPostBack='1']-->
+            <!--[pnformlabel for='htmlButton' __text='HTML']-->
+            <!--[/if]-->
+            <!--[pnformradiobutton id='textButton' value='text' dataField='inputType' group='data' mandatory='1' autoPostBack='1' checked='true']-->
+            <!--[pnformlabel for='textButton' __text='Formatted text']-->
+            <!--[pnformradiobutton id='rawButton' value='raw' dataField='inputType' group='data' mandatory='1' autoPostBack='1']-->
+            <!--[pnformlabel for='rawButton' __text='Unformatted text']-->
+        </div>
+    </div>
+    <!--[contenthtmleditor inputId='text' htmlradioid='htmlButton' textradioid='textButton' inputtype=$contentType.plugin->inputType]-->
+</div>

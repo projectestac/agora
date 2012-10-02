@@ -1,0 +1,59 @@
+1.5:
+====
+- added support for zk 1.2 (bug in pnadminapi.php)
+- video converter added: youtube url in title of a marker will 
+  be transformed to video display
+1.4:
+====
+- mainly some problems with dir based shorturls and ajax were fixed.
+
+1.3:
+====
+- all shorturl (directory based) - problems should be solved now
+- please see the following changeset if you use Zikula <= 1.0.2
+  and your waypoints are not stored with decimals as a real float
+  http://code.zikula.org/core/changeset/24729
+- some icons added to make the look more nicer
+- and some more bugs fixed...
+
+1.2:
+====
+2008-10-05 by quan
+- fixed several bugs... see trac (code.zikula.org) for details
+2008-10-03 by quan
+- added some features to use mymap as clickable map in forms 
+  to retrieve coordinates this way (used in MyProfile 1.1/svn)
+2008-09-21 by quan
+- bugfix to make needle usable in module Content
+2008-08-25 by quan
+- added version control. Fetches latest version from 
+  ifs-net.de and compares it with local installation
+
+1.1:
+====
+2008-08-23 by quan
+- included latest mapstraction.js
+- added scribite support
+- fixed bug for users not having js enabled
+2008-08-18 by quan:
+- removed Content plugin - this was very buggy. Please use
+  Multihook and the MyMap needle to integrate maps into
+  Content. Maybe another plugin will follow later....
+2008-08-17 by quan:
+- removed hook api and hook functionality and:
+- added needle support for MultiHook - it is simplier and 
+  better than a hook!
+  
+2008-02-28 by trudero:
+- Updated "mapstraction.js"
+  Including fix to hide markers without removing tracks.
+- Added asynchronous items download (AJAX/JSON)
+  Currently disabled (commented) out because
+  - download breaks if JSON exceedes ~4KB
+    => sequentially downloading multiple parts
+  - it is slower than the direcly integrated code
+
+
+1.0
+===
+- initial release

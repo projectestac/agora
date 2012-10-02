@@ -1,0 +1,66 @@
+<!--[* Smartytemplate *]-->
+<!--[* $Id: formicula_admin_modifyconfig.html 160 2009-11-10 18:51:14Z herr.vorragend $ *]-->
+<!--[include file=formicula_admin_header.html]-->
+<h2><!--[gt text="Modify configuration"]--></h2>
+<!--[pnform cssClass="z-form"]-->
+<!--[pnformvalidationsummary]-->
+
+<fieldset>
+    <legend><!--[gt text="Modify configuration"]--></legend>
+    <div class="z-formrow">
+        <!--[pnformlabel for="show_phone" __text='Show phone number']-->
+        <!--[pnformcheckbox id="show_phone" checked=$pncore.formicula.show_phone]-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="show_company" __text='Show company']-->
+        <!--[pnformcheckbox id="show_company" checked=$pncore.formicula.show_company]-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="show_url" __text='Show URL']-->
+        <!--[pnformcheckbox id="show_url" checked=$pncore.formicula.show_url]-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="show_location" __text='Show location']-->
+        <!--[pnformcheckbox id="show_location" checked=$pncore.formicula.show_location]-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="show_comment" __text='Show comments textarea']-->
+        <!--[pnformcheckbox id="show_comment" checked=$pncore.formicula.show_comment]-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="send_user" __text='Send confirmation email to user']-->
+        <!--[pnformcheckbox id="send_user" checked=$pncore.formicula.send_user]-->
+    </div>
+<!--[*XTEC ************ ELIMINAT - Users can't change temporary directory for captchas *]-->
+    <div class="z-formrow">
+        <!--[* pnformlabel for="upload_dir" __text='Folder for uploaded files' *]-->
+        <!--[* pnformtextinput size="40" maxLength="80" id="upload_dir" text=$pncore.formicula.upload_dir *]-->
+    </div>
+<!--[************ FI  *]-->
+    <div class="z-formrow">
+        <!--[pnformlabel for="delete_file" __text='Delete file after sending']-->
+        <!--[pnformcheckbox id="delete_file" checked=$pncore.formicula.delete_file]-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="spamcheck" __text='Activate spamcheck']-->
+        <!--[pnformcheckbox id="spamcheck" checked=$pncore.formicula.spamcheck]-->
+    </div>
+    <div class="z-formnote z-informationmsg"><!--[gt text="Make sure you the necessary form fields are available, see the docs for more information. This option will be turned off by Formicula automatically if no PHP-functions for creating images are available"]--></div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="excludespamcheck" __text='Do not use spam check in these forms']-->
+        <!--[pnformtextinput size="20" maxLength="40" id="excludespamcheck" text=$pncore.formicula.excludespamcheck]-->
+    </div>
+    <div class="z-formnote z-informationmsg"><!--[gt text="Comma separated list of form ids, e.g. embedded forms in pagesetter. The redirect may not work here correctly"]--></div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="default_form" __text='Set the default form']-->
+        <!--[pnformdropdownlist id="default_form" items=$items selectedValue=$pncore.formicula.default_form]-->
+        <em class="z-sub z-formnote"><!--[gt text="(used when no form is specified)"]--></em>
+    </div>
+</fieldset>
+
+<div class="z-formbuttons">
+    <!--[pnformbutton id="submit" commandName="submit" __text="Submit"]-->
+</div>
+<!--[/pnform]-->
+
+<!--[include file=formicula_admin_footer.html]-->

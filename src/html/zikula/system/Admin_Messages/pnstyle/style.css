@@ -1,0 +1,11 @@
+/* $Id: style.css 27146 2009-10-24 16:57:51Z herr.vorragend $ */
+
+.admin_messages_block {
+    background:#FAFAFA;
+    border-color:#D9E0E6 #C8CDD2 #C8CDD2 #D9E0E6;
+    border-style:solid;
+    border-width:1px;
+    color:#333333;
+    margin-bottom:1em;
+    padding:1em;
+}

@@ -1,0 +1,37 @@
+<table>
+		<th><!--[gt text="Title"]--></th>
+		<th>&nbsp;</th>
+		<th><!--[gt text="Postal code"]--></th>
+		<th><!--[gt text="Name"]--></th>
+		<th><!--[gt text="LNG"]--></th>
+		<th><!--[gt text="LAT"]--></th>
+		<th><!--[gt text="Author"]--></th>
+		<th><!--[gt text="Date"]--></th>
+		<th>&nbsp;</th>
+	<!--[foreach from=$markers item="marker"]-->
+		<tr>
+		<td><!--[$marker.title|truncate:30]--></td>
+		<td><!--[$marker.countrycode]--></td>
+		<td><!--[$marker.postalcode]--></td>
+		<td><!--[$marker.placename|truncate:30]--></td>
+		<td><!--[$marker.lng|truncate:9]--></td>
+		<td><!--[$marker.lat|truncate:9]--></td>
+		<td><!--[pnusergetvar name="uname" uid=$marker.uid assign="uname"]--><!--[$uname|truncate:10|userprofilelink]--></td>
+		<td><!--[$marker.date]--></td>
+		<!--[pnsecgenauthkey assign="authid"]-->
+		<td>
+		<!--[* we just need the edit links if the user is the owner of the marker or the whole map *]-->
+		<!--[if $map.uid eq $uid or $uid eq $marker.uid]-->
+			<a href="<!--[pnmodurl fqurl="true" modname="MyMap" type="user" func="display" command="edit" mid=$map.id id=$marker.id]-->"><!--[gt text="modify"]--></a>,
+			<a href="<!--[pnmodurl fqurl="true" modname="MyMap" type="user" func="display" command="delete" mid=$map.id pid=$marker.id authid=$authid]-->" onclick="return confirm('<!--[gt text="Do you really want to delete this point?"]-->')"><!--[gt text="delete"]--></a></td>
+		<!--[/if]-->
+		</tr>
+	<!--[/foreach]-->
+	</table>
+<!--[divpager show="page" 
+            rowcount=$markerscounter
+			limit=$limit
+			posvar=startnum
+			div = "overview"
+			linkname = "overviewtable"
+			shift=1]-->

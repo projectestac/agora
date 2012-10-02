@@ -1,0 +1,31 @@
+<!--[* $Id: profile_dudedit_select.htm 69 2009-12-05 10:28:06Z mateo $ *]-->
+<!--[pnmodgetvar module='Users' name='avatarpath' assign='avatarpath']-->
+
+<div class="<!--[$class|default:'z-formrow']-->">
+    <label for="prop_<!--[$attributename]-->">
+        <!--[gt text=$proplabeltext]--> 
+        <!--[if $required]--><span class="z-mandatorysym"><!--[gt text='*']--></span><!--[/if]-->
+    </label>
+    <select id="prop_<!--[$attributename]-->" name="dynadata[<!--[$attributename]-->]<!--[if $selectmultiple]-->[]<!--[/if]-->"<!--[$selectmultiple]--><!--[if $required]--> class="required"<!--[/if]-->>
+        <!--[html_options id=$attributename values=$listoptions output=$listoutput selected=$value]-->
+    </select>
+
+    <!--[if $attributename eq 'avatar']-->
+    <p id="youravatarcontainer" class="z-formnote">
+        <span id="youravatarpath" style="display:none"><!--[$avatarpath]--></span>
+        <img id="youravatardisplay" src="<!--[$avatarpath]-->/<!--[$value]-->" alt="<!--[$proplabeltext]-->" />
+    </p>
+    <!--[/if]-->
+    <!--[if $note neq '']-->
+    <em class="z-sub z-formnote"><!--[gt text='Notice:']--> <!--[$note]--></em>
+    <!--[/if]-->
+</div>
+
+<!--[if $attributename eq 'avatar']-->
+<!--[pnajaxheader modname='Profile' filename='showavatar.js']-->
+<script type="text/javascript">
+    // <![CDATA[
+    Event.observe($('prop_avatar'), 'change', showavatar);
+    // ]]>
+</script>
+<!--[/if]-->

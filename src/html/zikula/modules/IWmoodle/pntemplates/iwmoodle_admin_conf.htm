@@ -1,0 +1,116 @@
+<!--[include file="iwmoodle_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+    <div class="pn-adminpageicon"><!--[pnimg modname='core' src='package_settings.gif' set='icons/large' __alt=$templatetitle]--></div>
+    <h2><!--[gt text="Modify the module configuration"]--></h2>
+    <form  class="pn-adminform" enctype="application/x-www-form-urlencoded" method="post" name="conf" id="conf" action="<!--[pnmodurl modname="IWmoodle" type="admin" func="updateconfig"]-->">
+           <input type="hidden" name="authid" value="<!--[$security]-->"-->
+           <!--[if not $multizk]-->
+           <div class="pn-adminformrow">
+            <label for="moodleurl"><!--[gt text="Location of Moodle installation"]--></label>
+            <input type="text" name="moodleurl" value="<!--[$moodleurl]-->" size="50" maxlength="50" />
+        </div>
+        <div class="pn-adminformrow">
+            <label for="dbprefix"><!--[gt text="Prefix of the Moodle tables on database"]--></label>
+            <input type="text" name="dbprefix" value="<!--[$dbprefix]-->" size="50" maxlength="50" />
+        </div>
+        <!--[/if]-->
+        <div class="pn-adminformrow">
+            <label for="newwindow"><!--[gt text="Open Moodle in a new window"]--></label>
+            <input type="checkbox" name="newwindow" <!--[if $newwindow eq 1]-->checked<!--[/if]--> />
+        </div>
+        <div class="pn-adminformrow">
+            <label for="guestuser"><!--[gt text="Account that will be used by guest users"]--></label>
+            <input type="text" name="guestuser" size="15" maxlength="15" value="<!--[$guestuser]-->" />
+        </div>
+        <div class="pn-adminformrow">
+            <label for="dfl_country"><!--[gt text="Default country for new users"]--></label>
+            <select name="dfl_country">
+                <option value="" <!--[if $dfl_country eq '']--> selected="selected"<!--[/if]-->><!--[gt text="Choose a country..."]--></option>
+                <!--[section name=countries loop=$countries]-->
+                <option value="<!--[$countries[countries].key]-->" <!--[if $dfl_country eq $countries[countries].key]--> selected="selected"<!--[/if]-->><!--[$countries[countries].value]--></option>
+                <!--[/section]-->
+            </select>
+        </div>
+        <div class="pn-adminformrow">
+            <label for="dfl_city"><!--[gt text="Default town/city for new users"]--></label>
+            <input type="text" name="dfl_city" size="15" maxlength="15" value="<!--[$dfl_city]-->" />
+        </div>
+        <!--[if not $multizk]-->
+        <div class="pn-adminformrow">
+            <label for="dfl_language"><!--[gt text="Default language for new users"]--></label>
+            <select name="dfl_language">
+                <option value="" <!--[if $dfl_language eq '']--> selected="selected"<!--[/if]-->><!--[gt text="Choose a language..."]--></option>
+                <!--[section name=langs loop=$langs]-->
+                <option value="<!--[$langs[langs].language]-->" <!--[if $dfl_language eq $langs[langs].language]--> selected="selected"<!--[/if]-->><!--[$langs[langs].language]--></option>
+                <!--[/section]-->
+            </select>
+        </div>
+        <div class="pn-adminformrow">
+            <label for="dfl_description"><!--[gt text="Default description for new users"]--></label>
+            <textarea name="dfl_description" rows="5" cols="75"><!--[$dfl_description]--></textarea>
+        </div>
+        <!--[/if]-->
+        <div class="pn-adminformrow">
+            <label for="dfl_gtm"><!--[gt text="Default timezone for new users"]--></label>
+            <select name = "dfl_gtm">
+                <option value="-13.0" <!--[if $dfl_gtm eq '-13.0']--> selected="selected"<!--[/if]-->>GMT-13</option>
+                <option value="-12.5"<!--[if $dfl_gtm eq '-12.5']--> selected="selected"<!--[/if]-->>GMT-12.5</option>
+                <option value="-12.0"<!--[if $dfl_gtm eq '-12.0']--> selected="selected"<!--[/if]-->>GMT-12</option>
+                <option value="-11.5"<!--[if $dfl_gtm eq '-11.5']--> selected="selected"<!--[/if]-->>GMT-11.5</option>
+                <option value="-11.0"<!--[if $dfl_gtm eq '-11.0']--> selected="selected"<!--[/if]-->>GMT-11</option>
+                <option value="-10.5"<!--[if $dfl_gtm eq '-10.5']--> selected="selected"<!--[/if]-->>GMT-10.5</option>
+                <option value="-10.0"<!--[if $dfl_gtm eq '-10.0']--> selected="selected"<!--[/if]-->>GMT-10</option>
+                <option value="-9.5"<!--[if $dfl_gtm eq '-9.5']--> selected="selected"<!--[/if]-->>GMT-9.5</option>
+                <option value="-9.0"<!--[if $dfl_gtm eq '-9.0']--> selected="selected"<!--[/if]-->>GMT-9</option>
+                <option value="-8.5"<!--[if $dfl_gtm eq '-8.5']--> selected="selected"<!--[/if]-->>GMT-8.5</option>
+                <option value="-8.0"<!--[if $dfl_gtm eq '-8.0']--> selected="selected"<!--[/if]-->>GMT-8</option>
+                <option value="-7.5"<!--[if $dfl_gtm eq '-7.5']--> selected="selected"<!--[/if]-->>GMT-7.5</option>
+                <option value="-7.0"<!--[if $dfl_gtm eq '-7.0']--> selected="selected"<!--[/if]-->>GMT-7</option>
+                <option value="-6.5"<!--[if $dfl_gtm eq '-6.5']--> selected="selected"<!--[/if]-->>GMT-6.5</option>
+                <option value="-6.0"<!--[if $dfl_gtm eq '-6.0']--> selected="selected"<!--[/if]-->>GMT-6</option>
+                <option value="-5.5"<!--[if $dfl_gtm eq '-5.5']--> selected="selected"<!--[/if]-->>GMT-5.5</option>
+                <option value="-5.0"<!--[if $dfl_gtm eq '-5.0']--> selected="selected"<!--[/if]-->>GMT-5</option>
+                <option value="-4.5"<!--[if $dfl_gtm eq '-4.5']--> selected="selected"<!--[/if]-->>GMT-4.5</option>
+                <option value="-4.0"<!--[if $dfl_gtm eq '-4.0']--> selected="selected"<!--[/if]-->>GMT-4</option>
+                <option value="-3.5"<!--[if $dfl_gtm eq '-3.5']--> selected="selected"<!--[/if]-->>GMT-3.5</option>
+                <option value="-3.0"<!--[if $dfl_gtm eq '-3.0']--> selected="selected"<!--[/if]-->>GMT-3</option>
+                <option value="-2.5"<!--[if $dfl_gtm eq '-2.5']--> selected="selected"<!--[/if]-->>GMT-2.5</option>
+                <option value="-2.0"<!--[if $dfl_gtm eq '-2.0']--> selected="selected"<!--[/if]-->>GMT-2</option>
+                <option value="-1.5"<!--[if $dfl_gtm eq '-1.5']--> selected="selected"<!--[/if]-->>GMT-1.5</option>
+                <option value="-1.0"<!--[if $dfl_gtm eq '-1.0']--> selected="selected"<!--[/if]-->>GMT-1</option>
+                <option value="-0.5"<!--[if $dfl_gtm eq '-0.5']--> selected="selected"<!--[/if]-->>GMT-0.5</option>
+                <option value="0.0"<!--[if $dfl_gtm eq '0.0']--> selected="selected"<!--[/if]-->>GMT</option>
+                <option value="0.5"<!--[if $dfl_gtm eq '0.5']--> selected="selected"<!--[/if]-->>GMT+0.5</option>
+                <option value="1.0"<!--[if $dfl_gtm eq '1.0']--> selected="selected"<!--[/if]-->>GMT+1</option>
+                <option value="1.5"<!--[if $dfl_gtm eq '1.5']--> selected="selected"<!--[/if]-->>GMT+1.5</option>
+                <option value="2.0"<!--[if $dfl_gtm eq '2.0']--> selected="selected"<!--[/if]-->>GMT+2</option>
+                <option value="2.5"<!--[if $dfl_gtm eq '2.5']--> selected="selected"<!--[/if]-->>GMT+2.5</option>
+                <option value="3.0"<!--[if $dfl_gtm eq '3.0']--> selected="selected"<!--[/if]-->>GMT+3</option>
+                <option value="3.5"<!--[if $dfl_gtm eq '3.5']--> selected="selected"<!--[/if]-->>GMT+3.5</option>
+                <option value="4.0"<!--[if $dfl_gtm eq '4.0']--> selected="selected"<!--[/if]-->>GMT+4</option>
+                <option value="4.5"<!--[if $dfl_gtm eq '4.5']--> selected="selected"<!--[/if]-->>GMT+4.5</option>
+                <option value="5.0"<!--[if $dfl_gtm eq '5.0']--> selected="selected"<!--[/if]-->>GMT+5</option>
+                <option value="5.5"<!--[if $dfl_gtm eq '5.5']--> selected="selected"<!--[/if]-->>GMT+5.5</option>
+                <option value="6.0"<!--[if $dfl_gtm eq '6.0']--> selected="selected" <!--[/if]-->>GMT+6</option>
+                <option value="6.5"<!--[if $dfl_gtm eq '6.5']--> selected="selected"<!--[/if]-->>GMT+6.5</option>
+                <option value="7.0"<!--[if $dfl_gtm eq '7.0']--> selected="selected"<!--[/if]-->>GMT+7</option>
+                <option value="7.5"<!--[if $dfl_gtm eq '7.5']--> selected="selected"<!--[/if]-->>GMT+7.5</option>
+                <option value="8.0"<!--[if $dfl_gtm eq '8.0']--> selected="selected"<!--[/if]-->>GMT+8</option>
+                <option value="8.5"<!--[if $dfl_gtm eq '8.5']--> selected="selected"<!--[/if]-->>GMT+8.5</option>
+                <option value="9.0"<!--[if $dfl_gtm eq '9.0']--> selected="selected"<!--[/if]-->>GMT+9</option>
+                <option value="9.5"<!--[if $dfl_gtm eq '9.5']--> selected="selected"<!--[/if]-->>GMT+9.5</option>
+                <option value="10.0"<!--[if $dfl_gtm eq '10.0']--> selected="selected"<!--[/if]-->>GMT+10</option>
+                <option value="10.5"<!--[if $dfl_gtm eq '10.5']--> selected="selected"<!--[/if]-->>GMT+10.5</option>
+                <option value="11.0"<!--[if $dfl_gtm eq '11.0']--> selected="selected"<!--[/if]-->>GMT+11</option>
+                <option value="11.5"<!--[if $dfl_gtm eq '11.5']--> selected="selected"<!--[/if]-->>GMT+11.5</option>
+                <option value="12.0"<!--[if $dfl_gtm eq '12.0']--> selected="selected"<!--[/if]-->>GMT+12</option>
+                <option value="12.5"<!--[if $dfl_gtm eq '12.5']--> selected="selected"<!--[/if]-->>GMT+12.5</option>
+                <option value="13.0"<!--[if $dfl_gtm eq '13.0']--> selected="selected"<!--[/if]-->>GMT+13</option>
+                <option value="99" <!--[if $dfl_gtm eq '99']--> selected="selected"<!--[/if]-->><!--[gt text="Server's local time"]--></option>	
+            </select>
+        </div>
+        <div style="text-align: right;">
+            <!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Execute changes" __title="Execute changes"]--><!--[gt text="Edit the module configuration"]-->
+        </div>
+    </form>	
+</div>

@@ -1,0 +1,39 @@
+<!--[contentpageheading __header='Translate content item' subheader=$page.title]-->
+
+<!--[pnform cssClass='z-form']-->
+
+<!--[contentformframe]-->
+
+<!--[if $isTranslatable]-->
+<fieldset id="contentTranslateOriginal" class="z-linear">
+    <legend><!--[gt text="Original content"]--></legend>
+    <div class="z-formrow">
+        <!--[include file=$translateOriginalTemplate]-->
+    </div>
+</fieldset>
+
+<fieldset id="contentTranslateNew" class="z-linear">
+    <legend><!--[gt text="Translated content"]--> (<!--[$language]-->)</legend>
+    <!--[include file=$translateNewTemplate]-->
+</fieldset>
+
+<!--[contentbuttons]-->
+<!--[pnformbutton commandName="prev" __text="Previous"]-->
+<!--[pnformbutton commandName="next" __text="Next"]--> &mdash;
+<!--[pnformbutton commandName="skip" __text="Skip"]-->
+<!--[pnformbutton commandName="quit" __text="Save"]-->
+<!--[pnformbutton commandName="delete" __text="Delete" __confirmMessage='Delete']-->
+<!--[pnformbutton commandName="cancel" __text="Cancel"]-->
+<!--[pnformdropdownlist id='translationStep' items=$translationInfo.items autoPostBack='1' onSelectedIndexChanged='handleCommand']-->
+<!--[/contentbuttons]-->
+<!--[else]-->
+<p class="z-warningmsg"><!--[gt text="Error! There is nothing to translate for this content type."]--></p>
+
+<!--[contentbuttons]-->
+<!--[pnformbutton commandName="cancel" __text="Back"]-->
+<!--[/contentbuttons]-->
+<!--[/if]-->
+
+<!--[/contentformframe]-->
+
+<!--[/pnform]-->

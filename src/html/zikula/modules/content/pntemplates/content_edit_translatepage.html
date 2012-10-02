@@ -1,0 +1,36 @@
+<!--[contentpageheading __header='Translate page']-->
+
+<p class="z-informationmsg"><!--[gt text="You can only translate the actual page data here. The content items must be translated one by one."]--></p>
+
+<!--[pnform cssClass='z-form']-->
+<!--[pnformsetinitialfocus inputId='title']-->
+
+<!--[contentformframe]-->
+
+<fieldset id="contentTranslateOriginal">
+    <legend><!--[gt text="Original content"]--></legend>
+    <div class="z-formrow">
+        <label><!--[gt text="Page title"]--></label>
+        <span><!--[$page.title]--></span>
+    </div>
+</fieldset>
+
+<fieldset id="contentTranslateNew">
+    <legend><!--[gt text="Translated content"]--> (<!--[$language]-->)</legend>
+    <div class="z-formrow">
+        <!--[pnformlabel for='title' __text='Page title']-->
+        <!--[pnformtextinput id='title' mandatory='1' maxLength='255' group='translated']-->
+    </div>
+</fieldset>
+
+<!--[contentbuttons]-->
+<!--[pnformbutton commandName="next" __text="Next"]--> &mdash;
+<!--[pnformbutton commandName="skip" __text="Skip"]-->
+<!--[pnformbutton commandName="quit" __text="Save"]-->
+<!--[pnformbutton commandName="delete" __text="Delete" __confirmMessage='Delete page translation AND all content translations']-->
+<!--[pnformbutton commandName="cancel" __text="Cancel"]-->
+<!--[/contentbuttons]-->
+
+<!--[/contentformframe]-->
+
+<!--[/pnform]-->

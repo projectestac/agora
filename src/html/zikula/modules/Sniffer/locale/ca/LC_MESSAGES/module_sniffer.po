@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-09 12:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 1.4.0\n"
+
+#: pnversion.php:16
+msgid "sniffer"
+msgstr ""
+
+#: pnversion.php:17 pnblocks/sniffer.php:35
+msgid "Sniffer"
+msgstr "Detector"
+
+#: pnversion.php:18
+msgid "Browser detection and information."
+msgstr "Detecció del navegador i informació del navegador."
+
+#: pnblocks/sniffer.php:36
+msgid "Show browser info"
+msgstr ""
+
+#: pntemplates/sniffer_admin_main.htm:4
+msgid "Browser Sniffer"
+msgstr "Rastrejador de navegadors"
+
+#: pntemplates/sniffer_admin_main.htm:8
+msgid "Basic Browser Infomation"
+msgstr "Informació bàsica dels navegadors"
+
+#: pntemplates/sniffer_admin_main.htm:11
+#: pntemplates/sniffer_block_sniffer.htm:3
+msgid "User Agent"
+msgstr "Agent de l'usuari"
+
+#: pntemplates/sniffer_admin_main.htm:15
+#: pntemplates/sniffer_block_sniffer.htm:5
+msgid "Browser"
+msgstr "Navegador"
+
+#: pntemplates/sniffer_admin_main.htm:19
+#: pntemplates/sniffer_block_sniffer.htm:7
+msgid "Browser version"
+msgstr "Versió del navegador"
+
+#: pntemplates/sniffer_admin_main.htm:23
+#: pntemplates/sniffer_block_sniffer.htm:9
+msgid "OS"
+msgstr "Sistema operatiu"
+
+#: pntemplates/sniffer_admin_main.htm:27
+#: pntemplates/sniffer_block_sniffer.htm:11
+msgid "OS version"
+msgstr "Versió del sistema operatiu"

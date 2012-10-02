@@ -1,0 +1,35 @@
+<!--[pnajaxheader modname=iw_main filename=iw_main.js]-->
+<!--[if not $ajax]--><div id="iw_main_block_news"><!--[/if]-->
+	<table width="100%">
+			<!--[$news]-->
+	</table>
+<!--[if not $ajax]--></div><!--[/if]-->
+<!--[if not $ajax]-->
+	<div style="margin-top: 20px;">
+		<!--[gt text="Flagged items" domain="module_iw_main"]-->
+		<!--[pnimg modname='core' src='flag.gif' set='icons/extrasmall']-->
+	</div>
+	<!--[if $flags neq '']-->
+		<div id="iw_main_block_flagged">
+			<table width="100%">
+				<!--[$flags]-->
+			</table>
+		</div>
+	<!--[else]-->
+		<div id="iw_main_block_flagged"></div>
+	<!--[/if]-->
+	<br />
+	<div style="float: left;">
+		<a href="<!--[pnmodurl modname="iw_main" type="user" func="regenBlockNews"]-->">
+			<!--[gt text="Regenerate" domain="module_iw_main"]--> <!--[pnimg modname='core' src='recur.gif' set='icons/extrasmall'   __alt="Regenerate" __title="Regenerate"]-->
+		</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</div>
+	<div style="float: left;">
+		<a href="<!--[pnmodurl modname="iw_main" type="user" func="main"]-->">
+			<!--[gt text="Configure" domain="module_iw_main"]--> <!--[pnimg modname='core' src='package_settings.gif' set='icons/extrasmall'   __alt="Configure" __title="Configure"]-->
+		</a>
+	</div>
+	<div style="clear: both;">
+		&nbsp;
+	</div>
+<!--[/if]-->

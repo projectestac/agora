@@ -1,0 +1,173 @@
+<!-- $Id$ -->
+
+<h1>Types de questions</h1>
+
+<p>Les types de questions actuellement disponibles dans le module <b>Leçon</b> sont les suivants.</p>
+
+<ul>
+
+<li>
+
+<p><b>Question à choix multiples.</b> C'est le type de question par défaut. Une question à choix multiples offre à l'étudiant un choix de réponses parmi lesquelles il devra en choisir une. La réponse correcte mène l'étudiant plus loin dans la leçon, les réponses fausses non. Souvent l'utilité de telles questions dépend plus de la qualité des réponses fausses proposées que de la question elle-même ou de la bonne réponse.</p>
+
+<p>Chaque question peut avoir optionnellement un feedback associé. Si aucun feedback n'est donné, l'étudiant obtient le message par défaut « C'est la réponse correcte » ou « C'est une mauvaise réponse » après avoir répondu.</p>
+
+<p>Il est possible d'avoir plus d'une réponse correcte à une telle question. Les différentes réponses correctes peuvent avoir différents feedbacks et mener à des pages différentes de la leçon. En revanche, elles impliquent toutes la même note (c'est-à-dire qu'il n'y a pas de réponses correctes meilleures que d'autres, du moins en terme de note). Il est donc possible de faire suivre aux étudiants des parties de leçon différentes, même si toutes leurs réponses sont correctes.</p>
+
+<p>Certaines questions à choix multiples sont appelées « <b>Questions à choix multiples et à réponses multiples</b> ». Elles offrent à l'étudiant un choix de réponses parmi lesquelles il devra choisir toutes les bonnes réponses. La question peut indiquer ou non le nombre de bonnes réponses. Par exemple « Choisir deux rois de France dans la liste des personnages suivants » dans le premier cas, et « Lesquels de ces personnages ont été des rois de France ? » Le nombre des bonnes réponses peut varier de 1 au nombre de choix proposés. Une telle question avec une seule bonne réponse est <b>différente</b> d'une simple question à choix multiples, car contrairement à celle-ci, elle permet à l'étudiant de choisir plusieurs réponses.</p>
+
+<p>Pour ces questions, les réponses correctes mènent  l'étudiant plus loin dans la leçon, les réponses fausses non. S'il y a plus d'une réponse correcte, toutes doivent mener à la même page, tout comme les mauvaises réponses. Dans le cas contraire, un avertissement est affiché lorsque l'enseignant visualise la leçon. Le feedback (optionnel) des bonnes réponses doit être inscrit dans la première bonne réponse. De même, le feedback (optionnel) des mauvaises réponses doit être inscrit dans la première mauvaise réponse. Les autres feedbacks sont ignorés (sans avertissement).</p>
+
+</li>
+
+<li>
+
+<h2>Question à réponse courte.</h2>
+
+<p>L'étudiant doit saisir la réponse sous forme de texte court, et ce texte est comparé à une ou plusieurs réponses attendues. La réponse donnée par l'étudiant est soit juste, soit fausse. À chaque réponse peut être associé un message de feedback. Si aucun feedback n'est prévu par l'enseignant, l'étudiant obtient le message par défaut « C'est la réponse correcte » ou « C'est une mauvaise réponse » après avoir répondu. Lorsque le texte de la réponse saisi par l'étudiant ne correspond à aucune des réponses prévues, sa réponse est considérée comme fausse et le feedback par défaut est affiché.</p>
+
+<p>Il existe <b>deux systèmes d'analyse</b> permettant de comparer la réponse donnée par l'étudiant avec la ou les réponses prévues par l'enseignant. Le système d'analyse simple est utilisé par défaut. Si la case « <b>Utiliser les expressions régulières:</b> » est cochée, c'est le système d'analyse avec les expressions régulières qui sera utilisé.</p>
+
+<ul>
+
+<li><b>Le système d'analyse simple</b>
+
+<p>Dans ce système d'analyse (par défaut), le processus de comparaison ne tient pas compte de la casse (minuscules = majuscules). L'astérisque (*) peut être utilisé dans les réponses attendues comme caractère joker ; il remplace un nombre quelconque de caractères, y compris zéro caractères. Par exemple, la réponse attendue « long* » correspondra aux réponses de l'étudiant suivantes : long, longer, longueur, longuement, longitude, etc. Si l'une des réponses attendues comporte uniquement un astérisque, toutes les réponses données par l'étudiant seront acceptées. On utilisera donc l'astérisque seule comme toute dernière réponse attendue, en général afin de détecter en bloc toutes les réponses incorrectes lorsque l'enseignant veut fournir son propre message de feedback personnalisé au lieu du message de feedback par défaut fourni par Moodle. Remarquez que ce système d'analyse de réponse traite les réponses attendues dans l'ordre où elles ont été entrées par l'enseignant et que le processus s'arrête dès qu'une réponse attendue correspond à la réponse effectivement saisie par l'étudiant.</p>
+
+<p>Si une réponse attendue comporte effectivement un astérisque, il faudra le saisir en le précédant d'une barre oblique inverse, comme ceci : « \* ».</p>
+
+</li>
+
+</ul>
+
+<ul>
+
+<li><b>Le système d'analyse basé sur les expressions régulières</b>
+
+<p>Ce système vous donne accès à un système d'analyse plus puissant, mais plus compliqué à mettre en œuvre. Pour une introduction aux expressions régulières, voir les sites suivants : <a href="http://www.expreg.com/presentation.php" >http://www.expreg.com/presentation.php</a> et <a href="http://rezeau.org/eao/developpement/expandRegexpToString.htm" >http://rezeau.org/eao/developpement/expandRegexpToString.htm</a>.</p>
+
+<h3>Réponse correcte correspondant à une expression régulière</h3>
+
+<p>Il n'est pas possible de donner des exemples exhaustifs des vastes possibilités offertes par le système des expressions régulières, et ce qui suit ne donne qu'une petite idée de ce qui est possible.</p>
+
+<p><b>Exemple 1.</b> Supposons que votre question soit « Quelles sont les couleurs du drapeau français ? ». Dans le champ Réponse 1 vous taperez par exemple l'expression régulière suivante : « <span class="c_computeroutput">bleu, blanc(,| et) rouge/i</span> ». Cette expression correspondra aux 2 réponses de l'étudiant :</p>
+
+<ul>
+
+<li>bleu, blanc, rouge</li>
+
+<li>bleu, blanc et rouge</li>
+
+<li>Bleu, blanc, rouge</li>
+
+<li>Bleu, blanc et rouge</li>
+
+</ul>
+
+<p>Remarquez que par défaut une expression régulière est sensible à la casse (minuscules ≠ majuscules). Pour accepter aussi bien les majuscules que les minuscules (pour l'ensemble de la réponse attendue), il faut ajouter le paramètre <i>/i</i> (ignore case) tout à la fin de l'expression.</p>
+ 
+<p><b>Exemple 2.</b> Question : « Comment s'appelle l'ustensile utilisé pour ouvrir une serrure ? ». Réponse attendue : "(|c'est )une cl(e|é)f?". On obtiendra une correspondance avec ces réponses de l'étudiant :</p>
+
+<ul>
+
+<li>une clé</li>
+
+<li>une clef</li>
+
+<li>c'est une clé</li>
+
+<li>c'est une clef</li>
+
+</ul>
+
+<p><b>Remarques.</b> Le début de cette expression régulière, « (|c'est ) » correspondra soit à « c'est » soit à rien du tout. Un peu plus loin, le point d'interrogation signifie en syntaxe des expressions régulières : « le caractère qui précède, employé une ou zéro fois ». Ainsi seront acceptées pour ce mot aussi bien l'orthographe « clé » que « clef ».</p>
+
+<p><b>Exemple 3.</b> Question : « Donnez (en anglais) le nom d'un animal de 3 lettres dont les deux dernières lettres sont <b>A</b> et <b>T</b> ». Réponse attendue « [bcr]at », qui correspondra aux réponses : <i>bat</i>, <i>cat</i> ou <i>rat</i>.</p>
+
+<h3>Détection de mots ou chaînes de caractères manquants</h3>
+
+<p>Les expressions régulières seules ne peuvent détecter des caractères ou mots manquants dans un texte. Pour y arriver, le système utilisé dans la réponse courte de la leçon de Moodle vous demandera d'ajouter un petit code.</p>
+
+<p>Toute réponse attendue qui commence par deux tirets (--) analysera la réponse de l'étudiant afin de détecter si la chaîne de caractères qui suit s'y trouve ou non. Si la chaîne attendue est détectée, le processus d'analyse de poursuit, sinon il s'arrête et un message de feedback approprié s'affiche.</p>
+
+<p><b>Exemple 4.</b> Question « Quelles sont les couleurs du drapeau français ? »</p>
+
+<ul>
+
+<li>Réponse 2 : <span class="c_computeroutput">--.*bleu.*/i</span></li>
+
+<li>Réponse de l'étudiant : « C'est rouge et blanc »</li>
+
+<li>Feedback 2 : <span class="c_computeroutput">Il manque la couleur du ciel !</span></li>
+
+<li>Saut 2: <span class="c_computeroutput">Cette page</span></li>
+
+</ul>
+
+<p><b>Remarque.</b> Ici, le . (point) signifie en langage des expressions régulières, « n'importe quel caractère », et l'astérisque signifie « un nombre quelconque de fois ». Donc, l'expression régulière ci-dessus signifie : rechercher si dans la réponse de l'étudiant on trouve oui ou non la chaîne de caractères <b>bleu</b>, précédée et suivie de n'importe quoi (y compris rien).</p>
+
+<p><b>Attention !</b> Veuillez remarquer que la signification de l'astérisque n'est pas la même selon que vous utilisez le système d'analyse simple ou le système d'analyse avec expressions régulières.    </p>
+
+<p><b>Exemple 5.</b> Question : « Donnez (en anglais) le nom d'un animal en 3 lettres, et qui se termine par les lettres A et T. Réponse attendue : « --[b|c|r] ». Feedback : « Votre réponse doit commencer par l'une des lettres suivantes : b, c ou r ».</p>
+
+<h3>Détection de mots ou chaînes de caractères erronés</h3>
+
+<p>Vous pouvez détecter, dans la réponse de l'étudiant, la présence d'un ou plusieurs mots qui ne devraient pas s'y trouver (parce qu'ils sont erronés) et les mettre en évidence dans l'affichage du feedback. Commencez simplement l'expression régulière par deux signes plus (++).</p>
+
+<p><b>Exemple 6.-</b> Question : « Quelles sont les couleurs du drapeau français ? ».</p>
+
+<ul>
+
+<li>Réponse 3 (par exemple) : <span class="c_computeroutput">++(orange|noir|vert|jaune)</span></li>
+
+<li>Réponse de l'étudiant (par exemple) : « bleu, orange, vert et rouge »</li>
+
+<li>Feedback 3 : <span class="c_computeroutput">Une ou plusieurs de ces couleurs ne font pas partie du drapeau français !</span></li>
+
+<li>Saut 3 : <span class="c_computeroutput">Cette page</span></li>
+
+</ul>
+
+<p>Si l'une quelconque (ou plusieurs) de ces couleurs figure dans la réponse de l'étudiant, le message de feedback prévu par l'enseignant s'affichera, ainsi que la réponse saisie par l'étudiant, dans laquelle les mots erronés seront en rouge (couleur par défaut). Si une des feuilles de style du thème visuel utilisé dans ce cours comporte un formatage différent pour la classe CSS « .incorrect », c'est ce formatage qui s'affichera.</p>
+
+<h3>Comment « échapper » les caractères spéciaux</h3>
+
+<p>Le vocabulaire des expressions régulières comporte un certain nombre de « caractères spéciaux ». Si l'un quelconque de ces caractères doit figurer (en clair) dans une réponse attendue, il faudra l'échapper, c'est-à-dire le faire précéder de la barre oblique inverse (\). Par exemple si une réponse attendue est une phrase comportant un point final, ainsi que le caractère $ (dollar), il faudra l'écrire comme ceci : « Il vaut 100\$\. » Voici la liste complète de ces caractères spéciaux :</p>
+
+<h2>. ^ $ * ( ) [ ] + ? | </h2>
+
+</li>
+
+</ul>
+
+</li>
+
+<li>
+
+<p><b>Question Vrai/Faux.</b> Pour répondre à une telle question, l'étudiant choisit simplement l'une des deux options proposées. Il s'agit en fait d'une question à choix multiples à deux options.</p>
+
+</li>
+
+<li>
+
+<p><b>Question d'appariement.</b> Ce type de question est très flexible et puissant. Une question d'appariement consiste en une liste de termes ou d'affirmations devant être mis en correspondance avec une autre liste de termes ou d'affirmations. Par exemple, « Associer chaque pays avec sa capitale », avec les deux listes Italie, France, Suisse, Canada et Berne, Ottawa, Rome, Paris. On peut répéter des éléments dans une des listes, mais les répétitions doivent être identiques. Par exemple « Identifier le type de ces créatures », avec les listes moineau, vache, fourmi, chat et oiseau, animal, insecte, animal.</p>
+
+
+<p>Lors de la création d'une telle question, il faut placer les éléments de la première liste dans les champs « Réponse » et ceux de la deuxième liste dans les champs « Feedback ». Une fois la question créée, son affichage est un peu meilleur. Si l'étudiant met correctement en correspondance les différents éléments, il est envoyé à la page définie dans la première réponse. Dans le cas contraire, il est envoyé à celle qui est définie dans la deuxième réponse. Ce type de question ne permet pas de définir vos propres feedbacks. Le message donné à l'étudiant indique le nombre de paires correctes ou si toutes les paires sont correctes.</p>
+
+<p>Au contraire des questions à choix multiples, où les questions sont mélangées aléatoirement, la première liste est toujours affichée dans l'ordre donné. Les éléments de la deuxième liste sont bien sûr mélangés aléatoirement. Cela permet des questions dont l'objectif est de ranger des éléments. Par exemple, « Ranger les personnages suivants dans l'ordre où ils sont nés, le plus ancien en premier », avec les listes 1., 2., 3., 4. et Alexandre le Grand, Jules César, Charlemagne, Napoléon.</p>
+
+</li>
+
+<li>
+
+<p><b>Question numérique.</b> Ce type de question requiert un nombre comme réponse. Dans sa forme la plus simple, une seule réponse (correcte) est spécifiée par l'enseignant. Par exemple, « Que font 2 + 2 ? », avec la réponse 4 qui mène à la page suivante. Il est cependant parfois mieux de spécifier un intervalle, pour le cas où des erreurs d'arrondi fausseraient la comparaison. Par exemple, à la question « Que vaut 10/3 ? », il est nécessaire de donner un intervalle de la forme <b>min:max</b>, c'est-à-dire deux valeurs séparées par un signe deux-points (:). On peut indiquer 3.33:3.34 comme réponse à cette question, et ainsi les réponses 3.33, 3.333, 3.3333, etc. seront acceptées. Parmi les réponses fausses, on aura par exemple 3.3 (inférieur au minimum) et 3.4 (supérieur au maximum).</p>
+
+<p>L'enseignant peut spécifier plus d'une réponse correcte, et chacune des réponses peut être un nombre ou un intervalle (voir ci-dessus). Les réponses sont testées dans l'ordre normal : Réponse 1, Réponse 2, etc. Il faut donc prêter attention à cet ordre lors de la spécification des réponses et des feedbacks. Par exemple la question « Quel est l'année de naissance de Jean-Sébastien Bach ? » pourrait avoir comme première réponse 1685, la réponse exacte, et la décennie 1680:1689 comme deuxième réponse moins exacte. Le feedback de la première serait « C'est exactement ça ! » et celui de la deuxième « Presque, vous êtes dans la bonne décennie ! ».</p>
+
+<p>Des réponses moins exactes ou fausses peuvent être indiquées par l'enseignant, mais il faut les placer après les bonnes réponses. Par exemple, si l'on veut ajouter la réponse 3:4 à la question « Que vaut 10/3 ? », il faudra spécifier les différentes réponses dans l'ordre suivant : 3.33:3.34 (la réponse acceptée), puis 3:4 (la réponse fausse, mais pas trop quand même !).</p>
+
+</li>
+
+</ul>
+

@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-09 12:49+0000\n"
+"PO-Revision-Date: 2010-02-05 19:34+0200\n"
+"Last-Translator: Albert Pérez Monfort <aperezm@xtec.cat>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
+
+#: pnadmin.php:61
+msgid "none"
+msgstr "cap"
+
+#: pnadmin.php:130
+msgid "Done! Module configuration updated."
+msgstr "S'ha actualitzat la configuració del mòdul."
+
+#: pnversion.php:14
+msgid "authldap"
+msgstr "authldap"
+
+#: pnversion.php:15
+msgid "AuthLDAP"
+msgstr "AuthLDAP"
+
+#: pnversion.php:16 pntemplates/authldap_admin_menu.htm:4
+msgid "LDAP authentication"
+msgstr "Autentificació LDAP"
+
+#: pnuserapi.php:27
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "No s'ha pogut fer el que volíeu. Reviseu les dades."
+
+#: pntemplates/authldap_admin_modifyconfig.htm:4
+#: pntemplates/authldap_admin_modifyconfig.htm:5
+msgid "Settings"
+msgstr "Configuració"
+
+#: pntemplates/authldap_admin_modifyconfig.htm:11
+msgid "Server address"
+msgstr "Adreça del servidor"
+
+#: pntemplates/authldap_admin_modifyconfig.htm:15
+msgid "Protocol version"
+msgstr "Versió del protocol"
+
+#: pntemplates/authldap_admin_modifyconfig.htm:22
+msgid "Base DN"
+msgstr "DN Base"
+
+#: pntemplates/authldap_admin_modifyconfig.htm:26
+msgid "Bind as"
+msgstr "Vincula com a"
+
+#: pntemplates/authldap_admin_modifyconfig.htm:30
+msgid "Encryption method"
+msgstr "Mètode d'encriptació"
+
+#: pntemplates/authldap_admin_modifyconfig.htm:36
+msgid "Bind password"
+msgstr "Contrasenya pel vincle"
+
+#: pntemplates/authldap_admin_modifyconfig.htm:40
+msgid "Search base"
+msgstr "Base per a la cerca"
+
+#: pntemplates/authldap_admin_modifyconfig.htm:44
+msgid "Search user using attribute"
+msgstr "Cerca un usuari/ària usant un atribut"
+
+#: pntemplates/authldap_admin_modifyconfig.htm:50
+msgid "Update Configuration"
+msgstr "Actualitza la configuració"
+
+# Cancel·la
+#: pntemplates/authldap_admin_modifyconfig.htm:51
+msgid "Cancel"
+msgstr "Cancel·la"

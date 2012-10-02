@@ -1,0 +1,53 @@
+<h1>计算方法</h1>
+<!-- TRANSLATORS BEWARE!! The comma (,) sign used in the calculations may be a semi-colon (;)
+in your language. Please use whichever is used in your spreadsheet application. -->
+
+<p>成绩薄中的计算方法遵循流行的电子制表软件程序中计算公式/函数的样式。
+它们以等号（=）开始，使用常见的数学运算符和函数，产生一个单一的数值输出。然后这个输出值被用来当作您当前编辑成绩项的计算值。</p>
+
+<p>下面是用来支持计算方法的函数列表，逗号（,）用来分隔函数括号中的自变量.</p>
+
+<ul>
+    <li><strong>average</strong>([[item1]], [[item2]]...): 
+	返回一组数据的平均值</li>
+    <li><strong>max</strong>([[item1]], [[item2]]...): 
+	返回一组自变量中的最大值</li>
+    <li><strong>min</strong>([[item1]], [[item2]]...): 
+	返回一组自变量中的最小值</li>
+    <li><strong>mod</strong>(dividend, divisor): 
+	（dividend是被除数，divisor是除数）返回整除运算后的余数</li>
+    <li><strong>pi</strong>(): 返回π的值</li>
+    <li><strong>power</strong>(base, power): 
+	（base是底数，power是指数）以一个数字为底数另一个数字为指数计算乘方值</li>
+    <li><strong>round</strong>(number, count):
+	（count是小数点右边应保留的位数）返回按指定的小数位数进行四舍五入后的数值</li>
+    <li><strong>sum</strong>([[item1]], [[item2]]...): 返回所有自变量的总和</li>
+</ul>
+
+<p>同样也支持许多数学函数:</p>
+<ul>
+    <li>sin</li><li>sinh</li><li>arcsin</li><li>asin</li><li>arcsinh</li><li>asinh</li>
+    <li>cos</li><li>cosh</li><li>arccos</li><li>acos</li><li>arccosh</li><li>acosh</li>
+    <li>tan</li><li>tanh</li><li>arctan</li><li>atan</li><li>arctanh</li><li>atanh</li>
+    <li>sqrt</li><li>abs</li><li>ln</li><li>log</li><li>exp</li>
+</ul>
+
+<p>在您的公式中可以使用其他成绩项的ID作为参数来调用它们的值. 当ID中含有不常见的字符时，用两个方括号将ID括起来，避免干扰计算程序.
+例如，如果您有一个成绩项的ID为Quiz.3，在计算中您将用[[Quiz.3]]代表此项. </p>
+
+<p>在计算区域下面是一个关于您课程中成绩类别和成绩项的树形目录，
+每一项或总的类别旁边显示的是可以在您的计算方法中使用的ID（已经用方括号括起）。
+这些ID可以随意选择使用，但仍然会有许多项可能没有ID，这些项的ID被一个文本输入框代替，
+在文本输入框中可以直接输入ID，所以您可以不离开此页面在计算方法中使用它。
+这种形式不允许您编辑现有的ID，如果需要的话，您需要离开此页面直接去编辑成绩项。</p>
+
+<p>当您输入好需要的ID以后，可以点击"添加ID"按钮，页面会重新加载，在同样的位置显示您刚才赋给该项的ID. 然后您就可以在计算方法中自由使用这些参数.</p>
+
+<p>下面是一些计算方法中的实例，可以用在您们的成绩簿中:</p>
+
+<ul>
+    <li>=average([[Quiz.1]], [[Quiz.4]], [[Assignment.1]])</li>
+    <li>=average(max([[Quiz.1]], [[Quiz.4]], [[Assignment.1]]), min([[Quiz.1]], [[Quiz.4]], [[Assignment.1]]))</li>
+</ul>
+
+<span style="font-weight: bold;">上海师范大学2007级教育技术研究生</span><br style="font-weight: bold;" /><span style="font-weight: bold;">翻译者：耿亮</span><br style="font-weight: bold;" /><span style="font-weight: bold;">校对：陈小红 周黎 况亮</span><br style="font-weight: bold;" /><span style="font-weight: bold;">Email：haimian_ren@163.com</span><br style="font-weight: bold;" /><span style="font-weight: bold;">翻译日期：2008年4月15日</span><br />

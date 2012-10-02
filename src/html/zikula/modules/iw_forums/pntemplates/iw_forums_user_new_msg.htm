@@ -1,0 +1,85 @@
+<script language="javascript">
+	function send(){
+		if(document.new_msg.titol.value==""){
+			alert("<!--[gt text="You didn't write a title for the message."]-->");
+			var error=true;
+		}
+		<!--[if $adjunts neq "0"]-->
+			if(document.new_msg.adjunt.value!="" && "<!--[$extensions]-->".indexOf(document.new_msg.adjunt.value.substring(document.new_msg.adjunt.value.length-3,document.new_msg.adjunt.value.length))==-1  && !error){
+				alert("<!--[gt text="The extension of the attached file isn't correct. The valid extensions are: "]--><!--[$extensions]-->");
+				var error=true;
+			}		
+		<!--[/if]-->
+		if(!error){resposta=confirm("<!--[gt text="Do you really want to send the message?"]-->");}
+		if(!error && resposta){
+			document.new_msg.submit();
+		}
+
+	}
+</script>
+
+<!--[include file="iw_forums_user_menu.htm" fid=$fid fmid=$fmid ftid=$ftid m2=1 m7=1]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='filenew.gif' set='icons/large']--></div>
+	<h2><!--[$name]--> => <!--[gt text="Add a new message"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+	<form  method="post" name="new_msg" id="new_msg" action="<!--[pnmodurl modname="iw_forums" type="user" func="crear_msg"]-->" enctype="multipart/form-data">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forums"]-->" />
+		<input type="hidden" name="fid" value="<!--[$fid]-->" />
+		<input type="hidden" name="ftid" value="<!--[$ftid]-->" />
+		<input type="hidden" name="fmid" value="<!--[$fmid]-->" />	
+		<input type="hidden" name="oid" value="<!--[$oid]-->" />
+		<input type="hidden" name="u" value="<!--[$u]-->" />
+		<table class="usertable">
+			<tr>
+				<td width="150"><!--[gt text="Title of the message"]--></td>
+				<td><input type="text" name="titol" maxlength="100" size="60" value="<!--[$title]-->"></td>
+			</tr>
+			<!--[if $adjunts neq "0"]-->
+				<tr>
+					<td><!--[gt text="Attached file"]--></td>
+					<td><input type="file" name="adjunt" size="50"></td>
+				</tr>
+			<!--[/if]-->
+			<tr>
+			<!--[if $icons neq '']-->
+				<td><!--[gt text="Icon"]--></td>
+				<td>
+					<input type="radio" name="icon" value="" checked />
+					<!--[section name=icons loop=$icons]-->
+						<input type="radio" name="icon" value="<!--[$icons[icons].imgsrc]-->" /><img src="images/smilies/<!--[$icons[icons].imgsrc]-->" alt="" />
+					<!--[/section]-->
+				</td>
+			<!--[else]-->
+				<td colspan="2"><input type="hidden" name="icon" value="" /></td>
+			<!--[/if]-->
+			</tr>
+			<tr>
+				<td colspan="2"><!--[gt text="Message"]--></td>
+			</tr>
+			<tr>
+				<td colspan="2"><textarea name="msg" cols="80" rows="10" id="intraweb"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div class="formOptions" style="text-align:center;">
+						<a href="javascript:send()"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small'   __alt="Create the message" __title="Create the message"]--></a><!--[gt text="Create the message"]-->
+						<!--[if $ftid neq 0]-->
+							<a href="<!--[pnmodurl modname="iw_forums" type="user" func="llista_msg" fid=$fid ftid=$ftid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+						<!--[else]-->
+							<a href="<!--[pnmodurl modname="iw_forums" type="user" func="forum" fid=$fid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+						<!--[/if]-->
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div style="margin:30px;">
+						<!--[$msg|nl2br|pnmodcallhooks|pnvarcensor]-->
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div style="visibility:hidden;"><textarea name="oldmsg" cols="80" rows="10" id="oldintraweb"><!--[$msg]--></textarea></div>
+	</form>
+</div>

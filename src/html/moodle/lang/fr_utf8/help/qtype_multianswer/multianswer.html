@@ -1,0 +1,170 @@
+<!-- $Id: multianswer.html,v 1.3 2010/03/17 18:19:37 martignoni Exp $
+Traduction Joseph Rézeau le 26/06/09 -->
+
+<h1>Question de type Cloze à sous-questions intégrées</h1> 
+<p>
+	Ce type de question, très flexible, est analogue au format Cloze, assez répandu.
+</p>
+<p>
+	Une <em>question</em> de type Cloze se compose d'un texte dans lequel on peut intégrer des <em>sous-questions</em> des différents types suivants :
+</p>
+<ul>
+	<li>
+		sous-questions à réponse courte (code SHORTANSWER ou SA ou MW) sans tenir compte de la casse (majuscules = minuscules) ; 
+	</li>
+	<li>
+		sous-questions à réponse courte (code SHORTANSWER_C ou SAC ou MWC) la casse compte (majuscules # minuscules) ; 
+	</li>
+	<li>
+		sous-questions à réponse numérique (code NUMERICAL ou NM) ;
+	</li>
+	<li>
+		sous-questions à choix multiple (code MULTICHOICE ou MC), s'affichant sous forme d'une liste déroulante dans le texte de la question Cloze ; 
+	</li>
+	<li>
+		sous-questions à choix multiple (code MULTICHOICE_V ou MCV), s'affichant sous forme d'une colonne verticale de boutons-radio ; 
+	</li>
+	<li>
+		sous-questions à choix multiple (code MULTICHOICE_H ou MCVH), s'affichant sous forme d'une ligne horizontale de boutons-radio.
+	</li>
+</ul>
+<p>
+	Il n'existe à ce jour pas d'interface graphique pour créer de telles questions - vous devez les écrire directement dans la boîte de texte ou en importer à partir d'un fichier externe. 
+</p>
+<p>
+	Voici un exemple de texte qui illustre comment inclure les différents types de sous-questions ainsi que les réponses attendues et les éventuels messages de feedback :
+</p>
+<textarea cols="60" rows="25">Cette question comporte du texte dans lequel on a intégré une première sous-question à choix multiples {1:MULTICHOICE:Mauvaise réponse#Feedback pour cette mauvaise réponse~Une autre mauvaise réponse#Feedback pour cette autre mauvaise réponse~=Bonne réponse#Feedback pour la bonne réponse~%50%Réponse qui vaut la moitié des points#Feedback pour la question qui vaut la moitié des points} ; vous devez maintenant répondre à cette deuxième sous-question par une réponse courte{1:SHORTANSWER:Mauvaise réponse#Feedback pour cette mauvaise réponse~=Bonne réponse#Feedback pour la bonne réponse~%50%Réponse qui vaut la moitié des points#Feedback pour la question qui vaut la moitié des points}. Nous avons finalement une question qui demande une réponse numérique avec une décimale {1:NUMERICAL:=23.8:0.1#Feedback pour la bonne réponse 23.8~%50%23.8:2#Feedback pour la réponse qui donne la moitié des points}.
+La sous-question de type QCM peut également être affichée sous forme d'une colonne verticale comme dans la question QCM standard de Moodle.
+{1:MCV:a. Mauvaise réponse#Feedback pour cette mauvaise réponse~b. Une autre mauvaise réponse#Feedback pour cette autre mauvaise réponse~=c. Bonne réponse#Feedback pour la bonne réponse~%50%d. Réponse qui vaut la moitié des points#Feedback pour la question qui vaut la moitié des points}
+<div style="clear:both;">Ou sous forme d'une ligne horizontale (ci-dessous) incluse dans un tableau</div>
+{1:MCH:a. Mauvaise réponse#Feedback pour cette mauvaise réponse~b. Une autre mauvaise réponse#Feedback pour cette autre mauvaise réponse~=c. Bonne réponse#Feedback pour la bonne réponse~%50%d. Réponse qui vaut la moitié des points#Feedback pour la question qui vaut la moitié des points}
+Un exemple de sous-question à réponse courte où la casse compte. Ecrivez le mot moodle tout en capitales {1:SHORTANSWER_C:moodle#Feedback pour avoir écrit moodle en minuscules~=MOODLE#Feedback for avoir écrit MOODLE en capitales ~%50%Moodle#Feedback pour la lettre initiale seule en capitale} 
+Remarquez que les adresses URL comme www.moodle.org et les binettes :-) sont correctement affichées.
+</textarea> 
+<p>
+	Cet exemple apparaîtra ainsi aux étudiants :
+</p>
+<div class="que multianswer clearfix">
+	<div class="info">
+		<span class="accesshide">Question </span>1 
+	</div>
+	<div class="content">
+		<div class="ablock clearfix">
+			<label>Cette question comporte du texte dans lequel on a intégré une première sous-question à choix multiples <label><span><select name="resp1124_1">
+							<option>
+							</option>
+							<option value="2390">
+								Mauvaise réponse
+							</option>
+							<option value="2391">
+								Une autre mauvaise réponse
+							</option>
+							<option value="2392">
+								Bonne réponse
+							</option>
+							<option value="2393">
+								Réponse qui vaut la moitié des points
+							</option>
+						</select></span></label> ; vous devez maintenant répondre à cette deuxième sous-question par une réponse courte<label><input name="resp1124_2" type="text" value="" size="39" /> </label>. Nous avons finalement une question qui demande une réponse numérique avec une décimale <label><input name="resp1124_3" type="text" value="" size="4" /> </label>.
+				<br />
+				<br />
+				La sous-question de type QCM peut également être affichée sous forme d'une colonne verticale comme dans la question QCM standard de Moodle.
+				<br />
+				<br />
+				<label> 
+					<table class="answer">
+						<tr class="r0">
+							<td class="c0 control">
+								<input id="resp1124_2399" name="resp1124_4" type="radio" value="2399" /> 
+							</td>
+							<td class="c1 text ">
+								<label for="resp1124_2399"> a. Mauvaise réponse </label> 
+							</td>
+							<td class="c0 feedback">
+							</td>
+						</tr>
+						<tr class="r1">
+							<td class="c0 control">
+								<input id="resp1124_2400" name="resp1124_4" type="radio" value="2400" /> 
+							</td>
+							<td class="c1 text ">
+								<label for="resp1124_2400"> b. Une autre mauvaise réponse </label> 
+							</td>
+							<td class="c0 feedback">
+							</td>
+						</tr>
+						<tr class="r0">
+							<td class="c0 control">
+								<input id="resp1124_2401" name="resp1124_4" type="radio" value="2401" /> 
+							</td>
+							<td class="c1 text ">
+								<label for="resp1124_2401"> c. Bonne réponse </label> 
+							</td>
+							<td class="c0 feedback">
+							</td>
+						</tr>
+						<tr class="r1">
+							<td class="c0 control">
+								<input id="resp1124_2402" name="resp1124_4" type="radio" value="2402" /> 
+							</td>
+							<td class="c1 text ">
+								<label for="resp1124_2402"> d. Réponse qui vaut la moitié des points </label> 
+							</td>
+							<td class="c0 feedback">
+							</td>
+						</tr>
+					</table>
+				</label>
+				<br />
+				<br />
+				<div style="clear:both;">
+					Ou sous forme d'une ligne horizontale (ci-dessous) incluse dans un tableau
+				</div>
+				<br />
+				<label> 
+					<table class="answer">
+						<td class="c0 control">
+							<input id="resp1124_2403" name="resp1124_5" type="radio" value="2403" /> 
+						</td>
+						<td class="c1 text ">
+							<label for="resp1124_2403"> a. Mauvaise réponse </label> 
+						</td>
+						<td class="c0 feedback">
+						</td>
+						<td class="c0 control">
+							<input id="resp1124_2404" name="resp1124_5" type="radio" value="2404" /> 
+						</td>
+						<td class="c1 text ">
+							<label for="resp1124_2404"> b. Une autre mauvaise réponse </label> 
+						</td>
+						<td class="c0 feedback">
+						</td>
+						<td class="c0 control">
+							<input id="resp1124_2405" name="resp1124_5" type="radio" value="2405" /> 
+						</td>
+						<td class="c1 text ">
+							<label for="resp1124_2405"> c. Bonne réponse </label> 
+						</td>
+						<td class="c0 feedback">
+						</td>
+						<td class="c0 control">
+							<input id="resp1124_2406" name="resp1124_5" type="radio" value="2406" /> 
+						</td>
+						<td class="c1 text ">
+							<label for="resp1124_2406"> d. Réponse qui vaut la moitié des points </label> 
+						</td>
+						<td class="c0 feedback">
+						</td>
+					</tr>
+				</table>
+			</label>
+			<br />
+			<br />
+			<br />
+			<br />
+			Un exemple de sous-question à réponse courte où la casse compte. Ecrivez le mot moodle tout en capitales <label><input name="resp1124_6" type="text" value="" size="6" /> </label> 
+			<br />
+			Remarquez que les adresses URL comme <a href="http://www.moodle.org">www.moodle.org</a> et les binettes <img alt="smile" width="15" height="15" src="http://132.208.141.198/moodle_head/pix/s/smiley.gif" /> sont correctement affichées.
+		</div>
+	</div>

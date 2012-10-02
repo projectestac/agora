@@ -1,0 +1,18 @@
+<!--[include file="iw_jclic_user_menu.htm"]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+	<h2><!--[gt text="List of activities that have assigned"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+	<!--[if count($activities) > 0]-->
+		<!--[foreach item="activity" from="$activities"]-->
+			<div id="act_<!--[$activity.jid]-->">
+				<!--[include file="iw_jclic_user_assignedContent.htm"]-->
+			</div>
+		<!--[/foreach]-->
+	<!--[else]-->
+		<!--[gt text="You have no assignment"]-->
+	<!--[/if]-->
+
+	<div style="height:20px;">&nbsp;</div>
+	<a href="<!--[pnmodurl modname=iw_jclic type=user func=module]-->"><!--[gt text="About this module"]--></a>
+</div>

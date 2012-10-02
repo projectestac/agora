@@ -1,0 +1,21 @@
+<!--[include file=user/downloads_user_header.htm]-->
+	<div id="dl_user_mainmenu">
+		<!--[dl_mainuserlinks id="dl_usermain_menu"]-->
+	</div>
+	<h1 class="dl_outputhead"><!--[gt text="Security Check"]--></h1>
+	<div class="captchacontainer">
+		<form action="<!--[pnmodurl modname="Downloads" type="user" func="hand_out"]-->" method="post" enctype="multipart/form-data">
+		<div>
+	 	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	 	<input type="hidden" name="lid" value="<!--[$lid]-->" />
+	 		 	
+	 	<!--[dl_show_cap cap=$thecaptcha]--><br /><br />
+		
+		<!--[gt text="Please enter the code from the picture. If the code is ok, the download will start automatically "]--><br /><br />
+	  	<label for="dl_captcha"><!--[gt text="Security Code:"]--></label>
+		<input id="dl_captcha "type="text" name="password" /><br /><br />
+	  	<input type="submit" name="Submit" value="<!--[gt text="Check code"]-->" />
+	  	</div>
+		</form>
+	</div>
+<!--[include file=user/downloads_user_footer.htm]-->

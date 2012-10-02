@@ -1,0 +1,27 @@
+<!--[include file="IWstats_admin_menu.htm"]-->
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">
+        <!--[pnimg modname='IWstats' src='admin.gif' set='images' __alt='Statistics' ]-->
+    </div>
+    <h2><!--[gt text="Delete all the entries with a given ip"]--></h2>
+    <form id="delete" class="z-form" action="<!--[pnmodurl modname='IWstats' type='admin' func='deleteIp']-->" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="confirm" value="1" />
+        <input type="hidden" name="ip" value="<!--[$ip]-->" />
+        <input type="hidden" name="authid" value="<!--[pnsecgenauthkey module='IWstats']-->" />
+        <div>
+            <!--[gt text="Confirm that you want to delete all the entries with the ip %s" tag1=$ip]-->
+        </div>
+        <div class="z-center">
+            <span class="z-buttons">
+                <a href="javascript:document.forms['delete'].submit();">
+                    <!--[pnimg modname='core' src='button_ok.gif' set='icons/small']--> <!--[gt text="Confirm"]-->
+                </a>
+            </span>
+            <span class="z-buttons">
+                <a href="#" onclick ='javascript:history.back(-1)'>
+                    <!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--> <!--[gt text="Cancel"]-->
+                </a>
+            </span>
+        </div>
+    </form>
+</div>

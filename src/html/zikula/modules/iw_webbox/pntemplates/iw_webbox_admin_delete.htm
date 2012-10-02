@@ -1,0 +1,21 @@
+<!--[include file="iw_webbox_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/large' __alt=$templatetitle]--></div>
+	<h2><!--[gt text="Remove URL reference"]--></h2>
+	<form class="pn-adminform" action="<!--[pnmodurl modname="iw_webbox" type="admin" func="delete"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<div>
+			<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_webbox"]-->" />
+			<input type="hidden" name="confirmation" value="1" />
+			<input type="hidden" name="pid" value="<!--[$pid|pnvarprepfordisplay]-->" />
+			<div class="pn-adminformrow">
+				<p><!--[gt text="Confirm remove the URL reference"]-->: <strong><!--[$ref]--></strong></p>
+			</div>
+			<div class="pn-adminformrow pn-adminformbuttons">
+				<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Confirm deletion?" __title="Confirm deletion?"]--><!--[gt text="Confirm deletion?"]-->
+				<a href="<!--[pnmodurl modname=iw_webbox type=admin func=main]-->">
+					<!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]-->
+				</a>
+			</div>
+		</div>
+	</form>
+</div>

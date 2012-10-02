@@ -1,0 +1,85 @@
+<h1>사용자 업로드</h1>
+
+<p>우선 <strong>보통은 일괄적으로 사용자를 가져오는 것이 꼭 필요한 것은 아니다</strong>는 점을 기억하기 바란다.  관리작업을 좀 덜기 위해서는 
+기존의 외부 데이터베이스를 연결하는 방법이나 사용자 스스로 자신의 계정을 생성하는 방법등 관리자의 직접적인 수작업이 필요없는 외부 인증 방법을 모색해야 할 것이다. 
+관리 메뉴의 사용자 인증 영역을 참조하기 바란다.</p>
+<p>문서 파일에서 다수의 사용자 계정을 가져오길 원한다면, 문서 파일을 다음과 같이 형식화할 필요가 있다.</p>
+
+<ul>
+  <li>파일의 각 줄은 하나의 레코드를 포함한다.</li>
+  <li>각 레코드는 컴마(혹은 다른 분리자)로 나뉘어진 일련의 데이터로 구성된다.</li>
+  <li>파일의 첫 레코드는 특별한 것으로 여기에는 필드의 명칭들을 포함된다. 이를통해 나머지 데이터들의 형식이 정의된다.
+    <blockquote>
+      <p><strong>필수 필드명:</strong>각 사용자에 대해 정의되어야 할, 첫번째 레코드에 반드시 포함되어야 할 필드들</p>
+      <p><code>firstname, lastname</code> - 삽입시,  <code>username</code> - 업데이트 시</p>
+      <p><strong>선택적 필드명:</strong> 아래의 모든 것들은 선택 사항임. 만일 어떤 값이 파일의 필드에 존재하면 그 값이 쓰이고 그렇지 않으면 필드 기본값이 대체됨</p>
+      <p><code>institution, department, city, country, lang, auth, ajax, timezone, idnumber, icq, phone1, phone2, address, url, description, mailformat, maildisplay, htmleditor, autosubscribe, emailstop</code></p>
+      <p><strong>신상명세 추가항목 필드명:</strong> 선택사항으로 xxxxx 는 실제 신상명세에 추가 항목에 쓸 필드명(예시 - 학번, 주민등록 번호)</p>
+      <p><code>profile_field_xxxxx</code></p>
+      <p><strong>특정 필드명:</strong> 아래에 보는 바와 같이 사용자명의 변경이나 삭제시 사용</p>
+      <p><code>deleted, oldusername</code></p>
+      <p><strong>등록 필드명(선택사항):</strong> 여기서 강좌명은 강좌의 &quot;단축명&quot; 을 의미한다. - 만약 이 값이 존재하면 
+         사용자는 그 강좌에 등록되어 있는 것이다.  &quot;Type&quot; 은 그 강좌와 관련된 역할 유형을 의미하는 것이다. 이 값이 1이면 배움터의 
+         기본 역활, 2이면 교수자, 3이면 편집권한이 없는 (보조)교사이다. 역할 필드는 역할의 단축명이나 식별부호(숫자로된 역할명은 지원하지 않음)를 사용하여 
+         직접 특정 역할을 지명할 수도 있다. 또한 사용자는 강좌의 특정 모둠(course1의 group1, course2의 group2 등)에 지명될 수도 있다.  
+         모둠은 다시 이의 명칭이나 식별부호에 의해 구별된다.(숫자로된 모둠명은 지원하지 않음) 또한 각 강좌에 대한 등록 지속기간을 날수로 설정할 수 있다(course1에 enrolperiod1, course2에 enrolperiod2 등.)</p>
+      <p><code>course1, type1, role1, group1, enrolperiod1, course2, type2, role2, group2, enrolperiod2, etc.</code></p>
+    </blockquote>
+    </li>
+  <li>데이터 내의 콤마는 반드시 &amp;#44 처럼 코드화해야 한다. - 내부 스크립트가 이를 자동적으로 컴마로 복호화할 것이다.</li>
+  <li>부울리안 필드는 1을 참, 0을 거짓으로 처리한다.</li>
+</ul>
+<p>다음은 가져올 수 있는 유효한 파일 형식의 예시이다.</p>
+<p><code>username, password, firstname, lastname, email, lang, idnumber, maildisplay, course1, group1, type1, enrolperiod1<br />
+jonest, verysecret, Tom, Jones, jonest@someplace.edu, en, 3663737, 1, Intro101, Section 1, 1, 30<br />
+reznort, somesecret, Trent, Reznor, reznort@someplace.edu, en_us, 6736733, 0, Advanced202, Section 3, 3, 90
+</code></p>
+
+<h2>템플릿</h2>
+<p>템플릿으로 처리되는 기본 값에는 다음과 같은 것들이 있다.</p>
+<ul>
+<li><code>%l</code> - 성(lastname)으로 대체</li>
+<li><code>%f</code> - 이름(firstname)으로 대체</li>
+<li><code>%u</code> - 사용자 아이디(username)으로 대체</li>
+<li><code>%%</code> - %로 대체</li>
+</ul>
+<p>퍼센트(%)표식 사이와 코드문자(l, f 혹은 u)다음에는 아래의 변경자(modifiers)가 허용된다.</p>
+<ul>
+<li>(-) 뺄셈기호 - 이 기호의 뒤에 나오는 코드문자에 해당하는 정보는 소문자로 대체된다.</li>
+<li>(+) 덧셈기호 - 이 기호의 뒤에 나오는 코드문자에 해당하는 정보는 대문자로 대체된다.</li>
+<li>(~) 틸다기호 - 코드문자에 의해 지정된 정보는 틸다 문자뒤에 붙는다.</li>
+<li>십진수 - 코드문자에 의해 지정된 정보는 그 숫자만큼의 길이로 잘라진다.</li>
+</ul>
+
+<p>예를 들어, 만일 이름이 John이고 성이 Doe라면, 지정된 템플릿에 의해 다음과 같은 결과를 얻게 될 것이다.</p>
+<ul>
+<li>%l%f = DoeJohn</li>
+<li>%l%1f = DoeJ</li>
+<li>%-l%+f = doeJOHN</li>
+<li>%-f_%-l = john_doe</li>
+<li>http://www.example.com/~%u/ = http://www.example.com/~jdoe/ (만일 사용자 아이디가 jdoe 이거나 %-1f%-l 일 경우)</li>
+</ul>
+<p>템플릿 처리는 오직 기본값에 대해서만 이루어지고, CSV 파일에 값이 들어 있을 때는 처리하지 않는다.</p>
+<p>제대로 된 무들 사용자 아이디를 생성하기 위해서는 사용자 아이디는 항상 소문자로 바뀌어야 한다. 게다가 만일 사이트 정책으로 &quot;사용자 아이디에 확장문자 허용&quot; 옵션을 꺼 둘 경우에는,
+ 대소문자가 섞인 경우나, 숫자, 대쉬(-) 그리고 마침표(.)는 제거된다. 예를 들어 확장문자 허용시 이름이 John Jr. 그리고 성이 Doe인 경우 사용자 아이디  %-f_%-l 는  john jr._doe로 얻어질 수 있겠지만,
+  확장문자를 허용하지 않을 경우에는 johnjr.doe가 얻어질 것이다.</p>
+<p>만일 &quot;새 사용자명 복수 처리&quot; 설정을 통해 계수(counter)를 붙일 경우, 복수의 아이디에는 템플릿에 의해 자동으로 생성된 계수가 순서대로 붙을 것이다.
+예를 들어, CSV파일에 특별히 지정된 사용자 아이디없이 John Doe, Jane Doe 그리고 Jenny Doe가 있다면, 계수를 포함한 사용자명 복수처리설정을 해 놓으면 각자의 사용자 아이디는 
+ jdoe, jdoe2 및 jdoe3 등으로 생성될 것이다.
+</p>
+
+<h2>기존 계정의 갱신</h2>
+
+<p>기본적으로 무들은 새 사용자 계정 생성을 전제로 하기 때문에, 기존 계정과 일치하는 사용자 아이디가 있을 경우 레코드들을 생략한다. 하지만, 만일 갱신을 허용하는 경우, 기존 계정이 갱신될 수 있다.</p>
+
+<p>기존 계정을 갱신할 경우 사용자 아이디도 동시에 변경할 수 있다. "이름변경 허용"을 <b>예</b>로 설정하고 파일의 필드명에 <code>oldusername</code>을 포함시키면 된다.</p>
+
+<p><b>경고:</b> 기존 계정 갱신시 발생하는 어떠한 오류도 사용자에게 심각한 영향을 미치게 된다. 갱신할 때 옵션 사용에 주의를 기울여야 한다.</p>
+
+<h2>계정의 삭제</h2>
+<p>만일 <code>deleted</code> 필드가 존재하면, 이 값이 1인 사용자는 삭제될 것이다. 이 경우에, <code>username</code> 이외의 모든 필드는 생략될 수 있다.</p>
+<p>계정의 삭제 및 갱신은 하나의 CSV파일로 이루어질 수 있다. 예를 들어 다음 파일은 사용자 Tom Jones을 갱신하고 사용자 아이디 reznort를 삭제하게 된다.</p>
+<p><code>username, firstname, lastname, deleted<br />
+jonest, Tom, Jones, 0<br />
+reznort, , , 1
+</code></p>

@@ -1,0 +1,15 @@
+<p align="center"><b>Asistencia</b></p>
+<p align="center"> 
+  <?php
+	  	require_once($CFG->libdir.'/blocklib.php');
+	  	$blockobject = block_instance('attendance'); 
+	  	echo get_string('version').": $blockobject->release ($blockobject->version)";
+	?>
+</p>
+<p align="left">Las sesiones de Asistencia se muestran aquí. Si no aparecen sesiones, pulse en 
+  la pestaña &quot;Añadir&quot; para crear una nueva sesión. </p>
+<p align="left">Inicie la asistencia pulsando en el icono de color verde bajo el menú &quot;acciones&quot; 
+ (parte izquierda). </p>
+<p align="left">Edite cada sesión haciendo clic en el icono central &quot;editar sesión&quot;. Una vez haya finalizado la recogida de Asistencia, puede editar la sesión haciendo clic en la descripción. 
+</p>
+<p align="left">Elimine por completo la sesión pulsando en el icono de la derecha.</p>

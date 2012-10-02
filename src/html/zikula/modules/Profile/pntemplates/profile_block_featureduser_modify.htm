@@ -1,0 +1,23 @@
+<!--[* $Id: profile_block_featureduser_modify.htm 69 2009-12-05 10:28:06Z mateo $ *]-->
+
+<div class="z-formrow">
+    <label for="profile_featured_username"><!--[gt text='User name' domain='module_profile']--></label>
+    <input id="profile_featured_username" type="text" name="username" value="<!--[$username|pnvarprephtmldisplay]-->" size="20" maxlength="255" />
+</div>
+
+<div class="z-formrow">
+    <label for="profile_block_fields"><!--[gt text='Information to show' domain='module_profile']--></label>
+    <div id="profile_block_fields">
+        <!--[foreach from=$dudarray key='dud_label' item='dud_display']-->
+        <div class="z-formlist">
+            <input id="featured_field_<!--[$dud_label|pnvarprepfordisplay]-->" type="checkbox" name="fieldstoshow[]" value="<!--[$dud_label|pnvarprepfordisplay]-->"<!--[if isset($fieldstoshow.$dud_label)]--> checked="checked"<!--[/if]--> />
+            <label for="featured_field_<!--[$dud_label|pnvarprepfordisplay]-->"><!--[$dud_display|pnvarprepfordisplay]--></label>
+        </div>
+        <!--[/foreach]-->
+    </div>
+</div>
+
+<div class="z-formrow">
+    <label for="profile_featured_regdate"><!--[gt text='Show registration date' domain='module_profile']--></label>
+    <input id="profile_featured_regdate" type="checkbox" name="showregdate" value="1"<!--[if $showregdate]--> checked="checked"<!--[/if]--> />
+</div>

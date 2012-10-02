@@ -1,0 +1,93 @@
+<h2>Filterkonfiguration</h2>
+
+<p>In der Filterkonfiguration legen Sie fest, welche Filter bei der Anzeige von Seiteninhalten und in welcher Reihenfolge angewandt werden. Für einige Filter stehen zusätzliche Einstellungsoptionen zur Verfügung. Filter beeinflussen die Darstellung der meisten Textseiten, kurz bevor sie nutzerseitig mit dem Webbrowser dargestellt werden.</p>
+
+<p>Filter sind erweiterbare Ressourcen (Plugins). Unter 
+   <a href="http://download.moodle.org/modules/filters.php">
+   http://download.moodle.org/modules/filters.php</a> finden Sie eine Reihe weiterer Filter für Ihr System.</p>
+
+<p>Wählen Sie Filter aus, indem Sie das Augensymbol anklicken und sie damit sichtbar machen. Wenn Sie mehr als einen Filter aktiviert haben, können Sie die Reihenfolge der Filter mit den Aufwärts- und Abwärtspfeilen festlegen.</p> 
+
+<h3>Algebraisches Zeichensystem</h3>
+
+<div class="indent">
+<p>Dieser Filter ermöglicht es, in Verbindung mit TeX (s.u.) Formeln im TeX-Format darzustellen.</p>
+</div>
+
+<h3>TeX-Zeichensatz</h3>
+
+<div class="indent">
+<p>TeX-Beschreibungen werden vorwiegend zur Darstellung mathematischer Formeln innerhalb von Moodle verwendet, z.B. $$ sqrt(a+b) $$ (die $$ sind die Kennzeichnung von Anfang und Ende des Formats).</p>
+
+<p>Moodle verwendet externe Programme, um aus diesen Zeichen ein Bild zu erzeugen. Der Filter sucht zunächst einen LaTeX-Umwandler (Ghostscript wird ebenfalls genutzt). Wenn dieser nicht zur Verfügung steht, verwendet der Filter ein einfacheres Programm <i>MimeTeX</i>, das im Moodle-Paket vorinstalliert ist. LaTex erlaubt es, alle Funktionen von TeX zu verwenden, MimeTeX unterstützt nur die Zeichendarstellung in einem mathematischen Unterbereich.</p>
+<p>GhostScript ist ebenso wie LaTeX für alle Betriebssysteme erhältlich (eine gängige Variante von LaTeX für Windows nennt sich MikTeX).</p>
+
+<p>Auf der Einstellungsseite können Sie die Pfade zu den LaTeX- und Ghostscript-Programmen setzen, zusammen mit LaTeX-Vorzeichen.</p>
+
+<h4>Weitere Informationen</h4>
+<p><a href="http://www.forkosh.com/mimetex.html">MimeTeX</a><br/>
+<a href="http://www.miktex.org/">MiKTeX</a><br/>
+<a href="http://www.latex-project.org/">LaTeX</a><br/>
+<a href="http://www.ghostscript.com/">GhostScript</a></p>
+</div>
+
+<h3>Wortzensur</h3>
+
+<div class="indent">
+<p>Der Filter "Wortzensur" durchsucht die Texte nach "schlechten Wörtern" aus einer vordefinierten Liste. Jedes Sprachpaket liefert seine eigene vordefinierte Liste, aber Sie können Ihre eigene Liste benutzen. Auf der Einstellungsseite können Sie Ihre eigene Sperrliste zusammenstellen. Nutzer/innen sehen diese Begriffe als schwarzen Block, wobei per Mouseover der Originalbegriff angezeigt wird.</p>
+</div>
+
+<h3>Automatische Verlinkung zu den Namen der Arbeitsmaterialien</h3>
+
+<div class="indent">
+<p>Der Filter durchsucht die Texte nach den Titeln der Arbeitsmaterialien im Kurs. Gefundene Begriffe werden hervorgehoben und mit einem Link zum betreffenden Arbeitsmaterial versehen. Um dies effektiv in Kursen nutzen zu können, verwenden Sie bitte aussagekräftige Titel. Z.B. wäre ein Titel "Einführung" schlecht, weil <b>jedes</b> Vorkommen des Wortes "Einführung" verlinkt würde, unabhängig davon, worauf es sich jeweils bezieht.</p>
+</div>
+
+<h3>Automatische Verlinkung zu den Aktivitätsnamen</h3>
+
+<div class="indent">
+<p>Die gleiche Funktion wie eben finden Sie auch für Namen von Lernaktivitäten. Auch hier wäre z.B. ein aussageschwacher Titel "Test" unvorteilhaft, weil <b>jedes</b> Vorkommen des Wortes "Test" im Text verlinkt würde, unabhängig vom jeweiligen Zusammenhang.</p>
+</div>
+
+<h3>Automatische Verlinkung zum Glossar</h3>
+
+<div class="indent">
+<p>Der Filter durchsucht die Texte nach Schlüsselbegriffen aus allen Glossaren eines Kurses und erzeugt einen Link auf die jeweilige Begriffserklärung. Beachten Sie bitte, dass bei jedem Glossareintrag die Verlinkung erlaubt sein muss.</p>
+</div>
+
+<h3>Automatische Verlinkung zu Wiki-Seiten</h3>
+
+<div class="indent">
+<p>Der Filter durchsucht Texte nach den Namen von Wiki-Seiten und verlinkt dorthin.</p>
+</div>
+
+<h3>Automatische Verlinkung zur Datenbank</h3>
+
+<div class="indent">
+<p>Der Filter durchsucht Texte nach Begriffen in der Datenbank (bzw. in Datenbanken). Gefundene Begriffe werden mit einem Link zum betreffenden Datenbank-Eintrag versehen.</p>
+</div>
+
+<h3>Spamschutz</h3>
+
+<div class="indent">
+<p>Der Spamschutz-Filter durchsucht Texte nach E-Mail-Adressen. Vorhandene E-Mail-Adressen werden so verändert und verborgen, dass sie bei der automatisierten Suche von Internetrobotern nicht erkannt werden können. Diese Funktion reduziert das Spam-Risiko für Moodle-Seiten, die öffentlich zugänglich sind.</p>
+</div>
+
+<h3>Multimedia-Plugins</h3>
+
+<div class="indent">
+<p>Der Filter durchsucht die Texte nach den Namen von Multimedia-Ressourcen im Kurs. Gefundene Begriffe mit einem Link zur betreffenden Ressource versehen. Z.B. liefert der Link auf eine MP3-Audiodatei ein Abspielwerkzeug zur intuitiven Bedienung (Abspielen, Pause, Vorwärts/Rückwärtsspulen).</p>
+</div>
+
+<h3>Mehrsprachiger Inhalt</h3>
+
+<div class="indent">
+<p>Dieser Filter erlaubt es, Texte in verschiedenen Sprachen anzuzeigen. Es wird dann genau die Sprachalternative angezeigt, die als bevorzugte Sprache im Nutzerprofil eingetragen ist. Erstellen Sie für die Verwendung dieses Filters Ihre Texte zunächst in mehreren Sprachen (im gleichen Dokument). Danach schließen Sie jede Sprache mit den folgenden Tags ein:</p>
+  <pre>      &lt;span lang="XX" class="multilang"&gt;Ihr_Inhalt&lt;/span&gt;</pre>
+</div>
+
+<h3>Tidy</h3>
+
+<div class="indent">
+<p>Der Tidy-Filter prüft Texte auf HTML-Code-Elemente. Gefundene HTML-Codes werden geprüft und so ergänzt, dass sie gültigen HTML-Code enthalten. Die Tidy-Funktion muss für diesen Filter in Ihrem PHP-System aktiviert sein.</p>
+</div>

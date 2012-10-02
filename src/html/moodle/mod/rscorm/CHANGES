@@ -1,0 +1,3669 @@
+2007-01-25 Thursday 21:49  bobopinna
+
+	* lib.php, loadSCO.php, locallib.php: 
+	
+	Fixed external manifest problems
+
+2007-01-25 Thursday 15:39  bobopinna
+
+	* locallib.php: 
+	
+	Fixed a bug in external package validation
+
+2007-01-25 Thursday 15:20  bobopinna
+
+	* locallib.php: 
+	
+	Fixed some problems in package validation
+
+2007-01-25 Thursday 04:24  bobopinna
+
+	* db/upgrade.php: 
+	
+	Added conditional rename/add for field external
+
+2007-01-24 Wednesday 23:33  bobopinna
+
+	* db/upgrade.php: 
+	
+	Changed drop and add with rename Fixed a problem with md5hash field
+
+2007-01-24 Wednesday 18:39  bobopinna
+
+	* lib.php, locallib.php, mod_form.php, version.php: 
+	
+	renamed external to updatefreq renamed md5_result to md5hash
+
+2007-01-24 Wednesday 18:32  bobopinna
+
+	* db/: install.xml, upgrade.php: 
+	
+	renamed field external changed it to updatefreq renamed filed
+	md5_result in md5hash
+
+2007-01-24 Wednesday 15:27  csantossaenz
+
+	* locallib.php: 
+	
+	Added code to the scorm_view_display function to update the SCORM
+	activities which have to be updated every time they are used
+
+2007-01-24 Wednesday 15:26  csantossaenz
+
+	* lib.php: 
+	
+	Added code to the scorm_cron function to update the SCORM activity
+	every day when this option is selected
+
+2007-01-22 Monday 16:48  csantossaenz
+
+	* locallib.php: 
+	
+	Corrected a warning related to a variable which could be used with
+	no assigned value
+
+2007-01-20 Saturday 05:20  skodak
+
+	* report.php: 
+	
+	MDL-8161 fixed displaying of submitted values in SCORM reports
+
+2007-01-19 Friday 04:32  bobopinna
+
+	* report.php, report.php, report.php: 
+	
+	Fixed an error in $score initialization
+
+2007-01-18 Thursday 23:54  csantossaenz
+
+	* locallib.php: 
+	
+	Added code to allow the remote package update with a php later
+	version than 4.2
+
+2007-01-18 Thursday 20:05  csantossaenz
+
+	* version.php, db/upgrade.php: 
+	
+	Added the field external to the mdl_scorm table
+
+2007-01-17 Wednesday 23:56  csantossaenz
+
+	* lib.php: 
+	
+	Modified scorm module to allow remote packages updating
+
+2007-01-17 Wednesday 23:53  csantossaenz
+
+	* locallib.php: 
+	
+	Modified scorm module to allow remote packages updating
+
+2007-01-17 Wednesday 23:38  csantossaenz
+
+	* version.php: 
+	
+	Added a field to scorm table to store the ckecksum of a remote
+	package
+
+2007-01-17 Wednesday 23:31  csantossaenz
+
+	* db/upgrade.php: 
+	
+	added a field to store ckecksum of a remote package
+
+2007-01-16 Tuesday 22:08  bobopinna
+
+	* loadSCO.php: 
+	
+	modified dirname call to scorm_dirname that works also with URLs
+
+2007-01-16 Tuesday 22:05  bobopinna
+
+	* datamodel.php: 
+	
+	added scorm 2004 sequencing/navigation support
+
+2007-01-16 Tuesday 22:03  bobopinna
+
+	* datamodels/: scorm_13lib.php, scormlib.php, sequencinglib.php: 
+	
+	new sequencing engine
+
+2007-01-16 Tuesday 22:01  bobopinna
+
+	* datamodels/scorm_13.js.php: 
+	
+	fixed some typos. removed all tabs
+
+2007-01-16 Tuesday 21:23  bobopinna
+
+	* validate.php: 
+	
+	moved in locallib.php as a function
+
+2007-01-16 Tuesday 21:21  bobopinna
+
+	* lib.php, locallib.php: 
+	
+	Moved validation.php in locallib.php as a function. Now is called
+	by lib.php add/updateinstance()
+
+2007-01-16 Tuesday 21:18  bobopinna
+
+	* mod_form.php: 
+	
+	The new edit page using QuickForm lib
+
+2007-01-16 Tuesday 21:16  bobopinna
+
+	* mod.html: 
+	
+	substitute by the new mod_form.php
+
+2007-01-15 Monday 02:58  stronk7
+
+	* db/: mysql.sql, postgres7.sql: 
+	
+	Deleting deprecated .sql files. MDL-7264 Byeeez!
+
+2007-01-14 Sunday 04:13  stronk7
+
+	* config.html: 
+	
+	Now all the modules global config pages are valid XML. Related to
+	MDL-7861
+
+2007-01-12 Friday 20:17  csantossaenz
+
+	* validate.php: 
+	
+	The second paremeter has been removed from the
+	required_param($reference) call for allow URL
+
+2007-01-11 Thursday 16:06  moodler
+
+	* view.php: 
+	
+	FIxed up the intro boxes  XHTML Strict
+
+2007-01-08 Monday 17:14  skodak
+
+	* locallib.php: 
+	
+	MDL-7861 new class .icon and .iconsmall
+
+2007-01-07 Sunday 03:23  skodak
+
+	* mod.html: 
+	
+	MDL-8062 Remove name attribute from <form> and related javascript
+	code cleanup (tested with FF, IE, Konq and Opera)
+
+2007-01-05 Friday 05:32  skodak
+
+	* config.html, locallib.php: 
+	
+	MDL-8062 1.3 Remove name attribute from <form> and fix focus
+	everywhere - more changes ahead
+
+2007-01-05 Friday 02:23  skodak
+
+	* locallib.php, player.php, view.php: 
+	
+	MDL-8050 1.2 Remove all target="_top" - refactoring of previous
+	commit
+
+2007-01-04 Thursday 03:33  skodak
+
+	* datamodels/sequencinglib.php: 
+	
+	MDL-8049 Remove all language=Javascript from javascript includes
+
+2007-01-03 Wednesday 22:44  moodler
+
+	* loadSCO.php, mod.html, player.php, datamodels/aicclib.php,
+	datamodels/scorm_12lib.php, datamodels/scorm_13lib.php: 
+	
+	Bend over for XHTML 1.0 Strict ...  MDL-8049
+	
+	Removed Javascript language attribute tags and added CDATA
+
+2006-12-19 Tuesday 16:55  csantossaenz
+
+	* datamodels/scorm_13.js.php: 
+	
+	Fixed a problem with double indexed elements in the GetValue method
+
+2006-12-19 Tuesday 16:37  csantossaenz
+
+	* datamodels/scorm_13.js.php: 
+	
+	Fixed a problem with double indexed elements in the GetValue method
+
+2006-12-12 Tuesday 19:57  csantossaenz
+
+	* datamodels/scorm_13.js.php: 
+	
+	Fixed problem with the update of cmi.entry adding conditions in the
+	first php block
+
+2006-12-11 Monday 23:14  bobopinna
+
+	* version.php: 
+	
+	Added sequencing db support
+
+2006-12-11 Monday 23:13  bobopinna
+
+	* db/: install.xml, upgrade.php: 
+	
+	Added sequencing tables
+
+2006-12-11 Monday 23:12  bobopinna
+
+	* datamodels/scormlib.php: 
+	
+	Added sequencing manifest parsing and db store
+
+2006-12-06 Wednesday 02:34  tjhunt
+
+	* restorelib.php: 
+	
+	There was some random code between two functions definitions that
+	was giving errors on restore. I assume it was just a copy and paste
+	error, so I have deleted the offending lines so that restore works.
+	
+	However, someone who understands SCORM should review this.
+
+2006-11-30 Thursday 06:31  skodak
+
+	* aicc.php: 
+	
+	MDL-7741 missing ? in start php tag; backported from HEAD
+
+2006-11-30 Thursday 06:30  skodak
+
+	* aicc.php: 
+	
+	MDL-7741 missing ? in start php tag
+
+2006-11-28 Tuesday 11:04  moodler
+
+	* locallib.php, player.php: 
+	
+	Merged better checks for datamodel inclusion from stable
+
+2006-11-28 Tuesday 11:02  moodler
+
+	* locallib.php, player.php: 
+	
+	Better checks when loading datamodel
+
+2006-11-28 Tuesday 10:53  moodler
+
+	* player.php: 
+	
+	FIxed problem when scorm->version is bad
+
+2006-11-28 Tuesday 10:50  moodler
+
+	* player.php: 
+	
+	the version was blank on a package I tried ... this now gives it
+	some sort of reasonable default (scorm_12)
+
+2006-11-27 Monday 00:20  skodak
+
+	* lib.php: 
+	
+	MDL-7434 all images that convey information should have alt text to
+	convey that information - part 3
+
+2006-11-22 Wednesday 00:12  bobopinna
+
+	* aicc.php, api.php, backuplib.php, config.html, lib.php,
+	loadSCO.php, locallib.php, player.php, report.php, restorelib.php,
+	version.php, datamodels/scorm_12.js.php,
+	datamodels/scorm_12lib.php, datamodels/scorm_13lib.php,
+	datamodels/scormlib.php, db/access.php, db/install.xml,
+	db/mysql.sql, db/upgrade.php: 
+	
+	Splitted scoes optional data in a new table
+
+2006-11-12 Sunday 16:55  skodak
+
+	* player.php, report.php, view.php: 
+	
+	fixed obsoleted use of course->category to find site course - now
+	used SITEID instead MDL-1899
+
+2006-11-12 Sunday 01:23  skodak
+
+	* datamodels/scormlib.php: 
+	
+	we are going 100% unicode now - removed use of $CFG->unicodedb and
+	current_charset(); MDL-7439 - part 2, only hotpot and wiki left
+
+2006-11-09 Thursday 15:21  toyomoyo
+
+	* db/: migrate2utf8.php, migrate2utf8.xml: 
+	
+	drop utf8 support from HEAD MDL-6332
+
+2006-11-03 Friday 00:30  bobopinna
+
+	* lib.php: 
+	
+	Fixed an Hystoric problem with & in aicc_script prerequisites
+	during package importing Now Moodle is really SCORM 1.2 fully
+	compliant
+
+2006-11-03 Friday 00:15  bobopinna
+
+	* locallib.php: 
+	
+	Fixed a storic problem with & during package import NOW Moodle full
+	support prerequisites
+
+2006-11-02 Thursday 23:55  bobopinna
+
+	* report.php, datamodels/scormlib.php: 
+	
+	removed white spaces
+
+2006-11-02 Thursday 23:19  bobopinna
+
+	* lib.php: 
+	
+	Fixed a small problem with whatgrade field
+
+2006-11-02 Thursday 23:17  bobopinna
+
+	* report.php: 
+	
+	Added a missing variable definition
+
+2006-11-02 Thursday 23:15  bobopinna
+
+	* datamodels/: scorm_12lib.php, scormlib.php: 
+	
+	Fixed a storic problem with & in prerequisites definition Now
+	finally Moodle has a complete aicc_script conformity with SCORM 1.2
+
+2006-11-02 Thursday 23:12  bobopinna
+
+	* datamodels/scorm_13.js.php: 
+	
+	Fixed several RegExp to fit ADL Test Suite
+
+2006-11-02 Thursday 23:10  bobopinna
+
+	* datamodels/scorm_12.js.php: 
+	
+	Removed isadmin() calls
+
+2006-10-31 Tuesday 19:37  bobopinna
+
+	* backuplib.php, backuplib.php, restorelib.php: 
+	
+	Fixed a typo
+
+2006-10-27 Friday 16:04  bobopinna
+
+	* datamodels/scorm_13.js.php: 
+	
+	Fixed a problem with TIMESPAN pattern matching
+
+2006-10-27 Friday 14:51  bobopinna
+
+	* datamodels/scorm_13.js.php: 
+	
+	Added support to adl.nav (Sequencing is needed to complete)
+
+2006-10-27 Friday 06:46  stronk7
+
+	* db/postgres7.php: 
+	
+	Deprecating old "upgrade" files. MDL-7214
+	
+	Merged from MOODLE_17_STABLE
+
+2006-10-27 Friday 06:39  stronk7
+
+	* db/mysql.php: 
+	
+	Deprecating old "upgrade" files. MDL-7214
+	
+	Merged from MOODLE_17_STABLE
+
+2006-10-27 Friday 06:29  stronk7
+
+	* db/postgres7.php: 
+	
+	Deprecating old "upgrade" files. MDL-7214
+
+2006-10-27 Friday 06:25  stronk7
+
+	* db/mysql.php: 
+	
+	Deprecating old "upgrade" files. MDL-7214
+
+2006-10-27 Friday 01:43  stronk7
+
+	* db/upgrade.php: 
+	
+	New upgrade.php file added for this module. MDL-7214
+	
+	Merged from HEAD
+
+2006-10-27 Friday 01:33  stronk7
+
+	* db/upgrade.php: 
+	
+	file upgrade.php was added on branch MOODLE_17_STABLE on 2006-10-26
+	17:43:09 +0000
+
+2006-10-27 Friday 01:33  stronk7
+
+	* db/upgrade.php: 
+	
+	New upgrade.php file added for this module. MDL-7214
+
+2006-10-26 Thursday 19:18  bobopinna
+
+	* report.php: 
+	
+	Added link in sco title for launch the sco in browse mode
+
+2006-10-26 Thursday 19:14  bobopinna
+
+	* api.php, datamodels/scorm_13.js.php: 
+	
+	Added Write Once Error reveal
+
+2006-10-24 Tuesday 15:35  bobopinna
+
+	* datamodels/: scorm_13.js.php, scormlib.php: 
+	
+	Added CAM support to SCORM 2004 3rd Edition
+
+2006-10-11 Wednesday 14:22  moodler
+
+	* db/access.php: 
+	
+	Merged fixes for MDL-6907 from stable
+
+2006-10-11 Wednesday 14:16  moodler
+
+	* db/access.php: 
+	
+	All the PREVENTS from the legacy roles have been removed (and thus
+	are treated as INHERIT by default).
+	
+	See MDL-6907 for details.
+
+2006-10-09 Monday 15:36  bobopinna
+
+	* datamodels/scorm_13.js.php: 
+	
+	Fixed some bugs in the datamodel definition
+
+2006-10-05 Thursday 14:48  bobopinna
+
+	* datamodels/scorm_13.js.php: 
+	
+	Fixed comments_from_learner data element to fit ADL requirements
+
+2006-10-04 Wednesday 14:22  bobopinna
+
+	* datamodels/scorm_13.js.php: 
+	
+	Fixed a bad error code choose Rewritten the GetErrorString function
+	to fix bad error code call
+
+2006-10-04 Wednesday 14:18  bobopinna
+
+	* datamodels/scorm_13lib.php: 
+	
+	Added API property version required from ADL Test Suite
+
+2006-09-29 Friday 14:45  bobopinna
+
+	* datamodels/: scorm1_2.js.php, scorm1_3.js.php: 
+	
+	Moved to scorm_1x.js.php
+
+2006-09-29 Friday 14:43  bobopinna
+
+	* pix/SuaHeSoDiem.png, pix/ThongKe.png, datamodels/suspend.php: 
+	
+	No more used
+
+2006-09-29 Friday 14:43  bobopinna
+
+	* pix/: assetc.gif, suspend.gif: 
+	
+	New icon to support toc bug fix
+
+2006-09-29 Friday 14:29  bobopinna
+
+	* lib.php: 
+	
+	Changes no datadir error message from bad manifest to bad package
+
+2006-09-29 Friday 14:27  bobopinna
+
+	* loadSCO.php: 
+	
+	Fixed completed status for launched Asset
+
+2006-09-29 Friday 14:26  bobopinna
+
+	* datamodels/scorm_13.js.php: 
+	
+	Added _ to version data element
+
+2006-09-29 Friday 14:25  bobopinna
+
+	* datamodels/: aicclib.php, scorm_12lib.php, scorm_13lib.php: 
+	
+	Fixed a bug in toc display
+
+2006-09-28 Thursday 00:45  moodler
+
+	* version.php: 
+	
+	A notice about versions
+
+2006-09-27 Wednesday 22:08  moodler
+
+	* version.php, db/mysql.php, db/postgres7.php: 
+	
+	Fixed up some wrong entries in the log_display table   MDL-6516
+	
+	NOTE:  The dates are a month in advance for $version here!  We need
+	to increment very slowly until it catches up, and make sure that we
+	manage the versions in HEAD very carefully after we branch for 1.7
+
+2006-09-27 Wednesday 14:58  bobopinna
+
+	* backuplib.php, restorelib.php: 
+	
+	Added skipview field backup and restore
+
+2006-09-27 Wednesday 00:58  stronk7
+
+	* db/install.xml: 
+	
+	Ops, scorm->skipview default must be 1
+
+2006-09-26 Tuesday 23:56  stronk7
+
+	* db/: postgres7.php, postgres7.sql: 
+	
+	Adding scorm->skipview to PostgreSQL
+
+2006-09-26 Tuesday 23:25  stronk7
+
+	* db/install.xml: 
+	
+	Adding scorm->skipview to XMLDB file!
+
+2006-09-26 Tuesday 22:40  bobopinna
+
+	* README.txt, locallib.php, mod.html, version.php, view.php: 
+	
+	Added the new features MDL-4482 and MDL-6534 (Course structure
+	view.php skip)
+
+2006-09-26 Tuesday 22:37  bobopinna
+
+	* player.php: 
+	
+	Fixed a bug in mode selection
+
+2006-09-26 Tuesday 22:25  bobopinna
+
+	* db/: access.php, mysql.php, mysql.sql: 
+	
+	Added skip view page feature
+
+2006-09-26 Tuesday 18:26  bobopinna
+
+	* lib.php, mod.html: 
+	
+	Fixed a problem with Firefox
+
+2006-09-26 Tuesday 18:23  bobopinna
+
+	* datamodels/scormlib.php: 
+	
+	Downgraded a new feature to fix the module
+
+2006-09-26 Tuesday 16:21  bobopinna
+
+	* sequencinglib.php, suspend.php: 
+	
+	Moved in datamodels directory
+
+2006-09-26 Tuesday 16:20  bobopinna
+
+	* coefficientconfirm.php, coefficientsetting.php: 
+	
+	Not used for now
+
+2006-09-26 Tuesday 16:00  bobopinna
+
+	* datamodels/: aicclib.php, scorm_12.js.php, scorm_12lib.php,
+	scorm_13.js.php, scorm_13lib.php, scormlib.php, sequencinglib.php,
+	suspend.php: 
+	
+	Splitted all the scorm/aicc library in type separeted files
+
+2006-09-26 Tuesday 15:57  bobopinna
+
+	* mod.html: 
+	
+	Fixed a problem with reporting and multiattempts
+
+2006-09-26 Tuesday 15:56  bobopinna
+
+	* index.php, lib.php, locallib.php, player.php, report.php: 
+	
+	Fixed some problems with reporting and multiattempts
+
+2006-09-22 Friday 11:07  vyshane
+
+	* db/access.php: 
+	
+	Removed mod/scorm:view
+
+2006-09-21 Thursday 05:00  skodak
+
+	* db/access.php: 
+	
+	major whitespace cleanup - fixed trailng whitespace in new files
+	and admin area
+
+2006-09-21 Thursday 04:31  skodak
+
+	* README.txt: 
+	
+	major whitespace cleanup - fixed tabs
+
+2006-09-21 Thursday 03:46  skodak
+
+	* aicc.php, api.php, coefficientconfirm.php,
+	coefficientsetting.php, datamodel.php, index.php, loadSCO.php,
+	mod.html, sequencinglib.php, styles.php, suspend.php: 
+	
+	major whitespace cleanup - fixed \r\n line-ending
+
+2006-09-19 Tuesday 17:45  bobopinna
+
+	* locallib.php: 
+	
+	Removed the scorm_string_wrap unused function
+
+2006-09-19 Tuesday 17:16  toyomoyo
+
+	* coefficientconfirm.php, coefficientsetting.php: 
+	
+	replacing deprecated funciton calls with capability calls
+
+2006-09-19 Tuesday 17:07  bobopinna
+
+	* index.php, lib.php, locallib.php, mod.html, player.php,
+	report.php: 
+	
+	Fixed multiattempt grading system
+
+2006-09-18 Monday 16:57  moodler
+
+	* restorelib.php, datamodels/scorm1_2.js.php,
+	datamodels/scorm1_3.js.php: 
+	
+	Fixed some debugging statements
+
+2006-09-14 Thursday 16:28  bobopinna
+
+	* styles.php: 
+	
+	Removed two style definitions (bug MDL-6209)
+
+2006-09-12 Tuesday 16:46  bobopinna
+
+	* datamodels/scorm1_2.js.php: 
+	
+	added support to hyphen and tilde in CMIIdentifier
+
+2006-09-12 Tuesday 16:22  moodler
+
+	* version.php: 
+	
+	Small bump for guest role fix
+
+2006-09-12 Tuesday 15:10  moodler
+
+	* version.php: 
+	
+	Reload the guest role using new defaults
+
+2006-09-11 Monday 19:40  nfreear
+
+	* db/postgres7.sql: 
+	
+	Fixes MDL-6516, "Error on logs page because of mess in
+	mdl_log_display table"
+
+2006-09-01 Friday 18:17  bobopinna
+
+	* report.php: 
+	
+	Added multi-attemps support
+
+2006-08-31 Thursday 18:37  bobopinna
+
+	* locallib.php, report.php, view.php: 
+	
+	Fixed a typo
+
+2006-08-31 Thursday 18:29  bobopinna
+
+	* aicc.php, datamodel.php, index.php, locallib.php, player.php,
+	report.php, view.php, db/access.php: 
+	
+	Fixed context selection
+
+2006-08-31 Thursday 16:34  bobopinna
+
+	* aicc.php, api.php, datamodel.php, index.php, lib.php,
+	loadSCO.php, locallib.php, mod.html, player.php, report.php,
+	sequencinglib.php, view.php, db/access.php: 
+	
+	Added capability support
+
+2006-08-13 Sunday 06:19  stronk7
+
+	* db/install.xml: 
+	
+	Initial version of the XMLDB file for this plugin
+
+2006-08-11 Friday 20:26  bobopinna
+
+	* lib.php, loadSCO.php, locallib.php, mod.html, validate.php: 
+	
+	Fixed a problem during scorm update.  Now only the lost scoes
+	tracks are deleted Added support to IMS CP repository
+
+2006-08-11 Friday 20:21  bobopinna
+
+	* lib.php, loadSCO.php, locallib.php, mod.html, validate.php: 
+	
+	Fixed a problem during scorm update.  Now tracks are deleted only
+	if the scoes are really changed
+
+2006-08-10 Thursday 23:51  skodak
+
+	* api.php, datamodel.php, loadSCO.php, playscorm.php, report.php,
+	version.php, view.php: 
+	
+	new function get_coursemodule_from_id() is now used for obtaining
+	of valid $cm from coursemodule id SC#283; backported from HEAD
+
+2006-08-10 Thursday 23:31  skodak
+
+	* loadSCO.php, player.php, api.php, report.php, version.php,
+	view.php: 
+	
+	new function get_coursemodule_from_id() is now used for obtaining
+	of valid $cm from coursemodule id SC#283; backported from HEAD
+
+2006-08-10 Thursday 19:32  bobopinna
+
+	* locallib.php: 
+	
+	Cleaned code
+
+2006-08-10 Thursday 16:27  bobopinna
+
+	* player.php: 
+	
+	Fixed a problem with popup window and IE
+
+2006-08-09 Wednesday 21:45  moodler
+
+	* api.php, coefficientconfirm.php, coefficientsetting.php,
+	index.php, lib.php, loadSCO.php, mod.html, report.php,
+	datamodels/scorm1_3.js.php, db/mysql.php, db/postgres7.php: 
+	
+	Removed tabs
+
+2006-08-09 Wednesday 06:09  skodak
+
+	* api.php, loadSCO.php, player.php, report.php, version.php,
+	view.php: 
+	
+	new function get_coursemodule_from_id() is now used for obtaining
+	of valid $cm from coursemodule id SC#283
+
+2006-08-08 Tuesday 15:25  bobopinna
+
+	* locallib.php: 
+	
+	Fixed a bug in AICC package importing
+
+2006-08-08 Tuesday 13:13  moodler
+
+	* version.php, db/access.php: 
+	
+	ROLES AND PERMISSIONS  - FIRST CHECK-IN
+	=======================================
+	
+	WARNING:  DEV IS CURRENTLY VERY UNSTABLE.
+	
+	This is a mega-checkin of the new Roles system.   A lot of changes
+	have been made in core and modules.
+	
+	Currently there are a lot of rough edges and known problems.  We
+	are working hard on these .. .the reason for getting this into HEAD
+	at this stage is enable us to move faster (our branch was diverging
+	from HEAD too much).
+	
+	Please keep an eye on http://docs.moodle.org/en/Roles for current
+	status and information for developers on how to use the new Roles
+	system.
+
+2006-08-04 Friday 21:49  bobopinna
+
+	* player.php: 
+	
+	fixed a problem with Explorer and popup windows
+
+2006-08-04 Friday 21:41  bobopinna
+
+	* player.php: 
+	
+	Fixed a problem with explorer and popup windows
+
+2006-08-04 Friday 21:01  bobopinna
+
+	* player.php: 
+	
+	removed object tags. I'm thinking to return to frameset...
+
+2006-08-04 Friday 13:58  vyshane
+
+	* db/access.php: 
+	
+	Renamed legacyroles to legacy
+
+2006-08-01 Tuesday 15:44  vyshane
+
+	* db/access.php: 
+	
+	file access.php was initially added on branch MOODLE_17_ROLES.
+
+2006-08-01 Tuesday 15:44  vyshane
+
+	* db/access.php: 
+	
+	Capability definitions for the scorm module.
+
+2006-08-01 Tuesday 02:21  skodak
+
+	* db/postgres7.php: 
+	
+	merging changes from MOODLE_16_STABLE
+
+2006-07-31 Monday 13:38  martinlanghoff
+
+	* db/postgres7.php: 
+	
+	Bug #6147 - Upgrade from 1.5.x breaks with Postgres 7.4.x
+	
+	Even though Postgres 7.4.x is officially supported, several upgrade
+	scripts use syntax that only works in Postgres 8.x. and it's
+	impossible to finish the upgrade.
+	
+	The attached patch fixes those scripts.
+	
+	Saludos. Iñaki.
+	
+	Author: Iñaki Arenaza Review: Jun Yamog, Martin Langhoff
+
+2006-07-24 Monday 07:48  danmarsden
+
+	* lib.php, locallib.php, validate.php: 
+	
+	Fixes for Bug 5749 and Bug 5750
+	
+	summary of bug 5749 and 5750 fixes for: function causes timeout
+	when deleting temporary files for large scorm objects
+	scorm\validate.php calls function scorm_delete_files from
+	scorm\lib.php - but lib.php not included in validate.php
+	
+	Validation of Scorm objects broken - adds entry in modules database
+	even when scorm object is not created.
+
+2006-07-24 Monday 07:40  danmarsden
+
+	* lib.php, locallib.php, validate.php: 
+	
+	Fixes for Bug 5749 and Bug 5750
+	
+	summary of bug 5749 and 5750 fixes for: function causes timeout
+	when deleting temporary files for large scorm objects
+	scorm\validate.php calls function scorm_delete_files from
+	scorm\lib.php - but lib.php not included in validate.php
+	
+	Validation of Scorm objects broken - adds entry in modules database
+	even when scorm object is not created.
+
+2006-06-08 Thursday 15:39  vyshane
+
+	* lib.php: 
+	
+	Merge from 1.6. Fix for scorm_option2text(). options field is now
+	saved proprely.
+
+2006-06-07 Wednesday 12:34  vyshane
+
+	* lib.php: 
+	
+	Fixed bug: SCORM module window options were not being saved
+	properly - array values used instead of keys in
+	scorm_option2text().
+
+2006-06-06 Tuesday 22:33  bobopinna
+
+	* datamodels/: scorm1_3.js.php, scorm1_3.js.php: 
+	
+	Fixed some regular expression Bug 5041
+
+2006-06-06 Tuesday 22:30  bobopinna
+
+	* datamodels/scorm1_3.js.php: 
+	
+	Fixed some regular expressions Bug 5041
+
+2006-06-06 Tuesday 21:34  bobopinna
+
+	* api.php: 
+	
+	Fixed user data escaping
+
+2006-06-05 Monday 16:21  bobopinna
+
+	* datamodels/: scorm1_3.js.php, scorm1_3.js.php: 
+	
+	Fixed a typo
+
+2006-06-05 Monday 16:19  bobopinna
+
+	* datamodels/scorm1_3.js.php: 
+	
+	Fixed two typos: Bugs 4729, 5641
+
+2006-06-05 Monday 16:11  bobopinna
+
+	* mod.html, version.php, db/mysql.php, db/mysql.sql,
+	db/postgres7.php, db/postgres7.sql: 
+	
+	Fixed Bug 4748
+
+2006-06-05 Monday 15:46  bobopinna
+
+	* playscorm.php: 
+	
+	Fixed a typo [bug 4522]
+
+2006-06-05 Monday 15:40  bobopinna
+
+	* player.php: 
+	
+	Added class name for IFRAME element
+
+2006-06-05 Monday 15:38  bobopinna
+
+	* player.php: 
+	
+	Added class name for the IFRAME element
+
+2006-06-05 Monday 15:21  bobopinna
+
+	* lib.php: 
+	
+	Fixed modified names for some constants [Bug 5695]
+
+2006-06-05 Monday 15:19  bobopinna
+
+	* lib.php: 
+	
+	Fixed a modified name for some constants
+
+2006-05-30 Tuesday 22:01  bobopinna
+
+	* pix/: SuaHeSoDiem.png, ThongKe.png: 
+	
+	Two icons added by Pham Minh Duc
+
+2006-05-29 Monday 15:07  bobopinna
+
+	* aicc.php, api.php, coefficientconfirm.php,
+	coefficientsetting.php, datamodel.php, index.php, loadSCO.php,
+	locallib.php, player.php, report.php, suspend.php,
+	timePassReport.htm, validate.php, view.php: 
+	
+	Cleaned some unused include
+
+2006-05-26 Friday 19:54  skodak
+
+	* lib.php: 
+	
+	sanitize submitted numerical values; merged from MOODLE_16_STABLE
+
+2006-05-26 Friday 19:52  skodak
+
+	* lib.php: 
+	
+	sanitize submitted numerical values
+
+2006-05-25 Thursday 18:20  bobopinna
+
+	* aicc.php, api.php, backuplib.php, coefficientconfirm.php,
+	coefficientsetting.php, datamodel.php, index.php, lib.php,
+	loadSCO.php, locallib.php, mod.html, player.php, report.php,
+	restorelib.php, sequencinglib.php, styles.php, suspend.php,
+	timePassReport.htm, validate.php, version.php, view.php: 
+	
+	New version with SCORM 2004 sequencing done by Pham Minh Duc
+
+2006-05-17 Wednesday 14:42  martinlanghoff
+
+	* db/postgres7.php: 
+	
+	mod/choice mod/lesson mod/scorm moodle16cleanup: Added notification
+	for cleanup that may fail if one is starting fresh from moodle
+	1.5.3+, previous cleanup before 1.5.3 is not needed
+
+2006-05-17 Wednesday 14:30  martinlanghoff
+
+	* version.php, db/postgres7.php: 
+	
+	moodle16cleanup: mod/scorm version column should not be dropped, it
+	must exist. it was not upgraded as with mysql.php 2005041600
+
+2006-05-17 Wednesday 14:25  martinlanghoff
+
+	* db/postgres7.php: 
+	
+	mod/choice mod/lesson mod/scorm moodle16cleanup: Added notification
+	for cleanup that may fail if one is starting fresh from moodle
+	1.5.3+, previous cleanup before 1.5.3 is not needed
+
+2006-05-17 Wednesday 14:18  martinlanghoff
+
+	* db/postgres7.php: 
+	
+	moodle16cleanup: mod/scorm drop a weird check constraint that is
+	showing up after upgrade
+
+2006-05-17 Wednesday 14:17  martinlanghoff
+
+	* db/postgres7.php: 
+	
+	moodle16cleanup: mod/scrom set the correct defaults and correctly
+	recreate the new check constraint
+
+2006-05-17 Wednesday 14:17  martinlanghoff
+
+	* version.php, db/postgres7.php: 
+	
+	moodle16cleanup: mod/scorm version column should not be dropped, it
+	must exist. it was not upgraded as with mysql.php 2005041600
+
+2006-04-24 Monday 17:10  vyshane
+
+	* db/: mysql.php, postgres7.php: 
+	
+	Fixed inserts for log_display.
+
+2006-04-24 Monday 16:10  toyomoyo
+
+	* db/: mysql.sql, postgres7.sql: 
+	
+	changed formats for log_display table
+
+2006-04-24 Monday 14:42  bobopinna
+
+	* locallib.php: 
+	
+	Added memory to toc's collaps/expand mode
+
+2006-04-24 Monday 10:17  toyomoyo
+
+	* db/mysql.php: 
+	
+	just in case someone has the index elemeny and not element
+
+2006-04-12 Wednesday 14:15  bobopinna
+
+	* aicc.php: 
+	
+	Added utf8 conversion
+
+2006-04-12 Wednesday 14:13  bobopinna
+
+	* view.php: 
+	
+	Fixed navigation bar links for SCORM course format
+
+2006-04-12 Wednesday 14:12  bobopinna
+
+	* player.php: 
+	
+	Fixed navigation bar link for SCORM course format
+
+2006-04-12 Wednesday 14:08  bobopinna
+
+	* lib.php: 
+	
+	Fixed a typo
+
+2006-04-12 Wednesday 14:08  bobopinna
+
+	* restorelib.php: 
+	
+	Added multi attempt support
+
+2006-04-12 Wednesday 14:05  bobopinna
+
+	* locallib.php: 
+	
+	Fixed empty tags check
+
+2006-04-12 Wednesday 14:04  bobopinna
+
+	* db/mysql.sql: 
+	
+	Fixed default stage size
+
+2006-04-12 Wednesday 14:03  bobopinna
+
+	* db/postgres7.php, db/postgres7.sql, backuplib.php: 
+	
+	Added multi attempt support
+
+2006-04-12 Wednesday 14:02  bobopinna
+
+	* datamodels/: scorm1_2.js.php, scorm1_3.js.php: 
+	
+	Added debug messages
+
+2006-04-12 Wednesday 00:19  stronk7
+
+	* restorelib.php: 
+	
+	htmlentities() to s()
+
+2006-04-11 Tuesday 21:51  bobopinna
+
+	* datamodels/scorm1_3.js.php: 
+	
+	Added support to multi attempts
+
+2006-03-30 Thursday 14:50  bobopinna
+
+	* lib.php: 
+	
+	Fixed two problems in AICC importing
+
+2006-03-30 Thursday 14:19  bobopinna
+
+	* locallib.php: 
+	
+	Fixed two problems in AICC import
+
+2006-03-27 Monday 12:04  mjollnir_
+
+	* db/postgres7.php: 
+	
+	WHERE 1 is NOT valid postgres syntax. Just pass empty string
+	instead!
+
+2006-03-10 Friday 11:43  patrickslee
+
+	* db/migrate2utf8.php: 
+	
+	UTF8 migration - now supporting PostgreSQL
+
+2006-03-08 Wednesday 08:08  skodak
+
+	* aicc.php, api.php, datamodel.php, index.php, loadSCO.php,
+	player.php, validate.php: 
+	
+	lots of incorrect required_param()'s - there MUST be only two
+	parameters not three!!
+
+2006-03-08 Wednesday 05:35  skodak
+
+	* db/migrate2utf8.php: 
+	
+	short php tags
+
+2006-02-24 Friday 16:13  toyomoyo
+
+	* db/migrate2utf8.php: 
+	
+	see changes for admin/utfdbmigrate.php
+
+2006-02-14 Tuesday 10:44  toyomoyo
+
+	* version.php, db/mysql.php: 
+	
+	fixing a weird index in scorm_scoes_track (see bug report 4742)
+
+2006-02-13 Monday 23:14  bobopinna
+
+	* locallib.php: 
+	
+	Removed the last short tag
+
+2006-02-03 Friday 16:51  bobopinna
+
+	* lib.php, playscorm.php, report.php, view.php: 
+	
+	Fixed lesson status skin support
+
+2006-02-03 Friday 16:04  bobopinna
+
+	* config.html, lib.php, loadSCO.php, locallib.php, mod.html,
+	player.php, report.php, request.js: 
+	
+	Fixed some bugs and typos
+
+2006-01-31 Tuesday 10:11  moodler
+
+	* db/migrate2utf8.php: 
+	
+	changed to use utfconvert function
+
+2006-01-27 Friday 12:31  moodler
+
+	* db/migrate2utf8.xml: 
+	
+	fixing typo
+
+2006-01-24 Tuesday 10:37  moodler
+
+	* db/migrate2utf8.xml: 
+	
+	bug fixing
+
+2006-01-17 Tuesday 15:35  moodler
+
+	* db/mysql.sql: 
+	
+	Added default values where needed for columns in the MySQL creation
+	script mysql.sql.  Added default values to migrate2utf8.xml, for
+	any varchar and text field types, if the default values for these
+	fields were not defined as '' in the MySQL table creation script.
+	
+	Committed by vyshane
+
+2006-01-16 Monday 15:57  moodler
+
+	* db/migrate2utf8.php: 
+	
+	more bugs
+
+2006-01-16 Monday 05:09  mjollnir_
+
+	* restorelib.php: 
+	
+	Abstracted a bit of the restore procedure to allow for silent
+	restoring.  Added new function, import_backup_file_silently Changed
+	everything that prints stuff to check for a constant first. 
+	Backup_flush checks a different constant, this is so that output
+	can still get flushed to the browser when necessary but not print
+	<li>s everywhere.  Please test this!
+
+2006-01-13 Friday 15:24  toyomoyo
+
+	* db/: migrate2utf8.php, migrate2utf8.xml: 
+	
+	more bug fixes =(
+
+2006-01-13 Friday 11:45  mjollnir_
+
+	* backuplib.php, restorelib.php: 
+	
+	Granular backup & restore: This patch allows the much requested
+	selection of individual instances of modules within a course to
+	backup and restore.  It needs A LOT of testing and probably some
+	prettyifying too.
+
+2006-01-13 Friday 04:05  mjollnir_
+
+	* locallib.php: 
+	
+	Fixed a fatal error in scorm locallib
+
+2006-01-12 Thursday 19:29  bobopinna
+
+	* lib.php, locallib.php, player.php, report.php: 
+	
+	Fixed some theme skinning bugs.  Now every theme can modify scorm's
+	icons.
+
+2006-01-11 Wednesday 09:46  toyomoyo
+
+	* db/migrate2utf8.xml: 
+	
+	added 2 fields in xml, addindex and dropindex, and bug fixes
+
+2006-01-10 Tuesday 23:42  bobopinna
+
+	* README.txt, aicc.php, api.php, datamodel.php, locallib.php,
+	mod.html, player.php, request.js, view.php,
+	datamodels/scorm1_2.js.php: 
+	
+	Added multi attempt management Readded popup menu structure mode
+	Fixed autocontinue/nav.event with XHTML code
+
+2006-01-09 Monday 14:06  toyomoyo
+
+	* db/: migrate2utf8.php, migrate2utf8.xml: 
+	
+	utf8 migration support scripts
+
+2005-12-21 Wednesday 04:39  mjollnir_
+
+	* db/postgres7.php: 
+	
+	Postgres compatibility in scorm db upgrade
+
+2005-12-14 Wednesday 12:15  patrickslee
+
+	* README.txt, aicc.php, api.php, backuplib.php, config.html,
+	datamodel.php, index.php, lib.php, loadSCO.php, locallib.php,
+	mod.html, player.php, report.php, restorelib.php, styles.php,
+	validate.php, version.php, view.php, datamodels/scorm1_2.js.php,
+	datamodels/scorm1_3.js.php, db/mysql.php, db/mysql.sql,
+	db/postgres7.php, db/postgres7.sql: 
+	
+	Merged with MOODLE_16_MULTIENROL_MP1
+
+2005-12-12 Monday 11:26  martinlanghoff
+
+	* datamodel.php, db/postgres7.php: 
+	
+	mod/scorm: fixed syntax errors (switch to an editor that balances
+	brackets, mate ;-) -- credits to Nigel McNie
+
+2005-11-29 Tuesday 22:54  bobopinna
+
+	* aicc.php, backuplib.php, datamodel.php, locallib.php, player.php,
+	report.php, restorelib.php, version.php, view.php, db/mysql.php,
+	db/mysql.sql, db/postgres7.php, db/postgres7.sql: 
+	
+	Added multiple attempts support
+
+2005-11-29 Tuesday 22:54  patrickslee
+
+	* player.php: 
+	
+	file player.php was added on branch MOODLE_16_MULTIENROL on
+	2005-12-14 04:15:30 +0000
+
+2005-11-29 Tuesday 22:54  patrickslee
+
+	* locallib.php: 
+	
+	file locallib.php was added on branch MOODLE_16_MULTIENROL on
+	2005-12-14 04:15:29 +0000
+
+2005-11-29 Tuesday 22:53  bobopinna
+
+	* datamodels/scorm1_3.js.php: 
+	
+	Fixed bug 4379
+
+2005-11-22 Tuesday 11:44  moodler
+
+	* view.php, view.php: 
+	
+	fixes bug #4354
+
+2005-11-15 Tuesday 16:10  bobopinna
+
+	* README.txt, aicc.php, api.php, config.html, datamodel.php,
+	index.php, lib.php, loadSCO.php, locallib.php, mod.html,
+	player.php, playscorm.php, report.php, styles.php, validate.php,
+	version.php, view.php, xml2array.class.php,
+	datamodels/scorm1_2.js.php, db/mysql.php, db/mysql.sql: 
+	
+	General review to support XHTML Strict First step in multi-attempt
+	feature (requested by SCORM 2004) Removed javascript use as much as
+	possible in button and link
+
+2005-10-14 Friday 15:02  bobopinna
+
+	* styles.php: 
+	
+	Updated css for playscorm.php
+
+2005-10-14 Friday 15:00  bobopinna
+
+	* playscorm.php: 
+	
+	Revised all html code.	Fixed to be XHTML Strict
+
+2005-10-13 Thursday 21:42  bobopinna
+
+	* playscorm.php: 
+	
+	Fixed a bug in a javascript string.
+
+2005-09-26 Monday 23:16  bobopinna
+
+	* version.php: 
+	
+	Downgraded Moodle requirements to Moodle 1.5
+
+2005-09-26 Monday 23:15  bobopinna
+
+	* db/: postgres7.php, postgres7.sql: 
+	
+	Added the new popup window mode
+
+2005-09-26 Monday 23:11  bobopinna
+
+	* datamodel.php, lib.php, loadSCO.php, mod.html, playscorm.php,
+	version.php, view.php, db/mysql.php, db/mysql.sql: 
+	
+	Added the new popup window mode
+
+2005-09-26 Monday 23:08  bobopinna
+
+	* datamodels/scorm1_3.js.php: 
+	
+	Fixed a problem with version datamodel
+
+2005-09-20 Tuesday 14:43  bobopinna
+
+	* validate.php: 
+	
+	Fixed a problem
+
+2005-09-13 Tuesday 15:00  bobopinna
+
+	* lib.php, loadSCO.php, mod.html, validate.php: 
+	
+	Added direct import of manifest files.	Now is possible to select
+	in the package field a imsmanifest.xml file
+
+2005-09-13 Tuesday 14:50  bobopinna
+
+	* aicc.php, datamodel.php, view.php: 
+	
+	Included support for guest users.  Now guest, teacher and admin
+	(not student) can play scorm package without save tracks.
+
+2005-09-13 Tuesday 14:47  bobopinna
+
+	* datamodels/scorm1_2.js.php: 
+	
+	Modified debug mode: now only andmin view api communication alert
+	when debug mode is on
+
+2005-09-01 Thursday 12:14  mjollnir_
+
+	* lib.php: 
+	
+	Initial checkin of stats (from processing the log table).  I will
+	write up some information about it for the developers wiki.
+
+2005-08-30 Tuesday 19:48  bobopinna
+
+	* lib.php: 
+	
+	Fixed next sco search
+
+2005-08-30 Tuesday 19:47  bobopinna
+
+	* datamodels/scorm1_3.js.php: 
+	
+	First working release
+
+2005-08-30 Tuesday 19:46  bobopinna
+
+	* lib.php: 
+	
+	Fixed a bud with next and prev sco search
+
+2005-08-30 Tuesday 15:29  bobopinna
+
+	* request.js: 
+	
+	Code cleaning
+
+2005-08-30 Tuesday 15:19  bobopinna
+
+	* lib.php: 
+	
+	Fixed a typo Fixed activity outline style sheet Fixed a problem
+	with next and prev sco search Made some fix for scorm 1.3 support
+
+2005-08-30 Tuesday 15:15  bobopinna
+
+	* playscorm.php: 
+	
+	New popup mode Fixed some amp coding
+
+2005-08-30 Tuesday 15:13  bobopinna
+
+	* view.php: 
+	
+	New popup launching mode
+
+2005-08-30 Tuesday 15:10  bobopinna
+
+	* styles.php: 
+	
+	Fixed some style in order to work with course format and activity
+	outline
+
+2005-08-30 Tuesday 15:09  bobopinna
+
+	* loadSCO.php: 
+	
+	Fixed a problem with parameter passing
+
+2005-08-30 Tuesday 15:08  bobopinna
+
+	* datamodels/scorm1_3.js.php: 
+	
+	First working release
+
+2005-08-16 Tuesday 07:17  patrickslee
+
+	* db/postgres7.php: 
+	
+	Mass cleanup of bad postgres upgrade scripts(merged from 15_stable)
+
+2005-08-16 Tuesday 06:30  patrickslee
+
+	* db/postgres7.php: 
+	
+	Mass cleanup of bad postgres upgrade scripts
+
+2005-08-11 Thursday 14:54  bobopinna
+
+	* lib.php: 
+	
+	General revision of lib: - removed some functions not more used -
+	modified some others - initial PHPDoc comments add
+
+2005-08-11 Thursday 14:50  bobopinna
+
+	* playscorm.php: 
+	
+	Fixed a problem with browse mode display
+
+2005-08-11 Thursday 14:48  bobopinna
+
+	* styles.php: 
+	
+	Changed styles from div to table
+
+2005-08-11 Thursday 14:47  bobopinna
+
+	* report.php: 
+	
+	Updated detail's report from the Stephan code (many thanks!!!! :-D)
+
+2005-08-11 Thursday 14:44  bobopinna
+
+	* xml2array.class.php: 
+	
+	Removed double char conversion and added PHPDoc comments
+
+2005-08-11 Thursday 14:42  bobopinna
+
+	* datamodels/scorm1_2.js.php: 
+	
+	Removed db store of element session_time, not required from ADL
+
+2005-08-08 Monday 16:37  bobopinna
+
+	* lib.php: 
+	
+	Fixed include path for xml2array.class.php
+
+2005-08-01 Monday 22:08  bobopinna
+
+	* xml2array.class.php: 
+	
+	Added uft-8 to html entities encoding for non ASCII characters
+
+2005-08-01 Monday 17:26  bobopinna
+
+	* playscorm.php: 
+	
+	fixed a parameter problem
+
+2005-08-01 Monday 17:25  bobopinna
+
+	* lib.php: 
+	
+	Added string_format to the title print
+
+2005-07-26 Tuesday 19:01  bobopinna
+
+	* aicc.php, datamodel.php, lib.php, loadSCO.php, playscorm.php: 
+	
+	Fixed a problem with AICC tracking
+
+2005-07-26 Tuesday 18:59  bobopinna
+
+	* datamodels/scorm1_2.js.php: 
+	
+	Fixed a bug in masteryscore reach evaluation
+
+2005-07-26 Tuesday 14:32  bobopinna
+
+	* datamodels/scorm1_2.js.php: 
+	
+	Fixed a bug in reaching masteryscore (score are float)
+
+2005-07-26 Tuesday 14:18  bobopinna
+
+	* aicc.php, lib.php, loadSCO.php, playscorm.php, version.php: 
+	
+	Fixed a problem in AICC course tracking
+
+2005-07-26 Tuesday 14:15  bobopinna
+
+	* datamodels/scorm1_2.js.php: 
+	
+	Fixed a bug in masteryscore evaluation
+
+2005-07-20 Wednesday 16:51  bobopinna
+
+	* version.php: 
+	
+	Update Moodle release request
+
+2005-07-20 Wednesday 16:47  bobopinna
+
+	* README.txt: 
+	
+	Updated Roadmap
+
+2005-07-20 Wednesday 16:46  bobopinna
+
+	* lib.php, playscorm.php: 
+	
+	Added prerequisites support
+
+2005-07-18 Monday 13:34  moodler
+
+	* xml2array.class.php: 
+	
+	Adding this file again to make things work .... is it used?
+
+2005-07-18 Monday 13:33  ikawhero
+
+	* lib.php: 
+	
+	Using absolute path name.
+
+2005-07-15 Friday 20:43  bobopinna
+
+	* version.php: 
+	
+	Updated to Moodle 1.6 Develop
+
+2005-07-15 Friday 20:32  bobopinna
+
+	* version.php: 
+	
+	Update to Moodle 1.6 develop
+
+2005-07-15 Friday 15:15  bobopinna
+
+	* playscorm.php, view.php: 
+	
+	Fixed a bug in course structure display
+
+2005-07-15 Friday 15:13  bobopinna
+
+	* lib.php: 
+	
+	Fixed some problems with manifest parsing and fixed a bug in
+	structure display
+
+2005-07-15 Friday 03:08  urs_hunkler
+
+	* styles.php: 
+	
+	merged from 1.5
+
+2005-07-15 Friday 03:04  urs_hunkler
+
+	* styles.php: 
+	
+	added ".mod-scorm" before all properties to focus their action on
+	the scorm module. Otherwise the properties can produce strange
+	effects at other moodle pages.
+
+2005-07-14 Thursday 04:13  bobopinna
+
+	* xml2array.class.php: 
+	
+	The new xml parsing class
+
+2005-07-14 Thursday 04:13  bobopinna
+
+	* xml2array.class.php: 
+	
+	file xml2array.class.php was initially added on branch
+	MOODLE_15_STABLE.
+
+2005-07-14 Thursday 04:11  bobopinna
+
+	* lib.php: 
+	
+	Fixed some manifest parsing problems and a structure display bug
+
+2005-07-12 Tuesday 16:00  moodler
+
+	* restorelib.php: 
+	
+	Merged SC139 from stable
+
+2005-07-12 Tuesday 15:53  moodler
+
+	* restorelib.php: 
+	
+	Escaped text output during relinking, as per SC 139
+
+2005-07-08 Friday 14:56  bobopinna
+
+	* aicc.php, api.php, datamodel.php, index.php, loadSCO.php,
+	mod.html, playscorm.php, report.php, styles.php, validate.php,
+	view.php: 
+	
+	changed all the POST with option/required_param functions
+
+2005-07-07 Thursday 17:26  bobopinna
+
+	* backuplib.php, lib.php, mod.html, playscorm.php, restorelib.php,
+	version.php, view.php: 
+	
+	Fixed an update problem with the setting browsemode (changed to
+	hidebrowse) Added hidetoc setting to enable course structure hiding
+	in playscorm.php
+
+2005-07-07 Thursday 17:24  bobopinna
+
+	* aicc.php: 
+	
+	Fixed a typo
+
+2005-07-07 Thursday 17:22  bobopinna
+
+	* datamodel.php: 
+	
+	Changed scoid passing mode from SESSION to POST to fix a problem
+	with tracking update
+
+2005-07-07 Thursday 17:20  bobopinna
+
+	* datamodels/: scorm1_2.js.php, scorm1_3.js.php: 
+	
+	Changed scoid pass mode from SESSION to POST to fix a problem with
+	tracking update
+
+2005-07-07 Thursday 17:16  bobopinna
+
+	* db/: mysql.php, mysql.sql, postgres7.php, postgres7.sql: 
+	
+	Added hidetoc and changed browsemode to hidemode (to fix a problem
+	when a scorm is updated)
+
+2005-07-05 Tuesday 17:33  bobopinna
+
+	* playscorm.php: 
+	
+	Fixed an API Initialization error
+
+2005-07-05 Tuesday 17:13  bobopinna
+
+	* datamodel.php, datamodels/scorm1_2.js.php,
+	datamodels/scorm1_3.js.php: 
+	
+	Changed scoid passing method from SESSION to POST
+
+2005-07-05 Tuesday 17:13  bobopinna
+
+	* api.php: 
+	
+	Fixed a typo
+
+2005-07-05 Tuesday 17:12  bobopinna
+
+	* README.txt: 
+	
+	Updated RoadmaP
+
+2005-07-05 Tuesday 17:11  bobopinna
+
+	* lib.php: 
+	
+	Fixed a problem with old tracking data removing
+
+2005-07-05 Tuesday 02:56  stronk7
+
+	* backuplib.php, restorelib.php: 
+	
+	Improved automatic relinking in backup and restore. Credits go to
+	skodak.  Complete refactoring of the system that was really awful
+	(my fault!).  Now everything is in its place and working like a
+	charm, making things really easier to be implemented and amplied.
+	Bug 3678 (http://moodle.org/bugs/bug.php?op=show&bugid=3678)
+	(http://moodle.org/mod/forum/discuss.php?d=26530)
+	
+	Note: Everything is merged from stable but the quiz module because
+	it has other changes not merged for now. I've skyped a message to
+	Gustav about it.
+	
+	Merged from MOODLE_15_STABLE
+
+2005-07-05 Tuesday 01:34  stronk7
+
+	* backuplib.php, restorelib.php: 
+	
+	Improved automatic relinking in backup and restore. Credits go to
+	skodak.  Complete refactoring of the system that was really awful
+	(my fault!).  Now everything is in its place and working like a
+	charm, making things really easier to be implemented and amplied.
+	Bug 3678 (http://moodle.org/bugs/bug.php?op=show&bugid=3678)
+	(http://moodle.org/mod/forum/discuss.php?d=26530)
+
+2005-07-03 Sunday 15:12  bobopinna
+
+	* view.php, view.php: 
+	
+	Fixed a bug in report counting
+
+2005-07-03 Sunday 15:11  bobopinna
+
+	* lib.php, lib.php: 
+	
+	Fixed a problem with altered chars in UTF-8
+
+2005-07-01 Friday 03:46  bobopinna
+
+	* mod.html, playscorm.php: 
+	
+	Fixed two typos
+
+2005-06-29 Wednesday 20:00  bobopinna
+
+	* playscorm.php: 
+	
+	Fixed a typo in popup window management
+
+2005-06-29 Wednesday 16:43  bobopinna
+
+	* lib.php: 
+	
+	Fixed a problem with some item title
+
+2005-06-29 Wednesday 15:49  bobopinna
+
+	* backuplib.php, restorelib.php: 
+	
+	Fixed some bugs in restore procedure, added backup and restore for
+	field popup
+
+2005-06-29 Wednesday 15:48  bobopinna
+
+	* db/: mysql.php, postgres7.php, postgres7.sql: 
+	
+	Fixed some bugs in upgrade procedure, updated postgres upgrade
+
+2005-06-29 Wednesday 15:10  bobopinna
+
+	* restorelib.php: 
+	
+	Fixed bug 3443 and the file not found error on restored scorms
+
+2005-06-29 Wednesday 15:00  bobopinna
+
+	* config.html, details.php, lib.php, restorelib.php: 
+	
+	Removed manifest validation
+
+2005-06-28 Tuesday 15:02  bobopinna
+
+	* db/mysql.php: 
+	
+	Fixed an upgrade bug with field timelimitaction
+
+2005-06-28 Tuesday 14:57  bobopinna
+
+	* db/mysql.php: 
+	
+	Fixed a upgrade bug with field timelimitaction
+
+2005-06-27 Monday 15:33  bobopinna
+
+	* lib.php: 
+	
+	Fixed a problem with previous sco button
+
+2005-06-27 Monday 15:32  bobopinna
+
+	* datamodels/scorm1_2.js.php: 
+	
+	Fixed a problem with lesson_status setting
+
+2005-06-27 Monday 15:26  bobopinna
+
+	* aicc.php, mod.html, playscorm.php, version.php, db/mysql.php,
+	db/mysql.sql: 
+	
+	Added popup support
+
+2005-06-27 Monday 15:24  bobopinna
+
+	* lib.php, view.php: 
+	
+	Added support to SCORM course format
+
+2005-06-27 Monday 15:22  bobopinna
+
+	* datamodels/scorm1_2.js.php: 
+	
+	Fixed a problem lesson_status setting bug
+
+2005-06-10 Friday 14:35  bobopinna
+
+	* restorelib.php: 
+	
+	Fixed a problem with some 1.5 beta backup files
+
+2005-06-06 Monday 20:41  bobopinna
+
+	* restorelib.php: 
+	
+	Fixed backup bad data archive
+
+2005-06-06 Monday 20:37  bobopinna
+
+	* db/postgres7.sql: 
+	
+	Fixed a typo
+
+2005-06-06 Monday 19:58  bobopinna
+
+	* db/postgres7.sql: 
+	
+	Fixed a typo
+
+2005-05-27 Friday 17:07  bobopinna
+
+	* datamodels/aicc.js.php: 
+	
+	Added AICC API to bug fix a problem with AICC package launch
+
+2005-05-27 Friday 17:05  bobopinna
+
+	* datamodels/aicc.js.php: 
+	
+	file aicc.js.php was added on branch MOODLE_15_STABLE on 2005-05-27
+	09:07:56 +0000
+
+2005-05-27 Friday 17:05  bobopinna
+
+	* datamodels/aicc.js.php: 
+	
+	Added AICC API support
+
+2005-05-26 Thursday 18:01  bobopinna
+
+	* aicc.php: 
+	
+	Fixed some bugs. Now AICC seems to work.
+
+2005-05-26 Thursday 17:48  bobopinna
+
+	* aicc.php: 
+	
+	Fixed some bugs - Now AICC launching seems to work.
+
+2005-05-24 Tuesday 23:29  bobopinna
+
+	* restorelib.php: 
+	
+	Fixed some typo and bugs Added support to Moodle 1.4 backup
+
+2005-05-24 Tuesday 22:32  bobopinna
+
+	* restorelib.php: 
+	
+	Fixed some typo and some bugs Added support for Moodle 1.4 backup
+	file
+
+2005-05-23 Monday 21:05  bobopinna
+
+	* lib.php, styles.php: 
+	
+	Completed user activity report support
+
+2005-05-23 Monday 14:57  bobopinna
+
+	* validatordomxml.php: 
+	
+	Temporary validation removing
+
+2005-05-23 Monday 14:56  bobopinna
+
+	* README.txt, aicc.php, api.php, backuplib.php, config.html,
+	datamodel.php, lib.php, loadSCO.php, mod.html, playscorm.php,
+	report.php, request.js, restorelib.php, styles.php, validate.php,
+	version.php, view.php: 
+	
+	Added user activity support General TAB cleaning SCO-LMS
+	communication systeme changed to POST method Several bug fix
+
+2005-05-23 Monday 14:53  bobopinna
+
+	* db/: mysql.php, mysql.sql, postgres7.php, postgres7.sql: 
+	
+	Added a time marker for tracks
+
+2005-05-23 Monday 14:52  bobopinna
+
+	* datamodels/scorm1_2.js.php: 
+	
+	Fixed all bugs to support SCORM 1.2 LMS-RTE3
+
+2005-05-20 Friday 23:20  bobopinna
+
+	* api.php: 
+	
+	Fixed a problem with credit/no-credit
+
+2005-05-20 Friday 22:20  bobopinna
+
+	* datamodels/scorm1_2.js.php: 
+	
+	Fixed some datamodel elements definition
+
+2005-05-19 Thursday 14:22  bobopinna
+
+	* api.php, datamodels/scorm1_2.js.php: 
+	
+	Fixed some datamodel elements type
+
+2005-05-18 Wednesday 22:57  bobopinna
+
+	* lib.php, loadSCO.php, playscorm.php: 
+	
+	fixed a problem with Firefox and bad schema version
+
+2005-05-18 Wednesday 20:58  bobopinna
+
+	* aicc.php: 
+	
+	AICC HACP communication script
+
+2005-05-18 Wednesday 15:26  bobopinna
+
+	* datamodels/scorm1_3.js.php: 
+	
+	Starting scorm 1.3 datamodel definition
+
+2005-05-17 Tuesday 07:41  stronk7
+
+	* api.php, config.html, datamodel.php, lib.php, loadSCO.php,
+	mod.html, playscorm.php, report.php, request.js, restorelib.php,
+	validate.php, validatordomxml.php, view.php,
+	datamodels/scorm1_3.js.php, db/mysql.php, db/postgres7.php: 
+	
+	Tabs are out.
+	
+	Please don't use tabs in source code. Set your editor to 4 cc per
+	tab.!
+
+2005-05-16 Monday 23:05  bobopinna
+
+	* loadSCO.php: 
+	
+	Fixed a SQL injection from $scoid
+
+2005-05-11 Wednesday 07:45  mjollnir_
+
+	* view.php: 
+	
+	Fixed report counter according to HEAD view.php 1.26 (Credit:
+	Patrick Li)
+
+2005-05-10 Tuesday 15:09  bobopinna
+
+	* view.php: 
+	
+	Fixed report counter
+
+2005-05-10 Tuesday 14:54  bobopinna
+
+	* datamodels/scorm1_2.js.php: 
+	
+	Fixed a problem with Safari
+
+2005-05-10 Tuesday 08:31  martinlanghoff
+
+	* lib.php, report.php, view.php: 
+	
+	Merged from MOODLE_14_STABLE - SQL fixes in GROUP BY clause in
+	SCORM module -- merged patch from Patrick Li
+
+2005-05-10 Tuesday 08:28  martinlanghoff
+
+	* lib.php, report.php, view.php: 
+	
+	SQL fixes in GROUP BY clause in SCORM module -- merged patch from
+	Patrick Li
+
+2005-05-09 Monday 17:50  bobopinna
+
+	* config.html, lib.php, mod.html, playscorm.php, version.php,
+	datamodels/scorm1_2.js.php, db/mysql.php, db/mysql.sql,
+	db/postgres7.php, db/postgres7.sql: 
+	
+	Added sco frame size Completed compliance for scorm 1.2
+
+2005-05-09 Monday 17:46  bobopinna
+
+	* pix/: popdown.gif, popup.gif: 
+	
+	Popup window icon
+
+2005-05-07 Saturday 10:36  mjollnir_
+
+	* db/postgres7.php: 
+	
+	Please don't put 1 into the where part of get_records_select, it
+	causes postgres-invalid sql
+
+2005-05-06 Friday 21:29  bobopinna
+
+	* api.php, lib.php, loadSCO.php, playscorm.php,
+	datamodels/scorm1_2.js.php: 
+	
+	fixed some typos and fixed some datamodel element
+
+2005-05-04 Wednesday 18:05  bobopinna
+
+	* datamodels/scorm1_2.js.php: 
+	
+	Disabled some alert messages
+
+2005-05-04 Wednesday 17:11  bobopinna
+
+	* datamodels/scorm1_2.js.php: 
+	
+	Fixed a bug with arrays data model element
+
+2005-05-02 Monday 14:49  bobopinna
+
+	* lib.php, mod.html, report.php, db/mysql.sql, db/postgres7.sql: 
+	
+	Fixed some typos
+
+2005-04-29 Friday 22:13  bobopinna
+
+	* api.php, backuplib.php, config.html, lib.php, loadSCO.php,
+	mod.html, playscorm.php, version.php, view.php,
+	datamodels/scorm1_2.js.php, datamodels/scorm1_3.js.php,
+	db/mysql.php, db/postgres7.php: 
+	
+	Added store datamodel and repot
+
+2005-04-29 Friday 15:42  paca70
+
+	* db/postgres7.php: 
+	
+	postgres dont like "where 1"  CVS:
+	-------------------------------------------------------------------
+	---
+
+2005-04-28 Thursday 15:04  bobopinna
+
+	* api.php, datamodel.php, lib.php, playscorm.php, report.php,
+	request.js, version.php, view.php, datamodels/scorm1_2.js.php,
+	db/mysql.php, db/postgres7.php: 
+	
+	Added data store and reporting
+
+2005-04-25 Monday 02:08  stronk7
+
+	* index.php, playscorm.php, report.php, restorelib.php, view.php: 
+	
+	Now scorm->name supports filterall.  scorm->summary presentation
+	changed a bit to use format_text.
+
+2005-04-22 Friday 20:23  bobopinna
+
+	* report.php: 
+	
+	fixed typo
+
+2005-04-19 Tuesday 22:57  bobopinna
+
+	* loadSCO.php, playscorm.php: 
+	
+	Fixed a typo in AICC launch string
+
+2005-04-19 Tuesday 16:06  bobopinna
+
+	* README.txt, lib.php, validate.php: 
+	
+	Added support to AICC
+
+2005-04-19 Tuesday 09:33  mjollnir_
+
+	* db/postgres7.php: 
+	
+	Fixes for scorm upgrade in postgres
+
+2005-04-18 Monday 20:11  bobopinna
+
+	* lib.php, db/postgres7.php: 
+	
+	Added support to AICC
+
+2005-04-18 Monday 16:37  bobopinna
+
+	* lib.php, loadSCO.php: 
+	
+	Added support to AICC lauch
+
+2005-04-18 Monday 15:49  bobopinna
+
+	* lib.php, loadSCO.php, mod.html, validate.php, version.php,
+	db/mysql.php, db/mysql.sql: 
+	
+	Added support to AICC packages
+
+2005-04-17 Sunday 20:08  moodler
+
+	* api.php: 
+	
+	Rationalised get_user_info_from_db() and sundry other small bits
+	into a single function called: get_complete_user_data()
+	
+	This is to help shibboleth but will also help when this function
+	needs to be extended in future.
+
+2005-04-15 Friday 22:34  bobopinna
+
+	* backuplib.php, lib.php, loadSCO.php, mod.html, request.js,
+	restorelib.php, validate.php, version.php, db/mysql.php,
+	db/mysql.sql, db/postgres7.php, db/postgres7.sql: 
+	
+	Removed field datadir form scorm table Fixed a validation problem.
+
+2005-04-13 Wednesday 15:45  moodler
+
+	* view.php: 
+	
+	Added some reportlink classed to the report links
+
+2005-04-13 Wednesday 15:00  moodler
+
+	* index.php: 
+	
+	Correct calls to require_course_login
+
+2005-04-11 Monday 15:31  bobopinna
+
+	* lib.php: 
+	
+	fixed two typos in manifest parsing
+
+2005-04-11 Monday 14:48  bobopinna
+
+	* db/: mysql.sql, postgres7.sql: 
+	
+	fixed a typo.
+
+2005-04-11 Monday 14:15  bobopinna
+
+	* version.php, db/postgres7.php: 
+	
+	Fixed mysql db design
+
+2005-04-08 Friday 23:58  bobopinna
+
+	* db/: mysql.php, mysql.sql, postgres7.sql: 
+	
+	Fixed db definition and upgrade
+
+2005-04-06 Wednesday 16:21  defacer
+
+	* db/: mysql.php, postgres7.php: 
+	
+	
+	Fix some warnings when upgrading but no scorms exist.
+
+2005-04-06 Wednesday 16:07  bobopinna
+
+	* playscorm.php, datamodels/scorm1_2.js.php,
+	datamodels/scorm1_3.js.php, db/postgres7.php, db/postgres7.sql: 
+	
+	New data model system
+
+2005-04-06 Wednesday 10:09  mjollnir_
+
+	* db/postgres7.php: 
+	
+	One more syntax fix for scorm postgres upgrade. You can't do WHERE
+	1 in postgres
+
+2005-04-06 Wednesday 10:08  mjollnir_
+
+	* db/postgres7.php: 
+	
+	Fixing a few syntax problems in scorm upgrade for postgres. Upgrade
+	still fails (this relates to bug #2832 which I'm about to update)
+
+2005-04-05 Tuesday 14:54  bobopinna
+
+	* db/: postgres7.php, postgres7.sql: 
+	
+	Fixed a bad defined index
+
+2005-04-04 Monday 22:09  bobopinna
+
+	* lib.php, playscorm.php, view.php: 
+	
+	Uniformed view and playscorm course structure
+
+2005-04-04 Monday 17:43  bobopinna
+
+	* lib.php: 
+	
+	Fixed a typo
+
+2005-04-04 Monday 17:37  bobopinna
+
+	* version.php: 
+	
+	Added INDEX parameters support
+
+2005-04-04 Monday 17:30  bobopinna
+
+	* lib.php, loadSCO.php, playscorm.php, db/mysql.php, db/mysql.sql,
+	db/postgres7.php, db/postgres7.sql: 
+	
+	Added ITEM parameters support.
+
+2005-04-03 Sunday 07:38  gustav_delius
+
+	* db/mysql.sql: 
+	
+	primary key has to be id, see bug 2832
+
+2005-04-02 Saturday 17:56  moodler
+
+	* version.php, db/mysql.php, db/postgres7.php: 
+	
+	Drop the popup field properly
+
+2005-04-01 Friday 23:53  bobopinna
+
+	* api.php, backuplib.php, config.html, lib.php, loadSCO.php,
+	mod.html, playscorm.php, report.php, request.js, restorelib.php,
+	validate.php, version.php, view.php, datamodels/scorm1_2.js,
+	db/mysql.php, db/mysql.sql, db/postgres7.php, db/postgres7.sql: 
+	
+	Several change to db fields, a complete redesign of user data track
+
+2005-03-27 Sunday 14:12  moodler
+
+	* lib.php: 
+	
+	Just fixing some errors, but these functions should really return
+	some info
+
+2005-03-14 Monday 00:17  moodler
+
+	* view.php: 
+	
+	Standardise the intro box using an ID
+
+2005-03-10 Thursday 21:30  moodler
+
+	* lib.php: 
+	
+	Variety of small fixes, but mostly related to how the recent
+	activity block is constructed.	A new function exists to pump these
+	notes out in a standard way :  print_recent_activity_note.
+	
+	Module dependencies also updated because of this.
+
+2005-03-02 Wednesday 01:52  bobopinna
+
+	* playscorm.php: 
+	
+	New user inteface
+
+2005-02-27 Sunday 08:56  stronk7
+
+	* view.php: 
+	
+	Some $ME are now out!
+	
+	And 5 lines have been added because they weren't merged before!
+	Please, check them!
+	
+	Merged from MOODLE_14_STABLE
+
+2005-02-27 Sunday 08:48  stronk7
+
+	* cmi.php, mod.html, view.php: 
+	
+	Some $ME are now out!
+
+2005-02-22 Tuesday 16:00  bobopinna
+
+	* api.php, datamodel.php, playscorm.php, version.php,
+	datamodels/scorm1_2.js: 
+	
+	Added complete datamodel support for SCORM 1.2
+
+2005-02-18 Friday 00:04  bobopinna
+
+	* api.php, datamodel.php, index.php, lib.php, mod.html,
+	playscorm.php, validate.php: 
+	
+	First step to SCORM2004, new communication subsystem
+
+2005-02-17 Thursday 17:26  bobopinna
+
+	* mod.html, validate.php: 
+	
+	New validation procedure
+
+2005-02-17 Thursday 16:52  bobopinna
+
+	* api.php, api1_2.php, cmi.php, config.html, datamodel.php,
+	details.php, index.php, lib.php, loadSCO.php, mod.html,
+	playscorm.php, report.php, request.js, scormAPI.php, validate.php,
+	version.php, view.php: 
+	
+	First step for SCORM2004, new communication subsystem
+
+2005-02-17 Thursday 13:15  moodler
+
+	* lib.php: 
+	
+	Initialise a variable
+
+2005-02-16 Wednesday 18:40  gustav_delius
+
+	* cmi.php, index.php, playscorm.php, report.php, scormAPI.php,
+	version.php, view.php: 
+	
+	In order to ensure that when a teacher hides a resource or an
+	activity that students really can't get at it, even if they know
+	the direct links to its pages, I have given an optional third
+	argument $cm to the functions  require_login() and
+	require_course_login(). Pages showing information about a
+	particular course module now pass the course module object in this
+	third argument. The login functions will then test if either the
+	course module is visible or the user is a teacher. If neither is
+	the case then the user is redirected to the course homepage after
+	being shown a message "Sorry, this activity is currently hidden".
+	
+	(While I was at it I also turned the autologinguests off for most
+	module pages, except on the index.php pages and the view.php pages
+	for those modules that allow guests)
+
+2005-02-13 Sunday 05:41  gustav_delius
+
+	* mod.html: 
+	
+	Activities can now be hidden/shown from the activity editing page.
+	Also for modules that know about groups the groupmode can be set
+	from there. See bug 2533. This required adding to the mod.html
+	files calls to new functions print_visible_setting() and
+	print_groupmode_setting() which are combined in
+	print_standard_coursemodule_settings().
+	
+	The visibility of coursemodules is now always set through the
+	function set_coursemodule_visible() in order to make sure that the
+	associated events get updated in the calendar appropriately.
+	
+	If moving a coursemodule to a hidden section then the module is set
+	to hidden as well and its events are hidden in the calendar.
+	
+	If deleting a coursemodule its events are deleted from the
+	calendar.
+	
+	The function choose_from_menu() has an extra optional argument
+	$disabled which, when set to true, will disable the menu.
+	
+	For the sake of consistency the function set_groupmode_for_module
+	has been renamed to set_coursemodule_groupmode and the functions
+	show_course_module() and hide_course_module() have been combined to
+	set_coursemodule_visible().
+
+2005-02-10 Thursday 18:41  moodler
+
+	* details.php: 
+	
+	Removing the THEME variable and adding in classes where appropriate
+
+2005-02-09 Wednesday 11:48  moodler
+
+	* lib.php: 
+	
+	Fixed bodgy call to config.php
+	(http://moodle.org/mod/forum/discuss.php?d=18293)
+
+2005-02-08 Tuesday 17:23  moodler
+
+	* config.html: 
+	
+	Fixed up some layout issues in the configuration files
+
+2005-02-08 Tuesday 07:33  stronk7
+
+	* restorelib.php: 
+	
+	Some minor changes to each module to XHTMLise the restore process
+
+2005-01-28 Friday 07:32  stronk7
+
+	* details.php: 
+	
+	Added one missing sesskey.
+
+2005-01-23 Sunday 02:53  stronk7
+
+	* mod.html: 
+	
+	Modify sesskey behaviour. SC#73
+
+2005-01-07 Friday 16:56  bobopinna
+
+	* playscorm.php: 
+	
+	Fixed Navigation Bar Error
+
+2004-12-18 Saturday 01:24  stronk7
+
+	* lib.php: 
+	
+	Just activating validation in Head to be able to test it.
+
+2004-12-17 Friday 22:52  stronk7
+
+	* lib.php: 
+	
+	Changes since 1.13.2.4 upto 1.13.2.9 in MOODLE_14_STABLE applied to
+	HEAD!!!
+	
+	Some validation code has changed and I've leave it commented
+	exactly as it's in MOODLE_14_STABLE. Not sure why!!
+
+2004-12-17 Friday 01:26  bobopinna
+
+	* playscorm.php, view.php: 
+	
+	Delete attribute title from navigation bar link
+
+2004-12-16 Thursday 03:59  stronk7
+
+	* lib.php: 
+	
+	small typo!
+
+2004-12-15 Wednesday 21:22  bobopinna
+
+	* lib.php: 
+	
+	Fixed a UTF8-ISO problem
+
+2004-12-13 Monday 14:48  martinlanghoff
+
+	* details.php: 
+	
+	Merge from MOODLE_14_STABLE - Fixed SC#30 - credits go to skodak
+
+2004-12-13 Monday 14:41  martinlanghoff
+
+	* version.php: 
+	
+	Post SC#30 fix - SCORM now requires a correct clean_param() -
+	credits go to skodak
+
+2004-12-13 Monday 14:37  martinlanghoff
+
+	* details.php: 
+	
+	Fixed SC#30 - credits go to skodak
+
+2004-12-09 Thursday 22:28  bobopinna
+
+	* lib.php: 
+	
+	Fixed an incompatibility with scandir
+
+2004-12-06 Monday 16:52  bobopinna
+
+	* api1_2.php: 
+	
+	Fixed a missunderstanding coding. Thanks, Mustali
+
+2004-12-03 Friday 02:17  bobopinna
+
+	* api1_2.php: 
+	
+	Close all the non implemented datamodel error
+
+2004-12-03 Friday 01:24  bobopinna
+
+	* playscorm.php, report.php: 
+	
+	fixed some undefined variables
+
+2004-12-02 Thursday 21:22  bobopinna
+
+	* lib.php: 
+	
+	Fixed a problem when were deleted many files or a BIG directory
+
+2004-12-02 Thursday 19:07  bobopinna
+
+	* view.php: 
+	
+	Forgot two debug printing lines.
+
+2004-12-02 Thursday 18:41  bobopinna
+
+	* config.html, lib.php, view.php: 
+	
+	Fixed a problem with packages validation and PHP5
+
+2004-11-26 Friday 23:42  moodler
+
+	* lib.php, report.php: 
+	
+	Merged from stable
+
+2004-11-26 Friday 23:27  moodler
+
+	* lib.php, report.php: 
+	
+	SCORM reports now actually show user pictures
+
+2004-11-26 Friday 14:33  moodler
+
+	* details.php, mod.html: 
+	
+	Changes for XHTML and accessibility compatibility
+
+2004-11-26 Friday 08:57  martinlanghoff
+
+	* details.php: 
+	
+	Merge from MOODLE_14_STABLE Fix for bug 2227 "bug in pclzip.php
+	causing scorm errors"
+	http://moodle.org/bugs/bug.php?op=show&bugid=2227
+	
+	Credits go to skodak
+
+2004-11-26 Friday 08:54  martinlanghoff
+
+	* details.php: 
+	
+	Fix for bug 2227 "bug in pclzip.php causing scorm errors"
+	http://moodle.org/bugs/bug.php?op=show&bugid=2227
+	
+	Credits go to skodak
+
+2004-11-23 Tuesday 07:29  martinlanghoff
+
+	* playscorm.php: 
+	
+	Fixed extra quote -- html typo -- reported in
+	http://moodle.org/bugs/bug.php?op=show&bugid=2170.
+	
+	The bug is not present in HEAD.
+
+2004-11-19 Friday 13:28  mjollnir_
+
+	* version.php, db/mysql.php, db/mysql.sql, db/postgres7.php,
+	db/postgres7.sql: 
+	
+	Merged from MOODLE_14_STABLE: Indexes for scorm and version bump
+	(honoring partial freeze)
+
+2004-11-19 Friday 13:21  mjollnir_
+
+	* version.php, db/mysql.php, db/mysql.sql, db/postgres7.php,
+	db/postgres7.sql: 
+	
+	Indexes for scorm and version bump (honoring partial freeze)
+
+2004-11-11 Thursday 22:25  bobopinna
+
+	* api1_2.php: 
+	
+	Patched a nav.event data model problem
+
+2004-11-11 Thursday 16:00  moodler
+
+	* coursefiles.php: 
+	
+	Stub to overwrite formerly buggy script.
+
+2004-11-10 Wednesday 22:19  moodler
+
+	* report.php: 
+	
+	Merged removed notice from stable
+
+2004-11-10 Wednesday 22:18  moodler
+
+	* report.php: 
+	
+	Hide a notice
+
+2004-11-02 Tuesday 20:53  moodler
+
+	* coursefiles.php, mod.html, version.php: 
+	
+	Updated Resource, Wiki and Scorm to use the new files/index.php to
+	choose files.	The old coursefiles.php is obsolete.
+
+2004-11-02 Tuesday 20:02  moodler
+
+	* coursefiles.php, mod.html, version.php: 
+	
+	files/index.php now allows choosing and it makes the
+	coursefiles.php scripts unnecessary.
+	
+	Wiki, Resource and Scorm now use the new method, so their versions
+	have been bumped.
+
+2004-10-18 Monday 06:49  stronk7
+
+	* coursefiles.php: 
+	
+	Now Scorm's FileManager is using central zip and unzip functions.
+	
+	Merged from MOODLE_14_STABLE
+
+2004-10-18 Monday 06:46  stronk7
+
+	* coursefiles.php: 
+	
+	Now Scorm's FileManager is using central zip and unzip functions.
+
+2004-10-03 Sunday 17:48  stronk7
+
+	* config.html: 
+	
+	admin/module.php is now using sesskey.
+	
+	Merged from MOODLE_14_STABLE
+
+2004-10-03 Sunday 17:44  stronk7
+
+	* config.html: 
+	
+	admin/module.php is now using sesskey.
+
+2004-09-30 Thursday 11:43  mjollnir_
+
+	* report.php: 
+	
+	More changes to use fullname function rather than firstname
+	lastname
+	
+	These patches are maintained in an publicly accessible Arch
+	repository, see:
+	http://lists.eduforge.org/cgi-bin/archzoom.cgi/arch-eduforge@cataly
+	st.net.nz--2004-MIRROR/moodle--eduforge--1.3.3
+	
+	Index of arch patches in this commit:
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	108	2004-09-30 03:31:29 GMT     Penny Leach
+	<penny@catalyst.net.nz>     final changes to use fullname
+	
+	Full logs:
+	
+	Revision: moodle--eduforge--1.3.3--patch-108 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Thu Sep 30 15:31:29 NZST 2004
+	Standard-date: 2004-09-30 03:31:29 GMT Modified-files:
+	login/confirm.php mod/scorm/report.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	108 Summary: final changes to use fullname Keywords:
+
+2004-09-28 Tuesday 16:05  moodler
+
+	* coursefiles.php: 
+	
+	Merged fix for unclean oldname from renaming ... from stable.
+
+2004-09-28 Tuesday 16:02  moodler
+
+	* coursefiles.php: 
+	
+	Copy of the change from files/index.php to clean $oldname during
+	rename
+
+2004-09-20 Monday 22:33  bobopinna
+
+	* playscorm.php, playscorm.php: 
+	
+	Fixed a problem with onbeforeunload
+
+2004-09-20 Monday 22:32  bobopinna
+
+	* scormAPI.php: 
+	
+	Fixed a typo
+
+2004-09-20 Monday 21:50  bobopinna
+
+	* cmi.php, coursefiles.php, details.php, index.php, lib.php,
+	playscorm.php, scormAPI.php, view.php: 
+	
+	Updated XHTML tags and attributes in order to pass W3C validation
+
+2004-09-17 Friday 13:46  mjollnir_
+
+	* version.php: 
+	
+	bumps for version and requires for modules that use new upload
+	class
+
+2004-09-17 Friday 01:13  gustav_delius
+
+	* coursefiles.php, details.php, playscorm.php, report.php,
+	view.php: 
+	
+	XHTML compliance - fixed (hopefully) all <img> tags - global
+	replace on <br> to <br /> - &amp; in URLs - got the forum module
+	XHTML compliant Julian Sedding
+
+2004-09-15 Wednesday 06:58  mjollnir_
+
+	* coursefiles.php: 
+	
+	Centralised file upload code, integration with clam AV, integration
+	with some modules: assignment, exercise, forum, glossaryt,
+	resource, scorm (more to come soon).
+	
+	These patches are maintained in an publicly accessible Arch
+	repository, see:
+	http://lists.eduforge.org/cgi-bin/archzoom.cgi/arch-eduforge@cataly
+	st.net.nz--2004-MIRROR/moodle--eduforge--1.3.3
+	
+	Index of arch patches in this commit:
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	15     final touches to sears stuff until testing can begin,
+	beginning of magical uploadey wrappery function goodness
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	18     Virus scanning on upload
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	19     made emacs use spaces instead of tabs and fixed
+	lib/moodlelib.php where it was bad in the new functions; few
+	wording changes, added in support for clamdscan
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	20     handlevirus.php = new script to handle output of clamscan
+	(designed for cron clamscan), changes to strings for emailing out
+	virus notifications, changes to moodlelib - slightly different
+	notice reporting in handle_infected_file and new function for
+	replacing file with message
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	21     refactor to filter out invalid lines in input to handlevirus
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	22     modified assignment to use hande_file_upload
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	25     bug fix for handle_file_upload
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	26     Small fix for non thinking brain doing something silly
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	35     small fix to switch order of items in drop down to allow
+	sensible defaults
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	36     small changes to strings file
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	38     taken stuff out of moodlelib to put in upload class
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	39     new upload class -in a changeset by itself just in case -
+	not quite finished
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	40     tweaks to upload class - clam_scan_file can now take a path
+	as an argument, not just an entry from _FILES, there is better
+	handling of failure and notification, more allowance for module
+	writers to keep control in general. Also slightly nicer strings
+	entries for a few things
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	41     upload class integration with assignment module, bug fix,
+	slight tweak
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	42     small changes to uploadlib, integration with assessment and
+	assignment
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	44     tweaks for assessment and assignment for uploading
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	48     integration with exercise module
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	49     integration of virus stuff with forum module
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	50     integration of upload class and glossary module
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	51     just in case glossary_move_attachments is ever used, we
+	change the log entries before we move the files. also  moved
+	clam_log_upload out of the class
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	52     virus scanning for imports for glossary
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	53     relog entries when moving files attached to forum posts
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	54     resource module integration with virus scanning
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	55     scorm integration with upload/virus class
+	
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	56     fix for handlevirus.php since upload class changes
+	
+	Full logs:
+	
+	Revision: moodle--eduforge--1.3.3--patch-15 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Wed Sep  1 17:28:13 NZST 2004
+	Standard-date: 2004-09-01 05:28:13 GMT Modified-files:
+	lang/en/moodle.php lib/moodlelib.php	 mod/assessment/sears.php
+	mod/assessment/upload.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	15 Summary: final touches to sears stuff until testing can begin,
+	beginning of magical uploadey wrappery function goodness Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-18 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Thu Sep  2 15:49:54 NZST 2004
+	Standard-date: 2004-09-02 03:49:54 GMT Modified-files:
+	admin/config.html lang/en/moodle.php	 lib/moodlelib.php
+	mod/assessment/upload.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	18 Summary: Virus scanning on upload Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-19 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Thu Sep  2 17:06:14 NZST 2004
+	Standard-date: 2004-09-02 05:06:14 GMT Modified-files:
+	lang/en/moodle.php lib/moodlelib.php	 mod/assessment/upload.php
+	New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	19 Summary: made emacs use spaces instead of tabs and fixed
+	lib/moodlelib.php where it was bad in the new functions; few
+	wording changes, added in support for clamdscan Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-20 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Fri Sep  3 16:06:05 NZST 2004
+	Standard-date: 2004-09-03 04:06:05 GMT New-files:
+	admin/.arch-ids/handlevirus.php.id     admin/handlevirus.php
+	Modified-files: lang/en/moodle.php lib/moodlelib.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	20 Summary: handlevirus.php = new script to handle output of
+	clamscan (designed for cron clamscan), changes to strings for
+	emailing out virus notifications, changes to moodlelib - slightly
+	different notice reporting in handle_infected_file and new function
+	for replacing file with message Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-21 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Mon Sep  6 11:37:31 NZST 2004
+	Standard-date: 2004-09-05 23:37:31 GMT Modified-files:
+	admin/handlevirus.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	21 Summary: refactor to filter out invalid lines in input to
+	handlevirus Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-22 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Mon Sep  6 13:07:48 NZST 2004
+	Standard-date: 2004-09-06 01:07:48 GMT Modified-files:
+	mod/assignment/upload.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	22 Summary: modified assignment to use hande_file_upload Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-25 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Mon Sep  6 16:32:11 NZST 2004
+	Standard-date: 2004-09-06 04:32:11 GMT Modified-files:
+	lib/moodlelib.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	25 Summary: bug fix for handle_file_upload Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-26 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Mon Sep  6 16:51:50 NZST 2004
+	Standard-date: 2004-09-06 04:51:50 GMT Modified-files:
+	lib/moodlelib.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	26 Summary: Small fix for non thinking brain doing something silly
+	Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-35 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Fri Sep 10 10:09:53 NZST 2004
+	Standard-date: 2004-09-09 22:09:53 GMT Modified-files:
+	admin/config.html New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	35 Summary: small fix to switch order of items in drop down to
+	allow sensible defaults Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-36 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Fri Sep 10 10:11:29 NZST 2004
+	Standard-date: 2004-09-09 22:11:29 GMT Modified-files:
+	lang/en/moodle.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	36 Summary: small changes to strings file Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-38 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Fri Sep 10 10:17:24 NZST 2004
+	Standard-date: 2004-09-09 22:17:24 GMT Modified-files:
+	lib/moodlelib.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	38 Summary: taken stuff out of moodlelib to put in upload class
+	Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-39 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Fri Sep 10 10:21:21 NZST 2004
+	Standard-date: 2004-09-09 22:21:21 GMT New-files:
+	lib/.arch-ids/uploadlib.php.id lib/uploadlib.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	39 Summary: new upload class -in a changeset by itself just in case
+	- not quite finished Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-40 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Fri Sep 10 11:58:24 NZST 2004
+	Standard-date: 2004-09-09 23:58:24 GMT Modified-files:
+	lang/en/moodle.php lib/uploadlib.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	40 Summary: tweaks to upload class - clam_scan_file can now take a
+	path as an argument, not just an entry from _FILES, there is better
+	handling of failure and notification, more allowance for module
+	writers to keep control in general. Also slightly nicer strings
+	entries for a few things Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-41 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Fri Sep 10 12:38:02 NZST 2004
+	Standard-date: 2004-09-10 00:38:02 GMT Modified-files:
+	lib/uploadlib.php mod/assignment/upload.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	41 Summary: upload class integration with assignment module, bug
+	fix, slight tweak Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-42 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Fri Sep 10 15:30:20 NZST 2004
+	Standard-date: 2004-09-10 03:30:20 GMT Modified-files:
+	lib/uploadlib.php mod/assessment/upload.php    
+	mod/assessment/view.php mod/assignment/upload.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	42 Summary: small changes to uploadlib, integration with assessment
+	and assignment Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-44 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Fri Sep 10 16:54:40 NZST 2004
+	Standard-date: 2004-09-10 04:54:40 GMT Modified-files:
+	mod/assessment/lib.php	   mod/assignment/lib.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	44 Summary: tweaks for assessment and assignment for uploading
+	Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-48 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Mon Sep 13 09:57:03 NZST 2004
+	Standard-date: 2004-09-12 21:57:03 GMT Modified-files:
+	lang/en/moodle.php     mod/exercise/locallib.php
+	mod/exercise/upload.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	48 Summary: integration with exercise module Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-49 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Mon Sep 13 11:35:46 NZST 2004
+	Standard-date: 2004-09-12 23:35:46 GMT Modified-files:
+	mod/forum/lib.php mod/forum/post.html New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	49 Summary: integration of virus stuff with forum module Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-50 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Mon Sep 13 14:00:29 NZST 2004
+	Standard-date: 2004-09-13 02:00:29 GMT Modified-files:
+	lang/en/glossary.php mod/glossary/edit.html    
+	mod/glossary/edit.php mod/glossary/lib.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	50 Summary: integration of upload class and glossary module
+	Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-51 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Mon Sep 13 15:13:02 NZST 2004
+	Standard-date: 2004-09-13 03:13:02 GMT Modified-files:
+	lib/uploadlib.php mod/glossary/lib.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	51 Summary: just in case glossary_move_attachments is ever used, we
+	change the log entries before we move the files. also  moved
+	clam_log_upload out of the class Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-52 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Mon Sep 13 15:26:56 NZST 2004
+	Standard-date: 2004-09-13 03:26:56 GMT Modified-files:
+	mod/glossary/import.html     mod/glossary/import.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	52 Summary: virus scanning for imports for glossary Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-53 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Mon Sep 13 16:02:22 NZST 2004
+	Standard-date: 2004-09-13 04:02:22 GMT Modified-files:
+	mod/forum/lib.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	53 Summary: relog entries when moving files attached to forum posts
+	Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-54 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Mon Sep 13 16:58:37 NZST 2004
+	Standard-date: 2004-09-13 04:58:37 GMT Modified-files:
+	mod/resource/coursefiles.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	54 Summary: resource module integration with virus scanning
+	Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-55 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Tue Sep 14 16:15:47 NZST 2004
+	Standard-date: 2004-09-14 04:15:47 GMT Modified-files:
+	mod/scorm/coursefiles.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	55 Summary: scorm integration with upload/virus class Keywords:
+	
+	Revision: moodle--eduforge--1.3.3--patch-56 Archive:
+	arch-eduforge@catalyst.net.nz--2004 Creator: Penny Leach
+	<penny@catalyst.net.nz> Date: Wed Sep 15 10:33:23 NZST 2004
+	Standard-date: 2004-09-14 22:33:23 GMT Modified-files:
+	admin/handlevirus.php New-patches:
+	arch-eduforge@catalyst.net.nz--2004/moodle--eduforge--1.3.3--patch-
+	56 Summary: fix for handlevirus.php since upload class changes
+	Keywords:
+
+2004-09-15 Wednesday 04:39  gustav_delius
+
+	* coursefiles.php, lib.php, view.php: 
+	
+	towards XHTML compliance
+
+2004-09-13 Monday 16:17  moodler
+
+	* lib.php: 
+	
+	Merged XML UTF-8 fixed from stable (see bug 1927)
+
+2004-09-13 Monday 15:42  moodler
+
+	* lib.php: 
+	
+	Checking in fixes to xml_parser_create to specify an encoding
+	(UTF-8)
+	
+	See Eloy's bug 1927 for details.
+	
+	After this checkin I'll be immediately testing some backup/restores
+	on PHP 4.
+
+2004-09-13 Monday 06:29  gustav_delius
+
+	* coursefiles.php, index.php, mod.html: 
+	
+	closed some br tags
+
+2004-09-13 Monday 01:22  gustav_delius
+
+	* backuplib.php, config.html, coursefiles.php, details.php,
+	index.php, lib.php, mod.html, playscorm.php, report.php,
+	restorelib.php, version.php, view.php, db/mysql.php,
+	db/postgres7.php: 
+	
+	fixed capitalization and quoting of attribute values
+
+2004-09-12 Sunday 22:41  gustav_delius
+
+	* config.html, coursefiles.php, details.php, mod.html,
+	restorelib.php, validatordomxml.php: 
+	
+	closed <input /> <br /> <hr />
+
+2004-08-30 Monday 16:43  moodler
+
+	* coursefiles.php: 
+	
+	MErged from CVS
+
+2004-08-30 Monday 16:42  moodler
+
+	* coursefiles.php: 
+	
+	Disabled HTML editor when editing HTML files, for now.	See bug
+	1815
+
+2004-08-29 Sunday 22:15  gustav_delius
+
+	* coursefiles.php: 
+	
+	removed unnecessary calls to get_site()
+
+2004-08-29 Sunday 17:03  moodler
+
+	* lib.php: 
+	
+	By default turn off validation for Moodle 1.4 to make things a bit
+	easier for some packages.  It can be enabled manually in the SCORM
+	module settings.
+
+2004-08-25 Wednesday 17:21  moodler
+
+	* lib.php, playscorm.php, scormAPI.php, view.php, pix/asset.gif: 
+	
+	Merged fixes from HEAD
+
+2004-08-25 Wednesday 16:34  bobopinna
+
+	* lib.php, playscorm.php, scormAPI.php, view.php, pix/asset.gif: 
+	
+	Patched a problem with asset resources
+
+2004-08-25 Wednesday 02:38  gustav_delius
+
+	* version.php: 
+	
+	Merging from stable branch
+
+2004-08-24 Tuesday 23:14  gustav_delius
+
+	* version.php: 
+	
+	reduced $module->requires to 052505 after Martin put my new
+	functions into that version.
+
+2004-08-24 Tuesday 18:13  gustav_delius
+
+	* version.php: 
+	
+	All the modules in which I made changes require the latest version
+	of datalib.php.
+
+2004-08-22 Sunday 22:38  gustav_delius
+
+	* details.php: 
+	
+	All modules are now suitable for the site page. They now all follow
+	the same rules, namely that any students enrolled in at least one
+	course is considered to be a student on the site.
+	
+	All the page headers work correctly also on the site course.
+	
+	On the site page the modules don't require login unless necessary
+	or required by $CFG->forcelogin.
+
+2004-08-09 Monday 15:26  bobopinna
+
+	* api1_2.php, lib.php, playscorm.php, view.php: 
+	
+	Added multiorg display and patched some typo
+
+2004-07-28 Wednesday 20:01  moodler
+
+	* index.php: 
+	
+	Fixed a notice
+
+2004-07-28 Wednesday 16:51  paca70
+
+	* db/postgres7.php: 
+	
+	Wery quickly tested and untested  versions for Postgresql.
+
+2004-07-22 Thursday 09:13  moodler
+
+	* db/postgres7.sql: 
+	
+	FIxed typo in POstgreSQL install
+
+2004-07-22 Thursday 09:12  moodler
+
+	* db/postgres7.sql: 
+	
+	Fixed a typo in POstgreSQL install
+
+2004-07-19 Monday 22:56  bobopinna
+
+	* validatordomxml.php: 
+	
+	The new domxml validation library (need php domxml ext to work)
+
+2004-07-19 Monday 22:53  bobopinna
+
+	* api1_2.php, backuplib.php, cmi.php, config.html, details.php,
+	lib.php, mod.html, playscorm.php, report.php, restorelib.php,
+	scormAPI.php, version.php, db/mysql.php, db/mysql.sql,
+	db/postgres7.php, db/postgres7.sql: 
+	
+	Some bug fixes, added new score view (thanks Matt) and added a new
+	validation procedure
+
+2004-07-16 Friday 23:45  moodler
+
+	* api1_2.php, backuplib.php, coursefiles.php, details.php, lib.php,
+	mod.html, playscorm.php, report.php, restorelib.php, version.php,
+	view.php, db/mysql.php, db/mysql.sql, db/postgres7.php,
+	db/postgres7.sql: 
+	
+	Latest fixes from Bobo in stable
+
+2004-07-14 Wednesday 14:50  bobopinna
+
+	* db/: mysql.php, postgres7.php: 
+	
+	Added a prefix to an alter table command
+
+2004-07-12 Monday 16:14  bobopinna
+
+	* api1_2.php, details.php, lib.php, mod.html, version.php,
+	db/mysql.php, db/mysql.sql, db/postgres7.php, db/postgres7.sql: 
+	
+	Fixed some problems in Moodle 1.3.2
+
+2004-07-09 Friday 13:53  moodler
+
+	* api1_2.php, backuplib.php, cmi.php, config.html, coursefiles.php,
+	details.php, lib.php, mod.html, playscorm.php, report.php,
+	restorelib.php, scormAPI.php, version.php, view.php, db/mysql.php,
+	db/mysql.sql, db/postgres7.php, db/postgres7.sql: 
+	
+	Latest SCORM from development now merged into stable
+
+2004-07-06 Tuesday 20:45  bobopinna
+
+	* api1_2.php, cmi.php, lib.php, playscorm.php, view.php: 
+	
+	[no log message]
+
+2004-07-01 Thursday 21:34  bobopinna
+
+	* api1_2.php: 
+	
+	Refined time data model parsing and fixed the credit/no-credit
+	model
+
+2004-07-01 Thursday 18:17  bobopinna
+
+	* api1_2.php: 
+	
+	Removed a debug alert
+
+2004-07-01 Thursday 17:54  bobopinna
+
+	* api1_2.php, backuplib.php, cmi.php, playscorm.php,
+	restorelib.php, scormAPI.php: 
+	
+	Updated backup to popup windows. Modified auto-continue feature.
+	Added nav.event data model. Patched a problem with time data model.
+
+2004-06-30 Wednesday 21:17  bobopinna
+
+	* details.php: 
+	
+	Added default values for popup window when scorm is updated from
+	framed to windowed
+
+2004-06-30 Wednesday 20:25  bobopinna
+
+	* api1_2.php, lib.php, mod.html: 
+	
+	Patched the auto-continue feature
+
+2004-06-29 Tuesday 16:02  bobopinna
+
+	* playscorm.php, view.php: 
+	
+	Modified user score visualization
+
+2004-06-29 Tuesday 15:50  bobopinna
+
+	* playscorm.php, scormAPI.php, view.php: 
+	
+	Fixed last Explorer popup bug and added user score view
+
+2004-06-28 Monday 19:20  bobopinna
+
+	* api1_2.php, details.php, lib.php, mod.html, playscorm.php,
+	scormAPI.php: 
+	
+	Fixed some popup window problems (some still fixing)
+
+2004-06-21 Monday 19:27  bobopinna
+
+	* api1_2.php, config.html, details.php, lib.php, mod.html,
+	playscorm.php, report.php, scormAPI.php, version.php, view.php,
+	db/mysql.php, db/mysql.sql, db/postgres7.php, db/postgres7.sql: 
+	
+	Added popup window scorm player and its settings
+
+2004-06-10 Thursday 18:05  bobopinna
+
+	* api1_2.php, backuplib.php: 
+	
+	Added cmi.core.score.min/max support to API
+
+2004-06-10 Thursday 06:50  gustav_delius
+
+	* lib.php: 
+	
+	made sure that ungraded modules would not show up in gradebook
+
+2004-06-07 Monday 21:28  bobopinna
+
+	* backuplib.php, restorelib.php: 
+	
+	Added backup and restore features
+
+2004-06-07 Monday 20:16  bobopinna
+
+	* cmi.php, coursefiles.php, lib.php, mod.html, scormAPI.php,
+	view.php: 
+	
+	Fixed PHP_SELF and patched some other playing problems
+
+2004-06-04 Friday 15:28  moodler
+
+	* version.php: 
+	
+	MOdules are dependent on this version of course/mod.php
+
+2004-06-04 Friday 14:17  moodler
+
+	* mod.html, version.php: 
+	
+	BRANCH MERGE
+	
+	These are the changes from MOODLE_13_STABLE, merged into trunk
+	
+	The tag MOODLE_13_MERGED on the MOODLE_13_STABLE branch now refers
+	to this point
+	
+	The biggest changes here are the fixes for HTML editor in all
+	standard modules
+
+2004-06-03 Thursday 21:07  moodler
+
+	* mod.html, version.php: 
+	
+	OK, for bug fixes this is a pretty big checkin!!   :-/
+	
+	I finally was able to see the HTML Editor bug in IE/XP that
+	everyone was talking about, and it's a very serious bug as it makes
+	Moodle 1.3 almost unusable for these people.  :-(  :-(
+	
+	So, I eventually found out that the problem is that the Javascript
+	that attaches the editor has troubles when it is embedded within
+	the table						    that
+	course/mod.php puts around the mod.html forms in each module. 
+	(Only in IE and only sometimes, mind you).
+	
+	While testing I also had a good look at a long standing issue which
+	is the inconsistency of the mod.html forms when using the editor.
+	
+	So, to fix both I decided to put the HTML editor calls OUTSIDE the
+	mod.html in the mod.php file.  This means that all modules get the
+	HTML editor by default on all text areas during activity module
+	setup by default.
+	
+	I've been running through this for the past few hours and it seems
+	pretty stable now and a lot more consistent, so I'm checking it in
+	as big fix towards the Moodle 1.3.1 we have to have.
+	
+	Unfortunately it also means the API has changed a bit  ... I had to
+	update all the module dependencies to this exact version (or
+	later).
+	
+	Please test this "stable" version hard using the standard modules
+	only and I'll merge these changes over to the trunk in a day or so
+	and update all known third-party modules.
+
+2004-05-27 Thursday 20:44  bobopinna
+
+	* api1_2.php, details.php, playscorm.php, report.php, scormAPI.php,
+	view.php: 
+	
+	Fixed some undefined variable
+
+2004-05-26 Wednesday 16:07  bobopinna
+
+	* details.php: 
+	
+	Fixed a typo
+
+2004-05-24 Monday 15:15  bobopinna
+
+	* details.php: 
+	
+	Fixed two lost PHP short tags
+
+2004-05-23 Sunday 19:55  paca70
+
+	* db/: postgres7.php, postgres7.sql: 
+	
+	Corrected some typos
+
+2004-05-22 Saturday 12:00  moodler
+
+	* details.php, lib.php: 
+	
+	Fixes for the problem creating directories.
+	
+	It was just a missing $CFG, but I got rid of scorm_mkdirs to use
+	the moodlelib equivalent instead
+
+2004-05-21 Friday 09:42  moodler
+
+	* api1_2.php, lib.php, playscorm.php, report.php, scormAPI.php,
+	view.php: 
+	
+	Putting in Bobo's latest changes (from the contrib version)
+
+2004-05-21 Friday 03:04  stronk7
+
+	* mod.html: 
+	
+	Avoid some notices in edit page (debug=on) :-)
+
+2004-05-21 Friday 03:01  stronk7
+
+	* lib.php: 
+	
+	Avoid one notice in course page (debug=on) :-)
+
+2004-05-21 Friday 01:32  moodler
+
+	* icon.gif: 
+	
+	Transparent edges to my SUGGESTED new SCORM icon.
+
+2004-05-21 Friday 01:06  moodler
+
+	* README.txt, api1_2.php, cmi.php, coursefiles.php, details.php,
+	icon.gif, index.php, lib.php, mod.html, playscorm.php, report.php,
+	scormAPI.php, version.php, view.php, db/mysql.php, db/mysql.sql,
+	db/postgres7.php, db/postgres7.sql, pix/browsed.gif,
+	pix/completed.gif, pix/failed.gif, pix/incomplete.gif,
+	pix/minus.gif, pix/notattempted.gif, pix/passed.gif, pix/plus.gif,
+	pix/spacer.gif: 
+	
+	Putting SCORM into maintree CVS, to make it easier to test.
+	
+	It's getting pretty useful now!
+

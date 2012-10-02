@@ -1,0 +1,109 @@
+<!--[* $Id: profile_user_members_view.htm 87 2010-01-22 08:32:58Z mateo $ *]-->
+<!--[gt text='Registered users list' assign='templatetitle']-->
+
+<!--[include file='profile_user_menu.htm']-->
+
+<form id="profile-search" class="z-form" action="<!--[pnmodurl modname='Profile' type='user' func='viewmembers']-->" method="post" enctype="application/x-www-form-urlencoded">
+    <div>
+        <input type="hidden" name="authid" id="authid" value="<!--[insert name='generateauthkey' module='Profile']-->" />
+        <fieldset>
+            <div class="z-formrow">
+                <label for="profile_letter" class="profile_letter"><!--[gt text='Search']--></label>
+                <div>
+                    <input id="profile_letter" type="text" name="letter" value="" maxlength="50" />
+                    <input type="submit" value="<!--[gt text="Go search"]-->" />
+                </div>
+            </div>
+            <div class="z-formrow">
+                <div class="z-formnote">
+                    <input id="profile_nickname" type="radio" name="searchby" value="uname" checked="checked" />
+                    <label for="profile_nickname"><!--[gt text='Search in user names']--></label>
+                </div>
+                <!--[ if isset($dudarray.realname) ]-->
+                <div class="z-formnote">
+                    <input id="profile_realname" type="radio" name="searchby" value="<!--[$dudarray.realname]-->" />
+                    <label for="profile_realname"><!--[gt text='Search in real names']--></label>
+                </div>
+                <!--[/if]-->
+                <!--[ if isset($dudarray.url) ]-->
+                <div class="z-formnote">
+                    <input id="profile_url" type="radio" name="searchby" value="<!--[$dudarray.url]-->" />
+                    <label for="profile_url"><!--[gt text='Search in site']--></label>
+                </div>
+                <!--[/if]-->
+            </div>
+        </fieldset>
+    </div>
+    <div id="profile-alphafilter" class="z-center">
+        <strong>[ &nbsp;<a href="<!--[pnmodurl modname='Profile' type='user' func='viewmembers']-->"><!--[gt text='All']--></a>&nbsp; | <!--[pagerabc posvar='letter' forwardvars='sortby']-->]</strong>
+    </div>
+</form>
+
+<table class="z-datatable">
+    <thead>
+        <tr>
+            <th>&nbsp;</th>
+            <th><!--[gt text='User name']--></th>
+            <!--[ if isset($dudarray.realname) ]-->
+            <th><!--[gt text='Real name']--></th>
+            <!--[/if]-->
+            <!--[if $msgmodule]-->
+            <th><!--[gt text='PM']--></th>
+            <!--[/if]-->
+            <!--[ if isset($dudarray.url) ]-->
+            <th><!--[gt text='Site']--></th>
+            <!--[/if]-->
+            <!--[if $adminedit]-->
+            <th><!--[gt text='Actions']--></th>
+            <!--[/if]-->
+        </tr>
+    </thead>
+    <tbody>
+        <!--[foreach from=$users item='user']-->
+        <tr class="<!--[cycle values='z-odd,z-even']-->">
+            <td>
+                <!--[if $user.onlinestatus eq 1]-->
+                <a href="<!--[pnmodurl modname='Profile' type='user' func='onlinemembers']-->"><!--[pnimg modname='core' src='greenled.gif' set='icons/extrasmall' __title='On-line' __alt='On-line']--></a>
+                <!--[else]-->
+                <!--[pnimg modname='core' src='redled.gif' set='icons/extrasmall' __title='Off-line' __alt='Off-line']-->
+                <!--[/if]-->
+            </td>
+            <td><strong><!--[$user.uname|userprofilelink]--></strong></td>
+            <!--[ if isset($dudarray.realname) ]-->
+            <td><!--[$user.__ATTRIBUTES__.realname|pnvarprepfordisplay|default:"&nbsp;"]--></td>
+            <!--[/if]-->
+            <!--[if $msgmodule]-->
+            <td><a href="<!--[pnmodurl modname=$msgmodule func='newpm' uid=$user.uid]-->"><!--[pnimg modname='core' set='icons/extrasmall' src="mail_new.gif" __alt='Send private message']--></a></td>
+            <!--[/if]-->
+            <!--[ if isset($dudarray.url) ]-->
+            <td>
+                <!--[if $user.__ATTRIBUTES__.url eq '']-->
+                &nbsp;
+                <!--[else]-->
+                <a href="<!--[$user.__ATTRIBUTES__.url|pnvarprepfordisplay]-->" rel="nofollow"><!--[pnimg modname=core set=icons/extrasmall src="agt_internet.gif" title=$user.__ATTRIBUTES__.url alt=$user.__ATTRIBUTES__.url]--></a>
+                <!--[/if]-->
+            </td>
+            <!--[/if]-->
+            <!--[if $adminedit]-->
+            <td>
+                <a href="<!--[pnmodurl modname=Users type=admin func=modify userid=$user.pn_uid]-->"><!--[pnimg modname='core' set='icons/extrasmall' src="xedit.gif" __alt='Edit']--></a>
+                <!--[if $admindelete]-->
+                <a href="<!--[pnmodurl modname=Users type=admin func=deleteusers userid=$user.uid]-->"><!--[pnimg modname='core' set='icons/extrasmall' src="14_layer_deletelayer.gif" __alt='Delete']--></a>
+                <!--[/if]-->
+            </td>
+            <!--[/if]-->
+        </tr>
+        <!--[foreachelse]-->
+        <tr class="z-datatableempty"><td colspan="6"><!--[gt text='No users found.']--></td></tr>
+        <!--[/foreach]-->
+    </tbody>
+</table>
+
+<!--[pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar='startnum' shift=1]-->
+
+<h3><!--[gt text='Membership statistics']--></h3>
+<ul id="profile_status">
+    <li><strong><!--[gt text='Registered:']--> </strong><!--[$memberslistreg|pnvarprepfordisplay]--></li>
+    <li><strong><!--[gt text='On-line:']--> </strong><a href="<!--[pnmodurl modname='Profile' type='user' func='onlinemembers']-->"><!--[$memberslistonline]--></a></li>
+    <li><strong><!--[gt text='Newest user:']--> </strong><a href="<!--[pnmodurl modname='Profile' func='view' uname=$memberslistnewest]-->"><!--[$memberslistnewest]--></a></li>
+</ul>

@@ -1,0 +1,7 @@
+# File: $Id: .htaccess 18728 2006-04-08 08:37:22Z drak $
+# ----------------------------------------------------------------------
+# Purpose of file: block any web access to files stored under
+#                  the includes/ directory
+# ----------------------------------------------------------------------
+Order deny,allow
+Deny from all

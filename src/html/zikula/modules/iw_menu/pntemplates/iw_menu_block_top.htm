@@ -1,0 +1,26 @@
+<div id="iw_menu">
+	<ul class="iw_menu_0">
+	<!--[foreach item=item key=id from=$menu]-->
+		<!--[if $item.is_parent]-->
+			<li class="branch">
+		<!--[else]-->
+			<li class="leaf">
+		<!--[/if]-->
+		
+		<!--[if $item.icon neq '']-->
+			<a href="<!--[$item.url]-->" <!--[$item.target]--> class="hasicon" style="background-image: url('<!--[$item.icon]-->');">
+				<!--[$item.text]-->
+			</a>
+		<!--[else]-->
+			<a href="<!--[$item.url]-->" <!--[$item.target]-->>
+				<!--[$item.text]-->
+			</a>
+		<!--[/if]-->
+				
+		<!--[if $item.is_parent]-->
+				<!--[include file="iw_menu_block_top_submenu.htm" submenu=$item.children level=$id]-->
+		<!--[/if]-->
+		</li>
+	<!--[/foreach]-->	
+	</ul>
+</div>

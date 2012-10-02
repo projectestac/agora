@@ -1,0 +1,209 @@
+/* Admin panel styles */
+
+#news_filter {
+    margin-bottom: 0;
+}
+
+#news_category_selectors {
+    display: inline;
+}
+
+#news_notes_collapse {
+    padding-bottom: .7em;
+}
+
+/* News forms */
+#news_user_modifyform div.z-formbuttons {
+    margin-left: 15%;
+}
+.news_preview {
+    background: url(../pnimages/bg_preview.png) #fafafa;
+    margin: 1em 0;
+    padding: 7px;
+}
+
+/* articles styles */
+.news_categorylist li {
+    margin-bottom: 0.3em;
+    list-style: none;
+}
+
+div.news_index {
+    overflow: hidden;
+    padding: 0;
+}
+
+#news_articlecontent {
+    overflow: hidden;
+    padding: 0.5em 0;
+}
+
+.news_title {
+    margin: 0.1em 0;
+}
+
+.news_index .news_title {
+    margin: 0;
+    padding: 2px 0;
+}
+
+.news_meta {
+    font-size: 0.9em;
+}
+
+#news_topic img {
+    float: right;
+}
+
+.news_body {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+}
+
+.news_body .news_hometext {
+}
+
+.news_separator {
+    border-bottom: 1px solid #DDD;
+    margin: 1em 0;
+}
+
+.news_footer {
+    font-size: 0.9em;
+    margin: 0;
+    text-align: right;
+}
+
+.news_printlink img {
+    vertical-align: middle;
+}
+
+.text_separator {
+    color: #bbb;
+    padding: 0 2px;
+}
+
+/* ajax links styles */
+#news_editlinks {
+    float: right;
+}
+
+#news_editlinks_ajax {
+    float: right;
+}
+
+.hidelink {
+    display: none;
+}
+
+.showlink {
+    display: inline;
+}
+
+/* Button styles */
+/* Inspiration from http://particletree.com/features/rediscovering-the-button-element/
+and http://www.zurb.com/article/266/super-awesome-buttons-with-css3-and-rgba */
+#news_buttons a, #news_buttons button {
+    display:inline-block;
+    margin:0 2px 5px;
+    background:#f2f2f2 url(../pnimages/overlay-button.png) repeat-x;
+    font-size:100%;
+    line-height:1;
+    text-decoration:none;
+    font-weight:bold;
+    color:#565656;
+    cursor:pointer;
+    padding: 5px 10px 6px 7px; /* Links */
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 1px rgba(100,100,100,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
+#news_buttons button {
+    width:auto;
+    overflow:visible;
+    padding:4px 10px 3px 7px; /* IE6 */
+}
+
+#news_buttons button[type] {
+    padding:5px 10px 5px 7px; /* Firefox */
+    line-height:17px; /* Safari */
+}
+
+*:first-child+html #news_buttons button[type] {
+    padding:4px 10px 3px 7px; /* IE7 */
+}
+
+#news_buttons button img, #news_buttons a img {
+    margin:0 3px 0 0;
+    padding:0;
+    border:none;
+    width:16px;
+    height:16px;
+}
+
+/* Standard button */
+#news_buttons button:hover, #news_buttons a:hover {
+    background-color:#dff4ff;
+    border-color:#c2e1ef;
+    color:#336699;
+}
+
+#news_buttons a:active {
+    background-color:#6299c5;
+    border-color:#6299c5;
+    color:#fff;
+}
+
+/* Positive green button */
+#news_buttons button.positive, #news_buttons a.positive {
+    color:#529214;
+}
+
+#news_buttons a.positive:hover, #news_buttons button.positive:hover {
+    background-color:#E6EFC2;
+    border-color:#C6D880;
+    color:#529214;
+}
+
+#news_buttons a.positive:active {
+    background-color:#529214;
+    border-color:#529214;
+    color:#fff;
+}
+
+/* Negative red button */
+#news_buttons a.negative, #news_buttons button.negative {
+    color:#d12f19;
+}
+
+#news_buttons a.negative:hover, #news_buttons button.negative:hover {
+    background:#fbe3e4;
+    border-color:#fbc2c4;
+    color:#d12f19;
+}
+
+#news_buttons a.negative:active {
+    background-color:#d12f19;
+    border-color:#d12f19;
+    color:#fff;
+}
+
+/* itemlist styles, in zk 121 Core */
+.z-itemlist button {
+    cursor: pointer;
+}
+
+.z-itemlist_newitemdiv {
+    margin: 1em 0 1em 1em;
+}
+
+#news_admintable .news_categorieslist ul,
+#news_admintable .news_categorieslist ul li {
+    margin: 0;
+    padding: 0;
+    list-style: inside;
+}

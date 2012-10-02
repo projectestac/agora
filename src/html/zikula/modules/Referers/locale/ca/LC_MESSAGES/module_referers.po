@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 09:46+0200\n"
+"PO-Revision-Date: 2010-06-01 09:50+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:59
+msgid "Error! Could not load items."
+msgstr "S'ha produït un error en carregar elements"
+
+#: pnuserapi.php:156
+msgid "Error! Update attempt failed."
+msgstr "No s'ha pogut actualitzar"
+
+#: pninit.php:30
+#: pninit.php:63
+msgid "unable to create system init hook"
+msgstr "No s'ha pogut crear el lligam de sistema"
+
+#: pninit.php:33
+#: pninit.php:66
+msgid "Referers have been enabled, you can change this in the hook settings (Administration -> Modules -> System hooks) by deactivating the Referers systeminit hook for Zikula itself"
+msgstr "S'ha activat el registre dels orígens de les visites. Es pot desactivar des de la configuració dels lligams de sistema (Administració --> Sistema --> Mòduls --> Lligams de sistema)."
+
+#: pninit.php:86
+msgid "unable to delete system init hook"
+msgstr "No s'ha pogut esborrar el lligam de sistema"
+
+#: pnadminapi.php:23
+msgid "Sorry! No authorization to access this module."
+msgstr "No teniu autorització per accedir a aquest mòdul"
+
+#: pnadminapi.php:28
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr "L'intent d'esborrament ha fallat"
+
+#: pnadminapi.php:49
+msgid "View referers"
+msgstr "Mostra els orígens de les visites"
+
+#: pnadminapi.php:52
+msgid "Reset referers"
+msgstr "Esborra els orígens de les visites"
+
+#: pnadminapi.php:55
+#: pntemplates/referers_admin_modifyconfig.htm:4
+#: pntemplates/referers_admin_modifyconfig.htm:5
+msgid "Settings"
+msgstr "Modifica la configuració"
+
+#: pnadmin.php:130
+msgid "Done! Module configuration updated."
+msgstr "S'ha actualitzat la configuració del mòdul"
+
+#: pnadmin.php:176
+msgid "All referers deleted"
+msgstr "S'ha esborrat la informació dels orígens de les visites"
+
+#: pnversion.php:15
+msgid "HTTP Referers"
+msgstr "Orígens de les visites"
+
+#: pnversion.php:16
+msgid "HTTP_Referers"
+msgstr "HTTP_Referers"
+
+#: pnversion.php:17
+msgid "View HTTP referer statistics."
+msgstr "Mostra les estadístiques dels orígens de les visites"
+
+#: pntemplates/referers_admin_view.htm:4
+#: pntemplates/referers_admin_view.htm:5
+msgid "Who's linking to this site."
+msgstr "URL que enllacen aquest lloc web"
+
+#: pntemplates/referers_admin_view.htm:9
+msgid "Frequency"
+msgstr "Freqüència"
+
+#: pntemplates/referers_admin_view.htm:10
+msgid "URL"
+msgstr "URL"
+
+#: pntemplates/referers_admin_view.htm:11
+msgid "per cent"
+msgstr "Percentatge"
+
+#: pntemplates/referers_admin_view.htm:28
+msgid "No items found."
+msgstr "No s'ha trobat cap element"
+
+#: pntemplates/referers_admin_view.htm:32
+msgid "Total"
+msgstr "Total"
+
+#: pntemplates/referers_admin_menu.htm:4
+msgid "HTTP referers"
+msgstr "Orígens de les visites"
+
+#: pntemplates/referers_admin_delete.htm:4
+msgid "Delete"
+msgstr "Esborrament"
+
+#: pntemplates/referers_admin_delete.htm:5
+msgid "Delete all referers"
+msgstr "Esborra la informació desada dels orígens de les visites"
+
+#: pntemplates/referers_admin_delete.htm:11
+msgid "Do you really want to delete all the referers?"
+msgstr "Esteu segur/a de que voleu esborrar la informació desada dels orígens de les visites?"
+
+#: pntemplates/referers_admin_delete.htm:14
+msgid "Confirm deletion?"
+msgstr "Confirmació de l'esborrament de l'element"
+
+#: pntemplates/referers_admin_delete.htm:15
+#: pntemplates/referers_admin_modifyconfig.htm:25
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: pntemplates/referers_admin_modifyconfig.htm:10
+msgid "Activate HTTP referers?"
+msgstr "Activa la creació d'estadístiques dels orígens de les visites"
+
+#: pntemplates/referers_admin_modifyconfig.htm:11
+msgid "Yes"
+msgstr "Sí"
+
+#: pntemplates/referers_admin_modifyconfig.htm:12
+msgid "No"
+msgstr "No"
+
+#: pntemplates/referers_admin_modifyconfig.htm:15
+msgid "Items per page"
+msgstr "Elements per pàgina"
+
+#: pntemplates/referers_admin_modifyconfig.htm:19
+msgid "Exclusions (separated by spaces)"
+msgstr "URL a excloure (separats per espais)"
+
+#: pntemplates/referers_admin_modifyconfig.htm:24
+msgid "Update Configuration"
+msgstr "Actualitza la configuració"
+

@@ -1,0 +1,219 @@
+$Id: manual.txt 160 2009-11-10 18:51:14Z herr.vorragend $
+
+Formicula 2.0 user manual
+-------------------------
+manual for Formicula v.2 by Jim Hadfield and Frank Schummertz
+manual for Formicula >v.2: Frank Schummertz
+     
+Formicula supports an infinite number of contact forms with an infinite number 
+of custom fields (ok, infinite as long as you have enough server memory).
+
+Requirements
+------------
+Formicula 2.0 requires Zikula 1.0 or later. It *will not* run
+with earlier versions - sorry. Use Formicula < 2.0 instead.
+For creating captchas you need PHP compiled with the GD graphics library.
+
+Installation
+------------
+1. Extract the files to your Zikula directory.
+2. Load, initialize and activate the module in the admin section.
+3. During installation, Formicula tries to create a folder formicula_cache containing an
+   index.html and a .htaccess file.
+   If this fails (most probably when safemode is set to 'on' in your PHP environment or the pnTemp
+   folder is outside your web root), you will be notified and have to create them on your own:
+   a) Create a folder formicula_cache in your temporary folder (most likely pnTemp) and make it 
+      writable for the web server (chmod 777)
+   b) Add an empty index.html file (you can copy the one from modules/formicula if you want).
+      although this is not really needed for Apache-based webservers where we use the .htaccess
+      in the pnTemp to avoid access to the subfolders, it is needed on webserver who do not
+      support .htaccess.
+   c) Create a .htacess in formicula_cache containing the following lines to allow access to the
+      images created for the captcha:
+      SetEnvIf Request_URI "\.gif$" object_is_gif=gif
+      SetEnvIf Request_URI "\.png$" object_is_png=png
+      SetEnvIf Request_URI "\.jpg$" object_is_jpg=jpg
+      Order deny,allow
+      Deny from all
+      Allow from env=object_is_gif
+      Allow from env=object_is_png
+      Allow from env=object_is_jpg
+4. Create some contact names/topics with respective email adresses	in the Formicula admin setion.
+   Upon installation, Formicula creates a default contact with the admins mail address.
+5. Add a basic permission rule, e.g.
+   unreg. users (group)  |  formicula::  |  .*  |  comment
+   This enables unregistered users to use all existing forms. In a default PN installation
+   the users group has a generic comment permission to do the same.
+6. Add a link to your main menu with: {formicula} (using [formicula] will not work!)
+   This uses form 0. To call a specific form id use
+   index.php?name=formicula&form=<formid>
+   e.g. index.php?name=formicula&form=5 to use form #5
+In the distribution package you will find two sample forms 0 and 1, 
+0 is a normal contact form and form #1 is for filing an online job application.
+
+Configuration
+-------------
+Show xxx: quick configuration enable/disable some fields in the userform. THese fields may be
+(read: surely will be) removed in future versions.
+Send confirmation email to user: Tick this to send an confirmation mail to the user  	
+Folder for uploaded files: Uploaded files get stored here. Make sure this folder is secured with a
+.htacess file otherwise someone can upload malicious files and execute them!
+Delete file after sending: does what it says when ticked.
+Activate spamcheck: shows a little captcha in the form
+
+Contacts
+--------
+Each contact consists of several information:
+
+Contact name or Topic: The name that is shown to the user in the form, e.g. Webmaster 	
+Email: The email to send the data to	
+Public: tick this to make the contact available	for use.
+Sender name: senders name as used in the users confirmation mail	
+Sender email: senders email address as used in the users confirmation mail, e.g noreply@example.com	
+Subject: enter a static subject or use these placeholders:
+    * %s = sitename
+    * %l = slogan
+    * %u = site url
+    * %c = contact name
+    * %n<num> = user defined field name <num>
+    * %d<num> = user defined field data <num>
+ 
+Templates
+---------
+Everything you want to do with the form is handled in the templates.
+The '#' at the beginning of the template designates the number of form.
+
+The templates for the forms are named as follows:
+
+The form with the input fields:  #_userform.html
+The page with the confirmation after submitting the data:  #_userconfirm.html
+The page with error messages after submitting data:  #_usererror.html
+The user's confirmation mail in text format:  #_usermail.txt
+The user's confirmation mail in html format:  #_usermail.html
+The admin mail in text format:  #_adminmail.txt
+The admin mail in html format:  #_adminmail.html
+This is the email that the admin gets after the user sends submits the userform.
+
+Note: the email format can be chosen by using a dropdown like
+			
+<select name="userformat">
+<option value="html"><!--[ pnml name='_FOR_HTMLMAIL' ]--></option>
+<option value="plain"><!--[ pnml name='_FOR_TEXTMAIL' ]--></option>
+</select>
+
+or if you want to force the type of email, you can use a hidden field in the form
+			
+<input type="hidden" name="userformat" value="html" /> 
+
+If you do not want to send a confirmation email to the user for a certain form, set
+userformat to none:
+ 
+<input type="hidden" name="userformat" value="none" /> 
+
+This overrides the setting in the configuration.
+
+Standard Fields
+---------------
+The standard fields to be used in forma are
+
+uname: the users name (mandatory)
+uemail: the users name (mandatory)
+url: the users homepage (optional)
+location, phone, company: these are obvious... (optional)
+comment: normally a textarea for entering free text. Since 0.6 this is not longer 
+a mandatory field! HTML is stripped from the comments to avoid spam. In addition, the
+comment is send to Zikula's internal censor function. If the result differs from the 
+original comment, the submission is also treated as spam and not sent. This results
+in an error message. 
+captcha: mandatory if spamcheck feature is enabled,see 0_userform.html for an example
+
+Custom Fields
+-------------
+You can add as many custom fields to your form as you want. 
+This makes it easy to create e.g. an online job application form if needed.
+
+This makes it necessary to send certain information from the form page to the module.
+The custom fields are numbered (# in the following examples), starting at 0.
+
+These are:
+  
+* custom#name (hidden field) name of the custom field
+  can be used in the confirmation email
+  
+* custom#mandatory (hidden field) set to 1 if this is a mandatory field.
+  Formicula checks this and shows an errormessage when this field is not filled
+
+* custom#data (any kind of input field) the data with #=number.
+  the payload
+
+The hidden field numFields for the number of custom fields used is not longer 
+necessary. Just make sure that your custom field numbering consistent. This 
+means 1-2-3-4-5 is ok while 1-2-7-8-9 will not work. Formicula reads all custom
+fields until it finds a gap of three digits. In the second example above this 
+means it reads custom field 1 and 2, fails reading 3,4 and 5 and then stops
+and does not care about others that may have been sent (or not).
+
+Example:
+
+<label class="mandatory" for="custom0data"><!--[ pnml name='_FOR_ONLINEAPPLYAS' html=1 ]--></label><br />
+<input type="hidden" name="custom0name" value="<!--[ pnml name='_FOR_ONLINEAPPLYAS' ]-->" />
+<input type="hidden" name="custom0mandatory" value="1" />
+<input type="text" name="custom0data" id="custom0data" size="35" maxLength="80" value="" />
+
+Permissions
+-----------
+To use a form you need the right to COMMENT.
+
+Unregistered   |   formicula::  |  .*   |  comment
+all unregistered users are allowed to use all forms and write to all contacts
+
+Unregistered   |   formicula::  |  0::  |  comment
+all unregistered users are allowed to use form 0 with all existing contacts.
+	
+Users   |   formicula::   |  1:(2|3):  |  comment
+all members of the group Users are allowed to use form 1 and write to contact 2 and 3.
+    
+Use external information in the forms
+-------------------------------------
+You can use external information in the form by sending them in the url used to call
+the form.
+
+These data are send in an associative array addinfo where the key is the name.
+
+With
+
+index.php?name=formicula&form=2&addinfo[tid]=4&addinfo[pid]=17
+
+you send two different information to the form 2 which can used in the userform template (in
+this example 2_userform.html) with
+
+<!--[ $addinfo.tid ]-->   => 4
+<!--[ $addinfo.pid ]-->   => 17
+
+As you can see you can use this to e.g. load data from Pagesetter in the userform template.
+
+Client side input validation
+----------------------------
+The supplied templates use a prototype.js-based input validation. If you do not want 
+to use this, simply remove the javascript from the templates.
+
+A detailed explanation how to use this feature can be found at
+http://tetlaw.id.au/view/blog/really-easy-field-validation-with-prototype/
+
+Captcha
+-------
+The simplecaptcha plugins adds an image with a very basic math equation (2 number from 1 to 2 
+and either +, - or *) to the form if the spam check is enabled. If the user enters a wrong
+value, formicula redirects back to the page where it came from.
+
+Formicula tries to create images in this order:
+gif
+jpg
+png
+If all these image types are not supported by your server, captchas are deactivated, in this
+case Formicula turns the configuration option "Activate spamcheck" off.
+Please refer to http://php.net/manual/en/ref.image.php for more information.
+
+Formicula also supports pnTemp-folders located outside the websites root folder. In this case
+(when the temp folder points to an absolute path) the image is deliverd by a internal 
+function and not linked directly.

@@ -1,0 +1,93 @@
+<!--[include file="admin/downloads_admin_main_menu.htm"]-->
+<!--[include file="admin/downloads_admin_header.htm"]-->
+<!--[if $cdl_exs == true]-->
+
+<form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="admin" func="upgrade_from_cdl"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div>
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	<div class="dl_admin_row">
+		<label for="downloads_cdlimport"><!--[gt text="CmodsDownload is active. Do you want to import the data from it?"]--></label>
+		<input id="downloads_cdlimport" name="cdlimport" type="checkbox" value="1" />
+	</div><br />
+	<div class="dl_admin_row">
+	<input name="submit" type="submit" value="<!--[gt text="Submit"]-->" />
+	</div>
+</div>
+</form>
+
+<!--[/if]-->
+	
+
+<div class="dl_admin_menu">
+	<div class="dl_admin_row">	
+	<h2 class="dl_admin_h2"><!--[gt text="System information"]--></h2>
+	<dl>
+	<dt><!--[gt text="PHP settings:"]--></dt>
+			<!--[if $file_uploads == 1]-->
+			<dd><!--[gt text="File upload allowed:"]-->&nbsp;&nbsp;<!--[gt text="Yes"]--></dd>
+			<!--[else]-->
+			<dd><!--[gt text="File upload allowed:"]-->&nbsp;&nbsp;<!--[gt text="No"]--></dd>
+			<!--[/if]-->
+			<dd><!--[gt text="Max. file size for upload :"]-->&nbsp;&nbsp;<!--[$upload_max_filesize|pnvarprepfordisplay]--></dd>
+			<dd><!--[gt text="Max. file size for files send via POST:"]-->&nbsp;&nbsp;<!--[$post_max_size|pnvarprepfordisplay]--></dd>
+	</dl>
+	<dl>
+	<dt><!--[gt text="Folder information:"]--></dt>
+		<!--[if $upload_folderislink === false]-->
+			<dd><!--[pnimg src="admin/stop16.gif" __alt="Could not find the upload folder on the Server!" ]-->&nbsp;&nbsp;<!--[gt text="Could not find the upload folder on the Server!"]--></dd>
+		<!--[else]-->
+			<dd><!--[pnimg src="admin/ok.gif" __alt="Upload folder OK!" ]-->&nbsp;&nbsp;<!--[gt text="Upload folder OK!"]--></dd>
+		<!--[/if]-->
+		
+		<!--[if $upload_folderiswrite === false]-->
+			<dd><!--[pnimg src="admin/stop16.gif" __alt="Wrong Permission set for the upload folder. Please use CHMOD 777!" ]-->&nbsp;&nbsp;<!--[gt text="Wrong Permission set for the upload folder. Please use CHMOD 777!"]--></dd>
+		<!--[else]-->
+			<dd><!--[pnimg src="admin/ok.gif" __alt="Upload folder is writeable!" ]-->&nbsp;&nbsp;<!--[gt text="Upload folder is writeable!"]--></dd>
+		<!--[/if]-->
+		
+		<!--[if $screenshot_folderislink === false]-->
+			<dd><!--[pnimg src="admin/stop16.gif" __alt="Could not find the screen shot folder on the server!" ]-->&nbsp;&nbsp;<!--[gt text="Could not find the screen shot folder on the server!"]--></dd>
+		<!--[else]-->
+			<dd><!--[pnimg src="admin/ok.gif" __alt="Screen shot folder OK!" ]-->&nbsp;&nbsp;<!--[gt text="Screen shot folder OK!"]--></dd>
+		<!--[/if]-->
+		
+		<!--[if $screenshot_folderiswrite === false]-->
+			<dd><!--[pnimg src="admin/stop16.gif" __alt="Wrong permission set for the screen shot folder . Please use CHMOD 777!" ]-->&nbsp;&nbsp;<!--[gt text="Wrong permission set for the screen shot folder . Please use CHMOD 777!"]--></dd>
+		<!--[else]-->
+			<dd><!--[pnimg src="admin/ok.gif" __alt="Screen shot folder is writeable!" ]-->&nbsp;&nbsp;<!--[gt text="Screen shot folder is writeable!"]--></dd>
+		<!--[/if]-->
+		
+		<!--[if $cache_folderislink === false]-->
+			<dd><!--[pnimg src="admin/stop16.gif" __alt="Could not find the cache folder on the server!" ]-->&nbsp;&nbsp;<!--[gt text="Could not find the cache folder on the server!"]--></dd>
+		<!--[else]-->
+			<dd><!--[pnimg src="admin/ok.gif" __alt="Cache folder OK!" ]-->&nbsp;&nbsp;<!--[gt text="Cache folder OK!"]--></dd>
+		<!--[/if]-->
+		
+		<!--[if $cache_folderiswrite === false]-->
+			<dd><!--[pnimg src="admin/stop16.gif" __alt="Wrong permission set for the cache folder. Please use CHMOD 777!" ]-->&nbsp;&nbsp;<!--[gt text="Wrong permission set for the cache folder. Please use CHMOD 777!"]--></dd>
+		<!--[else]-->
+			<dd><!--[pnimg src="admin/ok.gif" __alt="Cache folder is writeable!" ]-->&nbsp;&nbsp;<!--[gt text="Cache folder is writeable!"]--></dd>
+		<!--[/if]-->
+		
+		
+		<!--[if $mailer_available === false]-->
+			<dd><!--[pnimg src="admin/mail_no.png" __alt="Mailer module not active. eMail notification not available." ]-->&nbsp;&nbsp;<!--[gt text="Mailer module not active. eMail notification not available."]--></dd>
+		<!--[else]-->
+			<dd><!--[pnimg src="admin/mail_ok.png" __alt="Mailer module active. eMail notification available." ]-->&nbsp;&nbsp;<!--[gt text="Mailer module active. eMail notification available."]--></dd>
+		<!--[/if]-->
+		
+	
+	</dl>
+	<dl>
+	<dt><!--[gt text="GD Library:"]--></dt>
+		<!--[if $is_gd == 0]-->
+			<dd><!--[pnimg src="admin/stop16.gif" __alt="Not installed!" ]-->&nbsp;&nbsp;<!--[gt text="Not installed!"]--></dd>
+		<!--[else]-->
+			<dd><!--[pnimg src="admin/ok.gif" __alt="Is installed!" ]-->&nbsp;&nbsp;<!--[gt text="Is installed!"]--></dd>
+			<dd><!--[gt text="Module configured for use of GD library. Thumbnails will be created from GD."]--></dd>
+		<!--[/if]-->
+	</dl>
+	<hr />
+	</div>
+</div>
+<!--[include file="admin/downloads_admin_footer.htm"]-->

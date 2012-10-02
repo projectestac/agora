@@ -1,0 +1,41 @@
+div.infoBox{
+	display:none;
+	background-color:#FFFDC8;
+}
+
+div.infoSummary{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding:10px 10px 0px 10px;
+}
+
+div.infoBoxClose{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	text-align:right;
+	font-weight:bold;
+	padding:0px 5px 10px 0px;
+}
+
+div.infoBoxClose a{
+	color:#929292;
+	text-decoration:none;
+}
+
+div.infoRoles{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	text-align:left;
+	font-weight:bold;
+	padding:10px;
+	color: #ff0000;
+}
+
+div.goMoodle{
+	text-align:left;
+	margin-top: 10px;
+}
+
+div.nouser{
+	margin-bottom: 10px;
+}

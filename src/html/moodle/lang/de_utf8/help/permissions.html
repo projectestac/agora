@@ -1,0 +1,55 @@
+<h2>Rechte</h2>
+
+<p>
+Rechte sind Einstellungen, die Sie für bestimmte Fähigkeiten vergeben.
+</p>
+
+<p>
+Ein Beispiel für eine Fähigkeit ist "Neue Diskussionen starten" (in Foren).
+</p>
+
+<p>
+Für jede Rolle können Sie die Rechte für eine Fähigkeit auf einen der folgenden vier Werte setzen:
+<dl>
+<dt>VERERBEN</dt>
+<dd>Das ist generell die Standardeinstellung. Das ist eine neutrale Einstellung, die folgendes bedeutet: "Verwende die Einstellung, die für den/die Nutzer/in bereits gilt." Wenn jemand eine Rolle zugewiesen bekommt (z.B. in einem Kurs), die das Recht "VERERBEN" für eine Fähigkeit hat, dann gilt dasselbe Recht für diese Fähigkeit, das für diese Person bereits im darüberliegenden Kontext (z.B. Kursbereich oder Website) gilt. Letzendlich gilt: Wenn das Recht in keinem Kontext auf "ERLAUBEN" gesetzt ist, dann hat die Person keine Rechte für die Fähigkeit.
+    </dd>
+
+<dt>ERLAUBEN</dt>
+<dd>Wenn Sie dies auswählen, dann garantieren Sie diese Fähigkeit für alle Nutzer/innen, die diese Rolle haben. Das Recht gilt für den Kontext, in dem die Rolle zugiesen wird sowie für alle darunterliegenden Kontexte. <br />
+Beispiel: Wenn es sich um die Rolle "Student" in einem Kurs handelt, dann dürfen alle Teilnehmer/innen mit dieser Rolle im Kurs in allen Foiren des Kurses "neue Diskussionen starten", es sei denn ein Forum enthält eine Überschreibung oder eine neue Aufgabe mit dem Wert "UNTERBINDEN" oder "UNTERSAGEN" für diese Fähigkeit.
+</dd>
+
+<dt>UNTERBINDEN</dt>
+<dd>Wenn Sie dies auswählenentziehen sie das Recht für die Fähigkeit, selbst wenn Nutzer/innen mit dieser Rolle in einem darüberliegenden Kontext das Recht haben.</dd>
+
+<dt>UNTERSAGEN</dt>
+<dd>Dieser Wert wird nur selten benötigt, nämlich nur in Fällen, in denen Sie Rechte für eine Rolle vollständig verbieten wollen (so dass sie auch nicht in irgend einem darunterliegenden Kontext überschrieben werden können). <br />
+Beispiel: Wenn die Administration einer Person das Starten von neuen Diskussionen in allen Foren des Systems untersagen möchte, dann kann sie eine neue Rolle anlegen, diese Fähigkeit auf "UNTERSAGEN" setzen und der entsprechenden Person diese Rolle im Websitekontext zuweisen.
+  </dd>
+
+</dl>
+</p>
+
+<h2>Konfliktauflösung bei Rechten</h2>
+
+<p> Rechte in "darunterliegenden" Kontexten überschreiben Rechte in übergeordneten" Kontexten. Das gilt für Rollenzuweisungen und Rollenüberschreibungen. Eine Ausnahme ist "PROHIBIT" - dieses Recht kann NICHT in darunterliegenden Kontexten überschrieben werden.
+</p>
+
+<p> Wenn eine Person in einem bestimmten Kontext zwei Rollen hat und das Recht für eine bestimmte Fähigkeit in der einen Rolle auf "ERLAUBEN" und in der anderen Rolle auf "UNTERBINDEN" gesetzt ist, welches Recht gilt dann? In diesem Fall sucht Moodle in der Kontexthierarchie der übergeordneten Kontexte nach einer Entscheidung.</p>
+    
+<p> Beispiel: Eine Person hat zwei Rollen in einem Kurs. Die eine Rolle erlaubt das Starten von neuen Diskussionen, die andere unterbindet das. In diesem Fall prüft Moodle im Kursbereichkontext bzw. im Websitekontext, wie dort die Rechte gesetzt sind. Wenn auch in den übergeordneten Kontexten keine Entscheidung möglich ist, dann wird das Recht standardmäßig auf "UNTERBINDEN" gesetzt (denn beide Rechte schließen einander aus, und damit hat die Person kein Recht).
+</p>
+
+<h2>Ausnahmen</h2>
+
+<p> Gäste dürfen generell keine Inhalte einfügen (in Foren, im Kalender, in Blogs).
+</p>
+
+<p>
+Siehe auch 
+<a href="help.php?file=roles.html">Rollen</a>,
+<a href="help.php?file=contexts.html">Bereiche</a>,
+<a href="help.php?file=assignroles.html">Rollen zuweisen</a> und
+<a href="help.php?file=overrides.html">Rollen ändern</a>.
+</p>

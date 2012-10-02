@@ -1,0 +1,72 @@
+<?PHP // $Id: webservice.php,v 1.3 2010/06/28 14:40:01 ueu_ueu Exp $ 
+      // webservice.php - created with Moodle 1.9.4+ (Build: 20090218) (2007101541)
+
+
+$string['activatehttps'] = '******************';
+$string['addaservice'] = 'Gehitu zerbitzua';
+$string['addfunction'] = 'Gehitu funtzioa';
+$string['addfunctions'] = 'Gehitu funtzioak';
+$string['addservice'] = 'Gehity beste web-zerbitzu bat: {$a->name} (id: {$a->id})';
+$string['allusers'] = 'Erabiltzaile guztiak';
+$string['arguments'] = 'Argumentuak';
+$string['authmethod'] = 'Autentifikazio-metodoa';
+$string['context'] = 'Testuingurua';
+$string['createtoken'] = 'Sortu token-a';
+$string['createtokenforuser'] = 'Erabiltzaile batentzako token-a sortu';
+$string['deleteaservice'] = 'Ezabatu zerbitzua';
+$string['deleteservice'] = 'Ezabatu zerbitzua: {$a->name} (id: {$a->id})';
+$string['documentation'] = 'web-zerbitzuen dokumentazioa';
+$string['editaservice'] = 'Editatu web-zerbitzua';
+$string['editservice'] = 'Editatu zerbitzua: {$a->name} (id: {$a->id})';
+$string['enabled'] = 'Gaituta';
+$string['enablews'] = 'Gaitu web-zerbitzuak';
+$string['error'] = 'Errorea: {$a}';
+$string['errorcodes'] = 'Errore-mezua';
+$string['execute'] = 'Egikaritu';
+$string['externalservice'] = 'Kanpoko zerbitzua';
+$string['externalservicefunctions'] = 'Kanpoko zerbitzuaren funtzioak';
+$string['externalservices'] = 'K';
+$string['externalserviceusers'] = 'Kanpoko zerbitzuaren erabiltzaileak';
+$string['function'] = 'Funtzioa';
+$string['functions'] = 'Funtzioak';
+$string['generalstructure'] = 'Egitura orokorra';
+$string['information'] = 'informazioa';
+$string['manageprotocols'] = 'Kudeatu protokoloak';
+$string['managetokens'] = 'Kudeatu token-ak';
+$string['missingpassword'] = 'Pasahitza falta da';
+$string['missingusername'] = 'Erabiltzaile-izena falta da';
+$string['notoken'] = 'Token-zerrenda hutsik dago';
+$string['operation'] = 'Eragiketa';
+$string['optional'] = 'Aukerakoa';
+$string['phpparam'] = 'XML-RPC (PHP egitura)';
+$string['phpresponse'] = 'XML-RPC (PHP egitura)';
+$string['potusers'] = 'Baimenik gabeko erabiltzaileak';
+$string['print'] = 'Inprimatu dena';
+$string['protocol'] = 'Protokoloa';
+$string['removefunction'] = 'Ezabatu';
+$string['required'] = 'Beharrezkoa';
+$string['requiredcapability'] = 'Behar den gaitasuna';
+$string['selectedcapability'] = 'Aukeratuta';
+$string['service'] = 'Zerbitzua';
+$string['token'] = 'Token-a';
+$string['tokenauthlog'] = 'Token bidezko autentifikazioa';
+$string['tokencreator'] = 'Sortzailea';
+$string['validuntil'] = 'Noiz arte indarrean';
+$string['webservice'] = 'Web-zerbitzua';
+$string['webservices'] = 'Web-zerbitzuak';
+$string['webservicetokens'] = 'Web-zerbitzuen token-ak';
+$string['wrongusernamepassword'] = 'Erabiltzaile-izena edo pasahitza okerra!';
+$string['wsauthmissing'] = 'Web-zerbitzuen autentifikaziorako plugina falta da.';
+$string['wsauthnotenabled'] = 'Web-zerbitzuen autentifikaziorako plugina desgaituta dago.';
+$string['wsdocumentation'] = 'Web-zerbitzuen dokumentazioa';
+$string['wsdocumentationdisable'] = 'Web-zerbitzuen dokumentazioa desgaituta dago';
+$string['wspassword'] = 'Web-zerbitzuen pasahitza';
+$string['wsusername'] = 'Web-zerbitzuen erabiltzaile-izena';
+$string['fail'] = 'KALE'; // ORPHANED
+$string['moodlepath'] = 'Moodle BIDEA'; // ORPHANED
+$string['ok'] = 'ONDO'; // ORPHANED
+$string['protocolenable'] = 'Gaitu $a[0] protokoloa'; // ORPHANED
+$string['webservicesenable'] = 'Gaitu web zerbitzuak'; // ORPHANED
+$string['wspagetitle'] = 'Web zerbitzuen dokumentazioa'; // ORPHANED
+
+?>

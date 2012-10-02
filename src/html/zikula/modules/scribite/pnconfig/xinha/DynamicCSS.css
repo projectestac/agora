@@ -1,0 +1,17 @@
+/* These are examples - edit for your needs */
+
+.pink {
+	color: Fuchsia;
+}
+.red {
+	color: Red;
+}
+.floatright {
+	float: right;
+}
+.floatleft {
+	float: left;
+}
+.clearfloats {
+	clear: both;
+}

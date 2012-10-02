@@ -1,0 +1,54 @@
+<h1>Privilegi</h1>
+
+<p>
+E' possibile regolare la concessione o la revoca dei privilegi.
+</p>
+
+<p>
+Un privilegio è , ad esempio, "Iniziare una nuova discussione" nei forum.
+</p>
+
+<p>
+Ogni privilegio ha quattro possibili impostazioni:
+<dl>
+<dt>NON IMPOSTATO</dt>
+<dd>E' l'impostazione di default che significa "usa l'impostazione che l'utente già possiede". Ad esempio, assegnando in un corso un ruolo privo di alcuni privilegi ad un utente che già possiede quei privilegi in contesti più alti (categoria o sito), l'utente manterrà i privilegi anche nel corso. Se il privilegio non è mai stato concesso in nessun contesto, l'utente non avrà quel privilegio. 
+</dd>
+
+<dt>CONSENTI</dt>
+<dd>Con questa impostazione si concede il privilegio ad un dato ruolo. Il privilegio potrà essere usato nel contesto dove viene assegnato il ruolo ed in tutti i contesti sottostanti.
+Ad esempio il ruolo Studente assegnato in corso mantiene  il privilegio di "iniziare nuove discussioni" in tutti i forum del corso, ameno ché i forum contengano una modifica o una nuova assegnazione di ruolo con le impostazioni a Previeni oppure Nega.</dd>
+
+<dt>PREVIENI</dt>
+<dd>E' utile per revocare un privilegio anche se il ruolo concede tale privilegio in un contesto più alto.
+</dd>
+
+<dt>NEGA</dt>
+<dd>Sebbene raramente necessario, occasionalmente si potrebbe preferire una revoca del privilegio  in modo che NON possa essere "modificato" in nessun contesto sottostanti. Ad esempio se un amministratore vuole proibire a una persona di iniziare nuove discussioni in qualsiasi forum di un intero sito, può usare questa impostazione: per farlo si può creare un ruolo con quel privilegio impostato a "Nega" e quindi assegnare il ruolo a quella persona nel contesto sito.
+</dd>
+
+</dl>
+</p>
+
+<h1>Risoluzione dei conflitti sui privilegi</h1>
+
+<p>In linea generale le impostazioni per un privilegio in un contesto "inferiore" modificano quanto definito in un contesto "superiore" (ad esempio modificando i ruoli in un contesto inferiore). Fa eccezione l'impostazione Nega che non può essere modificata nei sotto contesti.
+</p>
+
+<p>Se però un utente ha due ruoli nello steso contesto con il medesimo privilegio impostato a Consenti per un ruolo ed a Previeni per l'altro, l'utente avrà o non avrà il privilegio? In questo casi Moodle cercherà un "decisore" nella gerarchia dei contesti.</p>
+    
+<p>Supponiamo che uno studente abbia due ruoli in un corso, uno che gli consente di iniziare nuove discussioni ed uno che glielo previene. In questo Moodle controllerà le categorie ed il contesto del sito alla ricerca dell'impostazione che gli permetterà di decidere. Se Moodle non troverà nulla allora l'impostazione sarà Previeni (le due impostazioni si sono annullate a vicenda, quindi non ci sono impostazioni per il privilegio). 
+</p>
+
+<h1>Eccezioni</h1>
+
+<p>L'utente ospite di norma non può effettuare interventi (per es. nei forum, nel calendario, nei blog) anche se gli viene concesso esplicitamente il privilegio di farlo.
+</p>
+
+<p>
+Vedi anche 
+<a href="help.php?file=roles.html">Ruoli</a>,
+<a href="help.php?file=contexts.html">Contesti</a>,
+<a href="help.php?file=assignroles.html">Assegnazione di ruoli</a> e
+<a href="help.php?file=overrides.html">Modifica di ruoli</a>.
+</p>

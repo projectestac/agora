@@ -1,0 +1,154 @@
+<!--[gt text="Module settings" assign=templatetitle]-->
+<!--[admincategorymenu]-->
+<!--[pnmodgetinfo module=content info=all assign=modinfo]-->
+
+<div class="z-adminbox">
+    <h2><!--[$modinfo.displayname]--></h2>
+    <div class="z-menu"><!--[moduleadminlinks modname=content]--></div>
+</div>
+
+<div class="z-admincontainer z-clearfix">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=windowlist.gif set=icons/large alt=$templatetitle]--></div>
+    <h3><!--[$templatetitle]--></h3>
+
+    <p><!--[gt text="This is where you configure various parts of the content module."]--></p>
+
+    <!--[pnform cssClass='z-form']-->
+
+    <!--[pnformsetinitialfocus inputId='shorturlsuffix']-->
+
+    <!--[contentformframe]-->
+    <!--[pnformtabbedpanelset]-->
+    <!--[pnformtabbedpanel __title='Settings']-->
+    <fieldset>
+        <legend><!--[gt text="Settings"]--></legend>
+        <div class="z-formrow">
+            <!--[pnformlabel for='shorturlsuffix' __text='Short URL suffix']-->
+            <!--[pnformtextinput id='shorturlsuffix' group="config" maxLength='255']-->
+            <em class="z-sub z-formnote"><!--[gt text='File suffix of short URLs (including a dot - for instance ".html"). This is only used if you enable short URLs in Zikula\'s admin section.']--></em>
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for='googlemapApiKey' __text='Google maps API key']-->
+            <!--[pnformtextinput id='googlemapApiKey' group="config" maxLength='255']-->
+            <em class="z-sub z-formnote"><!--[gt text='If you want to add Google maps to your content then you need a Google maps API key. You can get this from <a href="http://www.google.com/apis/maps/signup.html">google.com</a>.']--></em>
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for='flickrApiKey' __text='Flickr API key']-->
+            <!--[pnformtextinput id='flickrApiKey' group="config" maxLength='255']-->
+            <em class="z-sub z-formnote"><!--[gt text='If your want to add Flickr photos to your content then you need a Flickr API key. You can get this from <a href="http://www.flickr.com/api">flickr.com</a>.']--></em>
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for='styleClasses' __text='Styling']-->
+            <!--[pnformtextinput id='styleClasses' group="config" textMode='multiline' rows='6' cols='40']-->
+            <em class="z-sub z-formnote"><!--[gt text='A list of CSS class names available for styling of content elements. The end user can select one class for each element on a page - for instance "note" for an element styled as a note. Write one class name on each line. Please separate the CSS classes and displaynames with | - eg. "note | Memo".']--></em>
+        </div>
+        <div class="z-formrow">
+            <!--[pnformlabel for='enableVersioning' __text='Enable version history']-->
+            <!--[pnformcheckbox id='enableVersioning' group="config"]-->
+        </div>
+    </fieldset>
+    <!--[/pnformtabbedpanel]-->
+
+    <!--[pnformtabbedpanel __title='Module Dependencies']-->
+    <p class="z-informationmsg"><!--[gt text="Content includes an API that other modules can use to provide their content. Moreover some modules introduce extra functions to plugins delivered with Content."]--></p>
+
+    <table id="modules" class="z-admintable">
+        <thead>
+            <tr>
+                <th><!--[gt text="Installed"]--></th>
+                <th><!--[gt text="Active"]--></th>
+                <th><!--[gt text="Module"]--></th>
+                <th><!--[gt text="Plugin"]--></th>
+                <th><!--[gt text="Description"]--></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="z-odd">
+                <td>
+                    <!--[pnmodavailable modname="scribite" assign="scribite"]-->
+                    <!--[if !$scribite]-->
+                    <!--[pnimg src=redled.gif modname=core set=icons/extrasmall __alt='Not installed' ]-->
+                    <!--[else]-->
+                    <!--[pnimg src=greenled.gif modname=core set=icons/extrasmall __alt='Installed' ]-->
+                    <!--[/if]-->
+                </td>
+                <td>
+                    <!--[pnmodapifunc modname="scribite" type="user" func="getModuleConfig" modulename="content" assign="scribite_config"]-->
+                    <!--[if !isset($scribite_config)]-->
+                    <!--[if !$scribite]-->
+                    <!--[pnimg src=redled.gif modname=core set=icons/extrasmall __alt='Inactive' ]-->
+                    <!--[else]-->
+                    <a href="<!--[pnmodurl modname="scribite" type="admin" func="newmodule"]-->"><!--[pnimg src=redled.gif modname=core set=icons/extrasmall __alt='Inactive' ]--></a>
+                    <!--[/if]-->
+                    <!--[else]-->
+                    <!--[pnimg src=greenled.gif modname=core set=icons/extrasmall __alt='Active' ]-->
+                    <!--[/if]-->
+                </td>
+                <td><strong><!--[gt text="Scribite"]--></strong></td>
+                <td><!--[gt text="WYSIWYG"]--></td>
+                <td><!--[gt text='Scribite integrated WYSIWYG JavaScript editors like Xinha, TinyMCE, FCKeditor, openWYSIWYG or NicEdit into Zikula.<br /><a href="http://code.zikula.org/scribite">Download</a>']--></td>
+            </tr>
+            <tr class="z-even">
+                <td>
+                    <!--[pnmodavailable modname="bbcode" assign="bbcode"]-->
+                    <!--[if !$bbcode]-->
+                    <!--[pnimg src=redled.gif modname=core set=icons/extrasmall __alt='Not installed' ]-->
+                    <!--[else]-->
+                    <!--[pnimg src=greenled.gif modname=core set=icons/extrasmall __alt='Installed' ]-->
+                    <!--[/if]-->
+                </td>
+                <td>
+                    <!--[pnmodishooked tmodname="bbcode" smodname="content" assign="bbcode_config"]-->
+                    <!--[if !$bbcode_config]-->
+                    <!--[if !$bbcode]-->
+                    <!--[pnimg src=redled.gif modname=core set=icons/extrasmall __alt='Inactive' ]-->
+                    <!--[else]-->
+                    <!--[pnmodgetinfo modname=content info=all assign=module]-->
+                    <a href="<!--[pnmodurl modname="modules" type="admin" func="hooks" id=$module.id]-->"><!--[pnimg src=redled.gif modname=core set=icons/extrasmall __alt='Inactive' ]--></a>
+                    <!--[/if]-->
+                    <!--[else]-->
+                    <!--[pnimg src=greenled.gif modname=core set=icons/extrasmall __alt='Active' ]-->
+                    <!--[/if]-->
+                </td>
+                <td><strong><!--[gt text="BBCode"]--></strong></td>
+                <td><!--[gt text="Buttons"]--></td>
+                <td><!--[gt text='BBCode is an abbreviation for Bulletin Board Code, the lightweight markup language used to format posts in many message boards. (<a href="http://en.wikipedia.org/wiki/Bbcode">Wikipedia</a>)<br /><a href="http://code.zikula.org/bbcode">Download</a>']--></td>
+            </tr>
+            <!--[pnmodapifunc modname="content" type="content" func="getContentTypes" includeInactive=1 assign="plugins"]-->
+            <!--[foreach from=$plugins item=plugin]-->
+            <tr class="<!--[cycle values="z-odd,z-even"]-->">
+                <td><!--[pnimg src=greenled.gif modname=core set=icons/extrasmall __alt='Installed' ]--></td>
+                <td>
+                    <!--[if $plugin.isActive]-->
+                    <!--[pnimg src=greenled.gif modname=core set=icons/extrasmall __alt='Active' ]-->
+                    <!--[else]-->
+                    <!--[pnimg src=redled.gif modname=core set=icons/extrasmall __alt='Inactive' ]-->
+                    <!--[/if]-->
+                </td>
+                <td><strong><!--[$plugin.module]--></strong></td>
+                <td><!--[$plugin.title]--></td>
+                <td>
+                    <!--[$plugin.description]-->
+                    <!--[if !empty($plugin.adminInfo)]--><br /><!--[$plugin.adminInfo]--><!--[/if]-->
+                </td>
+            </tr>
+            <!--[/foreach]-->
+        </tbody>
+    </table>
+    <!--[/pnformtabbedpanel]-->
+    <!--[/pnformtabbedpanelset]-->
+
+    <!--[contentbuttons]-->
+    <!--[pnformbutton commandName="save" __text="Save"]-->
+    <!--[pnformbutton commandName="cancel" __text="Cancel"]-->
+    <!--[/contentbuttons]-->
+
+    <!--[/contentformframe]-->
+
+    <!--[/pnform]-->
+
+    <p class="z-center">
+        <a href="http://code.zikula.org/content/" title="content"><!--[$modinfo.name]--> v<!--[$modinfo.version]--></a>
+    </p>
+
+</div>

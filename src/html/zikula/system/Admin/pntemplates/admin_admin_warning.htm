@@ -1,0 +1,19 @@
+<!--[*  $Id: admin_admin_warning.htm 27144 2009-10-24 14:40:55Z drak $  *]-->
+<div class="warning-container">
+    <!--[pnimg modname=core set=icons/large src=error.gif]-->
+    <ul>
+        <!--[if $psakexists]-->
+        <li><strong><!--[gt text="Stop, please! The Swiss Army Knife tool ('psak.php' file) is in the site root, but must be removed before you can access the site admin panel. Moreover, for your information, this tool is now deprecated in favor of the Zikula recovery console ('zrc.php')."]--></strong></li>
+        <!--[/if]-->
+        <!--[if $zrcexists]-->
+        <li><strong><!--[gt text="Stop, please! The Zikula recovery console tool (file 'zrc.php') is in the site root, but must be removed before you can access the site admin panel."]--></strong></li>
+        <!--[/if]-->
+        <!--[if $installexists]-->
+        <li><strong><!--[gt text="Stop, please! The installer file 'install.php' and directory 'install' are in the site root, but must be removed before you can access the site admin panel."]--></strong></li>
+        <!--[/if]-->
+        <!--[if $upgradeexists]-->
+        <li><strong><!--[gt text="Stop, please! An upgrade script ('upgrade.php' file) is in the site root, but must be removed before you can access the site admin panel."]--></strong></li>
+        <!--[/if]-->
+    </ul>
+    <p><a href="<!--[$adminpanellink|pnvarprepfordisplay]-->"><!--[gt text="Continue"]--></a></p>
+</div>

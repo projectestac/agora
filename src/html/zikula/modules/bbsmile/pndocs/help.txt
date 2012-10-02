@@ -1,0 +1,15 @@
+It's ust a simple Hook for integration of smilies.
+Written for the pnForum but might be used everywhere ;)
+
+===============================================================================
+IMPORTANT NOTICE:
+==================================================================================
+The permission component changed in v2.0 from pn_bbsmile to bbsmile, please update
+your permission rules!!!
+==================================================================================
+
+bbsmile optionally reads additional smilies from a separate folder. You
+can define your own shortcuts and aliases for them as well as an alt text for
+the images. These alternate text may start with a _ and will be treated as a
+define in this case to make it multilingual.
+You can also (de-)activate the additional smilies one by one.

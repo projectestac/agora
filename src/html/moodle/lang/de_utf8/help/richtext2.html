@@ -1,0 +1,59 @@
+<h2>Der Rich-Text-HTML-Editor</h2>
+<p>Verfügbarkeit: <b><?php  if (!$CFG->htmleditor) {
+       print_string("htmleditordisabledadmin");
+   } else if (!$USER->htmleditor) {
+       print_string("htmleditordisabled");
+   } else if (!can_use_html_editor()) {
+       print_string("htmleditordisabledbrowser");
+   } else {
+       print_string("htmleditoravailable");
+   }
+?></b></p>
+<p>Der Rich-Text-HTML-Editor ist eine Schnittstelle zur
+Textverarbeitung. Er ist eingebettet in Ihre Webseite und erlaubt
+Ihnen, Text in einer intuitiven Weise zu editieren und normalen
+HTML-Code daraus zu machen.</p>
+<p>Zusätzlich zur Funktion &bdquo;Textformatierung&ldquo;
+hat dieser Editor eine Reihe von Extrafunktionen, die für
+Sie nützlich sein können.</p>
+<h3>Einfügen von Text aus anderen Anwendungen</h3>
+
+<p>Sie können Text aus anderen Windows-Anwendungen wie
+Microsoft Word direkt durch Copy und Paste in den Editor
+übertragen, ohne dass die Formatierung verloren geht. Benutzen
+Sie dazu die Befehle unter &bdquo;Bearbeiten&ldquo; in Ihrem Browser
+oder benutzen Sie die Shortcuts Ctrl-C und Ctrl-V.</p>
+
+<h3>Bilder einfügen </h3>
+
+<p>Falls Sie Bilder haben, die bereits auf einer Webseite
+publiziert und per URL verfügbar sind, können Sie
+diese Bilder in Ihren Text einfügen, indem Sie den Button
+&bdquo;Bild einfügen&ldquo; benutzen.</p>
+
+<h3>Einfügen von Tabellen </h3>
+
+<p>Um Ihrem Text ein Tabellen-Layout hinzuzufügen, können Sie den
+Button &ldquo;Tabellen einfügen&rdquo; in der Toolbar
+benutzen.</p>
+
+<h3>Einfügen von Links </h3>
+
+<p>Um einen neuen Link zu erstellen, schreiben Sie zuerst den
+Text, den Sie später als Link verwenden möchten. Dann markieren
+Sie ihn und klicken mit der linken Maustaste auf das Symbol im Menu des Editors.
+Tippen Sie die URL, welche Sie verlinken möchten und damit
+ist es geschafft.</p>
+
+<h3>Smileys einfügen (emoticons)  <img alt="" src="pix/s/smiley.gif" class="icon" /></h3>
+
+<p>Um diese kleinen Smileys in Ihren Text einzubetten, klicken Sie
+auf den Smiley-Button im Editor-Menu. Ein Fenster wird sich
+öffnen und Sie können zwischen den angezeigten Icons
+wählen. (Alternativ können Sie den entsprechenden Code
+direkt in den Text tippen, dieser wird später konvertiert
+und die Smileys werden dargestellt.)</p>
+
+<div id="emoticons">##emoticons_html##</div>
+</div>
+<div style="clear:both">&nbsp<div>

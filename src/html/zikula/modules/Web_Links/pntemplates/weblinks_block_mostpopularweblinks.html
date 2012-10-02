@@ -1,0 +1,12 @@
+<!--[*  $Id: weblinks_block_mostpopularweblinks.html 46 2009-01-24 22:51:07Z Petzi-Juist $  *]-->
+<!--[if $weblinks]-->
+<ol class="mostpopularweblinks">
+  <!--[foreach from=$weblinks item=weblinks name=loop]-->
+  <!--[* $smarty.foreach.loop.iteration *]-->
+  <li>
+    <a href="<!--[pnmodurl modname=Web_Links type=user func=visit lid=$weblinks.lid]-->"<!--[if $tb eq 1]--> target="_blank"<!--[/if]-->><!--[$weblinks.title|pnvarprepfordisplay]--></a>
+    <em>(<!--[$weblinks.hits|pnvarprepfordisplay]-->)</em>
+  </li>
+  <!--[/foreach]-->
+</ol>
+<!--[/if]-->

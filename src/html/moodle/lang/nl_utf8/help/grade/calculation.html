@@ -1,0 +1,38 @@
+<h1>Berekeningen</h1>
+
+<p>Berekeningen voor de cijferlijst werken zoals formules / functies in populaire rekenbladen. Ze beginnen met een gelijkheidsteken (=) en gebruiken gewone wiskundige operators en functies om een numeriek resultaat te bekomen. Dit resultaat wordt dan gebruikt als de berekende waarde voor het beoordelingsitem dat je bewerkt.</p>
+
+<p>Hieronder staat een lijst functies, ondersteund door de berekening. De puntkomma (;) wordt gebruikt om argumenten te scheiden binnen de functiehaakjes.</p>
+<ul>
+    <li><strong>average</strong>([[item1]], [[item2]]...): Geeft het gemiddelde</li>
+    <li><strong>max</strong>([[item1]], [[item2]]...): Geeft de maximumwaarde uit een lijst argumenten</li>
+    <li><strong>min</strong>([[item1]], [[item2]]...): Geeft de minimumwaarde uit een lijst argumenten</li>
+    <li><strong>mod</strong>(deeltal, deler): Berekend de rest van een deling</li>
+    <li><strong>pi</strong>(): Geeft de waarde van het getal Pi</li>
+    <li><strong>power</strong>(getal, macht): Verhoog een getal met de machtsverheffing van een ander</li>
+    <li><strong>round</strong>(getal, nauwkeurigheid): Rond een getal af tot een gekozen nauwkeurigheid</li>
+    <li><strong>sum</strong>([[item1]], [[item2]]...): Geeft de som van alle argumenten</li>
+</ul>
+
+<p>Een aantal wiskundige functies wordt ook ondersteund:</p>
+<ul>
+    <li>sin</li><li>sinh</li><li>arcsin</li><li>asin</li><li>arcsinh</li><li>asinh</li>
+    <li>cos</li><li>cosh</li><li>arccos</li><li>acos</li><li>arccosh</li><li>acosh</li>
+    <li>tan</li><li>tanh</li><li>arctan</li><li>atan</li><li>arctanh</li><li>atanh</li>
+    <li>sqrt</li><li>abs</li><li>ln</li><li>log</li><li>exp</li>
+</ul>
+
+<p>Je kunt de waarde van andere beoordelingselementen ook in je berekeningen opnemen door hun id-nummer als referentie te gebruiken. Het id-nummer wordt ingesloten door dubbele vierkante haken om verwarring bij de berekeningsmodule te voorkomen als het id-nummer ongewone karakters bevat. Als je bevoorbeeld een beoordelingsitem hebt met Test.3 als id-nummer, dan refereer je naar dit item als [[Test.3]] in je berekening. </p>
+
+<p>Onderaan het berekeningsveld is een boom van je cursus met de bijhorende cijfercategorieën en beoordelingsitems. Naast elk item of categorietotaal wordt het id-nummer getoond dat je kunt gebruiken in je berekeningen (al ingesloten met vierkante haken). Maar omdat het id-nummer optioneel is, kunnen sommige items er geen hebben. Die items zonder id-nummer hebben in de plaats een formulierveld waar je rechtstreeks een id-nummer kunt ingeven, zodat je ze kunt gebruiken in je berekening zonder de pagina te verlaten. Met dit forumulier kun je echter geen bestaande id-nummers wijzigen. Daarvoor zul je het beoordelingsitem zelf moeten gaan wijzigen.</p>
+
+<p>As soon as you have assigned the idnumbers you need, you can press "add idnumbers", and
+the page will reload and show you the same arborescence with the idnumbers you have just
+assigned. You are then free to use these references in your calculation.</p>
+
+<p>Hier is een lijst met practische voorbeelden van berekeningen die je zou kunnen gebruiken in je cijferlijst:</p>
+
+<ul>
+    <li>=average([[Test.1]], [[Test.4]], [[Opdracht.1]])</li>
+    <li>=average(max([[Test.1]], [[Test.4]], [[Opdracht.1]]), min([[Test.1]], [[Test.4]], [[Opdracht.1]]))</li>
+</ul>

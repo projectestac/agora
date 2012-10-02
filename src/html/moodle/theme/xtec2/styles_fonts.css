@@ -1,0 +1,175 @@
+/*******************************************************************
+ styles_fonts.css
+
+ This CSS file contains all font definitions like family, size,
+ weight, text-align, letter-spacing etc.
+
+ Styles are organised into the following sections:
+  core
+  header
+  footer
+
+  admin
+  blocks
+  calendar
+  course
+  doc
+  grades
+  login
+  message
+  mymoodle
+  question
+  tabs
+  user
+  top-menu
+  handwrite style
+
+  various modules
+
+*******************************************************************/
+<?php global $CFG; 
+$size =  $CFG->font_size ? $CFG->font_size : '100';
+$style =  ($CFG->font_style=='2') ? 'Abecedario' : 'Arial, Helvetica, sans-serif, Verdana';
+?>
+
+/***
+ *** Core
+ ***/
+
+@font-face {
+    font-family: "Abecedario";
+    src: url(fonts/Abecedario.ttf);
+}
+
+@font-face {
+    font-family: "Abecedario";
+    src: url("fonts/AbecedarioNegrita.ttf");
+    font-weight: bold;
+}
+
+
+body, table, td, th, li {
+  font-family: <?php echo $style?>; /*configurable*/
+  font-size:<?php echo $size?>%; /*configurable*/
+  <?php if($CFG->font_style=='3') echo 'text-transform: uppercase;';?>
+}
+
+#left-column a, #right-column a {
+  text-decoration: none !important;
+}
+
+#course-view #middle-column a  {
+  text-decoration: none;
+}
+
+#content a{
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], button {
+  font-weight:bold;
+}
+
+/***
+ *** Header
+ ***/
+
+#header .headermain h2, #header-home .headermain h2 {
+  font-size:1.1em;
+  font-style:italic;
+}
+
+.breadcrumb {
+  font-size:0.8em;
+  font-weight:normal;
+}
+
+.breadcrumb ul li a{
+  text-decoration: underline;
+}
+
+
+/***
+ *** Course
+ ***/
+#course-view .section td.left{
+   font-size: 3em;
+   line-height: 35px;
+   font-weight: bold;
+}
+
+
+/***
+ *** Top-menu
+ ***/
+
+#top_menu{
+    font-weight:bold;
+}
+
+#top_menu ul li a{
+    /*font-weight:normal;*/
+    text-align:center;
+    text-decoration:none;
+}
+
+#top_menu li a:hover,
+#top_menu ul li:hover a{
+    text-decoration:none;
+}
+
+#top_menu li ul a{
+    font-size:12px;
+    font-style:normal;
+    text-align:left;
+}
+
+#top_menu li ul a:hover, #top_menu li ul li:hover a{
+    text-decoration:none;
+}
+
+#top_menu_structure div.son_div{
+    font-size: 90%;
+}
+
+#top_menu_structure div.item_div{
+    font-size: 90%;
+}
+
+#top_menu_alerts{
+    color: green;
+    font-weight: bold;
+}
+
+
+/***
+ *** Handwirte style
+ ***/
+<?php if ($CFG->font_style=='2'){
+    echo '
+        .sideblock .content .list li {
+            margin-top: 0.5em;
+        }
+
+        .sideblock .content {
+            line-height: 1.5em !important;
+        }';
+}
+?>
+
+
+#admin-report-coursequotes-index .yui-nav a,
+#blocks-rcommon-state-print_users .yui-nav a{
+	font-size: 90%!important; /*configurable*/
+	text-decoration: none !important;	
+}
+
+#admin-report-coursequotes-index .yui-content,
+#blocks-rcommon-state-print_users .yui-content{
+	font-family: <?php echo $style?>!important; /*configurable*/
+	font-size:<?php echo $size?>%!important; /*configurable*/	
+}

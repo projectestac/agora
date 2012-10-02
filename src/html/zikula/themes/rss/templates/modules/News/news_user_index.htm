@@ -1,0 +1,11 @@
+<!--[* Template for the rss theme *]-->
+
+<item>
+    <title><!--[$info.title|pnvarprepfordisplay]--></title>
+    <link><!--[pnmodurl modname=News type=user func=display sid=$info.sid title=$info.urltitle fqurl=true]--></link>
+    <!--[if $showdescription eq 1]-->
+    <description><!--[$info.hometext|pnvarprepfordisplay]--></description>
+    <!--[/if]-->
+    <pubDate><!--[$info.from|updated|published]--></pubDate>
+    <guid><!--[pnmodurl modname=News type=user func=display sid=$info.sid title=$info.urltitle fqurl=true]--></guid>
+</item>

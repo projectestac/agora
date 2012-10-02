@@ -1,0 +1,51 @@
+<!--[include file="admin/downloads_admin_main_menu.htm"]-->
+<!--[include file="admin/downloads_admin_header.htm"]-->
+
+<!--[*pndebug*]-->
+<h2 class="dl_admin_h2"><!--[pnimg src="admin/xblocks.gif" __alt="Download validation" ]-->&nbsp;&nbsp;<!--[gt text="Download validation"]--></h2>
+<div class="dl_admin_menu">
+<!--[if $nodls == true]-->
+	<!--[gt text="No downloads for validation found!"]-->
+<!--[/if]-->
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%" summary="<!--[gt text="Download validation"]-->">
+    <thead>
+    <tr>
+        <th id="col_0" abbr="<!--[gt text='Result']-->" style="width:25%;"><!--[gt text="Result"]--></th>
+        <th id="col_1" abbr="<!--[gt text='Download ID']-->" style="width:5%;"><!--[gt text="Download ID"]--></th>
+		<th id="col_2" abbr="<!--[gt text='Download title']-->" style="width:25%;"><!--[gt text="Download title"]--></th>
+		<th id="col_3" abbr="<!--[gt text='Download status']-->" style="width:25%;"><!--[gt text="Download status"]--></th>
+		<th id="col_4" abbr="<!--[gt text='Edit']-->" style="width:20%;"><!--[gt text="Edit"]--></th>
+	</tr>
+	</thead>
+    <tbody>
+	<tr><td>&nbsp;&nbsp;</td></tr>
+	<!--[foreach item=check from=$checked_downloads]-->
+		<tr>
+			<td>
+             <!--[$check.ok|dl_download_check]-->
+			</td>
+			<td>
+             <!--[$check.lid|pnvarprepfordisplay]-->
+			</td>
+			<td>
+             <!--[$check.title|pnvarprepfordisplay]-->
+			</td>
+			<td>
+             <!--[$check.status|dl_download_statusmessage]-->
+			</td>
+			<td>
+             <form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="admin" func="do_download_modify"]-->" method="post" enctype="multipart/form-data">
+             <div>
+			<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+			<input type="hidden" name="dlid" value="<!--[$check.lid]-->" />
+			<input name="submit" type="submit" value="<!--[gt text="Edit"]-->" />
+			</div>
+			</form>
+			</td>
+		</tr>
+	<!--[/foreach]-->
+	</tbody>
+</table>
+</div>
+<!--[include file="admin/downloads_admin_footer.htm"]-->

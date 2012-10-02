@@ -1,0 +1,12 @@
+//XTEC ************ DIRECTORI AFEGIT - Filtre freemind
+//2010..07.13
+
+Moodle installation
+
+For Moodle to display mind maps created by the FreeMind desktop application, you (or your administrator) must install certain server-side components in Moodle. There are two components which are separately installed:
+
+   1. the freemind-browser package, which you will get from sourceforge
+      http://sourceforge.net/projects/freemind/files/
+      0.9.0 RC 8
+   2. the freemind-filter package, which you will get from the Moodle Modules and Plugins database 
+      http://moodle.org/mod/data/view.php?d=13&rid=886

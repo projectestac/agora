@@ -1,0 +1,36 @@
+<h2><!--[gt text="Downloads 2.3.1 installation"]--></h2>
+<br />
+<div style="text-align:center;">
+<!--[gt text='Step 2']--><br />
+<br />
+
+<form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="init" func="step3"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div>
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	
+	<div class="dl_admin_row">
+		<label for="upload_folder"><!--[gt text="Please define your upload folder here:"]--></label><br />
+		<input id="upload_folder" type="text" name="upload_folder" size="50" value="<!--[$upload_folder]-->"/>
+	</div><br />
+
+	<div class="dl_admin_row">
+		<label for="screenshot_folder"><!--[gt text="Please define your screenshot folder here:"]--></label><br />
+		<input id="screenshot_folder" type="text" name="screenshot_folder" size="50" value="<!--[$screenshot_folder]-->"/>
+	</div><br />
+	
+	<div class="dl_admin_row">
+		<label for="cache_folder"><!--[gt text="Please define your cache folder here:"]--></label><br />
+		<input id="cache_folder" type="text" name="cache_folder" size="50" value="<!--[$cache_folder]-->"/>
+	</div><br />
+	
+	<div class="dl_admin_row">
+		<label for="downloads_activate"><!--[gt text="Activate the module after installation?"]--></label><br />
+		<input id="downloads_activate" name="activate" type="checkbox" value="1" />
+	</div><br />
+	
+	<div class="dl_admin_row">
+	<input name="submit" type="submit" value="<!--[gt text="Submit"]-->" />
+	</div>
+</div>
+</form>
+</div>

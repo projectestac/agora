@@ -1,0 +1,30 @@
+....::::    v. 2011090891 - IECISA (mmartinez)    ::::....
+
+- datamodels/scormlib.php
+  Fixed bug in the sql activity insert
+
+- locallib.php
+  Cleaning extra info in imsmanifest file name to fix windows systems bug
+
+....::::    ::::....
+
+
+
+
+....::::    v. 2011012091 - IECISA (MM)    ::::....
+
+- *
+  Updated to Àgora-Moodle version 1.9.9
+
+....::::    ::::....
+
+
+
+
+....::::    v. 2010121652 - IECISA (MM)   ::::....
+
+- mod_form.php, locallib.php: 
+  Level combo changed for just show levels that have books
+
+- mod_form.php:
+  Fixed bug when ajax is disabled and we are setting the isbn, unit or activity

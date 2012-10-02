@@ -1,0 +1,78 @@
+/*******************************************************************
+ styles_webkit.css
+  
+ This CSS file uses the non-standard Webkit CSS extensions
+ to add round corners to the current theme.
+
+ Styles are organised into the following sections:
+  core
+  header
+  footer
+
+  admin
+  blocks
+  calendar
+  course
+  doc
+  login
+  message
+  tabs
+  user
+
+  various modules
+
+*******************************************************************/
+
+
+
+/***
+ *** Core
+ ***/
+
+
+.generalbox {
+ -webkit-box-shadow: 3px 3px 3px #bbb;
+}
+
+.headingblock {
+  -webkit-box-shadow: 3px 3px 3px #bbb;
+}
+
+.topics, #course-view ul.weekscss,
+#course-view .weeks{
+  -webkit-box-shadow: 3px 3px 3px #bbb;
+}
+
+
+ul.unlist{
+  -webkit-box-shadow: 3px 3px 3px #bbb;
+}
+
+.boxwidthwide{
+  -webkit-box-shadow: 3px 3px 3px #bbb;
+}
+
+
+/***
+ *** Blocks
+ ***/
+
+
+.sideblock .content {
+  -webkit-box-shadow: 3px 3px 3px #bbb;
+}
+
+.sideblock .header{
+  -webkit-box-shadow: 3px 3px 3px #bbb;
+}
+
+/***
+ *** Modules: Forum
+ ***/
+.forumpost {
+  -webkit-box-shadow: 3px 3px 3px #bbb;
+}
+
+.forumaddnew, .subscribelink{
+  -webkit-box-shadow: 3px 3px 3px #bbb;
+}

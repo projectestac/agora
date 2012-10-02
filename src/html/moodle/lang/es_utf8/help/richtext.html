@@ -1,0 +1,166 @@
+<p align="center"><b>Sobre el editor HTML enriquecido</b></p>
+
+<p>Disponibilidad: <b>
+<?php  if (!$CFG->htmleditor) {
+       print_string("htmleditordisabledadmin");
+   } else if (!$USER->htmleditor) {
+       print_string("htmleditordisabled");
+   } else if (!can_use_html_editor()) {
+       print_string("htmleditordisabledbrowser");
+   } else {
+       print_string("htmleditoravailable");
+   }
+?>
+</b></p>
+
+<p>El editor HTML Richtext ofrece una interface semejante a un procesador de
+textos que permite generar código HTML aunque usted no conozca el lenguaje.</p>
+
+<p>Además de dar formato al texto, este editor ofrece otras características
+de utilidad.</p>
+
+<p><b>Pegar texto desde otras aplicaciones de Windows</b></p>
+<div class="indent">
+<p>Es posible pegar texto escrito o editado en otra aplicación, como MS Word,
+conservando su formato. Utilice los comandos normales de copiar y pegar del menú
+(o CTRL+C y CTRL+V).</p>
+</div>
+
+<p><b>Insertar imágenes <img alt="" border="0" hspace="10" src="lib/editor/htmlarea/images/ed_image.gif" /></b></p>
+<div class="indent">
+<p>Puede colocar imágenes que se encuentren en Internet y que se puedan acceder
+a través de una dirección, incluya esas imágenes con el botón &quot;Insertar imagen&quot;.</p>
+</div>
+
+<p><b>Insertar tablas <img alt="" border="0" hspace="10" src="lib/editor/htmlarea/images/insert_table.gif" /></b></p>
+<div class="indent">
+<p>Para organizar el diseño de su mensaje puede crear tablas con el botón &quot;Insertar tabla&quot;.</p>
+</div>
+
+<p><b>Insertar enlaces<img alt="" border="0" hspace="10" src="lib/editor/htmlarea/images/ed_link.gif" /></b></p>
+<div class="indent">
+<p>Para colocar un enlace primero escriba el texto que desea enlazar. Luego
+seleccione el botón enlace y escriba la dirección. Eso es todo.</p>
+</div>
+
+
+<p><b>Caritas (<i>emoticons</i>) <img alt="" border="0" hspace="10" src="pix/s/smiley.gif" width="15" height="15" /></b></p>
+<div class="indent">
+<p>Para colocar estos pequeños iconos en el texto oprima el botón de emoticonos en
+la barra de iconos y elija el que desee. (También puede colocar el código
+correspondiente, y el emoticono aparecerá cuando se lea el mensaje.)</p>
+<hr />
+
+<table border="1" align="center">
+  <tr valign="top">
+    <td>
+    <table border="0" align="center" cellpadding="5">
+    <tr>
+      <td><a href="javascript:inserttext(':-)')"><img alt="" border="0" hspace="10" src="pix/s/smiley.gif" width="15" height="15" /></a></td>
+<td>sonrisa</td>
+ <td><code>:-)</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext(':-D')"><img alt="" border="0" hspace="10" src="pix/s/biggrin.gif" width="15" height="15" /></a></td>
+<td>risa</td>
+      <td><code>:-D</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext(';-)')"><img alt="" border="0" hspace="10" src="pix/s/wink.gif" width="15" height="15" /></a></td>
+<td>guiño</td>
+      <td><code>;-)</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext(':-/')"><img alt="" border="0" hspace="10" src="pix/s/mixed.gif" width="15" height="15" /></a></td>
+<td>confuso</td>
+      <td><code>:-/</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext('V-.')"><img alt="" border="0" hspace="10" src="pix/s/thoughtful.gif" width="15" height="15" /></a></td>
+<td>pensativo</td>
+      <td><code>V-.</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext(':-P')"><img alt="" border="0" hspace="10" src="pix/s/tongueout.gif" width="15" height="15" /></a></td>
+<td>lengua fuera</td>
+      <td><code>:-P</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext('B-)')"><img alt="" border="0" hspace="10" src="pix/s/cool.gif" width="15" height="15" /></a></td>
+<td>estupendo</td>
+      <td><code>B-)</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext('^-)')"><img alt="" border="0" hspace="10" src="pix/s/approve.gif" width="15" height="15" /></a></td>
+<td>aprobación</td>
+      <td><code>^-)</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext('8-)')"><img alt="" border="0" hspace="10" src="pix/s/wideeyes.gif" width="15" height="15" /></a></td>
+<td>ojos abiertos</td>
+      <td><code>8-)</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext('8-o')"><img alt="" border="0" hspace="10" src="pix/s/surprise.gif" width="15" height="15" /></a></td>
+<td>sorpresa</td>
+      <td><code>8-o</code></td>
+    </tr>
+    </table>
+  </td>
+  <td>
+    <table border="0" align="center" cellpadding="5">
+    <tr>
+      <td><a href="javascript:inserttext(':-(')"><img alt="" border="0" hspace="10" src="pix/s/sad.gif" width="15" height="15" /></a></td>
+<td>triste</td>
+      <td><code>:-(</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext('8-.')"><img alt="" border="0" hspace="10" src="pix/s/shy.gif" width="15" height="15" /></a></td>
+<td>tímido</td>
+      <td><code>8-.</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext(':-I')"><img alt="" border="0" hspace="10" src="pix/s/blush.gif" width="15" height="15" /></a></td>
+ <td>sonrojado</td>
+      <td><code>:-I</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext(':-X')"><img alt="" border="0" hspace="10" src="pix/s/kiss.gif" width="15" height="15" /></a></td>
+<td>besos</td>
+      <td><code>:-X</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext(':o)')"><img alt="" border="0" hspace="10" src="pix/s/clown.gif" width="15" height="15" /></a></td>
+<td>payaso</td>
+      <td><code>:o)</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext('P-|')"><img alt="" border="0" hspace="10" src="pix/s/blackeye.gif" width="15" height="15" /></a></td>
+<td>ojo amoratado</td>
+      <td><code>P-|</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext('8-[')"><img alt="" border="0" hspace="10" src="pix/s/angry.gif" width="15" height="15" /></a></td>
+<td>enojado</td>
+      <td><code>8-[</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext('xx-P')"><img alt="" border="0" hspace="10" src="pix/s/dead.gif" width="15" height="15" /></a></td>
+<td>muerto</td>
+      <td><code>xx-P</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext('|-.')"><img alt="" border="0" hspace="10" src="pix/s/sleepy.gif" width="15" height="15" /></a></td>
+<td>dormido</td>
+      <td><code>|-.</code></td>
+    </tr>
+    <tr>
+      <td><a href="javascript:inserttext('}-]')"><img alt="" border="0" hspace="10" src="pix/s/evil.gif" width="15" height="15" /></a></td>
+<td>malo</td>
+      <td><code>}-]</code></td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+</div>

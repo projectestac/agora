@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMLDB PATH="question/type/essaywiris/db" VERSION="20091106" COMMENT="XMLDB file for Moodle WIRIS quizzes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Archivos de programa\EasyPHP5.3.0\www\moodle\lib\xmldb\xmldb.xsd">
+	<TABLES>
+		<TABLE NAME="question_essaywiris" COMMENT="WIRIS quizzes data for essay questions." NEXT="question_matchwiris">
+			<FIELDS>
+				<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="question"/>
+				<FIELD NAME="question" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="idcache"/>
+				<FIELD NAME="idcache" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="question" NEXT="md5"/>
+				<FIELD NAME="md5" TYPE="char" LENGTH="50" NOTNULL="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="idcache"/>
+			</FIELDS>
+			<KEYS>
+				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+			</KEYS>
+			<INDEXES>
+				<INDEX NAME="mdl_quesessa_ref_ix" UNIQUE="false" FIELDS="question"/>
+			</INDEXES>
+		</TABLE>
+		<TABLE NAME="question_matchwiris" COMMENT="WIRIS quizzes data for match questions." NEXT="question_multichoicewiris" PREVIOUS="question_essaywiris">
+			<FIELDS>
+				<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="question"/>
+				<FIELD NAME="question" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="idcache"/>
+				<FIELD NAME="idcache" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="question" NEXT="md5"/>
+				<FIELD NAME="md5" TYPE="char" LENGTH="50" NOTNULL="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="idcache"/>
+			</FIELDS>
+			<KEYS>
+				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+			</KEYS>
+			<INDEXES>
+				<INDEX NAME="mdl_quesmatc_ref_ix" UNIQUE="false" FIELDS="question"/>
+			</INDEXES>
+		</TABLE>
+		<TABLE NAME="question_multichoicewiris" COMMENT="WIRIS quizzes data for multichoice questions." NEXT="question_shortanswerwiris" PREVIOUS="question_matchwiris">
+			<FIELDS>
+				<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="question"/>
+				<FIELD NAME="question" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="idcache"/>
+				<FIELD NAME="idcache" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="question" NEXT="md5"/>
+				<FIELD NAME="md5" TYPE="char" LENGTH="50" NOTNULL="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="idcache" NEXT="override"/>
+				<FIELD NAME="override" TYPE="char" LENGTH="200" NOTNULL="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="md5"/>
+			</FIELDS>
+			<KEYS>
+				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+			</KEYS>
+			<INDEXES>
+				<INDEX NAME="mdl_quesmult_ref_ix" UNIQUE="false" FIELDS="question"/>
+			</INDEXES>
+		</TABLE>
+		<TABLE NAME="question_shortanswerwiris" COMMENT="WIRIS quizzes data for shortanswer questions." NEXT="question_truefalsewiris" PREVIOUS="question_multichoicewiris">
+			<FIELDS>
+				<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="question"/>
+				<FIELD NAME="question" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="idcache"/>
+				<FIELD NAME="idcache" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="question" NEXT="md5"/>
+				<FIELD NAME="md5" TYPE="char" LENGTH="50" NOTNULL="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="idcache" NEXT="eqoption"/>
+				<FIELD NAME="eqoption" TYPE="char" LENGTH="2000" NOTNULL="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="md5"/>
+			</FIELDS>
+			<KEYS>
+				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+			</KEYS>
+			<INDEXES>
+				<INDEX NAME="mdl_quesshor_ref_ix" UNIQUE="false" FIELDS="question"/>
+			</INDEXES>
+		</TABLE>
+		<TABLE NAME="question_truefalsewiris" COMMENT="WIRIS quizzes data for true/false questions." NEXT="question_multianswerwiris" PREVIOUS="question_shortanswerwiris">
+			<FIELDS>
+				<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="question"/>
+				<FIELD NAME="question" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="idcache"/>
+				<FIELD NAME="idcache" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="question" NEXT="md5"/>
+				<FIELD NAME="md5" TYPE="char" LENGTH="50" NOTNULL="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="idcache" NEXT="override"/>
+				<FIELD NAME="override" TYPE="char" LENGTH="200" NOTNULL="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="md5"/>
+			</FIELDS>
+			<KEYS>
+				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+			</KEYS>
+			<INDEXES>
+				<INDEX NAME="mdl_questrue_ref_ix" UNIQUE="false" FIELDS="question"/>
+			</INDEXES>
+		</TABLE>
+		<TABLE NAME="question_multianswerwiris" COMMENT="WIRIS quizzes data for multianswer questions." PREVIOUS="question_truefalsewiris" NEXT="question_wessaprom">
+			<FIELDS>
+				<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="question"/>
+				<FIELD NAME="question" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="idcache"/>
+				<FIELD NAME="idcache" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="question" NEXT="md5"/>
+				<FIELD NAME="md5" TYPE="char" LENGTH="50" NOTNULL="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="idcache" NEXT="eqoption"/>
+				<FIELD NAME="eqoption" TYPE="char" LENGTH="2000" NOTNULL="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="md5"/>
+			</FIELDS>
+			<KEYS>
+				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+			</KEYS>
+			<INDEXES>
+				<INDEX NAME="mdl_quesmult_ref_ix" UNIQUE="false" FIELDS="question"/>
+			</INDEXES>
+		</TABLE>
+		<TABLE NAME="question_wessaprom" COMMENT="WIRIS CAS programs for essay questions" NEXT="question_wmatprom" PREVIOUS="question_truefalsewiris">
+			<FIELDS>
+				<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="question"/>
+				<FIELD NAME="question" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="program"/>
+				<FIELD NAME="program" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="question"/>
+			</FIELDS>
+			<KEYS>
+				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+			</KEYS>
+			<INDEXES>
+				<INDEX NAME="mdl_queswess_que_ix" UNIQUE="false" FIELDS="question"/>
+			</INDEXES>
+		</TABLE>
+		<TABLE NAME="question_wmatprom" COMMENT="WIRIS CAS programs for match questions" NEXT="question_wmultiprom" PREVIOUS="question_wessaprom">
+			<FIELDS>
+				<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="question"/>
+				<FIELD NAME="question" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="program"/>
+				<FIELD NAME="program" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="question"/>
+			</FIELDS>
+			<KEYS>
+				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+			</KEYS>
+			<INDEXES>
+				<INDEX NAME="mdl_queswmat_que_ix" UNIQUE="false" FIELDS="question"/>
+			</INDEXES>
+		</TABLE>
+		<TABLE NAME="question_wmultiprom" COMMENT="WIRIS CAS programs for multichoice questions" NEXT="question_wshanprom" PREVIOUS="question_wmatprom">
+			<FIELDS>
+				<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="question"/>
+				<FIELD NAME="question" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="program"/>
+				<FIELD NAME="program" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="question"/>
+			</FIELDS>
+			<KEYS>
+				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+			</KEYS>
+			<INDEXES>
+				<INDEX NAME="mdl_queswmul_que_ix" UNIQUE="false" FIELDS="question"/>
+			</INDEXES>
+		</TABLE>
+		<TABLE NAME="question_wshanprom" COMMENT="WIRIS CAS programs for shortanswer questions" NEXT="question_wtrflsprom" PREVIOUS="question_wmultiprom">
+			<FIELDS>
+				<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="question"/>
+				<FIELD NAME="question" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="program"/>
+				<FIELD NAME="program" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="question"/>
+			</FIELDS>
+			<KEYS>
+				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+			</KEYS>
+			<INDEXES>
+				<INDEX NAME="mdl_queswsha_que_ix" UNIQUE="false" FIELDS="question"/>
+			</INDEXES>
+		</TABLE>
+		<TABLE NAME="question_wtrflsprom" COMMENT="WIRIS CAS programs for truefalse questions" PREVIOUS="question_wshanprom" NEXT="question_wmansprom">
+			<FIELDS>
+				<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="question"/>
+				<FIELD NAME="question" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="program"/>
+				<FIELD NAME="program" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="question"/>
+			</FIELDS>
+			<KEYS>
+				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+			</KEYS>
+			<INDEXES>
+				<INDEX NAME="mdl_queswtrf_que_ix" UNIQUE="false" FIELDS="question"/>
+			</INDEXES>
+		</TABLE>
+		<TABLE NAME="question_wmansprom" COMMENT="WIRIS CAS programs for multianswer questions" PREVIOUS="question_wtrflsprom">
+			<FIELDS>
+				<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="question"/>
+				<FIELD NAME="question" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="program"/>
+				<FIELD NAME="program" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" ENUM="false" PREVIOUS="question"/>
+			</FIELDS>
+			<KEYS>
+				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+			</KEYS>
+			<INDEXES>
+				<INDEX NAME="mdl_queswman_que_ix" UNIQUE="false" FIELDS="question"/>
+			</INDEXES>
+		</TABLE>
+	</TABLES>
+</XMLDB>

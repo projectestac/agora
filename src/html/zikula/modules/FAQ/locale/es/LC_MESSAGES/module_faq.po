@@ -1,0 +1,331 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: FAQ 2.3.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-20 02:30-0500\n"
+"PO-Revision-Date: 2010-07-12 12:47+0100\n"
+"Last-Translator: \n"
+"Language-Team: Zikula Spanish Community <equipo@zikula.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.0\n"
+
+#: pnuserapi.php:73
+#: pnsearchapi.php:67
+#: pnsearchapi.php:98
+msgid "Error! Could not load items."
+msgstr "¡Error! No fue posible cargar los elementos."
+
+#: pnuserapi.php:80
+#: pnadmin.php:57
+#: pnadmin.php:136
+#: pnadmin.php:282
+#: pnuser.php:39
+#: pnuser.php:97
+msgid "Error! Unable to load class [%s%]"
+msgstr "¡Error! No se pudo cargar la clase [%s%]"
+
+#: pnadmin.php:95
+msgid "Done! Item created."
+msgstr "¡Hecho! Elemento creado."
+
+#: pnadmin.php:125
+#: pnadmin.php:201
+#: pnadminapi.php:88
+#: pnadminapi.php:150
+msgid "No such item found."
+msgstr "No se ha encontrado tal elemento."
+
+#: pnadmin.php:173
+msgid "Done! Item updated."
+msgstr "¡Hecho! Elemento actualizado."
+
+#: pnadmin.php:233
+msgid "Done! Item deleted."
+msgstr "¡Hecho! Elemento eliminado."
+
+#: pnadmin.php:265
+msgid "Purging of the pemalinks was successful"
+msgstr "La depuración de los enlaces permanentes fue un éxito"
+
+#: pnadmin.php:267
+msgid "Purging of the pemalinks has failed"
+msgstr "La depuración de los enlaces permanentes falló"
+
+#: pnadmin.php:316
+msgid "Edit"
+msgstr "Editar"
+
+#: pnadmin.php:320
+msgid "Delete"
+msgstr "Borrar"
+
+#: pnadmin.php:423
+msgid "Done! Module configuration updated."
+msgstr "¡Hecho! Configuración del módulo actualizada."
+
+#: pnversion.php:16
+#: pninit.php:213
+msgid "FAQ"
+msgstr "FAQ"
+
+#: pnversion.php:17
+#: pninit.php:214
+msgid "Frequently Asked Questions"
+msgstr "Preguntas más frecuentes"
+
+#. ! this defines the module's url
+#: pnversion.php:20
+msgid "faq"
+msgstr "faq"
+
+#: pninit.php:34
+msgid "Warning! Could not create the default FAQ category tree. If you want to use categorisation with FAQ, register at least one property for the module in the Category Registry."
+msgstr "¡Advertencia! No se pudo crear el árbol de categorías predeterminado para FAQ. Si desea utilizar categorización con FAQ, registre al menos una propiedad para el módulo en el Registro de Categorías."
+
+#: pninit.php:61
+#: pninit.php:176
+#: pnadminapi.php:159
+msgid "Error! Update attempt failed."
+msgstr "¡Error! Intento de actualización fallido."
+
+#: pnadminapi.php:59
+msgid "Error! Creation attempt failed."
+msgstr "¡Error! Intento de creación fallido."
+
+#: pnadminapi.php:97
+msgid "Error! Deletion attempt failed."
+msgstr "¡Error! Intento de eliminación fallido."
+
+#: pnadminapi.php:235
+#: pntemplates/faq_admin_view.htm:4
+#: pntemplates/faq_user_menu.htm:7
+msgid "View FAQ list"
+msgstr "Ver lista de FAQ"
+
+#: pnadminapi.php:239
+#: pntemplates/faq_admin_new.htm:3
+msgid "Create a FAQ"
+msgstr "Crear una FAQ"
+
+#: pnadminapi.php:243
+msgid "Purge PermaLinks"
+msgstr "Purgar los PermaLinks"
+
+#: pnadminapi.php:246
+#: pntemplates/faq_admin_modifyconfig.htm:4
+#: pntemplates/faq_admin_modifyconfig.htm:5
+msgid "Settings"
+msgstr "Configuración"
+
+#: pnuser.php:121
+msgid "Invalid category passed."
+msgstr "Categoría inválida proporcionada."
+
+#: pnuser.php:226
+msgid "Failed to get any items"
+msgstr "No se pudo obtener ningún elemento"
+
+#: pnuser.php:293
+msgid "Thank you for your question"
+msgstr "Gracias por envíar su pregunta"
+
+#: pntemplates/faq_user_view.htm:13
+msgid "Recent FAQs"
+msgstr "FAQs recientes"
+
+#: pntemplates/faq_user_view.htm:19
+#: pntemplates/faq_admin_new.htm:13
+#: pntemplates/faq_admin_modify.htm:15
+#: pntemplates/faq_admin_view.htm:43
+#: pntemplates/faq_user_display.htm:5
+msgid "Question"
+msgstr "Pregunta"
+
+#: pntemplates/faq_user_view.htm:26
+#: pntemplates/faq_admin_new.htm:22
+#: pntemplates/faq_admin_modify.htm:24
+#: pntemplates/faq_user_display.htm:8
+msgid "Answer"
+msgstr "Respuesta"
+
+#: pntemplates/faq_admin_new.htm:17
+#: pntemplates/faq_admin_modify.htm:19
+msgid "PermaLink URL title"
+msgstr "Título de la URL del PermaLink"
+
+#: pntemplates/faq_admin_new.htm:19
+#: pntemplates/faq_admin_modify.htm:21
+msgid "(Blank = auto-generate)"
+msgstr "(En blanco = auto-generar)"
+
+#: pntemplates/faq_admin_new.htm:27
+#: pntemplates/faq_admin_modify.htm:29
+#: pntemplates/faq_admin_view.htm:11
+#: pntemplates/faq_admin_view.htm:46
+msgid "Category"
+msgstr "Categoría"
+
+#: pntemplates/faq_admin_new.htm:28
+#: pntemplates/faq_admin_modify.htm:30
+#: pntemplates/faq_admin_view.htm:12
+msgid "Choose a category"
+msgstr "Elija una categoría"
+
+#: pntemplates/faq_admin_new.htm:39
+msgid "Create"
+msgstr "Crear"
+
+#: pntemplates/faq_admin_new.htm:40
+#: pntemplates/faq_admin_modifyconfig.htm:30
+#: pntemplates/faq_admin_delete.htm:17
+#: pntemplates/faq_admin_modify.htm:70
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: pntemplates/faq_admin_modifyconfig.htm:10
+msgid "General settings"
+msgstr "Configuración General"
+
+#: pntemplates/faq_admin_modifyconfig.htm:12
+msgid "Enable categorization"
+msgstr "Habilitar la categorización"
+
+#: pntemplates/faq_admin_modifyconfig.htm:16
+msgid "Items per page"
+msgstr "Elementos por página"
+
+#: pntemplates/faq_admin_modifyconfig.htm:21
+msgid "PermaLinks"
+msgstr "PermaLinks"
+
+#: pntemplates/faq_admin_modifyconfig.htm:23
+msgid "Add category title to PermaLink"
+msgstr "Añadir el título de la categoría a PermaLink"
+
+#: pntemplates/faq_admin_modifyconfig.htm:29
+msgid "Update Configuration"
+msgstr "Actualizar Configuración"
+
+#: pntemplates/faq_admin_delete.htm:2
+msgid "Delete FAQ"
+msgstr "Borrar la FAQ"
+
+#: pntemplates/faq_admin_delete.htm:7
+msgid "Do you really want to delete this FAQ?"
+msgstr "¿Está seguro que quiere eliminar esta FAQ?"
+
+#: pntemplates/faq_admin_delete.htm:14
+msgid "Confirmation prompt"
+msgstr "Aviso de confirmación"
+
+#: pntemplates/faq_admin_delete.htm:16
+msgid "Confirm deletion?"
+msgstr "¿Confirma la eliminación?"
+
+#: pntemplates/faq_admin_modify.htm:3
+msgid "Update FAQ"
+msgstr "Actualizar FAQ"
+
+#: pntemplates/faq_admin_modify.htm:46
+msgid "Meta data"
+msgstr "Metadatos"
+
+#: pntemplates/faq_admin_modify.htm:52
+#: pntemplates/faq_user_display.htm:13
+#: pntemplates/faq_user_display.htm:17
+#, php-format
+msgid "Submitted by %s"
+msgstr "Enviada por %s"
+
+#: pntemplates/faq_admin_modify.htm:56
+#: pntemplates/faq_user_display.htm:22
+#, php-format
+msgid "Answered by %s"
+msgstr "Respondida por %s"
+
+#: pntemplates/faq_admin_modify.htm:60
+#, php-format
+msgid "Created by %1$s on %2$s"
+msgstr "Creada por %1$s el %2$s"
+
+#: pntemplates/faq_admin_modify.htm:64
+#, php-format
+msgid "Updated by %1$s on %2$s"
+msgstr "Actualizada por %1$s el %2$s"
+
+#: pntemplates/faq_admin_modify.htm:69
+msgid "Update"
+msgstr "Actualizar"
+
+#: pntemplates/faq_search_options.htm:4
+#: pntemplates/faq_user_menu.htm:3
+#: pntemplates/faq_admin_menu.htm:4
+msgid "FAQs"
+msgstr "FAQs"
+
+#: pntemplates/faq_user_main.htm:4
+msgid "Categories"
+msgstr "Categorías"
+
+#: pntemplates/faq_admin_view.htm:34
+msgid "Filter"
+msgstr "Filtro"
+
+#: pntemplates/faq_admin_view.htm:35
+msgid "Reset"
+msgstr "Reiniciar"
+
+#: pntemplates/faq_admin_view.htm:42
+msgid "Internal ID"
+msgstr "ID"
+
+#: pntemplates/faq_admin_view.htm:44
+msgid "Answered"
+msgstr "Respondida"
+
+#: pntemplates/faq_admin_view.htm:48
+msgid "Options"
+msgstr "Opciones"
+
+#: pntemplates/faq_admin_view.htm:58
+msgid "Yes"
+msgstr "Si"
+
+#: pntemplates/faq_admin_view.htm:60
+msgid "No"
+msgstr "No"
+
+#: pntemplates/faq_admin_view.htm:75
+msgid "No items found."
+msgstr "No se encontraron elementos."
+
+#: pntemplates/faq_user_menu.htm:8
+#: pntemplates/faq_user_ask.htm:3
+#: pntemplates/faq_user_ask.htm:9
+msgid "Submit a question"
+msgstr "Enviar una pregunta"
+
+#: pntemplates/faq_user_ask.htm:4
+msgid "Before submitting a question please check existing FAQ's as your question may have already been answered. If not then please submit your question via the form and below. Please use clear and precise language when submitting a question. After submission your question will be reviewed by the site editor(s)."
+msgstr "Antes de realizar una pregunta, por favor, verifique que no exista una pregunta igual o similar en las FAQ que ya haya sido contestada. En el caso que no existiera, por favor envíe su pregunta en el formulario que figura a continuación. Por favor, utilice un lenguaje claro y preciso en la presentación de su pregunta. Una vez haya sido enviada, la pregunta será revisada por un editor del sitio."
+
+#: pntemplates/faq_user_ask.htm:12
+msgid "Your name"
+msgstr "Su nombre"
+
+#: pntemplates/faq_user_ask.htm:17
+msgid "Content"
+msgstr "Contenido"
+
+#: pntemplates/faq_user_ask.htm:22
+msgid "Submit"
+msgstr "Enviar"
+

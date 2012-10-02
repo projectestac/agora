@@ -1,0 +1,30 @@
+<!--[*  $Id: faq_user_view.htm 29 2009-11-08 22:22:50Z herr.vorragend $  *]-->
+<!--[if $func eq 'view' and $category]-->
+<!--[include file="faq_user_menu.htm"]-->
+<!--[array_field_isset assign="categoryname" array=$category.display_name field=$lang returnValue=1]-->
+<!--[if $categoryname eq '']--><!--[assign var="categoryname" value=$category.name]--><!--[/if]-->
+<!--[array_field_isset assign="categorydesc" array=$category.display_desc field=$lang returnValue=1]-->
+
+<h2><!--[$categoryname]--></h2>
+<!--[if $categorydesc neq '']--><p><!--[$categorydesc]--></p><!--[/if]-->
+
+<!--[else]-->
+
+<h2><!--[gt text="Recent FAQs"]--></h2>
+
+<!--[/if]-->
+
+<!--[pnmodurl modname=FAQ func=view prop=$property startnum=$startnum assign=returnurl]-->
+
+<h3><!--[gt text="Question"]--></h3>
+<ul>
+    <!--[foreach item=item from=$faqs]-->
+    <li><a href="#faq<!--[$item.faqid]-->"><em><!--[$item.question]--></em></a></li>
+    <!--[/foreach]-->
+</ul>
+
+<h3><!--[gt text="Answer"]--></h3>
+<!--[foreach item=item from=$items]-->
+<!--[$item]-->
+<!--[/foreach]-->
+<!--[pager  show="page" rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum shift=1]-->

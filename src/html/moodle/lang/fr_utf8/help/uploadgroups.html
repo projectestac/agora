@@ -1,0 +1,50 @@
+<!-- $Id: uploadgroups.html,v 1.4 2007/07/07 19:01:45 martignoni Exp $ -->
+
+<h1>Importer des groupes</h1>
+
+<p>Cet outil permet l'importation de groupes dans Moodle.</p>
+
+<ul>
+
+<li>Chaque ligne du fichier d'importation comporte un enregistrement.</li>
+
+<li>Chaque enregistrement est constitué d'une série de champs séparés par des virgules.</li>
+
+<li>La première ligne du fichier contient la liste des noms des champs, qui définit le format du reste du fichier.
+
+<blockquote>
+
+<p><strong>Champs requis :</strong> ces champs doivent être mentionnés dans la première ligne du fichier et définis pour chaque groupe.</p>
+
+<p><code class="example1">groupname</code></p>
+
+<p><strong>Champs par défaut :</strong> ces champs sont optionnels ; s'ils ne sont pas inclus, leurs valeurs sont reprises de la langue actuelle et du cours actuel</p>
+
+<p><code class="example1">idnumber, coursename, lang</code></p>
+
+<p><strong>Champ optionnels :</strong> tous ces champs sont complètement optionnels.</p>
+
+<p><code class="example1">description, enrolmentkey, picture, hidepicture</code></p>
+
+</blockquote>
+
+</li>
+
+<li>Les virgules à l'intérieur des données doivent être encodés <i>&amp;#44</i>. Le script traduira automatiquement ces codes en virgules lors de l'importation. </li>
+
+<li>Pour les champs booléens, utilisez 0 pour faux et 1 pour vrai. </li>
+
+<li>Pour identifier le cours, on peut utiliser soit <i>idnumber</i>, soit <i>coursename</i>. Si tous les deux sont spécifiés, <i>idnumber</i> l'emporte sur <i>coursename</i>. Si aucun des deux n'est spécifié, les groupes seront ajoutés au cours actuel.</li>
+
+<li>Le champ <i>coursename</i> désigne le nom abrégé du cours.</li>
+
+<li>Remarque : si un groupe existe déjà dans la base de données de Moodle pour un cours, le script d'importation retourne le nom de ce groupe. Les utilisateurs n'ont le droit d'importer des groupes que dans les cours où ils disposent de la capacité d'édition.</li>
+
+</ul>
+   
+<p>Voici un exemple d'un fichier d'importation valable :</p>
+
+<p><code>groupname,idnumber,lang,description,picture <br />
+Groupe1, Philo101, fr, ce groupe requiert plus d'attention, 0 <br />
+Groupe2, Maths243, , ,</code></p>
+

@@ -1,0 +1,11 @@
+<h1>Comportamento come Credito extra</h1>
+<p>Usando la strategia di aggregazione 'Somma dei voti' è possibile usare un elemento di valutazione come Credito Extra della categoria. In pratica l'elemento anziché essere aggregato sarà sommato al totale della categoria.il voto dell'elemento al posto del voto massimo. Esempio:
+<ul>
+    <li>Intervallo di voti per l'Elemento 1: 0-100</li>
+    <li>Intervallo di voti per l'Elemento 2: 0-75</li>
+    <li>Per l'Elemento 1 il checkbox "Credito Extra" è stato selezionato, mentre per l'elemento 2 no.</li>
+    <li>Entrambi gli elementi appartenegono alla Categoria 1, la cui strategia di aggregazione è "Somma dei voti.</li>
+    <li>L'intervallo dei voti della Categoria 1 è 0-75</li>
+    <li>Uno studente riceve i voti 20 nell'Elemento 1 e 70 nell'Elemento 2</li>
+    <li>Il totale ottenuto dallo studente nella Categoria 1 sarà  75/75 (20+70 = 90 tuttavia l'Elemento 1 funge solamente come Credito Extra e di conseguenza porta il totale al Voto massimo)</li>
+</ul>

@@ -1,0 +1,59 @@
+<!--[include file="iw_jclic_user_menu.htm"]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='button_ok.gif' set='icons/large']--></div>
+	<h2><!--[gt text="Correct"]--> => <!--[$jclic.name]--></h2>
+	<div style="height: 15px;"></div>
+	<div>
+		<a href="<!--[pnmodurl modname="iw_jclic" type="user" func="correct" jid=$jclic.jid all=1]-->"><!--[gt text="Enlarge"]--></a>
+		<table class="usertable" style="background:#FFF;">
+			<thead>
+				<tr>
+					<th>&nbsp;</th>
+					<th><!--[gt text="Name"]--></th>
+					<th><!--[gt text="N. Attempts"]--></th>
+					<th><!--[gt text="Score"]--></th>
+					<th><!--[gt text="Total Time"]--></th>
+					<th><!--[gt text="Design"]--></th>
+					<th><!--[gt text="Right"]--></th>
+				</tr>
+			</thead>
+			<!--[foreach item=session from=$sessionsArray]-->
+				<tr bgcolor="<!--[cycle values="#ffffff, #eeeeee"]-->">
+					<td width="10">
+						<!--[if $session.photo neq '']-->
+							<img src="<!--[pnmodurl modname=iw_main type=user func=getPhoto fileName=$session.photo]-->" />
+						<!--[else]-->
+							&nbsp;
+						<!--[/if]-->
+					</td>
+					<td>
+						<a href="<!--[pnmodurl modname="iw_jclic" type="user" func=correct all=1 jid=$jclic.jid user_id=$session.uid]-->">
+							<!--[$session.uname]-->
+						</a>
+					</td>
+					<!--[if $session.results[0].tries neq 0]-->
+						<td style="text-align: center;">
+							<!--[$session.results[0].tries]-->
+						</td>
+						<td style="text-align: center;">
+							<!--[$session.results[0].score]--> / <span <!--[if $session.results[0].scoreOk]-->style="background-color: #96EF95;"<!--[else]-->style="background-color: #FF5F5F;"<!--[/if]-->><!--[$session.results[0].scoreAv]--></span>
+						</td>
+						<td style="text-align: center;">
+							<!--[$session.results[0].totalTime]--> / <!--[$session.results[0].totalTimeAv]-->
+						</td>
+						<td style="text-align: center;">
+							<!--[$session.results[0].activitiesNumber]--> / <!--[$session.results[0].activitiesNumberAv]-->
+						</td>
+						<td style="text-align: center;">
+							<!--[$session.results[0].activitiesOk]--> / <span <!--[if $session.results[0].solvedOk]-->style="background-color: #96EF95;"<!--[else]-->style="background-color: #FF5F5F;"<!--[/if]-->><!--[$session.results[0].activitiesOkAv]--></span>
+						</td>
+					<!--[else]-->
+						<td colspan="10">
+							<!--[gt text="No found sessions"]-->
+						</td>
+					<!--[/if]-->
+				</tr>
+			<!--[/foreach]-->
+		</table>
+	</div>
+</div>

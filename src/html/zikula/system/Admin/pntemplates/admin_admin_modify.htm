@@ -1,0 +1,31 @@
+<!--[*  $Id: admin_admin_modify.htm 27155 2009-10-25 04:40:46Z drak $  *]-->
+<!--[gt text="Edit module category" assign=templatetitle]-->
+<!--[include file="admin_admin_menu.htm"]-->
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=edit.gif set=icons/large alt=$templatetitle]--></div>
+    <h2><!--[$templatetitle]--></h2>
+    <form class="z-form" action="<!--[pnmodurl modname="Admin" type="admin" func="update"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Admin"]-->" />
+            <input type="hidden" name="category[cid]" value="<!--[$cid|pnvarprepfordisplay]-->" />
+            <fieldset>
+                <legend><!--[gt text="Module category"]--></legend>
+                <div class="z-formrow">
+                    <label for="admin_name"><!--[gt text="Name"]--></label>
+                    <input id="admin_name" name="category[catname]" type="text" size="30" maxlength="50" value="<!--[$catname|pnvarprepfordisplay]-->" />
+                </div>
+                <div class="z-formrow">
+                    <label for="admin_description"><!--[gt text="Description"]--></label>
+                    <textarea id="admin_description" name="category[description]" cols="50" rows="10"><!--[$description|pnvarprepfordisplay]--></textarea>
+                </div>
+            </fieldset>
+            <!--[pnmodcallhooks hookobject=item hookaction=modify hookid=$cid module=Admin]-->
+            <div class="z-formbuttons">
+                <!--[pnbutton src=button_ok.gif set=icons/small __alt="Save" __title="Save"]-->
+                <a href="<!--[pnmodurl modname=Admin type=admin func=view]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small __alt="Cancel" __title="Cancel"]--></a>
+                <a href="<!--[pnmodurl modname=Admin type=admin func=help fragment=modify]-->"><!--[pnimg modname=core src=agt_support.gif set=icons/small __alt="Help" __title="Help"]--></a>
+            </div>
+        </div>
+    </form>
+</div>

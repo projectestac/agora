@@ -1,0 +1,62 @@
+<!-- $Id$ -->
+
+<h1>Vue d'ensemble</h1>
+
+<ol>
+
+<li>Une leçon se compose de plusieurs <b>pages</b> et optionnellement de <b>tables de branchement</b>.</li>
+
+<li>Une page comprend du <b>contenu</b> et se termine normalement par une <b>question</b>. De là provient le terme <b>page-question</b>.</li>
+
+<li>Chaque page offre un <b>choix de réponses</b>.</li>
+
+<li>À chaque réponse peut être associé un texte à afficher lorsqu'elle est choisie. Ce texte est appelé le <b>feedback</b>.</li>
+
+<li>Un <b>lien</b> vers une autre page est également associé à chaque réponse. Ce lien peut être relatif (page actuelle, page suivante) ou absolu (n'importe quelle page de la leçon).</li>
+
+<li>Pour les questions de composition, il n'y a pas de réponse, mais seulement un score, un feedback et un saut vers une page.</li>
+
+<li>Par défaut, la première réponse mène à la <b>page suivante</b> de la leçon. Les réponses suivantes ramènent sur la page actuelle (c'est-à-dire que l'étudiant voit la même page s'il ne choisit pas la première réponse). Si vous avez déjà créé un groupe de pages avec une page fin de groupe, et que la question est dans ce groupe, vous pouvez aussi choisir de conduire vers une page non encore vue de ce groupe. Cette option n'est pas affichée si vous n'êtes pas dans un groupe de pages. On peut grouper des pages-questions à l'aide d'un groupe en tout temps.</li>
+
+<li>La page qui est considérée comme la page suivante est la page suivante selon <b>l'ordre logique</b> des pages vu par l'enseignant. Cet ordre peut être modifié en déplaçant les pages.</li>
+
+<li>La leçon suit un <b>parcours</b>. Ce parcours correspond à l'ordre des pages vues par les étudiants. L'ordre est déterminé par les sauts correspondants aux différentes réponses et cet ordre peut être très différent de l'ordre logique des pages (toutefois, si les liens par défaut sont conservés, le parcours ressemblera beaucoup à l'ordre logique). L'enseignant peut également vérifier ce parcours.</li>
+
+<li>Les réponses sont habituellement affichées aux étudiants dans un ordre aléatoire. La première réponse de l'enseignant ne sera pas nécessairement la première réponse affichée pour les étudiants. Chaque fois que les réponses seront affichées, elles le seront probablement dans un ordre différent. Toutefois, dans les questions d'appariement, les réponses sont affichées dans l'ordre spécifié par l'enseignant.</li>
+
+<li>Le nombre de réponses peut varier d'une page à l'autre. Par exemple, une page peut contenir une question vrai/faux, une autre peut contenir une question à choix multiples avec une seule bonne réponse et trois réponses fausses.</li>
+
+<li>Il est possible de mettre en place des pages sans question ; l'étudiant y voit alors le texte, suivi d'un lien <b>Continuer</b>.</li>
+
+<li>Lorsque <i>l'évaluation personnalisée n'est pas activée</i>, pour les besoins de l'évaluation, les <b>bonnes réponses</b> correspondent à celles qui provoquent un saut à une page qui est placée <em>plus loin</em> dans l'ordre logique de la leçon. Une <b>mauvaise réponse</b> mène soit à la même page, soit à une page <em>antérieure</em> dans l'ordre logique. Donc, si les liens par défaut ne sont <em>pas</em> modifiés, la première réponse est la bonne et les autres sont les mauvaises.<br />
+Si au contraire <i>l'évaluation personnalisée est activée</i>, le score d'une réponse est déterminé par la valeur de la réponse, et le total des points obtenus divisé par la totalité des points de la leçon donne en pour-cent la note de la leçon.</li>
+
+<li>Les questions peuvent avoir plusieurs bonnes réponses. Par exemple, lorsque deux réponses mènent à la page suivante, les deux réponses sont considérées comme étant bonnes. Même si l'étudiant aboutit à la même page en répondant l'une ou l'autre des réponses, le feedback pour chacune de ces réponses peut être différent.</li>
+
+<li>Dans la vue de l'enseignant, les étiquettes identifiant les bonnes réponses sont soulignées.</li>
+
+<li>Les <b>tables de branchement</b> sont des pages contenant des liens vers d'autres pages de la leçon. Une leçon pourra par exemple commencer par une table de branchement faisant office de <b>table des matières</b>.</li>
+
+<li>Chaque lien d'une table de branchement se compose d'une description et du titre de la page vers laquelle il mène.</li>
+
+<li>Une table de branchement permet de diviser la leçon en différentes <b>branches</b> ou sections. Chaque branche peut contenir plusieurs pages, en général sur le même sujet. La fin d'une branche est indiquée habituellement par une page <b>Fin de branche</b>. Il s'agit d'une page spéciale qui par défaut ramène l'étudiant à la table de branchement précédente. Ce comportement peut être modifié si nécessaire, en modifiant la page de Fin de branche.</li>
+
+<li>Il peut y avoir plus d'une table de branchement dans une leçon. Une leçon peut par exemple être structurée de façon que les sections soient des sous-branches des branches constituant les sujets principaux.</li>
+
+<li>Il est essentiel d'offrir aux étudiants un moyen de terminer la leçon. Cela peut être fait en incluant un lien <b>Fin de leçon</b> dans la table de branchement principale. Ce lien mènera à une page (virtuelle) <b>Fin de la leçon</b>. On peut aussi faire en sorte que la dernière branche de la leçon (dans l'ordre logique) mène simplement à la fin de la leçon, ce qui se fait en <em>ne la terminant pas</em> par une page Fin de branche.</li>
+
+<li>Si une leçon contient une ou plusieurs tables de branchement, lorsque <i>l'évaluation personnalisée n'est pas activée</i>, il est conseillé de donner au paramètre « Nombre minimal de questions » une valeur raisonnable. On fixe ainsi une limite inférieure de pages à voir avant que le calcul de la note soit effectué. Sans ce paramètre, un étudiant pourrait visiter une seule branche de la leçon, répondre correctement à toutes les questions de cette branche et quitter la leçon avec la note maximale.<br />
+Si au contraire <i>l'évaluation personnalisée est activée</i>, le total des points obtenus divisé par la totalité des points de la leçon donne en pour-cent la note de la leçon.</li>
+
+<li>En outre, lorsque <i>l'évaluation personnalisée n'est pas activée</i>, un étudiant a la possibilité de re-visiter une même branche à plusieurs reprises. La note est cependant calculée en utilisant le nombre de questions <em>une seule fois</em> répondues. La note n'augmentera donc pas si un étudiant répond plusieurs fois aux mêmes questions. En revanche, elle pourra diminuer, puisque le dénominateur utilisé pour le calcul de la note est le nombre de pages vues, qui augmente à chaque fois. Afin de donner aux étudiants une bonne idée de leur progression dans la leçon, le nombre des questions auxquelles ils ont répondu correctement, le nombre de pages vues et leur note actuelle sont affichés sur chaque table de branchement.<br />
+Si au contraire <i>l'évaluation personnalisée est activée</i>, un utilisateur pourra revoir une question, si le cheminement le lui permet, et tenter d'obtenir à nouveau les points de cette question, lorsque le nombre de tentatives autorisées est supérieur à 1. Pour éviter cela, on définira le nombre de tentatives autorisées à 1.</li>
+
+<li>L'étudiant atteint la <b>fin de la leçon</b> soit en sautant directement à la fin de la leçon (lien absolu) ou soit en passant à la page suivante (lien relatif) depuis la dernière page (ordre logique) de la leçon. L'utilisateur qui est arrivé à la fin de la leçon voit sa note et un message le félicitant. Lorsque l'évaluation personnalisée n'est pas activée, la note est calculée ainsi : (nombre de bonnes réponses / nombre de pages vues) * la note maximale de la leçon. Lorsque l'évaluation personnalisée est activée, la note est le nombre de points obtenus, divisé par le total des points (par exemple, 3 points obtenus dans une leçon offrant au maximum 3 points donne 100%).</li>
+
+<li>Lorsque l'étudiant ne termine <em>pas</em> la leçon et quitte simplement la session, il pourra la reprendre à partir de sa dernière bonne réponse ou la recommencer depuis le début.</li>
+
+<li>Lorsque l'on permet à l'étudiant de suivre la leçon à plusieurs reprises, l'enseignant peut choisir comme note « finale » la note maximale ou la moyenne des notes de toutes les tentatives de l'étudiant. La note est affichée sur la page des notes.</li>
+
+<li>Pages de groupes : un groupe représente un ensemble de questions parmi lesquelles une peut être tirée aléatoirement. Les groupes doivent se terminer par une page Fin de groupe pour un fonctionnement optimal (sans quoi la fin de leçon sera interprétée comme fin de groupe). Les questions d'un groupe sont tirée aléatoirement en choisissant le saut « Question aléatoire d'un groupe ». Les questions d'un groupe peuvent diriger soit vers une fin de groupe pour sortir du groupe, soit vers une page non encore vue du groupe, soit vers une autre page de la leçon. Ceci permet la création de scénarios incorporant une composante aléatoire.</li>
+ 
+ </ol>

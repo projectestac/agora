@@ -1,0 +1,86 @@
+<!--[*  $Id: thumbnail_form_check.html 316 2009-11-08 14:44:24Z drak $  *]-->
+<!--[include file="thumbnail_form_header.html"]-->
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname='core' src='configure.gif' set='icons/large' __alt='Check Settings' ]--></div>
+    <h2><!--[gt text="Check Settings"]--></h2>
+    <p><!--[gt text='This demo analyzes your settings (phpThumb.config.php and server/PHP) for <a href="http://phpthumb.sourceforge.net"><strong>phpThumb()</strong></a>']--></p>
+    <table width="100%">
+        <thead>
+            <tr>
+                <th colspan="8"><!--[gt text="&lt;-- bad . . . . . good --&gt;"]--></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="background-color:red">&nbsp;</td>
+                <td style="background-color:orange">&nbsp;</td>
+                <td style="background-color:yellow">&nbsp;</td>
+                <td style="background-color:olive">&nbsp;</td>
+                <td style="background-color:darkgreen">&nbsp;</td>
+                <td style="background-color:green">&nbsp;</td>
+                <td style="background-color:lightgreen">&nbsp;</td>
+                <td style="background-color:lime">&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="z-admintable">
+        <caption><!--[gt text="Settings"]--></caption>
+        <thead>
+            <tr>
+                <th><!--[gt text="Setting"]--></th>
+                <th colspan="2"><!--[gt text="Value"]--></th>
+                <th><!--[gt text="Comments"]--></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--[foreach item=Setting from=$Settings]-->
+            <tr class="<!--[cycle values=z-odd,z-even name=table1]-->">
+                <td><!--[$Setting.header]-->:</td>
+                <td colspan="2" style="background-color:<!--[$Setting.color]-->"><!--[$Setting.value]--></td>
+                <td><!--[$Setting.message]--></td>
+            </tr>
+            <!--[/foreach]-->
+        </tbody>
+    </table>
+    <table class="z-admintable">
+        <caption><!--[gt text="Functions"]--></caption>
+        <thead>
+            <tr>
+                <th><!--[gt text="function_exists:"]--></th>
+                <th colspan="2"><!--[gt text="Value"]--></th>
+                <th><!--[gt text="Comments"]--></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--[foreach item=Function from=$Functions]-->
+            <tr class="<!--[cycle values=z-odd,z-even name=table2]-->">
+                <td><!--[$Function.header]--></td>
+                <td colspan="2" style="background-color:<!--[$Function.color]-->"><!--[$Function.value]--></td>
+                <td><!--[$Function.message]--></td>
+            </tr>
+            <!--[/foreach]-->
+        </tbody>
+    </table>
+    <table class="z-admintable">
+        <caption><!--[gt text="Features"]--></caption>
+        <thead>
+            <tr>
+                <th><!--[gt text="Setting"]--></th>
+                <th><!--[gt text="Master Value"]--></th>
+                <th><!--[gt text="Local Value"]--></th>
+                <th><!--[gt text="Comments"]--></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--[foreach item=Feature from=$Features]-->
+            <tr class="<!--[cycle values=z-odd,z-even name=table3]-->">
+                <td><!--[$Feature.header]-->:</td>
+                <td style="background-color:<!--[$Feature.color1]-->"><!--[$Feature.value1]--></td>
+                <td style="background-color:<!--[$Feature.color2]-->"><!--[$Feature.value2]--></td>
+                <td><!--[$Feature.message]--></td>
+            </tr>
+            <!--[/foreach]-->
+        </tbody>
+    </table>
+</div>

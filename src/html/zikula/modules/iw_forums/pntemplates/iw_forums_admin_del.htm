@@ -1,0 +1,16 @@
+<!--[admincategorymenu]-->
+<!--[pngetstatusmsg]-->
+<!--[if $statusmsg neq ""]--><!--[$statusmsg]--><!--[/if]-->
+<!--[$menu]-->
+<h2><!--[gt text="Delete the forum"]-->: <!--[$nom_forum]--></h2>
+
+<!--[gt text="Confirm the deletion of the forum"]-->
+<form name="delete" method="post" id="delete" action="index.php?module=iw_forums&type=admin&func=delete">
+	<input type="hidden" name="fid" value="<!--[$fid]-->">
+	<input type="hidden" name="confirmation" value="true">
+	<input type="hidden" name="authid" value="<!--[$security]-->">
+	<br>
+	<input type="submit" value="<!--[gt text="Confirm"]-->">
+</form>
+<br>
+<a href="index.php?module=iw_forums&type=admin&func=main"><!--[gt text="Cancel the deletion of the forum"]--></a>

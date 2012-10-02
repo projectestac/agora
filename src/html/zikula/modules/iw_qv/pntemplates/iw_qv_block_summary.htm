@@ -1,0 +1,33 @@
+<script type="text/javascript" src="modules/iw_qv/pnjavascript/iw_qv.js"></script>
+<div id="iwqv_summaryblock" class="<!--[if $isblock]-->navcontainer<!--[else]-->content<!--[/if]-->">
+<!--[if count($teacherassignments)>0]-->
+	<div id="iwqv_teacherassignments" class="<!--[if $isblock]-->navcontainer<!--[else]-->theme_box<!--[/if]-->">
+		<!--[if $isblock]--><h4><!--[else]--><h2><!--[/if]-->
+			<a href="<!--[pnmodurl modname="iw_qv" func="show_assignments_to_correct"]-->"><!--[gt text="Correct assignments" domain="module_iw_qv"]--></a>
+		<!--[if $isblock]--></h4><!--[else]--></h2><!--[/if]-->
+		<ul class="navlist">
+		<!--[section name=assign loop=$teacherassignments]-->
+			<li>
+				<a href="javascript:void(0);" onclick="iwqvShowAssignment(<!--[$teacherassignments[assign].qvid]-->, 'teacher')" ><!--[$teacherassignments[assign].title]--></a>
+			</li>
+		<!--[/section]-->
+		</ul>
+	</div>
+<!--[/if]-->
+
+<!--[if count($studentassignments)>0]-->
+	<div id="iwqv_studentassignments" class="<!--[if $isblock]-->navcontainer<!--[else]-->theme_box<!--[/if]-->">
+		<!--[if $isblock]--><h4><!--[else]--><h2><!--[/if]-->
+			<a href="<!--[pnmodurl modname="iw_qv" func="show_assignments_to_answer"]-->"><!--[gt text="View assignments" domain="module_iw_qv"]--></a></h4>
+		<!--[if $isblock]--></h4><!--[else]--></h2><!--[/if]-->
+		<ul class="navlist">
+		<!--[section name=assign loop=$studentassignments]-->
+			<li>
+				<a href="javascript:void(0);" onclick="iwqvShowAssignment(<!--[$studentassignments[assign].qvid]-->, 'student')" ><!--[$studentassignments[assign].title]--></a>
+			</li>
+		<!--[/section]-->
+		</ul>
+	</div>
+<!--[/if]-->
+
+</div>

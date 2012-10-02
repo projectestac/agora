@@ -1,0 +1,104 @@
+<!--[include file="iw_jclic_user_menu.htm"]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='button_ok.gif' set='icons/large']--></div>
+	<h2><!--[gt text="Correct"]--> => <!--[$jclic.name]--></h2>
+	<div style="height: 15px;"></div>
+	<div>
+		<!--[if $oneUserReturn != '']-->
+			<a href="<!--[pnmodurl modname="iw_jclic" type="user" func=$oneUserReturn jid=$jclic.jid]-->"><!--[gt text="Show all the users"]--></a>
+		<!--[else]-->
+			<!--[if $all]-->
+				<a href="<!--[pnmodurl modname="iw_jclic" type="user" func="correct" jid=$jclic.jid]-->"><!--[gt text="Summary"]--></a>
+			<!--[/if]-->
+		<!--[/if]-->
+		<table class="usertable" style="background:#FFF;">
+			<!--[foreach item=session from=$sessionsArray]-->
+				<tr>
+					<td colspan="10">
+						<strong><!--[$session.uname]--></strong>
+						<!--[if $session.onlySum and $session.results|@count > 1]-->
+							<span style="margin-left: 15px">
+								(<a href="javascript:results(<!--[$jclic.jid]-->,<!--[$session.uid]-->)">
+									<!--[gt text="Show details"]-->
+								</a>)
+							</span>
+						<!--[/if]-->
+					</td>
+				
+				</tr>
+				<tr>
+					<!--[if $session.results|@count > 1]-->
+						<td>
+							<div id="results_<!--[$session.uid]-->">
+								<table class="usertable" style="background:#FFF;">
+									<thead>
+										<tr>
+											<th><!--[gt text="Start"]--></th>
+											<th><!--[gt text="Score"]--></th>
+											<th><!--[gt text="Total Time"]--></th>
+											<th><!--[gt text="Design"]--></th>
+											<th><!--[gt text="Right"]--></th>
+										</tr>
+									</thead>
+									<!--[foreach item=result name=r from=$session.results]-->
+										<!--[if not $session.onlySum or $session.results|@count eq $smarty.foreach.r.iteration]-->
+											<!--[if not $session.onlySum and $session.results|@count eq $smarty.foreach.r.iteration]-->
+												<tr>
+													<td colspan=10><hr></td>
+												</tr>
+											<!--[/if]-->
+											<!--[if $session.results|@count neq $smarty.foreach.r.iteration]-->
+												<tr bgcolor="<!--[cycle values="#ffffff, #eeeeee"]-->">
+													<td align="center">
+														<!--[$result.initDate]--><br /><!--[$result.initTime]-->
+													</td>
+											<!--[else]-->
+												<tr>
+													<td>
+														<strong><!--[gt text="Totals"]--> (<!--[$result.tries]-->)</strong>
+													</td>
+											<!--[/if]-->
+												<td align="center"><!--[$result.score]--></td>
+												<td align="center"><!--[$result.totalTime]--></td>
+												<td align="center"><!--[$result.activitiesNumber]--></td>
+												<td align="center"><!--[$result.activitiesOk]--></td>
+												<!--[if $session.results|@count eq $smarty.foreach.r.iteration]-->
+													<tr>
+														<td><strong><!--[gt text="Average"]--> (<!--[$result.tries]-->)</strong></td>
+														<td align="center" <!--[if $result.scoreOk neq -1]--><!--[if $result.scoreOk]-->style="background-color: #96EF95;"<!--[else]-->style="background-color: #FF5F5F;"<!--[/if]--><!--[/if]-->>
+															<!--[$result.scoreAv]--><!--[if $results|@count neq $smarty.foreach.r.iteration]-->%<!--[/if]-->
+														</td>
+														<td align="center"><!--[$result.totalTimeAv]--></td>
+														<td align="center">
+															<!--[$result.activitiesNumberAv]-->
+														</td>
+														<td align="center" <!--[if $result.solvedOk neq -1]--><!--[if $result.solvedOk]-->style="background-color: #96EF95;"<!--[else]-->style="background-color: #FF5F5F;"<!--[/if]--><!--[/if]-->>
+															<!--[$result.activitiesOkAv]-->
+														</td>
+													</tr>
+												<!--[/if]-->
+											</tr>
+										<!--[/if]-->
+									<!--[/foreach]-->
+								</table>
+							</div>
+						</td>
+					<!--[else]-->
+						<td>
+							<!--[gt text="No results found"]-->
+						</td>
+					<!--[/if]-->
+					<td width="200">
+						<!--[include file="iw_jclic_user_correctContent.htm" do="print"]-->
+					</td>
+				</tr>
+			<!--[foreachelse]-->
+				<tr>
+					<td colspan="10">
+						<!--[gt text="No found sessions"]-->
+					</td>
+				</tr>
+			<!--[/foreach]-->
+		</table>
+	</div>
+</div>

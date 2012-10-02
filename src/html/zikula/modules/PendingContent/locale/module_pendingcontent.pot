@@ -1,0 +1,175 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-08 12:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnadmin.php:86
+msgid "Element created"
+msgstr ""
+
+#: pnadmin.php:116
+msgid "No such item found."
+msgstr ""
+
+#: pnadmin.php:164
+msgid "Element updated"
+msgstr ""
+
+#: pnadmin.php:191 pnadminapi.php:68 pnadminapi.php:109
+msgid "Element not found"
+msgstr ""
+
+#: pnadmin.php:225
+msgid "Element deleted"
+msgstr ""
+
+#: pnadmin.php:264
+msgid "Edit"
+msgstr ""
+
+#: pnadmin.php:268
+msgid "Delete"
+msgstr ""
+
+#: pnadmin.php:336
+msgid "Done! Module configuration updated."
+msgstr ""
+
+#: pnversion.php:17 pnblocks/pending.php:29
+#: pntemplates/pendingcontent_admin_menu.htm:4
+msgid "Pending Content"
+msgstr ""
+
+#: pnversion.php:18
+msgid "pendingcontent"
+msgstr ""
+
+#: pnversion.php:19
+msgid "Display any unapproved content items."
+msgstr ""
+
+#: pnuserapi.php:47
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pnuserapi.php:66 pnadminapi.php:29 pnadminapi.php:62 pnadminapi.php:103
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: pnblocks/pending.php:30
+msgid "Pending Block"
+msgstr ""
+
+#: pnadminapi.php:34 pnadminapi.php:73 pnadminapi.php:114 pnadminapi.php:117
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnadminapi.php:40 pnadminapi.php:123
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnadminapi.php:77
+msgid "Error! Deletion attempt failed."
+msgstr ""
+
+#: pnadminapi.php:142 pntemplates/pendingcontent_admin_view.htm:2
+msgid "Show all elements"
+msgstr ""
+
+#: pnadminapi.php:145
+msgid "Create element"
+msgstr ""
+
+#: pnadminapi.php:148 pntemplates/pendingcontent_admin_modifyconfig.htm:2
+msgid "Settings"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_modifyconfig.htm:13
+msgid "Items per page"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_modifyconfig.htm:19
+msgid "Update Configuration"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_modifyconfig.htm:20
+#: pntemplates/pendingcontent_admin_modify.htm:29
+#: pntemplates/pendingcontent_admin_new.htm:28
+#: pntemplates/pendingcontent_admin_delete.htm:17
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_modify.htm:2
+msgid "Edit element"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_modify.htm:14
+#: pntemplates/pendingcontent_admin_new.htm:13
+#: pntemplates/pendingcontent_admin_view.htm:10
+msgid "Name"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_modify.htm:18
+#: pntemplates/pendingcontent_admin_new.htm:17
+#: pntemplates/pendingcontent_admin_view.htm:11
+msgid "URL"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_modify.htm:22
+#: pntemplates/pendingcontent_admin_new.htm:21
+#: pntemplates/pendingcontent_admin_view.htm:12
+msgid "SQL Command"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_modify.htm:28
+msgid "Update element"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_new.htm:2
+msgid "Add element"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_new.htm:27
+msgid "Save"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_delete.htm:2
+msgid "Delete element"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_delete.htm:7
+msgid "Do you really want to delete this element?"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_delete.htm:14
+msgid "Confirmation prompt"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_delete.htm:16
+msgid "Confirm deletion?"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_view.htm:13
+msgid "Options"
+msgstr ""
+
+#: pntemplates/pendingcontent_admin_view.htm:30
+msgid "No items found."
+msgstr ""
+
+#: pntemplates/pendingcontent_block_pending.htm:12
+msgid "admin"
+msgstr ""

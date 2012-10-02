@@ -1,0 +1,64 @@
+<h1>Administració de filtres</h1>
+
+<p>La pàgina d'administració de filtres permet especificar quins filtres s'apliquen al text visualitzat i en quin ordre s'apliquen. També proporciona accés a la pàgina de paràmetres inclosa amb alguns dels filtres. Els filtres s'apliquen a la major part del text generat pels usuaris en Moodle, just abans que es visualitzi. Permeten, doncs, implementar modificacions "a l'últim moment".</p>
+
+<p>Els filtres són connectors. N'hi pot haver més disponibles en 
+   <a href="http://download.moodle.org/modules/filters.php">
+   http://download.moodle.org/modules/filters.php</a>.</p>
+
+<p>Seleccioneu els filtres que vulgueu utilitzar tot 'desocultant-los' amb la icona de l'ull. Si n'activeu més d'un, podeu canviar l'ordre en què s'apliquen mitjançant les fletxes.</p>
+   
+<p><b>Notació TeX</b></p>
+
+<div class="indent">
+  <p>La notació TeX s'uilitza principalment per inserir fórmules matemàtiques dins de recursos de Moodle. Per exemple '$$ sqrt(a+b) $$' ('$$' és l'etiqueta que marca l'inici i la fi d'aquest format).</p>
+  <p>Moodle utilitza programes executables externs per representar les imatges, la qual cosa pot requerir que definiu alguns paràmetres relatius al vostre sistema. En primer lloc el filtre intenta utilitzar un renderitzador LaTeX (aquest mètode requereix també Ghostscript), i si això falla utilitza l'executable <i>miktex</i>, més senzill, inclòs en la distribució de Moodle. LaTex permet utilitzar la sintaxi completa, mentre que amb miktex només funciona un subconjunt matemàtic.</p>
+  <p>La pàgina de paràmetres permet definir els camins dels executables LaTeX i Ghostscript, i també el preàmbul de LaTeX.</p>
+  <p><b>Més informació</b></p>
+  <p><a href="http://www.miktex.org/">MiKTeX</a><br/>
+     <a href="http://www.latex-project.org/">LaTeX</a><br/>
+     <a href="http://www.ghostscript.com/">ghostscript</a></p>
+</div>
+
+<p><b>Censura de paraules</b></p>
+
+<div class="indent">
+  <p>La censura de paraules explora el text a la recerca de "paraules prohibides" definides en una llista. Cada paquet d'idioma té la seva llista de paraules per defecte [NT: en català està buida], però podeu definir la vostra. Per a definir la vostra llista, entreu en la pàgina de paràmetres i introduïu les paraules. L'usuari veurà aquestes paraules tapades amb un bloc negre, però si hi posa el cursos a sobre se li mostrarà la paraula original.</p>
+</div>
+
+<p><b>Enllaços automàtics a recursos</b></p>
+
+<div class="indent">
+  <p>Aquest filtre explora el text a la recerca de títols de recursos existents en el mateix curs. Quan es troba una coincidència, el text es destaca i es crea un enllaç automàtic al recurs. Teniu en compte que, perquè sigui efectiu, heu d'utilitzar títols prou descriptius. Per exemple, "Introducció" no serviria com a títol d'un recurs perquè <b>totes</b> les vegades que s'utilitzés la paraula "Introducció" en qualsevol text es crearia un enllaç automàtic, encara que hom estigués parlant d'una altra cosa.</p>
+</div>
+
+<p><b>Enllaços automàtics a activitats</b></p>
+
+<div class="indent">
+  <p>Aquest filtre explora el text a la recerca de títols d'activitats existents en el mateix curs. Quan es troba una coincidència, el text es destaca i es crea un enllaç automàtic a l'activitat. Teniu en compte que, perquè sigui efectiu, heu d'utilitzar títols prou descriptius. Per exemple, "Examen" no serviria com a títol d'una activitat perquè <b>totes</b> les vegades que s'utilitzés la paraula "Examen" en qualsevol text es crearia un enllaç automàtic, encara que hom estigués parlant d'una altra cosa.</p>
+</div>
+
+<p><b>Enllaços automàtics a glossaris</b></p>
+
+<div class="indent">
+  <p>Aquest filtre explora el text a la recerca de paraules clau utilitzades en qualsevol glossari del curs. Teniu en compte, però, que cada entrada de glossari ha de tenir habilitats els enllaços automàtics. Quan es troba una coincidència, el text es destaca i es crea un enllaç automàtic a l'entrada del glossari.</p>
+</div>
+
+<p><b>Protecció del correu electrònic</b></p>
+
+<div class="indent">
+  <p>El filtre de protecció de correu explora el text a la recerca d'adreces de correu. Quan en troba una, l'"ofusca" per tal de dificultar els mecanismes de recopilació automàtica d'adreces. Això pot reduir el risc de correu brossa si parts del vostre lloc Moodle són obertes.</p>
+</div>
+
+<p><b>Tidy</b></p>
+
+<div class="indent">
+  <p>Tidy explora el text a la recerca de construccions HTML. Quan en troba una, hi aplica regles per tal de fer que l'HTML sigui vàlid. Teniu en compte que la funcionalitat de tidy ha d'estar inclosa en la vostra instal·lació de PHP.</p>
+</div>
+
+<p><b>Continguts multilingües</b></p>
+
+<div class="indent">
+  <p>Aquest filtre fa possible que es creïn recursos en múltiples idiomes. Llavors l'idioma del recurs canvia quan l'usuari canvia el seu idioma en Moodle. Per utilitzar aquesta característica, primer heu de crear els vostres continguts en tots els idiomes que vulgueu utilitzar, dins del mateix recurs. Cada bloc idiomàtic s'ha d'encloure dins de les etiquetes següents:</p>
+  <pre>      &lt;lang lang="XX"&gt;contingut aquí&lt;/lang&gt;</pre>
+ </div>

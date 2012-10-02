@@ -1,0 +1,69 @@
+<!--[include file=user/downloads_user_header.htm]-->
+<div id="dl_user_mainmenu">
+	<!--[dl_mainuserlinks id="dl_usermain_menu" current="search"]-->
+</div>
+<fieldset>
+    <legend><!--[gt text='Search']--></legend>
+
+    <form method="post" action="<!--[pnmodurl modname=Downloads type=user func=search]-->">
+    <input type="hidden" name="Downloads_startnum" value="0" />
+	<input type="hidden" name="active_Downloads" value="1" />
+    <div id="dl_search">   
+    
+	    <div class="dl_searchbox">
+	        <div class="dl_float_l">
+	            <label for="searchfor"><!--[gt text='Search for phrase:']-->:</label>
+	        </div>
+	        <div class="dl_float">
+	            <input type="text" name="q" id="searchfor" size="20" maxlength="255" value="" tabindex="0" />
+	        </div>
+	    </div>
+    
+	    <div class="dl_searchbox">
+	        <div class="dl_float_l">
+	            <label for="uploader"><!--[gt text='Search for submitter']-->:</label>
+	        </div>
+	        <div class="dl_float">
+	            <input type="text" name="dl_uploader" id="uploader" size="20" maxlength="255" />
+	        </div>
+	    </div>
+	    
+	    <div class="dl_searchbox">
+	        <div class="dl_float_l">
+	            <label for="searchbool"><!--[gt text='Logic operation']-->:</label>
+	        </div>
+	        <div class="dl_float">
+	            <select name="bool" size="1" id="searchbool">
+	            <option value="AND" selected="selected"><!--[gt text='And']--></option>
+	            <option value="OR"><!--[gt text='Or']--></option>
+	            </select>
+	        </div>
+	    </div>
+    
+	    <div class="dl_searchbox">
+	        <div class="dl_float_l">
+	            <label for="searchlimit"><!--[gt text='Search Limit']-->:</label>
+	        </div>
+	        <div class="dl_float">
+	            <select name="dl_search_limit" id="searchlimit" size="1">
+	            <option value="10" selected="selected">10</option>
+	            <option value="20">20</option>
+	            <option value="50">50</option>
+	            </select>
+	        </div>
+	    </div>
+    	
+    	<div class="dl_searchbox">
+	        
+	        <div class="dl_float_1">
+	            <button type="submit" name="submit" value="<!--[gt text='Search']-->"><!--[gt text='Search']--></button>
+	        </div>
+	    </div>
+	    
+    </div>
+    
+    </form>
+
+</fieldset>
+
+<!--[include file=user/downloads_user_footer.htm]-->

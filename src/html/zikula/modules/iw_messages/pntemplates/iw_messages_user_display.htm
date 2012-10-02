@@ -1,0 +1,123 @@
+<div id="iw_mainContent">
+	<!--[include file=iw_messages_user_menu.htm read=1 msg_id=$message.msg_id]-->
+	<!--[pnajaxheader modname=iw_messages filename=iw_messages.js]-->
+	<!--[pnajaxheader modname=iw_main filename=iw_main.js]-->
+	<!--[assign var=posterdata value=$message.posterdata]-->
+	<div style="float:left; margin-right:20px;">
+		<strong><!--[if $send]--><!--[gt text="To"]--><!--[else]--><!--[gt text="From"]--><!--[/if]--></strong>:
+	</div>
+	<!--[if $photo neq ""]-->
+		<div style="float:left;"><img src="<!--[pngetbaseurl]--><!--[pnmodurl modname=iw_messages type=user func=getFile fileName=$photo]-->" /></div>
+	<!--[/if]-->
+	<div style="float:left; margin-left: 10px; text-align:bottom;">
+		<!--[if $message.marcat && not $send]-->
+			<div id="flag"><!--[pnimg src='flag.gif' modname='core' set='icons/extrasmall' __alt='Mark the message with a flag'  id="flag"]--></div>
+			<br />
+		<!--[else]-->
+			<!--[pnimg src='flag.gif' modname='core' set='icons/extrasmall' __alt='Mark the message with a flag'  style="display: none;" id="flag"]-->
+			<!--[if $photo neq ""]-->
+				<br />
+			<!--[/if]-->
+		<!--[/if]-->
+		<!--[$posterdata.userFullName|pnvarprepfordisplay]-->
+	</div>
+	
+	
+	<div id="noteinfo_1" class="pn-hide pn-noteinfo">&nbsp;</div>
+	
+	<div style="clear:both;"></div>
+	
+	<div>
+		<span>
+			<strong><!--[gt text="Subject"]--></strong>:
+			<!--[if $message.msg_image neq ""]-->
+				<img src="images/smilies/<!--[$message.msg_image|pnvarprepfordisplay]-->" alt="" />&nbsp;
+			<!--[/if]-->
+			<!--[$message.subject|pnvarprepfordisplay]-->
+		</span>
+	
+		<span>&nbsp;</span>
+		<span>
+			<strong><!--[gt text="Sent"]--></strong>: <!--[$message.messagetime|pnvarprepfordisplay]-->
+		</span>
+		<div style="height:15px;">&nbsp;</div>
+		<!--[if $message.file1 neq '']-->
+			<div>
+				<img src="modules/iw_main/pnimages/fileIcons/<!--[$message.fileIcon1]-->"/>
+				<a href="<!--[pnmodurl modname=iw_messages type=user func=download msg_id=$message.msg_id file=1]-->"><!--[$message.file1]--></a>
+			</div>
+		<!--[/if]-->
+		<!--[if $message.file2 neq '']-->
+			<div>
+				<img src="modules/iw_main/pnimages/fileIcons/<!--[$message.fileIcon2]-->"/>
+				<a href="<!--[pnmodurl modname=iw_messages type=user func=download msg_id=$message.msg_id file=2]-->"><!--[$message.file2]--></a>
+			</div>
+		<!--[/if]-->
+		<!--[if $message.file3 neq '']-->
+			<div>
+				<img src="modules/iw_main/pnimages/fileIcons/<!--[$message.fileIcon3]-->"/>
+				<a href="<!--[pnmodurl modname=iw_messages type=user func=download msg_id=$message.msg_id file=3]-->"><!--[$message.file3]--></a>
+			</div>
+		<!--[/if]-->
+		<fieldset style="margin: 5px; padding: 5px;">
+			<legend><strong>&nbsp;<!--[gt text="Message"]-->&nbsp;</strong></legend>
+            <div class="messageBody">
+                <!--[$message.message|pnvarprephtmldisplay]-->
+            </div>
+		</fieldset>
+		<div style="height:10px;">&nbsp;</div>
+
+		<!--[if $message.reply neq '']-->
+			<fieldset style="margin: 5px; padding: 5px;">
+                <div class="messageBody">
+				    <!--[$message.reply|pnmodcallhooks|pnvarprephtmldisplay]-->
+                </div>
+			</fieldset>
+		<!--[/if]-->
+		
+		
+		<div style="height:15px;">&nbsp;</div>
+		<a href="user.php?op=userinfo&amp;uname=<!--[$posterdata.pn_uname]-->"><img src="images/global/profile.gif" alt="" /></a>
+		<span class="pn-sub"><!--[gt text="Profile"]--></span>
+		<!--[if $posterdata.pn_femail neq ""]-->
+			<a href="mailto:<!--[$posterdata.pn_femail]-->"><img src="images/global/email.gif" alt="" /></a><span class="pn-sub"><!--[gt text="E-mail address"]--></span>
+		<!--[/if]-->
+		<!--[if $posterdata.pn_url neq ""]-->
+			&nbsp;&nbsp;<a href="<!--[$posterdata.pn_url]-->"><img src="images/global/www_icon.gif" alt="" /></a><span class="pn-sub">www</span>
+		<!--[/if]-->
+		<!--[if $posterdata.pn_user_icq neq ""]-->
+			&nbsp;&nbsp;<a href="http://wwp.icq.com/scripts/search.dll?to=<!--[$posterdata.pn_user_icq]-->"><img src="http://wwp.icq.com/scripts/online.dll?icq=<!--[$posterdata.pn_user_icq]-->&amp;img=5" alt="" /></a>
+			<span class="pn-sub"><!--[gt text="ICQ"]--></span>
+		<!--[/if]-->
+		<!--[if $posterdata.pn_user_aim neq ""]-->
+			&nbsp;&nbsp;<a href="aim:goim?screenname=<!--[$posterdata.pn_user_aim]-->&message=Hi+<!--[$posterdata.pn_user_aim]-->+Are+you+there?"><img src="images/global/aim.gif" alt="" /></a>
+			<span class="pn-sub"><!--[gt text="AIM"]--></span>
+		<!--[/if]-->
+		<!--[if $posterdata.pn_user_yim neq ""]-->
+			&nbsp;&nbsp;<a href="http://edit.yahoo.com/config/send_webmesg?.target=<!--[$posterdata.pn_user_yim]-->&.src=pg"><img src="images/global/yim.gif" alt="" /></a>
+			<span class="pn-sub"><!--[gt text="YIM"]--></span>
+		<!--[/if]-->
+		<!--[if $posterdata.pn_user_msnm neq ""]-->
+			&nbsp;&nbsp;<a href="user.php?op=userinfo&amp;uname=<!--[$posterdata.pn_uname]-->"><img src="images/global/msnm.gif" alt="" /></a>
+			<span class="pn-sub"><!--[gt text="MSNM"]--></span>
+		<!--[/if]-->
+	</div>
+	
+	<div>
+		<form name="prvmsg" method="post" action="<!--[pnmodurl modname=iw_messages type=user func=delete]-->">
+			[&nbsp;
+			<!--[if $message.qui neq "r"]-->
+				<a href="<!--[pnmodurl modname=iw_messages type=user func=compose reply=1 msg_id=$message.msg_id inici=$inici rpp=$rpp inicisend=$inicisend rppsend=$rppsend filter=$filter filtersend=$filtersend]-->"><!--[gt text="Reply"]--></a>&nbsp;|&nbsp;
+				<a style="cursor: pointer;" onclick="javascript:marcardisplay(<!--[$message.msg_id]-->)"><!--[gt text="Mark/unmark"]--></a>&nbsp;|&nbsp;
+			<!--[/if]-->
+
+			<input type="hidden" name="qui" value="<!--[$message.qui]-->" />
+			<input type="hidden" name="authid" value="<!--[$authkey]-->" />
+			<input type="hidden" name="msg_id" value="<!--[$message.msg_id]-->" />
+			<a href="#" onclick="javascript:esborrardisplay('<!--[gt text="Confirm the action before deleting the messages selected?"]-->')"><!--[gt text="Delete"]--></a>&nbsp;]
+		</form>
+	</div>
+	<script type="text/javascript">
+		var addingflag = '<!--[gt text='...modifying note flag status...']-->';
+	</script>
+</div>

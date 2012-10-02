@@ -1,0 +1,436 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-01 14:12+0000\n"
+"PO-Revision-Date: 2010-09-14 14:22+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
+
+#: pnadmin.php:55
+#: pnadmin.php:144
+#: pnadmin.php:316
+#: pnuserapi.php:50
+#: pnuserapi.php:172
+#: pnuser.php:34
+#: pnuser.php:97
+#: pnuser.php:288
+msgid "Error! Unable to load class [%s%]"
+msgstr "No s'ha pogut carregar la classe [%s%]"
+
+#: pnadmin.php:93
+msgid "Done! Page created."
+msgstr "S'ha creat la pàgina."
+
+#: pnadmin.php:125
+#: pnadmin.php:237
+#: pnuser.php:271
+#: pnuser.php:303
+#: pnuser.php:311
+#: pnadminapi.php:107
+#: pnadminapi.php:152
+msgid "No such page found."
+msgstr "No s'ha trobat la pàgina."
+
+#: pnadmin.php:196
+msgid "Done! Page updated."
+msgstr "S'ha modificat la pàgina."
+
+#: pnadmin.php:268
+msgid "Done! Page deleted."
+msgstr "S'ha esborrat la pàgina."
+
+#: pnadmin.php:299
+msgid "Purging of the pemalinks was successful"
+msgstr "Els enllaços permanents s'han esborrat correctament"
+
+#: pnadmin.php:301
+msgid "Purging of the pemalinks has failed"
+msgstr "No s'han pogut esborrar els enllaços permanents"
+
+#: pnadmin.php:360
+msgid "View"
+msgstr "Mostra"
+
+#: pnadmin.php:365
+#: pntemplates/pages_user_display.htm:45
+msgid "Edit"
+msgstr "Edició"
+
+#: pnadmin.php:370
+msgid "Delete"
+msgstr "Esborrament"
+
+#: pnadmin.php:486
+msgid "Done! Module configuration updated."
+msgstr "S'ha actualitzat la configuració del mòdul"
+
+#: pnversion.php:16
+#: pninit.php:289
+msgid "Static pages"
+msgstr "Pàgines estàtiques"
+
+#: pnversion.php:17
+msgid "Manager of the static pages of the site."
+msgstr "Permet gestionar pàgines estàtiques."
+
+#. ! this defines the module's url
+#: pnversion.php:20
+msgid "pages"
+msgstr "pagines"
+
+#: pnsearchapi.php:101
+#: pnsearchapi.php:132
+#: pnuserapi.php:165
+msgid "Error! Could not load any page."
+msgstr "No s'ha pogut carregar cap pàgina."
+
+#: pnblocks/pageslist.php:39
+#: pntemplates/pages_user_view.htm:2
+#: pntemplates/pages_user_view.htm:33
+msgid "Pages list"
+msgstr "Llista de pàgines"
+
+#: pnblocks/pageslist.php:40
+msgid "Display a list of pages"
+msgstr "Mostra una llista de les pàgines"
+
+#: pnblocks/page.php:32
+msgid "Show page"
+msgstr "Mostra la pàgina"
+
+#: pnblocks/page.php:33
+msgid "Show a page in a block"
+msgstr "Mostra una pàgina dins d'un bloc"
+
+#: pnuser.php:126
+msgid "Invalid category passed."
+msgstr "Categoria no vàlida."
+
+#: pnuser.php:200
+#: pntemplates/pages_admin_view.htm:97
+msgid "No pages found."
+msgstr "No s'han trobat pàgines."
+
+#: pnadminapi.php:67
+#: pnadminapi.php:198
+msgid "The permalinks retrieved from the title has to be unique!"
+msgstr "Els títols dels enllaços permanents han de ser únics"
+
+#: pnadminapi.php:69
+#: pnadminapi.php:200
+msgid "The permalink has to be unique!"
+msgstr "Els enllaços permanents han de ser únics"
+
+#: pnadminapi.php:71
+#: pnadminapi.php:202
+msgid "The permalink has been removed, please update the page with a correct and unique permalink"
+msgstr "S'ha esborrat l'enllaç permanent. Actualitza la pàgina amb un enllaç permanent que sigui únic."
+
+#: pnadminapi.php:75
+msgid "Error! Creation attempt failed."
+msgstr "L'intent de creació ha fallat."
+
+#: pnadminapi.php:116
+msgid "Error! Deletion attempt failed."
+msgstr "L'intent d'esborrament ha fallat."
+
+#: pnadminapi.php:206
+#: pninit.php:83
+#: pninit.php:94
+#: pninit.php:100
+#: pninit.php:108
+#: pninit.php:201
+msgid "Error! Update attempt failed."
+msgstr "No s'ha pogut actualitzar."
+
+#: pnadminapi.php:284
+#: pntemplates/pages_admin_view.htm:3
+msgid "View pages list"
+msgstr "Mostra la llista de pàgines"
+
+#: pnadminapi.php:288
+#: pntemplates/pages_admin_new.htm:3
+msgid "Create a page"
+msgstr "Crea una pàgina"
+
+#: pnadminapi.php:292
+msgid "Purge permalinks"
+msgstr "Esborra els enllaços permanents"
+
+#: pnadminapi.php:294
+#: pntemplates/pages_admin_modifyconfig.htm:7
+msgid "Settings"
+msgstr "Modifica la configuració"
+
+#: pninit.php:41
+msgid "Warning! Could not create the default Pages category tree. If you want to use categorization for the pages, register at least one property for the module in the Category Registry."
+msgstr "No ha estat possible crear un arbre de categories de pàgines per defecte. Si voleu fer ús de la categorització de pàgines, emmagatzema com a mínim una propietat per el mòdul en el registre de categories."
+
+#: pninit.php:288
+#: pntemplates/pages_admin_menu.htm:6
+#: pntemplates/pages_search_options.htm:5
+msgid "Pages"
+msgstr "Pàgines estàtiques"
+
+#: pntemplates/pages_admin_modifyconfig.htm:13
+msgid "General settings"
+msgstr "Paràmetres generals"
+
+#: pntemplates/pages_admin_modifyconfig.htm:15
+msgid "Enable categorization"
+msgstr "Activa l'ús de categories"
+
+#: pntemplates/pages_admin_modifyconfig.htm:19
+msgid "Items per page"
+msgstr "Elements per pàgina"
+
+#: pntemplates/pages_admin_modifyconfig.htm:24
+msgid "New page defaults"
+msgstr "Paràmetres per defecte de la pàgina nova"
+
+#: pntemplates/pages_admin_modifyconfig.htm:26
+#: pntemplates/pages_admin_modify.htm:64
+#: pntemplates/pages_admin_new.htm:56
+msgid "Display additional information"
+msgstr "Mostra informació addicional amb la pàgina"
+
+#: pntemplates/pages_admin_modifyconfig.htm:30
+#: pntemplates/pages_admin_modify.htm:68
+#: pntemplates/pages_admin_new.htm:60
+msgid "Display page title"
+msgstr "Mostra el títol de la pàgina"
+
+#: pntemplates/pages_admin_modifyconfig.htm:34
+#: pntemplates/pages_admin_modify.htm:72
+#: pntemplates/pages_admin_new.htm:64
+msgid "Display page creation date"
+msgstr "Mostra la data de creació de la pàgina"
+
+#: pntemplates/pages_admin_modifyconfig.htm:38
+#: pntemplates/pages_admin_modify.htm:76
+#: pntemplates/pages_admin_new.htm:68
+msgid "Display page update date"
+msgstr "Mostra la data de modificació de la pàgina"
+
+#: pntemplates/pages_admin_modifyconfig.htm:42
+#: pntemplates/pages_admin_modify.htm:80
+#: pntemplates/pages_admin_new.htm:72
+msgid "Display page text statistics"
+msgstr "Mostra les estadístiques de text de la pàgina"
+
+#: pntemplates/pages_admin_modifyconfig.htm:46
+#: pntemplates/pages_admin_modify.htm:84
+#: pntemplates/pages_admin_new.htm:76
+msgid "Display page print link"
+msgstr "Mostra un enllaç d'impressió a la pàgina"
+
+#: pntemplates/pages_admin_modifyconfig.htm:51
+msgid "Permalinks settings"
+msgstr "Configuració dels enllaços permanents"
+
+#: pntemplates/pages_admin_modifyconfig.htm:53
+msgid "Add category title to permalink"
+msgstr "Afegeix un títol de categoria a l'enllaç permanent"
+
+#: pntemplates/pages_admin_modifyconfig.htm:57
+msgid "Show permalink input field"
+msgstr "Mostra el camp d'entrada de l'enllaç permanent"
+
+#: pntemplates/pages_admin_modifyconfig.htm:65
+msgid "Save"
+msgstr "Desa"
+
+#: pntemplates/pages_admin_modifyconfig.htm:66
+#: pntemplates/pages_admin_modify.htm:105
+#: pntemplates/pages_admin_delete.htm:19
+#: pntemplates/pages_admin_new.htm:86
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: pntemplates/pages_admin_modify.htm:3
+msgid "Update page"
+msgstr "Actualitza la pàgina"
+
+#: pntemplates/pages_admin_modify.htm:18
+#: pntemplates/pages_admin_modify.htm:55
+#: pntemplates/pages_admin_new.htm:16
+#: pntemplates/pages_admin_new.htm:47
+msgid "Content"
+msgstr "Contingut"
+
+#: pntemplates/pages_admin_modify.htm:20
+#: pntemplates/pages_admin_view.htm:61
+#: pntemplates/pages_admin_new.htm:18
+msgid "Title"
+msgstr "Títol"
+
+#: pntemplates/pages_admin_modify.htm:25
+#: pntemplates/pages_admin_new.htm:23
+msgid "PermaLink URL title"
+msgstr "Títol de l'enllaç permanent"
+
+#: pntemplates/pages_admin_modify.htm:27
+#: pntemplates/pages_admin_new.htm:25
+msgid "(Blank = auto-generate)"
+msgstr "(En blanc = generat automàticament)"
+
+#: pntemplates/pages_admin_modify.htm:32
+#: pntemplates/pages_admin_view.htm:18
+#: pntemplates/pages_admin_view.htm:63
+#: pntemplates/pages_admin_new.htm:30
+msgid "Category"
+msgstr "Categoria"
+
+#: pntemplates/pages_admin_modify.htm:33
+#: pntemplates/pages_admin_view.htm:19
+#: pntemplates/pages_admin_new.htm:31
+msgid "Choose a category"
+msgstr "Tria una categoria"
+
+#: pntemplates/pages_admin_modify.htm:50
+#: pntemplates/pages_admin_view.htm:44
+#: pntemplates/pages_admin_view.htm:66
+#: pntemplates/pages_admin_new.htm:42
+msgid "Language"
+msgstr "Idioma"
+
+#: pntemplates/pages_admin_modify.htm:57
+#: pntemplates/pages_admin_new.htm:49
+msgid "If you want multiple pages you can write &lt;!--pagebreak--&gt; where you want to cut."
+msgstr "Si voleu múltiples pàgines podeu escriure &lt;!--pagebreak--&gt; on vulgueu tallar la pàgina."
+
+#: pntemplates/pages_admin_modify.htm:61
+#: pntemplates/pages_admin_new.htm:53
+msgid "Specific page settings"
+msgstr "Paràmetres de configuració específics"
+
+#: pntemplates/pages_admin_modify.htm:90
+msgid "Meta data"
+msgstr "Metadades"
+
+#: pntemplates/pages_admin_modify.htm:93
+#, php-format
+msgid "Created by %s"
+msgstr "Creat per %s"
+
+#: pntemplates/pages_admin_modify.htm:94
+#, php-format
+msgid "Created on %s"
+msgstr "Creat el %s"
+
+#: pntemplates/pages_admin_modify.htm:96
+#, php-format
+msgid "Last update by %s"
+msgstr "Darrera actualització per %s"
+
+#: pntemplates/pages_admin_modify.htm:97
+#, php-format
+msgid "Updated on %s"
+msgstr "Modificat el %s"
+
+#: pntemplates/pages_admin_modify.htm:104
+msgid "Update"
+msgstr "Valida"
+
+#: pntemplates/pages_admin_view.htm:50
+msgid "Filter"
+msgstr "Filtra"
+
+#: pntemplates/pages_admin_view.htm:51
+msgid "Reset"
+msgstr "Reinicia"
+
+#: pntemplates/pages_admin_view.htm:60
+msgid "ID"
+msgstr "ID"
+
+#: pntemplates/pages_admin_view.htm:68
+msgid "Actions"
+msgstr "Accions"
+
+#: pntemplates/pages_admin_delete.htm:2
+msgid "Delete page"
+msgstr "Esborra la pàgina"
+
+#: pntemplates/pages_admin_delete.htm:10
+msgid "Do you really want to delete this page?"
+msgstr "Esteu segur/a de que voleu esborrar aquesta pàgina?"
+
+#: pntemplates/pages_admin_delete.htm:18
+msgid "Confirm deletion?"
+msgstr "Confirmació de l'esborrament de l'element"
+
+#: pntemplates/pages_block_pageblock_modify.htm:4
+msgid "Page ID"
+msgstr "ID de la pàgina"
+
+#: pntemplates/pages_user_display.htm:15
+#, php-format
+msgid "Created by %1$s on %2$s"
+msgstr "Creat per %1$s el %2$s"
+
+#: pntemplates/pages_user_display.htm:19
+#, php-format
+msgid "Last update by %1$s on %2$s"
+msgstr "Darrera modificació feta per %1$s el %2$s"
+
+#: pntemplates/pages_user_display.htm:22
+msgid "Categories"
+msgstr "Categories"
+
+#: pntemplates/pages_user_display.htm:49
+#, php-format
+msgid "%s total words in this text"
+msgstr "Hi ha %s paraules en aquest text"
+
+#: pntemplates/pages_user_display.htm:51
+#, php-format
+msgid "%s reads"
+msgstr "%s lectures"
+
+#: pntemplates/pages_user_display.htm:55
+msgid "Print page"
+msgstr "Imprimeix la pàgina"
+
+#: pntemplates/pages_user_view.htm:7
+#: pntemplates/pages_user_main.htm:2
+msgid "Contents"
+msgstr "Continguts"
+
+#: pntemplates/pages_user_view.htm:8
+#: pntemplates/pages_user_main.htm:8
+msgid "Available categories:"
+msgstr "Categories disponibles:"
+
+#: pntemplates/pages_user_view.htm:30
+#, php-format
+msgid "Category: %s"
+msgstr "Categoria: %s"
+
+#: pntemplates/pages_user_view.htm:31
+msgid "Pages published under this category:"
+msgstr "Pàgines publicades amb aquesta categoria:"
+
+#: pntemplates/pages_user_view.htm:34
+msgid "Available pages:"
+msgstr "Pàgines disponibles:"
+
+#: pntemplates/pages_block_pageslist_modify.htm:4
+msgid "Number of pages to display"
+msgstr "Nombre de pàgines que s'han de mostrar"
+
+#: pntemplates/pages_admin_new.htm:85
+msgid "Create"
+msgstr "Crea"
+

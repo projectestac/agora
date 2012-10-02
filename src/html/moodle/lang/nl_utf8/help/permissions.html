@@ -1,0 +1,52 @@
+<h1>Rechten</h1>
+
+<p>
+Rechten zijn de instellingen die je geeft voor bepaalde mogelijkheden.
+</p>
+
+<p>
+Bevoorbeeld van een mogelijkheid: "een nieuwe discussie starten" (in forums).
+</p>
+
+<p>
+Voor elke rol kun je de rechten voor zo een mogelijkheid één uit vier verschillende waarden geven:
+<dl>
+<dt>NIET INGESTELD</dt>
+<dd>Dit is gewoonlijk de standaardinstelling. Het is een neutrale instelling die betekent: "gebruik gewoon alle rechten die de gebruiker al had". Als een rol aan iemand toegewezen wordt (bijvoorbeeld in een cursus) die al een recht had voor een bepaalde mogelijkheid, dan zal het uiteindelijke recht hetzelfde zijn als wat de gebruiker had in een hoger context (bijvoorbeeld in de cursuscategorieën of op siteniveau). Als het recht nooit, op geen enkel niveau is toegekend, dan zal de gebruiker geen rechten hebben voor die mogelijkheid.
+    </dd>
+
+<dt>TOESTAAN</dt>
+<dd>Door deze instelling te kiezen geef je recht voor deze mogelijkheid aan gebruikers met deze rol. Dit recht geldt voor de context waarin dit recht wordt toegewezen en voor alle "lagere" contexten. Als de rol een leerling rol is, toegewezen aan deze cursus, dan zullen de leerlingen het recht krijgen nieuwe discussies te starten in alle forums van deze cursus, tenzij sommige forums een overschrijving of een nieuwe toewijzing met een verwijder of blokkeer waarde voor deze mogelijkheid.</dd>
+
+<dt>VERWIJDER</dt>
+<dd>Door deze waarde te kiezen verwijder je de rechten voor deze mogelijkheid, zelfs als de gebruikers met deze rol het recht gekregen hebben in een hogere context.</dd>
+
+<dt>BLOKKEER</dt>
+<dd>Deze waarde is zelden nodig, maar soms wil je misschien in een bepaalde rol rechten volledig verwijderen op een manier dat die niet overschreven kunnen worden in een lager context. Een goed voorbeeld hiervan kan zijn wanneer een beheerder een bepaalde persoon het recht wil ontnemen om nieuwe discussies te starten gelijk waar op de site. Hiervoor kan de beheerder een rol creëren waarbij deze mogelijkheid op BLOKKEER staat en die rol dan toewijzen aan die gebruiker op site niveau.
+  </dd>
+
+</dl>
+</p>
+
+<h1>Conflicterende rechten</h1>
+
+<p> Rechten in een "lagere" context zullen gewoonlijk alles wat van een "hogere" context komt overschrijven (zowel toegewezen rollen als overschrijvingen). De uitzonderng is BLOKKER wat niet overschreven kan worden op lagere niveaus.
+</p>
+
+<p>Als twee rollen toegewezen zijn aan één persoon binnen dezelfde context, een met TOESTAAn en één met VERWIJDER, welke zal dan winnen? In dit geval zal Moodle hoger in de contextenboom gaan kijken om te helpen bij de beslissing. </p>
+    
+<p> Bijvoorbeeld, een leerling heeft twee rollen in een cursus, één waarmee hij nieuwe discussies mag starten en één waarmee hij dat niet mag. In dit geval controleren we de categorie- en site-context om een ander recht te vinden dat helpt te beslissen. Als we geen vinden, wordt het recht VERWIJDERD (de twee rechten heffen elkaar op, dus er blijft geen recht over). 
+</p>
+
+<h1>Speciale uitzonderingen</h1>
+
+<p> Merk op dat de gast gebruiker geen inhoud mag posten (vb in forums, kalenders, blogs, ...) zelfs als die de mogelijlkheid gegeven wordt.
+</p>
+
+<p>
+Zie ook
+<a href="help.php?file=roles.html">Rollen</a>,
+<a href="help.php?file=contexts.html">Contexten</a>,
+<a href="help.php?file=assignroles.html">Rollen toewijzen</a> en
+<a href="help.php?file=overrides.html">Overschrijven</a>.
+</p>

@@ -1,0 +1,63 @@
+MOODLE JAPANESE TRANSLATION
+----------------------------------------------------------------------
+STARTED                       : November  21, 2002
+LAST MODIFIED                 : November  21, 2010
+----------------------------------------------------------------------
+
+Mitsuhiro Yoshida (http://mitstek.com/)
+ Translating whole ja_utf8 and ja files, translation management.
+
+Timothy Takemoto (http://eigodaigaku.com/)
+ Facilitator of "Japanese Moodle" (http://moodle.org/course/view.php?id=14)
+ Translation brushup
+
+Toshihiro Kita (http://t-kita.net/)
+ Facilitator of "Japanese Moodle" (http://moodle.org/course/view.php?id=14)
+ Moodle RPM Package (http://t-kita.net/rpm/moodle/)
+ /fonts/README2.txt
+ Translation brushup
+
+Paul Tsuchido Shew (http://shew.jp/)
+ Quiz module GIFT import filter development
+ Translation: /lang/ja_utf8/help/quiz/formatgift.html
+ Translation brushup
+
+Haruhiko Okumura (http://oku.edu.mie-u.ac.jp/~okumura/)
+ Translation brushup
+
+Hiroto Kagotani (http://www.infsys.cne.okayama-u.ac.jp/~kagotani/)
+ Translation: a part of /lang/ja_utf8/help/*
+ Translation brushup
+
+Tatsuya Aoyagi
+ Translation: /lang/ja_utf8/questionnaire.php
+ Translation: /lang/ja_utf8/help/questionnaire
+ Translation brushup
+ Localization
+
+Masataka Nakaue (http://ldt.stanford.edu/~mnakauye/)
+ Translation: /lang/ja_utf8/book.php
+ Translation: /lang/ja_utf8/help/book
+
+Thomas N. Robb (http://www.kyoto-su.ac.jp/~trobb/)
+ Translation brushup
+
+Takahiro Kagoya (https://manabi.jin-ai.ac.jp/moodle/)
+ Inventor of QUIZ results block, ranking system
+ Translation brushup
+ Localization
+
+Takahito Kashiwagi (http://www.supertak.com/)
+ Localization
+
+Naoko Ueda (http://knowledgestudio.biz/)
+ Translation brushup
+
+----------------------------------------------------------------------
+Please read MoodleDocs (http://docs.moodle.org/ja/) to set up your
+Moodle site :-)
+
+Any suggestion for Japanese language pack, please do not hesitate
+to post your comments on moodle.org Japanese:
+http://moodle.org/course/view.php?id=14
+

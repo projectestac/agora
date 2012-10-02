@@ -1,0 +1,31 @@
+<h1>Caricamento di gruppi</h1>
+
+<p>Questa funzione permette il caricamento batch di gruppi di utenti in Moodle.</p>
+
+<ul>
+  <li>Ogni riga del file contiene un record</li>
+  <li>Ogni record è costituito da una serie di dati separati da virgole</li>
+  <li>Il primo record del file è speciale e contiene una lista di nomi di campi. Questo definisce il formato del resto del file.
+    <blockquote>
+      <p><strong>Nomi campi obbligatori:</strong> questi campi devono essere inclusi nel primo record, e definiti per ogni gruppo</p>
+      <p></p>
+      <code class="example1">groupname</code>
+      <p><strong>Nomi campi default:</strong> questi sono opzionali - se non sono inclusi, i valori corrispondenti sono presi dalla lingua e dal corso correnti</p>
+      <p><code class="example1">idnumber, coursename, lang</code> </p>
+      <p><strong>Nomi campi opzionali: </strong>tutti i seguenti sono completamente opzionali. </p>
+      <p> <code class="example1">description, enrolmentkey, picture, hidepicture</code></p>
+
+    </blockquote>
+    </li>
+  <li>Le virgole tra i dati devono essere codificate come &amp;#44 - lo script automaticamente decodificherà questi come virgole. </li>
+  <li>Per i campi Booleani, usare 0 per False e 1 per True. </li>
+  <li>Sia idnumber che coursename possono essere usati per identificare il corso. Idnumber ha priorità su coursename. Se nessuno dei due è specificato, i gruppi saranno aggiunti al corso corrente.
+  <li>Coursename è il nome breve del corso.</li>
+  <li>Nota: Se un gruppo è già registrato nel database di Moodle per un corso particolare, questo script restituirà il nome di quel gruppo. I docenti possono caricare gruppi solamente nei corsi che hanno il permesso di modificare.</li>
+</ul>
+   
+<p>Esempio di un file corretto per il caricamento di gruppi:</p>
+<p><code>groupname,idnumber,lang,description,picture <br />
+group1, Phil101, en, questo gruppo richiede particolare attenzione!, 0 <br />
+group2, Math243, , ,
+</code></p>

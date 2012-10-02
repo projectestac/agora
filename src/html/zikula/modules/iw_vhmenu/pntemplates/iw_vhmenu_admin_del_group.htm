@@ -1,0 +1,25 @@
+<!--[include file="iw_vhmenu_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/large' __alt=$templatetitle]--></div>
+
+	<form class="pn-adminform" name="delete" id="delete" action="<!--[pnmodurl modname=iw_vhmenu type=admin func=del_group]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="mid" value="<!--[$mid]-->">
+		<input type="hidden" name="confirmation" value="true">
+		<input type="hidden" name="authid" value="<!--[$security]-->">
+		<input type="hidden" name="groups" value="<!--[$groups]-->">
+
+		<h2><!--[gt text="Revoke the access to the option"]-->: <!--[$group]--></h2>
+		<div>
+			<div class="pn-adminformrow">
+				<!--[gt text="Text of the option"]-->: <!--[$text]-->
+			</div>
+			<div class="pn-adminformrow">
+				<!--[gt text="Confirm the revocation of the access of the group to the option"]-->
+			</div>
+			<div class="pn-adminformrow pn-adminformbuttons">
+				<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Confirm deletion?" __title="Confirm deletion?"]-->
+				<a href="<!--[pnmodurl modname=iw_vhmenu type=admin func=main]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+			</div>
+		</div>
+	</form>
+</div>

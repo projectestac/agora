@@ -1,0 +1,30 @@
+<!--[include file=user/downloads_user_header.htm]-->
+
+	<!--[dl_mainuserlinks id="dl_usermain_menu"]-->
+
+	<div id="dl_user_catnavpath">
+		<!--[$nav_path]-->
+	</div>
+
+	<div id="dl_categorycontainer">
+	<!--[$subcategories]-->
+	</div>
+	
+	<!--[if $numitems > 1]-->
+
+		<!--[dl_user_sublevel_sortlinks  cid=$cid start=$start]-->	
+
+	<!--[/if]-->
+	
+	<div>
+	
+	<!--[dl_sublevel_pager total=$numitems start=$start cid=$cid cclause=$cclause sortby=$sortby]-->
+	
+	
+	<!--[include file=user/downloads_user_downloadcontainer.htm]-->
+	
+	
+<!--[dl_sublevel_pager total=$numitems start=$start cid=$cid cclause=$cclause sortby=$sortby]-->
+	
+	</div>
+<!--[include file=user/downloads_user_footer.htm]-->

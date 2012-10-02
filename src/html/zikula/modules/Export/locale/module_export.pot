@@ -1,0 +1,529 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-02 11:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnadminapi.php:127
+msgid "Variable is not defined"
+msgstr ""
+
+#: pnadminapi.php:128
+msgid "Additional module/variable is not defined"
+msgstr ""
+
+#: pnadminapi.php:139
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnadminapi.php:149
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: pnadminapi.php:174
+msgid "Error! Remove attempt failed."
+msgstr ""
+
+#: pnadminapi.php:350
+msgid "Corrupt package"
+msgstr ""
+
+#: pnadminapi.php:364
+#, php-format
+msgid "Zikula version %s is required"
+msgstr ""
+
+#: pnadminapi.php:417
+#, php-format
+msgid "The module %1$s requires the version %2$s"
+msgstr ""
+
+#: pnadminapi.php:443
+#, php-format
+msgid ""
+"It's not possible to remove <i>%s</i> directory because it's not writable"
+msgstr ""
+
+#: pnadminapi.php:445
+#, php-format
+msgid "It's not possible to remove <i>%s</i> directory"
+msgstr ""
+
+#: pnadminapi.php:514
+msgid "It's not possible to open the package."
+msgstr ""
+
+#: pnadminapi.php:653
+msgid "Could not open package"
+msgstr ""
+
+#: pnadminapi.php:750
+msgid "The backup package cannot be generated"
+msgstr ""
+
+#: pnadmin.php:28 pnadmin.php:234 pnadmin.php:285
+msgid "Backup folder don't exists"
+msgstr ""
+
+#: pnadmin.php:31 pnadmin.php:236 pnadmin.php:288
+msgid "Backup folder is not writeable"
+msgstr ""
+
+#: pnadmin.php:35
+msgid "Backup folder is not set"
+msgstr ""
+
+#: pnadmin.php:62
+msgid "It's not possible to generate the export pack"
+msgstr ""
+
+#: pnadmin.php:156
+msgid "Variable succesfully removed."
+msgstr ""
+
+#: pnadmin.php:195
+msgid ""
+"It's not possible to import a local package and another from an URL together"
+msgstr ""
+
+#: pnadmin.php:208
+msgid "It's not possible to upload the package"
+msgstr ""
+
+#: pnadmin.php:220
+#, php-format
+msgid "Zikula version %s is required."
+msgstr ""
+
+#: pnadmin.php:239 pnadmin.php:292
+msgid "Backup folder is not set in the module configuration"
+msgstr ""
+
+#: pnadmin.php:248
+msgid "Backup failure!"
+msgstr ""
+
+#: pnadmin.php:338
+msgid "It's not possible to delete the backup"
+msgstr ""
+
+#: pnadmin.php:404
+msgid "No modules to show"
+msgstr ""
+
+#: pnadmin.php:447
+msgid "The table doesn't exist "
+msgstr ""
+
+#: pnadmin.php:454
+msgid "Error! Add attempt failed."
+msgstr ""
+
+#: pnadmin.php:457
+#, php-format
+msgid "Table %1$s added.<a href=\"#%2$s\"> Follow in the last module</a>"
+msgstr ""
+
+#: pnadmin.php:464
+msgid "Error! Deletion attempt failed."
+msgstr ""
+
+#: pnadmin.php:466
+#, php-format
+msgid "Table %1$s deleted.<a href=\"#%2$s\"> Follow in the last module</a>"
+msgstr ""
+
+#: pnversion.php:11
+msgid ""
+"Allow to export module's content from a Zikula's installation to another"
+msgstr ""
+
+#: pnversion.php:12 pnversion.php:13
+#: pntemplates/Export_admin_export_modules.htm:22
+#: pntemplates/Export_admin_export_modules.htm:36
+msgid "Export"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:2
+msgid "Follow in the last module"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:6
+#: pntemplates/Export_admin_menu.htm:8
+msgid "Manage modules"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:10
+#: pntemplates/Export_admin_import_select.htm:22
+#: pntemplates/Export_admin_export_modules.htm:20
+#: pntemplates/Export_admin_backup_restore.htm:14
+msgid "Module name"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:11
+msgid "Module tables"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:12
+#: pntemplates/Export_admin_import_select.htm:26
+#: pntemplates/Export_admin_backup_restore.htm:17
+msgid "Variables of folders"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:23
+msgid "Suggested tables:"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:32
+#: pntemplates/Export_admin_manage_modules.htm:39
+msgid "Add"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:36
+msgid "Add table:"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:42
+msgid "Tables:"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:51
+#: pntemplates/Export_admin_manage_modules.htm:87
+#: pntemplates/Export_admin_manage_modules.htm:92
+#: pntemplates/Export_admin_manage_modules.htm:97
+#: pntemplates/Export_admin_del_variable.htm:15
+#: pntemplates/Export_admin_add_variable.htm:30
+#: pntemplates/Export_admin_backup_delete.htm:12
+msgid "Delete"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:60
+msgid "Variable: "
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:68
+msgid "Route: "
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:70
+msgid "erroneous route"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:72
+#: pntemplates/Export_admin_import_select.htm:51
+msgid " contains a route to an unwritable directory"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:78
+msgid "This variable needs the value of the variable "
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:80
+msgid "From the module "
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:86
+msgid "Edit"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:92
+#: pntemplates/Export_admin_manage_modules.htm:97
+msgid " Add variable"
+msgstr ""
+
+#: pntemplates/Export_admin_manage_modules.htm:95
+msgid "No variable is defined"
+msgstr ""
+
+#: pntemplates/Export_admin_import_upload.htm:5
+#: pntemplates/Export_admin_import_report.htm:5
+#: pntemplates/Export_admin_import_select.htm:6
+#: pntemplates/Export_admin_menu.htm:7
+msgid "Import modules"
+msgstr ""
+
+#: pntemplates/Export_admin_import_upload.htm:8
+msgid ""
+"<b>Warning!</b><br>If you import some modules, data and files of the actual "
+"module, users and groups will be replaced!<br>Are you completly sure?"
+msgstr ""
+
+#: pntemplates/Export_admin_import_upload.htm:10
+msgid "Select the package that you want import"
+msgstr ""
+
+#: pntemplates/Export_admin_import_upload.htm:12
+msgid "Or enter the URL of your import package"
+msgstr ""
+
+#: pntemplates/Export_admin_import_upload.htm:14
+#: pntemplates/Export_admin_import_select.htm:24
+#: pntemplates/Export_admin_import_select.htm:85
+#: pntemplates/Export_admin_backup_restore.htm:46
+msgid "Import"
+msgstr ""
+
+#: pntemplates/Export_admin_import_upload.htm:19
+msgid ""
+"La importació només està permesa de forma centralitzada.<br />Si us plau "
+"posis en contacte amb el seu proveïdor."
+msgstr ""
+
+#: pntemplates/Export_admin_del_variable.htm:5
+msgid "Detele variable"
+msgstr ""
+
+#: pntemplates/Export_admin_del_variable.htm:11
+msgid "Do you really want to delete the variable "
+msgstr ""
+
+#: pntemplates/Export_admin_del_variable.htm:11
+msgid " from de module "
+msgstr ""
+
+#: pntemplates/Export_admin_del_variable.htm:14
+#: pntemplates/Export_admin_add_variable.htm:29
+#: pntemplates/Export_admin_main.htm:12
+msgid "Submit"
+msgstr ""
+
+#: pntemplates/Export_admin_add_variable.htm:6
+msgid "Add variable"
+msgstr ""
+
+#: pntemplates/Export_admin_add_variable.htm:10
+msgid "Edit variable"
+msgstr ""
+
+#: pntemplates/Export_admin_add_variable.htm:16
+#: pntemplates/Export_admin_add_variable.htm:22
+msgid "Module:"
+msgstr ""
+
+#: pntemplates/Export_admin_add_variable.htm:18
+#: pntemplates/Export_admin_add_variable.htm:24
+msgid "Variable:"
+msgstr ""
+
+#: pntemplates/Export_admin_add_variable.htm:21
+msgid ""
+"If is necessary, you can define the varible of the module that contain the "
+"root directory of the actual directory"
+msgstr ""
+
+#: pntemplates/Export_admin_import_report.htm:6
+msgid " The following modules has been imported correctly:"
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:8
+msgid "Select in the following table the modules that you want import."
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:12
+msgid ""
+"If there's any message in red in the \"Variables of folders\" column do the "
+"next:<br><b>- Variable is not defined in the module configuration:</b> Check "
+"the configuration of the module related<br><b>- Variable is not defined in "
+"the Export module:</b> Add the variable in the \"Manage modules\" menu of "
+"the Export module<br><b>- Variable contains an erroneous route:</b> Check if "
+"the directories specified in the module configuration are availables"
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:15
+#: pntemplates/Export_admin_export_modules.htm:13
+msgid "Check all"
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:16
+#: pntemplates/Export_admin_export_modules.htm:14
+msgid "Uncheck all"
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:23
+#: pntemplates/Export_admin_export_modules.htm:21
+#: pntemplates/Export_admin_backup_restore.htm:15
+msgid "Display name"
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:25
+msgid "Version"
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:39
+msgid "Required version: "
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:39
+msgid "isn't the same of the local version: "
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:43
+#: pntemplates/Export_admin_backup_restore.htm:24
+msgid "The variable "
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:45
+#: pntemplates/Export_admin_backup_restore.htm:26
+msgid " is not defined in the module configuration"
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:47
+#: pntemplates/Export_admin_backup_restore.htm:28
+msgid " contains an erroneous route"
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:49
+#: pntemplates/Export_admin_backup_restore.htm:30
+msgid " is not defined in the Export module"
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:53
+#: pntemplates/Export_admin_backup_restore.htm:32
+msgid " contains the route: "
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:64
+msgid "There aren't modules available to import"
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:68
+msgid "The follow modules are unavailable in the system:"
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:74
+msgid "<b>Backup</b><br>"
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:79
+msgid ""
+"Create a backup of the system and the selected modules and store it in the "
+"server."
+msgstr ""
+
+#: pntemplates/Export_admin_import_select.htm:86
+#: pntemplates/Export_admin_backup_delete.htm:13
+#: pntemplates/Export_admin_backup_restore.htm:47
+msgid "Cancel the deletion"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_report.htm:5
+msgid "Restore modules"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_report.htm:7
+msgid " The following modules has been correctly restored:"
+msgstr ""
+
+#: pntemplates/Export_admin_export_modules.htm:6
+#: pntemplates/Export_admin_menu.htm:6
+msgid "Export modules"
+msgstr ""
+
+#: pntemplates/Export_admin_export_modules.htm:8
+msgid "Export pack generated. Download it "
+msgstr ""
+
+#: pntemplates/Export_admin_export_modules.htm:8
+msgid "here."
+msgstr ""
+
+#: pntemplates/Export_admin_export_modules.htm:10
+msgid ""
+"To export some modules, select them and click in the button \"Export\" in "
+"the bottom of the page."
+msgstr ""
+
+#: pntemplates/Export_admin_menu.htm:3
+msgid "Export and import modules"
+msgstr ""
+
+#: pntemplates/Export_admin_menu.htm:9
+#: pntemplates/Export_admin_backup_list.htm:5
+msgid "Manage backups"
+msgstr ""
+
+#: pntemplates/Export_admin_menu.htm:10 pntemplates/Export_admin_main.htm:5
+msgid "Configure the module"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_delete.htm:5
+msgid "Delete the backup"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_delete.htm:10
+msgid "Are you really sure to delete the backup?"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_restore.htm:5
+msgid "Restore the backup"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_restore.htm:10
+msgid "Confirm the restore of the backup"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_restore.htm:16
+msgid "Restore"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_restore.htm:39
+msgid ""
+"<b>Warning!</b><br>If you restore some modules, data and files of the actual "
+"module, users and groups will be replaced!<br>Are you completly sure?"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_restore.htm:42
+msgid "There aren't modules available to restore"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_list.htm:10
+msgid "Backup date"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_list.htm:11
+msgid "Modules"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_list.htm:12
+msgid "Actions"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_list.htm:18
+msgid "Availables"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_list.htm:27
+msgid "Unavailables"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_list.htm:34
+msgid "Delete backup"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_list.htm:35
+msgid "Restore backup"
+msgstr ""
+
+#: pntemplates/Export_admin_backup_list.htm:42
+msgid "<b>No backups found</b>"
+msgstr ""
+
+#: pntemplates/Export_admin_main.htm:8
+msgid "Backup folder:"
+msgstr ""
+
+#: pntemplates/Export_admin_main.htm:13
+msgid "Modify the configuration"
+msgstr ""

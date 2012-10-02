@@ -1,0 +1,247 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-06 17:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnadmin.php:61
+msgid "View"
+msgstr ""
+
+#: pnadmin.php:66
+msgid "Delete"
+msgstr ""
+
+#: pnadmin.php:107 pnadminapi.php:27
+msgid "No such item found."
+msgstr ""
+
+#: pnadmin.php:138
+msgid "Done! Item deleted."
+msgstr ""
+
+#: pnadmin.php:161
+msgid "Percentage"
+msgstr ""
+
+#: pnadmin.php:162
+msgid "Number out of five"
+msgstr ""
+
+#: pnadmin.php:163
+msgid "Number out of ten"
+msgstr ""
+
+#: pnadmin.php:164
+msgid "Stars out of five"
+msgstr ""
+
+#: pnadmin.php:165
+msgid "Stars out of ten"
+msgstr ""
+
+#: pnadmin.php:166
+msgid "Low (user can vote multiple times)"
+msgstr ""
+
+#: pnadmin.php:167
+msgid "Medium (user can vote once per session)"
+msgstr ""
+
+#: pnadmin.php:168
+msgid "High (user can only vote once)"
+msgstr ""
+
+#: pnadmin.php:224
+msgid "Done! Module configuration updated."
+msgstr ""
+
+#: pnajax.php:29
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnversion.php:13 pntemplates/ratings_admin_menu.htm:4
+msgid "Ratings"
+msgstr ""
+
+#: pnversion.php:14
+msgid "Rate Zikula items."
+msgstr ""
+
+#. !module name that appears in URL
+#: pnversion.php:15
+msgid "ratings"
+msgstr ""
+
+#: pnuserapi.php:136 pnuserapi.php:219
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pnuserapi.php:229
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: pnuserapi.php:241 pnuserapi.php:259
+msgid "Error! Save failed."
+msgstr ""
+
+#: pnuser.php:22
+msgid "Sorry! This module cannot be accessed directly."
+msgstr ""
+
+#: pnuser.php:244
+msgid "Done! Thank you for rating this item."
+msgstr ""
+
+#: pnadminapi.php:40 pnadminapi.php:43
+msgid "Error! Deletion attempt failed."
+msgstr ""
+
+#: pnadminapi.php:125 pntemplates/ratings_admin_view.htm:4
+#: pntemplates/ratings_admin_view.htm:5
+msgid "View all ratings"
+msgstr ""
+
+#: pnadminapi.php:128 pntemplates/ratings_admin_modifyconfig.htm:2
+msgid "Settings"
+msgstr ""
+
+#: pninit.php:23
+msgid "Error: Creation of the tables into the database attempt failed."
+msgstr ""
+
+#: pninit.php:33
+msgid "Error: Set up module variables attempt failed."
+msgstr ""
+
+#: pninit.php:40
+msgid "Error: Set up module hooks attempt failed."
+msgstr ""
+
+#: pninit.php:115
+msgid "Error: Could not deregister hook."
+msgstr ""
+
+#: pninit.php:121
+msgid "Error: Could not drop database tables."
+msgstr ""
+
+#: pntemplates/ratings_admin_delete.htm:3
+msgid "Delete item's rating"
+msgstr ""
+
+#: pntemplates/ratings_admin_delete.htm:7
+msgid "Do you really want to delete the rating of this item?"
+msgstr ""
+
+#: pntemplates/ratings_admin_delete.htm:14
+msgid "Confirmation prompt"
+msgstr ""
+
+#: pntemplates/ratings_admin_delete.htm:16
+msgid "Confirm deletion?"
+msgstr ""
+
+#: pntemplates/ratings_admin_delete.htm:17
+#: pntemplates/ratings_admin_modifyconfig.htm:47
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/ratings_admin_view.htm:9
+msgid "Module"
+msgstr ""
+
+#: pntemplates/ratings_admin_view.htm:10
+msgid "Item ID"
+msgstr ""
+
+#: pntemplates/ratings_admin_view.htm:11
+msgid "Number of votes"
+msgstr ""
+
+#: pntemplates/ratings_admin_view.htm:12
+#: pntemplates/ratings_user_display.htm:10
+msgid "Rating"
+msgstr ""
+
+#: pntemplates/ratings_admin_view.htm:13
+msgid "Options"
+msgstr ""
+
+#: pntemplates/ratings_admin_view.htm:31
+msgid "No items found."
+msgstr ""
+
+#: pntemplates/ratings_admin_modifyconfig.htm:13
+msgid "Items per page"
+msgstr ""
+
+#: pntemplates/ratings_admin_modifyconfig.htm:17
+msgid "Default ratings style"
+msgstr ""
+
+#: pntemplates/ratings_admin_modifyconfig.htm:23
+msgid "Use ajax for saving rate"
+msgstr ""
+
+#: pntemplates/ratings_admin_modifyconfig.htm:25
+msgid "If disabled the standard redirection will be used."
+msgstr ""
+
+#: pntemplates/ratings_admin_modifyconfig.htm:28
+msgid "Display stars dynamically using ajax"
+msgstr ""
+
+#: pntemplates/ratings_admin_modifyconfig.htm:30
+msgid "Only works if stars is set as default ratings style."
+msgstr ""
+
+#: pntemplates/ratings_admin_modifyconfig.htm:33
+msgid "Display an informative message about the score"
+msgstr ""
+
+#: pntemplates/ratings_admin_modifyconfig.htm:35
+msgid "It tells to the user which is the lowest/higher value."
+msgstr ""
+
+#: pntemplates/ratings_admin_modifyconfig.htm:38
+msgid "Security against rate rigging"
+msgstr ""
+
+#: pntemplates/ratings_admin_modifyconfig.htm:46
+msgid "Update Configuration"
+msgstr ""
+
+#: pntemplates/ratings_user_display.htm:13
+msgid "No one has rated this item yet - be the first!"
+msgstr ""
+
+#: pntemplates/ratings_user_display.htm:87
+msgid "Rate this item"
+msgstr ""
+
+#: pntemplates/ratings_user_display.htm:113
+#: pntemplates/ratings_user_display.htm:116
+msgid "Submit"
+msgstr ""
+
+#: pntemplates/ratings_user_display.htm:123
+#, php-format
+msgid "%1$s%3$s is the lowest and %2$s%3$s the higher score."
+msgstr ""
+
+#: pntemplates/ratings_user_display.htm:130
+msgid "Recording rating"
+msgstr ""

@@ -1,0 +1,53 @@
+<h1>Tabella dei click</h1>
+
+<p>Questa tabella mostra i dettagli di ogni click di ogni studente per ogni tentativo di risposta a un particolare quiz Hot Potatoes.</p>
+
+<p>Da notare che questo report è molto ampio e può essere molto lungo, per cui conviene scaricarlo e vederlo usando un foglio elettronico, tipo Microsoft Excel.</p>
+
+<p>Ogni riga della tabella contiene le seguenti informazioni:</p>
+
+<p><b>Quale click?</b><br />
+I seguenti dettagli identificano a quale click, in quale tentativo, a quale quiz, di quale studente, in quale sezione, di quale corso, la riga si riferisce:</p>
+<ul>
+    <li>Nome Corso, numero sezione, numero Esercizio, nome Esercizio, tipo Esercizio, numero di domande</li>
+    <li>Nome completo dello Studente, data Login, ora Login, ora Logoff</li>
+    <li>Numero tentativo, ora inizio, ora fine</li>
+    <li>Numero Click, ora Click, tipo Click</li>
+</ul>
+
+<p><b>Quale domanda è stata interessata?</b><br />
+Sono mostrati i seguenti dettagli delle domande, se è il caso, che sono state interessate dal click corrente:</p>
+<ul>
+    <li>domande che sono state "checked", o hanno avuto un "hint" o un "clue" sul click corrente</li>
+    <li>lo stato di ogni domanda dopo il click corrente
+        <ul>
+            <li><b>0</b> significa "corretta"</li>
+            <li><b>X</b> significa "errata"</li>
+            <li><b>-</b> significa "non tentata"</li>
+        </ul>
+    </li>
+    <li>nuove risposte ricevute al click corrente (le risposte che non sono cambiate non sono mostrate)</li>
+    <li>domande per le quali nuove risposte sono state ricevute al click corrente</li>
+    <li>domande per le quali nuove risposte sono state ricevute, o per le quali un "hint" o un "clue" è stato dato, al click corrente</li>
+</ul>
+
+<p><b>Quante domande sono state interessate?</b><br />
+Sono mostrati i seguenti dettagli del numero totale di domande, se è il caso, che sono state interessate dal click corrente e del numero totale di domande interessate finora nel quiz:</p>
+<ul>
+    <li>il numero di domande tentate</li>
+    <li>il numero di domande non tentate</li>
+    <li>il numero di domande il cui stato è "giusto"</li>
+    <li>il numero di domande il cui stato è "errato"</li>
+    <li>il numero di domande per le quali sono stati dati "hints"</li>
+    <li>il numero di domande per le quali sono stati dati "clues"</li>
+    <li>il numero di domande per le quali sono state ricevute nuove risposte</li>
+    <li>il numero di domande per le quali sono state ricevute nuove risposte, o per le quali è stato dato un "hint" o un "clue"</li>
+</ul>
+
+<p><b>Punteggi</b><br />
+Per questo click e per tutto il quiz finora, vengono mostrati i seguenti dettagli:</p>
+<ul>
+    <li>il punteggio grezzo</li>
+    <li>il punteggio massimo</li>
+    <li>il punteggio come percentuale</li>
+</ul>

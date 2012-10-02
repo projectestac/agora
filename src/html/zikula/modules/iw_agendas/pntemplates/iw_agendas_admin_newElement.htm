@@ -1,0 +1,89 @@
+<script type="text/javascript" src="modules/iw_main/js/ColorPicker2.js"></script>
+<script type="text/javascript" src="modules/iw_main/js/AnchorPosition.js"></script>
+<script type="text/javascript" src="modules/iw_main/js/PopupWindow.js"></script>
+
+<script type="text/javascript">
+    var cp = new ColorPicker('window');
+   	// Runs when a color is clicked
+    function pickColor(color) {
+	    field.value = color;
+		document.forms.periode.color.style.backgroundColor=color;
+	}
+
+   	var field;
+    function pick(anchorname) {
+	    field = document.forms.periode.color;
+		cp.show(anchorname);
+	}
+</script>
+
+<!--[include file="iw_agendas_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='package_settings.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[$title]--></h2>
+	<form id="periode" class="pn-adminform" action="<!--[pnmodurl modname="iw_agendas" type="admin" func="modifica_llistes"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_agendas"]-->" />
+		<input type="hidden" name="index" value="<!--[$index]-->" />
+		<input type="hidden" name="dada" value="<!--[$dada]-->" />
+
+		<div class="pn-adminformrow">
+			<label for="nom_agenda"><!--[$title1]--></label>
+			<select name="dia1">
+				<!--[foreach item=dia from=$dies_MS]-->
+					<option <!--[if $dia1 eq $dia.id]-->selected<!--[/if]--> value="<!--[$dia.id]-->"><!--[$dia.name]--></option>
+				<!--[/foreach]-->
+			</select>
+			<span>/</span>
+			<select name="mes1">
+				<!--[foreach item=mes from=$mesos_MS]-->
+					<option <!--[if $mes1 eq $mes.id]-->selected<!--[/if]--> value="<!--[$mes.id]-->"><!--[$mes.name]--></option>
+				<!--[/foreach]-->
+			</select>
+			<!--[if $index > 1]-->
+				<span>/</span>
+				<select name="any1">
+					<!--[foreach item=any from=$anys_MS]-->
+						<option <!--[if $any1 eq $any.id]-->selected<!--[/if]--> value="<!--[$any.id]-->"><!--[$any.name]--></option>
+					<!--[/foreach]-->
+				</select>
+			<!--[/if]-->
+		</div>
+
+		<!--[if $index eq 3]-->
+			<div class="pn-adminformrow">
+				<label for="nom_agenda"><!--[gt text="Date of the end of the period"]--></label>
+				<select name="dia2">
+					<!--[foreach item=dia from=$dies_MS]-->
+						<option <!--[if $dia2 eq $dia.id]-->selected<!--[/if]--> value="<!--[$dia.id]-->"><!--[$dia.name]--></option>
+					<!--[/foreach]-->
+				</select>
+				<span>/</span>
+				<select name="mes2">
+					<!--[foreach item=mes from=$mesos_MS]-->
+						<option <!--[if $mes2 eq $mes.id]-->selected<!--[/if]--> value="<!--[$mes.id]-->"><!--[$mes.name]--></option>
+					<!--[/foreach]-->
+				</select>
+				<span>/</span>
+					<select name="any2">
+						<!--[foreach item=any from=$anys_MS]-->
+							<option <!--[if $any2 eq $any.id]-->selected<!--[/if]--> value="<!--[$any.id]-->"><!--[$any.name]--></option>
+						<!--[/foreach]-->
+				</select>
+
+			</div>
+			<div class="pn-adminformrow">
+				<label for="color"><!--[gt text="Period colour. Format (#RRGGBB)"]--></label>
+				<input style="background-color:<!--[$color]-->;" type="text" name="color" size="7" maxlength="7" value="<!--[$color]-->"/>
+				<a href="#" onClick="pick('pick');return false;" name="pick" id="pick"><!--[gt text="Colour picker"]--></a>
+			</div>
+		<!--[/if]-->
+		<div class="pn-adminformrow">
+			<label for="text"><!--[gt text="Label text"]--></label>
+			<input type="text" name="text" size="50" maxlength="255" value="<!--[$text]-->"/>
+		</div>
+		<div class="formOptions" style="text-align:center;">
+				<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Add to the list" __title="Add to the list"]--><!--[gt text="Add to the list"]-->
+		</div>
+	</form>
+</div>

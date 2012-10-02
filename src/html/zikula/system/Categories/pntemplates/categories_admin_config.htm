@@ -1,0 +1,20 @@
+<!--[*  $Id: categories_admin_config.htm 27108 2009-10-22 18:31:07Z herr.vorragend $  *]-->
+<!--[gt text="Rebuild paths" assign=templatetitle]-->
+<!--[include file="categories_admin_menu.htm"]-->
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=agt_update-product.gif set=icons/large alt=$templatetitle]--></div>
+    <h2><!--[$templatetitle]--></h2>
+    <p class="z-warningmsg"><!--[gt text="Are you sure you want to rebuild all the internal paths for categories?"]-->&nbsp;<!--[gt text="Warning! If you have a large number of categories then this action may time out, or may exceed the memory limit configured within your PHP installation."]--></p>
+    <form class="z-form" action="<!--[pnmodurl modname="Categories" type="adminform" func="rebuild_paths"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" id="authid" value="<!--[insert name="generateauthkey" module="Categories"]-->" />
+            <fieldset>
+                <legend><!--[gt text="Confirmation prompt"]--></legend>
+                <div class="z-formbuttons">
+                    <!--[pnbutton src=button_ok.gif set=icons/small __alt="Rebuild paths" __title="Rebuild paths"]-->
+                    <a href="<!--[pnmodurl modname=Categories type=admin]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small __alt="Cancel" __title="Cancel"]--></a>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>

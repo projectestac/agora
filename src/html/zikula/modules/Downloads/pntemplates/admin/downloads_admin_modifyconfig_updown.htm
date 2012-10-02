@@ -1,0 +1,82 @@
+<!--[include file="admin/downloads_admin_main_menu.htm"]-->
+<!--[include file="admin/downloads_admin_header.htm"]-->
+
+<!--[*pndebug*]-->
+
+<h2 class="dl_admin_h2"><!--[pnimg src="admin/secure.gif" __alt="Upload / Download " ]-->&nbsp;&nbsp;<!--[gt text="Upload / Download "]--></h2>
+<fieldset class="dl_fieldset">
+<legend><!--[gt text="Upload / Download "]--></legend>
+<form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="admin" func="updateconfig_updown"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div class="dl_conf_list">
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	<dl>
+	
+		<dt><!--[gt text="Activate Torrent for Downloads?"]--></dt>
+		<dd>		
+			<input type="radio" name="torrent" value="yes" <!--[$torrentonchecked]-->/>&nbsp;<!--[gt text='Yes']-->
+	        <input type="radio" name="torrent" value="no"  <!--[$torrentoffchecked]-->/>&nbsp;<!--[gt text='No']-->	
+		</dd>
+	
+	
+		<dt><!--[gt text="Limit downloads per session?"]--></dt>
+		<dd>		
+			<input type="radio" name="sessionlimit" value="yes" <!--[$sessionlimitonchecked]-->/>&nbsp;<!--[gt text='Yes']-->
+	        <input type="radio" name="sessionlimit" value="no"  <!--[$sessionlimitoffchecked]-->/>&nbsp;<!--[gt text='No']-->	
+		</dd>
+		<dt><!--[gt text="Number of downloads per session"]--></dt>
+		<dd>
+			<input id="downloads_sessiondownloads" type="text" name="sessiondownloadlimit" size="2" value="<!--[$sessiondownloadlimit|pnvarprepfordisplay]-->" />
+		</dd>
+		<dt><!--[gt text="Use captcha to secure downloads?"]--></dt>
+		<dd>
+			<input type="radio" name="securedownload" value="yes" <!--[$securedownloadonchecked]-->/>&nbsp;<!--[gt text='Yes']-->
+	        <input type="radio" name="securedownload" value="no"  <!--[$securedownloadoffchecked]-->/>&nbsp;<!--[gt text='No']-->	
+		</dd>
+		<dt><!--[gt text="Number of characters for captcha"]--></dt>
+		<dd>
+			<input id="downloads_captchacharacters" type="text" name="captchacharacters" size="2" value="<!--[$captchacharacters|pnvarprepfordisplay]-->" />
+		</dd>
+		<dt><!--[gt text="Allow file upload"]--></dt>
+		<dd>
+			<input type="radio" name="allowupload" value="yes" <!--[$allowuploadonchecked]-->/>&nbsp;<!--[gt text='Yes']-->
+	        <input type="radio" name="allowupload" value="no"  <!--[$allowuploadoffchecked]-->/>&nbsp;<!--[gt text='No']-->
+		</dd>
+		<dt><!--[gt text="Allow screenshot upload"]--></dt>
+		<dd>
+			<input type="radio" name="allowscreenshotupload" value="yes" <!--[$allowscreenshotuploadonchecked]-->/>&nbsp;<!--[gt text='Yes']-->
+	        <input type="radio" name="allowscreenshotupload" value="no"  <!--[$allowscreenshotuploadoffchecked]-->/>&nbsp;<!--[gt text='No']-->
+		</dd>
+		<dt><!--[gt text="Limit file size"]--></dt>
+		<dd>
+			<input type="radio" name="sizelimit" value="yes" <!--[$sizelimitonchecked]-->/>&nbsp;<!--[gt text='Yes']-->
+	        <input type="radio" name="sizelimit" value="no"  <!--[$sizelimitoffchecked]-->/>&nbsp;<!--[gt text='No']-->
+		</dd>
+		<dt><!--[gt text="Max. file size: "]--></dt>
+		<dd>
+			<input id="downloads_limitsize" type="text" name="limitsize" size="12" value="<!--[$limitsize|pnvarprepfordisplay]-->" />   	
+		   	<select id="downloads_sizetype" name="sizetype">
+	        	<!--[$fsizetype_set]-->
+	        </select>   
+		</dd>
+<!--[************ ELIMINAT - Hide configuration directories to users
+		<dt><!--[gt text="Define your upload folder here:"]--></dt>
+		<dd>
+			<input id="downloads_upload_folder" type="text" name="upload_folder" size="35" value="<!--[$upload_folder|pnvarprepfordisplay]-->" />
+		</dd>
+		<dt><!--[gt text="Define your screenshot folder here:"]--></dt>
+		<dd>
+			<input id="downloads_screenshot_folder" type="text" name="screenshot_folder" size="35" value="<!--[$screenshot_folder|pnvarprepfordisplay]-->" />
+		</dd>
+		<dt><!--[gt text="Define your cache folder here:"]--></dt>
+		<dd>
+			<input id="downloads_cache_folder" type="text" name="cache_folder" size="35" value="<!--[$cache_folder|pnvarprepfordisplay]-->" />
+		</dd>
+************ FI *]-->
+		<dt>
+			<input name="submit" type="submit" value="<!--[gt text="Save configuration"]-->" />
+		</dt>
+	</dl>
+	</div>
+</form>
+</fieldset>
+<!--[include file="admin/downloads_admin_footer.htm"]-->

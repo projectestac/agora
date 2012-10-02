@@ -1,0 +1,21 @@
+<!--[* $Id: users_user_changeemail.htm 27229 2009-10-27 17:23:13Z herr.vorragend $ *]-->
+<!--[gt text='E-mail address manager' assign='templatetitle']-->
+
+<!--[include file='users_user_menu.htm']-->
+
+<p class="z-informationmsg"><!--[gt text="Notice: Please enter your new e-mail address and then click 'Save'. The site uses this address to send you mail (when you request a new password, for instance). Your currently-recorded e-mail address is '%s'." tag1=$pncore.user.email]--></p>
+
+<form id="changeemail" class="z-form" action="<!--[pnmodurl modname="Users" type="user" func="updateemail"]-->" method="post">
+    <input type="hidden" id="changeemailauthid" name="authid" value="<!--[insert name="generateauthkey" module="Users"]-->" />
+    <fieldset>
+        <legend><!--[gt text="Update e-mail address"]--></legend>
+        <div class="z-formrow">
+            <label for="newemail"><!--[gt text="New e-mail address"]--></label>
+            <input id="newemail" name="newemail" value="" />
+        </div>
+    </fieldset>
+    <div class="z-formbuttons">
+        <!--[pnbutton src=button_ok.gif set=icons/small __alt="Save" __title="Save"]-->
+        <a href="<!--[pnmodurl modname=Users type=user func=main]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small  __alt="Cancel" __title="Cancel"]--></a>
+    </div>
+</form>

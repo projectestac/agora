@@ -1,0 +1,12 @@
+<h1>Actuar como crédito extra</h1>
+<p>Cuando se usa la estrategia de agregación "Suma de calificaciones", un elemento de calificación puede actuar como crédito extra en la categoría. Esto significa que la calificación máxima del elemento no se añadirá a la calificación máxima del total de la categoría, sino a la calificación del elemento. Por ejemplo:</p>
+
+<ul>
+    <li>El elemento 1 se califica de 0 a 100</li>
+    <li>El elemento 2 se califica de0 a 75</li>
+    <li>El elemento 1 tiene marcada la casilla "Actuar como crédito extra", pero el elemento 2 no la tiene marcada.</li>
+    <li>Ambos elementos pertenecen a la Categoría 1, que tiene como estrategia de agregación "Suma de calificaciones"</li>
+    <li>El total de la Categoría 1 será calificado de 0 a 75</li>
+    <li>Un estudiante es calificado con 20 en el elemento 1 y con 70 en el elemento 2</li>
+    <li>El total del estudiante en la Categoría 1 será de 75/75 (20+70 = 90 pero el elemento 1 actúa sólo como crédito extra, de modo que lleva al total a su máximo valor)</li>
+</ul>

@@ -1,0 +1,131 @@
+<div class="formContent">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='edit.gif' set='icons/medium']--></div>
+	<h2><!--[gt text="Edit the main form"]--></h2>
+	<form id="formDefinition" class="pn-adminform" action="<!--[pnmodurl modname="iw_forms" type="admin" func="update"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forms"]-->" />
+		<input type="hidden" name="fid" value="<!--[$item.fid]-->" />
+		<input type="hidden" name="aio" value="<!--[$aio]-->" />
+		<div class="pn-adminformrow">
+			<label for="formName"><!--[gt text="Form name"]--></label>
+			<input id="formName" name="formName" type="text" size="50" maxlength="70" value="<!--[$item.formName]-->" />
+		</div>
+		<div class="pn-adminformrow">
+			<label for="title"><!--[gt text="Title of the annotations "]--></label>
+			<input id="title" name="title" type="text" size="50" maxlength="255" value="<!--[$item.title]-->" />
+		</div>
+		<div class="pn-adminformrow">
+			<label for="cid"><!--[gt text="Category"]--></label>
+			<!--[if $cats|@count > 0]-->
+				<select id="cid" name="cid">
+					<option value="0"><!--[gt text="Chosse one category..."]--></option>
+					<!--[foreach item="cat" from=$cats]-->
+						<option <!--[if $item.cid eq $cat.cid]-->selected<!--[/if]--> value="<!--[$cat.cid]-->"><!--[$cat.catName]--></option>
+					<!--[/foreach]-->
+				</select>
+			<!--[else]-->
+				<span><!--[gt text="There is no defined categories"]--></span>
+			<!--[/if]-->
+		</div>
+		<div class="pn-adminformrow">
+			<label for="description"><!--[gt text="Form description"]--></label>
+			<input id="description" name="description" type="text" size="50" maxlength="255" value="<!--[$item.description]-->" />
+		</div>
+		<div class="pn-adminformrow">
+			<label for="new"><!--[gt text="As a new until a..."]--></label>
+			<input id="new" name="new" type="text" size="8" maxlength="8" value="<!--[$new]-->"/>
+			<a><img id="trigBegin1" name="trigBegin1" src="modules/iw_main/pnimages/calendar.gif" style="cursor:pointer;"/></a>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="caducity"><!--[gt text="Make it expires automatically a..."]--></label>
+			<input id="caducity" name="caducity" type="text" size="8" maxlength="8" value="<!--[$caducity]-->" />
+			<a><img id="trigBegin2" name="trigBegin2" src="modules/iw_main/pnimages/calendar.gif" style="cursor:pointer;"/></a>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="annonimous"><!--[gt text="Anonymous"]--></label>
+			<input id="annonimous" name="annonimous" type="checkbox" <!--[if $item.annonimous]-->checked<!--[/if]--> value="1"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="unique"><!--[gt text="Only answer"]--></label>
+			<input id="unique" name="unique" type="checkbox" <!--[if $item.unique]-->checked<!--[/if]--> value="1"/>
+		</div>
+		<!--[*]-->
+		<div class="pn-adminformrow">
+			<label for="closeableNotes"><!--[gt text="Validators can close the annotations"]--></label>
+			<input id="closeableNotes" name="closeableNotes" type="checkbox" <!--[if $item.closeableNotes]-->checked<!--[/if]--> value="1"/>
+		</div>
+		<!--[*]-->
+		<div class="pn-adminformrow">
+			<label for="closeableInsert"><!--[gt text="Validators can close the entries or the release of the book-entry form"]--></label>
+			<input id="closeableInsert" name="closeableInsert" type="checkbox" <!--[if $item.closeableInsert]-->checked<!--[/if]--> value="1"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="closeInsert"><!--[gt text="The form is initially closed"]--></label>
+			<input id="closeInsert" name="closeInsert" type="checkbox" <!--[if $item.closeInsert]-->checked<!--[/if]--> value="1"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="unregisterednotusersview"><!--[gt text="Unregistered users can not see the data of senders of entries"]--></label>
+			<input id="unregisterednotusersview" name="unregisterednotusersview" type="checkbox" <!--[if $item.unregisterednotusersview]-->checked<!--[/if]--> value="1"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="unregisterednotexport"><!--[gt text="Unregistered users can not export the contents of the annotations"]--></label>
+			<input id="unregisterednotexport" name="unregisterednotexport" type="checkbox" <!--[if $item.unregisterednotexport]-->checked<!--[/if]--> value="1"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="publicResponse"><!--[gt text="The answer is visible to all users who have access to information"]--></label>
+			<input id="publicResponse" name="publicResponse" type="checkbox" <!--[if $item.publicResponse]-->checked<!--[/if]--> value="1"/>
+		</div>
+		<!--[*]-->
+		<div class="pn-adminformrow">
+			<label for="allowComments"><!--[gt text="The notes allow comments"]--></label>
+			<input id="allowComments" name="allowComments" type="checkbox" <!--[if $item.allowComments]-->checked<!--[/if]--> value="1" onClick="javascript:allowCommentsControl(0)"/>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="allowCommentsModerated"><!--[gt text="The validators can decide if a particular note allow comments"]--></label>
+			<input id="allowCommentsModerated" name="allowCommentsModerated" type="checkbox" <!--[if $item.allowCommentsModerated]-->checked<!--[/if]--> value="1" onClick="javascript:allowCommentsControl(1)"/>
+		</div>
+		<!--[*]-->
+		<div class="pn-adminformrow">
+			<label for="expertMode"><!--[gt text="Use expert mode"]--></label>
+			<input id="expertMode" name="expertMode" type="checkbox" <!--[if $item.expertMode]-->checked<!--[/if]--> value="1" onClick="javascript:expertModeActivation(<!--[$item.fid]-->,0)"/>
+		</div>
+        <div class="pn-adminformrow">
+            <label for="returnURL"><!--[gt text="Return URL after sending a new note"]--></label>
+            <input id="returnURL" name="returnURL" type="text" size="50" maxlength="150" value="<!--[$item.returnURL]-->"/>
+        </div>
+		<div id="expertModeContent">
+			<!--[include file="iw_forms_admin_form_definitionExpertMode.htm"]-->
+        </div>
+		<div class="pn-adminformrow">
+			<label for="active"><!--[gt text="Active / non-active"]--></label>
+			<input id="active" name="active" type="checkbox" <!--[if $item.active]-->checked<!--[/if]--> value="1" />
+		</div>
+		<div class="formOptions" style="text-align: center">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Edit" __title="Edit"]--><!--[gt text="Edit"]-->
+			<!--[if not isset($aio)]-->
+				<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="form" fid=$item.fid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+			<!--[else]-->
+				<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="infoForm" fid=$item.fid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+			<!--[/if]-->
+		</div>
+	</form>
+</div>
+
+<script type="text/javascript">
+	Calendar.setup({
+		inputField     :    "new",      // id of the input field
+		ifFormat       :    "%d/%m/%y",       // format of the input field
+		showsTime      :    true,            // will display a time selector
+		button         :    "trigBegin1",   // trigger for the calendar (button ID)
+		singleClick    :    true,           // double-click mode
+		step           :    1                // show all years in drop-down boxes (instead of every other year as default)
+	});
+
+	Calendar.setup({
+		inputField     :    "caducity",      // id of the input field
+		ifFormat       :    "%d/%m/%y",       // format of the input field
+		showsTime      :    true,            // will display a time selector
+		button         :    "trigBegin2",   // trigger for the calendar (button ID)
+		singleClick    :    true,           // double-click mode
+		step           :    1                // show all years in drop-down boxes (instead of every other year as default)
+	});
+</script>

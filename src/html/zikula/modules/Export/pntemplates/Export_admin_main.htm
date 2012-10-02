@@ -1,0 +1,16 @@
+<!--[include file=Export_admin_menu.htm]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='package_settings.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Configure the module"]--></h2>
+	<form id="conf" class="pn-adminform" action="index.php?module=export&type=admin" name="conf" method="post" enctype="application/x-www-form-urlencoded">
+		<div class="pn-adminformrow">
+			<label for="backup_Folder" style="text-align: left; width: auto;"><!--[gt text="Backup folder:"]--></label>
+			<input type="text" size="30" value="<!--[$backup_folder]-->" name="backup_folder" />
+		</div>
+		<div class="formOptions" style="text-align: center;">
+			<!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Submit" __title="Submit"]-->
+			<!--[gt text="Modify the configuration"]-->
+		</div>
+	</form>
+</div>

@@ -1,0 +1,84 @@
+<!-- $Id: calculated.html,v 1.2 2009/12/06 22:35:03 martignoni Exp $ -->
+
+<h1>Questions calculées</h1>
+
+Les question calculées permettent de créer des questions numériques grâce à des caractères joker qui sont remplacés par des nombres lorsque le test débute.
+<br />Ci-dessous, un aperçu de l'interface de création, avec quelques exemples :<br />
+
+
+<table><tbody>
+<tr valign="top">
+    <th scope="col" align="right">Question :</th>
+    <td>
+        <textarea id="questiontext" name="questiontext" rows="5" cols="40">Combien font {a} + {b} ?</textarea>
+</td>
+</tr>
+<tr valign="top">
+    <th scope="col" align="right">Image à afficher :</th>
+    <td>
+    <select name="image"><option value="" selected="selected">Aucune</option><option value="grevture.gif">grevture.gif</option></select>
+    </td>
+</tr>
+
+<tr valign="top">
+    <th scope="col" align="right">Formule de la réponse correcte :</th>
+    <td>
+    <input align="left" type="text" id="formula0" name="answer[]" size="20" value="{a} + {b}" />  
+    <input type="hidden" name="fraction[]" value="1.0" />
+    </td>
+</tr>
+<tr valign="top">
+    <th scope="col" align="right">Marge d'erreur :</th>
+    <td>
+    <input align="left" type="text" id="tolerance0" name="tolerance[]" size="15" value="0.01" />±
+    </td>
+</tr>
+<tr valign="top">
+    <th scope="col" align="right">Type de marge :</th>
+    <td>
+    <select name="tolerancetype[]"><option value="1" selected="selected">Relative</option><option value="2">Nominale</option><option value="3">Géométrique</option></select>
+    </td>
+</tr>
+<tr valign="top">
+    <th scope="col" align="right">Chiffres significatifs :</th>
+    <td>
+    <select name="correctanswerlength[]"><option value="1">1</option><option value="2" selected="selected">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select>
+    </td>
+</tr>
+
+<tr valign="top">
+    <th scope="col" align="right">Format :</th>
+    <td>
+    <select name="correctanswerformat[0]" id="id_correctanswerformat_0"><option value="1" selected="selected">décimales</option><option value="2">chiffres significatifs</option></select>
+    </td>
+</tr>
+</tbody>
+</table>
+
+<p>{a} et {b} apparaîssent dans la question et dans la formule correcte. Ces variables peuvent être utilisées comme jokers remplacés par des nombres au lancement du test. De même, la bonne réponse est calculée lors de la validation du test au moyen de l'expression « Formule correcte ». La bonne réponse est calculée après remplacement des variables par des nombres, au début du test. Les valeurs possibles de ces variables sont paramétrées ou définies plus loin dans « l'assistant de paramétrage » des questions calculées...</p>
+
+<p>La formule en exemple recourt à l'opérateur +. Les autres opérateurs acceptés sont - / * et % où % représente le modulo. On peut aussi employer des fonctions mathématiques issues de PHP. Parmi celles-ci figurent les 24 fonctions mono-argument suivantes :<br /><b>
+abs, acos, acosh, asin, asinh, atan, atanh, ceil, cos, cosh, deg2rad, exp, expm1, floor, log, log10, log1p, rad2deg, round, sin, sinh, sqrt, tan, tanh
+</b><br />et deux fonctions à deux arguments :<br /><b>
+atan2, pow
+</b><br />et les fonctions <b>min</b> et <b>max</b> qui peuvent recevoir deux arguments ou plus. Il est aussi possible de recourir à la fonction <b>pi</b>, sans argument – mais n'oubliez pas les parenthèses, comme ceci : <b>pi()</b>. De même, dans les autres fonctions, les arguments doivent être placés entre parenthèses. Par exemple : <b>sin({a}) + cos({b}) * 2</b>. Il n'y a aucun obstacle à écrire des fonctions en cascade, telles que <b>cos(deg2rad({a} + 90))</b> etc.
+<br />Vous trouverez de plus amples informations sur la façon d'utiliser ces fonctions PHP sur la <a target="phpmathdoc" href="http://www.php.net/manual/fr/ref.math.php">documentation du site de PHP.</a></p>
+
+<p>A l'instar des questions numériques, il est possible d'autoriser une marge d'erreur dans laquelle toutes les réponses apportées sont considérées justes. C'est le rôle du champ « Tolérance ». Cependant, il y a trois types de tolérances  : <b>relative, nominale et géométrique</b>. Admettons que la bonne réponse au test soit 200 et que la tolérance soit de 0,5, alors l'application des différents types de tolérances donnera ceci :</p>
+
+<p><b>Relative:</b> La marge d'erreur s'obtient en multipliant la bonne réponse par 0,5<nbsp;>; en l'espèce cela donne 100. Donc pour ce type de tolérance, la réponse doit être entre 100 et 300.  (200 ± 100)<br />
+
+C'est utile dans le cas où la bonne réponse peut changer totalement d'ordre de grandeur, selon la valeur du joker.</p>
+
+<p><b>Nominale :</b>  C'est la plus simple des tolérances, mais elle n'est pas très puissante. Dans notre cas, la bonne réponse est comprise entre  199,5 et 200,5 (200 ± 0,5)<br />
+Ce type de tolérance peut être utile dans les cas de faibles différences entre bonnes réponses.</p>
+
+<p><b>Géométrique :</b> La limite supérieure de la marge d'erreur s'élève à 200 + 0,5*200 de la même façon que pour la tolérance relative. La limite inférieure s'élève à 200/(1 + 0,5). La bonne réponse est donc comprise entre 133,33 et 300.<br />
+C'est utile pour les calculs complexes qui ont des marges d'erreurs importantes, où une tolérance relative dépassant 1 pourrait être utilisée pour définir la limite supérieure de la marge d'erreur, mais où elle serait évidemment inappropriée pour la limite inféreure, puisqu'elle inclurait à tous coups 0 dans les bonnes réponses.</p>
+
+<p>Les champs <b>Chiffres significatifs</b> et <b>format</b> permettent de spécifier la façon de présenter les bonnes réponses dans les rapports.
+<br />Exemples : avec 3 chiffres significatifs comme paramètre, 13,333 affichera 13,3 ; 1236 affichera 1240 ; 23 affichera 23,0, etc... 
+<br />avec 3 décimales comme paramètre, 13,333 affichera 13,333 ; 1236 affichera 1236,000 ; 23 affichera 23,000, etc...
+</p>
+
+<p>Le champ feedback et le champ optionnel d'unité fonctionnent de la même façon que pour les questions numériques.</p>

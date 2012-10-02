@@ -1,0 +1,72 @@
+<?PHP // $Id: attendance.php,v 1.1 2006/02/10 12:23:49 carlesbellver Exp $ 
+      // attendance.php - created with Moodle 1.6 development (2005101200)
+
+
+$string['absentlong'] = 'Absent';
+$string['absentshort'] = 'A';
+$string['addingmultiple'] = 'S\'estan afegint múltiples llistes d\'assistència';
+$string['addmultiple'] = 'Afegeix múltiples llistes d\'assistència';
+$string['allmodulename'] = 'Totes les llistes d\'assistència';
+$string['auto'] = 'auto';
+$string['autoattend'] = 'Registra l\'assistència automàticament basant-te en els registres d\'activitat dels usuaris';
+$string['autoattendmulti'] = 'Registra l\'assistència automàticament en totes les llistes basant-te en els registres d\'activitat dels usuaris';
+$string['autoattendshort'] = 'Automàticament dels registres';
+$string['choosedays'] = 'Dies de la setmana per registrar l\'assistència';
+$string['dayofroll'] = 'Data per passar llista';
+$string['defaultautoattend'] = 'Registra l\'assistència per defecte basant-te en els registres d\'activitat dels usuaris';
+$string['defaultdynamicsection'] = 'Mou per defecte les llistes d\'assistència a la setmana correcta';
+$string['defaultgrade'] = 'Fes que per defecte les llistes d\'assistència es puguin qualificar';
+$string['defaulthoursinclass'] = 'Quantes hores hi ha d\'haver per defecte en una llista d\'assistència';
+$string['defaultmaxgrade'] = 'Quina ha de ser la qualificació màxima per assistència completa';
+$string['defaultstudentstatus'] = 'Estat d\'assistència per defecte de l\'estudiant en les llistes d\'assistència noves';
+$string['downloadexcelfull'] = 'Baixa tot en format Excel';
+$string['downloadexceltotals'] = 'Baixa un resum en format Excel';
+$string['downloadtextfull'] = 'Baixa tot en format text';
+$string['downloadtexttotals'] = 'Baixa un resum en format text';
+$string['dynamicsection'] = 'Determina la setmana d\'assistència basant-te en aquesta data';
+$string['dynamicsectionmulti'] = 'Col·loca les llistes automàticament en cada secció setmanals';
+$string['dynsectionshort'] = 'S\'ha mogut automàticament a la secció';
+$string['endbeforestart'] = 'La data de finalització és anterior a la data d\'inici';
+$string['endmulti'] = 'Data de la darrera llista d\'assistència';
+$string['for'] = 'per a';
+$string['friday'] = 'dv';
+$string['gradeshort'] = 'Qualificat';
+$string['gradevalue'] = 'Fes qualificable aquesta llista';
+$string['gradevaluemulti'] = 'Fes qualificables aquestes llistes ';
+$string['hoursinclass'] = 'Nombre d\'hores en un període de classe';
+$string['hoursineachclass'] = 'Nombre d\'hores en cada període de classe';
+$string['hoursinfullreport'] = 'Nombre màxim d\'hores d\'assistència que s\'han de visualitzar per pàgina en un informe';
+$string['maxgradeshort'] = 'Qualificació màxima';
+$string['maxgradevalue'] = 'Qualificació màxima per assistència completa';
+$string['modulename'] = 'Assistència';
+$string['modulenameplural'] = 'Llistes d\'assistència';
+$string['monday'] = 'dl';
+$string['norolls'] = 'No hi ha llistes d\'assistència en aquest curs';
+$string['notes'] = 'Informació excepcional';
+$string['notesfor'] = 'Informació excepcional per a';
+$string['noviews'] = 'No hi ha dades del vostre compte aquí';
+$string['of'] = 'de';
+$string['pages'] = 'Pàgines';
+$string['presentlong'] = 'Present';
+$string['presentshort'] = 'P';
+$string['saturday'] = 'ds';
+$string['startafterend'] = 'La data d\'inici és posterior a la data de finalització del curs';
+$string['startmulti'] = 'Data de la primera llista d\'assistència';
+$string['sunday'] = 'dg';
+$string['takeroll'] = 'Passar llista aquest dia?';
+$string['tardiesperabsence'] = 'Quants retards sumen una falta d\'assistència';
+$string['tardylong'] = 'Retard';
+$string['tardyshort'] = 'R';
+$string['teacheredit'] = 'Passa llista';
+$string['thursday'] = 'dj';
+$string['tuesday'] = 'dt';
+$string['viewall'] = 'Mostra totes les llistes d\'assistència';
+$string['viewmulti'] = 'Mostra l\'informe en múltiples pàgines';
+$string['viewone'] = 'Mostra totes les pàgines de l\'informe';
+$string['viewsection'] = 'Mostra totes les llistes d\'assistència d\'aquesta secció';
+$string['viewtable'] = 'Mostra l\'informe en una taula';
+$string['viewweek'] = 'Mostra totes les llistes d\'assistència de la setmana';
+$string['wednesday'] = 'dc';
+$string['weekmodulename'] = 'Totes les llistes d\'assistència de la darrera setmana';
+
+?>

@@ -1,0 +1,15 @@
+<!--[*  $Id: users_user_main.htm 27234 2009-10-27 20:08:18Z mateo $  *]-->
+<!--[gt text='User account panel' assign='templatetitle']-->
+
+<!--[include file='users_user_menu.htm']-->
+
+<!--[foreach item='accountlink' from=$accountlinks]-->
+<div class="z-accountlink" style="width:<!--[math equation='100/x' x=$pncore.Users.accountitemsperrow format='%.0d']-->%;">
+    <!--[if $pncore.Users.accountdisplaygraphics eq 1]-->
+    <a href="<!--[$accountlink.url|pnvarprepfordisplay]-->"><!--[pnimg src=$accountlink.icon modname=$accountlink.module set=$accountlink.set|default:null]--></a>
+    <br />
+    <!--[/if]-->
+    <a href="<!--[$accountlink.url|pnvarprepfordisplay]-->"><!--[$accountlink.title|pnvarprepfordisplay]--></a>
+</div>
+<!--[/foreach]-->
+<br style="clear: left" />

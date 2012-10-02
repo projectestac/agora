@@ -1,0 +1,44 @@
+<!--[*  $Id: weblinks_admin_validate.html 46 2009-01-24 22:51:07Z Petzi-Juist $  *]-->
+<!--[include file="weblinks_admin_header.html"]-->
+<div class="pn-admincontainer">
+  <div class="pn-adminpageicon"><!--[pnimg modname='core' src='agt_internet.gif' set='icons/large' __alt='Links administer' ]--></div>
+  <!--[if $cid == 0]-->
+  <h2><!--[gt text="Check ALL links"]--></h2>
+  <!--[/if]-->
+  <!--[if $cid !=0]-->
+  <h2><!--[gt text="Check categories"]--></h2>
+  <!--[/if]-->
+
+  <table class="pn-admintable">
+    <thead>
+      <tr>
+        <th><!--[gt text="Status"]--></th>
+        <th><!--[gt text="Link title"]--></th>
+        <th><!--[gt text="Functions"]--></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--[foreach from=$links item=links]-->
+      <tr class="<!--[cycle values="pn-odd,pn-even" name=abacs]-->">
+        <!--[if !$links.fp]-->
+        <td><!--[pnimg modname='core' src='editdelete.gif' set='icons/extrasmall'   __alt="Failed!" __title="Failed!"]--></td>
+        <td><a href="<!--[$links.url|pnvarprepfordisplay]-->" target="new"><!--[$links.title|pnvarprepfordisplay]--></a>;</td>
+        <td>[&nbsp;<a href="<!--[pnmodurl modname=Web_Links type=admin func=modlink lid=$links.lid authid=$authid]-->"><!--[pnimg modname='core' src='xedit.gif' set='icons/extrasmall'   __alt="Edit" __title="Edit"]--></a>&nbsp;|&nbsp;<a href="<!--[pnmodurl modname=Web_Links type=admin func=dellink lid=$links.lid authid=$authid]-->"><!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Delete" __title="Delete"]--></a>&nbsp;]</td>
+        <!--[/if]-->
+
+        <!--[if $links.fp]-->
+        <td><!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall'   __alt="OK" __title="OK"]--></td>
+        <td><a href="<!--[$links.url|pnvarprepfordisplay]-->" target="new"><!--[$links.title|pnvarprepfordisplay]--></a></td>
+        <td><!--[gt text="None"]--></td>
+        <!--[/if]-->
+      </tr>
+      <!--[foreachelse]-->
+      <tr>
+        <td colspan="3"><!--[gt text='No link found']--></td>
+      </tr>
+      <!--[/foreach]-->
+    </tbody>
+  </table>
+
+</div>
+<!--[include file="weblinks_admin_footer.html"]-->

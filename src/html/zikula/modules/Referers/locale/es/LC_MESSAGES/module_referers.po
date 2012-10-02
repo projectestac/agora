@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 09:46+0200\n"
+"PO-Revision-Date: 2010-07-23 13:31+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:59
+msgid "Error! Could not load items."
+msgstr "Error! No se logró cargar los elementos."
+
+#: pnuserapi.php:156
+msgid "Error! Update attempt failed."
+msgstr "Error! Intento de actualización fallido."
+
+#: pninit.php:30
+#: pninit.php:63
+msgid "unable to create system init hook"
+msgstr "No se ha podido crear el enlace de sistema"
+
+#: pninit.php:33
+#: pninit.php:66
+msgid "Referers have been enabled, you can change this in the hook settings (Administration -> Modules -> System hooks) by deactivating the Referers systeminit hook for Zikula itself"
+msgstr "Se ha activado el registro de los orígenes de las visitas. Se puede desctivar desde la configuración de los enlaces de sistema (Administración --> Sistema --> Módulos --> Enlaces de sistema)."
+
+#: pninit.php:86
+msgid "unable to delete system init hook"
+msgstr "no se ha podido eliminar el enlace de sistema"
+
+#: pnadminapi.php:23
+msgid "Sorry! No authorization to access this module."
+msgstr "Disculpa! No tienes autorización para ejecutar esa acción en este módulo."
+
+#: pnadminapi.php:28
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr "Error! Intento de borrado fallido."
+
+#: pnadminapi.php:49
+msgid "View referers"
+msgstr "Ver referencias"
+
+#: pnadminapi.php:52
+msgid "Reset referers"
+msgstr "Reiniciar referencias"
+
+#: pnadminapi.php:55
+#: pntemplates/referers_admin_modifyconfig.htm:4
+#: pntemplates/referers_admin_modifyconfig.htm:5
+msgid "Settings"
+msgstr "Configuración"
+
+#: pnadmin.php:130
+msgid "Done! Module configuration updated."
+msgstr "Hecho! Configuración del módulo actualizada."
+
+#: pnadmin.php:176
+msgid "All referers deleted"
+msgstr "Se ha eliminado la información sobre el origen de las visitas"
+
+#: pnversion.php:15
+msgid "HTTP Referers"
+msgstr "ReferenciasHTTP"
+
+#: pnversion.php:16
+msgid "HTTP_Referers"
+msgstr "HTTP_Referers"
+
+#: pnversion.php:17
+msgid "View HTTP referer statistics."
+msgstr "Permite ver las estadísticas de referencias HTTP a este sitio."
+
+#: pntemplates/referers_admin_view.htm:4
+#: pntemplates/referers_admin_view.htm:5
+msgid "Who's linking to this site."
+msgstr "Quién está enlazando a este sitio."
+
+#: pntemplates/referers_admin_view.htm:9
+msgid "Frequency"
+msgstr "Frecuencia"
+
+#: pntemplates/referers_admin_view.htm:10
+msgid "URL"
+msgstr "URL"
+
+#: pntemplates/referers_admin_view.htm:11
+msgid "per cent"
+msgstr "por ciento"
+
+#: pntemplates/referers_admin_view.htm:28
+msgid "No items found."
+msgstr "No se encontraron elementos."
+
+#: pntemplates/referers_admin_view.htm:32
+msgid "Total"
+msgstr "Total"
+
+#: pntemplates/referers_admin_menu.htm:4
+msgid "HTTP referers"
+msgstr "Referencias HTTP"
+
+#: pntemplates/referers_admin_delete.htm:4
+msgid "Delete"
+msgstr "Borrar"
+
+#: pntemplates/referers_admin_delete.htm:5
+msgid "Delete all referers"
+msgstr "Borrar todas las referencias"
+
+#: pntemplates/referers_admin_delete.htm:11
+msgid "Do you really want to delete all the referers?"
+msgstr "Realmente quieres borrar todas las referencias?"
+
+#: pntemplates/referers_admin_delete.htm:14
+msgid "Confirm deletion?"
+msgstr "Confirmar borrado?"
+
+#: pntemplates/referers_admin_delete.htm:15
+#: pntemplates/referers_admin_modifyconfig.htm:25
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: pntemplates/referers_admin_modifyconfig.htm:10
+msgid "Activate HTTP referers?"
+msgstr "Activar referencias HTTP?"
+
+#: pntemplates/referers_admin_modifyconfig.htm:11
+msgid "Yes"
+msgstr "Si"
+
+#: pntemplates/referers_admin_modifyconfig.htm:12
+msgid "No"
+msgstr "No"
+
+#: pntemplates/referers_admin_modifyconfig.htm:15
+msgid "Items per page"
+msgstr "Elementos por página"
+
+#: pntemplates/referers_admin_modifyconfig.htm:19
+msgid "Exclusions (separated by spaces)"
+msgstr "Exclusiones (separadas por espacios)"
+
+#: pntemplates/referers_admin_modifyconfig.htm:24
+msgid "Update Configuration"
+msgstr "Actualizar Configuración"
+

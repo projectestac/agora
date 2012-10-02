@@ -1,0 +1,666 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-10 19:33+0000\n"
+"PO-Revision-Date: 2010-04-27 13:25+0200\n"
+"Last-Translator: Albert Pérez Monfort <aperezm@xtec.cat>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
+
+#: pnadmin.php:82 pnincludes/for_admin_edithandler.class.php:37
+msgid "Unknown Contact"
+msgstr "Contacte desconegut"
+
+#: pnadmin.php:101
+msgid "Contact has been deleted"
+msgstr "S'ha esborrat el contacte"
+
+#: pnadmin.php:185
+msgid "Mailer module is not available - unable to send emails!"
+msgstr "El módul Mailer no està disponible. No es poden enviar correus."
+
+#: pnadmin.php:193 pntemplates/plugins/function.simplecaptcha.php:52
+msgid "no image function available - captcha deactivated"
+msgstr ""
+"Les funcions de creació d'imatges no estan disponibles. El sistema de "
+"protecció contra enviaments no desitjats no està desactivat."
+
+#: pnadmin.php:199
+msgid ""
+"formicula_cache folder does not exist in Zikula's temporary folder or is not "
+"writable - captchas have been disabled"
+msgstr ""
+"El directori pels fitxers temporals (formicula_cache) no existeix o no s'hi "
+"pot escriure. El sistema de protecció contra enviaments no desitjats "
+"(captcha) no està disponible."
+
+#: pnadmin.php:203
+msgid ".htaccess file needed in formicula_cache folder not exist"
+msgstr ""
+"El fitxer .htacces requerit dins del directori formicula_cache no existeix"
+
+#: pnadmin.php:239
+msgid "The captcha image cached was cleared"
+msgstr "S'ha esborrat la imatge del captcha a la memòria cau"
+
+#: pnversion.php:19
+msgid "Formicula forms module"
+msgstr "Eina per crear diferents tipus de formularis de contacte"
+
+#: pnversion.php:20 pntemplates/formicula_admin_header.html:6
+msgid "Formicula"
+msgstr "Formicula"
+
+#. ! module url shoudl be in lowercase without spaces different to displayname
+#: pnversion.php:22
+msgid "formicula"
+msgstr "formicula"
+
+#: pnuserapi.php:58
+msgid "Error! Could not load items."
+msgstr "No s'han pogut carregar les entrades."
+
+#: pnuserapi.php:198
+msgid "Contact Form"
+msgstr "Formulari de contacte"
+
+#: pnuserapi.php:262
+msgid "Error! No or incorrect E-Mail address supplied"
+msgstr "L'adreça de correu electrònic no és vàlida"
+
+#: pnuserapi.php:266
+msgid "Error! No username given"
+msgstr "No heu introduït el nom d'usuari"
+
+#: pnuserapi.php:271
+msgid "Error! No or invalid comment supplied (no HTML!)"
+msgstr "El comentari no és vàlid (no es permeten etiquetes HTML)"
+
+#: pnuserapi.php:277
+msgid "Error! Mandatory field:"
+msgstr "Camp obligatori:"
+
+#: pnuserapi.php:280
+msgid "Error! Upload error"
+msgstr "Error d'enviament"
+
+#: pnincludes/for_admin_modifyconfighandler.class.php:38
+#, php-format
+msgid "Set form #%1$s with %2$s templates"
+msgstr "Estableix formulari #%1$s amb %2$s plantilles"
+
+#: pnincludes/for_admin_modifyconfighandler.class.php:59
+msgid "The webserver cannot write into this folder!"
+msgstr "El servidor no poc escriure en aquest directori!"
+
+#: pnincludes/for_admin_modifyconfighandler.class.php:75
+msgid "The configuration has been changed."
+msgstr "S'ha desat la configuració."
+
+#: pnincludes/for_admin_edithandler.class.php:68
+msgid "Error! No contact name"
+msgstr "Falta el nom del contacte"
+
+#: pnincludes/for_admin_edithandler.class.php:73
+msgid "Error! No or incorrect email address supplied"
+msgstr "Falta l'adreça de correu electrònic o no és vàlida"
+
+#: pnincludes/for_admin_edithandler.class.php:78
+msgid "Error! Incorrect email address supplied"
+msgstr "L'adreça de correu electrònic no és vàlida"
+
+#: pnincludes/for_admin_edithandler.class.php:90
+msgid "Contact created"
+msgstr "S'ha creat el contacte"
+
+#: pnincludes/for_admin_edithandler.class.php:92
+msgid "Error creating contact!"
+msgstr "S'ha produït un error en la creació del contacte"
+
+#: pnincludes/for_admin_edithandler.class.php:97
+msgid "Contact info has been updated"
+msgstr "S'ha actualitzat la informació del contacte"
+
+#: pnincludes/for_admin_edithandler.class.php:99
+msgid "Error updating contact!"
+msgstr "S'ha produït un error en l'edició del contacte"
+
+#: pncontenttypesapi/form.php:35 pncontenttypesapi/form.php:40
+msgid "Formicula!"
+msgstr "Formicula!"
+
+#: pncontenttypesapi/form.php:65
+msgid "no form selected"
+msgstr "no s'ha seleccionat cap formulari"
+
+#: pnuser.php:156
+msgid "Bad in mathematics? You can do better, try again."
+msgstr ""
+"El resultat de l'operació matemàtica no és correcte, torneu-ho a intentar."
+
+#: pnuser.php:245
+msgid "There was an error sending the email."
+msgstr "S'ha produït un error en enviar el correu electrònic."
+
+#: pnadminapi.php:93
+msgid "Error! Creation attempt failed."
+msgstr "S'ha produït un error en la creació."
+
+#: pnadminapi.php:120
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr "Ha fallar l'esborrament."
+
+#: pnadminapi.php:178 pntemplates/formicula_admin_view.html:4
+msgid "View contacts"
+msgstr "Mostra els contactes"
+
+#: pnadminapi.php:179 pntemplates/formicula_admin_edit.html:6
+msgid "Add contact"
+msgstr "Afegeix un contacte"
+
+#: pnadminapi.php:180
+msgid "Clear captcha image cache"
+msgstr "Esborra la memòria cau del captcha"
+
+#: pnadminapi.php:181 pntemplates/formicula_admin_modifyconfig.html:4
+#: pntemplates/formicula_admin_modifyconfig.html:9
+msgid "Modify configuration"
+msgstr "Modifica la configuració"
+
+#: pninit.php:40 pninit.php:162
+msgid ""
+"The installer could not create formicula_cache/index.html and/or "
+"formicula_cache/.htaccess, please refer to the manual before using the "
+"module!"
+msgstr ""
+"La instal·lació no ha pogut crear el fitxer formicula_cache/index.html i/o "
+"el fitxer formicula_cache/.htaccess. Trobareu més informació en el manual "
+"del mòdul."
+
+#: pninit.php:43 pninit.php:165
+msgid ""
+"The installer could not create the formicula_cache folder, please refer to "
+"the manual before using the module!"
+msgstr ""
+"La instal·lació no ha pogut crear el directori formicula_cache. Trobareu més "
+"informació en el manual del mòdul."
+
+#: pninit.php:47
+msgid ""
+"pnTemp folder found outside of the webroot, please consult the manual of how "
+"to create the formicula_cache folder in this case."
+msgstr ""
+"El directori pnTemp es troba fora del directori de publicació de l'espai "
+"web. Consulteu el manual per saber com crear el directori formicula_cache en "
+"aquest cas."
+
+#: pninit.php:52 pninit.php:109
+msgid "The installer could not create the formcontacts table"
+msgstr "No s'ha pogut crear la taula de contactes durant la instal·lació"
+
+#: pninit.php:93
+msgid "Database upgrade failed"
+msgstr "No s'ha pogut actualitzar la base de dades"
+
+#: pntemplates/0_usermail.txt:4 pntemplates/2_adminmail.html:11
+#: pntemplates/1_adminmail.html:11 pntemplates/2_adminmail.txt:4
+#: pntemplates/2_usermail.txt:4 pntemplates/1_usermail.txt:4
+#: pntemplates/0_adminmail.html:12 pntemplates/0_usermail.html:12
+#: pntemplates/1_adminmail.txt:4 pntemplates/1_usermail.html:11
+#: pntemplates/2_usermail.html:11 pntemplates/0_adminmail.txt:4
+msgid "Hello,"
+msgstr "Hola,"
+
+#: pntemplates/0_usermail.txt:6 pntemplates/2_usermail.txt:6
+#: pntemplates/0_usermail.html:14 pntemplates/2_usermail.html:13
+msgid "Thank you for the comments posted from our Website. The sent data is:"
+msgstr "Gràcies pels vostres comentaris. La data d'enviament és:"
+
+#: pntemplates/0_usermail.txt:8 pntemplates/2_adminmail.html:16
+#: pntemplates/0_userform.html:21 pntemplates/1_adminmail.html:16
+#: pntemplates/2_adminmail.txt:9 pntemplates/2_usermail.txt:8
+#: pntemplates/1_usermail.txt:8 pntemplates/0_adminmail.html:17
+#: pntemplates/0_usermail.html:16 pntemplates/1_adminmail.txt:9
+#: pntemplates/1_usermail.html:15 pntemplates/2_userform.html:21
+#: pntemplates/2_userconfirm.html:15 pntemplates/2_usermail.html:15
+#: pntemplates/0_adminmail.txt:9 pntemplates/0_userconfirm.html:13
+msgid "Contact or Theme"
+msgstr "Contacte"
+
+#: pntemplates/0_usermail.txt:9 pntemplates/2_adminmail.html:17
+#: pntemplates/0_userform.html:32 pntemplates/1_adminmail.html:17
+#: pntemplates/2_adminmail.txt:10 pntemplates/2_usermail.txt:9
+#: pntemplates/1_usermail.txt:9 pntemplates/1_userform.html:33
+#: pntemplates/0_adminmail.html:18 pntemplates/0_usermail.html:17
+#: pntemplates/1_adminmail.txt:10 pntemplates/1_usermail.html:16
+#: pntemplates/2_userform.html:32 pntemplates/2_userconfirm.html:24
+#: pntemplates/1_userconfirm.html:17 pntemplates/2_usermail.html:16
+#: pntemplates/0_adminmail.txt:10 pntemplates/0_userconfirm.html:18
+msgid "Your Name"
+msgstr "El teu nom"
+
+#: pntemplates/0_usermail.txt:10 pntemplates/2_adminmail.html:18
+#: pntemplates/0_userform.html:38 pntemplates/1_adminmail.html:18
+#: pntemplates/2_adminmail.txt:11 pntemplates/2_usermail.txt:10
+#: pntemplates/1_usermail.txt:10 pntemplates/1_userform.html:99
+#: pntemplates/0_adminmail.html:19 pntemplates/0_usermail.html:18
+#: pntemplates/1_adminmail.txt:11 pntemplates/1_usermail.html:17
+#: pntemplates/2_userform.html:38 pntemplates/formicula_admin_delete.html:17
+#: pntemplates/2_userconfirm.html:45 pntemplates/formicula_admin_edit.html:22
+#: pntemplates/1_userconfirm.html:37 pntemplates/formicula_admin_view.html:11
+#: pntemplates/2_usermail.html:17 pntemplates/0_adminmail.txt:11
+#: pntemplates/0_userconfirm.html:30
+msgid "E-Mail"
+msgstr "Adreça de correu electrònic"
+
+#: pntemplates/0_usermail.txt:11 pntemplates/2_adminmail.html:19
+#: pntemplates/0_userform.html:47 pntemplates/1_adminmail.html:19
+#: pntemplates/2_adminmail.txt:12 pntemplates/2_usermail.txt:11
+#: pntemplates/1_usermail.txt:11 pntemplates/1_userform.html:92
+#: pntemplates/0_adminmail.html:20 pntemplates/0_usermail.html:19
+#: pntemplates/1_adminmail.txt:12 pntemplates/1_usermail.html:18
+#: pntemplates/2_userform.html:46 pntemplates/2_userconfirm.html:56
+#: pntemplates/1_userconfirm.html:46 pntemplates/2_usermail.html:18
+#: pntemplates/0_adminmail.txt:12 pntemplates/0_userconfirm.html:37
+msgid "Homepage"
+msgstr "Pàgina d'inici"
+
+#: pntemplates/0_usermail.txt:12 pntemplates/2_adminmail.html:20
+#: pntemplates/0_userform.html:63 pntemplates/2_adminmail.txt:13
+#: pntemplates/2_usermail.txt:12 pntemplates/0_adminmail.html:21
+#: pntemplates/0_usermail.html:20 pntemplates/2_userform.html:61
+#: pntemplates/2_userconfirm.html:35 pntemplates/2_usermail.html:19
+#: pntemplates/0_adminmail.txt:13 pntemplates/0_userconfirm.html:25
+msgid "Company"
+msgstr "Empresa"
+
+#: pntemplates/0_usermail.txt:13 pntemplates/2_adminmail.html:21
+#: pntemplates/0_userform.html:56 pntemplates/2_adminmail.txt:14
+#: pntemplates/2_usermail.txt:13 pntemplates/1_userform.html:85
+#: pntemplates/1_userform.html:86 pntemplates/0_adminmail.html:22
+#: pntemplates/0_usermail.html:21 pntemplates/2_userform.html:54
+#: pntemplates/2_userconfirm.html:68 pntemplates/2_usermail.html:20
+#: pntemplates/0_adminmail.txt:14 pntemplates/0_userconfirm.html:45
+msgid "Phone Number"
+msgstr "Telèfon"
+
+#: pntemplates/0_usermail.txt:14 pntemplates/2_adminmail.html:22
+#: pntemplates/0_userform.html:70 pntemplates/2_adminmail.txt:15
+#: pntemplates/2_usermail.txt:14 pntemplates/0_adminmail.html:23
+#: pntemplates/0_usermail.html:22 pntemplates/2_userform.html:68
+#: pntemplates/2_userconfirm.html:80 pntemplates/2_usermail.html:21
+#: pntemplates/0_adminmail.txt:15 pntemplates/0_userconfirm.html:53
+msgid "Location"
+msgstr "Ubicació"
+
+#: pntemplates/0_usermail.txt:16 pntemplates/2_adminmail.html:24
+#: pntemplates/0_userform.html:76 pntemplates/1_adminmail.html:25
+#: pntemplates/2_adminmail.txt:17 pntemplates/2_usermail.txt:16
+#: pntemplates/1_usermail.txt:17 pntemplates/1_userform.html:106
+#: pntemplates/0_adminmail.html:25 pntemplates/0_usermail.html:24
+#: pntemplates/1_adminmail.txt:18 pntemplates/1_usermail.html:24
+#: pntemplates/2_userform.html:74 pntemplates/2_userconfirm.html:90
+#: pntemplates/1_userconfirm.html:55 pntemplates/2_usermail.html:23
+#: pntemplates/0_adminmail.txt:17 pntemplates/0_userconfirm.html:59
+msgid "Comment"
+msgstr "Comentari"
+
+#: pntemplates/0_usermail.txt:19 pntemplates/2_usermail.txt:19
+#: pntemplates/2_usermail.html:25
+msgid "We will respond to your e-mail as soon as possible."
+msgstr "Respondrem el vostre correu electrònic el més aviat possible."
+
+#: pntemplates/0_usermail.txt:21 pntemplates/2_usermail.txt:21
+#: pntemplates/1_usermail.txt:24 pntemplates/0_usermail.html:28
+#: pntemplates/1_usermail.html:31 pntemplates/2_usermail.html:27
+msgid "The"
+msgstr "El"
+
+#: pntemplates/0_usermail.txt:21 pntemplates/2_usermail.txt:21
+#: pntemplates/1_usermail.txt:24 pntemplates/0_usermail.html:28
+#: pntemplates/1_usermail.html:31 pntemplates/2_usermail.html:27
+msgid "Team"
+msgstr "Equip"
+
+#: pntemplates/2_adminmail.html:13 pntemplates/1_adminmail.html:13
+#: pntemplates/2_adminmail.txt:6 pntemplates/0_adminmail.html:14
+#: pntemplates/1_adminmail.txt:6 pntemplates/0_adminmail.txt:6
+msgid ""
+"A visitor of to your web site used the form for contact and sent the "
+"following:"
+msgstr ""
+"Un usuari/ària ha visitat l'espai web i ha enviat el següent formulari de "
+"contacte:"
+
+#: pntemplates/2_adminmail.html:15 pntemplates/1_adminmail.html:15
+#: pntemplates/2_adminmail.txt:8 pntemplates/0_adminmail.html:16
+#: pntemplates/1_adminmail.txt:8 pntemplates/0_adminmail.txt:8
+msgid "Form #"
+msgstr "Formulari #"
+
+#: pntemplates/2_adminmail.html:26 pntemplates/1_adminmail.html:28
+#: pntemplates/2_adminmail.txt:20 pntemplates/0_adminmail.html:27
+#: pntemplates/1_adminmail.txt:21 pntemplates/0_adminmail.txt:20
+msgid "The user has the following IP address/hostname: "
+msgstr "L'usuari/ària té assignada la IP: "
+
+#: pntemplates/0_userform.html:10 pntemplates/1_userform.html:20
+#: pntemplates/2_userform.html:17
+msgid "Mandatory field"
+msgstr "Camp obligatori"
+
+#: pntemplates/0_userform.html:19 pntemplates/0_userheader.html:4
+#: pntemplates/2_userheader.html:6
+msgid "Contact our team"
+msgstr "Contacte amb el nostre equip"
+
+#: pntemplates/0_userform.html:34 pntemplates/0_userform.html:42
+#: pntemplates/0_userform.html:79 pntemplates/1_userform.html:29
+#: pntemplates/1_userform.html:35 pntemplates/1_userform.html:42
+#: pntemplates/1_userform.html:53 pntemplates/1_userform.html:60
+#: pntemplates/1_userform.html:71 pntemplates/1_userform.html:78
+#: pntemplates/1_userform.html:89 pntemplates/1_userform.html:101
+#: pntemplates/1_userform.html:109 pntemplates/2_userform.html:35
+#: pntemplates/2_userform.html:42 pntemplates/2_userform.html:77
+msgid "This is a mandatory field."
+msgstr "Aquest camp és obligatori"
+
+#: pntemplates/0_userform.html:41 pntemplates/1_userform.html:102
+#: pntemplates/2_userform.html:41
+msgid "Please enter a valid E-mail address like user@example.com."
+msgstr "Introduïu una adreça de correu vàlida."
+
+#: pntemplates/0_userform.html:50 pntemplates/1_userform.html:94
+#: pntemplates/2_userform.html:49
+msgid "Please enter a valid internet address like http://www.example.com."
+msgstr ""
+"Introduïu una adreça d'Internet vàlida, per exemple http://www.exemple.cat"
+
+#: pntemplates/0_userform.html:83 pntemplates/2_userform.html:80
+msgid "E-Mail Format"
+msgstr "Format del missatge"
+
+#: pntemplates/0_userform.html:85 pntemplates/2_userform.html:82
+msgid "HTML"
+msgstr "HTML"
+
+#: pntemplates/0_userform.html:86 pntemplates/2_userform.html:83
+msgid "Text"
+msgstr "Text"
+
+#: pntemplates/0_userform.html:92 pntemplates/1_userform.html:113
+#: pntemplates/2_userform.html:89
+msgid "Please solve this simple math test"
+msgstr "Si us plau, resoleu aquesta operació matemàtica "
+
+#: pntemplates/0_userform.html:103 pntemplates/1_userform.html:118
+#: pntemplates/2_userform.html:95
+msgid "Send"
+msgstr "Envia"
+
+#: pntemplates/formicula_admin_modifyconfig.html:11
+msgid "Show phone number"
+msgstr "Mostra el número de telèfon"
+
+#: pntemplates/formicula_admin_modifyconfig.html:15
+msgid "Show company"
+msgstr "Mostra el nom de l'empresa"
+
+#: pntemplates/formicula_admin_modifyconfig.html:19
+msgid "Show URL"
+msgstr "Mostra la URL"
+
+#: pntemplates/formicula_admin_modifyconfig.html:23
+msgid "Show location"
+msgstr "Mostra la localització"
+
+#: pntemplates/formicula_admin_modifyconfig.html:27
+msgid "Show comments textarea"
+msgstr "Mostra els comentaris de l'àrea de text"
+
+#: pntemplates/formicula_admin_modifyconfig.html:31
+msgid "Send confirmation email to user"
+msgstr "Envia una confirmació de correu electrònic a l'usuari/ària"
+
+#: pntemplates/formicula_admin_modifyconfig.html:35
+msgid "Folder for uploaded files"
+msgstr "Directori pels fitxers adjunts"
+
+#: pntemplates/formicula_admin_modifyconfig.html:39
+msgid "Delete file after sending"
+msgstr "Esborra el fitxer abans de fer l'enviament"
+
+#: pntemplates/formicula_admin_modifyconfig.html:43
+msgid "Activate spamcheck"
+msgstr "Activa el sistema de protecció contra enviaments brossa"
+
+#: pntemplates/formicula_admin_modifyconfig.html:46
+msgid ""
+"Make sure you the necessary form fields are available, see the docs for more "
+"information. This option will be turned off by Formicula automatically if no "
+"PHP-functions for creating images are available"
+msgstr ""
+"Aquesta opció es desactivarà automàticament si les funcions del PHP per "
+"crear imatges no estan disponibles."
+
+#: pntemplates/formicula_admin_modifyconfig.html:48
+msgid "Do not use spam check in these forms"
+msgstr ""
+"No utilitzis la protecció contra missatges no desitjats en aquests formularis"
+
+#: pntemplates/formicula_admin_modifyconfig.html:51
+msgid ""
+"Comma separated list of form ids, e.g. embedded forms in pagesetter. The "
+"redirect may not work here correctly"
+msgstr ""
+"Llista d'ID de formularis separats per comes, per exemple, els formularis "
+"incrustats del Pagesetter. El reenviament automàtic pot no funcionar "
+"correctament."
+
+#: pntemplates/formicula_admin_modifyconfig.html:53
+msgid "Set the default form"
+msgstr "Estableix el formulari per defecte"
+
+#: pntemplates/formicula_admin_modifyconfig.html:55
+msgid "(used when no form is specified)"
+msgstr "(utilitzat quan no s'especifica cap formulari)"
+
+#: pntemplates/formicula_admin_modifyconfig.html:60
+#: pntemplates/formicula_admin_edit.html:46
+msgid "Submit"
+msgstr "Tramet"
+
+#: pntemplates/formicula_admin_footer.html:6
+msgid "Visit Formicula on http://code.zikula.org/formicula"
+msgstr "Visiteu Formicula a http://code.zikula.org/formicula"
+
+#: pntemplates/1_usermail.txt:6 pntemplates/1_usermail.html:13
+#: pntemplates/2_userconfirm.html:9 pntemplates/1_userconfirm.html:7
+msgid "This data was sent to us:"
+msgstr "Aquesta és la informació que hem rebut:"
+
+#: pntemplates/1_usermail.txt:20 pntemplates/1_usermail.html:27
+#: pntemplates/1_userconfirm.html:9
+msgid "Thanks for applying, we will keep your data strictly confidential"
+msgstr ""
+"Gràcies per fer l'enviament, les vostres dades es tractaran "
+"confidencialment."
+
+#: pntemplates/1_usermail.txt:22 pntemplates/0_usermail.html:26
+#: pntemplates/1_usermail.html:29
+msgid "We will respond to your E-mail address as soon as possible."
+msgstr "Respondrem al vostre correu electrònic el més aviat possible."
+
+#: pntemplates/2_usererror.html:7 pntemplates/1_usererror.html:7
+#: pntemplates/0_usererror.html:6
+msgid "There is an error in your form"
+msgstr "Hi ha un error en el formulari"
+
+#: pntemplates/2_usererror.html:9 pntemplates/1_usererror.html:9
+#: pntemplates/0_usererror.html:8
+msgid "Back to Contact Form"
+msgstr "Torna al formulari de contacte"
+
+#: pntemplates/1_userheader.html:6
+msgid "Apply online!"
+msgstr "Aplicar en línia!"
+
+#: pntemplates/1_userform.html:24 pntemplates/1_userform.html:25
+msgid "Apply as"
+msgstr "Aplicar com a"
+
+#: pntemplates/1_userform.html:38 pntemplates/1_userform.html:39
+msgid "Date of birth"
+msgstr "Data de naixement"
+
+#: pntemplates/1_userform.html:43 pntemplates/1_userform.html:79
+msgid "Please enter a valid date."
+msgstr "Introduïu una data vàlida."
+
+#: pntemplates/1_userform.html:49 pntemplates/1_userform.html:50
+msgid "Street"
+msgstr "Carrer"
+
+#: pntemplates/1_userform.html:56 pntemplates/1_userform.html:57
+msgid "Salary"
+msgstr "Sou"
+
+#: pntemplates/1_userform.html:61
+msgid "Please use only numeric characters."
+msgstr "Feu servir només caràcters numèrics."
+
+#: pntemplates/1_userform.html:67 pntemplates/1_userform.html:68
+msgid "Zip City"
+msgstr "Codi postal"
+
+#: pntemplates/1_userform.html:74 pntemplates/1_userform.html:75
+msgid "Entry date"
+msgstr "Introduïu la data"
+
+#: pntemplates/formicula_admin_delete.html:5
+#: pntemplates/formicula_admin_view.html:34
+msgid "Delete contact"
+msgstr "Esborra el contacte"
+
+#: pntemplates/formicula_admin_delete.html:6
+msgid "Do you really want to delete this contact?"
+msgstr "Segur que voleu esborrar aquest contacte?"
+
+#: pntemplates/formicula_admin_delete.html:9
+msgid "Confirmation prompt"
+msgstr "Confirma"
+
+#: pntemplates/formicula_admin_delete.html:13
+#: pntemplates/formicula_admin_edit.html:18
+msgid "Contact name"
+msgstr "Nom del contacte"
+
+#: pntemplates/formicula_admin_delete.html:24
+msgid "Delete"
+msgstr "Esborra"
+
+#: pntemplates/formicula_admin_delete.html:25
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: pntemplates/2_userconfirm.html:7 pntemplates/0_userconfirm.html:6
+msgid ""
+"Thank you for your questions/comments to our website!<br />We will reply as "
+"soon as possible."
+msgstr ""
+"Gràcies pels vostres comentaris! <br> Us respondrem el més aviat possible."
+
+#: pntemplates/2_userconfirm.html:101 pntemplates/1_userconfirm.html:66
+msgid ""
+"Confirmation of your submission will be emailed to you in a few minutes."
+msgstr "En uns minuts rebreu un missatge de confirmació."
+
+#: pntemplates/2_userconfirm.html:103 pntemplates/1_userconfirm.html:68
+#: pntemplates/0_userconfirm.html:70
+msgid "There was an internal error when sending confirmation mail"
+msgstr "S'ha produït un error intern en enviar el correu de confirmació"
+
+#: pntemplates/formicula_admin_edit.html:8
+#: pntemplates/formicula_admin_view.html:31
+msgid "Edit contact"
+msgstr "Edita el contacte"
+
+#: pntemplates/formicula_admin_edit.html:26
+#: pntemplates/formicula_admin_view.html:12
+msgid "Public"
+msgstr "Públic"
+
+#: pntemplates/formicula_admin_edit.html:29
+msgid "Use this information in the users confirmation mail"
+msgstr "Dades pels missatges de confirmació"
+
+#: pntemplates/formicula_admin_edit.html:31
+msgid "Sender E-Mail"
+msgstr "Adreça electrònica del remitent"
+
+#: pntemplates/formicula_admin_edit.html:35
+msgid "Sender name"
+msgstr "Nom del remitent"
+
+#: pntemplates/formicula_admin_edit.html:39
+msgid "Subject"
+msgstr "Assumpte"
+
+#: pntemplates/formicula_admin_edit.html:42
+msgid ""
+"with <ul>    <li>%s = sitename</li>    <li>%l = slogan</li>    <li>%u = site "
+"url</li>    <li>%c = contacts sender name</li>    <li>%n&lt;num&gt; = user "
+"defined field name &lt;num&gt;</li>    <li>%d&lt;num&gt; = user defined "
+"field data &lt;num&gt;</li></ul>"
+msgstr ""
+"amb <ul>    <li>%s = nom del portal</li>    <li>%l = eslògan</li>    <li>%u "
+"= URL del portal</li>    <li>%c = nom del servidor de contacte</li>    <li>%"
+"n&lt;num&gt; = nom del camp que defineix l'usuari/ària &lt;num&gt;</li>    "
+"<li>%d&lt;num&gt; = nom del camp que de defineix la informació de "
+"l'usuari/ària &lt;num&gt;</li></ul>"
+
+#: pntemplates/formicula_admin_header.html:11
+msgid "Settings"
+msgstr "Configuració"
+
+#: pntemplates/formicula_admin_view.html:9
+msgid "ID"
+msgstr "ID"
+
+#: pntemplates/formicula_admin_view.html:10
+msgid "Name"
+msgstr "Nom"
+
+#: pntemplates/formicula_admin_view.html:13
+msgid "Options"
+msgstr "Opcions"
+
+#: pntemplates/formicula_admin_view.html:24
+msgid "Yes"
+msgstr "Sí"
+
+#: pntemplates/formicula_admin_view.html:26
+msgid "No"
+msgstr "No"
+
+#: pntemplates/formicula_admin_view.html:39
+msgid "No items found."
+msgstr "No s'han trobat contactes."
+
+#: pntemplates/0_userconfirm.html:10
+msgid "This data was sent to us"
+msgstr "Aquesta és la informació que hem rebut"
+
+#: pntemplates/0_userconfirm.html:68
+msgid "Confirmation of your submission will be mailed to you in a few minutes."
+msgstr "En uns minuts rebreu un missatge de confirmació."

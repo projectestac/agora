@@ -1,0 +1,639 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-26 11:49+0100\n"
+"PO-Revision-Date: 2010-04-15 13:32+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: pnblocks/jclic.php:48
+msgid "Display the list of activities you can access the user"
+msgstr "Muestra la lista de actividades a las que puede acceder el usuario"
+
+#: pnuserapi.php:12
+#: pnuserapi.php:43
+#: pnuserapi.php:143
+#: pnuserapi.php:188
+#: pnuserapi.php:254
+#: pnuserapi.php:300
+#: pnuserapi.php:344
+#: pnuserapi.php:388
+#: pnuserapi.php:432
+#: pnuserapi.php:457
+#: pnuserapi.php:506
+#: pnuserapi.php:548
+#: pnuserapi.php:588
+#: pnuserapi.php:657
+#: pnuserapi.php:704
+#: pnuserapi.php:744
+#: pnuserapi.php:793
+#: pnuserapi.php:827
+#: pnuser.php:12
+#: pnuser.php:71
+#: pnuser.php:98
+#: pnuser.php:102
+#: pnuser.php:160
+#: pnuser.php:210
+#: pnuser.php:268
+#: pnuser.php:288
+#: pnuser.php:386
+#: pnuser.php:492
+#: pnuser.php:584
+#: pnajax.php:11
+#: pnajax.php:56
+#: pnajax.php:114
+#: pnajax.php:140
+#: pnajax.php:183
+#: pnajax.php:215
+#: pnajax.php:260
+#: pnajax.php:277
+#: pnadmin.php:13
+#: pnadmin.php:90
+msgid "Sorry! No authorization to access this module."
+msgstr "Disculpa! No tienes autorización para ejecutar esa acción en este módulo."
+
+#: pnuserapi.php:26
+#: pnuserapi.php:83
+#: pnuserapi.php:122
+#: pnuserapi.php:279
+#: pnuserapi.php:481
+#: pnuserapi.php:527
+#: pnuserapi.php:567
+#: pnuserapi.php:635
+#: pnuserapi.php:857
+msgid "Error! Could not load items."
+msgstr "Error! No se logró cargar los elementos."
+
+#: pnuserapi.php:114
+#: pnuserapi.php:193
+#: pnuserapi.php:259
+#: pnuserapi.php:305
+#: pnuserapi.php:349
+#: pnuserapi.php:393
+#: pnuserapi.php:513
+#: pnuserapi.php:553
+#: pnuserapi.php:662
+#: pnuserapi.php:832
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "Error! Argumentos erróneos. Por favor verifica los datos e inténtalo de nuevo."
+
+#: pnuserapi.php:151
+#: pnuserapi.php:323
+#: pnuserapi.php:437
+#: pnuserapi.php:461
+#: pnuserapi.php:595
+msgid "Error! Creation attempt failed."
+msgstr "Error! Intento de creación fallido."
+
+#: pnuserapi.php:199
+#: pnuserapi.php:265
+#: pnuserapi.php:311
+#: pnuserapi.php:355
+#: pnuserapi.php:399
+#: pnuserapi.php:668
+#: pnuserapi.php:710
+#: pnuserapi.php:750
+#: pnuserapi.php:799
+#: pnuserapi.php:838
+#: pnuser.php:107
+#: pnuser.php:165
+#: pnuser.php:215
+#: pnuser.php:296
+#: pnuser.php:423
+#: pnuser.php:589
+#: pnajax.php:23
+#: pnajax.php:81
+#: pnajax.php:135
+#: pnajax.php:210
+#: pnajax.php:272
+msgid "Could not find the allocation requested"
+msgstr "No se ha encontrado la asignación solicitada"
+
+#: pnuserapi.php:204
+#: pnuserapi.php:316
+#: pnuserapi.php:360
+#: pnuserapi.php:404
+#: pnuserapi.php:673
+#: pnuserapi.php:715
+#: pnuserapi.php:755
+#: pnuserapi.php:804
+#: pnuserapi.php:843
+#: pnuser.php:301
+#: pnuser.php:428
+#: pnuser.php:594
+msgid "You do not have access to edit the activity"
+msgstr "No puedes acceder a editar la actividad"
+
+#: pnuserapi.php:368
+#: pnuserapi.php:726
+#: pnuserapi.php:767
+#: pnuserapi.php:775
+#: pnuserapi.php:808
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr "Error! Intento de borrado fallido."
+
+#: pnuserapi.php:413
+#: pnuserapi.php:686
+msgid "Error! Update attempt failed."
+msgstr "Error! Intento de actualización fallido."
+
+#: pninit.php:26
+msgid "Iw_main module must be installed. Install it to install this module."
+msgstr "El módulo iw_main tiene que estar instalado. Instala primero el iw_main para poder instalar éste módulo."
+
+#: pnuser.php:229
+msgid "You don't have acces to the activity"
+msgstr "No tienes acceso a la actividad"
+
+#: pnuser.php:338
+msgid "To add an activity of the <a href=\"http://clic.xtec.cat/db/listact_ca.jsp\" target=\"_blank\">library of activities </ a> of the clicZone, you must copy the address on your card. An example URL is: http://clic.xtec.cat/projects/quadres/jclic/quadres.jclic.zip. <br/> You can also add links to activities JClic published to any Web server, like : http://www.elmeuservidor.com/carpeta/activitat.jclic.zip or upload them directly to the server from files of activities available on the desktop. <br/>"
+msgstr "Para añadir una actividad de la <a href=\"http://clic.xtec.cat/db/listact_ca.jsp\" target=\"_blank\">biblioteca de actividades </ a> de la clicZone, debe copiar la dirección a su ficha. Una dirección de ejemplo es: http://clic.xtec.cat/projects/quadres/jclic/quadres.jclic.zip. <br/> También puede añadir enlaces a actividades JClic publicadas en otros servidores Web, por ejemplo: http://www.elmeuservidor.com/carpeta/activitat.jclic.zip o bien cargarlas directamente al servidor a través de archivos o actividades disponibles en su equipo. <br/>"
+
+#: pnuser.php:434
+#: pnajax.php:33
+msgid "There was an error in editing the property"
+msgstr "Se ha producido un error al editar la propiedad"
+
+#: pnuser.php:445
+msgid "Unable to upload to the server. The mapping failed"
+msgstr "No se ha podido subir el fichero al servidor. La asignación ha fallado"
+
+#: pnuser.php:457
+#: pnuserapi:164
+#: pnuserapi:222
+#: pnuserapi:233
+msgid "There was an error creating the assignment"
+msgstr "Se ha producido un error al crear la asignación"
+
+#: pnuser.php:467
+msgid "An error occurred while making allocations to selected groups"
+msgstr "Se ha producido un error al hacer las asignaciones de los grupos seleccionados"
+
+#: pntemplates/plugins/function.iwjclicusermenulinks.php:22
+msgid "Activities I have assigned "
+msgstr "Actividades que he asignado"
+
+#: pntemplates/plugins/function.iwjclicusermenulinks.php:26
+#: pntemplates/plugins/function.iwjclicusermenulinks.php:30
+#: pntemplates/iw_jclic_block_jclic.htm:2
+msgid "Activities assigned"
+msgstr "Actividades asignadas"
+
+#: pnajax.php:224
+msgid "An error occurred while editing the content"
+msgstr "Se ha producido un error al editar el contenido"
+
+#: pnajax.php:282
+msgid "Unable to delete users associated with the allocation"
+msgstr "No se han podido borrar los usuarios relacionados con la asignación"
+
+#: pnajax.php:287
+msgid "Unable to delete sessions related to the allocation"
+msgstr "No se han podido borrar las sesiones relacionadas con la asignación"
+
+#: pnajax.php:292
+msgid "Failed to delete the allocation"
+msgstr "No se han podido borrar las asignaciones"
+
+#: pnadmin.php:108
+msgid "The module configuration has changed"
+msgstr "La configuración del módulo ha cambiado"
+
+#: pnversion.php:9
+#: pntemplates/iw_jclic_user_main.htm:10
+#: pntemplates/iw_jclic_user_assig.htm:71
+#: pntemplates/iw_jclic_user_correctExtend.htm:12
+msgid "Name"
+msgstr "Nombre"
+
+#: pnversion.php:11
+#: pntemplates/iw_jclic_user_main.htm:11
+#: pntemplates/iw_jclic_user_assig.htm:81
+msgid "Statement"
+msgstr "Enunciado"
+
+#: pnversion.php:12
+#: pntemplates/iw_jclic_user_menu.htm:3
+#: pntemplates/iw_jclic_admin_menu.htm:4
+msgid "JClic"
+msgstr "JClic"
+
+#: pnversion.php:13
+msgid "iw_jclic"
+msgstr "iw_jclic"
+
+#: pntemplates/iw_jclic_user_activity.htm:6
+msgid "Text of the activity"
+msgstr "Texto de la actividad"
+
+#: pntemplates/iw_jclic_user_activity.htm:8
+msgid "Activity"
+msgstr "Actividad"
+
+#: pntemplates/iw_jclic_user_results.htm:3
+msgid "Results"
+msgstr "Resultados"
+
+#: pntemplates/iw_jclic_user_results.htm:8
+#: pntemplates/iw_jclic_user_main.htm:35
+#: pntemplates/iw_jclic_user_correct.htm:36
+msgid "Start"
+msgstr "Inicio"
+
+#: pntemplates/iw_jclic_user_results.htm:9
+#: pntemplates/iw_jclic_user_main.htm:45
+#: pntemplates/iw_jclic_user_correct.htm:37
+#: pntemplates/iw_jclic_user_correctExtend.htm:14
+msgid "Score"
+msgstr "Puntuación"
+
+#: pntemplates/iw_jclic_user_results.htm:10
+#: pntemplates/iw_jclic_user_correct.htm:38
+#: pntemplates/iw_jclic_user_correctExtend.htm:15
+msgid "Total Time"
+msgstr "Tiempo total"
+
+#: pntemplates/iw_jclic_user_results.htm:11
+#: pntemplates/iw_jclic_user_correct.htm:39
+#: pntemplates/iw_jclic_user_correctExtend.htm:16
+msgid "Design"
+msgstr "Realizadas"
+
+#: pntemplates/iw_jclic_user_results.htm:12
+#: pntemplates/iw_jclic_user_correct.htm:40
+#: pntemplates/iw_jclic_user_correctExtend.htm:17
+msgid "Right"
+msgstr "Aciertos"
+
+#: pntemplates/iw_jclic_user_results.htm:29
+#: pntemplates/iw_jclic_user_correct.htm:58
+msgid "Totals"
+msgstr "Totales"
+
+#: pntemplates/iw_jclic_user_results.htm:38
+#: pntemplates/iw_jclic_user_correct.htm:67
+msgid "Average"
+msgstr "Mediana"
+
+#: pntemplates/iw_jclic_user_results.htm:55
+#: pntemplates/iw_jclic_user_correct.htm:88
+msgid "No results found"
+msgstr "No se han encontrado resultados"
+
+#: pntemplates/iw_jclic_user_results.htm:62
+msgid "Hide Results Table"
+msgstr "Esconde la tabla de resultados"
+
+#: pntemplates/iw_jclic_user_main.htm:4
+msgid "List of activities that I have assigned"
+msgstr "Lista de actividades que he asignado"
+
+#: pntemplates/iw_jclic_user_main.htm:12
+msgid "Groups"
+msgstr "Grupos"
+
+#: pntemplates/iw_jclic_user_main.htm:13
+#: pntemplates/iw_jclic_user_assig.htm:237
+#: pntemplates/iw_jclic_user_correctContent.htm:3
+msgid "Comment"
+msgstr "Observaciones"
+
+#: pntemplates/iw_jclic_user_main.htm:14
+msgid "Features"
+msgstr "Características"
+
+#: pntemplates/iw_jclic_user_main.htm:15
+msgid "options"
+msgstr "Opciones"
+
+#: pntemplates/iw_jclic_user_main.htm:40
+msgid "Limits"
+msgstr "Límite"
+
+#: pntemplates/iw_jclic_user_main.htm:50
+msgid "N. activities"
+msgstr "N. actividades"
+
+#: pntemplates/iw_jclic_user_main.htm:54
+#: pntemplates/iw_jclic_user_assig.htm:137
+msgid "Skin"
+msgstr "Apariencia"
+
+#: pntemplates/iw_jclic_user_main.htm:57
+#: pntemplates/iw_jclic_user_assig.htm:147
+msgid "Width"
+msgstr "Ancho"
+
+#: pntemplates/iw_jclic_user_main.htm:60
+#: pntemplates/iw_jclic_user_assig.htm:153
+msgid "Height"
+msgstr "Altura"
+
+#: pntemplates/iw_jclic_user_main.htm:63
+msgid "State"
+msgstr "Estado"
+
+#: pntemplates/iw_jclic_user_main.htm:65
+#: pntemplates/iw_jclic_user_assig.htm:242
+msgid "Active"
+msgstr "Activo"
+
+#: pntemplates/iw_jclic_user_main.htm:67
+msgid "No active"
+msgstr "No activa"
+
+#: pntemplates/iw_jclic_user_main.htm:73
+msgid "Edit"
+msgstr "Editar"
+
+#: pntemplates/iw_jclic_user_main.htm:76
+#: pntemplates/iw_jclic_user_correct.htm:4
+#: pntemplates/iw_jclic_user_correctExtend.htm:4
+#: pntemplates/iw_jclic_block_jclic.htm:9
+#: pntemplates/iw_jclic_block_jclic.htm:30
+msgid "Correct"
+msgstr "Corregir"
+
+#: pntemplates/iw_jclic_user_main.htm:79
+msgid "Test"
+msgstr "Test"
+
+#: pntemplates/iw_jclic_user_main.htm:81
+msgid "Really want to delete it?"
+msgstr "Realmente quieres borrarla?"
+
+#: pntemplates/iw_jclic_user_main.htm:82
+#: pntemplates/iw_jclic_user_assig.htm:43
+msgid "Delete"
+msgstr "Borrar"
+
+#: pntemplates/iw_jclic_user_main.htm:91
+#: pntemplates/iw_jclic_user_assigned.htm:17
+#: pntemplates/iw_jclic_admin_main.htm:51
+msgid "About this module"
+msgstr "Acerca de éste módulo"
+
+#: pntemplates/iw_jclic_user_main.htm:95
+msgid "... deleting ..."
+msgstr "...borrando..."
+
+#: pntemplates/iw_jclic_user_assig.htm:7
+msgid "You must enter the name of the activity"
+msgstr "HAce falta escribir el nombre de la actividad"
+
+#: pntemplates/iw_jclic_user_assig.htm:12
+msgid "You have not written the url where to find the activity or any file has been chosen to be uploaded to the server"
+msgstr "No has escrito la url dónde buscar la actividad ni tampoco se ha escogido el fichero para subirlo al servidor"
+
+#: pntemplates/iw_jclic_user_assig.htm:17
+msgid "The format of the link is wrong"
+msgstr "El formato del enlace no es correcto"
+
+#: pntemplates/iw_jclic_user_assig.htm:22
+msgid "The file that you upload to the server has an invalid."
+msgstr "El fichero que quieres subir al servidor tiene una extensión incorrecta."
+
+#: pntemplates/iw_jclic_user_assig.htm:28
+msgid "Confirms the assignment of the activity"
+msgstr "Confirma la asignación de la actividad"
+
+#: pntemplates/iw_jclic_user_assig.htm:60
+msgid "Assign activities"
+msgstr "Asigna actividades"
+
+#: pntemplates/iw_jclic_user_assig.htm:68
+msgid "General Parameters"
+msgstr "Parámetros generales"
+
+#: pntemplates/iw_jclic_user_assig.htm:91
+msgid "Parameters JClic"
+msgstr "Parámetros JClic"
+
+#: pntemplates/iw_jclic_user_assig.htm:96
+msgid "Link or file activity"
+msgstr "Enlace o fichero de la actividad"
+
+#: pntemplates/iw_jclic_user_assig.htm:115
+msgid "or, upload the file from the server activity"
+msgstr "o bien, sube el fichero de la actividad al servidor"
+
+#: pntemplates/iw_jclic_user_assig.htm:124
+msgid "This module supports activities JClic directly to the server, but for a configuration error is not possible. Please contact the portal administrator."
+msgstr "Éste módulo admite subir actividades JClic directamente al servidor, pero por algún error de configuración ésta opción no esta disponible. Poneros en contacto con el administrador del portal."
+
+#: pntemplates/iw_jclic_user_assig.htm:160
+msgid "Parameters of evaluation"
+msgstr "Parámetros de evaluación"
+
+#: pntemplates/iw_jclic_user_assig.htm:164
+msgid "Maximum number of attempts"
+msgstr "Número máximo de intentos"
+
+#: pntemplates/iw_jclic_user_assig.htm:167
+#: pnuser:133
+msgid "Unlimited"
+msgstr "Ilimitado"
+
+#: pntemplates/iw_jclic_user_assig.htm:175
+msgid "Evaluation criterion"
+msgstr "Criterio de evaluación"
+
+#: pntemplates/iw_jclic_user_assig.htm:180
+msgid "Scoring average to achieve"
+msgstr "Puntuación media ha conseguir"
+
+#: pntemplates/iw_jclic_user_assig.htm:186
+msgid "Number of different activities resolved correctly"
+msgstr "Nombre de actividades diferentes resueltas correctamente"
+
+#: pntemplates/iw_jclic_user_assig.htm:194
+msgid "Parameters of the assignment"
+msgstr "Parámetros de la asignación"
+
+#: pntemplates/iw_jclic_user_assig.htm:198
+msgid "List of selected groups"
+msgstr "Lista de grupos seleccionados"
+
+#: pntemplates/iw_jclic_user_assig.htm:209
+msgid "New group"
+msgstr "Grupo nuevo"
+
+#: pntemplates/iw_jclic_user_assig.htm:211
+msgid "Select a group ..."
+msgstr "Selecciona un grupo..."
+
+#: pntemplates/iw_jclic_user_assig.htm:216
+msgid "Add"
+msgstr "Añade"
+
+#: pntemplates/iw_jclic_user_assig.htm:216
+msgid "It will not be changed until click the Send link"
+msgstr "El canvio será efectivo cuando haga clic en el boton Envía"
+
+#: pntemplates/iw_jclic_user_assig.htm:220
+#: pntemplates/iw_jclic_user_assignedContent.htm:35
+msgid "Minimum starting date of the activity"
+msgstr "Fecha mínima de inicio de la actividad"
+
+#: pntemplates/iw_jclic_user_assig.htm:228
+#: pntemplates/iw_jclic_user_assignedContent.htm:41
+msgid "Deadline"
+msgstr "Fecha límite para hacer al entrega"
+
+#: pntemplates/iw_jclic_user_assig.htm:247
+msgid "This form contains fields marked with an"
+msgstr "Éste formulario contiene campos obligatorios marcados con un"
+
+#: pntemplates/iw_jclic_user_assig.htm:251
+#: pntemplates/iw_jclic_user_correctObs.htm:19
+#: pntemplates/iw_jclic_user_correctRenotes.htm:19
+msgid "Send"
+msgstr "Envía"
+
+#: pntemplates/iw_jclic_user_assig.htm:252
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: pntemplates/iw_jclic_user_correctContent.htm:3
+#: pntemplates/iw_jclic_user_correctContent.htm:9
+msgid "Create or edit comments"
+msgstr "Crea o edita comentarios"
+
+#: pntemplates/iw_jclic_user_correct.htm:8
+msgid "Show all the users"
+msgstr "Muestra todos los usuarios"
+
+#: pntemplates/iw_jclic_user_correct.htm:11
+msgid "Summary"
+msgstr "Versión resumida"
+
+#: pntemplates/iw_jclic_user_correct.htm:22
+#: pntemplates/iw_jclic_user_assignedContent.htm:51
+msgid "Show details"
+msgstr "Muestra detalles"
+
+#: pntemplates/iw_jclic_user_correct.htm:98
+#: pntemplates/iw_jclic_user_correctExtend.htm:52
+msgid "No found sessions"
+msgstr "No se han encontrado sesiones"
+
+#: pntemplates/iw_jclic_user_correctExtend.htm:7
+msgid "Enlarge"
+msgstr "Versión ampliada"
+
+#: pntemplates/iw_jclic_user_correctExtend.htm:13
+msgid "N. Attempts"
+msgstr "N. Intentos"
+
+#: pntemplates/iw_jclic_user_assigned.htm:4
+msgid "List of activities that have assigned"
+msgstr "Lista de actividades que me han asignado"
+
+#: pntemplates/iw_jclic_user_assigned.htm:13
+msgid "You have no assignment"
+msgstr "No tienes ninguna actividad asignada"
+
+#: pntemplates/iw_jclic_user_assignedContent.htm:13
+msgid "Open"
+msgstr "Abierta"
+
+#: pntemplates/iw_jclic_user_assignedContent.htm:15
+msgid "Closed"
+msgstr "Cerrada"
+
+#: pntemplates/iw_jclic_user_assignedContent.htm:26
+msgid "Was assigned activity"
+msgstr "Te ha asignado la actividad"
+
+#: pntemplates/iw_jclic_user_assignedContent.htm:30
+msgid "Date of assignment"
+msgstr "Fecha de la asignación"
+
+#: pntemplates/iw_jclic_user_assignedContent.htm:49
+msgid "Hide Details"
+msgstr "Esconde detalles"
+
+#: pntemplates/iw_jclic_user_assignedContent.htm:57
+msgid "Sometimes you have carried out the activity"
+msgstr "Veces que has realizado la actividad"
+
+#: pntemplates/iw_jclic_user_assignedContent.htm:61
+msgid "Times you can do the activity"
+msgstr "Veces que puedes puedes realizar la actividad"
+
+#: pntemplates/iw_jclic_user_assignedContent.htm:72
+#: pntemplates/iw_jclic_user_assignedContent.htm:84
+msgid "View results"
+msgstr "Ver los resultados obtenidos"
+
+#: pntemplates/iw_jclic_user_assignedContent.htm:78
+msgid "Do the activity"
+msgstr "Hacer la actividad"
+
+#: pntemplates/iw_jclic_admin_main.htm:5
+#: pntemplates/iw_jclic_admin_main.htm:47
+msgid "Change the settings"
+msgstr "Modifica la configuración"
+
+#: pntemplates/iw_jclic_admin_main.htm:9
+msgid "Address of the server that manages files jar"
+msgstr "Dirección del servidor que gestiona los ficheros jar"
+
+#: pntemplates/iw_jclic_admin_main.htm:13
+msgid "Time is left between the client-server transactions (in seconds)"
+msgstr "Tiempo que se deja entre las transacciones cliente-servidor (expresado en segundos)"
+
+#: pntemplates/iw_jclic_admin_main.htm:17
+msgid "Be careful with these parameters: Incorrect values may cause problems."
+msgstr "Vigilar con estos parámetros: unos valores incorrectos  podrían generar problemas."
+
+#: pntemplates/iw_jclic_admin_main.htm:20
+msgid "Directory server to store the JClic"
+msgstr "Directorio del servidor donde se guardan las actividades JClic"
+
+#: pntemplates/iw_jclic_admin_main.htm:25
+msgid "Can not find the directory for storing information activities"
+msgstr "No se ha encontrado el directorio para guardar las actividades"
+
+#: pntemplates/iw_jclic_admin_main.htm:30
+msgid "In this folder you must give write permissions"
+msgstr "A ésta carpeta hace falta darle permisos de escritura"
+
+#: pntemplates/iw_jclic_admin_main.htm:36
+msgid "Groups that can be chosen at the time of assignments"
+msgstr "Grupos que se pueden escoger en el momento de hacer asignaciones"
+
+#: pntemplates/iw_jclic_block_jclic.htm:16
+#: pntemplates/iw_jclic_block_jclic.htm:37
+msgid "Details"
+msgstr "Detalles"
+
+#: pntemplates/iw_jclic_block_jclic.htm:23
+msgid "Activities to do"
+msgstr "Actividades a realizar"
+
+#: pntemplates/iw_jclic_block_jclic.htm:44
+msgid "You don't have access to any activity jclic"
+msgstr "No tienes acceso a ninguna actividad Jclic"
+
+#: pnuser:434
+msgid "The allocation has been edited successfully"
+msgstr "La asignación se ha editado correctamente"
+
+#: pnuser:457
+msgid "Has become a new allowance"
+msgstr "Se ha hecho una nueva asignación"
+
+#: pntemplates/iw_jclic_user_correctContent.htm:9
+msgid "Renotes"
+msgstr "Respuesta para el alumno/a"

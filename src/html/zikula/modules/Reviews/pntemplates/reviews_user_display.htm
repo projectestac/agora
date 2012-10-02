@@ -1,0 +1,31 @@
+<!--[*  $Id: reviews_user_display.htm 379 2009-12-06 12:13:48Z herr.vorragend $  *]-->
+<!--[assign var='templatetitle' value=$title]-->
+<!--[include file='reviews_user_menu.htm']-->
+
+<h3><!--[$title|pnmodcallhooks|pnvarprephtmldisplay]--></h3>
+
+<div id="review-body">
+    <!--[$text|pnvarprephtmldisplay|pnmodcallhooks:'Reviews']-->
+</div>
+
+<dl id="review-meta">
+    <dt><!--[gt text='Published on']-->:</dt>
+    <dd><!--[$cr_date|pndate_format|pnvarprepfordisplay]--></dd>
+    <dt><!--[gt text='Reviewer']-->:</dt>
+    <dd><a href="mailto:<!--[$email|pnvarprepfordisplay]-->"><!--[$reviewer|pnvarprepfordisplay]--></a></dd>
+    <!--[if $score neq '']-->
+    <dt><!--[gt text='Score']-->:</dt>
+    <dd><!--[$score|pnvarprepfordisplay]--></dd>
+    <!--[/if]-->
+    <!--[if $url neq '' and $url_title neq '']-->
+    <dt><!--[gt text='Related Link']-->:</dt>
+    <dd><a href="<!--[$url|pnvarprepfordisplay]-->"><!--[$url_title|pnvarprepfordisplay]--></a></dd>
+    <!--[/if]-->
+    <dt><!--[gt text='Hits']-->:</dt>
+    <dd><!--[$hits|pnvarprepfordisplay]--></dd>
+</dl>
+
+<!--[pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar='page' shift=1]-->
+
+<!--[pnmodurl modname='Reviews' func='display' id=$id assign='returnurl']-->
+<!--[pnmodcallhooks hookobject='item' hookaction='display' hookid=$id module='Reviews' returnurl=$returnurl]-->

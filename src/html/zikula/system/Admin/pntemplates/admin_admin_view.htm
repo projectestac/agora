@@ -1,0 +1,35 @@
+<!--[*  $Id: admin_admin_view.htm 27609 2009-11-16 19:39:24Z herr.vorragend $  *]-->
+<!--[gt text="Module categories list" assign=templatetitle]-->
+<!--[include file="admin_admin_menu.htm"]-->
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=windowlist.gif set=icons/large alt=$templatetitle]--></div>
+    <h2><!--[$templatetitle]--></h2>
+    <table class="z-admintable">
+        <thead>
+            <tr>
+                <th><!--[gt text="Name"]--></th>
+                <th><!--[gt text="Actions"]--></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--[section name=items loop=$items]-->
+            <tr class="<!--[cycle values="z-odd,z-even"]-->">
+                <td><a href="<!--[pnmodurl modname=Admin type=admin func=adminpanel acid=$items[items].cid]-->"><!--[$items[items].catname|pnvarprepfordisplay]--></a></td>
+                <td>
+                    <!--[assign var="options" value=$items[items].options]-->
+                    <!--[section name=options loop=$options]-->
+                    <a href="<!--[$options[options].url|pnvarprepfordisplay]-->"><!--[pnimg modname=core set=icons/extrasmall src=$options[options].image title=$options[options].title alt=$options[options].title]--></a>
+                    <!--[/section]-->
+                </td>
+            </tr>
+            <!--[sectionelse]-->
+            <tr class="z-admintableempty"><td colspan="2"><!--[gt text="No items found."]--></td></tr>
+            <!--[/section]-->
+        </tbody>
+    </table>
+    <div class="z-adminviewbuttons">
+        <a href="<!--[pnmodurl modname=Admin type=admin func=help fragment=view fqurl=true]-->"><!--[pnimg modname=core src=agt_support.gif set=icons/small __alt="Help" __title="Help"]--></a>
+    </div>
+    <!--[pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum img_prev=images/icons/extrasmall/previous.gif img_next=images/icons/extrasmall/next.gif]-->
+</div>

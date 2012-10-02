@@ -1,0 +1,40 @@
+<!--[*  $Id: weblinks_user_modifylinkrequest.html 43 2009-01-10 18:39:39Z herr.vorragend $  *]-->
+<!--[include file="weblinks_user_header.html"]-->
+<div class="wl-borderbox">
+  <!--[if $blockunregmodify == 1 && $ratinguser == $anonymous]-->
+  <div class="pn-errormsg"><!--[gt text="Sorry! Only registered users can suggest link modifications."]--></div>
+  <!--[else]-->
+  <form class="pn-form wl-form" action="<!--[pnmodurl modname=Web_Links type=user func=modifylinkrequests]-->" method="post" enctype="application/x-www-form-urlencoded">
+    <input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Web_Links"]-->" />
+    <input type="hidden" name="lid" value="<!--[$link.lid|pnvarprepfordisplay]-->" />
+    <input type="hidden" name="modifysubmitter" value="<!--[$ratinguser|pnvarprepfordisplay]-->" />
+
+    <fieldset class="pn-form-fieldset">
+      <legend><!--[gt text="Request link modification"]--> - <em><!--[gt text="Link ID"]-->: <!--[$link.lid|pnvarprepfordisplay]--></em></legend>
+
+      <dl class="pn-clearfix">
+        <dt><label for="title"><!--[gt text="Link title"]-->:</label></dt>
+        <dd><input type="text" id="title" name="title" value="<!--[$link.title|pnvarprepfordisplay]-->" size="50" maxlength="100" /></dd>
+
+        <dt><label for="url"><!--[gt text="URL"]-->:</label></dt>
+        <dd><input type="text" id="url" name="url" value="<!--[$link.url|pnvarprepfordisplay]-->" size="75" maxlength="254" /></dd>
+
+        <dt><label for="cat"><!--[gt text="Category"]-->:</label></dt>
+        <dd><select id="cat" name="cat"><!--[catlist scat=0 sel=$link.cat_id]--></select></dd>
+
+        <dt><label for="description"><!--[gt text="Description: (255 characters max)"]-->:</label></dt>
+        <dd><textarea name="description" id="description" cols="65" rows="10"><!--[$link.description|pnvarprephtmldisplay]--></textarea></dd>
+
+      </dl>
+
+    </fieldset>
+    <div class="pn-formrow pn-formbuttons">
+      <!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Send request" __title="Send request"]-->
+      <a href="<!--[pnmodurl modname=Web_Links type=user func=view]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Back" __title="Back"]--></a>
+    </div>
+
+  </form>
+  <!--[/if]-->
+</div>
+<!--[include file="weblinks_user_footer.html"]-->
+

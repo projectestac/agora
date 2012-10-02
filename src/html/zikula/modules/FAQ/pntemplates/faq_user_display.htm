@@ -1,0 +1,28 @@
+<!--[*  $Id: faq_user_display.htm 38 2009-11-22 13:20:20Z mateo $  *]-->
+
+<!--[include file="faq_user_menu.htm"]-->
+
+<h2><!--[gt text="Question"]--></h2>
+<p><strong><!--[$question|pnmodcallhooks|pnvarprephtmldisplay]--></strong></p>
+
+<h2><!--[gt text="Answer"]--></h2>
+<p><!--[$answer|pnmodcallhooks|pnvarprephtmldisplay]--></p>
+<div style="border-top: 1px dashed #AAA">
+    <ul>
+        <!--[if $submittedby neq '']-->
+        <li><!--[gt text="Submitted by %s" tag1=$submittedby]--></li>
+        <!--[elseif $submittedbyid neq '']-->
+        <!--[pnusergetvar name=uname uid=$submittedbyid assign=uname]-->
+        <!--[capture assign=faqsubmittedby]--><!--[$uname|userprofilelink]--><!--[/capture]-->
+        <li><!--[gt text="Submitted by %s" tag1=$faqsubmittedby]--></li>
+        <!--[/if]-->
+        <!--[if $answeredbyid neq '']-->
+        <!--[pnusergetvar name=uname uid=$answeredbyid assign=uname]-->
+        <!--[capture assign=faqansweredby]--><!--[$uname|userprofilelink]--><!--[/capture]-->
+        <li><!--[gt text="Answered by %s" tag1=$faqansweredby]--></li>
+        <!--[/if]-->
+    </ul>
+</div>
+
+<!--[pnmodurl modname=FAQ func=display faqid=$faqid assign=returnurl]-->
+<!--[pnmodcallhooks hookobject=item hookaction=display hookid=$faqid module=FAQ returnurl=$returnurl]-->

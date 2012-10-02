@@ -1,0 +1,94 @@
+<script language="javascript">
+	function canviforum(){
+		document.move_msg.action="index.php?module=iw_forums&func=mou";
+		document.move_msg.moutema.value=1;
+		document.move_msg.submit();
+	}
+	function move(){
+		document.move_msg.action="index.php?module=iw_forums&func=mou";
+		document.move_msg.moutema.value=0;
+		document.move_msg.submit();
+	}
+</script>
+<!--[include file="iw_forums_user_menu.htm" m1=1 m2=1 m4=1 m3=1 m9=1 fid=$fid ftid=$ftid u=$u inici=$inici]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/large']--></div>
+	<h2><!--[$name]--> => <!--[if $ftid neq 0]--><!--[$tema]--> => <!--[/if]--><!--[gt text="Move the message"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+	<table class="usertable">
+		<tr>
+			<td>
+				<font face=Arial color="#0080C0"><b><!--[$msg_title]--></b></font>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<!--[gt text="From: "]-->
+				<font color=green><b><!--[$user]--></b></font>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<!--[gt text="Date"]-->:	<font face=Arial size=2 color=#696969><!--[$date]--></font>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<!--[gt text="Time"]-->: <font face="Arial" size="2" color="#696969"><!--[$time]--></font>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<hr>
+			</td>
+		</tr>
+		<tr>
+			<td><!--[$message|nl2br]--></td>
+		</tr>
+		<tr>
+			<td><hr></td>
+		</tr>	
+	</table>
+	<!--[gt text="Confirm the transfer"]-->
+	<br><br>
+	<form name="move_msg" method="post" id="move_msg">
+		<input type="hidden" name="fmid" value="<!--[$fmid]-->" />
+		<input type="hidden" name="ftid" value="<!--[$ftid]-->" />
+		<input type="hidden" name="fid" value="<!--[$fid]-->" />
+		<input type="hidden" name="moutema" />
+		<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forums"]-->" />
+		<input type="hidden" name="u" value="<!--[$u]-->" />
+		<!--[if $modera|count_paragraphs gt 1]-->
+			<!--[gt text="Move the message to the forum"]--> => 
+			<select name="nouforum" id="nouforum" onChange="javascript:canviforum()">
+				<!--[section name=modera loop=$modera]-->
+					<option <!--[if $modera[modera].fid eq $nouforum]-->selected<!--[/if]--> value="<!--[$modera[modera].fid]-->"><!--[$modera[modera].nom_forum]--></option>
+				<!--[/section]-->
+			</select>
+			<br><br>
+		<!--[/if]-->
+		<!--[if $temes|count_paragraphs gt 1]-->
+			<!--[gt text="Move the message to the topic"]--> => 
+			<select name="noutema" id="noutema">
+				<option value="0"><!--[gt text="Without topic"]--></option>
+				<!--[section name=temes loop=$temes]-->
+					<!--[if $temes[temes].ftid neq $ftid]-->
+						<option value="<!--[$temes[temes].ftid]-->"><!--[$temes[temes].titol]--></option>
+					<!--[/if]-->
+				<!--[/section]-->
+			</select>
+			<br><br>
+		<!--[/if]-->	
+		<div class="formOptions" style="text-align:center;">
+			<a href="javascript:move()"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small'   __alt="Confirm the transfer" __title="Confirm the transfer"]--></a><!--[gt text="Confirm the transfer"]-->
+			<!--[if $ftid neq 0]-->
+				<a href="<!--[pnmodurl modname="iw_forums" type="user" func="llista_msg" ftid=$ftid fid=$fid u=$u]-->">
+					<!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel the transfer of the message" __title="Cancel the transfer of the message"]-->
+				</a>
+			<!--[else]-->				<a href="<!--[pnmodurl modname="iw_forums" type="user" func="forum" fid=$fid u=$u]-->">
+					<!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel the transfer of the message" __title="Cancel the transfer of the message"]-->
+				</a>
+			<!--[/if]-->
+		</div>
+	</form>
+</div>

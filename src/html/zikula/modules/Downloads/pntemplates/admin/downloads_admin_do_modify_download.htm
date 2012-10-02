@@ -1,0 +1,132 @@
+<!--[include file="admin/downloads_admin_main_menu.htm"]-->
+<!--[include file="admin/downloads_admin_header.htm"]-->
+
+<!--[*pndebug*]-->
+
+<!--[foreach item=download_to_modify from=$download_to_modify]-->
+
+<h2 class="dl_admin_h2"><!--[pnimg src="admin/moddl.gif" __alt="Modify Download" ]-->&nbsp;&nbsp;<!--[gt text="Modify Download"]--></h2>
+<div class="dl_admin_menu">
+
+<fieldset class="dl_fieldset">
+<legend><!--[gt text="Download ID:"]-->&nbsp;&nbsp;<!--[$download_to_modify.lid|pnvarprepfordisplay]--></legend>
+<h3 class="dl_admin_h3"><!--[gt text="Added:"]-->&nbsp;&nbsp;<!--[$download_to_modify.date|dl_download_date]--></h3>
+<form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="admin" func="update_download"]-->" method="post" enctype="multipart/form-data">
+<div class="dl_file_list">
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	<input type="hidden" name="update" value="1" />
+	<input type="hidden" name="oldurl" value="<!--[$download_to_modify.url]-->" />
+	<input type="hidden" name="lid" value="<!--[$download_to_modify.lid]-->"/>
+	<input type="hidden" name="filesize" value="<!--[$download_to_modify.filesize]-->"/>
+	<dl>
+	<dt><label for="download_status"><!--[gt text="Change download status"]--></label></dt>
+	<dd>
+			<select id="download_status" name="status">
+				<option value="1" <!--[$selected_status_on]--> ><!--[gt text="Download active"]--></option>
+				<option value="0" <!--[$selected_status_off]--> ><!--[gt text="Download not active"]--></option>
+			</select>
+	</dd>
+
+	<dt><label for="downloads_title"><!--[gt text="Download title:"]--></label></dt>
+	<dd><input id="downloads_title" type="text" name="title" size="40" value="<!--[$download_to_modify.title|pnvarprepfordisplay]-->"/></dd>
+
+	<!--[if $download_to_modify.outsideflag == false]-->
+
+		<dt><label for="downloads_actfile"><!--[gt text="Recent file:"]-->&nbsp;&nbsp;</label></dt>
+		<dd><input readonly id="downloads_actfile" type="text" name="actfile" size="30" value="<!--[$download_to_modify.url|pnvarprepfordisplay]-->" /></dd>
+
+		<dt><label for="downloads_userfile"><!--[gt text="Select a new file to upload (this will replace the exsisting one):"]--></label></dt>
+		<dd><input id="downloads_userfile" type="file" name="userfile" size="30" /></dd>
+	<!--[else]-->
+		<dt><label for="downloads_userurl"><!--[gt text="Download link"]-->&nbsp;-&nbsp;<!--[gt text="File size"]--></label></dt>
+		<dd><input id="downloads_userurl" type="text" name="userurl" size="30" value="<!--[$download_to_modify.url|pnvarprepfordisplay]-->" /> 
+			-
+		<input id="downloads_userurl_filesize" type="text" name="filesize" size="15" value="<!--[$download_to_modify.filesize]-->" />
+		
+		<select id="downloads_sizetype" name="sizetype">
+        	<!--[$fsizetype_set]-->
+        </select>
+		
+			&nbsp;&nbsp;<a href="<!--[$download_to_modify.url|pnvarprepfordisplay]-->"><!--[gt text="Test this file link"]--></a>
+		</dd>
+	 <!--[/if]-->
+
+	 <dt><label for="downloads_hits"><!--[gt text="Download Hits:"]--></label></dt>
+	 <dd><input id="downloads_hits" type="text" name="hits" size="10" value="<!--[$download_to_modify.hits|pnvarprepfordisplay]-->"/></dd>
+
+	<!--[if $download_to_modify.pictureflag == true]-->
+	<dt class="dl_file_list_desc"><label for="downloads_screenshot"><!--[gt text="Preview"]--></label></dt>
+	<dd><!--[dl_show_pics sc=$download_to_modify.screenshot tn=$download_to_modify.thumbnail  size=$download_to_modify.thumbsize title=$download_to_modify.title]--></dd>
+	<!--[/if]-->
+
+	<!--[if $showscreenshotinput == 'yes']-->
+	
+		<!--[if $gdbythumbnail == 0]-->
+		<dt><h3 class="dl_admin_h3"><!--[gt text="You have to choose both files if you want to replace the exsisting ones !"]--></h3></dt>
+		<dd>&nbsp;</dd>
+		<!--[/if]-->
+
+	<dt><label for="downloads_screenshot"><!--[gt text="Screenshot"]-->&nbsp;&nbsp;<!--[gt text='(GIF, JPG, PNG)']--></label></dt>
+	<dd><input id="downloads_screenshot" type="file" name="screenshot[]" size="30" /></dd>
+		<!--[if $gdbythumbnail == 0]-->
+		<dt><label for="downloads_thumbnail"><!--[gt text="Thumbmail"]-->&nbsp;&nbsp;<!--[gt text='(GIF, JPG, PNG)']--></label></dt>
+		<dd><input id="downloads_thumbnail" type="file" name="screenshot[]" size="30" /></dd>
+		<!--[/if]-->
+	<!--[/if]-->
+
+	<dt><label for="downloads_selcats"><!--[gt text="Choose category:"]--></label></dt>
+	<dd>
+		<select id="downloads_selcats" name="selcats">
+			<!--[$catSelectList]-->
+		</select>
+	</dd>
+	
+	<dt class="dl_file_list_desc"><label for="downloads_description"><!--[gt text="Download description:"]--></label></dt>
+	<dd class="dl_file_list_desc"><textarea id="downloads_description" name="description" cols="30" rows="5"><!--[$download_to_modify.description|pnvarprepfordisplay]--></textarea></dd>
+	
+	<dt><label for="downloads_submitter"><!--[gt text="Submitted by:"]--></label></dt>
+	<dd><input id="downloads_submitter" type="text" name="submitter" value="<!--[$download_to_modify.submitter|pnvarprepfordisplay]-->" size="30" /></dd>
+	
+	<dt><label for="downloads_submittermail"><!--[gt text="Email adress:"]--></label></dt>
+	<dd><input id="downloads_submittermail" type="text" name="submittermail" value="<!--[$download_to_modify.email|pnvarprepfordisplay]-->" size="30" /></dd>
+	
+	<dt><label for="downloads_homepage"><!--[gt text="Homepage:"]--></label></dt>
+	<dd><input id="downloads_homepage" type="text" name="homepage" value="<!--[$download_to_modify.homepage|pnvarprepfordisplay]-->" size="30" />
+		&nbsp;&nbsp;<a href="<!--[$download_to_modify.homepage|pnvarprepfordisplay]-->"><!--[gt text="Visit this Homepage"]--></a></dd>
+	
+	<dt><label for="downloads_version"><!--[gt text="Version:"]--></label></dt>
+	<dd><input id="downloads_version" type="text" name="version" value="<!--[$download_to_modify.version|pnvarprepfordisplay]-->" size="20" /></dd>
+	
+	<dt>
+	<input name="submit" type="submit" value="<!--[gt text="Save changes"]-->" />
+	</dt>
+	</dl>
+</div>
+</form>
+
+<form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="admin" func="main"]-->" method="post" enctype="multipart/form-data">
+<div class="dl_file_list">
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	<dl><dt>
+		<input name="cancel" type="submit" value="<!--[gt text="Cancel"]-->" />
+	</dt></dl>
+</div>
+</form>
+
+
+<form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="admin" func="ask_delete_download"]-->" method="post" enctype="multipart/form-data">
+<div class="dl_file_list">
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+	<input type="hidden" name="lid" value="<!--[$download_to_modify.lid]-->"/>
+	<dl><dt>
+		<input name="delete" type="submit" value="<!--[gt text="Delete download"]-->" />
+	</dt></dl>
+</div>
+</form>
+
+</fieldset>
+
+<br /><br />
+<!--[/foreach]-->
+</div>
+<!--[include file="admin/downloads_admin_footer.htm"]-->

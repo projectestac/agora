@@ -1,0 +1,41 @@
+<!--[include file="iw_bookings_admin_menu.htm"]-->
+<!--[if $statusmsg neq ""]-->
+	<p style="border:1px solid #0f0; background-color:#ffc; padding:10px;"><!--[$statusmsg]--></p>
+<!--[/if]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+	<div style="height:10px;">&nbsp;</div>
+	<h2><!--[gt text="Rooms and equipment booking"]--></h2>
+	<div style="height:15px;">&nbsp;</div>
+<!--[if $hi_ha_espais]-->
+	<table width="100%" border="0">
+		<th align="center" bgcolor="silver"><!--[gt text="Room or equipment name"]--></th>
+		<th align="center" bgcolor="silver"><!--[gt text="Description"]--></th>
+		<th align="center" bgcolor="silver"><!--[gt text="Timetable"]--></th>
+		<th align="center" bgcolor="silver"><!--[gt text="Orientation"]--></th>
+		<th align="center" bgcolor="silver"><!--[gt text="Status (active/inactive)"]--></th>
+		<th align="center" bgcolor="silver"><!--[gt text="Actions"]--></th>
+
+		<!--[section name=espais loop=$espais]-->
+			<tr>
+				<td align="center" bgcolor="<!--[$espais[espais].color]-->"><b><!--[$espais[espais].nom_espai]--></b></td>
+				<td align="center" bgcolor="<!--[$espais[espais].color]-->"><!--[$espais[espais].descriu]--></td>
+				<td align="center" bgcolor="<!--[$espais[espais].color]-->"><!--[$espais[espais].mdid]--></td>
+				<td align="center" bgcolor="<!--[$espais[espais].color]-->"><!--[$espais[espais].vertical]--></td>
+				<td align="center" bgcolor="<!--[$espais[espais].color]-->">
+				<!--[if $espais[espais].actiu eq 1]--> <font color="green"><b><!--[gt text="Active"]--></b><font>
+				<!--[else]--><font color="red"><b><!--[gt text="Inactive"]--></b><font>
+				<!--[/if]--><td align="center"><!-- <td bgcolor="<!--[$espais[espais].color]-->"> -->
+				<a href=<!--[pnmodurl modname="iw_bookings" type="user" func="assigna" sid=$espais[espais].sid]-->><!--[pnimg modname='core' src='editpaste.gif' set='icons/extrasmall'   __alt="Assign" __title="Assign"]--></a>
+				<a href=<!--[pnmodurl modname="iw_bookings" type="admin" func="new" sid=$espais[espais].sid  m="e"]-->><!--[pnimg modname='core' src='edit.gif' set='icons/extrasmall'   __alt="Edit" __title="Edit"]--></a>
+				<a href=<!--[pnmodurl modname="iw_bookings" type="admin" func="delete" sid=$espais[espais].sid]-->><!--[pnimg modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Delete" __title="Delete"]--></a>
+				</td>
+			</tr>
+		<!--[/section]-->
+	</table>
+<!--[else]-->
+	<!--[gt text="There are no rooms or equipment to book"]-->
+<!--[/if]-->
+<br>
+</div>
+<a href=<!--[pnmodurl modname="iw_bookings" type="admin" func="module"]-->><!--[gt text="About this module"]--></a>

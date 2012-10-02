@@ -1,0 +1,13 @@
+<!--[*  $Id: news_user_preview.htm 75 2009-02-24 04:51:52Z mateo $  *]-->
+
+<h3 class="news_title"><!--[$preview.title]--></h3>
+
+<div id="news_body" class="news_body">
+    <!--[$preview.hometext|pnmodcallhooks:'News']-->
+    <hr />
+    <!--[$preview.bodytext|pnmodcallhooks:'News']-->
+</div>
+
+<!--[if $preview.notes neq '']-->
+<span id="news_notes" class="news_meta"><!--[$preview.notes]--></span>
+<!--[/if]-->

@@ -1,0 +1,37 @@
+<!--[pnform]-->
+    <!--[pnformvalidationsummary]-->
+    
+    <!--[pnformlabel for="title" __text="Title"]-->:<br />
+    <!--[pnformtextinput id="title" maxLength='40' mandatory='1']-->
+    <br /><br />
+    <!--[pnformlabel for="description" __text="Description"]-->:<br />
+    <!--[pnformtextinput id="description" textMode="multiline"]-->
+    <br /><br />
+    <!--[pnformlabel for="width" __text="Width (pixels) of the map)"]-->:<br />
+    <!--[pnformintinput id="width" mandatory="1"]-->
+    <br /><br />
+    <!--[pnformlabel for="heith" __text="Height (pixels) of the map)"]-->:<br />
+    <!--[pnformintinput id="height" mandatory="1"]-->
+    <br /><br />
+    <!--[pnformlabel for="zoomfactor" __text="Zoomfactor (1 is maximum) of the map"]-->:<br />
+    <!--[pnformintinput id="zoomfactor" mandatory="1"]-->
+    <br /><br />
+    <!--[pnformlabel for="wiki" __text="Should other users be allowed to add own markers to your map"]-->?<br />
+    <!--[pnformdropdownlist id="wiki" items=$items_wiki]-->
+    <br /><br />
+    <!--[pnformlabel for="optionaltable" __text="Should an additional table be shown next to the map that lists all markers"]-->?<br />
+    <!--[pnformdropdownlist id="optionaltable" items=$items_optionaltable]-->
+    <br /><br />
+    <!--[pnformlabel for="maptype" __text="How should the map be displayed"]-->?<br />
+    <!--[pnformdropdownlist id="maptype" items=$items_maptype]-->
+    
+<!--[if $id gt 0]-->   
+    <br /><br />
+    <!--[pnformcheckbox id="deletemap" checked="0"]--><!--[pnformlabel for="deletemap" __text="Delete map and all markers"]--><br />
+<!--[/if]-->
+
+	<br /><br />
+	<!--[pnformbutton commandName="update" __text="Update or create map"]-->
+<!--[/pnform]-->
+<br />
+<a href="<!--[pnmodurl modname="MyMap" type="user" func="main"]-->"><!--[gt text="Return to main page"]--></a>

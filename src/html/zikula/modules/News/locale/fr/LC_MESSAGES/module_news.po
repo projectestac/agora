@@ -1,0 +1,1965 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: Traduction du module News 2.5.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-03 08:51+0000\n"
+"PO-Revision-Date: 2010-02-03 16:46+0100\n"
+"Last-Translator: Christophe Beaujean <yokav@zikula.fr>\n"
+"Language-Team: Zikula France <zkfrance@zikula.fr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Pootle 2.0.1\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: FRANCE\n"
+
+#: pnadmin.php:85 pnadmin.php:243 pnadmin.php:354 pnajax.php:33 pnajax.php:124
+#: pnajax.php:164 pnajax.php:293 pnajax.php:346 pnuser.php:565 pnuser.php:911
+#: pnadminapi.php:35 pnadminapi.php:98
+msgid "Error! No such article found."
+msgstr "Erreur ! Aucune nouvelle de ce type n'a été trouvée."
+
+#: pnadmin.php:148 pnadmin.php:444 pnadmin.php:694 pnadmin.php:771
+#: pnajax.php:69 pnuserapi.php:297 pnblocks/stories.php:93
+#: pnblocks/stories.php:167 pnblocks/storiesext.php:224
+#: pnblocks/storiesext.php:524 pncontenttypesapi/newsarticles.php:353
+#: pnuser.php:102 pnuser.php:347 pnuser.php:628 pnuser.php:809
+#, php-format
+msgid "Error! Could not load [%s] class."
+msgstr "Erreur ! Impossible de charger la classe [%s]."
+
+#: pnadmin.php:255 pnuser.php:221
+msgid "title"
+msgstr "titre"
+
+#: pnadmin.php:255 pnuser.php:221
+#, php-format
+msgid "Error! You did not enter a %s."
+msgstr "Erreur ! Vous n'avez pas indiqué de %s."
+
+#: pnadmin.php:259 pnuser.php:225
+msgid "article content"
+msgstr "contenu de la nouvelle"
+
+#: pnadmin.php:259 pnuser.php:225
+#, php-format
+msgid "Error! You did not enter the minimum necessary %s."
+msgstr "Erreur ! Vous n'avez pas indiqué le minimum nécessaire %s."
+
+#: pnadmin.php:319 pnajax.php:238
+msgid "Done! Saved your changes."
+msgstr "Terminé ! Vos modifications ont été enregistrées."
+
+#: pnadmin.php:386 pnajax.php:248
+msgid "Done! Deleted article."
+msgstr "Terminé ! La nouvelle a été supprimée."
+
+#: pnadmin.php:420
+msgid "Done! Purged permalinks."
+msgstr "Terminé ! Les liens permanents ont été épurés."
+
+#: pnadmin.php:422
+msgid "Error! Could not purge permalinks."
+msgstr "Erreur ! Impossible d'épurer les liens permanents."
+
+#: pnadmin.php:498 pnadmin.php:664 pntemplates/news_admin_view.htm:24
+#: pntemplates/news_block_storiesext_modify.htm:22
+msgid "All"
+msgstr "Toutes"
+
+#: pnadmin.php:499 pnadmin.php:612
+#: pntemplates/plugins/modifier.news_getstatustext.php:32
+#: pncontenttypesapi/newsarticles.php:368
+#: pntemplates/news_block_storiesext_modify.htm:36
+msgid "Published"
+msgstr "Publiée"
+
+#: pnadmin.php:500 pnadmin.php:658
+#: pntemplates/plugins/modifier.news_getstatustext.php:36
+#: pncontenttypesapi/newsarticles.php:369
+msgid "Rejected"
+msgstr "Refusée"
+
+#: pnadmin.php:501 pnadmin.php:631
+#: pntemplates/plugins/modifier.news_getstatustext.php:40
+#: pncontenttypesapi/newsarticles.php:370 pntemplates/news_admin_view.htm:97
+msgid "Pending Review"
+msgstr "En attente"
+
+#: pnadmin.php:502 pnadmin.php:649
+#: pntemplates/plugins/modifier.news_getstatustext.php:44
+#: pncontenttypesapi/newsarticles.php:371
+#: pntemplates/news_block_storiesext_modify.htm:37
+msgid "Archived"
+msgstr "Archivée"
+
+#: pnadmin.php:503 pnadmin.php:640
+#: pntemplates/plugins/modifier.news_getstatustext.php:48
+#: pntemplates/news_admin_view.htm:98
+#: pntemplates/news_block_storiesext_modify.htm:38
+msgid "Draft"
+msgstr "Brouillon"
+
+#: pnadmin.php:504 pnadmin.php:622
+msgid "Scheduled"
+msgstr "Programmée"
+
+#: pnadmin.php:527
+msgid "View"
+msgstr "Afficher"
+
+#: pnadmin.php:534
+msgid "Review"
+msgstr "Vérifier"
+
+#: pnadmin.php:538 pntemplates/plugins/function.articleadminlinks.php:79
+#: pntemplates/plugins/function.articleadminlinks.php:81
+#: pntemplates/news_user_categorylist.htm:47
+#: pntemplates/news_user_categorylist.htm:90 pntemplates/news_admin_new.htm:73
+msgid "Edit"
+msgstr "Modifier"
+
+#: pnadmin.php:547 pntemplates/plugins/function.articleadminlinks.php:84
+#: pntemplates/news_admin_new.htm:246 pntemplates/news_admin_new.htm:266
+#: pntemplates/news_user_new.htm:234 pntemplates/news_user_new.htm:254
+#: pntemplates/news_admin_modify.htm:231 pntemplates/news_admin_modify.htm:251
+#: pntemplates/news_admin_modify.htm:306 pntemplates/news_ajax_modify.htm:189
+#: pntemplates/news_ajax_modify.htm:209 pntemplates/news_ajax_modify.htm:229
+#: pntemplates/news_admin_delete.htm:17
+msgid "Delete"
+msgstr "Supprimer"
+
+#: pnadmin.php:555
+msgid "Unknown"
+msgstr "Inconnu"
+
+#: pnadmin.php:559 pntemplates/news_block_storiesext_modify.htm:122
+#: pntemplates/news_block_storiesext_modify.htm:145
+#: pntemplates/news_admin_modifyconfig.htm:61
+msgid "Yes"
+msgstr "Oui"
+
+#: pnadmin.php:561 pntemplates/news_block_storiesext_modify.htm:123
+#: pntemplates/news_block_storiesext_modify.htm:146
+#: pntemplates/news_admin_modifyconfig.htm:62
+msgid "No"
+msgstr "Non"
+
+#: pnadmin.php:583 pntemplates/news_admin_modifyconfig.htm:46
+msgid "Article date/time"
+msgstr "Date/heure de la nouvelle"
+
+#: pnadmin.php:584 pntemplates/news_admin_new.htm:202
+#: pntemplates/news_admin_modifyconfig.htm:45
+#: pntemplates/news_admin_modifyconfig.htm:176
+msgid "Article ID"
+msgstr "ID de la nouvelle"
+
+#: pnadmin.php:585 pncontenttypesapi/newsarticles.php:378
+#: pntemplates/news_block_storiesext_modify.htm:46
+#: pntemplates/news_admin_new.htm:167 pntemplates/news_user_new.htm:161
+#: pntemplates/news_admin_modify.htm:157 pntemplates/news_ajax_modify.htm:115
+#: pntemplates/news_admin_modifyconfig.htm:47
+msgid "Article weight"
+msgstr "Importance de la nouvelle"
+
+#: pnadmin.php:790
+msgid "Done! Saved module settings."
+msgstr "Terminé ! Paramètres du module enregistrés."
+
+#: pnajax.php:39 pnajax.php:226 pnajax.php:298
+msgid "Sorry! You do not have authorisation for this page."
+msgstr "Désolé ! Vous n'avez pas l'autorisation d'accéder à cette page."
+
+#: pnajax.php:128
+msgid ""
+"Sorry! Invalid authorisation key ('authkey'). This is probably either "
+"because you pressed the 'Back' button to return to a page which does not "
+"allow that, or else because the page's authorisation key expired due to "
+"prolonged inactivity. Please refresh the page and try again."
+msgstr ""
+"Désolé ! Clé d'identification invalide ('authkey'). Cela signifie "
+"probablement que vous avez utilisé le bouton 'Page précédente' pour "
+"retourner vers une page qui ne supporte pas cela ou que la clé "
+"d'identification de la page a expiré suite à une inactivité prolongée. "
+"Veuillez rafraichir la page et recommencer."
+
+#: pnajax.php:218 pnajax.php:233 pnajax.php:320 pnajax.php:361
+#: pnuserapi.php:920 pnadminapi.php:158
+msgid "Error! Could not save your changes."
+msgstr "Erreur ! Impossible d'enregistrer vos modifications."
+
+#: pnajax.php:250 pnadminapi.php:45
+msgid "Error! Could not delete article."
+msgstr "Erreur ! Impossible de supprimer la nouvelle."
+
+#: pnajax.php:322
+#, php-format
+msgid "Draft updated at %s"
+msgstr "Brouillon mis à jour à %s"
+
+#: pnajax.php:349
+#, php-format
+msgid "Draft saved at %s"
+msgstr "Brouillon enregistré à %s"
+
+#: pnmailzapi.php:29
+msgid "News publisher articles list"
+msgstr "Liste des nouvelles"
+
+#: pnmailzapi.php:30
+msgid ""
+"Show a list of News publisher articles published since the last newsletter."
+msgstr ""
+"Afficher la liste des nouvelles publiées depuis la dernière newsletter."
+
+#: pnmailzapi.php:66 pntemplates/news_user_articlepdf.htm:3
+#: pntemplates/news_user_article.htm:25 pntemplates/news_user_index.htm:5
+#: pntemplates/news_user_archives.htm:71 pntemplates/news_admin_modify.htm:265
+#: pntemplates/news_admin_modify.htm:267
+#: pntemplates/news_mailz_listarticles.htm:5
+#: pntemplates/news_mailz_listarticles.htm:7
+#: pntemplates/news_user_articlecontent.htm:24
+#, php-format
+msgid "by %1$s on %2$s"
+msgstr "par %1$s le %2$s"
+
+#: pnmailzapi.php:75
+#, php-format
+msgid "No News publisher articles since last newsletter on %s."
+msgstr "Aucune nouvelle publiée depuis la dernière newsletter du %s."
+
+#: pnversion.php:20 pnuser.php:963 pninit.php:461
+#: pntemplates/news_admin_menu.htm:5
+msgid "News publisher"
+msgstr "Publication de nouvelles"
+
+#: pnversion.php:21 pninit.php:462
+msgid ""
+"Provides the ability to publish and manage news articles contributed by site "
+"users, with support for news categories and various associated blocks."
+msgstr ""
+"Fournit la possibilité de publier et de gérer des nouvelles auxquels les "
+"membres du site peuvent contribuer, ce module supporte les catégories et de "
+"nombreux blocs associés."
+
+# ! nom du module affiché dans l'url - doit être en minuscule, sans caractères spéciaux, espaces, etc.
+#. ! this defines the module's url
+#: pnversion.php:24
+msgid "news"
+msgstr "nouvelles"
+
+#: pntemplates/plugins/modifier.news_getstatustext.php:27
+msgid "Unknown status"
+msgstr "Statut inconnu"
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:53
+#, php-format
+msgid "%s day ago"
+msgid_plural "%s days ago"
+msgstr[0] "il y a %s jour"
+msgstr[1] "il y a %s jours"
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:55
+msgid "yesterday"
+msgstr "hier"
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:63
+msgid "tomorrow"
+msgstr "demain"
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:65
+#, php-format
+msgid "%s day from now"
+msgid_plural "%s days from now"
+msgstr[0] "%s jour à partir de maintenant"
+msgstr[1] "%s jours à partir de maintenant"
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:70
+#, php-format
+msgid "%s hour ago"
+msgid_plural "%s hours ago"
+msgstr[0] "il y a %s heure"
+msgstr[1] "il y a %s heures"
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:72
+#, php-format
+msgid "%s hour from now"
+msgid_plural "%s hours from now"
+msgstr[0] "%s heure à partir de maintenant"
+msgstr[1] "%s heures à partir de maintenant"
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:76
+#, php-format
+msgid "%s minute ago"
+msgid_plural "%s minutes ago"
+msgstr[0] "il y a %s minute"
+msgstr[1] "il y a %s minutes"
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:78
+#, php-format
+msgid "%s minute from now"
+msgid_plural "%s minutes from now"
+msgstr[0] "%s minute à partir de maintenant"
+msgstr[1] "%s minutes à partir de maintenant"
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:82
+#, php-format
+msgid "%s second ago"
+msgid_plural "%s seconds ago"
+msgstr[0] "il y a %s seconde"
+msgstr[1] "il y a %s secondes"
+
+#: pntemplates/plugins/modifier.dateformatHuman.php:84
+#, php-format
+msgid "%s second from now"
+msgid_plural "%s seconds from now"
+msgstr[0] "%s seconde à partir de maintenant"
+msgstr[1] "%s secondes à partir de maintenant"
+
+#: pnsearchapi.php:94 pnuserapi.php:209
+msgid "Error! Could not load any articles."
+msgstr "Erreur ! Impossible de charger la moindre nouvelle."
+
+#: pnuserapi.php:251
+msgid "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec"
+msgstr "Jan Fév Mar Avr Mai Jn Jl Août Sep Oct Nov Déc"
+
+#: pnuserapi.php:707 pncontenttypesapi/newsarticles.php:326
+msgid "Read more..."
+msgstr "Lire la suite..."
+
+#: pnuserapi.php:710
+#, php-format
+msgid "%s bytes more"
+msgstr "%s octets en plus"
+
+#: pnuserapi.php:717
+msgid "Print"
+msgstr "Imprimer"
+
+#: pnuserapi.php:717 pnuserapi.php:718
+msgid "Printer-friendly page"
+msgstr "Page imprimable"
+
+#: pnuserapi.php:729
+msgid "Comments?"
+msgstr "Commentaires ?"
+
+#: pnuserapi.php:731 pntemplates/contenttype/newsarticles_view.html:18
+#: pntemplates/news_block_storiesext_row.htm:11
+#, php-format
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] "%s commentaire"
+msgstr[1] "%s commentaires"
+
+#: pnuserapi.php:737
+#, php-format
+msgid "%1$s about %2$s"
+msgstr "%1$s à propos de %2$s"
+
+#: pnuserapi.php:746
+#, php-format
+msgid "Footnote: %s"
+msgstr "Note de bas de page : %s"
+
+#: pnuserapi.php:913
+msgid "Error! Could not create new article."
+msgstr "Erreur ! Impossible de créer la nouvelle."
+
+#: pnblocks/stories.php:36
+msgid "Article titles"
+msgstr "Titres des nouvelles"
+
+#: pnblocks/stories.php:37
+msgid "Display article titles"
+msgstr "Afficher les titres des nouvelles"
+
+#: pnblocks/big.php:36
+msgid "Most-read article"
+msgstr "Nouvelles les plus lues"
+
+#: pnblocks/big.php:37 pnblocks/big.php:95
+msgid "Today's most-read article"
+msgstr "Nouvelles les plus lues aujourd'hui"
+
+#: pnblocks/storiesext.php:72
+msgid "Extended article titles"
+msgstr "Titres avancés pour la nouvelle"
+
+#: pnblocks/storiesext.php:73
+msgid "Display article titles with extended options"
+msgstr "Affiche les titres des nouvelles avec des options avancées"
+
+#: pnblocks/storiesext.php:265
+msgid "No articles."
+msgstr "Aucune nouvelle."
+
+#. ! default past block title
+#: pnblocks/past.php:36 pnblocks/past.php:128
+msgid "Past articles"
+msgstr "Anciennes nouvelles"
+
+#: pnblocks/past.php:37
+msgid "Display past articles"
+msgstr "Afficher les anciennes nouvelles"
+
+#: pnneedleapi/news.php:53
+#, php-format
+msgid "Error! Database contains no article with the title '%s'."
+msgstr ""
+"Erreur ! La base de données ne contient aucune nouvelle ayant comme titre '%"
+"s'."
+
+#: pnneedleapi/news.php:58
+msgid "Error! No needle ID provided."
+msgstr "Erreur ! Aucun ID de nouvelle fournit."
+
+#: pncontenttypesapi/newsarticles.php:59
+msgid "Recent news articles"
+msgstr "Nouvelles récentes"
+
+#: pncontenttypesapi/newsarticles.php:65
+msgid ""
+"Displays a specific number of news articles from one or all categories "
+"available"
+msgstr ""
+"Afficher un nombre spécifique de nouvelles à partir d'une ou toutes les "
+"catégories"
+
+#: pncontenttypesapi/newsarticles.php:304
+#, php-format
+msgid "News articles listed under the '%s' category"
+msgstr "Liste des nouvelles faisant partie de la catégorie '%s'"
+
+#: pncontenttypesapi/newsarticles.php:362
+#: pntemplates/news_block_stories_modify.htm:6
+#: pntemplates/news_block_storiesext_modify.htm:9
+msgid "Show all news articles"
+msgstr "Afficher toutes les nouvelles"
+
+#: pncontenttypesapi/newsarticles.php:363
+#: pntemplates/news_block_stories_modify.htm:7
+#: pntemplates/news_block_storiesext_modify.htm:10
+msgid "Show only articles set for index page listing"
+msgstr "Afficher uniquement les nouvelles publiées sur la page principale"
+
+#: pncontenttypesapi/newsarticles.php:364
+#: pntemplates/news_block_stories_modify.htm:8
+#: pntemplates/news_block_storiesext_modify.htm:11
+msgid "Show only articles not set for index page listing"
+msgstr ""
+"Afficher uniquement les nouvelles qui ne sont pas publiées sur la page "
+"principale"
+
+#: pncontenttypesapi/newsarticles.php:376
+#: pntemplates/news_block_storiesext_modify.htm:44
+msgid "News publisher setting"
+msgstr "Paramètres du module des Nouvelles"
+
+#: pncontenttypesapi/newsarticles.php:377
+#: pntemplates/news_block_storiesext_modify.htm:45
+msgid "Number of pageviews"
+msgstr "Nombre de lectures"
+
+#: pncontenttypesapi/newsarticles.php:379
+#: pntemplates/news_block_storiesext_modify.htm:47
+msgid "Random"
+msgstr "Aléatoire"
+
+#: pnuser.php:256
+msgid "Done! Created new article."
+msgstr "Terminé ! La nouvelle a été créée."
+
+#: pnuser.php:267 pninit.php:52 pninit.php:235
+msgid "A News Publisher article has been submitted for review"
+msgstr "Une nouvelle a été soumise et doit être vérifiée"
+
+#: pnuser.php:275
+#, php-format
+msgid ""
+"<br />A News Publisher article <strong>%1$s</strong> has been submitted by %2"
+"$s for review on website %3$s.<br />Index page teaser text of the article:"
+"<br /><hr />%4$s<hr /><br /><br />Go to the <a href=\"%5$s\">news publisher "
+"admin</a> pages to review and publish the <em>Pending Review</em> article(s)."
+"<br /><br />Regards,<br />%6$s"
+msgstr ""
+"<br />La nouvelle <strong>%1$s</strong> a été soumise par %2$s pour "
+"vérification, sur le site %3$s.<br />L'en-tête de la nouvelle affiché sur la "
+"page principale est :<br /><hr />%4$s<hr /><br /><br />Rendez-vous dans le "
+"<a href=\"%5$s\">panneau d'administration des nouvelles</a> pour vérifier et "
+"publier la/les nouvelle(s) <em>En attente de vérification</em>.<br /><br /"
+">Cordialement,<br />%6$s"
+
+#: pnuser.php:277
+#, php-format
+msgid ""
+"\n"
+"A News Publisher article '%1$s' has been submitted by %2$s for review on "
+"website %3$s.\n"
+"Index page teaser text of the article:\n"
+"--------\n"
+"%4$s\n"
+"--------\n"
+"\n"
+"Go to the <a href=\"%5$s\">news publisher admin</a> pages to review and "
+"publish the 'Pending Review' article(s).\n"
+"\n"
+"Regards,\n"
+"%6$s"
+msgstr ""
+"\n"
+"La nouvelle '%1$s' a été soumise par %2$s pour vérification sur le site %3"
+"$s.\n"
+"L'en-tête de la nouvelle affiché sur la page principale est :\n"
+"--------\n"
+"%4$s\n"
+"--------\n"
+"\n"
+"Rendez-vous dans le <a href=\"%5$s\">panneau d'administration des nouvelles</"
+"a> pour vérifier et publier la/les nouvelles 'En attente de vérification'.\n"
+"\n"
+"Cordialement,\n"
+"%6$s"
+
+#: pnuser.php:297
+msgid "Done! E-mail about new pending article is sent."
+msgstr ""
+"Terminé ! L'e-mail concernant la nouvelle en attente de publication a été "
+"envoyé."
+
+#: pnuser.php:299
+msgid "Warning! E-mail about new pending article could not be sent."
+msgstr ""
+"Attention ! L'e-mail concernant la nouvelle en attente de publication n'a "
+"pas pu être envoyé."
+
+#: pnuser.php:373
+msgid "Error! Invalid category passed."
+msgstr "Erreur ! La catégorie fournie est invalide."
+
+#: pnuser.php:390
+#, php-format
+msgid "No articles currently published under the '%s' category."
+msgstr "Actuellement, il n'y a aucune nouvelle publiée dans la catégorie '%s'."
+
+#: pnuser.php:392
+msgid "No articles currently published."
+msgstr "Aucune nouvelle publiée actuellement."
+
+#: pnuser.php:601
+#, php-format
+msgid " :: page %s"
+msgstr " :: page %s"
+
+#: pnuser.php:690
+msgid ""
+"January February March April May June July August September October November "
+"December"
+msgstr ""
+"Janvier Février Mars Avril Mai Juin Juillet Août Septembre Octobre Novembre "
+"Décembre"
+
+#: pnuser.php:962
+#, php-format
+msgid "Article %1$s by %2$s"
+msgstr "Nouvelle %s par %s"
+
+#: pnaccountapi.php:37 pntemplates/news_user_menu.htm:45
+#: pntemplates/news_user_new.htm:20
+#: pntemplates/contenttype/newsarticles_view.html:49
+msgid "Submit an article"
+msgstr "Soumettre une nouvelle"
+
+#: pnadminapi.php:238 pntemplates/news_admin_view.htm:3
+msgid "News articles list"
+msgstr "Liste des nouvelles"
+
+#: pnadminapi.php:243 pntemplates/news_admin_new.htm:16
+#: pntemplates/contenttype/newsarticles_view.html:10
+msgid "Create new article"
+msgstr "Créer une nouvelle "
+
+#: pnadminapi.php:248
+msgid "Purge permalinks"
+msgstr "Épurer les liens permanents"
+
+#: pnadminapi.php:251 pntemplates/news_admin_modifyconfig.htm:7
+#: pntemplates/news_admin_modifyconfig.htm:9
+msgid "Settings"
+msgstr "Paramètres"
+
+#: pninit.php:31
+msgid ""
+"Warning! Could not create the default News category tree. If you want to use "
+"categorisation with News, register at least one property for the module in "
+"the Category Registry."
+msgstr ""
+"Attention ! Impossible de créer la structure des catégories par défaut des "
+"Nouvelles. Si vous désirez utiliser la catégorisation avec les Nouvelles, "
+"enregistrez au moins une propriété pour le module dans le 'Répertoire des "
+"catégories'."
+
+#: pninit.php:101 pninit.php:168 pninit.php:223 pninit.php:589 pninit.php:638
+msgid "Error! Could not update table."
+msgstr "Erreur ! Impossible de mettre à jour la table."
+
+#: pninit.php:113
+msgid "Error! Could not update articles."
+msgstr "Erreur ! Impossible de modifier les nouvelles."
+
+#: pninit.php:120
+#, php-format
+msgid "Error! The '%s' module is not installed."
+msgstr "Erreur ! Le module '%s' n'est pas installé."
+
+#: pninit.php:127 pninit.php:136 pninit.php:140
+msgid "Error! Could not delete table."
+msgstr "Erreur ! Impossible de supprimer la table."
+
+#: pninit.php:152
+msgid "Error! Could not migrate categories."
+msgstr "Erreur ! Impossible de migrer les catégories."
+
+#: pninit.php:187
+msgid "Error! Could not rename table."
+msgstr "Erreur ! Impossible de renommer la table."
+
+#: pninit.php:195 pninit.php:199 pninit.php:203
+msgid "Error! Could not rename column."
+msgstr "Erreur ! Impossible de renommer la colonne."
+
+#: pninit.php:302
+msgid "News introduction article"
+msgstr "Introduction de la nouvelle"
+
+#: pninit.php:303
+msgid "news_introduction_article"
+msgstr "introduction_de_la_nouvelle"
+
+#: pninit.php:304
+msgid ""
+"A news article is divided into an article teaser text (which is the lead-in "
+"text you are reading now) and an article body text (which you can view by "
+"clicking on the article's title or the 'Read more' link). The teaser will "
+"generally be a short introduction to the article, but if you plan to publish "
+"only very short bulletins, the teaser can contain the full draft and the "
+"article body can be left empty. Click on the article title for more "
+"information about Zikula's News publisher module."
+msgstr ""
+"Une nouvelle est divisée en deux parties, la première est l'en-tête (qui est "
+"la première partie du texte que vous êtes en train de lire) et la seconde "
+"est le corps (qui peut être affiché en cliquant sur le titre de la nouvelle "
+"ou sur le lien 'Lire la suite'). L'en-tête contient en général une brève "
+"introduction à la nouvelle, mais si vous prévoyez ne publier que de courtes "
+"nouvelles, l'en-tête peut contenir tout le texte et le corps peut rester "
+"vide. Cliquez sur le titre de la nouvelle pour obtenir plus d'informations "
+"sur le module de 'Nouvelles' pour Zikula."
+
+#: pninit.php:305 pntemplates/news_user_menu.htm:24
+msgid "News"
+msgstr "Nouvelles"
+
+#: pninit.php:305
+#, php-format
+msgid ""
+"<h3>More about the News module</h3><p>You are now reading the body text of "
+"the article (starting as from the 'More about the News module' title above). "
+"Both the article teaser and the article body can contain URL links, images, "
+"mark-up (HTML tags and, if you have the additional necessary add-ons "
+"installed, other mark-up languages such as BBCode) You can learn more about "
+"the News module by reading the <a href=\"http://code.zikula.org/news/"
+"wiki#Documentation\">News Wiki Documentation</a>.</p><h3>Some more details</"
+"h3><p><img src=\"modules/News/pnimages/admin.gif\" width=\"48\" height=\"48"
+"\" class=\"z-floatleft\" alt=\"News publisher admin image\"/>To control what "
+"HTML tags can be included in an article to format and enhance it, the site "
+"administrator should set the desired tags to enabled status by visiting the "
+"<a href=\"index.php?module=SecurityCenter&type=admin&func=allowedhtml"
+"\">Security centre</a>. With the News module, you can take advantage of "
+"Zikula's permissions system to control who gets what access to which parts "
+"of the News module. A moderator group can be created, containing registered "
+"site users who can add, edit and delete articles. This is just a simple "
+"example: the Zikula permissions system is sufficiently flexible to let you "
+"implement practically any organisation you want.</p><p>You can edit or "
+"delete this introductory article by clicking on the link beside the article "
+"title, or you can visit to the <a href=\"index.php?module=%"
+"s&type=admin&func=view\">News admin pages</a>.</p>"
+msgstr ""
+"<h3>Plus d'informations concernant le module de 'Nouvelles'</h3><p>Vous "
+"lisez actuellement le corps de la nouvelle (qui commence à partir du titre "
+"situé ci-dessus). L'en-tête et le corps de la nouvelle peuvent contenir des "
+"liens, images, balises (les balises HTML et si vous avez des extensions "
+"additionnels installées d'autres balises comme par exemple celles de "
+"BBCode). Vous pouvez en apprendre plus sur le module de 'Nouvelles' en "
+"lisant <a href=\"http://code.zikula.org/news/wiki#Documentation\">la "
+"documentation sur le wiki</a>.</p><h3>Quelques détails supplémentaires</"
+"h3><p><img src=\"modules/News/pnimages/admin.gif\" width=\"48\" height=\"48"
+"\" class=\"z-floatleft\" alt=\"News publisher admin image\" />Pour contrôler "
+"quelles balises HTML peuvent être utilisées dans une nouvelle pour la mettre "
+"en forme et l'améliorer, l'administrateur du site doit activer les balises "
+"qu'il désire en se rendant dans le <a href=\"index.php?"
+"module=SecurityCenter&type=admin&func=allowedhtml\">Centre de sécurité</a>. "
+"Avec le module de 'Nouvelles', vous pouvez tirer avantage du système de "
+"permissions de Zikula pour contrôler qui a accès à quelle partie du module "
+"'Nouvelles'. Un groupe de modérateurs peut être créé, qui contiendrait les "
+"membres qui pourraient ajouter, modifier et supprimer des nouvelles. Voici "
+"un simple exemple : le système de permissions de Zikula est suffisamment "
+"flexible que pour vous permettre d'intégrer quasiment tout type "
+"d'organisation que vous pouvez désirer.</p><p>Vous pouvez modifier ou "
+"supprimer cette nouvelle d'introduction en cliquant sur le lien situé à côté "
+"de la nouvelle ou en vous rendant dans <a href=\"index.php?module=%"
+"s&type=admin&func=view\">le panneau d'administration des 'Nouvelles'</a>.</p>"
+
+#: pninit.php:321
+msgid "Warning! Could not create the default News introductory article."
+msgstr "Attention ! Impossible de créer la nouvelle d'introduction par défaut."
+
+#: pninit.php:325
+msgid "Warning! Could not update the default News introductory article."
+msgstr ""
+"Attention ! Impossible de modifier la nouvelle d'introduction par défaut."
+
+#: pninit.php:423
+msgid "Error! Could not update the article categories."
+msgstr "Erreur ! Impossible de modifier les catégories des nouvelles."
+
+#: pninit.php:509
+msgid "Topics"
+msgstr "Sujets"
+
+#: pninit.php:510
+msgid "Display and manage topics"
+msgstr "Afficher et gérer les sujets"
+
+#: pntemplates/news_user_articlepdf.htm:3 pntemplates/news_user_index.htm:5
+#: pntemplates/news_user_archives.htm:57 pntemplates/news_admin_modify.htm:265
+#: pntemplates/news_user_articlecontent.htm:24
+msgid "Contributed"
+msgstr "Contribution"
+
+#: pntemplates/news_block_stories_modify.htm:4
+msgid "Scope of news article listing"
+msgstr "Aperçu de la liste des nouvelles"
+
+#: pntemplates/news_block_stories_modify.htm:14
+#: pntemplates/news_admin_view.htm:23 pntemplates/news_admin_view.htm:84
+#: pntemplates/news_admin_new.htm:85 pntemplates/news_user_new.htm:83
+#: pntemplates/contenttype/newsarticles_edit.html:13
+#: pntemplates/news_user_archives.htm:54 pntemplates/news_admin_modify.htm:77
+#: pntemplates/news_ajax_modify.htm:35
+msgid "Category"
+msgstr "Catégorie"
+
+#: pntemplates/news_block_stories_modify.htm:16
+#: pntemplates/news_admin_new.htm:86 pntemplates/news_user_new.htm:84
+#: pntemplates/news_admin_modify.htm:78 pntemplates/news_ajax_modify.htm:36
+msgid "Choose category"
+msgstr "Choisissez une catégorie"
+
+#: pntemplates/news_block_stories_modify.htm:25
+msgid "Maximum number of articles to display"
+msgstr "Nombre maximum de nouvelles à afficher"
+
+#: pntemplates/news_admin_view.htm:47 pntemplates/news_admin_view.htm:65
+#: pntemplates/news_admin_new.htm:99 pntemplates/news_user_new.htm:97
+msgid "Language"
+msgstr "Langue"
+
+#: pntemplates/news_admin_view.htm:52 pntemplates/news_admin_view.htm:69
+#: pntemplates/news_block_storiesext_modify.htm:34
+#: pntemplates/contenttype/newsarticles_edit.html:33
+msgid "Status"
+msgstr "Statut"
+
+#: pntemplates/news_admin_view.htm:55
+#: pntemplates/news_block_storiesext_modify.htm:42
+#: pntemplates/contenttype/newsarticles_edit.html:44
+msgid "Order articles by"
+msgstr "Trier les nouvelles par"
+
+#: pntemplates/news_admin_view.htm:58 pntemplates/news_admin_view.htm:71
+msgid "Apply filter"
+msgstr "Appliquer le filtre"
+
+#: pntemplates/news_admin_view.htm:59 pntemplates/news_admin_view.htm:72
+#: pntemplates/news_admin_view.htm:138
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: pntemplates/news_admin_view.htm:80
+msgid "ID"
+msgstr "ID"
+
+#: pntemplates/news_admin_view.htm:81 pntemplates/news_admin_new.htm:64
+#: pntemplates/news_user_new.htm:66 pntemplates/news_user_archives.htm:52
+#: pntemplates/news_admin_modify.htm:62 pntemplates/news_ajax_modify.htm:20
+msgid "Title"
+msgstr "Titre"
+
+#: pntemplates/news_admin_view.htm:82
+msgid "Contributor"
+msgstr "Auteur"
+
+#: pntemplates/news_admin_view.htm:86
+msgid "Index page<br />listing / Weight"
+msgstr "Page principale<br />Classement / Importance"
+
+#: pntemplates/news_admin_view.htm:87
+msgid "Date"
+msgstr "Date"
+
+#: pntemplates/news_admin_view.htm:88
+msgid "Actions"
+msgstr "Actions"
+
+#: pntemplates/news_admin_view.htm:109
+msgid "Last edited on"
+msgstr "Dernière modification le"
+
+#: pntemplates/news_admin_view.htm:112
+msgid "Scheduled for"
+msgstr "Programmée pour le"
+
+#: pntemplates/news_admin_view.htm:117
+msgid "No comments allowed."
+msgstr "Les commentaires ne sont pas autorisés."
+
+#: pntemplates/news_admin_view.htm:128
+msgid "No articles currently in database."
+msgstr "Actuellement, il n'y a aucune nouvelle dans la base de données."
+
+#: pntemplates/news_admin_view.htm:135
+msgid "Access a past article via its ID"
+msgstr "Accéder à une ancienne nouvelle via son ID :"
+
+#: pntemplates/news_admin_view.htm:137
+msgid "Go retrieve"
+msgstr "Récupérer"
+
+#: pntemplates/news_user_menu.htm:17 pntemplates/news_user_menu.htm:30
+msgid "News index page"
+msgstr "Page principale des nouvelles"
+
+#: pntemplates/news_user_menu.htm:35 pntemplates/news_user_categorylist.htm:8
+msgid "News categories"
+msgstr "Catégories des nouvelles"
+
+#: pntemplates/news_user_menu.htm:40 pntemplates/news_user_archives.htm:12
+#: pntemplates/news_user_archives.htm:15
+msgid "News archive"
+msgstr "Archives des nouvelles"
+
+#: pntemplates/news_user_menu.htm:52
+#, php-format
+msgid "%s pending article"
+msgid_plural "%s pending articles"
+msgstr[0] "%s nouvelle en attente de publication"
+msgstr[1] "%s nouvelles en attente de publication"
+
+#: pntemplates/news_user_article.htm:5 pntemplates/news_admin_new.htm:22
+#: pntemplates/news_admin_new.htm:149 pntemplates/news_admin_new.htm:160
+#: pntemplates/news_admin_new.htm:226 pntemplates/news_user_new.htm:28
+#: pntemplates/news_user_new.htm:143 pntemplates/news_user_new.htm:154
+#: pntemplates/news_user_new.htm:214 pntemplates/news_admin_modify.htm:26
+#: pntemplates/news_admin_modify.htm:141 pntemplates/news_admin_modify.htm:150
+#: pntemplates/news_admin_modify.htm:211 pntemplates/news_ajax_modify.htm:99
+#: pntemplates/news_ajax_modify.htm:108 pntemplates/news_ajax_modify.htm:169
+msgid "Show"
+msgstr "Afficher"
+
+#: pntemplates/news_user_article.htm:6 pntemplates/news_admin_new.htm:23
+#: pntemplates/news_user_new.htm:29 pntemplates/news_admin_modify.htm:27
+msgid "Hide"
+msgstr "Masquer"
+
+#: pntemplates/news_user_article.htm:19
+msgid "More articles in "
+msgstr "Autres nouvelles dans "
+
+#: pntemplates/news_block_storiesext_scrollmarquee.htm:25
+#: pntemplates/news_block_storiesext_witheditblock.htm:11
+#: pntemplates/news_block_storiesext_scrollfade.htm:26
+#: pntemplates/news_block_storiesext_scrollpause.htm:26
+msgid "Edit this block"
+msgstr "Modifier ce bloc"
+
+#: pntemplates/news_block_storiesext_modify.htm:5
+#: pntemplates/contenttype/newsarticles_edit.html:4
+#: pntemplates/news_admin_modifyconfig.htm:16
+msgid "General settings"
+msgstr "Paramètres généraux"
+
+#: pntemplates/news_block_storiesext_modify.htm:7
+msgid "Articles to list"
+msgstr "Nouvelles à lister"
+
+#: pntemplates/news_block_storiesext_modify.htm:16
+msgid "Choose categories"
+msgstr "Choisissez des catégories"
+
+#: pntemplates/news_block_storiesext_modify.htm:16
+msgid "Category registry"
+msgstr "Répertoire des catégories"
+
+#: pntemplates/news_block_storiesext_modify.htm:23
+msgid "None"
+msgstr "Aucun"
+
+#: pntemplates/news_block_storiesext_modify.htm:30
+#: pntemplates/news_block_past_modify.htm:4
+msgid "Maximum number of news articles to display"
+msgstr "Nombre maximum de nouvelles à afficher"
+
+#: pntemplates/news_block_storiesext_modify.htm:51
+msgid "Maximum age of articles"
+msgstr "Age maximum des nouvelles"
+
+#: pntemplates/news_block_storiesext_modify.htm:53
+#: pntemplates/contenttype/newsarticles_edit.html:40
+msgid "(Number of days; 0 for no limit)"
+msgstr "(Nombre de jours; 0 = pas de limite)"
+
+#: pntemplates/news_block_storiesext_modify.htm:56
+msgid "Maximum length of titles"
+msgstr "Longueur maximum des titres"
+
+#: pntemplates/news_block_storiesext_modify.htm:58
+#: pntemplates/news_block_storiesext_modify.htm:131
+#: pntemplates/contenttype/newsarticles_edit.html:51
+#: pntemplates/contenttype/newsarticles_edit.html:138
+msgid "(Number of characters; 0 for no limit)"
+msgstr "(Nombre de caractères; 0 = pas de limite)"
+
+#: pntemplates/news_block_storiesext_modify.htm:61
+#: pntemplates/contenttype/newsarticles_edit.html:55
+msgid "Suffix appended to truncated title"
+msgstr "Suffixe à ajouter lorsque le titre est tronqué"
+
+#: pntemplates/news_block_storiesext_modify.htm:65
+msgid ""
+"Show 'No articles currently published' status message when no articles "
+"published"
+msgstr ""
+"Afficher le message 'Actuellement, il n'y a pas de nouvelle publiée' lorsque "
+"aucune nouvelle n'a pas été publiée."
+
+#: pntemplates/news_block_storiesext_modify.htm:71
+msgid "Custom templates"
+msgstr "Templates personnalisés"
+
+#: pntemplates/news_block_storiesext_modify.htm:72
+msgid ""
+"Notice: You can use your own custom templates instead of the default "
+"templates. You must specify them here.The default template for block rows is "
+"'news_block_storiesext_row.htm'. The default block template depends on the "
+"scroll setting. The default static template is 'news_block_storiesext.htm'. "
+"For scrolling content, 'news_block_storiesext_scrollNAME.htm' is used."
+msgstr ""
+"Note : Vous pouvez utiliser vos propres templates à la place de ceux par "
+"défaut. Si tel est le cas, vous devez les spécifier ici. Le template par "
+"défaut pour chaque élément du bloc est 'news_block_storiesext_row.htm'. Le "
+"template par défaut du bloc dépend des paramètres de défilement. Le template "
+"par défaut pour ce qui est statique est 'news_block_storiesext.htm'. Pour le "
+"défilement du contenu, 'news_block_storiesext_scrollNOM.htm' est utilisé."
+
+#: pntemplates/news_block_storiesext_modify.htm:74
+msgid "Custom block template"
+msgstr "Template personnalisé pour ce bloc"
+
+#: pntemplates/news_block_storiesext_modify.htm:76
+#: pntemplates/news_block_storiesext_modify.htm:81
+msgid "(Default template is used if this box is left blank)"
+msgstr "(Le template par défaut est utilisé si ce champ est vide)"
+
+#: pntemplates/news_block_storiesext_modify.htm:79
+msgid "Custom row template"
+msgstr "Template personnalisé pour chaque élément"
+
+#: pntemplates/news_block_storiesext_modify.htm:86
+msgid "Advanced block settings"
+msgstr "Paramètres avancés du bloc"
+
+#: pntemplates/news_block_storiesext_modify.htm:88
+msgid "Show contributor's name"
+msgstr "Afficher le nom de l'auteur"
+
+#: pntemplates/news_block_storiesext_modify.htm:92
+msgid "Show article creation date"
+msgstr "Afficher la date de création la nouvelle"
+
+#: pntemplates/news_block_storiesext_modify.htm:96
+#: pntemplates/contenttype/newsarticles_edit.html:72
+msgid "Date format"
+msgstr "Format de la date"
+
+#: pntemplates/news_block_storiesext_modify.htm:98
+msgid "Click here to read 'strftime' description in PHP documentation"
+msgstr ""
+"Cliquez ici pour lire la description de 'strftime' dans la documentation de "
+"PHP"
+
+#: pntemplates/news_block_storiesext_modify.htm:101
+msgid "Show number of pageviews"
+msgstr "Afficher le nombre de lectures"
+
+#: pntemplates/news_block_storiesext_modify.htm:107
+msgid "Show number of comments"
+msgstr "Afficher le nombre de commentaires"
+
+#: pntemplates/news_block_storiesext_modify.htm:112
+msgid "Separator character for additional information"
+msgstr "Caractère de séparation utilisé pour les informations additionnelles"
+
+#: pntemplates/news_block_storiesext_modify.htm:118
+#: pntemplates/contenttype/newsarticles_edit.html:126
+msgid "Index page teaser settings"
+msgstr "Paramètres des en-têtes situés sur la page principale des nouvelles"
+
+#: pntemplates/news_block_storiesext_modify.htm:120
+msgid "Display article's index page teaser"
+msgstr "Afficher l'en-tête des nouvelles sur la page principale"
+
+#: pntemplates/news_block_storiesext_modify.htm:127
+#: pntemplates/contenttype/newsarticles_edit.html:131
+msgid ""
+"Notice: When truncating the index page teaser text, incomplete HTML mark-up "
+"elements will be completed by the 'truncatehtml' plug-in."
+msgstr ""
+"Remarque : Lorsque l'en-tête affiché sur la page principale est tronqué, les "
+"balises HTML incomplètes seront complétées par le plugin 'truncatehtml'."
+
+#: pntemplates/news_block_storiesext_modify.htm:129
+msgid "Maximum displayed length of index page teaser"
+msgstr "Longueur maximum de l'en-tête affiché sur la page principale"
+
+#: pntemplates/news_block_storiesext_modify.htm:134
+msgid "Suffix appended to truncated index page teaser"
+msgstr ""
+"Suffixe à ajouter lorsque l'en-tête situé sur la page principale est tronqué"
+
+#: pntemplates/news_block_storiesext_modify.htm:141
+msgid "Article recency settings"
+msgstr "Paramètres des nouvelles récentes"
+
+#: pntemplates/news_block_storiesext_modify.htm:143
+msgid "Display image for recent article titles"
+msgstr "Afficher une image avec le titre des nouvelles récentes"
+
+#: pntemplates/news_block_storiesext_modify.htm:151
+#: pntemplates/contenttype/newsarticles_edit.html:109
+msgid "Number of days during which article is considered recent"
+msgstr ""
+"Nombre de jours pendant lesquels une nouvelle est considérée comme récente"
+
+#: pntemplates/news_block_storiesext_modify.htm:155
+#: pntemplates/contenttype/newsarticles_edit.html:114
+msgid "Image set for 'New' image"
+msgstr "Lot d'images pour cette 'nouvelle' image"
+
+#: pntemplates/news_block_storiesext_modify.htm:157
+#: pntemplates/news_block_storiesext_modify.htm:162
+#: pntemplates/contenttype/newsarticles_edit.html:116
+#: pntemplates/contenttype/newsarticles_edit.html:122
+msgid "(Used by 'pnimg' plug-in)"
+msgstr "(Utilisé par le plugin 'pnimg')"
+
+#: pntemplates/news_block_storiesext_modify.htm:160
+#: pntemplates/contenttype/newsarticles_edit.html:120
+msgid "File name of 'New' image from image set"
+msgstr "Nom de la 'nouvelle' image en provenance du lot d'images"
+
+#: pntemplates/news_block_storiesext_modify.htm:168
+msgid "News item scroll settings"
+msgstr "Paramètres du défilement pour les nouvelles"
+
+#: pntemplates/news_block_storiesext_modify.htm:169
+msgid ""
+"Notice: News articles can shown in a scrolling box. The provided scrollers "
+"are based upon code from the <a href=\"http://www.dynamicdrive.com/"
+"dynamicindex2/crosstick.htm\">dynamicdrive.com 'crosstick'</a> upward and "
+"downward pauseable vertical scroller, the <a href=\"http://www.dynamicdrive."
+"com/dynamicindex2/memoryticker.htm\">dynamicdrive.com 'memoryticker'</a> "
+"fading scroller (gradient wipe effect only works in IE), and the <a href="
+"\"http://www.dynamicdrive.com/dynamicindex2/cmarquee2.htm\" target=\"_new"
+"\">dynamicdrive.com 'marquee II'</a> marquee scroller."
+msgstr ""
+"Note : Les nouvelles peuvent défiler dans un bloc. Les outils de défilement "
+"sont basés sur le code de <a href=\"http://www.dynamicdrive.com/"
+"dynamicindex2/crosstick.htm\">dynamicdrive.com 'crosstick'</a> pour le "
+"défilement vertical vers le bas/haut avec pause, de <a href=\"http://www."
+"dynamicdrive.com/dynamicindex2/memoryticker.htm\">dynamicdrive.com "
+"'memoryticker'</a> pour le défilement avec effet de fondu (cet effet ne "
+"fonctionne que sous IE) et de <a href=\"http://www.dynamicdrive.com/"
+"dynamicindex2/cmarquee2.htm\" target=\"_new\">dynamicdrive.com 'marquee II'</"
+"a> pour le défilement continu."
+
+#: pntemplates/news_block_storiesext_modify.htm:171
+msgid "Choose scroller"
+msgstr "Choisissez le type de défilement"
+
+#: pntemplates/news_block_storiesext_modify.htm:173
+msgid "No scrolling"
+msgstr "Pas de défilement"
+
+#: pntemplates/news_block_storiesext_modify.htm:174
+msgid "Pauseable vertical scroller"
+msgstr "Défilement vertical avec pause"
+
+#: pntemplates/news_block_storiesext_modify.htm:175
+msgid "Fading scroller"
+msgstr "Défilement avec effet de fondu"
+
+#: pntemplates/news_block_storiesext_modify.htm:176
+msgid "Marquee scroller"
+msgstr "Défilement continu"
+
+#: pntemplates/news_block_storiesext_modify.htm:181
+msgid "Scroller CSS styles definition"
+msgstr "Définir les feuilles de style pour le défilement"
+
+#: pntemplates/news_block_storiesext_modify.htm:185
+msgid "Delay between scrolls and starting delay for marquee"
+msgstr "Durée de la pause entre chaque défilement"
+
+#: pntemplates/news_block_storiesext_modify.htm:187
+msgid "(Number of milliseconds)"
+msgstr "(Nombre de millisecondes)"
+
+#: pntemplates/news_block_storiesext_modify.htm:190
+msgid "Marquee scroller speed"
+msgstr "Vitesse de défilement"
+
+#: pntemplates/news_block_storiesext_modify.htm:192
+msgid "(Number from 1 to 10)"
+msgstr "(Nombre entre 1 et 10)"
+
+#: pntemplates/news_user_index.htm:17
+msgid "Filed under:"
+msgstr "Classée sous :"
+
+#: pntemplates/news_user_categorylist.htm:18
+#: pntemplates/news_user_archives.htm:26
+#, php-format
+msgid "%s article"
+msgid_plural "%s articles"
+msgstr[0] "%s nouvelle"
+msgstr[1] "%s nouvelles"
+
+#: pntemplates/news_user_categorylist.htm:20
+msgid "Currently no articles"
+msgstr "Aucune nouvelle publiée actuellement"
+
+#: pntemplates/news_user_categorylist.htm:41
+#: pntemplates/news_user_categorylist.htm:43
+#: pntemplates/news_user_categorylist.htm:84
+#: pntemplates/news_user_categorylist.htm:86
+msgid "RSS feed"
+msgstr "Flux RSS"
+
+#: pntemplates/news_user_categorylist.htm:47
+#: pntemplates/news_user_categorylist.htm:90
+msgid "Edit this category"
+msgstr "Modifier cette catégorie"
+
+#: pntemplates/news_user_categorylist.htm:59
+#: pntemplates/news_user_categorylist.htm:102
+#, php-format
+msgid "%s article."
+msgid_plural "%s articles."
+msgstr[0] "%s nouvelle."
+msgstr[1] "%s nouvelles."
+
+#: pntemplates/news_user_categorylist.htm:60
+#: pntemplates/news_user_categorylist.htm:103
+msgid "Total"
+msgstr "Total"
+
+#: pntemplates/news_user_categorylist.htm:61
+#: pntemplates/news_user_categorylist.htm:104
+#, php-format
+msgid "%s contributed by you."
+msgstr "%s dont vous êtes l'auteur."
+
+#: pntemplates/news_user_categorylist.htm:63
+#: pntemplates/news_user_categorylist.htm:106
+msgid "Currently no articles."
+msgstr "Aucune nouvelle publiée actuellement."
+
+#: pntemplates/news_block_big.htm:3
+msgid "Today's most-read article is:"
+msgstr "La nouvelle la plus lue aujourd'hui est :"
+
+#: pntemplates/news_admin_new.htm:21 pntemplates/news_user_new.htm:27
+#: pntemplates/news_user_new.htm:128 pntemplates/news_admin_modify.htm:25
+#: pntemplates/news_user_articlecontent.htm:5
+msgid "#{chars} characters out of 65,536"
+msgstr "#{chars} sur 65,536 caractères"
+
+#: pntemplates/news_admin_new.htm:24 pntemplates/news_admin_new.htm:285
+#: pntemplates/news_user_new.htm:30 pntemplates/news_user_new.htm:272
+#: pntemplates/news_admin_modify.htm:28 pntemplates/news_admin_modify.htm:294
+#: pntemplates/news_admin_modify.htm:296
+msgid "Publish"
+msgstr "Publier"
+
+#: pntemplates/news_admin_new.htm:25 pntemplates/news_user_new.htm:31
+#: pntemplates/news_admin_modify.htm:29
+msgid "Schedule"
+msgstr "Programmer"
+
+#: pntemplates/news_admin_new.htm:26 pntemplates/news_admin_new.htm:283
+#: pntemplates/news_admin_new.htm:284 pntemplates/news_user_new.htm:32
+#: pntemplates/news_user_new.htm:271 pntemplates/news_admin_modify.htm:30
+#: pntemplates/news_admin_modify.htm:288
+msgid "Save as draft"
+msgstr "Enregistrer en tant que brouillon"
+
+#: pntemplates/news_admin_new.htm:27 pntemplates/news_user_new.htm:33
+#: pntemplates/news_admin_modify.htm:31 pntemplates/news_admin_modify.htm:286
+msgid "Update draft"
+msgstr "Mettre à jour le brouillon"
+
+#: pntemplates/news_admin_new.htm:28 pntemplates/news_user_new.htm:34
+#: pntemplates/news_admin_modify.htm:32
+msgid "Saving draft..."
+msgstr "Brouillon en cours d'enregistrement..."
+
+#: pntemplates/news_admin_new.htm:29 pntemplates/news_user_new.htm:35
+msgid "<strong>Title is empty, draft not saved!</strong>"
+msgstr ""
+"<strong>Il n'y a pas de titre pour la nouvelle, le brouillon n'a pas été "
+"sauvegardé !</strong>"
+
+#: pntemplates/news_admin_new.htm:67 pntemplates/news_user_new.htm:69
+#: pntemplates/news_admin_modify.htm:65 pntemplates/news_ajax_modify.htm:23
+msgid "Title text"
+msgstr "Titre du texte"
+
+#: pntemplates/news_admin_new.htm:72
+msgid "Permalink"
+msgstr "Lien permanent"
+
+#: pntemplates/news_admin_new.htm:78 pntemplates/news_user_new.htm:75
+#: pntemplates/news_admin_modify.htm:70 pntemplates/news_ajax_modify.htm:28
+msgid "Permalink URL"
+msgstr "URL du lien permanent"
+
+#: pntemplates/news_admin_new.htm:80 pntemplates/news_user_new.htm:77
+#: pntemplates/news_admin_modify.htm:72 pntemplates/news_ajax_modify.htm:30
+msgid "(Generated automatically if left blank)"
+msgstr "(Généré automatiquement si ce champ est vide)"
+
+#: pntemplates/news_admin_new.htm:110 pntemplates/news_user_new.htm:104
+#: pntemplates/news_admin_modify.htm:103 pntemplates/news_ajax_modify.htm:61
+msgid "Article"
+msgstr "Nouvelle"
+
+#: pntemplates/news_admin_new.htm:113 pntemplates/news_user_new.htm:107
+#: pntemplates/news_admin_modify.htm:106 pntemplates/news_ajax_modify.htm:64
+msgid "Permitted HTML tags"
+msgstr "Balises HTML autorisées"
+
+#: pntemplates/news_admin_new.htm:116 pntemplates/news_user_new.htm:110
+#: pntemplates/news_admin_modify.htm:109 pntemplates/news_ajax_modify.htm:67
+msgid "Index page teaser text"
+msgstr "Texte de l'en-tête affiché sur la page principale"
+
+#: pntemplates/news_admin_new.htm:118 pntemplates/news_admin_new.htm:134
+#: pntemplates/news_admin_new.htm:152 pntemplates/news_user_new.htm:112
+#: pntemplates/news_user_new.htm:146 pntemplates/news_admin_modify.htm:111
+#: pntemplates/news_admin_modify.htm:127 pntemplates/news_admin_modify.htm:144
+#: pntemplates/news_ajax_modify.htm:69 pntemplates/news_ajax_modify.htm:85
+#: pntemplates/news_ajax_modify.htm:102
+msgid "(Limit: 65,536 characters)"
+msgstr "(Limite : 65.536 caractères)"
+
+#: pntemplates/news_admin_new.htm:123 pntemplates/news_user_new.htm:117
+#: pntemplates/news_admin_modify.htm:116 pntemplates/news_ajax_modify.htm:74
+msgid "Index page teaser format"
+msgstr "Format de l'en-tête affiché sur la page principale"
+
+#: pntemplates/news_admin_new.htm:125 pntemplates/news_admin_new.htm:141
+#: pntemplates/news_user_new.htm:119 pntemplates/news_user_new.htm:135
+#: pntemplates/news_admin_modify.htm:118 pntemplates/news_admin_modify.htm:134
+#: pntemplates/news_ajax_modify.htm:76 pntemplates/news_ajax_modify.htm:92
+msgid "Plain text"
+msgstr "Texte brut"
+
+#: pntemplates/news_admin_new.htm:126 pntemplates/news_admin_new.htm:142
+#: pntemplates/news_user_new.htm:120 pntemplates/news_user_new.htm:136
+#: pntemplates/news_admin_modify.htm:119 pntemplates/news_admin_modify.htm:135
+#: pntemplates/news_ajax_modify.htm:77 pntemplates/news_ajax_modify.htm:93
+msgid "Text formatted with mark-up language"
+msgstr "Texte formaté avec un langage de balisage"
+
+#: pntemplates/news_admin_new.htm:132 pntemplates/news_user_new.htm:126
+#: pntemplates/news_admin_modify.htm:125 pntemplates/news_ajax_modify.htm:83
+msgid "Article body text"
+msgstr "Texte du corps de la nouvelle"
+
+#: pntemplates/news_admin_new.htm:139 pntemplates/news_user_new.htm:133
+#: pntemplates/news_admin_modify.htm:132 pntemplates/news_ajax_modify.htm:90
+msgid "Article body format"
+msgstr "Format du corps de la nouvelle"
+
+#: pntemplates/news_admin_new.htm:149 pntemplates/news_user_new.htm:143
+#: pntemplates/news_admin_modify.htm:141 pntemplates/news_ajax_modify.htm:99
+msgid "Footnote"
+msgstr "Note de bas de page"
+
+#: pntemplates/news_admin_new.htm:160 pntemplates/news_user_new.htm:154
+#: pntemplates/news_admin_modify.htm:150 pntemplates/news_ajax_modify.htm:108
+msgid "Publishing options"
+msgstr "Options de publication"
+
+#: pntemplates/news_admin_new.htm:163 pntemplates/news_user_new.htm:157
+#: pntemplates/news_admin_modify.htm:153 pntemplates/news_ajax_modify.htm:111
+msgid "Publish on news index page"
+msgstr "Publier sur la page principale"
+
+#: pntemplates/news_admin_new.htm:173 pntemplates/news_user_new.htm:167
+#: pntemplates/news_admin_modify.htm:163 pntemplates/news_ajax_modify.htm:121
+msgid "No time limit"
+msgstr "Pas de limite de temps"
+
+#: pntemplates/news_admin_new.htm:179 pntemplates/news_user_new.htm:172
+#: pntemplates/news_admin_modify.htm:169 pntemplates/news_ajax_modify.htm:127
+msgid "Start date"
+msgstr "Date de début"
+
+#: pntemplates/news_admin_new.htm:185 pntemplates/news_user_new.htm:178
+#: pntemplates/news_admin_modify.htm:175 pntemplates/news_ajax_modify.htm:133
+msgid "No end date"
+msgstr "Pas de date de fin"
+
+#: pntemplates/news_admin_new.htm:190 pntemplates/news_user_new.htm:183
+#: pntemplates/news_admin_modify.htm:180 pntemplates/news_ajax_modify.htm:138
+msgid "End date"
+msgstr "Date de fin"
+
+#: pntemplates/news_admin_new.htm:198 pntemplates/news_user_new.htm:191
+#: pntemplates/news_admin_modify.htm:188 pntemplates/news_ajax_modify.htm:146
+msgid "Allow comments on this article"
+msgstr "Autoriser les commentaires pour cette nouvelle"
+
+#: pntemplates/news_admin_new.htm:226 pntemplates/news_user_new.htm:214
+#: pntemplates/news_admin_modify.htm:211 pntemplates/news_ajax_modify.htm:169
+msgid "Article attributes"
+msgstr "Attributs de la nouvelle"
+
+#: pntemplates/news_admin_new.htm:230 pntemplates/news_user_new.htm:218
+#: pntemplates/news_admin_modify.htm:215 pntemplates/news_ajax_modify.htm:173
+msgid "Create new attribute"
+msgstr "Créer un nouvel attribut"
+
+#: pntemplates/news_admin_new.htm:246 pntemplates/news_admin_new.htm:266
+#: pntemplates/news_user_new.htm:234 pntemplates/news_user_new.htm:254
+#: pntemplates/news_admin_modify.htm:231 pntemplates/news_admin_modify.htm:251
+#: pntemplates/news_ajax_modify.htm:189 pntemplates/news_ajax_modify.htm:209
+msgid "Delete this attribute"
+msgstr "Supprimer cet attribut"
+
+#: pntemplates/news_admin_new.htm:279 pntemplates/news_user_new.htm:267
+#: pntemplates/news_admin_modify.htm:281
+msgid "Preview"
+msgstr "Prévisualiser"
+
+#: pntemplates/news_admin_new.htm:279 pntemplates/news_user_new.htm:267
+#: pntemplates/news_admin_modify.htm:281
+msgid "Preview this article"
+msgstr "Prévisualiser cette nouvelle"
+
+#: pntemplates/news_admin_new.htm:281 pntemplates/news_user_new.htm:269
+#: pntemplates/news_admin_modify.htm:283
+msgid "Submit"
+msgstr "Soumettre"
+
+#: pntemplates/news_admin_new.htm:281 pntemplates/news_user_new.htm:269
+#: pntemplates/news_admin_modify.htm:283
+msgid "Submit this article"
+msgstr "Soumettre cette nouvelle"
+
+#: pntemplates/news_admin_new.htm:283 pntemplates/news_admin_new.htm:284
+#: pntemplates/news_user_new.htm:271 pntemplates/news_admin_modify.htm:288
+msgid "Save this article as draft"
+msgstr "Enregistrer cette nouvelle en tant que brouillon"
+
+#: pntemplates/news_admin_new.htm:285 pntemplates/news_user_new.htm:272
+#: pntemplates/news_admin_modify.htm:296
+msgid "Publish this article"
+msgstr "Publier cette nouvelle"
+
+#: pntemplates/news_admin_new.htm:287 pntemplates/news_user_new.htm:274
+#: pntemplates/news_admin_modify.htm:308 pntemplates/news_ajax_modify.htm:231
+#: pntemplates/news_admin_modifyconfig.htm:186
+#: pntemplates/news_admin_delete.htm:18
+msgid "Cancel"
+msgstr "Annuler"
+
+#: pntemplates/news_search_options.htm:5
+msgid "News articles"
+msgstr "Nouvelles"
+
+#: pntemplates/contenttype/newsarticles_view.html:15
+#, php-format
+msgid "Contributed by %s"
+msgstr "Dont l'auteur est %s"
+
+#: pntemplates/contenttype/newsarticles_view.html:16
+#: pntemplates/news_block_storiesext_row.htm:9
+#, php-format
+msgid "on %s"
+msgstr "le %s"
+
+#: pntemplates/contenttype/newsarticles_view.html:17
+#: pntemplates/news_block_storiesext_row.htm:10
+#, php-format
+msgid "%s pageview"
+msgid_plural "%s pageviews"
+msgstr[0] "%s lecture"
+msgstr[1] "%s lectures"
+
+#: pntemplates/contenttype/newsarticles_view.html:44
+msgid "No articles published recently."
+msgstr "Aucune nouvelle publiée récemment."
+
+#: pntemplates/contenttype/newsarticles_edit.html:6
+msgid "Widget title"
+msgstr "Titre du widget"
+
+#: pntemplates/contenttype/newsarticles_edit.html:23
+msgid "Display"
+msgstr "Afficher"
+
+#: pntemplates/contenttype/newsarticles_edit.html:28
+msgid "Number of articles"
+msgstr "Nombre de nouvelles"
+
+#: pntemplates/contenttype/newsarticles_edit.html:38
+msgid "Limit of backward reach"
+msgstr "Limite de caractères atteinte"
+
+#: pntemplates/contenttype/newsarticles_edit.html:49
+msgid "Maximum displayed length of title"
+msgstr "Longueur maximum du titre à afficher"
+
+#: pntemplates/contenttype/newsarticles_edit.html:59
+msgid "Information settings"
+msgstr "Paramètres des informations additionnelles"
+
+#: pntemplates/contenttype/newsarticles_edit.html:62
+msgid "Display contributor's name"
+msgstr "Afficher le nom de l'auteur"
+
+#: pntemplates/contenttype/newsarticles_edit.html:67
+msgid "Display article creation date"
+msgstr "Afficher la date de création de la nouvelle"
+
+#: pntemplates/contenttype/newsarticles_edit.html:74
+msgid ""
+"Refer to the <a href=\"http://www.php.net/manual/function.strftime.php"
+"\">'strftime' description</a> in the PHP documentation."
+msgstr ""
+"Se référer à <a href=\"http://www.php.net/manual/function.strftime.php\">la "
+"description 'strftime'</a> disponible dans la documentation de PHP."
+
+#: pntemplates/contenttype/newsarticles_edit.html:78
+msgid "Display number of pageviews"
+msgstr "Afficher le nombre de lectures"
+
+#: pntemplates/contenttype/newsarticles_edit.html:85
+msgid "Display number of comments"
+msgstr "Afficher le nombre de commentaires"
+
+#: pntemplates/contenttype/newsarticles_edit.html:91
+msgid "Separator character for article information"
+msgstr "Caractère de séparation utilisé pour les informations additionnelles"
+
+#: pntemplates/contenttype/newsarticles_edit.html:96
+msgid "Display 'Submit an article' link"
+msgstr "Afficher le lien 'Soumettre une nouvelle'"
+
+#: pntemplates/contenttype/newsarticles_edit.html:100
+msgid "Article settings"
+msgstr "Paramètres de la nouvelle"
+
+#: pntemplates/contenttype/newsarticles_edit.html:103
+msgid "Display an icon to highlight recent article titles"
+msgstr "Afficher un icône permettant de mettre en avant les nouvelles récentes"
+
+#: pntemplates/contenttype/newsarticles_edit.html:129
+msgid "Display article's index page teaser text"
+msgstr "Afficher l'en-tête des nouvelles sur la page principale"
+
+#: pntemplates/contenttype/newsarticles_edit.html:136
+msgid "Maximum displayed length of index page teaser text"
+msgstr "Longueur maximum de l'en-tête affiché sur la page principale"
+
+#: pntemplates/contenttype/newsarticles_edit.html:142
+msgid "Suffix appended to truncated index page teaser text"
+msgstr ""
+"Suffixe à ajouter lorsque l'en-tête situé sur la page principale est tronqué"
+
+#: pntemplates/news_user_archives.htm:16
+msgid "Expand all"
+msgstr "Tout développer"
+
+#: pntemplates/news_user_archives.htm:16
+msgid "Contract all"
+msgstr "Tout réduire"
+
+#: pntemplates/news_user_archives.htm:44
+#, php-format
+msgid "News archive for %1$s, %2$s"
+msgstr "Nouvelles archivées pour %1$s, %2$s"
+
+#: pntemplates/news_user_archives.htm:56
+msgid "Pageviews"
+msgstr "Lectures"
+
+#: pntemplates/news_admin_modify.htm:16 pntemplates/news_ajax_modify.htm:4
+msgid "Edit news article"
+msgstr "Modifier cette nouvelle"
+
+#: pntemplates/news_admin_modify.htm:96 pntemplates/news_ajax_modify.htm:54
+msgid "Language(s) for which article should be displayed"
+msgstr "Langue(s) pour laquelle/lesquelles la nouvelle doit être affichée"
+
+#: pntemplates/news_admin_modify.htm:261
+msgid "Meta data"
+msgstr "Donnée 'meta'"
+
+#: pntemplates/news_admin_modify.htm:267
+msgid "Last edited"
+msgstr "Dernière modification"
+
+#: pntemplates/news_admin_modify.htm:270
+#, php-format
+msgid "Approved by %s"
+msgstr "Approuvé par %s"
+
+#: pntemplates/news_admin_modify.htm:272
+#, php-format
+msgid "Status %s"
+msgstr "Statut %s"
+
+#: pntemplates/news_admin_modify.htm:273
+#, php-format
+msgid "Article ID: %s"
+msgstr "ID de la nouvelle : %s"
+
+#: pntemplates/news_admin_modify.htm:291 pntemplates/news_ajax_modify.htm:227
+msgid "Mark this article as pending"
+msgstr "Mettre cette nouvelle en attente de publication"
+
+#: pntemplates/news_admin_modify.htm:291
+msgid "Pending"
+msgstr "En attente"
+
+#: pntemplates/news_admin_modify.htm:294
+msgid "Approve and publish this article"
+msgstr "Approuver et publier cette nouvelle"
+
+#: pntemplates/news_admin_modify.htm:294
+msgid "Approve and Publish"
+msgstr "Approuver et publier"
+
+#: pntemplates/news_admin_modify.htm:294
+msgid "Approve and"
+msgstr "Approuver et"
+
+#: pntemplates/news_admin_modify.htm:299
+msgid "Archive this article"
+msgstr "Archiver cette nouvelle"
+
+#: pntemplates/news_admin_modify.htm:299
+msgid "Archive"
+msgstr "Archiver"
+
+#: pntemplates/news_admin_modify.htm:302
+msgid "Reject this article"
+msgstr "Refuser cette nouvelle"
+
+#: pntemplates/news_admin_modify.htm:302
+msgid "Reject"
+msgstr "Refuser"
+
+#: pntemplates/news_admin_modify.htm:306 pntemplates/news_ajax_modify.htm:229
+msgid "Delete this article"
+msgstr "Supprimer cette nouvelle"
+
+#: pntemplates/news_ajax_modify.htm:226
+#: pntemplates/news_admin_modifyconfig.htm:185
+msgid "Save"
+msgstr "Enregistrer"
+
+#: pntemplates/news_ajax_modify.htm:226
+msgid "Save your changes"
+msgstr "Enregistrer vos modifications."
+
+#: pntemplates/news_ajax_modify.htm:227
+msgid "Mark as pending"
+msgstr "Mettre en attente"
+
+#: pntemplates/news_block_storiesext_row.htm:4
+msgid "New"
+msgstr "Nouveau"
+
+#: pntemplates/news_block_storiesext_row.htm:8
+#, php-format
+msgid "by %s"
+msgstr "par %s"
+
+#: pntemplates/news_admin_modifyconfig.htm:10
+msgid ""
+"Notice: Your theme could be using template overrides for the News publisher "
+"module (in themes/YourThemeName/templates/modules/News/...). They might lack "
+"behind in functionality to the current default News publisher templates, "
+"please remove them or check them carefully against the default News "
+"publisher templates (in modules/News/pntemplates/...)."
+msgstr ""
+"Note : il est possible que votre thème utilise des templates personnalisés "
+"qui surpassent ceux du module 'News' (dans themes/VotreTheme/templates/"
+"modules/News/...). Ces templates personnalisés peuvent ne pas contenir les "
+"dernières fonctionnalités ajoutées au module 'News', c'est pour cette raison "
+"qu'il est recommandé de soit les supprimer, soit les mettre à jour pour "
+"qu'ils reflètent les nouveaux changements apportés aux templates du module "
+"(dans modules/News/pntemplates/...)."
+
+#: pntemplates/news_admin_modifyconfig.htm:18
+msgid "Enable article attributes"
+msgstr "Activer les attributs pour la nouvelle"
+
+#: pntemplates/news_admin_modifyconfig.htm:24
+msgid "Category settings"
+msgstr "Paramètres de la catégorie"
+
+#: pntemplates/news_admin_modifyconfig.htm:26
+msgid "Enable categorisation"
+msgstr "Activer la catégorisation"
+
+#: pntemplates/news_admin_modifyconfig.htm:30
+msgid "Category to use for legacy 'Topics' module template variables"
+msgstr ""
+"Catégorie à utiliser pour les variables des templates de l'ancien module "
+"'Topics'."
+
+#: pntemplates/news_admin_modifyconfig.htm:34
+msgid "Category image path (with trailing /)"
+msgstr "Chemin de l'image associée à la catégorie (avec un / (slash) final)"
+
+#: pntemplates/news_admin_modifyconfig.htm:36
+msgid ""
+"Notice: You can associate an image with each article category. The image "
+"must be located in the category image path entered in 'Category image path'. "
+"You must also go to the Categories manager in the site admin panel and then "
+"define the associated image. To do this, add a category attribute named "
+"'topic_image' to each article category, and then enter the associated image "
+"path and name."
+msgstr ""
+"Note : Vous pouvez associer une image avec chaque catégorie de nouvelles. "
+"L'image doit être située dans le répertoire des images des catégories que "
+"vous avez indiqué. Vous devez aussi vous rendre dans le gestionnaire des "
+"catégories dans le panneau d'administration et y définir l'image associée. "
+"Pour faire cela, ajouter un attribut appelé 'topic_image' à chaque catégorie "
+"de nouvelles et indiquez y le chemin de l'image associée ainsi que son nom."
+
+#: pntemplates/news_admin_modifyconfig.htm:41
+msgid "Display settings"
+msgstr "Paramètres d'affichage"
+
+#: pntemplates/news_admin_modifyconfig.htm:43
+msgid "Order article listings by"
+msgstr "Trier la liste des nouvelles par"
+
+#: pntemplates/news_admin_modifyconfig.htm:51
+msgid "Number of articles in news index page"
+msgstr "Nombre de nouvelles sur la page principale des nouvelles"
+
+#: pntemplates/news_admin_modifyconfig.htm:55
+msgid "Number of articles in archive page"
+msgstr "Nombre de nouvelles sur la page des archives"
+
+#: pntemplates/news_admin_modifyconfig.htm:59
+msgid "Check referer on printer-friendly pages"
+msgstr "Vérifier les référents sur les pages imprimables"
+
+#: pntemplates/news_admin_modifyconfig.htm:66
+msgid "Enable in-line editing of articles via JavaScript/Ajax controls"
+msgstr ""
+"Permettre la modification interactive des nouvelles grâce à JavaScript/Ajax"
+
+#: pntemplates/news_admin_modifyconfig.htm:70
+msgid ""
+"When Scribite! is being used for editing, the <strong>display</strong> "
+"function needs to be added to the list of module functions that Scribite! "
+"uses for the News Publisher module."
+msgstr ""
+"Lorsque Scribite! est utilisé pour la rédaction, la fonction "
+"<strong>d'affichage</ strong> doit être ajoutée à la liste des fonctions de "
+"module que Scribite! utilise pour le module 'Nouvelles'."
+
+#: pntemplates/news_admin_modifyconfig.htm:73
+msgid "Enable 'More articles in category' when displaying an article"
+msgstr ""
+"Activer 'Autres nouvelles dans cette catégorie' lorsqu'une nouvelle est "
+"affichée"
+
+#: pntemplates/news_admin_modifyconfig.htm:78
+msgid "Number of 'More articles in category' for every article"
+msgstr "Nombre de 'Autres nouvelles dans cette catégorie' pour chaque nouvelle"
+
+#: pntemplates/news_admin_modifyconfig.htm:80
+msgid ""
+"When displaying an article, a number of additional articletitles in the same "
+"category can be shown.<br />To show the additional articletitles for every "
+"article set the value above to a number larger than 0. When the value is set "
+"to 0, the number of additional articletitles can be set per article by means "
+"of the article attribute 'morearticlesincat'. You need to enable 'article "
+"attributes' yourself. <br />When the setting above or the article attribute "
+"is set to 0, no titles will be extracted from the database."
+msgstr ""
+"Lors de l'affichage d'une nouvelle, un certain nombre de titres de nouvelles "
+"qui font parties de la même catégorie peuvent être affichés.<br />Pour "
+"afficher ces titres de nouvelles supplémentaires pour chaque nouvelle, "
+"définissez la valeur ci-dessus à un nombre supérieur à 0. Lorsque la valeur "
+"est définie à 0, le nombre de titres de nouvelles supplémentaires peut être "
+"indiqué pour chaque nouvelle au moyen de l'attribut 'morearticlesincat'. "
+"Vous devez activer vous-même les 'attributs de l'article'.<br />Lorsque le "
+"paramètre ci-dessus ou l'attribut de la nouvelle est mis à 0, aucun titres "
+"ne sera extrait de la base de données."
+
+#: pntemplates/news_admin_modifyconfig.htm:84
+msgid "Notify moderators when a new pending article is submitted for review"
+msgstr ""
+"Avertir les modérateurs quand une nouvelle en attente de publication doit "
+"être vérifiée"
+
+#: pntemplates/news_admin_modifyconfig.htm:89
+msgid ""
+"Whenever a new article is submitted as Pending Review, the admin or a list "
+"of E-mail addresses can be informed of this event with a notification E-mail."
+msgstr ""
+"Chaque fois qu'une nouvelle est soumise et qu'elle est 'En attente de "
+"vérification', l'administrateur ainsi qu'une liste d'adresses e-mails "
+"peuvent en être informés via une notification envoyée par e-mail."
+
+#: pntemplates/news_admin_modifyconfig.htm:90
+msgid "From name (leave empty for sitename)"
+msgstr "Du nom (laisser vide pour avoir le nom du site)"
+
+#: pntemplates/news_admin_modifyconfig.htm:94
+msgid "From address (leave empty for admin E-mail address)"
+msgstr "De l'adresse (laisser vide pour avoir l'adresse e-mail de l'admin)"
+
+#: pntemplates/news_admin_modifyconfig.htm:98
+msgid "To name (leave empty for sitename)"
+msgstr "A nom (laisser vide pour avoir le nom du site)"
+
+#: pntemplates/news_admin_modifyconfig.htm:102
+msgid ""
+"To address (comma seperated list of E-Mail addresses, leave empty for admin "
+"E-mail address)"
+msgstr ""
+"A l'adresse (liste d'adresses e-mail séparées par des virgules, laisser vide "
+"pour avoir l'adresse e-mail de l'admin)"
+
+#: pntemplates/news_admin_modifyconfig.htm:106
+msgid "E-mail subject"
+msgstr "Sujet de l'e-mail"
+
+#: pntemplates/news_admin_modifyconfig.htm:110
+msgid "Send E-mail as HTML "
+msgstr "Envoyer l'e-mail au format HTML "
+
+#: pntemplates/news_admin_modifyconfig.htm:115
+msgid "Display a PDF link for the articles in the index page"
+msgstr ""
+"Afficher un lien vers une version PDF des nouvelles sur la page principale"
+
+#: pntemplates/news_admin_modifyconfig.htm:120
+msgid "Path to the TCPDF main file"
+msgstr "Chemin vers le fichier principal de TCPDF"
+
+#: pntemplates/news_admin_modifyconfig.htm:122
+msgid ""
+"The PDF link is based on <a href=\"http://www.tcpdf.org\">TCPDF</a>. You "
+"have to install the files yourself into the path specified above, when you "
+"want to use the pdflink. Download TCPDF from the link and place the 'tcpdf' "
+"folder into the correct location."
+msgstr ""
+"Les liens PDF sont basés sur <a href=\"http://www.tcpdf.org\">TCPDF</a>. "
+"Vous devez en installer les fichiers vous même dans le répertoire que vous "
+"avez indiqué ci-dessus, si vous désirez utiliser les liens PDF. Téléchargez "
+"TCPDF à partir de ce lien et placez le répertoire 'tcpdf' au bon endroit."
+
+#: pntemplates/news_admin_modifyconfig.htm:125
+msgid "TCPDF language file"
+msgstr "Fichier de traduction TCPDF"
+
+#: pntemplates/news_admin_modifyconfig.htm:129
+msgid "TCPDF Header logo image (absolute path or relative to tcpdf)"
+msgstr "Logo situé dans l'en-tête TCPDF (chemin absolu ou relatif à tcpdf)"
+
+#: pntemplates/news_admin_modifyconfig.htm:131
+msgid ""
+"Default Header logo is defined by TCPDF and in PathToTCPDF/images folder. "
+"tcpdf_logo.jpg with a width of 30"
+msgstr ""
+"Le logo par défaut pour l'en-tête est défini par TCPDF et est situé dans le "
+"répertoire CheminVersTCPDF. tcpdf_logo.jpg avec une largeur de 30"
+
+#: pntemplates/news_admin_modifyconfig.htm:134
+msgid "TCPDF header logo width in mm"
+msgstr "Largeur en millimètre du logo situé dans l'en-tête TCPDF"
+
+#: pntemplates/news_admin_modifyconfig.htm:143
+msgid "Permalinks"
+msgstr "Liens permanents"
+
+#: pntemplates/news_admin_modifyconfig.htm:144
+msgid ""
+"You can select a pre-defined permalink format, or define your custom format."
+msgstr ""
+"Vous pouvez sélectionner un format prédéfini de lien permanent ou définir un "
+"format personnalisé."
+
+#: pntemplates/news_admin_modifyconfig.htm:147
+msgid "Format based on date and name"
+msgstr "Format basé sur la date et le nom"
+
+#: pntemplates/news_admin_modifyconfig.htm:150
+msgid "your-article-title"
+msgstr "titre-de-la-nouvelle"
+
+#: pntemplates/news_admin_modifyconfig.htm:154
+msgid "Numeric format"
+msgstr "Format numérique"
+
+#: pntemplates/news_admin_modifyconfig.htm:161
+msgid "Custom format"
+msgstr "Format personnalisé"
+
+#: pntemplates/news_admin_modifyconfig.htm:165
+msgid "Custom format definition"
+msgstr "Définir le format personnalisé"
+
+#: pntemplates/news_admin_modifyconfig.htm:167
+msgid ""
+"Notice: A custom format definition must contain at least either '%storyid%' "
+"or '%storytitle%', in order to be able to identify the article."
+msgstr ""
+"Note : La définition du format personnalisé doit contenir au minimum soit '%"
+"storyid%' soit '%storytitle%', afin de pouvoir identifier l'article."
+
+#: pntemplates/news_admin_modifyconfig.htm:169
+msgid "Acceptable values for use in custom format definition:"
+msgstr ""
+"Valeurs acceptées qui peuvent être utilisées dans la définition d'un format "
+"personnalisé :"
+
+#: pntemplates/news_admin_modifyconfig.htm:171
+msgid "Year of publication (including century numerals)"
+msgstr "Année de publication (sous forme numérique et inclus le siècle)"
+
+#: pntemplates/news_admin_modifyconfig.htm:172
+msgid "Month of publication, as a number (ergo 1 to 12)"
+msgstr "Mois de publication, en tant que nombre (allant de 1 à 12)"
+
+#: pntemplates/news_admin_modifyconfig.htm:173
+msgid "Month of publication as a name (ergo January to December)"
+msgstr "Mois de publication, en tant que nom (allant de Janvier à Décembre)"
+
+#: pntemplates/news_admin_modifyconfig.htm:174
+msgid "Day"
+msgstr "Jour"
+
+#: pntemplates/news_admin_modifyconfig.htm:175
+msgid "Article title"
+msgstr "Titre de la nouvelle"
+
+#: pntemplates/news_admin_modifyconfig.htm:177
+msgid "Article category"
+msgstr "Catégorie de la nouvelle"
+
+#: pntemplates/news_admin_delete.htm:2
+msgid "Delete news article"
+msgstr "Supprimer la nouvelle"
+
+#: pntemplates/news_admin_delete.htm:8
+msgid "Do you really want to delete this news article?"
+msgstr "Confirmez-vous la suppression de cette nouvelle ?"
+
+#: pntemplates/news_admin_delete.htm:15
+msgid "Confirmation prompt"
+msgstr "Demande de confirmation"
+
+#~ msgid "Error! Could not retrieve any articles."
+#~ msgstr "Erreur ! Impossible de retrouver la moindre nouvelle."
+
+#~ msgid "Comments"
+#~ msgstr "Commentaires"
+
+#~ msgid "Read more"
+#~ msgstr "Lire la suite"
+
+#~ msgid "All news articles"
+#~ msgstr "Toutes les nouvelles"
+
+#~ msgid "Only articles set for index page listing"
+#~ msgstr "Uniquement les nouvelles qui sont publiées sur la page principale"
+
+#~ msgid "Only articles not set for index page listing"
+#~ msgstr ""
+#~ "Uniquement les nouvelles qui ne sont pas publiées sur la page principale"
+
+#~ msgid "Posted by %1$s on %2$s"
+#~ msgstr "Publiée par %1$s le %2$s"
+
+#~ msgid "Show only articles listed on news index page"
+#~ msgstr "Afficher uniquement les nouvelles publiées sur la page principale"
+
+#~ msgid "Show only articles not listed on news index page"
+#~ msgstr ""
+#~ "Afficher uniquement les nouvelles qui ne sont pas publiées sur la page "
+#~ "principale"
+
+#~ msgid "Order by"
+#~ msgstr "Trier par"
+
+#~ msgid "Suffix to add when truncating titles"
+#~ msgstr "Suffixe à ajouter lorsque le titre est tronqué"
+
+#~ msgid "1 comment"
+#~ msgstr "1 commentaire"
+
+#~ msgid "Articles sorted by"
+#~ msgstr "Nouvelles triées par"
+
+#~ msgid "Maximum displayed length of index page teaser(0 means no limit)"
+#~ msgstr ""
+#~ "Longueur maximum de l'en-tête affiché sur la page principale (0 = pas de "
+#~ "limite)"
+
+#~ msgid "(Number of characters; 0 for no limit"
+#~ msgstr "(Nombre de caractères; 0 = pas de limite"
+
+#~ msgid "Posted"
+#~ msgstr "Date de publication"
+
+#~ msgid "on %1$s by %2$s"
+#~ msgstr "le %1$s par %2$s"
+
+#~ msgid "Contributed by %s on %s"
+#~ msgstr "Dont l'auteur est %s, publiée le %s"
+
+#~ msgid "Last edited by %s on %s"
+#~ msgstr "Dernière modification par %s le %s"

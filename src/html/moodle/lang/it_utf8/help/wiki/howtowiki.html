@@ -1,0 +1,124 @@
+<h2>Come funziona Wiki</h2>
+<p>
+Il modulo wiki di Moodle è basato su
+<a href="http://erfurtwiki.sourceforge.net/?id=ErfurtWiki" target="_blank">ErfurtWiki</a>,
+che è una implementazione del sistema ipertestuale
+<a href="http://c2.com/cgi/wiki?WikiWikiWeb" target="_blank">WikiWikiWeb</a>.
+Permette la creazione e modifica collaborativa di pagina web. Ci sono alcuni punti importanti che devi sapere per utilizzare un Wiki. </p>
+<p>
+<ul>
+<li>Impara anzitutto come avviene la <a href="#createpages">Creazione di pagine</a></li>
+<li>Puoi cliccare sulla scheda "<strong>Modifica</strong>" per modificare il contenuto di una pagina, aggiungendo il tuo contributo </li>
+<li>Ricorda che tutte le modifiche vengono registrate in uno storico, accessibile dalla scheda "<strong>Storico</strong>"; ogni pagina può essere presente quindi in più versioni</li>
+<li>Le pagine possono essere formattate con il <a href="#wikimarkup">Wiki Markup</a> o con l'editor HTML standard (se per il wiki è stata impostata la modalità HTML)</li>
+<li>Puoi cercare un testo all'interno di tutte le pagine del Wiki tramite il pulsante in alto a sinistra "<strong>Cerca Wiki</strong>" </li>
+<li>Tramite il menu in alto "<strong>Scegli link Wiki</strong>" puoi passare ad alcune liste particolari: indice, pagine più recenti, più visitate, e così via</li>
+<li>E' possibile ottenere l'elenco delle pagine con riferimenti (link) a quella corrente tramite la scheda "<strong>Link</strong>" </li>
+</ul>
+</p>
+<p>
+<h3 id="createpages">Creazione di pagine:</h3>
+<p>Una pagina viene creata nominandola nel testo di una pagina esistente. Una pagina wiki è definita utilizzando <a href="#camelcase">CamelCase</a> o racchiudendo il nome tra parentesi quadre ( [] ).</p>
+<p>
+Per esempio:
+<ul>
+<li>MyWikiPage (Camel Case)</li>
+<li>[My Wiki Page] (chiuso tra parentesi quadre)</li>
+</ul></p>
+<p>
+Accanto al nome della pagina wiki, nominata in questo modo all'interno del testo, apparirà il simbolo '?' (nella scheda Visualizza). Cliccando su '?', si potrà creare la pagina. 
+Inserisci un testo, salvalo e avrai creato la nuova pagina wiki. Il simbolo '?' sparirà, e il nome della pagina risulterà collegato ad essa. </p>
+
+<h3 id="wikimarkup">Wiki Markup:</h3>
+<p>Se nelle opzioni del Wiki non è attivata la modalità HTML, è comunque possibile formattare le pagine facilmente, utilizzando il wiki markup.</p>
+
+<h4> Paragrafi</h4>
+  <ul type="circle">
+  <li> separa i paragrafi all'interno di un testo con righe vuote</li>
+  <li> usa tre caratteri percento  %%<em></em>% per forzare un salto riga</li>
+  <li> se precedi un testo con spazi o tabulazioni, questo sarà indentato </li>
+  </ul>
+<h4> !! Titoli </h4>
+  <ul type="circle">
+  <li> usa un punto esclamativo ! all'inizio di una riga per creare un titolo di dimensioni piccole</li>
+  <li> !! per titolo di dimensioni medie </li>
+  <li> !!! per titolo di dimensioni grandi </li>
+  </ul>
+<h4> Stile del testo</h4>
+  <ul type="circle">
+  <li> se si vuole <em>evidenziare un testo </em>è possibile racchiuderlo tra coppie di due, tre o cinque apici; con due apici (es. ''corsivo'') apparirà in <em>corsivo</em>, con tre apici (es. '''grassetto''') apparirà in <strong>grassetto</strong>, con cinque apici (es. '''''corsivo grassetto''''') apparirà in <strong><em>corsivo grassetto</em></strong>. </li>
+  <li>per ottenere un testo in <strong>grassetto</strong> è anche possibile racchiuderlo tra doppi simboli ## oppure __ (es. ##grassetto## , __grassetto__) </li>
+  <li> un tipo di carattere <tt>typewrite</tt> (monospaziato) apparirà se si chiude il testo tra due coppie di segni uguale == (es. ==Parola==) </li>
+  </ul>
+<h4> Elenchi</h4>
+  <p> Inizia la riga con un asterisco * per creare un elenco puntato, con un cancelletto # per un elenco numerato. </p>
+  <p>Possono essere creati anche sotto-elenchi, utilizzando sequenze di * e #;  tutti i successivi elementi di una stessa lista devono iniziare con lo stesso  mix di * e #.</p>
+  <p>Ad esempio:</p>
+  <ul type="circle">
+    <li>* Capitolo 1
+      <ol>
+        <li> *# Cap. 1 Primo argomento</li>
+        <li> *# Cap. 1 Secondo argomento</li>
+      </ol>
+    </li>
+    <li> * Capitolo 2
+      <ol>
+        <li> *# Cap. 2 Primo argomento </li>
+      </ol>
+    </li>
+</ul>
+  <h4> Link ipertestuali</h4>
+  <ul type="circle">
+  <li> per creare un link ad un'altra pagina del wiki, inserisci una WikiWord <a href="#camelcase">CamelCase</a>, oppure racchiudi alcune parole <b>tra parentesi quadre</b> (es. [Pagina 2]) </li>
+  <li> ogni indirizzo internet valido (che inizi con http://), come http://www.example.com/ all'interno del testo sarà reso cliccabile automaticamente</li>
+  <li> per creare link personalizzati racchiudi un indirizzo www o un WikiLink tra parentesi quadre e assegnagli un titolo usando le virgolette o il carattere | 
+    :
+    <ul type="circle">
+    <li> [titolo | http://example.com]</li>
+    <li> [WikiWord "titolo"] o ["titolo" WikiLink]    </li>
+    </ul>
+  </li>
+  <li> se non vuoi che questi link vengano creati in automatico, anteponi ad essi una una tilde:
+    <ul type="circle">
+    <li> ~NoHyperLink</li>
+    <li>~[no hyperlink]</li>
+    </ul>
+  </li>
+  </ul>
+  <h4> Tabelle con |</h4>
+<table cellpadding="2" border="1" cellspacing="0">
+
+<tr>
+
+<td> mettere </td>
+<td> cose col </td>
+<td> carattere dash </td>
+
+</tr><tr>
+
+<td> per costruire una </td>
+<td> struttura a tabella </td>
+
+</tr><tr>
+
+<td> normalmente i browser </td>
+<td> lasciano anche </td>
+<td> celle vuote </td>
+
+</tr>
+</table>
+
+<p>Metti sempre una riga vuota prima e dopo una tabella, in modo da distanziarla dal testo circostante.
+</p>
+  <h4> Immagini</h4>
+  <ul type="circle">
+  <li> per inserire un'immagine in una pagina, racchiudi tra parentesi quadre il suo indirizzo www assoluto, ad esempio [http://www.example.com/pics/image.png] </li>
+  <li> in alternativa si può usare la funzione di upload (se abilitata) </li>
+  </ul>
+<h4>Altre informazioni</h4>
+Esistono altre possibili funzioni nel linguaggio mark-up di Wiki. Consulta <a href="http://erfurtwiki.sourceforge.net" target="_new">Erfurt Wiki Homepage</a> per maggiori informazioni.
+
+<h5 id="camelcase">Camel Case:</h5>
+<p>La dizione CamelCase consiste nel scrivere più parole, collegate insieme senza spazi, separate dalle iniziali maiuscole. Ad esempio: PrimaPagina, PaginaDiProva. Il nome deriva dal fatto che le lettere maiuscole e minuscole alternate appaiono come le gobbe di un cammello.</p>
+<p>Questo modo di collegare le parole è spesso chiamato anche BumpyText.</p>
+<p>Questo modo di scrivere, sebbene non amato dai puristi della lingua, è molto comune nel mondo informatico e ben noto alla maggior parte dei programmatori.</p>

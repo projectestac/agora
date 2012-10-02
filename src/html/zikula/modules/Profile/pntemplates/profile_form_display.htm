@@ -1,0 +1,8 @@
+<!--[*  $Id: profile_form_display.htm 69 2009-12-05 10:28:06Z mateo $  *]-->
+
+<!--[foreach from=$duditems item='item']-->
+<tr class="<!--[cycle values='z-odd,z-even']-->">
+    <td><!--[gt text=$item.prop_label domain='module_profile']--></td>
+    <td><!--[duditemdisplay item=$item userinfo=$userinfo]--></td>
+</tr>
+<!--[/foreach]-->

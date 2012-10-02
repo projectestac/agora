@@ -1,0 +1,128 @@
+Content (C) 2007-2010, Content Development Team
+---------------------------
+http://code.zikula.org/content
+
+Version 3.1.0
+-------------
+* IMPORTANT       - Security schema has now been changed to lowercase "content::"  !!!
+                  - Minimum requirements: Core 1.2.1
+
+* Add #15         - MultiHook Needle support
+* Add #57         - Support for Google Sitemaps
+* Add #51         - Vimeo contenttype
+* Add #86         - More css-classes for each contenttype
+* Add #68         - Add second and third level of Sub-Headings
+* Fix #78         - Converted module to gettext
+* Fix #49         - Fixed bug in paragraph-modifier
+* Fix #76         - Drag&Drop not working in MSIE
+* Fix #65         - Missed translation
+* Fix #24/#60     - Module not showing in admin-panel
+* Fix #53/#61/#72 - Removed SimplePie and backend errors
+* Fix #85         - Replaced lightboxXL and greybox with Lightwindow
+* Fix #77         - Page title gets sanitized twice
+* Fix #80         - If short URL suffix was empty, short URL didn't work
+* Fix #71         - Problems with directory-based shorturls
+* Fix #59         - Caching bug in menu blocks
+* Fix #87         - Removed Circavie.com plugin
+* Fix #89         - wrong slideshare regex
+* Fix #92         - Not possible to restore old revisions and actions not translated
+
+UPGRADE INSTRUCTIONS:
+  If you want to use the new additional CSS classes, you must add them
+  manually into the module settings. Current module defaults:
+  ---------------------------
+  greybox|Grey box
+  redbox|Red box
+  yellowbox|Yellow box
+  greenbox|Green box
+  ---------------------------
+
+Version 3.0.0
+-------------
+* Added versioning with complete version history
+* Added check for BBCode in text plugin
+* Added plugin overview in configuration
+* Added 1 column layout without header area
+* Added Circavie.com plugin
+* Works with Scribite 3.x
+* Hiding translation links to avoid translating from language X to X
+* Added module selector to module content plugin
+* Add #40 - Added max. no. of items for RSS plugins
+* Add #5  - Display page language
+* Add #37 - Add link to admin settings
+* Fix #18 - Drop history table when module deleted
+* Fix #42 - menu block must ignore "invisible" pages
+
+UPGRADE INSTRUCTIONS:
+  Make sure current language is the same language as your content items are
+  written in. During upgrade all content items will be associated with the
+  current language (all translations are kept intact).
+
+
+Version 2.1.0
+-------------
+* Now possible to collapse the page tree while editing
+* Now possible to collapse the page tree while editing
+* Added left/right positioning af content elements
+* Added CSS styling of content elements through classes defined by admin
+* Now using dropdown for content type selection
+* Now possible to select HTML editor in Scribite (still defaults to FCKEditor)
+* Added: menu block caching
+* Added: improved youtube display
+* Added: check for multilinguality setting (Translation functions won't be displayed if site is set to only one language)
+* Added: [#13171] pagesetter publist plugin
+* Added: [#15546] In "Content Menu Block" add a Class descriptor
+
+
+Version 2.0.1
+-------------
+* Bugfix: [#15977] Category registry cannot be read after editing
+* Bugfix: [#15976] Drag&Drop not working 
+* Bugfix: error in general permission check
+* Bugfix: did not redirect after save of configuration
+
+
+Version 2.0.0
+-------------
+* Added: [#15297] Plain text
+* Added: [#13187] Multilanguage
+* Added: [#13181] Short URLs
+* Added: [#15256] change layout -> overview
+* Added: [#15254] missing visual feedback 
+* Added: [#15479] Layout plugin management
+  (permission control on both layout and content plugins)
+* Added: [#15477] Edit mode: enable/disable display of edit-this links
+* Redesigned main editing page list
+* Changed URLs to various lists. Now we have
+  - func=main (sitemap)
+  - func=list (simple bulleted list of pages)
+  - func=categories (list of categories with links to simple list)
+  - func=extlist (extended list display the header content area of each page)
+  - func=sitemap (nested bulleted list of all pages)
+* Added German, Spanish and French translation
+* Adjusted permission control. 
+  All rules are now uppercase "C" in "Content"
+* Changed copyright notice to cover whole team
+* Bugfix: could not save secondary categories
+* Bugfix: [#15395] Page title E_ALL issue
+* Bugfix: [#15370] Sort order doesn't work
+* Bugfix: [#15295] unclosed DIV
+* Bugfix: [#15483] "previous" jumps to wrong place
+* Bugfix: [#15496] Formatting Correction in "Add new content to page"
+* Bugfix: [#15322] Admin display messed with 3 column theme
+* Bugfix: [#15298] Plain text causes PN to hang
+* Bugfix: [#15350] Scribite and content make two editors in one time
+* Bugfix: [#15466] Flickr Field can't be empty
+* Bugfix: [#15399] AJAX shift in Pager Edit
+* Bugfix: [#15497] Error after drag&drop
+* Bugfix: [#15716] Blank index.html in folders
+* Bugfix: [#15727] Windows image database file in SVN
+* Bugfix: [#15373] MySQL 5 Strict mode error when creating new content
+* Bugfix: [#15761] securityschema
+* Bugfix: [#15917] CSS problem with float/clear
+
+
+Version 1.1.0
+-------------
+* Added Danish translation
+* Bugfix: [#15255] Can't preview or view content

@@ -1,0 +1,26 @@
+<h1>Crédito extra</h1>
+<h2>Para Agregación de Suma de Calificaciones</h2>
+
+<p>Cuando la estrategia de agregación de "suma de las calificaciones" se utiliza, un ítem de calificación puede actuar como crédito Extra para la categoría. Esto significa que la calificación máxima del ítem no será agregada a la calificación máxima total de la categoría, pero la calificación del item si lo será. Lo que sigue es un ejemplo:
+
+<ul>
+    <li>Ítem 1 es calificado entre 0-100</li>
+    <li>Ítem 2 es calificado entre 0-75</li>
+    <li>El Ítem 1 tiene la casilla de verificación "Actuar como crédito extra" marcada, el Ítem 2 no la tiene.</li>
+    <li>Ambos ítems pertenecen a la Categoría 1, que tiene "Suma de calificaciones" como su estrategia de agregación.</li>
+    <li>La categoría 1 será calificada de forma total entre 0-75</li>
+    <li>Un estudiante obtiene una calificación de 20 en el Ítem 1 y 70 en el Ítem 2</li>
+    <li>La calificación total del estudiante para la Categoría 1 será de 75/75 (aunque 20+70 = 90 pero como el Ítem 1 sólo actúa como crédito extra, hace que el total total de la categoría llegue al máximo solamente)</li>
+</ul>
+
+<h2>Para Media de Calificaciones (con Créditos Extra)</h2>
+<p>Un valor mayor a 0 tratará a este ítem de calificación como de crédito Extra durante la agregación. El número es un factor por el cual el valor de la calificación se multiplicará antes de que se agregue a la suma de todas las calificaciones, pero el ítem mismo no será contabilizado en la división. Por ejemplo:</p>
+
+<ul>
+    <li>Ítem 1 será calificado entre 0-100 y su valor de "Crédito Extra esta fijado a 2</li>
+    <li>Ítem 2 será calificado entre 0-100 y su valor de "Crédito Extra es dejado en 0.0000</li>
+    <li>Ítem 3 será calificado entre 0-100 y su valor de "Crédito Extra es dejado en 0.0000</li>
+    <li>Todos los 3 ítems pertenecen a la Categoría 1, que tiene "Media de calificaciones (con créditos extra)" como su estrategia de agregación</li>
+    <li>Un estudiante es calificado con 20 en el Ítem 1, 40 en el Ítem 2 y 70 en el Ítem 3</li>
+    <li>La calificación total del estudiante para la Categoría 1 será de 95/100 debido a que 20*2 + (40 + 70)/2 = 95</li>
+</ul>

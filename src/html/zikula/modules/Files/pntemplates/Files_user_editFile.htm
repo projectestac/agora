@@ -1,0 +1,39 @@
+<!--[* $Id: Files_user_deleteListFile.htm 120 2009-12-11 15:48:17Z herr.vorragend $ *]-->
+<!--[if $external eq 1]-->
+<!--[include file="Files_external_header.htm"]-->
+<!--[/if]-->
+
+<div class="files_container">
+    <div class="z-clearfix">
+        <div class="userpageicon"><!--[pnimg modname='core' src='xedit.gif' set='icons/large']--></div>
+        <h2><!--[gt text="Edit file"]--></h2>
+    </div>
+
+    <form class="z-form" action="<!--[pnmodurl modname="Files" func="editFile"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="Files"]-->" />
+            <input type="hidden" name="folder" value="<!--[$folder]-->" />
+            <input type="hidden" name="confirm" value="1" />
+            <input type="hidden" name="external" value="<!--[$external]-->" />
+            <input type="hidden" name="fileName" value="<!--[$fileName]-->" />
+            <fieldset>
+                <legend><!--[gt text="%s/%s" tag1=$folder tag2=$fileName]--></legend>
+                <div>
+                   <textarea name="fileContent" class="editTextArea"><!--[$fileContent]--></textarea>
+                </div>
+                <div class="z-formbuttons">
+                    <!--[pnbutton src='button_ok.gif' set='icons/small' altml='true' titleml='true' __alt="Accept" __title="Accept"]-->
+                    <!--[if $external eq 1]--> 
+                    <a href="<!--[pnmodurl fqurl="true" modname="Files" type="external" func="getFiles" folder=$folder|replace:'/':'|' hook=$hook]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small' altml='true' titleml='true' __alt="Cancel" __title="Cancel"]--></a>
+                    <!--[else]-->
+                    <a href="<!--[pnmodurl modname="Files" func="main" folder=$folder|replace:'/':'|']-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small' altml='true' titleml='true' __alt="Cancel" __title="Cancel"]--></a>
+                    <!--[/if]-->
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>
+
+<!--[if $external eq 1]-->
+<!--[include file="Files_external_footer.htm"]-->
+<!--[/if]-->

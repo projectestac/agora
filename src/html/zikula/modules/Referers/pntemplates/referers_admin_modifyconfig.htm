@@ -1,0 +1,29 @@
+<!--[*  $Id: referers_admin_modifyconfig.htm 9 2008-11-05 21:42:16Z Guite $  *]-->
+<!--[include file=referers_admin_menu.htm]-->
+<div class="pn-admincontainer">
+<div class="pn-adminpageicon"><!--[pnimg modname='core' src='configure.gif' set='icons/large' __alt='Settings' ]--></div>
+<h2><!--[gt text="Settings"]--></h2>
+<form class="pn-adminform" action="<!--[pnmodurl modname=Referers type=admin func=updateconfig]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div>
+  <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module=Referers]-->" />
+  <div class="pn-adminformrow">
+    <label for="referers_httpref"><!--[gt text="Activate HTTP referers?"]--></label>
+      <input type="radio" name="httpref" value="1"<!--[if $httpref eq 1]--> checked="checked"<!--[/if]--> />&nbsp;<!--[gt text="Yes"]-->&nbsp;
+      <input type="radio" name="httpref" value="0"<!--[if $httpref eq 0]--> checked="checked"<!--[/if]--> />&nbsp;<!--[gt text="No"]-->
+  </div>
+  <div class="pn-adminformrow">
+    <label for="referers_itemsperpage"><!--[gt text="Items per page"]--></label>
+    <input id="referers_itemsperpage" type="text" name="itemsperpage" size="3" value="<!--[$itemsperpage|pnvarprepfordisplay]-->" />
+  </div>
+  <div class="pn-adminformrow">
+    <label for="referers_httprefexcluded"><!--[gt text="Exclusions (separated by spaces)"]--></label>
+    <textarea id="referers_httprefexcluded" name="httprefexcluded" cols="40" rows="10"><!--[$httprefexcluded|pnvarprepfordisplay]--></textarea>
+  </div>
+  <!--[pnmodcallhooks hookobject=module hookaction=modifyconfig module=Referers]-->
+  <div class="pn-adminformrow pn-adminformbuttons">
+    <!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Update Configuration" __title="Update Configuration"]-->
+    <a href="<!--[pnmodurl modname=Referers type=admin func=view]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+  </div>
+</div>
+</form>
+</div>

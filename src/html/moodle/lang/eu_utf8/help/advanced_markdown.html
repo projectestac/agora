@@ -1,0 +1,156 @@
+<h2>Markdown-en goi mailako erabilera egiten</h2>
+
+<div id="Main">
+
+<div class="article">
+    <p>Atal honek 'Testua Markdownen bidez hobetzen' ataleko informazioa sakontzen 
+      du, behar dutenek Markdowni ahalik eta etekin handia atera diezaioten. Zure 
+      kasua ez bada, edobeherago erakusten diren formatoak behar ez badituzu, 
+      atal hau jauzi eta behar izanez gero beranduago itzul zaitezke.</p>
+
+<ul>
+
+      <li><a href="#linebreaks">Lerro-jauziak</a></li>
+      <li><a href="#hr">Erregela horizontalak</a></li>
+      <li><a href="#image_links">Irudi lotuak</a></li>
+      <li><a href="#embedded">HTML habitua</a></li>
+      <li><a href="#preformatted">Aurrez formateaturiko kodea</a></li>
+      <li><a href="#special_char">Karaktere berezien erabilera</a></li>
+      <li><a href="#further">Irakurgai gehiago</a></li>
+</ul>
+
+    <h2><a id="linebreaks">Lerro-jauziak</a></h2>
+
+    <p>Testu batzuetan, olerkietan adibidez, sarritan lerro-jauziak erantsi behar 
+      izaten ditugu. Itzulera-tekla sakatzeak ez du nahi den ondorioa izango lerroak 
+      paragrafoak osatzen lotzea lehenetsita baitago.</p>
+
+    <p><strong><code>Grekoak dioenez Kratilon,<br />
+      Izena gauzaren arketipoa bada,<br />
+      'Arrosa'ren hizkietan arrosa ere da,<br />
+      Eta Nilo osoa 'Nilon'.</code></strong></p>
+
+    <p>Aurreko lerroetan ENTER tekla lerro-jauziak txertatzeko erabiltzen bada, 
+      ondokoa gertatuko da, lerro-jauziak ez agertzea alegia:</p>
+
+    <p><strong><code>Grekoak dioenez Kratilon</code></strong>, <strong><code>Izena 
+      gauzaren arketipoa bada</code></strong>, <strong><code>'Arrosa'ren hizkietan 
+      arrosa ere da</code></strong>, <strong><code>Eta Nilo osoa 'Nilon'</code></strong>.</p>
+
+    <p>Baina lerro bakoitzaren bukaeran bi espazio sartuz gero, lerro-jauzia bortxatuko 
+      dugu:</p>
+    <p><strong><code>Grekoak dioenez Kratilon,<br />
+      Izena gauzaren arketipoa bada,<br />
+      'Arrosa'ren hizkietan arrosa ere da,<br />
+      Eta Nilo osoa 'Nilon'.</code></strong></p>
+    <h2><a id="hr">Erregela horizontalak</a></h2>
+
+    <p>Erregela horizontalak 3 asterisko (*), marratxo (-), beheko marra (_) edo 
+      gehiago idatziz sor ditzakegu.</p>
+
+    <p>Honela:</p>
+
+<p><strong><code>***</code></strong></p>
+
+    <p>baina espazio edo karaktere gehiago erants dezakezu edizio-leihoan ataleko 
+      jauzia lortzeko, adibidez:</p>
+
+<p><strong><code>* * * * *</code></strong></p>
+
+<p><strong><code>-------------------------</code></strong></p>
+
+<p><strong><code>_ _ _ _ _</code></strong></p>
+
+    <p>Metodo horiek guztiak emaitza bera ematen dute:</p>
+
+<hr />
+
+    <h2><a id="image_links">Irudi lotuak</a></h2>
+
+    <p>"Testua Markdownen bidez hobetu" dokumentuak web estekak sortzeko eta irudiak 
+      txertatzeko argibideak ematen ditu. Agian ez da nabaria nahastu daitezkeela 
+      gainean klikatzeko estekak ere badiren irudiak sortzeko.</p>
+
+    <p><strong><code>[google bilaketa-motorea][google]</code></strong></p>
+
+    <p><strong><code>![googleren logoa][logo]</code></strong></p>
+
+    <p>Lerro honen gainean web esteka eta irudi estandarra agertzen dira. Irudia 
+      lotura-testuak egon beharko lukeen lekuan jarrita ondokoa lortzen da:</p>
+
+<p><strong><code>[![the google logo][logo]][google]</code></strong></p>
+    <p><strong><code>[![googleren logoa][logo]][google]</code></strong></p>
+
+    <p>Goiko lerroa eta estekaren deinizio hauek dokumentuan nonbait nahasten 
+      dira irudiaren esteka hau sortzeko (eta mezu bat agertzeko sagua gainetik 
+      pasatzean):</p>
+
+    <p><strong><code>[logo]: http://www.google.com/images/logo.gif</code></strong><br />
+      <strong><code>[google]: http://www.google.com/ "Google.com bisitatzeko hemen 
+      klik egin"</code></strong></p>
+
+<p><a href="http://www.google.com/" title="pulse aquí para visitar Google.com"><img src="http://www.google.com/images/logo.gif" alt="el logo de google" /></a></p>
+
+    <p>Teknika hau erabil liteke, esaterako, irudi txiki lotuekin beraietatik 
+      dagozkien irudi handiagoak behera kargatzeko.</p>
+    <h2><a id="embedded">HTML habitua</a></h2>
+
+    <p>HTMLekin trebea baldin bazara, orduan Markdownek ez dizu hain kontrol handia 
+      emango. Zorionez, Markdown ere horretarako pentsatua dagoenez, HTML habitzen 
+      ahaldituko dizu Markdownen formateaturiko testuaren barruan.</p>
+
+    <p><strong><code>* &lt;small&gt;testu txikia&lt;/small&gt;</code></strong><br />
+      <strong><code>* &lt;big&gt;testu handia&lt;/big&gt;</code></strong> </p>
+
+<ul>
+      <li><small>testu txikia</small> </li>
+      <li><big>tetu handia</big> </li>
+</ul>
+
+    <p>HTML marka Markdown kodearekin lotzen da puntuz zehaztutako zerrendetan. 
+      Horrela ez duzu HTML testu konplexurik idatzi beharko paragrafoak edo zerrendak 
+      lortzeko, baina nahi duzun unean HTMLen potentzia osoa ere erabiliko duzu.</p>
+    <h2><a id="preformatted">HTML edo aurrez formateaturiko testua</a></h2>
+
+    <p>HTMLa sartu duzun moduan agertzea nahi baduzu, eta ez HTML moduan prozesatua, 
+      lerroa lau espazioz has dezakezu.</p>
+
+    <pre><code>&lt;p&gt;&lt;b&gt;HTML&lt;/b&gt; paragrafoa kode moduan erakutsia&lt;/p&gt;
+</code></pre>
+
+    <p>Hau ere erabil daiteke ordenadore kodea erakusteko.</p>
+
+    <pre><code>inprimatu "Argudioak agindu-lerrotik: (@ARGV)\n";
+</code></pre>
+
+    <p>Formateatua askotan ordenadore-aplikazioen zerrendak egiteko sarritan erabiltzen 
+      denez, Markdown lerro hauetan indargabetzen da:</p>
+
+    <pre><code>Normalean hitz hau **bold** izango litzateke.
+</code></pre>
+
+    <p>Karaktere batzuk testu arruntean sartzeko hurrengo atala ikusi.</p>
+    <h2><a id="special_char">Karaktere berezien erabilera</a></h2>
+
+    <p>Markdown formateatuak aktibatzen dituen karaktere berezietako bat prozesatu 
+      gabe erakutsi nahi baduzu, alderantzizko marra idatzi (\). Honi karakterearen 
+      'ihesa' deitu izan zaio. Alderantzizko marra ez da emaitzan ikusten, bai 
+      ordea jarraitzen dion karakterea idatzi den bezalaxe.<strong><code></code></strong></p>
+
+    <p>Horrela sortzen dira</p>
+
+    <p>*enfasirik gabeko asteriskoak*</p>
+
+    <p>honen ordez</p>
+
+    <p><strong><code>*asteriskorik gabeko enfasia*</code></strong></p>
+
+    <p>eta emaitza zera da</p>
+
+    <p><em>enfasia, asteriskorik gabe</em></p>
+    <h2><a id="further">Irakurgai gehiago</a></h2>
+
+    <p>Markdown ez du soilik Moodlek erabiltzen, baizik eta web argitalpen tresna 
+      gero eta gehiagok erabiltzen dute.</p>
+    <p> Informazio gehiagorako: <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a></p>
+</div></div>

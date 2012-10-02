@@ -1,0 +1,46 @@
+<h2>Nutzer in Datei hochladen (bulk upload)</h2>
+
+<p>Beachten Sie bitte: <strong>Es ist normalerweise nicht erforderlich, Nutzerdaten in großen Mengen nach Moodle zu importieren.</strong> Um den eigenen Arbeitsaufwand zu begrenzen, sollten andere Formen der Bestätigung von Teilnehmern geprüft werden, die keine manuelle Erfassung erfordern. Es gibt die Möglichkeit, die Verbindung zu bestehenden externen Datenbanken oder die
+Einrichtung von Zugängen durch die Teilnehmer selbst zu nutzen. Weitere Hinweise dazu finden Sie im Bereich Anmeldung /Authentifizierung im Administrationsmenü.</p>
+
+<h3>Felder in der Importdatei</h3>
+<p>Wenn Sie dennoch eine große Zahl von Nutzer/innen aus einer Textdatei importieren wollen, müssen Sie die Textdatei folgendermaßen aufbauen:</p>
+<ul>
+<li>Jede Zeile der Datei enthält genau einen einzelnen Datensatz</li>
+<li>Jeder Datensatz besteht aus einer Reihe von Daten, die durch Kommas getrennt sind.</li>
+<li>Der erste Datensatz der Datei (die erste Zeile in der Datei) enthält eine Liste der Feldnamen. Diese Zeile legt das Format der restlichen Zeilen fest. Die Feldnamen entsprechen den Datenfelder in der Nutzertabelle der Moodle-Datenbank.
+
+<p><strong>Erforderliche Datenfeldnamen:</strong> Diese Datenfeldnamen müssen in der ersten Zeile eingetragen und für jede/n Nutzer/in definiert werden</p>
+
+<p><code class="example1">username, password, firstname, lastname, email</code></p>
+
+<p><strong>Voreingestellte Datenfeldnamen:</strong> Diese sind optional - wenn sie nicht im ersten Datensatz (erste Zeile der Importdatei) eingebunden werden, werden für diese Datenfelder Standardwerte verwendet, die die Moodle Adminstration bei der Konfiguration der Website festlegt.die StandardWerte für diese Felder vom Basiseintrag übernommen, die bei jeder
+Neuanmeldung voreingestellt sind. (Der Spracheintrag für Deutsch lautet 'de'. Der Kursname 'course' ist die Kurzbezeichnung für den Kurs. Wird dieser angegeben, wird der/die Teilnehmer/in automatisch in den Kurs eingetragen. Die Nummerierung der Gruppen entspricht der Nummerierung der Kurse, also Kurs1 -> Gruppe1.)</p>
+
+<p><code class="example1">institution, department, city, country, lang, auth, timezone</code></p>
+
+<p><strong>Optionale Datenfeldnamen:</strong> Jeder dieser Einträge ist völlig freigestellt. Als Kursname (course1,2, etc) werden die Kurzbezeichnungen der Kurse genutzt - wenn die Kurse angelegt sind, werden die Teilnehmer dann in den Kursen automatisch angemeldet.</p>
+
+<p><code class="example1">idnumber, icq, phone1, phone2, address, url, description, mailformat, maildisplay, htmleditor, autosubscribe, course1, course2, course3, course4, course5, group1, group2, group3, group4, group5, type1, type2, type3, type4, type5, role1, role2, role3, role4, role5, emailstop</code></p>
+</li>
+
+<li>Wenn Sie Kommas in den Datenfeldern verwenden müssen, nutzen Sie die Eingabe &amp;#44; - das Skript wird diese dann automatisch in ein Komma umwandeln.</li>
+<li>Für Boolesche Felder verwenden Sie 0 für falsch und 1 für richtig/wahr.</li>
+<li>Anmerkung: Wenn ein Nutzer bereits in der Moodle-Nutzerdatenbank registriert ist, wird er für die neuen Kurse als Teilnehmer eingetragen, ohne dass die anderen Daten aktualisiert werden.</li>
+</ul>
+
+<h3>Beispiel für eine gültige Importdatei</h3>
+<p><code>username, password, firstname, lastname, email, lang, idnumber, maildisplay, course1, group1, type1<br />
+jonest, verysecret, Tom, Jones, jonest@someplace.edu, en, 3663737, 1, Intro101, Section 1, 1<br />
+reznort, somesecret, Trent, Reznor, reznort@someplace.edu, en_us, 6736733, 0, Advanced202, Section 3, 3
+</code></p>
+
+<h3>Bestehende Nutzerprofile aktualisieren</h3>
+
+<p>Als Voreinstellung geht Moodle immer davon aus, dass Sie ausschließlich neue Nutzerprofile anlegen möchten. Dabei werden standardmäßig alle Datensätze übersprungen, deren Benutzerkennung bereits im System vorhanden ist. Hierbei wird eine entsprechende Fehlermeldung angezeigt.</p>
+
+<p>Sobald Sie aber die Option "Existierende Nutzerprofile aktualisieren" auf "Ja" schalten, wird auch ein bereits bestehendes Nutzerprofil aktualiert. </p>
+
+<p>Beim Aktualisieren von bereits bestehenden Nutzerprofilen können ebenfalls die Benutzerkennungen geändert werden. Setzen Sie die Option "Umbenennen von Anmeldenamen zulassen" auf "Ja" und fügen Sie in Ihre Datei ein Feld <code class="example1">oldusername</code> ein.</p>
+
+<p><b>Achtung:</b> Alle Fehler beim Aktualisieren bestehender Benutzerprofile können sich sehr negativ auswirken. Seien Sie bitte unbedingt vorsichtig beim Benutzen dieser Update-Optionen!</p>

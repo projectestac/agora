@@ -1,0 +1,44 @@
+<h1>Exporteren van vragen uit een categorie</h1>
+
+<p>Met deze functie kun je de vragen uit een hele categorie exporteren naar een tekstbestand.  </p>
+
+<p>Merk op dat er in veel formaten wat informatie verloren gaat als de vragen geëxporteerd worden. Dit komt omdat veel formaten niet alle mogelijkheden ondersteunen die bestaan in Moodlevragen. Je mag niet verwachten dat een vraag die je exporteert en dan terug importeert er net hetzelfde uitziet. Het is best de geëxporteerde gegevens grondig te controleren voor je ze gebruikt in een productieomgeving.</p>
+
+<p>De formaten die momenteel ondersteund worden zijn:</p>
+
+<h2>GIFT</h2>
+<div class="indent">
+<p>GIFT is het meest uitgebreide importformat beschikbaar voor het importeren van Moodle testvragen vanuit een
+tekstbestand. Het is ontworpen als gemakkelijke importeermethode voor Moodle testvragen vanuit tekstbestanden. Het ondersteunt
+meerkeuzevragen, waar/onwaar, kort antwoord, koppelvragen en numerieke vragen, evenals het invoeren van een __________ voor 
+het gatentekstformaat. Let op: ingebedde antwoorden nog niet ondersteund worden voor export. Verschillende vragentypes kunnen gemixt worden in één tekstbestand en de opmaak ondersteunt ook 
+commentaar, vraagnamen, feedback en procentuele weging van cijfers. Hieronder enkele voorbeelden:</p>
+<pre>
+Wie is er begraven in de tombe van Grant?{~Grant ~Jefferson =niemand}
+
+Grant is {~begraven =bijgezet ~levend} in Grants tombe.
+
+Grant is begraven in Grants tombe.{FALSE}
+
+Wie is begraven in Grants tombe?{=niemand =helemaal niemand}
+
+Wanneer werd Ulysses S. Grant geboren?{#1822:1}
+</pre>
+
+<p align="right"><a href="help.php?file=formatgift.html&amp;module=quiz">Meer info over "GIFT"</a></p>
+
+<h2>Moodle XML opmaak</h2>
+
+<p>Deze Moodlespecifieke opmaak exporteert testvragen naar een eenvoudig XML-bestand. Ze kunnen dan in een andere testcategorie geïmporteerd worden of gebruikt worden in een ander proces, zoals een XSLT-transformatie. De XML-opmaak exporteert ook afbeeldingen die in vragen gebruikt worden (geëncodeerd als base64).</p>
+
+<h2>IMS QTI 2.0</h2>
+
+<p>Exporteert in het standaard IMS QTI (versie 2.0) formaat. Merk op dat dit een groep bestanden genereert in één zip-bestand.</p>
+<p class="moreinfo"><a href="http://www.imsglobal.org/question/" target="_qti">Meer informatie op de  IMS QTI site</a>
+ (externe site in nieuw venster)</p>
+
+<h2>XHTML</h2>
+
+<p>Exporteert de categorie als een enkele  'strict' XHTML pagina. Elke vraag is is duidelijk binnen zijn eigen &lt;div&gt; tag gezet. Als de deze pagina as-is wil gebruiken, moet je minstens de tag &lt;form&gt; bewerken aan het begin van de &lt;body&gt; sectie om een geschikte actie te voorzien (bv, een 'mailto').</p>
+
+<p>Import en Export formaten zijn inplugbare bronnen. Er zijn waarschijnlijk meer formaten te vinden in de Modules and Plugins database.</p>

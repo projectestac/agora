@@ -1,0 +1,25 @@
+<!--[contentpagepath pageId=$page.id language=$page.language assign='subheader']-->
+<!--[contentpageheading __header='Add new content to page' subheader=$subheader]-->
+
+<!--[pnform cssClass='z-form z-linear']-->
+
+<!--[pnformsetinitialfocus inputId='contentType']-->
+<!--[pnformerrormessage id='error']-->
+
+<!--[contentformframe]-->
+
+<p><!--[gt text="Please select the type of content you want to add to your page."]--></p>
+
+<fieldset>
+    <legend><!--[gt text="Select content type"]--></legend>
+        <!--[contentcontenttypeselector id='contentType']-->
+</fieldset>
+
+<!--[contentbuttons]-->
+<!--[pnformbutton commandName="create" __text="Create"]-->
+<!--[pnformbutton commandName="cancel" __text="Cancel"]-->
+<!--[/contentbuttons]-->
+
+<!--[/contentformframe]-->
+
+<!--[/pnform]-->

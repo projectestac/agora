@@ -1,0 +1,18 @@
+<!--[gt text="This is a notification email for you. You are the owner of a map and someone else in your community added a new marker in your map. If you do not want other users being able to add new markers on your map please change the settings for the affected map!"]-->
+
+<!--[gt text="Information about the affected map"]-->:
+
+<!--[gt text="Internal ID number of the map"]-->: <!--[$map.id]-->
+<!--[gt text="Title of your map"]-->: <!--[$map.title]-->
+
+<!--[gt text="The new marker's title"]-->: <!--[$marker.title]-->
+<!--[gt text="Additional text for the marker"]-->: <!--[$marker.text]-->
+<!--[gt text="Latitude"]-->: <!--[$marker.lat]-->
+<!--[gt text="Longitude"]-->: <!--[$marker.lng]-->
+<!--[gt text="Date of this entry or markered event"]-->: <!--[$marker.date]-->
+
+<!--[gt text="The marker was added by"]-->: <!--[pnusergetvar name="uname" uid=$marker.uid]--> (<!--[gt text="User-ID"]-->: <!--[$marker.uid]-->).
+
+<!--[gt text="See the map"]-->: <!--[pngetbaseurl]--><!--[pnmodurl modname="MyMap" type="user" func="display" mid=$map.id]-->
+
+<!--[gt text="Please do not reply to this email! This is just an automatical generated text..."]-->

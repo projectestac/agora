@@ -1,0 +1,9 @@
+<!--[foreach item=group from=$user.groups]-->
+	<div id="userGroup_<!--[$user.uid]-->_<!--[$group.id]-->">
+		<!--[$group.name]-->
+		<a href="javascript:delUserGroup(<!--[$user.uid]-->,<!--[$group.id]-->)">
+			<img id="iconGroup_<!--[$user.uid]-->_<!--[$group.id]-->" src="images/icons/extrasmall/delete_group.gif" />
+		</a>
+		<br />								
+	</div>
+<!--[/foreach]-->

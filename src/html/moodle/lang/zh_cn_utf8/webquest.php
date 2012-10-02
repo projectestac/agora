@@ -1,0 +1,135 @@
+<?PHP // $Id$ 
+      // webquest.php - created with Moodle 1.7.1+ (2006101010)
+
+
+$string['absent'] = '无';
+$string['accumulative'] = '累积的';
+$string['assess'] = '评分';
+$string['assessmentof'] = '给{$a}的评价';
+$string['assessments'] = '评价';
+$string['assessthissubmission'] = '评价这份提交';
+$string['attachment'] = '附件';
+$string['attachments'] = '附件';
+$string['by'] = '由';
+$string['chooseafile'] = '选择或上传一个文件';
+$string['conclussion'] = '总结';
+$string['confirmsubmissiondelete'] = '您确认删除这个提交？';
+$string['correct'] = '正确';
+$string['couldnotdelete'] = '该对象不能被删除';
+$string['criterion'] = '标准';
+$string['deleted'] = '选择的对象被成功删除';
+$string['deletegrade'] = '删除评分';
+$string['editconclussion'] = '编辑总结';
+$string['editintro'] = '编辑引言';
+$string['editprocess'] = '编辑过程';
+$string['editresource'] = '编辑资源';
+$string['editresources'] = '编辑资源';
+$string['editsubmission'] = '修改提交';
+$string['edittaskdescription'] = '编辑任务描述';
+$string['edittasks'] = '编辑任务';
+$string['editteam'] = '编辑小组';
+$string['errorbanded'] = '错误绑定';
+$string['errortable'] = '错误表格';
+$string['evaluation'] = '评价';
+$string['excellent'] = '优秀';
+$string['generalcomment'] = '一般性评论';
+$string['goedittasks'] = '编辑任务';
+$string['good'] = '好';
+$string['grade'] = '评分';
+$string['gradetable'] = '评分表';
+$string['gradingstrategy'] = '评分策略';
+$string['incorrect'] = '错误';
+$string['insertresources'] = '添加资源';
+$string['insertteam'] = '添加小组';
+$string['intro'] = '引言';
+$string['invaliddates'] = '您输入的日期无效。<br />使用浏览器的“退回”按钮返回表单并更正日期。';
+$string['maximumsize'] = '大小限制';
+$string['members'] = '成员';
+$string['modulename'] = 'WebQuest';
+$string['modulenameplural'] = 'WebQuests';
+$string['newattachment'] = '新的附件';
+$string['noattachments'] = '没有附件';
+$string['nocanpostyet'] = '您还不能提交您的答案';
+$string['noresourcesteacher'] = '您必须至少添加一个资源';
+$string['nosubmissionsteacher'] = '还有答案没有被提交';
+$string['noteonassignmenttasks'] = '注意，得分可分解为一些“任务”。<br />
+    这使评分变得容易且保持一致性。 <br />
+ 作为教师您须在布置好作业之前添加这些任务。<br />
+
+    点击课程中的布置作业，如果没有指定过任务，您就会看到提示要求添加任务。<br />
+    如果没有任务呈现，您可以点击课程中的作业页面来<br/>
+添加。';
+$string['notgraded'] = '不分等级';
+$string['notinteam'] = '您没有被分配到一个组';
+$string['numberofattachments'] = '每次提交附件的数目';
+$string['numberofnegativeresponses'] = '负面回答的数目';
+$string['numbertasks'] = '要完成任务的数量';
+$string['optionaladjustment'] = '选择性调整';
+$string['othersubmits'] = '别人的提交';
+$string['pages'] = '页';
+$string['poor'] = '差';
+$string['potentialmembers'] = '潜在的成员';
+$string['present'] = '有';
+$string['process'] = '过程';
+$string['reasonforadjustment'] = '调整的原因';
+$string['releaseteachergrades'] = '公布成绩';
+$string['removeallattachments'] = '删除所有附件';
+$string['resource'] = '资源';
+$string['resources'] = '资源';
+$string['rubric'] = '量规';
+$string['scale10'] = '分数超出 10';
+$string['scale100'] = '分数超出 100';
+$string['scale20'] = '分数超出 20';
+$string['scalecorrect'] = '2点：正确或错误';
+$string['scaleexcellent4'] = '4点：极好到极差量表';
+$string['scaleexcellent5'] = '5点：极好到极差量表';
+$string['scaleexcellent7'] = '7点：极好到极差';
+$string['scalegood3'] = '3 点：好/差';
+$string['scalepresent'] = '2点：有或无量表';
+$string['scaleyes'] = '2点：是或非量表';
+$string['searchweb'] = '搜索网页';
+$string['select'] = '选择';
+$string['submission'] = '提交';
+$string['submissionend'] = '提交结束';
+$string['submissionstart'] = '提交开始';
+$string['submissiontimeend'] = '提交结束';
+$string['submitassignment'] = '提交布置的作业';
+$string['submitted'] = '提交';
+$string['suggestedgrade'] = '建议得分';
+$string['suretodelgrade'] = '您想要要删除这个评分吗？';
+$string['suretodelres'] = '您想要删除这个资源吗？';
+$string['suretodelteam'] = '您想要删除这个小组吗？';
+$string['task'] = '任务';
+$string['tasks'] = '任务';
+$string['taskweight'] = '任务权重';
+$string['team'] = '小组';
+$string['teamcoord'] = '<b>小组组长是:</b>';
+$string['teamcoorddo'] = '小组组长提交整个小组的作品';
+$string['teammanager'] = '小组组长';
+$string['teams'] = '小组';
+$string['teamsmode'] = '小组评价';
+$string['teamsmodeno'] = '这个 Webquest 已经被提交';
+$string['teamsnotifynoteams'] = '没有固定的小组';
+$string['teamsnotifystudent'] = '这个 webquest没有被小组评价过';
+$string['teamsnotifyteacher'] = '小组评价没有被激活';
+$string['thegradeis'] = '得分为{$a}';
+$string['title'] = '标题';
+$string['typeofscale'] = '量表类型';
+$string['untitled'] = '无题';
+$string['updategrade'] = '更新评分';
+$string['uploadsuccess'] = '上传成功';
+$string['url'] = 'url';
+$string['usepassword'] = '使用密码';
+$string['verypoor'] = '极差';
+$string['viewresources'] = '查看资源';
+$string['warningtask'] = '<b>警告</b>：已经有提交的评价。 <br />请<b><big>不要</big></b>改变任务的数目、量表的类型或任务的权重。';
+$string['weightederrorcount'] = '加权的错误数：{$a}';
+$string['wellsaved'] = '保存成功';
+$string['writeafeedback'] = '书写反馈';
+$string['writeconclussion'] = '书写结论';
+$string['writeintro'] = '写一个引言';
+$string['writeprocess'] = '写一个过程';
+$string['writetaskdescription'] = '写一个任务描述';
+$string['yourteam'] = '您所在的组';
+
+?>

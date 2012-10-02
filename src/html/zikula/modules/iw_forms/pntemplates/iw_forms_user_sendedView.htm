@@ -1,0 +1,12 @@
+<!--[include file="iw_forms_user_menu.htm" func="sended"]-->
+<div class="usercontainer">
+	<div class="userpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+	<h2><!--[gt text="Notes sent"]--></h2>
+	<div><!--[gt text="Form name"]-->: <!--[$form.formName]--></div>
+	<div><!--[gt text="Title of the annotations "]-->: <!--[$form.title]--></div>
+	
+	<!--[$content|replace:"|int|":"?"|replace:"|amp|":"&"]-->
+	<!--[if $content eq '']-->
+		<div style="font-weight: bold;"><br /><!--[gt text="Has not been found sent notes"]--></div>
+	<!--[/if]-->
+</div>

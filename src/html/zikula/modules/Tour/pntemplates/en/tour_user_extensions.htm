@@ -1,0 +1,22 @@
+<!--[include file="tour_user_menu.htm"]-->
+
+<h1>Extension Tours</h1>
+<p>Some of the extensions installed on your system may include their own tours to introduce you to their prominent features.  Any extensions that do are listed below.  Those extensions that are not listed here may have other forms of documentation - you should check the author's website and the extensions's pndocs directory for a manual.</p>
+
+<h2>Modules</h2>
+<ul>
+    <!--[foreach from=$modpages item="mod"]-->
+    <li><a href="<!--[pnmodurl modname="tour" func="exttour" ext=$mod exttype="module" page=1]-->"><!--[$mod]--></a></li>
+    <!--[foreachelse]-->
+    <li>No module tours on your system!</li>
+    <!--[/foreach]-->
+</ul>
+
+<h2>Themes</h2>
+<ul>
+    <!--[foreach from=$themepages item="theme"]-->
+    <li><a href="<!--[pnmodurl modname="tour" func="exttour" ext=$theme exttype="theme" page=1]-->"><!--[$theme]--></a></li>
+    <!--[foreachelse]-->
+    <li>No theme tours on your system!</li>
+    <!--[/foreach]-->
+</ul>

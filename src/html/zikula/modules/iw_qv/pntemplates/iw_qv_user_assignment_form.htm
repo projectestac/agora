@@ -1,0 +1,185 @@
+<script language="javascript">
+function iwqvSendAssignmentForm(){
+	var form = document.assignment_form;
+	var formaction="index.php?module=iw_qv&func=create_assignment";
+	
+	// Check form restrictions
+	var mandatoryclass='mandatory-field';
+	var error='';
+	fields=new Array();	
+	var currentfield=form.title;
+	if (currentfield.value==''){
+		error+= "<!--[gt text='Title required']--><br>";
+		fields[fields.length]=currentfield;
+	}else{
+		currentfield.removeClassName(mandatoryclass);
+	}
+	
+	currentfield=form.url;
+	currentfield.value=currentfield.value.strip();
+	if (currentfield.value==''){
+		error+= "<!--[gt text='Link of the assessment required']--><br>";
+		fields[fields.length]=currentfield;
+	} else if (currentfield.value.indexOf("http")!=0){
+		error+= "<!--[gt text='Link of the assessment: the format is not correct']--><br>";
+		fields[fields.length]=currentfield;		
+	}else{
+		currentfield.removeClassName(mandatoryclass);
+	}
+
+	currentfield=form.newgroup;
+	if (form.groups.value==''){
+		error+= "<!--[gt text='Group/s required']--><br>";
+		fields[fields.length]=currentfield;
+	}else{
+		currentfield.removeClassName(mandatoryclass);
+	}
+	
+	// If there are errors, alert and don't send the form
+	if (error != '') {
+		window.scrollTo(0,0);
+		for (i=0;i<fields.length;i++){
+			if (i==0) field=fields[0];
+			fields[i].addClassName(mandatoryclass);
+		}
+		field.focus();
+		iwqvShowErrorMsg(error);
+		return false;
+	}
+	
+	// If there aren't errors, send the form
+	form.action=formaction;
+	form.submit();		
+	return true;
+}
+
+
+function iwqvUpdateSelectedGroups(){
+	var selectedgroupsstr = document.assignment_form.groups.value;					
+	if (selectedgroupsstr.indexOf('$', 1)>0){
+		var selectedgroups = selectedgroupsstr.substr(1,selectedgroupsstr.length-2).split('$');
+		var groupscontent="";
+		for(i=0;i<selectedgroups.length;i++){
+			groupscontent+=allgroups[selectedgroups[i]];
+			groupscontent+='&nbsp;&nbsp;<a href=\"javascript:void(0);\" onclick =\"iwqvDeleteGroupToAssignment('+selectedgroups[i]+');\"><!--[pnimg modname=core src=14_layer_deletelayer.gif set=icons/extrasmall altml=true titleml=true  alt="_DELETE" title="_DELETE"]--></a>';	
+			groupscontent+="<br>";
+		}	
+		document.getElementById('iwqv-selected-groups').innerHTML=groupscontent+"<br>";	
+	}else{
+		document.getElementById('iwqv-selected-groups').innerHTML="<br>";
+	}
+}
+
+
+
+</script>
+
+
+<!--[if $statusmsg neq ""]--><!--[$statusmsg]--><!--[/if]-->
+<!--[include file="iw_qv_user_menu.htm"]-->
+
+<br>
+<h2><!--[gt text="Edit the assignnment of the assessment"]--></h2>
+<form method="post" name="assignment_form" id="assignment_form" class="pn-form" >
+	<input type="hidden" name="authid" value="<!--[$security]-->"-->
+	<input type="hidden" name="qvid" value="<!--[$qvid]-->">
+	<input type="hidden" name="m" value="<!--[$m]-->">
+	
+	<fieldset class="pn-form-fieldset">
+		<legend><!--[gt text="Settings"]--></legend>
+		<div class="pn-formrow">
+			<label for="title"><!--[gt text="Title"]--></label>
+			<input type="text" class="pn-form-text" id="title" name="title" size="60" maxlength="255" value="<!--[$assignment.title]-->">
+		</div>	
+		<div class="pn-formrow">
+			<label for="description"><!--[gt text="Description"]--></label>
+			<textarea class="pn-form-text" rows="15" cols="61" name="description" id="description" ><!--[$assignment.description]--></textarea>
+		</div>	
+	</fieldset>
+
+	<fieldset class="pn-form-fieldset">
+		<legend><!--[gt text="Parameters of the assessment"]--></legend>
+		<div class="pn-formrow">
+			<label for="url"><!--[gt text="Link of the assessment"]--></label>
+			<input type="text" class="pn-form-text" id="url" name="url" size="60" maxlength="255" value="<!--[$assignment.url]-->">
+			<div class="pn-informationmsg"><!--[gt text="You can get the adress from the <a href=\"http://clic.xtec.cat/qv_biblio/act_list.jsp?lang=en\" target=\"_blank\" title=\"Library of the assessments\" alt=\"Library of the assessments\">Library of Quaderns Virtuals</a> (for example, <i>http://clic.xtec.cat/qv_viewer/quaderns/biblioteca/clima_ca</i>) or from the <a href=\"http://clic.xtec.cat/qv_editor\" target=\"_blank\" title=\"Editor\" alt=\"Editor\">Editor of Quaderns Virtuals</a> (like <i>http://clic.edu365.cat/qv_viewer/quaderns/sarjona/planetes/</i>),  for example."]--></div>
+		</div>	
+		<div class="pn-formrow">
+			<label for="skin"><!--[gt text="Skin"]--></label>
+			<!--[iwqvuserformselect selectname="skin" selectvalue=$assignment.skin selectvalues=$skins]-->
+		</div>	
+		<div class="pn-formrow">
+			<label for="qvlang"><!--[gt text="Language"]--></label>
+			<!--[iwqvuserformselect selectname="qvlang" selectvalue=$assignment.lang selectvalues=$langs]-->
+		</div>	
+		<div class="pn-formrow">
+			<label for="maxdeliver"><!--[gt text="Maximum number of deliveries"]--></label>
+			<!--[iwqvuserformselect selectname="maxdeliver" selectvalue=$assignment.maxdeliver selectvalues=$maxdelivers]-->
+		</div>	
+		<div class="pn-formrow">
+			<label for="showcorrection"><!--[gt text="Show the correction"]--></label>
+			<!--[iwqvuserformyesnoselect selectname="showcorrection" selectvalue=$assignment.showcorrection defaultvalue=1]-->
+		</div>	
+		<div class="pn-formrow">
+			<label for="showinteraction"><!--[gt text="Show the interaction"]--></label>
+			<!--[iwqvuserformyesnoselect selectname="showinteraction" selectvalue=$assignment.showinteraction defaultvalue=1]-->
+		</div>	
+	</fieldset>
+
+	<fieldset class="pn-form-fieldset">
+		<legend><!--[gt text="Window/frame"]--></legend>
+		<div class="pn-formrow">
+			<label for="target"><!--[gt text="Open the assessment"]--></label>
+			<!--[iwqvuserformselect selectname="target" selectvalue=$assignment.target selectvalues=$targets width="200px"]-->
+		</div>	
+		<div class="pn-formrow">
+			<label for="width"><!--[gt text="Width"]--></label>
+			<input type="text" class="pn-form-text" id="width" name="width" size="5" style="width:80px;" maxlength="10" value="<!--[$assignment.width]-->">
+		</div>	
+		<div class="pn-formrow">
+			<label for="height"><!--[gt text="Height"]--></label>
+			<input type="text" class="pn-form-text" id="height" name="height" size="5" style="width:80px;" maxlength="10" value="<!--[$assignment.height]-->">
+		</div>	
+	</fieldset>
+	
+	<fieldset class="pn-form-fieldset">
+		<legend><!--[gt text="Group/s"]--></legend>
+		<div class="pn-formrow">
+			<label for="target"><!--[gt text="Selected groups"]--></label>
+			<input type="hidden" name="groups" value="<!--[$assignment.groups]-->">
+			<div id="iwqv-selected-groups"></div>
+			<script type="text/javascript">
+				var allgroups = new Array();
+				<!--[foreach from=$groups item=groupitem]-->
+					allgroups['<!--[$groupitem.id]-->']='<!--[$groupitem.name|escape:'javascript']-->';
+				<!--[/foreach]-->
+				iwqvUpdateSelectedGroups();					
+			</script>
+		</div>	
+		<div class="pn-formrow">
+			<label for="width"><!--[gt text="New group"]--></label>
+			<!--[iwqvuserformselect selectname="newgroup" selectvalues=$groups width="200px" class=""]-->
+			<a href="javascript:void(0);" onclick="iwqvAddGroupToAssignment();"><!--[gt text="add"]--></a>
+		</div>	
+	</fieldset>
+	
+	<fieldset class="pn-form-fieldset">
+		<legend><!--[gt text="Settings of the teacher"]--></legend>
+		<div class="pn-formrow">
+			<label for="observations"><!--[gt text="Observations"]--></label>
+			<textarea rows="15" cols="61" name="observations" id="observations" class="pn-form-text" ><!--[$assignment.observations]--></textarea>
+		</div>	
+		<div class="pn-formrow">
+			<label for="active"><!--[gt text="Active"]--></label>
+			<input type="checkbox" id="active" name="active" value="1" <!--[if $assignment.active || $assignment.qvid=='']-->checked<!--[/if]--> >
+		</div>	
+	</fieldset>
+	<br>
+	
+	<div align="center">
+		<a href="javascript:void(0);" onClick="iwqvSendAssignmentForm();" title="<!--[$actiontext]-->"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small']--></a>&nbsp;&nbsp;&nbsp;
+		<a href="javascript:void(0);" onclick ='history.go(-1);'><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>	
+	</div>
+	<br>
+</form>
+

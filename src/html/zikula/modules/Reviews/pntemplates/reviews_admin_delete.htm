@@ -1,0 +1,27 @@
+<!--[*  $Id: reviews_admin_delete.htm 334 2009-11-09 05:51:54Z drak $  *]-->
+<!--[gt text='Delete Review' assign='templatetitle']-->
+
+<!--[include file='reviews_admin_menu.htm']-->
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname='core' src='editdelete.gif' set='icons/large' alt=$templatetitle]--></div>
+
+    <h2><!--[$templatetitle]--></h2>
+
+    <p class="z-warningmsg"><!--[gt text="Do you really want to delete this review?"]--></p>
+
+    <form class="z-form" action="<!--[pnmodurl modname='Reviews' type='admin' func='delete']-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <fieldset>
+                <legend><!--[gt text='Confirm deletion?']--></legend>
+                <input type="hidden" name="authid" value="<!--[insert name='generateauthkey' module='Reviews']-->" />
+                <input type="hidden" name="confirmation" value="1" />
+                <input type="hidden" name="id" value="<!--[$id|pnvarprepfordisplay]-->" />
+                <div class="z-formbuttons">
+                    <!--[pnbutton src='button_ok.gif' set='icons/small' __alt='Confirm deletion?' __title='Confirm deletion?']-->
+                    <a href="<!--[pnmodurl modname='Reviews' type='admin' func='view']-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small' __alt='Cancel' __title='Cancel']--></a>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>

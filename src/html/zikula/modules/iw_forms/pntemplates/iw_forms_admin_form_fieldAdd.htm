@@ -1,0 +1,35 @@
+<div class="formContent">
+	<div id="newFormField">
+		<div class="pn-adminpageicon"><!--[pnimg modname='core' src='filenew.gif' set='icons/medium']--></div>
+		<h2><!--[gt text="Create a new form field"]--></h2>
+		<form class="pn-adminform" name="newField" action="<!--[pnmodurl modname="iw_forms" type="admin" func="submitField"]-->" method="post" enctype="application/x-www-form-urlencoded">
+			<input type="hidden" name="fid" value="<!--[$item.fid]-->" />
+			<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_forms"]-->" />
+			<div class="pn-adminformrow">
+				<label for="fieldType"><!--[gt text="Type field"]--></label>
+				<select id="fieldType" name="fieldType">
+					<option value="0"><!--[gt text="Choose a type of field"]--></option>
+					<option value="1"><!--[gt text="Text"]--></option>
+					<option value="2"><!--[gt text="Text area"]--></option>
+					<option value="3"><!--[gt text="URL"]--></option>
+					<option value="4"><!--[gt text="Date"]--></option>
+					<option value="5"><!--[gt text="Time"]--></option>
+					<option value="6"><!--[gt text="List of options"]--></option>
+					<option value="7"><!--[gt text="File"]--></option>
+					<option value="8"><!--[gt text="Yes/No"]--></option>
+					<option value="51"><!--[gt text="Information"]--></option>
+					<option value="52"><!--[gt text="Dividing line"]--></option>
+					<option value="53"><!--[gt text="Box"]--></option>
+				</select>
+			</div>
+			<div class="formOptions">
+				<!--[*]--><!--[pnbutton src='button_ok.gif' set='icons/small' __alt="Create" __title="Create"]--><!--[*]-->
+				<a href="javascript:createField(document.newField.fieldType.value,<!--[$item.fid]-->)"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small'   __alt="Create" __title="Create"]--></a>			
+				<a href="<!--[pnmodurl modname="iw_forms" type="admin" func="form" action="field" fid=$item.fid]-->"><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"]--></a>
+			</div>
+		</form>
+	</div>
+</div>
+<script>
+	var chooseFiledType = '<!--[gt text="Choose a field type"]-->';
+</script>
