@@ -1,0 +1,126 @@
+<script language="JavaScript">
+	<!-- overLIB configuration -->
+	ol_fgcolor = "lightyellow"; 
+	ol_bgcolor = "#FFFFFF"; 
+	ol_textcolor = "#000000";
+	ol_capcolor = "#e7e7e7";
+	ol_closecolor = "#000000"; 
+	ol_textfont = "Verdana,Arial,Helvetica"; 
+	ol_captionfont = "Verdana,Arial,Helvetica";
+	ol_captionsize = 2; 
+	ol_textsize = 2; 
+	ol_border = 2; 
+	ol_width = 350; 
+	ol_offsetx = 10; 
+	ol_offsety = 10;
+	ol_sticky = 0; 
+	ol_close = "Tanca"; 
+	ol_closeclick = 0; 
+	ol_autostatus = 2; 
+	ol_snapx = 0; 
+	ol_snapy = 0;
+	ol_fixx = -1; 
+	ol_fixy = -1; 
+	ol_background = ""; 
+	ol_fgbackground = ""; 
+	ol_bgbackground = "";
+	ol_padxl = 1; 
+	ol_padxr = 1; 
+	ol_padyt = 1; 
+	ol_padyb = 1; 
+	ol_capicon = ""; 
+	ol_hauto = 1; 
+	ol_vauto = 1;
+	if (document.getElementById('overDiv')==null) {
+		document.writeln('<div id="overDiv" style="position:absolute; top:0px; left:0px; visibility:hidden; z-index:1000;"></div>');
+	}
+</script>
+<script language="JavaScript" src="modules/iw_main/js/overlib.js"><!-- overLIB (c) Erik Bosrup --></script>
+<h2><!--[$title]--></h2>
+
+<div><!--[*$menu*]--></div>
+<div class="pn-menu">
+	<span class="pn-menuitem-title"><a href="<!--[pnmodurl modname=iw_agendas type=user func=main]-->"><!--[gt text="Go back to agendas"]--></a></span> 
+</div>
+
+<!-- Show the calendar -->
+<div style="padding:10px; text-align:center;">
+<table style="margin:auto;">
+	<!--[foreach from=$days key=k_days item=v_days name=month_loop]--> <!-- One iteration per month -->
+	<!--[if ($smarty.foreach.month_loop.iteration - 1) is div by 3]--><tr><!--[/if]--> <!-- 3 months per row -->
+	<td valign="top">
+		<table style="margin:10px;" width="170">
+			<!--[foreach from=$v_days key=k_day item=v_day name=day_loop]--> <!-- One iteration per day -->
+			<!--[if $smarty.foreach.day_loop.iteration <= $v_days.days_month]--> <!-- In fact there's one iteration per array element, so this puts a limit -->
+				<!--[if $smarty.foreach.day_loop.iteration == 1]--> <!-- Puts the month name -->
+					<tr><th colspan="7" style="color:#<!--[$month_names_color]-->; background:#<!--[$month_names_bgcolor]-->;"><!--[$month_names[$smarty.foreach.month_loop.index]]--> <!--[$v_days.year]--></th></tr>
+					<tr>
+					<!--[section name=day_name loop=$day_names_abbr]--> <!-- Header with the name of the day abbreviated -->
+						<td style="color:#<!--[$v_days.day_name_abbr_color]-->; background:#<!--[$v_days.day_name_abbr_bgcolor]-->;"><!--[$day_names_abbr[day_name]]--></td>
+					<!--[/section]-->
+					</tr>
+				<!--[/if]-->
+				<!--[if ($v_days.first_day + $smarty.foreach.day_loop.iteration - 1) is div by 7]--><tr><!--[/if]-->
+				<!--[if $smarty.foreach.day_loop.iteration == 1]--> <!-- Puts empty cells -->
+					<!--[section name=empty_days loop=$v_days.first_day]--><td>&nbsp;</td><!--[/section]--> 
+				<!--[/if]-->
+				<!--[if isset($v_day.info)]--> <!--[* Show icon information if present. Implies full change of the cell *]-->
+					<td style="background:#<!--[$v_day.bgcolor]-->;" <!--[if isset($v_day.label)]--> onmouseout="nd();" onmouseover="overlib('<div style=\'padding:5px;\'><!--[$v_day.label]--><br /><img src=\'modules/iw_agendas/pnimages/info.gif\' width=\'14\' height=\'14\' alt=\'info\' />&nbsp;<!--[$v_day.info]--></div>', CAPTION, '<div style=\'padding:5px;\'><!--[$v_day.caption]--></div>', BGCOLOR, '#316ac5', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)"<!--[/if]-->>
+						<!--[$smarty.foreach.day_loop.iteration]-->
+						<br /><img src="modules/iw_agendas/pnimages/info.gif" width="14" height="14" alt="info" />
+					</td>
+				<!--[else]-->
+					<td style="background:#<!--[$v_day.bgcolor]-->;" <!--[if isset($v_day.label)]--> onmouseout="nd();" onmouseover="overlib('<div style=\'padding:5px;\'><!--[$v_day.label]--></div>', CAPTION, '<div style=\'padding:5px;\'><!--[$v_day.caption]--></div>', BGCOLOR, '#316ac5', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)"<!--[/if]-->>
+						<!--[$smarty.foreach.day_loop.iteration]-->
+					</td>
+				<!--[/if]-->
+				<!--[if ($v_days.first_day + $smarty.foreach.day_loop.iteration) is div by 7]--></tr><!--[/if]-->
+			<!--[/if]-->
+			<!--[/foreach]-->
+		</table>
+	</td>
+	<!--[if ($smarty.foreach.month_loop.iteration) is div by 3]--></tr><!--[/if]--> <!-- 3 months per row -->
+	<!--[/foreach]-->
+</table>
+</div>
+
+
+
+<!-- Show the legends of the calendar -->
+<div style="padding:10px;">
+	<table>
+		<!--[section name=legend loop=$legends]-->
+		<tr>
+			<td bgcolor="<!--[$legends[legend].color]-->" style="width:30px;">&nbsp;</td>
+			<td><!--[$legends[legend].desc]--></td>
+		</tr>		
+		<!--[/section]-->
+	</table>
+</div>
+
+
+<!-- Show the icon informations -->
+<div style="padding:10px;">
+	<table>
+		<!--[section name=info loop=$infos]-->
+		<tr>
+			<td><img src="modules/iw_agendas/pnimages/info.gif" width="14" height="14" alt="info" /></td>
+			<td style="font-weight:bold;"><!--[$infos[info].day]-->/<!--[$infos[info].month]-->/<!--[$infos[info].year]--></td>
+			<td><!--[$infos[info].info]--></td>
+		</tr>		
+		<!--[/section]-->
+	</table>
+</div>
+
+
+<!-- Show the comments -->
+<div style="padding:20px;">
+<!--[$comments]-->
+</div>
+
+
+<!-- Show the about message -->
+<div style="padding:10px;">
+	<a href="<!--[$about.url]-->"><!--[$about.desc]--></a>
+</div>
+

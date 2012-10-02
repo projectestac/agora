@@ -1,0 +1,29 @@
+<h2><!--[gt text="Confirmation of deletion of the room or equipment"]-->: <!--[$name]--></h2>
+<div><!--[gt text="Booking day: "]-->: <!--[$bookingDate]--></div>
+<div><!--[gt text="Time: "]-->: <!--[$start]--> - <!--[$end]--></div>
+<div><!--[gt text="Group: "]-->: <!--[$group]--></div>
+<!--[$user]-->
+<form name="delete_b" method="post" id="delete_b" action="index.php?module=iw_bookings&type=user&func=anulla">
+	<input type="hidden" name="sid" value="<!--[$sid]-->">
+	<input type="hidden" name="bid" value="<!--[$bid]-->">
+
+	<input type="hidden" name="d" value="<!--[$d]-->">
+	<input type="hidden" name="confirmation" value="true">
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="iw_bookings"]-->">
+	<br>
+	<!--[pngetstatusmsg]-->
+	<!--[if $statusmsg neq ""]--><br><!--[$statusmsg]--><!--[/if]-->
+	<!--[if $multiple]-->
+		<div>
+			<b>
+				<!--[gt text="Delete all?"]-->  <!--[gt text="Yes"]-->
+				<input type="radio" name="eraseAll" id="eraseAll" value="1" > / <!--[gt text="No"]-->
+				<input type="radio" name="eraseAll" id="eraseAll" value="0" checked>
+			</b>
+		</div>
+	<!--[/if]-->
+	<div class="formOptions" style="text-align:left;">
+		<a href="javascript:document.delete_b.submit()"><!--[pnimg modname='core' src='button_ok.gif' set='icons/small'  __alt="Confirmation of deletion of the room or equipment" __title="Confirmation of deletion of the room or equipment"]--></a> <!--[gt text="Confirm"]-->
+		<a href=<!--[pnmodurl modname="iw_bookings" type="user" func="assigna" sid = $sid mensual= $mensual d= $d]-->><!--[pnimg modname='core' src='button_cancel.gif' set='icons/small' __alt="Cancel deletion" __title="Cancel deletion"]--></a>  <!--[gt text="Cancel"]-->
+	</div>
+</form>

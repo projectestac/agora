@@ -1,0 +1,62 @@
+<!--[*  $Id: ezcomments_user_modify.htm 689 2010-05-12 15:01:21Z herr.vorragend $  *]-->
+<!--[gt text="Edit comment" assign=templatetitle]-->
+<!--[include file="ezcomments_user_header.htm"]-->
+<h3><!--[$templatetitle]--></h3>
+
+<!--[pnform cssClass="z-form"]-->
+<!--[pnformvalidationsummary]-->
+<fieldset>
+    <legend><!--[gt text="Edit"]--></legend>
+
+    <!--[if $anonname neq '']-->
+    <div class="z-formrow">
+        <!--[pnformlabel for="ezcomments_anonname" __text='Name']-->
+        <span><!--[pnformtextinput id="ezcomments_anonname" text=$anonname size="32" maxLength="255"]--></span>
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="ezcomments_anonmail" __text='E-mail address (will not be published)']-->
+        <!--[pnformtextinput id="ezcomments_anonmail" text=$anonmail size="32" maxLength="255"]-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="ezcomments_anonwebsite" __text='Website']-->
+        <!--[pnformtextinput id="ezcomments_anonwebsite" text=$anonwebsite size="32" maxLength="255"]-->
+    </div>
+    <!--[else]-->
+    <div class="z-formrow">
+        <!--[pnformlabel for="ezcomments_name" __text='Commentator']-->
+        <span id="ezcomments_name"><!--[pnusergetvar name=uname uid=$uid]--></span>
+    </div>
+    <!--[/if]-->
+
+    <div class="z-formrow">
+        <!--[if $nomodify == 1]-->
+        <label><!--[gt text="Subject"]--></label>
+        <span><!--[$subject|pnvarprepfordisplay]--></span>
+        <!--[else]-->
+        <!--[pnformlabel for="ezcomments_subject" __text='Subject']-->
+        <!--[pnformtextinput id="ezcomments_subject" text=$subject size="32" maxLength="255"]-->
+        <!--[/if]-->
+    </div>
+    <div class="z-formrow">
+        <!--[if $nomodify == 1]-->
+        <label><!--[gt text="Comment"]--></label>
+        <!--[$comment|pnvarprepfordisplay|nl2br|pnmodcallhooks]-->
+        <!--[else]-->
+        <!--[pnformlabel for="ezcomments_comment" __text='Comment']-->
+        <!--[pnformtextinput id="ezcomments_comment" textMode="multiline" rows="10" cols="50" text=$comment size="32"]-->
+        <!--[/if]-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="ezcomments_sendmeback" __text='Redirect to the commented content after finishing']-->
+        <!--[pnformcheckbox id="ezcomments_sendmeback" checked=$redirect]-->
+    </div>
+
+</fieldset>
+
+<div class="z-formbuttons">
+    <!--[pnformbutton id="submit" commandName="submit" __text="Update"]-->
+    <!--[pnformbutton id="delete" commandName="delete" __text="Delete"]-->
+    <!--[pnformbutton id="cancel" commandName="cancel" __text="Cancel"]-->
+</div>
+
+<!--[/pnform]-->

@@ -1,0 +1,12 @@
+<!--[add_additional_header header=$skincssurl]-->
+<!--[$contentBySkin]-->
+<!--[if $isValidator]-->
+	<div>
+   		<a href="<!--[pnmodurl modname="iw_forms" type="user" func="manage" fid=$fid fmid=$fmid]-->"><!--[gt text="Edit content"]--></a>
+    </div>
+<!--[/if]-->
+<!--[if $isAdministrator]-->
+	<div>
+   		<a href="<!--[pnmodurl modname="blocks" type="admin" func="modify" bid=$bid]-->"><!--[gt text="Edit estructure"]--></a>
+    </div>
+<!--[/if]-->

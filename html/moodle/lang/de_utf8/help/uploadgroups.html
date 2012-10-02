@@ -1,0 +1,29 @@
+<h2>Gruppen hochladen</h2>
+
+<p>Diese Funktion erlaubt den Batch-Upload von Gruppen nach Moodle.</p>
+<ul>
+<li>Jede Zeile der Datei enthält einen Datensatz.</li>
+<li>Jeder Datensatz enthält eine Reihe von Komma-separierten Daten.</li>
+<li>Der erste Datensatz (= erste Zeile) enthält die Liste der Feldnamen. Sie definiert das Format für die restliche Datei.
+
+<p><strong>Erforderliche Feldnamen:</strong> Diese Felder müssen in der ersten Zeile enthalten sein und dann für jeden/n Nutzer ausgefüllt werden.</p>
+<p><code class="example1">Gruppenname</code></p>
+
+<p><strong>Weitere Feldnamen:</strong> Diese sind optional - wenn sie fehlen, werden diese Feldnamen aus den Werten für die aktuelle Sprache und den Kurs entnommen</p>
+<p><code class="example1">idnumber, coursename, lang</code></p>
+
+<p><strong>Weitere optionale Feldnamen: </strong>Die Nutzung dieser Feldbezeichnungen ist völlig freigestellt.</p>
+<p><code class="example1">description, picture, hidepicture</font></p>
+</li>
+
+<li>Kommas innerhalb eines Datenfeldes müssen mit &amp;#44; codiert werden. Das Script wird sie automatisch in Kommas umwandeln.</li>
+<li>Für Boole'sche Felder nutzen Sie 0 für falsch und 1 für wahr. </li>
+<li>idnumber oder coursename können zur Identifizierung des Kurses genutzt werden. Idnumber überschreibt coursename. Wenn keiner angegeben wird, wird die Gruppe zum aktuellen Kurs hinzugefügt.
+<li>Coursename ist die Kurzbezeichnung des Kurses (shortname).</li>
+<li>Anmerkung: Wenn eine Gruppe in der Datenbank bereits für einen bestimmten Kurs registriert ist, wird der Gruppenname für die Gruppe weiter genutzt. Trainer/innen dürfen Gruppen nur in Kurse hochladen, in denen sie Bearbeitungsrechte haben.</li>
+</ul>
+<p>Dies ist ein Beispiel für eine gültige Importdatei:</p>
+<p><code class="example1">groupname,idnumber,lang,description,picture <br />
+group1, Phil101, en, this group requires extra attention!, 0 <br />
+group2, Math243, , ,
+</code></p>

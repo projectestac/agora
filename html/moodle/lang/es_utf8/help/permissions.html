@@ -1,0 +1,51 @@
+<h1>Permisos</h1>
+
+<p>
+Los permisos son los ajustes con los que usted otorga la posibilidad de llevar a cabo determinadas acciones.
+</p>
+
+<p>
+Por ejemplo, una de ellas es "Comenzar nuevos debates" (en los foros).
+</p>
+
+<p>
+En cada rol, usted puede decidir si da permiso para hacer algo o no optando por uno de los cuatro valores siguientes:
+</p>
+
+<dl>
+<dt>HEREDAR</dt>
+<dd>Éste es generalmente el ajuste por defecto. Se trata de un ajuste neutro que significa "usar cualquier ajuste que el usuario ya tenga". Si alguien tiene un rol asignado (e.g., en un curso) que tiene permiso para una determinada acción, entonces el permiso real será el mismo que tenía en contextos de nivel más alto (e.g., nivel de categoría, nivel de sitio). En última instancia, si el permiso no se concede en ningún nivel, el usuario no tendrá permiso para ejecutar esa acción.</dd>
+
+<dt>PERMITIR</dt>
+<dd>Si selecciona esta opción, estará otorgando permiso para llevar a cabo la acción a las personas a las que asigne el rol. Este permiso se aplica al contexto al que el rol está asignado, además de cualesquiera otros contextos "inferiores". Por ejemplo, si el rol corresponde a un estudiante asignado a un curso, el estudiante podrá "iniciar nuevos debates" en todos los foros del curso, A MENOS QUE algún foro contenga una anulación o una nueva tarea para la que se haya seleccionado PREVENIR o PROHIBIR.</dd>
+
+<dt>PREVENIR</dt>
+<dd>Cuando elige esta opción, usted está retirando el permiso para ejecutar la acción, aun cuando los usuarios con ese rol tuvieran tal permiso en un contexto superior.</dd>
+
+<dt>PROHIBIR</dt>
+<dd>Raramente es necesario acudir a esta opción, pero en ocasiones quizás usted desee denegar completamente los permisos a un rol de suerte que NO pueda ser anulado en ningún contexto inferior. Un buen ejemplo podría ser que el administrador quisiera prohibir a alguien iniciar nuevos debates en cualquier foro de todo el sitio. En este caso puede crear un rol, seleccionar PROHIBIR y asignar luego el rol a dicho usuario en el contexto del sitio.
+  </dd>
+
+</dl>
+
+<h1>Resolución de conflictos entre permisos</h1>
+
+<p> Los permisos de un contexto "inferior" anulan por lo general a cualquier otro que esté en un contexto "superior" (esto se aplica a las anulaciones y a los roles asignados). La excepción es PROHIBIR, que no puede ser anulado por niveles más bajos.</p>
+
+<p> Si una persona tiene asignados dos roles en el mismo contexto, uno con PERMITIR y otro con PREVENIR, ¿cuál prevalece? En este caso, Moodle consultará el árbol contextual para tomar una decisión.</p>
+
+<p> Por ejemplo, un estudiante tiene dos roles en un curso; uno le permite comenzar nuevos debates, otro previene de tal acción. En este caso, comprobamos los contextos de las categorías y del sitio, buscando otro permiso que nos ayude a decidir. Si no encontramos ninguno, el permiso por defecto será PREVENIR, toda vez que los dos ajustes se anulan mutuamente y, por consiguiente, el estudiante no tendrá permiso.
+</p>
+
+<h1>Excepciones especiales</h1>
+
+<p> Advierta que los invitados en general no tendrán permiso para enviar contenidos (e.g., foros, entradas de calendario, blogs) incluso si se les diera permiso para hacerlo.
+</p>
+
+<p>
+Vea también
+<a href="help.php?file=roles.html">Roles</a>,
+<a href="help.php?file=contexts.html">Contextos</a>,
+<a href="help.php?file=assignroles.html">Assignación de Roles</a> y
+<a href="help.php?file=overrides.html">Anulaciones</a>.
+</p>

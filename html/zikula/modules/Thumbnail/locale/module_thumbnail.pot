@@ -1,0 +1,1068 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-10 19:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnadmin.php:38 pnadmin.php:52 pnadmin.php:119 pnuserapi.php:238
+#: pnuserapi.php:270 pnuserapi.php:363 pnadminform.php:32 pnadminform.php:60
+#: pnadminapi.php:32
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnadmin.php:161
+msgid ""
+"Download the latest version from <a href=\"http://phpthumb.sourceforge.net"
+"\">http://phpthumb.sourceforge.net</a>"
+msgstr ""
+
+#: pnadmin.php:173
+msgid "This phpThumb version"
+msgstr ""
+
+#: pnadmin.php:177
+msgid "Latest version unknown."
+msgstr ""
+
+#: pnadmin.php:181
+msgid "This must be a pre-release beta version. Please report bugs to:"
+msgstr ""
+
+#: pnadmin.php:185
+msgid "You must be using a pre-release beta version. Please report bugs to:"
+msgstr ""
+
+#: pnadmin.php:189
+msgid "You are using the latest released version."
+msgstr ""
+
+#: pnadmin.php:192
+msgid "One (or more) minor version(s) have been released since this version."
+msgstr ""
+
+#: pnadmin.php:195
+msgid ""
+"One (or more) major version(s) have been released since this version, you "
+"really should upgrade."
+msgstr ""
+
+#: pnadmin.php:198
+msgid "Fundamental changes have been made since this version."
+msgstr ""
+
+#: pnadmin.php:208
+msgid ""
+"\"phpThumb.config.php\" exists and \"phpThumb.config.php.default\" does not"
+msgstr ""
+
+#: pnadmin.php:211
+msgid "\"phpThumb.config.php\" and \"phpThumb.config.php.default\" both exist"
+msgstr ""
+
+#: pnadmin.php:214
+msgid "rename \"phpThumb.config.php.default\" to \"phpThumb.config.php\""
+msgstr ""
+
+#: pnadmin.php:217
+msgid "\"phpThumb.config.php\" not found (nor \"phpThumb.config.php\")"
+msgstr ""
+
+#: pnadmin.php:219
+msgid ""
+"\"phpThumb.config.php.default\" that comes in the distribution must be "
+"renamed to \"phpThumb.config.php\" before phpThumb.php can be used. Avoid "
+"having both files present to minimize confusion."
+msgstr ""
+
+#: pnadmin.php:260
+msgid ""
+"PHP5 is ideal (support for numerous built-in filters which are much faster "
+"than my code).<br />PHP v4.4.2 contains a bug in fopen over HTTP (phpThumb "
+"has a workaround)<br />PHP v4.3.2+ supports ImageSaveAlpha which is required "
+"for proper PNG/ICO output.<br />ImageRotate requires PHP v4.3.0+ (but buggy "
+"before v4.3.3).<br />EXIF thumbnail extraction requires PHP v4.2.0+.<br /"
+">Most things will work back to PHP v4.1.0, and mostly (perhaps buggy) back "
+"to v4.0.6, but no guarantees for any version older than that."
+msgstr ""
+
+#: pnadmin.php:277
+msgid ""
+"GD2-bundled version is ideal.<br />GD2 (non-bundled) is second choice, but "
+"there are a number of bugs in the non-bundled version. ImageRotate is only "
+"available in the bundled version of GD2.<br />GD1 will also (mostly) work, "
+"at much-reduced image quality and several features disabled. phpThumb can "
+"perform most operations with ImageMagick only, even if GD is not available."
+msgstr ""
+
+#: pnadmin.php:281
+msgid "ImageMagick version"
+msgstr ""
+
+#: pnadmin.php:310
+msgid ""
+"ImageMagick is faster than GD, can process larger images without PHP "
+"memory_limit issues, can resize animated GIFs. phpThumb can perform most "
+"operations with ImageMagick only, even if GD is not available."
+msgstr ""
+
+#: pnadmin.php:314
+msgid "ImageMagick features"
+msgstr ""
+
+#: pnadmin.php:324
+msgid ""
+"All of these parameters may be called by phpThumb, depending on parameters "
+"used.  Green means the feature is available; red means a critical feature is "
+"missing; orange means an optional filter/feature is missing."
+msgstr ""
+
+#: pnadmin.php:328
+msgid "GD features"
+msgstr ""
+
+#: pnadmin.php:329
+msgid "JPG Support"
+msgstr ""
+
+#: pnadmin.php:329
+msgid "PNG Support"
+msgstr ""
+
+#: pnadmin.php:330
+msgid "GIF Read Support"
+msgstr ""
+
+#: pnadmin.php:330
+msgid "GIF Create Support"
+msgstr ""
+
+#: pnadmin.php:330
+msgid "FreeType Support"
+msgstr ""
+
+#: pnadmin.php:337
+msgid ""
+"PNG support is required for watermarks, overlays, calls to ImageMagick and "
+"other internal operations.<br />JPG support is obviously quite useful, but "
+"ImageMagick can substitute<br />GIF read support can be bypassed with "
+"ImageMagick and/or internal GIF routines.<br />GIF create support can be "
+"bypassed with ImageMagick (if no filters are applied)<br />FreeType support "
+"is needed for TTF overlays."
+msgstr ""
+
+#: pnadmin.php:341
+msgid "GD extension \"EXIF\""
+msgstr ""
+
+#: pnadmin.php:348
+msgid ""
+"EXIF extension required for auto-rotate images. Also required to extract "
+"EXIF thumbnail to use as source if source image is too large for PHP "
+"memory_limit and ImageMagick is unavailable."
+msgstr ""
+
+#: pnadmin.php:366
+msgid ""
+"SAPI mode preferred to CGI mode. FCGI mode has unconfirmed strange behavior "
+"(notably more than one space in \"wmt\" filter text causes errors). If not "
+"working in \"apache\" (SAPI) mode, <i>apache_lookup_uri()</i> will not work."
+msgstr ""
+
+#: pnadmin.php:370
+msgid "Server Software"
+msgstr ""
+
+#: pnadmin.php:384
+msgid ""
+"Apache v1.x has the fewest compatability problems. IIS has numerous "
+"annoyances. Apache v2.x is broken when lookup up <i>/~user/filename.jpg</i> "
+"style relative filenames using <i>apache_lookup_uri()</i>."
+msgstr ""
+
+#: pnadmin.php:388
+msgid "curl version"
+msgstr ""
+
+#: pnadmin.php:399
+msgid ""
+"Best if available. HTTP source images will be unavailable if CURL "
+"unavailable and <i>allow_url_fopen</i> is also disabled."
+msgstr ""
+
+#: pnadmin.php:404
+msgid "required for \"ra\" and \"ar\" filters."
+msgstr ""
+
+#: pnadmin.php:405
+msgid "required for \"ar\" filter."
+msgstr ""
+
+#: pnadmin.php:406
+msgid "required to extract EXIF thumbnails."
+msgstr ""
+
+#: pnadmin.php:407
+msgid "mostly used for troubleshooting."
+msgstr ""
+
+#: pnadmin.php:408
+msgid "available in PHP v4.1.0+, internal workaround available"
+msgstr ""
+
+#: pnadmin.php:409
+msgid "available in PHP v4.3.0+, internal workaround available"
+msgstr ""
+
+#: pnadmin.php:410
+msgid "available in PHP v5.0.0+, internal workaround available"
+msgstr ""
+
+#: pnadmin.php:411
+msgid ""
+"available in PHP3, except only PHP5 for Windows. poor internal workaround "
+"available"
+msgstr ""
+
+#: pnadmin.php:412
+msgid ""
+"available in PHP v4.3.0+ (with bundled GD2), internal workaround available"
+msgstr ""
+
+#: pnadmin.php:413
+msgid "required for GD image output."
+msgstr ""
+
+#: pnadmin.php:414
+msgid "required for JPEG source images using GD."
+msgstr ""
+
+#: pnadmin.php:415
+msgid "useful for GIF source images using GD."
+msgstr ""
+
+#: pnadmin.php:416
+msgid ""
+"required for PNG source images using GD and other source image formats using "
+"ImageMagick."
+msgstr ""
+
+#: pnadmin.php:417
+msgid "required for WBMP source images using GD."
+msgstr ""
+
+#: pnadmin.php:418
+msgid "required for HTTP and non-file image sources."
+msgstr ""
+
+#: pnadmin.php:419
+msgid "required for all non-ImageMagick filters."
+msgstr ""
+
+#: pnadmin.php:420
+msgid "available in PHP v4.3.2+ &amp; GD v2.0.1+"
+msgstr ""
+
+#: pnadmin.php:421
+msgid ""
+"PHP5 only. Required for some filters (but most can use ImageMagick instead)"
+msgstr ""
+
+#: pnadmin.php:439
+msgid "This setting is evil. Turn it off."
+msgstr ""
+
+#: pnadmin.php:440
+msgid ""
+"This setting is bad. Turn it off, if possible. phpThumb will attempt to work "
+"around it if it is enabled."
+msgstr ""
+
+#: pnadmin.php:441
+msgid ""
+"Best if off. Calls to ImageMagick will be disabled if on (limiting max image "
+"resolution, no animated GIF resize). Temp files may be disabled. Features "
+"will be limited."
+msgstr ""
+
+#: pnadmin.php:442
+msgid ""
+"Best if on. HTTP source images will be unavailable if disabled and CURL is "
+"unavailable."
+msgstr ""
+
+#: pnadmin.php:478
+msgid ""
+"Best if nothing disabled. Calls to ImageMagick will be prevented if exec"
+"+system+shell_exec+passthru are disabled."
+msgstr ""
+
+#: pnadmin.php:503 pnadmin.php:525
+msgid "unlimited"
+msgstr ""
+
+#: pnadmin.php:526
+msgid ""
+"The higher the better. Divide by 5 to get maximum megapixels of source image "
+"that can be thumbnailed (without ImageMagick)."
+msgstr ""
+
+#: pnadmin.php:526
+#, php-format
+msgid "Your setting (%1$s) allows images up to approximately %2$s megapixels"
+msgstr ""
+
+#. ! module url in lowercase must be different to module name
+#: pnversion.php:26
+msgid "thumbnail"
+msgstr ""
+
+#: pnversion.php:27 pntemplates/thumbnail_form_header.html:4
+msgid "Thumbnail"
+msgstr ""
+
+#: pnversion.php:28
+msgid "Provides thumbnail generation facilities via userapi functions."
+msgstr ""
+
+#: pnuserapi.php:211
+msgid "Thumbnail generation failed (RenderOutput):"
+msgstr ""
+
+#: pnuserapi.php:218
+msgid "Thumbnail generation failed (RenderToFile):"
+msgstr ""
+
+#: pnuserapi.php:223
+msgid "Thumbnail generation failed (GenerateThumbnail):"
+msgstr ""
+
+#: pnuserapi.php:289
+msgid "Invalid filename received"
+msgstr ""
+
+#: pnuserapi.php:290
+msgid "Unable to determine target thumbnailname"
+msgstr ""
+
+#: pnuserapi.php:291
+#, php-format
+msgid "Can't read file [%s]"
+msgstr ""
+
+#: pnadminform.php:47 pnadminform.php:125
+msgid "Done! Module configuration updated."
+msgstr ""
+
+#: pnadminapi.php:38 pntemplates/thumbnail_form_preferences.html:2
+msgid "Thumbnail Module Preferences"
+msgstr ""
+
+#: pnadminapi.php:39
+msgid "phpThumb Settings"
+msgstr ""
+
+#: pnadminapi.php:40 pntemplates/thumbnail_form_check.html:4
+#: pntemplates/thumbnail_form_check.html:5
+msgid "Check Settings"
+msgstr ""
+
+#: pntemplates/thumbnail_form_preferences.html:13
+msgid "Standard Thumbnail Size"
+msgstr ""
+
+#: pntemplates/thumbnail_form_preferences.html:18
+msgid "pixel"
+msgstr ""
+
+#: pntemplates/thumbnail_form_preferences.html:22
+msgid "Allow invoking module to override standard size"
+msgstr ""
+
+#: pntemplates/thumbnail_form_preferences.html:27
+#: pntemplates/thumbnail_form_settings.html:348
+msgid "Update Configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_preferences.html:28
+#: pntemplates/thumbnail_form_settings.html:349
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:4
+#: pntemplates/thumbnail_form_settings.html:5
+#: pntemplates/thumbnail_form_check.html:28
+msgid "Settings"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:10
+msgid "Cache directory configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:11
+msgid ""
+"Note this directory must be writable (usually chmod 777 is neccesary) for "
+"caching to work. If the directory is not writable no error will be generated "
+"but caching will be disabled."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:13
+msgid "Cache Directory"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:15
+msgid "set the cache directory"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:18
+msgid "Cache Disable Warning"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:21
+msgid ""
+"If [<em>Cache Directory</em>] is non-existant or not writable, and [Cache "
+"Disable Warning] is disabled, an error image will be generated warning to "
+"either set the cache directory or disable the warning (to avoid people not "
+"knowing about the cache)"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:24
+msgid "Cache culling"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:25
+msgid ""
+"phpThumb can automatically limit the contents of the cache directory based "
+"on last-access date and/or number of files and/or total filesize."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:27
+msgid "Cache Max Age"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:29
+msgid ""
+"[EMPTY] never delete cached thumbnails based on last-access time delete "
+"cached thumbnails that haven't been accessed in more than [Cache Max Adge] "
+"days (value is maximum time since last access in days to avoid deletion)."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:32
+msgid "Cache Max Size"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:34
+msgid ""
+"[EMPTY] never delete cached thumbnails based on byte size of cache directory "
+"delete least-recently-accessed cached thumbnails when more than [Cache Max "
+"Size]MB of cached files are present (value is maximum bytesize of all cached "
+"files)."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:37
+msgid "Cache Max Files"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:39
+msgid ""
+"[EMPTY] never delete cached thumbnails based on number of cached files "
+"delete least-recently-accessed cached thumbnails when more than [Cache Max "
+"Files] cached files are present (value is maximum number of cached files to "
+"keep)."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:43
+msgid "Source image cache configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:45
+msgid "Cache Source Enabled"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:47
+msgid ""
+"if true, source images obtained via HTTP are cached to [Cache Source "
+"Directory]."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:50
+msgid "Cache Source Directory"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:52
+msgid "set the cache directory for unprocessed source images"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:56
+msgid "cache source modification date configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:58
+msgid "Cache Source Filemtime Ignore Local"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:60
+msgid ""
+"if true, local source images will not be checked for modification date and "
+"cached image will be used if available, even if source image is changed or "
+"removed."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:63
+msgid "Cache Source Filemtime Ignore Remote"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:65
+msgid ""
+"if true, remote source images will not be checked for modification date and "
+"cached image will be used if available, even if source image is changed or "
+"removed.  <strong>WARNING</strong> cached performance MUCH slower if this is "
+"set to false."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:69
+msgid "Simplified cache filename configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:70
+msgid ""
+"Instead of creating unique cache filenames for all parameter combinations, "
+"create \"simple\" cache files (e.g.: \"pic_thumb.jpg\")<br /> If "
+"cache_default_only_suffix is non-empty, GETstring parameters (except 'src') "
+"are ignored and only $PHPTHUMBDefaults parameters (set at the bottom of "
+"phpThumb.config.php) are used for processing.<br /> The \"*\" character MUST "
+"be used to represent the source image name."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:72
+msgid "Cache Default Only Suffix"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:74
+msgid ""
+"[EMPTY] cached in normal phpThumb manner<br /> \"*_thumb\"  cache \"pic.jpg\\"
+"\" becomes \"pic_thumb.jpg\" (or \"pic_thumb.png\" if PNG output is "
+"selected, etc)<br /> \"small-*\"  cache \"pic.jpg\" becomes \"small-pic.jpg"
+"\" (or \"small-pic.png\" if PNG output is selected, etc)."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:77
+msgid "Cache Force Passthru"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:80
+msgid ""
+"if true, cached image data will always be passed to browser; if false, HTTP "
+"redirect will be used instead."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:83
+msgid "Temp directory configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:84
+msgid ""
+"phpThumb may need to create temp files. Usually the system temp dir is "
+"writable and can be used. Leave this value as NULL in most cases. If you get "
+"errors about \"failed to open &lt;filename&gt; for writing\" you should "
+"change this to a full pathname to a directory you do have write access to."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:86
+msgid "Temp Directory"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:91
+msgid ""
+"maximum number of pixels in source image to attempt to process entire image"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:92
+#, php-format
+msgid ""
+"If this is zero then no limit on source image dimensions. If this is nonzero "
+"then this is the maximum number of pixels the source image can have to be "
+"processed normally, otherwise the embedded EXIF thumbnail will be used (if "
+"available) or an \"image too large\" notice will be displayed. This is to be "
+"used for large source images (> 1600x1200) and low PHP memory limits. If PHP "
+"runs out of memory the script will usually just die with no output.  To "
+"calculate this number, multiply the dimensions of the largest image you can "
+"process with your memory limitation (e.g. 1600 * 1200 = 1920000) As a "
+"general guideline, this number will be about 20% of your PHP memory "
+"configuration, so 8M = 1,677,722; 16M = 3,355,443; 32M = 6,710,886; etc."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:94
+msgid "Max Source Pixels"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:97
+msgid ""
+"<ul><li>0 no memory limit</li><li>1920000 allow 1600x1200 images (2Mpx), no "
+"larger (about 10MB memory required)</li><li>3355443 16MB memory limit</"
+"li><li>3871488 allow 2272x1704 images (4Mpx), no larger (about 16MB memory "
+"required)</li></ul>"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:100
+msgid "ImageMagick configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:101
+msgid ""
+"If source image is larger than available memory limits as defined above in "
+"\"max_source_pixels\" AND ImageMagick's \"convert\" program is available, "
+"phpThumb() will call ImageMagick to perform the thumbnailing of the source "
+"image to bypass the memory limitation. Leaving the value as NULL will cause "
+"phpThumb() to attempt to detect ImageMagick's presence with \"which\"."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:103
+msgid "Imagemagick Path"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:105
+msgid ""
+"Windows: set absolute pathname or empty for no use of Image Magic<br /> "
+"*nix: set absolute pathname to \"convert\", or leave as null if \"convert\" "
+"is in the path"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:109
+msgid "Default output configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:111
+msgid "Output Format"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:117
+msgid ""
+"default output format ('jpeg', 'png' or 'gif') - thumbnail will be output in "
+"this format (if available in your version of GD)."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:120
+msgid "Output Maxwidth"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:122
+msgid ""
+"default maximum thumbnail width.  If this is zero then default width  is the "
+"width  of the source image."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:125
+msgid "Output Maxheigh"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:127
+msgid ""
+"default maximum thumbnail height. If this is zero then default height is the "
+"height of the source image."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:130
+msgid "Output Interlace"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:132
+msgid ""
+"if true interlaced output for GIF/PNG, progressive output for JPEG; if false "
+"non-interlaced for GIF/PNG, baseline for JPEG."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:136
+msgid "Error message configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:138
+msgid "Error Image Width"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:140
+msgid "default width for error images"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:143
+msgid "Error Image Height"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:145
+msgid "default height for error images"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:148
+msgid "Error Message Image Default"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:150
+msgid ""
+"Set this to the name of a generic error image (e.g. '/images/error.png') "
+"that you want displayed in place of any error message that may occur. This "
+"setting is overridden by the 'err' parameter, which does the same thing."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:153
+msgid "Error Bgcolor"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:155
+msgid "background color of error message images."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:158
+msgid "Error Textcolor"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:160
+msgid "color of text in error messages."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:163
+msgid "Error Fontsize"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:165
+msgid "(smallest)"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:169
+msgid "(largest)"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:171
+msgid "size of text in error messages, from 1 (smallest) to 5 (largest)"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:174
+msgid "die on error"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:176
+msgid ""
+"die with error message on any fatal error (recommended with standalone "
+"phpThumb.php)."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:179
+msgid "Silent die on error"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:181
+msgid "simply die with no output of any kind on fatal errors (not recommended)"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:184
+msgid "Die on source failure"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:186
+msgid ""
+"die with error message if source image cannot be processed by phpThumb() "
+"(usually because source image is corrupt in some way).  If false the source "
+"image will be passed through unprocessed, if true (default) an error message "
+"will be displayed."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:190
+msgid "Off-server Thumbnailing Configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:192
+#: pntemplates/thumbnail_form_settings.html:215
+msgid "Enabled"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:194
+msgid "If false will allow thumbnailing from any source domain"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:197
+#: pntemplates/thumbnail_form_settings.html:220
+msgid "Valid Domains"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:199
+#: pntemplates/thumbnail_form_settings.html:222
+msgid ""
+"This is the list of domains for which thumbnails are allowed to be created.  "
+"The default value of the current domain should be fine in most cases, but if "
+"neccesary you can add more domains in here, in the format www.example.com; "
+"www.example1.com."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:202
+#: pntemplates/thumbnail_form_settings.html:230
+msgid "Erase Image"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:207
+#: pntemplates/thumbnail_form_settings.html:235
+msgid "Text Message"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:209
+msgid "Text of error message."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:213
+msgid "Off-server Linking Configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:217
+msgid ""
+"If false will allow thumbnails to be linked to from any domain, if true only "
+"domains listed below in 'nooffsitelink_valid_domains' will be allowed."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:225
+msgid "Require Referer"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:237
+msgid "Text of error message. Your Host Name will be appanded to this text"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:241
+msgid "Border &amp; Background default colors"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:243
+msgid "Border Hexcolor"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:245
+msgid "Default border color - usual HTML-style hex color notation."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:248
+msgid "Background Hexcolor"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:250
+msgid ""
+"Default background color when thumbnail aspect ratio does not match fixed-"
+"dimension box - usual HTML-style hex color notation"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:254
+msgid "Watermark configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:256
+msgid "TTF Directory"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:258
+msgid "Base directory for TTF font files"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:262
+msgid "MySQL configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:266
+msgid "Security configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:268
+msgid "High Security Enabled"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:270
+msgid ""
+"if enabled, requires 'high_security_password' set to at least 5 characters, "
+"and requires the use of phpThumbURL() function (at the bottom of phpThumb."
+"config.php) to generate hashed URLs."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:273
+msgid "High Security Password"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:275
+msgid ""
+"required if 'high_security_enabled' is true, must be at least 5 characters "
+"long"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:278
+msgid "Disable Debug"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:280
+msgid ""
+"prevent phpThumb from displaying any information about your system. If true, "
+"phpThumbDebug and error messages will be disabled."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:283
+msgid "Allow SRC above DOCROOT"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:285
+msgid ""
+"if true, allow src to be anywhere in filesystem; if false (default) only "
+"allow src within document_root."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:288
+msgid "Allow SRC above phpThumb"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:290
+msgid ""
+"if true (default), allow src to be anywhere in filesystem; if false only "
+"allow src within sub-directory of phpThumb installation."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:293
+msgid "Allow Parameter File"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:295
+msgid ""
+"if true, allow use of 'file' parameter; if false (default) the 'file' "
+"parameter is disabled/ignored."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:298
+msgid "Allow Parameter Goto"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:300
+msgid ""
+"if true, allow use of 'goto' parameter; if false (default) the 'goto' "
+"parameter is disabled/ignored."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:304
+msgid "Compatability settings"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:306
+msgid "Disable Pathinfo Parsing"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:311
+msgid "Disable Imagecopyresampled"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:313
+msgid ""
+"if true, ImageCopyResampled is replaced with ImageCopyResampleBicubic. May "
+"be needed for buggy versions of PHP-GD."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:316
+msgid "Disable onlycreateable passthru"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:318
+msgid ""
+"if true, any image that can be parsed by GetImageSize() can be passed "
+"through; if false, only images that can be converted to GD by ImageCreateFrom"
+"(JPEG|GIF|PNG) functions are allowed."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:322
+msgid "Speed optimizations configuration"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:324
+msgid "Prefer Imagemagick"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:326
+msgid ""
+"If true, use ImageMagick to resize thumbnails if possible, since it is "
+"usually faster than GD functions; if false only use ImageMagick if PHP "
+"memory limit is too low."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:329
+msgid "use exif thumbnail for speed"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:331
+msgid ""
+"If true, and EXIF thumbnail is available, and is larger or equal to output "
+"image dimensions, use EXIF thumbnail rather than actual source image for "
+"generating thumbnail. Benefit is only speed, avoiding resizing large image."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:335
+msgid "If any parameters are constant across ALL images, you can set them here"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:337
+msgid "phpThumb Defaults GetString Override"
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:339
+msgid ""
+"if true, any parameters in the URL will override the defaults set here; if "
+"false, any parameters set here cannot be overridden in the URL."
+msgstr ""
+
+#: pntemplates/thumbnail_form_settings.html:342
+msgid "phpThumb Defaults Disable GetParams"
+msgstr ""
+
+#: pntemplates/thumbnail_form_check.html:6
+msgid ""
+"This demo analyzes your settings (phpThumb.config.php and server/PHP) for <a "
+"href=\"http://phpthumb.sourceforge.net\"><strong>phpThumb()</strong></a>"
+msgstr ""
+
+#: pntemplates/thumbnail_form_check.html:10
+msgid "&lt;-- bad . . . . . good --&gt;"
+msgstr ""
+
+#: pntemplates/thumbnail_form_check.html:31
+#: pntemplates/thumbnail_form_check.html:69
+msgid "Setting"
+msgstr ""
+
+#: pntemplates/thumbnail_form_check.html:32
+#: pntemplates/thumbnail_form_check.html:51
+msgid "Value"
+msgstr ""
+
+#: pntemplates/thumbnail_form_check.html:33
+#: pntemplates/thumbnail_form_check.html:52
+#: pntemplates/thumbnail_form_check.html:72
+msgid "Comments"
+msgstr ""
+
+#: pntemplates/thumbnail_form_check.html:47
+msgid "Functions"
+msgstr ""
+
+#: pntemplates/thumbnail_form_check.html:50
+msgid "function_exists:"
+msgstr ""
+
+#: pntemplates/thumbnail_form_check.html:66
+msgid "Features"
+msgstr ""
+
+#: pntemplates/thumbnail_form_check.html:70
+msgid "Master Value"
+msgstr ""
+
+#: pntemplates/thumbnail_form_check.html:71
+msgid "Local Value"
+msgstr ""

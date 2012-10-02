@@ -1,0 +1,35 @@
+<div class="qtext">
+  <?php echo $questiontext; ?>
+</div>
+
+<?php if ($image) { ?>
+  <img class="qimage" src="<?php echo $image; ?>" alt="" />
+<?php } ?>
+
+<?php if (!$wirisEditorEnabled) echo $wirisCASApplet; ?>
+
+<div class="ablock clearfix">
+  <div class="prompt">
+    <?php echo get_string('answer', 'quiz'); ?>
+  </div>
+  <div class="answer">
+    <?php
+        if ($wirisEditorEnabled) {
+          echo $wirisCASApplet;
+          echo '<br />';
+          echo $wirisEditorApplet;
+        }else{
+    ?>
+      <input type="text" name="<?php echo $inputname; ?>" class="<?php echo $class; ?>"
+             value="<?php echo $value; ?>" <?php echo $readonly; ?> size="80"/>
+    <?php
+        }
+    ?>
+    <?php echo $feedbackimg; ?>
+  </div>
+
+<?php if ($feedback) { ?>
+  <div class="feedback">
+     <?php echo $feedback; ?>
+  </div>
+<?php } ?>

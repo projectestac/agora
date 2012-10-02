@@ -1,0 +1,99 @@
+<?php
+global $CFG;
+require_once("$CFG->libdir/agora.php");
+if (get_protected_agora()){
+
+	if($admin_field = get_record('block_advices','show_only_admins','1')){
+		$admin_msg = $admin_field->msg;
+		$admin_start = strtotime($admin_field->date_start);
+		$admin_stop = strtotime($admin_field->date_stop);
+	}
+	else{
+		$admin_msg = "";
+		$admin_start = 0;
+		$admin_stop = 0;
+	}
+
+	if($not_admin_field = get_record('block_advices','show_only_admins','0')){
+		$not_admin_msg = $not_admin_field->msg;
+		$not_admin_start = strtotime($not_admin_field->date_start);
+		$not_admin_stop = strtotime($not_admin_field->date_stop);
+	}
+	else{
+		$not_admin_msg = "";
+		$not_admin_start = 0;
+		$not_admin_stop = 0;
+	}
+	
+?>
+	
+	<table cellpadding="9" cellspacing="0">
+	  <tr valign="top">
+	    <td align="right">
+	       <?php print_string('admin_advice', 'block_advices'); ?>:
+	    </td>
+	    <td>
+		   <?php print_textarea(true, 10, 50, 0, 0, 'admin_advice', $admin_msg); ?>
+	    </td>
+	  </tr>
+	  <tr valign="top">
+	    <td align="right">
+	       <?php print_string('advice_start_date', 'block_advices'); ?>:
+	    </td>
+	    <td>
+		   <?php print_date_selector('admin_day_start', 'admin_month_start', 'admin_year_start', $currenttime=$admin_start);
+		   print_checkbox ('admin_start_enabled', 1, $admin_start != 0, get_string('enabled', 'block_advices'));  ?>
+	    </td>
+	  </tr>
+	  <tr valign="top">
+	    <td align="right">
+	       <?php print_string('advice_stop_date', 'block_advices'); ?>:
+	    </td>
+	    <td>
+		   <?php print_date_selector('admin_day_stop', 'admin_month_stop', 'admin_year_stop', $currenttime=$admin_stop);
+		   print_checkbox ('admin_stop_enabled', 1, $admin_stop != 0, get_string('enabled', 'block_advices'));  ?>
+	    </td>
+	  </tr>
+	  
+	  
+	  <tr><td colspan="2"><hr/></td></tr>
+	  <tr valign="top">
+	    <td align="right">
+	       <?php print_string('not_admin_advice', 'block_advices'); ?>:
+	    </td>
+	    <td>
+		   <?php print_textarea(true, 10, 50, 0, 0, 'not_admin_advice', $not_admin_msg); ?>
+	    </td>
+	  </tr>
+	  <tr valign="top">
+	    <td align="right">
+	       <?php print_string('advice_start_date', 'block_advices'); ?>:
+	    </td>
+	    <td>
+		   <?php print_date_selector('not_admin_day_start', 'not_admin_month_start', 'not_admin_year_start', $currenttime=$not_admin_start);
+		   print_checkbox ('not_admin_start_enabled', 1, $not_admin_start != 0, get_string('enabled', 'block_advices'));  ?>
+	    </td>
+	  </tr>
+	  <tr valign="top">
+	    <td align="right">
+	       <?php print_string('advice_stop_date', 'block_advices'); ?>:
+	    </td>
+	    <td>
+		   <?php print_date_selector('not_admin_day_stop', 'not_admin_month_stop', 'not_admin_year_stop', $currenttime=$not_admin_stop);
+		   print_checkbox ('not_admin_stop_enabled', 1, $not_admin_stop != 0, get_string('enabled', 'block_advices'));  ?>
+	    </td>
+	  </tr>
+	  
+	  <tr>
+	    <td colspan="2" align="center">
+	      <input type="submit" value="<?php print_string('savechanges') ?>" />
+	    </td>
+	  </tr>
+	</table>
+	 
+<?php 
+
+	if (can_use_html_editor()) { use_html_editor(); } 
+	
+}	
+?>

@@ -1,0 +1,1022 @@
+/*******************************************************************
+ styles_color.css
+  
+ This CSS file contains all color definitions like 
+ background-color, font-color, border-color etc.
+
+ Styles are organised into the following sections:
+
+  core
+  header
+  footer
+
+  admin
+  blocks
+  calendar
+  course
+  doc
+  login
+  message
+  question
+  tabs
+  user
+
+  various modules
+
+*******************************************************************/
+
+/***
+ ***  Core
+ ***/
+
+a:link,
+a:visited {
+  color:#457fb9;
+}
+
+a.dimmed:link,
+a.dimmed:visited {
+  color:#AAAAAA;
+}
+
+a:hover {
+  color:#FF0000;
+}
+
+a.autolink:link,
+a.autolink:visited {
+  color:#000000;
+  background: #DDDDDD;
+}
+
+a.autolink.glossary:hover {
+  cursor: help;
+}
+
+img.userpicture,
+img.grouppicture {
+  border-color:#000
+}
+
+.block_online_users .listentry img {
+  border:#888
+}
+
+body {
+  background-color:#ffffff;
+  color:#000;
+}
+
+th.header,
+td.header,
+div.header {
+  border-color:#DDDDDD;
+}
+
+.navbar {
+  border-color:#DDDDDD;
+  background-color: #b3cadb ;
+}
+
+table.formtable tbody th {
+  background-color: transparent;
+  background-image: none;
+}
+
+.highlight {
+  background-color:#AAFFAA;
+}
+
+.highlight2 {
+  color:#AA0000; /* highlight missing terms in forum search */
+}
+
+/* Alternate rows even */
+.r0 {  
+}
+
+/* Alternate rows odd */
+.r1 {  
+}
+
+/* notification messages (can be good or bad) */
+.notifyproblem {
+  color:#660000;
+}
+.notifysuccess {
+  color:#006600;
+}
+.notifytiny {
+  color:#000044;
+}
+
+#admin-auth_config .required {
+  background-color:#DDDDDD;
+}
+
+.generalbox {
+  border-color:#DDDDDD; 
+}
+.informationbox {
+  border-color:#DDDDDD; 
+}
+.feedbackbox {
+  border-color: #888888; 
+}
+.feedbackby {
+  background-color:#BBBBBB;
+}
+
+.noticebox {
+  border-color:#DDDDDD; 
+}
+
+.errorbox {
+  color:#ffffff;
+  border-color:#660000;
+  background-color:#990000;
+}
+
+.errorboxcontent {
+  background-color:#FFBBBB;
+}
+
+.tabledivider {
+  border-color:#DDDDDD;
+}
+
+.sitetopic {
+}
+
+.sitetopiccontent {
+  border-color:#DDDDDD;
+  background-color:#FFFFFF;
+}
+
+.dimmed_text {
+  color:#AAAAAA;
+}
+
+.teacheronly {
+  color:#990000;
+}
+
+.unread {
+  background: #FFD991;
+} 
+
+.censoredtext {
+  color:#000000;
+  background:#000000;
+}
+
+
+/* kept for backward compatibility with some non-standard modules
+   which use these classes for various things */
+.generaltab, .generaltabinactive {
+  background-color:#BBBBBB;
+}
+.generaltabselected {
+  background-color:#DDDDDD;
+}
+.generaltabinactive {
+  color:#CCCCCC;
+}
+
+
+.generaltable .cell {
+  background-color:#f9f9f9;
+  border-color:#EEEEEE; 
+}
+
+.generaltable {
+  border-color:#EEEEEE; 
+}
+
+
+
+/***
+ *** Header
+ ***/
+
+.breadcrumb .sep, #admin-report-simpletest-index .sep {
+  color:#113b83;
+}
+
+.headerskip a:link,
+.headerskip a:visited,
+.headerskip a:hover {
+  color: #FFF;
+}
+
+.navigation select {
+  background-color:#FFFFFF;
+}
+
+.navigation optgroup {
+  background-color:#EEEEEE;
+}
+
+.navigation optgroup option {
+  background-color:#FFFFFF;
+}
+
+/***
+ *** Footer
+ ***/
+
+/*Accessibility: .debugwarn */
+.debugwarn {
+  text-align: center;
+  background: #FDD;
+}
+
+.homelink a:link,
+.homelink a:visited,
+.homelink a:hover {
+  color: #000;
+  text-decoration: none;
+}
+.homelink a:link,
+.homelink a:visited {
+  border-top: 1px solid #cecece;
+  border-bottom: 2px solid #4a4a4a;
+  border-left: 1px solid #cecece;
+  border-right: 2px solid #4a4a4a;
+}
+.homelink a:hover {
+  border-bottom: 1px solid #cecece;
+  border-top: 2px solid #4a4a4a;
+  border-right: 1px solid #cecece;
+  border-left: 2px solid #4a4a4a;
+}
+
+
+/***
+ *** Admin
+ ***/
+ 
+.form-overridden{
+	background-color:#FFFF00; 
+}
+
+.admin .generalbox {
+  border-color:#BBBBBB; 
+  background-color:#EEEEEE; 
+}
+
+.admin .informationbox {
+  border-color:#BBBBBB; 
+  background-color:#FFFFFF; 
+}
+
+body#admin-index .c0 {
+  background-color: #FAFAFA;
+}
+
+body#admin-blocks table#blocks .r0,
+body#admin-blocks table#incompatible .r0 {
+  background-color: #f0f0f0;
+}
+
+body#admin-blocks table#blocks .r1,
+body#admin-blocks table#incompatible .r1 {
+  background-color: #fafafa;
+}
+
+body#admin-blocks table#incompatible td.c0 {
+  color: #ff0000;
+}
+
+table.flexible  .r0 {
+  background-color: #f0f0f0;
+}
+
+table.flexible .r1 {
+  background-color: #fafafa;
+}
+
+#admin-report-simpletest-index span.notice {
+  color: teal;
+}
+
+#admin-report-simpletest-index b.pass {
+  color: green;
+}
+
+#admin-report-simpletest-index b.fail, b.exception {
+  color: red;
+}
+
+#admin-report-simpletest-index .exception, .exception pre {
+  background-color: #fdd;
+}
+
+#admin-report-simpletest-index .unittestsummary {
+  color: white;
+}
+
+#admin-report-simpletest-index .unittestsummary.fail {
+  background-color: red;
+}
+
+#admin-report-simpletest-index .unittestsummary.pass {
+  background-color: green;
+}
+
+#adminsettings fieldset {
+    background-color: #EEE;
+    border-color: #BBB;
+    color: #000;
+}
+
+#adminsettings .form-shortname {
+    color: #888;
+}
+
+.block_admin_tree.sideblock .link.current {
+  /*background-color:#FFFFFF;*/
+  color: #FFFFFF;
+}
+
+#admin-lang .translator {
+  border-color: #dddddd;
+}
+
+#admin-lang .translator tr.r0 {
+  background-color: #f0f0f0;
+}
+
+#admin-lang .translator tr.r1 {
+  background-color: #fafafa;
+}
+
+#admin-lang .translator .strkey {
+  color: #666666;
+}
+
+#admin-lang .translator .bothmissing {
+  background-color: #ef6868;
+}
+
+#admin-lang .translator .mastermissing {
+  background-color: #feff7f;
+}
+
+#admin-lang .translator .localdifferent {
+  background-color: #aaffaa;
+}
+
+
+/***
+ *** Blocks
+ ***/
+
+.sideblock .header {
+  border-color: #dddddd;
+  background-color:#e4e1df;
+}
+
+.sideblock .content {
+  border-color: #dddddd;
+  background-color:#b3cadb;
+}
+
+.sideblock .content hr {
+  border-top-color:#999999;
+}
+
+#left-column .hidden .header,
+#right-column .hidden .header
+{
+  border-bottom-color: #dddddd;
+}
+
+.sideblock .header .hide-show img.hide-show-image {
+  background: url('../../pix/t/switch_minus.gif') no-repeat bottom;
+}
+
+.sideblock.hidden .header .hide-show img.hide-show-image {
+  background: url('../../pix/t/switch_plus.gif') no-repeat bottom;
+}
+
+
+
+/***
+ *** Blogs
+ ***/
+
+.blogpost.blogdraft .content {
+  background-color:#EEEEEE;
+}
+
+.block_blog_tags .official {
+  color: #0000cc;
+}
+
+.block_blog_tags .personal {
+  color: #666699;
+}
+
+
+/***
+ *** Calendar
+ ***/
+
+#calendar .maincalendar,
+#calendar .sidecalendar {
+  border-color: #DDDDDD;
+}
+
+#calendar .maincalendar table.calendarmonth th {
+  border-color: #000000;
+}
+
+table.minicalendar {
+  border-color: #DDDDDD;
+}
+
+#calendar .maincalendar .eventlist .event {
+  border-color:#DDDDDD;
+}
+
+#calendar .maincalendar .eventlist .event .topic,
+#calendar .maincalendar .eventlist .event .picture,
+#calendar .maincalendar .eventlist .event .side {
+  background-color:#EEEEEE;
+}
+
+#calendar .maincalendar table.calendarmonth ul.events-underway {
+  color:#999999;
+}
+
+/*Accessibility: increase contrast, darker link/weekend colors, lighter event backgrounds. */
+.minicalendar a,
+.calendarmonth a {
+  color:#000077;
+}
+
+#calendar .event_global,
+.minicalendar .event_global,
+.block_calendar_month .event_global {
+  border-color:#D6F8CD !important; /* #C5E7BC */
+  background-color:#D6F8CD;
+}
+
+#calendar .event_course,
+.minicalendar .event_course,
+.block_calendar_month .event_course {
+  border-color:#FFD3BD !important; /* #EEC2AC */
+  background-color:#FFD3BD;
+}
+
+#calendar .event_group,
+.minicalendar .event_group,
+.block_calendar_month .event_group {
+  border-color:#FEE7AE !important; /* #EDD69D */
+  background-color:#FEE7AE;
+}
+
+#calendar .event_user,
+.minicalendar .event_user,
+.block_calendar_month .event_user {
+  border-color:#DCE7EC !important; /* #CBD6DB */
+  background-color:#DCE7EC;
+}
+
+#calendar .duration_global,
+.minicalendar .duration_global {
+  border-top-color:#66D14D !important;
+  border-bottom-color:#66D14D !important;
+}
+
+#calendar .duration_course,
+.minicalendar .duration_course {
+  border-top-color:#FF9966 !important;
+  border-bottom-color:#FF9966 !important;
+}
+
+#calendar .duration_group,
+.minicalendar .duration_group {
+  border-top-color:#FBBB23 !important;
+  border-bottom-color:#FBBB23 !important;
+}
+
+#calendar .duration_user,
+.minicalendar .duration_user {
+  border-top-color:#A1BECB !important;
+  border-bottom-color:#A1BECB !important;
+}
+
+#calendar .weekend,
+.minicalendar .weekend {
+  color:#990000;
+}
+
+#calendar .today,
+.minicalendar .today {
+  border-color:#444444;
+}
+
+.cal_popup_fg {
+  background-color:#FFFFFF;
+}
+
+.cal_popup_bg {
+  border-color:#000000;
+  background-color:#FFFFFF;
+}
+
+#calendar .maincalendar .filters table,
+#calendar .sidecalendar .filters table,
+.block_calendar_month .filters table {
+  background-color: #EEEEEE;
+}
+
+
+
+/***
+ *** Course
+ ***/
+
+/* course, entry-page, login */
+.headingblock {
+  border-color:#DDDDDD;
+}
+
+/* course */
+.headingblock .outline {
+  border-color:#DDDDDD;
+}
+
+#course-view .weekscss .section,
+#course-view .section td {
+  border-color:#DDDDDD;
+}
+
+/* .content should match the body background, sides are white. */
+#course-view .weekscss .content {
+  background: #FAFAFA;
+}
+
+#course-view .weekscss .section,
+#course-view .section td.side {
+  background: #FFFFFF;
+}
+
+#course-view .section .side {
+}
+
+#course-view .section .left {
+}
+
+#course-view .section .right {
+}
+
+#course-view .weekscss .current,
+#course-view .current td.side {
+  background: #FFD991;
+}
+
+#course-view .weekscss .hidden,
+#course-view .hidden td.side {
+  background: #DDDDDD;
+}
+
+
+#course-view .topics {
+}
+
+#course-view .weeks {
+}
+
+#course-view .section .spacer {
+}
+
+#course-view .section .weekdates {
+  color: #777777;
+}
+
+#course-view .weekscss .weekdates {
+  color: #333333;
+}
+
+.categoryboxcontent,
+.coursebox {
+  border-color:#DDDDDD;
+}
+body#course-user .section {
+  border-color:#AAAAAA;
+}
+
+#admin-report .plugin,
+#course-report .plugin,
+#course-import .plugin {
+  margin-bottom: 20px;
+  margin-left:10%;
+  margin-right:10%;
+
+  border-bottom: 1px solid #cecece;
+  border-top: 1px solid #cecece;
+  border-right: 1px solid #cecece;
+  border-left: 1px solid #cecece;
+
+  background-color: #fdfdfd;
+}
+
+
+/***
+ *** Doc
+ ***/
+
+/***
+ *** Grades
+ ***/
+
+body#grade-index .grades {
+  border-color:black;
+}
+
+body#grade-index .grades td {
+  border-color:#e0e0e0;
+}
+
+body#grade-index .grades .r0 {
+  background-color: #ffffff;
+}
+
+body#grade-index .grades .r1 {
+  background-color: #f0f0f0;
+}
+
+
+/***
+ *** Login
+ ***/
+
+.loginbox,
+.loginbox.twocolumns .loginpanel,
+.loginbox .subcontent {
+  border-color:#DDDDDD;
+}
+
+
+/***
+ *** Message
+ ***/
+
+table.message_search_results td {
+  border-color:#DDDDDD;
+}
+
+.message.other .author {
+  color: #8888CC;
+}
+
+.message.me .author {
+  color: #999999;
+}
+
+.message .time {
+  color: #999999;
+}
+
+.message .content {
+}
+
+/***
+ *** Question
+ ***/
+
+.que {
+    border-color: #DDD;
+}
+.que .r0 {
+    background-color: #F5F5F5;
+}
+.que .r1 {
+    background-color: #EEE;
+}
+.calculated .answer,
+.numerical .answer,
+.shortanswer .answer,
+.truefalse .answer {
+    background-color: #EEE;
+}
+.que .feedback {
+  border-color: #DDD;
+}
+.que .incorrect {
+    background-color: #faa;
+}
+.que .partiallycorrect {
+    background-color: #ff9;
+}
+.que .correct {
+    background-color: #afa;
+}
+
+
+/***
+ *** Logs
+ ***/
+
+.logtable .r1 {
+  background-color:#EEEEEE;
+}
+
+
+/***
+ *** Tabs
+ ***/
+
+
+
+/***
+ *** User
+ ***/
+
+.userpicture {
+}
+
+.userinfobox {
+  border-color: #DDDDDD;
+}
+.groupinfobox {
+  border-color: #DDDDDD;
+}
+
+/***
+ *** Modules: Chat
+ ***/
+
+#mod-chat-gui_basic .text,
+#mod-chat-gui_header_js-jsupdate .text {
+  color:#000
+}
+
+#mod-chat-gui_basic .event,
+#mod-chat-gui_basic .title,
+#mod-chat-gui_header_js-jsupdate .event,
+#mod-chat-gui_header_js-jsupdate .title {
+  color:#888
+}
+
+#mod-chat-gui_header_js-chatinput .wait {
+    background: #dddddd;
+}
+
+#mod-chat-view #chatcurrentusers .idletime {
+  color: #888888;   
+}
+
+/***
+ *** Modules: Choice
+ ***/
+
+/***
+ *** Modules: Forum
+ ***/
+
+.forumheaderlist,
+.forumpost {
+  border-color:#DDDDDD;
+}
+
+.forumpost .content {
+  background: #FFFFFF;
+}
+
+.forumpost .left {
+  background:#EEEEEE; 
+}
+
+.forumpost .topic {
+  border-bottom-color: #EEEEEE;
+}
+
+.forumpost .starter {
+  background:#DDDDDD; 
+}
+
+.forumheaderlist .discussion .starter {
+  background:#DDDDDD; 
+}
+
+.forumheaderlist td {
+  border-color: #FFFFFF;
+}
+
+.sideblock .post .head {
+  color:#555555;
+}
+
+.forumthread .unread {
+  background: #FFD991;
+}
+#mod-forum-discuss .forumpost {
+  background: none;
+}
+
+#mod-forum-discuss .forumpost.unread .content {
+  border-color: #FFD991; 
+} 
+
+#mod-forum-discuss .forumthread .unread {
+} 
+
+#mod-forum-index .unread {
+}
+
+
+/***
+ *** Modules: Glossary
+ ***/
+
+.entryboxheader {
+  border-color: #BBBBBB;
+}
+
+.entrybox {
+  border-color: #BBBBBB;
+}
+
+.entry {
+}
+
+.glossarypost {
+  border-color: #DDDDDD;
+}
+
+.glossarypost .entryheader,
+.glossarypost .entryapproval,
+.glossarypost .picture,
+.glossarypost .entryattachment,
+.glossarypost .left {
+  background-color: #F0F0F0;
+}
+
+.glossarycomment {
+  border-color: #DDDDDD;
+}
+
+.glossarycomment .entryheader,
+.glossarycomment .picture,
+.glossarycomment .left {
+  background-color: #F0F0F0;
+
+}
+
+#mod-glossary-report .generalbox .teacher {
+  background: #F0F0F0;
+}
+
+.glossarycategoryheader {
+  background-color: #dddddd;
+}
+
+.glossaryformatheader {
+  background-color: #dddddd;
+}
+
+
+/***
+ *** Modules: Journal
+ ***/
+
+#mod-journal-view .feedbackbox .left,
+#mod-journal-view .feedbackbox .entryheader {
+  background-color: #dddddd;
+}
+
+/***
+ *** Modules: Label
+ ***/
+
+/***
+ *** Modules: Lesson
+ ***/
+
+/***
+ *** Modules: Quiz
+ ***/
+
+/* body#mod-quiz-report table#attempts td {
+  border-color: #dddddd;
+}
+body#mod-quiz-report table#attempts .r1 {
+  background-color: #eeeeee;
+}
+ */
+
+/***
+ *** Modules: Resource
+ ***/
+
+.ims-nav-dimmed {
+  color: #AAAAAA;
+  text-decoration: none;
+}
+
+.ims-nav-button a:link,
+.ims-nav-button a:visited,
+.ims-nav-button a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.ims-nav-dimmed,
+.ims-nav-button a:link,
+.ims-nav-button a:visited {
+  border-top: 1px solid #cecece;
+  border-bottom: 2px solid #4a4a4a;
+  border-left: 1px solid #cecece;
+  border-right: 2px solid #4a4a4a;
+}
+
+.ims-nav-button a:hover {
+  border-bottom: 1px solid #cecece;
+  border-top: 2px solid #4a4a4a;
+  border-right: 1px solid #cecece;
+  border-left: 2px solid #4a4a4a;
+}
+
+#ims-contentframe,
+#ims-contentframe-no-nav {
+  border-color: #cecece;
+}
+
+
+/***
+ *** Modules: Scorm
+ ***/
+
+/***
+ *** Modules: Survey
+ ***/
+
+#mod-survey-view .r0 {
+  background-color: #EEEEEE;
+}
+#mod-survey-view .r1 {
+  background-color: #DDDDDD;
+}
+
+
+/***
+ *** Modules: Wiki
+ ***/
+
+/***
+ *** Modules: Workshop
+ ***/
+
+.workshoppostpicture {
+  background-color:#FEE6B9;
+}
+
+.workshopassessmentheading {
+  background-color:#DDDDDD;
+}
+
+.error {
+  color:#ff0000;
+}
+
+#admin-roles-override .capcurrent {
+  background-color:#FFFFFF;
+  border: 1px solid #cecece;
+}
+
+#admin-roles-manage .capdefault {
+  background-color:#dddddd;
+  border: 1px solid #cecece;
+}
+
+#admin-roles-manage .rolecap,
+#admin-roles-override .rolecap {
+  border:none;
+  border-bottom:1px solid;
+  border-bottom-color: #cecece;
+}
+
+#admin-roles-manage .rolecap .cap-desc .cap-name,
+#admin-roles-override .rolecap .cap-desc .cap-name {
+  color: #888;
+}
+
+form.mform .required label {
+  color:#a00;
+}
+form.mform .fdescription.required {
+  color:#a00;
+}
+
+/* tag management start*/
+span.flagged-tag {
+ color:#FF0000;
+}
+span.flagged-tag a{
+ color:#FF0000;
+}
+/* tag management end*/

@@ -1,0 +1,9 @@
+<!--[*  $Id: faq_user_row_read.htm 2 2009-04-23 04:37:47Z mateo $  *]-->
+<a id="faq<!--[$faqid]-->"></a>
+<!--[if $shorturls and $shorturlstype eq 0 and $addcategorytitletopermalink]-->
+<p><a href="<!--[pnmodurl modname="FAQ" func="display" faqid=$faqid cat=$__CATEGORIES__.Main.name]-->"><strong><!--[$question|pnmodcallhooks|pnvarprephtmldisplay]--></strong></a></p>
+<!--[else]-->
+<p><a href="<!--[pnmodurl modname="FAQ" func="display" faqid=$faqid]-->"><strong><!--[$question|pnmodcallhooks|pnvarprephtmldisplay]--></strong></a></p>
+<!--[/if]-->
+<p><!--[$answer|pnmodcallhooks|pnvarprephtmldisplay]--></p>
+<hr />

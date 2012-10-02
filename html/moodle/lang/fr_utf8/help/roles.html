@@ -1,0 +1,24 @@
+<!-- $Id: roles.html,v 1.10 2009/05/05 16:02:23 martignoni Exp $ -->
+
+<h1>Rôles</h1>
+
+<p>Un rôle est une collection de permissions définies pour la totalité d'un système Moodle, que l'on peut attribuer à des utilisateurs déterminés dans des contextes déterminés.</p>
+
+<p>Par exemple, un rôle appelé « Enseignant » peut être défini, permettant à des enseignants d'effectuer certaines actions (et non d'autres). Si un tel rôle existe, il est possible de l'attribuer dans un cours à un utilisateur, pour en faire un enseignant dans ce cours. Vous pouvez également attribuer ce rôle dans le contexte d'une catégorie de cours, pour en faire un « Enseignant » dans tous les cours de cette catégorie, ou attribuer ce rôle à quelqu'un dans un seul forum, lui donnant ces capacités dans ce seul forum.</p>
+
+<p>Un rôle doit avoir un <strong>nom</strong>. Si vous devez dénommer un rôle dans diverses langues, vous pouvez utiliser la syntaxe du filtre multilingue, par exemple</p>
+
+<pre>
+  &lt;span lang="fr" class="multilang"&gt;Enseignant&lt;/span&gt; 
+  &lt;span lang="de" class="multilang"&gt;Dozent&lt;/span&gt; 
+  &lt;span lang="en" class="multilang"&gt;Teacher&lt;/span&gt; 
+  &lt;span lang="es_es" class="multilang"&gt;Profesor&lt;/span&gt; 
+  </pre>
+
+<p>Si vous le faites, assurez-vous que le réglage « Filtrer toutes les chaînes de caractères » soit activé sur votre Moodle.</p>
+
+<p>Le <strong>Nom abrégé</strong> est nécessaire pour pouvoir être utilisé par d'autres composants de Moodle devant se référer à vos rôles (par exemple lors de l'importation de nouveaux utilisateurs à partir d'un fichier ou de l'inscription aux cours par une méthode d'inscription).</p>
+
+<p>La <strong>description</strong> sert simplement à décrire le rôle dans vos propres mots, afin que l'on puisse comprendre facilement à quoi correspond ce rôle.</p>
+
+<p>Voir aussi <a href="help.php?file=contexts.html">Contextes</a>, <a href="help.php?file=permissions.html">Permissions</a>, <a href="help.php?file=assignroles.html">Attribuer des rôles</a> et <a href="help.php?file=overrides.html">Dérogations</a>.</p>

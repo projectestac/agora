@@ -1,0 +1,77 @@
+Version 2.1 
+===============================================================================
+IMPORTANT NOTICE:
+==================================================================================
+The permission component changed in v2.0 from pn_bbsmile to bbsmile, please update
+your permission rules!!!
+You might also need to change the path settings that point to your smilies images.
+===============================================================================
+Upgrade from pn_bbsmile:
+* remove old pn_bbsmile module in the filesystem, do not remove the module in
+  Zikula!
+* copy new bbsmile files to your modules folder
+* regenerate modules list and continue upgrading as usual
+==================================================================================
+    - renamed to bbsmile to get rid of the pn_ prefix.
+
+Version 2.0 (not released)
+    - Zikula 1.0 only version, will not run with .764 or older!
+    
+Version 1.22  - last version for .764 or older versions of PostNuke
+    - internal version
+
+Version 1.18
+    - PostNuke .8 fixes
+    - fixed [#3411] XHTML Validation errors
+
+Version 1.17
+    - no new features, just internal cleanups:
+    - some .762 changes
+    - javscript changes
+    - layout changes
+    - inline styles moved to style.css
+
+Version 1.16
+    - minimum requirement now PN .760+
+    - removed displayhook due to compatibility problems
+      **********************************************
+      **                IMPORTANT!!!              **
+      **   You need to go the hooks settings      **
+      **   for all modules where this transform   **
+      **   hook is activated and submit this      **
+      **   page in order to activte the           **
+      **   display hooks too!!!                   **
+      **********************************************
+
+Version 1.15:
+    - showing smilies now as display hook.
+
+Version 1.14 AutoSmilie: 2005-04-29
+	- added a Module-Var, which indicates a directory
+	  All Files out of this directory (gif,jpg,pjep,png) are included automatically as
+	  Smilies in this hook
+	  Credits for the basic idea and work go to Bolbit (Thomas Pawlitzki, mail@2mas.de)
+	  This closes FR[ 1058440 ] add Smiles
+	  implemented FR [ 1135445 ] Generalise the hooks javascript
+	  smilies will be added at the cursor position now
+	  IMPORTANT: the textarea needs an id now which has to be passed to the pn_bbsmile module:
+	  <!--[ pnmodfunc modname=pn_bbsmile type=user func=bbsmiles textfieldid='mytextfieldid' ]-->
+	  shows the smilie selection
+
+Version 1.13:
+    - moved all pn_bbsmile stuff from pnForum to the hook
+
+Version 1.12: December 19th 2004
+    - code cleanups
+
+Version 1.11: October 25th 2004
+	- pnRendered admin panel
+
+Version 1.10: July 2nd 2003
+	- added alt-tags for better HTML compliance
+
+Version 1.00: January 17th 2003
+	- minor fix in smiles code (better compatibility to forum posts)
+
+Version 0.99: January 11th 2003
+	- initial release

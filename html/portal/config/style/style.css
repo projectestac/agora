@@ -1,0 +1,137 @@
+/*
+-----------------------------
+RESET
+-----------------------------
+*/
+* { margin: 0; padding: 0; text-decoration: none; font-size: 1em; outline: none; }
+code, kbd, samp, pre, tt, var, textarea, input, select, isindex { font: inherit; font-size: 1em; }
+dfn,  cite, var, address, em { font-style: normal; }
+th,  strong, h1, h2, h3, h4, h5, h6 { font-weight: normal; }
+a, img, a img, iframe, form, fieldset, abbr, acronym, object, applet { border: none; }
+table { border-spacing: 0; }
+caption, th, td, center { text-align: left; vertical-align: top; }
+body { line-height: normal; background: white; color: black; }
+q { quotes: "" ""; }
+ul, ol, dir, menu { list-style: none; }
+sub, sup { vertical-align: baseline; }
+a { color: inherit; }
+hr { display: none; } /* we don't need a visual hr in layout */
+font { color: inherit !important; font: inherit !important; color: inherit !important; } /* disables some nasty font attributes in standard browsers */
+
+/*
+-----------------------------
+GENERIC
+-----------------------------
+*/
+
+body {	padding: 0;	font-family : Arial, Helvetica, Univers, Sans-serif;	font-size: 10pt; margin: 0; background:url(../../images/importat/fons_doc.gif);}
+input {  color : #000000;  font-size : 9pt;  text-decoration : none;}
+p {  font-size : 12px;  text-decoration : none;}
+li { list-style:none;margin-left:25pt;padding-left:10pt;margin-bottom:10pt;}
+a,a:visited,a:active,a:hover { color : #739cce; font-size : 10pt; font-weight: bold; text-decoration : none;}
+a:hover {text-decoration : underline;}
+
+label{display:block;}
+small{color: #00376f;font-size: 10pt;font-weight: bold;text-decoration: none;margin-right: 10px}
+
+h1{ color: #113B83;}
+h2{ color: #113B83; font-weight: bold; padding-bottom: 10px;}
+
+h1.titol {color: #000; text-align: right; font-size: 12px; font-weight:bold; margin-top: 10px; margin-right: 10px;}
+
+table th{font-weight:bold;}
+
+/*
+-----------------------------
+CONTENT
+-----------------------------
+*/
+.wrapper {width:610px; }
+.header {width: 100%;}
+.content { width:560px; padding-left: 20px;}
+.content h1 { margin-bottom:20px;margin-top:12px;}
+.content h1 { font-weight:bold; font-size: 16px;}
+.content p {clear:both; margin-top:6px;margin-bottom: 10px;}
+.content .contracte{	color: #113B83;}
+
+.footer { border-top:1px solid #E4E1DF;clear:both; padding: 25px 0 15px 20px;}
+.msgSuccess{background-color:#9fa; border: 1px solid green; padding: 10px 10px 10px 10px;clear:both;margin-top: 20px; margin: 10px 5px;}
+.msgError{background-color:#FFCCCC; border: 1px solid #F00; padding: 10px 10px 10px 10px;clear:both; margin-top: 20px; margin: 10px 5px; }
+.msgWait{background-color: #FAFAD2; border: 1px solid #FFD700; padding: 10px 10px 10px 10px;clear:both; margin-top: 20px; margin: 10px 5px; }
+.error_txt{ color: red; font-weight:bolder;}
+.pujar{background: url(../../images/importat/pujar.gif) no-repeat  left top; height:27px; width:37px; border:none; float:right; margin-bottom: 5px;}
+.correu{padding-left: 35px;background: url(../img/correu.gif) no-repeat top left; height:30px; width:37px;}
+
+.xtec_int{background: url(../../images/importat/xtec_int.gif) #113b83;}
+.quadres{background:  url(../../images/importat/quadres.gif) #fff;}
+.bottom{background:  url(../../images/importat/au_titol.gif) repeat-x ; padding:9px; }
+
+.hideable {position:relative; visibility:hidden;}
+.showable {position:relative; visibility:visible;;}
+
+
+table{ margin-bottom: 15px; border-spacing: 0;	border: 1px solid #ccc;color: #113B83; border-collapse:collapse;}
+table th {	border: none;	border-bottom:1px solid #ccc;		padding: 1px;}
+table td {	border: 1px solid #ccc;	padding: 5px;}
+
+.first { width: 250px;}
+.second { width: 460px;}
+.cap { margin-top: 20px; border: none;}
+.none { border: 0px;}
+.petit { width: 44%; margin: 15px 0px;  }
+.gran { width: 100% ;}
+.section {  margin:15px 0; border: 1px solid #ccc; }
+.center {text-align: center;}
+
+/*
+-----------------------------
+FORMULARI
+-----------------------------	
+*/
+
+#formulari {padding: 15px; margin-bottom:10px; color:#000; }
+#formulari .dreta { float:right; margin-right: 2px;}
+#formulari .esquerra { padding-top:5px; margin-left: 40px; width: 250px; font-size: 14px;}
+
+#formulari .row {width: 95%; height:32px;}
+
+#formulari input {border: 1px solid #e7e8ed;}
+#formulari input[type=text], #formulari input[type=password] {height: 18px; padding-left: 5px; padding-top:5px; width: 200px;}
+#formulari input:focus{border: 1px solid #002276;background-color: #ebf5ff;}
+#formulari input.error{border:1px solid #b42e33;}
+
+#formulari .submit, #formulari .submit:focus {width:50px;height:19px;font-size:10px;font-family:Verdana,Helvetica; margin-left: 475px;font-weight:bold;color:white;background:#638cb5;border:1px solid #002276; cursor:pointer;}
+#formulari .envia , #formulari .envia:focus{ margin-left: 350px;}
+html>body #formulari .envia , html>body #formulari .envia:focus{ margin-left: 450px;}
+
+
+#formulari .section { clear: left; margin: 0px; margin-bottom: 15px; padding-bottom: 15px;background: #f5f8fb;}
+#formulari .suau { background-color: #f5f8fb; }
+#formulari .section h2 {font-weight: bold; background: #739cce; color: #FFF; padding: 5px 10px; margin-bottom: 20px; font-size: 14px;}
+#formulari textarea {width: 500px; margin: 20px 0; font-size : 9pt;  border: 1px solid #e7e8ed; padding: 5px;}
+
+.casella { width: 100px; margin: 10px 20px; display: inline;}
+.casella img { text-align:center; vertical-align: middle; }
+
+.rigth {float:right; margin: 4px}
+html>body .rigth{ margin: 15px;}
+.left {float:left;}
+
+.observacions{	padding:10px;	background-color: #EDF2F9;	margin: 10px 5px;}
+.confirmacio {padding:15px 0px; }
+
+.formulari{	margin: 10px 5px; padding:10px;}
+.formulari .button, 
+.formulari .button:focus { width:40px;height:20px;font-size:10px;font-family:Verdana,Helvetica; font-weight:bold;color:white;background:#638cb5;border:1px solid #002276; cursor:pointer;}
+.required { background: url(../../images/importat//required.gif) #fff no-repeat right;}
+
+#conditions{	height: 200px;	background-color: #FFF;	padding: 10px;	padding-left: 20px;	overflow:auto;	border: 1px solid #ccc;}
+
+.nav { color: #e9e9e9;  font-size: 18px; margin-top: 25px; margin-bottom: 30px; margin-left:-30px}
+.nav ul {list-style:none;}
+.nav li {list-style:none; display:inline; }
+.nav .current {color : #00376F; font-weight:bold;}
+.nav .cercleblau { background: url(../../images/importat/current.gif) no-repeat; padding:3px 9px;}
+.nav .cerclegris { color: white;background:url(../../images/importat/nocurrent.gif) no-repeat; padding:3px 9px;}
+
+.upload li{font-size:12px; list-style:square; margin-left:20pt; padding-left:0pt; margin-bottom:5pt;}

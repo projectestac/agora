@@ -1,0 +1,567 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-05-10 14:21+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pninit.php:41 pninit.php:101 pntemplates/iw_main_admin_conf.htm:87
+msgid "Header text of the cron automatic emails with the new things to see"
+msgstr ""
+
+#: pninit.php:42 pninit.php:102 pntemplates/iw_main_admin_conf.htm:92
+msgid "Footer text of the email"
+msgstr ""
+
+#: pnajax.php:12 pnajax.php:81 pnajax.php:138 pnadmin.php:120 pnadmin.php:135
+#: pnuser.php:12 pnuser.php:138 pnuser.php:303 pnuser.php:339 pnuser.php:373
+#: pnuser.php:941
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnajax.php:35
+msgid "Error deleting avatar"
+msgstr ""
+
+#: pnajax.php:54
+msgid "Error changing avatar"
+msgstr ""
+
+#: pnuserapi.php:14 pnuserapi.php:101 pnuserapi.php:131 pnuserapi.php:157
+#: pnuserapi.php:186 pnuserapi.php:218 pnuserapi.php:244 pnuserapi.php:279
+#: pnuserapi.php:326 pnuserapi.php:363 pnuserapi.php:406 pnuserapi.php:441
+#: pnuserapi.php:476 pnuserapi.php:530 pnuserapi.php:559 pnuserapi.php:587
+#: pnuserapi.php:620 pnuserapi.php:649 pnuser.php:1289 pnuser.php:1496
+#: pnuser.php:1522 pnuser.php:1566 pnuser.php:1771
+msgid "You are not allowed to access to some information."
+msgstr ""
+
+#: pnuserapi.php:41 pnuserapi.php:83 pnuserapi.php:112 pnuserapi.php:141
+#: pnuserapi.php:168 pnuserapi.php:226 pnuserapi.php:259 pnuserapi.php:294
+#: pnuserapi.php:340 pnuserapi.php:377
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pnuserapi.php:247 pnuserapi.php:330 pnuserapi.php:367 pnuserapi.php:410
+#: pnuserapi.php:445 pnuserapi.php:480 pnuserapi.php:534 pnuserapi.php:591
+#: pnuserapi.php:624 pnuserapi.php:653 pnuser.php:1211
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: pnuserapi.php:418
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnuserapi.php:453 pnuserapi.php:502 pnuserapi.php:542
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: pnuserapi.php:566 pnuserapi.php:597 pnuserapi.php:630 pnuserapi.php:659
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: pnadmin.php:122
+msgid "The cron has been executed"
+msgstr ""
+
+#: pnadmin.php:174
+msgid "The value of the life time for users variables is incorrect"
+msgstr ""
+
+#: pnadmin.php:193
+msgid "The configuration have been updated"
+msgstr ""
+
+#: pnadmin.php:276
+msgid ""
+"The current version of iw_main module is incorrect. You must upgrade it "
+"before install, upgrade or use this module."
+msgstr ""
+
+#: pntemplates/plugins/function.iwmainmenulinks.php:22
+#: pntemplates/iw_main_admin_main.htm:4
+msgid "Programmed sequences information"
+msgstr ""
+
+#: pntemplates/plugins/function.iwmainmenulinks.php:23
+msgid "Configure parameters"
+msgstr ""
+
+#: pntemplates/plugins/function.iwmainmenulinks.php:24
+#: pntemplates/iw_main_admin_changeAvatarView.htm:4
+msgid "Avatar change request"
+msgstr ""
+
+#: pntemplates/plugins/function.iwmainmenulinks.php:25
+msgid "Manage files"
+msgstr ""
+
+#: iwcron.php:23 iwcron.php:26
+msgid "The cron has been executed too recenty"
+msgstr ""
+
+#: iwcron.php:40
+msgid "The Mailer module is not active. The cron can not send emails to users."
+msgstr ""
+
+#: iwcron.php:61
+msgid "Never"
+msgstr ""
+
+#: iwcron.php:62
+msgid "Last cron execution"
+msgstr ""
+
+#: iwcron.php:63
+msgid "Last successful cron execution"
+msgstr ""
+
+#: iwcron.php:66
+msgid "Cron results"
+msgstr ""
+
+#: iwcron.php:68
+msgid "It has executed correctly"
+msgstr ""
+
+#: iwcron.php:70
+msgid "It has worked incorrectly"
+msgstr ""
+
+#: iwcron.php:72 pntemplates/iw_main_user_main.htm:14
+msgid "It has not worked"
+msgstr ""
+
+#: iwcron.php:114
+msgid "This email is a resume of the new things to see in the site"
+msgstr ""
+
+#: iwcron.php:145 pnuser.php:635
+msgid "Nothing to show"
+msgstr ""
+
+#: iwcron.php:163
+msgid ""
+"The 5 firsts tries of cron execution has failed. The cron execution has been "
+"aborted."
+msgstr ""
+
+#: iwcron.php:171
+msgid "Your site have users without email address. You should correct this."
+msgstr ""
+
+#: iwcron.php:176
+msgid "There have not found emails to send."
+msgstr ""
+
+#: iwcron.php:179
+msgid ""
+"The information about the new things to see has been send to users via email."
+msgstr ""
+
+#: iwcron.php:179
+msgid "The number of send emails has been of "
+msgstr ""
+
+#: iwcron.php:182
+msgid ""
+"Not has been possible to send all the resume messages with the new things to "
+"see to users. Some of them have failed."
+msgstr ""
+
+#: iwcron.php:182
+msgid "of"
+msgstr ""
+
+#: iwcron.php:185
+msgid ""
+"All the tries of sending messages have failed. The number of tries has been "
+"of"
+msgstr ""
+
+#: pnversion.php:13 pntemplates/iw_main_user_module_info.htm:14
+msgid "Module description"
+msgstr ""
+
+#: pnversion.php:15
+msgid "iw_main"
+msgstr ""
+
+#: pnblocks/iwnews.php:29
+msgid "Show news of the user"
+msgstr ""
+
+#: pnuser.php:241
+msgid ""
+"The information has been modified, but the uplaod of the avatar has failed "
+"because the file extension is not allowed. The allowed extensions are: png, "
+"jpg and gif"
+msgstr ""
+
+#: pnuser.php:277
+msgid "The values have changed correctly"
+msgstr ""
+
+#: pnuser.php:447 pnuser.php:732
+msgid "Noteboard notes"
+msgstr ""
+
+#: pnuser.php:475
+msgid "Personal agenda"
+msgstr ""
+
+#: pnuser.php:502 pnuser.php:767
+msgid "Private messages"
+msgstr ""
+
+#: pnuser.php:543 pnuser.php:823
+msgid "Forum"
+msgstr ""
+
+#: pnuser.php:600 pnuser.php:603 pnuser.php:875
+msgid "Form"
+msgstr ""
+
+#: pnuser.php:623 pntemplates/iw_main_user_main.htm:33
+msgid "Avatar replacement"
+msgstr ""
+
+#: pnuser.php:885
+msgid "sent at "
+msgstr ""
+
+#: pnuser.php:885
+msgid "by "
+msgstr ""
+
+#: pnuser.php:1293
+msgid "The folder for attached files haven't been found."
+msgstr ""
+
+#: pnuser.php:1305
+msgid "The file extension is not allowed."
+msgstr ""
+
+#: pnuser.php:1310
+msgid "File size not allowed."
+msgstr ""
+
+#: pnuser.php:1329
+msgid "The attached file haven't been updated because an error."
+msgstr ""
+
+#: pnuser.php:1369
+msgid "You are not allowed to access to use this functionality."
+msgstr ""
+
+#: pnuser.php:1376
+msgid "Error! The parameters receiver are not correct."
+msgstr ""
+
+#: pnuser.php:1384 pnuser.php:1416 pnuser.php:1425 pnuser.php:1440
+#: pnuser.php:1443 pnuser.php:1448 pnuser.php:1451 pnuser.php:1454
+#: pnuser.php:1459 pnuser.php:1471 pnuser.php:1474
+msgid "Error! Thumbnailing the image file."
+msgstr ""
+
+#: pnuser.php:1499
+msgid "Failed to deleted"
+msgstr ""
+
+#: pnaccountapi.php:22 pntemplates/iw_main_block_iwnews.htm:29
+msgid "Configure"
+msgstr ""
+
+#: pntemplates/iw_main_admin_main.htm:7
+msgid ""
+"The cron.php file does not exists in the root directory of your site. The "
+"programmed sequences are not available. The programmed sequences improve the "
+"work of Intraweb modules."
+msgstr ""
+
+#: pntemplates/iw_main_admin_main.htm:11
+msgid ""
+"The Mailer module is not active and the cron can not be executed. You should "
+"active the Mailer module and configure it properly."
+msgstr ""
+
+#: pntemplates/iw_main_admin_main.htm:17
+msgid ""
+"The cron has not been executed for long time. Now could be a good moment to "
+"execute it."
+msgstr ""
+
+#: pntemplates/iw_main_admin_main.htm:21
+msgid "Execute the cron now"
+msgstr ""
+
+#: pntemplates/iw_main_admin_main.htm:25
+#: pntemplates/iw_main_user_module_info.htm:2
+#: pntemplates/iw_main_user_module_info.htm:43
+#: pntemplates/iw_main_user_main.htm:111 pntemplates/iw_main_admin_conf.htm:99
+#: pntemplates/iw_main_admin_changeAvatarView.htm:49
+msgid "About this module"
+msgstr ""
+
+#: pntemplates/iw_main_block_iwnews.htm:9
+msgid "Flagged items"
+msgstr ""
+
+#: pntemplates/iw_main_block_iwnews.htm:24
+msgid "Regenerate"
+msgstr ""
+
+#: pntemplates/iw_main_user_file_not_found.htm:2
+msgid "File not found"
+msgstr ""
+
+#: pntemplates/iw_main_user_file_not_found.htm:3
+msgid "File name"
+msgstr ""
+
+#: pntemplates/iw_main_user_file_not_found.htm:5
+#: pntemplates/iw_main_user_module_info.htm:49
+msgid "Go back"
+msgstr ""
+
+#: pntemplates/iw_main_admin_menu.htm:4 pntemplates/iw_main_user_menu.htm:2
+msgid "Intraweb"
+msgstr ""
+
+#: pntemplates/iw_main_admin_menu.htm:4 pntemplates/iw_main_user_menu.htm:2
+#: pntemplates/iw_main_user_main.htm:2
+msgid "Intraweb main module"
+msgstr ""
+
+#: pntemplates/iw_main_user_module_info.htm:6
+msgid "Module name"
+msgstr ""
+
+#: pntemplates/iw_main_user_module_info.htm:22
+msgid "Version"
+msgstr ""
+
+#: pntemplates/iw_main_user_module_info.htm:30
+msgid "Author"
+msgstr ""
+
+#: pntemplates/iw_main_user_module_info.htm:43
+msgid "This is a"
+msgstr ""
+
+#: pntemplates/iw_main_user_module_info.htm:45
+msgid "Contact us through the email address"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:3
+msgid "User configurable blocks values"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:7
+msgid "News and marked blocks"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:9
+msgid "I want that block will show details"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:18
+msgid ""
+"If you want the system would be able to send you emails with a dayly resume "
+"of things to see, but it is not possible because your email has not been "
+"found. You can define your email address form"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:19
+msgid "this link."
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:23
+msgid "I want to be subscribed to thinks to see"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:25
+msgid "The subscrition mail is:"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:41
+#: pntemplates/iw_main_admin_changeAvatarView.htm:36
+msgid "Delete"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:47
+msgid "Upload your avatar"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:49
+msgid "If you want, you cam change your avatar from here:"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:53
+msgid "(The avatar change required administrator validation)"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:59
+msgid ""
+"Your avatar's image sizes must be 90x120 px aproximately with one of the "
+"next formats: jpg, gif or png."
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:64
+msgid ""
+"Your avatar changement request is waiting for an administrator validation."
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:75
+msgid "Google account"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:77
+msgid "Sincronize agenda with Google calendar"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:82
+msgid "Google e-mail"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:86
+msgid "Google password"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:90
+msgid "Refresh time for gCalendar sincronitation"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:99
+msgid ""
+"As many small this value the navigation into agendas will be slower. In any "
+"moment the automatical sincronization is possible"
+msgstr ""
+
+#: pntemplates/iw_main_user_main.htm:107
+msgid "OK"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:4
+msgid "Modify the configuration"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:9
+msgid "Server files directori"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:14
+msgid "Attached files directory hasn't been found"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:19 pntemplates/iw_main_admin_conf.htm:34
+#: pntemplates/iw_main_admin_conf.htm:70
+msgid "This folder is not writeable."
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:24
+msgid "Folder where to look for the users pictures"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:29
+msgid "Users pictures directori hasn't been found"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:40
+msgid "The user can change theirs avatars"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:44
+msgid "The avatar replacement needs validation"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:50
+msgid ""
+"The users can change theirs avatars because the directori of pictures or the "
+"temporal directori don' exist or them have not got the correct permissions."
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:55
+msgid ""
+"The users can change theirs avatars because the php's gd extensión is not "
+"available"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:60
+msgid "Folder for temporal files"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:65
+msgid "Temporal files directory hasn't been found"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:74
+msgid "Extensions allowed"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:78
+msgid "Maximum size for uploaded files"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:82
+msgid "Life time of users vars (days)"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:96
+msgid "Execute"
+msgstr ""
+
+#: pntemplates/iw_main_admin_conf.htm:96
+msgid "Save the changes"
+msgstr ""
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:9
+msgid "User"
+msgstr ""
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:10
+msgid "Current avatar"
+msgstr ""
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:11
+msgid "New avatar"
+msgstr ""
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:12
+msgid "Options"
+msgstr ""
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:32
+msgid "Confirm the avatar change"
+msgstr ""
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:33
+msgid "Approve the avatar changer"
+msgstr ""
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:35
+msgid "Confirm the deletion"
+msgstr ""
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:43
+msgid "Not requests found"
+msgstr ""
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:52
+msgid "--- Deleting the avatar ---"
+msgstr ""
+
+#: pntemplates/iw_main_admin_changeAvatarView.htm:53
+msgid "--- Changing the avatar ---"
+msgstr ""

@@ -1,0 +1,69 @@
+<!--[if not $listBox]-->
+	<!--[foreach from=$forms item=form]-->
+		<div style="float: left; width:70%">
+			<!--[if $form.accessLevel eq 7]-->
+				<!--[if $form.isFlagged eq 1]-->
+					<span>
+						<!--[pnimg modname='core' src='flag.gif' set='icons/extrasmall'   __alt="Open the entry of annotations and editing" __title="Open the entry of annotations and editing"]-->
+					</span>
+				<!--[/if]-->
+				<!--[if $form.needValidation eq 1]-->
+					<span>
+						<!--[pnimg modname='core' src='14_layer_visible.gif' set='icons/extrasmall'   __alt="Open the entry of annotations and editing" __title="Open the entry of annotations and editing"]-->
+					</span>
+				<!--[/if]-->
+			<!--[/if]-->
+			<!--[$form.formName]-->
+			<!--[if $form.newLabel]-->
+				<span style="color: red; background-color: #ffffaf;"><!--[gt text="New" domain="module_iw_forms"]--></span>
+			<!--[/if]-->
+		</div>
+		<div style="float: right;">
+			<!--[if ($form.accessLevel eq 1 || $form.accessLevel >= 3) AND $form.closeInsert eq 0]-->
+				<span>
+					<a href="<!--[pnmodurl modname=iw_forms type=user func=new fid=$form.fid]-->">
+						<!--[pnimg modname='core' src='lists.gif' set='icons/extrasmall'   __alt="Send an annotation" __title="Send an annotation"]-->
+					</a>
+				</span>
+			<!--[/if]-->
+			<!--[if ($form.accessLevel eq 2 || $form.accessLevel >= 3) && $form.accessLevel != 7]-->
+				<span>
+					<a href="<!--[pnmodurl modname=iw_forms type=user func=read fid=$form.fid]-->">
+						<!--[pnimg modname='core' src='reminders.gif' set='icons/extrasmall'   __alt="Show annotations" __title="Show annotations"]-->
+					</a>
+				</span>
+			<!--[/if]-->
+			<!--[if $form.accessLevel eq 7]-->
+				<span>
+					<a href="<!--[pnmodurl modname=iw_forms type=user func=manage fid=$form.fid]-->">
+						<!--[pnimg modname='core' src='package_settings.gif' set='icons/extrasmall'   __alt="Managing annotations" __title="Managing annotations"]-->
+					</a>
+				</span>
+			<!--[/if]-->
+		</div>
+		<div style="clear: both;"></div>
+	<!--[foreachelse]-->
+		<!--[gt text="You do not have access to any form" domain="module_iw_forms"]-->
+	<!--[/foreach]-->
+<!--[else]-->
+	<form name="loadForm" id="loadForm" action="<!--[pnmodurl modname="iw_forms" type="user" func="load" fid=$form.fid]-->" method="post">
+		<select name="fid" onchange="if(this.value > 0){submit();}">
+			<option><!--[gt text="Choose a form..." domain="module_iw_forms"]--></option>
+			<!--[foreach from=$forms item=form]-->
+				<option value="<!--[$form.fid]-->"><!--[$form.formName]--></option>
+			<!--[foreachelse]-->
+				<!--[gt text="You do not have access to any form" domain="module_iw_forms"]-->
+			<!--[/foreach]-->
+		</select>
+	</form>
+<!--[/if]-->
+
+<!--[pnuserloggedin assign=userid]-->
+<!--[if $userid neq '']-->
+	<div>&nbsp;</div>
+	<div>
+		<a href="<!--[pnmodurl modname=iw_forms type=user func=sended]-->">
+			<!--[gt text="Notes sent" domain="module_iw_forms"]-->
+		</a>
+	</div>
+<!--[/if]-->

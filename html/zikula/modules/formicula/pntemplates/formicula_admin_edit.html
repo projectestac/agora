@@ -1,0 +1,51 @@
+<!--[* Smartytemplate *]-->
+<!--[* $Id: formicula_admin_edit.html 160 2009-11-10 18:51:14Z herr.vorragend $ *]-->
+
+<!--[include file=formicula_admin_header.html]-->
+<!--[if $mode==create]-->
+<!--[gt text="Add contact" assign=fortitle"]-->
+<!--[else]-->
+<!--[gt text="Edit contact" assign=fortitle"]-->
+<!--[/if]-->
+
+<h2><!--[$fortitle]--></h2>
+<!--[pnform cssClass="z-form"]-->
+<!--[pnformvalidationsummary]-->
+
+<fieldset>
+    <legend><!--[$fortitle]--></legend>
+    <div class="z-formrow">
+        <!--[pnformlabel for="cname" __text='Contact name']-->
+        <!--[pnformtextinput size="40" maxLength="100" id="cname" text=$contact.name]-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="email" __text='E-Mail']-->
+        <!--[pnformtextinput size="40" maxLength="100" id="email" text=$contact.email]-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="public" __text='Public']-->
+        <!--[pnformcheckbox id="public" checked=$contact.public]-->
+    </div>
+    <div class="z-formnote z-warningmsg"><!--[gt text="Use this information in the users confirmation mail"]--></div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="semail" __text='Sender E-Mail']-->
+        <!--[pnformtextinput size="40" maxLength="100" id="semail" text=$contact.semail]-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="sname" __text='Sender name']-->
+        <!--[pnformtextinput size="40" maxLength="480" id="sname" text=$contact.sname]-->
+    </div>
+    <div class="z-formrow">
+        <!--[pnformlabel for="ssubject" __text='Subject']-->
+        <!--[pnformtextinput size="40" maxLength="100" id="ssubject" text=$contact.ssubject]-->
+    </div>
+    <div class="z-formnote z-informationmsg"><!--[gt text="with <ul>    <li>%s = sitename</li>    <li>%l = slogan</li>    <li>%u = site url</li>    <li>%c = contacts sender name</li>    <li>%n&lt;num&gt; = user defined field name &lt;num&gt;</li>    <li>%d&lt;num&gt; = user defined field data &lt;num&gt;</li></ul>"]--></div>
+</fieldset>
+
+<div class="z-formbuttons">
+    <!--[pnformbutton id="submit" commandName="submit" __text="Submit"]-->
+</div>
+
+<!--[/pnform]-->
+
+<!--[include file=formicula_admin_footer.html]-->

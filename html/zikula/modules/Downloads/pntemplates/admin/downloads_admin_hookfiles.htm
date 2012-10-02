@@ -1,0 +1,48 @@
+<!--[include file="admin/downloads_admin_main_menu.htm"]-->
+<!--[include file="admin/downloads_admin_header.htm"]-->
+
+<!--[*pndebug*]-->
+<h2 class="dl_admin_h2"><!--[pnimg src="admin/xblocks.gif" __alt="Hook files" ]-->&nbsp;&nbsp;<!--[gt text="Hook files"]--></h2>
+<div id="dl_admin_menu">
+<!--[if $nodls == true]-->
+	<!--[gt text="No downloads for validation found!"]-->
+<!--[/if]-->
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%" summary="<!--[gt text="Download validation"]-->">
+    <thead>
+    <tr>
+        <th id="col_0" abbr="<!--[gt text='File name']-->" style="width:33%;"><!--[gt text="File name"]--></th>
+		<th id="col_2" abbr="<!--[gt text='Module']-->" style="width:33%;"><!--[gt text="Module"]--></th>
+		<th id="col_3" abbr="<!--[gt text='Edit']-->" style="width:33%;"><!--[gt text="Edit"]--></th>
+	</tr>
+	</thead>
+    <tbody>
+	<!--[foreach item=file from=$hook_files]-->
+		<tr class="<!--[cycle name=categorylistlist values="odd,even"]-->">
+			<td>
+             <!--[$file.title]-->
+			</td>
+			<td>		
+			<!--[if $file.modname eq 'News']-->
+				<a href="<!--[pnmodurl modname=News file=article sid=$file.objectid]-->"><!--[$file.modname]--></a>				
+			<!--[elseif $file.modname eq 'pnForum']-->
+				<a href="<!--[pnmodurl modname=pnForum func=viewtopic topic=$file.objectid]-->"><!--[$file.modname]--></a>
+			<!--[else]-->
+         		<!--[$file.modname]-->
+		 	<!--[/if]-->
+			</td>
+			<td>
+             <form class="dl_adminform" action="<!--[pnmodurl modname="Downloads" type="admin" func="do_download_modify"]-->" method="post" enctype="multipart/form-data">
+			 <div>
+			<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Downloads"]-->" />
+			<input type="hidden" name="dlid" value="<!--[$file.id]-->" />
+			<input name="submit" type="submit" value="<!--[gt text="Edit"]-->" />
+			</div>
+			</form>			
+			</td>
+		</tr>
+	<!--[/foreach]-->
+	</tbody>
+</table>
+</div>
+<!--[include file="admin/downloads_admin_footer.htm"]-->

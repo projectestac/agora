@@ -1,0 +1,53 @@
+<h1>Kategoria-agregazioa</h1>
+<p>Partaide bakoitzak kategoria honetarako izango duen kalifikazio orokorra kalkulatzeko erabilitako agregazio-estrategia aukeratzeko aukera emango dizu menu honek. Beherago azaltzen da aukera bakoitza.</p>
+
+<p>Kalifikazioak lehenik eta behin ehunekoetara ekartzen dira (0tik 1era bitartean, normalizazioa esaten ziao honi), ondoren agregatu egiten dira beheragoko funtzioetako bat erabilita eta azkenik  berarekin lotutako kategoria-elementuaren ibiltartera bihurtzen da (<em>Gutxieneko</em> eta <em>Gehinezko kalifikazioen</em> artekoa).</p>
+
+<p><strong>Garrantzizkoa</strong>: Hutsik dagoen kalifikazioa kalifikazio-liburuan kalifikaziorik ez duen eremu bat da besterik gabe eta hainbat esanahi izan ditzake. Adibidez, zeregina bidali ez duen partaidea izan daiteke, irakasleak oraindik kalifikatu ez duen zereginaren bidalketa, edo kalifikazio-liburuaren kudeatzaileak eskuz ezabatu duen kalifikazioa. Kontu handia gomendatzen da, beraz, "kalifikazio hutsak" interpretatzeko orduan.</p>
+
+<dl id="grade-aggregation-help">
+    <dt>Kalifikazioen bataz bestekoa</dt>        
+    <dd>Kalifikazio guztien batuketa zati kalifikazio-kopurua.</dd>
+    <dd class="adibidea">A1 70/100, A2 20/80, A3 10/10, kategoria gehi. 100:<br />
+                     <code>(0.7 + 0.25 + 1.0)/3 = 0.65 --> 65/100</code></dd>
+                     
+    <dt>Bataz besteko ponderatua</dt>
+        <dd>Kalifikazio-elementu bakoitzak pisu bat du eta hori erabiliko da batuketaren media aritmetikoan media orokorrean elementu bakoitzak izango duen garrantzia zehazteko.</dd>
+        <dd class="adibidea">A1 70/100 pisua 10, A2 20/80 pisua 5, A3
+                         10/10 pisua 3, kategoria gehi. 100:<br /><code>(0.7*10 + 0.25*5 + 1.0*3)/18 = 0.625 --> 62.5/100</code></dd>
+    
+    <dt>Bataz besteko ponderatu sinplea</dt>
+        <dd>Honen eta <em>Bataz besteko ponderatua</em>ren arteko aldea hauxe da: elementu bakoitzerako bataz bestekoa <em>Gehienezko kalifikazioa</em> - <em>Gutxieneko kalifikazioa</em> gisa kalkulatzen da. 100 point assignment has weight 100, 10 point assignment has weight 10.</dd>
+        <dd class="example">A1 70/100, A2 20/80, A3 10/10, category max 100:<br />
+                         <code>(0.7*100 + 0.25*80 + 1.0*10)/190 = 0.526 --> 52.6/100</code></dd>
+    
+    <dt>Kalifikazioen media (aparteko kredituekin)</dt>
+        <dd>Media aritmetikoa aldaketa batekin. Garai batean, hemen eskaintzen den agregazio-estrategia jarduera zaharrekiko atzerako konpatibilitaterako bakarrik.</dd>
+    
+    <dt>Kalifikazioen erdiko balorea</dt>
+        <dd>Kalifikazioen bataz bestekoa (edo bi kalifikazioen bataz bestekoaren bataz bestekoa) kalifikazioak balorearen arabera ordenatuta daudenean. Bataz bestekoaren aldean duen abantaila hauxe da: honi ez diote eragiten ezohikoek (bataz bestekotik urrun samar egon ohi ez diren kalifikazioak).</dd>
+        <dd class="adibidea">A1 70/100, A2 20/80, A3 10/10, kategoria gehi. 100:<br />
+                         <code>bataz bestekoa(0.7 ; 0.25 ; 1.0) = 0.7 --> 70/100</code></dd>
+    
+    <dt>Kalifikazio baxuena</dt>
+        <dd>Emaitza normalizazioaren ondorengo kalifikazio baxuena da. Normalean <em>Agregatu hutsik ez dauden kalifikazioak bakarrik</em>-ekin batera erabiltzen da.</dd>
+        <dd class="adibidea">A1 70/100, A2 20/80, A3 10/10, kategoria gehi. 100:<br />
+                         <code>min(0.7 ; 0.25 ; 1.0) = 0.25 --> 25/100</code></dd>
+                         
+    <dt>Kalifikazio altuena</dt>
+        <dd>Emaitza normalizazioaren ondorengo kalifikazio altuena da.</dd>
+        <dd class="adibidea">A1 70/100, A2 20/80, A3 10/10, kategoria gehi. 100:<br />
+                         <code>max(0.7 ; 0.25 ; 1.0) = 1.0 --> 100/100</code></dd>
+    
+    <dt>Kalifikazioen moda</dt>
+        <dd>Moda sarrien ematen den kalifikazioa da. Zenbakizkoak ez diren kalifikazioetan erabiltzen da gehienetan.
+                         Bataz bestekoaren aldean duen abantaila hauxe da: honi ez diote eragiten ezohikoek (bataz bestekotik urrun samar egon ohi ez diren kalifikazioak). 
+                         Hala ere, esanahia galtzen du sarrien ematen den kalifikazio bat baino gehiago badago (bakarra mantentzen da), edo kalifikazio guztiak ezberdinak direnean.</dd>
+        <dd class="adibidea">A1 70/100, A2 35/50, A3 20/80, A4 10/10, A5 7/10 kategoria gehi. 100:<br />
+                         <code>mode(0.7 ; 0.7 ; 0.25 ; 1.0 ; 0.7) = 0.7 --> 70/100</code></dd>
+    
+    <dt>Kalifikazioen batuketa</dt>
+        <dd>Kalifikazioen balore guztien batuketa. Kalifikazioen eskala ez da kontuan hartzen. Kalifikazioak ehuneko bihurtzen (normalizazioa) ez dituen mota bakarra da. Lotutako kategoria-elementuaren <em>Gehienezko kalifikazioa</em> automatikoki kalkulatzen da agregatutako elementu guztien gehienezko baloreak batuta.</dd>
+        <dd class="adibidea">A1 70/100, A2 20/80, A3 10/10:<br />
+                         <code>70 + 20 + 10 = 100/190</code></dd>
+</dl>

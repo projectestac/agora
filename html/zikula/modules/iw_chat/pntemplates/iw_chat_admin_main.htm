@@ -1,0 +1,57 @@
+<!--[include file="iw_chat_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+	<div class="pn-adminpageicon"><!--[pnimg modname='core' src='windowlist.gif' set='icons/large']--></div>
+	<div style="height:20px;">&nbsp;</div>
+	<h2><!--[gt text="Chat rooms list"]--></h2>
+	<table class="pn-admintable">
+		<thead>
+			<tr>
+				<th><!--[gt text="Room name"]--></th>
+				<th><!--[gt text="Description"]--></th>
+				<th><!--[gt text="Groups"]--></th>
+				<th><!--[gt text="Active"]--></th>
+				<th><!--[gt text="Actions"]--></th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--[foreach item=room from=$rooms key=rid]-->
+				<tr class="<!--[cycle values="pn-odd,pn-even"]-->">
+					<td align="left" valign="top"><!--[$room.room_name]--></td>
+					<td align="left" valign="top"><!--[$room.room_desc]--></td>
+					<td align="left" valign="top" style="text-align:right;">
+						<!--[foreach item=group from=$room.groups key=gid]-->
+							<div id="groupId_<!--[$gid]-->_<!--[$rid]-->">
+								<!--[$group]--> 
+								<a href="<!--[pnmodurl modname="iw_chat" type="admin" func="deleteGroup" rid=$rid gid=$gid]-->">
+									<!--[pnimg modname='core' src='delete_group.gif' set='icons/extrasmall'   __alt="Delete" __title="Delete"]-->
+								</a>
+							</div>
+						<!--[/foreach]-->
+						<div class="formOptions"  style="float: right;">
+							<a href="<!--[pnmodurl modname="iw_chat" type="admin" func="addGroup" rid=$rid]-->">
+								<!--[pnimg modname='core' src='add_group.gif' set='icons/extrasmall'   __alt="Add a group with access to the chat room" __title="Add a group with access to the chat room"]-->
+							</a>
+						</div>
+					</td>
+					<td align="left" valign="top">
+						<!--[if $room.active == '1']--><span style="color:green;"><!--[gt text="Room active"]--></span>
+						<!--[else]--> <span style="color:red;"><!--[gt text="Room inactive"]--></span>
+						<!--[/if]-->
+					</td>
+					<td align="left" valign="top">
+						<a href="index.php?module=iw_chat&func=newEdit&type=admin&rid=<!--[$rid]-->"><!--[gt text="Edit"]--></a><br />
+						<a href="index.php?module=iw_chat&func=delete&type=admin&rid=<!--[$rid]-->"><!--[gt text="Delete"]--></a><br />
+					</td>
+				</tr>
+			<!--[foreachelse]-->
+				<tr>
+					<td colspan="10">
+						<!--[gt text="There are no chat room created"]-->
+					</td>
+				</tr>
+			<!--[/foreach]-->
+		</tbody>
+	</table>
+	<br>
+	<a href="<!--[pnmodurl modname=iw_chat type=admin func=module]-->"><!--[gt text="About this module"]--></a>
+</div>

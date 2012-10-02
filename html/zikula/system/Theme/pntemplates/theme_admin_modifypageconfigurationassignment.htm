@@ -1,0 +1,47 @@
+<!--[*  $Id$  *]-->
+<!--[include file="theme_admin_menu.htm"]-->
+<div class="z-admincontainer">
+    <!--[include file="theme_admin_modifymenu.htm"]-->
+    <!--[gt text="Edit page configuration assignment" assign=templatetitle]-->
+    <div class="z-adminpageicon"><!--[pnimg modname=core src=xedit.gif set=icons/large alt=$templatetitle]--></div>
+    <h2><!--[$templatetitle]--></h2>
+    <form class="z-form" action="<!--[pnmodurl modname="Theme" type="admin" func="updatepageconfigurationassignment"]-->" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module=Theme]-->" />
+            <input type="hidden" name="themename" value="<!--[$themename|pnvarprepfordisplay]-->" />
+            <fieldset>
+                <div class="z-formrow">
+                    <label for="theme_pagemodule"><!--[gt text="Module"]--></label>
+                    <select id="theme_pagemodule" name="pagemodule">
+                        <option value="">&nbsp;</option>
+                        <option value="*home" <!--[if $pagemodule eq '*home']--> selected="selected"<!--[/if]-->><!--[gt text="Home page"]--></option>
+                        <option value="*admin" <!--[if $pagemodule eq '*admin']--> selected="selected"<!--[/if]-->><!--[gt text="Admin panel pages"]--></option>
+                        <option value="master" <!--[if $pagemodule eq 'master']--> selected="selected"<!--[/if]-->><!--[gt text="Master"]--></option>
+                        <!--[html_options options=$modules selected=$pagemodule]-->
+                    </select>
+                </div>
+                <div class="z-formrow">
+                    <label for="theme_pagetype"><!--[gt text="Function type"]--></label>
+                    <input id="theme_pagetype" type="text" name="pagetype" size="30" value="<!--[$pagetype|pnvarprepfordisplay]-->" />
+                </div>
+                <div class="z-formrow">
+                    <label for="theme_pagefunc"><!--[gt text="Function name"]--></label>
+                    <input id="theme_pagefunc" type="text" name="pagefunc" size="30" value="<!--[$pagefunc|pnvarprepfordisplay]-->" />
+                </div>
+                <div class="z-formrow">
+                    <label for="theme_pagecustomargs"><!--[gt text="Function arguments"]--></label>
+                    <input id="theme_pagecustomargs" type="text" name="pagecustomargs" size="30" value="<!--[$pagecustomargs|pnvarprepfordisplay]-->" />
+                    <em class="z-formnote"><!--[gt text="Notice: This is a list of arguments found in the page URL, separated by '/'."]--></em>
+                </div>
+                <div class="z-formrow">
+                    <label for="theme_filename"><!--[gt text="Configuration file"]--></label>
+                    <input id="theme_filename" type="text" name="filename" size="30" value="<!--[$filename|pnvarprepfordisplay]-->" />
+                </div>
+                <div class="z-formbuttons">
+                    <!--[pnbutton src=button_ok.gif set=icons/small __alt="Save" __title="Save"]-->
+                    <a href="<!--[pnmodurl modname=Theme type=admin func=view]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small __alt="Cancel" __title="Cancel"]--></a>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>

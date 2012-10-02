@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    
+<title>Documents de Moodle: Instal·lació bàsica</title>
+  
+<link rel="stylesheet" href="docstyles.css" type="TEXT/CSS" />
+    
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+<!--
+.style3 {color: #660000}
+-->
+</style>
+</head>
+
+<body>
+<h1>Instal·lació de Moodle</h1>
+<h2>Calma! <img src="http://moodle.org/pix/s/smiley.gif" /></h2>
+<blockquote>
+  <p>Aquesta guia explica com instal·lar Moodle per primera vegada. En alguns dels passos s'atura en els detalls, a fi de prendre en consideració els diferents tipus de servidors web, de manera que el document pot semblar llarg i complicat. Però no us amoïneu, quan sapigueu com fer-ho podreu instal·lar Moodle en uns minuts.</p>
+  <p>Si trobeu problemes, llegiu aquest document amb cura: la majoria de les qüestions habituals hi tenen resposta. Si seguiu tenint problemes, podeu cercar <a target="_blank" href="http://moodle.org/help">ajuda</a> en la comunitat d'usuaris.</p>
+  <p>Una altra opció és contactar amb un <a target="_blank" href="http://moodle.com/hosting/">proveïdor d'allotjament</a> que mantingui el vostre servidor Moodle, de manera que pugueu ignorar tot allò referent a la tecnologia i concentrar-vos en la pedagogia.</p>
+  <p>&nbsp;  </p>
+  <p>Seccions d'aquest document:</p>
+  <ol>
+    <li><a href="#requirements">Requeriments</a></li>
+    <li><a href="#downloading">Baixar els fitxers i copiar-los on toca</a></li>
+    <li><a href="#site">Estructura del lloc</a></li>
+    <li><a href="#installer">Executar el guió d'instal·lació per crear el config.php</a>      <ul>
+        <li><a href="#webserver">Comprovació dels paràmetres del servidor web</a></li>
+        <li><a href="#database">Creació de la base de dades</a></li>
+        <li><a href="#data">Creació del directori de dades</a></li>
+        </ul>
+    </li>
+    <li><a href="#admin">Pàgina d'administració</a></li>
+    <li><a href="#cron">Configuració del cron</a></li>
+    <li><a href="#course">Creació d'un curs</a></li>
+  </ol>
+  <p>&nbsp;</p>
+</blockquote>
+<h3 class="sectionheading"><a name="requirements"></a>1. Requeriments</h3>
+<blockquote> 
+  <p>Moodle es desevolupa principalment en Linux utilitzant Apache, MySQL i PHP (el que de vegades es coneix com a plataforma LAMP), però també es prova amb regularitat amb PostgreSQL i en els sistemes operatius Windows XP, Mac OS X i Netware 6.</p>
+  <p>Els requeriments de Moodle són els següents:</p>
+  <ol>
+    <li>Un programari de servidor web. La majoria de la gent utilitza <a href="http://www.apache.org/" target="_blank">Apache</a>, però Moodle ha de funcionar perfectament amb qualsevol servidor web que tingui PHP, com ara IIS en plataformes Windows.</li>
+    <li>El llenguatge de seqüències <a href="http://www.php.net/" target="_blank">PHP</a> (versió 4.1.0 o posterior). Es pot usar PHP 5 des de la versió Moodle 1.4.</li>
+    <li>Un servidor de bases de dades: s'aconsella utilitzar <a href="http://www.mysql.com/" target="_blank">MySQL</a> o <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a>.</li>
+  </ol>
+  <p>Molts servidors web ofereixen tot això per defecte. Si en teniu contractat un que no tingui aquestes característiques, pregunteu al servei tècnic i plantegeu-vos la possibilitat de canviar de servidor.</p>
+  <p>Si voleu executar Moodle en el vostre ordinador i tot això us resulta una mica desesperant, vegeu la nostra guia: <a href="http://moodle.org/doc/?file=installamp.html">Instal·lació d'Apache, MySQL i PHP</a>. Proporciona instruccions pas a pas per instal·lar aquests programaris en les plataformes més populars.</p>
+  <p>&nbsp;</p>
+</blockquote>
+<h3 class="sectionheading"><a name="downloading"></a>2. Baixar els fitxers i copiar-los on toca</h3>
+<blockquote>
+  <p>Hi ha dues maneres d'obtenir Moodle: com un paquet comprimit o mitjançant CVS. Totes dues s'expliquen detalladament en la pàgina de baixada de Moodle: <a href="http://moodle.org/download/" target="_blank">http://moodle.org/download/</a></p>
+  <p>Després de baixar i desempaquetar l'arxiu, o verificar els fitxers via CVS, tindreu un directori anomenat &quot;moodle&quot; que contindrà un nombre de fitxers i carpetes.</p>
+  <p>Podeu col·locar la carpeta completa en el directori de documents del vostre servidor web, en el qual cas el lloc quedarà ubicat en una adreça <b>http://servidor.com/moodle</b>, o podeu copiar els continguts de la carpeta directament en el directori arrel de documents del servidor web, en el qual cas el lloc serà simplement <b>http://servidor.com</b>.</p>
+  <p>Si baixeu Moodle al vostre ordinador personal i després el pengeu al servidor web, generalment és millor penjar tot l'arxiu en un únic fitxer i tot seguit desempaquetar-lo en el servidor. Fins i tot alguns serveis d'allotjament web permeten descomprimir arxius en el servidor.</p>
+</blockquote>
+<p>&nbsp;</p>
+<h3 class="sectionheading"><a name="site"></a>3. Estructura del lloc</h3>
+<blockquote>
+  <p>Podeu saltar aquesta secció sense cap problema. És un breu sumari, orientatiu, dels continguts de la carpeta Moodle:</p>
+  <blockquote>
+    <table><tr>
+      <td width="130" valign="top">config.php</td>
+      <td valign="top">-</td>
+      <td valign="top">
+        Conté els paràmetres de configuració bàsics. Aquest fitxer no ve amb Moodle: el creareu durant la instal·lació.</td>
+    </tr>
+      <tr>
+        <td valign="top">install.php</td>
+        <td valign="top">-</td>
+        <td valign="top">El guió que executareu per crear el config.php.</td>
+      </tr>
+      <tr><td valign="top">version.php</td>
+      <td valign="top">-</td>
+      <td valign="top">
+        Defineix la versió actual del codi de Moodle.
+      </td></tr>
+      <tr><td valign="top">index.php</td>
+      <td valign="top">-</td>
+      <td valign="top">
+        La pàgina inicial del lloc.
+      </td></tr></table>
+    <ul>
+      <li>admin/ - codi per a l'administració del servidor </li>
+      <li>auth/ - connectors d'autenticació d'usuaris  </li>
+      <li>blocks/ - connectors dels blocs laterals de les pàgines </li>
+      <li>calendar/ - codi de gestió i visualització dels calendaris </li>
+      <li>course/ - codi de visualització i gestió dels cursos </li>
+      <li>doc/ - documentació de Moodle (p. ex. aquesta pàgina) </li>
+      <li>files/ - codi de visualització i gestió de fitxers </li>
+      <li>lang/ - textos en diversos idiomes: un directori per idioma </li>
+      <li>lib/ - biblioteques del nucli del codi de Moodle </li>
+      <li>login/ - codi que gestiona l'entrada d'usuaris i la creació de comptes </li>
+      <li>mod/ - mòduls per als cursos de Moodle </li>
+      <li>pix/ - gràfics genèrics del lloc </li>
+      <li>theme/ - temes per a canviar l'aparença del lloc </li>
+      <li>user/ - codi de visualització i gestió d'usuaris </li>
+    </ul>
+    <p>&nbsp;</p>
+  </blockquote>
+</blockquote>
+<h3 class="sectionheading"><a name="installer"></a>4. Executar el guió d'instal·lació per crear el config.php </h3>
+<blockquote>
+  <p>Per a executar el guió d'instal·lació (install.php), simplement intenteu accedir amb un navegador web a la pàgina inicial del vostre Moodle, o aneu directament a l'URL <strong>http://servidor.com/install.php</strong>.</p>
+  <p>(L'instal·lador intentarà definir una galeta de sessió. Si el navegador us presenta un avís, assegureu-vos que accepteu aquesta galeta.) </p>
+  <p>Moodle detectarà que falta la configuració i us farà passar per diverses pantalles a fi d'ajudar-vos a crear un nou fitxer de configuració anomenat <strong>config.php</strong>. Al final d'aquest procés, Moodle intentarà escriure el fitxer en la ubicació correcta. Si no pot, us deixarà fer clic en un botó per baixar el fitxer config.php i llavors l'haureu de penjar al vostre servidor, dins del directori principal del Moodle.</p>
+  <p>Durant el procés, l'instal·lador comprovarà l'entorn del servidor i us farà suggeriments sobre com solucionar qualsevol problema. En els casos més comuns hi haurà prou amb aquests suggeriments, però si us quedeu encallat, cerqueu informació més avall sobre algunes de les coses més habituals que us poden estar aturant. <br />
+  </p>
+</blockquote>
+<blockquote>
+
+<h3 class="sectionheading"><a name="webserver" id="webserver"></a>4.1 Paràmetres generals del servidor web</h3>
+  <p>En primer lloc, aseegureu-vos que el servidor web està configurat per utilitzar index.php com a pàgina per defecte (a més a més, potser, d'index.html, default.htm i altres).</p>
+  <p>En Apache, això es fa per mitjà d'una directiva DirectoryIndex en el fitxer de configuració httpd.conf. Quelcom semblant a això:</p>
+  <blockquote>
+    <pre><strong>DirectoryIndex</strong> index.php index.html index.htm </pre>
+  </blockquote>
+  <p>Només cal que us assegureu que index.php és a la llista (preferiblement al començament, per eficiència).</p>
+  <p>En segon lloc, <b>si esteu utilitzant Apache 2</b>, hauríeu d'activar la variable <i>AcceptPathInfo</i>, que permet passar arguments als programes així: http://servidor/fitxer.php/arg1/arg2. Això és essencial per al funcionament dels enllaços relatius entre els vostres recursos i a més a més suposa un augment de rendiment per als usuaris del vostre Moodle. Podeu activar aquesta opció afegint la línia següent al fitxer httpd.conf:</p>
+  <blockquote>
+    <pre><strong>AcceptPathInfo</strong> on </pre>
+  </blockquote>
+  <p>En tercer lloc, Moodle necessita per a funcionar que estiguin activats certs paràmetres del PHP. <b>En la majoria de servidors aquests paràmetres són activats per defecte.</b> Tanmateix alguns servidors (i algunes versions recents de PHP) poden tenir una configuració diferent. Aquests paràmetres es defineixen en el fitxer de configuració del PHP (generalment anomenat php.ini):</p>
+  <blockquote>
+      <pre>magic_quotes_gpc = 1    (preferible, però no necessari)
+magic_quotes_runtime = 0    (necessari)
+file_uploads = 1
+session.auto_start = 0
+session.bug_compat_warn = 0
+  </pre>
+  </blockquote>
+  <p>Si no teniu accés a l'httpd.conf o al php.ini del vostre servidor, o si altres aplicacions del mateix servidor requereixen paràmetres diferents, no us amoïneu: encara així, podeu deixar de banda els paràmetres per defecte.</p>
+  <p>Per a fer-ho, heu de crear un fitxer anomenat <b>.htaccess</b> en el directori arrel de Moodle que contingui les línies següents. Tanmateix això només funcionarà en servidors Apache que hagin autoritzat Overrides en la configuració principal.</p>
+     
+  <blockquote>
+    <pre>
+DirectoryIndex index.php index.html index.htm
+
+&lt;IfDefine APACHE2>
+     <b>AcceptPathInfo</b> on
+&lt;/IfDefine>
+
+php_flag magic_quotes_gpc 1
+php_flag magic_quotes_runtime 0
+php_flag file_uploads 1
+php_flag session.auto_start 0
+php_flag session.bug_compat_warn 0</pre>
+  </blockquote>
+  <p>També podeu definir de la mateixa manera la mida màxima dels fitxers que es pengin:</p>
+     
+  <blockquote>
+    <pre>
+LimitRequestBody 0
+php_value upload_max_filesize 2M
+php_value post_max_size 2M
+     </pre>
+  </blockquote>
+  <p>La manera més fàcil de fer això és copiar el fitxer d'exemple <strong>lib/htaccess</strong> i editar-lo per ajustar-lo a les vostres necessitats. El fitxer conté instruccions addicionals. Per exemple, en l'intèrpret d'ordres de Unix:</p>
+  <blockquote>
+    <pre>cp lib/htaccess .htaccess</pre>
+  </blockquote>
+  </blockquote>
+<p>&nbsp;</p>
+
+<h3 class="sectionheading"><a name="database"></a>4.2 Creació de la base de dades</h3>
+<blockquote>
+  <p>Heu de crear una base de dades buida (p. ex. "<em>moodle</em>") en el vostre sistema de bases de dades, i un usuari especial (p. ex. "moodleuser") que tingui accés a aquesta base de dades (i només a aquesta base de dades). Podríeu utilitzar l'usuari "root", si volíeu, per a un servidor de prova, però no és aconsellable en un servidor en producció: si algú descobrís la contrasenya estaria en perill tot el sistema de bases de dades, en lloc d'una sola base de dades.
+</p>
+    <p>Si esteu utilitzant un servei d'allotjament, probablement disposeu d'un tauler de control que us permetrà crear la base de dades mitjançant una interfície web.</p>
+    <p>El sistema <strong>Cpanel</strong> és un dels taulers de control més populars d'aquest tipus. Per a crear una base de dades en Cpanel:</p>
+    <ol>
+      <li>Feu clic en la icona &quot;<strong>Bases de dades MySQL</strong>&quot;.</li>
+      <li>Escriviu &quot;moodle&quot; en el camp &quot;base de dades&quot; i feu clic en &quot;<strong>Afegeix base de dades</strong>&quot;.</li>
+      <li>Escriviu un nom d'usuari i una contrasenya (una que no utilitzeu en cap altre lloc) en els camps respectius i feu clic en &quot;<strong>Afegeix usuari</strong>&quot;.</li>
+      <li>Utilitzeu el botó &quot;<strong>Afegeix usuari a la base de dades</strong>&quot; per donar al nou compte d'usuari &quot;<strong>TOTS</strong>&quot; els drets sobre la nova base de dades.</li>
+      <li>Teniu en compte que el nom d'usuari i el nom de la base de dades poden ser prefixats amb el nom del vostre compte de Cpanel. Quan introduïu aquesta informació en l'instal·lador de Moodle, utilitzeu els noms complets.</li>
+    </ol>
+    <p>Si teniu accés a l'intèrpret d'ordres d'Unix, podreu fer el mateix escrivint ordres.</p>
+  <p>Heus ací un exemple de línia d'ordres per a MySQL: </p>
+  <pre>
+   # mysql -u root -p
+   > CREATE DATABASE moodle; 
+   > GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,INDEX,ALTER ON moodle.* 
+           TO moodleuser@localhost IDENTIFIED BY 'yourpassword'; 
+   > quit 
+   # mysqladmin -p reload</pre>
+  <p>I aquest altre exemple per a PostgreSQL: </p>
+  <pre>
+   # su - postgres
+   > psql -c "create user moodleuser createdb;" template1
+   > psql -c "create database moodle;" -U moodleuser template1
+   > psql -c "alter user moodleuser nocreatedb;" template1</pre>
+</blockquote>
+<p>&nbsp;</p>
+
+<h3 class="sectionheading"><a name="data"></a>4.3 Creació del directori de dades</h3>
+<blockquote>
+  <p>Moodle necessita espai al disc del vostre servidor per emmagatzemar els fitxers que es pengin, per exemple els documents d'un curs o les fotos dels usuaris.</p>
+  <p>L'instal·lador de Moodle intenta crear aquest directori, però si no pot, haureu de crear manualment el directori.</p>
+    <p>Per seguretat, és millor que aquest directori NO sigui accessible directament via web. La manera més fàcil de fer-ho és situar-lo FORA del directori del web, però si l'heu de tenir dins del directori del web, protegiu-lo tot creant un fitxer .htaccess dins del directori de dades, amb el contingut següent:</p>
+  <blockquote>
+    <pre>deny from all<br />AllowOverride None</pre>
+  </blockquote>
+  <p>Per assegurar-vos que Moodle pot desar fitxers en aquest directori, comproveu que el programari del servidor web (p. ex. Apache) té permís de lectura, escriptura i execució en aquest directori.</p>
+  <p>En sistemes Cpanel, utilitzeu el &quot;Gestor de fitxers&quot; per seleccionar la carpeta i trieu &quot;Canvia permisos&quot;. En molts serveis d'allotjament compartits, probablement haureu de restringir l'accés a fitxers al vostre "grup" (per impedir que altres clients del mateix proveïdor puguin veure o modificar els vostres fitxers), però doneu sempre accés complet de lectura i escriptura a "altres" de manera que el servidor web pugui accedir als vostres fitxers.</p>
+    <p>Parleu amb l'administrador del vostre servidor si teniu problemes amb aquesta configuració. Particularment, alguns llocs utilitzen una característica de PHP coneguda com a &quot;mode segur&quot; (<em>Safe Mode</em>) que pot <em>requerir</em> que l'administrador us creï el directori de dades.</p>
+</blockquote>
+<p>&nbsp;</p>
+<h3 class="sectionheading"><a name="admin"></a>5. Pàgina d'administració</h3>
+<blockquote> 
+  <p>Tan aviat com s'hagi creat un <strong>config.php</strong> bàsic en el pas anterior, intentar accedir a la pàgina inicial del vostre lloc us portarà a la pàgina d'administració per tal que completeu la configuració.</p>
+  <p>La primera vegada que accediu a la pàgina d'administració, se us presentarà un acord GPL &quot;empaquetat&quot; que heu d'acceptar abans de continuar la configuració.</p>
+  <p>En aquest moment Moodle començarà a configurar la base de dades i a crear taules per emmagatzemar les dades. Primer es crearan les taules principals de la base de dades. Veureu una llista de declaracions SQL seguides de missatges d'estat (en verd o en vermell), semblants a això:</p>
+  <blockquote> 
+    <p>CREATE TABLE course ( id int(10) unsigned NOT NULL auto_increment, category 
+      int(10) unsigned NOT NULL default '0', password varchar(50) NOT NULL default 
+      '', fullname varchar(254) NOT NULL default '', shortname varchar(15) NOT 
+      NULL default '', summary text NOT NULL, format tinyint(4) NOT NULL default 
+      '1', teacher varchar(100) NOT NULL default 'Teacher', startdate int(10) 
+      unsigned NOT NULL default '0', enddate int(10) unsigned NOT NULL default 
+      '0', timemodified int(10) unsigned NOT NULL default '0', PRIMARY KEY (id)) 
+      TYPE=MyISAM</p>
+    <p><font color="#006600">ÈXIT</font></p>
+  </blockquote>
+    <p>etc., seguit de: <font color="#006600">La base de dades s'ha actualitzat amb èxit.</font> </p>
+  <blockquote>
+    <p class="style3">Si no veieu això, segurament hi ha hagut algun problema amb la base de dades o amb els paràmetres de configuració definits en el config.php. Comproveu que el PHP no s'està executant en un "mode segur" restringit (els serveis d'allotjament web comercials de vegades activen el mode segur). Podeu comprovar les variables del PHP creant un petit fitxer que contingui &lt;? phpinfo() ?&gt; i examinant-lo amb un navegador. Comproveu tot això i torneu a provar la pàgina d'administració.</p>
+  </blockquote>
+  <p>Desplaceu-vos fins al capdavall de la pàgina i premeu l'enllaç &quot;Continua&quot;.</p>
+  <p>Tot seguit veureu un formulari on podreu definir més variables de configuració per a la vostra instal·lació, com ara l'idioma per defecte, el servidor STMP i altres. No us preocupeu gaire per definir ara totes les variables correctament: podeu tornar-hi més endavant en qualsevol moment i editar aquests valors utilitzant la interfície d'administració. Els valors per defecte estan pensats per ser útils i segurs en la majoria de llocs. Desplaceu-vos fins al capdavall i feu clic en &quot;Desa els canvis&quot;.</p>
+  <blockquote>
+    <p class="style3">Si (i només si) us quedeu encallat en aquesta pàgina, sense possibilitat de tirar endavant, probablement el vostre servidor té un problema molt fàcil de resoldre: desactiveu el paràmetre &quot;secureforms&quot; i proveu una altra vegada.</p>
+  </blockquote>
+  <p>Tot seguit veureu més pàgines amb molts missatges d'estat a mesura que es configuren totes les taules necessàries per als diversos mòduls de Moodle. Igual que abans, tots els missatges haurien de sortir en color <font color="#006600">verd</font>.</p>
+  <p>Desplaceu-vos fins al capdavall de la pàgina i premeu l'enllaç the &quot;Continua&quot; link.</p>
+  <p>La pàgina següent és un formulari en el qual podeu definir paràmetres del vostre lloc Moodle i de la pàgina inicial, com ara el nom, el format, la descripció, etc. Empleneu aquests paràmetres (podreu tornar-hi i canviar-los en qualsevol moment) i premeu &quot;Desa els canvis&quot;.</p>
+  <p>Finalment, se us demanarà que creeu el compte d'usuari de l'administrador principal per accedir en el futur a les pàgines d'administració. Empleneu les dades: el vostre nom, adreça electrònica, etc., i feu clic en &quot;Desa els canvis&quot;. No cal emplenar tots els camps, però si us en deixeu algun d'important se us tornarà a demanar que l'empleneu.</p>
+  <blockquote> 
+    <blockquote> 
+      <blockquote> 
+        <blockquote> 
+          <blockquote> 
+            <p><strong>Assegureu-vos de recordar el nom d'usuari i la contrasenya que trieu per al compte d'administració, ja que en endavant només podreu accedir a la pàgina d'administració usant aquest compte.</strong></p>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+    <p class="style3">(Si per algun motiu s'interromp la instal·lació, o hi ha un error de sistema d'alguna mena que us impedeix entrar usant el compte d'administració, generalment podreu entrar amb el nom d'usuari per defecte &quot;<strong>admin</strong>&quot; i la contrasenya &quot;<strong>admin</strong>&quot;.)</p>
+  </blockquote>
+  <p>Tot seguit sereu reconduïts a la pàgina inicial del lloc. Fixeu-vos en els enllaços d'administració que apareixen davall a l'esquerra (aquests elements també es troben en una pàgina d'administració a banda). Aquests enllaços només són visibles perquè heu entrat com a usuari d'administració. Tota l'administració de Moodle es pot fer utilitzant aquest menú. Per exemple:</p>
+  <ul>
+    <li>Crear i suprimir cursos.</li>
+    <li>Crear i editar comptes d'usuari.</li>
+    <li>Administrar comptes de professorat.</li>
+    <li>Canviar paràmetres del lloc, com ara el tema, etc.</li>
+  </ul>
+</blockquote>
+  <p>Però la instal·lació encara no ha estat enllestida. Encara està pendent una cosa molt important (vegeu la secció següent sobre el cron).</p>
+</blockquote>
+<p>&nbsp;</p>
+<h3 class="sectionheading"><a name="cron"></a>6. Configuració del cron. IMPORTANT!</h3>
+<blockquote> 
+  <p>Alguns mòduls de Moodle necessiten fer comprovacions regularment per realitzar diferents tasques. Per exemple, Moodle ha de revisar els fòrums de debat per enviar còpies dels missatges per correu a les persones que s'hi han subscrit.</p>
+  <p>La seqüència que fa tot això es troba en el directori admin i s'anomena cron.php. Però no es pot executar a si mateixa, de manera que cal configurar un mecanisme que l'executi periòdicament (p. ex. cada cinc o deu minuts). Així la seqüència pot realitzar les funcions en els períodes definits per cada mòdul. Aquest tipus de mecanisme d'execució periòdica es coneix com a <strong>servei cron</strong>.</p>
+  <p>Teniu en compte que l'ordinador que executa el cron <b>no cal que sigui el mateix on s'està executant el Moodle</b>. Per exemple, si esteu utilitzant un servei d'allotjament web limitat que no té cron, podríeu triar d'executar el cron en un altre servidor o en el vostre ordinador de casa. L'única qüestió important és que es cridi regularment el fitxer cron.php. </p>
+  <p>La càrrega que suposa el cron.php no és molt elevada, així que generalment un interval de 5 minuts és raonable, però si això us preocupa podeu augmentar l'interval a 15 minuts o fins i tot 30 minuts. És millor que no sigui un període de temps gaire prolongat, ja que retardar els correus pot alentir l'activitat dins del curs.</p>
+  <p>Primer, comproveu que la seqüència funciona executant-la directament des del vostre navegador, anant a aquesta adreça:</p>
+  <blockquote> 
+    <pre>http://exemple.com/moodle/admin/cron.php</pre>
+  </blockquote>
+  <p>Tot seguit, heu de configurar alguna manera d'executar la seqüència automàticament i periòdicament.</p>
+  <p><b>En sistemes Windows</b></p>
+  <blockquote>
+    <p>La manera més fàcil és utilitzar el paquet <a href="http://moodle.org/download/modules/moodle-cron-for-windows.zip" title="Feu clic per baixar aquest paquet (150KB)" target="_blank"><strong>moodle-cron-for-windows.zip</strong></a>, que instal·la un petit servei Windows. Simplement executeu-lo i ja no cal que torneu a pensar-hi.</p>
+  </blockquote>
+  <p><strong>En serveis d'allotjament web</strong></p>
+  <blockquote>
+    <p> El tauler de control del vostre web pot tenir una pàgina que permeti configurar aquest procés del cron. Per exemple, en sistemes Cpanel, cerqueu un botó etiquetat &quot;Tasques cron&quot;. Hi podreu posar la mateixa mena d'ordres Unix que es llisten més avall.</p>
+  </blockquote>
+  <h4>Execució de la seqüència des de la línia d'ordres</h4>
+  <blockquote>
+    <p>Hi ha diferents programes que podeu utilitzar per cridar la seqüència cron.php des de la línia d'ordres. Potser no tots estaran disponibles en tots els servidors.</p>
+    <p>Per exemple, podeu utilitzar la utilitat Unix 'wget':</p>
+    <blockquote>
+      <pre>wget -q -O /dev/null http://exemple.com/moodle/admin/cron.php</pre>
+    </blockquote>
+    <p>Fixeu-vos que en aquest exemple la sortida es llença (a /dev/null).</p>
+    <p>El mateix amb 'lynx':</p>
+    <blockquote>
+      <pre>lynx -dump http://exemple.com/moodle/admin/cron.php &gt; /dev/null</pre>
+    </blockquote>
+    <p>Alternativament podríeu fer servir una versió autònoma de PHP, compilada per a executar-se en la línia d'ordres. L'avantatge de fer-ho així és que els registres del servidor web no s'omplen amb peticions constants del cron.php. L'inconvenient és que necessiteu tenir accés a una versió de línia d'ordres del PHP.</p>
+    <blockquote>
+      <pre>/opt/bin/php /web/moodle/admin/cron.php
+    </pre>
+    </blockquote>
+  </blockquote>
+
+  <h4>Ús del programa crontab en Unix </h4>
+  <blockquote>
+    <p>Cpanel simplement proporciona una interfície web per a la utilitat Unix coneguda com a 'crontab'. Si teniu accés a la línia d'ordres, podeu configurar el crontab amb l'ordre següent:</p>
+    <blockquote>
+      <pre>crontab -e</pre>
+   </blockquote>
+   <p>afegint-hi una de les ordres especificades més amunt, per exemple així:</p>
+    <blockquote>
+      <pre>*/5 * * * * wget -q -O /dev/null http://exemple.com/moodle/admin/cron.php</pre>
+    </blockquote>
+    <p>Generalment l'ordre "crontab" us portarà a l'editor 'vi'. Entreu en "mode inseció" prement "i". Tot seguit escriviu aquesta línia i després sortiu del mode inserció prement ESC. Deseu els canvis i sortiu teclejant ":wq", o sortiu sense desar amb ":q!" (sense les cometes).</p>
+  </blockquote>
+  <p>&nbsp;</p>
+</blockquote>
+<h3 class="sectionheading"><a name="course"></a>7. Creació d'un curs</h3>
+<blockquote>
+  <p>Ara que el Moodle està funcionant correctament, ja podeu crear un curs per fer proves. </p>
+  <p>Seleccioneu &quot;Afegeix un nou curs&quot; en la secció de cursos de la pàgina d'administració.</p>
+  <p>Empleneu el formulari prestant molta atenció al format de curs. No cal que us preocupeu gaire pels detalls en aquest moment, ja que el professorat del curs pot modificar tots els paràmetres més endavant. Fixeu-vos en les icones grogues d'ajuda, que us proporcionen ajuda contextual en cada punt.</p>
+  <p>Premeu &quot;Desa els canvis&quot; i passareu a un altre formulari en el qual podreu assignar professors i professores al curs. En aquest formulari només podeu seleccionar comptes ja existents: si voleu crear un compte de professor nou, demaneu al professor que se'l creï ell mateix (en la pàgina d'entrada), o creeu-lo vosaltres per mitjà de l'opció &quot;Afegeix un nou usuari&quot; en la pàgina d'administració.</p>
+  <p>Després d'això, el curs ja es podrà personalitzar i serà accessible en l'enllaç &quot;Cursos&quot; de la pàgina inicial.</p>
+  <p>Per a més informació sobre la creació de cursos, consulteu el &quot;<a href="./?file=teacher.html">Manual del professorat </a>&quot;.</p>
+</blockquote>
+
+  <p>&nbsp;</p>
+  <p align="center"><strong>Que tingueu una feliç exploració de Moodle!</strong></p>
+  <p align="center"><strong>Si us agrada Moodle, considereu si us plau de fer una <a href="http://moodle.org/donations/" target="_blank">donació</a> per ajudar-nos a pagar els costos.</strong></p>
+</blockquote>
+<p>&nbsp;</p>
+<p align="center"><font size="1"><a href="." target="_top">Documentació de Moodle</a></font></p>
+<p align="center"><font size="1">Version: $Id$</font></p></body>
+</html>

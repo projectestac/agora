@@ -1,0 +1,21 @@
+<!--[*  book_admin_newglossary.htm,v 1.2 2005/08/30 19:29:32 paustian Exp  *]-->
+<!--[include file="book_admin_menu.htm"]-->
+<h2><!--[pnml name="_BOOKADDGLOSSARY"]--></h2>
+<form class="form" action="<!--[pnmodurl modname="book" type="admin" func="createglossary"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="Book"]-->" />
+<table>
+<tr>
+	<td>Glossary Term:</td>
+	<td>
+  		<input type="text" name="term" size="40" maxlength="256"/>
+	</td>
+</tr>
+<tr>
+	<td>Glossary Definition:</td>
+	<td>
+  <textarea name="definition" id="content"  rows="10" cols="80" wrap="virutal"></textarea>
+  </td>
+</tr>
+</table>
+<input name="submit" type="submit" value="<!--[pnml name="_BOOKADDGLOSSARY"]-->" />
+</form>
