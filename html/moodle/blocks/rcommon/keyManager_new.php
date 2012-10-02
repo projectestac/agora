@@ -258,7 +258,7 @@ switch ($action){
 		$ids       = required_param('ids', PARAM_RAW);
 		$ids_where = implode(',', $ids);
 		
-	   	if (execute_sql("DELETE {$CFG->prefix}rcommon_user_credentials WHERE id IN ({$ids_where})", false)){
+	   	if (execute_sql("DELETE FROM {$CFG->prefix}rcommon_user_credentials WHERE id IN ({$ids_where})", false)){
 	   		echo '<p class="center">' . get_string('keymanager_delete_ok', 'block_rcommon') . '</p>';
 	   	} else {
 	   		echo '<p class="center">' . get_string('keymanager_delete_ko', 'block_rcommon') . '</p>';
