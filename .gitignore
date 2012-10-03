@@ -1,8 +1,8 @@
 /nbproject/*
-/moodledata/moodle2/usu?/*
-/moodledata/usu?/*
+/moodledata/moodle2/usu*/*
+/moodledata/usu*/*
 /portaldata/pnTemp/*
-/zkdata/usu?/*
+/zkdata/usu*/*
 /html/config/config.php
 /html/config/env-config.php
 /html/config/config-restricted.php
