@@ -5,6 +5,11 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+12.10.03
+---------------------------------------------------------------------------------------
 PORTAL
 - Increased maximum upload size of big files to 100 MB
 - Fixed error shown when not able to send an e-mail
