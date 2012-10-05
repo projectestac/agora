@@ -199,8 +199,12 @@ class tinymce_texteditor extends texteditor {
         
         //XTEC ************ AFEGIT - To include Wiris buttons to TinyMCE editor
         //2012.08.22  @sarjona
-        $params['plugins'] .= ",tiny_mce_wiris";
-        $params['theme_advanced_buttons3'] = $params['theme_advanced_buttons3'].",|,tiny_mce_wiris_formulaEditor,tiny_mce_wiris_CAS";
+        if ($CFG->filter_wiris_editor_enable || $CFG->filter_wiris_cas_enable){
+            $params['plugins'] .= ",tiny_mce_wiris";
+            $params['theme_advanced_buttons3'] = $params['theme_advanced_buttons3'].',|';
+            if ($CFG->filter_wiris_editor_enable) $params['theme_advanced_buttons3'] .= ',tiny_mce_wiris_formulaEditor';
+            if ($CFG->filter_wiris_cas_enable) $params['theme_advanced_buttons3'] .= ',tiny_mce_wiris_CAS';
+        }
         //************ FI
         
         return $params;
