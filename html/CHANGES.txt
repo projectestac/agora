@@ -8,8 +8,7 @@ Changes in progress
 
 MOODLE 2
 - Fixed bug in /moodle/my related with Oracle reserved word (http://tracker.moodle.org/browse/MDL-35387)
-- Hidden Wiris buttons when the filter is not enabled.
-
+- Updated wiris version to 3.18.2 and hidden Wiris buttons when the filter is not enabled.
 
 12.10.03
 ---------------------------------------------------------------------------------------
