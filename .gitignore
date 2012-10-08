@@ -1,6 +1,8 @@
 /adminInfo/*
 /html/config/config.php
 /html/config/env-config.php
+/html/config/env-config-eoi-pro.php
+/html/config/env-config-pro.php
 /html/config/config-restricted.php
 /html/moodle/config.php
 /html/moodle2/config.php
