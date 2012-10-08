@@ -64,6 +64,13 @@ $rcontent->module='rcontent';
 $rcontent->cmid=$cm->id; 
 $return = AuthenticateUserContent($rcontent);
 
+// MARSUPIAL ************* AFEGIT -> Added extra control for response errors
+// 2012.09.18 @mmartinez
+if ($return->AutenticarUsuarioContenidoResult->Codigo <= 0 || !isset($return->AutenticarUsuarioContenidoResult->URL) || empty($return->AutenticarUsuarioContenidoResult->URL)){
+	error(get_string('error_authentication','blocks/rcommon').$return->AutenticarUsuarioContenidoResult->Codigo.', '.$return->AutenticarUsuarioContenidoResult->Descripcion);
+}
+// ************** FI
+
 $url = $return->AutenticarUsuarioContenidoResult->URL;
 require_js(array('yui_utilities'));
 require_js(array('yui_container'));

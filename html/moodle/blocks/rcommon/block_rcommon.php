@@ -6,7 +6,7 @@ class block_rcommon extends block_base {
 
     function init() {
         $this->title   = get_string('rcommon', 'blocks/rcommon');
-        $this->version = 2012090591;
+        $this->version = 2012100591;
     }
 
     function applicable_formats() {

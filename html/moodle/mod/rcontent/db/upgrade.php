@@ -85,6 +85,23 @@ function xmldb_rcontent_upgrade($oldversion=0) {
     } 
 // ********** FI
 
+// MARSUPIAL ************ AFEGIT -> Update URLVIEWRESULTS fields sizes for large urls
+// 2011.08.21 @mmartinez
+    if ($result && $oldversion < 2012092191) {
+    	// update totaltime field of rcontent_grades_details table
+    	$table = new XMLDBTable('rcontent_grades');
+    	$field = new XMLDBField('URLVIEWRESULTS');
+    	$field->setAttributes(XMLDB_TYPE_CHAR, 1024, XMLDB_UNSIGNED, false, false, false, null, null, 'comments');
+    	$result = $result && change_field_type($table, $field);
+    	
+    	// update maxtotaltime field of rcontent_grades_details table
+    	$table = new XMLDBTable('rcontent_grades_details');
+    	$field = new XMLDBField('URLVIEWRESULTS');
+    	$field->setAttributes(XMLDB_TYPE_CHAR, 1024, XMLDB_UNSIGNED, false, false, false, null, null, 'weight');
+    	$result = $result && change_field_type($table, $field);
+    }
+// ************ FI
+
     return $result;
 }
 

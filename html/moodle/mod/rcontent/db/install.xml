@@ -83,7 +83,7 @@ SumaPesos sumweights-->
 		<FIELD NAME="maxtotaltime" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" NEXT="status" PREVIOUS="totaltime" COMMENT=""/>
 		<FIELD NAME="status" TYPE="char" LENGTH="50" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" NEXT="comments" PREVIOUS="maxtotaltime" COMMENT=""/>
 		<FIELD NAME="comments" TYPE="char" LENGTH="255" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" NEXT="urlviewresults" PREVIOUS="status" COMMENT=""/>
-		<FIELD NAME="urlviewresults" TYPE="char" LENGTH="255" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" NEXT="sumweights" PREVIOUS="comments" COMMENT=""/>
+		<FIELD NAME="urlviewresults" TYPE="char" LENGTH="1024" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" NEXT="sumweights" PREVIOUS="comments" COMMENT=""/>
 		<FIELD NAME="sumweights" TYPE="int" LENGTH="10" DEFAULT="0" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false"  PREVIOUS="urlviewresults" NEXT="timecreated" COMMENT=""/>
 		<FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="sumweights" NEXT="timemodified"  COMMENT=""/>
 		<FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="timecreated" COMMENT=""/>
@@ -134,7 +134,7 @@ URLVerResultados URLViewResults-->
 		<FIELD NAME="attempt" TYPE="int" LENGTH="10" DEFAULT="0" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" NEXT="maxattempts" PREVIOUS="maxtotaltime" COMMENT=""/>
 		<FIELD NAME="maxattempts" TYPE="int" LENGTH="10" DEFAULT="0" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" NEXT="weight" PREVIOUS="attempt" COMMENT=""/>
 		<FIELD NAME="weight"  TYPE="int" LENGTH="10" DEFAULT="0" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" NEXT="urlviewresults" PREVIOUS="maxattempts" COMMENT=""/>
-		<FIELD NAME="urlviewresults" TYPE="char" LENGTH="255" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="weight" NEXT="timecreated" COMMENT=""/>
+		<FIELD NAME="urlviewresults" TYPE="char" LENGTH="1024" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="weight" NEXT="timecreated" COMMENT=""/>
 		<FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="urlviewresults" NEXT="timemodified" COMMENT=""/>
 		<FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="timecreated" COMMENT=""/>
 	</FIELDS>

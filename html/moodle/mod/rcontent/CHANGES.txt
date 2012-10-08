@@ -5,6 +5,11 @@ Changes in progress
 
 
 
+Versió 2012092191 - IECISA (mmartinez)
+-------------------------------------------
+- Added extra control for response errors
+- Update URLVIEWRESULTS fields sizes for large urls
+
 
 
 Versió 2012030291 - IECISA (mmartinez)

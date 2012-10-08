@@ -5,6 +5,10 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE
+- Updated rcommon block to fix bug related with deleted and non confirmed users (http://projectes.lafarga.cat/projects/marsupial/tracker/850/2414/detail)
+- Updated rcontent module to update URLVIEWRESULTS fields sizes for large urls
+
 
 MOODLE 2
 - Fixed bug in /moodle/my related with Oracle reserved word (http://tracker.moodle.org/browse/MDL-35387)

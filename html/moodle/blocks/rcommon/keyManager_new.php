@@ -354,7 +354,12 @@ switch ($action){
 		$search_where = !empty($searchtext)?" AND (firstname LIKE '%{$searchtext}%' OR lastname LIKE '%{$searchtext}%' OR username LIKE '%{$searchtext}%')": '';
 		
 		if (empty($courseid)){
-			$users_to_show    = get_records_sql("SELECT u.id, u.firstname, u.lastname, u.email FROM {$CFG->prefix}user u WHERE u.id NOT IN (SELECT DISTINCT euserid FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$book->isbn}'){$search_where} ORDER BY lastname");
+// MARSUPIAL ************* MODIFICAT -> Add extra control for just show the users confirmed and non deleted in the assigment books credentials process
+// 2012.09.05 @mmartinez
+			$users_to_show    = get_records_sql("SELECT u.id, u.firstname, u.lastname, u.email FROM {$CFG->prefix}user u WHERE u.id NOT IN (SELECT DISTINCT euserid FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$book->isbn}') AND deleted = 0 AND confirmed = 1{$search_where} ORDER BY lastname");
+// ************ ORIGINAL
+			//$users_to_show    = get_records_sql("SELECT u.id, u.firstname, u.lastname, u.email FROM {$CFG->prefix}user u WHERE u.id NOT IN (SELECT DISTINCT euserid FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$book->isbn}'){$search_where} ORDER BY lastname");
+// ************ FI
 		} else {
 			/// Setup for group handling.
 			$context = get_context_instance(CONTEXT_SYSTEM); // pinned blocks do not have own context

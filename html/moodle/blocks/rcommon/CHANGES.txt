@@ -4,10 +4,14 @@
 
 
 
+Versió 2012100591 (2012-10-05 @mmartinez)
+-------------------------------------------
+- Add extra control for just show the users confirmed and non deleted in the assigment books credentials process
+
 
 Versió 2012090591 (2012-09-05 @mmartinez)
 -------------------------------------------
-- Addkey procces, prevend to add empty credentials
+- Add key procces, prevend to add empty credentials
 - Edit credential procces, prevend to set empty credentials
 - List of posible users to assign in the assign credential process, review that any user with other credential for that book can be assigned
 - Import credentials process, show message if the file size is hightes than the alloweb by the php directives or Moodle configuration

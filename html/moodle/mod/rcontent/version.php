@@ -8,7 +8,7 @@
    *  Developed for Moodle version 1.9.5 
    */
 
-  $module->version = 2012030291;    // The (date) version of this module
+  $module->version = 2012092191;    // The (date) version of this module
   $module->requires = 2007101509;   // The version of Moodle that is required
   
 ?>
