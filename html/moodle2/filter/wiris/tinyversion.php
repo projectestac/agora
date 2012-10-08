@@ -21,18 +21,8 @@ defined('MOODLE_INTERNAL') || die();
 
 function getTinyMceVersion(){
 	global $CFG;
-        //XTEC ************ MODIFICAT - To avoid 'Creating default object from empty value' warning
-        //2012.08.23  @sarjona
-	include_once($CFG->dirroot . '/lib/editor/tinymce/lib.php');
-        $tinyeditor = new tinymce_texteditor();
-	$tiny_version = $tinyeditor->version;
-        //************ ORIGINAL
-        /*
 	include($CFG->dirroot . '/lib/editor/tinymce/version.php');
 	$tiny_version = $plugin->release;
-        }   
-        */
-        //************ FI    
 	return $tiny_version;
 }
 ?>

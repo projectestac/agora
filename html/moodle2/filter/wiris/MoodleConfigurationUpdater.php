@@ -19,17 +19,6 @@
 
 require_once dirname(__FILE__) . '/../../config.php';
 
-//XTEC ************ AFEGIT - To avoid warnings when activating the filter
-//2012.08.22  @sarjona
-if (!isset($CFG->filter_wiris_editor_enable)) {
-    set_config('filter_wiris_editor_enable', 0);
-}
-
-if (!isset($CFG->filter_wiris_cas_enable)) {
-    set_config('filter_wiris_cas_enable', 0);
-}
-//************ FI
-
 class com_wiris_plugin_configuration_MoodleConfigurationUpdater implements com_wiris_plugin_configuration_ConfigurationUpdater {
 
 	public function com_wiris_plugin_configuration_MoodleConfigurationUpdater() {

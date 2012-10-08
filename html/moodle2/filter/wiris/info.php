@@ -183,6 +183,6 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
 		echo '<input type="button" value="WIRIS plugin for TinyMCE tests" onClick="javascript:window.open(\'' . $link . '\');" /><br/>';
 	?>
 	</p>
-	<p><br/><span style="font-size:14px; font-weight:normal;">For more information or if you have any doubt contact WIRIS Support: (support@wiris.com)</span></p>
+	<p><br/><span style="font-size:14px; font-weight:normal;">For more information or if you have any doubt contact WIRIS Support: (<a href="mailto:support@wiris.com">support@wiris.com</a>)</span></p>
 </body>
 </html>

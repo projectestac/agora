@@ -133,7 +133,12 @@ if ('wiriscasactive' in configuration) {
 							language = editor.settings['wirisformulaeditorlang'];
 						}
 				
-						editor.setContent(wrs_initParse(content, language));
+						//Bug fix: In Moodle2.x when TinyMCE is set to full screen 
+						//the content doesn't need to be filtered.
+						if (!editor.getParam('fullscreen_is_enabled')){
+							editor.setContent(wrs_initParse(content, language));
+						}
+
 						iframe = editor.getContentAreaContainer().firstChild;
 						wrs_initParseImgToIframes(iframe.contentWindow);
 						

@@ -49,7 +49,9 @@ $wrs_xmlFileAttributes = array(
 	'identMathvariant',
 	'numberMathvariant',
 	'fontIdent',
-	'fontNumber'
+	'fontNumber',
+	'zoom',
+	'dpi'
 );
 
 function wrs_applyConfigRetrocompatibility($config) {
@@ -194,7 +196,13 @@ function wrs_getCacheDirectory($config) {
 }
 
 function wrs_getContents($config, $url, $postVariables = NULL) {
-	$referer = ((isset($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/' . $_SERVER['REQUEST_URI'];
+
+	$reqURI = $_SERVER['REQUEST_URI'];
+	if (substr($reqURI, 0, 1) == '/'){
+		$referer = ((isset($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	}else{
+		$referer = ((isset($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/' . $_SERVER['REQUEST_URI'];    
+	}
 
 	//If cURL is used it's possible to disable the directive allow_url_fopen
 	if (function_exists('curl_init')){
@@ -232,6 +240,7 @@ function wrs_fileGetContentsCurl($url, $postVariables, $config, $referer) {
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_REFERER, $referer);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
 	//POST method
 	if (!is_null($postVariables)) {
