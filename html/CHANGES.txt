@@ -8,6 +8,7 @@ Changes in progress
 MOODLE
 - Updated rcommon block to fix bug related with deleted and non confirmed users (http://projectes.lafarga.cat/projects/marsupial/tracker/850/2414/detail)
 - Updated rcontent module to update URLVIEWRESULTS fields sizes for large urls
+- Added file to automate course creation (for Àgora-Formació)
 
 
 MOODLE 2
