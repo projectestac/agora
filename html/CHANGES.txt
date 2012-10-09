@@ -13,6 +13,8 @@ MOODLE
 MOODLE 2
 - Fixed bug in /moodle/my related with Oracle reserved word (http://tracker.moodle.org/browse/MDL-35387)
 - Updated wiris version to 3.18.2 and hidden Wiris buttons when the filter is not enabled.
+- Fixed bug to let navigation in courses with COURSE_DISPLAY_SINGLEPAGE when a section is marked as current.
+
 
 12.10.03
 ---------------------------------------------------------------------------------------

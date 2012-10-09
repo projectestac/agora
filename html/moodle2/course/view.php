@@ -68,16 +68,17 @@
         return $currentsection;
     }
     
-    
-    $notifyeditingon = optional_param('notifyeditingon', -1, PARAM_BOOL);
-    if ($edit<0 && $notifyeditingon<0 && empty($section)) {
-        if ($course->format == 'topics') {
-            $section = course_get_marker($course->id);
-        } else if ($course->format == 'weeks') {
-            $section = course_get_current_week_section($course);
-        }
-    } else if ($section == -1){
-        $section = 0;
+    if ($course->coursedisplay == COURSE_DISPLAY_MULTIPAGE){
+        $notifyeditingon = optional_param('notifyeditingon', -1, PARAM_BOOL);
+        if ($edit<0 && $notifyeditingon<0 && empty($section)) {
+            if ($course->format == 'topics') {
+                $section = course_get_marker($course->id);
+            } else if ($course->format == 'weeks') {
+                $section = course_get_current_week_section($course);
+            }
+        } else if ($section == -1){
+            $section = 0;
+        }        
     }
     
     //************ FI                    
