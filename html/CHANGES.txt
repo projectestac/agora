@@ -5,16 +5,20 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+12.10.10
+---------------------------------------------------------------------------------------
 MOODLE
 - Updated rcommon block to fix bug related with deleted and non confirmed users (http://projectes.lafarga.cat/projects/marsupial/tracker/850/2414/detail)
 - Updated rcontent module to update URLVIEWRESULTS fields sizes for large urls
 - Added file to automate course creation (for Àgora-Formació)
 
-
 MOODLE 2
 - Fixed bug in /moodle/my related with Oracle reserved word (http://tracker.moodle.org/browse/MDL-35387)
 - Updated wiris version to 3.18.2 and hidden Wiris buttons when the filter is not enabled.
 - Fixed bug to let navigation in courses with COURSE_DISPLAY_SINGLEPAGE when a section is marked as current.
+- Undone change because the patch specified in http://tracker.moodle.org/browse/MDL-29432 create problems restoring other backups.
 
 
 12.10.03

@@ -148,23 +148,11 @@ abstract class restore_qtype_plugin extends restore_plugin {
         // The question existed, we need to map the existing question_answers
         } else {
             // Look in question_answers by answertext matching
-            //XTEC ************ MODIFICAT - To fix problem duplicating quizzes
-            //2012.08.27 @sarjona - http://tracker.moodle.org/browse/MDL-29432
-            $sql = 'SELECT id
-                      FROM {question_answers}
-                     WHERE question = ?
-                       AND id = ?
-                       AND ' . $DB->sql_compare_text('answer', 255) . ' = ' . $DB->sql_compare_text('?', 255);
-            $params = array($newquestionid, $oldid, $data->answertext);
-            //************ ORIGINAL
-            /*    
             $sql = 'SELECT id
                       FROM {question_answers}
                      WHERE question = ?
                        AND ' . $DB->sql_compare_text('answer', 255) . ' = ' . $DB->sql_compare_text('?', 255);
             $params = array($newquestionid, $data->answertext);
-            */
-            //************ FI
             $newitemid = $DB->get_field_sql($sql, $params);
             // If we haven't found the newitemid, something has gone really wrong, question in DB
             // is missing answers, exception
