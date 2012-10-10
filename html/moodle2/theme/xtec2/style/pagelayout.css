@@ -59,11 +59,13 @@ legend {
 	cursor:pointer;
 }
 
+/*button.fp-upload-btn, button.fp-login-popup-but, button.fp-select-confirm, button.fp-select-cancel, button.fp-msg-butok {
+    color:[[setting:color3]]!important;
+}*/
 
-
-button.fp-upload-btn{color:[[setting:color3]]!important;}
-
-button.fp-login-popup-but{color:[[setting:color3]]!important;}
+button {
+    color:[[setting:color3]]!important;
+}
 
 table {
     border: 1px solid #ddd;
