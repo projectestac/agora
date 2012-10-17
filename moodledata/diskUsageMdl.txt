@@ -10,5 +10,3 @@
 68	usu2
 5508	usu3
 68	usu4
-23352	usu_mysql
-26460	usu_mysql23
