@@ -4,7 +4,7 @@
 /html/config/env-config-eoi-pro.php
 /html/config/env-config-pro.php
 /html/config/config-restricted.php
-/html/config/sync-config.php
+/html/config/sync-config.sh
 /html/moodle/config.php
 /html/moodle2/config.php
 /nbproject/*
