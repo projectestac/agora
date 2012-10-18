@@ -7,7 +7,7 @@ admin_externalpage_setup('coursequotas', '', null, '', array('pagelayout' => 're
 echo $OUTPUT->header();
 
 if (!get_protected_agora() && is_rush_hour()) {
-    error(get_string('rush_hour', 'local_agora'), $CFG->wwwroot);
+    error(get_string('rush_hour', 'report_coursequotas'), $CFG->wwwroot);
 } else {
     if (function_exists ('getDiskInfo')){
         // Get diskSpace and diskConsume from Agoraportal (might be out-of-date)
@@ -56,41 +56,41 @@ if (!get_protected_agora() && is_rush_hour()) {
     // Content for first tab (general)
     $generalContent = '<h3 style="text-align:center;">' . get_string('total_noquota_description', 'report_coursequotas') . '</h3> '.
             '<ul style="margin:auto; width:350px; margin-bottom:20px;">' .
-            '<li>' . get_string('disk_consume_repofiles', 'local_agora', $b) . '</li>' .
-            '<li>' . get_string('disk_consume_courses', 'local_agora', $c) . '</li>' .
+            '<li>' . get_string('disk_consume_repofiles', 'report_coursequotas', $b) . '</li>' .
+            '<li>' . get_string('disk_consume_courses', 'report_coursequotas', $c) . '</li>' .
             '</ul>' .
             '</p>';
         
     } else {
         // Content for first tab (general)
-        $generalContent = '<h3 style="text-align:center;">' . get_string('total_description', 'local_agora') . '</h3>
+        $generalContent = '<h3 style="text-align:center;">' . get_string('total_description', 'report_coursequotas') . '</h3>
                             <p style="text-align:center; margin-bottom:20px;"><img src="graph.php?diskSpace=' . $diskSpace . '&diskConsume=' . $diskConsume . '" /></p>
-                            <p style="text-align:center;">' . get_string('disk_consume_explain', 'local_agora', $a) .
+                            <p style="text-align:center;">' . get_string('disk_consume_explain', 'report_coursequotas', $a) .
                 '<ul style="margin:auto; width:350px; margin-bottom:20px;">' .
-                '<li>' . get_string('disk_consume_repofiles', 'local_agora', $b) . '</li>' .
-                '<li>' . get_string('disk_consume_courses', 'local_agora', $c) . '</li>' .
+                '<li>' . get_string('disk_consume_repofiles', 'report_coursequotas', $b) . '</li>' .
+                '<li>' . get_string('disk_consume_courses', 'report_coursequotas', $c) . '</li>' .
                 '</ul>' .
                 '</p>';        
     }
 
     // Content for second tab (categories)
-    $categoryContent = '<h3 style="text-align:center;">' . get_string('category_description', 'local_agora') . '</h3><div style="margin:20px; margin-left:50px;">' . printCategoryData($data) . '</div>';
+    $categoryContent = '<h3 style="text-align:center;">' . get_string('category_description', 'report_coursequotas') . '</h3><div style="margin:20px; margin-left:50px;">' . printCategoryData($data) . '</div>';
 
     // Content for third tab (courses)
-    $coursesContent = '<h3 style="text-align:center;">' . get_string('courses_description', 'local_agora') . '</h3>' . printCoursesData($data);
+    $coursesContent = '<h3 style="text-align:center;">' . get_string('courses_description', 'report_coursequotas') . '</h3>' . printCoursesData($data);
 
     $yui_code = '
             <div class="yui3-widget yui3-tabview">
                 <div id="demo" class="yui3-tabview-content">
                     <ul class="yui3-tabview-list">
                         <li class="yui3-tab yui3-widget yui3-tab-selected">
-                            <a href="#foo" class="yui3-tab-label yui3-tab-content"><em>' . get_string('total_data', 'local_agora') . '</em></a>
+                            <a href="#foo" class="yui3-tab-label yui3-tab-content"><em>' . get_string('total_data', 'report_coursequotas') . '</em></a>
                         </li>
                         <li class="yui3-tab yui3-widget">
-                            <a href="#bar" class="yui3-tab-label yui3-tab-content"><em>' . get_string('category_data', 'local_agora') . '</em></a>
+                            <a href="#bar" class="yui3-tab-label yui3-tab-content"><em>' . get_string('category_data', 'report_coursequotas') . '</em></a>
                         </li>
                         <li class="yui3-tab yui3-widget">
-                            <a href="#baz" class="yui3-tab-label yui3-tab-content"><em>' . get_string('larger_courses', 'local_agora') . '</em></a>
+                            <a href="#baz" class="yui3-tab-label yui3-tab-content"><em>' . get_string('larger_courses', 'report_coursequotas') . '</em></a>
                         </li>
                     </ul>
                     <div class="yui3-tabview-panel">
@@ -195,7 +195,7 @@ function addCoursesToTree($dbRecords, $categoryTree, $addFrontPageCourse = false
         foreach ($dbRecords as $record) {
             // Front page course
             if (($record->category == 0) && $addFrontPageCourse) {
-                $categoryTree['0'] = array('Id' => 0, 'Name' => get_string('front_page', 'local_agora'), 'Subcategories' => array());
+                $categoryTree['0'] = array('Id' => 0, 'Name' => get_string('front_page', 'report_coursequotas'), 'Subcategories' => array());
                 $categoryTree['0']['courses'][$record->id] = array('Id' => $record->id, 'Fullname' => $record->fullname, 'coursesize' => 0);
             }
 
@@ -369,9 +369,9 @@ function printCoursesData($data) {
     $content = '<table id="CourseQuotasCoursesTable" style="margin:auto; margin-bottom:30px;">';
     $content .= '<thead>';
     $content .= '<tr>';
-    $content .= '<th><strong>' . get_string('course_name', 'local_agora') . '</strong></th>';
-    $content .= '<th><strong>' . get_string('category_name', 'local_agora') . '</strong></th>';
-    $content .= '<th><strong>' . get_string('disk_used', 'local_agora') . '</strong></th>';
+    $content .= '<th><strong>' . get_string('course_name', 'report_coursequotas') . '</strong></th>';
+    $content .= '<th><strong>' . get_string('category_name', 'report_coursequotas') . '</strong></th>';
+    $content .= '<th><strong>' . get_string('disk_used', 'report_coursequotas') . '</strong></th>';
     $content .= '</tr>';
     $content .= '</thead>';
     $content .= '<tbody>';

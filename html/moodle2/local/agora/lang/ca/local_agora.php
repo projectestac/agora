@@ -15,20 +15,3 @@ $string['diskquotaerror'] = '<strong>ATENCIÓ</strong>: Aquest Moodle ha excedit
 
 // Rush hour
 $string['rush_hour'] = 'Aquesta operació no està permesa en hores punta. Podeu realitzar-la de dilluns a divendres abans de les 9:00, de 14:00 a 14:59 i després de les 17:00, així com els caps de setmana durant tot el dia.';
-
-// Quotas report
-$string['coursequotas'] = 'Ocupació del disc';
-$string['total_data'] = 'Total';
-$string['disk_used'] = 'Espai ocupat';
-$string['disk_free'] = 'Espai lliure';
-$string['category_data'] = 'Categories';
-$string['larger_courses'] = 'Cursos';
-$string['course_name'] = 'Nom del curs';
-$string['category_name'] = 'Nom de la categoria';
-$string['front_page'] = 'Pàgina inicial';
-$string['disk_consume_explain'] = 'Actualment s\'estan utilitzant <strong>{$a->diskConsume} MB</strong> dels <strong>{$a->diskSpace} MB</strong> disponibles, dels quals:';
-$string['disk_consume_repofiles'] = '<strong>{$a->figure} {$a->unit}</strong> són al repositori "Fitxers"';
-$string['disk_consume_courses'] = '<strong>{$a->figure} {$a->unit}</strong> són als cursos';
-$string['total_description'] = 'Percentatge de disc ocupat en relació amb el total de la quota assignada';
-$string['category_description'] = 'Mida total de les categories i subcategories calculada a partir de la mida dels cursos que contenen';
-$string['courses_description'] = 'Llista de tots els cursos, ordenada de major a menor segons la mida dels seus fitxers';

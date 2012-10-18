@@ -21,7 +21,7 @@ $data = array($diskConsume, $diskFree);
 $graph = new PieGraph(500, 300);
 $graph->SetShadow();
 
-$legends = array(get_string('disk_used', 'local_agora'), get_string('disk_free', 'local_agora'));
+$legends = array(get_string('disk_used', 'report_coursequotas'), get_string('disk_free', 'report_coursequotas'));
 
 $p1 = new PiePlot3D($data);
 $p1->SetLegends($legends);
