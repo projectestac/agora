@@ -674,7 +674,7 @@ function geogebra_get_last_attempt_grade($geogebraid, $userid) {
 
     $select = 'SELECT *';
     $from = ' FROM ' . $CFG->prefix . 'geogebra_attempts';
-    $where = ' WHERE `datestudent` = (SELECT MAX(datestudent) FROM ' . $CFG->prefix . 'geogebra_attempts WHERE 
+    $where = ' WHERE datestudent = (SELECT MAX(datestudent) FROM ' . $CFG->prefix . 'geogebra_attempts WHERE 
         userid = ' . $userid . ' AND geogebra = ' . $geogebraid . ' AND finished = 1)';
 
 
@@ -722,7 +722,7 @@ function geogebra_get_first_attempt_grade($geogebraid, $userid) {
 
     $select = 'SELECT *';
     $from = ' FROM ' . $CFG->prefix . 'geogebra_attempts';
-    $where = ' WHERE `datestudent` = (SELECT MIN(datestudent) FROM ' . $CFG->prefix . 'geogebra_attempts WHERE 
+    $where = ' WHERE datestudent = (SELECT MIN(datestudent) FROM ' . $CFG->prefix . 'geogebra_attempts WHERE 
         userid = ' . $userid . ' AND geogebra = ' . $geogebraid . ' AND finished = 1)';
 
     if ($attempt = get_record_sql($select . $from . $where)) {
