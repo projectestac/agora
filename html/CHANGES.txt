@@ -5,6 +5,8 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE
+- Fixed some Oracle bugs in GeoGebra module related with ` character
 
 
 12.10.10
