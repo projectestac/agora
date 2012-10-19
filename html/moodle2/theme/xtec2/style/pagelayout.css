@@ -136,10 +136,6 @@ th {
     width: 100%;
     padding-top: 10px;
     clear: both; 
-    /*   background-image: url([[pix:theme|theme/menubar]]);
-       background-color: [[setting:color4]];
-       background-position: top;
-       background-repeat: repeat-x;*/
     margin: 0px;
     border-bottom: 2px solid #ad2114;
     text-align: left;
@@ -174,11 +170,6 @@ th {
 
 .navbar {
     color: [[setting:color3]];
-   /* background-color: [[setting:color6]];*/
-    /*background-image: url([[pix:theme|theme/navigation]]);*/
- /*   background-repeat: repeat-x;
-    height:34px;*/
-	
 	height: 30px;
     padding-top: 5px;
 	padding-bottom:5px;
@@ -194,10 +185,6 @@ th {
     padding: 7px 10px 10px 10px ;
 	font-size: 90%;
 }
-
-/*.arrow {
-    color: [[setting:color1]];
-}*/
 
 .arrow {
     color:#686868;
@@ -238,8 +225,6 @@ h2.main {
     font-weight: bold;
     padding: 0px 0px 0px 0px;
 	border-bottom:1px solid #ddd;
-	/*background-image: url([[pix:theme|theme/navigation]]);*/
-	/*background-image: url("/agora-moodle/ins-llebeig/moodle/theme/image.php?theme=xtec2&component=theme&image=theme%2Fnavigation");*/
 }
 
 #custommenu a {
@@ -271,11 +256,9 @@ li a.yui3-menu-label {
 	 /*background: url(../theme/xtec2/pix/theme/ralla_menu.png) no-repeat right!important; */
 }
 
-ul li a.yui3-menuitem-content {
-    
+ul li a.yui3-menuitem-content {  
      padding-bottom: 5px ! important;
      padding-top: 5px ! important;
-	 /*background: url(../theme/xtec2/pix/theme/ralla_menu.png) no-repeat right!important; */
 }
 
 
@@ -287,18 +270,6 @@ ul li a.yui3-menuitem-content {
 
 
 /* Courses */
-
-/*ul.weeks,
-ul.unlist,
-ul.topics {
-    margin: 0px;
-    border: 1px solid #ddd;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-       -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-bottomright: 5px;
-
-}*/
 
 .weeks .section,
 .weeks #section-0,
@@ -330,7 +301,6 @@ ul.topics {
 .course-content .section .left,
 .weeks .section,
 .topics .section {
-    /* background-image: url([[pix:theme|theme/borderbottom]]);*/
     background-position: bottom;
     background-repeat: repeat-x;
     padding-top: 5px;
@@ -450,47 +420,6 @@ ul.topics {
 
 .section-title a{text-decoration:underline;}
 
-/* Hidden topics *//*
-#course-view .index .content,
-#course-view .index .right,
-#course-view .weeks .index,
-#course-view .hidden .content,
-#course-view .hidden .right,
-#course-view .weeks .hidden {
-    background-color: #EEE;
-}
-
-#course-view .current .content,
-#course-view .current .right {
-    background-color: #FFFFFF;
-}
-
-#course-view .current .content {
-    border-left-style: none;
-    border-right-style: none;
-}
-
-#course-view .current .right {
-    border-left-style: none;
-}
-
-#course-view .current .left {
-    border-right-style: none;
-    background-color: [[setting:color2]];
-    color: [[setting:color6]];
-}
-
-.topics, 
-#course-view ul.weeks,
-#course-view .weeks {
-    -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-bottomright: 5px;
-    -moz-box-shadow: 3px 3px 3px 3px #bbb;
-    box-shadow: 3px 3px 3px 3px #bbb;
-}
-*/
-
-
 
 /* Modules: Forum */
 
@@ -499,11 +428,7 @@ ul.topics {
     margin: auto;
     padding-bottom: 15px;
     padding-top: 10px;
-    /* background-image: url([[pix:theme|theme/borderbottom]]);
-     background-position: bottom;
-     background-repeat: repeat-x;*/
     border: 1px solid #ddd;
-    /*width: 98%;*/
 }
 
 .forumnodiscuss {
@@ -519,10 +444,7 @@ ul.topics {
 .forumheaderlist,
 .forumpost {
     border: 1px solid #ddd;
-    /*  background-color: #eee;*/
-    /*width: 98%;*/
     margin: auto;
-    /*margin-top: 2px;*/
 	border-top: 0px;
 }
 
@@ -579,7 +501,6 @@ div.content div.coursebox:only-of-type{border-bottom:white solid 0px!important;}
 
 .forumpost .commands {
     padding: 10px;
-    /*    background-image: url([[pix:theme|theme/borderbottom]]);*/
     background-position: bottom;
     background-repeat: repeat-x;
 }
@@ -655,7 +576,6 @@ li.yui3-menuitem:hover{
     background-color:#aaa!important;
 }
 
-
 .yui3-skin-sam .yui3-menu-label-active, .yui3-skin-sam .yui3-menu-label-menuvisible, .yui3-skin-sam .yui3-menu .yui3-menu .yui3-menu-label-active, .yui3-skin-sam .yui3-menu .yui3-menu .yui3-menu-label-menuvisible {
     background-color: #eeeeee!important;
 }
@@ -676,7 +596,6 @@ li.yui3-menuitem:hover{
 
 tbody th {
     color: #555555;
-    /* background-color: [[setting:color2]];*/
     background-color:#FFF!important;
     font-weight: bold;
 }
@@ -691,7 +610,6 @@ tr.header{ background-color:#DDDDDD!important;}
 
 tbody th {
     color: #555555;
-    /* background-color: [[setting:color2]];*/
     background-color:#FFF!important;
     font-weight: bold;
 
@@ -1011,6 +929,46 @@ table{ border-radius:5px;}
 .custom_menu_submenu .yui3-menu-content li{border-left:1px solid #ddd; background-color:#EEEEEE!important; }
 /*.custom_menu_submenu ul li{position:relative; left:-1px; top:-1px;}*/
 
+
+/* Styles for coursequotas */
+.yui3-tabview-panel {
+    background-color: #fff!important;
+    border: 1px solid #ddd!important;
+    border-radius: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 3px 3px 3px #bbb;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-box-shadow: 3px 3px 3px #bbb;
+}
+
+.yui3-tabview-list{
+    border: none!important;
+}
+
+.yui3-tab .yui3-tab-content {
+    font-weight: bold;
+    color: #000!important;   
+    border-radius: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;   
+}
+
+.yui3-widget {   
+}
+.yui3-tab-label {
+}
+
+.yui3-tab-selected .yui3-tab-content {
+    font-weight: bold;
+    background: none!important;
+    background-color: [[setting:color2]]!important;
+    border-color: [[setting:color2]]!important;
+    color: #fff!important;   
+}
 
 /* Must be at the end in order to override any previous style */
 [[setting:customcss]]
