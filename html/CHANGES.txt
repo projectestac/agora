@@ -5,6 +5,9 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- Fixed error while picking up Moodle 2 number of access
+
 MOODLE
 - Fixed some Oracle bugs in GeoGebra module related with ` character
 

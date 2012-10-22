@@ -66,15 +66,15 @@ function statsServiceSelected(search, searchText) {
             case '1':
             case '2':
             case '3':
-                $service = 2; // Moodle 1.9
+                service = 2; // Moodle 1.9
                 break;
             case '4':
-                $service = 1; // Intranet
+                service = 1; // Intranet
                 break;
             case '5':
             case '6':
             case '7':
-                $service = 4; // Moodle 2
+                service = 4; // Moodle 2
                 break;
         }
 		

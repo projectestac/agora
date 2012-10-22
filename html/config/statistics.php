@@ -545,7 +545,7 @@ function getSchoolMoodleStats_TotalMonthAccess($con, $year, $month, $daysofmonth
     $max = mktime(23, 59, 59, $month, $daysofmonth, $year);
     $min = mktime(0, 0, 0, $month, 1, $year);
 
-    $sql = 'SELECT count(ID) AS total FROM ' . MOODLE_PREFIX . 'log WHERE time>' . $min . ' AND time<' . $max . ' ';
+    $sql = 'SELECT count(ID) AS total FROM ' . $prefix . 'log WHERE time>' . $min . ' AND time<' . $max . ' ';
     $stmt = oci_parse($con, $sql);
     $value = '';
 
