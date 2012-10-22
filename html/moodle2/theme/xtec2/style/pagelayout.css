@@ -942,26 +942,19 @@ table{ border-radius:5px;}
     -moz-border-radius-bottomright: 5px;
     -moz-box-shadow: 3px 3px 3px #bbb;
 }
-
-.yui3-tabview-list{
+.yui3-tabview-list {
+    font-size: 1.2em;
     border: none!important;
 }
-
 .yui3-tab .yui3-tab-content {
     font-weight: bold;
-    color: #000!important;   
     border-radius: 0px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-topright: 5px;   
 }
-
-.yui3-widget {   
-}
-.yui3-tab-label {
-}
-
+/* Additional styles for selected tab */
 .yui3-tab-selected .yui3-tab-content {
     font-weight: bold;
     background: none!important;
@@ -969,6 +962,12 @@ table{ border-radius:5px;}
     border-color: [[setting:color2]]!important;
     color: #fff!important;   
 }
+/* Additional styles when mouse is over the tab */
+.yui3-tab .yui3-tab-content:hover {
+    color: #fff!important;   
+    background: [[setting:color2]]!important;
+}
+
 
 /* Must be at the end in order to override any previous style */
 [[setting:customcss]]
