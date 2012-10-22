@@ -61,6 +61,7 @@ function IWstats_usersonlineblock_display($blockinfo) {
     $content = unserialize($blockinfo['content']);
     $sessiontime = $content['sessiontime'];
     $refreshtime = $content['refreshtime'];
+    $usersinfo = ($content['usersinfo'] == 2) ? 'l' : 'ncc';
     $unsee = $content['unsee'];
 
     $time = time();
@@ -68,7 +69,7 @@ function IWstats_usersonlineblock_display($blockinfo) {
 
     $fromDate = date('d-m-Y H:i:s', $time0);
     $toDate = date('d-m-Y H:i:s', $time);
-    
+
     $records = pnModAPIFunc('IWstats', 'user', 'getAllRecords', array('rpp' => -1,
         'init' => -1,
         'fromDate' => $fromDate,
@@ -76,7 +77,7 @@ function IWstats_usersonlineblock_display($blockinfo) {
         'all' => 1,
         'timeIncluded' => 1,
             ));
-    
+
     $users = array();
     $ipArray = array();
     $usersArray = array();
@@ -96,18 +97,18 @@ function IWstats_usersonlineblock_display($blockinfo) {
 
     if ($seeunames && count($usersArray) > 0) {
         $sv = pnModFunc('iw_main', 'user', 'genSecurityValue');
-        $users = pnModFunc('iw_main', 'user', 'getAllUsersInfo', array('info' => 'ncc',
+        $users = pnModFunc('iw_main', 'user', 'getAllUsersInfo', array('info' => $usersinfo,
             'sv' => $sv,
             'fromArray' => $usersArray));
     }
-    
+
     // create output object
     $pnRender = pnRender::getInstance('IWstats', false);
     $pnRender->assign('seeunames', $seeunames);
     $pnRender->assign('users', $users);
     $pnRender->assign('online', $online);
     $pnRender->assign('validated', count($usersArray));
-    
+
     $s = $pnRender->fetch('IWstats_block_usersonline.htm');
     // copy the block information into user vars
     $sv = pnModFunc('iw_main', 'user', 'genSecurityValue');
@@ -131,10 +132,18 @@ function usersonline_update($blockinfo) {
     // default values in case they are not correct
     $refreshtime = (!is_numeric($blockinfo['refreshtime']) || $blockinfo['refreshtime'] > 100) ? $blockinfo['refreshtime'] : 100;
     $sessiontime = (!is_numeric($blockinfo['sessiontime']) || $blockinfo['sessiontime'] < 10 || $blockinfo['sessiontime'] < 120) ? $blockinfo['sessiontime'] : 100;
+
+    //Reset the users menus for all users
+    $sv = pnModFunc('iw_main', 'user', 'genSecurityValue');
+    pnModFunc('iw_main', 'user', 'usersVarsDelModule', array('module' => 'IWstats',
+        'name' => 'usersonlineblock',
+        'sv' => $sv));
+
     $unsee = ($blockinfo['unsee'] != 1) ? 0 : 1;
     $blockinfo['content'] = serialize(array('refreshtime' => $refreshtime,
         'unsee' => $unsee,
         'sessiontime' => $sessiontime,
+        'usersinfo' => $blockinfo['usersinfo']
             ));
 
     return $blockinfo;
@@ -156,6 +165,7 @@ function usersonline_edit($blockinfo) {
     $pnRender = pnRender::getInstance('IWstats', false);
     $pnRender->assign('refreshtime', $refreshtime);
     $pnRender->assign('sessiontime', $sessiontime);
+    $pnRender->assign('usersinfo', $content['usersinfo']);
     $pnRender->assign('unsee', $unsee);
     return $pnRender->fetch('IWstats_block_editusersonline.htm');
 }

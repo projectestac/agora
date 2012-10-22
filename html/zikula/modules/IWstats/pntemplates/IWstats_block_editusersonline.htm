@@ -10,3 +10,10 @@
     <label for="onlineblock_refreshtime"><!--[gt text="Block time refresh in seconds (minimum 100)"]--></label>
     <input id="onlineblock_refreshtime" type="text" name="refreshtime" value="<!--[$refreshtime]-->" />
 </div>
+<div class="z-formrow">
+    <label for="onlineblock_usersinfo"><!--[gt text="User information to display"]--></label>
+    <select name="usersinfo" id="onlineblock_usersinfo">
+        <option <!--[if $usersinfo eq 1]-->selected="selected"<!--[/if]--> value="1"><!--[gt text="User full name"]--></option>
+        <option <!--[if $usersinfo eq 2]-->selected="selected"<!--[/if]--> value="2"><!--[gt text="Username"]--></option>
+    </select>
+</div>
