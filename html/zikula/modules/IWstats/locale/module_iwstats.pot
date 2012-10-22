@@ -322,3 +322,11 @@ msgstr ""
 #: templates/IWstats_admin_deleteip.htm:17
 msgid "Confirm"
 msgstr ""
+
+#: templates/IWstats_block_usersonline.htm:17
+msgid "User information to display"
+msgstr ""
+
+msgid "User full name"
+msgstr ""
+

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: IWstats versió 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-14 13:03+0100\n"
-"PO-Revision-Date: 2012-09-26 09:03+0100\n"
+"PO-Revision-Date: 2012-10-22 13:09+0100\n"
 "Last-Translator: intraweb <intraweb@xtec.cat>\n"
 "Language-Team: Intraweb <intraweb@xtec.cat>\n"
 "MIME-Version: 1.0\n"
@@ -346,4 +346,11 @@ msgstr "Confirmeu que voleu esborrar totes les entrades amb la ip %s"
 #: templates/IWstats_admin_deleteip.htm:17
 msgid "Confirm"
 msgstr "Confirma"
+
+#: templates/IWstats_block_usersonline.htm:17
+msgid "User information to display"
+msgstr "Informació de l'usuari/ària que s'ha de mostrar"
+
+msgid "User full name"
+msgstr "Nom complet de l'usuari/ària"
 
