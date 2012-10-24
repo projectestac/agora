@@ -5,6 +5,12 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+PORTAL
+- Updated automatic e-mail sent when activating a new service
+
+
+12.10.24
+---------------------------------------------------------------------------------------
 GENERAL
 - Fixed error while picking up Moodle 2 number of access
 
@@ -13,6 +19,9 @@ MOODLE
 
 MOODLE 2
 - Updated coursequotas report. Now is ready for production.
+
+ZIKULA
+- IWstats: Added the posibility to choose the user information to show in online users block 
 
 
 12.10.10
