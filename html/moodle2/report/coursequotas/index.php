@@ -6,41 +6,40 @@ require_once($CFG->libdir . '/adminlib.php');
 admin_externalpage_setup('coursequotas', '', null, '', array('pagelayout' => 'report'));
 echo $OUTPUT->header();
 
+$isAgora = is_agora();
+
 if (!get_protected_agora() && is_rush_hour()) {
     error(get_string('rush_hour', 'report_coursequotas'), $CFG->wwwroot);
 } else {
-    if (function_exists ('getDiskInfo')){
+    if ($isAgora) {
         // Get diskSpace and diskConsume from Agoraportal (might be out-of-date)
         $diskInfo = getDiskInfo($CFG->dnscentre, 'moodle2');        
-    } else {
-        $diskInfo['diskSpace'] = 0;
-        $diskInfo['diskConsume'] = 0;
-    }
-    $diskSpace = round($diskInfo['diskSpace']); // In MB
-    $diskConsume = round($diskInfo['diskConsume'] / 1024); // Originally in kB
+        $diskSpace = round($diskInfo['diskSpace']); // In MB
+        $diskConsume = round($diskInfo['diskConsume'] / 1024); // Originally in kB
 
-    // Get the size of repository 'files'
-    $repoMessage = '';
-    $size = array();
-    if (file_exists($CFG->dataroot . '/repository/files/')) {
-        $repoSize = exec('du -sk ' . $CFG->dataroot . '/repository/files/');
-        $repoSize = explode('/', $repoSize);
-        $repoSize = $repoSize[0]; // Size in kB
-        $size = formatSize($repoSize * 1024);
+        // Get the size of repository 'files'
+        $repoMessage = '';
+        $size = array();
+        if (file_exists($CFG->dataroot . '/repository/files/')) {
+            $repoSize = exec('du -sk ' . $CFG->dataroot . '/repository/files/');
+            $repoSize = explode('/', $repoSize);
+            $repoSize = $repoSize[0]; // Size in kB
+            $size = formatSize($repoSize * 1024);
+        }
+
+        // Variables for the language strings
+        $a = new stdClass;
+        $b = new stdClass;
+        $a->diskSpace = $diskSpace;
+        $a->diskConsume = $diskConsume;
+        $b->figure = number_format($size['figure'], 1, ',', '.');
+        $b->unit = $size['unit'];
     }
-    
-    // Variables for the language strings
-    $a = new stdClass;
-    $b = new stdClass;
-    $a->diskSpace = $diskSpace;
-    $a->diskConsume = $diskConsume;
-    $b->figure = number_format($size['figure'], 2, ',', '.');
-    $b->unit = $size['unit'];
 
     // Get category tree with information about its courses and disk usage
     $data = getCategoryData();
-
-    // Calculate quota used by course files
+    
+    // Calculate quota used by course files (does not include backups)
     $coursesSize = 0;
     foreach ($data as $category) {
         $coursesSize += $category['categorysize'];
@@ -49,30 +48,36 @@ if (!get_protected_agora() && is_rush_hour()) {
 
     // Variable for the language strings
     $c = new stdClass;
-    $c->figure = number_format($size['figure'], 2, ',', '.');
+    $c->figure = number_format($size['figure'], 1, ',', '.');
     $c->unit = $size['unit'];
 
-    if ($diskSpace == 0 && $diskConsume == 0){
+    // Get quota used in backups
+    $backupUsage = formatSize(getBackupUsage());
+
+    $d = new stdClass;
+    $d->figure = number_format($backupUsage['figure'], 1, ',', '.');
+    $d->unit = $backupUsage['unit'];
+
     // Content for first tab (general)
-    $generalContent = '<h3 style="text-align:center;">' . get_string('total_noquota_description', 'report_coursequotas') . '</h3> '.
-            '<ul style="margin:auto; width:350px; margin-bottom:20px;">' .
-            '<li>' . get_string('disk_consume_repofiles', 'report_coursequotas', $b) . '</li>' .
-            '<li>' . get_string('disk_consume_courses', 'report_coursequotas', $c) . '</li>' .
-            '</ul>' .
-            '</p>';
-        
-    } else {
-        // Content for first tab (general)
+    if ($isAgora){
         $generalContent = '<h3 style="text-align:center;">' . get_string('total_description', 'report_coursequotas') . '</h3>
                             <p style="text-align:center; margin-bottom:20px;"><img src="graph.php?diskSpace=' . $diskSpace . '&diskConsume=' . $diskConsume . '" /></p>
                             <p style="text-align:center;">' . get_string('disk_consume_explain', 'report_coursequotas', $a) .
-                '<ul style="margin:auto; width:350px; margin-bottom:20px;">' .
+                '<ul style="margin:auto; width:400px; margin-bottom:20px;">' .
                 '<li>' . get_string('disk_consume_repofiles', 'report_coursequotas', $b) . '</li>' .
                 '<li>' . get_string('disk_consume_courses', 'report_coursequotas', $c) . '</li>' .
+                '<li>' . get_string('disk_consume_backups', 'report_coursequotas', $d) . '</li>' .
                 '</ul>' .
                 '</p>';        
+    } else {
+        $generalContent = '<h3 style="text-align:center;">' . get_string('total_noquota_description', 'report_coursequotas') . '</h3> '.
+                '<ul style="margin:auto; width:400px; margin-bottom:20px;">' .
+                '<li>' . get_string('disk_consume_courses', 'report_coursequotas', $c) . '</li>' .
+                '<li>' . get_string('disk_consume_backups', 'report_coursequotas', $d) . '</li>' .
+                '</ul>' .
+                '</p>';
     }
-
+    
     // Content for second tab (categories)
     $categoryContent = '<h3 style="text-align:center;">' . get_string('category_description', 'report_coursequotas') . '</h3><div style="margin:20px; margin-left:50px;">' . printCategoryData($data) . '</div>';
 
@@ -448,6 +453,29 @@ function getCoursesDataBody($data) {
     return $courseList;
 }
 
+
+/**
+ * Gets the amount of bytes used in course and users backups
+ * 
+ * @author Toni Ginard (aginard@xtec.cat)
+ * @global array $DB
+ * 
+ * @return int Number of bytes used
+ */
+function getBackupUsage() {
+    global $DB;
+
+    // component equal to backup means "course level backup"
+    // filearea equal to backup means "user level backup" which is not associated to any course
+    $dbRecords = $DB->get_records_select('files', "component='backup' or filearea='backup'", null, 'ID', 'ID, FILESIZE');
+
+    $backupSize = 0;
+    foreach ($dbRecords as $record) {
+        $backupSize += $record->filesize;
+    }
+
+    return $backupSize;
+}
 
 /**
  * Formats a size figure and adds unit information

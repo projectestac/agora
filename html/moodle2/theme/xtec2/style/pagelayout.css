@@ -968,6 +968,10 @@ table{ border-radius:5px;}
     background: [[setting:color2]]!important;
 }
 
+#dates.generalbox{ height:auto!important; min-height:30px!important;}
+
+
+
 
 /* Must be at the end in order to override any previous style */
 [[setting:customcss]]
