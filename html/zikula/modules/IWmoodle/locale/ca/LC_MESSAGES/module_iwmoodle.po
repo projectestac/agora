@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: IWmoodle module\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-27 08:44+0100\n"
-"PO-Revision-Date: 2012-07-20 12:30+0100\n"
+"PO-Revision-Date: 2012-10-25 13:14+0100\n"
 "Last-Translator: intraweb <intraweb@xtec.cat>\n"
 "Language-Team: Intraweb <intraweb@xtec.cat>\n"
 "MIME-Version: 1.0\n"
@@ -476,11 +476,11 @@ msgstr "N. Registres"
 
 #: pntemplates/iwmoodle_admin_sincron.htm:88
 msgid "Change validation to do it from the Moodle"
-msgstr "Canvia la validació per fer-ho des de Moodle"
+msgstr "Canvia la validació per fer-ho només des de Moodle"
 
 #: pntemplates/iwmoodle_admin_sincron.htm:90
 msgid "Change validation to do it from the intranet"
-msgstr "Canvia la validació per fer-ho des de la intranet"
+msgstr "Canvia la validació per fer-ho des de la intranet i des de Moodle"
 
 #: pntemplates/iwmoodle_admin_sincron.htm:92
 msgid "Create Moodle user"
@@ -488,7 +488,7 @@ msgstr "Crea l'usuari/ària a Moodle"
 
 #: pntemplates/iwmoodle_admin_sincron.htm:117
 msgid "User validated in Moodle from the intranet"
-msgstr "L'usuari/ària valida a Moodle des de la intranet"
+msgstr "L'usuari/ària valida a Moodle des de la intranet i des de Moodle"
 
 #: pntemplates/iwmoodle_admin_sincron.htm:125
 msgid "User not validated in Moodle from the intranet"
