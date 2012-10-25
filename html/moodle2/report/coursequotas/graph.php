@@ -32,6 +32,6 @@ $p1->SetTheme("sand");
 $graph->legend->SetShadow();
 $graph->legend->Pos(0.5, 0.99, 'center', 'bottom');
 $graph->legend->SetLayout(LEGEND_HOR);
-$graph->SetColor('#FAFAFA');
+$graph->SetColor('#ffffff');
 $graph->Add($p1);
 $graph->Stroke();

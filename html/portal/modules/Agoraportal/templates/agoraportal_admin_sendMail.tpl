@@ -55,16 +55,12 @@
     </p>
     {/if}
 
-    {if $serviceName eq 'moodle' or 'moodle2'}
+    {if $serviceName eq 'moodle' or $serviceName eq 'moodle2'}
     <p>
-        Tal com s'especifica a les condicions d'&uacute;s al servei, recordeu 
+        Tal com s'especifica a les condicions d'&uacute;s del servei, recordeu 
         que a la XTEC no hi ha cap figura destinada a solucionar les q&uuml;estions 
         plantejades en relaci&oacute; al funcionament del Moodle. Per tal de 
-        resoldre aquests dubtes podeu adre&ccedil;ar-vos als f&ograve;rums de 
-        la XTEC dins de l'apartat
-        <a href="http://phobos.xtec.cat/forum/viewforum.php?f=40">Espai Moodle</a>.
-        En aquest f&ograve;rum tothom pot preguntar i respondre les q&uuml;estions 
-        que consideri oportunes. Tamb&eacute; podeu dirigir-vos als f&ograve;rums
+        resoldre aquests dubtes podeu adre&ccedil;ar-vos als f&ograve;rums en catal&agrave;
         de <a href="http://moodle.org/course/view.php?id=39">Moodle.org</a>.
     </p>
     {/if}
@@ -73,8 +69,10 @@
     <p>
         Teniu a la vostra disposici&oacute; els materials del 
         <a href="http://ateneu.xtec.cat/wikiform/wikiexport/cursos/gestio_centres/d204/index">curs
-        de formaci&oacute; sobre Moodle</a> a on hi trobareu un conjunt important 
-        d'informaci&oacute; sobre l'&uacute;s d'aquesta plataforma 
+        d'&Uacute; i dinamitzaci&oacute; del Moodle</a> i els del
+        <a href="http://ateneu.xtec.cat/wikiform/wikiexport/cursos/gestio_centres/d304/index">curs
+        de gesti&oacute; i administraci&oacute; del Moodle</a>, a on hi trobareu un conjunt 
+        important d'informaci&oacute; sobre l'&uacute;s d'aquesta plataforma 
         d'aprenentatge.
     </p>
     {/if}
