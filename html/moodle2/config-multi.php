@@ -6,7 +6,7 @@ define('INSTALL_BASE', '/srv/www/agora/');               // Directori base de la
 //------------ INTEGRACIÓ
 //define('INSTALL_BASE', '/dades/eduphp/agora-moodle/'); // Directori base de la instal·lació d'Àgora ($BASE_AGORA)
 
-//------------ ACCEPTACIÓ
+//------------ ACCEPTACIÓ i FORMACIÓ
 //define('INSTALL_BASE', '/dades/agora-moodle/');        // Directori base de la instal·lació d'Àgora ($BASE_AGORA) 	
 
 //------------ PRODUCCIÓ
