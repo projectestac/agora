@@ -30,7 +30,7 @@ if(!function_exists('schedule_backup_launch_backup')){
 $ara = time();
 
 $backup_config = backup_get_config();
-$backuppath = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle']['username'] . $school_info['id_moodle2'].'/'.$agora['moodle2']['repository_files'];
+$backuppath = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle']['username'] . $school_info['id_moodle2'] . $agora['moodle2']['repository_files'];
 backup_set_config('backup_sche_destination', $backuppath);
 
 ob_start();
