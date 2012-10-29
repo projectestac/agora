@@ -1232,11 +1232,11 @@ function display(target){
     $(target).style.display='block';
 }
 
-function deleteFileM2x(filename){
+function deleteFileM2x(filename,clientCode){
     if(!confirm("Confirmeu que voleu esborrar el fitxer '" + filename + "'.")) {
         return;
     }
-    var pars = "module=Agoraportal&func=deleteFileM2x&filename=" + filename;
+    var pars = "module=Agoraportal&func=deleteFileM2x&filename=" + filename + "&clientCode=" + clientCode;
     var myAjax = new Ajax.Request("ajax.php", 
     {
         method: 'get', 
@@ -1262,11 +1262,11 @@ function deleteFileM2x_response(req) {
 function deleteFileM2x_failure() {
 }
 
-function deleteFileM19(filename,courseId,filename){
+function deleteFileM19(filename,courseId,clientCode){
     if(!confirm("Confirmeu que voleu esborrar el fitxer '" + filename + "'.")) {
         return;
     }
-    var pars = "module=Agoraportal&func=deleteFileM19&filename=" + filename + "&courseId=" + courseId;
+    var pars = "module=Agoraportal&func=deleteFileM19&filename=" + filename + "&courseId=" + courseId + "&clientCode=" + clientCode;
     var myAjax = new Ajax.Request("ajax.php", 
     {
         method: 'get', 
@@ -1293,11 +1293,11 @@ function deleteFileM19_response(req) {
 function deleteFileM19_failure() {
 }
 
-function moveFileToM2x(filename,courseId,filename){
+function moveFileToM2x(filename,courseId,clientCode){
     if(!confirm("Confirmeu que voleu moure el fitxer '" + filename + "' des de Moodle 1.9 a Moodle 2.x.")) {
         return;
     }
-    var pars = "module=Agoraportal&func=moveFileToM2x&filename=" + filename + "&courseId=" + courseId;
+    var pars = "module=Agoraportal&func=moveFileToM2x&filename=" + filename + "&courseId=" + courseId + "&clientCode=" + clientCode;
     var myAjax = new Ajax.Request("ajax.php", 
     {
         method: 'get', 
