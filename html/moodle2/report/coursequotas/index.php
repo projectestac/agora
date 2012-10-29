@@ -19,7 +19,7 @@ if (!get_protected_agora() && is_rush_hour()) {
 
         // Get the size of repository 'files'
         $repoMessage = '';
-        $size = array();
+        $size = array('unit' => 0);
         if (file_exists($CFG->dataroot . '/repository/files/')) {
             $repoSize = exec('du -sk ' . $CFG->dataroot . '/repository/files/');
             $repoSize = explode('/', $repoSize);
