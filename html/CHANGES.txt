@@ -10,6 +10,7 @@ PORTAL
 
 MOODLE 2
 - Modified the file auth/db/auth.php to make possible to validate simultaniously through the intranet, simulating a SSO validation, and the typical Moodle authentification form using the External Database authentification method
+- Fixed bug when restoring directly big courses from Moodle 1.9 (the course filename was different because the creation took more than one minute).
 
 ZIKULA
 - Adapted the module IWmoodle to be consistent with the new validation possibilities

@@ -21,6 +21,11 @@ function import19_restore($filename, $courseid = false){
     }
 
     $origin = $CFG->dataroot.$agora['moodle2']['repository_files']. $filename;
+    if (!file_exists($origin)){
+        // The name of the backup created is different from the one specified so it's necessary to search the correct one
+        $filenamestart = substr($filename, 0, strrpos($filename, '-', -1));
+        $origin = exec('ls '.$CFG->dataroot.$agora['moodle2']['repository_files'].$filenamestart.'-*');
+    }
 
     $userid = $USER->id;
 
