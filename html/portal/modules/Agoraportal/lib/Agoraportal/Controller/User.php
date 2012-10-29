@@ -288,6 +288,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             }
         }
         if ($clientCode == null) {
+            // perhaps who is connected is a schoool, so client code is the its username
             if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
                 $clientCode = UserUtil::getVar('uname');
             }

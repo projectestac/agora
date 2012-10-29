@@ -168,11 +168,11 @@
                                 {$file.name} ({$file.size} MB)
                             </div>
                             <div class="fileListOptions" id="filemoved_{$file.name}_courseId_{$course.courseId}">
-                                <a href="javascript:moveFileToM2x('{$file.name}',{$course.courseId},'{$file.name}');">
+                                <a href="javascript:moveFileToM2x('{$file.name}',{$course.courseId},'{$clientCode}');">
                                     {img modname='core' src='forward.png' set='icons/extrasmall' __alt='Mou el fitxer' __title='Mou el fitxer'}
                                 </a>
                                 |
-                                <a href="javascript:deleteFileM19('{$file.name}',{$course.courseId},'{$file.name}');">
+                                <a href="javascript:deleteFileM19('{$file.name}',{$course.courseId},'{$clientCode}');">
                                     {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt='Esborra el fitxer' __title='Esborra el fitxer'}
                                 </a>
                                 |
@@ -231,7 +231,7 @@
                         {$file.time}
                     </td>
                     <td>
-                        <a href="javascript:deleteFileM2x('{$file.name}');">
+                        <a href="javascript:deleteFileM2x('{$file.name}', '{$clientCode}');">
                             {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall'}
                         </a>
                         |

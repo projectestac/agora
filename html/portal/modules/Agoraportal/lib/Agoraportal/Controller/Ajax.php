@@ -664,7 +664,9 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $filename = FormUtil::getPassedValue('filename', '', 'GET');
-        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode');
+        $clientCode = FormUtil::getPassedValue('clientCode', '', 'GET');
+        
+        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
         // remove file
         global $agora;
