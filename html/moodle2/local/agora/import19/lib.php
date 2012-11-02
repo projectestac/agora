@@ -213,19 +213,23 @@ function import19_course_selector($contextid){
 /**
  * Connect to Moodle 1.9 database
  */
-function import19_connect_moodle19_db(){
-	global $DB, $CFG, $agora;
-	
-	$library = 'native';
-	if (!$handler = moodle_database::get_driver_instance($CFG->dbtype, $library, true)) {
-            throw new dml_exception('dbdriverproblem', "Unknown driver $library/".$CFG->dbtype);
-	}
-	
-	try {
+function import19_connect_moodle19_db() {
+    global $DB, $CFG, $agora;
+
+    $library = 'native';
+    if (!$handler = moodle_database::get_driver_instance($CFG->dbtype, $library, true)) {
+        throw new dml_exception('dbdriverproblem', "Unknown driver $library/" . $CFG->dbtype);
+    }
+
+    try {
+        if (is_agora()) {
             $handler->connect($agora['moodle']['dbhost'], $CFG->dbuser, $agora['moodle']['userpwd'], $CFG->dbname, $agora['moodle']['prefix'], $CFG->dboptions);
-	} catch (moodle_exception $e) {
-            echo 'Caught exception: ',  $e->getMessage();
-            return false;
-	}
-	return $handler;
+        } else {
+            $handler->connect($agora['moodle']['dbhost'], $agora['moodle']['user'], $agora['moodle']['userpwd'], $agora['moodle']['dbname'], $agora['moodle']['prefix'], $CFG->dboptions);
+        }
+    } catch (moodle_exception $e) {
+        echo 'Caught exception: ', $e->getMessage();
+        return false;
+    }
+    return $handler;
 }
