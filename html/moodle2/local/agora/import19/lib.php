@@ -116,7 +116,7 @@ function import19_course_selector($contextid){
             }
             if (is_siteadmin() || !empty($user19)){
                 // Get user19 role in Moodle 1.9
-                $sql = "SELECT count(*) AS total FROM mlrole r, mlrole_assignments ra WHERE r.shortname='admin' AND r.id=ra.roleid AND ra.contextid=1 AND ra.userid=$user19->id";
+                $sql = "SELECT count(*) AS total FROM {role} r, {role_assignments} ra WHERE r.shortname='admin' AND r.id=ra.roleid AND ra.contextid=1 AND ra.userid=$user19->id";
                 $isadmin19 = $dbconn->get_field_sql($sql) == 1;
                 $courses = array();
                 if (is_siteadmin() || $isadmin19){
