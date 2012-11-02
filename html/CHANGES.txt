@@ -8,9 +8,14 @@ Changes in progress
 PORTAL
 - Updated automatic e-mail sent when activating a new service
 
+MOODLE
+- Added is_agora() check to backup_agora.php to enable Moodle to import when is not Àgora 
+
 MOODLE 2
 - Modified the file auth/db/auth.php to make possible to validate simultaniously through the intranet, simulating a SSO validation, and the typical Moodle authentification form using the External Database authentification method
 - Fixed bug when restoring directly big courses from Moodle 1.9 (the course filename was different because the creation took more than one minute).
+- Fixed hardcoded prefixes in import19
+- Added is_agora() checks to import19 to enable Moodle to import when is not Àgora 
 
 ZIKULA
 - Adapted the module IWmoodle to be consistent with the new validation possibilities
