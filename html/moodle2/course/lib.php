@@ -1218,7 +1218,12 @@ function get_all_mods($courseid, &$mods, &$modnames, &$modnamesplural, &$modname
             if (!file_exists("$CFG->dirroot/mod/$mod->name/lib.php")) {
                 continue;
             }
-            if ($mod->visible) {
+            //XTEC ************ MODIFICAT - Added function to check which modules can appear in the list
+            //2012.11.06  @sarjona
+            if ($mod->visible && is_enabled_in_agora($mod->name) ) {
+            //************ ORIGINAL 
+            //if ($mod->visible) {
+            //************ FI
                 $modnames[$mod->name] = get_string("modulename", "$mod->name");
                 $modnamesplural[$mod->name] = get_string("modulenameplural", "$mod->name");
             }

@@ -11,6 +11,12 @@ if ($hassiteconfig) {
     $modules = $DB->get_records('modules', array(), "name ASC");
     foreach ($modules as $module) {
         $modulename = $module->name;
+        //XTEC ************ AFEGIT - Only enabled modules can be showed
+        //2012.11.06  @sarjona
+        if (!is_enabled_in_agora($modulename) ) {
+            continue;
+        }
+        //************ FI
         if (!file_exists("$CFG->dirroot/mod/$modulename/lib.php")) {
             continue;
         }

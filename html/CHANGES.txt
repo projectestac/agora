@@ -18,6 +18,7 @@ MOODLE 2
 - Fixed hardcoded prefixes in import19
 - Added is_agora() checks to import19 to enable Moodle to import when is not Àgora
 - Fixed bug related with guest viewing folders (http://tracker.moodle.org/browse/MDL-34338)
+- Added some restrictions to disable specific modules, like eoicampus
 
 ZIKULA
 - Adapted the module IWmoodle to be consistent with the new validation possibilities
