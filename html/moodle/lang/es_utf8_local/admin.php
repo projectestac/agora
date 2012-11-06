@@ -20,6 +20,7 @@ $string['larger_courses'] 	= 'Cursos';
 $string['course_name'] 		= 'Nombre del curso';
 $string['category_name'] 	= 'Nombre de la categoría';
 $string['disk_consume_explain'] 	= 'Actualmente se están utilitzando <b>$a->diskConsume MB</b> de los <b>$a->diskSpace MB</b> disponibles.';
+$string['disk_consume_notavailable']    = 'Información no disponible para este espacio Moodle';
 $string['total_description'] 		= 'Here you can see the percentage of busy disk in relation with the total space';
 $string['category_description'] 	= 'Here you can see the courses of each category with the total size of its files';
 $string['courses_description'] 	= 'Here you can see all courses with its category and the size of its files ordered decreasing';

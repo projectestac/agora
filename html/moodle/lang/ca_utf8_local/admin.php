@@ -19,10 +19,12 @@ $string['larger_courses'] 	= 'Cursos';
 $string['course_name'] 		= 'Nom del curs';
 $string['category_name'] 	= 'Nom de la categoria';
 $string['disk_consume_explain'] 	= 'Actualment s\'estan utilitzant <b>$a->diskConsume MB</b> dels <b>$a->diskSpace MB</b> disponibles.';
+$string['disk_consume_notavailable']    = 'Informació no disponible per aquest espai Moodle';
 $string['total_description'] 		= 'Percentatge de disc ocupat en relació amb el total de la quota assignada';
 $string['category_description'] 	= 'Mida total de les categories i subcategories calculada a partir de la mida dels cursos que contenen';
 $string['courses_description'] 	= 'Llista de tots els cursos, ordenada de major a menor segons la mida dels seus fitxers';
 //************ FI
+
 
 
 
