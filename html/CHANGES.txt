@@ -10,6 +10,7 @@ PORTAL
 
 MOODLE
 - Added is_agora() check to backup_agora.php to enable Moodle to import when is not Àgora 
+- Reviewed coursequotes to make it works with single installations (like Odissea)
 
 MOODLE 2
 - Modified the file auth/db/auth.php to make possible to validate simultaniously through the intranet, simulating a SSO validation, and the typical Moodle authentification form using the External Database authentification method
