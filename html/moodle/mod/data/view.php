@@ -568,7 +568,6 @@
             } else {
                 $sqlselect  = "SELECT $what $fromsql $sortorder";
             }
-
             if (empty($searchselect) && empty($advsearchselect)) {
                 $maxcount = $totalcount;
             } else {
