@@ -75,7 +75,13 @@ $string['editorenable'] = 'Habilita l\'editor';
 $string['emptyadd'] = 'La plantilla d\'afegir dades és buida. S\'està generant un formulari per defecte...';
 $string['emptyaddform'] = 'No heu emplenat cap camp';
 $string['entries'] = 'Entrades';
-$string['entrieslefttoadd'] = 'Heu d\'afegir $a entrades més abans que pugueu veure les entrades d\'altres participants.';
+//XTEC ************ MODIFICAT - To avoid problem with data visualization when entrieslefttoadd parameter is defined
+//2012.11.07
+$string['entrieslefttoaddtoview'] = 'Heu d\'afegir $a->entrieslefttoview entrades més abans que pugueu veure les entrades d\'altres participants.';
+$string['entrieslefttoadd'] = 'Heu d\'afegir $a->entriesleft entrades més per completar aquesta activitat.';
+//************ ORIGINAL
+//$string['entrieslefttoadd'] = 'Heu d\'afegir $a entrades més abans que pugueu veure les entrades d\'altres participants.';
+//************ FI
 $string['entry'] = 'Entrada';
 $string['entrysaved'] = 'S\'ha desat la vostra entrada';
 $string['errormustbeteacher'] = 'Per a utilitzar aquesta pàgina heu de ser professor/a';
