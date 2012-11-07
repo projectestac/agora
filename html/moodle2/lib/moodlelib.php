@@ -8123,6 +8123,13 @@ function get_plugin_list($plugintype) {
                 // better ignore plugins with problematic names here
                 continue;
             }
+            //XTEC ************ AFEGIT - Only enabled modules has to be showed
+            //2012.11.06  @sarjona
+            if (!is_enabled_in_agora($pluginname) ){
+                continue;
+            }
+            //************ FI
+            
             $result[$pluginname] = $fulldir.'/'.$pluginname;
             unset($item);
         }

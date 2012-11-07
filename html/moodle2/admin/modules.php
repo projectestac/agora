@@ -128,6 +128,13 @@
     $table->setup();
 
     foreach ($modules as $module) {
+        
+        //XTEC ************ AFEGIT - Only enabled modules has to be showed
+        //2012.11.06  @sarjona
+        if (!is_enabled_in_agora($module->name) ){
+            continue;
+        }
+        //************ FI
 
         if (!file_exists("$CFG->dirroot/mod/$module->name/lib.php")) {
             $strmodulename = '<span class="notifyproblem">'.$module->name.' ('.get_string('missingfromdisk').')</span>';

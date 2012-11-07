@@ -11,63 +11,72 @@
 		// Rush hour message
 		error(get_string('rush_hour', 'moodle'), $CFG->wwwroot );
 				
-	}else{    
+	}else{  
+            if (function_exists('getDiskInfo')){
 		//Get diskSpace and diskConsume from portal dataBase
 		$diskInfo = getDiskInfo($CFG->dnscentre, 'moodle');
-		$diskSpace = round($diskInfo['diskSpace']); //In MB
-		//$diskConsume = round($diskInfo['diskConsume'] / 1024); //Originally in Kb
-		
-		//Get size of every course directory
-		$courses = get_courses();
-		$categories = get_categories();
-		$categories_info = array();
-		
-		foreach ($categories as $category){
-			$categories_info[$category->id]['name'] = $category->name;
-		}
-			
-		//Content for each tab
-		$data = get_category_data(0);
-		
-		$diskConsume = substr(($data['categorysize'] / 1024),0, strpos($data['categorysize'] / 1024, "."));
-		$a = new stdClass;
-		$a->diskSpace = $diskSpace;
-		$a->diskConsume = $diskConsume;
-		
-		$general_content = '<p>'.get_string('total_description', 'admin').'</p>
-				   <div ><img src="graph.php?diskSpace='.$diskSpace.'&diskConsume='.$diskConsume.'" /></div><div ><br>'.get_string('disk_consume_explain', 'admin', $a).'</div>';
-		
-		$category_data = print_category_data($data); 					 
-		$category_content = '<p>'.get_string('category_description', 'admin').'</p>'.$category_data['content'];
-		
-		$larger_content = '<p>'.get_string('courses_description', 'admin').'</p>'.
-				   print_larger_courses();
-		
-		//JavaScript switch
-		require_js(array('yui_yahoo', 'yui_event', 'yui_element', 'yui_tabview', 'yui_dom-event'));
-		
-		$yui_code = '
-			<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/tabview/assets/skins/sam/tabview.css" />
+            } else {
+                $diskInfo = array ('diskConsume' => 0, 'diskSpace' => 0 );
+            }   
+            $diskSpace = round($diskInfo['diskSpace']); //In MB
+            //$diskConsume = round($diskInfo['diskConsume'] / 1024); //Originally in Kb
 
-			<div id="demo" class="yui-navset">
-				<ul class="yui-nav">
-					<li class="selected"><a href="#tab1"><em>'.get_string('total_data', 'admin').'</em></a></li>
-					<li><a href="#tab2"><em>'.get_string('category_data', 'admin').'</em></a></li>
-					<li><a href="#tab3"><em>'.get_string('larger_courses', 'admin').'</em></a></li>
-				</ul>            
-				<div class="yui-content">
-					<div id="tab1">'.$general_content.'</div>
-					<div id="tab2">'.$category_content.'</div>
-					<div id="tab3">'.$larger_content.'</div>
-				</div>
-			</div>
-			<script type="text/javascript">
-				document.body.className += " yui-skin-sam";
-				var tabView = new YAHOO.widget.TabView("demo");
-			</script>
-			';
-			
-		echo $yui_code;
+            //Get size of every course directory
+            $courses = get_courses();
+            $categories = get_categories();
+            $categories_info = array();
+
+            foreach ($categories as $category){
+                    $categories_info[$category->id]['name'] = $category->name;
+            }
+
+            //Content for each tab
+            $data = get_category_data(0);
+            $diskConsume = substr(($data['categorysize'] / 1024),0, strpos($data['categorysize'] / 1024, "."));
+            $a = new stdClass;
+            $a->diskSpace = $diskSpace;
+            $a->diskConsume = $diskConsume;
+
+            $general_content = '';
+            if ($diskSpace > 0 ){
+                $general_content .= '<p>'.get_string('total_description', 'admin').'</p>';
+                $general_content .='<div ><img src="graph.php?diskSpace='.$diskSpace.'&diskConsume='.$diskConsume.'" /></div>';
+                $general_content .= '<div ><br>'.get_string('disk_consume_explain', 'admin', $a).'</div>';
+            } else{
+                $general_content .= '<div ><br>'.get_string('disk_consume_notavailable', 'admin').'</div>';
+            }
+
+            $category_data = print_category_data($data); 					 
+            $category_content = '<p>'.get_string('category_description', 'admin').'</p>'.$category_data['content'];
+
+            $larger_content = '<p>'.get_string('courses_description', 'admin').'</p>'.
+                               print_larger_courses();
+
+            //JavaScript switch
+            require_js(array('yui_yahoo', 'yui_event', 'yui_element', 'yui_tabview', 'yui_dom-event'));
+
+            $yui_code = '
+                    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/tabview/assets/skins/sam/tabview.css" />
+
+                    <div id="demo" class="yui-navset">
+                            <ul class="yui-nav">
+                                    <li class="selected"><a href="#tab1"><em>'.get_string('total_data', 'admin').'</em></a></li>
+                                    <li><a href="#tab2"><em>'.get_string('category_data', 'admin').'</em></a></li>
+                                    <li><a href="#tab3"><em>'.get_string('larger_courses', 'admin').'</em></a></li>
+                            </ul>            
+                            <div class="yui-content">
+                                    <div id="tab1">'.$general_content.'</div>
+                                    <div id="tab2">'.$category_content.'</div>
+                                    <div id="tab3">'.$larger_content.'</div>
+                            </div>
+                    </div>
+                    <script type="text/javascript">
+                            document.body.className += " yui-skin-sam";
+                            var tabView = new YAHOO.widget.TabView("demo");
+                    </script>
+                    ';
+
+            echo $yui_code;
 	}
        
        

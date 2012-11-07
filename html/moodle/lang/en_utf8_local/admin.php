@@ -21,6 +21,7 @@ $string['larger_courses'] 	= 'Courses';
 $string['course_name'] 		= 'Course name';
 $string['category_name'] 	= 'Category name';
 $string['disk_consume_explain'] 	= 'Now there are <b>$a->diskConsume MB</b> busy of <b>$a->diskSpace MB</b> available.';
+$string['disk_consume_notavailable']    = 'Information not available for this site';
 $string['total_description'] 		= 'A continuación se muestra el porcentaje de cuota de disco ocupado en relación con el total';
 $string['category_description'] 	= 'A continuación se muuestran los cursos de las diferentes categorias junto con el tamaño total de los ficheros que lo componen';
 $string['courses_description'] 	= 'A continuación se muestran todos los cursos junto con su categoría y el tamaño de sus ficheros ordenados de mayor a menor según este último dato';
