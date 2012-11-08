@@ -162,7 +162,7 @@ switch($beans[0]['ID']){
 				$jclic_activity->activity_solved=$bean['ACTIVITY']['solved']=='true'?1:0;
 				$jclic_activity->score=$bean['ACTIVITY']['score'];
 				$jclic_activity->grade=$jclic_activity->score;
-				$jclic_activity->qualification=getPrecision($bean['ACTIVITY']['minActions'], $bean['ACTIVITY']['actions'], ''.$bean['ACTIVITY']['solved'], $bean['ACTIVITY']['score']);
+				$jclic_activity->qualification=round(getPrecision($bean['ACTIVITY']['minActions'], $bean['ACTIVITY']['actions'], ''.$bean['ACTIVITY']['solved'], $bean['ACTIVITY']['score']));
 				$jclic_activity->total_time=$bean['ACTIVITY']['time'];                                
 				$DB->insert_record("jclic_activities", $jclic_activity);
 			}			
