@@ -504,7 +504,7 @@ require_once("$CFG->libdir/filelib.php");
         if ($rs = $DB->get_record_sql("SELECT COUNT(*) AS attempts, AVG(t.qualification) AS qualification, SUM(t.totaltime) AS totaltime, MAX(t.starttime) AS starttime
                             FROM (SELECT AVG(ja.qualification) AS qualification, SUM(ja.total_time) AS totaltime, MAX(js.session_datetime) AS starttime
                                   FROM {jclic} j, {jclic_sessions} js, {jclic_activities} ja  
-                                  WHERE j.id=js.jclicid AND js.user_id=$userid AND js.jclicid=$jclicid AND ja.session_id=js.session_id
+                                  WHERE j.id=js.jclicid AND js.user_id='$userid' AND js.jclicid=$jclicid AND ja.session_id=js.session_id
                                   GROUP BY js.session_id) t")){
                 $sessions_summary->attempts=$rs->attempts;
                 $sessions_summary->score=round($rs->qualification,0);
@@ -515,13 +515,13 @@ require_once("$CFG->libdir/filelib.php");
         if ($rs = $DB->get_record_sql("SELECT COUNT(*) as done
                             FROM (SELECT DISTINCT ja.activity_name 
                                   FROM {jclic} j, {jclic_sessions} js, {jclic_activities} ja 
-                                  WHERE j.id=js.jclicid AND js.user_id=$userid AND js.jclicid=$jclicid AND js.session_id=ja.session_id)  t")){
+                                  WHERE j.id=js.jclicid AND js.user_id='$userid' AND js.jclicid=$jclicid AND js.session_id=ja.session_id)  t")){
                 $sessions_summary->done=$rs->done;
         }
         if ($rs = $DB->get_record_sql("SELECT COUNT(*) as solved
                             FROM (SELECT DISTINCT ja.activity_name 
                                   FROM {jclic} j, {jclic_sessions} js, {jclic_activities} ja 
-                                  WHERE j.id=js.jclicid AND js.user_id=$userid AND js.jclicid=$jclicid AND js.session_id=ja.session_id AND ja.activity_solved=1) t")){
+                                  WHERE j.id=js.jclicid AND js.user_id='$userid' AND js.jclicid=$jclicid AND js.session_id=ja.session_id AND ja.activity_solved=1) t")){
         $sessions_summary->solved=$rs->solved;
         }
         return $sessions_summary;
