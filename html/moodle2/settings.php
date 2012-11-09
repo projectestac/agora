@@ -16,6 +16,8 @@ $CFG->disableupdatenotifications=1;
 //Preconfiguration setting
 $CFG->alternateloginurl='';
 $CFG->mymoodleredirect=0;
+$CFG->enablestats=0;
+$CFG->themedesignermode=0;
 //$CFG->loginhttps=0;  /* Database param, to change if there is some problem */
 
 //Authentication
@@ -41,7 +43,7 @@ $CFG->enableajax = 1;
 $CFG->disablecourseajax = 0;
 
 //Backups
-$CFG->disablescheduledbackups = 0;
+$CFG->backup_auto_active = 0;
 
 //Session information
 $CFG->dbsessions=false;

@@ -11,6 +11,7 @@
 	//Preconfiguration setting
 	$CFG->alternateloginurl='';
 	$CFG->mymoodleredirect=0;
+        $CFG->enablestats = 0;
 	//$CFG->loginhttps=0;  /* Database param, to change if there is some problem */
 
 	//Authentication
