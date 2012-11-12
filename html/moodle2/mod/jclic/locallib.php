@@ -669,75 +669,78 @@ require_once("$CFG->libdir/filelib.php");
 
             $table->pagesize($perpage, count($users));
             $offset = $page * $perpage; //offset used to calculate index of student in that particular query, needed for the pop up to know who's next
-
             if ($ausers !== false) {
                 //$grading_info = grade_get_grades($course->id, 'mod', 'jclic', $jclic->id, array_keys($ausers));
                 $endposition = $offset + $perpage;
-                $currentposition = 0;
+                $currentposition = $offset;
+                $ausersObj = new ArrayObject($ausers);
+                $iterator = $ausersObj->getIterator();
+                $iterator->seek($currentposition);
 
-                foreach ($ausers as $auser) {
-                    if ($currentposition == $offset && $offset < $endposition) {
-                        $picture = $OUTPUT->user_picture($auser);
-                        $userlink = '<a href="' . $CFG->wwwroot . '/user/view.php?id=' . $auser->id . '&amp;course=' . $course->id . '">' . fullname($auser, has_capability('moodle/site:viewfullnames', $context)) . '</a>';
-                        $extradata = array();
-                        foreach ($extrafields as $field) {
-                            $extradata[] = $auser->{$field};
-                        }
-                        
-                        $sessions = array();
-                        if ($action == 'showall'){
-                            // Print sessions for each student
-                            $sessions=jclic_get_sessions($jclic->id, $auser->id);
-                            if (sizeof($sessions)>0){
-                                $first_session=true;
-                                foreach($sessions as $session){
-                                    // Print session information
-                                    $rowclass = null;
-                                    $starttime='<a href="#" onclick="showSessionActivities(\''.$session->session_id.'\');">'.date('d/m/Y H:i',strtotime($session->starttime)).'</a>';
-                                    $solveddone = $session->solved. ' / '. $session->done;
-                                    $grade = $session->score; 
-                                    $totaltime = $session->totaltime;
-                                    $attempts = $session->attempts;
-                                    $row = array_merge(array($picture, $userlink), $extradata,
-                                            array($starttime, $attempts, $solveddone, $totaltime, $grade));
-                                    $table->add_data($row, $rowclass);
-                                    
-                                    // Print activities for each session
-                                    $html='<tr class="jclic-session-activities-hidden" id="session_'.$session->session_id.'" >';
-                                    $html.='<td colspan="'.(2+sizeof($extradata)).'"></td>';
-                                    $html.= '<td colspan="6" >';
-                                    $html.= jclic_get_session_activities_html($session->session_id);
-                                    $html.= '</td></tr>';
-                                    echo $html;        
-                                    
-                                    // Remove user information (only showed in the first row)
-                                    if ($first_session){
-                                        $first_session = false;
-                                        $picture = null;
-                                        $userlink = null;
-                                        // Remove extradata fields to show them only once
-                                        foreach ($extradata as $key=>$value){
-                                            $extradata[$key] = '';
-                                        }
-                                    }                                    
-                                }
+                  while ($iterator->valid() && $currentposition < $endposition ) {
+                    $auser = $iterator->current();
+                    $picture = $OUTPUT->user_picture($auser);
+                    $userlink = '<a href="' . $CFG->wwwroot . '/user/view.php?id=' . $auser->id . '&amp;course=' . $course->id . '">' . fullname($auser, has_capability('moodle/site:viewfullnames', $context)) . '</a>';
+                    $extradata = array();
+                    foreach ($extrafields as $field) {
+                        $extradata[] = $auser->{$field};
+                    }
+
+                    $sessions = array();
+                    if ($action == 'showall'){
+                        // Print sessions for each student
+                        $sessions=jclic_get_sessions($jclic->id, $auser->id);
+                        if (sizeof($sessions)>0){
+                            $first_session=true;
+                            foreach($sessions as $session){
+                                // Print session information
+                                $rowclass = null;
+                                $starttime='<a href="#" onclick="showSessionActivities(\''.$session->session_id.'\');">'.date('d/m/Y H:i',strtotime($session->starttime)).'</a>';
+                                $solveddone = $session->solved. ' / '. $session->done;
+                                $grade = $session->score; 
+                                $totaltime = $session->totaltime;
+                                $attempts = $session->attempts;
+                                $row = array_merge(array($picture, $userlink), $extradata,
+                                        array($starttime, $attempts, $solveddone, $totaltime, $grade));
+                                $table->add_data($row, $rowclass);
+
+                                // Print activities for each session
+                                $html='<tr class="jclic-session-activities-hidden" id="session_'.$session->session_id.'" >';
+                                $html.='<td colspan="'.(2+sizeof($extradata)).'"></td>';
+                                $html.= '<td colspan="6" >';
+                                $html.= jclic_get_session_activities_html($session->session_id);
+                                $html.= '</td></tr>';
+                                echo $html;        
+
+                                // Remove user information (only showed in the first row)
+                                if ($first_session){
+                                    $first_session = false;
+                                    $picture = null;
+                                    $userlink = null;
+                                    // Remove extradata fields to show them only once
+                                    foreach ($extradata as $key=>$value){
+                                        $extradata[$key] = '';
+                                    }
+                                }                                    
                             }
                         }
-                        
-                        // Sessions summary
-                        $sessions_summary = jclic_get_sessions_summary($jclic->id, $auser->id);
-                        $starttime = (sizeof($sessions)>0)?get_string('totals', 'jclic'):(isset($sessions_summary->starttime)?date('d/m/Y H:i',strtotime($sessions_summary->starttime)):'-');
-                        $solveddone = $sessions_summary->solved. ' / '. $sessions_summary->done;
-                        $grade = $sessions_summary->score; 
-                        $totaltime = $sessions_summary->totaltime;
-                        $attempts = $sessions_summary->attempts;
-                        $row = array_merge(array($picture, $userlink), $extradata,
-                                array($starttime, $attempts, $solveddone, $totaltime, $grade));
-                        $rowclass = (sizeof($sessions)>0)?'summary-row':'';
-                        $table->add_data($row, $rowclass);
                     }
+
+                    // Sessions summary
+                    $sessions_summary = jclic_get_sessions_summary($jclic->id, $auser->id);
+                    $starttime = (sizeof($sessions)>0)?get_string('totals', 'jclic'):(isset($sessions_summary->starttime)?date('d/m/Y H:i',strtotime($sessions_summary->starttime)):'-');
+                    $solveddone = $sessions_summary->solved. ' / '. $sessions_summary->done;
+                    $grade = $sessions_summary->score; 
+                    $totaltime = $sessions_summary->totaltime;
+                    $attempts = $sessions_summary->attempts;
+                    $row = array_merge(array($picture, $userlink), $extradata,
+                            array($starttime, $attempts, $solveddone, $totaltime, $grade));
+                    $rowclass = (sizeof($sessions)>0)?'summary-row':'';
+                    $table->add_data($row, $rowclass);
+                    
+                    // Forward iterator
                     $currentposition++;
-                    $offset++;
+                    $iterator->next();
                 }
                 $table->print_html();  /// Print the whole table    
             }
