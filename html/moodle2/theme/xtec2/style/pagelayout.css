@@ -17,8 +17,10 @@ body {
     padding-bottom: 15px;
     margin-bottom: 0px;
     color:#555555;
-    font-size: [[setting:fontsize]];
+	overflow-x:hidden!important;
+	font-size: [[setting:fontsize]];
     [[setting:fontstyle]]
+
 }
 
 h2 {
@@ -27,6 +29,15 @@ h2 {
 
 a {
     color: [[setting:color5]];
+}
+
+
+.pagelayout-report #page-content #region-main-box #region-post-box #region-main-wrap #region-main-pad #region-main .region-content .no-overflow{overflow:auto!important;}
+
+.pagelayout-report #page-content .region-content{overflow:auto!important;}
+
+.pagelayout-report .no-overflow {
+     overflow-y: auto!important; margin-top: 10px; margin-bottom: 10px;
 }
 
 a:hover {
@@ -970,8 +981,13 @@ table{ border-radius:5px;}
 
 #dates.generalbox{ height:auto!important; min-height:30px!important;}
 
+th.header a {color: [[setting:color5]]!important;} 
+th.header {background-color: [[setting:color6]]!important; color:[[setting:color4]]!important;}
 
 
+input[type="text"], input[type="password"], textarea {
+    width: 160px !important;
+}
 
 /* Must be at the end in order to override any previous style */
 [[setting:customcss]]
