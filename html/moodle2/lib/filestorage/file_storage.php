@@ -1894,7 +1894,14 @@ class file_storage {
         // find out all stale draft areas (older than 4 days) and purge them
         // those are identified by time stamp of the /. root dir
         mtrace('Deleting old draft files... ', '');
+        //XTEC ************ MODIFICAT - To reduce from 4 days to 1 the waiting time to purge files
+        //2012.11.16 @sarjona
+        $old = time() - 60*60*24;
+        //************ ORIGINAL
+        /*
         $old = time() - 60*60*24*4;
+         */
+        //************ FI
         $sql = "SELECT *
                   FROM {files}
                  WHERE component = 'user' AND filearea = 'draft' AND filepath = '/' AND filename = '.'
