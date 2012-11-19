@@ -21,7 +21,7 @@ MOODLE 2
 - Fixed bug related with guest viewing folders (http://tracker.moodle.org/browse/MDL-34338)
 - Added some restrictions to disable specific modules, like eoicampus
 - Fixed bug in JClic module related with users reporting (only first page was showed)
-- Reduced from 4 days to 1 the waiting time to purge draft files
+- Added $CFG->agora_draftfilepurgeage parameter to let configure the waiting time to purge files (default Moodle value was 4 days but now it's only 1 day if $CFG->agora_draftfilepurgeage is not specified).
 
 ZIKULA
 - Adapted the module IWmoodle to be consistent with the new validation possibilities
