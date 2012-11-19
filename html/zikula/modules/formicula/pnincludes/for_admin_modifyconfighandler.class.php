@@ -67,7 +67,16 @@ class Formicula_admin_modifyconfighandler
             pnModSetVar('formicula', 'show_comment',     $data['show_comment']);
             pnModSetVar('formicula', 'send_user',        $data['send_user']);
             pnModSetVar('formicula', 'delete_file',      $data['delete_file']);
+
+            //XTEC ************ MODIFICAT - Force usage of pnTemp as root temp directory for formicula
+            //2012.11.19 @aginard
+            pnModSetVar('formicula', 'upload_dir',       'pnTemp');
+            //************ ORIGINAL
+            /*
             pnModSetVar('formicula', 'upload_dir',       $data['upload_dir']);
+            */
+            //************ FI
+
             pnModSetVar('formicula', 'spamcheck',        $data['spamcheck']);
             pnModSetVar('formicula', 'excludespamcheck', $data['excludespamcheck']);
             pnModSetVar('formicula', 'default_form',     $data['default_form']);
