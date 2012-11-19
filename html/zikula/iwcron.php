@@ -20,15 +20,15 @@ $lastCronSuccessfull = pnModFunc('iw_main', 'user', 'userGetVar',
 										'module' => 'iw_main_cron',
 										'sv' => $sv));
 
-if($lastCronSuccessfull > time() - 7*60*60){
-	if(isset($_REQUEST['return']) && $_REQUEST['return'] == 1){
-		LogUtil::registerError (__('The cron has been executed too recenty', $dom));
-		return pnRedirect(pnModURL('iw_main', 'admin', 'main'));
-	}else{
-		print __('The cron has been executed too recenty', $dom);
-		exit;
-	}
-}
+//if($lastCronSuccessfull > time() - 7*60*60){
+//	if(isset($_REQUEST['return']) && $_REQUEST['return'] == 1){
+//		LogUtil::registerError (__('The cron has been executed too recenty', $dom));
+//		return pnRedirect(pnModURL('iw_main', 'admin', 'main'));
+//	}else{
+//		print __('The cron has been executed too recenty', $dom);
+//		exit;
+//	}
+//}
 
 //Check if module Mailer is active
 $modid = pnModGetIDFromName('Mailer');
@@ -113,6 +113,15 @@ if(isset($_REQUEST['return']) && $_REQUEST['return'] == 1){
 //  and the variables that have reached the lifetime value. Zero means that the old values never are deleted
 $sv = pnModFunc('iw_main', 'user', 'genSecurityValue');
 $result['value'] = pnModApiFunc('iw_main', 'user', 'userDeleteOldVars', array('sv' => $sv));
+
+// Delete all content of temporary directories
+pnModAPIFunc('pnRender', 'user', 'clear_compiled');
+pnModAPIFunc('pnRender', 'user', 'clear_cache');
+pnModAPIFunc('Theme', 'user', 'clear_compiled');
+pnModAPIFunc('Theme', 'user', 'clear_cache');
+
+LogUtil::_cleanLogFiles();
+
 
 pnShutDown();
 
