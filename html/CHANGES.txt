@@ -26,6 +26,8 @@ MOODLE 2
 
 ZIKULA
 - Adapted the module IWmoodle to be consistent with the new validation possibilities
+- Fixed incorrect update of upload_dir in formicula to fix a lot of errors in error_log temp files
+
 
 12.10.24
 ---------------------------------------------------------------------------------------
