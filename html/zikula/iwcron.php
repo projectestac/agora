@@ -20,15 +20,15 @@ $lastCronSuccessfull = pnModFunc('iw_main', 'user', 'userGetVar',
 										'module' => 'iw_main_cron',
 										'sv' => $sv));
 
-//if($lastCronSuccessfull > time() - 7*60*60){
-//	if(isset($_REQUEST['return']) && $_REQUEST['return'] == 1){
-//		LogUtil::registerError (__('The cron has been executed too recenty', $dom));
-//		return pnRedirect(pnModURL('iw_main', 'admin', 'main'));
-//	}else{
-//		print __('The cron has been executed too recenty', $dom);
-//		exit;
-//	}
-//}
+if($lastCronSuccessfull > time() - 7*60*60){
+	if(isset($_REQUEST['return']) && $_REQUEST['return'] == 1){
+		LogUtil::registerError (__('The cron has been executed too recenty', $dom));
+		return pnRedirect(pnModURL('iw_main', 'admin', 'main'));
+	}else{
+		print __('The cron has been executed too recenty', $dom);
+		exit;
+	}
+}
 
 //Check if module Mailer is active
 $modid = pnModGetIDFromName('Mailer');
