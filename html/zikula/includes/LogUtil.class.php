@@ -516,7 +516,16 @@ class LogUtil
         if (time() - $lastcheck > $oneday) {
             // check once a day
             Loader::loadClass('FileUtil');
+
+            //XTEC ************ MODIFICAT - Fix access to error_log dir in Àgora because if out of html dir
+            //2012.11.19 @aginard
+            $logfilepath = $PNConfig['Multisites']['filesRealPath'].'/'.$PNConfig['Log']['log_dir'];
+            //************ ORIGINAL
+            /*
             $logfilepath = $PNConfig['Log']['log_dir'];
+            */
+            //************ FI
+    
             $logfiles = FileUtil::getFiles($logfilepath, false, false);
             foreach ($logfiles as $logfile) {
                 if ($currenttime - filemtime($logfile) > $log_keep_seconds) {
