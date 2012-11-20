@@ -5,6 +5,10 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+12.11.21
+---------------------------------------------------------------------------------------
 PORTAL
 - Updated automatic e-mail sent when activating a new service
 
@@ -22,6 +26,7 @@ MOODLE 2
 - Added some restrictions to disable specific modules, like eoicampus
 - Fixed bug in JClic module related with users reporting (only first page was showed)
 - Reduced from 4 days to 1 the waiting time to purge draft files
+- Increased default repository timeout from 30 to 150 to let downloading bigger files
 
 ZIKULA
 - Adapted the module IWmoodle to be consistent with the new validation possibilities
