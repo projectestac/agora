@@ -465,7 +465,14 @@ class repository_type {
  */
 abstract class repository {
     /** Timeout in seconds for downloading the external file into moodle */
+    //XTEC ************ MODIFICAT - To increase default timeout (to let downloading bigger files)
+    //2012.11.20 @sarjona
+    const GETFILE_TIMEOUT = 150;
+    //************ ORIGINAL
+    /*
     const GETFILE_TIMEOUT = 30;
+     */
+    //************ FI
     /** Timeout in seconds for syncronising the external file size */
     const SYNCFILE_TIMEOUT = 1;
     /** Timeout in seconds for downloading an image file from external repository during syncronisation */

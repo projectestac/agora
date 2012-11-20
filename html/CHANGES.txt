@@ -5,6 +5,10 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+12.11.21
+---------------------------------------------------------------------------------------
 PORTAL
 - Updated automatic e-mail sent when activating a new service
 
@@ -21,6 +25,8 @@ MOODLE 2
 - Fixed bug related with guest viewing folders (http://tracker.moodle.org/browse/MDL-34338)
 - Added some restrictions to disable specific modules, like eoicampus
 - Fixed bug in JClic module related with users reporting (only first page was showed)
+- Reduced from 4 days to 1 the waiting time to purge draft files
+- Increased default repository timeout from 30 to 150 to let downloading bigger files
 - Added $CFG->agora_draftfilepurgeage parameter to let configure the waiting time to purge files (default Moodle value was 4 days but now it's only 1 day if $CFG->agora_draftfilepurgeage is not specified).
 - Installed first version of the eoicampus module 
 
