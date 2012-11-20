@@ -28,6 +28,7 @@ ZIKULA
 - Adapted the module IWmoodle to be consistent with the new validation possibilities
 - Fixed incorrect update of upload_dir in formicula to fix a lot of errors in error_log temp files
 - iwcron: added removal of temp files
+- In 'Go to Moodle' Block now it is possible to select if the school have or not have the version 2.x of Moodle active in order to choose the correct folder in server
 
 
 12.10.24
