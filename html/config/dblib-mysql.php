@@ -429,7 +429,7 @@ function endsWith($haystack, $needle) {
 function connect_moodle($school) {
     global $agora;
 
-    $con = oci_connect($agora['moodle']['username'] . $school['id'], $agora['moodle']['userpwd'], $school['database']);
+    $con = oci_pconnect($agora['moodle']['username'] . $school['id'], $agora['moodle']['userpwd'], $school['database']);
     return $con;
 }
 

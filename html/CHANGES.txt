@@ -9,6 +9,9 @@ Changes in progress
 
 12.11.21
 ---------------------------------------------------------------------------------------
+GENERAL
+- Changed OCI connections to persistent (oci_pconnect()) in dblib-mysql.php
+
 PORTAL
 - Updated automatic e-mail sent when activating a new service
 
