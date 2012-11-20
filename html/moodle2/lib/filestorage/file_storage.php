@@ -1896,7 +1896,8 @@ class file_storage {
         mtrace('Deleting old draft files... ', '');
         //XTEC ************ MODIFICAT - To reduce from 4 days to 1 the waiting time to purge files
         //2012.11.16 @sarjona
-        $old = time() - 60*60*24;
+        if (empty($CFG->agora_draftfilepurgeage)) $CFG->agora_draftfilepurgeage = 60*60*24;
+        $old = time() - $CFG->agora_draftfilepurgeage;
         //************ ORIGINAL
         /*
         $old = time() - 60*60*24*4;

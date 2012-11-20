@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://webservice.eoicampus.xtec.edu" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:impl="http://webservice.eoicampus.xtec.edu" xmlns:intf="http://webservice.eoicampus.xtec.edu" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://webservice.eoicampus.xtec.edu" elementFormDefault="qualified">
+   <element name="test">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testResponse">
+    <complexType>
+     <sequence>
+      <element name="testReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="displaySearch">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="displaySearchResponse">
+    <complexType>
+     <sequence>
+      <element name="displaySearchReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="PDF">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="PDFResponse">
+    <complexType>
+     <sequence>
+      <element name="PDFReturn" type="xsd:base64Binary"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getKeywords">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getKeywordsResponse">
+    <complexType>
+     <sequence>
+      <element name="getKeywordsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addActivity">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+      <element name="sURL" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addActivityResponse">
+    <complexType>
+     <sequence>
+      <element name="addActivityReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getReport">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getReportResponse">
+    <complexType>
+     <sequence>
+      <element name="getReportReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addPathway">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addPathwayResponse">
+    <complexType>
+     <sequence>
+      <element name="addPathwayReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addScore">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addScoreResponse">
+    <complexType>
+     <sequence>
+      <element name="addScoreReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delFile">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delFileResponse">
+    <complexType>
+     <sequence>
+      <element name="delFileReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delPathway">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delPathwayResponse">
+    <complexType>
+     <sequence>
+      <element name="delPathwayReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="displayPath">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="displayPathResponse">
+    <complexType>
+     <sequence>
+      <element name="displayPathReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMetadata">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMetadataResponse">
+    <complexType>
+     <sequence>
+      <element name="getMetadataReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPathways">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+      <element name="level" type="xsd:string"/>
+      <element name="lang" type="xsd:string"/>
+      <element name="profile" type="xsd:string"/>
+	  <element name="centre" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPathwaysResponse">
+    <complexType>
+     <sequence>
+      <element name="getPathwaysReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPathway">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPathwayResponse">
+    <complexType>
+     <sequence>
+      <element name="getPathwayReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUsersCourse">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUsersCourseResponse">
+    <complexType>
+     <sequence>
+      <element name="getUsersCourseReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginEOI">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginEOIResponse">
+    <complexType>
+     <sequence>
+      <element name="loginEOIReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchDir">
+    <complexType>
+     <sequence>
+      <element name="iStr" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchDirResponse">
+    <complexType>
+     <sequence>
+      <element name="searchDirReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+     <message name="testRequest">
+
+          <part name="parameters" element="impl:test"/>
+
+     </message>
+
+     <message name="testResponse">
+
+          <part name="parameters" element="impl:testResponse"/>
+
+     </message>
+
+     <message name="displaySearchRequest">
+
+          <part name="parameters" element="impl:displaySearch"/>
+
+     </message>
+
+     <message name="displaySearchResponse">
+
+          <part name="parameters" element="impl:displaySearchResponse"/>
+
+     </message>
+
+     <message name="PDFRequest">
+
+          <part name="parameters" element="impl:PDF"/>
+
+     </message>
+
+     <message name="PDFResponse">
+
+          <part name="parameters" element="impl:PDFResponse"/>
+
+     </message>
+
+     <message name="getKeywordsRequest">
+
+          <part name="parameters" element="impl:getKeywords"/>
+
+     </message>
+
+     <message name="getKeywordsResponse">
+
+          <part name="parameters" element="impl:getKeywordsResponse"/>
+
+     </message>
+
+     <message name="addActivityRequest">
+
+          <part name="parameters" element="impl:addActivity"/>
+
+     </message>
+
+     <message name="addActivityResponse">
+
+          <part name="parameters" element="impl:addActivityResponse"/>
+
+     </message>
+
+     <message name="getReportRequest">
+
+          <part name="parameters" element="impl:getReport"/>
+
+     </message>
+
+     <message name="getReportResponse">
+
+          <part name="parameters" element="impl:getReportResponse"/>
+
+     </message>
+
+     <message name="addPathwayRequest">
+
+          <part name="parameters" element="impl:addPathway"/>
+
+     </message>
+
+     <message name="addPathwayResponse">
+
+          <part name="parameters" element="impl:addPathwayResponse"/>
+
+     </message>
+
+     <message name="addScoreRequest">
+
+          <part name="parameters" element="impl:addScore"/>
+
+     </message>
+
+     <message name="addScoreResponse">
+
+          <part name="parameters" element="impl:addScoreResponse"/>
+
+     </message>
+
+     <message name="delFileRequest">
+
+          <part name="parameters" element="impl:delFile"/>
+
+     </message>
+
+     <message name="delFileResponse">
+
+          <part name="parameters" element="impl:delFileResponse"/>
+
+     </message>
+
+     <message name="delPathwayRequest">
+
+          <part name="parameters" element="impl:delPathway"/>
+
+     </message>
+
+     <message name="delPathwayResponse">
+
+          <part name="parameters" element="impl:delPathwayResponse"/>
+
+     </message>
+
+     <message name="displayPathRequest">
+
+          <part name="parameters" element="impl:displayPath"/>
+
+     </message>
+
+     <message name="displayPathResponse">
+
+          <part name="parameters" element="impl:displayPathResponse"/>
+
+     </message>
+
+     <message name="getMetadataRequest">
+
+          <part name="parameters" element="impl:getMetadata"/>
+
+     </message>
+
+     <message name="getMetadataResponse">
+
+          <part name="parameters" element="impl:getMetadataResponse"/>
+
+     </message>
+
+     <message name="getPathwaysRequest">
+
+          <part name="parameters" element="impl:getPathways"/>
+
+     </message>
+
+     <message name="getPathwaysResponse">
+
+          <part name="parameters" element="impl:getPathwaysResponse"/>
+
+     </message>
+
+     <message name="getPathwayRequest">
+
+          <part name="parameters" element="impl:getPathway"/>
+
+     </message>
+
+     <message name="getPathwayResponse">
+
+          <part name="parameters" element="impl:getPathwayResponse"/>
+
+     </message>
+
+     <message name="getUsersCourseRequest">
+
+          <part name="parameters" element="impl:getUsersCourse"/>
+
+     </message>
+
+     <message name="getUsersCourseResponse">
+
+          <part name="parameters" element="impl:getUsersCourseResponse"/>
+
+     </message>
+
+     <message name="loginEOIRequest">
+
+          <part name="parameters" element="impl:loginEOI"/>
+
+     </message>
+
+     <message name="loginEOIResponse">
+
+          <part name="parameters" element="impl:loginEOIResponse"/>
+
+     </message>
+
+     <message name="searchDirRequest">
+
+          <part name="parameters" element="impl:searchDir"/>
+
+     </message>
+
+     <message name="searchDirResponse">
+
+          <part name="parameters" element="impl:searchDirResponse"/>
+
+     </message>
+
+     <portType name="EOICampusWS">
+
+          <operation name="test">
+
+               <input name="testRequest" message="impl:testRequest"/>
+
+               <output name="testResponse" message="impl:testResponse"/>
+
+          </operation>
+
+          <operation name="displaySearch">
+
+               <input name="displaySearchRequest" message="impl:displaySearchRequest"/>
+
+               <output name="displaySearchResponse" message="impl:displaySearchResponse"/>
+
+          </operation>
+
+          <operation name="PDF">
+
+               <input name="PDFRequest" message="impl:PDFRequest"/>
+
+               <output name="PDFResponse" message="impl:PDFResponse"/>
+
+          </operation>
+
+          <operation name="getKeywords">
+
+               <input name="getKeywordsRequest" message="impl:getKeywordsRequest"/>
+
+               <output name="getKeywordsResponse" message="impl:getKeywordsResponse"/>
+
+          </operation>
+
+          <operation name="addActivity">
+
+               <input name="addActivityRequest" message="impl:addActivityRequest"/>
+
+               <output name="addActivityResponse" message="impl:addActivityResponse"/>
+
+          </operation>
+
+          <operation name="getReport">
+
+               <input name="getReportRequest" message="impl:getReportRequest"/>
+
+               <output name="getReportResponse" message="impl:getReportResponse"/>
+
+          </operation>
+
+          <operation name="addPathway">
+
+               <input name="addPathwayRequest" message="impl:addPathwayRequest"/>
+
+               <output name="addPathwayResponse" message="impl:addPathwayResponse"/>
+
+          </operation>
+
+          <operation name="addScore">
+
+               <input name="addScoreRequest" message="impl:addScoreRequest"/>
+
+               <output name="addScoreResponse" message="impl:addScoreResponse"/>
+
+          </operation>
+
+          <operation name="delFile">
+
+               <input name="delFileRequest" message="impl:delFileRequest"/>
+
+               <output name="delFileResponse" message="impl:delFileResponse"/>
+
+          </operation>
+
+          <operation name="delPathway">
+
+               <input name="delPathwayRequest" message="impl:delPathwayRequest"/>
+
+               <output name="delPathwayResponse" message="impl:delPathwayResponse"/>
+
+          </operation>
+
+          <operation name="displayPath">
+
+               <input name="displayPathRequest" message="impl:displayPathRequest"/>
+
+               <output name="displayPathResponse" message="impl:displayPathResponse"/>
+
+          </operation>
+
+          <operation name="getMetadata">
+
+               <input name="getMetadataRequest" message="impl:getMetadataRequest"/>
+
+               <output name="getMetadataResponse" message="impl:getMetadataResponse"/>
+
+          </operation>
+
+          <operation name="getPathways">
+
+               <input name="getPathwaysRequest" message="impl:getPathwaysRequest"/>
+
+               <output name="getPathwaysResponse" message="impl:getPathwaysResponse"/>
+
+          </operation>
+
+          <operation name="getPathway">
+
+               <input name="getPathwayRequest" message="impl:getPathwayRequest"/>
+
+               <output name="getPathwayResponse" message="impl:getPathwayResponse"/>
+
+          </operation>
+
+          <operation name="getUsersCourse">
+
+               <input name="getUsersCourseRequest" message="impl:getUsersCourseRequest"/>
+
+               <output name="getUsersCourseResponse" message="impl:getUsersCourseResponse"/>
+
+          </operation>
+
+          <operation name="loginEOI">
+
+               <input name="loginEOIRequest" message="impl:loginEOIRequest"/>
+
+               <output name="loginEOIResponse" message="impl:loginEOIResponse"/>
+
+          </operation>
+
+          <operation name="searchDir">
+
+               <input name="searchDirRequest" message="impl:searchDirRequest"/>
+
+               <output name="searchDirResponse" message="impl:searchDirResponse"/>
+
+          </operation>
+
+     </portType>
+
+     <binding name="EOICampusWSSoapBinding" type="impl:EOICampusWS">
+
+          <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+          <operation name="test">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="testRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="testResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="displaySearch">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="displaySearchRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="displaySearchResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="PDF">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="PDFRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="PDFResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="getKeywords">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="getKeywordsRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="getKeywordsResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="addActivity">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="addActivityRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="addActivityResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="getReport">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="getReportRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="getReportResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="addPathway">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="addPathwayRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="addPathwayResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="addScore">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="addScoreRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="addScoreResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="delFile">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="delFileRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="delFileResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="delPathway">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="delPathwayRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="delPathwayResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="displayPath">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="displayPathRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="displayPathResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="getMetadata">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="getMetadataRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="getMetadataResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="getPathways">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="getPathwaysRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="getPathwaysResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="getPathway">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="getPathwayRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="getPathwayResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="getUsersCourse">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="getUsersCourseRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="getUsersCourseResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="loginEOI">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="loginEOIRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="loginEOIResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="searchDir">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="searchDirRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="searchDirResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+     </binding>
+
+     <service name="EOICampusWSService">
+
+          <port name="EOICampusWS" binding="impl:EOICampusWSSoapBinding">
+
+               <wsdlsoap:address location="http://xtec-wc.educacio.intranet:8080/event/EOICampus/intern/EOICampus/a1/EOICampusWS"/>
+
+          </port>
+
+     </service>
+
+</definitions>

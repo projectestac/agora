@@ -27,9 +27,14 @@ MOODLE 2
 - Fixed bug in JClic module related with users reporting (only first page was showed)
 - Reduced from 4 days to 1 the waiting time to purge draft files
 - Increased default repository timeout from 30 to 150 to let downloading bigger files
+- Added $CFG->agora_draftfilepurgeage parameter to let configure the waiting time to purge files (default Moodle value was 4 days but now it's only 1 day if $CFG->agora_draftfilepurgeage is not specified).
+- Installed first version of the eoicampus module 
 
 ZIKULA
 - Adapted the module IWmoodle to be consistent with the new validation possibilities
+- Fixed incorrect update of upload_dir in formicula to fix a lot of errors in error_log temp files
+- iwcron: added removal of temp files
+
 
 12.10.24
 ---------------------------------------------------------------------------------------

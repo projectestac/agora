@@ -114,6 +114,15 @@ if(isset($_REQUEST['return']) && $_REQUEST['return'] == 1){
 $sv = pnModFunc('iw_main', 'user', 'genSecurityValue');
 $result['value'] = pnModApiFunc('iw_main', 'user', 'userDeleteOldVars', array('sv' => $sv));
 
+// Delete all content of temporary directories
+pnModAPIFunc('pnRender', 'user', 'clear_compiled');
+pnModAPIFunc('pnRender', 'user', 'clear_cache');
+pnModAPIFunc('Theme', 'user', 'clear_compiled');
+pnModAPIFunc('Theme', 'user', 'clear_cache');
+
+LogUtil::_cleanLogFiles();
+
+
 pnShutDown();
 
 
