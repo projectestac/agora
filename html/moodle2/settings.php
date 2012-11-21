@@ -85,6 +85,6 @@ $CFG->atriaFormUrl = 'https://www.atria.cat/_layouts/Renacimiento/LoginPageExt.a
 
 $CFG->noreplyaddress = 'noreply@agora.xtec.cat';
 
-if (isset($CFG->iseoi) && $CFG->iseoi && isset($agora['server']['enviroment'])){
+if (isset($agora['server']['enviroment'])){
     $CFG->eoicampus_wsdl_path = INSTALL_BASE. 'html/moodle2/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-'.$agora['server']['enviroment'].'.wsdl';
 }
