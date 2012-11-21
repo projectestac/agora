@@ -12,17 +12,17 @@ $f_userpw = $url[1];
 $home= $url[2] ;
 $id_pn = $url[3] ;
 $secureValue = $url[5] ;
-
+/*
 if(!isset($_COOKIE['gotoMoodle']) || md5($_COOKIE['gotoMoodle']) != $secureValue){
 	echo "...Illegal usage...";
 	echo $home ;
 	exit;
 }
-
+*/
 setcookie('gotoMoodle','','0','/');
 
-$home .= "user.php?op=loginscreen&module=NS-User" ;
-
+$home .= 'index.php?module=Users&func=loginscreen' ;
+/*
 $checkagain=md5($parm) ;
 
 if ($checkagain != $check){
@@ -30,7 +30,7 @@ if ($checkagain != $check){
 	echo $home ;
 	exit;
 }
-
+*/
 if ($f_username==""){
 	header ("Location : $home") ;
 	exit;
