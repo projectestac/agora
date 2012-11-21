@@ -10,7 +10,9 @@
 /nbproject/*
 /moodledata/moodle2/usu*/*
 /moodledata/usu*/*
+/moodledata/.htaccess
 /portaldata/pnTemp/*
 /sh/*
 /zkdata/usu*/*
 
+/.Trash-1000/
