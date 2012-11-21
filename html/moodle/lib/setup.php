@@ -163,6 +163,7 @@ global $HTTPSPAGEREQUIRED;
             if ($gestor) {
                 // Build log string
                 $log = '"'.date('Ymd-Hi').'","'
+                          .gethostname().'","'
                           .$CFG->config_php_settings['dbname'].'","'
                           .$CFG->config_php_settings['dbuser'].'","'
                           .$db->_errorMsg.'"'."\n";

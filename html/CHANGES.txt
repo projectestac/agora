@@ -5,6 +5,9 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE
+- Added server name to adodberror log to know which web server was implied
+
 
 
 12.11.21
