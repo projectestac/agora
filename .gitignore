@@ -11,8 +11,12 @@
 /moodledata/moodle2/usu*/*
 /moodledata/usu*/*
 /moodledata/.htaccess
-/portaldata/pnTemp/*
+/portaldata/pnTemp/doctrinemodels/*
+/portaldata/pnTemp/Theme_cache/*
+/portaldata/pnTemp/Theme_compiled/*
+/portaldata/pnTemp/Theme_Config/*
+/portaldata/pnTemp/view_cache/*
+/portaldata/pnTemp/view_compiled/*
 /sh/*
 /zkdata/usu*/*
-
 /.Trash-1000/
