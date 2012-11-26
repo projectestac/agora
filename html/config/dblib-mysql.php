@@ -74,7 +74,6 @@ function transformClientCode($clientCode) {
 function getAllSchoolsDBInfo($codeletter = false) {
     if (!$con = opendb())
         return false;
-    global $agora;
 
     $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, cs.dbHost, c.clientDNS, s.serviceName, c.clientOldDNS, c.typeId, cs.diskSpace, cs.diskConsume, cs.version
 			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
@@ -127,7 +126,6 @@ function getAllSchoolsDBInfo($codeletter = false) {
  */
 function getAllSchools($order = 'school_id', $desc = 'asc', $service='all', $state='all') {
 
-    global $agora;
     require_once('env-config.php');
 
     $values = array();
@@ -218,8 +216,6 @@ function getSchoolDBInfo($dns, $codeletter = false) {
     if (!$con = opendb()) {
         return false;
     }
-
-    global $agora;
 
     $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, cs.dbHost, c.typeId, s.serviceName, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
@@ -382,7 +378,6 @@ function xtec_debug($string) {
 function getDiskInfo($dns, $service) {
     if (!$con = opendb())
         return false;
-    global $agora;
 
     $sql = 'SELECT s.serviceName, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
@@ -489,8 +484,6 @@ function getServicesToTest($service) {
     if (!$con = opendb()) {
         return false;
     }
-
-    global $agora;
 
     if ($service == 'intranet') {
         // Get the list of intranets to test
