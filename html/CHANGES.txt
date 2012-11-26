@@ -5,6 +5,9 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- Added param to allow not updating dayly stats of Moodle 1.9 if they already exist
+
 MOODLE
 - Added server name to adodberror log to know which web server was implied
 

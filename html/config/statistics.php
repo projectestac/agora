@@ -32,6 +32,10 @@ if (isset($_REQUEST['onlyMoodle2'])) {
     $doMoodle = false;
 }
 
+// Force update of dayly statistics of Moodle 1.9 if they already exists. This option
+//  will be tested on production to know if performance increases when there's been trouble
+$forceUpdate = (isset($_REQUEST['forceUpdate'])) ? (bool)$_REQUEST['forceUpdate'] : true;
+
 // Get optional params or set default values
 $year = (isset($_REQUEST['year']) && $_REQUEST['year'] != '') ? sprintf("%04d", $_REQUEST['year']) : date('Y', strtotime("-1 day"));
 $month = (isset($_REQUEST['month']) && $_REQUEST['month'] != '') ? sprintf("%02d", $_REQUEST['month']) : date('m', strtotime("-1 day"));
@@ -50,7 +54,7 @@ $allSchools = getAllSchoolsDBInfo(true);
 foreach ($allSchools as $school) {
     echo '<br>' . $school['service'] . '<br>';
     if (($school['service'] == 'moodle') && $doMoodle) {
-        process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth);
+        process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth, $forceUpdate);
     } else if (($school['service'] == 'intranet') && $doIntranet) {
         process_intranet_stats($school, $year, $month, $day, $timestampofmonth);
     } else if (($school['service'] == 'moodle2') && $doMoodle2) {
@@ -302,7 +306,7 @@ function getSchoolIntranetStats_MonthUsers($school, $timestampofmonth) {
  *
  * @return bool false si hi ha un error recuperable i acaba l'script si es irrecuperable
  */
-function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth) {
+function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth, $forceUpdate) {
 
     if (!($con = connect_moodle($school))) {
         print 'No s\'ha pogut connectar a la base de dades del Moodle del centre ' . $school['dns'];
@@ -315,25 +319,31 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
     }
 
     // DAY STATS
-    $hours = Array();
-    $total = 0;
-    for ($hour = 0; $hour < 24; $hour++) {
-        $count = getSchoolMoodleStats_HourAccess($con, $year, $month, $day, $hour, MOODLE_PREFIX);
-        if (empty($count)) {
-            $count = 0;
-        }
-        $hours[$hour] = $count;
-        $total += $count;
-    }
-
+    $typeSQL = '';
     $date = $year . $month . $day;
-    $diskConsume = getDiskConsume($statsCon, $school['code'], 'moodle');
 
     // Consulta que comprova si el registre del mes del centre ja existeix o no
-    $sql = "SELECT date FROM " . STATS_PREFIX . "agoraportal_moodle_stats_day WHERE date=$date AND clientcode='" . $school['code'] . "'";
+    echo $sql = "SELECT date FROM " . STATS_PREFIX . "agoraportal_moodle_stats_day WHERE date=$date AND clientcode='" . $school['code'] . "'";
 
     if ($qry = mysql_query($sql, $statsCon)) {
-        if (mysql_num_rows($qry) == 0) { //INSERT
+        $typeSQL = (mysql_num_rows($qry) == 0) ? 'insert' : 'update';
+    }
+
+    if (($typeSQL == 'insert') || (($typeSQL == 'update') && $forceUpdate)) {
+        $hours = Array();
+        $total = 0;
+        for ($hour = 0; $hour < 24; $hour++) {
+            $count = getSchoolMoodleStats_HourAccess($con, $year, $month, $day, $hour, MOODLE_PREFIX);
+            if (empty($count)) {
+                $count = 0;
+            }
+            $hours[$hour] = $count;
+            $total += $count;
+        }
+
+        $diskConsume = getDiskConsume($statsCon, $school['code'], 'moodle');
+
+        if ($typeSQL == 'insert') {
             $sql = "INSERT INTO " . STATS_PREFIX . "agoraportal_moodle_stats_day
                 (clientcode, date, clientDNS, total, h0, h1, h2, h3, h4, h5 ,h6, h7, h8, h9, h10, h11, h12,
                 h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23, diskConsume)
@@ -342,7 +352,7 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
                 $hours[11], $hours[12], $hours[13], $hours[14], $hours[15], $hours[16],
                 $hours[17], $hours[18], $hours[19], $hours[20], $hours[21], $hours[22],
                 $hours[23], '$diskConsume')";
-        } else {    //UPDATE
+        } else {
             $sql = "UPDATE " . STATS_PREFIX . "agoraportal_moodle_stats_day SET
                 total = $total,
                 h0 = $hours[0],
@@ -377,10 +387,10 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
         if (!mysql_query($sql, $statsCon)) {
             print mysql_error() . '<br/>';
         }
+
+        echo "<p>$sql</p>";
     }
-
-    echo "<p>$sql</p>";
-
+    
     $users = getSchoolMoodleStats_Users($con);
     $lastaccess = getSchoolMoodleStats_LastAccess($con);
 
