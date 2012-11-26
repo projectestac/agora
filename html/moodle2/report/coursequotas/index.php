@@ -387,7 +387,13 @@ function printCoursesData($data) {
     // Sort the array by course size. BTW, array_multisort is weird!!
     $courseSize = array();
     foreach ($courses as $key => $value) {
-        $courseSize[$key] = $value['courseSize'];
+        $weight = 1;
+        switch ($value['courseSizeUnit']) {
+            case 'kB': $weight = 1024; break;
+            case 'MB': $weight = 1024 * 1024; break;
+            case 'GB': $weight = 1024 * 1024 * 1024; break;
+        }
+        $courseSize[$key] = $value['courseSize'] * $weight;
     }
     array_multisort($courseSize, SORT_DESC, $courses);
 

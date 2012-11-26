@@ -8,6 +8,9 @@ Changes in progress
 MOODLE
 - Added server name to adodberror log to know which web server was implied
 
+MOODLE 2
+- Fixed course order in courses tab of coursequotas. Units were not being considered when ordering.
+
 
 
 12.11.21
