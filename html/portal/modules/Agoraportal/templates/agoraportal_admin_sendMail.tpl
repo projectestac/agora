@@ -14,6 +14,17 @@
         {assign var='serviceName4URL' value='intranet'}
     {/if}
     
+    {if $serviceName eq 'moodle2'}
+    <p>
+        Tot i que hav&iacute;eu demanat l'alta al servei Moodle 1.9, s'ha duit a 
+        terme l'alta al servei Moodle 2. El motiu &eacute;s que s'han deixat de
+        fer altes al Moodle 1.9. Tots els centres que actualment utilitzen 
+        aquest servei hauran de fer la migraci&oacute; al Moodle 2 el proper 
+        estiu. D'aquesta manera us incorporeu directament a la nova versi&oacute; 
+        i no haureu de realitzar la migraci&oacute;.
+    </p>
+    {/if}
+
     {if $serviceName neq 'marsupial'}
     <p>
         Podeu accedir al vostre espai <strong>{$serviceName}</strong> des de
@@ -94,13 +105,6 @@
         de formaci&oacute; sobre l'administració de la intranet</a> a on hi 
         trobareu un conjunt important d'informaci&oacute; sobre l'&uacute;s 
         d'aquesta plataforma de comunicació i gestió de centre.
-    </p>
-    {/if}
-
-    {if $serviceName eq 'moodle2'}
-    <p>
-        Gr&agrave;cies per participar a l'experi&egrave;ncia pilot amb el 
-        Moodle 2 a &Agrave;gora.
     </p>
     {/if}
 

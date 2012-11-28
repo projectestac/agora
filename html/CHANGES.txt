@@ -14,6 +14,8 @@ MOODLE
 MOODLE 2
 - Fixed course order in courses tab of coursequotas. Units were not being considered when ordering.
 
+PORTAL
+- Updated message sent to users when a new service is activated
 
 
 12.11.21
