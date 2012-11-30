@@ -854,7 +854,24 @@ function setup_get_remote_url() {
     }
     $rurl['port'] = $_SERVER['SERVER_PORT'];
     $rurl['path'] = $_SERVER['SCRIPT_NAME']; // Script path without slash arguments
+
+    
+//XTEC ************ MODIFICAT - Fixed login using https and BigIP
+//2012.11.29 @aginard (patch provided by IOC)
+
+    if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+        $rurl['scheme'] = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+    } elseif (isset($_SERVER['HTTPS'])) {
+        $rurl['scheme'] = strtolower($_SERVER['HTTPS']) == 'off' ? 'http' : 'https';
+    } else {
+        $rurl['scheme'] = 'http';
+    }
+
+//************ ORIGINAL
+/*
     $rurl['scheme'] = (empty($_SERVER['HTTPS']) or $_SERVER['HTTPS'] === 'off' or $_SERVER['HTTPS'] === 'Off' or $_SERVER['HTTPS'] === 'OFF') ? 'http' : 'https';
+*/
+//************ FI
 
     if (stripos($_SERVER['SERVER_SOFTWARE'], 'apache') !== false) {
         //Apache server
