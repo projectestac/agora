@@ -578,9 +578,21 @@
                 $nowperpage = 1;
                 $mode = 'single';
 
+		//XTEC ************ MODIFICAT - To solve database ordering problems
+		//2012.11.30 - sarjona - http://tracker.moodle.org/browse/MDL-33603
+                $page = 0;
+                // TODO MDL-33797 - Reduce this or consider redesigning the paging system.
+                if ($allrecordids = get_fieldset_sql($sqlselect, $allparams)) {
+                    $page = (int)array_search($record->id, $allrecordids);
+                    unset($allrecordids);
+                }                
+		//************ ORIGINAL
+                /*
                 $page = (int)array_search($record->id, $recordids);
                 unset($recordids);
-
+                 */
+		//************ FI
+                
             } else if ($mode == 'single') {  // We rely on ambient $page settings
                 $nowperpage = 1;
 
