@@ -14,6 +14,7 @@ MOODLE
 MOODLE 2
 - Fixed course order in courses tab of coursequotas. Units were not being considered when ordering.
 - Added missign Catalan translation files to questionnaire module
+- Added support for https authentication using BigIP
 
 PORTAL
 - Updated message sent to users when a new service is activated
