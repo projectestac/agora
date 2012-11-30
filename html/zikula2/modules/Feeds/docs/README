@@ -1,0 +1,12 @@
+Feeds 2.6.0
+===========
+
+Feeds requires the System plugin SimplePie
+Zikula 1.3.0 ships with the SimplePie plugin located in the 
+docs/examples/plugins/ExampleSystemPlugin/SimplePie directory. It must be copied
+(or symlinked) from there and pasted into /plugins
+
+The plugin must then be installed. This is done via the Extensions module. Click
+on the System Plugins menu item and install the SimplePie plugin.
+
+Then you may install the Feeds modules as you normally would install any module.

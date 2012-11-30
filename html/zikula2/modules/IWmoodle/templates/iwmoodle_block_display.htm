@@ -1,0 +1,42 @@
+<script type="text/javascript" src="modules/iw_main/js/DropDown.js"></script>
+<link rel="stylesheet" href="modules/IWmoodle/css/layout.css" type="text/css">
+{if not $isuser}
+<div class = "nouser">
+    {gt text="You're not user of Moodle. Click to link"} <strong>{gt text="Go to Moodle"}</strong> {gt text="to activate your account"}
+</div>
+{if $courses|@count gt 0}
+<div class = "nouser">
+    {gt text="Courses to which you are enrolled.:"}
+</div>
+{/if}
+{/if}
+{section name=courses loop=$courses}
+<div>
+    <div style="float: left;"><a href="{modurl modname="IWmoodle" type="user" func="main" id=$courses[courses].id}" target="_blank">{$courses[courses].fullname}</a></div>
+    <div style="float: right;"><a href="#" onClick="return overlay(this, '{$courses[courses].id}')">{img modname='IWmoodle' src='info.gif' set='pnimages'}</a></div>
+    <div id="{$courses[courses].id}" class="infoBox" style="clear: both;display:none;">
+        <div class="infoSummary">
+            {$courses[courses].summary}
+        </div>
+        <div class="infoRoles">
+            {$courses[courses].roles}
+        </div>
+        <div class="infoBoxClose">
+            <a href="#" onClick="overlayclose('{$courses[courses].id}'); return false">{gt text="Close"} {img modname='IWmoodle' src='closeinfo.png' set='pnimages'}</a>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+{/section}
+{if not $courses|@count gt 0}
+{gt text="You're not enrolled to any courses."}
+{/if}
+<div style="clear: both;"></div>
+<div class="goMoodle">
+    <a href="{modurl modname="IWmoodle" type="user" func="main" id=0}" target="_blank">{gt text="Go to Moodle"}</a>
+</div>
+{if $administrator}
+<div>
+    <a href="{modurl modname="IWmoodle" type="admin" func="main" id=0}">{gt text="Administration"}</a>
+</div>
+{/if}

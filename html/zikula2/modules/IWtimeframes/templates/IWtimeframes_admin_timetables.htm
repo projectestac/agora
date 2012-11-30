@@ -1,0 +1,145 @@
+{include file="IWtimeframes_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='clock.png' set='icons/large'}</div>
+    <h2>{gt text="Edition of timeFrame"}: {$nom_marc}</h2>
+    {if isset($nova_hora) || isset($editmode)}
+    {if isset($nova_hora)&&$nova_hora}
+    <form  class="z-form" method='post' name='new_hour' id='nhr' action="{modurl modname='IWtimeframes' type='admin' func='create_hour'}" enctype='application/x-www-form-urlencoded'>
+        {else}
+        <form  class="z-form" method='post' name='new_hour' id='nhr' action="{modurl modname='IWtimeframes' type='admin' func='update_hour'}" enctype='application/x-www-form-urlencoded'>
+            <input type="hidden" name='hid'value="{$hid}" />
+            {/if}
+            <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+            <input type="hidden" name='mdid'value="{$mdid}" />
+            <h3 align='center'>
+                {$accio}
+            </h3>
+            <div class="z-formrow">
+                <label for="hora_i">{gt text="Start time (hh:mm)"}</label>
+                <div class="z-formnote">
+                    <select name="hora_i">
+                        {foreach item=hora from=$hores}
+                        {if $starth eq $hora.id}
+                        {assign var=selected value="selected"}
+                        {else}
+                        {assign var=selected value=""}
+                        {/if}
+                        <option  {$selected} value="{$hora.id}">{$hora.name}</option>
+                        {/foreach}
+                    </select>
+                    :
+                    <select name="minut_i">
+                        {foreach item=minut from=$minuts}
+                        {if $startm eq $minut.id}
+                        {assign var=selected value="selected"}
+                        {else}
+                        {assign var=selected value=""}
+                        {/if}
+                        <option {$selected} value="{$minut.id}">{$minut.name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+            <div class="z-formrow">
+                <label for="hora_f">{gt text="Finish time (hh:mm)"}</label>
+                <div class="z-formnote">
+                    <select name="hora_f">
+                        {foreach item=hora from=$hores}
+                        {if $endh eq $hora.id}
+                        {assign var=selected value="selected"}
+                        {else}
+                        {assign var=selected value=""}
+                        {/if}
+                        <option {$selected} value="{$hora.id}">{$hora.name}</option>
+                        {/foreach}
+                    </select>
+                    :
+                    <select name="minut_f">
+                        {foreach item=minut from=$minuts}
+                        {if $endm eq $minut.id}
+                        {assign var=selected value="selected"}
+                        {else}
+                        {assign var=selected value=""}
+                        {/if}
+                        <option {$selected} value="{$minut.id}">{$minut.name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+            <div class="z-formrow">
+                <label for="descriu">{gt text="Description"}</label>
+                <input name= "descriu"  size='50' value='{$descriu}' />
+            </div>
+            <div class="z-center">
+                <div class="z-buttons">
+                    <a href="javascript:document.forms['nhr'].submit();">
+                        {img modname='core' src='button_ok.png' set='icons/small'} {$acciosubmit}
+                    </a>
+                </div>
+            </div>
+        </form>
+        <div style="height: 20px;"></div>
+        {/if}
+        {if ((not (isset($nova_hora) || isset($editmode))) && (isset($hasbookings) && !$hasbookings))}
+        <a href="{modurl modname='IWtimeframes' type = 'admin' func='new_hour' mdid =$mdid m=n}">
+            {img modname='core' src='db_add.png' set='icons/extrasmall' __alt="Add new time" __title="Add new time"}  {gt text="Add new time"}
+        </a>
+        {/if}
+        {if isset($hi_ha_hores)&& $hi_ha_hores}        
+        <table width ="100%">
+            <tr>
+                <td>            
+                    <table class="z-datatable">
+                        <thead>
+                            <tr>
+                                <th style="text-align:center; width:15%">{gt text="Time"}</th>
+                                <th style="text-align:center; width:70%">{gt text="Description"}</th>
+                                <th style="text-align:center; width:15%">{gt text="Accions"}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {foreach item="hores" from=$horari}
+                            <tr class="{cycle values="z-odd,z-even"}">
+                                <td align="center">
+                                     {$hores.hora}
+                                 </td>
+                                 <td align="center" >
+                                     {if $hores.descriu}
+                                     {$hores.descriu}
+                                     {else}
+                                     ---
+                                     {/if}
+                                 </td>
+                                 <td align="center">
+                                     {if !isset($hasbookings) || !$hasbookings}
+                                     <a href="{modurl modname='IWtimeframes' type='admin' func='edit_hour' hid=$hores.hid mdid = $mdid}">
+                                         {img modname='core' src='edit.png' set='icons/extrasmall'   __alt="Edit" __title="Edit"}
+                                     </a>
+                                     <a href="{modurl modname='IWtimeframes' type='admin' func='delete_hour' hid=$hores.hid mdid = $mdid}">
+                                         {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Delete" __title="Delete"}
+                                     </a>
+                                     {else}
+                                     {gt text="Have bookings"}
+                                     {/if}
+                                 </td>
+                             </tr>
+                             {/foreach}
+
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            {if isset($hasbookings) AND $hasbookings}
+            <div class="z-warningmsg">
+                {gt text='There are at least a space in IWbookings module that uses this time frame. That space has bookings. No changes will be allowed before deleting those bookings.'}
+                <!--//Hi ha, com a mínim, un espai en el mòdul IWbookings que utilitza aquest marc de temps. En aquest espai ja s'han fet reserves. No es permetran canvis abans d'eliminar aquestes reserves.-->
+            </div>
+            {/if}
+            {else}
+            <div class="z-informationmsg">
+                {gt text="This timeFrame does not have any set hours"}
+            </div>
+            {/if}
+    </div>

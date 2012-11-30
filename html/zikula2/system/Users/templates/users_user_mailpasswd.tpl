@@ -1,0 +1,1 @@
+<h3>{$message|safetext}</h3>

@@ -1,0 +1,31 @@
+{include file="IWqv_user_menu.htm"}
+{ajaxheader modname=IWqv filename=IWqv.js}
+<br>
+<div id="content">
+    {section name=assign loop=$assignments}
+    <div id="assignment_{$assignments[assign].qvid}"  class="theme_box">
+        <div class="assignment">
+            <h2>
+                {if $assignments[assign].active eq 1}
+                {img modname='core' src='greenled.png' set='icons/extrasmall' __alt="Active" __title="Active"}
+                {else}
+                {img modname='core' src='redled.png' set='icons/extrasmall' __alt="Inactive" __title="Inactive"}
+                {/if}
+                <a href="javascript:void(0);" onclick="iwqvShowAssignment({$assignments[assign].qvid}, '{$viewas}')" >
+                    {$assignments[assign].title}
+                </a>
+            </h2>
+            <div id="iwqv_actionlinks">
+                {iwqvuserassignmentactionmenulinks url=$assignments[assign].url skin=$assignments[assign].skin lang=$assignments[assign].lang qvid=$assignments[assign].qvid viewas=$viewas}
+            </div>
+            <p class="iwqv_meta">
+                {gt text="Assigned for %s at %s" tag1=$assignments[assign].teachername tag2=$assignments[assign].briefcrdate}
+            </p>			
+            {$assignments[assign].description}
+        </div>
+    </div>
+    {/section}
+</div>
+<script type="text/javascript">
+    var answare = "{{gt text="Confirm the Quadern Virtual deletion"}}";
+</script>

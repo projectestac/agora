@@ -1,0 +1,39 @@
+.yui-skin-sam #z-maincontent .yui-editor-container {
+    margin: 0 0 0 29%;
+}
+
+.yui-skin-sam #z-maincontent .z-linear .yui-editor-container {
+    margin: 0;
+}
+
+.yui-skin-sam #z-maincontent .yui-toolbar-container h2 {
+    border: medium none;
+    letter-spacing: 0;
+    color: #000000;
+    font-size: 100%;
+    font-weight: bold;
+    margin: 0;
+    padding: 0.3em 1em;
+    text-align: left;
+}
+
+.yui-skin-sam #z-maincontent .yui-toolbar-container h2 a {
+    font-weight: bold;
+}
+
+.yui-skin-sam #z-maincontent .yui-toolbar-container h3 {
+    border: medium none;
+    color: #808080;
+    font-size: 75%;
+    margin: 1em 0 0;
+    padding: 0 0 0 0.25em;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.yui-skin-sam #z-maincontent .yui-editor-container ul,
+.yui-skin-sam #z-maincontent .yui-editor-container ul li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

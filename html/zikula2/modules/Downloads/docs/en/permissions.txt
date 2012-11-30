@@ -1,0 +1,35 @@
+Downloads Permissions
+=====================
+
+There remain three types of permissions available in Downloads.
+
+General:
+--------
+  - Users need 'READ' access in order to view the user interface to Downloads.
+  - Default settings in Zikula give users 'COMMENT' access which is higher, so
+    by default, all users can access all downloads.
+  - To deny groups access to the entire module do:
+    <groupname> | Downloads:: | .* | Overview Access (or no access)
+
+Item Specific:
+--------------
+  - By default all users have access to all downloads.
+  - To deny a group access to a specific item do:
+    <groupname> | Downloads::Item | ID#:: | No Access (replace ID# with integer value of download lid)
+
+Category Specific:
+------------------
+  - By default all users have access to all categories.
+  - to deny a group access to a specific category do:
+    <groupname> | Downloads::Category | ID#:: | No Access (replace ID# with integet value of category cid)
+  - IMPORTANT NOTE: denying access to a parent category DOES NOT deny access to
+    it's children! The permissions system is not aware of the tree structure!
+
+
+Notes:
+------
+The following components were listed as available in Downloads 2.4 and are no longer available.
+  - Downloads::Add
+  - Downloads::Modify
+
+In version 3.0.0 of Downloads only Admins have permission to add downloads.

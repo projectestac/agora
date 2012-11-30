@@ -1,0 +1,89 @@
+{if $vertical !=1}
+{section name=reg loop=$numdies}
+<table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <table border="0" cellpadding="2" cellspacing="1">
+                <tr>
+                    <td  style="background:#CCCCFF; border:none; padding:2px" colspan="100%">
+                        <strong>{$record[reg][0].data}</strong>
+                    </td>
+                </tr>
+                <tr>
+                    {section name=hora loop=$record[reg]}
+                    {if $record[reg][hora].temp==1}
+                    <td align="center" style="background:#ff6666; color:#000000;border:none; padding:5px;">
+                        <font color="green"><b>{gt text="Preferential"}</b></font><br>
+                        {else}
+                    <td align="center" style="background:#FFCC66; color:#000000;border:none; padding:5px;">
+                        {/if}
+                        <strong>{$record[reg][hora].inici} - {$record[reg][hora].final}<br></strong>
+                        {$record[reg][hora].usuari}<br>
+                        {$record[reg][hora].grup}<br><i>{$record[reg][hora].motiu}</i><br>
+                        {if $record[reg][hora].candelete}
+                        <a href="{modurl modname='IWbookings' type='user' func='anulla' bid=$record[reg][hora].bid sid=$sid d= $d}">
+                            {img modname='core' src='button_cancel.png' set='icons/extrasmall'   __alt="Cancel" __title="Cancel"}
+                        </a>
+                        {/if}
+                    </td>
+                    {/section}
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<br>
+{/section}
+{else} {* horari en forma de taula *}
+<table border="0" cellpadding="0" cellspacing="1"style="background-color:#FFFFFF; border:0.5px solid #CCCCCC; margin:auto; clear:both;">		
+    <tr>
+        <td align="center" bgcolor="silver" style="width:5%;font-weight: bold;">
+            {gt text="Time: "}
+        </td>
+        {section name=dia loop=$dies_taula}
+        <td align="center" bgcolor="silver" style="font-weight: bold;">
+            {gt text="$dies_taula[dia]"}
+        </td>
+        {/section}
+    </tr>
+    {section name=franja loop=$franges}
+    <tr>
+        <th align="center" style="background:#CCCCFF;color:#000022;  border:none; padding:5px">
+            {$horari[franja].hi}<br>{$horari[franja].hf}
+        </th>
+        {section name=col loop=$dies_taula}
+        {if $record[franja][col].usuari != " - "}
+        {if $record[franja][col].temp eq 1}
+        <td align="center" style="background:#ff6666; width:14%;color:#000000;border:none; padding:5px;">
+            <font color="green"><b>{gt text="Preferential"}</b></font><br>
+            {else}
+        <td align="center" style="background:#FFCC66; width:14%;color:#000000;border:none; padding:5px;">
+            {/if}
+            {$record[franja][col].usuari}<br>
+            {$record[franja][col].grup}<br><i>
+                {$record[franja][col].motiu}</i><br>
+            {************* Show or not delete button ************}
+            {if $record[franja][col].candelete}
+            <a href="{modurl modname='IWbookings' type='user' func='anulla' bid=$record[franja][col].bid sid=$sid d=$dies_data[$smarty.section.col.index]}">
+                {img modname='core' src='button_cancel.png' set='icons/extrasmall'   __alt="Cancel" __title="Cancel"}
+            </a>
+            {/if}
+            {else}
+            <!-- ************ Hora disponible per a reservar ************* -->
+            <!-- ************ Enllaç per reservar directament / Link for booking directly ************* -->
+            {if $record[franja][col].final >= $now}
+        <td align="right" style="background:#88FF66; width:14%; color:#000000; border:none; padding:5px;">
+            {if $canbook}
+            <a href="{modurl modname='IWbookings' type='user' func='assigna' sid=$sid dow=$smarty.section.col.index fh=$smarty.section.franja.index d=$dies_data[$smarty.section.col.index] sot=1}">
+                {img modname='core' src='vcalendar.png' set='icons/extrasmall'   __alt="Assign" __title="Assign"}
+            </a>
+            {/if}
+            {else}
+        <td align="center" style="background:#FFEEFF;  width:14%; color:#000000; border:none;">
+            {/if}
+            {/if}
+            {/section}
+    </tr>
+    {/section}
+</table>
+{/if}

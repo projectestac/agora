@@ -1,0 +1,15 @@
+{if $seeunames}
+<div>
+    {gt text="Users on line:"}
+</div>
+<div style="margin-top: 15px;">
+    {foreach item=user from=$users}
+    <div>
+        {$user}
+    </div>
+    {/foreach}
+</div>
+{/if}
+<div style="margin-top: 15px;">
+    {gt text="There are %s unregistered and 1 registerd user online." plural="There are %s unregistered and %s registered users online." tag1=$online tag2=$validated count=$validated}
+</div>

@@ -1,0 +1,318 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-21 21:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/FAQ/Api/User.php:75 lib/FAQ/Api/Search.php:66 lib/FAQ/Api/Search.php:97
+msgid "Error! Could not load items."
+msgstr ""
+
+#: lib/FAQ/Api/User.php:292 lib/FAQ/Api/Admin.php:212
+#: templates/admin/view.tpl:5
+msgid "View FAQ list"
+msgstr ""
+
+#: lib/FAQ/Api/User.php:297 templates/user/ask.tpl:2 templates/user/ask.tpl:8
+msgid "Submit a question"
+msgstr ""
+
+#: lib/FAQ/Api/Admin.php:59
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: lib/FAQ/Api/Admin.php:83 lib/FAQ/Api/Admin.php:138
+#: lib/FAQ/Controller/Admin.php:96 lib/FAQ/Controller/Admin.php:156
+msgid "No such item found."
+msgstr ""
+
+#: lib/FAQ/Api/Admin.php:92
+msgid "Error! Deletion attempt failed."
+msgstr ""
+
+#: lib/FAQ/Api/Admin.php:147 lib/FAQ/Installer.php:59
+#: lib/FAQ/Installer.php:194
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: lib/FAQ/Api/Admin.php:217
+msgid "Create a FAQ"
+msgstr ""
+
+#: lib/FAQ/Api/Admin.php:222
+msgid "Purge PermaLinks"
+msgstr ""
+
+#: lib/FAQ/Api/Admin.php:226 templates/admin/modifyconfig.tpl:4
+msgid "Settings"
+msgstr ""
+
+#: lib/FAQ/Installer.php:38
+msgid ""
+"Warning! Could not create the default FAQ category tree. If you want to use "
+"categorisation with FAQ, register at least one property for the module in "
+"the Category Registry."
+msgstr ""
+
+#: lib/FAQ/Installer.php:224 lib/FAQ/Version.php:19 templates/user/menu.tpl:4
+msgid "FAQ"
+msgstr ""
+
+#: lib/FAQ/Installer.php:225 lib/FAQ/Version.php:20
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: lib/FAQ/Controller/User.php:87
+msgid "Invalid category passed."
+msgstr ""
+
+#: lib/FAQ/Controller/User.php:183
+msgid "Failed to get any items"
+msgstr ""
+
+#: lib/FAQ/Controller/User.php:236
+msgid "Thank you for your question"
+msgstr ""
+
+#: lib/FAQ/Controller/User.php:239
+msgid "Error! Hook data did not validate. FAQ not created."
+msgstr ""
+
+#: lib/FAQ/Controller/Admin.php:69
+msgid "Done! Item created."
+msgstr ""
+
+#: lib/FAQ/Controller/Admin.php:128
+msgid "Done! Item updated."
+msgstr ""
+
+#: lib/FAQ/Controller/Admin.php:178
+msgid "Done! Item deleted."
+msgstr ""
+
+#: lib/FAQ/Controller/Admin.php:206
+msgid "Purging of the pemalinks was successful"
+msgstr ""
+
+#: lib/FAQ/Controller/Admin.php:208
+msgid "Purging of the pemalinks has failed"
+msgstr ""
+
+#: lib/FAQ/Controller/Admin.php:252
+msgid "Edit"
+msgstr ""
+
+#: lib/FAQ/Controller/Admin.php:256
+msgid "Delete"
+msgstr ""
+
+#: lib/FAQ/Controller/Admin.php:328
+msgid "Done! Module configuration updated."
+msgstr ""
+
+#: lib/FAQ/Version.php:22
+msgid "faq"
+msgstr ""
+
+#: lib/FAQ/Version.php:30
+msgid "FAQ Hooks"
+msgstr ""
+
+#: lib/FAQ/Version.php:38
+msgid "FAQ filter Hooks"
+msgstr ""
+
+#: templates/admin/modify.tpl:4 templates/admin/modify.tpl:13
+msgid "Update FAQ"
+msgstr ""
+
+#: templates/admin/modify.tpl:15 templates/admin/newfaq.tpl:13
+#: templates/admin/view.tpl:48 templates/user/display.tpl:3
+msgid "Question"
+msgstr ""
+
+#: templates/admin/modify.tpl:19 templates/admin/newfaq.tpl:17
+msgid "PermaLink URL title"
+msgstr ""
+
+#: templates/admin/modify.tpl:21 templates/admin/newfaq.tpl:19
+msgid "(Blank = auto-generate)"
+msgstr ""
+
+#: templates/admin/modify.tpl:24 templates/admin/newfaq.tpl:22
+#: templates/user/display.tpl:6
+msgid "Answer"
+msgstr ""
+
+#: templates/admin/modify.tpl:29 templates/admin/newfaq.tpl:27
+#: templates/admin/view.tpl:12 templates/admin/view.tpl:51
+msgid "Category"
+msgstr ""
+
+#: templates/admin/modify.tpl:30 templates/admin/newfaq.tpl:28
+#: templates/admin/view.tpl:13
+msgid "Choose a category"
+msgstr ""
+
+#: templates/admin/modify.tpl:46
+msgid "Meta data"
+msgstr ""
+
+#: templates/admin/modify.tpl:48 templates/user/display.tpl:11
+#, php-format
+msgid "Submitted by %s"
+msgstr ""
+
+#: templates/admin/modify.tpl:49 templates/user/display.tpl:14
+#, php-format
+msgid "Answered by %s"
+msgstr ""
+
+#: templates/admin/modify.tpl:50
+#, php-format
+msgid "Created by %1$s on %2$s"
+msgstr ""
+
+#: templates/admin/modify.tpl:51
+#, php-format
+msgid "Updated by %1$s on %2$s"
+msgstr ""
+
+#: templates/admin/modify.tpl:55 templates/admin/modifyconfig.tpl:29
+msgid "Update"
+msgstr ""
+
+#: templates/admin/modify.tpl:56 templates/admin/newfaq.tpl:39
+#: templates/admin/delete.tpl:17 templates/admin/modifyconfig.tpl:30
+#: templates/user/ask.tpl:23
+msgid "Cancel"
+msgstr ""
+
+#: templates/admin/newfaq.tpl:4 templates/admin/newfaq.tpl:11
+msgid "Create FAQ"
+msgstr ""
+
+#: templates/admin/newfaq.tpl:38
+msgid "Create"
+msgstr ""
+
+#: templates/admin/view.tpl:36
+msgid "Filter"
+msgstr ""
+
+#: templates/admin/view.tpl:37
+msgid "Reset"
+msgstr ""
+
+#: templates/admin/view.tpl:47
+msgid "Internal ID"
+msgstr ""
+
+#: templates/admin/view.tpl:49
+msgid "Answered"
+msgstr ""
+
+#: templates/admin/view.tpl:53
+msgid "Options"
+msgstr ""
+
+#: templates/admin/view.tpl:63
+msgid "Yes"
+msgstr ""
+
+#: templates/admin/view.tpl:65
+msgid "No"
+msgstr ""
+
+#: templates/admin/view.tpl:80
+msgid "No items found."
+msgstr ""
+
+#: templates/admin/delete.tpl:4
+msgid "Delete FAQ"
+msgstr ""
+
+#: templates/admin/delete.tpl:13
+msgid "Confirmation prompt"
+msgstr ""
+
+#: templates/admin/delete.tpl:15
+msgid "Do you really want to delete this FAQ?"
+msgstr ""
+
+#: templates/admin/delete.tpl:16
+msgid "Confirm deletion?"
+msgstr ""
+
+#: templates/admin/modifyconfig.tpl:11
+msgid "General settings"
+msgstr ""
+
+#: templates/admin/modifyconfig.tpl:13
+msgid "Enable categorization"
+msgstr ""
+
+#: templates/admin/modifyconfig.tpl:17
+msgid "Items per page"
+msgstr ""
+
+#: templates/admin/modifyconfig.tpl:22
+msgid "PermaLinks"
+msgstr ""
+
+#: templates/admin/modifyconfig.tpl:24
+msgid "Add category title to PermaLink"
+msgstr ""
+
+#: templates/user/view.tpl:4
+msgid "Categories"
+msgstr ""
+
+#: templates/user/view.tpl:34
+msgid "Recent FAQs"
+msgstr ""
+
+#: templates/user/view.tpl:40
+msgid "Questions"
+msgstr ""
+
+#: templates/user/view.tpl:47
+msgid "Answers"
+msgstr ""
+
+#: templates/user/ask.tpl:3
+msgid ""
+"Before submitting a question please check existing FAQ's as your question "
+"may have already been answered. If not then please submit your question via "
+"the form and below. Please use clear and precise language when submitting a "
+"question. After submission your question will be reviewed by the site editor"
+"(s)."
+msgstr ""
+
+#: templates/user/ask.tpl:11
+msgid "Your name"
+msgstr ""
+
+#: templates/user/ask.tpl:16
+msgid "Content"
+msgstr ""
+
+#: templates/user/ask.tpl:22
+msgid "Submit"
+msgstr ""
+
+#: templates/search/options.tpl:3
+msgid "FAQs"
+msgstr ""

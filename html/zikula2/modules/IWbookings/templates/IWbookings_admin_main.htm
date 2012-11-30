@@ -1,0 +1,49 @@
+{include file="IWbookings_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
+    <h2>{gt text="Rooms and equipment booking"}</h2>
+    {if $hi_ha_espais}
+    <table class="z-datatable">
+        <thead>
+            <tr>
+                <th align="center" bgcolor="silver">{gt text="Room or equipment name"}</th>
+                <th align="center" bgcolor="silver">{gt text="Description"}</th>
+                <th align="center" bgcolor="silver">{gt text="Timetable"}</th>
+                <th align="center" bgcolor="silver">{gt text="Orientation"}</th>
+                <th align="center" bgcolor="silver">{gt text="Status (active/inactive)"}</th>
+                <th align="center" bgcolor="silver">{gt text="Actions"}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {section name=espais loop=$espais}
+            <tr>
+                <td align="center" bgcolor="{$espais[espais].color}"><b>{$espais[espais].nom_espai}</b></td>
+                <td align="center" bgcolor="{$espais[espais].color}">{$espais[espais].descriu}</td>
+                <td align="center" bgcolor="{$espais[espais].color}">{$espais[espais].mdid}</td>
+                <td align="center" bgcolor="{$espais[espais].color}">{$espais[espais].vertical}</td>
+                <td align="center" bgcolor="{$espais[espais].color}">
+                    {if $espais[espais].actiu eq 1} <font color="green"><b>{gt text="Active"}</b></font>
+                    {else}<font color="red"><b>{gt text="Inactive"}</b></font>
+                    {/if}
+                </td>
+                <td align="center">
+                    <!-- <td bgcolor="{$espais[espais].color}"> -->
+                    <a href="{modurl modname='IWbookings' type='user' func='assigna' sid=$espais[espais].sid}">
+                        {img modname='core' src='editpaste.png' set='icons/extrasmall' __alt="Assign" __title="Assign"}
+                    </a>
+                    <a href="{modurl modname='IWbookings' type='admin' func='newItem' sid=$espais[espais].sid  m='e'}">
+                        {img modname='core' src='edit.png' set='icons/extrasmall' __alt="Edit" __title="Edit"}
+                    </a>
+                    <a href="{modurl modname='IWbookings' type='admin' func='delete' sid=$espais[espais].sid}">
+                        {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Delete" __title="Delete"}
+                    </a>
+                </td>
+            </tr>
+            {/section}
+        </tbody>
+    </table>
+    {else}
+    {gt text="There are no rooms or equipment to book"}
+    {/if}
+    <br>
+</div>

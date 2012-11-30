@@ -1,0 +1,65 @@
+{insert name="getstatusmsg"}
+<h1>{gt text="Agenda administration"}</h1>
+{* Show the options *}
+{userloggedin assign=userid}
+{if $userid neq ''}
+<div class="z-menu">
+    <span class="z-menuitem-title">
+        [
+        {section name=option_menu loop=$user_menu}
+        <a href="{$user_menu[option_menu].url}">{$user_menu[option_menu].text}</a>
+        {if not $smarty.section.option_menu.last} | {/if}
+        {/section}
+        ]
+    </span>
+</div>
+{/if}
+{if $reduced neq 1}
+{* If necessary, show a warning inviting to delete notes because of a quota exceed *}
+{if isset($purga) && $purga}
+<div class="opentable1" style="padding: 10px; margin-top:2em; background-color: #FFE1DA;">
+    <form action="{modurl modname='IWagendas' type='user' func='esborraantigues'}" method="post">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="daid" value="{$daid|safetext}" />
+        <input type="hidden" name="mes" value="{$mes|safetext}" />
+        <input type="hidden" name="any" value="{$any|safetext}" />
+        <input type="hidden" name="dia" value="{$dia|safetext}" />
+        <h3>{gt text="Too many events in this agenda"}</h3>
+        <div>
+            {gt text="Delete events previous to date: "}
+            &nbsp;
+            <input type="text" name="esborraanterior" id="esborraanterior" value="{$delete_previous|safetext}" size="10" maxlength="10" />
+            &nbsp;&nbsp;&nbsp;
+            {button src='button_ok.png' set='icons/small' __alt="Delete" __title="Delete"}
+        </div>
+    </form>
+</div>
+{/if}
+{* If available, show a message with the new subscriptions *}
+{if isset($subscriptions) && $subscriptions|@count > 0}
+<div style="margin:2em;">
+    <div style="border:1px solid #0f0; background-color:#ffc; padding:5px;">
+        <p>{gt text="Automatically subscribed to agendas:"}</p>
+        {section name=subscription loop=$subscriptions}
+        <p style="font-weight:bold;">{$subscriptions[subscription].nom_agenda}</p>
+        {/section}
+        <p>{gt text="Subscription can be cancelled"}</p>
+    </div>
+</div>
+{/if}
+<div class="opentable1" style="margin:0.5em 0em 1em 0em;">
+    {if $daid neq 0}<input type="hidden" name="daid" value="{$daid}" />{/if}
+    <div style="clear: both;">
+        <div style="margin-left:1em; margin-top:0.5em;"></div>
+        <!---[* Show the usage *]--->
+        {if isset($percentage)}
+        <div style="margin-left:1em;">
+            <div style="margin:0px;">{gt text="Total number of events: "} {$number_of_notes}</div>
+            <div style="float:left; margin:0px;">{gt text="Usage percentage:"}&nbsp;</div>
+            <div style="float:left; margin:0px; width:{$width_usage}px; background:url(modules/IWagendas/images/usage.gif);">&nbsp;</div>
+            <div style="float:left; margin:0px;">&nbsp;{$percentage} %</div>
+        </div>
+        {/if}
+    </div>
+    {/if}
+</div>

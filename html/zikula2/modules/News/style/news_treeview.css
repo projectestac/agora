@@ -1,0 +1,34 @@
+/* CSS for Simple Tree Menu - source Dynamic Drive */
+.news_treeview ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* style for LI elements in general (excludes an LI that contains sub lists) */
+#news-archive {
+    margin:0;
+}
+
+.news_treeview li {
+    background: url(../images/arrow.gif) no-repeat left center;
+    list-style-type: none;
+    padding-left: 22px;
+    margin-bottom: 1px;
+}
+
+/* style for LI that contains sub lists (other ULs). */
+.news_treeview li.submenu {
+    background: url(../images/expand.gif) no-repeat left 1px;
+    cursor: hand !important;
+    cursor: pointer !important;
+}
+
+/* style for ULs that are children of LIs (submenu) */
+.news_treeview li.submenu ul {
+    display: none; /* Hide them by default. Don't delete. */
+}
+
+/* style for LIs of ULs that are children of LIs (submenu) */
+.news_treeview .submenu ul li {
+    cursor: default;
+}

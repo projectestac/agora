@@ -1,0 +1,844 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-01 10:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:59 pnuserapi.php:91 pnuserapi.php:143 pnuserapi.php:152
+#: pnuserapi.php:161 pnuserapi.php:168 pnuserapi.php:216 pnuserapi.php:254
+#: pnuserapi.php:294 pnuserapi.php:342 pnuserapi.php:885 pnuserapi.php:1251
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pnuserapi.php:85 pnuserapi.php:198 pnuserapi.php:240 pnuserapi.php:280
+#: pnuserapi.php:322 pnuserapi.php:397 pnuserapi.php:460 pnuserapi.php:504
+#: pnuserapi.php:608 pnuserapi.php:642 pnuserapi.php:692 pnuserapi.php:758
+#: pnuserapi.php:835 pnuserapi.php:912 pnuserapi.php:1016 pnuserapi.php:1076
+#: pnuserapi.php:1196 pnuser.php:92 pnuser.php:982 pnadminapi.php:26
+#: pnadminapi.php:66 pnadminapi.php:103 pnadmin.php:252 pnadmin.php:326
+#: pnadmin.php:396 pnadmin.php:462
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: pnuserapi.php:204 pnuserapi.php:246 pnuserapi.php:286 pnuserapi.php:327
+#: pnuserapi.php:403 pnuserapi.php:466 pnuserapi.php:509 pnuserapi.php:658
+#: pnuserapi.php:663 pnuserapi.php:697 pnuserapi.php:702 pnuserapi.php:770
+#: pnuserapi.php:831 pnuserapi.php:928 pnuserapi.php:933 pnuserapi.php:1062
+#: pnuserapi.php:1072 pnuserapi.php:1207 pnuser.php:159 pnuser.php:287
+#: pnuser.php:340 pnuser.php:409 pnuser.php:538 pnuser.php:618 pnuser.php:710
+#: pnuser.php:901 pnuser.php:1030 pnuser.php:1101 pnuser.php:1162
+#: pnuser.php:1194 pnuser.php:1268 pnuser.php:1285 pnuser.php:1345
+#: pnuser.php:1365 pnuser.php:1429 pnuser.php:1498 pnuser.php:1544
+#: pnuser.php:1600 pnuser.php:1680 pnuser.php:1741 pnuser.php:1820
+#: pnuser.php:1840 pnuser.php:1846 pnajax.php:158 pnajax.php:304
+msgid "You can't access the forum"
+msgstr ""
+
+#: pnuserapi.php:332 pnuserapi.php:652 pnuserapi.php:922 pnuserapi.php:1056
+#: pnuserapi.php:1202 pnuser.php:99 pnuser.php:167 pnuser.php:295
+#: pnuser.php:334 pnuser.php:419 pnuser.php:546 pnuser.php:558 pnuser.php:626
+#: pnuser.php:716 pnuser.php:723 pnuser.php:764 pnuser.php:907 pnuser.php:914
+#: pnuser.php:1024 pnuser.php:1113 pnuser.php:1168 pnuser.php:1274
+#: pnuser.php:1351 pnuser.php:1436 pnuser.php:1550 pnuser.php:1606
+#: pnuser.php:1618 pnuser.php:1686 pnuser.php:1747 pnuser.php:1783
+#: pnuser.php:1826 pnajax.php:152 pnajax.php:298
+msgid "The forum upon which the ation had to be carried out hasn't been found"
+msgstr ""
+
+#: pnuserapi.php:424 pnuserapi.php:985 pnuserapi.php:1123 pnuserapi.php:1128
+#: pnuserapi.php:1167
+msgid "An error has occurred while reading records from the data base"
+msgstr ""
+
+#: pnuserapi.php:476 pnuserapi.php:850 pnadminapi.php:38
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnuserapi.php:621
+msgid "The modification of the users who have read the message has failed"
+msgstr ""
+
+#: pnuserapi.php:647 pnuserapi.php:765 pnuserapi.php:917 pnuserapi.php:1067
+#: pnuser.php:1036 pnuser.php:1107 pnuser.php:1174 pnuser.php:1187
+#: pnuser.php:1280 pnuser.php:1361 pnuser.php:1442 pnuser.php:1450
+#: pnuser.php:1692 pnuser.php:1753 pnuser.php:1834
+#: pntemplates/plugins/function.iwforumsusermenulinks.php:26 pnajax.php:164
+#: pnajax.php:310
+msgid "No messages have been found"
+msgstr ""
+
+#: pnuserapi.php:667 pnadminapi.php:125 pnadminapi.php:132 pnadminapi.php:137
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: pnuserapi.php:716 pnuserapi.php:733
+msgid "The transfer of the message has failed"
+msgstr ""
+
+#: pnuserapi.php:789 pnuserapi.php:795
+msgid "An error has occurred while deleting the message"
+msgstr ""
+
+#: pnuserapi.php:858 pnuserapi.php:893 pninit.php:120 pnadminapi.php:80
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: pnuserapi.php:950 pnuserapi.php:1091
+msgid "An error has occurred while editing the message"
+msgstr ""
+
+#: pnuserapi.php:1028
+msgid "An error has occurred while checking/unchecking a message"
+msgstr ""
+
+#: pninit.php:26 pnadmin.php:20
+msgid ""
+"Module IWmain is required. You have to install the IWmain module "
+"previously to install it."
+msgstr ""
+
+#: pnuser.php:12 pnuser.php:56 pnadminapi.php:21 pnadminapi.php:61
+#: pnadminapi.php:98 pnajax.php:12 pnajax.php:50 pnajax.php:98 pnajax.php:132
+#: pnajax.php:197 pnajax.php:238 pnajax.php:279 pnadmin.php:12 pnadmin.php:97
+#: pnadmin.php:120 pnadmin.php:160 pnadmin.php:223 pnadmin.php:289
+#: pnadmin.php:357 pnadmin.php:430 pnadmin.php:492 pnadmin.php:533
+#: pnadmin.php:574 pnadmin.php:602
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnuser.php:193 pnuser.php:442 pnuser.php:773 pnuser.php:811
+#: pntemplates/plugins/function.iwforumsusermenulinks.php:155 pnajax.php:178
+msgid "Check the message"
+msgstr ""
+
+#: pnuser.php:193 pnuser.php:446 pnuser.php:773 pnuser.php:811
+#: pntemplates/plugins/function.iwforumsusermenulinks.php:159 pnajax.php:178
+msgid "Uncheck the message"
+msgstr ""
+
+#: pnuser.php:242 pnuser.php:482
+msgid "Choose the sender..."
+msgstr ""
+
+#: pnuser.php:350
+msgid "A new topic has been created."
+msgstr ""
+
+#: pnuser.php:352 pnuser.php:665 pnuser.php:668
+msgid "During the next "
+msgstr ""
+
+#: pnuser.php:352
+msgid " minutes you can delete the topic."
+msgstr ""
+
+#: pnuser.php:356
+msgid "An error has occurred while creating a new topic"
+msgstr ""
+
+#: pnuser.php:369 pnuser.php:640
+msgid ""
+"An error has occurred in the attachment of the file. The message has been "
+"sent without the attached file."
+msgstr ""
+
+#: pnuser.php:384 pnuser.php:672
+msgid "An error has occurred while creating a new message"
+msgstr ""
+
+#: pnuser.php:562
+msgid "wrote on"
+msgstr ""
+
+#: pnuser.php:663
+msgid "A new message has been created."
+msgstr ""
+
+#: pnuser.php:665
+msgid " munutes you can edit the message"
+msgstr ""
+
+#: pnuser.php:668
+msgid " minutes you can delete the message"
+msgstr ""
+
+#: pnuser.php:743 pntemplates/IWforums_user_move_msg.htm:26
+#: pntemplates/IWforums_user_allmsg.htm:19
+#: pntemplates/IWforums_user_msg.htm:24
+#: pntemplates/IWforums_user_del_msg.htm:14
+#: pntemplates/IWforums_user_printallmsg.htm:14
+msgid "From: "
+msgstr ""
+
+#: pnuser.php:744 pntemplates/IWforums_user_move_msg.htm:32
+#: pntemplates/IWforums_user_forum.htm:128
+#: pntemplates/IWforums_user_allmsg.htm:25
+#: pntemplates/IWforums_user_msg.htm:30 pntemplates/IWforums_user_msg.htm:81
+#: pntemplates/IWforums_user_del_msg.htm:20
+#: pntemplates/IWforums_user_printallmsg.htm:20
+msgid "Date"
+msgstr ""
+
+#: pnuser.php:745 pntemplates/IWforums_user_move_msg.htm:37
+#: pntemplates/IWforums_user_forum.htm:129
+#: pntemplates/IWforums_user_allmsg.htm:30
+#: pntemplates/IWforums_user_msg.htm:35 pntemplates/IWforums_user_msg.htm:82
+#: pntemplates/IWforums_user_del_msg.htm:25
+#: pntemplates/IWforums_user_printallmsg.htm:25
+msgid "Time"
+msgstr ""
+
+#: pnuser.php:747 pntemplates/IWforums_user_new_tema.htm:51
+#: pntemplates/IWforums_user_new_msg.htm:40
+#: pntemplates/IWforums_user_edit_msg.htm:40
+#: pntemplates/IWforums_user_msg.htm:42
+#: pntemplates/IWforums_user_openMsg.htm:15
+#: pntemplates/IWforums_user_printallmsg.htm:32
+msgid "Attached file"
+msgstr ""
+
+#: pnuser.php:987
+msgid "You are not allowed to do this action"
+msgstr ""
+
+#: pnuser.php:1199
+msgid ""
+"The message can not be deleted because have answers. You can move the "
+"answers to an other theme or forum."
+msgstr ""
+
+#: pnuser.php:1229
+msgid "The message has been deleted."
+msgstr ""
+
+#: pnuser.php:1377
+msgid "Probably the message has been sended without the attached file."
+msgstr ""
+
+#: pnuser.php:1392
+msgid "The message has been modified"
+msgstr ""
+
+#: pnuser.php:1394
+msgid "Error trying to edit the message"
+msgstr ""
+
+#: pnuser.php:1509
+msgid "The message has been transferred"
+msgstr ""
+
+#: pnuser.php:1714
+msgid "The topic has been deleted."
+msgstr ""
+
+#: pntemplates/plugins/function.iwforumsusermenulinks.php:41
+#: pntemplates/IWforums_user_openMsg.htm:34
+msgid "Reply to the message"
+msgstr ""
+
+#: pntemplates/plugins/function.iwforumsusermenulinks.php:51
+msgid "Who has read the message?"
+msgstr ""
+
+#: pntemplates/plugins/function.iwforumsusermenulinks.php:58
+msgid "Create a new topic"
+msgstr ""
+
+#: pntemplates/plugins/function.iwforumsusermenulinks.php:66
+msgid "Send a new message"
+msgstr ""
+
+#: pntemplates/plugins/function.iwforumsusermenulinks.php:71
+msgid "View the forum list"
+msgstr ""
+
+#: pntemplates/plugins/function.iwforumsusermenulinks.php:78
+msgid "Return to the list of topics and messages"
+msgstr ""
+
+#: pntemplates/plugins/function.iwforumsusermenulinks.php:87
+msgid "Return to the message list"
+msgstr ""
+
+#: pntemplates/plugins/function.iwforumsusermenulinks.php:98
+msgid "Return to the message"
+msgstr ""
+
+#: pntemplates/plugins/function.iwforumsusermenulinks.php:105
+#: pntemplates/plugins/function.iwforumsusermenulinks.php:111
+msgid "Check all messages as read"
+msgstr ""
+
+#: pntemplates/plugins/function.iwforumsadminmenulinks.php:27
+#: pntemplates/IWforums_admin_new.htm:15
+#: pntemplates/IWforums_admin_configura.htm:5
+msgid "Create a new forum"
+msgstr ""
+
+#: pntemplates/plugins/function.iwforumsadminmenulinks.php:31
+msgid "View the created forums"
+msgstr ""
+
+#: pntemplates/plugins/function.iwforumsadminmenulinks.php:35
+msgid "Configure the module"
+msgstr ""
+
+#: pnajax.php:69 pnajax.php:212 pnajax.php:253 pnadmin.php:130 pnadmin.php:229
+#: pnadmin.php:295 pnadmin.php:363 pnadmin.php:436 pnadmin.php:498
+#: pnadmin.php:608
+msgid "Forum not found"
+msgstr ""
+
+#: pnadmin.php:57 pnadmin.php:307 pntemplates/IWforums_admin_addGroup.htm:13
+msgid "Unregistered"
+msgstr ""
+
+#: pnadmin.php:188
+msgid "The forum has been modified"
+msgstr ""
+
+#: pnadmin.php:200
+msgid "A new forum has been created"
+msgstr ""
+
+#: pnadmin.php:269
+msgid "Group added"
+msgstr ""
+
+#: pnadmin.php:336
+msgid "The access has been deleted"
+msgstr ""
+
+#: pnadmin.php:372 pntemplates/IWforums_admin_addGroup.htm:12
+msgid "Choose a gruop..."
+msgstr ""
+
+#: pnadmin.php:409
+msgid "Moderador added"
+msgstr ""
+
+#: pnadmin.php:517
+msgid "The forum has been deleted"
+msgstr ""
+
+#: pnadmin.php:585
+msgid "The configuration of the module has been modified"
+msgstr ""
+
+#: pnversion.php:9 pnversion.php:13
+msgid "IWforums"
+msgstr ""
+
+#: pnversion.php:11
+msgid "Creation, managment and use of forums"
+msgstr ""
+
+#: pnversion.php:12
+msgid "IWForums"
+msgstr ""
+
+#: pntemplates/IWforums_user_new_tema.htm:4
+msgid "You didn't write a title for the topic"
+msgstr ""
+
+#: pntemplates/IWforums_user_new_tema.htm:8
+#: pntemplates/IWforums_user_new_msg.htm:4
+#: pntemplates/IWforums_user_edit_msg.htm:10
+msgid "You didn't write a title for the message."
+msgstr ""
+
+#: pntemplates/IWforums_user_new_tema.htm:14
+#: pntemplates/IWforums_user_new_msg.htm:9
+#: pntemplates/IWforums_user_edit_msg.htm:15
+msgid ""
+"The extension of the attached file isn't correct. The valid extensions are: "
+msgstr ""
+
+#: pntemplates/IWforums_user_new_tema.htm:18
+#: pntemplates/IWforums_user_new_msg.htm:13
+msgid "Do you really want to send the message?"
+msgstr ""
+
+#: pntemplates/IWforums_user_new_tema.htm:25
+msgid "Add a new topic"
+msgstr ""
+
+#: pntemplates/IWforums_user_new_tema.htm:33
+msgid "Title of the topic"
+msgstr ""
+
+#: pntemplates/IWforums_user_new_tema.htm:37
+#: pntemplates/IWforums_admin_new.htm:25
+#: pntemplates/IWforums_user_main.htm:14
+#: pntemplates/IWforums_admin_main.htm:10
+msgid "Description"
+msgstr ""
+
+#: pntemplates/IWforums_user_new_tema.htm:40
+msgid "First message of the topic (optional)"
+msgstr ""
+
+#: pntemplates/IWforums_user_new_tema.htm:42
+#: pntemplates/IWforums_user_new_msg.htm:35
+#: pntemplates/IWforums_user_edit_msg.htm:35
+msgid "Title of the message"
+msgstr ""
+
+#: pntemplates/IWforums_user_new_tema.htm:46
+#: pntemplates/IWforums_user_new_msg.htm:58
+#: pntemplates/IWforums_user_edit_msg.htm:70
+msgid "Message"
+msgstr ""
+
+#: pntemplates/IWforums_user_new_tema.htm:57
+#: pntemplates/IWforums_admin_deleteModerator.htm:14
+#: pntemplates/IWforums_admin_addModerator.htm:27
+#: pntemplates/IWforums_admin_addGroup.htm:30
+#: pntemplates/IWforums_admin_deleteGroup.htm:14
+msgid "Add"
+msgstr ""
+
+#: pntemplates/IWforums_user_new_tema.htm:59
+#: pntemplates/IWforums_admin_new.htm:50
+#: pntemplates/IWforums_admin_deleteModerator.htm:15
+#: pntemplates/IWforums_user_new_msg.htm:68
+#: pntemplates/IWforums_user_new_msg.htm:70
+#: pntemplates/IWforums_user_edit_msg.htm:82
+#: pntemplates/IWforums_user_edit_msg.htm:84
+#: pntemplates/IWforums_user_del_tema.htm:15
+#: pntemplates/IWforums_admin_addModerator.htm:28
+#: pntemplates/IWforums_admin_configura.htm:35
+#: pntemplates/IWforums_admin_addGroup.htm:31
+#: pntemplates/IWforums_admin_deleteGroup.htm:15
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/IWforums_admin_menu.htm:5
+#: pntemplates/IWforums_user_menu.htm:3
+msgid "Forums"
+msgstr ""
+
+#: pntemplates/IWforums_admin_new.htm:5
+msgid "You haven't writte the name of the forum "
+msgstr ""
+
+#: pntemplates/IWforums_admin_new.htm:21
+#: pntemplates/IWforums_user_main.htm:13
+#: pntemplates/IWforums_admin_main.htm:9
+msgid "Forum name"
+msgstr ""
+
+#: pntemplates/IWforums_admin_new.htm:29
+msgid "Attached files are allowed"
+msgstr ""
+
+#: pntemplates/IWforums_admin_new.htm:33
+msgid ""
+"Minutes, after the submission, during which the messages can be edited by "
+"theirs authors"
+msgstr ""
+
+#: pntemplates/IWforums_admin_new.htm:37
+msgid ""
+"Minutes, after the submission, during which the messages can be deleted by "
+"theirs authors"
+msgstr ""
+
+#: pntemplates/IWforums_admin_new.htm:41
+#: pntemplates/IWforums_admin_main.htm:14
+msgid "Observations"
+msgstr ""
+
+#: pntemplates/IWforums_admin_new.htm:45
+msgid "Active?"
+msgstr ""
+
+#: pntemplates/IWforums_admin_new.htm:49
+#: pntemplates/IWforums_admin_configura.htm:34
+msgid "Create"
+msgstr ""
+
+#: pntemplates/IWforums_user_pager.htm:1
+msgid "Pages:"
+msgstr ""
+
+#: pntemplates/IWforums_user_main.htm:5
+#: pntemplates/IWforums_admin_main.htm:5
+msgid "Forums list"
+msgstr ""
+
+#: pntemplates/IWforums_user_main.htm:16
+#: pntemplates/IWforums_admin_addGroup.htm:20
+msgid "Access type"
+msgstr ""
+
+#: pntemplates/IWforums_user_main.htm:18
+msgid "N. topics"
+msgstr ""
+
+#: pntemplates/IWforums_user_main.htm:19
+msgid "N. messages"
+msgstr ""
+
+#: pntemplates/IWforums_user_main.htm:52
+#: pntemplates/IWforums_admin_addGroup.htm:25
+#: pntemplates/IWforums_admin_main.htm:32
+msgid "Moderation"
+msgstr ""
+
+#: pntemplates/IWforums_user_main.htm:54
+#: pntemplates/IWforums_admin_addGroup.htm:24
+#: pntemplates/IWforums_admin_main.htm:30
+msgid "Read, write and topics creation"
+msgstr ""
+
+#: pntemplates/IWforums_user_main.htm:56
+#: pntemplates/IWforums_admin_addGroup.htm:23
+#: pntemplates/IWforums_admin_main.htm:28
+msgid "Read and write"
+msgstr ""
+
+#: pntemplates/IWforums_user_main.htm:58
+#: pntemplates/IWforums_admin_addGroup.htm:22
+#: pntemplates/IWforums_admin_main.htm:34
+msgid "Read only"
+msgstr ""
+
+#: pntemplates/IWforums_user_main.htm:84
+#: pntemplates/IWforums_admin_main.htm:79
+msgid "There are no forum created"
+msgstr ""
+
+#: pntemplates/IWforums_user_main.htm:89
+#: pntemplates/IWforums_admin_main.htm:86
+msgid "About this module"
+msgstr ""
+
+#: pntemplates/IWforums_admin_mainChars.htm:1
+#: pntemplates/IWforums_admin_mainChars.htm:10
+msgid "Modify"
+msgstr ""
+
+#: pntemplates/IWforums_admin_mainChars.htm:2
+msgid "Attachments?"
+msgstr ""
+
+#: pntemplates/IWforums_admin_mainChars.htm:4
+#: pntemplates/IWforums_admin_mainChars.htm:13
+msgid "Yes"
+msgstr ""
+
+#: pntemplates/IWforums_admin_mainChars.htm:6
+#: pntemplates/IWforums_admin_mainChars.htm:15
+#: pntemplates/IWforums_admin_mainChars.htm:23
+#: pntemplates/IWforums_admin_mainChars.htm:29
+msgid "No"
+msgstr ""
+
+#: pntemplates/IWforums_admin_mainChars.htm:11
+msgid "Status"
+msgstr ""
+
+#: pntemplates/IWforums_admin_mainChars.htm:21
+#: pntemplates/IWforums_admin_mainChars.htm:23
+msgid "Editable"
+msgstr ""
+
+#: pntemplates/IWforums_admin_mainChars.htm:21
+#: pntemplates/IWforums_admin_mainChars.htm:27
+msgid "minutes"
+msgstr ""
+
+#: pntemplates/IWforums_admin_mainChars.htm:27
+#: pntemplates/IWforums_admin_mainChars.htm:29
+msgid "Deletable"
+msgstr ""
+
+#: pntemplates/IWforums_admin_del.htm:5
+#: pntemplates/IWforums_admin_delete.htm:4
+msgid "Delete the forum"
+msgstr ""
+
+#: pntemplates/IWforums_admin_del.htm:7
+#: pntemplates/IWforums_user_del_msg.htm:47
+#: pntemplates/IWforums_admin_delete.htm:9
+msgid "Confirm the deletion of the forum"
+msgstr ""
+
+#: pntemplates/IWforums_admin_del.htm:13
+msgid "Confirm"
+msgstr ""
+
+#: pntemplates/IWforums_admin_del.htm:16
+#: pntemplates/IWforums_user_del_msg.htm:50
+#: pntemplates/IWforums_user_del_msg.htm:53
+#: pntemplates/IWforums_admin_delete.htm:12
+msgid "Cancel the deletion of the forum"
+msgstr ""
+
+#: pntemplates/IWforums_user_move_msg.htm:16
+#: pntemplates/IWforums_user_forum.htm:194
+#: pntemplates/IWforums_user_forum.htm:195
+#: pntemplates/IWforums_user_openMsg.htm:33
+msgid "Move the message"
+msgstr ""
+
+#: pntemplates/IWforums_user_move_msg.htm:52
+#: pntemplates/IWforums_user_move_msg.htm:83
+msgid "Confirm the transfer"
+msgstr ""
+
+#: pntemplates/IWforums_user_move_msg.htm:62
+msgid "Move the message to the forum"
+msgstr ""
+
+#: pntemplates/IWforums_user_move_msg.htm:71
+msgid "Move the message to the topic"
+msgstr ""
+
+#: pntemplates/IWforums_user_move_msg.htm:73
+msgid "Without topic"
+msgstr ""
+
+#: pntemplates/IWforums_user_move_msg.htm:86
+#: pntemplates/IWforums_user_move_msg.htm:89
+msgid "Cancel the transfer of the message"
+msgstr ""
+
+#: pntemplates/IWforums_admin_deleteModerator.htm:4
+#: pntemplates/IWforums_admin_main.htm:91
+msgid "Delete moderator"
+msgstr ""
+
+#: pntemplates/IWforums_admin_deleteModerator.htm:11
+msgid "Confirm que deletion of the moderator"
+msgstr ""
+
+#: pntemplates/IWforums_user_new_msg.htm:24
+msgid "Add a new message"
+msgstr ""
+
+#: pntemplates/IWforums_user_new_msg.htm:46
+#: pntemplates/IWforums_user_edit_msg.htm:57
+msgid "Icon"
+msgstr ""
+
+#: pntemplates/IWforums_user_new_msg.htm:66
+msgid "Create the message"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:7
+msgid "List of topics"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:39
+msgid "topic created by:"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:39
+#: pntemplates/IWforums_user_forum.htm:53
+msgid "on"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:39
+#: pntemplates/IWforums_user_forum.htm:53
+msgid "at"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:44
+msgid "Messages:"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:48
+msgid " Unread messages:"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:53
+msgid "Last post by"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:60
+msgid "Delete the topic"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:61
+#: pntemplates/IWforums_user_del_tema.htm:4
+msgid "Topic and messages deletion"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:65
+#: pntemplates/IWforums_user_forum.htm:66
+msgid "Up"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:70
+#: pntemplates/IWforums_user_forum.htm:71
+msgid "Down"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:86
+#: pntemplates/IWforums_user_forum.htm:88
+msgid "List of messages"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:114
+msgid "All the messages of the list"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:126
+#: pntemplates/IWforums_user_msg.htm:79
+msgid "Title"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:127
+#: pntemplates/IWforums_user_msg.htm:80
+msgid "Sender"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:131
+msgid "Actions"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:184
+#: pntemplates/IWforums_user_forum.htm:185
+#: pntemplates/IWforums_user_del_msg.htm:4
+msgid "Delete the message"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:189
+#: pntemplates/IWforums_user_forum.htm:190
+#: pntemplates/IWforums_user_edit_msg.htm:25
+msgid "Edit the message"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:213
+msgid "This subjet has no messages."
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:217
+msgid "The user "
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:217
+msgid " you haven't sent any message to this topic"
+msgstr ""
+
+#: pntemplates/IWforums_user_forum.htm:223
+msgid "This forum has no messages."
+msgstr ""
+
+#: pntemplates/IWforums_user_edit_msg.htm:48
+msgid "Delete the attached file"
+msgstr ""
+
+#: pntemplates/IWforums_user_edit_msg.htm:50
+msgid "I'm sure"
+msgstr ""
+
+#: pntemplates/IWforums_user_edit_msg.htm:80
+msgid "Modify the message"
+msgstr ""
+
+#: pntemplates/IWforums_user_del_tema.htm:6
+msgid "Confirmation of deletion of the topic and its messages"
+msgstr ""
+
+#: pntemplates/IWforums_user_del_tema.htm:14
+msgid "Confirm the deletion of the topic"
+msgstr ""
+
+#: pntemplates/IWforums_admin_addModerator.htm:4
+#: pntemplates/IWforums_admin_main.htm:60
+msgid "Add a moderator"
+msgstr ""
+
+#: pntemplates/IWforums_admin_addModerator.htm:9
+#: pntemplates/IWforums_admin_addGroup.htm:10
+#: pntemplates/IWforums_admin_main.htm:11
+msgid "Group"
+msgstr ""
+
+#: pntemplates/IWforums_admin_addModerator.htm:17
+msgid "Choose a moderator"
+msgstr ""
+
+#: pntemplates/IWforums_admin_configura.htm:11
+msgid "Root of the file folder"
+msgstr ""
+
+#: pntemplates/IWforums_admin_configura.htm:16
+msgid "Server folder where will be save the attached files"
+msgstr ""
+
+#: pntemplates/IWforums_admin_configura.htm:21
+msgid "The attached files folder have not been found"
+msgstr ""
+
+#: pntemplates/IWforums_admin_configura.htm:26
+msgid "(This folder needs writting atributes)"
+msgstr ""
+
+#: pntemplates/IWforums_admin_configura.htm:30
+msgid "The unregistered users can view messages writers avatars"
+msgstr ""
+
+#: pntemplates/IWforums_admin_addGroup.htm:4
+#: pntemplates/IWforums_admin_main.htm:44
+msgid "Add a group with access to the forum"
+msgstr ""
+
+#: pntemplates/IWforums_admin_deleteGroup.htm:4
+msgid "Delete the access to the group "
+msgstr ""
+
+#: pntemplates/IWforums_admin_deleteGroup.htm:11
+#: pntemplates/IWforums_admin_main.htm:90
+msgid "Confirm the deletion"
+msgstr ""
+
+#: pntemplates/IWforums_user_readers.htm:2
+msgid "The message has been read by:"
+msgstr ""
+
+#: pntemplates/IWforums_admin_main.htm:12
+msgid "Moderators"
+msgstr ""
+
+#: pntemplates/IWforums_admin_main.htm:13
+msgid "Features"
+msgstr ""
+
+#: pntemplates/IWforums_admin_main.htm:15
+msgid "Options"
+msgstr ""
+
+#: pntemplates/IWforums_admin_main.htm:38
+#: pntemplates/IWforums_admin_main.htm:54
+#: pntemplates/IWforums_admin_main.htm:72
+#: pntemplates/IWforums_admin_delete.htm:11
+msgid "Delete"
+msgstr ""
+
+#: pntemplates/IWforums_admin_main.htm:71
+msgid "Edit"
+msgstr ""
+
+#: pntemplates/IWforums_admin_main.htm:73
+msgid "Copy"
+msgstr ""
+
+#: pntemplates/IWforums_admin_main.htm:89
+msgid "...modifying..."
+msgstr ""

@@ -1,0 +1,51 @@
+{include file='IWagendas_admin_menu.htm'}
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='IWagendas' src='add_user_large.gif'}</div>
+    <h2>{gt text="Add a manager"}</h2>
+
+    <form id="addManager" class="z-form" action="{modurl modname='IWagendas' type='admin' func='addManager'}" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="daid" value="{$item.daid}" />
+        <div class="z-formrow">
+            <label for="group">{gt text="Group"}</label>
+            <select name="group" id="group" onchange="javascript:chgUsers(this.value)">
+                {foreach item=group from=$groups}
+                <option value="{$group.id}">{$group.name}</option>
+                {/foreach}
+            </select>
+        </div>
+        <div class="z-formrow">
+            <label for="uid">{gt text="Choose a manager"}</label>
+            <select name="uid" id="uid" style="float:left;">
+                <option value="0"></option>
+                {foreach item=member from=$groupMembers}
+                <option value="{$member.id}">{$member.name}</option>
+                {/foreach}
+            </select>
+            <div id="chgInfo" class="z-hide z-noteinfo" style="float:left; margin-left:20px;">&nbsp;</div>
+        </div>
+        {if $messagesActive}
+        <div class="z-formrow">
+            <label for="msgUsersResp">{gt text="Automatic private message to users who can manage the agenda"}</label>
+            <textarea type="text" name="msgUsersResp" cols="42" rows="5">{$msgUsersResp}</textarea>
+        </div>
+        <div class="z-formrow">
+            <label for="msgUsersRespDefault">&nbsp;</label>
+            <input type="checkbox" name="msgUsersRespDefault" value="1" /> {gt text="Set as default message"}
+        </div>
+        {/if}
+        <div class="z-center">
+            <span class="z-buttons">
+                <a href="javascript:document.forms['addManager'].submit();">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Add" __title="Add"}{gt text="Add"}
+                </a>
+            </span>
+            <span class="z-buttons">
+                <a href="{modurl modname='IWagendas' type='admin' func='main'}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}{gt text="Cancel"}
+                </a>
+            </span>
+        </div>
+    </form>
+</div>

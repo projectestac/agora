@@ -1,0 +1,170 @@
+body {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+table, div, p, input, textarea, select {
+	font-size: 13px;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+}
+table {
+	width: 100%;
+}
+td {
+	vertical-align: top;
+}
+/* prevent textareas from forcing horizontal scroll bar */
+textarea {
+	width: 99%;
+}
+
+h1, .pn-pagetitle {
+	font-weight: bold;
+	font-size: 1.3em;
+	text-align: center;
+}
+h2, .pn-title {
+	font-weight: bold;
+	font-size: 1.2em;
+	text-align: center;
+}
+h3 {
+	font-size: 1em;
+	text-align: left;
+	margin: 3px;
+	padding: 0px 3px 2px 3px;
+}
+.pn-sub {
+	font-size: 0.7em;
+}
+
+.left_block li {
+	border-bottom: 1px solid #e1bff7;
+	list-style-type: disc;
+	list-style-image: url(../images/list.gif);
+	color: #000000;
+	list-style-position: inside;
+	margin-left: -35px;
+	margin-right: 10px;
+}
+li {
+	color: #000000;
+	margin-right: 10px;
+}
+fieldset, legend {
+	background: #ffffff;
+}
+
+a {
+	color: #5a009e;
+	text-decoration: none;
+	background: none;
+}
+a img {
+	border: 0px;
+}
+a:visited {
+	color: #af9dbd;
+	text-decoration: none;
+	background: none;
+}
+a:hover {
+	color: #ff814b!important;
+}
+#menu a {
+	color: #fff;
+}
+
+#menu {
+}
+#main_content {
+}
+#wrapper {
+}
+
+.input {
+	border: 1px solid #ccc;
+	font-size: 10px;
+}
+
+/* Block styles */
+.right_block{
+}
+.left_block {
+}
+.center_block {
+}
+
+/* news styles */
+.newswrapper {
+	margin: 5px 5px 20px 5px;
+}
+.newssummary1 {
+	padding: 5px;
+	border: 1px solid #ccc; 
+}
+.newssummary2 {
+	border-bottom: 1px solid #ccc;
+	vertical-align: middle;
+}
+
+/* legacy opentable function styles */
+.opentable1 {
+	width: 96%;
+	margin: auto;
+	padding: 10px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.opentable1 table {
+	background: #fff;
+	margin-bottom: 15px;
+	border-collapse: collapse;
+	border:#876D98 dotted 1px;
+	vertical-align: middle;
+}
+.opentable1 table td {
+	padding: 5px;
+	border: #876D98 dotted 1px;
+}
+.opentable2 {
+	border: 1px solid #ccc;
+	margin-bottom: 5px;
+	background: #fff;
+}
+
+.catlastpostinfo, .forumlastpostinfo {
+	padding-bottom:10px;
+}
+
+.pnf_bgcolor1 p, .pnf_bgcolor3 p {
+	padding-top:10px;
+}
+
+.pages_page_body p {
+    margin: 10px 0px 10px 0px;
+}
+
+
+
+
+
+#iw_menu li {
+	background-color: #AC8E6C !important;
+}
+
+#iw_menu > ul {
+	background-color:#AC8E6C !important;
+}
+
+#iw_menu li a {
+	text-transform:none !important;
+	font-size:13px !important;
+}
+
+#iw_menu > a:hover
+	color: #000000 !important;
+}
+
+
+

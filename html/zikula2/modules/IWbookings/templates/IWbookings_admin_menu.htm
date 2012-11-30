@@ -1,0 +1,13 @@
+{ajaxheader modname=IWbookings filename=IWbookings.js}
+{admincategorymenu}
+{insert name="getstatusmsg"}
+<div class="z-adminbox">
+    <h1>{gt text="Rooms and equipment booking"}</h1>
+    {if not isset($func)}
+    {assign var=func value=''}
+    {/if}
+    {if not isset($sid)}
+    {assign var=sid value=0}
+    {/if}
+    {modulelinks modname='IWbookings' type='admin' sid=$sid func=$func}
+</div>

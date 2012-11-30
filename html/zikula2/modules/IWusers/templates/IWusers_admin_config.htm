@@ -1,0 +1,72 @@
+{include file="IWusers_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large'}</div>
+    <h2>{gt text="Configure the module"}</h2>
+    <form  class="z-form" enctype="application/x-www-form-urlencoded" method="post" name="config" id="config" action="{modurl modname='IWusers' type='admin' func='updateConf'}">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <div class="z-formrow">
+            <label for="friendsSystemAvailable">{gt text="Set contacts list available"}:</label>
+            <input type="checkbox" name="friendsSystemAvailable" {if $friendsSystemAvailable eq 1}checked{/if} value="1" />
+        </div>
+        <div class="z-formrow">
+            <label for="usersCanManageName">{gt text="Users can manage their real names"}:</label>
+            <input type="checkbox" name="usersCanManageName" {if $usersCanManageName eq 1}checked{/if} value="1" />
+        </div>
+        <div class="z-formrow">
+            <label for="allowUserSetTheirSex">{gt text="Users can set their sex"}:</label>
+            <input type="checkbox" name="allowUserSetTheirSex" {if $allowUserSetTheirSex eq 1}checked{/if} value="1" />
+        </div>
+        <div class="z-formrow">
+            <label for="allowUserDescribeTheirSelves">{gt text="Users can describe theirselves"}:</label>
+            <input type="checkbox" name="allowUserDescribeTheirSelves" {if $allowUserDescribeTheirSelves eq 1}checked{/if} value="1" />
+        </div>
+        <div class="z-formrow">
+            <label for="invisibleGroupsInList">{gt text="Invisible groups in users search"}:</label>
+            <div class="z-formnote">
+                {foreach item=group from=$groupsArray}
+                <input type="checkbox" name="groups[{$group.id}]" value="{$group.id}" {if $group.checked}checked{/if} />{$group.name} <br />
+                {/foreach}
+            </div>
+        </div>
+
+
+        <div class="z-formrow">
+            <label for="usersPictureFolder">{gt text="Folder where to look for the users pictures"}{if not $multizk} <span><strong>{$documentRoot}/</strong></span>{/if}</label>
+            <input type="text" name="usersPictureFolder" value="{$usersPictureFolder}" size="30" maxlength="30" />
+            {if $noPictureFolder}
+            <div class="z-errormsg z-formnote">
+                {gt text="Users pictures directori hasn't been found"}
+            </div>
+            {/if}
+            {if $noWriteablePictureFolder}
+            <div class="z-errormsg z-formnote">
+                {gt text="This folder is not writeable."}
+            </div>
+            {/if}
+        </div>
+        {if $gdAvailable && !$noPictureFolder && !$noWriteablePictureFolder}
+        <div class="z-formrow">
+            <label for="allowUserChangeAvatar">{gt text="The users can change theirs avatars"}</label>
+            <input type="checkbox" {if $allowUserChangeAvatar eq 1}checked{/if} name="allowUserChangeAvatar" value="1" />
+        </div>
+        <div class="z-formrow">
+            <label for="avatarChangeValidationNeeded">{gt text="The avatar replacement needs validation"}</label>
+            <input type="checkbox" {if $avatarChangeValidationNeeded eq 1}checked{/if} name="avatarChangeValidationNeeded" value="1" />
+        </div>
+        {else}
+        {if $noPictureFolder || $noWriteablePictureFolder}
+        <div class="z-formnote z-errormsg">
+            {gt text="The users can not change theirs avatars because the directori of pictures does not exist or it has not the correct permissions."}
+        </div>
+        {/if}
+        {if not $gdAvailable}
+        <div class="z-errormsg">
+            {gt text="The users can change theirs avatars because the php's gd extensión is not available."}
+        </div>
+        {/if}
+        {/if}
+        <div class="z-center z-buttons">
+            <a title="{gt text="Modify the configuration"}" onClick="javascript:sendConfig()" style="cursor:pointer;";>{img modname='core' src='button_ok.png' set='icons/small'} {gt text="Modify the configuration"}</a>
+        </div>
+    </form>
+</div>

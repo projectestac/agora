@@ -1,0 +1,15 @@
+{gt text='Hello,'}
+
+{gt text='A visitor to your website made a new rental request and sent the following:'}
+
+{gt text='Your Name'} : { $userdata.uname }
+{gt text='Email'} : { $userdata.uemail }
+
+{foreach item=field from=$custom}
+{$field.name} : {$field.data}
+{/foreach}
+
+{gt text='Comment'} :
+{$userdata.comment|safetext}
+
+{gt text='The user has the following IP address/hostname: '} {$ip} / {$host}

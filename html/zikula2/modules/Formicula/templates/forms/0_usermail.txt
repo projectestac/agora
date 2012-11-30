@@ -1,0 +1,18 @@
+{gt text='Hello,'}
+
+{gt text='Thank you for the comments posted from our Website. The sent data is:'}
+
+{gt text='Contact or Theme'} : { $contact.name }
+{gt text='Your Name'} : { $userdata.uname }
+{gt text='Email'} : { $userdata.uemail }
+{gt text='Homepage'} : { $userdata.url }
+{gt text='Company'} : { $userdata.company }
+{gt text='Phone Number'} : { $userdata.phone }
+{gt text='Location'} : { $userdata.location }
+
+{gt text='Comment'}  :
+{ $userdata.comment|safetext }
+
+{gt text='We will respond to your email as soon as possible.'}
+
+{gt text="The %s Team" tag1=$sitename comment="%s will be replaced with the sitename"}

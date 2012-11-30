@@ -1,0 +1,37 @@
+<script language="javascript">
+    function send(valor){
+        var error=false;
+        if(document.new_marc.nom_marc.value==""){
+            alert("{{gt text="You have not provided the name of the timeFrame."}}");
+            var error=true;
+        }
+        if(!error){document.new_marc.submit();}
+    }
+</script>
+
+{include file="IWtimeframes_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='db_add.png' set='icons/large'}</div>
+    <div style="height:10px;">&nbsp;</div>
+    <h2>{$accio}</h2>
+    <form  id="new_marc" name="new_marc" class="z-form" method="post" enctype="application/x-www-form-urlencoded" action="{modurl modname="IWtimeframes" type="admin" func="create"}" >
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="mdid" value="{$mdid}" />
+        <input type="hidden" name="m" value="{$m}" />
+        <div class="z-formrow">
+            <label for="nom_marc">{gt text="Name of the timeFrame"}</label>
+            <input type="text" id="nom_marc" name="nom_marc" size="32" maxlength="55" value="{$nom_marc}" />
+        </div>
+        <div class="z-formrow">
+            <label for="descriu">{gt text="Description"}</label>
+            <input type="text" id="descriu" name="descriu" size="32" maxlength="200" value="{$descriu}" />
+        </div>
+        <div class="z-center">
+            <div class="z-buttons">
+                <a href="javascript:send(0);">
+                    {img modname='core' src='button_ok.png' set='icons/small'} {$acciosubmit}
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

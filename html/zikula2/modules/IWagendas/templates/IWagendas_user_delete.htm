@@ -1,0 +1,37 @@
+
+<div>{$menu}</div>
+
+<div class="opentable1">
+    <h2 style="clear:both;">{$title}</h2>
+    <fieldset style="margin:15px;">
+        <legend>{$notetitlec1}</legend>
+        <p>{$notecontentc1}</p>
+    </fieldset>
+    <fieldset style="margin:15px;">
+        <legend>{gt text="More information"}</legend>
+        <p>{$notecontentc2}</p>
+    </fieldset>
+    <p style="margin:15px;">
+        <span style="font-weight:bold;">{$datetitle}</span>
+        <span>{$date}</span>
+    </p>
+    </fieldset>
+    <div style="margin:30px; text-align:center;">
+    <form method="post" name="delete_nota" action="{modurl modname='IWagendas' type='user' func='esborra' aid=$registre.aid mes=$mes any=$any dia=$dia daid=$daid}" style="display:inline;">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input name="confirmation" value="1" type="hidden" />
+        <input name="repes" value="0" type="hidden" />
+        <input value="{gt text='Confirm deletion of the agenda'}" type="submit" />
+    </form>
+    <form method="post" name="delete_nota" action="{modurl modname='IWagendas' type='user' func='esborra' aid=$registre.aid mes=$mes any=$any dia=$dia daid=$daid}" style="display:inline;">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input name="confirmation" value="1" type="hidden" />
+        <input name="repes" value="1" type="hidden" />
+        <input name="rid" value="{$registre.rid}" type="hidden" />
+        {if $repes > 0}
+            <input value="{gt text='Confirm deletion of this event and its repetitions'}" type="submit" />
+        {/if}
+        <a href="{modurl modname='IWagendas' type='user' func='main' mes=$mes any=$any dia=$dia daid=$daid}" title="{gt text='Cancel deletion'}">{gt text="Cancel deletion"}</a>
+    </form>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{ajaxheader modname=IWbookings filename=IWbookings.js}
+{if !isset($sid)}{assign var=sid value=''}{/if}
+{if !isset($space)}{assign var=space value=''}{/if}
+{if !isset($mensual)}{assign var=mensual value=0}{/if}
+{insert name="getstatusmsg"}
+<h1>
+    {gt text="Rooms and equipment booking"} 
+    {if isset($space_name) AND $space_name neq ''} - {$space_name}{/if}
+</h1>
+{modulelinks modname='IWbookings' type='user' sid=$sid space=$space mensual=$mensual}

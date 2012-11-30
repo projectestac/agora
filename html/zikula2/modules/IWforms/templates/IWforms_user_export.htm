@@ -1,0 +1,130 @@
+{include file="IWforms_user_menu.htm" fid=$form.fid func=''}
+<div class="usercontainer">
+    <div class="userpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
+    <h2>{gt text="Export to CSV"}</h2>
+    <div>{gt text="Form name"}: {$form.formName}</div>
+    <div>{gt text="Title of the annotations "}: {$form.title}</div>
+    <div style="height:15px;">&nbsp;</div>
+    <form id="export" class="z-form" action="{modurl modname="IWforms" type="user" func="generateCSV"}" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="fid" value="{$form.fid}" />
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+               <table class="z-datatable" width="100%">
+            <tr>
+                <td>
+                    {gt text="Order of the notes for export"}
+                </td>
+                <td>
+                    <select name="order">
+                        {foreach item=fieldOrder from=$fieldsOrder}
+                        <option value="{$fieldOrder.id}">{$fieldOrder.name}</option>
+                        {/foreach}
+                    </select>
+                </td>
+                <td align="right">
+                    {gt text="Ascending order"}
+                </td>
+                <td>
+                    <input type="checkbox" name="desc" value="1">
+                </td>
+            </tr>
+        </table>
+        <div style="height:15px;">&nbsp;</div>
+        <table class="z-datatable" width="100%">
+            <thead>
+                <tr>
+                    <th>{gt text="Managing a form"}</th>
+                    <th>{gt text="Export"}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="z-odd">
+                    <td align="left">
+                        {gt text="Includes users senders of the notes"}
+                    </td>
+                    <td align="center">
+                        <input type="checkbox" checked name="user">
+                    </td>
+                </tr>
+                <tr class="z-even">
+                    <td align="left">
+                        {gt text="Include the date and time of sending notes"}
+                    </td>
+                    <td align="center">
+                        <input type="checkbox" checked name="date">
+                    </td>
+                </tr>
+                <tr class="z-odd">
+                    <td align="left">
+                        {gt text="It includes the notes of private responsibility"}
+                    </td>
+                    <td align="center">
+                        <input type="checkbox" checked name="observations">
+                    </td>
+                </tr>
+                <tr class="z-even">
+                    <td align="left">
+                        {gt text="Includes responses to senders"}
+                    </td>
+                    <td align="center">
+                        <input type="checkbox" checked name="renotes">
+                    </td>
+                </tr>
+                <tr class="z-odd">
+                    <td align="left">
+                        {gt text="It includes the state (completed / not completed) of the notes"}
+                    </td>
+                    <td align="center">
+                        <input type="checkbox" checked name="state">
+                    </td>
+                </tr>
+                <tr class="z-even">
+                    <td align="left">
+                        {gt text="Include the annotations URL"}
+                    </td>
+                    <td align="center">
+                        <input type="checkbox" checked name="url">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+       <table class="z-datatable" width="100%">
+            <thead>
+                <tr>
+                    <th>{gt text="Field"}</th>
+                    <th>{gt text="Name field"}</th>
+                    <th>{gt text="Type field"}</th>
+                    <th>{gt text="Export"}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {foreach name=i item=field from=$fields}
+            {if $field.fieldType neq 7 && $field.fieldType neq 51 && $field.fieldType neq 52 &&  $field.fieldType neq 53 && $field.fieldType neq 100}
+            <tr class="{cycle values="z-odd, z-even"}" >
+                <td align="center">
+                     {$smarty.foreach.i.iteration}
+                 </td>
+                 <td align="left">
+                     {$field.fieldName}
+                 </td>
+                 <td align="left">
+                     {$fieldsTypes[$field.fieldType]}
+                 </td>
+                 <td align="center">
+                     <input type="checkbox" checked value="{$field.fndid}" name="fields[]">
+                 </td>
+             </tr>
+		{/if}
+             {/foreach}
+            </tbody>
+            </table>
+            <div style="height:15px;">&nbsp;</div>
+            <div class="z-center">
+                <span class="z-buttons">
+                    <a onClick="javascript:forms['export'].submit()">{img modname='core' src='button_ok.png' set='icons/small' __alt="Export" __title="Export"} {gt text="Export"}</a>
+                </span>
+                <span class="z-buttons">
+                    <a href="{modurl modname="IWforms" type="user" func="manage" fid=$form.fid}">{img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                </span>
+            </div>
+        </form>
+    </div>

@@ -1,0 +1,2 @@
+// Copyright Zikula Foundation 2010 - license GNU/LGPLv3 (or at your option, any later version).
+function showthemeimage(){var a=$F("newtheme");$("preview").src=$F("previmg_"+a);$("preview").title=$("theme_"+a).title;$("preview").alt=a};

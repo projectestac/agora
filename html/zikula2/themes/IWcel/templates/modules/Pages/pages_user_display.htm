@@ -1,0 +1,20 @@
+<!--[*  $Id: pages_user_display.htm 24217 2008-04-21 09:38:22Z jornlind $  *]-->
+<!--[insert name="getstatusmsg"]-->
+<!--[pnpagesetvar name=title value=$title]-->
+<div class="pages_page_container">
+<h2><!--[$title|pnmodcallhooks|pnvarprephtmldisplay]--></h2>
+<!--[if $displaywrapper]-->
+<div class="pages_page_header">
+</div>
+<!--[/if]-->
+<div class="pages_page_body">
+<!--[$content|pnvarprephtmldisplay|pnmodcallhooks:"Pages"]-->
+</div>
+<!--[if $displaywrapper]-->
+<div class="pages_page_footer">
+</div>
+<!--[/if]-->
+<!--[pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar=page img_prev=images/icons/extrasmall/previous.gif img_next=images/icons/extrasmall/next.gif]-->
+<!--[pnmodurl modname=Pages func=display pageid=$pageid assign=returnurl]-->
+<!--[pnmodcallhooks hookobject=item hookaction=display hookid=$pageid module=Pages returnurl=$returnurl]-->
+</div>

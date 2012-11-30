@@ -1,0 +1,10 @@
+.z-form div.z-formrow .tinymce
+{
+    margin: 0 0 0 29%;
+}
+
+.z-form.z-linear div.z-formrow .tinymce {
+    margin: 0;
+    padding: 0;
+}
+

@@ -1,0 +1,184 @@
+/* Admin panel styles */
+
+#news_filter {
+    margin-bottom: 0;
+}
+
+#news_category_selectors {
+    display: inline;
+}
+
+#news_notes_collapse {
+    padding-bottom: .7em;
+}
+
+/* News forms */
+#news_user_modifyform div.z-formbuttons {
+    margin-left: 15%;
+}
+.news_preview {
+    background: url(../images/bg_preview.png) #fafafa;
+    margin: 1em 0;
+    padding: 7px;
+}
+
+/* articles styles */
+.news_categorylist li {
+    margin-bottom: 0.3em;
+    list-style: none;
+}
+
+div.news_index {
+    overflow: hidden;
+    padding: 0;
+}
+
+#news_articlecontent {
+    overflow: hidden;
+    padding: 0.5em 0;
+}
+
+.news_title {
+    margin: 0.1em 0;
+}
+
+.news_index .news_title {
+    margin: 0;
+    padding: 2px 0;
+}
+
+.news_meta {
+    font-size: 0.9em;
+}
+
+#news_topic img {
+    float: right;
+}
+
+.news_body {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+}
+
+.news_body .news_hometext {
+}
+
+.news_separator {
+    border-bottom: 1px solid #DDD;
+    margin: 1em 0;
+}
+
+.news_footer {
+    font-size: 0.9em;
+    margin: 0;
+    text-align: right;
+}
+
+.news_printlink img {
+    vertical-align: middle;
+}
+
+.text_separator {
+    color: #bbb;
+    padding: 0 2px;
+}
+
+/* ajax links styles */
+#news_editlinks {
+    float: right;
+}
+
+#news_editlinks_ajax {
+    float: right;
+}
+
+.hidelink {
+    display: none;
+}
+
+.showlink {
+    display: inline;
+}
+
+/* itemlist styles, in zk 121 Core */
+.z-itemlist button {
+    cursor: pointer;
+}
+
+.z-itemlist_newitemdiv {
+    margin: 1em 0 1em 1em;
+}
+
+/* Styling for optional picture(s) in articles */
+.news_photo {
+    margin: 0 10px 0 5px;
+    position: relative;
+}
+
+.news_photo a {
+    text-decoration: none;
+}
+
+.news_thumbs img {
+    border: 1px solid #ddd;
+    padding: 4px;
+    background: #fff;
+}
+
+.news_photoslide {
+    margin: 2px 5px;
+    position: relative;
+    float: left;
+}
+
+.news_photoslide a {
+    text-decoration: none;
+}
+
+
+.news_thumbsslide img, .news_thumbsindex img {
+    border: 1px solid #ddd;
+    padding: 4px;
+    background: #fff;
+}
+
+.news_photoindex {
+    margin: 2px 5px 2px 0px;
+    position: relative;
+}
+
+.news_photoindex a {
+    text-decoration: none;
+}
+
+.news_pictures {
+    clear:both;
+    padding: 30px 40px 0 60px;
+    float:left;
+}
+
+.news_files_list {
+}
+
+#news_bulkaction_control {
+    padding: 0 10px;
+    margin: 0 0 1em;
+}
+
+#news_bulkaction_control img {
+    margin: 0 1em 0 0;
+}
+
+#news_bulkaction_control select {
+    margin-left: 2em;
+}
+
+/**** Add styles that replicate core functions ****/
+.z-icon-es-archive {
+    background: url("../../../images/icons/extrasmall/folder_yellow.png") no-repeat scroll 0 50% transparent;
+    padding: 2px 0 2px 20px;
+}
+.z-icon-es-insertrow {
+    background: url("../../../images/icons/extrasmall/insert_table_row.png") no-repeat scroll 0 50% transparent;
+    padding: 2px 0 2px 20px;
+}
