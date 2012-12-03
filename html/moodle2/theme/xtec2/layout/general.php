@@ -121,7 +121,7 @@ echo $OUTPUT->doctype()
             <?php } ?>
             <div class="clearfix"></div>
             <div class="footerlogos">
-                <img src="<?php echo $OUTPUT->pix_url('theme/logo_agora', 'theme'); ?>" alt="" title="" />
+                <img src="<?php echo $OUTPUT->pix_url('theme/logo_main', 'theme'); ?>" alt="" title="" />
                 <img src="<?php echo $OUTPUT->pix_url('theme/logo_moodle', 'theme'); ?>" alt="" title="" />
             </div>           
         </div>
