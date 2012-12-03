@@ -13,12 +13,14 @@ MOODLE
 - Added server name to adodberror log to know which web server was implied
 - Fixed database ordering problems notified by Odissea team (http://tracker.moodle.org/browse/MDL-33603)
 - Fixed problem when deleting some of the user responses in a choice activity (only affects to multi-site instances)
+- Added image ko.png to xtec2 theme
 
 MOODLE 2
 - Fixed course order in courses tab of coursequotas. Units were not being considered when ordering.
 - Added missign Catalan translation files to questionnaire module
 - Added support for https authentication using BigIP
 - Adapted source to rename logo_agora to logo_main in xtec2 theme (to make it more generic)
+- Added image ko.png to xtec2 theme
 
 PORTAL
 - Updated message sent to users when a new service is activated
