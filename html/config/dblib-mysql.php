@@ -282,8 +282,8 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
     global $agora;
 
     // If cookie is present load it and return
-    if (isset($_COOKIE['xtecSchool'])) {
-        $data = explode('--', $_COOKIE['xtecSchool']);
+    if (isset($_COOKIE[$agora['server']['cookie']])) {
+        $data = explode('--', $_COOKIE[$agora['server']['cookie']]);
         if ($data[0] == $dns) {
             $school_info['type'] = $data[1];
             $school_info['id_moodle'] = $data[2];
@@ -355,7 +355,7 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
                 . '--' . (array_key_exists('database_moodle2', $school_info) ? $school_info['database_moodle2'] : '')
                 . '--' . (array_key_exists('diskPercent_moodle2', $school_info) ? $school_info['diskPercent_moodle2'] : '');
 
-        setcookie('xtecSchool', $bodycookie, 0, '/');
+        setcookie($agora['server']['cookie'], $bodycookie, 0, '/');
     }
 
     return $school_info;

@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 GENERAL
 - Added param to allow not updating dayly stats of Moodle 1.9 if they already exist
+- xtecSchool cookie name is now a param in html/config/config.php
 
 MOODLE
 - Added server name to adodberror log to know which web server was implied
