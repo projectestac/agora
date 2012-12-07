@@ -57,7 +57,7 @@
         header('location: '.WWWROOT.'error.php?s=moodle&dns='.$_REQUEST['ccentre']);
         exit(0);
     }
-
+    
     //New definition in moodle/site-config.php
     $CFG->dbname    = $school_info['database_moodle'];
     $CFG->dbuser    = $agora['moodle']['username'].$school_info['id_moodle'];
@@ -65,3 +65,25 @@
     $CFG->wwwroot   = $moodle_wwwroot.$centre.'/'.$moodle_dirroot;
     $CFG->dataroot  = INSTALL_BASE.$agora['moodle']['datadir'].$agora['moodle']['username'].$school_info['id_moodle'];
     $CFG->dnscentre = $centre;
+    
+//    if ($agora['server']['enviroment'] == 'FOR'){
+
+        // Show maintenance file if exists
+        $climaintenancefile = $CFG->dataroot.'/climaintenance.html';
+        if (file_exists ($climaintenancefile)){
+            // Open file
+            $file = fopen($climaintenancefile, 'rb');
+            if ($file) {
+                // Send file to screen in small chunks for efficience
+                while (!feof($file)) {
+                        echo fread($file, 8192);
+                }
+                // Close file
+                fclose($file);
+                die();            
+            }
+        }
+        
+//    }
+
+    
