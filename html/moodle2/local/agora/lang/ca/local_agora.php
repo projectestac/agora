@@ -15,3 +15,8 @@ $string['diskquotaerror'] = '<strong>ATENCIÓ</strong>: Aquest Moodle ha excedit
 
 // Rush hour
 $string['rush_hour'] = 'Aquesta operació no està permesa en hores punta. Podeu realitzar-la de dilluns a divendres abans de les 9:00, de 14:00 a 14:59 i després de les 17:00, així com els caps de setmana durant tot el dia.';
+
+// User bulk action to capitalize
+$string['capitalize'] = 'Posa la primera lletra en majúscules';
+$string['capitalizecheckfull'] = 'Estàs segur/a que vols posar la primera lletra en majúscules als usuaris {$a} ?';
+$string['capitalizenot'] = 'No ha estat possible posar la primera lletra en majúscules als usuaris {$a} !';

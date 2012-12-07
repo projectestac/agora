@@ -24,6 +24,8 @@ MOODLE 2
 - Added missign Catalan translation files to questionnaire module
 - Added support for https authentication using BigIP
 - Adapted source to rename logo_agora to logo_main in xtec2 theme (to make it more generic)
+- Added user bulk function to capitalize names and surnames
+- Reviewed function create_user_record in lib/moodlelib.php to capitalize user name and surname
 
 PORTAL
 - Updated message sent to users when a new service is activated
