@@ -282,11 +282,15 @@ class System
             $script_name = self::serverGetVar('SCRIPT_NAME');
             self::$cache['baseuri.path'] = substr($script_name, 0, strrpos($script_name, '/'));
         }
-
+        /******* ELIMINAT XTEC
         $serviceManager = ServiceUtil::getManager();
         if ($serviceManager['multisites.enabled'] == 1) {
             self::$cache['baseuri.path'] = $serviceManager['multisites.sitedns'];
         }
+        *******/
+        /******* AFEGIT XTEC *******/
+        self::$cache['baseuri.path'] = $GLOBALS['ZConfig']['Multisites']['siteDNS'];
+        /******* FINAL AFEGIT XTEC *******/
 
         return self::$cache['baseuri.path'];
     }
