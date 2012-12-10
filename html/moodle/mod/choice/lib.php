@@ -350,7 +350,13 @@ function choice_show_results($choice, $course, $cm, $allresponses, $forcepublish
         case CHOICE_PUBLISH_NAMES:
             echo '<div id="tablecontainer">';
             if ($viewresponses) {
-                echo '<form id="attemptsform" method="post" action="'.$_SERVER['PHP_SELF'].'" onsubmit="var menu = document.getElementById(\'menuaction\'); return (menu.options[menu.selectedIndex].value == \'delete\' ? \''.addslashes(get_string('deleteattemptcheck','quiz')).'\' : true);">';
+                //XTEC ************ MODIFICAT - To fix problem with multi-site
+                //2012.11.30 - sarjona
+                $formaction = substr($_SERVER['PHP_SELF'], strrpos($_SERVER['PHP_SELF'], '/')+1);
+                echo '<form id="attemptsform" method="post" action="'.$formaction.'" onsubmit="var menu = document.getElementById(\'menuaction\'); return (menu.options[menu.selectedIndex].value == \'delete\' ? \''.addslashes(get_string('deleteattemptcheck','quiz')).'\' : true);">';
+                //************ ORIGINAL
+                //echo '<form id="attemptsform" method="post" action="'.$_SERVER['PHP_SELF'].'" onsubmit="var menu = document.getElementById(\'menuaction\'); return (menu.options[menu.selectedIndex].value == \'delete\' ? \''.addslashes(get_string('deleteattemptcheck','quiz')).'\' : true);">';
+                //************ FI
                 echo '<div>';
                 echo '<input type="hidden" name="id" value="'.$cm->id.'" />';
                 echo '<input type="hidden" name="sesskey" value="'.sesskey().'" />';

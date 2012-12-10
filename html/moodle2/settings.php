@@ -8,6 +8,7 @@ $CFG->isportal = false;
 $CFG->center = array_key_exists('clientCode', $school_info) ? $school_info['clientCode'] : $school_info['id_moodle2'];
 // The following line calculates correctly the diskPercent (uploading files will be disabled when diskPercent >= 100)
 $CFG->diskPercent = array_key_exists('diskPercent_moodle2', $school_info) ? $school_info['diskPercent_moodle2'] : 0;
+$CFG->userquota = 0;  // To avoid the private files area
 
 $CFG->legacyfilesinnewcourses=0;        
 $CFG->updateautocheck = 0;

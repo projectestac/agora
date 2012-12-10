@@ -5,16 +5,28 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+Changes 12.12.12
+---------------------------------------------------------------------------------------
 GENERAL
 - Added param to allow not updating dayly stats of Moodle 1.9 if they already exist
+- xtecSchool cookie name is now a param in html/config/config.php
 
 MOODLE
 - Added server name to adodberror log to know which web server was implied
+- Fixed database ordering problems notified by Odissea team (http://tracker.moodle.org/browse/MDL-33603)
+- Fixed problem when deleting some of the user responses in a choice activity (only affects to multi-site instances)
+- Showed $CFG->dataroot/climaintenance.html file when exists (at the moment, it will be used in demo site but, if necessary, it can be used in the remaining multi-sites)
 
 MOODLE 2
 - Fixed course order in courses tab of coursequotas. Units were not being considered when ordering.
 - Added missign Catalan translation files to questionnaire module
 - Added support for https authentication using BigIP
+- Adapted source to rename logo_agora to logo_main in xtec2 theme (to make it more generic)
+- Added user bulk function to capitalize names and surnames
+- Reviewed function create_user_record in lib/moodlelib.php to capitalize user name and surname
+- Added CFG->userquota = 0 to avoid the private files area
 
 PORTAL
 - Updated message sent to users when a new service is activated

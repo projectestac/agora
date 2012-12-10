@@ -353,7 +353,7 @@ function jclic_get_activity($session) {
 function jclic_get_sessions_summary($jclicid, $userid) {
 	global $CFG;
 
-  $sessions_sumari = array('attempts'=>'','score'=>'','totaltime'=>'','starttime'=>'','done'=>'','solved'=>'');
+  $sessions_summary = array('attempts'=>'','score'=>'','totaltime'=>'','starttime'=>'','done'=>'','solved'=>'');
 	if ($rs = get_record_sql("SELECT COUNT(*) AS attempts, AVG(t.qualification) AS qualification, SUM(t.totaltime) AS totaltime, MAX(t.starttime) AS starttime
                             FROM (SELECT AVG(ja.qualification) AS qualification, SUM(ja.total_time) AS totaltime, MAX(js.session_datetime) AS starttime
                                   FROM {$CFG->prefix}jclic j, {$CFG->prefix}jclic_sessions js, {$CFG->prefix}jclic_activities ja  

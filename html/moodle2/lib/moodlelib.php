@@ -3780,6 +3780,16 @@ function create_user_record($username, $password, $auth = 'manual') {
         }
     }
 
+    //XTEC ************ AFEGIT - To capitalize correctly the first and last names
+    //2012.12.07 @sarjona
+    if (!empty($newuser->firstname)){
+        $newuser->firstname = mb_convert_case($newuser->firstname, MB_CASE_TITLE, "UTF-8");
+    }
+    if (!empty($newuser->lastname)){
+        $newuser->lastname = mb_convert_case($newuser->lastname, MB_CASE_TITLE, "UTF-8");    	
+    }
+    //************ FI
+    
     if (!empty($newuser->email)) {
         if (email_is_not_allowed($newuser->email)) {
             unset($newuser->email);

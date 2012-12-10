@@ -15,3 +15,8 @@ $string['diskquotaerror'] = '<strong>WARNING</strong>: This Moodle site has expi
 
 // Rush hour
 $string['rush_hour'] = 'This operation is not allowed in rush hours. You can do it from monday to friday before 9:00, from 14:00 to 14:59 and after 17:00. All day on weekends.';
+
+// User bulk action to capitalize
+$string['capitalize'] = 'Capitalize first letter';
+$string['capitalizecheckfull'] = 'Are you absolutely sure you want to capitalize the first letter of the name of {$a} ?';
+$string['capitalizenot'] = 'Could not capitalize the first letter of the name of {$a} !';
