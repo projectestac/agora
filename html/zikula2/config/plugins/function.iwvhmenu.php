@@ -1,238 +1,240 @@
 <?php
+
 /**
  * Counts the number of sub-items where a user can access
- * @author:     Albert Pérez Monfort (aperezm@xtec.cat) & Toni Ginard Lladó (aginard@xtec.cat)
+ * @author:     Albert Pï¿½rez Monfort (aperezm@xtec.cat) & Toni Ginard Lladï¿½ (aginard@xtec.cat)
  * @params:	$id_parent:	id of the parent item
  * @return:	the number of items
-*/
-function NumberSubitems($id_parent)
-{
-	$uid = pnUserGetVar('uid');
-	if(!isset($uid)){
-		$uid = '-1';
-	}
+ */
+function NumberSubitems($id_parent) {
+    $uid = UserUtil::getVar('uid');
+    if (!isset($uid)) {
+        $uid = '-1';
+    }
 
-	$getAllSubMenuItems = pnModApiFunc('iw_vhmenu','user','getAllSubMenuItems',array('id_parent' => $id_parent));
+    $getAllSubMenuItems = ModUtil::apiFunc('IWvhmenu', 'user', 'getAllSubMenuItems', array('id_parent' => $id_parent));
 
-	$num_items = 0;
+    $num_items = 0;
 
-	// Count items allowed to access
-	foreach($getAllSubMenuItems as $item) {
-		$groups_vector = explode("$", $item['groups']);
-		foreach ($groups_vector as $group) {
-			if ($group != '') {
-				$gids = explode("|", $group);
-				if($uid != '-1'){
-					$sv = pnModFunc('iw_main', 'user', 'genSecurityValue');
-					$isMember = pnModFunc('iw_main', 'user', 'isMember', array('uid' => $uid,
-													'gid' => $gids[0],
-													'sgid' => $gids[1],
-													'sv' => $sv));
-				}
-				if ($isMember || ($gids[0] == '-1' && $uid == '-1') ) {
-					$num_items++;
-					break;
-				}
-			}
-		}
-	}
+    // Count items allowed to access
+    foreach ($getAllSubMenuItems as $item) {
+        $groups_vector = explode("$", $item['groups']);
+        foreach ($groups_vector as $group) {
+            if ($group != '') {
+                $gids = explode("|", $group);
+                if ($uid != '-1') {
+                    $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+                    $isMember = ModUtil::func('IWmain', 'user', 'isMember', array('uid' => $uid,
+                                'gid' => $gids[0],
+                                'sgid' => $gids[1],
+                                'sv' => $sv));
+                }
+                if ($isMember || ($gids[0] == '-1' && $uid == '-1')) {
+                    $num_items++;
+                    break;
+                }
+            }
+        }
+    }
 
-	return $num_items;
+    return $num_items;
 }
 
 /**
  * Builds the sub-items of a menu item. It can only be called from the smarty function below.
- * @author:     Albert Pérez Monfort (aperezm@xtec.cat) & Toni Ginard Lladó (aginard@xtec.cat)
+ * @author:     Albert Pï¿½rez Monfort (aperezm@xtec.cat) & Toni Ginard Lladï¿½ (aginard@xtec.cat)
  * @params:	$id_parent:	id of the parent item
  *         	$item:		position of the element. Takes the form 1_2_3
- *		$menu:		string containing the definition of the menu
+ * 		$menu:		string containing the definition of the menu
  * @return:	$menu if all is OK false if an error ocurred
-*/
-function show_subelems($id_parent, $items, $menu)
-{
-	$uid = pnUserGetVar('uid');
-	if(!isset($uid)){
-		$uid = '-1';
-	}
+ */
+function show_subelems($id_parent, $items, $menu) {
+    $uid = UserUtil::getVar('uid');
+    if (!isset($uid)) {
+        $uid = '-1';
+    }
 
-	$getAllSubMenuItems = pnModApiFunc('iw_vhmenu','user','getAllSubMenuItems',array('id_parent' => $id_parent));
+    $num_items = 0;
 
-	// Get image folder
-	$image_folder = pnModGetVar('iw_vhmenu', 'imagedir');
+    $getAllSubMenuItems = ModUtil::apiFunc('IWvhmenu', 'user', 'getAllSubMenuItems', array('id_parent' => $id_parent));
 
-	// Filter n-level items active to get only authorized items
-	// Array $menu_items contains all the menú items and $num_items the number of first-level items
-	foreach($getAllSubMenuItems as $item) {
-		$groups_vector = explode("$", $item['groups']);
-		foreach ($groups_vector as $group) {
-			if ($group != '') {
-				$gids = explode("|", $group);
-				if($uid != '-1'){
-					$sv = pnModFunc('iw_main', 'user', 'genSecurityValue');
-					$isMember = pnModFunc('iw_main', 'user', 'isMember', array('uid' => $uid,
-													'gid' => $gids[0],
-													'sgid' => $gids[1],
-													'sv' => $sv));
-				}
-				if ($isMember || ($gids[0] == '-1' && $uid == '-1') ) {
-					// Put target in detic_portal if available and selected
-					if($item['target'] == 2 && pnModAvailable('iw_webbox')){
-						$item['url'] = str_replace('?','**',$item['url']);
-						$item['url'] = str_replace('&','*',$item['url']);
-						$item['url'] = 'index.php?module=iw_webbox&url='.$item['url'];
-					}
-					if($item['grafic'] && file_exists(pnModGetVar('iw_main', 'documentRoot').'/'.pnModGetVar('iw_vhmenu','imagedir').'/'.$item['image1']) && file_exists(pnModGetVar('iw_main', 'documentRoot').'/'.pnModGetVar('iw_vhmenu','imagedir').'/'.$item['image2']) && $image1 != '' & $image2 =! ''){
-						$text_menu = 'rollover:'."index.php?module=iw_vhmenu&func=getFile&fileName=$image_folder/$item[image1]".':'."index.php?module=iw_vhmenu&func=getFile&fileName=$image_folder/$item[image2]";
-					}else{
-						$text_menu = $item['text'];
-					}					
-					$num_subitems = NumberSubitems($item['mid']);
-					$image = ($item['bg_image'] != '' && file_exists(pnModGetVar('iw_main', 'documentRoot').'/'.pnModGetVar('iw_vhmenu','imagedir').'/'.$item['bg_image'])) ? "index.php?module=iw_vhmenu&func=getFile&fileName=$image_folder/$item[bg_image]": '';
-					$menu_items[] = array('mid' => $item['mid'], 'text' => $text_menu, 'url' => $item['url'], 'bg_image' => $image, 'num_subitems' => $num_subitems, 'height' => $item['height'], 'width' => $item['width']);
-					$num_items++;
-					break;
-				}
-			}
-		}
-	}
+    // Get image folder
+    $image_folder = ModUtil::getVar('IWvhmenu', 'imagedir');
 
-	// Builds all levels sub-items with a recursive call
-	for ($i = 1; $i < ($num_items+1); $i++) {
-		$menu .= "\nMenu".$items."_".$i."=new Array(\"".$menu_items[$i - 1]['text']."\", \"".$menu_items[$i - 1]['url']."\", \"".$menu_items[$i-1]['bg_image']."\", ".$menu_items[$i - 1]['num_subitems'].", ".$menu_items[$i - 1]['height'].", ".$menu_items[$i - 1]['width'].");";
-		if (($menu = show_subelems ($menu_items[$i - 1]['mid'], $items."_".$i, $menu)) == false) {
-			return false;
-		}
-	}
+    // Filter n-level items active to get only authorized items
+    // Array $menu_items contains all the menï¿½ items and $num_items the number of first-level items
+    foreach ($getAllSubMenuItems as $item) {
+        $groups_vector = explode("$", $item['groups']);
+        foreach ($groups_vector as $group) {
+            if ($group != '') {
+                $gids = explode("|", $group);
+                if ($uid != '-1') {
+                    $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+                    $isMember = ModUtil::func('IWmain', 'user', 'isMember', array('uid' => $uid,
+                                'gid' => $gids[0],
+                                'sgid' => $gids[1],
+                                'sv' => $sv));
+                }
+                if ($isMember || ($gids[0] == '-1' && $uid == '-1')) {
+                    // Put target in detic_portal if available and selected
+                    if ($item['target'] == 2 && pnModAvailable('IWwebbox')) {
+                        $item['url'] = str_replace('?', '**', $item['url']);
+                        $item['url'] = str_replace('&', '*', $item['url']);
+                        $item['url'] = 'index.php?module=IWwebbox&url=' . $item['url'];
+                    }
+                    if ($item['grafic'] && file_exists(ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWvhmenu', 'imagedir') . '/' . $item['image1']) && file_exists(ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWvhmenu', 'imagedir') . '/' . $item['image2']) && $image1 != '' & $image2 = !'') {
+                        $text_menu = 'rollover:' . "index.php?module=IWvhmenu&func=getFile&fileName=$image_folder/$item[image1]" . ':' . "index.php?module=IWvhmenu&func=getFile&fileName=$image_folder/$item[image2]";
+                    } else {
+                        $text_menu = $item['text'];
+                    }
+                    $num_subitems = NumberSubitems($item['mid']);
+                    $image = ($item['bg_image'] != '' && file_exists(ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWvhmenu', 'imagedir') . '/' . $item['bg_image'])) ? "index.php?module=IWvhmenu&func=getFile&fileName=$image_folder/$item[bg_image]" : '';
+                    $menu_items[] = array('mid' => $item['mid'], 'text' => $text_menu, 'url' => $item['url'], 'bg_image' => $image, 'num_subitems' => $num_subitems, 'height' => $item['height'], 'width' => $item['width']);
+                    $num_items++;
+                    break;
+                }
+            }
+        }
+    }
 
-	return $menu;
+    // Builds all levels sub-items with a recursive call
+    for ($i = 1; $i < ($num_items + 1); $i++) {
+        $menu .= "\nMenu" . $items . "_" . $i . "=new Array(\"" . $menu_items[$i - 1]['text'] . "\", \"" . $menu_items[$i - 1]['url'] . "\", \"" . $menu_items[$i - 1]['bg_image'] . "\", " . $menu_items[$i - 1]['num_subitems'] . ", " . $menu_items[$i - 1]['height'] . ", " . $menu_items[$i - 1]['width'] . ");";
+        if (($menu = show_subelems($menu_items[$i - 1]['mid'], $items . "_" . $i, $menu)) == false) {
+            return false;
+        }
+    }
+
+    return $menu;
 }
 
 /**
- * Builds a javascript menu using module iw_vhmenu. Call this plug-in from the theme (<!--[iwvhmenu]-->)
- * @author:     Albert Pérez Monfort (aperezm@xtec.cat) & Toni Ginard Lladó (aginard@xtec.cat)
+ * Builds a javascript menu using module IWvhmenu. Call this plug-in from the theme (<!--[iwvhmenu]-->)
+ * @author:     Albert Pï¿½rez Monfort (aperezm@xtec.cat) & Toni Ginard Lladï¿½ (aginard@xtec.cat)
  * @return:	Javascript menu
-*/
-function smarty_function_iwvhmenu($params, &$smarty)
-{
-	extract($params);
-	unset($params);
+ */
+function smarty_function_iwvhmenu($params, &$smarty) {
+    extract($params);
+    unset($params);
 
-	// Check is module iwvhmenu is available
-	if (!pnModAvailable('iw_vhmenu')){
-		return;
-	}
+    // Check is module iwvhmenu is available
+    if (!ModUtil::available('IWvhmenu')) {
+        return;
+    }
 
-	$uid = pnUserGetVar('uid');
+    $uid = UserUtil::getVar('uid');
 
-	if(!isset($uid)){
-		$uid = '-1';
-	}
+    if (!isset($uid)) {
+        $uid = '-1';
+    }
 
-	$sv = pnModFunc('iw_main', 'user', 'genSecurityValue');
-	$exists = pnModApiFunc('iw_main', 'user', 'userVarExists', array('name' => 'userMenu',
-										'module' => 'iw_vhmenu',
-										'uid' => $uid,
-										'sv' => $sv));
+    $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+    $exists = ModUtil::apiFunc('IWmain', 'user', 'userVarExists', array('name' => 'userMenu',
+                'module' => 'IWvhmenu',
+                'uid' => $uid,
+                'sv' => $sv));
 
-	if($exists){
-		$sv = pnModFunc('iw_main', 'user', 'genSecurityValue');
-		return pnModFunc('iw_main', 'user', 'userGetVar', array('uid' => $uid,
-									'name' => 'userMenu',
-									'module' => 'iw_vhmenu',
-									'sv' => $sv,
-									'nult' => true));
-	}
+    if ($exists) {
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        return ModUtil::func('IWmain', 'user', 'userGetVar', array('uid' => $uid,
+                    'name' => 'userMenu',
+                    'module' => 'IWvhmenu',
+                    'sv' => $sv,
+                    'nult' => true));
+    }
 
-	$getAllMenuItems = pnModApiFunc('iw_vhmenu','user','getAllMenuItems');
+    $num_items = 0;
 
-	// Get image folder
-	$image_folder = pnModGetVar('iw_vhmenu', 'imagedir');
+    $getAllMenuItems = ModUtil::apiFunc('IWvhmenu', 'user', 'getAllMenuItems');
 
-	// Filter first-level items active to get only authorized elements
-	// Array $menu_items contains all the menú elements and $num_items the number of first-level items
-	foreach ($getAllMenuItems as $item) {
-		$groups_vector = explode("$", $item['groups']);
-		foreach ($groups_vector as $group) {
-			if ($group != '') {
-				$gids = explode("|", $group);
-				if($uid != '-1'){
-					$sv = pnModFunc('iw_main', 'user', 'genSecurityValue');
-					$isMember = pnModFunc('iw_main', 'user', 'isMember', array('uid' => $uid,
-													'gid' => $gids[0],
-													'sgid' => $gids[1],
-													'sv' => $sv));
-				}
-				if ($isMember || ($gids[0] == '-1' && $uid == '-1') ) {
-					// Put target in detic_portal if available and selected
-					if($item['target'] == 2 && pnModAvailable('iw_webbox')){
-						$item['url'] = str_replace('?','**',$item['url']);
-						$item['url'] = str_replace('&','*',$item['url']);
-						$item['url'] = 'index.php?module=iw_webbox&url='.$item['url'];
-					}
-					$num_subitems = NumberSubitems($item['mid']);
-					if($item['grafic'] && file_exists(pnModGetVar('iw_main', 'documentRoot').'/'.$image_folder.'/'.$item['image1']) && file_exists(pnModGetVar('iw_main', 'documentRoot').'/'.$image_folder.'/'.$item['image2']) && $item['image1'] != '' && $item['image2'] != ''){
-						$text_menu = 'rollover:'."index.php?module=iw_vhmenu&func=getFile&fileName=$image_folder/$item[image1]".':'."index.php?module=iw_vhmenu&func=getFile&fileName=$image_folder/$item[image2]";
-					}else{
-						$text_menu = $item['text'];
-					}
-					$image = ($item['bg_image'] != '' && file_exists(pnModGetVar('iw_main', 'documentRoot').'/'.pnModGetVar('iw_vhmenu','imagedir').'/'.$item['bg_image'])) ? "index.php?module=iw_vhmenu&func=getFile&fileName=$image_folder/$item[bg_image]": '';
-					$menu_items[] = array('mid' => $item['mid'], 'text' => $text_menu, 'url' => $item['url'], 'bg_image' => $image, 'num_subitems' => $num_subitems, 'height' => $item['height'], 'width' => $item['width']);
+    // Get image folder
+    $image_folder = ModUtil::getVar('IWvhmenu', 'imagedir');
 
-					$num_items++;
-					break;
-				}
-			}
-		}
-	}
-	
-	$NoOffFirstLineMenus = $num_items;
+    // Filter first-level items active to get only authorized elements
+    // Array $menu_items contains all the menï¿½ elements and $num_items the number of first-level items
+    foreach ($getAllMenuItems as $item) {
+        $groups_vector = explode("$", $item['groups']);
+        foreach ($groups_vector as $group) {
+            if ($group != '') {
+                $gids = explode("|", $group);
+                if ($uid != '-1') {
+                    $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+                    $isMember = ModUtil::func('IWmain', 'user', 'isMember', array('uid' => $uid,
+                                'gid' => $gids[0],
+                                'sgid' => $gids[1],
+                                'sv' => $sv));
+                }
+                if ($isMember || ($gids[0] == '-1' && $uid == '-1')) {
+                    // Put target in detic_portal if available and selected
+                    if ($item['target'] == 2 && pnModAvailable('IWwebbox')) {
+                        $item['url'] = str_replace('?', '**', $item['url']);
+                        $item['url'] = str_replace('&', '*', $item['url']);
+                        $item['url'] = 'index.php?module=IWwebbox&url=' . $item['url'];
+                    }
+                    $num_subitems = NumberSubitems($item['mid']);
+                    if ($item['grafic'] && file_exists(ModUtil::getVar('IWmain', 'documentRoot') . '/' . $image_folder . '/' . $item['image1']) && file_exists(ModUtil::getVar('IWmain', 'documentRoot') . '/' . $image_folder . '/' . $item['image2']) && $item['image1'] != '' && $item['image2'] != '') {
+                        $text_menu = 'rollover:' . "index.php?module=IWvhmenu&func=getFile&fileName=$image_folder/$item[image1]" . ':' . "index.php?module=IWvhmenu&func=getFile&fileName=$image_folder/$item[image2]";
+                    } else {
+                        $text_menu = $item['text'];
+                    }
+                    $image = ($item['bg_image'] != '' && file_exists(ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWvhmenu', 'imagedir') . '/' . $item['bg_image'])) ? "index.php?module=IWvhmenu&func=getFile&fileName=$image_folder/$item[bg_image]" : '';
+                    $menu_items[] = array('mid' => $item['mid'], 'text' => $text_menu, 'url' => $item['url'], 'bg_image' => $image, 'num_subitems' => $num_subitems, 'height' => $item['height'], 'width' => $item['width']);
 
-	// Configuration data get from table module_vars
-	$LowBgColor = pnModGetVar('iw_vhmenu', 'LowBgColor');
-	$LowSubBgColor = pnModGetVar('iw_vhmenu', 'LowSubBgColor');
-	$HighBgColor = pnModGetVar('iw_vhmenu', 'HighBgColor');
-	$HighSubBgColor = pnModGetVar('iw_vhmenu', 'HighSubBgColor');
-	$FontLowColor = pnModGetVar('iw_vhmenu', 'FontLowColor');
-	$FontSubLowColor = pnModGetVar('iw_vhmenu', 'FontSubLowColor');
-	$FontHighColor = pnModGetVar('iw_vhmenu', 'FontHighColor');
-	$FontSubHighColor = pnModGetVar('iw_vhmenu', 'FontSubHighColor');
-	$BorderColor = pnModGetVar('iw_vhmenu', 'BorderColor');
-	$BorderSubColor = pnModGetVar('iw_vhmenu', 'BorderSubColor');
-	$BorderWidth = pnModGetVar('iw_vhmenu', 'BorderWidth');
-	$BorderBtwnElmnts = pnModGetVar('iw_vhmenu', 'BorderBtwnElmnts');
-	$FontFamily = pnModGetVar('iw_vhmenu', 'FontFamily');
-	$FontSize = pnModGetVar('iw_vhmenu', 'FontSize');
-	$FontBold = pnModGetVar('iw_vhmenu', 'FontBold');
-	$FontItalic = pnModGetVar('iw_vhmenu', 'FontItalic');
-	$MenuTextCentered = pnModGetVar('iw_vhmenu', 'MenuTextCentered');
-	$MenuCentered = pnModGetVar('iw_vhmenu', 'MenuCentered');
-	$MenuVerticalCentered = pnModGetVar('iw_vhmenu', 'MenuVerticalCentered');
-	$ChildOverlap = pnModGetVar('iw_vhmenu', 'ChildOverlap');
-	$ChildVerticalOverlap = pnModGetVar('iw_vhmenu', 'ChildVerticalOverlap');
-	$StartTop = pnModGetVar('iw_vhmenu', 'StartTop');
-	$StartLeft = pnModGetVar('iw_vhmenu', 'StartLeft');
-	$VerCorrect = pnModGetVar('iw_vhmenu', 'VerCorrect');
-	$HorCorrect = pnModGetVar('iw_vhmenu', 'HorCorrect');
-	$LeftPaddng = pnModGetVar('iw_vhmenu', 'LeftPaddng');
-	$TopPaddng = pnModGetVar('iw_vhmenu', 'TopPaddng');
-	$FirstLineHorizontal = pnModGetVar('iw_vhmenu', 'FirstLineHorizontal');
-	$MenuFramesVertical = pnModGetVar('iw_vhmenu', 'MenuFramesVertical');
-	$DissapearDelay = pnModGetVar('iw_vhmenu', 'DissapearDelay');
-	$TakeOverBgColor = pnModGetVar('iw_vhmenu', 'TakeOverBgColor');
-	$FirstLineFrame = pnModGetVar('iw_vhmenu', 'FirstLineFrame');
-	$SecLineFrame = pnModGetVar('iw_vhmenu', 'SecLineFrame');
-	$DocTargetFrame = pnModGetVar('iw_vhmenu', 'DocTargetFrame');
-	$TargetLoc = pnModGetVar('iw_vhmenu', 'TargetLoc');
-	$HideTop = pnModGetVar('iw_vhmenu', 'HideTop');
-	$MenuWrap = pnModGetVar('iw_vhmenu', 'MenuWrap');
-	$RightToLeft = pnModGetVar('iw_vhmenu', 'RightToLeft');
-	$UnfoldsOnClick = pnModGetVar('iw_vhmenu', 'UnfoldsOnClick');
-	$WebMasterCheck = pnModGetVar('iw_vhmenu', 'WebMasterCheck');
-	$ShowArrow = pnModGetVar('iw_vhmenu', 'ShowArrow');
-	$KeepHilite = pnModGetVar('iw_vhmenu', 'KeepHilite');
+                    $num_items++;
+                    break;
+                }
+            }
+        }
+    }
 
-	// Data vars for javascript
-	$menu = "<script type=\"text/javascript\">
+    $NoOffFirstLineMenus = $num_items;
+
+    // Configuration data get from table module_vars
+    $LowBgColor = ModUtil::getVar('IWvhmenu', 'LowBgColor');
+    $LowSubBgColor = ModUtil::getVar('IWvhmenu', 'LowSubBgColor');
+    $HighBgColor = ModUtil::getVar('IWvhmenu', 'HighBgColor');
+    $HighSubBgColor = ModUtil::getVar('IWvhmenu', 'HighSubBgColor');
+    $FontLowColor = ModUtil::getVar('IWvhmenu', 'FontLowColor');
+    $FontSubLowColor = ModUtil::getVar('IWvhmenu', 'FontSubLowColor');
+    $FontHighColor = ModUtil::getVar('IWvhmenu', 'FontHighColor');
+    $FontSubHighColor = ModUtil::getVar('IWvhmenu', 'FontSubHighColor');
+    $BorderColor = ModUtil::getVar('IWvhmenu', 'BorderColor');
+    $BorderSubColor = ModUtil::getVar('IWvhmenu', 'BorderSubColor');
+    $BorderWidth = ModUtil::getVar('IWvhmenu', 'BorderWidth');
+    $BorderBtwnElmnts = ModUtil::getVar('IWvhmenu', 'BorderBtwnElmnts');
+    $FontFamily = ModUtil::getVar('IWvhmenu', 'FontFamily');
+    $FontSize = ModUtil::getVar('IWvhmenu', 'FontSize');
+    $FontBold = ModUtil::getVar('IWvhmenu', 'FontBold');
+    $FontItalic = ModUtil::getVar('IWvhmenu', 'FontItalic');
+    $MenuTextCentered = ModUtil::getVar('IWvhmenu', 'MenuTextCentered');
+    $MenuCentered = ModUtil::getVar('IWvhmenu', 'MenuCentered');
+    $MenuVerticalCentered = ModUtil::getVar('IWvhmenu', 'MenuVerticalCentered');
+    $ChildOverlap = ModUtil::getVar('IWvhmenu', 'ChildOverlap');
+    $ChildVerticalOverlap = ModUtil::getVar('IWvhmenu', 'ChildVerticalOverlap');
+    $StartTop = ModUtil::getVar('IWvhmenu', 'StartTop');
+    $StartLeft = ModUtil::getVar('IWvhmenu', 'StartLeft');
+    $VerCorrect = ModUtil::getVar('IWvhmenu', 'VerCorrect');
+    $HorCorrect = ModUtil::getVar('IWvhmenu', 'HorCorrect');
+    $LeftPaddng = ModUtil::getVar('IWvhmenu', 'LeftPaddng');
+    $TopPaddng = ModUtil::getVar('IWvhmenu', 'TopPaddng');
+    $FirstLineHorizontal = ModUtil::getVar('IWvhmenu', 'FirstLineHorizontal');
+    $MenuFramesVertical = ModUtil::getVar('IWvhmenu', 'MenuFramesVertical');
+    $DissapearDelay = ModUtil::getVar('IWvhmenu', 'DissapearDelay');
+    $TakeOverBgColor = ModUtil::getVar('IWvhmenu', 'TakeOverBgColor');
+    $FirstLineFrame = ModUtil::getVar('IWvhmenu', 'FirstLineFrame');
+    $SecLineFrame = ModUtil::getVar('IWvhmenu', 'SecLineFrame');
+    $DocTargetFrame = ModUtil::getVar('IWvhmenu', 'DocTargetFrame');
+    $TargetLoc = ModUtil::getVar('IWvhmenu', 'TargetLoc');
+    $HideTop = ModUtil::getVar('IWvhmenu', 'HideTop');
+    $MenuWrap = ModUtil::getVar('IWvhmenu', 'MenuWrap');
+    $RightToLeft = ModUtil::getVar('IWvhmenu', 'RightToLeft');
+    $UnfoldsOnClick = ModUtil::getVar('IWvhmenu', 'UnfoldsOnClick');
+    $WebMasterCheck = ModUtil::getVar('IWvhmenu', 'WebMasterCheck');
+    $ShowArrow = ModUtil::getVar('IWvhmenu', 'ShowArrow');
+    $KeepHilite = ModUtil::getVar('IWvhmenu', 'KeepHilite');
+
+    // Data vars for javascript
+    $menu = "<script type=\"text/javascript\">
 		// HV Menu by Ger Versluis (http://www.burmees.nl/)
 		// Submitted to Dynamic Drive (http://www.dynamicdrive.com)
 		// Visit http://www.dynamicdrive.com for this script and more
@@ -280,29 +282,29 @@ function smarty_function_iwvhmenu($params, &$smarty)
 		var WebMasterCheck=$WebMasterCheck;					// menu tree checking on or off 1 or 0
 		var ShowArrow=$ShowArrow;							// Uses arrow gifs when 1
 		var KeepHilite=$KeepHilite;							// Keep selected path highligthed
-		var Arrws=['modules/iw_vhmenu/pnimages/tri.gif',5,10,'modules/iw_vhmenu/pnimages/tridown.gif',10,5,'modules/iw_vhmenu/pnimages/trileft.gif',5,10];	// Arrow source, width and height
+		var Arrws=['modules/IWvhmenu/pnimages/tri.gif',5,10,'modules/IWvhmenu/pnimages/tridown.gif',10,5,'modules/IWvhmenu/pnimages/trileft.gif',5,10];	// Arrow source, width and height
 		
 		function BeforeStart(){return}
 		function AfterBuild(){return}
 		function BeforeFirstOpen(){return}
 		function AfterCloseAll(){return}";
 
-	for ($i = 1; $i < ($num_items+1); $i++) {
-		$menu .= "\nMenu".$i."=new Array(\"".$menu_items[$i-1]['text']."\", \"".$menu_items[$i-1]['url']."\", \"".$menu_items[$i-1]['bg_image']."\", ".$menu_items[$i-1]['num_subitems'].", ".$menu_items[$i-1]['height'].", ".$menu_items[$i-1]['width'].");";
-		if (($menu = show_subelems ($menu_items[$i-1]['mid'], $i, $menu)) == false) {
-			return false;
-		}
-	}
+    for ($i = 1; $i < ($num_items + 1); $i++) {
+        $menu .= "\nMenu" . $i . "=new Array(\"" . $menu_items[$i - 1]['text'] . "\", \"" . $menu_items[$i - 1]['url'] . "\", \"" . $menu_items[$i - 1]['bg_image'] . "\", " . $menu_items[$i - 1]['num_subitems'] . ", " . $menu_items[$i - 1]['height'] . ", " . $menu_items[$i - 1]['width'] . ");";
+        if (($menu = show_subelems($menu_items[$i - 1]['mid'], $i, $menu)) == false) {
+            return false;
+        }
+    }
 
-	// Put call to javascript functions
-	$menu .= "\n</script>\n<script type=\"text/javascript\" src=\"modules/iw_vhmenu/javascript/menu_com.js\"></script>\n";
+    // Put call to javascript functions
+    $menu .= "\n</script>\n<script type=\"text/javascript\" src=\"modules/IWvhmenu/javascript/menu_com.js\"></script>\n";
 
-	$sv = pnModFunc('iw_main', 'user', 'genSecurityValue');
-	pnModFunc('iw_main', 'user', 'userSetVar', array('uid' => $uid,
-								'name' => 'userMenu',
-								'module' => 'iw_vhmenu',
-								'sv' => $sv,
-								'value' => $menu,
-								'lifetime' => '600'));
-	return $menu;
+    $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+    ModUtil::func('IWmain', 'user', 'userSetVar', array('uid' => $uid,
+        'name' => 'userMenu',
+        'module' => 'IWvhmenu',
+        'sv' => $sv,
+        'value' => $menu,
+        'lifetime' => '600'));
+    return $menu;
 }
