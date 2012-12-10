@@ -26,6 +26,7 @@ MOODLE 2
 - Adapted source to rename logo_agora to logo_main in xtec2 theme (to make it more generic)
 - Added user bulk function to capitalize names and surnames
 - Reviewed function create_user_record in lib/moodlelib.php to capitalize user name and surname
+- Added CFG->userquota = 0 to avoid the private files area
 
 PORTAL
 - Updated message sent to users when a new service is activated
