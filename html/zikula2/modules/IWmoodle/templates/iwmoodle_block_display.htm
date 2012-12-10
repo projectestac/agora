@@ -13,7 +13,7 @@
 {section name=courses loop=$courses}
 <div>
     <div style="float: left;"><a href="{modurl modname="IWmoodle" type="user" func="main" id=$courses[courses].id}" target="_blank">{$courses[courses].fullname}</a></div>
-    <div style="float: right;"><a href="#" onClick="return overlay(this, '{$courses[courses].id}')">{img modname='IWmoodle' src='info.gif' set='pnimages'}</a></div>
+    <div style="float: right;"><a href="#" onClick="return overlay(this, '{$courses[courses].id}')">{img modname='IWmoodle' src='info.gif' set='images'}</a></div>
     <div id="{$courses[courses].id}" class="infoBox" style="clear: both;display:none;">
         <div class="infoSummary">
             {$courses[courses].summary}

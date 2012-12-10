@@ -32,6 +32,7 @@ class IWmoodle_Block_Courses extends Zikula_Controller_AbstractBlock {
                     'module' => 'IWmoodle',
                     'uid' => $uid,
                     'sv' => $sv));
+        // $exists = false;
         if ($exists) {
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
             $s = ModUtil::func('IWmain', 'user', 'userGetVar', array('uid' => $uid,
@@ -42,6 +43,9 @@ class IWmoodle_Block_Courses extends Zikula_Controller_AbstractBlock {
             $row['content'] = $s;
             return BlockUtil::themesideblock($row);
         }
+        
+        $courses_array = array();
+        
         // Create output object
         $view = Zikula_View::getInstance('IWmoodle', false);
         $uname = (UserUtil::getVar('uname') != '') ? UserUtil::getVar('uname') : ModUtil::getVar('IWmoodle', 'guestuser');

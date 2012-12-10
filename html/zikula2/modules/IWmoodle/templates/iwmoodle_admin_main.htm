@@ -1,10 +1,10 @@
 {include file="iwmoodle_admin_menu.htm"}
-<div class="pn-admincontainer">
-    <div class="pn-adminpageicon">{img modname='core' src='windowlist.gif' set='icons/large' __alt=$templatetitle}</div>
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     {if $courses|@count gt 0}
     <h2>{gt text="List of available courses"}</h2>
     <div style="height:20px;">&nbsp;</div>
-    <table class="pn-admintable">
+    <table class="z-datatable">
         <thead>
             <tr>
                 <th>{gt text="Code"}</th>
@@ -17,39 +17,39 @@
         </thead>
         <tbody>
             {section name=courses loop=$courses}
-            <tr class="{cycle values="pn-odd,pn-even"}">
+            <tr class="{cycle values='pn-odd,pn-even'}">
                 <td valign="top">
-                     {$courses[courses].shortname}
-                 </td>		
-                 <td valign="top">
-                     {$courses[courses].fullname}
-                 </td>
-                 <td valign="top">
-                     {$courses[courses].summary}
-                 </td>
-                 <td valign="top">
-                     {$courses[courses].format}
-                 </td>
-                 <td valign="top">
-                     <div name="state_{$courses[courses].id}" id="state_{$courses[courses].id}">
-                         {if $courses[courses].visible eq 0}
-                         <a href="javascript:chgCourseState({$courses[courses].id})"><span class="inactive">{gt text="Disabled"}</span></a>
-                     {else}
-                     <a href="javascript:chgCourseState({$courses[courses].id})"><span class="active">{gt text="Enabled"}</span></a>
-                     {/if}
-                 </div>
-             </td>
-             <td valign="top">
-                 <div name="options_{$courses[courses].id}" id="options_{$courses[courses].id}">
-                     <a href="{modurl modname=IWmoodle type=admin func=usersList id=$courses[courses].id}">{gt text="List"}</a>
-                     <br />
-                     {if $courses[courses].visible eq 0}
-                     <a href="javascript:chgCourseState({$courses[courses].id})">{gt text="Active"}</a>
-                     {else}
-                     <a href="javascript:chgCourseState({$courses[courses].id})">{gt text="Inactive"}</a>
-                     {/if}
-                 </div>
-             </td>						
+                    {$courses[courses].shortname}
+                </td>		
+                <td valign="top">
+                    {$courses[courses].fullname}
+                </td>
+                <td valign="top">
+                    {$courses[courses].summary}
+                </td>
+                <td valign="top">
+                    {$courses[courses].format}
+                </td>
+                <td valign="top">
+                    <div name="state_{$courses[courses].id}" id="state_{$courses[courses].id}">
+                        {if $courses[courses].visible eq 0}
+                        <a href="javascript:chgCourseState({$courses[courses].id})"><span class="inactive">{gt text="Disabled"}</span></a>
+                        {else}
+                        <a href="javascript:chgCourseState({$courses[courses].id})"><span class="active">{gt text="Enabled"}</span></a>
+                        {/if}
+                    </div>
+                </td>
+                <td valign="top">
+                    <div name="options_{$courses[courses].id}" id="options_{$courses[courses].id}">
+                        <a href="{modurl modname=IWmoodle type=admin func=usersList id=$courses[courses].id}">{gt text="List"}</a>
+                        <br />
+                        {if $courses[courses].visible eq 0}
+                        <a href="javascript:chgCourseState({$courses[courses].id})">{gt text="Active"}</a>
+                        {else}
+                        <a href="javascript:chgCourseState({$courses[courses].id})">{gt text="Inactive"}</a>
+                        {/if}
+                    </div>
+                </td>						
             </tr>
             {/section}
         </tbody>

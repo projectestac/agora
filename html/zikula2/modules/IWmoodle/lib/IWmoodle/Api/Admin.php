@@ -1,6 +1,18 @@
 <?php
 
-class IWmenu_Api_Admin extends Zikula_AbstractApi {
+class IWmoodle_Api_Admin extends Zikula_AbstractApi {
+
+    public function getlinks($args) {
+        $links = array();
+        if (SecurityUtil::checkPermission('IWmoodle::', "::", ACCESS_ADMIN)) {
+        $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'main'), 'text' => $this->__('Show available courses'), 'class' => 'z-icon-es-view');
+        $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'enrole'), 'text' => $this->__('Enrol users into the course'), 'class' => 'z-icon-es-group');
+        $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'conf'), 'text' => $this->__('Module configuration'), 'class' => 'z-icon-es-config');
+        $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'sincron'), 'text' => $this->__('Synchronize users'), 'class' => 'z-icon-es-group');
+        $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'usersList'), 'text' => $this->__('Return to the course users list'), 'class' => 'z-icon-es-view');
+        }
+        return $links;
+    }
 
     /**
      * Gets all the uses pre-enroled into a course
@@ -428,16 +440,16 @@ class IWmenu_Api_Admin extends Zikula_AbstractApi {
         // Prepare vars because we're going to change the database
         $uname = strtolower(UserUtil::getVar('uname', $uid));
         $pass = UserUtil::getVar('pass', $uid);
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $firstname = ModUtil::func('iw_main', 'user', 'getUserInfo', array('uid' => UserUtil::getVar('uid', $uid),
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $firstname = ModUtil::func('IWmain', 'user', 'getUserInfo', array('uid' => UserUtil::getVar('uid', $uid),
                     'info' => 'n',
                     'sv' => $sv));
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $lastname = ModUtil::func('iw_main', 'user', 'getUserInfo', array('uid' => UserUtil::getVar('uid', $uid),
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $lastname = ModUtil::func('IWmain', 'user', 'getUserInfo', array('uid' => UserUtil::getVar('uid', $uid),
                     'info' => 'c1',
                     'sv' => $sv));
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $lastname2 = ModUtil::func('iw_main', 'user', 'getUserInfo', array('uid' => UserUtil::getVar('uid', $uid),
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $lastname2 = ModUtil::func('IWmain', 'user', 'getUserInfo', array('uid' => UserUtil::getVar('uid', $uid),
                     'info' => 'c2',
                     'sv' => $sv));
 
@@ -616,7 +628,7 @@ class IWmenu_Api_Admin extends Zikula_AbstractApi {
         $uname = FormUtil::getPassedValue('uname', isset($args['uname']) ? $args['uname'] : null, 'POST');
         $email = FormUtil::getPassedValue('email', isset($args['email']) ? $args['email'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('iw_users::', '::', ACCESS_ADMIN)) {
+        if (!SecurityUtil::checkPermission('IWusers::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
         }
         //Needed arguments
@@ -635,7 +647,7 @@ class IWmenu_Api_Admin extends Zikula_AbstractApi {
         $items = array('uid' => $items['uid'],
             'nom' => $nom,
             'cognom1' => $cognoms);
-        if (!DBUtil::insertObject($items, 'iw_users', 'suid')) {
+        if (!DBUtil::insertObject($items, 'IWusers', 'suid')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
         //add user to default group

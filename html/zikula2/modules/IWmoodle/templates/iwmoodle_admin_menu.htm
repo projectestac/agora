@@ -1,8 +1,5 @@
 {ajaxheader modname=iwmoodle filename=moodle.js}
+{insert name="getstatusmsg"}
 {admincategorymenu}
-<div class="pn-adminbox">
-    <h1>{gt text="Moodle Integration"}</h1>
-    <div class="pn-menu">
-        {iwmoodlemenulinks}
-    </div>
-</div>
+<h1>{gt text="Moodle Integration"}</h1>
+{modulelinks modname='IWmoodle' type='admin'}

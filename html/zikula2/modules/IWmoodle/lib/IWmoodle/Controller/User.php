@@ -23,13 +23,11 @@ class IWmoodle_Controller_User extends Zikula_AbstractController {
             //check if user is Moodle user
             $is_user = ModUtil::apiFunc('IWmoodle', 'user', 'is_user', array('user' => UserUtil::getVar('uname')));
 
-
-
             if (!$is_user) {
                 //if not create it
                 $inscribed = ModUtil::apiFunc('IWmoodle', 'admin', 'inscriu');
-                $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-                ModUtil::func('iw_main', 'user', 'userDelVar', array('name' => 'courses',
+                $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+                ModUtil::func('IWmain', 'user', 'userDelVar', array('name' => 'courses',
                     'module' => 'IWmoodle',
                     'uid' => $uid,
                     'sv' => $sv));

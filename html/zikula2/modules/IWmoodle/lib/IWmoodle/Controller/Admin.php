@@ -14,17 +14,19 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             return LogUtil::registerPermissionError();
         }
 
-        // Checks if module iw_main is installed. If not returns error
-        $modid = ModUtil::getIdFromName('iw_main');
+        $courses_array = array();
+
+        // Checks if module IWmain is installed. If not returns error
+        $modid = ModUtil::getIdFromName('IWmain');
         $modinfo = ModUtil::getInfo($modid);
 
         if ($modinfo['state'] != 3) {
-            return LogUtil::registerError($this->__('Module iw_main is needed. You have to install the iw_main module before to install it.'));
+            return LogUtil::registerError($this->__('Module IWmain is needed. You have to install the IWmain module before to install it.'));
         }
 
         // Check if the version needed is correct. If not return error
         $versionNeeded = '0.5';
-        if (!ModUtil::func('iw_main', 'admin', 'checkVersion', array('version' => $versionNeeded))) {
+        if (!ModUtil::func('IWmain', 'admin', 'checkVersion', array('version' => $versionNeeded))) {
             return false;
         }
 
@@ -32,28 +34,28 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         $view = Zikula_View::getInstance('IWmoodle', false);
 
         $courses = ModUtil::apiFunc('IWmoodle', 'admin', 'getall');
-
-        foreach ($courses as $course) {
-            switch ($course['format']) {
-                case "weeks":
-                    $format = $this->__('Weekly');
-                    break;
-                case "topics":
-                    $format = $this->__('Topics');
-                    break;
-                case "social":
-                    $format = $this->__('Social');
-                    break;
+        if ($courses) {
+            foreach ($courses as $course) {
+                switch ($course['format']) {
+                    case "weeks":
+                        $format = $this->__('Weekly');
+                        break;
+                    case "topics":
+                        $format = $this->__('Topics');
+                        break;
+                    case "social":
+                        $format = $this->__('Social');
+                        break;
+                }
+                $courses_array[] = array('id' => $course['id'],
+                    'fullname' => $course['fullname'],
+                    'shortname' => $course['shortname'],
+                    'visible' => $course['visible'],
+                    'format' => $format,
+                    'summary' => nl2br($course['summary']),
+                    'activation' => $activation);
             }
-            $courses_array[] = array('id' => $course['id'],
-                'fullname' => $course['fullname'],
-                'shortname' => $course['shortname'],
-                'visible' => $course['visible'],
-                'format' => $format,
-                'summary' => nl2br($course['summary']),
-                'activation' => $activation);
         }
-
         $view->assign('courses', $courses_array);
         return $view->fetch('iwmoodle_admin_main.htm');
     }
@@ -67,7 +69,7 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         // Create output object
         $view = Zikula_View::getInstance('IWmoodle', false);
 
-        $module = ModUtil::func('iw_main', 'user', 'module_info', array('module_name' => 'IWmoodle',
+        $module = ModUtil::func('IWmain', 'user', 'module_info', array('module_name' => 'IWmoodle',
                     'type' => 'admin'));
 
         $view->assign('module', $module);
@@ -86,11 +88,11 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         }
 
         // Include languages file
-        $countries_path = "modules/IWmoodle/pnlang/" . ZLanguage::getLanguageCode() . "/countries.php";
+        $countries_path = "modules/IWmoodle/lang/" . ZLanguage::getLanguageCode() . "/countries.php";
         if (file_exists($countries_path)) {
             include_once ($countries_path);
         } else {
-            $countries_eng_path = "modules/IWmoodle/pnlang/en/countries.php";
+            $countries_eng_path = "modules/IWmoodle/lang/en/countries.php";
             if (file_exists($countries_eng_path)) {
                 include_once ($countries_eng_path);
             }
@@ -116,10 +118,8 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         }
         // Create output object
         $view = Zikula_View::getInstance('IWmoodle', false);
-        $multizk = (isset($GLOBALS['PNConfig']['Multisites']['multi']) && $GLOBALS['PNConfig']['Multisites']['multi'] == 1) ? 1 : 0;
+        $multizk = (isset($GLOBALS['ZConfig']['Multisites']['multi']) && $GLOBALS['ZConfig']['Multisites']['multi'] == 1) ? 1 : 0;
         $view->assign('multizk', $multizk);
-        $security = SecurityUtil::generateAuthKey();
-        $view->assign('security', $security);
         $view->assign('countries', $countries);
         $view->assign('langs', $langs);
         $view->assign('moodleurl', ModUtil::getVar('IWmoodle', 'moodleurl'));
@@ -164,12 +164,10 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         }
 
         // Confirm authorisation code
-        if (!SecurityUtil::confirmAuthKey()) {
-            return LogUtil::registerAuthidError(ModUtil::url('IWmoodle', 'admin', 'main'));
-        }
+        $this->checkCsrfToken();
 
         // Update module variables.
-        if (!isset($GLOBALS['PNConfig']['Multisites']['multi']) || $GLOBALS['PNConfig']['Multisites']['multi'] != 1) {
+        if (!isset($GLOBALS['ZConfig']['Multisites']['multi']) || $GLOBALS['ZConfig']['Multisites']['multi'] != 1) {
             ModUtil::setVar('IWmoodle', 'moodleurl', $moodleurl);
             ModUtil::setVar('IWmoodle', 'dfl_language', $dfl_language);
             ModUtil::setVar('IWmoodle', 'dbprefix', $dbprefix);
@@ -225,11 +223,11 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         // Create output object
         $view = Zikula_View::getInstance('IWmoodle', false);
 
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $usersName = ModUtil::func('iw_main', 'user', 'getAllUsersInfo', array('sv' => $sv));
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $usersName = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv));
 
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $usersFullname = ModUtil::func('iw_main', 'user', 'getAllUsersInfo', array('info' => 'ccn',
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $usersFullname = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('info' => 'ccn',
                     'sv' => $sv));
 
         $course = ModUtil::apiFunc('IWmoodle', 'user', 'getcourse', array('courseid' => $id));
@@ -254,8 +252,8 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
                 }
 
                 //get the user small photo
-                $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-                $photo_s = ModUtil::func('iw_main', 'user', 'getUserPicture', array('uname' => $user['username'] . '_s',
+                $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+                $photo_s = ModUtil::func('IWmain', 'user', 'getUserPicture', array('uname' => $user['username'] . '_s',
                             'sv' => $sv));
 
                 $lastaccess = ($user['lastaccess'] > 0) ? date('d/m/Y - H.i', $user['lastaccess']) : 0;
@@ -281,8 +279,8 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
                 $userfullname = $usersFullname[$pre_user['uid']];
                 $state = 0;
                 //get the user small photo
-                $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-                $photo_s = ModUtil::func('iw_main', 'user', 'getUserPicture', array('uname' => $usersName[$pre_user['uid']] . '_s',
+                $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+                $photo_s = ModUtil::func('IWmain', 'user', 'getUserPicture', array('uname' => $usersName[$pre_user['uid']] . '_s',
                             'sv' => $sv));
                 $users_array[] = array('userfullname' => $userfullname,
                     'id' => $pre_user['uid'],
@@ -297,8 +295,6 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             sort($users_array);
         }
 
-        $security = SecurityUtil::generateAuthKey();
-        $view->assign('security', $security);
         $view->assign('course', $id);
         $view->assign('users', $users_array);
         $view->assign('fullname', $course['fullname']);
@@ -323,8 +319,8 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         }
 
         // Gets username
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $username = ModUtil::func('iw_main', 'user', 'getUserInfo', array('uid' => $userid,
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $username = ModUtil::func('IWmain', 'user', 'getUserInfo', array('uid' => $userid,
                     'sv' => $sv));
 
         if ($username == '') {
@@ -461,21 +457,18 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         }
 
         // get the intranet groups
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $groups = ModUtil::func('iw_main', 'user', 'getAllGroups', array('plus' => $this->__('Choose a group...'),
-                    'less' => ModUtil::getVar('iw_myrole', 'rolegroup'),
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $groups = ModUtil::func('IWmain', 'user', 'getAllGroups', array('plus' => $this->__('Choose a group...'),
+                    'less' => ModUtil::getVar('IWmyrole', 'rolegroup'),
                     'sv' => $sv));
 
         // get the roles defined in Moodle
         $roles = ModUtil::apiFunc('IWmoodle', 'admin', 'getallroles');
 
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $people = ModUtil::func('iw_main', 'user', 'getMembersGroup', array('gid' => $group,
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $people = ModUtil::func('IWmain', 'user', 'getMembersGroup', array('gid' => $group,
                     'plus' => $this->__('All'),
                     'sv' => $sv));
-
-        $security = SecurityUtil::generateAuthKey();
-        $view->assign('security', $security);
 
         $view->assign('groups', $groups);
         $view->assign('people', $people);
@@ -510,9 +503,7 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         }
 
         // Confirm authorisation code
-        if (!SecurityUtil::confirmAuthKey()) {
-            return LogUtil::registerAuthidError(ModUtil::url('IWmoodle', 'admin', 'main'));
-        }
+        $this->checkCsrfToken();
 
         if ($role == '0') {
             LogUtil::registerError($this->__('Some fields are needed'));
@@ -537,8 +528,8 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         $ins .= $this->__('The result of the enrolment / pre-enrolment:') . '<br />';
 
         // enrol a group of people
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $people = ModUtil::func('iw_main', 'user', 'getMembersGroup', array('gid' => $group,
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $people = ModUtil::func('IWmain', 'user', 'getMembersGroup', array('gid' => $group,
                     'sv' => $sv));
 
 
@@ -582,19 +573,19 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             $filtre = '';
         }
 
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $usersName = ModUtil::func('iw_main', 'user', 'getAllUsersInfo', array('sv' => $sv));
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $usersName = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv));
 
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $usersFullname = ModUtil::func('iw_main', 'user', 'getAllUsersInfo', array('info' => 'ncc',
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $usersFullname = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('info' => 'ncc',
                     'sv' => $sv));
 
         $leters = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
             'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
 
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $campsfiltre_MS = ModUtil::func('iw_main', 'user', 'getAllGroups', array('plus' => " ",
-                    'less' => ModUtil::getVar('iw_myrole', 'rolegroup'),
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $campsfiltre_MS = ModUtil::func('IWmain', 'user', 'getAllGroups', array('plus' => " ",
+                    'less' => ModUtil::getVar('IWmyrole', 'rolegroup'),
                     'sv' => $sv));
 
         $numitems_MS = array(array('id' => '10',
@@ -620,23 +611,25 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
                     'inici' => $inici,
                     'numitems' => $numitems));
 
-        foreach ($usuaris as $usuari) {
-            $userMDuid = ModUtil::apiFunc('IWmoodle', 'user', 'getuserMDuid', array('username' => $usersName[$usuari['uid']]));
+        if ($usuaris) {
+            foreach ($usuaris as $usuari) {
+                $userMDuid = ModUtil::apiFunc('IWmoodle', 'user', 'getuserMDuid', array('username' => $usersName[$usuari['uid']]));
 
-            if ($userMDuid['auth'] == 'db') {
-                $userConnect = 1;
-            } else {
-                $userConnect = (ModUtil::apiFunc('IWmoodle', 'user', 'is_user', array('user' => $usersName[$usuari['uid']]))) ? 0 : -1;
-            }
+                if ($userMDuid['auth'] == 'db') {
+                    $userConnect = 1;
+                } else {
+                    $userConnect = (ModUtil::apiFunc('IWmoodle', 'user', 'is_user', array('user' => $usersName[$usuari['uid']]))) ? 0 : -1;
+                }
 
-            $users_MS[] = array('uid' => $usuari['uid'],
-                'username' => $usersName[$usuari['uid']],
-                'user' => $usersFullname[$usuari['uid']],
-                'userConnect' => $userConnect,
-                'pass' => $usuari['password']);
+                $users_MS[] = array('uid' => $usuari['uid'],
+                    'username' => $usersName[$usuari['uid']],
+                    'user' => $usersFullname[$usuari['uid']],
+                    'userConnect' => $userConnect,
+                    'pass' => $usuari['password']);
 
-            if ($usuari['uid'] > $maxitem) {
-                $maxitem = $usuari['uid'];
+                if ($usuari['uid'] > $maxitem) {
+                    $maxitem = $usuari['uid'];
+                }
             }
         }
 
@@ -707,12 +700,10 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         }
 
         // Confirm authorisation code
-        if (!SecurityUtil::confirmAuthKey()) {
-            return LogUtil::registerAuthidError(ModUtil::url('IWmoodle', 'admin', 'sincron'));
-        }
+        $this->checkCsrfToken();
 
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $usersName = ModUtil::func('iw_main', 'user', 'getAllUsersInfo', array('sv' => $sv));
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $usersName = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv));
 
         $status = false;
 
@@ -773,12 +764,10 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         }
 
         // Confirm authorisation code
-        if (!SecurityUtil::confirmAuthKey()) {
-            return LogUtil::registerAuthidError(ModUtil::url('IWmoodle', 'admin', 'sincron'));
-        }
+        $this->checkCsrfToken();
 
-        $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-        $usersName = ModUtil::func('iw_main', 'user', 'getAllUsersInfo', array('sv' => $sv));
+        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+        $usersName = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv));
 
         if (is_array($user_id)) {
             foreach ($user_id as $id) {
@@ -828,9 +817,7 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         }
 
         // Confirm authorisation code
-        if (!SecurityUtil::confirmAuthKey()) {
-            return LogUtil::registerAuthidError(ModUtil::url('IWmoodle', 'admin', 'sincron'));
-        }
+        $this->checkCsrfToken();
 
         return System::redirect(ModUtil::url('IWmoodle', 'admin', 'sincron', array('filtre' => $filtre,
                             'campfiltre' => $campfiltre,

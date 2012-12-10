@@ -1,15 +1,15 @@
 <script type="text/javascript" src="modules/IWmoodle/js/moodle.js"></script>
 
 {include file="iwmoodle_admin_menu.htm"}
-<div class="pn-admincontainer">
-    <div class="pn-adminpageicon">{img modname='core' src='lists.gif' set='icons/large' __alt=$templatetitle}</div>
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='lists.png' set='icons/large'}</div>
     <h2>{$fullname} --> {gt text="List of users in the course"}</h2>
     <div style="height:5px;">&nbsp;</div>
     {if $users|@count gt 0}
-    <form  class="pn-adminform" enctype="application/x-www-form-urlencoded" method="post" name="delete_users" action="{modurl modname="IWmoodle" type="admin" func="delete"}">
-           <input type="hidden" name="course" value="{$course}">
-        <input type="hidden" name="authid" value="{$security}"-->
-               <table class="pn-admintable">
+    <form  class="z-form" enctype="application/x-www-form-urlencoded" method="post" name="delete_users" action="{modurl modname='IWmoodle' type='admin' func='delete'}">
+        <input type="hidden" name="course" value="{$course}">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <table class="z-datatable">
             <thead>
                 <tr>
                     <th></th>
@@ -24,7 +24,7 @@
             </thead>
             <tbody>
                 {section name=users loop=$users}
-                <tr class="{cycle values="pn-odd,pn-even"}">
+                <tr class="{cycle values='pn-odd,pn-even'}">
                     <td width="10">
                         {if $users[users].photo neq ''}
                         <img src="{modurl modname=iw_main type=user func=getPhoto fileName=$users[users].photo}" />
@@ -45,11 +45,11 @@
                     </td>
                     <td align="center">
                         {if $users[users].state eq 0}
-                        <img src="modules/IWmoodle/pnimages/red.gif" title="{gt text="Courses to which you are enrolled.:"}" alt="{gt text="Courses to which you are enrolled.:"}">
+                        <img src="modules/IWmoodle/images/red.gif" title="{gt text='Courses to which you are enrolled.:'}" alt="{gt text="Courses to which you are enrolled.:"}">
                              {/if}
-                             {if $users[users].state eq 1}<img src="modules/IWmoodle/pnimages/yellow.gif" title="{gt text="Users enrolled in the course but not in the intranet"}" alt="{gt text="Users enrolled in the course but not in the intranet"}">{/if}
+                             {if $users[users].state eq 1}<img src="modules/IWmoodle/images/yellow.gif" title="{gt text="Users enrolled in the course but not in the intranet"}" alt="{gt text="Users enrolled in the course but not in the intranet"}">{/if}
                              {if $users[users].state eq 2}
-                             <img src="modules/IWmoodle/pnimages/green.gif" title="{gt text="Users enrolled in the course"}" alt="{gt text="Users enrolled in the course"}">
+                             <img src="modules/IWmoodle/images/green.gif" title="{gt text='Users enrolled in the course'}" alt="{gt text="Users enrolled in the course"}">
                              {/if}
                     </td>
                     <td align="center" colspan="2">
@@ -64,13 +64,13 @@
             </tbody>
         </table>
         <div style="text-align: right;">
-            <img src="images/icons/small/delete_user.gif" onclick='send_users("{gt text="You have not selected any user!"}","{gt text="Do you really want to delete the teachers selected from the course?"}")' /> {gt text="Delete"}
+            <img src="images/icons/small/delete_user.png" onclick='send_users("{gt text="You have not selected any user!"}","{gt text="Do you really want to delete the teachers selected from the course?"}")' /> {gt text="Delete"}
         </div>
     </form>
     <table>
         <tr>
             <td>
-                {img modname='IWmoodle' src='green.gif' set='pnimages'}
+                {img modname='IWmoodle' src='green.gif' set='images'}
             </td>
             <td>
                 {gt text="Users enrolled in the course"}
@@ -78,7 +78,7 @@
         </tr>
         <tr>
             <td>
-                {img modname='IWmoodle' src='yellow.gif' set='pnimages'}
+                {img modname='IWmoodle' src='yellow.gif' set='images'}
             </td>
             <td>
                 {gt text="Users enrolled in the course but not in the intranet"}
@@ -86,7 +86,7 @@
         </tr>
         <tr>
             <td>
-                {img modname='IWmoodle' src='red.gif' set='pnimages'}
+                {img modname='IWmoodle' src='red.gif' set='images'}
             </td>
             <td>
                 {gt text="Courses to which you are enrolled.:"}

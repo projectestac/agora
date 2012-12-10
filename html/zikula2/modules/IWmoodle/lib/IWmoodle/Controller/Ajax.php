@@ -21,8 +21,8 @@ function IWmoodle_ajax_chgUsers($args) {
     $view = Zikula_View::getInstance('IWmoodle', false);
 
     // get group members
-    $sv = ModUtil::func('iw_main', 'user', 'genSecurityValue');
-    $groupMembers = ModUtil::func('iw_main', 'user', 'getMembersGroup', array('sv' => $sv,
+    $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+    $groupMembers = ModUtil::func('IWmain', 'user', 'getMembersGroup', array('sv' => $sv,
         'gid' => $gid));
 
     asort($groupMembers);

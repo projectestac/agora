@@ -5,10 +5,10 @@
 
 {include file="iwmoodle_admin_menu.htm"}
 <div class="pn-admincontainer">
-    <div class="pn-adminpageicon">{img modname='core' src='agt_family.gif' set='icons/large' __alt=$templatetitle}</div>
+    <div class="pn-adminpageicon">{img modname='core' src='agt_family.png' set='icons/large'}</div>
     <h2>{$fullname|safetext} -> {gt text="Enrole users in the course"}</h2>
     <form  method="post" name="enrole" id="enrole">
-        <input type="hidden" name="authid" value="{$security}" />
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="id" value="{$id}" />
         <input type="hidden" name="who" value="{$who}" />
         <input type="hidden" name="m" value="{$m}" />
