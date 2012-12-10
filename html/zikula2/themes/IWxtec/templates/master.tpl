@@ -61,7 +61,7 @@
                 </a>
             </div>		 
         </div>
-        {*iwvhmenu*}
+        {iwvhmenu}
     </body>
 
 </html>
