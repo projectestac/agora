@@ -275,10 +275,12 @@ class News_Installer extends Zikula_AbstractInstaller
                 }
             case '2.5.1':
             case '2.5.2':
+                /*
                 // add the new picture column and update the table
                 if (!DBUtil::changeTable('news')) {
                     return '2.5.2';
                 }
+                */
                 // add new picture uploading variables
                 $this->setVar('picupload_enabled', false);
                 $this->setVar('picupload_allowext', 'jpg, gif, png');
@@ -338,8 +340,7 @@ CHANGE `pn_cr_uid` `cr_uid` INT( 11 ) NOT NULL DEFAULT '0',
 CHANGE `pn_lu_date` `lu_date` DATETIME NOT NULL DEFAULT '1970-01-01 00:00:00',
 CHANGE `pn_lu_uid` `lu_uid` INT( 11 ) NOT NULL DEFAULT '0',
 CHANGE `pn_approver` `approver` INT( 11 ) NULL DEFAULT '0',
-CHANGE `pn_weight` `weight` TINYINT( 4 ) NULL DEFAULT '0',
-CHANGE `pn_pictures` `pictures` INT( 11 ) NULL DEFAULT '0'";
+CHANGE `pn_weight` `weight` TINYINT( 4 ) NULL DEFAULT '0'";
                 foreach ($sqlStatements as $sql) {
                     $stmt = $connection->prepare($sql);
                     try {
