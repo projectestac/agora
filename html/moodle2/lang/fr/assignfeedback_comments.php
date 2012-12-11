@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignfeedback_comments', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'assignfeedback_comments', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   assignfeedback_comments
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,6 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['default'] = 'Activé par défaut';
 $string['default_help'] = 'Si ce réglage est activé, cette méthode de feedback sera activée par défaut pour tous les nouveaux devoirs.';
-$string['enabled'] = 'Commentaires du feedback';
-$string['enabled_help'] = 'Si ce réglage est activé, l\'évaluateur pourra donner un feedback pour chaque travail remis.';
-$string['pluginname'] = 'Commentaires du feedback';
+$string['enabled'] = 'Feedback par commentaires';
+$string['enabled_help'] = 'Si ce réglage est activé, l\'évaluateur pourra donner un feedback sous la forme de commentaires pour chaque travail remis.';
+$string['pluginname'] = 'Feedback par commentaires';

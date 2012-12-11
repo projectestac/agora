@@ -46,7 +46,7 @@ if ($id) {
 
 require_course_login($course);
 $PAGE->set_pagelayout('incourse');
-$coursecontext = get_context_instance(CONTEXT_COURSE, $course->id);
+$coursecontext = context_course::instance($course->id);
 
 
 unset($SESSION->fromdiscussion);
@@ -104,7 +104,6 @@ if ($show_rss = (($can_subscribe || $course->id == SITEID) &&
 }
 
 $usesections = course_format_uses_sections($course->format);
-$sections = get_all_sections($course->id);
 
 $table = new html_table();
 
@@ -129,7 +128,7 @@ foreach ($modinfo->instances['forum'] as $forumid=>$cm) {
 
     $forum = $forums[$forumid];
 
-    if (!$context = get_context_instance(CONTEXT_MODULE, $cm->id)) {
+    if (!$context = context_module::instance($cm->id, IGNORE_MISSING)) {
         continue;   // Shouldn't happen
     }
 
@@ -158,7 +157,7 @@ if (!is_null($subscribe)) {
     // Can proceed now, the user is not guest and is enrolled
     foreach ($modinfo->instances['forum'] as $forumid=>$cm) {
         $forum = $forums[$forumid];
-        $modcontext = get_context_instance(CONTEXT_MODULE, $cm->id);
+        $modcontext = context_module::instance($cm->id);
         $cansub = false;
 
         if (has_capability('mod/forum:viewdiscussion', $modcontext)) {
@@ -179,7 +178,7 @@ if (!is_null($subscribe)) {
         }
     }
     $returnto = forum_go_back_to("index.php?id=$course->id");
-    $shortname = format_string($course->shortname, true, array('context' => get_context_instance(CONTEXT_COURSE, $course->id)));
+    $shortname = format_string($course->shortname, true, array('context' => context_course::instance($course->id)));
     if ($subscribe) {
         add_to_log($course->id, 'forum', 'subscribeall', "index.php?id=$course->id", $course->id);
         redirect($returnto, get_string('nowallsubscribed', 'forum', $shortname), 1);
@@ -194,7 +193,7 @@ if (!is_null($subscribe)) {
 if ($generalforums) {
     foreach ($generalforums as $forum) {
         $cm      = $modinfo->instances['forum'][$forum->id];
-        $context = get_context_instance(CONTEXT_MODULE, $cm->id);
+        $context = context_module::instance($cm->id);
 
         $count = forum_count_discussions($forum, $cm, $course);
 
@@ -209,7 +208,7 @@ if ($generalforums) {
                 } else if ($unread = forum_tp_count_forum_unread_posts($cm, $course)) {
                         $unreadlink = '<span class="unread"><a href="view.php?f='.$forum->id.'">'.$unread.'</a>';
                     $unreadlink .= '<a title="'.$strmarkallread.'" href="markposts.php?f='.
-                                   $forum->id.'&amp;mark=read"><img src="'.$OUTPUT->pix_url('t/clear') . '" alt="'.$strmarkallread.'" /></a></span>';
+                                   $forum->id.'&amp;mark=read"><img src="'.$OUTPUT->pix_url('t/markasread') . '" alt="'.$strmarkallread.'" class="iconsmall" /></a></span>';
                 } else {
                     $unreadlink = '<span class="read">0</span>';
                 }
@@ -321,7 +320,7 @@ if ($course->id != SITEID) {    // Only real courses have learning forums
         $currentsection = '';
             foreach ($learningforums as $forum) {
             $cm      = $modinfo->instances['forum'][$forum->id];
-            $context = get_context_instance(CONTEXT_MODULE, $cm->id);
+            $context = context_module::instance($cm->id);
 
             $count = forum_count_discussions($forum, $cm, $course);
 
@@ -336,7 +335,7 @@ if ($course->id != SITEID) {    // Only real courses have learning forums
                     } else if ($unread = forum_tp_count_forum_unread_posts($cm, $course)) {
                         $unreadlink = '<span class="unread"><a href="view.php?f='.$forum->id.'">'.$unread.'</a>';
                         $unreadlink .= '<a title="'.$strmarkallread.'" href="markposts.php?f='.
-                                       $forum->id.'&amp;mark=read"><img src="'.$OUTPUT->pix_url('t/clear') . '" alt="'.$strmarkallread.'" /></a></span>';
+                                       $forum->id.'&amp;mark=read"><img src="'.$OUTPUT->pix_url('t/markasread') . '" alt="'.$strmarkallread.'" class="iconsmall" /></a></span>';
                     } else {
                         $unreadlink = '<span class="read">0</span>';
                     }
@@ -358,7 +357,7 @@ if ($course->id != SITEID) {    // Only real courses have learning forums
             $forum->intro = shorten_text(format_module_intro('forum', $forum, $cm->id), $CFG->forum_shortpost);
 
             if ($cm->sectionnum != $currentsection) {
-                $printsection = get_section_name($course, $sections[$cm->sectionnum]);
+                $printsection = get_section_name($course, $cm->sectionnum);
                 if ($currentsection) {
                     $learningtable->data[] = 'hr';
                 }

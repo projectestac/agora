@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_replace', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'tool_replace', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   tool_replace
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,12 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['disclaimer'] = 'Ja, ich kenne die Risiken';
+$string['disclaimer'] = 'Ja, ich kenne das Risiko';
 $string['notifyfinished'] = '... fertig!';
-$string['notifyrebuilding'] = 'Der Cache wird neu gebildet...';
-$string['notimplemented'] = 'Diese Option ist ausschließlich für MySQL- und Postgres-Datenbanken implementiert.';
-$string['notsupported'] = 'Dieses Script ändert die Datenbank. Die Operation kann nicht rückgängig gemacht werden!
-<br />Erstellen Sie deswegen unbedingt eine Datenbanksicherung, bevor Sie dieses Script ausführen!';
+$string['notifyrebuilding'] = 'Der Cache wird neu aufgebaut...';
+$string['notimplemented'] = 'Diese Option funktioniert ausschließlich für MySQL- und Postgres-Datenbanken.';
+$string['notsupported'] = 'Das Script verändert die Datenbank. Die Änderungen können nicht rückgängig gemacht werden!
+<br />Erstellen Sie unbedingt eine Sicherung der Datenbank, bevor Sie dieses Script ausführen!';
 $string['pageheader'] = 'Suchen und Ersetzen in der Datenbank';
 $string['pluginname'] = 'Suchen und Ersetzen in der Datenbank';
 $string['replacewith'] = 'Durch diesen Text ersetzen:';

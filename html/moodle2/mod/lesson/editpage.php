@@ -40,7 +40,7 @@ $lesson = new lesson($DB->get_record('lesson', array('id' => $cm->instance), '*'
 
 require_login($course, false, $cm);
 
-$context = get_context_instance(CONTEXT_MODULE, $cm->id);
+$context = context_module::instance($cm->id);
 require_capability('mod/lesson:edit', $context);
 
 $PAGE->set_url('/mod/lesson/editpage.php', array('pageid'=>$pageid, 'id'=>$id, 'qtype'=>$qtype));
@@ -64,7 +64,7 @@ $editoroptions = array('noclean'=>true, 'maxfiles'=>EDITOR_UNLIMITED_FILES, 'max
 // tie up with the current form name, which in turn means the "submitted"
 // check ends up evaluating as false, thus it's not possible to check whether
 // the Question type selection was cancelled. For this reason, a dummy form
-// is created here solely to check whether the selection was cancelled. 
+// is created here solely to check whether the selection was cancelled.
 if ($qtype) {
     $mformdummy = $manager->get_page_form(0, array('editoroptions'=>$editoroptions, 'jumpto'=>$jumpto, 'lesson'=>$lesson, 'edit'=>$edit, 'maxbytes'=>$PAGE->course->maxbytes));
     if ($mformdummy->is_cancelled()) {
@@ -125,6 +125,6 @@ if ($data = $mform->get_data()) {
 }
 
 $lessonoutput = $PAGE->get_renderer('mod_lesson');
-echo $lessonoutput->header($lesson, $cm);
+echo $lessonoutput->header($lesson, $cm, '', false, null, get_string('edit', 'lesson'));
 $mform->display();
 echo $lessonoutput->footer();

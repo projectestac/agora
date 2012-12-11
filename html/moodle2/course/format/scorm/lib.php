@@ -15,41 +15,87 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains general functions for the course format SCORM
+ * This file contains main class for the course format SCORM
  *
- * @since 2.0
- * @package moodlecore
+ * @since     2.0
+ * @package   format_scorm
  * @copyright 2009 Sam Hemelryk
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-/**
- * The string that is used to describe a section of the course
- * e.g. Topic, Week...
- *
- * @return string
- */
-function callback_scorm_definition() {
-    return get_string('scorm');
-}
+defined('MOODLE_INTERNAL') || die();
+require_once($CFG->dirroot. '/course/format/lib.php');
 
 /**
- * The GET argument variable that is used to identify the section being
- * viewed by the user (if there is one)
+ * Main class for the Scorm course format
  *
- * @return string
+ * @package    format_scorm
+ * @copyright  2012 Marina Glancy
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-function callback_scorm_request_key() {
-    return 'scorm';
+class format_scorm extends format_base {
+
+    /**
+     * The URL to use for the specified course
+     *
+     * @param int|stdClass $section Section object from database or just field course_sections.section
+     *     if null the course view page is returned
+     * @param array $options options for view URL. At the moment core uses:
+     *     'navigation' (bool) if true and section has no separate page, the function returns null
+     *     'sr' (int) used by multipage formats to specify to which section to return
+     * @return null|moodle_url
+     */
+    public function get_view_url($section, $options = array()) {
+        if (!empty($options['navigation']) && $section !== null) {
+            return null;
+        }
+        return new moodle_url('/course/view.php', array('id' => $this->courseid));
+    }
+
+    /**
+     * Loads all of the course sections into the navigation
+     *
+     * @param global_navigation $navigation
+     * @param navigation_node $node The course node within the navigation
+     */
+    public function extend_course_navigation($navigation, navigation_node $node) {
+        // Scorm course format does not extend course navigation
+    }
+
+    /**
+     * Returns the list of blocks to be automatically added for the newly created course
+     *
+     * @return array of default blocks, must contain two keys BLOCK_POS_LEFT and BLOCK_POS_RIGHT
+     *     each of values is an array of block names (for left and right side columns)
+     */
+    public function get_default_blocks() {
+        return array(
+            BLOCK_POS_LEFT => array(),
+            BLOCK_POS_RIGHT => array('news_items', 'recent_activity', 'calendar_upcoming')
+        );
+    }
+
+    /**
+     * Allows course format to execute code on moodle_page::set_course()
+     *
+     * If user is on course view page and there is no scorm module added to the course
+     * and the user has 'moodle/course:update' capability, redirect to create module
+     * form. This function is executed before the output starts
+     *
+     * @param moodle_page $page instance of page calling set_course
+     */
+    public function page_set_course(moodle_page $page) {
+        global $PAGE;
+        if ($PAGE == $page && $page->has_set_url() &&
+                $page->url->compare(new moodle_url('/course/view.php'), URL_MATCH_BASE)) {
+            $modinfo = get_fast_modinfo($this->courseid);
+            if (empty($modinfo->instances['scorm'])
+                    && has_capability('moodle/course:update', context_course::instance($this->courseid))) {
+                // Redirect to create a new activity
+                $url = new moodle_url('/course/modedit.php',
+                        array('course' => $this->courseid, 'section' => 0, 'add' => 'scorm'));
+                redirect($url);
+            }
+        }
+    }
 }
-
-/**
- * Toogle display of course contents (sections, activities)
- *
- * @return bool
- */
-function callback_scorm_display_content() {
-    return false;
-}
-
-

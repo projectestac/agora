@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_tags', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_tags', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   block_tags
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,15 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['add'] = 'Añadir';
 $string['alltags'] = 'Todas las marcas:';
-$string['alltags1'] = 'todas las marcas';
-$string['alltags2'] = 'Mostrar marcas (perfil de usuario, blogs y marcas de curso)';
 $string['arrowtitle'] = 'Hacer clic para escribir el texto sugerido (letras grises)';
-$string['communitytags'] = 'Marcas de comunidad:';
-$string['communitytags1'] = 'marcas de comunidad';
-$string['communitytags2'] = 'Mostrar todas marcas de curso creadas por el usuario';
 $string['coursetags'] = 'Marcas de curso:';
-$string['coursetags1'] = 'marcas de curso';
-$string['coursetags2'] = 'Mostrar marcas de este curso';
+$string['defaultdisplay'] = 'Tipo de marca (tag) a mostrar';
 $string['disabledtags'] = 'Las marcas están desactivadas';
 $string['edit'] = 'edición...';
 $string['editdeletemytag'] = 'Eliminar de este curso:';
@@ -66,21 +60,17 @@ $string['moretags'] = 'Mostrar y filtrar más marcas';
 $string['moretitle'] = 'Más marcas';
 $string['morewelcome'] = 'Bienvenido a la nube de marcas \'Más marcas\'.
 Las marcas son enlaces que el usuario hace a distintas cosas. Las marcas permiten categorizar y enlazar cosas como sus cursos favoritos, sus blogs o su perfil utilizando sus propias palabras. En la línea \'Mostrar:\' se pueden mostrar diferentes grupos de marcas con los enlaces, y pueden ser reordenadas con los enlaces en la línea \'Orden:\'';
-$string['mycoursetag1'] = 'Mostrar mis marcas de curso';
-$string['mycoursetag2'] = 'mis marcas de curso';
 $string['mycoursetags'] = 'Mis marcas de curso:';
 $string['mytags'] = 'Mis marcas:';
-$string['mytags1'] = 'mis marcas';
-$string['mytags2'] = 'Mostrar mis marcas personales';
 $string['notagsyet'] = 'Aún no hay marcas';
-$string['officialtags'] = 'Marcas oficiales del curso:';
-$string['officialtags1'] = 'marcas oficiales';
-$string['officialtags2'] = 'Mostrar las marcas oficiales del curso';
 $string['please'] = 'Por favor';
 $string['pluginname'] = 'Marcas';
 $string['select'] = 'Seleccionar...';
 $string['showcoursetags'] = 'Mostrar las marcas del curso';
 $string['showcoursetagsdef'] = 'Mostrar las características de marcado en el bloque de marcas, permitiendo a los estudiantes marcar cursos.';
+$string['suggestedtagthisunit'] = 'Marca (tag) sugerida para este curso:';
 $string['tags'] = 'marcas';
+$string['tags:addinstance'] = 'Añadir un nuevo bloque de marcas';
+$string['tags:myaddinstance'] = 'Añadir un nuevo bloque de marcas en la página Mi Moodle';
 $string['tagthisunit'] = 'Marcar este curso:';
 $string['tagunits'] = 'marcar sus cursos favoritos';

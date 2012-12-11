@@ -31,7 +31,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param mod_assign_mod_form $form
  * @return int The instance id of the new assignment
  */
-function assign_add_instance(stdClass $data, mod_assign_mod_form $form) {
+function assign_add_instance(stdClass $data, mod_assign_mod_form $form = null) {
     global $CFG;
     require_once($CFG->dirroot . '/mod/assign/locallib.php');
 
@@ -52,6 +52,72 @@ function assign_delete_instance($id) {
 
     $assignment = new assign($context, null, null);
     return $assignment->delete_instance();
+}
+
+/**
+ * This function is used by the reset_course_userdata function in moodlelib.
+ * This function will remove all assignment submissions and feedbacks in the database
+ * and clean up any related data.
+ * @param $data the data submitted from the reset course.
+ * @return array status array
+ */
+function assign_reset_userdata($data) {
+    global $CFG, $DB;
+    require_once($CFG->dirroot . '/mod/assign/locallib.php');
+
+    $status = array();
+    $params = array('courseid'=>$data->courseid);
+    $sql = "SELECT a.id FROM {assign} a WHERE a.course=:courseid";
+    $course = $DB->get_record('course', array('id'=> $data->courseid), '*', MUST_EXIST);
+    if ($assigns = $DB->get_records_sql($sql,$params)) {
+        foreach ($assigns as $assign) {
+            $cm = get_coursemodule_from_instance('assign', $assign->id, $data->courseid, false, MUST_EXIST);
+            $context = context_module::instance($cm->id);
+            $assignment = new assign($context, $cm, $course);
+            $status = array_merge($status, $assignment->reset_userdata($data));
+        }
+    }
+    return $status;
+}
+
+/**
+ * Removes all grades from gradebook
+ *
+ * @param int $courseid The ID of the course to reset
+ * @param string $type Optional type of assignment to limit the reset to a particular assignment type
+ */
+function assign_reset_gradebook($courseid, $type='') {
+    global $CFG, $DB;
+
+    $params = array('moduletype'=>'assign','courseid'=>$courseid);
+    $sql = 'SELECT a.*, cm.idnumber as cmidnumber, a.course as courseid
+            FROM {assign} a, {course_modules} cm, {modules} m
+            WHERE m.name=:moduletype AND m.id=cm.module AND cm.instance=a.id AND a.course=:courseid';
+
+    if ($assignments = $DB->get_records_sql($sql,$params)) {
+        foreach ($assignments as $assignment) {
+            assign_grade_item_update($assignment, 'reset');
+        }
+    }
+}
+
+/**
+ * Implementation of the function for printing the form elements that control
+ * whether the course reset functionality affects the assignment.
+ * @param $mform form passed by reference
+ */
+function assign_reset_course_form_definition(&$mform) {
+    $mform->addElement('header', 'assignheader', get_string('modulenameplural', 'assign'));
+    $mform->addElement('advcheckbox', 'reset_assign_submissions', get_string('deleteallsubmissions','assign'));
+}
+
+/**
+ * Course reset form defaults.
+ * @param  object $course
+ * @return array
+ */
+function assign_reset_course_form_defaults($course) {
+    return array('reset_assign_submissions'=>1);
 }
 
 /**
@@ -83,11 +149,13 @@ function assign_supports($feature) {
         case FEATURE_GROUPMEMBERSONLY:        return true;
         case FEATURE_MOD_INTRO:               return true;
         case FEATURE_COMPLETION_TRACKS_VIEWS: return true;
+        case FEATURE_COMPLETION_HAS_RULES:    return true;
         case FEATURE_GRADE_HAS_GRADE:         return true;
         case FEATURE_GRADE_OUTCOMES:          return true;
         case FEATURE_BACKUP_MOODLE2:          return true;
         case FEATURE_SHOW_DESCRIPTION:        return true;
         case FEATURE_ADVANCED_GRADING:        return true;
+        case FEATURE_PLAGIARISM:              return true;
 
         default: return null;
     }
@@ -111,7 +179,7 @@ function assign_grading_areas_list() {
  * @return void
  */
 function assign_extend_settings_navigation(settings_navigation $settings, navigation_node $navref) {
-    global $PAGE;
+    global $PAGE, $DB;
 
     $cm = $PAGE->cm;
     if (!$cm) {
@@ -142,6 +210,14 @@ function assign_extend_settings_navigation(settings_navigation $settings, naviga
        $node = $navref->add(get_string('downloadall', 'assign'), $link, navigation_node::TYPE_SETTING);
    }
 
+   if (has_capability('mod/assign:revealidentities', $context)) {
+       $assignment = $DB->get_record('assign', array('id'=>$cm->instance), 'blindmarking, revealidentities');
+
+       if ($assignment && $assignment->blindmarking && !$assignment->revealidentities) {
+           $link = new moodle_url('/mod/assign/view.php', array('id' => $cm->id,'action'=>'revealidentities'));
+           $node = $navref->add(get_string('revealidentities', 'assign'), $link, navigation_node::TYPE_SETTING);
+       }
+   }
 }
 
 
@@ -214,9 +290,14 @@ function assign_print_overview($courses, &$htmlarray) {
         $time = time();
         $isopen = false;
         if ($assignment->duedate) {
-            $isopen = $assignment->allowsubmissionsfromdate <= $time;
-            if ($assignment->preventlatesubmissions) {
-                $isopen = ($isopen && $time <= $assignment->duedate);
+            $duedate = false;
+            if ($assignment->cutoffdate) {
+                $duedate = $assignment->cutoffdate;
+            }
+            if ($duedate) {
+                $isopen = ($assignment->allowsubmissionsfromdate <= $time && $time <= $duedate);
+            } else {
+                $isopen = ($assignment->allowsubmissionsfromdate <= $time);
             }
         }
         if ($isopen) {
@@ -230,6 +311,9 @@ function assign_print_overview($courses, &$htmlarray) {
     }
 
     $strduedate = get_string('duedate', 'assign');
+    $strcutoffdate = get_string('nosubmissionsacceptedafter', 'assign');
+    $strnolatesubmissions = get_string('nolatesubmissions', 'assign');
+    $strduedateno = get_string('duedateno', 'assign');
     $strduedateno = get_string('duedateno', 'assign');
     $strgraded = get_string('graded', 'assign');
     $strnotgradedyet = get_string('notgradedyet', 'assign');
@@ -258,18 +342,9 @@ function assign_print_overview($courses, &$htmlarray) {
 
 
     // get all user submissions, indexed by assignment id
-    //XTEC ************ MODIFICAT - To fix Oracle problem when entering to /my page 
-    //2012.10.05  @sarjona - http://tracker.moodle.org/browse/MDL-35387
-    $mysubmissions = $DB->get_records_sql("SELECT a.id AS assignment, a.nosubmissions AS suboffline, g.timemodified AS timemarked, g.grader AS grader, g.grade AS grade, s.status AS status
+    $mysubmissions = $DB->get_records_sql("SELECT a.id AS assignment, a.nosubmissions AS nosubmissions, g.timemodified AS timemarked, g.grader AS grader, g.grade AS grade, s.status AS status
                             FROM {assign} a LEFT JOIN {assign_grades} g ON g.assignment = a.id AND g.userid = ? LEFT JOIN {assign_submission} s ON s.assignment = a.id AND s.userid = ?
                             AND a.id $sqlassignmentids", array_merge(array($USER->id, $USER->id), $assignmentidparams));
-    //************ ORIGINAL
-    /*
-    $mysubmissions = $DB->get_records_sql("SELECT a.id AS assignment, a.nosubmissions AS offline, g.timemodified AS timemarked, g.grader AS grader, g.grade AS grade, s.status AS status
-                            FROM {assign} a LEFT JOIN {assign_grades} g ON g.assignment = a.id AND g.userid = ? LEFT JOIN {assign_submission} s ON s.assignment = a.id AND s.userid = ?
-                            AND a.id $sqlassignmentids", array_merge(array($USER->id, $USER->id), $assignmentidparams));
-     */
-    //************ FI
 
     foreach ($assignments as $assignment) {
         // Do not show assignments that are not open
@@ -285,6 +360,13 @@ function assign_print_overview($courses, &$htmlarray) {
             $str .= '<div class="info">'.$strduedate.': '.userdate($assignment->duedate).'</div>';
         } else {
             $str .= '<div class="info">'.$strduedateno.'</div>';
+        }
+        if ($assignment->cutoffdate) {
+            if ($assignment->cutoffdate == $assignment->duedate) {
+                $str .= '<div class="info">'.$strnolatesubmissions.'</div>';
+            } else {
+                $str .= '<div class="info">'.$strcutoffdate.': '.userdate($assignment->cutoffdate).'</div>';
+            }
         }
         $context = context_module::instance($assignment->coursemodule);
         if (has_capability('mod/assign:grade', $context)) {
@@ -307,14 +389,7 @@ function assign_print_overview($courses, &$htmlarray) {
             $str .= '<div class="details">';
             $str .= get_string('mysubmission', 'assign');
             $submission = $mysubmissions[$assignment->id];
-            //XTEC ************ MODIFICAT - To fix Oracle problem when entering to /my page 
-            //2012.10.05  @sarjona - http://tracker.moodle.org/browse/MDL-35387
-            if ($submission->suboffline) {
-            //************ ORIGINAL
-            /*
-            if ($submission->offline) {
-             */
-            //************ FI
+            if ($submission->nosubmissions) {
                  $str .= get_string('offline', 'assign');
             } else if(!$submission->status || $submission->status == 'draft'){
                  $str .= $strnotsubmittedyet;
@@ -773,7 +848,9 @@ function assign_get_user_grades($assign, $userid=0) {
     global $CFG;
     require_once($CFG->dirroot . '/mod/assign/locallib.php');
 
-    $assignment = new assign(null, null, null);
+    $cm = get_coursemodule_from_instance('assign', $assign->id, 0, false, MUST_EXIST);
+    $context = context_module::instance($cm->id);
+    $assignment = new assign($context, null, null);
     $assignment->set_instance($assign);
     return $assignment->get_user_grades_for_gradebook($userid);
 }
@@ -951,4 +1028,30 @@ function assign_user_outline($course, $user, $coursemodule, $assignment) {
     $result->time = $gradebookgrade->dategraded;
 
     return $result;
+}
+
+/**
+ * Obtains the automatic completion state for this module based on any conditions
+ * in assign settings.
+ *
+ * @param object $course Course
+ * @param object $cm Course-module
+ * @param int $userid User ID
+ * @param bool $type Type of comparison (or/and; can be used as return value if no conditions)
+ * @return bool True if completed, false if not, $type if conditions not set.
+ */
+function assign_get_completion_state($course, $cm, $userid, $type) {
+    global $CFG,$DB;
+    require_once($CFG->dirroot . '/mod/assign/locallib.php');
+
+    $assign = new assign(null, $cm, $course);
+
+    // If completion option is enabled, evaluate it and return true/false.
+    if ($assign->get_instance()->completionsubmit) {
+        $submission = $DB->get_record('assign_submission', array('assignment'=>$assign->get_instance()->id, 'userid'=>$userid), '*', IGNORE_MISSING);
+        return $submission && $submission->status == ASSIGN_SUBMISSION_STATUS_SUBMITTED;
+    } else {
+        // Completion option is not enabled so just return $type.
+        return $type;
+    }
 }

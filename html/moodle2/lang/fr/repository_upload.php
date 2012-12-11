@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_upload', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'repository_upload', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   repository_upload
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,7 @@ $string['upload_error_cant_write'] = 'Échec de l\'écriture du fichier sur le d
 $string['upload_error_extension'] = 'Une extension PHP a stoppé le dépôt du fichier.';
 $string['upload_error_form_size'] = 'Le fichier déposé dépasse la taille spécifiée par la directive max_file_size spécifiée dans le formulaire HTML.';
 $string['upload_error_ini_size'] = 'Le fichier déposé dépasse la taille spécifiée par la directive upload_max_filesize spécifiée dans le fichier php.ini.';
-$string['upload_error_invalid_file'] = 'Le fichier « {$a} » ne contient pas de données. S\'agit-il d\'un dossier ?';
+$string['upload_error_invalid_file'] = 'Le fichier « {$a} » est vide ou est un dossier. Pour déposer des dossiers, veuillez d\'abord les compresser (ZIP).';
 $string['upload_error_no_file'] = 'Aucun fichier n\'a été déposé.';
 $string['upload_error_no_tmp_dir'] = 'PHP ne dispose pas d\'un dossier temporaire.';
 $string['upload_error_partial'] = 'Le fichier n\'a été que partiellement déposé.';

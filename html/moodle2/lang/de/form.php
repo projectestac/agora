@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'form', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'form', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   form
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['addfields'] = '{$a} Felder zum Formular hinzufügen';
 $string['advancedelement'] = 'Erweitertes Element';
+$string['close'] = 'Schließen';
 $string['day'] = 'Tag';
 $string['display'] = 'Anzeige';
 $string['err_alphanumeric'] = 'Sie dürfen hier nur Buchstaben oder Zahlen eingeben.';

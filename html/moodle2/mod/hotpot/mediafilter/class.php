@@ -604,18 +604,15 @@ class hotpot_mediafilter {
         $flashvars = $match[2];
         $after  = $match[3];
 
-        // get text manipulation library
-        $textlib = hotpot_get_textlib();
-
         // entities_to_utf8() is required undo the call to htmlentities(), see MDL-5223
         // this is necessary to allow waitForPlay and autoPlay to be effective on Firefox
-        $flashvars = $textlib->entities_to_utf8($flashvars);
+        $flashvars = hotpot_textlib('entities_to_utf8', $flashvars);
 
         $vars = explode('&', $flashvars);
         foreach ($this->moodle_flashvars as $var) {
             if (array_key_exists($var, $options)) {
                 $vars = preg_grep("/^$var=/", $vars, PREG_GREP_INVERT);
-                $vars[] = "$var=".$textlib->utf8_to_entities($options[$var]);
+                $vars[] = "$var=".hotpot_textlib('utf8_to_entities', $options[$var]);
             }
         }
 

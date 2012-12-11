@@ -39,9 +39,11 @@ class admin_setting_configtext_trim_lower extends admin_setting_configtext {
      * @param string $description long localised info
      * @param string $defaultsetting default value for the setting
      * @param boolean $lowercase if true, lowercase the value before writing it to the db.
+     * @param boolean $enabled if true, the input field is enabled, otherwise it's disabled.
      */
-    public function __construct($name, $visiblename, $description, $defaultsetting, $lowercase=false) {
+    public function __construct($name, $visiblename, $description, $defaultsetting, $lowercase=false, $enabled=true) {
         $this->lowercase = $lowercase;
+        $this->enabled = $enabled;
         parent::__construct($name, $visiblename, $description, $defaultsetting);
     }
 
@@ -65,8 +67,24 @@ class admin_setting_configtext_trim_lower extends admin_setting_configtext {
         if ($this->lowercase) {
             $data = textlib::strtolower($data);
         }
+        if (!$this->enabled) {
+            return '';
+        }
         return ($this->config_write($this->name, trim($data)) ? '' : get_string('errorsetting', 'admin'));
     }
+
+    /**
+     * Return an XHTML string for the setting
+     * @return string Returns an XHTML string
+     */
+    public function output_html($data, $query='') {
+        $default = $this->get_defaultsetting();
+        $disabled = $this->enabled ? '': ' disabled="disabled"';
+        return format_admin_setting($this, $this->visiblename,
+        '<div class="form-text defaultsnext"><input type="text" size="'.$this->size.'" id="'.$this->get_id().'" name="'.$this->get_full_name().'" value="'.s($data).'" '.$disabled.' /></div>',
+        $this->description, true, '', $default, $query);
+    }
+
 }
 
 class admin_setting_ldap_rolemapping extends admin_setting {
@@ -89,13 +107,13 @@ class admin_setting_ldap_rolemapping extends admin_setting {
      * @return mixed null if null, else an array
      */
     public function get_setting() {
-        $roles = get_all_roles();
+        $roles = role_fix_names(get_all_roles());
         $result = array();
         foreach ($roles as $role) {
             $contexts = $this->config_read('contexts_role'.$role->id);
             $memberattribute = $this->config_read('memberattribute_role'.$role->id);
             $result[] = array('id' => $role->id,
-                              'name' => $role->name,
+                              'name' => $role->localname,
                               'contexts' => $contexts,
                               'memberattribute' => $memberattribute);
         }
@@ -139,31 +157,39 @@ class admin_setting_ldap_rolemapping extends admin_setting {
      * @return string XHTML field
      */
     public function output_html($data, $query='') {
-        $return  = '<div style="float:left; width:auto; margin-right: 0.5em;">';
-        $return .= '<div style="height: 2em;">'.get_string('roles', 'role').'</div>';
+        $return  = html_writer::start_tag('div', array('style' =>'float:left; width:auto; margin-right: 0.5em;'));
+        $return .= html_writer::tag('div', get_string('roles', 'role'), array('style' => 'height: 2em;'));
         foreach ($data as $role) {
-            $return .= '<div style="height: 2em;">'.s($role['name']).'</div>';
+            $return .= html_writer::tag('div', s($role['name']), array('style' => 'height: 2em;'));
         }
-        $return .= '</div>';
+        $return .= html_writer::end_tag('div');
 
-        $return .= '<div style="float:left; width:auto; margin-right: 0.5em;">';
-        $return .= '<div style="height: 2em;">'.get_string('contexts', 'enrol_ldap').'</div>';
+        $return .= html_writer::start_tag('div', array('style' => 'float:left; width:auto; margin-right: 0.5em;'));
+        $return .= html_writer::tag('div', get_string('contexts', 'enrol_ldap'), array('style' => 'height: 2em;'));
         foreach ($data as $role) {
             $contextid = $this->get_id().'['.$role['id'].'][contexts]';
             $contextname = $this->get_full_name().'['.$role['id'].'][contexts]';
-            $return .= '<div style="height: 2em;"><input type="text" size="40" id="'.$contextid.'" name="'.$contextname.'" value="'.s($role['contexts']).'"/></div>';
+            $return .= html_writer::start_tag('div', array('style' => 'height: 2em;'));
+            $return .= html_writer::label(get_string('role_mapping_context', 'enrol_ldap', $role['name']), $contextid, false, array('class' => 'accesshide'));
+            $attrs = array('type' => 'text', 'size' => '40', 'id' => $contextid, 'name' => $contextname, 'value' => s($role['contexts']));
+            $return .= html_writer::empty_tag('input', $attrs);
+            $return .= html_writer::end_tag('div');
         }
-        $return .= '</div>';
+        $return .= html_writer::end_tag('div');
 
-        $return .= '<div style="float:left; width:auto; margin-right: 0.5em;">';
-        $return .= '<div style="height: 2em;">'.get_string('memberattribute', 'enrol_ldap').'</div>';
+        $return .= html_writer::start_tag('div', array('style' => 'float:left; width:auto; margin-right: 0.5em;'));
+        $return .= html_writer::tag('div', get_string('memberattribute', 'enrol_ldap'), array('style' => 'height: 2em;'));
         foreach ($data as $role) {
             $memberattrid = $this->get_id().'['.$role['id'].'][memberattribute]';
             $memberattrname = $this->get_full_name().'['.$role['id'].'][memberattribute]';
-            $return .= '<div style="height: 2em;"><input type="text" size="15" id="'.$memberattrid.'" name="'.$memberattrname.'" value="'.s($role['memberattribute']).'"/></div>';
+            $return .= html_writer::start_tag('div', array('style' => 'height: 2em;'));
+            $return .= html_writer::label(get_string('role_mapping_attribute', 'enrol_ldap', $role['name']), $memberattrid, false, array('class' => 'accesshide'));
+            $attrs = array('type' => 'text', 'size' => '15', 'id' => $memberattrid, 'name' => $memberattrname, 'value' => s($role['memberattribute']));
+            $return .= html_writer::empty_tag('input', $attrs);
+            $return .= html_writer::end_tag('div');
         }
-        $return .= '</div>';
-        $return .= '<div style="clear:both;"></div>';
+        $return .= html_writer::end_tag('div');
+        $return .= html_writer::tag('div', '', array('style' => 'clear:both;'));
 
         return format_admin_setting($this, $this->visiblename, $return,
                                     $this->description, true, '', '', $query);

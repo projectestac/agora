@@ -115,7 +115,6 @@ YUI.add('moodle-form-dateselector', function(Y) {
             M.form.dateselector.currentowner = this;
             M.form.dateselector.calendar.cfg.setProperty('mindate', new Date(this.yearselect.firstOptionValue(), 0, 1));
             M.form.dateselector.calendar.cfg.setProperty('maxdate', new Date(this.yearselect.lastOptionValue(), 11, 31));
-            M.form.dateselector.panel.set('constrain', this.get('node').ancestor('form'));
             M.form.dateselector.panel.show();
             M.form.dateselector.fix_position();
             setTimeout(function(){M.form.dateselector.cancel_any_timeout()}, 100);
@@ -184,7 +183,6 @@ YUI.add('moodle-form-dateselector', function(Y) {
         initPanel : function(config) {
             this.panel = new Y.Overlay({
                 visible : false,
-                constrain : true,
                 bodyContent : Y.Node.create('<div id="dateselector-calendar-content"></div>'),
                 id : 'dateselector-calendar-panel'
             });
@@ -194,7 +192,7 @@ YUI.add('moodle-form-dateselector', function(Y) {
             Y.one('#dateselector-calendar-panel').on('click', function(e){e.halt();});
             Y.one(document.body).on('click', this.document_click, this);
 
-            this.calendar = new YAHOO.widget.Calendar(document.getElementById('dateselector-calendar-content'), {
+            this.calendar = new Y.YUI2.widget.Calendar(document.getElementById('dateselector-calendar-content'), {
                 iframe: false,
                 hide_blank_weeks: true,
                 start_weekday: config.firstdayofweek,
@@ -220,7 +218,7 @@ YUI.add('moodle-form-dateselector', function(Y) {
                     config.september,
                     config.october,
                     config.november,
-                    config.december ],
+                    config.december ]
             });
             this.calendar.changePageEvent.subscribe(function(){
                 this.fix_position();
@@ -245,7 +243,6 @@ YUI.add('moodle-form-dateselector', function(Y) {
         },
         fix_position : function() {
             if (this.currentowner) {
-                this.panel.set('constrain', Y.one(document.body));
                 this.panel.set('align', {
                     node:this.currentowner.get('node').one('select'),
                     points:[Y.WidgetPositionAlign.BL, Y.WidgetPositionAlign.TL]

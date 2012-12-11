@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_shibboleth', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'auth_shibboleth', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   auth_shibboleth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['auth_shib_auth_method'] = 'Nombre del método de identificación';
-$string['auth_shib_auth_method_description'] = 'Proporcione un nombre para el método de autenticación Shibboleth que sea familiar a los usuarios.Podría ser el nombre de su federación Shibboleth, por ejemplo, <tt>SWITCHaai Login</tt> o <tt>InCommon Login</tt> o similar.';
+$string['auth_shib_auth_method_description'] = 'Proporcione un nombre para el método de identificación Shibboleth que sea familiar a los usuarios.Podría ser el nombre de su federación Shibboleth, por ejemplo, <tt>SWITCHaai Login</tt> o <tt>InCommon Login</tt> o similar.';
 $string['auth_shibboleth_contact_administrator'] = 'En el caso de que usted no esté asociado con las organizaciones suministradas y necesite acceso a un curso de este servidor, contacte por favor con el';
 $string['auth_shibbolethdescription'] = 'Con este método puede conectarse a un servidor Shibboleth para comprobar y crear nuevas cuentas';
 $string['auth_shibboleth_errormsg'] = 'Por favor, seleccione la organización a la que pertenece.';
@@ -54,6 +54,7 @@ $string['auth_shib_only'] = 'Sólo Shibboleth';
 $string['auth_shib_only_description'] = 'Marque esta opción si desea forzar la identificación Shibboleth';
 $string['auth_shib_username_description'] = 'Nombre de la variable contextual del servidor Shibboleth que se utilizará como nombre de usuario en Moodle';
 $string['pluginname'] = 'Shibboleth';
+$string['shib_invalid_account_error'] = 'Usted parece estar autenticado por Shibboleth, pero Moodle no tiene una cuenta válida para su nombre de usuario. Puede ser que no exista su cuenta o que haya sido suspendida.';
 $string['shib_no_attributes_error'] = 'Usted parece haber sido Identifado por Shibboleth, pero Moodle no ha recibido ningún atributo de usuario. Por favor, compruebe que su proveedor de identidad envía los atributos necesarios ({$a}) al Proveedor de Servidios en el que Moodle se está ejecutando, o informe al webmaster de este servidor.';
 $string['shib_not_all_attributes_error'] = 'Moodle necesita ciertos atributos Shibboleth que no están presentes en su caso. Los atributos son: {$a}<br />Por favor, contacte con el webmaster de este servidor o con su proveedor de identidad.';
 $string['shib_not_set_up_error'] = 'La identificación Shibboleth no parece ser correcta debido a que en esta página no están presentes las variables contextuales Shibboleth. Por favor, consulte el archivo <a href="README.txt">README</a> si desea más instrucciones sobre cómo definir la identificación Shibboleth, o contacte con el webmaster de esta instalación de Moodle.';

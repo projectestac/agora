@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'imscp', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'imscp', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   imscp
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,11 +34,7 @@ $string['imscp:view'] = 'Mostra contingut IMS';
 $string['keepold'] = 'Paquets arxivats';
 $string['keepoldexplain'] = 'Quants paquets haurien de ser arxivats?';
 $string['modulename'] = 'Paquet de contingut IMS';
-$string['modulename_help'] = 'Un paquet de contingut IMS és una col·lecció de fitxers empaquetats d\'acord a una especificació estàndard de manera que poden ser reutilitzats en diferents sistemes. El recurs de paquet de contingut IMS permet que un paquet de contingut pugui pujar-se com un fitxer zip i afegir-se al curs com a recurs.
-
-El contingut es presenta normalment en diverses pàgines, amb navegació entre les pàgines. Hi ha diverses opcions per a mostrar el contingut: en una finestra emergent, amb un menú o botons de navegació, etc.
-
-Un paquet de contingut IMS pot emprar-se per presentar contingut multimèdia i animacions.';
+$string['modulename_help'] = 'Un paquet de contingut IMS permet crear paquets d\'acord amb l\'especificació d\'empaquetat de contingut IMS per mostrar al curs.';
 $string['modulenameplural'] = 'Paquets de contingut IMS';
 $string['navigation'] = 'Navegació';
 $string['packagefile'] = 'Fitxer del paquet';

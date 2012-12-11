@@ -101,7 +101,7 @@ class data_portfolio_caller extends portfolio_module_caller_base {
             $this->records[] = $tmp;
         } else {
             $where = array('dataid' => $this->data->id);
-            if (!has_capability('mod/data:exportallentries', get_context_instance(CONTEXT_MODULE, $this->cm->id))) {
+            if (!has_capability('mod/data:exportallentries', context_module::instance($this->cm->id))) {
                 $where['userid'] = $USER->id; // get them all in case, we'll unset ones that aren't ours later if necessary
             }
             $tmp = $DB->get_records('data_records', $where);
@@ -241,14 +241,14 @@ class data_portfolio_caller extends portfolio_module_caller_base {
     public function check_permissions() {
         if ($this->recordid) {
             if (data_isowner($this->recordid)) {
-                return has_capability('mod/data:exportownentry', get_context_instance(CONTEXT_MODULE, $this->cm->id));
+                return has_capability('mod/data:exportownentry', context_module::instance($this->cm->id));
             }
-            return has_capability('mod/data:exportentry', get_context_instance(CONTEXT_MODULE, $this->cm->id));
+            return has_capability('mod/data:exportentry', context_module::instance($this->cm->id));
         }
         if ($this->has_export_config() && !$this->get_export_config('mineonly')) {
-            return has_capability('mod/data:exportallentries', get_context_instance(CONTEXT_MODULE, $this->cm->id));
+            return has_capability('mod/data:exportallentries', context_module::instance($this->cm->id));
         }
-        return has_capability('mod/data:exportownentry', get_context_instance(CONTEXT_MODULE, $this->cm->id));
+        return has_capability('mod/data:exportownentry', context_module::instance($this->cm->id));
     }
 
     /**
@@ -284,7 +284,6 @@ class data_portfolio_caller extends portfolio_module_caller_base {
     // Replacing tags
         $patterns = array();
         $replacement = array();
-        $context = get_context_instance(CONTEXT_MODULE, $this->cm->id);
 
         $files = array();
     // Then we generate strings to replace for normal tags
@@ -385,7 +384,7 @@ class data_portfolio_caller extends portfolio_module_caller_base {
         return (empty($this->recordid) // multi-entry export
             && $this->minecount > 0    // some of them are mine
             && $this->minecount != count($this->records) // not all of them are mine
-            && has_capability('mod/data:exportallentries', get_context_instance(CONTEXT_MODULE, $this->cm->id))); // they actually have a choice in the matter
+            && has_capability('mod/data:exportallentries', context_module::instance($this->cm->id))); // they actually have a choice in the matter
     }
 
     public function export_config_form(&$mform, $instance) {
@@ -493,18 +492,77 @@ class data_file_info_container extends file_info {
      * @return array of file_info instances
      */
     public function get_children() {
-        global $DB;
+        return $this->get_filtered_children('*', false, true);
+    }
 
-        $children = array();
-        $itemids = $DB->get_records('files', array('contextid' => $this->context->id, 'component' => $this->component,
-            'filearea' => $this->filearea), 'itemid DESC', "DISTINCT itemid");
-        foreach ($itemids as $itemid => $unused) {
-            if ($child = $this->browser->get_file_info($this->context, 'mod_data', $this->filearea, $itemid)) {
-                $children[] = $child;
-            }
+    /**
+     * Help function to return files matching extensions or their count
+     *
+     * @param string|array $extensions, either '*' or array of lowercase extensions, i.e. array('.gif','.jpg')
+     * @param bool|int $countonly if false returns the children, if an int returns just the
+     *    count of children but stops counting when $countonly number of children is reached
+     * @param bool $returnemptyfolders if true returns items that don't have matching files inside
+     * @return array|int array of file_info instances or the count
+     */
+    private function get_filtered_children($extensions = '*', $countonly = false, $returnemptyfolders = false) {
+        global $DB;
+        $params = array('contextid' => $this->context->id,
+            'component' => $this->component,
+            'filearea' => $this->filearea);
+        $sql = 'SELECT DISTINCT itemid
+                    FROM {files}
+                    WHERE contextid = :contextid
+                    AND component = :component
+                    AND filearea = :filearea';
+        if (!$returnemptyfolders) {
+            $sql .= ' AND filename <> :emptyfilename';
+            $params['emptyfilename'] = '.';
+        }
+        list($sql2, $params2) = $this->build_search_files_sql($extensions);
+        $sql .= ' '.$sql2;
+        $params = array_merge($params, $params2);
+        if ($countonly === false) {
+            $sql .= ' ORDER BY itemid DESC';
         }
 
+        $rs = $DB->get_recordset_sql($sql, $params);
+        $children = array();
+        foreach ($rs as $record) {
+            if ($child = $this->browser->get_file_info($this->context, 'mod_data', $this->filearea, $record->itemid)) {
+                $children[] = $child;
+            }
+            if ($countonly !== false && count($children) >= $countonly) {
+                break;
+            }
+        }
+        $rs->close();
+        if ($countonly !== false) {
+            return count($children);
+        }
         return $children;
+    }
+
+    /**
+     * Returns list of children which are either files matching the specified extensions
+     * or folders that contain at least one such file.
+     *
+     * @param string|array $extensions, either '*' or array of lowercase extensions, i.e. array('.gif','.jpg')
+     * @return array of file_info instances
+     */
+    public function get_non_empty_children($extensions = '*') {
+        return $this->get_filtered_children($extensions, false);
+    }
+
+    /**
+     * Returns the number of children which are either files matching the specified extensions
+     * or folders containing at least one such file.
+     *
+     * @param string|array $extensions, for example '*' or array('.gif','.jpg')
+     * @param int $limit stop counting after at least $limit non-empty children are found
+     * @return int
+     */
+    public function count_non_empty_children($extensions = '*', $limit = 1) {
+        return $this->get_filtered_children($extensions, $limit);
     }
 
     /**

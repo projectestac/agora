@@ -60,7 +60,7 @@ if ($roleid != 0 and !$role = $DB->get_record('role', array('id'=>$roleid))) {
 }
 
 require_login($course);
-$context = get_context_instance(CONTEXT_COURSE, $course->id);
+$context = context_course::instance($course->id);
 require_capability('report/participation:view', $context);
 
 add_to_log($course->id, "course", "report participation", "report/participation/index.php?id=$course->id", $course->id);
@@ -137,19 +137,11 @@ if (strtotime('-1 year',$now) >= $minlog) {
     $timeoptions[strtotime('-1 year',$now)] = get_string('lastyear');
 }
 
-$roleoptions = array();
 // TODO: we need a new list of roles that are visible here
-if ($roles = get_roles_used_in_context($context)) {
-    foreach ($roles as $r) {
-        $roleoptions[$r->id] = $r->name;
-    }
-}
+$roles = get_roles_used_in_context($context);
 $guestrole = get_guest_role();
-if (empty($roleoptions[$guestrole->id])) {
-        $roleoptions[$guestrole->id] = $guestrole->name;
-}
-
-$roleoptions = role_fix_names($roleoptions, $context);
+$roles[$guestrole->id] = $guestrole;
+$roleoptions = role_fix_names($roles, $context, ROLENAME_ALIAS, true);
 
 // print first controls.
 echo '<form class="participationselectform" action="index.php" method="get"><div>'."\n".
@@ -311,7 +303,7 @@ if (!empty($instanceid) && !empty($roleid)) {
     }
     echo '</div>';
     echo '<div>';
-    echo '<label for="formaction">'.get_string('withselectedusers').'</label>';
+    echo html_writer::label(get_string('withselectedusers'), 'formactionselect');
     $displaylist['messageselect.php'] = get_string('messageselectadd');
     echo html_writer::select($displaylist, 'formaction', '', array(''=>'choosedots'), array('id'=>'formactionselect'));
     echo $OUTPUT->help_icon('withselectedusers');

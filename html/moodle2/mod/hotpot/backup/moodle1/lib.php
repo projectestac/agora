@@ -20,7 +20,8 @@
  *
  * @package    mod
  * @subpackage hotpot
- * @copyright  2011 Robin de vries <robin@celp.nl>
+ * @copyright  2012 Gordon Bateson <gordonbateson@gmail.com>
+ *             credit and thanks to Robin de vries <robin@celp.nl>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -31,7 +32,8 @@ require_once($CFG->dirroot.'/mod/hotpot/locallib.php');
 
 /**
  * HotPot conversion handler
- * methods available:
+ *
+ * methods available in this class:
  * - get_paths
  * - process_hotpot
  * - on_hotpot_end
@@ -49,7 +51,7 @@ class moodle1_mod_hotpot_handler extends moodle1_mod_handler {
      * defined. The method process_xxx() is not executed if the associated path element is
      * empty (i.e. it contains none elements or sub-paths only).
      *
-     * Note that the path /MOODLE_BACKUP/COURSE/MODULES/MOD/CHOICE does not
+     * Note that the path /MOODLE_BACKUP/COURSE/MODULES/MOD/HOTPOT does not
      * actually exist in the file. The last element with the module name was
      * appended by the moodle1_converter class.
      *
@@ -193,6 +195,14 @@ class moodle1_mod_hotpot_handler extends moodle1_mod_handler {
         return $data;
     }
 
+    /**
+     * given $fullpath to temporary imported Hot Potatoes file
+     * this function returns the HotPot sourcetype of the file
+     *
+     * Where possible, the sourcetype will be determined from the file name extension
+     * but in some cases, notably html files, it may be necessary to read the file
+     * and analyze its contents in order to determine the sourcetype
+     */
     public function get_hotpot_sourcetype($fullpath, $filerecord) {
         if ($pos = strrpos($fullpath, '.')) {
             $filetype = substr($fullpath, $pos+1);

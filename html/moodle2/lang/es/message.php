@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'message', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,21 +42,21 @@ $string['blocknoncontacts'] = 'Bloquear mensajes de usuarios que no figuren en m
 $string['contactlistempty'] = 'Su lista de contactos está vacía';
 $string['contacts'] = 'Contactos';
 $string['context'] = 'contexto';
-$string['couldnotfindpreference'] = 'No se pudo cargar la preferencia {$a}. ¿Coinciden el componente y el nombre que Usted proporcionó a message_send() con la fila en message_providers? Los provedores de mensajes deben aparecer en la base de datos para que los usuarios puedan configurar cómo serán notificados cuando reciban mensajes.';
 $string['defaultmessageoutputs'] = 'Mensajes de salida por defecto';
+$string['defaults'] = 'Por defecto';
 $string['deletemessagesdays'] = 'Número de días antes de eliminar automáticamente los mensajes antiguos';
 $string['disableall'] = 'Desactivar temporalmente las notificaciones';
 $string['disableall_help'] = 'Temporalmente desactiva todas las notificaciones excepto aquellas que hayan sido marcadas como "obligatorias" por el administrador del sitio';
 $string['disabled'] = 'La mensajería está deshabilitada en este sitio';
-$string['disallowed'] = 'Deshabilitado';
+$string['disallowed'] = 'No permitido';
 $string['discussion'] = 'Discusión';
 $string['editmymessage'] = 'Mensajería';
 $string['emailmessages'] = 'Mensajes por email cuando no estoy en línea';
 $string['emailtagline'] = 'Ésta es una copia del mensaje que se le ha enviado en "{$a->sitename}". Vaya a {$a->url} para contestar.';
 $string['emptysearchstring'] = 'Debe buscar algo';
 $string['errorcallingprocessor'] = 'Error al llamar al procesador definido';
-$string['errortranslatingdefault'] = 'Error al traducir la configuración por defecto proporcionada por la extensión (plugin), por lo que se emplean configuraciones del sistema por defecto en su lugar.';
-$string['forced'] = 'Forzada';
+$string['errortranslatingdefault'] = 'Error al traducir configuración por defecto proporcionada por el plugin. Se usarán las configuraciones por defecto del sistema.';
+$string['forced'] = 'Forzado';
 $string['formorethan'] = 'Durante más de';
 $string['gotomessages'] = 'Ir a mensajes';
 $string['guestnoeditmessage'] = 'Los invitados no pueden editar las opciones de mensajería';
@@ -77,9 +77,11 @@ $string['maxmessages'] = 'Número máximo de mensajes para mostrar en la histori
 $string['message'] = 'Mensaje';
 $string['messagehistory'] = 'Historia de mensajes';
 $string['messagehistoryfull'] = 'Todos los mensajes';
+$string['messagenavigation'] = 'Panel de mensajes:';
 $string['messageoutputs'] = 'Mensajes de salida';
 $string['messages'] = 'Mensajes';
 $string['messaging'] = 'Mensajería';
+$string['messagingblockednoncontact'] = '{$a} no podrá responder, pues Usted ha bloqueado los no-contactos';
 $string['messagingdisabled'] = 'El servicio de mensajería está deshabilitado en este sitio: se enviarán correos electrónicos en lugar de mensajes';
 $string['mostrecent'] = 'Mensajes recientes';
 $string['mostrecentconversations'] = 'Conversaciones recientes';
@@ -100,7 +102,7 @@ $string['onlyfromme'] = 'Sólo mensajes enviados por mí';
 $string['onlymycourses'] = 'Sólo en mis cursos';
 $string['onlytome'] = 'Sólo mensajes dirigidos a mí';
 $string['outputdisabled'] = 'Salida deshabilitada';
-$string['outputdoesnotexist'] = 'No existe salida de mensaje';
+$string['outputdoesnotexist'] = 'No existe salida de mensajes';
 $string['outputenabled'] = 'Salida habilitada';
 $string['outputnotavailable'] = 'No disponible';
 $string['outputnotconfigured'] = 'No configurada';
@@ -109,7 +111,7 @@ $string['pagerefreshes'] = 'Esta página se actualiza automáticamente cada {$a}
 $string['permitted'] = 'Permitida';
 $string['private_config'] = 'Opciones de Mensajería Privada';
 $string['processordeleteconfirm'] = 'Esta a punto de eliminar completamente el mensaje de salida \'{$a}\'. En la base de datos se eliminará completamente toda la información asociada con este elemento. ¿Está seguro que quier continuar?';
-$string['processordeletefiles'] = 'Todos los datos asociados con la salida \'{$a->processor}\' han sido borrados de la base de datos. Para completar la acción de borrar ( y evitar que la salida se re-instale por sí misma), Usted debe ahora de borrar este directorio de su servidor: {$a->directory}';
+$string['processordeletefiles'] = 'Todos los datos asociados con la salida \'{$a->processor}\' han sido borrados de la base de datos. Para completar el borrado (y evitar que la salida se re-instale a sí misma), Usted debería de borrar este directorio de su servidor ahora: {$a->directory}';
 $string['processortag'] = 'Destino:';
 $string['providers_config'] = 'Configurar los métodos de notificación para los mensajes entrantes';
 $string['providerstag'] = 'Fuente:';
@@ -121,8 +123,8 @@ $string['search'] = 'Buscar';
 $string['searchcombined'] = 'Buscar personas y mensajes';
 $string['searchforperson'] = 'Buscar una persona';
 $string['searchmessages'] = 'Buscar mensajes';
-$string['sendingvia'] = 'Mandando "{$a->provider}" via "{$a->processor}"';
-$string['sendingviawhen'] = 'Mandando "{$a->provider}" via "{$a->processor}" cuando {$a->state}';
+$string['sendingvia'] = 'Mandando "{$a->provider}" vía "{$a->processor}"';
+$string['sendingviawhen'] = 'Mandando "{$a->provider}" vía "{$a->processor}" en cuanto {$a->state}';
 $string['sendmessage'] = 'Enviar mensaje';
 $string['sendmessageto'] = 'Enviar mensaje a {$a}';
 $string['sendmessagetopopup'] = 'Enviar mensaje a {$a} - ventana nueva';
@@ -133,7 +135,7 @@ $string['strftimedaydatetime'] = '%A, %d %B %Y, %I:%M %p';
 $string['thisconversation'] = 'esta conversación';
 $string['timenosee'] = 'Minutos desde que estuve en línea por última vez';
 $string['timesent'] = 'Hora de envío';
-$string['touserdoesntexist'] = 'Usted no puede mandar un mensaje a un usuario cuya id ({$a}) no existe';
+$string['touserdoesntexist'] = 'Usted no puede enviar un mensaje al usuario con ID ({$a}) que no existe';
 $string['unblockcontact'] = 'Desbloquear contacto';
 $string['unreadmessages'] = '{$a} mensajes sin leer';
 $string['unreadnewmessage'] = 'Mensaje nuevo de ({$a})';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'error', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'error', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   error
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -68,6 +68,7 @@ $string['cannotdeletefile'] = 'Impossible de supprimer ce fichier';
 $string['cannotdeleterole'] = 'Le rôle ne peut pas être supprimé, parce que {$a}';
 $string['cannotdeleterolewithid'] = 'Impossible de supprimer le rôle d\'identifiant {$a}';
 $string['cannotdeletethisrole'] = 'Vous ne pouvez pas supprimer ce rôle parce qu\'il est utilisé par le système ou parce que c\'est le dernier rôle comprenant les capacités d\'administrateur.';
+$string['cannotdisableformat'] = 'Vous ne pouvez pas désactiver le format par défaut';
 $string['cannotdownloadcomponents'] = 'Téléchargement des composants impossible';
 $string['cannotdownloadlanguageupdatelist'] = 'Téléchargement de la liste des mises à jour des langues impossible';
 $string['cannotdownloadzipfile'] = 'Téléchargement du fichier ZIP impossible';
@@ -204,6 +205,7 @@ $string['dmlwriteexception'] = 'Erreur d\'écriture vers la base de données';
 $string['downgradedcore'] = 'Erreur ! Le code source que vous utilisez est plus ancien que la version qui a créé les bases de données !';
 $string['downloadedfilecheckfailed'] = 'La vérification du fichier téléchargé à échoué';
 $string['duplicatefieldname'] = 'Nom de champ à double « {$a} » détecté';
+$string['duplicatenosupport'] = 'L\'activité « {$a->modname} » n\'a pas pu être dupliquée, car le module {$a->modtype} ne supporte pas la sauvegarde ni la restauration.';
 $string['duplicateparaminsql'] = 'Erreur : nom de paramètre à double dans la requête SQL';
 $string['duplicaterolename'] = 'Un rôle portant ce nom existe déjà !';
 $string['duplicateroleshortname'] = 'Un rôle portant ce nom abrégé existe déjà !';
@@ -344,6 +346,7 @@ $string['listupdatefail'] = 'L\'opération sur la base de données a échoué lo
 $string['logfilenotavailable'] = 'Historiques non disponibles';
 $string['loginasnoenrol'] = 'Vous ne pouvez pas vous inscrire ou vous désinscrire d\'un cours lorsque vous êtes « Connecté sous le nom » d\'un autre participant';
 $string['loginasonecourse'] = 'Vous ne pouvez pas entrer dans ce cours.<br />Vous devez d\'abord terminer la session dans laquelle vous êtes « Connecté sous le nom » d\'un autre participant';
+$string['maxareabytes'] = 'Il n\'y a pas assez de place pour enregistrer ce fichier';
 $string['maxbytes'] = 'Le fichier est plus gros que la taille maximale';
 $string['messagingdisable'] = 'La messagerie est désactivée sur ce site';
 $string['mimetexisnotexist'] = 'Votre serveur n\'est pas configurer que faire tourner mimeTeX. Veuillez télécharger le programme approprié à votre plateforme sur <a href="http://moodle.org/download/mimetex/">http://moodle.org/download/mimetex/</a>, ou les sources en C du programme ici <a href="http://www.forkosh.com/mimetex.zip"> http://www.forkosh.com/mimetex.zip</a>, les compiler et placer le programme dans le dossier moodle/filter/tex/';

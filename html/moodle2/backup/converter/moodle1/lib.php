@@ -528,7 +528,8 @@ class moodle1_converter extends base_converter {
      * CONTEXT_SYSTEM and CONTEXT_COURSE ignore the $instance as they represent a
      * single system or the course being restored.
      *
-     * @see get_context_instance()
+     * @see context_system::instance()
+     * @see context_course::instance()
      * @param int $level the context level, like CONTEXT_COURSE or CONTEXT_MODULE
      * @param int $instance the instance id, for example $course->id for courses or $cm->id for activity modules
      * @return int the context id
@@ -640,7 +641,8 @@ class moodle1_converter extends base_converter {
             return $files;
         }
         foreach ($matches[2] as $match) {
-            $files[] = str_replace(array('$@FILEPHP@$', '$@SLASH@$', '$@FORCEDOWNLOAD@$'), array('', '/', ''), $match);
+            $file = str_replace(array('$@FILEPHP@$', '$@SLASH@$', '$@FORCEDOWNLOAD@$'), array('', '/', ''), $match);
+            $files[] = rawurldecode($file);
         }
 
         return array_unique($files);
@@ -657,9 +659,16 @@ class moodle1_converter extends base_converter {
     public static function rewrite_filephp_usage($text, array $files) {
 
         foreach ($files as $file) {
+            // Expect URLs properly encoded by default.
+            $parts   = explode('/', $file);
+            $encoded = implode('/', array_map('rawurlencode', $parts));
+            $fileref = '$@FILEPHP@$'.str_replace('/', '$@SLASH@$', $encoded);
+            $text    = str_replace($fileref.'$@FORCEDOWNLOAD@$', '@@PLUGINFILE@@'.$encoded.'?forcedownload=1', $text);
+            $text    = str_replace($fileref, '@@PLUGINFILE@@'.$encoded, $text);
+            // Add support for URLs without any encoding.
             $fileref = '$@FILEPHP@$'.str_replace('/', '$@SLASH@$', $file);
-            $text    = str_replace($fileref.'$@FORCEDOWNLOAD@$', '@@PLUGINFILE@@'.$file.'?forcedownload=1', $text);
-            $text    = str_replace($fileref, '@@PLUGINFILE@@'.$file, $text);
+            $text    = str_replace($fileref.'$@FORCEDOWNLOAD@$', '@@PLUGINFILE@@'.$encoded.'?forcedownload=1', $text);
+            $text    = str_replace($fileref, '@@PLUGINFILE@@'.$encoded, $text);
         }
 
         return $text;

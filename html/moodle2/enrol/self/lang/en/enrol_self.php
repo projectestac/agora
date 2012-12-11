@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -16,14 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'enrol_self', language 'en'.
  *
- * @package    enrol
- * @subpackage self
+ * @package    enrol_self
  * @copyright  2010 Petr Skoda  {@link http://skodak.org}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['cohortnonmemberinfo'] = 'Only members of cohort \'{$a}\' can self-enrol.';
+$string['cohortonly'] = 'Only cohort members';
+$string['cohortonly_help'] = 'Self enrolment may be restricted to members of a specified cohort only. Note that changing this setting has no effect on existing enrolments.';
 $string['customwelcomemessage'] = 'Custom welcome message';
 $string['customwelcomemessage_help'] = 'A custom welcome message may be added as plain text or Moodle-auto format, including HTML tags and multi-lang tags.
 
@@ -39,10 +40,24 @@ $string['enrolenddate_help'] = 'If enabled, users can enrol themselves until thi
 $string['enrolenddaterror'] = 'Enrolment end date cannot be earlier than start date';
 $string['enrolme'] = 'Enrol me';
 $string['enrolperiod'] = 'Enrolment duration';
-$string['enrolperiod_desc'] = 'Default length of time that the enrolment is valid (in seconds). If set to zero, the enrolment duration will be unlimited by default.';
+$string['enrolperiod_desc'] = 'Default length of time that the enrolment is valid. If set to zero, the enrolment duration will be unlimited by default.';
 $string['enrolperiod_help'] = 'Length of time that the enrolment is valid, starting with the moment the user enrols themselves. If disabled, the enrolment duration will be unlimited.';
 $string['enrolstartdate'] = 'Start date';
 $string['enrolstartdate_help'] = 'If enabled, users can enrol themselves from this date onward only.';
+$string['expiredaction'] = 'Enrolment expiration action';
+$string['expiredaction_help'] = 'Select action to carry out when user enrolment expires. Please note that some user data and settings are purged from course during course unenrolment.';
+$string['expirymessageenrollersubject'] = 'Self enrolment expiry notification';
+$string['expirymessageenrollerbody'] = 'Self enrolment in the course \'{$a->course}\' will expire within the next {$a->threshold} for the following users:
+
+{$a->users}
+
+To extend their enrolment, go to {$a->extendurl}';
+$string['expirymessageenrolledsubject'] = 'Self enrolment expiry notification';
+$string['expirymessageenrolledbody'] = 'Dear {$a->user},
+
+This is a notification that your enrolment in the course \'{$a->course}\' is due to expire on {$a->timeend}.
+
+If you need help, please contact {$a->enroller}.';
 $string['groupkey'] = 'Use group enrolment keys';
 $string['groupkey_desc'] = 'Use group enrolment keys by default.';
 $string['groupkey_help'] = 'In addition to restricting access to the course to only those who know the key, use of a group enrolment key means users are automatically added to the group when they enrol in the course.
@@ -53,6 +68,7 @@ $string['longtimenosee_help'] = 'If users haven\'t accessed a course for a long 
 $string['maxenrolled'] = 'Max enrolled users';
 $string['maxenrolled_help'] = 'Specifies the maximum number of users that can self enrol. 0 means no limit.';
 $string['maxenrolledreached'] = 'Maximum number of users allowed to self-enrol was already reached.';
+$string['messageprovider:expiry_notification'] = 'Self enrolment expiry notifications';
 $string['nopassword'] = 'No enrolment key required.';
 $string['password'] = 'Enrolment key';
 $string['password_help'] = 'An enrolment key enables access to the course to be restricted to only those who know the key.

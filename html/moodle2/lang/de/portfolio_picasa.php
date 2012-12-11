@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio_picasa', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'portfolio_picasa', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   portfolio_picasa
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,7 @@ $string['clientid'] = 'Client ID';
 $string['noauthtoken'] = 'Von Google wurde kein Authentifikationstoken empfangen. Bitte stellen Sie sicher, dass Sie für Moodle den Zugriff auf Ihr Googlekonto erlauben';
 $string['nooauthcredentials'] = 'OAuth Einstellungen sind erforderlich';
 $string['nooauthcredentials_help'] = 'Zur Verwendung des Picasa Portfolio Plugins sind Einstellungen für OAuth in den Portfolio-Einstellungen erforderlich.';
-$string['oauth2upgrade_message_content'] = 'Im Rahmen des Updates auf Moodle 2.3 wurde das Picasa Portfolio deaktiviert.  Zur Re-Aktivierung muß Ihre Seite bei Google registriert werden. Dies ist in der Dokumentation {$a->docsurl} beschrieben. Sie erhalten dann einen Kunden-ID und einen Schlüssel. Damit können Sie alle Google Docs und Picasa Plugins konfigurieren.';
+$string['oauth2upgrade_message_content'] = 'Im Rahmen des Updates auf Moodle 2.3 wurde das Picasa Portfolio deaktiviert. Zur Re-Aktivierung muss Ihre Seite bei Google registriert werden. Die Dokumentation {$a->docsurl} beschreibt diesen Vorgang. Sie erhalten eine Kunden-ID und einen Schlüssel, mit denen Sie alle Google Docs und Picasa Plugins konfigurieren können.';
 $string['oauth2upgrade_message_small'] = 'Das Plugin für das Picasa Portfolio wurde deaktiviert. Nehmen Sie die Konfiguration für Google OAuth2.0 vor wie in der Dokumenation beschrieben.';
 $string['oauth2upgrade_message_subject'] = 'Wichtige Informationen zur Verwerndung des Picasa PortfolioPlugins';
 $string['oauthinfo'] = '<p>Um dieses Plugin nutzen zu können, ist eine Registrierung bei Google erforderlich. Entsprechende Informationen finden Sie auf <a href="{$a->docsurl}">Google OAuth 2.0 Setup</a>.</p><p>Während der Registrierung müssen Sie folgende URL als \'Authorized Redirect URIs\' eingeben: <br />{$a->callbackurl}</p>Sie erhalten eine Client ID und ein Secret, mit denen Sie alle Plugins für Google Docs und Picasa konfigurieren können.</p>';

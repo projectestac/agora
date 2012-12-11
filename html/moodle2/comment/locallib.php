@@ -94,7 +94,7 @@ class comment_manager {
      */
     private function setup_course($courseid) {
         global $PAGE, $DB;
-        if (!empty($this->course)) {
+        if (!empty($this->course) && $this->course->id == $courseid) {
             // already set, stop
             return;
         }
@@ -114,7 +114,7 @@ class comment_manager {
      */
     private function setup_plugin($comment) {
         global $DB;
-        $this->context = get_context_instance_by_id($comment->contextid);
+        $this->context = context::instance_by_id($comment->contextid, IGNORE_MISSING);
         if (!$this->context) {
             return false;
         }

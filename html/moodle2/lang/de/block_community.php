@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_community', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_community', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   block_community
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,6 +40,8 @@ $string['blocks'] = 'Blöcke';
 $string['cannotselecttopsubject'] = 'Es kann kein Top-Thema gewählt werden
 ';
 $string['comments'] = 'Kommentare ({$a})';
+$string['community:addinstance'] = 'Neuen Block \'Community-Suche\' hinzufügen';
+$string['community:myaddinstance'] = 'Neuen Block \'Community-Suche\' für \'Meine Startseite\' hinzufügen';
 $string['contentinfo'] = 'Betreff: {$a->subject} - Zielgruppe: {$a->audience} - Schulstufe: {$a->educationallevel}';
 $string['continue'] = 'Weiter';
 $string['contributors'] = '- Mitwirkende: {$a}';
@@ -79,7 +81,7 @@ $string['licence'] = 'Lizenz';
 $string['licence_help'] = 'Sie können nach Kursen suchen, die in einer bestimmten Art lizensiert sind.';
 $string['moredetails'] = 'Mehr Details';
 $string['mycommunities'] = 'Meine Communities:';
-$string['next'] = 'Weiter >>';
+$string['next'] = 'Weiter';
 $string['nocomments'] = 'Keine Kommentare';
 $string['nocourse'] = 'Keine Kurse gefunden';
 $string['noratings'] = 'Keine Wertungen';

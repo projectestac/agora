@@ -206,7 +206,7 @@ class required_capability_exception extends moodle_exception {
         $capabilityname = get_capability_string($capability);
         if ($context->contextlevel == CONTEXT_MODULE and preg_match('/:view$/', $capability)) {
             // we can not go to mod/xx/view.php because we most probably do not have cap to view it, let's go to course instead
-            $paranetcontext = get_context_instance_by_id(get_parent_contextid($context));
+            $paranetcontext = context::instance_by_id(get_parent_contextid($context));
             $link = get_context_url($paranetcontext);
         } else {
             $link = get_context_url($context);
@@ -854,11 +854,9 @@ function setup_get_remote_url() {
     }
     $rurl['port'] = $_SERVER['SERVER_PORT'];
     $rurl['path'] = $_SERVER['SCRIPT_NAME']; // Script path without slash arguments
-
     
-//XTEC ************ MODIFICAT - Fixed login using https and BigIP
-//2012.11.29 @aginard (patch provided by IOC)
-
+    //XTEC ************ MODIFICAT - Fixed login using https and BigIP
+    //2012.11.29 @aginard (patch provided by IOC)
     if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
         $rurl['scheme'] = $_SERVER['HTTP_X_FORWARDED_PROTO'];
     } elseif (isset($_SERVER['HTTPS'])) {
@@ -866,12 +864,11 @@ function setup_get_remote_url() {
     } else {
         $rurl['scheme'] = 'http';
     }
-
-//************ ORIGINAL
-/*
+    //************ ORIGINAL
+    /*
     $rurl['scheme'] = (empty($_SERVER['HTTPS']) or $_SERVER['HTTPS'] === 'off' or $_SERVER['HTTPS'] === 'Off' or $_SERVER['HTTPS'] === 'OFF') ? 'http' : 'https';
-*/
-//************ FI
+    */
+    //************ FI
 
     if (stripos($_SERVER['SERVER_SOFTWARE'], 'apache') !== false) {
         //Apache server
@@ -1155,7 +1152,7 @@ function disable_output_buffering() {
  */
 function redirect_if_major_upgrade_required() {
     global $CFG;
-    $lastmajordbchanges = 2012051700;
+    $lastmajordbchanges = 2012110201;
     if (empty($CFG->version) or (int)$CFG->version < $lastmajordbchanges or
             during_initial_install() or !empty($CFG->adminsetuppending)) {
         try {
@@ -1321,41 +1318,6 @@ function make_cache_directory($directory, $exceptiononerror = true) {
     return make_writable_directory("$CFG->cachedir/$directory", $exceptiononerror);
 }
 
-
-/**
- * Initialises an Memcached instance
- * @global memcached $MCACHE
- * @return boolean Returns true if an mcached instance could be successfully initialised
- */
-function init_memcached() {
-    global $CFG, $MCACHE;
-
-    include_once($CFG->libdir . '/memcached.class.php');
-    $MCACHE = new memcached;
-    if ($MCACHE->status()) {
-        return true;
-    }
-    unset($MCACHE);
-    return false;
-}
-
-/**
- * Initialises an eAccelerator instance
- * @global eaccelerator $MCACHE
- * @return boolean Returns true if an eAccelerator instance could be successfully initialised
- */
-function init_eaccelerator() {
-    global $CFG, $MCACHE;
-
-    include_once($CFG->libdir . '/eaccelerator.class.php');
-    $MCACHE = new eaccelerator;
-    if ($MCACHE->status()) {
-        return true;
-    }
-    unset($MCACHE);
-    return false;
-}
-
 /**
  * Checks if current user is a web crawler.
  *
@@ -1378,11 +1340,17 @@ function is_web_crawler() {
             return true;
         } else if (strpos($_SERVER['HTTP_USER_AGENT'], '[ZSEBOT]') !== false ) {  // Zoomspider
             return true;
-        } else if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSNBOT') !== false ) {  // MSN Search
+        } else if (stripos($_SERVER['HTTP_USER_AGENT'], 'msnbot') !== false ) {  // MSN Search
+            return true;
+        } else if (strpos($_SERVER['HTTP_USER_AGENT'], 'bingbot') !== false ) {  // Bing
             return true;
         } else if (strpos($_SERVER['HTTP_USER_AGENT'], 'Yandex') !== false ) {
             return true;
         } else if (strpos($_SERVER['HTTP_USER_AGENT'], 'AltaVista') !== false ) {
+            return true;
+        } else if (stripos($_SERVER['HTTP_USER_AGENT'], 'baiduspider') !== false ) {  // Baidu
+            return true;
+        } else if (strpos($_SERVER['HTTP_USER_AGENT'], 'Teoma') !== false ) {  // Ask.com
             return true;
         }
     }
@@ -1502,7 +1470,12 @@ border-color:black; background-color:#ffffee; border-style:solid; border-radius:
 width: 80%; -moz-border-radius: 20px; padding: 15px">
 ' . $message . '
 </div>';
-        if (!empty($CFG->debug) && $CFG->debug >= DEBUG_DEVELOPER) {
+        // Check whether debug is set.
+        $debug = (!empty($CFG->debug) && $CFG->debug >= DEBUG_DEVELOPER);
+        // Also check we have it set in the config file. This occurs if the method to read the config table from the
+        // database fails, reading from the config table is the first database interaction we have.
+        $debug = $debug || (!empty($CFG->config_php_settings['debug'])  && $CFG->config_php_settings['debug'] >= DEBUG_DEVELOPER );
+        if ($debug) {
             if (!empty($debuginfo)) {
                 $debuginfo = s($debuginfo); // removes all nasty JS
                 $debuginfo = str_replace("\n", '<br />', $debuginfo); // keep newlines
@@ -1569,6 +1542,7 @@ width: 80%; -moz-border-radius: 20px; padding: 15px">
 
         // better disable any caching
         @header('Content-Type: text/html; charset=utf-8');
+        @header('X-UA-Compatible: IE=edge');
         @header('Cache-Control: no-store, no-cache, must-revalidate');
         @header('Cache-Control: post-check=0, pre-check=0', false);
         @header('Pragma: no-cache');

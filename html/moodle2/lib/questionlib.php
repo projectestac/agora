@@ -343,6 +343,7 @@ function question_delete_question($questionid) {
 
     // Finally delete the question record itself
     $DB->delete_records('question', array('id' => $questionid));
+    question_bank::notify_question_edited($questionid);
 }
 
 /**
@@ -360,7 +361,7 @@ function question_delete_course($course, $feedback=true) {
 
     //Cache some strings
     $strcatdeleted = get_string('unusedcategorydeleted', 'quiz');
-    $coursecontext = get_context_instance(CONTEXT_COURSE, $course->id);
+    $coursecontext = context_course::instance($course->id);
     $categoriescourse = $DB->get_records('question_categories',
             array('contextid' => $coursecontext->id), 'parent', 'id, parent, name, contextid');
 
@@ -412,7 +413,7 @@ function question_delete_course($course, $feedback=true) {
 function question_delete_course_category($category, $newcategory, $feedback=true) {
     global $DB, $OUTPUT;
 
-    $context = get_context_instance(CONTEXT_COURSECAT, $category->id);
+    $context = context_coursecat::instance($category->id);
     if (empty($newcategory)) {
         $feedbackdata   = array(); // To store feedback to be showed at the end of the process
         $rescueqcategory = null; // See the code around the call to question_save_from_deletion.
@@ -469,7 +470,7 @@ function question_delete_course_category($category, $newcategory, $feedback=true
 
     } else {
         // Move question categories ot the new context.
-        if (!$newcontext = get_context_instance(CONTEXT_COURSECAT, $newcategory->id)) {
+        if (!$newcontext = context_coursecat::instance($newcategory->id)) {
             return false;
         }
         $DB->set_field('question_categories', 'contextid', $newcontext->id,
@@ -534,7 +535,7 @@ function question_delete_activity($cm, $feedback=true) {
 
     //Cache some strings
     $strcatdeleted = get_string('unusedcategorydeleted', 'quiz');
-    $modcontext = get_context_instance(CONTEXT_MODULE, $cm->id);
+    $modcontext = context_module::instance($cm->id);
     if ($categoriesmods = $DB->get_records('question_categories',
             array('contextid' => $modcontext->id), 'parent', 'id, parent, name, contextid')) {
         //Sort categories following their tree (parent-child) relationships
@@ -607,6 +608,11 @@ function question_move_questions_to_category($questionids, $newcategoryid) {
 
     // TODO Deal with datasets.
 
+    // Purge these questions from the cache.
+    foreach ($questions as $question) {
+        question_bank::notify_question_edited($question->id);
+    }
+
     return true;
 }
 
@@ -626,6 +632,8 @@ function question_move_category_to_context($categoryid, $oldcontextid, $newconte
     foreach ($questionids as $questionid => $qtype) {
         question_bank::get_qtype($qtype)->move_files(
                 $questionid, $oldcontextid, $newcontextid);
+        // Purge this question from the cache.
+        question_bank::notify_question_edited($questionid);
     }
 
     $subcatids = $DB->get_records_menu('question_categories',
@@ -860,8 +868,11 @@ function question_hash($question) {
  * Saves question options
  *
  * Simply calls the question type specific save_question_options() method.
+ * @deprecated all code should now call the question type method directly.
  */
 function save_question_options($question) {
+    debugging('Please do not call save_question_options any more. Call the question type method directly.',
+            DEBUG_DEVELOPER);
     question_bank::get_qtype($question->qtype)->save_question_options($question);
 }
 
@@ -1179,12 +1190,25 @@ function question_add_tops($categories, $pcontexts) {
 function question_categorylist($categoryid) {
     global $DB;
 
-    $subcategories = $DB->get_records('question_categories',
-            array('parent' => $categoryid), 'sortorder ASC', 'id, 1');
+    // final list of category IDs
+    $categorylist = array();
 
-    $categorylist = array($categoryid);
-    foreach ($subcategories as $subcategory) {
-        $categorylist = array_merge($categorylist, question_categorylist($subcategory->id));
+    // a list of category IDs to check for any sub-categories
+    $subcategories = array($categoryid);
+
+    while ($subcategories) {
+        foreach ($subcategories as $subcategory) {
+            // if anything from the temporary list was added already, then we have a loop
+            if (isset($categorylist[$subcategory])) {
+                throw new coding_exception("Category id=$subcategory is already on the list - loop of categories detected.");
+            }
+            $categorylist[$subcategory] = $subcategory;
+        }
+
+        list ($in, $params) = $DB->get_in_or_equal($subcategories);
+
+        $subcategories = $DB->get_records_select_menu('question_categories',
+                "parent $in", $params, NULL, 'id,id AS id2');
     }
 
     return $categorylist;
@@ -1348,7 +1372,7 @@ function question_has_capability_on($question, $cap, $cachecat = -1) {
         }
     }
     $category = $categories[$question->category];
-    $context = get_context_instance_by_id($category->contextid);
+    $context = context::instance_by_id($category->contextid);
 
     if (array_search($cap, $question_questioncaps)!== false) {
         if (!has_capability('moodle/question:' . $cap . 'all', $context)) {
@@ -1380,21 +1404,11 @@ function question_require_capability_on($question, $cap) {
  * Get the real state - the correct question id and answer - for a random
  * question.
  * @param object $state with property answer.
- * @return mixed return integer real question id or false if there was an
- * error..
+ * @deprecated this function has not been relevant since Moodle 2.1!
  */
 function question_get_real_state($state) {
-    global $OUTPUT;
-    $realstate = clone($state);
-    $matches = array();
-    if (!preg_match('|^random([0-9]+)-(.*)|', $state->answer, $matches)) {
-        echo $OUTPUT->notification(get_string('errorrandom', 'quiz_statistics'));
-        return false;
-    } else {
-        $realstate->question = $matches[1];
-        $realstate->answer = $matches[2];
-        return $realstate;
-    }
+    throw new coding_exception('question_get_real_state has not been relevant since Moodle 2.1. ' .
+            'I am not sure what you are trying to do, but stop it at once!');
 }
 
 /**
@@ -1790,10 +1804,10 @@ function question_pluginfile($course, $context, $component, $filearea, $args, $f
         send_file_not_found();
     }
 
-    list($context, $course, $cm) = get_context_info_array($context->id);
-    require_login($course, false, $cm);
-
     if ($filearea === 'export') {
+        list($context, $course, $cm) = get_context_info_array($context->id);
+        require_login($course, false, $cm);
+
         require_once($CFG->dirroot . '/question/editlib.php');
         $contexts = new question_edit_contexts($context);
         // check export capability

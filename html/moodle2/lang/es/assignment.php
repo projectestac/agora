@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'assignment', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   assignment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,13 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = 'Hay tareas que requieren atención';
 $string['addsubmission'] = 'Agregar entrega';
 $string['allowdeleting'] = 'Permitir eliminar';
-$string['allowdeleting_help'] = '<p>Si se activa esta opción, los participantes podrán eliminar archivos subidos en cualquier momento antes de ser calificados.</p>';
+$string['allowdeleting_help'] = 'Si se activa esta opción, los participantes podrán eliminar archivos subidos en cualquier momento antes de ser calificados.';
 $string['allowmaxfiles'] = 'Número máximo de archivos subidos';
-$string['allowmaxfiles_help'] = '<p>Número máximo de archivos que puede subir cada participante. Este
+$string['allowmaxfiles_help'] = 'Número máximo de archivos que puede subir cada participante. Este
 número no se muestra a los estudiantes. Por favor, escriba el número
-real de archivos solicitados en la descripción de la tarea.</p>';
+real de archivos solicitados en la descripción de la tarea.';
 $string['allownotes'] = 'Permitir notas';
 $string['allownotes_help'] = 'Si esta opción está activada, los alumnos pueden escribir notas en un área de texto, de la misma forma que en una tarea de texto en línea.';
 $string['allowresubmit'] = 'Permitir volver a entregar';
@@ -67,6 +68,7 @@ $string['assignment:view'] = 'Ver tarea';
 $string['availabledate'] = 'Disponible desde';
 $string['cannotdeletefiles'] = 'Ha ocurrido un error y los archivos no han podido eliminarse';
 $string['cannotviewassignment'] = 'No puede ver esta tarea';
+$string['changegradewarning'] = 'Esta tarea tiene envíos calificados y al cambiar la calificación no se recalcularán automáticamente las calificaciones de los envíos existentes. Debe volver a calificar todos los envíos previos, si quiere cambiar la calificación.';
 $string['comment'] = 'Comentario';
 $string['commentinline'] = 'Comentario en línea';
 $string['commentinline_help'] = 'Si está habilitada, el texto de la entrega  se copiará en el comentario de retroalimentación para la calificación, facilitando los comentarios en línea (por medio de un color diferente)  o a edición del texto original.';
@@ -109,14 +111,14 @@ $string['errornosubmissions'] = 'No hay entregas que descargar';
 $string['existingfiledeleted'] = 'Se ha borrado el archivo: {$a}';
 $string['failedupdatefeedback'] = 'Fallo al actualizar el comentario dirigido a {$a}';
 $string['feedback'] = 'Comentario';
-$string['feedbackfromteacher'] = 'Comentarios del {$a}';
+$string['feedbackfromteacher'] = 'Comentarios por {$a}';
 $string['feedbackupdated'] = 'Comentario actualizado para {$a} personas';
 $string['finalize'] = 'Impedir actualizaciones de entregas';
 $string['finalizeerror'] = 'Ha ocurrido un error y la entrega no ha podido completarse';
 $string['graded'] = 'Calificado';
 $string['guestnosubmit'] = 'Lo sentimos, los invitados no pueden enviar tareas. Para poder enviar su respuesta, antes tiene que registrarse o introducir sus datos de acceso.';
 $string['guestnoupload'] = 'Lo sentimos, los invitados no pueden realizar entregas';
-$string['helpoffline'] = '<p>Esto resulta útil cuando la tarea se realiza fuera de Moodle, e.g., en algún lugar de internet o personalmente.</p><p>Los estudiantes pueden ver una descipción de la tarea, pero no pueden subir archivos de ninguna clase al servidor. Las calificaciones funcionan normalmente, y los estudiantes recibirán notificaciones sobre la calificación obtenida.</p>';
+$string['helpoffline'] = '<p>Esto resulta útil cuando la tarea se realiza fuera de Moodle. Por ejemplo en otra plataforma en internet o bien personalmente.</p><p>Los estudiantes pueden ver una descripción de la tarea, pero no pueden subir archivos de ninguna clase. Las calificaciones funcionan normalmente, y los estudiantes recibirán notificaciones sobre la calificación obtenida.</p>';
 $string['helponline'] = '<p>Esta clase de tareas pide a los usuarios que editen un texto, utilizando las herramientas de edición habituales. Los profesores pueden calificarlas en línea, e incluso incorporar comentarios o cambios.</p><p>(Si usted está familiarizado con versiones anteriores de Moodle, este tipo de tarea hace lo mismo que hacía el módulo Diario)</p>';
 $string['helpupload'] = '<p> Este tipo de tarea permite a cada participante cargar uno o más archivos en cualquier formato.
 Estos pueden ser documentos de texto, imágenes, archivos de una web comprimidos en zip, o cualquier cosa que usted les pida que presenten. </ p>
@@ -129,11 +131,11 @@ Estos pueden ser documentos de texto, imágenes, archivos de una web comprimidos
 $string['helpuploadsingle'] = '<p>Este tipo de tarea permite a los participantes subir un solo archivo de cualquier tipo.</p><p>Podría ser un documento de texto, una imagen, un sitio web comprimido, o cualquier cosa que les pida que envíen.</p>';
 $string['hideintro'] = 'Ocultar descripción antes de la fecha disponible';
 $string['hideintro_help'] = 'Si esta opción está activada, la descripción de la tarea permanece oculta en fechas anteriores a la fecha "Disponible desde". Sólo se muestra el nombre de la tarea.';
-$string['invalidassignment'] = 'tarea incorrecta';
+$string['invalidassignment'] = 'Tarea incorrecta';
 $string['invalidfileandsubmissionid'] = 'Falta archivo o ID de entrega';
-$string['invalidid'] = 'ID de tarea incorrecto';
+$string['invalidid'] = 'ID de la tarea incorrecta';
 $string['invalidsubmissionid'] = 'ID de entrega no válido';
-$string['invalidtype'] = 'Tipo de tarea incorrecto';
+$string['invalidtype'] = 'Tipo de tarea incorrecta';
 $string['invaliduserid'] = 'ID de usuario no válido';
 $string['itemstocount'] = 'Número';
 $string['lastgrade'] = 'Última calificación';
@@ -141,18 +143,10 @@ $string['late'] = '{$a} después';
 $string['maximumgrade'] = 'Calificación máxima';
 $string['maximumsize'] = 'Tamaño máximo';
 $string['maxpublishstate'] = 'Visibilidad máxima para la entrada del blog antes de la fecha de caducidad';
-$string['messageprovider:assignment_updates'] = 'Notificación de tareas';
+$string['messageprovider:assignment_updates'] = 'Notificación de tareas (2.2)';
 $string['modulename'] = 'Tarea (2.2)';
-$string['modulename_help'] = '<p><img alt="" src="<?php echo $CFG->wwwroot?>/mod/assignment/icon.gif" />&nbsp;<b>Tarea</b></p>
-<div class="indent">
-<p>El módulo de tareas permite que el profesor asigne un
-trabajo a los alumnos que deberán preparar en
-algún medio digital (en cualquier formato) y remitirlo,
-subiéndolo al servidor. Las tareas típicas incluyen ensayos,
-proyectos, informes, etc. Este módulo incluye herramientas para
-la calificación.</p>
-</div>';
-$string['modulenameplural'] = 'Tareas';
+$string['modulename_help'] = 'Las Tareas permiten que el profesor asigne un trabajo concreto a los alumnos, ya sea online o en el mundo real, el cual podrá ser cualificado.';
+$string['modulenameplural'] = 'Tareas (2.2)';
 $string['newsubmissions'] = 'Tareas enviadas';
 $string['noassignments'] = 'Aún no hay tareas';
 $string['noattempts'] = 'No se ha intentado realizar esta tarea';
@@ -168,7 +162,7 @@ $string['notesempty'] = 'No entrada';
 $string['notesupdateerror'] = 'Error al actualizar notas';
 $string['notgradedyet'] = 'No calificado aún';
 $string['notsubmittedyet'] = 'Aún no ha enviado esta tarea';
-$string['onceassignmentsent'] = 'Una vez que la tarea ha sido enviada para ser calificada, ya no podrá eliminarla ni adjuntar archivo(s).';
+$string['onceassignmentsent'] = 'Una vez que la tarea ha sido enviada para ser calificada, ya no podrá eliminarla ni adjuntar archivo(s). ¿Deseas continuar?';
 $string['operation'] = 'Operación';
 $string['optionalsettings'] = 'Ajustes opcionales';
 $string['overwritewarning'] = 'Advertencia: Si envía un nuevo archivo REEMPLAZARÁ al anterior';

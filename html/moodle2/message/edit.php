@@ -34,6 +34,7 @@ $url->param('id', $userid);
 $url->param('course', $course);
 
 $PAGE->set_url($url);
+$PAGE->set_popup_notification_allowed(false); // We are within the messaging system so don't show message popups
 
 if (!$course = $DB->get_record('course', array('id' => $course))) {
     print_error('invalidcourseid');
@@ -59,9 +60,8 @@ if (!$user = $DB->get_record('user', array('id' => $userid))) {
     print_error('invaliduserid');
 }
 
-$systemcontext   = get_context_instance(CONTEXT_SYSTEM);
-$personalcontext = get_context_instance(CONTEXT_USER, $user->id);
-$coursecontext   = get_context_instance(CONTEXT_COURSE, $course->id);
+$systemcontext   = context_system::instance();
+$personalcontext = context_user::instance($user->id);
 
 $PAGE->set_context($personalcontext);
 $PAGE->set_pagelayout('course');

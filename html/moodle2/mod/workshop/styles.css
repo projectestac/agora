@@ -285,11 +285,16 @@
     background-color: #e7f1c3;
 }
 
+.path-mod-workshop .userplan th .actions {
+    display: inline;
+}
 .path-mod-workshop .userplan tr.phasetasks li {
     background-image: url([[pix:mod_workshop|userplan/task-todo]]);
     background-position: top left;
     background-repeat: no-repeat;
     list-style-type: none;
+    min-height: 16px;
+    margin: .3em 0;
 }
 
 .path-mod-workshop .userplan tr.phasetasks li.completed {
@@ -459,6 +464,38 @@
 }
 
 /**
+ * Final grades
+ */
+.path-mod-workshop #workshop-viewlet-yourgrades .finalgrades {
+    text-align: center;
+}
+
+.path-mod-workshop #workshop-viewlet-yourgrades .finalgrades .grade {
+    border: 1px solid #ddd;
+    margin: 1em;
+    padding: 2em;
+    display: inline-block;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.path-mod-workshop #workshop-viewlet-yourgrades .finalgrades .grade.submissiongrade {
+    background-color: #d2ebff;
+}
+
+.path-mod-workshop #workshop-viewlet-yourgrades .finalgrades .grade.assessmentgrade {
+    background-color: #eee;
+    /*background-color: #e7f1c3;*/
+}
+
+.path-mod-workshop #workshop-viewlet-yourgrades .finalgrades .grade .gradevalue {
+    font-weight: bold;
+    font-size: x-large;
+    margin: 10px;
+}
+
+/**
  * Edit assessment form
  */
 #mod-workshop-editform fieldset.fgroup * {
@@ -520,3 +557,10 @@
 .path-mod-workshop div.buttonwithhelp div {
     display: inline;
 }
+
+.path-mod-workshop #evaluationmethodchooser {
+    margin: 2em auto;
+    text-align: center;
+}
+
+.path-mod-workshop .workshop-risk-dataloss { vertical-align: text-bottom; }

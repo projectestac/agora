@@ -13,6 +13,7 @@
 .path-calendar .maincalendar .eventlist .event .course {font-size:0.8em;}
 .path-calendar .maincalendar .eventlist .event .description {padding:5px;}
 .path-calendar .maincalendar .eventlist .event .description .commands {text-align: right;}
+.dir-rtl.path-calendar .maincalendar .eventlist .event .description .commands {text-align: left;}
 .path-calendar .maincalendar .eventlist .event .topic {background-color:#EEEEEE;padding: 5px;border:0px solid #EEEEEE;border-bottom-width: 1px;}
 .path-calendar .maincalendar .eventlist .event .picture {background-color:#EEEEEE;padding:8px;}
 .path-calendar .maincalendar .eventlist .event .side {background-color:#EEEEEE;}
@@ -51,8 +52,6 @@
 
 .block .minicalendar {font-size:0.85em;border:1px solid #DDDDDD;margin: 10px 0;border-collapse:separate;border-spacing:1px;}
 .block .minicalendar .duration {border-width:1px 0;}
-.block .calendar_filters.filters {background-color: #EEEEEE;}
-.block .calendar_filters.filters table {width:100%;}
 
 .calendar_event_global {border-color: #D6F8CD; background-color:#D6F8CD;}
 .calendar_event_course {border-color: #FFD3BD; background-color:#FFD3BD;}

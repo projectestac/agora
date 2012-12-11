@@ -34,11 +34,12 @@ if (!$course = $DB->get_record("course", array("id"=>$id))) {
     redirect($CFG->wwwroot);
 }
 
-$context = get_context_instance(CONTEXT_COURSE, $course->id, MUST_EXIST);
+$context = context_course::instance($course->id, MUST_EXIST);
+$PAGE->set_context($context);
 
 require_login();
 
-if ($SESSION->wantsurl) {
+if (!empty($SESSION->wantsurl)) {
     $destination = $SESSION->wantsurl;
     unset($SESSION->wantsurl);
 } else {

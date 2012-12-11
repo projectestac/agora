@@ -18,7 +18,7 @@
 // |          Bertrand Mansion <bmansion@mamasam.com>                     |
 // +----------------------------------------------------------------------+
 //
-// $Id: RuleRegistry.php,v 1.4 2012/03/23 01:09:31 moodlerobot Exp $
+// $Id$
 
 /**
 * Registers rule objects and uses them for validation

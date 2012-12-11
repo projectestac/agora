@@ -183,10 +183,10 @@ $quizsettings->add(new admin_setting_configtext_with_advanced('quiz/subnet',
 // Enforced delay between attempts.
 $quizsettings->add(new admin_setting_configtext_with_advanced('quiz/delay1',
         get_string('delay1st2nd', 'quiz'), get_string('configdelay1st2nd', 'quiz'),
-        array('value' => 0, 'fix' => true), PARAM_INTEGER));
+        array('value' => 0, 'fix' => true), PARAM_INT));
 $quizsettings->add(new admin_setting_configtext_with_advanced('quiz/delay2',
         get_string('delaylater', 'quiz'), get_string('configdelaylater', 'quiz'),
-        array('value' => 0, 'fix' => true), PARAM_INTEGER));
+        array('value' => 0, 'fix' => true), PARAM_INT));
 
 // Browser security.
 $quizsettings->add(new mod_quiz_admin_setting_browsersecurity('quiz/browsersecurity',
@@ -199,7 +199,7 @@ if (empty($reportsbyname)) {
     $ADMIN->add('modsettings', $quizsettings);
 } else {
     $ADMIN->add('modsettings', new admin_category('modsettingsquizcat',
-            get_string('modulename', 'quiz'), !$module->visible));
+            get_string('modulename', 'quiz'), $module->is_enabled() === false));
     $ADMIN->add('modsettingsquizcat', $quizsettings);
 
     // Add the report pages for the settings.php files in sub directories of mod/quiz/report.
@@ -207,7 +207,7 @@ if (empty($reportsbyname)) {
         $reportname = $report;
 
         $settings = new admin_settingpage('modsettingsquizcat'.$reportname,
-                $strreportname, 'moodle/site:config', !$module->visible);
+                $strreportname, 'moodle/site:config', $module->is_enabled() === false);
         if ($ADMIN->fulltree) {
             include($CFG->dirroot . "/mod/quiz/report/$reportname/settings.php");
         }

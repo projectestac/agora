@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_shibboleth', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'auth_shibboleth', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   auth_shibboleth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -54,6 +54,7 @@ $string['auth_shib_only'] = 'Seulement Shibboleth';
 $string['auth_shib_only_description'] = 'Cocher cette option pour imposer l\'authentification Shibboleth';
 $string['auth_shib_username_description'] = 'Nom de la variable d\'environnement du serveur web Shibboleth à utiliser comme nom d\'utilisateur Moodle';
 $string['pluginname'] = 'Shibboleth';
+$string['shib_invalid_account_error'] = 'Il semble que vous soyez authentifié via Shibboleth, mais Moodle n\'a pas de compte valide pour votre nom d\'utilisateur. Il est possible que votre compte n\'existe pas ou qu\'il soit suspendu.';
 $string['shib_no_attributes_error'] = 'Il semble que vous êtes authentifié par Shibboleth, mais Moodle n\'a reçu aucun attribut utilisateur. Veuillez vérifier que votre fournisseur d\'identité (Identity Provider) distribue les attributs nécessaires ({$a}) au fournisseur de services chez lequel Moodle fonctionne ou informer l\'administrateur de ce serveur.';
 $string['shib_not_all_attributes_error'] = 'Moodle nécessite certains attributs Shibboleth qui ne sont pas présents dans votre cas. Ces attributs sont : {$a}<br />Veuillez contacter l\'administrateur de ce serveur ou votre fournisseur d\'identité.';
 $string['shib_not_set_up_error'] = 'L\'authentification Shibboleth ne semble pas être configurée correctement : aucune variable d\'environnement Shibboleth n\'est présente pour cette page. Veuillez consulter le fichier <a href="README.txt">README</a> pour d\'autres instructions sur la façon de configurer l\'authentification Shibboleth ou contactez l\'administrateur de cette installation de Moodle.';

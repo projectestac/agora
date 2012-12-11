@@ -29,6 +29,11 @@ defined('MOODLE_INTERNAL') || die();
  */
 define('BYTESERVING_BOUNDARY', 's1k2o3d4a5k6s7');
 
+/**
+ * Unlimited area size constant
+ */
+define('FILE_AREA_MAX_BYTES_UNLIMITED', -1);
+
 require_once("$CFG->libdir/filestorage/file_exceptions.php");
 require_once("$CFG->libdir/filestorage/file_storage.php");
 require_once("$CFG->libdir/filestorage/zip_packer.php");
@@ -318,7 +323,7 @@ function file_get_unused_draft_itemid() {
         print_error('noguest');
     }
 
-    $contextid = get_context_instance(CONTEXT_USER, $USER->id)->id;
+    $contextid = context_user::instance($USER->id)->id;
 
     $fs = get_file_storage();
     $draftitemid = rand(1, 999999999);
@@ -357,7 +362,7 @@ function file_prepare_draft_area(&$draftitemid, $contextid, $component, $fileare
         $options['forcehttps'] = false;
     }
 
-    $usercontext = get_context_instance(CONTEXT_USER, $USER->id);
+    $usercontext = context_user::instance($USER->id);
     $fs = get_file_storage();
 
     if (empty($draftitemid)) {
@@ -465,7 +470,7 @@ function file_rewrite_pluginfile_urls($text, $file, $contextid, $component, $fil
 function file_get_draft_area_info($draftitemid) {
     global $CFG, $USER;
 
-    $usercontext = get_context_instance(CONTEXT_USER, $USER->id);
+    $usercontext = context_user::instance($USER->id);
     $fs = get_file_storage();
 
     $results = array();
@@ -482,6 +487,27 @@ function file_get_draft_area_info($draftitemid) {
 }
 
 /**
+ * Returns whether a draft area has exceeded/will exceed its size limit.
+ *
+ * Please note that the unlimited value for $areamaxbytes is -1 {@link FILE_AREA_MAX_BYTES_UNLIMITED}, not 0.
+ *
+ * @param int $draftitemid the draft area item id.
+ * @param int $areamaxbytes the maximum size allowed in this draft area.
+ * @param int $newfilesize the size that would be added to the current area.
+ * @return bool true if the area will/has exceeded its limit.
+ * @since 2.4
+ */
+function file_is_draft_area_limit_reached($draftitemid, $areamaxbytes, $newfilesize = 0) {
+    if ($areamaxbytes != FILE_AREA_MAX_BYTES_UNLIMITED) {
+        $draftinfo = file_get_draft_area_info($draftitemid);
+        if ($draftinfo['filesize'] + $newfilesize > $areamaxbytes) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
  * Get used space of files
  * @global moodle_database $DB
  * @global stdClass $USER
@@ -490,7 +516,7 @@ function file_get_draft_area_info($draftitemid) {
 function file_get_user_used_space() {
     global $DB, $USER;
 
-    $usercontext = get_context_instance(CONTEXT_USER, $USER->id);
+    $usercontext = context_user::instance($USER->id);
     $sql = "SELECT SUM(files1.filesize) AS totalbytes FROM {files} files1
             JOIN (SELECT contenthash, filename, MAX(id) AS id
             FROM {files}
@@ -526,7 +552,7 @@ function file_correct_filepath($str) { //TODO: what is this? (skodak)
 function file_get_drafarea_folders($draftitemid, $filepath, &$data) {
     global $USER, $OUTPUT, $CFG;
     $data->children = array();
-    $context = get_context_instance(CONTEXT_USER, $USER->id);
+    $context = context_user::instance($USER->id);
     $fs = get_file_storage();
     if ($files = $fs->get_directory_files($context->id, 'user', 'draft', $draftitemid, $filepath, false)) {
         foreach ($files as $file) {
@@ -558,7 +584,7 @@ function file_get_drafarea_folders($draftitemid, $filepath, &$data) {
 function file_get_drafarea_files($draftitemid, $filepath = '/') {
     global $USER, $OUTPUT, $CFG;
 
-    $context = get_context_instance(CONTEXT_USER, $USER->id);
+    $context = context_user::instance($USER->id);
     $fs = get_file_storage();
 
     $data = new stdClass();
@@ -711,7 +737,7 @@ function file_restore_source_field_from_draft_file($storedfile) {
 function file_save_draft_area_files($draftitemid, $contextid, $component, $filearea, $itemid, array $options=null, $text=null, $forcehttps=false) {
     global $USER;
 
-    $usercontext = get_context_instance(CONTEXT_USER, $USER->id);
+    $usercontext = context_user::instance($USER->id);
     $fs = get_file_storage();
 
     $options = (array)$options;
@@ -724,12 +750,22 @@ function file_save_draft_area_files($draftitemid, $contextid, $component, $filea
     if (!isset($options['maxbytes']) || $options['maxbytes'] == USER_CAN_IGNORE_FILE_SIZE_LIMITS) {
         $options['maxbytes'] = 0; // unlimited
     }
+    if (!isset($options['areamaxbytes'])) {
+        $options['areamaxbytes'] = FILE_AREA_MAX_BYTES_UNLIMITED; // Unlimited.
+    }
     $allowreferences = true;
     if (isset($options['return_types']) && !($options['return_types'] & FILE_REFERENCE)) {
         // we assume that if $options['return_types'] is NOT specified, we DO allow references.
         // this is not exactly right. BUT there are many places in code where filemanager options
         // are not passed to file_save_draft_area_files()
         $allowreferences = false;
+    }
+
+    // Check if the draft area has exceeded the authorised limit. This should never happen as validation
+    // should have taken place before, unless the user is doing something nauthly. If so, let's just not save
+    // anything at all in the next area.
+    if (file_is_draft_area_limit_reached($draftitemid, $options['areamaxbytes'])) {
+        return null;
     }
 
     $draftfiles = $fs->get_area_files($usercontext->id, 'user', 'draft', $draftitemid, 'id');
@@ -832,7 +868,7 @@ function file_save_draft_area_files($draftitemid, $contextid, $component, $filea
             if ($oldfile->get_contenthash() != $newfile->get_contenthash() || $oldfile->get_filesize() != $newfile->get_filesize()) {
                 $oldfile->replace_content_with($newfile);
                 // push changes to all local files that are referencing this file
-                $fs->update_references_to_storedfile($this);
+                $fs->update_references_to_storedfile($oldfile);
             }
 
             // unchanged file or directory - we keep it as is
@@ -903,7 +939,7 @@ function file_save_draft_area_files($draftitemid, $contextid, $component, $filea
 function file_rewrite_urls_to_pluginfile($text, $draftitemid, $forcehttps = false) {
     global $CFG, $USER;
 
-    $usercontext = get_context_instance(CONTEXT_USER, $USER->id);
+    $usercontext = context_user::instance($USER->id);
 
     $wwwroot = $CFG->wwwroot;
     if ($forcehttps) {
@@ -1404,6 +1440,7 @@ function &get_mimetypes_array() {
         'dir'  => array ('type'=>'application/x-director', 'icon'=>'flash'),
         'dxr'  => array ('type'=>'application/x-director', 'icon'=>'flash'),
         'eps'  => array ('type'=>'application/postscript', 'icon'=>'eps'),
+        'epub' => array ('type'=>'application/epub+zip', 'icon'=>'epub', 'groups'=>array('document')),
         'fdf'  => array ('type'=>'application/pdf', 'icon'=>'pdf'),
         'flv'  => array ('type'=>'video/x-flv', 'icon'=>'flash', 'groups'=>array('video','web_video'), 'string'=>'video'),
         'f4v'  => array ('type'=>'video/mp4', 'icon'=>'flash', 'groups'=>array('video','web_video'), 'string'=>'video'),
@@ -1817,10 +1854,14 @@ function get_mimetype_description($obj, $capitalise=false) {
         $a[strtoupper($key)] = strtoupper($value);
         $a[ucfirst($key)] = ucfirst($value);
     }
-    if (get_string_manager()->string_exists($mimetype, 'mimetypes')) {
-        $result = get_string($mimetype, 'mimetypes', (object)$a);
-    } else if (get_string_manager()->string_exists($mimetypestr, 'mimetypes')) {
-        $result = get_string($mimetypestr, 'mimetypes', (object)$a);
+
+    // MIME types may include + symbol but this is not permitted in string ids.
+    $safemimetype = str_replace('+', '_', $mimetype);
+    $safemimetypestr = str_replace('+', '_', $mimetypestr);
+    if (get_string_manager()->string_exists($safemimetype, 'mimetypes')) {
+        $result = get_string($safemimetype, 'mimetypes', (object)$a);
+    } else if (get_string_manager()->string_exists($safemimetypestr, 'mimetypes')) {
+        $result = get_string($safemimetypestr, 'mimetypes', (object)$a);
     } else if (get_string_manager()->string_exists('default', 'mimetypes')) {
         $result = get_string('default', 'mimetypes', (object)$a);
     } else {
@@ -3525,7 +3566,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
             send_file_not_found();
         }
 
-        if (empty($CFG->bloglevel)) {
+        if (empty($CFG->enableblogs)) {
             print_error('siteblogdisable', 'blog');
         }
 
@@ -3644,7 +3685,6 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
             if (!$event = $DB->get_record('event', array('id'=>(int)$eventid, 'eventtype'=>'site'))) {
                 send_file_not_found();
             }
-            // Check that we got an event and that it's userid is that of the user
 
             // Get the file and serve if successful
             $filename = array_pop($args);
@@ -3692,8 +3732,8 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
                 require_login($course);
             }
 
-            // Must be able to at least view the course
-            if (!is_enrolled($context) and !is_viewing($context)) {
+            // Must be able to at least view the course. This does not apply to the front page.
+            if ($course->id != SITEID && (!is_enrolled($context)) && (!is_viewing($context))) {
                 //TODO: hmm, do we really want to block guests here?
                 send_file_not_found();
             }
@@ -3714,10 +3754,10 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
                 if (!has_capability('moodle/site:accessallgroups', $context) && !groups_is_member($event->groupid, $USER->id)) {
                     send_file_not_found();
                 }
-            } else if ($event->eventtype === 'course') {
-                //ok
+            } else if ($event->eventtype === 'course' || $event->eventtype === 'site') {
+                // Ok. Please note that the event type 'site' still uses a course context.
             } else {
-                // some other type
+                // Some other type.
                 send_file_not_found();
             }
 
@@ -3779,7 +3819,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
                 }
                 // no redirect here because it is not cached
                 $theme = theme_config::load($themename);
-                $imagefile = $theme->resolve_image_location('u/'.$filename, 'moodle');
+                $imagefile = $theme->resolve_image_location('u/'.$filename, 'moodle', null);
                 send_file($imagefile, basename($imagefile), 60*60*24*14);
             }
 
@@ -3837,7 +3877,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
 
                 while (!$canview && count($courses) > 0) {
                     $course = array_shift($courses);
-                    if (has_capability('moodle/user:viewdetails', get_context_instance(CONTEXT_COURSE, $course->id))) {
+                    if (has_capability('moodle/user:viewdetails', context_course::instance($course->id))) {
                         $canview = true;
                     }
                 }
@@ -3854,7 +3894,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
 
         } else if ($filearea === 'profile' and $context->contextlevel == CONTEXT_COURSE) {
             $userid = (int)array_shift($args);
-            $usercontext = get_context_instance(CONTEXT_USER, $userid);
+            $usercontext = context_user::instance($userid);
 
             if ($CFG->forcelogin) {
                 require_login();
@@ -3970,13 +4010,6 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
 
             if (!$section = $DB->get_record('course_sections', array('id'=>$sectionid, 'course'=>$course->id))) {
                 send_file_not_found();
-            }
-
-            if ($course->numsections < $section->section) {
-                if (!has_capability('moodle/course:update', $context)) {
-                    // block access to unavailable sections if can not edit course
-                    send_file_not_found();
-                }
             }
 
             $filename = array_pop($args);

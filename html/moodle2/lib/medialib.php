@@ -526,9 +526,6 @@ OET;
  */
 class core_media_player_youtube extends core_media_player_external {
     protected function embed_external(moodle_url $url, $name, $width, $height, $options) {
-        global $CFG;
-
-        $site = 'www.youtube.com';
         $videoid = end($this->matches);
 
         $info = trim($name);
@@ -539,28 +536,13 @@ class core_media_player_youtube extends core_media_player_external {
 
         self::pick_video_size($width, $height);
 
-        if (empty($CFG->xmlstrictheaders)) {
-            return <<<OET
+        return <<<OET
 <span class="mediaplugin mediaplugin_youtube">
-<iframe title="$info" width="$width" height="$height" src="https://$site/embed/$videoid?rel=0&wmode=transparent" frameborder="0" allowfullscreen="1"></iframe>
-</span>
-OET;
-        }
-
-        // NOTE: we can not use any link fallback because it breaks built-in
-        // player on iOS devices.
-        $output = <<<OET
-<span class="mediaplugin mediaplugin_youtube">
-<object title="$info" type="application/x-shockwave-flash"
-  data="https://$site/v/$videoid&amp;fs=1&amp;rel=0" width="$width" height="$height">
- <param name="movie" value="$site/v/$videoid&amp;fs=1&amp;rel=0" />
- <param name="FlashVars" value="playerMode=embedded" />
- <param name="allowFullScreen" value="true" />
-</object>
+<iframe title="$info" width="$width" height="$height"
+  src="https://www.youtube.com/embed/$videoid?rel=0&wmode=transparent" frameborder="0" allowfullscreen="1"></iframe>
 </span>
 OET;
 
-        return $output;
     }
 
     protected function get_regex() {

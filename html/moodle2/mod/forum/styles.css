@@ -52,6 +52,7 @@
 .path-mod-forum .indent {margin-left: 30px;}
 .path-mod-forum .forumheaderlist {width: 100%;border-width:1px;border-style:solid;border-collapse:separate;margin-top: 10px;}
 .path-mod-forum .forumheaderlist td {border-width:1px 0px 0px 1px;border-style:solid;}
+.path-mod-forum .forumheaderlist th.header.replies .iconsmall { margin: 0 .3em;}
 .path-mod-forum .forumheaderlist .picture {width: 35px;}
 .path-mod-forum .forumheaderlist .discussion .starter {vertical-align: middle;}
 .path-mod-forum .forumheaderlist .discussion .lastpost {white-space: nowrap;text-align: right;}
@@ -88,6 +89,20 @@
 #page-mod-forum-view .unread a:first-child {padding-right: 10px;}
 #page-mod-forum-index .unread img,
 #page-mod-forum-view .unread img {margin-left: 5px;}
+#page-mod-forum-view .unread img {margin-left: 5px;}
+.dir-rtl#page-mod-forum-view .unread img {margin-right: 5px; margin-left: 0; }
 
 /** Unknown Styles ??? */
 #email .unsubscribelink {margin-top:20px;}
+
+/* Forumpost unread
+-------------------------*/
+#page-mod-forum-view .unread,
+.forumpost.unread .row.header,
+.path-course-view .unread,
+span.unread {
+    background-color: #FFD;
+}
+.forumpost.unread .row.header {
+    border-bottom: 1px solid #DDD;
+}

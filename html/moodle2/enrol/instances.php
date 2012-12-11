@@ -26,12 +26,12 @@
 require('../config.php');
 
 $id         = required_param('id', PARAM_INT); // course id
-$action     = optional_param('action', '', PARAM_ACTION);
+$action     = optional_param('action', '', PARAM_ALPHANUMEXT);
 $instanceid = optional_param('instance', 0, PARAM_INT);
 $confirm    = optional_param('confirm', 0, PARAM_BOOL);
 
 $course = $DB->get_record('course', array('id'=>$id), '*', MUST_EXIST);
-$context = get_context_instance(CONTEXT_COURSE, $course->id, MUST_EXIST);
+$context = context_course::instance($course->id, MUST_EXIST);
 
 if ($course->id == SITEID) {
     redirect("$CFG->wwwroot/");
@@ -105,7 +105,11 @@ if ($canconfig and $action and confirm_sesskey()) {
             $yesurl = new moodle_url('/enrol/instances.php', array('id'=>$course->id, 'action'=>'delete', 'instance'=>$instance->id, 'confirm'=>1,'sesskey'=>sesskey()));
             $displayname = $plugin->get_instance_name($instance);
             $users = $DB->count_records('user_enrolments', array('enrolid'=>$instance->id));
-            $message = get_string('deleteinstanceconfirm', 'enrol', array('name'=>$displayname, 'users'=>$users));
+            if ($users) {
+                $message = markdown_to_html(get_string('deleteinstanceconfirm', 'enrol', array('name'=>$displayname, 'users'=>$users)));
+            } else {
+                $message = markdown_to_html(get_string('deleteinstancenousersconfirm', 'enrol', array('name'=>$displayname)));
+            }
             echo $OUTPUT->confirm($message, $yesurl, $PAGE->url);
             echo $OUTPUT->footer();
             die();

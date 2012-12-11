@@ -50,7 +50,7 @@
         user_accesstime_log();
     }
 
-    $hassiteconfig = has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM));
+    $hassiteconfig = has_capability('moodle/site:config', context_system::instance());
 
 /// If the site is currently under maintenance, then print a message
     if (!empty($CFG->maintenance_enabled) and !$hassiteconfig) {
@@ -98,26 +98,25 @@
     echo $OUTPUT->header();
 
 /// Print Section or custom info
-    get_all_mods($SITE->id, $mods, $modnames, $modnamesplural, $modnamesused);
+    $siteformatoptions = course_get_format($SITE)->get_format_options();
+    $modinfo = get_fast_modinfo($SITE);
+    $modnames = get_module_types_names();
+    $modnamesplural = get_module_types_names(true);
+    $modnamesused = $modinfo->get_used_module_names();
+    $mods = $modinfo->get_cms();
+
     if (!empty($CFG->customfrontpageinclude)) {
         include($CFG->customfrontpageinclude);
 
-    } else if ($SITE->numsections > 0) {
-
-        if (!$section = $DB->get_record('course_sections', array('course'=>$SITE->id, 'section'=>1))) {
-            $DB->delete_records('course_sections', array('course'=>$SITE->id, 'section'=>1)); // Just in case
-            $section = new stdClass();
-            $section->course = $SITE->id;
-            $section->section = 1;
-            $section->summary = '';
-            $section->summaryformat = FORMAT_HTML;
-            $section->sequence = '';
-            $section->visible = 1;
-            $section->id = $DB->insert_record('course_sections', $section);
-            rebuild_course_cache($SITE->id, true);
+    } else if ($siteformatoptions['numsections'] > 0) {
+        if ($editing) {
+            // make sure section with number 1 exists
+            course_create_sections_if_missing($SITE, 1);
+            // re-request modinfo in case section was created
+            $modinfo = get_fast_modinfo($SITE);
         }
-
-        if (!empty($section->sequence) or !empty($section->summary) or $editing) {
+        $section = $modinfo->get_section_info(1);
+        if (($section && (!empty($modinfo->sections[1]) or !empty($section->summary))) or $editing) {
             echo $OUTPUT->box_start('generalbox sitetopic');
 
             /// If currently moving a file then show the current clipboard
@@ -128,7 +127,7 @@
                 echo '</font></p>';
             }
 
-            $context = get_context_instance(CONTEXT_COURSE, SITEID);
+            $context = context_course::instance(SITEID);
             $summarytext = file_rewrite_pluginfile_urls($section->summary, 'pluginfile.php', $context->id, 'course', 'section', $section->id);
             $summaryformatoptions = new stdClass();
             $summaryformatoptions->noclean = true;
@@ -176,7 +175,7 @@
 
                     // fetch news forum context for proper filtering to happen
                     $newsforumcm = get_coursemodule_from_instance('forum', $newsforum->id, $SITE->id, false, MUST_EXIST);
-                    $newsforumcontext = get_context_instance(CONTEXT_MODULE, $newsforumcm->id, MUST_EXIST);
+                    $newsforumcontext = context_module::instance($newsforumcm->id, MUST_EXIST);
 
                     $forumname = format_string($newsforum->name, true, array('context' => $newsforumcontext));
                     echo html_writer::tag('a', get_string('skipa', 'access', textlib::strtolower(strip_tags($forumname))), array('href'=>'#skipsitenews', 'class'=>'skip-block'));
@@ -204,17 +203,21 @@
             break;
 
             case FRONTPAGECOURSELIST:
+                $ncourses = $DB->count_records('course');
                 if (isloggedin() and !$hassiteconfig and !isguestuser() and empty($CFG->disablemycourses)) {
                     echo html_writer::tag('a', get_string('skipa', 'access', textlib::strtolower(get_string('mycourses'))), array('href'=>'#skipmycourses', 'class'=>'skip-block'));
                     echo $OUTPUT->heading(get_string('mycourses'), 2, 'headingblock header');
                     print_my_moodle();
                     echo html_writer::tag('span', '', array('class'=>'skip-block-to', 'id'=>'skipmycourses'));
-                } else if ((!$hassiteconfig and !isguestuser()) or ($DB->count_records('course') <= FRONTPAGECOURSELIMIT)) {
+                } else if ((!$hassiteconfig and !isguestuser()) or ($ncourses <= FRONTPAGECOURSELIMIT)) {
                     // admin should not see list of courses when there are too many of them
                     echo html_writer::tag('a', get_string('skipa', 'access', textlib::strtolower(get_string('availablecourses'))), array('href'=>'#skipavailablecourses', 'class'=>'skip-block'));
                     echo $OUTPUT->heading(get_string('availablecourses'), 2, 'headingblock header');
                     print_courses(0);
                     echo html_writer::tag('span', '', array('class'=>'skip-block-to', 'id'=>'skipavailablecourses'));
+                } else {
+                    echo html_writer::tag('div', get_string('therearecourses', '', $ncourses), array('class' => 'notifyproblem'));
+                    print_course_search('', false, 'short');
                 }
             break;
 

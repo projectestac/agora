@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'auth', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,7 +40,7 @@ $string['auth_fieldlock'] = 'Feld sperren';
 $string['auth_fieldlock_expl'] = '<p><b>Feld sperren:</b> Wenn diese Option aktiviert ist, verhindert Moodle die Änderung des Feldinhalts. Dies ist sinnvoll, wenn die Daten in einer externen Datenbank verwaltet werden. </p>';
 $string['auth_fieldlocks'] = 'Nutzerdatenfelder sperren';
 $string['auth_fieldlocks_help'] = '<p>Sie können Datenfelder im Nutzerprofil sperren. Dies ist sinnvoll, wenn die Nutzerdaten von Administratoren gepflegt werden, manuell angelegt oder im Bulkupload (Hochladen über Textdatei) hochgeladen werden. Falls Sie von Moodle benötigte Datenfelder sperren, müssen Sie sicher stellen, dass diese Datenfelder beim Anlegen der Nutzerprofile sinnvoll belegt werden.</p><p>Um Probleme zu vermeiden, achten Sie darauf, dass die Einstellung auf "Bearbeitbar (wenn leer)" gesetzt ist.</p>';
-$string['authinstructions'] = 'Hier können Sie Hinweise geben, welche Nutzernamen und Kennworte verwendet werden sollen. Der eingegebene Text erscheint auf der Anmeldeseite. Wenn Sie nichts eingeben, werden keine Hinweise angezeigt.';
+$string['authinstructions'] = 'Hier können Sie Hinweise geben, welche Nutzernamen und Kennworte verwendet werden sollen. Der eingegebene Text erscheint auf der Anmeldeseite. Wenn Sie nichts eingeben, werden die Standardtexte aus den Sprachdateien verwandt.';
 $string['auth_invalidnewemailkey'] = 'Fehler: Falls Sie versuchen, die Änderung Ihrer E-Mail-Adresse zu bestätigen, haben Sie eventuell einen Fehler beim Kopieren der zugesandten URL gemacht. Bitte kopieren Sie die URL noch einmal und versuchen es erneut.';
 $string['auth_multiplehosts'] = 'Mehrere Adressen können angegeben werden (z.B. host1.com;host2.de;xxx.xxx.xxx.xxx)';
 $string['auth_outofnewemailupdateattempts'] = 'Sie haben die zulässige Zahl von Versuchen überschritten, Ihre E-Mail-Adresse zu ändern. Der Änderungsvorgang wurde abgebrochen.';

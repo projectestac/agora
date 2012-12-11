@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'error', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'error', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   error
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -68,6 +68,7 @@ $string['cannotdeletefile'] = 'No se puede eliminar este archivo';
 $string['cannotdeleterole'] = 'No puede ser eliminado, debido a {$a}';
 $string['cannotdeleterolewithid'] = 'No puede eliminar el rol con ID {$a}';
 $string['cannotdeletethisrole'] = 'No se puede eliminar este rol porque es utilizado por el sistema, o porque es el último rol con privilegios de administrador.';
+$string['cannotdisableformat'] = 'Usted no puede desabilitar el formato por defecto';
 $string['cannotdownloadcomponents'] = 'No se puede descargar componentes';
 $string['cannotdownloadlanguageupdatelist'] = 'No se puede descargar la lista de actualizaciones del idioma desde download.moodle.org';
 $string['cannotdownloadzipfile'] = 'No se puede descargar el archivo ZIP';
@@ -88,7 +89,7 @@ $string['cannotfindinfo'] = 'No se puede encontrar información para: "{$a}"';
 $string['cannotfindlang'] = 'No se puede encontrar el paquete de idioma "{$a}"!';
 $string['cannotfindteacher'] = 'No se puede encontrar al profesor';
 $string['cannotfinduser'] = 'No se puede encontrar el usuario con nombre "{$a}"';
-$string['cannotgeoplugin'] = 'No se puede conectar al servidor geoPlugin en  http://www.geoplugin.com, por favor revise la configuración de su prox, o mejor aún, instale el archivo de datos de  MaxMind GeoLite City';
+$string['cannotgeoplugin'] = 'No se puede conectar al servidor de geoPlugin en http://www.geoplugin.com; por favor, revise la configuración del proxy o, mejor aún, instale el archivo de datos de  MaxMind GeoLite City';
 $string['cannotgetblock'] = 'No se pudo recuperar bloques de la base de datos';
 $string['cannotgetcats'] = 'No se pudo obtener el registro de la categoría';
 $string['cannotgetdata'] = 'No se pudo obtener información';
@@ -208,6 +209,8 @@ $string['dmlwriteexception'] = 'Error al escribir a la base de datos';
 $string['downgradedcore'] = '¡ERROR! El código que está usando es MÁS ANTIGUO que la versión que construyó estas bases de datos.';
 $string['downloadedfilecheckfailed'] = 'Ha fallado la comprobación del archivo descargado';
 $string['duplicatefieldname'] = 'Se ha detectado un nombre duplicado del campo "{$a}"';
+$string['duplicatenosupport'] = 'La actividad de
+\'{$a->modname}\' no se pudo duplicar debido a que el módulo  {$a->modtype} no soporta copia de seguridad y restauración.';
 $string['duplicateparaminsql'] = 'ERROR: parámetro duplicado en la consulta';
 $string['duplicaterolename'] = 'Ya hay un rol con ese nombre!';
 $string['duplicateroleshortname'] = 'Ya hay un rol con ese nombre corto!';
@@ -228,7 +231,7 @@ $string['errorsettinguserpref'] = 'Error al ajustar las preferencias de usuario'
 $string['errorunzippingfiles'] = 'Error al descomprimir archivos';
 $string['expiredkey'] = 'Clave expirada';
 $string['externalauthpassworderror'] = 'Contraseña no vacía para autentificación externa';
-$string['externalfilenolocation'] = 'El archivo externo no tiene ruta para localizarlo';
+$string['externalfilenolocation'] = 'El archivo externo no tiene una ruta para localizarlo';
 $string['failtoloadblocks'] = 'Uno o más bloques están registrados en la base de datos, pero todos ellos fallaron al cargarse!';
 $string['fieldrequired'] = '"{$a}" es un campo requerido';
 $string['fileexists'] = 'El archivo ya existe';
@@ -244,9 +247,9 @@ $string['generalexceptionmessage'] = 'Excepción - {$a}';
 $string['gradepubdisable'] = 'Publicación de calificaciones deshabilitada';
 $string['groupalready'] = 'El usuario ya pertence al grupo {$a}';
 $string['groupexistforcourse'] = 'En este curso ya hay un grupo "{$a}".';
-$string['groupexistforcoursewithidnumber'] = '{$a->problemgroup}: Grupo "{$a->name}" con un idnumber (númeroID) de "{$a->idnumber}" ya existe para este curso';
-$string['grouphasidnumber'] = 'El grupo "{$a}" tiene un idnumber (númeroID) y pudo haber sido creado automáticamente por un sistema externo. Usted no tiene permiso para remover este grupo.';
-$string['groupinghasidnumber'] = 'El agrupamiento "{$a}" tiene un idnumber (númeroID) y pudo haber sido creado automáticamente por un sistema externo. Usted no tiene permiso para remover este grupo.';
+$string['groupexistforcoursewithidnumber'] = '{$a->problemgroup}: El grupo "{$a->name}" con un idnumber "{$a->idnumber}" ya existe en este curso';
+$string['grouphasidnumber'] = 'El Grupo "{$a}" tiene un idnumber y este pudo haber sido creado automáticamente por un sistema externo. Usted no tiene permiso para remover este grupo.';
+$string['groupinghasidnumber'] = 'El Agrupamiento "{$a}" tiene un idnumber y este pudo haber sido creado automáticamente por un sistema externo. Usted no tiene permiso para remover este agrupamiento.';
 $string['groupnotaddederror'] = 'No se ha agregado el grupo "{$a}".';
 $string['groupunknown'] = 'El grupo {$a} no está asociado al curso especificado';
 $string['groupusernotmember'] = 'El usuario no es miembro de este grupo';
@@ -259,7 +262,7 @@ $string['hackdetected'] = 'Ataque de intrusión detectado!';
 $string['hashpoolproblem'] = 'Contenido incorrecto del archivo de los \'hash pool\'';
 $string['headersent'] = 'Las cabeceras ya han sido enviadas';
 $string['idnumbertaken'] = 'El número de ID ya esta siendo utilizado por otro curso';
-$string['idnumbertoolong'] = 'El número ID es demasiado largo';
+$string['idnumbertoolong'] = 'Número ID es demasiado largo';
 $string['importformatnotimplement'] = 'Lo sentimos, la importación de este formato aún no está implementada!';
 $string['incorrectext'] = 'El archivo tiene una extensión incorrecta';
 $string['installproblem'] = 'Generalmente no es posible recuperarse de los errores encontrados durante la instalación; es posible que tenga que crear una nueva base de datos o usar un prefijo de base de datos diferente si desea volver a intentar hacer la instalación.';
@@ -327,7 +330,7 @@ $string['invalidscaleid'] = 'ID de escala incorrecto';
 $string['invalidsection'] = 'El módulo de registro del curso contiene una sección invalida';
 $string['invalidsesskey'] = 'La \'sesskey\' enviada es incorrecta, y el formulario no ha sido aceptado.';
 $string['invalidshortname'] = 'Ese es un nombre corto de curso no valido';
-$string['invalidsourcefield'] = 'El campo del orígen del archivo borrador no es válido';
+$string['invalidsourcefield'] = 'El campo de origen del archivo borrador es inválido';
 $string['invalidstatedetected'] = 'Algo ha salido mal: {$a}. Esto normalmente no debería suceder.';
 $string['invalidurl'] = 'URL no válida';
 $string['invaliduser'] = 'Usuario no válido';
@@ -348,6 +351,7 @@ $string['listupdatefail'] = 'Operación de BD fallida al editar la jerarquía de
 $string['logfilenotavailable'] = 'Registros no disponibles';
 $string['loginasnoenrol'] = 'No puede usar matricular o desmatricular cuando está en curso una sesión "Entrar como"';
 $string['loginasonecourse'] = 'No puede entrar a este curso.<br /> Debe terminar la sesión "Entrar como" antes de entrar a cualquier otro curso.';
+$string['maxareabytes'] = 'No hay suficiente espacio disponible para almacenar este archivo';
 $string['maxbytes'] = 'El tamaño de este archivo supera el máximo permitidfo';
 $string['messagingdisable'] = 'El envío de mensajes esta deshabilitado en este sitio';
 $string['mimetexisnotexist'] = 'Su sistema no está configurado para ejecutar mimeTeX. Usted necesita descargar el ejecutable adecuado para su plataforma PHP_OS de <a href="http://moodle.org/download/mimetex/">http://moodle.org/download/mimetex/</a>, o obtener el código fuente C de <a href="http://www.forkosh.com/mimetex.zip"> http://www.forkosh.com/mimetex.zip</a>, compilarlo y colocar el ejecutable dentro de su directorio moodle/filter/tex/';
@@ -367,7 +371,7 @@ $string['moduledisable'] = 'Este módulo ({$a}) ha sido deshabilitado para este 
 $string['moduledoesnotexist'] = 'Este módulo no existe';
 $string['moduleinstancedoesnotexist'] = 'La instancia de este módulo no existe';
 $string['modulemissingcode'] = 'El módulo {$a} carece del código necesario para llevar a cabo esta función';
-$string['movecatcontentstoroot'] = 'No se permite mover el contenido de la categoría a la raíz (root). ¡Usted debe mover los contenidos a una categoría ya existente!';
+$string['movecatcontentstoroot'] = 'No se permite mover el contenido de la categoría a la raíz (root). ¡Usted debe mover los contenidos hacia una categoría existente!';
 $string['multiplerecordsfound'] = 'Múltiples registros encontrados, sólo un registro se esperaba.';
 $string['multiplerestorenotallow'] = 'Múltiples ejecuciones de restaurar no son permitidas!';
 $string['mustbeloggedin'] = 'Usted debe haber iniciado sesión para poder hacer esto';
@@ -430,7 +434,7 @@ $string['prefixcannotbeempty'] = '<p>Error: El prefijo de la tabla de la base de
 $string['prefixtoolong'] = '<p>Error: El prefijo de la tabla de la base de datos es demasiado larga ({$a->dbfamily})</p>
 <p>El administrador del sitio debe arreglar este problema. La longitud máxima para los prefijos de tabla en {$a->dbfamily} es de {$a->maxlength} caracteres. </p>';
 $string['processingstops'] = 'El procesamiento acaba aquí. Se pasan por alto los demás registros.';
-$string['protected_cc_not_supported'] = 'Los cartuchos protegidos no están soportados.';
+$string['protected_cc_not_supported'] = 'No se admiten cartuchos protegidos.';
 $string['redirecterrordetected'] = 'Detectada redirección no admitida: ejecución del script terminada';
 $string['refoundto'] = 'Puede ser reembolsado a {$a}';
 $string['refoundtoorigi'] = 'Reembolsado a la cantidad original: {$a}';

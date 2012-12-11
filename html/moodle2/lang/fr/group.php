@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'group', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'group', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   group
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addedby'] = 'Ajouté par {$a}';
 $string['addgroup'] = 'Ajouter un utilisateur au groupe';
 $string['addgroupstogrouping'] = 'Ajouter le groupe au groupement';
 $string['addgroupstogroupings'] = 'Ajouter/retirer des groupes';
@@ -63,6 +64,7 @@ $string['erroraddremoveuser'] = 'Erreur lors de l\'ajout ou du retrait de l\'uti
 $string['erroreditgroup'] = 'Erreur lors de la création ou de la modification du groupe {$a}';
 $string['erroreditgrouping'] = 'Erreur lors de la création ou de la modification du groupement {$a}';
 $string['errorinvalidgroup'] = 'Groupe {$a} non valide';
+$string['errorremovenotpermitted'] = 'Vous n\'avez pas les autorisations de retirer le membre du groupe {$a} ajouté automatiquement';
 $string['errorselectone'] = 'Veuillez ne sélectionner qu\'un groupe avant de choisir cette option';
 $string['errorselectsome'] = 'Veuillez sélectionner un ou plusieurs groupes avant de choisir cette option';
 $string['evenallocation'] = 'Remarque : pour obtenir une répartition équilibrée des groupes, le nombre réel des membres par groupe a été adapté. Il différera du nombre que vous avez indiqué.';
@@ -125,7 +127,7 @@ $string['importgroups_help'] = 'Les groupes peuvent être importés depuis un fi
 * le premier enregistrement contient la liste des noms des champs définissant le format du reste du fichier ;
 * le seul champ requis est groupname ;
 * les champs optionnels sont description, enrolmentkey, picture, hidepicture ;
-* les noms des champs ne doivent pas être traduites.';
+* les noms des champs ne doivent pas être traduits.';
 $string['javascriptrequired'] = 'Cette page requiert l\'activation de JavaScript.';
 $string['members'] = 'Membres par groupe';
 $string['membersofselectedgroup'] = 'Membres de :';

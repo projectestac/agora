@@ -57,6 +57,12 @@ class phpunit_util {
     /** @var resource used for prevention of parallel test execution */
     protected static $lockhandle = null;
 
+    /** @var array list of debugging messages triggered during the last test execution */
+    protected static $debuggings = array();
+
+    /** @var phpunit_message_sink alternative target for moodle messaging */
+    protected static $messagesink = null;
+
     /**
      * Prevent parallel test execution - this can not work in Moodle because we modify database and dataroot.
      *
@@ -530,6 +536,12 @@ class phpunit_util {
         make_temp_directory('');
         make_cache_directory('');
         make_cache_directory('htmlpurifier');
+        // Reset the cache API so that it recreates it's required directories as well.
+        cache_factory::reset();
+        // Purge all data from the caches. This is required for consistency.
+        // Any file caches that happened to be within the data root will have already been clearer (because we just deleted cache)
+        // and now we will purge any other caches as well.
+        cache_helper::purge_all();
     }
 
     /**
@@ -543,6 +555,16 @@ class phpunit_util {
      */
     public static function reset_all_data($logchanges = false) {
         global $DB, $CFG, $USER, $SITE, $COURSE, $PAGE, $OUTPUT, $SESSION, $GROUPLIB_CACHE;
+
+        // Stop any message redirection.
+        phpunit_util::stop_message_redirection();
+
+        // Release memory and indirectly call destroy() methods to release resource handles, etc.
+        gc_collect_cycles();
+
+        // Show any unhandled debugging messages, the runbare() could already reset it.
+        self::display_debugging_messages();
+        self::reset_debugging();
 
         // reset global $DB in case somebody mocked it
         $DB = self::get_global_backup('DB');
@@ -609,7 +631,8 @@ class phpunit_util {
 
         // reset all static caches
         accesslib_clear_all_caches(true);
-        get_string_manager()->reset_caches();
+        get_string_manager()->reset_caches(true);
+        reset_text_filters_cache(true);
         events_get_handlers('reset');
         textlib::reset_caches();
         if (class_exists('repository')) {
@@ -617,6 +640,24 @@ class phpunit_util {
         }
         $GROUPLIB_CACHE = null;
         //TODO MDL-25290: add more resets here and probably refactor them to new core function
+
+        // Reset course and module caches.
+        if (class_exists('format_base')) {
+            // If file containing class is not loaded, there is no cache there anyway.
+            format_base::reset_course_cache(0);
+        }
+        get_fast_modinfo(0, 0, true);
+
+        // Reset other singletons.
+        if (class_exists('plugin_manager')) {
+            plugin_manager::reset_caches(true);
+        }
+        if (class_exists('available_update_checker')) {
+            available_update_checker::reset_caches(true);
+        }
+        if (class_exists('available_update_deployer')) {
+            available_update_deployer::reset_caches(true);
+        }
 
         // purge dataroot directory
         self::reset_dataroot();
@@ -1158,5 +1199,120 @@ class phpunit_util {
             return true;
         }
         return false;
+    }
+
+    /**
+     * To be called from debugging() only.
+     * @param string $message
+     * @param int $level
+     * @param string $from
+     */
+    public static function debugging_triggered($message, $level, $from) {
+        // Store only if debugging triggered from actual test,
+        // we need normal debugging outside of tests to find problems in our phpunit integration.
+        $backtrace = debug_backtrace();
+
+        foreach ($backtrace as $bt) {
+            $intest = false;
+            if (isset($bt['object']) and is_object($bt['object'])) {
+                if ($bt['object'] instanceof PHPUnit_Framework_TestCase) {
+                    if (strpos($bt['function'], 'test') === 0) {
+                        $intest = true;
+                        break;
+                    }
+                }
+            }
+        }
+        if (!$intest) {
+            return false;
+        }
+
+        $debug = new stdClass();
+        $debug->message = $message;
+        $debug->level   = $level;
+        $debug->from    = $from;
+
+        self::$debuggings[] = $debug;
+
+        return true;
+    }
+
+    /**
+     * Resets the list of debugging messages.
+     */
+    public static function reset_debugging() {
+        self::$debuggings = array();
+    }
+
+    /**
+     * Returns all debugging messages triggered during test.
+     * @return array with instances having message, level and stacktrace property.
+     */
+    public static function get_debugging_messages() {
+        return self::$debuggings;
+    }
+
+    /**
+     * Prints out any debug messages accumulated during test execution.
+     * @return bool false if no debug messages, true if debug triggered
+     */
+    public static function display_debugging_messages() {
+        if (empty(self::$debuggings)) {
+            return false;
+        }
+        foreach(self::$debuggings as $debug) {
+            echo 'Debugging: ' . $debug->message . "\n" . trim($debug->from) . "\n";
+        }
+
+        return true;
+    }
+
+    /**
+     * Start message redirection.
+     *
+     * Note: Do not call directly from tests,
+     *       use $sink = $this->redirectMessages() instead.
+     *
+     * @return phpunit_message_sink
+     */
+    public static function start_message_redirection() {
+        if (self::$messagesink) {
+            self::stop_message_redirection();
+        }
+        self::$messagesink = new phpunit_message_sink();
+        return self::$messagesink;
+    }
+
+    /**
+     * End message redirection.
+     *
+     * Note: Do not call directly from tests,
+     *       use $sink->close() instead.
+     */
+    public static function stop_message_redirection() {
+        self::$messagesink = null;
+    }
+
+    /**
+     * Are messages redirected to some sink?
+     *
+     * Note: to be called from messagelib.php only!
+     *
+     * @return bool
+     */
+    public static function is_redirecting_messages() {
+        return !empty(self::$messagesink);
+    }
+
+    /**
+     * To be called from messagelib.php only!
+     *
+     * @param stdClass $message record from message_read table
+     * @return bool true means send message, false means message "sent" to sink.
+     */
+    public static function message_sent($message) {
+        if (self::$messagesink) {
+            self::$messagesink->add_message($message);
+        }
     }
 }

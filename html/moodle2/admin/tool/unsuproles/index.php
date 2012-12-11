@@ -27,9 +27,9 @@
 require_once(dirname(__FILE__) . '/../../../config.php');
 require_once($CFG->libdir.'/adminlib.php');
 
-$action = optional_param('action', '', PARAM_ACTION);
+$action = optional_param('action', '', PARAM_ALPHANUMEXT);
 
-$syscontext = get_context_instance(CONTEXT_SYSTEM);
+$syscontext = context_system::instance();
 
 require_login();
 admin_externalpage_setup('toolunsuproles'); // checks permissions specified in settings.php
@@ -97,7 +97,7 @@ if (!$problems) {
     $data = array();
     foreach ($problems as $problem) {
         $levelname = get_contextlevel_name($problem->contextlevel);
-        $rolename = format_string($roles[$problem->roleid]->name);
+        $rolename = role_get_name($roles[$problem->roleid]);
         //TODO: show list of users if count low
         $count = $problem->racount;
         $edit = array();

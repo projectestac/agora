@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'data', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -49,7 +49,7 @@ $string['availabletags_help'] = '<p align="center"><strong>Marcas disponibles</s
 <p>Los campos tienen el siguiente formato: [[fieldname]]</p>
 <p>Los botones tienen el siguiente formato: ##somebutton##</p>
 <p>En la plantilla actual sólo pueden usarse las marcas que están en la lista de "Marcas disponibles".</p>';
-$string['availabletodate'] = 'Disponible a';
+$string['availabletodate'] = 'Disponible hasta';
 $string['blank'] = 'En blanco';
 $string['buttons'] = 'Acciones';
 $string['bynameondate'] = 'por {$a->name} - {$a->date}';
@@ -69,6 +69,7 @@ $string['commentempty'] = 'El comentario estaba vacío';
 $string['comments'] = 'Comentarios';
 $string['commentsaved'] = 'Comentario guardado';
 $string['commentsn'] = '{$a} comentarios';
+$string['commentsoff'] = 'La opción comentarios no está habilitada';
 $string['configenablerssfeeds'] = 'Esta opción habilita la posibilidad de canales RSS para todas las bases de datos. Aún así necesitará activar manualmente los canales en los ajustes de cada base de datos.';
 $string['confirmdeletefield'] = 'Está a punto de eliminar este campo. ¿Está seguro?';
 $string['confirmdeleterecord'] = '¿Está seguro de que desea eliminar esta entrada?';
@@ -237,7 +238,18 @@ $string['menuchoose'] = 'Seleccionar...';
 $string['missingdata'] = 'Debe suministrarse la ID de los datos o del objeto a la clase de campo';
 $string['missingfield'] = 'Error del programador: Debe especificar el campo y/o los datos al definir la clase de campo.';
 $string['modulename'] = 'Base de datos';
-$string['modulename_help'] = 'El módulo de actividad de base de datos permite a los participantes crear, mantener y buscar información en un banco de registros. El formato y la estructura de estas entradas puede ser prácticamente ilimitado, incluyendo imágenes, archivos, URLs, números y texto, entre otras cosas.';
+$string['modulename_help'] = 'El módulo de actividad de base de datos permite a los participantes crear, mantener y buscar información en un repositorio de registros. La estructura de las entradas la define el profesor según una lista de campos. Los tipos de campo incluyen casilla de verificación, botones de radio, menú desplegable, área de texto, URL, imagen y archivo cargado.
+
+La presentación visual de la información al listar, ver o editar las entradas de la base de datos se controla mediante plantillas de base de datos. Las actividades de base de datos pueden ser compartidos entre los cursos como opción preestablecida de manera que un profesor también puede importar y exportar las entradas de base de datos.
+
+Si el filtro de base de datos "auto enlace" está activo, cualquier entrada de la base de datos podrá ser enlazada automáticamente desde donde las palabras o frases aparecen dentro en el curso.
+
+Un profesor puede permitir comentarios en las entradas. Las entradas también pueden se calificadas por profesores u otros estudiantes (evaluación por pares). Las calificaciones se agregarán para formar una calificación final que se registrará en el libro de calificaciones.
+
+Las actividades de base de datos tienen muchos usos, como por ejemplo
+
+* Una colección de enlaces de colaboración web, libros, reseñas de libros, referencias de revistas, etc
+* Para la visualización de fotos, carteles, sitios web o poemas de los estudiantes, ya así poder ser comentados por otros estudiantes.';
 $string['modulenameplural'] = 'Bases de datos';
 $string['more'] = 'Más';
 $string['moreurl'] = 'Más URL';
@@ -290,11 +302,11 @@ $string['overwritesettings'] = 'Sobreescribir ajustes actuales';
 $string['page-mod-data-x'] = 'Cualquier página del módulo actividad de Base de Datos';
 $string['pagesize'] = 'Entradas por página';
 $string['participants'] = 'Participantes';
-$string['picture'] = 'Dibujo';
+$string['picture'] = 'Imagen';
 $string['pleaseaddsome'] = 'Por favor, cree alguno debajo o <a href="{$a}">elija un conjunto predefinido</a> para empezar.';
 $string['pluginadministration'] = 'Administración de la actividad base de datos';
 $string['pluginname'] = 'Base de datos';
-$string['portfolionotfile'] = 'Exportar a un portafolio en lugar de a un archivo (sólo csv)';
+$string['portfolionotfile'] = 'Exportar a un portafolio en lugar de a un archivo (sólo csv y leap2a)';
 $string['presetinfo'] = 'Al guardar un ajuste previo se publicará esta plantilla. Otros usuarios podrán usarla en sus bases de datos.';
 $string['presets'] = 'Ajustes previos';
 $string['radiobutton'] = 'Botones de radio';
@@ -303,20 +315,14 @@ $string['recorddeleted'] = 'Entrada eliminada';
 $string['recordsnotsaved'] = 'No se ha guardado ninguna entrada. Por favor, compruebe el formato del archivo subido.';
 $string['recordssaved'] = 'entradas guardadas';
 $string['requireapproval'] = '¿Se requiere aprobación?';
-$string['requireapproval_help'] = '<p align="center"><strong>Se necesita aprobación</strong></p>
-
-<p>¿Debería un profesor aprobar las entradas antes de que los estudiantes puedan verlas? Esta opción es útil para moderar el contenido que potencialmente pudiera resultar ofensivo o inadecuado.</p>';
+$string['requireapproval_help'] = '<p>¿Debería un profesor aprobar las entradas antes de que los estudiantes puedan verlas? Esta opción es útil para moderar el contenido que potencialmente pudiera resultar ofensivo o inadecuado.</p>';
 $string['requiredentries'] = 'Entradas requeridas';
-$string['requiredentries_help'] = '<p align="center"><strong>Número de entradas exigido</strong></p>
-
-<p>Número de entradas que se exige enviar a cada participante.
+$string['requiredentries_help'] = '<p>Número de entradas que se exige enviar a cada participante.
    Los usuarios verán un mensaje recordatorio que les informa si no han enviado el número de entradas exigido.</p>
 
-<p>La actividad no se considerará completada en tanto el usuario no haya enviado el número de entradas exigido.</p>';
+<p>La actividad no se considerará completada hasta que el usuario no haya enviado el número de entradas exigido.</p>';
 $string['requiredentriestoview'] = 'Entradas requeridas antes de verse';
-$string['requiredentriestoview_help'] = '<p align="center"><strong>Entradas exigidas antes de ver</strong></p>
-
-<p>Número de entradas que un participante debe enviar antes de que se le permita ver cualquier entrada en esta actividad de la base de datos.</p>';
+$string['requiredentriestoview_help'] = '<p>Número de entradas que un participante debe enviar antes de que se le permita ver entradas del resto de participantes.</p>';
 $string['resetsettings'] = 'Restablecer filtros';
 $string['resettemplate'] = 'Resetear plantilla';
 $string['resizingimages'] = 'Cambiando el tamaño de las miniaturas de imagen...';
@@ -364,6 +370,7 @@ $string['uploadrecords_help'] = 'Las entradas pueden ser cargadas a través de u
 
 El campo enmarcado es una caracter que separa cada campo dentro de  cada registro. Normalmente se puede dejar sin definir.';
 $string['url'] = 'Url';
+$string['usedate'] = 'Incluir en la búsqueda';
 $string['usestandard'] = 'Use un ajuste previo';
 $string['usestandard_help'] = 'Para utilizar un ajuste previo disponible en todo el sitio, selecciónelo de la lista. (Si ha agregado un ajuste previo de la lista mediante la función guardar como predeterminado entonces usted tiene la opción de eliminarlo.)';
 $string['viewfromdate'] = 'Solo lectura desde';

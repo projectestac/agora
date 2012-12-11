@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_meta', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_meta', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_meta
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['linkedcourse'] = 'Enlazar curso';
 $string['meta:config'] = 'Configurar instancias de meta-matriculación';
 $string['meta:selectaslinked'] = 'Seleccionar curso como meta-enlazado';
+$string['meta:unenrol'] = 'Dar de baja usuarios suspendidos';
 $string['nosyncroleids'] = 'Roles que no están sincronizados';
 $string['nosyncroleids_desc'] = 'Por defecto, todas las asignaciones de rol a nivel de curso se sincronizan de  cursos-padre a cursos-hijol. Los roles seleccionados aquí no se incluirán en el proceso de sincronización. Los roles actuales se actualizarán en la próxima ejecución del \'cron\'.';
 $string['pluginname'] = 'Meta-enlace de curso';

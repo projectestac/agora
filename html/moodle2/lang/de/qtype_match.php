@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_match', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qtype_match', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   qtype_match
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addmoreqblanks'] = '{no} weitere Leerfelder';
+$string['answer'] = 'Antwort {$a}';
 $string['availablechoices'] = 'Verfügbare Wahlmöglichkeiten';
 $string['correctansweris'] = 'Die richtige Antwort ist: {$a}';
 $string['filloutthreeqsandtwoas'] = 'Sie müssen zumindest zwei Fragen und drei Antworten zur Verfügung stellen. Sie können extra falsche Antworten anbieten, indem Sie eine Antwort mit einer leeren Frage erstellen. Einträge, bei denen sowohl die Frage als auch die Antwort leer ist, werden ignoriert.';

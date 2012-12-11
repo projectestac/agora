@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'quiz', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -434,20 +434,7 @@ $string['missingcorrectanswer'] = 'S\'ha d\'especificar la resposta correcta';
 $string['missingitemtypename'] = 'Falta el nom';
 $string['missingquestion'] = 'Aquesta pregunta sembla no existir ja';
 $string['modulename'] = 'Qüestionari';
-$string['modulename_help'] = 'L\'activitat de qüestionari permet que el professorat crei qüestionaris que comprenguin preguntes de diversos tipus, inclosos els d\'opcions múltiples, d\'aparellament, de resposta breu, numèriques, etc.
-
-El professorat pot permetre que contestin el qüestionari diverses vegades, amb les preguntes barrejades o seleccionades aleatòriament del banc de preguntes. Es pot definir un límit de temps.
-
-Cada intent és qualificat de forma automàtica, amb l\'excepció de les preguntes de resposta oberta, i la qualificació es registra en el butlletí de qualificacions.
-
-El professorat pot triar si les pistes, la retroacció i les respostes correctes es mostren a l\'estudiantat i quan.
-
-Els qüestionaris es poden usar
-* Com a exàmens del curs
-* Com a miniproves per a les tasques de lectura o al final d\'un tema
-* Com a pràctica de l\'examen amb preguntes d\'exàmens anteriors
-* Per oferir una retroacció immediata sobre el rendiment
-* Per a l\'autoavaluació';
+$string['modulename_help'] = 'El mòdul de qüestionaris permet que el professorat prepari i assigni qüestionaris amb preguntes de selecció múltiple, cert-fals, aparellaments i altres tipus. Cada intent es puntua automàticament, i el professorat pot decidir si es mostren comentaris i retroacció i si es mostren les respostes correctes.';
 $string['modulenameplural'] = 'Qüestionaris';
 $string['moveselectedonpage'] = 'Mou les preguntes seleccionades a la pàgina: {$a}';
 $string['multichoice'] = 'Opcions múltiples';

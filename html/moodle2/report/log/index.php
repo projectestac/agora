@@ -111,16 +111,25 @@ if ($hostid == $CFG->mnet_localhost_id) {
 
 require_login($course);
 
-$context = get_context_instance(CONTEXT_COURSE, $course->id);
+$context = context_course::instance($course->id);
 
 require_capability('report/log:view', $context);
 
 add_to_log($course->id, "course", "report log", "report/log/index.php?id=$course->id", $course->id);
 
-$strlogs = get_string('logs');
+if (!empty($page)) {
+    $strlogs = get_string('logs'). ": ". get_string('page', 'report_log', $page+1);
+} else {
+    $strlogs = get_string('logs');
+}
 $stradministration = get_string('administration');
 $strreports = get_string('reports');
 
+// Before we close session, make sure we have editing information in session.
+$adminediting = optional_param('adminedit', -1, PARAM_BOOL);
+if ($PAGE->user_allowed_editing() && $adminediting != -1) {
+    $USER->editing = $adminediting;
+}
 session_get_instance()->write_close();
 
 if (!empty($chooselog)) {
@@ -139,6 +148,7 @@ if (!empty($chooselog)) {
         case 'showashtml':
             if ($hostid != $CFG->mnet_localhost_id || $course->id == SITEID) {
                 admin_externalpage_setup('reportlog');
+                $PAGE->set_title($course->shortname .': '. $strlogs);
                 echo $OUTPUT->header();
 
             } else {

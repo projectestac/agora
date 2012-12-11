@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'backup', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'backup', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   backup
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -69,14 +69,14 @@ $string['backupstage8action'] = 'Weiter';
 $string['backuptype'] = 'Typ';
 $string['backuptypeactivity'] = 'Aktivität';
 $string['backuptypecourse'] = 'Kurs';
-$string['backuptypesection'] = 'Bereich';
+$string['backuptypesection'] = 'Abschnitt';
 $string['backupversion'] = 'Sicherungsversion';
 $string['cannotfindassignablerole'] = 'Die Rolle \'{$a}\' in der Sicherungsdatei kann nicht auf eine Rolle übertragen werden, die Sie zuweisen dürfen.';
-$string['choosefilefromactivitybackup'] = 'Sicherungsbereich für Aktivitäten';
+$string['choosefilefromactivitybackup'] = 'Sicherungsbereich der Aktivität';
 $string['choosefilefromactivitybackup_help'] = 'Standardmäßig werden die Sicherungsdateien von Aktivitäten hier gespeichert';
 $string['choosefilefromautomatedbackup'] = 'Automatisierte Sicherungen';
 $string['choosefilefromautomatedbackup_help'] = 'Enthält automatisch erzeugte Sicherungsdateien';
-$string['choosefilefromcoursebackup'] = 'Sicherungsbereich von Kursen';
+$string['choosefilefromcoursebackup'] = 'Sicherungsbereich des Kurses';
 $string['choosefilefromcoursebackup_help'] = 'Standardmäßig werden die Sicherungsdateien von Kursen hier gespeichert';
 $string['choosefilefromuserbackup'] = 'Sicherungsbereich des Nutzers';
 $string['choosefilefromuserbackup_help'] = 'Sicherungsdateien mit der Option \'anonymisierte Nutzereinträge\' werden hier gespeichert';
@@ -161,6 +161,7 @@ $string['lockedbyhierarchy'] = 'Gesperrt durch Abhängigkeiten';
 $string['lockedbypermission'] = 'Sie haben keine Berechtigung, diese Einstellung zu ändern';
 $string['loglifetime'] = 'Logdaten behalten für';
 $string['managefiles'] = 'Sicherungsdateien verwalten';
+$string['missingfilesinpool'] = 'Einige Dateien konnten während des Backups nicht gespeichert werden. Beim Wiederherstellen können sie nicht eingebunden werden.';
 $string['moodleversion'] = 'Moodle-Version';
 $string['moreresults'] = 'Zu viele Suchergebnisse - bitte präzisieren Sie die Suchanfrage';
 $string['nomatchingcourses'] = 'Kein Kurs zum Anzeigen';
@@ -175,6 +176,7 @@ $string['restoreactivity'] = 'Aktivität wiederherstellen';
 $string['restorecourse'] = 'Kurs wiederherstellen';
 $string['restorecoursesettings'] = 'Kurseinstellungen';
 $string['restoreexecutionsuccess'] = 'Der Kurs wurde erfolgreich wiederhergestellt. Klicken Sie auf Weiter, um in den Kurs zu gelangen.';
+$string['restorefileweremissing'] = 'Einige Dateien konnten nicht wiederhergestellt werden. Sie fehlten im Backup.';
 $string['restorenewcoursefullname'] = 'Neuer Kursname';
 $string['restorenewcourseshortname'] = 'Neuer Kurskurzname';
 $string['restorenewcoursestartdate'] = 'Neuer Starttermin';
@@ -206,6 +208,7 @@ $string['restoretoexistingcoursedeleting'] = 'Alle Inhalte eines vorhandenen Kur
 $string['restoretonewcourse'] = 'Als neuen Kurs wiederherstellen';
 $string['restoringcourse'] = 'Kurswiederherstellung läuft';
 $string['restoringcourseshortname'] = 'wird wiederhergestellt';
+$string['rootenrolmanual'] = 'Wiederherstellen mit manueller Einschreibung';
 $string['rootsettingactivities'] = 'Aktivitäten einbeziehen';
 $string['rootsettinganonymize'] = 'Nutzerinformationen anonymisieren';
 $string['rootsettingblocks'] = 'Blöcke einbeziehen';
@@ -231,6 +234,12 @@ $string['setting_course_startdate'] = 'Kursbeginn';
 $string['setting_keep_groups_and_groupings'] = 'Aktuelle Gruppen und Gruppierungen behalten';
 $string['setting_keep_roles_and_enrolments'] = 'Aktuelle Rollen und Einschreibungen behalten';
 $string['setting_overwriteconf'] = 'Kurseinstellungen überschreiben';
+$string['skiphidden'] = 'Verborgene Kurse überspringen';
+$string['skiphiddenhelp'] = 'Wählen Sie, ob verborgene Kurse gesichert werden sollen oder nicht.';
+$string['skipmodifdays'] = 'Unveränderte Kurse überspringen';
+$string['skipmodifdayshelp'] = 'Wählen Sie, ob Kurse, die sich x Tage nicht verändert haben, gesichert werden sollen oder nicht.';
+$string['skipmodifprev'] = 'Seit der letzten Sicherung unveränderte Kurse überspringen';
+$string['skipmodifprevhelp'] = 'Wählen Sie, ob Kurse, die sich seit der letzten Sicherung nicht geändert haben, gesichert werden sollen oder nicht.';
 $string['storagecourseandexternal'] = 'Dateibereich für Kurssicherungen und angegebenes Verzeichnis';
 $string['storagecourseonly'] = 'Dateibereich für Kurssicherungen';
 $string['storageexternalonly'] = 'Angegebenes Verzeichnis für automatisierte Sicherungen';

@@ -118,6 +118,9 @@ abstract class moodle_database {
     /** @var bool Flag used to force rollback of all current transactions. */
     private $force_rollback = false;
 
+    /** @var string MD5 of settings used for connection. Used by MUC as an identifier. */
+    private $settingshash;
+
     /**
      * @var int internal temporary variable used to fix params. Its used by {@link _fix_sql_params_dollar_callback()}.
      */
@@ -289,6 +292,20 @@ abstract class moodle_database {
     }
 
     /**
+     * Returns a hash for the settings used during connection.
+     *
+     * If not already requested it is generated and stored in a private property.
+     *
+     * @return string
+     */
+    protected function get_settings_hash() {
+        if (empty($this->settingshash)) {
+            $this->settingshash = md5($this->dbhost . $this->dbuser . $this->dbname . $this->prefix);
+        }
+        return $this->settingshash;
+    }
+
+    /**
      * Attempt to create the database
      * @param string $dbhost The database host.
      * @param string $dbuser The database user to connect as.
@@ -324,11 +341,13 @@ abstract class moodle_database {
             }
             $this->force_transaction_rollback();
         }
-        if ($this->used_for_db_sessions) {
-            // this is needed because we need to save session to db before closing it
+        // Always terminate sessions here to make it consistent,
+        // this is needed because we need to save session to db before closing it.
+        if (function_exists('session_get_instance')) {
             session_get_instance()->write_close();
-            $this->used_for_db_sessions = false;
         }
+        $this->used_for_db_sessions = false;
+
         if ($this->temptables) {
             $this->temptables->dispose();
             $this->temptables = null;
@@ -909,6 +928,9 @@ abstract class moodle_database {
     public function reset_caches() {
         $this->columns = array();
         $this->tables  = null;
+        // Purge MUC as well
+        $identifiers = array('dbfamily' => $this->get_dbfamily(), 'settings' => $this->get_settings_hash());
+        cache_helper::purge_by_definition('core', 'databasemeta', $identifiers);
     }
 
     /**
@@ -1100,6 +1122,20 @@ abstract class moodle_database {
      * @throws dml_exception A DML specific exception is thrown for any errors.
      */
     public abstract function get_recordset_sql($sql, array $params=null, $limitfrom=0, $limitnum=0);
+
+    /**
+     * Get all records from a table.
+     *
+     * This method works around potential memory problems and may improve performance,
+     * this method may block access to table until the recordset is closed.
+     *
+     * @param string $table Name of database table.
+     * @return moodle_recordset A moodle_recordset instance {@link function get_recordset}.
+     * @throws dml_exception A DML specific exception is thrown for any errors.
+     */
+    public function export_table_recordset($table) {
+        return $this->get_recordset($table, array());
+    }
 
     /**
      * Get a number of records as an array of objects where all the given conditions met.
@@ -1587,11 +1623,11 @@ abstract class moodle_database {
      * @throws dml_exception A DML specific exception is thrown for any errors.
      */
     public function count_records_sql($sql, array $params=null) {
-        if ($count = $this->get_field_sql($sql, $params)) {
-            return $count;
-        } else {
-            return 0;
+        $count = $this->get_field_sql($sql, $params);
+        if ($count === false or !is_number($count) or $count < 0) {
+            throw new coding_exception("count_records_sql() expects the first field to contain non-negative number from COUNT(), '$count' found instead.");
         }
+        return (int)$count;
     }
 
     /**

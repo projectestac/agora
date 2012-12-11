@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'questionnaire', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'questionnaire', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   questionnaire
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,9 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['alreadyfilled'] = 'Usted ya ha llenado este cuestionario. Gracias';
 $string['modulename'] = 'Cuestionario';
 $string['modulenameplural'] = 'Cuestionarios';
-$string['notavail'] = 'Este cuestionario aún no esta disponible. Inténtelo más tarde';
+$string['mustcomplete'] = '<b>Usted debe completar este cuestionario <i>ahora</i> para grabar sus respuestas. No se le permitirá completarlo en otra ocasión</b><br /><br />';
+$string['qmanage'] = 'Gestionar encuestas';
+$string['qmanagetitle'] = 'Gestión de Encuestas phpESP';
 $string['qtype'] = 'Tipo';
-$string['respondenttype'] = 'Tipo respondiente';
+$string['questionnaireid'] = 'Encuesta';

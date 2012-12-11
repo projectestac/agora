@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio_download', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'portfolio_download', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   portfolio_download
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,4 +27,3 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['downloadfile'] = 'Baixa el fitxer d\'exportació del portafolis';
 $string['downloading'] = 'Baixant...';
-$string['pluginname'] = 'Baixa el fitxer';

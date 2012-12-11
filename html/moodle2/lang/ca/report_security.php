@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_security', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'report_security', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   report_security
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -119,7 +119,6 @@ $string['configuration'] = 'Configuració';
 $string['description'] = 'Descripció';
 $string['details'] = 'Detalls';
 $string['issue'] = 'Incidència';
-$string['pluginname'] = 'Resum de seguretat';
 $string['security:view'] = 'Mostra l\'informe de seguretat';
 $string['status'] = 'Estat';
 $string['statuscritical'] = 'Crític';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scorm', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'scorm', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   scorm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -50,6 +50,9 @@ $string['assetlaunched'] = 'Anlage gesehen';
 $string['attempt'] = 'Versuch';
 $string['attempt1'] = '1 Versuch';
 $string['attempts'] = 'Versuche';
+$string['attemptstatusall'] = 'Meine Startseite und Eingangsseite';
+$string['attemptstatusentry'] = 'Nur Eingangsseite';
+$string['attemptstatusmy'] = 'Nur meine Startseite';
 $string['attemptsx'] = '{$a} Versuche';
 $string['attr_error'] = 'Falscher Wert für das Attribut ({$a->attr}) im Tag {$a->tag}';
 $string['autocontinue'] = 'Automatische Fortsetzung';
@@ -89,9 +92,7 @@ $string['disabled'] = 'Deaktiviert';
 $string['display'] = 'Lernpaket anzeigen';
 $string['displayattemptstatus'] = 'Status der Versuche anzeigen';
 $string['displayattemptstatusdesc'] = 'Diese Einstellung setzt den Standardwert für die Einstellung "Status der Versuche anzeigen"';
-$string['displayattemptstatus_help'] = '<h2>Anzeige der durchgeführten Versuche</h2>
-
-<p>Zeigt den Status der Versuche im Lernpaket für die Teilnehmer/innen an. Angezeigt werden Versuche, Bewertung und die in den Bewertungsbereich übergebenen Punkte (bei mehreren Versuchen)</p>';
+$string['displayattemptstatus_help'] = 'Diese Option erlaubt die Anzeige einer Zusammenfassung der Versuche in der Kursübersicht und/oder auf der Eingangsseite des Lernpakets.';
 $string['displaycoursestructure'] = 'Kursstruktur anzeigen';
 $string['displaycoursestructuredesc'] = 'Diese Option setzt den Standardwert für Einstellung "Kursstruktur anzeigen" auf der Startseite';
 $string['displaycoursestructure_help'] = 'Wenn diese Option aktiviert ist, wird die Inhaltsstruktur des Lernpakets neben dem Inhalt angezeigt.';

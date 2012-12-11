@@ -33,6 +33,9 @@ defined('MOODLE_INTERNAL') || die();
  */
 class backup_hotpot_activity_structure_step extends backup_activity_structure_step {
 
+    /** maximum number of questions to retrieve in one DB query */
+    const GET_QUESTIONS_LIMIT = 100;
+
     /**
      * define_structure
      *
@@ -195,22 +198,27 @@ class backup_hotpot_activity_structure_step extends backup_activity_structure_st
                 }
             }
 
-            // get the responses to these questions
-            list($filter, $params) = $DB->get_in_or_equal(array_keys($questions));
-            if ($responses = $DB->get_records_select('hotpot_responses', "questionid $filter", $params)) {
+            $questions = array_keys($questions);
+            while (($questionids = array_splice($questions, 0, self::GET_QUESTIONS_LIMIT)) && count($questionids)) {
 
-                // extract string ids from the string fields of these responses
-                foreach ($responses as $response) {
-                    foreach ($stringfields as $stringfield) {
-                        $ids = explode(',', trim($response->$stringfield));
-                        foreach ($ids as $id) {
-                            if ($id = intval($id)) {
-                                $stringids[$id] = true;
+                // get the responses to these questions
+                list($filter, $params) = $DB->get_in_or_equal($questionids);
+                if ($responses = $DB->get_records_select('hotpot_responses', "questionid $filter", $params)) {
+
+                    // extract string ids from the string fields of these responses
+                    foreach ($responses as $response) {
+                        foreach ($stringfields as $stringfield) {
+                            $ids = explode(',', trim($response->$stringfield));
+                            foreach ($ids as $id) {
+                                if ($id = intval($id)) {
+                                    $stringids[$id] = true;
+                                }
                             }
                         }
                     }
-                }
-            } // end if $responses
+                } // end if $responses
+            }
+
         } // end if $questions
 
         // get the distinct string ids

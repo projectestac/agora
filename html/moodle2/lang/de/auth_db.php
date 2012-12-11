@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_db', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'auth_db', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   auth_db
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,6 +43,7 @@ $string['auth_dbfielduser_key'] = 'Nutzernamenfeld';
 $string['auth_dbhost'] = 'Der Computer, der die Datenbank bereitstellt';
 $string['auth_dbhost_key'] = 'Host';
 $string['auth_dbinsertuser'] = 'Eingefügte Nutzer/in {$a->name} ID {$a->id}';
+$string['auth_dbinsertuserduplicate'] = 'Fehler beim Anlegen des Nutzers {$a->username}. Ein Nutzer mit diesem Nutzernamen wurde bereits mit der Authentifizierung über \'{$a-auth}\' angelegt.';
 $string['auth_dbinsertusererror'] = 'Fehler beim Einfügen von Nutzer/in {$a}';
 $string['auth_dbname'] = 'Name der Datenbank';
 $string['auth_dbname_key'] = 'DB Name';

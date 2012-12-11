@@ -65,7 +65,7 @@ class block_quiz_results extends block_base {
         if (empty($this->instance->parentcontextid)) {
             return 0;
         }
-        $parentcontext = get_context_instance_by_id($this->instance->parentcontextid);
+        $parentcontext = context::instance_by_id($this->instance->parentcontextid);
         if ($parentcontext->contextlevel != CONTEXT_MODULE) {
             return 0;
         }
@@ -151,7 +151,7 @@ class block_quiz_results extends block_base {
                 $context = $this->page->context;
             } else {
                 $cm = get_coursemodule_from_instance('quiz', $quizid, $courseid);
-                $context = get_context_instance(CONTEXT_MODULE, $cm->id);
+                $context = context_module::instance($cm->id);
             }
             $groupmode = groups_get_activity_groupmode($cm);
 

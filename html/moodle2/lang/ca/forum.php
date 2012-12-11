@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'forum', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -180,7 +180,6 @@ $string['forums'] = 'Fòrums';
 $string['forum:splitdiscussions'] = 'Partir els debats';
 $string['forum:startdiscussion'] = 'Començar nous debats';
 $string['forumsubjecthidden'] = 'Assumpte (ocult)';
-$string['forum:throttlingapplies'] = 'S\'hi apliquen límits';
 $string['forumtracked'] = 'S\'està fent el seguiment dels missatges no llegits';
 $string['forumtrackednot'] = 'No s\'està fent el seguiment dels missatges no llegits';
 $string['forumtype'] = 'Tipus de fòrum';
@@ -236,23 +235,7 @@ $string['modeflatoldestfirst'] = 'Visualitza les respostes, començant per la m�
 $string['modenested'] = 'Visualitza les respostes escalonades';
 $string['modethreaded'] = 'Visualitza les respostes abreujades, seguint el fil de la discussió';
 $string['modulename'] = 'Fòrum';
-$string['modulename_help'] = 'L\'activitat fòrum permet que els participants mantinguin debats asíncrons (sense estar connectats tots al mateix temps), p.ex. debats que tenen lloc durant un període de temps extens.
-
-Hi ha diversos tipus de fòrum per triar, com ara un fòrum estàndard on qualsevol persona pot iniciar una nova discussió en qualsevol moment; un fòrum on cada estudiant pot encetar només un tema de debat; o un fòrum de preguntes i respostes on l\'estudiant primer ha d\'enviar un missatge abans de poder veure els missatges dels altres estudiants. El professorat pot permetre que s\'adjunten fitxers als missatges del fòrum. Les imatges adjuntes es visualitzaran directament en el missatge del fòrum.
-
-Els participants poden subscriure\'s a un fòrum per rebre notificacions dels nous missatges del fòrum. El professorat pot establir el mode de subscripció com voluntària, obligatòria, automàtica o evitar per complet la subscripció. Si cal, l\'estudiantat pot ser blocat a fin de no poder publicar més d\'un nombre determinat de missatges en un període de temps determinat, el que pot impedir que algunes persones acaparen els debats.
-
-Tant el professorat com l\'estudiantat (avaluació per parells) poden avaluar els missatges del fòrum. Les qualificacions poden agregar-se per formar una qualificació final que es registra en el butlletí de qualificacions.
-
-Els fòrums tenen molts usos, com ara
-* Un espai social perquè l\'estudiantat es conegui
-* Per als anuncis del curs (amb un fòrum de notícies amb subscripció forçada)
-* Per debatre el contingut del curs o la lectura de materials
-* Per continuar en línia una qüestió plantejada anteriorment en una sessió presencial
-* Per a debats només del professorat, per a coordinar el curs (amb un fòrum ocult)
-* Un centre d\'ajuda on professorat i estudiantat poden donar consell
-* Una àrea de suport per a la comunicació privada un-a-un de l\'alumnat amb el professorat (amb un fòrum configurat per a grups separats, amb un estudiant per grup)
-* Per a les activitats d\'extensió, per exemple, \'trencaclosques\' per a promoure la reflexió i la proposta de solucions per part de l\'estudiantat';
+$string['modulename_help'] = 'L\'activitat «fòrum» permet que els participants mantinguin debats sense estar connectats tots al mateix temps';
 $string['modulenameplural'] = 'Fòrums';
 $string['more'] = 'més';
 $string['movedmarker'] = '(traslladat)';

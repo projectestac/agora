@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_stats', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'report_stats', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   report_stats
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,5 +28,4 @@ defined('MOODLE_INTERNAL') || die();
 $string['page-report-stats-index'] = 'Informe d\'estadístiques del curs';
 $string['page-report-stats-user'] = 'Informe d\'estadístiques d\'usuari';
 $string['page-report-stats-x'] = 'Qualsevol informe d\'estadístiques';
-$string['pluginname'] = 'Estadístiques';
 $string['stats:view'] = 'Veure informe d\'estadístiques del curs';

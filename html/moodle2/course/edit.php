@@ -32,7 +32,11 @@ $categoryid = optional_param('category', 0, PARAM_INT); // course category - can
 $returnto = optional_param('returnto', 0, PARAM_ALPHANUM); // generic navigation return page switch
 
 $PAGE->set_pagelayout('admin');
-$PAGE->set_url('/course/edit.php');
+$pageparams = array('id'=>$id);
+if (empty($id)) {
+    $pageparams = array('category'=>$categoryid);
+}
+$PAGE->set_url('/course/edit.php', $pageparams);
 
 // basic access control checks
 if ($id) { // editing course
@@ -41,20 +45,18 @@ if ($id) { // editing course
         print_error('cannoteditsiteform');
     }
 
-    $course = $DB->get_record('course', array('id'=>$id), '*', MUST_EXIST);
+    $course = course_get_format($id)->get_course();
     require_login($course);
     $category = $DB->get_record('course_categories', array('id'=>$course->category), '*', MUST_EXIST);
-    $coursecontext = get_context_instance(CONTEXT_COURSE, $course->id);
+    $coursecontext = context_course::instance($course->id);
     require_capability('moodle/course:update', $coursecontext);
-    $PAGE->url->param('id',$id);
 
 } else if ($categoryid) { // creating new course in this category
     $course = null;
     require_login();
     $category = $DB->get_record('course_categories', array('id'=>$categoryid), '*', MUST_EXIST);
-    $catcontext = get_context_instance(CONTEXT_COURSECAT, $category->id);
+    $catcontext = context_coursecat::instance($category->id);
     require_capability('moodle/course:create', $catcontext);
-    $PAGE->url->param('category',$categoryid);
     $PAGE->set_context($catcontext);
 
 } else {
@@ -68,6 +70,12 @@ if (!empty($course)) {
     //add context for editor
     $editoroptions['context'] = $coursecontext;
     $course = file_prepare_standard_editor($course, 'summary', $editoroptions, $coursecontext, 'course', 'summary', 0);
+
+    // Inject current aliases
+    $aliases = $DB->get_records('role_names', array('contextid'=>$coursecontext->id));
+    foreach($aliases as $alias) {
+        $course->{'role_'.$alias->roleid} = $alias->name;
+    }
 
 } else {
     //editor should respect category context if course context is not set.
@@ -103,7 +111,7 @@ if ($editform->is_cancelled()) {
         $course = create_course($data, $editoroptions);
 
         // Get the context of the newly created course
-        $context = get_context_instance(CONTEXT_COURSE, $course->id, MUST_EXIST);
+        $context = context_course::instance($course->id, MUST_EXIST);
 
         if (!empty($CFG->creatornewroleid) and !is_viewing($context, NULL, 'moodle/role:assign') and !is_enrolled($context, NULL, 'moodle/role:assign')) {
             // deal with course creators - enrol them internally with default role
@@ -126,7 +134,6 @@ if ($editform->is_cancelled()) {
         // Save any changes to the files used in the editor
         update_course($data, $editoroptions);
     }
-    rebuild_course_cache($course->id);
 
     switch ($returnto) {
         case 'category':

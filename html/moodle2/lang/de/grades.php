@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'grades', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -236,6 +236,7 @@ $string['displaypoints'] = 'Punktwerte anzeigen';
 $string['displayweighted'] = 'Gewichtete Bewertungen anzeigen';
 $string['dropdown'] = 'Dropdown-Menü';
 $string['droplow'] = 'Niedrigste Bewertungen herausnehmen';
+$string['droplowestvalue'] = 'Niedrigste Bewertungen verwerfen';
 $string['droplow_help'] = '<h2>Niedrigste Bewertungen auslassen</h2>
 <p>Mit dieser Funktion werden die x niedrigsten Bewertungen einfach ignoriert und bei der Berechnung der Gesamtnote übersprungen. X steht für die Zahl der niedrigsten Resultate. Damit kann folgendes Szenario umgesetzt werden: Bei fünf Tests eines Kurses werden die schlechtesten beiden Ergebnisse nicht für die Gesamtnote berücksichtigt.  </p>';
 $string['dropped'] = 'herausgenommen';
@@ -283,6 +284,7 @@ $string['exportonlyactive_help'] = 'Nur Teilnehmende exportieren, deren Einschre
 $string['exportplugins'] = 'Export-Plugins';
 $string['exportsettings'] = 'Exporteinstellungen';
 $string['exportto'] = 'Export nach';
+$string['extracreditvalue'] = 'Zusatzpunkte für {$a}';
 $string['extracreditwarning'] = 'Anmerkung: Wenn für alle Elemente einer Kategorie Extrapunkte vergeben werden, dann werden sie bei der Gesamtbewertung nicht berücksichtigt. Es wird keine Gesamtpunktzahl ermittelt.';
 $string['feedback'] = 'Feedback';
 $string['feedbackadd'] = 'Feedback hinzufügen';
@@ -324,10 +326,14 @@ $string['gradedisplaytype_help'] = '<h2>Anzeigetyp für Bewertungen</h2>
 <p>Bewertungen können als reale Bewertungen, Prozentwerte (relativ zum höchsten/ niedrigsten Wert), oder als Buchstaben (A,B,C,..) angezeigt werden.</p>';
 $string['gradedon'] = '{$a} bewertet';
 $string['gradeexport'] = 'Bewertungsexport';
+$string['gradeexportcustomprofilefields'] = 'Individuelle Nutzerprofilfelder für Bewertungsexport';
+$string['gradeexportcustomprofilefields_desc'] = 'Die folgenden individuellen Nutzerprofilfelder sollen in den Bewertungsexport eingebunden werden. Einträge durch Kommas trennen.';
 $string['gradeexportdecimalpoints'] = 'Dezimalstellen bei Bewertungsexport';
 $string['gradeexportdecimalpoints_desc'] = 'Zahl der angezeigten Dezimalstellen bei Export. Diese Einstellung kann durch Definition im Export überschrieben werden.';
 $string['gradeexportdisplaytype'] = 'Anzeigetyp bei Bewertungsexport';
 $string['gradeexportdisplaytype_desc'] = 'Bewertungen können als Note, Prozentwert (in Relation zur niedrigsten/höchsten Note) oder als Notenstufe (A,B,C, sehr gut, gut) beim Export gesetzt werden. Beim Export erfolgt dann  ein Überschreiben der vorliegenden Werte.';
+$string['gradeexportuserprofilefields'] = 'Nutzerprofilfelder für Bewertungsexport';
+$string['gradeexportuserprofilefields_desc'] = 'Die folgenden Nutzerprofilfelder sollen in den Bewertungsexport eingebunden werden. Einträge durch Kommas trennen.';
 $string['gradeforstudent'] = '{$a->student}<br />{$a->item}{$a->feedback}';
 $string['gradehelp'] = 'Hilfe für Bewertungen';
 $string['gradehistorylifetime'] = 'Anzeigedauer für den Bewertungsverlauf';
@@ -490,6 +496,7 @@ $string['movingelement'] = '{$a} verschieben';
 $string['multfactor'] = 'Multiplikator';
 $string['multfactor_help'] = '<h2>Multiplikator</h2>
 <p>Faktor mit dem jeder Wert dieser Benotung multipliziert wird. Damit können die Ergebnisse unterschiedlich gewichtet werden.</p>';
+$string['multfactorvalue'] = 'Multiplikator für {$a}';
 $string['mypreferences'] = 'Meine Einstellungen';
 $string['myreportpreferences'] = 'Meine Einstellungen für Berichte';
 $string['navmethod'] = 'Navigationsmethode';
@@ -528,7 +535,7 @@ $string['outcome'] = 'Lernziel';
 $string['outcomeassigntocourse'] = 'Ein anderes Lernziel diesem Kurs zuweisen';
 $string['outcomecategory'] = 'Lernziele in der Kategorie erstellen';
 $string['outcomecategorynew'] = 'Neue Kategorie';
-$string['outcomeconfirmdelete'] = 'Sind Sie sicher, dass Lernziel "{$a}" gelöscht werden soll?';
+$string['outcomeconfirmdelete'] = 'Möchten Sie das Lernziel \'{$a}\' wirklich löschen?';
 $string['outcomecreate'] = 'Neues Lernziel hinzufügen';
 $string['outcomedelete'] = 'Lernziel löschen';
 $string['outcomefullname'] = 'Vollständiger Name';
@@ -570,6 +577,7 @@ $string['percentshort'] = '%';
 $string['plusfactor'] = 'Offset';
 $string['plusfactor_help'] = '<h2>Zuschlag</h2>
 <p>Wert, der zu jeder Bewertung für diese Note hinzuaddiert wird nachdem der Multiplikationsfaktor ausgeführt wurde.</p>';
+$string['plusfactorvalue'] = 'Offset für {$a}';
 $string['points'] = 'Punkte';
 $string['pointsascending'] = 'sortieren, Punkte aufsteigend';
 $string['pointsdescending'] = 'sortieren, Punkte absteigend';
@@ -616,9 +624,10 @@ $string['respectingcurrentdata'] = 'Die aktuelle Konfiguration wird nicht verän
 $string['rowpreviewnum'] = 'Zeilenvorschau';
 $string['savechanges'] = 'Änderungen speichern';
 $string['savepreferences'] = 'Grundeinstellungen speichern';
-$string['scaleconfirmdelete'] = 'Sind Sie sicher, dass Sie die Skala "{$a}" löschen möchten?';
+$string['scaleconfirmdelete'] = 'Möchten Sie die Skala \'{$a}\' wirklich löschen?';
 $string['scaledpct'] = 'Berechnete %';
 $string['seeallcoursegrades'] = 'Alle Kursbewertungen anzeigen';
+$string['select'] = '{$a} auswählen';
 $string['selectalloroneuser'] = 'Alle oder einen auswählen';
 $string['selectauser'] = 'Nutzer/in wählen';
 $string['selectdestination'] = 'Ziel für {$a} auswählen';
@@ -633,20 +642,19 @@ $string['setting'] = 'Einstellung';
 $string['settings'] = 'Einstellungen';
 $string['setweights'] = 'Kategorien gewichten';
 $string['showactivityicons'] = 'Aktivitätssymbole zeigen';
-$string['showactivityicons_help'] = '<h2>Anzeige der Icons für Lernaktivitäten</h2>
-<p>Ergänzt eine Anzeige der Icons der verschiedenen Lernaktivitäten neben dem Namen der bewerteten Lernaktivität.</p>';
+$string['showactivityicons_help'] = 'Wenn die Option aktiviert ist, werden Aktivitätssymbole neben den Aktivitäten gezeigt.';
 $string['showallhidden'] = 'Verborgene anzeigen';
 $string['showallstudents'] = 'Alle Teilnehmer/innen anzeigen';
-$string['showanalysisicon'] = 'Icon zur Bewertungsanalyse anzeigen';
-$string['showanalysisicon_desc'] = 'Soll das Icon zur Bewertungsanalyse standardmässig angezeigt werden? Wenn die Aktivität die Funktion unterstützt wird ein Link mit einer detaillierten Erläuterung der Bewertung angezeigt.';
+$string['showanalysisicon'] = 'Bewertungssymbole zeigen';
+$string['showanalysisicon_desc'] = 'Soll das Symbol zur Bewertungsanalyse standardmässig angezeigt werden? Wenn die Aktivität die Funktion unterstützt wird ein Link mit einer detaillierten Erläuterung der Bewertung angezeigt.';
 $string['showanalysisicon_help'] = 'Wenn die Aktivität die Funktion unterstützt wird ein Link mit einer detaillierten Erläuterung der Bewertung angezeigt.';
 $string['showaverage'] = 'Mittelwert anzeigen';
 $string['showaverage_help'] = 'Alte Nutzerbewertungen wiederherstellen, falls möglich';
 $string['showaverages'] = 'Spaltendurchschnitt anzeigen';
 $string['showaverages_help'] = 'Spaltendurchschnitte in der Bewerterübersicht anzeigen';
 $string['showcalculations'] = 'Berechnungen anzeigen';
-$string['showcalculations_help'] = 'Rechner-Symbol neben den Bewertungsaspekten und -kategorien anzeigen, Tooltipps über den berechneten Elementen und eine Markierung, dass eine Spalte berechnet wurde.';
-$string['showeyecons'] = 'Icons anzeigen/verbergen';
+$string['showcalculations_help'] = 'Rechnersymbol neben den Bewertungsaspekten und -kategorien anzeigen, Tooltipps über den berechneten Elementen und eine Markierung, dass eine Spalte berechnet wurde.';
+$string['showeyecons'] = 'Symbole zeigen';
 $string['showeyecons_help'] = 'Symbol zur Sichtbarkeit (Auge) neben jeder Bewertung anzeigen, um die Sichtbarkeit für Teilnehmer/innen zu kontrollieren';
 $string['showfeedback'] = 'Feedback anzeigen';
 $string['showfeedback_help'] = 'Spalte für Feedback anzeigen?';

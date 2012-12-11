@@ -9,7 +9,7 @@
  *  See http://bennu.sourceforge.net/ for more information and downloads.
  *
  * @author Ioannis Papaioannou 
- * @version $Id: bennu.inc.php,v 1.4 2010/12/14 17:35:53 moodlerobot Exp $
+ * @version $Id$
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 

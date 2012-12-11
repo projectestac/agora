@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_paypal', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_paypal', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_paypal
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,7 +38,7 @@ $string['defaultrole_desc'] = 'Seleccione el rol que debería asignarse a los us
 $string['enrolenddate'] = 'Fecha de finalización';
 $string['enrolenddaterror'] = 'La fecha final de matrícula no puede ser anterior a la fecha inicial.';
 $string['enrolperiod'] = 'Período de inscripción';
-$string['enrolperiod_desc'] = 'Duración predeterminada del período de inscripción (en segundos)';
+$string['enrolperiod_desc'] = 'Periodo de tiempo por defecto en el que la matricula es válida. Si se establece a cero, la matricula durará de forma ilimitada por defecto';
 $string['enrolstartdate'] = 'Fecha de inicio';
 $string['mailadmins'] = 'Notificar a admin';
 $string['mailstudents'] = 'Notificar a los estudiantes';

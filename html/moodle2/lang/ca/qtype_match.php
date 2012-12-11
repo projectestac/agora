@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_match', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qtype_match', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   qtype_match
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,11 +34,6 @@ $string['nomatchinganswerforq'] = 'Heu d\'especificar una resposta per a aquesta
 $string['notenoughqsandas'] = 'Heu de proporcionar almenys {$a->q} preguntes i {$a->a} respostes.';
 $string['notenoughquestions'] = 'Heu de proporcionar almenys {$a} parells de preguntes i respostes';
 $string['pleaseananswerallparts'] = 'Si us plau, responeu totes les parts de la pregunta.';
-$string['pluginname'] = 'Aparellament';
-$string['pluginnameadding'] = 'S\'està afegint una pregunta d\'aparellament';
-$string['pluginnameediting'] = 'S\'està editant una pregunta d\'aparellament';
-$string['pluginname_help'] = 'Les preguntes d\'aparellament requereixen que l\'estudiantat associi correctament una llista de noms o frases (preguntes) amb una altra llista de noms o frases (respostes).';
-$string['pluginnamesummary'] = 'La resposta de cada subpregunta s\'ha de triar d\'un menú desplegable amb les possibilitats.';
 $string['shuffle'] = 'Barreja';
 $string['shuffle_help'] = '<p>Si activeu aquesta opció, l\'ordre dels parells pregunta-resposta es modificarà aleatòriament cada vegada que l\'estudiant entri en un qüestionari que contingui aquesta pregunta, sempre que "Barreja dins de les preguntes" estigui activat en els paràmetres del qüestionari.</p>
 

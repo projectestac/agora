@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_coursefiles', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'repository_coursefiles', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   repository_coursefiles
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['coursefiles:view'] = 'Utilice la extensión de repositorios de archivos';
 $string['emptyfilelist'] = 'No hay archivos que mostrar';
 $string['notitle'] = 'sin título';
 $string['pluginname'] = 'Archivos de curso heredados';

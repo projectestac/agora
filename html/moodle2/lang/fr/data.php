@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'data', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -86,6 +86,7 @@ $string['data:comment'] = 'Écrire des commentaires';
 $string['data:exportallentries'] = 'Export toutes les fiches d\'une base de données';
 $string['data:exportentry'] = 'Exporter des fiches de base de données';
 $string['data:exportownentry'] = 'Exporter ses propres fiches de base de données';
+$string['data:exportuserinfo'] = 'Exporter l\'information de l\'utilisateur';
 $string['data:managecomments'] = 'Gérer les commentaires';
 $string['data:manageentries'] = 'Gérer les fiches';
 $string['data:managetemplates'] = 'Gérer les modèles';
@@ -179,6 +180,9 @@ $string['headerrsstemplate'] = 'Définit l\'aspect des fiches dans les flux RSS'
 $string['headersingletemplate'] = 'Définit l\'interface présentée lors de la consultation d\'une fiche';
 $string['importentries'] = 'Importer des fiches';
 $string['importsuccess'] = 'Le préréglage a été mis en place correctement.';
+$string['includeapproval'] = 'Inclure le statut d\'approbation';
+$string['includetime'] = 'Inclure la date d\'ajout/de modification';
+$string['includeuserdetails'] = 'Inclure les détails de l\'utilisateur';
 $string['insufficiententries'] = 'autres fiches sont requises pour afficher cette base de données';
 $string['intro'] = 'Introduction';
 $string['invalidaccess'] = 'L\'accès à cette page n\'a pas été effectué correctement';
@@ -345,6 +349,7 @@ $string['uploadrecords_help'] = 'Des fiches peuvent être déposées à partir d
 * chaque fiche est constituée d\'une série de données, séparées par des virgules (ou d\'autres séparateurs)
 * la première ligne du fichier comprend les noms des champs définissant le format du reste du fichier.  Le délimiteur de champ est un caractère qui entoure chaque champ d\'une fiche, par exemple les guillemets droits. Il peut être laissé vide.';
 $string['url'] = 'URL';
+$string['usedate'] = 'Inclure dans la recherche.';
 $string['usestandard'] = 'Utiliser un préréglage';
 $string['usestandard_help'] = '<!-- $Id$ -->
 

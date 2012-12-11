@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'chat', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,7 +40,8 @@ $string['chat:readlog'] = 'Leer registros de chat';
 $string['chatreport'] = 'Sesiones';
 $string['chat:talk'] = 'Hablar en un chat';
 $string['chattime'] = 'Próxima cita';
-$string['configmethod'] = 'El método normal de chat implica que los usuarios contactan con el servidor de forma regular para llevar a cabo las actualizaciones. No requiere configuración y funciona en cualquier parte, pero puede ocasionar una sobrecarga en el servidor cuando hay muchos usuarios simultáneamente en la sala. Utilizar un \'daemon\' (i.e., proceso de ejecución independiente en segundo plano) en el servidor requiere el acceso shell (de intérprete de comandos) a Unix, pero resulta en un ambiente de chat más rápido y escalable.';
+$string['configmethod'] = 'El método ajax del chat trabaja de forma interna contactando de forma regular con el servidor para llevar a cabo las actualizaciones.
+El método normal de chat implica que los usuarios contactan con el servidor de forma regular para llevar a cabo las actualizaciones. No requiere configuración y funciona en cualquier parte, pero puede ocasionar una sobrecarga en el servidor cuando hay muchos usuarios simultáneamente en la sala. Utilizar un \'daemon\' (i.e., proceso de ejecución independiente en segundo plano) en el servidor requiere acceso shell (de intérprete de comandos) a Unix, pero proporcionará  un servicio de chat más rápido y escalable.';
 $string['confignormalupdatemode'] = 'Las actualizaciones de la sala de chat normalmente son servidas eficientemente utilizando la característica de HTTP 1.1 <em>Keep-Alive</em>, pero esto resulta una tarea bastante pesada para el servidor. Un método más avanzado consiste en utilizar la estrategia <em>Stream</em> para enviar actualizaciones a los usuarios. Al utilizar <em>Stream</em> se consigue un escalamiento mucho mejor (es similar al método chatd), pero es posible que su servidor no tenga disponible esta opción.';
 $string['configoldping'] = '¿Después de cuánto tiempo de inactividad debemos considerar que el usuario se retiró?';
 $string['configrefreshroom'] = '¿Cada cuántos segundos se debe actualizar la página del chat?
@@ -56,6 +57,7 @@ $string['deletesession'] = 'Borrar esta sesión';
 $string['deletesessionsure'] = '¿Está seguro de que desea borrar esta sesión?';
 $string['donotusechattime'] = 'No publicar horas de chat';
 $string['enterchat'] = 'Entrar a la sala';
+$string['entermessage'] = 'Inserta tu mensaje';
 $string['errornousers'] = '¡No puedo encontrar usuarios!';
 $string['explaingeneralconfig'] = 'Estos ajustes están <strong>siempre</strong> en funcionamiento';
 $string['explainmethoddaemon'] = 'Estos ajustes actúan <strong>solamente</strong> si ha seleccionado "Daemon del servidor de chat" en \'Método de chat\'';
@@ -78,7 +80,18 @@ $string['methodajax'] = 'Método Ajax';
 $string['methoddaemon'] = '\'Daemon\' del servidor de chat';
 $string['methodnormal'] = 'Método normal';
 $string['modulename'] = 'Chat';
-$string['modulename_help'] = 'El módulo chat permite que los participantes tengan una discusión sincrónica en tiempo real en la web. Es un modo útil de conocerse mutuamente, así como de conocer el tema de discusión. El modo de uso del chat es completamente distinto de los foros asincrónicos.';
+$string['modulename_help'] = 'La actividad chat permite a los participantes tener una discusión en formato texto de manera sincrónica en tiempo real.
+
+El chat puede ser una actividad puntual  o puede repetirse a la misma hora cada día o cada semana. Las sesiones de chat se guardan y pueden hacerse públicas para que todos las vean o limitadas a los usuarios con permiso para ver los registros de sesiones del chat.
+
+Los chats son especialmente útiles cuando un grupo no tiene posibilidad de reunirse físicamente para poder conversar cara-a-cara, como
+
+* Reuniones programadas de estudiantes inscritos a cursos en línea, para permitirles compartir experiencias con otros compañeros del mismo curso pero de diferentes ciudades o países
+* Un estudiante que temporalmente no puede asistir en persona, podría chatear con su profesor para ponerse al día del trabajo escolar
+* Estudiantes que empiezan a trabajar se juntan para discutir sus experiencias entre ellos y con el maestro
+* Niños pequeños en casa por las tardes, como una introducción controlada (monitoreada) al mundo de las redes sociales
+* Una sesión de preguntas y respuestas con un orador invitado de una localidad diferente (a distancia)
+* Sesiones para ayudar a los estudiantes a prepararse para exámenes, donde el maestro, o los estudiantes, hagan preguntas de ejemplo';
 $string['modulenameplural'] = 'Chats';
 $string['neverdeletemessages'] = 'Nunca borrar mensajes';
 $string['nextsession'] = 'Próxima sesión programada';

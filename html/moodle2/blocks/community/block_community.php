@@ -43,7 +43,7 @@ class block_community extends block_list {
     function user_can_edit() {
         // Don't allow people to edit the block if they can't even use it
         if (!has_capability('moodle/community:add',
-                        get_context_instance_by_id($this->instance->parentcontextid))) {
+                        context::instance_by_id($this->instance->parentcontextid))) {
             return false;
         }
         return parent::user_can_edit();
@@ -52,7 +52,7 @@ class block_community extends block_list {
     function get_content() {
         global $CFG, $OUTPUT, $USER;
 
-        $coursecontext = get_context_instance_by_id($this->instance->parentcontextid);
+        $coursecontext = context::instance_by_id($this->instance->parentcontextid);
 
         if (!has_capability('moodle/community:add', $coursecontext)
                 or $this->content !== NULL) {
@@ -72,7 +72,7 @@ class block_community extends block_list {
                     'class' => 'icon', 'alt' => get_string('addcourse', 'block_community')));
         $addcourseurl = new moodle_url('/blocks/community/communitycourse.php',
                         array('add' => true, 'courseid' => $this->page->course->id));
-        $searchlink = html_writer::tag('a', $icon . '&nbsp;' . get_string('addcourse', 'block_community'),
+        $searchlink = html_writer::tag('a', $icon . get_string('addcourse', 'block_community'),
                         array('href' => $addcourseurl->out(false)));
         $this->content->items[] = $searchlink;
 

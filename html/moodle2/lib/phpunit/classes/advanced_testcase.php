@@ -76,6 +76,11 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
             parent::runBare();
             // set DB reference in case somebody mocked it in test
             $DB = phpunit_util::get_global_backup('DB');
+
+            // Deal with any debugging messages.
+            phpunit_util::display_debugging_messages();
+            phpunit_util::reset_debugging();
+
         } catch (Exception $e) {
             // cleanup after failed expectation
             phpunit_util::reset_all_data();
@@ -232,6 +237,86 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
      */
     public function resetAfterTest($reset = true) {
         $this->resetAfterTest = $reset;
+    }
+
+    /**
+     * Return debugging messages from the current test.
+     * @return array with instances having 'message', 'level' and 'stacktrace' property.
+     */
+    public function getDebuggingMessages() {
+        return phpunit_util::get_debugging_messages();
+    }
+
+    /**
+     * Clear all previous debugging messages in current test.
+     */
+    public function resetDebugging() {
+        phpunit_util::reset_debugging();
+    }
+
+    /**
+     * Assert that exactly debugging was just called once.
+     *
+     * Discards the debugging message if successful.
+     *
+     * @param null|string $debugmessage null means any
+     * @param null|string $debuglevel null means any
+     * @param string $message
+     */
+    public function assertDebuggingCalled($debugmessage = null, $debuglevel = null, $message = '') {
+        $debugging = phpunit_util::get_debugging_messages();
+        $count = count($debugging);
+
+        if ($count == 0) {
+            if ($message === '') {
+                $message = 'Expectation failed, debugging() not triggered.';
+            }
+            $this->fail($message);
+        }
+        if ($count > 1) {
+            if ($message === '') {
+                $message = 'Expectation failed, debugging() triggered '.$count.' times.';
+            }
+            $this->fail($message);
+        }
+        $this->assertEquals(1, $count);
+
+        $debug = reset($debugging);
+        if ($debugmessage !== null) {
+            $this->assertSame($debugmessage, $debug->message, $message);
+        }
+        if ($debuglevel !== null) {
+            $this->assertSame($debuglevel, $debug->level, $message);
+        }
+
+        phpunit_util::reset_debugging();
+    }
+
+    /**
+     * Call when no debugging() messages expected.
+     * @param string $message
+     */
+    public function assertDebuggingNotCalled($message = '') {
+        $debugging = phpunit_util::get_debugging_messages();
+        $count = count($debugging);
+
+        if ($message === '') {
+            $message = 'Expectation failed, debugging() was triggered.';
+        }
+        $this->assertEquals(0, $count, $message);
+    }
+
+    /**
+     * Starts message redirection.
+     *
+     * You can verify if messages were sent or not by inspecting the messages
+     * array in the returned messaging sink instance. The redirection
+     * can be stopped by calling $sink->close();
+     *
+     * @return phpunit_message_sink
+     */
+    public function redirectMessages() {
+        return phpunit_util::start_message_redirection();
     }
 
     /**

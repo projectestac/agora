@@ -86,6 +86,10 @@ function xmldb_main_install() {
         $newsite->id = $DB->insert_record('course', $newsite);
         define('SITEID', $newsite->id);
     }
+    // set the field 'numsections'. We can not use format_site::update_format_options() because
+    // the file is not loaded
+    $DB->insert_record('course_format_options', array('courseid' => SITEID, 'format' => 'site',
+        'sectionid' => 0, 'name' => 'numsections', 'value' => $newsite->numsections));
     $SITE = get_site();
     if ($newsite->id != $SITE->id) {
         throw new moodle_exception('generalexceptionmessage', 'error', '', 'Unexpected new site course id!');
@@ -243,14 +247,14 @@ function xmldb_main_install() {
 
 
     // Install the roles system.
-    $managerrole        = create_role(get_string('manager', 'role'), 'manager', get_string('managerdescription', 'role'), 'manager');
-    $coursecreatorrole  = create_role(get_string('coursecreators'), 'coursecreator', get_string('coursecreatorsdescription'), 'coursecreator');
-    $editteacherrole    = create_role(get_string('defaultcourseteacher'), 'editingteacher', get_string('defaultcourseteacherdescription'), 'editingteacher');
-    $noneditteacherrole = create_role(get_string('noneditingteacher'), 'teacher', get_string('noneditingteacherdescription'), 'teacher');
-    $studentrole        = create_role(get_string('defaultcoursestudent'), 'student', get_string('defaultcoursestudentdescription'), 'student');
-    $guestrole          = create_role(get_string('guest'), 'guest', get_string('guestdescription'), 'guest');
-    $userrole           = create_role(get_string('authenticateduser'), 'user', get_string('authenticateduserdescription'), 'user');
-    $frontpagerole      = create_role(get_string('frontpageuser', 'role'), 'frontpage', get_string('frontpageuserdescription', 'role'), 'frontpage');
+    $managerrole        = create_role('', 'manager', '', 'manager');
+    $coursecreatorrole  = create_role('', 'coursecreator', '', 'coursecreator');
+    $editteacherrole    = create_role('', 'editingteacher', '', 'editingteacher');
+    $noneditteacherrole = create_role('', 'teacher', '', 'teacher');
+    $studentrole        = create_role('', 'student', '', 'student');
+    $guestrole          = create_role('', 'guest', '', 'guest');
+    $userrole           = create_role('', 'user', '', 'user');
+    $frontpagerole      = create_role('', 'frontpage', '', 'frontpage');
 
     // Now is the correct moment to install capabilities - after creation of legacy roles, but before assigning of roles
     update_capabilities('moodle');

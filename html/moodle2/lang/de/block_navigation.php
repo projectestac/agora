@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_navigation', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_navigation', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   block_navigation
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,10 +28,12 @@ defined('MOODLE_INTERNAL') || die();
 $string['courseactivities'] = 'Kursbereiche, Kurse und Kursaktivitäten';
 $string['courses'] = 'Kursbereiche und Kurse';
 $string['coursestructures'] = 'Kursbereiche, Kurse und Kursstrukturen';
-$string['enabledockdesc'] = 'Nutzer/innen erlauben, diesen Block in die Navigationsleiste zu verschieben';
+$string['enabledockdesc'] = 'Verschieben des Blocks ins Dock erlauben';
 $string['everything'] = 'Alles';
 $string['expansionlimit'] = 'Navigation generieren';
 $string['linkcategoriesdesc'] = 'Kursbereiche als Links anzeigen';
+$string['navigation:addinstance'] = 'Block \'Navigation\' hinzufügen';
+$string['navigation:myaddinstance'] = 'Block \'Navigation\' für \'Meine Startseite\' hinzufügen';
 $string['pluginname'] = 'Navigation';
 $string['trimlength'] = 'Auf wie viele Zeichen soll gekürzt werden?';
 $string['trimmode'] = 'Kürzungsmodus';

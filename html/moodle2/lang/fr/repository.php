@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'repository', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -192,9 +192,10 @@ $string['saved'] = 'Enregistré';
 $string['saving'] = 'En cours d\'enregistrement';
 $string['search'] = 'Recherche';
 $string['searching'] = 'Rechercher dans';
+$string['searchrepo'] = 'Rechercher dans le dépôt';
 $string['sectionbackup'] = 'Sauvegardes de section';
 $string['select'] = 'Sélectionnez';
-$string['setmainfile'] = 'Spécifier le fichier principal';
+$string['setmainfile'] = 'Spécifier comme fichier principal';
 $string['settings'] = 'Réglages';
 $string['setupdefaultplugins'] = 'Mise en place des plugins de dépôt par défaut';
 $string['siteinstances'] = 'Instances de dépôts du site';

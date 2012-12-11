@@ -781,7 +781,7 @@ function report_security_check_riskbackup($detailed=false) {
     $result->status  = null;
     $result->link    = null;
 
-    $syscontext = get_context_instance(CONTEXT_SYSTEM);
+    $syscontext = context_system::instance();
 
     $params = array('capability'=>'moodle/backup:userinfo', 'permission'=>CAP_ALLOW, 'contextid'=>$syscontext->id);
     $sql = "SELECT DISTINCT r.id, r.name, r.shortname, r.sortorder, r.archetype
@@ -836,6 +836,7 @@ function report_security_check_riskbackup($detailed=false) {
         if ($systemroles) {
             $links = array();
             foreach ($systemroles as $role) {
+                $role->name = role_get_name($role);
                 $role->url = "$CFG->wwwroot/$CFG->admin/roles/manage.php?action=edit&amp;roleid=$role->id";
                 $links[] = '<li>'.get_string('check_riskbackup_editrole', 'report_security', $role).'</li>';
             }
@@ -848,10 +849,9 @@ function report_security_check_riskbackup($detailed=false) {
         if ($overriddenroles) {
             $links = array();
             foreach ($overriddenroles as $role) {
-                $context = get_context_instance_by_id($role->contextid);
-                if ($context->contextlevel == CONTEXT_COURSE) {
-                    $role->name = role_get_name($role, $context);
-                }
+                $role->name = $role->localname;
+                $context = context::instance_by_id($role->contextid);
+                $role->name = role_get_name($role, $context, ROLENAME_BOTH);
                 $role->contextname = print_context_name($context);
                 $role->url = "$CFG->wwwroot/$CFG->admin/roles/override.php?contextid=$role->contextid&amp;roleid=$role->id";
                 $links[] = '<li>'.get_string('check_riskbackup_editoverride', 'report_security', $role).'</li>';
@@ -863,11 +863,12 @@ function report_security_check_riskbackup($detailed=false) {
         // Get a list of affected users as well
         $users = array();
 
+        list($sort, $sortparams) = users_order_by_sql('u');
         $rs = $DB->get_recordset_sql("SELECT DISTINCT u.id, u.firstname, u.lastname, u.picture, u.imagealt, u.email, ra.contextid, ra.roleid
-            $sqluserinfo ORDER BY u.lastname, u.firstname", $params);
+            $sqluserinfo ORDER BY $sort", array_merge($params, $sortparams));
 
         foreach ($rs as $user) {
-            $context = get_context_instance_by_id($user->contextid);
+            $context = context::instance_by_id($user->contextid);
             $url = "$CFG->wwwroot/$CFG->admin/roles/assign.php?contextid=$user->contextid&amp;roleid=$user->roleid";
             $a = (object)array('fullname'=>fullname($user), 'url'=>$url, 'email'=>$user->email,
                                'contextname'=>print_context_name($context));

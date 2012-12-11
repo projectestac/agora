@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'auth_ldap', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -104,6 +104,9 @@ $string['auth_ntlmsso_enabled'] = 'Aktivieren Sie diese Einstellung, um die einm
 $string['auth_ntlmsso_enabled_key'] = 'Aktivieren';
 $string['auth_ntlmsso_ie_fastpath'] = 'Aktivieren Sie diese Einstellung, um \'NTLM SSO fast path\' zuzulassen. Dies funktioniert ausschließlich, wenn mit dem MS Internet Explorer auf Moodle zugegriffen wird.';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'MS IE fast path?';
+$string['auth_ntlmsso_maybeinvalidformat'] = 'Der Nutzername konnte aus dem Header des REMOTE_USER nicht ausgelesen werden. Ist das Format richtig konfiguriert?';
+$string['auth_ntlmsso_missing_username'] = 'Sie müssen zumindest den %username% im Format des entfernten Nutzernamen festlegen.';
+$string['auth_ntlmsso_remoteuserformat_key'] = 'Entferntes Nutzernamenformat';
 $string['auth_ntlmsso_subnet'] = 'Bei nichtleerem Feld ist SSO nur über IP-Adressen aus diesem Subnet möglich. Trennen Sie mehrere Subnetze mit einem Komma. Format: xxx.xxx.xxx.xxx/bitmask';
 $string['auth_ntlmsso_subnet_key'] = 'Subnet';
 $string['auth_ntlmsso_type'] = 'Diese Methode ist beim Webserver eingestellt, um Nutzer/innen zu authentifizieren. Falls Sie sich nicht sicher sind, wählen Sie bitte NTLM.';
@@ -127,6 +130,8 @@ $string['ntlmsso_attempting'] = 'Einmal-Anmeldung über NTLM versuchen ...';
 $string['ntlmsso_failed'] = 'Die automatische Anmeldung ist fehlgeschlagen. Versuchen Sie das normale Login ...';
 $string['ntlmsso_isdisabled'] = 'NTLM SSO ist deaktiviert.';
 $string['ntlmsso_unknowntype'] = 'Unbekannter ntlmsso-Type!';
+$string['pagesize'] = 'Stellen Sie sicher, dass dieser Wert kleiner ist als die Obergrenze Ihres LDAP-Servers für eine einzelne Datenbankabfrage.';
+$string['pagesize_key'] = 'Einträge pro Seite';
 $string['pluginname'] = 'LDAP-Server';
 $string['pluginnotenabled'] = 'Plugin nicht aktiviert!';
 $string['renamingnotallowed'] = 'Namensänderungen sind in LDAP nicht erlaubt';

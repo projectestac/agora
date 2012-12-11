@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'moodle', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'moodle', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   moodle
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,10 +41,11 @@ $string['activitymodules'] = 'Modules d\'activité';
 $string['activityreport'] = 'Rapport d\'activité';
 $string['activityreports'] = 'Rapports d\'activité';
 $string['activityselect'] = 'Sélectionner cette activité pour la déplacer';
-$string['activitysince'] = 'Activité depuis {$a}';
+$string['activitysince'] = 'Activité depuis le {$a}';
 $string['activityweighted'] = 'Activité par utilisateur';
 $string['add'] = 'Ajouter';
 $string['addactivity'] = 'Ajouter une activité...';
+$string['addactivitytosection'] = 'Ajouter une activité à la section « {$a} »';
 $string['addadmin'] = 'Désigner comme administrateur';
 $string['addblock'] = 'Ajouter un bloc';
 $string['addcomment'] = 'Ajouter un commentaire...';
@@ -59,7 +60,7 @@ $string['addedtogroupnot'] = 'Non ajouté au groupe « {$a} »';
 $string['addedtogroupnotenrolled'] = 'Non ajouté au groupe « {$a} », parce que non inscrit au cours';
 $string['addfilehere'] = 'Ajouter ici un ou des fichiers';
 $string['addinganew'] = 'Ajouter {$a}';
-$string['addinganewto'] = 'Ajouter {$a->what} à {$a->to}';
+$string['addinganewto'] = 'Ajouter un(e) {$a->what} à {$a->to}';
 $string['addingdatatoexisting'] = 'Ajout à des données existantes';
 $string['addlinkhere'] = 'Ajouter ici un lien';
 $string['addnewcategory'] = 'Ajouter une catégorie de cours';
@@ -69,6 +70,7 @@ $string['addnousersrecip'] = 'Ajouter à la liste des destinataires les utilisat
 $string['addpagehere'] = 'Ajouter ici une page';
 $string['addresource'] = 'Ajouter une ressource...';
 $string['addresourceoractivity'] = 'Ajouter une activité ou une ressource';
+$string['addresourcetosection'] = 'Ajouter une ressource à la section « {$a} »';
 $string['address'] = 'Adresse';
 $string['addstudent'] = 'Ajouter un étudiant';
 $string['addsubcategory'] = 'Ajouter une sous-catégorie';
@@ -324,7 +326,7 @@ $string['coursecreators'] = 'Créateur de cours';
 $string['coursecreatorsdescription'] = 'Les créateurs des cours peuvent créer de nouveaux cours.';
 $string['coursedeleted'] = 'Cours {$a} supprimé';
 $string['coursedisplay'] = 'Mise en page du cours';
-$string['coursedisplay_help'] = 'Ce réglage détermine si la totalité du cours est affiché sur une seule page ou sur plusieurs pages. Il n\'a aucun effet avec certains formats de cours, notamment le format SCORM.';
+$string['coursedisplay_help'] = 'Ce réglage détermine si la totalité du cours est affiché sur une seule page ou sur plusieurs pages.';
 $string['coursedisplay_multi'] = 'Afficher une section par page';
 $string['coursedisplay_single'] = 'Afficher toutes les sections sur une même page';
 $string['courseextendednamedisplay'] = '{$a->shortname} {$a->fullname}';
@@ -333,7 +335,9 @@ $string['coursefilesedit'] = 'Modifier les fichiers du cours';
 $string['coursefileswarning'] = 'Les fichiers du cours sont obsolètes';
 $string['coursefileswarning_help'] = 'Les fichiers du cours sont obsolètes à partir de la version 2.0 de Moodle. Veuillez utiliser des dépôts externes autant que faire se peut.';
 $string['courseformatdata'] = 'Données du format de cours';
+$string['courseformatoptions'] = 'Options de formatage pour {$a}';
 $string['courseformats'] = 'Formats de cours';
+$string['courseformatudpate'] = 'Modifier format';
 $string['coursegrades'] = 'Notes du cours';
 $string['coursehelpcategory'] = 'Positionne le cours dans la liste des cours et le rend plus simple à trouver pour les étudiants.';
 $string['coursehelpforce'] = 'Imposer le type de groupe pour chaque activité du cours.';
@@ -415,6 +419,7 @@ $string['creatinguserroles'] = 'Création des attributions de rôles et des dér
 $string['creatingusers'] = 'Création des utilisateurs';
 $string['creatingxmlfile'] = 'Création du fichier XML';
 $string['currency'] = 'Monnaie';
+$string['currentcourse'] = 'Cours actuel';
 $string['currentcourseadding'] = 'Cours actuel, en y ajoutant les données';
 $string['currentcoursedeleting'] = 'Cours actuel, en le supprimant d\'abord';
 $string['currentlanguage'] = 'Langue active';
@@ -492,7 +497,7 @@ $string['displayingusers'] = 'Affichage des utilisateurs de {$a->start} à {$a->
 $string['displayonpage'] = 'Affichage sur la page';
 $string['dndenabled'] = 'Glisser-déposer disponible';
 $string['dndenabled_help'] = 'Vous pouvez glisser-déposer un ou plusieurs fichiers de votre bureau dans la boîte ci-dessous pour les déposer sur le serveur.<br />Remarque : ceci ne fonctionnera peut-être pas avec d\'anciens navigateurs';
-$string['dndenabled_inbox'] = 'Glisser et déposer des fichiers ici pour les ajouter.';
+$string['dndenabled_inbox'] = 'Vous pouvez glisser des fichiers ici pour les ajouter.';
 $string['dndenabled_insentence'] = 'glisser-déposer disponible';
 $string['dnduploadwithoutcontent'] = 'Ce fichier n\'a pas de contenu';
 $string['dndworkingfile'] = 'Glisser et déposer des fichiers pour les placer dans les sections du cours';
@@ -511,12 +516,11 @@ $string['downloadfile'] = 'Télécharger le fichier';
 $string['downloadods'] = 'Télécharger en format ODS';
 $string['downloadtext'] = 'Télécharger en format texte';
 $string['doyouagree'] = 'Avez-vous lu et compris ces conditions ?';
-$string['droptoupload'] = 'Glisser des fichiers ici pour les envoyer';
+$string['droptoupload'] = 'Lâcher les fichiers ici pour les envoyer';
 $string['duplicate'] = 'Dupliquer';
 $string['duplicateconfirm'] = 'Voulez-vous vraiment dupliquer {$a->modtype} « {$a->modname} »?';
 $string['duplicatecontcourse'] = 'Retour au cours';
 $string['duplicatecontedit'] = 'Modifier la copie créée';
-$string['duplicatenosupport'] = 'L\'activité « {$a->modname} » n\'a pas pu être dupliquée, car le module {$a->modtype} ne supporte pas la sauvegarde ni la restauration.';
 $string['duplicatesuccess'] = '{$a->modtype} « {$a->modname} » a été dupliqué correctement';
 $string['duplicatinga'] = 'Duplication de {$a}';
 $string['edhelpaspellpath'] = 'Pour utiliser le correcteur orthographique dans l\'éditeur WYSIWYG, le logiciel <strong>aspell</strong> version <strong>0.50</strong> ou ultérieure doit être installé sur le serveur, et son chemin d\'accès doit être configuré correctement. Sur les systèmes Unix/Linux, ce chemin d\'accès est en règle générale <strong>/usr/bin/aspell</strong>.';
@@ -533,7 +537,7 @@ $string['editcategorythis'] = 'Modifier cette catégorie';
 $string['editcoursesettings'] = 'Modifier les paramètres du cours';
 $string['editfiles'] = 'Modifier les fichiers';
 $string['editgroupprofile'] = 'Modifier le profil du groupe';
-$string['editinga'] = 'Modification de {$a}';
+$string['editinga'] = 'Modifier un(e) {$a}';
 $string['editingteachershort'] = 'Éditeur';
 $string['editlock'] = 'Cette valeur ne peut pas être modifiée !';
 $string['editmyprofile'] = 'Modifier mon profil';
@@ -652,26 +656,6 @@ $string['existingcreators'] = 'Créateurs de cours existants';
 $string['existingstudents'] = 'Étudiants inscrits';
 $string['existingteachers'] = 'Enseignants existants';
 $string['expandall'] = 'Tout développer';
-$string['expirynotify'] = 'Notification d\'échéance de la période d\'inscription';
-$string['expirynotifyemail'] = 'L\'inscription des étudiants suivants à ce cours arrive à échéance dans exactement {$a->threshold} jours :
-
-{$a->current}
-
-Celle des étudiants suivants arrive à échéance dans moins de {$a->threshold} jours :
-
-{$a->past}
-
-La page suivante vous permet d\'étendre leur période d\'inscription :
-{$a->extendurl}';
-$string['expirynotifystudents'] = 'Rappel aux étudiants';
-$string['expirynotifystudentsemail'] = 'Cher {$a->studentstr},
-
-Ce message est un rappel concernant votre inscription au cours {$a->course}. Votre inscription arrivera à échéance dans {$a->threshold} jours.
-
-Pour plus d\'informations, veuillez contacter {$a->teacherstr}.';
-$string['expirynotifystudents_help'] = 'Si une durée d\'inscription a été indiquée, ce réglage détermine si les étudiants recevront un courriel lorsqu\'ils seront sur le point d\'être désinscrits du cours.';
-$string['expirythreshold'] = 'Délai';
-$string['expirythreshold_help'] = 'Si une durée d\'inscription a été indiquée, ce réglage détermine combien de jours avant leur désinscription effective les étudiants recevront un courriel lorsqu\'ils seront sur le point d\'être désinscrits du cours.';
 $string['explanation'] = 'Explication';
 $string['extendenrol'] = 'Étendre la période d\'inscription (individuelle)';
 $string['extendperiod'] = 'Extension de la période d\'inscription';
@@ -1032,7 +1016,9 @@ $string['maxnumberweeks'] = 'Nombre maximum de sections';
 $string['maxnumberweeks_desc'] = 'Ce réglage détermine le nombre de choix qui apparaissent dans le réglage des cours « Nombres de sections ».';
 $string['maxnumcoursesincombo'] = 'Consultez <a href="{$a->link}">{$a->numberofcourses} cours</a>.';
 $string['maxsize'] = 'Taille maximale : {$a}';
+$string['maxsizeandareasize'] = 'Taille maximale pour les nouveaux fichiers : {$a->size}, limite globale : {$a->areasize}';
 $string['maxsizeandattachments'] = 'Taille maximale des nouveaux fichiers : {$a->size}. Nombre maximal d\'annexes : {$a->attachments}';
+$string['maxsizeandattachmentsandareasize'] = 'Taille maximale pour les nouveaux fichiers : {$a->size}, nombre maximale d\'annexes : {$a->attachments}, limite globale : {$a->areasize}';
 $string['memberincourse'] = 'Personnes dans le cours';
 $string['messagebody'] = 'Texte du message';
 $string['messagedselectedusers'] = 'Le message a été envoyé aux utilisateurs sélectionnés et la liste des destinataires réinitialisée.';
@@ -1159,7 +1145,7 @@ $string['newpicture'] = 'Nouvelle image';
 $string['newpicture_help'] = 'Pour ajouter une image, sélectionnez-en une en format JPG ou PNG, puis cliquez sur « Enregistrer mon profil ».  L\'image sera redimensionnée en un carré de 100x100 pixels.';
 $string['newsitem'] = 'article';
 $string['newsitems'] = 'articles';
-$string['newsitemsnumber'] = 'Articles récents à afficher';
+$string['newsitemsnumber'] = 'Nouvelles à afficher';
 $string['newsitemsnumber_help'] = '<!-- $Id$ -->
 
 
@@ -1493,10 +1479,6 @@ $string['scalestandard_help'] = '<!-- $Id$ -->
 $string['scalestip'] = 'Pour créer des barêmes personnalisés, utilisez le liens « Barêmes... » dans le menu d\'administration de votre cours.';
 $string['scalestip2'] = 'Pour créer des barêmes personnalisés, cliquez sur le lien Notes dans le menu d\'administration du cours, puis sélectionnez Modifier > Barêmes dans le menu déroulant.';
 $string['schedule'] = 'Planification';
-$string['screenreaderno'] = 'Non';
-$string['screenreaderuse'] = 'Lecteur d\'écran';
-$string['screenreaderuse_help'] = 'Si activé, une interface plus accessible sera utilisée à divers endroits, tels que le chat.';
-$string['screenreaderyes'] = 'Oui';
 $string['screenshot'] = 'Copie d\'écran';
 $string['search'] = 'Rechercher';
 $string['searchagain'] = 'Rechercher de nouveau';
@@ -1575,14 +1557,7 @@ $string['showcommentsnonjs'] = 'Afficher les commentaires';
 $string['showdescription'] = 'Afficher la description sur la page de cours';
 $string['showdescription_help'] = 'Si ce réglage est activé, la description ou l\'introduction ci-dessus sera affichée sur la page du cours, juste au-dessous du lien vers l\'activité ou la ressource.';
 $string['showgrades'] = 'Afficher le carnet de notes aux étudiants';
-$string['showgrades_help'] = '<!-- $Id$ -->
-
-
-<p>Plusieurs parmi les activités d\'un cours peuvent être évaluations.</p>
-
-<p>Par défaut, les notes de toutes les activités du cours peuvent être vues sur la page « Notes », accessible depuis la page d\'accueil du cours.</p>
-
-<p>Si un enseignant ne désire pas utiliser les notes dans un cours, ou s\'il veut juste cacher le carnet de notes pour les étudiants, il peut alors désactiver l\'affichage du carnet de notes en modifiant les réglages du cours. Ceci n\'empêche pas un enseignant d\'évaluer les différentes activités, <strong>ni</strong> l\'affichage des notes depuis les activités elles-mêmes.</p>';
+$string['showgrades_help'] = 'Plusieurs activités d\'un cours peuvent être évaluées au moyen de notes. Ce réglage détermine si un étudiant peut voir une liste de toutes ses notes données dans ce cours, en cliquant sur le lien « Notes » dans le bloc d\'administration du cours.';
 $string['showlistofcourses'] = 'Afficher la liste des cours';
 $string['showmodulecourse'] = 'Afficher les cours contenant l\'activité';
 $string['showonly'] = 'Afficher uniquement';
@@ -1770,8 +1745,8 @@ $string['updatemyprofile'] = 'Enregistrer le profil';
 $string['updatesevery'] = 'Mise à jour toutes les {$a} secondes';
 $string['updatethis'] = 'Modifier {$a}';
 $string['updatethiscourse'] = 'Modifier ce cours';
-$string['updatinga'] = 'Modification : {$a}';
-$string['updatingain'] = 'Modifier {$a->what} dans {$a->in}';
+$string['updatinga'] = 'Modifier un(e) {$a}';
+$string['updatingain'] = 'Modifier un(e) {$a->what} dans {$a->in}';
 $string['upload'] = 'Déposer';
 $string['uploadafile'] = 'Déposer un fichier';
 $string['uploadcantwrite'] = 'Échec de l\'écriture du fichier';
@@ -1864,6 +1839,7 @@ $string['webpage'] = 'Page Web';
 $string['week'] = 'Semaine';
 $string['weekhide'] = 'Cacher cette semaine pour {$a}';
 $string['weeklyoutline'] = 'Aperçu des semaines';
+$string['weeks'] = 'semaines';
 $string['weekshow'] = 'Afficher cette semaine pour {$a}';
 $string['welcometocourse'] = 'Bienvenue sur {$a}';
 $string['welcometocoursetext'] = 'Bienvenue au cours « {$a->coursename} » !
@@ -1876,6 +1852,7 @@ $string['whattocallzip'] = 'Quel nom voulez-vous donner au fichier compacté (zi
 $string['whattodo'] = 'Action à effectuer';
 $string['windowclosing'] = 'Cette fenêtre se fermera automatiquement. Sinon, fermez-la maintenant.';
 $string['withchosenfiles'] = 'Avec les fichiers choisis';
+$string['withdisablednote'] = '{$a} (désactivé)';
 $string['withoutuserdata'] = 'sans les données des utilisateurs';
 $string['withselectedusers'] = 'Pour les utilisateurs sélectionnés...';
 $string['withselectedusers_help'] = '* Envoyer un message : pour envoyer un message à un ou plusieurs participants

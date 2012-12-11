@@ -1,0 +1,22 @@
+Release notes for Agora (http://agora.xtec.cat)
+
+More information on each of the fixes can be found in the project 
+development home at https://github.com/projectestac/agora
+
+
+Changes in progress
+---------------------------------------------------------------------------------------
+MOODLE2
+- Updated Moodle version to 2.4.0
+- Updated hotpot module to 3.0.52
+- Updated questionnaire to 2.3.3
+
+PENDING
+- Install Wiris CAS and Editor
+- Review icons in xtec2 theme
+- Review db auth method integration with iw_index
+- Add spellchecker
+- Review $CFG->early_install_lang 
+- Review COURSE_DISPLAY_MULTIPAGE behaviour (Undefined property: stdClass::$coursedisplay in course/view.php on line 72)
+
+

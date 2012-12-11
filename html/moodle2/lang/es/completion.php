@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'completion', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'completion', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   completion
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,6 @@ $string['achievinggrade'] = 'Alcanzando calificación';
 $string['activities'] = 'Actividades';
 $string['activitiescompleted'] = 'Actividades finalizadas';
 $string['activitycompletion'] = 'Finalización de actividad';
-$string['addcourseprerequisite'] = 'Añadir prerequisito de curso';
 $string['afterspecifieddate'] = 'Después de una fecha especificada';
 $string['aggregationmethod'] = 'Método de agregación';
 $string['all'] = 'Todos';
@@ -51,6 +50,7 @@ $string['completion-alt-manual-enabled'] = 'Los estudiantes pueden marcar manual
 $string['completion-alt-manual-n'] = 'No finalizado; {$a}. Seleccione para marcar como finalizado';
 $string['completion-alt-manual-y'] = 'Finalizado; {$a} seleccione para marcar como no finalizado';
 $string['completion_automatic'] = 'Mostrar la actividad como completada cuando se cumplan las condiciones';
+$string['completiondependencies'] = 'Dependencias de finalización';
 $string['completiondisabled'] = 'Desactivado, no se muestra en los ajustes de la actividad';
 $string['completionenabled'] = 'Activado, control por medio de los ajustes de finalización y de actividad';
 $string['completionexpected'] = 'Se espera finalizar en';
@@ -72,7 +72,7 @@ $string['completion_none'] = 'No indicar finalización de la actividad';
 $string['completionnotenabled'] = 'Completar curso no está habilitada';
 $string['completionnotenabledforcourse'] = 'Completar curso no está habilitada';
 $string['completionnotenabledforsite'] = 'Completar curso no está habilitada';
-$string['completiononunenrolment'] = 'Finalización de desmatriculación';
+$string['completiononunenrolment'] = 'Finalización de la baja';
 $string['completion-pass'] = 'Finalizado (ha alcanzado la califiación de aprobado)';
 $string['completionsettingslocked'] = 'Ajustes de finalización bloqueados';
 $string['completionstartonenrol'] = 'El rastreo de la finalización comienza en la matriculación';
@@ -91,10 +91,10 @@ $string['coursealreadycompleted'] = 'Usted ya ha finalizado este curso';
 $string['coursecomplete'] = 'Curso finalizado';
 $string['coursecompleted'] = 'Curso finalizado';
 $string['coursegrade'] = 'Calificación del curso';
-$string['courseprerequisites'] = 'Prerrequisitos del curso';
 $string['coursesavailable'] = 'Cursos disponibles';
 $string['coursesavailableexplaination'] = '<i>Los criterios del grado de finalización del curso deben ajustarse para que el curso aparezca en esta lista</i>';
 $string['criteria'] = 'Criterios';
+$string['criteriagradenote'] = 'Por favor, tenga en cuenta que actualizar la calificación requerida aquí no actualizará la actual calificación de paso del curso.';
 $string['criteriagroup'] = 'Grupo de criterios';
 $string['criteriarequiredall'] = 'Son necesarios todos los criterios que aparecen más abajo';
 $string['criteriarequiredany'] = 'Es necesario cualquiera de los criterios que aparecen más abajo';
@@ -102,7 +102,9 @@ $string['csvdownload'] = 'Descargar en formato de hoja de cálculo (UTF-8.csv)';
 $string['datepassed'] = 'Fecha pasada';
 $string['days'] = 'Días';
 $string['daysafterenrolment'] = 'Días después de la matriculación';
-$string['deletecoursecompletiondata'] = 'Eliminar los datos de cumplimiento del curso';
+$string['deletecompletiondata'] = 'Borrar datos de finalización';
+$string['dependencies'] = 'Dependencias';
+$string['dependenciescompleted'] = 'Dependencias completadas';
 $string['durationafterenrolment'] = 'Duración después de la matriculación';
 $string['editcoursecompletionsettings'] = 'Editar ajustes de grado de finalización del curso';
 $string['enablecompletion'] = 'Habilitar rastreo del grado de finalización';
@@ -116,6 +118,8 @@ $string['err_settingslocked'] = 'Uno o más estudiantes han finalizado ya  un cr
 $string['err_system'] = 'Se ha producido un error interno en el sistema de finalización. (Los administradores del sistema pueden habilitar la información de seguimiento para ver más detalles)';
 $string['excelcsvdownload'] = 'Descargar en formato compatible con Excel (.csv)';
 $string['fraction'] = 'Fracción';
+$string['graderequired'] = 'Calificación requerida';
+$string['gradexrequired'] = '{$a} requerido';
 $string['inprogress'] = 'En curso';
 $string['manualcompletionby'] = 'Grado de finalización manual por';
 $string['manualselfcompletion'] = 'Auto-completar manualmente';
@@ -127,13 +131,12 @@ $string['nocriteriaset'] = 'No hay criterios establecidos para la terminación d
 $string['notcompleted'] = 'No finalizado';
 $string['notenroled'] = 'Usted no está matriculado en este curso';
 $string['notyetstarted'] = 'Aún no comenzado';
-$string['overallcriteriaaggregation'] = 'Agregación de tipo criterio general';
+$string['overallcriteriaaggregation'] = 'Criterio global de agregación';
 $string['pending'] = 'Pendiente';
 $string['periodpostenrolment'] = 'Periodo después de la matriculación';
-$string['prerequisites'] = 'Prerrequisitos';
-$string['prerequisitescompleted'] = 'Prerrequisitos completados';
 $string['progress'] = 'Progreso del estudiante';
 $string['progress-title'] = '{$a->user}, {$a->activity}: {$a->state} {$a->date}';
+$string['progresstotal'] = 'Progreso: {$a->complete} / {$a->total}';
 $string['recognitionofpriorlearning'] = 'Reconocimiento de aprendizaje previo';
 $string['remainingenroledfortime'] = 'Permanecer matriculado durante un periodo de tiempo especificado';
 $string['remainingenroleduntildate'] = 'Permanecer matriculado hasta una fecha especificada';
@@ -151,7 +154,7 @@ $string['unit'] = 'Unidad';
 $string['unlockcompletion'] = 'Desbloquear opciones de grado de finalización';
 $string['unlockcompletiondelete'] = 'Desbloquear opciones de grado de finalización y eliminar los datos de grado de finalización del usuario';
 $string['usealternateselector'] = 'Usar el selector de curso alternativo';
-$string['usernotenroled'] = 'El usuario no está matriculados en este curso';
+$string['usernotenroled'] = 'El usuario no está matriculado en este curso';
 $string['viewcoursereport'] = 'Ver informe del curso';
 $string['viewingactivity'] = 'Viendo los {$a}';
 $string['writingcompletiondata'] = 'Escribiendo los datos del grado de finalización';

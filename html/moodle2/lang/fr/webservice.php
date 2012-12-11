@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'webservice', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -53,7 +53,6 @@ $string['createservicedescription'] = 'Un service est un ensemble de fonctions w
 $string['createserviceforusersdescription'] = 'Un service est un ensemble de fonctions web service. Vous devrez autoriser l\'utilisateur à accéder à un nouveau service. Sur la page <b>Ajouter service</b>, cochez les options « Activer » et « Utilisateurs autorisés ». Sélectionnez « Aucune capacité requise ».';
 $string['createtoken'] = 'Créer jeton';
 $string['createtokenforuser'] = 'Créer un jeton pour un utilisateur';
-$string['createtokenforuserauto'] = 'Créer automatiquement un jeton pour l\'utilisateur';
 $string['createtokenforuserdescription'] = 'Créez un jeton pour l\'utilisateur web services.';
 $string['createuser'] = 'Créer un utilisateur spécifique';
 $string['createuserdescription'] = 'Vous devez créer un utilisateur services web pour représenter le système contrôlant Moodle.';
@@ -187,6 +186,7 @@ $string['tokenauthlog'] = 'Authentification jeton';
 $string['tokencreatedbyadmin'] = 'Ne peut être réinitialisé que par un administrateur (*)';
 $string['tokencreator'] = 'Créateur';
 $string['unknownoptionkey'] = 'Clef d\'option inconnue ({$a})';
+$string['unnamedstringparam'] = 'Un paramètre chaîne de caractère n\'a pas de nom.';
 $string['updateusersettings'] = 'Modifier';
 $string['userasclients'] = 'Utilisateurs en tant que clients avec jetons';
 $string['userasclientsdescription'] = 'Les étapes suivantes vous aident à configurer le service web Moodle pour des utilisateurs clients. Ils vous aident aussi à configurer la méthode d\'authentification par jeton (clefs de sécurité) recommandée. Dans ce cas, l\'utilisateur obtiendra sa clef de sécurité (jeton) sur la page Réglages de mon profil.';

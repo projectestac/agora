@@ -65,7 +65,7 @@ class file_info_context_coursecat extends file_info {
             if (empty($component)) {
                 // we can not list the category contents, so try parent, or top system
                 if ($this->category->parent and $pc = $DB->get_record('course_categories', array('id'=>$this->category->parent))) {
-                    $parent = get_context_instance(CONTEXT_COURSECAT, $pc->id);
+                    $parent = context_coursecat::instance($pc->id, IGNORE_MISSING);
                     return $this->browser->get_file_info($parent);
                 } else {
                     return $this->browser->get_file_info();
@@ -165,7 +165,7 @@ class file_info_context_coursecat extends file_info {
 
         $course_cats = $DB->get_records('course_categories', array('parent'=>$this->category->id), 'sortorder', 'id,visible');
         foreach ($course_cats as $category) {
-            $context = get_context_instance(CONTEXT_COURSECAT, $category->id);
+            $context = context_coursecat::instance($category->id);
             if (!$category->visible and !has_capability('moodle/category:viewhiddencategories', $context)) {
                 continue;
             }
@@ -176,7 +176,7 @@ class file_info_context_coursecat extends file_info {
 
         $courses = $DB->get_records('course', array('category'=>$this->category->id), 'sortorder', 'id,visible');
         foreach ($courses as $course) {
-            $context = get_context_instance(CONTEXT_COURSE, $course->id);
+            $context = context_course::instance($course->id);
             if (!$course->visible and !has_capability('moodle/course:viewhiddencourses', $context)) {
                 continue;
             }
@@ -189,13 +189,73 @@ class file_info_context_coursecat extends file_info {
     }
 
     /**
+     * Returns the number of children which are either files matching the specified extensions
+     * or folders containing at least one such file.
+     *
+     * @param string|array $extensions, for example '*' or array('.gif','.jpg')
+     * @param int $limit stop counting after at least $limit non-empty children are found
+     * @return int
+     */
+    public function count_non_empty_children($extensions = '*', $limit = 1) {
+        global $DB;
+        $cnt = 0;
+        if (($child = $this->get_area_coursecat_description(0, '/', '.'))
+                && $child->count_non_empty_children($extensions) && (++$cnt) >= $limit) {
+            return $cnt;
+        }
+
+        $rs = $DB->get_recordset_sql('SELECT ctx.id contextid, c.visible
+                FROM {context} ctx, {course} c
+                WHERE ctx.instanceid = c.id
+                AND ctx.contextlevel = :courselevel
+                AND c.category = :categoryid
+                ORDER BY c.visible DESC', // retrieve visible courses first
+                array('categoryid' => $this->category->id, 'courselevel' => CONTEXT_COURSE));
+        foreach ($rs as $record) {
+            $context = context::instance_by_id($record->contextid);
+            if (!$record->visible and !has_capability('moodle/course:viewhiddencourses', $context)) {
+                continue;
+            }
+            if (($child = $this->browser->get_file_info($context))
+                    && $child->count_non_empty_children($extensions) && (++$cnt) >= $limit) {
+                break;
+            }
+        }
+        $rs->close();
+        if ($cnt >= $limit) {
+            return $cnt;
+        }
+
+        $rs = $DB->get_recordset_sql('SELECT ctx.id contextid, cat.visible
+                FROM {context} ctx, {course_categories} cat
+                WHERE ctx.instanceid = cat.id
+                AND ctx.contextlevel = :catlevel
+                AND cat.parent = :categoryid
+                ORDER BY cat.visible DESC', // retrieve visible categories first
+                array('categoryid' => $this->category->id, 'catlevel' => CONTEXT_COURSECAT));
+        foreach ($rs as $record) {
+            $context = context::instance_by_id($record->contextid);
+            if (!$record->visible and !has_capability('moodle/category:viewhiddencategories', $context)) {
+                continue;
+            }
+            if (($child = $this->browser->get_file_info($context))
+                    && $child->count_non_empty_children($extensions) && (++$cnt) >= $limit) {
+                break;
+            }
+        }
+        $rs->close();
+
+        return $cnt;
+    }
+
+    /**
      * Returns parent file_info instance
      *
      * @return file_info|null fileinfo instance or null for root directory
      */
     public function get_parent() {
         $cid = get_parent_contextid($this->context);
-        $parent = get_context_instance_by_id($cid);
+        $parent = context::instance_by_id($cid, IGNORE_MISSING);
         return $this->browser->get_file_info($parent);
     }
 }

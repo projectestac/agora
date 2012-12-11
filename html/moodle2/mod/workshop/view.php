@@ -38,6 +38,7 @@ $page       = optional_param('page', 0, PARAM_INT);
 $perpage    = optional_param('perpage', null, PARAM_INT);
 $sortby     = optional_param('sortby', 'lastname', PARAM_ALPHA);
 $sorthow    = optional_param('sorthow', 'ASC', PARAM_ALPHA);
+$eval       = optional_param('eval', null, PARAM_PLUGIN);
 
 if ($id) {
     $cm         = get_coursemodule_from_id('workshop', $id, 0, false, MUST_EXIST);
@@ -70,6 +71,13 @@ $PAGE->set_heading($course->fullname);
 if ($perpage and $perpage > 0 and $perpage <= 1000) {
     require_sesskey();
     set_user_preference('workshop_perpage', $perpage);
+    redirect($PAGE->url);
+}
+
+if ($eval) {
+    require_sesskey();
+    require_capability('mod/workshop:overridegrades', $workshop->context);
+    $workshop->set_grading_evaluation_method($eval);
     redirect($PAGE->url);
 }
 
@@ -395,6 +403,13 @@ case workshop::PHASE_EVALUATION:
             $showreviewernames  = has_capability('mod/workshop:viewreviewernames', $workshop->context);
 
             if (has_capability('mod/workshop:overridegrades', $PAGE->context)) {
+                // Print a drop-down selector to change the current evaluation method.
+                $selector = new single_select($PAGE->url, 'eval', workshop::available_evaluators_list(),
+                    $workshop->evaluation, false, 'evaluationmethodchooser');
+                $selector->set_label(get_string('evaluationmethod', 'mod_workshop'));
+                $selector->set_help_icon('evaluationmethod', 'mod_workshop');
+                $selector->method = 'post';
+                echo $output->render($selector);
                 // load the grading evaluator
                 $evaluator = $workshop->grading_evaluation_instance();
                 $form = $evaluator->get_settings_form(new moodle_url($workshop->aggregate_url(),
@@ -447,7 +462,8 @@ case workshop::PHASE_EVALUATION:
         echo $output->help_icon('clearassessments', 'workshop');
         echo html_writer::empty_tag('img', array('src' => $output->pix_url('i/risk_dataloss'),
                                                  'title' => get_string('riskdatalossshort', 'admin'),
-                                                 'alt' => get_string('riskdatalossshort', 'admin')));
+                                                 'alt' => get_string('riskdatalossshort', 'admin'),
+                                                 'class' => 'workshop-risk-dataloss'));
         echo $output->container_end();
 
         echo $output->box_end();
@@ -497,6 +513,21 @@ case workshop::PHASE_EVALUATION:
     }
     break;
 case workshop::PHASE_CLOSED:
+    if (trim($workshop->conclusion)) {
+        $conclusion = file_rewrite_pluginfile_urls($workshop->conclusion, 'pluginfile.php', $workshop->context->id,
+            'mod_workshop', 'conclusion', 0, workshop::instruction_editors_options($workshop->context));
+        print_collapsible_region_start('', 'workshop-viewlet-conclusion', get_string('conclusion', 'workshop'));
+        echo $output->box(format_text($conclusion, $workshop->conclusionformat, array('overflowdiv'=>true)), array('generalbox', 'conclusion'));
+        print_collapsible_region_end();
+    }
+    $finalgrades = $workshop->get_gradebook_grades($USER->id);
+    if (!empty($finalgrades)) {
+        print_collapsible_region_start('', 'workshop-viewlet-yourgrades', get_string('yourgrades', 'workshop'));
+        echo $output->box_start('generalbox grades-yourgrades');
+        echo $output->render($finalgrades);
+        echo $output->box_end();
+        print_collapsible_region_end();
+    }
     if (has_capability('mod/workshop:viewallassessments', $PAGE->context)) {
         $perpage = get_user_preferences('workshop_perpage', 10);
         $groupid = groups_get_activity_group($workshop->cm, true);

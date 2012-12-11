@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,6 +39,8 @@ $string['defaultregion'] = 'Región por defecto';
 $string['defaultregion_help'] = 'Los temas pueden definir una o más regiones de bloques con nombre donde se pueden mostrar los bloques. Este ajuste define en cuáles de éstas quiere que aparezca este bloque por defecto. La región puede ser anulada en páginas específicas si es necesario.';
 $string['defaultweight'] = 'Peso por defecto';
 $string['defaultweight_help'] = 'El peso por defecto permite escoger aproximádamente donde quiere que aparezca el bloque en la región escogida, bien arriba del todo o al fondo. La ubicación final se calcula a partir de todos los bloques en esa región (por ejemplo, sólo un bloque puede estar arriba del todo). Este valor puede ser anulado en páginas específicas si es necesario.';
+$string['deleteblockcheck'] = '¿Seguro que desea eliminar el bloque {$a}?';
+$string['deletecheck'] = '¿Eliminar el bloque {$a}?';
 $string['moveblockhere'] = 'Mover el bloque aquí';
 $string['movingthisblockcancel'] = 'Moviendo este bloque ({$a})';
 $string['onthispage'] = 'En esta página';

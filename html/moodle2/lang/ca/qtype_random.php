@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_random', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qtype_random', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   qtype_random
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,6 @@ $string['configselectmanualquestions'] = 'Es permet que el tipus de pregunta ale
 $string['includingsubcategories'] = 'Inclou les subcategories';
 $string['pluginname'] = 'Aleatòria';
 $string['pluginnameediting'] = 'S\'està editant una pregunta aleatòria';
-$string['pluginname_help'] = 'Una pregunta aleatòria no és un tipus de pregunta, com a tal, sinó una manera d\'inserir dins d\'una activitat una pregunta triada a l\'atzar d\'una categoria especificada.';
 $string['randomqname'] = 'Aleatòria ({$a})';
 $string['randomqplusname'] = 'Aleatòria ({$a} i les sub-categories)';
 $string['selectedby'] = '{$a->questionname} seleccionada per {$a->randomname}';

@@ -89,6 +89,11 @@ class graded_users_iterator {
     protected $onlyactive = false;
 
     /**
+     * Enable user custom fields
+     */
+    protected $allowusercustomfields = false;
+
+    /**
      * Constructor
      *
      * @param object $course A course object
@@ -130,7 +135,7 @@ class graded_users_iterator {
             return false;
         }
 
-        $coursecontext = get_context_instance(CONTEXT_COURSE, $this->course->id);
+        $coursecontext = context_course::instance($this->course->id);
         $relatedcontexts = get_related_contexts_string($coursecontext);
 
         list($gradebookroles_sql, $params) =
@@ -169,11 +174,29 @@ class graded_users_iterator {
             }
         }
 
+        $userfields = 'u.*';
+        $customfieldssql = '';
+        if ($this->allowusercustomfields && !empty($CFG->grade_export_customprofilefields)) {
+            $customfieldscount = 0;
+            $customfieldsarray = grade_helper::get_user_profile_fields($this->course->id, $this->allowusercustomfields);
+            foreach ($customfieldsarray as $field) {
+                if (!empty($field->customid)) {
+                    $customfieldssql .= "
+                            LEFT JOIN (SELECT * FROM {user_info_data}
+                                WHERE fieldid = :cf$customfieldscount) cf$customfieldscount
+                            ON u.id = cf$customfieldscount.userid";
+                    $userfields .= ", cf$customfieldscount.data AS 'customfield_{$field->shortname}'";
+                    $params['cf'.$customfieldscount] = $field->customid;
+                    $customfieldscount++;
+                }
+            }
+        }
+
         // $params contents: gradebookroles and groupid (for $groupwheresql)
-        $users_sql = "SELECT u.* $ofields
+        $users_sql = "SELECT $userfields $ofields
                         FROM {user} u
                         JOIN ($enrolledsql) je ON je.id = u.id
-                             $groupsql
+                             $groupsql $customfieldssql
                         JOIN (
                                   SELECT DISTINCT ra.userid
                                     FROM {role_assignments} ra
@@ -311,6 +334,19 @@ class graded_users_iterator {
         $this->onlyactive  = $onlyactive;
     }
 
+    /**
+     * Allow custom fields to be included
+     *
+     * @param bool $allow Whether to allow custom fields or not
+     * @return void
+     */
+    public function allow_user_custom_fields($allow = true) {
+        if ($allow) {
+            $this->allowusercustomfields = true;
+        } else {
+            $this->allowusercustomfields = false;
+        }
+    }
 
     /**
      * Add a grade_grade instance to the grade stack
@@ -532,7 +568,7 @@ function grade_print_tabs($active_type, $active_plugin, $plugin_info, $return=fa
 function grade_get_plugin_info($courseid, $active_type, $active_plugin) {
     global $CFG, $SITE;
 
-    $context = get_context_instance(CONTEXT_COURSE, $courseid);
+    $context = context_course::instance($courseid);
 
     $plugin_info = array();
     $count = 0;
@@ -1146,7 +1182,7 @@ class grade_structure {
                                 '" alt="'.s($stroutcome).'"/>';
                     } else {
                         $strmanual = get_string('manualitem', 'grades');
-                        return '<img src="'.$OUTPUT->pix_url('t/manual_item') . '" '.
+                        return '<img src="'.$OUTPUT->pix_url('i/manual_item') . '" '.
                                 'class="icon itemicon" title="'.s($strmanual).
                                 '" alt="'.s($strmanual).'"/>';
                     }
@@ -1155,7 +1191,7 @@ class grade_structure {
 
             case 'category':
                 $strcat = get_string('category', 'grades');
-                return '<img src="'.$OUTPUT->pix_url(file_folder_icon()) . '" class="icon itemicon" ' .
+                return '<img src="'.$OUTPUT->pix_url('i/folder') . '" class="icon itemicon" ' .
                         'title="'.s($strcat).'" alt="'.s($strcat).'" />';
         }
 
@@ -1503,7 +1539,7 @@ class grade_structure {
 
             $url->param('action', 'show');
 
-            $hideicon = $OUTPUT->action_icon($url, new pix_icon('t/'.$type, $tooltip, 'moodle', array('alt'=>$strshow, 'class'=>'iconsmall')));
+            $hideicon = $OUTPUT->action_icon($url, new pix_icon('t/'.$type, $tooltip, 'moodle', array('alt'=>$strshow, 'class'=>'smallicon')));
 
         } else {
             $url->param('action', 'hide');
@@ -1537,7 +1573,8 @@ class grade_structure {
             $strparamobj->itemname = $element['object']->grade_item->itemname;
             $strnonunlockable = get_string('nonunlockableverbose', 'grades', $strparamobj);
 
-            $action = $OUTPUT->pix_icon('t/unlock_gray', $strnonunlockable);
+            $action = html_writer::tag('span', $OUTPUT->pix_icon('t/locked', $strnonunlockable),
+                    array('class' => 'action-icon'));
 
         } else if ($element['object']->is_locked()) {
             $type = 'unlock';
@@ -1603,7 +1640,7 @@ class grade_structure {
 
                 $url = new moodle_url('/grade/edit/tree/calculation.php', array('courseid' => $this->courseid, 'id' => $object->id));
                 $url = $gpr->add_url_params($url);
-                return $OUTPUT->action_icon($url, new pix_icon($icon, $streditcalculation)) . "\n";
+                return $OUTPUT->action_icon($url, new pix_icon($icon, $streditcalculation));
             }
         }
 
@@ -1638,7 +1675,7 @@ class grade_seq extends grade_structure {
         global $USER, $CFG;
 
         $this->courseid   = $courseid;
-        $this->context    = get_context_instance(CONTEXT_COURSE, $courseid);
+        $this->context    = context_course::instance($courseid);
 
         // get course grade tree
         $top_element = grade_category::fetch_course_tree($courseid, true);
@@ -1792,7 +1829,7 @@ class grade_tree extends grade_structure {
 
         $this->courseid   = $courseid;
         $this->levels     = array();
-        $this->context    = get_context_instance(CONTEXT_COURSE, $courseid);
+        $this->context    = context_course::instance($courseid);
 
         if (!empty($COURSE->id) && $COURSE->id == $this->courseid) {
             $course = $COURSE;
@@ -2238,7 +2275,7 @@ function grade_button($type, $courseid, $object) {
         $url = new moodle_url('edit.php', array('courseid' => $courseid, 'id' => $object->id));
     }
 
-    return $OUTPUT->action_icon($url, new pix_icon('t/'.$type, ${'str'.$type}));
+    return $OUTPUT->action_icon($url, new pix_icon('t/'.$type, ${'str'.$type}, '', array('class' => 'iconsmall')));
 
 }
 
@@ -2264,14 +2301,14 @@ function grade_extend_settings($plugininfo, $courseid) {
     if ($imports = grade_helper::get_plugins_import($courseid)) {
         $importnode = $gradenode->add($strings['import'], null, navigation_node::TYPE_CONTAINER);
         foreach ($imports as $import) {
-            $importnode->add($import->string, $import->link, navigation_node::TYPE_SETTING, null, $import->id, new pix_icon('i/restore', ''));
+            $importnode->add($import->string, $import->link, navigation_node::TYPE_SETTING, null, $import->id, new pix_icon('i/import', ''));
         }
     }
 
     if ($exports = grade_helper::get_plugins_export($courseid)) {
         $exportnode = $gradenode->add($strings['export'], null, navigation_node::TYPE_CONTAINER);
         foreach ($exports as $export) {
-            $exportnode->add($export->string, $export->link, navigation_node::TYPE_SETTING, null, $export->id, new pix_icon('i/backup', ''));
+            $exportnode->add($export->string, $export->link, navigation_node::TYPE_SETTING, null, $export->id, new pix_icon('i/export', ''));
         }
     }
 
@@ -2423,7 +2460,7 @@ abstract class grade_helper {
         if (self::$managesetting !== null) {
             return self::$managesetting;
         }
-        $context = get_context_instance(CONTEXT_COURSE, $courseid);
+        $context = context_course::instance($courseid);
         if (has_capability('moodle/course:update', $context)) {
             self::$managesetting = new grade_plugin_info('coursesettings', new moodle_url('/grade/edit/settings/index.php', array('id'=>$courseid)), get_string('course'));
         } else {
@@ -2443,7 +2480,7 @@ abstract class grade_helper {
         if (self::$gradereports !== null) {
             return self::$gradereports;
         }
-        $context = get_context_instance(CONTEXT_COURSE, $courseid);
+        $context = context_course::instance($courseid);
         $gradereports = array();
         $gradepreferences = array();
         foreach (get_plugin_list('gradereport') as $plugin => $plugindir) {
@@ -2503,7 +2540,7 @@ abstract class grade_helper {
         if (self::$scaleinfo !== null) {
             return self::$scaleinfo;
         }
-        if (has_capability('moodle/course:managescales', get_context_instance(CONTEXT_COURSE, $courseid))) {
+        if (has_capability('moodle/course:managescales', context_course::instance($courseid))) {
             $url = new moodle_url('/grade/edit/scale/index.php', array('id'=>$courseid));
             self::$scaleinfo = new grade_plugin_info('scale', $url, get_string('view'));
         } else {
@@ -2522,7 +2559,7 @@ abstract class grade_helper {
         if (self::$outcomeinfo !== null) {
             return self::$outcomeinfo;
         }
-        $context = get_context_instance(CONTEXT_COURSE, $courseid);
+        $context = context_course::instance($courseid);
         $canmanage = has_capability('moodle/grade:manage', $context);
         $canupdate = has_capability('moodle/course:update', $context);
         if (!empty($CFG->enableoutcomes) && ($canmanage || $canupdate)) {
@@ -2557,7 +2594,7 @@ abstract class grade_helper {
         if (self::$edittree !== null) {
             return self::$edittree;
         }
-        if (has_capability('moodle/grade:manage', get_context_instance(CONTEXT_COURSE, $courseid))) {
+        if (has_capability('moodle/grade:manage', context_course::instance($courseid))) {
             $url = new moodle_url('/grade/edit/tree/index.php', array('sesskey'=>sesskey(), 'showadvanced'=>'0', 'id'=>$courseid));
             self::$edittree = array(
                 'simpleview' => new grade_plugin_info('simpleview', $url, get_string('simpleview', 'grades')),
@@ -2578,7 +2615,7 @@ abstract class grade_helper {
         if (self::$letterinfo !== null) {
             return self::$letterinfo;
         }
-        $context = get_context_instance(CONTEXT_COURSE, $courseid);
+        $context = context_course::instance($courseid);
         $canmanage = has_capability('moodle/grade:manage', $context);
         $canmanageletters = has_capability('moodle/grade:manageletters', $context);
         if ($canmanage || $canmanageletters) {
@@ -2609,7 +2646,7 @@ abstract class grade_helper {
             return self::$importplugins;
         }
         $importplugins = array();
-        $context = get_context_instance(CONTEXT_COURSE, $courseid);
+        $context = context_course::instance($courseid);
 
         if (has_capability('moodle/grade:import', $context)) {
             foreach (get_plugin_list('gradeimport') as $plugin => $plugindir) {
@@ -2647,7 +2684,7 @@ abstract class grade_helper {
         if (self::$exportplugins !== null) {
             return self::$exportplugins;
         }
-        $context = get_context_instance(CONTEXT_COURSE, $courseid);
+        $context = context_course::instance($courseid);
         $exportplugins = array();
         if (has_capability('moodle/grade:export', $context)) {
             foreach (get_plugin_list('gradeexport') as $plugin => $plugindir) {
@@ -2672,4 +2709,101 @@ abstract class grade_helper {
         }
         return self::$exportplugins;
     }
+
+    /**
+     * Returns the value of a field from a user record
+     *
+     * @param stdClass $user object
+     * @param stdClass $field object
+     * @return string value of the field
+     */
+    public static function get_user_field_value($user, $field) {
+        if (!empty($field->customid)) {
+            $fieldname = 'customfield_' . $field->shortname;
+            if (!empty($user->{$fieldname}) || is_numeric($user->{$fieldname})) {
+                $fieldvalue = $user->{$fieldname};
+            } else {
+                $fieldvalue = $field->default;
+            }
+        } else {
+            $fieldvalue = $user->{$field->shortname};
+        }
+        return $fieldvalue;
+    }
+
+    /**
+     * Returns an array of user profile fields to be included in export
+     *
+     * @param int $courseid
+     * @param bool $includecustomfields
+     * @return array An array of stdClass instances with customid, shortname, datatype, default and fullname fields
+     */
+    public static function get_user_profile_fields($courseid, $includecustomfields = false) {
+        global $CFG, $DB;
+
+        // Gets the fields that have to be hidden
+        $hiddenfields = array_map('trim', explode(',', $CFG->hiddenuserfields));
+        $context = context_course::instance($courseid);
+        $canseehiddenfields = has_capability('moodle/course:viewhiddenuserfields', $context);
+        if ($canseehiddenfields) {
+            $hiddenfields = array();
+        }
+
+        $fields = array();
+        require_once($CFG->dirroot.'/user/lib.php');                // Loads user_get_default_fields()
+        require_once($CFG->dirroot.'/user/profile/lib.php');        // Loads constants, such as PROFILE_VISIBLE_ALL
+        $userdefaultfields = user_get_default_fields();
+
+        // Sets the list of profile fields
+        $userprofilefields = array_map('trim', explode(',', $CFG->grade_export_userprofilefields));
+        if (!empty($userprofilefields)) {
+            foreach ($userprofilefields as $field) {
+                $field = trim($field);
+                if (in_array($field, $hiddenfields) || !in_array($field, $userdefaultfields)) {
+                    continue;
+                }
+                $obj = new stdClass();
+                $obj->customid  = 0;
+                $obj->shortname = $field;
+                $obj->fullname  = get_string($field);
+                $fields[] = $obj;
+            }
+        }
+
+        // Sets the list of custom profile fields
+        $customprofilefields = array_map('trim', explode(',', $CFG->grade_export_customprofilefields));
+        if ($includecustomfields && !empty($customprofilefields)) {
+            list($wherefields, $whereparams) = $DB->get_in_or_equal($customprofilefields);
+            $customfields = $DB->get_records_sql("SELECT f.*
+                                                    FROM {user_info_field} f
+                                                    JOIN {user_info_category} c ON f.categoryid=c.id
+                                                    WHERE f.shortname $wherefields
+                                                    ORDER BY c.sortorder ASC, f.sortorder ASC", $whereparams);
+            if (!is_array($customfields)) {
+                continue;
+            }
+
+            foreach ($customfields as $field) {
+                // Make sure we can display this custom field
+                if (!in_array($field->shortname, $customprofilefields)) {
+                    continue;
+                } else if (in_array($field->shortname, $hiddenfields)) {
+                    continue;
+                } else if ($field->visible != PROFILE_VISIBLE_ALL && !$canseehiddenfields) {
+                    continue;
+                }
+
+                $obj = new stdClass();
+                $obj->customid  = $field->id;
+                $obj->shortname = $field->shortname;
+                $obj->fullname  = format_string($field->name);
+                $obj->datatype  = $field->datatype;
+                $obj->default   = $field->defaultdata;
+                $fields[] = $obj;
+            }
+        }
+
+        return $fields;
+    }
 }
+

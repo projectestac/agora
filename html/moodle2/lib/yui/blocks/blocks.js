@@ -68,23 +68,27 @@ YUI.add('moodle-core-blocks', function(Y) {
                     padding: '40 240 40 240'
                 });
 
+                // Make each div element in the list of blocks draggable
+                var del = new Y.DD.Delegate({
+                    container: blockregionnode,
+                    nodes: '.'+CSS.BLOCK,
+                    target: true,
+                    handles: ['.'+CSS.HEADER],
+                    invalid: '.block-hider-hide, .block-hider-show, .moveto',
+                    dragConfig: {groups: this.groups}
+                });
+                del.dd.plug(Y.Plugin.DDProxy, {
+                    // Don't move the node at the end of the drag
+                    moveOnEnd: false
+                });
+                del.dd.plug(Y.Plugin.DDWinScroll);
+
                 var blocklist = blockregionnode.all('.'+CSS.BLOCK);
                 blocklist.each(function(blocknode) {
                     var move = blocknode.one('a.'+CSS.EDITINGMOVE);
                     if (move) {
                         move.remove();
                         blocknode.one('.'+CSS.HEADER).setStyle('cursor', 'move');
-                        // Make each div element in the list of blocks draggable
-                        var dd = new Y.DD.Drag({
-                            node: blocknode,
-                            groups: this.groups,
-                            // Make each div a Drop target too
-                            target: true,
-                            handles: ['.'+CSS.HEADER]
-                        }).plug(Y.Plugin.DDProxy, {
-                            // Don't move the node at the end of the drag
-                            moveOnEnd: false
-                        }).plug(Y.Plugin.DDWinScroll);
                     }
                 }, this);
             }, this);
@@ -268,5 +272,5 @@ YUI.add('moodle-core-blocks', function(Y) {
     M.core_blocks.init_dragdrop = function(params) {
         new DRAGBLOCK(params);
     }
-}, '@VERSION@', {requires:['base', 'node', 'io', 'dom', 'dd', 'dd-scroll', 'moodle-core-dragdrop', 'moodle-enrol-notification']});
+}, '@VERSION@', {requires:['base', 'node', 'io', 'dom', 'dd', 'dd-scroll', 'moodle-core-dragdrop', 'moodle-core-notification']});
 

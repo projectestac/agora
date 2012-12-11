@@ -166,9 +166,9 @@ class qformat_xml extends qformat_default {
         $qo = $this->defaultquestion();
 
         // Question name
-        $qo->name = $this->getpath($question,
+        $qo->name = $this->clean_question_name($this->getpath($question,
                 array('#', 'name', 0, '#', 'text', 0, '#'), '', true,
-                get_string('xmlimportnoname', 'qformat_xml'));
+                get_string('xmlimportnoname', 'qformat_xml')));
         $qo->questiontext = $this->getpath($question,
                 array('#', 'questiontext', 0, '#', 'text', 0, '#'), '', true);
         $qo->questiontextformat = $this->trans_format($this->getpath(
@@ -387,7 +387,7 @@ class qformat_xml extends qformat_default {
         $qo = $this->import_headers($question);
 
         // 'header' parts particular to multichoice
-        $qo->qtype = MULTICHOICE;
+        $qo->qtype = 'multichoice';
         $single = $this->getpath($question, array('#', 'single', 0, '#'), 'true');
         $qo->single = $this->trans_single($single);
         $shuffleanswers = $this->getpath($question,
@@ -437,10 +437,24 @@ class qformat_xml extends qformat_default {
         $qo->course = $this->course;
         $qo->generalfeedback = '';
 
-        $qo->name = $this->import_text($question['#']['name'][0]['#']['text']);
+        $qo->name = $this->clean_question_name($this->import_text($question['#']['name'][0]['#']['text']));
         $qo->questiontextformat = $questiontext['format'];
         $qo->questiontext = $qo->questiontext['text'];
-        $qo->questiontextfiles = array();
+        $qo->questiontextfiles = $this->import_files($this->getpath($question,
+                array('#', 'questiontext', 0, '#', 'file'), array(), false));
+
+        // Backwards compatibility, deal with the old image tag.
+        $filedata = $this->getpath($question, array('#', 'image_base64', '0', '#'), null, false);
+        $filename = $this->getpath($question, array('#', 'image', '0', '#'), null, false);
+        if ($filedata && $filename) {
+            $data = new stdClass();
+            $data->content = $filedata;
+            $data->encoding = 'base64';
+            // Question file areas don't support subdirs, so convert path to filename if necessary.
+            $data->name = clean_param(str_replace('/', '_', $filename), PARAM_FILE);
+            $qo->questiontextfiles[] = $data;
+            $qo->questiontext .= ' <img src="@@PLUGINFILE@@/' . $data->name . '" />';
+        }
 
         // restore files in generalfeedback
         $qo->generalfeedback = $this->getpath($question,
@@ -473,7 +487,7 @@ class qformat_xml extends qformat_default {
         $qo = $this->import_headers($question);
 
         // 'header' parts particular to true/false
-        $qo->qtype = TRUEFALSE;
+        $qo->qtype = 'truefalse';
 
         // In the past, it used to be assumed that the two answers were in the file
         // true first, then false. Howevever that was not always true. Now, we
@@ -548,7 +562,7 @@ class qformat_xml extends qformat_default {
         $qo = $this->import_headers($question);
 
         // header parts particular to shortanswer
-        $qo->qtype = SHORTANSWER;
+        $qo->qtype = 'shortanswer';
 
         // get usecase
         $qo->usecase = $this->getpath($question, array('#', 'usecase', 0, '#'), $qo->usecase);
@@ -578,7 +592,7 @@ class qformat_xml extends qformat_default {
         // get common parts
         $qo = $this->import_headers($question);
         // header parts particular to shortanswer
-        $qo->qtype = DESCRIPTION;
+        $qo->qtype = 'description';
         $qo->defaultmark = 0;
         $qo->length = 0;
         return $qo;
@@ -594,7 +608,7 @@ class qformat_xml extends qformat_default {
         $qo = $this->import_headers($question);
 
         // header parts particular to numerical
-        $qo->qtype = NUMERICAL;
+        $qo->qtype = 'numerical';
 
         // get answers array
         $answers = $question['#']['answer'];
@@ -706,7 +720,7 @@ class qformat_xml extends qformat_default {
         $qo = $this->import_headers($question);
 
         // header parts particular to essay
-        $qo->qtype = ESSAY;
+        $qo->qtype = 'essay';
 
         $qo->responseformat = $this->getpath($question,
                 array('#', 'responseformat', 0, '#'), 'editor');
@@ -734,7 +748,7 @@ class qformat_xml extends qformat_default {
         $qo = $this->import_headers($question);
 
         // header parts particular to calculated
-        $qo->qtype = CALCULATED;
+        $qo->qtype = 'calculated';
         $qo->synchronize = $this->getpath($question, array('#', 'synchronize', 0, '#'), 0);
         $single = $this->getpath($question, array('#', 'single', 0, '#'), 'true');
         $qo->single = $this->trans_single($single);
@@ -1363,7 +1377,7 @@ class qformat_xml extends qformat_default {
                         $expout .= "<dataset_definition>\n";
                         $expout .= "    <status>".$this->writetext($def->status)."</status>\n";
                         $expout .= "    <name>".$this->writetext($def->name)."</name>\n";
-                        if ($question->qtype == CALCULATED) {
+                        if ($question->qtype == 'calculated') {
                             $expout .= "    <type>calculated</type>\n";
                         } else {
                             $expout .= "    <type>calculatedsimple</type>\n";

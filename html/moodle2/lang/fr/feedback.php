@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'feedback', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'feedback', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   feedback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -71,23 +71,20 @@ $string['delete_old_items'] = 'Supprimer anciens éléments';
 $string['delete_template'] = 'Supprimer modèle';
 $string['delete_templates'] = 'Supprimer modèle...';
 $string['depending'] = 'Dépendances';
-$string['depending_help'] = 'Les questions conditionnelles vous permettent d\'afficher des questions selon la réponse donnée à une autre question.<br />
-<strong>Voici comment construire un exemple simple :</strong><br />
+$string['depending_help'] = 'Il est possible d\'afficher un élément en fonction de la valeur d\'un autre élément.<br />
+<strong>Voici un exemple.</strong><br />
+<ul>
+<li>D\'abord, créer un élément dont la valeur va déterminer l\'affichage d\'autres éléments.</li>
+<li>Ajouter ensuite un saut de page.</li>
+<li>Pour terminer, ajouter les éléments dont l\'affichage dépendra de la valeur du premier élément créé. Sélectionner ce dernier élément dans la liste intitulée « Éléments de dépendance » et indiquer la valeur requise dans le champ « Valeur de la dépendance ».</li>
+</ul>
+<strong>La structure des éléments ressemblera à ceci :</strong>
 <ol>
-<li>créez d\'abord une question dont d\'autres vont dépendre ;</li>
-<li>ajouter un saut de page ;</li>
-<li>ajouter les questions qui vont dépendre de la réponse à la question créée précédemment.<br />
-Dans le formulaire présenté lors de la création de la question, sélectionnez dans la liste « Question conditionnelle » la question adéquate et indiquez la valeur de la réponse attendue dans le champ « Réponse attendue ».</li>
-</ol>
-<strong>La structure devrait ressembler à cela :</strong>
-<ol>
-<li>Question : avez-vous une voiture ? Réponse : Oui/Non</li>
+<li>Élément Q : Possédez-vous une voiture ? R : oui/non</li>
 <li>Saut de page</li>
-<li>Question : de quelle couleur est votre voiture ?<br />
-(cette question dépend de la première, et la valeur attendue pour la réponse est Oui)</li>
-<li>Question : pourquoi n\'avez-vous pas de voiture ?<br />
-(cette question dépend de la première, et la valeur attendue pour la réponse est Oui)</li>
-<li> ... autres questions</li>
+<li>Élément Q : De quelle couleur est votre voiture ?<br /> (cet élément dépend de l\'élément 1 avec la valeur = oui)</li>
+<li>Élément Q : Pourquoi n\'avez-vous pas de voiture ?<br /> (cet élément dépend de l\'élément 1 avec la valeur = non)</li>
+<li>... autres éléments</li>
 </ol>';
 $string['dependitem'] = 'Élément de dépendance';
 $string['dependvalue'] = 'Valeur de la dépendance';
@@ -102,7 +99,7 @@ $string['edit_item'] = 'Modifier question';
 $string['edit_items'] = 'Modifier les questions';
 $string['emailnotification'] = 'Notifications par courriel';
 $string['email_notification'] = 'Envoyer les notifications par courriel';
-$string['emailnotification_help'] = 'Si ce réglage est activé, les administrateurs recevront par courriel notifications des remises des feedbacks.';
+$string['emailnotification_help'] = 'Si ce réglage est activé, les enseignants recevront par courriel notifications des remises des feedbacks.';
 $string['emailteachermail'] = '{$a->username} a terminé l\'activité feedback « {$a->feedback} »
 
 Vous pouvez la voir ici :

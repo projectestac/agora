@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_summary', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_course_summary', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   block_course_summary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,4 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['coursesummary'] = 'Kursinformationen';
+$string['course_summary:addinstance'] = 'Neuen Block \'Kursbeschreibung\' hinzufügen';
+$string['course_summary:myaddinstance'] = 'Neuen Block \'Kursbeschreibung\' für \'Meine Startseite\' hinzufügen';
 $string['pluginname'] = 'Kursbeschreibung';

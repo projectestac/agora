@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_standard', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'theme_standard', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   theme_standard
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['choosereadme'] = 'Das weiße Basisdesign besitzt nur ein Minimum an CSS-Stylings, damit man damit überhaupt arbeiten kann.';
+$string['choosereadme'] = 'Das weiße Basisdesign "Standard" benutzt nur wenige CSS-Formatierungen.';
 $string['pluginname'] = 'Standard';
 $string['region-side-post'] = 'Rechts';
 $string['region-side-pre'] = 'Links';

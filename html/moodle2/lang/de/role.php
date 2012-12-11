@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'role', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -108,10 +108,10 @@ $string['comment:view'] = 'Kommentare lesen';
 $string['community:add'] = 'Community-Block nutzen, um Hubs zu durchsuchen und Kurse zu finden';
 $string['community:download'] = 'Kurs aus dem Community-Block herunterladen';
 $string['confirmaddadmin'] = 'Möchten Sie wirklich <strong>{$a}</strong> als neuen Administrator hinzufügen?';
-$string['confirmdeladmin'] = 'Möchten Sie wirklich <strong>{$a}</strong> aus der Liste der Administratoren löschen?';
+$string['confirmdeladmin'] = 'Möchten Sie \'{$a}\' wirklich aus der Administratorenliste löschen?';
 $string['confirmroleprevent'] = 'Möchten Sie wirklich <strong>{$a->role}</strong> aus der Liste der erlaubten Rollen für die Fähigkeit {$a->cap} im Kontext {$a->context} entfernen?';
 $string['confirmroleunprohibit'] = 'Möchten Sie wirklich <strong>{$a->role}</strong> aus der Liste der verbotenen Rollen für die Fähigkeit {$a->cap} im Kontext {$a->context} entfernen?';
-$string['confirmunassign'] = 'Sind Sie sicher, dass Sie die Rolle bei dieser Person löschen möchten?';
+$string['confirmunassign'] = 'Möchten Sie die Rolle wirklich bei dieser Person löschen?';
 $string['confirmunassignno'] = 'Abbrechen';
 $string['confirmunassigntitle'] = 'Rollenwechsel bestätigen';
 $string['confirmunassignyes'] = 'Löschen';
@@ -128,16 +128,18 @@ $string['course:delete'] = 'Kurse löschen';
 $string['course:enrolconfig'] = 'Einschreibeverfahren in Kursen konfigurieren';
 $string['course:enrolreview'] = 'Kurseinschreibungen überprüfen';
 $string['course:ignorefilesizelimits'] = 'Dateien verwenden, die Größenbeschränkung überschreiten';
+$string['course:isincompletionreports'] = 'In Abschlussverfolgung anzeigen';
 $string['course:manageactivities'] = 'Aktivitäten verwalten';
 $string['course:managefiles'] = 'Dateien verwalten';
 $string['course:managegrades'] = 'Bewertungen verwalten';
 $string['course:managegroups'] = 'Gruppen verwalten';
 $string['course:managescales'] = 'Bewertungskalen verwalten';
 $string['course:markcomplete'] = 'Nutzer/innen in \'Kursabschluss\' als \'abgeschlossen\' markieren';
+$string['course:movesections'] = 'Abschnitte verschieben';
 $string['course:publish'] = 'Kurs in einem Hub veröffentlichen';
 $string['course:request'] = 'Neue Kurse beantragen';
 $string['course:reset'] = 'Kurs zurücksetzen';
-$string['course:sectionvisibility'] = 'Abschnitte anzeigen / verbergen';
+$string['course:sectionvisibility'] = 'Abschnitte anzeigen/verbergen';
 $string['course:setcurrentsection'] = 'Kursabschnitt als \'aktuell\' markieren';
 $string['course:update'] = 'Kurseinstellungen aktualisieren';
 $string['course:useremail'] = 'E-Mail-Adresse ein-/ausschalten';
@@ -154,6 +156,10 @@ $string['createrolebycopying'] = 'Neue Rolle als Kopie von {$a} erzeugen';
 $string['createthisrole'] = 'Neue Rolle erzeugen';
 $string['currentcontext'] = 'Aktueller Kontext';
 $string['currentrole'] = 'Derzeitige Rolle';
+$string['customroledescription'] = 'Angepasste Beschreibung';
+$string['customroledescription_help'] = 'Die Beschreibung von Standardrollen wird automatisch lokalisiert, wenn dieses Feld leer bleibt';
+$string['customrolename'] = 'Angepasster Rollenname';
+$string['customrolename_help'] = 'Die Namen von Standardrollen wird automatisch lokalisiert, wenn dieses Feld leer bleibt. Sie müssen den Rollennamen  für alle angepassten Rollen angeben.';
 $string['defaultrole'] = 'Standardrolle';
 $string['defaultx'] = 'Standard: {$a}';
 $string['defineroles'] = 'Rollen verwalten';
@@ -315,6 +321,7 @@ $string['rolesforuser'] = 'Rollen für Nutzerkonto {$a}';
 $string['roles_help'] = 'Eine Rolle ist definiert durch einen Satz von Rechten, die für die gesamte Website festgelegt sind. Rollen können einzelnen Nutzer/innen in bestimmten Kontexten (Zusammenhängen) zugewiesen werden.
 ';
 $string['roleshortname'] = 'Kurzbezeichnung';
+$string['roleshortname_help'] = 'Der Kurzname ist ein direktes Identifizierungsmerkmal der Rolle, bei dem ausschließlich alphanumerische Zeichen erlaubt sind. Ändern Sie niemals die Kurznamen der Standardrollen!';
 $string['role:switchroles'] = 'Rollen wechseln';
 $string['roletoassign'] = 'Zuzuweisende Rolle';
 $string['roletooverride'] = 'Zu überschreibende Rolle';
@@ -347,6 +354,7 @@ $string['site:viewuseridentity'] = 'Alle Nutzerinformationen als Liste sehen';
 $string['tag:create'] = 'Neue Schlagworte erstellen';
 $string['tag:edit'] = 'Vorhandene Schlagworte bearbeiten';
 $string['tag:editblocks'] = 'Blöcke auf Schlagwortseiten bearbeiten';
+$string['tag:flag'] = 'Schlagworte als unangemessen markieren';
 $string['tag:manage'] = 'Schlagworte verwalten';
 $string['thisusersroles'] = 'Rollenzuweisungen für dieses Nutzerkonto';
 $string['unassignarole'] = 'Nicht zugewiesene Rolle {$a}';
@@ -359,6 +367,7 @@ $string['user:editmessageprofile'] = 'Nutzer-Mitteilungsprofil bearbeiten';
 $string['user:editownmessageprofile'] = 'Eigenes Mitteilungsprofil bearbeiten';
 $string['user:editownprofile'] = 'Eigenes Nutzerprofil bearbeiten';
 $string['user:editprofile'] = 'Nutzerprofile bearbeiten';
+$string['user:ignoreuserquota'] = 'Obergrenze des Nutzerquota ignorieren';
 $string['user:loginas'] = 'Login als anderer Nutzer';
 $string['user:manageblocks'] = 'Blöcke im Nutzerprofil anderer Nutzer/innen verwalten';
 $string['user:manageownblocks'] = 'Blöcke im eigenen öffentlichen Nutzerprofil verwalten';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_afterburner', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'theme_afterburner', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   theme_afterburner
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -51,7 +51,7 @@ $string['choosereadme'] = '<div class="clearfix">
 </div>';
 $string['configtitle'] = 'Afterburner-Einstellungen';
 $string['customcss'] = 'Eigenes CSS';
-$string['customcssdesc'] = 'Das eigene CSS wird auf jeder Seite eingefügt, um das Design an Ihre Bedürfnisse anzupassen.';
+$string['customcssdesc'] = 'Das eigene CSS wird benutzt, um das Design an Ihre Bedürfnisse anpassen.';
 $string['footnote'] = 'Fußzeile';
 $string['footnotedesc'] = 'Fußnote oder Fußzeilentext einfügen';
 $string['logo'] = 'Logo';

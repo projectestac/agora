@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_self', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_self
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

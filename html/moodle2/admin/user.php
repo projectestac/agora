@@ -19,7 +19,7 @@
 
     admin_externalpage_setup('editusers');
 
-    $sitecontext = get_context_instance(CONTEXT_SYSTEM);
+    $sitecontext = context_system::instance();
     $site = get_site();
 
     if (!has_capability('moodle/user:update', $sitecontext) and !has_capability('moodle/user:delete', $sitecontext)) {
@@ -167,11 +167,11 @@
         } else {
             $columndir = $dir == "ASC" ? "DESC":"ASC";
             if ($column == "lastaccess") {
-                $columnicon = $dir == "ASC" ? "up":"down";
+                $columnicon = ($dir == "ASC") ? "sort_desc" : "sort_asc";
             } else {
-                $columnicon = $dir == "ASC" ? "down":"up";
+                $columnicon = ($dir == "ASC") ? "sort_asc" : "sort_desc";
             }
-            $columnicon = " <img src=\"" . $OUTPUT->pix_url('t/' . $columnicon) . "\" alt=\"\" />";
+            $columnicon = "<img class='iconsort' src=\"" . $OUTPUT->pix_url('t/' . $columnicon) . "\" alt=\"\" />";
 
         }
         $$column = "<a href=\"user.php?sort=$column&amp;dir=$columndir\">".$string[$column]."</a>$columnicon";
@@ -313,7 +313,9 @@
                 //2012.07.17  @sarjona
                 if ( (is_siteadmin($USER) or !is_siteadmin($user) ) && (is_xtecadmin($USER) or !is_xtecadmin($user)) ) {                     
                 //************ ORIGINAL
-                //if (is_siteadmin($USER) or !is_siteadmin($user)) {
+                /*
+                if (is_siteadmin($USER) or !is_siteadmin($user)) {
+                */
                 //************ FI
                     $buttons[] = html_writer::link(new moodle_url($securewwwroot.'/user/editadvanced.php', array('id'=>$user->id, 'course'=>$site->id)), html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/edit'), 'alt'=>$stredit, 'class'=>'iconsmall')), array('title'=>$stredit));
                 }

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_email', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'auth_email', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   auth_email
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['auth_emaildescription'] = 'Die Authentifizierung \'E-Mail basiert\' ist die Standardauthentifizierung. Wenn sich Nutzer/innen neu anmelden, ihren eigenen Anmeldenamen und das Kennwort auswählen, dann wird zur Bestätigung eine E-Mail an die angegebene E-Mail-Adresse gesendet. Diese E-Mail enthält eine URL, über die neue Nutzer/innen ihren Zugang bestätigen müssen. Alle späteren Anmeldungen prüfen nur noch Anmeldenamen und Kennwort anhand der in der Moodle-Datenbank gespeicherten Daten.';
+$string['auth_emaildescription'] = '<p>Die Authentifizierung \'E-Mail basiert\' ist die Standardauthentifizierung. Nutzer/innen können sich selber neu anmelden, erhalten zur Bestätigung eine E-Mail. Diese E-Mail enthält eine URL, über die neue Nutzer/innen ihren Zugang bestätigen müssen. Alle späteren Anmeldungen prüfen nur noch Anmeldenamen und Kennwort anhand der in der Moodle-Datenbank gespeicherten Daten.</p><p>Hinweis: Zusätzlich zur Aktivierung des Plugins ist die Selbstregistrierung in den Grundeinstellungen (unten) zu aktivieren. </p>';
 $string['auth_emailnoemail'] = 'Der Versuch ist gescheitert, Ihnen eine E-Mail zu senden!';
 $string['auth_emailrecaptcha'] = 'Diese Einstellung fügt im Anmeldeformular zur Selbstregistierung ein Kontrollelement (Bild oder Audio) hinzu, um die Moodle-Instanz wirksam gegen Spammer zu schützen. Weitere Informationen finden Sie unter <a href="http://www.google.com/recaptcha/learnmore">http://www.google.com/recaptcha/learnmore</a>. <br />Die PHP-Extension cURL ist erforderlich.';
 $string['auth_emailrecaptcha_key'] = 'ReCaptcha einschalten';

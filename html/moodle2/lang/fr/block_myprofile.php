@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_myprofile', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_myprofile', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   block_myprofile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,5 +44,7 @@ $string['display_picture'] = 'Afficher l\'avatar';
 $string['display_skype'] = 'Afficher Skype';
 $string['display_un'] = 'Afficher le nom';
 $string['display_yahoo'] = 'Afficher Yahoo';
+$string['myprofile:addinstance'] = 'Ajouter un bloc utilisateur connecté';
+$string['myprofile:myaddinstance'] = 'Ajouter un bloc utilisateur connecté à la page Mon Moodle';
 $string['myprofile_settings'] = 'Informations utilisateur visibles';
 $string['pluginname'] = 'Utilisateur connecté';

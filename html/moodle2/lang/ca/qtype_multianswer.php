@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_multianswer', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qtype_multianswer', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   qtype_multianswer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,11 +37,6 @@ $string['layoutundefined'] = 'Aspecte no definit';
 $string['layoutvertical'] = 'Columna vertical de cercles de selecció';
 $string['nooptionsforsubquestion'] = 'No es poden obtenir les opcions per part de la pregunta # {$a->sub} (pregunta->id= {$a->id})';
 $string['noquestions'] = 'La pregunta de buits "<strong>{$a}</strong>" no conté cap buit';
-$string['pluginname'] = 'Respostes incrustades';
-$string['pluginnameadding'] = 'S\'està afegint una pregunta de respostes incrustades';
-$string['pluginnameediting'] = 'S\'està editant una pregunta de respostes incrustades';
-$string['pluginname_help'] = 'Les preguntes de respostes incrustades consisteixen en un fragment de text amb preguntes inserides dins, com ara d\'opcions múltiples o de resposta breu.';
-$string['pluginnamesummary'] = 'Les preguntes d\'aquest tipus són molt flexibles, però només poden crear-se introduint text amb codis especials que creen preguntes incrustades d\'opcions múltiples, respostes breus i numèriques.';
 $string['qtypenotrecognized'] = 'Tipus de pregunta {$a} no reconegut';
 $string['questiondefinition'] = 'Definició de la pregunta';
 $string['questiondeleted'] = 'Pregunta esborrada';

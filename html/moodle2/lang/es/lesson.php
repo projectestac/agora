@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'lesson', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -235,38 +235,6 @@ $string['highscore'] = 'Puntuación alta';
 $string['highscores'] = 'Puntuaciones altas';
 $string['hightime'] = 'Tiempo alto';
 $string['importcount'] = 'Importando {$a} preguntas';
-$string['importppt'] = 'Importar PowerPoint';
-$string['importppt_help'] = '<p> FORMA DE USARLO</p>
-
-<p>Todas las diapositivas PowerPoint se importan como Tablas de Rama con las respuestas Anterior y Siguente.</p>
-
-<p>
-
-<ol>
-
-<li>Abra su presentación PowerPoint.</li>
-
-<li>Guárdela como Página Web (sin opciones especiales)</li>
-
-<li>El resultado del paso 3 debería ser un archivo HTML y una carpeta con todas las diapositivas convertidas a páginas web.<br />
-
-  COMPRIMA sólo LA CARPETA.</li>
-
-<li>Vaya a su sitio Moodle y agrege una nueva lección.</li>
-
-<li>Tras haber guardado los ajustes de la lección, usted debería ver 4 opciones bajo &quot;¿Qué desea hacer primero?&quot; Haga clic en &quot;Importar PowerPoint&quot;</li>
-
-<li>Use el botón &quot;Navegar...&quot; para encontrar el archivo ZIP to find your zip hecho en el paso 3. Haga clic a continuación en &quot;Subir este archivo&quot;</li>
-
-<li>ISi todo ha ido bien, la próxima pantalla mostrará el botón Continuar.</li>
-
-</ol>
-
-</p>
-
-<p>Si la presentación en PowerPoint contenía imágenes, deberán haber sido guardadas como archivos del curso en moddata/XY donde X es el nombre de la lección e Y es un número (normalmente 0). Asimismo, durante el proceso de importación, se crearán archivos en el directorio de datos de Moodle, dentro de temp/lesson. Estos archivos por el momento no son eliminados por import.php.</p>
-
-<p align="center">&nbsp;</p>';
 $string['importquestions'] = 'Importar preguntas';
 $string['importquestions_help'] = '<P>Esta función permite importar preguntas de archivos de texto, subidos mediante un formulario.
 
@@ -377,6 +345,7 @@ absoluto o relativo. Los enlaces relativos son <b>Esta página </b>y <b>Siguient
 $string['jumpsto'] = 'Saltos a <em>{$a}</em>';
 $string['leftduringtimed'] = 'Se ha interrumpido una lección con tiempo fijo.<br>Por favor, haga clic en Continuar para volver a empezar la lección.';
 $string['leftduringtimednoretake'] = 'Se ha interrumpido una lección con tiempo fijo y<br>no se permite volver a empezar o continuar la lección.';
+$string['lesson:addinstance'] = 'Añadir una nueva lección';
 $string['lessonattempted'] = 'Lección intentada';
 $string['lessonclosed'] = 'Esta lección se cerró el {$a}.';
 $string['lessoncloses'] = 'La lección se cierra';
@@ -544,7 +513,6 @@ $string['pluginname'] = 'Lección';
 $string['pointsearned'] = 'Puntos ganados';
 $string['postprocesserror'] = 'Ha ocurrido un error durante el post-procesamiento';
 $string['postsuccess'] = 'Mensaje exitoso';
-$string['pptsuccessfullimport'] = 'Se han importado con éxito las páginas de la presentación PowerPoint subida';
 $string['practice'] = 'Lección de práctica';
 $string['practice_help'] = '<p>Las lecciones de práctica no se mostrarán en el libro de calificaciones.</p>';
 $string['preprocesserror'] = 'Ha ocurrido un error durante el pre-procesamiento';

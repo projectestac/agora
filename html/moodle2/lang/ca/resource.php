@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'resource', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -71,15 +71,6 @@ $string['legacyfiles'] = 'Migració d\'un fitxer de curs antic';
 $string['legacyfilesactive'] = 'Actiu';
 $string['legacyfilesdone'] = 'Finalitzat';
 $string['modulename'] = 'Fitxer';
-$string['modulename_help'] = 'El recurs de fitxer permet al professorat proporcionar un fitxer com a recurs del curs. Quan sigui possible, el fitxer es mostrarà en la interfície del curs; si no, a l\'estudiantat se li demanarà descarregar-lo. El fitxer pot incloure fitxers de suport, p.ex. una pàgina HTML pot tenir incrustades imatges o objectes en Flash.
-
-Tingueu en compte que l\'estudiantat haurà de tenir el programari adequat al seu ordinador per poder obrir el fitxer.
-
-Un fitxer pot utilitzar-se
-
-* Per compartir presentacions donades en classe
-* Per incloure un mini lloc web com a recurs
-* Per proporcionar versions de fitxer de cert programari (p.ex. Photoshop .psd) a fi que l\'estudiantat pugui editar-los i enviar-los per a avaluar';
 $string['modulenameplural'] = 'Fitxers';
 $string['neverseen'] = 'Mai vist';
 $string['notmigrated'] = 'Ho lamento però aquest tipus de recurs ({$a}) no es pot migrar.';

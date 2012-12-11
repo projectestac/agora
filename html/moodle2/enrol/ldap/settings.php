@@ -47,6 +47,7 @@ if ($ADMIN->fulltree) {
         $options = array(3=>'3', 2=>'2');
         $settings->add(new admin_setting_configselect('enrol_ldap/ldap_version', get_string('version_key', 'enrol_ldap'), get_string('version', 'enrol_ldap'), 3, $options));
         $settings->add(new admin_setting_configtext_trim_lower('enrol_ldap/ldapencoding', get_string('ldap_encoding_key', 'enrol_ldap'), get_string('ldap_encoding', 'enrol_ldap'), 'utf-8'));
+        $settings->add(new admin_setting_configtext_trim_lower('enrol_ldap/pagesize', get_string('pagesize_key', 'auth_ldap'), get_string('pagesize', 'auth_ldap'), LDAP_DEFAULT_PAGESIZE, true));
 
         //--- binding settings ---
         $settings->add(new admin_setting_heading('enrol_ldap_bind_settings', get_string('bind_settings', 'enrol_ldap'), ''));

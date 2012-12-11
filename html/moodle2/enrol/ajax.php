@@ -35,12 +35,12 @@ require_once("$CFG->dirroot/group/lib.php");
 
 // Must have the sesskey
 $id      = required_param('id', PARAM_INT); // course id
-$action  = required_param('action', PARAM_ACTION);
+$action  = required_param('action', PARAM_ALPHANUMEXT);
 
 $PAGE->set_url(new moodle_url('/enrol/ajax.php', array('id'=>$id, 'action'=>$action)));
 
 $course = $DB->get_record('course', array('id'=>$id), '*', MUST_EXIST);
-$context = get_context_instance(CONTEXT_COURSE, $course->id, MUST_EXIST);
+$context = context_course::instance($course->id, MUST_EXIST);
 
 if ($course->id == SITEID) {
     throw new moodle_exception('invalidcourse');
@@ -54,16 +54,18 @@ echo $OUTPUT->header(); // send headers
 
 $manager = new course_enrolment_manager($PAGE, $course);
 
-$outcome = new stdClass;
+$outcome = new stdClass();
 $outcome->success = true;
-$outcome->response = new stdClass;
+$outcome->response = new stdClass();
 $outcome->error = '';
+
+$searchanywhere = get_user_preferences('userselector_searchanywhere', false);
 
 switch ($action) {
     case 'unenrol':
         $ue = $DB->get_record('user_enrolments', array('id'=>required_param('ue', PARAM_INT)), '*', MUST_EXIST);
         list ($instance, $plugin) = $manager->get_user_enrolment_components($ue);
-        if (!$instance || !$plugin || !$plugin->allow_unenrol_user($instance, $ue) || !has_capability("enrol/$instance->enrol:unenrol", $manager->get_context()) || !$manager->unenrol_user($ue)) {
+        if (!$instance || !$plugin || !enrol_is_enabled($instance->enrol) || !$plugin->allow_unenrol_user($instance, $ue) || !has_capability("enrol/$instance->enrol:unenrol", $manager->get_context()) || !$manager->unenrol_user($ue)) {
             throw new enrol_ajax_exception('unenrolnotpermitted');
         }
         break;
@@ -90,15 +92,26 @@ switch ($action) {
         $outcome->response = array_reverse($manager->get_assignable_roles($otheruserroles), true);
         break;
     case 'searchotherusers':
-        $search  = optional_param('search', '', PARAM_RAW);
+        $search = optional_param('search', '', PARAM_RAW);
         $page = optional_param('page', 0, PARAM_INT);
-        $outcome->response = $manager->search_other_users($search, false, $page);
+        $outcome->response = $manager->search_other_users($search, $searchanywhere, $page);
+        $extrafields = get_extra_user_fields($context);
         foreach ($outcome->response['users'] as &$user) {
             $user->userId = $user->id;
             $user->picture = $OUTPUT->user_picture($user);
             $user->fullname = fullname($user);
+            $fieldvalues = array();
+            foreach ($extrafields as $field) {
+                $fieldvalues[] = s($user->{$field});
+                unset($user->{$field});
+            }
+            $user->extrafields = implode(', ', $fieldvalues);
             unset($user->id);
         }
+        // Chrome will display users in the order of the array keys, so we need
+        // to ensure that the results ordered array keys. Fortunately, the JavaScript
+        // does not care what the array keys are. It uses user.id where necessary.
+        $outcome->response['users'] = array_values($outcome->response['users']);
         $outcome->success = true;
         break;
     default:

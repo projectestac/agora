@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'lti', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -79,7 +79,7 @@ $string['default_launch_container'] = 'Standard Startcontainer';
 $string['default_launch_container_help'] = 'Der Startcontainer beeinflusst die Anzeige des Tools beim Start aus dem Kurs heraus. Einige Startcontainer generieren eine Oberfläche in der Darstellung des Tools, andere passen sich an die Oberfläche von Moodle an. * **Standardeinstellung** - Startcontainer wie in Tool-Konfiguration festgelegt verwenden. * **Einbetten** - Das Tool wird in einem bestehenden Moodle-Fenster angezeigt, ählich wie andere Aktivitäten. * **Eingebettet, ohne Blöcke** - Das Tool wird in einem bestehenden Moodle-Fenster ohne Blöcke, nur mit der Navigation im Kopf angezeigt. * **Neues Fenster** - Das Tool öffnet in einem neuen Fenster und nutzt den gesamten Raum im Fenster aus. Abhängig vom Browser  wird ein neuer Tab angelegt oder ein neues Fenster geöffnet. es ist möglich, dass Browser das Öffnen eines neuen Fenster behindern und einen Hinweis anzeigen.';
 $string['delegate'] = 'An Trainer/in delegieren';
 $string['delete'] = 'Löschen';
-$string['delete_confirmation'] = 'Sind Sie sicher, dass Sie die Konfiguration für das externe Tool löschen wollen?';
+$string['delete_confirmation'] = 'Möchten Sie diese Konfiguration für externe Tools wirklich löschen?';
 $string['deletetype'] = 'Konfiguration des externen Tools löschen.';
 $string['display_description'] = 'Beschreibung bei Start anzeigen';
 $string['display_description_help'] = 'Die oben eingegebene Beschreibung wird bei Aktivierung über dem Inhalt des Tools angezeigt. Die Beschreibung kann genutzt werden, um Teilnehmern zusätzliche Hinweise zugeben. Sie ist nicht unbedingt erforderlich. Wenn die Darstellung im neuen Fenster erfolgt, kann die Beschreibung nie angezeigt werden.';

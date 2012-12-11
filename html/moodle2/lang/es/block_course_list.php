@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_list', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_course_list', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   block_course_list
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,8 @@ $string['adminview'] = 'Vista del administrador';
 $string['allcourses'] = 'El administrador ve todos los cursos';
 $string['configadminview'] = '¿Qué debería ver el administrador en el bloque de listado de cursos?';
 $string['confighideallcourseslink'] = 'Ocultar el enlace "Todos los cursos" en el fondo del bloque. Ocultar los enlaces no afecta a la visión del Administrador.';
+$string['course_list:addinstance'] = 'Añadir un nuevo bloque de lista de cursos';
+$string['course_list:myaddinstance'] = 'Añadir un nuevo bloque de lista de cursos a la página Mi Moodle';
 $string['hideallcourseslink'] = 'Ocultar enlace a Todos los cursos';
 $string['owncourses'] = 'El administrador ve sus propios cursos';
 $string['pluginname'] = 'Lista de cursos';

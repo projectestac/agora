@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'condition', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,13 +27,14 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['addcompletions'] = 'Agregar {no} condiciones de actividad al formulario';
 $string['addgrades'] = 'Agregar {no} condiciones de calificación al formulario';
+$string['adduserfields'] = 'Añadir {no} condiciones de campo de usuario.';
 $string['availabilityconditions'] = 'Restringir disponibilidad';
 $string['availablefrom'] = 'Disponible a partir de';
 $string['availablefrom_help'] = 'El acceso desde/hasta las fechas determinan cuándo los estudiantes pueden acceder a la actividad a través de un enlace en la página del curso.<br>
 La diferencia entre las fechas desde/hasta y los ajustes de disponibilidad de la actividad es que, al margen de las fechas de ajuste, los ajustes de disponibilidad permiten a los estudiantes ver la descripción de la actividad, en tanto que \'disponible desde/hasta\' impide el acceso completo.';
 $string['availableuntil'] = 'Accesible hasta';
 $string['badavailabledates'] = 'Fechas no válidas. Si se ajustan ambas fechas, la fecha \'disponible desde\' debería ser anterior a la fecha \'hasta\'.';
-$string['badgradelimits'] = 'Si Usted marca tanto un límite inferior y un límite superior, el límte superior debe ser mayor que el inferior.';
+$string['badgradelimits'] = 'Si pone ambos límites superior e inferior, el límite superior debe ser mayor que el límite inferior';
 $string['completion_complete'] = 'debe marcarse como completada';
 $string['completioncondition'] = 'Condición de finalización de actividad';
 $string['completioncondition_help'] = 'Este ajuste determina cualesquiera condiciones de finalización de la actividad, que deben cumplirse para acceder a la actividad. Note que el rastreo de finalización debe ajustarse antes de que se pueda determinar la condición de finalización de la actividad.
@@ -47,7 +48,11 @@ $string['completion_fail'] = 'debe estar completa con calificación de suspenso'
 $string['completion_incomplete'] = 'no debe estar marcada como completa';
 $string['completion_pass'] = 'debe estar completa con calificación de aprobado';
 $string['configenableavailability'] = 'Si se activa, esta opción le permite fijar las condiciones (basadas en la fecha, la calificación o el grado de finalización) que controlan si una actividad está disponible.';
+$string['contains'] = 'contiene';
+$string['doesnotcontain'] = 'no contiene';
 $string['enableavailability'] = 'Habilitar acceso condicional';
+$string['endswith'] = 'termina en';
+$string['fielddeclaredmultipletimes'] = 'No puede declarar el mismo campo más de una vez por actividad.';
 $string['grade_atleast'] = 'debe ser al menos';
 $string['gradecondition'] = 'Condición de calificación';
 $string['gradecondition_help'] = 'Este ajuste determina cualesquiera condiciones de calificación que deben cumplirse para acceder a la actividad.
@@ -57,11 +62,14 @@ $string['gradeconditionsection'] = 'Condición de calificación';
 $string['gradeconditionsection_help'] = 'Esta configuración determina las condiciones de calificación que deben cumplirse para acceder a la sección.
 
 Se pueden configurar múltiples condiciones. En esos casos, solamente se permitirá el acceso cuando se hayan cumplido TODAS las condiciones.';
-$string['gradeitembutnolimits'] = 'Debe introducir un límite superior, inferior, o ambos.';
+$string['gradeitembutnolimits'] = 'Debe poner un límite superior, o inferior, o ambos';
 $string['gradelimitsbutnoitem'] = 'Debe escojer un elemento de calificación.';
-$string['gradesmustbenumeric'] = 'Las calificaciones mínima y máxima deben ser numéricas (o en blanco)';
+$string['gradesmustbenumeric'] = 'Las calificaciones mínimas y máximas deben ser numéricas ( o en blanco)';
 $string['grade_upto'] = 'y menos que';
 $string['groupingnoaccess'] = 'Usted actualmente no pertenece a un grupo que tenga acceso a esta sección.';
+$string['isempty'] = 'está vacío';
+$string['isequalto'] = 'es igual a';
+$string['isnotempty'] = 'no está vacío';
 $string['none'] = '(ninguna)';
 $string['notavailableyet'] = 'Aún no disponible';
 $string['requires_completion_0'] = 'No disponible a menos que la actividad <strong>{$a}</strong> esté incompleta.';
@@ -76,11 +84,21 @@ $string['requires_grade_any'] = 'No disponible hasta que usted tenga una calific
 $string['requires_grade_max'] = 'No disponible a menos que usted consiga una calificación apropiada en <strong>{$a}</strong>.';
 $string['requires_grade_min'] = 'Not available until you achieve a required score in <strong>{$a}</strong>.';
 $string['requires_grade_range'] = 'No disponible hasta que se alcance la puntuación establecida en la actividad <strong>{$a}</strong>.';
-$string['showavailability'] = 'Está disponible antes de la actividad';
+$string['requires_user_field_contains'] = 'No disponible hasta que <strong>{$a->field}</strong> contenga <strong>{$a->value}</strong>.';
+$string['requires_user_field_doesnotcontain'] = 'No disponible si tu <strong>{$a->field}</strong> contiene <strong>{$a->value}</strong>.';
+$string['requires_user_field_endswith'] = 'No disponible hasta que <strong>{$a->field}</strong> termine en <strong>{$a->value}</strong>.';
+$string['requires_user_field_isempty'] = 'No disponible hasta que <strong>{$a->field}</strong> esté vacío.';
+$string['requires_user_field_isequalto'] = 'No disponible hasta que <strong>{$a->field}</strong> es igual a <strong>{$a->value}</strong>.';
+$string['requires_user_field_isnotempty'] = 'No disponible si tu <strong>{$a->field}</strong> está vacío.';
+$string['requires_user_field_startswith'] = 'No disponible hasta que <strong>{$a->field}</strong> comience por <strong>{$a->value}</strong>.';
+$string['showavailability'] = 'Acceso antes del inicio de la actividad';
 $string['showavailability_hide'] = 'Ocultar completamente la actividad';
 $string['showavailabilitysection'] = 'Antes de que pueda accederse a esta sección';
 $string['showavailabilitysection_hide'] = 'Ocultar la sección completamente';
 $string['showavailabilitysection_show'] = 'Mostrar la sección en gris pálido, con información sobre la restricción';
 $string['showavailability_show'] = 'Mostrar actividad en gris, sin información de restricción';
+$string['startswith'] = 'comienza con';
+$string['userfield'] = 'Campo de usuario';
+$string['userfield_help'] = 'Se puede restringir el acceso basándose en cualquier campo del perfil de los usuarios.';
 $string['userrestriction_hidden'] = 'Restringido (completamente oculto, no mensaje): ‘{$a}’';
 $string['userrestriction_visible'] = 'Restringido: ‘{$a}’';

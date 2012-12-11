@@ -21,13 +21,13 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-mod_scorm_next = null;
-mod_scorm_prev = null;
+mod_scorm_launch_next_sco = null;
+mod_scorm_launch_prev_sco = null;
 mod_scorm_activate_item = null;
 
 M.mod_scorm = {};
 
-M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launch_sco) {
+M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launch_sco, scoes_nav) {
     var scorm_disable_toc = false;
     var scorm_hide_nav = true;
     var scorm_hide_toc = true;
@@ -40,6 +40,7 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
         scorm_disable_toc = true;
     }
 
+    scoes_nav = JSON.parse(scoes_nav);
     var scorm_layout_widget;
     var scorm_current_node;
     var scorm_buttons = [];
@@ -48,17 +49,17 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
 
     Y.use('yui2-resize', 'yui2-dragdrop', 'yui2-container', 'yui2-button', 'yui2-layout', 'yui2-treeview', 'yui2-json', 'yui2-event', function(Y) {
 
-        YAHOO.widget.TextNode.prototype.getContentHtml = function() {
+        Y.YUI2.widget.TextNode.prototype.getContentHtml = function() {
             var sb = [];
             sb[sb.length] = this.href ? '<a' : '<span';
-            sb[sb.length] = ' id="' + YAHOO.lang.escapeHTML(this.labelElId) + '"';
-            sb[sb.length] = ' class="' + YAHOO.lang.escapeHTML(this.labelStyle) + '"';
+            sb[sb.length] = ' id="' + Y.YUI2.lang.escapeHTML(this.labelElId) + '"';
+            sb[sb.length] = ' class="' + Y.YUI2.lang.escapeHTML(this.labelStyle) + '"';
             if (this.href) {
-                sb[sb.length] = ' href="' + YAHOO.lang.escapeHTML(this.href) + '"';
-                sb[sb.length] = ' target="' + YAHOO.lang.escapeHTML(this.target) + '"';
+                sb[sb.length] = ' href="' + Y.YUI2.lang.escapeHTML(this.href) + '"';
+                sb[sb.length] = ' target="' + Y.YUI2.lang.escapeHTML(this.target) + '"';
             }
             if (this.title) {
-                sb[sb.length] = ' title="' + YAHOO.lang.escapeHTML(this.title) + '"';
+                sb[sb.length] = ' title="' + Y.YUI2.lang.escapeHTML(this.title) + '"';
             }
             sb[sb.length] = ' >';
             sb[sb.length] = this.label;
@@ -87,8 +88,8 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
             }
 
             if (node.title) {
-            	var el_scorm_api = document.getElementById("external-scormapi");
-            	el_scorm_api.parentNode.removeChild(el_scorm_api);
+                var el_scorm_api = document.getElementById("external-scormapi");
+                el_scorm_api.parentNode.removeChild(el_scorm_api);
                 el_scorm_api = document.createElement('script');
                 el_scorm_api.setAttribute('id','external-scormapi');
                 el_scorm_api.setAttribute('type','text/javascript');
@@ -98,7 +99,7 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
                 document.getElementById('external-scormapi').src = api_url;
             }
 
-            var content = new YAHOO.util.Element('scorm_content');
+            var content = new Y.YUI2.util.Element('scorm_content');
             try {
                 // first try IE way - it can not set name attribute later
                 // and also it has some restrictions on DOM access from object tag
@@ -116,7 +117,7 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
                     var obj = document.createElement('<iframe id="scorm_object" src="'+url_prefix + node.title+'">');
                 }
                 // fudge IE7 to redraw the screen
-                if (YAHOO.env.ua.ie > 5 && YAHOO.env.ua.ie < 8) {
+                if (Y.YUI2.env.ua.ie > 5 && Y.YUI2.env.ua.ie < 8) {
                     obj.attachEvent("onload", scorm_resize_parent);
                 }
             } catch (e) {
@@ -134,7 +135,7 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
                     mine.close()
                 }
             }
-            var old = YAHOO.util.Dom.get('scorm_object');
+            var old = Y.YUI2.util.Dom.get('scorm_object');
             if (old) {
                 if(window_name) {
                     var cwidth = scormplayerdata.cwidth;
@@ -166,18 +167,22 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
          * @return void
          */
         var scorm_fixnav = function() {
-            scorm_buttons[0].set('disabled', (scorm_skipprev(scorm_current_node) == null || scorm_skipprev(scorm_current_node).title == null));
-            scorm_buttons[1].set('disabled', (scorm_prev(scorm_current_node) == null || scorm_prev(scorm_current_node).title == null));
+            scorm_buttons[0].set('disabled', (scorm_skipprev(scorm_current_node) == null || scorm_skipprev(scorm_current_node).title == null ||
+                        scoes_nav[launch_sco].hideprevious == 1));
+            scorm_buttons[1].set('disabled', (scorm_prev(scorm_current_node) == null || scorm_prev(scorm_current_node).title == null ||
+                        scoes_nav[launch_sco].hideprevious == 1));
             scorm_buttons[2].set('disabled', (scorm_up(scorm_current_node) == null) || scorm_up(scorm_current_node).title == null);
-            scorm_buttons[3].set('disabled', (scorm_next(scorm_current_node) == null) || scorm_next(scorm_current_node).title == null);
-            scorm_buttons[4].set('disabled', (scorm_skipnext(scorm_current_node) == null || scorm_skipnext(scorm_current_node).title == null));
+            scorm_buttons[3].set('disabled', (((scorm_next(scorm_current_node) == null || scorm_next(scorm_current_node).title == null) &&
+                        (scoes_nav[launch_sco].flow != 1)) || (scoes_nav[launch_sco].hidecontinue == 1)));
+            scorm_buttons[4].set('disabled', (scorm_skipnext(scorm_current_node) == null || scorm_skipnext(scorm_current_node).title == null ||
+                        scoes_nav[launch_sco].hidecontinue == 1));
         };
 
         var scorm_resize_parent = function() {
             // fudge  IE7 to redraw the screen
             parent.resizeBy(-10, -10);
             parent.resizeBy(10, 10);
-            var ifr = YAHOO.util.Dom.get('scorm_object');
+            var ifr = Y.YUI2.util.Dom.get('scorm_object');
             if (ifr) {
                 ifr.detachEvent("onload", scorm_resize_parent);
             }
@@ -195,7 +200,7 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
             // make sure that the max width of the TOC doesn't go to far
 
             var left = scorm_layout_widget.getUnitByPosition('left');
-            var maxwidth = parseInt(YAHOO.util.Dom.getStyle('scorm_layout', 'width'));
+            var maxwidth = parseInt(Y.YUI2.util.Dom.getStyle('scorm_layout', 'width'));
             left.set('maxWidth', (maxwidth - 50));
             var cwidth = left.get('width');
             if (cwidth > (maxwidth - 1)) {
@@ -207,7 +212,7 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
             center.setStyle('height', '100%');
 
             // calculate the rough new height
-            newheight = YAHOO.util.Dom.getViewportHeight() -5;
+            newheight = Y.YUI2.util.Dom.getViewportHeight() -5;
             if (newheight < 600) {
                 newheight = 600;
             }
@@ -222,22 +227,22 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
         };
 
         var scorm_get_htmlelement_size = function(el, prop) {
-            var val = YAHOO.util.Dom.getStyle(el, prop);
+            var val = Y.YUI2.util.Dom.getStyle(el, prop);
             if (val == 'auto') {
                 if (el.get) {
                     el = el.get('element'); // get real HTMLElement from YUI element
                 }
-                val = YAHOO.util.Dom.getComputedStyle(YAHOO.util.Dom.get(el), prop);
+                val = Y.YUI2.util.Dom.getComputedStyle(Y.YUI2.util.Dom.get(el), prop);
             }
             return parseInt(val);
         };
 
         var scorm_resize_frame = function() {
-            var obj = YAHOO.util.Dom.get('scorm_object');
+            var obj = Y.YUI2.util.Dom.get('scorm_object');
             if (obj) {
                 var content = scorm_layout_widget.getUnitByPosition('center').get('wrap');
                 // basically trap IE6 and 7
-                if (YAHOO.env.ua.ie > 5 && YAHOO.env.ua.ie < 8) {
+                if (Y.YUI2.env.ua.ie > 5 && Y.YUI2.env.ua.ie < 8) {
                     if( obj.style.setAttribute ) {
                         obj.style.setAttribute("cssText", 'width: ' +(content.offsetWidth - 6)+'px; height: ' + (content.offsetHeight - 10)+'px;');
                     }
@@ -253,9 +258,21 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
             }
         };
 
-        var scorm_up = function(node) {
+        // Handle AJAX Request
+        var scorm_ajax_request = function(url, datastring) {
+            var myRequest = NewHttpReq();
+            var result = DoRequest(myRequest, url + datastring);
+            return result;
+        };
+
+        var scorm_up = function(node, update_launch_sco) {
             var node = scorm_tree_node.getHighlightedNode();
-            if (node.depth > 0) {
+            if (node.depth > 0 && typeof scoes_nav[launch_sco].parentscoid != 'undefined') {
+                var parentscoid = scoes_nav[launch_sco].parentscoid;
+                node.parent.title = scoes_nav[parentscoid].url;
+                if (update_launch_sco) {
+                    launch_sco = parentscoid;
+                }
                 return node.parent;
             }
             return null;
@@ -269,50 +286,138 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
             }
         };
 
-        var scorm_prev = function(node) {
-            if (node.previousSibling && node.previousSibling.children.length) {
-                return scorm_lastchild(node.previousSibling);
+        var scorm_prev = function(node, update_launch_sco) {
+            if (node.previousSibling && node.previousSibling.children.length &&
+                    typeof scoes_nav[launch_sco].prevscoid != 'undefined') {
+                var node = scorm_lastchild(node.previousSibling);
+                if (node) {
+                    var prevscoid = scoes_nav[launch_sco].prevscoid;
+                    node.title = scoes_nav[prevscoid].url;
+                    if (update_launch_sco) {
+                        launch_sco = prevscoid;
+                    }
+                    return node;
+                } else {
+                    return null;
+                }
             }
-            return scorm_skipprev(node);
+            return scorm_skipprev(node, update_launch_sco);
         };
 
-        var scorm_skipprev = function(node) {
-            if (node.previousSibling) {
+        var scorm_skipprev = function(node, update_launch_sco) {
+            if (node.previousSibling && typeof scoes_nav[launch_sco].prevsibling != 'undefined') {
+                var prevsibling = scoes_nav[launch_sco].prevsibling;
+                node.previousSibling.title = scoes_nav[prevsibling].url;
+                if (update_launch_sco) {
+                    launch_sco = prevsibling;
+                }
                 return node.previousSibling;
-            } else if (node.depth > 0) {
+            } else if (node.depth > 0 && typeof scoes_nav[launch_sco].parentscoid != 'undefined') {
+                var parentscoid = scoes_nav[launch_sco].parentscoid;
+                node.parent.title = scoes_nav[parentscoid].url;
+                if (update_launch_sco) {
+                    launch_sco = parentscoid;
+                }
                 return node.parent;
             }
             return null;
         };
 
-        var scorm_next = function(node) {
+        var scorm_next = function(node, update_launch_sco) {
             if (node === false) {
                 return scorm_tree_node.getRoot().children[0];
             }
-            if (node.children.length) {
-                return node.children[0];
+            if (node.children.length && typeof scoes_nav[launch_sco].nextscoid != 'undefined') {
+                var node = node.children[0];
+                var nextscoid = scoes_nav[launch_sco].nextscoid;
+                node.title = scoes_nav[nextscoid].url;
+                if (update_launch_sco) {
+                    launch_sco = nextscoid;
+                }
+                return node;
             }
-            return scorm_skipnext(node);
+            return scorm_skipnext(node, update_launch_sco);
         };
 
-        var scorm_skipnext = function(node) {
-            if (node.nextSibling) {
+        var scorm_skipnext = function(node, update_launch_sco) {
+            if (node.nextSibling && typeof scoes_nav[launch_sco].nextsibling != 'undefined') {
+                var nextsibling = scoes_nav[launch_sco].nextsibling;
+                node.nextSibling.title = scoes_nav[nextsibling].url;
+                if (update_launch_sco) {
+                    launch_sco = nextsibling;
+                }
                 return node.nextSibling;
-            } else if (node.depth > 0) {
-                return scorm_skipnext(node.parent);
+            } else if (node.depth > 0 && typeof scoes_nav[launch_sco].parentscoid != 'undefined') {
+                var parentscoid = scoes_nav[launch_sco].parentscoid;
+                if (update_launch_sco) {
+                    launch_sco = parentscoid;
+                }
+                return scorm_skipnext(node.parent, update_launch_sco);
             }
             return null;
         };
 
-        mod_scorm_next = scorm_next;
-        mod_scorm_prev = scorm_prev;
+        // Launch prev sco
+        var scorm_launch_prev_sco = function() {
+                var result = null;
+                if (scoes_nav[launch_sco].flow == 1) {
+                var datastring = scoes_nav[launch_sco].url + '&function=scorm_seq_flow&request=backward';
+                result = scorm_ajax_request(M.cfg.wwwroot + '/mod/scorm/datamodels/sequencinghandler.php?', datastring);
+                mod_scorm_seq = encodeURIComponent(result);
+                result = JSON.parse (result);
+                if (typeof result.nextactivity.id != undefined) {
+                        var node = scorm_prev(scorm_tree_node.getHighlightedNode())
+                        if (node == null) {
+                                // Avoid use of TreeView for Navigation
+                                node = scorm_tree_node.getHighlightedNode();
+                        }
+                        node.title = scoes_nav[result.nextactivity.id].url;
+                        launch_sco = result.nextactivity.id;
+                        scorm_activate_item(node);
+                        scorm_fixnav();
+                } else {
+                        scorm_activate_item(scorm_prev(scorm_tree_node.getHighlightedNode(), true));
+                }
+             } else {
+                 scorm_activate_item(scorm_prev(scorm_tree_node.getHighlightedNode(), true));
+             }
+        };
+
+        // Launch next sco
+        var scorm_launch_next_sco = function () {
+                var result = null;
+                if (scoes_nav[launch_sco].flow == 1) {
+                var datastring = scoes_nav[launch_sco].url + '&function=scorm_seq_flow&request=forward';
+                result = scorm_ajax_request(M.cfg.wwwroot + '/mod/scorm/datamodels/sequencinghandler.php?', datastring);
+                mod_scorm_seq = encodeURIComponent(result);
+                result = JSON.parse (result);
+                if (typeof result.nextactivity.id != undefined) {
+                        var node = scorm_next(scorm_tree_node.getHighlightedNode())
+                        if (node == null) {
+                                // Avoid use of TreeView for Navigation
+                                node = scorm_tree_node.getHighlightedNode();
+                        }
+                        node.title = scoes_nav[result.nextactivity.id].url;
+                        launch_sco = result.nextactivity.id;
+                        scorm_activate_item(node);
+                        scorm_fixnav();
+                } else {
+                        scorm_activate_item(scorm_next(scorm_tree_node.getHighlightedNode(), true));
+                }
+             } else {
+                 scorm_activate_item(scorm_next(scorm_tree_node.getHighlightedNode(), true));
+             }
+        };
+
+        mod_scorm_launch_prev_sco = scorm_launch_prev_sco;
+        mod_scorm_launch_next_sco = scorm_launch_next_sco;
 
         // layout
-        YAHOO.widget.LayoutUnit.prototype.STR_COLLAPSE = M.str.moodle.hide;
-        YAHOO.widget.LayoutUnit.prototype.STR_EXPAND = M.str.moodle.show;
+        Y.YUI2.widget.LayoutUnit.prototype.STR_COLLAPSE = M.str.moodle.hide;
+        Y.YUI2.widget.LayoutUnit.prototype.STR_EXPAND = M.str.moodle.show;
 
         if (scorm_disable_toc) {
-            scorm_layout_widget = new YAHOO.widget.Layout('scorm_layout', {
+            scorm_layout_widget = new Y.YUI2.widget.Layout('scorm_layout', {
                 minWidth: 255,
                 minHeight: 600,
                 units: [
@@ -321,7 +426,7 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
                 ]
             });
         } else {
-            scorm_layout_widget = new YAHOO.widget.Layout('scorm_layout', {
+            scorm_layout_widget = new Y.YUI2.widget.Layout('scorm_layout', {
                 minWidth: 255,
                 minHeight: 600,
                 units: [
@@ -343,11 +448,11 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
         }
         // ugly resizing hack that works around problems with resizing of iframes and objects
         left._resize.on('startResize', function() {
-            var obj = YAHOO.util.Dom.get('scorm_object');
+            var obj = Y.YUI2.util.Dom.get('scorm_object');
             obj.style.display = 'none';
         });
         left._resize.on('endResize', function() {
-            var obj = YAHOO.util.Dom.get('scorm_object');
+            var obj = Y.YUI2.util.Dom.get('scorm_object');
             obj.style.display = 'block';
             scorm_resize_frame();
         });
@@ -359,7 +464,7 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
             }
         }
         // TOC tree
-        var tree = new YAHOO.widget.TreeView('scorm_tree');
+        var tree = new Y.YUI2.widget.TreeView('scorm_tree');
         scorm_tree_node = tree;
         tree.singleNodeHighlight = true;
         tree.subscribe('labelClick', function(node) {
@@ -390,49 +495,39 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
 
         // navigation
         if (scorm_hide_nav == false) {
-            scorm_nav_panel = new YAHOO.widget.Panel('scorm_navpanel', { visible:true, draggable:true, close:false, xy: [250, 450],
+            scorm_nav_panel = new Y.YUI2.widget.Panel('scorm_navpanel', { visible:true, draggable:true, close:false, xy: [250, 450],
                                                                     autofillheight: "body"} );
             scorm_nav_panel.setHeader(M.str.scorm.navigation);
 
             //TODO: make some better&accessible buttons
             scorm_nav_panel.setBody('<span id="scorm_nav"><button id="nav_skipprev">&lt;&lt;</button><button id="nav_prev">&lt;</button><button id="nav_up">^</button><button id="nav_next">&gt;</button><button id="nav_skipnext">&gt;&gt;</button></span>');
             scorm_nav_panel.render();
-            scorm_buttons[0] = new YAHOO.widget.Button('nav_skipprev');
-            scorm_buttons[1] = new YAHOO.widget.Button('nav_prev');
-            scorm_buttons[2] = new YAHOO.widget.Button('nav_up');
-            scorm_buttons[3] = new YAHOO.widget.Button('nav_next');
-            scorm_buttons[4] = new YAHOO.widget.Button('nav_skipnext');
+            scorm_buttons[0] = new Y.YUI2.widget.Button('nav_skipprev');
+            scorm_buttons[1] = new Y.YUI2.widget.Button('nav_prev');
+            scorm_buttons[2] = new Y.YUI2.widget.Button('nav_up');
+            scorm_buttons[3] = new Y.YUI2.widget.Button('nav_next');
+            scorm_buttons[4] = new Y.YUI2.widget.Button('nav_skipnext');
             scorm_buttons[0].on('click', function(ev) {
-                scorm_activate_item(scorm_skipprev(scorm_tree_node.getHighlightedNode()));
+                scorm_activate_item(scorm_skipprev(scorm_tree_node.getHighlightedNode(), true));
             });
             scorm_buttons[1].on('click', function(ev) {
-                scorm_activate_item(scorm_prev(scorm_tree_node.getHighlightedNode()));
+                scorm_launch_prev_sco();
             });
             scorm_buttons[2].on('click', function(ev) {
-                scorm_activate_item(scorm_up(scorm_tree_node.getHighlightedNode()));
+                scorm_activate_item(scorm_up(scorm_tree_node.getHighlightedNode(), true));
             });
             scorm_buttons[3].on('click', function(ev) {
-                scorm_activate_item(scorm_next(scorm_tree_node.getHighlightedNode()));
+                scorm_launch_next_sco();
             });
             scorm_buttons[4].on('click', function(ev) {
-                scorm_activate_item(scorm_skipnext(scorm_tree_node.getHighlightedNode()));
+                scorm_activate_item(scorm_skipnext(scorm_tree_node.getHighlightedNode(), true));
             });
             scorm_nav_panel.render();
         }
 
         // finally activate the chosen item
         var scorm_first_url = tree.getRoot().children[0];
-        var nxt = false;
-        while (nxt = scorm_next(nxt)) {
-            if (nxt.title) {
-                expression = new RegExp('^.*?scoid=' + launch_sco + '.*?$');
-                matches = nxt.title.match(expression);
-                if (matches != null) {
-                    scorm_first_url = nxt;
-                    break;
-                }
-            }
-        }
+        scorm_first_url.title = scoes_nav[launch_sco].url;
         scorm_activate_item(scorm_first_url);
 
         // resizing
@@ -444,26 +539,3 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
         };
     });
 };
-
-
-function scorm_get_prev() {
-	scorm_tree_node = YAHOO.widget.TreeView.getTree('scorm_tree');
-    if (scorm_tree_node) {
-        var hnode = scorm_tree_node.getHighlightedNode();
-        var prev = mod_scorm_prev(hnode);
-        if (prev) {
-            mod_scorm_activate_item(prev);
-        }
-    }
-}
-
-function scorm_get_next() {
-	scorm_tree_node = YAHOO.widget.TreeView.getTree('scorm_tree');
-    if (scorm_tree_node) {
-        var hnode = scorm_tree_node.getHighlightedNode();
-        var next = mod_scorm_next(hnode);
-        if (next) {
-            mod_scorm_activate_item(next);
-        }
-    }
-}

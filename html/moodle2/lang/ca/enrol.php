@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -79,7 +79,7 @@ $string['nochange'] = 'No canvies';
 $string['noexistingparticipants'] = 'No existeixen participants';
 $string['noguestaccess'] = 'Els visitants no poden accedir a aquest curs, proveu d\'identificar-vos.';
 $string['none'] = 'Cap';
-$string['notenrollable'] = 'No podeu inscriure-vos en aquest curs.';
+$string['notenrollable'] = 'No us podeu inscriure en aquest curs.';
 $string['notenrolledusers'] = 'Altres usuaris';
 $string['otheruserdesc'] = 'Els següents usuaris no estan inscrits en aquest curs, però sí que tenen rols, heretats o assignats dins.';
 $string['participationactive'] = 'Actiu';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'wiki', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,8 +39,10 @@ $string['backhistory'] = 'Retour à l\'historique';
 $string['backoldversion'] = 'Retour à l\'ancienne version';
 $string['backpage'] = 'Retour à la page';
 $string['backtomapmenu'] = 'Retour au menu carte';
+$string['cannoteditpage'] = 'Vous ne pouvez pas modifier cette page';
 $string['cannotmanagefiles'] = 'Vous n\'avez pas l\'autorisation de gérer les fichiers wiki.';
 $string['cannotviewfiles'] = 'Vous n\'avez pas l\'autorisation de voir les fichiers wiki.';
+$string['cannotviewpage'] = 'Vous ne pouvez pas consulter cette page';
 $string['changerate'] = 'Voulez-vous le modifier ?';
 $string['comments'] = 'Commentaires';
 $string['commentscount'] = 'Commentaires ({$a})';

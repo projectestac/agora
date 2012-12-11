@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_self', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_self
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,16 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['customwelcomemessage'] = 'Mensaje de bienvenida personalizado';
+$string['cohortnonmemberinfo'] = 'Sólo los miembros de la cohorte \'{$a}\' pueden auto-matricularse.';
+$string['cohortonly'] = 'Sólo para los miembros de la cohorte';
+$string['cohortonly_help'] = 'La auto-matrícula puede ser restringida a los miembros de una cohorte específica. Cambiar esta configuración no tiene ningún efecto sobre las inscripciones ya existentes.';
+$string['customwelcomemessage'] = 'Mensaje personalizado de bienvenida';
+$string['customwelcomemessage_help'] = 'Puede añadir un mensaje de bienvenida personalizado con texto plano o en auto-formato Moodle, incluidas las etiquetas HTML y multi-lang.
+
+Los siguientes marcadores pueden incluirse en el mensaje:
+
+* Nombre del Curso {$a->coursename}
+* Enlace a la página de perfil del usuario {$a->profileurl}';
 $string['defaultrole'] = 'Asignación de rol por defecto';
 $string['defaultrole_desc'] = 'Seleccione el rol que debe asignarse a los usuarios con auto-matriculación';
 $string['editenrolment'] = 'Editar matricula';
@@ -34,10 +43,24 @@ $string['enrolenddate_help'] = 'Si está habilitado, los usuarios pueden matricu
 $string['enrolenddaterror'] = 'La fecha final de matriculación no puede ser anterior a la fecha inicial';
 $string['enrolme'] = 'Matricularme';
 $string['enrolperiod'] = 'Período de matriculación';
-$string['enrolperiod_desc'] = 'Duración por defecto del período de matriculación (en segundos).';
+$string['enrolperiod_desc'] = 'Periodo de tiempo por defecto en el que la matricula es válida. Si se establece a cero, la matricula durará de forma ilimitada por defecto';
 $string['enrolperiod_help'] = 'Periodo de tiempo en el que la matrícula será válida, a partir del momento en que el usuario se matricula a si mismo. Si está desactivado, la duración de la matrícula será ilimitado.';
 $string['enrolstartdate'] = 'Fecha de inicio';
 $string['enrolstartdate_help'] = 'Si está habilitado, los usuarios solo pueden matricularse a partir de este día.';
+$string['expiredaction'] = 'Acción al expirar la matriculación';
+$string['expiredaction_help'] = 'Seleccione la acción a llevar a cabo cuando la matriculación del usuario expire. Tenga en cuenta que hay información y datos de configuración relativos al usuario que serán eliminados en el proceso de baja.';
+$string['expirymessageenrolledbody'] = 'Apreciado {$a->user},
+
+Este es un aviso de que su matriculación en el curso \'{$a->course}\' está próximo a expirar en {$a->timeend}.
+
+Si necesita ayuda, por favor contacte con {$a->enroller}.';
+$string['expirymessageenrolledsubject'] = 'Notificación de expiración del periodo de auto-matrícula';
+$string['expirymessageenrollerbody'] = 'La auto-matriculación en el curso \'{$a->course}\' finalizará dentro del próximo {$a->threshold} para los siguientes usuarios:
+
+{$a->users}
+
+Para extender su inscripción, vaya a {$a->extendurl}';
+$string['expirymessageenrollersubject'] = 'Notificación de expiración del periodo de auto-matrícula';
 $string['groupkey'] = 'Clave de matriculación del grupo de usuarios';
 $string['groupkey_desc'] = 'Por defecto, utilice claves de matriculación de grupo.';
 $string['groupkey_help'] = '<p>Además de restringir el acceso al curso a sólo aquellos que conocen la clave, el uso de una clave de acceso de grupo significa que los usuarios se agregan automáticamente al grupo cuando se inscriben en el curso. </p>
@@ -47,11 +70,13 @@ $string['longtimenosee_help'] = 'Si los usuarios no acceden a un curso durante m
 $string['maxenrolled'] = 'Número máximo de usuarios matriculados';
 $string['maxenrolled_help'] = 'Especifique el número máximo de usuarios que pueden auto-matricularse.El 0 significa sin límite.';
 $string['maxenrolledreached'] = 'Se alcanzó el número máximo de usuarios permitidos para auto-matriculación.';
+$string['messageprovider:expiry_notification'] = 'Notificaciones de expiración del periodo de auto-matrícula';
 $string['nopassword'] = 'No se requiere clave de matriculación';
 $string['password'] = 'Clave de matriculación';
-$string['password_help'] = '<p>Una clave de acceso permite que el acceso al curso esté limitado sólo a aquellos que conocen dichala clave. </p>
-<p>Si el campo se deja en blanco, cualquier usuario puede matricularse en el curso.</p>
-<p>Si se especifica una clave de acceso, cualquier usuario que intenta matricularse en el curso deberá proporcionar la clave. Tenga en cuenta que un usuario sólo tiene que proporcionar la clave de acceso una vez, cuando se matricule en el curso.</p>';
+$string['password_help'] = '<p>Una clave permite que el acceso al curso esté limitado sólo a aquellos que la conocen.</p>
+<p>Si el campo se deja en blanco, cualquier usuario podrá matricularse en el curso.</p>
+<p>Si se especifica una clave de acceso, cualquier usuario que intenta matricularse en el curso deberá proporcionarla y sólo se le pedirá UNA VEZ, en el momento en que se matricula.</p>
+<p>Si considera cambiar esta clave en cualquier momento dentro o fuera del periodo de matrícula no afectará a los usuarios ya inscritos.</p>';
 $string['passwordinvalid'] = 'Contraseña de acceso incorrecta, pruebe de nuevo';
 $string['passwordinvalidhint'] = 'La contraseña de matriculación es incorrecta. Por favor, inténtelo de nuevo<br />
 (Una pista: comienza con \'{$a}\')';

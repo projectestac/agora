@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_selfcompletion', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_selfcompletion', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   block_selfcompletion
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,5 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['alreadyselfcompleted'] = 'Sie haben bereits selbst angegeben, dass der Kurs abgeschlossen ist.';
 $string['completecourse'] = 'Kurs beenden';
-$string['pluginname'] = 'Kurs selbst abschließen';
+$string['pluginname'] = 'Kurs abschließen';
+$string['selfcompletion:addinstance'] = 'Neuen Block \'Kurs abschließen\' hinzufügen';
+$string['selfcompletion:myaddinstance'] = 'Neuen Block \'Kurs abschließen\' für \'Meine Startseite\' hinzufügen';
 $string['selfcompletionnotenabled'] = 'Die Selbstbestätigung des Abschlusses ist in diesem Kurs nicht aktiviert';

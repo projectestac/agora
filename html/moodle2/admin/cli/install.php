@@ -127,6 +127,9 @@ if (function_exists('date_default_timezone_set') and function_exists('date_defau
 /** Used by library scripts to check they are being called by Moodle */
 define('MOODLE_INTERNAL', true);
 
+// Disables caching.. just in case.
+define('CACHE_DISABLE_ALL', true);
+
 // Check that PHP is of a sufficient version
 if (version_compare(phpversion(), "5.3.2") < 0) {
     $phpversion = phpversion();
@@ -164,6 +167,7 @@ require_once($CFG->libdir.'/moodlelib.php');
 require_once($CFG->libdir.'/deprecatedlib.php');
 require_once($CFG->libdir.'/adminlib.php');
 require_once($CFG->libdir.'/componentlib.class.php');
+require_once($CFG->dirroot.'/cache/lib.php');
 
 require($CFG->dirroot.'/version.php');
 $CFG->target_release = $release;
@@ -240,18 +244,8 @@ echo get_string('cliinstallheader', 'install', $CFG->target_release)."\n";
 if ($interactive) {
     cli_separator();
     $languages = get_string_manager()->get_list_of_translations();
-    // format the langs nicely - 3 per line
-    $c = 0;
-    $langlist = '';
-    foreach ($languages as $key=>$lang) {
-        $c++;
-        $length = iconv_strlen($lang, 'UTF-8');
-        $padded = $lang.str_repeat(' ', 38-$length);
-        $langlist .= $padded;
-        if ($c % 3 == 0) {
-            $langlist .= "\n";
-        }
-    }
+    // Do not put the langs into columns because it is not compatible with RTL.
+    $langlist = implode("\n", $languages);
     $default = $CFG->lang;
     cli_heading(get_string('availablelangs', 'install'));
     echo $langlist."\n";

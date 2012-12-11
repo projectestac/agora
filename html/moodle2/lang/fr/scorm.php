@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scorm', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'scorm', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   scorm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -50,6 +50,9 @@ $string['assetlaunched'] = 'Élément - affiché';
 $string['attempt'] = 'Tentative';
 $string['attempt1'] = '1 tentative';
 $string['attempts'] = 'tentatives';
+$string['attemptstatusall'] = 'Ma page et page initiale';
+$string['attemptstatusentry'] = 'Page initiale seulement';
+$string['attemptstatusmy'] = 'Ma page seulement';
 $string['attemptsx'] = '{$a} tentatives';
 $string['attr_error'] = 'Valeur incorrecte de l\'attribut ({$a->attr}) dans la balise {$a->tag}.';
 $string['autocontinue'] = 'Continuer automatiquement';
@@ -94,7 +97,7 @@ $string['disabled'] = 'Désactivé';
 $string['display'] = 'Afficher le paquetage';
 $string['displayattemptstatus'] = 'Afficher l\'état de la tentative';
 $string['displayattemptstatusdesc'] = 'Ce réglage détermine si par défaut l\'état de la tentative doit être affiché ou non';
-$string['displayattemptstatus_help'] = 'Si ce réglage est activé, les scores et notes des tentatives seront affichés dans le résumé du SCORM.';
+$string['displayattemptstatus_help'] = 'Si ce réglage est activé, un résumé des tentatives de l\'utilisateur sera affichés dans le bloc vue d\'ensemble du cours sur Ma page et/ou sur la page d\'accueil du SCORM.';
 $string['displaycoursestructure'] = 'Afficher la structure du cours sur la page d\'entrée';
 $string['displaycoursestructuredesc'] = 'Ce réglage détermine si par défaut la structure du cours doit être affichée ou non sur la page d\'entrée';
 $string['displaycoursestructure_help'] = 'Si ce réglage est activé, la table des matières sera affichée dans le résumé du SCORM.';
@@ -398,6 +401,7 @@ $string['viewalluserreports'] = 'Afficher les rapports des {$a} utilisateurs';
 $string['whatgrade'] = 'Évaluation des tentatives';
 $string['whatgradedesc'] = 'Ce réglage détermine le mode d\'évaluation par défaut des tentatives';
 $string['whatgrade_help'] = 'Si plusieurs tentatives sont autorisées, ce réglage détermine le résultat à intégrer au carnet de notes, entre la tentative la plus élevée, la moyenne, la première ou la dernière.
+L\'option exploitant la dernière tentative ne prend pas en compte les tentatives avec un statut d\'échec.
 
 Traitement des tentatives multiples
 

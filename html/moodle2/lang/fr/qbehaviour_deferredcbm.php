@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qbehaviour_deferredcbm', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qbehaviour_deferredcbm', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   qbehaviour_deferredcbm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,5 +30,5 @@ $string['certainty1'] = 'Pas très (moins de 67%)';
 $string['certainty2'] = 'Assez (plus de 67%)';
 $string['certainty3'] = 'Très (plus de 80%)';
 $string['howcertainareyou'] = 'À quel point en êtes-vous certain ? {$a}';
-$string['markadjustment'] = 'Sur la base du degré de certitude que vous avez indiqué, votre note initiale de {$a->rawmark} à été ajustée à {$a->mark}.';
+$string['markadjustment'] = 'Sur la base du degré de certitude que vous avez indiqué, votre note initiale de {$a->rawmark} a été ajustée à {$a->mark}.';
 $string['pluginname'] = 'Feedback a posteriori avec indication de certitude';

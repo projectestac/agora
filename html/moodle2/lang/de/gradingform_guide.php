@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradingform_guide', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'gradingform_guide', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   gradingform_guide
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,13 +37,14 @@ $string['commentsdelete'] = 'Kommentar löschen';
 $string['commentsempty'] = 'Zum Bearbeiten anklicken';
 $string['commentsmovedown'] = 'Nach unten';
 $string['commentsmoveup'] = 'Nach oben';
-$string['confirmdeletecriterion'] = 'Wollen Sie den Wert wirklich löschen?';
-$string['confirmdeletelevel'] = 'Wollen Sie das Level wirklich löschen?';
+$string['confirmdeletecriterion'] = 'Möchten Sie dieses Element wirklich löschen?';
+$string['confirmdeletelevel'] = 'Möchten Sie dieses Level wirklich löschen?';
 $string['criterion'] = 'Kriterium';
 $string['criteriondelete'] = 'Kriterium löschen';
 $string['criterionempty'] = 'Kriterium bearbeiten';
 $string['criterionmovedown'] = 'Nach unten bewegen';
 $string['criterionmoveup'] = 'Nach oben bewegen';
+$string['criterionname'] = 'Kriteriumsname';
 $string['definemarkingguide'] = 'Bewertungs-Richtlinie festlegen';
 $string['description'] = 'Beschreibung';
 $string['descriptionmarkers'] = 'Beschreibung für Bewerter/innen';
@@ -77,7 +78,6 @@ $string['save'] = 'Sichern';
 $string['saveguide'] = 'Bewertungsrichtlinie speichern und aktivieren.';
 $string['saveguidedraft'] = 'Als Entwurf sichern';
 $string['score'] = 'Punkt';
-$string['showdescriptionstudent'] = 'Beschreibung für Teilnehmer/innen anzeigen';
 $string['showmarkerdesc'] = 'Beschreibung für Kriterien anzeigen';
 $string['showmarkspercriterionstudents'] = 'Bewertung je Kriterium Teilnehmer/innen anzeigen';
 $string['showstudentdesc'] = 'Beschreibung der Kriterien Teilnehmer/innen anzeigen';

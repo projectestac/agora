@@ -165,9 +165,9 @@ class repository_alfresco extends repository {
             $file_filter = "{http://www.alfresco.org/model/content/1.0}content";
 
             // top level sites folder
-            $sites_filter = "{http://www.alfresco.org/model/content/1.0}sites";
+            $sites_filter = "{http://www.alfresco.org/model/site/1.0}sites";
             // individual site
-            $site_filter = "{http://www.alfresco.org/model/content/1.0}site";
+            $site_filter = "{http://www.alfresco.org/model/site/1.0}site";
 
             foreach ($this->current_node->children as $child)
             {
@@ -219,7 +219,9 @@ class repository_alfresco extends repository {
 
     public function print_search() {
         $str = parent::print_search();
-        $str .= '<label>Space: </label><br /><select name="space">';
+        $str .= html_writer::label(get_string('space', 'repository_alfresco'), 'space', false, array('class' => 'accesshide'));
+        $str .= html_writer::empty_tag('br');
+        $str .= '<select id="space" name="space">';
         foreach ($this->user_session->stores as $v) {
             $str .= '<option ';
             if ($v->__toString() === 'workspace://SpacesStore') {

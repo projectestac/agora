@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'feedback', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'feedback', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   feedback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -177,7 +177,7 @@ $string['move_here'] = 'Mou aquí';
 $string['move_item'] = 'Mou aquesta pregunta';
 $string['moveup_item'] = 'Mou aquesta pregunta amunt';
 $string['multichoice'] = 'Opcions múltiples';
-$string['multichoicerated'] = 'Opcions múltiples (ordenades)';
+$string['multichoicerated'] = 'Opcions múltiples (puntuades)';
 $string['multichoicetype'] = 'Tipus d\'opcions múltiples';
 $string['multichoice_values'] = 'Valors de les opcions múltiples';
 $string['multiplesubmit'] = 'Enviaments múltiples';

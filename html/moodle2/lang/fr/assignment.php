@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'assignment', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   assignment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = 'Vous avez des devoirs qui requièrent votre attention';
 $string['addsubmission'] = 'Remettre un devoir';
 $string['allowdeleting'] = 'Permettre la suppression';
 $string['allowdeleting_help'] = 'Lorsque ce réglage est activé, les participants pourront à tout moment supprimer leurs fichiers déposés mais avant de les soumettre à l\'évaluation.';

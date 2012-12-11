@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'edufields', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'edufields', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   edufields
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -80,7 +80,7 @@ $string['field1020199'] = 'Computerwissenschaften (sonstige)';
 $string['field10203'] = 'Informationssysteme';
 $string['field1020301'] = 'Konzeptionelle Modellierung';
 $string['field1020303'] = 'Datenbankverwaltung';
-$string['field1020305'] = 'Systemanalyse & Design';
+$string['field1020305'] = 'Systemanalyse und -design';
 $string['field1020307'] = 'Entscheidungsunterstützungssystem';
 $string['field1020399'] = 'Informationssysteme (weitere)';
 $string['field10299'] = 'Informationstechnologie (weitere)';
@@ -425,7 +425,7 @@ $string['field11005'] = 'Graphik und Design';
 $string['field1100501'] = 'Grafische Künste und Design';
 $string['field1100503'] = 'Textildesign';
 $string['field1100505'] = 'Modedesign';
-$string['field1100599'] = 'Grafik und Designwissenschaft (andere)';
+$string['field1100599'] = 'Grafik- und Designstudien (andere)';
 $string['field11007'] = 'Kommunikationswissenschaften';
 $string['field1100701'] = 'Audiovisuelle Studien';
 $string['field1100703'] = 'Journalismus';

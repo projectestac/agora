@@ -47,11 +47,11 @@ if (!$category = $DB->get_record('question_categories', array('id' => $categoryi
 if ($cmid) {
     list($module, $cm) = get_module_from_cmid($cmid);
     require_login($cm->course, false, $cm);
-    $thiscontext = get_context_instance(CONTEXT_MODULE, $cmid);
+    $thiscontext = context_module::instance($cmid);
     $hiddenparams['cmid'] = $cmid;
 } else if ($courseid) {
     require_login($courseid, false);
-    $thiscontext = get_context_instance(CONTEXT_COURSE, $courseid);
+    $thiscontext = context_course::instance($courseid);
     $module = null;
     $cm = null;
     $hiddenparams['courseid'] = $courseid;
@@ -60,7 +60,7 @@ if ($cmid) {
 }
 
 // Check permissions.
-$categorycontext = get_context_instance_by_id($category->contextid);
+$categorycontext = context::instance_by_id($category->contextid);
 require_capability('moodle/question:add', $categorycontext);
 
 // Ensure other optional params get passed on to question.php.

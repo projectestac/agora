@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'role', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -128,12 +128,14 @@ $string['course:delete'] = 'Supprimer des cours';
 $string['course:enrolconfig'] = 'Configurer les instances d\'inscription dans les cours';
 $string['course:enrolreview'] = 'Vérifier les inscriptions aux cours';
 $string['course:ignorefilesizelimits'] = 'Utiliser des fichiers de taille dépassant toutes les restrictions de taille';
+$string['course:isincompletionreports'] = 'À afficher dans les rapports d\'achèvement';
 $string['course:manageactivities'] = 'Gérer les activités';
 $string['course:managefiles'] = 'Gérer les fichiers';
 $string['course:managegrades'] = 'Gérer les notes';
 $string['course:managegroups'] = 'Gérer les groupes';
 $string['course:managescales'] = 'Gérer les barêmes';
 $string['course:markcomplete'] = 'Marquer les utilisateurs comme ayant terminé un cours';
+$string['course:movesections'] = 'Déplacer les sections';
 $string['course:publish'] = 'Publier un cours vers un serveur d\'échanges';
 $string['course:request'] = 'Demander de nouveaux cours';
 $string['course:reset'] = 'Réinitialiser les cours';
@@ -154,6 +156,10 @@ $string['createrolebycopying'] = 'Créer un rôle en copiant {$a}';
 $string['createthisrole'] = 'Créer ce rôle';
 $string['currentcontext'] = 'Contexte actuel';
 $string['currentrole'] = 'Rôle actuel';
+$string['customroledescription'] = 'Description personnalisée';
+$string['customroledescription_help'] = 'Les descriptions des rôles standards sont fournies automatiquement dans la langue adéquate si la description personnalisée n\'est pas renseignée.';
+$string['customrolename'] = 'Nom complet personnalisé';
+$string['customrolename_help'] = 'Les noms des rôles standards sont fournis automatiquement dans la langue adéquate si le personnalisé personnalisé n\'est pas renseigné. Pour tous les autres rôles, un nom complet doit être fourni.';
 $string['defaultrole'] = 'Rôle par défaut';
 $string['defaultx'] = 'Default : {$a}';
 $string['defineroles'] = 'Définition des rôles';
@@ -346,6 +352,7 @@ $string['roles_help'] = '<!-- $Id$ -->
 
 <p>Voir aussi <a href="help.php?file=contexts.html">Contextes</a>, <a href="help.php?file=permissions.html">Permissions</a>, <a href="help.php?file=assignroles.html">Attribuer des rôles</a> et <a href="help.php?file=overrides.html">Dérogations</a>.</p>';
 $string['roleshortname'] = 'Nom abrégé';
+$string['roleshortname_help'] = 'Le nom abrégé du rôle est un identifiant dans lequel seuls les caractères alphanumériques ASCII sont permis. Veuillez ne pas modifier les noms abrégés des rôles standards.';
 $string['role:switchroles'] = 'Prendre d\'autres rôles';
 $string['roletoassign'] = 'Rôle à attribuer';
 $string['roletooverride'] = 'Rôle pour lequel définir des dérogations';
@@ -361,7 +368,7 @@ $string['site:approvecourse'] = 'Approuver la création de cours';
 $string['site:backup'] = 'Sauvegarder les cours';
 $string['site:config'] = 'Modifier la configuration du site';
 $string['site:doanything'] = 'Permettre de tout faire';
-$string['site:doclinks'] = 'Afficher les liens vers les documents externes';
+$string['site:doclinks'] = 'Afficher les liens vers la documentation de Moodle';
 $string['site:import'] = 'Importer d\'autres cours dans un cours';
 $string['site:manageblocks'] = 'Gérer les blocs sur une page';
 $string['site:mnetloginfromremote'] = 'Se connecter depuis une application distante via MNet';
@@ -378,6 +385,7 @@ $string['site:viewuseridentity'] = 'Voir l\'identité complète des utilisateurs
 $string['tag:create'] = 'Créer de nouveaux tags';
 $string['tag:edit'] = 'Modifier les tags existants';
 $string['tag:editblocks'] = 'Modifier les blocs sur les pages de tags';
+$string['tag:flag'] = 'Marquer les tags comme inappropriés';
 $string['tag:manage'] = 'Gérer tous les tags';
 $string['thisusersroles'] = 'Rôles de cet utilisateur';
 $string['unassignarole'] = 'Retirer l\'attribution du rôle {$a}';
@@ -390,6 +398,7 @@ $string['user:editmessageprofile'] = 'Modifier le profil utilisateur de messager
 $string['user:editownmessageprofile'] = 'Modifier son propre profil utilisateur de messagerie';
 $string['user:editownprofile'] = 'Modifier son propre profil';
 $string['user:editprofile'] = 'Modifier le profil de l\'utilisateur';
+$string['user:ignoreuserquota'] = 'Ignorer les quotas utilisateurs';
 $string['user:loginas'] = 'Se connecter en tant que d\'autres utilisateurs';
 $string['user:manageblocks'] = 'Gérer les blocs sur le profil d\'autres utilisateurs';
 $string['user:manageownblocks'] = 'Gérer les blocs sur son propre profil public';

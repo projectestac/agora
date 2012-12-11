@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'admin', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'admin', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   admin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -90,7 +90,6 @@ $string['bookmarkthispage'] = 'Afegeix una drecera';
 $string['cachejs'] = 'Memòria cau del Javascript';
 $string['cachejs_help'] = 'La caixè de Javascript i la compressió milloren molt la càrrega de pàgines. Es recomana que s\'utilitzin en instal·lacions de producció. Les persones que es dediquin a desenvolupar possiblement voldran desactivar aquestes característiques.';
 $string['cachetext'] = 'Durada de la memòria cau de text';
-$string['cachetype'] = 'Tipus de memòria cau';
 $string['calendarexportsalt'] = 'Exportació criptogràfica del calendari';
 $string['calendarsettings'] = 'Calendari';
 $string['calendar_weekend'] = 'Dies de cap de setmana';
@@ -146,7 +145,6 @@ $string['configautolang'] = 'Configura l\'idioma per defecte segons el del naveg
 $string['configautologinguests'] = 'Cal fer entrar automàticament com a visitants els usuaris externs que intenten entrar en un curs que permet l\'accés de visitants?';
 $string['configbloglevel'] = 'Aquest paràmetre us permet limitar l\'àmbit de visualització dels blocs o bitàcoles d\'aquest lloc. Fixeu-vos que aquest paràmetre determina el context més ampli en què es poden VISUALITZAR les bitàcoles. No té res a veure amb tipus d\'autors o tipus de missatges. També podeu inhabilitar completament les bitàcoles si no voleu que s\'utilitzin en absolut.';
 $string['configcachetext'] = 'Aquest paràmetre pot agilitzar el funcionament de llocs amb molts usuaris o llocs que utilitzen filtres de text. Durant el temps que s\'especifica aquí es reté una còpia del text ja filtrat. Teniu en compte que si el temps especificat és massa breu el funcionament es podria alentir i tot, i que un temps massa prolongat podria implicar que els textos triguessin massa a actualitzar-se.';
-$string['configcachetype'] = 'Seleccioneu quin tipus de memòria cau voleu que utilitzi Moodle. Aquest paràmetre només configura la memòria cau: recordeu-vos d\'habilitar també rcache de manera que la memòria cau s\'utilitzi per a alguna cosa. Utilitzeu aquesta opció <strong>només</strong> si necessiteu reduir la càrrega del sistema de bases de dades: en cas contrari podríeu alentir Moodle. Als llocs amb un tràfic mitjà els pot convenir el tipus \'intern\'. Si teniu un servidor web únic amb eAccelerator o Turckmmcache <em>i les opcions de memòria compartida habilitades</em>, hauríeu de provar \'eaccelerator\'. Si teniu una configuració de servidors múltiples, amb un o més dimonis que utilitzen memcached i l\'extensió memcached de PHP, seleccioneu \'memcached\' i configureu les opcions més avall. <br /><strong>Nota:</strong> assegureu-vos de provar i ajustar el rendiment en condicions de càrrega. Els sistemes de memòria cau poden alentir el lloc. En situacions de tràfic alt, eAccelerator i memcached poden donar els millors resultats, però tenen els costos més alts en ús de processador.';
 $string['configcalendarexportsalt'] = 'Aquest text aleatori és utilitzat per provar la seguretat d\'un token d\'autenticació utilitzat en la exportació de calendaris. Si us plau fixeu-vos que tots els tokens actuals seran invalidats si canvieu la funció sal criptogràfica (text generat).';
 $string['configclamactlikevirus'] = 'Tracta els fitxers com a virus';
 $string['configclamdonothing'] = 'Dóna els fitxers per bons';
@@ -210,7 +208,7 @@ $string['configenablerssfeedsdisabled'] = 'No està disponible perquè l\'RSS es
 $string['configenablerssfeedsdisabled2'] = 'Els canals RSS estan inhabilitats al nivell del servidor. Heu d\'habilitar-los abans en Servidor/RSS.';
 $string['configenablesafebrowserintegration'] = 'Això afegeix l\'opció \'Requereix navegador segur\' al camp \'navegació segura\' al formulari de preguntes. Mireu http://www.safeexambrowser.org/ per cercar més informació.';
 $string['configenablestats'] = 'Si trieu \'sí\', la tasca del cron de Moodle processarà els registres i recollirà algunes estadístiques. Això pot durar una estona, segons el tràfic del lloc. Si habiliteu aquesta opció podreu veure algunes gràfiques i estadístiques interessants referents a cada curs i al lloc complet.';
-$string['configenabletrusttext'] = 'Per defecte Moodle sempre netejarà a fons el text provinent dels usuaris a fi d\'eliminar cap mena de codi que suposi un risc de seguretat. El sistema de Contingut de Confiança és una manera de concedir, només a usuaris en els quals confieu, la capacitat d\'incloure característiques avançades als seus continguts. Per a habilitar aquest sistema, en primer lloc heu d\'habilitar aquest paràmetre i després atorgar el permís Contingut de Confiança a rols específics de Moodle. Els textos creats o penjats per usuaris que tinguin aquest rol es marcaran com a fiables i no es netejaran abans de ser visualitzats.';
+$string['configenabletrusttext'] = 'Per defecte Moodle sempre netejarà a fons el text provinent dels usuaris a fi d\'eliminar cap mena de codi que suposi un risc de seguretat. El sistema de Contingut de Confiança és una manera de concedir, només a usuaris en els quals confieu, la capacitat d\'incloure sense interferències característiques avançades als seus continguts. Per a habilitar aquest sistema, en primer lloc heu d\'habilitar aquest paràmetre i després atorgar el permís Contingut de Confiança a un rol específic de Moodle. Els textos creats o penjats per usuaris que tinguin aquest rol es marcaran com a fiables i no es netejaran abans de ser visualitzats.';
 $string['configenablewebservices'] = 'Serveis web habilita altres sistemes per entrar al Moodle i fer operacions. Per raons de seguretat aquesta característica està deshabilitada llevat que l\'activeu.';
 $string['configenablewsdocumentation'] = 'Habilita l\'auto generació de serveis de documentació web. Un usuari pot accedir a la seva pròpia documentació en la pàgina de claus de seguretat {$a}. Això mostra la documentació sols per als protocols habilitats.';
 $string['configerrorlevel'] = 'Trieu el nivell d\'avisos del PHP que voleu visualitzar. Generalment \'Normal\' és la millor opció.';
@@ -228,12 +226,10 @@ $string['configfullnamedisplay'] = 'Aquest paràmetre defineix el format dels no
 $string['configgdversion'] = 'Indiqueu la versió instal·lada de GD. La versió que es mostra per defecte és la que s\'ha detectat automàticament. No la canvieu si no esteu segur del que feu.';
 $string['configgeoipfile'] = 'Ubicació del fitxer binari de dades de ciutats GeoIP. Aquest fitxer no és part de la distribució de Moodle i cal obtenir-lo de <a href="http://www.maxmind.com/">MaxMind</a> per separat. Podeu comprar la versió comercial o utilitzar la versió gratuïta.<br />Simplement baixeu <a href="http://www.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz" >http://www.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz</a> i descomprimiu-lo dins del directori "{$a}" del vostre servidor.';
 $string['configgetremoteaddrconf'] = 'Si el seu servidor està darrere un proxy, podeu modificar aquest paràmetre per especificar quines capçaleres HTTP són de confiança per contenir adreces IP remotes. Les capçaleres es llegeixen en ordre, utilitzant la primera que sigui disponible.';
-$string['configgooglemapkey'] = 'Heu d\'introduir una clau especial a fi d\'utilitzar Google  Maps per a la localització geogràfica d\'adreces IP. Aquesta clau es pot obtenir gratuïtament en <a href="http://code.google.com/apis/maps/signup.html" >http://code.google.com/apis/maps/signup.html</a>.<br />L\'URL del vostre lloc web és: {$a}';
 $string['configgradebookroles'] = 'Aquest paràmetre us permet controlar qui apareix al butlletí de qualificacions. Els usuaris que tinguin assignat almenys un d\'aquests rols en un curs, apareixeran al butlletí de qualificacions d\'aquest curs.';
 $string['configgradeexport'] = 'Trieu quins formats voleu com a mètodes primaris d\'exportació del butlletí de qualificacions. Els connectors que trieu definiran i actualitzaran un camp de "darrera exportació" per a cada qualificació. Això tindrà com a conseqüència, per exemple, que els registres exportats s\'identifiquin com a "nous" o "actualitzats". Si no esteu segur podeu deixar totes les opcions desactivades.';
 $string['confighiddenuserfields'] = 'Seleccioneu quins camps d\'informació de l\'usuari voleu ocultar als usuaris que no siguin professors o administradors. Això protegirà la intimitat de l\'estudiantat. Utilitzeu la tecla CTRL per seleccionar múltiples camps.';
 $string['configidnumber'] = 'Aquesta opció especifica si: a) no es demana cap número d\'identificació als usuaris; b) es demana un número d\'identificació als usuaris però poden deixar-lo en blanc o c) es demana un número d\'identificació als usuaris i no poden deixar-lo en blanc. Si l\'usuari ha donat un número d\'identificació, aquest número es mostra al seu perfil.';
-$string['configintcachemax'] = 'Nombre màxim de registres que es guardaran a la memòria cau. Només per a memòria cau interna. Valor recomanat: 50. Utilitzeu un valor més baix per reduir la memòria utilitzada.';
 $string['configintro'] = 'En aquesta pàgina podeu especificar un gran nombre de variables de configuració que contribueixen a fer funcionar Moodle de la manera adequada en el vostre servidor. Però no cal que us amoïneu: els valors per defecte solen anar molt bé i sempre podeu tornar-hi més tard per fer canvis en aquests paràmetres.';
 $string['configintroadmin'] = 'En aquesta pàgina heu de configurar el compte de l\'administrador principal que tindrà control complet sobre aquest lloc. Doneu-li un nom i una contrasenya segurs i una adreça de correu electrònic vàlida. Després podreu crear més comptes d\'administració.';
 $string['configintrosite'] = 'Aquesta pàgina us permet configurar la pàgina inicial i el nom d\'aquest lloc. Podeu tornar-hi després en qualsevol moment per canviar aquests paràmetres, per mitjà de l\'enllaç "Paràmetres del lloc" de la pàgina inicial.';
@@ -252,8 +248,6 @@ $string['configmaxbytes'] = 'Aquest paràmetre especifica la mida màxima dels f
 $string['configmaxconsecutiveidentchars'] = 'Una contrasenya no hauria de tenir repetits consecutivament més caràcters dels que s\'indiquen aquí. Si indiqueu 0 es desactiva aquesta comprovació.';
 $string['configmaxeditingtime'] = 'Aquest paràmetre especifica quant temps tenen els usuaris per anar a editar els seus missatges dels fòrums, la retroacció dels diaris, etc. Generalment 30 minuts es un temps suficient.';
 $string['configmaxevents'] = 'Quants esdeveniments';
-$string['configmemcachedhosts'] = 'Per a memcached. Llista d\'ordinadors, separats per comes, que estan executant el dimoni de memcached. Utilitzeu adreces IP a fi d\'evitar la latència del DNS. memcached donarà problemes si afegiu o suprimiu ordinadors de la llista amb el servidor en marxa.';
-$string['configmemcachedpconn'] = 'Per a memcached. Ús de connexions persistents. Aneu amb compte: aquest paràmetre pot fer que fallin l\'Apache o el PHP en acabat de reiniciar el dimoni de memcached.';
 $string['configmessaging'] = 'Cal habilitar el sistema de missatgeria entre usuaris del lloc?';
 $string['configmessagingallowemailoverride'] = 'Permet als usuaris tenir missatges de notificació de correu electrònic enviats a una adreça de correu diferent de l\'adreça del seu perfil.';
 $string['configmessagingdeletereadnotificationsdelay'] = 'Missatges llegits que poden ser esborrats per estalviar espai. Quan temps ha d\'haver passat des que un missatge es llegeix per poder-lo esborrar ?';
@@ -288,8 +282,6 @@ $string['configproxyport'] = 'Si aquest servidor necessita utilitzar un ordinado
 $string['configproxytype'] = 'Tipus d\'intermediari web (PHP5 i extensió cURL necessaris per a funcionar amb SOCKS5).';
 $string['configproxyuser'] = 'Nom d\'usuari requerit per a accedir a Internet a través d\'un intermediari. Si no, deixeu el paràmetre en blanc (extensió PHP cURL necessària).';
 $string['configquarantinedir'] = 'Si voleu que clam AV mogui els fitxers infectats a un directori de quarantena, definiu el directori aquí. El servidor web ha de tenir permís d\'escriptura en aquest directori. Si el deixeu en blanc, o introduïu un directori que no existeix, o no s\'hi pot escriure, lllavors els fitxers infectats se suprimiran. No inclogueu una barra final.';
-$string['configrcache'] = 'Utilitzeu la memòria cau per emmagatzemar els registres de la base de dades. Recordeu que cal definir també \'cachetype\'.';
-$string['configrcachettl'] = 'Durada (time-to-live) dels registres a la memòria cau. Utilitzeu un valor baix (<15).';
 $string['configrecaptchaprivatekey'] = 'Cadena de caràcters utilitzada per a la comunicació entre el vostre servidor Moodle i el servidor recaptcha.net. Podeu obtenir-la en http://recaptcha.net';
 $string['configrecaptchapublickey'] = 'Cadena de caràcters utilitzada per visualitzar l\'element reCAPTCHA en el formulari de registre. Generada per http://recaptcha.net';
 $string['configrequestedstudentname'] = 'Paraula per a "estudiant" en els cursos sol·licitats';
@@ -349,7 +341,6 @@ $string['configvariables'] = 'Variables';
 $string['configverifychangedemail'] = 'Habilita la verificació del canvi d\'adreces de correu mitjançant els paràmetres de dominis autorizats i denegats. Si inhabiliteu aquest paràmetre, la verificació dels dominis només es realitzarà quan es creen usuaris nous.';
 $string['configvisiblecourses'] = 'Visualitza de la manera normal els cursos en categories ocultes.';
 $string['configwarning'] = 'Aneu amb compte amb aquests paràmetres: uns valors incorrectes podrien causar problemes.';
-$string['configxmlstrictheaders'] = 'Si activeu aquest paràmetre, les pàgines es generaran amb capçaleres HTTP i pròleg XML, de manera que els navegadors mostrin els errors XHTML inserits. Útil només per a desenvolupadors.';
 $string['configyuicomboloading'] = 'Aquesta opció habilita la càrrega de fitxers combinats per les llibreries YUI. Aquest paràmetre hauria d\'estar habilitat en llocs de producció per raons de funcionament òptim.';
 $string['configzip'] = 'Indiqueu la ubicació del vostre programa de compressió zip (opcional, només en Unix). Si l\'especifiqueu, aquest programa s\'utilitzarà per crear arxius zip al servidor. Si la deixeu en blanc, Moodle utilitzarà les seves rutines internes.';
 $string['confirmation'] = 'Confirmació';
@@ -489,7 +480,7 @@ $string['enablerssfeeds'] = 'Habilita canals RSS';
 $string['enablesafebrowserintegration'] = 'Habilita la integració de navegadors segurs.';
 $string['enablestats'] = 'Habilita estadístiques';
 $string['enabletrusttext'] = 'Habilita Contingut de Confiança';
-$string['enablewebservices'] = 'Habilita serveix web';
+$string['enablewebservices'] = 'Habilita els serveis web';
 $string['enablewsdocumentation'] = 'Documentació de serveis web';
 $string['enrolinstancedefaults'] = 'Instància d\'inscripció per defecte';
 $string['enrolinstancedefaults_desc'] = 'Paràmetres d\'inscripció per defecte per als cursos nous.';
@@ -552,7 +543,6 @@ $string['geoipfile'] = 'Fitxer de dades GeoIP City';
 $string['getremoteaddrconf'] = 'Font de l\'adreça IP anotada';
 $string['globalsquoteswarning'] = '<p><strong>Avís de seguretat</strong>: per a operar adequadament, Moodle necessita <br />que feu certs canvis en els paràmetres actuals del PHP.<p/><p><em>Cal</em> que definiu <code>register_globals=off</code> i/o <code>magic_quotes_gpc=on</code>. <br />Si és possible, heu de definir <code>register_globals=off</code> per millorar la seguretat <br />general del servidor. També s\'aconsella definir <code>magic_quotes_gpc=on</code>.<p/><p>Aquests paràmetres es defineixen en el fitxer <code>php.ini</code>, en la configuració d\'Apache/IIS <br />o en el fitxer <code>.htaccess</code>.</p>';
 $string['globalswarning'] = '<p><strong>Avís de seguretat</strong>: per a operar adequadament, Moodle necessita <br />que feu certs canvis en els paràmetres actuals del PHP.<p/><p><em>Cal</em> que definiu <code>register_globals=off</code>.<p>Aquest paràmetre es defineix en el fitxer <code>php.ini</code>, en la configuració d\'Apache/IIS <br />o en el fitxer <code>.htaccess</code>.</p>';
-$string['googlemapkey'] = 'Clau Google Maps API';
 $string['gotofirst'] = 'Primera cadena no traduïda';
 $string['gradebook'] = 'Butlletí de qualificacions';
 $string['gradebookroles'] = 'Rols qualificats';
@@ -586,7 +576,6 @@ $string['includemoduleuserdata'] = 'Inclou dades d\'usuari dels mòduls';
 $string['incompatibleblocks'] = 'Blocs incompatibles';
 $string['installhijacked'] = 'Perdoneu, cal que acabeu la instal·lació des de l\'adreça IP original.';
 $string['installsessionerror'] = 'No s\'ha pogut inicialitzar la sessió PHP. Si us plau, verifiqueu que el vostre navegador accepta cookies.';
-$string['intcachemax'] = 'Màx. memòria cau interna';
 $string['intlrecommended'] = 'L\'extensió Intl s\'utilitza per al millorar el suport d\'internacionalització, com ara l\'ordenació en funció de la llengua.';
 $string['invalidsection'] = 'La secció no és vàlida';
 $string['invaliduserchangeme'] = 'El nom d\'usuari "changeme" està reservat. No podeu crear un compte amb aquest nom.';
@@ -664,8 +653,6 @@ $string['mediapluginswf'] = 'Habilita filtre .swf';
 $string['mediapluginswfnote'] = 'Com a mesura de seguretat per defecte, els usuaris normals no poden incrustar fitxers Flash swf.';
 $string['mediapluginwmv'] = 'Habilita filtre .wmv';
 $string['mediapluginyoutube'] = 'Habilita filtres per enllaçar YouTube';
-$string['memcachedhosts'] = 'memcached - ordinadors';
-$string['memcachedpconn'] = 'memcached - connexions persistents';
 $string['messaging'] = 'Habilita el sistema de missatgeria';
 $string['messagingallowemailoverride'] = 'Notificació per correu electrònic sobreescrita';
 $string['messagingdeletereadnotificationsdelay'] = 'Suprimeix notificacions llegides';
@@ -853,8 +840,6 @@ $string['questioncwqpfscheck'] = 'Una o més preguntes "aleatòries" d\'algun q�
 $string['questioncwqpfsok'] = 'D\'acord. No teniu cap pregunta "aleatòria" en els vostres qüestionaris que seleccioni preguntes d\'una barreja de categories compartides i no compartides.';
 $string['questiontype'] = 'Tipus de pregunta';
 $string['questiontypes'] = 'Tipus de preguntes';
-$string['rcache'] = 'Memòria cau de registres';
-$string['rcachettl'] = 'TTL de la memòria cau de registres';
 $string['recaptchaprivatekey'] = 'Clau privada de ReCAPTCHA';
 $string['recaptchapublickey'] = 'Clau pública de ReCAPTCHA';
 $string['register'] = 'Registreu el vostre lloc';
@@ -1046,6 +1031,5 @@ $string['warningiconvbuggy'] = 'La vostra versió de la llibreria iconv no és c
 $string['webproxy'] = 'Intermediari web';
 $string['webproxyinfo'] = 'Empleneu les opcions següents si el vostre servidor Moodle no pot accedir directament a Internet. L\'accés a Internet és necessari per baixar dades d\'entorn, paquets d\'idioma, canals RSS, zones horàries, etc.<br /><em>Es recomana l\'extensió de PHP cURL</em>.';
 $string['xmlrpcrecommended'] = 'Us cal l\'extensió xmlrpc per les comunicacions amb el hub, i també és útil per als serveis web i les xarxes Moodle.';
-$string['xmlstrictheaders'] = 'Capçaleres XML estrictes';
 $string['yuicomboloading'] = 'Carregant el combinat YUI';
 $string['ziprequired'] = 'Us cal l\'extensió Zip de PHP a Moodle, no es poden utilitzar els binaris info-ZIP o la llibreria PclZip.';

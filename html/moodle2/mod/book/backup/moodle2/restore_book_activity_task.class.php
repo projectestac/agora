@@ -82,8 +82,9 @@ class restore_book_activity_task extends restore_activity_task {
         $rules[] = new restore_decode_rule('BOOKVIEWBYB', '/mod/book/view.php?b=$1', 'book');
         $rules[] = new restore_decode_rule('BOOKVIEWBYBCH', '/mod/book/view.php?b=$1&amp;chapterid=$2', array('book', 'book_chapter'));
 
-        // Convert old book links MDL-33362
+        // Convert old book links MDL-33362 & MDL-35007
         $rules[] = new restore_decode_rule('BOOKSTART', '/mod/book/view.php?id=$1', 'course_module');
+        $rules[] = new restore_decode_rule('BOOKCHAPTER', '/mod/book/view.php?id=$1&amp;chapterid=$2', array('course_module', 'book_chapter'));
 
         return $rules;
     }
@@ -110,6 +111,10 @@ class restore_book_activity_task extends restore_activity_task {
         // To convert old 'generateimscp' log entries
         $rules[] = new restore_log_rule('book', 'generateimscp', 'tool/generateimscp/index.php?id={course_module}', '{book}',
                 'book', 'exportimscp', 'tool/exportimscp/index.php?id={course_module}', '{book}');
+        $rules[] = new restore_log_rule('book', 'print chapter', 'tool/print/index.php?id={course_module}&chapterid={book_chapter}', '{book_chapter}');
+        $rules[] = new restore_log_rule('book', 'update chapter', 'view.php?id={course_module}&chapterid={book_chapter}', '{book_chapter}');
+        $rules[] = new restore_log_rule('book', 'add chapter', 'view.php?id={course_module}&chapterid={book_chapter}', '{book_chapter}');
+        $rules[] = new restore_log_rule('book', 'view chapter', 'view.php?id={course_module}&chapterid={book_chapter}', '{book_chapter}');
 
         return $rules;
     }

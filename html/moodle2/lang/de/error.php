@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'error', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'error', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   error
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -68,6 +68,7 @@ $string['cannotdeletefile'] = 'Die Datei kann nicht gelöscht werden';
 $string['cannotdeleterole'] = 'Das Löschen ist nicht möglich: {$a}';
 $string['cannotdeleterolewithid'] = 'Die Rolle mit der ID {$a} konnte nicht gelöscht werden';
 $string['cannotdeletethisrole'] = 'Sie können die Rolle nicht löschen, weil sie vom System genutzt wird oder die letzte verbliebende Administratorrolle ist.';
+$string['cannotdisableformat'] = 'Sie können nicht das Standardformat deaktivieren';
 $string['cannotdownloadcomponents'] = 'Einige Komponenten können nicht geladen werden.';
 $string['cannotdownloadlanguageupdatelist'] = 'Die Liste der Sprachupdates kann nicht von download.moodle.org geladen werden.';
 $string['cannotdownloadzipfile'] = 'ZIP-Datei kann nicht heruntergeladen werden.';
@@ -103,7 +104,7 @@ $string['cannotinsertrecord'] = 'Der neue Datensatz ID {$a} wurde nicht eingetra
 $string['cannotmailconfirm'] = 'Fehler beim E-Mail-Versand zur Bestätigung der Kennwortänderung';
 $string['cannotmanualctrack'] = 'Die Aktivität unterstützt keine manuelle Abschlussverfolgung';
 $string['cannotmapfield'] = 'Problem bei der Zuordnung aufgetreten. Zwei Felder sind der gleichen Bewertung {$a} zugeordnet.';
-$string['cannotmarktopic'] = 'Das Kursfeld konnte nicht markiert werden';
+$string['cannotmarktopic'] = 'Kursabschnitt konnte nicht markiert werden';
 $string['cannotmigratedatacomments'] = 'Kommentare zum Datenmodul können nicht migriert werden';
 $string['cannotmodulename'] = 'Bei der Navigationserstellung kann der Modulname nicht festgestellt werden.';
 $string['cannotmoduletype'] = 'Bei der Navigationserstellung kann der Modultyp  nicht festgestellt werden.';
@@ -208,6 +209,7 @@ $string['dmlwriteexception'] = 'Fehler beim Schreiben der Datenbank';
 $string['downgradedcore'] = 'Fehler: Der von Ihnen benutzte Code ist ÄLTER als die Version, die speziell für diese Datenbanken geschrieben wurde.';
 $string['downloadedfilecheckfailed'] = 'Die Überprüfung der heruntergeladenen Datei ist gescheitert';
 $string['duplicatefieldname'] = 'Doppelter Feldname \'{$a}\'';
+$string['duplicatenosupport'] = 'Die \'{$a->modname}\' Aktivität konnte nicht kopiert werden, da  das {$a->modtype}-Modul den Backup- und Wiederherstellungsprozess nicht unterstützt.';
 $string['duplicateparaminsql'] = 'Fehler: Doppelter Parametername in der ABfrage';
 $string['duplicaterolename'] = 'Eine Rolle mit diesem Namen gibt es bereits!';
 $string['duplicateroleshortname'] = 'Eine Rolle mit diesem Kurznamen gibt es bereits!';
@@ -348,6 +350,7 @@ $string['listupdatefail'] = 'Datenbankfehler bei der Bearbeitung der Listenhiera
 $string['logfilenotavailable'] = 'Keine Logdaten verfügbar';
 $string['loginasnoenrol'] = 'Das "Einschreiben" oder "Abmelden" für einem Kurs ist nicht möglich, wenn Sie als andere Person angemeldet sind.';
 $string['loginasonecourse'] = 'Sie können sich in diesen Kurs nicht eintragen.<br /> Beenden Sie zuerst die Funktion "Login als", um sich dann in den anderen Kurs einzutragen.';
+$string['maxareabytes'] = 'Diese Datei ist zu groß';
 $string['maxbytes'] = 'Diese Datei ist größer als die Maximalgröße';
 $string['messagingdisable'] = 'Das Messaging-System ist für diese Website deaktiviert';
 $string['mimetexisnotexist'] = 'Ihr System ist nicht richtig konfiguriert, um mimeTeX ausführen zu können. Sie müssen das geeignete Programm für Ihr Betriebssystem unter der Adresse <a href="http://moodle.org/download/mimetex/">http://moodle.org/download/mimetex/</a> herunterladen. Alternativ können Sie sich auch den C-Quellcode unter <a href="http://www.forkosh.com/mimetex.zip"> http://www.forkosh.com/mimetex.zip</a> herunterladen, kompilieren und dann das ausführbare Programm in das Verzeichnis moodle/filter/tex/ legen.';
@@ -367,7 +370,7 @@ $string['moduledisable'] = 'Das Modul "{$a}" wurde für diesen speziellen Kurs d
 $string['moduledoesnotexist'] = 'Dieses Modul gibt es nicht';
 $string['moduleinstancedoesnotexist'] = 'Die Instanz dieses  Moduls gibt es nicht';
 $string['modulemissingcode'] = 'Im Modul {$a} fehlt der Code, um diese Funktion auszuführen.';
-$string['movecatcontentstoroot'] = 'Das Verschieben des Inhalts in den Root-Bereich ist nicht zulässig. Der Inhalt muß in eine bestehende Kategorie verschoben werden.';
+$string['movecatcontentstoroot'] = 'Das Verschieben des Inhalts in den Root-Bereich ist nicht zulässig. Der Inhalt muss in eine bestehende Kategorie verschoben werden.';
 $string['multiplerecordsfound'] = 'Mehrere Datensätze gefunden, aber nur ein Datensatz wird erwartet';
 $string['multiplerestorenotallow'] = 'Eine mehrfache Ausführung der Wiederherstellung ist nicht erlaubt!';
 $string['mustbeloggedin'] = 'Sie müssen sich anmelden, um dies zu tun.';
@@ -449,11 +452,11 @@ $string['scheduledbackupsdisabled'] = 'Automatisch terminierte Backups wurden vo
 $string['secretalreadyused'] = 'Der Link zur Passwortbestätigung wurde bereits verwendet. Das Passwort bleibt unverändert.';
 $string['sectionnotexist'] = 'Dieser Abschnitt existiert nicht';
 $string['sendmessage'] = 'Mitteilung senden';
-$string['serverconnection'] = 'Fehler beim Aufbau der Verbindung um Server';
+$string['serverconnection'] = 'Fehler beim Aufbau der Verbindung zum Server';
 $string['servicedonotexist'] = 'Service existiert nicht';
 $string['sessioncookiesdisable'] = 'Fehlerhafte Verwendung von  require_key_login() - Session Cookie sollte deaktiviert werden!';
 $string['sessiondiskfull'] = 'Die Session-Partition ist voll. Ein Login ist zu diesem Zeitpunkt nicht möglich.<br /><br />Bitte benachrichtigen Sie den Server-Administrator.';
-$string['sessionerroruser'] = 'Die Zeit ist abgelaufen. Melden Sie sich bitte neu an.';
+$string['sessionerroruser'] = 'Sie wurden automatisch nach längerer Inaktivität ausgeloggt.  Loggen Sie sich bitte neu ein.';
 $string['sessionerroruser2'] = 'Ein Serverfehler ist aufgetreten. Er betrifft Ihre Login-Session. Loggen Sie sich bitte neu ein oder starten Sie Ihren Browser noch einmal.';
 $string['sessionipnomatch'] = 'Die IP-Adresse scheint sich seit Ihrem letzten Login geändert zu haben. Dieses Sicherheitsfeature schützt Sie vor dem Diebstahl Ihrer Identität durch Hacker, während Sie auf der Seite arbeiten. Normale Nutzer sollten diese Mitteilung nicht sehen - bitten Sie den Administrator um Hilfe.';
 $string['sessionipnomatch2'] = 'Entschuldigung, aber Ihre IP-Adresse hat sich geändert, seit Sie sich eingeloggt haben. Diese Sicherheitsoption schützt davor, dass Ihre Identität gestohlen werden kann, während Sie eingeloggt sind. Sie könnten diese Fehlermeldung auch erhalten, wenn Sie ein Funknetzwerk benutzen oder zwischen unterschiedlichen Netzwerken pendeln (roaming). Bitte fragen Sie für weitere Hilfe den Administrator Ihrer Website. <br /><br />Falls Sie weitermachen möchten, aktualisieren Sie bitte die Seite.';
@@ -489,10 +492,10 @@ $string['unknowncontext'] = 'Unbekannter Kontext';
 $string['unknowncourse'] = 'Unbekannter Kurs "{$a}"';
 $string['unknowncourseidnumber'] = 'Unbekannte Kurs-ID "{$a}"';
 $string['unknowncourserequest'] = 'Unbekannte Kursanfrage';
-$string['unknowncoursesection'] = 'Unbekannter Kursbereich im Kurs \'{$a}\'';
+$string['unknowncoursesection'] = 'Unbekannter Kursabschnitt im Kurs \'{$a}\'';
 $string['unknownfiletype'] = 'Fehler: unbekannter Filtertyp';
 $string['unknowngroup'] = 'Unbekannte Gruppe "{$a}"';
-$string['unknownhelp'] = 'Unbekanntes Hilfethema "{$a}"';
+$string['unknownhelp'] = 'Unbekanntes Hilfethema \'{$a}\'';
 $string['unknownjsinrequirejs'] = 'JS-Library \'{$a}\' kann nicht gefunden werden';
 $string['unknownmodulename'] = 'Unbekannter Modulname für das Formular';
 $string['unknownrole'] = 'Unbekannte Rolle "{$a}"';
@@ -508,7 +511,7 @@ $string['unsupportedevent'] = 'Ereignistyp wird nicht unterstützt';
 $string['unsupportedstate'] = 'Vollständigkeitsstatus wird nicht unterstützt';
 $string['unsupportedwebserver'] = 'Die Webserver-Software ({$a}) wird nicht unterstützt';
 $string['upgraderequires19'] = 'Fehler! Es wurde eine neue Moodle-Version auf dem Server installiert. Leider wird das direkte Upgrade auf diese Version nicht unterstützt!<br/>Führen Sie zuerst eine Upgrade auf die letzte Version von 1.9.x durch. Sie haben auch die Möglichkeit, auf die zuvor installierte Version zurückzugreifen wenn Sie die ursprünglichen Dateien wieder reinstallieren.';
-$string['upgraderunning'] = 'Für die Website läuft gerade eine Aktualisierung. Bitte versuchen Sie es später nochmal.';
+$string['upgraderunning'] = 'Diese Website wird gerade aktualisiert. Bitte versuchen Sie es später nochmal.';
 $string['urlnotdefinerss'] = 'URL für RSS-Feed nicht definiert';
 $string['useradmineditadmin'] = 'Nur Administratoren können andere Administratorenaccounts bearbeiten.';
 $string['useradminodelete'] = 'Administratoraccounts können nicht gelöscht werden';

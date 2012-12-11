@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor_tinymce', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'editor_tinymce', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   editor_tinymce
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -265,8 +265,6 @@ $string['autosave:warning_message'] = 'Si restaureu el document desat, perdreu t
 Esteu segurs de voler restaurar el contingut desat ?';
 $string['common:apply'] = 'Aplica';
 $string['common:browse'] = 'Explora';
-$string['common:browseimage'] = 'Cerca i carrega una imatge...';
-$string['common:browsemedia'] = 'Troba i carrega un so, vídeo o aplicació de java...';
 $string['common:cancel'] = 'Cancel·la';
 $string['common:class_name'] = 'Classe';
 $string['common:clipboard_msg'] = 'Copia/Retalla/Enganxa no està disponible en Mozilla/Firefox. Voleu més informació sobre aquest problema?';
@@ -286,9 +284,6 @@ $string['contextmenu:left'] = 'Esquerra';
 $string['contextmenu:right'] = 'Dreta';
 $string['directionality:ltr_desc'] = 'Direcció d\'esquerra a dreta';
 $string['directionality:rtl_desc'] = 'Direcció de dreta a esquerra';
-$string['dragmath:dragmath_desc'] = 'Insereix equació';
-$string['dragmath:dragmath_javaneeded'] = 'Per utilitzar aquesta pàgina us cal un navegador amb Java habilitat. Descarregueu el darrer connector de Java des de {$a}.';
-$string['dragmath:dragmath_title'] = 'Editor d\'equacions Dragmath';
 $string['emotions:delta_height'] = '';
 $string['emotions:delta_width'] = '';
 $string['emotions_dlg:cool'] = 'Ben parit';
@@ -450,21 +445,8 @@ $string['media_dlg:enabled'] = 'Activat';
 $string['media_dlg:enablejavascript'] = 'Activa JavaScript';
 $string['media_dlg:endtime'] = 'Hora final';
 $string['media_dlg:file'] = 'Fitxer/URL';
-$string['media_dlg:filename'] = 'Nom del fitxer';
 $string['media_dlg:flash_options'] = 'Opcions Flash';
 $string['media_dlg:flashvars'] = 'Variables Flash';
-$string['media_dlg:flv_autostart'] = 'Auto inici';
-$string['media_dlg:flv_buffer'] = 'Buffer';
-$string['media_dlg:flv_defaultvolume'] = 'Volum per defecte';
-$string['media_dlg:flv_hiddengui'] = 'GUI Amagada';
-$string['media_dlg:flv_jscallback'] = 'Retorn JS';
-$string['media_dlg:flv_loop'] = 'Cicle';
-$string['media_dlg:flv_options'] = 'Opcions de vídeo Flash';
-$string['media_dlg:flv_scalemode'] = 'Mode d\'escala';
-$string['media_dlg:flv_showscalemodes'] = 'Mostra els modes d\'escala';
-$string['media_dlg:flv_smoothvideo'] = 'Vídeo suau';
-$string['media_dlg:flv_startimage'] = 'Imatge inicial';
-$string['media_dlg:flv_starttime'] = 'Hora inicial';
 $string['media_dlg:fullscreen'] = 'Pantalla completa';
 $string['media_dlg:general'] = 'General';
 $string['media_dlg:hidden'] = 'Ocult';
@@ -519,8 +501,6 @@ $string['media_dlg:windowlessvideo'] = 'Vídeo sense finestra';
 $string['media_dlg:wmode'] = 'Mode de finestra';
 $string['media_dlg:wmp_options'] = 'Opcions Windows Media Player';
 $string['media:edit'] = 'Edita mitjà encastat';
-$string['moodleemoticon:desc'] = 'Insereix emoticona';
-$string['moodlenolink:desc'] = 'Impedeix l\'enllaçat automàtic';
 $string['nonbreaking:nonbreaking_desc'] = 'Insereix espai no separable';
 $string['pagebreak:desc'] = 'Insereix salt de pàgina.';
 $string['paste_dlg:text_linebreaks'] = 'Mantingues els salts de línia';
@@ -529,7 +509,6 @@ $string['paste_dlg:word_title'] = 'Utilitza CTRL+V al teclat per enganxar el tex
 $string['paste:paste_text_desc'] = 'Enganxa com a Text Planer';
 $string['paste:paste_word_desc'] = 'Enganxa des de Word';
 $string['paste:plaintext_mode'] = 'Enganxa està actualment en mode text pla. Premeu de nou per canviar enganxa al mode normal.';
-$string['paste:plaintext_mode_sticky'] = 'Enganxa està actualment en mode text pla. Premeu de nou per canviar enganxa al mode normal. Després d\'enganxar alguna cosa retornareu al mode normal.';
 $string['paste:selectall_desc'] = 'Selecciona-ho Tot';
 $string['pluginname'] = 'Editor HTML TinyMCE';
 $string['preview:preview_desc'] = 'Vista prèvia';

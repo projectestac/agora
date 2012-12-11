@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'page', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'page', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   page
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['configdisplayoptions'] = 'Seleccione todas las opciones que deben estar disponibles; los valores existentes no se modifican. Mantenga pulsada la tecla CTRL para seleccionar varios campos.';
 $string['content'] = 'Contenido de la página';
 $string['contentheader'] = 'Contenido';
+$string['createpage'] = 'Crear nueva página';
 $string['displayoptions'] = 'Opciones de visualización disponibles';
 $string['displayselect'] = 'Mostrar';
 $string['displayselectexplain'] = 'Seleccione el tipo de pantalla';
@@ -35,20 +36,21 @@ $string['legacyfiles'] = 'Migración de ficheros de curso antiguos';
 $string['legacyfilesactive'] = 'Activo';
 $string['legacyfilesdone'] = 'Finalizado';
 $string['modulename'] = 'Página';
-$string['modulename_help'] = 'El módulo Página permite a los profesores crear un recurso página web mediante el editor de textos. Una Página puede mostrar texto, imágenes, sonido, video, enlaces web y código incrustado, como los mapas de Google.
+$string['modulename_help'] = 'El recurso Página permite a los profesores crear una página web mediante el editor de textos. Una Página puede mostrar texto, imágenes, sonido, vídeo, enlaces web y código incrustado (como por ejemplo los mapas de Google) entre otros.
 
-Entre las ventajas de utilizar el módulo Página en lugar del módulo de Archivo está que el recurso es más accesible (por ejemplo, para usuarios de dispositivos móviles) y más fácil actualización.
+Entre las ventajas de utilizar el recurso Página en lugar del recurso de Archivo está que el recurso es más accesible (por ejemplo, para usuarios de dispositivos móviles) y de más fácil actualización.
 
 Una página puede ser utilizada para
 
- * Dar a conocer los términos y condiciones de un curso o el programa del curso
-* Para incrustar varios videos o archivos de sonido, junto con texto explicativo';
+ * Dar a conocer los términos y condiciones de un curso o el programa de la asignatura
+* Para incrustar varios vídeos o archivos de sonido, junto con un texto explicativo';
 $string['modulenameplural'] = 'Páginas';
 $string['neverseen'] = 'Nunca visto';
 $string['optionsheader'] = 'Opciones';
-$string['page-mod-page-x'] = 'Cualquier página del módulo Página';
+$string['page:addinstance'] = 'Añadir un nuevo recurso de página';
+$string['page-mod-page-x'] = 'Cualquier página del recurso Página';
 $string['page:view'] = 'Mostrar contenido de la página';
-$string['pluginadministration'] = 'Administración del módulo página';
+$string['pluginadministration'] = 'Administración del recurso página';
 $string['pluginname'] = 'Página';
 $string['popupheight'] = 'Altura de las ventanas emergentes (en pixels)';
 $string['popupheightexplain'] = 'Especifica la altura predeterminada de ventanas emergentes.';

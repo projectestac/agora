@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scorm', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'scorm', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   scorm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -203,14 +203,7 @@ $string['missingparam'] = 'Falta un paràmetre necessari o el valor és incorrec
 $string['missing_tag'] = 'Falta l\'etiqueta {$a->tag}';
 $string['mode'] = 'Mode';
 $string['modulename'] = 'Paquet SCORM';
-$string['modulename_help'] = 'Un paquet SCORM és un conjunt de fitxers empaquetats d\'acord amb unes especificacions estàndard per als objectes d\'aprenentatge. L\'activitat SCORM permet que es pugin paquets SCORM o AICC com un fitxer zip i s\'afegeixin a un curs.
-
-El contingut es presenta habitualment en diverses pàgines, amb navegació entre les pàgines. Hi ha diverses opcions per mostrar el contingut: en una finestra emergent, amb una taula de continguts, amb botons de navegació, etc. Les activitats SCORM generalment inclouen preguntes, amb qualificacions que es registren al butlletí de qualificacions.
-
-Les activitats SCORM es poden fer servir
-
-* Per a la presentació de continguts multimèdia i animacions
-* Com una eina d\'avaluació';
+$string['modulename_help'] = 'SCORM i AICC són un conjunt d\'especificacions que permeten la interoperabilitat, accessibilitat i reutilització dels continguts d\'aprenentatge basats en la web. El mòdul SCORM/AICC permet que s\'incloguin al curs paquets SCORM/AICC.';
 $string['modulenameplural'] = 'Paquets SCORM';
 $string['navigation'] = 'Navegació';
 $string['newattempt'] = 'Comença un nou intent';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qbehaviour_adaptive', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qbehaviour_adaptive', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   qbehaviour_adaptive
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,5 +30,10 @@ $string['gradingdetails'] = 'Zensur für diese Einreichung: {$a->raw}/{$a->max}.
 $string['gradingdetailsadjustment'] = 'Zusammen mit früheren Versuchen ergibt dies <strong>{$a->cur}/{$a->max}</strong>.';
 $string['gradingdetailspenalty'] = 'Für diese Beantwortung erhielten Sie einen Punktabzug in Höhe von {$a}.';
 $string['gradingdetailspenaltytotal'] = 'Gesamtabzüge bisher: {$a}';
+$string['gradingdetailswithadjustment'] = 'Bewertung für diese Einreichung: {$a->raw}/{$a->max}. Mit Berechnung für frühere Versuche ergibt dies <strong>{$a->cur}/{$a->max}</strong>.';
+$string['gradingdetailswithadjustmentpenalty'] = 'Bewertung für diese Einreichung: {$a->raw}/{$a->max}. Mit Berechnung für frühere Versuche ergibt dies <strong>{$a->cur}/{$a->max}</strong>. Diese Einreichung berücksichtigt einen Abzug von {$a->penalty}.';
+$string['gradingdetailswithadjustmenttotalpenalty'] = 'Bewertung für diese Einreichung: {$a->raw}/{$a->max}. Mit Berechnung für frühere Versuche ergibt dies <strong>{$a->cur}/{$a->max}</strong>. Diese Einreichung berücksichtigt einen Abzug von {$a->penalty}. Gesamtabzug bisher: {$a->totalpenalty}.';
+$string['gradingdetailswithpenalty'] = 'Bewertung für diese Einreichung: {$a->raw}/{$a->max}. Diese Einreichung berücksichtigt einen Abzug von {$a->penalty}.';
+$string['gradingdetailswithtotalpenalty'] = 'Bewertung für diese Einreichung: {$a->raw}/{$a->max}. Diese Einreichung berücksichtigt einen Abzug von {$a->penalty}. Gesamtabzug bisher: {$a->totalpenalty}.';
 $string['notcomplete'] = 'Unvollständig';
 $string['pluginname'] = 'Mehrfachbeantwortung (mit Abzügen)';

@@ -203,7 +203,7 @@ class grade_report_user extends grade_report {
 
         $this->tabledata = array();
 
-        $this->canviewhidden = has_capability('moodle/grade:viewhidden', get_context_instance(CONTEXT_COURSE, $this->courseid));
+        $this->canviewhidden = has_capability('moodle/grade:viewhidden', context_course::instance($this->courseid));
 
         // get the user (for full name)
         $this->user = $DB->get_record('user', array('id' => $userid));
@@ -341,23 +341,29 @@ class grade_report_user extends grade_report {
                 $hidden = ' hidden';
             }
 
+            $hide = false;
             // If this is a hidden grade item, hide it completely from the user.
             if ($grade_grade->is_hidden() && !$this->canviewhidden && (
                     $this->showhiddenitems == GRADE_REPORT_USER_HIDE_HIDDEN ||
                     ($this->showhiddenitems == GRADE_REPORT_USER_HIDE_UNTIL && !$grade_grade->is_hiddenuntil()))) {
-                // return false;
-            } else {
-                // The grade object can be marked visible but still be hidden
-                // if "enablegroupmembersonly" is on and its an activity assigned to a grouping the user is not in
-                if (!empty($grade_object->itemmodule) && !empty($grade_object->iteminstance)) {
-                    $instances = $this->gtree->modinfo->get_instances();
-                    if (!empty($instances[$grade_object->itemmodule][$grade_object->iteminstance])) {
-                        $cm = $instances[$grade_object->itemmodule][$grade_object->iteminstance];
-                        if (!$cm->uservisible) {
-                            return false;
+                $hide = true;
+            } else if (!empty($grade_object->itemmodule) && !empty($grade_object->iteminstance)) {
+                // The grade object can be marked visible but still be hidden if...
+                //  1) "enablegroupmembersonly" is on and the activity is assigned to a grouping the user is not in.
+                //  2) the student cannot see the activity due to conditional access and its set to be hidden entirely.
+                $instances = $this->gtree->modinfo->get_instances_of($grade_object->itemmodule);
+                if (!empty($instances[$grade_object->iteminstance])) {
+                    $cm = $instances[$grade_object->iteminstance];
+                    if (!$cm->uservisible) {
+                        // Further checks are required to determine whether the activity is entirely hidden or just greyed out.
+                        if ($cm->is_user_access_restricted_by_group() || $cm->is_user_access_restricted_by_conditional_access()) {
+                            $hide = true;
                         }
                     }
                 }
+            }
+
+            if (!$hide) {
                 /// Excluded Item
                 if ($grade_grade->is_excluded()) {
                     $fullname .= ' ['.get_string('excluded', 'grades').']';
@@ -870,7 +876,7 @@ function grade_report_user_profilereport($course, $user) {
     global $OUTPUT;
     if (!empty($course->showgrades)) {
 
-        $context = get_context_instance(CONTEXT_COURSE, $course->id);
+        $context = context_course::instance($course->id);
 
         //first make sure we have proper final grades - this must be done before constructing of the grade tree
         grade_regrade_final_grades($course->id);

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldap', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_ldap', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -101,6 +101,8 @@ Dies funktioniert normalerweise sehr gut, wenn Sie LDAP auch zur Nutzerauthentif
 <p>Sie können das LDAP-Anmeldeverfahren auch so konfigurieren, dass automatisch neue Kurse angelegt werden, wenn neue Gruppen in LDAP eingerichtet werden.</p>';
 $string['pluginnotenabled'] = 'Plugin nicht aktiviert!';
 $string['role_mapping'] = '<p>Für jede Rolle, die Sie über LDAP zuweisen möchten, müssen Sie eine Kontextliste angeben, in der die Kursrollen festgelegt sind. Trennen Sie unterschiedliche Kontexte mit einem Semikolon \';\'.</p><p>Zusätzlich müssen Sie das Attribut Ihres LDAP-Servers festlegen, das für Gruppenmitglieder benutzt wird (normalerweise \'member\' or \'memberUid\')</p>';
+$string['role_mapping_attribute'] = 'LDAP Member Attribut für {$a}';
+$string['role_mapping_context'] = 'LDAP Kontexte für {$a}';
 $string['role_mapping_key'] = 'Rollen über LDAP zuweisen';
 $string['roles'] = 'Rollenabbildung';
 $string['server_settings'] = 'Einstellungen für LDAP-Server';

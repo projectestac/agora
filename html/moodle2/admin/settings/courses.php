@@ -15,9 +15,10 @@ if ($hassiteconfig
 /// NOTE: these settings must be applied after all other settings because they depend on them
     ///main course settings
     $temp = new admin_settingpage('coursesettings', new lang_string('coursesettings'));
-    $courseformats = get_plugin_list('format');
+    require_once($CFG->dirroot.'/course/lib.php');
+    $courseformats = get_sorted_course_formats(true);
     $formcourseformats = array();
-    foreach ($courseformats as $courseformat => $courseformatdir) {
+    foreach ($courseformats as $courseformat) {
         $formcourseformats[$courseformat] = new lang_string('pluginname', "format_$courseformat");
     }
     $temp->add(new admin_setting_configselect('moodlecourse/format', new lang_string('format'), new lang_string('coursehelpformat'), 'weeks',$formcourseformats));
@@ -35,10 +36,11 @@ if ($hassiteconfig
     $temp->add(new admin_setting_configselect('moodlecourse/showgrades', new lang_string('showgrades'), new lang_string('coursehelpshowgrades'), 1,array(0 => new lang_string('no'), 1 => new lang_string('yes'))));
     $temp->add(new admin_setting_configselect('moodlecourse/showreports', new lang_string('showreports'), '', 0,array(0 => new lang_string('no'), 1 => new lang_string('yes'))));
 
+    $currentmaxbytes = get_config('moodlecourse', 'maxbytes');
     if (isset($CFG->maxbytes)) {
-        $choices = get_max_upload_sizes($CFG->maxbytes);
+        $choices = get_max_upload_sizes($CFG->maxbytes, 0, 0, $currentmaxbytes);
     } else {
-        $choices = get_max_upload_sizes();
+        $choices = get_max_upload_sizes(0, 0, 0, $currentmaxbytes);
     }
     $temp->add(new admin_setting_configselect('moodlecourse/maxbytes', new lang_string('maximumupload'), new lang_string('coursehelpmaximumupload'), key($choices), $choices));
 
@@ -85,6 +87,7 @@ if ($hassiteconfig
     $temp = new admin_settingpage('courserequest', new lang_string('courserequest'));
     $temp->add(new admin_setting_configcheckbox('enablecourserequests', new lang_string('enablecourserequests', 'admin'), new lang_string('configenablecourserequests', 'admin'), 0));
     $temp->add(new admin_settings_coursecat_select('defaultrequestcategory', new lang_string('defaultrequestcategory', 'admin'), new lang_string('configdefaultrequestcategory', 'admin'), 1));
+    $temp->add(new admin_setting_configcheckbox('requestcategoryselection', new lang_string('requestcategoryselection', 'admin'), new lang_string('configrequestcategoryselection', 'admin'), 0));
     $temp->add(new admin_setting_users_with_capability('courserequestnotify', new lang_string('courserequestnotify', 'admin'), new lang_string('configcourserequestnotify2', 'admin'), array(), 'moodle/site:approvecourse'));
     $ADMIN->add('courses', $temp);
 
@@ -171,6 +174,25 @@ if ($hassiteconfig
         500 => '500');
     $temp->add(new admin_setting_configselect('backup/backup_auto_keep', new lang_string('keep'), new lang_string('backupkeephelp'), 1, $keepoptoins));
     $temp->add(new admin_setting_configcheckbox('backup/backup_shortname', new lang_string('backup_shortname', 'admin'), new lang_string('backup_shortnamehelp', 'admin'), 0));
+    $temp->add(new admin_setting_configcheckbox('backup/backup_auto_skip_hidden', new lang_string('skiphidden', 'backup'), new lang_string('skiphiddenhelp', 'backup'), 1));
+    $temp->add(new admin_setting_configselect('backup/backup_auto_skip_modif_days', new lang_string('skipmodifdays', 'backup'), new lang_string('skipmodifdayshelp', 'backup'), 30, array(
+        0 => new lang_string('never'),
+        1 => new lang_string('numdays', '', 1),
+        2 => new lang_string('numdays', '', 2),
+        3 => new lang_string('numdays', '', 3),
+        5 => new lang_string('numdays', '', 5),
+        7 => new lang_string('numdays', '', 7),
+        10 => new lang_string('numdays', '', 10),
+        14 => new lang_string('numdays', '', 14),
+        20 => new lang_string('numdays', '', 20),
+        30 => new lang_string('numdays', '', 30),
+        60 => new lang_string('numdays', '', 60),
+        90 => new lang_string('numdays', '', 90),
+        120 => new lang_string('numdays', '', 120),
+        180 => new lang_string('numdays', '', 180),
+        365 => new lang_string('numdays', '', 365)
+    )));
+    $temp->add(new admin_setting_configcheckbox('backup/backup_auto_skip_modif_prev', new lang_string('skipmodifprev', 'backup'), new lang_string('skipmodifprevhelp', 'backup'), 0));
 
     // Automated defaults section.
     $temp->add(new admin_setting_heading('automatedsettings', new lang_string('automatedsettings','backup'), ''));

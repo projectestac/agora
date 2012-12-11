@@ -17,7 +17,7 @@
 // |          Bertrand Mansion <bmansion@mamasam.com>                     |
 // +----------------------------------------------------------------------+
 //
-// $Id: radio.php,v 1.3 2012/01/05 14:21:31 moodlerobot Exp $
+// $Id$
 
 require_once('HTML/QuickForm/input.php');
 

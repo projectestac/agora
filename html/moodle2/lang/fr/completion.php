@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'completion', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'completion', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   completion
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,6 @@ $string['achievinggrade'] = 'Obtenir la note';
 $string['activities'] = 'Activités';
 $string['activitiescompleted'] = 'Activités terminées';
 $string['activitycompletion'] = 'Achèvement d\'activité';
-$string['addcourseprerequisite'] = 'Ajouter un cours prérequis';
 $string['afterspecifieddate'] = 'Après la date indiquée';
 $string['aggregationmethod'] = 'Méthode de combinaison';
 $string['all'] = 'Tous';
@@ -51,6 +50,7 @@ $string['completion-alt-manual-enabled'] = 'Les participants peuvent marquer man
 $string['completion-alt-manual-n'] = 'Non terminé : {$a}. Sélectionner pour marquer comme terminé.';
 $string['completion-alt-manual-y'] = 'Terminé : {$a}. Sélectionner pour marquer comme non terminé.';
 $string['completion_automatic'] = 'Afficher l\'activité comme terminée dès que les conditions sont remplies';
+$string['completiondependencies'] = 'Dépendances d\'achèvement';
 $string['completiondisabled'] = 'Désactivé. Pas affiché dans les réglages de l\'activité';
 $string['completionenabled'] = 'Activé. La configuration s\'effectue dans les réglages des activités';
 $string['completionexpected'] = 'Achèvement attendu le';
@@ -91,7 +91,6 @@ $string['coursealreadycompleted'] = 'Vous avez déjà terminé ce cours';
 $string['coursecomplete'] = 'Cours terminé';
 $string['coursecompleted'] = 'Cours terminé';
 $string['coursegrade'] = 'Note du cours';
-$string['courseprerequisites'] = 'Cours prérequis';
 $string['coursesavailable'] = 'Cours disponibles';
 $string['coursesavailableexplaination'] = '<i>Des critères d\'achèvement de cours doivent être fixés pour qu\'un cours apparaisse dans cette liste</i>';
 $string['criteria'] = 'Critères';
@@ -104,7 +103,8 @@ $string['datepassed'] = 'Date échue';
 $string['days'] = 'Jours';
 $string['daysafterenrolment'] = 'Jours après l\'inscription';
 $string['deletecompletiondata'] = 'Supprimer les données d\'achèvement';
-$string['deletecoursecompletiondata'] = 'Supprimer les données d\'achèvement de cours';
+$string['dependencies'] = 'Dépendances';
+$string['dependenciescompleted'] = 'Dépendances terminées';
 $string['durationafterenrolment'] = 'Durée après l\'inscription';
 $string['editcoursecompletionsettings'] = 'Modifier les réglages d\'achèvement du cours';
 $string['enablecompletion'] = 'Activer le suivi de l\'achèvement des activités';
@@ -134,8 +134,6 @@ $string['notyetstarted'] = 'Pas encore commencé';
 $string['overallcriteriaaggregation'] = 'Type de combinaison des critères globaux';
 $string['pending'] = 'En suspens';
 $string['periodpostenrolment'] = 'Durée après l\'inscription';
-$string['prerequisites'] = 'Prérequis';
-$string['prerequisitescompleted'] = 'Prérequis terminés';
 $string['progress'] = 'Suivi des activités des participants';
 $string['progress-title'] = '{$a->user}, {$a->activity} : {$a->state} {$a->date}';
 $string['progresstotal'] = 'Progression : {$a->complete} / {$a->total}';

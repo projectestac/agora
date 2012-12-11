@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'plugin', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,15 +28,29 @@ defined('MOODLE_INTERNAL') || die();
 $string['actions'] = 'Acciones';
 $string['availability'] = 'Disponibilidad';
 $string['checkforupdates'] = 'Compruebe actualizaciones disponibles';
-$string['checkforupdateslast'] = 'Ultima comprobación realizada el {$a}';
+$string['checkforupdateslast'] = 'Última comprobación realizada el {$a}';
 $string['displayname'] = 'Nombre de la extensión';
+$string['err_response_format_version'] = 'Formato de respuesta con versión inesperada. Por favor, trate de revisar nuevamente las actualizaciones disponibles.';
+$string['filterall'] = 'Mostrar todo';
+$string['filtercontribonly'] = 'Mostrar sólo las contribuciones';
+$string['filtercontribonlyactive'] = 'Mostrando sólo las contribuciones';
+$string['filterupdatesonly'] = 'Mostrar sólo las actualizables';
+$string['filterupdatesonlyactive'] = 'Mostrando únicamente actualizables';
+$string['moodleversion'] = 'Moodle {$a}';
 $string['nonehighlighted'] = 'No hay extensiones (plugins) que requieran atención en esta actualización';
 $string['nonehighlightedinfo'] = 'Mostrar la lista de todas las extensiones (plugins) instalados en el sitio';
 $string['noneinstalled'] = 'No se han instalado extensiones (plugins) de este tipo';
 $string['notes'] = 'Notas';
-$string['numdisabled'] = 'Deshabilitadas: {$a}';
-$string['numtotal'] = 'Instalado: {$A}';
+$string['notwritable'] = 'Los archivos de plugins (extensiones) no son escribibles';
+$string['notwritable_help'] = 'Usted ha habilitado que se implementen actualizaciones automáticas y hay una actualización disponible para este plugin (extensión). Sin embargo, los archivos del plugin no son escribibles por el servidor web, por lo que no se pudo instalar la actualización por el momento.
+
+Haga que la carpeta del plugin y todos sus contenidos sean escribibles para poder instalar automáticamente la actualización disponible.';
+$string['numdisabled'] = 'Deshabilitado: {$a}';
+$string['numextension'] = 'Contribuciones: {$a}';
+$string['numtotal'] = 'Instalado: {$a}';
 $string['numupdatable'] = 'Actualizaciones disponibles: {$a}';
+$string['otherplugin'] = '{$a->component}';
+$string['otherpluginversion'] = '{$a->component} ({$a->version})';
 $string['pluginchecknotice'] = 'Esta página muestra las extensiones (plugins) que pueden requerir su atención durante la actualización. Los elementos resaltados incluyen nuevas extensiones (plugins) que están a punto de ser instalados, los que van a ser actualizados y las extensiones (plugins) anteriores que ahora faltan. Las extensiones (plugins) contribuídas también se destacan. Se recomienda que compruebe si hay versiones más recientes de las extensiones (plugins) contribuídas disponibles y actualice  su código fuente antes de continuar con esta actualización de Moodle.';
 $string['plugindisable'] = 'Deshabilitar';
 $string['plugindisabled'] = 'Deshabilitado';
@@ -55,19 +69,24 @@ $string['sourceext'] = 'Contribución';
 $string['sourcestd'] = 'Estándar';
 $string['status'] = 'Estado';
 $string['status_delete'] = 'Para borrar';
-$string['status_downgrade'] = '¡Ya está instalada una versión mayor!';
+$string['status_downgrade'] = 'Una versión mayor ya está instalada';
 $string['status_missing'] = 'Ausente del disco';
-$string['status_new'] = 'A instalar';
+$string['status_new'] = 'Para instalarse';
 $string['status_nodb'] = 'Ninguna base de datos';
 $string['status_upgrade'] = 'Para actualizar';
-$string['status_uptodate'] = 'Instaladas';
+$string['status_uptodate'] = 'Instalado';
 $string['systemname'] = 'Identificador';
-$string['type_auth'] = 'Método de autenticación';
-$string['type_auth_plural'] = 'Plugins de identificación';
+$string['type_auth'] = 'Método de identificación';
+$string['type_auth_plural'] = 'Extensiones de identificación';
 $string['type_block'] = 'Bloque';
 $string['type_block_plural'] = 'Bloques';
+$string['type_cachelock'] = 'Manejador de bloqueo de caché';
+$string['type_cachelock_plural'] = 'Manejadores de bloqueo de caché';
+$string['type_cachestore'] = 'Almacén de caché';
+$string['type_cachestore_plural'] = 'Almacenes de caché';
 $string['type_coursereport'] = 'Informe de curso';
 $string['type_coursereport_plural'] = 'Informes del curso';
+$string['type_editor'] = 'Editor';
 $string['type_editor_plural'] = 'Editores';
 $string['type_enrol'] = 'Método de matriculación';
 $string['type_enrol_plural'] = 'Métodos de matriculación';
@@ -85,7 +104,7 @@ $string['type_gradingform'] = 'Método de calificación avanzado';
 $string['type_gradingform_plural'] = 'Métodos de calificación avanzados';
 $string['type_local'] = 'Extensión (plugin) local';
 $string['type_local_plural'] = 'Extensiones (plugins) locales';
-$string['type_message'] = 'Salida de mensaje';
+$string['type_message'] = 'Salida de mensajes';
 $string['type_message_plural'] = 'Salidas de mensajería';
 $string['type_mnetservice'] = 'Servicio MNet';
 $string['type_mnetservice_plural'] = 'Servicios MNet';
@@ -98,7 +117,7 @@ $string['type_portfolio_plural'] = 'Portafolios';
 $string['type_profilefield'] = 'Tipo de campo de perfil';
 $string['type_profilefield_plural'] = 'Tipos de campos de perfiles';
 $string['type_qbehaviour'] = 'Comportamiento de pregunta';
-$string['type_qbehaviour_plural'] = 'Comportamiento de las preguntas';
+$string['type_qbehaviour_plural'] = 'Comportamientos de pregunta';
 $string['type_qformat'] = 'Formato de importación/exportación de preguntas';
 $string['type_qformat_plural'] = 'Formatos de importación/exportación de preguntas';
 $string['type_qtype'] = 'Tipo de pregunta';
@@ -109,13 +128,18 @@ $string['type_repository'] = 'Repositorio';
 $string['type_repository_plural'] = 'Repositorios';
 $string['type_theme'] = 'Tema';
 $string['type_theme_plural'] = 'Temas';
-$string['type_tool'] = 'Herramienta admin';
+$string['type_tool'] = 'Herramienta de Administración';
 $string['type_tool_plural'] = 'Herramientas de administración';
+$string['type_webservice'] = 'Protocolo Webservice';
 $string['type_webservice_plural'] = 'Ptotocolos de servicios Web';
 $string['uninstall'] = 'Desinstalar';
 $string['updateavailable'] = '¡Existe una nueva versión {$a} disponible!';
 $string['updateavailable_moreinfo'] = 'Más info...';
 $string['updateavailable_release'] = 'Liberado {$a}';
+$string['updatepluginconfirm'] = 'Confirmación de la actualización de la extensión';
+$string['updatepluginconfirmexternal'] = 'Parece que la versión actual de la extensión se ha obtenido a través del chequeo del sistema de gestión de código fuente ({$a}). Si instala esta actualización, ya no podrá obtener las actualizaciones de extensiones a partir del sistema de gestión de código fuente. Por favor, asegúrese antes de continuar  de que realmente quiere actualizar esta extensión.';
+$string['updatepluginconfirminfo'] = 'Usted está a punto de instalar una nueva versión del plugin (extensión) <strong>{$a->name}</strong>. Un paquete ZIP con la versión {$a->version} del plugin será descargado desde <a href="{$a->url}">{$a->url}</a> y será extraído a su instalación de Moodle, para que pueda actualizar su instalación.';
+$string['updatepluginconfirmwarning'] = 'Por favor, tenga en cuenta que Moodle no hará automáticamente una copia de seguridad de su base de datos antes de la actualización. Nosotros le recomendamos encarecidamente que haga una copia de seguridad completa (instantánea) ahora, para lidiar con el raro caso en que el nuevo código tuviese defectos que hicieran a su sitio inoperante o inclusive que corrompiera su base de datos. Proceda bajo su propio riesgo.';
 $string['version'] = 'Versión';
 $string['versiondb'] = 'Versión actual';
 $string['versiondisk'] = 'Nueva versión';

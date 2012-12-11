@@ -48,14 +48,21 @@ class backup_assign_activity_structure_step extends backup_activity_structure_st
                                                   'intro',
                                                   'introformat',
                                                   'alwaysshowdescription',
-                                                  'preventlatesubmissions',
                                                   'submissiondrafts',
                                                   'sendnotifications',
                                                   'sendlatenotifications',
                                                   'duedate',
+                                                  'cutoffdate',
                                                   'allowsubmissionsfromdate',
                                                   'grade',
-                                                  'timemodified'));
+                                                  'timemodified',
+                                                  'completionsubmit',
+                                                  'requiresubmissionstatement',
+                                                  'teamsubmission',
+                                                  'requireallteammemberssubmit',
+                                                  'teamsubmissiongroupingid',
+                                                  'blindmarking',
+                                                  'revealidentities'));
 
         $submissions = new backup_nested_element('submissions');
 
@@ -63,7 +70,8 @@ class backup_assign_activity_structure_step extends backup_activity_structure_st
                                                 array('userid',
                                                       'timecreated',
                                                       'timemodified',
-                                                      'status'));
+                                                      'status',
+                                                      'groupid'));
 
         $grades = new backup_nested_element('grades');
 
@@ -74,7 +82,8 @@ class backup_assign_activity_structure_step extends backup_activity_structure_st
                                                  'grader',
                                                  'grade',
                                                  'locked',
-                                                 'mailed'));
+                                                 'mailed',
+                                                 'extensionduedate'));
 
         $pluginconfigs = new backup_nested_element('plugin_configs');
 
@@ -94,8 +103,9 @@ class backup_assign_activity_structure_step extends backup_activity_structure_st
         $pluginconfigs->add_child($pluginconfig);
 
 
-        // Define sources
+        // Define sources.
         $assign->set_source_table('assign', array('id' => backup::VAR_ACTIVITYID));
+        $pluginconfig->set_source_table('assign_plugin_config', array('assignment' => backup::VAR_PARENTID));
 
         if ($userinfo) {
             $submission->set_source_table('assign_submission',
@@ -103,19 +113,18 @@ class backup_assign_activity_structure_step extends backup_activity_structure_st
 
             $grade->set_source_table('assign_grades',
                                      array('assignment' => backup::VAR_PARENTID));
-            $pluginconfig->set_source_table('assign_plugin_config',
-                                     array('assignment' => backup::VAR_PARENTID));
 
-            // support 2 types of subplugins
+            // Support 2 types of subplugins.
             $this->add_subplugin_structure('assignsubmission', $submission, true);
             $this->add_subplugin_structure('assignfeedback', $grade, true);
         }
 
-
         // Define id annotations
         $submission->annotate_ids('user', 'userid');
+        $submission->annotate_ids('group', 'groupid');
         $grade->annotate_ids('user', 'userid');
         $grade->annotate_ids('user', 'grader');
+        $assign->annotate_ids('grouping', 'teamsubmissiongroupingid');
 
         // Define file annotations
         $assign->annotate_files('mod_assign', 'intro', null); // This file area hasn't itemid

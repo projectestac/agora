@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'webservice', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -49,7 +49,6 @@ $string['createservicedescription'] = 'Un servei és un conjunt de funcions serv
 $string['createserviceforusersdescription'] = 'Un servei és un conjunt de funcions servei web. Podeu permetre als usuaris accés al nou servei. A la pàgina <strong>Afegeix servei</strong> habiliteu les opcions \'Habilita\' i \'Usuaris autoritzats\'. Seleccioneu \'Capacitat no requerida\'.';
 $string['createtoken'] = 'Crea token';
 $string['createtokenforuser'] = 'Crea un token per un usuari';
-$string['createtokenforuserauto'] = 'Crea un token per un usuari automàtic';
 $string['createtokenforuserdescription'] = 'Crea un token per un usuari servei web.';
 $string['createuser'] = 'Crea un usuari especific';
 $string['createuserdescription'] = 'Cal un usuari serveis web per representar el sistema de control de Moodle.';

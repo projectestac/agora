@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'table', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'table', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   table
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,5 +29,6 @@ $string['downloadas'] = 'Descargar datos de la tabla como';
 $string['downloadcsv'] = 'archivo de texto con valores separados por comas';
 $string['downloadexcel'] = 'hoja de cálculo Microsoft Excel';
 $string['downloadods'] = 'hoja de cálculo OpenDocument (ODS)';
+$string['downloadoptions'] = 'Elija las opciones de descarga';
 $string['downloadtsv'] = 'archivo de texto con valores separados por tabuladores';
 $string['downloadxhtml'] = 'documento XHTML no paginado';
