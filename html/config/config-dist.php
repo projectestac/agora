@@ -27,7 +27,7 @@
     // General vars
     $agora['server']['school_information'] = 'http://aplitic.educacio.intranet/pls/xtec/agora_dades_centre?p_codi_centre=';
     $agora['server']['html']               = $agora['server']['server'] . $agora['server']['base'];
-    $agora['server']['cookie']             = 'xtecSchool';
+    $agora['server']['cookie']             = 'xtecSchool'.$agora['server']['enviroment'];
 
     // ubr_upload vars
     $agora['server']['cgi_script']         = $agora['server']['server'] . $agora['server']['cgi_base'] . 'ubr_upload.pl';
