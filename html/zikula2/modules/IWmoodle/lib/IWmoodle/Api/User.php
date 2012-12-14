@@ -168,11 +168,11 @@ class IWmoodle_Api_User extends Zikula_AbstractApi {
         }
         $prefix = ModUtil::getVar('IWmoodle', 'dbprefix');
         if (!isset($role)) {
-            $sql = "SELECT fullname, visible, summary
+            $sql = "SELECT fullname, visible, to_char(summary) as summary
 				FROM $prefix" . "course
 				WHERE $prefix" . "course.id = $args[courseid]";
         } else {
-            $sql = "SELECT fullname, visible, summary, name, $prefix" . "course.id
+            $sql = "SELECT fullname, visible, to_char(summary) as summary, name, $prefix" . "course.id
 				FROM $prefix" . "course, $prefix" . "role
 				WHERE $prefix" . "course.id = $courseid
 				AND $prefix" . "role.id = $role";
@@ -184,12 +184,15 @@ class IWmoodle_Api_User extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
 
-        $array = oci_fetch_row($results);
+        $array = oci_fetch_array($results);
         $registre = array('fullname' => $array[0],
             'visible' => $array[1],
-            'summary' => $array[2],
-            'rolename' => $array[3],
-            'id' => $array[4]);
+            'summary' => $array['SUMMARY']);
+
+        if (isset($role)) {
+            $registre = array('rolename' => $array[3],
+                'id' => $array[4]);
+        }
         oci_close($connect);
         // Return and array with values
         return $registre;
@@ -216,7 +219,7 @@ class IWmoodle_Api_User extends Zikula_AbstractApi {
         $sql = "SELECT id, password, auth, mnethostid
 			FROM $prefix" . "user
 			WHERE username='$username'";
-        
+
         $results = oci_parse($connect, $sql);
         $r = oci_execute($results);
         if (!$r) {
@@ -256,7 +259,7 @@ class IWmoodle_Api_User extends Zikula_AbstractApi {
         if (!$connect) {
             return LogUtil::registerError($this->__('The connection to Moodle database has failed.'));
         }
-        $sql = "SELECT $prefix" . "course.id, $prefix" . "role.name, $prefix" . "course.summary, $prefix" . "course.fullname
+        $sql = "SELECT $prefix" . "course.id, $prefix" . "role.name as rolename, to_char($prefix" . "course.summary) as summary, $prefix" . "course.fullname
 			FROM $prefix" . "course, $prefix" . "context, $prefix" . "role_assignments, $prefix" . "role
 			WHERE $prefix" . "context.id = $prefix" . "role_assignments.contextid 
 			AND $prefix" . "role_assignments.userid = $userid
@@ -270,11 +273,11 @@ class IWmoodle_Api_User extends Zikula_AbstractApi {
             oci_close($connect);
             return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
-        while ($array = oci_fetch_assoc($results)) {
-            $registres[] = array('id' => $array[0],
-                'rolename' => $array[1],
-                'summary' => $array[2],
-                'fullname' => $array[3]);
+        while ($array = oci_fetch_array($results)) {
+            $registres[] = array('id' => $array['ID'],
+                'rolename' => $array['ROLENAME'],
+                'summary' => $array['SUMMARY'],
+                'fullname' => $array['FULLNAME']);
         }
         oci_close($connect);
         // Return and array with values

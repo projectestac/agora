@@ -2,6 +2,11 @@
 
 class IWmoodle_Controller_Admin extends Zikula_AbstractController {
 
+    protected function postInitialize() {
+        // Set caching to false by default.
+        $this->view->setCaching(false);
+    }
+
     /**
      * Show the list of avaliables courses
      * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
@@ -30,9 +35,6 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             return false;
         }
 
-        // Create output object
-        $view = Zikula_View::getInstance('IWmoodle', false);
-
         $courses = ModUtil::apiFunc('IWmoodle', 'admin', 'getall');
         if ($courses) {
             foreach ($courses as $course) {
@@ -53,27 +55,11 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
                     'visible' => $course['visible'],
                     'format' => $format,
                     'summary' => nl2br($course['summary']),
-                    'activation' => $activation);
+                    'activation' => 0);
             }
         }
-        $view->assign('courses', $courses_array);
-        return $view->fetch('iwmoodle_admin_main.htm');
-    }
-
-    /**
-     * Show the information about the module
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
-     * @return:	The information about this module
-     */
-    public function module($args) {
-        // Create output object
-        $view = Zikula_View::getInstance('IWmoodle', false);
-
-        $module = ModUtil::func('IWmain', 'user', 'module_info', array('module_name' => 'IWmoodle',
-                    'type' => 'admin'));
-
-        $view->assign('module', $module);
-        return $view->fetch('iwmoodle_user_module.htm');
+        return $this->view->assign('courses', $courses_array)
+                        ->fetch('iwmoodle_admin_main.htm');
     }
 
     /**
@@ -116,23 +102,22 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         foreach ($string as $key => $value) {
             $countries[] = array('key' => $key, 'value' => $value);
         }
-        // Create output object
-        $view = Zikula_View::getInstance('IWmoodle', false);
-        $multizk = (isset($GLOBALS['ZConfig']['Multisites']['multi']) && $GLOBALS['ZConfig']['Multisites']['multi'] == 1) ? 1 : 0;
-        $view->assign('multizk', $multizk);
-        $view->assign('countries', $countries);
-        $view->assign('langs', $langs);
-        $view->assign('moodleurl', ModUtil::getVar('IWmoodle', 'moodleurl'));
-        $view->assign('dbprefix', ModUtil::getVar('IWmoodle', 'dbprefix'));
-        $view->assign('newwindow', ModUtil::getVar('IWmoodle', 'newwindow'));
-        $view->assign('guestuser', ModUtil::getVar('IWmoodle', 'guestuser'));
-        $view->assign('dfl_description', ModUtil::getVar('IWmoodle', 'dfl_description'));
-        $view->assign('dfl_language', ModUtil::getVar('IWmoodle', 'dfl_language'));
-        $view->assign('dfl_country', ModUtil::getVar('IWmoodle', 'dfl_country'));
-        $view->assign('dfl_city', ModUtil::getVar('IWmoodle', 'dfl_city'));
-        $view->assign('dfl_gtm', ModUtil::getVar('IWmoodle', 'dfl_gtm'));
 
-        return $view->fetch('iwmoodle_admin_conf.htm');
+        $multizk = (isset($GLOBALS['ZConfig']['Multisites']['multi']) && $GLOBALS['ZConfig']['Multisites']['multi'] == 1) ? 1 : 0;
+
+        return $this->view->assign('multizk', $multizk)
+                        ->assign('countries', $countries)
+                        ->assign('langs', $langs)
+                        ->assign('moodleurl', ModUtil::getVar('IWmoodle', 'moodleurl'))
+                        ->assign('dbprefix', ModUtil::getVar('IWmoodle', 'dbprefix'))
+                        ->assign('newwindow', ModUtil::getVar('IWmoodle', 'newwindow'))
+                        ->assign('guestuser', ModUtil::getVar('IWmoodle', 'guestuser'))
+                        ->assign('dfl_description', ModUtil::getVar('IWmoodle', 'dfl_description'))
+                        ->assign('dfl_language', ModUtil::getVar('IWmoodle', 'dfl_language'))
+                        ->assign('dfl_country', ModUtil::getVar('IWmoodle', 'dfl_country'))
+                        ->assign('dfl_city', ModUtil::getVar('IWmoodle', 'dfl_city'))
+                        ->assign('dfl_gtm', ModUtil::getVar('IWmoodle', 'dfl_gtm'))
+                        ->fetch('iwmoodle_admin_conf.htm');
     }
 
     /**
@@ -220,11 +205,11 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             return LogUtil::registerPermissionError();
         }
 
-        // Create output object
-        $view = Zikula_View::getInstance('IWmoodle', false);
+        $users_array = array();
 
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $usersName = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv));
+        $usersName = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('info' => 'l',
+                    'sv' => $sv));
 
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $usersFullname = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('info' => 'ccn',
@@ -238,37 +223,37 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             // gets the course users by role
             $users = ModUtil::apiFunc('IWmoodle', 'admin', 'getallusersbyrole', array('id' => $id,
                         'role' => $role['id']));
+            if ($users) {
+                foreach ($users as $user) {
+                    // gets the user's name in the intranet
+                    // if this parameter is void the user is created into the intranet but not into Moodle
+                    $userPNuid = ModUtil::apiFunc('IWmoodle', 'admin', 'getuserPNuid', array('pn_uname' => $user['username']));
+                    $userfullname = $usersFullname[$userPNuid];
+                    if ($userfullname == '') {
+                        $userfullname = $this->__('He/She is a Moodle user but not an intranet user');
+                        $state = 1;
+                    } else {
+                        $state = 2;
+                    }
 
-            foreach ($users as $user) {
-                // gets the user's name in the intranet
-                // if this parameter is void the user is created into the intranet but not into Moodle
-                $userPNuid = ModUtil::apiFunc('IWmoodle', 'admin', 'getuserPNuid', array('pn_uname' => $user['username']));
-                $userfullname = $usersFullname[$userPNuid];
-                if ($userfullname == '') {
-                    $userfullname = $this->__('He/She is a Moodle user but not an intranet user');
-                    $state = 1;
-                } else {
-                    $state = 2;
+                    //get the user small photo
+                    $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+                    $photo_s = ModUtil::func('IWmain', 'user', 'getUserPicture', array('uname' => $user['username'] . '_s',
+                                'sv' => $sv));
+
+                    $lastaccess = ($user['lastaccess'] > 0) ? date('d/m/Y - H.i', $user['lastaccess']) : 0;
+
+                    $users_array[] = array('userfullname' => $userfullname,
+                        'id' => $user['userid'],
+                        'username' => $user['username'],
+                        'photo' => $photo_s,
+                        'auth' => $user['auth'],
+                        'lastaccess' => $lastaccess,
+                        'state' => $state,
+                        'rolename' => $role['name'],
+                        'roleid' => $user['roleid']);
                 }
-
-                //get the user small photo
-                $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-                $photo_s = ModUtil::func('IWmain', 'user', 'getUserPicture', array('uname' => $user['username'] . '_s',
-                            'sv' => $sv));
-
-                $lastaccess = ($user['lastaccess'] > 0) ? date('d/m/Y - H.i', $user['lastaccess']) : 0;
-
-                $users_array[] = array('userfullname' => $userfullname,
-                    'id' => $user['userid'],
-                    'username' => $user['username'],
-                    'photo' => $photo_s,
-                    'auth' => $user['auth'],
-                    'lastaccess' => $lastaccess,
-                    'state' => $state,
-                    'rolename' => $role['name'],
-                    'roleid' => $user['roleid']);
             }
-
             // gets the list of users pre-enroled in the course
             $pre_users = ModUtil::apiFunc('IWmoodle', 'admin', 'getallpreins', array('id' => $id,
                         'role' => $role['id']));
@@ -295,10 +280,10 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             sort($users_array);
         }
 
-        $view->assign('course', $id);
-        $view->assign('users', $users_array);
-        $view->assign('fullname', $course['fullname']);
-        return $view->fetch('iwmoodle_admin_list.htm');
+        return $this->view->assign('course', $id)
+                        ->assign('users', $users_array)
+                        ->assign('fullname', $course['fullname'])
+                        ->fetch('iwmoodle_admin_list.htm');
     }
 
     /**
@@ -320,7 +305,8 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
 
         // Gets username
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $username = ModUtil::func('IWmain', 'user', 'getUserInfo', array('uid' => $userid,
+        $username = ModUtil::func('IWmain', 'user', 'getUserInfo', array('info' => 'l',
+                    'uid' => $userid,
                     'sv' => $sv));
 
         if ($username == '') {
@@ -398,9 +384,6 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             return LogUtil::registerPermissionError();
         }
 
-        // Create output object
-        $view = Zikula_View::getInstance('IWmoodle', false);
-
         // delete the pre-enrolements
         foreach ($delete_pre as $del_pre) {
             $deleted_pre = ModUtil::apiFunc('IWmoodle', 'user', 'delete_pre', array('mid' => $del_pre));
@@ -446,10 +429,6 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             return System::redirect(ModUtil::url('IWmoodle', 'admin', 'usersList', array('id' => $id)));
         }
 
-        // Create output object
-        $view = Zikula_View::getInstance('IWmoodle', false);
-
-
         $course = ModUtil::apiFunc('IWmoodle', 'user', 'getcourse', array('courseid' => $id));
 
         if (!$course) {
@@ -470,18 +449,15 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
                     'plus' => $this->__('All'),
                     'sv' => $sv));
 
-        $view->assign('groups', $groups);
-        $view->assign('people', $people);
-        $view->assign('role', $role);
-
-        $view->assign('group', $group);
-        $view->assign('person', $person);
-        $view->assign('roles', $roles);
-
-        $view->assign('id', $id);
-        $view->assign('fullname', $course['fullname']);
-
-        return $view->fetch('iwmoodle_admin_enrole.htm');
+        return $this->view->assign('groups', $groups)
+                        ->assign('people', $people)
+                        ->assign('role', $role)
+                        ->assign('group', $group)
+                        ->assign('person', $person)
+                        ->assign('roles', $roles)
+                        ->assign('id', $id)
+                        ->assign('fullname', $course['fullname'])
+                        ->fetch('iwmoodle_admin_enrole.htm');
     }
 
     /**
@@ -560,9 +536,6 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             return LogUtil::registerPermissionError();
         }
 
-        // Create output object
-        $view = Zikula_View::getInstance('IWmoodle', false);
-
         if ($numitems == '') {
             $numitems = 20;
         }
@@ -573,8 +546,11 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             $filtre = '';
         }
 
+        $maxitem = 0;
+
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $usersName = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv));
+        $usersName = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('info' => 'l',
+                    'sv' => $sv));
 
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $usersFullname = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('info' => 'ncc',
@@ -614,18 +590,18 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         if ($usuaris) {
             foreach ($usuaris as $usuari) {
                 $userMDuid = ModUtil::apiFunc('IWmoodle', 'user', 'getuserMDuid', array('username' => $usersName[$usuari['uid']]));
-
-                if ($userMDuid['auth'] == 'db') {
+                //$userConnect = ($userMDuid['auth'] == 'db') ? 1 : (ModUtil::apiFunc('IWmoodle', 'user', 'is_user', array('user' => $usersName[$usuari['uid']]))) ? 0 : -1;
+                if ($userMDuid['auth'] == 'db'){
                     $userConnect = 1;
                 } else {
                     $userConnect = (ModUtil::apiFunc('IWmoodle', 'user', 'is_user', array('user' => $usersName[$usuari['uid']]))) ? 0 : -1;
                 }
-
+                
                 $users_MS[] = array('uid' => $usuari['uid'],
                     'username' => $usersName[$usuari['uid']],
                     'user' => $usersFullname[$usuari['uid']],
                     'userConnect' => $userConnect,
-                    'pass' => $usuari['password']);
+                    'pass' => $usuari['pass']);
 
                 if ($usuari['uid'] > $maxitem) {
                     $maxitem = $usuari['uid'];
@@ -662,19 +638,18 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             }
         }
 
-        $view->assign('pager', $pager);
-        $view->assign('leters', $leters);
-        $view->assign('campfiltre', $campfiltre);
-        $view->assign('filtre', $filtre);
-        $view->assign('numitems', $numitems);
-        $view->assign('maxitem', $maxitem);
-        $view->assign('numitems_MS', $numitems_MS);
-        $view->assign('campsfiltre_MS', $campsfiltre_MS);
-        $view->assign('users_MS', $users_MS);
-        $view->assign('inici', $inici);
-        $view->assign('moodleUsers', $moodleUsersArray);
-
-        return $view->fetch('iwmoodle_admin_sincron.htm');
+        return $this->view->assign('pager', $pager)
+                        ->assign('leters', $leters)
+                        ->assign('campfiltre', $campfiltre)
+                        ->assign('filtre', $filtre)
+                        ->assign('numitems', $numitems)
+                        ->assign('maxitem', $maxitem)
+                        ->assign('numitems_MS', $numitems_MS)
+                        ->assign('campsfiltre_MS', $campsfiltre_MS)
+                        ->assign('users_MS', $users_MS)
+                        ->assign('inici', $inici)
+                        ->assign('moodleUsers', $moodleUsersArray)
+                        ->fetch('iwmoodle_admin_sincron.htm');
     }
 
     /**
@@ -703,7 +678,8 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         $this->checkCsrfToken();
 
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $usersName = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv));
+        $usersName = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('info' => 'l',
+                    'sv' => $sv));
 
         $status = false;
 
@@ -767,7 +743,8 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         $this->checkCsrfToken();
 
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $usersName = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv));
+        $usersName = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('info' => 'l',
+                    'sv' => $sv));
 
         if (is_array($user_id)) {
             foreach ($user_id as $id) {
@@ -841,9 +818,6 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             return LogUtil::registerPermissionError();
         }
 
-        // Create output object
-        $view = Zikula_View::getInstance('IWmoodle', false);
-
         // Quick check to ensure that we have work to do
         if ($total <= $rpp) {
             return;
@@ -899,8 +873,8 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         }
         $items[] = array('text' => $text);
 
-        $view->assign('items', $items);
-        return $view->fetch('iwmoodle_admin_pager.htm');
+        return $this->view->assign('items', $items)
+                        ->fetch('iwmoodle_admin_pager.htm');
     }
 
 }

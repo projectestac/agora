@@ -15,7 +15,12 @@ RewriteCond %{REQUEST_URI} ([^/]*)/usu1/moodle/ [OR]
 RewriteCond %{REQUEST_URI} ([^/]*)/usu2/moodle/ 
 RewriteRule ^([^.]*)/moodle/(.*)$ moodle2/$2?ccentre=$1 [QSA,L]
 
-#RewriteRule ^([^/]*)/intranet(.*)$ - [R=503,L]
+# for the intranets that test the new version
+RewriteCond %{REQUEST_URI} ([^/]*)/usu1/intranet/ [OR]
+RewriteCond %{REQUEST_URI} ([^/]*)/usu3/intranet/
+RewriteRule ^([^.]*)/intranet/(.*)$ zikula2/$2?ccentre=$1 [QSA,L]
+# END
+
 RewriteRule ^([^/]*)/intranet$ $1/intranet/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/intranet/(.*)$ zikula/$2?ccentre=$1 [QSA,L]
 

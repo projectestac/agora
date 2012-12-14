@@ -55,6 +55,7 @@ class IWjclic_Block_jclic extends Zikula_Controller_AbstractBlock {
         }
 
         $jclicStudent_array = array();
+        $jclicTeacher_array = array();
 
         //get the activities that the user has assigned to other users
         $activitiesAssigned = ModUtil::apiFunc('IWjclic', 'user', 'getAllActivitiesAssigned');

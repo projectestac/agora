@@ -3,13 +3,15 @@
 class IWmoodle_Api_Admin extends Zikula_AbstractApi {
 
     public function getlinks($args) {
+        $id = FormUtil::getPassedValue('id', isset($args['id']) ? $args['id'] : 0, 'GET');
         $links = array();
         if (SecurityUtil::checkPermission('IWmoodle::', "::", ACCESS_ADMIN)) {
-        $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'main'), 'text' => $this->__('Show available courses'), 'class' => 'z-icon-es-view');
-        $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'enrole'), 'text' => $this->__('Enrol users into the course'), 'class' => 'z-icon-es-group');
-        $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'conf'), 'text' => $this->__('Module configuration'), 'class' => 'z-icon-es-config');
-        $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'sincron'), 'text' => $this->__('Synchronize users'), 'class' => 'z-icon-es-group');
-        $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'usersList'), 'text' => $this->__('Return to the course users list'), 'class' => 'z-icon-es-view');
+            $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'main'), 'text' => $this->__('Show available courses'), 'class' => 'z-icon-es-view');
+            if ($id > 0) {
+                $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'enrole'), 'text' => $this->__('Enrol users into the course'), 'class' => 'z-icon-es-group');
+            }
+            $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'conf'), 'text' => $this->__('Module configuration'), 'class' => 'z-icon-es-config');
+            $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'sincron'), 'text' => $this->__('Synchronize users'), 'class' => 'z-icon-es-group');
         }
         return $links;
     }
@@ -52,32 +54,30 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
      * @return:	The main information about the courses avaliable in Moodle
      */
     public function getall() {
-
-        extract($args);
         // Security check
         if (!SecurityUtil::checkPermission('IWmoodle::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
         }
         $prefix = ModUtil::getVar('IWmoodle', 'dbprefix');
-        $connect = DBConnectionStack::init('moodle2');
+        $connect = ModUtil::apiFunc('IWmoodle', 'user', 'connectExtDB');
         if (!$connect) {
             return LogUtil::registerError($this->__('The connection to Moodle database has failed.'));
         }
-        DBConnectionStack::popConnection();
         $sql = "SELECT
-			id, fullname, summary, shortname, format, visible
+			id, fullname, to_char(summary), shortname, format, visible
 			FROM
 				$prefix" . "course
 			WHERE
 				category > 0
 			ORDER BY
 				id DESC";
-        $rs = $connect->Execute($sql);
-        if (!$rs) {
-            $connect->close();
-            return $registres;
+        $results = oci_parse($connect, $sql);
+        $r = oci_execute($results);
+        if (!$r) {
+            oci_close($connect);
+            return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
-        while ($array = $rs->FetchRow()) {
+        while ($array = oci_fetch_array($results)) {
             $registres[] = array('id' => $array[0],
                 'fullname' => $array[1],
                 'summary' => $array[2],
@@ -85,7 +85,7 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
                 'format' => $array[4],
                 'visible' => $array[5]);
         }
-        $connect->close();
+        oci_close($connect);
         return $registres;
     }
 
@@ -103,21 +103,21 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerPermissionError();
         }
         $prefix = ModUtil::getVar('IWmoodle', 'dbprefix');
-        $connect = DBConnectionStack::init('moodle2');
+        $connect = ModUtil::apiFunc('IWmoodle', 'user', 'connectExtDB');
         if (!$connect) {
             return LogUtil::registerError($this->__('The connection to Moodle database has failed.'));
         }
-        DBConnectionStack::popConnection();
         $sql = "DELETE FROM
 			$prefix" . "role_assignments
 			WHERE
 				$prefix" . "role_assignments.id=$roleid";
-        $result = $connect->Execute($sql);
-        if (!$result) {
-            $connect->close();
-            return LogUtil::registerError($this->__('Error! Sorry! Deletion attempt failed.'));
+        $results = oci_parse($connect, $sql);
+        $r = oci_execute($results);
+        if (!$r) {
+            oci_close($connect);
+            return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
-        $connect->close();
+        oci_close($connect);
         // Return and array with values
         return true;
     }
@@ -136,11 +136,10 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerPermissionError();
         }
         $prefix = ModUtil::getVar('IWmoodle', 'dbprefix');
-        $connect = DBConnectionStack::init('moodle2');
+        $connect = ModUtil::apiFunc('IWmoodle', 'user', 'connectExtDB');
         if (!$connect) {
             return LogUtil::registerError($this->__('The connection to Moodle database has failed.'));
         }
-        DBConnectionStack::popConnection();
         //get course
         $course = ModUtil::apiFunc('IWmoodle', 'user', 'getcourse', array('courseid' => $id));
         $visible = ($course['visible'] == 0) ? 1 : 0;
@@ -150,12 +149,13 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
 				visible = $visible
 			WHERE
 				id=$id";
-        $result = $connect->Execute($sql);
-        if (!$result) {
-            $connect->close();
-            return LogUtil::registerError($this->__('Error! Update attempt failed.'));
+        $results = oci_parse($connect, $sql);
+        $r = oci_execute($results);
+        if (!$r) {
+            oci_close($connect);
+            return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
-        $connect->close();
+        oci_close($connect);
         return true;
     }
 
@@ -168,16 +168,16 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
     public function getallusersbyrole($args) {
 
         extract($args);
+        $registres = array();
         // Security check
         if (!SecurityUtil::checkPermission('IWmoodle::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
         }
         $prefix = ModUtil::getVar('IWmoodle', 'dbprefix');
-        $connect = DBConnectionStack::init('moodle2');
+        $connect = ModUtil::apiFunc('IWmoodle', 'user', 'connectExtDB');
         if (!$connect) {
             return LogUtil::registerError($this->__('The connection to Moodle database has failed.'));
         }
-        DBConnectionStack::popConnection();
         $sql = "SELECT
 			$prefix" . "course.id, userid, username, auth, lastaccess, contextid, $prefix" . "role_assignments.id
 			FROM
@@ -189,12 +189,13 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
 				AND $prefix" . "role_assignments.roleid = $role
 				AND $prefix" . "role_assignments.userid = $prefix" . "user.id 
 				AND $prefix" . "course.id=$id";
-        $rs = $connect->Execute($sql);
-        if (!$rs) {
-            $connect->close();
-            return LogUtil::registerError(_SELECTFAILED);
+        $results = oci_parse($connect, $sql);
+        $r = oci_execute($results);
+        if (!$r) {
+            oci_close($connect);
+            return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
-        while ($array = $rs->FetchRow()) {
+        while ($array = oci_fetch_array($results)) {
             $registres[] = array('id' => $array[0],
                 'userid' => $array[1],
                 'username' => $array[2],
@@ -203,7 +204,7 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
                 'contextid' => $array[5],
                 'roleid' => $array[6]);
         }
-        $connect->close();
+        oci_close($connect);
         // Return and array with values
         return $registres;
     }
@@ -221,25 +222,25 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerPermissionError();
         }
         $prefix = ModUtil::getVar('IWmoodle', 'dbprefix');
-        $connect = DBConnectionStack::init('moodle2');
+        $connect = ModUtil::apiFunc('IWmoodle', 'user', 'connectExtDB');
         if (!$connect) {
             return LogUtil::registerError($this->__('The connection to Moodle database has failed.'));
         }
-        DBConnectionStack::popConnection();
         $sql = "SELECT
 			$prefix" . "role.id, $prefix" . "role.name
 			FROM
 				$prefix" . "role";
-        $rs = $connect->Execute($sql);
-        if (!$rs) {
-            $connect->close();
-            return LogUtil::registerError(_SELECTFAILED);
+        $results = oci_parse($connect, $sql);
+        $r = oci_execute($results);
+        if (!$r) {
+            oci_close($connect);
+            return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
-        while ($array = $rs->FetchRow()) {
+        while ($array = oci_fetch_array($results)) {
             $registres[] = array('id' => $array[0],
                 'name' => $array[1]);
         }
-        $connect->close();
+        oci_close($connect);
         // Return and array with values
         return $registres;
     }
@@ -283,23 +284,21 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         $enrolid = ModUtil::apiFunc('IWmoodle', 'admin', 'getEnrolId', array('courseid' => $course));
 
         if (!$enrolid > 0) {
-            $connect->close();
+            oci_close($connect);
             return LogUtil::registerError($this->__('The manual inscription method is not defined in course. You showd define if from Moodle administration tools.'));
         }
 
-        $connect = DBConnectionStack::init('moodle2');
+        $connect = ModUtil::apiFunc('IWmoodle', 'user', 'connectExtDB');
         if (!$connect) {
             return LogUtil::registerError($this->__('The connection to Moodle database has failed.'));
         }
-
-        DBConnectionStack::popConnection();
         $time = time();
 
         // get context id
         $sql = "SELECT $prefix" . "context.id FROM $prefix" . "context WHERE $prefix" . "context.instanceid=$course AND $prefix" . "context.contextlevel=50";
         $rs = $connect->Execute($sql);
         if (!$rs) {
-            $connect->close();
+            oci_close($connect);
             return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
         $array = $rs->FetchRow();
@@ -309,7 +308,7 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
 
         $result = $connect->Execute($sql);
         if (!$result) {
-            $connect->close();
+            oci_close($connect);
             return LogUtil::registerError($this->__('An error occurred doing the action.'));
         }
 
@@ -318,11 +317,11 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
 
         $result = $connect->Execute($sql);
         if (!$result) {
-            $connect->close();
+            oci_close($connect);
             return LogUtil::registerError($this->__('An error occurred doing the action.'));
         }
 
-        $connect->close();
+        oci_close($connect);
         return true;
     }
 
@@ -333,15 +332,38 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
      * @return:	The number of users who satisfy the rule
      */
     public function nombre($args) {
-
         extract($args);
         // Security check
         if (!SecurityUtil::checkPermission('IWmoodle::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
         }
-        // Connect with database
-        list($dbconn) = DBConnectionStack::getConnection();
-        $pntable = & DBUtil::getTables();
+        /*
+          $myJoin[] = array('join_table' => 'group_membership',
+          'join_field' => array(),
+          'object_field_name' => array(),
+          'compare_field_table' => 'uid',
+          'compare_field_join' => 'uid');
+
+          $myJoin[] = array('join_table' => 'users',
+          'join_field' => array('uid', 'pass'),
+          'object_field_name' => array('uid', 'pass'),
+          'compare_field_table' => 'uid',
+          'compare_field_join' => 'uid');
+
+          $tables = DBUtil::getTables();
+          $ocolumn = $tables['group_membership_column'];
+          $lcolumn = $tables['users_column'];
+          if ($filtre == '0') {
+          $filtre = '';
+          }
+          $filtregrup = ($campfiltre != '0') ? " $ocolumn[gid] = " . (int) DataUtil::formatForStore($campfiltre) . " and " : '';
+          $where = $filtregrup . " $lcolumn[uname] LIKE '" . $filtre . "%'";
+          $orderby = "$lcolumn[uname]";
+          $items = DBUtil::selectObjectCount('group_membership', $myJoin, $where);
+          return $items;
+         * 
+         */
+        $pntable = DBUtil::getTables();
         $t = $pntable['group_membership'];
         $c = $pntable['group_membership_column'];
         $t1 = $pntable['users'];
@@ -351,22 +373,48 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         }
         $filtregrup = ($campfiltre != '0') ? " $c[gid] = " . (int) DataUtil::formatForStore($campfiltre) . " and " : '';
         $sql = "SELECT COUNT(DISTINCT $t.$c[uid])
-			FROM
-				$t, $t1
-			WHERE
-				" . $filtregrup . " $t.$c[uid] = $t1.$c1[uid]
-				AND $c1[uname] LIKE '" . $filtre . "%'
-			ORDER BY
-				$c1[uname]";
-        $registre = $dbconn->Execute($sql);
-        if ($dbconn->ErrorNo() != 0) {
-            $connect->close();
-            return LogUtil::registerError($this->__('Error! Could not load items.'));
-        }
+          FROM
+          $t, $t1
+          WHERE
+          " . $filtregrup . " $t.$c[uid] = $t1.$c1[uid]
+          AND $c1[uname] LIKE '" . $filtre . "%'
+          ORDER BY
+          $c1[uname]";
+
+        $registre = DBUtil::executeSQL($sql);
+
         list($nombre) = $registre->fields;
-        $registre->close();
+
         // Return and array with values
         return $nombre;
+
+        /*
+          $t = $pntable['group_membership'];
+          $c = $pntable['group_membership_column'];
+          $t1 = $pntable['users'];
+          $c1 = $pntable['users_column'];
+          if ($filtre == '0') {
+          $filtre = '';
+          }
+          $filtregrup = ($campfiltre != '0') ? " $c[gid] = " . (int) DataUtil::formatForStore($campfiltre) . " and " : '';
+          $sql = "SELECT COUNT(DISTINCT $t.$c[uid])
+          FROM
+          $t, $t1
+          WHERE
+          " . $filtregrup . " $t.$c[uid] = $t1.$c1[uid]
+          AND $c1[uname] LIKE '" . $filtre . "%'
+          ORDER BY
+          $c1[uname]";
+          $registre = $dbconn->Execute($sql);
+          if ($dbconn->ErrorNo() != 0) {
+          oci_close($connect);
+          return LogUtil::registerError($this->__('Error! Could not load items.'));
+          }
+          list($nombre) = $registre->fields;
+          // Return and array with values
+          return $nombre;
+         * 
+         */
     }
 
     /**
@@ -383,11 +431,11 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerPermissionError();
         }
         $prefix = ModUtil::getVar('IWmoodle', 'dbprefix');
-        $connect = DBConnectionStack::init('moodle2');
+        $connect = ModUtil::apiFunc('IWmoodle', 'user', 'connectExtDB');
         if (!$connect) {
             return LogUtil::registerError($this->__('The connection to Moodle database has failed.'));
         }
-        DBConnectionStack::popConnection();
+        $user_pass = substr($user_pass, 3, strlen($user_pass));
         if ($user_connect == 1) {
             $sql = "UPDATE
 				$prefix" . "user
@@ -395,7 +443,8 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
 					auth='manual',password='$user_pass'
 				WHERE
 					username='$user_name'";
-            $result = $connect->Execute($sql);
+            $results = oci_parse($connect, $sql);
+            $r = oci_execute($results);
         } elseif ($user_connect == 0) {
             $sql = "UPDATE
 				$prefix" . "user
@@ -403,15 +452,17 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
 				auth='db',password='$user_pass'
 			WHERE
 				username='$user_name'";
-            $result = $connect->Execute($sql);
+            $results = oci_parse($connect, $sql);
+            $r = oci_execute($results);
         } else {
-            $result = ModUtil::apiFunc('IWmoodle', 'admin', 'inscriu', array('uid' => $user_id));
+            $r = ModUtil::apiFunc('IWmoodle', 'admin', 'inscriu', array('uid' => $user_id));
         }
-        if (!$result) {
-            $connect->close();
+
+        if (!$r) {
+            oci_close($connect);
             return LogUtil::registerError($this->__('Error! Update attempt failed.'));
         }
-        $connect->close();
+        oci_close($connect);
         return true;
     }
 
@@ -432,11 +483,10 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
             $uid = UserUtil::getVar('uid');
         }
         $prefix = ModUtil::getVar('IWmoodle', 'dbprefix');
-        $connect = DBConnectionStack::init('moodle2');
+        $connect = ModUtil::apiFunc('IWmoodle', 'user', 'connectExtDB');
         if (!$connect) {
             return LogUtil::registerError($this->__('The connection to Moodle database has failed.'));
         }
-        DBConnectionStack::popConnection();
         // Prepare vars because we're going to change the database
         $uname = strtolower(UserUtil::getVar('uname', $uid));
         $pass = UserUtil::getVar('pass', $uid);
@@ -476,23 +526,25 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
 			$prefix" . "user (auth, confirmed, username, password, description, lang, timemodified, country, city, firstname, lastname, email, timezone, mnethostid)
 			VALUES
 				('db', 1, '" .
-                mysql_real_escape_string($uname) . "', '" .
-                mysql_real_escape_string($pass) . "', '" .
-                mysql_real_escape_string($dfl_description) . "', '" .
-                mysql_real_escape_string($dfl_language) . "', '" .
-                mysql_real_escape_string($time) . "', '" .
-                mysql_real_escape_string($dfl_country) . "', '" .
-                mysql_real_escape_string($dfl_city) . "', '" .
-                mysql_real_escape_string($firstname) . "', '" .
-                mysql_real_escape_string($lastname) . "', '" .
-                mysql_real_escape_string($email) . "', '" .
-                mysql_real_escape_string($dfl_gtm) . "', " . $userAdmin['mnethostid'] . ")";
-        $result = $connect->Execute($sql);
-        if (!$result) {
-            $connect->close();
+                $uname . "', '" .
+                substr($pass, 3, strlen($pass)) . "', '" .
+                $dfl_description . "', '" .
+                $dfl_language . "', '" .
+                $time . "', '" .
+                $dfl_country . "', '" .
+                $dfl_city . "', '" .
+                $firstname . "', '" .
+                $lastname . "', '" .
+                $email . "', '" .
+                $dfl_gtm . "', " . $userAdmin['mnethostid'] . ")";
+
+        $results = oci_parse($connect, $sql);
+        $r = oci_execute($results);
+        if (!$r) {
+            oci_close($connect);
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
-        $connect->close();
+        oci_close($connect);
         return true;
     }
 
@@ -503,6 +555,44 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
      * @return:	an array with the main information of the users
      */
     public function getusers($args) {
+        /*
+          extract($args);
+          // Security check
+          $registres = array();
+          // Security check
+          if (!SecurityUtil::checkPermission('IWmoodle::', '::', ACCESS_ADMIN)) {
+          return LogUtil::registerPermissionError();
+          }
+          $pntable = DBUtil::getTables();
+          $t = $pntable['group_membership'];
+          $c = $pntable['group_membership_column'];
+          $t1 = $pntable['users'];
+          $c1 = $pntable['users_column'];
+          if ($filtre == '0') {
+          $filtre = '';
+          }
+          $inici = $inici - 1;
+          if ($inici < 0)
+          $inici = 0;
+          $filtregrup = ($campfiltre != '0') ? " $c[gid] = " . (int) DataUtil::formatForStore($campfiltre) . " and " : '';
+          $sql = "SELECT DISTINCT
+          $t1.$c1[uid], $c1[pass]
+          FROM
+          $t, $t1
+          WHERE
+          " . $filtregrup . " $t.$c[uid] = $t1.$c1[uid]
+          AND
+          $c1[uname] LIKE '" . $filtre . "%'
+          ORDER BY
+          $c1[uname]
+          LIMIT $inici,$numitems";
+
+          $registres = DBUtil::executeSQL($sql);
+
+          // Return and array with values
+          return $registres;
+         */
+
 
         extract($args);
         // Security check
@@ -511,38 +601,64 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         if (!SecurityUtil::checkPermission('IWmoodle::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
         }
-        // Connect with database
-        list($dbconn) = DBConnectionStack::getConnection();
-        $pntable = & DBUtil::getTables();
-        $t = $pntable['group_membership'];
-        $c = $pntable['group_membership_column'];
-        $t1 = $pntable['users'];
-        $c1 = $pntable['users_column'];
+        $myJoin[] = array('join_table' => 'group_membership',
+            'join_field' => array(),
+            'object_field_name' => array(),
+            'compare_field_table' => 'uid',
+            'compare_field_join' => 'uid');
+
+        $myJoin[] = array('join_table' => 'users',
+            'join_field' => array('uid', 'pass'),
+            'object_field_name' => array('uid', 'pass'),
+            'compare_field_table' => 'uid',
+            'compare_field_join' => 'uid');
+
+        $tables = DBUtil::getTables();
+        $ocolumn = $tables['group_membership_column'];
+        $lcolumn = $tables['users_column'];
         if ($filtre == '0') {
             $filtre = '';
         }
-        $filtregrup = ($campfiltre != '0') ? " $c[gid] = " . (int) DataUtil::formatForStore($campfiltre) . " and " : '';
-        $sql = "SELECT DISTINCT
-				$t1.$c1[uid], $c1[pass]
-			FROM
-				$t, $t1
-			WHERE
-				" . $filtregrup . " $t.$c[uid] = $t1.$c1[uid]
-			AND
-				$c1[uname] LIKE '" . $filtre . "%'
-			ORDER BY
-				$c1[uname]";
-        $registre = $dbconn->SelectLimit($sql, (int) $numitems, (int) $inici - 1);
-        if ($dbconn->ErrorNo() != 0) {
-            return LogUtil::registerError($this->__('Error! Could not load items.'));
-        }
-        for (; !$registre->EOF; $registre->MoveNext()) {
-            list($uid, $password) = $registre->fields;
-            $registres[] = array('uid' => $uid, 'password' => $password);
-        }
-        $registre->close();
-        // Return and array with values
-        return $registres;
+        $filtregrup = ($campfiltre != '0') ? " $ocolumn[gid] = " . (int) DataUtil::formatForStore($campfiltre) . " and " : '';
+        $where = $filtregrup . " $lcolumn[uname] LIKE '" . $filtre . "%'";
+        $orderby = "$lcolumn[uname]";
+        $items = DBUtil::selectExpandedObjectArray('group_membership', $myJoin, $where, $orderby, $numitems, $inici - 1, 'uid');
+        return $items;
+
+        //die('reconstruir la funció amb dbutil');
+        /*
+          $pntable = & DBUtil::getTables();
+          $t = $pntable['group_membership'];
+          $c = $pntable['group_membership_column'];
+          $t1 = $pntable['users'];
+          $c1 = $pntable['users_column'];
+          if ($filtre == '0') {
+          $filtre = '';
+          }
+          $filtregrup = ($campfiltre != '0') ? " $c[gid] = " . (int) DataUtil::formatForStore($campfiltre) . " and " : '';
+          $sql = "SELECT DISTINCT
+          $t1.$c1[uid], $c1[pass]
+          FROM
+          $t, $t1
+          WHERE
+          " . $filtregrup . " $t.$c[uid] = $t1.$c1[uid]
+          AND
+          $c1[uname] LIKE '" . $filtre . "%'
+          ORDER BY
+          $c1[uname]";
+          $registre = $dbconn->SelectLimit($sql, (int) $numitems, (int) $inici - 1);
+          if ($dbconn->ErrorNo() != 0) {
+          return LogUtil::registerError($this->__('Error! Could not load items.'));
+          }
+          for (; !$registre->EOF; $registre->MoveNext()) {
+          list($uid, $password) = $registre->fields;
+          $registres[] = array('uid' => $uid, 'password' => $password);
+          }
+          oci_close($connect);
+          // Return and array with values
+          return $registres;
+         * 
+         */
     }
 
     /**
@@ -583,11 +699,10 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerPermissionError();
         }
         $prefix = ModUtil::getVar('IWmoodle', 'dbprefix');
-        $connect = DBConnectionStack::init('moodle2');
+        $connect = ModUtil::apiFunc('IWmoodle', 'user', 'connectExtDB');
         if (!$connect) {
             return LogUtil::registerError($this->__('The connection to Moodle database has failed.'));
         }
-        DBConnectionStack::popConnection();
         $time = time();
         $sql = "SELECT
 				id,username, password, firstname, lastname, email
@@ -597,12 +712,15 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
 				confirmed = 1
 			AND
 				deleted = 0";
-        $rs = $connect->Execute($sql);
-        if (!$rs) {
-            $connect->close();
+
+        $results = oci_parse($connect, $sql);
+        $r = oci_execute($results);
+        if (!$r) {
+            oci_close($connect);
             return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
-        while ($array = $rs->FetchRow()) {
+
+        while ($array = oci_fetch_array($results)) {
             $usersArray[] = array('id' => $array[0],
                 'username' => $array[1],
                 'password' => $array[2],
@@ -610,7 +728,8 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
                 'lastname' => $array[4],
                 'email' => $array[5]);
         }
-        $connect->close();
+
+        oci_close($connect);
         return $usersArray;
     }
 
@@ -636,29 +755,34 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         $items = array('uname' => $uname,
-            'pass' => $pass,
+            'pass' => '1$$' . $pass,
             'email' => $email,
             'activated' => 1,
-            'hash_method' => 1,
+            'approved_by' => 2,
             'user_regdate' => date("Y-m-d H:i:s", time()));
-        if (!$result = DBUtil::insertObject($items, 'users', 'uid')) {
+        $result = DBUtil::insertObject($items, 'users', 'uid');
+        if (!$result) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
-        $items = array('uid' => $items['uid'],
+        //add user to default group
+        $defaultgroup = ModUtil::getVar('Groups', 'defaultgroup');
+        $items = array('uid' => $result['uid'],
+            'gid' => $defaultgroup);
+        if (!DBUtil::insertObject($items, 'group_membership')) {
+            return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
+        }
+        die('Api:Admin.php:775:falla la insersió a la taula IWusers. Mirar perquè');
+        /*
+        $items = array('uid' => $result['uid'],
             'nom' => $nom,
             'cognom1' => $cognoms);
         if (!DBUtil::insertObject($items, 'IWusers', 'suid')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
-        //add user to default group
-        $defaultgroup = ModUtil::getVar('Groups', 'defaultgroup');
-        $items = array('uid' => $items['uid'],
-            'gid' => $defaultgroup);
-        if (!DBUtil::insertObject($items, 'group_membership')) {
-            return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
-        }
+         * 
+         */
         // Return the id of the newly created user to the calling process
-        return $items['uid'];
+        return $result['uid'];
     }
 
     /**
@@ -672,21 +796,21 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
 
 
         $prefix = ModUtil::getVar('IWmoodle', 'dbprefix');
-        $connect = DBConnectionStack::init('moodle2');
+        $connect = ModUtil::apiFunc('IWmoodle', 'user', 'connectExtDB');
         if (!$connect) {
             return LogUtil::registerError($this->__('The connection to Moodle database has failed.'));
         }
-
-        DBConnectionStack::popConnection();
         // get enrolid id
         $sql = "SELECT $prefix" . "enrol.id FROM $prefix" . "enrol WHERE $prefix" . "enrol.enrol='manual' AND $prefix" . "enrol.courseid=$courseid";
 
-        $rs = $connect->Execute($sql);
-        if (!$rs) {
-            $connect->close();
+        $results = oci_parse($connect, $sql);
+        $r = oci_execute($results);
+        if (!$r) {
+            oci_close($connect);
             return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
-        $array = $rs->FetchRow();
+        $array = oci_fetch_array($results);
+        oci_close($connect);
         return $array[0];
     }
 

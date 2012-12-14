@@ -32,7 +32,7 @@ class IWmoodle_Block_Courses extends Zikula_Controller_AbstractBlock {
                     'module' => 'IWmoodle',
                     'uid' => $uid,
                     'sv' => $sv));
-        // $exists = false;
+        $exists = false;
         if ($exists) {
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
             $s = ModUtil::func('IWmain', 'user', 'userGetVar', array('uid' => $uid,
@@ -43,9 +43,11 @@ class IWmoodle_Block_Courses extends Zikula_Controller_AbstractBlock {
             $row['content'] = $s;
             return BlockUtil::themesideblock($row);
         }
-        
+
         $courses_array = array();
-        
+        $course_previous = '';
+        $pre_ins = array();
+
         // Create output object
         $view = Zikula_View::getInstance('IWmoodle', false);
         $uname = (UserUtil::getVar('uname') != '') ? UserUtil::getVar('uname') : ModUtil::getVar('IWmoodle', 'guestuser');
@@ -117,11 +119,10 @@ class IWmoodle_Block_Courses extends Zikula_Controller_AbstractBlock {
             }
         }
         // Security check
-        if (SecurityUtil::checkPermission('IWmoodle::', '::', ACCESS_ADMIN)) {
-            $view->assign('administrator', true);
-        }
+        $administrator = (SecurityUtil::checkPermission('IWmoodle::', '::', ACCESS_ADMIN)) ? true : false;
         // assing the courses array to the output
         $view->assign('courses', $courses_array);
+        $view->assign('administrator', $administrator);
         $view->assign('moodleurl', ModUtil::getVar('IWmoodle', 'moodleurl'));
         $row['content'] = $view->fetch('iwmoodle_block_display.htm');
         //Copy the block information into user vars

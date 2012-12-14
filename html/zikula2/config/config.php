@@ -11,13 +11,14 @@
  * Please see the NOTICE file distributed with this source code for further
  * information regarding copyright and licensing.
  */
-
+require_once('../config/env-config.php');
 global $ZConfig;
+
 $ZConfig['System']['installed'] = 1;        // installer will change this during installation
 $ZConfig['System']['temp'] = 'ztemp';       // location of temporary folder
 $ZConfig['System']['datadir'] = 'userdata';     // location of site data files
 $ZConfig['System']['prefix'] = '';         // database prefix (deprecated).
-$ZConfig['System']['development'] = 0;      // development mode 1/0 for on or off.  Disable in production mode.
+$ZConfig['System']['development'] = 1;      // development mode 1/0 for on or off.  Disable in production mode.
 $ZConfig['System']['legacy_prefilters'] = true; // enable legacy template prefilters
 $ZConfig['System']['compat_layer'] = true;  // enable loading of compat layers
 $ZConfig['System']['system.chmod_dir'] = 0777;  // The default chmod for new directories created by Zikula.
@@ -26,15 +27,16 @@ $ZConfig['System']['system.chmod_dir'] = 0777;  // The default chmod for new dir
 // This is the definition for the default Zikula system database.
 // It must be named 'default'
 // ----------------------------------------------------------------------
-$ZConfig['DBInfo']['databases']['default']['host'] = 'localhost';
-$ZConfig['DBInfo']['databases']['default']['user'] = 'root';
-$ZConfig['DBInfo']['databases']['default']['password'] = 'root';
-$ZConfig['DBInfo']['databases']['default']['dbname'] = 'usu1';
+$ZConfig['DBInfo']['databases']['default']['host'] = '';
+$ZConfig['DBInfo']['databases']['default']['user'] = $agora['intranet']['username'];
+$ZConfig['DBInfo']['databases']['default']['password'] = $agora['intranet']['userpwd'];
+$ZConfig['DBInfo']['databases']['default']['dbname'] = '';
 $ZConfig['DBInfo']['databases']['default']['dbdriver'] = 'mysql';
-$ZConfig['DBInfo']['databases']['default']['dbtabletype'] = 'myisam';
+$ZConfig['DBInfo']['databases']['default']['dbtabletype'] = 'innodb';
 $ZConfig['DBInfo']['databases']['default']['charset'] = 'utf8';
 $ZConfig['DBInfo']['databases']['default']['collate'] = 'utf8_general_ci';
 // additional DB can be configured here as above external2, external3 etc...
+
 
 // ----------------------------------------------------------------------
 // Error Reporting
@@ -116,3 +118,5 @@ $ZConfig['System']['dbcache.cache_result_ttl'] = 30; // seconds, 3600 = 1 hour.
 $ZConfig['Multisites'] = array();
 $ZConfig['Multisites']['multisites.enabled'] = 0;
 $ZConfig['Multisites']['protected.systemvars'] = array();
+
+include_once('config/site-config.php');
