@@ -13861,6 +13861,10 @@ tinymce.create('tinymce.ui.Toolbar:tinymce.ui.Container', {
 
 			self.onPreInit.dispatch(self);
 
+			//XTEC ************ AFEGIT - To enable browser check spelling
+			//2012.09.26 @sarjona
+                        settings.gecko_spellcheck = true;
+			//************ FI
 			if (!settings.browser_spellcheck && !settings.gecko_spellcheck)
 				doc.body.spellcheck = false;
 
