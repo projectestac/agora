@@ -13,7 +13,7 @@ $CFG = new stdClass();
 $CFG->dbtype    = 'mysqli';
 $CFG->dblibrary = 'native';
 $CFG->dbhost    = 'localhost';
-$CFG->dbname    = 'moodle24';
+$CFG->dbname    = 'moodle2';
 $CFG->dbuser    = 'root';
 $CFG->dbpass    = 'agora';
 $CFG->prefix    = 'ml_';
@@ -22,8 +22,8 @@ $CFG->dboptions = array (
   'dbsocket' => 0,
 );
 
-$CFG->wwwroot   = 'http://agora/'.AGORA_BASE.'/moodle24';
-$CFG->dataroot  = INSTALL_BASE .'moodledata/moodle24';
+$CFG->wwwroot   = 'http://agora/'.AGORA_BASE.'/moodle2';
+$CFG->dataroot  = INSTALL_BASE .'moodledata/moodle2/usu_mysql';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;
