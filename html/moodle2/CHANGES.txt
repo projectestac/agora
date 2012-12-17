@@ -13,10 +13,9 @@ MOODLE2
 
 PENDING
 - Install Wiris CAS and Editor
-- Review icons in xtec2 theme
-- Review db auth method integration with iw_index
 - Add spellchecker
 - Review $CFG->early_install_lang 
-- Review COURSE_DISPLAY_MULTIPAGE behaviour (Undefined property: stdClass::$coursedisplay in course/view.php on line 72)
 
-
+- Test Intraweb and Moodle validation
+- Create settings.php in advices block
+- Remove customized icons in xtec2 theme

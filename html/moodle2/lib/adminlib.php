@@ -5637,6 +5637,13 @@ class admin_setting_manageauths extends admin_setting {
                 $settings = "<a href=\"auth_config.php?auth=$auth\">{$txt->settings}</a>";
             }
 
+            //XTEC ************ AFEGIT - To let access only to xtecadmin user
+            //2012.07.03  @sarjona
+            if ($auth == 'db' && !get_protected_agora() ) {
+                $settings = '';
+            }
+            //************ FI    
+            
             // add a row to the table
             $table->data[] =array($displayname, $hideshow, $updown, $settings);
         }

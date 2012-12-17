@@ -33,56 +33,7 @@
         print_error('unspecifycourseid', 'error');
     }
 
-    $course = $DB->get_record('course', $params, '*', MUST_EXIST);
-
-    //XTEC ************ AFEGIT - To show current section if none is selected
-    //2012.08.20  @sarjona
-    /**
-     * Get highlighted section
-     *
-     * @param int $courseid course id
-     * @return int current section or 0 if none
-     */
-    function course_get_marker($courseid) {
-        global $DB;
-        return $DB->get_field('course', 'marker', array('id' => $courseid));
-    }
-    
-    /**
-     * Get current section depending on the week
-     *
-     * @param stdClass $course The course entry from DB
-     * @return int the section of the current week or 0 if none
-     */
-    function course_get_current_week_section($course) {
-        require_once 'format/weeks/lib.php';
-        $currentsection = 0;
-        $sections = get_all_sections($course->id);
-        $timenow = time();
-        foreach ($sections as $section){
-            $dates = format_weeks_get_section_dates($section, $course);
-            if (($timenow >= $dates->start) && ($timenow < $dates->end)){
-                $currentsection = $section->section;
-                break;
-            }
-        }
-        return $currentsection;
-    }
-    
-    if ($course->coursedisplay == COURSE_DISPLAY_MULTIPAGE){
-        $notifyeditingon = optional_param('notifyeditingon', -1, PARAM_BOOL);
-        if ($edit<0 && $notifyeditingon<0 && empty($section)) {
-            if ($course->format == 'topics') {
-                $section = course_get_marker($course->id);
-            } else if ($course->format == 'weeks') {
-                $section = course_get_current_week_section($course);
-            }
-        } else if ($section == -1){
-            $section = 0;
-        }        
-    }
-    
-    //************ FI                    
+    $course = $DB->get_record('course', $params, '*', MUST_EXIST);              
 
     $urlparams = array('id' => $course->id);
 

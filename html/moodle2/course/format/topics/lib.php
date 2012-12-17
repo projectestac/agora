@@ -87,6 +87,14 @@ class format_topics extends format_base {
         } else {
             $sectionno = $section;
         }
+        
+        //XTEC ************ AFEGIT - To show current section if none is selected
+        //2012.08.20  @sarjona
+        if (empty($sectionno)){
+            $sectionno = -1;
+        }
+        //************ FI                    
+        
         if ($sectionno !== null) {
             if ($sr !== null) {
                 if ($sr) {
@@ -97,6 +105,10 @@ class format_topics extends format_base {
                 }
             } else {
                 $usercoursedisplay = $course->coursedisplay;
+            }
+            
+            if ($sectionno == 0) {
+                $sectionno = -1;
             }
             if ($sectionno != 0 && $usercoursedisplay == COURSE_DISPLAY_MULTIPAGE) {
                 $url->param('section', $sectionno);

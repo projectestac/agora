@@ -62,6 +62,13 @@ class auth_plugin_db extends auth_plugin_base {
 
             $authdb = $this->db_init();
 
+            //XTEC ************ AFEGIT - detect if validation comes from file iw_index.php
+            //2012.10.25  @aperez16
+            if (!isset($_REQUEST['parm'])) {
+                $this->config->passtype = 'md5';
+            }
+            //************ FI 
+            
             $rs = $authdb->Execute("SELECT * FROM {$this->config->table}
                                      WHERE {$this->config->fielduser} = '".$this->ext_addslashes($extusername)."' ");
             if (!$rs) {
