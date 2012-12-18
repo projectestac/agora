@@ -61,8 +61,10 @@ $modulesToDelete = array('iw_groups',
     'iw_moodle',
     'Referers',
     'Stats',
-    'Snifer',
+    'Sniffer',
     'Tour',
+    'bbcode',
+    'bbsmile',
 );
 
 foreach ($modulesToDelete as $module) {
@@ -143,7 +145,8 @@ $commands[] = "UPDATE blocks SET pn_bkey = 'IWnews' WHERE pn_bkey = 'iwnews'";
 $commands[] = "UPDATE blocks SET pn_filter = 'a:0:{}'";
 
 // modifiquem el mòdul Modules per Extensions en el menú horitzontal
-$commands[] = $sql = 'UPDATE IWmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
+$commands[] = 'UPDATE IWmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
+$commands[] = 'UPDATE IWvhmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
 
 foreach ($commands as $sql) {
     if (!$result = mysql_query($sql, $con)) {
