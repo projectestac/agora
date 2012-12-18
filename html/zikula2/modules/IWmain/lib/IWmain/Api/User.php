@@ -279,6 +279,23 @@ class IWmain_Api_User extends Zikula_AbstractApi {
         return $items;
     }
 
+    public function getAllIcons() {
+        $handle = opendir('modules/IWmain/images/smilies');
+        while ($file = readdir($handle)) {
+            $filelist[] = $file;
+        }
+
+        asort($filelist);
+
+        $icons = array();
+        while (list ($key, $file) = each($filelist)) {
+            if ($file != '.' && $file != '..' && $file != 'index.html' && $file != '.svn' && $file != 'CVS') {
+                $icons[] = array('imgsrc' => $file);
+            }
+        }
+        return $icons;
+    }
+
     //***************************************************************************************
     //
     // API function used to work with the database
@@ -787,11 +804,11 @@ class IWmain_Api_User extends Zikula_AbstractApi {
         }
         $table = DBUtil::getTables();
         $c = $table['IWmain_logs_column'];
-        
+
         $where = "$c[moduleName]='$args[moduleName]' AND $c[indexName]='$args[indexName]' AND $c[indexValue]=$args[indexValue]";
 
-        if (!DBUtil::deleteWhere ('IWmain_logs', $where)) {
-             return LogUtil::registerError($this->__('Error! Sorry! Deletion attempt failed.'));
+        if (!DBUtil::deleteWhere('IWmain_logs', $where)) {
+            return LogUtil::registerError($this->__('Error! Sorry! Deletion attempt failed.'));
         }
         return true;
     }

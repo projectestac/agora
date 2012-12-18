@@ -5,7 +5,7 @@
     {if $missatge.photo neq '' AND ($userid neq '' OR $avatarsVisible eq 1)}
         <tr>
             <td rowspan="5" width="5%">
-                <img src="{getbaseurl}{modurl modname=IWforums type=user func=getFile fileName=$missatge.photo}" alt="" />
+                <img src="{$baseurl}{modurl modname=IWforums type=user func=getFile fileName=$missatge.photo}" alt="" />
             </td>
         </tr>
     {/if}

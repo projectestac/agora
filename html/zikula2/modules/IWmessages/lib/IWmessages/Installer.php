@@ -45,23 +45,14 @@ class IWmessages_Installer extends Zikula_AbstractInstaller {
         if (!DBUtil::createIndex($c['to_userid'], 'IWmessages', 'to_userid'))
             return false;
 
-        // activate the bbsmile hook for this module if the module is present
-        if (ModUtil::available('pn_bbsmile')) {
-            ModUtil::apiFunc('Modules', 'admin', 'enablehooks', array('callermodname' => 'IWmessages',
-                'hookmodname' => 'pn_bbsmile'));
-        }
-        if (ModUtil::available('pn_bbcode')) {
-            ModUtil::apiFunc('Modules', 'admin', 'enablehooks', array('callermodname' => 'IWmessages',
-                'hookmodname' => 'pn_bbcode'));
-        }
-
         //Set module vars
-        ModUtil::setVar('IWmessages', 'groupsCanUpdate', '$');
-        ModUtil::setVar('IWmessages', 'uploadFolder', 'messages');
-        ModUtil::setVar('IWmessages', 'multiMail', '$');
-        ModUtil::setVar('IWmessages', 'limitInBox', '50');
-        ModUtil::setVar('IWmessages', 'limitOutBox', '50');
-        ModUtil::setVar('IWmessages', 'dissableSuggest', '0');
+        $this->setVar('groupsCanUpdate', '$')
+                ->setVar('uploadFolder', 'messages')
+                ->setVar('multiMail', '$')
+                ->setVar('limitInBox', '50')
+                ->setVar('limitOutBox', '50')
+                ->setVar('dissableSuggest', '0')
+                ->setVar('smiliesActive', '1');
 
         return true;
     }
@@ -77,12 +68,13 @@ class IWmessages_Installer extends Zikula_AbstractInstaller {
         DBUtil::dropTable('IWmessages');
 
         //Delete module vars
-        ModUtil::delVar('IWmessages', 'groupsCanUpdate');
-        ModUtil::delVar('IWmessages', 'uploadFolder');
-        ModUtil::delVar('IWmessages', 'multiMail');
-        ModUtil::delVar('IWmessages', 'limitInBox');
-        ModUtil::delVar('IWmessages', 'limitOutBox');
-        ModUtil::delVar('IWmessages', 'dissableSuggest');
+        $this->delVar('IWmessages', 'groupsCanUpdate')
+                ->delVar('uploadFolder')
+                ->delVar('multiMail')
+                ->delVar('limitInBox')
+                ->delVar('limitOutBox')
+                ->delVar('dissableSuggest')
+                ->delVar('smiliesActive');
 
         //Deletion successfull
         return true;
@@ -101,14 +93,15 @@ class IWmessages_Installer extends Zikula_AbstractInstaller {
         $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`modname` = 'IWmessages'", '', false, '');
 
         $newVarsNames = Array('groupsCanUpdate', 'uploadFolder', 'multiMail', 'limitInBox',
-            'limitOutBox', 'dissableSuggest');
+            'limitOutBox', 'dissableSuggest', 'smiliesActive');
 
         $newVars = Array('groupsCanUpdate' => '$',
             'uploadFolder' => 'messages',
             'multiMail' => '$',
             'limitInBox' => '50',
             'limitOutBox' => '50',
-            'dissableSuggest' => '0');
+            'dissableSuggest' => '0',
+            'smiliesActive' => '1');
 
         // Delete unneeded vars
         $del = array_diff($oldVarsNames, $newVarsNames);

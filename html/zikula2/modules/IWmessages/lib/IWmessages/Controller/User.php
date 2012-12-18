@@ -779,8 +779,8 @@ class IWmessages_Controller_User extends Zikula_AbstractController {
         } else {
             $reply = false;
         }
-        if (ModUtil::available('bbsmile') && ModUtil::isHooked('bbsmile', 'IWmessages')) {
-            $icons = ModUtil::apiFunc('bbsmile', 'user', 'getall');
+        if ($this->getVar('smiliesActive')) {
+            $icons = ModUtil::apiFunc('IWmain', 'user', 'getAllIcons');
         }
         // assign the username if both present and valid
         if (!empty($uname)) {

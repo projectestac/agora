@@ -27,6 +27,7 @@
     </script>
 
     {ajaxheader modname=IWmessages filename=IWmessages.js}
+    {checkpermission component='IWmessages::' instance='::' level='ACCESS_ADMIN' assign='authadmin'}
     {include file=IWmessages_user_menu.htm read=0}
     <h2>{gt text="Send private message"}</h2>
     <form class="z-form" enctype="multipart/form-data"  name="newmsg" method="post">
@@ -72,15 +73,22 @@
         {if $icons neq ''}
         <div class="z-formrow">
             <label for="none">{gt text="Icon"}:</label>
-            <input type="radio" name="image" value="" {if $icons[icons].imgsrc eq ''}checked{/if} />
-                   {section name=icons loop=$icons}
-                   {if $icons[icons].imgsrc neq ''}
-                   <input type="radio" name="image" value="{$icons[icons].imgsrc}" {if $icons[icons].imgsrc eq $image}checked{/if} /><img src="images/smilies/{$icons[icons].imgsrc}" alt="" />
-            {/if}
-            {/section}
+            <div class="z-formnote">
+                <input type="radio" name="image" value="" checked="checked" />
+                {section name=icons loop=$icons}
+                {if $icons[icons].imgsrc neq ''}
+                <input type="radio" name="image" value="{$icons[icons].imgsrc}" {if $icons[icons].imgsrc eq $image}checked{/if} /><img src="modules/IWmain/images/smilies/{$icons[icons].imgsrc}" alt="" />
+                {/if}
+                {/section}
+            </div>
         </div>
         {else}
         <input type="hidden" name="image" value="" />
+        {if $authadmin}
+        <div class="z-informationmsg z-formnote">
+            {gt text="You can activate smilies from module configuration."}
+        </div>
+        {/if}
         {/if}
         <div class="z-formrow">
             <label for="to_user">{gt text="Message"}:</label>

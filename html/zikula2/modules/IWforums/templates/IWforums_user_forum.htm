@@ -13,15 +13,15 @@
             <td align="center" width="2%" valign="top" class="topic">
                 <a href="{modurl modname=IWforums type=user func=llista_msg ftid=$tema.ftid fid=$fid u=$u}">
                     {if $tema.n_msg_no_llegits eq 0}
-                    {img modname='IWforums' src='msg.gif' set='images'}
+                    {img modname='IWforums' src='msg.gif'}
                     {else}
-                    {img modname='IWforums' src='msgNo.gif' set='images'}
+                    {img modname='IWforums' src='msgNo.gif'}
                     {/if}
                 </a>
                 <div>
                     <a href="{modurl modname=IWforums type=user func=llista_msg ftid=$tema.ftid fid=$fid u=$u}">
                         {if $tema.marcats neq 0}
-                        {img modname='IWforums' src='marcat.gif' set='images'}
+                        {img modname='IWforums' src='marcat.gif'}
                         {/if}
                     </a>
                 </div>
@@ -59,17 +59,17 @@
             <td align="center" width="40px" valign="top" class="topic">
                 <div>
                     <a href="{modurl modname=IWforums type="user" func=deltema ftid=$tema.ftid fid=$fid u=$u}" title="{gt text="Delete the topic"}">
-                       {img modname='IWforums' src='deltema.gif' set='images'   __alt="Topic and messages deletion" __title="Topic and messages deletion"}
+                       {img modname='IWforums' src='deltema.gif' __alt="Topic and messages deletion" __title="Topic and messages deletion"}
                     </a>
                 </div>
                 {if not $smarty.foreach.temes.first}
                 <a href="{modurl modname=IWforums type="user" func=order ftid=$tema.ftid fid=$fid puts=1}" title="{gt text="Up"}">
-                   {img modname='IWforums' src='up.gif' set='images'   __alt="Up" __title="Up"}
+                   {img modname='IWforums' src='up.gif' __alt="Up" __title="Up"}
                 </a>
                 {/if}
                 {if not $smarty.foreach.temes.last}
                 <a href="{modurl modname=IWforums type="user" func=order ftid=$tema.ftid fid=$fid puts=-1}" title="{gt text="Down"}">
-                   {img modname='IWforums' src='down.gif' set='images'   __alt="Down" __title="Down"}
+                   {img modname='IWforums' src='down.gif' __alt="Down" __title="Down"}
                 </a>
                 {/if}
             </td>
@@ -121,12 +121,12 @@
     <thead>
         <tr>
             {if $userid neq ''}
-            <th>{img modname='IWforums' src='marcat.gif' set='images'}</th>
+            <th>{img modname='IWforums' src='marcat.gif'}</th>
             {/if}
             {if $icons}<th>&nbsp;</th>{/if}
-            {if $adjunts}<th>{img modname='IWforums' src='file.gif' set='images'}</th>{/if}
+            {if $adjunts}<th>{img modname='IWforums' src='file.gif'}</th>{/if}
             {if $userid neq ''}
-            <th>{img modname='IWforums' src='MsgNoMsg.gif' set='images'}</th>
+            <th>{img modname='IWforums' src='MsgNoMsg.gif'}</th>
             {/if}
             <th style="text-align:left;">{gt text="Title"}</th>
             <th style="text-align:left;">{gt text="Sender"}</th>
@@ -142,13 +142,13 @@
         <tr bgcolor="{cycle values="#ffffff, #eeeeee"}">
             {if $userid neq ''}
             <td align="center" width="10" onclick="javascript:mark({$fid},{$message.fmid})">
-                {img modname='IWforums' src=$message.marcat set='images'   __alt=$message.textmarca __title=$message.textmarca id=$message.fmid}
+                {img modname='IWforums' src=$message.marcat __alt=$message.textmarca __title=$message.textmarca id=$message.fmid}
             </td>
             {/if}
             {if $icons}
             <td align="center" width="10">
                 {if $message.icon neq ""}
-                {img modname='core' src=$message.icon set='smilies'}
+                {img modname='IWmain' src=$message.icon set='smilies'}
                 {/if}
             </td>
             {/if}
@@ -156,7 +156,7 @@
             <td align="center" width="10">
                 {if $message.adjunt neq ""}
                 <a title="{$message.adjunt}">
-                    {img modname='IWforums' src='file.gif' set='images'   __alt=$message.adjunt __title=$message.adjunt}
+                    {img modname='IWforums' src='file.gif' __alt=$message.adjunt __title=$message.adjunt}
                 </a>
                 {/if}
             </td>
@@ -189,17 +189,17 @@
                 {/if}
                 {if $moderator or $message.esborrable}
                 <a href="{modurl modname=IWforums type="user" func=del fmid=$message.fmid ftid=$ftid fid=$fid u=$u inici=$inici}" title="{gt text="Delete the message"}">
-                   {img modname='IWforums' src='del.gif' set='images'   __alt="Delete the message" __title="Delete the message"}
+                   {img modname='IWforums' src='del.gif' __alt="Delete the message" __title="Delete the message"}
             </a>
             {/if}
             {if $moderator or $message.editable}
             <a href="{modurl modname=IWforums type="user" func=edit_msg fmid=$message.fmid ftid=$ftid fid=$fid u=$u inici=$inici}" title="{gt text="Edit the message"}">
-               {img modname='IWforums' src='editar.gif' set='images'   __alt="Edit the message" __title="Edit the message"}
+               {img modname='IWforums' src='editar.gif' __alt="Edit the message" __title="Edit the message"}
             </a>
             {/if}
             {if $moderator}
             <a href="{modurl modname=IWforums type="user" func=mou fmid=$message.fmid ftid=$ftid fid=$fid u=$u inici=$inici}" title="{gt text="Move the message"}">
-               {img modname='IWforums' src='moumsg.gif' set='images'   __alt="Move the message" __title="Move the message"}
+               {img modname='IWforums' src='moumsg.gif' __alt="Move the message" __title="Move the message"}
             </a>
             {/if}
             </td>

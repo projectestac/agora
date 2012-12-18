@@ -44,10 +44,12 @@
             {if $icons neq ''}
             <div class="z-formrow">
                 <label for="icon">{gt text="Icon"}</label>
+                <div class="z-formnote">
                 <input type="radio" id="icon" name="icon" value="" checked />
                 {section name=icons loop=$icons}
-                <input type="radio" name="icon" value="{$icons[icons].imgsrc}" /><img src="images/smilies/{$icons[icons].imgsrc}" alt="" />
+                <input type="radio" name="icon" value="{$icons[icons].imgsrc}" /><img src="modules/IWmain/images/smilies/{$icons[icons].imgsrc}" alt="" />
                 {/section}
+                </div>
             </div>
             {else}
             <input type="hidden" name="icon" value="" />

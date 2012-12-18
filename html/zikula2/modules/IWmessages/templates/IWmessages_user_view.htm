@@ -73,23 +73,23 @@
                                       </td>
                                       <td align="center">
                                           {if $message.file1 neq '' || $message.file2 neq '' || $message.file3 neq ''}
-                                          {img src='file.gif' modname='IWmessages' set='images' __alt='Attached files' }
+                                          {img src='file.gif' modname='IWmessages' __alt='Attached files' }
                                           {/if}
                                       </td>
                                       <td align="center">
                                           {if $message.read_msg eq 1}
                                           {if $message.replied eq 1}
-                                          {img src='rewrite.gif' modname='IWmessages' set='images' __alt='Message rewritted' }
+                                          {img src='rewrite.gif' modname='IWmessages' __alt='Message rewritted' }
                                           {else}
-                                          {img src='read.gif' modname='IWmessages' set='images' __alt='Message read' }
+                                          {img src='read.gif' modname='IWmessages' __alt='Message read' }
                                           {/if}
                                           {else}
-                                          {img src='email.gif' modname='IWmessages' set='images' __alt='Message unread' }
+                                          {img src='email.gif' modname='IWmessages' __alt='Message unread' }
                                           {/if}
                                       </td>
                                       <td align="center">
                                           {if $message.msg_image neq ""}
-                                          <img src="images/smilies/{$message.msg_image}" alt="" />
+                                          <img src="modules/IWmain/images/smilies/{$message.msg_image}" alt="" />
                                           {else}
                                           &nbsp;
                                           {/if}
@@ -195,14 +195,14 @@
                                       </td>
                                       <td align="center">
                                           {if $messagesend.read_msg eq 1}
-                                          {img src='read.gif' modname='IWmessages' set='images' __alt='Message read' }
+                                          {img src='read.gif' modname='IWmessages' __alt='Message read' }
                                           {else}
-                                          {img src='email.gif' modname='IWmessages' set='images' __alt='Message unread' }
+                                          {img src='email.gif' modname='IWmessages' __alt='Message unread' }
                                           {/if}
                                       </td>
                                       <td align="center">
                                           {if $messagesend.msg_image neq ""}
-                                          <img src="images/smilies/{$messagesend.msg_image}" alt="" />
+                                          <img src="modules/IWmessages/images/smilies/{$messagesend.msg_image}" alt="" />
                                           {/if}
                                           <div id="noteinfosend_{$smarty.foreach.is.iteration}"></div>
                                   </td>

@@ -46,7 +46,8 @@ class IWforums_Installer extends Zikula_AbstractInstaller {
 
         //Create module vars
         $this->setVar('urladjunts', 'forums')
-                ->setVar('avatarsVisible', '1');
+                ->setVar('avatarsVisible', '1')
+                ->setVar('smiliesActive', '1');
 
         //Initialation successfull
         return true;
@@ -65,7 +66,8 @@ class IWforums_Installer extends Zikula_AbstractInstaller {
 
         //Delete module vars
         $this->delVar('urladjunts')
-                ->delVar('avatarsVisible');
+                ->delVar('avatarsVisible')
+                ->delVar('smiliesActive');;
         //success
         return true;
     }
@@ -81,10 +83,11 @@ class IWforums_Installer extends Zikula_AbstractInstaller {
         //Array de noms
         $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`modname` = 'IWforums'", '', false, '');
 
-        $newVarsNames = Array('urladjunts', 'avatarsVisible');
+        $newVarsNames = Array('urladjunts', 'avatarsVisible', 'smiliesActive');
 
         $newVars = Array('urladjunts' => 'forums',
-            'avatarsVisible' => '1');
+            'avatarsVisible' => 1,
+            'smiliesActive' => 1);
 
         // Delete unneeded vars
         $del = array_diff($oldVarsNames, $newVarsNames);

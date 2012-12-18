@@ -14,7 +14,7 @@
         {if $photo neq '' AND ($userid neq '' OR $avatarsVisible eq 1)}
             <tr>
                 <td rowspan="4" width="5%">
-                    <img src="{getbaseurl}{modurl modname=IWforums type=user func=getFile fileName=$photo}" />
+                    <img src="{$baseurl}{modurl modname=IWforums type=user func=getFile fileName=$photo}" />
                 </td>
             </tr>
         {/if}
@@ -69,12 +69,12 @@
         <tr>
             {userloggedin assign=userid}
             {if $userid neq ''}
-                <th>{img modname='IWforums' src='marcat.gif' set='images'}</th>
+                <th>{img modname='IWforums' src='marcat.gif'}</th>
             {/if}
             {if $icons}<th>&nbsp;</th>{/if}
-            {if $adjunts}<th>{img modname='IWforums' src='file.gif' set='images'}</th>{/if}
+            {if $adjunts}<th>{img modname='IWforums' src='file.gif'}</th>{/if}
             {if $userid neq ''}
-                <th>{img modname='IWforums' src='MsgNoMsg.gif' set='images'}</th>
+                <th>{img modname='IWforums' src='MsgNoMsg.gif'}</th>
             {/if}
             <th style="text-align:left;">{gt text="Title"}</th>
             <th style="text-align:left;">{gt text="Sender"}</th>
@@ -86,14 +86,14 @@
                 {if $userid neq ''}
                     <td align="center" width="10">
                         <a href="javascript:mark({$fid},{$messageList.fmid})">
-                            {img modname='IWforums' src=$messageList.marcat set='images'   __alt=$messageList.textmarca __title=$messageList.textmarca id=$messageList.fmid}
+                            {img modname='IWforums' src=$messageList.marcat __alt=$messageList.textmarca __title=$messageList.textmarca id=$messageList.fmid}
                         </a>
                     </td>
                 {/if}
                 {if $icons}
                     <td align="center" width="10">
                         {if $messageList.icon neq ""}
-                            {img modname='core' src=$messageList.icon set='smilies'   __alt=$messageList.icon __title=$messageList.icon}
+                            {img modname='IWmain' src=$messageList.icon set='smilies' __alt=$messageList.icon __title=$messageList.icon}
 
                         {/if}
                     </td>
@@ -102,7 +102,7 @@
                     <td align="center" width="10">
                         {if $messageList.adjunt neq ""}
                             <a title="{$messageList.adjunt}">
-                                {img modname='IWforums' src='file.gif' set='images'   __alt=$messageList.adjunt __title=$messageList.adjunt}
+                                {img modname='IWforums' src='file.gif' __alt=$messageList.adjunt __title=$messageList.adjunt}
                             </a>
                         {/if}
                     </td>
@@ -110,7 +110,7 @@
                 {if $userid neq ''}
                     <td style="text-align:center;" width="10">
                         <a href="{modurl modname=IWforums type="user" func=msg fmid=$messageList.fmid ftid=$ftid fid=$fid u=$u oid=$messageList.oid inici=$inici}">
-                            {img modname='IWforums' src=$messageList.imatge set='images'}
+                            {img modname='IWforums' src=$messageList.imatge}
                         </a>
                     </td>
                 {/if}

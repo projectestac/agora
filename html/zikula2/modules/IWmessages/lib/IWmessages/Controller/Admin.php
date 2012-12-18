@@ -116,6 +116,7 @@ class IWMessages_Controller_Admin extends Zikula_AbstractController {
                         ->assign('limitInBox', $limitInBox)
                         ->assign('limitOutBox', $limitOutBox)
                         ->assign('dissableSuggest', ModUtil::getVar('IWmessages', 'dissableSuggest'))
+                        ->assign('smiliesActive', ModUtil::getVar('IWmessages', 'smiliesActive'))
                         ->fetch('IWmessages_admin_main.htm');
     }
 
@@ -265,6 +266,7 @@ class IWMessages_Controller_Admin extends Zikula_AbstractController {
         $limitOutBox = FormUtil::getPassedValue('limitOutBox', isset($args['limitOutBox']) ? $args['limitOutBox'] : null, 'POST');
         $objectid = FormUtil::getPassedValue('objectid', isset($args['objectid']) ? $args['objectid'] : null, 'POST');
         $dissableSuggest = FormUtil::getPassedValue('dissableSuggest', isset($args['dissableSuggest']) ? $args['dissableSuggest'] : null, 'POST');
+        $smiliesActive = FormUtil::getPassedValue('smiliesActive', isset($args['smiliesActive']) ? $args['smiliesActive'] : 0, 'POST');
 
         if (!empty($objectid)) {
             $uploadFolder = $objectid;
@@ -275,14 +277,14 @@ class IWMessages_Controller_Admin extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
 
-        $lid = ModUtil::setVar('IWmessages', 'uploadFolder', $uploadFolder);
-        $lid = ModUtil::setVar('IWmessages', 'limitInBox', $limitInBox);
-        $lid = ModUtil::setVar('IWmessages', 'limitOutBox', $limitOutBox);
-        $lid = ModUtil::setVar('IWmessages', 'dissableSuggest', $dissableSuggest);
+        $this->setVar('uploadFolder', $uploadFolder)
+                ->setVar('limitInBox', $limitInBox)
+                ->setVar('limitOutBox', $limitOutBox)
+                ->setVar('dissableSuggest', $dissableSuggest);
 
-        if ($lid) {
-            LogUtil::registerStatus($this->__('The module configuration has changed'));
-        }
+        ModUtil::setVar('IWmessages', 'smiliesActive', $smiliesActive);
+        
+        LogUtil::registerStatus($this->__('The module configuration has changed'));
 
         return System::redirect(ModUtil::url('IWmessages', 'admin', 'main'));
     }

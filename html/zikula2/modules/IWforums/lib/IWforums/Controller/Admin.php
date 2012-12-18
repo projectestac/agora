@@ -30,15 +30,13 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
 
         //get all groups information
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $groupsInfo = ModUtil::func('IWmain', 'user', 'getAllGroupsInfo',
-                        array('sv' => $sv));
+        $groupsInfo = ModUtil::func('IWmain', 'user', 'getAllGroupsInfo', array('sv' => $sv));
 
         //get all users information
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $usersInfo = ModUtil::func('IWmain', 'user', 'getAllUsersInfo',
-                        array('sv' => $sv,
-                            'info' => 'ncc',
-                            'list' => $moderators));
+        $usersInfo = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv,
+                    'info' => 'ncc',
+                    'list' => $moderators));
         $forumsArray = array();
         foreach ($forums as $forum) {
             //prepare groups
@@ -75,7 +73,7 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         }
 
         return $this->view->assign('forums', $forumsArray)
-                ->fetch('IWforums_admin_main.htm');
+                        ->fetch('IWforums_admin_main.htm');
     }
 
     /**
@@ -103,16 +101,15 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
 
         if ($m != null && ($m == "e" || $m == "c") && is_numeric($fid)) {
             //get forum information
-            $forum = ModUtil::apiFunc('IWforums', 'user', 'get',
-                            array('fid' => $fid));
+            $forum = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
             if ($forum == false) {
                 LogUtil::registerError($this->__('Forum not found'));
                 return System::redirect(ModUtil::url('IWforums', 'admin', 'main'));
             }
         }
         return $this->view->assign('forum', $forum)
-                ->assign('m', $m)
-                ->fetch('IWforums_admin_newItem.htm');
+                        ->assign('m', $m)
+                        ->fetch('IWforums_admin_newItem.htm');
     }
 
     /**
@@ -154,22 +151,20 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
                     'adjunts' => $adjunts,
                     'msgDelTime' => $msgDelTime,
                     'msgEditTime' => $msgEditTime);
-                if (ModUtil::apiFunc('IWforums', 'admin', 'update',
-                                array('items' => $items,
-                                    'fid' => $fid))) {
+                if (ModUtil::apiFunc('IWforums', 'admin', 'update', array('items' => $items,
+                            'fid' => $fid))) {
                     //modified successfully
                     LogUtil::registerStatus($this->__('The forum has been modified'));
                 }
                 break;
             default:
-                if (ModUtil::apiFunc('IWforums', 'admin', 'create',
-                                array('nom_forum' => $nom_forum,
-                                    'descriu' => $descriu,
-                                    'actiu' => $actiu,
-                                    'observacions' => $observacions,
-                                    'adjunts' => $adjunts,
-                                    'msgDelTime' => $msgDelTime,
-                                    'msgEditTime' => $msgEditTime))) {
+                if (ModUtil::apiFunc('IWforums', 'admin', 'create', array('nom_forum' => $nom_forum,
+                            'descriu' => $descriu,
+                            'actiu' => $actiu,
+                            'observacions' => $observacions,
+                            'adjunts' => $adjunts,
+                            'msgDelTime' => $msgDelTime,
+                            'msgEditTime' => $msgEditTime))) {
                     //created successfully
                     LogUtil::registerStatus($this->__('A new forum has been created'));
                 }
@@ -196,8 +191,7 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         }
 
         //Get item
-        $item = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Forum not found'));
             return System::redirect(ModUtil::url('IWforums', 'admin', 'main'));
@@ -205,13 +199,12 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
 
         if (!$confirm) {
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            $groups = ModUtil::func('IWmain', 'user', 'getAllGroups',
-                            array('sv' => $sv,
-                                'less' => ModUtil::getVar('IWmyrole', 'rolegroup')));
+            $groups = ModUtil::func('IWmain', 'user', 'getAllGroups', array('sv' => $sv,
+                        'less' => ModUtil::getVar('IWmyrole', 'rolegroup')));
 
             return $this->view->assign('groups', $groups)
-                    ->assign('item', $item)
-                    ->fetch('IWforums_admin_addGroup.htm');
+                            ->assign('item', $item)
+                            ->fetch('IWforums_admin_addGroup.htm');
         }
 
         $this->checkCsrfToken();
@@ -231,9 +224,8 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         $items = array('grup' => $groupString);
 
         //add the group in database and send automatic message if it is necessary
-        if (ModUtil::apiFunc('IWforums', 'admin', 'update',
-                        array('fid' => $fid,
-                            'items' => $items))) {
+        if (ModUtil::apiFunc('IWforums', 'admin', 'update', array('fid' => $fid,
+                    'items' => $items))) {
             //Success
             LogUtil::registerStatus($this->__('Group added'));
         }
@@ -258,8 +250,7 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         }
 
         //Get item
-        $item = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Forum not found'));
             return System::redirect(ModUtil::url('IWforums', 'admin', 'main'));
@@ -276,9 +267,9 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
             $groupName = ($vals[0] != '-1') ? $groupsInfo[$vals[0]] : $this->__('Unregistered');
 
             return $this->view->assign('groupName', $groupName)
-                    ->assign('item', $item)
-                    ->assign('id', $id)
-                    ->fetch('IWforums_admin_deleteGroup.htm');
+                            ->assign('item', $item)
+                            ->assign('id', $id)
+                            ->fetch('IWforums_admin_deleteGroup.htm');
         }
 
         $this->checkCsrfToken();
@@ -293,9 +284,8 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
 
         $items = array('grup' => $groupString);
 
-        if (ModUtil::apiFunc('IWforums', 'admin', 'update',
-                        array('fid' => $fid,
-                            'items' => $items))) {
+        if (ModUtil::apiFunc('IWforums', 'admin', 'update', array('fid' => $fid,
+                    'items' => $items))) {
             //Success
             LogUtil::registerStatus($this->__('The access has been deleted'));
         }
@@ -320,8 +310,7 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         }
 
         //Get item
-        $item = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Forum not found'));
             return System::redirect(ModUtil::url('IWforums', 'admin', 'main'));
@@ -331,22 +320,20 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
 
         if (!$confirm) {
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            $groups = ModUtil::func('IWmain', 'user', 'getAllGroups',
-                            array('sv' => $sv,
-                                'plus' => $this->__('Choose a gruop...'),
-                                'less' => ModUtil::getVar('IWmyrole', 'rolegroup')));
+            $groups = ModUtil::func('IWmain', 'user', 'getAllGroups', array('sv' => $sv,
+                        'plus' => $this->__('Choose a gruop...'),
+                        'less' => ModUtil::getVar('IWmyrole', 'rolegroup')));
 
 
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            $groupMembers = ModUtil::func('IWmain', 'user', 'getMembersGroup',
-                            array('sv' => $sv,
-                                'gid' => $group));
+            $groupMembers = ModUtil::func('IWmain', 'user', 'getMembersGroup', array('sv' => $sv,
+                        'gid' => $group));
 
             return $this->view->assign('groupselect', $group)
-                    ->assign('groups', $groups)
-                    ->assign('groupMembers', $groupMembers)
-                    ->assign('item', $item)
-                    ->fetch('IWforums_admin_addModerator.htm');
+                            ->assign('groups', $groups)
+                            ->assign('groupMembers', $groupMembers)
+                            ->assign('item', $item)
+                            ->fetch('IWforums_admin_addModerator.htm');
         }
 
         $this->checkCsrfToken();
@@ -363,9 +350,8 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         $items = array('mod' => $respString);
 
         //add the group in database and send automatic message if it is necessary
-        if (ModUtil::apiFunc('IWforums', 'admin', 'update',
-                        array('fid' => $fid,
-                            'items' => $items))) {
+        if (ModUtil::apiFunc('IWforums', 'admin', 'update', array('fid' => $fid,
+                    'items' => $items))) {
             //Success
             LogUtil::registerStatus($this->__('Moderador added'));
         }
@@ -390,8 +376,7 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         }
 
         //Get item
-        $item = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Forum not found'));
             return System::redirect(ModUtil::url('IWforums', 'admin', 'main'));
@@ -399,15 +384,14 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
 
         if (!$confirm) {
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            $userName = ModUtil::func('IWmain', 'user', 'getUserInfo',
-                            array('sv' => $sv,
-                                'uid' => $id,
-                                'info' => 'ncc'));
+            $userName = ModUtil::func('IWmain', 'user', 'getUserInfo', array('sv' => $sv,
+                        'uid' => $id,
+                        'info' => 'ncc'));
 
             return $this->view->assign('userName', $userName)
-                    ->assign('item', $item)
-                    ->assign('id', $id)
-                    ->fetch('IWforums_admin_deleteModerator.htm');
+                            ->assign('item', $item)
+                            ->assign('id', $id)
+                            ->fetch('IWforums_admin_deleteModerator.htm');
         }
 
         $this->checkCsrfToken();
@@ -421,9 +405,8 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         $respString = str_replace('$' . $id . '$', '', $item['resp']);
 
         $items = array('mod' => $respString);
-        if (ModUtil::apiFunc('IWforums', 'admin', 'update',
-                        array('fid' => $fid,
-                            'items' => $items))) {
+        if (ModUtil::apiFunc('IWforums', 'admin', 'update', array('fid' => $fid,
+                    'items' => $items))) {
             //Success
             LogUtil::registerStatus($this->__("Moderator deleted,$dom"));
         }
@@ -447,8 +430,7 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         }
 
         //Get item
-        $item = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Forum not found'));
             return System::redirect(ModUtil::url('IWforums', 'admin', 'main'));
@@ -456,13 +438,12 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
 
         if (!$confirm) {
             return $this->view->assign('item', $item)
-                    ->fetch('IWforums_admin_delete.htm');
+                            ->fetch('IWforums_admin_delete.htm');
         }
 
         $this->checkCsrfToken();
 
-        if (ModUtil::apiFunc('IWforums', 'admin', 'delete',
-                        array('fid' => $fid))) {
+        if (ModUtil::apiFunc('IWforums', 'admin', 'delete', array('fid' => $fid))) {
             //Success
             LogUtil::registerStatus($this->__('The forum has been deleted'));
         }
@@ -492,12 +473,13 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         $multizk = (isset($GLOBALS['PNConfig']['Multisites']['multi']) && $GLOBALS['PNConfig']['Multisites']['multi'] == 1) ? 1 : 0;
 
         return $this->view->assign('noFolder', $noFolder)
-                ->assign('noWriteable', $noWriteable)
-                ->assign('multizk', $multizk)
-                ->assign('urladjunts', ModUtil::getVar('IWforums', 'urladjunts'))
-                ->assign('directoriroot', ModUtil::getVar('IWmain', 'documentRoot'))
-                ->assign('avatarsVisible', ModUtil::getVar('IWforums', 'avatarsVisible'))
-                ->fetch('IWforums_admin_configura.htm');
+                        ->assign('noWriteable', $noWriteable)
+                        ->assign('multizk', $multizk)
+                        ->assign('urladjunts', ModUtil::getVar('IWforums', 'urladjunts'))
+                        ->assign('directoriroot', ModUtil::getVar('IWmain', 'documentRoot'))
+                        ->assign('avatarsVisible', ModUtil::getVar('IWforums', 'avatarsVisible'))
+                        ->assign('smiliesActive', ModUtil::getVar('IWforums', 'smiliesActive'))
+                        ->fetch('IWforums_admin_configura.htm');
     }
 
     /**
@@ -509,6 +491,7 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
     public function update_conf($args) {
         $urladjunts = FormUtil::getPassedValue('urladjunts', isset($args['urladjunts']) ? $args['urladjunts'] : null, 'POST');
         $avatarsVisible = FormUtil::getPassedValue('avatarsVisible', isset($args['avatarsVisible']) ? $args['avatarsVisible'] : null, 'POST');
+        $smiliesActive = FormUtil::getPassedValue('smiliesActive', isset($args['smiliesActive']) ? $args['smiliesActive'] : 0, 'POST');
 
         // Security check
         if (!SecurityUtil::checkPermission('IWforums::', "::", ACCESS_ADMIN)) {
@@ -519,6 +502,8 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
 
         $this->setVar('urladjunts', $urladjunts)
                 ->setVar('avatarsVisible', $avatarsVisible);
+
+        ModUtil::setVar('IWforums', 'smiliesActive', $smiliesActive);
 
         LogUtil::registerStatus($this->__('The configuration of the module has been modified'));
 
@@ -540,8 +525,7 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         }
 
         //Get field information
-        $item = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Forum not found'));
             return System::redirect(ModUtil::url('IWforums', 'admin', 'main'));

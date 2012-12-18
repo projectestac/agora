@@ -1,6 +1,6 @@
 {include file="IWforums_admin_menu.htm"}
 <div class="z-admincontainer">
-    <div class="z-adminpageicon">{img modname='IWforums' src='delete_user_large.gif' set='images'}</div>
+    <div class="z-adminpageicon">{img modname='IWforums' src='delete_user_large.gif'}</div>
     <h2>{gt text="Delete moderator"} -> {$item.nom_forum}</h2>
     <form id="deleteModerator" class="z-form" action="{modurl modname="IWforums" type="admin" func="deleteModerator"}" method="post" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />

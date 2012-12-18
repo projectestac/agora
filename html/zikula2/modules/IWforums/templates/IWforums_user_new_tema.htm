@@ -24,7 +24,7 @@
     <div class="userpageicon">{img modname='core' src='filenew.png' set='icons/large'}</div>
     <h2>{$name} => {gt text="Add a new topic"}</h2>
     <div style="height:5px;">&nbsp;</div>
-    <form  method="post" name="new_tema" id="new_msg" action="index.php?module=IWforums&func=crear_tema" enctype="multipart/form-data">
+    <form  method="post" name="new_tema" id="new_msg" action="{modurl modname='IWforums' type='user' func='crear_tema'}" enctype="multipart/form-data">
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="fid" value="{$fid}" />
         <input type="hidden" name="ftid" value="{$ftid}" />
@@ -58,7 +58,7 @@
                 <a href="javascript:send()">{img modname='core' src='button_ok.png' set='icons/small'   __alt="Add" __title="Add"} {gt text="Add"}</a>
             </span>
             <span class="z-buttons">
-                <a href="{modurl modname="IWforums" type="user" func="forum" fid=$fid}">{img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                <a href="{modurl modname='IWforums' type='user' func='forum' fid=$fid}">{img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
             </span>
         </div>
     </form>

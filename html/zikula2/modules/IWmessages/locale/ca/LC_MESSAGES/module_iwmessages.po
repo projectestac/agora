@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Mòdule IWmessages for zikula 1.3.x\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-26 13:05+0100\n"
-"PO-Revision-Date: 2012-01-20 14:56+0100\n"
+"PO-Revision-Date: 2012-12-18 12:35+0100\n"
 "Last-Translator: intraweb <intraweb@xtec.cat>\n"
 "Language-Team: Intraweb <intraweb@xtec.cat>\n"
 "MIME-Version: 1.0\n"
@@ -542,4 +542,10 @@ msgstr "Modifica"
 #: pntemplates/IWmessages_admin_main.htm:106
 msgid "About the module"
 msgstr "Pel que fa a aquest mòdul"
+
+msgid "You can activate smilies from module configuration."
+msgstr "Podeu activar les emoticones des de la configuració del mòdul."
+
+msgid "Smilies active"
+msgstr "Emoticones actives"
 

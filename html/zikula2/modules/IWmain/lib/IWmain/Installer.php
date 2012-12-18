@@ -121,7 +121,7 @@ class IWmain_Installer extends Zikula_AbstractInstaller {
         foreach ($add as $i) {
             $this->setVar($i, $newVars[$i]);
         }
-        
+
         return true;
     }
 

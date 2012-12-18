@@ -4,7 +4,7 @@
     <h2>{gt text="Create a new forum"}</h2>
     <form  class="z-form" method="post" id="configura" action="{modurl modname="IWforums" type="admin" func="update_conf"}" >
            <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
-           <div style="height:40px;">&nbsp;</div>
+        <div style="height:40px;">&nbsp;</div>
         {if not $multizk}
         <div class="z-formrow">
             <label for="directoriroot">{gt text="Root of the file folder"}</label>
@@ -27,7 +27,11 @@
         </div>
         <div class="z-formrow">
             <label for="avatarsVisible">{gt text="The unregistered users can view messages writers avatars"}</label>
-            <input type="checkbox" name="avatarsVisible" value="1" {if $avatarsVisible eq 1}checked{/if} />
+            <input id="avatarsVisible" type="checkbox" name="avatarsVisible" value="1" {if $avatarsVisible eq 1}checked{/if} />
+        </div>
+        <div class="z-formrow">
+            <label for="smiliesActive">{gt text="Smilies active"}</label>
+            <input id="smiliesActive" type="checkbox" name="smiliesActive" value="1" {if $smiliesActive}checked="checked"{/if}/>
         </div>
         <div class="z-center">
             <span class="z-buttons">

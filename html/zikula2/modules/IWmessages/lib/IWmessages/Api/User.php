@@ -372,9 +372,9 @@ class IWmessages_Api_User extends Zikula_AbstractApi {
         }
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         ModUtil::func('IWmain', 'user', 'userSetVar', array('module' => 'IWmain_block_news',
-                    'name' => 'have_news',
-                    'value' => 'me',
-                    'sv' => $sv));
+            'name' => 'have_news',
+            'value' => 'me',
+            'sv' => $sv));
         //succesfull
         return true;
     }
@@ -476,9 +476,8 @@ class IWmessages_Api_User extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
 
-        $item = ModUtil::apiFunc('IWmessages', 'user', 'get',
-                        array('uid' => UserUtil::getVar('uid'),
-                            'msgid' => $msgid));
+        $item = ModUtil::apiFunc('IWmessages', 'user', 'get', array('uid' => UserUtil::getVar('uid'),
+                    'msgid' => $msgid));
         if (!$item) {
             return LogUtil::registerError($this->__('No such item found.'));
         }

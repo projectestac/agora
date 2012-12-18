@@ -94,7 +94,11 @@
             </div>
             <div class="z-formrow">
                 <label for="dissableSuggest">{gt text="Not suggest on message sending"}</label>
-                <input type="checkbox" name="dissableSuggest" value="1" {if $dissableSuggest}checked{/if}/>
+                <input type="checkbox" name="dissableSuggest" value="1" {if $dissableSuggest}checked="checked"{/if}/>
+            </div>
+            <div class="z-formrow">
+                <label for="smiliesActive">{gt text="Smilies active"}</label>
+                <input id="smiliesActive" type="checkbox" name="smiliesActive" value="1" {if $smiliesActive}checked="checked"{/if}/>
             </div>
             <div class="z-formrow">
                 <label for="limitInBox">{gt text="Limit of messages in received list (0 means no limit)"}</label>

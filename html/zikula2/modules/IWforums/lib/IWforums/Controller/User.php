@@ -202,7 +202,7 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         $moderator = ($access == 4) ? true : false;
 
         $adjunts = ($registre['adjunts'] == 1) ? true : false;
-        $icons = (ModUtil::available('bbsmile') && ModUtil::isHooked('bbsmile', 'IWforums')) ? true : false;
+        $icons = (ModUtil::getVar('IWforums', 'smiliesActive')) ? true : false;
         $total = ModUtil::apiFunc('IWforums', 'user', 'compta_msg',
                         array('ftid' => $ftid,
                             'fid' => $fid,
@@ -497,7 +497,7 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             }
         }
         $adjunts = ($registre['adjunts'] == 1) ? true : false;
-        $icons = (ModUtil::available('bbsmile') && ModUtil::isHooked('bbsmile', 'IWforums')) ? true : false;
+        $icons = (ModUtil::getVar('IWforums', 'smiliesActive')) ? true : false;
         $total = ModUtil::apiFunc('IWforums', 'user', 'compta_msg',
                         array('ftid' => $ftid,
                             'fid' => $fid,
@@ -578,8 +578,8 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         } else {
             $fmid = 0;
         }
-        if (ModUtil::available('bbsmile') && ModUtil::isHooked('bbsmile', 'IWforums')) {
-            $icons = ModUtil::apiFunc('bbsmile', 'user', 'getall');
+        if (ModUtil::getVar('IWforums', 'smiliesActive')) {
+            $icons = ModUtil::apiFunc('IWmain', 'user', 'getAllIcons');
         } else {
             $icons = false;
         }
@@ -866,8 +866,8 @@ class IWforums_Controller_User extends Zikula_AbstractController {
                             'list' => $usersList));
         // get smarticons if module bbsmile is active
         $icons = array();
-        if (ModUtil::available('bbsmile') && ModUtil::isHooked('bbsmile', 'IWforums')) {
-            $icons = ModUtil::apiFunc('bbsmile', 'user', 'getall');
+        if (ModUtil::getVar('IWforums', 'smiliesActive')) {
+            $icons = ModUtil::apiFunc('IWmain', 'user', 'getAllIcons');
         }
         $adjunts = ($forum['adjunts'] == 1) ? true : false;
         // get file extension
@@ -1348,8 +1348,8 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get smarticons if bbsmile is active
-        if (ModUtil::available('bbsmile') && ModUtil::isHooked('bbsmile', 'IWforums')) {
-            $icons = ModUtil::apiFunc('bbsmile', 'user', 'getall');
+        if (ModUtil::getVar('IWforums', 'smiliesActive')) {
+            $icons = ModUtil::apiFunc('IWmain', 'user', 'getAllIcons');
         } else {
             $icons = false;
         }
@@ -1960,8 +1960,8 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get smarticons if module bbsmile is active
-        if (ModUtil::available('bbsmile') && ModUtil::isHooked('bbsmile', 'IWforums')) {
-            $icons = ModUtil::apiFunc('bbsmile', 'user', 'getall');
+        if (ModUtil::getVar('IWforums', 'smiliesActive')) {
+            $icons = ModUtil::apiFunc('IWmain', 'user', 'getAllIcons');
         } else {
             $icons = false;
         }
