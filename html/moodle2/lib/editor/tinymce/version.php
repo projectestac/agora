@@ -24,6 +24,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+//XTEC ************ AFEGIT - To avoid "Strict standards: Creating default object from empty value" warning
+//2012.12.20  @sarjona
+$plugin = new stdClass();
+//************ FI
+
 $plugin->version   = 2012112900;        // The current plugin version (Date: YYYYMMDDXX)
 $plugin->requires  = 2012112900;        // Requires this Moodle version
 $plugin->component = 'editor_tinymce';  // Full name of the plugin (used for diagnostics)
