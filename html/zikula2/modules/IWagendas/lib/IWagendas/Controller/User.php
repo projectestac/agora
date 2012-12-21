@@ -529,8 +529,8 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
                 'daid' => $daid));
         }
         return $this->view->assign('menu', $menu)
-                ->assign('colors', $colors)
-                ->fetch('IWagendas_user_main.htm');
+                        ->assign('colors', $colors)
+                        ->fetch('IWagendas_user_main.htm');
     }
 
     /**
@@ -595,7 +595,7 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
      *                      4 - Manage all
      */
     public function te_acces($args) {
-        $daid = FormUtil::getPassedValue('daid', isset($args['daid']) ? $args['daid'] : null, 'POST');
+        $daid = FormUtil::getPassedValue('daid', isset($args['daid']) ? $args['daid'] : 0, 'POST');
         $grup = FormUtil::getPassedValue('grup', isset($args['grup']) ? $args['grup'] : null, 'POST');
         $resp = FormUtil::getPassedValue('resp', isset($args['resp']) ? $args['resp'] : null, 'POST');
         $activa = FormUtil::getPassedValue('activa', isset($args['activa']) ? $args['activa'] : null, 'POST');
@@ -641,22 +641,6 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             }
         }
         return $accessType;
-    }
-
-    /**
-     * Show the module information
-     *
-     * @return The module information
-     */
-    public function module() {
-        // Security check
-        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_READ));
-
-        $module = ModUtil::func('IWmain', 'user', 'module_info', array('module_name' => 'IWagendas',
-                    'type' => 'user'));
-
-        return $this->view->assign('module', $module)
-                ->fetch('IWagendas_user_module.htm');
     }
 
     /**
@@ -915,12 +899,12 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
         $today = array('month' => date('m'),
             'year' => date('Y'));
         return $this->view->assign('number_of_notes', $nombrenotes)
-                ->assign('width_usage', $width_usage)
-                ->assign('percentage', $percentage)
-                ->assign('user_menu', $user_menu)
-                ->assign('reduced', $reduced)
-                ->assign('today', $today)
-                ->fetch('IWagendas_user_menu.htm');
+                        ->assign('width_usage', $width_usage)
+                        ->assign('percentage', $percentage)
+                        ->assign('user_menu', $user_menu)
+                        ->assign('reduced', $reduced)
+                        ->assign('today', $today)
+                        ->fetch('IWagendas_user_menu.htm');
     }
 
     /**
@@ -1104,7 +1088,7 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
                             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
                             $value = "<span>" . ModUtil::func('IWmain', 'user', 'getUserInfo', array('sv' => $sv,
                                         'uid' => UserUtil::getVar('uid'),
-                                        'info' => 'nc')) . $this->__('on') . date('d/m/Y') . $this->__('at') . date('H:i') . "</span>";
+                                        'info' => 'nc')) . $this->__(' on ') . date('d/m/Y') . $this->__(' at ') . date('H:i') . "</span>";
                             break;
                         case '5': // Type = select
                             $options = explode('-', $agendadef[$op]);
@@ -1252,13 +1236,13 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
                 'name' => $this->__('Every (days)')));
         // Pass the values to the template
         return $this->view->assign('dies_MS', $dies_MS)
-                ->assign('mesos_MS', $mesos_MS)
-                ->assign('anys_MS', $anys_MS)
-                ->assign('hores_MS', $hores_MS)
-                ->assign('minuts_MS', $minuts_MS)
-                ->assign('nivells_MS', $nivells_MS)
-                ->assign('repes_MS', $repes_MS)
-                ->fetch('IWagendas_user_new.htm');
+                        ->assign('mesos_MS', $mesos_MS)
+                        ->assign('anys_MS', $anys_MS)
+                        ->assign('hores_MS', $hores_MS)
+                        ->assign('minuts_MS', $minuts_MS)
+                        ->assign('nivells_MS', $nivells_MS)
+                        ->assign('repes_MS', $repes_MS)
+                        ->fetch('IWagendas_user_new.htm');
     }
 
     /**
@@ -1380,35 +1364,35 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
         }
         if ($error) {
             return $this->view->assign('url', array('url' => DataUtil::formatForDisplay(ModUtil::url('IWagendas', 'user', 'nova', array('horatriada' => $horatriada,
-                                    'minuttriat' => $minuttriat,
-                                    'mes' => $mestriat,
-                                    'dia' => $diatriat,
-                                    'any' => $anytriat,
-                                    'horatriada1' => $horatriada1,
-                                    'minuttriat1' => $minuttriat1,
-                                    'mes1' => $mestriat1,
-                                    'dia1' => $diatriat1,
-                                    'any1' => $anytriat1,
-                                    'c1' => $c1,
-                                    'c2' => $c2,
-                                    'c3' => $c3,
-                                    'c4' => $c4,
-                                    'c5' => $c5,
-                                    'c6' => $c6,
-                                    'totdia' => $totdia,
-                                    'tasca' => $tasca,
-                                    'nivell' => $nivell,
-                                    'repes' => $repes,
-                                    'repesdies' => $repesdies,
-                                    'diarep' => $diatriatrep,
-                                    'mesrep' => $mestriatrep,
-                                    'anyrep' => $anytriatrep,
-                                    'daid' => $daid,
-                                    'odaid' => $odaid,
-                                    'oculta' => $oculta,
-                                    'protegida' => $protegida))),
-                        'desc' => $this->__('Back to previous form')))
-                    ->fetch('IWagendas_user_error.htm');
+                                            'minuttriat' => $minuttriat,
+                                            'mes' => $mestriat,
+                                            'dia' => $diatriat,
+                                            'any' => $anytriat,
+                                            'horatriada1' => $horatriada1,
+                                            'minuttriat1' => $minuttriat1,
+                                            'mes1' => $mestriat1,
+                                            'dia1' => $diatriat1,
+                                            'any1' => $anytriat1,
+                                            'c1' => $c1,
+                                            'c2' => $c2,
+                                            'c3' => $c3,
+                                            'c4' => $c4,
+                                            'c5' => $c5,
+                                            'c6' => $c6,
+                                            'totdia' => $totdia,
+                                            'tasca' => $tasca,
+                                            'nivell' => $nivell,
+                                            'repes' => $repes,
+                                            'repesdies' => $repesdies,
+                                            'diarep' => $diatriatrep,
+                                            'mesrep' => $mestriatrep,
+                                            'anyrep' => $anytriatrep,
+                                            'daid' => $daid,
+                                            'odaid' => $odaid,
+                                            'oculta' => $oculta,
+                                            'protegida' => $protegida))),
+                                'desc' => $this->__('Back to previous form')))
+                            ->fetch('IWagendas_user_error.htm');
         }
         while ($data <= $datarepe) {
             switch ($repes) {
@@ -1549,8 +1533,8 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
                         } catch (Zend_Gdata_App_Exception $e) {
                             LogUtil::registerError($this->__('Error produced during gCalendar\'s event creation'));
                             return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mestriat,
-                                        'any' => $anytriat,
-                                        'daid' => $odaid)));
+                                                'any' => $anytriat,
+                                                'daid' => $odaid)));
                         }
                         $gCalendarEventId = $newEvent->id;
                     } else {
@@ -1604,8 +1588,8 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             LogUtil::registerStatus($missatge_estat);
         }
         return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mestriat,
-                    'any' => $anytriat,
-                    'daid' => $odaid)));
+                            'any' => $anytriat,
+                            'daid' => $odaid)));
     }
 
     /**
@@ -1690,9 +1674,9 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             }
         }
         return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                    'any' => $any,
-                    'dia' => $dia,
-                    'daid' => $daid)));
+                            'any' => $any,
+                            'dia' => $dia,
+                            'daid' => $daid)));
     }
 
     /**
@@ -1740,9 +1724,9 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             if ($te_acces < 3 || ($te_access == 3 && $registre['usuari'] != UserUtil::getVar('uid'))) {
                 LogUtil::registerError($this->__('You are not allowed to administrate the agendas'));
                 return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                            'any' => $any,
-                            'dia' => $dia,
-                            'daid' => $daid)));
+                                    'any' => $any,
+                                    'dia' => $dia,
+                                    'daid' => $daid)));
             }
         }
         //Si ha arribat fins aquÃ­ podrÃ  esborrar el registre de l'agenda
@@ -1756,19 +1740,19 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             $datetitle = ($registre['tasca'] == 0) ? $this->__('Date') . ': ' : $this->__('Expiry date ') . ': ';
 
             return $this->view->assign('menu', ModUtil::func('IWagendas', 'user', 'menu', array('reduced' => 1)))
-                    ->assign('title', $title)
-                    ->assign('notetitlec1', $notetitlec1)
-                    ->assign('notecontentc1', nl2br($registre['c1']))
-                    ->assign('notecontentc2', nl2br($registre['c2']))
-                    ->assign('datetitle', $datetitle)
-                    ->assign('date', date('d/m/Y', $registre['data']))
-                    ->assign('repes', $repes)
-                    ->assign('registre', $registre)
-                    ->assign('dia', $dia)
-                    ->assign('mes', $mes)
-                    ->assign('any', $any)
-                    ->assign('daid', $daid)
-                    ->fetch('IWagendas_user_delete.htm');
+                            ->assign('title', $title)
+                            ->assign('notetitlec1', $notetitlec1)
+                            ->assign('notecontentc1', nl2br($registre['c1']))
+                            ->assign('notecontentc2', nl2br($registre['c2']))
+                            ->assign('datetitle', $datetitle)
+                            ->assign('date', date('d/m/Y', $registre['data']))
+                            ->assign('repes', $repes)
+                            ->assign('registre', $registre)
+                            ->assign('dia', $dia)
+                            ->assign('mes', $mes)
+                            ->assign('any', $any)
+                            ->assign('daid', $daid)
+                            ->fetch('IWagendas_user_delete.htm');
         }
 
         $this->checkCsrfToken();
@@ -1779,9 +1763,9 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
                 if ($registre['usuari'] != UserUtil::getVar('uid')) {
                     LogUtil::registerError($this->__('You are not allowed to administrate the agendas'));
                     return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                                'any' => $any,
-                                'dia' => $dia,
-                                'daid' => $daid)));
+                                        'any' => $any,
+                                        'dia' => $dia,
+                                        'daid' => $daid)));
                 }
                 //Only in personal agendas the notes are deleted from database
                 if (ModUtil::apiFunc('IWagendas', 'user', 'delete', array('aid' => $aid))) {
@@ -1854,9 +1838,9 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             }
         }
         return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                    'any' => $any,
-                    'dia' => $dia,
-                    'daid' => $daid)));
+                            'any' => $any,
+                            'dia' => $dia,
+                            'daid' => $daid)));
     }
 
     /**
@@ -2166,8 +2150,8 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             }
         }
         return $this->view->assign('infos', $infos)
-                ->assign('comments', nl2br(ModUtil::getVar('IWagendas', 'comentaris')))
-                ->fetch('IWagendas_user_cescolar.htm');
+                        ->assign('comments', nl2br(ModUtil::getVar('IWagendas', 'comentaris')))
+                        ->fetch('IWagendas_user_cescolar.htm');
     }
 
     /**
@@ -2478,9 +2462,9 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
         if (!checkdate($mestriat, $diatriat, $anytriat)) {
             LogUtil::registerError($this->__('Incorrect date') . ': ' . $diatriat . '/' . $mestriat . '/' . $anytriat);
             return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                        'any' => $any,
-                        'dia' => $dia,
-                        'daid' => $daid)));
+                                'any' => $any,
+                                'dia' => $dia,
+                                'daid' => $daid)));
         }
         //Agafem les dades que ens falten de l'anotaciï¿œ
         $registre = ModUtil::apiFunc('IWagendas', 'user', 'get', array('aid' => $aid));
@@ -2503,18 +2487,18 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             if ($te_acces < 3 || ($te_access == 3 && $registre['usuari'] != UserUtil::getVar('uid'))) {
                 LogUtil::registerError($this->__('You are not allowed to administrate the agendas'));
                 return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mestriat,
-                            'any' => $anytriat,
-                            'dia' => $dia,
-                            'daid' => $daid)));
+                                    'any' => $anytriat,
+                                    'dia' => $dia,
+                                    'daid' => $daid)));
             }
         } else {
             // Check if user can delete the note
             if ($registre['usuari'] != UserUtil::getVar('uid')) {
                 LogUtil::registerError($this->__('You are not allowed to administrate the agendas'));
                 return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mestriat,
-                            'any' => $anytriat,
-                            'dia' => $dia,
-                            'daid' => $daid)));
+                                    'any' => $anytriat,
+                                    'dia' => $dia,
+                                    'daid' => $daid)));
             }
         }
         // Verify values. Only the main information is required
@@ -2542,29 +2526,29 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             if ($update['msg'] != '') {
                 $fitxer = '';
                 return $this->view->assign('error', $this->__('File size incorrect. Maximum size is ') . ModUtil::getVar('IWmain', 'maxsize') . ' ' . $this->__('bits.'))
-                        ->assign('url', array('url' => DataUtil::formatForDisplay(ModUtil::url('IWagendas', 'user', 'editar', array('horatriada' => $horatriada,
-                                        'minuttriat' => $minuttriat,
-                                        'mes' => $mestriat,
-                                        'dia' => $diatriat,
-                                        'any' => $anytriat,
-                                        'c1' => $c1,
-                                        'c2' => $c2,
-                                        'c3' => $c3,
-                                        'c4' => $c4,
-                                        'c5' => $c5,
-                                        'c6' => $c6,
-                                        'totdia' => $totdia,
-                                        'repes' => $repes,
-                                        'repesdies' => $repesdies,
-                                        'diarep' => $diatriatrep,
-                                        'mesrep' => $mestriatrep,
-                                        'anyrep' => $anytriatrep,
-                                        'daid' => $daid,
-                                        'aid' => $aid,
-                                        'oculta' => $oculta,
-                                        'protegida' => $protegida))),
-                            'desc' => $this->__('Back to previous form')))
-                        ->fetch('IWagendas_user_error.htm');
+                                ->assign('url', array('url' => DataUtil::formatForDisplay(ModUtil::url('IWagendas', 'user', 'editar', array('horatriada' => $horatriada,
+                                                'minuttriat' => $minuttriat,
+                                                'mes' => $mestriat,
+                                                'dia' => $diatriat,
+                                                'any' => $anytriat,
+                                                'c1' => $c1,
+                                                'c2' => $c2,
+                                                'c3' => $c3,
+                                                'c4' => $c4,
+                                                'c5' => $c5,
+                                                'c6' => $c6,
+                                                'totdia' => $totdia,
+                                                'repes' => $repes,
+                                                'repesdies' => $repesdies,
+                                                'diarep' => $diatriatrep,
+                                                'mesrep' => $mestriatrep,
+                                                'anyrep' => $anytriatrep,
+                                                'daid' => $daid,
+                                                'aid' => $aid,
+                                                'oculta' => $oculta,
+                                                'protegida' => $protegida))),
+                                    'desc' => $this->__('Back to previous form')))
+                                ->fetch('IWagendas_user_error.htm');
             } else
                 $fitxer = $update['fileName'];
         }
@@ -2606,9 +2590,9 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
                 LogUtil::registerStatus($this->__('New event created'));
             }
             return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mestriat,
-                        'any' => $anytriat,
-                        'dia' => $dia,
-                        'daid' => $daid)));
+                                'any' => $anytriat,
+                                'dia' => $dia,
+                                'daid' => $daid)));
         }
         //A modify means to show the modify label in users personal agendas
         if (!isset($quines) || $quines <= 1) {
@@ -2655,9 +2639,9 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             LogUtil::registerStatus($this->__('Event updated'));
         }
         return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mestriat,
-                    'any' => $anytriat,
-                    'dia' => $dia,
-                    'daid' => $daid)));
+                            'any' => $anytriat,
+                            'dia' => $dia,
+                            'daid' => $daid)));
     }
 
     /**
@@ -2697,18 +2681,18 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             if ($te_acces < 3 || ($te_access == 3 && $anotacio['usuari'] != UserUtil::getVar('uid'))) {
                 LogUtil::registerError($this->__('You are not allowed to administrate the agendas'));
                 return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                            'any' => $any,
-                            'dia' => $dia,
-                            'daid' => $daid)));
+                                    'any' => $any,
+                                    'dia' => $dia,
+                                    'daid' => $daid)));
             }
         } else {
             //Check if it is a authorized user
             if ($anotacio['usuari'] != UserUtil::getVar('uid')) {
                 LogUtil::registerError($this->__('You are not allowed to administrate the agendas'));
                 return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                            'any' => $any,
-                            'dia' => $dia,
-                            'daid' => $daid)));
+                                    'any' => $any,
+                                    'dia' => $dia,
+                                    'daid' => $daid)));
             }
         }
         $protegida = ($anotacio['protegida'] == 1) ? 0 : 1;
@@ -2721,9 +2705,9 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             LogUtil::registerStatus($this->__('Protection status updated'));
         }
         return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                    'any' => $any,
-                    'dia' => $dia,
-                    'daid' => $daid)));
+                            'any' => $any,
+                            'dia' => $dia,
+                            'daid' => $daid)));
     }
 
     /**
@@ -2753,9 +2737,9 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
         if ($registre == false) {
             LogUtil::registerError($this->__('Event not found'));
             return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                        'any' => $any,
-                        'dia' => $dia,
-                        'daid' => $daid)));
+                                'any' => $any,
+                                'dia' => $dia,
+                                'daid' => $daid)));
         }
         //Estem entrant a una agenda multiusuari
         //Carreguem les dades de l'agenda
@@ -2771,17 +2755,17 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             if ($te_acces == 0) {
                 LogUtil::registerError($this->__('You are not allowed to administrate the agendas'));
                 return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                            'any' => $any,
-                            'dia' => $dia,
-                            'daid' => $daid)));
+                                    'any' => $any,
+                                    'dia' => $dia,
+                                    'daid' => $daid)));
             }
         } else {
             if ($registre['usuari'] != UserUtil::getVar('uid')) {
                 LogUtil::registerError($this->__('You are not allowed to administrate the agendas'));
                 return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                            'any' => $any,
-                            'dia' => $dia,
-                            'daid' => $daid)));
+                                    'any' => $any,
+                                    'dia' => $dia,
+                                    'daid' => $daid)));
             }
         }
         $data = $registre['data'];
@@ -2810,20 +2794,20 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
 
             // Create and pass the menu
             return $this->view->assign('menu', ModUtil::func('IWagendas', 'user', 'menu', array('mes' => $mes,
-                                'any' => $any,
-                                'dia' => $dia,
-                                'daid' => $daid)))
-                    ->assign('hourvalue', $hourvalue)
-                    ->assign('aid', $aid)
-                    ->assign('mes', $mes)
-                    ->assign('any', $any)
-                    ->assign('dia', $dia)
-                    ->assign('daid', $daid)
-                    ->assign('datevalue', date('d/m/Y', $registre['data']))
-                    ->assign('notevaluec1', $registre['c1'])
-                    ->assign('notevaluec2', $registre['c2'])
-                    ->assign('selectvalues', $agendas)
-                    ->fetch('IWagendas_user_selectagenda.htm');
+                                        'any' => $any,
+                                        'dia' => $dia,
+                                        'daid' => $daid)))
+                            ->assign('hourvalue', $hourvalue)
+                            ->assign('aid', $aid)
+                            ->assign('mes', $mes)
+                            ->assign('any', $any)
+                            ->assign('dia', $dia)
+                            ->assign('daid', $daid)
+                            ->assign('datevalue', date('d/m/Y', $registre['data']))
+                            ->assign('notevaluec1', $registre['c1'])
+                            ->assign('notevaluec2', $registre['c2'])
+                            ->assign('selectvalues', $agendas)
+                            ->fetch('IWagendas_user_selectagenda.htm');
         }
         if ($daid == 0)
             $adaid = array(0);
@@ -2834,9 +2818,9 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             LogUtil::registerStatus($this->__('Event moved to other agendas'));
         }
         return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                    'any' => $any,
-                    'dia' => $dia,
-                    'daid' => $daid)));
+                            'any' => $any,
+                            'dia' => $dia,
+                            'daid' => $daid)));
     }
 
     /**
@@ -2948,22 +2932,22 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             if ($te_acces < 1) {
                 LogUtil::registerError($this->__('You are not allowed to administrate the agendas'));
                 return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('dia' => $dia,
-                            'mes' => $mes,
-                            'daid' => $daid)));
+                                    'mes' => $mes,
+                                    'daid' => $daid)));
             }
         } else {
             if ($registre['usuari'] != UserUtil::getVar('uid')) {
                 LogUtil::registerError($this->__('You are not allowed to administrate the agendas'));
                 return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('dia' => $dia,
-                            'mes' => $mes,
-                            'daid' => $daid)));
+                                    'mes' => $mes,
+                                    'daid' => $daid)));
             }
         }
         $fileNameInServer = ModUtil::getVar('IWagendas', 'urladjunts') . '/' . $fileName;
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         return ModUtil::func('IWmain', 'user', 'downloadFile', array('fileName' => $fileName,
-            'fileNameInServer' => $fileNameInServer,
-            'sv' => $sv));
+                    'fileNameInServer' => $fileNameInServer,
+                    'sv' => $sv));
     }
 
     /**
@@ -2985,9 +2969,10 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
         $te_acces = ModUtil::func('IWagendas', 'user', 'te_acces', array('daid' => $daid));
         if ($te_acces != 4) {
             LogUtil::registerError($this->__('You are not allowed to administrate the agendas'));
-            return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('dia' => $dia,
-                        'mes' => $mes,
-                        'daid' => $daid)));
+            return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array(
+                                //'dia' => $dia,
+                                'mes' => $mes,
+                                'daid' => $daid)));
         }
         // Subscribed users
         $subscrits = ModUtil::apiFunc('IWagendas', 'user', 'getsubscrits', array('daid' => $daid,
@@ -3026,18 +3011,18 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
 
         // Get the menu
         return $this->view->assign('menu', ModUtil::func('IWagendas', 'user', 'menu', array('mes' => $mes,
-                            'any' => $any,
-                            'dia' => $dia,
-                            'daid' => $daid)))
-                ->assign('subscribedusersvalue', $subscribedusersvalue)
-                ->assign('to_subscribe', $to_subscribe)
-                ->assign('force_subscription', $force_subscription)
-                ->assign('submitvalue', $this->__('Subscribe them'))
-                ->assign('daid', $daid)
-                ->assign('mes', $mes)
-                ->assign('any', $any)
-                ->assign('dia', $dia)
-                ->fetch('IWagendas_user_subscribeall.htm');
+                                    'any' => $any,
+//                            'dia' => $dia,
+                                    'daid' => $daid)))
+                        ->assign('subscribedusersvalue', $subscribedusersvalue)
+                        ->assign('to_subscribe', $to_subscribe)
+                        ->assign('force_subscription', $force_subscription)
+                        ->assign('submitvalue', $this->__('Subscribe them'))
+                        ->assign('daid', $daid)
+                        ->assign('mes', $mes)
+                        ->assign('any', $any)
+//                ->assign('dia', $dia)
+                        ->fetch('IWagendas_user_subscribeall.htm');
     }
 
     /**
@@ -3065,14 +3050,14 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
         if (!checkdate($mes1, $dia1, $any1)) {
             LogUtil::registerError($this->__('Incorrect date'));
             return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                        'any' => $any,
-                        'daid' => $daid)));
+                                'any' => $any,
+                                'daid' => $daid)));
         }
         if (mktime(0, 0, 0, $mes1, $dia1, $any1) > time()) {
             LogUtil::registerError($this->__('Future events cannot be deleted'));
             return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                        'any' => $any,
-                        'daid' => $daid)));
+                                'any' => $any,
+                                'daid' => $daid)));
         }
         //Comprovem que l'usuari pugui accedir a l'agenda
         if ($daid != 0) {
@@ -3087,8 +3072,8 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             if ($te_acces < 4) {
                 LogUtil::registerError($this->__('You are not allowed to do that'));
                 return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                            'any' => $any,
-                            'daid' => $daid)));
+                                    'any' => $any,
+                                    'daid' => $daid)));
             }
         }
         //esborrem les anotacions anteriors a la data enviada
@@ -3100,8 +3085,8 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
         }
         //Retorna havent acabat el procï¿œs satisfactï¿œriament
         return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                    'any' => $any,
-                    'daid' => $daid)));
+                            'any' => $any,
+                            'daid' => $daid)));
     }
 
     /**
@@ -3138,8 +3123,8 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
         if ($te_acces < 4) {
             LogUtil::registerError($this->__('You are not allowed to do that'));
             return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                        'any' => $any,
-                        'daid' => $daid)));
+                                'any' => $any,
+                                'daid' => $daid)));
         }
         $users = array_merge($tenenacces, $uid);
         $lid = ModUtil::apiFunc('IWagendas', 'user', 'subsAltaMulti', array('daid' => $daid,
@@ -3149,9 +3134,9 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
             LogUtil::registerStatus($this->__('Automatic subscription completed succesfully'));
         }
         return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                    'any' => $any,
-                    'dia' => $dia,
-                    'daid' => $daid)));
+                            'any' => $any,
+                            'dia' => $dia,
+                            'daid' => $daid)));
     }
 
     /**
@@ -3495,7 +3480,6 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_READ));
 
         $next = ModUtil::func('IWagendas', 'user', 'getCurrentUrl');
-        //$next = 'http://localhost:7777/zikula/index.php?module=Agendes';
         $scope = 'http://www.google.com/calendar/feeds/';
         $session = true;
         $secure = false;
@@ -3631,8 +3615,8 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
                     'module' => 'IWagendas',
                     'sv' => $sv));
         return System::redirect(ModUtil::url('IWagendas', 'user', 'main', array('mes' => $mes,
-                    'any' => $any,
-                    'daid' => $daid)));
+                            'any' => $any,
+                            'daid' => $daid)));
     }
 
     public function getCalendarContent($args) {
@@ -3789,16 +3773,16 @@ class IWagendas_Controller_User extends Zikula_AbstractController {
 
         // Pass the data to the template
         return $this->view->assign('colors', $colors)
-                ->assign('month', (int) $month)
-                ->assign('previous_month', (int) $month - 1)
-                ->assign('next_month', (int) $month + 1)
-                ->assign('year', $year)
-                ->assign('first_day', $first_day)
-                ->assign('days_month', $days_month)
-                ->assign('month_name', $month_names[(int) $month - 1])
-                ->assign('day_names_abbr', $day_names_abbr)
-                ->assign('days', $days)
-                ->fetch('IWagendas_block_Calendar.htm');
+                        ->assign('month', (int) $month)
+                        ->assign('previous_month', (int) $month - 1)
+                        ->assign('next_month', (int) $month + 1)
+                        ->assign('year', $year)
+                        ->assign('first_day', $first_day)
+                        ->assign('days_month', $days_month)
+                        ->assign('month_name', $month_names[(int) $month - 1])
+                        ->assign('day_names_abbr', $day_names_abbr)
+                        ->assign('days', $days)
+                        ->fetch('IWagendas_block_Calendar.htm');
     }
 
     /**

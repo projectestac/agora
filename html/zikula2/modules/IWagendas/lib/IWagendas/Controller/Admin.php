@@ -30,7 +30,7 @@ class IWagendas_Controller_Admin extends Zikula_AbstractController {
         //get all groups information
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $groupsInfo = ModUtil::func('IWmain', 'user', 'getAllGroupsInfo', array('sv' => $sv));
-
+        $groupsInfo['-1'] = $this->__('Unregistered');
         //get all users information
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $usersInfo = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv,
@@ -69,22 +69,6 @@ class IWagendas_Controller_Admin extends Zikula_AbstractController {
 
         return $this->view->assign('agendas', $agendasArray)
                         ->fetch('IWagendas_admin_main.htm');
-    }
-
-    /**
-     * Show the module information
-     *
-     * @return The module information
-     */
-    public function module() {
-        // Security check
-        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_ADMIN));
-
-        $module = ModUtil::func('IWmain', 'user', 'module_info', array('module_name' => 'IWagendas',
-                    'type' => 'admin'));
-
-        return $this->view->assign('module', $module)
-                        ->fetch('IWagendas_admin_module.htm');
     }
 
     /**

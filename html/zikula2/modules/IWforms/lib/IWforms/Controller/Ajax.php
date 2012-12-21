@@ -23,7 +23,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
                     'gid' => $gid));
         asort($groupMembers);
         if (empty($groupMembers)) {
-            AjaxUtil::error('unable to get group members or group is empty for gid=' . DataUtil::formatForDisplay($gid));
+            throw new Zikula_Exception_Fatal($this->__('unable to get group members or group is empty for gid=' . DataUtil::formatForDisplay($gid)));
         }
         $view = Zikula_View::getInstance('IWforms', false);
         $view->assign('groupMembers', $groupMembers);
@@ -69,7 +69,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $items = array($charx => $value);
         if (!ModUtil::apiFunc('IWforms', 'admin', 'editFormField', array('fndid' => $fndid,
                     'items' => $items))) {
-            AjaxUtil::error('Error');
+            throw new Zikula_Exception_Fatal($this->__('Error'));
         }
         return new Zikula_Response_Ajax(array('fndid' => $fndid,
                 ));
@@ -424,10 +424,10 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             $fnid = $fmid;
             $noteContent = ModUtil::apiFunc('IWforms', 'user', 'getNoteContent', array('fnid' => $fnid));
             if ($noteContent === false) {
-                AjaxUtil::error($this->__('For some reason it is not possible to edit the field\'s content.'));
+                throw new Zikula_Exception_Fatal($this->__('For some reason it is not possible to edit the field\'s content.'));
             }
             if ($noteContent['editable'] != 1) {
-                AjaxUtil::error($this->__('You can not edit this note.'));
+                throw new Zikula_Exception_Fatal($this->__('You can not edit this note.'));
             }
             $fmid = $noteContent['fmid'];
         }
@@ -488,8 +488,8 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             throw new Zikula_Exception_Fatal($this->__('no action defined'));
         }
         $value = FormUtil::getPassedValue('value', -1, 'POST');
-        if ($toDo == -1) {
-            AjaxUtil::error('no value defined');
+        if (!$value) {
+            throw new Zikula_Exception_Fatal($this->__('no value defined'));
         }
 
         // in the case of editing the content of a note the parameter fmid refers to fnid
@@ -497,7 +497,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             $fnid = $fmid;
             $noteContent = ModUtil::apiFunc('IWforms', 'user', 'getNoteContent', array('fnid' => $fnid));
             if ($noteContent === false) {
-                AjaxUtil::error($this->__('For some reason it is not possible to edit the field\'s content.'));
+                throw new Zikula_Exception_Fatal($this->__('For some reason it is not possible to edit the field\'s content.'));
             }
             $fmid = $noteContent['fmid'];
         }
@@ -593,7 +593,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $items = array($charx => $value);
         if (!ModUtil::apiFunc('IWforms', 'admin', 'editForm', array('fid' => $fid,
                     'items' => $items))) {
-            AjaxUtil::error('Error');
+            throw new Zikula_Exception_Fatal($this->__('Error'));
         }
         return new Zikula_Response_Ajax(array('fmid' => $fmid,
                 ));
@@ -739,23 +739,23 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         }
         //delete the form fields
         if (!ModUtil::apiFunc('IWforms', 'admin', 'deleteFormFields', array('fid' => $fid))) {
-            AjaxUtil::error($this->__('Has been removed the fields of the form'));
+            throw new Zikula_Exception_Fatal($this->__('Has been removed the fields of the form'));
         }
         //delete the form groups
         if (!ModUtil::apiFunc('IWforms', 'admin', 'deleteFormGroups', array('fid' => $fid))) {
-            AjaxUtil::error($this->__('Has been removed the groups of the form'));
+            throw new Zikula_Exception_Fatal($this->__('Has been removed the groups of the form'));
         }
         //delete the form validators
         if (!ModUtil::apiFunc('IWforms', 'admin', 'deleteFormValidators', array('fid' => $fid))) {
-            AjaxUtil::error($this->__('Has been removed the validators of the form'));
+            throw new Zikula_Exception_Fatal($this->__('Has been removed the validators of the form'));
         }
         //delete the form notes
         if (!ModUtil::apiFunc('IWforms', 'admin', 'deleteFormNotes', array('fid' => $fid))) {
-            AjaxUtil::error($this->__('Dropped the annotations of the form'));
+            throw new Zikula_Exception_Fatal($this->__('Dropped the annotations of the form'));
         }
         //delete the form
         if (!ModUtil::apiFunc('IWforms', 'admin', 'deleteForm', array('fid' => $fid))) {
-            AjaxUtil::error($this->__('Has been removed form'));
+            throw new Zikula_Exception_Fatal($this->__('Has been removed form'));
         }
         return new Zikula_Response_Ajax(array('fid' => $fid,
                 ));
@@ -777,10 +777,10 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         //Check if there are other fields that depens on it. In this case the field can't be deleted
         $dependancesTo = ModUtil::apiFunc('IWforms', 'user', 'getFormFieldDependancesTo', array('fndid' => $fndid));
         if ($dependancesTo) {
-            AjaxUtil::error('no possible');
+            throw new Zikula_Exception_Fatal($this->__('no possible'));
         }
         if (!ModUtil::apiFunc('IWforms', 'admin', 'deleteFormField', array('itemField' => $fndid))) {
-            LogUtil::registerStatus(_IWFORMSFORMFIELDDELETEDERROR);
+            throw new Zikula_Exception_Fatal($this->__('Error'));
         }
         // Reorder the items
         ModUtil::apiFunc('IWforms', 'admin', 'reorder', array('fid' => $fid));
@@ -806,7 +806,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
                     'fieldType' => $fieldType,
                     'fieldName' => $this->__('Field name')));
         if (!$createField) {
-            AjaxUtil::error('creation error');
+            throw new Zikula_Exception_Fatal($this->__('creation error'));
         }
         ModUtil::apiFunc('IWforms', 'admin', 'reorder', array('fid' => $fid));
         //If field type is fileset create a fieldset end field </fieldset> and edit it
@@ -847,7 +847,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         }
         $action = FormUtil::getPassedValue('action', -1, 'POST');
         if ($action == -1) {
-            AjaxUtil::error('no action defined id');
+            throw new Zikula_Exception_Fatal($this->__('no action defined id'));
         }
         switch ($action) {
             case 'validators':

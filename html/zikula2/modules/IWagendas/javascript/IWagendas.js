@@ -1,123 +1,110 @@
-function modifyField(daid, char)
-{
-  showfieldinfo(daid, modifyingfield);
-  var pars = "module=IWagendas&func=modifyAgenda&daid=" + daid + "&char=" + char;
-  var myAjax = new Ajax.Request("ajax.php",
-  {
-    method: 'get',
-    parameters: pars,
-    onComplete: modifyField_response,
-    onFailure: modifyField_failure
-  });
+function failure(){
 }
 
-function modifyField_response(req)
-{
-  if (req.status != 200 ){
-    pnshowajaxerror(req.responseText);
-    return;
-  }
-  var json = pndejsonize(req.responseText);
-
-  changeContent(json.daid);
-}
-
-function modifyField_failure(){
-}
-
-function modifyColor(daid,color)
-{
-  var pars = "module=IWagendas&func=modifyColor&daid=" + daid + "&color=" + color;
-  var myAjax = new Ajax.Request("ajax.php",
-  {
-    method: 'get',
-    parameters: pars,
-    onComplete: modifyColor_response,
-    onFailure: modifyColor_failure
-  });
-}
-
-function modifyColor_response(req){
-  if (req.status != 200 ){
-//    pnshowajaxerror(req.responseText);
-    return;
-  }
-  var json = pndejsonize(req.responseText);
-
-}
-
-function modifyColor_failure(){
-}
-
-function showfieldinfo(fndid, infotext)
-{
-  if (fndid) {
-    var info = 'agendainfo_' + fndid;
-    if (!Element.hasClassName(info, 'z-hide')) {
-      Element.update(info, '&nbsp;');
-      Element.addClassName(info, 'z-hide');
-    } else {
-      Element.update(info, infotext);
-      Element.removeClassName(info, 'z-hide');
-    }
-  } else {
-    $A(document.getElementsByClassName('fieldinfo')).each(function(info){
-      Element.update(info, '&nbsp;');
-      Element.addClassName(info, 'z-hide');
+function modifyField(a, aa) {
+    showfieldinfo(a, modifyingfield);
+    var b={
+        daid:a,
+        charx:aa
+    };
+    
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWagendas&func=modifyAgenda",{
+        parameters: b,
+        onComplete: modifyField_response,
+        onFailure: failure
     });
-  }
 }
 
-function changeContent(daid)
-{
-  var pars = "module=IWagendas&func=changeContent&daid=" + daid;
-  var myAjax = new Ajax.Request("ajax.php",
-  {
-    method: 'get',
-    parameters: pars,
-    onComplete: changeContent_response,
-    onFailure: changeContent_failure
-  });
+function modifyField_response(a) {
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    changeContent(b.daid);
 }
 
-function changeContent_response(req)
-{
-  if (req.status != 200) {
-    pnshowajaxerror(req.responseText);
-    return;
-  }
-  var json = pndejsonize(req.responseText);
-  Element.update('agendaChars_'+json.daid, json.content).innerHTML;
+function modifyColor(a,aa) {
+    var b={
+        daid:a,
+        color:aa
+    };    
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWagendas&func=modifyColor",{
+        parameters: b,
+        onComplete: modifyColor_response,
+        onFailure: failure
+    });
 }
 
-function changeContent_failure() {
+function modifyColor_response(a) {
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
 }
 
-function chgUsers(gid) {
-  var pars = "module=IWagendas&func=chgUsers&gid=" + gid;
-  show_info();
-  var myAjax = new Ajax.Request("ajax.php",
-  {
-    method: 'get',
-    parameters: pars,
-    onComplete: chgUsers_response,
-    onFailure: chgUsers_failure
-  });
+function showfieldinfo(fndid, infotext) {
+    if (fndid) {
+        var info = 'agendainfo_' + fndid;
+        if (!Element.hasClassName(info, 'z-hide')) {
+            Element.update(info, '&nbsp;');
+            Element.addClassName(info, 'z-hide');
+        } else {
+            Element.update(info, infotext);
+            Element.removeClassName(info, 'z-hide');
+        }
+    } else {
+        $A(document.getElementsByClassName('fieldinfo')).each(function(info){
+            Element.update(info, '&nbsp;');
+            Element.addClassName(info, 'z-hide');
+        });
+    }
 }
 
-function chgUsers_failure(){
-  show_info();
-  Element.update('uid', '').innerHTML;
+function changeContent(a) {
+    var b={
+        daid:a
+    };    
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWagendas&func=changeContent",{
+        parameters: b,
+        onComplete: changeContent_response,
+        onFailure: failure
+    });
 }
 
-function chgUsers_response(req){
-  if (req.status != 200) {
-    pnshowajaxerror(req.responseText);
-    return;
-  }
-  var json = pndejsonize(req.responseText);
-  show_info();
-  Element.update('uid', json.content).innerHTML;
+function changeContent_response(a) {
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    $("agendaChars_" + b.daid).update(b.content);
+}
+
+function chgUsers(a) {
+    var b={
+        gid:a
+    };    
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWagendas&func=chgUsers",{
+        parameters: b,
+        onComplete: chgUsers_response,
+        onFailure: chgUsers_failure
+    });
+}
+
+function chgUsers_failure() {
+    show_info();
+    $("uid").update('');
+}
+
+function chgUsers_response(a) {
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    $('uid').update(b.content);
+    
 }
 
 /**
@@ -129,194 +116,170 @@ function chgUsers_response(req){
  *@return none;
  *@author Albert Pérez Monfort
  */
-function show_info()
-{
-  var info = 'chgInfo';
-  if(!Element.hasClassName(info, 'z-hide')) {
-    Element.update(info, '&nbsp;');
-    Element.addClassName(info, 'z-hide');
-  } else {
-    Element.update(info, '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    Element.removeClassName(info, 'z-hide');
-  }
+function show_info() {
+    var info = 'chgInfo';
+    if(!Element.hasClassName(info, 'z-hide')) {
+        $("info").update('&nbsp;');
+        Element.addClassName(info, 'z-hide');
+    } else {
+        $("info").update('<img src="images/ajax/circle-ball-dark-antialiased.gif">');
+        Element.removeClassName(info, 'z-hide');
+    }
 }  
 
-function deleteNote(aid,daid){
-  resposta=confirm(confirmDeletion);
-  if (resposta){
-    var pars = "module=IWagendas&func=deleteNote&aid=" + aid + "&daid=" + daid;
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-      method: 'get',
-      parameters: pars,
-      onComplete: deleteNote_response,
-      onFailure: deleteNote_failure
+function deleteNote(a,aa) {
+    var resposta=confirm(confirmDeletion);
+    if (resposta){
+        var b={
+            aid:a,
+            daid:aa
+        };    
+        var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWagendas&func=deleteNote",{
+            parameters: b,
+            onComplete: deleteNote_response,
+            onFailure: failure
+        });
+    }
+}
+
+function deleteNote_response(a) {
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    $("note_" + b.aid).toggle();
+    
+}
+
+function protectNote(a,aa) {
+    var b={
+        aid:a,
+        daid:aa
+    };    
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWagendas&func=protectNote",{
+        parameters: b,
+        onComplete: protectNote_response,
+        onFailure: failure
     });
-  }
 }
 
-function deleteNote_response(req)
-{
-  if (req.status != 200 ){
-    pnshowajaxerror(req.responseText);
-    return;
-  }
-
-  var json = pndejsonize(req.responseText);
-
-  $('note_' + json.aid).toggle()
-}
-
-function deleteNote_failure() {
-}
-
-function protectNote(aid,daid)
-{
-  var pars = "module=IWagendas&func=protectNote&aid=" + aid + "&daid=" + daid;
-  var myAjax = new Ajax.Request("ajax.php",
-  {
-    method: 'get',
-    parameters: pars,
-    onComplete: protectNote_response,
-    onFailure: protectNote_failure
-  });
-}
-
-function protectNote_response(req)
-{
-  if (req.status != 200) {
-    pnshowajaxerror(req.responseText);
-    return;
-  }
-
-  var json = pndejsonize(req.responseText);
-
-  //alert(json.aid +' '+json.protected);
-  if (json.protected == 1) {
-    $('protectedIcon_'+json.aid).src="modules/IWagendas/images/nocandau.gif";
-  } else {
-    $('protectedIcon_'+json.aid).src="modules/IWagendas/images/candau.gif";
-  }
-  $('protectedIcon_'+json.aid).alt=json.alt;
-  $('aprotectedIcon_'+json.aid).title=json.alt;
-}
-
-function protectNote_failure() {
-}
-
-function completeNote(aid,daid)
-{
-  var pars = "module=IWagendas&func=completeNote&aid=" + aid + "&daid=" + daid;
-  var myAjax = new Ajax.Request("ajax.php",
-  {
-    method: 'get',
-    parameters: pars,
-    onComplete: completeNote_response,
-    onFailure: completeNote_failure
-  });
-}
-
-function completeNote_response(req)
-{
-  if (req.status != 200) {
-    pnshowajaxerror(req.responseText);
-    return;
-  }
-
-  var json = pndejsonize(req.responseText);
-  var icon;
-  var alt;
-  if (json.completed == 1) {
-    if (json.daid == 0){
-      icon = 'ncompleta.gif';
-    } else {
-      icon = 'mostra.gif';
+function protectNote_response(a) {
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
     }
-  } else {
-    if (json.daid == 0) {
-      icon = 'completa.gif';
+    var b=a.getData();
+
+    if (b.protecteda == 1) {
+        $('protectedIcon_'+b.aid).src=Zikula.Config.baseURL+"modules/IWagendas/images/nocandau.gif";
     } else {
-      icon = 'amaga.gif';
+        $('protectedIcon_'+b.aid).src=Zikula.Config.baseURL+"modules/IWagendas/images/candau.gif";
     }
-  }
-  $('completedIcon_'+json.aid).src="modules/IWagendas/images/" + icon;
-  $('completedIcon_'+json.aid).alt=json.alt;
-  $('acompletedIcon_'+json.aid).title=json.alt;
-  $('noteText_'+json.aid).style.background=json.bgcolor;
+    $('protectedIcon_'+b.aid).alt=b.alt;
+    $('aprotectedIcon_'+b.aid).title=b.alt;
 }
 
-function completeNote_failure() {
+function completeNote(a,aa) {
+    var b={
+        aid:a,
+        daid:aa
+    };    
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWagendas&func=completeNote",{
+        parameters: b,
+        onComplete: completeNote_response,
+        onFailure: failure
+    });
 }
 
-function changeMonth(mes,any,daid)
-{
-  var pars = "module=IWagendas&func=changeMonth&mes=" + mes + "&any=" + any + "&daid=" + daid;
-  var myAjax = new Ajax.Request("ajax.php",
-  {
-    method: 'get',
-    parameters: pars,
-    onComplete: changeMonth_response,
-    onFailure: changeMonth_failure
-  });
+function completeNote_response(a) {
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    var icon;
+    if (b.completed == 1) {
+        if (b.daid == 0){
+            icon = 'ncompleta.gif';
+        } else {
+            icon = 'mostra.gif';
+        }
+    } else {
+        if (b.daid == 0) {
+            icon = 'completa.gif';
+        } else {
+            icon = 'amaga.gif';
+        }
+    }
+    $('completedIcon_'+b.aid).src=Zikula.Config.baseURL+"modules/IWagendas/images/" + icon;
+    $('completedIcon_'+b.aid).alt=b.alt;
+    $('acompletedIcon_'+b.aid).title=b.alt;
+    $('noteText_'+b.aid).style.background=b.bgcolor;
 }
 
-function changeMonth_response(req)
-{
-  if (req.status != 200 ){
-    pnshowajaxerror(req.responseText);
-    return;
-  }
-  var json = pndejsonize(req.responseText);
-  Element.update('userCalendarContainer', json.content).innerHTML;
+function changeMonth(a,aa,aaa) {
+    var b={
+        mes:a,
+        any:aa,
+        daid:aaa
+    };    
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWagendas&func=changeMonth",{
+        parameters: b,
+        onComplete: changeMonth_response,
+        onFailure: failure
+    });
 }
 
-function changeMonth_failure() {
+function changeMonth_response(a) {
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    $("userCalendarContainer").update(b.content);
 }
 
-function subs(mes,any,daid) {
-  var pars = "module=IWagendas&func=subs&mes=" + mes + "&any=" + any + "&daidSubs=" + daid;
-  var myAjax = new Ajax.Request("ajax.php",
-  {
-    method: 'get',
-    parameters: pars,
-    onComplete: subs_response,
-    onFailure: subs_failure
-  });
+function subs(a,aa,aaa) {
+    var b={
+        mes:a,
+        any:aa,
+        daidSubs:aaa
+    };    
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWagendas&func=subs",{
+        parameters: b,
+        onComplete: subs_response,
+        onFailure: failure
+    });
 }
 
-function subs_response(req)
-{
-  if (req.status != 200) {
-    pnshowajaxerror(req.responseText);
-    return;
-  }
-  var json = pndejsonize(req.responseText);
-  Element.update('userCalendarContainer', json.content).innerHTML;
+function subs_response(a) {
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    
+    $("userCalendarContainer").update(b.content);
 }
 
-function subs_failure() {
+function calendarBlockMonth(a,aa) {
+    var b={
+        month:a,
+        year:aa
+    };    
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWagendas&func=calendarBlockMonth",{
+        parameters: b,
+        onComplete: calendarBlockMonth_response,
+        onFailure: failure
+    });
 }
 
-function calendarBlockMonth(month,year)
-{
-  var pars = "module=IWagendas&func=calendarBlockMonth&month=" + month + "&year=" + year;
-  var myAjax = new Ajax.Request("ajax.php",
-  {
-    method: 'get',
-    parameters: pars,
-    onComplete: calendarBlockMonth_response,
-    onFailure: calendarBlockMonth_failure
-  });
-}
-function calendarBlockMonth_response(req)
-{
-  if (req.status != 200) {
-    pnshowajaxerror(req.responseText);
-    return;
-  }
-  var json = pndejsonize(req.responseText);
-  Element.update('calendarContent', json.content).innerHTML;
-}
-
-function calendarBlockMonth_failure(){
+function calendarBlockMonth_response(a) {
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    $("calendarContent").update(b.content);
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Intraweb
  *
@@ -8,9 +9,8 @@
  * @package    Intraweb_Modules
  * @subpackage IWAgendas
  */
+class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
-class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax
-{
     /**
      * Delete a note from an agenda
      *
@@ -18,20 +18,25 @@ class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax
      *
      * @return boolean true if success
      */
-    public function deleteNote($args)
-    {
-        // Security check
-        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_READ));
+    public function deleteNote($args) {
+        if (!SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_READ)) {
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
+        }
 
-        $aid = FormUtil::getPassedValue('aid', -1, 'GET');
-        if ($aid == -1) AjaxUtil::error('no note id');
-        $daid = FormUtil::getPassedValue('daid', -1, 'GET');
-        if ($daid == -1) AjaxUtil::error('not agenda id');
-        $deleted = ModUtil::func('IWagendas', 'user', 'deleteNote',
-                                  array('aid' => $aid,
-                                        'daid' => $daid));
-        if (!is_numeric($deleted)) AjaxUtil::error($deleted);
-        AjaxUtil::output(array('aid' => $deleted));
+        $aid = $this->request->getPost()->get('aid', '');
+        if (!$aid) {
+            throw new Zikula_Exception_Fatal($this->__('no note id'));
+        }
+
+        $daid = $this->request->getPost()->get('daid', '');
+
+        $deleted = ModUtil::func('IWagendas', 'user', 'deleteNote', array('aid' => $aid,
+                    'daid' => $daid));
+        if (!is_numeric($deleted))
+            throw new Zikula_Exception_Fatal($deleted);
+
+        return new Zikula_Response_Ajax(array('aid' => $deleted
+                ));
     }
 
     /**
@@ -41,56 +46,59 @@ class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax
      *
      * @return Identity of the note and new state
      */
-    public function protectNote($args)
-    {
-        // Security check
-        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_READ));
+    public function protectNote($args) {
+        if (!SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_READ)) {
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
+        }
 
-        $aid = FormUtil::getPassedValue('aid', -1, 'GET');
-        if ($aid == -1) AjaxUtil::error('no note id');
-        $daid = FormUtil::getPassedValue('daid', -1, 'GET');
-        if ($daid == -1) AjaxUtil::error('not agenda id');
+        $aid = $this->request->getPost()->get('aid', '');
+        if (!$aid) {
+            throw new Zikula_Exception_Fatal($this->__('no note id'));
+        }
+
+        $daid = $this->request->getPost()->get('daid', '');
+
         //get the note
-        $note = ModUtil::apiFunc('IWagendas', 'user', 'get',
-                                  array('aid' => $aid));
-        if ($note == false) AjaxUtil::error($this->__('Event not found'));
+        $note = ModUtil::apiFunc('IWagendas', 'user', 'get', array('aid' => $aid));
+        if ($note == false)
+            throw new Zikula_Exception_Fatal($this->__('Event not found'));
         if ($note['daid'] != 0) {
             //Estem entrant a una agenda multiusuari
             //Carreguem les dades de l'agenda
-            $agenda = ModUtil::apiFunc('IWagendas', 'user', 'getAgenda',
-                                        array('daid' => $note['daid']));
+            $agenda = ModUtil::apiFunc('IWagendas', 'user', 'getAgenda', array('daid' => $note['daid']));
             // Check whether the user can access the agenda for this action
-            $te_acces = ModUtil::func('IWagendas', 'user', 'te_acces',
-                                       array('daid' => $agenda['daid'],
-                                             'grup' => $agenda['grup'],
-                                             'resp' => $agenda['resp'],
-                                             'activa' => $agenda['activa']));
+            $te_acces = ModUtil::func('IWagendas', 'user', 'te_acces', array('daid' => $agenda['daid'],
+                        'grup' => $agenda['grup'],
+                        'resp' => $agenda['resp'],
+                        'activa' => $agenda['activa']));
         }
         if (strpos($agenda['gAccessLevel'], '$owne|' . UserUtil::getVar('uid') . '$') === false &&
                 $agenda['gAccessLevel'] != '') {
-            AjaxUtil::error($this->__('You are not allowed to administrate the agendas'));
+            throw new Zikula_Exception_Fatal($this->__('You are not allowed to administrate the agendas'));
         } else {
             //Check if user can access the agenda
             if ($daid != 0) {
                 // If the user has no access, show an error message and stop execution
-                if ($te_acces < 3 || ($te_access == 3 && $anotacio['usuari'] != UserUtil::getVar('uid'))) AjaxUtil::error($this->__('You are not allowed to administrate the agendas'));
+                if ($te_acces < 3 || ($te_access == 3 && $anotacio['usuari'] != UserUtil::getVar('uid')))
+                    throw new Zikula_Exception_Fatal($this->__('You are not allowed to administrate the agendas'));
             } else {
                 //Comprovem si l'usuari estÃ  protegint realment la seva a notaciÃ³
-                if ($note['usuari'] != UserUtil::getVar('uid')) AjaxUtil::error($this->__('You are not allowed to administrate the agendas'));
+                if ($note['usuari'] != UserUtil::getVar('uid'))
+                    throw new Zikula_Exception_Fatal($this->__('You are not allowed to administrate the agendas'));
             }
         }
         $protegida = ($note['protegida'] == 1) ? 0 : 1;
         $items = array('protegida' => $protegida);
         // Edit note and set it as protected
-        $lid = ModUtil::apiFunc('IWagendas', 'user', 'editNote',
-                                 array('aid' => $aid,
-                                       'daid' => $daid,
-                                       'items' => $items));
-        if (!$lid) AjaxUtil::error(_AGENDESACTIONERROR);
+        $lid = ModUtil::apiFunc('IWagendas', 'user', 'editNote', array('aid' => $aid,
+                    'daid' => $daid,
+                    'items' => $items));
+        if (!$lid)
+            throw new Zikula_Exception_Fatal($this->__('Error'));
         $alt = ($protegida == 1) ? $this->__('Delete protection against automatic deletion for this event') : $this->__('Protected? ');
-        AjaxUtil::output(array('aid' => $aid,
-                               'protected' => $protegida,
-                               'alt' => $alt));
+        return new Zikula_Response_Ajax(array('aid' => $aid,
+                    'protecteda' => $protegida,
+                    'alt' => $alt));
     }
 
     /**
@@ -100,58 +108,49 @@ class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax
      *
      * @return Identity of the note and new state
      */
-    public function completeNote($args)
-    {
-        // Security check
-        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_READ));
+    public function completeNote($args) {
+        if (!SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_READ)) {
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
+        }
 
-        $aid = FormUtil::getPassedValue('aid', -1, 'GET');
-        if ($aid == -1) {
-            LogUtil::registerError('no note id');
-            AjaxUtil::output();
+        $aid = $this->request->getPost()->get('aid', '');
+        if (!$aid) {
+            throw new Zikula_Exception_Fatal($this->__('no note id'));
         }
-        $daid = FormUtil::getPassedValue('daid', -1, 'GET');
-        if ($daid == -1) {
-            LogUtil::registerError('not agenda id');
-            AjaxUtil::output();
-        }
+
+        $daid = $this->request->getPost()->get('daid', '');
+
         //get the note
-        $note = ModUtil::apiFunc('IWagendas', 'user', 'get',
-                                  array('aid' => $aid));
+        $note = ModUtil::apiFunc('IWagendas', 'user', 'get', array('aid' => $aid));
         if ($note == false) {
-            LogUtil::registerError($this->__('Event not found'));
-            AjaxUtil::output();
+            throw new Zikula_Exception_Fatal($this->__('Event not found'));
         }
+        
         // Get the color configuration and assign them to the view object
         $colors = explode('|', ModUtil::getVar('IWagendas', 'colors'));
         //Comprovem que l'usuari pugui accedir a l'agenda
         if ($daid != 0) {
             //Estem entrant a una agenda multiusuari
             //Carreguem les dades de l'agenda
-            $agenda = ModUtil::apiFunc('IWagendas', 'user', 'getAgenda',
-                                        array('daid' => $daid));
+            $agenda = ModUtil::apiFunc('IWagendas', 'user', 'getAgenda', array('daid' => $daid));
             // Check whether the user can access the agenda for this action
-            $te_acces = ModUtil::func('IWagendas', 'user', 'te_acces',
-                                       array('daid' => $daid,
-                                             'grup' => $agenda['grup'],
-                                             'resp' => $agenda['resp'],
-                                             'activa' => $agenda['activa']));
+            $te_acces = ModUtil::func('IWagendas', 'user', 'te_acces', array('daid' => $daid,
+                        'grup' => $agenda['grup'],
+                        'resp' => $agenda['resp'],
+                        'activa' => $agenda['activa']));
             // If the user has no access, show an error message and stop execution
             if ($te_acces < 3 || ($te_access == 3 && $note['usuari'] != UserUtil::getVar('uid'))) {
-                LogUtil::registerError($this->__('You are not allowed to administrate the agendas'));
-                AjaxUtil::output();
+                throw new Zikula_Exception_Fatal($this->__('You are not allowed to administrate the agendas'));
             }
         }
         if ($note['daid'] == $daid) {
             $completa = ($note['completa'] == 1) ? 0 : 1;
             $items = array('completa' => $completa);
-            $lid = ModUtil::apiFunc('IWagendas', 'user', 'editNote',
-                                     array('aid' => $aid,
-                                          'daid' => $daid,
-                                          'items' => $items));
+            $lid = ModUtil::apiFunc('IWagendas', 'user', 'editNote', array('aid' => $aid,
+                        'daid' => $daid,
+                        'items' => $items));
             if (!$lid) {
-                LogUtil::registerError(_AGENDESACTIONERROR);
-                AjaxUtil::output();
+                throw new Zikula_Exception_Fatal($this->__('Error'));
             }
         } else {
             $uid = UserUtil::getVar('uid');
@@ -164,15 +163,13 @@ class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax
                 $completa = 1;
             }
             $items = array('completedByUser' => $completedByUser);
-            $lid = ModUtil::apiFunc('IWagendas', 'user', 'editNote',
-                                     array('aid' => $aid,
-                                           'daid' => $daid,
-                                           'items' => $items));
+            $lid = ModUtil::apiFunc('IWagendas', 'user', 'editNote', array('aid' => $aid,
+                        'daid' => $daid,
+                        'items' => $items));
             if (!$lid) {
                 //Success
                 //LogUtil::registerStatus ($this->__('Protection status updated'));
-                LogUtil::registerError(_AGENDESACTIONERROR);
-                AjaxUtil::output();
+                throw new Zikula_Exception_Fatal($this->__('Error'));
             }
         }
         if ($completa == 1) {
@@ -182,11 +179,12 @@ class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax
             $alt = ($daid != 0) ? $this->__('Hide') : $this->__('Mark as completed');
             $bgcolor = $colors[13];
         }
-        AjaxUtil::output(array('aid' => $aid,
-                               'completed' => $completa,
-                               'daid' => $daid,
-                               'alt' => $alt,
-                               'bgcolor' => '#' . $bgcolor));
+        
+        return new Zikula_Response_Ajax(array('aid' => $aid,
+                    'completed' => $completa,
+                    'daid' => $daid,
+                    'alt' => $alt,
+                    'bgcolor' => '#' . $bgcolor));
     }
 
     /**
@@ -196,37 +194,31 @@ class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax
      *
      * @return The new value in database
      */
-    public function modifyAgenda($args)
-    {
-        // Security check
-        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_ADMIN));
+    public function modifyAgenda($args) {
+        if (!SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
+        }
 
-        $daid = FormUtil::getPassedValue('daid', -1, 'GET');
-        if ($daid == -1) {
-            LogUtil::registerError('no agenda id');
-            AjaxUtil::output();
+        $daid = $this->request->getPost()->get('daid', '');
+
+        $char = $this->request->getPost()->get('charx', '');
+        if (!$char) {
+            throw new Zikula_Exception_Fatal($this->__('no char defined'));
         }
-        $char = FormUtil::getPassedValue('char', -1, 'GET');
-        if ($char == -1) {
-            LogUtil::registerError('no char defined');
-            AjaxUtil::output();
-        }
+
         //Get agenda information
-        $item = ModUtil::apiFunc('IWagendas', 'user', 'getAgenda',
-                                  array('daid' => $daid));
+        $item = ModUtil::apiFunc('IWagendas', 'user', 'getAgenda', array('daid' => $daid));
         if ($item == false) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('The agenda was not found')));
+            throw new Zikula_Exception_Fatal($this->__('The agenda was not found'));
         }
         $value = ($item[$char]) ? 0 : 1;
         //change value in database
         $items = array($char => $value);
-        if (!ModUtil::apiFunc('IWagendas', 'admin', 'editAgenda',
-                               array('daid' => $daid,
-                                     'items' => $items))) {
-            LogUtil::registerError('Error');
-            AjaxUtil::output();
+        if (!ModUtil::apiFunc('IWagendas', 'admin', 'editAgenda', array('daid' => $daid,
+                    'items' => $items))) {
+            throw new Zikula_Exception_Fatal($this->__('Error'));
         }
-        AjaxUtil::output(array('daid' => $daid));
+        return new Zikula_Response_Ajax(array('daid' => $daid));
     }
 
     /**
@@ -236,24 +228,20 @@ class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax
      *
      * @return The field row new value in database
      */
-    public function changeContent($args)
-    {
-        // Security check
-        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_ADMIN));
-
-        $daid = FormUtil::getPassedValue('daid', -1, 'GET');
-        if ($daid == -1) {
-            LogUtil::registerError('no agenda id');
-            AjaxUtil::output();
+    public function changeContent($args) {
+        if (!SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
-        $item = ModUtil::func('IWagendas', 'admin', 'getCharsContent',
-                               array('daid' => $daid));
+
+        $daid = $this->request->getPost()->get('daid', '');
+
+        $item = ModUtil::func('IWagendas', 'admin', 'getCharsContent', array('daid' => $daid));
 
         Zikula_AbstractController::configureView();
         $this->view->assign('agenda', $item);
-
-        AjaxUtil::output(array('content' => $this->view->fetch('IWagendas_admin_mainChars.htm'),
-                               'daid' => $daid));
+        $content = $this->view->fetch('IWagendas_admin_mainChars.htm');
+        return new Zikula_Response_Ajax(array('content' => $content,
+                    'daid' => $daid));
     }
 
     /**
@@ -263,31 +251,32 @@ class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax
      *
      * @return Redirect to the user main page
      */
-    public function chgUsers($args)
-    {
-        // Security check
-        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_ADMIN));
-
-        $gid = FormUtil::getPassedValue('gid', -1, 'GET');
-        if ($gid == -1) {
-            LogUtil::registerError('no group id');
-            AjaxUtil::output();
+    public function chgUsers($args) {
+        if (!SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
+
+        $gid = $this->request->getPost()->get('gid', '');
+        if (!$gid) {
+            throw new Zikula_Exception_Fatal($this->__('no group id'));
+        }
+
         // get group members
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $groupMembers = ModUtil::func('IWmain', 'user', 'getMembersGroup',
-                                       array('sv' => $sv,
-                                             'gid' => $gid));
-        if ($groupMembers) {
+        $groupMembers = ModUtil::func('IWmain', 'user', 'getMembersGroup', array('sv' => $sv,
+                    'gid' => $gid));
+        if ($groupMembers)
             asort($groupMembers);
-        }
-        if (empty($groupMembers)) LogUtil::registerError('unable to get group members or group is empty for gid=' . DataUtil::formatForDisplay($gid));
+
+        if (empty($groupMembers))
+            throw new Zikula_Exception_Fatal($this->__('unable to get group members or group is empty for gid=') . DataUtil::formatForDisplay($gid));
 
         Zikula_AbstractController::configureView();
         $this->view->assign('groupMembers', $groupMembers);
         $this->view->assign('action', 'chgUsers');
-
-        AjaxUtil::output(array('content' => $this->view->fetch('IWagendas_admin_ajax.htm')));
+        $content = $this->view->fetch('IWagendas_admin_ajax.htm');
+        return new Zikula_Response_Ajax(array('content' => $content,
+                ));
     }
 
     /**
@@ -297,37 +286,31 @@ class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax
      *
      * @return The new value in database
      */
-    public function modifyColor($args)
-    {
-        // Security check
-        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_ADMIN));
+    public function modifyColor($args) {
+        if (!SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
+        }
 
-        $daid = FormUtil::getPassedValue('daid', -1, 'GET');
-        if ($daid == -1) {
-            LogUtil::registerError('no agenda id');
-            AjaxUtil::output();
+        $daid = $this->request->getPost()->get('daid', '');
+
+        $color = $this->request->getPost()->get('color', '');
+        if (!$color) {
+            throw new Zikula_Exception_Fatal($this->__('no color defined'));
         }
-        $color = FormUtil::getPassedValue('color', -1, 'GET');
-        if ($color == -1) {
-            LogUtil::registerError('no color defined');
-            AjaxUtil::output();
-        }
+
         //Get agenda information
-        $item = ModUtil::apiFunc('IWagendas', 'user', 'getAgenda',
-                        array('daid' => $daid));
+        $item = ModUtil::apiFunc('IWagendas', 'user', 'getAgenda', array('daid' => $daid));
         if ($item == false) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('The agenda was not found')));
+            throw new Zikula_Exception_Fatal($this->__('The agenda was not found'));
         }
 
         //change value in database
         $items = array('color' => $color);
-        if (!ModUtil::apiFunc('IWagendas', 'admin', 'editAgenda',
-                        array('daid' => $daid,
-                            'items' => $items))) {
-            LogUtil::registerError('Error');
-            AjaxUtil::output();
+        if (!ModUtil::apiFunc('IWagendas', 'admin', 'editAgenda', array('daid' => $daid,
+                    'items' => $items))) {
+            throw new Zikula_Exception_Fatal($this->__('Error'));
         }
-        AjaxUtil::output();
+        return new Zikula_Response_Ajax();
     }
 
     /**
@@ -337,31 +320,28 @@ class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax
      *
      * @return The new month information
      */
-    public function changeMonth($args)
-    {
-        // Security check
-        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_READ));
+    public function changeMonth($args) {
+        if (!SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_READ)) {
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
+        }
 
-        $daid = FormUtil::getPassedValue('daid', -1, 'GET');
-        if ($daid == -1) {
-            LogUtil::registerError('no agenda id');
-            AjaxUtil::output();
+        $daid = $this->request->getPost()->get('daid', '');
+
+        $mes = $this->request->getPost()->get('mes', '');
+        if (!$mes) {
+            throw new Zikula_Exception_Fatal($this->__('no month defined'));
         }
-        $mes = FormUtil::getPassedValue('mes', -1, 'GET');
-        if ($mes == -1) {
-            LogUtil::registerError('no month defined');
-            AjaxUtil::output();
+
+        $any = $this->request->getPost()->get('any', '');
+        if (!$any) {
+            throw new Zikula_Exception_Fatal($this->__('no year defined'));
         }
-        $any = FormUtil::getPassedValue('any', -1, 'GET');
-        if ($any == -1) {
-            LogUtil::registerError('no year defined');
-            AjaxUtil::output();
-        }
-        $content = ModUtil::func('IWagendas', 'user', 'main',
-                                  array('mes' => $mes,
-                                        'any' => $any,
-                                        'daid' => $daid));
-        AjaxUtil::output(array('content' => $content));
+
+        $content = ModUtil::func('IWagendas', 'user', 'main', array('mes' => $mes,
+                    'any' => $any,
+                    'daid' => $daid));
+        return new Zikula_Response_Ajax(array('content' => $content,
+                ));
     }
 
     /**
@@ -371,25 +351,31 @@ class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax
      *
      * @return The new month information
      */
-    public function subs($args)
-    {
-        // Security check
-        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_READ));
+    public function subs($args) {
+        if (!SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_READ)) {
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
+        }
 
-        $daidSubs = FormUtil::getPassedValue('daidSubs', -1, 'GET');
-        if ($daidSubs == -1) LogUtil::registerError('no agenda id');
-        $mes = FormUtil::getPassedValue('mes', -1, 'GET');
-        if ($mes == -1) LogUtil::registerError('no month defined');
-        $any = FormUtil::getPassedValue('any', -1, 'GET');
-        if ($any == -1) LogUtil::registerError('no year defined');
-        $subs = ModUtil::func('IWagendas', 'user', 'subs',
-                               array('agenda' => $daidSubs));
-        if (!$subs) LogUtil::registerError('error subscribing agenda');
-        $content = ModUtil::func('IWagendas', 'user', 'main',
-                                  array('mes' => $mes,
-                                        'any' => $any,
-                                        'daid' => 0));
-        AjaxUtil::output(array('content' => $content));
+        $daidSubs = $this->request->getPost()->get('daidSubs', '');
+
+        $mes = $this->request->getPost()->get('mes', '');
+        if (!$mes) {
+            throw new Zikula_Exception_Fatal($this->__('no month defined'));
+        }
+
+        $any = $this->request->getPost()->get('any', '');
+        if (!$any) {
+            throw new Zikula_Exception_Fatal($this->__('no year defined'));
+        }
+
+        $subs = ModUtil::func('IWagendas', 'user', 'subs', array('agenda' => $daidSubs));
+        if (!$subs)
+            LogUtil::registerError('error subscribing agenda');
+        $content = ModUtil::func('IWagendas', 'user', 'main', array('mes' => $mes,
+                    'any' => $any,
+                    'daid' => 0));
+        return new Zikula_Response_Ajax(array('content' => $content,
+                ));
     }
 
     /**
@@ -399,15 +385,21 @@ class IWagendas_Controller_Ajax extends Zikula_Controller_AbstractAjax
      *
      * @return The calendar block content
      */
-    public function calendarBlockMonth($args)
-    {
-        $month = FormUtil::getPassedValue('month', -1, 'GET');
-        if ($month == -1) LogUtil::registerError('no month defined');
-        $year = FormUtil::getPassedValue('year', -1, 'GET');
-        if ($year == -1) LogUtil::registerError('no year defined');
-        $content = ModUtil::func('IWagendas', 'user', 'getCalendarContent',
-                                  array('mes' => $month,
-                                        'any' => $year));
-        AjaxUtil::output(array('content' => $content));
+    public function calendarBlockMonth($args) {
+        $month = $this->request->getPost()->get('month', '');
+        if (!$month) {
+            throw new Zikula_Exception_Fatal($this->__('no month defined'));
+        }
+
+        $year = $this->request->getPost()->get('year', '');
+        if (!$year) {
+            throw new Zikula_Exception_Fatal($this->__('no year defined'));
+        }
+
+        $content = ModUtil::func('IWagendas', 'user', 'getCalendarContent', array('mes' => $month,
+                    'any' => $year));
+        return new Zikula_Response_Ajax(array('content' => $content,
+                ));
     }
+
 }

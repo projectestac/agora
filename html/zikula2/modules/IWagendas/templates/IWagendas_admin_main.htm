@@ -25,30 +25,26 @@
             <tr class="{cycle values='z-odd,z-even'}" id="agenda_{$agenda.daid}">
                 <td align="left" valign="top">
                     {$agenda.nom_agenda}
-                 </td>
-                 <td align="left" valign="top">
+                </td>
+                <td align="left" valign="top">
                     {$agenda.descriu}
-                     <div id="agenda_{$agenda.daid}" class="z-hide z-noteinfo"></div>
-                 </td>
-                 <td valign="top" style="text-align:right;">
+                    <div id="agenda_{$agenda.daid}" class="z-hide z-noteinfo"></div>
+                </td>
+                <td valign="top" style="text-align:right;">
                     {foreach item=group from=$agenda.groups}
-                        {if $group.id eq -1}
-                            {gt text="Unregistered"}
-                        {else}
-                            {$group.groupName}
-                        {/if}
-                        &raquo;
-                        {if $group.accessType eq 2}
-                            {gt text="Read and write"}
-                        {elseif $group.accessType eq 3}
-                            {gt text="Manage own"}
-                        {else}
-                            {gt text="Read only"}
-                        {/if}
-                        <a href="{modurl modname='IWagendas' type='admin' func='deleteGroup' id=$group.id daid=$agenda.daid}">
-                            {img modname='core' src='delete_group.png' set='icons/extrasmall'   __alt="Delete" __title="Delete"}
-                        </a>
-                        <br />
+                    {$group.groupName}
+                    &raquo;
+                    {if $group.accessType eq 2}
+                    {gt text="Read and write"}
+                    {elseif $group.accessType eq 3}
+                    {gt text="Manage own"}
+                    {else}
+                    {gt text="Read only"}
+                    {/if}
+                    <a href="{modurl modname='IWagendas' type='admin' func='deleteGroup' id=$group.id daid=$agenda.daid}">
+                        {img modname='core' src='delete_group.png' set='icons/extrasmall'   __alt="Delete" __title="Delete"}
+                    </a>
+                    <br />
                     {/foreach}
                     <div class="formOptions">
                         <a href="{modurl modname='IWagendas' type='admin' func='addGroup' daid=$agenda.daid}">
@@ -58,11 +54,11 @@
                 </td>
                 <td valign="top"  style="text-align:right;">
                     {foreach item=manager from=$agenda.managers}
-                        {$manager.userName}
-                        <a href="{modurl modname='IWagendas' type='admin' func='deleteManager' daid=$agenda.daid id=$manager.uid}">
-                            {img modname='core' src='delete_user.png' set='icons/extrasmall'   __alt="Delete" __title="Delete"}
-                        </a>
-                        <br />
+                    {$manager.userName}
+                    <a href="{modurl modname='IWagendas' type='admin' func='deleteManager' daid=$agenda.daid id=$manager.uid}">
+                        {img modname='core' src='delete_user.png' set='icons/extrasmall'   __alt="Delete" __title="Delete"}
+                    </a>
+                    <br />
                     {/foreach}
                     <div class="formOptions">
                         <a href="{modurl modname='IWagendas' type='admin' func='addManager' daid=$agenda.daid}">
@@ -83,7 +79,7 @@
                         {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Delete" __title="Delete"}
                     </a>
                 </td>
-            {foreachelse}
+                {foreachelse}
             <tr>
                 <td colspan="10" align="left">
                     {gt text="There are no agendas created"}
