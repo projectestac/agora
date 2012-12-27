@@ -60,16 +60,15 @@ class IWagendas_Api_User extends Zikula_AbstractApi
      */
     public function getAgenda($args)
     {
-        $daid = FormUtil::getPassedValue('daid', isset($args['daid']) ? $args['daid'] : null, 'POST');
         // Security check
         if (!SecurityUtil::checkPermission('IWagendas::', '::', ACCESS_READ)) {
             return LogUtil::registerPermissionError();
         }
         // Needed argument
-        if (!isset($daid) || !is_numeric($daid)) {
+        if (!isset($args['daid']) || !is_numeric($args['daid'])) {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
-        $items = DBUtil::selectObjectByID('IWagendas_definition', $daid, 'daid');
+        $items = DBUtil::selectObjectByID('IWagendas_definition', $args['daid'], 'daid');
         // Check for an error with the database code, and if so set an appropriate
         // error message and return
         if ($items === false) {
