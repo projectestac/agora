@@ -57,9 +57,13 @@
         exit(0);
     } else {
         $currenthour = date('G');
-        if ($agora['server']['enviroment'] == 'FRM' &&  $school_info['id_moodle2']==1 && $currenthour % 2 != 0) {
+        if ($agora['server']['enviroment'] == 'FRM') {
             // Change id for usu1 for training environment if is an odd hour (to regenerate site without error messages)
-            $school_info['id_moodle2'] = 10000;
+            if ($school_info['id_moodle2'] == 1 && $currenthour % 2 != 0) {
+                $school_info['id_moodle2'] = 10000;
+            } else if ($school_info['id_moodle2'] == 10000 && $currenthour % 2 == 0){
+                $school_info['id_moodle2'] = 1;        
+            }                
         }
     }
 
