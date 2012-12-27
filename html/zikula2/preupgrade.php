@@ -54,7 +54,7 @@ foreach ($tables as $table) {
     }
 }
 
-//******* esborrer mòduls de la taula modules
+//******* esborrar mòduls de la taula modules
 $modulesToDelete = array('iw_groups',
     'iw_chat',
     'iw_timeFrames',
@@ -65,6 +65,8 @@ $modulesToDelete = array('iw_groups',
     'Tour',
     'bbcode',
     'bbsmile',
+    'advMailer',
+    'dpCaptcha',
 );
 
 foreach ($modulesToDelete as $module) {
@@ -90,8 +92,6 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
         $commands[] = "RENAME TABLE " . $fila[0] . " TO " . $newname;
     }
 
-    //print_r('<br>Replacing ' . $fila[0] . '...');
-    //$sql = 'SELECT column_name, data_type FROM user_tab_columns WHERE table_name = \'' . $fila[0] . '\' ';
     $sql = 'SHOW COLUMNS FROM ' . $fila[0];
     if (!$result1 = mysql_query($sql, $con)) {
         die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
@@ -105,21 +105,23 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
 
     // Replace only text and varchar
     foreach ($columns as $column) {
-        if (strpos($column['data_type'], "varchar") !== false || $column['data_type'] = "text" || $column['data_type'] = "longtext") {
+        if (strpos($column['data_type'], "varchar") !== false || $column['data_type'] == "text" || $column['data_type'] == "longtext") {
             // prevent serialized fields
             $sql = "select $column[column_name] from $fila[0] where $column[column_name] like '%iw_%'";
             if (!$result2 = mysql_query($sql, $con)) {
                 die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
             }
-
             $value = mysql_fetch_row($result2);
             if ($value != '') {
                 if (is_serialized($value[0])) {
                     $array = unserialize($value[0]);
                     $newArray = rec_array_replace('iw_', 'IW', $array);
-                    $newArray = rec_array_replace("'", "''", $newArray);
+                    if ($column['column_name'] == 'pn_content' && $column['data_type'] == "longtext") {
+                        $newArray = rec_array_replace('[', 'index.php?module=', $newArray);
+                        $newArray = rec_array_replace(']', '', $newArray);
+                    }
                     $arraySerialized = serialize($newArray);
-                    $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = \'' . $arraySerialized . '\' WHERE ' . $column['column_name'] . '=\'' . mysql_real_escape_string($value[0]) . '\'';
+                    $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = \'' . mysql_real_escape_string($arraySerialized) . '\' WHERE ' . $column['column_name'] . '=\'' . mysql_real_escape_string($value[0]) . '\'';
                     if (!$result2 = mysql_query($sql, $con)) {
                         die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
                     }
