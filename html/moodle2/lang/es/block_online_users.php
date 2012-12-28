@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_online_users', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_online_users', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   block_online_users
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configtimetosee'] = 'Número de minutos para detectar que un usuario está en línea';
+$string['online_users:addinstance'] = 'Añadir un nuevo bloque de usuarios en línea';
+$string['online_users:myaddinstance'] = 'Añadir un nuevo bloque de usuarios en línea en la página Mi Moodle';
 $string['online_users:viewlist'] = 'Ver lista de usuarios en línea';
 $string['periodnminutes'] = 'últimos {$a} minutos';
 $string['pluginname'] = 'Usuarios en línea';

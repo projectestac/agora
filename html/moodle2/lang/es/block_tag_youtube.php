@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_tag_youtube', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_tag_youtube', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   block_tag_youtube
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,4 +44,5 @@ $string['petsanimals'] = 'Animales';
 $string['pluginname'] = 'Youtube';
 $string['scienceandtech'] = 'Ciencia y Tecnología';
 $string['sports'] = 'Deportes';
+$string['tag_youtube:addinstance'] = 'Añadir un nuevo bloque Youtube';
 $string['travel'] = 'Viajes y lugares';

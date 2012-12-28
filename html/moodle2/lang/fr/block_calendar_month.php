@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_calendar_month', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_calendar_month', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   block_calendar_month
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['calendar_month:addinstance'] = 'Ajouter un bloc calendrier';
+$string['calendar_month:myaddinstance'] = 'Ajouter un bloc calendrier à la page Mon Moodle';
 $string['pluginname'] = 'Calendrier';

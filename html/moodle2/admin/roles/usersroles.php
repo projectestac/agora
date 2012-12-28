@@ -36,9 +36,9 @@ $courseid = required_param('courseid', PARAM_INT);
 $user = $DB->get_record('user', array('id' => $userid), '*', MUST_EXIST);
 $course = $DB->get_record('course', array('id' => $courseid), '*', MUST_EXIST);
 
-$usercontext = get_context_instance(CONTEXT_USER, $user->id);
-$coursecontext = get_context_instance(CONTEXT_COURSE, $course->id);
-$systemcontext = get_context_instance(CONTEXT_SYSTEM);
+$usercontext = context_user::instance($user->id);
+$coursecontext = context_course::instance($course->id);
+$systemcontext = context_system::instance();
 
 $baseurl = new moodle_url('/admin/roles/usersroles.php', array('userid'=>$userid, 'courseid'=>$courseid));
 
@@ -68,20 +68,19 @@ if ($course->id != $SITE->id || $userid != $USER->id) {
 /// Now get the role assignments for this user.
 $sql = "SELECT
         ra.id, ra.userid, ra.contextid, ra.roleid, ra.component, ra.itemid,
-        c.path,
-        r.name AS rolename,
-        COALESCE(rn.name, r.name) AS localname
+        c.path
     FROM
         {role_assignments} ra
         JOIN {context} c ON ra.contextid = c.id
         JOIN {role} r ON ra.roleid = r.id
-        LEFT JOIN {role_names} rn ON rn.roleid = ra.roleid AND rn.contextid = ra.contextid
     WHERE
         ra.userid = ?
     "./*AND ra.active = 1*/"
     ORDER BY
         contextlevel DESC, contextid ASC, r.sortorder ASC";
 $roleassignments = $DB->get_records_sql($sql, array($user->id));
+
+$allroles = role_fix_names(get_all_roles());
 
 /// In order to display a nice tree of contexts, we need to get all the
 /// ancestors of all the contexts in the query we just did.
@@ -142,14 +141,14 @@ echo $OUTPUT->box_start('generalbox boxaligncenter boxwidthnormal');
 if (!$roleassignments) {
     echo '<p>', get_string('noroleassignments', 'role'), '</p>';
 } else {
-    print_report_tree($systemcontext->id, $contexts, $systemcontext, $fullname);
+    print_report_tree($systemcontext->id, $contexts, $systemcontext, $fullname, $allroles);
 }
 
 /// End of page.
 echo $OUTPUT->box_end();
 echo $OUTPUT->footer();
 
-function print_report_tree($contextid, $contexts, $systemcontext, $fullname) {
+function print_report_tree($contextid, $contexts, $systemcontext, $fullname, $allroles) {
     global $CFG, $OUTPUT;
 
     // Only compute lang strings, etc once.
@@ -171,15 +170,13 @@ function print_report_tree($contextid, $contexts, $systemcontext, $fullname) {
 
     // If there are any role assignments here, print them.
     foreach ($contexts[$contextid]->roleassignments as $ra) {
+        $role = $allroles[$ra->roleid];
+
         $value = $ra->contextid . ',' . $ra->roleid;
         $inputid = 'unassign' . $value;
 
         echo '<p>';
-        if ($ra->rolename == $ra->localname) {
-            echo strip_tags(format_string($ra->localname));
-        } else {
-            echo strip_tags(format_string($ra->localname . ' (' . $ra->rolename . ')'));
-        }
+        echo $role->localname;
         if (has_capability('moodle/role:assign', $context)) {
             $raurl = $assignurl . '?contextid=' . $ra->contextid . '&amp;roleid=' .
                     $ra->roleid . '&amp;removeselect[]=' . $ra->userid;
@@ -211,7 +208,7 @@ function print_report_tree($contextid, $contexts, $systemcontext, $fullname) {
         echo '<ul>';
         foreach ($contexts[$contextid]->children as $childcontextid) {
             echo '<li>';
-            print_report_tree($childcontextid, $contexts, $systemcontext, $fullname);
+            print_report_tree($childcontextid, $contexts, $systemcontext, $fullname, $allroles);
             echo '</li>';
         }
         echo '</ul>';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'url', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -49,11 +49,6 @@ $string['framesize'] = 'Alçada del marc';
 $string['invalidstoredurl'] = 'No es pot visualitzar aquest recurs: l\'URL és invàlid.';
 $string['invalidurl'] = 'L\'URL que heu introduït és invàlid';
 $string['modulename'] = 'URL';
-$string['modulename_help'] = 'El recurs URL permet al professorat proporcionar un enllaç web com un recurs del curs. Qualsevol cosa disponible lliurement en línia, com ara documents o imatges, pot ser enllaçada; l\'URL no té per què ser la pàgina principal d\'un lloc web. Podeu copiar i enganxar l\'URL d\'una pàgina web concreta o utilitzar el selector de fitxers de Moodle i triar un enllaç des d\'un dipòsit, com ara Flickr, YouTube o Wikimedia (depenent dels dipòsits que estiguin habilitats per al lloc).
-
-Hi ha una sèrie d\'opcions de visualització de l\'URL, com ara incrustat o obert en una finestra nova, i opcions avançades per a passar informació a l\'adreça, si cal, p.ex. el nom d\'un estudiant.
-
-Fixeu-vos que les URL també es poden afegir a qualsevol altre tipus de recurs o d\'activitat a través de l\'editor de text.';
 $string['modulenameplural'] = 'URL';
 $string['neverseen'] = 'No s\'ha vist mai';
 $string['optionsheader'] = 'Opcions';

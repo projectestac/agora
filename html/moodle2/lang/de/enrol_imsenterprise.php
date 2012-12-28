@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_imsenterprise', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_imsenterprise', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_imsenterprise
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,7 +56,7 @@ $string['mailusers'] = 'Nutzer/innen per E-Mail benachrichtigen';
 $string['messageprovider:imsenterprise_enrolment'] = 'Mitteilungen bei Einschreibung über IMS Enterprise';
 $string['miscsettings'] = 'Verschiedenes';
 $string['pluginname'] = 'IMS Enterprise Datei';
-$string['pluginname_desc'] = 'IMS Enterprisedatei';
+$string['pluginname_desc'] = 'IMS Enterprise-Datei';
 $string['processphoto'] = 'Nutzerfoto zu Profil hinzufügen';
 $string['processphotowarning'] = 'Warnung: Die Bildverarbeitung stellt hohe Anforderungen an die Leistung des Servers. Es wird empfohlen, diese Funktion nicht zu nutzen, wenn eine große Zahl von Nutzer/innen auf diesem Wege ins System integriert werden soll.';
 $string['restricttarget'] = 'Daten nur verarbeiten, wenn das folgende Ziel angegeben ist';

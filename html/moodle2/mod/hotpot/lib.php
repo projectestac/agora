@@ -148,7 +148,7 @@ function hotpot_process_formdata(stdclass &$data, $mform) {
     }
 
     // get context for this HotPot instance
-    $context = get_context_instance(CONTEXT_MODULE, $data->coursemodule);
+    $context = hotpot_get_context(CONTEXT_MODULE, $data->coursemodule);
 
     $sourcefile = null;
     $data->sourcefile = '';
@@ -351,10 +351,10 @@ function hotpot_delete_instance($id) {
     }
 
     // delete all associated hotpot questions
-    $DB->delete_records('hotpot_questions', array('hotpotid' => $id));
+    $DB->delete_records('hotpot_questions', array('hotpotid' => $hotpot->id));
 
     // delete all associated hotpot attempts, details and responses
-    if ($attempts = $DB->get_records('hotpot_attempts', array('hotpotid' => $id), '', 'id, id')) {
+    if ($attempts = $DB->get_records('hotpot_attempts', array('hotpotid' => $hotpot->id), '', 'id')) {
         $ids = array_keys($attempts);
         $DB->delete_records_list('hotpot_details',   'attemptid', $ids);
         $DB->delete_records_list('hotpot_responses', 'attemptid', $ids);
@@ -470,7 +470,7 @@ function hotpot_print_recent_activity($course, $viewfullnames, $timestart) {
 
     if ($logs = $DB->get_records_select('log', $select, $params, 'time ASC')) {
 
-        $coursecontext = get_context_instance(CONTEXT_COURSE, $course->id);
+        $coursecontext = hotpot_get_context(CONTEXT_COURSE, $course->id);
         $viewhiddensections = has_capability('moodle/course:viewhiddensections', $coursecontext);
 
         if ($modinfo = unserialize($course->modinfo)) {
@@ -490,7 +490,7 @@ function hotpot_print_recent_activity($course, $viewfullnames, $timestart) {
             }
             $sortorder = array_search($cmid, $coursemoduleids);
             if (! array_key_exists($sortorder, $stats)) {
-                $context = get_context_instance(CONTEXT_MODULE, $cmid);
+                $context = hotpot_get_context(CONTEXT_MODULE, $cmid);
                 if (has_capability('mod/hotpot:reviewmyattempts', $context) || has_capability('mod/hotpot:reviewallattempts', $context)) {
                     $viewreport = true;
                 } else {
@@ -612,7 +612,7 @@ function hotpot_print_recent_activity($course, $viewfullnames, $timestart) {
  *     $activity->timestamp : the time that the content was recorded in the database
  */
 function hotpot_get_recent_mod_activity(&$activities, &$index, $timestart, $courseid, $coursemoduleid=0, $userid=0, $groupid=0) {
-    global $CFG, $DB;
+    global $CFG, $DB, $USER;
 
     if (! $course = $DB->get_record('course', array('id'=>$courseid))) {
         return; // invalid course id - shouldn't happen !!
@@ -620,6 +620,15 @@ function hotpot_get_recent_mod_activity(&$activities, &$index, $timestart, $cour
 
     if (! $modinfo = unserialize($course->modinfo)) {
         return; // no activity mods
+    }
+
+    // CONTRIB-4025 don't allow students to see each other's scores
+    $coursecontext = hotpot_get_context(CONTEXT_COURSE, $courseid);
+    if (! has_capability('mod/hotpot:reviewmyattempts', $coursecontext)) {
+        return; // can't view recent activity
+    }
+    if (! has_capability('mod/hotpot:reviewallattempts', $coursecontext)) {
+        $userid = $USER->id; // force this user only
     }
 
     $hotpots = array(); // hotpotid => cmid
@@ -824,6 +833,28 @@ function hotpot_print_recent_mod_activity($activity, $courseid, $detail, $modnam
     }
 
     echo html_writer::table($table);
+}
+
+/*
+* This function defines what log actions will be selected from the Moodle logs
+* and displayed for course -> report -> activity module -> HotPOt -> View OR All actions
+*
+* This function is called from: {@link course/report/participation/index.php}
+* @return array(string) of text strings used to log QuizPort view actions
+*/
+function hotpot_get_view_actions() {
+    return array('view', 'viewindex', 'report', 'review');
+}
+
+/*
+* This function defines what log actions will be selected from the Moodle logs
+* and displayed for course -> report -> activity module -> Hot Potatoes Quiz -> Post OR All actions
+*
+* This function is called from: {@link course/report/participation/index.php}
+* @return array(string) of text strings used to log QuizPort post actions
+*/
+function hotpot_get_post_actions() {
+    return array('submit');
 }
 
 /**
@@ -1108,7 +1139,7 @@ function hotpot_pluginfile($course, $cm, $context, $filearea, $args, $forcedownl
     }
 
     // search course legacy files
-    $coursecontext = get_context_instance(CONTEXT_COURSE, $course->id);
+    $coursecontext = hotpot_get_context(CONTEXT_COURSE, $course->id);
     if ($file = $fs->get_file($coursecontext->id, 'course', 'legacy', 0, $filepath, $filename)) {
         if ($file = $fs->create_file_from_storedfile($file_record, $file)) {
             //send_stored_file($file, $lifetime, 0);
@@ -1524,9 +1555,9 @@ function hotpot_reset_userdata($data) {
         return array();
     }
 
-    if ($hotpots = $DB->get_records('hotpot', array('course' => $data->courseid), 'id', 'id, id')) {
+    if ($hotpots = $DB->get_records('hotpot', array('course' => $data->courseid), 'id', 'id')) {
         foreach ($hotpots as $hotpot) {
-            if ($attempts = $DB->get_records('hotpot_attempts', array('hotpotid' => $hotpot->id), 'id', 'id, id')) {
+            if ($attempts = $DB->get_records('hotpot_attempts', array('hotpotid' => $hotpot->id), 'id', 'id')) {
                 $ids = array_keys($attempts);
                 $DB->delete_records_list('hotpot_details',   'attemptid', $ids);
                 $DB->delete_records_list('hotpot_responses', 'attemptid', $ids);
@@ -1566,7 +1597,7 @@ function hotpot_refresh_events($courseid=0) {
 
     // get previous ids for events for these hotpots
     list($filter, $params) = $DB->get_in_or_equal(array_keys($hotpots));
-    if ($eventids = $DB->get_records_select('event', "modulename='hotpot' AND instance $filter", $params, 'id', 'id, id AS eventid')) {
+    if ($eventids = $DB->get_records_select('event', "modulename='hotpot' AND instance $filter", $params, 'id', 'id')) {
         $eventids = array_keys($eventids);
     } else {
         $eventids = array();
@@ -1597,7 +1628,7 @@ function hotpot_refresh_events($courseid=0) {
  */
 function hotpot_update_events_wrapper($hotpot) {
     global $DB;
-    if ($eventids = $DB->get_records('event', array('modulename'=>'hotpot', 'instance'=>$hotpot->id), 'id', 'id, id AS eventid')) {
+    if ($eventids = $DB->get_records('event', array('modulename'=>'hotpot', 'instance'=>$hotpot->id), 'id', 'id')) {
         $eventids = array_keys($eventids);
     } else {
         $eventids = array();
@@ -1623,9 +1654,9 @@ function hotpot_update_events(&$hotpot, &$eventids, $delete) {
     // check to see if this user is allowed
     // to manage calendar events in this course
     $capability = 'moodle/calendar:manageentries';
-    if (has_capability($capability, get_context_instance(CONTEXT_SYSTEM))) {
+    if (has_capability($capability, hotpot_get_context(CONTEXT_SYSTEM))) {
         $can_manage_events = true; // site admin
-    } else if (has_capability($capability, get_context_instance(CONTEXT_COURSE, $hotpot->course))) {
+    } else if (has_capability($capability, hotpot_get_context(CONTEXT_COURSE, $hotpot->course))) {
         $can_manage_events = true; // course admin/teacher
     } else {
         $can_manage_events = false; // not allowed to add/edit calendar events !!
@@ -1754,22 +1785,49 @@ function hotpot_update_events(&$hotpot, &$eventids, $delete) {
 }
 
 /**
- * hotpot_get_textlib
+ * context
  *
- * hotpot_get_textlib() on Moodle 2.2 throws a debug message
- * encouraging us to use textlib::static_method()
- * but we want to be compatible with Moodle 2.0 and 2.1, we do this ...
+ * a wrapper method to offer consistent API to get contexts
+ * in Moodle 2.0 and 2.1, we use get_context_instance() function
+ * in Moodle >= 2.2, we use static context_xxx::instance() method
  *
+ * @param integer $contextlevel
+ * @param integer $instanceid (optional, default=0)
+ * @param int $strictness (optional, default=0 i.e. IGNORE_MISSING)
+ * @return required context
  * @todo Finish documenting this function
  */
-function hotpot_get_textlib() {
-    static $textlib = null;
-    if (method_exists('textlib', 'textlib')) {
-        // Moodle 2.0 and 2.1
-        $textlib = textlib_get_instance();
-    } else if (is_null($textlib)) {
-        // Moodle >= 2.2
-        $textlib = new textlib();
+function hotpot_get_context($contextlevel, $instanceid=0, $strictness=0) {
+    if (class_exists('context_helper')) {
+        // use call_user_func() to prevent syntax error in PHP 5.2.x
+        // return $classname::instance($instanceid, $strictness);
+        $class = context_helper::get_class_for_level($contextlevel);
+        return call_user_func(array($class, 'instance'), $instanceid, $strictness);
+    } else {
+        return get_context_instance($contextlevel, $instanceid);
     }
-    return $textlib;
+}
+
+/**
+ * textlib
+ *
+ * a wrapper method to offer consistent API for textlib class
+ * in Moodle 2.0 and 2.1, $textlib is first initiated, then called.
+ * in Moodle >= 2.2, we use only static methods of the "textlib" class.
+ *
+ * @param string $method
+ * @param mixed any extra params that are required by the textlib $method
+ * @return result from the textlib $method
+ * @todo Finish documenting this function
+ */
+function hotpot_textlib() {
+    if (method_exists('textlib', 'textlib')) {
+        $textlib = textlib_get_instance();
+    } else {
+        $textlib = 'textlib'; // Moodle >= 2.2
+    }
+    $args = func_get_args();
+    $method = array_shift($args);
+    $callback = array($textlib, $method);
+    return call_user_func_array($callback, $args);
 }

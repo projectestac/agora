@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'book', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'book', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   book
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,7 +33,7 @@ $string['book:viewhiddenchapters'] = 'Verborgene Kapitel sehen';
 $string['chapters'] = 'Kapitel';
 $string['chaptertitle'] = 'Überschrift';
 $string['confchapterdelete'] = 'Wollen Sie dieses Kapitel wirklich löschen?';
-$string['confchapterdeleteall'] = 'Wollen Sie wirklich dieses Kapitel zusammen mit allen Unterkapitel löschen?';
+$string['confchapterdeleteall'] = 'Wollen Sie dieses Kapitel zusammen mit allen Unterkapiteln wirklich löschen?';
 $string['content'] = 'Inhalte';
 $string['customtitles'] = 'Eigene Überschriften';
 $string['customtitles_help'] = 'Normalerweise werden die Kapitelüberschriften im Inhaltsverzeichnis genauso angezeigt wie oben auf der Buchseite.
@@ -42,13 +42,14 @@ Wenn diese Option aktiviert ist, werden die Kapitelüberschriften ausschließlic
 $string['editingchapter'] = 'Kapitel bearbeiten';
 $string['errorchapter'] = 'Fehler beim Lesen des Kapitels';
 $string['modulename'] = 'Buch';
-$string['modulename_help'] = 'Statt endlos durch lange Texte am Bildschirm zu scrollen teilen Sie Ihre Lerninhalte auf kurze Seiten innerhalb des Buchs auf.
+$string['modulename_help'] = 'Statt endlos durch lange Texte am Bildschirm zu scrollen, teilen Sie Ihre Lerninhalte auf kurze Seiten innerhalb des Buchs auf.
 
-Ergänzen Sie die Textes um Grafiken, Bilder oder multimediale Inhalte, um den Inhalt verständlich zu gestalten.';
+Ergänzen Sie die Texte um Grafiken, Bilder oder multimediale Inhalte, um den Inhalt verständlich zu gestalten.';
 $string['modulenameplural'] = 'Bücher';
 $string['navexit'] = 'Buch schließen';
 $string['navnext'] = 'weiter';
 $string['navprev'] = 'zurück';
+$string['nocontent'] = 'In diesem Buch wurde bisher kein Inhalt eingefügt';
 $string['numbering'] = 'Kapitelgliederung';
 $string['numbering0'] = 'Keine';
 $string['numbering1'] = 'Zahlen';

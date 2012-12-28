@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradingform_rubric', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'gradingform_rubric', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   gradingform_rubric
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,7 @@ $string['addcriterion'] = 'Kriterium hinzufügen';
 $string['alwaysshowdefinition'] = 'Nutzer/innen erlauben, eine Vorschau auf die im Modul benutzte Rubrik zu bekommen (andernfalls wird die Rubrik erst nach der Bewertung sichtbar)';
 $string['backtoediting'] = 'Zurück zum Bearbeiten';
 $string['confirmdeletecriterion'] = 'Wollen Sie dieses Kriterium wirklich löchen?';
-$string['confirmdeletelevel'] = 'Wollen Sie dieses Level wirklich löschen?';
+$string['confirmdeletelevel'] = 'Möchten Sie dieses Level wirklich löschen?';
 $string['criterionaddlevel'] = 'Level hinzufügen';
 $string['criteriondelete'] = 'Kriterium löschen';
 $string['criterionempty'] = 'Zum Bearbeiten des Kriteriums anklicken';

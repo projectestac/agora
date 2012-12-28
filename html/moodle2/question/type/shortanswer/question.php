@@ -78,6 +78,10 @@ class qtype_shortanswer_question extends question_graded_by_strategy
     }
 
     public function compare_response_with_answer(array $response, question_answer $answer) {
+        if (!array_key_exists('answer', $response) || is_null($response['answer'])) {
+            return false;
+        }
+
         return self::compare_string_with_wildcard(
                 $response['answer'], $answer->answer, !$this->usecase);
     }
@@ -127,9 +131,9 @@ class qtype_shortanswer_question extends question_graded_by_strategy
             $args, $forcedownload) {
         if ($component == 'question' && $filearea == 'answerfeedback') {
             $currentanswer = $qa->get_last_qt_var('answer');
-            $answer = $qa->get_question()->get_matching_answer(array('answer' => $currentanswer));
+            $answer = $this->get_matching_answer(array('answer' => $currentanswer));
             $answerid = reset($args); // itemid is answer id.
-            return $options->feedback && $answerid == $answer->id;
+            return $options->feedback && $answer && $answerid == $answer->id;
 
         } else if ($component == 'question' && $filearea == 'hint') {
             return $this->check_hint_file_access($qa, $options, $args);

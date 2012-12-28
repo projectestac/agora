@@ -118,6 +118,9 @@ class user_picture_testcase extends advanced_testcase {
 
         $this->resetAfterTest();
 
+        // Force SVG on so that we have predictable URL's.
+        $CFG->svgicons = true;
+
         // verify new install contains expected defaults
         $this->assertEquals('standard', $CFG->theme);
         $this->assertEquals(1, $CFG->slasharguments);
@@ -126,6 +129,7 @@ class user_picture_testcase extends advanced_testcase {
         $this->assertEquals('http://www.example.com/moodle', $CFG->wwwroot);
         $this->assertEquals($CFG->wwwroot, $CFG->httpswwwroot);
         $this->assertEquals(0, $CFG->enablegravatar);
+        $this->assertEquals('mm', $CFG->gravatardefaulturl);
 
         // create some users
         $page = new moodle_page();
@@ -147,7 +151,7 @@ class user_picture_testcase extends advanced_testcase {
         // try legacy picture == 1
         $user1->picture = 1;
         $up1 = new user_picture($user1);
-        $this->assertEquals($CFG->wwwroot.'/pluginfile.php/15/user/icon/standard/f2?rev=1', $up1->get_url($page, $renderer)->out(false));
+        $this->assertEquals($CFG->wwwroot.'/pluginfile.php/'.$context1->id.'/user/icon/standard/f2?rev=1', $up1->get_url($page, $renderer)->out(false));
         $user1->picture = 11;
 
         // try valid user with picture when user context is not cached - 1 query expected
@@ -155,7 +159,7 @@ class user_picture_testcase extends advanced_testcase {
         $reads = $DB->perf_get_reads();
         $up1 = new user_picture($user1);
         $this->assertEquals($reads, $DB->perf_get_reads());
-        $this->assertEquals($CFG->wwwroot.'/pluginfile.php/15/user/icon/standard/f2?rev=11', $up1->get_url($page, $renderer)->out(false));
+        $this->assertEquals($CFG->wwwroot.'/pluginfile.php/'.$context1->id.'/user/icon/standard/f2?rev=11', $up1->get_url($page, $renderer)->out(false));
         $this->assertEquals($reads+1, $DB->perf_get_reads());
 
         // try valid user with contextid hint - no queries expected
@@ -164,7 +168,7 @@ class user_picture_testcase extends advanced_testcase {
         $reads = $DB->perf_get_reads();
         $up1 = new user_picture($user1);
         $this->assertEquals($reads, $DB->perf_get_reads());
-        $this->assertEquals($CFG->wwwroot.'/pluginfile.php/15/user/icon/standard/f2?rev=11', $up1->get_url($page, $renderer)->out(false));
+        $this->assertEquals($CFG->wwwroot.'/pluginfile.php/'.$context1->id.'/user/icon/standard/f2?rev=11', $up1->get_url($page, $renderer)->out(false));
         $this->assertEquals($reads, $DB->perf_get_reads());
 
         // try valid user without image - no queries expected
@@ -197,31 +201,54 @@ class user_picture_testcase extends advanced_testcase {
         // test gravatar
         set_config('enablegravatar', 1);
 
-        $up2 = new user_picture($user2);
-        $this->assertEquals('http://www.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=http%3A%2F%2Fwww.example.com%2Fmoodle%2Ftheme%2Fimage.php%2Fstandard%2Fcore%2F1%2Fu%2Ff2', $up2->get_url($page, $renderer)->out(false));
-
-        // uploaded image takes precedence before gravatar
-        $up1 = new user_picture($user1);
-        $this->assertEquals($CFG->wwwroot.'/pluginfile.php/15/user/icon/standard/f2?rev=11', $up1->get_url($page, $renderer)->out(false));
-
         // deleted user can not have gravatar
         $user3->email = 'deleted';
         $user3->picture = 0;
         $up3 = new user_picture($user3);
         $this->assertEquals($CFG->wwwroot.'/theme/image.php/standard/core/1/u/f2', $up3->get_url($page, $renderer)->out(false));
 
+        // verify defaults to misteryman (mm)
+        $up2 = new user_picture($user2);
+        $this->assertEquals('http://www.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=mm', $up2->get_url($page, $renderer)->out(false));
 
-        // https versions
+        // without gravatardefaulturl, verify we pick own file
+        set_config('gravatardefaulturl', '');
+        $up2 = new user_picture($user2);
+        $this->assertEquals('http://www.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=http%3A%2F%2Fwww.example.com%2Fmoodle%2Fpix%2Fu%2Ff2.png', $up2->get_url($page, $renderer)->out(false));
+        // uploaded image takes precedence before gravatar
+        $up1 = new user_picture($user1);
+        $this->assertEquals($CFG->wwwroot.'/pluginfile.php/'.$context1->id.'/user/icon/standard/f2?rev=11', $up1->get_url($page, $renderer)->out(false));
+
+        // https version
         $CFG->httpswwwroot = str_replace('http:', 'https:', $CFG->wwwroot);
 
         $up1 = new user_picture($user1);
-        $this->assertEquals($CFG->httpswwwroot.'/pluginfile.php/15/user/icon/standard/f2?rev=11', $up1->get_url($page, $renderer)->out(false));
+        $this->assertEquals($CFG->httpswwwroot.'/pluginfile.php/'.$context1->id.'/user/icon/standard/f2?rev=11', $up1->get_url($page, $renderer)->out(false));
 
         $up3 = new user_picture($user3);
         $this->assertEquals($CFG->httpswwwroot.'/theme/image.php/standard/core/1/u/f2', $up3->get_url($page, $renderer)->out(false));
 
         $up2 = new user_picture($user2);
-        $this->assertEquals('https://secure.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=https%3A%2F%2Fwww.example.com%2Fmoodle%2Ftheme%2Fimage.php%2Fstandard%2Fcore%2F1%2Fu%2Ff2', $up2->get_url($page, $renderer)->out(false));
+        $this->assertEquals('https://secure.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=https%3A%2F%2Fwww.example.com%2Fmoodle%2Fpix%2Fu%2Ff2.png', $up2->get_url($page, $renderer)->out(false));
+
+        // now test gravatar with one theme having own images (afterburner)
+        $CFG->httpswwwroot = $CFG->wwwroot;
+        $this->assertTrue(file_exists("$CFG->dirroot/theme/afterburner/config.php"));
+        set_config('theme', 'afterburner');
+        $page = new moodle_page();
+        $page->set_url('/user/profile.php');
+        $page->set_context(context_system::instance());
+        $renderer = $page->get_renderer('core');
+
+        $up2 = new user_picture($user2);
+        $this->assertEquals('http://www.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=http%3A%2F%2Fwww.example.com%2Fmoodle%2Ftheme%2Fafterburner%2Fpix_core%2Fu%2Ff2.png', $up2->get_url($page, $renderer)->out(false));
+
+        // https version
+        $CFG->httpswwwroot = str_replace('http:', 'https:', $CFG->wwwroot);
+
+        $up2 = new user_picture($user2);
+        $this->assertEquals('https://secure.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=https%3A%2F%2Fwww.example.com%2Fmoodle%2Ftheme%2Fafterburner%2Fpix_core%2Fu%2Ff2.png', $up2->get_url($page, $renderer)->out(false));
+        // end of gravatar tests
 
         // test themed images
         set_config('enablegravatar', 0);
@@ -234,7 +261,7 @@ class user_picture_testcase extends advanced_testcase {
         $renderer = $page->get_renderer('core');
 
         $up1 = new user_picture($user1);
-        $this->assertEquals($CFG->wwwroot.'/pluginfile.php/15/user/icon/formal_white/f2?rev=11', $up1->get_url($page, $renderer)->out(false));
+        $this->assertEquals($CFG->wwwroot.'/pluginfile.php/'.$context1->id.'/user/icon/formal_white/f2?rev=11', $up1->get_url($page, $renderer)->out(false));
 
         $up2 = new user_picture($user2);
         $this->assertEquals($CFG->wwwroot.'/theme/image.php/formal_white/core/1/u/f2', $up2->get_url($page, $renderer)->out(false));

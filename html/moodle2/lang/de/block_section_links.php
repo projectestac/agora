@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_section_links', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_section_links', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   block_section_links
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,15 +26,16 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['incby1'] = 'Schrittweite1';
-$string['incby2'] = 'Alternative Schrittweite';
+$string['incby2'] = 'Schrittweite2';
 $string['incbydesc1'] = 'Nur jeden x1-ten Abschnitt anzeigen';
 $string['incbydesc2'] = 'Nur jeden x2-ten Abschnitt anzeigen';
-$string['jumptocurrenttopic'] = 'Zum aktuellen Thema';
-$string['jumptocurrentweek'] = 'Zur aktuellen Woche';
+$string['jumptocurrenttopic'] = 'Aktueller Abschnitt';
+$string['jumptocurrentweek'] = 'Aktuelle Woche';
 $string['numsections1'] = 'Untere Grenze1';
 $string['numsections2'] = 'Untere Grenze2';
 $string['numsectionsdesc1'] = 'Bei einer größeren Anzahl von Abschnitten im Kurs wird im Block nur jeder x1-te Abschnitt verlinkt';
 $string['numsectionsdesc2'] = 'Bei einer größeren Anzahl von Abschnitten im Kurs wird im Block nur jeder x2-te Abschnitt verlinkt';
 $string['pluginname'] = 'Kursabschnitte';
-$string['topics'] = 'Themen';
+$string['section_links:addinstance'] = 'Neuen Block \'Kursabschnitte\' hinzufügen';
+$string['topics'] = 'Abschnitte';
 $string['weeks'] = 'Wochen';

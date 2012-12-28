@@ -370,7 +370,7 @@ class hotpot {
         $this->cm = $cm;
         $this->course = $course;
         if (is_null($context)) {
-            $this->context = get_context_instance(CONTEXT_MODULE, $this->cm->id);
+            $this->context = hotpot_get_context(CONTEXT_MODULE, $this->cm->id);
         } else {
             $this->context = $context;
         }
@@ -947,7 +947,29 @@ class hotpot {
         if (is_null($course)) {
             $course = $this->course;
         }
-        return new moodle_url('/course/view.php', array('id' => $course->id));
+        $params = array('id' => $course->id);
+        $sectionnum = 0;
+        if (isset($course->coursedisplay) && defined('COURSE_DISPLAY_MULTIPAGE')) {
+            // Moodle >= 2.3
+            if ($course->coursedisplay==COURSE_DISPLAY_MULTIPAGE) {
+                $courseid = $course->id;
+                $sectionid = $this->cm->section;
+                if ($modinfo = get_fast_modinfo($this->course)) {
+                    $sections = $modinfo->get_section_info_all();
+                    foreach ($sections as $section) {
+                        if ($section->id==$sectionid) {
+                            $sectionnum = $section->section;
+                            break;
+                        }
+                    }
+                }
+                unset($modinfo, $sections, $section);
+            }
+        }
+        if ($sectionnum) {
+            $params['section'] = $sectionnum;
+        }
+        return new moodle_url('/course/view.php', $params);
     }
 
     /**
@@ -1086,7 +1108,7 @@ class hotpot {
             'sortorder'=>1, 'itemid'=>0, 'filepath'=>$filepath, 'filename'=>$filename
         );
 
-        $coursecontext  = get_context_instance(CONTEXT_COURSE, $this->course->id);
+        $coursecontext  = hotpot_get_context(CONTEXT_COURSE, $this->course->id);
         $filehash = sha1('/'.$coursecontext->id.'/course/legacy/0'.$filepath.$filename);
 
         if ($file = $fs->get_file_by_hash($filehash)) {
@@ -1439,11 +1461,12 @@ class hotpot {
         if (empty($this->attempt)) {
 
             // get max attempt number so far
-            $select = 'MAX(attempt)';
-            $from   = '{hotpot_attempts}';
-            $where  = 'hotpotid=? AND userid=?';
-            $params = array($this->id, $USER->id);
-            $max_attempt = $DB->get_field_sql("SELECT $select FROM $from WHERE $where", $params) + 1;
+            $sql = "SELECT MAX(attempt) FROM {hotpot_attempts} WHERE hotpotid=? AND userid=?";
+            if ($max_attempt = $DB->get_field_sql($sql, array($this->id, $USER->id))) {
+                $max_attempt ++;
+            } else {
+                $max_attempt = 1;
+            }
 
             // create attempt record
             $this->attempt = new stdClass();
@@ -1453,7 +1476,7 @@ class hotpot {
             $this->attempt->endtime        = 0;
             $this->attempt->score          = 0;
             $this->attempt->penalties      = 0;
-            $this->attempt->attempt        = $max_attempt + 1;
+            $this->attempt->attempt        = $max_attempt;
             $this->attempt->timestart      = $this->time;
             $this->attempt->timefinish     = 0;
             $this->attempt->status         = self::STATUS_INPROGRESS;
@@ -1847,8 +1870,7 @@ class hotpot {
         if ($shorterror) {
             return get_string('nomoreattempts', 'hotpot');
         } else {
-            $textlib = hotpot_get_textlib();
-            $attemptlimitstr = $textlib->moodle_strtolower(get_string('attemptlimit', 'hotpot'));
+            $attemptlimitstr = hotpot_textlib('moodle_strtolower', get_string('attemptlimit', 'hotpot'));
             $msg = html_writer::tag('b', format_string($this->name))." ($attemptlimitstr = $this->attemptlimit)";
             return html_writer::tag('p', get_string('nomoreattempts', 'hotpot')).html_writer::tag('p', $msg);
         }

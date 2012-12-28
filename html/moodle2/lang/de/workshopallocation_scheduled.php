@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshopallocation_scheduled', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'workshopallocation_scheduled', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   workshopallocation_scheduled
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -47,7 +47,7 @@ $string['resultenabled'] = 'Zeitgesteuerte Aufteilung aktiviert';
 $string['resultexecuted'] = 'Erfolgreich';
 $string['resultfailed'] = 'Automatische Aufteilung der Lösungen nicht möglich';
 $string['resultfailedconfig'] = 'Zeitgesteuerte Aufteilung falsch eingerichtet';
-$string['resultfaileddeadline'] = 'Es wurde kein Abgabeschluß für den Workshop festgelegt';
+$string['resultfaileddeadline'] = 'Es wurde kein Abgabeende für den Workshop festgelegt';
 $string['resultfailedphase'] = 'Der Workshop befindet sich nicht in der Einreichungsphase';
 $string['resultvoid'] = 'Es wurden keine Einreichungen zugeteilt';
 $string['resultvoiddeadline'] = 'Nicht nach der Abgabefrist';

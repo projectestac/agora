@@ -22,7 +22,7 @@ $CFG->dboptions = array (
 );
 
 $CFG->wwwroot   = 'http://agora/'.AGORA_BASE.'/moodle2';
-$CFG->dataroot  = INSTALL_BASE .'moodledata/usu_oracle';
+$CFG->dataroot  = INSTALL_BASE .'moodledata/moodle2/usu_oracle';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;
@@ -47,7 +47,7 @@ $school_info = array('clientCode' => 0);
   // You can specify a comma separated list of user ids that that always see
   // debug messages, this overrides the debug flag in $CFG->debug and $CFG->debugdisplay
   // for these users only.
-  $CFG->debugusers = '2';
+  //$CFG->debugusers = '2';
 */
 
 require_once(dirname(__FILE__) . '/settings.php');

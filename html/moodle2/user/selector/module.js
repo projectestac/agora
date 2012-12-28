@@ -43,6 +43,8 @@ M.core_user.init_user_selector = function (Y, name, hash, extrafields, lastsearc
         listbox : Y.one('#'+name),
         /** Used to hold the timeout id of the timeout that waits before doing a search. */
         timeoutid : null,
+        /** Stores any in-progress remote requests. */
+        iotransactions : {},
         /** The last string that we searched for, so we can avoid unnecessary repeat searches. */
         lastsearch : lastsearch,
         /** Whether any options where selected last time we checked. Used by
@@ -140,7 +142,12 @@ M.core_user.init_user_selector = function (Y, name, hash, extrafields, lastsearc
                 return;
             }
 
-            Y.io(M.cfg.wwwroot + '/user/selector/search.php', {
+            // Try to cancel existing transactions.
+            Y.Object.each(this.iotransactions, function(trans) {
+                trans.abort();
+            });
+
+            var iotrans = Y.io(M.cfg.wwwroot + '/user/selector/search.php', {
                 method: 'POST',
                 data: 'selectorid='+hash+'&sesskey='+M.cfg.sesskey+'&search='+value + '&userselector_searchanywhere=' + this.get_option('searchanywhere'),
                 on: {
@@ -149,6 +156,7 @@ M.core_user.init_user_selector = function (Y, name, hash, extrafields, lastsearc
                 },
                 context:this
             });
+            this.iotransactions[iotrans.id] = iotrans;
 
             this.lastsearch = value;
             this.listbox.setStyle('background','url(' + M.util.image_url('i/loading', 'moodle') + ') no-repeat center center');
@@ -160,17 +168,27 @@ M.core_user.init_user_selector = function (Y, name, hash, extrafields, lastsearc
          */
         handle_response : function(requestid, response) {
             try {
+                delete this.iotransactions[requestid];
+                if (!Y.Object.isEmpty(this.iotransactions)) {
+                    // More searches pending. Wait until they are all done.
+                    return;
+                }
                 this.listbox.setStyle('background','');
                 var data = Y.JSON.parse(response.responseText);
                 this.output_options(data);
             } catch (e) {
-                this.handle_failure();
+                this.handle_failure(requestid);
             }
         },
         /**
          * Handles what happens when the ajax request fails.
          */
-        handle_failure : function() {
+        handle_failure : function(requestid) {
+            delete this.iotransactions[requestid];
+            if (!Y.Object.isEmpty(this.iotransactions)) {
+                // More searches pending. Wait until they are all done.
+                return;
+            }
             this.listbox.setStyle('background','');
             this.searchfield.addClass('error');
 
@@ -203,8 +221,9 @@ M.core_user.init_user_selector = function (Y, name, hash, extrafields, lastsearc
 
             // Output each optgroup.
             var count = 0;
-            for (var groupname in data.results) {
-                this.output_group(groupname, data.results[groupname], selectedusers, true);
+            for (var key in data.results) {
+                var groupdata = data.results[key];
+                this.output_group(groupdata.name, groupdata.users, selectedusers, true);
                 count++;
             }
             if (!count) {
@@ -230,17 +249,23 @@ M.core_user.init_user_selector = function (Y, name, hash, extrafields, lastsearc
         output_group : function(groupname, users, selectedusers, processsingle) {
             var optgroup = Y.Node.create('<optgroup></optgroup>');
             var count = 0;
-            for (var userid in users) {
-                var user = users[userid];
-                var option = Y.Node.create('<option value="'+userid+'">'+user.name+'</option>');
+            for (var key in users) {
+                var user = users[key];
+                var option = Y.Node.create('<option value="'+user.id+'">'+user.name+'</option>');
                 if (user.disabled) {
                     option.set('disabled', true);
-                } else if (selectedusers===true || selectedusers[userid]) {
+                } else if (selectedusers===true || selectedusers[user.id]) {
                     option.set('selected', true);
+                    delete selectedusers[user.id];
                 } else {
                     option.set('selected', false);
                 }
                 optgroup.append(option);
+                if (user.infobelow) {
+                    extraoption = Y.Node.create('<option disabled="disabled" class="userselector-infobelow"/>');
+                    extraoption.appendChild(document.createTextNode(user.infobelow));
+                    optgroup.append(extraoption);
+                }
                 count++;
             }
 

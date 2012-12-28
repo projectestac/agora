@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'auth_ldap', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -100,10 +100,14 @@ $string['auth_ntlmsso_enabled'] = 'Seleccione Sí para intentar Single Sign On c
 $string['auth_ntlmsso_enabled_key'] = 'Habilitar';
 $string['auth_ntlmsso_ie_fastpath'] = 'Establezca en "Si" para habilitar la ruta NTLM SSO rápida (se salta algunos pasos y solo trabaja si el explorador es MS Internet Explorer).';
 $string['auth_ntlmsso_ie_fastpath_key'] = '¿Ruta rápida MS IE?';
+$string['auth_ntlmsso_maybeinvalidformat'] = 'No se pudo extraer el nombre de usuario del encabezado de REMOTE_USER (USUARIO_REMOTO). ¿Está correcto el formato configurado?';
+$string['auth_ntlmsso_missing_username'] = 'Usted necesita especificar al menos %username% en el formato de nombre de usuario remoto';
+$string['auth_ntlmsso_remoteuserformat'] = 'Si Usted ha elegido \'NTLM\' en \'Tipo de Autenticación\', Usted puede especificar aquí el formato de nombredeusuario remoto. Si lo deja vacío, se usará el formato de DOMAINusername. Usted puede usar el remplazable opcional <b>%domain%</b> para especificar dónde aparece el nombre del dominio, y el remplazable obligatorio <b>%username%</b> para especificar dónde aparece el nombre de usuario. <br /><br />Algunos de los formatos ampliamente usados son <tt>%domain%%username%</tt> (MS Windows por defecto), <tt>%domain%/%username%</tt>, <tt>%domain%+%username%</tt> y simplemente <tt>%username%</tt> (si no hubiera la parte del dominio).';
+$string['auth_ntlmsso_remoteuserformat_key'] = 'Formato de nombre de usuario remoto';
 $string['auth_ntlmsso_subnet'] = 'Si se activa la opción, sólo se intentará el SSO con clientes de esta sub-red. Formato: xxx.xxx.xxx.xxx/bitmask.
 Separe varias sub-redes con "," (coma).';
 $string['auth_ntlmsso_subnet_key'] = 'Sub-red';
-$string['auth_ntlmsso_type'] = 'El método de autenticación configurado en el servidor Web para autentificar a los usuarios (en caso de duda, elija NTLM)';
+$string['auth_ntlmsso_type'] = 'El método de identificación configurado en el servidor Web para identificar a los usuarios (en caso de duda, elija NTLM)';
 $string['auth_ntlmsso_type_key'] = 'Tipo de identificación';
 $string['connectingldap'] = 'Conectando con el servidor LDAP ...';
 $string['creatingtemptable'] = 'Creando la tabla temporal {$a}';
@@ -125,6 +129,9 @@ $string['ntlmsso_attempting'] = 'Intentando Single Sign On vía NTLM...';
 $string['ntlmsso_failed'] = 'Falló el acceso automático; intente con la página de acceso normal...';
 $string['ntlmsso_isdisabled'] = 'NTLM SSO está desactivado.';
 $string['ntlmsso_unknowntype'] = 'Tipo ntlmsso desconocido';
+$string['pagedresultsnotsupp'] = 'LDAP envió resultados no admitidos (ya sea que su versión PHP carezca de soporte o que usted haya configurado Moodle para usar la versión 2 del protocolo LDAP)';
+$string['pagesize'] = 'Asegúrese de que este valor sea menor al límite configurado por el resultado de su servidor LDAP (el número máximo de entradas que pueden devolverse en una sola solicitud)';
+$string['pagesize_key'] = 'Tamaño de página';
 $string['pluginname'] = 'Usar un servidor LDAP';
 $string['pluginnotenabled'] = 'El pugin no está habilitado';
 $string['renamingnotallowed'] = 'El renombrado del nombre de usuario no está habilitado en LDAP';

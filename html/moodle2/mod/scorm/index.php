@@ -48,9 +48,6 @@ $PAGE->navbar->add($strscorms);
 echo $OUTPUT->header();
 
 $usesections = course_format_uses_sections($course->format);
-if ($usesections) {
-    $sections = get_all_sections($course->id);
-}
 
 if ($usesections) {
     $sortorder = "cw.section ASC";
@@ -74,11 +71,11 @@ if ($usesections) {
 }
 
 foreach ($scorms as $scorm) {
-    $context = get_context_instance(CONTEXT_MODULE, $scorm->coursemodule);
+    $context = context_module::instance($scorm->coursemodule);
     $tt = "";
     if ($usesections) {
         if ($scorm->section) {
-            $tt = get_section_name($course, $sections[$scorm->section]);
+            $tt = get_section_name($course, $scorm->section);
         }
     } else {
         $tt = userdate($scorm->timemodified);

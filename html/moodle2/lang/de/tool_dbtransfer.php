@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_dbtransfer', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'tool_dbtransfer', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   tool_dbtransfer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['convertinglogdisplay'] = 'Logging-Anzeigen werden konvertiert';
 $string['dbexport'] = 'Datenbank-Export';
 $string['dbtransfer'] = 'Datenbank-Migration';
 $string['enablemaintenance'] = 'Wartungsmodus aktivieren';
+$string['enablemaintenance_help'] = 'Diese Option aktiviert den Wartungsmodus während und nach der Datenbankmigration. Bis zum Anschluss der Migration kann niemand auf die Plattform zugreifen. Beachten Sie, dass die Datei $CFG->dataroot/climaintenance.html manuell gelöscht werden muss, nachdem die Einstellungen in der config.php aktualisiert wurden und die Plattform wieder genutzt werden soll.';
 $string['exportdata'] = 'Daten exportieren';
 $string['notargetconectexception'] = 'Die Zieldatenbank kann nicht verbunden werden';
 $string['options'] = 'Optionen';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio_boxnet', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'portfolio_boxnet', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   portfolio_boxnet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,7 +37,6 @@ $string['noauthtoken'] = 'No s\'ha pogut recuperar un testimoni d\'autenticació
 $string['notarget'] = 'Heu d\'especificar una carpeta de destinació existent o una de nova';
 $string['noticket'] = 'No s\'ha pogut recuperar un tiquet de box.net per a iniciar la sessió d\'autenticació';
 $string['password'] = 'La vostra contrasenya de box.net (no és guardarà)';
-$string['pluginname'] = 'Box.net';
 $string['sendfailed'] = 'No s\'ha pogut enviar el contingut a box.net: {$a}';
 $string['setupinfo'] = 'Instruccions de configuració';
 $string['setupinfodetails'] = 'Per a obtenir una clau API, entreu en Box.net i visiteu la <a href="{$a->servicesurl}">pàgina de desenvolupament OpenBox</a>. A \'Developer Tools\', accediu a \'Create new application\' i creeu una nova aplicació per al vostre lloc Moodle. La clau API es mostra a la secció \'Backend parameters\' al formulari d\'edició de l\'aplicació. En aquest formulari, empleneu el camp \'Redirect URL\' amb:<br /><code>{$a->callbackurl}</code><br />Si ho desitgeu, també podeu donar-hi més informació sobre el vostre lloc Moodle. Aquests valors es poden modificar més tard a la pàgina \'View my applications\'.';

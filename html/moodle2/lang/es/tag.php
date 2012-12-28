@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tag', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'tag', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   tag
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['addedotag'] = 'Se ha añadido "{$a}" como marca oficial.';
 $string['addotags'] = 'Añadir marcas oficiales.';
 $string['addtagtomyinterests'] = 'Agregar "{$a}" a mis intereses';
+$string['alltagpages'] = 'Todas las páginas con marcas';
 $string['changename'] = 'Cambiar nombre de marca';
 $string['changetype'] = 'Cambiar tipo de marca';
 $string['count'] = 'Contar';
@@ -54,6 +55,9 @@ $string['officialtag'] = 'Marca oficial';
 $string['otags'] = 'Marcas oficiales';
 $string['othertags'] = 'Otras marcas (escriba las marcas separadas por comas)';
 $string['owner'] = 'Propietario';
+$string['page-tag-index'] = 'Página de marca única';
+$string['page-tag-manage'] = 'Gestionar marcas';
+$string['page-tag-search'] = 'Buscador de marcas';
 $string['page-tag-x'] = 'Todas las páginas con marcas';
 $string['ptags'] = 'Marcas definidas por el usuario (separadas por comas)';
 $string['relatedblogs'] = 'Entradas de blog más recientes';

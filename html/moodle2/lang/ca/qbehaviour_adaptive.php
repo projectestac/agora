@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qbehaviour_adaptive', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qbehaviour_adaptive', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   qbehaviour_adaptive
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,4 +31,3 @@ $string['gradingdetailsadjustment'] = 'Tenint en compte els intents previs, la p
 $string['gradingdetailspenalty'] = 'Aquest lliurament ha acumulat una penalització de {$a}.';
 $string['gradingdetailspenaltytotal'] = 'Total de la penalització fins ara: {$a}';
 $string['notcomplete'] = 'Incomplet';
-$string['pluginname'] = 'Mode adaptatiu';

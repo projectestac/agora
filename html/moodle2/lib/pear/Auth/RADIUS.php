@@ -30,7 +30,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 This code cannot simply be copied and put under the GNU Public License or
 any other GPL-like (LGPL, GPL2) License.
 
-    $Id: RADIUS.php,v 1.2 2010/12/14 17:36:06 moodlerobot Exp $
+    $Id$
 */
 
 require_once 'PEAR.php';
@@ -43,7 +43,7 @@ require_once 'PEAR.php';
 * @package Auth_RADIUS
 * @author  Michael Bretterklieber <michael@bretterklieber.com>
 * @access  public
-* @version $Revision: 1.2 $
+* @version $Revision$
 */
 
 PEAR::loadExtension('radius');

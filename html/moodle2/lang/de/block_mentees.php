@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_mentees', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_mentees', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   block_mentees
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configtitle'] = 'Blocktitel';
-$string['configtitleblankhides'] = 'Blocktitel (Kein Titel bei leerem Feld)';
+$string['configtitleblankhides'] = 'Blocktitel (Ohne Titel bei leerem Feld)';
 $string['leaveblanktohide'] = 'Kein Titel bei leerem Feld';
-$string['newmenteesblock'] = '(neuer Mentorenblock)';
+$string['mentees:addinstance'] = 'Neuen Block \'Mentoren\' hinzufügen';
+$string['mentees:myaddinstance'] = 'Neuen Block \'Mentoren\' für \'Meine Startseite\' hinzufügen';
+$string['newmenteesblock'] = '(Mentoren)';
 $string['pluginname'] = 'Mentoren';

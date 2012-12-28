@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -36,7 +36,10 @@ $string['configenrolplugins'] = 'Veuillez sélectionner tous les plugins désir�
 $string['custominstancename'] = 'Nom personnalisé de l\'instance';
 $string['defaultenrol'] = 'Ajouter une instance aux nouveaux cours';
 $string['defaultenrol_desc'] = 'Il est possible d\'ajouter par défaut ce plugin à tous les nouveaux cours.';
-$string['deleteinstanceconfirm'] = 'Voulez-vous vraiment supprimer l\'instance du plugin d\'inscription « {$a->name} » gérant {$a->users} utilisateurs inscrits ?';
+$string['deleteinstanceconfirm'] = 'Vous allez supprimer la méthode d\'inscription « {$a->name} ». La totalité des {$a->users} utilisateurs inscrits au moyen de cette méthode seront désinscrits et toutes les données de cours en lien avec ces utilisateurs, notamment les notes, l\'appartenance aux groupes et les abonnements aux forums seront également supprimés.
+
+Voulez-vous vraiment continuer ?';
+$string['deleteinstancenousersconfirm'] = 'Vous allez supprimer la méthode d\'inscription « {$a->name} ». Voulez-vous vraiment continuer ?';
 $string['durationdays'] = '{$a} jours';
 $string['enrol'] = 'Inscrire';
 $string['enrolcandidates'] = 'Utilisateurs non inscrits';
@@ -54,6 +57,7 @@ $string['enrolmentoptions'] = 'Options d\'inscription';
 $string['enrolments'] = 'Inscriptions';
 $string['enrolnotpermitted'] = 'Vous n\'avez pas les autorisations pour inscrire quelqu\'un dans ce cours.';
 $string['enrolperiod'] = 'Durée d\'inscription';
+$string['enroltimecreated'] = 'Inscription créée';
 $string['enroltimeend'] = 'L\'inscription se termine';
 $string['enroltimestart'] = 'L\'inscription commence';
 $string['enrolusage'] = 'Méthodes / inscriptions';
@@ -63,7 +67,15 @@ $string['errajaxsearch'] = 'Erreur lors de la recherche d\'utilisateurs';
 $string['erroreditenrolment'] = 'Une erreur est survenue lors de la modification de l\'inscription d\'utilisateurs';
 $string['errorenrolcohort'] = 'Erreur lors de la création de l\'instance de synchronisation des cohortes dans ce cours.';
 $string['errorenrolcohortusers'] = 'Erreur lors de l\'inscription des membres de cohorte dans ce cours.';
+$string['errorthresholdlow'] = 'Le seuil de notification doit être au moins 1 jour.';
 $string['errorwithbulkoperation'] = 'Une erreur est survenue lors du traitement de vos modifications d\'inscription en lot.';
+$string['expirynotify'] = 'Informer avant l\'échéance de l\'inscription';
+$string['expirynotifyall'] = 'Personne ayant inscrit et utilisateur inscrit';
+$string['expirynotifyenroller'] = 'Personne ayant inscrit seulement';
+$string['expirynotify_help'] = 'Ce réglage détermine si les messages de notification d\'échéance d\'inscription sont envoyés ou non.';
+$string['expirynotifyhour'] = 'Heure à laquelle envoyer les notifications d\'échéance';
+$string['expirythreshold'] = 'Seuil de notification';
+$string['expirythreshold_help'] = 'Combien de temps avant l\'échéance les utilisateurs doivent être informés ?';
 $string['extremovedaction'] = 'Action de désincription externe';
 $string['extremovedaction_help'] = 'Veuillez sélectionner une action à effectuer lorsque l\'inscription d\'un utilisateur disparaît de la source d\'inscriptions externe. Attention : certains réglages et données utilisateur sont supprimées du cours lors de la désinscription.';
 $string['extremovedkeep'] = 'Garder l\'utilisateur inscrit';
@@ -86,6 +98,7 @@ $string['participationactive'] = 'Active';
 $string['participationstatus'] = 'Statut';
 $string['participationsuspended'] = 'Suspendu';
 $string['periodend'] = 'jusqu\'au {$a}';
+$string['periodnone'] = 'inscrit le {$a}';
 $string['periodstart'] = 'dès le {$a}';
 $string['periodstartend'] = 'du {$a->start} au {$a->end}';
 $string['recovergrades'] = 'Récupérer si possible les anciennes notes de l\'utilisateur';
@@ -103,8 +116,13 @@ $string['unenrolconfirm'] = 'Voulez-vous vraiment désinscrire « {$a->user} �
 $string['unenrolme'] = 'Me désinscrire de {$a}';
 $string['unenrolnotpermitted'] = 'Vous n\'avez pas les autorisations pour désinscrire cet utilisateur de ce cours.';
 $string['unenrolroleusers'] = 'Désinscrire les utilisateurs';
-$string['uninstallconfirm'] = 'Vous êtes sur le point de supprimer complètement le plugin d\'inscription « {$a} ». Ceci effacera totalement de la base de données tout ce qui concerne ce type d\'inscription. Voulez-vous vraiment effectuer cette action ?';
+$string['uninstallconfirm'] = 'Vous êtes sur le point de supprimer le plugin d\'inscription « {$a} ». Ceci aura pour résultat la suppression de la base de données de la totalité des données associées à ce type d\'inscription, y compris les notes des utilisateurs, l\'appartenance à des groupes, les abonnements aux forums et toute donnée en lien avec le cours.
+
+Voulez-vous vraiment effectuer cette action ?';
+$string['uninstalldelete'] = 'Supprimer toutes les inscriptions et désinstaller';
 $string['uninstalldeletefiles'] = 'Toutes les données associées au plugin d\'inscription « {$a->plugin} » ont été supprimées de la base de données. Pour terminer la suppression et éviter ainsi que le plugin ne se réinstalle, veuillez supprimer le dossier suivant de votre serveur : {$a->directory}';
+$string['uninstallmigrate'] = 'Désinstaller, mais conserver toutes les inscriptions';
+$string['uninstallmigrating'] = 'Migration des inscriptions « {$a} »';
 $string['unknowajaxaction'] = 'Action demandée inconnue';
 $string['unlimitedduration'] = 'Illimité';
 $string['usersearch'] = 'Recherche';

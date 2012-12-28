@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'webservice', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -53,7 +53,6 @@ $string['createservicedescription'] = 'Ein Service beinhaltet mehrere Webservice
 $string['createserviceforusersdescription'] = 'Ein Service beinhaltet mehrere Webservice-Funktionen. Sie müssen Nutzer/innen erlauben, auf den neuen Service zuzugreifen. Auf der Seite <strong>Service hinzufügen</strong> markieren Sie \'Aktivieren\' und markieren Sie nicht \'Berechtigte Nutzer/innen\'. Wählen Sie \'Keine erforderlichen Rechte\' aus.';
 $string['createtoken'] = 'Token erzeugen';
 $string['createtokenforuser'] = 'Nutzertoken erzeugen';
-$string['createtokenforuserauto'] = 'Nutzertoken automatisch erzeugen';
 $string['createtokenforuserdescription'] = 'Token für den Webservice-Nutzer erzeugen';
 $string['createuser'] = 'Webservice-Nutzer anlegen';
 $string['createuserdescription'] = 'Sie müssen einen speziellen Webservice-Nutzer für das System anlegen, das Moodle steuern soll';
@@ -61,8 +60,8 @@ $string['criteriaerror'] = 'Fehlende Rechte für die Kriteriensuche';
 $string['default'] = 'Standardmäßig für "{$a}"';
 $string['deleteaservice'] = 'Service löschen';
 $string['deleteservice'] = 'Service löschen: {$a->name} (id: {$a->id})';
-$string['deleteserviceconfirm'] = 'Wenn Sie einen Service löschen, dann werden damit auch alle zugehörigen Tokens gelöscht. Möchten Sie wirklich den externen Service \'{$a}\' löschen?';
-$string['deletetokenconfirm'] = 'Möchten Sie wirklich dieses Webservice-Token von <strong>{$a->user}</strong> für den Service <strong>{$a->service}</strong> löschen?';
+$string['deleteserviceconfirm'] = 'Zusammen mit dem Webservice werden auch alle damit verbundenen Tokens gelöscht. Möchten Sie wirklich den externen Service \'{$a}\' löschen?';
+$string['deletetokenconfirm'] = 'Möchten Sie das Webservice-Token von \'{$a->user}\' für \'{$a->service}\' wirklich löschen?';
 $string['disabledwarning'] = 'Alle Webservice-Protokolle sind deaktiviert. Die Einstellung \'Webservice aktivieren\' befindet sich bei \'Zusatzoptionen\'';
 $string['doc'] = 'Dokumentation';
 $string['docaccessrefused'] = 'Sie sind nicht berechtigt, die Dokumentation für dieses Token zu sehen';

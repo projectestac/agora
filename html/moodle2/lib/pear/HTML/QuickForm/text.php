@@ -17,7 +17,7 @@
 // |          Bertrand Mansion <bmansion@mamasam.com>                     |
 // +----------------------------------------------------------------------+
 //
-// $Id: text.php,v 1.2 2010/12/14 17:35:24 moodlerobot Exp $
+// $Id$
 
 require_once("HTML/QuickForm/input.php");
 

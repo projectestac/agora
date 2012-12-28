@@ -909,11 +909,16 @@ class grade_category extends grade_object {
                     break;
                 }
 
+                // Now iterate over the remaining grade items
+                // We're looking for other grade items with the same grade value but a higher grademax
                 $i = 1;
                 while ($originalindex+$i < count($grade_keys)) {
+
                     $possibleitemid = $grade_keys[$originalindex+$i];
+                    $i++;
+
                     if ($grade_values[$founditemid] != $grade_values[$possibleitemid]) {
-                        // The next grade item has a different grade. Stop looking.
+                        // The next grade item has a different grade value. Stop looking.
                         break;
                     }
 
@@ -923,13 +928,11 @@ class grade_category extends grade_object {
                     }
 
                     if ($foundmax < $items[$possibleitemid]->grademax) {
-                        // Found a grade item with the same grade and a higher grademax
+                        // Found a grade item with the same grade value and a higher grademax
                         $foundmax = $items[$possibleitemid]->grademax;
                         $founditemid = $possibleitemid;
-                        // Continue searching to see if there is an even higher grademax...
+                        // Continue searching to see if there is an even higher grademax
                     }
-
-                    $i++;
                 }
 
                 // Now drop whatever grade item we have found

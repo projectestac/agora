@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_upload', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'repository_upload', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   repository_upload
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,7 @@ $string['upload_error_form_size'] = 'Die ausgewählte Datei ist größer als MAX
 ';
 $string['upload_error_ini_size'] = 'Die ausgewählte Datei ist größer als UPLOAD_MAX_FILESIZE in der Datei php.ini
 ';
-$string['upload_error_invalid_file'] = 'Die Datei \'{$a}\' enthält keine Daten. Haben Sie versucht, ein Verzeichnis hochzuladen?';
+$string['upload_error_invalid_file'] = 'Die Datei \'{$a}\' enthält keine Daten oder ist ein Verzeichnis. Zum Upload eines Verzeichnisses, zippen Sie dieses zuerst.';
 $string['upload_error_no_file'] = 'Keine Datei hochgeladen';
 $string['upload_error_no_tmp_dir'] = 'PHP benötigt ein temporäres Verzeichnis';
 $string['upload_error_partial'] = 'Die ausgewählte Datei wurde nur teilweise hochgeladen';

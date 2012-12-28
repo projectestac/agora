@@ -125,7 +125,7 @@ class mod_hotpot_attempt_review {
     /**
      * review
      */
-    function review($hotpot, $class)  {
+    static function review($hotpot, $class)  {
         global $DB;
 
         // for the time-being we set this setting manually here
@@ -160,13 +160,13 @@ class mod_hotpot_attempt_review {
         }
 
         // if necessary, remove score and weighting fields
-        $response_num_fields = $class::response_num_fields();
+        $response_num_fields = call_user_func(array($class, 'response_num_fields'));
         if (! ($reviewoptions & hotpot::REVIEW_SCORES)) {
             $response_num_fields = preg_grep('/^score|weighting$/', $response_num_fields, PREG_GREP_INVERT);
         }
 
         // if necessary, remove reponses fields
-        $response_text_fields = $class::response_text_fields();
+        $response_text_fields = call_user_func(array($class, 'response_text_fields'));
         if (! ($reviewoptions & hotpot::REVIEW_RESPONSES)) {
             $response_text_fields = array();
         }
@@ -194,17 +194,17 @@ class mod_hotpot_attempt_review {
 
         $strtimeformat = get_string('strftimerecentfull');
 
-        $attempt_fields = $class::attempt_fields();
+        $attempt_fields = call_user_func(array($class, 'attempt_fields'));
         foreach ($attempt_fields as $field) {
             $row = new html_table_row();
 
             // add heading
-            $text = $class::format_attempt_heading($field);
+            $text = call_user_func(array($class, 'format_attempt_heading'), $field);
             $cell = new html_table_cell($text, array('class'=>'attemptfield'));
             $row->cells[] = $cell;
 
             // add data
-            $text = $class::format_attempt_data($hotpot->attempt, $field, $strtimeformat);
+            $text = call_user_func(array($class, 'format_attempt_data'), $hotpot->attempt, $field, $strtimeformat);
             $cell = new html_table_cell($text, array('class'=>'attemptvalue'));
             $cell->colspan = $textfield_colspan;
             $row->cells[] = $cell;
@@ -236,13 +236,15 @@ class mod_hotpot_attempt_review {
 
                 // add separator
                 if (count($table->data)) {
-                    $class::add_separator($table, $question_colspan);
+                	call_user_func(array($class, 'add_separator'), &$table, $question_colspan);
+                	// may be we are not allowed to pass params by reference with call_user_func(), so ...
+                	// $table = call_user_func(array($class, 'add_separator'), $table, $question_colspan)
                 }
 
                 // question text
-                if ($class::show_question_text()) {
+                if (call_user_func(array($class, 'show_question_text'))) {
                     if ($text = hotpot::get_question_text($questions[$response->questionid])) {
-                        $class::add_question_text($table, $text, $question_colspan);
+                    	call_user_func(array($class, 'add_question_text'), &$table, $text, $question_colspan);
                     }
                 }
 
@@ -268,17 +270,17 @@ class mod_hotpot_attempt_review {
                     if ($neutralize_text_fields) {
                         $neutral_text .= ($neutral_text ? ',' : '').$text;
                     } else {
-                        $class::add_text_field($table, $field, $text, $textfield_colspan);
+                        call_user_func(array($class, 'add_text_field'), &$table, $field, $text, $textfield_colspan);
                     }
                 }
                 if ($neutral_text) {
-                    $class::add_text_field($table, 'responses', $neutral_text, $textfield_colspan);
+                    call_user_func(array($class, 'add_text_field'), &$table, 'responses', $neutral_text, $textfield_colspan);
                 }
 
                 // numeric fields
                 $row = new html_table_row();
                 foreach ($response_num_fields as $field) {
-                    $class::add_num_field($row, $field, $response->$field);
+                    call_user_func(array($class, 'add_num_field'), &$row, $field, $response->$field);
                 }
                 $table->data[] = $row;
             }
@@ -293,7 +295,7 @@ class mod_hotpot_attempt_review {
      * @param xxx $field
      * @return xxx
      */
-    function format_attempt_heading($field) {
+    static function format_attempt_heading($field) {
         switch ($field) {
             case 'timemodified': return get_string('time', 'quiz');
             case 'attempt'     : return get_string('attemptnumber', 'hotpot');
@@ -310,7 +312,7 @@ class mod_hotpot_attempt_review {
      * @param xxx $strtimeformat
      * @return xxx
      */
-    function format_attempt_data($attempt, $field, $strtimeformat) {
+    static function format_attempt_data($attempt, $field, $strtimeformat) {
         switch ($field) {
             case 'status'      : return hotpot::format_status($attempt->$field);
             case 'duration'    : return format_time($attempt->timemodified - $attempt->timestart);

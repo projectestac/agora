@@ -48,7 +48,8 @@ class MoodleQuickForm_filemanager extends HTML_QuickForm_element {
     // PHP doesn't support 'key' => $value1 | $value2 in class definition
     // We cannot do $_options = array('return_types'=> FILE_INTERNAL | FILE_REFERENCE);
     // So I have to set null here, and do it in constructor
-    protected $_options    = array('mainfile'=>'', 'subdirs'=>1, 'maxbytes'=>-1, 'maxfiles'=>-1, 'accepted_types'=>'*', 'return_types'=> null);
+    protected $_options = array('mainfile' => '', 'subdirs' => 1, 'maxbytes' => -1, 'maxfiles' => -1,
+            'accepted_types' => '*', 'return_types' =>  null, 'areamaxbytes' => FILE_AREA_MAX_BYTES_UNLIMITED);
 
     /**
      * Constructor
@@ -134,6 +135,24 @@ class MoodleQuickForm_filemanager extends HTML_QuickForm_element {
     }
 
     /**
+     * Returns the maximum size of the area.
+     *
+     * @return int
+     */
+    function getAreamaxbytes() {
+        return $this->_options['areamaxbytes'];
+    }
+
+    /**
+     * Sets the maximum size of the area.
+     *
+     * @param int $areamaxbytes size limit
+     */
+    function setAreamaxbytes($areamaxbytes) {
+        $this->_options['areamaxbytes'] = $areamaxbytes;
+    }
+
+    /**
      * Returns true if subdirectoy can be created, else false
      *
      * @return bool
@@ -167,19 +186,6 @@ class MoodleQuickForm_filemanager extends HTML_QuickForm_element {
      */
     function setMaxfiles($num) {
         $this->_options['maxfiles'] = $num;
-    }
-
-    /**
-     * Sets help button for filemanager
-     *
-     * @param mixed $helpbuttonargs arguments to create help button
-     * @param string $function name of the callback function
-     * @deprecated since Moodle 2.0. Please do not call this function any more.
-     * @todo MDL-31047 this api will be removed.
-     * @see MoodleQuickForm::setHelpButton()
-     */
-    function setHelpButton($helpbuttonargs, $function='helpbutton'){
-        debugging('component setHelpButton() is not used any more, please use $mform->setHelpButton() instead');
     }
 
     /**
@@ -250,6 +256,7 @@ class MoodleQuickForm_filemanager extends HTML_QuickForm_element {
         $options->accepted_types = $accepted_types;
         $options->return_types = $this->_options['return_types'];
         $options->context = $PAGE->context;
+        $options->areamaxbytes = $this->_options['areamaxbytes'];
 
         $html = $this->_getTabs();
         $fm = new form_filemanager($options);
@@ -284,6 +291,7 @@ class form_filemanager implements renderable {
      * @param stdClass $options options for filemanager
      *   default options are:
      *       maxbytes=>-1,
+     *       areamaxbytes => FILE_AREA_MAX_BYTES_UNLIMITED,
      *       maxfiles=>-1,
      *       itemid=>0,
      *       subdirs=>false,
@@ -300,6 +308,7 @@ class form_filemanager implements renderable {
         require_once($CFG->dirroot. '/repository/lib.php');
         $defaults = array(
             'maxbytes'=>-1,
+            'areamaxbytes' => FILE_AREA_MAX_BYTES_UNLIMITED,
             'maxfiles'=>-1,
             'itemid'=>0,
             'subdirs'=>0,
@@ -334,7 +343,7 @@ class form_filemanager implements renderable {
         $this->options = file_get_drafarea_files($options->itemid, '/');
 
         // calculate file count
-        $usercontext = get_context_instance(CONTEXT_USER, $USER->id);
+        $usercontext = context_user::instance($USER->id);
         $files = $fs->get_area_files($usercontext->id, 'user', 'draft', $options->itemid, 'id', false);
         $filecount = count($files);
         $this->options->filecount = $filecount;
@@ -375,6 +384,7 @@ class form_filemanager implements renderable {
             'itemid'=>$this->options->itemid,
             'subdirs'=>$this->options->subdirs,
             'maxbytes'=>$this->options->maxbytes,
+            'areamaxbytes' => $this->options->areamaxbytes,
             'maxfiles'=>$this->options->maxfiles,
             'ctx_id'=>$PAGE->context->id, // TODO ?
             'course'=>$PAGE->course->id, // TODO ?

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'chat', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = 'Es gibt einen angekündigten Chat.';
 $string['ajax'] = 'Chat mit Ajax';
 $string['autoscroll'] = 'Automatisch scrollen';
 $string['beep'] = 'beep';
@@ -40,6 +41,7 @@ $string['chat:readlog'] = 'Chat-Logdaten sehen';
 $string['chatreport'] = 'Chat-Protokolle';
 $string['chat:talk'] = 'Im Chat sprechen';
 $string['chattime'] = 'Nächster Chat';
+$string['composemessage'] = 'Mitteilung schreiben';
 $string['configmethod'] = 'Die Methode \'Ajax-Chat\'  bietet eine ajaxbasierte Oberfläche, die sich regelmäßig mit dem Server zur Aktualisierung verbindet. Diese Methode funktioniert nur mit modernen Browsern und aktiviertem Ajax/JavaScript.
 <br />Bei der Methode \'Standard-Chat\' laden alle Clients regelmäßig die gesamte Chat-Seite neu vom Server, was zwar keine Konfiguration erfordert und immer funktioniert, aber durch dauernde Anfragen zu einer sehr hohen Serverbelastung führen kann.
 <br />Die Verwendung eines speziellen Chat-Server-Daemons erfordert eine zusätzliche Installation auf dem Server, aber liefert eine schnelle skalierbare Chat-Umgebung.';
@@ -54,7 +56,7 @@ $string['configserverport'] = 'Server-Port des Chat-Servers';
 $string['currentchats'] = 'Aktive Chat-Sitzungen';
 $string['currentusers'] = 'Aktuelle Nutzer/innen';
 $string['deletesession'] = 'Diese Sitzung löschen';
-$string['deletesessionsure'] = 'Sind Sie sicher, dass Sie diese Sitzung löschen wollen?';
+$string['deletesessionsure'] = 'Möchten Sie diese Sitzung wirklich löschen?';
 $string['donotusechattime'] = 'Keinen Termin anzeigen';
 $string['enterchat'] = 'Chat betreten';
 $string['entermessage'] = 'Schreiben Sie Ihre Nachricht.';

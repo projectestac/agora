@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_rss_client', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_rss_client', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   block_rss_client
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -64,10 +64,12 @@ $string['numentries'] = 'Entradas por canal';
 $string['pickfeed'] = 'Seleccionar un canal de noticias';
 $string['pluginname'] = 'Cliente RSS';
 $string['remotenewsfeed'] = 'Canal de noticias remoto';
+$string['rss_client:addinstance'] = 'Añadir un nuevo bloque de cliente RSS';
 $string['rss_client:createprivatefeeds'] = 'Crear canales RSS privados';
 $string['rss_client:createsharedfeeds'] = 'Crear canales RSS compartidos';
 $string['rss_client:manageanyfeeds'] = 'Gestionar cualquier canal RSS';
 $string['rss_client:manageownfeeds'] = 'Gestionar canales RSS propios';
+$string['rss_client:myaddinstance'] = 'Añadir un nuevo bloque de cliente RSS a la página Mi Moodle';
 $string['seeallfeeds'] = 'Ver todos los canales';
 $string['sharedfeed'] = 'Canal compartido';
 $string['shownumentrieslabel'] = 'Número máximo de entradas a mostrar por bloque.';

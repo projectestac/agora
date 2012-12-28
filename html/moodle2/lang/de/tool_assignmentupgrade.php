@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_assignmentupgrade', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'tool_assignmentupgrade', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   tool_assignmentupgrade
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['areyousure'] = 'Sind Sie sicher?';
-$string['areyousuremessage'] = 'Sind Sie sicher, dass Sie die Aufgabe \'{$a->name}\' aktualisieren möchten?';
+$string['areyousuremessage'] = 'Möchten Sie die Aufgabe \'{$a->name}\' wirklich aktualisieren?';
 $string['assignmentid'] = 'Aufgaben ID';
 $string['assignmentnotfound'] = 'Aufgabe wurde nicht gefunden (id={$a})';
 $string['assignmentsperpage'] = 'Aufgaben pro Seite';
@@ -39,6 +39,7 @@ $string['conversioncomplete'] = 'Aufgabe aktualisiert';
 $string['conversionfailed'] = 'Aktualisierung fehlgeschlagen!<br/>{$a}';
 $string['listnotupgraded'] = 'Aufgaben auflisten, die noch nicht aktualisiert wurden';
 $string['listnotupgraded_desc'] = 'An dieser Stelle können Sie einzelne Aufgaben aktualisieren';
+$string['noassignmentsselected'] = 'Keine Aufgaben ausgewählt';
 $string['noassignmentstoupgrade'] = 'Es gibt keine Aufgaben, die aktualisiert werden müssten';
 $string['notupgradedintro'] = 'Diese Seite zeigt eine Liste der Aufgaben, die mit einem älteren Moodle erstellt und noch nicht in das neue Aufgabenformat von Moodle 2.3 aktualisiert wurden. Nicht alle Aufgaben können umgewandelt werden - falls ein angepasster Aufgabentyp verwendet wurde, muss zuerst der Typ auf das neue Format angepasst werden, um die Aktualisierung durchführen zu können.';
 $string['notupgradedtitle'] = 'Nicht aktualisierte Aufgaben';

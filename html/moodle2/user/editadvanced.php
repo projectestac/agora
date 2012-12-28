@@ -49,11 +49,11 @@ if (!empty($USER->newadminuser)) {
 }
 
 if ($course->id == SITEID) {
-    $coursecontext = get_context_instance(CONTEXT_SYSTEM);   // SYSTEM context
+    $coursecontext = context_system::instance();   // SYSTEM context
 } else {
-    $coursecontext = get_context_instance(CONTEXT_COURSE, $course->id);   // Course context
+    $coursecontext = context_course::instance($course->id);   // Course context
 }
-$systemcontext = get_context_instance(CONTEXT_SYSTEM);
+$systemcontext = context_system::instance();
 
 if ($id == -1) {
     // creating new user
@@ -74,7 +74,7 @@ if ($id == -1) {
         redirect($CFG->wwwroot . "/user/view.php?id=$id&course={$course->id}");
     }
     //************ FI
-    $PAGE->set_context(get_context_instance(CONTEXT_USER, $user->id));
+    $PAGE->set_context(context_user::instance($user->id));
     if ($user->id == $USER->id) {
         if ($course->id != SITEID && $node = $PAGE->navigation->find($course->id, navigation_node::TYPE_COURSE)) {
             $node->make_active();
@@ -118,7 +118,7 @@ if (!empty($CFG->usetags)) {
 }
 
 if ($user->id !== -1) {
-    $usercontext = get_context_instance(CONTEXT_USER, $user->id);
+    $usercontext = context_user::instance($user->id);
     $editoroptions = array(
         'maxfiles'   => EDITOR_UNLIMITED_FILES,
         'maxbytes'   => $CFG->maxbytes,
@@ -209,7 +209,7 @@ if ($usernew = $userform->get_data()) {
         $usercreated = false;
     }
 
-    $usercontext = get_context_instance(CONTEXT_USER, $usernew->id);
+    $usercontext = context_user::instance($usernew->id);
 
     //update preferences
     useredit_update_user_preference($usernew);

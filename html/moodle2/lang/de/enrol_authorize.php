@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_authorize', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_authorize', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_authorize
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -249,14 +249,14 @@ $string['testwarning'] = 'Die Zahlungsabwicklung arbeitet anscheinend im Testmod
 $string['transid'] = 'ID-Nummer der Transaktion';
 $string['underreview'] = 'Überprüfung läuft';
 $string['unenrolselfconfirm'] = 'Möchten Sie sich wirklich selbst aus dem Kurs \'{$a}\' abmelden?';
-$string['unenrolstudent'] = 'Teilnehmer/in aus Kurs löschen?';
+$string['unenrolstudent'] = 'Teilnehmer/in aus dem Kurs löschen?';
 $string['uploadcsv'] = 'Eine CSV-Datei hochladen';
 $string['usingccmethod'] = 'Eintragung verwendet <a href="{$a->url}"><strong> Kreditkarte</strong></a>';
 $string['usingecheckmethod'] = 'Eintragung verwendet <a href="{$a->url}"><strong> eCheck</strong></a>';
 $string['verifyaccount'] = 'Ihre Händlerdaten bei Authorize.net werden geprüft';
 $string['verifyaccountresult'] = '<b/>Prüfergebnis:</b> {$a}';
 $string['void'] = 'Gültig';
-$string['voidyes'] = 'Ihre Transaktion wird abgebrochen. Sind Sie sicher?';
+$string['voidyes'] = 'Möchten Sie diesen Transaktion wirklich abbrechen?';
 $string['welcometocoursesemail'] = 'Guten Tag {$a->name},
 
 vielen Dank für Ihre Zahlung. Sie sind nun als Teilnehmer/in in folgenden Kursen eingetragen:

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_uploaduser', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'tool_uploaduser', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   tool_uploaduser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['allowdeletes'] = 'Permitir eliminar';
 $string['allowrenames'] = 'Permitir renombrar';
+$string['allowsuspends'] = 'Permitir suspensión y activación de cuentas';
 $string['csvdelimiter'] = 'Delimitador CVS';
 $string['defaultvalues'] = 'Valores por defecto';
 $string['deleteerrors'] = 'Eliminar errores';
@@ -47,8 +48,8 @@ $string['uploadpictures'] = 'Subir imágenes de los usuarios';
 $string['uploadpictures_help'] = 'Las imágenes de los usuarios se pueden cargar masivamente mediante un archivo zip. Estos archivos debe ser nombrados en atención al "atributo del usuario" elegido (username, idnumber, id) por ejemplo user1234.jpg para un usuario con nombre de usuario (username) user1234.
 Tenga en cuenta que el tamaño del archivo zip no puede superar el límite establecido en la configuración "políticas de sitio" de su sitio Moodle. En cualquier caso, siempre podrá preparar varios paquetes de imágenes comprimidas y subirlas por partes.';
 $string['uploadpicture_userfield'] = 'Atributo del usuario a utilizar para emparejar imágenes:';
-$string['uploadpicture_usernotfound'] = 'El usuario con \'{$a->userfield}\' valor de \'{$a->uservalue}\' no existe. Ha sido omitido.';
-$string['uploadpicture_userskipped'] = 'Se ha omitido el usuario {$a} (ya tiene imagen).';
+$string['uploadpicture_usernotfound'] = 'El usuario con \'{$a->userfield}\' valor de \'{$a->uservalue}\' no existe. Se pasa por alto.';
+$string['uploadpicture_userskipped'] = 'Se ha pasado por alto el usuario {$a} (ya tiene imagen)';
 $string['uploadpicture_userupdated'] = 'Imagen actualizada para el usuario {$a}.';
 $string['uploadusers'] = 'Subir usuarios';
 $string['uploadusers_help'] = 'Los usuarios pueden subirse (y, opcionalmente, matricularse en cursos) por medio de un archivo de texto. El formato debe ser el siguiente:

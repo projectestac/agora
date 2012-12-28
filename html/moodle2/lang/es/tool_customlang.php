@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_customlang', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'tool_customlang', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   tool_customlang
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,11 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['checkin'] = 'Introducir cadenas en el disco';
-$string['checkout'] = 'Comprobar las cadenas de texto en el traductor';
-$string['checkoutdone'] = 'Cadenas de texto comprobadas con éxito en el traductor';
-$string['checkoutinprogress'] = 'Comprobando cadenas de texto en el traductor';
-$string['confirmcheckin'] = 'Está a punto de introducir cadenas modificadas en su paquete de idioma local. Ester proceso exportará las cadenas personalizadas desde el traductor hasta el directorio de datos y Moodle comenzará a utilizar las cadenas modificadas. Pulse el botón Continuar\' para comenzar.';
+$string['checkin'] = 'Guardar cadenas en el paquete de idioma';
+$string['checkout'] = 'Abrir el paquete de idioma para editar';
+$string['checkoutdone'] = 'Paquete de idioma cargado';
+$string['checkoutinprogress'] = 'Cargando paquete de idioma';
+$string['confirmcheckin'] = 'Está a punto de introducir cadenas modificadas en su paquete de idioma local. Ester proceso exportará las cadenas personalizadas desde el traductor hasta el directorio de datos y Moodle comenzará a utilizar las cadenas modificadas. Pulse el botón \'Continuar\' para comenzar.';
 $string['customlang:edit'] = 'Editar traducción local';
 $string['customlang:view'] = 'Mostrar traducción local';
 $string['filter'] = 'Filtro de cadenas';
@@ -47,7 +47,7 @@ $string['headingstringid'] = 'Cadena';
 $string['markinguptodate'] = 'Marcando la personalización como actualizada';
 $string['markinguptodate_help'] = 'La traducción personalizada puede quedar obsoleta si los paquetes con el Inglés original o la traducción principal se han modificado posteriormente a la personalización de su sitio. Revise la traducción personalizada; si ve que está actualizada pulse en la opción, si no, edítela de nuevo. ';
 $string['markuptodate'] = 'Marcar como actualizado';
-$string['modifiedno'] = 'No se han modificado cadenas. No es posible realizar la comprobación.';
+$string['modifiedno'] = 'No existen cadenas modificadas para guardar.';
 $string['modifiednum'] = 'Hay {$a} cadenas modificadas. Debe introducirlas en el disco para almacenarlas de forma permanente.';
 $string['nostringsfound'] = 'No se han encontrado cadenas, modifique la configuración del filtro';
 $string['placeholder'] = 'Marcadores de posición';
@@ -55,6 +55,6 @@ $string['placeholder_help'] = 'Las variables son elementos especiales, como \'{$
 
 Es importante copiarlas exactamente igual a como están en la cadena original. No las traduzca ni cambie su estructura interna.';
 $string['placeholderwarning'] = 'Las cadenas contienen marcadores de posicion';
-$string['pluginname'] = 'Edición de idioma';
-$string['savecheckin'] = 'Guardar y comprobar las cadenas en los archivos';
-$string['savecontinue'] = 'Guardar y continuar editando';
+$string['pluginname'] = 'Personalización del idioma';
+$string['savecheckin'] = 'Guardar los cambios del paquete de idioma';
+$string['savecontinue'] = 'Aplicar los cambios y continuar editando';

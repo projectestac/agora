@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'plugin', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,11 +30,25 @@ $string['availability'] = 'Disponibilité';
 $string['checkforupdates'] = 'Rechercher des mises à jour';
 $string['checkforupdateslast'] = 'Dernière vérification effectuée le {$a}';
 $string['displayname'] = 'Nom du plugin';
+$string['err_response_curl'] = 'Impossible de récupérer les données de mise à jour. Erreur de cURL.';
+$string['err_response_format_version'] = 'Version inattendue du format de réponse. Veuillez vérifier si des mises à jour sont disponibles.';
+$string['err_response_http_code'] = 'Impossible de récupérer les données de mise à jour. Code de réponse HTTP inapproprié.';
+$string['filterall'] = 'Tout afficher';
+$string['filtercontribonly'] = 'Afficher seulement les contributions';
+$string['filtercontribonlyactive'] = 'Affichage des contributions seulement';
+$string['filterupdatesonly'] = 'Afficher seulement les éléments susceptibles de mise à jour';
+$string['filterupdatesonlyactive'] = 'Affichage des éléments susceptibles de mise à jour seulement';
 $string['moodleversion'] = 'Moodle {$a}';
 $string['nonehighlighted'] = 'Aucun plugin ne requiert votre attention actuellement';
 $string['nonehighlightedinfo'] = 'Afficher tout de même la liste complète des plugins installés';
 $string['noneinstalled'] = 'Aucun plugin de ce type n\'est installé';
+$string['notdownloadable'] = 'Impossible de télécharger le paquetage';
+$string['notdownloadable_help'] = 'Le paquetage ZIP contenant la mise à jour ne peut pas être téléchargé automatiquement. Veuillez vous référer à la documentation pour plus d\'aide.';
 $string['notes'] = 'Annotations';
+$string['notwritable'] = 'Impossible d\'écrire les fichiers du plugin';
+$string['notwritable_help'] = 'Vous avez activé le déploiement automatique des mises à jour et une mise à jour est disponible pour ce plugin. Toutefois, le serveur web ne peut pas écrire les fichiers du plugin et la mise à jour ne peut donc pas être effectuée.
+
+Pour permettre l\'installation de cette mise à jour, veuillez permettre au serveur web l\'accès en écriture au dossier de ce plugin et à tout son contenu.';
 $string['numdisabled'] = 'Désactivés : {$a}';
 $string['numextension'] = 'Contributions : {$a}';
 $string['numtotal'] = 'Installés : {$a}';
@@ -71,6 +85,10 @@ $string['type_auth'] = 'Méthode d\'authentification';
 $string['type_auth_plural'] = 'Plugins d\'authentification';
 $string['type_block'] = 'Bloc';
 $string['type_block_plural'] = 'Blocs';
+$string['type_cachelock'] = 'Gestionnaire de verrou de cache';
+$string['type_cachelock_plural'] = 'Gestionnaires de verrou de cache';
+$string['type_cachestore'] = 'Entrepôt du cache';
+$string['type_cachestore_plural'] = 'Entrepôts du cache';
 $string['type_coursereport'] = 'Rapport de cours';
 $string['type_coursereport_plural'] = 'Rapports du cours';
 $string['type_editor'] = 'Éditeur';
@@ -123,6 +141,10 @@ $string['uninstall'] = 'Désinstaller';
 $string['updateavailable'] = 'Une nouvelle version {$a} est disponible !';
 $string['updateavailable_moreinfo'] = 'Plus d\'infos...';
 $string['updateavailable_release'] = 'Version {$a}';
+$string['updatepluginconfirm'] = 'Confirmation de mise à jour du plugin';
+$string['updatepluginconfirmexternal'] = 'La version actuelle de ce plugin semble avoir été installée au moyen d\'un gestionnaire de code source ({$a}). Si vous installez cette mise à jour, vous ne pourrez plus effectuer les mises à jour au moyen de ce gestionnaire de code source. Veuillez vous assurer que c\'est bien ce que vous voulez faire avant de continuer.';
+$string['updatepluginconfirminfo'] = 'Vous allez installer une nouvelle version du plugin <strong>{$a->name}</strong>. Un fichier ZIP de la version {$a->version} du plugin va être téléchargé de <a href="{$a->url}">{$a->url}</a> et décompressé dans votre installation Moodle afin d\'être installé.';
+$string['updatepluginconfirmwarning'] = 'Veuillez prendre note que Moodle ne fera pas de sauvegarde automatique de votre base de données avant la mise à jour. Nous recommandons vivement d\'en effectuer une sauvegarde maintenant, pour pallier les rares cas où le nouveau code aurait un défaut rendant votre site indisponible ou même corrompant votre base de données. Continuez à vos risques et périls.';
 $string['version'] = 'Version';
 $string['versiondb'] = 'Version actuelle';
 $string['versiondisk'] = 'Nouvelle version';

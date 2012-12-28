@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_standardold', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'theme_standardold', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   theme_standardold
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,11 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['choosereadme'] = 'Das Design "Standard alt" wurde für die Arbeit mit dem Internet Explorer 6 (IE6) und anderen alten Browsern entworfen.
+$string['choosereadme'] = 'Das Design "Standard alt" wurde für den Internet Explorer 6 (IE6) und andere veraltete Browsern entworfen.
 
-Die Release-Notes zu Moodle 2.0 legen fest, dass der IE6 zukünftig nicht weiter unterstützt wird. Dies heißt nicht, dass Sie mit dem IE6 gar nicht mehr arbeiten können, aber SIe werden etliche Bereiche mit kleinen und manchmal auch größeren optischen Fehlern finden.
+Die Release-Notes zu Moodle 2.0 legen fest, dass der IE6 zukünftig nicht weiter unterstützt wird. Dies bedeutet, dass Sie eventuell mit dem IE6 nicht mehr arbeiten können, weil Sie Bereiche mit kleinen oder auch größeren optischen Fehlern vorfinden.
 
-Dieses Design bietet für diejenigen, die weiter auf den IE6 angewiesen sind, weiterhin ein halbwegs nutzbares Layout, wobei eben spezielle Bereiche von Moodle erhebliche Probleme zeigen oder eventuell gar nicht funktionieren könnten. Es unterscheidet sich vom Design "Standard" dadurch, dass anstelle eines flexiblen Layouts mit DIV-Tags stattdessen ein hartes Layout mit TABLE-Tags umgesetzt ist, ähnlich dem Layout in Moodle 1.9 oder älteren Versionen.
+Das Design "Standard alt" unterscheidet sich von "Standard" dadurch, dass anstelle eines flexiblen Layouts mit DIV-Tags stattdessen ein hartes Layout mit TABLE-Tags umgesetzt wird, ähnlich den Designs in Moodle 1.9 und älteren Versionen.
 
 Da der IE6 nicht weiter unterstützt wird, investiert Moodle HQ nur wenig Zeit für eine 100%ige Funktionalität. Sollten Sie einen Fehler mit IE6 und diesem Design finden, suchen Sie bitte auch selber nach einer Lösung. Bitte erstellen Sie anschließend einen Fehlerbericht bei tracker.moodle.org zusammen mit einem Beispiel, um den Fehler wie auch dessen Lösung nachzuvollziehen. Auf diese Weise können wir die Lösung übernehmen, das Design verbessern und den IE6 weiterhin unterstützen.';
 $string['pluginname'] = 'Standard alt';

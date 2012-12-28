@@ -2,12 +2,12 @@
 // Global M object is initilised in inline javascript
 
 /**
- * Add module to list of available modules that can be laoded from YUI.
+ * Add module to list of available modules that can be loaded from YUI.
  * @param {Array} modules
  */
 M.yui.add_module = function(modules) {
     for (var modname in modules) {
-        M.yui.loader.modules[modname] = modules[modname];
+        YUI_config.modules[modname] = modules[modname];
     }
 };
 /**
@@ -38,10 +38,17 @@ M.util.image_url = function(imagename, component) {
         component = 'core';
     }
 
+    var url = M.cfg.wwwroot + '/theme/image.php';
     if (M.cfg.themerev > 0 && M.cfg.slasharguments == 1) {
-        var url = M.cfg.wwwroot + '/theme/image.php/' + M.cfg.theme + '/' + component + '/' + M.cfg.themerev + '/' + imagename;
+        if (!M.cfg.svgicons) {
+            url += '/_s';
+        }
+        url += '/' + M.cfg.theme + '/' + component + '/' + M.cfg.themerev + '/' + imagename;
     } else {
-        var url = M.cfg.wwwroot + '/theme/image.php?theme=' + M.cfg.theme + '&component=' + component + '&rev=' + M.cfg.themerev + '&image=' + imagename;
+        url += '?theme=' + M.cfg.theme + '&component=' + component + '&rev=' + M.cfg.themerev + '&image=' + imagename;
+        if (!M.cfg.svgicons) {
+            url += '&svg=0';
+        }
     }
 
     return url;
@@ -88,24 +95,30 @@ M.util.CollapsibleRegion = function(Y, id, userpref, strtooltip) {
 
     // Get the caption for the collapsible region
     var caption = this.div.one('#'+id + '_caption');
-    caption.setAttribute('title', strtooltip);
 
     // Create a link
     var a = Y.Node.create('<a href="#"></a>');
-    // Create a local scoped lamba function to move nodes to a new link
-    var movenode = function(node){
-        node.remove();
-        a.append(node);
-    };
-    // Apply the lamba function on each of the captions child nodes
-    caption.get('children').each(movenode, this);
+    a.setAttribute('title', strtooltip);
+
+    // Get all the nodes from caption, remove them and append them to <a>
+    while (caption.hasChildNodes()) {
+        child = caption.get('firstChild');
+        child.remove();
+        a.append(child);
+    }
     caption.append(a);
 
     // Get the height of the div at this point before we shrink it if required
     var height = this.div.get('offsetHeight');
+    var collapsedimage = 't/collapsed'; // ltr mode
+    if (right_to_left()) {
+        collapsedimage = 't/collapsed_rtl';
+    } else {
+        collapsedimage = 't/collapsed';
+    }
     if (this.div.hasClass('collapsed')) {
         // Add the correct image and record the YUI node created in the process
-        this.icon = Y.Node.create('<img src="'+M.util.image_url('t/collapsed', 'moodle')+'" alt="" />');
+        this.icon = Y.Node.create('<img src="'+M.util.image_url(collapsedimage, 'moodle')+'" alt="" />');
         // Shrink the div as it is collapsed by default
         this.div.setStyle('height', caption.get('offsetHeight')+'px');
     } else {
@@ -126,8 +139,14 @@ M.util.CollapsibleRegion = function(Y, id, userpref, strtooltip) {
     // Handler for the animation finishing.
     animation.on('end', function() {
         this.div.toggleClass('collapsed');
+        var collapsedimage = 't/collapsed'; // ltr mode
+        if (right_to_left()) {
+            collapsedimage = 't/collapsed_rtl';
+            } else {
+            collapsedimage = 't/collapsed';
+            }
         if (this.div.hasClass('collapsed')) {
-            this.icon.set('src', M.util.image_url('t/collapsed', 'moodle'));
+            this.icon.set('src', M.util.image_url(collapsedimage, 'moodle'));
         } else {
             this.icon.set('src', M.util.image_url('t/expanded', 'moodle'));
         }
@@ -182,7 +201,7 @@ M.util.CollapsibleRegion.prototype.icon = null;
  * @param String the value to set it to.
  */
 M.util.set_user_preference = function(name, value) {
-    YUI(M.yui.loader).use('io', function(Y) {
+    YUI().use('io', function(Y) {
         var url = M.cfg.wwwroot + '/lib/ajax/setuserpref.php?sesskey=' +
                 M.cfg.sesskey + '&pref=' + encodeURI(name) + '&value=' + encodeURI(value);
 
@@ -215,8 +234,8 @@ M.util.show_confirm_dialog = function(e, args) {
         e.preventDefault();
     }
 
-    YUI(M.yui.loader).use('yui2-container', 'yui2-event', function(Y) {
-        var simpledialog = new YAHOO.widget.SimpleDialog('confirmdialog',
+    YUI().use('yui2-container', 'yui2-event', function(Y) {
+        var simpledialog = new Y.YUI2.widget.SimpleDialog('confirmdialog',
             {width: '300px',
               fixedcenter: true,
               modal: true,
@@ -227,7 +246,7 @@ M.util.show_confirm_dialog = function(e, args) {
 
         simpledialog.setHeader(M.str.admin.confirmation);
         simpledialog.setBody(args.message);
-        simpledialog.cfg.setProperty('icon', YAHOO.widget.SimpleDialog.ICON_WARN);
+        simpledialog.cfg.setProperty('icon', Y.YUI2.widget.SimpleDialog.ICON_WARN);
 
         var handle_cancel = function() {
             simpledialog.hide();
@@ -321,11 +340,16 @@ M.util.init_maximised_embed = function(Y, id) {
         if (Y.Lang.isString(el)) {
             el = Y.one('#' + el);
         }
-        var val = el.getStyle(prop);
-        if (val == 'auto') {
-            val = el.getComputedStyle(prop);
+        // Ensure element exists.
+        if (el) {
+            var val = el.getStyle(prop);
+            if (val == 'auto') {
+                val = el.getComputedStyle(prop);
+            }
+            return parseInt(val);
+        } else {
+            return 0;
         }
-        return parseInt(val);
     };
 
     var resize_object = function() {
@@ -341,7 +365,7 @@ M.util.init_maximised_embed = function(Y, id) {
 
         var headerheight = get_htmlelement_size('page-header', 'height');
         var footerheight = get_htmlelement_size('page-footer', 'height');
-        var newheight = parseInt(YAHOO.util.Dom.getViewportHeight()) - footerheight - headerheight - 100;
+        var newheight = parseInt(Y.one('body').get('winHeight')) - footerheight - headerheight - 100;
         if (newheight < 400) {
             newheight = 400;
         }
@@ -357,8 +381,15 @@ M.util.init_maximised_embed = function(Y, id) {
 
 /**
  * Attach handler to single_select
+ *
+ * This code was deprecated in Moodle 2.4 and will be removed in Moodle 2.6
+ *
+ * Please see lib/yui/formautosubmit/formautosubmit.js for its replacement
  */
 M.util.init_select_autosubmit = function(Y, formid, selectid, nothing) {
+    if (M.cfg.developerdebug) {
+        Y.log("You are using a deprecated function call (M.util.init_select_autosubmit). Please look at rewriting your call to use moodle-core-formautosubmit");
+    }
     Y.use('event-key', function() {
         var select = Y.one('#'+selectid);
         if (select) {
@@ -376,30 +407,49 @@ M.util.init_select_autosubmit = function(Y, formid, selectid, nothing) {
             })();
             // Make sure we have the form
             if (form) {
+                var buttonflag = 0;
                 // Create a function to handle our change event
                 var processchange = function(e, paramobject) {
                     if ((nothing===false || select.get('value') != nothing) && paramobject.lastindex != select.get('selectedIndex')) {
-                        //prevent event bubbling and detach handlers to prevent multiple submissions caused by double clicking
-                        e.halt();
-                        paramobject.eventkeypress.detach();
-                        paramobject.eventblur.detach();
-                        paramobject.eventchangeorblur.detach();
-
-                        this.submit();
+                        // chrome doesn't pick up on a click when selecting an element in a select menu, so we use
+                        // the on change event to fire this function. This just checks to see if a button was
+                        // first pressed before redirecting to the appropriate page.
+                        if (Y.UA.os == 'windows' && Y.UA.chrome){
+                            if (buttonflag == 1) {
+                                buttonflag = 0;
+                                this.submit();
+                            }
+                        } else {
+                            this.submit();
+                        }
+                    }
+                    if (e.button == 1) {
+                        buttonflag = 1;
                     }
                 };
-                // Attach the change event to the keypress, blur, and click actions.
-                // We don't use the change event because IE fires it on every arrow up/down
-                // event.... usability
+
+                var changedown = function(e, paramobject) {
+                    if ((nothing===false || select.get('value') != nothing) && paramobject.lastindex != select.get('selectedIndex')) {
+                        if(e.keyCode == 13) {
+                            form.submit();
+                        }
+                    }
+                }
+
                 var paramobject = new Object();
                 paramobject.lastindex = select.get('selectedIndex');
-                paramobject.eventkeypress = Y.on('key', processchange, select, 'press:13', form, paramobject);
-                paramobject.eventblur = select.on('blur', processchange, form, paramobject);
-                //little hack for chrome that need onChange event instead of onClick - see MDL-23224
-                if (Y.UA.webkit) {
-                    paramobject.eventchangeorblur = select.on('change', processchange, form, paramobject);
+                paramobject.eventchangeorblur = select.on('click', processchange, form, paramobject);
+                // Bad hack to circumvent problems with different browsers on different systems.
+                if (Y.UA.os == 'macintosh') {
+                    if(Y.UA.webkit) {
+                        paramobject.eventchangeorblur = select.on('change', processchange, form, paramobject);
+                    }
+                    paramobject.eventkeypress = Y.on('key', processchange, select, 'press:13', form, paramobject);
                 } else {
-                    paramobject.eventchangeorblur = select.on('click', processchange, form, paramobject);
+                    if(Y.UA.os == 'windows' && Y.UA.chrome) {
+                        paramobject.eventchangeorblur = select.on('change', processchange, form, paramobject);
+                    }
+                    paramobject.eventkeypress = Y.on('keydown', changedown, select, '', form, paramobject);
                 }
             }
         }
@@ -408,9 +458,15 @@ M.util.init_select_autosubmit = function(Y, formid, selectid, nothing) {
 
 /**
  * Attach handler to url_select
+ * Deprecated from 2.4 onwards.
+ * Please use @see init_select_autosubmit() for redirecting to a url (above).
+ * This function has accessability issues and also does not use the formid passed through as a parameter.
  */
 M.util.init_url_select = function(Y, formid, selectid, nothing) {
-    YUI(M.yui.loader).use('node', function(Y) {
+    if (M.cfg.developerdebug) {
+        Y.log("You are using a deprecated function call (M.util.init_url_select). Please look at rewriting your call to use moodle-core-formautosubmit");
+    }
+    YUI().use('node', function(Y) {
         Y.on('change', function() {
             if ((nothing == false && Y.Lang.isBoolean(nothing)) || Y.one('#'+selectid).get('value') != nothing) {
                 window.location = M.cfg.wwwroot+Y.one('#'+selectid).get('value');
@@ -844,7 +900,7 @@ M.util.add_lightbox = function(Y, node) {
         'top' : 0,
         'left' : 0,
         'backgroundColor' : 'white',
-        'text-align' : 'center'
+        'textAlign' : 'center'
     })
     .setAttribute('class', 'lightbox')
     .hide();
@@ -1182,6 +1238,20 @@ function getElementsByClassName(oElm, strTagName, name) {
     return (arrReturnElements)
 }
 
+/**
+ * Return whether we are in right to left mode or not.
+ *
+ * @return boolean
+ */
+function right_to_left() {
+    var body = Y.one('body');
+    var rtl = false;
+    if (body && body.hasClass('dir-rtl')) {
+        rtl = true;
+    }
+    return rtl;
+}
+
 function openpopup(event, args) {
 
     if (event) {
@@ -1189,6 +1259,18 @@ function openpopup(event, args) {
             event.preventDefault();
         } else {
             event.returnValue = false;
+        }
+    }
+
+    // Make sure the name argument is set and valid.
+    var nameregex = /[^a-z0-9_]/i;
+    if (typeof args.name !== 'string') {
+        args.name = '_blank';
+    } else if (args.name.match(nameregex)) {
+        // Cleans window name because IE does not support funky ones.
+        args.name = args.name.replace(nameregex, '_');
+        if (M.cfg.developerdebug) {
+            alert('DEVELOPER NOTICE: Invalid \'name\' passed to openpopup()');
         }
     }
 
@@ -1364,30 +1446,73 @@ function hide_item(itemid) {
     }
 }
 
+M.util.help_popups = {
+    setup : function(Y) {
+        Y.one('body').delegate('click', this.open_popup, 'a.helplinkpopup', this);
+    },
+    open_popup : function(e) {
+        // Prevent the default page action
+        e.preventDefault();
+
+        // Grab the anchor that was clicked
+        var anchor = e.target.ancestor('a', true);
+        var args = {
+            'name'          : 'popup',
+            'url'           : anchor.getAttribute('href'),
+            'options'       : ''
+        };
+        var options = [
+            'height=600',
+            'width=800',
+            'top=0',
+            'left=0',
+            'menubar=0',
+            'location=0',
+            'scrollbars',
+            'resizable',
+            'toolbar',
+            'status',
+            'directories=0',
+            'fullscreen=0',
+            'dependent'
+        ]
+        args.options = options.join(',');
+
+        openpopup(e, args);
+    }
+}
+
 M.util.help_icon = {
     Y : null,
     instance : null,
-    add : function(Y, properties) {
-        this.Y = Y;
-        properties.node = Y.one('#'+properties.id);
-        if (properties.node) {
-            properties.node.on('click', this.display, this, properties);
+    initialised : false,
+    setup : function(Y) {
+        if (this.initialised) {
+            // Exit early if we have already completed setup
+            return;
         }
+        this.Y = Y;
+        Y.one('body').delegate('click', this.display, 'span.helplink a.tooltip', this);
+        this.initialised = true;
     },
-    display : function(event, args) {
+    add : function(Y, properties) {
+        this.setup(Y);
+    },
+    display : function(event) {
         event.preventDefault();
         if (M.util.help_icon.instance === null) {
             var Y = M.util.help_icon.Y;
-            Y.use('overlay', 'io-base', 'event-mouseenter', 'node', 'event-key', function(Y) {
+            Y.use('overlay', 'io-base', 'event-mouseenter', 'node', 'event-key', 'escape', function(Y) {
                 var help_content_overlay = {
                     helplink : null,
                     overlay : null,
                     init : function() {
 
-                        var closebtn = Y.Node.create('<a id="closehelpbox" href="#"><img  src="'+M.util.image_url('t/delete', 'moodle')+'" /></a>');
+                        var strclose = Y.Escape.html(M.str.form.close);
+                        var footerbtn = Y.Node.create('<button class="closebtn">'+strclose+'</button>');
                         // Create an overlay from markup
                         this.overlay = new Y.Overlay({
-                            headerContent: closebtn,
+                            footerContent: footerbtn,
                             bodyContent: '',
                             id: 'helppopupbox',
                             width:'400px',
@@ -1396,14 +1521,14 @@ M.util.help_icon = {
                         });
                         this.overlay.render(Y.one(document.body));
 
-                        closebtn.on('click', this.overlay.hide, this.overlay);
+                        footerbtn.on('click', this.overlay.hide, this.overlay);
 
                         var boundingBox = this.overlay.get("boundingBox");
 
                         //  Hide the menu if the user clicks outside of its content
                         boundingBox.get("ownerDocument").on("mousedown", function (event) {
                             var oTarget = event.target;
-                            var menuButton = Y.one("#"+args.id);
+                            var menuButton = this.helplink;
 
                             if (!oTarget.compareTo(menuButton) &&
                                 !menuButton.contains(oTarget) &&
@@ -1412,9 +1537,6 @@ M.util.help_icon = {
                                 this.overlay.hide();
                             }
                         }, this);
-
-                        Y.on("key", this.close, closebtn , "down:13", this);
-                        closebtn.on('click', this.close, this);
                     },
 
                     close : function(e) {
@@ -1423,21 +1545,24 @@ M.util.help_icon = {
                         this.overlay.hide();
                     },
 
-                    display : function(event, args) {
-                        this.helplink = args.node;
-                        this.overlay.set('bodyContent', Y.Node.create('<img src="'+M.cfg.loadingicon+'" class="spinner" />'));
-                        this.overlay.set("align", {node:args.node, points:[Y.WidgetPositionAlign.TL, Y.WidgetPositionAlign.RC]});
-
-                        var fullurl = args.url;
-                        if (!args.url.match(/https?:\/\//)) {
-                            fullurl = M.cfg.wwwroot + args.url;
+                    display : function(event) {
+                        var overlayPosition;
+                        this.helplink = event.target.ancestor('span.helplink a', true);
+                        if (Y.one('html').get('dir') === 'rtl') {
+                            overlayPosition = [Y.WidgetPositionAlign.TR, Y.WidgetPositionAlign.LC];
+                        } else {
+                            overlayPosition = [Y.WidgetPositionAlign.TL, Y.WidgetPositionAlign.RC];
                         }
 
-                        var ajaxurl = fullurl + '&ajax=1';
+                        this.overlay.set('bodyContent', Y.Node.create('<img src="'+M.cfg.loadingicon+'" class="spinner" />'));
+                        this.overlay.set("align", {node:this.helplink, points: overlayPosition});
 
                         var cfg = {
                             method: 'get',
                             context : this,
+                            data : {
+                                ajax : 1
+                            },
                             on: {
                                 success: function(id, o, node) {
                                     this.display_callback(o.responseText);
@@ -1452,13 +1577,12 @@ M.util.help_icon = {
                             }
                         };
 
-                        Y.io(ajaxurl, cfg);
+                        Y.io(this.helplink.get('href'), cfg);
                         this.overlay.show();
-
-                        Y.one('#closehelpbox').focus();
                     },
 
                     display_callback : function(content) {
+                        content = '<div role="alert">' + content + '</div>';
                         this.overlay.set('bodyContent', content);
                     },
 
@@ -1469,10 +1593,10 @@ M.util.help_icon = {
                 };
                 help_content_overlay.init();
                 M.util.help_icon.instance = help_content_overlay;
-                M.util.help_icon.instance.display(event, args);
+                M.util.help_icon.instance.display(event);
             });
         } else {
-            M.util.help_icon.instance.display(event, args);
+            M.util.help_icon.instance.display(event);
         }
     },
     init : function(Y) {
@@ -1768,9 +1892,9 @@ M.util.load_flowplayer = function() {
             for(var i=0; i<M.util.video_players.length; i++) {
                 var video = M.util.video_players[i];
                 if (video.width > 0 && video.height > 0) {
-                    var src = {src: M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.9.swf', width: video.width, height: video.height};
+                    var src = {src: M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.14.swf', width: video.width, height: video.height};
                 } else {
-                    var src = M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.9.swf';
+                    var src = M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.14.swf';
                 }
                 flowplayer(video.id, src, {
                     plugins: {controls: controls},
@@ -1798,7 +1922,7 @@ M.util.load_flowplayer = function() {
                                 object.width = width;
                                 object.height = height;
                             }
-		                }
+                        }
                     }
                 });
             }
@@ -1870,17 +1994,17 @@ M.util.load_flowplayer = function() {
                     controls.height = 25;
                     controls.time = true;
                 }
-                flowplayer(audio.id, M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.9.swf', {
-                    plugins: {controls: controls, audio: {url: M.cfg.wwwroot + '/lib/flowplayer/flowplayer.audio-3.2.8.swf'}},
+                flowplayer(audio.id, M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.14.swf', {
+                    plugins: {controls: controls, audio: {url: M.cfg.wwwroot + '/lib/flowplayer/flowplayer.audio-3.2.10.swf'}},
                     clip: {url: audio.fileurl, provider: "audio", autoPlay: false}
                 });
             }
         }
 
-        if (M.cfg.jsrev == -10) {
-            var jsurl = M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.8.min.js';
+        if (M.cfg.jsrev == -1) {
+            var jsurl = M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.11.js';
         } else {
-            var jsurl = M.cfg.wwwroot + '/lib/javascript.php?jsfile=/lib/flowplayer/flowplayer-3.2.8.min.js&rev=' + M.cfg.jsrev;
+            var jsurl = M.cfg.wwwroot + '/lib/javascript.php?jsfile=/lib/flowplayer/flowplayer-3.2.11.min.js&rev=' + M.cfg.jsrev;
         }
         var fileref = document.createElement('script');
         fileref.setAttribute('type','text/javascript');

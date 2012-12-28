@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_completion', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'report_completion', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   report_completion
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,4 +30,3 @@ $string['completion:view'] = 'Veure informe de compleció';
 $string['page-report-completion-index'] = 'Informe de compleció del curs';
 $string['page-report-completion-user'] = 'Informe de compleció del curs de l\'usuari';
 $string['page-report-completion-x'] = 'Qualsevol informe de compleció';
-$string['pluginname'] = 'Compleció del curs';

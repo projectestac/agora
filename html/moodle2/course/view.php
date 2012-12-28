@@ -20,6 +20,7 @@
     $marker      = optional_param('marker',-1 , PARAM_INT);
     $switchrole  = optional_param('switchrole',-1, PARAM_INT);
     $modchooser  = optional_param('modchooser', -1, PARAM_BOOL);
+    $return      = optional_param('return', 0, PARAM_LOCALURL);
 
     $params = array();
     if (!empty($name)) {
@@ -32,56 +33,7 @@
         print_error('unspecifycourseid', 'error');
     }
 
-    $course = $DB->get_record('course', $params, '*', MUST_EXIST);
-    
-    //XTEC ************ AFEGIT - To show current section if none is selected
-    //2012.08.20  @sarjona
-    /**
-     * Get highlighted section
-     *
-     * @param int $courseid course id
-     * @return int current section or 0 if none
-     */
-    function course_get_marker($courseid) {
-        global $DB;
-        return $DB->get_field('course', 'marker', array('id' => $courseid));
-    }
-    
-    /**
-     * Get current section depending on the week
-     *
-     * @param stdClass $course The course entry from DB
-     * @return int the section of the current week or 0 if none
-     */
-    function course_get_current_week_section($course) {
-        require_once 'format/weeks/lib.php';
-        $currentsection = 0;
-        $sections = get_all_sections($course->id);
-        $timenow = time();
-        foreach ($sections as $section){
-            $dates = format_weeks_get_section_dates($section, $course);
-            if (($timenow >= $dates->start) && ($timenow < $dates->end)){
-                $currentsection = $section->section;
-                break;
-            }
-        }
-        return $currentsection;
-    }
-    
-    if ($course->coursedisplay == COURSE_DISPLAY_MULTIPAGE){
-        $notifyeditingon = optional_param('notifyeditingon', -1, PARAM_BOOL);
-        if ($edit<0 && $notifyeditingon<0 && empty($section)) {
-            if ($course->format == 'topics') {
-                $section = course_get_marker($course->id);
-            } else if ($course->format == 'weeks') {
-                $section = course_get_current_week_section($course);
-            }
-        } else if ($section == -1){
-            $section = 0;
-        }        
-    }
-    
-    //************ FI                    
+    $course = $DB->get_record('course', $params, '*', MUST_EXIST);              
 
     $urlparams = array('id' => $course->id);
 
@@ -188,6 +140,8 @@
             // Redirect to site root if Editing is toggled on frontpage
             if ($course->id == SITEID) {
                 redirect($CFG->wwwroot .'/?redirect=0');
+            } else if (!empty($return)) {
+                redirect($CFG->wwwroot . $return);
             } else {
                 $url = new moodle_url($PAGE->url, array('notifyeditingon' => 1));
                 redirect($url);
@@ -201,6 +155,8 @@
             // Redirect to site root if Editing is toggled on frontpage
             if ($course->id == SITEID) {
                 redirect($CFG->wwwroot .'/?redirect=0');
+            } else if (!empty($return)) {
+                redirect($CFG->wwwroot . $return);
             } else {
                 redirect($PAGE->url);
             }
@@ -225,11 +181,9 @@
 
         if (has_capability('moodle/course:update', $context)) {
             if (!empty($section)) {
-                if (!empty($move) and confirm_sesskey()) {
+                if (!empty($move) and has_capability('moodle/course:movesections', $context) and confirm_sesskey()) {
                     $destsection = $section + $move;
                     if (move_section_to($course, $section, $destsection)) {
-                        // Rebuild course cache, after moving section
-                        rebuild_course_cache($course->id, true);
                         if ($course->id == SITEID) {
                             redirect($CFG->wwwroot . '/?redirect=0');
                         } else {
@@ -291,30 +245,17 @@
     // Course wrapper start.
     echo html_writer::start_tag('div', array('class'=>'course-content'));
 
-    $modinfo = get_fast_modinfo($COURSE);
-    get_all_mods($course->id, $mods, $modnames, $modnamesplural, $modnamesused);
-    foreach($mods as $modid=>$unused) {
-        if (!isset($modinfo->cms[$modid])) {
-            rebuild_course_cache($course->id);
-            $modinfo = get_fast_modinfo($COURSE);
-            debugging('Rebuilding course cache', DEBUG_DEVELOPER);
-            break;
-        }
-    }
+    // make sure that section 0 exists (this function will create one if it is missing)
+    course_create_sections_if_missing($course, 0);
 
-    if (!$sections = $modinfo->get_section_info_all()) {   // No sections found
-        $section = new stdClass;
-        $section->course = $course->id;   // Create a default section.
-        $section->section = 0;
-        $section->visible = 1;
-        $section->summaryformat = FORMAT_HTML;
-        $section->id = $DB->insert_record('course_sections', $section);
-        rebuild_course_cache($course->id);
-        $modinfo = get_fast_modinfo($COURSE);
-        if (!$sections = $modinfo->get_section_info_all()) {      // Try again
-            print_error('cannotcreateorfindstructs', 'error');
-        }
-    }
+    // get information about course modules and existing module types
+    // format.php in course formats may rely on presence of these variables
+    $modinfo = get_fast_modinfo($course);
+    $modnames = get_module_types_names();
+    $modnamesplural = get_module_types_names(true);
+    $modnamesused = $modinfo->get_used_module_names();
+    $mods = $modinfo->get_cms();
+    $sections = $modinfo->get_section_info_all();
 
     // CAUTION, hacky fundamental variable defintion to follow!
     // Note that because of the way course fromats are constructed though

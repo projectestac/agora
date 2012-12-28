@@ -102,7 +102,7 @@ function SCORMapi1_3() {
     var CMIExit = '^time-out$|^suspend$|^logout$|^normal$|^$';
     var CMIType = '^true-false$|^choice$|^(long-)?fill-in$|^matching$|^performance$|^sequencing$|^likert$|^numeric$|^other$';
     var CMIResult = '^correct$|^incorrect$|^unanticipated$|^neutral$|^-?([0-9]{1,4})(\\.[0-9]{1,18})?$';
-    var NAVEvent = '^previous$|^continue$|^exit$|^exitAll$|^abandon$|^abandonAll$|^suspendAll$|^{target=\\S{0,200}[a-zA-Z0-9]}choice$';
+    var NAVEvent = '^previous$|^continue$|^exit$|^exitAll$|^abandon$|^abandonAll$|^suspendAll$|^\{target=\\S{0,200}[a-zA-Z0-9]\}choice|jump$';
     var NAVBoolean = '^unknown$|^true$|^false$';
     var NAVTarget = '^previous$|^continue$|^choice.{target=\\S{0,200}[a-zA-Z0-9]}$'
     // Children lists
@@ -343,10 +343,10 @@ function SCORMapi1_3() {
                     if (adl.nav.request != '_none_') {
                         switch (adl.nav.request) {
                             case 'continue':
-                                setTimeout('scorm_get_next();',500);
+                                setTimeout('mod_scorm_launch_next_sco();',500);
                             break;
                             case 'previous':
-                                setTimeout('scorm_get_prev();',500);
+                                setTimeout('mod_scorm_launch_prev_sco();',500);
                             break;
                             case 'choice':
                             break;
@@ -361,12 +361,15 @@ function SCORMapi1_3() {
                         }
                     } else {
                         if (<?php echo $scorm->auto ?> == 1) {
-                            setTimeout('scorm_get_next();',500);
+                            setTimeout('mod_scorm_launch_next_sco();',500);
                         }
                     }
                     // trigger TOC update
                     var sURL = "<?php echo $CFG->wwwroot; ?>" + "/mod/scorm/prereqs.php?a=<?php echo $scorm->id ?>&scoid=<?php echo $scoid ?>&attempt=<?php echo $attempt ?>&mode=<?php echo $mode ?>&currentorg=<?php echo $currentorg ?>&sesskey=<?php echo sesskey(); ?>";
-                    YAHOO.util.Connect.asyncRequest('GET', sURL, this.connectPrereqCallback, null);
+                    var callback = this.connectPrereqCallback;
+                    YUI.use('yui2-connection', function(Y) {
+                        Y.YUI2.util.Connect.asyncRequest('GET', sURL, callback, null);
+                    });
                 } else {
                     diagnostic = "Failure calling the Terminate remote callback: the server replied with HTTP Status " + AJAXResult;
                 }

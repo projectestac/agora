@@ -61,7 +61,7 @@ class core_user_external extends external_api {
                             'lang'        => new external_value(PARAM_SAFEDIR, 'Language code such as "en", must exist on server', VALUE_DEFAULT, $CFG->lang, NULL_NOT_ALLOWED),
                             'theme'       => new external_value(PARAM_PLUGIN, 'Theme name such as "standard", must exist on server', VALUE_OPTIONAL),
                             'timezone'    => new external_value(PARAM_TIMEZONE, 'Timezone code such as Australia/Perth, or 99 for default', VALUE_OPTIONAL),
-                            'mailformat'  => new external_value(PARAM_INTEGER, 'Mail format code is 0 for plain text, 1 for HTML etc', VALUE_OPTIONAL),
+                            'mailformat'  => new external_value(PARAM_INT, 'Mail format code is 0 for plain text, 1 for HTML etc', VALUE_OPTIONAL),
                             'description' => new external_value(PARAM_TEXT, 'User profile description, no HTML', VALUE_OPTIONAL),
                             'city'        => new external_value(PARAM_NOTAGS, 'Home city of the user', VALUE_OPTIONAL),
                             'country'     => new external_value(PARAM_ALPHA, 'Home country code of the user, such as AU or CZ', VALUE_OPTIONAL),
@@ -100,7 +100,7 @@ class core_user_external extends external_api {
         require_once($CFG->dirroot."/user/profile/lib.php"); //required for customfields related function
 
         // Ensure the current user is allowed to run this function
-        $context = get_context_instance(CONTEXT_SYSTEM);
+        $context = context_system::instance();
         self::validate_context($context);
         require_capability('moodle/user:create', $context);
 
@@ -226,7 +226,7 @@ class core_user_external extends external_api {
         require_once($CFG->dirroot."/user/lib.php");
 
         // Ensure the current user is allowed to run this function
-        $context = get_context_instance(CONTEXT_SYSTEM);
+        $context = context_system::instance();
         require_capability('moodle/user:delete', $context);
         self::validate_context($context);
 
@@ -275,7 +275,7 @@ class core_user_external extends external_api {
                 'users' => new external_multiple_structure(
                     new external_single_structure(
                         array(
-                            'id'    => new external_value(PARAM_NUMBER, 'ID of the user'),
+                            'id'    => new external_value(PARAM_INT, 'ID of the user'),
                             'username'    => new external_value(PARAM_USERNAME, 'Username policy is defined in Moodle security config. Must be lowercase.', VALUE_OPTIONAL, '',NULL_NOT_ALLOWED),
                             'password'    => new external_value(PARAM_RAW, 'Plain text password consisting of any characters', VALUE_OPTIONAL, '',NULL_NOT_ALLOWED),
                             'firstname'   => new external_value(PARAM_NOTAGS, 'The first name(s) of the user', VALUE_OPTIONAL, '',NULL_NOT_ALLOWED),
@@ -286,7 +286,7 @@ class core_user_external extends external_api {
                             'lang'        => new external_value(PARAM_SAFEDIR, 'Language code such as "en", must exist on server', VALUE_OPTIONAL, '', NULL_NOT_ALLOWED),
                             'theme'       => new external_value(PARAM_PLUGIN, 'Theme name such as "standard", must exist on server', VALUE_OPTIONAL),
                             'timezone'    => new external_value(PARAM_TIMEZONE, 'Timezone code such as Australia/Perth, or 99 for default', VALUE_OPTIONAL),
-                            'mailformat'  => new external_value(PARAM_INTEGER, 'Mail format code is 0 for plain text, 1 for HTML etc', VALUE_OPTIONAL),
+                            'mailformat'  => new external_value(PARAM_INT, 'Mail format code is 0 for plain text, 1 for HTML etc', VALUE_OPTIONAL),
                             'description' => new external_value(PARAM_TEXT, 'User profile description, no HTML', VALUE_OPTIONAL),
                             'city'        => new external_value(PARAM_NOTAGS, 'Home city of the user', VALUE_OPTIONAL),
                             'country'     => new external_value(PARAM_ALPHA, 'Home country code of the user, such as AU or CZ', VALUE_OPTIONAL),
@@ -324,7 +324,7 @@ class core_user_external extends external_api {
         require_once($CFG->dirroot."/user/profile/lib.php"); //required for customfields related function
 
         // Ensure the current user is allowed to run this function
-        $context = get_context_instance(CONTEXT_SYSTEM);
+        $context = context_system::instance();
         require_capability('moodle/user:update', $context);
         self::validate_context($context);
 
@@ -413,7 +413,7 @@ class core_user_external extends external_api {
                 continue;
             }
             context_instance_preload($user);
-            $usercontext = get_context_instance(CONTEXT_USER, $user->id);
+            $usercontext = context_user::instance($user->id, IGNORE_MISSING);
             self::validate_context($usercontext);
             $currentuser = ($user->id == $USER->id);
 
@@ -446,13 +446,13 @@ class core_user_external extends external_api {
         return new external_multiple_structure(
             new external_single_structure(
                 array(
-                    'id'    => new external_value(PARAM_NUMBER, 'ID of the user'),
+                    'id'    => new external_value(PARAM_INT, 'ID of the user'),
                     'username'    => new external_value(PARAM_RAW, 'Username policy is defined in Moodle security config', VALUE_OPTIONAL),
                     'firstname'   => new external_value(PARAM_NOTAGS, 'The first name(s) of the user', VALUE_OPTIONAL),
                     'lastname'    => new external_value(PARAM_NOTAGS, 'The family name of the user', VALUE_OPTIONAL),
                     'fullname'    => new external_value(PARAM_NOTAGS, 'The fullname of the user'),
                     'email'       => new external_value(PARAM_TEXT, 'An email address - allow email as root@localhost', VALUE_OPTIONAL),
-                    'address'     => new external_value(PARAM_MULTILANG, 'Postal address', VALUE_OPTIONAL),
+                    'address'     => new external_value(PARAM_TEXT, 'Postal address', VALUE_OPTIONAL),
                     'phone1'      => new external_value(PARAM_NOTAGS, 'Phone 1', VALUE_OPTIONAL),
                     'phone2'      => new external_value(PARAM_NOTAGS, 'Phone 2', VALUE_OPTIONAL),
                     'icq'         => new external_value(PARAM_NOTAGS, 'icq number', VALUE_OPTIONAL),
@@ -466,12 +466,12 @@ class core_user_external extends external_api {
                     'firstaccess' => new external_value(PARAM_INT, 'first access to the site (0 if never)', VALUE_OPTIONAL),
                     'lastaccess'  => new external_value(PARAM_INT, 'last access to the site (0 if never)', VALUE_OPTIONAL),
                     'auth'        => new external_value(PARAM_PLUGIN, 'Auth plugins include manual, ldap, imap, etc', VALUE_OPTIONAL),
-                    'confirmed'   => new external_value(PARAM_NUMBER, 'Active user: 1 if confirmed, 0 otherwise', VALUE_OPTIONAL),
+                    'confirmed'   => new external_value(PARAM_INT, 'Active user: 1 if confirmed, 0 otherwise', VALUE_OPTIONAL),
                     'idnumber'    => new external_value(PARAM_RAW, 'An arbitrary ID code number perhaps from the institution', VALUE_OPTIONAL),
                     'lang'        => new external_value(PARAM_SAFEDIR, 'Language code such as "en", must exist on server', VALUE_OPTIONAL),
                     'theme'       => new external_value(PARAM_PLUGIN, 'Theme name such as "standard", must exist on server', VALUE_OPTIONAL),
                     'timezone'    => new external_value(PARAM_TIMEZONE, 'Timezone code such as Australia/Perth, or 99 for default', VALUE_OPTIONAL),
-                    'mailformat'  => new external_value(PARAM_INTEGER, 'Mail format code is 0 for plain text, 1 for HTML etc', VALUE_OPTIONAL),
+                    'mailformat'  => new external_value(PARAM_INT, 'Mail format code is 0 for plain text, 1 for HTML etc', VALUE_OPTIONAL),
                     'description' => new external_value(PARAM_RAW, 'User profile description', VALUE_OPTIONAL),
                     'descriptionformat' => new external_format_value('description', VALUE_OPTIONAL),
                     'city'        => new external_value(PARAM_NOTAGS, 'Home city of the user', VALUE_OPTIONAL),
@@ -576,7 +576,7 @@ class core_user_external extends external_api {
             }
             context_instance_preload($user);
             $course = $courses[$courseids[$user->id]];
-            $context = get_context_instance(CONTEXT_COURSE, $courseids[$user->id]);
+            $context = context_course::instance($courseids[$user->id], IGNORE_MISSING);
             self::validate_context($context);
             if ($userarray = user_get_user_details($user, $course)) {
                 $result[] = $userarray;
@@ -598,13 +598,13 @@ class core_user_external extends external_api {
         return new external_multiple_structure(
             new external_single_structure(
                 array(
-                    'id'    => new external_value(PARAM_NUMBER, 'ID of the user'),
+                    'id'    => new external_value(PARAM_INT, 'ID of the user'),
                     'username'    => new external_value(PARAM_RAW, 'Username policy is defined in Moodle security config', VALUE_OPTIONAL),
                     'firstname'   => new external_value(PARAM_NOTAGS, 'The first name(s) of the user', VALUE_OPTIONAL),
                     'lastname'    => new external_value(PARAM_NOTAGS, 'The family name of the user', VALUE_OPTIONAL),
                     'fullname'    => new external_value(PARAM_NOTAGS, 'The fullname of the user'),
                     'email'       => new external_value(PARAM_TEXT, 'An email address - allow email as root@localhost', VALUE_OPTIONAL),
-                    'address'     => new external_value(PARAM_MULTILANG, 'Postal address', VALUE_OPTIONAL),
+                    'address'     => new external_value(PARAM_TEXT, 'Postal address', VALUE_OPTIONAL),
                     'phone1'      => new external_value(PARAM_NOTAGS, 'Phone 1', VALUE_OPTIONAL),
                     'phone2'      => new external_value(PARAM_NOTAGS, 'Phone 2', VALUE_OPTIONAL),
                     'icq'         => new external_value(PARAM_NOTAGS, 'icq number', VALUE_OPTIONAL),

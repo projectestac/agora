@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'lti', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -230,15 +230,16 @@ $string['misconfiguredtools'] = 'S\'han detectat instàncies d\'eina sense confi
 $string['missingparameterserror'] = 'Aquesta pàgina no està configurada: "{$a}"';
 $string['module_class_type'] = 'Tipus de modul de Moodle';
 $string['modulename'] = 'Eina externa';
-$string['modulename_help'] = 'Les eines externes permeten als usuaris de Moodle interactuar amb recursos d\'aprenentatge i activitats d\'altres llocs webs. Per exemple, una eina externa pot proporcionar accés a un tipus d\'activitat nou o a materials d\'aprenentatge d\'un editor.
+$string['modulename_help'] = 'Les eines externes permeten als usuaris de Moodle interactuar amb recursos d\'aprenentatge i activitats d\'altre llocs webs. Per exemple una eina externa pot proporcionar accés  a un tipus d\'activitat nou o a materials d\'aprenentatge d\'un editor.
 
-Per a crear una activitat d\'eina externa, cal un proveïdor d\'eines que suporti LTI (Learning Tools Interoperability, Interoperabilitat d\'Eines d\'Aprenentage). El professorat pot crear una activitat d\'eina externa o fer ús de l\'eina configurada per l\'administrador del lloc.
+Per configurar una instància d\'eina externa d\'un proveïdor d\'eines cal que suporte LTI (interoperabilitat d\'eines d\'aprenentatge). Si trobeu un proveïdor d\'eines que suporte LTI, us proporcionarà instruccions per configurar l\'eina externa. A més a més, els tipus d\'eina configurats per un administrador de lloc també estaran disponibles per al seu ús.
 
-Les eines externes es diferencien dels recursos URL en alguns aspectes:
+Les eines externes diferiran en els recursos URL en alguns aspectes:
+* **Informació de context** - Les eines externes tenen accés a informació sobre l\'usuari que llança l\'eina, com institució, curs, nom i altra informació.
 
-* Les eines externes són conscients del context, p.ex. tenen accés a informació sobre l\'usuari que llança l\'eina, com ara la institució, el curs i el nom
-* Les eines externes suporten llegir, actualitzar i suprimir les qualificacions associades amb la instància de l\'activitat
-* Les configuracions de les eines externes creen relacions de confiança entre el vostre lloc web i el proveïdor de l\'eina, permetent una comunicació segura entre ells';
+* **Integració avançada** - Les eines externes suporten llegir, actualitzar, i suprimir qualificacions associades amb la activitat de que es tracti. Es planegen més punts d\'integració en un futures versions.
+
+* **Seguretat** - Les configuracions de les eines externes creen relacions de confiança entre Moodle i  l\'eina, permetent una comunicació segura entre ells.';
 $string['modulenameplural'] = 'LTIs bàsics';
 $string['modulenamepluralformatted'] = 'Instàncies';
 $string['never'] = 'Mai';

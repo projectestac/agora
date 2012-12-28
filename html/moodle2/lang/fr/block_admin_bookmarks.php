@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_admin_bookmarks', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_admin_bookmarks', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   block_admin_bookmarks
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['admin_bookmarks:addinstance'] = 'Ajouter un bloc marque-pages administrateur';
+$string['admin_bookmarks:myaddinstance'] = 'Ajouter un bloc marque-pages administrateur à la page Mon Moodle';
 $string['pluginname'] = 'Marque-pages administrateur';

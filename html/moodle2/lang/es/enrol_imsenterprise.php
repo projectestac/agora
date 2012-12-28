@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_imsenterprise', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_imsenterprise', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_imsenterprise
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,17 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['aftersaving...'] = 'Una vez que haya guardado sus ajustes, quizás quiera';
 $string['allowunenrol'] = 'Permitir a los datos IMS <strong>desmatricular</strong> a estudiantes/profesores';
-$string['allowunenrol_desc'] = '<p>Los datos Enterprise pueden agregar o quitar matriculaciones en el curso tanto de estudiantes como de profesores. Si la opción está deshabilitada, Moodle llevará a cabo las desmatriculaciones cuando así se especifique en los datos.</p>
-
-<p>Hay tres modos de dar de baja a los estudiantes con los datos IMS:</p>
-
-<ul><li>Un elemento &lt;miembro&gt; que especifica el estudiante y el curso, y con el atributo "recstatus" del elemento &lt;rol&gt; fijado a 3 (lo que significa "eliminar"). ESTA CARACTERÍSTICA AÚN NO ESTÁ IMPLEMENTADA EN EL PLUGIN DE MOODLE.</li>
-
-<li> Un elemento &lt;miembro&gt; que especifica el estudiante y el curso, y con el elemento &lt;status&gt; fijado a 0 (que significa "inactivo").</li></ul>
-
-<p>El tercer método es algo diferente. No requiere que el ajuste de configuración esté activado, y puede especificarse antes de la fecha de matriculación :</p>
-
-<ul><li>Un elemento <member> que especifica un <timeframe> para la matriculación puede especificar la fecha inicial y/o final de matriculación de ese estudiante en particular. Estas fechas se cargan en la tabla de datos de matriculación de Moodle si está presente, de modo que después de la fecha final el estudiante no podrá acceder al curso.</li></ul>';
+$string['allowunenrol_desc'] = 'Si está activado, las matriculaciones en cursos serán eliminadas cuando así se especifique en los datos de empresa.';
 $string['basicsettings'] = 'Ajustes básicos';
 $string['coursesettings'] = 'Opciones de datos del curso';
 $string['createnewcategories'] = 'Crear categorías nuevas (ocultas) de curso si no se encuentran en Moodle';
@@ -73,6 +63,7 @@ $string['location'] = 'Ubicación del archivo';
 $string['logtolocation'] = 'Ubicación del archivo \'log\' de salida (déjelo en blanco si no hay registro)';
 $string['mailadmins'] = 'Notificar al administrador por email';
 $string['mailusers'] = 'Notificar a los usuarios por email';
+$string['messageprovider:imsenterprise_enrolment'] = 'Mensajes de matriculación IMS Enterprise';
 $string['miscsettings'] = 'Miscelánea';
 $string['pluginname'] = 'Archivo IMS Enterprise';
 $string['processphoto'] = 'Agregar foto de usuario al perfil';

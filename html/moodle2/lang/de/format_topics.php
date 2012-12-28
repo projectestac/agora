@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_topics', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'format_topics', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   format_topics
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,11 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['currentsection'] = 'Dieses Thema';
-$string['hidefromothers'] = 'Themenfeld verbergen';
+$string['currentsection'] = 'Dieser Abschnitt';
+$string['hidefromothers'] = 'Abschnitt verbergen';
 $string['page-course-view-topics'] = 'Jede Kursübersicht im Themenformat';
 $string['page-course-view-topics-x'] = 'Jede Kursseite im Themenformat';
 $string['pluginname'] = 'Themenformat';
 $string['section0name'] = 'Allgemeines';
-$string['sectionname'] = 'Thema';
-$string['showfromothers'] = 'Themenfeld anzeigen';
+$string['sectionname'] = 'Abschnitt';
+$string['showfromothers'] = 'Abschnitt anzeigen';

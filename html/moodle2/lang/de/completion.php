@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'completion', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'completion', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   completion
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,6 @@ $string['achievinggrade'] = 'Erreichen der Bewertung';
 $string['activities'] = 'Aktivitäten';
 $string['activitiescompleted'] = 'Aktivitäten abgeschlossen';
 $string['activitycompletion'] = 'Aktivitätsabschluss';
-$string['addcourseprerequisite'] = 'Kursbedingung hinzufügen';
 $string['afterspecifieddate'] = 'Nach dem angegebenen Zeitpunkt';
 $string['aggregationmethod'] = 'Methode zur Zusammenfassung';
 $string['all'] = 'Alle';
@@ -53,6 +52,7 @@ $string['completion-alt-manual-enabled'] = 'Abschluss wird manuell signalisiert:
 $string['completion-alt-manual-n'] = 'Nicht abgeschlossen: {$a} - mit Auswahl als abgeschlossen markieren';
 $string['completion-alt-manual-y'] = 'Abgeschlossen: {$a}  - mit Auswahl als nicht abgeschlossen markieren';
 $string['completion_automatic'] = 'Abschluss, wenn alle Bedingungen erfüllt sind';
+$string['completiondependencies'] = 'Abhängigkeiten beim Abschluss';
 $string['completiondisabled'] = 'Deaktiviert';
 $string['completionenabled'] = 'Aktiviert';
 $string['completionexpected'] = 'Abschlusstermin';
@@ -94,7 +94,6 @@ $string['coursealreadycompleted'] = 'Haben Sie diesen Kurs bereits abgeschlossen
 $string['coursecomplete'] = 'Kurs abschließen';
 $string['coursecompleted'] = 'Kurs abgeschlossen';
 $string['coursegrade'] = 'Kursbewertung';
-$string['courseprerequisites'] = 'Kursbedingungen';
 $string['coursesavailable'] = 'Kurse verfügbar';
 $string['coursesavailableexplaination'] = '<i>Kursabschlusskriterien müssen festgelegt sein, damit ein Kurs in dieser Liste erscheint</i>';
 $string['criteria'] = 'Kriterien';
@@ -107,7 +106,8 @@ $string['datepassed'] = 'Zeitpunkt vorbei';
 $string['days'] = 'Tage';
 $string['daysafterenrolment'] = 'Tage nach der Einschreibung';
 $string['deletecompletiondata'] = 'Abschlussdaten löschen';
-$string['deletecoursecompletiondata'] = 'Abschlussdaten im Kurs löschen';
+$string['dependencies'] = 'Abhängigkeiten';
+$string['dependenciescompleted'] = 'Abhängigkeiten abgeschlossen';
 $string['durationafterenrolment'] = 'Zeitdauer nach der Einschreibung';
 $string['editcoursecompletionsettings'] = 'Abschlusseinstellungen bearbeiten';
 $string['enablecompletion'] = 'Abschlussverfolgung';
@@ -137,8 +137,6 @@ $string['notyetstarted'] = 'Noch nicht begonnen';
 $string['overallcriteriaaggregation'] = 'Typ der Gesamtbewertung';
 $string['pending'] = 'Unerledigt';
 $string['periodpostenrolment'] = 'Zeit nach der Einschreibung';
-$string['prerequisites'] = 'Bedingungen';
-$string['prerequisitescompleted'] = 'Bedingungen abgeschlossen';
 $string['progress'] = 'Bearbeitungsstand';
 $string['progress-title'] = '{$a->user}, {$a->activity}: {$a->state} {$a->date}';
 $string['progresstotal'] = 'Mein Bearbeitungsstand: {$a->complete}/{$a->total}';

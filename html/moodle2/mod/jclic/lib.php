@@ -311,8 +311,12 @@ function jclic_user_outline($course, $user, $mod, $jclic) {
  * @return string HTML
  */
 function jclic_user_complete($course, $user, $mod, $jclic) {
-    return '';
+    $outline = jclic_user_outline($course, $user, $mod, $jclic);
+    
+    print_r($outline->info);
+    return true;
 }
+
 
 /**
  * Given a course and a time, this module should find recent activity

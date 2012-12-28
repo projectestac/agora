@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_splash', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'theme_splash', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   theme_splash
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,6 +38,7 @@ $string['loginhere'] = 'Entrar aquí';
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'Escriba la URL enlazada a una imagen para usar como logo de este sitio, e.g: http://www.yoursite.com/path/to/logo.png. El logo no deberá tener más de 230 píxels de anchura.';
 $string['pluginname'] = 'Splash';
+$string['region-side-pre'] = 'Izquierda';
 $string['tagline'] = 'Tagline';
 $string['taglinedesc'] = 'El contenido de este área de texto se mostrará debajo del logo del sitio en la portada';
 $string['usergreeting'] = '¡Hola, {$a}!';

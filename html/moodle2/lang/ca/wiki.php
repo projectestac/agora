@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'wiki', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -107,17 +107,6 @@ $string['map'] = 'Mapa';
 $string['mapmenu'] = 'Index del menú';
 $string['modified'] = 'Modificat';
 $string['modulename'] = 'Wiki';
-$string['modulename_help'] = 'L\'activitat wiki permet als participants afegir i editar una col·lecció de pàgines web. Un wiki pot ser col·laboratiu, amb tothom capaç d\'editar; o individual, on cadascú té el seu propi wiki, i només pot editar el propi.
-
-Es manté un històric de les versions anteriors de cada pàgina del wiki, enumerant les edicions de cada participant.
-
-Els wikis tenen molts usos, com ara
-
-* Per a apunts grupals o guies d\'estudi
-* Perquè els membres d\'una facultat puguin planificar un esquema de treball o una agenda de reunions junts
-* Perquè l\'estudiantat pugui editar col·laborativament un llibre en línia, creant contingut sobre un tema establert pel seu tutor o tutora
- * Per a la narració col·laborativa d\'històries o la creació de poemes, on cada participant escriu una línia o vers
-* Com a diari personal per a la qualificació o revisió d\'exàmens (amb un wiki individual)';
 $string['modulenameplural'] = 'Wikis';
 $string['navigation'] = 'Navegació';
 $string['navigationfrom'] = 'Aquesta pàgina prove de';

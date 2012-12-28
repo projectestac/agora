@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_cas', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'auth_cas', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   auth_cas
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -51,6 +51,7 @@ $string['auth_cas_language_key'] = 'Sprache';
 $string['auth_cas_logincas'] = 'Sicherer Zugang';
 $string['auth_cas_logoutcas'] = 'Diese Option legt fest, dass Sie sich gleichzeitig vom CAS abmelden, sobald Sie sich in Moodle abmelden.';
 $string['auth_cas_logoutcas_key'] = 'CAS Abmeldeoption';
+$string['auth_cas_logout_return_url_key'] = 'Alternative URL auf die beim Ausloggen zurückgeführt wird.';
 $string['auth_cas_multiauth'] = 'Diese Option legt fest, dass Sie eine Mehrfach-Authentifizierung wünschen (CAS + andere Authentifizierung)';
 $string['auth_cas_multiauth_key'] = 'Mehrfach-Authentifizierung';
 $string['auth_casnotinstalled'] = 'CAS Authentifizierung ist nicht verfügbar. Die PHP-Extension LDAP ist nicht installiert.';

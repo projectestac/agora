@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_tags', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_tags', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   block_tags
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,15 +27,8 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['add'] = 'Afegeix';
 $string['alltags'] = 'Totes les etiquetes:';
-$string['alltags1'] = 'totes les etiquetes';
-$string['alltags2'] = 'Mostra totes les etiquetes (perfil d\'usuari, bitàcoles i etiquetes de curs)';
 $string['arrowtitle'] = 'Premeu aquí per entrar el text suggerit (en lletres grises)';
-$string['communitytags'] = 'Etiquetes de comunitat:';
-$string['communitytags1'] = 'etiquetes de comunitat';
-$string['communitytags2'] = 'Mostra totes les etiquetes creades per l\'usuari';
 $string['coursetags'] = 'Etiquetes del curs:';
-$string['coursetags1'] = 'etiquetes del curs';
-$string['coursetags2'] = 'Mostra les etiquetes d\'aquest curs';
 $string['disabledtags'] = 'Les etiquetes estan desactivades';
 $string['edit'] = 'edita...';
 $string['editdeletemytag'] = 'Elimina l\'etiqueta d\'aquest curs';
@@ -68,16 +61,9 @@ $string['moretitle'] = 'Més etiquetes';
 $string['morewelcome'] = 'Benvingut al núvol \'Més etiquetes\'. Les etiquetes s\'utilitzen per crear enllaços a coses.
 Les etiquetes us permeten classificar en categories i enllaçar coses com els vostres cursos favorits, les vostres bitàcoles. o el vostre perfil amb les pròpies paraules vostres.
 Es poden mostrar diferents grups d\'etiquetes amb els enllaços de la línia \'Visualitza:\' , i també podeu reordenar-los amb els enllaços de la línia \'Ordena:\'';
-$string['mycoursetag1'] = 'Mostra les etiquetes del meu curs';
-$string['mycoursetag2'] = 'les etiquetes del meu curs';
 $string['mycoursetags'] = 'Les etiquetes del meu curs:';
 $string['mytags'] = 'Les meves etiquetes:';
-$string['mytags1'] = 'les meves etiquetes';
-$string['mytags2'] = 'Mostra les meves etiquetes personals';
 $string['notagsyet'] = 'Cap etiqueta encara';
-$string['officialtags'] = 'Etiquetes oficials del curs:';
-$string['officialtags1'] = 'etiquetes oficials';
-$string['officialtags2'] = 'Mostra les etiquetes oficials';
 $string['please'] = 'Si us plau';
 $string['pluginname'] = 'Etiquetes';
 $string['select'] = 'Selecciona ...';

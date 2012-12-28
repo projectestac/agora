@@ -85,19 +85,6 @@ class MoodleQuickForm_filepicker extends HTML_QuickForm_input {
     }
 
     /**
-     * Sets help button for filepicker
-     *
-     * @param mixed $helpbuttonargs arguments to create help button
-     * @param string $function name of the callback function
-     * @deprecated since Moodle 2.0. Please do not call this function any more.
-     * @todo MDL-31047 this api will be removed.
-     * @see MoodleQuickForm::setHelpButton()
-     */
-    function setHelpButton($helpbuttonargs, $function='helpbutton') {
-        debugging('component setHelpButton() is not used any more, please use $mform->setHelpButton() instead');
-    }
-
-    /**
      * Returns html for help button.
      *
      * @return string html for help button
@@ -139,9 +126,9 @@ class MoodleQuickForm_filepicker extends HTML_QuickForm_input {
         }
 
         if ($COURSE->id == SITEID) {
-            $context = get_context_instance(CONTEXT_SYSTEM);
+            $context = context_system::instance();
         } else {
-            $context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
+            $context = context_course::instance($COURSE->id);
         }
 
         $client_id = uniqid();
@@ -204,7 +191,7 @@ class MoodleQuickForm_filepicker extends HTML_QuickForm_input {
         // make sure max one file is present and it is not too big
         if (!is_null($draftitemid)) {
             $fs = get_file_storage();
-            $usercontext = get_context_instance(CONTEXT_USER, $USER->id);
+            $usercontext = context_user::instance($USER->id);
             if ($files = $fs->get_area_files($usercontext->id, 'user', 'draft', $draftitemid, 'id DESC', false)) {
                 $file = array_shift($files);
                 if ($this->_options['maxbytes']

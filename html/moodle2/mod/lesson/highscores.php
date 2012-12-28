@@ -47,7 +47,7 @@ if ($link !== 0) {
 }
 $PAGE->set_url($url);
 
-$context = get_context_instance(CONTEXT_MODULE, $cm->id);
+$context = context_module::instance($cm->id);
 
 switch ($mode) {
     case 'add':
@@ -160,7 +160,7 @@ switch ($mode) {
 add_to_log($course->id, 'lesson', 'view highscores', "highscores.php?id=$cm->id", $lesson->name, $cm->id);
 
 $lessonoutput = $PAGE->get_renderer('mod_lesson');
-echo $lessonoutput->header($lesson, $cm, 'highscores');
+echo $lessonoutput->header($lesson, $cm, 'highscores', false, null, get_string('viewhighscores', 'lesson'));
 
 switch ($mode) {
     case 'add':

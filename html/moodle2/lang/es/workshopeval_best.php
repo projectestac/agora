@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshopeval_best', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'workshopeval_best', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   workshopeval_best
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,4 +34,3 @@ $string['comparisonlevel7'] = 'laxa';
 $string['comparisonlevel9'] = 'muy laxa';
 $string['configcomparison'] = 'Valor por defecto del factor que determina la evaluación de las calificaciones.';
 $string['pluginname'] = 'Comparación con la mejor evaluación';
-$string['settings'] = 'Ajustes de la evaluación de las calificaciones';

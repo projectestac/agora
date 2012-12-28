@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_quiz_results', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_quiz_results', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   block_quiz_results
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -47,6 +47,7 @@ $string['error_emptyquizid'] = 'Es liegt ein Fehler bei den Einstellungen für d
 $string['error_emptyquizrecord'] = 'Es ist ein Fehler mit diesem Block aufgetreten: Der ausgewählte Test scheint in der Datenbank nicht vorhanden zu sein.';
 $string['error_nogroupsexist'] = 'Es ist ein Fehler mit diesem Block aufgetreten: Die Ergebnisse sollen im Gruppenmodus angezeigt werden. Im Kurs sind jedoch keine Gruppen eingerichtet worden.';
 $string['pluginname'] = 'Testergebnisse';
+$string['quiz_results:addinstance'] = 'Block \'Testergebnisse\' hinzufügen';
 $string['worstgrade'] = 'Niedrigste Bewertung:';
 $string['worstgrades'] = 'Die {$a} niedrigsten Bewertungen:';
 $string['worstgroupgrade'] = 'Gruppe mit dem niedrigsten Durchschnitt:';

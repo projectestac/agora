@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_afterburner', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'theme_afterburner', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   theme_afterburner
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,3 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['customcss'] = 'CSS personalizado';
 $string['customcssdesc'] = 'Cualquiera que sean las normas CSS que añada a esta caja de texto se reflejarán en todas las páginas, lo que facilita la personalización de este tema.';
+$string['region-side-pre'] = 'Izquierda';

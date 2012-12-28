@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_unsuproles', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'tool_unsuproles', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   tool_unsuproles
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['confirmdelete'] = 'Möchten Sie wirklich alle nichtunterstützten Rollenzuweisungen \'{$a->role}\' im Kontext \'{$a->level}\' löschen?';
+$string['confirmdelete'] = 'Möchten Sie alle nichtunterstützten Zuweisungen zur Rolle \'{$a->role}\' im Kontext \'{$a->level}\' wirklich löschen?';
 $string['contextlevel'] = 'Kontext';
 $string['count'] = 'Zähler';
 $string['noprolbems'] = 'Keine nicht unterstützten Rollenzuweisungen gefunden';

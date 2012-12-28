@@ -32,7 +32,7 @@ $PAGE->set_url('/mod/quiz/index.php', array('id'=>$id));
 if (!$course = $DB->get_record('course', array('id' => $id))) {
     print_error('invalidcourseid');
 }
-$coursecontext = get_context_instance(CONTEXT_COURSE, $id);
+$coursecontext = context_course::instance($id);
 require_login($course);
 $PAGE->set_pagelayout('incourse');
 
@@ -62,7 +62,6 @@ if (!$quizzes = get_all_instances_in_course("quiz", $course)) {
     notice(get_string('thereareno', 'moodle', $strquizzes), "../../course/view.php?id=$course->id");
     die;
 }
-$sections = get_all_sections($course->id);
 
 // Check if we need the closing date header.
 $showclosingheader = false;
@@ -124,7 +123,7 @@ $table->align = $align;
 $currentsection = '';
 foreach ($quizzes as $quiz) {
     $cm = get_coursemodule_from_instance('quiz', $quiz->id);
-    $context = get_context_instance(CONTEXT_MODULE, $cm->id);
+    $context = context_module::instance($cm->id);
     $data = array();
 
     // Section number if necessary.
@@ -132,7 +131,7 @@ foreach ($quizzes as $quiz) {
     if ($quiz->section != $currentsection) {
         if ($quiz->section) {
             $strsection = $quiz->section;
-            $strsection = get_section_name($course, $sections[$quiz->section]);
+            $strsection = get_section_name($course, $quiz->section);
         }
         if ($currentsection) {
             $learningtable->data[] = 'hr';

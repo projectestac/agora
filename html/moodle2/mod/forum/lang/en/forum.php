@@ -23,6 +23,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['activityoverview'] = 'There are new forum posts';
 $string['addanewdiscussion'] = 'Add a new discussion topic';
 $string['addanewquestion'] = 'Add a new question';
 $string['addanewtopic'] = 'Add a new topic';
@@ -155,9 +156,10 @@ $string['forum'] = 'Forum';
 $string['forum:addinstance'] = 'Add a new forum';
 $string['forum:addnews'] = 'Add news';
 $string['forum:addquestion'] = 'Add question';
+$string['forum:allowforcesubscribe'] = 'Allow force subscribe';
 $string['forumauthorhidden'] = 'Author (hidden)';
 $string['forumblockingalmosttoomanyposts'] = 'You are approaching the posting threshold. You have posted {$a->numposts} times in the last {$a->blockperiod} and the limit is {$a->blockafter} posts.';
-$string['forumbodyhidden'] = 'This post cannot be viewed by you, probably because you have not posted in the discussion or the maximum editing time hasn\'t passed yet.';
+$string['forumbodyhidden'] = 'This post cannot be viewed by you, probably because you have not posted in the discussion, the maximum editing time hasn\'t passed yet, the discussion has not started or the discussion has expired.';
 $string['forum:createattachment'] = 'Create attachments';
 $string['forum:deleteanypost'] = 'Delete any posts (anytime)';
 $string['forum:deleteownpost'] = 'Delete own posts (within deadline)';
@@ -178,7 +180,6 @@ $string['forums'] = 'Forums';
 $string['forum:splitdiscussions'] = 'Split discussions';
 $string['forum:startdiscussion'] = 'Start new discussions';
 $string['forumsubjecthidden'] = 'Subject (hidden)';
-$string['forum:throttlingapplies'] = 'Throttling applies';
 $string['forumtracked'] = 'Unread posts are being tracked';
 $string['forumtrackednot'] = 'Unread posts are not being tracked';
 $string['forumtype'] = 'Forum type';

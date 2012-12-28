@@ -117,6 +117,7 @@ class question_engine_data_mapper {
         $record->responsesummary = $qa->get_response_summary();
         $record->timemodified = time();
         $record->id = $this->db->insert_record('question_attempts', $record);
+        $qa->set_database_id($record->id);
 
         foreach ($qa->get_step_iterator() as $seq => $step) {
             $this->insert_question_attempt_step($step, $record->id, $seq, $context);
@@ -1248,7 +1249,7 @@ class question_file_saver {
         global $USER;
 
         $fs = get_file_storage();
-        $usercontext = get_context_instance(CONTEXT_USER, $USER->id);
+        $usercontext = context_user::instance($USER->id);
 
         $files = $fs->get_area_files($usercontext->id, 'user', 'draft',
                 $draftitemid, 'sortorder, filepath, filename', false);

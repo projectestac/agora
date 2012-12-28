@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'workshop', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -36,6 +36,7 @@ $string['allocationdone'] = 'Attribution effectuée';
 $string['allocationerror'] = 'Erreur d\'attribution';
 $string['allsubmissions'] = 'Tous les travaux remis ({$a})';
 $string['alreadygraded'] = 'Déjà noté';
+$string['areaconclusion'] = 'Texte de conclusion';
 $string['areainstructauthors'] = 'Instructions pour la remise des travaux';
 $string['areainstructreviewers'] = 'Instructions pour l\'évaluation des travaux';
 $string['areasubmissionattachment'] = 'Annexes du travail';
@@ -79,13 +80,15 @@ $string['clearaggregatedgrades_help'] = 'Les notes combinées du travail et de l
 $string['clearassessments'] = 'Effacer les évaluations';
 $string['clearassessmentsconfirm'] = 'Voulez-vous vraiment effacer toutes les notes des évaluations ? Vous ne pourrez pas récupérer l\'information par vous-même, et les évaluateurs devront réévaluer les travaux attribués.';
 $string['clearassessments_help'] = 'Les notes calculées pour le travail et les évaluations seront réinitialisées. L\'information sur le remplissage des formulaires d\'évaluation sera conservée, mais tous les évaluateurs devront rouvrir ce formulaire et le réenregistrer pour que le calcul des notes données s\'effectue à nouveau.';
+$string['conclusion'] = 'Conclusion';
+$string['conclusion_help'] = 'La conclusion est un texte affiché aux participants à la fin de leur activité. Vous pouvez fournir un feedback général, un résumé ou des suggestions sur ce qui devrait être fait par la suite (par exemple écrire un article de blog sur leur nouvelle expérience).';
 $string['configexamplesmode'] = 'Mode par défaut pour l\'évaluation des travaux exemplaires des ateliers';
 $string['configgrade'] = 'Note maximale par défaut pour les travaux remis dans les ateliers';
 $string['configgradedecimals'] = 'Nombre de chiffres à afficher par défaut après la virgule lors de l\'affichage des notes.';
 $string['configgradinggrade'] = 'Note maximale par défaut pour les évaluations dans les ateliers';
 $string['configmaxbytes'] = 'Taille maximale par défaut des travaux remis pour tous les ateliers du site (peut être modifié par les limites des cours et d\'autres réglages locaux)';
 $string['configstrategy'] = 'Stratégie d\'évaluation par défaut des ateliers';
-$string['createsubmission'] = 'Remettre travail';
+$string['createsubmission'] = 'Commencer la préparation de votre travail';
 $string['daysago'] = 'il y a {$a} jours';
 $string['daysleft'] = '{$a} jours restants';
 $string['daystoday'] = 'aujourd\'hui';
@@ -102,7 +105,8 @@ $string['err_removegrademappings'] = 'Impossible de supprimer les attributions d
 $string['evaluategradeswait'] = 'Veuillez attendre que les évaluations aient été notées et que les notes soient calculées';
 $string['evaluation'] = 'Notation des évaluations';
 $string['evaluationmethod'] = 'Méthode de notation des évaluations';
-$string['evaluationmethod_help'] = 'La méthode de notation des évaluations détermine comment est calculée la note pour les évaluations données. Il n\'y a actuellement qu\'une possibilité : la comparaison avec la meilleure évaluation.';
+$string['evaluationmethod_help'] = 'La méthode de notation des évaluations détermine comment est calculée la note pour les évaluations données. Vous pouvez la faire recalculer les notes à plusieurs reprises avec différents réglages tant que le résultat ne vous satisfait pas.';
+$string['evaluationsettings'] = 'Réglages de la notation des évaluations';
 $string['example'] = 'Travail exemplaire';
 $string['exampleadd'] = 'Ajouter travail exemplaire';
 $string['exampleassess'] = 'Évaluer travail exemplaire';
@@ -157,6 +161,7 @@ $string['latesubmissionsallowed'] = 'Les travaux remis en retard sont autorisés
 $string['latesubmissions_desc'] = 'Autoriser la remise des travaux après le délai';
 $string['latesubmissions_help'] = 'Si ce réglage est activé, les participants peuvent remettre leur travail après le délai fixé ou durant la phase d\'évaluation. Les travaux remis en retard ne pourront en revanche pas être modifiés.';
 $string['maxbytes'] = 'Taille maximale des fichiers';
+$string['miscellaneoussettings'] = 'Réglages divers';
 $string['modulename'] = 'Atelier';
 $string['modulename_help'] = 'Le module d\'activité atelier permet la récolte, la lecture et l\'évaluation par les pairs de travaux de participants.
 
@@ -254,6 +259,7 @@ $string['switchphase50info'] = 'Vous allez fermer cet atelier. Ceci permettra au
 $string['taskassesspeers'] = 'Évaluer vos pairs';
 $string['taskassesspeersdetails'] = 'total : {$a->total}<br />restant : {$a->todo}';
 $string['taskassessself'] = 'Vous évaluer vous-même';
+$string['taskconclusion'] = 'Fournir une conclusion à l\'activité';
 $string['taskinstructauthors'] = 'Fournir des instructions pour la remise des travaux';
 $string['taskinstructreviewers'] = 'Fournir des instructions pour l\'évaluation';
 $string['taskintro'] = 'Fournir un texte d\'introduction pour l\'atelier';
@@ -288,11 +294,12 @@ $string['workshop:publishsubmissions'] = 'Publier les travaux remis';
 $string['workshop:submit'] = 'Remettre un travails';
 $string['workshop:switchphase'] = 'Changer de phase';
 $string['workshop:view'] = 'Consulter les ateliers';
-$string['workshop:viewallassessments'] = 'Voir toutes les évaluaitons';
+$string['workshop:viewallassessments'] = 'Voir toutes les évaluations';
 $string['workshop:viewallsubmissions'] = 'Voir tous les travaux remis';
 $string['workshop:viewauthornames'] = 'Voir les noms des auteurs';
 $string['workshop:viewauthorpublished'] = 'Afficher les auteurs des travaux publiés';
 $string['workshop:viewpublishedsubmissions'] = 'Voir les travaux remis publiés';
 $string['workshop:viewreviewernames'] = 'Voir les noms des évaluateurs';
 $string['yourassessment'] = 'Votre évaluation';
+$string['yourgrades'] = 'Vos notes';
 $string['yoursubmission'] = 'Votre travail remis';

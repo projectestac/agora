@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_social_activities', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_social_activities', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   block_social_activities
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Actividades sociales';
+$string['social_activities:addinstance'] = 'Añadir un nuevo bloque de actividades sociales';

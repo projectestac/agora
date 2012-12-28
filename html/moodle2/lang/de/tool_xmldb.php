@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_xmldb', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'tool_xmldb', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   tool_xmldb
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -77,6 +77,7 @@ $string['down'] = 'Nach unten';
 $string['duplicate'] = 'Kopieren';
 $string['duplicatefieldname'] = 'Es existiert bereits ein anderes Feld mit diesem Namen';
 $string['duplicatefieldsused'] = 'Verwendete Felder duplizieren';
+$string['duplicateindexname'] = 'Doppelter Indexname';
 $string['duplicatekeyname'] = 'Es existiert bereits ein anderer Schlüssel mit diesem Namen';
 $string['duplicatetablename'] = 'Es existiert bereits eine andere Tabelle mit diesem Namen';
 $string['edit'] = 'Bearbeiten';
@@ -108,10 +109,12 @@ $string['generate_all_documentation'] = 'Gesamte Dokumentation';
 $string['generate_documentation'] = 'Dokumentation';
 $string['gotolastused'] = 'Zur zuletzt genutzten Datei';
 $string['incorrectfieldname'] = 'Falscher Name';
+$string['incorrectindexname'] = 'Falscher Indexname';
 $string['incorrectkeyname'] = 'Falsche Key Bezeichnung';
 $string['incorrecttablename'] = 'Falscher Tabellenname';
 $string['index'] = 'Index';
 $string['indexes'] = 'Indizes';
+$string['indexnameempty'] = 'Indexname ist leer';
 $string['integerincorrectlength'] = 'Falsche Feldlänge (integer)';
 $string['key'] = 'Schlüssel';
 $string['keynameempty'] = 'Die Key Bezeichnung darf nicht leer bleiben';

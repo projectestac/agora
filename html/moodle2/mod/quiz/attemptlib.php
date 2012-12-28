@@ -87,7 +87,7 @@ class quiz {
         $this->quiz->cmid = $this->cm->id;
         $this->course = $course;
         if ($getcontext && !empty($cm->id)) {
-            $this->context = get_context_instance(CONTEXT_MODULE, $cm->id);
+            $this->context = context_module::instance($cm->id);
         }
         $questionids = quiz_questions_in_quiz($this->quiz->questions);
         if ($questionids) {
@@ -441,9 +441,19 @@ class quiz_attempt {
     protected $quizobj;
     protected $attempt;
 
-    // More details of what happened for each question.
+    /** @var question_usage_by_activity the question usage for this quiz attempt. */
     protected $quba;
-    protected $pagelayout; // Array page no => array of numbers on the page in order.
+
+    /** @var array page no => array of slot numbers on the page in order. */
+    protected $pagelayout;
+
+    /** @var array slot => displayed question number for this slot. (E.g. 1, 2, 3 or 'i'.) */
+    protected $questionnumbers;
+
+    /** @var array slot => page number for this slot. */
+    protected $questionpages;
+
+    /** @var mod_quiz_display_options cache for the appropriate review options. */
     protected $reviewoptions = null;
 
     // Constructor =============================================================
@@ -545,12 +555,12 @@ class quiz_attempt {
             foreach ($slots as $slot) {
                 $question = $this->quba->get_question($slot);
                 if ($question->length > 0) {
-                    $question->_number = $number;
+                    $this->questionnumbers[$slot] = $number;
                     $number += $question->length;
                 } else {
-                    $question->_number = get_string('infoshort', 'quiz');
+                    $this->questionnumbers[$slot] = get_string('infoshort', 'quiz');
                 }
-                $question->_page = $page;
+                $this->questionpages[$slot] = $page;
             }
         }
     }
@@ -906,16 +916,20 @@ class quiz_attempt {
     }
 
     /**
-     * Return the grade obtained on a particular question, if the user is permitted
-     * to see it. You must previously have called load_question_states to load the
-     * state data about this question.
-     *
      * @param int $slot the number used to identify this question within this attempt.
-     * @return string the formatted grade, to the number of decimal places specified
-     *      by the quiz.
+     * @return string the displayed question number for the question in this slot.
+     *      For example '1', '2', '3' or 'i'.
      */
     public function get_question_number($slot) {
-        return $this->quba->get_question($slot)->_number;
+        return $this->questionnumbers[$slot];
+    }
+
+    /**
+     * @param int $slot the number used to identify this question within this attempt.
+     * @return int the page of the quiz this question appears on.
+     */
+    public function get_question_page($slot) {
+        return $this->questionpages[$slot];
     }
 
     /**
@@ -988,12 +1002,13 @@ class quiz_attempt {
      * @return int|false the number of seconds remaining for this attempt.
      *      False if there is no limit.
      */
-    public function get_time_left($timenow) {
+    public function get_time_left_display($timenow) {
         if ($this->attempt->state != self::IN_PROGRESS) {
             return false;
         }
-        return $this->get_access_manager($timenow)->get_time_left($this->attempt, $timenow);
+        return $this->get_access_manager($timenow)->get_time_left_display($this->attempt, $timenow);
     }
+
 
     /**
      * @return int the time when this attempt was submitted. 0 if it has not been
@@ -1047,7 +1062,7 @@ class quiz_attempt {
      */
     public function start_attempt_url($slot = null, $page = -1) {
         if ($page == -1 && !is_null($slot)) {
-            $page = $this->quba->get_question($slot)->_page;
+            $page = $this->get_question_page($slot);
         } else {
             $page = 0;
         }
@@ -1162,7 +1177,7 @@ class quiz_attempt {
     public function render_question($slot, $reviewing, $thispageurl = null) {
         return $this->quba->render_question($slot,
                 $this->get_display_options_with_edit_link($reviewing, $slot, $thispageurl),
-                $this->quba->get_question($slot)->_number);
+                $this->get_question_number($slot));
     }
 
     /**
@@ -1178,7 +1193,7 @@ class quiz_attempt {
     public function render_question_at_step($slot, $seq, $reviewing, $thispageurl = '') {
         return $this->quba->render_question_at_step($slot, $seq,
                 $this->get_display_options($reviewing),
-                $this->quba->get_question($slot)->_number);
+                $this->get_question_number($slot));
     }
 
     /**
@@ -1191,7 +1206,7 @@ class quiz_attempt {
         $options->hide_all_feedback();
         $options->manualcomment = question_display_options::EDITABLE;
         return $this->quba->render_question($slot, $options,
-                $this->quba->get_question($slot)->_number);
+                $this->get_question_number($slot));
     }
 
     /**
@@ -1255,30 +1270,39 @@ class quiz_attempt {
 
     /**
      * Check this attempt, to see if there are any state transitions that should
-     * happen automatically.
+     * happen automatically.  This function will update the attempt checkstatetime.
      * @param int $timestamp the timestamp that should be stored as the modifed
      * @param bool $studentisonline is the student currently interacting with Moodle?
      */
     public function handle_if_time_expired($timestamp, $studentisonline) {
         global $DB;
 
-        $timeleft = $this->get_access_manager($timestamp)->get_time_left($this->attempt, $timestamp);
+        $timeclose = $this->get_access_manager($timestamp)->get_end_time($this->attempt);
 
-        if ($timeleft === false || $timeleft > 0) {
+        if ($timeclose === false || $this->is_preview()) {
+            $this->update_timecheckstate(null);
+            return; // No time limit
+        }
+        if ($timestamp < $timeclose) {
+            $this->update_timecheckstate($timeclose);
             return; // Time has not yet expired.
         }
 
         // If the attempt is already overdue, look to see if it should be abandoned ...
         if ($this->attempt->state == self::OVERDUE) {
-            $timeoverdue = -$timeleft;
-            if ($timeoverdue > $this->quizobj->get_quiz()->graceperiod) {
+            $timeoverdue = $timestamp - $timeclose;
+            $graceperiod = $this->quizobj->get_quiz()->graceperiod;
+            if ($timeoverdue >= $graceperiod) {
                 $this->process_abandon($timestamp, $studentisonline);
+            } else {
+                // Overdue time has not yet expired
+                $this->update_timecheckstate($timeclose + $graceperiod);
             }
-
             return; // ... and we are done.
         }
 
         if ($this->attempt->state != self::IN_PROGRESS) {
+            $this->update_timecheckstate(null);
             return; // Attempt is already in a final state.
         }
 
@@ -1297,6 +1321,10 @@ class quiz_attempt {
                 $this->process_abandon($timestamp, $studentisonline);
                 return;
         }
+
+        // This is an overdue attempt with no overdue handling defined, so just abandon.
+        $this->process_abandon($timestamp, $studentisonline);
+        return;
     }
 
     /**
@@ -1359,6 +1387,7 @@ class quiz_attempt {
         $this->attempt->timefinish = $timestamp;
         $this->attempt->sumgrades = $this->quba->get_total_mark();
         $this->attempt->state = self::FINISHED;
+        $this->attempt->timecheckstate = null;
         $DB->update_record('quiz_attempts', $this->attempt);
 
         if (!$this->is_preview()) {
@@ -1375,6 +1404,18 @@ class quiz_attempt {
     }
 
     /**
+     * Update this attempt timecheckstate if necessary.
+     * @param int|null the timecheckstate
+     */
+    public function update_timecheckstate($time) {
+        global $DB;
+        if ($this->attempt->timecheckstate !== $time) {
+            $this->attempt->timecheckstate = $time;
+            $DB->set_field('quiz_attempts', 'timecheckstate', $time, array('id'=>$this->attempt->id));
+        }
+    }
+
+    /**
      * Mark this attempt as now overdue.
      * @param int $timestamp the time to deem as now.
      * @param bool $studentisonline is the student currently interacting with Moodle?
@@ -1385,6 +1426,9 @@ class quiz_attempt {
         $transaction = $DB->start_delegated_transaction();
         $this->attempt->timemodified = $timestamp;
         $this->attempt->state = self::OVERDUE;
+        // If we knew the attempt close time, we could compute when the graceperiod ends.
+        // Instead we'll just fix it up through cron.
+        $this->attempt->timecheckstate = $timestamp;
         $DB->update_record('quiz_attempts', $this->attempt);
 
         $this->fire_state_transition_event('quiz_attempt_overdue', $timestamp);
@@ -1403,6 +1447,7 @@ class quiz_attempt {
         $transaction = $DB->start_delegated_transaction();
         $this->attempt->timemodified = $timestamp;
         $this->attempt->state = self::ABANDONED;
+        $this->attempt->timecheckstate = null;
         $DB->update_record('quiz_attempts', $this->attempt);
 
         $this->fire_state_transition_event('quiz_attempt_abandoned', $timestamp);
@@ -1483,7 +1528,7 @@ class quiz_attempt {
         // Fix up $page.
         if ($page == -1) {
             if (!is_null($slot) && !$showall) {
-                $page = $this->quba->get_question($slot)->_page;
+                $page = $this->get_question_page($slot);
             } else {
                 $page = 0;
             }
@@ -1574,14 +1619,14 @@ abstract class quiz_nav_panel_base {
 
             $button = new quiz_nav_question_button();
             $button->id          = 'quiznavbutton' . $slot;
-            $button->number      = $qa->get_question()->_number;
+            $button->number      = $this->attemptobj->get_question_number($slot);
             $button->stateclass  = $qa->get_state_class($showcorrectness);
             $button->navmethod   = $this->attemptobj->get_navigation_method();
             if (!$showcorrectness && $button->stateclass == 'notanswered') {
                 $button->stateclass = 'complete';
             }
             $button->statestring = $this->get_state_string($qa, $showcorrectness);
-            $button->currentpage = $qa->get_question()->_page == $this->page;
+            $button->currentpage = $this->attemptobj->get_question_page($slot) == $this->page;
             $button->flagged     = $qa->is_flagged();
             $button->url         = $this->get_question_url($slot);
             $buttons[] = $button;
@@ -1687,7 +1732,7 @@ class quiz_review_nav_panel extends quiz_nav_panel_base {
                         get_string('showall', 'quiz'));
             }
         }
-        $html .= $output->finish_review_link($this->attemptobj->view_url());
+        $html .= $output->finish_review_link($this->attemptobj);
         $html .= $this->render_restart_preview_link($output);
         return $html;
     }

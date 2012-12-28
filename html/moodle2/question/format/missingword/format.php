@@ -89,7 +89,7 @@ class qformat_missingword extends qformat_default {
 
         /// Save the new question text
         $question->questiontext = substr_replace($text, "_____", $answerstart, $answerlength+1);
-        $question->name = $question->questiontext;
+        $question->name = $this->create_default_question_name($question->questiontext, get_string('questionname', 'question'));
 
 
         /// Parse the answers
@@ -112,7 +112,7 @@ class qformat_missingword extends qformat_default {
                 return false;
 
             case 1:
-                $question->qtype = SHORTANSWER;
+                $question->qtype = 'shortanswer';
 
                 $answer = trim($answers[0]);
                 if ($answer[0] == "=") {
@@ -125,7 +125,7 @@ class qformat_missingword extends qformat_default {
                 return $question;
 
             default:
-                $question->qtype = MULTICHOICE;
+                $question->qtype = 'multichoice';
 
                 foreach ($answers as $key => $answer) {
                     $answer = trim($answer);

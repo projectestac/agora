@@ -59,7 +59,7 @@ class autogroup_form extends moodleform {
             $mform->setDefault('roleid', $student->id);
         }
 
-        $context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
+        $context = context_course::instance($COURSE->id);
         if (has_capability('moodle/cohort:view', $context)) {
             $options = cohort_get_visible_list($COURSE);
             if ($options) {
@@ -102,7 +102,7 @@ class autogroup_form extends moodleform {
         $mform->addElement('text', 'namingscheme', get_string('namingscheme', 'group'));
         $mform->addHelpButton('namingscheme', 'namingscheme', 'group');
         $mform->addRule('namingscheme', get_string('required'), 'required', null, 'client');
-        $mform->setType('namingscheme', PARAM_MULTILANG);
+        $mform->setType('namingscheme', PARAM_TEXT);
         // there must not be duplicate group names in course
         $template = get_string('grouptemplate', 'group');
         $gname = groups_parse_name($template, 0);
@@ -123,7 +123,7 @@ class autogroup_form extends moodleform {
         }
 
         $mform->addElement('text', 'groupingname', get_string('groupingname', 'group'), $options);
-        $mform->setType('groupingname', PARAM_MULTILANG);
+        $mform->setType('groupingname', PARAM_TEXT);
         $mform->disabledIf('groupingname', 'grouping', 'noteq', '-1');
 
         $mform->addElement('hidden','courseid');

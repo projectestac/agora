@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'survey', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'survey', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   survey
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -195,9 +195,7 @@ $string['invalidsurveyid'] = 'L\'ID de l\'enquesta és incorrecte';
 $string['invalidtmptid'] = 'L\'ID de la plantilla és invàlid';
 $string['ipreferthat'] = 'Prefereixo això';
 $string['modulename'] = 'Enquesta';
-$string['modulename_help'] = 'L\'activitat d\'enquesta proporciona tres tipus d\'instruments verificats que s\'han trobat útils per avaluar i estimular l\'aprenentatge en entorns en línia. El professorat pot utilitzar-los per recopilar dades del seu estudiantat que poden ajudar-lo a aprendre sobre les seves classes i reflexionar sobre la pròpia metodologia docent.
-
-Tingueu en compte que aquestes eines d\'enquesta contenen preguntes predefinides. El professorat que vulgui crear la seva pròpia enquesta haurà d\'utilitzar l\'activitat de realimentació.';
+$string['modulename_help'] = 'El mòdul d\'exàmens proporciona tres tipus de instruments per determinar i estimular l\'aprenentatge en ambients en línia. El professor pot utilitzar-los per recopilar dades que poden ajudar-lo a aprendre sobre les seves classes i mostren el procés d\'aprenentatge.';
 $string['modulenameplural'] = 'Enquestes';
 $string['name'] = 'Nombre';
 $string['newsurveyresponses'] = 'Noves respostes a l’enquesta';

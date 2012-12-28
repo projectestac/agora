@@ -64,12 +64,15 @@ class assignment_upload extends assignment_base {
 
         if (is_enrolled($this->context, $USER)) {
             if ($submission = $this->get_submission($USER->id)) {
+                if ($submission->timemarked) {
+                    $this->view_feedback($submission);
+                }
+
                 $filecount = $this->count_user_files($submission->id);
             } else {
                 $filecount = 0;
             }
             if ($cansubmit or !empty($filecount)) { //if a user has submitted files using a previous role we should still show the files
-                $this->view_feedback();
 
                 if (!$this->drafts_tracked() or !$this->isopen() or $this->is_finalized($submission)) {
                     echo $OUTPUT->heading(get_string('submission', 'assignment'), 3);
@@ -100,99 +103,24 @@ class assignment_upload extends assignment_base {
         $this->view_footer();
     }
 
-
-    function view_feedback($submission=NULL) {
-        global $USER, $CFG, $DB, $OUTPUT, $PAGE;
-        require_once($CFG->libdir.'/gradelib.php');
-        require_once("$CFG->dirroot/grade/grading/lib.php");
-
-        if (!$submission) { /// Get submission for this assignment
-            $userid = $USER->id;
-            $submission = $this->get_submission($userid);
-        } else {
-            $userid = $submission->userid;
+    /**
+     * Display the response file to the student
+     *
+     * This default method prints the response file
+     *
+     * @param object $submission The submission object
+     */
+    function view_responsefile($submission) {
+        $fs = get_file_storage();
+        $noresponsefiles = $fs->is_area_empty($this->context->id, 'mod_assignment', 'response', $submission->id);
+        if (!$noresponsefiles) {
+            echo '<tr>';
+            echo '<td class="left side">&nbsp;</td>';
+            echo '<td class="content">';
+            echo $this->print_responsefiles($submission->userid);
+            echo '</td></tr>';
         }
-
-        // Check the user can submit
-        $canviewfeedback = ($userid == $USER->id && has_capability('mod/assignment:submit', $this->context, $USER->id, false));
-        // If not then check if the user still has the view cap and has a previous submission
-        $canviewfeedback = $canviewfeedback || (!empty($submission) && $submission->userid == $USER->id && has_capability('mod/assignment:view', $this->context));
-        // Or if user can grade (is a teacher or admin)
-        $canviewfeedback = $canviewfeedback || has_capability('mod/assignment:grade', $this->context);
-
-        if (!$canviewfeedback) {
-            // can not view or submit assignments -> no feedback
-            return;
-        }
-
-        $grading_info = grade_get_grades($this->course->id, 'mod', 'assignment', $this->assignment->id, $userid);
-        $item = $grading_info->items[0];
-        $grade = $item->grades[$userid];
-
-        if ($grade->hidden or $grade->grade === false) { // hidden or error
-            return;
-        }
-
-        if ($grade->grade === null and empty($grade->str_feedback)) {   // No grade to show yet
-            if ($this->count_responsefiles($userid)) {   // but possibly response files are present
-                echo $OUTPUT->heading(get_string('responsefiles', 'assignment'), 3);
-                $responsefiles = $this->print_responsefiles($userid, true);
-                echo $OUTPUT->box($responsefiles, 'generalbox boxaligncenter');
-            }
-            return;
-        }
-
-        $graded_date = $grade->dategraded;
-        $graded_by   = $grade->usermodified;
-
-    /// We need the teacher info
-        if (!$teacher = $DB->get_record('user', array('id'=>$graded_by))) {
-            print_error('cannotfindteacher');
-        }
-
-    /// Print the feedback
-        echo $OUTPUT->heading(get_string('submissionfeedback', 'assignment'), 3);
-
-        echo '<table cellspacing="0" class="feedback">';
-
-        echo '<tr>';
-        echo '<td class="left picture">';
-        echo $OUTPUT->user_picture($teacher);
-        echo '</td>';
-        echo '<td class="topic">';
-        echo '<div class="from">';
-        echo '<div class="fullname">'.fullname($teacher).'</div>';
-        echo '<div class="time">'.userdate($graded_date).'</div>';
-        echo '</div>';
-        echo '</td>';
-        echo '</tr>';
-
-        echo '<tr>';
-        echo '<td class="left side">&nbsp;</td>';
-        echo '<td class="content">';
-        $gradestr = '<div class="grade">'. get_string("grade").': '.$grade->str_long_grade. '</div>';
-        if (!empty($submission) && $controller = get_grading_manager($this->context, 'mod_assignment', 'submission')->get_active_controller()) {
-            $controller->set_grade_range(make_grades_menu($this->assignment->grade));
-            echo $controller->render_grade($PAGE, $submission->id, $item, $gradestr, has_capability('mod/assignment:grade', $this->context));
-        } else {
-            echo $gradestr;
-        }
-        echo '<div class="clearer"></div>';
-
-        echo '<div class="comment">';
-        echo $grade->str_feedback;
-        echo '</div>';
-        echo '</tr>';
-
-        echo '<tr>';
-        echo '<td class="left side">&nbsp;</td>';
-        echo '<td class="content">';
-        echo $this->print_responsefiles($userid, true);
-        echo '</tr>';
-
-        echo '</table>';
     }
-
 
     function view_upload_form() {
         global $CFG, $USER, $OUTPUT;
@@ -405,7 +333,7 @@ class assignment_upload extends assignment_base {
         global $DB;
 
         // Grab the context assocated with our course module
-        $context = get_context_instance(CONTEXT_MODULE, $this->cm->id);
+        $context = context_module::instance($this->cm->id);
 
         // Get ids of users enrolled in the given course.
         list($enroledsql, $params) = get_enrolled_sql($context, 'mod/assignment:view', $groupid);
@@ -427,18 +355,9 @@ class assignment_upload extends assignment_base {
     }
 
     function print_responsefiles($userid, $return=false) {
-        global $CFG, $USER, $OUTPUT, $PAGE;
-
-        $mode    = optional_param('mode', '', PARAM_ALPHA);
-        $offset  = optional_param('offset', 0, PARAM_INT);
+        global $OUTPUT, $PAGE;
 
         $output = $OUTPUT->box_start('responsefiles');
-
-        $candelete = $this->can_manage_responsefiles();
-        $strdelete   = get_string('delete');
-
-        $fs = get_file_storage();
-        $browser = get_file_browser();
 
         if ($submission = $this->get_submission($userid)) {
             $renderer = $PAGE->get_renderer('mod_assignment');
@@ -1081,8 +1000,8 @@ class assignment_upload extends assignment_base {
         $mform->addHelpButton('var4', 'trackdrafts', 'assignment');
         $mform->setDefault('var4', 1);
 
-        $course_context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
-        plagiarism_get_form_elements_module($mform, $course_context);
+        $course_context = context_course::instance($COURSE->id);
+        plagiarism_get_form_elements_module($mform, $course_context, 'mod_assignment');
     }
 
     function portfolio_exportable() {
@@ -1164,9 +1083,9 @@ class assignment_upload extends assignment_base {
         }
         $filename = str_replace(' ', '_', clean_filename($this->course->shortname.'-'.$this->assignment->name.'-'.$groupname.$this->assignment->id.".zip")); //name of new zip file.
         foreach ($submissions as $submission) {
-            // If assignment is open and submission is not finalized then don't add it to zip.
+            // If assignment is open and submission is not finalized and marking button enabled then don't add it to zip.
             $submissionstatus = $this->is_finalized($submission);
-            if ($this->isopen() && empty($submissionstatus)) {
+            if ($this->isopen() && empty($submissionstatus) && !empty($this->assignment->var4)) {
                 continue;
             }
             $a_userid = $submission->userid; //get userid

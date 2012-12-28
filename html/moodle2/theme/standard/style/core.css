@@ -92,6 +92,11 @@ table.formtable tbody th {background-color: transparent;background-image: none;}
 
 .mod_introbox {border-color:#DDDDDD;}
 
+.block_navigation .dimmed img,
+.block_site_main_menu .dimmed img,
+.sitetopic .dimmed img.activityicon,
+.path-course-view .dimmed img.activityicon {opacity:0.5;filter: alpha(opacity=50);}
+
 /**
  * Docs
  */
@@ -175,7 +180,6 @@ table.rotateheaders th.header {vertical-align: bottom;}
 #participationreportselector {text-align: center;}
 #participationreportactions {text-align: center;}
 .initialbar {text-align: center;}
-.helplink img {margin: 0 2px;}
 .closewindow,
 .tabledivider {border-width:1px;border-style:solid;border-left:0;border-right:0;border-top:0;}
 .sitetopic {margin-bottom:20px;}
@@ -292,6 +296,7 @@ table#tag-management-list {margin: 10px auto;width: 80%;}
 .navbar .navbutton {margin:5px;}
 .mform fieldset {border-color:#DDD;}
 
+#course-footer, #course-header {margin:0px 10px;}
 /**
  * Tabs
  */
@@ -450,6 +455,7 @@ table#tag-management-list {margin: 10px auto;width: 80%;}
 .portfolio-add-icon {margin-left:5px;}
 
 /* Messaging options */
+#page-message-edit .mform fieldset div.messagesettingcomponent {float: left;}
 #page-message-edit table.generaltable th.c0 {text-align: left;}
 #page-message-edit table.generaltable td.c0 {text-align: right;}
 #page-message-edit table.generaltable td.disallowed {text-align: center;vertical-align:middle;}

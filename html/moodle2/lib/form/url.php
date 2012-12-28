@@ -97,9 +97,9 @@ class MoodleQuickForm_url extends HTML_QuickForm_text{
         $strsaved = get_string('filesaved', 'repository');
         $straddlink = get_string('choosealink', 'repository');
         if ($COURSE->id == SITEID) {
-            $context = get_context_instance(CONTEXT_SYSTEM);
+            $context = context_system::instance();
         } else {
-            $context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
+            $context = context_course::instance($COURSE->id);
         }
         $client_id = uniqid();
 
@@ -125,19 +125,6 @@ EOD;
         $PAGE->requires->js_function_call('show_item', array('filepicker-button-'.$client_id));
 
         return $str;
-    }
-
-    /**
-     * set html for help button
-     *
-     * @param array $helpbuttonargs array of arguments to make a help button
-     * @param string $function function name to call to get html
-     * @deprecated since Moodle 2.0. Please do not call this function any more.
-     * @todo MDL-31047 this api will be removed.
-     * @see MoodleQuickForm::setHelpButton()
-     */
-    function setHelpButton($helpbuttonargs, $function='helpbutton'){
-        debugging('component setHelpButton() is not used any more, please use $mform->setHelpButton() instead');
     }
 
     /**

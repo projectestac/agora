@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'datafield_multimenu', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'datafield_multimenu', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   datafield_multimenu
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

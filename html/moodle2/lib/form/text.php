@@ -65,6 +65,33 @@ class MoodleQuickForm_text extends HTML_QuickForm_text{
     }
 
     /**
+     * Freeze the element so that only its value is returned and set persistantfreeze to false
+     *
+     * @since     2.4
+     * @access    public
+     * @return    void
+     */
+    function freeze()
+    {
+        $this->_flagFrozen = true;
+        // No hidden element is needed refer MDL-30845
+        $this->setPersistantFreeze(false);
+    } //end func freeze
+
+    /**
+     * Returns the html to be used when the element is frozen
+     *
+     * @since     2.4
+     * @return    string Frozen html
+     */
+    function getFrozenHtml()
+    {
+        $attributes = array('readonly' => 'readonly');
+        $this->updateAttributes($attributes);
+        return $this->_getTabs() . '<input' . $this->_getAttrString($this->_attributes) . ' />' . $this->_getPersistantData();
+    } //end func getFrozenHtml
+
+    /**
      * Returns HTML for this form element.
      *
      * @return string
@@ -80,19 +107,6 @@ class MoodleQuickForm_text extends HTML_QuickForm_text{
     }
 
     /**
-     * set html for help button
-     *
-     * @param array $helpbuttonargs array of arguments to make a help button
-     * @param string $function function name to call to get html
-     * @deprecated since Moodle 2.0. Please do not call this function any more.
-     * @todo MDL-31047 this api will be removed.
-     * @see MoodleQuickForm::setHelpButton()
-     */
-    function setHelpButton($helpbuttonargs, $function='helpbutton'){
-        debugging('component setHelpButton() is not used any more, please use $mform->setHelpButton() instead');
-    }
-
-    /**
      * get html for help button
      *
      * @return string html for help button
@@ -101,18 +115,4 @@ class MoodleQuickForm_text extends HTML_QuickForm_text{
         return $this->_helpbutton;
     }
 
-    /**
-     * Slightly different container template when frozen. Don't want to use a label tag
-     * with a for attribute in that case for the element label but instead use a div.
-     * Templates are defined in renderer constructor.
-     *
-     * @return string
-     */
-    function getElementTemplateType(){
-        if ($this->_flagFrozen){
-            return 'static';
-        } else {
-            return 'default';
-        }
-    }
 }

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'feedback', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'feedback', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   feedback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -83,7 +83,7 @@ $string['dropdown_values'] = 'Valores de la lista desplegable';
 $string['drop_feedback'] = 'Eliminar de este curso';
 $string['edit_item'] = 'Editar pregunta';
 $string['edit_items'] = 'Editar preguntas';
-$string['emailnotification'] = 'notificaciones email';
+$string['emailnotification'] = 'Notificaciones email';
 $string['email_notification'] = 'Enviar notificaciones por correo electrónico';
 $string['emailnotification_help'] = 'Si está habilitado, los administradores recibirán notificaciones por correo electrónico de las comunicaciones.';
 $string['emailteachermail'] = '{$a->username} ha terminado y enviado la encuesta: \'{$a->feedback}\'

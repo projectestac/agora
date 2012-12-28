@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_community', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_community', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   block_community
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,6 +37,8 @@ $string['audience_help'] = 'Quel type de cours cherchez-vous ? En plus de cours
 $string['blocks'] = 'Blocs';
 $string['cannotselecttopsubject'] = 'Impossible de sélectionner un sujet de niveau racine ';
 $string['comments'] = 'Commentaires ({$a})';
+$string['community:addinstance'] = 'Ajouter un bloc recherche communauté';
+$string['community:myaddinstance'] = 'Ajouter un bloc recherche communauté à la page Mon Moodle';
 $string['contentinfo'] = 'Sujet : {$a->subject} ; public cible : {$a->audience} ; degré d\'enseignement : {$a->educationallevel}';
 $string['continue'] = 'Continuer';
 $string['contributors'] = '	

@@ -75,7 +75,7 @@ function filter_text($text, $courseid = NULL) {
         $courseid = $COURSE->id;
     }
 
-    if (!$context = get_context_instance(CONTEXT_COURSE, $courseid)) {
+    if (!$context = context_course::instance($courseid, IGNORE_MISSING)) {
         return $text;
     }
 
@@ -312,7 +312,7 @@ function get_teacher() {
  * @return array of user
  */
 function get_course_participants($courseid) {
-    return get_enrolled_users(get_context_instance(CONTEXT_COURSE, $courseid));
+    return get_enrolled_users(context_course::instance($courseid));
 }
 
 /**
@@ -324,7 +324,7 @@ function get_course_participants($courseid) {
  * @return boolean
  */
 function is_course_participant($userid, $courseid) {
-    return is_enrolled(get_context_instance(CONTEXT_COURSE, $courseid), $userid);
+    return is_enrolled(context_course::instance($courseid), $userid);
 }
 
 /**
@@ -341,7 +341,7 @@ function is_course_participant($userid, $courseid) {
 function get_recent_enrolments($courseid, $timestart) {
     global $DB;
 
-    $context = get_context_instance(CONTEXT_COURSE, $courseid);
+    $context = context_course::instance($courseid);
 
     $sql = "SELECT u.id, u.firstname, u.lastname, MAX(l.time)
               FROM {user} u, {role_assignments} ra, {log} l
@@ -859,27 +859,7 @@ function use_html_editor($name='', $editorhidebuttons='', $id='') {
  *      2. and 3. lead to a call $PAGE->requires->js('/lib/javascript-static.js').
  */
 function require_js($lib) {
-    global $CFG, $PAGE;
-    // Add the lib to the list of libs to be loaded, if it isn't already
-    // in the list.
-    if (is_array($lib)) {
-        foreach($lib as $singlelib) {
-            require_js($singlelib);
-        }
-        return;
-    }
-
-    debugging('Call to deprecated function require_js. Please use $PAGE->requires->js_module() instead.', DEBUG_DEVELOPER);
-
-    if (strpos($lib, 'yui_') === 0) {
-        $PAGE->requires->yui2_lib(substr($lib, 4));
-    } else {
-        if ($PAGE->requires->is_head_done()) {
-            echo html_writer::script('', $lib);
-        } else {
-            $PAGE->requires->js(new moodle_url($lib));
-        }
-    }
+    throw new coding_exception('require_js() was removed, use new JS api');
 }
 
 /**
@@ -923,20 +903,6 @@ function current_theme() {
     // TODO, uncomment this once we have eliminated all references to current_theme in core code.
     // debugging('current_theme is deprecated, use $PAGE->theme->name instead', DEBUG_DEVELOPER);
     return $PAGE->theme->name;
-}
-
-/**
- * @todo Remove this deprecated function when no longer used
- * @deprecated since Moodle 2.0 - use $PAGE->pagetype instead of the .
- *
- * @param string $getid used to return $PAGE->pagetype.
- * @param string $getclass used to return $PAGE->legacyclass.
- */
-function page_id_and_class(&$getid, &$getclass) {
-    global $PAGE;
-    debugging('Call to deprecated function page_id_and_class. Please use $PAGE->pagetype instead.', DEBUG_DEVELOPER);
-    $getid = $PAGE->pagetype;
-    $getclass = $PAGE->legacyclass;
 }
 
 /**
@@ -2615,7 +2581,7 @@ function update_module_button($cmid, $ignored, $string) {
 
     //NOTE: DO NOT call new output method because it needs the module name we do not have here!
 
-    if (has_capability('moodle/course:manageactivities', get_context_instance(CONTEXT_MODULE, $cmid))) {
+    if (has_capability('moodle/course:manageactivities', context_module::instance($cmid))) {
         $string = get_string('updatethis', '', $string);
 
         $url = new moodle_url("$CFG->wwwroot/course/mod.php", array('update' => $cmid, 'return' => true, 'sesskey' => sesskey()));
@@ -2941,3 +2907,161 @@ function textlib_get_instance() {
     return new textlib();
 }
 
+/**
+ * Gets the generic section name for a courses section
+ *
+ * The global function is deprecated. Each course format can define their own generic section name
+ *
+ * @deprecated since 2.4
+ * @see get_section_name()
+ * @see format_base::get_section_name()
+ *
+ * @param string $format Course format ID e.g. 'weeks' $course->format
+ * @param stdClass $section Section object from database
+ * @return Display name that the course format prefers, e.g. "Week 2"
+ */
+function get_generic_section_name($format, stdClass $section) {
+    debugging('get_generic_section_name() is deprecated. Please use appropriate functionality from class format_base', DEBUG_DEVELOPER);
+    return get_string('sectionname', "format_$format") . ' ' . $section->section;
+}
+
+/**
+ * Returns an array of sections for the requested course id
+ *
+ * It is usually not recommended to display the list of sections used
+ * in course because the course format may have it's own way to do it.
+ *
+ * If you need to just display the name of the section please call:
+ * get_section_name($course, $section)
+ * {@link get_section_name()}
+ * from 2.4 $section may also be just the field course_sections.section
+ *
+ * If you need the list of all sections it is more efficient to get this data by calling
+ * $modinfo = get_fast_modinfo($courseorid);
+ * $sections = $modinfo->get_section_info_all()
+ * {@link get_fast_modinfo()}
+ * {@link course_modinfo::get_section_info_all()}
+ *
+ * Information about one section (instance of section_info):
+ * get_fast_modinfo($courseorid)->get_sections_info($section)
+ * {@link course_modinfo::get_section_info()}
+ *
+ * @deprecated since 2.4
+ *
+ * @param int $courseid
+ * @return array Array of section_info objects
+ */
+function get_all_sections($courseid) {
+    global $DB;
+    debugging('get_all_sections() is deprecated. See phpdocs for this function', DEBUG_DEVELOPER);
+    return get_fast_modinfo($courseid)->get_section_info_all();
+}
+
+/**
+ * Given a full mod object with section and course already defined, adds this module to that section.
+ *
+ * This function is deprecated, please use {@link course_add_cm_to_section()}
+ * Note that course_add_cm_to_section() also updates field course_modules.section and
+ * calls rebuild_course_cache()
+ *
+ * @deprecated since 2.4
+ *
+ * @param object $mod
+ * @param int $beforemod An existing ID which we will insert the new module before
+ * @return int The course_sections ID where the mod is inserted
+ */
+function add_mod_to_section($mod, $beforemod = null) {
+    debugging('Function add_mod_to_section() is deprecated, please use course_add_cm_to_section()', DEBUG_DEVELOPER);
+    global $DB;
+    return course_add_cm_to_section($mod->course, $mod->coursemodule, $mod->section, $beforemod);
+}
+
+/**
+ * Returns a number of useful structures for course displays
+ *
+ * Function get_all_mods() is deprecated in 2.4
+ * Instead of:
+ * <code>
+ * get_all_mods($courseid, $mods, $modnames, $modnamesplural, $modnamesused);
+ * </code>
+ * please use:
+ * <code>
+ * $mods = get_fast_modinfo($courseorid)->get_cms();
+ * $modnames = get_module_types_names();
+ * $modnamesplural = get_module_types_names(true);
+ * $modnamesused = get_fast_modinfo($courseorid)->get_used_module_names();
+ * </code>
+ *
+ * @deprecated since 2.4
+ *
+ * @param int $courseid id of the course to get info about
+ * @param array $mods (return) list of course modules
+ * @param array $modnames (return) list of names of all module types installed and available
+ * @param array $modnamesplural (return) list of names of all module types installed and available in the plural form
+ * @param array $modnamesused (return) list of names of all module types used in the course
+ */
+function get_all_mods($courseid, &$mods, &$modnames, &$modnamesplural, &$modnamesused) {
+    debugging('Function get_all_mods() is deprecated. Use get_fast_modinfo() and get_module_types_names() instead. See phpdocs for details', DEBUG_DEVELOPER);
+
+    global $COURSE;
+    $modnames      = get_module_types_names();
+    $modnamesplural= get_module_types_names(true);
+    $modinfo = get_fast_modinfo($courseid);
+    $mods = $modinfo->get_cms();
+    $modnamesused = $modinfo->get_used_module_names();
+}
+
+/**
+ * Returns course section - creates new if does not exist yet
+ *
+ * This function is deprecated. To create a course section call:
+ * course_create_sections_if_missing($courseorid, $sections);
+ * to get the section call:
+ * get_fast_modinfo($courseorid)->get_section_info($sectionnum);
+ *
+ * @see course_create_sections_if_missing()
+ * @see get_fast_modinfo()
+ * @deprecated since 2.4
+ *
+ * @param int $section relative section number (field course_sections.section)
+ * @param int $courseid
+ * @return stdClass record from table {course_sections}
+ */
+function get_course_section($section, $courseid) {
+    global $DB;
+    debugging('Function get_course_section() is deprecated. Please use course_create_sections_if_missing() and get_fast_modinfo() instead.', DEBUG_DEVELOPER);
+
+    if ($cw = $DB->get_record("course_sections", array("section"=>$section, "course"=>$courseid))) {
+        return $cw;
+    }
+    $cw = new stdClass();
+    $cw->course   = $courseid;
+    $cw->section  = $section;
+    $cw->summary  = "";
+    $cw->summaryformat = FORMAT_HTML;
+    $cw->sequence = "";
+    $id = $DB->insert_record("course_sections", $cw);
+    rebuild_course_cache($courseid, true);
+    return $DB->get_record("course_sections", array("id"=>$id));
+}
+
+/**
+ * Return the start and end date of the week in Weekly course format
+ *
+ * It is not recommended to use this function outside of format_weeks plugin
+ *
+ * @deprecated since 2.4
+ * @see format_weeks::get_section_dates()
+ *
+ * @param stdClass $section The course_section entry from the DB
+ * @param stdClass $course The course entry from DB
+ * @return stdClass property start for startdate, property end for enddate
+ */
+function format_weeks_get_section_dates($section, $course) {
+    debugging('Function format_weeks_get_section_dates() is deprecated. It is not recommended to'.
+            ' use it outside of format_weeks plugin', DEBUG_DEVELOPER);
+    if (isset($course->format) && $course->format === 'weeks') {
+        return course_get_format($course)->get_section_dates($section);
+    }
+    return null;
+}

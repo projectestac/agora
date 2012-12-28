@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qtype_numerical', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['acceptederror'] = 'Akzeptierter Fehler';
 $string['addmoreanswerblanks'] = 'Leerfelder für {no} weitere Antworten';
 $string['addmoreunitblanks'] = 'Leerfelder für {no} weitere Abschnitte';
+$string['answercolon'] = 'Antwort:';
 $string['answermustbenumberorstar'] = 'Die Antwort muss eine Zahl, z.B. -1,234 or 3e8, oder \'*\' sein.';
 $string['answerno'] = 'Antwort {$a}';
 $string['decfractionofquestiongrade'] = 'als Dezimalbruch (0-1) der Fragebewertung';

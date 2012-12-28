@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_random', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_glossary_random', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   block_glossary_random
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,8 @@ $string['addentry'] = 'Ajouter vos citations préférées !';
 $string['askaddentry'] = 'Quand les utilisateurs peuvent ajouter des articles dans le glossaire, afficher un lien avec ce texte ';
 $string['askinvisible'] = 'Quand les utilisateurs ne peuvent ni voir, ni modifier le glossaire, afficher ce texte (sans lien) ';
 $string['askviewglossary'] = 'Quand les utilisateurs peuvent voir le glossaire, mais pas le modifier, afficher un lien avec ce texte ';
+$string['glossary_random:addinstance'] = 'Ajouter un bloc article d\'un glossaire';
+$string['glossary_random:myaddinstance'] = 'Ajouter un bloc article d\'un glossaire à la page Mon Moodle';
 $string['intro'] = 'Assurez-vous que vous disposez dans ce cours d\'au moins un glossaire comprenant au moins un article. Vous pourrez alors modifier les réglages ci-dessous';
 $string['invisible'] = '(suite)';
 $string['lastmodified'] = 'Dernier article modifié';

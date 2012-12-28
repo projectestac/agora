@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qtype_numerical', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,7 +41,7 @@ $string['invalidnumber'] = 'Debes introducir un valor numérico.';
 $string['invalidnumbernounit'] = 'Debes introducir un valor numérico. No incluyas la unidad en la respuesta.';
 $string['invalidnumericanswer'] = 'Una de las respuestas que has introducido no es un número válido.';
 $string['invalidnumerictolerance'] = 'Uno de los valores de tolerancia introducidos no es un número válido.';
-$string['leftexample'] = 'IZQUIERDA como $1.00';
+$string['leftexample'] = 'en la izquierda, como por ejemplo $1.00 o £1.00';
 $string['manynumerical'] = 'Se calificará la RESPUESTA NUMÉRICA + UNIDAD, siendo opcional la última.';
 $string['nominal'] = 'Nominal';
 $string['notenoughanswers'] = 'Debe escribir al menos una respuesta.';

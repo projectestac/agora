@@ -1,6 +1,6 @@
 <?php
 /**
-* $Id: S3.php,v 1.3.8.1 2012/08/02 08:02:49 moodlerobot Exp $
+* $Id$
 *
 * Copyright (c) 2011, Donovan Schönknecht.  All rights reserved.
 *

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_outline', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'report_outline', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   report_outline
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,4 +29,3 @@ $string['outline:view'] = 'Veure informe d\'activitat';
 $string['page-report-outline-index'] = 'Informe esquemàtic del curs';
 $string['page-report-outline-user'] = 'Informe esquemàtic de l\'usuari en el curs';
 $string['page-report-outline-x'] = 'Qualsevol informe esquemàtic';
-$string['pluginname'] = 'Informe d\'activitat';

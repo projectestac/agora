@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'lesson', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,7 +39,7 @@ $string['activitylink_help'] = '<!-- $Id$ -->
 
 <p>Le menu déroulant présente toutes les activités de ce cours. En en choisissant une, un lien vers cette activité apparaîtra à la fin de la leçon.</p>';
 $string['activitylinkname'] = 'Allez à {$a}';
-$string['addabranchtable'] = 'Ajouter une table de contenu';
+$string['addabranchtable'] = 'Ajouter une page de contenu';
 $string['addanendofbranch'] = 'Ajouter une fin de branchement';
 $string['addanewpage'] = 'Ajouter une page';
 $string['addaquestionpage'] = 'Ajouter une page question';
@@ -240,153 +240,8 @@ $string['highscore'] = 'Meilleure note';
 $string['highscores'] = 'Meilleures notes';
 $string['hightime'] = 'Plus longue durée';
 $string['importcount'] = 'Importation de {$a} questions';
-$string['importppt'] = 'Importer un diaporama PowerPoint';
-$string['importppt_help'] = '<!-- $Id$ -->
-
-
-<h2>Avertissement</h2>
-
-<p>Cette fonctionnalité présente des problèmes d\'utilisation importants, qui ont fait l\'objet d\'une longue discussion dans les forums de Moodle. Vous pouvez utilement <a href="http://moodle.org/mod/forum/discuss.php?d=86054">vous y reporter</a>. Il y est notamment suggéré de convertir la présentation au format Flash, à l\'aide d\'outils tels que Speechi, Flashpoint ou OpenOffice.Org. Une autre possibilité évoquée consiste à générer un document PDF à partir de la présentation. Les documents Flash ou PDF ainsi obtenus sont, eux, aisément intégrables dans Moodle.</p>
-
-<h2>Utilisation de l\'importation PowerPoint</h2>
-
-<p>Toutes les diapositives de la présentation PowerPoint sont importées comme des tables de branchement, comportant des boutons Précédent et Suivant.</p>
-
-<ol>
-
-<li>Ouvrez votre présentation PowerPoint.</li>
-
-<li>Enregistrez-la au format HTML (sans option particulière).</li>
-
-<li>Vous obtenez un fichier .htm et un dossier contenant toutes les diapositives converties en pages web.<br />Compressez en ZIP le dossier <b>uniquement</b>.</li>
-
-<li>Rendez-vous sur votre site Moodle et créez une nouvelle leçon.</li>
-
-<li>Après avoir défini les paramètres de la leçon, à la question « Par quoi voulez-vous commencer ? », quatres propositions vous sont faites. Cliquez sur « Importer Powerpoint ».</li>
-
-<li>À l\'aide du bouton « Parcourir » retrouvez le fichier ZIP créé à l\'étape 3. Puis cliquez sur « Déposer ce fichier ».</li>
-
-<li>Si tout s\'est bien déroulé, la page suivante affiche un bouton « Continuer ».</li>
-
-</ol>
-
-<p>Si votre présentation comporte des images, elles sont enregistrées avec les fichiers du cours, dans le dossier moddata/XY, où X représente le nom de votre leçon, et Y est un chiffre (habituellement 0). De même, à l\'occasion de l\'importation, des fichiers sont créés dans le répertoire moodledata, dans un dossier temp/lesson. A priori, ces fichiers ne sont pas supprimés par importppt.php.</p>';
 $string['importquestions'] = 'Importer des questions';
-$string['importquestions_help'] = '<!-- $Id$ -->
-
-
-<p>Cette fonction vous permet d\'importer des questions depuis des fichiers texte externes, déposés dans Moodle à l\'aide d\'un formulaire.</p>
-
-<p>Plusieurs formats de fichier sont supportés :</p>
-
-<h2>Format GIFT</h2>
-
-<div class="indent">
-
-<p>Le format GIFT est le format le plus complet disponible pour l\'importation de questions de tests dans Moodle. Il a été conçu pour permettre aux enseignants d\'écrire facilement des questions dans un fichier texte. Il supporte les questions à Choix multiples, Vrai-Faux, à Réponse courte, d\'Appariement, Numériques, ainsi que l\'insertion de _____ pour le format Mot manquant. Ces différents types de questions peuvent être mélangés dans un même fichier texte, et le format permet en outre des lignes de commentaires, des noms pour les questions, les feedbacks et les notes pondérées (en %). Voici quelques exemples :</p>
-
-<pre>
-Quelle était la couleur de la jument blanche de Napoléon ?{~Verte ~Noire =Blanche}
-
-La monture de Napoléon était {=une jument ~un étalon ~un mulet}.
-
-La jument de Napoléon était verte.{FALSE}
-
-Quelle était la nationalité de Napoléon ?{=Corse =Française}
-
-En quelle année Napoléon est-il mort ?{#1821}
-</pre>
-
-<p class="moreinfo"><a href="help.php?file=formatgift.html&amp;module=quiz">Plus d\'informations sur le format GIFT</a></p>
-
-</div>
-
-<h2>Format Aiken</h2>
-
-<div class="indent">
-
-<p>Le format Aiken fournit une manière très simple de créer des questions à choix multiples dans un format facile à lire. Voici un exemple de ce format :</p>
-
-<pre>
-Quelle est la réponse correcte à cette question ?
-A. Celle-ci ?
-B. Peut-être cette réponse ?
-C. Ou celle-ci ?
-D. Voilà la bonne !
-ANSWER: D
-</pre>
-
-<p class="moreinfo"><a href="help.php?file=formataiken.html&amp;module=quiz">Plus d\'informations sur le format Aiken</a></p>
-
-</div>
-
-<h2>Format « Mots manquants »</h2>
-
-<div class="indent">
-
-<p>Ce format ne supporte que les questions à choix multiples. Chaque réponse proposée est préfixée par un tilde (~), et la réponse correcte est préfixée par un signe égal (=). Voici un exemple :</p>
-
-<div class="indent">
-
-<p>Dès le moment où, enfants, nous explorons notre corps, nous devenons des étudiants en {=anatomie et physiologie ~réflexologie ~science ~expérimentation}, et dans un sens nous restons des étudiants pour toute notre vie.</p>
-
-</div>
-
-<p class="moreinfo"><a href="help.php?file=formatmissingword.html&amp;module=quiz">Plus d\'informations sur le format « Mots manquants »</a></p>
-
-</div>
-
-<h2>Format AON</h2>
-
-<div class="indent">
-
-<p>Ce format est identique au format « Mots manquants », mais lors de l\'importation, les questions à réponse courte sont 4 par 4 converties en questions d\'appariement.</p>
-
-<p>En outre, les réponses sont mélangées aléatoirement durant l\'importation.</p>
-
-<p>Le nom de ce format provient de l\'institution qui a parrainé le développement de nombreuses fonctionnalité des tests.</p>
-
-</div>
-
-<h2>Format Blackboard</h2>
-
-<div class="indent">
-
-<p>Les questions exportées en format Blackboard peuvent également être importées, grâce aux fonctions XML intégrées dans PHP.</p>
-
-<p class="moreinfo"><a href="help.php?file=formatblackboard.html&amp;module=quiz">Plus d\'informations sur le format Blackboard</a></p>
-
-</div>
-
-<h2>Format CTM (Course Test Manager)</h2>
-
-<div class="indent">
-
-<p>Les questions en format CTM peuvent également être importées, pour autant que votre Moodle puisse avoir accès à la base de données Access qui les contient. La procédure d\'importation dépend du serveur sur lequel tourne votre Moodle.</p>
-
-<p>Sous Windows, la base Access peut être directement importée comme n\'importe quelle autre fichier.</p>
-
-<p>Avec Linux, vous devez configurer dans le même réseau que votre serveur un ordinateur Windows avec la base de données CTM et le logiciel ODBC Socket Server, qui utilisera XML pour transférer les données sur le moodle de votre serveur Linux.</p>
-
-<p>Veuillez SVP lire attentivement le fichier d\'aide ci-dessous avant d\'utiliser cette importation.</p>
-
-<p class="moreinfo"><a href="help.php?file=formatctm.html&amp;module=quiz">Plus d\'informations sur le format CTM</a></p>
-
-</div>
-
-<h2>Format personnalisé</h2>
-
-<div class="indent">
-
-<p>Si vous désirez importer votre propre format, vous pouvez l\'implémenter directement en modifiant le fichier mod/quiz/format/custom.php.</p>
-
-<p>Il y a peu de code à écrire, juste de quoi extraire une simple question à partir d\'un texte donné.</p>
-
-<p class="moreinfo"><a href="help.php?file=formatcustom.html&amp;module=quiz">Plus d\'informations sur le format personnalisé.</a></p>
-
-</div>
-
-<p>D\'autres formats seront bientôt disponibles pour l\'importation, notamment WebCT, IMS QTI et tout ceux que les utilisateurs de Moodle pourront apporter !</p>';
+$string['importquestions_help'] = 'Cette fonctionnalité permet d\'importer des questions de divers formats à partir de fichiers texte.';
 $string['insertedpage'] = 'Page insérée';
 $string['invalidfile'] = 'Fichier non valide';
 $string['invalidid'] = 'Aucun identifiant de cours ou de leçon n\'a été fourni';
@@ -398,6 +253,7 @@ $string['jumps_help'] = 'Chaque réponse (pour les questions) ou description (po
 $string['jumpsto'] = 'Saute vers <em>{$a}</em>';
 $string['leftduringtimed'] = 'Vous avez quitté une leçon à durée limitée.<br />Veuillez cliquer sur Continuer pour recommencer cette leçon.';
 $string['leftduringtimednoretake'] = 'Vous avez quitté une leçon à durée limitée et vous n\'êtes<br />pas autorisé à la recommencer ou la continuer.';
+$string['leftduringtimedsession'] = 'Vous avez interrompu une leçon chronométrée.';
 $string['lesson:addinstance'] = 'Ajouter une leçon';
 $string['lessonattempted'] = 'Leçon effectuée';
 $string['lessonclosed'] = 'Cette leçon n\'est plus disponible depuis {$a}.';
@@ -590,7 +446,6 @@ $string['pluginname'] = 'Leçon';
 $string['pointsearned'] = 'Points reçus';
 $string['postprocesserror'] = 'Erreur lors du post-traitement !';
 $string['postsuccess'] = 'Message envoyé avec succès';
-$string['pptsuccessfullimport'] = 'Pages correctement importées de la présentation PowerPoint';
 $string['practice'] = 'Leçon d\'entraînement';
 $string['practice_help'] = '<!-- $Id$ -->
 

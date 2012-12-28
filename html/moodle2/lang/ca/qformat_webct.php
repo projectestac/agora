@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_webct', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qformat_webct', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   qformat_webct
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,6 @@ $string['errorsdetected'] = '{$a} error(s) detectat(s)';
 $string['missinganswer'] = 'Massa poc :RESPOSTA, les declaracions :Lx, :Rx de la pregunta de la línia {$a}. Heu de definir almenys dues respostes possibles.';
 $string['missingquestion'] = 'No hi ha l\'etiqueta de la pregunta després de la línia {$a}';
 $string['paragraphquestion'] = 'Pregunta de paràgraf';
-$string['pluginname'] = 'Format WebCT';
 $string['pluginname_help'] = 'El format WebCT permet importar preguntes del tipus respostes múltiples i resposta curta desades en format WebCT.';
 $string['questionnametoolong'] = 'Nom de la pregunta massa llarg a la línia {$a} (255 caràcters com a màxim}: s\'ha retallat.';
 $string['unknowntype'] = 'Tipus desconegut';

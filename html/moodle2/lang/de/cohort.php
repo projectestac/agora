@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'cohort', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'cohort', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   cohort
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,7 +43,7 @@ $string['component'] = 'Quelle';
 $string['currentusers'] = 'Aktuelle Nutzer/innen';
 $string['currentusersmatching'] = 'Aktuell passende Nutzer/innen';
 $string['delcohort'] = 'Globale Gruppe löschen';
-$string['delconfirm'] = 'Möchten Sie wirklich die globale Gruppe \'{$a}\' löschen?';
+$string['delconfirm'] = 'Möchten Sie die globale Gruppe \'{$a}\' wirklich löschen?';
 $string['description'] = 'Beschreibung';
 $string['duplicateidnumber'] = 'Eine globale Gruppe mit der gleichen ID existiert bereits';
 $string['editcohort'] = 'Globale Gruppe bearbeiten';

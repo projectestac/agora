@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'questionnaire', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'questionnaire', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   questionnaire
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,6 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 $string['alreadyfilled'] = 'Sie haben diese Befragung bereits ausgefüllt. Vielen Dank.';
 $string['modulename'] = 'Befragung';
 $string['modulenameplural'] = 'Befragung';
+$string['mustcomplete'] = '<b>Sie müssen die Befragung <i<jetzt<i> fertig ausfüllen und abgeben. Ein späteres Ausfüllen ist nicht möglich.</b><br /><br />';
 $string['notavail'] = 'Die Befragung steht derzeit nicht zur Verfügung. Versuchen Sie es später nocheinmal.';
+$string['qmanage'] = 'Befragungen verwalten';
+$string['qmanagetitle'] = 'Befragungungsverwaltung phpESP';
 $string['qtype'] = 'Typ';
+$string['questionnaireid'] = 'Umfrage';
 $string['respondenttype'] = 'Antworttyp';

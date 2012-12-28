@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'workshop', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -103,6 +103,7 @@ $string['evaluategradeswait'] = 'Si us plau, espereu mentre s\'avaluen les avalu
 $string['evaluation'] = 'Càlcul de les qualificacions';
 $string['evaluationmethod'] = 'Mètode de càlcul de les qualificacions';
 $string['evaluationmethod_help'] = 'El mètode de càlcul de les qualificacions determina com es calcula la qualificació de l\'avaluació. Actualment només hi ha una opció: comparació amb la millor avaluació.';
+$string['evaluationsettings'] = 'Paràmetres de la puntuació d\'avaluacions';
 $string['example'] = 'Tramesa d\'exemple';
 $string['exampleadd'] = 'Afegeix una tramesa d\'exemple';
 $string['exampleassess'] = 'Avalua la tramesa d\'exemple';
@@ -158,13 +159,6 @@ $string['latesubmissions_desc'] = 'Permet les trameses fora de termini';
 $string['latesubmissions_help'] = 'Si s\'habilita, un autor podrà enviar la seva feina després del termini establert, o durant la fase d\'avaluació. Tanmateix, les trameses fora de termini no poden editar-se.';
 $string['maxbytes'] = 'Mida màxima de fitxer';
 $string['modulename'] = 'Taller';
-$string['modulename_help'] = 'L\'activitat taller permet la recopilació, revisió i avaluació pels companys del treball de l\'estudiantat.
-
-Els estudiants poden trametre qualsevol contingut digital (fitxers), com ara documents de processador de textos o fulls de càlcul, i també poden escriure text directament en un camp utilitzant l\'editor de text.
-
-Les trameses s\'avaluen a través d\'un formulari d\'avaluació multi-criteri definit pel professorat. El procés d\'avaluació per parells i la comprensió del formulari d\'avaluació es pot practicar per avançat mitjançant trameses d\'exemple donades pel professorat, junt amb una avaluació de referència. L\'estudiantat té l\'oportunitat d\'avaluar una o més de les trameses dels seus companys. Les trameses i els revisors poden ser anònims si cal.
-
-L\'estudiantat obté dues qualificacions en una activitat de taller: una qualificació per la seva tramesa i una altra qualificació per l\'avaluació que hagi fet de les trameses dels seus companys. Totes dues qualificacions es registren en el butlletí de qualificacions.';
 $string['modulenameplural'] = 'Tallers';
 $string['mysubmission'] = 'La meva tramesa';
 $string['nattachments'] = 'Nombre màxim d\'adjuncions a la tramesa';

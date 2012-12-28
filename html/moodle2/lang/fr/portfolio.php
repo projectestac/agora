@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'portfolio', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   portfolio
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -147,7 +147,8 @@ $string['multipleinstancesdisallowed'] = 'Tentative de créer une autre instance
 $string['mustsetcallbackoptions'] = 'Vous devez indiquer les options de rappel (callback) soit dans le constructeur portfolio_add_button soit en utilisant la méthode set_callback_options';
 $string['noavailableplugins'] = 'Désolé, il n\'y a aucun portfolio disponible vers lequel exporter';
 $string['nocallbackclass'] = 'Impossible de trouver la classe de rappel (callback) à utiliser ({$a})';
-$string['nocallbackfile'] = 'Un problème est présent dans le module depuis lequel vous essayez d\'exporter des données (callback). Impossible de trouver un fichier requis ({$a})';
+$string['nocallbackcomponent'] = 'Impossible de trouver le composant spécifié {$a}.';
+$string['nocallbackfile'] = 'Un problème est présent dans le module depuis lequel vous essayez d\'exporter. Impossible de trouver un fichier portfolio requis';
 $string['noclassbeforeformats'] = 'Vous devez définir la classe de rappel (callback) avant de faire appel à set_formats dans portfolio_button';
 $string['nocommonformats'] = 'Aucun format en commun entre les plugins de portfolio et le site appelant {$a->location} (formats supportés par l\'appelant : {$a->formats})';
 $string['noinstanceyet'] = 'Pas encore sélectionné';

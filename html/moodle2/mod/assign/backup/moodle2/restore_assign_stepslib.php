@@ -73,6 +73,21 @@ class restore_assign_activity_structure_step extends restore_activity_structure_
         $data->timemodified = $this->apply_date_offset($data->timemodified);
         $data->allowsubmissionsfromdate = $this->apply_date_offset($data->allowsubmissionsfromdate);
         $data->duedate = $this->apply_date_offset($data->duedate);
+        if (!empty($data->teamsubmissiongroupingid)) {
+            $data->teamsubmissiongroupingid = $this->get_mappingid('grouping', $data->teamsubmissiongroupingid);
+        } else {
+            $data->teamsubmissiongroupingid = 0;
+        }
+
+        if (!isset($data->cutoffdate)) {
+            $data->cutoffdate = 0;
+        }
+
+        if (!empty($data->preventlatesubmissions)) {
+            $data->cutoffdate = $data->duedate;
+        } else {
+            $data->cutoffdate = $this->apply_date_offset($data->cutoffdate);
+        }
 
 
         $newitemid = $DB->insert_record('assign', $data);
@@ -95,7 +110,14 @@ class restore_assign_activity_structure_step extends restore_activity_structure_
 
         $data->timemodified = $this->apply_date_offset($data->timemodified);
         $data->timecreated = $this->apply_date_offset($data->timecreated);
-        $data->userid = $this->get_mappingid('user', $data->userid);
+        if ($data->userid > 0) {
+            $data->userid = $this->get_mappingid('user', $data->userid);
+        }
+        if (!empty($data->groupid)) {
+            $data->groupid = $this->get_mappingid('group', $data->groupid);
+        } else {
+            $data->groupid = 0;
+        }
 
         $newitemid = $DB->insert_record('assign_submission', $data);
 
@@ -121,6 +143,11 @@ class restore_assign_activity_structure_step extends restore_activity_structure_
         $data->timecreated = $this->apply_date_offset($data->timecreated);
         $data->userid = $this->get_mappingid('user', $data->userid);
         $data->grader = $this->get_mappingid('user', $data->grader);
+        if (!empty($data->extensionduedate)) {
+            $data->extensionduedate = $this->apply_date_offset($data->extensionduedate);
+        } else {
+            $data->extensionduedate = 0;
+        }
 
         $newitemid = $DB->insert_record('assign_grades', $data);
 

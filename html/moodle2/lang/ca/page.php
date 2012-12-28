@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'page', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'page', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   page
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -36,16 +36,7 @@ $string['legacyfiles'] = 'Migració d\'un fitxer antic';
 $string['legacyfilesactive'] = 'Actiu';
 $string['legacyfilesdone'] = 'Acabat';
 $string['modulename'] = 'Pàgina';
-$string['modulename_help'] = 'El recurs de pàgina permet al professorat crear una pàgina web utilitzant l\'editor de text. Una pàgina pot mostrar text, imatges, so, vídeo, enllaços web i codi d\'incrustació, com ara per a Google Maps.
-
-Els avantatges d\'emprar el recurs de pàgina millor que el de fitxer inclouen que la pàgina és més accessible (p.ex. per als usuaris de dispositius mòbils) i més senzilla d\'actualitzar.
-
-Per a quantitats grans de contingut, es recomana utilitzar un llibre millor que una pàgina.
-
-Una pàgina es pot utilitzar
-
-* Per a presentar els termes i condicions del curs o un resum de la programació didàctica del curs
-* Per a incrustar diversos vídeos o àudios junt amb un text explicatiu';
+$string['modulename_help'] = 'Una pàgina que habilita una pàgina web per ser vista i editada dins del curs.';
 $string['modulenameplural'] = 'Pàgines';
 $string['neverseen'] = 'Mai vist';
 $string['optionsheader'] = 'Opcions';

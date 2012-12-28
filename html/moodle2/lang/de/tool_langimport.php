@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_langimport', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'tool_langimport', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   tool_langimport
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,11 +29,11 @@ $string['install'] = 'Sprachpaket installieren';
 $string['installedlangs'] = 'Installierte Sprachpakete';
 $string['langimport'] = 'Sprachpakete verwalten';
 $string['langimportdisabled'] = 'Der Import von Sprachpaketen wurde deaktiviert. Sie müssen die Sprachpakete manuell auf dem Server aktualisieren. Vergessen Sie bitte nicht, anschließend den Sprachcache zu löschen.';
-$string['langpackinstalled'] = 'Das Sprachpaket \'{$a}\' wurde erfolgreich installiert';
+$string['langpackinstalled'] = 'Das Sprachpaket \'{$a}\' wurde neu installiert.';
 $string['langpackremoved'] = 'Das Sprachpaket wurde deinstalliert.';
-$string['langpackupdateskipped'] = 'Das Update des Sprachpakets \'{$a}\' wurde übersprungen.';
+$string['langpackupdateskipped'] = 'Das Sprachpaket \'{$a}\' wurde übersprungen.';
 $string['langpackuptodate'] = 'Das Sprachpaket \'{$a}\' ist aktuell.';
-$string['langupdatecomplete'] = 'Das Update der Sprachpakete ist abgeschlossen.';
+$string['langupdatecomplete'] = 'Die Aktualisierung der Sprachpakete ist abgeschlossen.';
 $string['missingcfglangotherroot'] = 'Fehlende Einstellung $CFG->langotherroot';
 $string['missinglangparent'] = 'Fehlendes Sprachpaket \'{$a->parent}\' für \'{$a->lang}\'';
 $string['nolangupdateneeded'] = 'Alle Sprachpakete sind auf dem aktuellen Stand.';

@@ -26,6 +26,7 @@
  * this.filecount, how many files in this filemanager
  * this.maxfiles
  * this.maxbytes
+ * this.areamaxbytes, the maximum size of the area
  * this.filemanager, contains reference to filemanager Node
  * this.selectnode, contains referenct to select-file Node
  * this.selectui, YUI Panel to select the file
@@ -68,6 +69,7 @@ M.form_filemanager.init = function(Y, options) {
             this.currentpath = '/';
             this.maxfiles = options.maxfiles;
             this.maxbytes = options.maxbytes;
+            this.areamaxbytes = options.areamaxbytes;
             this.emptycallback = null; // Used by drag and drop upload
 
             this.filepicker_options = options.filepicker?options.filepicker:{};
@@ -75,6 +77,7 @@ M.form_filemanager.init = function(Y, options) {
             this.filepicker_options.context = options.context;
             this.filepicker_options.maxfiles = this.maxfiles;
             this.filepicker_options.maxbytes = this.maxbytes;
+            this.filepicker_options.areamaxbytes = this.areamaxbytes;
             this.filepicker_options.env = 'filemanager';
             this.filepicker_options.itemid = options.itemid;
 
@@ -104,7 +107,7 @@ M.form_filemanager.init = function(Y, options) {
             this.selectnode.generateID();
             this.selectui = new Y.Panel({
                 srcNode      : this.selectnode,
-                zIndex       : 600000,
+                zIndex       : 6000,
                 centered     : true,
                 modal        : true,
                 close        : true,
@@ -237,7 +240,7 @@ M.form_filemanager.init = function(Y, options) {
 
                 this.msg_dlg = new Y.Panel({
                     srcNode      : this.msg_dlg_node,
-                    zIndex       : 800000,
+                    zIndex       : 8000,
                     centered     : true,
                     modal        : true,
                     visible      : false,
@@ -305,7 +308,7 @@ M.form_filemanager.init = function(Y, options) {
                         var node = Y.Node.createWithFilesSkin(M.form_filemanager.templates.mkdir);
                         this.mkdir_dialog = new Y.Panel({
                             srcNode      : node,
-                            zIndex       : 800000,
+                            zIndex       : 8000,
                             centered     : true,
                             modal        : true,
                             visible      : false,
@@ -707,7 +710,7 @@ M.form_filemanager.init = function(Y, options) {
                 node.generateID();
                 this.confirm_dlg = new Y.Panel({
                     srcNode      : node,
-                    zIndex       : 800000,
+                    zIndex       : 8000,
                     centered     : true,
                     modal        : true,
                     visible      : false,
@@ -1003,6 +1006,7 @@ M.form_filemanager.init = function(Y, options) {
         author: options.author,
         maxfiles: options.maxfiles,
         maxbytes: options.maxbytes,
+        areamaxbytes: options.areamaxbytes,
         itemid: options.itemid,
         repositories: manager.filepicker_options.repositories,
         containerid: manager.dndcontainer.get('id')

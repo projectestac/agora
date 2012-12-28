@@ -229,29 +229,7 @@ $temp->add(new admin_setting_configtext('curlcache', new lang_string('curlcache'
 
 $temp->add(new admin_setting_configtext('curltimeoutkbitrate', new lang_string('curltimeoutkbitrate', 'admin'),
                                         new lang_string('curltimeoutkbitrate_help', 'admin'), 56, PARAM_INT));
-/* //TODO: we need to fix code instead of relying on slow rcache, enable this once we have some code that is actually using it
-$temp->add(new admin_setting_special_selectsetup('cachetype', new lang_string('cachetype', 'admin'),
-                                          new lang_string('configcachetype', 'admin'), '',
-                                          array( '' => new lang_string('none'),
-                                                 'internal' => 'internal',
-                                                 'memcached' => 'memcached',
-                                                 'eaccelerator' => 'eaccelerator')));
-// NOTE: $CFG->rcache is forced to bool in lib/setup.php
-$temp->add(new admin_setting_special_selectsetup('rcache', new lang_string('rcache', 'admin'),
-                                          new lang_string('configrcache', 'admin'), 0,
-                                          array( '0' => new lang_string('no'),
-                                                 '1' => new lang_string('yes'))));
-$temp->add(new admin_setting_configtext('rcachettl', new lang_string('rcachettl', 'admin'),
-                                        new lang_string('configrcachettl', 'admin'), 10));
-$temp->add(new admin_setting_configtext('intcachemax', new lang_string('intcachemax', 'admin'),
-                                        new lang_string('configintcachemax', 'admin'), 10));
-$temp->add(new admin_setting_configtext('memcachedhosts', new lang_string('memcachedhosts', 'admin'),
-                                        new lang_string('configmemcachedhosts', 'admin'), ''));
-$temp->add(new admin_setting_configselect('memcachedpconn', new lang_string('memcachedpconn', 'admin'),
-                                          new lang_string('configmemcachedpconn', 'admin'), 0,
-                                          array( '0' => new lang_string('no'),
-                                                 '1' => new lang_string('yes'))));
-*/
+
 $ADMIN->add('server', $temp);
 //XTEC ************ AFEGIT - To let access only to xtecadmin user
 //2012.06.20  @sarjona
@@ -271,6 +249,10 @@ if (empty($CFG->disableupdatenotifications)) {
     $temp = new admin_settingpage('updatenotifications', new lang_string('updatenotifications', 'core_admin'));
     $temp->add(new admin_setting_configcheckbox('updateautocheck', new lang_string('updateautocheck', 'core_admin'),
                                                 new lang_string('updateautocheck_desc', 'core_admin'), 1));
+    if (empty($CFG->disableupdateautodeploy)) {
+        $temp->add(new admin_setting_configcheckbox('updateautodeploy', new lang_string('updateautodeploy', 'core_admin'),
+                                                    new lang_string('updateautodeploy_desc', 'core_admin'), 0));
+    }
     $temp->add(new admin_setting_configselect('updateminmaturity', new lang_string('updateminmaturity', 'core_admin'),
                                               new lang_string('updateminmaturity_desc', 'core_admin'), MATURITY_STABLE,
                                               array(

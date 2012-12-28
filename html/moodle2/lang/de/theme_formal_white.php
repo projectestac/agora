@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_formal_white', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'theme_formal_white', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   theme_formal_white
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,11 +27,11 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['blockcolumnwidth'] = 'Spaltenbreite für Blöcke';
 $string['blockcolumnwidthdesc'] = 'Diese Einstellung bestimmt die Spaltenbreite für Blöcke. <strong>Mit Werten unter 200px (blockcolumnwidth-2*blockpadding) kann der Kalenderblock nicht richtig angezeigt werden.</strong>';
-$string['blockcontentbgc'] = 'Hintergrundfarbe für Blockinhalte';
+$string['blockcontentbgc'] = 'Hintergrundfarbe Blöcke';
 $string['blockcontentbgcdesc'] = 'Diese Einstellung legt die Hintergrundfarbe für die Blockinhalte fest.
 ';
-$string['blockpadding'] = 'Abstand bei Blöcken (margin)';
-$string['blockpaddingdesc'] = 'Diese Option legt den Abstand zwischen den Blöcken und innerhalb der Spalte fest.';
+$string['blockpadding'] = 'Abstand der Blöcke';
+$string['blockpaddingdesc'] = 'Diese Option legt den Abstand zwischen den Blöcken und zum Spaltenrand fest.';
 $string['choosereadme'] = '<div class="clearfix">
 <div class="theme_screenshot">
 <h2>Formal White</h2>
@@ -63,29 +63,29 @@ $string['ctmo_ineverypage'] = 'auf jeder Seite';
 $string['ctmo_no'] = 'nie';
 $string['ctmo_onfrontpageonly'] = 'nur auf der Startseite';
 $string['customcss'] = 'Eigenes CSS';
-$string['customcssdesc'] = 'Das eigene CSS wird auf jeder Seite eingefügt, um das Design an Ihre Bedürfnisse anzupassen.';
-$string['customlogourl'] = 'IndividuellesLogo';
+$string['customcssdesc'] = 'Das eigene CSS wird benutzt, um das Design an Ihre Bedürfnisse anpassen.';
+$string['customlogourl'] = 'Eigenes Logo';
 $string['customlogourldesc'] = 'Um das Logo für dieses Design zu ändern, geben Sie die URL eines Bildes an, das Sie als Logo verwenden möchten (z.B. http://www.seite.de/verzeichnis/logo.png). Das Standardlogo ist 200px breit und 50px hoch und bietet sich als Größenreferenz an. Am besten funktionieren transparente Bilder im Format *.png.';
 $string['displayheading'] = 'Kopfzeilentext anzeigen';
 $string['displaylogo'] = 'Logo anzeigen';
-$string['fontsizereference'] = 'Referenz für Textgröße';
-$string['fontsizereferencedesc'] = 'Diese Einstellung legt die standardmäßige Textgröße fest. Es wird empfohlen, einen Wert größer als 13px zu verwenden, da andernfalls Problem in einigen Blöcken auftreten könnten.';
+$string['fontsizereference'] = 'Textgröße';
+$string['fontsizereferencedesc'] = 'Mit dieser Option kann die standardmäßige Textgröße für dieses Design festgelegt werden. Es ist nicht empfehlenswert, den Wert größer als 13px zu setzen, da andernfalls in einigen Blöcken Probleme auftreten könnten.';
 $string['footnote'] = 'Fußnote';
 $string['footnotedesc'] = 'Der Inhalt dieses Feldes wird auf jeder Seite als Fußzeile angezeigt.';
-$string['framemargin'] = 'Rahmenabgrenzung';
-$string['framemargindesc'] = 'Abstand zwischen dem Rahmen und dem Browserfenster. Die Option wird ignoriert, wenn \'{$a}\' eingestellt ist.';
-$string['frontpagelogourl'] = 'Eigenes Logo auf der Startseite';
-$string['frontpagelogourldesc'] = 'Um das Logo auf der Startseite zu ändern, geben Sie die URL zu einem neuen Logo in der Form http://www.domain.de/verzeichnis/logo.png an. Das Standardlogo ist 300px breit und 80px hoch. Am besten funktioniert ein transparentes Logo im Format PNG.';
-$string['headerbgc'] = 'Hintergrundfarbe für Kopfbereich';
+$string['framemargin'] = 'Rahmenabstand';
+$string['framemargindesc'] = 'Abstand zwischen dem Rahmen und dem Rand des Browserfensters. Die Option wird ignoriert, wenn \'{$a}\' eingestellt ist.';
+$string['frontpagelogourl'] = 'Eigenes Logo für die Startseite';
+$string['frontpagelogourldesc'] = 'Um das Logo auf der Startseite zu ändern, geben Sie eine URL in der Form http://www.ihrname.de/verzeichnis/logo.png an. Das Standardlogo ist 300px breit und 80px hoch. Am besten eignen sich transparente PNG-Bilder.';
+$string['headerbgc'] = 'Hintergrundfarbe Kopfbereich';
 $string['headerbgcdesc'] = 'Diese Einstellung legt die Hintergrundfarbe für den Kopfbereich fest.';
 $string['headercontent'] = 'Kopfbereich';
 $string['headercontentdesc'] = 'Wählen Sie, ob im Kopfbereich das Logo oder der Kopfzeilentext angezeigt werden soll.';
-$string['lblockcolumnbgc'] = 'Hintergrundfarbe für die linke Spalte';
+$string['lblockcolumnbgc'] = 'Hintergrundfarbe links';
 $string['lblockcolumnbgcdesc'] = 'Diese Einstellung legt die Hintergrundfarbe für die linke Spalte fest.';
-$string['noframe'] = 'Erscheinungsbild wie 1.9';
-$string['noframedesc'] = 'Wenn diese Option aktiviert ist, wird das Design wie in Moodle 1.9 angezeigt, und zwar ohne den umgebenden äußeren Rahmen.';
+$string['noframe'] = 'Kein äußerer Rahmen';
+$string['noframedesc'] = 'Wenn diese Option aktiviert ist, wird das Design ohne den umgebenden äußeren Rahmen angezeigt, also wie in Moodle 1.9.';
 $string['pluginname'] = 'Formal White';
-$string['rblockcolumnbgc'] = 'Hintergrundfarbe für die rechte Spalte';
+$string['rblockcolumnbgc'] = 'Hintergrundfarbe rechts';
 $string['rblockcolumnbgcdesc'] = 'Diese Einstellung legt die Hintergrundfarbe für die rechte Spalte fest. Wenn Sie dieses Feld leer lassen, wird hier ebenfalls die Farbe für die linke Spalte benutzt.';
 $string['region-side-post'] = 'Rechts';
 $string['region-side-pre'] = 'Links';

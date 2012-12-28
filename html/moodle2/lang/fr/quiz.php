@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'quiz', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['accessnoticesheader'] = 'Vous pouvez prévisualiser ce test, mais s\'il s\'agit d\'une tentative réelle, vous serez bloqué en raison de :';
 $string['action'] = 'Action';
+$string['activityoverview'] = 'Vous avez des tests à terminer';
 $string['adaptive'] = 'Mode adaptatif';
 $string['adaptive_help'] = 'Si ce paramètre est activé, il est permis de répondre plusieurs fois à une même question au cours d\'une même tentative à un test. Par exemple, si une réponse est marquée comme incorrecte, l\'étudiant peut réessayer immédiatement de répondre correctement. Toutefois, selon la fonction choisie dans « Appliquer les pénalités », une pénalité sera habituellement déduite à chaque essai incorrect.';
 $string['addaquestion'] = 'Ajouter une question...';
@@ -622,6 +623,7 @@ $string['questionnonav'] = '<span class="accesshide">Question </span>{$a->number
 $string['questionnonavinfo'] = '<span class="accesshide">Information </span>{$a->number}<span class="accesshide"> {$a->attributes}</span>';
 $string['questionnotloaded'] = 'La question {$a} n\'a pas été chargée depuis la base de données';
 $string['questionorder'] = 'Ordre des questions';
+$string['questionposition'] = 'Nouveau rang dans la suite des questions pour la question {$a}';
 $string['questions'] = 'Questions';
 $string['questionsinclhidden'] = 'Questions (y compris masquées)';
 $string['questionsinthisquiz'] = 'Questions dans ce test';
@@ -904,7 +906,7 @@ $string['unfinished'] = 'ouvert';
 $string['ungraded'] = 'Pas notée';
 $string['unit'] = 'Unité';
 $string['unknowntype'] = 'Type de question non supporté à la ligne {$a}. La question sera ignorée';
-$string['unusedcategorydeleted'] = 'Cette catégorie à été supprimée, car après la suppression du cours, les questions qui y étaient classées ne sont plus utilisées nulle part.';
+$string['unusedcategorydeleted'] = 'Cette catégorie a été supprimée, car après la suppression du cours, les questions qui y étaient classées ne sont plus utilisées nulle part.';
 $string['updatesettings'] = 'Modifier les réglages du test';
 $string['updatingatttemptgrades'] = 'Mise à jour des notes.';
 $string['updatingfinalgrades'] = 'Mise à jour des notes finales.';
@@ -913,7 +915,7 @@ $string['upgradesure'] = '<div>ATTENTION ! Les tables du module Test seront con
 $string['upgradingquizattempts'] = 'Mise à jour des tentatives : test {$a->done}/{$a->outof} (Id du test {$a->info})';
 $string['upgradingveryoldquizattempts'] = 'Mise à jour des tentatives vraiment anciennes : {$a->done}/{$a->outof}';
 $string['url'] = 'URL';
-$string['usedcategorymoved'] = 'Cette catégorie à été déplacée au niveau du site, car elle est publiée et certaines de ses questions sont utilisées dans d\'autres cours.';
+$string['usedcategorymoved'] = 'Cette catégorie a été déplacée au niveau du site, car elle est publiée et certaines de ses questions sont utilisées dans d\'autres cours.';
 $string['useroverrides'] = 'Dérogations utilisateur';
 $string['usersnone'] = 'Aucun étudiant n\'a accès à ce test';
 $string['validate'] = 'Valider';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'backup', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'backup', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   backup
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -211,6 +211,7 @@ $string['restoretoexistingcoursedeleting'] = 'Supprimer le contenu du cours exis
 $string['restoretonewcourse'] = 'Restaurer comme nouveau cours';
 $string['restoringcourse'] = 'Restauration du cours en cours';
 $string['restoringcourseshortname'] = 'Restauration';
+$string['rootenrolmanual'] = 'Restaurer comme inscriptions manuelles';
 $string['rootsettingactivities'] = 'Inclure les activités';
 $string['rootsettinganonymize'] = 'Anonymiser les informations des utilisateurs';
 $string['rootsettingblocks'] = 'Inclure les blocs';
@@ -236,6 +237,12 @@ $string['setting_course_startdate'] = 'Date de début du cours';
 $string['setting_keep_groups_and_groupings'] = 'Conserver les groupes et groupements actuels';
 $string['setting_keep_roles_and_enrolments'] = 'Conserver les rôles et permissions actuels';
 $string['setting_overwriteconf'] = 'Écraser la configuration du cours';
+$string['skiphidden'] = 'Omettre les cours cachés';
+$string['skiphiddenhelp'] = 'Choisir s\'il faut ou non omettre les cours cachés';
+$string['skipmodifdays'] = 'Omettre les cours non modifiés depuis';
+$string['skipmodifdayshelp'] = 'Choisir s\'il faut ou non omettre les cours non modifiés depuis un certain nombre de jours';
+$string['skipmodifprev'] = 'Omettre les cours non modifiés depuis la dernière sauvegarde';
+$string['skipmodifprevhelp'] = 'Choisir s\'il faut ou non omettre les cours n\'ayant pas été modifiés depuis la dernière sauvegarde';
 $string['storagecourseandexternal'] = 'Zone de sauvegarde de cours et dossier spécifié';
 $string['storagecourseonly'] = 'Zone de sauvegarde de cours';
 $string['storageexternalonly'] = 'Dossier spécifié pour les sauvegardes automatiques';

@@ -612,15 +612,15 @@ class dndupload_ajax_processor {
         }
 
         $DB->set_field('course_modules', 'instance', $instanceid, array('id' => $this->cm->id));
+        // Rebuild the course cache after update action
+        rebuild_course_cache($this->course->id, true);
+        $this->course->modinfo = null; // Otherwise we will just get the old version back again.
 
-        $sectionid = add_mod_to_section($this->cm);
-        $DB->set_field('course_modules', 'section', $sectionid, array('id' => $this->cm->id));
+        $sectionid = course_add_cm_to_section($this->course, $this->cm->id, $this->section);
 
         set_coursemodule_visible($this->cm->id, true);
 
-        // Rebuild the course cache and retrieve the final info about this module.
-        rebuild_course_cache($this->course->id, true);
-        $this->course->modinfo = null; // Otherwise we will just get the old version back again.
+        // retrieve the final info about this module.
         $info = get_fast_modinfo($this->course);
         if (!isset($info->cms[$this->cm->id])) {
             // The course module has not been properly created in the course - undo everything.
@@ -666,6 +666,12 @@ class dndupload_ajax_processor {
         $resp->elementid = 'module-'.$mod->id;
         $resp->commands = make_editing_buttons($mod, true, true, 0, $mod->sectionnum);
         $resp->onclick = $mod->get_on_click();
+
+        // if using groupings, then display grouping name
+        if (!empty($mod->groupingid) && has_capability('moodle/course:managegroups', $this->context)) {
+            $groupings = groups_get_all_groupings($this->course->id);
+            $resp->groupingname = format_string($groupings[$mod->groupingid]->name);
+        }
 
         echo $OUTPUT->header();
         echo json_encode($resp);

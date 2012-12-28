@@ -29,7 +29,7 @@ class profile_define_base {
 
         $form->addElement('text', 'name', get_string('profilename', 'admin'), 'size="50"');
         $form->addRule('name', $strrequired, 'required', null, 'client');
-        $form->setType('name', PARAM_MULTILANG);
+        $form->setType('name', PARAM_TEXT);
 
         $form->addElement('editor', 'description', get_string('profiledescription', 'admin'), null, null);
 
@@ -288,6 +288,13 @@ function profile_delete_field($id) {
     if (!$DB->delete_records('user_info_data', array('fieldid'=>$id))) {
         print_error('cannotdeletecustomfield');
     }
+
+    // Delete any module dependencies for this field
+    $DB->delete_records('course_modules_avail_fields', array('customfieldid' => $id));
+    $DB->delete_records('course_sections_avail_fields', array('customfieldid' => $id));
+
+    // Need to rebuild course cache to update the info
+    rebuild_course_cache();
 
     /// Try to remove the record from the database
     $DB->delete_records('user_info_field', array('id'=>$id));

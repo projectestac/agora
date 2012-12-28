@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'condition', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -48,7 +48,10 @@ $string['completion_fail'] = 'ha d\'estar completada amb qualificació suspesa.'
 $string['completion_incomplete'] = 'no s\'ha de marcar com completada';
 $string['completion_pass'] = 'ha d\'estar completada amb qualificació aprovada';
 $string['configenableavailability'] = 'Si s\'activa, això us permet establir les condicions que controlen si es pot accedir a una activitat o un recurs  (segons la data, la qualificació o la finalització).';
+$string['contains'] = 'conté';
+$string['doesnotcontain'] = 'no conté';
 $string['enableavailability'] = 'Habilitar l\'accés condicional';
+$string['endswith'] = 'acaba en';
 $string['grade_atleast'] = 'ha de ser com a mínim';
 $string['gradecondition'] = 'Condició de qualificació';
 $string['gradecondition_help'] = 'Aquest paràmetre determina les condicions de qualificació que s\'han de complir per accedir a l\'activitat.
@@ -63,6 +66,8 @@ $string['gradelimitsbutnoitem'] = 'Heu de triar un element de qualificació.';
 $string['gradesmustbenumeric'] = 'La puntuació màxima i mínima han de ser numèriques (o deixar-les en blanc)';
 $string['grade_upto'] = 'i menys de';
 $string['groupingnoaccess'] = 'Actualment no pertanyeu a un grup que pugui accedir a aquesta secció.';
+$string['isempty'] = 'està buit';
+$string['isequalto'] = 'és igual a';
 $string['none'] = '(cap)';
 $string['notavailableyet'] = 'No disponible encara';
 $string['requires_completion_0'] = 'No estarà disponible a menys que l\'activitat <strong>{$a}</strong> estigui incompleta.';
@@ -83,5 +88,6 @@ $string['showavailabilitysection'] = 'Abans que la secció pugui ser accessible'
 $string['showavailabilitysection_hide'] = 'Amaga la secció sencera';
 $string['showavailabilitysection_show'] = 'Mostra de gris la secció, amb restricció d\'informació';
 $string['showavailability_show'] = 'Mostra de gris l\'activitat, amb restricció d\'informació';
+$string['startswith'] = 'comença per';
 $string['userrestriction_hidden'] = 'Restringida (completament amagada, cap missatge): ‘{$a}’';
 $string['userrestriction_visible'] = 'Restringida: &lsquo;{$a}&rsquo;';

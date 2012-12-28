@@ -48,15 +48,20 @@ require_login();
 $strmymoodle = get_string('myhome');
 
 if (isguestuser()) {  // Force them to see system default, no editing allowed
+    // If guests are not allowed my moodle, send them to front page.
+    if (empty($CFG->allowguestmymoodle)) {
+        redirect(new moodle_url('/', array('redirect' => 0)));
+    }
+
     $userid = NULL; 
     $USER->editing = $edit = 0;  // Just in case
-    $context = get_context_instance(CONTEXT_SYSTEM);
+    $context = context_system::instance();
     $PAGE->set_blocks_editing_capability('moodle/my:configsyspages');  // unlikely :)
     $header = "$SITE->shortname: $strmymoodle (GUEST)";
 
 } else {        // We are trying to view or edit our own My Moodle page
     $userid = $USER->id;  // Owner of the page
-    $context = get_context_instance(CONTEXT_USER, $USER->id);
+    $context = context_user::instance($USER->id);
     $PAGE->set_blocks_editing_capability('moodle/my:manageblocks');
     $header = "$SITE->shortname: $strmymoodle";
 }
@@ -67,7 +72,7 @@ if (!$currentpage = my_get_page($userid, MY_PAGE_PRIVATE)) {
 }
 
 if (!$currentpage->userid) {
-    $context = get_context_instance(CONTEXT_SYSTEM);  // So we even see non-sticky blocks
+    $context = context_system::instance();  // So we even see non-sticky blocks
 }
 
 // Start setting up the page
@@ -81,11 +86,13 @@ $PAGE->set_subpage($currentpage->id);
 $PAGE->set_title($header);
 $PAGE->set_heading($header);
 
-if (get_home_page() != HOMEPAGE_MY) {
-    if (optional_param('setdefaulthome', false, PARAM_BOOL)) {
-        set_user_preference('user_home_page_preference', HOMEPAGE_MY);
-    } else if (!empty($CFG->defaulthomepage) && $CFG->defaulthomepage == HOMEPAGE_USER) {
-        $PAGE->settingsnav->get('usercurrentsettings')->add(get_string('makethismyhome'), new moodle_url('/my/', array('setdefaulthome'=>true)), navigation_node::TYPE_SETTING);
+if (!isguestuser()) {   // Skip default home page for guests
+    if (get_home_page() != HOMEPAGE_MY) {
+        if (optional_param('setdefaulthome', false, PARAM_BOOL)) {
+            set_user_preference('user_home_page_preference', HOMEPAGE_MY);
+        } else if (!empty($CFG->defaulthomepage) && $CFG->defaulthomepage == HOMEPAGE_USER) {
+            $PAGE->settingsnav->get('usercurrentsettings')->add(get_string('makethismyhome'), new moodle_url('/my/', array('setdefaulthome'=>true)), navigation_node::TYPE_SETTING);
+        }
     }
 }
 
@@ -100,7 +107,7 @@ if ($PAGE->user_allowed_editing()) {
             if (!$currentpage = my_copy_page($USER->id, MY_PAGE_PRIVATE)) {
                 print_error('mymoodlesetup');
             }
-            $context = get_context_instance(CONTEXT_USER, $USER->id);
+            $context = context_user::instance($USER->id);
             $PAGE->set_context($context);
             $PAGE->set_subpage($currentpage->id);
         }

@@ -304,34 +304,22 @@ class core_renderer extends renderer_base {
      * Get the DOCTYPE declaration that should be used with this page. Designed to
      * be called in theme layout.php files.
      *
-     * @return string the DOCTYPE declaration (and any XML prologue) that should be used.
+     * @return string the DOCTYPE declaration that should be used.
      */
     public function doctype() {
-        global $CFG;
+        if ($this->page->theme->doctype === 'html5') {
+            $this->contenttype = 'text/html; charset=utf-8';
+            return "<!DOCTYPE html>\n";
 
-        $doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">' . "\n";
-        $this->contenttype = 'text/html; charset=utf-8';
-
-        if (empty($CFG->xmlstrictheaders)) {
-            return $doctype;
-        }
-
-        // We want to serve the page with an XML content type, to force well-formedness errors to be reported.
-        $prolog = '<?xml version="1.0" encoding="utf-8"?>' . "\n";
-        if (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'application/xhtml+xml') !== false) {
-            // Firefox and other browsers that can cope natively with XHTML.
+        } else if ($this->page->theme->doctype === 'xhtml5') {
             $this->contenttype = 'application/xhtml+xml; charset=utf-8';
-
-        } else if (preg_match('/MSIE.*Windows NT/', $_SERVER['HTTP_USER_AGENT'])) {
-            // IE can't cope with application/xhtml+xml, but it will cope if we send application/xml with an XSL stylesheet.
-            $this->contenttype = 'application/xml; charset=utf-8';
-            $prolog .= '<?xml-stylesheet type="text/xsl" href="' . $CFG->httpswwwroot . '/lib/xhtml.xsl"?>' . "\n";
+            return "<!DOCTYPE html>\n";
 
         } else {
-            $prolog = '';
+            // legacy xhtml 1.0
+            $this->contenttype = 'text/html; charset=utf-8';
+            return ('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">' . "\n");
         }
-
-        return $prolog . $doctype;
     }
 
     /**
@@ -341,7 +329,11 @@ class core_renderer extends renderer_base {
      * @return string HTML fragment.
      */
     public function htmlattributes() {
-        return get_html_lang(true) . ' xmlns="http://www.w3.org/1999/xhtml"';
+        $return = get_html_lang(true);
+        if ($this->page->theme->doctype !== 'html5') {
+            $return .= ' xmlns="http://www.w3.org/1999/xhtml"';
+        }
+        return $return;
     }
 
     /**
@@ -371,6 +363,9 @@ class core_renderer extends renderer_base {
 
         // flow player embedding support
         $this->page->requires->js_function_call('M.util.load_flowplayer');
+
+        // Set up help link popups for all links with the helplinkpopup class
+        $this->page->requires->js_init_call('M.util.help_popups.setup');
 
         $this->page->requires->js_function_call('setTimeout', array('fix_column_widths()', 20));
 
@@ -459,7 +454,7 @@ class core_renderer extends renderer_base {
         if (!empty($CFG->debugpageinfo)) {
             $output .= '<div class="performanceinfo pageinfo">This page is: ' . $this->page->debug_summary() . '</div>';
         }
-        if (debugging(null, DEBUG_DEVELOPER) and has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM))) {  // Only in developer mode
+        if (debugging(null, DEBUG_DEVELOPER) and has_capability('moodle/site:config', context_system::instance())) {  // Only in developer mode
             // Add link to profiling report if necessary
             if (function_exists('profiling_is_running') && profiling_is_running()) {
                 $txt = get_string('profiledscript', 'admin');
@@ -491,7 +486,13 @@ class core_renderer extends renderer_base {
      * @return string HTML fragment.
      */
     public function main_content() {
-        return $this->unique_main_content_token;
+        // This is here because it is the only place we can inject the "main" role over the entire main content area
+        // without requiring all theme's to manually do it, and without creating yet another thing people need to
+        // remember in the theme.
+        // This is an unfortunate hack. DO NO EVER add anything more here.
+        // DO NOT add classes.
+        // DO NOT add an id.
+        return '<div role="main">'.$this->unique_main_content_token.'</div>';
     }
 
     /**
@@ -510,23 +511,32 @@ class core_renderer extends renderer_base {
     /**
      * Return the standard string that says whether you are logged in (and switched
      * roles/logged in as another user).
-     *
+     * @param bool $withlinks if false, then don't include any links in the HTML produced.
+     * If not set, the default is the nologinlinks option from the theme config.php file,
+     * and if that is not set, then links are included.
      * @return string HTML fragment.
      */
-    public function login_info() {
+    public function login_info($withlinks = null) {
         global $USER, $CFG, $DB, $SESSION;
 
         if (during_initial_install()) {
             return '';
         }
 
+        if (is_null($withlinks)) {
+            $withlinks = empty($this->page->layout_options['nologinlinks']);
+        }
+
         $loginpage = ((string)$this->page->url === get_login_url());
         $course = $this->page->course;
-
         if (session_is_loggedinas()) {
             $realuser = session_get_realuser();
             $fullname = fullname($realuser, true);
-            $realuserinfo = " [<a href=\"$CFG->wwwroot/course/loginas.php?id=$course->id&amp;sesskey=".sesskey()."\">$fullname</a>] ";
+            if ($withlinks) {
+                $realuserinfo = " [<a href=\"$CFG->wwwroot/course/loginas.php?id=$course->id&amp;sesskey=".sesskey()."\">$fullname</a>] ";
+            } else {
+                $realuserinfo = " [$fullname] ";
+            }
         } else {
             $realuserinfo = '';
         }
@@ -537,17 +547,25 @@ class core_renderer extends renderer_base {
             // $course->id is not defined during installation
             return '';
         } else if (isloggedin()) {
-            $context = get_context_instance(CONTEXT_COURSE, $course->id);
+            $context = context_course::instance($course->id);
 
             $fullname = fullname($USER, true);
             // Since Moodle 2.0 this link always goes to the public profile page (not the course profile page)
-            $username = "<a href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\">$fullname</a>";
+            if ($withlinks) {
+                $username = "<a href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\">$fullname</a>";
+            } else {
+                $username = $fullname;
+            }
             if (is_mnet_remote_user($USER) and $idprovider = $DB->get_record('mnet_host', array('id'=>$USER->mnethostid))) {
-                $username .= " from <a href=\"{$idprovider->wwwroot}\">{$idprovider->name}</a>";
+                if ($withlinks) {
+                    $username .= " from <a href=\"{$idprovider->wwwroot}\">{$idprovider->name}</a>";
+                } else {
+                    $username .= " from {$idprovider->name}";
+                }
             }
             if (isguestuser()) {
                 $loggedinas = $realuserinfo.get_string('loggedinasguest');
-                if (!$loginpage) {
+                if (!$loginpage && $withlinks) {
                     $loggedinas .= " (<a href=\"$loginurl\">".get_string('login').'</a>)';
                 }
             } else if (is_role_switched($course->id)) { // Has switched roles
@@ -555,15 +573,19 @@ class core_renderer extends renderer_base {
                 if ($role = $DB->get_record('role', array('id'=>$USER->access['rsw'][$context->path]))) {
                     $rolename = ': '.format_string($role->name);
                 }
-                $loggedinas = get_string('loggedinas', 'moodle', $username).$rolename.
-                          " (<a href=\"$CFG->wwwroot/course/view.php?id=$course->id&amp;switchrole=0&amp;sesskey=".sesskey()."\">".get_string('switchrolereturn').'</a>)';
+                $loggedinas = get_string('loggedinas', 'moodle', $username).$rolename;
+                if ($withlinks) {
+                    $loggedinas .= " (<a href=\"$CFG->wwwroot/course/view.php?id=$course->id&amp;switchrole=0&amp;sesskey=".sesskey()."\">".get_string('switchrolereturn').'</a>)';
+                }
             } else {
-                $loggedinas = $realuserinfo.get_string('loggedinas', 'moodle', $username).' '.
-                          " (<a href=\"$CFG->wwwroot/login/logout.php?sesskey=".sesskey()."\">".get_string('logout').'</a>)';
+                $loggedinas = $realuserinfo.get_string('loggedinas', 'moodle', $username);
+                if ($withlinks) {
+                    $loggedinas .= " (<a href=\"$CFG->wwwroot/login/logout.php?sesskey=".sesskey()."\">".get_string('logout').'</a>)';
+                }
             }
         } else {
             $loggedinas = get_string('loggedinnot', 'moodle');
-            if (!$loginpage) {
+            if (!$loginpage && $withlinks) {
                 $loggedinas .= " (<a href=\"$loginurl\">".get_string('login').'</a>)';
             }
         }
@@ -581,7 +603,7 @@ class core_renderer extends renderer_base {
                         } else {
                             $loggedinas .= get_string('failedloginattemptsall', '', $count);
                         }
-                        if (file_exists("$CFG->dirroot/report/log/index.php") and has_capability('report/log:view', get_context_instance(CONTEXT_SYSTEM))) {
+                        if (file_exists("$CFG->dirroot/report/log/index.php") and has_capability('report/log:view', context_system::instance())) {
                             $loggedinas .= ' (<a href="'.$CFG->wwwroot.'/report/log/index.php'.
                                                  '?chooselog=1&amp;id=1&amp;modid=site_errors">'.get_string('logs').'</a>)';
                         }
@@ -731,6 +753,23 @@ class core_renderer extends renderer_base {
             $header = $this->doctype() . $header;
         }
 
+        // If this theme version is below 2.4 release and this is a course view page
+        if ((!isset($this->page->theme->settings->version) || $this->page->theme->settings->version < 2012101500) &&
+                $this->page->pagelayout === 'course' && $this->page->url->compare(new moodle_url('/course/view.php'), URL_MATCH_BASE)) {
+            // check if course content header/footer have not been output during render of theme layout
+            $coursecontentheader = $this->course_content_header(true);
+            $coursecontentfooter = $this->course_content_footer(true);
+            if (!empty($coursecontentheader)) {
+                // display debug message and add header and footer right above and below main content
+                // Please note that course header and footer (to be displayed above and below the whole page)
+                // are not displayed in this case at all.
+                // Besides the content header and footer are not displayed on any other course page
+                debugging('The current theme is not optimised for 2.4, the course-specific header and footer defined in course format will not be output', DEBUG_DEVELOPER);
+                $header .= $coursecontentheader;
+                $footer = $coursecontentfooter. $footer;
+            }
+        }
+
         send_headers($this->contenttype, $this->page->cacheable);
 
         $this->opencontainers->push('header/footer', $footer);
@@ -818,6 +857,100 @@ class core_renderer extends renderer_base {
     }
 
     /**
+     * Returns course-specific information to be output immediately above content on any course page
+     * (for the current course)
+     *
+     * @param bool $onlyifnotcalledbefore output content only if it has not been output before
+     * @return string
+     */
+    public function course_content_header($onlyifnotcalledbefore = false) {
+        global $CFG;
+        if ($this->page->course->id == SITEID) {
+            // return immediately and do not include /course/lib.php if not necessary
+            return '';
+        }
+        static $functioncalled = false;
+        if ($functioncalled && $onlyifnotcalledbefore) {
+            // we have already output the content header
+            return '';
+        }
+        require_once($CFG->dirroot.'/course/lib.php');
+        $functioncalled = true;
+        $courseformat = course_get_format($this->page->course);
+        if (($obj = $courseformat->course_content_header()) !== null) {
+            return $courseformat->get_renderer($this->page)->render($obj);
+        }
+        return '';
+    }
+
+    /**
+     * Returns course-specific information to be output immediately below content on any course page
+     * (for the current course)
+     *
+     * @param bool $onlyifnotcalledbefore output content only if it has not been output before
+     * @return string
+     */
+    public function course_content_footer($onlyifnotcalledbefore = false) {
+        global $CFG;
+        if ($this->page->course->id == SITEID) {
+            // return immediately and do not include /course/lib.php if not necessary
+            return '';
+        }
+        static $functioncalled = false;
+        if ($functioncalled && $onlyifnotcalledbefore) {
+            // we have already output the content footer
+            return '';
+        }
+        $functioncalled = true;
+        require_once($CFG->dirroot.'/course/lib.php');
+        $courseformat = course_get_format($this->page->course);
+        if (($obj = $courseformat->course_content_footer()) !== null) {
+            return $courseformat->get_renderer($this->page)->render($obj);
+        }
+        return '';
+    }
+
+    /**
+     * Returns course-specific information to be output on any course page in the header area
+     * (for the current course)
+     *
+     * @return string
+     */
+    public function course_header() {
+        global $CFG;
+        if ($this->page->course->id == SITEID) {
+            // return immediately and do not include /course/lib.php if not necessary
+            return '';
+        }
+        require_once($CFG->dirroot.'/course/lib.php');
+        $courseformat = course_get_format($this->page->course);
+        if (($obj = $courseformat->course_header()) !== null) {
+            return $courseformat->get_renderer($this->page)->render($obj);
+        }
+        return '';
+    }
+
+    /**
+     * Returns course-specific information to be output on any course page in the footer area
+     * (for the current course)
+     *
+     * @return string
+     */
+    public function course_footer() {
+        global $CFG;
+        if ($this->page->course->id == SITEID) {
+            // return immediately and do not include /course/lib.php if not necessary
+            return '';
+        }
+        require_once($CFG->dirroot.'/course/lib.php');
+        $courseformat = course_get_format($this->page->course);
+        if (($obj = $courseformat->course_footer()) !== null) {
+            return $courseformat->get_renderer($this->page)->render($obj);
+        }
+        return '';
+    }
+
+    /**
      * Returns lang menu or '', this method also checks forcing of languages in courses.
      *
      * @return string The lang menu HTML or empty string
@@ -892,6 +1025,12 @@ class core_renderer extends renderer_base {
         if (empty($bc->blockinstanceid) || !strip_tags($bc->title)) {
             $bc->collapsible = block_contents::NOT_HIDEABLE;
         }
+        $skiptitle = strip_tags($bc->title);
+        if ($bc->blockinstanceid && !empty($skiptitle)) {
+            $bc->attributes['aria-labelledby'] = 'instance-'.$bc->blockinstanceid.'-header';
+        } else if (!empty($bc->arialabel)) {
+            $bc->attributes['aria-label'] = $bc->arialabel;
+        }
         if ($bc->collapsible == block_contents::HIDDEN) {
             $bc->add_class('hidden');
         }
@@ -899,7 +1038,7 @@ class core_renderer extends renderer_base {
             $bc->add_class('block_with_controls');
         }
 
-        $skiptitle = strip_tags($bc->title);
+
         if (empty($skiptitle)) {
             $output = '';
             $skipdest = '';
@@ -933,7 +1072,11 @@ class core_renderer extends renderer_base {
 
         $title = '';
         if ($bc->title) {
-            $title = html_writer::tag('h2', $bc->title, null);
+            $attributes = array();
+            if ($bc->blockinstanceid) {
+                $attributes['id'] = 'instance-'.$bc->blockinstanceid.'-header';
+            }
+            $title = html_writer::tag('h2', $bc->title, $attributes);
         }
 
         $controlshtml = $this->block_controls($bc->controls);
@@ -1333,6 +1476,11 @@ class core_renderer extends renderer_base {
             $select->attributes['title'] = $select->tooltip;
         }
 
+        $select->attributes['class'] = 'autosubmit';
+        if ($select->class) {
+            $select->attributes['class'] .= ' ' . $select->class;
+        }
+
         if ($select->label) {
             $output .= html_writer::label($select->label, $select->attributes['id'], false, $select->labelattributes);
         }
@@ -1345,10 +1493,13 @@ class core_renderer extends renderer_base {
         $output .= html_writer::select($select->options, $select->name, $select->selected, $select->nothing, $select->attributes);
 
         $go = html_writer::empty_tag('input', array('type'=>'submit', 'value'=>get_string('go')));
-        $output .= html_writer::tag('noscript', html_writer::tag('div', $go), array('style'=>'inline'));
+        $output .= html_writer::tag('noscript', html_writer::tag('div', $go), array('class' => 'inline'));
 
         $nothing = empty($select->nothing) ? false : key($select->nothing);
-        $this->page->requires->js_init_call('M.util.init_select_autosubmit', array($select->formid, $select->attributes['id'], $nothing));
+        $this->page->requires->yui_module('moodle-core-formautosubmit',
+            'M.core.init_formautosubmit',
+            array(array('selectid' => $select->attributes['id'], 'nothing' => $nothing))
+        );
 
         // then div wrapper for xhtml strictness
         $output = html_writer::tag('div', $output);
@@ -1414,6 +1565,17 @@ class core_renderer extends renderer_base {
             $output .= html_writer::label($select->label, $select->attributes['id'], false, $select->labelattributes);
         }
 
+        $classes = array();
+        if (!$select->showbutton) {
+            $classes[] = 'autosubmit';
+        }
+        if ($select->class) {
+            $classes[] = $select->class;
+        }
+        if (count($classes)) {
+            $select->attributes['class'] = implode(' ', $classes);
+        }
+
         if ($select->helpicon instanceof help_icon) {
             $output .= $this->render($select->helpicon);
         } else if ($select->helpicon instanceof old_help_icon) {
@@ -1469,9 +1631,12 @@ class core_renderer extends renderer_base {
 
         if (!$select->showbutton) {
             $go = html_writer::empty_tag('input', array('type'=>'submit', 'value'=>get_string('go')));
-            $output .= html_writer::tag('noscript', html_writer::tag('div', $go), array('style'=>'inline'));
+            $output .= html_writer::tag('noscript', html_writer::tag('div', $go), array('class' => 'inline'));
             $nothing = empty($select->nothing) ? false : key($select->nothing);
-            $output .= $this->page->requires->js_init_call('M.util.init_url_select', array($select->formid, $select->attributes['id'], $nothing));
+            $this->page->requires->yui_module('moodle-core-formautosubmit',
+                'M.core.init_formautosubmit',
+                array(array('selectid' => $select->attributes['id'], 'nothing' => $nothing))
+            );
         } else {
             $output .= html_writer::empty_tag('input', array('type'=>'submit', 'value'=>$select->showbutton));
         }
@@ -1495,18 +1660,19 @@ class core_renderer extends renderer_base {
      *
      * @param string $path The page link after doc root and language, no leading slash.
      * @param string $text The text to be displayed for the link
+     * @param boolean $forcepopup Whether to force a popup regardless of the value of $CFG->doctonewwindow
      * @return string
      */
-    public function doc_link($path, $text = '') {
+    public function doc_link($path, $text = '', $forcepopup = false) {
         global $CFG;
 
-        $icon = $this->pix_icon('docs', $text, 'moodle', array('class'=>'iconhelp'));
+        $icon = $this->pix_icon('docs', $text, 'moodle', array('class'=>'iconhelp icon-pre'));
 
         $url = new moodle_url(get_docs_url($path));
 
         $attributes = array('href'=>$url);
-        if (!empty($CFG->doctonewwindow)) {
-            $attributes['id'] = $this->add_action_handler(new popup_action('click', $url));
+        if (!empty($CFG->doctonewwindow) || $forcepopup) {
+            $attributes['class'] = 'helplinkpopup';
         }
 
         return html_writer::tag('a', $icon.$text, $attributes);
@@ -1638,7 +1804,13 @@ class core_renderer extends renderer_base {
             $ratinghtml .= html_writer::empty_tag('input', $attributes);
 
             if (!$rating->settings->scale->isnumeric) {
-                $ratinghtml .= $this->help_icon_scale($rating->settings->scale->courseid, $rating->settings->scale);
+                // If a global scale, try to find current course ID from the context
+                if (empty($rating->settings->scale->courseid) and $coursecontext = $rating->context->get_course_context(false)) {
+                    $courseid = $coursecontext->instanceid;
+                } else {
+                    $courseid = $rating->settings->scale->courseid;
+                }
+                $ratinghtml .= $this->help_icon_scale($courseid, $rating->settings->scale);
             }
             $ratinghtml .= html_writer::end_tag('span');
             $ratinghtml .= html_writer::end_tag('div');
@@ -1727,12 +1899,13 @@ class core_renderer extends renderer_base {
         // note: this title is displayed only if JS is disabled, otherwise the link will have the new ajax tooltip
         $title = get_string('helpprefix2', '', trim($helpicon->title, ". \t"));
 
-        $attributes = array('href'=>$url, 'title'=>$title);
+        $attributes = array('href'=>$url, 'title'=>$title, 'aria-haspopup' => 'true');
         $id = html_writer::random_id('helpicon');
         $attributes['id'] = $id;
         $output = html_writer::tag('a', $output, $attributes);
 
         $this->page->requires->js_init_call('M.util.help_icon.add', array(array('id'=>$id, 'url'=>$url->out(false))));
+        $this->page->requires->string_for_js('close', 'form');
 
         // and finally span
         return html_writer::tag('span', $output, array('class' => 'helplink'));
@@ -1792,12 +1965,11 @@ class core_renderer extends renderer_base {
         // note: this title is displayed only if JS is disabled, otherwise the link will have the new ajax tooltip
         $title = get_string('helpprefix2', '', trim($title, ". \t"));
 
-        $attributes = array('href'=>$url, 'title'=>$title);
-        $id = html_writer::random_id('helpicon');
-        $attributes['id'] = $id;
+        $attributes = array('href'=>$url, 'title'=>$title, 'aria-haspopup' => 'true', 'class' => 'tooltip');
         $output = html_writer::tag('a', $output, $attributes);
 
-        $this->page->requires->js_init_call('M.util.help_icon.add', array(array('id'=>$id, 'url'=>$url->out(false))));
+        $this->page->requires->js_init_call('M.util.help_icon.setup');
+        $this->page->requires->string_for_js('close', 'form');
 
         // and finally span
         return html_writer::tag('span', $output, array('class' => 'helplink'));
@@ -2064,9 +2236,9 @@ EOD;
             $html .= <<<EOD
     <div id="file_info_{$client_id}" class="mdl-left filepicker-filelist" style="position: relative">
     <div class="filepicker-filename">
-        <div class="filepicker-container">$currentfile<span class="dndupload-message">$strdndenabled <br/><span class="dndupload-arrow"></span></span></div>
+        <div class="filepicker-container">$currentfile<div class="dndupload-message">$strdndenabled <br/><div class="dndupload-arrow"></div></div></div>
     </div>
-    <div><div class="dndupload-target">{$strdroptoupload}<br/><span class="dndupload-arrow"></span></div></div>
+    <div><div class="dndupload-target">{$strdroptoupload}<br/><div class="dndupload-arrow"></div></div></div>
     </div>
 EOD;
         }
@@ -2083,7 +2255,7 @@ EOD;
      */
     public function update_module_button($cmid, $modulename) {
         global $CFG;
-        if (has_capability('moodle/course:manageactivities', get_context_instance(CONTEXT_MODULE, $cmid))) {
+        if (has_capability('moodle/course:manageactivities', context_module::instance($cmid))) {
             $modulename = get_string('modulename', $modulename);
             $string = get_string('updatethis', '', $modulename);
             $url = new moodle_url("$CFG->wwwroot/course/mod.php", array('update' => $cmid, 'return' => true, 'sesskey' => sesskey()));
@@ -2495,7 +2667,7 @@ EOD;
 
         //accessibility: heading for navbar list  (MDL-20446)
         $navbarcontent = html_writer::tag('span', get_string('pagepath'), array('class'=>'accesshide'));
-        $navbarcontent .= html_writer::tag('ul', join('', $htmlblocks));
+        $navbarcontent .= html_writer::tag('ul', join('', $htmlblocks), array('role'=>'navigation'));
         // XHTML
         return $navbarcontent;
     }

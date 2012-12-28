@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'role', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -158,12 +158,15 @@ $string['course:create'] = 'Crear cursos';
 $string['course:delete'] = 'Eliminar cursos';
 $string['course:enrolconfig'] = 'Configurar ejemplos de matriculación en cursos';
 $string['course:enrolreview'] = 'Revisar matriculaciones del curso';
+$string['course:ignorefilesizelimits'] = 'Usar archivos mayores a las restricciones por tamaño';
+$string['course:isincompletionreports'] = 'Mostrarse en reportes de finalización';
 $string['course:manageactivities'] = 'Gestionar actividades';
 $string['course:managefiles'] = 'Gestionar archivos';
 $string['course:managegrades'] = 'Gestionar calificaciones';
 $string['course:managegroups'] = 'Gestionar grupos';
 $string['course:managescales'] = 'Gestionar escalas';
 $string['course:markcomplete'] = 'Marcar los usuarios como completos al completar un curso';
+$string['course:movesections'] = 'Mover secciones';
 $string['course:publish'] = 'Publicar un curso en el hub';
 $string['course:request'] = 'Solicitar nuevos cursos';
 $string['course:reset'] = 'Reiniciar curso';
@@ -184,6 +187,10 @@ $string['createrolebycopying'] = 'Crear un nuevo rol copiando {$a}';
 $string['createthisrole'] = 'Crear este rol';
 $string['currentcontext'] = 'Contexto actual';
 $string['currentrole'] = 'Rol actual';
+$string['customroledescription'] = 'Descripción personalizada';
+$string['customroledescription_help'] = 'Las descripciones de roles estándar se localizan automáticamente si la descripción personalizada está vacía.';
+$string['customrolename'] = 'Nombre completo personalizado';
+$string['customrolename_help'] = 'Los nombres de los roles estándar se localizan automáticamente si el nombre personalizado está vacío. Usted debe proporcionar un nombre completo para todos los roles personalizados.';
 $string['defaultrole'] = 'Rol por defecto';
 $string['defaultx'] = 'Valor predeterminado: {$a}';
 $string['defineroles'] = 'Definir roles';
@@ -221,9 +228,9 @@ $string['grade:manage'] = 'Gestionar elementos de calificación';
 $string['grade:managegradingforms'] = 'Gestionar métodos de calificación avanzados';
 $string['grade:manageletters'] = 'Gestionar calificaciones con letra';
 $string['grade:manageoutcomes'] = 'Gestionar resultados de calificaciones';
-$string['grade:managesharedforms'] = 'Administrar plantillas de formatos para calificación avanzada';
+$string['grade:managesharedforms'] = 'Gestionar plantillas avanzadas de formatos de calificación';
 $string['grade:override'] = 'Pasar calificaciones por alto';
-$string['grade:sharegradingforms'] = 'Compartir formatos para calificación avanzada como plantillas';
+$string['grade:sharegradingforms'] = 'Compartir formatos avanzados de calificación como plantillas';
 $string['grade:unlock'] = 'Desbloquear calificaciones o elementos';
 $string['grade:view'] = 'Ver calificaciones propias';
 $string['grade:viewall'] = 'Ver calificaciones de otros usuarios';
@@ -244,6 +251,8 @@ $string['legacytype'] = 'Tipo de rol heredado';
 $string['legacy:user'] = 'ROL HEREDADO: Usuario identificado';
 $string['listallroles'] = 'Listar todos los roles';
 $string['localroles'] = 'Roles asignados localmente';
+$string['mainadmin'] = 'Admin principal';
+$string['mainadminset'] = 'Configurar Admin principal';
 $string['manageadmins'] = 'Gestionar los administradores del sitio';
 $string['manager'] = 'Gestor';
 $string['managerdescription'] = 'Los gestores pueden acceder a los cursos y modificarlos, por lo general no participan en los cursos.';
@@ -332,14 +341,16 @@ $string['role:assign'] = 'Asignar roles a los usuarios';
 $string['roleassignments'] = 'Asignaciones de rol';
 $string['roledefinitions'] = 'Definiciones de rol';
 $string['rolefullname'] = 'Nombre';
+$string['roleincontext'] = '{$a->role} en {$a->context}';
 $string['role:manage'] = 'Crear y gestionar roles';
 $string['role:override'] = 'Anular permisos para otros';
 $string['roleprohibitheader'] = 'Prohibir rol';
-$string['roleprohibitinfo'] = 'Seleccione un rol para añadir a la lista de roles prohibidos en el contexto {$a->context}, permiso {$a-> cap}:';
+$string['roleprohibitinfo'] = 'Seleccione un rol para añadir a la lista de roles prohibidos en el contexto {$a->context}, permiso {$a->cap}:';
 $string['role:review'] = 'Revisión de permisos para los demás';
 $string['roles'] = 'Roles';
 $string['role:safeoverride'] = 'Anular permisos seguros para otros';
 $string['roleselect'] = 'Seleccionar rol';
+$string['rolesforuser'] = 'Roles para el usuario {$a}';
 $string['roles_help'] = '<p>
 Un rol es un conjunto de permisos definidos para todo el sitio que usted puede asignar a usuarios específicos en contextos específicos.
 </p>
@@ -350,8 +361,8 @@ Por ejemplo, puede tener un rol denominado "Profesor" que se ajusta para permiti
 
 <p>
 Un rol debe tener un <strong>nombre</strong>.  Si necesita denominar el rol en varios idiomas, puede utilizar la sintaxis multi-idioma (\'multilang\') si así lo desea, como, por ejemplo <pre>
-  &lt;span lang="en">Maestro&lt;/span>
-  &lt;span lang="es_es">Profesor&lt;/span>
+  <span lang="en">Maestro</span>
+  <span lang="es_es">Profesor</span>
   </pre>Si lo hace así, asegúrese de que las "cadenas de filtro" ("filter strings") están activadas en su insstalación.
 </p>
 
@@ -371,6 +382,7 @@ Vea también
 <a href="help.php?file=overrides.html">Anulaciones</a>.
 </p>';
 $string['roleshortname'] = 'Nombre corto';
+$string['roleshortname_help'] = 'El nombre corto del rol es un identificador del rol de bajo nivel, en el cual solamente están permitidos caracteres ASCII alfanuméricos. No cambie los nombres cortos de los roles estándar.';
 $string['role:switchroles'] = 'Cambiar a otros roles';
 $string['roletoassign'] = 'Rol a asignar';
 $string['roletooverride'] = 'Rol a anular';
@@ -399,10 +411,11 @@ $string['site:uploadusers'] = 'Subir nuevos usuarios desde un archivo';
 $string['site:viewfullnames'] = 'Ver siempre nombres completos de los usuarios';
 $string['site:viewparticipants'] = 'Ver a los participantes';
 $string['site:viewreports'] = 'Ver informes';
-$string['site:viewuseridentity'] = 'Ver identidad completa de usuarios en listas';
+$string['site:viewuseridentity'] = 'Ver la identidad completa del usuario en las listas';
 $string['tag:create'] = 'Crear nuevas marcas';
 $string['tag:edit'] = 'Editar marcas existentes';
 $string['tag:editblocks'] = 'Editar bloques en páginas de marcas';
+$string['tag:flag'] = 'Señalar marcas (tags) como inapropiadas';
 $string['tag:manage'] = 'Gestionar todas las marcas';
 $string['thisusersroles'] = 'Tareas de rol de este usuario';
 $string['unassignarole'] = 'Desasignar rol {$a}';
@@ -415,6 +428,7 @@ $string['user:editmessageprofile'] = 'Editar perfil de mensajería de usuario';
 $string['user:editownmessageprofile'] = 'Editar el propio perfil de mensajería de usuario';
 $string['user:editownprofile'] = 'Editar el perfil de usuario propio';
 $string['user:editprofile'] = 'Editar perfil de usuario';
+$string['user:ignoreuserquota'] = 'Ignorar límite de cuota de usuario';
 $string['user:loginas'] = 'Entrar como otro usuario';
 $string['user:manageblocks'] = 'Gestionar bloques en el perfil de usuario de otros usuarios';
 $string['user:manageownblocks'] = 'Gestionar bloques en el perfil de usuario público propio';
@@ -437,7 +451,7 @@ $string['user:viewusergrades'] = 'Ver calificaciones de los usuarios';
 $string['useshowadvancedtochange'] = 'Usar "Mostrar avanzadas" para cambiar';
 $string['viewingdefinitionofrolex'] = 'Viendo la definición del rol \'{$a}\'';
 $string['viewrole'] = 'Ver detalles del rol';
-$string['webservice:createmobiletoken'] = 'Crear una ficha (token) de servicio web para accceso mediante dispositivos móviles';
+$string['webservice:createmobiletoken'] = 'Crear una ficha (token) web para acceso por dispositivos móviles';
 $string['webservice:createtoken'] = 'Crear una ficha de servicio web';
 $string['whydoesuserhavecap'] = '¿Por qué {$a->fullname} tiene el permiso de {$a->capability} en el contexto {$a->context}?';
 $string['whydoesusernothavecap'] = '¿Por qué {$a->fullname} no tiene el permiso de {$a->capability} en el contexto {$a->context}?';

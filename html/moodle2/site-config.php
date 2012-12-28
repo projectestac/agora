@@ -55,6 +55,16 @@
     if (!isset($school_info['id_moodle2']) || empty($school_info['id_moodle2'])) {
         header('location: '.WWWROOT.'error.php?s=moodle2&dns='.$_REQUEST['ccentre']);
         exit(0);
+    } else {
+        $currenthour = date('G');
+        if ($agora['server']['enviroment'] == 'FRM') {
+            // Change id for usu1 for training environment if is an odd hour (to regenerate site without error messages)
+            if ($school_info['id_moodle2'] == 1 && $currenthour % 2 != 0) {
+                $school_info['id_moodle2'] = 10000;
+            } else if ($school_info['id_moodle2'] == 10000 && $currenthour % 2 == 0){
+                $school_info['id_moodle2'] = 1;        
+            }                
+        }
     }
 
     $CFG->dbname    = $school_info['database_moodle2'];

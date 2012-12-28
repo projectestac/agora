@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradingform_guide', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'gradingform_guide', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   gradingform_guide
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -75,7 +75,6 @@ $string['save'] = 'Desa';
 $string['saveguide'] = 'Desa la guia de qualificació i fes-la efectiva';
 $string['saveguidedraft'] = 'Desa com a esborrany';
 $string['score'] = 'puntuació';
-$string['showdescriptionstudent'] = 'Visualitza la descripció dels qualificats';
 $string['showmarkerdesc'] = 'Mostra les descripcions de criteri de qui qualifica';
 $string['showmarkspercriterionstudents'] = 'Mostra les puntuacions per criteri a l\'estudiantat';
 $string['showstudentdesc'] = 'Mostra les descripcions de criteri de l\'estudiant';

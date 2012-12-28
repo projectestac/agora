@@ -1,5 +1,9 @@
 YUI.add('moodle-core-dragdrop', function(Y) {
-    var MOVEICON = {'pix':"i/move_2d",'component':'moodle'};
+    var MOVEICON = {
+        pix: "i/move_2d",
+        largepix: "i/dragdrop",
+        component: 'moodle'
+    };
 
    /*
     * General DRAGDROP class, this should not be used directly,
@@ -31,13 +35,16 @@ YUI.add('moodle-core-dragdrop', function(Y) {
             Y.DD.DDM.on('drag:dropmiss', this.global_drag_dropmiss, this);
         },
 
-        get_drag_handle: function(title, classname, iconclass) {
+        get_drag_handle: function(title, classname, iconclass, large) {
+            var iconname = MOVEICON.pix;
+            if (large) {
+                iconname = MOVEICON.largepix;
+            }
             var dragicon = Y.Node.create('<img />')
                 .setStyle('cursor', 'move')
                 .setAttrs({
-                    'src' : M.util.image_url(MOVEICON.pix, MOVEICON.component),
-                    'alt' : title,
-                    'title' : M.str.moodle.move
+                    'src' : M.util.image_url(iconname, MOVEICON.component),
+                    'alt' : title
                 });
             if (iconclass) {
                 dragicon.addClass(iconclass);
@@ -167,11 +174,15 @@ YUI.add('moodle-core-dragdrop', function(Y) {
             // we substitute them for the ease of use. For e.drop we use,
             // this.lastdroptarget (ghost node we use for indicating where to drop)
             e.drag = e.target;
+            e.drop = this.lastdroptarget;
+            // Check that drag object belongs to correct group
+            if (!this.in_group(e.drag)) {
+                return;
+            }
             // Check that drop object belong to correct group
             if (!e.drop || !e.drop.inGroup(this.groups)) {
                 return;
             }
-            e.drop = this.lastdroptarget;
             this.drag_dropmiss(e);
         },
 
@@ -200,4 +211,4 @@ YUI.add('moodle-core-dragdrop', function(Y) {
 M.core = M.core || {};
 M.core.dragdrop = DRAGDROP;
 
-}, '@VERSION@', {requires:['base', 'node', 'io', 'dom', 'dd', 'moodle-enrol-notification']});
+}, '@VERSION@', {requires:['base', 'node', 'io', 'dom', 'dd', 'moodle-core-notification']});

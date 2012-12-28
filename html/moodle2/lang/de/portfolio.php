@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'portfolio', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   portfolio
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,7 +41,7 @@ $string['commonsettingsdesc'] = '<p>Wenn ein Transfer bestätigt wird mit der Fe
 $string['configexport'] = 'Exportierte Daten konfigurieren';
 $string['configplugin'] = 'Portfolio-Plugin konfigurieren';
 $string['configure'] = 'Konfigurieren';
-$string['confirmcancel'] = 'Sind Sie sicher, dass Sie den Export abbrechen wollen?';
+$string['confirmcancel'] = 'Möchten Sie den Export wirklich abbrechen?';
 $string['confirmexport'] = 'Bitte bestätigen Sie diesen Export';
 $string['confirmsummary'] = 'Zusammenfassung Ihres Exports';
 $string['continuetoportfolio'] = 'Am Portfolio weiterarbeiten';
@@ -157,7 +157,8 @@ $string['multipleinstancesdisallowed'] = 'Versuch eine weitere Instanz von einem
 $string['mustsetcallbackoptions'] = 'Sie müssen die Rückfrageoption entweder im portfolio_add_button Ersteller oder mit der  set_callback_options Methode nutzen';
 $string['noavailableplugins'] = 'Entschuldigung, aber es gibt keine verfügbaren Portfolios, in die Sie exportieren könnten';
 $string['nocallbackclass'] = 'Callbackklasse für ({$a}) nicht gefunden';
-$string['nocallbackfile'] = 'Im Modul von dem Sie etwas exportieren müssen stimmtetwas nicht. Eine benötigte Datei wurde nicht gefunden ({$a}).';
+$string['nocallbackcomponent'] = 'Die Komponente \'{$a}\' wurde nicht gefunden.';
+$string['nocallbackfile'] = 'Im Modul, aus dem etwas exportiert werden soll, stimmt etwas nicht. Eine benötigte Datei wurde nicht gefunden.';
 $string['noclassbeforeformats'] = 'Die Callbackklasse muss gesetzt werden bevor set_formats im portfolio_button aufgerufen wird. ';
 $string['nocommonformats'] = 'Kein gemeinsames Format zwischen den verfügbaren Portfolioplugins und der abfragenden Stelle {$a->location} (Abfrager unterstützt {$a->formats})';
 $string['noinstanceyet'] = 'Sie haben noch nichts ausgewählt';
@@ -185,7 +186,7 @@ $string['selectedwait'] = 'Gewählt für Warteschlange?';
 $string['selectplugin'] = 'Ziel auswählen';
 $string['singleinstancenomultiallowed'] = 'Es ist nur eine Portfolioplugininstanz verfügbar. Sie unterstützt mehrere Exports zur gleichen Zeit nicht, Ein aktiver Export verwendet das Plugin derzeit!';
 $string['somepluginsdisabled'] = 'Einige Portfolioplugins wurden vollständig deaktiviert. Sie können falsch konfiguriert sein. Es kann aber auch eine andere Ursache vorliegen.';
-$string['sure'] = 'Sind Sie sicher, dass Sie \'{$a}\' löschen möchten? Dies kann nicht rückgängig gemacht werden!';
+$string['sure'] = 'Möchten Sie \'{$a}\' wirklich löschen? Sie können das nicht rückgängig gemachen!';
 $string['thirdpartyexception'] = 'Beim Portfolioexport kam es zu einer Fehlermeldung vom empfangenen Tool [{$a}]. Dieser Fehler sollte korrigiert werden.';
 $string['transfertime'] = 'Übertragungszeit';
 $string['unknownplugin'] = 'Unbekannt (u.U. von Admin inzwischen entfernt)';

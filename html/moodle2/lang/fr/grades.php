@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'grades', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -263,6 +263,7 @@ $string['displaypoints'] = 'Afficher les points';
 $string['displayweighted'] = 'Afficher les notes pondérées';
 $string['dropdown'] = 'Menu déroulant';
 $string['droplow'] = 'Ignorer les plus basses';
+$string['droplowestvalue'] = 'Spécifier la valeur de rejet de la plus petite note';
 $string['droplow_help'] = '<!-- $Id$ -->
 
 
@@ -314,6 +315,7 @@ $string['exportonlyactive_help'] = 'N\'inclure dans l\'exportation que les parti
 $string['exportplugins'] = 'Modules d\'exportation';
 $string['exportsettings'] = 'Réglages d\'exportation';
 $string['exportto'] = 'Exporter vers';
+$string['extracreditvalue'] = 'Points supplémentaires pour {$a}';
 $string['extracreditwarning'] = 'Remarque : si tous les éléments d\'une catégorie sont cochés comme bonus, cela aura pour effet de les retirer complètement du calcul des notes, puisqu\'il n\'y aura pas de point au total.';
 $string['feedback'] = 'Feedback';
 $string['feedbackadd'] = 'Ajouter feedback';
@@ -363,10 +365,14 @@ $string['gradedisplaytype_help'] = '<!-- $Id$ -->
 <p>Spécifie comment afficher les notes dans les rapports de l\'évaluateur et du participant. Les notes peuvent être affichées comme notes réelles, comme pourcentages (relativement aux notes maximale et minimale) ou comme lettres.</p>';
 $string['gradedon'] = 'Évalué le {$a}';
 $string['gradeexport'] = 'Exportation de notes';
+$string['gradeexportcustomprofilefields'] = 'Champs de profil personnalisés pour exportation des notes';
+$string['gradeexportcustomprofilefields_desc'] = 'Inclure ces champs de profil personnalisés dans l\'exportation des notes, séparés par des virgules.';
 $string['gradeexportdecimalpoints'] = 'Nombre de décimales des notes exportées';
 $string['gradeexportdecimalpoints_desc'] = 'Nombre de décimales à afficher lors de l\'exportation. Ce réglage peut être modifié lors de chaque exportation.';
 $string['gradeexportdisplaytype'] = 'Type d\'affichage des notes exportées';
 $string['gradeexportdisplaytype_desc'] = 'Lors de l\'exportation, les notes peuvent être affichées comme notes brutes, comme pourcentages (relativement aux notes maximale et minimale) ou comme lettres (A, B, C, etc.). Ce réglage peut être modifié lors de chaque exportation.';
+$string['gradeexportuserprofilefields'] = 'Champs de profil pour exportation des notes';
+$string['gradeexportuserprofilefields_desc'] = 'Inclure ces champs de profil dans l\'exportation des notes, séparés par des virgules.';
 $string['gradeforstudent'] = '{$a->student}<br />{$a->item}{$a->feedback}';
 $string['gradehelp'] = 'Aide sur les notes';
 $string['gradehistorylifetime'] = 'Durée de l\'historique des notes';
@@ -407,10 +413,7 @@ $string['gradeoutcomeitem'] = 'Évaluer élément d\'objectif';
 $string['gradeoutcomes'] = 'Objectifs';
 $string['gradeoutcomescourses'] = 'Objectifs du cours';
 $string['gradepass'] = 'Note pour passer';
-$string['gradepass_help'] = '<!-- $Id$ -->
-
-
-<p>Si pour un élément d\'évaluation doit être définie une note que les participants doivent égaler ou dépasser pour réussir l\'élément, vous pouvez la saisir ici.</p>';
+$string['gradepass_help'] = 'Ce réglage détermine la note minimale pour passer. La valeur est utilisée dans l\'achèvement d\'activités et de cours, ainsi que dans le carnet de note, où les notes supérieures sont en vert et les notes inférieures en rouge.';
 $string['gradepreferences'] = 'Préférences des notes';
 $string['gradepreferenceshelp'] = 'Aide sur les préférences des notes';
 $string['gradepublishing'] = 'Activer la publication';
@@ -482,7 +485,7 @@ $string['importplugins'] = 'Modules d\'importation';
 $string['importpreview'] = 'Prévisualisation de l\'importation';
 $string['importsettings'] = 'Réglages d\'importation';
 $string['importskippednomanagescale'] = 'Vous n\'avez pas les autorisations permettant d\'ajouter un nouveau barème. Par conséquent, l\'objectif « {$a} » a été ignoré, car il requiert la création d\'un nouveau barème';
-$string['importskippedoutcome'] = 'Un objectif de même intitulé abrégé « {$a} » existe déjà dans ce contexte. L\'objectif du même nom à importer à été ignoré.';
+$string['importskippedoutcome'] = 'Un objectif de même intitulé abrégé « {$a} » existe déjà dans ce contexte. L\'objectif du même nom à importer a été ignoré.';
 $string['importstandard'] = 'Importer comme objectifs standards';
 $string['importsuccess'] = 'Importation des notes réussie';
 $string['importxml'] = 'Importation XML';
@@ -549,6 +552,7 @@ $string['multfactor_help'] = '<!-- $Id$ -->
 
 
 <p>Nombre par lequel toutes les notes de cet élément d\'évaluation seront multipliées.</p>';
+$string['multfactorvalue'] = 'Multiplicateur pour {$a}';
 $string['mypreferences'] = 'Mes préférences';
 $string['myreportpreferences'] = 'Mes préférences de rapport';
 $string['navmethod'] = 'Méthode de navigation';
@@ -635,6 +639,7 @@ $string['plusfactor_help'] = '<!-- $Id$ -->
 
 
 <p>Nombre qui sera ajouté à toutes les notes de cet élément d\'évaluation, après l\'application du multiplicateur.</p>';
+$string['plusfactorvalue'] = 'Décalage pour {$a}';
 $string['points'] = 'points';
 $string['pointsascending'] = 'Tri croissant par points';
 $string['pointsdescending'] = 'Tri décroissant par points';
@@ -690,6 +695,7 @@ $string['savepreferences'] = 'Enregistrer les préférences';
 $string['scaleconfirmdelete'] = 'Voulez-vous vraiment supprimer le barème « {$a} » ?';
 $string['scaledpct'] = '% pondéré';
 $string['seeallcoursegrades'] = 'Voir toutes les notes du cours';
+$string['select'] = 'Sélectionner {$a}';
 $string['selectalloroneuser'] = 'Sélectionner tous ou un utilisateur';
 $string['selectauser'] = 'Sélectionner un utilisateur';
 $string['selectdestination'] = 'Choisir la destination de {$a}';

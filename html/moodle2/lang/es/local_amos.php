@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['about'] = '<p>AMOS significa Mnipulación Automatizada de Cadenas (Automated Manipulation Of Strings). AMOS es un repositorio central de las cadenas de Moodle y de su historia. Lleva un registro de la incorporación de cadenas en inglés al código Moodle, agrupa las traducciones, gestiona tareas comunes de traducción y genera paquetes de idioma para ser desplegados en servidores Moodle.</p>
+$string['about'] = '<p>AMOS significa Manipulación Automatizada de Cadenas (Automated Manipulation Of Strings). AMOS es un repositorio central de las cadenas de Moodle y de su historia. Lleva un registro de la incorporación de cadenas en inglés al código Moodle, agrupa las traducciones, gestiona tareas comunes de traducción y genera paquetes de idioma para ser desplegados en servidores Moodle.</p>
 <p>Véase <a href="http://docs.moodle.org/en/AMOS">documentación AMOS</a> para más información.</p>';
 $string['amos'] = 'AMOS (Herramienta de traducción de Moodle)';
 $string['amos:commit'] = 'Confirmar las cadenas en espera en el repositorio principal';
@@ -36,6 +36,8 @@ $string['amos:stage'] = 'Usar la herramienta de traducción AMOS y poner las cad
 $string['commitstage'] = 'Confirmar cadenas en espera';
 $string['committableall'] = 'todos los idiomas';
 $string['committablenone'] = 'no se admiten idiomas: por favor, contacte con el coordinador de AMOS';
+$string['componentsall'] = 'Todos';
+$string['componentsnone'] = 'Ninguno';
 $string['componentsstandard'] = 'Estándar';
 $string['confirmaction'] = 'Esta operación no se puede deshacer. ¿Está seguro?';
 $string['contribaccept'] = 'Aceptar';
@@ -96,6 +98,7 @@ $string['filtermisfstg'] = 'solo cadenas en espera';
 $string['filtermisfwog'] = 'sin cadenas en gris';
 $string['filtersid'] = 'Identificador de cadena';
 $string['filtersid_desc'] = 'La clave en la matriz de cadenas';
+$string['filtersidpartial'] = 'coincidencia parcial';
 $string['filtertxt'] = 'Sub-cadena';
 $string['filtertxtcasesensitive'] = 'sensible a mayúsculas';
 $string['filtertxt_desc'] = 'La cadena debe contener un texto dado';
@@ -111,6 +114,8 @@ $string['greylistedwarning'] = 'la cadena está en gris';
 $string['importfile'] = 'Importar cadenas traducidas de un archivo';
 $string['language'] = 'Idioma';
 $string['languages'] = 'Idiomas';
+$string['languagesall'] = 'Todos';
+$string['languagesnone'] = 'Ninguno';
 $string['log'] = 'Registro';
 $string['logfilterbranch'] = 'Versiones';
 $string['logfiltercommits'] = 'Filtro de confirmación';
@@ -137,6 +142,7 @@ $string['permalink'] = 'Enlace permanente';
 $string['pluginclassnonstandard'] = 'Extensiones (plugins) no estándar';
 $string['pluginclassstandard'] = 'Extensiones (plugins) estándar';
 $string['pluginname'] = 'AMOS';
+$string['savefilter'] = 'Guardar ajustes del filtro';
 $string['script'] = 'AMOScript';
 $string['script_help'] = 'AMOScript es un conjunto de instrucciones a ejecutar sobre el repositorio de cadenas.';
 $string['stashapply'] = 'Aplicar';

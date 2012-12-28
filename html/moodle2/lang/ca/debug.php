@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'debug', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'debug', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   debug
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,7 +43,6 @@ $string['missingconfigversion'] = 'La taula de configuració no conté la versi�
 $string['modulenotexist'] = 'El mòdul {$a} no existeix';
 $string['morethanonerecordinfetch'] = 'S\'ha trobat més d\'un registre en fetch() !';
 $string['mustbeoveride'] = 'Cal sobreescriure el mètode abstracte {$a}.';
-$string['noactivityname'] = 'Objecte de pàgina derivat de page_generic_activity però $this->activityname no està definit';
 $string['noadminrole'] = 'No s\'ha trobat el rol d\'administració';
 $string['noblocks'] = 'No hi ha blocs instal·lats!';
 $string['nocate'] = 'No hi ha categories!';

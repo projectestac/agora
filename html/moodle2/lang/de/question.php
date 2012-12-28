@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'question', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -109,14 +109,14 @@ $string['decimalplacesingrades'] = 'Dezimalstellen bei der Bewertung';
 $string['defaultfor'] = 'Standard für {$a}';
 $string['defaultinfofor'] = 'Standardkategorie für Fragen, die im Kontext \'{$a}\' freigegeben sind.';
 $string['defaultmark'] = 'Erreichbare Punkte';
-$string['deletebehaviourareyousure'] = '{$a} Verhalten löschen: sind sie sicher?';
+$string['deletebehaviourareyousure'] = 'Möchten Sie das Verhalten \'{$a}\' wirklich löschen?';
 $string['deletebehaviourareyousuremessage'] = 'Sie wollen das Frageverhalten {$a} löschen. Damit werden alle damit verknüpften Einträge in der Datenbank gelöscht. Wollen Sie dies fortsetzen?';
 $string['deletecoursecategorywithquestions'] = 'In dieser Kurskategorie sind Fragen in der Testfragendatenbank hinterlegt. Wenn Sie nun fortfahren, werden diese gelöscht. Über die Testfragenverwaltung können diese  von Ihnen verschoben werden.';
-$string['deleteqtypeareyousure'] = 'Sind Sie Sicher, dass Sie den Fragetyp \'{$a}\' löschen möchten?';
-$string['deleteqtypeareyousuremessage'] = 'Sie sind dabei, den Fragetyp \'{$a}\' vollständig zu löschen. Sind Sie sicher, dass Sie ihn deinstallieren wollen?';
+$string['deleteqtypeareyousure'] = 'Möchten Sie den Fragetyp \'{$a}\' wirklich löschen?';
+$string['deleteqtypeareyousuremessage'] = 'Sie löschen gerade den Fragetyp \'{$a}\' vollständig. Alle mit diesem Fragetyp verbundenen Daten werden aus der Datenbank gelöscht. Sind Sie sicher?';
 $string['deletequestioncheck'] = 'Sind Sie absolut sicher, die Sie \'{$a}\' löschen möchten?';
 $string['deletequestionscheck'] = 'Sind Sie absolut sicher, dass Sie die folgenden Fragen löschen wollen? <br /> <br />{$a}';
-$string['deletingbehaviour'] = '{$a} Frageverhalten löschen: sind Sie sicher?';
+$string['deletingbehaviour'] = 'Frageverhalten \'{$a}\' wird gelöscht';
 $string['deletingqtype'] = 'Fragetyp \'{$a}\' löschen';
 $string['didnotmatchanyanswer'] = '[Passt zu keiner Antwort]';
 $string['disabled'] = 'deaktiviert';
@@ -332,6 +332,7 @@ $string['numquestions'] = 'Fragenanzahl';
 $string['numquestionsandhidden'] = '{$a->numquestions} (+{$a->numhidden} verborgene)';
 $string['options'] = 'Optionen';
 $string['orphanedquestionscategory'] = 'Fragen aus gelöschten Kategorien gespeichert';
+$string['orphanedquestionscategoryinfo'] = 'Vereinzelt können - meist aufgrund von früheren Softwarefehlern - Fragen in der Datenbank verbleiben, selbst wenn die Kategorie gelöscht wurde.Dies ist auf dieser Seite tatsächlich früher einmal passiert. Diese Kategorie wurde automatisch erzeugt. Alle verwaisten Fragen wurden hier eingefügt, damit Sie über die weitere Verwendung entscheiden können. Bilder oder Mediendateien sind dabei jedoch verloren gegangen.';
 $string['page-question-category'] = 'Jede Fragenkategorieseite';
 $string['page-question-edit'] = 'Jede Fragenbearbeitungsseite';
 $string['page-question-export'] = 'Jede Fragen-Exportseite';

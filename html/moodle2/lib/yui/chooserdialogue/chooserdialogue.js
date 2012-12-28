@@ -20,29 +20,43 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
         // The initial overflow setting
         initialoverflow : '',
 
+        bodycontent : null,
+        headercontent : null,
+        instanceconfig : null,
+
         setup_chooser_dialogue : function(bodycontent, headercontent, config) {
+            this.bodycontent = bodycontent;
+            this.headercontent = headercontent;
+            this.instanceconfig = config;
+        },
+
+        prepare_chooser : function () {
+            if (this.overlay) {
+                return;
+            }
+
             // Set Default options
             var params = {
-                bodyContent : bodycontent.get('innerHTML'),
-                headerContent : headercontent.get('innerHTML'),
+                bodyContent : this.bodycontent.get('innerHTML'),
+                headerContent : this.headercontent.get('innerHTML'),
+                width : '540px',
                 draggable : true,
                 visible : false, // Hide by default
                 zindex : 100, // Display in front of other items
-                lightbox : true, // This dialogue should be modal
-                shim : true
-            }
+                lightbox : true // This dialogue should be modal
+            };
 
             // Override with additional options
-            for (paramkey in config) {
-              params[paramkey] = config[paramkey];
+            for (paramkey in this.instanceconfig) {
+              params[paramkey] = this.instanceconfig[paramkey];
             }
 
             // Create the overlay
             this.overlay = new M.core.dialogue(params);
 
             // Remove the template for the chooser
-            bodycontent.remove();
-            headercontent.remove();
+            this.bodycontent.remove();
+            this.headercontent.remove();
 
             // Hide and then render the overlay
             this.overlay.hide();
@@ -63,6 +77,8 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
          * @return void
          */
         display_chooser : function (e) {
+            this.prepare_chooser();
+
             // Stop the default event actions before we proceed
             e.preventDefault();
 
@@ -118,7 +134,7 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
             }, this);
 
             // Hook onto the cancel button to hide the form
-            thisevent = this.container.one('#addcancel').on('click', this.cancel_popup, this);
+            thisevent = this.container.one('.addcancel').on('click', this.cancel_popup, this);
             this.listenevents.push(thisevent);
             thisevent = bb.one('div.closebutton').on('click', this.cancel_popup, this);
             this.listenevents.push(thisevent);
@@ -128,8 +144,8 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
             this.listenevents.push(thisevent);
 
             // Add references to various elements we adjust
-            this.jumplink     = this.container.one('#jump');
-            this.submitbutton = this.container.one('#submitbutton');
+            this.jumplink     = this.container.one('.jump');
+            this.submitbutton = this.container.one('.submitbutton');
 
             // Disable the submit element until the user makes a selection
             this.submitbutton.set('disabled', 'true');
@@ -303,6 +319,6 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
     M.core.chooserdialogue = CHOOSERDIALOGUE;
 },
 '@VERSION@', {
-    requires:['base', 'overlay', 'moodle-enrol-notification']
+    requires:['base', 'overlay', 'moodle-core-notification']
 }
 );

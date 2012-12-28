@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_multichoice', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qtype_multichoice', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   qtype_multichoice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -57,11 +57,8 @@ $string['overallpartiallycorrectfeedback'] = 'Retroacció per a qualsevol respos
 $string['partiallycorrectfeedback'] = 'Per a qualsevol resposta parcialment correcta';
 $string['pleaseselectananswer'] = 'Trieu una resposta.';
 $string['pleaseselectatleastoneanswer'] = 'Si us plau, seleccioneu almenys una resposta.';
-$string['pluginname'] = 'Opcions múltiples';
 $string['pluginnameadding'] = 'S\'està afegint una pregunta d\'opcions múltiples';
 $string['pluginnameediting'] = 'S\'està editant una pregunta d\'opcions múltiples';
-$string['pluginname_help'] = 'En resposta a una pregunta (que pot incloure una imatge) l\'estudiant tria entre diferents opcions. Hi ha dos tipus de preguntes d\'opcions múltiples: només una resposta i múltiples respostes.';
-$string['pluginnamesummary'] = 'Permet la selecció de només una resposta o múltiples respostes d\'una llista predefinida.';
 $string['selectmulti'] = 'Trieu-ne una o més:';
 $string['selectone'] = 'Trieu-ne una:';
 $string['shuffleanswers'] = 'Barreja respostes';

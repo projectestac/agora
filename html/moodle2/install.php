@@ -45,6 +45,7 @@ if (file_exists($configfile)) {
 
 define('CLI_SCRIPT', false); // prevents some warnings later
 define('AJAX_SCRIPT', false); // prevents some warnings later
+define('CACHE_DISABLE_ALL', true); // Disables caching.. just in case.
 
 // Servers should define a default timezone in php.ini, but if they don't then make sure something is defined.
 // This is a quick hack.  Ideally we should ask the admin for a value.  See MDL-22625 for more on this.
@@ -56,10 +57,8 @@ if (function_exists('date_default_timezone_set') and function_exists('date_defau
 @error_reporting(E_ALL);
 @ini_set('display_errors', '1');
 
-// Check that PHP is of a sufficient version
-// PHP 5.2.0 is intentionally checked here even though a higher version is required by the environment
-// check. This is not a typo - see MDL-18112
-if (version_compare(phpversion(), "5.2.0") < 0) {
+// Check that PHP is of a sufficient version.
+if (version_compare(phpversion(), '5.3.2') < 0) {
     $phpversion = phpversion();
     // do NOT localise - lang strings would not work here and we CAN not move it after installib
     echo "Moodle 2.1 or later requires at least PHP 5.3.2 (currently using version $phpversion).<br />";
@@ -195,6 +194,7 @@ require_once($CFG->libdir.'/deprecatedlib.php');
 require_once($CFG->libdir.'/adminlib.php');
 require_once($CFG->libdir.'/environmentlib.php');
 require_once($CFG->libdir.'/componentlib.class.php');
+require_once($CFG->dirroot.'/cache/lib.php');
 
 //point pear include path to moodles lib/pear so that includes and requires will search there for files before anywhere else
 //the problem is that we need specific version of quickforms and hacked excel files :-(

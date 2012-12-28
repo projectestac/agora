@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'search', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'search', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   search
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -65,7 +65,7 @@ $string['runindexertest'] = 'Ejecutar prueba de indexador';
 $string['score'] = 'Puntuación';
 $string['search'] = 'Búsqueda';
 $string['searching'] = 'Buscando en...';
-$string['searchnotpermitted'] = 'Usted no tiene permiso de realizar búsqueda';
+$string['searchnotpermitted'] = 'A Usted no se le permite hacer una búsqueda';
 $string['seconds'] = 'segundos';
 $string['solutions'] = 'Soluciones';
 $string['statistics'] = 'Estadísticas';

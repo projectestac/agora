@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qtype_calculated', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -51,6 +51,7 @@ $string['datasetrole'] = 'Les variables <strong>{x..}</strong> seront remplacée
 $string['decimals'] = 'avec {$a}';
 $string['deleteitem'] = 'Supprimer élément';
 $string['deletelastitem'] = 'Supprimer dernier élément';
+$string['distributionoption'] = 'Sélectionner une option de distribution';
 $string['editdatasets'] = 'Modifier le jeu de données des variables';
 $string['editdatasets_help'] = 'Les valeurs de variables sont créées en renseignant un nombre dans chaque champ de variable et en cliquant sur le bouton ajouter. Pour générer 10 valeurs ou plus, sélectionnez le nombre de valeurs souhaitées avant de cliquer sur le bouton ajouter. Une distribution uniforme signifie que chaque valeur sera générée de manière équilibrée entre les limites ; une distribution logarithmique signifie que les valeurs proches de la limite basse seront majoritaires.';
 $string['existingcategory1'] = 'utilisera un jeu de données partagé déjà existant';
@@ -78,6 +79,7 @@ $string['keptcategory3'] = 'Un lien d\'un ensemble réutilisable de liens de la 
 $string['keptlocal1'] = 'utilisera le même jeu de données privé existant que précédemment';
 $string['keptlocal2'] = 'Un fichier d\'un ensemble privé de fichiers de la même question, comme précédemment';
 $string['keptlocal3'] = 'Un lien d\'un ensemble privé de liens de la même question, comme précédemment';
+$string['lengthoption'] = 'Sélectionner une option de longueur';
 $string['loguniform'] = 'Log uniforme';
 $string['loguniformbit'] = 'chiffres, pour une distribution log uniforme';
 $string['makecopynextpage'] = 'Page suivante (nouvelle question)';

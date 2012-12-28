@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'editor', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   editor
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,6 +56,7 @@ $string['createlink'] = 'Link einfügen';
 $string['cut'] = 'Auswahl ausschneiden';
 $string['cutpastemozilla'] = 'Leider können Sie mit diesem Editor die gewohnten Tastatur-Shortcuts zum Einfügen von Texten nicht nutzen. Hintergrund ist eine Sicherheitsfunktion in einigen Versionen von Mozilla und Firefox.<br /><br />Sie haben drei Möglichkeiten, die Sie probieren können: <br /> (1) An Stelle von Strg-V verwenden Sie SHIFT-Einfg <br /> (2) Nutzen Sie das Menü mit Bearbeiten -> Einfügen <br /> (3) Verändern Sie die Einstellungen des Browsers in der Datei user.js. <br /><br />Mit dem "OK"-Button finden Sie weitere Informationen, mit dem Button "Abbrechen" gehen Sie zum Editor zurück.';
 $string['delete'] = 'Löschen';
+$string['editordeleteconfirm'] = 'Sie sind dabei das Editor-Plugin  \'{$a}\' komplett zu löschen. Dies wird dazu führen, dass alle in der Datenbank mit diesem Plugin verbundenen Einträge gelöscht werden. Sind Sie sich sicher und wollen Sie fortsetzen?';
 $string['editors'] = 'Texteditoren';
 $string['editorsettings'] = 'Übersicht';
 $string['enterurlfirst'] = 'Sie müssen zuerst eine URL eingeben';
@@ -75,7 +76,7 @@ $string['htmlmode'] = 'HTML-Code ein/aus';
 $string['imageurl'] = 'URL zum Bild';
 $string['indent'] = 'Einzug vergrößern';
 $string['insertchar'] = 'Sonderzeichen einfügen';
-$string['insertimage'] = 'Bild einfügen/verändern';
+$string['insertimage'] = 'Bild einfügen/bearbeiten';
 $string['insertlink'] = 'Link einfügen';
 $string['insertsmile'] = 'Emoticon einfügen';
 $string['inserttable'] = 'Tabelle einfügen';

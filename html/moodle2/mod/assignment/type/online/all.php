@@ -27,7 +27,7 @@ $PAGE->set_url('/mod/assignment/type/online/all.php', array('id'=>$id));
 require_course_login($course);
 
 // check for view capability at course level
-$context = get_context_instance(CONTEXT_COURSE,$course->id);
+$context = context_course::instance($course->id);
 require_capability('mod/assignment:view',$context);
 
 // various strings
@@ -47,8 +47,6 @@ $PAGE->navbar->add($str->onlinetext);
 // get all the assignments in the course
 $assignments = get_all_instances_in_course('assignment',$course, $USER->id );
 
-$sections = get_all_sections($course->id);
-
 // array to hold display data
 $views = array();
 
@@ -60,7 +58,7 @@ foreach( $assignments as $assignment ) {
     }
 
     // check we are allowed to view this
-    $context = get_context_instance(CONTEXT_MODULE, $assignment->coursemodule);
+    $context = context_module::instance($assignment->coursemodule);
     if (!has_capability('mod/assignment:view',$context)) {
         continue;
     }
@@ -98,7 +96,7 @@ foreach( $assignments as $assignment ) {
     $view = new stdClass;
 
     // start to build view object
-    $view->section = get_section_name($course, $sections[$assignment->section]);
+    $view->section = get_section_name($course, $assignment->section);
 
     $view->name = $assignment->name;
     $view->submitted = $submitted;

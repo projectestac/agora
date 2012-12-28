@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_paypal', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_paypal', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_paypal
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,15 +32,15 @@ $string['cost'] = 'Teilnahmegebühr';
 $string['costerror'] = 'Die Teilnahmegebühr muss eine Zahl sein.';
 $string['costorkey'] = 'Wählen Sie eines der folgenden Kurs-Anmeldeverfahren.';
 $string['currency'] = 'Währung';
-$string['defaultrole'] = 'Standardmäßige Rollenzuweisung';
+$string['defaultrole'] = 'Rolle im Kurs';
 $string['defaultrole_desc'] = 'Wählen Sie die Rolle aus, die bei der PayPal-Einschreibung zugewiesen werden soll';
-$string['enrolenddate'] = 'Enddatum';
+$string['enrolenddate'] = 'Einschreibebeginn';
 $string['enrolenddate_help'] = 'Wenn diese Option aktiviert ist, können Nutzer/innen nur bis zu diesem Zeitpunkt eingeschrieben werden.';
 $string['enrolenddaterror'] = 'Der Endzeitpunkt für die Einschreibung kann nicht vor dem Startzeitpunkt liegen.';
 $string['enrolperiod'] = 'Teilnahmedauer';
 $string['enrolperiod_desc'] = 'Vorgabe zur Teilnahmedauer (in Sekunden). Falls dieser Wert auf Null gesetzt ist, ist die Teilnahmedauer standardmäßig unbegrenzt.';
 $string['enrolperiod_help'] = 'Teilnahmedauer (in Sekunden), beginnend mit dem Einschreibezeitpunkt. Falls dieser Wert auf Null gesetzt ist, ist die Teilnahmedauer standardmäßig unbegrenzt.';
-$string['enrolstartdate'] = 'Startdatum';
+$string['enrolstartdate'] = 'Einschreibeende';
 $string['enrolstartdate_help'] = 'Wenn diese Option aktiviert ist, können Nutzer/innen ab diesem Zeitpunkt eingeschrieben werden.';
 $string['mailadmins'] = 'Admin benachrichtigen';
 $string['mailstudents'] = 'Teilnehmer/innen benachrichtigen';

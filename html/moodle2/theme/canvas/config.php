@@ -133,40 +133,47 @@ $THEME->layouts = array(
     'popup' => array(
         'file' => 'general.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'noblocks'=>true, 'nonavbar'=>true),
+        'options' => array('nofooter'=>true, 'noblocks'=>true, 'nonavbar'=>true, 'nocourseheaderfooter'=>true),
     ),
     'frametop' => array(
         'file' => 'general.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true),
+        'options' => array('nofooter'=>true, 'nocoursefooter'=>true),
     ),
     'maintenance' => array(
         'file' => 'general.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nonavbar'=>true),
+        'options' => array('nofooter'=>true, 'nonavbar'=>true, 'nocourseheaderfooter'=>true),
     ),
     'embedded' => array(
         'file' => 'embedded.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nonavbar'=>true),
+        'options' => array('nofooter'=>true, 'nonavbar'=>true, 'nocourseheaderfooter'=>true),
     ),
     // Should display the content and basic headers only.
     'print' => array(
         'file' => 'general.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nonavbar'=>false, 'noblocks'=>true),
+        'options' => array('nofooter'=>true, 'nonavbar'=>false, 'noblocks'=>true, 'nocourseheaderfooter'=>true),
     ),
     // The pagelayout used when a redirection is occuring.
     'redirect' => array(
         'file' => 'embedded.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nonavbar'=>true),
+        'options' => array('nofooter'=>true, 'nonavbar'=>true, 'nocourseheaderfooter'=>true),
     ),
     'report' => array(
         'file' => 'report.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-    )
+    ),
+    // The pagelayout used for safebrowser and securewindow.
+    'secure' => array(
+        'file' => 'general.php',
+        'regions' => array('side-pre', 'side-post'),
+        'defaultregion' => 'side-pre',
+        'options' => array('nofooter'=>true, 'nonavbar'=>true, 'nocustommenu'=>true, 'nologinlinks'=>true, 'nocourseheaderfooter'=>true),
+    ),
 );
 
 /////////////////////////////////////////////////////////
@@ -187,7 +194,7 @@ $THEME->hidefromselector = true;
 // switched on.
 /////////////////////////////////////////////////////
 
-// $THEME->enable_dock = false;
+$THEME->enable_dock = true;
 
 ////////////////////////////////////////////////////
 // Do you want to use the new navigation dock?

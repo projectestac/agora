@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hub', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'hub', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   hub
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -160,7 +160,7 @@ $string['registeredcourses'] = 'Registrierte Kurse';
 $string['registeredmoodleorg'] = 'Moodle.org ({$a})';
 $string['registeredon'] = 'Hubs bei denen Sie registriert sind';
 $string['registeredsites'] = 'Registrierte Websites';
-$string['registermoochtips'] = 'Um sich für den Moodle.org Open Community Hub (MOOCH) zu registrieren muß Ihre Seite zuvor auf moodle.org registriert worden sein.';
+$string['registermoochtips'] = 'Um sich für den Moodle.org Open Community Hub (MOOCH) zu registrieren, muss Ihre Seite zuvor auf moodle.org registriert worden sein.';
 $string['registersite'] = 'Auf {$a} registrieren';
 $string['registerwith'] = 'Zugriff für einen Hub registrieren';
 $string['registrationconfirmed'] = 'Registrierung der Website bestätigt';

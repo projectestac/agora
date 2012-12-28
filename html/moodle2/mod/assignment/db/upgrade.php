@@ -32,6 +32,7 @@ function xmldb_assignment_upgrade($oldversion) {
     // Moodle v2.3.0 release upgrade line
     // Put any upgrade step following this
 
+
     if ($oldversion < 2012061701) {
         // Fixed/updated numfiles field in assignment_submissions table to count the actual
         // number of files has been uploaded when sendformarking is disabled

@@ -34,7 +34,7 @@ if ($hassiteconfig
     $temp = new admin_settingpage('userpolicies', new lang_string('userpolicies', 'admin'));
     if ($ADMIN->fulltree) {
         if (!during_initial_install()) {
-            $context = get_context_instance(CONTEXT_SYSTEM);
+            $context = context_system::instance();
 
             $otherroles      = array();
             $guestroles      = array();
@@ -45,8 +45,9 @@ if ($hassiteconfig
             $defaultuserid    = null;
             $defaultguestid   = null;
 
-            foreach (get_all_roles() as $role) {
-                $rolename = strip_tags(format_string($role->name)) . ' ('. $role->shortname . ')';
+            $roles = role_fix_names(get_all_roles(), null, ROLENAME_ORIGINALANDSHORT);
+            foreach ($roles as $role) {
+                $rolename = $role->localname;
                 switch ($role->archetype) {
                     case 'manager':
                         $creatornewroles[$role->id] = $rolename;
@@ -150,6 +151,7 @@ if ($hassiteconfig
                     'institution' => new lang_string('institution'),
                 )));
         $temp->add(new admin_setting_configcheckbox('enablegravatar', new lang_string('enablegravatar', 'admin'), new lang_string('enablegravatar_help', 'admin'), 0));
+        $temp->add(new admin_setting_configtext('gravatardefaulturl', new lang_string('gravatardefaulturl', 'admin'), new lang_string('gravatardefaulturl_help', 'admin'), 'mm'));
     }
 
     $ADMIN->add('roles', $temp);
@@ -158,7 +160,9 @@ if ($hassiteconfig
     //2012.05.23  @sarjona
     if (is_siteadmin() && get_protected_agora() ) {
     //************ ORIGINAL
-    //if (is_siteadmin()) {
+    /*
+    if (is_siteadmin()) {
+     */
     //************ FI    
         $ADMIN->add('roles', new admin_externalpage('admins', new lang_string('siteadministrators', 'role'), "$CFG->wwwroot/$CFG->admin/roles/admins.php"));
     }

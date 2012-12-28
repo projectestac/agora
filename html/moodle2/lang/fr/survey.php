@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'survey', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'survey', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   survey
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['actual'] = 'Actuel';
 $string['actualclass'] = 'Classe actuelle';
 $string['actualstudent'] = '{$a} actuel';
-$string['allquestionrequireanswer'] = 'Toutes les questions sont requises et doivent recevoir une réponse';
+$string['allquestionrequireanswer'] = 'Toutes les questions sont requises et doivent recevoir une réponse.';
 $string['allquestions'] = 'Toutes les questions dans l\'ordre, tous les étudiants';
 $string['allscales'] = 'Tous les barèmes, tous les étudiants';
 $string['alreadysubmitted'] = 'Vous avez déjà répondu à cette consultation';

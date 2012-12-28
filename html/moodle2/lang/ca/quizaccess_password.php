@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quizaccess_password', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'quizaccess_password', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   quizaccess_password
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['passworderror'] = 'La contrasenya és incorrecta';
-$string['pluginname'] = 'Regla d\'accés al qüestionari per contrasenya';
 $string['quizpassword'] = 'Contrasenya del qüestionari';
 $string['requirepasswordmessage'] = 'Per contestar aquest qüestionari heu de saber la contrasenya';

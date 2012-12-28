@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'notes', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'notes', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   notes
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,7 +39,6 @@ $string['deletenotes'] = 'Supprimer toutes les annotations';
 $string['editnote'] = 'Modifier annotation';
 $string['enablenotes'] = 'Activer les annotations';
 $string['groupaddnewnote'] = 'Ajouter une annotation commune';
-$string['invalidcourseid'] = 'Id de cours non valide : {$a}';
 $string['invalidid'] = 'Identifiant d\'annotation non valide';
 $string['invaliduserid'] = 'Id utilisateur non valide : {$a}';
 $string['nocontent'] = 'Le contenu ne peut pas être vide';

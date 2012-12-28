@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scorm', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'scorm', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   scorm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -50,6 +50,9 @@ $string['assetlaunched'] = 'Recurso - Visto';
 $string['attempt'] = 'Intento';
 $string['attempt1'] = '1 intento';
 $string['attempts'] = 'Intentos';
+$string['attemptstatusall'] = 'Área personal y página de inicio';
+$string['attemptstatusentry'] = 'Solo página de inicio';
+$string['attemptstatusmy'] = 'Solo área personal';
 $string['attemptsx'] = '{$a} intentos';
 $string['attr_error'] = 'Valor incorrecto para el atributo ({$a->attr}) en la marca {$a->tag}.';
 $string['autocontinue'] = 'Continuación automática';

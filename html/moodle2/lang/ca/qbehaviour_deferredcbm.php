@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qbehaviour_deferredcbm', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qbehaviour_deferredcbm', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   qbehaviour_deferredcbm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,4 +31,3 @@ $string['certainty2'] = 'Força (més del 67%)';
 $string['certainty3'] = 'Molt (més del 80%)';
 $string['howcertainareyou'] = 'Fins a quin punt n\'esteu segur? {$a}';
 $string['markadjustment'] = 'Basada en el grau de certesa que heu expressat, la puntuació de base {$a->rawmark} s\'ha ajustat a {$a->mark}.';
-$string['pluginname'] = 'Retroacció diferida amb grau de certesa de la resposta';

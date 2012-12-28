@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'debug', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'debug', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   debug
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,7 +43,6 @@ $string['missingconfigversion'] = 'La table Config ne contient pas la version. I
 $string['modulenotexist'] = 'Le module {$a} n\'existe pas';
 $string['morethanonerecordinfetch'] = 'Plus d\'un enregistrement trouvé dans fetch() !';
 $string['mustbeoveride'] = 'La méthode abstraite {$a} doit être surchargée.';
-$string['noactivityname'] = 'L\'objet de page est dérivé de page_generic_activity mais ne définit pas $this->activityname';
 $string['noadminrole'] = 'Aucun rôle administrateur trouvé';
 $string['noblocks'] = 'Aucun bloc installé !';
 $string['nocate'] = 'Aucune catégorie !';

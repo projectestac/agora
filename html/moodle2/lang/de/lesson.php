@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'lesson', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -112,7 +112,7 @@ $string['configslideshowheight'] = 'Höhe der Slideshow, falls sie aktiviert ist
 $string['configslideshowwidth'] = 'Breite der Slideshow, falls sie aktiviert ist';
 $string['confirmdelete'] = 'Seite löschen';
 $string['confirmdeletionofthispage'] = 'Diese Seite löschen?';
-$string['congratulations'] = 'Herzlichen Glückwunsch! Sie haben das Ende der Lektion erreicht.';
+$string['congratulations'] = 'Ende der Lektion.';
 $string['continue'] = 'Fortsetzen';
 $string['continuetoanswer'] = 'Weitere Antworten ändern';
 $string['continuetonextpage'] = 'Auf der nächsten Seite fortsetzen';
@@ -206,8 +206,6 @@ $string['highscore'] = 'Beste Bewertung';
 $string['highscores'] = 'Beste Bewertung';
 $string['hightime'] = 'Beste Zeit';
 $string['importcount'] = '{$a} Fragen importieren';
-$string['importppt'] = 'PowerPoint-Datei importieren';
-$string['importppt_help'] = 'Diese Option ermöglicht den Import eine ZIP-Datei von Folien aus PowerPoint 2003, die als Webseiten gespeichert sein müssen, um sie in der Lektion zu benutzen.';
 $string['importquestions'] = 'Fragen importieren';
 $string['importquestions_help'] = 'Diese Option ermöglicht den Import von Fragen in unterschiedlichen Formaten über eine Textdatei.';
 $string['insertedpage'] = 'Seite eingefügt';
@@ -221,6 +219,7 @@ $string['jumps_help'] = 'Jede Antwort (bei Fragen) oder jede Beschreibung (bei I
 $string['jumpsto'] = 'Sprung zu <em>{$a}</em>';
 $string['leftduringtimed'] = 'Sie haben die Lektion abgebrochen. Die Bearbeitung der Lektion ist zeitlich begrenzt. <br />Klicken Sie auf Fortsetzen, um die Lektion erneut zu beginnen.';
 $string['leftduringtimednoretake'] = 'Sie haben die Lektion abgebrochen. Die Bearbeitung der Lektion ist zeitlich begrenzt. <br />Sie können diese Lektion nicht mehr bearbeiten.';
+$string['leftduringtimedsession'] = 'Sie haben eine zeitbegrenzte Lektion abgebrochen..';
 $string['lesson:addinstance'] = 'Neue Lektion hinzufügen';
 $string['lessonattempted'] = 'Lektion wurde versucht';
 $string['lessonclosed'] = 'Die Lektion war verfügbar bis {$a}';
@@ -353,7 +352,6 @@ $string['pluginname'] = 'Lektion';
 $string['pointsearned'] = 'Erreichte Punkte';
 $string['postprocesserror'] = 'Fehler während der Verarbeitung aufgetreten! (post-processing)';
 $string['postsuccess'] = 'Erfolgreich gesendet';
-$string['pptsuccessfullimport'] = 'Import von Seiten aus der PowerPoint-Präsentation erfolgreich abgeschlossen';
 $string['practice'] = 'Übungslektion';
 $string['practice_help'] = 'Übungslektionen gehen nicht in die Gesamtbewertungen des Kurses ein.';
 $string['preprocesserror'] = 'Fehler während der Verarbeitung aufgetreten! (pre-processing)';
@@ -439,7 +437,7 @@ $string['viewgrades'] = 'Bewertungen anzeigen';
 $string['viewhighscores'] = 'Bestenliste anzeigen';
 $string['viewreports'] = '{$a->attempts} abgeschlossene von {$a->student} Versuchen anzeigen';
 $string['viewreports2'] = 'Zeige {$a} komplette Versuche';
-$string['welldone'] = 'Gut gemacht!';
+$string['welldone'] = 'In den Kurs gelangen Sie mit Klick auf "Zurückkehren zu ..."';
 $string['whatdofirst'] = 'Was wollen Sie zuerst tun?';
 $string['wronganswerjump'] = 'Sprung bei falscher Antwort';
 $string['wronganswerscore'] = 'Bewertung bei falscher Antwort';

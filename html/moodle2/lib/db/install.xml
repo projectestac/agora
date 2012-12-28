@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="lib/db" VERSION="20120620" COMMENT="XMLDB file for core Moodle tables"
+<XMLDB PATH="lib/db" VERSION="20121116" COMMENT="XMLDB file for core Moodle tables"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../lib/xmldb/xmldb.xsd"
 >
@@ -77,21 +77,19 @@
         <FIELD NAME="idnumber" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" PREVIOUS="shortname" NEXT="summary"/>
         <FIELD NAME="summary" TYPE="text" NOTNULL="false" SEQUENCE="false" PREVIOUS="idnumber" NEXT="summaryformat"/>
         <FIELD NAME="summaryformat" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="summary" NEXT="format"/>
-        <FIELD NAME="format" TYPE="char" LENGTH="10" NOTNULL="true" DEFAULT="topics" SEQUENCE="false" PREVIOUS="summaryformat" NEXT="showgrades"/>
+        <FIELD NAME="format" TYPE="char" LENGTH="21" NOTNULL="true" DEFAULT="topics" SEQUENCE="false" PREVIOUS="summaryformat" NEXT="showgrades"/>
         <FIELD NAME="showgrades" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="1" SEQUENCE="false" PREVIOUS="format" NEXT="sectioncache"/>
         <FIELD NAME="sectioncache" TYPE="text" NOTNULL="false" SEQUENCE="false" PREVIOUS="showgrades" NEXT="modinfo"/>
         <FIELD NAME="modinfo" TYPE="text" NOTNULL="false" SEQUENCE="false" PREVIOUS="sectioncache" NEXT="newsitems"/>
         <FIELD NAME="newsitems" TYPE="int" LENGTH="5" NOTNULL="true" DEFAULT="1" SEQUENCE="false" PREVIOUS="modinfo" NEXT="startdate"/>
-        <FIELD NAME="startdate" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="newsitems" NEXT="numsections"/>
-        <FIELD NAME="numsections" TYPE="int" LENGTH="5" NOTNULL="true" DEFAULT="1" SEQUENCE="false" PREVIOUS="startdate" NEXT="marker"/>
-        <FIELD NAME="marker" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="numsections" NEXT="maxbytes"/>
+        <FIELD NAME="startdate" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="newsitems" NEXT="marker"/>
+        <FIELD NAME="marker" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="startdate" NEXT="maxbytes"/>
         <FIELD NAME="maxbytes" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="marker" NEXT="legacyfiles"/>
         <FIELD NAME="legacyfiles" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="course files are not necessary any more: 0 no legacy files, 1 legacy files disabled, 2 legacy files enabled" PREVIOUS="maxbytes" NEXT="showreports"/>
         <FIELD NAME="showreports" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="legacyfiles" NEXT="visible"/>
         <FIELD NAME="visible" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" PREVIOUS="showreports" NEXT="visibleold"/>
-        <FIELD NAME="visibleold" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="the state of visible field when hiding parent category, this helps us to recover hidden states when unhiding the parent category later" PREVIOUS="visible" NEXT="hiddensections"/>
-        <FIELD NAME="hiddensections" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="visibleold" NEXT="groupmode"/>
-        <FIELD NAME="groupmode" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="hiddensections" NEXT="groupmodeforce"/>
+        <FIELD NAME="visibleold" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="the state of visible field when hiding parent category, this helps us to recover hidden states when unhiding the parent category later" PREVIOUS="visible" NEXT="groupmode"/>
+        <FIELD NAME="groupmode" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="visibleold" NEXT="groupmodeforce"/>
         <FIELD NAME="groupmodeforce" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="groupmode" NEXT="defaultgroupingid"/>
         <FIELD NAME="defaultgroupingid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="default grouping used in course modules, does not have key intentionally" PREVIOUS="groupmodeforce" NEXT="lang"/>
         <FIELD NAME="lang" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false" PREVIOUS="defaultgroupingid" NEXT="theme"/>
@@ -101,8 +99,7 @@
         <FIELD NAME="requested" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="timemodified" NEXT="enablecompletion"/>
         <FIELD NAME="enablecompletion" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 = allow use of 'completion' progress-tracking on this course. 0 = disable completion tracking on this course." PREVIOUS="requested" NEXT="completionstartonenrol"/>
         <FIELD NAME="completionstartonenrol" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 = allow use of 'activty completion' progress-tracking on this course. 0 = disable activity completion tracking on this course." PREVIOUS="enablecompletion" NEXT="completionnotify"/>
-        <FIELD NAME="completionnotify" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Notify users when they complete this course" PREVIOUS="completionstartonenrol" NEXT="coursedisplay"/>
-        <FIELD NAME="coursedisplay" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="How is the course displayed" PREVIOUS="completionnotify"/>
+        <FIELD NAME="completionnotify" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Notify users when they complete this course" PREVIOUS="completionstartonenrol"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
@@ -140,7 +137,7 @@
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="course"/>
         <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="criteriatype"/>
-        <FIELD NAME="criteriatype" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false" COMMENT="The criteria type we are aggregating, or NULL if complete course aggregation" PREVIOUS="course" NEXT="method"/>
+        <FIELD NAME="criteriatype" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="The criteria type we are aggregating, or NULL if complete course aggregation" PREVIOUS="course" NEXT="method"/>
         <FIELD NAME="method" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 = all, 2 = any, 3 = fraction, 4 = unit" PREVIOUS="criteriatype" NEXT="value"/>
         <FIELD NAME="value" TYPE="number" LENGTH="10" NOTNULL="false" SEQUENCE="false" DECIMALS="5" COMMENT="NULL = all/any, 0..1 for method 'fraction', &gt; 0 for method 'unit'" PREVIOUS="method"/>
       </FIELDS>
@@ -157,7 +154,7 @@
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="course"/>
         <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="criteriatype"/>
-        <FIELD NAME="criteriatype" TYPE="int" LENGTH="20" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Type of criteria" PREVIOUS="course" NEXT="module"/>
+        <FIELD NAME="criteriatype" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Type of criteria" PREVIOUS="course" NEXT="module"/>
         <FIELD NAME="module" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="Type of module (if using module criteria type)" PREVIOUS="criteriatype" NEXT="moduleinstance"/>
         <FIELD NAME="moduleinstance" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Module instance id (if using module criteria type)" PREVIOUS="module" NEXT="courseinstance"/>
         <FIELD NAME="courseinstance" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Course instance id (if using course criteria type)" PREVIOUS="moduleinstance" NEXT="enrolperiod"/>
@@ -173,16 +170,15 @@
         <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="course_completion_crit_compl" COMMENT="Course completion user records" PREVIOUS="course_completion_criteria" NEXT="course_completion_notify">
+    <TABLE NAME="course_completion_crit_compl" COMMENT="Course completion user records" PREVIOUS="course_completion_criteria" NEXT="course_completions">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="userid"/>
         <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="course"/>
         <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="userid" NEXT="criteriaid"/>
         <FIELD NAME="criteriaid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Completion criteria this references" PREVIOUS="course" NEXT="gradefinal"/>
         <FIELD NAME="gradefinal" TYPE="number" LENGTH="10" NOTNULL="false" SEQUENCE="false" DECIMALS="5" COMMENT="The final grade for the course (included regardless of whether a passing grade was required)" PREVIOUS="criteriaid" NEXT="unenroled"/>
-        <FIELD NAME="unenroled" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp when the user was unenroled" PREVIOUS="gradefinal" NEXT="deleted"/>
-        <FIELD NAME="deleted" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="unenroled" NEXT="timecompleted"/>
-        <FIELD NAME="timecompleted" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="deleted"/>
+        <FIELD NAME="unenroled" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp when the user was unenroled" PREVIOUS="gradefinal" NEXT="timecompleted"/>
+        <FIELD NAME="timecompleted" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="unenroled"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
@@ -195,29 +191,12 @@
         <INDEX NAME="useridcoursecriteriaid" UNIQUE="true" FIELDS="userid, course, criteriaid" PREVIOUS="timecompleted"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="course_completion_notify" COMMENT="Course completion notification emails" PREVIOUS="course_completion_crit_compl" NEXT="course_completions">
-      <FIELDS>
-        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="course"/>
-        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="role"/>
-        <FIELD NAME="role" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="ID of the role to receive this notification message when a course has been completed" PREVIOUS="course" NEXT="message"/>
-        <FIELD NAME="message" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="HTML formatted message to be sent" PREVIOUS="role" NEXT="timesent"/>
-        <FIELD NAME="timesent" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="message"/>
-      </FIELDS>
-      <KEYS>
-        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-      </KEYS>
-      <INDEXES>
-        <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
-      </INDEXES>
-    </TABLE>
-    <TABLE NAME="course_completions" COMMENT="Course completion records" PREVIOUS="course_completion_notify" NEXT="enrol">
+    <TABLE NAME="course_completions" COMMENT="Course completion records" PREVIOUS="course_completion_crit_compl" NEXT="enrol">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="userid"/>
         <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="course"/>
-        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="userid" NEXT="deleted"/>
-        <FIELD NAME="deleted" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="course" NEXT="timenotified"/>
-        <FIELD NAME="timenotified" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="deleted" NEXT="timeenrolled"/>
-        <FIELD NAME="timeenrolled" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="timenotified" NEXT="timestarted"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="userid" NEXT="timeenrolled"/>
+        <FIELD NAME="timeenrolled" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="course" NEXT="timestarted"/>
         <FIELD NAME="timestarted" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="timeenrolled" NEXT="timecompleted"/>
         <FIELD NAME="timecompleted" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="timestarted" NEXT="reaggregate"/>
         <FIELD NAME="reaggregate" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="timecompleted"/>
@@ -253,14 +232,21 @@
         <FIELD NAME="customint1" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general int" PREVIOUS="roleid" NEXT="customint2"/>
         <FIELD NAME="customint2" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general int" PREVIOUS="customint1" NEXT="customint3"/>
         <FIELD NAME="customint3" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general int" PREVIOUS="customint2" NEXT="customint4"/>
-        <FIELD NAME="customint4" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general int" PREVIOUS="customint3" NEXT="customchar1"/>
-        <FIELD NAME="customchar1" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general short name" PREVIOUS="customint4" NEXT="customchar2"/>
-        <FIELD NAME="customchar2" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general short name" PREVIOUS="customchar1" NEXT="customdec1"/>
-        <FIELD NAME="customdec1" TYPE="number" LENGTH="12" NOTNULL="false" SEQUENCE="false" DECIMALS="7" COMMENT="Custom - general decimal" PREVIOUS="customchar2" NEXT="customdec2"/>
+        <FIELD NAME="customint4" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general int" PREVIOUS="customint3" NEXT="customint5"/>
+        <FIELD NAME="customint5" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general int" PREVIOUS="customint4" NEXT="customint6"/>
+        <FIELD NAME="customint6" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general int" PREVIOUS="customint5" NEXT="customint7"/>
+        <FIELD NAME="customint7" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general int" PREVIOUS="customint6" NEXT="customint8"/>
+        <FIELD NAME="customint8" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general int" PREVIOUS="customint7" NEXT="customchar1"/>
+        <FIELD NAME="customchar1" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general short name" PREVIOUS="customint8" NEXT="customchar2"/>
+        <FIELD NAME="customchar2" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general short name" PREVIOUS="customchar1" NEXT="customchar3"/>
+        <FIELD NAME="customchar3" TYPE="char" LENGTH="1333" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general short name" PREVIOUS="customchar2" NEXT="customdec1"/>
+        <FIELD NAME="customdec1" TYPE="number" LENGTH="12" NOTNULL="false" SEQUENCE="false" DECIMALS="7" COMMENT="Custom - general decimal" PREVIOUS="customchar3" NEXT="customdec2"/>
         <FIELD NAME="customdec2" TYPE="number" LENGTH="12" NOTNULL="false" SEQUENCE="false" DECIMALS="7" COMMENT="Custom - general decimal" PREVIOUS="customdec1" NEXT="customtext1"/>
         <FIELD NAME="customtext1" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general text" PREVIOUS="customdec2" NEXT="customtext2"/>
-        <FIELD NAME="customtext2" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general text" PREVIOUS="customtext1" NEXT="timecreated"/>
-        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="customtext2" NEXT="timemodified"/>
+        <FIELD NAME="customtext2" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general text" PREVIOUS="customtext1" NEXT="customtext3"/>
+        <FIELD NAME="customtext3" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general text" PREVIOUS="customtext2" NEXT="customtext4"/>
+        <FIELD NAME="customtext4" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Custom - general text" PREVIOUS="customtext3" NEXT="timecreated"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="customtext4" NEXT="timemodified"/>
         <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="timecreated"/>
       </FIELDS>
       <KEYS>
@@ -330,7 +316,7 @@
         <INDEX NAME="idnumber-course" UNIQUE="false" FIELDS="idnumber, course" COMMENT="non unique index (although programatically we are guarantying some sort of uniqueness both under this table and the grade_items one). TODO: We need a central store of module idnumbers in the future." PREVIOUS="instance"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="course_modules_availability" COMMENT="Table stores conditions that affect whether a module/activity is currently available to students or not." PREVIOUS="course_modules" NEXT="course_modules_completion">
+    <TABLE NAME="course_modules_availability" COMMENT="Table stores conditions that affect whether a module/activity is currently available to students or not." PREVIOUS="course_modules" NEXT="course_modules_avail_fields">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="coursemoduleid"/>
         <FIELD NAME="coursemoduleid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the module whose availability is being restricted by this condition." PREVIOUS="id" NEXT="sourcecmid"/>
@@ -347,7 +333,21 @@
         <KEY NAME="gradeitemid" TYPE="foreign" FIELDS="gradeitemid" REFTABLE="grade_items" REFFIELDS="id" PREVIOUS="sourcecmid"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="course_modules_completion" COMMENT="Stores the completion state (completed or not completed, etc) of each user on each activity." PREVIOUS="course_modules_availability" NEXT="course_sections">
+    <TABLE NAME="course_modules_avail_fields" COMMENT="Stores user field conditions that affect whether an activity is currently available." PREVIOUS="course_modules_availability" NEXT="course_modules_completion">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="coursemoduleid"/>
+        <FIELD NAME="coursemoduleid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the module whose availability is being restricted by this condition." PREVIOUS="id" NEXT="userfield"/>
+        <FIELD NAME="userfield" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" COMMENT="The user profile field this record relates to if it is not a custom profile field" PREVIOUS="coursemoduleid" NEXT="customfieldid"/>
+        <FIELD NAME="customfieldid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="ID for the custom field if this relates to one" PREVIOUS="userfield" NEXT="operator"/>
+        <FIELD NAME="operator" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="The operator, such as less than or equal to, between the field and the value" PREVIOUS="customfieldid" NEXT="value"/>
+        <FIELD NAME="value" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="The required value of the field" PREVIOUS="operator"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="coursemoduleid"/>
+        <KEY NAME="coursemoduleid" TYPE="foreign" FIELDS="coursemoduleid" REFTABLE="course_modules" REFFIELDS="id" PREVIOUS="primary"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="course_modules_completion" COMMENT="Stores the completion state (completed or not completed, etc) of each user on each activity." PREVIOUS="course_modules_avail_fields" NEXT="course_sections">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="coursemoduleid"/>
         <FIELD NAME="coursemoduleid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Activity that has been completed (or not)." PREVIOUS="id" NEXT="userid"/>
@@ -386,7 +386,7 @@
         <INDEX NAME="course_section" UNIQUE="true" FIELDS="course, section"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="course_sections_availability" COMMENT="Completion or grade conditions that affect if a section is currently available to students." PREVIOUS="course_sections" NEXT="course_request">
+    <TABLE NAME="course_sections_availability" COMMENT="Completion or grade conditions that affect if a section is currently available to students." PREVIOUS="course_sections" NEXT="course_sections_avail_fields">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="coursesectionid"/>
         <FIELD NAME="coursesectionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the section whose availability is being restricted by this condition." PREVIOUS="id" NEXT="sourcecmid"/>
@@ -403,14 +403,29 @@
         <KEY NAME="gradeitemid" TYPE="foreign" FIELDS="gradeitemid" REFTABLE="grade_items" REFFIELDS="id" PREVIOUS="sourcecmid"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="course_request" COMMENT="course requests" PREVIOUS="course_sections_availability" NEXT="filter_active">
+    <TABLE NAME="course_sections_avail_fields" COMMENT="Stores user field conditions that affect whether an activity is currently available." PREVIOUS="course_sections_availability" NEXT="course_request">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="coursesectionid"/>
+        <FIELD NAME="coursesectionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the section whose availability is being restricted by this condition." PREVIOUS="id" NEXT="userfield"/>
+        <FIELD NAME="userfield" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" COMMENT="The user profile field this record relates to if it is not a custom profile field" PREVIOUS="coursesectionid" NEXT="customfieldid"/>
+        <FIELD NAME="customfieldid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="ID for the custom field if this relates to one" PREVIOUS="userfield" NEXT="operator"/>
+        <FIELD NAME="operator" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="The operator, such as less than or equal to, between the field and the value" PREVIOUS="customfieldid" NEXT="value"/>
+        <FIELD NAME="value" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="The required value of the field" PREVIOUS="operator"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="coursesectionid"/>
+        <KEY NAME="coursesectionid" TYPE="foreign" FIELDS="coursesectionid" REFTABLE="course_sections" REFFIELDS="id" PREVIOUS="primary"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="course_request" COMMENT="course requests" PREVIOUS="course_sections_avail_fields" NEXT="course_format_options">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="fullname"/>
         <FIELD NAME="fullname" TYPE="char" LENGTH="254" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="shortname"/>
         <FIELD NAME="shortname" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" PREVIOUS="fullname" NEXT="summary"/>
         <FIELD NAME="summary" TYPE="text" NOTNULL="true" SEQUENCE="false" PREVIOUS="shortname" NEXT="summaryformat"/>
-        <FIELD NAME="summaryformat" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="summary" NEXT="reason"/>
-        <FIELD NAME="reason" TYPE="text" NOTNULL="true" SEQUENCE="false" PREVIOUS="summaryformat" NEXT="requester"/>
+        <FIELD NAME="summaryformat" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="summary" NEXT="category"/>
+        <FIELD NAME="category" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="summaryformat" NEXT="reason"/>
+        <FIELD NAME="reason" TYPE="text" NOTNULL="true" SEQUENCE="false" PREVIOUS="category" NEXT="requester"/>
         <FIELD NAME="requester" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="reason" NEXT="password"/>
         <FIELD NAME="password" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" PREVIOUS="requester"/>
       </FIELDS>
@@ -421,7 +436,24 @@
         <INDEX NAME="shortname" UNIQUE="false" FIELDS="shortname"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="filter_active" COMMENT="Stores information about which filters are active in which contexts. Also the filter sort order. See get_active_filters in lib/filterlib.php for how this data is used." PREVIOUS="course_request" NEXT="filter_config">
+    <TABLE NAME="course_format_options" COMMENT="Stores format-specific options for the course or course section" PREVIOUS="course_request" NEXT="filter_active">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="courseid"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Id of the course" PREVIOUS="id" NEXT="format"/>
+        <FIELD NAME="format" TYPE="char" LENGTH="21" NOTNULL="true" SEQUENCE="false" COMMENT="Format this option is for" PREVIOUS="courseid" NEXT="sectionid"/>
+        <FIELD NAME="sectionid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Null if this is a course option, otherwise id of the section this option is for" PREVIOUS="format" NEXT="name"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Name of the format option" PREVIOUS="sectionid" NEXT="value"/>
+        <FIELD NAME="value" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Value of the format option" PREVIOUS="name"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="courseid"/>
+        <KEY NAME="courseid" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id" PREVIOUS="primary"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="formatoption" UNIQUE="true" FIELDS="courseid, format, sectionid, name"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="filter_active" COMMENT="Stores information about which filters are active in which contexts. Also the filter sort order. See get_active_filters in lib/filterlib.php for how this data is used." PREVIOUS="course_format_options" NEXT="filter_config">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="filter"/>
         <FIELD NAME="filter" TYPE="char" LENGTH="32" NOTNULL="true" SEQUENCE="false" COMMENT="The filter internal name, like 'filter/tex' or 'mod/glossary'." PREVIOUS="id" NEXT="contextid"/>
@@ -469,9 +501,10 @@
         <FIELD NAME="timestart" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="eventtype" NEXT="timeduration"/>
         <FIELD NAME="timeduration" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="timestart" NEXT="visible"/>
         <FIELD NAME="visible" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="1" SEQUENCE="false" PREVIOUS="timeduration" NEXT="uuid"/>
-        <FIELD NAME="uuid" TYPE="char" LENGTH="36" NOTNULL="true" SEQUENCE="false" PREVIOUS="visible" NEXT="sequence"/>
+        <FIELD NAME="uuid" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="visible" NEXT="sequence"/>
         <FIELD NAME="sequence" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="1" SEQUENCE="false" PREVIOUS="uuid" NEXT="timemodified"/>
-        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="sequence"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="sequence" NEXT="subscriptionid"/>
+        <FIELD NAME="subscriptionid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="The event_subscription id this event is associated with." PREVIOUS="timemodified"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
@@ -760,8 +793,7 @@
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="trackforums" NEXT="timemodified"/>
         <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="timecreated" NEXT="trustbitmask"/>
         <FIELD NAME="trustbitmask" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="timemodified" NEXT="imagealt"/>
-        <FIELD NAME="imagealt" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="alt tag for user uploaded image" PREVIOUS="trustbitmask" NEXT="screenreader"/>
-        <FIELD NAME="screenreader" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="flag for determining whehter the user uses a screenreader." PREVIOUS="imagealt"/>
+        <FIELD NAME="imagealt" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="alt tag for user uploaded image" PREVIOUS="trustbitmask"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
@@ -1008,9 +1040,9 @@
     <TABLE NAME="role" COMMENT="moodle roles" PREVIOUS="post" NEXT="context">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="name"/>
-        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="shortname"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Empty names are automatically localised" PREVIOUS="id" NEXT="shortname"/>
         <FIELD NAME="shortname" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" PREVIOUS="name" NEXT="description"/>
-        <FIELD NAME="description" TYPE="text" NOTNULL="true" SEQUENCE="false" PREVIOUS="shortname" NEXT="sortorder"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Empty descriptions may be automatically localised" PREVIOUS="shortname" NEXT="sortorder"/>
         <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="description" NEXT="archetype"/>
         <FIELD NAME="archetype" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false" COMMENT="Role archetype is used during install and role reset, marks admin role and helps in site settings" PREVIOUS="sortorder"/>
       </FIELDS>
@@ -1018,9 +1050,8 @@
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
       </KEYS>
       <INDEXES>
-        <INDEX NAME="sortorder" UNIQUE="true" FIELDS="sortorder" NEXT="name"/>
-        <INDEX NAME="name" UNIQUE="true" FIELDS="name" COMMENT="Enforces the constraint that role names should be unique." PREVIOUS="sortorder" NEXT="shortname"/>
-        <INDEX NAME="shortname" UNIQUE="true" FIELDS="shortname" COMMENT="Enforces the constraint that role shortnames must be unique." PREVIOUS="name"/>
+        <INDEX NAME="sortorder" UNIQUE="true" FIELDS="sortorder" NEXT="shortname"/>
+        <INDEX NAME="shortname" UNIQUE="true" FIELDS="shortname" COMMENT="Enforces the constraint that role shortnames must be unique." PREVIOUS="sortorder"/>
       </INDEXES>
     </TABLE>
     <TABLE NAME="context" COMMENT="one of these must be set" PREVIOUS="role" NEXT="context_temp">
@@ -1037,7 +1068,7 @@
       <INDEXES>
         <INDEX NAME="contextlevel-instanceid" UNIQUE="true" FIELDS="contextlevel, instanceid" NEXT="instanceid"/>
         <INDEX NAME="instanceid" UNIQUE="false" FIELDS="instanceid" PREVIOUS="contextlevel-instanceid" NEXT="path"/>
-        <INDEX NAME="path" UNIQUE="false" FIELDS="path" PREVIOUS="instanceid"/>
+        <INDEX NAME="path" UNIQUE="false" FIELDS="path" HINTS="varchar_pattern_ops" PREVIOUS="instanceid"/>
       </INDEXES>
     </TABLE>
     <TABLE NAME="context_temp" COMMENT="Used by build_context_path() in upgrade and cron to keep context depths and paths in sync." PREVIOUS="context" NEXT="capabilities">
@@ -2002,7 +2033,8 @@
         <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id" PREVIOUS="primary"/>
       </KEYS>
       <INDEXES>
-        <INDEX NAME="name" UNIQUE="true" FIELDS="name" COMMENT="tag names are unique"/>
+        <INDEX NAME="name" UNIQUE="true" FIELDS="name" COMMENT="tag names are unique" NEXT="idname"/>
+        <INDEX NAME="idname" UNIQUE="true" FIELDS="id, name" COMMENT="Improves performance of autocomplete in tag block" PREVIOUS="name"/>
       </INDEXES>
     </TABLE>
     <TABLE NAME="tag_correlation" COMMENT="The rationale for the 'tag_correlation' table is performance.   It works as a cache for a potentially heavy load query done at the 'tag_instance' table.   So, the 'tag_correlation' table stores redundant information derived from the 'tag_instance' table" PREVIOUS="tag" NEXT="tag_instance">
@@ -2081,7 +2113,9 @@
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="groupid"/>
         <FIELD NAME="groupid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="userid"/>
         <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="groupid" NEXT="timeadded"/>
-        <FIELD NAME="timeadded" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="userid"/>
+        <FIELD NAME="timeadded" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="userid" NEXT="component"/>
+        <FIELD NAME="component" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Defines the Moodle component which added this group membership (e.g. 'auth_myplugin'), or blank if it was added manually. (Entries which are created by a Moodle component cannot be removed in the normal user interface.)" PREVIOUS="timeadded" NEXT="itemid"/>
+        <FIELD NAME="itemid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="If the 'component' field is set, this can be used to define the instance of the component that created the entry. Otherwise should be left as default (0)." PREVIOUS="component"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="groupid"/>
@@ -2269,8 +2303,9 @@
         <FIELD NAME="time" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="time of transfer (in the case of a queued transfer this is the time the actual transfer ran, not when the user started)" PREVIOUS="userid" NEXT="portfolio"/>
         <FIELD NAME="portfolio" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="fk to portfolio_instance" PREVIOUS="time" NEXT="caller_class"/>
         <FIELD NAME="caller_class" TYPE="char" LENGTH="150" NOTNULL="true" SEQUENCE="false" COMMENT="the name of the class used to create the transfer" PREVIOUS="portfolio" NEXT="caller_file"/>
-        <FIELD NAME="caller_file" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="path to file to include where the class definition lives. (relative to dirroot)" PREVIOUS="caller_class" NEXT="caller_sha1"/>
-        <FIELD NAME="caller_sha1" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="sha1 of exported content as far as the caller is concerned (before the portfolio plugin gets a hold of it)" PREVIOUS="caller_file" NEXT="tempdataid"/>
+        <FIELD NAME="caller_file" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="path to file to include where the class definition lives. (relative to dirroot)" PREVIOUS="caller_class" NEXT="caller_component"/>
+        <FIELD NAME="caller_component" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="the component name responsible for exporting" PREVIOUS="caller_file" NEXT="caller_sha1"/>
+        <FIELD NAME="caller_sha1" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="sha1 of exported content as far as the caller is concerned (before the portfolio plugin gets a hold of it)" PREVIOUS="caller_component" NEXT="tempdataid"/>
         <FIELD NAME="tempdataid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="old id from portfolio_tempdata.  This is so that we can gracefully catch a race condition between an external system requesting a file and causing the tempdata to be deleted, before the user gets the &quot;your transfer is requested&quot; page" PREVIOUS="caller_sha1" NEXT="returnurl"/>
         <FIELD NAME="returnurl" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="the original &quot;returnurl&quot; of the export - takes us to the moodle page we started from" PREVIOUS="tempdataid" NEXT="continueurl"/>
         <FIELD NAME="continueurl" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="the url the external system has set to view the transfer" PREVIOUS="returnurl"/>
@@ -2579,7 +2614,7 @@
         <FIELD NAME="externalserviceid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="userid" NEXT="sid"/>
         <FIELD NAME="sid" TYPE="char" LENGTH="128" NOTNULL="false" SEQUENCE="false" COMMENT="link to browser or emulated session" PREVIOUS="externalserviceid" NEXT="contextid"/>
         <FIELD NAME="contextid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="context id where in token valid" PREVIOUS="sid" NEXT="creatorid"/>
-        <FIELD NAME="creatorid" TYPE="int" LENGTH="20" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="user id of the token creator (useful to know when the administrator created a token and so display the token to a specific administrator)" PREVIOUS="contextid" NEXT="iprestriction"/>
+        <FIELD NAME="creatorid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="user id of the token creator (useful to know when the administrator created a token and so display the token to a specific administrator)" PREVIOUS="contextid" NEXT="iprestriction"/>
         <FIELD NAME="iprestriction" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="ip restriction" PREVIOUS="creatorid" NEXT="validuntil"/>
         <FIELD NAME="validuntil" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="timestampt - valid until data" PREVIOUS="iprestriction" NEXT="timecreated"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="created timestamp" PREVIOUS="validuntil" NEXT="lastaccess"/>
@@ -2829,7 +2864,7 @@
         <KEY NAME="fk_usercreated" TYPE="foreign" FIELDS="usercreated" REFTABLE="user" REFFIELDS="id" PREVIOUS="uq_area_method"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="grading_instances" COMMENT="Grading form instance is an assessment record for one gradable item assessed by one rater" PREVIOUS="grading_definitions">
+    <TABLE NAME="grading_instances" COMMENT="Grading form instance is an assessment record for one gradable item assessed by one rater" PREVIOUS="grading_definitions" NEXT="event_subscriptions">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="definitionid"/>
         <FIELD NAME="definitionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="The ID of the form definition this is instance of" PREVIOUS="id" NEXT="raterid"/>
@@ -2846,6 +2881,55 @@
         <KEY NAME="fk_definitionid" TYPE="foreign" FIELDS="definitionid" REFTABLE="grading_definitions" REFFIELDS="id" PREVIOUS="primary" NEXT="fk_raterid"/>
         <KEY NAME="fk_raterid" TYPE="foreign" FIELDS="raterid" REFTABLE="user" REFFIELDS="id" PREVIOUS="fk_definitionid"/>
       </KEYS>
+    </TABLE>
+    <TABLE NAME="event_subscriptions" COMMENT="Tracks subscriptions to remote calendars." PREVIOUS="grading_instances" NEXT="temp_enroled_template">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="url"/>
+        <FIELD NAME="url" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="courseid"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="url" NEXT="groupid"/>
+        <FIELD NAME="groupid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="courseid" NEXT="userid"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="groupid" NEXT="eventtype"/>
+        <FIELD NAME="eventtype" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="The type of the event" PREVIOUS="userid" NEXT="pollinterval"/>
+        <FIELD NAME="pollinterval" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Frequency of checks for new/changed events" PREVIOUS="eventtype" NEXT="lastupdated"/>
+        <FIELD NAME="lastupdated" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="pollinterval" NEXT="name"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="lastupdated"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="temp_enroled_template" COMMENT="Temporary storage for course enrolments" PREVIOUS="event_subscriptions" NEXT="temp_log_template">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="userid"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="courseid"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="userid" NEXT="roleid"/>
+        <FIELD NAME="roleid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="courseid"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="userid" UNIQUE="false" FIELDS="userid" NEXT="courseid"/>
+        <INDEX NAME="courseid" UNIQUE="false" FIELDS="courseid" PREVIOUS="userid" NEXT="roleid"/>
+        <INDEX NAME="roleid" UNIQUE="false" FIELDS="roleid" PREVIOUS="courseid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="temp_log_template" COMMENT="Temporary storage for daily logs" PREVIOUS="temp_enroled_template">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="userid"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="course"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="userid" NEXT="action"/>
+        <FIELD NAME="action" TYPE="char" LENGTH="40" NOTNULL="true" SEQUENCE="false" PREVIOUS="course"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="action" UNIQUE="false" FIELDS="action" NEXT="course"/>
+        <INDEX NAME="course" UNIQUE="false" FIELDS="course" PREVIOUS="action" NEXT="user"/>
+        <INDEX NAME="user" UNIQUE="false" FIELDS="userid" PREVIOUS="course" NEXT="usercourseaction"/>
+        <INDEX NAME="usercourseaction" UNIQUE="false" FIELDS="userid, course, action" PREVIOUS="user"/>
+      </INDEXES>
     </TABLE>
   </TABLES>
 </XMLDB>

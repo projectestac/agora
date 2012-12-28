@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'chat', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = 'Vous avez un message de chat';
 $string['ajax'] = 'Version Ajax';
 $string['autoscroll'] = 'Défilement automatique';
 $string['beep'] = 'bip';
@@ -40,6 +41,7 @@ $string['chat:readlog'] = 'Lire les historiques des chats';
 $string['chatreport'] = 'Sessions de chat';
 $string['chat:talk'] = 'Participer à un chat';
 $string['chattime'] = 'Prochaine session';
+$string['composemessage'] = 'Composer un message';
 $string['configmethod'] = 'La méthode de chat AJAX fournit une interface AJAX pour le chat, qui contacte régulièrement le serveur pour actualiser l\'affichage. La méthode normale de chat contacte également régulièrement le serveur pour actualiser l\'affichage. Aucune configuration n\'est nécessaire et cela fonctionne partout. En revanche, cela induit une charge importante du serveur, notamment s\'il y a de nombreux participants au chat. L\'utilisation d\'un « démon » sur le serveur nécessite l\'accès à l\'environnement de commande Unix, mais offre en contrepartie un chat rapide et extensible.';
 $string['confignormalupdatemode'] = 'L\'actualisation de l\'affichage des salons de chat est normalement fait de manière plus efficace grâce à l\'utilisation de la fonction <em>Keep-Alive</em> du protocole HTTP 1.1, mais cette option charge passablement le serveur. Une méthode plus sophistiquée utilise la stratégie des <em>Flux</em> pour actualiser l\'affichage. L\'utilisation des <em>Flux</em> fonctionne mieux lorsqu\'il y a de nombreuses connexions (tout comme l\'utilisation du démon <em>chatd</em>), mais n\'est peut-être pas supportée par votre serveur.';
 $string['configoldping'] = 'La durée maximale (en secondes) avant de considérer qu\'un utilisateur inactif est déconnecté. Il s\'agit d\'une limite supérieure, car les déconnexions sont détectées très rapidement. Une courte durée chargera plus votre serveur. Si vous utilisez la méthode standard de chat, ne fixez <strong>jamais</strong> cette valeur à moins de 2 * chat_refresh_room.';

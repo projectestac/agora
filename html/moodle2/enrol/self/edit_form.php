@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -19,8 +18,7 @@
  * Adds new instance of enrol_self to specified course
  * or edits current instance.
  *
- * @package    enrol
- * @subpackage self
+ * @package    enrol_self
  * @copyright  2010 Petr Skoda  {@link http://skodak.org}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -32,6 +30,8 @@ require_once($CFG->libdir.'/formslib.php');
 class enrol_self_edit_form extends moodleform {
 
     function definition() {
+        global $DB;
+
         $mform = $this->_form;
 
         list($instance, $plugin, $context) = $this->_customdata;
@@ -44,7 +44,6 @@ class enrol_self_edit_form extends moodleform {
                          ENROL_INSTANCE_DISABLED => get_string('no'));
         $mform->addElement('select', 'status', get_string('status', 'enrol_self'), $options);
         $mform->addHelpButton('status', 'status', 'enrol_self');
-        $mform->setDefault('status', $plugin->get_config('status'));
 
         $mform->addElement('passwordunmask', 'password', get_string('password', 'enrol_self'));
         $mform->addHelpButton('password', 'password', 'enrol_self');
@@ -56,19 +55,20 @@ class enrol_self_edit_form extends moodleform {
                          0 => get_string('no'));
         $mform->addElement('select', 'customint1', get_string('groupkey', 'enrol_self'), $options);
         $mform->addHelpButton('customint1', 'groupkey', 'enrol_self');
-        $mform->setDefault('customint1', $plugin->get_config('groupkey'));
 
-        if ($instance->id) {
-            $roles = $this->extend_assignable_roles($context, $instance->roleid);
-        } else {
-            $roles = $this->extend_assignable_roles($context, $plugin->get_config('roleid'));
-        }
+        $roles = $this->extend_assignable_roles($context, $instance->roleid);
         $mform->addElement('select', 'roleid', get_string('role', 'enrol_self'), $roles);
-        $mform->setDefault('roleid', $plugin->get_config('roleid'));
 
         $mform->addElement('duration', 'enrolperiod', get_string('enrolperiod', 'enrol_self'), array('optional' => true, 'defaultunit' => 86400));
-        $mform->setDefault('enrolperiod', $plugin->get_config('enrolperiod'));
         $mform->addHelpButton('enrolperiod', 'enrolperiod', 'enrol_self');
+
+        $options = array(0 => get_string('no'), 1 => get_string('expirynotifyenroller', 'core_enrol'), 2 => get_string('expirynotifyall', 'core_enrol'));
+        $mform->addElement('select', 'expirynotify', get_string('expirynotify', 'core_enrol'), $options);
+        $mform->addHelpButton('expirynotify', 'expirynotify', 'core_enrol');
+
+        $mform->addElement('duration', 'expirythreshold', get_string('expirythreshold', 'core_enrol'), array('optional' => false, 'defaultunit' => 86400));
+        $mform->addHelpButton('expirythreshold', 'expirythreshold', 'core_enrol');
+        $mform->disabledIf('expirythreshold', 'expirynotify', 'eq', 0);
 
         $mform->addElement('date_selector', 'enrolstartdate', get_string('enrolstartdate', 'enrol_self'), array('optional' => true));
         $mform->setDefault('enrolstartdate', 0);
@@ -92,16 +92,45 @@ class enrol_self_edit_form extends moodleform {
                  14 * 3600 * 24 => get_string('numdays', '', 14),
                  7 * 3600 * 24 => get_string('numdays', '', 7));
         $mform->addElement('select', 'customint2', get_string('longtimenosee', 'enrol_self'), $options);
-        $mform->setDefault('customint2', $plugin->get_config('longtimenosee'));
         $mform->addHelpButton('customint2', 'longtimenosee', 'enrol_self');
 
         $mform->addElement('text', 'customint3', get_string('maxenrolled', 'enrol_self'));
-        $mform->setDefault('customint3', $plugin->get_config('maxenrolled'));
         $mform->addHelpButton('customint3', 'maxenrolled', 'enrol_self');
         $mform->setType('customint3', PARAM_INT);
 
+        $cohorts = array(0 => get_string('no'));
+        list($sqlparents, $params) = $DB->get_in_or_equal($context->get_parent_context_ids(), SQL_PARAMS_NAMED);
+        $params['current'] = $instance->customint5;
+        $sql = "SELECT id, name, idnumber, contextid
+                  FROM {cohort}
+                 WHERE contextid $sqlparents OR id = :current
+              ORDER BY name ASC, idnumber ASC";
+        $rs = $DB->get_recordset_sql($sql, $params);
+        foreach ($rs as $c) {
+            $ccontext = context::instance_by_id($c->contextid);
+            if ($c->id != $instance->customint5 and !has_capability('moodle/cohort:view', $ccontext)) {
+                continue;
+            }
+            $cohorts[$c->id] = format_string($c->name, true, array('context'=>$context));
+            if ($c->idnumber) {
+                $cohorts[$c->id] .= ' ['.s($c->idnumber).']';
+            }
+        }
+        if (!isset($cohorts[$instance->customint5])) {
+            // Somebody deleted a cohort, better keep the wrong value so that random ppl can not enrol.
+            $cohorts[$instance->customint5] = get_string('unknowncohort', 'cohort', $instance->customint5);
+        }
+        $rs->close();
+        if (count($cohorts) > 1) {
+            $mform->addElement('select', 'customint5', get_string('cohortonly', 'enrol_self'), $cohorts);
+            $mform->addHelpButton('customint5', 'cohortonly', 'enrol_self');
+        } else {
+            $mform->addElement('hidden', 'customint5');
+            $mform->setType('customint5', PARAM_INT);
+            $mform->setConstant('customint5', 0);
+        }
+
         $mform->addElement('advcheckbox', 'customint4', get_string('sendcoursewelcomemessage', 'enrol_self'));
-        $mform->setDefault('customint4', $plugin->get_config('sendcoursewelcomemessage'));
         $mform->addHelpButton('customint4', 'sendcoursewelcomemessage', 'enrol_self');
 
         $mform->addElement('textarea', 'customtext1', get_string('customwelcomemessage', 'enrol_self'), array('cols'=>'60', 'rows'=>'8'));
@@ -155,25 +184,28 @@ class enrol_self_edit_form extends moodleform {
             }
         }
 
+        if ($data['expirynotify'] > 0 and $data['expirythreshold'] < 86400) {
+            $errors['expirythreshold'] = get_string('errorthresholdlow', 'core_enrol');
+        }
+
         return $errors;
     }
 
     /**
-    * Gets a list of roles that this user can assign for the course as the default for self-enrolment
+    * Gets a list of roles that this user can assign for the course as the default for self-enrolment.
     *
     * @param context $context the context.
-    * @param integer $defaultrole the id of the role that is set as the default for self-enrolement
+    * @param integer $defaultrole the id of the role that is set as the default for self-enrolment
     * @return array index is the role id, value is the role name
     */
     function extend_assignable_roles($context, $defaultrole) {
         global $DB;
-        $roles = get_assignable_roles($context);
-        $sql = "SELECT r.id, r.name
-                  FROM {role} r
-                 WHERE r.id = $defaultrole";
-        $results = $DB->get_record_sql($sql);
-        if (isset($results->name)) {
-            $roles[$results->id] = $results->name;
+
+        $roles = get_assignable_roles($context, ROLENAME_BOTH);
+        if (!isset($roles[$defaultrole])) {
+            if ($role = $DB->get_record('role', array('id'=>$defaultrole))) {
+                $roles[$defaultrole] = role_get_name($role, $context, ROLENAME_BOTH);
+            }
         }
         return $roles;
     }

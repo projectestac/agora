@@ -17,15 +17,19 @@
 /**
  * TinyMCE text editor integration version file.
  *
- * @package    editor
- * @subpackage tinymce
+ * @package    editor_tinymce
  * @copyright  2009 Petr Skoda (http://skodak.org)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2012061700;        // The current plugin version (Date: YYYYMMDDXX)
-$plugin->requires  = 2012061700;        // Requires this Moodle version
+//XTEC ************ AFEGIT - To avoid "Strict standards: Creating default object from empty value" warning
+//2012.12.20  @sarjona
+$plugin = new stdClass();
+//************ FI
+
+$plugin->version   = 2012112900;        // The current plugin version (Date: YYYYMMDDXX)
+$plugin->requires  = 2012112900;        // Requires this Moodle version
 $plugin->component = 'editor_tinymce';  // Full name of the plugin (used for diagnostics)
-$plugin->release   = '3.5.1.1';
+$plugin->release   = '3.5.7b';           // This is NOT a directory name, see lib.php if you need to know where is the editor code!

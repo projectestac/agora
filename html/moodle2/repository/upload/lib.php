@@ -57,9 +57,10 @@ class repository_upload extends repository {
         $itemid   = optional_param('itemid', 0, PARAM_INT);
         $license  = optional_param('license', $CFG->sitedefaultlicense, PARAM_TEXT);
         $author   = optional_param('author', '', PARAM_TEXT);
+        $areamaxbytes = optional_param('areamaxbytes', FILE_AREA_MAX_BYTES_UNLIMITED, PARAM_INT);
         $overwriteexisting = optional_param('overwrite', false, PARAM_BOOL);
 
-        return $this->process_upload($saveas_filename, $maxbytes, $types, $savepath, $itemid, $license, $author, $overwriteexisting);
+        return $this->process_upload($saveas_filename, $maxbytes, $types, $savepath, $itemid, $license, $author, $overwriteexisting, $areamaxbytes);
     }
 
     /**
@@ -72,9 +73,11 @@ class repository_upload extends repository {
      * @param string $license optional the license to use for this file
      * @param string $author optional the name of the author of this file
      * @param bool $overwriteexisting optional user has asked to overwrite the existing file
+     * @param int $areamaxbytes maximum size of the file area.
      * @return object containing details of the file uploaded
      */
-    public function process_upload($saveas_filename, $maxbytes, $types = '*', $savepath = '/', $itemid = 0, $license = null, $author = '', $overwriteexisting = false) {
+    public function process_upload($saveas_filename, $maxbytes, $types = '*', $savepath = '/', $itemid = 0,
+            $license = null, $author = '', $overwriteexisting = false, $areamaxbytes = FILE_AREA_MAX_BYTES_UNLIMITED) {
         global $USER, $CFG;
 
         //XTEC ************ AFEGIT - If disk quota is exceeded, don't allow upload files
@@ -104,7 +107,7 @@ class repository_upload extends repository {
         $record->license  = $license;
         $record->author   = $author;
 
-        $context = get_context_instance(CONTEXT_USER, $USER->id);
+        $context = context_user::instance($USER->id);
         $elname = 'repo_upload_file';
 
         $fs = get_file_storage();
@@ -197,6 +200,10 @@ class repository_upload extends repository {
 
         if (empty($record->itemid)) {
             $record->itemid = 0;
+        }
+
+        if (file_is_draft_area_limit_reached($record->itemid, $areamaxbytes, filesize($_FILES[$elname]['tmp_name']))) {
+            throw new file_exception('maxareabytes');
         }
 
         if (($maxbytes!==-1) && (filesize($_FILES[$elname]['tmp_name']) > $maxbytes)) {

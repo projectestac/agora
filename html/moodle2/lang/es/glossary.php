@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'glossary', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -52,6 +52,8 @@ $string['allowprintview_help'] = '<p>Se puede permitir que los estudiantes usen 
 <p>Los profesores pueden utilizar la vista de impresión en todo momento.</p>';
 $string['andmorenewentries'] = 'y {$a} nuevas entradas más.';
 $string['answer'] = 'Respuesta';
+$string['approvaldisplayformat'] = 'Formato de visualización durante la aprobación';
+$string['approvaldisplayformat_help'] = 'Al aprobar las entradas del glosario es posible que desees utilizar un formato de visualización diferente';
 $string['approve'] = 'Aprobar';
 $string['areaattachment'] = 'Archivos adjuntos';
 $string['areaentry'] = 'Definiciones';
@@ -125,7 +127,7 @@ $string['currentglossary'] = 'Glosario actual';
 $string['date'] = 'fecha';
 $string['dateview'] = 'Vista por Fecha';
 $string['defaultapproval'] = 'Estado de aprobación por defecto';
-$string['defaultapproval_help'] = 'Si se establece a No, las entradas requieren la aprobación de un profesor antes de que sean visibles por todos.';
+$string['defaultapproval_help'] = 'Si se establece a No, las entradas requieren la aprobación de un profesor antes de que pudan ser visibles para todos.';
 $string['defaulthook'] = '\'Hook\' por defecto';
 $string['defaultmode'] = 'Modo por defecto';
 $string['defaultsortkey'] = 'Clave de clasificación por defecto';
@@ -184,6 +186,7 @@ añade las palabras Pregunta y Respuesta en el concepto y la definición respect
 aparecen en el archivo <b>mod/glossary/formats/README.txt</b> de su instalación.</p>';
 $string['displayformats'] = 'Formatos de visualización';
 $string['displayformatssetup'] = 'Ajustar formatos de visualización';
+$string['duplicatecategory'] = 'Categoría duplicada';
 $string['duplicateentry'] = 'Entrada duplicada';
 $string['editalways'] = 'Editar siempre';
 $string['editalways_help'] = '<P>Esta opción permite decidir si los estudiantes pueden editar sus entradas
@@ -291,10 +294,12 @@ $string['noentry'] = 'No se econtró ninguna entrada.';
 $string['nopermissiontodelcomment'] = 'No puede eliminar los comentarios de otras personas.';
 $string['nopermissiontodelinglossary'] = 'No puede agregar comentarios a este glosario.';
 $string['nopermissiontoviewresult'] = 'Sólo puede mirar los resultados de sus propias entradas';
+$string['notapproved'] = 'la entrada del glosario no ha sido aún aprobada.';
 $string['notcategorised'] = 'No clasificado';
 $string['numberofentries'] = 'Número de entradas';
 $string['onebyline'] = '(uno por línea)';
 $string['page-mod-glossary-edit'] = 'Página añadir/editar entrada de glosario';
+$string['page-mod-glossary-view'] = 'Ver la página de edición del glosario';
 $string['page-mod-glossary-x'] = 'Cualquier página del módulo Glosario';
 $string['pluginadministration'] = 'Administración del glosario';
 $string['pluginname'] = 'Glosario';

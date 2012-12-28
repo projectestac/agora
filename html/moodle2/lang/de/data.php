@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'data', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -73,8 +73,8 @@ $string['commentsaved'] = 'Kommentare gespeichert';
 $string['commentsn'] = '{$a} Kommentare';
 $string['commentsoff'] = 'Kommentare sind nicht aktiviert';
 $string['configenablerssfeeds'] = 'Mit dieser Funktion aktivieren Sie RSS-Feeds für alle Datenbanken. Nach der Aktivierung an dieser Stelle ist zusätzlich die Aktivierung in jeder einzelnen Datenbank innerhalb der Kursräume erforderlich.';
-$string['confirmdeletefield'] = 'Wollen Sie dieses Feld in der Datenbank wirklich löschen?';
-$string['confirmdeleterecord'] = 'Wollen Sie diesen Datensatz in der Datenbank wirklich löschen?';
+$string['confirmdeletefield'] = 'Möchten Sie dieses Feld wirklich in der Datenbank löschen?';
+$string['confirmdeleterecord'] = 'Möchten Sie diesen Datensatz wirklich in der Datenbank löschen?';
 $string['csstemplate'] = 'CSS für Vorlagen';
 $string['csvfailed'] = 'Die Daten aus der CSV-Datei konnten nicht gelesen werden.';
 $string['csvfile'] = 'CSV-Datei';
@@ -87,6 +87,7 @@ $string['data:comment'] = 'Kommentare schreiben';
 $string['data:exportallentries'] = 'Alle Datenbankeinträge exportieren';
 $string['data:exportentry'] = 'Datenbankeintrag exportieren';
 $string['data:exportownentry'] = 'Eigenen Datenbankeintrag exportieren';
+$string['data:exportuserinfo'] = 'Nutzerinformationen exportieren';
 $string['data:managecomments'] = 'Kommentare verwalten';
 $string['data:manageentries'] = 'Einträge verwalten';
 $string['data:managetemplates'] = 'Vorlagen verwalten';
@@ -106,11 +107,11 @@ $string['defaultfieldenclosure'] = '(Vorgabe: kein Zeichen)';
 $string['defaultsortfield'] = 'Standard-Sortierfeld';
 $string['delete'] = 'Löschen';
 $string['deleteallentries'] = 'Alle Einträge löschen';
-$string['deletecomment'] = 'Sind Sie sicher, dass Sie diesen Kommentar löschen wollen?';
+$string['deletecomment'] = 'Möchten Sie diesen Kommentar wirklich löschen?';
 $string['deleted'] = 'gelöscht';
 $string['deletefield'] = 'Bestehendes Feld löschen';
 $string['deletenotenrolled'] = 'Einträge von abgemeldeten Nutzer/innen löschen';
-$string['deletewarning'] = 'Sind Sie sicher, dass Sie diesen Vorlagensatz löschen möchten?';
+$string['deletewarning'] = 'Möchten Sie diese Vorlage wirklich löschen?';
 $string['descending'] = 'Absteigend';
 $string['directorynotapreset'] = '{$a->directory} ist kein Vorlagensatz. Fehlende Dateien: {$a->missing_files}';
 $string['download'] = 'Herunterladen';
@@ -180,6 +181,9 @@ $string['headerrsstemplate'] = 'Definiert Darstellung der Einträge in RSS-Feeds
 $string['headersingletemplate'] = 'Definiert Darstellung für die Einzelansicht';
 $string['importentries'] = 'Einträge importieren';
 $string['importsuccess'] = 'Die Vorlagensatz wurde erfolgreich übernommen.';
+$string['includeapproval'] = 'Bestätigungsstatus einfügen';
+$string['includetime'] = 'Zeitpunkt hinzugefügt/geändert einfügen';
+$string['includeuserdetails'] = 'Nutzerdetails einfügen';
 $string['insufficiententries'] = 'Weitere Einträge sind erforderlich, um die Datenbank einzusehen.';
 $string['intro'] = 'Beschreibung';
 $string['invalidaccess'] = 'Seite wurde nicht richtig aufgerufen';
@@ -333,6 +337,7 @@ $string['uploadrecords_help'] = 'Einträge können als Textdatei hochgeladen wer
 
 Die Feldbegrenzung ist ein Zeichen, dass jedes Feld im jedem Datensatz zusätzlich abgrenzt. Normalerweise ist es nicht gesetzt.';
 $string['url'] = 'URL';
+$string['usedate'] = 'In Suche einbeziehen';
 $string['usestandard'] = 'Vorlagensatz benutzen';
 $string['usestandard_help'] = 'Um einen auf der gesamten Website verfügbaren Vorlagensatz zu benutzen, wählen Sie ihn aus der Liste aus. Wenn Sie selbst einen Vorlagensatz zur Liste hinzugefügt haben, können Sie ihn hier auch wieder löschen.';
 $string['viewfromdate'] = 'Nur Anzeige ab';

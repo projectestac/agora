@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'group', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'group', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   group
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addedby'] = 'Hinzugefügt von {$a}';
 $string['addgroup'] = 'Nutzer/in zur Gruppe hinzufügen';
 $string['addgroupstogrouping'] = 'Gruppe zur Gruppierung hinzufügen';
 $string['addgroupstogroupings'] = 'Gruppen verwalten';
@@ -50,10 +51,10 @@ $string['defaultgroupingname'] = 'Gruppierung';
 $string['defaultgroupname'] = 'Gruppe';
 $string['deleteallgroupings'] = 'Alle Gruppierungen löschen';
 $string['deleteallgroups'] = 'Alle Gruppen löschen';
-$string['deletegroupconfirm'] = 'Sind Sie sicher, dass Sie die Gruppe \'{$a}\' löschen möchten?';
+$string['deletegroupconfirm'] = 'Möchten Sie die Gruppe \'{$a}\' wirklich löschen?';
 $string['deletegrouping'] = 'Gruppierung löschen';
-$string['deletegroupingconfirm'] = 'Sind Sie sicher, dass Sie die Gruppierung \'{$a}\' löschen möchten? (Die Gruppen innerhalb der Gruppierung werden nicht gelöscht.)';
-$string['deletegroupsconfirm'] = 'Sind Sie sicher, dass Sie die folgenden Gruppen löschen möchten?';
+$string['deletegroupingconfirm'] = 'Möchten Sie die Gruppierung \'{$a}\' wirklich löschen? (Die Gruppen innerhalb werden dabei nicht gelöscht.)';
+$string['deletegroupsconfirm'] = 'Möchten Sie die folgenden Gruppen wirklich löschen?';
 $string['deleteselectedgroup'] = 'Markierte Gruppe löschen';
 $string['editgroupingsettings'] = 'Gruppierungseinstellungen bearbeiten';
 $string['editgroupsettings'] = 'Gruppeneinstellungen bearbeiten';
@@ -63,6 +64,7 @@ $string['erroraddremoveuser'] = 'Fehler beim Hinzufügen/Entfernen von {$a} in d
 $string['erroreditgroup'] = 'Fehler beim Bearbeiten der Gruppe {$a}';
 $string['erroreditgrouping'] = 'Fehler beim Bearbeiten der Gruppierung {$a}';
 $string['errorinvalidgroup'] = 'Fehler: Ungültige Gruppe {$a}';
+$string['errorremovenotpermitted'] = 'Sie haben keine Berechtigung die automatisch hinzugefügten Gruppenmitgliedern {$a} zu entfernen.';
 $string['errorselectone'] = 'Bitte markieren Sie nur eine Gruppe, bevor Sie diese Option wählen.';
 $string['errorselectsome'] = 'Bitte markieren Sie eine oder mehrere Gruppen, bevor Sie diese Option wählen.';
 $string['evenallocation'] = 'Anmerkung: Um die Verteilung der Gruppen gleichmäßig zu erteilen, kann die Zahl der Mitglieder je Gruppe von der angegeben Zahl abweichen.';
@@ -151,7 +153,7 @@ $string['potentialmembs'] = 'Mögliche Mitglieder';
 $string['printerfriendly'] = 'Druckansicht';
 $string['random'] = 'zufällig';
 $string['removefromgroup'] = 'Nutzer/in aus der Gruppe {$a} löschen';
-$string['removefromgroupconfirm'] = 'Möchten Sie wirklich "{$a->user}" aus der Gruppe "{$a->group}" löschen?';
+$string['removefromgroupconfirm'] = 'Möchten Sie \'{$a->user}\' wirklich aus der Gruppe \'{$a->group}\' löschen?';
 $string['removegroupfromselectedgrouping'] = 'Gruppe aus der Gruppierung entfernen';
 $string['removegroupingsmembers'] = 'Alle Gruppen aus den Gruppierungen entfernen';
 $string['removegroupsmembers'] = 'Alle Gruppenmitglieder entfernen';

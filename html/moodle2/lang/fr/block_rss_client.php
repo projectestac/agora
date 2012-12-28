@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_rss_client', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_rss_client', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   block_rss_client
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -62,12 +62,14 @@ $string['managefeeds'] = 'Gérer tous mes flux RSS';
 $string['nofeeds'] = 'Il n\'y a pas de flux RSS défini sur ce site.';
 $string['numentries'] = 'Articles par flux';
 $string['pickfeed'] = 'Choisir un flux RSS';
-$string['pluginname'] = 'Flux RSS distants';
-$string['remotenewsfeed'] = 'Flux RSS distants';
+$string['pluginname'] = 'Flux RSS';
+$string['remotenewsfeed'] = 'Flux RSS';
+$string['rss_client:addinstance'] = 'Ajouter un bloc flux RSS';
 $string['rss_client:createprivatefeeds'] = 'Créer des flux RSS privés';
 $string['rss_client:createsharedfeeds'] = 'Créer des flux RSS partagés';
 $string['rss_client:manageanyfeeds'] = 'Gérer tous les flux RSS';
 $string['rss_client:manageownfeeds'] = 'Gérer ses propres flux RSS';
+$string['rss_client:myaddinstance'] = 'Ajouter un bloc flux RSS à la page Mon Moodle';
 $string['seeallfeeds'] = 'Afficher tous les flux RSS';
 $string['sharedfeed'] = 'Flux RSS partagé';
 $string['shownumentrieslabel'] = 'Nombre maximum d\'articles à afficher par bloc';
