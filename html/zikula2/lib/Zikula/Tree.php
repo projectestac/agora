@@ -205,6 +205,7 @@ class Zikula_Tree
             $jsConfig['images'][$img] = $this->config[$img];
             unset($jsConfig[$img]);
         }
+
         return $encode ? json_encode($jsConfig) : $jsConfig;
     }
 
@@ -344,6 +345,7 @@ class Zikula_Tree
             $ulClass = !empty($this->config['treeClass']) ? ' class="'.$this->config['treeClass'].'"' : '';
             $html    = "{$indent}<ul{$ulID}{$ulClass}>\n{$liHtml}\n{$indent}</ul>\n";
         }
+
         return $html;
     }
 
@@ -382,6 +384,7 @@ class Zikula_Tree
         $liClass[] = ($i == 1 && $size > 1) ? $this->config['nodeFirst'] : '';
         $liClass[] = ($i == $size && $size > 1) ? $this->config['nodeLast'] : '';
         $liClass[] = !empty($tab['nodes']) ? $this->config['nodeParent'] : $this->config['nodeLeaf'];
+        $liClass[] = isset($item['class']) ? $item['class'] : '';
         $liClass = trim(implode(' ', array_filter($liClass)));
         $liClass = ' class="'.$liClass.'"';
 

@@ -210,8 +210,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
 
         //---- Plugins handling -----------------------------------------------
         // add plugin paths
-        switch ($this->modinfo['type'])
-        {
+        switch ($this->modinfo['type']) {
             case ModUtil::TYPE_MODULE :
                 $mpluginPath = "modules/" . $this->modinfo['directory'] . "/templates/plugins";
                 $mpluginPathOld = "modules/" . $this->modinfo['directory'] . "/pntemplates/plugins";
@@ -437,7 +436,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
      */
     public static function getModulePluginInstance($modName, $pluginName, $caching = null, $cache_id = null)
     {
-        return Zikula_View_Plugin::getInstance($modName, $pluginName, $caching, $cache_id);
+        return Zikula_View_Plugin::getPluginInstance($modName, $pluginName, $caching, $cache_id);
     }
 
     /**
@@ -452,6 +451,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public static function getSystemPluginInstance($pluginName, $caching = null, $cache_id = null)
     {
         $modName = 'zikula';
+
         return Zikula_View_Plugin::getPluginInstance($modName, $pluginName, $caching, $cache_id);
     }
 
@@ -498,6 +498,8 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
         Zikula_View_Resource::register($this, 'function', 'pageaddvar', $delayed_load, $cacheable, array('name', 'value'));
         // pagegetvar
         Zikula_View_Resource::register($this, 'function', 'pagegetvar', $delayed_load, $cacheable, array('name', 'html', 'assign'));
+        // pager
+        Zikula_View_Resource::register($this, 'function', 'pager', $delayed_load, $cacheable, array('modname', 'type', 'func', 'rowcount', 'limit', 'posvar', 'owner', 'template', 'includeStylesheet', 'anchorText', 'maxpages', 'display', 'class', 'processDetailLinks', 'processUrls', 'optimize'));
         // pageregistervar
         Zikula_View_Resource::register($this, 'function', 'pageregistervar', $delayed_load, $cacheable, array('name'));
         // pagesetvar
@@ -579,6 +581,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
                 if (!System::isLegacyMode()) {
                     if (is_readable($templatefile)) {
                         $this->templateCache[$template] = $relativepath;
+
                         return $relativepath;
                     } else {
                         return false;
@@ -588,6 +591,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
                 if (is_readable($override)) {
                     $path = substr($override, 0, strrpos($override, $ostemplate));
                     $this->templateCache[$template] = $path;
+
                     return $path;
                 }
             }
@@ -619,6 +623,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
             foreach ($search_path as $path) {
                 if (is_readable("$path/$ostemplate")) {
                     $this->templateCache[$template] = $path;
+
                     return $path;
                 }
             }
@@ -729,6 +734,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
         }
 
         $event = new Zikula_Event('view.postfetch', $this, array('template' => $template), $output);
+
         return $this->eventManager->notify($event)->getData();
     }
 
@@ -749,6 +755,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function display($template, $cache_id = null, $compile_id = null)
     {
         echo $this->fetch($template, $cache_id, $compile_id);
+
         return true;
     }
 
@@ -796,9 +803,9 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     /**
      * Get a concrete filename for automagically created content.
      *
-     * @param string  $path        The base path.
-     * @param string  $auto_source The file name (optional).
-     * @param string  $auto_id     The ID (optional).
+     * @param string $path        The base path.
+     * @param string $auto_source The file name (optional).
+     * @param string $auto_id     The ID (optional).
      *
      * @return string The concrete path and file name to the content.
      */
@@ -833,14 +840,14 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
             $path .= '/';
 
             $extension = FileUtil::getExtension($auto_source);
-            
+
             // isolates the filename on the source path passed
             $path .= FileUtil::getFilebase($auto_source);
-            
+
             // add theme and language to our path
             if (empty($themedir)) $themedir = $this->themeinfo['directory'];
             $path .= '--t_'.$themedir.'-l_' . $this->language;
-            
+
             // if we are not compiling, end with a suffix
             if (!$tocompile) {
                 $path .= ($extension ? ".$extension" : '');
@@ -1150,25 +1157,27 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
      *
      * @return Zikula_View
      */
-    function assign($key, $value = null)
+    public function assign($key, $value = null)
     {
         $this->_assign_check($key);
         parent::assign($key, $value);
+
         return $this;
     }
 
     /**
      * Assign variable to template by reference.
      *
-     * @param string $key    Variable name.
+     * @param string $key Variable name.
      * @param mixed  &$value Value.
      *
      * @return Zikula_View
      */
-    function assign_by_ref($key, &$value)
+    public function assign_by_ref($key, &$value)
     {
         $this->_assign_check($key);
         parent::assign_by_ref($key, $value);
+
         return $this;
     }
 
@@ -1185,12 +1194,12 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
             foreach ($key as $v) {
                 self::_assign_check($v);
             }
+
             return;
         }
 
         if (is_string($key)) {
-            switch (strtolower($key))
-            {
+            switch (strtolower($key)) {
                 case 'zikula_view':
                 case 'zikula_core':
                 case 'modvars':
@@ -1541,6 +1550,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCompileId($compile_id)
     {
         $this->compile_id = $compile_id;
+
         return $this;
     }
 
@@ -1564,6 +1574,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCompileDir($compile_dir)
     {
         $this->compile_dir = $compile_dir;
+
         return $this;
     }
 
@@ -1590,6 +1601,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCompileCheck($doCompileCheck)
     {
         $this->compile_check = $doCompileCheck;
+
         return $this;
     }
 
@@ -1613,6 +1625,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setForceCompile($force_compile)
     {
         $this->force_compile = $force_compile;
+
         return $this;
     }
 
@@ -1643,6 +1656,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCaching($caching)
     {
         $this->caching = (int)$caching;
+
         return $this;
     }
 
@@ -1666,6 +1680,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCacheId($id)
     {
         $this->cache_id = $id;
+
         return $this;
     }
 
@@ -1695,6 +1710,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCacheLifetime($time)
     {
         $this->cache_lifetime = $time;
+
         return $this;
     }
 
@@ -1718,6 +1734,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCacheDir($cache_dir)
     {
         $this->cache_dir = $cache_dir;
+
         return $this;
     }
 
@@ -1751,6 +1768,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCacheModifiedCheck($cache_modified_check)
     {
         $this->cache_modified_check = $cache_modified_check;
+
         return $this;
     }
 
@@ -1774,6 +1792,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setConfigDir($config_dir)
     {
         $this->config_dir = $config_dir;
+
         return $this;
     }
 
@@ -1797,6 +1816,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setPluginsDir($plugins_dir)
     {
         $this->plugins_dir = $plugins_dir;
+
         return $this;
     }
 
@@ -1823,6 +1843,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setDebugging($debugging)
     {
         $this->debugging = $debugging;
+
         return $this;
     }
 
@@ -1850,6 +1871,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setErrorReporting($error_reporting)
     {
         $this->error_reporting = $error_reporting;
+
         return $this;
     }
 
@@ -1877,6 +1899,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setDebugTpl($debug_tpl)
     {
         $this->debug_tpl = $debug_tpl;
+
         return $this;
     }
 
@@ -1914,6 +1937,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setDebuggingCtrl($debugging_ctrl)
     {
         $this->debugging_ctrl = $debugging_ctrl;
+
         return $this;
     }
 
@@ -1953,6 +1977,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setPhpHandling($php_handling)
     {
         $this->php_handling = $php_handling;
+
         return $this;
     }
 
@@ -1984,6 +2009,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setSecurity($security)
     {
         $this->security = $security;
+
         return $this;
     }
 
@@ -2010,6 +2036,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setSecureDir($secure_dir)
     {
         $this->secure_dir = $secure_dir;
+
         return $this;
     }
 
@@ -2033,6 +2060,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setSecuritySettings($security_settings)
     {
         $this->security_settings = $security_settings;
+
         return $this;
     }
 
@@ -2058,6 +2086,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setTrustedDir($trusted_dir)
     {
         $this->trusted_dir = $trusted_dir;
+
         return $this;
     }
 
@@ -2081,6 +2110,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setLeftDelimiter($left_delimiter)
     {
         $this->left_delimiter = $left_delimiter;
+
         return $this;
     }
 
@@ -2104,6 +2134,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setRightDelimiter($right_delimiter)
     {
         $this->right_delimiter = $right_delimiter;
+
         return $this;
     }
 
@@ -2131,6 +2162,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setRequestVarsOrder($request_vars_order)
     {
         $this->request_vars_order = $request_vars_order;
+
         return $this;
     }
 
@@ -2157,6 +2189,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setRequestUseAutoGlobals($request_use_auto_globals)
     {
         $this->request_use_auto_globals = $request_use_auto_globals;
+
         return $this;
     }
 
@@ -2182,6 +2215,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setUseSubDirs($use_sub_dirs)
     {
         $this->use_sub_dirs = $use_sub_dirs;
+
         return $this;
     }
 
@@ -2208,6 +2242,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setDefaultModifiers($default_modifiers)
     {
         $this->default_modifiers = $default_modifiers;
+
         return $this;
     }
 
@@ -2231,6 +2266,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setDefaultResourceType($default_resource_type)
     {
         $this->default_resource_type = $default_resource_type;
+
         return $this;
     }
 
@@ -2258,6 +2294,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCacheHandlerFunc($cache_handler_func)
     {
         $this->cache_handler_func = $cache_handler_func;
+
         return $this;
     }
 
@@ -2281,6 +2318,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setAutoloadFilters($autoload_filters)
     {
         $this->autoload_filters = $autoload_filters;
+
         return $this;
     }
 
@@ -2306,6 +2344,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setConfigOverwrite($config_overwrite)
     {
         $this->config_overwrite = $config_overwrite;
+
         return $this;
     }
 
@@ -2335,6 +2374,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setConfigBooleanize($config_booleanize)
     {
         $this->config_booleanize = $config_booleanize;
+
         return $this;
     }
 
@@ -2361,6 +2401,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setConfigReadHidden($config_read_hidden)
     {
         $this->config_read_hidden = $config_read_hidden;
+
         return $this;
     }
 
@@ -2390,6 +2431,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setConfigFixNewlines($config_fix_newlines)
     {
         $this->config_fix_newlines = $config_fix_newlines;
+
         return $this;
     }
 
@@ -2413,6 +2455,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setDefaultTemplateHandlerFunc($default_template_handler_func)
     {
         $this->default_template_handler_func = $default_template_handler_func;
+
         return $this;
     }
 
@@ -2446,6 +2489,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCompilerFile($compiler_file)
     {
         $this->compiler_file = $compiler_file;
+
         return $this;
     }
 
@@ -2469,6 +2513,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCompilerClass($compiler_class)
     {
         $this->compiler_class = $compiler_class;
+
         return $this;
     }
 
@@ -2492,6 +2537,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCacheInfo($_cache_info)
     {
         $this->_cache_info = $_cache_info;
+
         return $this;
     }
 
@@ -2515,6 +2561,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setFilePerms($_file_perms)
     {
         $this->_file_perms = $_file_perms;
+
         return $this;
     }
 
@@ -2538,6 +2585,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setDirPerms($_dir_perms)
     {
         $this->_dir_perms = $_dir_perms;
+
         return $this;
     }
 
@@ -2561,6 +2609,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setRegObjects($_reg_objects)
     {
         $this->_reg_objects = $_reg_objects;
+
         return $this;
     }
 
@@ -2584,6 +2633,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setPlugins($_plugins)
     {
         $this->_plugins = $_plugins;
+
         return $this;
     }
 
@@ -2607,6 +2657,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCacheSerials($_cache_serials)
     {
         $this->_cache_serials = $_cache_serials;
+
         return $this;
     }
 
@@ -2630,6 +2681,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCacheInclude($_cache_include)
     {
         $this->_cache_include = $_cache_include;
+
         return $this;
     }
 
@@ -2653,6 +2705,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
     public function setCacheIncluding($_cache_including)
     {
         $this->_cache_including = $_cache_including;
+
         return $this;
     }
 
@@ -2787,11 +2840,13 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
                     error_reporting($_smarty_old_error_level);
                     // restore initial cache_info
                     $this->_cache_info = array_pop($_cache_info);
+
                     return true;
                 } else {
                     error_reporting($_smarty_old_error_level);
                     // restore initial cache_info
                     $this->_cache_info = array_pop($_cache_info);
+
                     return $_smarty_results;
                 }
             } else {
@@ -2869,6 +2924,7 @@ class Zikula_View extends Smarty implements Zikula_TranslatableInterface
                 echo smarty_core_display_debug_console($_params, $this);
             }
             error_reporting($_smarty_old_error_level);
+
             return;
         } else {
             error_reporting($_smarty_old_error_level);
@@ -2966,6 +3022,7 @@ function z_prefilter_legacy_callback($m)
     $m[1] = str_replace('pndebug', 'zdebug', $m[1]);
     $m[1] = preg_replace('#^(\s*)(/{0,1})pn([a-zA-Z0-9_]+)(\s*|$)#', '$1$2$3$4', $m[1]);
     $m[1] = preg_replace('#\|pn#', '|', $m[1]);
+
     return "{{$m[1]}}";
 }
 

@@ -48,8 +48,7 @@ class Theme_Controller_User extends Zikula_AbstractController
             if (file_exists($themepic = 'themes/'.DataUtil::formatForOS($themeinfo['directory']).'/images/preview_medium.png')) {
                 $themeinfo['previewImage'] = $themepic;
                 $themeinfo['largeImage'] = 'themes/'.DataUtil::formatForOS($themeinfo['directory']).'/images/preview_large.png';
-            }
-            else {
+            } else {
                 $themeinfo['previewImage'] = 'system/Theme/images/preview_medium.png';
                 $themeinfo['largeImage'] = 'system/Theme/images/preview_large.png';
             }
@@ -87,4 +86,29 @@ class Theme_Controller_User extends Zikula_AbstractController
         LogUtil::registerStatus($this->__('Done! Theme has been reset to the default site theme.'));
         $this->redirect(ModUtil::url('Theme', 'user', 'main'));
     }
+    
+    
+    /**
+     * Enable mobile Theme 
+     *
+     * @return string html output
+     */
+    public function enableMobileTheme()
+    {
+        CookieUtil::setCookie('zikulaMobileTheme', '1', time()+3600*24*365, '/');
+        return $this->redirect(System::getHomepageUrl());
+    }
+    
+    
+    /**
+     * Disable mobile Theme 
+     *
+     * @return string html output
+     */
+    public function disableMobileTheme()
+    {
+        CookieUtil::setCookie('zikulaMobileTheme', '2', time()+3600*24*365, '/');
+        return $this->redirect(System::getHomepageUrl());
+    }
+
 }

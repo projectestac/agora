@@ -30,15 +30,15 @@ class Blocks_Controller_Ajax extends Zikula_Controller_AbstractAjax
         $this->checkAjaxToken();
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Blocks::', '::', ACCESS_ADMIN));
 
-        $blockorder = $this->request->getPost()->get('blockorder');
-        $position = $this->request->getPost()->get('position');
+        $blockorder = $this->request->request->get('blockorder');
+        $position = $this->request->request->get('position');
 
         // remove all blocks from this position
         $entity = $this->name . '_Entity_BlockPlacement';
         $dql = "DELETE FROM $entity p WHERE p.pid = {$position}";
         $query = $this->entityManager->createQuery($dql);
         $query->getResult();
-        
+
         // add new block positions
         foreach ((array)$blockorder as $order => $bid) {
             $placement = new Blocks_Entity_BlockPlacement();
@@ -58,7 +58,7 @@ class Blocks_Controller_Ajax extends Zikula_Controller_AbstractAjax
      * This function toggles active/inactive.
      *
      * @param bid int  id of block to toggle.
-     * 
+     *
      * @return mixed true or Ajax error
      */
     public function toggleblock()
@@ -66,7 +66,7 @@ class Blocks_Controller_Ajax extends Zikula_Controller_AbstractAjax
         $this->checkAjaxToken();
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Blocks::', '::', ACCESS_ADMIN));
 
-        $bid = $this->request->getPost()->get('bid', -1);
+        $bid = $this->request->request->get('bid', -1);
 
         if ($bid == -1) {
             throw new Zikula_Exception_Fatal($this->__('No block ID passed.'));

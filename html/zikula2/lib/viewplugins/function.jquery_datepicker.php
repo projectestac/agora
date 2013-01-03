@@ -49,7 +49,7 @@ function smarty_function_jquery_datepicker($params, Zikula_View $view)
     /**
      * displayelement
      * string (do not include the '#' character)
-     * (required) The id text of the html element where the datepicker displays the selection 
+     * (required) The id text of the html element where the datepicker displays the selection
      */
     $displayElement = (isset($params['displayelement'])) ? $params['displayelement'] : null;
     unset($params['displayelement']);
@@ -78,7 +78,7 @@ function smarty_function_jquery_datepicker($params, Zikula_View $view)
     /**
      * valuestorageformat
      * string
-     * (optional) the php Date format used for the date passed to the Form (default: 'Y-m-d') 
+     * (optional) the php Date format used for the date passed to the Form (default: 'Y-m-d')
      */
     $valueStorageFormat_dateTime = (isset($params['valuestorageformat'])) ? $params['valuestorageformat'] : 'Y-m-d';
     unset($params['valuestorageformat']);
@@ -93,21 +93,21 @@ function smarty_function_jquery_datepicker($params, Zikula_View $view)
     /**
      * onselectcallback
      * string
-     * (optional) javascript to perform onSelect event (default: null) 
+     * (optional) javascript to perform onSelect event (default: null)
      */
     $onSelectCallback = (isset($params['onselectcallback'])) ? $params['onselectcallback'] : null;
     unset($params['onselectcallback']);
     /**
      * readonly
      * boolean
-     * (optional) whether the display field is readonly of active (default: (boolean)true - IS readonly) 
+     * (optional) whether the display field is readonly of active (default: (boolean)true - IS readonly)
      */
     $readOnly = (isset($params['readonly'])) ? $params['readonly'] : true;
     unset($params['readonly']);
     /**
      * object
      * string
-     * (optional) object name for html element names. e.g. name='myObjectName[myVariable]' (default: null) 
+     * (optional) object name for html element names. e.g. name='myObjectName[myVariable]' (default: null)
      */
     $object = (isset($params['object'])) ? $params['object'] : null;
     unset($params['object']);
@@ -121,7 +121,7 @@ function smarty_function_jquery_datepicker($params, Zikula_View $view)
     /**
      * maxdate
      * mixed (php DateTime object or string formatted in same manner as display object
-     * (optional) maximum date allowed to be selected in datepicker (default: null - choose any date) 
+     * (optional) maximum date allowed to be selected in datepicker (default: null - choose any date)
      */
     $maxDate = (isset($params['maxdate'])) ? $params['maxdate'] : null;
     unset($params['maxdate']);
@@ -139,10 +139,11 @@ function smarty_function_jquery_datepicker($params, Zikula_View $view)
      */
     $lang = (isset($params['lang'])) ? $params['lang'] : ZLanguage::getLanguageCode();
     unset($params['lang']);
-    
+
     // check required params
     if (!isset($displayElement)) {
         $view->trigger_error(__f('Error! in %1$s: the %2$s parameter must be specified.', array('jquery_datepicker', 'displayelement')));
+
         return false;
     }
 
@@ -159,6 +160,7 @@ function smarty_function_jquery_datepicker($params, Zikula_View $view)
 
     // build the datepicker
     $javascript = "
+        var {$displayElement}DefaultDate = new Date(\"{$defaultDate->format($displayFormat_dateTime)}\");
         jQuery(document).ready(function() {
             jQuery('#$displayElement').datepicker({";
     // add additional parameters set in template first
@@ -186,7 +188,7 @@ function smarty_function_jquery_datepicker($params, Zikula_View $view)
     }
     $javascript .= "
                 dateFormat: '$displayFormat_javascript',
-                defaultDate: '{$defaultDate->format($displayFormat_dateTime)}'
+                defaultDate: {$displayElement}DefaultDate
             });
         });";
     PageUtil::addVar("footer", "<script type='text/javascript'>$javascript</script>");
@@ -194,7 +196,13 @@ function smarty_function_jquery_datepicker($params, Zikula_View $view)
     $readOnlyHtml = ($readOnly) ? " readonly='readonly'" : "";
 
     $name = isset($object) ? "{$object}[{$displayElement}]" : $displayElement;
-    $html = "<input type='text'{$readOnlyHtml} id='$displayElement' name='$name' value='{$defaultDate->format($displayFormat_dateTime)}' />\n";
+    
+    // translate month name since DateTime::format() only returns English
+    $english = explode(" ", 'January February March April May June July August September October November December');
+    $translated = explode(" ", __('January February March April May June July August September October November December'));
+    $displayDateString = str_replace($english, $translated, $defaultDate->format($displayFormat_dateTime));
+    
+    $html = "<input type='text'{$readOnlyHtml} id='$displayElement' name='$name' value='{$displayDateString}' />\n";
     if (isset($valueStorageElement)) {
         $name = isset($object) ? "{$object}[{$valueStorageElement}]" : $valueStorageElement;
         $html .= "<input type='hidden' id='$valueStorageElement' name='$name' value='{$defaultDate->format($valueStorageFormat_dateTime)}' />";

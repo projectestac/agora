@@ -106,22 +106,28 @@ class Zikula_Request_Http extends Zikula_Request_AbstractRequest
     /**
      * Getter for GET.
      *
+     * @deprecated use $request->query instead
+     *
      * @return Zikula_Request_Collection
      */
     public function getGet()
     {
         LogUtil::log('Zikula_Request_Http->getGet() is deprecated, please use $request->query', E_USER_DEPRECATED);
+
         return $this->query;
     }
 
     /**
      * Getter for POST.
      *
+     * @deprecated use $request->request instead
+     *
      * @return Zikula_Request_Collection
      */
     public function getPost()
     {
         LogUtil::log('Zikula_Request_Http->getPost() is deprecated, please use $request->request', E_USER_DEPRECATED);
+
         return $this->request;
     }
 
@@ -138,11 +144,14 @@ class Zikula_Request_Http extends Zikula_Request_AbstractRequest
     /**
      * Getter for SERVER.
      *
+     * @deprecated use $request->server instead
+     *
      * @return Zikula_Request_Collection
      */
     public function getServer()
     {
         LogUtil::log('Zikula_Request_Http->getServer() is deprecated, please use $request->server', E_USER_DEPRECATED);
+
         return $this->server;
     }
 
@@ -169,11 +178,14 @@ class Zikula_Request_Http extends Zikula_Request_AbstractRequest
     /**
      * Getter for FILES.
      *
+     * @deprecated use $request->files instead
+     *
      * @return Zikula_Request_Collection
      */
     public function getFiles()
     {
         LogUtil::log('Zikula_Request_Http->getFiles() is deprecated, please use $request->files', E_USER_DEPRECATED);
+
         return $this->files;
     }
 

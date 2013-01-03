@@ -106,6 +106,7 @@ class JCSSUtil
         if (!empty($jsgettext)) {
             array_unshift($jcss['javascripts'], $jsgettext);
         }
+
         return $jcss;
     }
 
@@ -117,9 +118,15 @@ class JCSSUtil
      * @return array List of stylesheets
      */
     public static function prepareStylesheets($stylesheets)
-    {
+    {                    
+        if (ThemeUtil::getVar('noCoreCss', false)) {
+            $initStyle = null;
+        } else {
+            $initStyle = array('style/core.css');
+        }
+        
         // Add generic stylesheet as the first stylesheet.
-        $event = new Zikula_Event('pageutil.addvar_filter', 'stylesheet', array(), array('style/core.css'));
+        $event = new Zikula_Event('pageutil.addvar_filter', 'stylesheet', array(), $initStyle);
         $coreStyle = EventUtil::getManager()->notify($event)->getData();
         if (is_array($stylesheets)) {
             array_unshift($stylesheets, $coreStyle[0]);
@@ -198,8 +205,10 @@ class JCSSUtil
                 }
             }
             $params = http_build_query($params, '', '&');
+
             return 'mo2json.php?' . $params;
         }
+
         return false;
     }
 
@@ -229,6 +238,7 @@ class JCSSUtil
         $coreNames = array_keys($coreScripts);
         $usedCore = array_intersect($coreNames, $withDeps);
         $ordered = array_unique(array_merge($usedCore, $withDeps));
+
         return $ordered;
     }
 
@@ -257,6 +267,7 @@ class JCSSUtil
                 return $name;
             }
         }
+
         return $script;
     }
 
@@ -272,7 +283,7 @@ class JCSSUtil
         // Handle legacy references to non-minimised scripts.
         if (strpos($script, 'javascript/livepipe/') === 0) {
             $script = 'livepipe';
-        } else if (strpos($script, 'javascript/ajax/') === 0) {
+        } elseif (strpos($script, 'javascript/ajax/') === 0) {
             switch ($script) {
                 case 'javascript/ajax/validation.js':
                     $script = 'validation';
@@ -293,7 +304,7 @@ class JCSSUtil
             if (strpos($script, 'javascript/ajax/scriptaculous') === 0) {
                 $script = 'prototype';
             }
-        } else if (System::isLegacyMode() && (strpos($script, 'system/') === 0 || strpos($script, 'modules/') === 0)) {
+        } elseif (System::isLegacyMode() && (strpos($script, 'system/') === 0 || strpos($script, 'modules/') === 0)) {
             // check for customized javascripts
             $custom = str_replace(array('javascript/', 'pnjavascript/'), '', $script);
             $custom = str_replace(array('modules', 'system'), 'config/javascript', $custom);
@@ -301,6 +312,7 @@ class JCSSUtil
                 $script = $custom;
             }
         }
+
         return $script;
     }
 
@@ -323,11 +335,11 @@ class JCSSUtil
     {
         $scripts = array(
                 'jquery' => array(
-                        'path' => 'javascript/jquery/jquery-1.7.2.min.js',
+                        'path' => 'javascript/jquery/jquery-1.8.3.min.js',
                         'require' => array('noconflict'),
                 ),
                 'jquery-ui' => array(
-                        'path' => 'javascript/jquery-ui/jquery-ui-1.8.19.custom.min.js',
+                        'path' => 'javascript/jquery-ui/jquery-ui-1.9.1.custom.min.js',
                         'require' => array('jquery'),
                 ),
                 'noconflict' => array(
@@ -377,11 +389,12 @@ class JCSSUtil
             $prototypeUncompressed = array(
                     'prototype' => array(
                             'path' => 'javascript/ajax/original_uncompressed/prototype.js',
-                            'require' => array('zikula', 'scriptaculous', 'builder', 'controls', 'dragdrop', 'effects', 'slider', 'sound'),
+                            'require' => array('zikula', 'builder', 'controls', 'dragdrop', 'effects', 'slider', 'sound'),
                             'aliases' => array('prototype', 'scriptaculous'),
                     ),
                     'scriptaculous' => array(
-                            'path' => 'javascript/ajax/original_uncompressed/scriptaculous.js',
+                            'path' => 'javascript/ajax/original_uncompressed/prototype.js',
+                            'require' => array('prototype'),
                     ),
                     'effects' => array(
                             'path' => 'javascript/ajax/original_uncompressed/effects.js',
@@ -449,7 +462,7 @@ class JCSSUtil
             );
             $jQueryUncompressed = array(
                     'jquery' => array(
-                            'path' => 'javascript/jquery/jquery-1.7.2.js',
+                            'path' => 'javascript/jquery/jquery-1.8.3.js',
                             'require' => array('noconflict'),
                     ),
                     'noconflict' => array(
@@ -458,12 +471,13 @@ class JCSSUtil
             );
             $jQueryUiUncompressed = array(
                     'jquery-ui' => array(
-                            'path' => 'javascript/jquery-ui/jquery-ui-1.8.19.custom.js',
+                            'path' => 'javascript/jquery-ui/jquery-ui-1.9.1.custom.js', // the 'custom' designation is meaningless
                             'require' => array('jquery'),
                     ),
             );
             $scripts = array_merge($jQueryUncompressed, $jQueryUiUncompressed, $prototypeUncompressed, $livepipeUncompressed, array_slice($scripts, 5));
         }
+
         return $scripts;
     }
 
@@ -474,7 +488,7 @@ class JCSSUtil
      * @param string $ext       Extention.
      * @param string $cache_dir Cache directory.
      *
-     * @return string Combined pagevars file.
+     * @return array Array of file with combined pagevars file and remote files
      */
     private static function save($files, $ext, $cache_dir)
     {
@@ -501,6 +515,7 @@ class JCSSUtil
                 break;
         }
 
+        $outputFiles = array();
         $contents = array();
         $dest = fopen($cachedFile, 'w');
 
@@ -508,7 +523,12 @@ class JCSSUtil
         $contents[] = "/* --- Combined files:\n" . implode("\n", $files) . "\n*/\n\n";
         foreach ($files as $file) {
             if (!empty($file)) {
-                self::readfile($contents, $file, $ext);
+                // skip remote files from combining
+                if (is_file($file)) {
+                    self::readfile($contents, $file, $ext);
+                } else {
+                    $outputFiles[] = $file;
+                }
             }
         }
 
@@ -532,7 +552,11 @@ class JCSSUtil
         $data = array('contents' => $contents, 'ctype' => $ctype, 'lifetime' => $lifetime, 'gz' => $themevars['cssjscompress'], 'signature' => $signature);
         fwrite($dest, serialize($data));
         fclose($dest);
-        return "jcss.php?f=$cachedFileUri";
+
+        $combined = "jcss.php?f=$cachedFileUri";
+        array_unshift($outputFiles, $combined);
+
+        return $outputFiles;
     }
 
     /**
@@ -541,8 +565,8 @@ class JCSSUtil
      * This function includes the content of all @import statements (recursive).
      *
      * @param array  &$contents Array to save content to.
-     * @param string $file      Path to file.
-     * @param string $ext       Can be 'css' or 'js'.
+     * @param string $file Path to file.
+     * @param string $ext  Can be 'css' or 'js'.
      *
      * @return void
      */
@@ -578,7 +602,7 @@ class JCSSUtil
                             $wasCommentHack = false;
                             $newLine .= $char . $nextchar;
                             $i++;
-                        } else if ($inMultilineComment && $char == '*' && $nextchar == '/') {
+                        } elseif ($inMultilineComment && $char == '*' && $nextchar == '/') {
                             // a multiline comment stops here
                             $inMultilineComment = false;
                             $newLine .= $char . $nextchar;
@@ -588,7 +612,7 @@ class JCSSUtil
                                 $newLine .= '/*/'; // fix hack comment because we lost some chars with $i += 3
                             }
                             $i++;
-                        } else if ($importsAllowd && $char == '@' && substr($lineParse, $i, 7) == '@import') {
+                        } elseif ($importsAllowd && $char == '@' && substr($lineParse, $i, 7) == '@import') {
                             // an @import starts here
                             $lineParseRest = trim(substr($lineParse, $i + 7));
                             if (strtolower(substr($lineParseRest, 0, 3)) == 'url') {
@@ -639,7 +663,7 @@ class JCSSUtil
                                     // skip @import statement
                                     $i += $posEnd - $i;
                                 }
-                            } else if (substr($lineParseRest, 0, 1) == '"' || substr($lineParseRest, 0, 1) == '\'') {
+                            } elseif (substr($lineParseRest, 0, 1) == '"' || substr($lineParseRest, 0, 1) == '\'') {
                                 // the @import uses an normal string to specify the path
                                 $posEnd = strpos($lineParseRest, ';');
                                 $url = substr($lineParseRest, 1, $posEnd - 2);
@@ -661,7 +685,7 @@ class JCSSUtil
                                 // skip @import statement
                                 $i += $posEnd - $i;
                             }
-                        } else if (!$inMultilineComment && $char != ' ' && $char != "\n" && $char != "\r\n" && $char != "\r") {
+                        } elseif (!$inMultilineComment && $char != ' ' && $char != "\n" && $char != "\r\n" && $char != "\r") {
                             // css rule found -> stop processing of @import statements
                             $importsAllowd = false;
                             $newLine .= $char;
@@ -681,7 +705,11 @@ class JCSSUtil
                 }
             }
             fclose($source);
-            $contents[] = "\n\n";
+            if ($ext == 'js') {
+                $contents[] = "\n;\n";
+            } else {
+                $contents[] = "\n\n";
+            }
         }
     }
 
@@ -708,6 +736,7 @@ class JCSSUtil
                 }
             }
         }
+
         return $line;
     }
 
