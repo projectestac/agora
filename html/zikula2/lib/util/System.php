@@ -283,16 +283,18 @@ class System
             $script_name = self::serverGetVar('SCRIPT_NAME');
             self::$cache['baseuri.path'] = substr($script_name, 0, strrpos($script_name, '/'));
         }
-
-        /******* ELIMINAT XTEC
+        
+        //XTEC ******* MODIFICAT - Makes possible the agora multisites system
+        //2013.01.03 @albert     
+        self::$cache['baseuri.path'] = $GLOBALS['ZConfig']['Multisites']['siteDNS'];
+        // Original
+        /*
         $serviceManager = ServiceUtil::getManager();
         if ($serviceManager['multisites.enabled'] == 1) {
             self::$cache['baseuri.path'] = $serviceManager['multisites.sitedns'];
         }
-        *******/
-        /******* AFEGIT XTEC *******/
-        self::$cache['baseuri.path'] = $GLOBALS['ZConfig']['Multisites']['siteDNS'];
-        /******* FINAL AFEGIT XTEC *******/
+        */
+        //******* FI
 
         return self::$cache['baseuri.path'];
     }

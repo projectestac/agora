@@ -577,6 +577,22 @@ class SecurityUtil
         $saltedHash = false;
         $algoList = hash_algos();
 
+        //XTEC ******* MODIFICAT - Force saltDelimeter to be empty for hash compatibility with Moodle
+        //2012.06.21 @aginard       
+        if ((array_search($hashMethodName, $algoList) !== false) && is_string($saltStr) && is_string($saltDelimeter) && (strlen($saltDelimeter) == 1)) {
+            $hashedData = hash($hashMethodName, $unhashedData);
+            if (!empty($hashMethodNameToCode)) {
+                if (isset($hashMethodNameToCode[$hashMethodName])) {
+                    $saltedHash = $hashMethodNameToCode[$hashMethodName] . $saltDelimeter . $saltDelimeter . $hashedData;
+                } else {
+                    $saltedHash = false;
+                }
+            } else {
+                $saltedHash = $hashMethodName . $saltDelimeter . $saltDelimeter . $hashedData;
+            }
+        }
+        //****** Original
+        /*
         if ((array_search($hashMethodName, $algoList) !== false) && is_string($saltStr) && is_string($saltDelimeter) && (strlen($saltDelimeter) == 1)) {
             $hashedData = hash($hashMethodName, $saltStr . $unhashedData);
             if (!empty($hashMethodNameToCode)) {
@@ -589,6 +605,8 @@ class SecurityUtil
                 $saltedHash = $hashMethodName . $saltDelimeter . $saltStr . $saltDelimeter . $hashedData;
             }
         }
+        */
+        //****** FI
 
         return $saltedHash;
     }

@@ -106,7 +106,10 @@ class Users_Installer extends Zikula_AbstractInstaller
 
                 // Check if the hash method is md5. If so, it is not used any more. Change it to the new default.
                 if ($this->getVar(Users_Constant::MODVAR_HASH_METHOD, false) == 'md5') {
+                    /******* ELIMINAT XTEC ******* we need the md5 method to maintain compatibility with Moodle validation
+                    2013.01.03 @albert
                     $this->setVar(Users_Constant::MODVAR_HASH_METHOD, Users_Constant::DEFAULT_HASH_METHOD);
+                    FI *******/
                 }
 
                 // Convert the banned user names to a comma separated list.

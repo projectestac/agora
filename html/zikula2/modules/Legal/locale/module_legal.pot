@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Zikula 1.x\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-10 06:55-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2013-01-04 12:10+0100\n"
+"Last-Translator: intraweb <intraweb@xtec.cat>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/Legal/Api/Admin.php:100 templates/legal_admin_modifyconfig.tpl:4
+#: lib/Legal/Api/Admin.php:100
+#: templates/legal_admin_modifyconfig.tpl:4
 msgid "Settings"
 msgstr ""
 
@@ -40,13 +40,10 @@ msgstr ""
 msgid "You must accept this site's Privacy Policy in order to proceed."
 msgstr ""
 
-#: lib/Legal/Controller/User.php:237 lib/Legal/Listener/UsersUiHandler.php:349
+#: lib/Legal/Controller/User.php:237
+#: lib/Legal/Listener/UsersUiHandler.php:349
 #, php-format
-msgid ""
-"In order to log in, you must confirm that you meet the requirements of this "
-"site's Minimum Age Policy. If you are not %1$s years of age or older, and "
-"you do not have a parent's permission to use this site, then please ask your "
-"parent to contact a site administrator."
+msgid "In order to log in, you must confirm that you meet the requirements of this site's Minimum Age Policy. If you are not %1$s years of age or older, and you do not have a parent's permission to use this site, then please ask your parent to contact a site administrator."
 msgstr ""
 
 #: lib/Legal/Controller/User.php:241
@@ -54,9 +51,7 @@ msgid "You must accept our cancellation right policy in order to proceed."
 msgstr ""
 
 #: lib/Legal/Controller/User.php:245
-msgid ""
-"You must accept our general terms and conditions of trade in order to "
-"proceed."
+msgid "You must accept our general terms and conditions of trade in order to proceed."
 msgstr ""
 
 #: lib/Legal/Installer.php:116
@@ -65,22 +60,15 @@ msgid "Upgrading the Legal module from version %1$s to %2$s is not supported."
 msgstr ""
 
 #: lib/Legal/Listener/UsersLoginVeto.php:97
-msgid ""
-"Your log-in request was not completed. You must review and confirm your "
-"acceptance of one or more site policies prior to logging in."
+msgid "Your log-in request was not completed. You must review and confirm your acceptance of one or more site policies prior to logging in."
 msgstr ""
 
 #: lib/Legal/Listener/UsersUiHandler.php:317
-msgid ""
-"Sorry! You changed your authentication information, and one or more items "
-"displayed on the login screen may not have been applicable for your account. "
-"Please try logging in again."
+msgid "Sorry! You changed your authentication information, and one or more items displayed on the login screen may not have been applicable for your account. Please try logging in again."
 msgstr ""
 
 #: lib/Legal/Listener/UsersUiHandler.php:329
-msgid ""
-"In order to register for a new account, you must accept this site's Terms of "
-"Use."
+msgid "In order to register for a new account, you must accept this site's Terms of Use."
 msgstr ""
 
 #: lib/Legal/Listener/UsersUiHandler.php:331
@@ -88,9 +76,7 @@ msgid "In order to log in, you must accept this site's Terms of Use."
 msgstr ""
 
 #: lib/Legal/Listener/UsersUiHandler.php:338
-msgid ""
-"In order to register for a new account, you must accept this site's Privacy "
-"Policy."
+msgid "In order to register for a new account, you must accept this site's Privacy Policy."
 msgstr ""
 
 #: lib/Legal/Listener/UsersUiHandler.php:340
@@ -99,17 +85,11 @@ msgstr ""
 
 #: lib/Legal/Listener/UsersUiHandler.php:347
 #, php-format
-msgid ""
-"In order to register for a new account, you must confirm that you meet the "
-"requirements of this site's Minimum Age Policy. If you are not %1$s years of "
-"age or older, and you do not have a parent's permission to use this site, "
-"then you should not continue registering for access to this site."
+msgid "In order to register for a new account, you must confirm that you meet the requirements of this site's Minimum Age Policy. If you are not %1$s years of age or older, and you do not have a parent's permission to use this site, then you should not continue registering for access to this site."
 msgstr ""
 
 #: lib/Legal/Listener/UsersUiHandler.php:356
-msgid ""
-"In order to register for a new account, you must accept our cancellation "
-"right policy."
+msgid "In order to register for a new account, you must accept our cancellation right policy."
 msgstr ""
 
 #: lib/Legal/Listener/UsersUiHandler.php:358
@@ -117,15 +97,11 @@ msgid "In order to log in, you must accept our cancellation right policy."
 msgstr ""
 
 #: lib/Legal/Listener/UsersUiHandler.php:365
-msgid ""
-"In order to register for a new account, you must accept our general terms "
-"and conditions of trade."
+msgid "In order to register for a new account, you must accept our general terms and conditions of trade."
 msgstr ""
 
 #: lib/Legal/Listener/UsersUiHandler.php:367
-msgid ""
-"In order to log in, you must accept our general terms and conditions of "
-"trade."
+msgid "In order to log in, you must accept our general terms and conditions of trade."
 msgstr ""
 
 #: lib/Legal/Listener/UsersUiHandler.php:480
@@ -305,10 +281,7 @@ msgstr ""
 
 #: templates/legal_acceptpolicies_ui_edit_login.tpl:7
 #: templates/legal_user_acceptpolicies.tpl:10
-msgid ""
-"In order to log in you must accept this site's policies. If you have "
-"accepted the site's policies in the past, then they have been updated and we "
-"ask that you review the changes."
+msgid "In order to log in you must accept this site's policies. If you have accepted the site's policies in the past, then they have been updated and we ask that you review the changes."
 msgstr ""
 
 #: templates/legal_acceptpolicies_ui_edit_login.tpl:24
@@ -338,9 +311,7 @@ msgstr ""
 #: templates/legal_acceptpolicies_ui_edit_registration.tpl:72
 #: templates/legal_user_acceptpolicies.tpl:84
 #, php-format
-msgid ""
-"Information on our minimum age policy, and on how we handle personally "
-"identifiable information can be found in our %1$s and in our %2$s."
+msgid "Information on our minimum age policy, and on how we handle personally identifiable information can be found in our %1$s and in our %2$s."
 msgstr ""
 
 #: templates/legal_acceptpolicies_ui_edit_registration.tpl:17
@@ -377,15 +348,7 @@ msgid "Cancellation Right Policy:"
 msgstr ""
 
 #: templates/legal_admin_modifyconfig.tpl:7
-msgid ""
-"<strong>Important Usage Note</strong>: The provided legal statements are "
-"samples only. They need to be adapted to specific needs and locales. You "
-"will find the content of the statements in files in the \"modules/legal/"
-"pntemplates/en\" directory. These templates can be <a href=\"http://"
-"community.zikula.org/Wiki-TemplateOverridng.htm\">overridden</a> by theme "
-"templates, or by global templates you would create in the \"config/templates/"
-"legal/\" directory (in the appropriate sub-directory for the language you "
-"are writing for)."
+msgid "<strong>Important Usage Note</strong>: The provided legal statements are samples only. They need to be adapted to specific needs and locales. You will find the content of the statements in files in the \"modules/legal/pntemplates/en\" directory. These templates can be <a href=\"http://community.zikula.org/Wiki-TemplateOverridng.htm\">overridden</a> by theme templates, or by global templates you would create in the \"config/templates/legal/\" directory (in the appropriate sub-directory for the language you are writing for)."
 msgstr ""
 
 #: templates/legal_admin_modifyconfig.tpl:12
@@ -397,10 +360,7 @@ msgid "Custom urls"
 msgstr ""
 
 #: templates/legal_admin_modifyconfig.tpl:46
-msgid ""
-"The following fields allow to reference any custom url. As soon as an url is "
-"given it will be used instead of the normal Legal templates. So you can now "
-"use any page you want for displaying and managing your legal data."
+msgid "The following fields allow to reference any custom url. As soon as an url is given it will be used instead of the normal Legal templates. So you can now use any page you want for displaying and managing your legal data."
 msgstr ""
 
 #: templates/legal_admin_modifyconfig.tpl:79
@@ -420,13 +380,7 @@ msgid "Reset user group's acceptance of 'Terms of use'"
 msgstr ""
 
 #: templates/legal_admin_modifyconfig.tpl:93
-msgid ""
-"Notice: This setting resets the acceptance of the 'Terms of use' for all "
-"users in this group. Next time they want to log-in, they will have to "
-"acknowledge their acceptance of them again, and will not be able to log-in "
-"if they do not. This action does not affect the main administrator account. "
-"You can perform the same operation for individual users by visiting the "
-"Users manager in the site admin panel."
+msgid "Notice: This setting resets the acceptance of the 'Terms of use' for all users in this group. Next time they want to log-in, they will have to acknowledge their acceptance of them again, and will not be able to log-in if they do not. This action does not affect the main administrator account. You can perform the same operation for individual users by visiting the Users manager in the site admin panel."
 msgstr ""
 
 #: templates/legal_admin_modifyconfig.tpl:97
@@ -440,9 +394,7 @@ msgid "Cancel"
 msgstr ""
 
 #: templates/legal_user_acceptpolicies.tpl:12
-msgid ""
-"If you leave this page without successfully accepting the policies, then you "
-"will not be logged in."
+msgid "If you leave this page without successfully accepting the policies, then you will not be logged in."
 msgstr ""
 
 #: templates/legal_user_acceptpolicies.tpl:131
@@ -498,3 +450,4 @@ msgstr ""
 #: templates/plugins/legal_function_legalinlinelink_notfound.tpl:1
 msgid "(POLICY TYPE NOT FOUND!)"
 msgstr ""
+

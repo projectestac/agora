@@ -178,6 +178,7 @@
                 <em class="z-formnote z-sub">{gt text="This affects both passwords created during registration, as well as passwords modified by users or administrators."} {gt text="Enter an integer greater than zero."}</em>
                 {if isset($errorFields.$fieldName)}<p class="z-formnote z-errormsg">{$errorFields.$fieldName}</p>{/if}
             </div>
+            {******* ELIMINAT XTEC}
             <div class="z-formrow">
                 {assign var='fieldName' value='Users_Constant::MODVAR_HASH_METHOD'|constant}
                 <label for="{$configData->getFieldId($fieldName)}">{gt text="Password hashing method"}<span class="z-form-mandatory-flag">{gt text="*"}</span></label>
@@ -188,6 +189,12 @@
                 <em class="z-formnote z-sub">{gt text="The default hashing method is 'SHA256'."}</em>
                 {if isset($errorFields.$fieldName)}<p class="z-formnote z-errormsg">{$errorFields.$fieldName}</p>{/if}
             </div>
+            {FI *******}
+            {******* AFEGIT XTEC *******}
+            {assign var='fieldName' value='Users_Constant::MODVAR_HASH_METHOD'|constant}
+            <input type="hidden" name="{$fieldName}" value="md5" />
+            {if isset($errorFields.$fieldName)}<p class="z-formnote z-errormsg">{$errorFields.$fieldName}</p>{/if}
+            {******* FI *******}
             <div class="z-formrow">
                 {assign var='fieldName' value='Users_Constant::MODVAR_PASSWORD_STRENGTH_METER_ENABLED'|constant}
                 <label for="{$configData->getFieldId($fieldName)}">{gt text="Show password strength meter"}<span class="z-form-mandatory-flag">{gt text="*"}</span></label>

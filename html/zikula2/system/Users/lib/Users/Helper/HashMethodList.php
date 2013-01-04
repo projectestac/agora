@@ -27,6 +27,10 @@ class Users_Helper_HashMethodList
         return array(
             'sha1'  => 'sha1',
             'sha256'=> 'sha256',
+            /******* AFEGIT XTEC - Added md5 hash in order to maintain validation compatibility with Moodle *******/
+            // 2013.01.04 @albert
+            'md5' => 'md5',
+            /******* FI *******/
         );
     }
 
