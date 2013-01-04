@@ -1,3 +1,8 @@
+function failure()
+{
+
+}
+
 /*
  * Show the form to create a new folder
  * @author: Albert Pérez Monfort
@@ -5,32 +10,29 @@
  *          external => 1 if user is in a external plug-in and 0 otherwise
  * @return: form with the needed fields  
  */
-function createDir(folder,external,hook)
+function createDir(a,aa,aaa)
 {
-	var pars = "module=Files&func=createDir&folder=" + folder + "&external=" + external + "&hook=" + hook;
-    Element.update('actionForm', '<img src="images/ajax/circle-ball-dark-antialiased.gif" />');
-	var myAjax = new Ajax.Request(document.location.pnbaseURL +"ajax.php", 
-	{
-		method: 'post', 
-		parameters: pars, 
-		onComplete: createDir_response,
-		onFailure: createDir_failure
-	});
+    $("actionForm").update('<img src="'+Zikula.Config.baseURL+'images/ajax/circle-ball-dark-antialiased.gif">');
+    var b={
+        folder:a,
+        external: aa,
+        hook: aaa
+    };
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=Files&func=createDir",{
+        parameters: b,
+        onComplete: createDir_response,
+        onFailure: failure
+    });
 }
 
-function createDir_response(req)
+function createDir_response(a)
 {
-	if (req.status != 200 ) { 
-		pnshowajaxerror(req.responseText);
-		return;
-	}
-	var json = pndejsonize(req.responseText);
-	Element.update('actionForm', json.content);
-}
-
-function createDir_failure()
-{
-
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    $("actionForm").update(b.content);
 }
 
 /*
@@ -40,32 +42,29 @@ function createDir_failure()
  *          external => 1 if user is in a external plug-in and 0 otherwise
  * @return: form with the needed fields  
  */
-function uploadFile(folder,external,hook)
+function uploadFile(a,aa,aaa)
 {
-	var pars = "module=Files&func=uploadFile&folder=" + folder + "&external=" + external + "&hook=" + hook;;
-    Element.update('actionForm', '<img src="images/ajax/circle-ball-dark-antialiased.gif" />');
-	var myAjax = new Ajax.Request(document.location.pnbaseURL +"ajax.php", 
-	{
-		method: 'post', 
-		parameters: pars, 
-		onComplete: uploadFile_response,
-		onFailure: uploadFile_failure
-	});
+    $("actionForm").update('<img src="'+Zikula.Config.baseURL+'images/ajax/circle-ball-dark-antialiased.gif">');
+    var b={
+        folder:a,
+        external: aa,
+        hook: aaa
+    };
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=Files&func=uploadFile",{
+        parameters: b,
+        onComplete: uploadFile_response,
+        onFailure: failure
+    });
 }
 
-function uploadFile_response(req)
+function uploadFile_response(a)
 {
-	if (req.status != 200 ) { 
-		pnshowajaxerror(req.responseText);
-		return;
-	}
-	var json = pndejsonize(req.responseText);
-	Element.update('actionForm', json.content);
-}
-
-function uploadFile_failure()
-{
-
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    $("actionForm").update(b.content);
 }
 
 /*
@@ -76,7 +75,7 @@ function uploadFile_failure()
 function submitUpdateFile()
 {
     document.forms["updateFile"].submit();
-    Element.update('actionForm', '<img src="images/ajax/circle-ball-dark-antialiased.gif" />');
+    $("actionForm").update('<img src="'+Zikula.Config.baseURL+'images/ajax/circle-ball-dark-antialiased.gif">');
 }
 
 /*
@@ -87,7 +86,7 @@ function submitUpdateFile()
 function submitCreateDir()
 {
     document.forms["createDir"].submit();
-    Element.update('actionForm', '<img src="images/ajax/circle-ball-dark-antialiased.gif" />');
+    $("actionForm").update('<img src="'+Zikula.Config.baseURL+'images/ajax/circle-ball-dark-antialiased.gif">');
 }
 
 /*
@@ -97,30 +96,24 @@ function submitCreateDir()
  */
 function newGroupQuota()
 {
-    var pars = "module=Files&func=newGroupQuota";
-    Element.update('newQuota', '<img src="images/ajax/circle-ball-dark-antialiased.gif" />');
-	var myAjax = new Ajax.Request("ajax.php", 
-	{
-		method: 'get', 
-		parameters: pars, 
-		onComplete: newGroupQuota_response,
-		onFailure: newGroupQuota_failure
-	});
+    $("newQuota").update('<img src="'+Zikula.Config.baseURL+'images/ajax/circle-ball-dark-antialiased.gif">');
+    var b={
+    };
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=Files&func=newGroupQuota",{
+        parameters: b,
+        onComplete: newGroupQuota_response,
+        onFailure: failure
+    });
 }
 
-function newGroupQuota_response(req)
+function newGroupQuota_response(a)
 {
-	if (req.status != 200 ) { 
-		pnshowajaxerror(req.responseText);
-		return;
-	}
-	var json = pndejsonize(req.responseText);
-	Element.update('newQuota', json.content);
-}
-
-function newGroupQuota_failure()
-{
-
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    $("newQuota").update(b.content);
 }
 
 /*
@@ -130,32 +123,28 @@ function newGroupQuota_failure()
  */
 function createGroupQuota()
 {
-    var groupId = document.forms["newQuota"].groupId.value;
-    var quota = document.forms["newQuota"].quotaValue.value;
-    var pars = "module=Files&func=createGroupQuota&gid=" + groupId + "&quota=" + quota;
-    Element.update('newQuota', '<img src="images/ajax/circle-ball-dark-antialiased.gif" />');
-	var myAjax = new Ajax.Request("ajax.php", 
-	{
-		method: 'get', 
-		parameters: pars, 
-		onComplete: createGroupQuota_response,
-		onFailure: createGroupQuota_failure
-	});
+    var a = document.forms["newQuota"].groupId.value;
+    var aa = document.forms["newQuota"].quotaValue.value;
+    $("newQuota").update('<img src="'+Zikula.Config.baseURL+'images/ajax/circle-ball-dark-antialiased.gif">');
+    var b={
+        gid:a,
+        quota: aa
+    };
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=Files&func=createGroupQuota",{
+        parameters: b,
+        onComplete: createGroupQuota_response,
+        onFailure: failure
+    });
 }
 
-function createGroupQuota_response(req)
+function createGroupQuota_response(a)
 {
-	if (req.status != 200 ) { 
-		pnshowajaxerror(req.responseText);
-		return;
-	}
-	var json = pndejsonize(req.responseText);
-	Element.update('quotaTable', json.content);
-}
-
-function createGroupQuota_failure()
-{
-
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    $("quotaTable").update(b.content);
 }
 
 /*
@@ -163,30 +152,25 @@ function createGroupQuota_failure()
  * @author: Albert Pérez Monfort
  * @return: True if success and false otherwise
  */
-function deleteGroupQuota(gid)
+function deleteGroupQuota(a)
 {
-    var pars = "module=Files&func=deleteGroupQuota&gid=" + gid;
-    Element.update('newQuota', '<img src="images/ajax/circle-ball-dark-antialiased.gif" />');
-	var myAjax = new Ajax.Request("ajax.php", 
-	{
-		method: 'get', 
-		parameters: pars, 
-		onComplete: deleteGroupQuota_response,
-		onFailure: deleteGroupQuota_failure
-	});
+    $("newQuota").update('<img src="'+Zikula.Config.baseURL+'images/ajax/circle-ball-dark-antialiased.gif">');
+    var b={
+        gid:a
+    };
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=Files&func=deleteGroupQuota",{
+        parameters: b,
+        onComplete: deleteGroupQuota_response,
+        onFailure: failure
+    });
 }
 
-function deleteGroupQuota_response(req)
+function deleteGroupQuota_response(a)
 {
-	if (req.status != 200 ) { 
-		pnshowajaxerror(req.responseText);
-		return;
-	}
-	var json = pndejsonize(req.responseText);
-	Element.update('quotaTable', json.content);
-}
-
-function deleteGroupQuota_failure()
-{
-
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    $("quotaTable").update(b.content);
 }

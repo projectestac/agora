@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zikula Application Framework
  *
@@ -11,20 +12,21 @@
  * @package    Utilities
  * @subpackage Files
  */
-class Files_Controller_Ajax extends Zikula_AbstractController
-{
+class Files_Controller_Ajax extends Zikula_AbstractController {
+
     /**
      * shows the form to define a new group quota
      * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @return:     new quota form
-    */
-    public function newGroupQuota()
-    {
+     */
+    public function newGroupQuota() {
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADMIN)) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML(_MODULENOAUTH));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
+
         $content = ModUtil::func('Files', 'admin', 'newGroupQuotaForm');
-        AjaxUtil::output(array('content' => $content));
+        return new Zikula_Response_Ajax(array('content' => $content,
+                ));
     }
 
     /**
@@ -33,26 +35,29 @@ class Files_Controller_Ajax extends Zikula_AbstractController
      * @param:      group identity
      * @param:      disk quota value
      * @return:     quotas table content
-    */
-    public function createGroupQuota($args)
-    {
+     */
+    public function createGroupQuota($args) {
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADMIN)) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML(_MODULENOAUTH));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
-        $gid = FormUtil::getPassedValue('gid', -1, 'GET');
-        if ($gid == -1) {
-            AjaxUtil::error($this->__('no group found'));
+
+        $gid = $this->request->getPost()->get('gid', '');
+        if (!$gid) {
+            throw new Zikula_Exception_Fatal($this->__('no group found'));
         }
-        $quota = FormUtil::getPassedValue('quota', -10, 'GET');
-        if ($quota == -10) {
-            AjaxUtil::error($this->__('no quota defined'));
+
+        $quota = $this->request->getPost()->get('quota', '');
+        if (!$quota) {
+            throw new Zikula_Exception_Fatal($this->__('no quota defined'));
         }
-        if(is_numeric($gid) && is_numeric($quota)){
+
+
+        if (is_numeric($gid) && is_numeric($quota)) {
             //create a new assignament for a disk quote
             $data = array('gid' => $gid,
-                          'quota' => $quota);
+                'quota' => $quota);
             $assignments = unserialize(ModUtil::getVar('Files', 'groupsQuota'));
-            if($assignments == ''){
+            if ($assignments == '') {
                 $assignments = array();
             }
             array_push($assignments, $data);
@@ -60,7 +65,8 @@ class Files_Controller_Ajax extends Zikula_AbstractController
             ModUtil::setVar('Files', 'groupsQuota', $data);
         }
         $content = ModUtil::func('Files', 'admin', 'getQuotasTable');
-        AjaxUtil::output(array('content' => $content));
+        return new Zikula_Response_Ajax(array('content' => $content,
+                ));
     }
 
     /**
@@ -68,52 +74,51 @@ class Files_Controller_Ajax extends Zikula_AbstractController
      * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:      group identity
      * @return:     quotas table content
-    */
-    public function deleteGroupQuota($args)
-    {
+     */
+    public function deleteGroupQuota($args) {
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADMIN)) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML(_MODULENOAUTH));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
-        $gid = FormUtil::getPassedValue('gid', -1, 'GET');
-        if ($gid == -1) {
-            AjaxUtil::error($this->__('no group found'));
+
+        $gid = $this->request->getPost()->get('gid', '');
+        if (!$gid) {
+            throw new Zikula_Exception_Fatal($this->__('no group found'));
         }
-        if(is_numeric($gid)){
+
+        if (is_numeric($gid)) {
             $assignaments = unserialize(ModUtil::getVar('Files', 'groupsQuota'));
             $assignamentsArray = array();
-            foreach($assignaments as $assign){
-                if($assign['gid'] != $gid){
+            foreach ($assignaments as $assign) {
+                if ($assign['gid'] != $gid) {
                     $assignamentsArray[] = array('gid' => $assign['gid'],
-                                                 'quota' => $assign['quota']);
+                        'quota' => $assign['quota']);
                 }
             }
             $data = serialize($assignamentsArray);
             ModUtil::setVar('Files', 'groupsQuota', $data);
         }
         $content = ModUtil::func('Files', 'admin', 'getQuotasTable');
-        AjaxUtil::output(array('content' => $content));
+        return new Zikula_Response_Ajax(array('content' => $content,
+                ));
     }
+
     /**
      * show the form needed to create a new directory
      * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:      folder name
      * @return:     form content
-    */
-    public function createDir($args)
-    {
-        $folder = FormUtil::getPassedValue('folder', -1, 'POST');
-        $external = FormUtil::getPassedValue('external', -1, 'POST');
+     */
+    public function createDir($args) {
+        $folder = $this->request->getPost()->get('folder', '');
+        $external = $this->request->getPost()->get('external', '');
 
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADD)) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML(_MODULENOAUTH));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
-        if ($folder == -1) {
-            AjaxUtil::error($this->__('No folder defined.'));
-        }
-        $content = ModUtil::func('Files', 'user', 'createDirForm',
-                                  array('folder' => $folder,
-                                        'external' => $external));
-        AjaxUtil::output(array('content' => $content));
+        $content = ModUtil::func('Files', 'user', 'createDirForm', array('folder' => $folder,
+                    'external' => $external));
+        return new Zikula_Response_Ajax(array('content' => $content,
+                ));
     }
 
     /**
@@ -121,43 +126,42 @@ class Files_Controller_Ajax extends Zikula_AbstractController
      * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:      folder where to upload the file
      * @return:     form content
-    */
-    public function uploadFile($args)
-    {
-        $folder = FormUtil::getPassedValue('folder', -1, 'POST');
-        $external = FormUtil::getPassedValue('external', -1, 'POST');
+     */
+    public function uploadFile($args) {
+        $folder = $this->request->getPost()->get('folder', '');
+        $external = $this->request->getPost()->get('external', '');
 
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADD)) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML(_MODULENOAUTH));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
-        if ($folder == -1) {
-            AjaxUtil::error($this->__('No folder defined.'));
-        }
-        $content = ModUtil::func('Files', 'user', 'uploadFileForm',
-                                  array('folder' => $folder,
-                                        'external' => $external));
-        AjaxUtil::output(array('content' => $content));
+        $content = ModUtil::func('Files', 'user', 'uploadFileForm', array('folder' => $folder,
+                    'external' => $external));
+        return new Zikula_Response_Ajax(array('content' => $content,
+                ));
     }
 
-    public function externalModifyImg($args){
+    public function externalModifyImg($args) {
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADD)) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML(_MODULENOAUTH));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
-        $image = FormUtil::getPassedValue('image', -1, 'GET');
-        if ($image == -1) {
-            AjaxUtil::error($this->__('no image found'));
+        $image = $this->request->getPost()->get('image', '');
+        if (!$image) {
+            throw new Zikula_Exception_Fatal($this->__('no image found'));
         }
-        $factor = FormUtil::getPassedValue('factor', -1, 'GET');
-        if ($factor == -1) {
-            AjaxUtil::error($this->__('no size factor defined'));
+
+        $factor = $this->request->getPost()->get('factor', '');
+        if (!$factor) {
+            throw new Zikula_Exception_Fatal($this->__('no size factor defined'));
         }
-        $folderName = FormUtil::getPassedValue('folder', -1, 'GET');
-        if ($folderName == -1) {
-            AjaxUtil::error($this->__('No folder defined.'));
+
+        $folderName = $this->request->getPost()->get('folderName', '');
+        if (!$folderName) {
+            throw new Zikula_Exception_Fatal($this->__('No folder defined.'));
         }
+
         $action = FormUtil::getPassedValue('action', -1, 'GET');
 
-        $folderPath = (SecurityUtil::checkPermission( 'Files::', '::', ACCESS_ADMIN)) ? $folderName : ModUtil::getVar('Files', 'usersFolder') . '/' . strtolower(substr(UserUtil::getVar('uname'), 0 , 1)) . '/' . UserUtil::getVar('uname') . '/' . $folderName;
+        $folderPath = (SecurityUtil::checkPermission('Files::', '::', ACCESS_ADMIN)) ? $folderName : ModUtil::getVar('Files', 'usersFolder') . '/' . strtolower(substr(UserUtil::getVar('uname'), 0, 1)) . '/' . UserUtil::getVar('uname') . '/' . $folderName;
         // gets root folder for the user
         $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
         list($width, $height) = getimagesize($initFolderPath . '/' . $folderName . '/' . $image);
@@ -169,24 +173,28 @@ class Files_Controller_Ajax extends Zikula_AbstractController
 
         // create output object
         $file = array('name' => $image,
-                      'width' => $width,
-                      'viewWidth' => $newWidth,
-                      'viewHeight' => $newHeight,
-                      'height' => $height,
-                      'factor' => $factor);
+            'width' => $width,
+            'viewWidth' => $newWidth,
+            'viewHeight' => $newHeight,
+            'height' => $height,
+            'factor' => $factor);
+        
         // create new thumbnail
-        ModUtil::func('Files', 'user', 'thumbnail',
-                       array('fileName' => $image,
-                             'folder' => $folderName,
-                             'newWidth' => $newWidth,
-                             'fromAjax' => 1));
+        ModUtil::func('Files', 'user', 'thumbnail', array('fileName' => $image,
+            'folder' => $folderName,
+            'newWidth' => $newWidth,
+            'fromAjax' => 1));
+        
         $this->view->setCaching(false);
-        $this->view->assign('file',  $file);
-        $this->view->assign('folderPath',  $folderPath);
-        $this->view->assign('folderName',  $folderName);
-        $this->view->assign('hook',  0);
+        $this->view->assign('file', $file);
+        $this->view->assign('folderPath', $folderPath);
+        $this->view->assign('folderName', $folderName);
+        $this->view->assign('hook', 0);
         $content = $this->view->fetch('Files_external_getFilesImgContent.tpl');
-        AjaxUtil::output(array('image' => $image,
-                               'content' => $content));
+
+        return new Zikula_Response_Ajax(array('image' => $image,
+                    'content' => $content,
+                ));
     }
+
 }

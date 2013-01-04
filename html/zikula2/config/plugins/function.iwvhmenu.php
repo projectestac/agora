@@ -285,7 +285,7 @@ function smarty_function_iwvhmenu($params, &$smarty) {
 		var WebMasterCheck=$WebMasterCheck;					// menu tree checking on or off 1 or 0
 		var ShowArrow=$ShowArrow;							// Uses arrow gifs when 1
 		var KeepHilite=$KeepHilite;							// Keep selected path highligthed
-		var Arrws=['modules/IWvhmenu/pnimages/tri.gif',5,10,'modules/IWvhmenu/pnimages/tridown.gif',10,5,'modules/IWvhmenu/pnimages/trileft.gif',5,10];	// Arrow source, width and height
+		var Arrws=['modules/IWvhmenu/images/tri.gif',5,10,'modules/IWvhmenu/images/tridown.gif',10,5,'modules/IWvhmenu/images/trileft.gif',5,10];	// Arrow source, width and height
 		
 		function BeforeStart(){return}
 		function AfterBuild(){return}
