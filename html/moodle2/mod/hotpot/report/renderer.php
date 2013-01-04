@@ -323,7 +323,18 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
         $where  = 'ha.hotpotid=:hotpotid';
         $params = array('hotpotid' => $this->hotpot->id);
 
+
+//XTEC ************ MODIFICAT - Fix for https://tracker.moodle.org/browse/CONTRIB-3896
+//2013.01.04 @aginard (original by @sarjona)
+
+        $userfields = ', u.firstname, u.lastname, u.picture, u.imagealt, u.email';
+
+//************ ORIGINAL
+/*
         $userfields = ', u.id AS userid, u.firstname, u.lastname, u.picture, u.imagealt, u.email';
+*/
+//************ FI        
+
         return $this->add_filter_params($userfields, $userid, $attemptid, $select, $from, $where, $params);
     }
 
