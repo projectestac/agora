@@ -29,6 +29,7 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
         //if it is not active
         if ($modinfo['state'] != 3) {
             $this->view->assign('noMailer', true)
+                    ->assign('noCron', false)
                     ->fetch('IWmain_admin_main.htm');
         }
         //-100 really is not a user but represents the system user
@@ -53,6 +54,8 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
         return $this->view->assign('executeCron', $executeCron)
                         ->assign('noCronTime', $noCronTime)
                         ->assign('cronResponse', $cronResponse)
+                        ->assign('noCron', false)
+                        ->assign('noMailer', false)
                         ->fetch('IWmain_admin_main.htm');
     }
 
@@ -123,7 +126,7 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
         $cronFooterText = FormUtil::getPassedValue('cronFooterText', isset($args['cronFooterText']) ? $args['cronFooterText'] : null, 'POST');
         $captchaPrivateCode = FormUtil::getPassedValue('captchaPrivateCode', isset($args['captchaPrivateCode']) ? $args['captchaPrivateCode'] : null, 'POST');
         $captchaPublicCode = FormUtil::getPassedValue('captchaPublicCode', isset($args['captchaPublicCode']) ? $args['captchaPublicCode'] : null, 'POST');
-        
+
         // Security check
         if (!SecurityUtil::checkPermission('IWmain::', '::', ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();

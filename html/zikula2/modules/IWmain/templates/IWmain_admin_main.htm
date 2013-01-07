@@ -1,6 +1,8 @@
 {include file="IWmain_admin_menu.htm"}
 <div class="z-admincontainer">
-    <div class="z-adminpageicon">{img modname='core' src='run.png' set='icons/large' __alt='Admin icon'}</div>
+    <div class="z-adminpageicon">
+        {img modname='core' src='run.png' set='icons/large' __alt='Admin icon'}
+    </div>
     <h2>{gt text="Programmed sequences information"}</h2>
     {if $noCron}
     <div class="z-errormsg">
@@ -12,7 +14,7 @@
     </div>
     {else}
     <div style="border: solid 2px #ddd; margin: 20px; padding: 20px;">{$cronResponse}</div>
-    {if isset($executeCron)}
+    {if isset($executeCron) && $executeCron eq 1}
     <div class="z-errormsg">
         {gt text="The cron has not been executed for long time. Now could be a good moment to execute it."}
     </div>

@@ -13,7 +13,7 @@
             <input type="checkbox" name="details" />
             {/if}
         </div>
-        {if isset($cronNotWorks)}
+        {if isset($cronNotWorks) && $cronNotWorks eq 1}
         {checkpermission component='IWusers::' instance='::' level='ACCESS_ADMIN' assign='authadmin'}
         {if $authadmin}
         <div class="z-errormsg">
