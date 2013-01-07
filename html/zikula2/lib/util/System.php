@@ -22,10 +22,10 @@ class System {
 
     /**
      * Internals cache.
-     * 
+     *
      * @var array
      */
-    static protected $cache = array();
+    protected static $cache = array();
 
     /**
      * Flush this static class' cache.
@@ -39,8 +39,8 @@ class System {
     /**
      * Get a configuration variable.
      *
-     * @param string $name    The name of the variable.
-     * @param mixed  $default The default value to return if the requested param is not set.
+     * @param string $name The name of the variable.
+     * @param mixed $default The default value to return if the requested param is not set.
      *
      * @return mixed Value of the variable, or false on failure.
      */
@@ -71,8 +71,8 @@ class System {
     /**
      * Set a configuration variable.
      *
-     * @param string $name  The name of the variable.
-     * @param mixed  $value The value of the variable.
+     * @param string $name The name of the variable.
+     * @param mixed $value The value of the variable.
      *
      * @return boolean True on success, false on failure.
      */
@@ -88,6 +88,7 @@ class System {
         if (ModUtil::setVar(ModUtil::CONFIG_MODULE, $name, $value)) {
             // Update my vars
             $GLOBALS['ZConfig']['System'][$name] = $value;
+
             return true;
         }
 
@@ -150,9 +151,9 @@ class System {
     /**
      * Validate a Zikula variable.
      *
-     * @param mixed  $var  The variable to validate.
+     * @param mixed $var The variable to validate.
      * @param string $type The type of the validation to perform (email, url etc.).
-     * @param mixed  $args Optional array with validation-specific settings (deprecated).
+     * @param mixed $args Optional array with validation-specific settings (deprecated).
      *
      * @return boolean True if the validation was successful, false otherwise.
      */
@@ -180,10 +181,10 @@ class System {
     'config' => 1);
 
         // commented out some regexps until some useful and working ones are found
-        static $regexp = array(// 'mod'    => '/^[^\\\/\?\*\"\'\>\<\:\|]*$/',
-    // 'func'   => '/[^0-9a-zA-Z_]/',
-    // 'api'    => '/[^0-9a-zA-Z_]/',
-    // 'theme'  => '/^[^\\\/\?\*\"\'\>\<\:\|]*$/',
+        static $regexp = array(// 'mod' => '/^[^\\\/\?\*\"\'\>\<\:\|]*$/',
+    // 'func' => '/[^0-9a-zA-Z_]/',
+    // 'api' => '/[^0-9a-zA-Z_]/',
+    // 'theme' => '/^[^\\\/\?\*\"\'\>\<\:\|]*$/',
     'email' => '/^(?:[^\s\000-\037\177\(\)<>@,;:\\"\[\]]\.?)+@(?:[^\s\000-\037\177\(\)<>@,;:\\\"\[\]]\.?)+\.[a-z]{2,6}$/Ui',
     'url' => '/^([!#\$\046-\073=\077-\132_\141-\172~]|(?:%[a-f0-9]{2}))+$/i');
 
@@ -277,10 +278,15 @@ class System {
             self::$cache['baseuri.path'] = substr($script_name, 0, strrpos($script_name, '/'));
         }
 
-        $serviceManager = ServiceUtil::getManager();
-        if ($serviceManager['multisites.enabled'] == 1) {
-            self::$cache['baseuri.path'] = $serviceManager['multisites.sitedns'];
-        }
+        /*         * ***** ELIMINAT XTEC
+          $serviceManager = ServiceUtil::getManager();
+          if ($serviceManager['multisites.enabled'] == 1) {
+          self::$cache['baseuri.path'] = $serviceManager['multisites.sitedns'];
+          }
+         * ***** */
+        /*         * ***** AFEGIT XTEC ****** */
+        self::$cache['baseuri.path'] = $GLOBALS['ZConfig']['Multisites']['siteDNS'];
+        /*         * ***** FINAL AFEGIT XTEC ****** */
 
         return self::$cache['baseuri.path'];
     }
@@ -339,9 +345,9 @@ class System {
     /**
      * Carry out a redirect.
      *
-     * @param string  $redirecturl       URL to redirect to.
-     * @param array   $additionalheaders Array of header strings to send with redirect.
-     * @param integer $type              Number type of the redirect.
+     * @param string $redirecturl URL to redirect to.
+     * @param array $additionalheaders Array of header strings to send with redirect.
+     * @param integer $type Number type of the redirect.
      *
      * @return boolean True if redirect successful, false otherwise.
      */
@@ -416,13 +422,13 @@ class System {
      *
      * E-mail messages should now be send with a ModUtil::apiFunc call to the mailer module.
      *
-     * @param string  $to      Recipient of the email.
-     * @param string  $subject Title of the email.
-     * @param string  $message Body of the email.
-     * @param string  $headers Extra headers for the email.
-     * @param integer $html    Message is html formatted.
-     * @param integer $debug   If 1, echo mail content.
-     * @param string  $altbody Alternative body.
+     * @param string $to Recipient of the email.
+     * @param string $subject Title of the email.
+     * @param string $message Body of the email.
+     * @param string $headers Extra headers for the email.
+     * @param integer $html Message is html formatted.
+     * @param integer $debug If 1, echo mail content.
+     * @param string $altbody Alternative body.
      *
      * @deprecated
      *
@@ -458,8 +464,8 @@ class System {
      * {@link http://www.php.net/manual/en/reserved.variables.html#reserved.variables.server PHP manual}.
      * If the server variable doesn't exist void is returned.
      *
-     * @param string $name    The name of the variable.
-     * @param mixed  $default The default value to return if the requested param is not set.
+     * @param string $name The name of the variable.
+     * @param mixed $default The default value to return if the requested param is not set.
      *
      * @return mixed Value of the variable.
      */
@@ -653,7 +659,8 @@ class System {
             $cron = 'iwcron.php';
             $jclic = 'IWjclic_beans.php';
             // ******* FI *******
-
+            // check if we hit baseurl, e.g. domain.com/ and if we require the language URL
+            // then we should redirect to the language URL.
             if (ZLanguage::isRequiredLangParam() && self::getCurrentUrl() == self::getBaseUrl()) {
                 $uri = $expectEntrypoint ? "$root/$lang" : "$lang";
                 self::redirect(self::getBaseUrl() . $uri);
@@ -819,8 +826,8 @@ class System {
      * Really the _GET superglobal.
      * This API also adds the variable to the _REQUEST superglobal for consistency.
      *
-     * @param string $name  Name of the variable to set.
-     * @param mixed  $value Value to set.
+     * @param string $name Name of the variable to set.
+     * @param mixed $value Value to set.
      *
      * @return bool True if successful, false otherwise.
      */
@@ -941,6 +948,7 @@ class System {
         if (!isset($GLOBALS['ZConfig']['System']['development'])) {
             return false;
         }
+
         return (bool) $GLOBALS['ZConfig']['System']['development'];
     }
 
@@ -956,7 +964,7 @@ class System {
         $override = Zikula_View::getTemplateOverride($templatePath);
         if ($override !== false) {
             return $override;
-        } else if (self::isLegacyMode() && file_exists("config/templates/$templateFile")) {
+        } elseif (self::isLegacyMode() && file_exists("config/templates/$templateFile")) {
             return "config/templates/$templateFile";
         } else {
             return $templatePath;
