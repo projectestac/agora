@@ -10,19 +10,19 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      */
     public function hideShow($args) {
         if (!SecurityUtil::checkPermission('IWjclic::', '::', ACCESS_READ)) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('Sorry! No authorization to access this module.')));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
-        $jid = FormUtil::getPassedValue('jid', -1, 'POST');
-        if ($jid == -1) {
-            AjaxUtil::error('no activity id');
+        $jid = $this->request->getPost()->get('jid', '');
+        if (!$jid) {
+            throw new Zikula_Exception_Fatal($this->__('no activity id'));
         }
 
         // get activity
         //get jclic activity
         $jclic = ModUtil::apiFunc('IWjclic', 'user', 'get', array('jid' => $jid));
         if ($jclic == false) {
-            AjaxUtil::error($this->__('Could not find the allocation requested'));
+            throw new Zikula_Exception_Fatal($this->__('Could not find the allocation requested'));
         }
 
         $extended = (strpos($jclic['extended'], '$' . UserUtil::getVar('uid') . '$') !== false) ? str_replace('$' . UserUtil::getVar('uid') . '$', '', $jclic['extended']) : $jclic['extended'] . '$' . UserUtil::getVar('uid') . '$';
@@ -32,7 +32,7 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $edited = ModUtil::apiFunc('IWjclic', 'user', 'update', array('jid' => $jid,
                     'items' => $items));
         if (!$edited) {
-            AjaxUtil::error($this->__('There was an error in editing the property'));
+            throw new Zikula_Exception_Fatal($this->__('There was an error in editing the property'));
         }
 
         $view = Zikula_View::getInstance('IWjclic', false);
@@ -42,8 +42,9 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $content = $view->fetch('IWjclic_user_assignedContent.htm');
 
 
-        AjaxUtil::output(array('jid' => $jid,
-            'content' => $content));
+        return new Zikula_Response_Ajax(array('jid' => $jid,
+                    'content' => $content,
+                ));
     }
 
     /**
@@ -54,16 +55,16 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      */
     public function results($args) {
         if (!SecurityUtil::checkPermission('IWjclic::', '::', ACCESS_READ)) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('Sorry! No authorization to access this module.')));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
-        $jid = FormUtil::getPassedValue('jid', -1, 'POST');
-        if ($jid == -1) {
-            AjaxUtil::error('no activity id');
+        $jid = $this->request->getPost()->get('jid', '');
+        if (!$jid) {
+            throw new Zikula_Exception_Fatal($this->__('no activity id'));
         }
 
-        $uid = FormUtil::getPassedValue('uid', -1, 'POST');
-        if ($uid == -1) {
+        $uid = $this->request->getPost()->get('uid', '');
+        if (!$uid) {
             $uid = UserUtil::getVar('uid');
             $correct = 0;
         } else {
@@ -79,7 +80,7 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         //get jclic activity
         $jclic = ModUtil::apiFunc('IWjclic', 'user', 'get', array('jid' => $jid));
         if ($jclic == false) {
-            AjaxUtil::error($this->__('Could not find the allocation requested'));
+            throw new Zikula_Exception_Fatal($this->__('Could not find the allocation requested'));
         }
 
         $view = Zikula_View::getInstance('IWjclic', false);
@@ -96,10 +97,11 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $view->assign('uid', $uid);
         $content = $view->fetch('IWjclic_user_results.htm');
 
-        AjaxUtil::output(array('jid' => $jid,
-            'content' => $content,
-            'uid' => $uid,
-            'correct' => $correct));
+        return new Zikula_Response_Ajax(array('jid' => $jid,
+                    'uid' => $uid,
+                    'content' => $content,
+                    'correct' => $correct,
+                ));
     }
 
     /**
@@ -110,33 +112,33 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      */
     public function editCorrectContent($args) {
         if (!SecurityUtil::checkPermission('IWjclic::', '::', ACCESS_ADD)) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('Sorry! No authorization to access this module.')));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
-        $jid = FormUtil::getPassedValue('jid', -1, 'POST');
-        if ($jid == -1) {
-            AjaxUtil::error('no activity id');
+        $jid = $this->request->getPost()->get('jid', '');
+        if (!$jid) {
+            throw new Zikula_Exception_Fatal($this->__('no activity id'));
         }
 
-        $uid = FormUtil::getPassedValue('uid', -1, 'POST');
-        if ($uid == -1) {
-            AjaxUtil::error('no user id');
+        $uid = $this->request->getPost()->get('uid', '');
+        if (!$uid) {
+            throw new Zikula_Exception_Fatal($this->__('no user id'));
         }
 
-        $do = FormUtil::getPassedValue('do', -1, 'POST');
-        if ($do == -1) {
-            AjaxUtil::error('no action defined');
+        $toDo = $this->request->getPost()->get('toDo', '');
+        if (!$toDo) {
+            throw new Zikula_Exception_Fatal($this->__('no action defined'));
         }
 
         //get jclic activity
         $jclic = ModUtil::apiFunc('IWjclic', 'user', 'get', array('jid' => $jid));
         if ($jclic == false) {
-            AjaxUtil::error($this->__('Could not find the allocation requested'));
+            throw new Zikula_Exception_Fatal($this->__('Could not find the allocation requested'));
         }
 
         //check user access this assignament
         if ($jclic['user'] != UserUtil::getVar('uid')) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('Sorry! No authorization to access this module.')));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
         //get user session
@@ -154,19 +156,20 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $view->assign('uid', $uid);
         $view->assign('jid', $jid);
 
-        if ($do == 'observations') {
+        if ($toDo == 'observations') {
             $view->assign('content', $session[$uid]['observations']);
             $content = $view->fetch('IWjclic_user_correctObs.htm');
         }
-        if ($do == 'renotes') {
+        if ($toDo == 'renotes') {
             $view->assign('content', $session[$uid]['renotes']);
             $content = $view->fetch('IWjclic_user_correctRenotes.htm');
         }
 
-        AjaxUtil::output(array('jid' => $jid,
-            'uid' => $uid,
-            'content' => $content,
-            'toDo' => $do));
+        return new Zikula_Response_Ajax(array('jid' => $jid,
+                    'uid' => $uid,
+                    'content' => $content,
+                    'toDo' => $toDo,
+                ));
     }
 
     /**
@@ -177,48 +180,48 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      */
     public function submitValue($args) {
         if (!SecurityUtil::checkPermission('IWjclic::', '::', ACCESS_ADD)) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('Sorry! No authorization to access this module.')));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
 
-        $jid = FormUtil::getPassedValue('jid', -1, 'POST');
-        if ($jid == -1) {
-            AjaxUtil::error('no activity id');
+        $jid = $this->request->getPost()->get('jid', '');
+        if (!$jid) {
+            throw new Zikula_Exception_Fatal($this->__('no activity id'));
         }
 
-        $uid = FormUtil::getPassedValue('uid', -1, 'POST');
-        if ($uid == -1) {
-            AjaxUtil::error('no user id');
+        $uid = $this->request->getPost()->get('uid', '');
+        if (!$uid) {
+            throw new Zikula_Exception_Fatal($this->__('no user id'));
         }
 
-        $do = FormUtil::getPassedValue('do', -1, 'POST');
-        if ($do == -1) {
-            AjaxUtil::error('no action defined');
+        $toDo = $this->request->getPost()->get('toDo', '');
+        if (!$toDo) {
+            throw new Zikula_Exception_Fatal($this->__('no action defined'));
         }
 
-        $value = FormUtil::getPassedValue('value', -1, 'POST');
-        if ($value == -1) {
-            AjaxUtil::error('no value defined');
+        $value = $this->request->getPost()->get('value', '');
+        if (!$value) {
+            throw new Zikula_Exception_Fatal($this->__('no value defined'));
         }
 
         //get jclic activity
         $jclic = ModUtil::apiFunc('IWjclic', 'user', 'get', array('jid' => $jid));
         if ($jclic == false) {
-            AjaxUtil::error($this->__('Could not find the allocation requested'));
+            throw new Zikula_Exception_Fatal($this->__('Could not find the allocation requested'));
         }
 
         //check user access this assignament
         if ($jclic['user'] != UserUtil::getVar('uid')) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('Sorry! No authorization to access this module.')));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
         //submit values
         $submited = ModUtil::apiFunc('IWjclic', 'user', 'submitValue', array('content' => utf8_decode($value),
                     'jid' => $jid,
                     'user_id' => $uid,
-                    'toDo' => $do));
+                    'toDo' => $toDo));
         if ($submited == false) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('An error occurred while editing the content')));
+            throw new Zikula_Exception_Fatal($this->__('An error occurred while editing the content'));
         }
 
         $view = Zikula_View::getInstance('IWjclic', false);
@@ -227,22 +230,23 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $session['uid'] = $uid;
         $jclic['jid'] = $jid;
 
-        if ($do == 'observations') {
+        if ($toDo == 'observations') {
             $session['observations'] = utf8_decode($value);
             $view->assign('session', $session);
             $view->assign('jclic', $jclic);
             $content = $view->fetch('IWjclic_user_correctObs.htm');
         }
-        if ($do == 'renotes') {
+        if ($toDo == 'renotes') {
             $session['renotes'] = utf8_decode($value);
             $view->assign('session', $session);
             $view->assign('jclic', $jclic);
             $content = $view->fetch('IWjclic_user_correctRenotes.htm');
         }
 
-        AjaxUtil::output(array('uid' => $uid,
-            'content' => $content,
-            'toDo' => $do));
+        return new Zikula_Response_Ajax(array('uid' => $uid,
+                    'content' => $content,
+                    'toDo' => $toDo,
+                ));
     }
 
     /**
@@ -253,39 +257,39 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      */
     public function delete($args) {
         if (!SecurityUtil::checkPermission('IWjclic::', '::', ACCESS_ADD)) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('Sorry! No authorization to access this module.')));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
-        $jid = FormUtil::getPassedValue('jid', -1, 'POST');
-        if ($jid == -1) {
-            AjaxUtil::error('no activity id');
+        $jid = $this->request->getPost()->get('jid', '');
+        if (!$jid) {
+            throw new Zikula_Exception_Fatal($this->__('no activity id'));
         }
 
         // get activity
         //get jclic activity
         $jclic = ModUtil::apiFunc('IWjclic', 'user', 'get', array('jid' => $jid));
         if ($jclic == false) {
-            AjaxUtil::error($this->__('Could not find the allocation requested'));
+            throw new Zikula_Exception_Fatal($this->__('Could not find the allocation requested'));
         }
 
         //Check if user can delete the assignament
         if ($jclic['user'] != UserUtil::getVar('uid')) {
-            AjaxUtil::error($this->__('Sorry! No authorization to access this module.'));
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
         //delete all the users
         if (!ModUtil::apiFunc('IWjclic', 'user', 'delUsers', array('jid' => $jid))) {
-            AjaxUtil::error($this->__('Unable to delete users associated with the allocation'));
+            throw new Zikula_Exception_Fatal($this->__('Unable to delete users associated with the allocation'));
         }
 
         //delete all the session
         if (!ModUtil::apiFunc('IWjclic', 'user', 'delSessions', array('jid' => $jid))) {
-            AjaxUtil::error($this->__('Unable to delete sessions related to the allocation'));
+            throw new Zikula_Exception_Fatal($this->__('Unable to delete sessions related to the allocation'));
         }
 
         //delete the assignament
         if (!ModUtil::apiFunc('IWjclic', 'user', 'delAssignament', array('jid' => $jid))) {
-            AjaxUtil::error($this->__('Failed to delete the allocation'));
+            throw new Zikula_Exception_Fatal($this->__('Failed to delete the allocation'));
         }
 
         //if the assignament have an associated file, delete it
@@ -293,7 +297,8 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             unlink(ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWjclic', 'jclicUpdatedFiles') . '/' . $jclic['file']);
         }
 
-        AjaxUtil::output(array('jid' => $jid));
+        return new Zikula_Response_Ajax(array('jid' => $jid,
+                ));
     }
 
 }

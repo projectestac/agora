@@ -9,7 +9,7 @@
 {/if}
 
 {if $do eq 'edit'}
-<form name="submitValueFormO_{$uid}" id="submitValueFormO_{$uid}" class="pn-adminform" method="post" enctype="multipart/form-data">
+<form name="submitValueFormO_{$uid}" id="submitValueFormO_{$uid}" class="z-form" method="post" enctype="multipart/form-data">
     <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
     <input type="hidden" name="jid" value="{$jid}" />
     <input type="hidden" name="uid" value="{$uid}" />

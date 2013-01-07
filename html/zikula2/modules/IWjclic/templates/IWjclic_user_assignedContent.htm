@@ -43,7 +43,7 @@
     </div>
     {/if}
     <div style="float: right;">
-        <div class="pn-hide" style="float:left; margin-right: 20px;" id="wait_{$activity.jid}">&nbsp;</div>
+        <div class="z-hide" style="float:left; margin-right: 20px;" id="wait_{$activity.jid}">&nbsp;</div>
         <a href="javascript:hideShow({$activity.jid})">
             {if $activity.extended eq 0}
             {img modname='core' src='db_comit.png' set='icons/extrasmall' __alt="Hide Details" __title="Hide Details"} {gt text="Hide Details"}
@@ -72,16 +72,16 @@
         <div><a href="javascript:results({$activity.jid})">{gt text="View results"}</a></div>
         {/if}
     </div>
-    <div style="height:10px;">&nbsp;</div>
+    <div style="height:10px;"></div>
     {if $activity.state eq 1}
     <div style="text-align: right;">
         <a href="{modurl modname='IWjclic' type='user' func='activity' jid=$activity.jid}">
-            {img modname='IWjclic' src='jclicIconLarge.png' set='pnimages'} {gt text="Do the activity"}
+            {img modname='IWjclic' src='jclicIconLarge.png'} {gt text="Do the activity"}
         </a>
     </div>
     {/if}
     {/if}
 </fieldset>
 <script type="text/javascript">
-    var showResults = '{{gt text='View results'}}';
+    var showResults = "{{gt text='View results'}}";
 </script>

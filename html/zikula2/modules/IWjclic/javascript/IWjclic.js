@@ -1,6 +1,6 @@
 String.prototype.replaceAll=function(s1, s2) {
     return this.split(s1).join(s2)
-    }
+}
 
 function iwjclicAddGroupToAssignment(){
     var form = document.forms['assignment_form'];
@@ -28,208 +28,197 @@ function send(){
     document.conf.submit();
 }
 
+function failure() {
+    
+}
 
-function hideShow(jid){
-    wait(jid);
-    var pars = "module=IWjclic&func=hideShow&jid=" + jid;
-    var myAjax = new Ajax.Request("ajax.php", {
-        method: 'post',
-        parameters: pars,
+function hideShow(a){
+    wait(a);
+    var b={
+        jid:a
+    };
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWjclic&func=hideShow",{
+        parameters: b,
         onComplete: hideShow_response,
-        onFailure: hideShow_failure
+        onFailure: failure
     });
 }
 
-function hideShow_response(req){
-    if (req.status != 200 ) { 
-        pnshowajaxerror(req.responseText);
-        return;
+function hideShow_response(a){
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
     }
-    var json = pndejsonize(req.responseText);
-    Element.update('act_'+json.jid, json.content).innerHTML;
-}
-
-function hideShow_failure(req){
-
+    var b=a.getData();
+    show_info('chgInfo');
+    $("act_" + b.jid).update(b.content);
 }
 
 function wait(jid){
     var info = 'wait_' + jid;
 
-    if(!Element.hasClassName(info, 'pn-hide')) {
-        Element.update(info, '&nbsp;');
-        Element.addClassName(info, 'pn-hide');
+    if(!Element.hasClassName(info, 'z-hide')) {
+        $(info).update('&nbsp;');
+        Element.addClassName(info, 'z-hide');
     } else {
-        Element.update(info, '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-        Element.removeClassName(info, 'pn-hide');
+        $(info).update('<img src="' + Zikula.Config.baseURL + 'images/ajax/circle-ball-dark-antialiased.gif" />');
+        Element.removeClassName(info, 'z-hide');
     }
 }
 
-function results(jid, uid){
-    if(uid){
-        Element.update('results_'+uid, '<div style="text-align: center;"><img src="images/ajax/circle-ball-dark-antialiased.gif"></div>').innerHTML;		
+function results(a, aa){
+    if(aa){
+        $('results_' + aa).update('<div style="text-align: center;"><img src="' + Zikula.Config.baseURL + 'images/ajax/circle-ball-dark-antialiased.gif" /></div>');
     }else{
-        Element.update('results_'+jid, '<div style="text-align: center;"><img src="images/ajax/circle-ball-dark-antialiased.gif"></div>').innerHTML;
+        $('results_' + a).update('<div style="text-align: center;"><img src="' + Zikula.Config.baseURL + 'images/ajax/circle-ball-dark-antialiased.gif" /></div>');
     }
-    var pars = "module=IWjclic&func=results&jid=" + jid + "&uid=" + uid;
-    var myAjax = new Ajax.Request("ajax.php", {
-        method: 'post',
-        parameters: pars,
+    var b={
+        jid:a,
+        uid: aa
+    };
+    
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWjclic&func=results",{
+        parameters: b,
         onComplete: results_response,
-        onFailure: results_failure
+        onFailure: failure
     });
 }
 
-function results_response(req){
-    if (req.status != 200 ) { 
-        pnshowajaxerror(req.responseText);
-        return;
+function results_response(a){
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
     }
-    var json = pndejsonize(req.responseText);
-    if(json.correct == 1){
-        Element.update('results_'+json.uid, json.content).innerHTML;
+    var b=a.getData();
+    if(b.correct == 1){
+        $('results_' + b.uid).update(b.content);
     }else{
-        Element.update('results_'+json.jid, json.content).innerHTML;		
+        $('results_' + b.jid).update(b.content);
     }
 }
 
-function results_failure(req){
-
+function resultsOff(a){
+    $('results_' + a).update('<div><a href="javascript:results(' + a + ')">' + showResults + '</a></div>');
 }
 
-function resultsOff(jid){
-    Element.update('results_'+jid, '<div><a href="javascript:results(' + jid + ')">' + showResults + '</a></div>').innerHTML;
-}
-
-function editCorrectContent(jid,uid,toDo){
-    var pars = "module=IWjclic&func=editCorrectContent&jid=" + jid + "&uid=" + uid + "&do=" + toDo;
-    var myAjax = new Ajax.Request("ajax.php", 
-    {
-        method: 'post', 
-        parameters: pars, 
+function editCorrectContent(a,aa,aaa){
+    var b={
+        jid:a,
+        uid: aa,
+        toDo:aaa
+    };
+    
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWjclic&func=editCorrectContent",{
+        parameters: b,
         onComplete: editCorrectContent_response,
-        onFailure: editCorrectContent_failure
+        onFailure: failure
     });
 }
 
-function editCorrectContent_response(req){
-    if (req.status != 200 ) { 
-        pnshowajaxerror(req.responseText);
-        return;
+function editCorrectContent_response(a){
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
     }
+    var b=a.getData();
 
-    var json = pndejsonize(req.responseText);
-
-    if(json.toDo == 'observations'){
-        Element.update('correct_observations_'+json.uid, json.content).innerHTML;
+    if(b.toDo == 'observations'){
+        $('correct_observations_' + b.uid).update(b.content);
     }
-    if(json.toDo == 'renotes'){
-        Element.update('correct_renotes_'+json.uid, json.content).innerHTML;
+    if(b.toDo == 'renotes'){
+        $('correct_renotes_' + b.uid).update(b.content);
     }
 }
 
-function editCorrectContent_failure(req){
-
-}
-
-function submitValue(jid,uid,toDo){
-    if(toDo == 'observations'){
-        var value = $('submitValueFormO_' + uid).observations.value;
+function submitValue(a,aa,aaa){
+    var aaaa;
+    if(aaa == 'observations'){
+        aaaa = $('submitValueFormO_' + aa).observations.value;
     }
-    if(toDo == 'renotes'){
-        var value = $('submitValueFormR_' + uid).renotes.value;
+    if(aaa == 'renotes'){
+        aaaa = $('submitValueFormR_' + aa).renotes.value;
     }
 
-    value = replaceChars('?', "|int|", value);
-    value = replaceChars('&', "|amp|", value);
-    value = replaceChars('#', "|par|", value);
-    value = replaceChars('%', "|per|", value);
-
-    var pars = "module=IWjclic&func=submitValue&jid=" + jid + "&value=" + value + "&do=" + toDo + "&uid=" + uid;
-    var myAjax = new Ajax.Request("ajax.php", 
-    {
-        method: 'post', 
-        parameters: pars, 
+    var b={
+        jid:a,
+        uid: aa,
+        toDo:aaa,
+        value:aaaa
+    };
+    
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWjclic&func=submitValue",{
+        parameters: b,
         onComplete: submitValue_response,
-        onFailure: submitValue_failure
+        onFailure: failure
     });
 }
 
 function replaceChars(pattern, newstring, entry) {
-    temp = "" + entry; // temporary holder
+    var temp = '' + entry; // temporary holder
    
     while (temp.indexOf(pattern)>-1) {
-        pos= temp.indexOf(pattern);
-        temp = "" + (temp.substring(0, pos) + newstring +
+        var pos = temp.indexOf(pattern);
+        temp = '' + (temp.substring(0, pos) + newstring +
             temp.substring((pos + pattern.length), temp.length));
     }
     return temp;
 }
 
-function submitValue_response(req){
-    if (req.status != 200 ) { 
-        pnshowajaxerror(req.responseText);
-        return;
+function submitValue_response(a){
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+
+    if(b.toDo == 'observations'){
+        $('correct_observations_' + b.uid).update(b.content);
     }
 
-    var json = pndejsonize(req.responseText);
-
-    if(json.toDo == 'observations'){
-        Element.update('correct_observations_'+json.uid, json.content).innerHTML;
-    }
-
-    if(json.toDo == 'renotes'){
-        Element.update('correct_renotes_'+json.uid, json.content).innerHTML;
+    if(b.toDo == 'renotes'){
+        $('correct_renotes_' + b.uid).update(b.content);
     }
 }
 
-function submitValue_failure(req){
-	
-}
-
-function del(jid,text){
-    resposta=confirm(text);
+function del(a,text){
+    var resposta=confirm(text);
     if (resposta) {
-        showinfo(jid, deletingassign);
-        var pars = "module=IWjclic&func=delete&jid=" + jid;
-        var myAjax = new Ajax.Request("ajax.php", {
-            method: 'post',
-            parameters: pars,
+        showinfo(a, deletingassign);
+        var b={
+            jid:a
+        };
+        var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWjclic&func=delete",{
+            parameters: b,
             onComplete: del_response,
-            onFailure: del_failure
+            onFailure: failure
         });
     }
 }
 
-function del_response(req){
-    if (req.status != 200 ) { 
-        pnshowajaxerror(req.responseText);
-        return;
+function del_response(a){
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
     }
-
-    var json = pndejsonize(req.responseText);
-    $('assign_' + json.jid).toggle();
-}
-
-function del_failure(req){
-
+    var b=a.getData();
+    $('assign_' + b.jid).toggle();
 }
 
 function showinfo(jid, infotext)
 {
     if(jid) {
         var info = 'assigninfo_' + jid;
-        if(!Element.hasClassName(info, 'pn-hide')) {
-            Element.update(info, '&nbsp;');
-            Element.addClassName(info, 'pn-hide');
+        if(!Element.hasClassName(info, 'z-hide')) {
+            $(info).update('&nbsp;');
+            Element.addClassName(info, 'z-hide');
         } else {
-            Element.update(info, infotext);
-            Element.removeClassName(info, 'pn-hide');
+            $(info).update(infotext);
+            Element.removeClassName(info, 'z-hide');
         }
     } else {
         $A(document.getElementsByClassName('assigninfo')).each(function(info){
-            Element.update(info, '&nbsp;');
-            Element.addClassName(info, 'pn-hide');
+            $(info).update('&nbsp;');
+            Element.addClassName(info, 'z-hide');
         });
     }
-}  
+}

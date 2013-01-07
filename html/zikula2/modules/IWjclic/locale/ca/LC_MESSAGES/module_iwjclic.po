@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: IWjclic module\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-26 11:49+0100\n"
-"PO-Revision-Date: 2012-01-24 12:07+0100\n"
+"PO-Revision-Date: 2013-01-07 12:01+0100\n"
 "Last-Translator: intraweb <intraweb@xtec.cat>\n"
 "Language-Team: Intraweb <intraweb@xtec.cat>\n"
 "MIME-Version: 1.0\n"
@@ -184,7 +184,7 @@ msgid "An error occurred while making allocations to selected groups"
 msgstr "S'ha produït un error en fer les assignacions als grups seleccionats"
 
 #: pntemplates/plugins/function.iwjclicusermenulinks.php:22
-msgid "Activities I have assigned "
+msgid "Activities I have assigned"
 msgstr "Activitats que he assignat"
 
 #: pntemplates/plugins/function.iwjclicusermenulinks.php:26

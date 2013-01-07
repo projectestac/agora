@@ -59,7 +59,7 @@
         <fieldset id="general">
             <legend>{gt text="General Parameters"}</legend>
             <div class="z-formrow">
-                <label for="name">{gt text="Name"}: {img modname='IWjclic' src='req.gif' set='images'}</label>
+                <label for="name">{gt text="Name"}: {img modname='IWjclic' src='req.gif'}</label>
                 <input size="64" name="name" type="text" id="name" value="{$jclic.name}" />
             </div>
             <div class="z-formrow">
@@ -70,7 +70,7 @@
         <fieldset id="header_jclic">
             <legend>{gt text="Parameters JClic"}</legend>
             <div class="z-formrow">
-                <label for="url">{gt text="Link or file activity"}:{if $mode neq "edit"}{img modname='IWjclic' src='req.gif' set='images'}{/if}</label>
+                <label for="url">{gt text="Link or file activity"}:{if $mode neq "edit"}{img modname='IWjclic' src='req.gif'}{/if}</label>
                 {if $mode eq "edit"}
                 <input name="url" type="hidden" value="{$jclic.url}" />
                 <input name="file" type="hidden" value="{$jclic.file}" />
@@ -198,7 +198,7 @@
             </div>
         </fieldset>
         <div>
-            {gt text="This form contains fields marked with an"} {img modname='IWjclic' src='req.gif' set='images'}
+            {gt text="This form contains fields marked with an"} {img modname='IWjclic' src='req.gif'}
         </div>
         <div class="z-center">
             <span class="z-buttons">
