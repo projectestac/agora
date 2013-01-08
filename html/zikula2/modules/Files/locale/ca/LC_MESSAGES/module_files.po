@@ -1,0 +1,849 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-26 14:24+0100\n"
+"PO-Revision-Date: 2010-10-15 17:00+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
+
+#: pnuserapi.php:32
+msgid "Error! Could not load items."
+msgstr "S'ha produït un error en carregar elements"
+
+#: pnuserapi.php:58
+msgid "Error! Could not create the new item."
+msgstr "No s'ha pogut crear l'element nou"
+
+#: pnuserapi.php:90
+msgid "Error! Could not update the used disk."
+msgstr "Error! No és possible actualitzar l'espai de disc ocupat"
+
+#: pnuserapi.php:106
+msgid "Sorry! No authorization to access this module."
+msgstr "No teniu autorització per accedir a aquest mòdul"
+
+#: pninit.php:114
+#: pnuser.php:1637
+#: pnuser.php:1650
+msgid "Directory creation error"
+msgstr "S'ha produït un error en la creació del directori"
+
+#: pnuser.php:40
+msgid "The server directory does not exist."
+msgstr "El directori servidor no existeix."
+
+#: pnuser.php:47
+#: pnuser.php:63
+#: pnuser.php:154
+#: pnuser.php:190
+#: pnuser.php:199
+#: pnuser.php:326
+#: pnuser.php:379
+#: pnuser.php:460
+#: pnuser.php:614
+#: pnuser.php:722
+#: pnuser.php:808
+#: pnuser.php:847
+#: pnuser.php:892
+#: pnuser.php:997
+#: pnuser.php:1034
+#: pnuser.php:1071
+#: pnuser.php:1167
+#: pnuser.php:1205
+#: pnuser.php:1276
+#: pnuser.php:1325
+#: pnuser.php:1408
+#: pnuser.php:1456
+#: pnuser.php:1542
+#: pnuser.php:1730
+#: pnuser.php:1785
+#: pnexternal/getFiles.php:39
+#: pnexternal/getFiles.php:57
+msgid "Invalid folder"
+msgstr "Directori incorrecte"
+
+#: pnuser.php:56
+#: pnexternal/getFiles.php:50
+msgid "It is not possible to browse this folder"
+msgstr "No ha estat possible seleccionar aquesta carpeta"
+
+#: pnuser.php:119
+msgid "More than 200 Mb"
+msgstr "Més de 200 Mb"
+
+#: pnuser.php:121
+#, php-format
+msgid "%s Mb"
+msgstr "%s Mb"
+
+#: pnuser.php:123
+#, php-format
+msgid "%s Kb"
+msgstr "%s Kb"
+
+#: pnuser.php:125
+#, php-format
+msgid "%s bytes"
+msgstr "%s bytes"
+
+#: pnuser.php:239
+msgid "Unzip file"
+msgstr "Descomprimeix el fitxer"
+
+#: pnuser.php:246
+msgid "List of the file content"
+msgstr "Continguts del fitxer"
+
+#: pnuser.php:252
+msgid "Download file"
+msgstr "Descarrega l'arxiu"
+
+#: pnuser.php:260
+#: pntemplates/Files_user_editFile.htm:9
+msgid "Edit file"
+msgstr "Edita el fitxer"
+
+#: pnuser.php:269
+msgid "Create Thumbnail"
+msgstr "Crea una nova miniatura"
+
+#: pntemplates/Files_external_getFiles.htm:95
+#: pntemplates/Files_user_filesList.htm:89
+#: pntemplates/Files_user_renameFile.htm:9
+#: pntemplates/Files_user_renameFile.htm:20
+msgid "Rename file"
+msgstr "Canvia el nom"
+
+#: pntemplates/Files_user_filesList.htm:90
+#: pntemplates/Files_user_deleteListFile.htm:9
+msgid "Delete File"
+msgstr "Esborra fitxer"
+
+#: pnuser.php:319
+#: pnuser.php:374
+#: pnuser.php:453
+#: pnuser.php:607
+#: pnuser.php:705
+#: pnuser.php:802
+#: pnuser.php:841
+#: pnuser.php:886
+#: pnuser.php:985
+#: pnuser.php:1029
+#: pnuser.php:1066
+#: pnuser.php:1162
+#: pnuser.php:1200
+#: pnuser.php:1270
+#: pnuser.php:1319
+#: pnuser.php:1400
+#: pnuser.php:1450
+#: pnuser.php:1534
+#: pnuser.php:1605
+#: pnuser.php:1681
+#: pnuser.php:1725
+#: pnuser.php:1779
+msgid "Error! You are not authorized to access this module."
+msgstr "Error! No esteu atoritzats a accedir a aquest mòdul"
+
+#: pnuser.php:332
+#: pnuser.php:900
+msgid "File not found"
+msgstr "Fitxer no trobat"
+
+#: pnuser.php:469
+msgid "It is not possible to create a thumbnail from this file."
+msgstr "No ha estat possible crear una miniatura d'aquest fitxer"
+
+#: pnuser.php:481
+msgid "Error! It has been possible to read the file."
+msgstr "Error! No ha estat possible llegir aquest fitxer"
+
+#: pnuser.php:509
+msgid "Error! Saving the image in memory."
+msgstr "Error! Guardant la imatge en memòria"
+
+#: pnuser.php:519
+#: pnuser.php:535
+#: pnuser.php:539
+#: pnuser.php:545
+#: pnuser.php:549
+#: pnuser.php:553
+#: pnuser.php:559
+#: pnuser.php:572
+#: pnuser.php:576
+msgid "Error! Creating the thumbnail of the image."
+msgstr "Error! Creant la miniatura de la imatge"
+
+#: pnuser.php:585
+msgid "Thumbnail created."
+msgstr "S'ha creat la miniatura"
+
+#: pnuser.php:626
+#, php-format
+msgid "Sorry! The file %s is not editable."
+msgstr "Perdoneu! No és possible editar el fitxer %s."
+
+#: pnuser.php:635
+#, php-format
+msgid "Sorry! The file %s has not been found."
+msgstr "Perdoneu! No s'ha trobat el fitxer %s."
+
+#: pnuser.php:646
+#, php-format
+msgid "Error! It has not been possible to read the content of the file %s."
+msgstr "Error! No ha estat possible llegir el contingut del fitxer %s."
+
+#: pnuser.php:676
+#, php-format
+msgid "Error! It has not been possible to write the content to the file %s."
+msgstr "Error! No ha estat possible escriure en el fitxer %s."
+
+#: pnuser.php:683
+msgid "File successfully edited"
+msgstr "Fitxer editat correctament"
+
+#: pnuser.php:712
+msgid "You can not delete the users folder!"
+msgstr "No té permís per eliminar aquesta carpeta!"
+
+#: pnuser.php:770
+msgid "Failed to deleted"
+msgstr "No s'ha pogut esborrar el fitxer"
+
+#: pnuser.php:775
+msgid "Error deleting file"
+msgstr "S'ha produït un error al eliminar el fitxer"
+
+#: pnuser.php:786
+msgid "Files successfully removed"
+msgstr "Fitxer eliminat correctament"
+
+#: pnuser.php:938
+#, php-format
+msgid "The extension <strong>%s</strong> is not allowed.  The allowed extensions are: <strong>%s</strong>."
+msgstr "L'extensió <strong>%s</strong> no està permesa. Les extensions permeses són: <strong>%s</strong>."
+
+#: pnuser.php:946
+msgid "Failed to rename"
+msgstr "El canvi de nom a fallat"
+
+#: pnuser.php:963
+msgid "Changed filename successfully"
+msgstr "S'ha canviat el nom del fitxer"
+
+#: pnuser.php:1004
+msgid "Directory Create Error"
+msgstr "Error en la creació del directori"
+
+#: pnuser.php:1007
+msgid "Directory created"
+msgstr "S'ha creat el directori"
+
+#: pnuser.php:1088
+#: pnadmin.php:109
+#, php-format
+msgid "The directory <strong>%s</strong> does not exist"
+msgstr "El directori <strong>%s</strong> no existeix"
+
+#: pnuser.php:1096
+#, php-format
+msgid "The extension <strong>%s</strong> is not allowed. The allowed extensions are: <strong>%s</strong>."
+msgstr "L'extensió <strong>%s</strong> no està permesa. Les extensions permeses són: <strong>%s</strong>."
+
+#: pnuser.php:1105
+#, php-format
+msgid "The file is to big. The maximum size allowed is \"%s\" bytes."
+msgstr "El fitxer és massa gran. La mida màxima permesa és de \"%s\" bytes."
+
+#: pnuser.php:1117
+msgid "You have not enough disk space to upload the file."
+msgstr "No disposa de suficient espai en el disc per carregar el fitxer"
+
+#: pnuser.php:1136
+msgid "Failed to upload"
+msgstr "No s'ha pogut pujar el fitxer"
+
+#: pnuser.php:1141
+msgid "Uploaded file success"
+msgstr "El fitxer s'ha pujat correctament al servidor"
+
+#: pnuser.php:1221
+msgid "No selected action"
+msgstr "No ha seleccionat cap acció a realitzar"
+
+#: pnuser.php:1227
+msgid "No selected file or directory"
+msgstr "No ha seleccionat cap fitxer o directori"
+
+#: pnuser.php:1364
+msgid "No file name given"
+msgstr "No has donat el nom del fitxer"
+
+#: pnuser.php:1376
+msgid "Error creating ZIP file"
+msgstr "S'ha produït un error al crear el fitxer ZIP"
+
+#: pnuser.php:1379
+msgid "Successfully zipped"
+msgstr "La compressió ha tingut èxit"
+
+#: pnuser.php:1416
+#: pnuser.php:1550
+msgid "Failed to list content zip file."
+msgstr "No s'ha pogut llistar el contingut de l'arxiu zip."
+
+#: pnuser.php:1500
+#: pnuser.php:1507
+msgid "Error moving"
+msgstr "S'ha produït un error al moure"
+
+#: pnuser.php:1515
+msgid "Successfully moved"
+msgstr "S'ha mogut amb èxit!"
+
+#: pnuser.php:1564
+#, php-format
+msgid "The zip file contains at least one file with the extension <strong>%s</strong> which is not allowed. The allowed extensions are: <strong>%s</strong>."
+msgstr "El fitxer zip conté com a mínim un fitxer amb l'extensió <strong>%s</strong>, la qual no està permesa. Les extensions permeses són: <strong>%s<strong>."
+
+#: pnuser.php:1579
+#, php-format
+msgid "You have not enough disk space to unzip the file. You need %s extra bytes."
+msgstr "No disosa de suficient espai de disc per carregar el fitxer. Necessita %s bytes adicionals"
+
+#: pnuser.php:1583
+msgid "Failed to unzip"
+msgstr "La descompresió ha fallat"
+
+#: pnuser.php:1590
+msgid "Successfully unzipped"
+msgstr "Descompressió amb èxit"
+
+#: pnuser.php:1617
+#: pntemplates/Files_init.htm:46
+#, php-format
+msgid "The folder <strong>%s</strong> has not been found."
+msgstr "No s'ha trobat el directori <strong>%s</strong>"
+
+#: pnuser.php:1628
+msgid "Directory creation error. Please contact with the administrator"
+msgstr "Error en la creació del directori. Si us plau contecteu amb l'administrador"
+
+#: pnuser.php:1662
+#, php-format
+msgid "The \"%s\" directory does not exist or is not writable."
+msgstr "El directori \"%s\" no existeix o bé no té permisos d'escriptura"
+
+#: pnaccountapi.php:28
+#: pnversion.php:25
+msgid "File Manager"
+msgstr "Gestor de fitxers"
+
+#: pnexternal/getFiles.php:18
+msgid "Sorry! You have not been granted access to this page."
+msgstr "No teniu accés a aquesta pàgina."
+
+#: pnexternal/getFiles.php:30
+msgid "The server directory does not exist. Contact with the website administrator to solve this problem."
+msgstr "El directori servidor no existeix. Contacti amb l'administrador del lloc web per tal de resoldre el problema"
+
+#: pntemplates/plugins/function.filesmenulinks.php:22
+msgid "Manage Files"
+msgstr "Gestiona els fitxers"
+
+#: pntemplates/plugins/function.filesmenulinks.php:25
+msgid "Module configuration"
+msgstr "Configura el mòdul"
+
+#: pnajax.php:29
+#: pnajax.php:51
+#: pnajax.php:154
+msgid "No folder defined."
+msgstr "No s'ha especificat el directori"
+
+#: pnajax.php:86
+#: pnajax.php:121
+msgid "no group found"
+msgstr "no s'ha trobat el grup"
+
+#: pnajax.php:90
+msgid "no quota defined"
+msgstr "no s'ha especificat la quota"
+
+#: pnajax.php:146
+msgid "no image found"
+msgstr "no s'ha trobat la imatge"
+
+#: pnajax.php:150
+msgid "no size factor defined"
+msgstr "no s'ha especificat el factor de redimensionament"
+
+#: pnadmin.php:117
+#, php-format
+msgid "The directory <strong>%s</strong> for users does not exist"
+msgstr "El directori <strong>%s</strong>, destinat a usuaris, no existeix"
+
+#: pnadmin.php:124
+msgid "The configuration has been updated"
+msgstr "La conficuració s'ha actualitzat correctament"
+
+#: pnversion.php:24
+msgid "File manager for Zikula sites."
+msgstr "Gestió de fitxers per a llocs Zikula"
+
+#: pnversion.php:26
+msgid "files"
+msgstr "fitxers"
+
+#: pntemplates/Files_user_uploadFile.htm:9
+#: pntemplates/Files_external_getFiles.htm:21
+#: pntemplates/Files_user_filesList.htm:17
+msgid "Upload file"
+msgstr "Puja un fitxer"
+
+#: pntemplates/Files_user_uploadFile.htm:11
+msgid "File name"
+msgstr "Nom del fitxer"
+
+#: pntemplates/Files_user_uploadFile.htm:14
+#: pntemplates/Files_admin_conf.htm:51
+msgid "Allowed extensions (comma separated list)"
+msgstr "Extensions permeses (separades per comes)"
+
+#: pntemplates/Files_user_uploadFile.htm:16
+#: pntemplates/Files_user_listContentZip.htm:18
+#: pntemplates/Files_user_listContentZip.htm:20
+#: pntemplates/Files_user_editFile.htm:25
+#: pntemplates/Files_init.htm:35
+#: pntemplates/Files_user_createZipListFile.htm:33
+#: pntemplates/Files_user_createDir.htm:15
+#: pntemplates/Files_user_renameFile.htm:27
+#: pntemplates/Files_user_deleteListFile.htm:32
+#: pntemplates/Files_user_moveListFile.htm:35
+msgid "Accept"
+msgstr "Accepta"
+
+#: pntemplates/Files_user_uploadFile.htm:17
+#: pntemplates/Files_user_editFile.htm:27
+#: pntemplates/Files_user_editFile.htm:29
+#: pntemplates/Files_user_createZipListFile.htm:35
+#: pntemplates/Files_user_createZipListFile.htm:37
+#: pntemplates/Files_user_createDir.htm:16
+#: pntemplates/Files_user_renameFile.htm:29
+#: pntemplates/Files_user_renameFile.htm:31
+#: pntemplates/Files_user_deleteListFile.htm:34
+#: pntemplates/Files_user_deleteListFile.htm:36
+#: pntemplates/Files_user_moveListFile.htm:37
+#: pntemplates/Files_user_moveListFile.htm:39
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: pntemplates/Files_external_getFilesImgContent.htm:15
+msgid "Reduce size"
+msgstr "Redueix la mida"
+
+#: pntemplates/Files_external_getFilesImgContent.htm:18
+msgid "Increase size"
+msgstr "Augmenta la mida"
+
+#: pntemplates/Files_external_getFilesImgContent.htm:20
+msgid "Delete thumbnail"
+msgstr "Elimina la miniatura"
+
+#: pntemplates/Files_external_getFilesImgContent.htm:24
+#: pntemplates/Files_external_getFilesImgContent.htm:28
+msgid "Insert"
+msgstr "Insereix una fila en blanc a darrera"
+
+#: pntemplates/Files_user_errorMsg.htm:10
+#: pntemplates/Files_external_getFiles.htm:10
+#: pntemplates/Files_user_filesList.htm:6
+msgid "List of files in folder"
+msgstr "Llista de fitxers en el directori"
+
+#: pntemplates/Files_external_getFiles.htm:16
+#: pntemplates/Files_user_filesList.htm:12
+msgid "It is not possible to write in this directory. Make it writable."
+msgstr "No ha estat possible escriure al directori. Habiliti els permissos d'escriptura"
+
+#: pntemplates/Files_external_getFiles.htm:20
+#: pntemplates/Files_user_filesList.htm:16
+msgid "Create directory"
+msgstr "Crea un directori"
+
+#: pntemplates/Files_external_getFiles.htm:23
+#: pntemplates/Files_user_filesList.htm:19
+msgid "Set as not public folder"
+msgstr "Fes que no sigui un directori públic"
+
+#: pntemplates/Files_external_getFiles.htm:25
+#: pntemplates/Files_user_filesList.htm:21
+msgid "Set as a public folder"
+msgstr "Estableix com a directori públic"
+
+#: pntemplates/Files_external_getFiles.htm:31
+#: pntemplates/Files_user_filesList.htm:27
+msgid "Disk use:"
+msgstr "Ús del disc;"
+
+#: pntemplates/Files_external_getFiles.htm:34
+#: pntemplates/Files_user_filesList.htm:30
+#, php-format
+msgid "%s%% - %s of %s"
+msgstr "%s%% - %s of %s"
+
+#: pntemplates/Files_external_getFiles.htm:43
+#: pntemplates/Files_user_filesList.htm:39
+msgid "The files in this directory are accessible directly from the navigator. Anybody can access to them with the URL:"
+msgstr "Els documents d'aquest directori són accessibles des de la finestra del navegador. S'hi pot accedir amb la URL:"
+
+#: pntemplates/Files_external_getFiles.htm:44
+#: pntemplates/Files_user_filesList.htm:40
+msgid "file_name"
+msgstr "Nom_del_fitxer"
+
+#: pntemplates/Files_external_getFiles.htm:55
+#: pntemplates/Files_user_filesList.htm:49
+msgid "Name"
+msgstr "Nom"
+
+#: pntemplates/Files_external_getFiles.htm:56
+#: pntemplates/Files_user_filesList.htm:50
+msgid "Size"
+msgstr "Mida"
+
+#: pntemplates/Files_external_getFiles.htm:57
+#: pntemplates/Files_user_filesList.htm:51
+msgid "Modified"
+msgstr "Modificat"
+
+#: pntemplates/Files_external_getFiles.htm:58
+#: pntemplates/Files_user_filesList.htm:52
+msgid "Action"
+msgstr "Acció"
+
+#: pntemplates/Files_external_getFiles.htm:95
+#: pntemplates/Files_user_filesList.htm:89
+msgid "Rename folder"
+msgstr "Reanomena la carpeta"
+
+#: pntemplates/Files_external_getFiles.htm:96
+#: pntemplates/Files_user_filesList.htm:90
+msgid "Delete folder"
+msgstr "Elimina la carpeta"
+
+#: pntemplates/Files_external_getFiles.htm:119
+#: pntemplates/Files_user_filesList.htm:104
+msgid "Bytes"
+msgstr "Bytes"
+
+#: pntemplates/Files_external_getFiles.htm:135
+#: pntemplates/Files_user_filesList.htm:119
+msgid "-- Selected files --"
+msgstr "-- Fitxers seleccionats --"
+
+#: pntemplates/Files_external_getFiles.htm:136
+#: pntemplates/Files_user_filesList.htm:120
+msgid "Move them to another folder"
+msgstr "Mou-los a un altre directori"
+
+#: pntemplates/Files_external_getFiles.htm:137
+#: pntemplates/Files_user_filesList.htm:121
+msgid "Delete them"
+msgstr "Esborra'ls"
+
+#: pntemplates/Files_external_getFiles.htm:138
+#: pntemplates/Files_user_filesList.htm:122
+msgid "Create a zip file with them"
+msgstr "Crear un fitxer zip"
+
+#: pntemplates/Files_external_getFiles.htm:150
+msgid "The values displayed in each image are its real size \"width x height\" and the factor of the modification of its size (value). The value 1 means that the image is in its natural size. A value upper than 1 means that the image has been reduced and a value lower than 1 means that the image has been increased."
+msgstr "Es mostra la mida real de la imatge \"amplada x alçada\" i el factor de redimensionament. El valor 1 significa que la imatge es troba en el seva mida original. Amb un valor superior a 1 la imatge es reduirà i amb un valor inferior a 1 la imatge s'ampliarà."
+
+#: pntemplates/Files_user_listContentZip.htm:9
+msgid "The list of the archive content"
+msgstr "Continguts de l'arxiu"
+
+#: pntemplates/Files_user_editFile.htm:20
+#, php-format
+msgid "%s/%s"
+msgstr "%s%s"
+
+#: pntemplates/Files_admin_quotasTable.htm:5
+msgid "Group"
+msgstr "Grup"
+
+#: pntemplates/Files_admin_quotasTable.htm:6
+msgid "Quota (Mb)"
+msgstr "Quota (Mb)"
+
+#: pntemplates/Files_admin_quotasTable.htm:7
+msgid "Delete"
+msgstr "Esborra"
+
+#: pntemplates/Files_admin_quotasTable.htm:18
+msgid "Delete disk quota"
+msgstr "Elimina la quota de disc"
+
+#: pntemplates/Files_admin_quotasTable.htm:28
+msgid "Assign a new disk quota"
+msgstr "Asigna una nova quota de disc"
+
+#: pntemplates/Files_admin_quotasTable.htm:35
+msgid "(A value of -1 means no disk quota assigned)"
+msgstr "(El valor -1 significa que no s'ha assignat quota de disc)"
+
+#: pntemplates/Files_user_createZipListFile.htm:9
+msgid "Create zip file"
+msgstr "Crea un fitxer zip"
+
+#: pntemplates/Files_user_createZipListFile.htm:19
+msgid "Generates a zip with this content"
+msgstr "Genera un fitxer zip amb els següents continguts"
+
+#: pntemplates/Files_user_createZipListFile.htm:27
+msgid "Filename"
+msgstr "Nom d'arxiu"
+
+#: pntemplates/Files_admin_newQuotaForm.htm:4
+msgid "Choose a group..."
+msgstr "Tria un grup..."
+
+#: pntemplates/Files_admin_newQuotaForm.htm:10
+#: pntemplates/Files_admin_conf.htm:83
+msgid "Mb"
+msgstr "Mb"
+
+#: pntemplates/Files_admin_newQuotaForm.htm:13
+#: pntemplates/Files_admin_conf.htm:88
+msgid "Save the changes"
+msgstr "Desa els canvis"
+
+#: pntemplates/Files_admin_newQuotaForm.htm:17
+msgid "-1 means no disk quota limit"
+msgstr "-1 indica quota de disc il·limitada"
+
+#: pntemplates/Files_init.htm:3
+msgid "Files module installation"
+msgstr "Instal·lació dels fitxers del mòdul"
+
+#: pntemplates/Files_init.htm:6
+msgid "Welcome to Files module"
+msgstr "Benvingut al mòdul Fitxers"
+
+#: pntemplates/Files_init.htm:8
+msgid "This module allow user to manage their own files.<br />Each user has a folder for his/her files.<br />This module needs two writable folders that have to be created."
+msgstr "Aquest mòdul permet a l'usuari gestionar els seus fitxers.<br />Cada usuari disposa d'una capreta amb els seus fitxers.<br />Aquest mòdul necessita que es creïn dos directoris amb permissos d'escriptura"
+
+#: pntemplates/Files_init.htm:10
+msgid "Proceed with the installation"
+msgstr "Continua amb l'instal·lació"
+
+#: pntemplates/Files_init.htm:14
+msgid "Check if the files folders in the server have been created and define them using the form below.<br />These folders will be used to save the files of the site and the users' files.<br />We recommend to locate them out of the public HTTP."
+msgstr "Comprovi que els directoris per a fitxers han estat creats i especifiqui les seves característiques en el següent formulari. Aquests directoris s'utilitzaran per guardar els fitxers del lloc i dels usuaris.<br />Es recomana allotjar-los fora de l'espai públic HTTP."
+
+#: pntemplates/Files_init.htm:19
+msgid "Defining the files folders"
+msgstr "Definint les carpetes per a fitxers"
+
+#: pntemplates/Files_init.htm:22
+msgid "Write the physical location of the folder in the server"
+msgstr "Escriu la localització física de la carpeta en el servidor"
+
+#: pntemplates/Files_init.htm:27
+msgid "Write the users' folder name"
+msgstr "Escriu el nom de la carpeta d'usuari"
+
+#: pntemplates/Files_init.htm:40
+msgid "Checking if the files folders exist and they are writable"
+msgstr "Comprovant si els directoris per a fitxers existeixen i tenen permissos d'escriptura"
+
+#: pntemplates/Files_init.htm:51
+#: pntemplates/Files_init.htm:77
+#, php-format
+msgid "The folder <strong>%s</strong> is located in the correct place."
+msgstr "La localització del directori <strong>%s</strong> es correcte"
+
+#: pntemplates/Files_init.htm:56
+#: pntemplates/Files_init.htm:86
+#, php-format
+msgid "The folder <strong>%s</strong> is not writable and it should be."
+msgstr "El directori <strong>%s</strong> no té permisos d'escriptura i hauria de tenir-ne"
+
+#: pntemplates/Files_init.htm:61
+#: pntemplates/Files_init.htm:95
+#, php-format
+msgid "The folder <strong>%s</strong> is writable."
+msgstr "El directori <strong>%s</strong> té permissos d'escriptura"
+
+#: pntemplates/Files_init.htm:69
+#, php-format
+msgid "The folder <strong>%s/%s</strong> has not been found."
+msgstr "No s'ha trobat el directori <strong>%s/%s</strong>"
+
+#: pntemplates/Files_init.htm:75
+#, php-format
+msgid "The folder <strong>%s/%s</strong> is located in the correct place."
+msgstr "La localització del directori <strong>%s/%s</strong> es correcte"
+
+#: pntemplates/Files_init.htm:84
+#, php-format
+msgid "The folder <strong>%s/%s</strong> is not writable and it should be."
+msgstr "El directori <strong>%s/%s</strong> no té permisos d'escriptura i hauria de tenir-ne"
+
+#: pntemplates/Files_init.htm:93
+#, php-format
+msgid "The folder <strong>%s/%s</strong> is writable."
+msgstr "El directori <strong>%s/%s</strong> té permissos d'escriptura"
+
+#: pntemplates/Files_init.htm:104
+msgid "Define folders again. Remember that you have to create the folders after define them."
+msgstr "Especifiqui els directoris altra vegada. Recordi que s'han de crear del directoris dessorés de definir-los."
+
+#: pntemplates/Files_init.htm:107
+msgid "Make the folders writable and try again."
+msgstr "Doni permissos d'escriptura a les carpetes i torni-ho a provar"
+
+#: pntemplates/Files_init.htm:116
+msgid "Proceed with the module installation"
+msgstr "Continua amb la instal·lació del mòdul"
+
+#: pntemplates/Files_external_formHook.htm:5
+#: pntemplates/Files_admin_menu.htm:5
+msgid "Files"
+msgstr "Fitxers"
+
+#: pntemplates/Files_external_formHook.htm:9
+msgid "Browse"
+msgstr "Cerca"
+
+#: pntemplates/Files_user_deleteListFile.htm:13
+msgid "Confirm deletion of:"
+msgstr "Confirma l'eliminació de;"
+
+#: pntemplates/Files_user_deleteListFile.htm:30
+msgid "Confirmation prompt"
+msgstr "Pregunta de confirmació"
+
+#: pntemplates/Files_user_createDir.htm:9
+msgid "Create folder"
+msgstr "Crea una carpeta"
+
+#: pntemplates/Files_user_createDir.htm:11
+msgid "Folder name"
+msgstr "Nom de la carpeta"
+
+#: pntemplates/Files_external_footer.htm:3
+msgid "Close window"
+msgstr "Tanca la finestra"
+
+#: pntemplates/Files_user_renameFile.htm:22
+msgid "New filename"
+msgstr "Nou nom de fitxer"
+
+#: pntemplates/Files_external_header.htm:5
+msgid "User's files"
+msgstr "Fitxers de l'usuari"
+
+#, php-format
+msgid "The folder <strong>%s</strong> is in the correct place."
+msgstr "La localització del directori <strong>%s</strong> no es correcte"
+
+#: pntemplates/Files_user_moveListFile.htm:9
+msgid "Moving"
+msgstr "Movent"
+
+#: pntemplates/Files_user_moveListFile.htm:22
+msgid "Move to"
+msgstr "Moure a "
+
+#: pntemplates/Files_user_moveListFile.htm:25
+msgid "(root)"
+msgstr "(root)"
+
+#: pntemplates/Files_admin_conf.htm:5
+msgid "Modify configuration"
+msgstr "Modifica la configuració"
+
+#: pntemplates/Files_admin_conf.htm:10
+msgid "You should move the file file.php from modules/Files to the zikula root directory"
+msgstr "Mogui el fitxer fitxer.php de moduls/Fitxers al directori arrel de Zikula"
+
+#: pntemplates/Files_admin_conf.htm:15
+msgid "You should remove the file file.php from modules/Files"
+msgstr "Elimina el fitxer fitxer.php de moduls/Fitxers"
+
+#: pntemplates/Files_admin_conf.htm:25
+msgid "Settings"
+msgstr "Paràmetres"
+
+#: pntemplates/Files_admin_conf.htm:28
+msgid "Files system physical path"
+msgstr "Ruta al sistema de fitxers físic"
+
+#: pntemplates/Files_admin_conf.htm:31
+#: pntemplates/Files_admin_conf.htm:39
+msgid "The folder does not exist or it is not writable"
+msgstr "La carpeta no existeix o no s'hi pot escriure"
+
+#: pntemplates/Files_admin_conf.htm:36
+msgid "Users' folder"
+msgstr "Carpeta d'usuaris"
+
+#: pntemplates/Files_admin_conf.htm:43
+msgid "Show hidden files"
+msgstr "Mostra els fitxers ocults"
+
+#: pntemplates/Files_admin_conf.htm:45
+msgid "Do not show to anyone"
+msgstr "No mostra a ningú"
+
+#: pntemplates/Files_admin_conf.htm:46
+msgid "Only show to administrators"
+msgstr "Mostra només a administradors"
+
+#: pntemplates/Files_admin_conf.htm:47
+msgid "Show to everyone"
+msgstr "Mostra a tothom"
+
+#: pntemplates/Files_admin_conf.htm:55
+msgid "Editable extensions (comma separated list)"
+msgstr "Extensions editables (separades per comes)"
+
+#: pntemplates/Files_admin_conf.htm:59
+msgid "Maximum file size"
+msgstr "Mida màxima del fitxer"
+
+#: pntemplates/Files_admin_conf.htm:62
+msgid "bytes"
+msgstr "bytes"
+
+#: pntemplates/Files_admin_conf.htm:66
+msgid "Default width for images in editor"
+msgstr "Amplada per defecte per a les imatges a l'editor"
+
+#: pntemplates/Files_admin_conf.htm:69
+#: pntemplates/Files_admin_conf.htm:76
+msgid "pixel"
+msgstr "pixel"
+
+#: pntemplates/Files_admin_conf.htm:73
+msgid "Default height for images in editor"
+msgstr "Alçada per defecte per a les imatges a l'editor"
+
+#: pntemplates/Files_admin_conf.htm:80
+msgid "Default disk quota"
+msgstr "Quota de disc per defecte"
+
+#: pntemplates/Files_admin_conf.htm:94
+msgid "Disk quotas for groups"
+msgstr "Quota de disc per a grups"
+

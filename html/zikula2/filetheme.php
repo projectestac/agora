@@ -18,7 +18,7 @@ if (strpos($fileName, "../") !== false) {
 // Get path. Directory is hard coded because we'll only use this file to access here.
 //$fileName = '../../zkdata/usu'.$schoolArray[1].'/data/theme/'.$fileName;
 include_once ('config/config.php');
-$fileName = $GLOBALS['PNConfig']['Multisites']['filesRealPath'] . '/' . $GLOBALS['PNConfig']['Multisites']['siteFilesFolder'] . '/theme/' . $fileName;
+$fileName = $GLOBALS['ZConfig']['Multisites']['filesRealPath'] . '/' . $GLOBALS['ZConfig']['Multisites']['siteFilesFolder'] . '/theme/' . $fileName;
 
 // Check if file exists. If not set to default value.
 if (!file_exists($fileName)) {
