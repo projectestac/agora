@@ -5,7 +5,8 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-
+ZIKULA
+- Removed theme voodooDolly. No schools use it
 
 Changes 12.12.28
 ---------------------------------------------------------------------------------------
