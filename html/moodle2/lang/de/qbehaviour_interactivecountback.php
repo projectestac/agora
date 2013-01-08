@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qbehaviour_interactivecountback', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qbehaviour_interactivecountback', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   qbehaviour_interactivecountback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,4 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Mehrfachbeantwortung (mit Hinweisen und Guthaben für frühere Versuche)';
+$string['pluginname'] = 'Mehrfachbeantwortung (mit Hinweis und Guthaben für frühere Versuche)';

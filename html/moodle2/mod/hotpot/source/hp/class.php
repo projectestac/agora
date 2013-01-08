@@ -133,9 +133,8 @@ class hotpot_source_hp extends hotpot_source {
                     }
                 }
             }
-            $textlib = hotpot_get_textlib();
-            $this->name = $textlib->entities_to_utf8($this->name, true);
-            $this->title = $textlib->entities_to_utf8($this->title, true);
+            $this->name = hotpot_textlib('entities_to_utf8', $this->name, true);
+            $this->title = hotpot_textlib('entities_to_utf8', $this->title, true);
         }
         if ($textonly) {
             return $this->name;
@@ -210,9 +209,8 @@ class hotpot_source_hp extends hotpot_source {
                 // could not detect Hot Potatoes quiz type - shouldn't happen !!
                 return false;
             }
-            $textlib = hotpot_get_textlib();
             $this->title = $this->xml_value('data,title');
-            $this->title = $textlib->entities_to_utf8($this->title, true);
+            $this->title = hotpot_textlib('entities_to_utf8', $this->title, true);
             $this->name = trim(strip_tags($this->title)); // sanitize
         }
         if ($textonly) {
@@ -391,7 +389,61 @@ class hotpot_source_hp extends hotpot_source {
             // Note: we could also use '<![CDATA[&]]>' as the replace string
             $search = '/&(?!(?:[a-zA-Z]+|#[0-9]+|#x[0-9a-fA-F]+);)/';
             $this->filecontents = preg_replace($search, '&amp;', $this->filecontents);
+
+            //$this->filecontents = $hotpot_textlib('utf8_to_entities', $this->filecontents);
+            // unfortunately textlib does not convert single-byte non-ascii chars
+            // i.e. "Latin-1 Supplement" e.g. latin small letter with acute (&#237;)
+
+            // unicode characters can be detected by checking the hex value of a character
+            //  00 - 7F : ascii char (roman alphabet + punctuation)
+            //  80 - BF : byte 2, 3 or 4 of a unicode char
+            //  C0 - DF : 1st byte of 2-byte char
+            //  E0 - EF : 1st byte of 3-byte char
+            //  F0 - FF : 1st byte of 4-byte char
+            // if the string doesn't match the above, it might be
+            //  80 - FF : single-byte, non-ascii char
+            $search = '/'.'[\xc0-\xdf][\x80-\xbf]{1}'.'|'.
+                          '[\xe0-\xef][\x80-\xbf]{2}'.'|'.
+                          '[\xf0-\xff][\x80-\xbf]{3}'.'|'.
+                          '[\x80-\xff]'.'/';
+            $callback = array($this, 'utf8_char_to_html_entity');
+            $this->filecontents = preg_replace_callback($search, $callback, $this->filecontents);
         }
+    }
+
+    function utf8_char_to_html_entity($char, $ampersand='&') {
+        // thanks to: http://www.zend.com/codex.php?id=835&single=1
+
+        if (is_array($char)) {
+            $char = $char[0];
+        }
+
+        // array used to figure what number to decrement from character order value
+        // according to number of characters used to map unicode to ascii by utf-8
+        static $HOTPOT_UTF8_DECREMENT = array(
+            1 => 0,
+            2 => 192,
+            3 => 224,
+            4 => 240
+        );
+
+        // the number of bits to shift each character by
+        static $HOTPOT_UTF8_SHIFT = array(
+            1 => array(0=>0),
+            2 => array(0=>6,  1=>0),
+            3 => array(0=>12, 1=>6,  2=>0),
+            4 => array(0=>18, 1=>12, 2=>6, 3=>0)
+        );
+
+        $dec = 0;
+        $len = strlen($char);
+        for ($pos=0; $pos<$len; $pos++) {
+            $ord = ord ($char{$pos});
+            $ord -= ($pos ? 128 : $HOTPOT_UTF8_DECREMENT[$len]);
+            $dec += ($ord << $HOTPOT_UTF8_SHIFT[$len][$pos]);
+        }
+
+        return $ampersand.'#x'.sprintf('%04X', $dec).';';
     }
 
     /**
@@ -475,11 +527,6 @@ class hotpot_source_hp extends hotpot_source {
                 $callback = array($this, 'xml_value_nl2br');
                 $value = preg_replace_callback($search, $callback, $value);
             }
-
-            // encode unicode characters as HTML entities
-            // (in particular, accented charaters that have not been encoded by HP)
-            $textlib = hotpot_get_textlib();
-            $value = $textlib->utf8_to_entities($value);
         }
         return $value;
     }
@@ -581,13 +628,18 @@ class hotpot_source_hp extends hotpot_source {
             // other (closing tag is for XHTML compliance)
             "\0"=>'\\0', '</'=>'<\\/'
         );
+
+        // convert unicode chars to html entities, if required
+        // Note that this will also decode named entities such as &apos; and &quot;
+        // so we have to put "strtr()" AFTER this call to textlib::utf8_to_entities()
+        if ($convert_to_unicode) {
+            $str = hotpot_textlib('utf8_to_entities', $str, false, true);
+        }
+
         $str = strtr($str, $replace_pairs);
 
         // convert (hex and decimal) html entities to javascript unicode, if required
         if ($convert_to_unicode) {
-            $textlib = hotpot_get_textlib();
-            $str = $textlib->utf8_to_entities($str, false, true);
-
             $search = '/&#x([0-9A-F]+);/i';
             $callback = array($this, 'js_unicode_char');
             $str = preg_replace_callback($search, $callback, $str);

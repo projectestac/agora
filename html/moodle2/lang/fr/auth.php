@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'auth', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -67,7 +67,7 @@ $string['chooseauthmethod'] = 'Choisir une méthode d\'authentification';
 $string['chooseauthmethod_help'] = 'Ce réglage détermine la méthode d\'authentification utilisée lorsque l\'utilisateur se connecte. Seules les plugins d\'authentification activés doivent être sélectionnés, faute de quoi l\'utilisateur ne pourra pas se connecter. Pour empêcher la connexion d\'un utilisateur, choisissez « Pas de connexion ».';
 $string['createpasswordifneeded'] = 'Créer un mot de passe si nécessaire';
 $string['emailchangecancel'] = 'Annuler la modification de l\'adresse de courriel';
-$string['emailchangepending'] = 'Modification en attente. Veuillez cliquer sur le lien qui vous à été envoyé à l\'adresse {$a->preference_newemail}.';
+$string['emailchangepending'] = 'Modification en attente. Veuillez cliquer sur le lien qui vous a été envoyé à l\'adresse {$a->preference_newemail}.';
 $string['emailnowexists'] = 'L\'adresse de courriel que vous tentez d\'utiliser pour votre profil est déjà attribuée à un autre utilisateur. Votre demande de modification de courriel est donc annulée, mais vous pouvez réessayer avec une adresse différente.';
 $string['emailupdate'] = 'Modification d\'adresse de courriel';
 $string['emailupdatemessage'] = 'Bonjour,
@@ -98,9 +98,9 @@ $string['guestloginbutton'] = 'Bouton de connexion anonyme';
 $string['incorrectpleasetryagain'] = 'Incorrect. Veuillez essayer à nouveau.';
 $string['infilefield'] = 'Champ requis dans le fichier';
 $string['informminpassworddigits'] = 'au moins {$a} chiffre(s)';
-$string['informminpasswordlength'] = 'au moins {$a} caractères(s)';
+$string['informminpasswordlength'] = 'au moins {$a} caractère(s)';
 $string['informminpasswordlower'] = 'au moins {$a} minuscule(s)';
-$string['informminpasswordnonalphanum'] = 'au moins {$a} caractères(s) non-alphanumérique(s)';
+$string['informminpasswordnonalphanum'] = 'au moins {$a} caractère(s) non-alphanumérique(s)';
 $string['informminpasswordupper'] = 'au moins {$a} majuscule(s)';
 $string['informpasswordpolicy'] = 'Le mot de passe doit comporter {$a}';
 $string['instructions'] = 'Instructions';

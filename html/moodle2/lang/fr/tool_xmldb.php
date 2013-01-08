@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_xmldb', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'tool_xmldb', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   tool_xmldb
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,7 @@ $string['backtomainview'] = 'Retour à la vue d\'ensemble';
 $string['cannotuseidfield'] = 'Impossible d\'insérer le champ « id ». Il s\'agit d\'une colonne numérique automatique';
 $string['change'] = 'Modifier';
 $string['charincorrectlength'] = 'Longueur du champ caractère incorrecte';
-$string['checkbigints'] = 'Vérifier les longs entiers (bigints)';
+$string['checkbigints'] = 'Vérifier les entiers';
 $string['check_bigints'] = 'Recherche des entiers incorrects dans la base de données';
 $string['checkdefaults'] = 'Vérifier les valeurs par défaut';
 $string['check_defaults'] = 'Recherche des valeurs par défaut incohérentes dans la base de données';
@@ -70,6 +70,7 @@ $string['down'] = 'Descendre';
 $string['duplicate'] = 'Doublon';
 $string['duplicatefieldname'] = 'Un autre champ de ce nom existe déjà';
 $string['duplicatefieldsused'] = 'Champs en doublon';
+$string['duplicateindexname'] = 'Nom d\'index à double';
 $string['duplicatekeyname'] = 'Une autre clef de ce nom existe déjà';
 $string['duplicatetablename'] = 'Une table de ce nom existe déjà';
 $string['edit'] = 'Modifier';
@@ -101,10 +102,12 @@ $string['generate_all_documentation'] = 'Toute la documentation';
 $string['generate_documentation'] = 'Documentation';
 $string['gotolastused'] = 'Retour au dernier fichier utilisé';
 $string['incorrectfieldname'] = 'Nom incorrect';
+$string['incorrectindexname'] = 'Nom d\'index incorrect';
 $string['incorrectkeyname'] = 'Nom de clef incorrect';
 $string['incorrecttablename'] = 'Nom de table incorrect';
 $string['index'] = 'Index';
 $string['indexes'] = 'Index';
+$string['indexnameempty'] = 'Nom d\'index vide';
 $string['integerincorrectlength'] = 'Longueur du champ entier incorrecte';
 $string['key'] = 'Clef';
 $string['keynameempty'] = 'Le nom de clef ne peut pas être vide';

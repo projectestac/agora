@@ -69,8 +69,10 @@ class assign_feedback_comments extends assign_feedback_plugin {
             }
         }
 
-        return html_writer::tag('textarea', $commenttext, array('name'=>'quickgrade_comments_' . $userid,
-                                                                'class'=>'quickgrade'));
+        return html_writer::tag('label', get_string('pluginname', 'assignfeedback_comments'),
+                array('for'=>'quickgrade_comments_' . $userid, 'class'=>'accesshide'))
+                . html_writer::tag('textarea', $commenttext,
+                array('name'=>'quickgrade_comments_' . $userid, 'id'=>'quickgrade_comments_' . $userid, 'class'=>'quickgrade'));
     }
 
     /**
@@ -99,6 +101,62 @@ class assign_feedback_comments extends assign_feedback_plugin {
      */
     public function supports_quickgrading() {
         return true;
+    }
+
+    /**
+     * Return a list of the text fields that can be imported/exported by this plugin
+     *
+     * @return array An array of field names and descriptions. (name=>description, ...)
+     */
+    public function get_editor_fields() {
+        return array('comments' => get_string('pluginname', 'assignfeedback_comments'));
+    }
+
+    /**
+     * Get the saved text content from the editor
+     *
+     * @param string $name
+     * @param int $gradeid
+     * @return string
+     */
+    public function get_editor_text($name, $gradeid) {
+        if ($name == 'comments') {
+            $feedbackcomments = $this->get_feedback_comments($gradeid);
+            if ($feedbackcomments) {
+                return $feedbackcomments->commenttext;
+            }
+        }
+
+        return '';
+    }
+
+    /**
+     * Get the saved text content from the editor
+     *
+     * @param string $name
+     * @param string $value
+     * @param int $gradeid
+     * @return string
+     */
+    public function set_editor_text($name, $value, $gradeid) {
+        global $DB;
+
+        if ($name == 'comments') {
+            $feedbackcomment = $this->get_feedback_comments($gradeid);
+            if ($feedbackcomment) {
+                $feedbackcomment->commenttext = $value;
+                return $DB->update_record('assignfeedback_comments', $feedbackcomment);
+            } else {
+                $feedbackcomment = new stdClass();
+                $feedbackcomment->commenttext = $value;
+                $feedbackcomment->commentformat = FORMAT_HTML;
+                $feedbackcomment->grade = $gradeid;
+                $feedbackcomment->assignment = $this->assignment->get_instance()->id;
+                return $DB->insert_record('assignfeedback_comments', $feedbackcomment) > 0;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -317,4 +375,5 @@ class assign_feedback_comments extends assign_feedback_plugin {
     public function is_empty(stdClass $grade) {
         return $this->view($grade) == '';
     }
+
 }

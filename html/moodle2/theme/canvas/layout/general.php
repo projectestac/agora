@@ -3,16 +3,36 @@
 $hasheading = ($PAGE->heading);
 $hasnavbar = (empty($PAGE->layout_options['nonavbar']) && $PAGE->has_navbar());
 $hasfooter = (empty($PAGE->layout_options['nofooter']));
-$hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
-$hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
+$hassidepre = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-pre', $OUTPUT));
+$hassidepost = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-post', $OUTPUT));
+$haslogininfo = (empty($PAGE->layout_options['nologininfo']));
+
+$showsidepre = ($hassidepre && !$PAGE->blocks->region_completely_docked('side-pre', $OUTPUT));
+$showsidepost = ($hassidepost && !$PAGE->blocks->region_completely_docked('side-post', $OUTPUT));
+
+$custommenu = $OUTPUT->custom_menu();
+$hascustommenu = (empty($PAGE->layout_options['nocustommenu']) && !empty($custommenu));
 
 $bodyclasses = array();
-if ($hassidepre && !$hassidepost) {
+if ($showsidepre && !$showsidepost) {
     $bodyclasses[] = 'side-pre-only';
-} else if ($hassidepost && !$hassidepre) {
+} else if ($showsidepost && !$showsidepre) {
     $bodyclasses[] = 'side-post-only';
-} else if (!$hassidepost && !$hassidepre) {
+} else if (!$showsidepost && !$showsidepre) {
     $bodyclasses[] = 'content-only';
+}
+if ($hascustommenu) {
+    $bodyclasses[] = 'has_custom_menu';
+}
+
+$courseheader = $coursecontentheader = $coursecontentfooter = $coursefooter = '';
+if (empty($PAGE->layout_options['nocourseheaderfooter'])) {
+    $courseheader = $OUTPUT->course_header();
+    $coursecontentheader = $OUTPUT->course_content_header();
+    if (empty($PAGE->layout_options['nocoursefooter'])) {
+        $coursecontentfooter = $OUTPUT->course_content_footer();
+        $coursefooter = $OUTPUT->course_footer();
+    }
 }
 
 echo $OUTPUT->doctype() ?>
@@ -29,12 +49,13 @@ echo $OUTPUT->doctype() ?>
 
 <!-- START OF HEADER -->
 
-    <?php if ($hasheading || $hasnavbar) { ?>
-    <div id="wrapper" class="clearfix">
+    <?php if ($hasheading || $hasnavbar || !empty($courseheader) || !empty($coursefooter)) { ?>
+        <div id="wrapper" class="clearfix">
+    <?php } ?>
 
+        <?php if ($hasheading) { ?>
         <div id="page-header">
             <div id="page-header-wrapper" class="clearfix">
-                   <?php if ($hasheading) { ?>
                 <h1 class="headermain"><?php echo $PAGE->heading ?></h1>
                 <div class="headermenu">
                     <?php
@@ -45,9 +66,17 @@ echo $OUTPUT->doctype() ?>
                            echo $PAGE->headingmenu;
                     ?>
                 </div>
-                <?php } ?>
             </div>
         </div>
+        <?php } ?>
+
+        <?php if ($hascustommenu) { ?>
+            <div id="custommenu"><?php echo $custommenu; ?></div>
+        <?php } ?>
+
+        <?php if (!empty($courseheader)) { ?>
+            <div id="course-header"><?php echo $courseheader; ?></div>
+        <?php } ?>
 
         <?php if ($hasnavbar) { ?>
             <div class="navbar clearfix">
@@ -55,8 +84,6 @@ echo $OUTPUT->doctype() ?>
                 <div class="navbutton"> <?php echo $PAGE->button; ?></div>
             </div>
         <?php } ?>
-
-<?php } ?>
 
 <!-- END OF HEADER -->
 
@@ -70,13 +97,15 @@ echo $OUTPUT->doctype() ?>
                         <div id="region-main-wrap">
                             <div id="region-main">
                                 <div class="region-content">
+                                    <?php echo $coursecontentheader; ?>
                                     <?php echo $OUTPUT->main_content() ?>
+                                    <?php echo $coursecontentfooter; ?>
                                 </div>
                             </div>
                         </div>
 
                         <?php if ($hassidepre) { ?>
-                        <div id="region-pre">
+                        <div id="region-pre" class="block-region">
                             <div class="region-content">
                                 <?php echo $OUTPUT->blocks_for_region('side-pre') ?>
                             </div>
@@ -84,7 +113,7 @@ echo $OUTPUT->doctype() ?>
                         <?php } ?>
 
                         <?php if ($hassidepost) { ?>
-                        <div id="region-post">
+                        <div id="region-post" class="block-region">
                             <div class="region-content">
                                 <?php echo $OUTPUT->blocks_for_region('side-post') ?>
                             </div>
@@ -100,6 +129,9 @@ echo $OUTPUT->doctype() ?>
 
 <!-- START OF FOOTER -->
 
+        <?php if (!empty($coursefooter)) { ?>
+            <div id="course-footer"><?php echo $coursefooter; ?></div>
+        <?php } ?>
         <?php if ($hasfooter) { ?>
         <div id="page-footer" class="clearfix">
             <p class="helplink"><?php echo page_doc_link(get_string('moodledocslink')) ?></p>
@@ -111,7 +143,7 @@ echo $OUTPUT->doctype() ?>
         </div>
         <?php } ?>
 
-    <?php if ($hasheading || $hasnavbar) { ?>
+    <?php if ($hasheading || $hasnavbar || !empty($courseheader) || !empty($coursefooter)) { ?>
         </div> <!-- END #wrapper -->
     <?php } ?>
 

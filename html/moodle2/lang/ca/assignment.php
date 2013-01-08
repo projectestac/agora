@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'assignment', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   assignment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -110,7 +110,7 @@ $string['finalizeerror'] = 'S\'ha produït un error i no s\'ha pogut completar l
 $string['graded'] = 'Qualificada';
 $string['guestnosubmit'] = 'Els visitants no poden trametre una tasca. Abans de trametre una tasca heu d\'entrar o us heu de registrar.';
 $string['guestnoupload'] = 'Els usuaris visitants no poden penjar fitxers.';
-$string['helpoffline'] = '<p>Útil quan la tasca es realitza fora de Moodle. Pot ser una cosa que es faci en un altra pàgina web o presencialment.</p><p>Els estudiants podran veure aquí la descripció de la tasca, però no podran penjar-hi fitxers ni res. La qualificació funciona de la manera normal i els estudiants reben l\'avís de les seves notes.</p>';
+$string['helpoffline'] = '<p>Útil quan la tasca es realitza fora de Moodle. Pot ser una cosa que es faci en una altra pàgina web o presencialment.</p><p>Els estudiants podran veure aquí la descripció de la tasca, però no podran penjar-hi fitxers ni res. La qualificació funciona de la manera normal i els estudiants reben l\'avís de les seves notes.</p>';
 $string['helponline'] = '<p>Aquest tipus de tasca demana als usuaris que editen un text, utilitzant les eines d\'edició normals. Els professors poden qualificar els treballs en línia i també inserir-los comentaris o fer-hi canvis.</p><p>(Si teniu experiència amb versions anteriors de Moodle, aquest tipus de tasca funciona igual que l\'antic mòdul Diari.)</p>';
 $string['helpupload'] = '<p>Aquest tipus de tasca permet que cada participant pengi un fitxer, o diversos fitxers, de qualsevol mena.</p>
 <p>Poden ser documents del processador de textos, imatges, un lloc web complet empaquetat en un fitxer zip, o qualsevol altra cosa que els vulgueu demanar que trametin.</p>

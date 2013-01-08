@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'glossary', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,10 +41,7 @@ $string['aliases_help'] = '<!-- Version: $Id$ -->
 $string['allcategories'] = 'Toutes les catégories';
 $string['allentries'] = 'Tout';
 $string['allowcomments'] = 'Autoriser les commentaires';
-$string['allowcomments_help'] = '<!-- Version: $Id$ -->
-
-
-<p>Lorsque ce réglage est activé, tous les utilisateurs ayant l\'autorisation de créer des commentaires pourront en ajouter aux articles des glossaires.</p>';
+$string['allowcomments_help'] = 'Si ce réglage est activé, tous les utilisateurs ayant l\'autorisation de créer des commentaires pourront en ajouter aux articles des glossaires.';
 $string['allowduplicatedentries'] = 'Autoriser les doublons';
 $string['allowduplicatedentries_help'] = '<!-- Version: $Id$ -->
 

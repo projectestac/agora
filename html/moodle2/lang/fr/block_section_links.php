@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_section_links', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_section_links', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   block_section_links
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -36,5 +36,6 @@ $string['numsections2'] = 'Nombre de sections (alternatif)';
 $string['numsectionsdesc1'] = 'Lorsque le nombre de sections du cours atteint cette valeur, l\'incrément est utilisé.';
 $string['numsectionsdesc2'] = 'Lorsque le nombre de sections du cours atteint cette valeur, l\'incrément alternatif est utilisé.';
 $string['pluginname'] = 'Liens vers sections';
+$string['section_links:addinstance'] = 'Ajouter un bloc liens vers sections';
 $string['topics'] = 'Sections';
 $string['weeks'] = 'Semaines';

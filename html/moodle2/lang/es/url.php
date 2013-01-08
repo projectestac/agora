@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'url', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,8 @@ $string['configframesize'] = 'Cuando una página web o un archivo subido se mues
 $string['configrolesinparams'] = 'Activar si desea incluir los nombres de rol localizados en la lista de parámetros variables disponibles';
 $string['configsecretphrase'] = 'Esta frase secreta se utiliza para producir código cifrado válido que pueda ser enviado a algunos servidores como parámetro. El código de cifrado se produce por un valor md5 del usuario actual dirección IP concatenado con su frase secreta. es decir, el código = md5 (IP.frase_secreta). Tenga en cuenta que esto no es fiable porque la dirección IP puede cambiar y habitualmente es compartida por diferentes equipos.';
 $string['contentheader'] = 'Contenido';
-$string['displayoptions'] = 'Opciones de visusliazación disponibles';
+$string['createurl'] = 'Crear una URL';
+$string['displayoptions'] = 'Opciones de visualización disponibles';
 $string['displayselect'] = 'Mostrar';
 $string['displayselectexplain'] = 'Elija el modo de visualización; por desgracia no todos los modos son adecuados para todas las direcciones URL.';
 $string['displayselect_help'] = 'Este parámetro, junto con el tipo de URL, y siempre que el navegador permita incorporar código, determina cómo se muestra la dirección URL.
@@ -44,10 +45,14 @@ Las opciones pueden incluir:
 * En ventana emergente - La URL se muestra en una ventana nueva del navegador sin menús y sin barra de direcciones';
 $string['externalurl'] = 'URL externa';
 $string['framesize'] = 'Altura del marco';
+$string['invalidstoredurl'] = 'No se puede mostrar el recurso, la URL no es válida.';
+$string['invalidurl'] = 'La URL introducida no es válida';
 $string['modulename'] = 'URL';
-$string['modulename_help'] = 'El módulo URL permite que el profesor pueda proporcionar un enlace de Internet como un recurso del curso. Todo aquello que esté disponible en línea, como documentos o imágenes, puede ser vinculado; la URL no tiene por qué ser la página principal de un sitio web. La dirección URL de una página web en particular puede ser copiada y pegada por el profesor, o o bien, este puede utilizar el selector de archivo y seleccione una URL desde un repositorio, como Flickr, YouTube o Wikimedia (dependiendo qué repositorios están habilitados para el sitio).
+$string['modulename_help'] = 'El recurso URL permite que el profesor pueda proporcionar un enlace de Internet como un recurso del curso. Todo aquello que esté disponible en línea, como documentos o imágenes, puede ser vinculado; la URL no tiene por qué ser la página principal de un sitio web. La dirección URL de una página web en particular puede ser copiada y pegada por el profesor, o bien, este puede utilizar el selector de archivo y seleccionar una URL desde un repositorio, como Flickr, YouTube o Wikimedia (dependiendo de qué repositorios están habilitados para el sitio).
 
-Hay una serie de opciones de visualización de la URL, como incrustada o abierta en una nueva ventana, y opciones avanzadas, si son necesarias, para pasar información a la URL, como el nombre de un estudiante.';
+Hay una serie de opciones de visualización de la URL, como incrustada o abierta en una nueva ventana, y opciones avanzadas,  como parsear información a la URL, como el nombre de un estudiante.
+
+Tenga en cuenta que las URLs también pueden ser añadidas en otros recursos o actividades a través del editor de texto.';
 $string['modulenameplural'] = 'URLs';
 $string['neverseen'] = 'Nunca visto';
 $string['optionsheader'] = 'Opciones';
@@ -67,4 +72,5 @@ $string['printintro'] = 'Mostrar la descripción de la URL';
 $string['printintroexplain'] = '¿Mostrar la descripción URL debajo del contenido? Algunos tipos de visualización pueden no mostrar la descripción incluso aunque esté activada esa opción.';
 $string['rolesinparams'] = 'Incluye los nombres de rol en los parámetros';
 $string['serverurl'] = 'URL del servidor';
+$string['url:addinstance'] = 'Añadir un nuevo recurso URL';
 $string['url:view'] = 'Mostrar URL';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'blog', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -75,7 +75,6 @@ $string['deleteexternalblog'] = 'Desvincula aquesta bitàcola externa';
 $string['deleteotagswarn'] = 'Segur que voleu suprimir aquestes etiquetes de totes les entrades de bitàcola i suprimir-les del sistema?';
 $string['description'] = 'Descripció';
 $string['description_help'] = 'Introduïu una frase o dues que resumeixi els continguts de la vostra bitàcola externa. Si no oferiu cap descripció, s\'usarà la descripció gravada a la vostra bitàcola externa.';
-$string['disableblogs'] = 'Inhabilita completament el sistema de bitàcoles';
 $string['donothaveblog'] = 'Disculpeu, però no teniu cap bitàcola personal.';
 $string['editentry'] = 'Edita una entrada de bitàcola';
 $string['editexternalblog'] = 'Edita aquesta bitàcola externa';

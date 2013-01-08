@@ -211,13 +211,13 @@ function SCORMapi1_2() {
                 result = StoreData(cmi,true);
                 if (nav.event != '') {
                     if (nav.event == 'continue') {
-                        setTimeout('scorm_get_next();',500);
+                        setTimeout('mod_scorm_launch_next_sco();',500);
                     } else {
-                        setTimeout('scorm_get_prev();',500);
+                        setTimeout('mod_scorm_launch_prev_sco();',500);
                     }
                 } else {
                     if (<?php echo $scorm->auto ?> == 1) {
-                        setTimeout('scorm_get_next();',500);
+                        setTimeout('mod_scorm_launch_next_sco();',500);
                     }
                 }
                 <?php
@@ -235,7 +235,10 @@ function SCORMapi1_2() {
                 ?>
                 // trigger TOC update
                 var sURL = "<?php echo $CFG->wwwroot; ?>" + "/mod/scorm/prereqs.php?a=<?php echo $scorm->id ?>&scoid=<?php echo $scoid ?>&attempt=<?php echo $attempt ?>&mode=<?php echo $mode ?>&currentorg=<?php echo $currentorg ?>&sesskey=<?php echo sesskey(); ?>";
-                YAHOO.util.Connect.asyncRequest('GET', sURL, this.connectPrereqCallback, null);
+                var callback = this.connectPrereqCallback;
+                YUI.use('yui2-connection', function(Y) {
+                    Y.YUI2.util.Connect.asyncRequest('GET', sURL, callback, null);
+                });
                 return result;
             } else {
                 errorCode = "301";

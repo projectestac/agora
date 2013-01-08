@@ -798,8 +798,7 @@ class mod_hotpot_attempt_renderer extends mod_hotpot_renderer {
             $title .= ' ('.$this->sortorder.')';
         }
 
-        $textlib = hotpot_get_textlib();
-        $title = $textlib->utf8_to_entities($title);
+        $title = hotpot_textlib('utf8_to_entities', $title);
 
         return $title;
     }
@@ -971,6 +970,7 @@ class mod_hotpot_attempt_renderer extends mod_hotpot_renderer {
      * @return xxx
      */
     function fix_css_definitions($match)  {
+        global $CFG;
 
         $container = '#'.$this->themecontainer;
         $css_selector = $match[1];
@@ -994,35 +994,41 @@ class mod_hotpot_attempt_renderer extends mod_hotpot_renderer {
                         // by default, we do nothing here, so that
                         // HP styles do not affect the Moodle theme
 
-                        // if this HotPot is set to enable HP body styles
+                        // if this site is set to enable HP body styles
                         // we replace "body" with the container element
+
+                        if (empty($CFG->hotpot_bodystyles)) {
+                            $bodystyles = 0;
+                        } else {
+                        	$callback = create_function('$x,$y', 'return ($x | $y);');
+                            $bodystyles = explode(',', $CFG->hotpot_bodystyles);
+                            $bodystyles = array_reduce($bodystyles, $callback, 0);
+                        }
 
                         // remove font, margin, backgroud and color from the css definition
                         $search = array();
-                        if (isset($this->hotpot->bodystyles)) {
-                            if (! ($this->hotpot->bodystyles & hotpot::BODYSTYLES_BACKGROUND)) {
-                                // background-color, background-image
-                                $search[] = '(?:background[a-z-]*)';
-                            }
-                            if (! ($this->hotpot->bodystyles & hotpot::BODYSTYLES_COLOR)) {
-                                // color (the text color)
-                                $search[] = '(?:color[a-z-]*)';
-                            }
-                            if (! ($this->hotpot->bodystyles & hotpot::BODYSTYLES_FONT)) {
-                                // font-size, font-family
-                                $search[] = '(?:font[a-z-]*)';
-                            }
-                            if (! ($this->hotpot->bodystyles & hotpot::BODYSTYLES_MARGIN)) {
-                                // margin-left, margin-right
-                                $search[] = '(?:margin[a-z-]*)';
-                            }
+                        if (! ($bodystyles & hotpot::BODYSTYLES_BACKGROUND)) {
+                            // background-color, background-image
+                            $search[] = '(?:background[a-z-]*)';
+                        }
+                        if (! ($bodystyles & hotpot::BODYSTYLES_COLOR)) {
+                            // color (the text color)
+                            $search[] = '(?:color[a-z-]*)';
+                        }
+                        if (! ($bodystyles & hotpot::BODYSTYLES_FONT)) {
+                            // font-size, font-family
+                            $search[] = '(?:font[a-z-]*)';
+                        }
+                        if (! ($bodystyles & hotpot::BODYSTYLES_MARGIN)) {
+                            // margin-left, margin-right
+                            $search[] = '(?:margin[a-z-]*)';
                         }
                         if ($search = implode('|', $search)) {
                             $search = "/[ \t]+($search)[^;]*;[ \t]*[\n\r]*/";
                             $css_definition = preg_replace($search, '', $css_definition);
-                            if (trim($css_definition)) {
-                                $selectors[] = "$container";
-                            }
+                        }
+                        if (trim($css_definition)) {
+                            $selectors[] = "$container";
                         }
                         break;
 
@@ -1133,42 +1139,6 @@ class mod_hotpot_attempt_renderer extends mod_hotpot_renderer {
         $onload_oneline = preg_replace('/\s+/s', ' ', $onload);
         $onload_oneline = preg_replace("/[\\']/", '\\\\$0', $onload_oneline);
         $str .= "hotpotAttachEvent(window, 'load', '$onload_oneline');\n";
-        if ($script_tags) {
-            $str .= "//]]>\n"."</script>\n";
-        }
-        return $str;
-    }
-
-    /**
-     * fix_onload_old
-     *
-     * @param xxx $onload
-     * @param xxx $script_tags (optional, default=false)
-     * @return xxx
-     */
-    function fix_onload_old($onload, $script_tags=false)  {
-        static $count = 0;
-        $onload_temp  = 'onload_'.sprintf('%02d', (++$count));
-
-        $onload_oneline = preg_replace('/\s+/s', ' ', $onload);
-        $onload_nospace = str_replace(' ', '', $onload_oneline);
-
-        $str = '';
-        if ($script_tags) {
-            $str .= "\n".'<script type="text/javascript">'."\n"."//<![CDATA[\n";
-        }
-        $str .= ''
-            .'if (typeof(window.onload)=="function"){'."\n"
-            .'	var s = onload.toString();'."\n"
-            .'	s = s.replace(new RegExp("\\\\s+", "g"), "");'."\n"
-            .'	if (s.indexOf("'.$onload_nospace.'")<0){'."\n"
-            .'		window.'.$onload_temp.' = onload;'."\n"
-            .'		window.onload = new Function("window.'.$onload_temp.'();"+"'.$onload_oneline.';");'."\n"
-            .'	}'."\n"
-            .'} else {'."\n"
-            .'	window.onload = new Function("'.$onload_oneline.'");'."\n"
-            .'}'."\n"
-        ;
         if ($script_tags) {
             $str .= "//]]>\n"."</script>\n";
         }

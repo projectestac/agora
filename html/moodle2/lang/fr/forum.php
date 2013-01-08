@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'forum', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = 'Il y a de nouveaux messages de forum';
 $string['addanewdiscussion'] = 'Ajouter une discussion';
 $string['addanewquestion'] = 'Ajouter une nouvelle question';
 $string['addanewtopic'] = 'Ajouter un nouveau sujet';
@@ -181,7 +182,7 @@ $string['forum:addquestion'] = 'Ajouter une question';
 $string['forum:allowforcesubscribe'] = 'Permettre d\'imposer l\'abonnement';
 $string['forumauthorhidden'] = 'Auteur (masqué)';
 $string['forumblockingalmosttoomanyposts'] = 'Vous approchez du nombre maximal de messages autorisés. Vous avez écrit {$a->numposts} durant les derniers {$a->blockperiod}. La limite est de {$a->blockafter} messages.';
-$string['forumbodyhidden'] = 'Vous ne pouvez pas voir ce message, probablement parce que vous n\'avez pas encore participé à cette discussion ou que la durée maximale de modification n\'est pas encore échu.';
+$string['forumbodyhidden'] = 'Vous ne pouvez pas voir ce message, probablement parce que vous n\'avez pas encore participé à cette discussion ou que la durée maximale de modification n\'est pas encore passée.';
 $string['forum:createattachment'] = 'Créer des annexes';
 $string['forum:deleteanypost'] = 'Supprimer des messages (en tout temps)';
 $string['forum:deleteownpost'] = 'Supprimer ses propres messages (durant un délai)';
@@ -202,7 +203,6 @@ $string['forums'] = 'Forums';
 $string['forum:splitdiscussions'] = 'Séparer des discussions';
 $string['forum:startdiscussion'] = 'Lancer des discussions';
 $string['forumsubjecthidden'] = 'Sujet (masqué)';
-$string['forum:throttlingapplies'] = 'Limitations actives';
 $string['forumtracked'] = 'Les messages non lus sont marqués';
 $string['forumtrackednot'] = 'Les messages non lus ne sont pas marqués';
 $string['forumtype'] = 'Type de forum';

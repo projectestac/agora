@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'auth_ldap', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -99,6 +99,8 @@ $string['auth_ntlmsso_enabled'] = 'Sélectionner Oui pour authentifier les utili
 $string['auth_ntlmsso_enabled_key'] = 'Activer';
 $string['auth_ntlmsso_ie_fastpath'] = 'Sélectionner Oui pour activer le chemin rapide NTLM SSO (saute certaines étapes et ne fonctionne qu\'avec le navigateur Internet Explorer).';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'Chemin rapide NTLM SSO';
+$string['auth_ntlmsso_maybeinvalidformat'] = 'Impossible d\'extraire le nom d\'utilisateur à partir de l\'entête REMOTE_USER. Le format est-il configuré correctement ?';
+$string['auth_ntlmsso_remoteuserformat_key'] = 'Format du nom d\'utilisateur distant';
 $string['auth_ntlmsso_subnet'] = 'L\'activation de ce paramètre ne permettra le SSO que pour des clients de ce sous-réseau. Format : xxx.xxx.xxx.xxx/masque. Séparer plusieurs réseaux par une virgule.';
 $string['auth_ntlmsso_subnet_key'] = 'Sous-réseau';
 $string['auth_ntlmsso_type'] = 'La méthode d\'authentification configurée dans le serveur web pour authentifier les utilisateurs. En cas de doute, choisir NTLM.';
@@ -122,6 +124,9 @@ $string['ntlmsso_attempting'] = 'Tentative de connexion SSO via NTLM...';
 $string['ntlmsso_failed'] = 'La connexion automatique a échoué. Essayez de vous connecter depuis la page de connexion standard.';
 $string['ntlmsso_isdisabled'] = 'L\'authentification SSO NTLM est désactivée.';
 $string['ntlmsso_unknowntype'] = 'Type ntlmsso inconnu !';
+$string['pagedresultsnotsupp'] = 'Résultats LDAP paginés non supportés (soit votre version de PHP ne les supporte pas, soit vous avez configuré Moodle avec le protocole LDAP version 2)';
+$string['pagesize'] = 'Assurez-vous que cette valeur est inférieure à la taille limite de l\'ensemble retourné par votre serveur LDAP (le nombre maximal d\'entrées retournée par une requête)';
+$string['pagesize_key'] = 'Taille de page';
 $string['pluginname'] = 'Serveur LDAP';
 $string['pluginnotenabled'] = 'Plugin non activé !';
 $string['renamingnotallowed'] = 'Le changement de nom d\'utilisateur n\'est pas autorisé dans LDAP';

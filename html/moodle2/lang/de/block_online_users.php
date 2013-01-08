@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_online_users', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_online_users', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   block_online_users
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,8 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configtimetosee'] = 'Wartezeit in Minuten, nach der inaktive Nutzer/innen nicht mehr in der Liste angezeigt werden';
-$string['online_users:viewlist'] = 'Liste von aktiven Nutzer/innen sehen';
+$string['configtimetosee'] = 'Zeit (in Minuten), nach der Online-Aktivitäten nicht mehr in der Liste angezeigt werden';
+$string['online_users:addinstance'] = 'Neuen Block \'Online-Aktivitäten\' hinzufügen';
+$string['online_users:myaddinstance'] = 'Neuen Block \'Online-Aktivitäten\' hinzufügen';
+$string['online_users:viewlist'] = 'Liste der Online-Aktivitäten sehen';
 $string['periodnminutes'] = 'in den letzten {$a} Minuten';
 $string['pluginname'] = 'Online-Aktivitäten';
 $string['timetosee'] = 'Inaktivität (in Minuten)';

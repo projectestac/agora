@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_assignmentupgrade', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'tool_assignmentupgrade', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   tool_assignmentupgrade
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,6 +39,7 @@ $string['conversioncomplete'] = 'Devoir converti';
 $string['conversionfailed'] = 'La mise à jour du devoir a échoué. Le message reçu est :<br />{$a}';
 $string['listnotupgraded'] = 'Liste des devoirs qui n\'ont pas été mis à jour';
 $string['listnotupgraded_desc'] = 'Vous pouvez mettre à jour des devoirs ici';
+$string['noassignmentsselected'] = 'Aucun devoir sélectionné';
 $string['noassignmentstoupgrade'] = 'Aucun devoir n\'a besoin d\'une mise à jour';
 $string['notsupported'] = '';
 $string['notupgradedintro'] = 'Cette page fournit une liste des devoirs créés avec une ancienne version de Moodle et qui n\'ont pas été mis à jour vers le nouveau module devoir de Moodle 2.3. Certains devoirs ne peuvent pas être mis à jour ; s\'ils ont été créés avec un type de devoir personnalisé, ce type doit être mis à jour dans le nouveau format de plugin de devoir afin de pouvoir effectuer la mise à jour.';

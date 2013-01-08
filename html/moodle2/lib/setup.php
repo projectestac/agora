@@ -138,6 +138,22 @@ if (!defined('PHPUNIT_TEST')) {
     define('PHPUNIT_TEST', false);
 }
 
+// When set to true MUC (Moodle caching) will be disabled as much as possible.
+// A special cache factory will be used to handle this situation and will use special "disabled" equivalents objects.
+// This ensure we don't attempt to read or create the config file, don't use stores, don't provide persistence or
+// storage of any kind.
+if (!defined('CACHE_DISABLE_ALL')) {
+    define('CACHE_DISABLE_ALL', false);
+}
+
+// When set to true MUC (Moodle caching) will not use any of the defined or default stores.
+// The Cache API will continue to function however this will force the use of the cachestore_dummy so all requests
+// will be interacting with a static property and will never go to the proper cache stores.
+// Useful if you need to avoid the stores for one reason or another.
+if (!defined('CACHE_DISABLE_STORES')) {
+    define('CACHE_DISABLE_STORES', false);
+}
+
 // Servers should define a default timezone in php.ini, but if they don't then make sure something is defined.
 // This is a quick hack.  Ideally we should ask the admin for a value.  See MDL-22625 for more on this.
 if (function_exists('date_default_timezone_set') and function_exists('date_default_timezone_get')) {
@@ -174,6 +190,7 @@ if (defined('WEB_CRON_EMULATED_CLI')) {
 if (file_exists("$CFG->dataroot/climaintenance.html")) {
     if (!CLI_SCRIPT) {
         header('Content-type: text/html; charset=utf-8');
+        header('X-UA-Compatible: IE=edge');
         /// Headers to make it not cacheable and json
         header('Cache-Control: no-store, no-cache, must-revalidate');
         header('Cache-Control: post-check=0, pre-check=0', false);
@@ -222,7 +239,7 @@ umask(0000);
 
 // exact version of currently used yui2 and 3 library
 $CFG->yui2version = '2.9.0';
-$CFG->yui3version = '3.5.1';
+$CFG->yui3version = '3.7.3';
 
 
 // special support for highly optimised scripts that do not need libraries and DB connection
@@ -334,13 +351,6 @@ global $COURSE;
  * @name $OUTPUT
  */
 global $OUTPUT;
-
-/**
- * Shared memory cache.
- * @global object $MCACHE
- * @name $MCACHE
- */
-global $MCACHE;
 
 /**
  * Cache used within grouplib to cache data within current request only.
@@ -468,6 +478,7 @@ require_once($CFG->libdir .'/sessionlib.php');      // All session and cookie re
 require_once($CFG->libdir .'/editorlib.php');       // All text editor related functions and classes
 require_once($CFG->libdir .'/messagelib.php');      // Messagelib functions
 require_once($CFG->libdir .'/modinfolib.php');      // Cached information on course-module instances
+require_once($CFG->dirroot.'/cache/lib.php');       // Cache API
 
 // make sure PHP is not severly misconfigured
 setup_validate_php_configuration();
@@ -580,42 +591,6 @@ if (!isset($CFG->debugdisplay)) {
 if (!empty($CFG->version) and $CFG->version < 2007101509) {
     print_error('upgraderequires19', 'error');
     die;
-}
-
-// Shared-Memory cache init -- will set $MCACHE
-// $MCACHE is a global object that offers at least add(), set() and delete()
-// with similar semantics to the memcached PHP API http://php.net/memcache
-// Ensure we define rcache - so we can later check for it
-// with a really fast and unambiguous $CFG->rcache === false
-if (!empty($CFG->cachetype)) {
-    if (empty($CFG->rcache)) {
-        $CFG->rcache = false;
-    } else {
-        $CFG->rcache = true;
-    }
-
-    // do not try to initialize if cache disabled
-    if (!$CFG->rcache) {
-        $CFG->cachetype = '';
-    }
-
-    if ($CFG->cachetype === 'memcached' && !empty($CFG->memcachedhosts)) {
-        if (!init_memcached()) {
-            debugging("Error initialising memcached");
-            $CFG->cachetype = '';
-            $CFG->rcache = false;
-        }
-    } else if ($CFG->cachetype === 'eaccelerator') {
-        if (!init_eaccelerator()) {
-            debugging("Error initialising eaccelerator cache");
-            $CFG->cachetype = '';
-            $CFG->rcache = false;
-        }
-    }
-
-} else { // just make sure it is defined
-    $CFG->cachetype = '';
-    $CFG->rcache    = false;
 }
 
 // Calculate and set $CFG->ostype to be used everywhere. Possible values are:
@@ -791,6 +766,9 @@ moodle_setlocale();
 
 // Create the $PAGE global - this marks the PAGE and OUTPUT fully initialised, this MUST be done at the end of setup!
 if (!empty($CFG->moodlepageclass)) {
+    if (!empty($CFG->moodlepageclassfile)) {
+        require_once($CFG->moodlepageclassfile);
+    }
     $classname = $CFG->moodlepageclass;
 } else {
     $classname = 'moodle_page';

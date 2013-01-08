@@ -5,6 +5,7 @@ YUI.add('moodle-enrol_manual-quickenrolment', function(Y) {
         /** Properties **/
         BASE : 'base',
         SEARCH : 'search',
+        SEARCHBTN : 'searchbtn',
         PARAMS : 'params',
         URL : 'url',
         AJAXURL : 'ajaxurl',
@@ -62,6 +63,7 @@ YUI.add('moodle-enrol_manual-quickenrolment', function(Y) {
         DURATION : 'duration',
         ACTIVE : 'active',
         SEARCH : 'uep-search',
+        SEARCHBTN : 'uep-search-btn',
         CLOSE : 'close',
         CLOSEBTN : 'close-button'
     };
@@ -109,8 +111,9 @@ YUI.add('moodle-enrol_manual-quickenrolment', function(Y) {
                                 .setAttribute('src', M.util.image_url('i/loading', 'moodle')))
                             .setStyle('opacity', 0.5)))
                     .append(create('<div class="'+CSS.FOOTER+'"></div>')
-                        .append(create('<div class="'+CSS.SEARCH+'"><label>'+M.str.enrol.usersearch+'</label></div>')
+                        .append(create('<div class="'+CSS.SEARCH+'"><label for="enrolusersearch" class="accesshide">'+M.str.enrol.usersearch+'</label></div>')
                             .append(create('<input type="text" id="enrolusersearch" value="" />'))
+                                .append(create('<input type="button" id="searchbtn" class="'+CSS.SEARCHBTN+'" value="'+M.str.enrol.usersearch+'" />'))
                         )
                         .append(create('<div class="'+CSS.CLOSEBTN+'"></div>')
                             .append(create('<input type="button" value="'+M.str.enrol.finishenrollingusers+'" />'))
@@ -120,6 +123,7 @@ YUI.add('moodle-enrol_manual-quickenrolment', function(Y) {
             );
 
             this.set(UEP.SEARCH, this.get(UEP.BASE).one('#enrolusersearch'));
+            this.set(UEP.SEARCHBTN, this.get(UEP.BASE).one('#searchbtn'));
             Y.all('.enrol_manual_plugin input').each(function(node){
                 if (node.getAttribute('type', 'submit')) {
                     node.on('click', this.show, this);
@@ -133,6 +137,7 @@ YUI.add('moodle-enrol_manual-quickenrolment', function(Y) {
             this.set(UEP.PARAMS, params);
 
             Y.on('key', this.preSearch, this.get(UEP.SEARCH), 'down:13', this);
+            this.get(UEP.SEARCHBTN).on('click', this.preSearch, this);
 
             Y.one(document.body).append(this.get(UEP.BASE));
 
@@ -141,12 +146,19 @@ YUI.add('moodle-enrol_manual-quickenrolment', function(Y) {
             base.dd.addHandle('.'+CSS.HEADER+' h2');
             base.one('.'+CSS.HEADER+' h2').setStyle('cursor', 'move');
 
-            this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).one('img').setAttribute('src', M.util.image_url('t/collapsed', 'moodle'));
+            var collapsedimage = 't/collapsed'; // ltr mode
+            if ( Y.one(document.body).hasClass('dir-rtl') ) {
+                collapsedimage = 't/collapsed_rtl';
+            } else {
+                collapsedimage = 't/collapsed';
+            }
+
+            this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).one('img').setAttribute('src', M.util.image_url(collapsedimage, 'moodle'));
             this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).on('click', function(){
                 this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).toggleClass(CSS.ACTIVE);
                 this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEAREA).toggleClass(CSS.HIDDEN);
                 if (this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEAREA).hasClass(CSS.HIDDEN)) {
-                    this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).one('img').setAttribute('src', M.util.image_url('t/collapsed', 'moodle'));
+                    this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).one('img').setAttribute('src', M.util.image_url(collapsedimage, 'moodle'));
                 } else {
                     this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).one('img').setAttribute('src', M.util.image_url('t/expanded', 'moodle'));
                 }
@@ -524,4 +536,4 @@ YUI.add('moodle-enrol_manual-quickenrolment', function(Y) {
         }
     }
 
-}, '@VERSION@', {requires:['base','node', 'overlay', 'io-base', 'test', 'json-parse', 'event-delegate', 'dd-plugin', 'event-key', 'moodle-enrol-notification']});
+}, '@VERSION@', {requires:['base','node', 'overlay', 'io-base', 'test', 'json-parse', 'event-delegate', 'dd-plugin', 'event-key', 'moodle-core-notification']});

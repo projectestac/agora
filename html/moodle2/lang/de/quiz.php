@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'quiz', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['accessnoticesheader'] = 'Sie können diesen Test in der Vorschau ansehen. Wäre dies ein realer Versuch, würde dies abgeblockt, weil:';
 $string['action'] = 'Aktion';
+$string['activityoverview'] = 'Sie haben überfällige Tests.';
 $string['adaptive'] = 'Mehrfachbeantwortung';
 $string['adaptive_help'] = 'Mit dieser Funktion wird es möglich eine Frage mehrfach innerhalb eines Testversuchs zu beantworten. Ist eine Frage falsch bewertet, kann der Teilnehmer diese direkt nochmals beantworten. Ist die Option \'Punktabzüge\' aktiviert werden diese berücksichtigt. ';
 $string['addaquestion'] = 'Frage hinzufügen...';
@@ -343,7 +344,7 @@ $string['graceperiod_desc'] = 'Wenn für den Zeitablauf gewählt wurde \'Nachfri
 $string['graceperiod_help'] = 'Wenn für den Zeitablauf gewählt wurde \'Nachfrist zur Abgabe, aber keine Änderungen an den Antworten\' wird die Zeitdauer in Sekunden fetsgelegt.';
 $string['graceperiodmin'] = 'Nachfrist für Abgabe';
 $string['graceperiodmin_desc'] = 'Wenn für alle Teilnehmenden der Test zum gleichen Zeitpunkt endet sind u.U, sehr viele Daten auf einmal abzuspeichern. Daher kann ein Zeitraum festgelegt werden für den das Abspeichen der Testdaten noch zulässig ist, obwohl der Zeitraum eigentlich abgelaufen ist. Die Länge des erforderlichen Zeitraums hängt von der Zahl der Teilnehmer und Länge der Tests, sowie der Leistungsstärke Ihres Severs ab.  Der Wert wird in Sekunden eingegeben.';
-$string['graceperiodtoosmall'] = 'Die Nachfrist muß länger sein als {$a}.';
+$string['graceperiodtoosmall'] = 'Die Nachfrist muss länger sein als {$a}.';
 $string['grade'] = 'Bewertung';
 $string['gradeall'] = 'Alle bewerten';
 $string['gradeaverage'] = 'Durchschnitt';
@@ -555,7 +556,7 @@ $string['overduehandling'] = 'Wenn die Zeit abgelaufen ist';
 $string['overduehandlingautoabandon'] = 'Der Testversuch muss abgegeben werden, bevor die Zeit abgelaufen ist, damit er gewertet werden kann.';
 $string['overduehandlingautosubmit'] = 'Der Testversuch wird automatisch abgegeben.';
 $string['overduehandling_desc'] = 'Grundeinstellung für den Test wenn Teilnehmer/innen einen Testversuch nicht abschließen bevor der Zeitraum abgelaufen ist.';
-$string['overduehandlinggraceperiod'] = 'Es gibt eine Nachfrist in der nicht abgeschlossene Versuche noch abgeschlossen werden können. Fragen können in dem Zeitraum nicht mehr beantwortet werden.';
+$string['overduehandlinggraceperiod'] = 'Nachfrist: offene Versuche können abgeschlossen werden, Fragen nicht mehr beantwortet werden.';
 $string['overduehandling_help'] = 'Die Einstellung legt fest, was passiert wenn Teilnehmende versäumen, vor Zeitablauf den Test abzuschließen. Sind die Teilnehmenden zu diesem Zeitpunkt beim Testversuch aktiv, wird ihr aktueller Bearbeitungsstand automatisch gespeichert. Sind sie jedoch ausgeloggt, so entscheidet diese Einstellung.';
 $string['overduemustbesubmittedby'] = 'Der Versuch ist überfällig und sollte bestätigt werden. Wenn Sie möchten dass Ihr Testversuch bewertet wird, müssen Sie ihn bestätigen {$a}. Falls sie dies nicht tun, wird keine Bewertung für diesen Versuch gezählt.';
 $string['override'] = 'Überschreiben';
@@ -612,6 +613,7 @@ $string['questionnonav'] = '<span class="accesshide">Frage </span>{$a->number}<s
 $string['questionnonavinfo'] = '<span class="accesshide">Information </span>{$a->number}<span class="accesshide"> {$a->attributes}</span>';
 $string['questionnotloaded'] = 'Frage {$a} wurde nicht aus der Datenbank geladen';
 $string['questionorder'] = 'Fragenreihenfolge';
+$string['questionposition'] = 'Neue Position der Frage {$a}';
 $string['questions'] = 'Fragen';
 $string['questionsinclhidden'] = 'Fragen (auch die verborgenen)';
 $string['questionsinthisquiz'] = 'Fragen für diesen Test';
@@ -632,7 +634,7 @@ $string['quizcloseson'] = 'Dieser Test läuft nur bis {$a}';
 $string['quiz:deleteattempts'] = 'Testversuche löschen';
 $string['quiz:emailconfirmsubmission'] = 'Bei Abgaben eine E-Mail-Bestätigung versenden';
 $string['quiz:emailnotifysubmission'] = 'Bei Abgaben eine E-Mail-Mitteilung versenden';
-$string['quiz:emailwarnoverdue'] = 'Benachrichtigung anfordern werden ein Testversuch überfällig wird und bestätigt werden muß.';
+$string['quiz:emailwarnoverdue'] = 'Benachrichtigung anfordern, wenn ein Testversuch überfällig wird und bestätigt werden muss.';
 $string['quiz:grade'] = 'Tests manuell bewerten';
 $string['quiz:ignoretimelimits'] = 'Zeitgrenzen für Tests ignorieren';
 $string['quizisclosed'] = 'Dieser Test wurde bereits beendet';
@@ -699,7 +701,7 @@ $string['reportfullstat'] = 'Ausführliche Statistik';
 $string['reportmulti_percent'] = 'Mehrere Prozentsätze';
 $string['reportmulti_q_x_student'] = 'Mehrere Teilnehmer/innen';
 $string['reportmulti_resp'] = 'Individuelle Rückantwort';
-$string['reportmustselectstate'] = 'Es muß zumindest ein Status gewählt werden';
+$string['reportmustselectstate'] = 'Es muss zumindest ein Status gewählt werden';
 $string['reportnotfound'] = 'Bericht unbekannt ({$a})';
 $string['reportoverview'] = 'Übersicht';
 $string['reportregrade'] = 'Testversuche löschen';

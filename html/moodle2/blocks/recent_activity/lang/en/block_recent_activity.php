@@ -24,3 +24,4 @@
  */
 
 $string['pluginname'] = 'Recent activity';
+$string['recent_activity:addinstance'] = 'Add a new recent activity block';

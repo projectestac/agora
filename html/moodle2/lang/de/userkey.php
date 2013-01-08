@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'userkey', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'userkey', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   userkey
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['createnewkey'] = 'Neuen Nutzerschlüssel erzeugen';
 $string['createuserkey'] = 'Nutzerschlüssel erzeugen';
-$string['deletekeyconfirm'] = 'Möchten Sie wirklich den Nutzerschlüssel löschen?';
+$string['deletekeyconfirm'] = 'Möchten Sie diesen Nutzerschlüssel wirklich löschen?';
 $string['edituserkey'] = 'Nutzerschlüssel bearbeiten';
 $string['keyiprestriction'] = 'IP-Adressbeschränkung';
 $string['keyiprestriction_help'] = '<h2>Einschränkung des Zugriffs für bestimmte IP-Adressen</h2>

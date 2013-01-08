@@ -45,11 +45,23 @@ class com_wiris_plugin_configuration_MoodleConfigurationUpdater implements com_w
 
 		$configuration['wirisformulaeditorenabled'] = true;
 		$configuration['wiriscasenabled'] = true;
+		$configuration['wirisaccessibilityenabled'] = false;
 		$configuration['wiriscachedirectory'] = $CFG->dataroot . '/filter/wiris/cache';
 		$configuration['wirisformuladirectory'] = $CFG->dataroot . '/filter/wiris/formulas';
 		$configuration['wirisparselatex'] = !$this->getLatexStatus();
-		$configuration['wirisformulaeditoractive'] = $configuration['wirisformulaeditorenabled'] && $this->evalParameter($CFG->filter_wiris_editor_enable);
-		$configuration['wiriscasactive'] = $configuration['wiriscasenabled'] && $this->evalParameter($CFG->filter_wiris_cas_enable);
+		$filter_enabled = filter_is_enabled('filter/wiris');
+		
+        if (isset($CFG->filter_wiris_editor_enable)) {
+            $configuration['wirisformulaeditoractive'] = $configuration['wirisformulaeditorenabled'] && $this->evalParameter($CFG->filter_wiris_editor_enable) && $filter_enabled;
+        }else{
+            $configuration['wirisformulaeditoractive'] = false;
+        }
+        
+        if (isset($CFG->filter_wiris_cas_enable)) {
+            $configuration['wiriscasactive'] = $configuration['wiriscasenabled'] && $this->evalParameter($CFG->filter_wiris_cas_enable) && $filter_enabled;
+        }else{
+            $configuration['wiriscasactive'] = false;
+        }
     }
 }
 ?>

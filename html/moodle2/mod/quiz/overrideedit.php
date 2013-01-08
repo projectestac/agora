@@ -74,7 +74,7 @@ $PAGE->set_url($url);
 
 require_login($course, false, $cm);
 
-$context = get_context_instance(CONTEXT_MODULE, $cm->id);
+$context = context_module::instance($cm->id);
 
 // Add or edit an override.
 require_capability('mod/quiz:manageoverrides', $context);
@@ -169,6 +169,7 @@ if ($mform->is_cancelled()) {
         $fromform->id = $DB->insert_record('quiz_overrides', $fromform);
     }
 
+    quiz_update_open_attempts(array('quizid'=>$quiz->id));
     quiz_update_events($quiz, $fromform);
 
     add_to_log($cm->course, 'quiz', 'edit override',

@@ -386,8 +386,6 @@ function process_group_tag($tagcontents) {
                     $course->idnumber = $coursecode;
                     $course->format = $courseconfig->format;
                     $course->visible = $courseconfig->visible;
-                    $course->numsections = $courseconfig->numsections;
-                    $course->hiddensections = $courseconfig->hiddensections;
                     $course->newsitems = $courseconfig->newsitems;
                     $course->showgrades = $courseconfig->showgrades;
                     $course->showreports = $courseconfig->showreports;
@@ -434,11 +432,8 @@ function process_group_tag($tagcontents) {
                     $course = $DB->get_record('course', array('id' => $courseid));
                     blocks_add_default_course_blocks($course);
 
-                    $section = new stdClass();
-                    $section->course = $course->id;   // Create a default section.
-                    $section->section = 0;
-                    $section->summaryformat = FORMAT_HTML;
-                    $section->id = $DB->insert_record("course_sections", $section);
+                    // Create default 0-section
+                    course_create_sections_if_missing($course, 0);
 
                     add_to_log(SITEID, "course", "new", "view.php?id=$course->id", "$course->fullname (ID $course->id)");
 
@@ -641,7 +636,7 @@ function process_membership_tag($tagcontents){
                 // The actual processing (ensuring a group record exists, etc) occurs below, in the enrol-a-student clause
             }
 
-            $rolecontext = get_context_instance(CONTEXT_COURSE, $ship->courseid);
+            $rolecontext = context_course::instance($ship->courseid);
             $rolecontext = $rolecontext->id; // All we really want is the ID
 //$this->log_line("Context instance for course $ship->courseid is...");
 //print_r($rolecontext);
@@ -702,7 +697,8 @@ function process_membership_tag($tagcontents){
                         }
                         // Add the user-to-group association if it doesn't already exist
                         if($member->groupid) {
-                            groups_add_member($member->groupid, $memberstoreobj->userid);
+                            groups_add_member($member->groupid, $memberstoreobj->userid,
+                                    'enrol_imsenterprise', $einstance->id);
                         }
                     } // End of group-enrolment (from member.role.extension.cohort tag)
 
@@ -792,6 +788,19 @@ function load_role_mappings() {
         $this->rolemappings[$imsrolenum] = $this->rolemappings[$imsrolename] = $this->get_config('imsrolemap' . $imsrolenum);
     }
 }
+
+    /**
+     * Called whenever anybody tries (from the normal interface) to remove a group
+     * member which is registered as being created by this component. (Not called
+     * when deleting an entire group or course at once.)
+     * @param int $itemid Item ID that was stored in the group_members entry
+     * @param int $groupid Group ID
+     * @param int $userid User ID being removed from group
+     * @return bool True if the remove is permitted, false to give an error
+     */
+    function enrol_imsenterprise_allow_group_member_remove($itemid, $groupid, $userid) {
+        return false;
+    }
 
 } // end of class
 

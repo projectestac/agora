@@ -64,20 +64,24 @@ class restore_course_task extends restore_task {
     public function build() {
 
         // Define the task contextid (the course one)
-        $this->contextid = get_context_instance(CONTEXT_COURSE, $this->get_courseid())->id;
+        $this->contextid = context_course::instance($this->get_courseid())->id;
 
         // Executed conditionally if restoring to new course or if overwrite_conf setting is enabled
         if ($this->get_target() == backup::TARGET_NEW_COURSE || $this->get_setting_value('overwrite_conf') == true) {
             $this->add_step(new restore_course_structure_step('course_info', 'course.xml'));
         }
 
-        // Restore course role assignments and overrides (internally will observe the role_assignments setting)
-        $this->add_step(new restore_ras_and_caps_structure_step('course_ras_and_caps', 'roles.xml'));
-
         // Restore course enrolments (plugins and membership). Conditionally prevented for any IMPORT/HUB operation
         if ($this->plan->get_mode() != backup::MODE_IMPORT && $this->plan->get_mode() != backup::MODE_HUB) {
             $this->add_step(new restore_enrolments_structure_step('course_enrolments', 'enrolments.xml'));
         }
+
+        // Populate groups, this must be done after enrolments because only enrolled users may be in groups.
+        $this->add_step(new restore_groups_members_structure_step('create_groups_members', '../groups.xml'));
+
+        // Restore course role assignments and overrides (internally will observe the role_assignments setting),
+        // this must be done after all users are enrolled.
+        $this->add_step(new restore_ras_and_caps_structure_step('course_ras_and_caps', 'roles.xml'));
 
         // Restore course filters (conditionally)
         if ($this->get_setting_value('filters')) {

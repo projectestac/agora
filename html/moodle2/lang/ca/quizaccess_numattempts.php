@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quizaccess_numattempts', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'quizaccess_numattempts', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   quizaccess_numattempts
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,4 +26,3 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['attemptsallowedn'] = 'Intents permesos: {$a}';
-$string['pluginname'] = 'Regla d\'accés al qüestionari per nombre d\'intents';

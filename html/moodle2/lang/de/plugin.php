@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'plugin', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,14 +27,18 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['actions'] = 'Aktivitäten';
 $string['availability'] = 'Verfügbarkeit';
-$string['checkforupdates'] = 'Verfügbare Aktualisierungen suchen';
+$string['checkforupdates'] = 'Aktualisierungen suchen';
 $string['checkforupdateslast'] = 'Die letzte Suche war am {$a}';
 $string['displayname'] = 'Pluginname';
+$string['filterall'] = 'Alle zeigen';
+$string['filterupdatesonly'] = 'Nur Aktualisierbare zeigen';
+$string['filterupdatesonlyactive'] = 'Nur Aktualisierbare werden gezeigt';
 $string['moodleversion'] = 'Moodle {$a}';
 $string['nonehighlighted'] = 'Alle Plugins scheinen in Ordnung zu sein';
 $string['nonehighlightedinfo'] = 'Liste aller installierten Plugins anzeigen';
 $string['noneinstalled'] = 'Kein Plugin dieser Art installiert';
 $string['notes'] = 'Hinweise';
+$string['notwritable'] = 'Plugin-Dateien schreibgeschützt';
 $string['numdisabled'] = 'Deaktiviert: {$a}';
 $string['numextension'] = 'Erweiterungen: {$a}';
 $string['numtotal'] = 'Installiert: {$a}';
@@ -71,6 +75,8 @@ $string['type_auth'] = 'Plugin zur Authentifizierung
 $string['type_auth_plural'] = 'Plugins zur Authentifizierung';
 $string['type_block'] = 'Block';
 $string['type_block_plural'] = 'Blöcke';
+$string['type_cachestore'] = 'Cache-Speicher';
+$string['type_cachestore_plural'] = 'Cache-Speicher';
 $string['type_coursereport'] = 'Kursbericht';
 $string['type_coursereport_plural'] = 'Kursberichte';
 $string['type_editor'] = 'Editor';
@@ -123,6 +129,7 @@ $string['uninstall'] = 'Deinstallieren';
 $string['updateavailable'] = 'Neue Version {$a} ist verfügbar!';
 $string['updateavailable_moreinfo'] = 'Weitere Informationen';
 $string['updateavailable_release'] = 'Version: {$a}';
+$string['updatepluginconfirm'] = 'Bestätigung zur Plugin-Aktualisierung';
 $string['version'] = 'Version';
 $string['versiondb'] = 'Aktuelle Version';
 $string['versiondisk'] = 'Neue Version';

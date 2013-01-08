@@ -46,9 +46,9 @@ $user = $DB->get_record('user', array('id'=>$id), '*', MUST_EXIST);
 $course = $DB->get_record('course', array('id'=>$courseid), '*', MUST_EXIST);
 $currentuser = ($user->id == $USER->id);
 
-$systemcontext = get_context_instance(CONTEXT_SYSTEM);
-$coursecontext = get_context_instance(CONTEXT_COURSE, $course->id);
-$usercontext   = get_context_instance(CONTEXT_USER, $user->id, IGNORE_MISSING);
+$systemcontext = context_system::instance();
+$coursecontext = context_course::instance($course->id);
+$usercontext   = context_user::instance($user->id, IGNORE_MISSING);
 
 // Require login first
 if (isguestuser($user)) {
@@ -148,9 +148,12 @@ if ($currentuser) {
     }
 }
 
+$PAGE->set_title("$course->fullname: $strpersonalprofile: $fullname");
+$PAGE->set_heading($course->fullname);
+$PAGE->set_pagelayout('standard');
 
-/// We've established they can see the user's name at least, so what about the rest?
-
+// Locate the users settings in the settings navigation and force it open.
+// This MUST be done after we've set up the page as it is going to cause theme and output to initialise.
 if (!$currentuser) {
     $PAGE->navigation->extend_for_user($user);
     if ($node = $PAGE->settingsnav->get('userviewingsettings'.$user->id)) {
@@ -163,9 +166,6 @@ if ($node = $PAGE->settingsnav->get('courseadmin')) {
     $node->forceopen = false;
 }
 
-$PAGE->set_title("$course->fullname: $strpersonalprofile: $fullname");
-$PAGE->set_heading($course->fullname);
-$PAGE->set_pagelayout('standard');
 echo $OUTPUT->header();
 
 echo '<div class="userprofile">';
@@ -288,7 +288,7 @@ if (!isset($hiddenfields['mycourses'])) {
         $courselisting = '';
         foreach ($mycourses as $mycourse) {
             if ($mycourse->category) {
-                $ccontext = get_context_instance(CONTEXT_COURSE, $mycourse->id);;
+                $ccontext = context_course::instance($mycourse->id);;
                 $cfullname = format_string($mycourse->fullname, true, array('context' => $ccontext));
                 if ($mycourse->id != $course->id){
                     $class = '';

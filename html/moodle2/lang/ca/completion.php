@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'completion', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'completion', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   completion
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,6 @@ $string['achievinggrade'] = 'Qualificació assolida';
 $string['activities'] = 'Activitats';
 $string['activitiescompleted'] = 'Activitats realitzades';
 $string['activitycompletion'] = 'Compleció de l\'activitat';
-$string['addcourseprerequisite'] = 'Afegeix un prerequisit per al curs';
 $string['afterspecifieddate'] = 'Després de la data especificada';
 $string['aggregationmethod'] = 'Mètode d\'agregació';
 $string['all'] = 'Tot';
@@ -93,7 +92,6 @@ $string['coursealreadycompleted'] = 'Ja heu completat aquest curs';
 $string['coursecomplete'] = 'Curs complet';
 $string['coursecompleted'] = 'Curs finalitzat';
 $string['coursegrade'] = 'Nota del curs';
-$string['courseprerequisites'] = 'Requisits previs dels curs';
 $string['coursesavailable'] = 'Cursos disponibles';
 $string['coursesavailableexplaination'] = '<i>Cal configurar els criteris de compleció del curs per tal que aparegui en aquesta llista</i>';
 $string['criteria'] = 'Criteri';
@@ -105,7 +103,6 @@ $string['csvdownload'] = 'Descarrega en una fulla de càlcul en format (UTF-8 .c
 $string['datepassed'] = 'Data en què es va aprovar';
 $string['days'] = 'Dies';
 $string['daysafterenrolment'] = 'Dies després de la inscripció';
-$string['deletecoursecompletiondata'] = 'Esborra les dades de compleció del curs';
 $string['durationafterenrolment'] = 'Durada després de la inscripció';
 $string['editcoursecompletionsettings'] = 'Edita els paràmetres de compleció del curs';
 $string['enablecompletion'] = 'Habilita el seguiment de la compleció';
@@ -135,8 +132,6 @@ $string['notyetstarted'] = 'No començat encara';
 $string['overallcriteriaaggregation'] = 'Sobre tots els tipus de criteri d\'agregació';
 $string['pending'] = 'Pendents';
 $string['periodpostenrolment'] = 'Període posterior a la inscripció';
-$string['prerequisites'] = 'Requisits previs';
-$string['prerequisitescompleted'] = 'Requisits previs completats';
 $string['progress'] = 'Progrés de l\'estudiant';
 $string['progress-title'] = '{$a->usuari}, {$a->activitat}: {$a->estat} {$a->data}';
 $string['progresstotal'] = 'Progrés: {$a->complete} / {$a->total}';

@@ -110,5 +110,6 @@ $string['view_recording_list_activity'] = 'Activité';
 $string['view_recording_list_course'] = 'Cours';
 $string['view_recording_list_date'] = 'Date';
 $string['view_recording_list_description'] = 'Description';
+$string['view_recording_list_duration'] = 'Durée';
 $string['view_recording_list_recording'] = 'Enregistrement';
 $string['view_wait'] = 'La conférence n\'a pas encore démarré. En attente de connexion d\'un modérateur...';

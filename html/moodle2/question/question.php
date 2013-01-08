@@ -100,10 +100,10 @@ if ($movecontext && !$id){
 if ($cmid){
     list($module, $cm) = get_module_from_cmid($cmid);
     require_login($cm->course, false, $cm);
-    $thiscontext = get_context_instance(CONTEXT_MODULE, $cmid);
+    $thiscontext = context_module::instance($cmid);
 } elseif ($courseid) {
     require_login($courseid, false);
-    $thiscontext = get_context_instance(CONTEXT_COURSE, $courseid);
+    $thiscontext = context_course::instance($courseid);
     $module = null;
     $cm = null;
 } else {
@@ -154,7 +154,7 @@ if (!$category = $DB->get_record('question_categories', array('id' => $question-
 // Check permissions
 $question->formoptions = new stdClass();
 
-$categorycontext = get_context_instance_by_id($category->contextid);
+$categorycontext = context::instance_by_id($category->contextid);
 $addpermission = has_capability('moodle/question:add', $categorycontext);
 
 if ($id) {
@@ -259,7 +259,7 @@ if ($mform->is_cancelled()) {
     if ($movecontext) {
         // We are just moving the question to a different context.
         list($tocatid, $tocontextid) = explode(',', $fromform->categorymoveto);
-        require_capability('moodle/question:add', get_context_instance_by_id($tocontextid));
+        require_capability('moodle/question:add', context::instance_by_id($tocontextid));
         question_move_questions_to_category(array($question->id), $tocatid);
 
     } else {
@@ -267,7 +267,7 @@ if ($mform->is_cancelled()) {
         if (!empty($question->id)) {
             question_require_capability_on($question, 'edit');
         } else {
-            require_capability('moodle/question:add', get_context_instance_by_id($newcontextid));
+            require_capability('moodle/question:add', context::instance_by_id($newcontextid));
             if (!empty($fromform->makecopy) && !$question->formoptions->cansaveasnew) {
                 print_error('nopermissions', '', '', 'edit');
             }
@@ -280,6 +280,9 @@ if ($mform->is_cancelled()) {
             tag_set('question', $question->id, $fromform->tags);
         }
     }
+
+    // Purge this question from the cache.
+    question_bank::notify_question_edited($question->id);
 
     if (($qtypeobj->finished_edit_wizard($fromform)) || $movecontext) {
         if ($inpopup) {

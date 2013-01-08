@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'editor', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   editor
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,6 +56,7 @@ $string['createlink'] = 'Insérer un lien web';
 $string['cut'] = 'Couper la sélection';
 $string['cutpastemozilla'] = 'Il est malheureusement impossible d\'utiliser les raccourcis clavier (ou même le bouton Coller) pour coller du texte dans l\'éditeur WYSIWYG, en raison d\'une fonction de sécurité incluse dans certaines versions des navigateurs Mozilla et Firefox.<br /><br />Vous pouvez contourner ce problème de trois façons :<br /> (1) au lieu d\'utiliser Ctrl-v ou Cmd-v, utiliser Maj-Insérer ;<br /> (2) utiliser le menu Édition -> Coller de votre navigateur ;<br /> (3) changer les préférences de votre navigateur en modifiant votre fichier user.js.<br /><br />Pour plus d\'aide à ce sujet, cliquer le bouton OK ci-dessous, ou Annuler pour retourner à l\'éditeur';
 $string['delete'] = 'Supprimer';
+$string['editordeleteconfirm'] = 'Vous allez supprimer le plugin d\'éditeur « {$a} ». Cette opération supprimera de la base de données la totalité des éléments en lien avec ce plugin. Voulez-vous vraiment continuer ?';
 $string['editors'] = 'Éditeurs de texte';
 $string['editorsettings'] = 'Gérer les éditeurs';
 $string['enterurlfirst'] = 'Veuillez saisir d\'abord une URL';

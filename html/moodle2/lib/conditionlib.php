@@ -50,6 +50,40 @@ define('CONDITION_MISSING_EXTRATABLE', 1);
  */
 define('CONDITION_MISSING_EVERYTHING', 2);
 
+/**
+ * OP_CONTAINS - comparison operator that determines whether a specified user field contains
+ * a provided variable
+ */
+define('OP_CONTAINS', 'contains');
+/**
+ * OP_DOES_NOT_CONTAIN - comparison operator that determines whether a specified user field does not
+ * contain a provided variable
+ */
+define('OP_DOES_NOT_CONTAIN', 'doesnotcontain');
+/**
+ * OP_IS_EQUAL_TO - comparison operator that determines whether a specified user field is equal to
+ * a provided variable
+ */
+define('OP_IS_EQUAL_TO', 'isequalto');
+/**
+ * OP_STARTS_WITH - comparison operator that determines whether a specified user field starts with
+ * a provided variable
+ */
+define('OP_STARTS_WITH', 'startswith');
+/**
+ * OP_ENDS_WITH - comparison operator that determines whether a specified user field ends with
+ * a provided variable
+ */
+define('OP_ENDS_WITH', 'endswith');
+/**
+ * OP_IS_EMPTY - comparison operator that determines whether a specified user field is empty
+ */
+define('OP_IS_EMPTY', 'isempty');
+/**
+ * OP_IS_NOT_EMPTY - comparison operator that determines whether a specified user field is not empty
+ */
+define('OP_IS_NOT_EMPTY', 'isnotempty');
+
 require_once($CFG->libdir.'/completionlib.php');
 
 /**
@@ -333,9 +367,19 @@ class condition_info_section extends condition_info_base {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class condition_info_base {
-    /** @var object, bool, string, string, array */
-     protected $item, $gotdata, $availtable, $idfieldname, $usergroupings;
-
+    protected $item;
+    /** @var bool */
+    protected $gotdata;
+    /** @var string */
+    protected $availtable;
+    /** @var string */
+    protected $availfieldtable;
+    /** @var string */
+    protected $idfieldname;
+    /** @var array */
+    protected $usergroupings;
+    /** @var array An array of custom profile field ids => to their shortname */
+    protected $customprofilefields = null;
     /**
      * Constructs with item details.
      *
@@ -373,6 +417,9 @@ abstract class condition_info_base {
         // DB table to store availability conditions
         $this->availtable = $tableprefix . '_availability';
 
+        // DB table to store availability conditions for user fields
+        $this->availfieldtable = $tableprefix . '_avail_fields';
+
         // Name of module/section ID field in DB
         $this->idfieldname = $idfield;
 
@@ -408,7 +455,7 @@ abstract class condition_info_base {
         $this->gotdata = true;
 
         // Missing extra data
-        if (!isset($item->conditionsgrade) || !isset($item->conditionscompletion)) {
+        if (!isset($item->conditionsgrade) || !isset($item->conditionscompletion) || !isset($item->conditionsfield)) {
             if ($expectingmissing<CONDITION_MISSING_EXTRATABLE) {
                 debugging('Performance warning: condition_info constructor is ' .
                         'faster if you pass in a $item from get_fast_modinfo or ' .
@@ -446,9 +493,10 @@ abstract class condition_info_base {
         }
 
         // Does nothing if the variables are already present
-        if (!isset($item->conditionsgrade) || !isset($item->conditionscompletion)) {
+        if (!isset($item->conditionsgrade) || !isset($item->conditionscompletion) || !isset($item->conditionsfield)) {
             $item->conditionsgrade = array();
             $item->conditionscompletion = array();
+            $item->conditionsfield = array();
 
             $conditions = $DB->get_records_sql('
                     SELECT
@@ -469,6 +517,35 @@ abstract class condition_info_base {
                     $minmax->name = self::get_grade_name($condition);
                     $item->conditionsgrade[$condition->gradeitemid] = $minmax;
                 }
+            }
+
+            // For user fields
+            $sql = "SELECT a.id as cmaid, a.*, uf.*
+                      FROM {" . $tableprefix . "_avail_fields} a
+                 LEFT JOIN {user_info_field} uf ON a.customfieldid =  uf.id
+                     WHERE " . $idfield . " = :itemid";
+            $conditions = $DB->get_records_sql($sql, array('itemid' => $item->id));
+            foreach ($conditions as $condition) {
+                // If the custom field is not empty, then we have a custom profile field
+                if (!empty($condition->customfieldid)) {
+                    $field = $condition->customfieldid;
+                    // Check if the profile field name is not empty, if it is
+                    // then the custom profile field no longer exists, so
+                    // display !missing instead.
+                    if (!empty($condition->name)) {
+                        $fieldname = $condition->name;
+                    } else {
+                        $fieldname = '!missing';
+                    }
+                } else {
+                    $field = $condition->userfield;
+                    $fieldname = $condition->userfield;
+                }
+                $details = new stdClass;
+                $details->fieldname = $fieldname;
+                $details->operator = $condition->operator;
+                $details->value = $condition->value;
+                $item->conditionsfield[$field] = $details;
             }
         }
     }
@@ -504,6 +581,64 @@ abstract class condition_info_base {
     }
 
     /**
+     * The operators that provide the relationship
+     * between a field and a value.
+     *
+     * @return array Associative array from operator constant to display name
+     */
+    public static function get_condition_user_field_operators() {
+        return array(
+            OP_CONTAINS => get_string('contains', 'condition'),
+            OP_DOES_NOT_CONTAIN => get_string('doesnotcontain', 'condition'),
+            OP_IS_EQUAL_TO => get_string('isequalto', 'condition'),
+            OP_STARTS_WITH => get_string('startswith', 'condition'),
+            OP_ENDS_WITH => get_string('endswith', 'condition'),
+            OP_IS_EMPTY => get_string('isempty', 'condition'),
+            OP_IS_NOT_EMPTY => get_string('isnotempty', 'condition'),
+        );
+    }
+
+    /**
+     * The user fields we can compare
+     *
+     * @global moodle_database $DB
+     * @return array Associative array from user field constants to display name
+     */
+    public static function get_condition_user_fields() {
+        global $DB;
+
+        $userfields = array(
+            'firstname' => get_user_field_name('firstname'),
+            'lastname' => get_user_field_name('lastname'),
+            'email' => get_user_field_name('email'),
+            'city' => get_user_field_name('city'),
+            'country' => get_user_field_name('country'),
+            'interests' => get_user_field_name('interests'),
+            'url' => get_user_field_name('url'),
+            'icq' => get_user_field_name('icq'),
+            'skype' => get_user_field_name('skype'),
+            'aim' => get_user_field_name('aim'),
+            'yahoo' => get_user_field_name('yahoo'),
+            'msn' => get_user_field_name('msn'),
+            'idnumber' => get_user_field_name('idnumber'),
+            'institution' => get_user_field_name('institution'),
+            'department' => get_user_field_name('department'),
+            'phone1' => get_user_field_name('phone1'),
+            'phone2' => get_user_field_name('phone2'),
+            'address' => get_user_field_name('address')
+        );
+
+        // Go through the custom profile fields now
+        if ($user_info_fields = $DB->get_records('user_info_field')) {
+            foreach ($user_info_fields as $field) {
+                $userfields[$field->id] = $field->name;
+            }
+        }
+
+        return $userfields;
+    }
+
+    /**
      * Adds to the database a condition based on completion of another module.
      *
      * @global moodle_database $DB
@@ -520,6 +655,39 @@ abstract class condition_info_base {
 
         // Store in memory too
         $this->item->conditionscompletion[$cmid] = $requiredcompletion;
+    }
+
+    /**
+     * Adds user fields condition
+     *
+     * @param mixed $field numeric if it is a user profile field, character
+     *                     if it is a column in the user table
+     * @param int $operator specifies the relationship between field and value
+     * @param char $value the value of the field
+     */
+    public function add_user_field_condition($field, $operator, $value) {
+        global $DB;
+
+        // Get the field name
+        $idfieldname = $this->idfieldname;
+
+        $objavailfield = new stdClass;
+        $objavailfield->$idfieldname = $this->item->id;
+        if (is_numeric($field)) { // If the condition field is numeric then it is a custom profile field
+            // Need to get the field name so we can add it to the cache
+            $ufield = $DB->get_field('user_info_field', 'name', array('id' => $field));
+            $objavailfield->fieldname = $ufield;
+            $objavailfield->customfieldid = $field;
+        } else {
+            $objavailfield->fieldname = $field;
+            $objavailfield->userfield = $field;
+        }
+        $objavailfield->operator = $operator;
+        $objavailfield->value = $value;
+        $DB->insert_record($this->availfieldtable, $objavailfield, false);
+
+        // Store in memory too
+        $this->item->conditionsfield[$field] = $objavailfield;
     }
 
     /**
@@ -565,11 +733,14 @@ abstract class condition_info_base {
     public function wipe_conditions() {
         // Wipe from DB
         global $DB;
+
         $DB->delete_records($this->availtable, array($this->idfieldname => $this->item->id));
+        $DB->delete_records($this->availfieldtable, array($this->idfieldname => $this->item->id));
 
         // And from memory
         $this->item->conditionsgrade = array();
         $this->item->conditionscompletion = array();
+        $this->item->conditionsfield = array();
     }
 
     /**
@@ -627,6 +798,17 @@ abstract class condition_info_base {
                     $string = 'range';
                 }
                 $information .= get_string('requires_grade_'.$string, 'condition', $minmax->name).' ';
+            }
+        }
+
+        // User field conditions
+        if (count($this->item->conditionsfield) > 0) {
+            // Need the array of operators
+            foreach ($this->item->conditionsfield as $field => $details) {
+                $a = new stdclass;
+                $a->field = $details->fieldname;
+                $a->value = $details->value;
+                $information .= get_string('requires_user_field_'.$details->operator, 'condition', $a) . ' ';
             }
         }
 
@@ -758,8 +940,8 @@ abstract class condition_info_base {
                     $modinfo = get_fast_modinfo($course);
                 }
                 if (empty($modinfo->cms[$cmid])) {
-                    global $PAGE, $UNITTEST;
-                    if (!empty($UNITTEST) || (isset($PAGE) && strpos($PAGE->pagetype, 'course-view-')===0)) {
+                    global $PAGE;
+                    if (isset($PAGE) && strpos($PAGE->pagetype, 'course-view-')===0) {
                         debugging("Warning: activity {$this->cm->id} '{$this->cm->name}' has condition " .
                                 "on deleted activity $cmid (to get rid of this message, edit the named activity)");
                     }
@@ -818,6 +1000,21 @@ abstract class condition_info_base {
                         $string = 'range';
                     }
                     $information .= get_string('requires_grade_' . $string, 'condition', $minmax->name) . ' ';
+                }
+            }
+        }
+
+        // Check if user field condition
+        if (count($this->item->conditionsfield) > 0) {
+            foreach ($this->item->conditionsfield as $field => $details) {
+                $uservalue = $this->get_cached_user_profile_field($userid, $field);
+                if (!$this->is_field_condition_met($details->operator, $uservalue, $details->value)) {
+                    // Set available to false
+                    $available = false;
+                    $a = new stdClass();
+                    $a->field = $details->fieldname;
+                    $a->value = $details->value;
+                    $information .= get_string('requires_user_field_'.$details->operator, 'condition', $a) . ' ';
                 }
             }
         }
@@ -984,6 +1181,166 @@ abstract class condition_info_base {
     }
 
     /**
+     * Returns true if a field meets the required conditions, false otherwise.
+     *
+     * @param string $operator the requirement/condition
+     * @param string $uservalue the user's value
+     * @param string $value the value required
+     * @return boolean
+     */
+    private function is_field_condition_met($operator, $uservalue, $value) {
+        if ($uservalue === false) {
+            // If the user value is false this is an instant fail.
+            // All user values come from the database as either data or the default.
+            // They will always be a string.
+            return false;
+        }
+        $fieldconditionmet = true;
+        // Just to be doubly sure it is a string.
+        $uservalue = (string)$uservalue;
+        switch($operator) {
+            case OP_CONTAINS: // contains
+                $pos = strpos($uservalue, $value);
+                if ($pos === false) {
+                    $fieldconditionmet = false;
+                }
+                break;
+            case OP_DOES_NOT_CONTAIN: // does not contain
+                if (!empty($value)) {
+                    $pos = strpos($uservalue, $value);
+                    if ($pos !== false) {
+                        $fieldconditionmet = false;
+                    }
+                }
+                break;
+            case OP_IS_EQUAL_TO: // equal to
+                if ($value !== $uservalue) {
+                    $fieldconditionmet = false;
+                }
+                break;
+            case OP_STARTS_WITH: // starts with
+                $length = strlen($value);
+                if ((substr($uservalue, 0, $length) !== $value)) {
+                    $fieldconditionmet = false;
+                }
+                break;
+            case OP_ENDS_WITH: // ends with
+                $length = strlen($value);
+                $start  = $length * -1; // negative
+                if (substr($uservalue, $start) !== $value) {
+                    $fieldconditionmet = false;
+                }
+                break;
+            case OP_IS_EMPTY: // is empty
+                if (!empty($uservalue)) {
+                    $fieldconditionmet = false;
+                }
+                break;
+            case OP_IS_NOT_EMPTY: // is not empty
+                if (empty($uservalue)) {
+                    $fieldconditionmet = false;
+                }
+                break;
+        }
+        return $fieldconditionmet;
+    }
+
+    /**
+     * Return the value for a user's profile field
+     *
+     * @param int $userid set if requesting grade for a different user (does not use cache)
+     * @param int $fieldid the user profile field id
+     * @return string the user value, or false if user does not have a user field value yet
+     */
+    private function get_cached_user_profile_field($userid, $fieldid) {
+        global $USER, $DB, $CFG;
+
+        if ($userid === 0) {
+            // Map out userid = 0 to the current user
+            $userid = $USER->id;
+        }
+        $iscurrentuser = $USER->id == $userid;
+
+        if (isguestuser($userid)) {
+            // Must be logged in and can't be the guest. (this should never happen anyway)
+            return false;
+        }
+
+        // Custom profile fields will be numeric, there are no numeric standard profile fields so this is not a problem.
+        $iscustomprofilefield = is_numeric($fieldid);
+        if ($iscustomprofilefield) {
+            // As its a custom profile field we need to map the id back to the actual field.
+            // We'll also preload all of the other custom profile fields just in case and ensure we have the
+            // default value available as well.
+            if ($this->customprofilefields === null) {
+                $this->customprofilefields = $DB->get_records('user_info_field', null, 'sortorder ASC, id ASC', 'id, shortname, defaultdata');
+            }
+            if (!array_key_exists($fieldid, $this->customprofilefields)) {
+                // No such field exists.
+                // This shouldn't normally happen but occur if things go wrong when deleting a custom profile field
+                // or when restoring a backup of a course with user profile field conditions.
+                return false;
+            }
+            $field = $this->customprofilefields[$fieldid]->shortname;
+        } else {
+            $field = $fieldid;
+        }
+
+        // If its the current user than most likely we will be able to get this information from $USER.
+        // If its a regular profile field then it should already be available, if not then we have a mega problem.
+        // If its a custom profile field then it should be available but may not be. If it is then we use the value
+        // available, otherwise we load all custom profile fields into a temp object and refer to that.
+        // Noting its not going be great for performance if we have to use the temp object as it involves loading the
+        // custom profile field API and classes.
+        if ($iscurrentuser) {
+            if (!$iscustomprofilefield) {
+                if (property_exists($USER, $field)) {
+                    return $USER->{$field};
+                } else {
+                    // Unknown user field. This should not happen.
+                    throw new coding_exception('Requested user profile field does not exist');
+                }
+            }
+            // Checking if the custom profile fields are already available.
+            if (!isset($USER->profile)) {
+                // Drat! they're not. We need to use a temp object and load them.
+                // We don't use $USER as the profile fields are loaded into the object.
+                $user = new stdClass;
+                $user->id = $USER->id;
+                // This should ALWAYS be set, but just in case we check.
+                require_once($CFG->dirroot.'/user/profile/lib.php');
+                profile_load_custom_fields($user);
+                if (array_key_exists($field, $user->profile)) {
+                    return $user->profile[$field];
+                }
+            } else if (array_key_exists($field, $USER->profile)) {
+                // Hurrah they're available, this is easy.
+                return $USER->profile[$field];
+            }
+            // The profile field doesn't exist.
+            return false;
+        } else {
+            // Loading for another user.
+            if ($iscustomprofilefield) {
+                // Fetch the data for the field. Noting we keep this query simple so that Database caching takes care of performance
+                // for us (this will likely be hit again).
+                // We are able to do this because we've already pre-loaded the custom fields.
+                $data = $DB->get_field('user_info_data', 'data', array('userid' => $userid, 'fieldid' => $fieldid), IGNORE_MISSING);
+                // If we have data return that, otherwise return the default.
+                if ($data !== false) {
+                    return $data;
+                } else {
+                    return $this->customprofilefields[$field]->defaultdata;
+                }
+            } else {
+                // Its a standard field, retrieve it from the user.
+                return $DB->get_field('user', $field, array('id' => $userid), MUST_EXIST);
+            }
+        }
+        return false;
+    }
+
+    /**
      * For testing only. Wipes information cached in user session.
      *
      * @global stdClass $SESSION
@@ -992,6 +1349,8 @@ abstract class condition_info_base {
         global $SESSION;
         unset($SESSION->gradescorecache);
         unset($SESSION->gradescorecacheuserid);
+        unset($SESSION->userfieldcache);
+        unset($SESSION->userfieldcacheuserid);
     }
 
     /**
@@ -1021,6 +1380,13 @@ abstract class condition_info_base {
             if($record['conditiongradeitemid']) {
                 $ci->add_grade_condition($record['conditiongradeitemid'],
                     unformat_float($record['conditiongrademin']), unformat_float($record['conditiongrademax']));
+            }
+        }
+        foreach ($fromform->conditionfieldgroup as $record) {
+            if($record['conditionfield']) {
+                $ci->add_user_field_condition($record['conditionfield'],
+                        $record['conditionfieldoperator'],
+                        $record['conditionfieldvalue']);
             }
         }
         if(isset ($fromform->conditioncompletiongroup)) {

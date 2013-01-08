@@ -33,6 +33,9 @@ if (!isset ($config->certificate_check)) {
 if (!isset ($config->certificate_path)) {
     $config->certificate_path = '';
 }
+if (!isset($config->logout_return_url)) {
+    $config->logout_return_url = '';
+}
 
 // set to defaults if undefined (LDAP)
 if (!isset($config->host_url)) {
@@ -40,6 +43,9 @@ if (!isset($config->host_url)) {
 }
 if (empty($config->ldapencoding)) {
     $config->ldapencoding = 'utf-8';
+}
+if (!isset($config->pagesize)) {
+    $config->pagesize = LDAP_DEFAULT_PAGESIZE;
 }
 if (!isset($config->contexts)) {
     $config->contexts = '';
@@ -201,6 +207,16 @@ $yesno = array( get_string('no'), get_string('yes') );
         <?php print_string('auth_cas_certificate_path', 'auth_cas') ?>
     </td>
 </tr>
+<tr valign="top" class="required">
+    <td align="right"><?php print_string('auth_cas_logout_return_url_key', 'auth_cas') ?>:</td>
+    <td>
+       <input name="logout_return_url" type="text" size="30" value="<?php echo $config->logout_return_url ?>" />
+       <?php if (isset($err['logout_return_url'])) { echo $OUTPUT->error_text($err['logout_return_url']); } ?>
+    </td>
+    <td>
+        <?php print_string('auth_cas_logout_return_url', 'auth_cas') ?>
+    </td>
+</tr>
 <tr>
    <td colspan="2">
         <h4><?php print_string('auth_ldap_server_settings', 'auth_ldap') ?></h4>
@@ -243,6 +259,25 @@ $yesno = array( get_string('no'), get_string('yes') );
     </td>
     <td>
         <?php print_string('auth_ldap_ldap_encoding', 'auth_ldap') ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">
+        <label for="pagesize"><?php print_string('pagesize_key', 'auth_ldap') ?></label>
+    </td>
+    <td>
+        <?php $disabled = (!ldap_paged_results_supported($config->ldap_version)) ? ' disabled="disabled"' : '' ; ?>
+        <input id="pagesize" name="pagesize" type="text" value="<?php echo $config->pagesize ?>" <?php echo $disabled ?>/>
+        <?php
+            if (isset($err['pagesize'])) { echo $OUTPUT->error_text($err['pagesize']); }
+            if ($disabled) {
+                // Don't loose the page size value (disabled fields are not submitted!)
+        ?>
+            <input id="pagesize" name="pagesize" type="hidden" value="<?php echo $config->pagesize ?>" />
+        <?php } ?>
+    </td>
+    <td>
+        <?php print_string('pagesize', 'auth_ldap') ?>
     </td>
 </tr>
 <tr>

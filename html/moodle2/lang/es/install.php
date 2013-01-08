@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'install', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'install', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   install
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -144,13 +144,13 @@ $string['databasetypesub'] = 'Moodle soporta varios tipos de servidores de base 
 $string['databaseuser'] = 'Usuario de la base de datos';
 $string['dataroot'] = 'Directorio de Datos';
 $string['datarooterror'] = 'El \'Directorio de Datos\' no pudo ser encontrado o creado. Corrija la ruta o cree el directorio manualmente.';
-$string['datarootpermission'] = 'Permisos directorios de datos';
+$string['datarootpermission'] = 'Permiso directorios de datos';
 $string['datarootpublicerror'] = 'El \'Directorio de datos\' que ha especificado es directamente accesible vía web: debe utilizar un directorio diferente.';
 $string['dbconnectionerror'] = 'Error de conexión con la base de datos. Por favor, compruebe los ajustes de la base de datos.';
 $string['dbcreationerror'] = 'Error al crear la base de datos. No se ha podido crear la base de datos con el nombre y ajustes suministrados';
 $string['dbhost'] = 'Servidor';
 $string['dbpass'] = 'Contraseña';
-$string['dbport'] = 'Puerto (port)';
+$string['dbport'] = 'Puerto';
 $string['dbprefix'] = 'Prefijo de tablas';
 $string['dbtype'] = 'Tipo';
 $string['dbwrongencoding'] = 'La base de datos seleccionada está ejecutándose bajo una codificación no recomendada ({$a}). Convendría usar en su lugar una base de datos con codificación Unicode (UTF-8). En cualquier caso, usted puede pasar por alto esta prueba seleccionando "Pasar por alto la prueba de codificación BD", si bien tal vez tenga problemas en el futuro.';
@@ -258,6 +258,7 @@ $string['mysql'] = 'MySQL (mysql)';
 $string['mysqlextensionisnotpresentinphp'] = 'PHP no ha sido adecuadamente configurado con la extensión MySQL de modo que pueda comunicarse con MySQL. Por favor, compruebe el archivo php.ini o recompile PHP.';
 $string['mysqli'] = 'MySQL Mejorado (mysqli)';
 $string['mysqliextensionisnotpresentinphp'] = 'PHP no ha sido configurado adecuadamente con la extensión MySQLi de forma que se pueda comunicar con MySQL. Por favor, compruebe su archivo php.ini o recompile PHP. La extensión MySQLi no está disponible en PHP 4.';
+$string['nativemssql'] = 'SQL*Server FreeTDS (native/mssql)';
 $string['nativemssqlhelp'] = 'Ahora tiene que configurar la base de datos donde se almacenarán la mayoría de los datos de Moodle. Esta base de datos debe estar creada previamente, al igual que un nombre de usuario y su contraseña, para poder acceder a ella. El prefijo de la tabla es obligatorio.';
 $string['nativemysqli'] = 'MySQL mejorado (native/mysqli)';
 $string['nativemysqlihelp'] = 'Ahora tiene que configurar la base de datos donde se almacenarán la mayoría de los datos de Moodle.
@@ -266,9 +267,10 @@ $string['nativeoci'] = 'Oracle (native/oci)';
 $string['nativeocihelp'] = 'Ahora tiene que configurar la base de datos donde se almacenarán la mayoría de los datos de Moodle. Esta base de datos debe estar creada previamente, al igual que un nombre de usuario y su contraseña, para poder acceder a ella. El prefijo de la tabla es obligatorio.';
 $string['nativepgsql'] = 'PostgreSQL (native/pgsql)';
 $string['nativepgsqlhelp'] = 'Ahora tiene que configurar la base de datos donde se almacenarán la mayoría de los datos de Moodle. Esta base de datos debe estar creada previamente, al igual que un nombre de usuario y su contraseña, para poder acceder a ella. El prefijo de la tabla es obligatorio.';
+$string['nativesqlsrv'] = 'SQL*Server Microsoft (native/sqlsrv)';
 $string['nativesqlsrvhelp'] = 'Ahora tiene que configurar la base de datos donde se almacenarán la mayoría de los datos de Moodle. Esta base de datos debe estar creada previamente, al igual que un nombre de usuario y su contraseña, para poder acceder a ella. El prefijo de la tabla es obligatorio.';
-$string['nativesqlsrvnodriver'] = 'Los manejadores (drivers) Microsoft  del Servidor SQL para PHP no están instalados o no están adecuadamente configurados.';
-$string['nativesqlsrvnonwindows'] = 'Los manejadores (drivers) Microsoft  del Servidor SQL para PHP solamente están disponibles para Sistemas Operativos Windows.';
+$string['nativesqlsrvnodriver'] = 'Los drivers Microsoft del servidor SQL para PHP no están instalados o configurados adecuadamente.';
+$string['nativesqlsrvnonwindows'] = 'Los drivers Microsoft del servidor SQL para PHP solamente están disponibles para Sistemas Operativos Windows.';
 $string['oci8po'] = 'Oracle (oci8po)';
 $string['ociextensionisnotpresentinphp'] = 'PHP no ha sido adecuadamente configurado con la extensión OCI8 de modo que pueda comunicarse con Oracle. Por favor, compruebe el archivo php.ini o vuelva a compilar PHP.';
 $string['odbcextensionisnotpresentinphp'] = 'PHP no ha sido adecuadamente configurado con la extensión ODBC de modo que pueda comunicarse con SQL*Server. Por favor, compruebe el archivo php.ini o vuelva a compilar PHP.';

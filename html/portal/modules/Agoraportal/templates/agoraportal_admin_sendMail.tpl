@@ -31,7 +31,7 @@
         l'URL <a href="{$baseURL}{$clientDNS}/{$serviceName4URL}/">{$baseURL}{$clientDNS}/{$serviceName4URL}</a>
         amb l'usuari <strong>admin</strong> i la contrasenya del correu XTEC
         de la persona que ha fet la sol·licitud d'accés ({$userName}).
-        Us recomanem que canvieu la contrasenya d'aquest usuari despr&eacute;s
+        Us recomanem que canvieu la contrasenya d'aquest usuari/&agrave;ria despr&eacute;s
         del primer acc&eacute;s al servei. Dins del vostre espai s'ha creat,
         tamb&eacute;, l'usuari xtecadmin que s'utilitzar&agrave; en cas de
         que hi hagi alguna incid&egrave;ncia que requereixi un suport especial.
@@ -80,7 +80,7 @@
     <p>
         Teniu a la vostra disposici&oacute; els materials del 
         <a href="http://ateneu.xtec.cat/wikiform/wikiexport/cursos/gestio_centres/d204/index">curs
-        d'&Uacute; i dinamitzaci&oacute; del Moodle</a> i els del
+        d'&Uacute;s i dinamitzaci&oacute; del Moodle</a> i els del
         <a href="http://ateneu.xtec.cat/wikiform/wikiexport/cursos/gestio_centres/d304/index">curs
         de gesti&oacute; i administraci&oacute; del Moodle</a>, a on hi trobareu un conjunt 
         important d'informaci&oacute; sobre l'&uacute;s d'aquesta plataforma 

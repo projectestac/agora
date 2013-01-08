@@ -325,7 +325,7 @@ function lti_build_request($instance, $typeconfig, $course) {
 }
 
 function lti_get_tool_table($tools, $id) {
-    global $CFG, $USER;
+    global $CFG, $OUTPUT, $USER;
     $html = '';
 
     $typename = get_string('typename', 'lti');
@@ -357,11 +357,16 @@ function lti_get_tool_table($tools, $id) {
             $update = get_string('update', 'lti');
             $delete = get_string('delete', 'lti');
 
-            $accepthtml = "
-                <a class=\"editing_accept\" href=\"{$CFG->wwwroot}/mod/lti/typessettings.php?action=accept&amp;id={$type->id}&amp;sesskey={$USER->sesskey}&amp;tab={$id}\" title=\"{$accept}\">
-                    <img class=\"iconsmall\" alt=\"{$accept}\" src=\"{$CFG->wwwroot}/pix/t/clear.gif\"/>
-                </a>
-            ";
+            $baseurl = new moodle_url('/mod/lti/typessettings.php', array(
+                    'action' => 'accept',
+                    'id' => $type->id,
+                    'sesskey' => sesskey(),
+                    'tab' => $id
+                ));
+
+            $accepthtml = $OUTPUT->action_icon($baseurl,
+                    new pix_icon('t/check', $accept, '', array('class' => 'iconsmall')), null,
+                    array('title' => $accept, 'class' => 'editing_accept'));
 
             $deleteaction = 'delete';
 
@@ -374,6 +379,17 @@ function lti_get_tool_table($tools, $id) {
                 $delete = get_string('reject', 'lti');
             }
 
+            $updateurl = clone($baseurl);
+            $updateurl->param('action', 'update');
+            $updatehtml = $OUTPUT->action_icon($updateurl,
+                    new pix_icon('t/edit', $accept, '', array('class' => 'iconsmall')), null,
+                    array('title' => $update, 'class' => 'editing_update'));
+
+            $deleteurl = clone($baseurl);
+            $deleteurl->param('action', $deleteaction);
+            $deletehtml = $OUTPUT->action_icon($deleteurl,
+                    new pix_icon('t/delete', $accept, '', array('class' => 'iconsmall')), null,
+                    array('title' => $delete, 'class' => 'editing_delete'));
             $html .= "
             <tr>
                 <td>
@@ -386,13 +402,7 @@ function lti_get_tool_table($tools, $id) {
                     {$date}
                 </td>
                 <td align=\"center\">
-                    {$accepthtml}
-                    <a class=\"editing_update\" href=\"{$CFG->wwwroot}/mod/lti/typessettings.php?action=update&amp;id={$type->id}&amp;sesskey={$USER->sesskey}&amp;tab={$id}\" title=\"{$update}\">
-                        <img class=\"iconsmall\" alt=\"{$update}\" src=\"{$CFG->wwwroot}/pix/t/edit.gif\"/>
-                    </a>
-                    <a class=\"editing_delete\" href=\"{$CFG->wwwroot}/mod/lti/typessettings.php?action={$deleteaction}&amp;id={$type->id}&amp;sesskey={$USER->sesskey}&amp;tab={$id}\" title=\"{$delete}\">
-                        <img class=\"iconsmall\" alt=\"{$delete}\" src=\"{$CFG->wwwroot}/pix/t/delete.gif\"/>
-                    </a>
+                    {$accepthtml}{$updatehtml}{$deletehtml}
                 </td>
             </tr>
             ";
@@ -462,7 +472,7 @@ function lti_get_ims_role($user, $cmid, $courseid) {
         //If no cmid is passed, check if the user is a teacher in the course
         //This allows other modules to programmatically "fake" a launch without
         //a real LTI instance
-        $coursecontext = get_context_instance(CONTEXT_COURSE, $courseid);
+        $coursecontext = context_course::instance($courseid);
 
         if (has_capability('moodle/course:manageactivities', $coursecontext)) {
             array_push($roles, 'Instructor');
@@ -470,7 +480,7 @@ function lti_get_ims_role($user, $cmid, $courseid) {
             array_push($roles, 'Learner');
         }
     } else {
-        $context = get_context_instance(CONTEXT_MODULE, $cmid);
+        $context = context_module::instance($cmid);
 
         if (has_capability('mod/lti:manage', $context)) {
             array_push($roles, 'Instructor');

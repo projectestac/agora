@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'lti', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,3 +26,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['enableemailnotification'] = 'Enviar emails de aviso';
+$string['lti:addinstance'] = 'Añadir una nueva actividad LTI';
+$string['modulename_help'] = 'El módulo de actividad de herramienta externa les permiten a los estudiantes interactuar con recursos educativos y actividades alojadas en otros sitios de internet. Por ejemplo, una herramienta externa podría proporcionar acceso a un nuevo tipo de actividad o de materiales educativos de una editorial.
+
+Para crear una actividad de herramienta externa se requiere un provedor de herramienta que soporte  LTI (Learning Tools Interoperability = Interoperatividad de Herramientas de Aprendizaje). Un maestro puede crear una actividad de herramienta externa o hacer uso de una herramienta configurada por el administrador del sitio.
+
+Las herramientas externas difieren se los recursos URL en varias formas:
+
+* Las herramientas externas están conscientes del contexto, por ejemplo: tienen acceso a información acerca del usuario que invocó la herramienta, como por ejemplo sa institución, curso y nombre
+
+* Las herramientas externas soportan leer, actualizar y borrar calificaciones asociadas con la instancia de la actividad
+
+* Las configuraciones de la herramienta externa crean una relación de confianza entre su sitio Moodle y el provedor de la herramienta, permitiendo la comunicación segura entre ambos';

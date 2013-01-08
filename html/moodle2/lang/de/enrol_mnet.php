@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_mnet', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_mnet', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_mnet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,5 +41,5 @@ $string['pluginname_desc'] = 'Ermöglicht externen MNet Hosts ihre Nutzer auf di
 $string['remotesubscriber'] = 'Remote Host';
 $string['remotesubscriber_help'] = 'Mit der Funktion \'Alle Hosts\' wird dieser Kurs für alle MNet Peers, denen die externe Einschreibung erlaubt ist, geöffnet. Wählen Sie statt dessennureinen bestimmten Host aus, haben nur dessen Nutzer Zugriff auf den Kurs.  ';
 $string['remotesubscribersall'] = 'Alle Hosts';
-$string['roleforremoteusers'] = 'Rolle für Ihre Nutzer';
+$string['roleforremoteusers'] = 'Rolle im Kurs';
 $string['roleforremoteusers_help'] = 'Welche Rolle der Remotenutzer aus dem gewählten Host erhält.';

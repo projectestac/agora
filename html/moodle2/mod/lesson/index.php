@@ -62,9 +62,6 @@ if (! $lessons = get_all_instances_in_course("lesson", $course)) {
 }
 
 $usesections = course_format_uses_sections($course->format);
-if ($usesections) {
-    $sections = get_all_sections($course->id);
-}
 
 /// Print the list of instances (your module will probably extend this)
 
@@ -93,7 +90,7 @@ foreach ($lessons as $lesson) {
         $link = "<a href=\"view.php?id=$lesson->coursemodule\">".format_string($lesson->name,true)."</a>";
     }
     $cm = get_coursemodule_from_instance('lesson', $lesson->id);
-    $context = get_context_instance(CONTEXT_MODULE, $cm->id);
+    $context = context_module::instance($cm->id);
 
     if ($lesson->deadline == 0) {
         $due = $strnodeadline;
@@ -113,7 +110,7 @@ foreach ($lessons as $lesson) {
                 $grade_value = $return[$USER->id]->rawgrade;
             }
         }
-        $table->data[] = array (get_section_name($course, $sections[$lesson->section]), $link, $grade_value, $due);
+        $table->data[] = array (get_section_name($course, $lesson->section), $link, $grade_value, $due);
     } else {
         $table->data[] = array ($link, $lesson->grade, $due);
     }

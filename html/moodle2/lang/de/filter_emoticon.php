@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'filter_emoticon', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'filter_emoticon', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   filter_emoticon
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,4 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['filtername'] = 'Emoticon als Bild zeigen';
 $string['settingformats'] = 'Mögliche Formate';
-$string['settingformats_desc'] = 'Der Filter wird nur verwendet, wenn der ursprüngliche Text in einem der ausgewählten Formate eingefügt wurde.';
+$string['settingformats_desc'] = 'Der Filter wird nur angewandt, wenn der ursprüngliche Text in einem der ausgewählten Formate eingefügt wurde.';

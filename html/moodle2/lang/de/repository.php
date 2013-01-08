@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'repository', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -64,7 +64,7 @@ $string['configallowexternallinks'] = 'Diese Option erlaubt allen Nutzer/innen z
 $string['configcacheexpire'] = 'Zeitdauer in der Dateilisten aus externen Dateiverwaltungen im lokalen Cache zwischen gespeichert werden (in Sekunden).';
 $string['configsaved'] = 'Konfiguration gespeichert';
 $string['confirmdelete'] = 'Sind Sie sicher, dass Sie das Repository {$a} löschen möchten? Wenn Sie \'Fortsetzen und Download\' wählen, werden die verknüpften Dateien nach Moodle heruntergeladen und in Moodle gespeichert. Dieser Prozesss kann viel Zeit in Anspruch nehmen.';
-$string['confirmdeletefile'] = 'Sind Sie sicher, dass Sie diese Datei löschen möchten?';
+$string['confirmdeletefile'] = 'Möchten Sie diese Datei wirklich löschen?';
 $string['confirmdeletefilewithhref'] = 'Sind Sie sicher, dass Sie diese Datei löschen wollen? Es gibt {$a} Aliase/Shortcuts, die diese Datei verwenden. Wenn Sie den Prozess nun fortsetzen werden die Aliase in Kopien umgewandelt.';
 $string['confirmdeletefolder'] = 'Sind Sie sicher, dass Sie dieses Verzeichnis löschen wollen? Alle Dateien und Unterordner werden dann gelöscht.';
 $string['confirmremove'] = 'Sind Sie sicher, dass Sie das Repository-Plugin mit seinen Optionen und <strong>allen Instanzen</strong> löschen möchten? - {$a} Wenn Sie \'Fortsetzen und Download\' wählen, werden die verknüpften Dateien nach Moodle heruntergeladen und in Moodle gespeichert. Dieser Prozesss kann viel Zeit in Anspruch nehmen.';
@@ -103,6 +103,7 @@ $string['error'] = 'Fehler aufgetreten!';
 $string['errornotyourfile'] = 'Sie dürfen keine Datei auswählen, die nicht von Ihnen hinzugefügt wurde';
 $string['errorpostmaxsize'] = 'Die ausgewählte Datei könnte größer sein als die Einstellung max_post_size in der Datei php.ini';
 $string['erroruniquename'] = 'Der Name einer Dateiverwaltungsinstanz muss eindeutig sein';
+$string['errorwhiledownload'] = 'Beim Download der Datei {$a} trat ein Fehler auf';
 $string['existingrepository'] = 'Der Dateiverwaltungstyp existiert bereits';
 $string['federatedsearch'] = 'Zusammenhängende Suche';
 $string['fileexists'] = 'Der Dateiname ist bereits vorhanden. Verwenden Sie bitte einen anderen Namen';
@@ -192,6 +193,7 @@ $string['saved'] = 'Gespeichert';
 $string['saving'] = 'Wird gespeichert ...';
 $string['search'] = 'Suchen';
 $string['searching'] = 'Suche in';
+$string['searchrepo'] = 'Repository durchsuchen';
 $string['sectionbackup'] = 'Abschnittssicherung';
 $string['select'] = 'Wählen Sie';
 $string['setmainfile'] = 'Hauptdatei setzen';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'media', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'media', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   media
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,7 @@ $string['html5audio_desc'] = 'Archivos de audio con extensión *. ogg, *.cc y ot
 $string['html5video'] = 'Video HTML 5';
 $string['html5video_desc'] = 'Archivos de video con extensión *. webm, *. m4v, *.ogv., *. mp4 y otros. Es compatible solo con los navegadores web más recientes; por desgracia no existe un formato compatible con todos los navegadores. La solución consiste en especificar las fuentes de retrocesos separados por # (# (ex: http://example.org/video.m4v#http://example.org/video.acc#http://example.org/video.ogv#d=640x480). El reproductor de QuickTime se utiliza para navegadores antiguos.';
 $string['legacyheading'] = 'Reproductores multimedia antiguos';
-$string['legacyheading_desc'] = 'No se recomienda el uso de los siguientes formatos ya que se usan en la instalación de intranet con clientes de gestión centralizada.';
+$string['legacyheading_desc'] = 'Estos reproductores no se utilizan chabitualmente en la Web y requieren extensiones del navegador que no están habitualmente instaladas.';
 $string['legacyquicktime'] = 'Reproducor QuickTime';
 $string['legacyquicktime_desc'] = 'Archivos con extensión *. mov, *. mp4, *. m4a, *. mp4 y *. mpg. Requiere el reproductor QuickTime o "codecs"';
 $string['legacyreal'] = 'Reproductor Media Player';

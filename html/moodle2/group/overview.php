@@ -49,7 +49,7 @@ $PAGE->set_url($url);
 // Make sure that the user has permissions to manage groups.
 require_login($course);
 
-$context = get_context_instance(CONTEXT_COURSE, $courseid);
+$context = context_course::instance($courseid);
 require_capability('moodle/course:managegroups', $context);
 
 $strgroups           = get_string('groups');
@@ -87,15 +87,18 @@ if ($groupingid) {
 } else {
     $groupingwhere = "";
 }
+
+list($sort, $sortparams) = users_order_by_sql('u');
+
 $sql = "SELECT g.id AS groupid, gg.groupingid, u.id AS userid, u.firstname, u.lastname, u.idnumber, u.username
           FROM {groups} g
                LEFT JOIN {groupings_groups} gg ON g.id = gg.groupid
                LEFT JOIN {groups_members} gm ON g.id = gm.groupid
                LEFT JOIN {user} u ON gm.userid = u.id
          WHERE g.courseid = :courseid $groupwhere $groupingwhere
-      ORDER BY g.name, u.lastname, u.firstname";
+      ORDER BY g.name, $sort";
 
-$rs = $DB->get_recordset_sql($sql, $params);
+$rs = $DB->get_recordset_sql($sql, array_merge($params, $sortparams));
 foreach ($rs as $row) {
     $user = new stdClass();
     $user->id        = $row->userid;

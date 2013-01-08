@@ -47,11 +47,11 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
 
     protected $filterfields = array();
 
+    protected $userfilter = array();
+
+    protected $attemptfilter = array();
+
     public $mode = '';
-
-    protected $userfilter = '';
-
-    protected $attemptfilter = '';
 
     public $questions = array();
 
@@ -155,6 +155,7 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
         if ($this->has_questioncolumns) {
             $this->add_responses_to_rawdata($table);
         }
+        $this->adjust_grades_in_rawdata($table);
 
         // display the table
         $table->build_table();
@@ -181,6 +182,99 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
     }
 
     /**
+     * add_filter_params
+     *
+     * @param string $userfields (can be "")
+     * @param integer $userid    (can be 0)
+     * @param integer $attemptid (can be 0)
+     * @param string $select
+     * @param string $from
+     * @param string $where
+     * @param array $params
+     * @return void, but may modify $select $from $where $params
+     */
+    function add_filter_params($userfields, $userid, $attemptid, $select, $from, $where, $params) {
+
+        // search string to detect db fieldname in a filter string
+        // - not preceded by {:`"'_. a-z 0-9
+        // - starts with lowercase a-z
+        // - followed by lowercase a-z, 0-9 or underscore
+        // - not followed by }:`"'_. a-z 0-9
+        $before = '[{:`"'."'".'a-zA-Z0-9_.]';
+        $after  = '[}:`"'."'".'a-zA-Z0-9_.]';
+        $search = "/(?<!$before)([a-z][a-z0-9_]*)(?!$after)/";
+
+        $require_usertable = false;
+        $require_attempttable = false;
+
+        // add user fields. if required
+        if (in_array('fullname', $this->tablecolumns)) {
+            $select .= $userfields;
+            $where  .= ' AND ha.userid=u.id';
+            $require_usertable = true;
+        }
+
+        if ($userid) {
+            // a specific user
+            $where .= ' AND ha.userid=:userid';
+            $params['userid'] = $userid;
+            $require_usertable = true;
+        } else {
+            // user filters
+            list($filterwhere, $filterparams) = $this->userfilter;
+            if ($filterwhere) {
+                $filterwhere = preg_replace($search, 'u.$1', $filterwhere);
+                $where  .= ' AND '.$filterwhere;
+                $params += $filterparams;
+                $require_usertable = true;
+            }
+        }
+
+        if ($attemptid) {
+            // a specific attempt
+            $where .= ' AND ha.id=:attemptid';
+            $params['attemptid'] = $attemptid;
+            $require_attempttable = true;
+        } else {
+            // attempt filters
+            list($filterwhere, $filterparams) = $this->attemptfilter;
+            if ($filterwhere) {
+                $filterwhere = preg_replace($search, 'ha.$1', $filterwhere);
+                $where  .= ' AND '.$filterwhere;
+                $params += $filterparams;
+                $require_attempttable = true;
+            }
+        }
+
+        // add user table if needed
+        if ($require_usertable && strpos($from, '{user}')===false) {
+            $from   .= ', {user} u';
+        }
+
+        // add attempt table if needed
+        if ($require_attempttable && strpos($from, '{hotpot_attempts}')===false) {
+            $from  .= ', {hotpot_attempts} ha';
+        }
+
+        // join to grade tables if necessary
+        if (strpos($select, 'gg')===false && strpos($where, 'gg')===false) {
+            // grade tables not required
+        } else if (strpos($from, 'grade_grades')===false) {
+            // grade tables are required, but missing, so add them to $from
+            // the "gg" table alias is added by the "set_sql()" method of this class
+            // or the "get_sql_filter_attempts()" method of the hotpot "grade" filter
+            $from   .= ', {grade_items} gi, {grade_grades} gg';
+            $where  .= ' AND ha.userid=gg.userid AND gg.itemid=gi.id'.
+                       ' AND gi.courseid=:courseid AND gi.itemtype=:itemtype'.
+                       ' AND gi.itemmodule=:itemmodule AND gi.iteminstance=:iteminstance';
+            $params += array('courseid' => $this->hotpot->course->id, 'itemtype' => 'mod',
+                             'itemmodule' => 'hotpot', 'iteminstance' => $this->hotpot->id);
+        }
+
+        return array($select, $from, $where, $params);
+    }
+
+    /**
      * count_sql
      *
      * @param xxx $userid (optional, default=0)
@@ -195,30 +289,13 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
         $where  = 'hotpotid=:hotpotid';
         $params['hotpotid'] = $this->hotpot->id;
 
-        // add user fields. if required
-        if (in_array('fullname', $this->tablecolumns)) {
-            // remove the explicit specification of the user fields because they cause
-            // an error on MS-SQL: Column 'mdl_user.id' is invalid in the select list
-            // because it is not contained in either an aggregate function or the GROUP BY clause.
-            // $select .= ', u.id AS userid, u.firstname, u.lastname, u.picture, u.imagealt, u.email';
-            // However, we need the next two lines to JOIN the user table (see CONTRIB-3689)
-            $from   .= ', {user} u';
-            $where  .= ' AND ha.userid=u.id';
-        }
+        // there is no explicit specification of the user fields because they cause
+        // an error on MS-SQL: Column 'mdl_user.id' is invalid in the select list
+        // because it is not contained in either an aggregate function or the GROUP BY clause.
+        // $userfields = ', u.id AS userid, u.firstname, u.lastname, u.picture, u.imagealt, u.email';
+        $userfields = '';
 
-        // restrict sql to a specific user
-        if ($userid) {
-            $where .= ' AND ha.userid=:userid';
-            $params['userid'] = $userid;
-        }
-
-        // restrict sql to a specific attempt
-        if ($attemptid) {
-            $where = ' AND ha.id=:attemptid';
-            $params['attemptid'] = $attemptid;
-        }
-
-        return array($select, $from, $where, $params);
+        return $this->add_filter_params($userfields, $userid, $attemptid, $select, $from, $where, $params);
     }
 
     /**
@@ -241,47 +318,24 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
         }
 
         // sql to select all attempts at this HotPot (and Moodle grade)
-        $params = array();
-        $select = 'ha.*, (ha.timemodified - ha.timestart) AS duration, '.$select_questions.
-                  'ROUND(gg.rawgrade, 0) AS grade';
-        $from   = '{hotpot_attempts} ha, {grade_items} gi, {grade_grades} gg';
-        $where  = 'ha.hotpotid=:hotpotid AND ha.userid=gg.userid AND gg.itemid=gi.id '.
-                  'AND gi.courseid=:courseid AND gi.itemtype=:itemtype AND gi.itemmodule=:itemmodule AND gi.iteminstance=:iteminstance';
-        $params = array(
-            'hotpotid' => $this->hotpot->id,
-            'courseid' => $this->hotpot->course->id,
-            'itemtype' => 'mod',
-            'itemmodule' => 'hotpot',
-            'iteminstance' => $this->hotpot->id
-        );
+        $select = 'ha.*, (ha.timemodified - ha.timestart) AS duration, '.$select_questions.' ROUND(gg.rawgrade, 0) AS grade';
+        $from   = '{hotpot_attempts} ha';
+        $where  = 'ha.hotpotid=:hotpotid';
+        $params = array('hotpotid' => $this->hotpot->id);
 
-        // add user fields. if required
-        if (in_array('fullname', $this->tablecolumns)) {
-            //XTEC ************ MODIFICAT - To fix bug with filter in analysis report
-            //2012.08.30 @sarjona - http://tracker.moodle.org/browse/CONTRIB-3896
-            $select .= ', u.firstname, u.lastname, u.picture, u.imagealt, u.email';
-            //************ ORIGINAL
-            /*
-            $select .= ', u.id AS userid, u.firstname, u.lastname, u.picture, u.imagealt, u.email';
-             */
-            //************ FI
-            $from   .= ', {user} u';
-            $where  .= ' AND ha.userid=u.id';
-        }
 
-        // restrict sql to a specific user
-        if ($userid) {
-            $where .= ' AND ha.userid=:userid';
-            $params['userid'] = $userid;
-        }
+//XTEC ************ MODIFICAT - Fix for https://tracker.moodle.org/browse/CONTRIB-3896
+//2013.01.04 @aginard (original by @sarjona)
 
-        // restrict sql to a specific attempt
-        if ($attemptid) {
-            $where = ' AND ha.id=:attemptid';
-            $params['attemptid'] = $attemptid;
-        }
+        $userfields = ', u.firstname, u.lastname, u.picture, u.imagealt, u.email';
 
-        return array($select, $from, $where, $params);
+//************ ORIGINAL
+/*
+        $userfields = ', u.id AS userid, u.firstname, u.lastname, u.picture, u.imagealt, u.email';
+*/
+//************ FI        
+
+        return $this->add_filter_params($userfields, $userid, $attemptid, $select, $from, $where, $params);
     }
 
     /**
@@ -297,7 +351,7 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
             return false;
         }
 
-        // get question column names ($index_by_id = true)
+        // get question column names (indexed by questionid)
         $question_columns = $this->get_question_columns(true);
 
         // empty out the response fields in the the rawdata
@@ -367,5 +421,56 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
             $question_columns[$id] = "q_$i";
         }
         return $question_columns;
+    }
+
+    /**
+     * adjust_grades_in_rawdata
+     *
+     * this function adjusts the grade values
+     *
+     * @param xxx $table (passed by reference)
+     * @return xxx
+     */
+    function adjust_grades_in_rawdata(&$table)   {
+        if (empty($table->rawdata)) {
+            return false; // no records
+        }
+        if (! $table->has_column('grade')) {
+            return false; // no grade column
+        }
+        if (empty($table->column_suppress) || empty($table->column_suppress['grade'])) {
+            return false; // grade column is not suppressed (i.e. it is always printed)
+        }
+
+        $userid = 0;
+        $grade  = 0;
+        $prefix = '';
+
+        foreach ($table->rawdata as $id => $record) {
+            if ($userid) {
+                if ($userid==$record->userid) {
+                    // same user - do nothing
+                } else {
+                    if ($grade==$record->grade) {
+                        // oops, same grade as previous user - we must adjust the grade value,
+                        // so that "print_row()" (lib/tablelib.php) does not suppress this grade
+                        if ($prefix) {
+                            $prefix = '';
+                        } else {
+                            // add an empty span tag to make grade different from previous user's
+                            $prefix = html_writer::tag('span', '');
+                        }
+                    } else {
+                        // different grade from previous user, so we can unset the prefix
+                        $prefix = '';
+                    }
+                }
+                if ($prefix) {
+                    $table->rawdata[$id]->grade = $prefix.$table->rawdata[$id]->grade;
+                }
+            }
+            $userid = $record->userid;
+            $grade  = $record->grade;
+        }
     }
 }

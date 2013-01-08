@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_self', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_self
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cohortnonmemberinfo'] = 'Seuls les membres de la cohorte {$a} peuvent s\'inscrire eux-mêmes.';
+$string['cohortonly'] = 'Seulement les membres de la cohorte';
+$string['cohortonly_help'] = 'L\'auto-inscription peut être restreinte aux seuls membres d\'une cohorte spécifique. La modification de ce réglage n\'a pas d\'effet sur les inscriptions existantes.';
 $string['customwelcomemessage'] = 'Message de bienvenue personnalisé';
 $string['customwelcomemessage_help'] = 'Un message d\'accueil personnalisé peut être ajouté en texte pur ou avec des balises HTML et en syntaxe multilingue.
 
@@ -40,10 +43,24 @@ $string['enrolenddate_help'] = 'Si ce réglage est activé, les utilisateurs peu
 $string['enrolenddaterror'] = 'La date de la fin de l\'inscription ne peut être antérieure à celle du début';
 $string['enrolme'] = 'M\'inscrire';
 $string['enrolperiod'] = 'Durée d\'inscription';
-$string['enrolperiod_desc'] = 'Durée par défaut (en secondes) de la période durant laquelle l\'inscription est effective. Si 0 est indiqué, la durée sera illimitée par défaut.';
+$string['enrolperiod_desc'] = 'Durée par défaut de la période durant laquelle l\'inscription est effective. Si 0 est indiqué, la durée sera illimitée par défaut.';
 $string['enrolperiod_help'] = 'Temps durant lequel l\'inscription est valable, à compter de l\'inscription de l\'utilisateur. Si l\'option est désactivée, la durée est illimitée.';
 $string['enrolstartdate'] = 'Date de début';
 $string['enrolstartdate_help'] = 'Si ce réglage est activé, les utilisateurs peuvent s\'inscrire à partir de cette date seulement.';
+$string['expiredaction'] = 'Action à l\'échéance de l\'inscription';
+$string['expiredaction_help'] = 'Sélectionner une action à effectuer à l\'échéance de l\'inscription des utilisateurs. Veuillez noter que des données utilisateur et des réglages sont effacés du cours lors de la désinscription du cours.';
+$string['expirymessageenrolledbody'] = 'Cher {$a->user},
+
+Ce message est une notification de la prochaine échéance le {$a->timeend} de votre inscription au cours « {$a->course} ».
+
+Si vous avez besoin d\'aide, veuillez contacter {$a->enroller}.';
+$string['expirymessageenrolledsubject'] = 'Notification d\'échéance d\'auto-inscription';
+$string['expirymessageenrollerbody'] = 'L\'auto-inscription dans le cours « {$a->course} » arrivera à échéance dans {$a->threshold} pour les utilisateurs suivants :
+
+{$a->users}
+
+Pour prolonger leur inscription, visitez {$a->extendurl}';
+$string['expirymessageenrollersubject'] = 'Notification d\'échéance d\'auto-inscription';
 $string['groupkey'] = 'Utiliser les clefs d\'inscription aux groupes';
 $string['groupkey_desc'] = 'Utiliser par défaut les clefs d\'inscription aux groupes';
 $string['groupkey_help'] = 'En plus de restreindre l\'accès au cours aux seuls utilisateurs qui connaissent la clef, l\'utilisation d\'une clef d\'inscription de groupe permet d\'ajouter automatiquement les utilisateurs à un groupe lors de leur inscription au cours.
@@ -54,6 +71,7 @@ $string['longtimenosee_help'] = 'Si un participant ne visite pas un cours durant
 $string['maxenrolled'] = 'Nombre maximum d\'utilisateurs inscrits';
 $string['maxenrolled_help'] = 'Spécifie le nombre maximum d\'utilisateurs pouvant s\'inscrire. Le nombre 0 signifie aucune limite.';
 $string['maxenrolledreached'] = 'Le nombre maximum d\'utilisateurs autorisés à s\'inscrire eux-mêmes est atteint.';
+$string['messageprovider:expiry_notification'] = 'Notifications d\'échéance d\'auto-inscription';
 $string['nopassword'] = 'Aucune clef d\'inscription requise.';
 $string['password'] = 'Clef d\'inscription';
 $string['password_help'] = 'Une clef d\'inscription permet de restreindre l\'accès au cours aux seuls utilisateurs qui connaissent la clef.

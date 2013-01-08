@@ -43,7 +43,7 @@
  * @author    Stephan Schmidt <schst@php.net>
  * @copyright 2004-2008 Stephan Schmidt <schst@php.net>
  * @license   http://opensource.org/licenses/bsd-license New BSD License
- * @version   CVS: $Id: Simple.php,v 1.2 2010/12/14 17:36:07 moodlerobot Exp $
+ * @version   CVS: $Id$
  * @link      http://pear.php.net/package/XML_Parser
  */
 

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'choice', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -65,7 +65,7 @@ $string['limitanswers_help'] = '<p>Esta opción le permite limitar el número de
 <p>Si está desactivada, cualquier número de participantes puede
    seleccionar cualquiera de las opciones.</p>';
 $string['modulename'] = 'Consulta';
-$string['modulename_help'] = 'El módulo Consulta permite al profesor hacer una pregunta especificando las posibles respuestas posibles..
+$string['modulename_help'] = 'El módulo Consulta permite al profesor hacer una pregunta especificando las posibles respuestas posibles.
 
 Los resultados de la elección puede ser publicados después que los estudiantes hayan respondido, después de cierta fecha, o no publicarse. Los resultados pueden ser publicados, con los nombres de los estudiantes o de forma anónima.
 
@@ -85,6 +85,7 @@ $string['notanswered'] = 'Sin contestar aún';
 $string['notenrolledchoose'] = 'Lo sentimos, solo los usuarios matriculados pueden seleccionar una opción.';
 $string['notopenyet'] = 'Lo sentimos, esta actividad no estará disponible hasta {$a}';
 $string['numberofuser'] = 'Número de usuario';
+$string['numberofuserinpercentage'] = 'El número de usuario en porcentaje';
 $string['option'] = 'Opción';
 $string['page-mod-choice-x'] = 'Cualquier página del módulo Consulta';
 $string['pluginadministration'] = 'Administración';
@@ -100,14 +101,16 @@ $string['publishnot'] = 'No publicar los resultados';
 $string['removemychoice'] = 'Eliminar mi elección';
 $string['removeresponses'] = 'Eliminar todas las respuestas';
 $string['responses'] = 'Respuestas';
+$string['responsesresultgraphheader'] = 'Vista de gráfica';
 $string['responsesto'] = 'Respuestas para {$a}';
 $string['savemychoice'] = 'Guardar mi elección';
 $string['showunanswered'] = 'Mostrar columna de no respondidas';
-$string['skipresultgraph'] = 'Saltar gráfico de resultados';
+$string['skipresultgraph'] = 'Pasar por alto gráfico de resultados';
 $string['spaceleft'] = 'espacio disponible';
 $string['spacesleft'] = 'espacios disponibles';
 $string['taken'] = 'Tomadas';
 $string['timerestrict'] = 'Restringir la respuesta a este período';
+$string['userchoosethisoption'] = 'El usuario elige esta opción';
 $string['viewallresponses'] = 'Ver {$a} respuestas';
 $string['withselected'] = 'Con seleccionados';
 $string['yourselection'] = 'Su selección';

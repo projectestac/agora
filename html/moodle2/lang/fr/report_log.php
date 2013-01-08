@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_log', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'report_log', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   report_log
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,8 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['logsformat'] = 'Format des historiques';
 $string['log:view'] = 'Consulter les historiques du cours';
 $string['log:viewtoday'] = 'Consulter l\'historique du jour';
+$string['page'] = 'Page {$a}';
 $string['page-report-log-index'] = 'Rapport d\'historiques de cours';
 $string['page-report-log-user'] = 'Rapport utilisateur d\'historiques de cours';
 $string['page-report-log-x'] = 'Tout rapport d\'historiques';

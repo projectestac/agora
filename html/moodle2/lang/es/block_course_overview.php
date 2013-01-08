@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_overview', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_course_overview', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   block_course_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,35 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = '{$a}s requiere atención';
+$string['alwaysshowall'] = 'Todos';
+$string['collapseall'] = 'Colapsar listas de todos los cursos';
+$string['configotherexpanded'] = 'Si se habilita, Otros Cursos será expandido por defecto, a menos que fuera anulado por preferencias del usuario.';
+$string['configpreservestates'] = 'Si se habilita, los estados de colapsado/expandido configurados por el usuario se guardan y emplean en cada carga.';
+$string['course_overview:addinstance'] = 'Añadir un nuevo bloque de vista general del curso';
+$string['course_overview:myaddinstance'] = 'Añadir un nuevo bloque de vista general del curso a la página de Mi Moodle';
+$string['defaultmaxcourses'] = 'Número máximo de cursos por omosión';
+$string['defaultmaxcoursesdesc'] = 'El número máximo de cursos que deberán ser mostrados en el bloque de curso. 0 mostrará todos los cursos';
+$string['expandall'] = 'Expandir todas las listas del curso';
+$string['forcedefaultmaxcourses'] = 'Forzar número máximo de cursos';
+$string['forcedefaultmaxcoursesdesc'] = 'Si se activa la opción, el usuario no podrá cambiar su configuración personal';
+$string['hiddencoursecount'] = 'Usted tiene {$a} cursos(s) oculto(s)';
+$string['hiddencoursecountplural'] = 'Usted tiene {$a} cursos(s) oculto(s)';
+$string['message'] = 'mensaje';
+$string['messages'] = 'mensajes';
+$string['movecoursehere'] = 'Mover curso aquí';
+$string['numtodisplay'] = 'Número de cursos para mostrar:';
+$string['otherexpanded'] = 'Otros Cursos expandidos';
 $string['pluginname'] = 'Visión general del curso';
+$string['preservestates'] = 'Preservar  Estados Expandidos';
+$string['shortnameprefix'] = 'Incluye {$a}';
+$string['shortnamesufixprural'] = '(y otros {$a} )';
+$string['shortnamesufixsingular'] = '(y otro {$a} )';
+$string['showchildren'] = 'Ver hijos';
+$string['showchildrendesc'] = '¿Deberían listarse los cursos hijos debajo del título del curso principal?';
+$string['showwelcomearea'] = 'Mostrar área de bienvenida';
+$string['showwelcomeareadesc'] = '¿Mostrar el área de bienvenida por encima de la lista de cursos?';
+$string['view_edit_profile'] = '(Ver y editar su perfil.)';
+$string['welcome'] = 'Bienvenido/a {$a}';
+$string['youhavemessages'] = 'Usted tiene {$a} sin leer';
+$string['youhavenomessages'] = 'Usted no tiene sin leer';

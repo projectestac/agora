@@ -34,7 +34,7 @@ $PAGE->set_url('/report/outline/index.php', array('id'=>$id));
 $PAGE->set_pagelayout('report');
 
 require_login($course);
-$context = get_context_instance(CONTEXT_COURSE, $course->id);
+$context = context_course::instance($course->id);
 require_capability('report/outline:view', $context);
 
 add_to_log($course->id, 'course', 'report outline', "report/outline/index.php?id=$course->id", $course->id);
@@ -79,7 +79,6 @@ if ($showlastaccess) {
 }
 
 $modinfo = get_fast_modinfo($course);
-$sections = get_all_sections($course->id);
 
 $sql = "SELECT cm.id, COUNT('x') AS numviews, MAX(time) AS lasttime
           FROM {course_modules} cm
@@ -105,7 +104,7 @@ foreach ($modinfo->sections as $sectionnum=>$section) {
             $sectioncell = new html_table_cell();
             $sectioncell->colspan = count($outlinetable->head);
 
-            $sectiontitle = get_section_name($course, $sections[$sectionnum]);
+            $sectiontitle = get_section_name($course, $sectionnum);
 
             $sectioncell->text = $OUTPUT->heading($sectiontitle, 3);
             $sectionrow->cells[] = $sectioncell;

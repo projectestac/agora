@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'question', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,6 +42,7 @@ $string['byandon'] = 'por <em>{$a->user}</em> en <em>{$a->time}</em>';
 $string['cannotcopybackup'] = 'No se ha podido copiar el archivo de copia de seguridad';
 $string['cannotcreate'] = 'No se ha podido crear una nueva entrada en la tabla question_attempts';
 $string['cannotcreatepath'] = 'No se puede crear la ruta: {$a}';
+$string['cannotdeletebehaviourinuse'] = 'No puede borrar el comportamiento \'{$a}\'. Es empleado por intentos de preguntas.';
 $string['cannotdeletecate'] = 'No puede eliminar la categoría porque es la categoría por defecto para este contexto.';
 $string['cannotdeletemissingbehaviour'] = 'No puede desinstalar el comportamiento que falta. Lo necesita el sistema.';
 $string['cannotdeletemissingqtype'] = 'No puede eliminar el tipo de pregunta ausente. El sistema la necesita.';
@@ -83,7 +84,7 @@ $string['clearwrongparts'] = 'Borrar respuestas incorrectas';
 $string['clickflag'] = 'Marcar pregunta';
 $string['clicktoflag'] = 'Clic para marcar esta pregunta';
 $string['clicktounflag'] = 'Desmarcar';
-$string['clickunflag'] = 'Desmarcar pregunta';
+$string['clickunflag'] = 'Demarcar';
 $string['closepreview'] = 'Cerrar vista previa';
 $string['combinedfeedback'] = 'Retroalimentación combinada';
 $string['comment'] = 'Comentario';
@@ -379,7 +380,7 @@ $string['shareincontext'] = 'Compartir en contexto para {$a}';
 $string['showhidden'] = 'Mostrar también preguntas antiguas';
 $string['showmarkandmax'] = 'Mostrar puntuacion y máximo';
 $string['showmaxmarkonly'] = 'Mostrar solo puntuación máxima';
-$string['shown'] = 'Mostrada/o';
+$string['shown'] = 'Se muestra';
 $string['shownumpartscorrect'] = 'Mostrar el número de respuestas correctas';
 $string['shownumpartscorrectwhenfinished'] = 'Mostrar el número de respuestas correctas en cuanto se termine la pregunta';
 $string['showquestiontext'] = 'Mostrar el texto de la pregunta en la lista de preguntas';

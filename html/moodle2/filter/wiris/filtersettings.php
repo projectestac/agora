@@ -20,8 +20,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
-
-	global $DB;
+    global $CFG;
 	require_once('tinyversion.php');
 	$tiny_version = getTinyMceVersion();
 	$libwiris = $CFG->dirroot . '/lib/editor/tinymce/tiny_mce/' . $tiny_version . '/plugins/tiny_mce_wiris/integration/libwiris.php';
@@ -37,7 +36,7 @@ if ($ADMIN->fulltree) {
 		$formula = $ini['wirisformulaeditorenabled'];
 		$cas = $ini['wiriscasenabled'];
 
-		$settings->add(new admin_setting_heading('filter_wirisheading', 'WIRIS Filter Settings', $output));
+		$settings->add(new admin_setting_heading('filter_wirisheading', 'WIRIS filter settings', $output));
 
 		//Text to be shown when editor and cas are disabled in MoodleConfigurationUpdater
 		if (!$formula) {
@@ -53,18 +52,8 @@ if ($ADMIN->fulltree) {
 			$settings->add(new admin_setting_configcheckbox('filter_wiris_editor_enable', 'WIRIS editor', '', '1'));
 		}else{ 
 			if (isset($CFG->filter_wiris_editor_enable) && $CFG->filter_wiris_editor_enable) {
-			try{
-				$record = $DB->get_record('config', array('name' => 'filter_wiris_editor_enable'));
-				if ($record){
-					$dataObject = new stdClass();
-					$dataObject->id = $record->id;
-					$dataObject->value = 0;
-					$DB->update_record('config', $dataObject);
-				}
-			}catch(Exception $ex) {
-				echo "Error retrieving or updating the table config";
-			}
-			$CFG->filter_wiris_editor_enable = false;
+                    set_config('filter_wiris_editor_enable', 0, 'config');
+                    $CFG->filter_wiris_editor_enable = false;
 			}
 		}
 
@@ -72,18 +61,8 @@ if ($ADMIN->fulltree) {
 			$settings->add(new admin_setting_configcheckbox('filter_wiris_cas_enable', 'WIRIS cas', '', '1'));
 		}else{ 
 			if (isset($CFG->filter_wiris_cas_enable) && $CFG->filter_wiris_cas_enable) {
-			try{
-				$record = $DB->get_record('config', array('name' => 'filter_wiris_cas_enable'));
-				if ($record){
-					$dataObject = new stdClass();
-					$dataObject->id = $record->id;
-					$dataObject->value = 0;
-					$DB->update_record('config', $dataObject);
-				}
-			}catch(Exception $ex) {
-				echo "Error retrieving or updating the table config";
-			}
-			$CFG->filter_wiris_cas_enable = false;
+                set_config('filter_wiris_cas_enable', 0, 'config');
+                $CFG->filter_wiris_cas_enable = false;
 			}
 		}
 
@@ -117,20 +96,20 @@ if ($ADMIN->fulltree) {
 		}
 		
 		// Disabling the cache clearing for the next request.
-		try{	
-			$record = $DB->get_record('config', array('name' => 'filter_wiris_clear_cache'));
-			if ($record){
-				$dataObject = new stdClass();
-				$dataObject->id = $record->id;
-				$dataObject->value = 0;
-				$DB->update_record('config', $dataObject);
-			}
-		}catch(Exception $ex) {
-			echo "Error retrieving or updating the table config";
-		}
+		set_config('filter_wiris_clear_cache', 0, 'config');
 		$CFG->filter_wiris_clear_cache = false;
 	}
 
 	$settings->add(new admin_setting_configcheckbox('filter_wiris_clear_cache', 'Clear cache', '', '0'));
+        
+	$wiris_quizzes = dirname(__FILE__) . '/../../question/type/wq/';
+	$quizzes_installed = file_exists($wiris_quizzes);
 
+	if ($quizzes_installed){
+		$url = $CFG->wwwroot . '/admin/settings.php?section=qtypesettingwq';
+		$url = '<a href="' . $url . '">WIRIS quizzes settings</a>';
+		$settings->add(new admin_setting_heading('filter_wirisquizzesheading', $url, ''));
+	}
+
+        
 }

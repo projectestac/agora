@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'choice', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,7 +35,7 @@ $string['choice:choose'] = 'Abstimmung vornehmen';
 $string['choiceclose'] = 'bis';
 $string['choice:deleteresponses'] = 'Stimmabgaben löschen';
 $string['choice:downloadresponses'] = 'Stimmabgaben herunterladen';
-$string['choicefull'] = 'Diese Abstimmoption ist voll und hat keine weiteren Plätze verfügbar.';
+$string['choicefull'] = 'Diese Option ist voll und es sind keine Plätze mehr verfügbar.';
 $string['choicename'] = 'Abstimmungsname';
 $string['choiceopen'] = 'von';
 $string['choiceoptions'] = 'Abstimmoptionen';
@@ -77,27 +77,27 @@ $string['option'] = 'Abstimmoption';
 $string['page-mod-choice-x'] = 'Jede Abstimmungsseite';
 $string['pluginadministration'] = 'Abstimmungsadministration';
 $string['pluginname'] = 'Abstimmung';
-$string['privacy'] = 'Anonymität';
+$string['privacy'] = 'Nicht veröffentlichen';
 $string['publish'] = 'Ergebnisse veröffentlichen';
 $string['publishafteranswer'] = 'Nach der eigenen Stimmabgabe';
 $string['publishafterclose'] = 'Nach Abstimmungsende';
 $string['publishalways'] = 'Ergebnisse immer zeigen';
-$string['publishanonymous'] = 'Anonyme Ergebnisse (ohne Namen)';
-$string['publishnames'] = 'Vollständige Ergebnisse (mit Namen)';
+$string['publishanonymous'] = 'Ergebnisse ohne Namen';
+$string['publishnames'] = 'Ergebnisse mit Namen';
 $string['publishnot'] = 'Keine Ergebnisse veröffentlichen';
-$string['removemychoice'] = 'Meine Auswahl entfernen';
-$string['removeresponses'] = 'Alle Stimmabgaben entfernen';
+$string['removemychoice'] = 'Meine Auswahl löschen';
+$string['removeresponses'] = 'Alle Stimmabgaben löschen';
 $string['responses'] = 'Stimmabgaben';
 $string['responsesresultgraphheader'] = 'Grafische Darstellung';
-$string['responsesto'] = 'Antworten zu  {$a}';
+$string['responsesto'] = 'Antworten zu {$a}';
 $string['savemychoice'] = 'Meine Auswahl speichern';
-$string['showunanswered'] = 'Spalte für Teilnehmer/innen ohne Stimmabgabe';
+$string['showunanswered'] = 'Teilnehmer/innen ohne Antwort anzeigen';
 $string['skipresultgraph'] = 'Ergebnisanzeige überspringen';
 $string['spaceleft'] = 'Platz verfügbar';
 $string['spacesleft'] = 'Plätze verfügbar';
 $string['taken'] = 'Eingetragen';
 $string['timerestrict'] = 'Abstimmung nur im Zeitraum:';
-$string['userchoosethisoption'] = 'Teilnehmer/innen, die diese Option wählten';
-$string['viewallresponses'] = '{$a} Stimmabgaben zeigen';
+$string['userchoosethisoption'] = 'Teilnehmer/innen mit dieser Antwort';
+$string['viewallresponses'] = '{$a} Antworten zeigen';
 $string['withselected'] = 'Mit Auswahl';
 $string['yourselection'] = 'Ihre Auswahl';

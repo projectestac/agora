@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_file', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'assignsubmission_file', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   assignsubmission_file
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configmaxbytes'] = 'Tamaño máximo de archivo';
-$string['countfiles'] = '[$a} archivos';
+$string['countfiles'] = '{$a} archivos';
 $string['default'] = 'Habilitado por defecto';
 $string['default_help'] = 'Si se activa la opción, este método de retroalimentación estará habilitado por omisión para todas las tareas nuevas.';
 $string['enabled'] = 'Archivos enviados';

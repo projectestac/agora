@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_magazine', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'theme_magazine', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   theme_magazine
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -66,8 +66,8 @@ $string['logo'] = 'Logo';
 $string['logodesc'] = 'Um das Logo zu ändern, geben Sie die URL zu einem neuen Logo an (z.B. http://www.ihredomain.de/logo.png). Das Standardlogo ist 300px breit und 80px hoch. Ein transparentes Logo im Format PNG funktioniert am besten.';
 $string['maincolor'] = 'Kopfbereichsfarbe';
 $string['maincoloraccent'] = 'Akzentfarbe zum Kopfbereich';
-$string['maincoloraccentdesc'] = 'Dunkle Akzentfarbe für das Navigationsdock und Ränder des Kopfbereichs. Diese Farbe sollte geringfügig dunkler als die Kopfbereichsfarbe sein.';
-$string['maincolordesc'] = 'Diese Farbe wird für den Kopfbereich, das Navigationsdock und andere Bereiche benutzt. Am besten wirken dunkle oder deckende Farben.';
+$string['maincoloraccentdesc'] = 'Dunkle Akzentfarbe für das Dock und Ränder des Kopfbereichs. Diese Farbe sollte geringfügig dunkler als die Kopfbereichsfarbe sein.';
+$string['maincolordesc'] = 'Diese Farbe wird für den Kopfbereich, das Dock und andere Bereiche benutzt. Am besten wirken dunkle oder deckende Farben.';
 $string['pluginname'] = 'Magazine';
 $string['region-side-post'] = 'Rechts';
 $string['region-side-pre'] = 'Links';

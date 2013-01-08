@@ -258,7 +258,7 @@ function url_get_coursemodule_info($coursemodule) {
     $info->name = $url->name;
 
     //note: there should be a way to differentiate links from normal resources
-    $info->icon = url_guess_icon($url->externalurl);
+    $info->icon = url_guess_icon($url->externalurl, 24);
 
     $display = url_get_final_display_type($url);
 
@@ -304,7 +304,7 @@ function url_export_contents($cm, $baseurl) {
     global $CFG, $DB;
     require_once("$CFG->dirroot/mod/url/locallib.php");
     $contents = array();
-    $context = get_context_instance(CONTEXT_MODULE, $cm->id);
+    $context = context_module::instance($cm->id);
 
     $course = $DB->get_record('course', array('id'=>$cm->course), '*', MUST_EXIST);
     $url = $DB->get_record('url', array('id'=>$cm->instance), '*', MUST_EXIST);

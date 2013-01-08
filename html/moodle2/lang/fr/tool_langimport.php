@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_langimport', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'tool_langimport', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   tool_langimport
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,7 @@ $string['install'] = 'Installer les langues sélectionnées';
 $string['installedlangs'] = 'Langues installées';
 $string['langimport'] = 'Utilitaire d\'importation de langues';
 $string['langimportdisabled'] = 'L\'utilitaire d\'importation de langues a été désactivé. Veuillez effectuer la mise à jour de vos paquetages de langue manuellement au niveau du système de fichiers de votre serveur. N\'oubliez pas de vider les caches une fois cette opération effectuée.';
-$string['langpackinstalled'] = 'Le paquetage de langue {$a} a été correctement installé';
+$string['langpackinstalled'] = 'Le paquetage de langue {$a} a été installé et/ou mis à jour';
 $string['langpackremoved'] = 'La désinstallation du paquetage de langue est terminée';
 $string['langpackupdateskipped'] = 'La mise à jour du paquetage de langue {$a} n\'a pas été effectuée';
 $string['langpackuptodate'] = 'Le paquetage de langue {$a} est à jour';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plagiarism', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'plagiarism', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   plagiarism
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,4 +32,4 @@ $string['enableplagiarism'] = 'Habilitar plugins de plagio';
 $string['manageplagiarism'] = 'Gestionar plugins de plagio';
 $string['nopluginsinstalled'] = 'No hay plugins de plagio instalados.';
 $string['plagiarism'] = 'Prevención del plagio';
-$string['plagiarismsettings'] = 'Ajustes de plagio';
+$string['plagiarismplugindeleteconfirm'] = 'Usted está a punto de borrar completamente el plugin de detección de plagio \'{$a}\'. Esto borrará completamente de la base de datos todo lo que estaba asociado a este plugin. ¿Está SEGURO de querer continuar?';

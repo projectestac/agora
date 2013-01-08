@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedmulti', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qtype_calculatedmulti', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   qtype_calculatedmulti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,8 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Opcions múltiples calculada';
-$string['pluginnameadding'] = 'S\'està afegint una pregunta d\'opcions múltiples calculada';
-$string['pluginnameediting'] = 'S\'està editant una pregunta d\'opcions múltiples calculada';
-$string['pluginname_help'] = 'Les preguntes d\'opcions múltiples calculades són com preguntes d\'opcions múltiples on es poden incloure els resultats de fórmules numèriques en els seus elements de selecció   utilitzant comodins entre claus, que són substituïts per valors individuals quan es visualitza el qüestionari. Per exemple, per a la pregunta "Quina és l\'àrea d\'un rectangle de longitud {l} i amplària {w}?", una de les opcions és {={l}*{w}} (on * denota multiplicació).';
-$string['pluginnamesummary'] = 'Les preguntes d\'opcions múltiples calculades són com preguntes d\'opcions múltiples on es poden incloure els resultats de fórmules com a elements de selecció, dels valors numèrics triats aleatòriament d\'un conjunt quan es visualitza el qüestionari.';
+$string['pluginname'] = 'Opcions múltiples calculada.';
+$string['pluginnameadding'] = 'S\'està afegint una pregunta d\'opcions múltiples calculada.';

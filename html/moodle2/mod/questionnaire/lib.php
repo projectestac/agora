@@ -69,7 +69,7 @@ function questionnaire_supports($feature) {
  */
 function questionnaire_get_extra_capabilities() {
     return array('moodle/site:accessallgroups');
-} 
+}
 
 global $QUESTIONNAIRE_TYPES;
 $QUESTIONNAIRE_TYPES = array (QUESTIONNAIREUNLIMITED => get_string('qtypeunlimited', 'questionnaire'),
@@ -337,6 +337,7 @@ function questionnaire_grades($questionnaireid) {
 function questionnaire_get_user_grades($questionnaire, $userid=0) {
     global $DB;
     $params = array();
+    $usersql = '';
     if (!empty($userid)) {
         $usersql = "AND u.id = ?";
         $params[] = $userid;
@@ -695,7 +696,7 @@ function questionnaire_get_survey_list($courseid=0, $type='') {
     if ($courseid == 0) {
         if (isadmin()) {
             $sql = "SELECT id,name,owner,realm,status " .
-            	   "{questionnaire_survey} " .
+                   "{questionnaire_survey} " .
                    "ORDER BY realm,name ";
             $params = null;
         } else {
@@ -703,7 +704,7 @@ function questionnaire_get_survey_list($courseid=0, $type='') {
         }
     } else if (!empty($type)) {
         if ($type == 'public') {
-            $sql = "SELECT s.id,s.name,s.owner,s.realm,s.status,s.title,q.id as qid " .
+            $sql = "SELECT q.id as qid,s.id,s.name,s.owner,s.realm,s.status,s.title " .
                    "FROM {questionnaire} q " .
                    "INNER JOIN {questionnaire_survey} s ON s.id = q.sid " .
                    "WHERE status != ? AND realm = ? " .
@@ -711,7 +712,7 @@ function questionnaire_get_survey_list($courseid=0, $type='') {
             $params = array(QUESTIONNAIRE_ARCHIVED, $type);
     /// Any survey owned by the user or typed as 'template' can be copied.
         } else if ($type == 'template') {
-            $sql = "SELECT s.id,s.name,s.owner,s.realm,s.status,s.title,q.id as qid " .
+            $sql = "SELECT q.id as qid,s.id,s.name,s.owner,s.realm,s.status,s.title " .
                    "FROM {questionnaire} q " .
                    "INNER JOIN {questionnaire_survey} s ON s.id = q.sid " .
                    "WHERE status != ? AND (realm = ? OR owner = ?) " .
@@ -719,7 +720,7 @@ function questionnaire_get_survey_list($courseid=0, $type='') {
             $params = array(QUESTIONNAIRE_ARCHIVED, $type, $courseid);
         }
     } else {
-        $sql = "SELECT s.id,s.name,s.owner,s.realm,s.status,q.id as qid " .
+        $sql = "SELECT q.id as qid,s.id,s.name,s.owner,s.realm,s.status " .
                "FROM {questionnaire} q " .
                "INNER JOIN {questionnaire_survey} s ON s.id = q.sid " .
                "WHERE status != ? AND owner = ? " .

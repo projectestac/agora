@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_paypal', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_paypal', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_paypal
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,7 +38,7 @@ $string['enrolenddate'] = 'Date de fin';
 $string['enrolenddate_help'] = 'Si ce réglage est activé, les utilisateurs seront inscrits jusqu\'à cette date seulement.';
 $string['enrolenddaterror'] = 'La date de fin d\'inscription ne peut pas être antérieure à la date de début';
 $string['enrolperiod'] = 'Durée d\'inscription';
-$string['enrolperiod_desc'] = 'Durée par défaut de la période d\'inscription (en secondes). Si 0 est indiqué, la durée sera illimitée par défaut.';
+$string['enrolperiod_desc'] = 'Durée par défaut de la période durant laquelle l\'inscription est effective. Si 0 est indiqué, la durée sera illimitée par défaut.';
 $string['enrolperiod_help'] = 'Temps durant lequel l\'inscription est valable, à compter de l\'inscription de l\'utilisateur. Si l\'option est désactivée, la durée est illimitée.';
 $string['enrolstartdate'] = 'Date de début';
 $string['enrolstartdate_help'] = 'Si ce réglage est activé, les utilisateurs seront inscrits à partir de cette date seulement.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_db', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'auth_db', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   auth_db
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,6 +42,7 @@ $string['auth_dbfielduser_key'] = 'Champ nom d\'utilisateur';
 $string['auth_dbhost'] = 'Ordinateur hébergeant la base de données';
 $string['auth_dbhost_key'] = 'Serveur';
 $string['auth_dbinsertuser'] = 'Utilisateur {$a->name} id {$a->id} inséré';
+$string['auth_dbinsertuserduplicate'] = 'Erreur lors de l\'insertion de l\'utilisateur {$a->username}. Cet utilisateur a déjà été créé via le plugin « {$a->auth} ».';
 $string['auth_dbinsertusererror'] = 'Erreur lors de l\'insertion de l\'utilisateur {$a}';
 $string['auth_dbname'] = 'Nom de la base de données';
 $string['auth_dbname_key'] = 'Nom BDD';

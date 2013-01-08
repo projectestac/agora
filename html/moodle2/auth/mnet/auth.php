@@ -81,7 +81,7 @@ class auth_plugin_mnet extends auth_plugin_base {
 
         if (array_key_exists('picture', $userdata) && !empty($user->picture)) {
             $fs = get_file_storage();
-            $usercontext = get_context_instance(CONTEXT_USER, $user->id, MUST_EXIST);
+            $usercontext = context_user::instance($user->id, MUST_EXIST);
             if ($usericonfile = $fs->get_file($usercontext->id, 'user', 'icon', 0, '/', 'f1.png')) {
                 $userdata['_mnet_userpicture_timemodified'] = $usericonfile->get_timemodified();
                 $userdata['_mnet_userpicture_mimetype'] = $usericonfile->get_mimetype();
@@ -299,7 +299,7 @@ class auth_plugin_mnet extends auth_plugin_base {
 
             if ($key == '_mnet_userpicture_timemodified' and empty($CFG->disableuserimages) and isset($remoteuser->picture)) {
                 // update the user picture if there is a newer verion at the identity provider
-                $usercontext = get_context_instance(CONTEXT_USER, $localuser->id, MUST_EXIST);
+                $usercontext = context_user::instance($localuser->id, MUST_EXIST);
                 if ($usericonfile = $fs->get_file($usercontext->id, 'user', 'icon', 0, '/', 'f1.png')) {
                     $localtimemodified = $usericonfile->get_timemodified();
                 } else if ($usericonfile = $fs->get_file($usercontext->id, 'user', 'icon', 0, '/', 'f1.jpg')) {
@@ -378,23 +378,28 @@ class auth_plugin_mnet extends auth_plugin_base {
                 $extra = $DB->get_records_sql($sql);
 
                 $keys = array_keys($courses);
-                $defaultrole = reset(get_archetype_roles('student'));
-                //$defaultrole = get_default_course_role($ccache[$shortname]); //TODO: rewrite this completely, there is no default course role any more!!!
-                foreach ($keys AS $id) {
-                    if ($courses[$id]->visible == 0) {
-                        unset($courses[$id]);
-                        continue;
-                    }
-                    $courses[$id]->cat_id          = $courses[$id]->category;
-                    $courses[$id]->defaultroleid   = $defaultrole->id;
-                    unset($courses[$id]->category);
-                    unset($courses[$id]->visible);
+                $studentroles = get_archetype_roles('student');
+                if (!empty($studentroles)) {
+                    $defaultrole = reset($studentroles);
+                    //$defaultrole = get_default_course_role($ccache[$shortname]); //TODO: rewrite this completely, there is no default course role any more!!!
+                    foreach ($keys AS $id) {
+                        if ($courses[$id]->visible == 0) {
+                            unset($courses[$id]);
+                            continue;
+                        }
+                        $courses[$id]->cat_id          = $courses[$id]->category;
+                        $courses[$id]->defaultroleid   = $defaultrole->id;
+                        unset($courses[$id]->category);
+                        unset($courses[$id]->visible);
 
-                    $courses[$id]->cat_name        = $extra[$id]->cat_name;
-                    $courses[$id]->cat_description = $extra[$id]->cat_description;
-                    $courses[$id]->defaultrolename = $defaultrole->name;
-                    // coerce to array
-                    $courses[$id] = (array)$courses[$id];
+                        $courses[$id]->cat_name        = $extra[$id]->cat_name;
+                        $courses[$id]->cat_description = $extra[$id]->cat_description;
+                        $courses[$id]->defaultrolename = $defaultrole->name;
+                        // coerce to array
+                        $courses[$id] = (array)$courses[$id];
+                    }
+                } else {
+                    throw new moodle_exception('unknownrole', 'error', '', 'student');
                 }
             } else {
                 // if the array is empty, send it anyway
@@ -1136,7 +1141,7 @@ class auth_plugin_mnet extends auth_plugin_base {
 
         if ($user = $DB->get_record('user', array('username' => $username, 'mnethostid' => $CFG->mnet_localhost_id))) {
             $fs = get_file_storage();
-            $usercontext = get_context_instance(CONTEXT_USER, $user->id, MUST_EXIST);
+            $usercontext = context_user::instance($user->id, MUST_EXIST);
             $return = array();
             if ($f1 = $fs->get_file($usercontext->id, 'user', 'icon', 0, '/', 'f1.png')) {
                 $return['f1'] = base64_encode($f1->get_content());

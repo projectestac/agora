@@ -6540,7 +6540,7 @@ function get_list_of_plugins($plugin='mod', $exclude='', $basedir='') {
             }
             //XTEC ************ AFEGIT - Only enabled modules has to be showed
             //2011.07.04  @sarjona
-            if (!is_enabled_in_agora($dir) ){
+            if (function_exists('is_enabled_in_agora') && !is_enabled_in_agora($dir) ){
                 continue;
             }
             //************ FI

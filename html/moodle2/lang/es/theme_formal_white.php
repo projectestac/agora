@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_formal_white', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'theme_formal_white', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   theme_formal_white
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,7 +43,7 @@ $string['customcssdesc'] = 'El código CSS que escriba aquí se añadirá a toda
 $string['customlogourl'] = 'Logo personalizado';
 $string['customlogourldesc'] = 'Introduzca la dirección URL de una imagen para usarla como el logotipo de este sitio. Debe ser del tipo http://www.yoursite.com/path/to/logo.png <br /> Se recomienda una altura de la imagen de 100 píxeles.';
 $string['displayheading'] = 'Mostrar encabezado de página';
-$string['displaylogo'] = 'Mostrar logo';
+$string['displaylogo'] = 'Mostrar logo de moodle';
 $string['fontsizereference'] = 'Referencia de tamaño del tipo de letra';
 $string['fontsizereferencedesc'] = 'Esto le permite elegir el tamaño por defecto del tipo de letra para el tema. No se recomienda poner un valor mayor a 13px porque sabemos que causa problemas de visualización con algunos bloques.';
 $string['footnote'] = 'Nota al pie';

@@ -17,7 +17,7 @@
 // | Based on OLE::Storage_Lite by Kawai, Takanori                        |
 // +----------------------------------------------------------------------+
 //
-// $Id: PPS.php,v 1.4 2010/12/14 17:36:03 moodlerobot Exp $
+// $Id$
 
 
 require_once('PEAR.php');

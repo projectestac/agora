@@ -259,11 +259,8 @@ class qformat_webct extends qformat_default {
 
                     // Setup default value of missing fields
                     if (!isset($question->name)) {
-                        $question->name = $question->questiontext;
-                    }
-                    if (strlen($question->name) > 255) {
-                        $question->name = substr($question->name,0,250)."...";
-                        $warnings[] = get_string("questionnametoolong", "qformat_webct", $nQuestionStartLine);
+                        $question->name = $this->create_default_question_name(
+                                $question->questiontext, get_string('questionname', 'question'));
                     }
                     if (!isset($question->defaultmark)) {
                         $question->defaultmark = 1;
@@ -314,7 +311,7 @@ class qformat_webct extends qformat_default {
                             }
                         }
                         switch ($question->qtype) {
-                            case SHORTANSWER:
+                            case 'shortanswer':
                                 if ($maxfraction != 1) {
                                     $maxfraction = $maxfraction * 100;
                                     $errors[] = "'$question->name': ".get_string("wronggrade", "qformat_webct", $nLineCounter).' '.get_string("fractionsnomax", "question", $maxfraction);
@@ -322,7 +319,7 @@ class qformat_webct extends qformat_default {
                                 }
                                 break;
 
-                            case MULTICHOICE:
+                            case 'multichoice':
                                 if ($question->single) {
                                     if ($maxfraction != 1) {
                                         $maxfraction = $maxfraction * 100;
@@ -339,7 +336,7 @@ class qformat_webct extends qformat_default {
                                 }
                                 break;
 
-                            case CALCULATED:
+                            case 'calculated':
                                 foreach ($question->answers as $answer) {
                                     if ($formulaerror = qtype_calculated_find_formula_errors($answer)) {
                                         $warnings[] = "'$question->name': ". $formulaerror;
@@ -352,7 +349,7 @@ class qformat_webct extends qformat_default {
                                 $question->import_process=TRUE ;
                                 unset($question->answer); //not used in calculated question
                                 break;
-                            case MATCH:
+                            case 'match':
                                 // MDL-10680:
                                 // switch subquestions and subanswers
                                 foreach ($question->subquestions as $id=>$subquestion) {
@@ -391,7 +388,7 @@ class qformat_webct extends qformat_default {
                 // Multiple Choice Question with only one good answer
                 $question = $this->defaultquestion();
                 $question->feedback = array();
-                $question->qtype = MULTICHOICE;
+                $question->qtype = 'multichoice';
                 $question->single = 1;        // Only one answer is allowed
                 $ignore_rest_of_question = FALSE;
                 continue;
@@ -401,7 +398,7 @@ class qformat_webct extends qformat_default {
                 // Multiple Choice Question with several good answers
                 $question = $this->defaultquestion();
                 $question->feedback = array();
-                $question->qtype = MULTICHOICE;
+                $question->qtype = 'multichoice';
                 $question->single = 0;        // Many answers allowed
                 $ignore_rest_of_question = FALSE;
                 continue;
@@ -411,7 +408,7 @@ class qformat_webct extends qformat_default {
                 // Short Answer Question
                 $question = $this->defaultquestion();
                 $question->feedback = array();
-                $question->qtype = SHORTANSWER;
+                $question->qtype = 'shortanswer';
                 $question->usecase = 0;       // Ignore case
                 $ignore_rest_of_question = FALSE;
                 continue;
@@ -420,7 +417,7 @@ class qformat_webct extends qformat_default {
             if (preg_match("~^:TYPE:C~i",$line)) {
                 // Calculated Question
                 $question = $this->defaultquestion();
-                $question->qtype = CALCULATED;
+                $question->qtype = 'calculated';
                 $question->answers = array(); // No problem as they go as :FORMULA: from webct
                 $question->units = array();
                 $question->dataset = array();
@@ -438,7 +435,7 @@ class qformat_webct extends qformat_default {
             if (preg_match("~^:TYPE:M~i",$line)) {
                 // Match Question
                 $question = $this->defaultquestion();
-                $question->qtype = MATCH;
+                $question->qtype = 'match';
                 $question->feedback = array();
                 $ignore_rest_of_question = FALSE;         // match question processing is not debugged
                 continue;
@@ -466,11 +463,7 @@ class qformat_webct extends qformat_default {
 
             if (preg_match("~^:TITLE:(.*)~i",$line,$webct_options)) {
                 $name = trim($webct_options[1]);
-                if (strlen($name) > 255) {
-                    $name = substr($name,0,250)."...";
-                    $warnings[] = get_string("questionnametoolong", "qformat_webct", $nLineCounter);
-                }
-                $question->name = $name;
+                $question->name = $this->clean_question_name($name);
                 continue;
             }
 
@@ -487,7 +480,7 @@ class qformat_webct extends qformat_default {
             if (!isset($question)) {
                 continue;
             }
-            if (isset($question->qtype ) && CALCULATED == $question->qtype && preg_match(
+            if (isset($question->qtype ) && 'calculated' == $question->qtype && preg_match(
                     "~^:([[:lower:]].*|::.*)-(MIN|MAX|DEC|VAL([0-9]+))::?:?($webctnumberregex)~", $line, $webct_options)) {
                 $datasetname = preg_replace('/^::/', '', $webct_options[1]);
                 $datasetvalue = qformat_webct_convert_formula($webct_options[4]);
@@ -519,7 +512,7 @@ class qformat_webct extends qformat_default {
                 continue;
             }
 
-            if (preg_match("~^:ANSWER([0-9]+):([^:]+):([0-9\.\-]+):(.*)~i",$line,$webct_options)) {      /// SHORTANSWER
+            if (preg_match("~^:ANSWER([0-9]+):([^:]+):([0-9\.\-]+):(.*)~i",$line,$webct_options)) { // Shortanswer.
                 $currentchoice=$webct_options[1];
                 $answertext=$webct_options[2];            // Start gathering next lines
                 $question->fraction[$currentchoice]=($webct_options[3]/100);
@@ -534,7 +527,7 @@ class qformat_webct extends qformat_default {
             }
 
             if (preg_match('~^:FORMULA:(.*)~i', $line, $webct_options)) {
-                // Answer for a CALCULATED question
+                // Answer for a calculated question
                 ++$currentchoice;
                 $question->answers[$currentchoice] =
                         qformat_webct_convert_formula($webct_options[1]);
@@ -591,20 +584,20 @@ class qformat_webct extends qformat_default {
                 continue;
             }
 
-            if (isset($question->qtype ) && CALCULATED == $question->qtype && preg_match('~^:ANS-DEC:([1-9][0-9]*)~i', $line, $webct_options)) {
+            if (isset($question->qtype ) && 'calculated' == $question->qtype && preg_match('~^:ANS-DEC:([1-9][0-9]*)~i', $line, $webct_options)) {
                 // We can but hope that this always appear before the ANSTYPE property
                 $question->correctanswerlength[$currentchoice] = $webct_options[1];
                 continue;
             }
 
-            if (isset($question->qtype )&& CALCULATED == $question->qtype && preg_match("~^:TOL:($webctnumberregex)~i", $line, $webct_options)) {
+            if (isset($question->qtype )&& 'calculated' == $question->qtype && preg_match("~^:TOL:($webctnumberregex)~i", $line, $webct_options)) {
                 // We can but hope that this always appear before the TOL property
                 $question->tolerance[$currentchoice] =
                         qformat_webct_convert_formula($webct_options[1]);
                 continue;
             }
 
-            if (isset($question->qtype )&& CALCULATED == $question->qtype && preg_match('~^:TOLTYPE:percent~i', $line)) {
+            if (isset($question->qtype )&& 'calculated' == $question->qtype && preg_match('~^:TOLTYPE:percent~i', $line)) {
                 // Percentage case is handled as relative in Moodle:
                 $question->tolerance[$currentchoice]  /= 100;
                 $question->tolerancetype[$currentchoice] = 1; // Relative
@@ -639,11 +632,11 @@ class qformat_webct extends qformat_default {
                 continue;
             }
 
-            if (isset($question->qtype )&& CALCULATED == $question->qtype && preg_match('~^:ANSTYPE:dec~i', $line)) {
+            if (isset($question->qtype )&& 'calculated' == $question->qtype && preg_match('~^:ANSTYPE:dec~i', $line)) {
                 $question->correctanswerformat[$currentchoice]='1';
                 continue;
             }
-            if (isset($question->qtype )&& CALCULATED == $question->qtype && preg_match('~^:ANSTYPE:sig~i', $line)) {
+            if (isset($question->qtype )&& 'calculated' == $question->qtype && preg_match('~^:ANSTYPE:sig~i', $line)) {
                 $question->correctanswerformat[$currentchoice]='2';
                 continue;
             }

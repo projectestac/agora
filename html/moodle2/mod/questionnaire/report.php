@@ -31,11 +31,11 @@
     $userid = $USER->id;
     switch ($action) {
 		case 'vallasort':
-	    	$sort = 'ascending';
-	    	break;
-		case 'vallarsort':
-	    	$sort = 'descending';
-	    	break;
+            $sort = 'ascending';
+           break;
+        case 'vallarsort':
+            $sort = 'descending';
+           break;
 		default:
 			$sort = 'default';
 	}
@@ -251,6 +251,8 @@
     switch ($action) {
 
     case 'dresp':
+        require_capability('mod/questionnaire:deleteresponses', $context);
+        
         if (empty($questionnaire->survey)) {
             $id = $questionnaire->survey;
             notify ("questionnaire->survey = /$id/");
@@ -299,6 +301,8 @@
         break;
 
     case 'delallresp': // delete all responses
+        require_capability('mod/questionnaire:deleteresponses', $context);
+        
         $select = 'survey_id='.$sid.' AND complete = \'y\'';
         if (!($responses = $DB->get_records_select('questionnaire_response', $select, null, 'id', 'id'))) {
             return;
@@ -355,6 +359,7 @@
         break;
 
     case 'dvresp':
+        require_capability('mod/questionnaire:deleteresponses', $context);
 
         if (empty($questionnaire->survey)) {
             print_error('surveynotexists', 'questionnaire');
@@ -381,9 +386,19 @@
             if ($questionnaire->respondenttype == 'anonymous') {
                     $ruser = '- '.get_string('anonymous', 'questionnaire').' -';
             }
-            redirect($CFG->wwwroot.'/mod/questionnaire/report.php?action=vresp&amp;sid='.$sid.
-                     '&amp;instance='.$instance.'&amp;byresponse=1', get_string('deletedresp', 'questionnaire').
-                     $rid.get_string('by', 'questionnaire').$ruser.'.');
+            $sql = "SELECT R.id, R.survey_id, R.submitted, R.username
+            FROM {questionnaire_response} R
+            WHERE R.survey_id = ? AND
+            R.complete='y'
+            ORDER BY R.id";
+            $resps = $DB->get_records_sql($sql, array($sid)) ;
+            if (empty($resps)) {
+                $redirection = $CFG->wwwroot.'/mod/questionnaire/view.php?id='.$cm->id;
+            } else {
+                $redirection = $CFG->wwwroot.'/mod/questionnaire/report.php?action=vresp&amp;sid='.$sid.'&amp;instance='.$instance.'&amp;byresponse=1';
+            }
+            $deletedstr = get_string('deletedresp', 'questionnaire').$rid.get_string('by', 'questionnaire').$ruser.'.';
+            redirect($redirection, $deletedstr, -1);
         } else {
             error (get_string('couldnotdelresp', 'questionnaire').$rid.get_string('by', 'questionnaire').$ruser.'?',
                    $CFG->wwwroot.'/mod/questionnaire/report.php?action=vresp&amp;sid='.$sid.'&amp;&amp;instance='.
@@ -392,22 +407,13 @@
         break;
 
     case 'dvallresp': // delete all responses in questionnaire (or group)
-
+        require_capability('mod/questionnaire:deleteresponses', $context);
+        
         if (empty($questionnaire->survey)) {
             print_error('surveynotexists', 'questionnaire');
         } else if ($questionnaire->survey->owner != $course->id) {
             print_error('surveyowner', 'questionnaire');
         }
-
-    /// Print the page header
-        $PAGE->set_title(get_string('deleteallresponses', 'questionnaire'));
-        $PAGE->set_heading(format_string($course->fullname));
-        $PAGE->navbar->add('Survey Reports');
-        echo $OUTPUT->header();
-
-        /// print the tabs
-        $SESSION->questionnaire->current_tab = 'deleteall';
-        include('tabs.php');
 
         //available group modes (0 = no groups; 1 = separate groups; 2 = visible groups)
             $groupid = $currentsessiongroupid;
@@ -490,6 +496,8 @@
         break;
 
     case 'dwnpg': // Download page options
+        require_capability('mod/questionnaire:downloadresponses', $context);
+        
         $PAGE->set_title(get_string('questionnairereport', 'questionnaire'));
         $PAGE->set_heading(format_string($course->fullname));
         $PAGE->navbar->add(get_string('questionnairereport', 'questionnaire'));
@@ -514,12 +522,12 @@
                     break;
                 case -2: // all members of any group
                     $groupname = get_string('membersofselectedgroup','group').' '.get_string('allgroups');
-                	break;
+                    break;
                 case -3: // not members of any group
                     $groupname = get_string('groupnonmembers');
-                	break;
+                    break;
                 default: // members of a specific group
-                	$groupname = get_string('membersofselectedgroup','group').' '.get_string('group').' '.$questionnairegroups[$currentgroupid]->name;
+                    $groupname = get_string('membersofselectedgroup','group').' '.get_string('group').' '.$questionnairegroups[$currentgroupid]->name;
             }
         }
         echo "<br /><br />\n";
@@ -546,6 +554,7 @@
         break;
 
     case 'dcsv': // download as text (cvs) format
+        require_capability('mod/questionnaire:downloadresponses', $context);
 
     /// Use the questionnaire name as the file name. Clean it and change any non-filename characters to '_'.
         $name = clean_param($questionnaire->name, PARAM_FILE);
@@ -625,7 +634,7 @@
         }
         echo'<div class = "generalbox">';
         echo (get_string('viewallresponses','questionnaire').'. '.$groupname.'. ');
-    	$strsort = get_string('order_'.$sort, 'questionnaire');
+        $strsort = get_string('order_'.$sort, 'questionnaire');
         echo $strsort;
         echo $OUTPUT->help_icon('orderresponses','questionnaire');
         $ret = $questionnaire->survey_results(1, 1, '', '', '', '', $uid=false, $currentgroupid, $sort);

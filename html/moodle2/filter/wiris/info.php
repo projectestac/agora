@@ -117,19 +117,13 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
 				<?php
 					$test_name = 'WIRIS Filter';
 					$solution_link = 'http://www.wiris.com/es/plugins/docs/moodle/moodle-2.0';
-					try{
-						$filter_rec = $DB->get_record('filter_active', array('filter' => 'filter/wiris'));
-						if ($filter_rec && $filter_rec->active == 1){
-							$report_text = 'ENABLED';
-							$condition = true;
-						}else{
-							$report_text = 'DISABLED';
-							$condition = false;
-						}
-					}catch(Exception $ex){
-						echo 'Impossible to access the database.';
-					}					
-					echo wrs_createTableRow($test_name, $report_text, $solution_link, $condition);
+                    $filter_enabled = filter_is_enabled('filter/wiris');
+                    if ($filter_enabled){
+                        $report_text = 'ENABLED';
+                    }else{
+                        $report_text = 'DISABLED';
+                    }
+					echo wrs_createTableRow($test_name, $report_text, $solution_link, $filter_enabled);
 				?>			
 			</tr>			
 			<tr>			

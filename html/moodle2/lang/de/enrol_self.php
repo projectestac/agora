@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_self', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_self
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,19 +25,37 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cohortnonmemberinfo'] = 'Nur Mitglieder der globalen Gruppe \'{$a}\' können sich selbst in den Kurs einschreiben.';
+$string['cohortonly'] = 'Nur für Mitglieder der globalen Gruppe';
+$string['cohortonly_help'] = 'Die Selbsteinschreibung kann beschränkt werden auf Mitglieder einer globalen Gruppe. Eine Änderung dieser Einstellung hat keine Auswirkung auf bereits erfolgte Einschreibungen.';
 $string['customwelcomemessage'] = 'Begrüßungstext';
-$string['defaultrole'] = 'Standardmäßige Rollenzuweisung';
+$string['customwelcomemessage_help'] = 'Ein individueller Begrüßungstext kann als einfacher Text, Moodle-Auto-Format oder im HTML-Format mit mehreren Sprachen erstellt werden.';
+$string['defaultrole'] = 'Rolle im Kurs';
 $string['defaultrole_desc'] = 'Wählen Sie eine Rolle aus, die Nutzer/innen bei der Selbsteinschreibung zugewiesen werden soll';
 $string['editenrolment'] = 'Einschreibung bearbeiten';
-$string['enrolenddate'] = 'Ende';
+$string['enrolenddate'] = 'Einschreibeende';
 $string['enrolenddate_help'] = 'Wenn diese Option aktiviert ist, können Nutzer/innen sich bis zum angegebenen Zeitpunkt selbst einschreiben.';
 $string['enrolenddaterror'] = 'Das Einschreibungsende muss später als der -beginn sein';
 $string['enrolme'] = 'Einschreiben';
 $string['enrolperiod'] = 'Teilnahmedauer';
 $string['enrolperiod_desc'] = 'Die standardmäßige Teilnahmedauer ist die Zeitdauer, während der die Einschreibung gültig bleibt. Wenn diese Option deaktiviert ist, ist die Teilnahmedauer standardmäßig unbegrenzt.';
 $string['enrolperiod_help'] = 'Die Teilnahmedauer ist die Zeitdauer, während der die Einschreibung gültig bleibt, beginnend mit dem Moment der Nutzereinschreibung. Wenn diese Option deaktiviert ist, ist die Teilnahmedauer standardmäßig unbegrenzt.';
-$string['enrolstartdate'] = 'Beginn';
+$string['enrolstartdate'] = 'Einschreibebeginn';
 $string['enrolstartdate_help'] = 'Wenn diese Option aktiviert ist, können Nutzer/innen sich ab diesem Zeitpunkt selbst in den Kurs einschreiben.';
+$string['expiredaction'] = 'Festlegungen zum Einschreibungszeitraum';
+$string['expiredaction_help'] = 'Legen Sie fest was nach dem Ablauf der Einschreibung in einem Kurs erfolgt. Denken Sie daran, dass bei der Austragung des Nutzers aus dem Kurs einige Daten nicht mehr verfügbar sind.';
+$string['expirymessageenrolledbody'] = 'Guten Tag {$a->user},
+
+Ihre Einschreibung in den Kurs \'{$a->course}\' läuft am {$a->timeend} ab.
+
+Wenn Sie Fragen haben, wenden Sie sich bitte an {$a->enroller}.';
+$string['expirymessageenrolledsubject'] = 'Mitteilung zum Ablauf der Selbsteinschreibung';
+$string['expirymessageenrollerbody'] = 'Die Selbsteinschreibung im Kurs \'{$a->course}\' wird innerhalb der nächsten {$a->threshold} für folgende Nutzer/innen ablaufen:
+
+{$a->users}
+
+Die Einschreibung kann über folgenden Link verlängert werden: {$a->extendurl}';
+$string['expirymessageenrollersubject'] = 'Mitteilung zum Ablauf der Selbsteinschreibung';
 $string['groupkey'] = 'Einschreibeschlüssel für Gruppen';
 $string['groupkey_desc'] = 'Standardmäßig einen Einschreibeschlüssel für Gruppen benutzen';
 $string['groupkey_help'] = 'Ergänzend zur Zugriffssteuerung über einen Einschreibeschlüssel für den Kurs können zusätzliche Einschreibeschlüssel für Gruppen festgelegt werden, die bei der Kurseinschreibung automatisch alle Nutzer/innen einer bestimmten Gruppe zuweisen.
@@ -50,6 +68,7 @@ $string['maxenrolled'] = 'Einschreibungen (max.)';
 $string['maxenrolled_help'] = 'Diese Option legt die Maximalzahl möglicher Nutzer/innen mit Selbsteinschreibung fest. (0= unbeschränkt)';
 $string['maxenrolledreached'] = 'Die maximale Anzahl der erlaubten Nutzer/innen mit Selbsteinschreibung ist bereits erreicht.
 ';
+$string['messageprovider:expiry_notification'] = 'Mitteilungen zum Ablauf der Selbsteinschreibung';
 $string['nopassword'] = 'Kein Einschreibeschlüssel notwendig';
 $string['password'] = 'Einschreibeschlüssel';
 $string['password_help'] = 'Ein Einschreibeschlüssel erlaubt den Kurszugriff ausschließlich für diejenigen, die den Einschreibeschlüssel kennen.
@@ -63,7 +82,7 @@ $string['pluginname'] = 'Selbsteinschreibung';
 $string['pluginname_desc'] = 'Das Plugin \'Selbsteinschreibung\' erlaubt Nutzer/innen zu wählen, in welchen Kursen sie teilnehmen möchten. Die Kurse können mit einem Einschreibeschlüssel gesichert sein. Intern wird die Selbsteinschreibung über das Plugin \'Manuelle Einschreibung\' abgewickelt, welches im Kurs notwendigerweise ebenfalls aktiviert sein muss.';
 $string['requirepassword'] = 'Einschreibeschlüssel notwendig';
 $string['requirepassword_desc'] = 'Die Verwendung eines Einschreibeschlüssel ist notwendig. Mit dieser Einstellung wird in neuen Kursen ein Einschreibeschlüssel gesetzt und in bestehenden Kursen das Löschen des Einschreibeschlüssels verhindert.';
-$string['role'] = 'Zugewiesene Standardrolle';
+$string['role'] = 'Rolle im Kurs';
 $string['self:config'] = 'Selbsteinschreibung konfigurieren';
 $string['self:manage'] = 'Eingeschriebene Nutzer/innen verwalten';
 $string['self:unenrol'] = 'Nutzer/innen aus dem Kurs abmelden';

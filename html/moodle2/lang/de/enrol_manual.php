@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_manual', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_manual', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,7 @@ $string['alterstatus'] = 'Status ändern';
 $string['altertimeend'] = 'Endzeit ändern';
 $string['altertimestart'] = 'Startzeit ändern';
 $string['assignrole'] = 'Kursrolle zuweisen ';
-$string['confirmbulkdeleteenrolment'] = 'Möchten Sie wirklich diese Nutzereinschreibungen löschen?';
+$string['confirmbulkdeleteenrolment'] = 'Möchten Sie diese Einschreibungen wirklich löschen?';
 $string['defaultperiod'] = 'Teilnahmedauer';
 $string['defaultperiod_desc'] = 'Die standardmäßige Teilnahmedauer ist die Zeitdauer, während der die Einschreibung gültig bleibt. Wenn dieser Wert 0 ist, ist die Teilnahmedauer standardmäßig unbegrenzt.';
 $string['defaultperiod_help'] = 'Die standardmäßige Teilnahmedauer ist die Zeitdauer, während der die Einschreibung gültig bleibt, beginnend mit dem Moment der Nutzereinschreibung. Wenn diese Option deaktiviert ist, ist die Teilnahmedauer standardmäßig unbegrenzt.';
@@ -38,11 +38,26 @@ $string['editenrolment'] = 'Einschreibung bearbeiten';
 $string['editselectedusers'] = 'Ausgewählte Nutzereinschreibungen bearbeiten';
 $string['enrolledincourserole'] = 'In \'{$a->course}\' als \'{$a->role}\' eingeschrieben';
 $string['enrolusers'] = 'Nutzer/innen einschreiben';
+$string['expiredaction'] = 'Festlegungen zum Einschreibungszeitraum';
+$string['expiredaction_help'] = 'Legen Sie fest was nach dem Ablauf der Einschreibung in einem Kurs erfolgt. Denken Sie daran, dass bei der Austragung des Nutzers aus dem Kurs einige Daten nicht mehr verfügbar sind.';
+$string['expirymessageenrolledbody'] = 'Guten Tag {$a->user},
+
+Ihre Einschreibung in den Kurs \'{$a->course}\' läuft am {$a->timeend} ab.
+
+Wenn Sie Fragen haben, wenden Sie sich bitte an {$a->enroller}.';
+$string['expirymessageenrolledsubject'] = 'Benachrichtigung zum Teilnahmeende';
+$string['expirymessageenrollerbody'] = 'Die Einschreibung in den Kurs \'{$a->course}\' läuft für folgende Nutzer in den nächsten {$a->threshold} ab:
+
+{$a->users}
+
+Um die Einschreibedauer zu verlängern: {$a->extendurl}';
+$string['expirymessageenrollersubject'] = 'Benachrichtigung zum Teilnahmeende';
 $string['manual:config'] = 'Manuelle Einschreibung verwalten';
 $string['manual:enrol'] = 'Nutzer/innen einschreiben';
 $string['manual:manage'] = 'Nutzereinschreibung verwalten';
 $string['manual:unenrol'] = 'Nutzer/innen aus dem Kurs abmelden';
 $string['manual:unenrolself'] = 'Selbst aus dem Kurs abmelden';
+$string['messageprovider:expiry_notification'] = 'Ablaufbenachrichtigung für manuelle Einschreibung';
 $string['pluginname'] = 'Manuelle Einschreibung';
 $string['pluginname_desc'] = 'Das Plugin \'Manuelle Einschreibung\' erlaubt es, Nutzer/innen manuell in einen Kurs einzuschreiben. Die Einschreibung in einen Kurs kann von den Trainer/innen (oder jemandem mit passenden Rechten) durchgeführt werden. Das Plugin sollte normalerweise aktiviert sein, da andere Einschreibeplugins (z.B. Selbsteinschreibung) darauf zugreifen.';
 $string['status'] = 'Manuelle Einschreibung';

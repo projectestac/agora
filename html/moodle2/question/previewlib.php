@@ -148,7 +148,7 @@ class question_preview_options extends question_display_options {
     protected function get_field_types() {
         return array(
             'behaviour' => PARAM_ALPHA,
-            'maxmark' => PARAM_NUMBER,
+            'maxmark' => PARAM_FLOAT,
             'variant' => PARAM_INT,
             'correctness' => PARAM_BOOL,
             'marks' => PARAM_INT,
@@ -230,6 +230,9 @@ class question_preview_options extends question_display_options {
 function question_preview_question_pluginfile($course, $context, $component,
         $filearea, $qubaid, $slot, $args, $forcedownload, $fileoptions) {
     global $USER, $DB, $CFG;
+
+    list($context, $course, $cm) = get_context_info_array($context->id);
+    require_login($course, false, $cm);
 
     $quba = question_engine::load_questions_usage_by_activity($qubaid);
 

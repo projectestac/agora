@@ -158,8 +158,8 @@ if ($csv && $grandtotal && count($activities)>0) { // Only show CSV if there are
     echo $OUTPUT->header();
 
     if ($svgcleverness) {
-        $PAGE->requires->yui2_lib('event');
         $PAGE->requires->js('/report/progress/textrotate.js');
+        $PAGE->requires->js_function_call('textrotate_init', null, true);
     }
 
     // Handle groups (if enabled)
@@ -326,12 +326,13 @@ foreach($activities as $activity) {
     if ($csv) {
         print $sep.csv_quote(strip_tags($activity->name)).$sep.csv_quote($datetext);
     } else {
+        $formattedactivityname = format_string($activity->name, true, array('context' => $context));
         print '<th scope="col" class="'.$activity->datepassedclass.'">'.
             '<a href="'.$CFG->wwwroot.'/mod/'.$activity->modname.
-            '/view.php?id='.$activity->id.'">'.
+            '/view.php?id='.$activity->id.'" title="' . $formattedactivityname . '">'.
             '<img src="'.$OUTPUT->pix_url('icon', $activity->modname).'" alt="'.
             get_string('modulename',$activity->modname).'" /> <span class="completion-activityname">'.
-            format_string($activity->name).'</span></a>';
+            $formattedactivityname.'</span></a>';
         if ($activity->completionexpected) {
             print '<div class="completion-expected"><span>'.$datetext.'</span></div>';
         }

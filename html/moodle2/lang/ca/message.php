@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'message', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,7 +42,6 @@ $string['blocknoncontacts'] = 'Bloca tots els nous missatges de gent que no és 
 $string['contactlistempty'] = 'La vostra llista de contactes actualment està buida';
 $string['contacts'] = 'Contactes';
 $string['context'] = 'context';
-$string['couldnotfindpreference'] = 'No es poden carregar les preferències {$a}. Està el component i el nom que heu proporcionat al missatge_enviat() trobat en una fila als proporcionadors de missatges ? Els proporcionadors de missatges han d\'aparèixer en una base de dades on els usuaris poden configurar com se\'ls notifica els missatges a rebre.';
 $string['defaultmessageoutputs'] = 'Sortides de missatge per defecte';
 $string['defaults'] = 'Per defecte';
 $string['deletemessagesdays'] = 'Nombre de dies abans que els missatges vells se suprimeixin automàticament';

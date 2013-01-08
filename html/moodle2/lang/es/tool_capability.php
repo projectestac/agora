@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_capability', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'tool_capability', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   tool_capability
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['capabilitylabel'] = 'Permisos:';
+$string['capabilityreport'] = 'Visión general de la capacidad';
 $string['changeoverrides'] = 'Cambiar anulaciones en este contexto';
 $string['changeroles'] = 'Cambiar definiciones de rol';
 $string['forroles'] = 'Para los roles {$a}';

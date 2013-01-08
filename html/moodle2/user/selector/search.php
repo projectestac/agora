@@ -26,7 +26,7 @@
 require_once(dirname(__FILE__) . '/../../config.php');
 require_once($CFG->dirroot . '/user/selector/lib.php');
 
-$PAGE->set_context(get_context_instance(CONTEXT_SYSTEM));
+$PAGE->set_context(context_system::instance());
 $PAGE->set_url('/user/selector/search.php');
 
 // In developer debug mode, when there is a debug=1 in the URL send as plain text
@@ -78,17 +78,23 @@ if (isset($options['file'])) {
 $userselector = new $classname($name, $options);
 
 // Do the search and output the results.
-$users = $userselector->find_users($search);
-foreach ($users as &$group) {
-    foreach ($group as $user) {
+$results = $userselector->find_users($search);
+$json = array();
+foreach ($results as $groupname => $users) {
+    $groupdata = array('name' => $groupname, 'users' => array());
+    foreach ($users as $user) {
         $output = new stdClass;
         $output->id = $user->id;
         $output->name = $userselector->output_user($user);
         if (!empty($user->disabled)) {
             $output->disabled = true;
         }
-        $group[$user->id] = $output;
+        if (!empty($user->infobelow)) {
+            $output->infobelow = $user->infobelow;
+        }
+        $groupdata['users'][] = $output;
     }
+    $json[] = $groupdata;
 }
 
-echo json_encode(array('results' => $users));
+echo json_encode(array('results' => $json));

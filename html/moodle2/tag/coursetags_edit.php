@@ -59,7 +59,7 @@ if ($courseid != SITEID) {
 }
 
 // Permissions
-$sitecontext = get_context_instance(CONTEXT_SYSTEM);
+$sitecontext = context_system::instance();
 require_login($course);
 $canedit = has_capability('moodle/tag:create', $sitecontext);
 
@@ -85,7 +85,7 @@ if ($data = data_submitted()) {
 // The title and breadcrumb
 $title = get_string('edittitle', $tagslang);
 $coursefullname = format_string($course->fullname);
-$courseshortname = format_string($course->shortname, true, array('context' => get_context_instance(CONTEXT_COURSE, $course->id)));
+$courseshortname = format_string($course->shortname, true, array('context' => context_course::instance($course->id)));
 $PAGE->navbar->add($title);
 $PAGE->set_title($title);
 $PAGE->set_heading($course->fullname);
@@ -96,7 +96,7 @@ echo $OUTPUT->header();
     $title = get_string('edittitle', $tagslang);
     echo $OUTPUT->heading($title, 2, 'mdl-align');
 
-    $mytags = coursetag_print_cloud(coursetag_get_tags(0, $USER->id, 'default'), true);
+    $mytags = tag_print_cloud(coursetag_get_tags(0, $USER->id, 'default'), 150, true);
     $outstr = '
         <div class="coursetag_edit_centered">
             <div>
@@ -147,6 +147,7 @@ echo $OUTPUT->header();
         // Print the add and delete form
         coursetag_get_jscript();
         $edittagthisunit = get_string('edittagthisunit', $tagslang);
+        $suggestedtagthisunit = get_string('suggestedtagthisunit', $tagslang);
         $arrowtitle = get_string('arrowtitle', $tagslang);
         $sesskey = sesskey();
         $leftarrow = $OUTPUT->pix_url('t/arrow_left');
@@ -159,12 +160,19 @@ echo $OUTPUT->header();
                 <div class="coursetag_edit_centered">
                     <div class="coursetag_edit_row">
                         <div class="coursetag_edit_left">
-                            $edittagthisunit
+                            <label class="accesshide" for="coursetag_sug_keyword">$suggestedtagthisunit</label>
                         </div>
                         <div class="coursetag_edit_right">
                             <div class="coursetag_form_input1">
-                                <input type="text" name="coursetag_sug_keyword" class="coursetag_form_input1a" disabled="disabled" />
+                                <input type="text" name="coursetag_sug_keyword" id="coursetag_sug_keyword" class="coursetag_form_input1a" disabled="disabled" />
                             </div>
+                        </div>
+                    </div>
+                    <div class="coursetag_edit_row">
+                        <div class="coursetag_edit_left">
+                            <label for="coursetag_new_tag">$edittagthisunit</label>
+                        </div>
+                        <div class="coursetag_edit_right">
                             <div class="coursetag_form_input2">
                                 <input type="text" name="coursetag_new_tag" id="coursetag_new_tag" class="coursetag_form_input2a"
                                     onfocus="ctags_getKeywords()" onkeyup="ctags_getKeywords()" maxlength="50" />
@@ -182,10 +190,12 @@ EOT;
             $outstr .= <<<EOT1
                     <div class="coursetag_edit_row">
                         <div class="coursetag_edit_left">
-                            $editdeletemytag
+                            <label for="del_tag">
+                                $editdeletemytag
+                            </label>
                         </div>
                         <div class="coursetag_edit_right">
-                            <select name="del_tag">
+                            <select id="del_tag" name="del_tag">
                                 $selectoptions
                             </select>
                         </div>

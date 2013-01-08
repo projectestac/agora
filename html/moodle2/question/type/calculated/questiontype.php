@@ -712,8 +712,8 @@ class qtype_calculated extends question_type {
                 get_string('calcmax', 'qtype_calculated'));
         $mform->addGroup($minmaxgrp, 'minmaxgrp',
                 get_string('minmax', 'qtype_calculated'), ' - ', false);
-        $mform->setType("calcmin[$idx]", PARAM_NUMBER);
-        $mform->setType("calcmax[$idx]", PARAM_NUMBER);
+        $mform->setType("calcmin[$idx]", PARAM_FLOAT);
+        $mform->setType("calcmax[$idx]", PARAM_FLOAT);
 
         $precisionoptions = range(0, 10);
         $mform->addElement('select', "calclength[$idx]",
@@ -751,11 +751,13 @@ class qtype_calculated extends question_type {
                     ? 'decimals'
                     : 'significantfigures'), 'qtype_calculated', $i);
             }
-            $menu1 = html_writer::select($lengthoptions, 'calclength[]', $regs[4], null);
+            $menu1 = html_writer::label(get_string('lengthoption', 'qtype_calculated'), 'menucalclength', false, array('class' => 'accesshide'));
+            $menu1 .= html_writer::select($lengthoptions, 'calclength[]', $regs[4], null);
 
             $options = array('uniform' => get_string('uniformbit', 'qtype_calculated'),
                     'loguniform' => get_string('loguniformbit', 'qtype_calculated'));
-            $menu2 = html_writer::select($options, 'calcdistribution[]', $regs[1], null);
+            $menu2 = html_writer::label(get_string('distributionoption', 'qtype_calculated'), 'menucalcdistribution', false, array('class' => 'accesshide'));
+            $menu2 .= html_writer::select($options, 'calcdistribution[]', $regs[1], null);
             return '<input type="submit" onclick="'
                 . "getElementById('addform').regenerateddefid.value='$defid'; return true;"
                 .'" value="'. get_string('generatevalue', 'qtype_calculated') . '"/><br/>'

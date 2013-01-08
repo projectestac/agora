@@ -41,7 +41,7 @@ $action  = required_param('action', PARAM_ALPHA);
 $draftid = required_param('itemid', PARAM_INT);
 $filepath = optional_param('filepath', '/', PARAM_PATH);
 
-$user_context = get_context_instance(CONTEXT_USER, $USER->id);
+$user_context = context_user::instance($USER->id);
 
 echo $OUTPUT->header(); // send headers
 
@@ -309,7 +309,7 @@ switch ($action) {
             if (isset($source->original)) {
                 $reffiles = $fs->search_references($source->original);
                 foreach ($reffiles as $reffile) {
-                    $refcontext = get_context_instance_by_id($reffile->get_contextid());
+                    $refcontext = context::instance_by_id($reffile->get_contextid());
                     $fileinfo = $browser->get_file_info($refcontext, $reffile->get_component(), $reffile->get_filearea(), $reffile->get_itemid(), $reffile->get_filepath(), $reffile->get_filename());
                     if (empty($fileinfo)) {
                         $return['references'][] = get_string('undisclosedreference', 'repository');

@@ -54,11 +54,11 @@ $course = $DB->get_record('course', array('id' => $courseid), '*', MUST_EXIST);
 if (in_array($class, array('resource'))) {
     $cm = get_coursemodule_from_id(null, $id, $course->id, false, MUST_EXIST);
     require_login($course, false, $cm);
-    $modcontext = get_context_instance(CONTEXT_MODULE, $cm->id);
+    $modcontext = context_module::instance($cm->id);
 } else {
     require_login($course);
 }
-$coursecontext = get_context_instance(CONTEXT_COURSE, $course->id);
+$coursecontext = context_course::instance($course->id);
 require_sesskey();
 
 echo $OUTPUT->header(); // send headers
@@ -88,20 +88,15 @@ switch($requestmethod) {
                         break;
 
                     case 'move':
-                        require_capability('moodle/course:update', $coursecontext);
+                        require_capability('moodle/course:movesections', $coursecontext);
                         move_section_to($course, $id, $value);
                         // See if format wants to do something about it
-                        $libfile = $CFG->dirroot.'/course/format/'.$course->format.'/lib.php';
-                        $functionname = 'callback_'.$course->format.'_ajax_section_move';
-                        if (!function_exists($functionname) && file_exists($libfile)) {
-                            require_once $libfile;
-                        }
-                        if (function_exists($functionname)) {
-                            echo json_encode($functionname($course));
+                        $response = course_get_format($course)->ajax_section_move();
+                        if ($response !== null) {
+                            echo json_encode($response);
                         }
                         break;
                 }
-                rebuild_course_cache($course->id);
                 break;
 
             case 'resource':
@@ -121,6 +116,7 @@ switch($requestmethod) {
                         $cm->indent = $value;
                         if ($cm->indent >= 0) {
                             $DB->update_record('course_modules', $cm);
+                            rebuild_course_cache($cm->course);
                         }
                         break;
 
@@ -163,6 +159,7 @@ switch($requestmethod) {
 
                         if (!empty($module->name)) {
                             $DB->update_record($cm->modname, $module);
+                            rebuild_course_cache($cm->course);
                         } else {
                             $module->name = $cm->name;
                         }
@@ -173,7 +170,6 @@ switch($requestmethod) {
                         echo json_encode(array('instancename' => format_string($module->name, true,  $stringoptions)));
                         break;
                 }
-                rebuild_course_cache($course->id);
                 break;
 
             case 'course':
@@ -225,8 +221,6 @@ switch($requestmethod) {
                 $eventdata->courseid   = $course->id;
                 $eventdata->userid     = $USER->id;
                 events_trigger('mod_deleted', $eventdata);
-
-                rebuild_course_cache($course->id);
 
                 add_to_log($courseid, "course", "delete mod",
                            "view.php?id=$courseid",

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -36,7 +36,8 @@ $string['configenrolplugins'] = 'Aktivieren Sie bitte alle notwendigen Plugins u
 $string['custominstancename'] = 'Angepasster Instanzenname';
 $string['defaultenrol'] = 'Plugin zu neuen Kursen hinzufügen';
 $string['defaultenrol_desc'] = 'Es ist möglich, dieses Plugin standardmäßig zu allen neuen Kursen hinzuzufügen.';
-$string['deleteinstanceconfirm'] = 'Möchten Sie wirklich das Einschreibeplugin \'{$a->name}\' mit {$a->users} Teilnehmereinschreibungen löschen?';
+$string['deleteinstanceconfirm'] = 'Möchten Sie die Einschreibemethode \'{$a->name}\' und alle verbundenen Daten wirklich aus der Datenbank löschen? Alle {$a->users} Eingeschreibungen werden ausgetragen und deren Bewertungen, Mitgliedschaft in Gruppen, Forumsabonnements sowie kursbezogene Daten gelöscht.';
+$string['deleteinstancenousersconfirm'] = 'Möchten Sie die Einschreibemethode \'{$a->name}\' wirklich löschen?';
 $string['durationdays'] = '{$a} Tage';
 $string['enrol'] = 'Einschreiben';
 $string['enrolcandidates'] = 'Nichteingeschriebene Nutzer/innen';
@@ -54,6 +55,7 @@ $string['enrolmentoptions'] = 'Einschreibeoptionen';
 $string['enrolments'] = 'Einschreibung';
 $string['enrolnotpermitted'] = 'Sie haben keine Berechtigung oder Sie dürfen niemanden in diesem Kurs einschreiben.';
 $string['enrolperiod'] = 'Teilnahmedauer';
+$string['enroltimecreated'] = 'Einschreibung erstellt';
 $string['enroltimeend'] = 'Einschreibeende';
 $string['enroltimestart'] = 'Einschreibebeginn';
 $string['enrolusage'] = 'Einschreibungen';
@@ -63,7 +65,15 @@ $string['errajaxsearch'] = 'Fehler bei der Nutzersuche';
 $string['erroreditenrolment'] = 'Bei der Bearbeitung der Nutzereinschreibung ist ein Fehler aufgetreten';
 $string['errorenrolcohort'] = 'Fehler bei der Einschreibesynchronisation von globalen Gruppen in diesem Kurs';
 $string['errorenrolcohortusers'] = 'Fehler bei der Einschreibung von globalen Gruppen in diesem Kurs';
+$string['errorthresholdlow'] = 'Die Benachrichtigung muss mindestens einen Tag vor Teilnahmeende erfolgen';
 $string['errorwithbulkoperation'] = 'Fehler bei der Nutzerverarbeitung (Bulk)';
+$string['expirynotify'] = 'Benachrichtigung bevor Teilnahme endet';
+$string['expirynotifyall'] = 'Einschreibender und eingeschriebene Nutzer/innen';
+$string['expirynotifyenroller'] = 'Nur Einschreibender';
+$string['expirynotify_help'] = 'Die Einstellung legt fest, ob vor dem Ablauf der Teilnahmedauer eine Benachrichtigung erfolgen soll.';
+$string['expirynotifyhour'] = 'Stunde zum Versand der Ablaufbenachrichtigung';
+$string['expirythreshold'] = 'Benachrichtigungsgrenze';
+$string['expirythreshold_help'] = 'Wie lange vor dem Ablauf sollen Nutzer/innen benachrichtigt werden?';
 $string['extremovedaction'] = 'Externer Abmeldevorgang';
 $string['extremovedaction_help'] = 'Wählen Sie eine auszuführende Aktion, wenn eine Nutzereinschreibung von einer externen Einschreibequelle erlischt. Bitte beachten Sie, dass einige Nutzerdaten und -einstellungen bei der Kursabmeldung aus dem Kurs gelöscht werden.';
 $string['extremovedkeep'] = 'Nutzer/in eingeschrieben lassen';
@@ -86,6 +96,7 @@ $string['participationactive'] = 'Aktiv';
 $string['participationstatus'] = 'Status';
 $string['participationsuspended'] = 'beurlaubt';
 $string['periodend'] = 'bis {$a}';
+$string['periodnone'] = 'eingeschrieben {$a}';
 $string['periodstart'] = 'von {$a}';
 $string['periodstartend'] = 'von {$a->start} bis {$a->end}';
 $string['recovergrades'] = 'Alte Nutzerbewertungen falls möglich wiederherstellen';
@@ -100,11 +111,14 @@ $string['totalotherusers'] = '{$a} weitere Nutzer/innen';
 $string['unassignnotpermitted'] = 'Sie haben keine Berechtigung, um Rollenzuweisungen in diesem Kurs zu ändern';
 $string['unenrol'] = 'Abmelden';
 $string['unenrolconfirm'] = 'Möchten Sie wirklich "{$a->user}" aus dem Kurs "{$a->course}" abmelden?';
-$string['unenrolme'] = 'Abmelden aus {$a}';
+$string['unenrolme'] = 'Abmelden aus \'{$a}\'';
 $string['unenrolnotpermitted'] = 'Sie haben keine Berechtigung oder Sie dürfen diese/n Nutzer/in nicht aus diesem Kurs abmelden';
 $string['unenrolroleusers'] = 'Nutzer/innen abmelden';
-$string['uninstallconfirm'] = 'Sie sind dabei, das Einschreibeplugin \'{$a}\' vollständig zu löschen. Möchten Sie wirklich alle mit diesem Einschreibetypen verbundenen Daten aus der Datenbank löschen?';
+$string['uninstallconfirm'] = 'Möchten Sie die Einschreibemethode und alle verbundenen Daten wirklich aus der Datenbank löschen? Dadurch werden u.a. Bewertungen, Mitgliedschaft in Gruppen, Forumsabonnements sowie kursbezogene Daten gelöscht.';
+$string['uninstalldelete'] = 'Alle Einschreibungen löschen und deinstallieren';
 $string['uninstalldeletefiles'] = 'Alle dem Einschreibeplugin \'{$a->plugin}\' zugeordneten Daten wurden vollständig aus der Datenbank gelöscht. Um das Löschen zu beenden (und die automatische Neuinstallation des Plugins zu unterbinden) müssen Sie noch das Verzeichnis \'{$a->directory}\' von Ihrem Server löschen.';
+$string['uninstallmigrate'] = 'Deinstallieren, aber Einschreibungen erhalten';
+$string['uninstallmigrating'] = '"{$a}" Einschreibungen werden übertragen';
 $string['unknowajaxaction'] = 'Unbekannter Funktionsaufruf';
 $string['unlimitedduration'] = 'Unbegrenzt';
 $string['usersearch'] = 'Suchen';

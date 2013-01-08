@@ -19,7 +19,7 @@
  * @author     Mark Wiesemann <wiesemann@php.net>
  * @copyright  2005-2006 The PHP Group
  * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
- * @version    CVS: $Id: Tableless.php,v 1.6 2010/12/14 17:35:58 moodlerobot Exp $
+ * @version    CVS: $Id$
  * @link       http://pear.php.net/package/HTML_QuickForm_Renderer_Tableless
  */
 

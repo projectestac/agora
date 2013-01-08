@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_tag_flickr', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_tag_flickr', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   block_tag_flickr
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,3 +39,4 @@ $string['numberofphotos'] = 'Número de fotos';
 $string['pluginname'] = 'Flickr';
 $string['relevance'] = 'Relevancia';
 $string['sortby'] = 'Ordenar por';
+$string['tag_flickr:addinstance'] = 'Añadir un nuevo bloque de flickr';

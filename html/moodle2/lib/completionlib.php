@@ -31,10 +31,10 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Include the required completion libraries
  */
-require_once $CFG->libdir.'/completion/completion_aggregation.php';
-require_once $CFG->libdir.'/completion/completion_criteria.php';
-require_once $CFG->libdir.'/completion/completion_completion.php';
-require_once $CFG->libdir.'/completion/completion_criteria_completion.php';
+require_once $CFG->dirroot.'/completion/completion_aggregation.php';
+require_once $CFG->dirroot.'/completion/criteria/completion_criteria.php';
+require_once $CFG->dirroot.'/completion/completion_completion.php';
+require_once $CFG->dirroot.'/completion/completion_criteria_completion.php';
 
 
 /**
@@ -259,9 +259,9 @@ class completion_info {
         global $PAGE, $OUTPUT;
         $result = '';
         if ($this->is_enabled() && !$PAGE->user_is_editing() && isloggedin() && !isguestuser()) {
-            $result .= '<span id = "completionprogressid" class="completionprogress">'.get_string('yourprogress','completion').' ';
-            $result .= $OUTPUT->help_icon('completionicons', 'completion');
-            $result .= '</span>';
+            $result .= html_writer::tag('div', get_string('yourprogress','completion') .
+                    $OUTPUT->help_icon('completionicons', 'completion'), array('id' => 'completionprogressid',
+                    'class' => 'completionprogress'));
         }
         return $result;
     }
@@ -616,8 +616,8 @@ class completion_info {
      * @return void
      */
     public function set_module_viewed($cm, $userid=0) {
-        global $PAGE, $UNITTEST;
-        if ($PAGE->headerprinted && empty($UNITTEST->running)) {
+        global $PAGE;
+        if ($PAGE->headerprinted) {
             debugging('set_module_viewed must be called before header is printed',
                     DEBUG_DEVELOPER);
         }
@@ -971,8 +971,8 @@ class completion_info {
 
         if ($data->userid == $USER->id) {
             $SESSION->completioncache[$cm->course][$cm->id] = $data;
-            $reset = 'reset';
-            get_fast_modinfo($reset);
+            // reset modinfo for user (no need to call rebuild_course_cache())
+            get_fast_modinfo($cm->course, 0, true);
         }
     }
 
@@ -1069,7 +1069,8 @@ class completion_info {
         global $DB;
 
         list($enrolledsql, $params) = get_enrolled_sql(
-                context_course::instance($this->course->id), '', $groupid, true);
+                context_course::instance($this->course->id),
+                'moodle/course:isincompletionreports', $groupid, true);
 
         $sql = 'SELECT u.id, u.firstname, u.lastname, u.idnumber';
         if ($extracontext) {

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_myprofile', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_myprofile', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   block_myprofile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,5 +44,7 @@ $string['display_picture'] = 'Foto anzeigen';
 $string['display_skype'] = 'Skype anzeigen';
 $string['display_un'] = 'Name anzeigen';
 $string['display_yahoo'] = 'Yahoo anzeigen';
-$string['myprofile_settings'] = 'Sichtbare Profileinstellungen';
-$string['pluginname'] = 'Persönliches Profil';
+$string['myprofile:addinstance'] = 'Neuen Block \'Eigenes Profil\' hinzufügen';
+$string['myprofile:myaddinstance'] = 'Neuen Block \'Eigenes Profil\' für \'Meine Startseite\' hinzufügen';
+$string['myprofile_settings'] = 'Sichtbares Profil';
+$string['pluginname'] = 'Eigenes Profil';

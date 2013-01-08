@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'quiz', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -427,7 +427,7 @@ $string['matchanswer'] = 'Respuesta emparejada';
 $string['matchanswerno'] = 'Respuesta emparejada {$a}';
 $string['max'] = 'Máx';
 $string['messageprovider:confirmation'] = 'Confirmación de su envío del cuestionario';
-$string['messageprovider:submission'] = 'Notificación del envío del custionario';
+$string['messageprovider:submission'] = 'Notificación del envío de cuestionarios';
 $string['min'] = 'Mín';
 $string['minutes'] = 'Minutos';
 $string['missingcorrectanswer'] = 'Debe especificar la respuesta correcta';
@@ -441,6 +441,8 @@ $string['multipleanswers'] = 'Seleccione  al menos una respuesta.';
 $string['multiplier'] = 'Multiplicador';
 $string['name'] = 'Nombre';
 $string['navmethod'] = 'Método de navegación';
+$string['navmethod_help'] = 'Cuando la navegación secuencial está activada el estudiante debe avanzar a través del cuestionario en un orden determinado y no puede volver a las páginas anteriores ni saltar hacia delante.';
+$string['navmethod_seq'] = 'Secuencial';
 $string['navnojswarning'] = 'Advertencia: estos vínculos no guardarán sus respuestas. Utilice el botón siguiente en la zona inferior de la página.';
 $string['neverallononepage'] = 'Nunca, todas las preguntas en una página';
 $string['newattemptfail'] = 'Error: No se ha podido comenzar un nuevo intento en el cuestionario';
@@ -481,6 +483,7 @@ $string['notavailabletostudents'] = 'Nota: Sus estudiantes no pueden acceder en 
 $string['notenoughsubquestions'] = 'No se han definido suficientes subpreguntas.<br /> ¿Quiere regresar y arreglar esta pregunta?';
 $string['notimedependentitems'] = 'Actualmente el módulo Cuestionario no permite ítems de tiempo limitado. Como alternativa, fije un tiempo límite para todo el cuestionario. ¿Desea elegir un ítem diferente o usar el actual?';
 $string['notyetgraded'] = 'Sin calificar aún';
+$string['notyetviewed'] = 'Aún no se ha visto';
 $string['notyourattempt'] = '¡Éste no es su intento!';
 $string['noview'] = 'Al usuario identificado no se le permite ver este cuestionario.';
 $string['numattempts'] = '{$a->studentnum}
@@ -492,6 +495,7 @@ $string['numerical'] = 'Numérico';
 $string['numquestionsx'] = 'Preguntas:{$a}';
 $string['onlyteachersexport'] = 'Sólo los profesores pueden exportar preguntas';
 $string['onlyteachersimport'] = 'Sólo los profesores con permiso de edición pueden importar preguntas';
+$string['onthispage'] = 'Esta página';
 $string['open'] = 'Sin contestar';
 $string['openclosedatesupdated'] = 'Actualizadas fechas de apertura y cierre del cuestionario';
 $string['optional'] = 'opcional';
@@ -575,6 +579,7 @@ $string['questiontext'] = 'Texto de la pregunta';
 $string['questiontextisempty'] = '[Texto de pregunta vacía]';
 $string['questiontype'] = 'Tipo de pregunta {$a}';
 $string['questiontypesetupoptions'] = 'Ajuste de opciones para los tipos de pregunta:';
+$string['quiz:addinstance'] = 'Añadir un nuevo cuestionario';
 $string['quiz:attempt'] = 'Intentar resolver cuestionarios';
 $string['quizavailable'] = 'El cuestionario está disponible hasta el {$a}';
 $string['quizclose'] = 'Cerrar cuestionario';

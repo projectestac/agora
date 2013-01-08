@@ -165,20 +165,28 @@ class core_course_external_testcase extends externallib_advanced_testcase {
         global $DB;
 
         $this->resetAfterTest(true);
+
+        $generatedcats = array();
         $category1data['idnumber'] = 'idnumbercat1';
         $category1data['name'] = 'Category 1 for PHPunit test';
         $category1data['description'] = 'Category 1 description';
         $category1data['descriptionformat'] = FORMAT_MOODLE;
         $category1  = self::getDataGenerator()->create_category($category1data);
+        $generatedcats[$category1->id] = $category1;
         $category2  = self::getDataGenerator()->create_category(
                 array('parent' => $category1->id));
+        $generatedcats[$category2->id] = $category2;
         $category6  = self::getDataGenerator()->create_category(
                 array('parent' => $category1->id, 'visible' => 0));
+        $generatedcats[$category6->id] = $category6;
         $category3  = self::getDataGenerator()->create_category();
+        $generatedcats[$category3->id] = $category3;
         $category4  = self::getDataGenerator()->create_category(
                 array('parent' => $category3->id));
+        $generatedcats[$category4->id] = $category4;
         $category5  = self::getDataGenerator()->create_category(
                 array('parent' => $category4->id));
+        $generatedcats[$category5->id] = $category5;
 
         // Set the required capabilities by the external function.
         $context = context_system::instance();
@@ -193,11 +201,13 @@ class core_course_external_testcase extends externallib_advanced_testcase {
         $this->assertEquals(2, count($categories));
 
         // Check the return values
-        $this->assertEquals($categories[0]['id'], $category1->id);
-        $this->assertEquals($categories[0]['idnumber'], $category1->idnumber);
-        $this->assertEquals($categories[0]['name'], $category1->name);
-        $this->assertEquals($categories[0]['description'], $category1->description);
-        $this->assertEquals($categories[0]['descriptionformat'], FORMAT_HTML);
+        foreach ($categories as $category) {
+            $generatedcat = $generatedcats[$category['id']];
+            $this->assertEquals($category['idnumber'], $generatedcat->idnumber);
+            $this->assertEquals($category['name'], $generatedcat->name);
+            $this->assertEquals($category['description'], $generatedcat->description);
+            $this->assertEquals($category['descriptionformat'], FORMAT_HTML);
+        }
 
         // Check different params.
         $categories = core_course_external::get_categories(array(
@@ -329,6 +339,17 @@ class core_course_external_testcase extends externallib_advanced_testcase {
         $course2['completionnotify'] = 1;
         $course2['lang'] = 'en';
         $course2['forcetheme'] = 'base';
+        $course3['fullname'] = 'Test course 3';
+        $course3['shortname'] = 'Testcourse3';
+        $course3['categoryid'] = $category->id;
+        $course3['format'] = 'topics';
+        $course3options = array('numsections' => 8,
+            'hiddensections' => 1,
+            'coursedisplay' => 1);
+        $course3['courseformatoptions'] = array();
+        foreach ($course3options as $key => $value) {
+            $course3['courseformatoptions'][] = array('name' => $key, 'value' => $value);
+        }
         $courses = array($course1, $course2);
 
         $createdcourses = core_course_external::create_courses($courses);
@@ -338,58 +359,64 @@ class core_course_external_testcase extends externallib_advanced_testcase {
 
         // Check that the courses were correctly created.
         foreach ($createdcourses as $createdcourse) {
-            $dbcourse = $DB->get_record('course', array('id' => $createdcourse['id']));
+            $courseinfo = course_get_format($createdcourse['id'])->get_course();
 
             if ($createdcourse['shortname'] == $course2['shortname']) {
-                $this->assertEquals($dbcourse->fullname, $course2['fullname']);
-                $this->assertEquals($dbcourse->shortname, $course2['shortname']);
-                $this->assertEquals($dbcourse->category, $course2['categoryid']);
-                $this->assertEquals($dbcourse->idnumber, $course2['idnumber']);
-                $this->assertEquals($dbcourse->summary, $course2['summary']);
-                $this->assertEquals($dbcourse->summaryformat, $course2['summaryformat']);
-                $this->assertEquals($dbcourse->format, $course2['format']);
-                $this->assertEquals($dbcourse->showgrades, $course2['showgrades']);
-                $this->assertEquals($dbcourse->newsitems, $course2['newsitems']);
-                $this->assertEquals($dbcourse->startdate, $course2['startdate']);
-                $this->assertEquals($dbcourse->numsections, $course2['numsections']);
-                $this->assertEquals($dbcourse->maxbytes, $course2['maxbytes']);
-                $this->assertEquals($dbcourse->showreports, $course2['showreports']);
-                $this->assertEquals($dbcourse->visible, $course2['visible']);
-                $this->assertEquals($dbcourse->hiddensections, $course2['hiddensections']);
-                $this->assertEquals($dbcourse->groupmode, $course2['groupmode']);
-                $this->assertEquals($dbcourse->groupmodeforce, $course2['groupmodeforce']);
-                $this->assertEquals($dbcourse->defaultgroupingid, $course2['defaultgroupingid']);
-                $this->assertEquals($dbcourse->completionnotify, $course2['completionnotify']);
-                $this->assertEquals($dbcourse->lang, $course2['lang']);
+                $this->assertEquals($courseinfo->fullname, $course2['fullname']);
+                $this->assertEquals($courseinfo->shortname, $course2['shortname']);
+                $this->assertEquals($courseinfo->category, $course2['categoryid']);
+                $this->assertEquals($courseinfo->idnumber, $course2['idnumber']);
+                $this->assertEquals($courseinfo->summary, $course2['summary']);
+                $this->assertEquals($courseinfo->summaryformat, $course2['summaryformat']);
+                $this->assertEquals($courseinfo->format, $course2['format']);
+                $this->assertEquals($courseinfo->showgrades, $course2['showgrades']);
+                $this->assertEquals($courseinfo->newsitems, $course2['newsitems']);
+                $this->assertEquals($courseinfo->startdate, $course2['startdate']);
+                $this->assertEquals($courseinfo->numsections, $course2['numsections']);
+                $this->assertEquals($courseinfo->maxbytes, $course2['maxbytes']);
+                $this->assertEquals($courseinfo->showreports, $course2['showreports']);
+                $this->assertEquals($courseinfo->visible, $course2['visible']);
+                $this->assertEquals($courseinfo->hiddensections, $course2['hiddensections']);
+                $this->assertEquals($courseinfo->groupmode, $course2['groupmode']);
+                $this->assertEquals($courseinfo->groupmodeforce, $course2['groupmodeforce']);
+                $this->assertEquals($courseinfo->defaultgroupingid, $course2['defaultgroupingid']);
+                $this->assertEquals($courseinfo->completionnotify, $course2['completionnotify']);
+                $this->assertEquals($courseinfo->lang, $course2['lang']);
 
                 if (!empty($CFG->allowcoursethemes)) {
-                    $this->assertEquals($dbcourse->theme, $course2['forcetheme']);
+                    $this->assertEquals($courseinfo->theme, $course2['forcetheme']);
                 }
 
                 if (completion_info::is_enabled_for_site()) {
-                    $this->assertEquals($dbcourse->enablecompletion, $course2['enabledcompletion']);
-                    $this->assertEquals($dbcourse->completionstartonenrol, $course2['completionstartonenrol']);
+                    $this->assertEquals($courseinfo->enablecompletion, $course2['enabledcompletion']);
+                    $this->assertEquals($courseinfo->completionstartonenrol, $course2['completionstartonenrol']);
                 } else {
-                    $this->assertEquals($dbcourse->enablecompletion, 0);
-                    $this->assertEquals($dbcourse->completionstartonenrol, 0);
+                    $this->assertEquals($courseinfo->enablecompletion, 0);
+                    $this->assertEquals($courseinfo->completionstartonenrol, 0);
                 }
 
             } else if ($createdcourse['shortname'] == $course1['shortname']) {
                 $courseconfig = get_config('moodlecourse');
-                $this->assertEquals($dbcourse->fullname, $course1['fullname']);
-                $this->assertEquals($dbcourse->shortname, $course1['shortname']);
-                $this->assertEquals($dbcourse->category, $course1['categoryid']);
-                $this->assertEquals($dbcourse->summaryformat, FORMAT_HTML);
-                $this->assertEquals($dbcourse->format, $courseconfig->format);
-                $this->assertEquals($dbcourse->showgrades, $courseconfig->showgrades);
-                $this->assertEquals($dbcourse->newsitems, $courseconfig->newsitems);
-                $this->assertEquals($dbcourse->numsections, $courseconfig->numsections);
-                $this->assertEquals($dbcourse->maxbytes, $courseconfig->maxbytes);
-                $this->assertEquals($dbcourse->showreports, $courseconfig->showreports);
-                $this->assertEquals($dbcourse->hiddensections, $courseconfig->hiddensections);
-                $this->assertEquals($dbcourse->groupmode, $courseconfig->groupmode);
-                $this->assertEquals($dbcourse->groupmodeforce, $courseconfig->groupmodeforce);
-                $this->assertEquals($dbcourse->defaultgroupingid, 0);
+                $this->assertEquals($courseinfo->fullname, $course1['fullname']);
+                $this->assertEquals($courseinfo->shortname, $course1['shortname']);
+                $this->assertEquals($courseinfo->category, $course1['categoryid']);
+                $this->assertEquals($courseinfo->summaryformat, FORMAT_HTML);
+                $this->assertEquals($courseinfo->format, $courseconfig->format);
+                $this->assertEquals($courseinfo->showgrades, $courseconfig->showgrades);
+                $this->assertEquals($courseinfo->newsitems, $courseconfig->newsitems);
+                $this->assertEquals($courseinfo->maxbytes, $courseconfig->maxbytes);
+                $this->assertEquals($courseinfo->showreports, $courseconfig->showreports);
+                $this->assertEquals($courseinfo->groupmode, $courseconfig->groupmode);
+                $this->assertEquals($courseinfo->groupmodeforce, $courseconfig->groupmodeforce);
+                $this->assertEquals($courseinfo->defaultgroupingid, 0);
+            } else if ($createdcourse['shortname'] == $course3['shortname']) {
+                $this->assertEquals($courseinfo->fullname, $course3['fullname']);
+                $this->assertEquals($courseinfo->shortname, $course3['shortname']);
+                $this->assertEquals($courseinfo->category, $course3['categoryid']);
+                $this->assertEquals($courseinfo->format, $course3['format']);
+                $this->assertEquals($courseinfo->hiddensections, $course3options['hiddensections']);
+                $this->assertEquals($courseinfo->numsections, $course3options['numsections']);
+                $this->assertEquals($courseinfo->coursedisplay, $course3options['coursedisplay']);
             } else {
                 throw moodle_exception('Unexpected shortname');
             }
@@ -440,13 +467,17 @@ class core_course_external_testcase extends externallib_advanced_testcase {
 
         $this->resetAfterTest(true);
 
+        $generatedcourses = array();
         $coursedata['idnumber'] = 'idnumbercourse1';
         $coursedata['fullname'] = 'Course 1 for PHPunit test';
         $coursedata['summary'] = 'Course 1 description';
         $coursedata['summaryformat'] = FORMAT_MOODLE;
         $course1  = self::getDataGenerator()->create_course($coursedata);
+        $generatedcourses[$course1->id] = $course1;
         $course2  = self::getDataGenerator()->create_course();
-        $course3  = self::getDataGenerator()->create_course();
+        $generatedcourses[$course2->id] = $course2;
+        $course3  = self::getDataGenerator()->create_course(array('format' => 'topics'));
+        $generatedcourses[$course3->id] = $course3;
 
         // Set the required capabilities by the external function.
         $context = context_system::instance();
@@ -464,33 +495,40 @@ class core_course_external_testcase extends externallib_advanced_testcase {
         // Check we retrieve the good total number of categories.
         $this->assertEquals(2, count($courses));
 
-        // Check the return values for course 1
-        $dbcourse = $DB->get_record('course', array('id' => $course1->id));
-        $this->assertEquals($courses[0]['id'], $dbcourse->id);
-        $this->assertEquals($courses[0]['idnumber'], $coursedata['idnumber']);
-        $this->assertEquals($courses[0]['fullname'], $coursedata['fullname']);
-        $this->assertEquals($courses[0]['summary'], $coursedata['summary']);
-        $this->assertEquals($courses[0]['summaryformat'], FORMAT_HTML);
-        $this->assertEquals($courses[0]['shortname'], $dbcourse->shortname);
-        $this->assertEquals($courses[0]['categoryid'], $dbcourse->category);
-        $this->assertEquals($courses[0]['format'], $dbcourse->format);
-        $this->assertEquals($courses[0]['showgrades'], $dbcourse->showgrades);
-        $this->assertEquals($courses[0]['newsitems'], $dbcourse->newsitems);
-        $this->assertEquals($courses[0]['startdate'], $dbcourse->startdate);
-        $this->assertEquals($courses[0]['numsections'], $dbcourse->numsections);
-        $this->assertEquals($courses[0]['maxbytes'], $dbcourse->maxbytes);
-        $this->assertEquals($courses[0]['showreports'], $dbcourse->showreports);
-        $this->assertEquals($courses[0]['visible'], $dbcourse->visible);
-        $this->assertEquals($courses[0]['hiddensections'], $dbcourse->hiddensections);
-        $this->assertEquals($courses[0]['groupmode'], $dbcourse->groupmode);
-        $this->assertEquals($courses[0]['groupmodeforce'], $dbcourse->groupmodeforce);
-        $this->assertEquals($courses[0]['defaultgroupingid'], $dbcourse->defaultgroupingid);
-        $this->assertEquals($courses[0]['completionnotify'], $dbcourse->completionnotify);
-        $this->assertEquals($courses[0]['lang'], $dbcourse->lang);
-        $this->assertEquals($courses[0]['forcetheme'], $dbcourse->theme);
-        $this->assertEquals($courses[0]['completionstartonenrol'], $dbcourse->completionstartonenrol);
-        $this->assertEquals($courses[0]['enablecompletion'], $dbcourse->enablecompletion);
-        $this->assertEquals($courses[0]['completionstartonenrol'], $dbcourse->completionstartonenrol);
+        foreach ($courses as $course) {
+            $dbcourse = $generatedcourses[$course['id']];
+            $this->assertEquals($course['idnumber'], $dbcourse->idnumber);
+            $this->assertEquals($course['fullname'], $dbcourse->fullname);
+            $this->assertEquals($course['summary'], $dbcourse->summary);
+            $this->assertEquals($course['summaryformat'], FORMAT_HTML);
+            $this->assertEquals($course['shortname'], $dbcourse->shortname);
+            $this->assertEquals($course['categoryid'], $dbcourse->category);
+            $this->assertEquals($course['format'], $dbcourse->format);
+            $this->assertEquals($course['showgrades'], $dbcourse->showgrades);
+            $this->assertEquals($course['newsitems'], $dbcourse->newsitems);
+            $this->assertEquals($course['startdate'], $dbcourse->startdate);
+            $this->assertEquals($course['numsections'], $dbcourse->numsections);
+            $this->assertEquals($course['maxbytes'], $dbcourse->maxbytes);
+            $this->assertEquals($course['showreports'], $dbcourse->showreports);
+            $this->assertEquals($course['visible'], $dbcourse->visible);
+            $this->assertEquals($course['hiddensections'], $dbcourse->hiddensections);
+            $this->assertEquals($course['groupmode'], $dbcourse->groupmode);
+            $this->assertEquals($course['groupmodeforce'], $dbcourse->groupmodeforce);
+            $this->assertEquals($course['defaultgroupingid'], $dbcourse->defaultgroupingid);
+            $this->assertEquals($course['completionnotify'], $dbcourse->completionnotify);
+            $this->assertEquals($course['lang'], $dbcourse->lang);
+            $this->assertEquals($course['forcetheme'], $dbcourse->theme);
+            $this->assertEquals($course['completionstartonenrol'], $dbcourse->completionstartonenrol);
+            $this->assertEquals($course['enablecompletion'], $dbcourse->enablecompletion);
+            $this->assertEquals($course['completionstartonenrol'], $dbcourse->completionstartonenrol);
+            if ($dbcourse->format === 'topics') {
+                $this->assertEquals($course['courseformatoptions'], array(
+                    array('name' => 'numsections', 'value' => $dbcourse->numsections),
+                    array('name' => 'hiddensections', 'value' => $dbcourse->hiddensections),
+                    array('name' => 'coursedisplay', 'value' => $dbcourse->coursedisplay),
+                ));
+            }
+        }
 
         // Get all courses in the DB
         $courses = core_course_external::get_courses(array());

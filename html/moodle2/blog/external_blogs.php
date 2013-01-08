@@ -29,7 +29,7 @@ require_once('../config.php');
 require_once('lib.php');
 
 require_login();
-$context = get_context_instance(CONTEXT_SYSTEM);
+$context = context_system::instance();
 $PAGE->set_context($context);
 $PAGE->set_url(new moodle_url('/blog/external_blogs.php'));
 require_capability('moodle/blog:manageexternal', $context);
@@ -81,9 +81,9 @@ if (!empty($blogs)) {
 
     foreach ($blogs as $blog) {
         if ($blog->failedlastsync) {
-            $validicon = $OUTPUT->pix_icon('i/cross_red_big', get_string('feedisinvalid', 'blog'));
+            $validicon = $OUTPUT->pix_icon('i/invalid', get_string('feedisinvalid', 'blog'));
         } else {
-            $validicon = $OUTPUT->pix_icon('i/tick_green_big', get_string('feedisvalid', 'blog'));
+            $validicon = $OUTPUT->pix_icon('i/valid', get_string('feedisvalid', 'blog'));
         }
 
         $editurl = new moodle_url('/blog/external_blog_edit.php', array('id' => $blog->id));

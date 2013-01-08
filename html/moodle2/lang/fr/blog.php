@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'blog', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -75,7 +75,6 @@ $string['deleteexternalblog'] = 'Désinscrire ce blog externe';
 $string['deleteotagswarn'] = 'Voulez-vous vraiment retirer les tags sélectionnés de tous les articles de blog et les supprimer du système ?';
 $string['description'] = 'Description';
 $string['description_help'] = 'Saisir une phrase ou deux résumant le contenu de votre blog externe. Si aucune description n\'est fournie, la description publiée sur votre blog externe sera utilisée.';
-$string['disableblogs'] = 'Désactiver complètement les blogs';
 $string['donothaveblog'] = 'Désolé, vous n\'avez pas votre propre blog.';
 $string['editentry'] = 'Modifier un article de blog';
 $string['editexternalblog'] = 'Modifier un blog externe';

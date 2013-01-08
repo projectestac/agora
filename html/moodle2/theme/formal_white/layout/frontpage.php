@@ -36,6 +36,9 @@ if (!empty($PAGE->theme->settings->frontpagelogourl)) {
 } else {
     $logourl = $OUTPUT->pix_url('logo', 'theme');
 }
+if (strtolower(substr($logourl, 0, 4)) != 'http') {
+    $logourl = $CFG->wwwroot.'/'.$logourl;
+}
 
 $hasframe = !isset($PAGE->theme->settings->noframe) || !$PAGE->theme->settings->noframe;
 
@@ -67,13 +70,6 @@ echo $OUTPUT->doctype() ?>
 <!-- begin of page-header -->
                             <?php if ($hasheading) { ?>
                             <div id="page-header">
-                            <?php if ($displaylogo) { ?>
-                                <div id="headerlogo">
-                                    <img src="<?php echo $logourl ?>" alt="Custom logo here" />
-                                </div>
-                            <?php } else { ?>
-                                <h1 class="headerheading"><?php echo $PAGE->heading ?></h1>
-                            <?php } ?>
 
                                 <div class="headermenu">
                                     <?php
@@ -84,6 +80,15 @@ echo $OUTPUT->doctype() ?>
                                     echo $PAGE->headingmenu;
                                 ?>
                                 </div>
+
+                                <?php if ($displaylogo) { ?>
+                                    <div id="headerlogo">
+                                        <img src="<?php echo $logourl ?>" alt="Custom logo here" />
+                                    </div>
+                                <?php } else { ?>
+                                    <h1 class="headerheading"><?php echo $PAGE->heading ?></h1>
+                                <?php } ?>
+
                             </div>
                             <?php } ?>
 <!-- end of page-header -->

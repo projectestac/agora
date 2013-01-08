@@ -7,6 +7,15 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 
 
+Changes 12.12.28
+---------------------------------------------------------------------------------------
+MOODLE 2
+- Updated Moodle version to 2.4.0
+- Updated hotpot module to 3.0.52
+- Updated questionnaire to 2.3.3
+- Updated Wiris CAS and Editor to 3.19.2 (this version isn't yet adapted for Moodle 2.4)
+
+
 Changes 12.12.12
 ---------------------------------------------------------------------------------------
 GENERAL

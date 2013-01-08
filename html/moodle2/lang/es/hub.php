@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hub', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'hub', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   hub
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -139,7 +139,7 @@ $string['participantnumberaverage'] = 'Número promedio de participantes ({$a})'
 $string['postaladdress'] = 'Dirección postal';
 $string['postaladdress_help'] = 'Dirección postal de este sitio, so de la entidad representada por este sitio.';
 $string['postsnumber'] = 'Número de mensajes ({$a})';
-$string['previousregistrationdeleted'] = 'El registro previo ha sido borrado de  {$a}. Usted puede reiniciar el proceso de registro. Gracias.';
+$string['previousregistrationdeleted'] = 'El registro previo ha sido borrado de {$a}. Usted puede reiniciar el proceso de registro. Gracias.';
 $string['prioritise'] = 'Priorizar';
 $string['privacy'] = 'Privacidad';
 $string['privacy_help'] = 'El hub puede mostrar una lista de sitios registrados. Si es así entonces usted puede elegir si desea o no figurar en esa lista.';
@@ -161,9 +161,11 @@ $string['questionsnumber'] = 'Número de preguntas ({$a})';
 $string['readvertiseon'] = 'Actualizar los avisos en {$a}';
 $string['registeredcourses'] = 'Cursos registrados';
 $string['registeredmoodleorg'] = 'Moodle.org ({$a})';
-$string['registeredon'] = 'Registrado con';
+$string['registeredon'] = 'Hubs con quien esté registrado';
 $string['registeredsites'] = 'Sitios registrados';
+$string['registermoochtips'] = 'Para estar registrado con la Moodle.org Open Community Hub (MOOCH), su sitio debe estar registrado en Moodle.org.';
 $string['registersite'] = 'Registrarse en {$a}';
+$string['registerwith'] = 'Registrar con un hub';
 $string['registrationconfirmed'] = 'Registro del sitio confirmado';
 $string['registrationconfirmedon'] = 'Ya está registrada en el hub {$a}. Ahora ya puede publicar cursos en este hub mediante el enlace "Pubicar" situado en el menú de administración del curso.';
 $string['registrationinfo'] = 'Información de registro';
@@ -202,7 +204,7 @@ $string['sitecreated'] = 'Sitio creado';
 $string['sitedesc'] = 'Descripción';
 $string['sitedesc_help'] = 'Esta descripción de su sitio Moodle se mostrará en la lista junto a otros sitios. Por favor, utilice sólo texto plano sin marcas html o cualquier otra codificación.';
 $string['siteemail'] = 'Dirección de correo electrónico';
-$string['siteemail_help'] = 'Debe proporcionar una dirección de correo electrónico para que el administrador pueda contactar con usted si es necesario. Esta información no será utilizada para ningún otro propósito.';
+$string['siteemail_help'] = 'Debe proporcionar una dirección de correo electrónico para que el administrador pueda contactar con usted si es necesario. Esta información no será utilizada para ningún otro propósito. Es recomendable proporcionar un correo relacionado con su función (por ejemplo administrador@ejemplo.com) en lugar de uno personal.';
 $string['sitegeolocation'] = 'Geolocalización';
 $string['sitegeolocation_help'] = 'En el futuro podríamos proporcionar búsqueda basada en la localización. Si desea especificar la ubicación de su curso use un valor de posición  latitud/longitud (por ejemplo: -31.947884,115.871285). Una forma de encontrar este valor es mediante Google Maps.';
 $string['sitelang'] = 'Idioma';

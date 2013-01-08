@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_tags', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_tags', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   block_tags
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,15 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['add'] = 'Hinzufügen';
 $string['alltags'] = 'Alle Schlagworte:';
-$string['alltags1'] = 'Alle Schlagworte';
-$string['alltags2'] = 'Alle Schlagworte anzeigen (Nutzerprofil, Blogs, Kurse)';
 $string['arrowtitle'] = 'Klicken Sie hier, um den grau gezeigten Text einzugeben.';
-$string['communitytags'] = 'Community-Schlagworte:';
-$string['communitytags1'] = 'Community-Schlagworte';
-$string['communitytags2'] = 'Alle nutzererstellten Kurs-Schlagworte anzeigen';
 $string['coursetags'] = 'Kurs-Schlagworte:';
-$string['coursetags1'] = 'Kurs-Schlagworte';
-$string['coursetags2'] = 'Schlagworte für diesen Kurs anzeigen';
+$string['defaultdisplay'] = 'Schlagwort-Typen,die angezeigt werden';
 $string['disabledtags'] = 'Schlagworte sind deaktiviert';
 $string['edit'] = 'Bearbeiten...';
 $string['editdeletemytag'] = 'Schlagwort aus diesem Kurs löschen:';
@@ -58,7 +52,7 @@ $string['moreorderdate'] = 'nach Datum';
 $string['moreorderpop'] = 'nach Häufigkeit';
 $string['moreshow'] = 'Anzeigen:';
 $string['moreshowalltags'] = 'Alle Schlagworte';
-$string['moreshowcommtags'] = 'Community-Schlagworte';
+$string['moreshowcommtags'] = 'Nicht-offizielle Schlagworte';
 $string['moreshowcoursetags'] = 'Schlagworte für \'{$a}\'';
 $string['moreshowmytags'] = 'Meine Schlagworte';
 $string['moreshowofficialtags'] = 'Offizielle Schlagworte';
@@ -66,21 +60,17 @@ $string['moretags'] = 'Weitere Schlagworte anzeigen und filtern';
 $string['moretitle'] = 'Weitere Schlagworte';
 $string['morewelcome'] = 'Schlagworte sind nutzererstellte Links zu beliebigen Begriffen. Schlagworte erlauben eine Kategorisierung und Verlinkung von Kursen, Blogs oder Profilen. Unterschiedliche Schlagwortgruppen können gewählt werden. 
 ';
-$string['mycoursetag1'] = 'Meine Kurs-Schlagworte anzeigen';
-$string['mycoursetag2'] = 'Meine Kurs-Schlagworte';
 $string['mycoursetags'] = 'Meine Kurs-Schlagworte:';
 $string['mytags'] = 'Meine Schlagworte';
-$string['mytags1'] = 'Meine Schlagworte';
-$string['mytags2'] = 'Meine persönlichen Schlagworte anzeigen';
 $string['notagsyet'] = 'Bisher keine Schlagworte';
-$string['officialtags'] = 'Offizielle Kurs-Schlagworte:';
-$string['officialtags1'] = 'Offizielle Schlagworte';
-$string['officialtags2'] = 'Offizielle Kurs-Schlagworte anzeigen';
 $string['please'] = 'Bitte';
 $string['pluginname'] = 'Schlagworte';
 $string['select'] = 'Auswählen...';
 $string['showcoursetags'] = 'Kurs-Schlagworte anzeigen';
 $string['showcoursetagsdef'] = 'Um Teilnehmer/innen die Schlagwortnutzung in Kursen zu erlauben, können Sie den Schlagwort-Block mit den Schlagwortmöglichkeiten anzeigen.';
+$string['suggestedtagthisunit'] = 'Vorgeschlagenes Schlagwort für diesen Kurs:';
 $string['tags'] = 'Schlagworte';
+$string['tags:addinstance'] = 'Schlagwortblock hinzufügen';
+$string['tags:myaddinstance'] = 'Schlagwortblock für \'Meine Startseite\' hinzufügen';
 $string['tagthisunit'] = 'Diesen Kurs mit Schlagworten markieren';
 $string['tagunits'] = ', um Ihre Lieblingskurse mit Schlagworten markieren.';

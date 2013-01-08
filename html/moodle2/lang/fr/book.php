@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'book', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'book', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   book
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -53,6 +53,7 @@ $string['modulenameplural'] = 'Livres';
 $string['navexit'] = 'Sortir du livre';
 $string['navnext'] = 'Suivant';
 $string['navprev'] = 'Précédent';
+$string['nocontent'] = 'Aucun contenu n\'a encore été placé dans ce livre.';
 $string['numbering'] = 'Format des titres de chapitres';
 $string['numbering0'] = 'Aucune';
 $string['numbering1'] = 'Nombres';

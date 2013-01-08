@@ -29,6 +29,7 @@ defined('MOODLE_INTERNAL') || die();
 
 // we need hotpot/lib.php for the callback validation functions
 require_once($CFG->dirroot.'/mod/hotpot/lib.php');
+require_once($CFG->dirroot.'/mod/hotpot/locallib.php');
 
 // admin_setting_xxx classes are defined in "lib/adminlib.php"
 // new admin_setting_configcheckbox($name, $visiblename, $description, $defaultsetting);
@@ -45,7 +46,6 @@ $link = html_writer::link($url, $str, array('class' => 'small', 'style'=> 'white
 $settings->add(
     new admin_setting_configcheckbox('hotpot_enablecache', get_string('enablecache', 'hotpot'), get_string('configenablecache', 'hotpot').' '.$link, 1)
 );
-unset($str, $url, $link);
 
 // restrict cron job to certain hours of the day (default=never)
 $timezone = get_user_timezone_offset();
@@ -61,7 +61,6 @@ for ($i=0; $i<=23; $i++) {
 $settings->add(
     new admin_setting_configmultiselect('hotpot_enablecron', get_string('enablecron', 'hotpot'), get_string('configenablecron', 'hotpot'), array(), $options)
 );
-unset($timezone, $options);
 
 // enable embedding of swf media objects inhotpot quizzes (default=1)
 $settings->add(
@@ -71,6 +70,16 @@ $settings->add(
 // enable obfuscation of javascript in html files (default=1)
 $settings->add(
     new admin_setting_configcheckbox('hotpot_enableobfuscate', get_string('enableobfuscate', 'hotpot'), get_string('configenableobfuscate', 'hotpot'), 1)
+);
+
+$options = array(
+    hotpot::BODYSTYLES_BACKGROUND => get_string('bodystylesbackground', 'hotpot'),
+    hotpot::BODYSTYLES_COLOR      => get_string('bodystylescolor', 'hotpot'),
+    hotpot::BODYSTYLES_FONT       => get_string('bodystylesfont', 'hotpot'),
+    hotpot::BODYSTYLES_MARGIN     => get_string('bodystylesmargin', 'hotpot')
+);
+$settings->add(
+    new admin_setting_configmultiselect('hotpot_bodystyles', get_string('bodystyles', 'hotpot'), get_string('configbodystyles', 'hotpot'), array(), $options)
 );
 
 // hotpot navigation frame height (default=85)
@@ -95,3 +104,5 @@ $settings->add(
 $setting = new admin_setting_configtext('hotpot_maxeventlength', get_string('maxeventlength', 'hotpot'), get_string('configmaxeventlength', 'hotpot'), 5, PARAM_INT, 4);
 $setting->set_updatedcallback('hotpot_refresh_events');
 $settings->add($setting);
+
+unset($i, $link, $options, $setting, $str, $timezone, $url);

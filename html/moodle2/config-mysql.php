@@ -23,7 +23,7 @@ $CFG->dboptions = array (
 );
 
 $CFG->wwwroot   = 'http://agora/'.AGORA_BASE.'/moodle2';
-$CFG->dataroot  = INSTALL_BASE .'moodledata/usu_mysql';
+$CFG->dataroot  = INSTALL_BASE .'moodledata/moodle2/usu_mysql';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;

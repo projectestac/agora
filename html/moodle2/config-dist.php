@@ -211,10 +211,12 @@ $CFG->admin = 'admin';
 // You can specify a different class to be created for the $PAGE global, and to
 // compute which blocks appear on each page. However, I cannot think of any good
 // reason why you would need to change that. It just felt wrong to hard-code the
-// the class name. You are stronly advised not to use these to settings unless
+// the class name. You are strongly advised not to use these to settings unless
 // you are absolutely sure you know what you are doing.
 //      $CFG->moodlepageclass = 'moodle_page';
+//      $CFG->moodlepageclassfile = "$CFG->dirroot/local/myplugin/mypageclass.php";
 //      $CFG->blockmanagerclass = 'block_manager';
+//      $CFG->blockmanagerclassfile = "$CFG->dirroot/local/myplugin/myblockamanagerclass.php";
 //
 // Seconds for files to remain in caches. Decrease this if you are worried
 // about students being served outdated versions of uploaded files.
@@ -243,6 +245,11 @@ $CFG->admin = 'admin';
 // This setting will prevent the 'My Courses' page being displayed when a student
 // logs in. The site front page will always show the same (logged-out) view.
 //     $CFG->disablemycourses = true;
+//
+// By default all user sessions should be using locking, uncomment
+// the following setting to prevent locking for guests and not-logged-in
+// accounts. This may improve performance significantly.
+//     $CFG->sessionlockloggedinonly = 1;
 //
 // If this setting is set to true, then Moodle will track the IP of the
 // current user to make sure it hasn't changed during a session.  This
@@ -409,6 +416,17 @@ $CFG->admin = 'admin';
 //
 //     $CFG->extramemorylimit = '1G';
 //
+// Moodle 2.4 introduced a new cache API.
+// The cache API stores a configuration file within the Moodle data directory and
+// uses that rather than the database in order to function in a stand-alone manner.
+// Using altcacheconfigpath you can change the location where this config file is
+// looked for.
+// It can either be a directory in which to store the file, or the full path to the
+// file if you want to take full control. Either way it must be writable by the
+// webserver.
+//
+//     $CFG->altcacheconfigpath = '/var/www/shared/moodle.cache.config.php
+//
 // The CSS files the Moodle produces can be extremely large and complex, especially
 // if you are using a custom theme that builds upon several other themes.
 // In Moodle 2.3 a CSS optimiser was added as an experimental feature for advanced
@@ -439,6 +457,18 @@ $CFG->admin = 'admin';
 // feature and hide it from the server administration UI.
 //
 //      $CFG->disableupdatenotifications = true;
+//
+// As of version 2.4 Moodle serves icons as SVG images if the users browser appears
+// to support SVG.
+// For those wanting to control the serving of SVG images the following setting can
+// be defined in your config.php.
+// If it is not defined then the default (browser detection) will occur.
+//
+// To ensure they are always used when available:
+//      $CFG->svgicons = true;
+//
+// To ensure they are never used even when available:
+//      $CFG->svgicons = false;
 //
 //=========================================================================
 // 8. SETTINGS FOR DEVELOPMENT SERVERS - not intended for production use!!!

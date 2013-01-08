@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_wikimedia', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'repository_wikimedia', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   repository_wikimedia
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Einstellungen für Wikimedia';
+$string['configplugin'] = 'Einstellungen für Wikimedia Commons';
 $string['keyword'] = 'Ausführlicher Text';
-$string['pluginname'] = 'Wikimedia';
-$string['wikimedia:view'] = 'Wikimedia Repository anzeigen';
+$string['pluginname'] = 'Wikimedia Commons';
+$string['wikimedia:view'] = 'Wikimedia Commons Repository anzeigen';

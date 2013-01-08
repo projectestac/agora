@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_blackboard', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qformat_blackboard', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   qformat_blackboard
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,5 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['defaultname'] = 'Importierte Frage {$a}';
 $string['importnotext'] = 'Fehlender Fragetext in der XML-Datei';
+$string['notenoughtsubans'] = 'Die Zuordnungsfrage \'{$a}\' konnte nicht importiert werden. Eine Zuordnungsfrage besteht zumindest aus zwei Fragen und drei Antworten.';
 $string['pluginname'] = 'Blackboard';
 $string['pluginname_help'] = 'Das Blackboard-Format ermöglicht den Import von Fragen, die im Format \'Blackboard V5 POOL\' exportiert wurden.';

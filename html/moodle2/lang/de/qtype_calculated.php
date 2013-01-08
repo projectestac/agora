@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qtype_calculated', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -51,6 +51,7 @@ $string['datasetrole'] = 'Die Ersatzzeichen <strong>{x..}</strong> werden durch 
 $string['decimals'] = 'mit {$a}';
 $string['deleteitem'] = 'Gelöschter Eintrag';
 $string['deletelastitem'] = 'Zuletzt gelöschter Eintrag';
+$string['distributionoption'] = 'Distributions-Option auswählen';
 $string['editdatasets'] = 'Datensatz für Ersatzzeichen bearbeiten';
 $string['editdatasets_help'] = 'Ein Datensatz für die Ersatzzeichen kann erstellt werden, indem jeweils eine Zahl in die Ersatzzeichenfelder eingetragen und anschließend die Taste \'Hinzufügen\' gedrückt wird. Um automatisch 10 oder mehr Datensätze zu erstellen, wählen Sie die Anzahl der Datensätze aus, bevor Sie die Taste drücken. Eine einfache Verteilung erzeugt die Werte gleichmäßig verteilt zwischen den vorgegebenen Grenzen, eine logarithmische Verteilung bevorzugt Werte in der Nähe der unteren Grenze.';
 $string['existingcategory1'] = 'wird einen bereits existierenden gemeinsamen Datensatz verwenden';
@@ -78,6 +79,7 @@ $string['keptcategory3'] = 'ein Link aus der selben Kategorie wiederverwendbarer
 $string['keptlocal1'] = 'wird denselben existierenden privaten Datensatz wie zuvor verwenden';
 $string['keptlocal2'] = 'eine Datei aus dem persönlichen Fragenset wie zuvor';
 $string['keptlocal3'] = 'ein Link aus dem persönlichen Fragenset wie zuvor';
+$string['lengthoption'] = 'Längen-Option festlegen';
 $string['loguniform'] = 'Logarithmisch';
 $string['loguniformbit'] = 'Ziffern einer logarithmischen Verteilung';
 $string['makecopynextpage'] = 'Nächste Seite (neue Frage)';

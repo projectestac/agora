@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_alfresco', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'repository_alfresco', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   repository_alfresco
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,4 +34,5 @@ $string['password'] = 'Passwort';
 $string['pluginname'] = 'Alfresco';
 $string['pluginname_help'] = 'Plugin für Alfresco-CMS';
 $string['soapmustbeenabled'] = 'Die PHP Extension SOAP muss für das Alfresco-Plugin aktiviert sein';
+$string['space'] = 'Bereich';
 $string['username'] = 'Nutzername';

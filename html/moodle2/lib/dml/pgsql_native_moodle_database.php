@@ -42,6 +42,9 @@ class pgsql_native_moodle_database extends moodle_database {
 
     protected $last_error_reporting; // To handle pgsql driver default verbosity
 
+    /** @var bool savepoint hack for MDL-35506 - workaround for automatic transaction rollback on error */
+    protected $savepointpresent = false;
+
     /**
      * Detects if all needed PHP stuff installed.
      * Note: can be used before connect()
@@ -236,7 +239,23 @@ class pgsql_native_moodle_database extends moodle_database {
     protected function query_end($result) {
         // reset original debug level
         error_reporting($this->last_error_reporting);
-        parent::query_end($result);
+        try {
+            parent::query_end($result);
+            if ($this->savepointpresent and $this->last_type != SQL_QUERY_AUX and $this->last_type != SQL_QUERY_SELECT) {
+                $res = @pg_query($this->pgsql, "RELEASE SAVEPOINT moodle_pg_savepoint; SAVEPOINT moodle_pg_savepoint");
+                if ($res) {
+                    pg_free_result($res);
+                }
+            }
+        } catch (Exception $e) {
+            if ($this->savepointpresent) {
+                $res = @pg_query($this->pgsql, "ROLLBACK TO SAVEPOINT moodle_pg_savepoint; SAVEPOINT moodle_pg_savepoint");
+                if ($res) {
+                    pg_free_result($res);
+                }
+            }
+            throw $e;
+        }
     }
 
     /**
@@ -353,7 +372,14 @@ class pgsql_native_moodle_database extends moodle_database {
                     continue;
                 }
                 $columns = explode(',', $matches[4]);
-                $columns = array_map(array($this, 'trim_quotes'), $columns);
+                foreach ($columns as $k=>$column) {
+                    $column = trim($column);
+                    if ($pos = strpos($column, ' ')) {
+                        // index type is separated by space
+                        $column = substr($column, 0, $pos);
+                    }
+                    $columns[$k] = $this->trim_quotes($column);
+                }
                 $indexes[$row['indexname']] = array('unique'=>!empty($matches[1]),
                                               'columns'=>$columns);
             }
@@ -369,11 +395,15 @@ class pgsql_native_moodle_database extends moodle_database {
      * @return array array of database_column_info objects indexed with column names
      */
     public function get_columns($table, $usecache=true) {
-        if ($usecache and isset($this->columns[$table])) {
-            return $this->columns[$table];
+        if ($usecache) {
+            $properties = array('dbfamily' => $this->get_dbfamily(), 'settings' => $this->get_settings_hash());
+            $cache = cache::make('core', 'databasemeta', $properties);
+            if ($data = $cache->get($table)) {
+                return $data;
+            }
         }
 
-        $this->columns[$table] = array();
+        $structure = array();
 
         $tablename = $this->prefix.$table;
 
@@ -437,7 +467,18 @@ class pgsql_native_moodle_database extends moodle_database {
                     $info->auto_increment= false;
                     $info->has_default   = ($rawcolumn->atthasdef === 't');
                 }
-                $info->max_length    = $matches[1];
+                // Return number of decimals, not bytes here.
+                if ($matches[1] >= 8) {
+                    $info->max_length = 18;
+                } else if ($matches[1] >= 4) {
+                    $info->max_length = 9;
+                } else if ($matches[1] >= 2) {
+                    $info->max_length = 4;
+                } else if ($matches[1] >= 1) {
+                    $info->max_length = 2;
+                } else {
+                    $info->max_length = 0;
+                }
                 $info->scale         = null;
                 $info->not_null      = ($rawcolumn->attnotnull === 't');
                 if ($info->has_default) {
@@ -532,12 +573,16 @@ class pgsql_native_moodle_database extends moodle_database {
 
             }
 
-            $this->columns[$table][$info->name] = new database_column_info($info);
+            $structure[$info->name] = new database_column_info($info);
         }
 
         pg_free_result($result);
 
-        return $this->columns[$table];
+        if ($usecache) {
+            $result = $cache->set($table, $structure);
+        }
+
+        return $structure;
     }
 
     /**
@@ -1244,6 +1289,10 @@ class pgsql_native_moodle_database extends moodle_database {
         if (!$this->session_lock_supported()) {
             return;
         }
+        if (!$this->used_for_db_sessions) {
+            return;
+        }
+
         parent::release_session_lock($rowid);
 
         $sql = "SELECT pg_advisory_unlock($rowid)";
@@ -1262,7 +1311,8 @@ class pgsql_native_moodle_database extends moodle_database {
      * @return void
      */
     protected function begin_transaction() {
-        $sql = "BEGIN ISOLATION LEVEL READ COMMITTED";
+        $this->savepointpresent = true;
+        $sql = "BEGIN ISOLATION LEVEL READ COMMITTED; SAVEPOINT moodle_pg_savepoint";
         $this->query_start($sql, NULL, SQL_QUERY_AUX);
         $result = pg_query($this->pgsql, $sql);
         $this->query_end($result);
@@ -1276,7 +1326,8 @@ class pgsql_native_moodle_database extends moodle_database {
      * @return void
      */
     protected function commit_transaction() {
-        $sql = "COMMIT";
+        $this->savepointpresent = false;
+        $sql = "RELEASE SAVEPOINT moodle_pg_savepoint; COMMIT";
         $this->query_start($sql, NULL, SQL_QUERY_AUX);
         $result = pg_query($this->pgsql, $sql);
         $this->query_end($result);
@@ -1290,7 +1341,8 @@ class pgsql_native_moodle_database extends moodle_database {
      * @return void
      */
     protected function rollback_transaction() {
-        $sql = "ROLLBACK";
+        $this->savepointpresent = false;
+        $sql = "RELEASE SAVEPOINT moodle_pg_savepoint; ROLLBACK";
         $this->query_start($sql, NULL, SQL_QUERY_AUX);
         $result = pg_query($this->pgsql, $sql);
         $this->query_end($result);

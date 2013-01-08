@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradingform_guide', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'gradingform_guide', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   gradingform_guide
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,6 +44,7 @@ $string['criteriondelete'] = 'Supprimer le critère';
 $string['criterionempty'] = 'Cliquer pour modifier le critère';
 $string['criterionmovedown'] = 'Déplacer vers le bas';
 $string['criterionmoveup'] = 'Déplacer vers le haut';
+$string['criterionname'] = 'Nom du critère';
 $string['definemarkingguide'] = 'Guide d\'évaluation';
 $string['description'] = 'Description';
 $string['descriptionmarkers'] = 'Description pour évaluateurs';
@@ -76,7 +77,6 @@ $string['save'] = 'Enregistrer';
 $string['saveguide'] = 'Enregistrer le guide d\'évaluation et le rendre disponible';
 $string['saveguidedraft'] = 'Enregistrer comme brouillon';
 $string['score'] = 'Note';
-$string['showdescriptionstudent'] = 'Afficher la description aux utilisateurs en train d\'être évalués';
 $string['showmarkerdesc'] = 'Afficher les descriptions des critères pour les évaluateurs';
 $string['showmarkspercriterionstudents'] = 'Afficher aux participants les notes par critère';
 $string['showstudentdesc'] = 'Afficher les descriptions des critères pour les participants';

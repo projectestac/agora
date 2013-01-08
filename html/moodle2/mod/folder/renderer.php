@@ -25,8 +25,6 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
-//XTEC ************ MODIFICAT - Replaced content from last GIT version to fix bug related with guest viewing 
-//2012.11.06  @sarjona - http://tracker.moodle.org/browse/MDL-34338
 class mod_folder_renderer extends plugin_renderer_base {
 
     /**
@@ -106,83 +104,3 @@ class folder_tree implements renderable {
         $this->dir = $fs->get_area_tree($this->context->id, 'mod_folder', 'content', 0);
     }
 }
-//************ ORIGINAL 
-//class mod_folder_renderer extends plugin_renderer_base {
-//
-//    /**
-//     * Prints file folder tree view
-//     * @param object $folder instance
-//     * @param object $cm instance
-//     * @param object $course
-//     * @return void
-//     */
-//    public function folder_tree($folder, $cm, $course) {
-//        $this->render(new folder_tree($folder, $cm, $course));
-//    }
-//
-//    public function render_folder_tree(folder_tree $tree) {
-//        global $PAGE;
-//
-//        echo '<div id="folder_tree" class="filemanager">';
-//        echo $this->htmllize_tree($tree, array('files' => array(), 'subdirs' => array($tree->dir)));
-//        echo '</div>';
-//        $this->page->requires->js_init_call('M.mod_folder.init_tree', array(true));
-//    }
-//
-//    /**
-//     * Internal function - creates htmls structure suitable for YUI tree.
-//     */
-//    protected function htmllize_tree($tree, $dir) {
-//        global $CFG;
-//
-//        if (empty($dir['subdirs']) and empty($dir['files'])) {
-//            return '';
-//        }
-//        $browser = get_file_browser();
-//        $result = '<ul>';
-//        foreach ($dir['subdirs'] as $subdir) {
-//            $image = $this->output->pix_icon(file_folder_icon(24), $subdir['dirname'], 'moodle');
-//            $filename = html_writer::tag('span', $image, array('class' => 'fp-icon')). html_writer::tag('span', s($subdir['dirname']), array('class' => 'fp-filename'));
-//            $filename = html_writer::tag('div', $filename, array('class' => 'fp-filename-icon'));
-//            $result .= html_writer::tag('li', $filename. $this->htmllize_tree($tree, $subdir));
-//        }
-//        foreach ($dir['files'] as $file) {
-//            $fileinfo = $browser->get_file_info($tree->context, $file->get_component(),
-//                    $file->get_filearea(), $file->get_itemid(), $file->get_filepath(), $file->get_filename());
-//            $url = $fileinfo->get_url(true);
-//            $filename = $file->get_filename();
-//            if ($imageinfo = $fileinfo->get_imageinfo()) {
-//                $fileurl = new moodle_url($fileinfo->get_url());
-//                $image = $fileurl->out(false, array('preview' => 'tinyicon', 'oid' => $fileinfo->get_timemodified()));
-//                $image = html_writer::empty_tag('img', array('src' => $image));
-//            } else {
-//                $image = $this->output->pix_icon(file_file_icon($file, 24), $filename, 'moodle');
-//            }
-//            $filename = html_writer::tag('span', $image, array('class' => 'fp-icon')). html_writer::tag('span', $filename, array('class' => 'fp-filename'));
-//            $filename = html_writer::tag('span', html_writer::link($url, $filename), array('class' => 'fp-filename-icon'));
-//            $result .= html_writer::tag('li', $filename);
-//        }
-//        $result .= '</ul>';
-//
-//        return $result;
-//    }
-//}
-//
-//class folder_tree implements renderable {
-//    public $context;
-//    public $folder;
-//    public $cm;
-//    public $course;
-//    public $dir;
-//
-//    public function __construct($folder, $cm, $course) {
-//        $this->folder = $folder;
-//        $this->cm     = $cm;
-//        $this->course = $course;
-//
-//        $this->context = get_context_instance(CONTEXT_MODULE, $cm->id);
-//        $fs = get_file_storage();
-//        $this->dir = $fs->get_area_tree($this->context->id, 'mod_folder', 'content', 0);
-//    }
-//}
-//************ FI

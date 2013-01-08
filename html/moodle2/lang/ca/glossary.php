@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'glossary', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -272,21 +272,7 @@ $string['linking'] = 'Enllaços automàtics';
 $string['mainglossary'] = 'Glossari principal';
 $string['maxtimehaspassed'] = 'El temps màxim per editar aquest comentari ({$a}) ja ha passat!';
 $string['modulename'] = 'Glossari';
-$string['modulename_help'] = 'L\'activitat glossari permet als participants crear i mantindre una llista de definicions, com un diccionari, o recollir i organitzar recursos o informació.
-
-El professorat pot permetre adjuntar fitxers a les entrades del glossari. Les imatges adjuntes es visualitzen directament en la entrada. Les entrades es poden cercar o navegar alfabèticament o per categoria, data o autoria. Les entrades es poden aprovar per defecte o requerir una aprovació del professorat abans que siguin visibles per a tothom.
-
-Si el filtre d\'enllaç automàtic al glossari està activat, les entrades del glossari s\'enllaçaran automàticament quan les paraules o frases del concepte apareguin en el curs.
-
-El professorat pot permetre comentaris en les entrades. Tant el professorat com l\'estudiantat (avaluació d\'iguals) poden qualificar les entrades. Les qualificacions es poden agregar per a formar la qualificació final que queda registrada en el butlletí de qualificacions.
-
-Els glossaris poden tenir diversos usos, com ara
-
-* Un banc col·laboratiu de termes clau
-* Un espai \'coneixent-te\' on l\'estudiantat nou afegeix el seu nom i dades personals
-* Un recurs de \'consells pràctics\' de les millors pràctiques d\'una assignatura
-* Una zona per compartir fitxers de vídeo, imatge i àudio útils.
-* Un recurs de revisió de fets a recordar';
+$string['modulename_help'] = 'El modul glossari dona permís als participants per crear i mantindre definicions, com un diccionari. Les entrades del glossari poden ser automàticament enllaçades quan qualsevol grup de paraules i frases apareix durant el curs.';
 $string['modulenameplural'] = 'Glossaris';
 $string['newentries'] = 'Entrades noves del glossari';
 $string['newglossary'] = 'Nou glossari';

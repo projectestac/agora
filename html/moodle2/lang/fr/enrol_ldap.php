@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldap', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_ldap', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -97,6 +97,8 @@ $string['pluginname_desc'] = '<p>Vous pouvez utiliser un serveur LDAP pour contr
 <p>Cette extension peut également servir à la création automatique de nouveaux cours lorsque de nouveaux groupes apparaissent dans LDAP.</p>';
 $string['pluginnotenabled'] = 'Plugin pas activé !';
 $string['role_mapping'] = '<p> Pour chaque rôle que vous souhaitez attribuer à partir de LDAP, vous devez spécifier la liste des contextes où les groupes des rôles du cours sont situés. Séparez les différents contextes avec un point-virgule (;).</p><p> Vous devez également spécifier l\'attribut que votre serveur LDAP utilise pour les membres d\'un groupe. Habituellement « member » ou « memberUid »</p>';
+$string['role_mapping_attribute'] = 'Attribut de membre LDAP pour {$a}';
+$string['role_mapping_context'] = 'Contextes LDAP pour {$a}';
 $string['role_mapping_key'] = 'Faire correspondre les rôles LDAP';
 $string['roles'] = 'Correspondance des rôles';
 $string['server_settings'] = 'Réglages du serveur LDAP';

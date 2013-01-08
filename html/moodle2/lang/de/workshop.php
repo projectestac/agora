@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'workshop', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -36,6 +36,7 @@ $string['allocationdone'] = 'Zuordnung erledigt';
 $string['allocationerror'] = 'Zuordnungsfehler';
 $string['allsubmissions'] = 'Alle Einreichungen ({$a})';
 $string['alreadygraded'] = 'Bereits bewertet';
+$string['areaconclusion'] = 'Abschlusstext';
 $string['areainstructauthors'] = 'Anleitung zum Einreichen';
 $string['areainstructreviewers'] = 'Anleitung zum Beurteilen';
 $string['areasubmissionattachment'] = 'Dateianhänge zur Einreichung';
@@ -79,6 +80,8 @@ $string['clearaggregatedgrades_help'] = 'Die errechneten Punkte für die Einreic
 $string['clearassessments'] = 'Lösche die Bewertungen';
 $string['clearassessmentsconfirm'] = 'Sind Sie sich sicher, dass Sie alle Punkte aus der Bewertung löschen wollen? Sie sind nicht in der Lage, diesen Vorgang rückgängig zu machen. Die Beurteilenden müssen die Einreichungen erneut beurteilen.';
 $string['clearassessments_help'] = 'Die berechneten Bewertungen für Einreichungen und  Beurteilungen werden zurückgesetzt. Die Information in den ausgefüllten Beurteilungsformularen bleiben erhalten. Alle Bewerter müssen jedoch das Formular noch einmal aufrufen und wieder speichern, damit die Bewertungen neu errechnet werden. ';
+$string['conclusion'] = 'Abschluss';
+$string['conclusion_help'] = 'Der Abschlusstext wird  den Teilnehmenden am Schluss des Workshops angezeigt. Er kann ein Gesamt-Feedback, eine Zusammenfassung oder Anregungen für nächste Schritte (z. B. verfassen eines Blog-Beitrages zu den gesammelten Erfahrungen) enthalten.';
 $string['configexamplesmode'] = 'Standardmodus für Beispieleinreichungen in Workshops';
 $string['configgrade'] = 'Standardwert max. Einreichungspunktzahl in Workshops';
 $string['configgradedecimals'] = 'Standardanzahl von Nachkommastellen bei der Anzeige von Punkten.';
@@ -102,7 +105,8 @@ $string['err_removegrademappings'] = 'Es ist nicht möglich die nicht verwendete
 $string['evaluategradeswait'] = 'Bitte warten Sie bis die Beurteilungen bewertet und die Punkte berechnet sind.';
 $string['evaluation'] = 'Bewertung';
 $string['evaluationmethod'] = 'Bewertungsmethode';
-$string['evaluationmethod_help'] = 'Das Auswertungsverfahren bestimmt, wie die Punkte für die Beurteilung berechnet wird. Im Augenblick gibt es nur eine Option: Vergleich mit der besten Bewertung ';
+$string['evaluationmethod_help'] = 'Das Auswertungsverfahren bestimmt, wie die Punkte für die Beurteilung berechnet wird. Im Augenblick gibt es nur eine Option: Vergleich mit der besten Bewertung.';
+$string['evaluationsettings'] = 'Einstellungen für rechnerische Bewertungen';
 $string['example'] = 'Beispieleinreichung';
 $string['exampleadd'] = 'Beispieleinreichung hinzufügen';
 $string['exampleassess'] = 'Beurteilen einer Beispieleinreichung';
@@ -111,7 +115,7 @@ $string['exampleassesstask'] = 'Beurteilungsbeispiel';
 $string['exampleassesstaskdetails'] = 'erwartet: {$a->expected}<br />beurteilt: {$a->assessed}';
 $string['examplecomparing'] = 'Vergleich der Beurteilungen für die Musterlösung';
 $string['exampledelete'] = 'Beispieleinreichung löschen';
-$string['exampledeleteconfirm'] = 'Sind Sie sicher, dass Sie das folgende Beispieleinreichung löschen wollen? Ein Klick auf die Taste \'Weiter\' löscht die Einreichung.';
+$string['exampledeleteconfirm'] = 'Möchten Sie dieses Beispiel wirklich löschen? Ein Klick auf \'Weiter\' löscht die Einreichung.';
 $string['exampleedit'] = 'Beispieleinreichung ändern';
 $string['exampleediting'] = 'Beispieleinreichung wird geändert';
 $string['exampleneedassessed'] = 'Sie haben zuerst alle Beispieleinreichungen zu beurteilen';
@@ -157,6 +161,7 @@ $string['latesubmissionsallowed'] = 'Verspätete Einreichungen sind zugelassen';
 $string['latesubmissions_desc'] = 'Erlaube verspätete Einreichungen';
 $string['latesubmissions_help'] = 'Mit dieser Funktion kann eine Einreichung auch nach dem festgelegten Abgabezeitpunkt noch abgegeben werden. Diese können danach jedoch nicht mehr bearbeitet werden. ';
 $string['maxbytes'] = 'Max. Dateigröße';
+$string['miscellaneoussettings'] = 'Weitere Einstellungen';
 $string['modulename'] = 'Workshop';
 $string['modulename_help'] = 'Der Workshop ist ein besonderer mehrstufiger Aufgabentyp:
 
@@ -258,6 +263,7 @@ $string['switchphase50info'] = 'Sie sind dabei den Workshop zu beenden. Die erre
 $string['taskassesspeers'] = 'Andere Teilnehmende bewerten';
 $string['taskassesspeersdetails'] = 'gesamt: {$a->total}<br />ausstehend: {$a->todo}';
 $string['taskassessself'] = 'Selbstbeurteilung';
+$string['taskconclusion'] = 'Workshop-Abschluss aktivieren';
 $string['taskinstructauthors'] = 'Auftrag für das Einreichen verfassen';
 $string['taskinstructreviewers'] = 'Auftrag für das Beurteilen verfassen';
 $string['taskintro'] = 'Workshop-Einführung verfassen';
@@ -299,4 +305,5 @@ $string['workshop:viewauthorpublished'] = 'Autor/innen von veröffentlichten Bei
 $string['workshop:viewpublishedsubmissions'] = 'Veröffentlichte Einreichungen betrachten';
 $string['workshop:viewreviewernames'] = 'Beurteilernamen anzeigen';
 $string['yourassessment'] = 'Ihre Einreichung';
+$string['yourgrades'] = 'Ihre Bewertungen';
 $string['yoursubmission'] = 'Ihre Einreichung';

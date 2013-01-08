@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hotpot', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'hotpot', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   hotpot
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,9 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['abandoned'] = 'Abgebrochen';
-$string['activitycloses'] = 'Ende der Aktivität';
 $string['activitygrade'] = 'Aktivitätsbewertung';
-$string['activityopens'] = 'Start der Aktivität';
 $string['added'] = 'Hinzugefügt';
 $string['addquizchain'] = 'Quizreihe anlegen';
 $string['addquizchain_help'] = 'Sollen alle HotPots aus der Quizreihe hinzugefügt werden?
@@ -112,7 +110,6 @@ Beachten Sie, dass unabhängig von dieser Einstellung alle HotPot-Ergebnisse imm
 $string['delay3specific'] = 'Angegebene Zeit';
 $string['delay3summary'] = 'Verzögerungszeit am Ende des Quiz';
 $string['delay3template'] = 'Einstellung in der Quelldatei';
-$string['deleteallattempts'] = 'Alle Versuche löschen';
 $string['deleteattempts'] = 'Versuche löschen';
 $string['detailsrecords'] = 'Detailübersicht';
 $string['d_index'] = 'Discrimination Index';
@@ -287,7 +284,6 @@ $string['gradeweighting'] = 'Gewichtung';
 $string['gradeweighting_help'] = 'Wertungen der HotPot-Aktivität werden auf diesen Wert bezogen in der Moodle-Bewertung skaliert.';
 $string['highestscore'] = 'Bester Versuch';
 $string['hints'] = 'Tipps';
-$string['hotpot:addinstance'] = 'Eine neue HotPot-Aktivität hinzufügen';
 $string['hotpot:attempt'] = 'HotPot versuchen und Ergebnisse eintragen';
 $string['hotpot:deleteallattempts'] = 'Alle Versuche einer HotPot-Aktivität löschen';
 $string['hotpot:deletemyattempts'] = 'Eigene Versuche einer HotPot-Aktivität löschen';
@@ -379,7 +375,6 @@ $string['outputformat_hp_6_jcloze_xml_findit_a'] = 'JCloze HP6 xml: Rottmeier Fi
 $string['outputformat_hp_6_jcloze_xml_findit_b'] = 'JCloze HP6 xml: Rottmeier FindIt (b)';
 $string['outputformat_hp_6_jcloze_xml_jgloss'] = 'JCloze HP6 xml: Rottmeier JGloss';
 $string['outputformat_hp_6_jcloze_xml_v6'] = 'JCloze HP6 xml: Standard';
-$string['outputformat_hp_6_jcloze_xml_v6_autoadvance'] = 'JCloze (v6) von HP6 xml (Auto-advance)';
 $string['outputformat_hp_6_jcross_html'] = 'JCross HP6 html';
 $string['outputformat_hp_6_jcross_xml_v6'] = 'JCross HP6 xml';
 $string['outputformat_hp_6_jmatch_html'] = 'JMatch html';
@@ -390,7 +385,6 @@ $string['outputformat_hp_6_jmatch_xml_v6_plus'] = 'JMatch HP6 xml: Drag & Drop';
 $string['outputformat_hp_6_jmix_html'] = 'JMix HP6 html';
 $string['outputformat_hp_6_jmix_xml_v6'] = 'JMix HP6 xml: Standard';
 $string['outputformat_hp_6_jmix_xml_v6_plus'] = 'JMix HP6 xml: Drag & Drop';
-$string['outputformat_hp_6_jmix_xml_v6_plus_deluxe'] = 'JMix (v6+ mit prefix, suffix mit distractors) von xml';
 $string['outputformat_hp_6_jmix_xml_v6_plus_keypress'] = 'JMix HP6 xml: Drag & Drop mit Tastendruck';
 $string['outputformat_hp_6_jquiz_html'] = 'JQuiz HP6 html';
 $string['outputformat_hp_6_jquiz_xml_v6'] = 'JQuiz HP6 xml: Standard';
@@ -402,10 +396,6 @@ $string['outputformat_hp_6_sequitur_html'] = 'WebSequitur (v6) html';
 $string['outputformat_hp_6_sequitur_html_incremental'] = 'WebSequitur (v6) html, incremental scoring';
 $string['outputformat_hp_6_sequitur_xml'] = 'WebSequitur (v6) xml';
 $string['outputformat_hp_6_sequitur_xml_incremental'] = 'WebSequitur (v6) xml, incremental scoring';
-$string['outputformat_html_ispring'] = 'iSpring-HTML-Datei';
-$string['outputformat_html_xerte'] = 'Xerte-HTML-Datei';
-$string['outputformat_html_xhtml'] = 'Standard-HTML-Datei';
-$string['outputformat_qedoc'] = 'Qedoc-Datei';
 $string['overviewreport'] = 'Überblick';
 $string['penalties'] = 'Abzüge';
 $string['percent'] = 'Prozent';
@@ -466,12 +456,6 @@ Das Feedback-Fenster erlaubt es, eine Rückmeldung an die Trainer/innen zu über
 **Moodle-Messaging**
 : Das Fenster für das Moodle-Messaging wird angezeigt. Wenn der Kurs mehrere Trainer/innen hat, muss ausgewählt, für wen das Messaging-Fenster geöffnet werden soll.';
 $string['submits'] = 'Einreichungen';
-$string['subplugintype_hotpotattempt'] = 'Output-Format';
-$string['subplugintype_hotpotattempt_plural'] = 'Output-Formate';
-$string['subplugintype_hotpotreport'] = 'Bericht';
-$string['subplugintype_hotpotreport_plural'] = 'Berichte';
-$string['subplugintype_hotpotsource'] = 'Quelldatei';
-$string['subplugintype_hotpotsource_plural'] = 'Quelldateien';
 $string['textsourcefile'] = 'Aus der Quelldatei';
 $string['textsourcefilename'] = 'Name der Quelldatei';
 $string['textsourcefilepath'] = 'Pfad der Quelldatei';

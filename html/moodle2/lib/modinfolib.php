@@ -159,6 +159,24 @@ class course_modinfo extends stdClass {
     }
 
     /**
+     * Returns array of localised human-readable module names used in this course
+     *
+     * @param bool $plural if true returns the plural form of modules names
+     * @return array
+     */
+    public function get_used_module_names($plural = false) {
+        $modnames = get_module_types_names($plural);
+        $modnamesused = array();
+        foreach ($this->get_cms() as $cmid => $mod) {
+            if (isset($modnames[$mod->modname]) && $mod->uservisible) {
+                $modnamesused[$mod->modname] = $modnames[$mod->modname];
+            }
+        }
+        collatorlib::asort($modnamesused);
+        return $modnamesused;
+    }
+
+    /**
      * Obtains all instances of a particular module on this course.
      * @param $modname Name of module (not full frankenstyle) e.g. 'label'
      * @return array Array from instance id => cm_info for modules on this course; empty if none
@@ -346,9 +364,19 @@ class course_modinfo extends stdClass {
                 'availablefrom, availableuntil, showavailability, groupingid');
         $compressedsections = array();
 
+        $formatoptionsdef = course_get_format($courseid)->section_format_options();
         // Remove unnecessary data and add availability
         foreach ($sections as $number => $section) {
-            // Clone just in case it is reused elsewhere (get_all_sections cache)
+            // Add cached options from course format to $section object
+            foreach ($formatoptionsdef as $key => $option) {
+                if (!empty($option['cache'])) {
+                    $formatoptions = course_get_format($courseid)->get_format_options($section);
+                    if (!array_key_exists('cachedefault', $option) || $option['cachedefault'] !== $formatoptions[$key]) {
+                        $section->$key = $formatoptions[$key];
+                    }
+                }
+            }
+            // Clone just in case it is reused elsewhere
             $compressedsections[$number] = clone($section);
             section_info::convert_for_section_cache($compressedsections[$number]);
         }
@@ -605,12 +633,10 @@ class cm_info extends stdClass {
     public $conditionsgrade;
 
     /**
-     * Plural name of module type, e.g. 'Forums' - from lang file
-     * @deprecated Do not use this value (you can obtain it by calling get_string instead); it
-     *   will be removed in a future version (see later TODO in this file)
-     * @var string
+     * Availability conditions for this course-module based on user fields
+     * @var array
      */
-    public $modplural;
+    public $conditionsfield;
 
     /**
      * True if this course-module is available to students i.e. if all availability conditions
@@ -685,6 +711,24 @@ class cm_info extends stdClass {
      * @var string
      */
     private $afterediticons;
+
+    /**
+     * Magic method getter
+     *
+     * @param string $name
+     * @return mixed
+     */
+    public function __get($name) {
+        switch ($name) {
+            case 'modplural':
+                return $this->get_module_type_name(true);
+            case 'modfullname':
+                return $this->get_module_type_name();
+            default:
+                debugging('Invalid cm_info property accessed: '.$name);
+                return null;
+        }
+    }
 
     /**
      * @return bool True if this module has a 'view' page that should be linked to in navigation
@@ -785,6 +829,21 @@ class cm_info extends stdClass {
             $icon = $output->pix_url('icon', $this->modname);
         }
         return $icon;
+    }
+
+    /**
+     * Returns a localised human-readable name of the module type
+     *
+     * @param bool $plural return plural form
+     * @return string
+     */
+    public function get_module_type_name($plural = false) {
+        $modnames = get_module_types_names($plural);
+        if (isset($modnames[$this->modname])) {
+            return $modnames[$this->modname];
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -967,7 +1026,7 @@ class cm_info extends stdClass {
         $this->icon             = isset($mod->icon) ? $mod->icon : '';
         $this->iconcomponent    = isset($mod->iconcomponent) ? $mod->iconcomponent : '';
         $this->customdata       = isset($mod->customdata) ? $mod->customdata : '';
-        $this->context          = get_context_instance(CONTEXT_MODULE, $mod->cm);
+        $this->context          = context_module::instance($mod->cm);
         $this->showdescription  = isset($mod->showdescription) ? $mod->showdescription : 0;
         $this->state = self::STATE_BASIC;
 
@@ -1004,16 +1063,8 @@ class cm_info extends stdClass {
                 ? $mod->conditionscompletion : array();
         $this->conditionsgrade = isset($mod->conditionsgrade)
                 ? $mod->conditionsgrade : array();
-
-        // Get module plural name.
-        // TODO This was a very old performance hack and should now be removed as the information
-        // certainly doesn't belong in modinfo. On a 'normal' page this is only used in the
-        // activity_modules block, so if it needs caching, it should be cached there.
-        static $modplurals;
-        if (!isset($modplurals[$this->modname])) {
-            $modplurals[$this->modname] = get_string('modulenameplural', $this->modname);
-        }
-        $this->modplural = $modplurals[$this->modname];
+        $this->conditionsfield = isset($mod->conditionsfield)
+                ? $mod->conditionsfield : array();
 
         static $modviews;
         if (!isset($modviews[$this->modname])) {
@@ -1077,35 +1128,90 @@ class cm_info extends stdClass {
     }
 
     /**
-     * Works out whether activity is visible *for current user* - if this is false, they
-     * aren't allowed to access it.
+     * Works out whether activity is available to the current user
+     *
+     * If the activity is unavailable, additional checks are required to determine if its hidden or greyed out
+     *
+     * @see is_user_access_restricted_by_group()
+     * @see is_user_access_restricted_by_conditional_access()
      * @return void
      */
     private function update_user_visible() {
         global $CFG;
-        $modcontext = get_context_instance(CONTEXT_MODULE, $this->id);
+        $modcontext = context_module::instance($this->id);
         $userid = $this->modinfo->get_user_id();
         $this->uservisible = true;
-        // Check visibility/availability conditions.
+
+        // If the user cannot access the activity set the uservisible flag to false.
+        // Additional checks are required to determine whether the activity is entirely hidden or just greyed out.
         if ((!$this->visible or !$this->available) and
                 !has_capability('moodle/course:viewhiddenactivities', $modcontext, $userid)) {
-            // If the activity is hidden or unavailable, and you don't have viewhiddenactivities,
-            // set it so that user can't see or access it.
+
             $this->uservisible = false;
         }
-        // Check group membership. The grouping option makes the activity
-        // completely invisible as it does not apply to the user at all.
-        if (!empty($CFG->enablegroupmembersonly) and !empty($this->groupmembersonly)
-                and !has_capability('moodle/site:accessallgroups', $modcontext, $userid)) {
-            // If the activity has 'group members only' and you don't have accessallgroups...
-            $groups = $this->modinfo->get_groups($this->groupingid);
-            if (empty($groups)) {
-                // ...and you don't belong to a group, then set it so you can't see/access it
-                $this->uservisible = false;
-                // Ensure activity is completely hidden from user.
-                $this->showavailability = 0;
+
+        // Check group membership.
+        if ($this->is_user_access_restricted_by_group()) {
+
+             $this->uservisible = false;
+            // Ensure activity is completely hidden from the user.
+            $this->showavailability = 0;
+        }
+    }
+
+    /**
+     * Checks whether the module's group settings restrict the current user's access
+     *
+     * @return bool True if the user access is restricted
+     */
+    public function is_user_access_restricted_by_group() {
+        global $CFG;
+
+        if (!empty($CFG->enablegroupmembersonly) and !empty($this->groupmembersonly)) {
+            $modcontext = context_module::instance($this->id);
+            $userid = $this->modinfo->get_user_id();
+            if (!has_capability('moodle/site:accessallgroups', $modcontext, $userid)) {
+                // If the activity has 'group members only' and you don't have accessallgroups...
+                $groups = $this->modinfo->get_groups($this->groupingid);
+                if (empty($groups)) {
+                    // ...and you don't belong to a group, then set it so you can't see/access it
+                    return true;
+                }
             }
         }
+        return false;
+    }
+
+    /**
+     * Checks whether the module's conditional access settings mean that the user cannot see the activity at all
+     *
+     * @return bool True if the user cannot see the module. False if the activity is either available or should be greyed out.
+     */
+    public function is_user_access_restricted_by_conditional_access() {
+        global $CFG, $USER;
+
+        if (empty($CFG->enableavailability)) {
+            return false;
+        }
+
+        // If module will always be visible anyway (but greyed out), don't bother checking anything else
+        if ($this->showavailability == CONDITION_STUDENTVIEW_SHOW) {
+            return false;
+        }
+
+        // Can the user see hidden modules?
+        $modcontext = context_module::instance($this->id);
+        $userid = $this->modinfo->get_user_id();
+        if (has_capability('moodle/course:viewhiddenactivities', $modcontext, $userid)) {
+            return false;
+        }
+
+        // Is the module hidden due to unmet conditions?
+        if (!$this->available) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -1161,16 +1267,18 @@ class cm_info extends stdClass {
  * Returns reference to full info about modules in course (including visibility).
  * Cached and as fast as possible (0 or 1 db query).
  *
- * @global object
- * @global object
- * @global moodle_database
+ * use get_fast_modinfo($courseid, 0, true) to reset the static cache for particular course
+ * use get_fast_modinfo(0, 0, true) to reset the static cache for all courses
+ *
  * @uses MAX_MODINFO_CACHE_SIZE
- * @param mixed $course object or 'reset' string to reset caches, modinfo may be updated in db
- * @param int $userid Defaults to current user id
- * @return course_modinfo Module information for course, or null if resetting
+ * @param int|stdClass $courseorid object from DB table 'course' or just a course id
+ * @param int $userid User id to populate 'uservisible' attributes of modules and sections.
+ *     Set to 0 for current user (default)
+ * @param bool $resetonly whether we want to get modinfo or just reset the cache
+ * @return course_modinfo|null Module information for course, or null if resetting
  */
-function get_fast_modinfo(&$course, $userid=0) {
-    global $CFG, $USER, $DB;
+function get_fast_modinfo($courseorid, $userid = 0, $resetonly = false) {
+    global $CFG, $USER;
     require_once($CFG->dirroot.'/course/lib.php');
 
     if (!empty($CFG->enableavailability)) {
@@ -1179,17 +1287,45 @@ function get_fast_modinfo(&$course, $userid=0) {
 
     static $cache = array();
 
-    if ($course === 'reset') {
-        $cache = array();
+    // compartibility with syntax prior to 2.4:
+    if ($courseorid === 'reset') {
+        debugging("Using the string 'reset' as the first argument of get_fast_modinfo() is deprecated. Use get_fast_modinfo(0,0,true) instead.", DEBUG_DEVELOPER);
+        $courseorid = 0;
+        $resetonly = true;
+    }
+
+    if (is_object($courseorid)) {
+        $course = $courseorid;
+    } else {
+        $course = (object)array('id' => $courseorid, 'modinfo' => null, 'sectioncache' => null);
+    }
+
+    // Function is called with $reset = true
+    if ($resetonly) {
+        if (isset($course->id) && $course->id > 0) {
+            $cache[$course->id] = false;
+        } else {
+            foreach (array_keys($cache) as $key) {
+                $cache[$key] = false;
+            }
+        }
         return null;
     }
 
+    // Function is called with $reset = false, retrieve modinfo
     if (empty($userid)) {
         $userid = $USER->id;
     }
 
-    if (array_key_exists($course->id, $cache) and $cache[$course->id]->userid == $userid) {
-        return $cache[$course->id];
+    if (array_key_exists($course->id, $cache)) {
+        if ($cache[$course->id] === false) {
+            // this course has been recently reset, do not rely on modinfo and sectioncache in $course
+            $course->modinfo = null;
+            $course->sectioncache = null;
+        } else if ($cache[$course->id]->userid == $userid) {
+            // this course's modinfo for the same user was recently retrieved, return cached
+            return $cache[$course->id];
+        }
     }
 
     if (!property_exists($course, 'modinfo')) {
@@ -1222,10 +1358,15 @@ function get_fast_modinfo(&$course, $userid=0) {
  * @param boolean $clearonly - only clear the modinfo fields, gets rebuild automatically on the fly
  */
 function rebuild_course_cache($courseid=0, $clearonly=false) {
-    global $COURSE, $DB, $CFG;
+    global $COURSE, $SITE, $DB, $CFG;
 
     // Destroy navigation caches
     navigation_cache::destroy_volatile_caches();
+
+    if (class_exists('format_base')) {
+        // if file containing class is not loaded, there is no cache there anyway
+        format_base::reset_course_cache($courseid);
+    }
 
     if ($clearonly) {
         if (empty($courseid)) {
@@ -1241,9 +1382,12 @@ function rebuild_course_cache($courseid=0, $clearonly=false) {
             $COURSE->modinfo = null;
             $COURSE->sectioncache = null;
         }
+        if ($courseid == $SITE->id) {
+            $SITE->modinfo = null;
+            $SITE->sectioncache = null;
+        }
         // reset the fast modinfo cache
-        $reset = 'reset';
-        get_fast_modinfo($reset);
+        get_fast_modinfo($courseid, 0, true);
         return;
     }
 
@@ -1268,11 +1412,14 @@ function rebuild_course_cache($courseid=0, $clearonly=false) {
             $COURSE->modinfo = $modinfo;
             $COURSE->sectioncache = $sectioncache;
         }
+        if ($course->id == $SITE->id) {
+            $SITE->modinfo = $modinfo;
+            $SITE->sectioncache = $sectioncache;
+        }
     }
     $rs->close();
     // reset the fast modinfo cache
-    $reset = 'reset';
-    get_fast_modinfo($reset);
+    get_fast_modinfo($courseid, 0, true);
 }
 
 
@@ -1350,48 +1497,48 @@ class cached_cm_info {
  * Data about a single section on a course. This contains the fields from the
  * course_sections table, plus additional data when required.
  */
-class section_info extends stdClass {
+class section_info implements IteratorAggregate {
     /**
      * Section ID - from course_sections table
      * @var int
      */
-    public $id;
+    private $_id;
 
     /**
      * Course ID - from course_sections table
      * @var int
      */
-    public $course;
+    private $_course;
 
     /**
      * Section number - from course_sections table
      * @var int
      */
-    public $section;
+    private $_section;
 
     /**
      * Section name if specified - from course_sections table
      * @var string
      */
-    public $name;
+    private $_name;
 
     /**
      * Section visibility (1 = visible) - from course_sections table
      * @var int
      */
-    public $visible;
+    private $_visible;
 
     /**
      * Section summary text if specified - from course_sections table
      * @var string
      */
-    public $summary;
+    private $_summary;
 
     /**
      * Section summary text format (FORMAT_xx constant) - from course_sections table
      * @var int
      */
-    public $summaryformat;
+    private $_summaryformat;
 
     /**
      * When section is unavailable, this field controls whether it is shown to students (0 =
@@ -1399,28 +1546,28 @@ class section_info extends stdClass {
      * from course_sections table
      * @var int
      */
-    public $showavailability;
+    private $_showavailability;
 
     /**
      * Available date for this section (0 if not set, or set to seconds since epoch; before this
      * date, section does not display to students) - from course_sections table
      * @var int
      */
-    public $availablefrom;
+    private $_availablefrom;
 
     /**
      * Available until date for this section  (0 if not set, or set to seconds since epoch; from
      * this date, section does not display to students) - from course_sections table
      * @var int
      */
-    public $availableuntil;
+    private $_availableuntil;
 
     /**
      * If section is restricted to users of a particular grouping, this is its id
      * (0 if not set) - from course_sections table
      * @var int
      */
-    public $groupingid;
+    private $_groupingid;
 
     /**
      * Availability conditions for this section based on the completion of
@@ -1428,7 +1575,7 @@ class section_info extends stdClass {
      * for that module) - from cached data in sectioncache field
      * @var array
      */
-    public $conditionscompletion;
+    private $_conditionscompletion;
 
     /**
      * Availability conditions for this section based on course grades (array from
@@ -1436,14 +1583,20 @@ class section_info extends stdClass {
      * sectioncache field
      * @var array
      */
-    public $conditionsgrade;
+    private $_conditionsgrade;
+
+    /**
+     * Availability conditions for this section based on user fields
+     * @var array
+     */
+    private $_conditionsfield;
 
     /**
      * True if this section is available to students i.e. if all availability conditions
      * are met - obtained dynamically
      * @var bool
      */
-    public $available;
+    private $_available;
 
     /**
      * If section is not available to students, this string gives information about
@@ -1451,7 +1604,7 @@ class section_info extends stdClass {
      * January 2010') for display on main page - obtained dynamically
      * @var string
      */
-    public $availableinfo;
+    private $_availableinfo;
 
     /**
      * True if this section is available to the CURRENT user (for example, if current user
@@ -1459,7 +1612,7 @@ class section_info extends stdClass {
      * visible or not available, so this would be true in that case)
      * @var bool
      */
-    public $uservisible;
+    private $_uservisible;
 
     /**
      * Default values for sectioncache fields; if a field has this value, it won't
@@ -1479,6 +1632,13 @@ class section_info extends stdClass {
     );
 
     /**
+     * Stores format options that have been cached when building 'coursecache'
+     * When the format option is requested we look first if it has been cached
+     * @var array
+     */
+    private $cachedformatoptions = array();
+
+    /**
      * Constructs object from database information plus extra required data.
      * @param object $data Array entry from cached sectioncache
      * @param int $number Section number (array key)
@@ -1491,52 +1651,140 @@ class section_info extends stdClass {
         global $CFG;
 
         // Data that is always present
-        $this->id = $data->id;
+        $this->_id = $data->id;
+
+        $defaults = self::$sectioncachedefaults +
+                array('conditionscompletion' => array(),
+                    'conditionsgrade' => array(),
+                    'conditionsfield' => array());
 
         // Data that may use default values to save cache size
-        foreach (self::$sectioncachedefaults as $field => $value) {
+        foreach ($defaults as $field => $value) {
             if (isset($data->{$field})) {
-                $this->{$field} = $data->{$field};
+                $this->{'_'.$field} = $data->{$field};
             } else {
-                $this->{$field} = $value;
+                $this->{'_'.$field} = $value;
             }
         }
 
-        // Data with array defaults
-        $this->conditionscompletion = isset($data->conditionscompletion)
-                ? $data->conditionscompletion : array();
-        $this->conditionsgrade = isset($data->conditionsgrade)
-                ? $data->conditionsgrade : array();
+        // cached course format data
+        $formatoptionsdef = course_get_format($courseid)->section_format_options();
+        foreach ($formatoptionsdef as $field => $option) {
+            if (!empty($option['cache'])) {
+                if (isset($data->{$field})) {
+                    $this->cachedformatoptions[$field] = $data->{$field};
+                } else if (array_key_exists('cachedefault', $option)) {
+                    $this->cachedformatoptions[$field] = $option['cachedefault'];
+                }
+            }
+        }
 
         // Other data from other places
-        $this->course = $courseid;
-        $this->section = $number;
-        $this->sequence = $sequence;
+        $this->_course = $courseid;
+        $this->_section = $number;
+        $this->_sequence = $sequence;
 
         // Availability data
         if (!empty($CFG->enableavailability)) {
             // Get availability information
             $ci = new condition_info_section($this);
-            $this->available = $ci->is_available($this->availableinfo, true,
+            $this->_available = $ci->is_available($this->_availableinfo, true,
                     $userid, $modinfo);
             // Display grouping info if available & not already displaying
             // (it would already display if current user doesn't have access)
             // for people with managegroups - same logic/class as grouping label
             // on individual activities.
             $context = context_course::instance($courseid);
-            if ($this->availableinfo === '' && $this->groupingid &&
+            if ($this->_availableinfo === '' && $this->_groupingid &&
                     has_capability('moodle/course:managegroups', $context)) {
                 $groupings = groups_get_all_groupings($courseid);
-                $this->availableinfo = html_writer::tag('span', '(' . format_string(
-                        $groupings[$this->groupingid]->name, true, array('context' => $context)) .
+                $this->_availableinfo = html_writer::tag('span', '(' . format_string(
+                        $groupings[$this->_groupingid]->name, true, array('context' => $context)) .
                         ')', array('class' => 'groupinglabel'));
             }
         } else {
-            $this->available = true;
+            $this->_available = true;
         }
 
         // Update visibility for current user
         $this->update_user_visible($userid);
+    }
+
+    /**
+     * Magic method to check if the property is set
+     *
+     * @param string $name name of the property
+     * @return bool
+     */
+    public function __isset($name) {
+        if (property_exists($this, '_'.$name)) {
+            return isset($this->{'_'.$name});
+        }
+        $defaultformatoptions = course_get_format($this->_course)->section_format_options();
+        if (array_key_exists($name, $defaultformatoptions)) {
+            $value = $this->__get($name);
+            return isset($value);
+        }
+        return false;
+    }
+
+    /**
+     * Magic method to check if the property is empty
+     *
+     * @param string $name name of the property
+     * @return bool
+     */
+    public function __empty($name) {
+        if (property_exists($this, '_'.$name)) {
+            return empty($this->{'_'.$name});
+        }
+        $defaultformatoptions = course_get_format($this->_course)->section_format_options();
+        if (array_key_exists($name, $defaultformatoptions)) {
+            $value = $this->__get($name);
+            return empty($value);
+        }
+        return true;
+    }
+
+    /**
+     * Magic method to retrieve the property, this is either basic section property
+     * or availability information or additional properties added by course format
+     *
+     * @param string $name name of the property
+     * @return bool
+     */
+    public function __get($name) {
+        if (property_exists($this, '_'.$name)) {
+            return $this->{'_'.$name};
+        }
+        if (array_key_exists($name, $this->cachedformatoptions)) {
+            return $this->cachedformatoptions[$name];
+        }
+        $defaultformatoptions = course_get_format($this->_course)->section_format_options();
+        // precheck if the option is defined in format to avoid unnecessary DB queries in get_format_options()
+        if (array_key_exists($name, $defaultformatoptions)) {
+            $formatoptions = course_get_format($this->_course)->get_format_options($this);
+            return $formatoptions[$name];
+        }
+        debugging('Invalid section_info property accessed! '.$name);
+        return null;
+    }
+
+    /**
+     * Implementation of IteratorAggregate::getIterator(), allows to cycle through properties
+     * and use {@link convert_to_array()}
+     *
+     * @return ArrayIterator
+     */
+    public function getIterator() {
+        $ret = array();
+        foreach (get_object_vars($this) as $key => $value) {
+            if (substr($key, 0, 1) == '_') {
+                $ret[substr($key, 1)] = $this->$key;
+            }
+        }
+        $ret = array_merge($ret, course_get_format($this->_course)->get_format_options($this));
+        return new ArrayIterator($ret);
     }
 
     /**
@@ -1547,11 +1795,11 @@ class section_info extends stdClass {
      */
     private function update_user_visible($userid) {
         global $CFG;
-        $coursecontext = context_course::instance($this->course);
-        $this->uservisible = true;
-        if ((!$this->visible || !$this->available) &&
+        $coursecontext = context_course::instance($this->_course);
+        $this->_uservisible = true;
+        if ((!$this->_visible || !$this->_available) &&
                 !has_capability('moodle/course:viewhiddensections', $coursecontext, $userid)) {
-            $this->uservisible = false;
+            $this->_uservisible = false;
         }
     }
 

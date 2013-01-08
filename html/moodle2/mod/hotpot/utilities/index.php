@@ -24,9 +24,10 @@
  */
 
 require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/config.php');
+require_once($CFG->dirroot.'/mod/hotpot/lib.php');
 
 require_login(SITEID);
-require_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM, SITEID));
+require_capability('moodle/site:config', hotpot_get_context(CONTEXT_SYSTEM));
 
 // $SCRIPT is set by initialise_fullme() in "lib/setuplib.php"
 // it is the path below $CFG->wwwroot of this script

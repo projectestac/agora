@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'condition', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['addcompletions'] = 'Ajouter au formulaire {no} conditions d\'activité';
 $string['addgrades'] = 'Ajouter {no} conditions de note';
+$string['adduserfields'] = 'Ajouter au formulaire {no} champs pour conditions';
 $string['availabilityconditions'] = 'Restreindre la disponibilité';
 $string['availablefrom'] = 'Disponible dès le';
 $string['availablefrom_help'] = 'Les dates de disponibilité dès le/jusqu\'au détermine la période durant laquelle les participants peuvent accéder à l\'activité via un lien sur la page du cours.
@@ -48,7 +49,11 @@ $string['completion_fail'] = 'doit être terminé avec une note d\'échec';
 $string['completion_incomplete'] = 'ne doit pas être marqué comme terminé';
 $string['completion_pass'] = 'doit être terminé avec une note de réussite';
 $string['configenableavailability'] = 'Permet de définir des conditions (basées sur la date, une note ou la fin d\'une activité) qui déterminent si une activité ou une ressource est disponible.';
+$string['contains'] = 'contient';
+$string['doesnotcontain'] = 'ne contient pas';
 $string['enableavailability'] = 'Activer la disponibilité conditionnelle';
+$string['endswith'] = 'se termine par';
+$string['fielddeclaredmultipletimes'] = 'Vous ne pouvez pas déclarer le même champ plus d\'une fois par activité.';
 $string['grade_atleast'] = 'doit être supérieur à';
 $string['gradecondition'] = 'Condition de note';
 $string['gradecondition_help'] = 'Ce réglage détermine les conditions sur les notes pour que l\'activité soit rendue disponible.
@@ -63,6 +68,9 @@ $string['gradelimitsbutnoitem'] = 'Vous devez sélectionner un élément d\'éva
 $string['gradesmustbenumeric'] = 'Les notes maximales et minimales doivent être des nombres (ou vides).';
 $string['grade_upto'] = 'et inférieur à';
 $string['groupingnoaccess'] = 'Vous ne faites actuellement partie d\'aucun groupe ayant accès à cette section.';
+$string['isempty'] = 'est vide';
+$string['isequalto'] = 'est égal à';
+$string['isnotempty'] = 'n\'est pas vide';
 $string['none'] = '(aucune)';
 $string['notavailableyet'] = 'Pas encore disponible';
 $string['requires_completion_0'] = 'Non disponible tant que l\'activité <strong>{$a}</strong> n\'est pas terminée.';
@@ -77,11 +85,21 @@ $string['requires_grade_any'] = 'Non disponible avant que vous receviez une note
 $string['requires_grade_max'] = 'Non disponible tant que vous n\'obtenez pas une note adéquate dans <strong>{$a}</strong>.';
 $string['requires_grade_min'] = 'Non disponible avant que vous obteniez une note requise dans <strong>{$a}</strong>.';
 $string['requires_grade_range'] = 'Non disponible tant que vous n\'obtenez pas une note spécifique dans <strong>{$a}</strong>.';
+$string['requires_user_field_contains'] = 'Non disponible à moins que votre <strong>{$a->field}</strong> ne contienne <strong>{$a->value}</strong>.';
+$string['requires_user_field_doesnotcontain'] = 'Non disponible si votre <strong>{$a->field}</strong> contient <strong>{$a->value}</strong>.';
+$string['requires_user_field_endswith'] = 'Non disponible à moins que votre <strong>{$a->field}</strong> ne se termine par <strong>{$a->value}</strong>.';
+$string['requires_user_field_isempty'] = 'Non disponible à moins que votre <strong>{$a->field}</strong> ne soit vide.';
+$string['requires_user_field_isequalto'] = 'Non disponible à moins que votre <strong>{$a->field}</strong> ne soit égal à <strong>{$a->value}</strong>.';
+$string['requires_user_field_isnotempty'] = 'Non disponible si votre <strong>{$a->field}</strong> est vide</strong>.';
+$string['requires_user_field_startswith'] = 'Non disponible à moins que votre <strong>{$a->field}</strong> ne se commence par <strong>{$a->value}</strong>.';
 $string['showavailability'] = 'Avant que l\'activité soit disponible';
 $string['showavailability_hide'] = 'Cacher complètement l\'activité';
 $string['showavailabilitysection'] = 'Avant de pouvoir accéder à la section';
 $string['showavailabilitysection_hide'] = 'Cacher complètement la section';
 $string['showavailabilitysection_show'] = 'Griser la section, en indiquant les informations sur la restriction';
 $string['showavailability_show'] = 'Afficher l\'activité en gris, avec une information sur la restriction';
+$string['startswith'] = 'commence par';
+$string['userfield'] = 'Champ utilisateur';
+$string['userfield_help'] = 'Vous pouvez restreindre l\'accès en fonction de n\'importe quel champ du profil utilisateur.';
 $string['userrestriction_hidden'] = 'Restreinte (cachée complètement, pas de message) : « {$a} »';
 $string['userrestriction_visible'] = 'Restreinte : « {$a} »';

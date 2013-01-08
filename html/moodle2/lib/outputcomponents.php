@@ -92,7 +92,7 @@ class file_picker implements renderable {
         $options->currentfile = '';
         if (!empty($options->itemid)) {
             $fs = get_file_storage();
-            $usercontext = get_context_instance(CONTEXT_USER, $USER->id);
+            $usercontext = context_user::instance($USER->id);
             if (empty($options->filename)) {
                 if ($files = $fs->get_area_files($usercontext->id, 'user', 'draft', $options->itemid, 'id DESC', false)) {
                     $file = reset($files);
@@ -384,12 +384,26 @@ class user_picture implements renderable {
             // Hash the users email address
             $md5 = md5(strtolower(trim($this->user->email)));
             // Build a gravatar URL with what we know.
+
+            // Find the best default image URL we can (MDL-35669)
+            if (empty($CFG->gravatardefaulturl)) {
+                $absoluteimagepath = $page->theme->resolve_image_location('u/'.$filename, 'core');
+                if (strpos($absoluteimagepath, $CFG->dirroot) === 0) {
+                    $gravatardefault = $CFG->wwwroot . substr($absoluteimagepath, strlen($CFG->dirroot));
+                } else {
+                    $gravatardefault = $CFG->wwwroot . '/pix/u/' . $filename . '.png';
+                }
+            } else {
+                $gravatardefault = $CFG->gravatardefaulturl;
+            }
+
             // If the currently requested page is https then we'll return an
             // https gravatar page.
             if (strpos($CFG->httpswwwroot, 'https:') === 0) {
-                return new moodle_url("https://secure.gravatar.com/avatar/{$md5}", array('s' => $size, 'd' => $defaulturl->out(false)));
+                $gravatardefault = str_replace($CFG->wwwroot, $CFG->httpswwwroot, $gravatardefault); // Replace by secure url.
+                return new moodle_url("https://secure.gravatar.com/avatar/{$md5}", array('s' => $size, 'd' => $gravatardefault));
             } else {
-                return new moodle_url("http://www.gravatar.com/avatar/{$md5}", array('s' => $size, 'd' => $defaulturl->out(false)));
+                return new moodle_url("http://www.gravatar.com/avatar/{$md5}", array('s' => $size, 'd' => $gravatardefault));
             }
         }
 
@@ -550,6 +564,10 @@ class pix_icon implements renderable {
         }
         if (!isset($this->attributes['title'])) {
             $this->attributes['title'] = $this->attributes['alt'];
+        } else if (empty($this->attributes['title'])) {
+            // Remove the title attribute if empty, we probably want to use the parent node's title
+            // and some browsers might overwrite it with an empty title.
+            unset($this->attributes['title']);
         }
     }
 }
@@ -2359,6 +2377,12 @@ class block_contents {
      * <h2> tags. Please do not cause invalid XHTML.
      */
     public $title = '';
+
+    /**
+     * @var string The label to use when the block does not, or will not have a visible title.
+     * You should never set this as well as title... it will just be ignored.
+     */
+    public $arialabel = '';
 
     /**
      * @var string HTML for the content

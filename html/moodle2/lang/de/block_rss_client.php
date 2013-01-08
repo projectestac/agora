@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_rss_client', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_rss_client', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   block_rss_client
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,14 +31,14 @@ $string['addnew'] = 'Neu hinzufügen';
 $string['addnewfeed'] = 'Neuen RSS-Feed hinzufügen';
 $string['cannotmakemodification'] = 'Sie haben aktuell keine Berechtigung, um Änderungen an diesem RSS-Feed vorzunehmen.';
 $string['choosefeedlabel'] = 'Wählen Sie die Feeds, die in diesem Block zur Verfügung stehen sollen:';
-$string['clientchannellink'] = 'Quellseite ...';
+$string['clientchannellink'] = 'Quelle ...';
 $string['clientnumentries'] = 'Standardzahl der Einträge, die pro Feed angezeigt werden';
 $string['clientshowchannellinklabel'] = 'Soll ein Link zur Originalseite angezeigt werden? Hinweis: kann nur genutzt werden, wenn der Newsfeed einen Link verwendet.';
 $string['clientshowimagelabel'] = 'Grafik des Channels anzeigen, wenn vorhanden:';
 $string['configblock'] = 'Block konfigurieren';
 $string['couldnotfindfeed'] = 'Feed konnte mit id nicht gefunden werden';
 $string['customtitlelabel'] = 'Titel (wenn das Feld leer ist, wird der Titel der Quelle verwendet)';
-$string['deletefeedconfirm'] = 'Sind Sie sicher, dass Sie den Feed löschen wollen?';
+$string['deletefeedconfirm'] = 'Möchten Sie diesen Feed wirklich entfernen?';
 $string['disabledrssfeeds'] = 'RSS-Feeds sind deaktiviert';
 $string['displaydescriptionlabel'] = 'Anzeige der Beschreibung für jeden Link?';
 $string['editafeed'] = 'Feed bearbeiten';
@@ -63,18 +63,20 @@ $string['nofeeds'] = 'Es sind keine Feeds für diese Seite definiert.';
 $string['numentries'] = 'Einträge pro Feed';
 $string['pickfeed'] = 'News Feed auswählen';
 $string['pluginname'] = 'Externe RSS-Feeds';
-$string['remotenewsfeed'] = 'Zugriff auf News Feed';
+$string['remotenewsfeed'] = 'ExternervNews Feed';
+$string['rss_client:addinstance'] = 'Neuen Block \'Externe RSS-Feeds\' hinzufügen';
 $string['rss_client:createprivatefeeds'] = 'Persönliche RSS-Feeds erstellen';
 $string['rss_client:createsharedfeeds'] = 'RSS-Feeds erstellen und mit anderen teilen';
 $string['rss_client:manageanyfeeds'] = 'Alle RSS-Feeds verwalten';
 $string['rss_client:manageownfeeds'] = 'Persönliche RSS-Feeds verwalten';
+$string['rss_client:myaddinstance'] = 'Neuen Block \'Externe RSS-Feeds\' für \'Meine Startseite\' hinzufügen';
 $string['seeallfeeds'] = 'Alle Feeds anzeigen';
 $string['sharedfeed'] = 'Bereitgestellter Feed';
 $string['shownumentrieslabel'] = 'Höchstzahl der angezeigten Einträge pro Block:';
 $string['submitters'] = 'Wer hat die Berechtigung zur Definition von Newsfeeds? Definierte Feeds können in allen Kursräumen genutzt werden.';
 $string['submitters2'] = 'Antragsteller';
-$string['timeout'] = 'Zeitdauer (in Minuten), bevor ein RSS-Feed im Cache ungültig wird. Bitte beachten Sie, dass dieser Wert die minimale Zeit festlegt. Das RSS-Feed wird im Cache aktualisiert, sobald der dann nachfolgende Cronjob abläuft. Empfohlen ist ein Wert von minimal 30 Minuten.';
+$string['timeout'] = 'Zeitdauer (in Minuten), bevor ein RSS-Feed im Cache ungültig wird. Dieser Wert legt die minimale Zeit fest. Der RSS-Feed wird im Cache aktualisiert, sobald der dann nachfolgende Cronjob abläuft. Empfohlen ist ein Wert von minimal 30 Minuten.';
 $string['timeout2'] = 'Timeout';
-$string['timeoutdesc'] = 'Speicherdauer für RSS-Feeds im Cache';
-$string['updatefeed'] = 'Aktualisierte URL des News Feeds:';
+$string['timeoutdesc'] = 'Dauer für RSS-Feeds im Cache (in Minuten)';
+$string['updatefeed'] = 'Aktualisierte URL für News Feeds:';
 $string['viewfeed'] = 'Feed anzeigen';

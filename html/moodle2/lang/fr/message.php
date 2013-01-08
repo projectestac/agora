@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'message', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,7 +42,6 @@ $string['blocknoncontacts'] = 'Empêcher les utilisateurs inconnus de m\'envoyer
 $string['contactlistempty'] = 'Votre liste de contacts est vide';
 $string['contacts'] = 'Contacts';
 $string['context'] = 'Contexte';
-$string['couldnotfindpreference'] = 'Impossible de charger le réglage {$a}. Le composant et le nom fournis à la fonction message_send() correspond-il à une rangée de message_provider ? Les fournisseurs de message doivent figurer dans la base de données, afin que les utilisateurs puissent configurer comment ils recevront notification d\'une réception de message.';
 $string['defaultmessageoutputs'] = 'Output par défaut des messages';
 $string['defaults'] = 'Défauts';
 $string['deletemessagesdays'] = 'Nombre de jours avant la suppression automatique des anciens messages personnels';

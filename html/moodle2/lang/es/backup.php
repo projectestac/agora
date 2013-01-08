@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'backup', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'backup', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   backup
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -118,6 +118,9 @@ $string['errorinvalidformatinfo'] = 'El archivo seleccionado no es un archivo de
 $string['errorminbackup20version'] = 'Este archivo de copia de seguridad ha sido creado con una versión de desarrollo de copia de seguridad de Moodle ({$a->backup}) y se requiere al menos la versión {$a->min}. Por lo tanto, no puede ser restaurado.';
 $string['errorrestorefrontpage'] = 'No está permitido restaurar en la página principal.';
 $string['executionsuccess'] = 'El archivo de copia de seguridad se creó con éxito';
+$string['filealiasesrestorefailures'] = 'Fallos en la restauración de alias';
+$string['filealiasesrestorefailures_help'] = 'Los alias son enlaces simbólicos a otros archivos, incluyendo aquellos almacenados en repositorios externos. En algunos casos, Moodle no puede restaurarlos - por ejemplo cuando se restaura una copia de seguridad en otro sitio o cuando el archivo al que se hace referencia no existe.';
+$string['filealiasesrestorefailuresinfo'] = 'Algunos alias incluidos en el archivo de copia de seguridad no pudieron restaurarse. La lista siguiente contiene su localización esperada y el archivo origen al que se estaban refiriendo en el sitio original.';
 $string['filename'] = 'Nombre de archivo';
 $string['filereferencesincluded'] = 'Las referencias de archivo a contenidos externos incluidos en el paquete de copia de seguridad, no funcionarán en otros sitios.';
 $string['filereferencesnotsamesite'] = 'La copia de seguridad es de otro sitio, las referencias de archivo no se puede restaurar';
@@ -159,6 +162,7 @@ $string['lockedbyhierarchy'] = 'Bloqueado por las dependencias';
 $string['lockedbypermission'] = 'Usted no tiene permisos suficientes para cambiar esta configuración';
 $string['loglifetime'] = 'Mantener los registro durante';
 $string['managefiles'] = 'Gestionar archivos de copia de seguridad';
+$string['missingfilesinpool'] = 'Algunos archivos no pudieron guardarse al hacer la copia de seguridad. No será posible restaurarlos.';
 $string['moodleversion'] = 'Versión de Moodle';
 $string['moreresults'] = 'Hay demasiados resultados, escriba una búsqueda más específica.';
 $string['nomatchingcourses'] = 'No hay cursos para mostrar';
@@ -173,6 +177,7 @@ $string['restoreactivity'] = 'Actividad de la restauración';
 $string['restorecourse'] = 'Restaurar curso';
 $string['restorecoursesettings'] = 'Configuración del curso';
 $string['restoreexecutionsuccess'] = 'Se ha restaurado el curso con éxito. Si pulsa en el botón \'Continuar\' podrá ver el curso que ha restaurado.';
+$string['restorefileweremissing'] = 'Algunos archivos no pudieron restaurarse debido a que faltaban en la copia de seguridad.';
 $string['restorenewcoursefullname'] = 'Nombre del nuevo curso';
 $string['restorenewcourseshortname'] = 'Nombre corto del nuevo curso';
 $string['restorenewcoursestartdate'] = 'Nueva fecha de inicio';
@@ -204,6 +209,7 @@ $string['restoretoexistingcoursedeleting'] = 'Borrar el contenidodel curso actua
 $string['restoretonewcourse'] = 'Restaurar como curso nuevo';
 $string['restoringcourse'] = 'Restauración del curso iniciada';
 $string['restoringcourseshortname'] = 'restaurando';
+$string['rootenrolmanual'] = 'Restaurar como matriculaciones manuales';
 $string['rootsettingactivities'] = 'Incluir actividades';
 $string['rootsettinganonymize'] = 'Hacer anónima la información de usuario';
 $string['rootsettingblocks'] = 'Incluir bloques';
@@ -229,6 +235,12 @@ $string['setting_course_startdate'] = 'Fecha de comienzo del curso';
 $string['setting_keep_groups_and_groupings'] = 'Mantener los grupos y las agrupaciones actuales';
 $string['setting_keep_roles_and_enrolments'] = 'Mantener los roles y matriculaciones actuales';
 $string['setting_overwriteconf'] = 'Sobreescribir la configuración del curso';
+$string['skiphidden'] = 'Pasar por alto cursos ocultos';
+$string['skiphiddenhelp'] = 'Elija si desea o no pasar por alto cursos ocultos';
+$string['skipmodifdays'] = 'Pasar por alto cursos no modificados desde';
+$string['skipmodifdayshelp'] = 'Seleccione para pasar por alto cursos que no han sido modificados desde un número de días';
+$string['skipmodifprev'] = 'Pasar por alto cursos no modificados desde copia de seguridad anterior';
+$string['skipmodifprevhelp'] = 'Elija si desea o no pasar por alto cursos que no han sido modificados desde la copia de seguridad anterior';
 $string['storagecourseandexternal'] = 'Área de ficheros de copia de seguridad y carpeta específica';
 $string['storagecourseonly'] = 'Área de archivos de copia de seguridad';
 $string['storageexternalonly'] = 'Especifique directorio para las copias de seguridad automáticas';

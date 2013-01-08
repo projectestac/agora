@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_database', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_database', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_database
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,7 +42,7 @@ $string['debugdb'] = 'Debug ADOdb';
 $string['debugdb_desc'] = 'Debug ADOdb Verbindung zu externer Datenbank - kann ausgeführt werden wenn bei Login leere Seite erscheint. Nicht für produktive Seiten!';
 $string['defaultcategory'] = 'Standardmäßiger Kursbereich';
 $string['defaultcategory_desc'] = 'Der standardmäßige Kursbereich für automatisch angelegte Kurse wird benutzt, falls keine Kursbereichs-ID festgelegt wurde.';
-$string['defaultrole'] = 'Standardrolle';
+$string['defaultrole'] = 'Rolle im Kurs';
 $string['defaultrole_desc'] = 'Die Standardrolle wird zugewiesen, falls keine andere Rolle in der externen Tabelle festgelegt wurde.';
 $string['ignorehiddencourses'] = 'Verborgene Kurse ignorieren';
 $string['ignorehiddencourses_desc'] = 'Wenn diese Option aktiviert ist, werden Nutzer/innen nicht in Kurse eingeschrieben, die für sie nicht freigegeben sind.';

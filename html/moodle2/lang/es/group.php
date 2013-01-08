@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'group', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'group', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   group
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addedby'] = 'Agregado por {$a}';
 $string['addgroup'] = 'Agregar usuarios al grupo';
 $string['addgroupstogrouping'] = 'Agregar grupos al agrupamiento';
 $string['addgroupstogroupings'] = 'Agregar/quitar grupos';
@@ -63,6 +64,7 @@ $string['erroraddremoveuser'] = 'Error al agregar/quitar al usuario {$a} del gru
 $string['erroreditgroup'] = 'Error al crear o actualizar el grupo {$a}';
 $string['erroreditgrouping'] = 'Error al crear o actualizar el agrupamiento {$a}';
 $string['errorinvalidgroup'] = 'Error, grupo {$a} no válido';
+$string['errorremovenotpermitted'] = 'Usted no tiene permiso para remover al miembro del grupo {$a} que fue añadido automáticamente';
 $string['errorselectone'] = 'Por favor, seleccione un solo grupo antes de elegir esta opción';
 $string['errorselectsome'] = 'Por favor, seleccione uno o más grupos antes de elegir esta opción';
 $string['evenallocation'] = 'Nota: Para conservar constante la asignación de usuarios, el número real de miembros por grupo difiere del número que usted ha especificado.';
@@ -85,8 +87,8 @@ $string['grouping_help'] = '<p>Un agrupamiento es un conjunto de grupos dentro d
 $string['groupingname'] = 'Nombre del agrupamiento';
 $string['groupingnameexists'] = 'El nombre de agrupamiento {$a} ya existe en este curso. Por favor, elija otro.';
 $string['groupings'] = 'Agrupamientos';
-$string['groupingsection'] = 'Acceso a agrupamientos';
-$string['groupingsection_help'] = 'Un agrupamiento es una colección de grupos dentro de un curso. Si aquí elige un agrupamiento, solamente los estudiantes asignados a los grupos incluidos en este agrupamiento tendrán acceso a la sección.';
+$string['groupingsection'] = 'Acceso agrupamientos';
+$string['groupingsection_help'] = 'Un agrupamiento es una colección de grupos dentro de un curso. Si aquí se selecciona un agrupamiento, solamente los estudiantes asignados a grupos incluídos en este agrupamiento tendrán acceso a la sección.';
 $string['groupingsonly'] = 'Sólo agrupamientos';
 $string['groupmember'] = 'Miembro del Grupo';
 $string['groupmemberdesc'] = 'Rol estándar de un miembro de grupo.';

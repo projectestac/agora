@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_missingtype', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'qtype_missingtype', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   qtype_missingtype
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,7 +31,4 @@ $string['deletedquestion'] = 'Pregunta desconeguda';
 $string['deletedquestiontext'] = 'Aquesta pregunta és de tipus desconegut. Impossible mostrar res.';
 $string['missing'] = 'Pregunta d\'un tipus no instal·lat en aquest sistema.';
 $string['missingqtypewarning'] = 'Aquesta pregunta és d\'un tipus que no es troba instal·lat al sistema. No podreu fer res amb la pregunta.';
-$string['pluginname'] = 'Tipus de pregunta desconegut';
-$string['pluginnameadding'] = 'S\'està afegint una pregunta d\'un tipus que no es troba instal·lat al sistema';
-$string['pluginnameediting'] = 'S\'està editant una pregunta d\'un tipus que no es troba instal·lat al sistema';
 $string['warningmissingtype'] = '<b>Aquesta pregunta és d\'un tipus que no s\'ha instal·lat en aquest Moodle encara.<br/> Si us plau aviseu l\'administració del Moodle<(b>';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'notes', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'notes', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   notes
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,7 +39,6 @@ $string['deletenotes'] = 'Alle Anmerkungen löschen';
 $string['editnote'] = 'Anmerkung bearbeiten';
 $string['enablenotes'] = 'Anmerkungen';
 $string['groupaddnewnote'] = 'Neue Anmerkung für alle hinzufügen';
-$string['invalidcourseid'] = 'Ungültige Kurs-ID: {$a}';
 $string['invalidid'] = 'Falsche ID einer Anmerkung angegeben';
 $string['invaliduserid'] = 'Ungültige Nutzer-ID: {$a}';
 $string['nocontent'] = 'Der Inhalt kann nicht leer sein';
@@ -61,6 +60,7 @@ $string['publishstate_help'] = 'Der Kontext für eine Anmerkung bestimmt, wer di
  * Kurs - die Anmerkung ist für die Trainer/innen dieses Kurses sichtbar
  * Website - die Anmerkung ist für alle Trainer/innen aller Kursen sichtbar
  ';
+$string['selectnotestate'] = 'Anmerkungsstatus auswählen';
 $string['site'] = 'Website';
 $string['sitenotes'] = 'Anmerkungen für alle Trainer/innen sichtbar (kursübergreifend)';
 $string['unknown'] = 'unbekannt';

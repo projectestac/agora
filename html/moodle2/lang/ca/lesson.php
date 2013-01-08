@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'lesson', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -205,24 +205,6 @@ $string['highscore'] = 'Puntuació més alta';
 $string['highscores'] = 'Puntuacions més altes.';
 $string['hightime'] = 'Temps màxim';
 $string['importcount'] = 'S\'estan important {$a} preguntes';
-$string['importppt'] = 'Importa PowerPoint';
-$string['importppt_help'] = '<p>GUIA D\'ÚS</p>
-<p>Totes les diapositives de PowerPoint s\'importen com a Taules de ramificació amb
-respostes Anterior i Següent.
-<p>
-<ol>
-<li>Obriu la presentació PowerPoint.</li>
-<li>Deseu-la com a pàgina web (sense opcions especials).</li>
-<li>El resultat del pas 2 hauria de ser un fitxer HTML i una carpeta amb totes les diapositives convertides a pàgines web.<br />
-  COMPRIMIU LA CARPETA en un fitxer ZIP.</li>
-<li>Aneu al vostre lloc moodle i afegiu una nova lliçó.</li>
-<li>Després de desar els paràmetres de la lliçó hauríeu de veure quatre opcions sota &quot;Què voleu fer primer?&quot; Feu clic en &quot;Importa PowerPoint&quot;</li>
-<li>Utilitzeu el botó &quot;Navega...&quot; per trobar el fitxer ZIP del pas 3. Després, feu clic en &quot;Penja aquest fitxer&quot;</li>
-<li>Si tot ha funcionat correctament, la pantalla següent hauria de mostrar un botó per continuar.</li>
-</ol>
-</p>
-<p>Les imatges que contingui el vostre PowerPoint s\'hauran desat com a fitxers del curs en la carpeta moddata/XY, on X és el nom de la lliçó i Y és un número (generalment 0). D\'altra banda, durant el procés d\'importació s\'hauran creat fitxers en la carpeta de dades de moodle, dins de temp/lesson. A hores d\'ara aquests fitxers no se suprimeixen.</p>
-<p align="center">&nbsp;</p>';
 $string['importquestions'] = 'Importa preguntes';
 $string['importquestions_help'] = 'Aquesta característica permet la importació de diferents formats de pregunta mitjançant un fitxer de text.';
 $string['insertedpage'] = 'S\'ha inserit la pàgina';
@@ -358,7 +340,6 @@ $string['pluginname'] = 'Lliçó';
 $string['pointsearned'] = 'Punts aconseguits';
 $string['postprocesserror'] = 'S\'ha produït un error durant el postprocessament';
 $string['postsuccess'] = 'Missatge enviat correctament';
-$string['pptsuccessfullimport'] = 'S\'han importat satisfactòriament les pàgines de la presentació de powerpoint';
 $string['practice'] = 'Lliçó de pràctica';
 $string['practice_help'] = 'Una lliçó de pràctica no té reflex en el llibre de qualificacions';
 $string['preprocesserror'] = 'S\'ha produït un error durant el preprocessament';

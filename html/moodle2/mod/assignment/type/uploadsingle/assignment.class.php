@@ -62,7 +62,7 @@ class assignment_uploadsingle extends assignment_base {
 
         global $USER, $OUTPUT;
 
-        $context = get_context_instance(CONTEXT_MODULE,$this->cm->id);
+        $context = context_module::instance($this->cm->id);
         require_capability('mod/assignment:view', $context);
 
         add_to_log($this->course->id, "assignment", "view", "view.php?id={$this->cm->id}", $this->assignment->id, $this->cm->id);
@@ -78,7 +78,7 @@ class assignment_uploadsingle extends assignment_base {
         if ($submission = $this->get_submission($USER->id)) {
             $filecount = $this->count_user_files($submission->id);
             if ($submission->timemarked) {
-                $this->view_feedback();
+                $this->view_feedback($submission);
             }
             if ($filecount) {
                 echo $OUTPUT->box($this->print_user_files($USER->id, true), 'generalbox boxaligncenter');
@@ -90,6 +90,25 @@ class assignment_uploadsingle extends assignment_base {
         }
 
         $this->view_footer();
+    }
+
+    /**
+     * Display the response file to the student
+     *
+     * This default method prints the response file
+     *
+     * @param object $submission The submission object
+     */
+    function view_responsefile($submission) {
+        $fs = get_file_storage();
+        $noresponsefiles = $fs->is_area_empty($this->context->id, 'mod_assignment', 'response', $submission->id);
+        if (!$noresponsefiles) {
+            echo '<tr>';
+            echo '<td class="left side">&nbsp;</td>';
+            echo '<td class="content">';
+            echo $this->print_responsefiles($submission->userid);
+            echo '</td></tr>';
+        }
     }
 
     function process_feedback($formdata=null) {
@@ -114,7 +133,7 @@ class assignment_uploadsingle extends assignment_base {
         global $DB;
 
         // Grab the context assocated with our course module
-        $context = get_context_instance(CONTEXT_MODULE, $this->cm->id);
+        $context = context_module::instance($this->cm->id);
 
         // Get ids of users enrolled in the given course.
         list($enroledsql, $params) = get_enrolled_sql($context, 'mod/assignment:view', $groupid);
@@ -130,24 +149,15 @@ class assignment_uploadsingle extends assignment_base {
     }
 
     function print_responsefiles($userid, $return=false) {
-        global $CFG, $USER, $OUTPUT, $PAGE;
-
-        $mode    = optional_param('mode', '', PARAM_ALPHA);
-        $offset  = optional_param('offset', 0, PARAM_INT);
+        global $OUTPUT, $PAGE;
 
         $output = $OUTPUT->box_start('responsefiles');
-
-        $candelete = $this->can_manage_responsefiles();
-        $strdelete   = get_string('delete');
-
-        $fs = get_file_storage();
-        $browser = get_file_browser();
 
         if ($submission = $this->get_submission($userid)) {
             $renderer = $PAGE->get_renderer('mod_assignment');
             $output .= $renderer->assignment_files($this->context, $submission->id, 'response');
-            $output .= $OUTPUT->box_end();
         }
+        $output .= $OUTPUT->box_end();
 
         if ($return) {
             return $output;
@@ -293,8 +303,8 @@ class assignment_uploadsingle extends assignment_base {
         $mform->addElement('select', 'maxbytes', get_string('maximumsize', 'assignment'), $choices);
         $mform->setDefault('maxbytes', $CFG->assignment_maxbytes);
 
-        $course_context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
-        plagiarism_get_form_elements_module($mform, $course_context);
+        $course_context = context_course::instance($COURSE->id);
+        plagiarism_get_form_elements_module($mform, $course_context, 'mod_assignment');
     }
 
     function portfolio_exportable() {

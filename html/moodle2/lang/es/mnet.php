@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'mnet', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'mnet', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   mnet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,6 +30,7 @@ $string['accesslevel'] = 'Nivel de acceso';
 $string['addhost'] = 'Agregar servidor';
 $string['addnewhost'] = 'Agregar un nuevo servidor';
 $string['addtoacl'] = 'Agregar a Control de Acceso';
+$string['allhosts'] = 'Todos los hosts';
 $string['allhosts_no_options'] = 'No hay opciones disponibles cuando se ven múltiples hosts.';
 $string['allow'] = 'Permitir';
 $string['applicationtype'] = 'Tipo de aplicación';
@@ -48,6 +49,8 @@ $string['currentkey'] = 'Clave pública actual';
 $string['current_transport'] = 'Transporte actual';
 $string['databaseerror'] = 'No se pudieron escribir detalles en la base de datos.';
 $string['deleteaserver'] = 'Eliminando un servidor';
+$string['deletedhostinfo'] = 'Este host ha sido borrado.Si quiere deshacer el borrado, cambie el estado de borrado de nuevo a \'No\'.';
+$string['deletedhosts'] = 'Hosts borrados: {$a}';
 $string['deletehost'] = 'Eliminar host';
 $string['deletekeycheck'] = '¿Está totalmente seguro que quiere eliminar esta clave?';
 $string['deleteoutoftime'] = 'Su ventana de 60 segundos para eliminar esta clave ha expirado.Por favor comience de nuevo.';
@@ -79,7 +82,7 @@ $string['hidelocal'] = 'Ocultar usuarios locales';
 $string['hideremote'] = 'Ocultar usuarios remotos';
 $string['host'] = 'host';
 $string['hostcoursenotfound'] = 'Host o curso no encontrado';
-$string['hostdeleted'] = 'Ok - host eliminado';
+$string['hostdeleted'] = 'Host borrado';
 $string['hostexists'] = 'Ya existe un registro para un host con ese nombre (puede ser eliminado). <a href="{$a}">Haga clic aquí</a>para editar ese registro.';
 $string['hostlist'] = 'Lista de hosts en red';
 $string['hostname'] = 'Nombre del host';
@@ -162,6 +165,7 @@ $string['notinxmlrpcserver'] = 'Intento de acceder al cliento remoto MNet, no du
 $string['notmoodleapplication'] = 'ATENCIÓN: Esta no es una aplicación Moodle, por lo que algunos de los métodos de inspección pueden no funcionar adecuadamente.';
 $string['notPEM'] = 'Esta clave no está en formato PEM. No funcionará.';
 $string['notpermittedtojump'] = 'Usted no tiene permiso para iniciar una sesión remota desde este servidor Moodle.';
+$string['notpermittedtojumpas'] = 'No puede empezar una sesión remota mientras está conectado como otro usuario.';
 $string['notpermittedtoland'] = 'Usted no tiene permiso para iniciar una sesión remota.';
 $string['off'] = 'apagado';
 $string['on'] = 'encendido';
@@ -178,6 +182,7 @@ $string['profileimportfields'] = 'Campos a importar';
 $string['promiscuous'] = 'Promiscuo';
 $string['publickey'] = 'Clave pública';
 $string['publickey_help'] = 'La clave pública es automáticamente obtenida desde el servidor remoto.';
+$string['publickeyrequired'] = 'Debes proporcionar una clave pública';
 $string['publish'] = 'Publicar';
 $string['reallydeleteserver'] = '¿Está seguro que desea eliminar el servidor?';
 $string['receivedwarnings'] = 'Se recibieron las siguientes advertencias';
@@ -190,6 +195,7 @@ $string['registerhostson'] = 'El registro de todos los hosts está actualmente <
 $string['remotecourses'] = 'Cursos remotos';
 $string['remotehost'] = 'Host remoto';
 $string['remotehosts'] = 'Hosts remotos';
+$string['remoteuserinfo'] = 'Perfil remoto {$a->remotetype} de usuario obtenido de <a href="{$a->remoteurl}">{$a->remotename}</a>';
 $string['requiresopenssl'] = 'El trabajo de red requiere la extensión OpenSSL';
 $string['restore'] = 'Restaurar';
 $string['returnvalue'] = 'Retornar valor';
@@ -233,6 +239,7 @@ $string['unknown'] = 'Desconocido';
 $string['unknownerror'] = 'Un error desconocido ocurrió durante la negociación.';
 $string['usercannotchangepassword'] = 'No puede cambiar su contraseña aquí puesto que eres un usuario remoto.';
 $string['userchangepasswordlink'] = '<br /> Puede cambiar su contraseña en su  proveedor <a href="{$a->wwwroot}/login/change_password.php">{$a->description}</a>.';
+$string['usernotfullysetup'] = 'Su cuenta de usuario está incompleta. Necesita ir <a href="{$a}">de regreso a su proveedor</a> y asegurarse de que su perfil esté complete allí. Puede que necesite salir del sitio y volver a entrar para que tenga efecto.';
 $string['usersareonline'] = 'Advertencia: {$a} usuarios de ese servidor están actualmente en su sitio.';
 $string['validated_by'] = 'Es validado por la red:  <code>{$a}</code>';
 $string['verifysignature-error'] = 'La verificación de firma falló. Un error ha ocurrido.';

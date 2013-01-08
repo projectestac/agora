@@ -44,7 +44,7 @@ class mod_hotpot_report_overview_renderer extends mod_hotpot_report_renderer {
     );
 
     public $filterfields = array(
-        'realname'=>0, // 'lastname'=>1, 'firstname'=>1, 'username'=>1,
+        'group' => 0, 'realname'=>0, // 'lastname'=>1, 'firstname'=>1, 'username'=>1,
         'grade'=>1, 'timemodified'=>1, 'status'=>1, 'duration'=>1, 'score'=>1
     );
 }

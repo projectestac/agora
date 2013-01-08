@@ -57,7 +57,7 @@ function xtec2_process_css($css, $theme) {
             $fontstyle = 'font-family: arial, helvetica, clean, sans-serif;';
             break;
         case 'lligada':
-            $fontstyle = 'font-family: Abecedario;';
+            $fontstyle = 'font-family: Abecedario!important;';
             break;
         case 'majuscules':
             $fontstyle = 'text-transform: uppercase';

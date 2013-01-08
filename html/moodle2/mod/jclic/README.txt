@@ -81,6 +81,7 @@ Translations:
 Special Thanks:
    Sandra Fernandez 
    Birgit Ferran
+   Pau Ferrer Ocana
    Silvia Garcia Yague
    Albert Gasset Romo
    Eva Gea

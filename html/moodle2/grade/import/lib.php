@@ -161,14 +161,15 @@ function grade_import_commit($courseid, $importcode, $importfeedback=true, $verb
  */
 function get_unenrolled_users_in_import($importcode, $courseid) {
     global $CFG, $DB;
-    $relatedctxcondition = get_related_contexts_string(get_context_instance(CONTEXT_COURSE, $courseid));
+    $relatedctxcondition = get_related_contexts_string(context_course::instance($courseid));
 
     //users with a gradeable role
     list($gradebookrolessql, $gradebookrolesparams) = $DB->get_in_or_equal(explode(',', $CFG->gradebookroles), SQL_PARAMS_NAMED, 'grbr');
 
     //enrolled users
-    $context = get_context_instance(CONTEXT_COURSE, $courseid);
+    $context = context_course::instance($courseid);
     list($enrolledsql, $enrolledparams) = get_enrolled_sql($context);
+    list($sort, $sortparams) = users_order_by_sql('u');
 
     $sql = "SELECT giv.id, u.firstname, u.lastname, u.idnumber AS useridnumber,
                    COALESCE(gi.idnumber, gin.itemname) AS gradeidnumber
@@ -185,8 +186,8 @@ function get_unenrolled_users_in_import($importcode, $courseid) {
                         ON (giv.userid = ra.userid AND ra.roleid $gradebookrolessql AND ra.contextid $relatedctxcondition)
              WHERE giv.importcode = :importcode
                    AND (ra.id IS NULL OR je.id IS NULL)
-          ORDER BY gradeidnumber, u.lastname, u.firstname";
-    $params = array_merge($gradebookrolesparams, $enrolledparams);
+          ORDER BY gradeidnumber, $sort";
+    $params = array_merge($gradebookrolesparams, $enrolledparams, $sortparams);
     $params['importcode'] = $importcode;
 
     return $DB->get_records_sql($sql, $params);

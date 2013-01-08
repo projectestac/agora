@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'grades', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -58,7 +58,7 @@ $string['aggregationcoefextra'] = 'Puntos extra';
 $string['aggregationcoefextra_help'] = '<h2>Para Agregación de Suma de Calificaciones</h2>
 
 <p>Cuando la estrategia de agregación de "suma de las calificaciones" se utiliza, un ítem de calificación puede actuar como crédito Extra para la categoría. Esto significa que la calificación máxima del ítem no será agregada a la calificación máxima total de la categoría, pero la calificación del item si lo será. Lo que sigue es un ejemplo:
-
+</p>
 <ul>
     <li>Ítem 1 es calificado entre 0-100</li>
     <li>Ítem 2 es calificado entre 0-75</li>
@@ -156,6 +156,7 @@ $string['chooseaction'] = 'Seleccione una acción...';
 $string['choosecategory'] = 'Seleccionar categoría';
 $string['combo'] = 'Tabuladores y menú desplegable';
 $string['compact'] = 'Compactar';
+$string['componentcontrolsvisibility'] = 'El hecho que este ítem de calificación esté oculto o no, es controlado por la configuración de la actividad.';
 $string['contract'] = 'Contraer categoría';
 $string['controls'] = 'Controles';
 $string['courseavg'] = 'Promedio del curso';
@@ -187,6 +188,7 @@ $string['displaypoints'] = 'Mostrar puntos';
 $string['displayweighted'] = 'Mostrar calificaciones ponderadas';
 $string['dropdown'] = 'Menú desplegable';
 $string['droplow'] = 'Descartar las más bajas';
+$string['droplowestvalue'] = 'Configurar descartar el menor valor de calificación';
 $string['droplow_help'] = '<p>Si se activa, esta opción descartará las X calificaciones más bajas, donde X es el valor seleccionado por esta opción. </p>';
 $string['dropped'] = 'Descartadas';
 $string['dropxlowest'] = 'Descartar X más bajas';
@@ -232,6 +234,7 @@ $string['exportonlyactive_help'] = 'Solo incluye en la exportación, aquellos es
 $string['exportplugins'] = 'Conectores de exportación';
 $string['exportsettings'] = 'Exportar ajustes';
 $string['exportto'] = 'Exportar a';
+$string['extracreditvalue'] = 'Valor de crédito extra para {$a}';
 $string['extracreditwarning'] = 'Nota: Si se adscribe un crédito extra a todos los ítems de una categoría, se eliminarán del cálculo de la calificación, por lo que no existirá una puntuación total';
 $string['feedback'] = 'Retroalimentación';
 $string['feedbackadd'] = 'Agregar retroalimentación';
@@ -273,10 +276,14 @@ $string['gradedisplaytype_help'] = 'Especifica cómo se verán las calificacione
 * Como letras';
 $string['gradedon'] = 'Calificados {$a}';
 $string['gradeexport'] = 'Exportar calificaciones';
+$string['gradeexportcustomprofilefields'] = 'Campos de perfil personalizados en exportación de calificaciones';
+$string['gradeexportcustomprofilefields_desc'] = 'Incluir estos campos personalizados de perfil en la exportación de calificaciones, separados por comas.';
 $string['gradeexportdecimalpoints'] = 'Puntos decimales en la exportación de calificaciones';
 $string['gradeexportdecimalpoints_desc'] = 'Número de decimales a mostrar en el archivo exportado. Puede pasarse por alto durante la exportación.';
 $string['gradeexportdisplaytype'] = 'Forma de mostrar exportación de calificaciones';
 $string['gradeexportdisplaytype_desc'] = 'Las calificaciones pueden mostrarse como calificaciones reales, como porcentajes (en relación a las calificaciones mínima y máxima) o como letras (A, B, C, &c.) durante la exportación. Puede pasarse por alto durante la exportación.';
+$string['gradeexportuserprofilefields'] = 'Campos de perfil de usuario en exportación de calificaciones';
+$string['gradeexportuserprofilefields_desc'] = 'Incluir estos campos de perfil de usuario en la exportación de calificaciones, separados por comas.';
 $string['gradeforstudent'] = '{$a->student}<br />{$a->item}$a->feedback';
 $string['gradehelp'] = 'Ayuda sobre las calificaciones';
 $string['gradehistorylifetime'] = 'Duración del historial de calificaciones';
@@ -377,8 +384,8 @@ $string['importoutcomesuccess'] = 'Resultado importado "{$a->name}" con ID #{$a-
 $string['importplugins'] = 'Conectores de importación';
 $string['importpreview'] = 'Vista previa de la importación';
 $string['importsettings'] = 'Importar ajustes';
-$string['importskippednomanagescale'] = 'No tiene permiso para agregar una nueva escala. El resultado "{$a}" se ha omitido puesto que requiere crear una nueva escala';
-$string['importskippedoutcome'] = 'Ya existe un resultado con el nombre corto "{$a}" en este contexto; el archivo importado ha sido omitido.';
+$string['importskippednomanagescale'] = 'No tiene permiso para agregar una nueva escala. El resultado "{$a}" se ha pasado por alto puesto que requiere crear una nueva escala';
+$string['importskippedoutcome'] = 'Ya existe un resultado con el nombre corto "{$a}" en este contexto; el archivo importado ha sido pasado por alto.';
 $string['importstandard'] = 'Importar como resultados estándar';
 $string['importsuccess'] = 'Importación de calificaciones exitosa';
 $string['importxml'] = 'Importar XML';
@@ -438,6 +445,7 @@ $string['moveselectedto'] = 'Mover los ítems seleccionados a';
 $string['movingelement'] = 'Moviendo {$a}';
 $string['multfactor'] = 'Multiplicador';
 $string['multfactor_help'] = '<p>Es el factor por el que se multiplicarán todas las calificaciones de este elemento de calificación, con un valor máximo para la calificación del establecido como máximo. Por ejemplo, si el multiplicador es 2 y la calificación máxima es de 100,  todos los grados menores de 50 se multiplican por dos, y todos los grados 50 y superiores se establecerán en 100.</p>';
+$string['multfactorvalue'] = 'Valor multiplicador para {$a}';
 $string['mypreferences'] = 'Mis preferencias';
 $string['myreportpreferences'] = 'Mis preferencias de informe';
 $string['navmethod'] = 'Método de navegación';
@@ -518,6 +526,7 @@ $string['percentdescending'] = 'Ordenar por porcentaje descendente';
 $string['percentshort'] = '%';
 $string['plusfactor'] = 'Compensar';
 $string['plusfactor_help'] = '<p>Es el valor que se sumará a cada calificación de este elemento de calificación, después de haber aaplicado el multiplicador.</p>';
+$string['plusfactorvalue'] = 'Valor de compensación para {$a}';
 $string['points'] = 'puntos';
 $string['pointsascending'] = 'Clasificar por puntos ascendente';
 $string['pointsdescending'] = 'Clasificar por puntos descendente';
@@ -571,6 +580,7 @@ $string['savepreferences'] = 'Guardar preferencias';
 $string['scaleconfirmdelete'] = '¿Está seguro de que desea eliminar la escala "{$a}"?';
 $string['scaledpct'] = 'Escalado %';
 $string['seeallcoursegrades'] = 'Ver todas las calificaciones del curso';
+$string['select'] = 'Seleccionar {$a}';
 $string['selectalloroneuser'] = 'Seleccionar todos o un usuario';
 $string['selectauser'] = 'Seleccionar un usuario';
 $string['selectdestination'] = 'Seleccionar destino de {$a}';
@@ -647,7 +657,7 @@ $string['statslink'] = 'Estadísticas';
 $string['student'] = 'Estudiante';
 $string['studentsperpage'] = 'Estudiantes por página';
 $string['studentsperpage_help'] = 'Número de estudiantes a mostrar por página en el informe del calificador.';
-$string['studentsperpagereduced'] = 'Se redujo el número máximo de estudiantes por página de {$a->originalstudentsperpage} a {$a->studentsperpage}. Considere incrementar la configuración de la variable PHP  max_input_vars de {$a->maxinputvars}.';
+$string['studentsperpagereduced'] = 'Se redujo el número máximo de estudiantes por página de  {$a->originalstudentsperpage} a {$a->studentsperpage}. Considere aumentar la variable PHP max_input_vars de {$a->maxinputvars}.';
 $string['subcategory'] = 'Categoría normal';
 $string['submissions'] = 'Envíos';
 $string['submittedon'] = 'Enviado: {$a}';

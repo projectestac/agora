@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_database', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_database', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_database
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['database:unenrol'] = 'Dar de baja usuarios suspendidos';
 $string['dbencoding'] = 'Codificación de base de datos';
 $string['dbhost'] = 'Host de la base de datos';
 $string['dbhost_desc'] = 'Escriba la dirección IP del servidor de la base de datos o el nombre del host';
@@ -53,6 +54,7 @@ $string['newcourseshortname'] = 'Campo de nombre corto del nuevo curso';
 $string['newcoursetable'] = 'Tabla de nuevos cursos remotos';
 $string['newcoursetable_desc'] = 'Se especifica el nombre de la tabla que contiene la lista de cursos que deberían crearse automáticamente. Si está vacía, significa que no está creado ningún curso.';
 $string['pluginname'] = 'Base de datos externa';
+$string['pluginname_desc'] = 'Puede utilizar una base de datos externa (casi de cualquier tipo) para controlar sus matriculaciones. Se asume que su base de datos externa contiene al menos un campo que contiene un ID de curso, y un campo que contiene un ID de usuario. Estos se comparan con los campos que usted elija en el curso local y las tablas de usuario.';
 $string['remotecoursefield'] = 'Nombre del campo en la tabla remota que se usa para emparejar las entradas en la tabla de cursos';
 $string['remoteenroltable'] = 'Tabla de matriculación remota de usuarios';
 $string['remoteenroltable_desc'] = 'Indique el nombre de la tabla que contiene la lista de matrículas de usuario. Si queda vacío significa que no hay sincronización en la matriculación de usuarios.';

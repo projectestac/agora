@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'media', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'media', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   media
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,8 +33,7 @@ $string['html5audio'] = 'HTML5-Audio';
 $string['html5audio_desc'] = 'Audio-Dateien mit den Endungen *.ogg, *.aac, *.m4a und anderen. Der Filter arbeitet nur mit aktuellen Webbrowsern, wobei es kein von allen Browsern unterstütztes Format gibt. Ein Fallback ist möglich, wenn mehrere Quellen mit # getrennt angeben sind: (z.B.  http://example.org/audio.ogg#http://example.org/audio.aac#http://example.org/audio.mp3#). Der QuickTime-Player wird als Fallback für ältere Browser verwendet.';
 $string['html5video'] = 'HTML5-Video';
 $string['html5video_desc'] = 'Video-Dateien mit den Endungen *.webm, *.m4v, *.ogv und *.mp4 und anderen. Der Filter arbeitet nur mit aktuellen Webbrowsern, wobei es kein von allen Browsern unterstütztes Format gibt. Ein Fallback ist möglich, wenn mehrere Quellen mit # getrennt angeben sind: (z.B. http://example.org/video.m4v#http://example.org/video.webm#http://example.org/video.ogv#d=640x480). Der QuickTime-Player wird als Fallback für ältere Browser verwendet.';
-$string['legacyheading'] = 'Ältere Media-Player
-';
+$string['legacyheading'] = 'Ältere Medienformate';
 $string['legacyheading_desc'] = 'Folgende Formate werden nicht zum Gebrauch empfohlen, sie werden aber in Installationen mit zentral verwalteten Clients aber oft noch verwendet.';
 $string['legacyquicktime'] = 'QuickTime Player';
 $string['legacyquicktime_desc'] = 'Dateien mit den Endungen *.mov, *.mp4, *.m4a, *.mp4 und *.mpg. Dieser Filter benötigt QuickTime oder QuickTime Codecs.';
@@ -43,10 +42,10 @@ $string['legacyreal_desc'] = 'Dateien mit der Endung *.rm, *.ra, *.ram, *.rp, *.
 $string['legacywmp'] = 'Windows Media Player';
 $string['legacywmp_desc'] = 'Dateien mit den Endungen *.avi und *.wmv. Dieser Formate sind kompatibel mit dem Windows Internet Explorer, könnten aber mit anderen Browsern oder Betriebssystemen Probleme bereiten.';
 $string['mediaformats'] = 'Verfügbare Medienformate';
-$string['mediaformats_desc'] = 'Die Aktivierung der Player in diesen Einstellungen ermöglicht das Einbinden von Dateien über den Mediafilter (wenn aktiviert) oder die Datei bzw. URL Ressource mit Einbetten-Option. Wenn die Funktion nicht aktiviert wird, können die Dateien manuell heruntergeladen werden oder an dem angegebenen Ort aufgerufen werden.
+$string['mediaformats_desc'] = 'Die Aktivierung dieser Einstellungen ermöglicht das Einbinden von Dateien über den Mediafilter (wenn aktiviert) oder die Datei bzw. URL Ressource mit Einbetten-Option. Wenn die Funktion nicht aktiviert wird, können die Dateien manuell heruntergeladen werden oder an dem angegebenen Ort aufgerufen werden.
 
 Wenn zwei Player das gleiche Format unterstützen, können beide aktiviert werden, um den Einsatz auf unterschiedlichen Endgeräten zu unterstützen oder verschiedene Dateiformate alternativ zur Verfügung zu stellen.';
-$string['mediasettings'] = 'Einbettung von Medien';
+$string['mediasettings'] = 'Medienformate';
 $string['mp3audio'] = 'MP3-Audio';
 $string['mp3audio_desc'] = 'Dateien mit der Endung *.mp3. Der Filter spielt Audiodateien mit dem Flowplayer ab und benötigt Flash.';
 $string['sitevimeo'] = 'Vimeo';

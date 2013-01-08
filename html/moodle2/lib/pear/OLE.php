@@ -17,7 +17,7 @@
 // | Based on OLE::Storage_Lite by Kawai, Takanori                        |
 // +----------------------------------------------------------------------+
 //
-// $Id: OLE.php,v 1.5 2012/04/06 12:15:32 moodlerobot Exp $
+// $Id$
 
 
 /**

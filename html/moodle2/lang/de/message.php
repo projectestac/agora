@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'message', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,7 +42,6 @@ $string['blocknoncontacts'] = 'Unbekannte Personen sperren';
 $string['contactlistempty'] = 'Ihre Kontaktliste ist leer';
 $string['contacts'] = 'Kontakte';
 $string['context'] = 'Kontext';
-$string['couldnotfindpreference'] = 'Präferenzen {$a} konnten nicht geladen werden. Lassen sich die Angaben zu Komponenten und Namen von message_send() eine Zeile in message_provider zuordnen? Message Provider müssen in der Datenbank eingetragen sein, damit Nutzer/innen festlegen können, wie sie beim Eintreffen von Mitteilungen benachrichtigt werden.';
 $string['defaultmessageoutputs'] = 'Mitteilungsausgänge';
 $string['defaults'] = 'Standard';
 $string['deletemessagesdays'] = 'Anzahl von Tagen, nach denen Mitteilungen automatisch gelöscht werden';
@@ -131,12 +130,12 @@ $string['sendmessageto'] = 'Mitteilung an {$a} senden';
 $string['sendmessagetopopup'] = 'Mitteilung an {$a} senden - neues Fenster';
 $string['settings'] = 'Einstellungen';
 $string['settingssaved'] = 'Ihre Einstellungen wurden gespeichert';
-$string['showmessagewindow'] = 'Popup-Fenster öffnen, wenn eine neue Mitteilung ankommt';
-$string['strftimedaydatetime'] = '%A, %d. %B %Y, %I:%M %p';
-$string['thisconversation'] = 'diese Unterhaltung';
+$string['showmessagewindow'] = 'Popup-Fenster für neue Mitteilung öffnen';
+$string['strftimedaydatetime'] = '%A, %d. %B %Y, %H:%M';
+$string['thisconversation'] = 'diese Kommunikation';
 $string['timenosee'] = 'Minuten seit ich zuletzt online war';
 $string['timesent'] = 'Sendezeitpunkt';
-$string['touserdoesntexist'] = 'Sie können keine Nachricht an eine Nutzer-ID ({$a}) senden, die nicht existiert';
+$string['touserdoesntexist'] = 'Sie können keine Nachricht an die Nutzer-ID ({$a}) senden, da diese nicht existiert';
 $string['unblockcontact'] = 'Kontakt aktivieren';
 $string['unreadmessages'] = 'Ungelesene Mitteilungen ({$a}) ';
 $string['unreadnewmessage'] = 'Neue Mitteilung von {$a}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'moodle', language 'ca', branch 'MOODLE_23_STABLE'
+ * Strings for component 'moodle', language 'ca', branch 'MOODLE_24_STABLE'
  *
  * @package   moodle
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -45,6 +45,7 @@ $string['activitysince'] = 'Activitat des de {$a}';
 $string['activityweighted'] = 'Activitat per usuari';
 $string['add'] = 'Afegeix';
 $string['addactivity'] = 'Afegeix una activitat...';
+$string['addactivitytosection'] = 'Afegeix una activitat a la secció  \'{$a}\'';
 $string['addadmin'] = 'Afegeix administrador/a';
 $string['addblock'] = 'Afegeix un bloc';
 $string['addcomment'] = 'Afegeix un comentari...';
@@ -69,6 +70,7 @@ $string['addnousersrecip'] = 'Afegeix a la llista de destinataris els usuaris qu
 $string['addpagehere'] = 'Afegeix una pàgina ací';
 $string['addresource'] = 'Afegeix un recurs...';
 $string['addresourceoractivity'] = 'Afegeix una activitat o un recurs';
+$string['addresourcetosection'] = 'Afegeix un recurs a la secció  \'{$a}\'';
 $string['address'] = 'Adreça';
 $string['addstudent'] = 'Afegeix estudiant';
 $string['addsubcategory'] = 'Afegeix una subcategoria';
@@ -332,7 +334,9 @@ $string['coursefilesedit'] = 'Edita els fitxers del curs';
 $string['coursefileswarning'] = 'Els fitxers dels curs estan desfasats.';
 $string['coursefileswarning_help'] = 'A partir de la versió de Moodle 2.0 es desaconsella utilitzar els fitxers del curs. Utilitzeu repositoris externs sempre que es pugui.';
 $string['courseformatdata'] = 'Dades del format del curs';
+$string['courseformatoptions'] = 'S\'estan formatant les opcions per {$a}';
 $string['courseformats'] = 'Formats de curs';
+$string['courseformatudpate'] = 'Actualitza el format';
 $string['coursegrades'] = 'Qualificacions del curs';
 $string['coursehelpcategory'] = 'Situeu el curs dins de la llista de cursos i feu més fàcil que els estudiants el trobin.';
 $string['coursehelpforce'] = 'Imposa el mode de grup del curs a totes les activitats del curs.';
@@ -388,6 +392,7 @@ $string['create'] = 'Crea';
 $string['createaccount'] = 'Crea el meu compte';
 $string['createcategory'] = 'Crea una categoria';
 $string['createfolder'] = 'Crea una carpeta en {$a}';
+$string['createuser'] = 'Crea un usuari';
 $string['createuserandpass'] = 'Trieu un nom d\'usuari i una contrasenya';
 $string['createziparchive'] = 'Comprimeix-los en un fitxer zip';
 $string['creatingblocks'] = 'S\'estan creant blocs';
@@ -413,6 +418,7 @@ $string['creatinguserroles'] = 'S\'estan creant les assignacions i excepcions de
 $string['creatingusers'] = 'S\'estan creant els usuaris';
 $string['creatingxmlfile'] = 'S\'està creant el fitxer XML';
 $string['currency'] = 'Moneda';
+$string['currentcourse'] = 'Curs actual';
 $string['currentcourseadding'] = 'Curs actual, s\'hi estan afegint dades';
 $string['currentcoursedeleting'] = 'Curs actual, primer se suprimirà';
 $string['currentlanguage'] = 'Idioma actual';
@@ -668,27 +674,6 @@ $string['existingcreators'] = 'Creadors de cursos actuals';
 $string['existingstudents'] = 'Estudiants inscrits';
 $string['existingteachers'] = 'Professors actuals';
 $string['expandall'] = 'Amplia tot';
-$string['expirynotify'] = 'Notificació de venciment d\'inscripció';
-$string['expirynotifyemail'] = 'La inscripció dels estudiants següents en aquest curs vencerà d\'aquí a {$a->threshold} dies:
-
-{$a->current}
-
-La inscripció dels estudiants següents en aquest curs vencerà en menys de {$a->threshold} dies:
-
-{$a->past}
-
-Podeu anar a la pàgina següent per ampliar el seu període d\'inscripció:
-
-{$a->extendurl}';
-$string['expirynotifystudents'] = 'Notifica als estudiants';
-$string['expirynotifystudentsemail'] = 'Benvolgut/da estudiant,
-
-Amb aquest missatge us notifiquem que la vostra inscripció en el curs {$a->course} vencerà d\'aquí a {$a->threshold} dies.
-
-Contacteu amb el professorat si necessiteu cap aclariment.';
-$string['expirynotifystudents_help'] = 'Si s\'ha especificat una durada de la inscripció, aquest paràmetre determina si l\'estudiantat rebran una notificació per correu electrònic quan s\'aproximi la data de venciment de la inscripció.';
-$string['expirythreshold'] = 'Llindar';
-$string['expirythreshold_help'] = 'Si s\'ha especificat una durada de la inscripció, aquest paràmetre determina quants dies abans de vèncer la inscripció s\'enviarà una notificació a l\'estudiantat.';
 $string['explanation'] = 'Explicació';
 $string['extendenrol'] = 'Amplia la inscripció (individual)';
 $string['extendperiod'] = 'Període ampliat';
@@ -945,6 +930,7 @@ $string['liketologin'] = 'Voleu entrar ara amb un compte d\'usuari complet?';
 $string['list'] = 'Llista';
 $string['listfiles'] = 'Llista dels fitxers de {$a}';
 $string['listofallpeople'] = 'Llista de tota la gent';
+$string['listofcourses'] = 'Llista de cursos';
 $string['local'] = 'Local';
 $string['localplugindeleteconfirm'] = 'Esteu a punt de suprimir completament el connector \'{$a}\'. Això suprimirà completament qualsevol cosa associada amb aquest connector a la base de dades. Esteu segurs de voler continuar ?';
 $string['localplugins'] = 'Connectors';
@@ -1012,7 +998,9 @@ $string['maxnumberweeks'] = 'Nombre màxim de setmanes/temes';
 $string['maxnumberweeks_desc'] = 'Això controla les opcions màximes que apareixen al paràmetre "Nombre de setmanes/temes" per als cursos.';
 $string['maxnumcoursesincombo'] = 'Navega per els<a href="{$a->link}">{$a->numberofcourses} cursos</a>.';
 $string['maxsize'] = 'Mida màxima: {$a}';
+$string['maxsizeandareasize'] = 'Mida màxima per als fitxers nous: {$a->size}, límit global: {$a->areasize}';
 $string['maxsizeandattachments'] = 'Mida màxima per als nous fitxers, {$a->size}, adjunts màxims: {$a->attachments}';
+$string['maxsizeandattachmentsandareasize'] = 'Mida màxima per als fitxers nous: {$a->size}, nombre màxim de fitxers adjunts: {$a->attachments}, límit global: {$a->areasize}';
 $string['memberincourse'] = 'Membre del curs';
 $string['messagebody'] = 'Cos del missatge';
 $string['messagedselectedusers'] = 'S\'ha enviat el missatge als usuaris seleccionats i s\'ha reiniciat la llista de destinataris.';
@@ -1033,6 +1021,7 @@ $string['messageselectadd'] = 'Envia un missatge';
 $string['migratinggrades'] = 'S\'estan migrant les qualificacions';
 $string['min'] = 'minut';
 $string['mins'] = 'minuts';
+$string['minute'] = 'minut';
 $string['minutes'] = 'minuts';
 $string['miscellaneous'] = 'Miscel·lània';
 $string['missingcategory'] = 'Heu de triar una categoria';
@@ -1068,6 +1057,8 @@ $string['moduledeletefiles'] = 'S\'han suprimit tots els registres de la base de
 $string['moduleintro'] = 'Descripció';
 $string['modulesetup'] = 'S\'estan configurant les taules de mòduls';
 $string['modulesuccess'] = 'S\'han configurat correctament les taules {$a}';
+$string['month'] = 'Mes';
+$string['months'] = 'Mesos';
 $string['moodledocs'] = 'Documentació de Moodle';
 $string['moodledocslink'] = 'Documentació de Moodle per a aquesta pàgina';
 $string['moodlerelease'] = 'Alliberament de Moodle';
@@ -1274,6 +1265,7 @@ $string['oldpassword'] = 'Contrasenya actual';
 $string['olduserdirectory'] = 'Aquest és l\'ANTIC directori d\'usuaris i ja no és necessari. Podeu suprimir-lo tranquil·lament. Els fitxers que conté s\'han copiat al NOU directori d\'usuaris.';
 $string['opentoguests'] = 'Accés de visitants';
 $string['optional'] = 'opcional';
+$string['options'] = 'opcions';
 $string['order'] = 'Ordre';
 $string['originalpath'] = 'Ruta original';
 $string['orphanedactivities'] = 'Activitat òrfena';
@@ -1494,10 +1486,6 @@ $string['scalestandard_help'] = '<p>Una escala estàndard està disponible per a
 $string['scalestip'] = 'Per tal de crear escales personalitzades, utilitzeu l\'enllaç \'Escales...\' del menú d\'administració del curs.';
 $string['scalestip2'] = 'Per a crear escales personalitzades, feu clic en l\'enllaç de Qualificacions del menú d\'administració del curs i després trieu Edita, Escales.';
 $string['schedule'] = 'Planificació';
-$string['screenreaderno'] = 'No';
-$string['screenreaderuse'] = 'Lector de pantalla';
-$string['screenreaderuse_help'] = 'Si ho poseu en Sí, es mostrarà una interfície més accessible en varis llocs com la sala de xat.';
-$string['screenreaderyes'] = 'Sí';
 $string['screenshot'] = 'Instantània de pantalla';
 $string['search'] = 'Cerca';
 $string['searchagain'] = 'Torna a cercar';
@@ -1526,10 +1514,16 @@ $string['sectionname'] = 'Nom de la secció';
 $string['sections'] = 'Seccions';
 $string['sectionusedefaultname'] = 'Utilitza el nom de secció per defecte';
 $string['seealsostats'] = 'Vg. també: estadístiques';
+$string['selctauser'] = 'Selecciona un usuari';
 $string['select'] = 'Selecciona';
 $string['selectacountry'] = 'Selecciona un país';
+$string['selectacourse'] = 'Selecciona un curs';
+$string['selectacoursesite'] = 'Selecciona un curs o lloc web';
+$string['selectagroup'] = 'Selecciona un grup';
 $string['selectall'] = 'Selecciona tot';
 $string['selectamodule'] = 'Heu de seleccionar un mòdul d\'activitat';
+$string['selectanaction'] = 'Selecciona una acció';
+$string['selectanoptions'] = 'Selecciona opcions';
 $string['selectaregion'] = 'Seleccioneu una regió';
 $string['selectdefault'] = 'Seleccioneu el valor per defecte';
 $string['selectedfile'] = 'Fitxer seleccionat';
@@ -1706,6 +1700,7 @@ $string['thanks'] = 'Gràcies';
 $string['theme'] = 'Tema';
 $string['themes'] = 'Temes';
 $string['themesaved'] = 'S\'ha desat el nou tema';
+$string['therearecourses'] = 'Hi ha {$a} cursos';
 $string['thereareno'] = 'No hi ha cap {$a} en aquest curs';
 $string['thiscategorycontains'] = 'Aquesta categoria conté';
 $string['time'] = 'Hora';
@@ -1839,11 +1834,13 @@ $string['virusfounduser'] = 'El fitxer que heu penjat, {$a->filename}, ha estat 
 $string['virusplaceholder'] = 'Aquest fitxer contenia un virus i ha estat mogut o suprimit. S\'ha enviat una notificació a l\'usuari.';
 $string['visible'] = 'Visible';
 $string['visibletostudents'] = 'Visible per a {$a}';
+$string['warning'] = 'Advertència';
 $string['warningdeleteresource'] = 'Avís: hi ha una referència a {$a} en un recurs. Voleu actualitzar aquest recurs?';
 $string['webpage'] = 'Pàgina web';
 $string['week'] = 'Setmana';
 $string['weekhide'] = 'Oculta aquesta setmana a {$a}';
 $string['weeklyoutline'] = 'Esquema per setmanes';
+$string['weeks'] = 'setmanes';
 $string['weekshow'] = 'Mostra aquesta setmana a {$a}';
 $string['welcometocourse'] = 'Benvingut/da a {$a}';
 $string['welcometocoursetext'] = 'Benvingut/da a {$a->coursename}.
@@ -1855,6 +1852,7 @@ $string['whattocallzip'] = 'Quin nom voleu donar al fitxer zip?';
 $string['whattodo'] = 'Què cal fer';
 $string['windowclosing'] = 'Aquesta finestra s\'hauria d\'haver tancat automàticament. Si no ho ha fet, tanqueu-la, siu us plau.';
 $string['withchosenfiles'] = 'Els fitxers seleccionats';
+$string['withdisablednote'] = '{$a} (inhabilitat)';
 $string['withoutuserdata'] = 'sense dades d\'usuari';
 $string['withselectedusers'] = 'Amb els usuaris seleccionats...';
 $string['withselectedusers_help'] = '* Envia un missatge - Per enviar un missatge a un o més participants.

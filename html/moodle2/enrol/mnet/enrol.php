@@ -88,7 +88,7 @@ class enrol_mnet_mnetservice_enrol {
             // use the record if it does not exist yet or is host-specific
             if (empty($courses[$course->remoteid]) or ($course->customint1 > 0)) {
                 unset($course->customint1); // the client does not need to know this
-                $context = get_context_instance(CONTEXT_COURSE, $course->remoteid);
+                $context = context_course::instance($course->remoteid);
                 // Rewrite file URLs so that they are correct
                 $course->summary = file_rewrite_pluginfile_urls($course->summary, 'pluginfile.php', $context->id, 'course', 'summary', false);
                 $courses[$course->remoteid] = $course;
@@ -344,9 +344,10 @@ class enrol_mnet_mnetservice_enrol {
             $params = array_merge($params, $rparams);
         }
 
-        $sql .= " ORDER BY u.lastname, u.firstname";
+        list($sort, $sortparams) = users_order_by_sql('u');
+        $sql .= " ORDER BY $sort";
 
-        $rs = $DB->get_recordset_sql($sql, $params);
+        $rs = $DB->get_recordset_sql($sql, array_merge($params, $sortparams));
         $list = array();
         foreach ($rs as $record) {
             $list[] = $record;

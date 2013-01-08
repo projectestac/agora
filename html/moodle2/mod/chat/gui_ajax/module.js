@@ -37,7 +37,7 @@ M.mod_chat_ajax.init = function(Y, cfg) {
         init : function(cfg) {
             this.cfg = cfg;
             this.cfg.req_count = this.cfg.req_count || 0;
-            this.layout = new YAHOO.widget.Layout({
+            this.layout = new Y.YUI2.widget.Layout({
                 units : [
                      {position: 'right', width: 180, resize: true, gutter: '5px', scroll: true, body: 'chat-userlist', animate: false},
                      {position: 'bottom', height: 42, resize: false, body: 'chat-input-area', gutter: '5px', collapse: false, resize: false},
@@ -59,6 +59,13 @@ M.mod_chat_ajax.init = function(Y, cfg) {
             this.messageinput = Y.one('#input-message');
             this.sendbutton = Y.one('#button-send');
             this.messagebox = Y.one('#chat-messages');
+
+            // Set aria attributes to messagebox and chat-userlist
+            this.messagebox.set('role', 'log');
+            this.messagebox.set('aria-live', 'polite');
+            var userlist = Y.one('#chat-userlist');
+            userlist.set('aria-live', 'polite');
+            userlist.set('aria-relevant', 'all');
 
             // Attach the default events for this module
             this.sendbutton.on('click', this.send, this);
@@ -123,7 +130,7 @@ M.mod_chat_ajax.init = function(Y, cfg) {
 
             return;
             */
-            this.thememenu = new YAHOO.widget.Menu('basicmenu', {xy:[0,0]});
+            this.thememenu = new Y.YUI2.widget.Menu('basicmenu', {xy:[0,0]});
             this.thememenu.addItems([
                 {text: "Bubble", url: this.cfg.chaturl+'&theme=bubble'},
                 {text: "Compact", url: this.cfg.chaturl+'&theme=compact'}

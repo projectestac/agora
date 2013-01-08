@@ -23,7 +23,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once(dirname(dirname(__FILE__)) . '/config.php');
+defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . '/filelib.php');
 require_once($CFG->libdir . '/formslib.php');
 
@@ -508,7 +508,7 @@ abstract class repository {
         if (is_object($context)) {
             $this->context = $context;
         } else {
-            $this->context = get_context_instance_by_id($context);
+            $this->context = context::instance_by_id($context);
         }
         $this->instance = $DB->get_record('repository_instances', array('id'=>$this->id));
         $this->readonly = $readonly;
@@ -654,7 +654,7 @@ abstract class repository {
     public static function draftfile_exists($itemid, $filepath, $filename) {
         global $USER;
         $fs = get_file_storage();
-        $usercontext = get_context_instance(CONTEXT_USER, $USER->id);
+        $usercontext = context_user::instance($USER->id);
         if ($fs->get_file($usercontext->id, 'user', 'draft', $itemid, $filepath, $filename)) {
             return true;
         } else {
@@ -713,9 +713,11 @@ abstract class repository {
      *      attributes of the new file
      * @param int $maxbytes maximum allowed size of file, -1 if unlimited. If size of file exceeds
      *      the limit, the file_exception is thrown.
+     * @param int $areamaxbytes the maximum size of the area. A file_exception is thrown if the
+     *      new file will reach the limit.
      * @return array The information about the created file
      */
-    public function copy_to_area($source, $filerecord, $maxbytes = -1) {
+    public function copy_to_area($source, $filerecord, $maxbytes = -1, $areamaxbytes = FILE_AREA_MAX_BYTES_UNLIMITED) {
         global $USER;
         $fs = get_file_storage();
 
@@ -738,6 +740,10 @@ abstract class repository {
         $stored_file = self::get_moodle_file($source);
         if ($maxbytes != -1 && $stored_file->get_filesize() > $maxbytes) {
             throw new file_exception('maxbytes');
+        }
+        // Validate the size of the draft area.
+        if (file_is_draft_area_limit_reached($draftitemid, $areamaxbytes, $stored_file->get_filesize())) {
+            throw new file_exception('maxareabytes');
         }
 
         if (repository::draftfile_exists($draftitemid, $new_filepath, $new_filename)) {
@@ -1186,7 +1192,7 @@ abstract class repository {
             $fileinfo = null;
             $params = file_storage::unpack_reference($reference, true);
             if (is_array($params)) {
-                $context = get_context_instance_by_id($params['contextid']);
+                $context = context::instance_by_id($params['contextid'], IGNORE_MISSING);
                 if ($context) {
                     $browser = get_file_browser();
                     $fileinfo = $browser->get_file_info($context, $params['component'], $params['filearea'], $params['itemid'], $params['filepath'], $params['filename']);
@@ -1732,7 +1738,7 @@ abstract class repository {
         $filepath   = clean_param($params['filepath'], PARAM_PATH);
         $filearea   = clean_param($params['filearea'], PARAM_AREA);
         $component  = clean_param($params['component'], PARAM_COMPONENT);
-        $context    = get_context_instance_by_id($contextid);
+        $context    = context::instance_by_id($contextid);
         $file_info  = $browser->get_file_info($context, $component, $filearea, $fileitemid, $filepath, $filename);
         if (!empty($file_info)) {
             $filesize = $file_info->get_filesize();
@@ -2025,59 +2031,56 @@ abstract class repository {
     public function get_listing($path = '', $page = '') {
     }
 
-    /**
-     * Prepares list of files before passing it to AJAX, makes sure data is in the correct
-     * format and stores formatted values.
-     *
-     * @param array|stdClass $listing result of get_listing() or search() or file_get_drafarea_files()
-     * @return array
-     */
-    public static function prepare_listing($listing) {
-        global $OUTPUT;
 
-        $defaultfoldericon = $OUTPUT->pix_url(file_folder_icon(24))->out(false);
-        // prepare $listing['path'] or $listing->path
-        if (is_array($listing) && isset($listing['path']) && is_array($listing['path'])) {
-            $path = &$listing['path'];
-        } else if (is_object($listing) && isset($listing->path) && is_array($listing->path)) {
-            $path = &$listing->path;
-        }
-        if (isset($path)) {
-            $len = count($path);
-            for ($i=0; $i<$len; $i++) {
-                if (is_array($path[$i]) && !isset($path[$i]['icon'])) {
-                    $path[$i]['icon'] = $defaultfoldericon;
-                } else if (is_object($path[$i]) && !isset($path[$i]->icon)) {
-                    $path[$i]->icon = $defaultfoldericon;
-                }
+    /**
+     * Prepare the breadcrumb.
+     *
+     * @param array $breadcrumb contains each element of the breadcrumb.
+     * @return array of breadcrumb elements.
+     * @since 2.3.3
+     */
+    protected static function prepare_breadcrumb($breadcrumb) {
+        global $OUTPUT;
+        $foldericon = $OUTPUT->pix_url(file_folder_icon(24))->out(false);
+        $len = count($breadcrumb);
+        for ($i = 0; $i < $len; $i++) {
+            if (is_array($breadcrumb[$i]) && !isset($breadcrumb[$i]['icon'])) {
+                $breadcrumb[$i]['icon'] = $foldericon;
+            } else if (is_object($breadcrumb[$i]) && !isset($breadcrumb[$i]->icon)) {
+                $breadcrumb[$i]->icon = $foldericon;
             }
         }
+        return $breadcrumb;
+    }
 
-        // prepare $listing['list'] or $listing->list
-        if (is_array($listing) && isset($listing['list']) && is_array($listing['list'])) {
-            $listing['list'] = array_values($listing['list']); // convert to array
-            $files = &$listing['list'];
-        } else if (is_object($listing) && isset($listing->list) && is_array($listing->list)) {
-            $listing->list = array_values($listing->list); // convert to array
-            $files = &$listing->list;
-        } else {
-            return $listing;
-        }
-        $len = count($files);
-        for ($i=0; $i<$len; $i++) {
-            if (is_object($files[$i])) {
-                $file = (array)$files[$i];
+    /**
+     * Prepare the file/folder listing.
+     *
+     * @param array $list of files and folders.
+     * @return array of files and folders.
+     * @since 2.3.3
+     */
+    protected static function prepare_list($list) {
+        global $OUTPUT;
+        $foldericon = $OUTPUT->pix_url(file_folder_icon(24))->out(false);
+
+        // Reset the array keys because non-numeric keys will create an object when converted to JSON.
+        $list = array_values($list);
+
+        $len = count($list);
+        for ($i = 0; $i < $len; $i++) {
+            if (is_object($list[$i])) {
+                $file = (array)$list[$i];
                 $converttoobject = true;
             } else {
-                $file = & $files[$i];
+                $file =& $list[$i];
                 $converttoobject = false;
             }
             if (isset($file['size'])) {
                 $file['size'] = (int)$file['size'];
                 $file['size_f'] = display_size($file['size']);
             }
-            if (isset($file['license']) &&
-                    get_string_manager()->string_exists($file['license'], 'license')) {
+            if (isset($file['license']) && get_string_manager()->string_exists($file['license'], 'license')) {
                 $file['license_f'] = get_string($file['license'], 'license');
             }
             if (isset($file['image_width']) && isset($file['image_height'])) {
@@ -2112,14 +2115,52 @@ abstract class repository {
             }
             if (!isset($file['icon'])) {
                 if ($isfolder) {
-                    $file['icon'] = $defaultfoldericon;
+                    $file['icon'] = $foldericon;
                 } else if ($filename) {
                     $file['icon'] = $OUTPUT->pix_url(file_extension_icon($filename, 24))->out(false);
                 }
             }
-            if ($converttoobject) {
-                $files[$i] = (object)$file;
+
+            // Recursively loop over children.
+            if (isset($file['children'])) {
+                $file['children'] = self::prepare_list($file['children']);
             }
+
+            // Convert the array back to an object.
+            if ($converttoobject) {
+                $list[$i] = (object)$file;
+            }
+        }
+        return $list;
+    }
+
+    /**
+     * Prepares list of files before passing it to AJAX, makes sure data is in the correct
+     * format and stores formatted values.
+     *
+     * @param array|stdClass $listing result of get_listing() or search() or file_get_drafarea_files()
+     * @return array
+     */
+    public static function prepare_listing($listing) {
+        $wasobject = false;
+        if (is_object($listing)) {
+            $listing = (array) $listing;
+            $wasobject = true;
+        }
+
+        // Prepare the breadcrumb, passed as 'path'.
+        if (isset($listing['path']) && is_array($listing['path'])) {
+            $listing['path'] = self::prepare_breadcrumb($listing['path']);
+        }
+
+        // Prepare the listing of objects.
+        if (isset($listing['list']) && is_array($listing['list'])) {
+            $listing['list'] = self::prepare_list($listing['list']);
+        }
+
+        // Convert back to an object.
+        if ($wasobject) {
+            $listing = (object) $listing;
         }
         return $listing;
     }
@@ -2313,7 +2354,7 @@ abstract class repository {
     public static function overwrite_existing_draftfile($itemid, $filepath, $filename, $newfilepath, $newfilename) {
         global $USER;
         $fs = get_file_storage();
-        $user_context = get_context_instance(CONTEXT_USER, $USER->id);
+        $user_context = context_user::instance($USER->id);
         if ($file = $fs->get_file($user_context->id, 'user', 'draft', $itemid, $filepath, $filename)) {
             if ($tempfile = $fs->get_file($user_context->id, 'user', 'draft', $itemid, $newfilepath, $newfilename)) {
                 // delete existing file to release filename
@@ -2339,7 +2380,7 @@ abstract class repository {
     public static function delete_tempfile_from_draft($draftitemid, $filepath, $filename) {
         global $USER;
         $fs = get_file_storage();
-        $user_context = get_context_instance(CONTEXT_USER, $USER->id);
+        $user_context = context_user::instance($USER->id);
         if ($file = $fs->get_file($user_context->id, 'user', 'draft', $draftitemid, $filepath, $filename)) {
             $file->delete();
             return true;
@@ -2517,7 +2558,7 @@ final class repository_instance_form extends moodleform {
         $mform->addElement('hidden', 'edit',  ($this->instance) ? $this->instance->id : 0);
         $mform->setType('edit', PARAM_INT);
         $mform->addElement('hidden', 'new',   $this->plugin);
-        $mform->setType('new', PARAM_FORMAT);
+        $mform->setType('new', PARAM_ALPHANUMEXT);
         $mform->addElement('hidden', 'plugin', $this->plugin);
         $mform->setType('plugin', PARAM_PLUGIN);
         $mform->addElement('hidden', 'typeid', $this->typeid);
@@ -2764,13 +2805,13 @@ function initialise_filepicker($args) {
         $disable_types = $args->disable_types;
     }
 
-    $user_context = get_context_instance(CONTEXT_USER, $USER->id);
+    $user_context = context_user::instance($USER->id);
 
     list($context, $course, $cm) = get_context_info_array($context->id);
     $contexts = array($user_context, get_system_context());
     if (!empty($course)) {
         // adding course context
-        $contexts[] = get_context_instance(CONTEXT_COURSE, $course->id);
+        $contexts[] = context_course::instance($course->id);
     }
     $externallink = (int)get_config(null, 'repositoryallowexternallinks');
     $repositories = repository::get_instances(array(

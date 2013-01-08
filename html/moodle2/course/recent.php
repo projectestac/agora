@@ -39,7 +39,7 @@ require_login($course);
 
 add_to_log($course->id, "course", "recent", "recent.php?id=$course->id", $course->id);
 
-$context = get_context_instance(CONTEXT_COURSE, $course->id);
+$context = context_course::instance($course->id);
 
 $lastlogin = time() - COURSE_MAX_RECENT_PERIOD;
 if (!isguestuser() and !empty($USER->lastcourseaccess[$COURSE->id])) {
@@ -83,7 +83,7 @@ echo $OUTPUT->heading(format_string($course->fullname) . ": $userinfo", 2);
 $mform->display();
 
 $modinfo = get_fast_modinfo($course);
-get_all_mods($course->id, $mods, $modnames, $modnamesplural, $modnamesused);
+$modnames = get_module_types_names();
 
 if (has_capability('moodle/course:viewhiddensections', $context)) {
     $hiddenfilter = "";
@@ -91,11 +91,9 @@ if (has_capability('moodle/course:viewhiddensections', $context)) {
     $hiddenfilter = "AND cs.visible = 1";
 }
 $sections = array();
-$rawsections = array_slice(get_all_sections($course->id), 0, $course->numsections+1, true);
-$canviewhidden = has_capability('moodle/course:viewhiddensections', $context);
-foreach ($rawsections as $section) {
-    if ($canviewhidden || !empty($section->visible)) {
-        $sections[$section->section] = $section;
+foreach ($modinfo->get_section_info_all() as $i => $section) {
+    if (!empty($section->uservisible)) {
+        $sections[$i] = $section;
     }
 }
 
@@ -115,20 +113,18 @@ if ($param->modid === 'all') {
     }
 
 } else if (is_numeric($param->modid)) {
-    $section = $sections[$modinfo->cms[$param->modid]->sectionnum];
-    $section->sequence = $param->modid;
-    $sections = array($section->sequence=>$section);
+    $sectionnum = $modinfo->cms[$param->modid]->sectionnum;
+    $filter_modid = $param->modid;
+    $sections = array($sectionnum => $sections[$sectionnum]);
 }
 
 
-if (is_null($modinfo->groups)) {
-    $modinfo->groups = groups_get_user_groups($course->id); // load all my groups and cache it in modinfo
-}
+$modinfo->get_groups(); // load all my groups and cache it in modinfo
 
 $activities = array();
 $index = 0;
 
-foreach ($sections as $section) {
+foreach ($sections as $sectionnum => $section) {
 
     $activity = new stdClass();
     $activity->type = 'section';
@@ -141,17 +137,11 @@ foreach ($sections as $section) {
     $activity->visible = $section->visible;
     $activities[$index++] = $activity;
 
-    if (empty($section->sequence)) {
+    if (empty($modinfo->sections[$sectionnum])) {
         continue;
     }
 
-    $sectionmods = explode(",", $section->sequence);
-
-    foreach ($sectionmods as $cmid) {
-        if (!isset($mods[$cmid]) or !isset($modinfo->cms[$cmid])) {
-            continue;
-        }
-
+    foreach ($modinfo->sections[$sectionnum] as $cmid) {
         $cm = $modinfo->cms[$cmid];
 
         if (!$cm->uservisible) {
@@ -159,6 +149,10 @@ foreach ($sections as $section) {
         }
 
         if (!empty($filter) and $cm->modname != $filter) {
+            continue;
+        }
+
+        if (!empty($filter_modid) and $cmid != $filter_modid) {
             continue;
         }
 
@@ -248,7 +242,7 @@ if (!empty($activities)) {
         } else {
 
             if (!isset($viewfullnames[$activity->cmid])) {
-                $cm_context = get_context_instance(CONTEXT_MODULE, $activity->cmid);
+                $cm_context = context_module::instance($activity->cmid);
                 $viewfullnames[$activity->cmid] = has_capability('moodle/site:viewfullnames', $cm_context);
             }
 

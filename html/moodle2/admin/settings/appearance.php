@@ -71,12 +71,11 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
     $ADMIN->add('appearance', $temp);
 
     // blog
-    $temp = new admin_settingpage('blog', new lang_string('blog','blog'));
+    $temp = new admin_settingpage('blog', new lang_string('blog','blog'), 'moodle/site:config', empty($CFG->enableblogs));
     $temp->add(new admin_setting_configcheckbox('useblogassociations', new lang_string('useblogassociations', 'blog'), new lang_string('configuseblogassociations','blog'), 1));
     $temp->add(new admin_setting_bloglevel('bloglevel', new lang_string('bloglevel', 'admin'), new lang_string('configbloglevel', 'admin'), 4, array(BLOG_GLOBAL_LEVEL => new lang_string('worldblogs','blog'),
                                                                                                                                            BLOG_SITE_LEVEL => new lang_string('siteblogs','blog'),
-                                                                                                                                           BLOG_USER_LEVEL => new lang_string('personalblogs','blog'),
-                                                                                                                                           0 => new lang_string('disableblogs','blog'))));
+                                                                                                                                           BLOG_USER_LEVEL => new lang_string('personalblogs','blog'))));
     $temp->add(new admin_setting_configcheckbox('useexternalblogs', new lang_string('useexternalblogs', 'blog'), new lang_string('configuseexternalblogs','blog'), 1));
     $temp->add(new admin_setting_configselect('externalblogcrontime', new lang_string('externalblogcrontime', 'blog'), new lang_string('configexternalblogcrontime', 'blog'), 86400,
         array(43200 => new lang_string('numhours', '', 12),
@@ -96,6 +95,7 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
         HOMEPAGE_USER => new lang_string('userpreference', 'admin')
     );
     $temp->add(new admin_setting_configselect('defaulthomepage', new lang_string('defaulthomepage', 'admin'), new lang_string('configdefaulthomepage', 'admin'), HOMEPAGE_SITE, $choices));
+    $temp->add(new admin_setting_configcheckbox('allowguestmymoodle', new lang_string('allowguestmymoodle', 'admin'), new lang_string('configallowguestmymoodle', 'admin'), 1));
     $temp->add(new admin_setting_configcheckbox('navshowcategories', new lang_string('navshowcategories', 'admin'), new lang_string('confignavshowcategories', 'admin'), 1));
     $temp->add(new admin_setting_configcheckbox('navshowmycoursecategories', new lang_string('navshowmycoursecategories', 'admin'), new lang_string('navshowmycoursecategories_help', 'admin'), 0));
     $temp->add(new admin_setting_configcheckbox('navshowallcourses', new lang_string('navshowallcourses', 'admin'), new lang_string('confignavshowallcourses', 'admin'), 0));
@@ -184,6 +184,8 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
     $temp->add(new admin_setting_configcheckbox('courselistshortnames',
             new lang_string('courselistshortnames', 'admin'),
             new lang_string('courselistshortnames_desc', 'admin'), 0));
+    $temp->add(new admin_setting_configtext('coursesperpage', new lang_string('coursesperpage', 'admin'), new lang_string('configcoursesperpage', 'admin'), 20, PARAM_INT));
+    $temp->add(new admin_setting_configtext('courseswithsummarieslimit', new lang_string('courseswithsummarieslimit', 'admin'), new lang_string('configcourseswithsummarieslimit', 'admin'), 10, PARAM_INT));
     $ADMIN->add('appearance', $temp);
 
     $temp = new admin_settingpage('ajax', new lang_string('ajaxuse'));

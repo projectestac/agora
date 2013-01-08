@@ -62,7 +62,7 @@ if ($id) {
 
 require_login($course, false, $cm);
 
-$context = get_context_instance(CONTEXT_MODULE, $cm->id);
+$context = context_module::instance($cm->id);
 require_capability('mod/data:manageentries', $context);
 $form = new mod_data_import_form(new moodle_url('/mod/data/import.php'));
 
@@ -159,7 +159,10 @@ if (!$formdata = $form->get_data()) {
                     if (preg_match("/^(latlong|url)$/", $field->type)) {
                         $values = explode(" ", $value, 2);
                         $content->content  = $values[0];
-                        $content->content1 = $values[1];
+                        // The url field doesn't always have two values (unforced autolinking).
+                        if (count($values) > 1) {
+                            $content->content1 = $values[1];
+                        }
                     } else {
                         $content->content = $value;
                     }

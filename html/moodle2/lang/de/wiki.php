@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'wiki', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,8 +39,10 @@ $string['backhistory'] = 'Zurück zum Verlauf';
 $string['backoldversion'] = 'Zurück zur vorherigen Version';
 $string['backpage'] = 'Zurück zur Seite';
 $string['backtomapmenu'] = 'Zurück zur Übersicht';
+$string['cannoteditpage'] = 'Sie können diese Seite nicht bearbeiten.';
 $string['cannotmanagefiles'] = 'Sie dürfen die Wikidateien nicht verwalten.';
 $string['cannotviewfiles'] = 'Sie dürfen die Wikidateien nicht sehen.';
+$string['cannotviewpage'] = 'Sie können diese Seite nicht anzeigen.';
 $string['changerate'] = 'Wollen Sie Änderungen vornehmen?';
 $string['comments'] = 'Kommentare';
 $string['commentscount'] = 'Kommentare ({$a})';
@@ -62,7 +64,7 @@ $string['defaultformat_help'] = 'Diese Einstellung bestimmt das vorgegebene Form
 ';
 $string['deletecomment'] = 'Kommentar wird gelöscht';
 $string['deletecommentcheck'] = 'Kommentar löschen';
-$string['deletecommentcheckfull'] = 'Sind Sie sicher, dass Sie den Kommentar löschen möchten?';
+$string['deletecommentcheckfull'] = 'Möchten Sie den Kommentar wirklich löschen?';
 $string['deletedbegins'] = 'Start gelöscht';
 $string['deletedends'] = 'Ende gelöscht';
 $string['deleteupload'] = 'Löschen';
@@ -195,7 +197,7 @@ $string['removepages'] = 'Seiten löschen';
 $string['reparsetimeout'] = 'Standard-Timeout setzen';
 $string['repeatedsection'] = 'Wikifehler: Name \'{$a}\' kann nicht doppelt verwendet werden';
 $string['restore'] = 'Wiederherstellen';
-$string['restoreconfirm'] = 'Sind Sie sicher, dass Sie die Version #{$a} wiederherstellen wollen?';
+$string['restoreconfirm'] = 'Möchten Sie Version #{$a} wirklich wiederherstellen?';
 $string['restoreerror'] = 'Die Version #{$a} konnte nicht wiederhergestellt werden';
 $string['restorethis'] = 'Diese Version wiederherstellen';
 $string['restoreversion'] = 'Alte Version wiederherstellen';

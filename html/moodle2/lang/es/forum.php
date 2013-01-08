@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'forum', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = 'Hay nuevos mensajes en el foro';
 $string['addanewdiscussion'] = 'Añadir un nuevo tema de discusión';
 $string['addanewquestion'] = 'Añadir una nueva pregunta';
 $string['addanewtopic'] = 'Añadir un nuevo tema';
@@ -33,11 +34,12 @@ $string['allforums'] = 'Todos los foros';
 $string['allowdiscussions'] = 'Permitir que cualquier {$a} abra nuevos temas';
 $string['allowsallsubscribe'] = 'Este foro permite que cualquiera elija suscribirse o no';
 $string['allowsdiscussions'] = 'Foro abierto a todos';
-$string['allsubscribe'] = 'Suscribir a todos los foros';
-$string['allunsubscribe'] = 'Dar de baja de todos los foros';
+$string['allsubscribe'] = 'Suscribirse a todos los foros';
+$string['allunsubscribe'] = 'Darse de baja de la suscripción de todos los foros';
 $string['alreadyfirstpost'] = 'Éste es ya el primer mensaje del debate';
 $string['anyfile'] = 'Cualquier archivo';
 $string['areaattachment'] = 'Archivos adjuntos';
+$string['areapost'] = 'Mensajes';
 $string['attachment'] = 'Archivo adjunto';
 $string['attachment_help'] = 'Si lo desea, puede adjuntar uno o más archivos a un mensaje en el foro. Si adjunta una imagen, se mostrará al final del mensaje.';
 $string['attachmentnopost'] = 'No puede exportar archivos adjuntos sin una id de mensaje';
@@ -129,7 +131,7 @@ $string['discussions'] = 'Debates';
 $string['discussionsstartedby'] = 'Debate comenzado por {$a}';
 $string['discussionsstartedbyrecent'] = 'Debate recientemente comenzado por {$a}';
 $string['discussionsstartedbyuserincourse'] = 'Discusiones iniciadas por {$a->fullname} en {$a->coursename}';
-$string['discussthistopic'] = 'Ver mensajes';
+$string['discussthistopic'] = 'Hacer un comentario en este tema';
 $string['displayend'] = 'Mostrar final';
 $string['displayend_help'] = '<p>Puede elegir si los mensajes del foro se muestran a partir de una fecha determinada, expiran en una fecha concreta o son visibles sólo a lo largo de un determinado período.</p>
 
@@ -147,10 +149,12 @@ $string['displaystart_help'] = '<p>Puede elegir si los mensajes del foro se mues
 $string['eachuserforum'] = 'Cada persona plantea un tema';
 $string['edit'] = 'Editar';
 $string['editedby'] = 'Editado por {$a->name} - envío original {$a->date}';
+$string['editedpostupdated'] = '{$a} mensajes actualizados';
 $string['editing'] = 'Editando';
 $string['emptymessage'] = 'Algo va mal con su mensaje. Tal vez lo haya enviado en blanco o el archivo adjunto, si lo hay, es demasiado grande. Sus cambios NO se han guardado.';
 $string['erroremptymessage'] = 'El mensaje no puede estar vacío';
 $string['erroremptysubject'] = 'El asunto del mensaje no puede estar vacío.';
+$string['errorenrolmentrequired'] = 'Es necesario estar matriculado en este curso para poder acceder al contenido.';
 $string['errorwhiledelete'] = 'Ha ocurrido un error al eliminar el registro';
 $string['everyonecanchoose'] = 'Todos pueden suscribirse';
 $string['everyonecannowchoose'] = 'Ahora cualquiera puede elegir si se suscribe';
@@ -163,6 +167,7 @@ $string['forum'] = 'Foro';
 $string['forum:addinstance'] = 'Añadir un nuevo foro';
 $string['forum:addnews'] = 'Añadirr noticias';
 $string['forum:addquestion'] = 'Añadir pregunta';
+$string['forum:allowforcesubscribe'] = 'Permitir la suscripción forzosa.';
 $string['forumauthorhidden'] = 'Autor (oculto)';
 $string['forumblockingalmosttoomanyposts'] = 'Usted se está aproximando al límite permitido de mensajes. Ha enviado {$a->numposts} mensajes en el último {$a->blockperiod} y el límite está en {$a->blockafter} mensajes.';
 $string['forumbodyhidden'] = 'Usted no puede ver este mensaje, probablemente debido a que aún no ha enviado mensajes a esta discusión.';
@@ -186,7 +191,6 @@ $string['forums'] = 'Foros';
 $string['forum:splitdiscussions'] = 'Dividir debates';
 $string['forum:startdiscussion'] = 'Comenzar nuevos debates';
 $string['forumsubjecthidden'] = 'Tema (oculto)';
-$string['forum:throttlingapplies'] = 'Se aplica limitación';
 $string['forumtracked'] = 'Se están rastreando los mensajes no leídos';
 $string['forumtrackednot'] = 'Los mensajes no leídos no se están rastreando l';
 $string['forumtype'] = 'Tipo de foro';
@@ -263,7 +267,7 @@ $string['nameteacher'] = 'Foro de profesores';
 $string['newforumposts'] = 'Nuevos mensajes en foros';
 $string['noattachments'] = 'No hay archivos adjuntos a este mensaje';
 $string['nodiscussions'] = 'Aún no hay temas en este foro';
-$string['nodiscussionsstartedby'] = 'Este usuario no ha comenzado ningún debate';
+$string['nodiscussionsstartedby'] = '{$a} no ha comenzado ningún debate';
 $string['nodiscussionsstartedbyyou'] = 'You haven\'t started any discussions yet';
 $string['noguestpost'] = 'Lo sentimos, los invitados no pueden enviar mensajes.';
 $string['noguesttracking'] = 'Lo sentimos, los invitados no pueden ajustar opciones de rastreo.';
@@ -288,9 +292,9 @@ $string['notrackforum'] = 'No rastrear mensajes no leídos';
 $string['noviewdiscussionspermission'] = 'No dispone de permiso para ver los debates de este foro';
 $string['nowallsubscribed'] = 'Todos los foros en {$a} están suscritos.';
 $string['nowallunsubscribed'] = 'Todos los foros en {$a} están dados de baja.';
-$string['nownotsubscribed'] = '{$a->name} no recibirá copias de \'{$a->forum}\' por correo.';
+$string['nownotsubscribed'] = '{$a->name} no recibirá notificaciones de nuevas aportaciones al foro \'{$a->forum}\'';
 $string['nownottracking'] = '{$a->name} ya no está rastreando \'{$a->forum}\'.';
-$string['nowsubscribed'] = '{$a->name} recibirá copias de \'{$a->forum}\' por correo.';
+$string['nowsubscribed'] = '{$a->name} recibirá notificación de nuevas aportaciones en {$a->forum}\' por correo.';
 $string['nowtracking'] = '{$a->name} está rastreando \'{$a->forum}\' en este momento.';
 $string['numposts'] = '{$a} mensajes';
 $string['olderdiscussions'] = 'Mensajes anteriores';
@@ -299,8 +303,8 @@ $string['oldpostdays'] = 'Leer después de días';
 $string['openmode0'] = 'Ni debates, ni réplicas';
 $string['openmode1'] = 'No se pueden colocar debates, sólo réplicas';
 $string['openmode2'] = 'Permitir nuevos debates y réplicas';
-$string['overviewnumpostssince'] = 'mensajes desde la última entrada';
-$string['overviewnumunread'] = 'no leídos';
+$string['overviewnumpostssince'] = '{$a} mensajes desde la última entrada';
+$string['overviewnumunread'] = '{$a} mensajes no leídos';
 $string['page-mod-forum-discuss'] = 'Página de hilo de discusión del módulo foro';
 $string['page-mod-forum-view'] = 'Página principal del módulo Foro';
 $string['page-mod-forum-x'] = 'Cualquier página del módulo Foro';
@@ -363,20 +367,20 @@ $string['rsstype_help'] = '<P>Esta opción le permite habilitar los canales RSS 
          nuevo mensaje en el foro.
 </UL>';
 $string['search'] = 'Buscar';
-$string['searchdatefrom'] = 'Los mensajes deben ser más recientes que éste';
-$string['searchdateto'] = 'Los mensajes deben ser más antiguos que éste';
-$string['searchforumintro'] = 'Por favor, introduzca los términos de búsqueda en uno o más de los campos siguientes:';
-$string['searchforums'] = 'Buscar en foros';
-$string['searchfullwords'] = 'Estas palabras deberían aparecer como palabras completas';
-$string['searchnotwords'] = 'Estas palabras NO deberían incluirse';
+$string['searchdatefrom'] = 'Los mensajes deben ser posteriores a la fecha';
+$string['searchdateto'] = 'Los mensajes deben ser anteriores a la fecha';
+$string['searchforumintro'] = 'Por favor, introduzca las condiciones de la búsqueda en uno o en varios de los siguientes campos:';
+$string['searchforums'] = 'Buscar en los foros';
+$string['searchfullwords'] = 'Estas palabras deben aparecer exactamente igual';
+$string['searchnotwords'] = 'Estas palabras NO deben aparecer en el mensaje';
 $string['searcholderposts'] = 'Buscar mensajes antiguos...';
-$string['searchphrase'] = 'En el mensaje debería aparecer esta frase exacta';
+$string['searchphrase'] = 'Esta frase exacta debe aparecer en el mensaje';
 $string['searchresults'] = 'Resultado';
-$string['searchsubject'] = 'Estas palabras deberían figurar en el asunto';
-$string['searchuser'] = 'Este nombre debería corresponder al del autor';
+$string['searchsubject'] = 'Estas palabras deben aparecer en el asunto';
+$string['searchuser'] = 'Este nombre debe corresponder con el del autor';
 $string['searchuserid'] = 'ID del autor en Moodle';
-$string['searchwhichforums'] = 'Elegir en qué foros buscar';
-$string['searchwords'] = 'Estas palabras pueden aparecer en cualquier lugar del mensaje';
+$string['searchwhichforums'] = 'Seleccione en qué foros buscar';
+$string['searchwords'] = 'Estas palabras deben aparecer en cualquier lugar dentro del mensaje';
 $string['seeallposts'] = 'Ver todos los mensajes de este usuario';
 $string['shortpost'] = 'Mensaje corto';
 $string['showsubscribers'] = 'Mostrar/editar suscriptores actuales';
@@ -387,7 +391,7 @@ $string['subject'] = 'Asunto';
 $string['subscribe'] = 'Suscribirse a este foro';
 $string['subscribeall'] = 'Suscribir a todos a este foro';
 $string['subscribed'] = 'Suscrito';
-$string['subscribeenrolledonly'] = 'Sólo los usuarios registrados pueden suscribirse en los foros para recibir mensajes por correo electrónico.';
+$string['subscribeenrolledonly'] = 'Lo siento, sólo los usuarios registrados pueden suscribirse a las notificaciones de aportaciones en los foros';
 $string['subscribenone'] = 'Dar de baja a todos de este foro';
 $string['subscribers'] = 'Suscriptores';
 $string['subscribersto'] = 'Suscriptores de \'{$a}\'';
@@ -397,20 +401,7 @@ $string['subscription'] = 'Suscripción';
 $string['subscriptionauto'] = 'Suscripción automática';
 $string['subscriptiondisabled'] = 'Suscripción deshabilitada';
 $string['subscriptionforced'] = 'Suscripción forzosa';
-$string['subscription_help'] = '<P>Cuando alguien se subscribe a un foro recibirá por correo electrónico una
-   copia de cada mensaje enviado a ese foro (los mensajes son enviados
-   <?PHP echo $CFG->maxeditingtime/60 ?> aproximadamente 30 minutos después
-   de haber sido escritos).
-
-<P>Los participantes normalmente pueden escoger si desean o no suscribirse a cada uno
-   de los foros.
-
-<P>Sin embargo, si un profesor fuerza la suscripción a un foro concreto, esta
-   posibilidad de elección es anulada y todos recibirán copias por
-   correo electrónico de los mensajes de ese foro.
-
-<P>Esto es especialmente útil en el foro de Noticias y en los foros iniciados
-   al principio del curso (antes de que todos sepan que pueden suscribirse por sí mismos).';
+$string['subscription_help'] = 'Si usted está suscrito a un foro significa que recibirá correos electrónicos con las copias de las aportaciones realizadas en el foro. Por lo general, usted puede elegir si desea estar o no suscrito a un foro, aunque a veces la suscripción es obligatoria de manera que todo el mundo recibe en su correo electrónico una copia de los mensajes del foro.';
 $string['subscriptionmode'] = 'Modalidad de suscripción';
 $string['subscriptionmode_help'] = 'Cuando alguien se subscribe a un foro recibirá por correo electrónico una copia de cada mensaje enviado a ese foro.
 
@@ -431,19 +422,14 @@ $string['trackingoff'] = 'Desconectado';
 $string['trackingon'] = 'Conectado';
 $string['trackingoptional'] = 'Opcional';
 $string['trackingtype'] = '¿Leer rastreo de este foro?';
-$string['trackingtype_help'] = '<p>Si los foros tienen activada la opción de seguimiento
-   (forum_trackreadposts), los usuarios pueden realizar
-   el seguimiento de mensajes leídos y no leídos
-   en los foros y las discusiones. El profesor puede
-   obligar a realizar cierto tipo de seguimiento
-   en un foro utilizando este ajuste.</p>
+$string['trackingtype_help'] = '<p>Si está activada, los usuarios pueden realizar el seguimiento de mensajes leídos y no leídos en los foros y discusiones.
+</p>
 
 <p>Existen tres posibilidades:</p>
 <ul>
-<li>Opcional [por defecto]: los estudiante pueden activar
-    o desactivar el seguimiento a su discreción.</li>
-<li>Conectado: El seguimiento siempre está activo.</li>
-<li>Desconectado: El seguimiento siempre está inactivo.</li>
+<li>Opcional [por defecto]: los estudiantes pueden activar o desactivar el seguimiento a su discreción.</li>
+<li>Conectado: el seguimiento siempre está activo.</li>
+<li>Desconectado: el seguimiento siempre está desactivado.</li>
 </ul>';
 $string['unread'] = 'No leído';
 $string['unreadposts'] = 'Mensajes no leídos';
@@ -452,8 +438,8 @@ $string['unreadpostsone'] = '1 mensaje no leído';
 $string['unsubscribe'] = 'Darse de baja de este foro';
 $string['unsubscribeall'] = 'Dar de baja de todos los foros';
 $string['unsubscribeallconfirm'] = 'En este momento está suscrito a {$a} foros. ¿Realmente desea darse de baja de todos los foros y deshabilitar la suscripción automática al foro?';
-$string['unsubscribealldone'] = 'Se han eliminado todas sus suscripciones a los foros. Aun así, podría seguir recibiendo notificaciones de foros con suscripción forzosa. Si no desea recibir emails de este servidor, vaya por favor a su perfil y deshabilite allí la dirección email.';
-$string['unsubscribeallempty'] = 'Lo sentimos, no está suscrito a ningún foro. Si no desea recibir amails de este servidor, vaya por favor a su perfil y deshabilite allí la dirección email.';
+$string['unsubscribealldone'] = 'Se han eliminado todas sus suscripciones opcionales a los foros. Aun así, podría seguir recibiendo notificaciones de foros con suscripción forzosa. Para gestionar las notificaciones de los foros, vaya a Mensajería en los Ajustes de su Perfil.';
+$string['unsubscribeallempty'] = 'No está suscrito a ningún foro. Si desea desactivar todas las notificaciones de este servidor, vaya a Mensajería en los Ajustes de su Perfil.';
 $string['unsubscribed'] = 'No suscrito';
 $string['unsubscribeshort'] = 'Dar de baja';
 $string['usermarksread'] = 'Marcar lectura de mensaje manual';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_mymobile', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'theme_mymobile', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   theme_mymobile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,7 @@ $string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><
 $string['colourswatch'] = 'Farbschema für MyMobile';
 $string['colourswatch_desc'] = 'Farbschema zwischen grau und blau umschalten';
 $string['customcss'] = 'Custom CSS';
-$string['customcssdesc'] = 'Jeder CSS Code, den Sie hier ergänzen, kann auf jeder Seite zur besseren Formatierung verwandt werden.';
+$string['customcssdesc'] = 'Das eigene CSS wird benutzt, um das Design an Ihre Bedürfnisse anpassen.';
 $string['grey'] = 'Grau';
 $string['light'] = 'Blau';
 $string['mtoggle'] = 'Auf zweite Spalte umschalten';

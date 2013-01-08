@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_security', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'report_security', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   report_security
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,9 +30,9 @@ $string['check_configrw_name'] = ' config.php';
 $string['check_configrw_ok'] = 'PHP-Skripte können die config.php nicht verändern';
 $string['check_configrw_warning'] = 'PHP-Skripte könnten die Datei config.php verändern';
 $string['check_cookiesecure_details'] = '<p>Zusätzlich zur Aktivierung der Datenübertragung über https sollte auch die Funktion sichere Cookies aktiviert werden. Die permanenete Umleitung von http nach https sollte ebenfalls eingerichtet werden.</p>';
-$string['check_cookiesecure_error'] = 'Bitte erlauben Sie sichere Cookies';
+$string['check_cookiesecure_error'] = 'Bitte aktivieren Sie sichere Cookies';
 $string['check_cookiesecure_name'] = 'Sichere Cookies';
-$string['check_cookiesecure_ok'] = 'Sichere Cookies erlaubt';
+$string['check_cookiesecure_ok'] = 'Sichere Cookies aktiviert';
 $string['check_defaultuserrole_details'] = '<p>Jeder eingeloggte Nutzer hat zunächst Rechte aus der Standardrolle für Nutzer. Für diese Rolle sollten keine bedenklichen Berechtigungen vergeben worden sein.</p>
 <p>Die einzige Rolle, für die das zunächst zutrifft, ist die Rolle <em>authentifizierte/r Nutzer/in</em>. Die Berechtigung \'Kurse sehen\' (course view) muss dazu nicht aktiviert sein.</p>';
 $string['check_defaultuserrole_error'] = 'Eine falsche Definition der Standardrolle wurde festgestellt! "{$a}"';

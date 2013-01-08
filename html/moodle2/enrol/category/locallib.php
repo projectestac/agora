@@ -45,8 +45,8 @@ class enrol_category_handler {
             return true;
         }
 
-        // Only category level roles are interesting.
-        $parentcontext = get_context_instance_by_id($ra->contextid);
+        //only category level roles are interesting
+        $parentcontext = context::instance_by_id($ra->contextid);
         if ($parentcontext->contextlevel != CONTEXT_COURSECAT) {
             return true;
         }
@@ -102,8 +102,8 @@ class enrol_category_handler {
             return true;
         }
 
-        // Only category level roles are interesting.
-        $parentcontext = get_context_instance_by_id($ra->contextid);
+        // only category level roles are interesting
+        $parentcontext = context::instance_by_id($ra->contextid);
         if ($parentcontext->contextlevel != CONTEXT_COURSECAT) {
             return true;
         }
@@ -286,10 +286,7 @@ function enrol_category_sync_full($verbose = false) {
         }
         return 0;
     }
-    $rolenames = array();
-    foreach($roles as $role) {
-        $rolenames[$role->id] = $role->shortname;
-    }
+    $rolenames = role_fix_names($roles, null, ROLENAME_SHORT, true);
     if ($verbose) {
         mtrace('Synchronising category enrolments for roles: '.implode(', ', $rolenames).'...');
     }

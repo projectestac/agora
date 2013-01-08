@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'assignment', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   assignment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = 'Einigre Aufgaben erfordern Ihre Aufmerksamkeit';
 $string['addsubmission'] = 'Abgabe hinzufügen';
 $string['allowdeleting'] = 'Löschen erlauben';
 $string['allowdeleting_help'] = 'Wenn diese Option aktiviert ist, können die Nutzer/innen ihre hochgeladenen Dateien jederzeit wieder löschen, bevor sie zur Bewertung gegeben werden.';
@@ -55,6 +56,7 @@ $string['assignment:view'] = 'Aufgabe anzeigen';
 $string['availabledate'] = 'Verfügbar von';
 $string['cannotdeletefiles'] = 'Es ist ein Fehler aufgetreten. Die Dateien konnten nicht gelöscht werden.';
 $string['cannotviewassignment'] = 'Sie können diese Aufgabe nicht anzeigen';
+$string['changegradewarning'] = 'In dieser Aufgabe gibt es bereits bewertete Lösungen. Durch die Änderungen bei der Bewertung werden diese nicht automatisch neu berechnet. Eine Neuberechnung muss gesondert gestartet werden.';
 $string['comment'] = 'Kommentar';
 $string['commentinline'] = 'Eingearbeiteter Kommentar';
 $string['commentinline_help'] = 'Wenn diese Option aktiviert ist, wird der abgegebene Text zum Feedback in das Kommentarfeld kopiert. So ist es einfach, Anmerkungen oder Korrekturen (eventuell farblich gekennzeichnet) in den Originaltext einzuarbeiten.';

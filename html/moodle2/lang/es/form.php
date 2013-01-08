@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'form', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'form', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   form
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,11 +27,13 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['addfields'] = 'Añadir {$a} campos al formulario';
 $string['advancedelement'] = 'Elemento avanzado';
+$string['close'] = 'Cerrar';
 $string['day'] = 'Día';
 $string['display'] = 'Mostrar';
 $string['err_alphanumeric'] = 'Debe escribir sólo letras o números aquí.';
 $string['err_email'] = 'Debe escribir una dirección de email válida aquí.';
 $string['err_lettersonly'] = 'Debe escribir sólo letras aquí.';
+$string['err_maxfiles'] = 'Usted no debe anexar aquí más de {$a} archivos.';
 $string['err_maxlength'] = 'Debe escribir no más de {$a->format} caracteres aquí.';
 $string['err_minlength'] = 'Debe escribir al menos {$a->format} caracteres aquí.';
 $string['err_nonzero'] = 'Debe escribir aquí un número que no comience con cero.';

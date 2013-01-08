@@ -557,3 +557,10 @@ $string['weighting'] = 'Weighting';
 $string['wrong'] = 'Wrong';
 $string['zeroduration'] = 'No duration';
 $string['zeroscore'] = 'Zero score';
+
+$string['bodystyles'] = 'Body styles';
+$string['bodystylesbackground'] = 'Background color and image';
+$string['bodystylescolor'] = 'Text color';
+$string['bodystylesfont'] = 'Font size and family';
+$string['bodystylesmargin'] = 'Left and right margin';
+$string['configbodystyles'] = 'By default, Moodle theme styles will override HotPot activity styles. However, for any styles selected here, the HotPot activity styles will be given priority over the Moodle theme styles.';

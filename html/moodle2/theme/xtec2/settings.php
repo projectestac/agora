@@ -137,8 +137,8 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $settings->add($setting);
 
-    
-    // Select font style
+/*    
+    // Select iconset
     $name = 'theme_xtec2/iconset';
     $title = get_string('iconset', 'theme_xtec2');
     $icons_core = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -171,7 +171,7 @@ if ($ADMIN->fulltree) {
     $choices = array('tema' => 'Personalitzades del tema', 'estandard' => 'Estàndard del Moodle');
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $settings->add($setting);
-
+*/
 
     // Set CSS to be imported
     $name = 'theme_xtec2/importcss';

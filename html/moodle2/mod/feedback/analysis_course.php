@@ -68,9 +68,7 @@ if (! $feedback = $DB->get_record("feedback", array("id"=>$cm->instance))) {
     print_error('invalidcoursemodule');
 }
 
-if (!$context = get_context_instance(CONTEXT_MODULE, $cm->id)) {
-        print_error('badcontext');
-}
+$context = context_module::instance($cm->id);
 
 require_login($course, true, $cm);
 
@@ -149,7 +147,7 @@ if ($courseitemfilter > 0) {
         $sep_thous = get_string('separator_thousand', 'feedback');
 
         foreach ($courses as $c) {
-            $coursecontext = get_context_instance(CONTEXT_COURSE, $c->course_id);
+            $coursecontext = context_course::instance($c->course_id);
             $shortname = format_string($c->shortname, true, array('context' => $coursecontext));
 
             echo '<tr>';
@@ -187,10 +185,12 @@ if ($courseitemfilter > 0) {
 
          echo ' '. html_writer::label(get_string('filter_by_course', 'feedback'), 'coursefilterid'). ': ';
          echo html_writer::select($courses, 'coursefilter', $coursefilter,
-                                  null, array('id'=>'coursefilterid'));
+                                  null, array('id'=>'coursefilterid', 'class' => 'autosubmit'));
 
-         $PAGE->requires->js_init_call('M.util.init_select_autosubmit',
-                                        array('analysis-form', 'coursefilterid', false));
+        $PAGE->requires->yui_module('moodle-core-formautosubmit',
+            'M.core.init_formautosubmit',
+            array(array('selectid' => 'coursefilterid', 'nothing' => false))
+        );
     }
     echo '<hr />';
     $itemnr = 0;

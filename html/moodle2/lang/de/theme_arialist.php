@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_arialist', language 'de', branch 'MOODLE_23_STABLE'
+ * Strings for component 'theme_arialist', language 'de', branch 'MOODLE_24_STABLE'
  *
  * @package   theme_arialist
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -51,7 +51,7 @@ $string['choosereadme'] = '<div class="clearfix">
 </div>';
 $string['configtitle'] = 'Arialist-Einstellungen';
 $string['customcss'] = 'Eigenes CSS';
-$string['customcssdesc'] = 'Das eigene CSS wird auf jeder Seite eingefügt, um das Design an Ihre Bedürfnisse anzupassen.';
+$string['customcssdesc'] = 'Das eigene CSS wird benutzt, um das Design an Ihre Bedürfnisse anpassen.';
 $string['linkcolor'] = 'Linkfarbe';
 $string['linkcolordesc'] = 'Dies stellt die Farbe für Links ein.';
 $string['logo'] = 'Logo';
