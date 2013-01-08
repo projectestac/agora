@@ -11,7 +11,7 @@
         <meta name="generator" content="Zikula - http://zikula.org" />
         <title>{pagegetvar name='title'}</title>
         <link rel="stylesheet" href="{$themepath}/style/style.css" type="text/css" />
-        <!-- link rel="stylesheet" href="{*iw_themepath file=$stylesheet type=css*}" type="text/css" /-->
+        <link rel="stylesheet" href="{IWthemepath file=$stylesheet type=css}" type="text/css" />
         <link rel="alternate"  href="index.php?theme=rss" type="application/rss+xml" />
     </head>
 
@@ -22,7 +22,7 @@
                     <img src="{$imagepath}/edu_blanc.png" width="195" height="28" alt="Departament d'Ensenyament" title="Departament d'Ensenyament" />
                 </a>
             </div>
-            <div id="themelogo" style="background: url({*iw_themepath file=$logotip type=logo*}) no-repeat top right;">
+            <div id="themelogo" style="background: url({IWthemepath file=$logotip type=logo}) no-repeat top right;">
                 <a href="index.php">
                     <div id="sitename">{$modvars.ZConfig.sitename}</div>
                 </a>

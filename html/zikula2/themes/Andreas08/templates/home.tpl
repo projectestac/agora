@@ -1,5 +1,11 @@
 {include file='includes/header.tpl'}
 <div id="theme_navigation_bar" class="z-clearfix">
+    {modavailable modname="IWmenu" assign="IWmenu"}
+    {if $IWmenu neq ""}
+    <div id="theme_top" class="z-clearer">
+        {blockposition name=top}
+    </div>
+    {else}
     {blockposition name=topnav assign=topnavblock}
     {if empty($topnavblock)}
     <ul class="z-floatleft">
@@ -11,6 +17,7 @@
     {$topnavblock}
     {/if}
     {blockposition name=search}
+    {/if}
 </div>
 {include file="body/$home.tpl"}
 {include file='includes/footer.tpl'}
