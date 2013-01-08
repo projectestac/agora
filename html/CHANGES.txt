@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 ZIKULA
 - Removed theme voodooDolly. No schools use it
+- Removed theme iw_mobile
 
 Changes 12.12.28
 ---------------------------------------------------------------------------------------
