@@ -173,7 +173,7 @@ class Downloads_Entity_Download extends Zikula_EntityAccess
 
     public function getCid()
     {
-        return $this->category;
+        return $this->category->getCid();
     }
     
     public function getCategory()

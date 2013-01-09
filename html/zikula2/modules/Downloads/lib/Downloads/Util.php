@@ -668,7 +668,7 @@ class Downloads_Util
      */
     public static function getCatNavPathArray($args)
     {
-        $dom    = ZLanguage::getModuleDomain('Downloads');
+        $dom = ZLanguage::getModuleDomain('Downloads');
         $em = ServiceUtil::getService('doctrine.entitymanager');
 
         if (!isset($args['cid']) || !is_numeric($args['cid'])) {
@@ -696,6 +696,64 @@ class Downloads_Util
         }
 
         return $cpath;
+    }
+
+    /**
+     * Upload a file.
+     * This is a *modified* version from Core 1.3.3-dev::FileUtil
+     *     It does not allow for the use of absolute file paths
+     *     but does allow for relative paths including "../"
+     *
+     * @param string  $key         The filename key to use in accessing the file data.
+     * @param string  $destination The destination where the file should end up.
+     * @param string  $newName     The new name to give the file (optional) (default='').
+     * @param boolean $overwrite   overwrite file in destination with same name (option) (default = false)
+     *
+     * @return mixed TRUE if success, a string with the error message on failure.
+     */
+    public static function uploadFile($key, $destination, $newName = '', $overwrite = false)
+    {
+        $dom = ZLanguage::getModuleDomain('Downloads');
+
+        if (!$key) {
+            return z_exit(__f('%s: called with invalid %s.', array('FileUtil::uploadFile', 'key'), $dom));
+        }
+
+        if (!$destination) {
+            return z_exit(__f('%s: called with invalid %s.', array('FileUtil::uploadFile', 'destination'), $dom));
+        }
+
+        $msg = '';
+        if (!is_dir($destination) || !is_writable($destination)) {
+            if (SecurityUtil::checkPermission('::', '::', ACCESS_ADMIN)) {
+                $msg = __f('The destination path [%s] does not exist or is not writable', $destination, $dom);
+            } else {
+                $msg = __('The destination path does not exist or is not writable', $dom);
+            }
+        } elseif (isset($_FILES[$key]['name'])) {
+            $uploadfile = $_FILES[$key]['tmp_name'];
+            $origfile   = $_FILES[$key]['name'];
+
+            if ($newName) {
+                $uploaddest = "$destination/$newName";
+            } else {
+                $uploaddest = "$destination/$origfile";
+            }
+            
+            // does file exist already?
+            if (is_file($uploaddest) && !$overwrite) {
+                $msg = __('That filename already exists. Please choose a different name.', $dom);
+            } else {
+                $rc = move_uploaded_file($uploadfile, $uploaddest);
+                if ($rc) {
+                    return true;
+                } else {
+                    $msg = FileUtil::uploadErrorMsg($_FILES[$key]['error']);
+                }
+            }
+        }
+
+        return $msg;
     }
 
 }

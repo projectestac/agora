@@ -87,32 +87,35 @@ class Downloads_Installer extends Zikula_AbstractInstaller
                 }
                 $this->setVars($newVars);
 
+                $prefix = $this->serviceManager['prefix'];
                 $connection = $this->entityManager->getConnection();
                 $sqlStatements = array();
                 // N.B. statements generated with PHPMyAdmin
+                $sqlStatements[] = 'RENAME TABLE downloads_downloads' . " TO downloads_downloads";
                 // note: because 'update' and 'date' are reserved SQL words, the fields are renamd to uupdate and ddate, respectively
-                $sqlStatements[] = "ALTER TABLE `downloads_downloads`
-CHANGE `pn_lid` `lid` INT(11) NOT NULL AUTO_INCREMENT,
-CHANGE `pn_cid` `cid` INT(11) NOT NULL DEFAULT '0',
-CHANGE `pn_status` `status` SMALLINT(6) NOT NULL DEFAULT '0',
-CHANGE `pn_update` `uupdate` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
-CHANGE `pn_title` `title` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-CHANGE `pn_url` `url` VARCHAR(254) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-CHANGE `pn_filename` `filename` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-CHANGE `pn_description` `description` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-CHANGE `pn_date` `ddate` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
-CHANGE `pn_email` `email` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-CHANGE `pn_hits` `hits` INT(11) NOT NULL DEFAULT '0',
+                $sqlStatements[] = "ALTER TABLE `downloads_downloads` 
+CHANGE `pn_lid` `lid` INT(11) NOT NULL AUTO_INCREMENT, 
+CHANGE `pn_cid` `cid` INT(11) NOT NULL DEFAULT '0', 
+CHANGE `pn_status` `status` SMALLINT(6) NOT NULL DEFAULT '0', 
+CHANGE `pn_update` `uupdate` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00', 
+CHANGE `pn_title` `title` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '', 
+CHANGE `pn_url` `url` VARCHAR(254) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '', 
+CHANGE `pn_filename` `filename` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, 
+CHANGE `pn_description` `description` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, 
+CHANGE `pn_date` `ddate` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00', 
+CHANGE `pn_email` `email` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '', 
+CHANGE `pn_hits` `hits` INT(11) NOT NULL DEFAULT '0', 
 CHANGE `pn_submitter` `submitter` VARCHAR(60) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-CHANGE `pn_filesize` `filesize` double NOT NULL DEFAULT '0',
-CHANGE `pn_version` `version` VARCHAR(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-CHANGE `pn_homepage` `homepage` VARCHAR(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-CHANGE `pn_modid` `modid` INT(11) NOT NULL DEFAULT '0',
+CHANGE `pn_filesize` `filesize` double NOT NULL DEFAULT '0', 
+CHANGE `pn_version` `version` VARCHAR(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '', 
+CHANGE `pn_homepage` `homepage` VARCHAR(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '', 
+CHANGE `pn_modid` `modid` INT(11) NOT NULL DEFAULT '0', 
 CHANGE `pn_objectid` `objectid` VARCHAR(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0'";
-                $sqlStatements[] = "ALTER TABLE `downloads_downloads`
-DROP INDEX `pn_title`,
+                $sqlStatements[] = "ALTER TABLE `downloads_downloads` 
+DROP INDEX `pn_title`, 
 ADD FULLTEXT `title` (`title`, `description`)";
-                $sqlStatements[] = "ALTER TABLE `downloads_categories`
+                $sqlStatements[] = 'RENAME TABLE downloads_categories' . " TO downloads_categories";
+                $sqlStatements[] = "ALTER TABLE `downloads_categories` 
 CHANGE `pn_cid` `cid` INT( 11 ) NOT NULL AUTO_INCREMENT ,
 CHANGE `pn_pid` `pid` INT( 11 ) NOT NULL DEFAULT '0',
 CHANGE `pn_title` `title` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0',
@@ -143,6 +146,9 @@ CHANGE `pn_description` `description` VARCHAR( 254 ) CHARACTER SET utf8 COLLATE 
             case '3.1.1':
                 // no changes
             case '3.1.2':
+                // run the update rows routine again because some rows were not properly updated in the 3.0.0 routine
+                $this->updateRows();
+            case '3.1.3':
             //future development
         }
 
@@ -292,6 +298,8 @@ CHANGE `pn_description` `description` VARCHAR( 254 ) CHARACTER SET utf8 COLLATE 
                 $count++;
             }
         }
+        // clean up leftovers
+        $this->entityManager->flush();
     }
 
 }

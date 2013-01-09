@@ -67,6 +67,7 @@ $modulesToDelete = array('iw_groups',
     'bbsmile',
     'advMailer',
     'dpCaptcha',
+    'Thumbnail',
 );
 
 foreach ($modulesToDelete as $module) {
@@ -163,6 +164,7 @@ $vars_entries = array();
 $deleteFrom = array('Stats',
     'Referers',
     'IWchat',
+    'Thumbnail',
 );
 $commands = array();
 $sql = "SELECT * from module_vars order by pn_modname";
