@@ -658,6 +658,7 @@ class System {
             // 2013.01.07 @albert 
             $cron = 'iwcron.php';
             $jclic = 'IWjclic_beans.php';
+            $file = 'file.php';
             // ******* FI *******
             // check if we hit baseurl, e.g. domain.com/ and if we require the language URL
             // then we should redirect to the language URL.
@@ -676,7 +677,8 @@ class System {
             if ($expectEntrypoint &&
                     strpos(self::getCurrentUrl(), self::getBaseUrl() . $root) !== 0 &&
                     strpos(self::getCurrentUrl(), self::getBaseUrl() . $cron) !== 0 &&
-                    strpos(self::getCurrentUrl(), self::getBaseUrl() . $jclic) !== 0) {
+                    strpos(self::getCurrentUrl(), self::getBaseUrl() . $jclic) !== 0 &&
+                    self::getCurrentUrl(), self::getBaseUrl() . $file) !== 0) {
                 $protocol = System::serverGetVar('SERVER_PROTOCOL');
                 header("{$protocol} 404 Not Found");
                 echo __('The requested URL cannot be found');
