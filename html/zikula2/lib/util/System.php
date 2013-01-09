@@ -678,7 +678,7 @@ class System {
                     strpos(self::getCurrentUrl(), self::getBaseUrl() . $root) !== 0 &&
                     strpos(self::getCurrentUrl(), self::getBaseUrl() . $cron) !== 0 &&
                     strpos(self::getCurrentUrl(), self::getBaseUrl() . $jclic) !== 0 &&
-                    self::getCurrentUrl(), self::getBaseUrl() . $file) !== 0) {
+                    strpos(self::getCurrentUrl(), self::getBaseUrl() . $file) !== 0) {
                 $protocol = System::serverGetVar('SERVER_PROTOCOL');
                 header("{$protocol} 404 Not Found");
                 echo __('The requested URL cannot be found');
