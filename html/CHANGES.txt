@@ -5,9 +5,16 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE
+- Fixed usu selected to connect in training environment when regenerating
+
+MOODLE 2
+- Fixed usu selected to connect in training environment when regenerating
+
 ZIKULA
 - Removed theme voodooDolly. No schools use it
 - Removed theme iw_mobile
+
 
 Changes 12.12.28
 ---------------------------------------------------------------------------------------
