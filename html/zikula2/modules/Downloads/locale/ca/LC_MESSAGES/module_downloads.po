@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Mòdul Downloads a la versió 3.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-18 21:42-0400\n"
-"PO-Revision-Date: 2013-01-09 12:18+0100\n"
+"PO-Revision-Date: 2013-01-10 13:34+0100\n"
 "Last-Translator: intraweb <intraweb@xtec.cat>\n"
 "Language-Team: Intraweb <intraweb@xtec.cat>\n"
 "Language: ca\n"
@@ -617,4 +617,16 @@ msgstr "Mostra la subcategoria"
 #, php-format
 msgid "No subcategories in category \"%1$s\"."
 msgstr "No hi ha subcategories dins de la categoria \"%1$s\"."
+
+#: templates/user/view.tpl:21
+msgid "Administration"
+msgstr "Administració"
+
+#: templates/user/view.tpl:21
+msgid "Download uploaded correctly."
+msgstr "La descarrega s'ha pujat correctament al servidor."
+
+#: templates/user/view.tpl:21
+msgid "Download uploaded correctly and it is pending of validation by an administrator."
+msgstr "La descarrega s'ha pujat correctament al servidor i està pendent de ser validada per un administrador/a."
 

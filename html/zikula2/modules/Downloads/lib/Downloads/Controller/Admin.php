@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Downloads
  *
@@ -8,17 +9,20 @@
 /**
  * Class to control Admin interface
  */
-class Downloads_Controller_Admin extends Zikula_AbstractController
-{
+class Downloads_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * This method provides a generic item list overview.
      *
      * @return string|boolean Output.
      */
-    public function main()
-    {
-        $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::', '::', ACCESS_ADMIN), LogUtil::getErrorMsgPermission());
+    public function main() {
+        /*         * ***** ELIMINAT XTEC
+          $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::', '::', ACCESS_ADMIN), LogUtil::getErrorMsgPermission());
+          FINAL ELIMINAT XTEC ****** */
+        /*         * ***** AFEGIT XTEC ****** */
+        $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::Add', '::', ACCESS_ADD), LogUtil::getErrorMsgPermission());
+        /*         * ***** FINAL AFEGIT XTEC ****** */
 
         // initialize sort array - used to display sort classes and urls
         $sort = array();
@@ -28,7 +32,7 @@ class Downloads_Controller_Admin extends Zikula_AbstractController
         }
 
         // Get parameters from whatever input we need.
-        $startnum = (int)$this->request->query->get('startnum', $this->request->request->get('startnum', isset($args['startnum']) ? $args['startnum'] : null));
+        $startnum = (int) $this->request->query->get('startnum', $this->request->request->get('startnum', isset($args['startnum']) ? $args['startnum'] : null));
         $orderby = $this->request->query->get('orderby', $this->request->request->get('orderby', isset($args['orderby']) ? $args['orderby'] : 'title'));
         $original_sdir = $this->request->query->get('sdir', $this->request->request->get('sdir', isset($args['sdir']) ? $args['sdir'] : 0));
         $category = $this->request->request->get('category', $this->request->query->get('category', isset($args['category']) ? $args['category'] : 0));
@@ -68,17 +72,29 @@ class Downloads_Controller_Admin extends Zikula_AbstractController
                     'category' => $category,
                     'status' => Downloads_Api_User::STATUS_ALL,
                 ));
+        /*         * ***** ELIMINAT XTEC *******
+          return $this->view->assign('downloads', $downloads)
+          ->fetch('admin/main.tpl');
+         * ****** FINAL ELIMINAT XTEC ****** */
 
-        return $this->view->assign('downloads', $downloads)
-                          ->fetch('admin/main.tpl');
+        /*         * ***** AFEGIT XTEC ****** */
+        
+        if (SecurityUtil::checkPermission('Downloads::', '::', ACCESS_ADMIN)) {
+            LogUtil::registerStatus($this->__('Download uploaded correctly.'));
+            return $this->view->assign('downloads', $downloads)
+                            ->fetch('admin/main.tpl');
+        } else {
+            LogUtil::registerStatus($this->__('Download uploaded correctly and it is pending of validation by an administrator.'));
+            $this->redirect(ModUtil::url('Downloads', 'user', 'view'));
+        }
+        /*         * ***** FINAL AFEGIT XTEC ****** */
     }
 
     /**
      * @desc present administrator options to change module configuration
      * @return      config template
      */
-    public function modifyconfig()
-    {
+    public function modifyconfig() {
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::', '::', ACCESS_ADMIN), LogUtil::getErrorMsgPermission());
 
         return $this->view->fetch('admin/modifyconfig.tpl');
@@ -88,8 +104,7 @@ class Downloads_Controller_Admin extends Zikula_AbstractController
      * @desc sets module variables as requested by admin
      * @return      status/error ->back to modify config page
      */
-    public function updateconfig()
-    {
+    public function updateconfig() {
         $this->checkCsrfToken();
 
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::', '::', ACCESS_ADMIN), LogUtil::getErrorMsgPermission());
@@ -152,26 +167,23 @@ class Downloads_Controller_Admin extends Zikula_AbstractController
      *
      * @return string|boolean Output.
      */
-    public function edit()
-    {
+    public function edit() {
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::', '::', ACCESS_ADD), LogUtil::getErrorMsgPermission());
 
         $form = FormUtil::newForm('Downloads', $this);
         return $form->execute('admin/edit.tpl', new Downloads_Form_Handler_Admin_Edit());
     }
 
-    public function categoryList()
-    {
+    public function categoryList() {
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::', '::', ACCESS_ADMIN), LogUtil::getErrorMsgPermission());
 
         $cats = $this->entityManager->getRepository('Downloads_Entity_Categories')->getAll();
 
         return $this->view->assign('cats', $cats)
-                          ->fetch('admin/categories.tpl');
+                        ->fetch('admin/categories.tpl');
     }
 
-    public function editCategory()
-    {
+    public function editCategory() {
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::', '::', ACCESS_ADMIN), LogUtil::getErrorMsgPermission());
 
         $form = FormUtil::newForm('Downloads', $this);
@@ -182,9 +194,11 @@ class Downloads_Controller_Admin extends Zikula_AbstractController
      * @desc set caching to false for all admin functions
      * @return      null
      */
-    public function postInitialize()
-    {
+    public function postInitialize() {
         $this->view->setCaching(false);
     }
 
+    public function validate(){
+        die('Continuar aquí');
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Downloads
  *
@@ -8,16 +9,14 @@
 /**
  * Class to control Admin interface
  */
-class Downloads_Api_Admin extends Zikula_AbstractApi
-{
+class Downloads_Api_Admin extends Zikula_AbstractApi {
 
     /**
      * Get available admin panel links
      *
      * @return array array of admin links
      */
-    public function getlinks()
-    {
+    public function getlinks() {
         // Define an empty array to hold the list of admin links
         $links = array();
 
@@ -45,7 +44,7 @@ class Downloads_Api_Admin extends Zikula_AbstractApi
                         'text' => $this->__('View/edit Categories')),
                     array('url' => ModUtil::url('Downloads', 'admin', 'editCategory'),
                         'text' => $this->__('New category')),
-                ));
+                    ));
         }
 
         if (SecurityUtil::checkPermission('Downloads::', '::', ACCESS_ADMIN)) {
@@ -54,6 +53,18 @@ class Downloads_Api_Admin extends Zikula_AbstractApi
                 'text' => $this->__('Settings'),
                 'class' => 'z-icon-es-config');
         }
+
+        /*         * ***** AFEGIT XTEC ****** */
+        if (SecurityUtil::checkPermission('Downloads::', '::', ACCESS_ADMIN)) {
+            // get not validated downloads
+            $items = ModUtil::apifunc('Downloads', 'user', 'countQuery', array('status' => Downloads_Api_User::STATUS_INACTIVE));
+
+            $links[] = array(
+                'url' => ModUtil::url('Downloads', 'admin', 'validate'),
+                'text' => $this->__('Validate (') . $items . ')',
+                'class' => 'z-icon-es-ok');
+        }
+        /*         * ***** FINAL AFEGIT XTEC ****** */
 
         return $links;
     }

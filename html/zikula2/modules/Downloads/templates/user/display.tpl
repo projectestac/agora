@@ -1,4 +1,7 @@
 {ajaxheader modname='Downloads' ui=true}
+{******* AFEGIT XTEC *******}
+{include file="user/menu.tpl"}
+{******* FINAL AFEGIT XTEC *******}
 <h3>{gt text='Download Items'}</h3>
 
 {insert name="getstatusmsg"}

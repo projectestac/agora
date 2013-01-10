@@ -9,23 +9,50 @@
 /**
  * Class to control User interface
  */
-class Downloads_Api_User extends Zikula_AbstractApi
-{
+class Downloads_Api_User extends Zikula_AbstractApi {
     /**
      * Download Item status
      */
-
     const STATUS_ALL = -1;
     const STATUS_INACTIVE = 0;
     const STATUS_ACTIVE = 1;
+
+    //******* AFEGIT XTEC *******
+    public function getlinks() {
+        // Define an empty array to hold the list of admin links
+        $links = array();
+
+        if (SecurityUtil::checkPermission('Downloads::Add', '::', ACCESS_READ)) {
+            $links[] = array(
+                'url' => ModUtil::url('Downloads', 'user', 'view'),
+                'text' => $this->__('File List'),
+                'class' => 'z-icon-es-view');
+        }
+
+        if (SecurityUtil::checkPermission('Downloads::Add', '::', ACCESS_ADD)) {
+            $links[] = array(
+                'url' => ModUtil::url('Downloads', 'user', 'newdownload'),
+                'text' => $this->__('New download'),
+                'class' => 'z-icon-es-new');
+        }
+
+        if (SecurityUtil::checkPermission('Downloads::Add', '::', ACCESS_ADMIN)) {
+            $links[] = array(
+                'url' => ModUtil::url('Downloads', 'admin', 'main'),
+                'text' => $this->__('Administration'),
+                'class' => 'z-icon-es-config');
+        }
+
+        return $links;
+    }
+    //******* FINAL AFEGIT XTEC *******
 
     /**
      * get downloads filtered as requested
      * @param type $args
      * @return array of objects
      */
-    public function getall($args)
-    {
+    public function getall($args) {
         // declare args
         $category = isset($args['category']) ? $args['category'] : 0;
         $startnum = isset($args['startnum']) ? $args['startnum'] : 0;
@@ -54,15 +81,13 @@ class Downloads_Api_User extends Zikula_AbstractApi
      * @param array $args
      * @return integer
      */
-    public function countQuery($args)
-    {
+    public function countQuery($args) {
         $args['limit'] = -1;
         $items = $this->getall($args);
         return count($items);
     }
 
-    public function getSubCategories($args)
-    {
+    public function getSubCategories($args) {
         $category = isset($args['category']) ? $args['category'] : 0;
 
         $subcategories = $this->entityManager->getRepository('Downloads_Entity_Categories')->findBy(array('pid' => $category));
@@ -81,8 +106,7 @@ class Downloads_Api_User extends Zikula_AbstractApi
      *
      * @param $item - the item: array with data or id of the item
      */
-    public function clearItemCache(Downloads_Entity_Download $item)
-    {
+    public function clearItemCache(Downloads_Entity_Download $item) {
         // Clear View_cache
         $cache_ids = array();
         $cache_ids[] = 'display|lid_' . $item->getLid();

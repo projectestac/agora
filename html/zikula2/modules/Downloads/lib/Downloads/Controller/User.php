@@ -9,14 +9,12 @@
 /**
  * Class to control User interface
  */
-class Downloads_Controller_User extends Zikula_AbstractController
-{
+class Downloads_Controller_User extends Zikula_AbstractController {
 
     /**
      * main (default) method
      */
-    public function main()
-    {
+    public function main() {
         $this->redirect(ModUtil::url('Downloads', 'user', 'view'));
     }
 
@@ -25,8 +23,7 @@ class Downloads_Controller_User extends Zikula_AbstractController
      *
      * @return string|boolean Output.
      */
-    public function view()
-    {
+    public function view() {
         // check module permissions
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::', '::', ACCESS_READ), LogUtil::getErrorMsgPermission());
 
@@ -39,7 +36,7 @@ class Downloads_Controller_User extends Zikula_AbstractController
         }
 
         // Get parameters from whatever input we need.
-        $startnum = (int)$this->request->query->get('startnum', isset($args['startnum']) ? $args['startnum'] : null);
+        $startnum = (int) $this->request->query->get('startnum', isset($args['startnum']) ? $args['startnum'] : null);
         $orderby = $this->request->query->get('orderby', isset($args['orderby']) ? $args['orderby'] : 'title');
         $original_sdir = $this->request->query->get('sdir', isset($args['sdir']) ? $args['sdir'] : 0);
         $category = $this->request->query->get('category', isset($args['category']) ? $args['category'] : 0);
@@ -100,16 +97,15 @@ class Downloads_Controller_User extends Zikula_AbstractController
      * @param type $args
      * @return string|boolean
      */
-    public function display($args)
-    {
+    public function display($args) {
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::', '::', ACCESS_READ), LogUtil::getErrorMsgPermission());
-        $lid = isset($args['lid']) ? $args['lid'] : (int)$this->request->query->get('lid', null);
+        $lid = isset($args['lid']) ? $args['lid'] : (int) $this->request->query->get('lid', null);
         if (!isset($lid)) {
             throw new Zikula_Exception_Fatal($this->__f('Error! Could not find download for ID #%s.', $lid));
         }
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::Item', $lid . '::', ACCESS_READ), LogUtil::getErrorMsgPermission());
         $item = $this->entityManager->getRepository('Downloads_Entity_Download')->find($lid);
-        $item->setFilesize(round((int)$item->getFilesize() / 1024, 2));
+        $item->setFilesize(round((int) $item->getFilesize() / 1024, 2));
         //$item['filetype'] = FileUtil::getExtension($item['filename']);
         $filename = $item->getFilename();
         $filetype = (!empty($filename)) ? FileUtil::getExtension($filename) : $this->__('unknown');
@@ -127,11 +123,10 @@ class Downloads_Controller_User extends Zikula_AbstractController
      * @param type $args
      * @return mixed 
      */
-    public function prepHandOut($args)
-    {
+    public function prepHandOut($args) {
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::', '::', ACCESS_READ), LogUtil::getErrorMsgPermission());
 
-        $lid = (int)$this->request->query->get('lid', null);
+        $lid = (int) $this->request->query->get('lid', null);
 
         // if admin limits session downloads, enforce
         if ($this->getVar('sessionlimit')) {
@@ -163,8 +158,7 @@ class Downloads_Controller_User extends Zikula_AbstractController
      * @param type $args
      * @return type 
      */
-    public function handoutFile($args)
-    {
+    public function handoutFile($args) {
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::', '::', ACCESS_READ), LogUtil::getErrorMsgPermission());
 
         if (!isset($args['lid']) || !is_numeric($args['lid'])) {
@@ -250,4 +244,12 @@ class Downloads_Controller_User extends Zikula_AbstractController
         }
     }
 
+    //******* AFEGIT XTEC *******
+    public function newdownload() {
+        $this->throwForbiddenUnless(SecurityUtil::checkPermission('Downloads::Add', '::', ACCESS_ADD), LogUtil::getErrorMsgPermission());
+
+        $form = FormUtil::newForm('Downloads', $this);
+        return $form->execute('user/edit.tpl', new Downloads_Form_Handler_Admin_Edit());
+    }
+    //******* FINAL AFEGIT XTEC *******
 }
