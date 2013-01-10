@@ -22,8 +22,21 @@ defined('MOODLE_INTERNAL') || die();
 function getTinyMceVersion(){
 	global $CFG;
 	include($CFG->dirroot . '/lib/editor/tinymce/version.php');
-    $tinyeditor = new tinymce_texteditor();
+        //XTEC ************ MODIFICAT - Fixed bug when tinymce editor is disabled
+        //2013.01.10 @sarjona
+        if (array_key_exists('tinymce', editors_get_enabled()) === TRUE){
+            $tinyeditor = new tinymce_texteditor();
+            $tiny_version = $tinyeditor->version;
+            return $tiny_version;            
+        } else {
+            return 0;
+        }
+        //************ ORIGINAL
+        /*
+        $tinyeditor = new tinymce_texteditor();
 	$tiny_version = $tinyeditor->version;
-	return $tiny_version;
+	return $tiny_version;            
+         */
+        //************ FI
 }
 ?>
