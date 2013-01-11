@@ -61,7 +61,7 @@ class Downloads_Api_Admin extends Zikula_AbstractApi {
 
             $links[] = array(
                 'url' => ModUtil::url('Downloads', 'admin', 'validate'),
-                'text' => $this->__('Validate (') . $items . ')',
+                'text' => $this->__('Validate') . ' (' . $items . ')',
                 'class' => 'z-icon-es-ok');
         }
         /*         * ***** FINAL AFEGIT XTEC ****** */

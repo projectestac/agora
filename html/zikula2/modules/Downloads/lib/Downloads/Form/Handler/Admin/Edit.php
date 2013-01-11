@@ -5,8 +5,7 @@
  *
  * @license GNU/LGPLv3 (or at your option, any later version).
  */
-class Downloads_Form_Handler_Admin_Edit extends Zikula_Form_AbstractHandler
-{
+class Downloads_Form_Handler_Admin_Edit extends Zikula_Form_AbstractHandler {
 
     /**
      * download id.
@@ -24,8 +23,7 @@ class Downloads_Form_Handler_Admin_Edit extends Zikula_Form_AbstractHandler
      *
      * @return boolean
      */
-    public function initialize(Zikula_Form_View $view)
-    {
+    public function initialize(Zikula_Form_View $view) {
         $id = FormUtil::getPassedValue('id', null, 'GET', FILTER_SANITIZE_NUMBER_INT);
         if ($id) {
             // load record with id
@@ -57,8 +55,7 @@ class Downloads_Form_Handler_Admin_Edit extends Zikula_Form_AbstractHandler
      *
      * @return boolean
      */
-    public function handleCommand(Zikula_Form_View $view, &$args)
-    {
+    public function handleCommand(Zikula_Form_View $view, &$args) {
         $returnurl = $view->getStateData('returnurl');
 
         // process the cancel action
@@ -100,7 +97,7 @@ class Downloads_Form_Handler_Admin_Edit extends Zikula_Form_AbstractHandler
         $newFileUploadedFlag = false;
         $data['update'] = new DateTime();
         $data['date'] = new DateTime();
-        $data['status'] = (int)$data['status'];
+        $data['status'] = (int) $data['status'];
         $data['category'] = $this->entityManager->getRepository('Downloads_Entity_Categories')->find($data['category']);
 
         if ((is_array($data['filename'])) && ($data['filename']['size'] > 0)) {
@@ -131,6 +128,22 @@ class Downloads_Form_Handler_Admin_Edit extends Zikula_Form_AbstractHandler
             }
         } else {
             $file = new Downloads_Entity_Download();
+            /*             * ***** AFEGIT XTEC ****** */
+            if ($file) {
+                if (SecurityUtil::checkPermission('Downloads::', '::', ACCESS_ADMIN)) {
+                    LogUtil::registerStatus($this->__('Download uploaded correctly.'));
+                } else {
+                    LogUtil::registerStatus($this->__('Download uploaded correctly and it is pending of validation by an administrator.'));
+                    // notify file to configurated email address or admin if blank
+                    // TODO:
+                    // send an email notification
+                    if (ModUtil::available('Mailer')) {
+                        pnModAPIFunc('Downloads', 'user', 'send_notification', array('title' => $data['title'],
+                        ));
+                    }
+                }
+            }
+            /*             * ***** FINAL AFEGIT XTEC ****** */
         }
 
         try {
