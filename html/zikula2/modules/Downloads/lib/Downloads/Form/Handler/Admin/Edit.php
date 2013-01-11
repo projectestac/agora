@@ -138,7 +138,7 @@ class Downloads_Form_Handler_Admin_Edit extends Zikula_Form_AbstractHandler {
                     // TODO:
                     // send an email notification
                     if (ModUtil::available('Mailer')) {
-                        pnModAPIFunc('Downloads', 'user', 'send_notification', array('title' => $data['title'],
+                        ModUtil::func('Downloads', 'user', 'send_notification', array('title' => $data['title'],
                         ));
                     }
                 }

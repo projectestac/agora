@@ -251,5 +251,9 @@ class Downloads_Controller_User extends Zikula_AbstractController {
         $form = FormUtil::newForm('Downloads', $this);
         return $form->execute('user/edit.tpl', new Downloads_Form_Handler_Admin_Edit());
     }
+    
+    public function send_notification($args){
+        // TODO
+    }
     //******* FINAL AFEGIT XTEC *******
 }
