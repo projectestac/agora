@@ -5,6 +5,12 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- Added rule in .htaccess to fix logout when accessing to /moodle/my
+
+MOODLE
+- Fixed bug with sessions_summary initialization at JClic module
+
 MOODLE 2
 - Updated Wiris version for Moodle 2.4 
 
