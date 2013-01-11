@@ -17,39 +17,43 @@
 //  along with Moodle WIRIS Plugin. If not, see <http://www.gnu.org/licenses/>.
 //
 
-require_once dirname(__FILE__) . '/../../config.php';
-
 class com_wiris_plugin_configuration_MoodleConfigurationUpdater implements com_wiris_plugin_configuration_ConfigurationUpdater {
 
-	public function com_wiris_plugin_configuration_MoodleConfigurationUpdater() {
+    
+    
+    public function com_wiris_plugin_configuration_MoodleConfigurationUpdater() {
     }
     
     public function init() {
     }
 
-	public function getLatexStatus(){
-		$filters = filter_get_globally_enabled();
-		$status = array_key_exists('filter/tex', $filters);
-		return $status;
-	}
-	
-	public function evalParameter($param){
-		if ($param == 1)
-			return true;
-		else
-			return false;
-	}
+    private function getLatexStatus(){
+        $filters = filter_get_globally_enabled();
+        $status = array_key_exists('filter/tex', $filters);
+        return $status;
+    }
+
+    private function evalParameter($param){
+        if ($param == 1)
+            return true;
+        else
+            return false;
+    }
 	
     public function updateConfiguration(&$configuration) {
-		global $CFG;
+        global $CFG;
 
-		$configuration['wirisformulaeditorenabled'] = true;
-		$configuration['wiriscasenabled'] = true;
-		$configuration['wirisaccessibilityenabled'] = false;
-		$configuration['wiriscachedirectory'] = $CFG->dataroot . '/filter/wiris/cache';
-		$configuration['wirisformuladirectory'] = $CFG->dataroot . '/filter/wiris/formulas';
-		$configuration['wirisparselatex'] = !$this->getLatexStatus();
-		$filter_enabled = filter_is_enabled('filter/wiris');
+        $configuration['wirisformulaeditorenabled'] = true;
+        $configuration['wiriscasenabled'] = true;
+        if (isset($configuration['wirisaccessibilityenabled']) && $configuration['wirisaccessibilityenabled'] == 'true'){
+                $configuration['wirisaccessibilityenabled'] = true;
+        }else{
+                $configuration['wirisaccessibilityenabled'] = false;		
+        }        
+        $configuration['wiriscachedirectory'] = $CFG->dataroot . '/filter/wiris/cache';
+        $configuration['wirisformuladirectory'] = $CFG->dataroot . '/filter/wiris/formulas';
+        $configuration['wirisparselatex'] = !$this->getLatexStatus();
+        $filter_enabled = filter_is_enabled('filter/wiris');
 		
         if (isset($CFG->filter_wiris_editor_enable)) {
             $configuration['wirisformulaeditoractive'] = $configuration['wirisformulaeditorenabled'] && $this->evalParameter($CFG->filter_wiris_editor_enable) && $filter_enabled;

@@ -17,61 +17,67 @@
 //  along with Moodle WIRIS Plugin. If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
     global $CFG;
+    global $wirisconfigurationclass;
+    
 	require_once('tinyversion.php');
+        
 	$tiny_version = getTinyMceVersion();
 	$libwiris = $CFG->dirroot . '/lib/editor/tinymce/tiny_mce/' . $tiny_version . '/plugins/tiny_mce_wiris/integration/libwiris.php';
+        $wirisconfigurationclass = '../../../../../../../../filter/wiris/MoodleConfigurationUpdater.php;com_wiris_plugin_configuration_MoodleConfigurationUpdater';    
+        
+    if (!file_exists($libwiris)) {
+        //Check for Moodle 2.4
+        $libwiris = $CFG->dirroot . '/lib/editor/tinymce/plugins/tiny_mce_wiris/integration/libwiris.php';    
+        $wirisconfigurationclass = '../../../../../../filter/wiris/MoodleConfigurationUpdater.php;com_wiris_plugin_configuration_MoodleConfigurationUpdater';    
+    }
+        
+    if (file_exists($libwiris)) {
+        include_once($libwiris);
 
-	if (file_exists($libwiris)) {
-		$output = '';
-		include_once($libwiris);
+        //Editor and CAS checkbox
+        $output = '';
+        $ini = wrs_loadConfig(WRS_CONFIG_FILE);
+        $formula = $ini['wirisformulaeditorenabled'];
+        $cas = $ini['wiriscasenabled'];
 
-		//Editor and CAS checkbox
-		$output = '';
-
-		$ini = wrs_loadConfig(WRS_CONFIG_FILE);
-		$formula = $ini['wirisformulaeditorenabled'];
-		$cas = $ini['wiriscasenabled'];
-
-		$settings->add(new admin_setting_heading('filter_wirisheading', 'WIRIS filter settings', $output));
-
-		//Text to be shown when editor and cas are disabled in MoodleConfigurationUpdater
-		if (!$formula) {
+        //Text to be shown when editor and cas are disabled in MoodleConfigurationUpdater
+        if (!$formula) {
 			$output = '<div class="form-item clearfix"><div class="form-label" style="color:#aaaaaa;" >WIRIS editor<span class="form-shortname" style="color:#aaaaaa;">filter_wiris_editor_enable</span></div><div class="form-setting"><div class="form-checkbox defaultsnext"><input type="checkbox" disabled="disabled"></div></div><div class="form-description"></div></div>';
-		}
-		if (!$cas) {
+        }
+        if (!$cas) {
 			$output .= '<div class="form-item clearfix"><div class="form-label" style="color:#aaaaaa;">WIRIS cas<span class="form-shortname" style="color:#aaaaaa;">filter_wiris_cas_enable</span></div><div class="form-setting"><div class="form-checkbox defaultsnext"><input type="checkbox" disabled="disabled"></div></div><div class="form-description"></div></div>';			
-		}
-		
-		$settings->add(new admin_setting_heading('filter_wiris_disabled', '', $output));
+        }
 
-		if ($formula) {
+        $settings->add(new admin_setting_heading('filter_wiris_disabled', '', $output));
+
+        $output = '';
+        if ($formula) {
 			$settings->add(new admin_setting_configcheckbox('filter_wiris_editor_enable', 'WIRIS editor', '', '1'));
-		}else{ 
+        }else{ 
 			if (isset($CFG->filter_wiris_editor_enable) && $CFG->filter_wiris_editor_enable) {
-                    set_config('filter_wiris_editor_enable', 0, 'config');
-                    $CFG->filter_wiris_editor_enable = false;
+				set_config('filter_wiris_editor_enable', 0, 'config');
+				$CFG->filter_wiris_editor_enable = false;
 			}
-		}
+        }
 
-		if ($cas) {
+        if ($cas) {
 			$settings->add(new admin_setting_configcheckbox('filter_wiris_cas_enable', 'WIRIS cas', '', '1'));
-		}else{ 
+        }else{ 
 			if (isset($CFG->filter_wiris_cas_enable) && $CFG->filter_wiris_cas_enable) {
-                set_config('filter_wiris_cas_enable', 0, 'config');
-                $CFG->filter_wiris_cas_enable = false;
+				set_config('filter_wiris_cas_enable', 0, 'config');
+				$CFG->filter_wiris_cas_enable = false;
 			}
-		}
-
+        }
 	}else{
-		$info = '<a target="_blank" href="http://www.wiris.com/en/plugins/moodle/download"><img alt="" src="../filter/wiris/img/help.gif" /></a>';
-		$output = '<span style="color:#ff0000">WIRIS plugin for TinyMCE does not seem correctly installed.</span>' . $info;
-		$settings->add(new admin_setting_heading('filter_wirisheading', 'WIRIS Filter Settings', $output));
+                $title = '<br /><br /><br /><span style="color:#aa0000; font-size:18px;">Attention! WIRIS plugin is not installed</span>';
+                $info = '<a target="_blank" href="http://www.wiris.com/plugins/docs/moodle"><img style="vertical-align:-3px;" alt="" src="http://www.wiris.com/system/files/attachments/1689/WIRIS_manual_icon_17_17.png" /></a>';    
+                $output = $title . '<br />WIRIS quizzes for Moodle 2.x needs that WIRIS plugin for TinyMCE is installed on your Moodle. ' . $info;                
 	}
-
 
 	// Clearing cache.
 	if (isset($CFG->filter_wiris_clear_cache) && $CFG->filter_wiris_clear_cache) {
@@ -100,7 +106,7 @@ if ($ADMIN->fulltree) {
 		$CFG->filter_wiris_clear_cache = false;
 	}
 
-	$settings->add(new admin_setting_configcheckbox('filter_wiris_clear_cache', 'Clear cache', '', '0'));
+	$settings->add(new admin_setting_configcheckbox('filter_wiris_clear_cache', 'Clear cache', $output, '0'));
         
 	$wiris_quizzes = dirname(__FILE__) . '/../../question/type/wq/';
 	$quizzes_installed = file_exists($wiris_quizzes);
