@@ -5,11 +5,8 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-MOODLE
-- Fixed usu selected to connect in training environment when regenerating
-
 MOODLE 2
-- Fixed usu selected to connect in training environment when regenerating
+- Updated Wiris version for Moodle 2.4 
 
 ZIKULA
 - Removed theme voodooDolly. No schools use it
