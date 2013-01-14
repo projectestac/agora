@@ -5,6 +5,11 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+Changes 13.01.14
+---------------------------------------------------------------------------------------
 GENERAL
 - Added rule in .htaccess to fix logout when accessing to /moodle/my
 
