@@ -15,6 +15,7 @@ MOODLE 2
 - Updated Wiris version for Moodle 2.4
 - Fixed bug in hotpot module: https://tracker.moodle.org/browse/CONTRIB-3896
 - Fixed hand-write font family (aka 'lletra lligada') in Moodle 2.4
+- Fixed YIU problems in EOICampus module (for Àgora-EOI)
 
 ZIKULA
 - Removed theme voodooDolly. No schools use it

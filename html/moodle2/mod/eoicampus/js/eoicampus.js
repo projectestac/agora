@@ -25,6 +25,14 @@ function changeType(elem){
 }
 
 function getPathways(level, pwid){
+
+//XTEC ************ AFEGIT - yui2 to yui 2in3 conversion. Open function.
+//2013.01.14 @aginard
+YUI().use('yui2-dom', function(Y) {
+  // This will make your YUI 2 code run unmodified
+  var YAHOO = Y.YUI2;
+//************ FI
+
   //alert("function getPathways ("+level+", "+pwid+")"); //just for debug
   var pwlevel  = document.getElementsByName('pwslevel')[0].value;
   var lang     = document.getElementsByName('pwlang')[0].value;
@@ -48,9 +56,23 @@ function getPathways(level, pwid){
   pwid_sel.options.length = 0;
   pwid_sel.options[0] = new Option("Loading...", 0);
   YAHOO.util.Dom.get('id_pwtype').disabled = false;
+
+//XTEC ************ AFEGIT - yui2 to yui 2in3 conversion. Close function.
+//2013.01.14 @aginard
+});
+//************ FI
+
 }
 
 function loadPathways(t, pwid_sel){
+
+//XTEC ************ AFEGIT - yui2 to yui 2in3 conversion. Open function.
+//2013.01.14 @aginard
+YUI().use('yui2-dom', function(Y) {
+  // This will make your YUI 2 code run unmodified
+  var YAHOO = Y.YUI2;
+//************ FI
+
   //alert("function loadPathways("+t+", "+pwid_sel+")"); //just for debug
   var ePathways = getXMLElements(t.responseXML, 'pathway');
   YAHOO.util.Dom.get('id_pwid').options[0] = new Option("Choose...", 0);
@@ -58,11 +80,25 @@ function loadPathways(t, pwid_sel){
     var pwId = getXMLAttribute(ePathways[i], 'id');
     var pwTitle = getXMLText(ePathways[i], 'title');
     YAHOO.util.Dom.get('id_pwid').options[i+1] = new Option(pwTitle, pwId, (pwId == pwid_sel));
-  }  
+  }
+
+//XTEC ************ AFEGIT - yui2 to yui 2in3 conversion. Close function.
+//2013.01.14 @aginard
+});
+//************ FI
+
 }
 
 
 function sendRequest(service, params, pwid){ 
+
+//XTEC ************ AFEGIT - yui2 to yui 2in3 conversion. Open function.
+//2013.01.14 @aginard
+YUI().use('yui2-connection', function(Y) {
+  // This will make your YUI 2 code run unmodified
+  var YAHOO = Y.YUI2;
+//************ FI
+
   //alert("function sendRequest( "+service+", "+xml+", "+pwid+")"); //just for debug
   var callback = {
       success: function(request) {
@@ -75,6 +111,11 @@ function sendRequest(service, params, pwid){
   };
   var Ajax = YAHOO.util.Connect.asyncRequest('POST', service, callback, params);
   
+//XTEC ************ AFEGIT - yui2 to yui 2in3 conversion.
+//2013.01.14 @aginard
+});
+//************ FI
+
 }
 
 function getXMLElements(e, elemName){
