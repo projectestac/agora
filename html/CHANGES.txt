@@ -12,7 +12,8 @@ MOODLE
 - Fixed bug with sessions_summary initialization at JClic module
 
 MOODLE 2
-- Updated Wiris version for Moodle 2.4 
+- Updated Wiris version for Moodle 2.4
+- Fixed bug in hotpot module: https://tracker.moodle.org/browse/CONTRIB-3896
 
 ZIKULA
 - Removed theme voodooDolly. No schools use it
