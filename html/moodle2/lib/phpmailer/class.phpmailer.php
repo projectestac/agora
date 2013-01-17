@@ -337,10 +337,22 @@ class PHPMailer {
   /////////////////////////////////////////////////
 
   protected   $smtp           = NULL;
+  
+//XTEC ************ MODIFICAT - Properties set to public to allow direct read from moodlelib.php
+//17.01.2013 @aginard
+  public   $to             = array();
+  public   $cc             = array();
+  public   $bcc            = array();
+  public   $ReplyTo        = array();
+//************ ORIGINAL
+/*
   protected   $to             = array();
   protected   $cc             = array();
   protected   $bcc            = array();
   protected   $ReplyTo        = array();
+*/
+//************ FI
+
   protected   $all_recipients = array();
   protected   $attachment     = array();
   protected   $CustomHeader   = array();
