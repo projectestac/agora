@@ -57,7 +57,7 @@ $CFG->sessiontimeout=3600;
 //$CFG->apligestmail = 1;  		/* Set in database */
 //$CFG->apligestlog = 0;		/* Set in database */
 //$CFG->apligestlogdebug = 0;		/* Set in database */
-$CFG->apligestlogpath = $CFG->dataroot.'/1/backupdata/log/mailsender.log';
+$CFG->apligestlogpath = $CFG->dataroot.'/repository/files/mailsender.log';
 $CFG->apligestenv = $agora['server']['enviroment'];
 $CFG->apligestaplic = 'AGORA';
 
