@@ -645,7 +645,7 @@ class mailsender{
 //XTEC ************ MODIFY -> Improved control of well-formed email
 //2011.03.18 @mmartinez
 //2013.01.17 @aginard: replaced eregi() with preg_match()
-		if (!preg_match("^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9]+@[a-zA-Z0-9]+[a-zA-Z0-9-]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/i", $replyAddress)) {
+		if (!preg_match("/^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9]+@[a-zA-Z0-9]+[a-zA-Z0-9-]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/", $replyAddress)) {
 //*********** ORIGINAL
         //if (!preg_match('/^[^0-9][a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*[@][a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*[.][a-zA-Z]{2,4}$/',$replyAddress)){
 //*********** END
