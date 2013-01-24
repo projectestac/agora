@@ -2930,6 +2930,15 @@ function delete_course_module($id) {
     $DB->delete_records('course_completion_criteria', array('moduleinstance' => $cm->id,
                                                             'criteriatype' => COMPLETION_CRITERIA_TYPE_ACTIVITY));
 
+//XTEC ************ AFEGIT - Added patch for course format "Simple"
+//2010.07.12 @aginard (patch provided by UPCnet)
+
+	//@PATCH SIMPLE: Eliminar la imatge si existeix
+	require_once($CFG->dirroot.'/course/format/simple/lib.php');
+	simple_delete_module_image($id);
+
+//************ FI                                                        
+
     delete_context(CONTEXT_MODULE, $cm->id);
     $DB->delete_records('course_modules', array('id'=>$cm->id));
     rebuild_course_cache($cm->course, true);

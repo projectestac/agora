@@ -1,0 +1,67 @@
+.course-content ul.topics {margin:0;}
+.course-content ul.topics li.section {list-style: none;margin:0 0 5px 0;padding:0;}
+.course-content ul.topics li.section .content {margin:0 40px;}
+.course-content ul.topics li.section .left {float:left;}
+.course-content ul.topics li.section .right {float:right;}
+.course-content ul.topics li.section .left,
+.course-content ul.topics li.section .right {width:40px;text-align:center;padding: 6px 0;}
+.course-content ul.topics li.section .right img.icon { padding: 0 0 4px 0;}
+.course-content ul.topics li.section .left .section-handle img.icon { padding:0; vertical-align: baseline; }
+.jumpmenu {text-align:center;}
+
+
+.course-content ul.simple {margin:0;}
+.course-content ul.simple li.section {
+	list-style: none;
+	margin:5px 0 0 0;
+	padding:0;
+	border: #DDD 1px solid;
+}
+.course-content ul.simple li.section .content {margin:0 40px;}
+.course-content ul.simple li.section .left {width:40px;float:left;text-align:center;}
+.course-content ul.simple li.section .right {display:none;}
+
+.course-content ul.simple ul.section{
+	text-align:center;
+	margin:10px auto;
+	max-width:860px;
+}
+
+.course-content ul.simple li.section .summary{
+	font-size: 1.2em;
+}
+
+.course-content ul.simple div.activity,
+.course-content ul.simple .activity{
+	text-align:center;
+	float:left;
+	min-height: 210px;
+	margin: 20px 20px 0 20px;
+	width:175px;
+}
+
+.course-content ul.simple .activity img.activityicon{
+	width:128px;
+	height:128px;
+	display:block;
+	margin:3px 23.5px 12px;
+}
+
+.course-content ul.simple .activity a{	
+	font-size: 1.2em;
+}
+
+.course-content ul.simple .activity.label{
+	clear:both;
+	text-align:center;
+	margin: 0 auto;
+	width: 100%;
+	min-height: 0;
+	font-size: 1.2em;
+}
+
+#def_img.simple-bigicon {
+	width:128px;
+	height:128px;
+	border: 1px;
+}
