@@ -227,6 +227,10 @@ function Agoraportal_tables() {
         'h22' => 'h22',
         'h23' => 'h23',
         'total' => 'total',
+        'usersconfnodel' => 'usersconfnodel',
+        'usersactive' => 'usersactive',
+        'usersactivelast90days' => 'usersactivelast90days',
+        'usersactivelast30days' => 'usersactivelast30days',
         'diskConsume' => 'diskConsume',
         );
     $table['agoraportal_moodle_stats_day_column_def'] = array('clientcode' => 'C(10) NOT NULL default \'\'',
@@ -257,6 +261,10 @@ function Agoraportal_tables() {
         'h22' => 'I DEFAULT 0',
         'h23' => 'I DEFAULT 0',
         'total' => 'I DEFAULT 0',
+        'usersconfnodel' => 'I DEFAULT 0',
+        'usersactive' => 'I DEFAULT 0',
+        'usersactivelast90days' => 'I DEFAULT 0',
+        'usersactivelast30days' => 'I DEFAULT 0',
         'diskConsume' => "C(15) NOTNULL DEFAULT '0'",
         );
     $table['agoraportal_moodle2_stats_day'] = DBUtil::getLimitedTablename('agoraportal_moodle2_stats_day');
@@ -336,6 +344,7 @@ function Agoraportal_tables() {
         'clientDNS' => 'clientDNS',
         'yearmonth' => 'yearmonth',
         'users' => 'users',
+        'usersactivelast30days' => 'usersactivelast30days',
         'courses' => 'courses',
         'activities' => 'activities',
         'lastaccess' => 'lastaccess',
@@ -348,6 +357,7 @@ function Agoraportal_tables() {
         'clientDNS' => 'C(50) NOTNULL',
         'yearmonth' => 'INT(6) NOT NULL',
         'users' => 'I DEFAULT 0',
+        'usersactivelast30days' => 'I DEFAULT 0',
         'courses' => 'I DEFAULT 0',
         'activities' => 'I DEFAULT 0',
         'lastaccess' => 'C(50) DEFAULT \'\'',
