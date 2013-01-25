@@ -15,6 +15,7 @@ MOODLE 2
 
 PORTAL
 - Fixed deletion of backup files from portal when school has no Moodle 2
+- Increased version of agoraportal in order to add fields to stats tables
 
 
 Changes 13.01.14
