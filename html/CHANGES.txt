@@ -12,6 +12,7 @@ MOODLE 2
 - Fixed sending e-mail using XTEC Web Service
 - Added course format "Senzill per temes"
 - Performance improvements to coursequotas report plus code organizational changes
+- Added SVG icon for hotpot, questionnaire and journal activities
 
 PORTAL
 - Fixed deletion of backup files from portal when school has no Moodle 2
