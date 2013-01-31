@@ -502,6 +502,17 @@ if ($mform->is_cancelled()) {
             condition_info::update_cm_from_form((object)array('id'=>$fromform->coursemodule), $fromform, false);
         }
 
+//XTEC ************ AFEGIT - Added patch for course format "Simple"
+//2010.07.12 @aginard (patch provided by UPCnet)
+
+		//@PATCH SIMPLE: Actualitza la icona al sistema de fitxers
+			if(isset($fromform->simple_image)){
+				require_once($CFG->dirroot.'/course/format/simple/lib.php');
+				simple_add_module_image($fromform);
+			}
+
+//************ FI 
+
         $eventname = 'mod_created';
 
         add_to_log($course->id, "course", "add mod",
