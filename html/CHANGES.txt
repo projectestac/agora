@@ -13,6 +13,7 @@ MOODLE 2
 - Added course format "Senzill per temes"
 - Performance improvements to coursequotas report plus code organizational changes
 - Added SVG icon for hotpot, questionnaire and journal activities
+- Fixed bug in db authentication related with Intraweb users integration
 
 PORTAL
 - Fixed deletion of backup files from portal when school has no Moodle 2
