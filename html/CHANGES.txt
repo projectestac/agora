@@ -15,6 +15,9 @@ MOODLE 2
 - Added SVG icon for hotpot, questionnaire and journal activities
 - Fixed bug in db authentication related with Intraweb users integration
 
+ZIKULA
+- Fixed statistics summary process
+
 PORTAL
 - Fixed deletion of backup files from portal when school has no Moodle 2
 - Increased version of agoraportal in order to add fields to stats tables
