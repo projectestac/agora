@@ -79,47 +79,33 @@ function IWstats_adminapi_summary($args) {
     // get the last record in summary table
     $table = pnDBGetTables();
     $c = $table['IWstats_summary_column'];
-    $orderby = "$c[datetime] desc";
+    $d = $table['IWstats_column'];
 
-    $last = array();
-
-    if (!isset($args['last'])) {
-        $last = DBUtil::selectObjectArray('IWstats_summary', '', $orderby, -1, 1);
-
-        if ($last === false) {
-            return LogUtil::registerError(__('Error! Could not load data.', $dom));
-        }
-    } else {
-        $last[0]['datetime'] = $args['last'];
-    }
-
-    if (count($last) == 0 && !isset($args['last'])) {
-        $last[0]['datetime'] = "2011-05-10 00:00:00";
-    }
+    // get first record datetime
+    $orderby = "$d[summarised] asc";
+    $last = DBUtil::selectObjectArray('IWstats', '', $orderby, -1, 1);
 
     $time = DateUtil::makeTimestamp($last[0]['datetime']);
     $toDateTimeStamp = $time + $args['days'] * 24 * 60 * 60;
     // calc the period
-    $fromDate = date('d-m-Y', $time + 24 * 60 * 60);
+    $fromDate = date('d-m-Y', $time);
     $toDate = date('d-m-Y', $toDateTimeStamp);
 
-
-    if ($toDateTimeStamp > time() - 24 * 60 * 60)
-        $toDate = date('d-m-Y', time() - 24 * 60 * 60);
+    /*
+      print_r($last);
+      print '<br /><br />';
+      print 'From date: ' . $fromDate;
+      print '<br /><br />';
+      print 'To date: ' . $toDate;
+      die();
+     */
 
     $records = pnModAPIFunc('IWstats', 'user', 'getAllRecords', array('fromDate' => $fromDate,
         'toDate' => $toDate,
         'all' => 1,
             ));
 
-    // to aviod stop due to periods with zero visits
-    if (!$records && DateUtil::makeTimestamp($last[0]['datetime']) < time()) {
-        $last = date('Y-m-d 00:00:00', DateUtil::makeTimestamp($last[0]['datetime']) + $args['days'] * 24 * 60 * 60);
-        pnModAPIFunc('IWstats', 'admin', 'summary', array('last' => $last,
-            'days' => $args['days'],
-            'deleteFromDays' => $args['deleteFromDays'],
-        ));
-    }
+    // print 'fromDate: ' . $fromDate . ' - ' .'toDate: ' . $toDate . ' - number: ' . count($records);die();
 
     $recordsArray = array();
 
@@ -150,7 +136,7 @@ function IWstats_adminapi_summary($args) {
                 $recordsArray[substr($record['datetime'], 0, 10)]['ips'][] = $record['ip'];
             }
         } else {
-            // add a new element into array
+            // add a new element into the array
             $recordsArray[substr($record['datetime'], 0, 10)]['nRecords'] = 1;
             $recordsArray[substr($record['datetime'], 0, 10)]['registered'] = ($record['uid'] > 0) ? 1 : 0;
             $recordsArray[substr($record['datetime'], 0, 10)]['users'][$record['uid']]['modules'][$record['moduleid']] = 1;
@@ -165,6 +151,7 @@ function IWstats_adminapi_summary($args) {
 
     ksort($recordsArray);
 
+    // print_r($recordsArray);die();
     // save records in ddbb
     foreach ($recordsArray as $record) {
         $usersArray = array();
@@ -199,18 +186,33 @@ function IWstats_adminapi_summary($args) {
             'nips' => count($record['ips']),
         );
 
-        if (!DBUtil::insertObject($item, 'IWstats_summary')) {
-            return LogUtil::registerError(__('Error! Creation attempt failed.', $dom));
+        // checks if value exists in database. If exists update it. If not create it
+        $summaryValue = DBUtil::selectObject('IWstats_summary', "$c[datetime]='$record[datetime]'");
+
+        if ($summaryValue) {
+            if (!DBUtil::updateObject($item, 'IWstats_summary', "$c[datetime]='$record[datetime]'")) {
+                return LogUtil::registerError(__('Error! Creation attempt failed.', $dom));
+            }
+        } else {
+            if (!DBUtil::insertObject($item, 'IWstats_summary')) {
+                return LogUtil::registerError(__('Error! Creation attempt failed.', $dom));
+            }
         }
+        
+        $keepDays = 90;
+        $time = time() - $keepDays * 24 * 60 * 60;
+        $keepTime = date('Y-m-d 23:59:59', $time);
+        $delDate = str_replace('00:00:00', '23:59:59', $record['datetime']);
+        
+        // set records as summarised
+        $item = array('summarised' => 1);
+        $where = "$d[datetime] <= '$delDate'";
+        DBUtil::updateObject($item, 'IWstats', $where);
+        
+        // delete old records
+        $where = "$d[datetime] <= '$delDate' and $d[datetime] <= '$keepTime'";
+        DBUtil::deleteWhere('IWstats', $where);
     }
-
-    // delete records from database
-    $delete = DateUtil::getDatetime(time() - $args['deleteFromDays'] * 24 * 60 * 60);
-
-    $c = $table['IWstats_column'];
-    $where = "$c[datetime] < '$delete'";
-
-    DBUtil::deleteWhere('IWstats', $where);
 
     return true;
 }
