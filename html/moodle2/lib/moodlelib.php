@@ -5545,6 +5545,9 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
     //XTEC ************ MODIFICAT - Use apligest system to send mails if it's configured
     //28.04.2011 @fcasanel
     //14.03.2012 @aginard
+    //17.01.2013 @aginard: added global $FULLME;
+    global $FULLME;
+    
     if ($CFG->apligestmail) {
         require_once ($CFG->dirroot.'/local/agora/mailer/message.class.php');
         require_once ($CFG->dirroot.'/local/agora/mailer/mailsender.class.php');

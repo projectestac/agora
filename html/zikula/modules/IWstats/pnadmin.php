@@ -532,16 +532,18 @@ function IWstats_admin_viewStats($args) {
 
 function IWstats_admin_summary() {
     if (!SecurityUtil::checkPermission('IWstats::', '::', ACCESS_ADMIN)) {
-        return LogUtil::registerPermissionError();
+        //return LogUtil::registerPermissionError();
     }
 
     $dom = ZLanguage::getModuleDomain('IWstats');
 
-    $days = 15;
+    $days = 7;
     $deleteFromDays = 170;
     pnModAPIFunc('IWstats', 'admin', 'summary', array('days' => $days,
         'deleteFromDays' => $deleteFromDays,
     ));
+    
+    return 'ok';
 
     // Success
     LogUtil::registerStatus(__('Summary reported', $dom));

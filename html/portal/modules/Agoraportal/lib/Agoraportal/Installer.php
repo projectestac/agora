@@ -172,6 +172,11 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                     return false;
                 if (!DBUtil::changeTable('agoraportal_moodle_stats_month'))
                     return false;
+            case '2.0.6':
+                if (!DBUtil::changeTable('agoraportal_moodle_stats_day'))
+                    return false;
+                if (!DBUtil::changeTable('agoraportal_moodle_stats_month'))
+                    return false;
         }
         return true;
     }

@@ -5,9 +5,42 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- Added gathering of users active last 30 and 90 days in Moodle 1.9. Also fixed in 2.4.
+
+MOODLE 2
+- Fixed sending e-mail using XTEC Web Service
+- Added course format "Senzill per temes"
+- Performance improvements to coursequotas report plus code organizational changes
+- Added SVG icon for hotpot, questionnaire and journal activities
+- Fixed bug in db authentication related with Intraweb users integration
+
+ZIKULA
+- Fixed statistics summary process
+
+PORTAL
+- Fixed deletion of backup files from portal when school has no Moodle 2
+- Increased version of agoraportal in order to add fields to stats tables
+
+
+Changes 13.01.14
+---------------------------------------------------------------------------------------
+GENERAL
+- Added rule in .htaccess to fix logout when accessing to /moodle/my
+
+MOODLE
+- Fixed bug with sessions_summary initialization at JClic module
+
+MOODLE 2
+- Updated Wiris version for Moodle 2.4
+- Fixed bug in hotpot module: https://tracker.moodle.org/browse/CONTRIB-3896
+- Fixed hand-write font family (aka 'lletra lligada') in Moodle 2.4
+- Fixed YIU problems in EOICampus module (for Àgora-EOI)
+
 ZIKULA
 - Removed theme voodooDolly. No schools use it
 - Removed theme iw_mobile
+
 
 Changes 12.12.28
 ---------------------------------------------------------------------------------------

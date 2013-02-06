@@ -20,10 +20,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 function getTinyMceVersion(){
-	global $CFG;
-	include($CFG->dirroot . '/lib/editor/tinymce/version.php');
+    global $CFG;
+    include_once ($CFG->dirroot . '/lib/editor/tinymce/lib.php');
     $tinyeditor = new tinymce_texteditor();
-	$tiny_version = $tinyeditor->version;
-	return $tiny_version;
+    $tiny_version = $tinyeditor->version;
+    return $tiny_version;
 }
 ?>

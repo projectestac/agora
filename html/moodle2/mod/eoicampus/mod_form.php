@@ -3,11 +3,18 @@ require_once ($CFG->dirroot.'/course/moodleform_mod.php');
 //IECISA *********** MODIFIED -> Deprecated functions on Moodle 2.2
 //2012.10.25 @abertranb
 defined('MOODLE_INTERNAL') || die;
+
+//XTEC ************ ELIMINAT - yui2 to yui 2in3 conversion. No "requires" required.
+//2013.01.14 @aginard
+/*
 $PAGE->requires->yui2_lib('yahoo');
 $PAGE->requires->yui2_lib('event');
 $PAGE->requires->yui2_lib('dom');
 $PAGE->requires->yui2_lib('connection');
 $PAGE->requires->yui2_lib('json');
+*/
+//************ FI
+
 $PAGE->requires->js('/mod/eoicampus/js/eoicampus.js', true);
 //********* ORIGINAL
 /*require_js(array('yui_yahoo', 'yui_event', 'yui_dom', 'yui_connection', 'yui_json'));

@@ -388,6 +388,17 @@ if ($mform->is_cancelled()) {
             $completion->reset_all_state($cm);
         }
 
+//XTEC ************ AFEGIT - Added patch for course format "Simple"
+//2010.07.12 @aginard (patch provided by UPCnet)
+
+		//@PATCH SIMPLE: Actualitza la icona al sistema de fitxers
+		if(isset($fromform->simple_image)){
+			require_once($CFG->dirroot.'/course/format/simple/lib.php');
+			simple_update_module_image($fromform);
+		}
+
+//************ FI                                                        
+
         $eventname = 'mod_updated';
 
         add_to_log($course->id, "course", "update mod",
@@ -490,6 +501,17 @@ if ($mform->is_cancelled()) {
         if ($CFG->enableavailability) {
             condition_info::update_cm_from_form((object)array('id'=>$fromform->coursemodule), $fromform, false);
         }
+
+//XTEC ************ AFEGIT - Added patch for course format "Simple"
+//2010.07.12 @aginard (patch provided by UPCnet)
+
+		//@PATCH SIMPLE: Actualitza la icona al sistema de fitxers
+			if(isset($fromform->simple_image)){
+				require_once($CFG->dirroot.'/course/format/simple/lib.php');
+				simple_add_module_image($fromform);
+			}
+
+//************ FI 
 
         $eventname = 'mod_created';
 

@@ -62,13 +62,6 @@ class auth_plugin_db extends auth_plugin_base {
 
             $authdb = $this->db_init();
 
-            //XTEC ************ AFEGIT - detect if validation comes from file iw_index.php
-            //2012.10.25  @aperez16
-            if (!isset($_REQUEST['parm'])) {
-                $this->config->passtype = 'md5';
-            }
-            //************ FI 
-            
             $rs = $authdb->Execute("SELECT * FROM {$this->config->table}
                                      WHERE {$this->config->fielduser} = '".$this->ext_addslashes($extusername)."' ");
             if (!$rs) {
@@ -96,6 +89,14 @@ class auth_plugin_db extends auth_plugin_base {
             // normal case: use external db for both usernames and passwords
 
             $authdb = $this->db_init();
+
+            //XTEC ************ AFEGIT - detect if validation comes from file iw_index.php
+            //2012.10.25  @aperez16
+            if (!isset($_REQUEST['parm'])) {
+                $this->config->passtype = 'md5';
+            }
+            //************ FI 
+            
 
             if ($this->config->passtype === 'md5') {   // Re-format password accordingly
                 $extpassword = md5($extpassword);
@@ -130,7 +131,8 @@ class auth_plugin_db extends auth_plugin_base {
         //2012.08.28  @sarjona
         if (is_agora()) {
             global $agora, $school_info;
-            if (empty($this->config->host) && array_key_exists('id_intranet', $school_info)) {
+            if (array_key_exists('id_intranet', $school_info)) {
+//            if (empty($this->config->host) && array_key_exists('id_intranet', $school_info)) {
                 $this->config->type = $agora['intranet']['dbtype'];
                 $this->config->host = $agora['intranet']['host'];
                 $this->config->user = $agora['intranet']['username'];

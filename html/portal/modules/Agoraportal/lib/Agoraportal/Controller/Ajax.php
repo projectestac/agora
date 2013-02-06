@@ -692,7 +692,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $clientCode = $clientInfo['clientCode'];
         // remove file
         global $agora;
-        $activedId = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientInfo['client'][$clientCode]['clientId'], 'serviceName' => 'moodle2'));
+        $activedId = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientInfo['client'][$clientCode]['clientId'], 'serviceName' => 'moodle'));
         $folder = $agora['server']['root'] . $agora['moodle']['datadir'] . $agora['moodle']['username'] . $activedId['activedId'] . '/' . $courseId . '/backupdata/';
 
         if (unlink($folder . $filename)) {

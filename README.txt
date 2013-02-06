@@ -51,7 +51,7 @@ Developers:
    Sara Arjona      (sarjona@xtec.cat) 
    Albert Pérez     (aperez16@xtec.cat)
    Toni Ginard      (aginard@xtec.cat)
-   Pau Ferrer       (ferrer.pau@gmail.com)
+   Pau Ferrer       (crazyserver@gmail.com)
    Fèlix Casanellas (fcasanel@xtec.cat)
    Jaume Fernández  (jfern343@xtec.cat)
    Aida Regi        (aregi@xtec.cat)

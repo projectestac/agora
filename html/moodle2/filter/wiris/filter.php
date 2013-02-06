@@ -49,16 +49,34 @@ class filter_wiris extends moodle_text_filter {
 
 	public function filter($text, array $options = array()) {
 		global $CFG, $PAGE, $COURSE;
-		
-		include $CFG->dirroot . '/lib/editor/tinymce/version.php';
-		if(!file_exists($CFG->dirroot . '/lib/editor/tinymce/tiny_mce/' . $plugin->release . '/plugins/tiny_mce_wiris/integration/api.php')){
-			$coursecontext = get_context_instance(CONTEXT_COURSE, $COURSE->id);
-			if(has_capability('moodle/site:config', $coursecontext)) {
-				$PAGE->requires->js('/filter/wiris/js/message.js',false);
-				return $text;
-			}
+		$isM24 = false;
+                
+                include_once $CFG->dirroot . '/lib/editor/tinymce/lib.php';
+                $tinyEditor = new tinymce_texteditor();
+                
+                $api_file = $CFG->dirroot . '/lib/editor/tinymce/tiny_mce/' . $tinyEditor->version . '/plugins/tiny_mce_wiris/integration/api.php';
+		if(!file_exists($api_file)){
+                    //Check for Moodle 2.4
+                    $api_file = $CFG->dirroot . '/lib/editor/tinymce/plugins/tiny_mce_wiris/integration/api.php';
+                    if(!file_exists($api_file)){
+                        $coursecontext = get_context_instance(CONTEXT_COURSE, $COURSE->id);
+                        if(has_capability('moodle/site:config', $coursecontext)) {
+                            $PAGE->requires->js('/filter/wiris/js/message.js',false);
+                            return $text;
+                        }else{
+                            return $text;
+                        }
+                    }
+                    $isM24 = true;
 		}
-		include_once $CFG->dirroot . '/lib/editor/tinymce/tiny_mce/' . $plugin->release . '/plugins/tiny_mce_wiris/integration/api.php';
+		include_once $api_file;
+                
+                global $wirisconfigurationclass;
+                if ($isM24){
+                    $wirisconfigurationclass = '../../../../../../filter/wiris/MoodleConfigurationUpdater.php;com_wiris_plugin_configuration_MoodleConfigurationUpdater';    
+                }else{
+                    $wirisconfigurationclass = '../../../../../../../../filter/wiris/MoodleConfigurationUpdater.php;com_wiris_plugin_configuration_MoodleConfigurationUpdater';    
+                }
 
                 $filter = new com_wiris_plugin_PluginAPI();
                 

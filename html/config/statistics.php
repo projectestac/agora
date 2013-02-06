@@ -322,6 +322,8 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
     $typeSQL = '';
     $date = $year . $month . $day;
 
+    $users = getSchoolMoodleStats_Users($con, $year, $month, $daysofmonth);
+
     // Consulta que comprova si el registre del mes del centre ja existeix o no
     echo $sql = "SELECT date FROM " . STATS_PREFIX . "agoraportal_moodle_stats_day WHERE date=$date AND clientcode='" . $school['code'] . "'";
 
@@ -346,14 +348,16 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
         if ($typeSQL == 'insert') {
             $sql = "INSERT INTO " . STATS_PREFIX . "agoraportal_moodle_stats_day
                 (clientcode, date, clientDNS, total, h0, h1, h2, h3, h4, h5 ,h6, h7, h8, h9, h10, h11, h12,
-                h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23, diskConsume)
+                h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23, diskConsume,
+                usersconfnodel, usersactive, usersactivelast90days, usersactivelast30days)
                 VALUES ('" . $school['code'] . "', $date, '" . $school['dns'] . "', $total, $hours[0], $hours[1],$hours[2], $hours[3],
                 $hours[4], $hours[5], $hours[6], $hours[7], $hours[8], $hours[9], $hours[10],
                 $hours[11], $hours[12], $hours[13], $hours[14], $hours[15], $hours[16],
                 $hours[17], $hours[18], $hours[19], $hours[20], $hours[21], $hours[22],
-                $hours[23], '$diskConsume')";
+                $hours[23], '$diskConsume', '" . $users['confnodel'] . "', '" . $users['active'] . "',
+                '" . $users['activelast90days'] . "', '" . $users['activelast30days'] . "')";
         } else {
-            $sql = "UPDATE " . STATS_PREFIX . "agoraportal_moodle_stats_day SET
+           echo $sql = "UPDATE " . STATS_PREFIX . "agoraportal_moodle_stats_day SET
                 total = $total,
                 h0 = $hours[0],
                 h1 = $hours[1],
@@ -379,7 +383,11 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
                 h21 = $hours[21],
                 h22 = $hours[22],
                 h23 = $hours[23],
-                diskConsume = '$diskConsume'
+                diskConsume = '$diskConsume',
+                usersconfnodel = $users[confnodel],
+                usersactive = $users[active],
+                usersactivelast90days = $users[activelast90days],
+                usersactivelast30days = $users[activelast30days]
                 WHERE clientcode = '" . $school['code'] . "' AND date = '$date'";
         }
 
@@ -391,9 +399,7 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
         echo "<p>$sql</p>";
     }
     
-    $users = getSchoolMoodleStats_Users($con);
     $lastaccess = getSchoolMoodleStats_LastAccess($con);
-
 
     // WEEK STATS
     if ($dayofweek == 7) {
@@ -413,13 +419,13 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
             if (mysql_num_rows($qry) == 0) // INSERT
                 $sql = "INSERT INTO " . STATS_PREFIX . "agoraportal_moodle_stats_week
                             (clientcode, clientDNS, date, users, courses, activities, lastaccess, lastaccess_date, lastaccess_user, total_access)
-                            VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', '$date', '$users', '$courses', '$activities',
+                            VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', '$date', '" . $users['confnodel'] . "', '$courses', '$activities',
                                     '" . $lastaccess['lastaccess'] . "', '" . $lastaccess['lastaccessdate'] . "',
                                     '" . $lastaccess['lastaccessuser'] . "', '$totalaccess')";
             else  // UPDATE
                 $sql = "UPDATE " . STATS_PREFIX . "agoraportal_moodle_stats_week SET
                             clientcode      = '" . $school['code'] . "',
-                            users           = '$users',
+                            users           = '" . $users['confnodel'] . "',
                             courses         = '$courses',
                             activities      = '$activities',
                             lastaccess      = '" . $lastaccess['lastaccess'] . "',
@@ -448,14 +454,16 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
     if ($qry = mysql_query($sql, $statsCon)) {
         if (mysql_num_rows($qry) == 0) //INSERT
             $sql = "INSERT INTO " . STATS_PREFIX . "agoraportal_moodle_stats_month
-                (clientcode, yearmonth, clientDNS, users, courses, activities, lastaccess, lastaccess_date,
+                (clientcode, yearmonth, clientDNS, users, usersactivelast30days, courses, activities, lastaccess, lastaccess_date,
                 lastaccess_user, total_access, diskConsume)
-                VALUES ('" . $school['code'] . "', $date, '" . $school['dns'] . "', $users, $courses, $activities,
+                VALUES ('" . $school['code'] . "', $date, '" . $school['dns'] . "', 
+                " . $users['confnodel'] . ", " . $users['activelast30days'] . ", $courses, $activities,
                 '" . $lastaccess['lastaccess'] . "', '" . $lastaccess['lastaccessdate'] . "',
                 '" . $lastaccess['lastaccessuser'] . "', $totalaccess, '$diskConsume')";
         else    //UPDATE
             $sql = "UPDATE " . STATS_PREFIX . "agoraportal_moodle_stats_month SET
-                users = $users,
+                users = " . $users['confnodel'] . ",
+                usersactivelast30days = " . $users['activelast30days'] . ",
                 courses = $courses,
                 activities = $activities,
                 lastaccess = '" . $lastaccess['lastaccess'] . "',
@@ -578,23 +586,50 @@ function getSchoolMoodleStats_TotalMonthAccess($con, $year, $month, $daysofmonth
  *
  * @return int El nombre d'usuaris
  */
-function getSchoolMoodleStats_Users($con) {
+function getSchoolMoodleStats_Users($con, $year, $month, $daysofmonth) {
+
+    $now = mktime();
+    $max = mktime(23, 59, 59, $month, $daysofmonth, $year);
+    if ($now < $max) { // Protection against late executions
+        $max = $now;
+    }
+    $min = $max - SECONDS_IN_90_DAYS;
+    $users = array ('confnodel' => 0, 'active' => 0, 'activelast90days' => 0, 'activelast30days' => 0);
 
     $sql = 'SELECT count(ID) as users FROM ' . MOODLE_PREFIX . 'user WHERE confirmed=1 AND deleted=0';
-
     $stmt = oci_parse($con, $sql);
-    $value = '';
-
     if (oci_execute($stmt, OCI_DEFAULT)) {
         if (oci_fetch($stmt)) {
-            $value = oci_result($stmt, 'USERS');
+            $users['confnodel'] = oci_result($stmt, 'USERS');
         }
     }
-    if (empty($value)) {
-        $value = 0;
+
+    $sql = 'SELECT count(ID) as users FROM ' . MOODLE_PREFIX . 'user WHERE confirmed=1 deleted=0 AND firstaccess<>0';
+    $stmt = oci_parse($con, $sql);
+    if (oci_execute($stmt, OCI_DEFAULT)) {
+        if (oci_fetch($stmt)) {
+            $users['active'] = oci_result($stmt, 'USERS');
+        }
     }
 
-    return $value;
+    $sql = 'SELECT count(ID) as users FROM ' . MOODLE_PREFIX . 'user WHERE confirmed=1 AND deleted=0 AND firstaccess<>0 AND lastaccess between ' .$min.' and '.$max.' ';
+    $stmt = oci_parse($con, $sql);
+    if (oci_execute($stmt, OCI_DEFAULT)) {
+        if (oci_fetch($stmt)) {
+            $users['activelast90days'] = oci_result($stmt, 'USERS');
+        }
+    }
+
+    $min = $max - SECONDS_IN_30_DAYS;
+    $sql = 'SELECT count(ID) as users FROM ' . MOODLE_PREFIX . 'user WHERE confirmed=1 AND deleted=0 AND firstaccess<>0 AND lastaccess between ' .$min.' and '.$max.' ';
+    $stmt = oci_parse($con, $sql);
+    if (oci_execute($stmt, OCI_DEFAULT)) {
+        if (oci_fetch($stmt)) {
+            $users['activelast30days'] = oci_result($stmt, 'USERS');
+        }
+    }
+
+    return $users;
 }
 
 /**
@@ -928,7 +963,7 @@ function getSchoolMoodle2Stats_Users($con, $year, $month, $daysofmonth) {
         }
     }
     
-    $sql = 'SELECT count(ID) as users FROM ' . MOODLE2_PREFIX . 'user WHERE confirmed=1 AND suspended=0 AND deleted=0 AND firstaccess<>0 AND firstaccess between ' .$min.' and '.$max.' ';
+    $sql = 'SELECT count(ID) as users FROM ' . MOODLE2_PREFIX . 'user WHERE confirmed=1 AND suspended=0 AND deleted=0 AND firstaccess<>0 AND lastaccess between ' .$min.' and '.$max.' ';
     $stmt = oci_parse($con, $sql);
     if (oci_execute($stmt, OCI_DEFAULT)) {
         if (oci_fetch($stmt)) {
@@ -937,7 +972,7 @@ function getSchoolMoodle2Stats_Users($con, $year, $month, $daysofmonth) {
     }
     
     $min = $max - SECONDS_IN_30_DAYS;
-    $sql = 'SELECT count(ID) as users FROM ' . MOODLE2_PREFIX . 'user WHERE confirmed=1 AND suspended=0 AND deleted=0 AND firstaccess<>0 AND firstaccess between ' .$min.' and '.$max.' ';
+    $sql = 'SELECT count(ID) as users FROM ' . MOODLE2_PREFIX . 'user WHERE confirmed=1 AND suspended=0 AND deleted=0 AND firstaccess<>0 AND lastaccess between ' .$min.' and '.$max.' ';
     $stmt = oci_parse($con, $sql);
     if (oci_execute($stmt, OCI_DEFAULT)) {
         if (oci_fetch($stmt)) {

@@ -15,6 +15,7 @@ function IWstats_pntables() {
         'isadmin' => 'iw_isadmin',
         'skipped' => 'iw_skipped',
         'skippedModule' => 'iw_skippedModule',
+        'summarised' => 'iw_summarised',
     );
     $table['IWstats_column_def'] = array('statsid' => "I NOTNULL AUTO PRIMARY",
         'datetime' => "T DEFDATETIME NOTNULL DEFAULT '1970-01-01 00:00:00'",
@@ -25,6 +26,7 @@ function IWstats_pntables() {
         'isadmin' => "I1 NOTNULL DEFAULT '0'",
         'skipped' => "I1 NOTNULL DEFAULT '0'",
         'skippedModule' => "I1 NOTNULL DEFAULT '0'",
+        'summarised' => "I1 NOTNULL DEFAULT '0'",
     );
 
     $table['IWstats_summary'] = DBUtil::getLimitedTablename('IWstats_summary');
