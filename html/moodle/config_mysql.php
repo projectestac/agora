@@ -1,6 +1,6 @@
 <?php
 
-unset($CFG);  // Ignore this line
+unset($CFG);
 $CFG = new stdClass();
 
 $CFG->dbtype    = 'mysql';
@@ -15,12 +15,16 @@ $CFG->passwordsaltmain = 'y7a!Eb019n8Z5*43Sl5J&ly4pjJUk-b';
 
 $CFG->wwwroot  = 'http://agora/agora/moodle';
 $CFG->dirroot  = '/srv/www/agora/html/moodle';
-$CFG->dataroot = '/srv/www/agora/moodledata';
+$CFG->dataroot = '/srv/www/agora/moodledata/usu_mysql';
 
 $CFG->directorypermissions = 02777;
 
 $CFG->admin = 'admin';
 
-include_once("$CFG->dirroot/lib/setup.php");
+$CFG->useatria = false;
+$CFG->center = 0;
 
+$CFG->noreplyaddress = 'noreply@agora.xtec.cat';
+
+include_once("$CFG->dirroot/lib/setup.php");
 
