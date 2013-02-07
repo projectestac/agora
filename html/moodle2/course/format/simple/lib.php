@@ -187,7 +187,7 @@ function simple_delete_module_image($cmid) {
 
 function simple_coursemodule_elements(&$mform, $mod) {
     global $CFG, $PAGE, $DB, $USER;
-    
+
 	$courseid = $mod->course;
 	$modname = $mod->modname;
 	
@@ -290,9 +290,9 @@ function simple_coursemodule_elements(&$mform, $mod) {
 	$PAGE->requires->js_init_call('M.format_simple.init', array($icons_url), true, $jsmodule);
 	
 	$imagearray = array();
-	$imagearray[] = &MoodleQuickForm::createElement('radio', 'simple_image', '', get_string('use_existing_image', 'format_simple'), 0);
-	$imagearray[] = &MoodleQuickForm::createElement('select', 'default_image', '', $icon_options);
-	$imagearray[] = &MoodleQuickForm::createElement('radio', 'simple_image', '', get_string('upload_image', 'format_simple'), 1);
+	$imagearray[] = & $mform->createElement('radio', 'simple_image', '', get_string('use_existing_image', 'format_simple'), 0);
+	$imagearray[] = & $mform->createElement('select', 'default_image', '', $icon_options);
+	$imagearray[] = & $mform->createElement('radio', 'simple_image', '', get_string('upload_image', 'format_simple'), 1);
 	
 	$separators = array(
 		0 => '<br/>',
