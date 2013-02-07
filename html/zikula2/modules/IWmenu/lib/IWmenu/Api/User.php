@@ -1,5 +1,7 @@
 <?php
+
 class IWmenu_Api_User extends Zikula_AbstractApi {
+
     /**
      * Gets from the database all the items in first level menu
      * @author:     Albert Perez Monfort (aperezm@xtec.cat)
@@ -30,7 +32,8 @@ class IWmenu_Api_User extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
 
-        if (count($items) <= 0) return false;
+        if (count($items) <= 0)
+            return false;
 
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
 
@@ -38,7 +41,11 @@ class IWmenu_Api_User extends Zikula_AbstractApi {
 
         $menuitems = Array();
         $numitem = 0;
+        // get current lang code
+        $currentLang = ZLanguage::getLanguageCode();
         foreach ($items as $item) {
+            $itemTextArray = unserialize($item['text']);
+            $item['text'] = (isset($itemTextArray[$currentLang])) ? $itemTextArray[$currentLang] : '';
             $groups_vector = explode("$", $item['groups']);
             foreach ($groups_vector as $group) {
                 $isMember = false;
@@ -46,38 +53,39 @@ class IWmenu_Api_User extends Zikula_AbstractApi {
                     $gids = explode("|", $group);
                     if ($uid != '-1') {
                         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-                        $isMember = ModUtil::func('IWmain', 'user', 'isMember',
-                                array('uid' => $uid,
+                        $isMember = ModUtil::func('IWmain', 'user', 'isMember', array('uid' => $uid,
                                     'gid' => $gids[0],
                                     'sv' => $sv));
                     }
-                    if ($isMember || ($gids[0] == '-1' && $uid == '-1')) {
-                        // Put target in detic_portal if available and selected
-                        unset($menuitem);
+                    if ($item['text'] != '') {
+                        if ($isMember || ($gids[0] == '-1' && $uid == '-1')) {
+                            // Put target in detic_portal if available and selected
+                            unset($menuitem);
 
-                        $menuitem['text'] = $item['text'];
+                            $menuitem['text'] = $item['text'];
 
-                        if (!empty($item['icon']))
-                            $menuitem['icon'] = $iconbase . $item['icon'];
+                            if (!empty($item['icon']))
+                                $menuitem['icon'] = $iconbase . $item['icon'];
 
-                        if ($item['target'] == 1) {
-                            $menuitem['url'] = $item['url'];
-                            $menuitem['target'] = ' target="_blank"';
-                        } else if ($item['target'] == 2 && ModUtil::available('iw_webbox')) {
-                            $url = str_replace('?', '**', $item['url']);
-                            $url = str_replace('&', '*', $url);
-                            $menuitem['url'] = 'index.php?module=iw_webbox&url=' . $url;
-                            $menuitem['target'] = '';
-                        } else {
-                            $menuitem['url'] = $item['url'];
-                            $menuitem['target'] = '';
+                            if ($item['target'] == 1) {
+                                $menuitem['url'] = $item['url'];
+                                $menuitem['target'] = ' target="_blank"';
+                            } else if ($item['target'] == 2 && ModUtil::available('iw_webbox')) {
+                                $url = str_replace('?', '**', $item['url']);
+                                $url = str_replace('&', '*', $url);
+                                $menuitem['url'] = 'index.php?module=iw_webbox&url=' . $url;
+                                $menuitem['target'] = '';
+                            } else {
+                                $menuitem['url'] = $item['url'];
+                                $menuitem['target'] = '';
+                            }
+
+                            $menuitem['is_parent'] = ($menuitem['children'] = ModUtil::apiFunc('IWmenu', 'user', 'getMenuStructure', array('id_parent' => $item['mid']))) ? 1 : 0;
+                            $menuitems[$numitem] = $menuitem;
+                            $numitem++;
+
+                            break;
                         }
-
-                        $menuitem['is_parent'] = ($menuitem['children'] = ModUtil::apiFunc('IWmenu', 'user', 'getMenuStructure', array('id_parent' => $item['mid']))) ? 1 : 0;
-                        $menuitems[$numitem] = $menuitem;
-                        $numitem++;
-
-                        break;
                     }
                 }
             }
@@ -86,4 +94,5 @@ class IWmenu_Api_User extends Zikula_AbstractApi {
         // Return the items
         return $menuitems;
     }
+
 }

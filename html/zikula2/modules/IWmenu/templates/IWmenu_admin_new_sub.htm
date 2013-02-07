@@ -7,7 +7,11 @@
         <input type="hidden" name="mid" value="{$mid}" />
         <div class="z-formrow">
             <label for="text">{gt text="Text of the option"}</label>
-            <input id="text" type="text" name="text" size="32" maxlength="50" />
+            {foreach  item=lang from=$languages}
+            <div class="z-formnote">
+                {$lang} => <input type="text" name="text[{$lang}]" size="32" maxlength="50" />
+            </div>
+            {/foreach}
         </div>
         <div class="z-formrow">
             <label for="url">{gt text="URL"}</label>
@@ -51,10 +55,12 @@
             <label for="active">{gt text="State (Active/Inactive)"}</label>
             <input id="active" type="checkbox" name="active" value="1" />
         </div>
-        <div style="text-align: center;">
-            <a onClick="javascript:sendNewItemSub()" title="{gt text='Create the option'}">
-                {img modname='core' src='button_ok.png' set='icons/small'} {gt text="Create the option"}
-            </a>
+        <div class="z-center">
+            <div class="z-buttons">
+                <a onClick="javascript:sendNewItemSub()" title="{gt text='Create the option'}">
+                    {img modname='core' src='button_ok.png' set='icons/small'} {gt text="Create the option"}
+                </a>
+            </div>
         </div>
     </form>
 </div>

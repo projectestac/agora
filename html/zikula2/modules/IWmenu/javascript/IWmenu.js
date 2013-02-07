@@ -1,10 +1,6 @@
 function sendNewItem() {
 	var error=false;
 	var f=document.forms['new_menu'];
-	if(f.text.value==""){
-		alert(NoText);
-		var error=true;
-	}
 	f.action="index.php?module=IWmenu&type=admin&func=create";
 	if(!error){f.submit();}
 }
@@ -12,10 +8,6 @@ function sendNewItem() {
 function sendNewItemSub() {
 	var error=false;
 	var f=document.forms['new_menu'];
-	if(f.text.value==""){
-		alert(NoText);
-		var error=true;
-	}
 	f.action="index.php?module=IWmenu&type=admin&func=create_sub";
 	if(!error){f.submit();}
 }

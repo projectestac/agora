@@ -35,6 +35,7 @@ class IWmenu_Block_Top extends Zikula_Controller_AbstractBlock {
                             'module' => 'IWmenu',
                             'uid' => $uid,
                             'sv' => $sv));
+        $exists = false;
 
         if ($exists) {
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');

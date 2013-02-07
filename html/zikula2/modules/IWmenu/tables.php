@@ -36,7 +36,7 @@ function IWmenu_tables() {
         'icon' => 'iw_icon',);
 
     $tables['IWmenu_column_def'] = array('mid' => "I NOTNULL AUTO PRIMARY",
-        'text' => "C(50) NOTNULL DEFAULT ''",
+        'text' => "C(255) NOTNULL DEFAULT ''",
         'url' => "C(255) NOTNULL DEFAULT ''",
         'id_parent' => "I NOTNULL DEFAULT '0'",
         'groups' => "X NOTNULL",

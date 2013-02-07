@@ -25,6 +25,21 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
         $menu = ModUtil::func('IWmenu', 'admin', 'getsubmenu', array('id_parent' => 0,
                     'grups_info' => $grupsInfo,
                     'level' => 0));
+        $languages = ZLanguage::getInstalledLanguages();
+
+        $i = 0;
+        foreach ($menu as $item) {
+            $newText = '';
+            $itemArray = unserialize($item['text']);
+            foreach ($languages as $lang) {
+                $notDefinedOpen = (!isset($itemArray[$lang]) || $itemArray[$lang] == '') ? '<span style="color: red; font-weight: bold">' : '';
+                $notDefinedClose = (!isset($itemArray[$lang]) || $itemArray[$lang] == '') ? '</span>' : '';
+                $text = (!isset($itemArray[$lang]) || $itemArray[$lang] == '') ? '' : $itemArray[$lang];
+                $newText .= $notDefinedOpen . $lang . $notDefinedClose . ' => ' . $text . '<br />';
+            }
+            $menu[$i]['text'] = $newText;
+            $i++;
+        }
 
         return $this->view->assign('menuarray', $menu)
                         ->assign('image_folder', ModUtil::getVar('IWmenu', 'imagedir'))
@@ -135,6 +150,14 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
             return LogUtil::registerError($this->__('Menu option not found'));
         }
 
+        $textArray = unserialize($registre['text']);
+        $text = '';
+        foreach ($textArray as $k => $v) {
+            $text .= $k . ' => ' . $v . '<br />';
+        }
+
+        $registre['text'] = $text;
+
         // get the intranet groups
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $grups = ModUtil::func('IWmain', 'user', 'getAllGroups', array('plus' => $this->__('All'),
@@ -214,6 +237,12 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
             return LogUtil::registerError($this->__('Menu option not found'));
         }
 
+        $textArray = unserialize($registre['text']);
+        $text = '';
+        foreach ($textArray as $k => $v) {
+            $text .= $k . ' => ' . $v . '<br />';
+        }
+
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $grupsInfo = ModUtil::func('IWmain', 'user', 'getAllGroupsInfo', array('sv' => $sv,
                     'less' => ModUtil::getVar('iw_myrole', 'rolegroup')));
@@ -229,7 +258,7 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
 
             return $this->view->assign('mid', $mid)
                             ->assign('groups', $groups)
-                            ->assign('text', $registre['text'])
+                            ->assign('text', $text)
                             ->assign('group', $group)
                             ->fetch('IWmenu_admin_del_group.htm');
         }
@@ -269,6 +298,9 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('IWmenu::', '::', ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
         }
+        // get available languages
+        $languages = ZLanguage::getInstalledLanguages();
+
         $record = array('icon' => '',
             'text' => '',
             'url' => '',
@@ -282,6 +314,7 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
             if (!$record) {
                 return LogUtil::registerError($this->__('Menu option not found'));
             }
+            $record['text'] = unserialize($record['text']);
         }
         switch ($m) {
             case 'n':
@@ -327,6 +360,7 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
                         ->assign('record', $record)
                         ->assign('iwwebbox', $iwwebbox)
                         ->assign('grups', $grups)
+                        ->assign('languages', $languages)
                         ->fetch('IWmenu_admin_new.htm');
     }
 
@@ -362,6 +396,9 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
 
         $groups = ($m != 'c') ? $groups = '$' . $grup . '$' : $grup;
         $iconsFolderPath = ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWmenu', 'imagedir');
+
+        $textSerialized = serialize($text);
+
         // Modify a menu item
         if ($m == 'e') {
             // get item from database
@@ -374,7 +411,7 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
                 $iconEdited = '';
             }
             $lid = ModUtil::apiFunc('IWmenu', 'admin', 'update', array('mid' => $mid,
-                        'text' => $text,
+                        'text' => $textSerialized,
                         'descriu' => $descriu,
                         'active' => $active,
                         'target' => $target,
@@ -392,7 +429,7 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
                     'sv' => $sv));
             }
         } else {
-            $lid = ModUtil::apiFunc('IWmenu', 'admin', 'create', array('text' => $text,
+            $lid = ModUtil::apiFunc('IWmenu', 'admin', 'create', array('text' => $textSerialized,
                         'descriu' => $descriu,
                         'active' => $active,
                         'target' => $target,
@@ -490,11 +527,15 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
         $writeable = (is_writeable($filesPath)) ? true : false;
         $folder = $folderExists && $writeable;
 
+        // get available languages
+        $languages = ZLanguage::getInstalledLanguages();
+
         return $this->view->assign('mid', $mid)
                         ->assign('folder', $folder)
                         ->assign('iwwebbox', $iwwebbox)
                         ->assign('initImagePath', ModUtil::getVar('IWmenu', 'imagedir'))
                         ->assign('grups', $grups)
+                        ->assign('languages', $languages)
                         ->fetch('IWmenu_admin_new_sub.htm');
     }
 
@@ -557,9 +598,11 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
         // Construct the group string
         $groups = '$' . $grup . '$';
 
+        $textSerialized = serialize($text);
+
         // Create a submenu item
         $lid = ModUtil::apiFunc('IWmenu', 'admin', 'create_sub', array('mid' => $mid,
-                    'text' => $text,
+                    'text' => $textSerialized,
                     'descriu' => $descriu,
                     'active' => $active,
                     'target' => $target,
@@ -702,11 +745,15 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
             return LogUtil::registerError($this->__('Menu option not found'));
         }
 
+        $textArray = unserialize($registre['text']);
+
         // remove icon if exists
         $iconsFolderPath = ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWmenu', 'imagedir');
-        $file = $iconsFolderPath . '/' . $registre['icon'];
-        if (file_exists($file)) {
-            unlink($file);
+        if ($registre['icon'] != '') {
+            $file = $iconsFolderPath . '/' . $registre['icon'];
+            if (file_exists($file)) {
+                unlink($file);
+            }
         }
 
         // Ask for confirmation
@@ -714,8 +761,10 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
             //get all the submenus that have to be deleted
             $submenusId_array = ModUtil::func('IWmenu', 'admin', 'getsubmenusIds', array('mid' => $mid));
             $submenusId = implode(",", $submenusId_array);
+            // get current lang code
+            $currentLang = ZLanguage::getLanguageCode();
 
-            return $this->view->assign('text', $registre['text'])
+            return $this->view->assign('text', $textArray[$currentLang])
                             ->assign('mid', $mid)
                             ->assign('submenusId', $submenusId)
                             ->fetch('IWmenu_admin_del.htm');
@@ -839,6 +888,8 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
         if (!$registre) {
             return LogUtil::registerError($this->__('Menu option not found'));
         }
+        
+        $text = unserialize($registre['text']);
 
         // Ask confirmation to change the level
         if (empty($confirmation)) {
@@ -850,15 +901,18 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
             // add the root in the records array
             $records_array[] = array('mid' => 0,
                 'text' => $this->__('Root'));
+            // get current lang code
+            $currentLang = ZLanguage::getLanguageCode();
             foreach ($records as $record) {
                 if (!in_array($record['mid'], $submenusId)) {
+                    $textArray = unserialize($record['text']);
                     $records_array[] = array('mid' => $record['mid'],
-                        'text' => $record['text']);
+                        'text' => $textArray[$currentLang]);
                 }
             }
 
             return $this->view->assign('registres', $records_array)
-                            ->assign('text', $registre['text'])
+                            ->assign('text', $text[$currentLang])
                             ->assign('mid', $mid)
                             ->fetch('IWmenu_admin_movelevel.htm');
         }

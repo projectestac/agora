@@ -6,7 +6,7 @@ class IWmenu_Version extends Zikula_AbstractVersion
         $meta['displayname'] = $this->__("IWmenu");
         $meta['description'] = $this->__("Provides an interface to manage fully customizable menu.");
         $meta['url'] = $this->__("IWmenu");
-        $meta['version'] = '3.0.0';
+        $meta['version'] = '3.0.1';
         $meta['securityschema'] = array('IWmenu::' => '::');
         /*
         $meta['dependencies'] = array(array('modname' => 'IWmain',

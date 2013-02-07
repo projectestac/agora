@@ -1,5 +1,7 @@
 <?php
+
 class IWmenu_Installer extends Zikula_AbstractInstaller {
+
     /**
      * Initialise the iw_vhmenu module creating module tables and module vars
      * @author Albert Perez Monfort (aperezm@xtec.cat)
@@ -16,8 +18,7 @@ class IWmenu_Installer extends Zikula_AbstractInstaller {
 
         // Check if the version needed is correct
         $versionNeeded = '3.0.0';
-        if (!ModUtil::func('IWmain', 'admin', 'checkVersion',
-                        array('version' => $versionNeeded))) {
+        if (!ModUtil::func('IWmain', 'admin', 'checkVersion', array('version' => $versionNeeded))) {
             return false;
         }
 
@@ -86,6 +87,34 @@ class IWmenu_Installer extends Zikula_AbstractInstaller {
      * @return bool true if successful, false otherwise
      */
     public function upgrade($oldversion) {
+        DBUtil::changeTable('IWmenu');
+        switch ($oldversion) {
+            case '3.0.0':
+                // add language features
+                // get current lang code
+                $currentLang = ZLanguage::getLanguageCode();
+                // get current items
+                $items = DBUtil::selectObjectArray('IWmenu', '', '');
+                // get installed languages
+                $languages = ZLanguage::getInstalledLanguages();
+                // update items with languages array
+                $table = DBUtil::getTables();
+                $c = $table['IWmenu_column'];
+                foreach ($items as $item) {
+                    $langArray = array();
+                    $langText = '';
+                    foreach ($languages as $lang) {
+                        $langArray[$lang] = ($lang == $currentLang) ? $item['text'] : '';
+                    }
+                    $langText = serialize($langArray);
+                    // update text value with the serialised array
+                    $i = array('text' => $langText);
+                    $where = "$c[mid] = $item[mid]";
+                    DBUtil::updateObject($i, 'IWmenu', $where);
+                }
+            case '3.0.1': // future version
+        }
         return true;
     }
+
 }
