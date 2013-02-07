@@ -10,7 +10,7 @@
             <input type="hidden" name="confirmation" value="1" />
             <div class="z-formrow">
                 <label for="IWstats_deleteFromDays">{gt text="Days to conserve (0 delete all the statistics)"}</label>
-                <input id="IWstats_deleteFromDays" type="text" name="deleteFromDays" size="5" maxlength="5" value="180" />
+                <input id="IWstats_deleteFromDays" type="text" name="deleteFromDays" size="5" maxlength="5" value="{$deleteFromDays}" />
             </div>
             <div class="z-warningmsg">
                 {gt text="After doing this action the data can not be restored."}

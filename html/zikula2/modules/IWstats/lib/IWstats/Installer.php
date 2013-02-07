@@ -39,7 +39,9 @@ class IWstats_Installer extends Zikula_AbstractInstaller {
 
         // Set up config variables
         $this->setVar('skippedIps', '')
-                ->setVar('modulesSkipped', '');
+                ->setVar('modulesSkipped', '')
+                ->setVar('deleteFromDays', 90)
+                ->setVar('keepDays', 90);
 
         // create the system init hook
         EventUtil::registerPersistentModuleHandler('IWstats', 'core.postinit', array('IWstats_Listeners', 'coreinit'));
@@ -55,8 +57,7 @@ class IWstats_Installer extends Zikula_AbstractInstaller {
      */
     public function Upgrade($oldversion) {
         switch ($oldversion) {
-            case '0.1':
-                EventUtil::registerPersistentModuleHandler('IWstats', 'core.postinit', array('IWstats_Listeners', 'coreinit'));
+
         }
         // Update successful
         return true;

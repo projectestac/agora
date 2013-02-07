@@ -196,7 +196,7 @@ class IWstats_Controller_Admin extends Zikula_AbstractController {
 
     public function reset($args) {
         $confirmation = FormUtil::getPassedValue('confirmation', isset($args['confirmation']) ? $args['confirmation'] : null, 'POST');
-        $deleteFromDays = FormUtil::getPassedValue('deleteFromDays', isset($args['deleteFromDays']) ? $args['deleteFromDays'] : null, 'POST');
+        $deleteFromDays = FormUtil::getPassedValue('deleteFromDays', isset($args['deleteFromDays']) ? $args['deleteFromDays'] : $this->getVar('deleteFromDays'), 'POST');
 
         // Security check
         if (!SecurityUtil::checkPermission('IWstats::', '::', ACCESS_ADMIN)) {
@@ -205,8 +205,8 @@ class IWstats_Controller_Admin extends Zikula_AbstractController {
 
         // Check for confirmation.
         if (empty($confirmation)) {
-            $view = Zikula_View::getInstance('IWstats', false);
-            return $view->fetch('IWstats_admin_reset.htm');
+            return $this->view->assign('deleteFromDays', $deleteFromDays)
+                            ->fetch('IWstats_admin_reset.htm');
         }
 
         // Confirm authorisation code
@@ -245,12 +245,15 @@ class IWstats_Controller_Admin extends Zikula_AbstractController {
             $modules[$i]['active'] = (in_array($module['id'], $moduleIds)) ? 1 : 0;
             $i++;
         }
+        $deleteFromDays = $this->getVar('deleteFromDays');
+        $keepDays = $this->getVar('keepDays');
 
         // Assign all the module variables to the template
-        $view = Zikula_View::getInstance('IWstats', false);
-        $view->assign('skippedIps', ModUtil::getVar('IWstats', 'skippedIps'));
-        $view->assign('modules', $modules);
-        return $view->fetch('IWstats_admin_modifyconfig.htm');
+        return $this->view->assign('skippedIps', ModUtil::getVar('IWstats', 'skippedIps'))
+                        ->assign('modules', $modules)
+                        ->assign('deleteFromDays', $deleteFromDays)
+                        ->assign('keepDays', $keepDays)
+                        ->fetch('IWstats_admin_modifyconfig.htm');
     }
 
     /**
@@ -263,6 +266,9 @@ class IWstats_Controller_Admin extends Zikula_AbstractController {
     public function updateconfig($args) {
         $skippedIps = FormUtil::getPassedValue('skippedIps', isset($args['skippedIps']) ? $args['skippedIps'] : 1, 'POST');
         $moduleId = FormUtil::getPassedValue('moduleId', isset($args['moduleId']) ? $args['moduleId'] : array(), 'POST');
+        $deleteFromDays = FormUtil::getPassedValue('deleteFromDays', isset($args['deleteFromDays']) ? $args['deleteFromDays'] : 90, 'POST');
+        $keepDays = FormUtil::getPassedValue('keepDays', isset($args['keepDays']) ? $args['keepDays'] : 90, 'POST');
+
 
         // Security check
         if (!SecurityUtil::checkPermission('IWstats::', '::', ACCESS_ADMIN)) {
@@ -277,8 +283,10 @@ class IWstats_Controller_Admin extends Zikula_AbstractController {
             $modulesIdArray[] = $m;
         }
 
-        ModUtil::setVar('IWstats', 'skippedIps', $skippedIps);
-        ModUtil::setVar('IWstats', 'modulesSkipped', serialize($modulesIdArray));
+        $this->setVar('skippedIps', $skippedIps)
+                ->setVar('modulesSkipped', serialize($modulesIdArray))
+                ->setvar('deleteFromDays', $deleteFromDays)
+                ->setvar('keepDays', $keepDays);
 
         ModUtil::apiFunc('IWstats', 'admin', 'skipModules', array('moduleId' => $moduleId));
 
@@ -303,10 +311,8 @@ class IWstats_Controller_Admin extends Zikula_AbstractController {
         }
 
         if (!$confirm) {
-            // Assign all the module variables to the template
-            $view = Zikula_View::getInstance('IWstats', false);
-            $view->assign('ip', $ip);
-            return $view->fetch('IWstats_admin_deleteip.htm');
+            return $this->view->assign('ip', $ip)
+                            ->fetch('IWstats_admin_deleteip.htm');
         }
 
         // Confirm authorisation code
@@ -528,13 +534,12 @@ class IWstats_Controller_Admin extends Zikula_AbstractController {
 
     public function summary() {
         if (!SecurityUtil::checkPermission('IWstats::', '::', ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
+            //throw new Zikula_Exception_Forbidden();
         }
 
         $days = 7;
-        $deleteFromDays = 170;
+
         ModUtil::apiFunc('IWstats', 'admin', 'summary', array('days' => $days,
-            'deleteFromDays' => $deleteFromDays,
         ));
 
         // Success
