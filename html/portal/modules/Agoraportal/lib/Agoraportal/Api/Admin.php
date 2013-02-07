@@ -1891,6 +1891,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         $pntables = DBUtil::getTables();
         $c = $pntables['agoraportal_request_column'];
+        $lcolumn = $pntables['agoraportal_clients_column'];
 
         $where = '';
 
@@ -1902,6 +1903,21 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             if ($args['state'] != '-1') {
                 $where .= ( $where != '') ? ' AND ' : '';
                 $where .= "tbl.$c[requestStateId] = $args[state]";
+            }
+        }
+
+        if ((isset($args['search']) && $args['search'] != 0) && $args['searchText'] != '') {
+            $where .= ( $where != '') ? ' AND ' : '';
+            switch ($args['search']) {
+                case '1':
+                    $where .= "b.$lcolumn[clientCode]" . " LIKE '%" . $args['searchText'] . "%'";
+                    break;
+                case '2':
+                    $where .= "b.$lcolumn[clientName]" . " LIKE '%" . $args['searchText'] . "%'";
+                    break;
+                case '3':
+                    $where .= "b.$lcolumn[clientCity]" . " LIKE '%" . $args['searchText'] . "%'";
+                    break;
             }
         }
 
@@ -1948,7 +1964,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
 
         if ($items === false) {
-            return LogUtil::registerError($this->__('S\'ha produït un error en carregar elements'));
+            // return LogUtil::registerError($this->__('S\'ha produït un error en carregar elements'));
         }
 
         return $items;
