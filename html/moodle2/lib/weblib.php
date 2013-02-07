@@ -748,11 +748,28 @@ class moodle_url {
 
         $url = $this->out($escaped, $overrideparams);
 
+        //XTEC ************ MODIFICAT - Fixed bug to let edit user profile from participants page of a course
+        //2013.02.07  @sarjona - https://tracker.moodle.org/browse/MDL-36674
+        $httpswwwroot = str_replace("http://", "https://", $CFG->wwwroot);
+        // $url should be equal to wwwroot or httpswwwroot. If not then throw exception.
+        if (($url === $CFG->wwwroot) || (strpos($url, $CFG->wwwroot.'/') === 0)) {
+            $localurl = substr($url, strlen($CFG->wwwroot));
+            return !empty($localurl) ? $localurl : '';
+        } else if (($url === $httpswwwroot) || (strpos($url, $httpswwwroot.'/') === 0)) {
+            $localurl = substr($url, strlen($httpswwwroot));
+            return !empty($localurl) ? $localurl : '';
+        } else {
+            throw new coding_exception('out_as_local_url called on a non-local URL');
+        }
+        //************ ORIGINAL
+        /*
         if (strpos($url, $CFG->wwwroot) !== 0) {
             throw new coding_exception('out_as_local_url called on a non-local URL');
         }
 
         return str_replace($CFG->wwwroot, '', $url);
+         */
+        //************ FI            
     }
 
     /**
