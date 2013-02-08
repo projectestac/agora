@@ -1,5 +1,7 @@
 <?php
+
 class IWforms_Api_Admin extends Zikula_AbstractApi {
+
     public function createNewForm($args) {
         $formName = FormUtil::getPassedValue('formName', isset($args['formName']) ? $args['formName'] : null, 'POST');
         $description = FormUtil::getPassedValue('description', isset($args['description']) ? $args['description'] : null, 'POST');
@@ -24,6 +26,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
         $allowCommentsModerated = FormUtil::getPassedValue('allowCommentsModerated', isset($args['allowCommentsModerated']) ? $args['allowCommentsModerated'] : 0, 'POST');
         $returnURL = FormUtil::getPassedValue('returnURL', isset($args['returnURL']) ? $args['returnURL'] : '', 'POST');
         $filesFolder = FormUtil::getPassedValue('filesFolder', isset($args['filesFolder']) ? $args['filesFolder'] : '', 'POST');
+        $lang = $args['lang'];
 
         // Security check
         if (!SecurityUtil::checkPermission('IWforms::', "::", ACCESS_ADMIN)) {
@@ -34,27 +37,28 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         $item = array('formName' => $formName,
-                      'title' => $title,
-                      'description' => $description,
-                      'public' => $public,
-                      'new' => $new,
-                      'cid' => $cid,
-                      'caducity' => $caducity,
-                      'annonimous' => $annonimous,
-                      'unique' => $unique,
-                      'closeableNotes' => $closeableNotes,
-                      'closeInsert' => $closeInsert,
-                      'closeableInsert' => $closeableInsert,
-                      'unregisterednotusersview' => $unregisterednotusersview,
-                      'unregisterednotexport' => $unregisterednotexport,
-                      'publicResponse' => $publicResponse,
-                      'active' => $active,
-                      'expertMode' => $expertMode,
-                      'allowComments' => $allowComments,
-                      'allowCommentsModerated' => $allowCommentsModerated,
-                      'returnURL' => $returnURL,
-                      'filesFolder' => $filesFolder,
-            );
+            'title' => $title,
+            'description' => $description,
+            'public' => $public,
+            'new' => $new,
+            'cid' => $cid,
+            'caducity' => $caducity,
+            'annonimous' => $annonimous,
+            'unique' => $unique,
+            'closeableNotes' => $closeableNotes,
+            'closeInsert' => $closeInsert,
+            'closeableInsert' => $closeableInsert,
+            'unregisterednotusersview' => $unregisterednotusersview,
+            'unregisterednotexport' => $unregisterednotexport,
+            'publicResponse' => $publicResponse,
+            'active' => $active,
+            'expertMode' => $expertMode,
+            'allowComments' => $allowComments,
+            'allowCommentsModerated' => $allowCommentsModerated,
+            'returnURL' => $returnURL,
+            'filesFolder' => $filesFolder,
+            'lang' => $lang,
+        );
         if (!DBUtil::insertObject($item, 'IWforms_definition', 'fid')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
@@ -79,8 +83,9 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         $item = array('fid' => $fid,
-                      'fieldName' => $fieldName,
-                      'fieldType' => $fieldType);
+            'fieldName' => $fieldName,
+            'fieldType' => $fieldType,
+            );
         if (!DBUtil::insertObject($item, 'IWforms_note_definition', 'fndid')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
@@ -101,9 +106,9 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             throw new Zikula_Exception_Forbidden();
         }
         $item = array('fid' => $fid,
-                      'dependance' => '$$' . $dependance . '$',
-                      'fieldName' => $fieldName,
-                      'fieldType' => 100);
+            'dependance' => '$$' . $dependance . '$',
+            'fieldName' => $fieldName,
+            'fieldType' => 100);
         if (!DBUtil::insertObject($item, 'IWforms_note_definition', 'fndid')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
@@ -121,8 +126,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             throw new Zikula_Exception_Forbidden();
         }
         //Get item
-        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition',
-                              array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Could not find form'));
             return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
@@ -132,10 +136,10 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         $items = array('group' => $group,
-                       'subgroup' => $subgroup,
-                       'fid' => $fid,
-                       'accessType' => $accessType,
-                       'validationNeeded' => $validationNeeded);
+            'subgroup' => $subgroup,
+            'fid' => $fid,
+            'accessType' => $accessType,
+            'validationNeeded' => $validationNeeded);
         if (!DBUtil::insertObject($items, 'IWforms_group', 'gfid')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
@@ -153,8 +157,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             throw new Zikula_Exception_Forbidden();
         }
         //Get item
-        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition',
-                                  array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Could not find form'));
             return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
@@ -164,8 +167,8 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         $items = array('validator' => $validator,
-                       'fid' => $fid,
-                       'validatorType' => $validatorType);
+            'fid' => $fid,
+            'validatorType' => $validatorType);
         if (!DBUtil::insertObject($items, 'IWforms_validator', 'rfid')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
@@ -185,8 +188,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         //Get item
-        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition',
-                                  array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Could not find form'));
             return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
@@ -211,8 +213,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         //Get item
-        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition',
-                                  array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Could not find form'));
             return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
@@ -237,8 +238,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         //Get item
-        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition',
-                                  array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Could not find form'));
             return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
@@ -263,8 +263,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         //Get item
-        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition',
-                                  array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Could not find form'));
             return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
@@ -289,14 +288,12 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         //Get item
-        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition',
-                                  array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Could not find form'));
             return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
         }
-        $notes = ModUtil::apiFunc('IWforms', 'user', 'getAllNotes',
-                                   array('fid' => $fid));
+        $notes = ModUtil::apiFunc('IWforms', 'user', 'getAllNotes', array('fid' => $fid));
         $pntables = DBUtil::getTables();
         $c = $pntables['IWforms_note_column'];
         foreach ($notes as $note) {
@@ -327,8 +324,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         //Get field information
-        $itemField = ModUtil::apiFunc('IWforms', 'user', 'getFormField',
-                                       array('fndid' => $fndid));
+        $itemField = ModUtil::apiFunc('IWforms', 'user', 'getFormField', array('fndid' => $fndid));
         if ($itemField == false) {
             LogUtil::registerError($this->__('Could not find form'));
             return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
@@ -352,13 +348,11 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
         if (!isset($gfid) || !is_numeric($gfid)) {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
-        $itemGroup = ModUtil::apiFunc('IWforms', 'user', 'getGroup',
-                                       array('gfid' => $gfid));
+        $itemGroup = ModUtil::apiFunc('IWforms', 'user', 'getGroup', array('gfid' => $gfid));
         if ($itemGroup == false) {
             LogUtil::registerError($this->__('Can not find the group'));
-            return System::redirect(ModUtil::url('IWforms', 'admin', 'form',
-                                                  array('fid' => $fid,
-                                                        'action' => 'group')));
+            return System::redirect(ModUtil::url('IWforms', 'admin', 'form', array('fid' => $fid,
+                                'action' => 'group')));
         }
         if (!DBUtil::deleteObjectByID('IWforms_group', $gfid, 'gfid')) {
             return LogUtil::registerError($this->__('Error! Sorry! Deletion attempt failed.'));
@@ -379,13 +373,11 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
         if (!isset($rfid) || !is_numeric($rfid)) {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
-        $itemValidator = ModUtil::apiFunc('IWforms', 'user', 'getValidator',
-                                           array('rfid' => $rfid));
+        $itemValidator = ModUtil::apiFunc('IWforms', 'user', 'getValidator', array('rfid' => $rfid));
         if ($itemValidator == false) {
             LogUtil::registerError($this->__('Can not find the group'));
-            return System::redirect(ModUtil::url('IWforms', 'admin', 'form',
-                                                  array('fid' => $fid,
-                                                        'action' => 'validators')));
+            return System::redirect(ModUtil::url('IWforms', 'admin', 'form', array('fid' => $fid,
+                                'action' => 'validators')));
         }
         if (!DBUtil::deleteObjectByID('IWforms_validator', $rfid, 'rfid')) {
             return LogUtil::registerError($this->__('Error! Sorry! Deletion attempt failed.'));
@@ -414,8 +406,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         //Get form information
-        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition',
-                                  array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Could not find form'));
         }
@@ -440,8 +431,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         //Get field information
-        $itemField = ModUtil::apiFunc('IWforms', 'user', 'getFormField',
-                                       array('fndid' => $fndid));
+        $itemField = ModUtil::apiFunc('IWforms', 'user', 'getFormField', array('fndid' => $fndid));
         if ($itemField == false) {
             LogUtil::registerError($this->__('Could not find form'));
         }
@@ -449,8 +439,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
         $c = $pntable['IWforms_note_definition_column'];
         $whereDep = '';
         if ($itemField['fieldType'] == 53) {
-            $dependancesTo = ModUtil::apiFunc('IWforms', 'user', 'getFormFieldDependancesTo',
-                                               array('fndid' => $fndid));
+            $dependancesTo = ModUtil::apiFunc('IWforms', 'user', 'getFormFieldDependancesTo', array('fndid' => $fndid));
             foreach ($dependancesTo as $d) {
                 $whereDep = " OR $c[fndid]=" . $d['fndid'];
             }
@@ -480,15 +469,13 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerPermissionError();
         }
         //Get item
-        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition',
-                                  array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Could not find form'));
             return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
         }
         //Get all field information
-        $fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields',
-                                    array('fid' => $fid));
+        $fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields', array('fid' => $fid));
         if ($fields == false) {
             //LogUtil::registerError ($this->__('Could not find form'));
             //return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
@@ -526,10 +513,11 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         // Optional argument
-        if (!isset($description)) $description = '';
+        if (!isset($description))
+            $description = '';
 
         $item = array('catName' => $catName,
-                      'description' => $description);
+            'description' => $description);
         if (!DBUtil::insertObject($item, 'IWforms_cat', 'cid')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
@@ -554,8 +542,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         // Get the item
-        $item = ModUtil::apiFunc('IWforms', 'user', 'getCategory',
-                                  array('cid' => $cid));
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getCategory', array('cid' => $cid));
         if (!$item) {
             return LogUtil::registerError($this->__('No such item found.'));
         }
@@ -587,13 +574,12 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         // Get the item
-        $item = ModUtil::apiFunc('IWforms', 'user', 'getCategory',
-                                  array('cid' => $cid));
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getCategory', array('cid' => $cid));
         if (!$item) {
             return LogUtil::registerError($this->__('No such item found.'));
         }
         $items = array('catName' => $catName,
-                       'description' => $description);
+            'description' => $description);
         $pntable = DBUtil::getTables();
         $c = $pntable['IWforms_cat_column'];
         $where = "$c[cid]=$cid";
@@ -621,8 +607,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         //Get field information
-        $itemField = ModUtil::apiFunc('IWforms', 'user', 'getFormField',
-                                       array('fndid' => $fndid));
+        $itemField = ModUtil::apiFunc('IWforms', 'user', 'getFormField', array('fndid' => $fndid));
         if ($itemField == false) {
             LogUtil::registerError($this->__('Could not find form'));
         }
@@ -630,8 +615,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
         $pntable = DBUtil::getTables();
         $c = $pntable['IWforms_note_definition_column'];
         if ($itemField['fieldType'] == 53) {
-            $dependancesTo = ModUtil::apiFunc('IWforms', 'user', 'getFormFieldDependancesTo',
-                                               array('fndid' => $fndid));
+            $dependancesTo = ModUtil::apiFunc('IWforms', 'user', 'getFormFieldDependancesTo', array('fndid' => $fndid));
             foreach ($dependancesTo as $d) {
                 $whereDep = " OR $c[fndid]=" . $d['fndid'];
             }
@@ -657,8 +641,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerPermissionError();
         }
         //Get item
-        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition',
-                                  array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Could not find form'));
             return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
@@ -686,28 +669,26 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerPermissionError();
         }
         //Get item
-        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition',
-                                  array('fid' => $fid));
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($item == false) {
             LogUtil::registerError($this->__('Could not find form'));
             return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
         }
+        //Get all field information
+        $fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields', array('fid' => $fid));
+        if ($fields == false) {
+            LogUtil::registerError($this->__('Could not find form fields, then it is not possible to copy the form'));
+            return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
+        }
         //copy form properties
         if (!DBUtil::insertObject($item, 'IWforms_definition', 'fid')) {
-            return LogUtil::registerError(_INSERTFAILED);
-        }
-        //Get all field information
-        $fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields',
-                                    array('fid' => $fid));
-        if ($fields == false) {
-            LogUtil::registerError($this->__('Could not find form'));
-            return System::redirect(ModUtil::url('IWforms', 'admin', 'main'));
+            return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
         //copy form fields
         foreach ($fields as $field) {
             $field['fid'] = $item['fid'];
             if (!DBUTil::insertObject($field, 'IWforms_note_definition', 'fndid')) {
-                return LogUtil::registerError(_INSERTFAILED);
+                return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
             }
         }
         // Return the id of the newly created item to the calling process
@@ -751,32 +732,32 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         $item = array('fid' => $fid,
-                      'fieldType' => $fieldType,
-                      'fieldName' => $fieldName,
-                      'description' => $description,
-                      'help' => $help,
-                      'feedback' => $feedback,
-                      'order' => $order,
-                      'required' => $required,
-                      'validationNeeded' => $validationNeeded,
-                      'accessType' => $accessType,
-                      'editable' => $editable,
-                      'rfid' => $rfid,
-                      'active' => $active,
-                      'notify' => $notify,
-                      'size' => $size,
-                      'cols' => $cols,
-                      'rows' => $rows,
-                      'editor' => $editor,
-                      'publicFile' => $publicFile,
-                      'checked' => $checked,
-                      'options' => $options,
-                      'calendar' => $calendar,
-                      'height' => $height,
-                      'color' => $color,
-                      'colorf' => $colorf,
-                      'gid' => $gid,
-                      'searchable' => $searchable);
+            'fieldType' => $fieldType,
+            'fieldName' => $fieldName,
+            'description' => $description,
+            'help' => $help,
+            'feedback' => $feedback,
+            'order' => $order,
+            'required' => $required,
+            'validationNeeded' => $validationNeeded,
+            'accessType' => $accessType,
+            'editable' => $editable,
+            'rfid' => $rfid,
+            'active' => $active,
+            'notify' => $notify,
+            'size' => $size,
+            'cols' => $cols,
+            'rows' => $rows,
+            'editor' => $editor,
+            'publicFile' => $publicFile,
+            'checked' => $checked,
+            'options' => $options,
+            'calendar' => $calendar,
+            'height' => $height,
+            'color' => $color,
+            'colorf' => $colorf,
+            'gid' => $gid,
+            'searchable' => $searchable);
         if (!DBUtil::insertObject($item, 'IWforms_note_definition', 'fndid')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
@@ -784,8 +765,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
         return $item['fndid'];
     }
 
-    public function getlinks($args)
-    {
+    public function getlinks($args) {
         $links = array();
         if (SecurityUtil::checkPermission('IWforms::', '::', ACCESS_ADMIN)) {
             $links[] = array('url' => ModUtil::url('IWforms', 'admin', 'create'), 'text' => $this->__('Create a new form'), 'id' => 'iwforms_create', 'class' => 'z-icon-es-new');
@@ -795,4 +775,5 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
         }
         return $links;
     }
+
 }

@@ -1,7 +1,7 @@
 <div class="formContent">
     <div class="z-adminpageicon">{img modname='core' src='group.png' set='icons/large'}</div>
     <h2>{gt text="Add a new group"}</h2>
-    <form id="addGroup" class="z-form" action="{modurl modname="IWforms" type="admin" func="addGroup"}" method="post" enctype="application/x-www-form-urlencoded">
+    <form id="addGroup" class="z-form" action="{modurl modname='IWforms' type='admin' func='addGroup'}" method="post" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="fid" value="{$item.fid}" />
         <input type="hidden" name="confirm" value="1" />
@@ -10,7 +10,7 @@
             <label for="group">{gt text="Choose the group that should have access to the form"}</label>
             <select name="group">
                 {foreach item=group from=$groups}
-                    <option value="{$group.id}">{$group.name}</option>
+                <option value="{$group.id}">{$group.name}</option>
                 {/foreach}
             </select>
         </div>
@@ -32,9 +32,13 @@
             </span>
             <span class="z-buttons">
                 {if not isset($aio)}
-                <a href="{modurl modname="IWforms" type="admin" func="form" action="group" fid=$item.fid}">{img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                <a href="{modurl modname='IWforms' type='admin' func='form' action='group' fid=$item.fid}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}
+                </a>
                 {else}
-                <a href="{modurl modname="IWforms" type="admin" func="infoForm" fid=$item.fid}">{img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                <a href="{modurl modname='IWforms' type='admin' func='infoForm' fid=$item.fid}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}
+                </a>
                 {/if}
             </span>
         </div>

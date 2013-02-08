@@ -133,6 +133,10 @@ class IWforms_Installer extends Zikula_AbstractInstaller {
             return false;
         }
 
+        $c = "ALTER TABLE `IWforms_definition` ADD `iw_lang` VARCHAR (2) NOT NULL DEFAULT 'ca'";
+        if (!DBUtil::executeSQL($c)) {
+            return false;
+        }
 
         // Update z_blocs table
 

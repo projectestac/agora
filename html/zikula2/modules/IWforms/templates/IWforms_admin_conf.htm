@@ -28,11 +28,11 @@
                     {$cat.description}
                 </td>
                 <td align="center">
-                    <a href="{modurl modname="IWforms" type="admin" func="editCat" cid=$cat.cid}">
-                       {img modname='core' src='xedit.png' set='icons/extrasmall'   __alt="Edit" __title="Edit"}
+                    <a href="{modurl modname='IWforms' type='admin' func='editCat' cid=$cat.cid}">
+                        {img modname='core' src='xedit.png' set='icons/extrasmall'   __alt="Edit" __title="Edit"}
                     </a>
-                    <a href="{modurl modname="IWforms" type="admin" func="deleteCat" cid=$cat.cid}">
-                       {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall'   __alt="Delete" __title="Delete"}
+                    <a href="{modurl modname='IWforms' type='admin' func='deleteCat' cid=$cat.cid}">
+                        {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall'   __alt="Delete" __title="Delete"}
                     </a>
                 </td>
             </tr>
@@ -45,9 +45,11 @@
             {/foreach}
         </tbody>
     </table>
-    <a href="index.php?module=IWforms&type=admin&func=addCat">{gt text="Creates a new category"}</a>
+    <a href="index.php?module=IWforms&type=admin&func=addCat">
+        {gt text="Creates a new category"}
+    </a>
     <h3>{gt text="Settings"}</h3>
-    <form  class="z-form" enctype="application/x-www-form-urlencoded" method="post" name="conf" id="conf" action="{modurl modname="IWforms" type="admin" func="updateConf"}">
+    <form  class="z-form" enctype="application/x-www-form-urlencoded" method="post" name="conf" id="conf" action="{modurl modname='IWforms' type='admin' func='updateConf'}">
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         {if not $multizk}
         <div class="z-formrow">
@@ -136,7 +138,9 @@
             </div>
         </div>
         <div class="z-buttons z-center">
-            <a title="Change the state" onClick="javascript:send()">{img modname='core' src='button_ok.png' set='icons/small'} {gt text="Change the configuration"}</a>
+            <a title="Change the state" onClick="javascript:send()">
+                {img modname='core' src='button_ok.png' set='icons/small'} {gt text="Change the configuration"}
+            </a>
         </div>
     </form>
 </div>

@@ -1,7 +1,7 @@
 <div class="formContent">
     <div class="z-adminpageicon">{img modname='core' src='edit.png' set='icons/large'}</div>
     <h2>{gt text="Edit the field"} {if $itemField.fieldType neq 51}{$itemField.fieldName}{/if}</h2>
-    <form class="z-form" id="edit" name="edit" action="{modurl modname="IWforms" type="admin" func="updateField"}" method="post" enctype="application/x-www-form-urlencoded">
+    <form class="z-form" id="edit" name="edit" action="{modurl modname='IWforms' type='admin' func='updateField'}" method="post" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="fid" value="{$item.fid}" />
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="fndid" value="{$itemField.fndid}" />
@@ -186,15 +186,20 @@
         {if not "-100-"|strstr:$fieldTypePlus}
         <div class="z-formrow">
             <label for="active">{gt text="Active/no active"}</label>
-            <input id="active" name="active" type="checkbox" {if $itemField.active}checked{/if} value="1" />
+            <input id="active" name="active" type="checkbox" {if $itemField.active}checked="checked"{/if} value="1" />
         </div>
         {/if}
         <div class="z-center">
             <span class="z-buttons">
-                <a onClick="javascript:forms['edit'].submit()">{img modname='core' src='button_ok.png' set='icons/small' __alt="Edit" __title="Edit"} {gt text="Edit"}</a>
+                <a onClick="javascript:forms['edit'].submit()">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Edit" __title="Edit"} {gt text="Edit"}
+                </a>
             </span>
             <span class="z-buttons">
-                <a href="{modurl modname="IWforms" type="admin" func="form" action="field" fid=$item.fid}">{img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                <a href="{modurl modname='IWforms' type='admin' func='form' action='field' fid=$item.fid}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
+                    {gt text="Cancel"}
+                </a>
             </span>
         </div>
     </form>

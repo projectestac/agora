@@ -1,6 +1,6 @@
 {*}
 {if $item.skincssurl neq ''}
-    {add_additional_header header=$item.skincssurl}
+{add_additional_header header=$item.skincssurl}
 {/if}
 {*}
 <div class="formContent">
@@ -9,6 +9,9 @@
     <h2>{gt text="Form definition"}</h2>
     {/if}
     <div style="height: 15px;">&nbsp;</div>
+    {if $item.lang neq ''}
+    <img src="images/flags/flag-{$item.lang}.png" />
+    {/if}
     <div class="formRowDefinition">
         <span class="formRowDefinitionDBField">{gt text="Form name"}</span>:
         {$item.formName}
@@ -130,15 +133,15 @@
         {$item.filesFolder}
     </div>
     {if not $folderExists}
-        <div class="z-errormsg">
-            {gt text="Files folder not found."}
-        </div>
+    <div class="z-errormsg">
+        {gt text="Files folder not found."}
+    </div>
     {else}
-        {if not $folderIsWriteable}
-            <div class="z-errormsg">
-                {gt text="The files folder is not writeable."}
-            </div>
-        {/if}
+    {if not $folderIsWriteable}
+    <div class="z-errormsg">
+        {gt text="The files folder is not writeable."}
+    </div>
+    {/if}
     {/if}
     {if $item.expertMode}
     <fieldset style="margin: 15px 0px 15px 0px;">
@@ -214,7 +217,10 @@
     </div>
     {if not isset($adminView)}
     <div class="z-buttons z-center">
-        <a href="{modurl modname="IWforms" type="admin" func="form" do="edit" fid=$item.fid}">{img modname='core' src='edit.png' set='icons/small' __alt="Edit the main form" __title="Edit the main form"} {gt text="Edit the main form"}</a>
+        <a href="{modurl modname='IWforms' type='admin' func='form' do='edit' fid=$item.fid}">
+            {img modname='core' src='edit.png' set='icons/small' __alt="Edit the main form" __title="Edit the main form"}
+            {gt text="Edit the main form"}
+        </a>
     </div>
     {/if}
 </div>

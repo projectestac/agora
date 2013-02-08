@@ -1,15 +1,15 @@
 <div class="formAdd">
     {if not isset($adminView)}
-    <a href="{modurl modname="IWforms" type="admin" func="form" action="validators" do="add" fid=$item.fid}">
-       {img modname='core' src='add_user.png' set='icons/extrasmall'   __alt="Add a validator" __title="Add a validator"}
-       {gt text="Add a validator"}
-</a>
-{else}
-<a href="{modurl modname="IWforms" type="admin" func="form" action="validators" do="add" aio=1 fid=$fid}">
-   {img modname='core' src='add_user.png' set='icons/extrasmall'   __alt="Add a validator" __title="Add a validator"}
-   {gt text="Add a validator"}
-</a>
-{/if}
+    <a href="{modurl modname='IWforms' type='admin' func='form' action='validators' do='add' fid=$item.fid}">
+        {img modname='core' src='add_user.png' set='icons/extrasmall' __alt="Add a validator" __title="Add a validator"}
+        {gt text="Add a validator"}
+    </a>
+    {else}
+    <a href="{modurl modname='IWforms' type='admin' func='form' action='validators' do='add' aio=1 fid=$fid}">
+        {img modname='core' src='add_user.png' set='icons/extrasmall'   __alt="Add a validator" __title="Add a validator"}
+        {gt text="Add a validator"}
+    </a>
+    {/if}
 </div>
 <div class="formContent">
     {if not isset($adminView)}
@@ -38,9 +38,13 @@
                  {*}
                  <td valign="top" width="80" align="center">
                      {if not isset($adminView)}
-                     <a href="{modurl modname="IWforms" type="admin" func="form" action="validators" do="delete" fid=$item.fid rfid=$validator.rfid}">{img modname='core' src='delete_user.png' set='icons/extrasmall'   __alt="Delete the validator" __title="Delete the validator"}</a>
+                     <a href="{modurl modname='IWforms' type='admin' func='form' action='validators' do='delete' fid=$item.fid rfid=$validator.rfid}">
+                         {img modname='core' src='delete_user.png' set='icons/extrasmall' __alt="Delete the validator" __title="Delete the validator"}
+                     </a>
                      {else}
-                     <a href="{modurl modname="IWforms" type="admin" func="form" action="validators" do="delete" fid=$fid aio=1 rfid=$validator.rfid}">{img modname='core' src='delete_user.png' set='icons/extrasmall'   __alt="Delete the validator" __title="Delete the validator"}</a>
+                     <a href="{modurl modname='IWforms' type='admin' func='form' action='validators' do='delete' fid=$fid aio=1 rfid=$validator.rfid}">
+                         {img modname='core' src='delete_user.png' set='icons/extrasmall' __alt="Delete the validator" __title="Delete the validator"}
+                     </a>
                      {/if}
                  </td>
              </tr>
@@ -51,6 +55,6 @@
                  </td>
              </tr>
              {/foreach}
-        </tbody>
-    </table>
-</div>
+            </tbody>
+        </table>
+    </div>

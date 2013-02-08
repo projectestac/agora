@@ -14,7 +14,7 @@
     <div>{gt text="Title of the annotations "}: {$form.title}</div>
     {/if}
     {if !$oneRecord}
-    <form name="order" id="order" action="{modurl modname="IWforms" type="user" func="read"}" method="post" enctype="application/x-www-form-urlencoded">
+    <form name="order" id="order" action="{modurl modname='IWforms' type='user' func='read'}" method="post" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="fidReload" value="{$fid}">
         <div style="float: left;">
             {gt text="N. Entries"}:
@@ -32,11 +32,11 @@
     <div style="height:15px; clear:both;">&nbsp;</div>
     {foreach item="note" from=$notes}
     {if $note.contentBySkin eq ''}
-        {include file="IWforms_user_readNoteContent.htm"}
-        <div>&nbsp;</div>
+    {include file="IWforms_user_readNoteContent.htm"}
+    <div>&nbsp;</div>
     {else}
-        {$form.skincssurl}
-        {$note.contentBySkin|safehtml}
+    {$form.skincssurl}
+    {$note.contentBySkin|safehtml}
     {/if}
     {foreachelse}
     <div>{gt text="Not annotations found"}</div>

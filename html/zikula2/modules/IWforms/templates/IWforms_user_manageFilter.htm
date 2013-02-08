@@ -1,16 +1,16 @@
 {if $filterType eq 0}
 {gt text="It is the same as"}
 <select name="filterValue" onchange="javascript:sendChange(0)">
-{if $filter eq 0}
+    {if $filter eq 0}
     <option {if $filterValue eq 0}selected{/if} value="0">{gt text="All"}</option>
-{else}
+    {else}
     <option {if $filterValue eq 0}selected{/if} value="0">{gt text="Choose a value..."}</option>
-{/if}
-{foreach item="item" key="k" from="$items"}
-    {if $item neq ''}
-        <option {if $filterValue eq $k}selected{/if} value="{$k}">{$item}</option>
     {/if}
-{/foreach}
+    {foreach item="item" key="k" from="$items"}
+    {if $item neq ''}
+    <option {if $filterValue eq $k}selected{/if} value="{$k}">{$item}</option>
+    {/if}
+    {/foreach}
 </select>
 {else}
 {gt text="It have got the words"}
@@ -21,4 +21,6 @@
     </a>
 </span>
 {/if}
-<a href="{modurl modname="IWforms" type="user" func="manage" fid=$fid}">{gt text="Return to init"}</a>
+<a href="{modurl modname='IWforms' type='user' func='manage' fid=$fid}">
+    {gt text="Return to init"}
+</a>

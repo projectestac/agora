@@ -48,6 +48,13 @@ class IWforms_Api_User extends Zikula_AbstractApi {
             $where .= "$c[active]=1";
         if ($fid != null)
             $where .= " AND $c[fid]=$fid";
+
+        // get user lang
+        $lang = ZLanguage::getLanguageCode();
+        if (!isset($args['allLangs'])) {
+            $where .= ($where == '') ? "$c[lang]='$lang' OR $c[lang] = ''" : " AND ($c[lang]='$lang' OR $c[lang] = '')";
+        }
+
         $orderby = "$c[formName]";
         $items = DBUtil::selectObjectArray('IWforms_definition', $where, $orderby, '-1', '-1', 'fid');
         // Check for an error with the database code, and if so set an appropriate

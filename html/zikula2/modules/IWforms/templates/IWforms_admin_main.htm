@@ -18,29 +18,29 @@
         <tbody>
             {foreach item=form from=$forms}
             <tr class="{cycle values="z-odd,z-even"}" id="formRow_{$form.fid}">
-                <td align="left" valign="top">
+                <td align="left" style="vertical-align: top;">
                      <a href="{modurl modname='IWforms' type='admin' func='form' action='field' fid=$form.fid}">
                          {$form.formName}
                      </a>
                  </td>
-                 <td align="left" valign="top">
+                 <td align="left" style="vertical-align: top;">
                      {$form.title}
                  </td>
-                 <td align="left" valign="top">
+                 <td align="left" style="vertical-align: top;">
                      {$form.catName}
                  </td>
-                 <td align="left" valign="top">
+                 <td align="left" style="vertical-align: top;">
                      {$form.description}
                      {if isset($topic.tid)}
                      <div id="forminfo_{$topic.tid}" class="z-hide z-noteinfo">&nbsp;</div>
                      {/if}
                  </td>
-                 <td align="left" valign="top" width="150">
-                     <div id="form_{$form.fid}" name="form_{$form.fid}">
+                 <td align="left" style="vertical-align: top;" width="170">
+                 <div id="form_{$form.fid}" name="form_{$form.fid}">
                      {include file="IWforms_admin_formChars.htm" form=$form}
                  </div>
              </td>
-             <td align="center">
+             <td align="center" style="vertical-align: top;">
                  <div>
                      <a href="{modurl modname='IWforms' type='admin' func='infoForm' fid=$form.fid}">
                          {img modname='core' src='editclear.png' set='icons/extrasmall' __alt="Full Form" __title="Full Form"}

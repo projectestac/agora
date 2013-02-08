@@ -595,7 +595,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
                     'items' => $items))) {
             throw new Zikula_Exception_Fatal($this->__('Error'));
         }
-        return new Zikula_Response_Ajax(array('fmid' => $fmid,
+        return new Zikula_Response_Ajax(array('fid' => $fid,
                 ));
     }
 

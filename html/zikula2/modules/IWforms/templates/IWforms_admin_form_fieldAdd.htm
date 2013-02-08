@@ -1,9 +1,9 @@
 <div class="formContent">
     <div id="newFormField">
         <div class="z-adminpageicon">{img modname='core' src='filenew.png' set='icons/medium'}</div>
-        <h2>{gt text="Create a new form field"}</h2>
-        <form class="z-form" name="newField" action="{modurl modname="IWforms" type="admin" func="submitField"}" method="post" enctype="application/x-www-form-urlencoded">
-              <input type="hidden" name="fid" value="{$item.fid}" />
+        <h2>{gt text="Create a new form field"} {if $item.lang neq ''}<img src="images/flags/flag-{$item.lang}.png" />{/if}</h2>
+        <form class="z-form" name="newField" action="{modurl modname='IWforms' type='admin' func='submitField'}" method="post" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="fid" value="{$item.fid}" />
             <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
             <div class="z-formrow">
                 <label for="fieldType">{gt text="Type field"}</label>
@@ -24,10 +24,14 @@
             </div>
             <div class="z-center">
                 <span class="z-buttons">
-                    <a href="javascript:createField(document.newField.fieldType.value,{$item.fid})">{img modname='core' src='button_ok.png' set='icons/small' __alt="Create" __title="Create"} {gt text="Create"}</a>
+                    <a href="javascript:createField(document.newField.fieldType.value,{$item.fid})">
+                        {img modname='core' src='button_ok.png' set='icons/small' __alt="Create" __title="Create"} {gt text="Create"}
+                    </a>
                 </span>
                 <span class="z-buttons">
-                    <a href="{modurl modname="IWforms" type="admin" func="form" action="field" fid=$item.fid}">{img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                    <a href="{modurl modname='IWforms' type='admin' func='form' action='field' fid=$item.fid}">
+                        {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}
+                    </a>
                 </span>
             </div>
         </form>

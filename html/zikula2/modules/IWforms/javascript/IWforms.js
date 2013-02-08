@@ -312,18 +312,20 @@ function modifyForm(a,aa){
     });
 }
 
-function modifyForm_response(req){
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
+function modifyForm_response(a){
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
     }
-    var json = pndejsonize(req.responseText);
-    changeFormContent(json.fid);
+    var b=a.getData();
+    changeFormContent(b.fid);
 }
 
-function changeFormContent(fid){
-    var pars = "module=IWforms&func=changeFormContent&fid=" + fid;
-    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=xxxxxxx",{
+function changeFormContent(a){
+    var b={
+        fid:a
+    };
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=changeFormContent",{
         parameters: b,
         onComplete: changeFormContent_response
     });

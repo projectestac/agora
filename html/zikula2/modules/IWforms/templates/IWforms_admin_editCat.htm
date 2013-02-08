@@ -2,7 +2,7 @@
 <div class="z-admincontainer">
     <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large' __alt=''}</div>
     <h2>{gt text="Change to the category"}</h2>
-    <form id="editCat" class="z-form" action="{modurl modname="IWforms" type="admin" func="updateCat"}" method="post" enctype="application/x-www-form-urlencoded">
+    <form id="editCat" class="z-form" action="{modurl modname='IWforms' type='admin' func='updateCat'}" method="post" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="cid" value="{$item.cid}" />
         <div class="z-formrow">
@@ -15,10 +15,14 @@
         </div>
         <div class="z-center">
             <span class="z-buttons">
-                <a onClick="javascript:forms['editCat'].submit()">{img modname='core' src='button_ok.png' set='icons/small' __alt="Modify" __title="Modify"} {gt text="Modify"}</a>
+                <a onClick="javascript:forms['editCat'].submit()">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Modify" __title="Modify"} {gt text="Modify"}
+                </a>
             </span>
             <span class="z-buttons">
-                <a href="{modurl modname="IWforms" type="admin" func="conf"}">{img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                <a href="{modurl modname='IWforms' type='admin' func='conf'}">
+                    {img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"} {gt text="Cancel"}
+                </a>
             </span>
         </div>
     </form>

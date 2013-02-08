@@ -20,6 +20,15 @@
         <form id="formDefinition" class="z-form" action="{modurl modname='IWforms' type='admin' func='submit'}" method="post" enctype="application/x-www-form-urlencoded" onSubmit="return send()">
             <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
             <div class="z-formrow">
+                <label for="lang">{gt text="Form language"}</label>
+                <select id="lang" name="lang">
+                    <option value="">{gt text="All languages"}</option>
+                    {foreach item=lang from=$languages}
+                    <option value="{$lang.code}">{$lang.name}</option>
+                    {/foreach}
+                </select>
+            </div>
+            <div class="z-formrow">
                 <label for="formName">{gt text="Form name"}</label>
                 <input id="formName" name="formName" type="text" size="50" maxlength="70" />
             </div>

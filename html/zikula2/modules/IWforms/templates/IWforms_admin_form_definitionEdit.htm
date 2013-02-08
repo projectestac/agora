@@ -6,6 +6,15 @@
         <input type="hidden" name="fid" value="{$item.fid}" />
         <input type="hidden" name="aio" value="{$aio}" />
         <div class="z-formrow">
+            <label for="lang">{gt text="Form language"}</label>
+            <select id="lang" name="lang">
+                <option value="">{gt text="All languages"}</option>
+                {foreach item=lang from=$languages}
+                <option {if $item.lang eq $lang.code}selected="selected"{/if} value="{$lang.code}">{$lang.name}</option>
+                {/foreach}
+            </select>
+        </div>
+        <div class="z-formrow">
             <label for="formName">{gt text="Form name"}</label>
             <input id="formName" name="formName" type="text" size="50" maxlength="70" value="{$item.formName}" />
         </div>
@@ -115,9 +124,13 @@
             </span>
             <span class="z-buttons">
                 {if not isset($aio)}
-                <a href="{modurl modname="IWforms" type="admin" func="form" fid=$item.fid}">{img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                <a href="{modurl modname='IWforms' type='admin' func='form' fid=$item.fid}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}
+                </a>
                 {else}
-                <a href="{modurl modname="IWforms" type="admin" func="infoForm" fid=$item.fid}">{img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                <a href="{modurl modname='IWforms' type='admin' func='infoForm' fid=$item.fid}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}
+                </a>
                 {/if}
             </span>
         </div>

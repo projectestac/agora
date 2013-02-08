@@ -24,7 +24,7 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
 
         //main
         ModUtil::apiFunc('IWforms', 'user', 'desactivateForm');
-        $forms = ModUtil::apiFunc('IWforms', 'user', 'getAllForms');
+        $forms = ModUtil::apiFunc('IWforms', 'user', 'getAllForms', array('allLangs' => 1));
         $formsArray = array();
         foreach ($forms as $form) {
             $catNameText = (isset($catName[$form['cid']])) ? $catName[$form['cid']] : '';
@@ -47,7 +47,9 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
                 'expertMode' => $form['expertMode'],
                 'allowComments' => $form['allowComments'],
                 'caducity' => $caducity,
-                'new' => $new);
+                'new' => $new,
+                'lang' => $form['lang'],
+            );
         }
         return $this->view->assign('forms', $formsArray)
                         ->fetch('IWforms_admin_main.htm');
@@ -67,10 +69,20 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
         $categories = ModUtil::apiFunc('IWforms', 'user', 'getAllCategories');
 
         $filesFolder = ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWforms', 'attached');
+
+        $languages = ZLanguage::getInstalledLanguages();
+        $languagesArray = array();
+        foreach ($languages as $lang) {
+            $languagesArray[] = array('code' => $lang,
+                'name' => ZLanguage::getLanguageName($lang),
+            );
+        }
+
         //outputs assignaments
         return $this->view->assign('cats', $categories)
                         ->assign('item', array('expertMode' => ''))
                         ->assign('filesFolder', $filesFolder)
+                        ->assign('languages', $languagesArray)
                         ->fetch('IWforms_admin_create.htm');
     }
 
@@ -105,6 +117,7 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
         $skinNoteTemplate = FormUtil::getPassedValue('skinNoteTemplate', isset($args['skinNoteTemplate']) ? $args['skinNoteTemplate'] : null, 'POST');
         $returnURL = FormUtil::getPassedValue('returnURL', isset($args['returnURL']) ? $args['returnURL'] : '', 'POST');
         $filesFolder = FormUtil::getPassedValue('filesFolder', isset($args['filesFolder']) ? $args['filesFolder'] : '', 'POST');
+        $lang = FormUtil::getPassedValue('lang', isset($args['lang']) ? $args['lang'] : '', 'POST');
 
         // Security check
         if (!SecurityUtil::checkPermission('IWforms::', "::", ACCESS_ADMIN)) {
@@ -139,6 +152,7 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
                     'skinNoteTemplate' => $skinNoteTemplate,
                     'returnURL' => $returnURL,
                     'filesFolder' => $filesFolder,
+                    'lang' => $lang,
                 ));
         if ($create != false) {
             // Success
@@ -600,7 +614,8 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('IWforms::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
         }
-        return $this->view->assign('item', array('fid' => $fid))
+        $item = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
+        return $this->view->assign('item', $item)
                         ->fetch('IWforms_admin_form_fieldAdd.htm');
     }
 
@@ -1135,6 +1150,14 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
 
         $filesFolder = ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWforms', 'attached');
 
+        $languages = ZLanguage::getInstalledLanguages();
+        $languagesArray = array();
+        foreach ($languages as $lang) {
+            $languagesArray[] = array('code' => $lang,
+                'name' => ZLanguage::getLanguageName($lang),
+            );
+        }
+
         return $this->view->assign('cats', $categories)
                         ->assign('aio', $aio)
                         ->assign('item', $item)
@@ -1142,6 +1165,7 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
                         ->assign('filesFolder', $filesFolder)
                         ->assign('new', ModUtil::func('IWforms', 'user', 'makeTimeForm', $item['new']))
                         ->assign('caducity', ModUtil::func('IWforms', 'user', 'makeTimeForm', $item['caducity']))
+                        ->assign('languages', $languagesArray)
                         ->fetch('IWforms_admin_form_definitionEdit.htm');
     }
 
@@ -1184,6 +1208,7 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
         $allowCommentsModerated = FormUtil::getPassedValue('allowCommentsModerated', isset($args['allowCommentsModerated']) ? $args['allowCommentsModerated'] : 0, 'POST');
         $returnURL = FormUtil::getPassedValue('returnURL', isset($args['returnURL']) ? $args['returnURL'] : '', 'POST');
         $filesFolder = FormUtil::getPassedValue('filesFolder', isset($args['filesFolder']) ? $args['filesFolder'] : '', 'POST');
+        $lang = FormUtil::getPassedValue('lang', isset($args['lang']) ? $args['lang'] : '', 'POST');
         // Security check
         if (!SecurityUtil::checkPermission('IWforms::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
@@ -1261,6 +1286,7 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
             'allowCommentsModerated' => $allowCommentsModerated,
             'returnURL' => $returnURL,
             'filesFolder' => $filesFolder,
+            'lang' => $lang,
         );
         if (ModUtil::apiFunc('IWforms', 'admin', 'editForm', array('fid' => $fid,
                     'items' => $items))) {

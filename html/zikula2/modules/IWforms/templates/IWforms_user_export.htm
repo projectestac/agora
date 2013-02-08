@@ -5,10 +5,10 @@
     <div>{gt text="Form name"}: {$form.formName}</div>
     <div>{gt text="Title of the annotations "}: {$form.title}</div>
     <div style="height:15px;">&nbsp;</div>
-    <form id="export" class="z-form" action="{modurl modname="IWforms" type="user" func="generateCSV"}" method="post" enctype="application/x-www-form-urlencoded">
+    <form id="export" class="z-form" action="{modurl modname='IWforms' type='user' func='generateCSV'}" method="post" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="fid" value="{$form.fid}" />
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
-               <table class="z-datatable" width="100%">
+        <table class="z-datatable" width="100%">
             <tr>
                 <td>
                     {gt text="Order of the notes for export"}
@@ -87,7 +87,7 @@
                 </tr>
             </tbody>
         </table>
-       <table class="z-datatable" width="100%">
+        <table class="z-datatable" width="100%">
             <thead>
                 <tr>
                     <th>{gt text="Field"}</th>
@@ -97,33 +97,38 @@
                 </tr>
             </thead>
             <tbody>
-            {foreach name=i item=field from=$fields}
-            {if $field.fieldType neq 7 && $field.fieldType neq 51 && $field.fieldType neq 52 &&  $field.fieldType neq 53 && $field.fieldType neq 100}
-            <tr class="{cycle values="z-odd, z-even"}" >
-                <td align="center">
-                     {$smarty.foreach.i.iteration}
-                 </td>
-                 <td align="left">
-                     {$field.fieldName}
-                 </td>
-                 <td align="left">
-                     {$fieldsTypes[$field.fieldType]}
-                 </td>
-                 <td align="center">
-                     <input type="checkbox" checked value="{$field.fndid}" name="fields[]">
-                 </td>
-             </tr>
-		{/if}
-             {/foreach}
-            </tbody>
+                {foreach name=i item=field from=$fields}
+                {if $field.fieldType neq 7 && $field.fieldType neq 51 && $field.fieldType neq 52 &&  $field.fieldType neq 53 && $field.fieldType neq 100}
+                <tr class="{cycle values="z-odd, z-even"}" >
+                    <td align="center">
+                         {$smarty.foreach.i.iteration}
+                     </td>
+                     <td align="left">
+                         {$field.fieldName}
+                     </td>
+                     <td align="left">
+                         {$fieldsTypes[$field.fieldType]}
+                     </td>
+                     <td align="center">
+                         <input type="checkbox" checked value="{$field.fndid}" name="fields[]">
+                     </td>
+                 </tr>
+                 {/if}
+                 {/foreach}
+                </tbody>
             </table>
             <div style="height:15px;">&nbsp;</div>
             <div class="z-center">
                 <span class="z-buttons">
-                    <a onClick="javascript:forms['export'].submit()">{img modname='core' src='button_ok.png' set='icons/small' __alt="Export" __title="Export"} {gt text="Export"}</a>
+                    <a onClick="javascript:forms['export'].submit()">
+                        {img modname='core' src='button_ok.png' set='icons/small' __alt="Export" __title="Export"}
+                        {gt text="Export"}
+                    </a>
                 </span>
                 <span class="z-buttons">
-                    <a href="{modurl modname="IWforms" type="user" func="manage" fid=$form.fid}">{img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                    <a href="{modurl modname='IWforms' type='user' func='manage' fid=$form.fid}">
+                        {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}
+                    </a>
                 </span>
             </div>
         </form>
