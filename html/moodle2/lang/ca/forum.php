@@ -415,9 +415,9 @@ $string['unreadpostsone'] = 'Un missatge no llegit';
 $string['unsubscribe'] = 'Cancel·la la meva subscripció a aquest fòrum';
 $string['unsubscribeall'] = 'Cancel·la la meva subscripció a tots els fòrum';
 $string['unsubscribeallconfirm'] = 'Esteu subscrit/a a {$a} fòrums. Segur que voleu cancel·lar la vostra subscripció a tots els fòrums i inhabilitar la subscripció automàtica?';
-$string['unsubscribealldone'] = 'S\'han cancel·lat totes les vostres subscripcions a fòrums, però encara rebreu notificacions dels fòrums que imposin la subscripció. Per a gestionar les notificacions del fòrum aneu a la Missatgeria de la Configuració del meu perfil, en el bloc Arranjaments.';
+$string['unsubscribealldone'] = 'S\'han cancel·lat totes les vostres subscripcions a fòrums, però encara rebreu notificacions dels fòrums que imposin la subscripció. Per a gestionar les notificacions del fòrum aneu a la Missatgeria de la Configuració del meu perfil, en el bloc Configuració.';
 $string['unsubscribeallempty'] = 'No esteu subscrit a cap fòrum.
-Per a desactivar totes les notificacions del servidor aneu a la Missatgeria de la Configuració del meu perfil, en el bloc Arranjaments.';
+Per a desactivar totes les notificacions del servidor aneu a la Missatgeria de la Configuració del meu perfil, en el bloc Configuració.';
 $string['unsubscribed'] = 'La vostra subscripció ha estat cancel·lada';
 $string['unsubscribeshort'] = 'Cancel·la subscripció';
 $string['usermarksread'] = 'Marcatge manual de missatges llegits';

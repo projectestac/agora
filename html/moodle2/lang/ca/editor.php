@@ -56,6 +56,7 @@ $string['createlink'] = 'Insereix un enllaç web';
 $string['cut'] = 'Talla la selecció';
 $string['cutpastemozilla'] = 'Malauradament, a hores d\'ara no podeu utilitzar les dreceres normals del teclat (ni tan sols el botó Enganxa) per a enganxar text dins d\'aquest editor en línia. Això es deu a una característica de seguretat que hi ha en algunes versions dels navegadors Mozilla i Firefox.<br /><br />Hi ha tres maneres conegudes de fer-ho que podeu provar:<br /> (1) En compte de CTRL-v, utilitzeu SHIFT-Insert <br /> (2) Utilitzeu el menú Edició->Enganxa del vostre navegador<br /> (3) Canvieu les preferències del vostre navegador editant el fitxer user.js. <br /><br />Feu clic en el botó D\'acord més avall per obtenir més ajuda, o Cancel·la per tornar a l\'editor';
 $string['delete'] = 'Suprimeix';
+$string['editordeleteconfirm'] = 'Esteu a punt d\'esborrar completament el connector de l\'editor \'{$a}\'. Això esborrarà completament qualsevol dada associada en la base de dades amb aquest connector. Esteu SEGUR que voleu continuar?';
 $string['editors'] = 'Editors de text';
 $string['editorsettings'] = 'Gestiona els editors';
 $string['enterurlfirst'] = 'Primer heu d\'introduir un URL';

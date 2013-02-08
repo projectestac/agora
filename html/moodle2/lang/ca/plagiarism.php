@@ -32,3 +32,4 @@ $string['enableplagiarism'] = 'Activa connectors de plagi';
 $string['manageplagiarism'] = 'Gestionar plugins de plagi';
 $string['nopluginsinstalled'] = 'No hi ha cap connector de plagi instal·lat.';
 $string['plagiarism'] = 'plagi de prevenció';
+$string['plagiarismplugindeleteconfirm'] = 'Esteu a punt de suprimir completament el connector de plagi \'{$a}\'. Això esborrarà completament de la base de dades qualsevol cosa relacionada amb aquest connector. Esteu SEGUR que voleu continuar ?';

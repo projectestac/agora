@@ -25,8 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['alreadyfilled'] = 'Ja heu respost l\'enquesta anteriorment. Gràcies.';
 $string['modulename'] = 'Questionnaire';
 $string['modulenameplural'] = 'Questionnaires';
+$string['mustcomplete'] = '<strong>Heu de completar aquesta enquesta <em>ara</em> per desar els resultats. No ho podreu fer en un altre moment</strong><br /><br />';
 $string['notavail'] = 'Aquesta enquesta encara no està disponible. Proveu-ho més tard.';
 $string['qtype'] = 'Tipus';
 $string['respondenttype'] = 'Tipus d\'enquestat';

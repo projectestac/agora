@@ -25,9 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['downloadas'] = 'Baixa les dades de la taula com';
+$string['downloadas'] = 'Baixa les dades de la taula com a {$a->formatsmenu} {$a->downloadbutton}';
 $string['downloadcsv'] = 'un fitxer de text amb els valors separats per comes';
 $string['downloadexcel'] = 'un full de càlcul de Microsoft Excel';
 $string['downloadods'] = 'un full de càlcul OpenDocument (ODS)';
+$string['downloadoptions'] = 'Selecciona les opcions de baixada';
 $string['downloadtsv'] = 'un fitxer de text amb els valors separats per tabuladors';
 $string['downloadxhtml'] = 'un document XHTML sense pàgines';

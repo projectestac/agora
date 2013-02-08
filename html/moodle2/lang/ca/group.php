@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addedby'] = 'Afegit per {$a}';
 $string['addgroup'] = 'Afegeix l\'usuari al grup';
 $string['addgroupstogrouping'] = 'Afegeix grups a l\'agrupament';
 $string['addgroupstogroupings'] = 'Afegeix/suprimeix grups';
@@ -63,6 +64,7 @@ $string['erroraddremoveuser'] = 'S\'ha produït un error en afegir l\'usuari {$a
 $string['erroreditgroup'] = 'S\'ha produït un error en crear o actualitzar el grup {$a}';
 $string['erroreditgrouping'] = 'S\'ha produït un error en crear o actualitzar l\'agrupament {$a}';
 $string['errorinvalidgroup'] = 'S\'ha produït un error: el grup {$a} no és vàlid';
+$string['errorremovenotpermitted'] = 'No teniu permís per a eliminar el membre del grup {$a} afegit automàticament';
 $string['errorselectone'] = 'Seleccioneu un sol grup abans de triar aquesta opció';
 $string['errorselectsome'] = 'Seleccioneu un o més grups abans de triar aquesta opció';
 $string['evenallocation'] = 'Nota: el nombre de membres per grup serà diferent del que havíeu especificat, a fi de distribuir-los més equilibradament.';

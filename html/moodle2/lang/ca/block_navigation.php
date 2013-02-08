@@ -32,6 +32,7 @@ $string['enabledockdesc'] = 'Permet que l\'usuari minimitzi aquest bloc';
 $string['everything'] = 'Tot';
 $string['expansionlimit'] = 'Genera navegació per al següent.';
 $string['linkcategoriesdesc'] = 'Visualitza les categories com a enllaços';
+$string['navigation:addinstance'] = 'Afegeix un nou bloc de navegació';
 $string['pluginname'] = 'Navegació';
 $string['trimlength'] = 'Quants caràcters cal deixar';
 $string['trimmode'] = 'Mode de retallada';

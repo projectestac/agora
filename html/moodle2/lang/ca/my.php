@@ -26,6 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addpage'] = 'Afegeix pàgina';
+$string['defaultpage'] = 'Pàgina per defecte d\'"El meu Moodle"';
+$string['defaultprofilepage'] = 'Pàgina per defecte del perfil';
+$string['delpage'] = 'Suprimeix la pàgina';
+$string['managepages'] = 'Gestiona pàgines';
 $string['mymoodle'] = 'El meu Moodle';
 $string['nocourses'] = 'No hi ha informació de cursos per mostrar.';
 $string['noguest'] = 'La pàgina "El meu Moodle" no està disponible per a usuaris visitants';

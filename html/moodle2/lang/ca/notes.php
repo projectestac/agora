@@ -58,6 +58,7 @@ $string['publishstate_help'] = 'El context d\'una anotació determina qui la pot
 * Personal - L\'anotació serà visible només per a vós
 * Curs - L\'anotació serà visible per al professorat del curs
 * Lloc - L\'anotació serà visible per al professorat de tots els cursos';
+$string['selectnotestate'] = 'Selecciona l\'estat de la nota';
 $string['site'] = 'Lloc';
 $string['sitenotes'] = 'Anotacions del lloc';
 $string['unknown'] = 'desconegut';
