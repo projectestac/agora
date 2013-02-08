@@ -9,13 +9,17 @@
             <label for="text">{gt text="Text of the option"}</label>
             {foreach  item=lang from=$languages}
             <div class="z-formnote">
-                {$lang} => <input type="text" name="text[{$lang}]" size="32" maxlength="50" />
+                {$lang} => <input type="text" name="text[{$lang}]" maxlength="50" />
             </div>
             {/foreach}
         </div>
         <div class="z-formrow">
             <label for="url">{gt text="URL"}</label>
-            <input id="url" type="text" name="url" size="50" maxlength="250" />
+            {foreach  item=lang from=$languages}
+            <div class="z-formnote">
+                {$lang} => <input type="text" name="url[{$lang}]" maxlength="250" />
+            </div>
+            {/foreach}
         </div>
 
         <div class="z-formrow">

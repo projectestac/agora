@@ -31,15 +31,19 @@
                     {/if}
                 </div>
                 <div class="IWmenu_main">
-                    {$item.text}<br />
-                    {if $item.url neq "---"}
-                    {gt text="URL"}: <a href="{$item.url}" target="_blank">{$item.url}</a><br />
-                    {/if}
-                    <span class="IWmenu_description">{$item.descriu}</span>
+                    {$item.text}
+                    <br />
+                    {$item.url}
+                    <br />
+                    <span class="IWmenu_description">
+                        {$item.descriu}
+                    </span>
                 </div>
             </div>
             <div class="IWmenu_groups">
-                <div class="IWmenu_group">{$item.groups_array}</div>
+                <div class="IWmenu_group">
+                    {$item.groups_array}
+                </div>
                 <div class="IWmenu_addgroup">
                     <a href="{modurl modname='IWmenu' type='admin' func='add_group' mid=$item.mid}">
                         <img src="modules/IWmenu/images/addgroup.png" alt="{gt text="Add a group"}" /> {gt text="Add a group"}

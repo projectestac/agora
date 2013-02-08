@@ -112,7 +112,31 @@ class IWmenu_Installer extends Zikula_AbstractInstaller {
                     $where = "$c[mid] = $item[mid]";
                     DBUtil::updateObject($i, 'IWmenu', $where);
                 }
-            case '3.0.1': // future version
+            case '3.0.1':
+                // add language features for url fields
+                // get current lang code
+                $currentLang = ZLanguage::getLanguageCode();
+                // get current items
+                $items = DBUtil::selectObjectArray('IWmenu', '', '');
+                // get installed languages
+                $languages = ZLanguage::getInstalledLanguages();
+                // update items with languages array
+                $table = DBUtil::getTables();
+                $c = $table['IWmenu_column'];
+                foreach ($items as $item) {
+                    $langArray = array();
+                    $langText = '';
+                    foreach ($languages as $lang) {
+                        $langArray[$lang] = ($lang == $currentLang) ? $item['url'] : '';
+                    }
+                    $langText = serialize($langArray);
+                    // update text value with the serialised array
+                    $i = array('url' => $langText);
+                    $where = "$c[mid] = $item[mid]";
+                    DBUtil::updateObject($i, 'IWmenu', $where);
+                }
+
+            case '3.0.2': // future version
         }
         return true;
     }

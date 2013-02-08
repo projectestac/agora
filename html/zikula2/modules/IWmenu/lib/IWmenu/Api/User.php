@@ -46,6 +46,8 @@ class IWmenu_Api_User extends Zikula_AbstractApi {
         foreach ($items as $item) {
             $itemTextArray = unserialize($item['text']);
             $item['text'] = (isset($itemTextArray[$currentLang])) ? $itemTextArray[$currentLang] : '';
+            $itemUrlArray = unserialize($item['url']);
+            $item['url'] = (isset($itemUrlArray[$currentLang])) ? $itemUrlArray[$currentLang] : '';
             $groups_vector = explode("$", $item['groups']);
             foreach ($groups_vector as $group) {
                 $isMember = false;

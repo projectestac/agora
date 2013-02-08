@@ -1,5 +1,7 @@
 <?php
+
 class IWmenu_Block_Top extends Zikula_Controller_AbstractBlock {
+
     public function init() {
         SecurityUtil::registerPermissionSchema('IWmenu:topblock:', 'Top menu');
     }
@@ -29,53 +31,26 @@ class IWmenu_Block_Top extends Zikula_Controller_AbstractBlock {
         // Get variables from content block (3)
         //Get cached user menu
         $uid = is_null(UserUtil::getVar('uid')) ? '-1' : UserUtil::getVar('uid');
-        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $exists = ModUtil::apiFunc('IWmain', 'user', 'userVarExists',
-                        array('name' => 'userMenu',
-                            'module' => 'IWmenu',
-                            'uid' => $uid,
-                            'sv' => $sv));
-        $exists = false;
 
-        if ($exists) {
-            $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            $menu = ModUtil::func('IWmain', 'user', 'userGetVar',
-                            array('uid' => $uid,
-                                'name' => 'userMenu',
-                                'module' => 'IWmenu',
-                                'sv' => $sv,
-                                'nult' => true));
-        } else {
-            //Generate menu
-            $menu_estructure = ModUtil::apiFunc('IWmenu', 'user', 'getMenuStructure');
-            // Defaults (4)
-            if (empty($menu_estructure)) {
-                return false;
-            }
-
-            // Create output object (6)
-            $view = Zikula_View::getInstance('IWmenu');
-
-            // assign your data to to the template (7)
-            $view->assign('menu', $menu_estructure);
-
-            // Populate block info and pass to theme (8)
-            $menu = $view->fetch('IWmenu_block_top.htm');
-
-            //Cache the result
-            $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            ModUtil::func('IWmain', 'user', 'userSetVar',
-                            array('uid' => $uid,
-                                'name' => 'userMenu',
-                                'module' => 'IWmenu',
-                                'sv' => $sv,
-                                'value' => $menu,
-                                'lifetime' => '600'));
+        //Generate menu
+        $menu_estructure = ModUtil::apiFunc('IWmenu', 'user', 'getMenuStructure');
+        // Defaults (4)
+        if (empty($menu_estructure)) {
+            return false;
         }
 
+        // Create output object (6)
+        $view = Zikula_View::getInstance('IWmenu');
+
+        // assign your data to to the template (7)
+        $view->assign('menu', $menu_estructure);
+
+        // Populate block info and pass to theme (8)
+        $menu = $view->fetch('IWmenu_block_top.htm');
 
         //$blockinfo['content'] = $menu;
         //return BlockUtil::themesideblock($blockinfo);
         return $menu;
     }
+
 }
