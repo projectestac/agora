@@ -122,6 +122,9 @@ if ($user !== false or $frm !== false) {
 if (empty($CFG->usesid) and $testcookies and (get_moodle_cookie() == '')) {    // Login without cookie when test requested
 	$errormsg = get_string("cookiesnotenabled");
 } else if ($frm) {                             // Login WITH cookies
+	global $PAGE;
+	$PAGE->set_context(context_system::instance());
+	$PAGE->set_url($_SERVER['REQUEST_URI']);
 	$frm->username = trim(textlib::strtolower($frm->username));
 	if (is_enabled_auth('none') && empty($CFG->extendedusernamechars)) {
 		$string = eregi_replace("[^(-\.[:alnum:])]", "", $frm->username);
@@ -305,5 +308,7 @@ print_header("$site->fullname: $loginsite", $site->fullname, $loginsite, $focus,
 
 include("login/index_form.html");
 
-print_footer();
+global $OUTPUT;
+$OUTPUT->footer();
+
 ?>
