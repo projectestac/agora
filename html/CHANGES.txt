@@ -8,6 +8,9 @@ Changes in progress
 GENERAL
 - Added gathering of users active last 30 and 90 days in Moodle 1.9. Also fixed in 2.4.
 
+MOODLE
+- Changed value to backup_sche_users parameter to avoid Odissea problems when restoring courses directly from Moodle 1.9 to Moodle 2
+
 MOODLE 2
 - Fixed sending e-mail using XTEC Web Service
 - Added course format "Senzill per temes"
