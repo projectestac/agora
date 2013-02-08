@@ -16,6 +16,7 @@ MOODLE 2
 - Fixed bug in db authentication related with Intraweb users integration
 - Added a restriction to avoid admin user changes its own username (admin has to be always admin!)
 - Fixed bug to let edit user profile from participants page of a course (https://tracker.moodle.org/browse/MDL-36674)
+- Updated translation for Moodle 2.4 (version date: 07-feb-2013)
 
 ZIKULA
 - Fixed statistics summary process
@@ -23,6 +24,7 @@ ZIKULA
 PORTAL
 - Fixed deletion of backup files from portal when school has no Moodle 2
 - Increased version of agoraportal in order to add fields to stats tables
+- Fixed incorrect filtering in 'Sol·licituds'
 
 
 Changes 13.01.14
