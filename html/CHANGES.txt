@@ -5,6 +5,10 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+Changes 13.02.12
+---------------------------------------------------------------------------------------
 GENERAL
 - Added gathering of users active last 30 and 90 days in Moodle 1.9. Also fixed in 2.4.
 
@@ -19,7 +23,7 @@ MOODLE 2
 - Fixed bug in db authentication related with Intraweb users integration
 - Added a restriction to avoid admin user changes its own username (admin has to be always admin!)
 - Fixed bug to let edit user profile from participants page of a course (https://tracker.moodle.org/browse/MDL-36674)
-- Updated translation for Moodle 2.4 (version date: 07-feb-2013)
+- Updated translation for Moodle 2.4 (version date: 11-feb-2013)
 
 ZIKULA
 - Fixed statistics summary process
