@@ -32,4 +32,5 @@ $string['advice_start_date'] = 'Data d\'inici de l\'avís';
 $string['advice_stop_date'] = 'Data de finalització de l\'avís';
 $string['show_admins'] = 'Missatge visualitzat només per les persones administradores de l\'espai';
 $string['enabled'] = 'Actiu';
+$string['advices:addinstance'] = 'Afegeix un bloc d\'avisos nou';
 
