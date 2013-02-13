@@ -25,14 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Configura el dipòsit al sistema de fitxers';
-$string['enablecourseinstances'] = 'Permet als usuaris afegir una instància de dipòsit al curs (sols pot ser configurat pels administradors).';
-$string['enableuserinstances'] = 'Permet als usuaris afegir una instància de dipòsit en el context d\'usuari (sols pot ser configurat pels administradors).';
-$string['filesystem:view'] = 'Mostra el dipòsit del sistema de fitxers';
+$string['configplugin'] = 'Configura el repositori al sistema de fitxers';
+$string['enablecourseinstances'] = 'Permet als usuaris afegir una instància de repositori al curs (sols pot ser configurat pels administradors).';
+$string['enableuserinstances'] = 'Permet als usuaris afegir una instància de repositori en el context d\'usuari (sols pot ser configurat pels administradors).';
+$string['filesystem:view'] = 'Mostra el repositori del sistema de fitxers';
 $string['information'] = 'Aquestes carpetes estan dins del directori <b>{$a}</b>.';
 $string['invalidpath'] = 'Camí de l\'arrel no vàlid';
 $string['nosubdir'] = 'Heu de crear almenys una carpeta dins del directori <b>{$a}</b> de manera que pugueu seleccionar-la aquí.';
 $string['path'] = 'Selecciona una subcarpeta';
 $string['pluginname'] = 'Sistema de fitxers';
-$string['pluginname_help'] = 'Crea un dipòsit des d\'un directori local';
+$string['pluginname_help'] = 'Crea un repositori des d\'un directori local';
 $string['root'] = 'Arrel';

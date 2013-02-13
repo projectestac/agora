@@ -23,7 +23,7 @@ MOODLE 2
 - Fixed bug in db authentication related with Intraweb users integration
 - Added a restriction to avoid admin user changes its own username (admin has to be always admin!)
 - Fixed bug to let edit user profile from participants page of a course (https://tracker.moodle.org/browse/MDL-36674)
-- Updated translation for Moodle 2.4 (version date: 11-feb-2013)
+- Updated translation for Moodle 2.4 (version date: 13-feb-2013)
 - Fixed bug when openning URL in new window (https://tracker.moodle.org/browse/MDL-37015)
 
 ZIKULA

@@ -119,7 +119,7 @@ $string['errorminbackup20version'] = 'Aquest fitxer de còpia de seguretat s\'ha
 $string['errorrestorefrontpage'] = 'No es permet restaurar res sobre la pàgina principal.';
 $string['executionsuccess'] = 'El fitxer de còpia de seguretat s\'ha creat amb èxit.';
 $string['filealiasesrestorefailures'] = 'La restauració dels àlies ha fallat';
-$string['filealiasesrestorefailures_help'] = 'Els àlies són enllaços simbòlics a altres fitxers, inclosos els emmagatzemats en dipòsits externs. En alguns casos, Moodle no els pot restaurar - per exemple, en restaurar la còpia de seguretat en un altre lloc web o quan el fitxer a què es fa referència no existeix.
+$string['filealiasesrestorefailures_help'] = 'Els àlies són enllaços simbòlics a altres fitxers, inclosos els emmagatzemats en repositoris externs. En alguns casos, Moodle no els pot restaurar - per exemple, en restaurar la còpia de seguretat en un altre lloc web o quan el fitxer a què es fa referència no existeix.
 
 Més detalls i el motiu real de l\'errada es poden trobar al fitxer de registre de restauració.';
 $string['filealiasesrestorefailuresinfo'] = 'Alguns àlies inclosos en el fitxer de còpia de seguretat no poden ser restaurats. La següent llista conté la seva ubicació prevista i el fitxer d\'origen on es referien en el lloc web original.';

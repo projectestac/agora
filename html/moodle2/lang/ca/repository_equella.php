@@ -26,13 +26,14 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['breadcrumb'] = 'EQUELLA';
-$string['configplugin'] = 'Configuració per al dipòsit EQUELLA';
+$string['configplugin'] = 'Configuració per al repositori EQUELLA';
 $string['equellaaction'] = 'Acció EQUELLA';
 $string['equellaoptions'] = 'Opcions EQUELLA';
 $string['equellaurl'] = 'URL EQUELLA';
-$string['equella:view'] = 'Mostra el dipòsit EQUELLA';
+$string['equella:view'] = 'Mostra el repositori EQUELLA';
 $string['group'] = 'Paràmetres del rol {$a}';
 $string['groupdefault'] = 'Per defecte';
+$string['pluginname'] = 'Repositori EQUELLA';
 $string['restrictionattachmentsonly'] = 'Només recurs adjunt';
 $string['restrictionitemsonly'] = 'Només element de resum';
 $string['restrictionnone'] = 'Sense restricció';

@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Configuració per al dipòsit del servidor de fitxers';
+$string['configplugin'] = 'Configuració per al repositori del servidor de fitxers';
 $string['emptyfilelist'] = 'No hi ha fitxers per mostrar';
-$string['local:view'] = 'Mostra el dipòsit del servidor';
+$string['local:view'] = 'Mostra el repositori del servidor';
 $string['notitle'] = 'Sense títol';
 $string['pluginname'] = 'Fitxers del servidor';
 $string['pluginname_help'] = 'Fitxers prèviament pujats al servidor de Moodle';

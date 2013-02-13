@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Configuració per al dipòsit de fitxers del curs';
-$string['coursefiles:view'] = 'Utilitza el connector del dipòsit de fitxers dels curs';
+$string['configplugin'] = 'Configuració per al repositori de fitxers del curs';
+$string['coursefiles:view'] = 'Utilitza el connector del repositori de fitxers dels curs';
 $string['emptyfilelist'] = 'No hi ha fitxers per mostrar';
 $string['notitle'] = 'Sense títol';
 $string['pluginname'] = 'Fitxers del curs';

@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Configuració del tipus de dipòsit URL';
+$string['configplugin'] = 'Configuració del tipus de repositori URL';
 $string['download'] = 'Baixa';
 $string['pluginname'] = 'Baixador d\'URL';
 $string['rename'] = 'Nom';
