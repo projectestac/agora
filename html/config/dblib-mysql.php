@@ -203,6 +203,18 @@ function getAllSchools($order = 'school_id', $desc = 'asc', $service='all', $sta
 }
 
 /**
+ * Check if the specified DNS is valid to avoid security problems
+ * @param type $dns
+ * @return type boolean True if specified DNS is correct; false otherwise
+ */
+function isValidDNS($dns){
+    if (strlen($dns)>30 || !preg_match("/^[a-z0-9-]+$/", $dns)) {
+        return false;
+    }
+    return true;
+}
+
+/**
  * Get the information of the specified school
  *
  * @param $dns school dns
@@ -213,10 +225,14 @@ function getAllSchools($order = 'school_id', $desc = 'asc', $service='all', $sta
  */
 function getSchoolDBInfo($dns, $codeletter = false) {
 
-    if (!$con = opendb()) {
+    if (!isValidDNS($dns)){
         return false;
     }
 
+    if (!$con = opendb()) {
+        return false;
+    }
+    
     $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, cs.dbHost, c.typeId, s.serviceName, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
 			WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND cs.state = "1"
@@ -280,6 +296,10 @@ function getSchoolDBInfo($dns, $codeletter = false) {
  */
 function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
     global $agora;
+
+    if (!isValidDNS($dns)){
+        return false;
+    }
 
     // If cookie is present load it and return
     if (isset($_COOKIE[$agora['server']['cookie']])) {
@@ -379,6 +399,10 @@ function getDiskInfo($dns, $service) {
     if (!$con = opendb())
         return false;
 
+    if (!isValidDNS($dns)){
+        return false;
+    }
+    
     $sql = 'SELECT s.serviceName, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
 			WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND cs.state = "1"

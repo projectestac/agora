@@ -11,6 +11,7 @@ Changes 13.02.12
 ---------------------------------------------------------------------------------------
 GENERAL
 - Added gathering of users active last 30 and 90 days in Moodle 1.9. Also fixed in 2.4.
+- Added extra-security-check
 
 MOODLE
 - Changed value to backup_sche_users parameter to avoid Odissea problems when restoring courses directly from Moodle 1.9 to Moodle 2
@@ -1377,9 +1378,9 @@ Changes in 8.07.09
 - Modify the file eines/config.php. The follow rows have to be added at the end of the file:
 
 	//schools intranet database access
-	$agora['intranet']['username'] = "e13_intranet";
-	$agora['intranet']['userpwd'] = "intranet";
-	$agora['intranet']['host'] =  "pdb-int:3308";
+	$agora['intranet']['username'] = "agora";
+	$agora['intranet']['userpwd'] = "agora";
+	$agora['intranet']['host'] =  "localhost:3306";
 	
 	//current versions for interprices
 	$agora['moodle']['current_version'] = "185";
