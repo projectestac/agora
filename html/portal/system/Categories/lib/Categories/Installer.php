@@ -79,8 +79,8 @@ class Categories_Installer extends Zikula_AbstractInstaller
      * This function must consider all the released versions of the module!
      * If the upgrade fails at some point, it returns the last upgraded version.
      *
-     * @param        string   $oldVersion   version number string to upgrade from
-     * @return       mixed    true on success, last valid version string or false if fails
+     * @param  string $oldVersion version number string to upgrade from
+     * @return mixed  true on success, last valid version string or false if fails
      */
     public function upgrade($oldversion)
     {
@@ -88,9 +88,7 @@ class Categories_Installer extends Zikula_AbstractInstaller
             case '1.04':
                 $this->upgrade_fixSerializedData();
                 $this->upgrade_MigrateLanguageCodes();
-
             case '1.1':
-                $this->upgrade_MigrateLanguageCodes();
             case '1.2':
                 // new column used in doctrine categorisable template
                 DoctrineUtil::createColumn('categories_mapobj', 'reg_property', array('type' => 'string',

@@ -51,6 +51,7 @@ function array_sort_by_fields(&$data, $sortby)
     } else {
         $sort_func = $sort_funcs[$sortby];
     }
+    
     uasort($data, $sort_func);
 }
 
@@ -65,5 +66,6 @@ function array_sort_by_fields(&$data, $sortby)
 function smarty_modifier_sortby($arrData,$sortfields)
 {
     array_sort_by_fields($arrData, $sortfields);
+
     return $arrData;
 }

@@ -15,6 +15,17 @@
 class Settings_Controller_Admin extends Zikula_AbstractController
 {
     /**
+     * Post initialise.
+     *
+     * @return void
+     */
+    protected function postInitialize()
+    {
+        // In this controller we do not want caching.
+        $this->view->setCaching(Zikula_View::CACHE_DISABLED);
+    }
+
+    /**
      * entry point for the module
      *
      * @return string html output
@@ -36,6 +47,13 @@ class Settings_Controller_Admin extends Zikula_AbstractController
         if (!SecurityUtil::checkPermission('Settings::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
         }
+
+        // localise page title
+        $pagetitle = System::getVar('pagetitle', '%pagetitle%');
+        $pagetitle = str_replace('%pagetitle%', $this->__('%pagetitle%'), $pagetitle);
+        $pagetitle = str_replace('%sitename%', $this->__('%sitename%'), $pagetitle);
+        $pagetitle = str_replace('%modulename%', $this->__('%modulename%'), $pagetitle);
+        $this->view->assign('pagetitle', $pagetitle);
 
         return $this->view->fetch('settings_admin_modifyconfig.tpl');
     }
@@ -109,6 +127,11 @@ class Settings_Controller_Admin extends Zikula_AbstractController
             unset($settings['permasearch']);
             unset($settings['permareplace']);
         }
+
+        // delocalise page title
+        $settings['pagetitle'] = str_replace($this->__('%pagetitle%'), '%pagetitle%', $settings['pagetitle']);
+        $settings['pagetitle'] = str_replace($this->__('%sitename%'), '%sitename%', $settings['pagetitle']);
+        $settings['pagetitle'] = str_replace($this->__('%modulename%'), '%modulename%', $settings['pagetitle']);
 
         // Write the vars
         $configvars = ModUtil::getVar(ModUtil::CONFIG_MODULE);

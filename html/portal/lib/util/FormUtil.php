@@ -107,6 +107,7 @@ class FormUtil
                     static $valid = array('R', 'REQUEST', 'G', 'GET', 'P', 'POST', 'C', 'COOKIE', 'F', 'FILES', 'GP', 'GETPOST');
                     if (!in_array($source, $valid)) {
                         z_exit(__f('Invalid input source [%s] received.', DataUtil::formatForDisplay($source)));
+
                         return $default;
                     }
                 }
@@ -222,6 +223,7 @@ class FormUtil
                 $ve = array();
             }
         }
+
         return $ve;
     }
 
@@ -333,7 +335,7 @@ class FormUtil
     {
         if (self::hasValidationErrors($objectType, $field)) {
             return HtmlUtil::VALIDATION_MARKER;
-        } else if (self::isRequiredField($validationInfo, $field)) {
+        } elseif (self::isRequiredField($validationInfo, $field)) {
             return HtmlUtil::REQUIRED_MARKER;
         }
 
@@ -356,13 +358,13 @@ class FormUtil
     }
 
     /**
-     * Return a newly created pormRender instance with the given name.
+     * Return a newly created Zikula Form instance with the given name.
      *
-     * @param string                    $name       Module name.
+     * @param string                    $name       Module or plugin name.
      * @param Zikula_AbstractController $controller Controller.
      * @param string                    $className  Optionally instanciate a child of Zikula_Form_View.
      *
-     * @return Form_View The newly created Form_View instance.
+     * @return Zikula_Form_View The newly created Form_View instance.
      */
     public static function newForm($name, Zikula_AbstractController $controller = null, $className=null)
     {
@@ -371,7 +373,13 @@ class FormUtil
             throw new RuntimeException(__f('%s does not exist', $className));
         }
 
-        $form = $className ? new $className($serviceManager, $name) : new Zikula_Form_View($serviceManager, $name);
+        if ($controller instanceof Zikula_Controller_AbstractPlugin) {
+            // for plugins get module name from controller
+            $modinfo = $controller->getModInfo();
+            $form = $className ? new $className($serviceManager, $modinfo['name'], $name) : new Zikula_Form_View_Plugin($serviceManager, $modinfo['name'], $name);
+        } else {
+            $form = $className ? new $className($serviceManager, $name) : new Zikula_Form_View($serviceManager, $name);
+        }
         if ($className && !$form instanceof Zikula_Form_View) {
             throw new RuntimeException(__f('%s is not an instance of Zikula_Form_View', $className));
         }
@@ -387,5 +395,4 @@ class FormUtil
 
         return $form;
     }
-
 }

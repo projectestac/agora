@@ -20,7 +20,15 @@ ini_set('max_execution_time', 86400);
 
 include 'lib/bootstrap.php';
 ZLoader::addAutoloader('Users', 'system/Users/lib', '_');
+include_once __DIR__.'/plugins/Doctrine/Plugin.php';
 
+// check if the config.php was renewed
+if (!isset($GLOBALS['ZConfig']['Log']['log.to_debug_toolbar'])) {
+    echo __('It seems to be that your config.php is outdated. Please check the release notes for more information.');
+    die();
+}
+
+PluginUtil::loadPlugin('SystemPlugin_Doctrine_Plugin');
 $eventManager = $core->getEventManager();
 $eventManager->attach('core.init', 'upgrade_suppressErrors');
 
@@ -44,15 +52,15 @@ $connection = $eventManager->notify($dbEvent)->getData();
 
 $columns = upgrade_getColumnsForTable($connection, 'modules');
 
-if (is_array($columns) && in_array('pn_id', array_keys($columns))) {
+if (in_array('pn_id', array_keys($columns))) {
     upgrade_columns($connection);
 }
 
 if (!isset($columns['capabilities'])) {
     Doctrine_Core::createTablesFromArray(array('Zikula_Doctrine_Model_HookArea', 'Zikula_Doctrine_Model_HookProvider', 'Zikula_Doctrine_Model_HookSubscriber', 'Zikula_Doctrine_Model_HookBinding', 'Zikula_Doctrine_Model_HookRuntime'));
-    ModUtil::dbInfoLoad('Extensions', 'Extensions');
+    ModUtil::dbInfoLoad('Extensions', 'Extensions', true);
     DBUtil::changeTable('modules');
-    ModUtil::dbInfoLoad('Blocks', 'Blocks');
+    ModUtil::dbInfoLoad('Blocks', 'Blocks', true);
     DBUtil::changeTable('blocks');
 }
 
@@ -85,6 +93,32 @@ if ($action === 'upgrademodules' || $action === 'convertdb' || $action === 'sani
     } else {
         define('_ZINSTALLEDVERSION', $installedVersion);
     }
+}
+
+// check if the default theme is compatible with Zikula >= 1.3
+$themeName = System::getVar('Default_Theme');
+$themeId   = ThemeUtil::getIDFromName($themeName);
+$theme     = ThemeUtil::getInfo($themeId);
+$directory = $theme['directory'];
+if (!file_exists('themes/'.$directory.'/templates/master.tpl')) {
+    if (ThemeUtil::getIDFromName('Andreas08')  && file_exists('themes/Andreas08/templates/master.tpl')) {
+        System::setVar('Default_Theme', 'Andreas08');
+    } elseif (ThemeUtil::getIDFromName('SeaBreeze') && file_exists('themes/SeaBreeze/templates/master.tpl')) {
+        System::setVar('Default_Theme', 'SeaBreeze');
+    } else {
+        _upg_header();
+        echo '<p class="z-errormsg">' . __('Theme is not valid!') . '</p>' . "\n";
+        _upg_footer();
+        die();
+    }    
+}
+
+// deactivate file based shorturls
+if (System::getVar('shorturls') && System::getVar('shorturlstype')) {
+    System::setVar('shorturls', false);
+    System::delVar('shorturlstype'); 
+    System::delVar('shorturlsext');
+    LogUtil::registerError('You were using file based shorturls. This feature will no longer be supported. The shorturls were disabled. Directory based shorturls can be activated in the General settings manager.');
 }
 
 switch ($action) {
@@ -513,7 +547,6 @@ function upgrade_getTables($connection)
     }
 
     $prefixLen = strlen($GLOBALS['ZConfig']['System']['prefix'] . '_');
-    $prefixLen = strlen('z_');
     foreach ($tables as $key => $value) {
         $tables[$key] = substr($value, $prefixLen, strlen($value));
     }
@@ -536,8 +569,7 @@ function upgrade_getColumnsForTable($connection, $tableName)
     }
 
     try {
-        //return $connection->import->listTableColumns(($GLOBALS['ZConfig']['System']['prefix'] ? $GLOBALS['ZConfig']['System']['prefix'].'_' : '').$tableName);
-        return $connection->import->listTableColumns(('z' ? 'z_' : '').$tableName);
+        return $connection->import->listTableColumns(($GLOBALS['ZConfig']['System']['prefix'] ? $GLOBALS['ZConfig']['System']['prefix'].'_' : '').$tableName);
     } catch (Exception $e) {
         // TODO - do something with the exception here?
     }
@@ -553,7 +585,6 @@ function upgrade_getColumnsForTable($connection, $tableName)
 function upgrade_columns($connection)
 {
     $prefix = $GLOBALS['ZConfig']['System']['prefix'];
-    $prefix = 'z';
     $commands = array();
     $commands[] = "ALTER TABLE {$prefix}_admin_category CHANGE pn_cid cid INT(11) NOT NULL AUTO_INCREMENT";
     $commands[] = "ALTER TABLE {$prefix}_admin_category CHANGE pn_name name VARCHAR(32) NOT NULL";
@@ -790,26 +821,6 @@ CHANGE  `cmm_lu_uid`  `lu_uid` INT( 11 ) NOT NULL DEFAULT  '0'";
     $commands[] = "DROP TABLE {$prefix}_sc_log_event";
 
     $commands[] = "UPDATE module_vars SET modname = 'ZConfig' WHERE modname = '/PNConfig'";
-    
-    // add portal tables
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_clients TO agoraportal_clients";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_clientType TO agoraportal_clientType";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_client_managers TO agoraportal_client_managers";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_client_services TO agoraportal_client_services";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_client_settings TO agoraportal_client_settings";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_intranet_stats_day TO agoraportal_intranet_stats_day";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_ldap_asynchronous TO agoraportal_ldap_asynchronous";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_location TO agoraportal_location";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_moodle_stats_day TO agoraportal_moodle_stats_day";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_moodle_stats_month TO agoraportal_moodle_stats_month";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_moodle_stats_week TO agoraportal_moodle_stats_week";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_mysql_comands TO agoraportal_mysql_comands";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_request TO agoraportal_request";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_requestStates TO agoraportal_requestStates";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_requestTypes TO agoraportal_requestTypes";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_requestTypesServices TO agoraportal_requestTypesServices";
-    $commands[] = "RENAME TABLE {$prefix}_agoraPortal_services TO agoraportal_services";
-
     $silentCommands = array();
     $silentCommands[] = "ALTER TABLE {$prefix}_message CHANGE pn_mid mid INT(11) NOT NULL AUTO_INCREMENT ,
 CHANGE pn_title title VARCHAR(100) NOT NULL DEFAULT  '',

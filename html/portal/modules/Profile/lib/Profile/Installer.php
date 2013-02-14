@@ -88,6 +88,7 @@ CHANGE  `pn_prop_attribute_name`  `attributename` VARCHAR( 80 ) CHARACTER SET ut
                 }
                 
             case '1.6.0':
+            case '1.6.1':
                 // 1.6.0 -> X.X.X when appropriate.
         }
 

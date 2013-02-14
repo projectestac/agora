@@ -99,3 +99,6 @@
         {/if}
     </p>
 </div>
+<script type="text/javascript" language="JavaScript">
+document.getElementById("users_login_login_id").focus();
+</script>

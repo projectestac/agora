@@ -147,7 +147,7 @@ abstract class Zikula_AbstractPlugin extends Zikula_AbstractEventHandler impleme
         if (!isset($meta['displayname']) && !isset($meta['description']) && !isset($meta['version'])) {
             throw new InvalidArgumentException(sprintf('%s->getMeta() must be implemented according to the abstract.  See docblock in Zikula_AbstractPlugin for details', get_class($this)));
         }
-        
+
         // Load any handlers if they exist
         if ($this->getReflection()->hasMethod('setupHandlerDefinitions')) {
             $this->setupHandlerDefinitions();
@@ -182,6 +182,7 @@ abstract class Zikula_AbstractPlugin extends Zikula_AbstractEventHandler impleme
         }
 
         $this->reflection = new ReflectionObject($this);
+
         return $this->reflection;
     }
 
@@ -215,7 +216,7 @@ abstract class Zikula_AbstractPlugin extends Zikula_AbstractEventHandler impleme
             $this->moduleName = 'zikula';
             $this->pluginName = $p[1];
             $this->pluginType = self::TYPE_SYSTEM;
-            $this->domain = ZLanguage::getSystemPluginDomain($this->moduleName, $this->pluginName);
+            $this->domain = ZLanguage::getSystemPluginDomain($this->pluginName);
             ZLanguage::bindSystemPluginDomain($this->pluginName);
         } else {
             throw new LogicException(sprintf('This class %s does not appear to be named correctly.  System plugins should be named {SystemPlugin}_{Name}_Plugin, module plugins should be named {ModulePlugin}_{ModuleName}_{PluginName}_Plugin.', $this->className));
@@ -282,6 +283,7 @@ abstract class Zikula_AbstractPlugin extends Zikula_AbstractEventHandler impleme
             // this is deliberate lazy load for dependency.
             $this->modinfo = ModUtil::getInfoFromName($this->moduleName);
         }
+
         return $this->modinfo;
     }
 
@@ -475,8 +477,9 @@ abstract class Zikula_AbstractPlugin extends Zikula_AbstractEventHandler impleme
         if ($this instanceof Zikula_Plugin_AlwaysOnInterface) {
             return true;
         }
-        
+
         $plugin = PluginUtil::getState($this->serviceId, PluginUtil::getDefaultState());
+
         return ($plugin['state'] === PluginUtil::ENABLED) ? true : false;
     }
 
@@ -492,6 +495,7 @@ abstract class Zikula_AbstractPlugin extends Zikula_AbstractEventHandler impleme
         }
 
         $plugin = PluginUtil::getState($this->serviceId, PluginUtil::getDefaultState());
+
         return ($plugin['state'] === PluginUtil::NOTINSTALLED) ? false : true;
     }
 

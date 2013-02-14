@@ -16,58 +16,86 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Category registry doctrine2 entity.
- * 
+ *
  * @ORM\Entity
  * @ORM\Table(name="categories_registry")
  */
-class Zikula_Doctrine2_Entity_CategoryRegistry {
+class Zikula_Doctrine2_Entity_CategoryRegistry
+{
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @var integer 
+     * @var integer
      */
     private $id;
-    
+
     /**
      * @ORM\Column(type="string", length=255)
-     * @var string 
+     * @var string
      */
     private $property;
-    
+
     /**
      * @ORM\Column(type="integer", name="category_id")
-     * @var integer 
+     * @var integer
      */
     private $categoryId;
+    /**
+     * @ORM\Column(type="string", length=60)
+     * @var string
+     */
+    private $modname;
+    /**
+     * @ORM\Column(type="string", length=60)
+     * @var string
+     */
+    private $tablename;
 
-    public function getId() 
+    public function getId()
     {
         return $this->id;
-    }
-    
-    public function setId($id) 
-    {
-        $this->id;
     }
 
     public function getProperty()
     {
         return $this->property;
     }
-    
+
     public function setProperty($property)
     {
         $this->property = $property;
     }
-    
+
     public function getCategoryId()
     {
         return $this->categoryId;
     }
-    
+
     public function setCategoryId($categoryId)
     {
         $this->categoryId = $categoryId;
     }
+
+    public function getModname()
+    {
+        return $this->modname;
+    }
+
+    public function setModname($modname)
+    {
+        $this->modname = $modname;
+    }
+
+    public function getTablename()
+    {
+        return $this->tablename;
+    }
+
+    public function setTablename($tablename)
+    {
+        $this->tablename = $tablename;
+    }
+
+
 }
