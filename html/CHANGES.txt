@@ -5,6 +5,8 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE 2
+- Fixed bug in db authentication related with Intraweb users integration
 
 
 Changes 13.02.12
