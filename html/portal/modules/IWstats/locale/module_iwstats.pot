@@ -1,0 +1,324 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula component\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-14 13:03+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/IWstats/Installer.php:10
+msgid "Module IWmain is needed. You have to install the IWmain module before installing it."
+msgstr ""
+
+#: lib/IWstats/Installer.php:43
+msgid "unable to create system init hook"
+msgstr ""
+
+#: lib/IWstats/Installer.php:46
+msgid "Stats have been enabled, you can change this in the hook settings (Administration -> Modules -> System hooks) by deactivating the Stats systeminit hook for Zikula itself"
+msgstr ""
+
+#: lib/IWstats/Installer.php:83
+msgid "unable to delete system init hook"
+msgstr ""
+
+#: lib/IWstats/Api/Admin.php:38
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: lib/IWstats/Api/Admin.php:56 lib/IWstats/Api/Admin.php:63
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: lib/IWstats/Api/Admin.php:83
+msgid "Error! Could not load data."
+msgstr ""
+
+#: lib/IWstats/Api/Admin.php:195 lib/IWstats/Api/User.php:60
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: lib/IWstats/Api/Admin.php:220
+msgid "View visited pages"
+msgstr ""
+
+#: lib/IWstats/Api/Admin.php:221
+msgid "View stats"
+msgstr ""
+
+#: lib/IWstats/Api/Admin.php:222
+msgid "Reset"
+msgstr ""
+
+#: lib/IWstats/Api/Admin.php:223 templates/IWstats_admin_modifyconfig.htm:4
+#: templates/IWstats_admin_modifyconfig.htm:6
+msgid "Settings"
+msgstr ""
+
+#: lib/IWstats/Api/Admin.php:224
+msgid "Summary"
+msgstr ""
+
+#: lib/IWstats/Api/User.php:129 lib/IWstats/Api/User.php:235
+msgid "Error! Load attempt failed."
+msgstr ""
+
+#: lib/IWstats/Controller/Admin.php:61 lib/IWstats/Controller/Admin.php:357
+#, php-format
+msgid "User '%s' not found"
+msgstr ""
+
+#: lib/IWstats/Controller/Admin.php:162 lib/IWstats/Controller/Admin.php:503
+msgid "Unregistered"
+msgstr ""
+
+#: lib/IWstats/Controller/Admin.php:214
+msgid "IWstats reset error."
+msgstr ""
+
+#: lib/IWstats/Controller/Admin.php:218
+msgid "IWstats reset"
+msgstr ""
+
+#: lib/IWstats/Controller/Admin.php:286
+msgid "Done! Module configuration updated."
+msgstr ""
+
+#: lib/IWstats/Controller/Admin.php:311
+#, php-format
+msgid "Error deleting the ip '%s'"
+msgstr ""
+
+#: lib/IWstats/Controller/Admin.php:316
+#, php-format
+msgid "Ip '%s' deleted"
+msgstr ""
+
+#: lib/IWstats/Controller/Admin.php:398
+msgid "unknown"
+msgstr ""
+
+#: lib/IWstats/Controller/Admin.php:536
+msgid "Summary reported"
+msgstr ""
+
+#: lib/IWstats/Block/Usersonline.php:12
+msgid "Display the users on line"
+msgstr ""
+
+#: lib/IWstats/Version.php:7 templates/IWstats_admin_stats.htm:9
+#: templates/IWstats_admin_view.htm:9 templates/IWstats_admin_deleteip.htm:4
+msgid "Statistics"
+msgstr ""
+
+#: lib/IWstats/Version.php:8
+msgid "Statistics module."
+msgstr ""
+
+#: lib/IWstats/Version.php:9
+msgid "IWstats"
+msgstr ""
+
+#: templates/IWstats_admin_reset.htm:4 templates/IWstats_admin_reset.htm:6
+msgid "Reset site statistics"
+msgstr ""
+
+#: templates/IWstats_admin_reset.htm:12
+msgid "Days to conserve (0 delete all the statistics)"
+msgstr ""
+
+#: templates/IWstats_admin_reset.htm:16
+msgid "After doing this action the data can not be restored."
+msgstr ""
+
+#: templates/IWstats_admin_reset.htm:20
+msgid "Submit"
+msgstr ""
+
+#: templates/IWstats_admin_reset.htm:22
+#: templates/IWstats_admin_deleteip.htm:22
+msgid "Cancel"
+msgstr ""
+
+#: templates/IWstats_block_editusersonline.htm:2
+msgid "Unregistered users can see online users"
+msgstr ""
+
+#: templates/IWstats_block_editusersonline.htm:6
+msgid "Session time (between 10 and 120 minutes)"
+msgstr ""
+
+#: templates/IWstats_block_editusersonline.htm:10
+msgid "Block time refresh in seconds (minimum 100)"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:11 templates/IWstats_admin_view.htm:11
+msgid "Pàgines consultades"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:14 templates/IWstats_admin_stats.htm:27
+#: templates/IWstats_admin_stats.htm:53 templates/IWstats_admin_view.htm:14
+#: templates/IWstats_admin_view.htm:47
+msgid "Filter"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:16 templates/IWstats_admin_view.htm:16
+msgid "Entries between the day"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:19 templates/IWstats_admin_view.htm:19
+msgid "and the day"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:35
+msgid "Users"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:37 templates/IWstats_admin_stats.htm:61
+msgid "Number of registers:"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:40
+msgid "Number of different Ip:"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:43
+msgid "Number of different registered users:"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:47
+msgid "User's stadistics"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:66 templates/IWstats_admin_stats.htm:94
+#: templates/IWstats_admin_view.htm:25 templates/IWstats_admin_view.htm:62
+msgid "Module"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:67 templates/IWstats_admin_stats.htm:95
+#: templates/IWstats_admin_stats.htm:123
+msgid "Visits"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:82 templates/IWstats_admin_stats.htm:112
+#: templates/IWstats_admin_stats.htm:142
+msgid "No data found in this interval of time"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:90
+msgid "Modules"
+msgstr ""
+
+#: templates/IWstats_admin_stats.htm:122 templates/IWstats_admin_view.htm:61
+msgid "User"
+msgstr ""
+
+#: templates/IWstats_admin_menu.htm:4
+msgid "Site statistics"
+msgstr ""
+
+#: templates/IWstats_block_usersonline.htm:3
+msgid "Users on line:"
+msgstr ""
+
+#: templates/IWstats_block_usersonline.htm:14
+#, php-format
+msgid "There are %s unregistered and 1 registerd user online."
+msgid_plural "There are %s unregistered and %s registered users online."
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/IWstats_admin_modifyconfig.htm:11
+msgid "skipped IPs (separeted by comma). * values are wildcards"
+msgstr ""
+
+#: templates/IWstats_admin_modifyconfig.htm:21
+msgid "Skip modules"
+msgstr ""
+
+#: templates/IWstats_admin_modifyconfig.htm:31
+msgid "Update Configuration"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:27
+msgid "Choose a module..."
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:34
+msgid "Username"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:38
+msgid "Kind of users"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:40
+msgid "All users"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:41
+msgid "Only registered users"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:50
+msgid "Reload"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:60
+msgid "id"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:63
+msgid "Function"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:64
+msgid "Type"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:65
+msgid "Parameters"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:66
+msgid "Date and time"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:67
+msgid "IP"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:68
+msgid "Obre"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:110
+msgid "Remove"
+msgstr ""
+
+#: templates/IWstats_admin_view.htm:116
+msgid "Open"
+msgstr ""
+
+#: templates/IWstats_admin_deleteip.htm:6
+msgid "Delete all the entries with a given ip"
+msgstr ""
+
+#: templates/IWstats_admin_deleteip.htm:12
+#, php-format
+msgid "Confirm that you want to delete all the entries with the ip %s"
+msgstr ""
+
+#: templates/IWstats_admin_deleteip.htm:17
+msgid "Confirm"
+msgstr ""
