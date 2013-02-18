@@ -2,14 +2,14 @@
 	
     require_once(INSTALL_BASE.'/html/config/dblib-mysql.php');
 	
-    //Per configurar l'acces de la site
-    /*TO ERASE 5*/
+    // Debug code
     $debug_enabled = isset($_GET['debug']) ? $_GET['debug']: 'off';
     define('DEBUG_ENABLED', $debug_enabled);
     xtec_debug("DEBUG ENABLED: $debug_enabled");
     
     $dbsource = isset($_GET['dbsource']) ? $_GET['dbsource']: $agora['dbsource']['defaulttype'];
     xtec_debug("Selected source: $dbsource");
+    // End debug
 	
     //Get info from cookie if exists
     $centre = $_REQUEST['ccentre'];
@@ -20,9 +20,8 @@
         exit(0);
     }
 
-     $school_info = getSchoolInfoFromFile($centre, $dbsource, 'moodle');
-     /*TO ERASE*/
-     xtec_debug($school_info['source']);
+    $school_info = getSchoolInfoFromFile($centre, $dbsource, 'moodle');
+    xtec_debug($school_info['source']);
 
     if($school_info === false) {
         header('location: '.WWWROOT.'error.php?s=moodle&dns='.$_REQUEST['ccentre']);
@@ -33,7 +32,7 @@
     //$CFG->ismarsupial = $school_info['type']=='MARSUPIAL';
     $CFG->ismarsupial = array_key_exists('is_marsupial', $school_info) && $school_info['is_marsupial'];
     $moodle_wwwserver = $agora['server']['server'];
-    if (isset($CFG->ismarsupial) && $CFG->ismarsupial ){
+    if (isset($CFG->ismarsupial) && $CFG->ismarsupial){
         $moodle_wwwserver = $agora['server']['marsupial'];
     }
     $moodle_wwwroot = $moodle_wwwserver.$agora['server']['base'];
