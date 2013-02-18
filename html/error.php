@@ -3,8 +3,8 @@
     <head>
         <title>Servei &Agrave;gora</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="portal/config/styles/style.css" />
-        <link rel="stylesheet" type="text/css" href="portal/config/styles/style-media.css" media="print" />
+        <link rel="stylesheet" type="text/css" href="portal/config/style/style.css" />
+        <link rel="stylesheet" type="text/css" href="portal/config/style/style-media.css" media="print" />
         <script language="javascript" type="text/javascript" src="portal/javascript/javascript.js"></script>
 
     </head>
