@@ -33,15 +33,17 @@
  * <li>header</li>
  * <li>footer</li>
  * </ul>
- * 
+ *
  * In addition, if your system is operating in legacy compatibility mode, then
  * the variable 'rawtext' is reserved, and maps to 'header'. (When not operating in
  * legacy compatibility mode, 'rawtext' is not reserved and will not be rendered
  * to the page output by the page variable output filter.)
  *
  * Examples
+ *   {pageaddvar name='javascript' value='jquery'}
  *   {pageaddvar name='javascript' value='path/to/myscript.js'}
  *   {pageaddvar name='javascript' value='path/to/myscript.js,path/to/another/script.js'}
+ *   {pageaddvar name="jsgettext" value="module_news_js:News"}
  *
  * @param array       $params All attributes passed to this function from the template.
  * @param Zikula_View $view   Reference to the Zikula_View object.
@@ -55,11 +57,13 @@ function smarty_function_pageaddvar($params, Zikula_View $view)
 
     if (!$name) {
         $view->trigger_error(__f('Error! in %1$s: the %2$s parameter must be specified.', array('pageaddvar', 'name')));
+
         return false;
     }
 
     if (!$value) {
         $view->trigger_error(__f('Error! in %1$s: the %2$s parameter must be specified.', array('pageaddvar', 'value')));
+
         return false;
     }
 

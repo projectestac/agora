@@ -37,6 +37,7 @@ function smarty_function_formutil_getpassedvalue($params, Zikula_View $view)
             (!isset($params['name']) || !$params['name'])) {
         // use name as an alias for key for programmer convenience
         $view->trigger_error('formutil_getpassedvalue: attribute key (or name) required');
+
         return false;
     }
 
@@ -51,7 +52,24 @@ function smarty_function_formutil_getpassedvalue($params, Zikula_View $view)
         $key = isset($params['name']) ? $params['name'] : null;
     }
 
-    $val = FormUtil::getPassedValue($key, $default, $source);
+    $source = isset($source) ? $source : null;
+    switch ($source) {
+        case 'GET':
+            $val = $view->getRequest()->query->get($key, $default);
+            break;
+        case 'POST':
+            $val = $view->getRequest()->request->get($key, $default);
+            break;
+        case 'SERVER':
+            $val = $view->getRequest()->server->get($key, $default);
+            break;
+        case 'FILES':
+            $val = $view->getRequest()->files->get($key, $default);
+            break;
+        default:
+            $val = $view->getRequest()->query->get($key, $view->getRequest()->request->get($key, $default));
+            break;
+    }
 
     if ($noprocess) {
         $val = $val;

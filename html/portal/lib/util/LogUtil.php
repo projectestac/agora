@@ -62,6 +62,7 @@ class LogUtil
     public static function getStatusMessagesText($delimiter = '<br />', $delete = true, $override = true)
     {
         $msgs = self::getStatusMessages($delete, $override);
+
         return implode($delimiter, $msgs);
     }
 
@@ -101,6 +102,7 @@ class LogUtil
     public static function getErrorMessagesText($delimeter = '<br />', $delete = true)
     {
         $msgs = self::getErrorMessages($delete);
+
         return implode($delimeter, $msgs);
     }
 
@@ -122,6 +124,7 @@ class LogUtil
     public static function hasErrors()
     {
         $msgs = self::getErrorMessages(false);
+
         return (bool)!empty($msgs);
     }
 
@@ -232,7 +235,7 @@ class LogUtil
             if (is_null($url)) {
                 $serviceManager = ServiceUtil::getManager();
                 $request = $serviceManager->getService('request');
-                
+
                 $loginArgs = array();
                 if ($request->isGet()) {
                     $loginArgs['returnpage'] = urlencode(System::getCurrentUri());
@@ -241,6 +244,7 @@ class LogUtil
             }
             $code = null;
         }
+
         return self::registerError(self::getErrorMsgPermission(), $code, $url);
     }
 
@@ -250,7 +254,7 @@ class LogUtil
      * Also adds method, file and line where the error occured.
      *
      * @param string  $message The error message.
-     * @param intiger $type    The type of error (numeric and corresponding to a HTTP status code) (optional) (default=null).
+     * @param integer $type    The type of error (numeric and corresponding to a HTTP status code) (optional) (default=null).
      * @param string  $url     The url to redirect to (optional) (default=null).
      *
      * @return false or system redirect if url is set.

@@ -26,12 +26,24 @@ function smarty_block_form($params, $content, $view)
 {
     if ($content) {
         PageUtil::addVar('stylesheet', 'system/Theme/style/form/style.css');
-        $encodingHtml = (array_key_exists('enctype', $params) ? " enctype=\"$params[enctype]\"" : '');
         $action = htmlspecialchars(System::getCurrentUri());
         $classString = '';
         if (isset($params['cssClass'])) {
-            $classString = "class=\"$params[cssClass]\" ";
+            $classString = "class=\"{$params['cssClass']}\" ";
         }
+
+        $enctype = array_key_exists('enctype', $params) ? $params['enctype'] : null;
+        // if enctype is not set directly, check whenever upload plugins were used;
+        // if so - set proper enctype for file upload
+        if (is_null($enctype)) {
+            $uploadPlugins = array_filter($view->plugins, function($plugin) {
+                return $plugin instanceof Zikula_Form_Plugin_UploadInput;
+            });
+            if (!empty($uploadPlugins)) {
+                $enctype = 'multipart/form-data';
+            }
+        }
+        $encodingHtml = !is_null($enctype) ? " enctype=\"{$enctype}\"" : '';
 
         $view->postRender();
 
@@ -52,8 +64,7 @@ function smarty_block_form($params, $content, $view)
             function FormDoPostBack(eventTarget, eventArgument)
             {
                 var f = document.getElementById('{$formId}');
-                if (!f.onsubmit || f.onsubmit())
-                {
+                if (!f.onsubmit || f.onsubmit()) {
                     f.FormEventTarget.value = eventTarget;
                     f.FormEventArgument.value = eventArgument;
                     f.submit();
@@ -64,6 +75,7 @@ function smarty_block_form($params, $content, $view)
     </div>
 </form>
 ";
+
         return $out;
     }
 }

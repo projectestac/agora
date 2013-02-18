@@ -80,7 +80,7 @@ class Search_Controller_User extends Zikula_AbstractController
 
         if (count($search_modules) > 0) {
             $plugin_options = array();
-            foreach($search_modules as $mods) {
+            foreach ($search_modules as $mods) {
                 // if active array is empty, we need to set defaults
                 if ($setActiveDefaults) {
                     $vars['active'][$mods['name']] = '1';
@@ -192,6 +192,7 @@ class Search_Controller_User extends Zikula_AbstractController
             return $this->view->fetch('search_user_results.tpl');
         }
         */
+        $this->view->setCaching(false); // not to show equal results for different searches
 
         $result = ModUtil::apiFunc('Search', 'user', 'search', $vars);
 

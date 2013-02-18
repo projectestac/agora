@@ -100,9 +100,9 @@ class Zikula_View_Plugin extends Zikula_View
 
         // for {gt} template plugin to detect gettext domain
         if ($view->module[$moduleName]['type'] == ModUtil::TYPE_MODULE || $view->module[$moduleName]['type'] == ModUtil::TYPE_SYSTEM) {
-            $view->renderDomain = ZLanguage::getModulePluginDomain($view->module[$moduleName]['name'], $view->pluginName);
+            $view->domain = ZLanguage::getModulePluginDomain($view->module[$moduleName]['name'], $view->getPluginName());
         } elseif ($view->module[$moduleName]['type'] == ModUtil::TYPE_CORE) {
-            $view->renderDomain = ZLanguage::getSystemPluginDomain($view->module[$moduleName]['name'], $view->pluginName);
+            $view->domain = ZLanguage::getSystemPluginDomain($view->getPluginName());
         }
 
         return $view;
@@ -127,8 +127,7 @@ class Zikula_View_Plugin extends Zikula_View
             return;
         }
 
-        switch ($modinfo['type'])
-        {
+        switch ($modinfo['type']) {
             case ModUtil::TYPE_SYSTEM:
                 $pluginsDir = "system/{$modinfo['directory']}/plugins/$plugin/templates/plugins";
                 break;
@@ -183,6 +182,7 @@ class Zikula_View_Plugin extends Zikula_View
             foreach ($search_path as $path) {
                 if (is_readable("$path/$ostemplate")) {
                     $cache[$template] = $path;
+
                     return $path;
                 }
             }

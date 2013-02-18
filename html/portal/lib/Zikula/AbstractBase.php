@@ -106,10 +106,7 @@ abstract class Zikula_AbstractBase implements Zikula_TranslatableInterface
         $this->eventManager = $this->getService('zikula.eventmanager');
 
         $this->request = $this->getService('request');
-        if ($this->hasService('doctrine.entitymanager')) {
-            // todo: remove this check post 1.3.0 release - drak
-            $this->entityManager = $this->getService('doctrine.entitymanager');
-        }
+        $this->entityManager = $this->getService('doctrine.entitymanager');
         $this->_configureBase();
         $this->initialize();
         $this->postInitialize();
@@ -167,6 +164,7 @@ abstract class Zikula_AbstractBase implements Zikula_TranslatableInterface
         if (!$this->reflection) {
             $this->reflection = new ReflectionObject($this);
         }
+
         return $this->reflection;
     }
 
@@ -231,6 +229,7 @@ abstract class Zikula_AbstractBase implements Zikula_TranslatableInterface
         if (!$this->modinfo) {
             $this->modinfo = ModUtil::getInfoFromName($this->name);
         }
+
         return $this->modinfo;
     }
 
@@ -634,6 +633,7 @@ abstract class Zikula_AbstractBase implements Zikula_TranslatableInterface
     public function setVar($key, $value='')
     {
         ModUtil::setVar($this->name, $key, $value);
+
         return $this;
     }
 
@@ -647,6 +647,7 @@ abstract class Zikula_AbstractBase implements Zikula_TranslatableInterface
     public function setVars(array $vars)
     {
         ModUtil::setVars($this->name, $vars);
+
         return $this;
     }
 
@@ -683,6 +684,7 @@ abstract class Zikula_AbstractBase implements Zikula_TranslatableInterface
     public function delVar($key)
     {
         ModUtil::delVar($this->name, $key);
+
         return $this;
     }
 
@@ -694,6 +696,7 @@ abstract class Zikula_AbstractBase implements Zikula_TranslatableInterface
     public function delVars()
     {
         ModUtil::delVar($this->name);
+
         return $this;
     }
 
@@ -709,7 +712,7 @@ abstract class Zikula_AbstractBase implements Zikula_TranslatableInterface
     public function checkCsrfToken($token=null)
     {
         if (is_null($token)) {
-            $token = $this->request->getPost()->get('csrftoken', false);
+            $token = $this->request->request->get('csrftoken', false);
         }
 
         $tokenValidator = $this->serviceManager->getService('token.validator');

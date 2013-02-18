@@ -28,7 +28,7 @@ class Search_Block_Search extends Zikula_Controller_AbstractBlock
     /**
      * get information on block
      *
-     * @return       array       The block information
+     * @return array The block information
      */
     public function info()
     {
@@ -45,8 +45,8 @@ class Search_Block_Search extends Zikula_Controller_AbstractBlock
     /**
      * display block
      *
-     * @param        array       $blockinfo     a blockinfo structure
-     * @return       output      the rendered bock
+     * @param  array  $blockinfo a blockinfo structure
+     * @return output the rendered bock
      */
     public function display($blockinfo)
     {
@@ -67,13 +67,20 @@ class Search_Block_Search extends Zikula_Controller_AbstractBlock
             $vars['active'] = array();
         }
 
-        // assign the block vars array
-        $this->view->assign('vars', $vars);
-
         // set a title if one isn't present
         if (empty($blockinfo['title'])) {
             $blockinfo['title'] = __('Search');
         }
+
+        $plugin_options = array();
+
+        foreach (array_keys($vars['active']) as $mod) {
+            $plugin_options[$mod] = ModUtil::apiFunc($mod, 'search', 'options', $vars);
+        }
+
+        // assign the block vars and the plgin options
+        $this->view->assign('vars', $vars)
+                   ->assign('plugin_options', $plugin_options);
 
         // return the rendered block
         $blockinfo['content'] = $this->view->fetch('search_block_search.tpl');
@@ -84,16 +91,13 @@ class Search_Block_Search extends Zikula_Controller_AbstractBlock
     /**
      * modify block settings
      *
-     * @param        array       $blockinfo     a blockinfo structure
-     * @return       output      the bock form
+     * @param  array  $blockinfo a blockinfo structure
+     * @return output the bock form
      */
     public function modify($blockinfo)
     {
         // Get current content
         $vars = BlockUtil::varsFromContent($blockinfo['content']);
-
-        // get all the search plugins
-        $search_modules = ModUtil::apiFunc('Search', 'user', 'getallplugins');
 
         // set some defaults
         if (!isset($vars['displaySearchBtn'])) {
@@ -104,9 +108,12 @@ class Search_Block_Search extends Zikula_Controller_AbstractBlock
             $vars['active'] = array();
         }
 
+        // get all the search plugins
+        $search_modules = ModUtil::apiFunc('Search', 'user', 'getallplugins');
+
         $searchmodules = array();
         if (is_array($search_modules)) {
-            foreach($search_modules as $mods) {
+            foreach ($search_modules as $mods) {
                 $searchmodules[] = array('module' => ModUtil::apiFunc($mods['title'], 'Search', 'options', $vars));
             }
         }
@@ -123,10 +130,10 @@ class Search_Block_Search extends Zikula_Controller_AbstractBlock
     /**
      * update block settings
      *
-     * @param        array       $blockinfo     a blockinfo structure
+     * @param  array $blockinfo a blockinfo structure
      * @return       $blockinfo  the modified blockinfo structure
      */
-    function update($blockinfo)
+    public function update($blockinfo)
     {
         // list of vars that don't need to be saved
         $search_reserved_vars = array('authid', 'csrftoken', 'bid', 'title', 'positions', 'language', 'submit',

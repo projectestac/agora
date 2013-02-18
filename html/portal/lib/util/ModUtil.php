@@ -174,7 +174,7 @@ class ModUtil
      * @param string  $name    The name of the variable.
      * @param boolean $default The value to return if the requested modvar is not set.
      *
-     * @return  string|array If the name parameter is included then method returns
+     * @return string|array If the name parameter is included then method returns
      *          string - module variable value
      *          if the name parameter is ommitted then method returns
      *          array - multi dimentional array of the keys
@@ -206,7 +206,7 @@ class ModUtil
                             // ref #2045 vars are being stored with 0/1 unserialised.
                             if (array_key_exists($k, $GLOBALS['ZConfig']['System'])) {
                                 self::$modvars[$modname][$k] = $GLOBALS['ZConfig']['System'][$k];
-                            } else if ($v == '0' || $v == '1') {
+                            } elseif ($v == '0' || $v == '1') {
                                 self::$modvars[$modname][$k] = $v;
                             } else {
                                 self::$modvars[$modname][$k] = unserialize($v);
@@ -295,6 +295,7 @@ class ModUtil
         foreach ($vars as $var => $value) {
             $ok = $ok && self::setVar($modname, $var, $value);
         }
+
         return $ok;
     }
 
@@ -351,6 +352,7 @@ class ModUtil
 
         $where = "WHERE $cols[modname] = '$modname' $specificvar";
         $res = (bool)DBUtil::deleteWhere('module_vars', $where);
+
         return ($val ? $val : $res);
     }
 
@@ -405,6 +407,7 @@ class ModUtil
 
             if (!isset(self::$cache['modid'][$module])) {
                 self::$cache['modid'][$module] = false;
+
                 return false;
             }
         }
@@ -441,6 +444,7 @@ class ModUtil
 
             if (!isset(self::$modinfo[$modid])) {
                 self::$modinfo[$modid] = false;
+
                 return self::$modinfo[$modid];
             }
         }
@@ -552,6 +556,7 @@ class ModUtil
         if (!$modinfo) {
             return false;
         }
+
         return (bool)array_key_exists($capability, $modinfo['capabilities']);
     }
 
@@ -568,6 +573,7 @@ class ModUtil
         if (array_key_exists($module, $modules)) {
             return $modules[$module]['capabilities'];
         }
+
         return false;
     }
 
@@ -644,13 +650,6 @@ class ModUtil
             $modpath = is_dir("system/$directory") ? 'system' : 'modules';
         }
 
-        // no need for tables.php scan if using Doctrine
-        $doctrineModelDir  = "$modpath/$directory/lib/$directory/Model";
-        $doctrineEntityDir = "$modpath/$directory/lib/$directory/Entity";
-        if (is_dir($doctrineModelDir) || is_dir($doctrineEntityDir)) {
-            return true;
-        }
-
         // Load the database definition if required
         $files = array();
         $files[] = "$modpath/$directory/tables.php";
@@ -683,8 +682,8 @@ class ModUtil
             $dbtables = $serviceManager['dbtables'];
             $serviceManager['dbtables'] = array_merge($dbtables, (array)$data);
         } else {
-            // marks the module as tableless
-            $loaded[$modname] = false;
+            // the module is tableless (Doctrine or doesn't use tables at all)
+            return true;
         }
 
         // update the loaded status
@@ -707,6 +706,7 @@ class ModUtil
         if (strtolower(substr($type, -3)) == 'api') {
             return false;
         }
+
         return self::loadGeneric($modname, $type, $force);
     }
 
@@ -781,6 +781,7 @@ class ModUtil
         // if class is loadable or has been loaded exit here.
         if (self::isInitialized($modname)) {
             self::_loadStyleSheets($modname, $api, $type);
+
             return $modname;
         }
 
@@ -950,7 +951,7 @@ class ModUtil
      * @param string $className Class name.
      *
      * @throws LogicException If $className is neither a Zikula_AbstractApi nor a Zikula_AbstractController.
-     * @return object Module object.
+     * @return object         Module object.
      */
     public static function getObject($className)
     {
@@ -978,6 +979,7 @@ class ModUtil
                     throw $e;
                 } else {
                     LogUtil::registerError('A fatal error has occured which can be viewed only in development mode.', 500);
+
                     return false;
                 }
             }
@@ -1105,6 +1107,7 @@ class ModUtil
                     if (function_exists($modfunc)) {
                         EventUtil::notify($preExecuteEvent);
                         $postExecuteEvent->setData($modfunc($args));
+
                         return EventUtil::notify($postExecuteEvent)->getData();
                     }
                 }
@@ -1115,6 +1118,7 @@ class ModUtil
                 if (is_callable($modfunc)) {
                     $eventManager->notify($preExecuteEvent);
                     $postExecuteEvent->setData($modfunc($args));
+
                     return $eventManager->notify($postExecuteEvent)->getData();
                 }
             }
@@ -1124,6 +1128,7 @@ class ModUtil
                 if (is_callable($modfunc)) {
                     $eventManager->notify($preExecuteEvent);
                     $postExecuteEvent->setData($modfunc($args));
+
                     return $eventManager->notify($postExecuteEvent)->getData();
                 }
             }
@@ -1201,11 +1206,11 @@ class ModUtil
      * a) $func is ignored.
      * b) $type=admin will generate admin.php?module=... and $type=user will generate index.php?name=...
      *
-     * @param string         $modname      The name of the module.
-     * @param string         $type         The type of function to run.
-     * @param string         $func         The specific function to run.
-     * @param array          $args         The array of arguments to put on the URL.
-     * @param boolean|null   $ssl          Set to constant null,true,false $ssl = true not $ssl = 'true'  null - leave the current status untouched,
+     * @param string       $modname The name of the module.
+     * @param string       $type    The type of function to run.
+     * @param string       $func    The specific function to run.
+     * @param array        $args    The array of arguments to put on the URL.
+     * @param boolean|null $ssl     Set to constant null,true,false $ssl = true not $ssl = 'true'  null - leave the current status untouched,
      *                                     true - create a ssl url, false - create a non-ssl url.
      * @param string         $fragment     The framgment to target within the URL.
      * @param boolean|null   $fqurl        Fully Qualified URL. True to get full URL, eg for Redirect, else gets root-relative path unless SSL.
@@ -1448,6 +1453,7 @@ class ModUtil
                 self::$cache['modstate'][$modname] == self::STATE_ACTIVE) || (preg_match('/^(extensions|admin|theme|block|groups|permissions|users)$/i', $modname) &&
                 (isset(self::$cache['modstate'][$modname]) && (self::$cache['modstate'][$modname] == self::STATE_UPGRADED || self::$cache['modstate'][$modname] == self::STATE_INACTIVE)))) {
             self::$cache['modstate'][$modname] = self::STATE_ACTIVE;
+
             return true;
         }
 
@@ -1465,7 +1471,18 @@ class ModUtil
             self::$cache['modgetname'] = FormUtil::getPassedValue('module', null, 'GETPOST', FILTER_SANITIZE_STRING);
 
             if (empty(self::$cache['modgetname'])) {
-                self::$cache['modgetname'] = System::getVar('startpage');
+                if (!System::getVar('startpage')) {
+                    self::$cache['modgetname'] = System::getVar('startpage');
+                } else {
+                    $baseUriLenght = strlen(System::getBaseUri());
+                    $shortUrlPath = substr(System::getCurrentUri(),$baseUriLenght+1);
+                    if (!empty($shortUrlPath) == 0) {
+                        self::$cache['modgetname'] = System::getVar('startpage');
+                    } else {
+                        $args = explode('/', $shortUrlPath);
+                        self::$cache['modgetname'] = $args[0];
+                    }
+                }
             }
 
             // the parameters may provide the module alias so lets get
@@ -1503,6 +1520,7 @@ class ModUtil
     {
         if (!System::isLegacyMode()) {
             LogUtil::log(__f('%1$s::%2$s is not available in without legacy mode', array('ModUtil', 'registerHook')), Zikula_AbstractErrorHandler::ERR);
+
             return false;
         }
 
@@ -1516,6 +1534,7 @@ class ModUtil
 
         if (self::isOO($hookmodule)) {
             LogUtil::log(__('OO module types may not make use of this legacy API'), Zikula_AbstractErrorHandler::ERR);
+
             return false;
         }
 
@@ -1599,6 +1618,7 @@ class ModUtil
 
         if (self::isOO($modname)) {
             LogUtil::log(__('OO module types may not make use of this legacy API'), Zikula_AbstractErrorHandler::ERR);
+
             return null;
         }
 
@@ -1839,6 +1859,7 @@ class ModUtil
         PluginUtil::loadPlugins("$modpath/$osdir/plugins", "ModulePlugin_{$osdir}");
 
         self::$ooModules[$moduleName]['initialized'] = true;
+
         return true;
     }
 

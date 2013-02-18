@@ -44,6 +44,7 @@ class DBUtil
         if (!self::$cache_enabled) {
             self::$cache_enabled = ServiceUtil::getManager()->getArgument('dbcache.enable');
         }
+
         return ($tablename != 'session_info' && !System::isInstalling() && self::$cache_enabled);
     }
 
@@ -63,6 +64,7 @@ class DBUtil
             $connName = Doctrine_Manager::getInstance()->getCurrentConnection()->getName();
             $prefix = md5(serialize($databases[$connName]));
             $cacheDriver = ServiceUtil::getManager()->getService('doctrine.cachedriver');
+
             return $cacheDriver->fetch($prefix . $table . $key);
         }
 
@@ -143,9 +145,11 @@ class DBUtil
             // create the new database
             // TODO C [use $optionsarray in DBUtil::createDatabase() for backwards compatability] (Guite)
             $connection->export->createDatabase($dbname);
+
             return true;
         } catch (Exception $e) {
             echo 'Database error: ' . $e->getMessage();
+
             return false;
         }
     }
@@ -232,6 +236,7 @@ class DBUtil
                 return $tables[$table . '_def'];
             }
         }
+
         return self::getDefaultTableOptions();
     }
 
@@ -244,7 +249,7 @@ class DBUtil
      * @param boolean $exitOnError  Whether to exit on error (default=true) (optional).
      * @param boolean $verbose      Whether to be verbose (default=true) (optional).
      *
-     * @return mixed The result set of the successfully executed query or false on error.
+     * @return mixed     The result set of the successfully executed query or false on error.
      * @throws Exception No SQL statment.
      */
     public static function executeSQL($sql, $limitOffset = -1, $limitNumRows = -1, $exitOnError = true, $verbose = true)
@@ -304,7 +309,7 @@ class DBUtil
      * @param string $table       The treated table reference.
      * @param array  $columnArray The columns to marshall into the resulting object (optional) (default=null).
      *
-     * @return string The generated sql string.
+     * @return string    The generated sql string.
      * @throws Exception If invalid table key retreived or empty query generated.
      */
     public static function _getAllColumns($table, $columnArray = null)
@@ -336,7 +341,7 @@ class DBUtil
      * @param string $tablealias  The SQL table alias to use in the SQL statement.
      * @param array  $columnArray The columns to marshall into the resulting object (optional) (default=null).
      *
-     * @return The generated sql string
+     * @return The       generated sql string
      * @throws Exception If invalid table key retreived or empty query generated.
      */
     public static function _getAllColumnsQualified($table, $tablealias, $columnArray = null)
@@ -374,7 +379,7 @@ class DBUtil
      * @param string $table       The treated table reference.
      * @param array  $columnArray The columns to marshall into the resulting object (optional) (default=null).
      *
-     * @return The column array for the given table.
+     * @return The       column array for the given table.
      * @throws Exception If empty query generated.
      */
     public static function getColumnsArray($table, $columnArray = null)
@@ -413,7 +418,7 @@ class DBUtil
      * @param array $columns  Column array.
      * @param array $joinInfo JoinInfo array.
      *
-     * @return array            Expanded column array.
+     * @return array Expanded column array.
      * @deprecated
      * @see    Doctrine_Record
      * @throws Exception If invalid join information retrieved (an alias already exists).
@@ -496,6 +501,7 @@ class DBUtil
             return LogUtil::registerError(__('Error! Column rename failed.') . ' ' . $e->getMessage());
         }
         self::flushCache($table);
+
         return true;
     }
 
@@ -543,6 +549,7 @@ class DBUtil
         }
 
         self::flushCache($table);
+
         return true;
     }
 
@@ -585,6 +592,7 @@ class DBUtil
         }
 
         self::flushCache($table);
+
         return true;
     }
 
@@ -603,9 +611,9 @@ class DBUtil
             // No need to DataUtil::formatForStore when casted to int
             return (int)$value;
             // Avoid SQL strict problems where false would be stored as ''
-        } else if ($value === false) {
+        } elseif ($value === false) {
             return 0;
-        } else if ($value === true) {
+        } elseif ($value === true) {
             return 1;
         }
 
@@ -844,9 +852,9 @@ class DBUtil
      * Loop through the array and feed it to self::updateObject().
      *
      * @param array   &$objects The objectArray we wish to insert.
-     * @param string  $table    The treated table reference.
-     * @param string  $idfield  The column which stores the primary key.
-     * @param boolean $force    Whether or not to insert empty values as NULL.
+     * @param string  $table   The treated table reference.
+     * @param string  $idfield The column which stores the primary key.
+     * @param boolean $force   Whether or not to insert empty values as NULL.
      *
      * @return integer The result set from the last update operation.
      */
@@ -1091,6 +1099,7 @@ class DBUtil
     {
         $object = array();
         $object[$idFieldName] = $id;
+
         return self::deleteObject($object, $table, '', $idFieldName);
     }
 
@@ -1108,6 +1117,7 @@ class DBUtil
         $tableName = $tables[$table];
         $where = self::_checkWhereClause($where);
         $sql = 'DELETE FROM ' . $tableName . ' ' . $where;
+
         return self::executeSQL($sql);
     }
 
@@ -1350,6 +1360,7 @@ class DBUtil
     {
         // TODO D [remove PHP4 stuff in DBUtil] (Guite)
         $GLOBALS['DBUtilFetchObjectCount'] = $count;
+
         return;
     }
 
@@ -1379,7 +1390,7 @@ class DBUtil
      * @param string  $assocKey       The key field to use to build the associative index (optional) (default='').
      * @param boolean $clean          Whether or not to clean up the marshalled data (optional) (default=true).
      *
-     * @return The resulting field array.
+     * @return The       resulting field array.
      * @throws Exception If empty result parameter.
      */
     public static function marshallFieldArray($result, $closeResultSet = true, $assocKey = '', $clean = true)
@@ -1415,7 +1426,7 @@ class DBUtil
      * @param string  $permissionFilter The permission structure to use for permission checking (optional) (default=null).
      * @param string  $tablename        The tablename.
      *
-     * @return array The marshalled array of objects.
+     * @return array     The marshalled array of objects.
      * @throws Exception If empty parameters. or if permissionfilter is not an array.
      */
     public static function marshallObjects($result, $objectColumns = null, $closeResultSet = true, $assocKey = '', $clean = true, $permissionFilter = null, $tablename = null)
@@ -1443,7 +1454,8 @@ class DBUtil
             throw new Exception('$objectColumn field count must match the resultset');
         }
 
-        if ($assocKey && $resultRows && !array_key_exists($assocKey, $resultRows[0])) {
+        if ($assocKey && $resultRows &&
+            (!array_key_exists($assocKey, $resultRows[0]) && !in_array($assocKey, $objectColumns))) {
             throw new Exception(__f('Unable to find assocKey [%1$s] in objectColumns for resultset.', array($assocKey)));
         }
 
@@ -1532,7 +1544,7 @@ class DBUtil
      * @param string  $sql         Sql string.
      * @param boolean $exitOnError Exit on error.
      *
-     * @return mixed selected value.
+     * @return mixed     selected value.
      * @throws Exception If rowcount or results count is empty.
      */
     public static function selectScalar($sql, $exitOnError = true)
@@ -1599,6 +1611,7 @@ class DBUtil
         $idFieldName = $cols[$idfield];
 
         $where = $idFieldName . " = '" . DataUtil::formatForStore($id) . "'";
+
         return self::selectField($tableName, $field, $where);
     }
 
@@ -2164,7 +2177,7 @@ class DBUtil
      *
      * @return integer The resulting object count.
      */
-    public static function selectObjectCount($table, $where = '', $column = '1', $distinct = false, $categoryFilter = null)
+    public static function selectObjectCount($table, $where = '', $column = '1', $distinct = false, $categoryFilter = null, $subquery = null)
     {
         $tables = self::getTables();
         $tableName = $tables[$table];
@@ -2176,7 +2189,11 @@ class DBUtil
         $where = self::generateCategoryFilterWhere($table, $where, $categoryFilter);
         $where = self::_checkWhereClause($where);
 
-        $sql = "SELECT COUNT($dst $col) FROM $tableName AS tbl $where";
+        if ($subquery) {
+            $sql = "SELECT COUNT($dst $col) FROM $subquery";
+        } else {
+            $sql = "SELECT COUNT($dst $col) FROM $tableName AS tbl $where";
+        }
 
         $res = self::executeSQL($sql);
         if ($res === false) {
@@ -2204,7 +2221,7 @@ class DBUtil
      * @param string  $field         The field to match the ID against (optional) (default='id').
      * @param string  $transformFunc Transformation function to apply to $id (optional) (default=null).
      *
-     * @return The resulting object count.
+     * @return The       resulting object count.
      * @throws Exception If id paramerter is empty or non-numeric.
      */
     public static function selectObjectCountByID($table, $id, $field = 'id', $transformFunc = '')
@@ -2337,6 +2354,7 @@ class DBUtil
         }
 
         $object = self::selectExpandedObject($table, $joinInfo, $where, $columnArray, $permissionFilter, $categoryFilter);
+
         return $object;
     }
 
@@ -2448,15 +2466,16 @@ class DBUtil
         $sqlStart = "SELECT COUNT(*) ";
         $sqlFrom = "FROM $tableName AS tbl ";
 
-        $sql = "$sqlStart $sqlJoinFieldList $sqlFrom $sqlJoin $where GROUP BY NULL";
+        $sql = "$sqlStart $sqlJoinFieldList $sqlFrom $sqlJoin $where";
         $res = self::executeSQL($sql);
         if ($res === false) {
             return $res;
         }
-
+    
         $count = false;
-        if ($data = $res->fetchColumn(0)) {
-            $count = $data;
+        $res   = $res->fetchAll(Doctrine::FETCH_COLUMN);
+        if ($res && isset($res[0])) {
+            $count = $res[0];
         }
 
         return $count;
@@ -2492,8 +2511,9 @@ class DBUtil
             $jt = $joinInfo[$k]['join_table'];
             $jf = $joinInfo[$k]['join_field'];
             $ofn = $joinInfo[$k]['object_field_name'];
-            $cft = $joinInfo[$k]['compare_field_table'];
-            $cfj = $joinInfo[$k]['compare_field_join'];
+            $cft = isset($joinInfo[$k]['compare_field_table']) ? $joinInfo[$k]['compare_field_table'] : null;
+            $cfj = isset($joinInfo[$k]['compare_field_join'])  ? $joinInfo[$k]['compare_field_join']  : null;
+            $jw  = isset($joinInfo[$k]['join_where'])          ? $joinInfo[$k]['join_where']          : null;
 
             $joinMethod = 'LEFT JOIN';
             if (isset($joinInfo[$k]['join_method']) && in_array(strtoupper($joinInfo[$k]['join_method']), $allowedJoinMethods)) {
@@ -2526,19 +2546,24 @@ class DBUtil
                 $ca[] = $ofn[$k];
             }
 
-            $compareColumn = $jcol[$cfj];
-            // attempt to remove encoded table name in column list used by some tables
-            $t = strstr($compareColumn, '.');
-            if ($t !== false) {
-                $compareColumn = substr($t, 1);
-            }
+            if ($jw) {
+                $line = ' ' . $joinMethod . " $jtab $alias ON $jw ";
+            } else {
+                $compareColumn = $jcol[$cfj];
+                // attempt to remove encoded table name in column list used by some tables
+                $t = strstr($compareColumn, '.');
+                if ($t !== false) {
+                    $compareColumn = substr($t, 1);
+                }
 
-            $t = isset($columns[$cft]) ? "tbl.$columns[$cft]" : $cft; // if not a column reference assume litereal column name
-            $line = ' ' . $joinMethod . " $jtab $alias ON $alias.$compareColumn = $t ";
+                $t = isset($columns[$cft]) ? "tbl.$columns[$cft]" : $cft; // if not a column reference assume litereal column name
+                $line = ' ' . $joinMethod . " $jtab $alias ON $alias.$compareColumn = $t ";
+            }
 
             $sqlJoin .= $line;
             ++$alias;
         }
+
         return array($sqlJoin, $sqlJoinFieldList, $ca);
     }
 
@@ -2652,7 +2677,7 @@ class DBUtil
      * @param boolean $exitOnError Exit on error.
      * @param boolean $verbose     Verbose mode.
      *
-     * @return intiger The result ID.
+     * @return intiger   The result ID.
      * @throws Exception IF table does not point to valid table definition, or field does not point to valif field def.
      */
     public static function getInsertID($table, $field = 'id', $exitOnError = true, $verbose = true)
@@ -2692,7 +2717,7 @@ class DBUtil
      *
      * @param string $table Table to get adodb sql string for.
      *
-     * @return array The table definition.
+     * @return array                    The table definition.
      * @throws Exception                If table parameter is empty.
      * @throws InvalidArgumentException If error in table definition.
      */
@@ -2899,6 +2924,7 @@ class DBUtil
                 $sql .= $val . ' ' . trim($tables[$tabledef][$id]);
                 $flag = true;
             }
+
             return $sql;
         } else {
             throw new Exception(__f('Neither the sql parameter nor the table structure contain the ADODB dictionary representation of table [%s] ...', $table));
@@ -2910,7 +2936,7 @@ class DBUtil
      *
      * @param string $table Treated table.
      *
-     * @return string Return string to get table constraints.
+     * @return string    Return string to get table constraints.
      * @throws Exception If the table parameter is empty or does not point to a valid table definition.
      */
     public static function getTableConstraints($table)
@@ -2942,6 +2968,7 @@ class DBUtil
                 $original_column = $tables[$tablecol][$fk_column];
                 $constraints .= ", CONSTRAINT FOREIGN KEY($original_column) REFERENCES $reference_table ($reference_column) $fk_reference[accion]";
             }
+
             return $constraints;
         }
     }
@@ -3059,6 +3086,7 @@ class DBUtil
         $success = self::verifyTableDefinitionConsistency($table);
         if (!$success) {
             throw new Exception(__f('Table consistency check failed for %s', $table));
+
             return false;
         }
 
@@ -3104,6 +3132,7 @@ class DBUtil
                 }
             }
         }
+
         return true;
     }
 
@@ -3132,6 +3161,7 @@ class DBUtil
         $success = self::verifyTableDefinitionConsistency($table);
         if (!$success) {
             throw new Exception(__f('Table consistency check failed for %s', $table));
+
             return false;
         }
 
@@ -3226,6 +3256,7 @@ class DBUtil
         }
 
         self::flushCache($table);
+
         return true;
     }
 
@@ -3404,6 +3435,7 @@ class DBUtil
 
         try {
             Doctrine_Manager::getInstance()->getCurrentConnection()->export->createIndex($tableName, $idxname, $indexDefinition);
+
             return true;
         } catch (Exception $e) {
             return LogUtil::registerError(__('Error! Index creation failed.') . ' ' . $e->getMessage());
@@ -3438,6 +3470,7 @@ class DBUtil
 
         try {
             Doctrine_Manager::getInstance()->getCurrentConnection()->export->dropIndex($tableName, $idxname);
+
             return true;
         } catch (Exception $e) {
             return LogUtil::registerError(__('Error! Index deletion failed.') . ' ' . $e->getMessage());
@@ -3461,6 +3494,7 @@ class DBUtil
             foreach ($rows as $key => $row) {
                 $array[strtolower($key)] = $row;
             }
+
             return $array;
         }
 
@@ -3473,7 +3507,7 @@ class DBUtil
      * @param string  $table        Table The treated table reference.
      * @param boolean $numericIndex Use numeric keys.
      *
-     * @return array Array of column names.
+     * @return array     Array of column names.
      * @throws Exception If the table param is empty or does not point to a valid table definition.
      */
     public static function metaColumnNames($table, $numericIndex = false)
@@ -3495,6 +3529,7 @@ class DBUtil
             foreach ($rows as $row) {
                 $array[] = $row;
             }
+
             return $array;
         }
 
@@ -3507,7 +3542,7 @@ class DBUtil
      * @param string  $table   The treated table reference.
      * @param boolean $primary Show only primary keys.
      *
-     * @return array Array of column names.
+     * @return array     Array of column names.
      * @throws Exception If the table parameter is empty or does not point to a valid table definition.
      */
     public static function metaIndexes($table, $primary = false)
@@ -3579,6 +3614,7 @@ class DBUtil
 
         // finally build the tablename
         $tablename = $prefix ? $prefix . '_' . $table : $table;
+
         return $tablename;
     }
 
@@ -3635,6 +3671,7 @@ class {$className} extends Doctrine_Record
 
 class {$className}Table extends Doctrine_Table {}
 ";
+
         return $class;
     }
 

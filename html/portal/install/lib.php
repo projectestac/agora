@@ -87,17 +87,16 @@ function install(Zikula_Core $core)
     }
 
     // load the installer language files
-    if (!$notinstalled && empty($lang)) {
-        $available = ZLanguage::getInstalledLanguages();
-        $detector = new ZLanguageBrowser($available);
-        $lang = $detector->discover();
-    } elseif ($notinstalled) {
-        $installerConfig = array('language' => 'en');
+    if (empty($lang)) {
         if (is_readable('config/installer.ini')) {
             $test = parse_ini_file('config/installer.ini');
-            $installerConfig = isset($test['language']) ? $test : $installerConfig;
+            $lang = isset($test['language']) ? $test['language'] : 'en';
+        } else {
+            $available = ZLanguage::getInstalledLanguages();
+            $detector = new ZLanguageBrowser($available);
+            $lang = $detector->discover();
         }
-        $lang = DataUtil::formatForDisplay($installerConfig['language']);
+        $lang = DataUtil::formatForDisplay($lang);
     }
 
     // setup multilingual
@@ -385,6 +384,15 @@ function createuser($username, $password, $email)
 
 function installmodules($lang = 'en')
 {
+    // This is a temporary hack for release 1.3.x to be able to install modules
+    // load Doctrine plugin
+    include_once __DIR__ . '/../plugins/Doctrine/Plugin.php';
+    PluginUtil::loadPlugin('SystemPlugin_Doctrine_Plugin');
+
+    // load DoctrineExtensions plugin
+    include_once __DIR__ . '/../plugins/DoctrineExtensions/Plugin.php';
+    PluginUtil::loadPlugin('SystemPlugin_DoctrineExtensions_Plugin');
+
     $connection = Doctrine_Manager::connection();
 
     // Lang validation
@@ -457,7 +465,7 @@ function installmodules($lang = 'en')
     $categories = ModUtil::apiFunc('Admin', 'admin', 'getall');
     $modscat = array();
     foreach ($categories as $category) {
-        $modscat[$category['catname']] = $category['cid'];
+        $modscat[$category['name']] = $category['cid'];
     }
     foreach ($coremodules as $coremodule) {
         $category = $coremodscat[$coremodule];
@@ -560,7 +568,6 @@ function _check_requirements()
 
     $results['pdo'] = extension_loaded('pdo');
     $results['register_globals'] = !ini_get('register_globals');
-
     //XTEC ** MODIFICAT - Zikula detects incorrectly php params
     //2012.06.20 @aginard       
     if (get_magic_quotes_gpc() == 'Off' || get_magic_quotes_gpc() == 0) {
@@ -571,7 +578,6 @@ function _check_requirements()
     //****** Original
     // $results['magic_quotes_gpc'] = !ini_get('magic_quotes_gpc');
     //****** FI
-
     $results['phptokens'] = function_exists('token_get_all');
     $results['mbstring'] = function_exists('mb_get_info');
     $isEnabled = @preg_match('/^\p{L}+$/u', 'TheseAreLetters');

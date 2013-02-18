@@ -17,6 +17,7 @@ class Blocks_MenutreeUtil
     public static function getIdOffset($id = null)
     {
         $item = !is_null($id) && !empty($id) ? $id : 1;
+
         return $item*10000;
     }
 
@@ -26,8 +27,10 @@ class Blocks_MenutreeUtil
         $tpls = array();
 
         // restricted templates, array for possible future changes
-        $sysTpls = array('blocks_block_menutree_modify.tpl',
-                         'blocks_block_menutree_include_help.tpl');
+        $sysTpls = array(
+            'blocks_block_menutree_modify.tpl',
+            'blocks_block_menutree_include_help.tpl'
+        );
 
         // module templates
         $modulesTpls = FileUtil::getFiles('system/Blocks/templates/menutree', false, true, 'tpl', false);
@@ -48,7 +51,11 @@ class Blocks_MenutreeUtil
         }
 
         // get tpls which exist in every theme
-        $tpls['themes']['all'] = call_user_func_array('array_intersect', $themesTpls);
+        if (count($themesTpls) > 1) {
+            $tpls['themes']['all'] = call_user_func_array('array_intersect', $themesTpls);
+        } else {
+            $tpls['themes']['all'] = $themesTpls;
+        }
 
         // get tpls which exist in some themes
         $tpls['themes']['some'] = array_unique(call_user_func_array('array_merge', $themesTpls));
@@ -84,9 +91,11 @@ class Blocks_MenutreeUtil
         $styles = array();
 
         // restricted stylesheets, array for possible future changes
-        $sysStyles = array('system/Blocks/style/menutree/adminstyle.css',
-                           'system/Blocks/style/menutree/contextmenu.css',
-                           'system/Blocks/style/menutree/tree.css');
+        $sysStyles = array(
+            'system/Blocks/style/menutree/adminstyle.css',
+            'system/Blocks/style/menutree/contextmenu.css',
+            'system/Blocks/style/menutree/tree.css'
+        );
 
         // module stylesheets
         $modulesStyles = FileUtil::getFiles('system/Blocks/style/menutree', false, false, 'css', false);
@@ -107,8 +116,11 @@ class Blocks_MenutreeUtil
         }
 
         // get stylesheets which exist in every theme
-        $styles['themes']['all'] = call_user_func_array('array_intersect', $themesStyles);
-
+        if (count($themesStyles) > 1) {
+            $styles['themes']['all'] = call_user_func_array('array_intersect', $themesStyles);
+        } else {
+            $styles['themes']['all'] = $themesStyles;
+        }
         // get stylesheets which exist in some themes
         $styles['themes']['some'] = array_unique(call_user_func_array('array_merge', $themesStyles));
         $styles['themes']['some'] = array_diff($styles['themes']['some'], $styles['themes']['all'], $styles['modules'], $sysStyles);
@@ -132,10 +144,19 @@ class Blocks_MenutreeUtil
     protected static function normalize($array)
     {
         $normalizedArray = array();
+
         foreach ($array as $k => $v) {
-            $k = str_replace('\\', '/', $k);
-            $v = str_replace('\\', '/', $v);
-            $normalizedArray[$k] = $v;
+            if (is_array($v)) {
+                foreach ($v as $k2 => $v2) {
+                    $k2 = str_replace('\\', '/', $k2);
+                    $v2 = str_replace('\\', '/', $v2);
+                    $normalizedArray[$k][$k2] = $v2;
+                }
+            } else {
+                $k = str_replace('\\', '/', $k);
+                $v = str_replace('\\', '/', $v);
+                $normalizedArray[$k] = $v;
+            }
         }
 
         return $normalizedArray;

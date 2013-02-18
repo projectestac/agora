@@ -46,9 +46,6 @@
  */
 function smarty_function_gt($params, Zikula_View $view)
 {
-    // the check order here is important because:
-    // if we are calling from a theme both $view->themeDomain and $view->renderDomain are set.
-    // if the call was from a template only $view->renderDomain is set.
     if (isset($params['domain'])) {
         $domain = (strtolower($params['domain']) == 'zikula' ? null : $params['domain']);
     } else {
@@ -57,6 +54,7 @@ function smarty_function_gt($params, Zikula_View $view)
 
     if (!isset($params['text'])) {
         $view->trigger_error(__f('Error! in %1$s: the %2$s parameter must be specified.', array('smarty_function_gt', 'text')));
+
         return false;
     }
     $text = $params['text'];
@@ -64,6 +62,7 @@ function smarty_function_gt($params, Zikula_View $view)
     // validate plural settings if applicable
     if ((!isset($params['count']) && isset($params['plural'])) || (isset($params['count']) && !isset($params['plural']))) {
         $view->trigger_error(__('Error! If you use a plural or count in gettext, you must use both parameters together.'));
+
         return false;
     }
 
