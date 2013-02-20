@@ -17,8 +17,8 @@ body {
     padding-bottom: 15px;
     margin-bottom: 0px;
     color:#555555;
-	overflow-x:hidden!important;
-	font-size: [[setting:fontsize]];
+    overflow-x:hidden!important;
+    font-size: [[setting:fontsize]];
     [[setting:fontstyle]]
 
 }
@@ -37,7 +37,7 @@ a {
 .pagelayout-report #page-content .region-content{overflow:auto!important;}
 
 .pagelayout-report .no-overflow {
-     overflow-y: auto!important; margin-top: 10px; margin-bottom: 10px;
+    overflow-y: auto!important; margin-top: 10px; margin-bottom: 10px;
 }
 
 a:hover {
@@ -53,8 +53,8 @@ legend {
     font-size: 1.2em;
 }
 
- input[type="button"], input[type="submit"], input[type="reset"], button {
-  /* background-image: url([[pix:theme|theme/button]]);*/
+input[type="button"], input[type="submit"], input[type="reset"], button {
+    /* background-image: url([[pix:theme|theme/button]]);*/
     background-position: bottom;
     background-repeat: repeat-x;
     padding: 2px;
@@ -67,7 +67,7 @@ legend {
     background-color: [[setting:color2]];
     color: [[setting:color3]];
     border-color: [[setting:color2]];
-	cursor:pointer;
+    cursor:pointer;
 }
 
 /*button.fp-upload-btn, button.fp-login-popup-but, button.fp-select-confirm, button.fp-select-cancel, button.fp-msg-butok {
@@ -181,9 +181,9 @@ th {
 
 .navbar {
     color: [[setting:color3]];
-	height: 30px;
+    height: 30px;
     padding-top: 5px;
-	padding-bottom:5px;
+    padding-bottom:5px;
 }
 
 .navbutton {
@@ -194,7 +194,7 @@ th {
 .breadcrumb {
     color: [[setting:color5]];
     padding: 7px 10px 10px 10px ;
-	font-size: 90%;
+    font-size: 90%;
 }
 
 .arrow {
@@ -227,7 +227,7 @@ h2.main {
 
 .initialbar {
     text-align: left;
-	margin-bottom:5px;
+    margin-bottom:5px;
 }
 
 #custommenu {
@@ -235,7 +235,7 @@ h2.main {
     background-color: #eee;
     font-weight: bold;
     padding: 0px 0px 0px 0px;
-	border-bottom:1px solid #ddd;
+    border-bottom:1px solid #ddd;
 }
 
 #custommenu a {
@@ -261,15 +261,15 @@ h2.main {
 
 
 li a.yui3-menu-label {
-    
-     padding-bottom: 5px ! important;
-     padding-top: 5px ! important;
-	 /*background: url(../theme/xtec2/pix/theme/ralla_menu.png) no-repeat right!important; */
+
+    padding-bottom: 5px ! important;
+    padding-top: 5px ! important;
+    /*background: url(../theme/xtec2/pix/theme/ralla_menu.png) no-repeat right!important; */
 }
 
 ul li a.yui3-menuitem-content {  
-     padding-bottom: 5px ! important;
-     padding-top: 5px ! important;
+    padding-bottom: 5px ! important;
+    padding-top: 5px ! important;
 }
 
 
@@ -446,6 +446,7 @@ ul li a.yui3-menuitem-content {
     text-align: center;
     font-size: 1.2em;
     font-weight: bold;
+    padding-top: 10px;
 }
 
 .fcontainer textarea {
@@ -456,20 +457,20 @@ ul li a.yui3-menuitem-content {
 .forumpost {
     border: 1px solid #ddd;
     margin: auto;
-	border-top: 0px;
+    border-top: 0px;
 }
 
 
 
 div.forumheaderlist:last-of-type, div.forumpost:last-of-type {
-	border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     -moz-border-radius-bottomleft: 5px;
     -moz-border-radius-bottomright: 5px;
-	border: 1px solid #ddd;
+    border: 1px solid #ddd;
     margin: auto;
    	border-top: 0px;
-	}
+}
 
 
 div.content div.coursebox:only-of-type{border-bottom:white solid 0px!important;}
@@ -649,7 +650,7 @@ tr.header { background-color:#DDDDDD!important;}
 }
 
 #page-mod-quiz-edit .questionbankwindow div.header {
-      background-color: [[setting:color2]]!important;
+    background-color: [[setting:color2]]!important;
     color: [[setting:color3]]!important;
 }
 
@@ -688,10 +689,10 @@ tr.header { background-color:#DDDDDD!important;}
 
 
 #page-content #region-main ul.weeks, #page-content #region-main ul.unlist, #page-content #region-main ul.topics {
-     border-bottom-left-radius: 5px;
-     border-bottom-right-radius: 5px;
-     border: 1px solid #DDDDDD;
-     margin: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid #DDDDDD;
+    margin: 0px;
 }
 
 
@@ -704,167 +705,167 @@ tr.header { background-color:#DDDDDD!important;}
 
 
 .tabtree ul {
-	text-align: center;
+    text-align: center;
 }
 
 .tabtree .tabrow0 {
-	width: 100%;
-	margin: 1em 0px;
+    width: 100%;
+    margin: 1em 0px;
 }
 
 .tabtree .tabrow0 li {
-	margin-right: -4px;
+    margin-right: -4px;
 }
 
 .tabtree .tabrow0 li.here {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .tabtree .tabrow0 li.here a {
-	position: relative;
-	z-index: 102;
+    position: relative;
+    z-index: 102;
 }
 
 .tabtree .tabrow0 li a {
-	background: #f7f7f7;
-	padding: 5px 10px 5px;
-	border-width: 1px 1px 0;
-	border-radius:5px 5px 0px 0px;
-	border-style: solid;
-	border-color: #ddd;
-	margin: 0 2px;
+    background: #f7f7f7;
+    padding: 5px 10px 5px;
+    border-width: 1px 1px 0;
+    border-radius:5px 5px 0px 0px;
+    border-style: solid;
+    border-color: #ddd;
+    margin: 0 2px;
 }
 
 .tabtree .tabrow0 .here a {
-	background: #fff;
-	padding: 8px 10px 5px;
+    background: #fff;
+    padding: 8px 10px 5px;
 }
 
 .tabtree .tabrow0 li a:hover {
-	background: #fff;
+    background: #fff;
 }
 
 .tabtree .tabrow0 ul,
 .tabtree .tabrow0 div {
-	font-weight: normal;
-	border-top: 1px solid #ddd;
-	padding: 0.25em 0px;
-	margin: 0px;
+    font-weight: normal;
+    border-top: 1px solid #ddd;
+    padding: 0.25em 0px;
+    margin: 0px;
 }
 
 .tabtree .tabrow0 li.here .empty {
-	display: block;
-	height: 1px;
-	overflow: hidden;
-	padding: 0px;
-	position: absolute;
-	width: 100%;
-	bottom: -5px;
+    display: block;
+    height: 1px;
+    overflow: hidden;
+    padding: 0px;
+    position: absolute;
+    width: 100%;
+    bottom: -5px;
 }
 
 .tabtree .tabrow0 .tabrow1 {
-	padding: 5px 0 2px;
-	margin-top: 1px;
+    padding: 5px 0 2px;
+    margin-top: 1px;
 }
 
 .tabtree .tabrow1 li a,
 .tabtree .tabrow1 li a:hover,
 .tabtree .tabrow1 li a span,
 .tabtree .tabrow1 li a:hover span {
-	padding: 0 10px;
-	border: none;
+    padding: 0 10px;
+    border: none;
 }
 
 .tabtree a.nolink,
 .tabtree .here ul a.nolink,
 .tabtree a.nolink:hover,
 .tabtree .here ul a.nolink:hover {
-	color: #888;
-	text-decoration: none;
+    color: #888;
+    text-decoration: none;
 }
 
 .tabtree .here a.nolink,
 .tabtree .here ul .here a.nolink,
 .tabtree .here a.nolink:hover,
 .tabtree .here ul .here a.nolink:hover {
-	color: #555555;
-	text-decoration: none;
+    color: #555555;
+    text-decoration: none;
 }
 
 .ie7 .tabtree .tabrow0 li {
-	margin-left: 0;
+    margin-left: 0;
 }
 
 .ie7 .tabtree .tabrow0 li.first {
-	margin-right: -4px;
+    margin-right: -4px;
 }
 
 .ie7 .tabtree .tabrow0 li.onerow {
-	margin-right: 0;
+    margin-right: 0;
 }
 
 .ie7 .tabtree .tabrow0 a {
-	display: inline-block;
-	padding: 8px 0 0.35em 13px;
-	line-height: 1.5em;
+    display: inline-block;
+    padding: 8px 0 0.35em 13px;
+    line-height: 1.5em;
 }
 
 .ie7 .tabtree .tabrow0 a span {
-	padding: 10px 1em 10px 0;
+    padding: 10px 1em 10px 0;
 }
 
 .ie7 .tabtree .tabrow0 div {
-	top: 2.6em;
-	padding: 0.2em 0;
+    top: 2.6em;
+    padding: 0.2em 0;
 }
 
 .ie7 .tabtree .tabrow0 div.empty {
-	margin-right: 0;
+    margin-right: 0;
 }
 
 .ie7.mod-quiz div.tabtree a span img.iconsmall {
-	margin: 0;
-	vertical-align: baseline;
-	position: relative;
-	top: 2px;
+    margin: 0;
+    vertical-align: baseline;
+    position: relative;
+    top: 2px;
 }
 
 .ie6 .tabtree {
-	height: 100%;
+    height: 100%;
 }
 
 .ie6 .tabtree .tabrow0 {
-	padding-top: 10px;
+    padding-top: 10px;
 }
 
 .ie6 .tabtree .tabrow0 li {
-	margin-left: 0;
+    margin-left: 0;
 }
 
 .ie6 .tabtree .tabrow0 li.first {
-	margin-left: -4px;
-	margin-right: -4px;
+    margin-left: -4px;
+    margin-right: -4px;
 }
 
 .ie6 .tabtree .tabrow0 li.last a {
-	margin-right: 0;
+    margin-right: 0;
 }
 
 .ie6 .tabtree .tabrow0 li.onerow {
-	margin-right: 0;
+    margin-right: 0;
 }
 
 .ie6 .tabtree .tabrow0 a {
-	padding: 0 0 0 13px;
+    padding: 0 0 0 13px;
 }
 
 .ie6 .tabtree .tabrow0 a span {
-	padding: 12px 1em 4px 0;
+    padding: 12px 1em 4px 0;
 }
 
 .ie6 .tabtree .tabrow0 div {
-	top: 3.5em;
-	padding: 0.2em 0;
+    top: 3.5em;
+    padding: 0.2em 0;
 }
 
 
@@ -873,16 +874,16 @@ tr.header { background-color:#DDDDDD!important;}
 /*calendar*/
 
 .minicalendar tbody tr{
-     border-bottom: 0px solid #DDDDDD ! important;
+    border-bottom: 0px solid #DDDDDD ! important;
 }
 
 .minicalendar .today {
-     border-radius: 2px 2px 2px 2px;
-     background-color:#ddd
+    border-radius: 2px 2px 2px 2px;
+    background-color:#ddd
 }
 
 .minicalendar {
-          border: 0px solid #DDDDDD!important;
+    border: 0px solid #DDDDDD!important;
 }
 
 
@@ -894,7 +895,7 @@ table{ border-radius:5px;}
 
 
 .yui3-menu li {
-     list-style-type: none; 
+    list-style-type: none; 
 }
 
 .yui3-menu li:hover {
@@ -954,8 +955,13 @@ table{ border-radius:5px;}
 th.header a {color: [[setting:color5]]!important;} 
 th.header {background-color: [[setting:color6]]!important; color:[[setting:color4]]!important;}
 
-
+/*
 input[type="text"], input[type="password"], textarea {
+    width: 160px !important;
+}
+*/
+
+input#username, input#password {
     width: 160px !important;
 }
 
