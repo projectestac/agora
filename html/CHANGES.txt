@@ -5,6 +5,9 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+PORTAL
+- Force usage of https when users clic to menu option to log in
+
 
 
 Changes 13.02.12
