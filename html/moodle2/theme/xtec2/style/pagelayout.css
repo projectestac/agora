@@ -31,15 +31,6 @@ a {
     color: [[setting:color5]];
 }
 
-
-.pagelayout-report #page-content #region-main-box #region-post-box #region-main-wrap #region-main-pad #region-main .region-content .no-overflow{overflow:auto!important;}
-
-.pagelayout-report #page-content .region-content{overflow:auto!important;}
-
-.pagelayout-report .no-overflow {
-    overflow-y: auto!important; margin-top: 10px; margin-bottom: 10px;
-}
-
 a:hover {
     color: [[setting:color2]];
 }
@@ -80,11 +71,10 @@ button {
 
 table {
     border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-tr, 
-th, 
-td { 
+tr, th, td { 
     border: none !important; 
 }
 
@@ -93,6 +83,12 @@ th {
     background-color: [[setting:color2]];
     font-weight: bold;
 }
+
+.pagelayout-report #page-content #region-main-box #region-post-box #region-main-wrap #region-main-pad #region-main .region-content .no-overflow { overflow:auto!important; }
+
+.pagelayout-report #page-content .region-content { overflow:auto!important; }
+
+.pagelayout-report .no-overflow { overflow-y: auto!important; margin-top: 10px; margin-bottom: 10px; }
 
 .box {
     font-size: 1.1em;
@@ -397,23 +393,19 @@ ul li a.yui3-menuitem-content {
 
 .course-content .section .left {
     min-width:40px;
-
 }
 
 .section .left {
-
     color: #ccc ;
 }
-
 
 .section li {
     margin-bottom:5px!important;
 }
 
-.current .left { color: [[setting:color3]];
+.current .left {
+    color: [[setting:color3]];
 }
-
-
 
 #page-footer a {
     text-decoration: none;
@@ -429,8 +421,9 @@ ul li a.yui3-menuitem-content {
     margin-top: 10px;
 }
 
-.section-title a{text-decoration:underline;}
-
+.section-title a {
+    text-decoration: underline;
+}
 
 /* Modules: Forum */
 
@@ -446,7 +439,7 @@ ul li a.yui3-menuitem-content {
     text-align: center;
     font-size: 1.2em;
     font-weight: bold;
-    padding-top: 10px;
+    margin-top: 10px;
 }
 
 .fcontainer textarea {
@@ -460,8 +453,6 @@ ul li a.yui3-menuitem-content {
     border-top: 0px;
 }
 
-
-
 div.forumheaderlist:last-of-type, div.forumpost:last-of-type {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -472,12 +463,14 @@ div.forumheaderlist:last-of-type, div.forumpost:last-of-type {
    	border-top: 0px;
 }
 
+div.content div.coursebox:only-of-type {
+    border-bottom: white solid 0px!important;
+}
 
-div.content div.coursebox:only-of-type{border-bottom:white solid 0px!important;}
-
-
-.generalbox{ background-image:none!important; background-color:#fff;}
-
+.generalbox {
+    background-image: none!important;
+    background-color: #fff;
+}
 
 .subscribelink {
     border-style: solid;
@@ -486,9 +479,9 @@ div.content div.coursebox:only-of-type{border-bottom:white solid 0px!important;}
     padding:10px;
 }
 
-.hidden .header{  -moz-border-radius: 5px; border-radius: 5px;}
+.hidden .header { -moz-border-radius: 5px; border-radius: 5px; }
 
-.link{ padding:5px; }
+.link { padding:5px; }
 
 .forumpost .content {
     padding: 0px 10px 10px 10px;
@@ -527,7 +520,6 @@ div.content div.coursebox:only-of-type{border-bottom:white solid 0px!important;}
     background-color: #fff;
 }
 
-
 .adminwarning {
     margin: auto;
     margin-top: 20px;
@@ -541,7 +533,7 @@ div.content div.coursebox:only-of-type{border-bottom:white solid 0px!important;}
     margin-top: 40px;
 }
 
-.initialbar a{margin-left:5px; }
+.initialbar a { margin-left: 5px; }
 
 .capsula-footer { 
     display: block;
@@ -619,16 +611,13 @@ tbody tr {
 
 tr.header{ background-color:#DDDDDD!important;}
 
-
 tbody th {
     color: #555555;
     background-color:#FFF!important;
     font-weight: bold;
-
 }
 
 tbody tr {
-
     border-bottom:1px solid #DDDDDD!important;
 }
 
@@ -695,14 +684,10 @@ tr.header { background-color:#DDDDDD!important;}
     margin: 0px;
 }
 
-
 /*#page-content #region-main a{ text-decoration:underline!important; }*/
 
 
-
-
 /*TAB*/
-
 
 .tabtree ul {
     text-align: center;
@@ -869,8 +854,6 @@ tr.header { background-color:#DDDDDD!important;}
 }
 
 
-
-
 /*calendar*/
 
 .minicalendar tbody tr{
@@ -886,13 +869,7 @@ tr.header { background-color:#DDDDDD!important;}
     border: 0px solid #DDDDDD!important;
 }
 
-
-
 fieldset div {margin-top:5px }
-
-
-table{ border-radius:5px;}
-
 
 .yui3-menu li {
     list-style-type: none; 
