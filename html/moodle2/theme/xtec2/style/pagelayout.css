@@ -640,43 +640,13 @@ tr.header { background-color:#DDDDDD!important;}
 .advancedbutton {margin-left:20px}
 
 .coursebox {
-
     border-bottom:1px solid #DDDDDD!important;
 }
 
-/*.coursebox:only-child {
-
-    border-bottom:0px solid #DDDDDD!important;
-}*/
-
-
-/*.tabtree li{ border-width:1px 1px 0 1px; border-style:solid; border-color:#DDD!important; padding:6px; margin-right:4px;
-background-image: url("/agora-moodle/ins-llebeig/moodle/theme/image.php?theme=xtec2&component=theme&image=theme%2Fborderbottom");
-    background-position: center bottom;
-    background-repeat: repeat-x;
-    border-left-color-ltr-source: physical;
-    border-left-color-rtl-source: physical;
-    border-left-color-value: #DDDDDD;
-    border-right-color-ltr-source: physical;
-    border-right-color-rtl-source: physical;
-    border-right-color-value: #DDDDDD;
-    border-top-color: #DDDDDD;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    margin-top: 10px; background-color:#EDEDED;
-
+.form-overridden {
+    color: #ff0000;
+    font-weight: bold;
 }
-
-
-
-.tabtree ul{ border-bottom:1px solid #ddd;}
-
-.tabtree li.selected{ background-image:none!important; background-color:#fff; padding-top:10px;} 
-
-.tabtree li:hover{ padding-top:10px;} */
-
-
-
 
 #page-mod-quiz-edit .questionbankwindow div.header {
       background-color: [[setting:color2]]!important;
