@@ -56,6 +56,8 @@ class IWstats_Installer extends Zikula_AbstractInstaller {
      * @todo recode using DBUtil
      */
     public function Upgrade($oldversion) {
+        DBUtil::changeTable('IWstats');
+
         switch ($oldversion) {
 
         }

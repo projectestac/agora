@@ -3,7 +3,7 @@
 class IWmenu_Installer extends Zikula_AbstractInstaller {
 
     /**
-     * Initialise the iw_vhmenu module creating module tables and module vars
+     * Initialise the IWmenu module creating module tables and module vars
      * @author Albert Perez Monfort (aperezm@xtec.cat)
      * @return bool true if successful, false otherwise
      */
@@ -37,12 +37,12 @@ class IWmenu_Installer extends Zikula_AbstractInstaller {
         ModUtil::setVar('IWmenu', 'width', 200); // Default width
         ModUtil::setVar('IWmenu', 'imagedir', "menu"); // Default directori of menu images
         // checks if module vhmenu exists. If it exists import module vhmenu tables
-        $modid = ModUtil::getIdFromName('iw_vhmenu');
+        $modid = ModUtil::getIdFromName('IWmenu');
         $modinfo = ModUtil::getInfo($modid);
         if ($modinfo['state'] == 3) {
             // get the objects from the db
-            ModUtil::load('iw_vhmenu', 'user');
-            $items = DBUtil::selectObjectArray('iw_vhmenu');
+            ModUtil::load('IWvhmenu', 'user');
+            $items = DBUtil::selectObjectArray('IWvhmenu');
             if ($items) {
                 foreach ($items as $item) {
                     $groups = str_replace('|0', '', $item['groups']);

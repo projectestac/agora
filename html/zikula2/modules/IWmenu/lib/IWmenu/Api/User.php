@@ -72,10 +72,10 @@ class IWmenu_Api_User extends Zikula_AbstractApi {
                             if ($item['target'] == 1) {
                                 $menuitem['url'] = $item['url'];
                                 $menuitem['target'] = ' target="_blank"';
-                            } else if ($item['target'] == 2 && ModUtil::available('iw_webbox')) {
+                            } else if ($item['target'] == 2 && ModUtil::available('IWwebbox')) {
                                 $url = str_replace('?', '**', $item['url']);
                                 $url = str_replace('&', '*', $url);
-                                $menuitem['url'] = 'index.php?module=iw_webbox&url=' . $url;
+                                $menuitem['url'] = 'index.php?module=IWwebbox&url=' . $url;
                                 $menuitem['target'] = '';
                             } else {
                                 $menuitem['url'] = $item['url'];

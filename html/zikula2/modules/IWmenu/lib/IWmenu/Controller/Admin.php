@@ -177,7 +177,7 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
         // get the intranet groups
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $grups = ModUtil::func('IWmain', 'user', 'getAllGroups', array('plus' => $this->__('All'),
-                    'less' => ModUtil::getVar('iw_myrole', 'rolegroup'),
+                    'less' => ModUtil::getVar('IWmyrole', 'rolegroup'),
                     'sv' => $sv));
         $grups[] = array('id' => '-1',
             'name' => $this->__('Unregistered'));
@@ -261,7 +261,7 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
 
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $grupsInfo = ModUtil::func('IWmain', 'user', 'getAllGroupsInfo', array('sv' => $sv,
-                    'less' => ModUtil::getVar('iw_myrole', 'rolegroup')));
+                    'less' => ModUtil::getVar('IWmyrole', 'rolegroup')));
 
         // Ask for confirmation
         if (empty($confirmation)) {
@@ -362,13 +362,13 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
         // get the intranet groups
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $grups = ModUtil::func('IWmain', 'user', 'getAllGroups', array('plus' => $this->__('All'),
-                    'less' => ModUtil::getVar('iw_myrole', 'rolegroup'),
+                    'less' => ModUtil::getVar('IWmyrole', 'rolegroup'),
                     'sv' => $sv));
         $grups[] = array('id' => '-1',
             'name' => $this->__('Unregistered'));
 
-        // checks if the module iw_webbox is available in order to include the webbox as a target possibility
-        $iwwebbox = (ModUtil::available('iw_webbox')) ? true : false;
+        // checks if the module IWwebbox is available in order to include the webbox as a target possibility
+        $iwwebbox = (ModUtil::available('IWwebbox')) ? true : false;
 
         $filesPath = ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWmenu', 'imagedir');
         $folderExists = (file_exists($filesPath)) ? true : false;
@@ -539,13 +539,13 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
         // get the intranet groups
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $grups = ModUtil::func('IWmain', 'user', 'getAllGroups', array('plus' => $this->__('All'),
-                    'less' => ModUtil::getVar('iw_myrole', 'rolegroup'),
+                    'less' => ModUtil::getVar('IWmyrole', 'rolegroup'),
                     'sv' => $sv));
         $grups[] = array('id' => '-1',
             'name' => $this->__('Unregistered'));
 
-        // checks if the module iw_webbox is available in order to include the webbox as a target possibility
-        $iwwebbox = (ModUtil::available('iw_webbox')) ? true : false;
+        // checks if the module IWwebbox is available in order to include the webbox as a target possibility
+        $iwwebbox = (ModUtil::available('IWwebbox')) ? true : false;
 
         $filesPath = ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWmenu', 'imagedir');
         $folderExists = (file_exists($filesPath)) ? true : false;
