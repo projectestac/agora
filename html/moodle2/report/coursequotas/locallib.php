@@ -23,9 +23,8 @@ function report_coursequotas_getCategoryData() {
     global $CFG, $DB;
 
     // Step 1: get system context ID, which is unique, but its value may vary
-    $dbRecords = $DB->get_records_select('context', "contextlevel='10'", null, 'ID', 'ID');
-    $dbRecords = reset($dbRecords); // Gets first element of the array
-    $systemContextId = $dbRecords->id;
+    $dbRecord = $DB->get_record_select('context', "contextlevel='10'", null, 'ID', 'ID');
+    $systemContextId = $dbRecord->id;
 
     // Step 2: build category tree
     $dbRecords = $DB->get_records_select('course_categories', '', null, 'ID', 'ID, NAME, PARENT, DEPTH');
