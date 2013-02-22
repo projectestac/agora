@@ -10,7 +10,7 @@ PORTAL
 
 MOODLE 2
 - Added CSS style for "Defined in config" params and improved styles for input fields
-
+- Released 0.2.3 JClic version and updated version.php file (changes has been included some weeks ago)
 
 
 Changes 13.02.12
