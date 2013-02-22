@@ -20,7 +20,6 @@ body {
     overflow-x:hidden!important;
     font-size: [[setting:fontsize]];
     [[setting:fontstyle]]
-
 }
 
 h2 {
@@ -90,6 +89,13 @@ th {
 
 .pagelayout-report .no-overflow { overflow-y: auto!important; margin-top: 10px; margin-bottom: 10px; }
 
+.flexible th,
+.flexible td,
+.flexible th a,
+.flexible td a {
+    white-space: normal!important;
+}
+
 .box {
     font-size: 1.1em;
     padding: 5px;
@@ -120,7 +126,7 @@ th {
 .mform {
     margin: auto;
     margin-top: 20px;
-    width: 75%;
+    width: 100%;
 }
 
 #page-header {
