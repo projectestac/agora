@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 PORTAL
 - Force usage of https when users clic to menu option to log in
+- Automatic e-mails are BCC sent to site e-mail instead of CC sent to current admin user
 
 MOODLE 2
 - Added CSS style for "Defined in config" params and improved styles for input fields

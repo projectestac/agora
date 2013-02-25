@@ -302,8 +302,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $uidClient = UserUtil::getIdFromName($clientCode);
                 $clientVars = UserUtil::getVars($uidClient);
 
-                // Send e-mail to site admin and to client code
-                $toUsers = array(UserUtil::getVar('email'), $clientVars['email']);
+                // Send e-mail to client code
+                $toUsers = array($clientVars['email']);
+
                 // Get all managers
                 $managers = ModUtil::apiFunc('Agoraportal', 'admin', 'getManagers', array('clientCode' => $clientCode));
                 // Add managers to destination
@@ -312,13 +313,15 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 }
                 $toUsers = array_merge($toUsers, $toManagers);
 
-                // Send the e-mail
-                $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => UserUtil::getVar('uname'),
+                // Send the e-mail (BCC to site e-mail)
+                $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => $clientName,
                             'toaddress' => $toUsers,
                             'subject' => __('Estat dels serveis a Àgora'),
+                            'bcc' => System::getVar('adminmail'),
                             'body' => $mailContent,
                             'html' => 1));
-                if ($mailSended) {
+
+                if ($sendMail) {
                     LogUtil::registerStatus($this->__('S\'ha enviat un missatge informatiu'));
                 }
             }
@@ -3668,8 +3671,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $uidClient = UserUtil::getIdFromName($clientCode);
             $clientVars = UserUtil::getVars($uidClient);
 
-            // Send e-mail to site admin and to client code
-            $toUsers = array(UserUtil::getVar('email'), $clientVars['email']);
+            // Send e-mail to client code
+            $toUsers = array($clientVars['email']);
+
             // Get all managers
             $managers = ModUtil::apiFunc('Agoraportal', 'admin', 'getManagers', array('clientCode' => $clientCode));
             // Add managers to destination
@@ -3677,13 +3681,16 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $toManagers[] = $manager['email'];
             }
             $toUsers = array_merge($toUsers, $toManagers);
-            // Send the e-mail
-            $sendEmail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => UserUtil::getVar('uname'),
+
+            // Send the e-mail (BCC to site e-mail)
+            $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => $clientCode,
                         'toaddress' => $toUsers,
-                        'subject' => $this->__('Estat de sol·licituds a Àgora'),
+                        'subject' => __('Estat de les sol·licituds a Àgora'),
+                        'bcc' => System::getVar('adminmail'),
                         'body' => $mailContent,
                         'html' => 1));
-            if ($sendEmail) {
+
+            if ($sendMail) {
                 LogUtil::registerStatus($this->__('S\'ha enviat un missatge de correu electrònic informatiu al centre i als gestors'));
             }
         }
