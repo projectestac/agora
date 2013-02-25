@@ -204,7 +204,15 @@ class mod_assign_renderer extends plugin_renderer_base {
         }
 
         $this->page->set_title(get_string('pluginname', 'assign'));
+        //XTEC ************ MODIFICAT - To show course name instead of assign name in the header
+        //2013.02.22  @sarjona
+        global $COURSE;
+        $this->page->set_heading(format_string($COURSE->fullname));
+        //************ ORIGINAL
+        /*
         $this->page->set_heading($header->assign->name);
+         */
+        //************ FI    
 
         $o .= $this->output->header();
         if ($header->preface) {

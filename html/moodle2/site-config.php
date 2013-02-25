@@ -2,12 +2,14 @@
 	
     require_once(INSTALL_BASE.'/html/config/dblib-mysql.php');
 	
+    // Debug code
     $debug_enabled = isset($_GET['debug']) ? $_GET['debug']: 'off';
     define('DEBUG_ENABLED', $debug_enabled);
     xtec_debug("DEBUG ENABLED: $debug_enabled");
     
     $dbsource = isset($_GET['dbsource']) ? $_GET['dbsource']: $agora['dbsource']['defaulttype'];
     xtec_debug("Selected source: $dbsource");
+    // End debug
 	
     //Get info from cookie if exists
     $centre = $_REQUEST['ccentre'];
