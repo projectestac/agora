@@ -129,6 +129,10 @@ th {
     width: 100%;
 }
 
+.quickgradingform {
+    font-size: 1em; /* Avoid too-big font size in gradebook */
+}
+
 #page-header {
     height: 139px;
     background-image: url([[setting:logourl]]);
