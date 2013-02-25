@@ -5,9 +5,13 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-MOODLE 2
-- Fixed bug in db authentication related with Intraweb users integration
+PORTAL
+- Force usage of https when users clic to menu option to log in
 
+MOODLE 2
+- Added CSS style for "Defined in config" params and improved styles for input fields
+- Released 0.2.3 JClic version and updated version.php file (changes has been included some weeks ago)
+- Fixed bug with assign files when submitting a file with the same name but different content (https://tracker.moodle.org/browse/MDL-38091)
 
 Changes 13.02.12
 ---------------------------------------------------------------------------------------
