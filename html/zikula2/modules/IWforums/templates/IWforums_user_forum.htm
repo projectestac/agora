@@ -7,76 +7,76 @@
     <strong>{gt text="List of topics"}</strong>
     <table class="z-datatable">
         <tbody>
-        {foreach item=tema from=$temes name="temes"}
-        <tr bgcolor="{cycle values="#ffffff, #eeeeee"}">
-            {if $userid neq ''}
-            <td align="center" width="2%" valign="top" class="topic">
-                <a href="{modurl modname=IWforums type=user func=llista_msg ftid=$tema.ftid fid=$fid u=$u}">
-                    {if $tema.n_msg_no_llegits eq 0}
-                    {img modname='IWforums' src='msg.gif'}
-                    {else}
-                    {img modname='IWforums' src='msgNo.gif'}
-                    {/if}
-                </a>
-                <div>
-                    <a href="{modurl modname=IWforums type=user func=llista_msg ftid=$tema.ftid fid=$fid u=$u}">
-                        {if $tema.marcats neq 0}
-                        {img modname='IWforums' src='marcat.gif'}
+            {foreach item=tema from=$temes name="temes"}
+            <tr bgcolor="{cycle values="#ffffff, #eeeeee"}">
+                {if $userid neq ''}
+                <td align="center" width="2%" valign="top" class="topic">
+                    <a href="{modurl modname='IWforums' type='user' func='llista_msg' ftid=$tema.ftid fid=$fid u=$u}">
+                        {if $tema.n_msg_no_llegits eq 0}
+                        {img modname='IWforums' src='msg.gif'}
+                        {else}
+                        {img modname='IWforums' src='msgNo.gif'}
                         {/if}
                     </a>
-                </div>
-            </td>
-            {/if}
-            <td valign="top" class="topic">
-                <div>
-                    <a href="{modurl modname=IWforums type=user func=llista_msg ftid=$tema.ftid fid=$fid u=$u}">
-                        {$tema.titol}
-                    </a>
-                </div>
-                <div>
-                    {$tema.descriu|nl2br}
-                </div>
-                <div style="padding-top:10px; font-size:0.9em; font-style:italic;">
-                    {gt text="topic created by:"}&nbsp;<span style="color:green; font-weight:bold;">{$users[$tema.usuari]}</span>&nbsp;{gt text="on"}&nbsp;{$tema.data}&nbsp;{gt text="at"}&nbsp;{$tema.hora}
-                </div>
-            </td>
-            <td width="27%" valign="top" class="topic">
-                <div>
-                    {gt text="Messages:"}&nbsp;<strong>{$tema.n_msg}</strong>
-                </div>
-                {if $userid neq ''}
-                <div>
-                    {gt text=" Unread messages:"}&nbsp;{if $tema.n_msg_no_llegits neq 0}<font color="#FF0000">{else}<font color="#000000">{/if}<strong>{$tema.n_msg_no_llegits}</strong></font>
-                </div>
+                    <div>
+                        <a href="{modurl modname='IWforums' type='user' func='llista_msg' ftid=$tema.ftid fid=$fid u=$u}">
+                            {if $tema.marcats neq 0}
+                            {img modname='IWforums' src='marcat.gif'}
+                            {/if}
+                        </a>
+                    </div>
+                </td>
                 {/if}
-                {if $tema.last_post_exists}
-                <div class="lastPost">
-                    {gt text="Last post by"}&nbsp;{$users[$tema.lastuser]}&nbsp;{gt text="on"}&nbsp;{$tema.lastdate}&nbsp;{gt text="at"}&nbsp;{$tema.lasttime}
-                </div>
-                {/if}
-            </td>
-            {if $moderator}
-            <td align="center" width="40px" valign="top" class="topic">
-                <div>
-                    <a href="{modurl modname=IWforums type="user" func=deltema ftid=$tema.ftid fid=$fid u=$u}" title="{gt text="Delete the topic"}">
-                       {img modname='IWforums' src='deltema.gif' __alt="Topic and messages deletion" __title="Topic and messages deletion"}
+                <td valign="top" class="topic">
+                    <div>
+                        <a href="{modurl modname='IWforums' type='user' func='llista_msg' ftid=$tema.ftid fid=$fid u=$u}">
+                            {$tema.titol}
+                        </a>
+                    </div>
+                    <div>
+                        {$tema.descriu|nl2br}
+                    </div>
+                    <div style="padding-top:10px; font-size:0.9em; font-style:italic;">
+                        {gt text="topic created by:"}&nbsp;<span style="color:green; font-weight:bold;">{$users[$tema.usuari]}</span>&nbsp;{gt text="on"}&nbsp;{$tema.data}&nbsp;{gt text="at"}&nbsp;{$tema.hora}
+                    </div>
+                </td>
+                <td width="27%" valign="top" class="topic">
+                    <div>
+                        {gt text="Messages:"}&nbsp;<strong>{$tema.n_msg}</strong>
+                    </div>
+                    {if $userid neq ''}
+                    <div>
+                        {gt text=" Unread messages:"}&nbsp;{if $tema.n_msg_no_llegits neq 0}<font color="#FF0000">{else}<font color="#000000">{/if}<strong>{$tema.n_msg_no_llegits}</strong></font>
+                    </div>
+                    {/if}
+                    {if $tema.last_post_exists}
+                    <div class="lastPost">
+                        {gt text="Last post by"}&nbsp;{$users[$tema.lastuser]}&nbsp;{gt text="on"}&nbsp;{$tema.lastdate}&nbsp;{gt text="at"}&nbsp;{$tema.lasttime}
+                    </div>
+                    {/if}
+                </td>
+                {if $moderator}
+                <td align="center" width="40px" valign="top" class="topic">
+                    <div>
+                        <a href="{modurl modname='IWforums' type='user' func='deltema' ftid=$tema.ftid fid=$fid u=$u}" title="{gt text="Delete the topic"}">
+                           {img modname='IWforums' src='deltema.gif' __alt="Topic and messages deletion" __title="Topic and messages deletion"}
                     </a>
                 </div>
                 {if not $smarty.foreach.temes.first}
-                <a href="{modurl modname=IWforums type="user" func=order ftid=$tema.ftid fid=$fid puts=1}" title="{gt text="Up"}">
+                <a href="{modurl modname='IWforums' type='user' func='order' ftid=$tema.ftid fid=$fid puts=1}" title="{gt text="Up"}">
                    {img modname='IWforums' src='up.gif' __alt="Up" __title="Up"}
-                </a>
-                {/if}
-                {if not $smarty.foreach.temes.last}
-                <a href="{modurl modname=IWforums type="user" func=order ftid=$tema.ftid fid=$fid puts=-1}" title="{gt text="Down"}">
-                   {img modname='IWforums' src='down.gif' __alt="Down" __title="Down"}
-                </a>
-                {/if}
-            </td>
+            </a>
             {/if}
-        </tr>
-        {/foreach}
-        </tbody>
+            {if not $smarty.foreach.temes.last}
+            <a href="{modurl modname='IWforums' type='user' func='order' ftid=$tema.ftid fid=$fid puts=-1}" title="{gt text="Down"}">
+               {img modname='IWforums' src='down.gif' __alt="Down" __title="Down"}
+        </a>
+        {/if}
+    </td>
+    {/if}
+</tr>
+{/foreach}
+</tbody>
 </table>
 {/if}
 {if $hi_ha_missatges}
@@ -114,7 +114,9 @@
     {/if}
 </div>
 <div style="float: right;">
-    <a href="{modurl modname=IWforums type="user" func=allmsg ftid=$ftid fid=$fid u=$u inici=$inici}">{gt text="All the messages of the list"}</a>
+    <a href="{modurl modname='IWforums' type='user' func='allmsg' ftid=$ftid fid=$fid u=$u inici=$inici}">
+        {gt text="All the messages of the list"}
+    </a>
 </div>
 
 <table class="z-datatable">
@@ -163,14 +165,14 @@
             {/if}
             {if $userid neq ''}
             <td style="text-align:center;" width="10">
-                <a href="{modurl modname=IWforums type="user" func=msg fmid=$message.fmid ftid=$ftid fid=$fid u=$u oid=$message.oid inici=$inici}">
+                <a href="{modurl modname='IWforums' type='user' func='msg' fmid=$message.fmid ftid=$ftid fid=$fid u=$u oid=$message.oid inici=$inici}">
                     <img src="modules/IWforums/images/{$message.imatge}" id="msgImage_{$message.fmid}" />
                 </a>
             </td>
             {/if}
             <td style="padding-left:{$message.indent}px;">
                 <div class="titleRowTitle">
-                    <a href="{modurl modname=IWforums type="user" func=msg fmid=$message.fmid ftid=$ftid fid=$fid u=$u oid=$message.oid inici=$inici}">
+                    <a href="{modurl modname='IWforums' type='user' func='msg' fmid=$message.fmid ftid=$ftid fid=$fid u=$u oid=$message.oid inici=$inici}">
                         {$message.title}
                     </a>
                 </div>
@@ -188,30 +190,30 @@
             <td>
                 {/if}
                 {if $moderator or $message.esborrable}
-                <a href="{modurl modname=IWforums type="user" func=del fmid=$message.fmid ftid=$ftid fid=$fid u=$u inici=$inici}" title="{gt text="Delete the message"}">
+                <a href="{modurl modname='IWforums' type='user' func='del' fmid=$message.fmid ftid=$ftid fid=$fid u=$u inici=$inici}" title="{gt text="Delete the message"}">
                    {img modname='IWforums' src='del.gif' __alt="Delete the message" __title="Delete the message"}
             </a>
             {/if}
             {if $moderator or $message.editable}
-            <a href="{modurl modname=IWforums type="user" func=edit_msg fmid=$message.fmid ftid=$ftid fid=$fid u=$u inici=$inici}" title="{gt text="Edit the message"}">
+            <a href="{modurl modname='IWforums' type='user' func='edit_msg' fmid=$message.fmid ftid=$ftid fid=$fid u=$u inici=$inici}" title="{gt text="Edit the message"}">
                {img modname='IWforums' src='editar.gif' __alt="Edit the message" __title="Edit the message"}
-            </a>
-            {/if}
-            {if $moderator}
-            <a href="{modurl modname=IWforums type="user" func=mou fmid=$message.fmid ftid=$ftid fid=$fid u=$u inici=$inici}" title="{gt text="Move the message"}">
-               {img modname='IWforums' src='moumsg.gif' __alt="Move the message" __title="Move the message"}
-            </a>
-            {/if}
-            </td>
+        </a>
         {/if}
-        </tr>
-        <tr style="margin:0px; padding:0px;">
-            <td colspan="10" style="margin:0px; padding:0px;">
-                <div class="openMsg" id="openMsgRow_{$message.fmid}" name="openMsgRow_{$message.fmid}"></div>
-            </td>
-        </tr>
-        {/foreach}
-    </tbody>
+        {if $moderator}
+        <a href="{modurl modname='IWforums' type='user' func='mou' fmid=$message.fmid ftid=$ftid fid=$fid u=$u inici=$inici}" title="{gt text="Move the message"}">
+           {img modname='IWforums' src='moumsg.gif' __alt="Move the message" __title="Move the message"}
+    </a>
+    {/if}
+</td>
+{/if}
+</tr>
+<tr style="margin:0px; padding:0px;">
+    <td colspan="10" style="margin:0px; padding:0px;">
+        <div class="openMsg" id="openMsgRow_{$message.fmid}" name="openMsgRow_{$message.fmid}"></div>
+    </td>
+</tr>
+{/foreach}
+</tbody>
 </table>
 <div style="margin-left:20px;">{$pager}</div>
 {else}

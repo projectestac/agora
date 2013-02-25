@@ -4,19 +4,19 @@
     <div class="userpageicon">{img modname='core' src='reminders.png' set='icons/large'}</div>
     <h2>
         {if $marcat}
-            <img src="modules/IWforums/images/marcat.gif" id="msgMark{$fmid}">
+        <img src="modules/IWforums/images/marcat.gif" id="msgMark{$fmid}" />
         {else}
-            <img src="modules/IWforums/images/res.gif" id="msgMark{$fmid}">
+        <img src="modules/IWforums/images/res.gif" id="msgMark{$fmid}" />
         {/if}
         {$title}
     </h2>
     <table class="usertable">
         {if $photo neq '' AND ($userid neq '' OR $avatarsVisible eq 1)}
-            <tr>
-                <td rowspan="4" width="5%">
-                    <img src="{$baseurl}{modurl modname=IWforums type=user func=getFile fileName=$photo}" />
-                </td>
-            </tr>
+        <tr>
+            <td rowspan="4" width="5%">
+                <img src="{$baseurl}{modurl modname='IWforums' type='user' func='getFile' fileName=$photo}" />
+            </td>
+        </tr>
         {/if}
         <tr>
             <td>
@@ -35,17 +35,17 @@
             </td>
         </tr>
         {if $adjunt neq ""}
-            <tr>
-                <td colspan="2">
-                    <div>
-                        {gt text="Attached file"}:
-                        <img src="modules/IWmain/images/fileIcons/{$fileIcon}"/>
-                        <a href="{modurl modname="IWforums" type="user" func="download" fileName=$adjunt fmid=$fmid fid=$fid}">
-                            {$adjunt|safetext}
-                        </a>
-                    </div>
-                </td>
-            </tr>
+        <tr>
+            <td colspan="2">
+                <div>
+                    {gt text="Attached file"}:
+                    <img src="modules/IWmain/images/fileIcons/{$fileIcon}" />
+                    <a href="{modurl modname='IWforums' type='user' func='download' fileName=$adjunt fmid=$fmid fid=$fid}">
+                        {$adjunt|safetext}
+                    </a>
+                </div>
+            </td>
+        </tr>
         {/if}
         <tr>
             <td colspan="2">
@@ -69,12 +69,12 @@
         <tr>
             {userloggedin assign=userid}
             {if $userid neq ''}
-                <th>{img modname='IWforums' src='marcat.gif'}</th>
+            <th>{img modname='IWforums' src='marcat.gif'}</th>
             {/if}
             {if $icons}<th>&nbsp;</th>{/if}
             {if $adjunts}<th>{img modname='IWforums' src='file.gif'}</th>{/if}
             {if $userid neq ''}
-                <th>{img modname='IWforums' src='MsgNoMsg.gif'}</th>
+            <th>{img modname='IWforums' src='MsgNoMsg.gif'}</th>
             {/if}
             <th style="text-align:left;">{gt text="Title"}</th>
             <th style="text-align:left;">{gt text="Sender"}</th>
@@ -82,53 +82,52 @@
             <th>{gt text="Time"}</th>
         </tr>
         {foreach item=messageList from=$messages}
-            <tr bgcolor="{cycle values="#ffffff, #eeeeee"}">
-                {if $userid neq ''}
-                    <td align="center" width="10">
-                        <a href="javascript:mark({$fid},{$messageList.fmid})">
-                            {img modname='IWforums' src=$messageList.marcat __alt=$messageList.textmarca __title=$messageList.textmarca id=$messageList.fmid}
-                        </a>
-                    </td>
+        <tr bgcolor="{cycle values="#ffffff, #eeeeee"}">
+            {if $userid neq ''}
+            <td align="center" width="10">
+                <a href="javascript:mark({$fid},{$messageList.fmid})">
+                    {img modname='IWforums' src=$messageList.marcat __alt=$messageList.textmarca __title=$messageList.textmarca id=$messageList.fmid}
+                </a>
+            </td>
+            {/if}
+            {if $icons}
+            <td align="center" width="10">
+                {if $messageList.icon neq ""}
+                {img modname='IWmain' src=$messageList.icon set='smilies' __alt=$messageList.icon __title=$messageList.icon}
                 {/if}
-                {if $icons}
-                    <td align="center" width="10">
-                        {if $messageList.icon neq ""}
-                            {img modname='IWmain' src=$messageList.icon set='smilies' __alt=$messageList.icon __title=$messageList.icon}
-
-                        {/if}
-                    </td>
+            </td>
+            {/if}
+            {if $adjunts}
+            <td align="center" width="10">
+                {if $messageList.adjunt neq ""}
+                <a title="{$messageList.adjunt}">
+                    {img modname='IWforums' src='file.gif' __alt=$messageList.adjunt __title=$messageList.adjunt}
+                </a>
                 {/if}
-                {if $adjunts}
-                    <td align="center" width="10">
-                        {if $messageList.adjunt neq ""}
-                            <a title="{$messageList.adjunt}">
-                                {img modname='IWforums' src='file.gif' __alt=$messageList.adjunt __title=$messageList.adjunt}
-                            </a>
-                        {/if}
-                    </td>
-                {/if}
-                {if $userid neq ''}
-                    <td style="text-align:center;" width="10">
-                        <a href="{modurl modname=IWforums type="user" func=msg fmid=$messageList.fmid ftid=$ftid fid=$fid u=$u oid=$messageList.oid inici=$inici}">
-                            {img modname='IWforums' src=$messageList.imatge}
-                        </a>
-                    </td>
-                {/if}
-                <td style="padding-left:{$messageList.indent}px;">
-                    <a href="{modurl modname=IWforums type="user" func=msg fmid=$messageList.fmid ftid=$ftid fid=$fid u=$u oid=$messageList.oid inici=$inici}">
-                        {$messageList.title}
-                    </a>
-                </td>
-                <td style="color:green;">
-                    <strong>{$users[$messageList.u]}</strong>
-                </td>
-                <td style="color:#777; text-align:center;">
-                    <strong>{$messageList.date}</strong>
-                </td>
-                <td style="color:#777; text-align:center;"><strong>
+            </td>
+            {/if}
+            {if $userid neq ''}
+            <td style="text-align:center;" width="10">
+                <a href="{modurl modname='IWforums' type='user' func='msg' fmid=$messageList.fmid ftid=$ftid fid=$fid u=$u oid=$messageList.oid inici=$inici}">
+                    {img modname='IWforums' src=$messageList.imatge}
+                </a>
+            </td>
+            {/if}
+            <td style="padding-left:{$messageList.indent}px;">
+                <a href="{modurl modname='IWforums' type='user' func='msg' fmid=$messageList.fmid ftid=$ftid fid=$fid u=$u oid=$messageList.oid inici=$inici}">
+                    {$messageList.title}
+                </a>
+            </td>
+            <td style="color:green;">
+                <strong>{$users[$messageList.u]}</strong>
+            </td>
+            <td style="color:#777; text-align:center;">
+                <strong>{$messageList.date}</strong>
+            </td>
+            <td style="color:#777; text-align:center;"><strong>
                     {$messageList.time}</strong>
-                </td>
-            </tr>
+            </td>
+        </tr>
         {/foreach}
     </table>
 </div>

@@ -11,7 +11,7 @@
         </tr>
         <tr>
             <td>
-				{gt text="From: "}
+                {gt text="From: "}
                 <font color="green"><b>{$user}</b></font>
             </td>
         </tr>
@@ -37,7 +37,7 @@
             <td><hr></td>
         </tr>
     </table>
-    <form name="del_msg" method="post" id="del_msg" action="{modurl modname=IWforums type=user func=del}">
+    <form name="del_msg" method="post" id="del_msg" action="{modurl modname='IWforums' type='user' func='del'}">
         <input type="hidden" name="fmid" value="{$fmid}" />
         <input type="hidden" name="ftid" value="{$ftid}" />
         <input type="hidden" name="fid" value="{$fid}" />
@@ -46,18 +46,20 @@
         <div class="z-center">
             <span class="z-buttons">
                 <a href="javascript:send()">
-                    {img modname='core' src='button_ok.png' set='icons/small'   __alt="Confirm the deletion of the forum" __title="Confirm the deletion of the forum"} {gt text="Confirm the deletion of the message"}
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Confirm the deletion of the forum" __title="Confirm the deletion of the forum"} {gt text="Confirm the deletion of the message"}
                 </a>
             </span>
             <span class="z-buttons">
                 {if $ftid neq 0}
-                    <a href="{modurl modname="IWforums" type="user" func="llista_msg" ftid=$ftid fid=$fid}">
-                        {img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel the deletion of the forum" __title="Cancel the deletion of the forum"} {gt text="Cancel"}
-                    </a>
+                <a href="{modurl modname='IWforums' type='user' func='llista_msg' ftid=$ftid fid=$fid}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel the deletion of the forum" __title="Cancel the deletion of the forum"}
+                    {gt text="Cancel"}
+                </a>
                 {else}
-                    <a href="{modurl modname="IWforums" type="user" func="forum" fid=$fid}">
-                        {img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel the deletion of the forum" __title="Cancel the deletion of the forum"} {gt text="Cancel"}
-                    </a>
+                <a href="{modurl modname='IWforums' type='user' func='forum' fid=$fid}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel the deletion of the forum" __title="Cancel the deletion of the forum"}
+                    {gt text="Cancel"}
+                </a>
                 {/if}
             </span>
         </div>

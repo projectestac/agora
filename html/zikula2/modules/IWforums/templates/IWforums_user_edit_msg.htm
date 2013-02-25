@@ -36,35 +36,35 @@
                 <td><input type="text" name="titol" maxlength="100" size="60" value="{$missatge.titol}"></td>
             </tr>
             {if $adjunts neq "0"}
-                <tr>
-                    <td>{gt text="Attached file"}</td>
-                    {if $missatge.adjunt eq ""}
-                        <td><input type="file" name="adjunt" size="50"></td>
-                    {else}
-                        <td>
-                            <input type="hidden" name="adjunt" size="50" value="">
-                            {$missatge.adjunt}
-                            &nbsp;&nbsp;|&nbsp;&nbsp;
-                            <input type="button" onClick="javascript:esborra_fitxer()" value="{gt text="Delete the attached file"}">
-                            &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="segur">&nbsp;&nbsp;{gt text="I'm sure"}
-                        </td>
-                    {/if}
-                </tr>
+            <tr>
+                <td>{gt text="Attached file"}</td>
+                {if $missatge.adjunt eq ""}
+                <td><input type="file" name="adjunt" size="50"></td>
+                {else}
+                <td>
+                    <input type="hidden" name="adjunt" size="50" value="">
+                    {$missatge.adjunt}
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <input type="button" onClick="javascript:esborra_fitxer()" value="{gt text="Delete the attached file"}">
+                           &nbsp;&nbsp;&nbsp;
+                           <input type="checkbox" name="segur">&nbsp;&nbsp;{gt text="I'm sure"}
+                </td>
+                {/if}
+            </tr>
             {/if}
             {if $icons neq ''}
-                <tr>
-                    <td>{gt text="Icon"}</td>
-                    <td>
-                        <input type="radio" name="icon" value="" {if $missatge.icon eq ''}checked{/if} />
-                        {section name=icons loop=$icons}
-                            <input type="radio" name="icon" {if $missatge.icon eq $icons[icons].imgsrc}checked{/if} value="{$icons[icons].imgsrc}" />
-                            {img modname='core' src=$icons[icons].imgsrc set='smilies'}
-                        {/section}
-                    </td>
-                </tr>
+            <tr>
+                <td>{gt text="Icon"}</td>
+                <td>
+                    <input type="radio" name="icon" value="" {if $missatge.icon eq ''}checked{/if} />
+                           {section name=icons loop=$icons}
+                           <input type="radio" name="icon" {if $missatge.icon eq $icons[icons].imgsrc}checked{/if} value="{$icons[icons].imgsrc}" />
+                           <img src="modules/IWmain/images/smilies/{$icons[icons].imgsrc}" alt="" />
+                    {/section}
+                </td>
+            </tr>
             {else}
-                <input type="hidden" name="icon" value="" />
+            <input type="hidden" name="icon" value="" />
             {/if}
             <tr>
                 <td colspan="2">{gt text="Message"}</td>
@@ -78,19 +78,27 @@
                 <td colspan="2">
                     <div class="z-center">
                         <span class="z-buttons">
-                            <a href="javascript:send()">{img modname='core' src='button_ok.png' set='icons/small'   __alt="Modify the message" __title="Modify the message"} {gt text="Modify the message"}</a>
+                            <a href="javascript:send()">
+                                {img modname='core' src='button_ok.png' set='icons/small' __alt="Modify the message" __title="Modify the message"}
+                                {gt text="Modify the message"}
+                            </a>
                         </span>
                         <span class="z-buttons">
                             {if $ftid neq 0}
-                                <a href="{modurl modname="IWforums" type="user" func="llista_msg" fid=$fid ftid=$ftid}">{img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="cancel"}</a>
+                            <a href="{modurl modname='IWforums' type='user' func='llista_msg' fid=$fid ftid=$ftid}">
+                                {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
+                                {gt text="cancel"}
+                            </a>
                             {else}
-                                <a href="{modurl modname="IWforums" type="user" func="forum" fid=$fid}">{img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="cancel"}</a>
+                            <a href="{modurl modname='IWforums' type='user' func='forum' fid=$fid}">
+                                {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
+                                {gt text="cancel"}
+                            </a>
                             {/if}
                         </span>
                     </div>
                 </td>
             </tr>
-
             <tr>
                 <td colspan="2">
                     <div style="margin:30px;">

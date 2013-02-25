@@ -45,10 +45,10 @@
             <div class="z-formrow">
                 <label for="icon">{gt text="Icon"}</label>
                 <div class="z-formnote">
-                <input type="radio" id="icon" name="icon" value="" checked />
-                {section name=icons loop=$icons}
-                <input type="radio" name="icon" value="{$icons[icons].imgsrc}" /><img src="modules/IWmain/images/smilies/{$icons[icons].imgsrc}" alt="" />
-                {/section}
+                    <input type="radio" id="icon" name="icon" value="" checked />
+                    {section name=icons loop=$icons}
+                    <input type="radio" name="icon" value="{$icons[icons].imgsrc}" /><img src="modules/IWmain/images/smilies/{$icons[icons].imgsrc}" alt="" />
+                    {/section}
                 </div>
             </div>
             {else}
@@ -61,13 +61,22 @@
         </fieldset>
         <div class="z-center">
             <span class="z-buttons">
-                <a href="javascript:send()">{img modname='core' src='button_ok.png' set='icons/small'   __alt="Create the message" __title="Create the message"} {gt text="Create the message"}</a>
+                <a href="javascript:send()">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Create the message" __title="Create the message"}
+                    {gt text="Create the message"}
+                </a>
             </span>
             <span class="z-buttons">
                 {if $ftid neq 0}
-                <a href="{modurl modname="IWforums" type="user" func="llista_msg" fid=$fid ftid=$ftid}">{img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                <a href="{modurl modname='IWforums' type='user' func='llista_msg' fid=$fid ftid=$ftid}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
+                    {gt text="Cancel"}
+                </a>
                 {else}
-                <a href="{modurl modname="IWforums" type="user" func="forum" fid=$fid}">{img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                <a href="{modurl modname='IWforums' type='user' func='forum' fid=$fid}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
+                    {gt text="Cancel"}
+                </a>
                 {/if}
             </span>
         </div>

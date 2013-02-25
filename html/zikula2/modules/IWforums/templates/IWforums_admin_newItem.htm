@@ -20,9 +20,9 @@
         {gt text="Create a new forum"}
         <!--[/if]-->
     </h2>
-    <form  class="z-form" method="post" name="new_forum" id="new_forum" action="{modurl modname="IWforums" type="admin" func="create"}" enctype="application/x-www-form-urlencoded" onSubmit="return send()">
-           <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
-           <input type="hidden" name="m" value="{$m}" />
+    <form  class="z-form" method="post" name="new_forum" id="new_forum" action="{modurl modname='IWforums' type='admin' func='create'}" enctype="application/x-www-form-urlencoded" onSubmit="return send()">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="m" value="{$m}" />
         <input type="hidden" name="fid" value="{$forum.fid}" />
         <div class="z-formrow">
             <label for="nom_forum">{gt text="Forum name"}</label>
@@ -55,13 +55,22 @@
         <div class="z-center">
             <span class="z-buttons">
                 <!--[if isset($forum.fid) AND $forum.fid gt 0]-->
-                <a onclick="javascript: send();">{img modname='core' src='button_ok.png' set='icons/small' __alt="Modify" __title="Modify"} {gt text="Modify"}</a>
+                <a onclick="javascript: send();">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Modify" __title="Modify"}
+                    {gt text="Modify"}
+                </a>
                 <!--[else]-->
-                <a onclick="javascript: send();">{img modname='core' src='button_ok.png' set='icons/small' __alt="Create" __title="Create"} {gt text="Create"}</a>
+                <a onclick="javascript: send();">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Create" __title="Create"}
+                    {gt text="Create"}
+                </a>
                 <!--[/if]-->
             </span>
             <span class="z-buttons">
-                <a href="{modurl modname=IWforums type=admin func=main}">{img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                <a href="{modurl modname='IWforums' type='admin' func='main'}">
+                    {img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"}
+                    {gt text="Cancel"}
+                </a>
             </span>
         </div>
     </form>

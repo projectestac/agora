@@ -8,12 +8,12 @@
         <thead>
             <tr>
                 {if $userid neq ''}
-                    <th></th>
+                <th></th>
                 {/if}
                 <th>{gt text="Forum name"}</th>
                 <th>{gt text="Description"}</th>
                 {if $userid neq ''}
-                    <th>{gt text="Access type"}</th>
+                <th>{gt text="Access type"}</th>
                 {/if}
                 <th>{gt text="N. topics"}</th>
                 <th>{gt text="N. messages"}</th>
@@ -21,70 +21,70 @@
         </thead>
         <tbody>
             {foreach item=forum from=$forums}
-                <tr bgcolor="{cycle values="#ffffff, #eeeeee"}">
-                    {if $userid neq ''}
-                        <td align="center">
-                            <a href="{modurl modname=IWforums type=user func=forum fid=$forum.fid}">
-                                {if $forum.n_msg_no_llegits eq 0}
-                                    {img modname='IWforums' src='msg.gif'}
-                                {else}
-                                    {img modname='IWforums' src='msgNo.gif'}
-                                {/if}
-                            </a>
-                            <div>
-                                <a href="{modurl modname=IWforums type=user func=forum fid=$forum.fid}">
-                                    {if $forum.marcats neq 0}
-                                        {img modname='IWforums' src='marcat.gif'}
-                                    {/if}
-                                </a>
-                            </div>
-
-                        </td>
-                    {/if}
-                    <td align="left" valign="top">
-                        <a href="{modurl modname=IWforums type=user func=forum fid=$forum.fid}">
-                                                    {$forum.nom_forum}
+            <tr bgcolor="{cycle values="#ffffff, #eeeeee"}">
+                {if $userid neq ''}
+                <td align="center">
+                    <a href="{modurl modname='IWforums' type='user' func='forum' fid=$forum.fid}">
+                        {if $forum.n_msg_no_llegits eq 0}
+                        {img modname='IWforums' src='msg.gif'}
+                        {else}
+                        {img modname='IWforums' src='msgNo.gif'}
+                        {/if}
+                    </a>
+                    <div>
+                        <a href="{modurl modname='IWforums' type='user' func='forum' fid=$forum.fid}">
+                            {if $forum.marcats neq 0}
+                            {img modname='IWforums' src='marcat.gif'}
+                            {/if}
                         </a>
-                    </td>
-                    <td align="left" valign="top">{$forum.descriu|nl2br}</td>
-                                    {if $userid neq ''}
-                    <td>
-                                                    {if $forum.access eq 4}
-                                                            {gt text="Moderation"}
-                                                    {elseif $forum.access eq 3}
-                                                            {gt text="Read, write and topics creation"}
-                                                    {elseif $forum.access eq 2}
-                                                            {gt text="Read and write"}
-                                                    {else}
-                                                            {gt text="Read only"}
-                                                    {/if}
-                    </td>
-                                    {/if}
-                    <td align="center" valign="top">{$forum.n_temes}</td>
-                                    {userloggedin assign=userid}
-                                    {if $userid neq ''}
-                    <td align="center" valign="top">
-                                                    {if $forum.n_msg_no_llegits eq 0}
-                        <font color="black">
-                                                    {else}
-                            <font color="red">
-                                                    {/if}
-                                                            {$forum.n_msg_no_llegits}
-                            </font>
-                                                    /{$forum.n_msg}
-                    </td>
-                                    {else}
-                    <td align="center" valign="top">
-                                                    {$forum.n_msg}
-                    </td>
-                                    {/if}
-                </tr>
+                    </div>
+
+                </td>
+                {/if}
+                <td align="left" valign="top">
+                    <a href="{modurl modname='IWforums' type='user' func='forum' fid=$forum.fid}">
+                        {$forum.nom_forum}
+                    </a>
+                </td>
+                <td align="left" valign="top">{$forum.descriu|nl2br}</td>
+                {if $userid neq ''}
+                <td>
+                    {if $forum.access eq 4}
+                    {gt text="Moderation"}
+                    {elseif $forum.access eq 3}
+                    {gt text="Read, write and topics creation"}
+                    {elseif $forum.access eq 2}
+                    {gt text="Read and write"}
+                    {else}
+                    {gt text="Read only"}
+                    {/if}
+                </td>
+                {/if}
+                <td align="center" valign="top">{$forum.n_temes}</td>
+                {userloggedin assign=userid}
+                {if $userid neq ''}
+                <td align="center" valign="top">
+                    {if $forum.n_msg_no_llegits eq 0}
+                    <font color="black">
+                    {else}
+                    <font color="red">
+                    {/if}
+                    {$forum.n_msg_no_llegits}
+                    </font>
+                    /{$forum.n_msg}
+                </td>
+                {else}
+                <td align="center" valign="top">
+                    {$forum.n_msg}
+                </td>
+                {/if}
+            </tr>
             {foreachelse}
-                <tr>
-                    <td colspan="10">
-                        {gt text="There are no forum created"}
-                    </td>
-                </tr>
+            <tr>
+                <td colspan="10">
+                    {gt text="There are no forum created"}
+                </td>
+            </tr>
             {/foreach}
         </tbody>
     </table>

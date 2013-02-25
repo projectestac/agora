@@ -49,7 +49,7 @@
             <td><hr /></td>
         </tr>
     </table>
-	{gt text="Confirm the transfer"}
+    {gt text="Confirm the transfer"}
     <br><br>
     <form name="move_msg" method="post" id="move_msg" class="z-form" action="">
         <input type="hidden" name="fmid" value="{$fmid}" />
@@ -59,23 +59,23 @@
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="u" value="{$u}" />
         {if $modera|@count gt 1}
-            {gt text="Move the message to the forum"} =>
-            <select name="nouforum" id="nouforum" onChange="javascript:canviforum()">
-                {section name=modera loop=$modera}
-                    <option {if $modera[modera].fid eq $nouforum}selected{/if} value="{$modera[modera].fid}">{$modera[modera].nom_forum}</option>
-                {/section}
-            </select>
-            <br /><br />
+        {gt text="Move the message to the forum"} =>
+        <select name="nouforum" id="nouforum" onChange="javascript:canviforum()">
+            {section name=modera loop=$modera}
+            <option {if $modera[modera].fid eq $nouforum}selected{/if} value="{$modera[modera].fid}">{$modera[modera].nom_forum}</option>
+            {/section}
+        </select>
+        <br /><br />
         {else}
-            <input type="hidden" name="nouforum" value="{$fid}" />
+        <input type="hidden" name="nouforum" value="{$fid}" />
         {/if}
         {gt text="Move the message to the topic"} =>
         <select name="noutema" id="noutema">
             <option value="0">{gt text="Without topic"}</option>
             {section name=temes loop=$temes}
-                {if $temes[temes].ftid neq $ftid}
-                    <option value="{$temes[temes].ftid}">{$temes[temes].titol}</option>
-                {/if}
+            {if $temes[temes].ftid neq $ftid}
+            <option value="{$temes[temes].ftid}">{$temes[temes].titol}</option>
+            {/if}
             {/section}
         </select>
         <div>
@@ -83,17 +83,22 @@
         </div>
         <div class="z-center">
             <span class="z-buttons">
-                <a href="javascript:move()">{img modname='core' src='button_ok.png' set='icons/small' __alt="Confirm the transfer" __title="Confirm the transfer"} {gt text="Confirm the transfer"}</a>
+                <a href="javascript:move()">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Confirm the transfer" __title="Confirm the transfer"}
+                    {gt text="Confirm the transfer"}
+                </a>
             </span>
             <span class="z-buttons">
                 {if $ftid neq 0}
-                    <a href="{modurl modname="IWforums" type="user" func="llista_msg" ftid=$ftid fid=$fid u=$u}">
-                        {img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel the transfer of the message" __title="Cancel the transfer of the message"} {gt text="Cancel"}
-                    </a>
+                <a href="{modurl modname='IWforums' type='user' func='llista_msg' ftid=$ftid fid=$fid u=$u}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel the transfer of the message" __title="Cancel the transfer of the message"}
+                    {gt text="Cancel"}
+                </a>
                 {else}
-                    <a href="{modurl modname="IWforums" type="user" func="forum" fid=$fid u=$u}">
-                    {img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel the transfer of the message" __title="Cancel the transfer of the message"} {gt text="Cancel"}
-                    </a>
+                <a href="{modurl modname='IWforums' type='user' func='forum' fid=$fid u=$u}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel the transfer of the message" __title="Cancel the transfer of the message"}
+                    {gt text="Cancel"}
+                </a>
                 {/if}
             </span>
         </div>

@@ -481,13 +481,17 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         foreach ($usuaris_rem as $user) {
             $usersList .= $user['usuari'] . '$$';
         }
-        $usersList = '';
-        // get all users information
-        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo',
-                        array('sv' => $sv,
-                            'info' => 'ncc',
-                            'list' => $usersList));
+
+        $users = array();
+        if ($usersList != '') {
+            // get all users information
+            $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+            $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo',
+                            array('sv' => $sv,
+                                'info' => 'ncc',
+                                'list' => $usersList));
+        }
+
         $usuaris[] = array('id' => 0,
             'name' => $this->__('Choose the sender...'));
         foreach ($usuaris_rem as $usuari_rem) {

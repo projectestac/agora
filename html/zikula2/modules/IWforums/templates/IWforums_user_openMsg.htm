@@ -2,24 +2,24 @@
 <div class="usercontainer">
     <table class="usertable">
         {if $photo neq '' AND ($userid neq '' OR $avatarsVisible eq 1)}
-            <tr>
-                <td rowspan="3" width="5%" valign="top">
-                    <img src="{$baseurl}{modurl modname=IWforums type=user func=getFile fileName=$photo}" />
-                </td>
-            </tr>
+        <tr>
+            <td rowspan="3" width="5%" valign="top">
+                <img src="{$baseurl}{modurl modname='IWforums' type='user' func='getFile' fileName=$photo}" />
+            </td>
+        </tr>
         {/if}
         {if $adjunt neq ""}
-            <tr>
-                <td>
-                    <div>
-                        {gt text="Attached file"}:
-                        <img src="modules/IWmain/images/fileIcons/{$fileIcon}"/>
-                        <a href="{modurl modname="IWforums" type="user" func="download" fileName=$adjunt fmid=$fmid fid=$fid}">
-                            {$adjunt|safetext}
-                        </a>
+        <tr>
+            <td>
+                <div>
+                    {gt text="Attached file"}:
+                    <img src="modules/IWmain/images/fileIcons/{$fileIcon}"/>
+                    <a href="{modurl modname='IWforums' type='user' func='download' fileName=$adjunt fmid=$fmid fid=$fid}">
+                        {$adjunt|safetext}
+                    </a>
                 </div>
-                </td>
-            </tr>
+            </td>
+        </tr>
         {/if}
         <tr>
             <td colspan="2">
@@ -31,16 +31,16 @@
         <tr>
             <td colspan="3" align="right">
                 {if $access > 1}
-                    <div class="titleRowTitle">
-                        <a href="{modurl modname=IWforums type="user" func=nou_msg fmid=$fmid ftid=$ftid fid=$fid u=$u inici=$inici oid=$oid}" title="{gt text="Move the message"}">
-                            {gt text="Reply to the message"}
-                        </a>
-                    </div>
-                {/if}
-                <div class="titleRowIcon">
-                    <img src="modules/IWforums/images/msgclose.gif" onClick="javascript:closeMsg({$fmid})">
-                </div>
-            </td>
-        </tr>
-    </table>
+                <div class="titleRowTitle">
+                    <a href="{modurl modname='IWforums' type='user' func='nou_msg' fmid=$fmid ftid=$ftid fid=$fid u=$u inici=$inici oid=$oid}" title="{gt text="Move the message"}">
+                       {gt text="Reply to the message"}
+                </a>
+            </div>
+            {/if}
+            <div class="titleRowIcon">
+                <img src="modules/IWforums/images/msgclose.gif" onClick="javascript:closeMsg({$fmid})">
+            </div>
+        </td>
+    </tr>
+</table>
 </div>

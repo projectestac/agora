@@ -2,17 +2,23 @@
 <div class="z-admincontainer">
     <div class="z-adminpageicon">{img modname='core' src='editdelete.png' set='icons/large'}</div>
     <h2>{gt text="Delete the forum"}</h2>
-    <form id="deleteForum" class="z-form" action="{modurl modname="IWforums" type="admin" func="delete"}" method="post" enctype="application/x-www-form-urlencoded">
-          <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
-           <input type="hidden" name="fid" value="{$item.fid}" />
+    <form id="deleteForum" class="z-form" action="{modurl modname='IWforums' type='admin' func='delete'}" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="fid" value="{$item.fid}" />
         <input type="hidden" name="confirm" value="1" />
         {gt text="Confirm the deletion of the forum"} <strong>{$item.nom_forum}</strong>
         <div class="z-center">
             <span class="z-buttons">
-                <a onclick="javascript: forms['deleteForum'].submit();">{img modname='core' src='button_ok.png' set='icons/small' __alt="Delete" __title="Delete"} {gt text="Delete"}</a>
+                <a onclick="javascript: forms['deleteForum'].submit();">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Delete" __title="Delete"}
+                    {gt text="Delete"}
+                </a>
             </span>
             <span class="z-buttons">
-                <a href="{modurl modname="IWforums" type="admin" func="main"}">{img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel the deletion of the forum" __title="Cancel the deletion of the forum"} {gt text="Cancel"}</a>
+                <a href="{modurl modname='IWforums' type='admin' func='main'}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel the deletion of the forum" __title="Cancel the deletion of the forum"}
+                    {gt text="Cancel"}
+                </a>
             </span>
         </div>
     </form>

@@ -2,9 +2,9 @@
 <div class="z-admincontainer">
     <div class="z-adminpageicon">{img modname='IWforums' src='add_user_large.gif'}</div>
     <h2>{gt text="Add a moderator"}</h2>
-    <form id="newModerator" class="z-form" action="{modurl modname="IWforums" type="admin" func="addModerator"}" method="post" enctype="application/x-www-form-urlencoded">
-          <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
-           <input type="hidden" name="fid" value="{$item.fid}" />
+    <form id="newModerator" class="z-form" action="{modurl modname='IWforums' type='admin' func='addModerator'}" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="fid" value="{$item.fid}" />
         <div class="z-formrow">
             <label for="group">{gt text="Group"}</label>
             <select name="group" id="group" onchange="javascript:chgUsers(this.value)">
@@ -25,10 +25,14 @@
         </div>
         <div class="z-center">
             <span class="z-buttons">
-                <a onclick="javascript: forms['newModerator'].submit();">{img modname='core' src='button_ok.png' set='icons/small'   __alt="Add" __title="Add"} {gt text="Add"}</a>
+                <a onclick="javascript: forms['newModerator'].submit();">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Add" __title="Add"} {gt text="Add"}
+                </a>
             </span>
             <span class="z-buttons">
-                <a href="{modurl modname="IWforums" type="admin" func="main"}">{img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                <a href="{modurl modname='IWforums' type='admin' func='main'}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}
+                </a>
             </span>
         </div>
     </form>

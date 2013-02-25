@@ -32,11 +32,16 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $groupsInfo = ModUtil::func('IWmain', 'user', 'getAllGroupsInfo', array('sv' => $sv));
 
-        //get all users information
-        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $usersInfo = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv,
-                    'info' => 'ncc',
-                    'list' => $moderators));
+        $usersInfo = array();
+
+        if ($moderators != '') {
+            //get all users information
+            $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+            $usersInfo = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv,
+                        'info' => 'ncc',
+                        'list' => $moderators));
+        }
+
         $forumsArray = array();
         foreach ($forums as $forum) {
             //prepare groups

@@ -8,13 +8,12 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      */
     public function chgUsers($args) {
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
-        $gid = FormUtil::getPassedValue('gid', -1, 'GET');
-        if ($gid == -1) {
-            LogUtil::registerError('no group id');
-            AjaxUtil::output();
+        $gid = $this->request->getPost()->get('gid', '');
+        if (!$gid) {
+            throw new Zikula_Exception_Fatal($this->__('no group id'));
         }
 
         // get group members
@@ -26,14 +25,15 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         asort($groupMembers);
 
         if (empty($groupMembers)) {
-            LogUtil::registerError('unable to get group members or group is empty for gid=' . DataUtil::formatForDisplay($gid));
+            AjaxUtil::error($this->__('unable to get group members or group is empty for gid=') . DataUtil::formatForDisplay($gid));
         }
 
         $view = Zikula_View::getInstance('IWforums', false);
         $view->assign('groupMembers', $groupMembers);
         $view->assign('action', 'chgUsers');
         $content = $view->fetch('IWforums_admin_ajax.htm');
-        AjaxUtil::output(array('content' => $content));
+        return new Zikula_Response_Ajax(array('content' => $content,
+                ));
     }
 
     /**
@@ -44,19 +44,17 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      */
     public function modifyForum($args) {
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
-        $fid = FormUtil::getPassedValue('fid', -1, 'GET');
-        if ($fid == -1) {
-            LogUtil::registerError('no forum id');
-            AjaxUtil::output();
+        $fid = $this->request->getPost()->get('fid', '');
+        if (!$fid) {
+            throw new Zikula_Exception_Fatal($this->__('no forum id'));
         }
 
-        $char = FormUtil::getPassedValue('char', -1, 'GET');
-        if ($char == -1) {
-            LogUtil::registerError('no char defined');
-            AjaxUtil::output();
+        $char = $this->request->getPost()->get('character', '');
+        if (!$char) {
+            throw new Zikula_Exception_Fatal($this->__('no char defined'));
         }
 
         //Get agenda information
@@ -74,11 +72,12 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!ModUtil::apiFunc('IWforums', 'admin', 'update',
                                array('fid' => $fid,
                     'items' => $items))) {
-            LogUtil::registerError('Error');
+            LogUtil::registerError($this->__('Error'));
             AjaxUtil::output();
         }
 
-        AjaxUtil::output(array('fid' => $fid));
+        return new Zikula_Response_Ajax(array('fid' => $fid,
+                ));
     }
 
     /**
@@ -89,28 +88,24 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      */
     public function changeContent($args) {
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
-        $fid = FormUtil::getPassedValue('fid', -1, 'GET');
-        if ($fid == -1) {
-            LogUtil::registerError('no fid id');
-            AjaxUtil::output();
+        $fid = $this->request->getPost()->get('fid', '');
+        if (!$fid) {
+            throw new Zikula_Exception_Fatal($this->__('no forum id'));
         }
 
         $item = ModUtil::func('IWforums', 'admin', 'getCharsContent',
                                array('fid' => $fid));
-    //	$item = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
-        /* 	if ($item == false) {
-          AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('Forum not found')));
-          }
-         */
+
         $view = Zikula_View::getInstance('IWforums', false);
         $view->assign('forum', $item);
         $content = $view->fetch('IWforums_admin_mainChars.htm');
 
-        AjaxUtil::output(array('content' => $content,
-                               'fid' => $fid));
+        return new Zikula_Response_Ajax(array('content' => $content,
+                'fid' => $fid,
+                ));
     }
 
     /**
@@ -122,42 +117,42 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
     public function mark($args) {
         
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
         if (!UserUtil::isLoggedIn()) {
-            throw new Zikula_Exception_Forbidden();
+            throw new Zikula_Exception_Fatal();
         }
 
-        $fid = FormUtil::getPassedValue('fid', -1, 'GET');
-        if ($fid == -1) {
-            AjaxUtil::output('no forum id');
+        $fid = $this->request->getPost()->get('fid', '');
+        if (!$fid) {
+            throw new Zikula_Exception_Fatal($this->__('no forum id'));
         }
 
-        $fmid = FormUtil::getPassedValue('fmid', -1, 'GET');
-        if ($fmid == -1) {
-            AjaxUtil::output('no message id');
+        $fmid = $this->request->getPost()->get('fmid', '');
+        if (!$fmid) {
+            throw new Zikula_Exception_Fatal($this->__('no message idd'));
         }
 
         //get forum information
         $forum = ModUtil::apiFunc('IWforums', 'user', 'get',
                                    array('fid' => $fid));
         if ($forum == false) {
-            AjaxUtil::output($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
+            AjaxUtil::error($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
         }
 
         //check if user can access the forum
         $access = ModUtil::func('IWforums', 'user', 'access',
                                  array('fid' => $fid));
         if ($access < 1) {
-            AjaxUtil::output($this->__('You can\'t access the forum'));
+            AjaxUtil::error($this->__('You can\'t access the forum'));
         }
 
         //get message information
         $registre = ModUtil::apiFunc('IWforums', 'user', 'get_msg',
                                       array('fmid' => $fmid));
         if ($registre == false) {
-            AjaxUtil::output($this->__('No messages have been found'));
+            AjaxUtil::error($this->__('No messages have been found'));
         }
 
         $marcat = (strpos($registre['marcat'], '$' . UserUtil::getVar('uid') . '$') === false) ? $registre['marcat'] . '$' . UserUtil::getVar('uid') . '$' : str_replace('$' . UserUtil::getVar('uid') . '$', '', $registre['marcat']);
@@ -186,10 +181,12 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         } else {
             $reloadFlags = false;
         }
-        AjaxUtil::output(array('fmid' => $fmid,
-                               'm' => $m,
-                               'markText' => $markText,
-                               'reloadFlags' => $reloadFlags));
+
+        return new Zikula_Response_Ajax(array('fmid' => $fmid,
+                'm' => $m,
+                'markText' => $markText,
+                'reloadFlags' => $reloadFlags
+                ));
     }
 
     /**
@@ -201,16 +198,17 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
     public function deleteGroup($args) {
         
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
-        $fid = FormUtil::getPassedValue('fid', -1, 'GET');
-        if ($fid == -1) {
-            AjaxUtil::error('no forum id');
+        $fid = $this->request->getPost()->get('fid', '');
+        if (!$fid) {
+            throw new Zikula_Exception_Fatal($this->__('no forum id'));
         }
-        $gid = FormUtil::getPassedValue('gid', -10, 'GET');
-        if ($gid == -10) {
-            AjaxUtil::error('no group id');
+
+        $gid = $this->request->getPost()->get('gid', '');
+        if (!$gid) {
+            throw new Zikula_Exception_Fatal($this->__('no group id'));
         }
 
         //Get item
@@ -229,8 +227,9 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             AjaxUtil::error('error deleting group');
         }
 
-        AjaxUtil::output(array('gid' => $gid,
-                               'fid' => $fid));
+        return new Zikula_Response_Ajax(array('gid' => $gid,
+                'fid' => $fid,
+                ));
     }
 
     /**
@@ -242,16 +241,17 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
     public function deleteModerator($args) {
         
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
 
-        $fid = FormUtil::getPassedValue('fid', -1, 'GET');
-        if ($fid == -1) {
-            AjaxUtil::error('no forum id');
+        $fid = $this->request->getPost()->get('fid', '');
+        if (!$fid) {
+            throw new Zikula_Exception_Fatal($this->__('no forum id'));
         }
-        $id = FormUtil::getPassedValue('id', -1, 'GET');
-        if ($gid == -1) {
-            AjaxUtil::error('no user id');
+
+        $id = $this->request->getPost()->get('id', '');
+        if (!$id) {
+            throw new Zikula_Exception_Fatal($this->__('no user id'));
         }
 
         //Get item
@@ -270,8 +270,9 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             AjaxUtil::error('error deleting moderator');
         }
 
-        AjaxUtil::output(array('id' => $id,
-                               'fid' => $fid));
+        return new Zikula_Response_Ajax(array('id' => $id,
+                'fid' => $fid,
+                ));
     }
 
     /**
@@ -283,41 +284,42 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
     public function openMsg($args) {
         
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
-        $fid = FormUtil::getPassedValue('fid', -1, 'GET');
-        if ($fid == -1) {
-            AjaxUtil::output('no forum id');
+        $fid = $this->request->getPost()->get('fid', '');
+        if (!$fid) {
+            throw new Zikula_Exception_Fatal($this->__('no forum id'));
         }
 
-        $fmid = FormUtil::getPassedValue('fmid', -1, 'GET');
-        if ($fmid == -1) {
-            AjaxUtil::output('no message id');
+        $fmid = $this->request->getPost()->get('fmid', '');
+        if (!$fmid) {
+            throw new Zikula_Exception_Fatal($this->__('no message id'));
         }
-        $ftid = FormUtil::getPassedValue('ftid', -1, 'GET');
-        $u = FormUtil::getPassedValue('u', -1, 'GET');
-        $oid = FormUtil::getPassedValue('oid', -1, 'GET');
-        $inici = FormUtil::getPassedValue('inici', -1, 'GET');
+
+        $ftid = $this->request->getPost()->get('ftid', '');
+        $u = $this->request->getPost()->get('u', '');
+        $oid = $this->request->getPost()->get('oid', '');
+        $inici = $this->request->getPost()->get('inici', '');
 
         //get forum information
         $forum = ModUtil::apiFunc('IWforums', 'user', 'get',
                                    array('fid' => $fid));
         if ($forum == false) {
-            AjaxUtil::output($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
+            AjaxUtil::error($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
         }
 
         //check if user can access the forum
         $access = ModUtil::func('IWforums', 'user', 'access',
                                  array('fid' => $fid));
         if ($access < 1) {
-            AjaxUtil::output($this->__('You can\'t access the forum'));
+            AjaxUtil::error($this->__('You can\'t access the forum'));
         }
 
         //get message information
         $registre = ModUtil::apiFunc('IWforums', 'user', 'get_msg',
                                       array('fmid' => $fmid));
         if ($registre == false) {
-            AjaxUtil::output($this->__('No messages have been found'));
+            AjaxUtil::error($this->__('No messages have been found'));
         }
         $content = ModUtil::func('IWforums', 'user', 'openMsg',
                                   array('fid' => $fid,
@@ -326,7 +328,9 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
                                         'u' => $u,
                                         'oid' => $oid,
                                         'inici' => $inici));
-        AjaxUtil::output(array('fmid' => $fmid,
-                               'content' => $content));
+
+        return new Zikula_Response_Ajax(array('fmid' => $fmid,
+                'content' => $content,
+                ));
     }
 }

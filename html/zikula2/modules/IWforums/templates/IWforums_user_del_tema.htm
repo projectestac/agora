@@ -4,17 +4,23 @@
     <h2>{$name} => {if $ftid neq 0}{$tema} => {/if}{gt text="Topic and messages deletion"}</h2>
     <div style="height:15px;">&nbsp;</div>
     {gt text="Confirmation of deletion of the topic and its messages"}
-    <form name="deltema" method="post" id="deltema" action="{modurl modname=IWforums type=user func=deltema}">
+    <form name="deltema" method="post" id="deltema" action="{modurl modname='IWforums' type='user' func='deltema'}">
         <input type="hidden" name="ftid" value="{$ftid}" />
         <input type="hidden" name="fid" value="{$fid}" />
         <input type="hidden" name="confirmation" value="true" />
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <div class="z-center">
             <span class="z-buttons">
-                <a href="javascript:send()">{img modname='core' src='button_ok.png' set='icons/small'   __alt="Confirm the deletion of the topic" __title="Confirm the deletion of the topic"} {gt text="Confirm the deletion of the topic"}</a>
+                <a href="javascript:send()">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Confirm the deletion of the topic" __title="Confirm the deletion of the topic"}
+                    {gt text="Confirm the deletion of the topic"}
+                </a>
             </span>
             <span class="z-buttons">
-                <a href="{modurl modname="IWforums" type="user" func="forum" fid=$fid}">{img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
+                <a href="{modurl modname='IWforums' type='user' func='forum' fid=$fid}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
+                    {gt text="Cancel"}
+                </a>
             </span>
         </div>
     </form>
