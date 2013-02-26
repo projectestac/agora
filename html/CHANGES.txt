@@ -15,6 +15,9 @@ MOODLE 2
 - Fixed bug with assign files when submitting a file with the same name but different content (https://tracker.moodle.org/browse/MDL-38091)
 - Improved efficiency of coursequotas report
 
+ZIKULA
+- Added call to stats summarize function in iwcron.php
+
 
 
 Changes 13.02.12
