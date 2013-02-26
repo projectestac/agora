@@ -16,6 +16,9 @@ MOODLE 2
 - Improved efficiency of coursequotas report
 - Fixed bug with import19 tool to let Moodle 2 admins restore all Moodle 1.9 courses (even if they aren't admins in Moodle 1.9)
 
+ZIKULA
+- Added call to stats summarize function in iwcron.php
+
 
 
 Changes 13.02.12
