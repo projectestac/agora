@@ -14,6 +14,7 @@ MOODLE 2
 - Released 0.2.3 JClic version and updated version.php file (changes has been included some weeks ago)
 - Fixed bug with assign files when submitting a file with the same name but different content (https://tracker.moodle.org/browse/MDL-38091)
 - Improved efficiency of coursequotas report
+- Fixed bug with import19 tool to let Moodle 2 admins restore all Moodle 1.9 courses (even if they aren't admins in Moodle 1.9)
 
 
 
