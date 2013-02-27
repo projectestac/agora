@@ -72,13 +72,18 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
         DBUtil::createIndex($c['requestId'], 'agoraportal_request', 'requestId');
         $c = $table['agoraportal_logs_column'];
         DBUtil::createIndex($c['clientCode'], 'agoraportal_logs', 'clientCode');
+        $c = $table['agoraportal_moodle_stats_day_column'];
+        DBUtil::createIndex('idx_moodle_stats_day', 'agoraportal_moodle_stats_day', array('clientcode', 'date'));
+        $c = $table['agoraportal_moodle_stats_month_column'];
+        DBUtil::createIndex('idx_moodle_stats_month', 'agoraportal_moodle_stats_month', array('clientcode', 'yearmonth'));
+        $c = $table['agoraportal_moodle_stats_week_column'];
+        DBUtil::createIndex('idx_moodle_stats_week', 'agoraportal_moodle_stats_week', array('clientcode', 'date'));
         $c = $table['agoraportal_moodle2_stats_day_column'];
-        DBUtil::createIndex($c['date'], 'agoraportal_moodle2_stats_day', 'date');
+        DBUtil::createIndex('idx_moodle2_stats_day', 'agoraportal_moodle2_stats_day', array('clientcode', 'date'));
         $c = $table['agoraportal_moodle2_stats_month_column'];
-        DBUtil::createIndex($c['yearmonth'], 'agoraportal_moodle2_stats_month', 'yearmonth');
+        DBUtil::createIndex('idx_moodle2_stats_month', 'agoraportal_moodle2_stats_month', array('clientcode', 'yearmonth'));
         $c = $table['agoraportal_moodle2_stats_week_column'];
-        DBUtil::createIndex($c['date'], 'agoraportal_moodle2_stats_week', 'date');
-
+        DBUtil::createIndex('idx_moodle2_stats_week', 'agoraportal_moodle2_stats_week', array('clientcode', 'date'));
         // create module vars
         $this->setVar('siteBaseURL', 'http://agora.xtec.cat')
                 ->setVar('tempFolder', '')
@@ -177,6 +182,10 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                     return false;
                 if (!DBUtil::changeTable('agoraportal_moodle_stats_month'))
                     return false;
+                
+                /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
+                 * afegir una comprovació amb DBUtil::metaIndexes per saber
+                 * si s'han de tornar a crear. */
         }
         return true;
     }
