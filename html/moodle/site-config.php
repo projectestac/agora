@@ -29,7 +29,6 @@
     }
     
     // Get the correct domain for the school (it's different if the school uses marsupial modules)
-    //$CFG->ismarsupial = $school_info['type']=='MARSUPIAL';
     $CFG->ismarsupial = array_key_exists('is_marsupial', $school_info) && $school_info['is_marsupial'];
     $moodle_wwwserver = $agora['server']['server'];
     if (isset($CFG->ismarsupial) && $CFG->ismarsupial){
