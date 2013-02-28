@@ -5,6 +5,9 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- Hardened security of the multisite cookie
+
 PORTAL
 - Force usage of https when users clic to menu option to log in
 - Automatic e-mails are BCC sent to site e-mail instead of CC sent to current admin user
