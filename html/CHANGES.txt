@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 GENERAL
 - Hardened security of the multisite cookie
+- Modified replaceMoodle.php to be executed from the server
 
 PORTAL
 - Force usage of https when users clic to menu option to log in
