@@ -17,6 +17,7 @@ portaldata/pnTemp/Theme_compiled/*
 portaldata/pnTemp/Theme_Config/*
 portaldata/pnTemp/view_cache/*
 portaldata/pnTemp/view_compiled/*
+portaldata/pnTemp/purifierCache/*
 sh/*
 zkdata/usu*/*
 .Trash-1000/
