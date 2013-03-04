@@ -92,7 +92,8 @@ th {
 .flexible th,
 .flexible td,
 .flexible th a,
-.flexible td a {
+.flexible td a,
+.path-grade-report-grader .heading_name_row th {
     white-space: normal!important;
 }
 
