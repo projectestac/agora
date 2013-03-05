@@ -11,6 +11,7 @@ GENERAL
 
 PORTAL
 - Force usage of https when users clic to menu option to log in
+- Added https login in portal for Zikula 1.3.x
 - Automatic e-mails are BCC sent to site e-mail instead of CC sent to current admin user
 
 MOODLE 2
@@ -19,7 +20,7 @@ MOODLE 2
 - Fixed bug with assign files when submitting a file with the same name but different content (https://tracker.moodle.org/browse/MDL-38091)
 - Improved efficiency of coursequotas report
 - Fixed bug with import19 tool to let Moodle 2 admins restore all Moodle 1.9 courses (even if they aren't admins in Moodle 1.9)
-- Improvements to CSS of theme xtec2 to improve usability of GradeBook
+- Improvements to CSS of theme xtec2 to improve usability of GradeBook and in calendar selector in "New assign"
 
 ZIKULA
 - Added call to stats summarize function in iwcron.php

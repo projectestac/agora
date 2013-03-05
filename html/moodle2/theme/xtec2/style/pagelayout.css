@@ -688,7 +688,9 @@ tr.header { background-color:#DDDDDD!important;}
 }
 
 
-#page-content #region-main ul.weeks, #page-content #region-main ul.unlist, #page-content #region-main ul.topics {
+#page-content #region-main ul.weeks, 
+#page-content #region-main ul.unlist, 
+#page-content #region-main ul.topics {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     border: 1px solid #DDDDDD;
@@ -887,7 +889,6 @@ fieldset div {margin-top:5px }
 }
 
 .yui3-menu li:hover {
-
 }
 
 #page-content .region-content{ padding-top:0px;}
@@ -943,15 +944,23 @@ fieldset div {margin-top:5px }
 th.header a {color: [[setting:color5]]!important;} 
 th.header {background-color: [[setting:color6]]!important; color:[[setting:color4]]!important;}
 
-/*
-input[type="text"], input[type="password"], textarea {
-    width: 160px !important;
-}
-*/
-
 input#username, input#password {
     width: 160px !important;
 }
+
+/* Styles for calendar selector in 'new assign' */
+.calnavleft {
+    margin: 10px 0px 0px 20px!important;
+}
+.calnavright {
+    margin: 10px 20px 0px 0px!important;
+}
+.calheader {
+    color: black;
+    text-transform: capitalize;
+    padding-top: 8px!important;
+}
+
 
 /* Must be at the end in order to override any previous style */
 [[setting:customcss]]
