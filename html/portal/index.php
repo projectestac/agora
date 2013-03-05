@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright Zikula Foundation 2009 - Zikula Application Framework
  *
@@ -11,7 +12,6 @@
  * Please see the NOTICE file distributed with this source code for further
  * information regarding copyright and licensing.
  */
-
 include 'lib/bootstrap.php';
 $core->init();
 
@@ -19,9 +19,31 @@ $core->getEventManager()->notify(new Zikula_Event('frontcontroller.predispatch')
 
 // Get variables
 $module = FormUtil::getPassedValue('module', '', 'GETPOST', FILTER_SANITIZE_STRING);
-$type   = FormUtil::getPassedValue('type', '', 'GETPOST', FILTER_SANITIZE_STRING);
-$func   = FormUtil::getPassedValue('func', '', 'GETPOST', FILTER_SANITIZE_STRING);
+$type = FormUtil::getPassedValue('type', '', 'GETPOST', FILTER_SANITIZE_STRING);
+$func = FormUtil::getPassedValue('func', '', 'GETPOST', FILTER_SANITIZE_STRING);
 
+
+//XTEC ************ AFEGIT - provide https login using BigIP
+//2013.03.05 @albertpm
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+    $rurl = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+} elseif (isset($_SERVER['HTTPS'])) {
+    $rurl = strtolower($_SERVER['HTTPS']) == 'off' ? 'http' : 'https';
+} else {
+    $rurl = 'http';
+}
+
+if ($module == 'users' && $type == 'user' && ($func == 'login' || $func == 'loginscreen')) {
+    if ($rurl == 'http') {
+        //header('location:https://' . System::serverGetVar('HTTP_HOST') . System::getBaseUri() . '/' . ModUtil::url('users', 'user', 'login'));
+        system::redirect('https://' . System::serverGetVar('HTTP_HOST') . System::getBaseUri() . '/' . ModUtil::url('users', 'user', 'login'));
+    }
+} else {
+    if ($rurl == 'https') {
+        system::redirect('http://' . System::serverGetVar('HTTP_HOST') . System::getCurrentUri());
+    }
+}
+//************ FI
 // check requested module
 $arguments = array();
 
@@ -87,7 +109,6 @@ try {
     if (System::getVar('Z_CONFIG_USE_TRANSACTIONS')) {
         $dbConn->commit();
     }
-
 } catch (Exception $e) {
     $event = new Zikula_Event('frontcontroller.exception', $e, array('modinfo' => $modinfo, 'type' => $type, 'func' => $func, 'arguments' => $arguments));
     $core->getEventManager()->notify($event);
@@ -125,8 +146,7 @@ try {
     }
 }
 
-switch (true)
-{
+switch (true) {
     case ($return === true):
         // prevent rendering of the theme.
         System::shutDown();
@@ -138,7 +158,7 @@ switch (true)
             LogUtil::registerError(LogUtil::getErrorMsgPermission(), $httpCode, $url);
             System::shutDown();
         }
-        // there is no break here deliberately.
+    // there is no break here deliberately.
     case ($return === false):
         if (!LogUtil::hasErrors()) {
             LogUtil::registerError(__f('Could not load the \'%1$s\' module at \'%2$s\'.', array($module, $func)), $httpCode, null);
