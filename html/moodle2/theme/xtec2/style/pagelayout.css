@@ -941,8 +941,13 @@ fieldset div {margin-top:5px }
 
 #dates.generalbox{ height:auto!important; min-height:30px!important;}
 
-th.header a {color: [[setting:color5]]!important;} 
-th.header {background-color: [[setting:color6]]!important; color:[[setting:color4]]!important;}
+th.header a { 
+    color: [[setting:color5]]!important;
+}
+th.header { 
+    background-color: [[setting:color6]]!important;
+    color:[[setting:color4]]!important;
+}
 
 input#username, input#password {
     width: 160px !important;
@@ -959,6 +964,9 @@ input#username, input#password {
     color: black;
     text-transform: capitalize;
     padding-top: 8px!important;
+}
+.calweekdaycell {
+    color: [[setting:color3]]!important;
 }
 
 
