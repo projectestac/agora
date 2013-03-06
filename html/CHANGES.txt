@@ -14,6 +14,7 @@ PORTAL
 - Added https login in portal for Zikula 1.3.x
 - Automatic e-mails are BCC sent to site e-mail instead of CC sent to current admin user
 - Fixed error when users accept to be a manager (function managerChoose())
+- Random password generated and sent via e-mail when a service is activated
 
 MOODLE 2
 - Added CSS style for "Defined in config" params and improved styles for input fields

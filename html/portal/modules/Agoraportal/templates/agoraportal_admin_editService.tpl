@@ -167,6 +167,6 @@
 </div>
 <script>
     var confirmDischarge = "{{gt text='Estàs a punt de donar de baixa un servei. Aquesta acció no es pot desfer. N\'estàs completament segur/a?'}}";
-    var autoAnnotations = "{{$client.annotations}} {{gt text='Deixa la base de dades:'}}" + " {{$client.serviceDB}}";
-    var autoObservations = "{{$client.observations}} {{gt text='Baixa automàtica del servei per inactivitat durant més de 12 mesos.'}}";
+    var autoAnnotations = "{{$client.annotations}}{{gt text='Deixa la base de dades:'}}" + " {{$client.serviceDB}}";
+    var autoObservations = "{{$client.observations}}{{gt text='Baixa automàtica del servei per inactivitat durant més de 12 mesos.'}}";
 </script>

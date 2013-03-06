@@ -149,9 +149,12 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     /**
      * Activate moodle service. Each service have got its activation function.
-     * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param 		Client-service identity
-     * @return 		The assigned database number if success and false otherwise 
+     * 
+     * @author 	Albert Pérez Monfort (aperezm@xtec.cat)
+     *
+     * @param string Client-service identity
+     * 
+     * @return  array if Ok / boolean if error
      */
     public function activeService_moodle($args) {
         // Security check
@@ -206,27 +209,23 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             }
         }
 
-        // get client vars
-        $userId = UserUtil::getIdFromName($item[$clientServiceId]['contactName']);
-        $clientVars = UserUtil::getVars($userId);
-
         // modify site properties
         global $agora;
         $prefix = $agora[$serviceName]['prefix'];
 
-        // Update user admin of moodle
-        // If there is a password, add it. Otherwise, do not change password for admin moodle.
-        // remove 1$xxxxx$ in zikula password. Because the md5 hash usually have 32 characters get the last 32 characters of the string
-        $password = (isset($clientVars['pass']) && !empty($clientVars['pass'])) ? " password='" . substr($clientVars['pass'], -32) . "', " : '';
-        $sql = "UPDATE {$prefix}user SET
-			$password
-            firstname='Administrador/a',
-			lastname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) .
-                "',email='" . str_replace("'", "''", $item[$clientServiceId]['clientCode']) . "@xtec.cat',
-                institution='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) .
-                "',address='" . str_replace("'", "''", $item[$clientServiceId]['clientAddress']) .
-                "',city='" . substr(str_replace("'", "''", $item[$clientServiceId]['clientCity']), 0, 20) .
-                "' WHERE username='admin'";
+        // Generate a password for Moodle admin user
+        $password = $this->createRandomPass();
+        $passwordEnc = md5($password);
+
+        $sql = "UPDATE {$prefix}user
+            SET password='$passwordEnc',
+                firstname='Administrador/a',
+                lastname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
+                email='" . str_replace("'", "''", $item[$clientServiceId]['clientCode']) . "@xtec.cat',
+                institution='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
+                address='" . str_replace("'", "''", $item[$clientServiceId]['clientAddress']) . "',
+                city='" . substr(str_replace("'", "''", $item[$clientServiceId]['clientCity']), 0, 20) . "'
+            WHERE username='admin'";
 
         $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
                     'sql' => $sql,
@@ -237,11 +236,11 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
 
         // Update site information of moodle
-        $sql = "UPDATE {$prefix}course SET
-			fullname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) .
-                "', shortname='" . str_replace("'", "''", $item[$clientServiceId]['clientDNS']) .
-                "', summary='Moodle del centre " . str_replace("'", "''", $item[$clientServiceId]['clientName']) .
-                "' WHERE id=1";
+        $sql = "UPDATE {$prefix}course 
+                SET	fullname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
+                    shortname='" . str_replace("'", "''", $item[$clientServiceId]['clientDNS']) . "',
+                    summary='Moodle del centre " . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "'
+                WHERE id=1";
 
         $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
                     'sql' => $sql,
@@ -262,14 +261,18 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('No s\'ha pogut executar la consulta: ' . $sql . '. Error: ' . $result['errorMsg']));
         }
 
-        return $db;
+        return array ('db' => $db, 'password' => $password);
     }
 
     /**
      * Activate intranet service. Each service have got its activation function
-     * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param 		Client-service identity
-     * @return 		The assigned database number if success and false otherwise 
+     *
+     * @author 	Albert Pérez Monfort (aperezm@xtec.cat)
+     *
+     * @param string $clientServiceId
+     * @param string Data base server including optional port
+     * 
+     * @return 	array if Ok / boolean if error
      */
     public function activeService_intranet($args) {
         // Security check
@@ -303,9 +306,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         // needed to maintain comptability during migration from 1.2.x to 1.3.x
         $compat = ModUtil::apiFunc('Agoraportal', 'admin', 'compat', array('intranetVersion' => $item[$clientServiceId]['version']));
 
-        // Get user info. Will be needed ahead.
-        $userId = UserUtil::getIdFromName($item[$clientServiceId]['contactName']);
-        $userData = UserUtil::getVars($userId);
+        // Generate a password for Intraweb admin user
+        $password = $this->createRandomPass();
+        $passwordEnc = md5($password);
 
         global $agora;
         $username = $agora['intranet']['userprefix'] . $db;
@@ -333,7 +336,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $sql[4] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['coreModuleName']}' AND {$compat['fieldsPrefix']}name='startdate'";
 
         // modify the admin password
-        $sql[5] = "UPDATE {$compat['tablePrefix']}users set {$compat['fieldsPrefix']}pass='" . substr($userData['pass'], -32) . "' WHERE {$compat['fieldsPrefix']}uname='admin'";
+        $sql[5] = "UPDATE {$compat['tablePrefix']}users set {$compat['fieldsPrefix']}pass='$passwordEnc' WHERE {$compat['fieldsPrefix']}uname='admin'";
 
         // modify intranet documents root
         $value = DataUtil::formatForStore(serialize($agora['server']['root'] . $agora['intranet']['datadir'] . $username . '/data'));
@@ -364,71 +367,19 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             }
         }
 
-        return $db;
+        return array ('db' => $db, 'password' => $password);
     }
 
     /**
-     * Activate moodle service. Each service have got its activation function.
-     * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param 		Client-service identity
-     * @return 		The assigned database number if success and false otherwise 
+     * Activate marsupial service.
+     * 
+     * @author Albert Pérez Monfort (aperezm@xtec.cat)
+     * 
+     * @return 	array with dummy value
      */
     public function activeService_marsupial($args) {
-        return 1;
+        return array ('db' => 1, 'password' => '');
     }
-
-    /**
-     * Open a database connexion with specified user id
-     * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param 		database number
-     * @param 		serviceName. Default intranet
-     * @return: 	database connexion
-     */
-    /*    public function connectExtDB($args) {
-      // Security check
-      if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-      throw new Zikula_Exception_Forbidden();
-      }
-
-      $host = FormUtil::getPassedValue('host', (isset($args['host']) && (!empty($args['host']))) ? $args['host'] : null, 'GETPOST');
-      $database = FormUtil::getPassedValue('database', isset($args['database']) ? $args['database'] : null, 'GETPOST');
-      $serviceName = FormUtil::getPassedValue('serviceName', isset($args['serviceName']) ? $args['serviceName'] : 'intranet', 'GETPOST');
-
-      // Needed argument
-      if ($serviceName == 'moodle' && (!isset($database) || !is_numeric($database))) {
-      return LogUtil::registerError($this->__('La variable $database té un valor incorrecte: ' . $database));
-      }
-
-      // Load general config and Zikula config
-      global $agora;
-
-      switch ($serviceName) {
-      case 'intranet':
-      $databaseName = $agora['intranet']['userprefix'] . $database;
-      if (is_null($host) || empty($host)) {
-      $connect = false;
-      break;
-      }
-      $connect = mysql_connect($host, $agora['intranet']['username'], $agora['intranet']['userpwd']);
-      if (!mysql_select_db($databaseName, $connect))
-      return false;
-      break;
-      case 'moodle':
-      case 'moodle2':
-      $dbNum = floor($database / 200) + (($database % 200) == 0 ? (((int) $agora['moodle']['dbnumber']) - 1) : ((int) $agora['moodle']['dbnumber']));
-      $databaseName = $agora['moodle']['database'] . ($dbNum > 1 ? "" . $dbNum : "");
-      $user = $agora['moodle']['username'] . $database;
-      $connect = oci_connect($user, $agora['moodle']['userpwd'], $databaseName);
-      break;
-      }
-
-      if (!$connect) {
-      return LogUtil::registerError($this->__f('No s\'ha pogut connectar a la base de dades <strong>%s</strong>. Paràmetres de depuració: host: %s, dbname: %s', array($serviceName, $host, $databaseName)));
-      }
-
-      return $connect;
-      }
-     */
 
     /**
      *  Find free database number
@@ -2101,6 +2052,29 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             'errorMsg' => $errorMsg,
             'values' => $values,
         );
+    }
+
+    /**
+     * Create random password
+     * 
+     * @author Toni Ginard
+     * 
+     * @return string The password
+     */
+    public function createRandomPass() {
+
+        // Chars allowed in password
+        $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz023456789";
+
+        // Sets the seed for rand function
+        srand((float) microtime() * 1000000);
+
+        for ($i = 0, $pass = ''; $i < 8; $i++) {
+            $num = rand() % strlen($chars);
+            $pass = $pass . substr($chars, $num, 1);
+        }
+
+        return $pass;
     }
 
 }

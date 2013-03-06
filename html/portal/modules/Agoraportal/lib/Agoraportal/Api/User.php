@@ -327,7 +327,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             $ocolumn = $tables['agoraportal_client_services_column'];
             $lcolumn = $tables['agoraportal_clients_column'];
             $where = $conditionsString . " AND a.$ocolumn[state]=1";
-            $orderby = "b.$lcolumn[clientName], b.$lcolumn[clientDNS], a.$ocolumn[serviceId]";
+            $orderby = "a.$ocolumn[serviceId]";
             $items = DBUtil::selectExpandedObjectArray('agoraportal_client_services', $myJoin, $where, $orderby, -1, -1, 'clientServiceId');
             if ($items === false) {
                 return LogUtil::registerError($this->__('S\'ha produït un error en carregar elements'));

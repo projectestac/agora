@@ -163,24 +163,29 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $dbHost = $agora['intranet']['host'];
             }
 
+            // Create a var for admin password where to keep it in order to send it by e-mail
+            $password = '';
+
             // If it is an activation, checks if the service exists. If not create it
             if ($state == 1) {
                 if ($clientService['activedId'] == 0) {
                     $serviceName = $services[$clientService['serviceId']]['serviceName'];
                     // the activation function is the same for moodle and moodle2 because the database structure is the same
-                    if ($serviceName == 'moodle2') {
-                        $funcToCall = 'moodle';
-                    } else {
-                        $funcToCall = $serviceName;
-                    }
-                    if (!$db = ModUtil::apiFunc('Agoraportal', 'admin', 'activeService_' . $funcToCall, array('clientServiceId' => $clientServiceId,
-                                'dbHost' => $dbHost))) {
+                    $funcToCall = ($serviceName == 'moodle2') ? 'moodle' : $serviceName;
+
+                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'activeService_' . $funcToCall,
+                                                array('clientServiceId' => $clientServiceId,
+                                                      'dbHost' => $dbHost));
+                    if (!is_array($result)) {
                         LogUtil::registerError($this->__('S\'ha produït un error en la creació del servei.'));
                         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList', array('init' => $init,
                                             'search' => $search,
                                             'searchText' => $searchText,
                                             'service' => $service,
                                             'stateFilter' => $stateFilter)));
+                    } else {
+                        $db = $result['db'];
+                        $password = $result['password'];
                     }
 
                     // Get the database value depending on the service requested
@@ -243,7 +248,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 // edit service information and delete the database assigned
                 $clientServiceEdited = ModUtil::apiFunc('Agoraportal', 'admin', 'editService', array('clientServiceId' => $clientServiceId,
                             'items' => array('serviceDB' => '',
-                                'timeCreated' => '',
                                 'activedId' => '')));
                 // insert the action in logs table
                 ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
@@ -296,6 +300,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ->assign('observations', $observations)
                         ->assign('state', $state)
                         ->assign('userName', $contactName)
+                        ->assign('password', $password)
                         ->fetch('agoraportal_admin_sendMail.tpl');
 
                 // get client's email (a8000001@xtec.cat)
@@ -316,7 +321,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 // Send the e-mail (BCC to site e-mail)
                 $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => $clientName,
                             'toaddress' => $toUsers,
-                            'subject' => __('Estat dels serveis a Àgora'),
+                            'subject' => __('Estat dels serveis del centre a Àgora'),
                             'bcc' => System::getVar('adminmail'),
                             'body' => $mailContent,
                             'html' => 1));
@@ -3364,6 +3369,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $warningMsgTpl .= "<p>Els gestors dels serveis Àgora del centre poden sol·licitar l'ampliació de la quota del servei des de la secció <strong>altres sol·licituds</strong> de l'<a href=\"" . $agora['server']['server'] . $agora['server']['base'] . "portal\">aplicació de gestió dels serveis d'Àgora</a>.</p>";
         $warningMsgTpl .= "<p>Atentament,</p>";
         $warningMsgTpl .= "<p>---<br />L'equip del projecte Àgora</p>";
+        $warningMsgTpl .= "<p>P.D.: Aquest missatge s'envia automàticament. Si us plau, no el respongueu.</p>";
 
         // Get available services (currently: intranet, marsupial, moodle)
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');

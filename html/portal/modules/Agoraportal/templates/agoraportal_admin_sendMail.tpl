@@ -29,8 +29,7 @@
     <p>
         Podeu accedir al vostre espai <strong>{$serviceName}</strong> des de
         l'URL <a href="{$baseURL}{$clientDNS}/{$serviceName4URL}/">{$baseURL}{$clientDNS}/{$serviceName4URL}</a>
-        amb l'usuari <strong>admin</strong> i la contrasenya del correu XTEC
-        de la persona que ha fet la sol·licitud d'accés ({$userName}).
+        amb l'usuari <strong>admin</strong> i la contrasenya <strong>{$password}</strong>.
         Us recomanem que canvieu la contrasenya d'aquest usuari/&agrave;ria despr&eacute;s
         del primer acc&eacute;s al servei. Dins del vostre espai s'ha creat,
         tamb&eacute;, l'usuari xtecadmin que s'utilitzar&agrave; en cas de
