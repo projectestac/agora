@@ -493,7 +493,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
         $servicesListContent = ModUtil::func('Agoraportal', 'admin', 'servicesListContent', array('init' => $init,
                     'search' => $search,
-                    'searchText' => $searchText,
+                    'searchText' => trim($searchText),
                     'stateFilter' => $stateFilter,
                     'service' => $service,
                     'rpp' => $rpp,
@@ -3770,7 +3770,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
         $servicesListContent = ModUtil::func('Agoraportal', 'admin', 'requestsListContent', array('init' => $init,
                     'search' => $search,
-                    'searchText' => $searchText,
+                    'searchText' => trim($searchText),
                     'stateFilter' => $stateFilter,
                     'service' => $service,
                     'rpp' => $rpp));
