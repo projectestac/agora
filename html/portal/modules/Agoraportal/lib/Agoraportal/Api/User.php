@@ -441,6 +441,11 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
             throw new Zikula_Exception_Forbidden();
         }
+        // @aginard: This func name is in conflict with inherited func name from lib/Zikula/AbstractBase.php,
+        //  so a check for a needed arg is required!
+        if (!is_array($args)) {
+            return false;
+        }
         $item = DBUtil::selectObjectByID('agoraportal_services', $args['serviceId'], 'serviceId');
         // Check for an error with the database code, and if so set an appropriate
         // error message and return
@@ -706,7 +711,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function addLog($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
             throw new Zikula_Exception_Forbidden();
         }
 
@@ -786,14 +791,14 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('La paraula clau de confirmació no coincideix amb la proporcionada pel centre. Assegura\'t de que està ben escrita i, en cas que els problemes persisteixin, contacta amb el gestor/a del centre.'));
         }
 
-        $where = "WHERE " . $c['clientCode'] . " = '" . $clientCode . "' AND " . $c['managerUName'] . " = '" . $args['uname'] . "'";
+//        $where = "WHERE " . $c['clientCode'] . " = '" . $clientCode . "' AND " . $c['managerUName'] . " = '" . $args['uname'] . "'";
         $items = array('state' => 1);
-        if (!DBUTil::updateObject($items, 'agoraportal_client_managers', $where)) {
+        if (!DBUtil::updateObject($items, 'agoraportal_client_managers', $where)) {
             return LogUtil::registerError($this->__('No s \'ha pogut habilitar el gestor'));
         }
 
         $items = array('gid' => 4, 'uid' => $args['uid']);
-        if (!$foo = DBUTil::insertObject($items, 'group_membership')) {
+        if (!DBUtil::insertObject($items, 'group_membership')) {
             return LogUtil::registerError($this->__('No s \'ha pogut habilitar el gestor'));
         }
 
