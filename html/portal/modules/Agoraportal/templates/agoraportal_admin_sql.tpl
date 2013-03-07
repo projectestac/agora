@@ -91,6 +91,7 @@
                     </select>
                     <br />
                     <select name="service_sel" id="service_sel" onchange="javascript:sqlservicesList()">
+                        <option value="0" {if $service_sel eq $service.serviceId}selected="selected"{/if}>{gt text="Envia al portal" tag1="portal"}</option>
                         {foreach item=service from=$services}
                         <option value="{$service.serviceId}" {if $service_sel eq $service.serviceId}selected="selected"{/if}>{gt text="Envia a %s" tag1=$service.serviceName}</option>
                         {/foreach}

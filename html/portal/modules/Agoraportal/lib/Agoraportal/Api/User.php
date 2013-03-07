@@ -1575,6 +1575,13 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         global $ZConfig;
 
         switch ($serviceName) {
+            case 'portal':
+                $databaseName = $agora['admin']['database'];
+                $host = $agora['admin']['host'] . ':' . $agora['admin']['port'];
+                $connect = mysql_connect($host, $agora['admin']['username'], $agora['admin']['userpwd']);
+                if (!mysql_select_db($databaseName, $connect))
+                    return false;
+                break;
             case 'intranet':
                 $databaseName = $agora['intranet']['userprefix'] . $database;
                 if ($clientService != false) {

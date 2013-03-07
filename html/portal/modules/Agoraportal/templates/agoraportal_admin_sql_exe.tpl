@@ -67,7 +67,7 @@
                 <tr class="{cycle values='error-odd,error-even'}">
                     {/if}
                     <td>
-                        <a href="#usu{$client.activedId}">usu{$client.activedId}</a>
+                        <a href="#{$prefix}{$client.activedId}">{$prefix}{$client.activedId}</a>
                     </td>
                     <td>
                         <a target="_blank" href="../{$client.clientDNS}/{$serviceName}">{$client.clientName}</a>
@@ -82,7 +82,7 @@
     {foreach item=result key=id from=$results}
     <div>
         <h2>
-            <a name="usu{$sqlClients[$id].activedId}" target="_blank" href="../{$client.clientDNS}/{$serviceName}">usu{$sqlClients[$id].activedId}</a>
+            <a name="{$prefix}{$sqlClients[$id].activedId}" target="_blank" href="../{$client.clientDNS}/{$serviceName}">{$prefix}{$sqlClients[$id].activedId}</a>
         </h2>
         <table class="z-datatable"><thead>
                 {foreach item=line key=columna from=$result}

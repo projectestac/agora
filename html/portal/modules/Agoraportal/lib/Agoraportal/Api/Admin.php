@@ -1983,6 +1983,14 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         global $agora;
 
+        $serviceName = ($serviceName == 'moodle2') ? 'moodle' : $serviceName;
+        $dbType = (isset($agora[$serviceName]['dbtype'])) ? $agora[$serviceName]['dbtype'] : 'mysql';
+
+        // Exception for portal. Is not a multisite service
+        if ($serviceName == 'portal') {
+            $dbType = 'mysql';
+        }
+        
         $connect = ModUtil::apiFunc('Agoraportal', 'user', 'connectExtDB', array('database' => $database,
                     'serviceName' => $serviceName,
                     'host' => $host,
@@ -2001,9 +2009,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             'errorMsg' => $errorMsg,
             'values' => $values,
         );
-
-        $serviceName = ($serviceName == 'moodle2') ? 'moodle' : $serviceName;
-        $dbType = (isset($agora[$serviceName]['dbtype'])) ? $agora[$serviceName]['dbtype'] : 'mysql';
 
         switch ($dbType) {
             case 'mysql':

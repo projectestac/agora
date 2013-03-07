@@ -1377,7 +1377,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $action = 'exe';
         }
 
-        if (isset($action) && ( empty($sqlfunc) || ($which == "selected" && empty($clients_sel)) || empty($service_sel) )) {
+        if (isset($action) && ( empty($sqlfunc) || ($which == "selected" && empty($clients_sel)) || $service_sel === false)) {
             LogUtil::registerError($this->__('Heu d\'emplenar tots els camps'));
             $action = "show";
         }
@@ -1391,29 +1391,39 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $comands = ModUtil::func('Agoraportal', 'admin', 'sqlComandList', array('serviceId' => $service_sel));
 
         if (isset($action) && ($action == "ask" || $action == "exe")) {
-            //Common parts on ask and execute
+            // Initialization
+            $serviceName = '';
+            $sqlClients = '';
+            
+            // Common parts on ask and execute
+            if ($service_sel == 0) {
+                // Exception for portal. Is not a multisite service
+                $serviceName = 'portal';
+                // Dummy array. Required by foreach loop
+                $sqlClients = array('0' => array('dbHost' => '', 'serviceDB' => ''));
+            } else {
+                $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
+                $serviceName = $services[$service_sel]['serviceName'];
 
-            $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
-            $serviceName = $services[$service_sel]['serviceName'];
+                $clients = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 1, //Default
+                            'rpp' => 0, //No pages
+                            'service' => $service_sel,
+                            'state' => 1, //Active
+                        ));
 
-            $clients = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 1, //Default
-                        'rpp' => 0, //No pages
-                        'service' => $service_sel,
-                        'state' => 1, //Active
-                    ));
-
-            if ($which == 'selected') {
-                $sqlClients = Array();
-                foreach ($clients_sel as $k => $client_sel) {
-                    foreach ($clients as $client) {
-                        if ($client['clientId'] == $client_sel) {
-                            $sqlClients[$k] = $client;
-                            break;
+                if ($which == 'selected') {
+                    $sqlClients = Array();
+                    foreach ($clients_sel as $k => $client_sel) {
+                        foreach ($clients as $client) {
+                            if ($client['clientId'] == $client_sel) {
+                                $sqlClients[$k] = $client;
+                                break;
+                            }
                         }
                     }
+                } else {
+                    $sqlClients = $clients;
                 }
-            } else {
-                $sqlClients = $clients;
             }
 
             $view->assign('serviceName', $serviceName);
@@ -1475,6 +1485,15 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     }
                 }
 
+                global $agora;
+                
+                if ($serviceName == 'portal') {
+                    $view->assign('prefix', $agora['admin']['database']);
+                } else {
+                    $view->assign('prefix', $agora['server']['userprefix']);
+                }
+                
+                $view->assign('which', $which);
                 $view->assign('results', $results);
                 $view->assign('success', $success);
                 $view->assign('messages', $messages);
