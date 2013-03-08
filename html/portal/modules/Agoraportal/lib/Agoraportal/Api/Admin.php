@@ -1000,7 +1000,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                                         ' ',
                                         'Barcelona',
                                         'es',
-                                        'ca_utf8',
+                                        'ca',
                                         ' ',
                                         '99',
                                         0,
