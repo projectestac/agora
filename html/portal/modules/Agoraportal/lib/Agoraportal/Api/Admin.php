@@ -209,15 +209,31 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             }
         }
 
-        // modify site properties
         global $agora;
         $prefix = $agora[$serviceName]['prefix'];
+
+        // Query to get admin id
+        $sql = "SELECT id FROM {$prefix}user WHERE username='admin'";
+        // Actual execution
+        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
+                    'sql' => $sql,
+                    'serviceName' => $serviceName,
+                ));
+        // Error check. Stop in case of error.
+        if (!$result['success']) {
+            return LogUtil::registerError($this->__('No s\'ha pogut executar la consulta: ' . $sql . '. Error: ' . $result['errorMsg']));
+        } else {
+            // Keep result
+            $adminId = $result['values'][0]['ID'];
+        }
 
         // Generate a password for Moodle admin user
         $password = $this->createRandomPass();
         $passwordEnc = md5($password);
 
-        $sql = "UPDATE {$prefix}user
+        // Query to update admin password
+        $sqls[] = "
+            UPDATE {$prefix}user
             SET password='$passwordEnc',
                 firstname='Administrador/a',
                 lastname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
@@ -225,43 +241,47 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 institution='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
                 address='" . str_replace("'", "''", $item[$clientServiceId]['clientAddress']) . "',
                 city='" . substr(str_replace("'", "''", $item[$clientServiceId]['clientCity']), 0, 20) . "'
-            WHERE username='admin'";
+            WHERE id=$adminId
+            ";
 
-        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
-                    'sql' => $sql,
-                    'serviceName' => $serviceName,
-                ));
-        if (!$result['success']) {
-            return LogUtil::registerError($this->__('No s\'ha pogut executar la consulta: ' . $sql . '. Error: ' . $result['errorMsg']));
-        }
+        // Query to force change of password of user admin
+        $sqls[] = "
+            UPDATE {$prefix}user_preferences
+            SET value=1
+            WHERE name='auth_forcepasswordchange' AND userid=$adminId
+            ";
 
-        // Update site information of moodle
-        $sql = "UPDATE {$prefix}course 
-                SET	fullname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
-                    shortname='" . str_replace("'", "''", $item[$clientServiceId]['clientDNS']) . "',
-                    summary='Moodle del centre " . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "'
-                WHERE id=1";
+        // Query to update site name and site description
+        $sqls[] = "
+            UPDATE {$prefix}course 
+            SET	fullname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
+                shortname='" . str_replace("'", "''", $item[$clientServiceId]['clientDNS']) . "',
+                summary='Moodle del centre " . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "'
+            WHERE id=1
+            ";
 
-        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
-                    'sql' => $sql,
-                    'serviceName' => $serviceName,
-                ));
-
-        // Update cookie of moodle
+        // Query to update the cookie name
         $sessionPrefix = ($serviceName == 'moodle') ? 'mdl_' : 'moodle';
-        $sql = "UPDATE {$prefix}config 
-                SET value='$sessionPrefix" . $item[$clientServiceId]['clientId'] . "' 
-                WHERE name='sessioncookie'";
+        $sqls[] = "
+            UPDATE {$prefix}config 
+            SET value='$sessionPrefix" . $item[$clientServiceId]['clientId'] . "' 
+            WHERE name='sessioncookie'
+            ";
 
-        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
-                    'sql' => $sql,
-                    'serviceName' => $serviceName,
-                ));
-        if (!$result['success']) {
-            return LogUtil::registerError($this->__('No s\'ha pogut executar la consulta: ' . $sql . '. Error: ' . $result['errorMsg']));
+        // Execute the querys
+        foreach ($sqls as $sql) {
+            // Actual execution
+            $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
+                        'sql' => $sql,
+                        'serviceName' => $serviceName,
+                    ));
+            // Error check. Stop in case of error.
+            if (!$result['success']) {
+                return LogUtil::registerError($this->__('No s\'ha pogut executar la consulta: ' . $sql . '. Error: ' . $result['errorMsg']));
+            }
         }
 
-        return array ('db' => $db, 'password' => $password);
+        return array('db' => $db, 'password' => $password);
     }
 
     /**
