@@ -43,7 +43,7 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
     $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
                 'rpp' => 50,
                 'service' => 0,
-                'state' => -1,
+                'state' => array(0, 1),
                 'search' => 1,
                 'searchText' => $clientCode,
                 'clientCode' => $clientCode));

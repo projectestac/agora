@@ -147,28 +147,44 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $where = "(b.$lcolumn[noVisible] = 0 || b.$lcolumn[clientCode] = '$clientCode')";
             }
         }
+
         if ((isset($args['service']) && $args['service'] != 0) || (isset($args['state']) && $args['state'] != '-1')) {
             if ($args['service'] != 0) {
                 $where .= ( $where != '') ? ' AND ' : '';
                 $where .= "a.$ocolumn[serviceId] = $args[service]";
             }
-            if ($args['state'] != '-1') {
+            // Check if there are several desired states
+            if (is_array($args['state'])) {
+                $tmp = array();
+                foreach ($args['state'] as $state) {
+                    if ($state != '-1') {
+                        $tmp[] = "a.$ocolumn[state] = $state";
+                    }
+                }
                 $where .= ( $where != '') ? ' AND ' : '';
-                $where .= "a.$ocolumn[state] = $args[state]";
+                $where .= '(' . implode(' OR ', $tmp) . ')';
+            } else {
+                if ($args['state'] != '-1') {
+                    $where .= ( $where != '') ? ' AND ' : '';
+                    $where .= "a.$ocolumn[state] = $args[state]";
+                }
             }
         }
+
         if (isset($args['location']) && $args['location'] != 0) {
             $where .= ( $where != '') ? ' AND ' : '';
             if ($args['location'] != 0) {
                 $where .= "b.$lcolumn[locationId] = $args[location]";
             }
         }
+
         if (isset($args['type']) && $args['type'] != 0) {
             $where .= ( $where != '') ? ' AND ' : '';
             if ($args['type'] != 0) {
                 $where .= "b.$lcolumn[typeId] = $args[type]";
             }
         }
+
         if ((isset($args['search']) && $args['search'] != 0) && $args['searchText'] != '') {
             $where .= ( $where != '') ? ' AND ' : '';
             switch ($args['search']) {
@@ -183,6 +199,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     break;
             }
         }
+
         if (isset($args['order'])) {
             switch ($args['order']) {
                 case 1:
@@ -497,7 +514,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
                     'rpp' => 50,
                     'service' => 0,
-                    'state' => -1,
+                    'state' => array(0, 1),
                     'search' => 1,
                     'searchText' => $clientCode));
         // get client values in case don't have any actived service

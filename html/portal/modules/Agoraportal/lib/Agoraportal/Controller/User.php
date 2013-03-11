@@ -165,11 +165,11 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             }
         }
 
-        // get client services information
+        // Get active client services
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
                     'rpp' => 50,
                     'service' => 0,
-                    'state' => -1,
+                    'state' => array(0, 1),
                     'search' => 1,
                     'searchText' => $clientCode,
                     'clientCode' => $clientCode,
@@ -181,11 +181,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                 $haveMoodle = true;
             $clientServices[$info['serviceId']] = $info['serviceId'];
         }
-        // check not solicited services
+
+        // Get not asked services
         $notsolicitedServices = array_diff_key($allowedServices, $clientServices);
-
-        //print_r($notsolicitedServices);die();
-
 
         if (empty($notsolicitedServices)) {
             if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
@@ -234,7 +232,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                                 'acceptUseTerms' => $acceptUseTerms)));
         }
         if ($contactProfile == '') {
-            LogUtil::registerError($this->__('No especificat quin és el teu càrrec en el centre.'));
+            LogUtil::registerError($this->__('No has especificat quin és el teu càrrec en el centre.'));
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
                                 'contactProfile' => $contactProfile,
                                 'acceptUseTerms' => $acceptUseTerms)));
