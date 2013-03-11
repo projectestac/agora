@@ -3,11 +3,18 @@ Release notes for JClic Module for Moodle (https://projectes.lafarga.cat/project
 More information on each of the fixes can be found in the project 
 development home at https://projectes.lafarga.cat/projects/jclicmoodle
 
+Changes in progress
+---------------------------------------------------------------------------------------
+- Fixed bug when deleting jclic activities and enableajax is enabled
+
+
 Changes in 0.2.3 (2013/02/22)
 ---------------------------------------------------------------------------------------
+- Added Brazilian translation
 - Updated Euskara translation (downloaded from AMOS) 
 - Reviewed English translation (thanks to German Valero!)
 - Reviewed some SQL to avoid Postgre problem with userid
+- Included SVG icons (thanks to Pau Ferrer!)
 - Fixed bug with users reporting (only first page was showed)
 
 
