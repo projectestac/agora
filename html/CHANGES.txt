@@ -16,7 +16,8 @@ PORTAL
 - Fixed error when users accept to be a manager (function managerChoose())
 - Random password generated and sent via e-mail when a service is activated
 - Added ability to execute SQL to portal database
-- Schools that left the services now can ask them again
+- Schools that withdraw the services can now ask for them again
+- When a user is proposed as a manager, now receives a notification e-mail
 
 MOODLE 2
 - Added CSS style for "Defined in config" params and improved styles for input fields

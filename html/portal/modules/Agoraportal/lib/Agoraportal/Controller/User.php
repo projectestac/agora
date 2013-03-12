@@ -1166,6 +1166,42 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             // insert the action in logs table
             ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 1,
                 'action' => $this->__f('S\'ha afegit un gestor amb nom d\'usuari/ària %s', $managerUName)));
+
+            // Send an e-mail to the manager
+            // 1.- Check module mailer availability
+            $modinfo = ModUtil::getInfo(ModUtil::getIdFromName('Mailer'));
+
+            if ($modinfo['state'] == 3) {
+                global $agora;
+
+                // We need to know service base URL
+                $mailContent = $this->view->assign('baseURL', $agora['server']['server'] . $agora['server']['base'])
+                        ->assign('clientCode', $clientCode)
+                        ->assign('managerUName', $managerUName)
+                        ->fetch('agoraportal_user_sendMailToNewManager.tpl');
+
+                // get client's email (a8000001@xtec.cat)
+                $uidClient = UserUtil::getIdFromName($clientCode);
+                $clientVars = UserUtil::getVars($uidClient);
+
+                // Set destination
+                $toUsers = array($clientVars['email'], $managerUName . '@xtec.cat');
+
+                // Send the e-mail (BCC to site e-mail)
+                $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => $clientName,
+                            'toaddress' => $toUsers,
+                            'subject' => __('Gestió dels serveis Àgora'),
+                            'bcc' => System::getVar('adminmail'),
+                            'body' => $mailContent,
+                            'html' => 1));
+
+                if ($sendMail) {
+                    LogUtil::registerStatus($this->__('S\'ha enviat un missatge informatiu'));
+                }
+            }
+
+
+
         }
         if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers', array('clientCode' => $clientCode)));
