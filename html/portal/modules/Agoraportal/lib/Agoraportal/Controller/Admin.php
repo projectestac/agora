@@ -1614,6 +1614,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $messages = Array();
                 $ok = 0;
                 $error = 0;
+                // Get message from session
+                $message = unserialize(SessionUtil::getVar('noticeboardMessage'));
 
                 switch ($serviceName) {
                     case 'intranet':
@@ -1930,11 +1932,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 return $view->fetch('agoraportal_admin_advices_exe.tpl');
             }
 
-            //Else ask to execute SQL
+            // Else ask to execute SQL
+            // Save message to session
+            SessionUtil::setVar('noticeboardMessage', serialize($message));
+
             return $view->fetch('agoraportal_admin_advices_ask.tpl');
         }
 
-        //Else  show form
+        //Else show form
         $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 0, 'GETPOST');
         $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
 

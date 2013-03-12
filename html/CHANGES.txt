@@ -19,6 +19,7 @@ PORTAL
 - Schools that withdraw the services can now ask for them again
 - When a user is proposed as a manager, now receives a notification e-mail
 - Defined new state for services: deactivated
+- Messages sent to Moodle or Intraweb from portal are now saved into session to avoid problems with special chars in Intraweb
 
 MOODLE 2
 - Added CSS style for "Defined in config" params and improved styles for input fields
