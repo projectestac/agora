@@ -144,6 +144,7 @@ th.header {
 .flexible td a,
 .path-grade-report-grader .heading_name_row th {
     white-space: normal!important;
+    min-width: 60px;
 }
 
 /* The following styles are for grade_report_fixedstudents being set */
