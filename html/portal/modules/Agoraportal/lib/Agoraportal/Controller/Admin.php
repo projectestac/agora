@@ -534,6 +534,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : null, 'POST');
         $order = FormUtil::getPassedValue('order', isset($args['order']) ? $args['order'] : 2, 'POST');
 
+        // Escape special chars
+        $searchText = addslashes($searchText);
+
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
@@ -3835,6 +3838,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 1, 'POST');
         $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : null, 'POST');
         $order = FormUtil::getPassedValue('order', isset($args['order']) ? $args['order'] : 2, 'POST');
+
+        // Escape special chars
+        $searchText = addslashes($searchText);
 
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
