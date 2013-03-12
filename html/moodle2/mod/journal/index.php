@@ -59,7 +59,7 @@ foreach ($journals as $journal) {
 
     $context = get_context_instance(CONTEXT_MODULE, $journal->coursemodule);
     $entriesmanager = has_capability('mod/journal:manageentries', $context);
-    
+
     // Section
     $printsection = '';
     if ($journal->section !== $currentsection) {
@@ -75,7 +75,7 @@ foreach ($journals as $journal) {
     if ($usesections) {
         $table->data[$i][] = $printsection;
     }
-    
+
     // Link
     if (!$journal->visible) {
         //Show dimmed if the mod is hidden
@@ -83,20 +83,20 @@ foreach ($journals as $journal) {
     } else {
         //Show normal if the mod is visible
         $table->data[$i][] = "<a href=\"view.php?id=$journal->coursemodule\">".format_string($journal->name,true)."</a>";
-    } 
+    }
 
     // Description
     $table->data[$i][] = format_text($journal->intro,  $journal->introformat);
-    
+
     // Entries info
     if ($entriesmanager) {
-        
+
         // Display the report.php col only if is a entries manager in some CONTEXT_MODULE
         if (empty($managersomewhere)) {
             $table->head[] = get_string('viewentries', 'journal');
             $table->align[] = 'left';
             $managersomewhere = true;
-            
+
             // Fill the previous col cells
             $manageentriescell = count($table->head) - 1;
             for ($j = 0; $j < $i; $j++) {
@@ -105,13 +105,13 @@ foreach ($journals as $journal) {
                 }
             }
         }
-        
+
         $entrycount = journal_count_entries($journal, get_current_group($course->id));
         $table->data[$i][] = "<a href=\"report.php?id=$journal->coursemodule\">".get_string("viewallentries","journal", $entrycount)."</a>";
     } else if (!empty($managersomewhere)) {
         $table->data[$i][] = "";
     }
-    
+
     $i++;
 }
 

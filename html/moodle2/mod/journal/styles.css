@@ -12,6 +12,10 @@
   margin-bottom: 5px;
   text-align: right;
 }
+#page-mod-journal-view .journalstart,
+#page-mod-journal-report .feedbacksave {
+  text-align: center;
+}
 #page-mod-journal-view .lastedit,
 #page-mod-journal-view .editend {
   font-size: 0.7em;
@@ -43,10 +47,33 @@
 #page-mod-journal-view .feedbackbox {
   -moz-border-radius-bottomleft:15px;
   -moz-border-radius-bottomright:15px;
+  border-spacing: 0;
+  margin: 0 auto;
 }
 #page-mod-journal-view .feedbackbox .side {
   -moz-border-radius-bottomleft:15px;
 }
 #page-mod-journal-view .feedbackbox .entrycontent {
   -moz-border-radius-bottomright:15px;
+}
+
+#page-mod-journal-report .journaluserentry {
+  border: 1px solid #000000;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#page-mod-journal-report .journaluserentry td {
+  padding: 10px;
+  vertical-align: top;
+  width: 100%;
+}
+#page-mod-journal-report .journaluserentry td.userpix {
+  width: 35px;
+}
+#page-mod-journal-report .journaluserentry td.userfullname {
+  white-space: nowrap;
+}
+#page-mod-journal-report .journaluserentry td .lastedit {
+  font-size: 0.76em;
+  margin-left: 10px;
 }

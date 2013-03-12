@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 $capabilities = array(
@@ -13,7 +13,7 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         )
     ),
-    
+
     'mod/journal:addentries' => array(
 
         'captype' => 'write',
@@ -24,7 +24,7 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW
         )
     ),
-    
+
     'mod/journal:addinstance' => array(
         'riskbitmask' => RISK_XSS,
 
