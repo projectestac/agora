@@ -139,6 +139,18 @@
 </p>
 {/if}
 
+{if $state eq '-4'}
+<p>
+    S'ha desactivat el servei <strong>{$serviceName}</strong>
+    per al centre <strong>{$clientName}</strong> dins de l'espai
+    <a href="{$baseURL}">&Agrave;gora</a>. El motiu de la baixa
+    ha estat:
+</p>
+<p style="margin:20px; font-weight:bold;">
+        {$observations}
+</p>
+{/if}
+
 <br />
 
 <p>

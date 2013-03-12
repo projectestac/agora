@@ -18,6 +18,7 @@ PORTAL
 - Added ability to execute SQL to portal database
 - Schools that withdraw the services can now ask for them again
 - When a user is proposed as a manager, now receives a notification e-mail
+- Defined new state for services: deactivated
 
 MOODLE 2
 - Added CSS style for "Defined in config" params and improved styles for input fields

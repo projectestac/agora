@@ -243,22 +243,29 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 }
             }
 
-            // Deactivate the service
+            // Deny the new service
+            if ($state == -2) {
+                // Insert the action in logs table
+                ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
+                    'action' => $this->__f('S\'ha denegat el servei %s', $services[$clientService['serviceId']]['serviceName'])));
+            }
+
+            // Withdraw the service
             if ($state == -3) {
                 // edit service information and delete the database assigned
                 $clientServiceEdited = ModUtil::apiFunc('Agoraportal', 'admin', 'editService', array('clientServiceId' => $clientServiceId,
                             'items' => array('serviceDB' => '',
                                 'activedId' => '')));
-                // insert the action in logs table
+                // Insert the action in logs table
                 ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
                     'action' => $this->__f('S\'ha desactivat el servei %s', $services[$clientService['serviceId']]['serviceName'])));
             }
 
-            // Deny the new service
-            if ($state == -2) {
-                // insert the action in logs table
+            // Deactivate the new service
+            if ($state == -4) {
+                // Insert the action in logs table
                 ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
-                    'action' => $this->__f('S\'ha denegat el servei %s', $services[$clientService['serviceId']]['serviceName'])));
+                    'action' => $this->__f('S\'ha desactivat el servei %s', $services[$clientService['serviceId']]['serviceName'])));
             }
 
             // This call activates the service
@@ -288,8 +295,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
             // send informational mail if it is necessary
             // check if module mailer is active
-            $modid = ModUtil::getIdFromName('Mailer');
-            $modinfo = ModUtil::getInfo($modid);
+            $modinfo = ModUtil::getInfo(ModUtil::getIdFromName('Mailer'));
             if ($modinfo['state'] == 3 && $sendMail == 1) {
                 // We need to know service base URL
                 $mailContent = $this->view->assign('baseURL', $agora['server']['server'] . $agora['server']['base'])

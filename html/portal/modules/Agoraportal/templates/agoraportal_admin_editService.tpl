@@ -108,6 +108,7 @@
                         <option {if $client.state eq 1}selected{/if} value="1">{gt text="Actiu"}</option>
                         <option {if $client.state eq -2}selected{/if} value="-2">{gt text="Denegat"}</option>
                         <option {if $client.state eq -3}selected{/if} value="-3">{gt text="Donat de baixa"}</option>
+                        <option {if $stateFilter eq -4}selected{/if} value="-4">{gt text="Desactivat"}</option>
                     </select>
                 </div>
                 <div class="z-formrow">
