@@ -22,6 +22,12 @@ body {
     [[setting:fontstyle]]
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 h2 {
     font-size: 1.8em;
 }
@@ -47,7 +53,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     /* background-image: url([[pix:theme|theme/button]]);*/
     background-position: bottom;
     background-repeat: repeat-x;
-    padding: 2px;
+    padding: 3px;
     margin-left: 2px;
     margin-right: 2px;
     border-width: 1px;
@@ -58,6 +64,13 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     color: [[setting:color3]];
     border-color: [[setting:color2]];
     cursor:pointer;
+}
+
+/* Make disabled buttons really look like a disabled button */
+.fitem.disabled .fp-btn-choose {
+    background-color: #ccc;
+    border-color: #ccc;
+    cursor: default;
 }
 
 /*button.fp-upload-btn, button.fp-login-popup-but, button.fp-select-confirm, button.fp-select-cancel, button.fp-msg-butok {
@@ -83,11 +96,47 @@ th {
     font-weight: bold;
 }
 
+tbody th {
+    color: #555555;
+    background-color:#FFF!important;
+    font-weight: bold;
+}
+
+tbody tr {
+    border-bottom:1px solid #DDDDDD!important;
+}
+
+tr.header {
+    background-color:#DDDDDD!important;
+}
+
+th.header a {
+    color: [[setting:color5]]!important;
+}
+
+th.header {
+    background-color: [[setting:color6]]!important;
+    color:[[setting:color4]]!important;
+}
+
+#page {
+    margin: 0; padding: 0;
+    min-height: 100%; _height: 100%; /* min-height for smart browsers
+                                     _height for Internet Explorer ;-)*/
+}
+
+#content {
+    padding-bottom: 105px;
+}
+
 .pagelayout-report #page-content #region-main-box #region-post-box #region-main-wrap #region-main-pad #region-main .region-content .no-overflow { overflow:auto!important; }
 
 .pagelayout-report #page-content .region-content { overflow:auto!important; }
 
 .pagelayout-report .no-overflow { overflow-y: auto!important; margin-top: 10px; margin-bottom: 10px; }
+
+
+/* Styles for gradebook */
 
 .flexible th,
 .flexible td,
@@ -96,6 +145,26 @@ th {
 .path-grade-report-grader .heading_name_row th {
     white-space: normal!important;
 }
+
+/* The following styles are for grade_report_fixedstudents being set */
+.path-grade-report-grader div.left_scroller tr,
+.path-grade-report-grader div.right_scroller tr,
+.path-grade-report-grader div.left_scroller td,
+.path-grade-report-grader div.right_scroller td,
+.path-grade-report-grader div.left_scroller th,
+.path-grade-report-grader div.right_scroller th {
+    padding-top: 0px!important;
+    padding-bottom: 0px!important;
+}
+
+.path-grade-report-grader div.left_scroller tr.heading,
+.path-grade-report-grader div.right_scroller tr.heading_name_row,
+.path-grade-report-grader div.left_scroller td.fixedcolumn {
+    height: 70px!important;
+    min-height: 70px!important;
+    max-height: 70px!important;
+}
+
 
 .box {
     font-size: 1.1em;
@@ -106,9 +175,10 @@ th {
 
 .generalbox {
     margin-top: 10px;
-    /*background-image: url([[pix:theme|theme/borderbottom]]);*/
     background-position: bottom;
     background-repeat: repeat-x;
+    background-image: none!important;
+    background-color: #fff;
     border-radius: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -268,7 +338,6 @@ h2.main {
 
 
 li a.yui3-menu-label {
-
     padding-bottom: 5px ! important;
     padding-top: 5px ! important;
     /*background: url(../theme/xtec2/pix/theme/ralla_menu.png) no-repeat right!important; */
@@ -279,9 +348,10 @@ ul li a.yui3-menuitem-content {
     padding-top: 5px ! important;
 }
 
-
-.yui3-menu-content{margin:0px!important; padding:0px!important; }
-
+.yui3-menu-content {
+    margin:0px!important;
+    padding:0px!important;
+}
 
 #custommenu a:hover{color: [[setting:color3]]!important; background-color: [[setting:color2]]!important;}
 #custommenu a:active{color: [[setting:color3]]!important; background-color: [[setting:color2]]!important;}
@@ -478,11 +548,6 @@ div.content div.coursebox:only-of-type {
     border-bottom: white solid 0px!important;
 }
 
-.generalbox {
-    background-image: none!important;
-    background-color: #fff;
-}
-
 .subscribelink {
     border-style: solid;
     border-width: 0px 1px 0px 1px;
@@ -554,22 +619,6 @@ div.content div.coursebox:only-of-type {
     clear: both;
 }
 
-
-html, body {
-    margin: 0; padding: 0;
-    height: 100%;
-}
-
-#page {
-    margin: 0; padding: 0;
-    min-height: 100%; _height: 100%; /* min-height for smart browsers
-                                     _height for Internet Explorer ;-)*/
-}
-
-#content {
-    padding-bottom: 105px;
-}
-
 .foot {
     clear: both;
     height: 100px;
@@ -608,31 +657,6 @@ li.yui3-menuitem:hover{
 
 
 .first-of-type ul li:first-of-type{border-top:1px solid #DDDDDD!important;}
-
-tbody th {
-    color: #555555;
-    background-color:#FFF!important;
-    font-weight: bold;
-}
-
-tbody tr {
-
-    border-bottom:1px solid #DDDDDD!important;
-}
-
-tr.header{ background-color:#DDDDDD!important;}
-
-tbody th {
-    color: #555555;
-    background-color:#FFF!important;
-    font-weight: bold;
-}
-
-tbody tr {
-    border-bottom:1px solid #DDDDDD!important;
-}
-
-tr.header { background-color:#DDDDDD!important;}
 
 .rolecap { width:95%;}
 
@@ -687,7 +711,6 @@ tr.header { background-color:#DDDDDD!important;}
     width: 88%;
 }
 
-
 #page-content #region-main ul.weeks, 
 #page-content #region-main ul.unlist, 
 #page-content #region-main ul.topics {
@@ -696,8 +719,6 @@ tr.header { background-color:#DDDDDD!important;}
     border: 1px solid #DDDDDD;
     margin: 0px;
 }
-
-/*#page-content #region-main a{ text-decoration:underline!important; }*/
 
 
 /*TAB*/
@@ -940,14 +961,6 @@ fieldset div {margin-top:5px }
 }
 
 #dates.generalbox{ height:auto!important; min-height:30px!important;}
-
-th.header a { 
-    color: [[setting:color5]]!important;
-}
-th.header { 
-    background-color: [[setting:color6]]!important;
-    color:[[setting:color4]]!important;
-}
 
 input#username, input#password {
     width: 160px !important;
