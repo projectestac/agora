@@ -65,10 +65,8 @@ function Agoraportal_tables() {
         'description' => 'description',
         'version' => 'version',
         'currentVersion' => 'currentVersion',
-        'tablesPrefix' => 'tablesPrefix',
         'usersNameField' => 'usersNameField',
         'defaultDiskSpace' => 'defaultDiskSpace',
-        'serverFolder' => 'serverFolder',
         'allowedClients' => 'allowedClients',
         );
 
@@ -77,10 +75,8 @@ function Agoraportal_tables() {
         'description' => "C(255) NOTNULL DEFAULT ''",
         'version' => "C(15) NOTNULL DEFAULT ''",
         'currentVersion' => "C(15) NOTNULL DEFAULT ''",
-        'tablesPrefix' => "C(10) NOTNULL DEFAULT ''",
         'usersNameField' => "C(15) NOTNULL DEFAULT ''",
         'defaultDiskSpace' => "I(6) NOTNULL DEFAULT 0",
-        'serverFolder' => "C(100) NOTNULL DEFAULT ''",
         'allowedClients' => "X NOTNULL",
         );
 
