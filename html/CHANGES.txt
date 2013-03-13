@@ -35,6 +35,7 @@ MOODLE 2
 
 ZIKULA
 - Added call to stats summarize function in iwcron.php
+- Added https login
 
 
 
