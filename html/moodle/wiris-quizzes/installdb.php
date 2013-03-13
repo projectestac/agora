@@ -6,7 +6,7 @@ include('../config.php');
 //XTEC ************ MODIFICAT - Remove require login restriction
 //2011.09.27 - sarjona
 $password = isset($_GET['password'])?$_GET['password']:'';
-$error = ($password != $agora['config']['xtecadmin']);
+$error = (md5($password) != $agora['config']['xtecadmin']);
 
 if ($error){
     $error = false;
