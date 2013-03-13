@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['messages:addinstance'] = 'Afegir un bloc nou de missatges';
+$string['messages:myaddinstance'] = 'Afegir un bloc nou de missatges a la pàgina del «meu Moodle»';
 $string['pluginname'] = 'Missatges';

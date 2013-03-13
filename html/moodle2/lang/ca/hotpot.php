@@ -52,9 +52,6 @@ $string['attemptsunlimited'] = 'Intents il·limitats';
 $string['average'] = 'Mitjana';
 $string['averagescore'] = 'Puntuació mitjana';
 $string['cacherecords'] = 'Registres de la memòria cau HotPot';
-$string['canrestartquiz'] = 'Es desaran els resultats introduïts fins ara i posteriorment podreu reintentar «{$a}».';
-$string['canrestartunit'] = 'Es desaran els resultats introduïts fins ara però si posteriorment voleu reintentar de nou aquesta activitat, us caldrà iniciar-la des d\'el principi.';
-$string['canresumequiz'] = 'Es desaran els resultats introduïts fins ara i posteriorment podreu reprendre «{$a}».';
 $string['checks'] = 'Comprovacions';
 $string['checksomeboxes'] = 'Si us plau marqueu algunes quadres';
 $string['clearcache'] = 'Neteja la memòria cau HotPot';
@@ -183,17 +180,17 @@ $string['exit_course'] = 'Curs';
 $string['exit_course_text'] = 'Retorna a la pàgina principal del curs';
 $string['exit_encouragement'] = 'Encoratjament';
 $string['exit_excellent'] = 'Excel·lent!';
-$string['exit_feedback'] = 'Surt de la pàgina de retroalimentació';
-$string['exit_feedback_help'] = 'Aquestes opcions habiliten i deshabiliten la visualització d\'elements de retroalimentació en la pàgina de sortida de HotPot.
+$string['exit_feedback'] = 'Surt de la pàgina de retroacció';
+$string['exit_feedback_help'] = 'Aquestes opcions habiliten i deshabiliten la visualització d\'elements de retroacció en la pàgina de sortida de HotPot.
 
 ** Nom de la unitat com a títol**
 : Si s\'habilita es mostrarà el nom de la unitat com a títol de la pàgina.
 
 **Encoratjament**
 : Si s\'habilita es mostrarà a la pàgina alguna mena d\'encoratjament. Aquest dependrà de la qualificació HotPot:
-: **&gt; 90%**: Excel·lent!
-: **&gt; 60%**: Ben fet
-: **&gt; 0%**: Bon intent
+: **> 90%**: Excel·lent!
+: **> 60%**: Ben fet
+: **> 0%**: Bon intent
 : **= 0%**: Esteu bé?
 
 **Qualificació de l\'intent de la unitat**
@@ -239,7 +236,7 @@ $string['exitpagehdr'] = 'Pàgina de sortida';
 $string['exitpage_help'] = 'S\'hauria de mostrar una pàgina de sortida després de completar el qüestionari Hot Potatoes?
 
 **Sí**
-Es mostrarà una pàgina de sortida als estudiants quan hagin completat el qüestionari Hot Potatoes. Els continguts de la pàgina vindran determinats per la configuració de la retroalimentació de la pàgina de sortida i enllaços del Hot Potatoes.
+Es mostrarà una pàgina de sortida als estudiants quan hagin completat el qüestionari Hot Potatoes. Els continguts de la pàgina vindran determinats per la configuració de la retroacció de la pàgina de sortida i enllaços del Hot Potatoes.
 
 **No**
 No es mostrarà cap pàgina de sortida als estudiants, sinó que hauran de continuar amb l\'activitat següent o tornar a la pàgina d\'inici del curs.';
@@ -434,13 +431,13 @@ $string['stopbutton_langpack'] = 'Del paquet d\'idioma';
 $string['stopbutton_specific'] = 'Utilitza el text específic';
 $string['stoptext'] = 'Text del botó atura';
 $string['storedetails'] = 'Emmagatzema la fila XML amb els detalls dels intents del qüestionari HotPot';
-$string['studentfeedback'] = 'Retroalimentació de l\'estudiant';
-$string['studentfeedback_help'] = 'Si s\'habilita un enllaç a finestra emergent amb retroalimentació es mostrarà sempre que l\'alumne premi el botó «Comprova». La finestra de retroalimentació permet als estudiants comentar aquest qüestionari amb el seu professor i els seus companys d\'alguna de les formes següents:
+$string['studentfeedback'] = 'Retroacció de l\'estudiant';
+$string['studentfeedback_help'] = 'Si s\'habilita un enllaç a finestra emergent amb retroacció es mostrarà sempre que l\'alumne premi el botó «Comprova». La finestra de retroacció permet als estudiants comentar aquest qüestionari amb el seu professor i els seus companys d\'alguna de les formes següents:
 
 **Pàgina web**
-: Cal la URL de la pàgina web, per exemple http://elmeuservidor.com/formularideretroalimentacio.html
+: Cal la URL de la pàgina web, per exemple http://elmeuservidor.com/formularideretroaccio.html
 
-**Formulari de retroalimentació**
+**Formulari de retroacció**
 : Cal la URL del script del formulari, per exemple http://elmeuservidor.com/cgi-bin/formulari.pl
 
 **Fòrum Moodle**

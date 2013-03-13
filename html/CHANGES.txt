@@ -31,6 +31,7 @@ MOODLE 2
 - Improvements to CSS of theme xtec2 to improve usability of GradeBook and in calendar selector in "New assign"
 - Updated Journal module to 1.8.1 version
 - Fixed bug when deleting group (https://tracker.moodle.org/browse/MDL-37098)
+- Updated catalan translation (13-mar-2013)
 
 ZIKULA
 - Added call to stats summarize function in iwcron.php

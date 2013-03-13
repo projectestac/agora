@@ -114,7 +114,7 @@ $string['filtermis'] = 'Miscel·lània';
 $string['filtermis_desc'] = 'Condicions addicionals de les cadenes per ser visualitzades';
 $string['filtermisfglo'] = 'sols cadenes de la llista grisa';
 $string['filtermisfhlp'] = 'sols cadenes d\'ajuda';
-$string['filtermisfmis'] = 'sols cadenes perdudes o obsoletes';
+$string['filtermisfmis'] = 'únicament cadenes sense traduir o obsoletes';
 $string['filtermisfstg'] = 'sols cadenes encuades';
 $string['filtermisfwog'] = 'cadenes que no pertanyen a la llista grisa';
 $string['filtersid'] = 'Identificador de cadena';
@@ -125,11 +125,11 @@ $string['filtertxt_desc'] = 'La cadena ha de contenir text';
 $string['filtertxtregex'] = 'expressions regulars';
 $string['filterver'] = 'Versions';
 $string['filterver_desc'] = 'Visualitza les cadenes d\'aquesta versió de Moodle';
-$string['found'] = 'Trobat: {$a->found}
-   &nbsp;&nbsp;&nbsp; Perdut:
+$string['found'] = 'Trobades: {$a->found}
+       Sense traduir:
 {$a->missing} ({$a->missingonpage})';
 $string['foundinfo'] = 'Nombre de cadenes trobades';
-$string['foundinfo_help'] = 'Visualitza el nombre total de files a la taula de traducció, el nombre de traduccions perdudes i el nombre de traduccions perdudes a la pàgina actual.';
+$string['foundinfo_help'] = 'Visualitza el nombre total de files a la taula de traducció, el nombre de traduccions pendents i el nombre de traduccions pendents a la pàgina actual.';
 $string['gotofirst'] = 'vés a la pàgina principal';
 $string['gotoprevious'] = 'vés a la pàgina prèvia';
 $string['greylisted'] = 'Cadenes de la llista grisa';
@@ -180,7 +180,7 @@ $string['nologsfound'] = 'No s\'han trobat cadenes, si us plau modifiqueu els fi
 $string['nostringsfound'] = 'No s\'han trobat cadenes';
 $string['nostringsfoundonpage'] = 'No s\'han trobat cadenes a la pàgina {$a}';
 $string['nostringtoimport'] = 'No s\'ha trobat cap cadena vàlida al fitxer. Comproveu que el fitxer té el nom correcte i té el format adequat.';
-$string['nothingtomerge'] = 'La branca de la font no conté noves cadenes que s\'hagin perdut a la branca. No hi ha res per combinar.';
+$string['nothingtomerge'] = 'La branca font no conté noves cadenes que estiguin pendents a la branca destí. No hi ha res per combinar.';
 $string['numofcommitsabovelimit'] = 'Trobades {$a->found} confirmacions concordants amb el filtre enviat. utilitzant el més recent {$a->limit}';
 $string['numofcommitsunderlimit'] = 'Trobades {$a->found} confirmacions que concorden amb el filtre enviat';
 $string['numofmatchingstrings'] = 'D\'elles, {$a->strings} modificades a les {$a->commits}  confirmacions que concorden amb el filtre de cadena.';
@@ -206,6 +206,7 @@ $string['pluginclassnonstandard'] = 'Connector no estàndard';
 $string['pluginclassstandard'] = 'Connector estàndard';
 $string['pluginname'] = 'AMOS';
 $string['presetcommitmessage'] = 'Contribució a la traducció #{$a->id} per {$a->author}';
+$string['presetcommitmessage2'] = 'S\'han incorporat les traduccions de {$a->source} que faltaven a la branca {$a->target}';
 $string['privileges'] = 'Els vostres privilegis';
 $string['privilegesnone'] = 'Sols teniu accés de lectura a la informació pública.';
 $string['requestactions'] = 'Acció';
@@ -231,9 +232,10 @@ $string['stagesubmit'] = 'Envia als mantenidors';
 $string['stagetranslation'] = 'Traducció';
 $string['stagetranslation_help'] = 'Visualitza la traducció de la pila que serà confirmada. El color de fons significa:
 
-* Verd - heu modificat una cadena o afegit una traducció i teniu permís per confirmar la traducció.
-* Blau - Heu modificat la traducció o afegit una traducció perduda però no teniu permís per confirmar-la a l\'idioma actual.
-* Sense color - La traducció a la pila és la mateixa que l\'actual i no ha sigut confirmada.';
+* Verd - heu afegit una traducció nova i teniu permís per confirmar-la.
+* Groc - Heu modificat una cadena i teniu permís per confirmar-la.
+* Blau - Heu modificat la traducció o afegit una traducció nova però no teniu permís per confirmar-la a l\'idioma actual.
+* Sense color - La traducció a la pila és la mateixa que l\'actual i no serà confirmada.';
 $string['stageunstageall'] = 'Treu-ho tot de la pila';
 $string['stashactions'] = 'Accions del magatzem permannent';
 $string['stashactions_help'] = 'El magatzem permanent és una captura de la pila actual. Les cadenes del magatzem permanent poden ser enviades al mantenidor oficial del paquet de l\'idioma per incloure-les al paquet de llengua.';

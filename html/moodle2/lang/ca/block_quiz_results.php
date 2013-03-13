@@ -48,6 +48,7 @@ $string['error_emptyquizrecord'] = 'Hi ha un error en aquest bloc: el qüestiona
 $string['error_nogroupsexist'] = 'Hi ha un error en aquest bloc:
 Heu configurar mostrar notes en el mode grups, però no heu definit cap grup.';
 $string['pluginname'] = 'Resultats del qüestionari';
+$string['quiz_results:addinstance'] = 'Afegir un bloc nou de resultats del qüestionari';
 $string['worstgrade'] = 'La nota més baixa:';
 $string['worstgrades'] = 'Les {$a} notes més baixes:';
 $string['worstgroupgrade'] = 'El grup amb la mitjana més baixa:';

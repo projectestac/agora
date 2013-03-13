@@ -186,7 +186,7 @@ $string['flagthisquestion'] = 'Marca aquesta pregunta';
 $string['formquestionnotinids'] = 'El formulari contenia preguntes que no troben els identificadors';
 $string['fractionsnomax'] = 'Una de les respostes ha de tenir una puntuació del 100% de manera que sigui possible aconseguir tots els punts en aquesta pregunta.';
 $string['generalfeedback'] = 'Retroacció general';
-$string['generalfeedback_help'] = 'La retroacció general es mostra a l\'alumnat després que hagi intentat contestar una pregunta. A diferència de la retroacció específica, que depèn del tipus de pregunta i de la resposta que l\'alumnat doni, es mostra el mateix text de retroalimentació general a tots l\'alumnat.
+$string['generalfeedback_help'] = 'La retroacció general es mostra a l\'alumnat després que hagi intentat contestar una pregunta. A diferència de la retroacció específica, que depèn del tipus de pregunta i de la resposta que l\'alumnat doni, es mostra el mateix text de retroacció general a tot l\'alumnat.
 
 Podeu utilitzar la retroacció general per donar a l\'alumnat una resposta més completa o potser un enllaç amb més informació que puguin utilitzar si no entenen les preguntes.';
 $string['getcategoryfromfile'] = 'Agafa la categoria del fitxer';

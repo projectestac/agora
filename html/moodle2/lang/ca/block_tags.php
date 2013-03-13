@@ -30,6 +30,7 @@ $string['alltags'] = 'Totes les etiquetes:';
 $string['arrowtitle'] = 'Premeu aquí per entrar el text suggerit (en lletres grises)';
 $string['configtitle'] = 'Títol del bloc';
 $string['coursetags'] = 'Etiquetes del curs:';
+$string['defaultdisplay'] = 'Tipus d\'etiqueta que es mostrarà';
 $string['disabledtags'] = 'Les etiquetes estan desactivades';
 $string['edit'] = 'edita...';
 $string['editdeletemytag'] = 'Elimina l\'etiqueta d\'aquest curs';
@@ -60,7 +61,7 @@ $string['moreshowofficialtags'] = 'Etiquetes oficials';
 $string['moretags'] = 'Mostra i filtra més etiquetes';
 $string['moretitle'] = 'Més etiquetes';
 $string['morewelcome'] = 'Benvingut al núvol \'Més etiquetes\'. Les etiquetes s\'utilitzen per crear enllaços a coses.
-Les etiquetes us permeten classificar en categories i enllaçar coses com els vostres cursos favorits, les vostres bitàcoles. o el vostre perfil amb les pròpies paraules vostres.
+Les etiquetes us permeten classificar en categories i enllaçar coses com els vostres cursos favorits, els vostres blogs o el vostre perfil amb les vostres pròpies paraules.
 Es poden mostrar diferents grups d\'etiquetes amb els enllaços de la línia \'Visualitza:\' , i també podeu reordenar-los amb els enllaços de la línia \'Ordena:\'';
 $string['mycoursetags'] = 'Les etiquetes del meu curs:';
 $string['mytags'] = 'Les meves etiquetes:';
@@ -70,6 +71,9 @@ $string['pluginname'] = 'Etiquetes';
 $string['select'] = 'Selecciona ...';
 $string['showcoursetags'] = 'Mostra les etiquetes del curs';
 $string['showcoursetagsdef'] = 'Mostra les característiques del curs al bloc d\'etiquetes, permetent als estudiants etiquetar cursos.';
+$string['suggestedtagthisunit'] = 'Etiqueta suggerida per a aquest curs:';
 $string['tags'] = 'etiquetes';
+$string['tags:addinstance'] = 'Afegir un bloc nou d\'etiquetes';
+$string['tags:myaddinstance'] = 'Afegir un bloc nou d\'etiquetes a la pàgina «El meu Moodle»';
 $string['tagthisunit'] = 'Etiqueta aquest curs:';
 $string['tagunits'] = 'etiqueteu els vostres cursos favorits';

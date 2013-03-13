@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Activitats socials';
+$string['social_activities:addinstance'] = 'Afegir un bloc nou d\'activitats socials';

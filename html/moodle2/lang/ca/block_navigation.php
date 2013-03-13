@@ -33,6 +33,7 @@ $string['everything'] = 'Tot';
 $string['expansionlimit'] = 'Genera navegació per al següent.';
 $string['linkcategoriesdesc'] = 'Visualitza les categories com a enllaços';
 $string['navigation:addinstance'] = 'Afegeix un nou bloc de navegació';
+$string['navigation:myaddinstance'] = 'Afegir un bloc nou de navegació a la pàgina «El meu Moodle»';
 $string['pluginname'] = 'Navegació';
 $string['trimlength'] = 'Quants caràcters cal deixar';
 $string['trimmode'] = 'Mode de retallada';

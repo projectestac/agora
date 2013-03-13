@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['calendar_upcoming:addinstance'] = 'Afegeix un bloc d\'esdeveniments pròxims.';
+$string['calendar_upcoming:myaddinstance'] = 'Afegeix un bloc d\'esdeveniments pròxims a la pàgina del «meu Moodle»';
 $string['pluginname'] = 'Esdeveniments propers';

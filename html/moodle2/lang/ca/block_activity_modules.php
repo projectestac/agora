@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activity_modules:addinstance'] = 'Afegeix un bloc d\'activitats nou';
 $string['pluginname'] = 'Activitats';

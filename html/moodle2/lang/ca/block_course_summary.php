@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['coursesummary'] = 'Resum del curs';
+$string['course_summary:addinstance'] = 'Afegir un bloc nou de descripció del lloc / curs';
 $string['pluginname'] = 'Descripció del curs/lloc';

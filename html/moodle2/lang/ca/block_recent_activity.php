@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Activitat recent';
+$string['recent_activity:addinstance'] = 'Afegir un bloc nou d\'activitat recent';

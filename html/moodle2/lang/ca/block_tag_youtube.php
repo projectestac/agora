@@ -44,4 +44,5 @@ $string['petsanimals'] = 'Animals i animals domèstics';
 $string['pluginname'] = 'Youtube';
 $string['scienceandtech'] = 'Ciència i tecnologia';
 $string['sports'] = 'Esports';
+$string['tag_youtube:addinstance'] = 'Afegir un bloc nou de youtube';
 $string['travel'] = 'Viatges i llocs';

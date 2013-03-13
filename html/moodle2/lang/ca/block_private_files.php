@@ -28,3 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['managemyfiles'] = 'Gestiona els meus fitxers';
 $string['pluginname'] = 'Els meus fitxers privats';
 $string['privatefiles'] = 'Fitxers privats';
+$string['private_files:addinstance'] = 'Afegir un bloc nou de fitxers privats';
+$string['private_files:myaddinstance'] = 'Afegir un bloc nou de fitxers privats a la pàgina de «El meu Moodle»';

@@ -25,7 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['blog_recent:addinstance'] = 'Afegeix un nou bloc d\'entrades recents del blog';
 $string['norecentblogentries'] = 'No hi ha entrades recents';
 $string['numentriestodisplay'] = 'Nombre d\'entrades recents a mostrar';
-$string['pluginname'] = 'Entrades recents a la bitàcola';
+$string['pluginname'] = 'Entrades recents al blog';
 $string['recentinterval'] = 'Interval de temps considerat "recent"';

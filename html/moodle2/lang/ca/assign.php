@@ -197,7 +197,7 @@ $string['numberofteams'] = 'Grups';
 $string['offline'] = 'No es requereix cap tramesa en línia';
 $string['open'] = 'Obert';
 $string['outlinegrade'] = 'Qualificació: {$a}';
-$string['overdue'] = '<font color="red"> {$a} ha enviat la tasca amb retard</font>';
+$string['overdue'] = '<font color="red">La tasca ha vençut fa: {$a}</font>';
 $string['page-mod-assign-view'] = 'Pàgina principal del mòdul de tasques';
 $string['page-mod-assign-x'] = 'Pàgina de qualsevol mòdul de tasques';
 $string['participant'] = 'Participant';

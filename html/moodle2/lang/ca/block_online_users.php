@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configtimetosee'] = 'Nombre de minuts per considerar que un usuari està en línia';
+$string['online_users:addinstance'] = 'Afegir un bloc nou d\'usuaris en línia';
+$string['online_users:myaddinstance'] = 'Afegir un bloc nou d\'usuaris en línia a la pàgina «El meu Moodle»';
 $string['online_users:viewlist'] = 'Veure la llista d\'usuaris en línia';
 $string['periodnminutes'] = 'darrers {$a} minuts';
 $string['pluginname'] = 'Usuaris en línia';
