@@ -14121,7 +14121,7 @@ msgstr "S'ha utilitzat aquesta adreça de correu ('%1$s') per crear un compte en
 #: system/Users/templates/users_email_welcome_html.tpl:11
 #: system/Users/templates/users_user_verifyregistration.tpl:67
 msgid "Password reminder"
-msgstr "Recordatori de la cotrasenya"
+msgstr "Recordatori de la contrasenya"
 
 #: system/Users/templates/users_email_welcome_txt.tpl:13
 #: system/Users/templates/users_email_regverifyemail_txt.tpl:26
