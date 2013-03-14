@@ -50,6 +50,7 @@ if (pnConfigGetVar('siteoff') && !SecurityUtil::checkPermission('Settings::', 'S
 
 //XTEC ************ AFEGIT - provide https login using BigIP
 //2013.03.13 @albertpm
+/*
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
     $rurl = $_SERVER['HTTP_X_FORWARDED_PROTO'];
 } elseif (isset($_SERVER['HTTPS'])) {
@@ -67,6 +68,7 @@ if ($module == 'users' && $type == 'user' && ($func == 'login' || $func == 'logi
         pnredirect('http://' . pnServerGetVar('HTTP_HOST') . pnGetBaseURI());
     }
 }
+*/
 //************ FI
 // check requested module and set to start module if not present
 if (empty($name) && empty($module)) {
