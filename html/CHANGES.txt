@@ -9,6 +9,7 @@ GENERAL
 - Hardened security of the multisite cookie
 - Modified replaceMoodle.php to be executed from the server
 - $agora['config']['xtecadmin'] is always encrypted
+- Added .htaccess password protection to html/config/
 
 PORTAL
 - Force usage of https when users clic to menu option to log in

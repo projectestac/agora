@@ -1,0 +1,7 @@
+AuthUserFile /srv/www/agora/html/config/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Es requereix contrasenya"
+AuthType Basic
+<limit GET>
+require valid-user
+</Limit>
