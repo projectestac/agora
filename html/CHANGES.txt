@@ -5,6 +5,12 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+
+Changes 13.03.15
+---------------------------------------------------------------------------------------
 GENERAL
 - Hardened security of the multisite cookie
 - Modified replaceMoodle.php to be executed from the server
@@ -37,8 +43,6 @@ MOODLE 2
 
 ZIKULA
 - Added call to stats summarize function in iwcron.php
-- Added https login
-
 
 
 Changes 13.02.12
