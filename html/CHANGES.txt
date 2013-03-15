@@ -5,7 +5,11 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE2
 
+
+ZIKULA
+- Fixed call to stats summarize function in iwcron.php
 
 
 

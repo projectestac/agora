@@ -121,7 +121,7 @@ pnModAPIFunc('Theme', 'user', 'clear_compiled');
 pnModAPIFunc('Theme', 'user', 'clear_cache');
 
 // Summarize stats info
-pnModFunc('IWstats', 'admin', 'summary');
+pnModAPIFunc('IWstats', 'admin', 'summary');
 
 
 LogUtil::_cleanLogFiles();
