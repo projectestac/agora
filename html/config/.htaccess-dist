@@ -2,7 +2,6 @@ AuthType Basic
 require valid-user
 AuthName "Es requereix contrasenya"
 AuthUserFile /srv/www/agora/html/config/.htpasswd
-<Files statistics.php>
 Satisfy Any
+Order allow,deny
 Allow from localhost
-</Files>
