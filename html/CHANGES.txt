@@ -7,6 +7,8 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 MOODLE2
 
+PORTAL
+- Allow access to file manager to schools with only Moodle 2 (no Moodle 1.9 required)
 
 ZIKULA
 - Fixed call to stats summarize function in iwcron.php

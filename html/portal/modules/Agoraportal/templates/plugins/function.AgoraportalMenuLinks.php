@@ -77,8 +77,17 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
         $clientCode = $clientInfo['clientCode'];
     }
 
+    // Decide whether to show files manager on not i MyAgora
+    $showFilesManager = false;
     $isMoodleEnabled = ModUtil::apiFunc('Agoraportal', 'user', 'existsServiceInClient', array('clientCode' => $clientCode,
                 'serviceName' => 'moodle'));
+    $isMoodle2Enabled = ModUtil::apiFunc('Agoraportal', 'user', 'existsServiceInClient', array('clientCode' => $clientCode,
+                'serviceName' => 'moodle2'));
+    if ($isMoodleEnabled || $isMoodle2Enabled) {
+        $showFilesManager = true;
+    } else {
+        $showFilesManager = false;
+    }
 
     $allowedUsersAdministration = ModUtil::func('Agoraportal', 'user', 'allowedUsersAdministration', array('clientCode' => $clientCode));
     // Administrator menu
@@ -103,7 +112,7 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
         $AgoraportalMenuLinks .= '<div>';
         $AgoraportalMenuLinks .= "<span class=\"" . $params['class'] . "\">" . $params['start'] . " ";
         $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'user', 'myAgora')) . "\">" . __('Serveis') . "</a> ";
-        if ($isManager && $isMoodleEnabled) {
+        if ($isManager && $showFilesManager) {
             $AgoraportalMenuLinks .= $params['separator'] . " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'user', 'files')) . "\">" . __('Gestió de fitxers') . "</a> ";
         }
         if ($isManager && $showAskServices) {
@@ -123,7 +132,7 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
         $AgoraportalMenuLinks .= '<div>';
         $AgoraportalMenuLinks .= "<span class=\"" . $params['class'] . "\">" . $params['start'] . " ";
         $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('agoraPortal', 'user', 'myAgora', array('clientCode' => $clientCode))) . "\">" . __('Serveis') . "</a> " . $params['separator'];
-        if ($isMoodleEnabled) {
+        if ($showFilesManager) {
             $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('agoraPortal', 'user', 'files', array('clientCode' => $clientCode))) . "\">" . __('Gestió de fitxers') . "</a> " . $params['separator'];
         }
         if ($showAskServices) {
