@@ -185,7 +185,7 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         return new Zikula_Response_Ajax(array('fmid' => $fmid,
                 'm' => $m,
                 'markText' => $markText,
-                'reloadFlags' => $reloadFlags
+                'reloadFlags' => $reloadFlags,
                 ));
     }
 

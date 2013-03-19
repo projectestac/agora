@@ -72,3 +72,16 @@ table.z-datatable, table.z-admintable {
     font-style:italic;
     color:#777;
 }
+
+.photoImg{
+   margin-right: 15px;
+}
+
+.photo{
+    float: left;
+}
+
+.msgBox{
+    border: 1px solid #aaaaaa;
+    padding: 7px;
+}

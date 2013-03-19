@@ -725,6 +725,8 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
 
+        $uid = UserUtil::getVar('uid');
+        
         // check if user can access the forum
         $access = ModUtil::func('IWforums', 'user', 'access',
                         array('fid' => $fid));
@@ -753,7 +755,7 @@ class IWforums_Controller_User extends Zikula_AbstractController {
                             'info' => 'ncc',
                             'uid' => $registre['usuari']));
         // set user as message reader
-        if (strpos($registre['llegit'], '$' . UserUtil::getVar('uid') . '$') == 0) {
+        if (strpos($registre['llegit'], '$' . $uid . '$') == 0) {
             $llegit = ModUtil::apiFunc('IWforums', 'user', 'llegit',
                             array('fmid' => $registre['fmid'],
                                 'llegit' => $registre['llegit']));
@@ -780,11 +782,12 @@ class IWforums_Controller_User extends Zikula_AbstractController {
           $printer .= '<tr><td><hr></td></tr>';
           $printer .= "</table><br>";
          */
-        $marcatMsg = (strpos($registre['marcat'], '$' . UserUtil::getVar('uid') . '$') == 0) ? false : true;
+        $marcatMsg = (strpos($registre['marcat'], '$' . $uid . '$') == 0) ? false : true;
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $photo = ModUtil::func('IWmain', 'user', 'getUserPicture',
                         array('uname' => UserUtil::getVar('uname', $registre['usuari']),
                             'sv' => $sv));
+      
         // ff user didn't click a first-level message, get the first-level message
         if ($oid != $fmid) {
             // get message information
@@ -799,14 +802,14 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         else
             $origen = $registre;
         // process the first message
-        $imatge = (strpos($origen['llegit'], '$' . UserUtil::getVar('uid') . '$') == 0) ? 'msgNo.gif' : 'msg.gif';
-        $marcat = (strpos($origen['marcat'], '$' . UserUtil::getVar('uid') . '$') == 0) ? 'res.gif' : 'marcat.gif';
-        $m = (strpos($origen['marcat'], '$' . UserUtil::getVar('uid') . '$') == 0) ? 1 : 0;
-        $textmarca = (strpos($origen['marcat'], '$' . UserUtil::getVar('uid') . '$') == 0) ? $this->__("Check the message") : $this->__('Uncheck the message');
+        $imatge = (strpos($origen['llegit'], '$' . $uid . '$') == 0) ? 'msgNo.gif' : 'msg.gif';
+        $marcat = (strpos($origen['marcat'], '$' . $uid . '$') == 0) ? 'res.gif' : 'marcat.gif';
+        $m = (strpos($origen['marcat'], '$' . $uid . '$') == 0) ? 1 : 0;
+        $textmarca = (strpos($origen['marcat'], '$' . $uid . '$') == 0) ? $this->__("Check the message") : $this->__('Uncheck the message');
         $temps_esborrat = $forum['msgDelTime'];
         $temps_edicio = $forum['msgEditTime'];
-        $esborrable = (time() < $origen['data'] + 60 * $temps_esborrat && $origen['usuari'] == UserUtil::getVar('uid')) ? true : false;
-        $editable = (time() < $origen['data'] + 60 * $temps_edicio && $origen['usuari'] == UserUtil::getVar('uid')) ? true : false;
+        $esborrable = (time() < $origen['data'] + 60 * $temps_esborrat && $origen['usuari'] == $uid) ? true : false;
+        $editable = (time() < $origen['data'] + 60 * $temps_edicio && $origen['usuari'] == $uid) ? true : false;
         $messages[] = array('fmid' => $origen['fmid'],
             'imatge' => $imatge,
             'title' => $origen['titol'],
@@ -838,13 +841,13 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         foreach ($listmessages as $message) {
             if (isset($message))
                 $hi_ha_missatges = true;
-            $imatge = (strpos($message['llegit'], '$' . UserUtil::getVar('uid') . '$') == 0) ? 'msgNo.gif' : 'msg.gif';
+            $imatge = (strpos($message['llegit'], '$' . $uid . '$') == 0) ? 'msgNo.gif' : 'msg.gif';
             $usersList .= $message['usuari'] . '$$';
-            $marcat = (strpos($message['marcat'], '$' . UserUtil::getVar('uid') . '$') == 0) ? 'res.gif' : 'marcat.gif';
-            $m = (strpos($message['marcat'], '$' . UserUtil::getVar('uid') . '$') == 0) ? 1 : 0;
-            $textmarca = (strpos($message['marcat'], '$' . UserUtil::getVar('uid') . '$') == 0) ? $this->__("Check the message") : $this->__('Uncheck the message');
-            $esborrable = (time() < $message['data'] + 60 * $temps_esborrat && $message['usuari'] == UserUtil::getVar('uid')) ? true : false;
-            $editable = (time() < $message['data'] + 60 * $temps_edicio && $message['usuari'] == UserUtil::getVar('uid')) ? true : false;
+            $marcat = (strpos($message['marcat'], '$' . $uid . '$') == 0) ? 'res.gif' : 'marcat.gif';
+            $m = (strpos($message['marcat'], '$' . $uid . '$') == 0) ? 1 : 0;
+            $textmarca = (strpos($message['marcat'], '$' . $uid . '$') == 0) ? $this->__("Check the message") : $this->__('Uncheck the message');
+            $esborrable = (time() < $message['data'] + 60 * $temps_esborrat && $message['usuari'] == $uid) ? true : false;
+            $editable = (time() < $message['data'] + 60 * $temps_edicio && $message['usuari'] == $uid) ? true : false;
             $messages[] = array('fmid' => $message['fmid'],
                 'imatge' => $imatge,
                 'title' => $message['titol'],
@@ -904,6 +907,8 @@ class IWforums_Controller_User extends Zikula_AbstractController {
                 ->assign('photo', $photo)
                 ->assign('foto', ModUtil::getVar('IWforums', 'fotos'))
                 ->assign('urladjunts', ModUtil::getVar('IWforums', 'urladjunts'))
+                ->assign('usuari', $registre['usuari'])
+                ->assign('uid', $uid)
                 ->fetch('IWforums_user_msg.htm');
     }
 

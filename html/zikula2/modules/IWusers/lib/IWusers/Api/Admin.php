@@ -82,8 +82,8 @@ class IWusers_Api_Admin extends Zikula_AbstractApi {
             $items = array('nom' => $nom[$u],
                 'cognom1' => $cognom1[$u],
                 'cognom2' => $cognom2[$u]);
-            $pntable = DBUtil::getTables();
-            $c = $pntable['IWusers_column'];
+            $table = DBUtil::getTables();
+            $c = $table['IWusers_column'];
             $where = "$c[uid] = $u";
             if (!DBUTil::updateObject($items, 'IWusers', $where)) {
                 return LogUtil::registerError($this->__('Error! Update attempt failed.'));
@@ -165,8 +165,8 @@ class IWusers_Api_Admin extends Zikula_AbstractApi {
             throw new Zikula_Exception_Forbidden();
         }
 
-        $pntable = DBUtil::getTables();
-        $c = $pntable['IWusers_column'];
+        $table = DBUtil::getTables();
+        $c = $table['IWusers_column'];
         $where = "$c[newavatar]<>''";
 
         $items = DBUtil::selectObjectArray('IWusers', $where, '', '-1', '-1', 'suid');

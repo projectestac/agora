@@ -3,51 +3,51 @@
 </script>
 {include file="IWforums_user_menu.htm" m7=1 m10=1 fid=$fid ftid=$ftid printer=$printer}
 {section name=missatge loop=$missatges}
-    <table width="100%" style="border-color:#aaaaaa;border-width:2px; border-style:solid">
-        <tr>
-            <td>
-                <font face=Arial color="#0080C0"><b>{$missatges[missatge].titol}</b></font>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {gt text="From: "}
-                <font color=green><b>{$missatges[missatge].usuari}</b></font>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {gt text="Date"}: <font face=Arial size=2 color="#696969"><b>{$missatges[missatge].data}</b></font>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {gt text="Time"}: <font face=Arial size=2 color="#696969"><b>{$missatges[missatge].hora}</b></font>
-            </td>
-        </tr>
-            {if $missatges[missatge].adjunt neq ""}
-                <tr>
-                    <td>
-                        <br />
-                        {gt text="Attached file"}: <a target="_blank" href="documents/forums/{$missatges[missatge].adjunt}">{$missatges[missatge].adjunt}</a>
-                    </td>
-                </tr>
-            {/if}
-        <tr>
-            <td>
-                <hr>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {$missatges[missatge].missatge|nl2br}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <hr>
-            </td>
-        </tr>
-    </table>
-    <br />
+<table width="100%" style="border-color:#aaaaaa;border-width:2px; border-style:solid">
+    <tr>
+        <td>
+            <font face=Arial color="#0080C0"><b>{$missatges[missatge].titol}</b></font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {gt text="From: "}
+            <font color=green><b>{$missatges[missatge].usuari}</b></font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {gt text="Date"}: <font face=Arial size=2 color="#696969"><b>{$missatges[missatge].data}</b></font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {gt text="Time"}: <font face=Arial size=2 color="#696969"><b>{$missatges[missatge].hora}</b></font>
+        </td>
+    </tr>
+    {if $missatges[missatge].adjunt neq ""}
+    <tr>
+        <td>
+            <br />
+            {gt text="Attached file"}: <a target="_blank" href="documents/forums/{$missatges[missatge].adjunt}">{$missatges[missatge].adjunt}</a>
+        </td>
+    </tr>
+    {/if}
+    <tr>
+        <td>
+            <hr />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {$missatges[missatge].missatge|nl2br}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <hr />
+        </td>
+    </tr>
+</table>
+<br />
 {/section}

@@ -1280,7 +1280,6 @@ class IWforums_Api_User extends Zikula_AbstractApi {
         }
         if (SecurityUtil::checkPermission('IWforums::', "::", ACCESS_READ) && ($m12 == 1 || $m13 == 1) && $access > 0 && UserUtil::isLoggedIn()) {
             $links[] = array('url' => "javascript:mark(" . $fid . "," . $fmid . ")", 'text' => $this->__('Check/uncheck the message'), 'id' => 'iwforums_mark', 'class' => 'z-icon-es-view');
-            //$forumsusermenulinks .= "<span style=\"cursor: pointer;\" id=\"markText" . $params['fmid'] . "\"><a onclick=\"javascript:mark(" . $params['fid'] . "," . $params['fmid'] . ")\">" . __('Check the message', $dom) . "</a></span> " . $params['seperator'];
         }
         return $links;
     }

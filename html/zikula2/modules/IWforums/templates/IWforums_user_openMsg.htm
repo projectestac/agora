@@ -2,11 +2,11 @@
 <div class="usercontainer">
     <table class="usertable">
         {if $photo neq '' AND ($userid neq '' OR $avatarsVisible eq 1)}
-        <tr>
-            <td rowspan="3" width="5%" valign="top">
-                <img src="{$baseurl}{modurl modname='IWforums' type='user' func='getFile' fileName=$photo}" />
-            </td>
-        </tr>
+            <tr>
+                <td rowspan="3" width="30" valign="top" style="vertical-align: top;">
+                    <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$photo}" class="photoImg" />
+                </td>
+            </tr>
         {/if}
         {if $adjunt neq ""}
         <tr>
@@ -23,9 +23,7 @@
         {/if}
         <tr>
             <td colspan="2">
-                <div class="messageBody">
-                    {$message|nl2br}
-                </div>
+                {$message|nl2br}
             </td>
         </tr>
         <tr>

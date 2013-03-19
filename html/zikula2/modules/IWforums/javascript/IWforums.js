@@ -115,9 +115,6 @@ function mark_response(a){
         return
     }
     var b=a.getData();
-    if (b.reloadFlags) {
-        reloadFlaggedBlock();
-    }
     if(b.m == 1){
         $(b.fmid).src=Zikula.Config.baseURL+"modules/IWforums/images/marcat.gif";
         $("msgMark" + b.fmid).src=Zikula.Config.baseURL+"modules/IWforums/images/marcat.gif";
@@ -126,6 +123,9 @@ function mark_response(a){
         $(b.fmid).src=Zikula.Config.baseURL+"modules/IWforums/images/res.gif";
         $("msgMark" + b.fmid).src=Zikula.Config.baseURL+"modules/IWforums/images/res.gif";
         $('msgMark' + b.fmid).update(b.fmid);
+    }
+    if (b.reloadFlags) {
+        reloadFlaggedBlock();
     }
 }
 

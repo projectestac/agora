@@ -188,16 +188,16 @@ class IWusers_Controller_Admin extends Zikula_AbstractController {
             array('id' => 'c2',
                 'name' => $camps['c2']));
         return $this->view->assign('pager', $pager)
-                ->assign('leters', $leters)
-                ->assign('numitems_MS', $numitems_MS)
-                ->assign('campsfiltre_MS', $campsfiltre_MS)
-                ->assign('inici', $inici)
-                ->assign('filtre', $filtre)
-                ->assign('campfiltre', $campfiltre)
-                ->assign('numitems', $numitems)
-                ->assign('users', $usersArray)
-                ->assign('usersNumber', $usersNumber)
-                ->fetch('IWusers_admin_main.htm');
+                        ->assign('leters', $leters)
+                        ->assign('numitems_MS', $numitems_MS)
+                        ->assign('campsfiltre_MS', $campsfiltre_MS)
+                        ->assign('inici', $inici)
+                        ->assign('filtre', $filtre)
+                        ->assign('campfiltre', $campfiltre)
+                        ->assign('numitems', $numitems)
+                        ->assign('users', $usersArray)
+                        ->assign('usersNumber', $usersNumber)
+                        ->fetch('IWusers_admin_main.htm');
     }
 
     /**
@@ -254,9 +254,9 @@ class IWusers_Controller_Admin extends Zikula_AbstractController {
         }
 
         return $this->view->assign('users', $usersArray)
-                ->assign('canChangeAvatar', $canChangeAvatar)
-                ->assign('usersNames', $usersNames)
-                ->fetch('IWusers_admin_edit.htm');
+                        ->assign('canChangeAvatar', $canChangeAvatar)
+                        ->assign('usersNames', $usersNames)
+                        ->fetch('IWusers_admin_edit.htm');
     }
 
     /**
@@ -402,20 +402,20 @@ class IWusers_Controller_Admin extends Zikula_AbstractController {
         }
         $multizk = (isset($GLOBALS['PNConfig']['Multisites']['multi']) && $GLOBALS['PNConfig']['Multisites']['multi'] == 1) ? 1 : 0;
         return $this->view->assign('friendsSystemAvailable', $friendsSystemAvailable)
-                ->assign('invisibleGroupsInList', $invisibleGroupsInList)
-                ->assign('usersCanManageName', $usersCanManageName)
-                ->assign('groupsArray', $groupsArray)
-                ->assign('allowUserChangeAvatar', ModUtil::getVar('IWusers', 'allowUserChangeAvatar'))
-                ->assign('avatarChangeValidationNeeded', ModUtil::getVar('IWusers', 'avatarChangeValidationNeeded'))
-                ->assign('usersPictureFolder', ModUtil::getVar('IWusers', 'usersPictureFolder'))
-                ->assign('allowUserSetTheirSex', ModUtil::getVar('IWusers', 'allowUserSetTheirSex'))
-                ->assign('allowUserDescribeTheirSelves', ModUtil::getVar('IWusers', 'allowUserDescribeTheirSelves'))
-                ->assign('noPictureFolder', $noPictureFolder)
-                ->assign('noWriteablePictureFolder', $noWriteablePictureFolder)
-                ->assign('gdAvailable', $gdAvailable)
-                ->assign('documentRoot', ModUtil::getVar('IWmain', 'documentRoot'))
-                ->assign('multizk', $multizk)
-                ->fetch('IWusers_admin_config.htm');
+                        ->assign('invisibleGroupsInList', $invisibleGroupsInList)
+                        ->assign('usersCanManageName', $usersCanManageName)
+                        ->assign('groupsArray', $groupsArray)
+                        ->assign('allowUserChangeAvatar', ModUtil::getVar('IWusers', 'allowUserChangeAvatar'))
+                        ->assign('avatarChangeValidationNeeded', ModUtil::getVar('IWusers', 'avatarChangeValidationNeeded'))
+                        ->assign('usersPictureFolder', ModUtil::getVar('IWusers', 'usersPictureFolder'))
+                        ->assign('allowUserSetTheirSex', ModUtil::getVar('IWusers', 'allowUserSetTheirSex'))
+                        ->assign('allowUserDescribeTheirSelves', ModUtil::getVar('IWusers', 'allowUserDescribeTheirSelves'))
+                        ->assign('noPictureFolder', $noPictureFolder)
+                        ->assign('noWriteablePictureFolder', $noWriteablePictureFolder)
+                        ->assign('gdAvailable', $gdAvailable)
+                        ->assign('documentRoot', ModUtil::getVar('IWmain', 'documentRoot'))
+                        ->assign('multizk', $multizk)
+                        ->fetch('IWusers_admin_config.htm');
     }
 
     /**
@@ -470,23 +470,27 @@ class IWusers_Controller_Admin extends Zikula_AbstractController {
             $avatars = array();
         }
         $path = ModUtil::getVar('IWusers', 'usersPictureFolder') . '/';
-        $usersList = '$$';
+        $usersList = '';
+        $users = array();
+
         //print_r($avatars);
         foreach ($avatars as $avatar) {
             $usersList .= $avatar['uid'] . '$$';
             $avatars[$avatar['suid']]['avatarfile'] = $path . $avatar['avatar'];
             $avatars[$avatar['suid']]['newavatarfile'] = $path . '_' . $avatar['newavatar'];
         }
-        //get all users information
-        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv,
-                    'info' => 'ncc',
-                    'list' => $usersList));
-
+               
+        if ($usersList != '') {
+            //get all users information
+            $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+            $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv,
+                        'info' => 'ncc',
+                        'list' => $usersList));
+        }
         return $this->view->assign('users', $users)
-                ->assign('avatars', $avatars)
-                ->assign('path', $path)
-                ->fetch('IWusers_admin_changeAvatarView.htm');
+                        ->assign('avatars', $avatars)
+                        ->assign('path', $path)
+                        ->fetch('IWusers_admin_changeAvatarView.htm');
     }
 
 }

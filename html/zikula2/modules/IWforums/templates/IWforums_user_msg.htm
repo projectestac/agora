@@ -10,64 +10,50 @@
         {/if}
         {$title}
     </h2>
-    <table class="usertable">
-        {if $photo neq '' AND ($userid neq '' OR $avatarsVisible eq 1)}
-        <tr>
-            <td rowspan="4" width="5%">
-                <img src="{$baseurl}{modurl modname='IWforums' type='user' func='getFile' fileName=$photo}" />
-            </td>
-        </tr>
-        {/if}
-        <tr>
-            <td>
-                {gt text="From: "}
-                <font color=green><strong>{$user}</strong></font>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {gt text="Date"}: <font face=Arial size=2 color="#696969"><strong>{$date}</strong></font>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {gt text="Time"}: <font face=Arial size=2 color="#696969"><strong>{$time}</strong></font>
-            </td>
-        </tr>
+    <div width="100%" class="msgBox">
+        <div class="photo">
+            {if $photo neq '' AND ($userid neq '' OR $avatarsVisible eq 1)}
+            <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$photo}" class="photoImg" />
+            {else}
+            <img src="modules/IWforums/images/avatar.jpg" class="photoImg"/>
+            {if $usuari eq $uid}
+            <div style="float: left;">
+                <a href="{modurl modname='IWusers' type='user' func='profile'}">
+                    {gt text="Change"}
+                </a>
+            </div>
+            {/if}
+            {/if}
+        </div>
+        <div>
+            {gt text="From: "}
+            <font color=green><strong>{$user}</strong></font>
+        </div>
+        <div>
+            {gt text="Date"}: <font face=Arial size=2 color="#696969"><strong>{$date}</strong></font>
+        </div>
+        <div>
+            {gt text="Time"}: <font face=Arial size=2 color="#696969"><strong>{$time}</strong></font>
+        </div>
         {if $adjunt neq ""}
-        <tr>
-            <td colspan="2">
-                <div>
-                    {gt text="Attached file"}:
-                    <img src="modules/IWmain/images/fileIcons/{$fileIcon}" />
-                    <a href="{modurl modname='IWforums' type='user' func='download' fileName=$adjunt fmid=$fmid fid=$fid}">
-                        {$adjunt|safetext}
-                    </a>
-                </div>
-            </td>
-        </tr>
+        <div>
+            {gt text="Attached file"}:
+            <img src="modules/IWmain/images/fileIcons/{$fileIcon}" />
+            <a href="{modurl modname='IWforums' type='user' func='download' fileName=$adjunt fmid=$fmid fid=$fid}">
+                {$adjunt|safetext}
+            </a>
+        </div>
         {/if}
-        <tr>
-            <td colspan="2">
-                <hr />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <div class="messageBody">
-                    {$message|nl2br}
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <hr />
-            </td>
-        </tr>
-    </table>
+        <div class="z-clearer"></div>
+        <hr />
+        <div>
+            {$message|nl2br}
+        </div>
+    </div>
+
+
     <table class="usertable">
         <tr>
-            {userloggedin assign=userid}
             {if $userid neq ''}
             <th>{img modname='IWforums' src='marcat.gif'}</th>
             {/if}

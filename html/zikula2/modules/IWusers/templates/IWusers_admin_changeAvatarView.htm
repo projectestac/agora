@@ -20,13 +20,13 @@
                     </td>
                     <td align="center">
                         {if $avatar.avatar neq ''}
-                            <img src="{modurl modname=IWmain type=user func=getPhoto fileName=$avatar.avatarfile}" />
+                            <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$avatar.avatarfile}" />
                         {else}
-                            {img modname='IWusers' src='noImage.png' set='images'}
+                            {img modname='IWusers' src='noImage.png'}
                         {/if}
                     </td>
                     <td align="center">
-                        <img src="{modurl modname=IWmain type=user func=getPhoto fileName=$avatar.newavatarfile}" />
+                        <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$avatar.newavatarfile}" />
                     </td>
                     <td align="center">
                         <a href="javascript:change({$avatar.uid},'{gt text="Confirm the avatar change"}','ch')">

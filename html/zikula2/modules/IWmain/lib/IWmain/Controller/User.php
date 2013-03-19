@@ -776,7 +776,7 @@ class IWmain_Controller_User extends Zikula_AbstractController {
         // File name with the path
         $fileName = FormUtil::getPassedValue('fileName', isset($args['fileName']) ? $args['fileName'] : 0, 'GET');
         // Security check
-        if (!SecurityUtil::checkPermission('IWnoteboard::', "::", ACCESS_READ)) {
+        if (!SecurityUtil::checkPermission('IWmain::', "::", ACCESS_READ)) {
             throw new Zikula_Exception_Forbidden();
         }
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');

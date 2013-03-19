@@ -38,12 +38,12 @@
             <legend>{gt text="Avatar replacement"}</legend>
             <div style="float:left;">
                 {if $photo neq ''}
-                <img src="{modurl modname=IWmain type=user func=getPhoto fileName=$photo}" alt="" />
+                <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$photo}" alt="" />
                 <div>
                     <input type="checkbox" name="deleteAvatar" value="1" />{gt text="Delete"}
                 </div>
                 {else}
-                {img modname='IWusers' src='noImage.png' set='images'}
+                {img modname='IWusers' src='noImage.png'}
                 {/if}
             </div>
             <div style="float:left; padding-left: 20px;">
@@ -64,7 +64,7 @@
                     {gt text="Your avatar's image sizes must be 90x120 px aproximately with one of the next formats: jpg, gif or png."}
                 </div>
                 {else}
-                <img src="{modurl modname=IWmain type=user func=getPhoto fileName=$photo_s}" alt="" />
+                <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$photo_s}" alt="" />
                 <div>
                     {gt text="Your avatar changement request is waiting for an administrator validation."}
                 </div>
@@ -83,6 +83,8 @@
         {/if}
     </div>
     <div class="z-center z-buttons">
-        <a onclick="javascript: forms['conf'].submit();">{img modname='core' src='button_ok.png' set='icons/small' __alt="OK" __title="OK"} {gt text="OK"}</a>
+        <a onclick="javascript: forms['conf'].submit();">
+            {img modname='core' src='button_ok.png' set='icons/small' __alt="OK" __title="OK"} {gt text="OK"}
+        </a>
     </div>
 </form>
