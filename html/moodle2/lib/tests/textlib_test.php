@@ -62,29 +62,35 @@ class core_textlib_testcase extends advanced_testcase {
         $this->assertSame(textlib::convert($iso2, 'iso-8859-2', 'win-1250'), $win);
         $this->assertSame(textlib::convert($iso2, 'iso-8859-2', 'iso-8859-2'), $iso2);
         $this->assertSame(textlib::convert($win, 'win-1250', 'cp1250'), $win);
+        $this->assertSame(textlib::convert($utf8, 'utf-8', 'utf-8'), $utf8);
 
 
         $utf8 = '言語設定';
         $str = pack("H*", "b8c0b8ecc0dfc4ea"); //EUC-JP
         $this->assertSame(textlib::convert($utf8, 'utf-8', 'EUC-JP'), $str);
         $this->assertSame(textlib::convert($str, 'EUC-JP', 'utf-8'), $utf8);
+        $this->assertSame(textlib::convert($utf8, 'utf-8', 'utf-8'), $utf8);
 
         $str = pack("H*", "1b24423840386c405f446a1b2842"); //ISO-2022-JP
         $this->assertSame(textlib::convert($utf8, 'utf-8', 'ISO-2022-JP'), $str);
         $this->assertSame(textlib::convert($str, 'ISO-2022-JP', 'utf-8'), $utf8);
+        $this->assertSame(textlib::convert($utf8, 'utf-8', 'utf-8'), $utf8);
 
         $str = pack("H*", "8cbe8cea90dd92e8"); //SHIFT-JIS
         $this->assertSame(textlib::convert($utf8, 'utf-8', 'SHIFT-JIS'), $str);
         $this->assertSame(textlib::convert($str, 'SHIFT-JIS', 'utf-8'), $utf8);
+        $this->assertSame(textlib::convert($utf8, 'utf-8', 'utf-8'), $utf8);
 
         $utf8 = '简体中文';
         $str = pack("H*", "bcf2cce5d6d0cec4"); //GB2312
         $this->assertSame(textlib::convert($utf8, 'utf-8', 'GB2312'), $str);
         $this->assertSame(textlib::convert($str, 'GB2312', 'utf-8'), $utf8);
+        $this->assertSame(textlib::convert($utf8, 'utf-8', 'utf-8'), $utf8);
 
         $str = pack("H*", "bcf2cce5d6d0cec4"); //GB18030
         $this->assertSame(textlib::convert($utf8, 'utf-8', 'GB18030'), $str);
         $this->assertSame(textlib::convert($str, 'GB18030', 'utf-8'), $utf8);
+        $this->assertSame(textlib::convert($utf8, 'utf-8', 'utf-8'), $utf8);
     }
 
     /**
@@ -287,8 +293,8 @@ class core_textlib_testcase extends advanced_testcase {
      * @return void
      */
     public function test_entities_to_utf8() {
-        $str = "&#x17d;lu&#x165;ou&#x10d;k&#xfd; kon&#237;&#269;ek";
-        $this->assertSame(textlib::entities_to_utf8($str), "Žluťoučký koníček");
+        $str = "&#x17d;lu&#x165;ou&#x10d;k&#xfd; kon&iacute;&#269;ek&copy;&quot;&amp;&lt;&gt;&sect;&laquo;";
+        $this->assertSame("Žluťoučký koníček©\"&<>§«", textlib::entities_to_utf8($str));
     }
 
     /**
@@ -296,10 +302,13 @@ class core_textlib_testcase extends advanced_testcase {
      * @return void
      */
     public function test_utf8_to_entities() {
-        $str = "Žluťoučký koníček";
-        $this->assertSame(textlib::utf8_to_entities($str), "&#x17d;lu&#x165;ou&#x10d;k&#xfd; kon&#xed;&#x10d;ek");
-        $this->assertSame(textlib::utf8_to_entities($str, true), "&#381;lu&#357;ou&#269;k&#253; kon&#237;&#269;ek");
+        $str = "&#x17d;luťoučký kon&iacute;ček&copy;&quot;&amp;&lt;&gt;&sect;&laquo;";
+        $this->assertSame("&#x17d;lu&#x165;ou&#x10d;k&#xfd; kon&iacute;&#x10d;ek&copy;&quot;&amp;&lt;&gt;&sect;&laquo;", textlib::utf8_to_entities($str));
+        $this->assertSame("&#381;lu&#357;ou&#269;k&#253; kon&iacute;&#269;ek&copy;&quot;&amp;&lt;&gt;&sect;&laquo;", textlib::utf8_to_entities($str, true));
 
+        $str = "&#381;luťoučký kon&iacute;ček&copy;&quot;&amp;&lt;&gt;&sect;&laquo;";
+        $this->assertSame("&#x17d;lu&#x165;ou&#x10d;k&#xfd; kon&#xed;&#x10d;ek&#xa9;\"&<>&#xa7;&#xab;", textlib::utf8_to_entities($str, false, true));
+        $this->assertSame("&#381;lu&#357;ou&#269;k&#253; kon&#237;&#269;ek&#169;\"&<>&#167;&#171;", textlib::utf8_to_entities($str, true, true));
     }
 
     /**

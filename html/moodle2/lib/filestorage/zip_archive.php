@@ -361,7 +361,7 @@ class zip_archive extends file_archive {
         if (!isset($this->za)) {
             return false;
         }
-        $localname = ltrim($localname, '/'). '/';
+        $localname = trim($localname, '/'). '/';
         $localname = $this->mangle_pathname($localname);
 
         if ($localname === '/') {
@@ -369,10 +369,12 @@ class zip_archive extends file_archive {
             return false;
         }
 
-        if (!$this->za->addEmptyDir($localname)) {
-            return false;
+        if ($localname !== '') {
+            if (!$this->za->addEmptyDir($localname)) {
+                return false;
+            }
+            $this->modified = true;
         }
-        $this->modified = true;
         return true;
     }
 
@@ -542,6 +544,13 @@ class zip_archive extends file_archive {
                             case 'ISO-8859-6': $encoding = 'CP720'; break;
                             case 'ISO-8859-7': $encoding = 'CP737'; break;
                             case 'ISO-8859-8': $encoding = 'CP862'; break;
+                            case 'UTF-8':
+                                if ($winchar = get_string('localewincharset', 'langconfig')) {
+                                    // Most probably works only for zh_cn,
+                                    // if there are more problems we could add zipcharset to langconfig files.
+                                    $encoding = $winchar;
+                                }
+                                break;
                         }
                     }
                     $newname = @textlib::convert($name, $encoding, 'utf-8');

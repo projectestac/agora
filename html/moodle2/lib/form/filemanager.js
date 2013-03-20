@@ -107,7 +107,7 @@ M.form_filemanager.init = function(Y, options) {
             this.selectnode.generateID();
             this.selectui = new Y.Panel({
                 srcNode      : this.selectnode,
-                zIndex       : 6000,
+                zIndex       : 7600,
                 centered     : true,
                 modal        : true,
                 close        : true,
@@ -172,8 +172,7 @@ M.form_filemanager.init = function(Y, options) {
                     scope: scope
                 },
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                    'User-Agent': 'MoodleFileManager/3.0'
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
                 },
                 data: build_querystring(params)
             };
@@ -220,9 +219,9 @@ M.form_filemanager.init = function(Y, options) {
                 params: {'filepath':filepath},
                 callback: function(id, obj, args) {
                     scope.filecount = obj.filecount;
-                    scope.check_buttons();
                     scope.options = obj;
                     scope.lazyloading = {};
+                    scope.check_buttons();
                     scope.render(obj);
                 }
             }, true);
@@ -255,7 +254,7 @@ M.form_filemanager.init = function(Y, options) {
 
             this.msg_dlg.set('headerContent', header);
             this.msg_dlg_node.removeClass('fp-msg-info').removeClass('fp-msg-error').addClass('fp-msg-'+type)
-            this.msg_dlg_node.one('.fp-msg-text').setContent(msg);
+            this.msg_dlg_node.one('.fp-msg-text').setContent(Y.Escape.html(msg));
             this.msg_dlg.show();
         },
         is_disabled: function() {
@@ -320,12 +319,13 @@ M.form_filemanager.init = function(Y, options) {
                             on('keydown', function(e){
                                 if (e.keyCode == 13) {Y.bind(perform_action, this)(e);}
                             }, this);
+                        node.one('label').set('for', 'fm-newname-' + this.client_id);
                         node.all('.fp-dlg-butcancel').on('click', function(e){e.preventDefault();this.mkdir_dialog.hide();}, this);
                         node.all('.fp-dlg-curpath').set('id', 'fm-curpath-'+this.client_id);
                     }
                     this.mkdir_dialog.show();
                     Y.one('#fm-newname-'+scope.client_id).focus();
-                    Y.all('#fm-curpath-'+scope.client_id).setContent(this.currentpath)
+                    Y.all('#fm-curpath-'+scope.client_id).setContent(Y.Escape.html(this.currentpath))
                 }, this);
             } else {
                 this.filemanager.addClass('fm-nomkdir');
@@ -412,7 +412,7 @@ M.form_filemanager.init = function(Y, options) {
                     } else {
                         el.addClass('odd');
                     }
-                    el.one('.fp-path-folder-name').setContent(p[i].name).
+                    el.one('.fp-path-folder-name').setContent(Y.Escape.html(p[i].name)).
                         on('click', function(e, path) {
                             e.preventDefault();
                             if (!this.is_disabled()) {
@@ -602,7 +602,7 @@ M.form_filemanager.init = function(Y, options) {
             for (var i in licenses) {
                 var option = Y.Node.create('<option/>').
                     set('value', licenses[i].shortname).
-                    setContent(licenses[i].fullname);
+                    setContent(Y.Escape.html(licenses[i].fullname));
                 node.appendChild(option)
             }
         },
@@ -621,7 +621,7 @@ M.form_filemanager.init = function(Y, options) {
             node.setContent('');
             for (var i in list) {
                 node.appendChild(Y.Node.create('<option/>').
-                    set('value', list[i]).setContent(list[i]))
+                    set('value', list[i]).setContent(Y.Escape.html(list[i])));
             }
         },
         update_file: function(confirmed) {
@@ -923,7 +923,7 @@ M.form_filemanager.init = function(Y, options) {
                 if (selectnode.one('.fp-'+attrs[i])) {
                     var value = (node[attrs[i]+'_f']) ? node[attrs[i]+'_f'] : (node[attrs[i]] ? node[attrs[i]] : '');
                     selectnode.one('.fp-'+attrs[i]).addClassIf('fp-unknown', ''+value == '')
-                        .one('.fp-value').setContent(value);
+                        .one('.fp-value').setContent(Y.Escape.html(value));
                 }
             }
             // display thumbnail
@@ -948,7 +948,7 @@ M.form_filemanager.init = function(Y, options) {
                             selectnode.one('.fp-original').removeClass('fp-loading');
                             if (obj.original) {
                                 node.original = obj.original;
-                                selectnode.one('.fp-original .fp-value').setContent(node.original);
+                                selectnode.one('.fp-original .fp-value').setContent(Y.Escape.html(node.original));
                             } else {
                                 selectnode.one('.fp-original .fp-value').setContent(M.str.repository.unknownsource);
                             }
@@ -976,7 +976,7 @@ M.form_filemanager.init = function(Y, options) {
                                 for (var i in obj.references) {
                                     node.reflist += '<li>'+obj.references[i]+'</li>';
                                 }
-                                selectnode.one('.fp-reflist .fp-value').setContent(node.reflist);
+                                selectnode.one('.fp-reflist .fp-value').setContent(Y.Escape.html(node.reflist));
                             } else {
                                 selectnode.one('.fp-reflist .fp-value').setContent('');
                             }

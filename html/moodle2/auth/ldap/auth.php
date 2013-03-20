@@ -734,7 +734,7 @@ class auth_plugin_ldap extends auth_plugin_base {
 /// User removal
         // Find users in DB that aren't in ldap -- to be removed!
         // this is still not as scalable (but how often do we mass delete?)
-        if ($this->config->removeuser !== AUTH_REMOVEUSER_KEEP) {
+        if ($this->config->removeuser != AUTH_REMOVEUSER_KEEP) {
             $sql = 'SELECT u.*
                       FROM {user} u
                       LEFT JOIN {tmp_extuser} e ON (u.username = e.username AND u.mnethostid = e.mnethostid)
@@ -1732,10 +1732,6 @@ class auth_plugin_ldap extends auth_plugin_base {
         if (!function_exists('ldap_connect')) { // Is php-ldap really there?
             echo $OUTPUT->notification(get_string('auth_ldap_noextension', 'auth_ldap'));
             return;
-        }
-
-        if (!ldap_paged_results_supported($this->config->ldap_version)) {
-            echo $OUTPUT->notification(get_string('pagedresultsnotsupp', 'auth_ldap'));
         }
 
         include($CFG->dirroot.'/auth/ldap/config.html');

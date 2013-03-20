@@ -713,9 +713,10 @@ function groups_parse_name($format, $groupnumber) {
  *
  * @param int groupingid
  * @param int groupid
+ * @param int $timeadded  The time the group was added to the grouping.
  * @return bool true or exception
  */
-function groups_assign_grouping($groupingid, $groupid) {
+function groups_assign_grouping($groupingid, $groupid, $timeadded = null) {
     global $DB;
 
     if ($DB->record_exists('groupings_groups', array('groupingid'=>$groupingid, 'groupid'=>$groupid))) {
@@ -724,7 +725,11 @@ function groups_assign_grouping($groupingid, $groupid) {
     $assign = new stdClass();
     $assign->groupingid = $groupingid;
     $assign->groupid    = $groupid;
-    $assign->timeadded  = time();
+    if ($timeadded != null) {
+        $assign->timeadded = (integer)$timeadded;
+    } else {
+        $assign->timeadded = time();
+    }
     $DB->insert_record('groupings_groups', $assign);
 
     return true;
@@ -846,7 +851,7 @@ function groups_calculate_role_people($rs, $context) {
                 $roles[$roledata->id] = $roledata;
             }
             // Record that user has role
-            $users[$rec->userid]->roles[] = $roles[$rec->roleid];
+            $users[$rec->userid]->roles[$rec->roleid] = $roles[$rec->roleid];
         }
     }
     $rs->close();
@@ -876,7 +881,8 @@ function groups_calculate_role_people($rs, $context) {
         } else if($rolecount > 1) {
             $roleid = '*';
         } else {
-            $roleid = $userdata->roles[0]->id;
+            $userrole = reset($userdata->roles);
+            $roleid = $userrole->id;
         }
         $roles[$roleid]->users[$userid] = $userdata;
     }

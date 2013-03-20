@@ -277,8 +277,11 @@ $remove = optional_param('remove', false, PARAM_INT);
 if ($remove && confirm_sesskey()) {
     // Remove a question from the quiz.
     // We require the user to have the 'use' capability on the question,
-    // so that then can add it back if they remove the wrong one by mistake.
-    quiz_require_question_use($remove);
+    // so that then can add it back if they remove the wrong one by mistake,
+    // but, if the question is missing, it can always be removed.
+    if ($DB->record_exists('question', array('id' => $remove))) {
+        quiz_require_question_use($remove);
+    }
     quiz_remove_question($quiz, $remove);
     quiz_delete_previews($quiz);
     quiz_update_sumgrades($quiz);
@@ -458,12 +461,11 @@ if ($quiz_qbanktool) {
 echo '<div class="questionbankwindow ' . $bankclass . 'block">';
 echo '<div class="header"><div class="title"><h2>';
 echo get_string('questionbankcontents', 'quiz') .
-        ' <a href="' . $thispageurl->out(true, array('qbanktool' => '1')) .
-       '" id="showbankcmd">[' . get_string('show').
-       ']</a>
-       <a href="' . $thispageurl->out(true, array('qbanktool' => '0')) .
-       '" id="hidebankcmd">[' . get_string('hide').
-       ']</a>';
+       '&nbsp;[<a href="' . $thispageurl->out(true, array('qbanktool' => '1')) .
+       '" id="showbankcmd">' . get_string('show').
+       '</a><a href="' . $thispageurl->out(true, array('qbanktool' => '0')) .
+       '" id="hidebankcmd">' . get_string('hide').
+       '</a>]';
 echo '</h2></div></div><div class="content">';
 
 echo '<span id="questionbank"></span>';

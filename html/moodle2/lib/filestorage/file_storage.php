@@ -1851,18 +1851,9 @@ class file_storage {
         $reference = self::pack_reference($params);
         $referencehash = sha1($reference);
 
-        //XTEC ************ MODIFICAT - To fix bug related with assign mod when submitting a file with the same name but different content
-        //2013.02.25  @sarjona - https://tracker.moodle.org/browse/MDL-38091
         $sql = "SELECT repositoryid, id FROM {files_reference}
-                 WHERE referencehash = ? ";
+                 WHERE referencehash = ?";
         $rs = $DB->get_recordset_sql($sql, array($referencehash));
-        //************ ORIGINAL
-        /*
-        $sql = "SELECT repositoryid, id FROM {files_reference}
-                 WHERE referencehash = ? and reference = ?";
-        $rs = $DB->get_recordset_sql($sql, array($referencehash, $reference));
-         */
-        //************ FI    
 
         $now = time();
         foreach ($rs as $record) {

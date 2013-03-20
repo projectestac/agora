@@ -481,7 +481,7 @@ abstract class question_edit_form extends question_wizard_form {
         if (is_array($extraquestionfields) && !empty($question->options)) {
             array_shift($extraquestionfields);
             foreach ($extraquestionfields as $field) {
-                if (isset($question->options->$field)) {
+                if (property_exists($question->options, $field)) {
                     $question->$field = $question->options->$field;
                 }
             }
@@ -654,6 +654,12 @@ abstract class question_edit_form extends question_wizard_form {
                 && empty($fromform['usecurrentcat']) && !$this->question->formoptions->canmove) {
             $errors['currentgrp'] = get_string('nopermissionmove', 'question');
         }
+
+        // Default mark.
+        if ($fromform['defaultmark'] < 0) {
+            $errors['defaultmark'] = get_string('defaultmarkmustbepositive', 'question');
+        }
+
         return $errors;
     }
 

@@ -6,6 +6,5 @@ List of changes:
 * Workaround for error() function collisions.
 * Modified config file to use moodle $CFG.
 * Moved static files to /tinymce/ subfolder.
-
-Commits:
-https://github.com/moodle/custom-tinymce_spellchecker_php/commits/MOODLE_22_2.0.6b
+* MDL-25736 - French spellchecker fixes.
+* Fix htmlentities conversion in GoogleSpell.php

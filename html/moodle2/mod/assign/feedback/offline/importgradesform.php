@@ -88,11 +88,10 @@ class assignfeedback_offline_import_grades_form extends moodleform implements re
         while ($record = $gradeimporter->next()) {
             $user = $record->user;
             $grade = $record->grade;
-            $gradedesc = $grade;
             $modified = $record->modified;
             $userdesc = fullname($user);
             if ($assignment->is_blind_marking()) {
-                $userdesc = get_string('hiddenuser', 'assign') . $assignment->get_unique_id_for_user($user->id);
+                $userdesc = get_string('hiddenuser', 'assign') . $assignment->get_uniqueid_for_user($user->id);
             }
 
             $usergrade = $assignment->get_user_grade($user->id, false);
@@ -109,6 +108,8 @@ class assignfeedback_offline_import_grades_form extends moodleform implements re
                 } else {
                     $grade = '';
                 }
+            } else {
+                $grade = unformat_float($grade);
             }
 
             if ($usergrade && $usergrade->grade == $grade) {
@@ -123,17 +124,16 @@ class assignfeedback_offline_import_grades_form extends moodleform implements re
             } else if ($assignment->grading_disabled($user->id)) {
                 // Skip grade is locked.
                 $skip = true;
-            } else if (!is_numeric($gradedesc) && ($assignment->get_instance()->grade) > -1) {
-                $skip = true;
             } else if (($assignment->get_instance()->grade > -1) &&
-                      (($gradedesc < 0) || ($gradedesc > $assignment->get_instance()->grade))) {
+                      (($grade < 0) || ($grade > $assignment->get_instance()->grade))) {
+                // Out of range.
                 $skip = true;
             }
 
             if (!$skip) {
                 $update = true;
                 $updates[] = get_string('gradeupdate', 'assignfeedback_offline',
-                                            array('grade'=>$gradedesc, 'student'=>$userdesc));
+                                            array('grade'=>format_float($grade, 2), 'student'=>$userdesc));
             }
 
             if ($ignoremodified || !$stalemodificationdate) {

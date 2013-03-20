@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die;
 //2012.06.20  @sarjona
 if (get_protected_agora() ) {
 //************ FI    
-$ADMIN->add('reports', new admin_externalpage('reportcourseoverview', get_string('pluginname', 'report_courseoverview'), "$CFG->wwwroot/report/courseoverview/index.php",'report/courseoverview:view'));
+$ADMIN->add('reports', new admin_externalpage('reportcourseoverview', get_string('pluginname', 'report_courseoverview'), "$CFG->wwwroot/report/courseoverview/index.php",'report/courseoverview:view', empty($CFG->enablestats)));
 //XTEC ************ AFEGIT - To let access only to xtecadmin user
 //2012.06.20  @sarjona
 }

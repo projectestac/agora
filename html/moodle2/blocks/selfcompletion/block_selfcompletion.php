@@ -36,7 +36,11 @@ require_once($CFG->libdir.'/completionlib.php');
 class block_selfcompletion extends block_base {
 
     public function init() {
-        $this->title   = get_string('pluginname', 'block_selfcompletion');
+        $this->title = get_string('pluginname', 'block_selfcompletion');
+    }
+
+    function applicable_formats() {
+        return array('all' => true, 'mod' => false, 'tag' => false, 'my' => false);
     }
 
     public function get_content() {
@@ -83,7 +87,7 @@ class block_selfcompletion extends block_base {
 
         // Check this user is enroled
         if (!$info->is_tracked_user($USER->id)) {
-            $this->content->text = get_string('notenroled', 'completion');
+            $this->content->text = get_string('nottracked', 'completion');
             return $this->content;
         }
 

@@ -90,9 +90,10 @@ class assign_submission_onlinetext extends assign_submission_plugin {
 
         }
 
-
         $data = file_prepare_standard_editor($data, 'onlinetext', $editoroptions, $this->assignment->get_context(), 'assignsubmission_onlinetext', ASSIGNSUBMISSION_ONLINETEXT_FILEAREA, $submissionid);
-        $mform->addElement('editor', 'onlinetext_editor', '', null, $editoroptions);
+        $mform->addElement('editor', 'onlinetext_editor', html_writer::tag('span', $this->get_name(),
+            array('class' => 'accesshide')), null, $editoroptions);
+
         return true;
     }
 
@@ -226,7 +227,12 @@ class assign_submission_onlinetext extends assign_submission_plugin {
         $showviewlink = true;
 
         if ($onlinetextsubmission) {
-            $text = format_text($onlinetextsubmission->onlinetext, $onlinetextsubmission->onlineformat, array('context'=>$this->assignment->get_context()));
+            $text = $this->assignment->render_editor_content(ASSIGNSUBMISSION_ONLINETEXT_FILEAREA,
+                                                             $onlinetextsubmission->submission,
+                                                             $this->get_type(),
+                                                             'onlinetext',
+                                                             'assignsubmission_onlinetext');
+
             $shorttext = shorten_text($text, 140);
             $plagiarismlinks = '';
             if (!empty($CFG->enableplagiarism)) {
@@ -250,29 +256,16 @@ class assign_submission_onlinetext extends assign_submission_plugin {
      * Produce a list of files suitable for export that represent this submission
      *
      * @param stdClass $submission - For this is the submission data
+     * @param stdClass $user - This is the user record for this submission
      * @return array - return an array of files indexed by filename
      */
-    public function get_files(stdClass $submission) {
+    public function get_files(stdClass $submission, stdClass $user) {
         global $DB;
         $files = array();
         $onlinetextsubmission = $this->get_onlinetext_submission($submission->id);
         if ($onlinetextsubmission) {
-            $user = $DB->get_record("user", array("id"=>$submission->userid),'id,username,firstname,lastname', MUST_EXIST);
-
-            if (!$this->assignment->is_blind_marking()) {
-                $filename = str_replace('_', '', fullname($user)) . '_' .
-                            $this->assignment->get_uniqueid_for_user($submission->userid) . '_' .
-                            $this->get_name() . '_';
-                $prefix = clean_filename($filename);
-            } else {
-                $filename = get_string('participant', 'assign') . '_' .
-                            $this->assignment->get_uniqueid_for_user($submission->userid) . '_' .
-                            $this->get_name() . '_';
-                $prefix = clean_filename($filename);
-            }
-
-            $finaltext = str_replace('@@PLUGINFILE@@/', $prefix, $onlinetextsubmission->onlinetext);
-            $submissioncontent = "<html><body>". format_text($finaltext, $onlinetextsubmission->onlineformat, array('context'=>$this->assignment->get_context())). "</body></html>";      //fetched from database
+            $finaltext = $this->assignment->download_rewrite_pluginfile_urls($onlinetextsubmission->onlinetext, $user, $this);
+            $submissioncontent = "<html><body>". format_text($finaltext, $onlinetextsubmission->onlineformat, array('context'=>$this->assignment->get_context())). "</body></html>";
 
             $files[get_string('onlinetextfilename', 'assignsubmission_onlinetext')] = array($submissioncontent);
 
@@ -422,7 +415,9 @@ class assign_submission_onlinetext extends assign_submission_plugin {
      * @return bool
      */
     public function is_empty(stdClass $submission) {
-        return $this->view($submission) == '';
+        $onlinetextsubmission = $this->get_onlinetext_submission($submission->id);
+
+        return empty($onlinetextsubmission->onlinetext);
     }
 
     /**

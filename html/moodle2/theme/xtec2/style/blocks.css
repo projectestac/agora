@@ -139,4 +139,12 @@
     vertical-align: inherit;
 }
 
-.block_course_summary.block{padding-left:0px!important; padding-top:0px!important; }
+.block_course_summary.block {
+    padding-left: 0px!important;
+    padding-top: 0px!important;
+}
+
+/* Login block */
+#login_username {
+    witdh: auto;
+}

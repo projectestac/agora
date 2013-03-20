@@ -465,6 +465,8 @@ function file_rewrite_pluginfile_urls($text, $file, $contextid, $component, $fil
  * @param int $draftitemid the draft area item id.
  * @return array with the following entries:
  *      'filecount' => number of files in the draft area.
+ *      'filesize' => total size of the area.
+ *      'filesize_without_references' => total size of the area excluding file references.
  * (more information will be added as needed).
  */
 function file_get_draft_area_info($draftitemid) {
@@ -475,12 +477,17 @@ function file_get_draft_area_info($draftitemid) {
 
     $results = array();
 
-    // The number of files
+    // The number of files.
     $draftfiles = $fs->get_area_files($usercontext->id, 'user', 'draft', $draftitemid, 'id', false);
     $results['filecount'] = count($draftfiles);
     $results['filesize'] = 0;
+    $results['filesize_without_references'] = 0;
     foreach ($draftfiles as $file) {
-        $results['filesize'] += $file->get_filesize();
+        $filesize = $file->get_filesize();
+        $results['filesize'] += $filesize;
+        if (!$file->is_external_file()) {
+            $results['filesize_without_references'] += $filesize;
+        }
     }
 
     return $results;
@@ -494,13 +501,18 @@ function file_get_draft_area_info($draftitemid) {
  * @param int $draftitemid the draft area item id.
  * @param int $areamaxbytes the maximum size allowed in this draft area.
  * @param int $newfilesize the size that would be added to the current area.
+ * @param bool $includereferences true to include the size of the references in the area size.
  * @return bool true if the area will/has exceeded its limit.
  * @since 2.4
  */
-function file_is_draft_area_limit_reached($draftitemid, $areamaxbytes, $newfilesize = 0) {
+function file_is_draft_area_limit_reached($draftitemid, $areamaxbytes, $newfilesize = 0, $includereferences = false) {
     if ($areamaxbytes != FILE_AREA_MAX_BYTES_UNLIMITED) {
         $draftinfo = file_get_draft_area_info($draftitemid);
-        if ($draftinfo['filesize'] + $newfilesize > $areamaxbytes) {
+        $areasize = $draftinfo['filesize_without_references'];
+        if ($includereferences) {
+            $areasize = $draftinfo['filesize'];
+        }
+        if ($areasize + $newfilesize > $areamaxbytes) {
             return true;
         }
     }
@@ -1265,7 +1277,8 @@ function download_file_content($url, $headers=null, $postdata=null, $fullrespons
         //reinstate affected curl options
         curl_setopt_array ($ch, array(
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_NOBODY         => false)
+            CURLOPT_NOBODY         => false,
+            CURLOPT_HTTPGET        => true)
         );
     }
 
@@ -1444,6 +1457,10 @@ function &get_mimetypes_array() {
         'fdf'  => array ('type'=>'application/pdf', 'icon'=>'pdf'),
         'flv'  => array ('type'=>'video/x-flv', 'icon'=>'flash', 'groups'=>array('video','web_video'), 'string'=>'video'),
         'f4v'  => array ('type'=>'video/mp4', 'icon'=>'flash', 'groups'=>array('video','web_video'), 'string'=>'video'),
+
+        'gallery'           => array ('type'=>'application/x-smarttech-notebook', 'icon'=>'archive'),
+        'galleryitem'       => array ('type'=>'application/x-smarttech-notebook', 'icon'=>'archive'),
+        'gallerycollection' => array ('type'=>'application/x-smarttech-notebook', 'icon'=>'archive'),
         'gif'  => array ('type'=>'image/gif', 'icon'=>'gif', 'groups'=>array('image', 'web_image'), 'string'=>'image'),
         'gtar' => array ('type'=>'application/x-gtar', 'icon'=>'archive', 'groups'=>array('archive'), 'string'=>'archive'),
         'tgz'  => array ('type'=>'application/g-zip', 'icon'=>'archive', 'groups'=>array('archive'), 'string'=>'archive'),
@@ -1461,6 +1478,7 @@ function &get_mimetypes_array() {
         'isf'  => array ('type'=>'application/inspiration', 'icon'=>'isf'),
         'ist'  => array ('type'=>'application/inspiration.template', 'icon'=>'isf'),
         'java' => array ('type'=>'text/plain', 'icon'=>'sourcecode'),
+        'jar'  => array ('type'=>'application/java-archive', 'icon' => 'archive'),
         'jcb'  => array ('type'=>'text/xml', 'icon'=>'markup'),
         'jcl'  => array ('type'=>'text/xml', 'icon'=>'markup'),
         'jcw'  => array ('type'=>'text/xml', 'icon'=>'markup'),
@@ -1485,6 +1503,9 @@ function &get_mimetypes_array() {
         'mpeg' => array ('type'=>'video/mpeg', 'icon'=>'mpeg', 'groups'=>array('video','web_video'), 'string'=>'video'),
         'mpe'  => array ('type'=>'video/mpeg', 'icon'=>'mpeg', 'groups'=>array('video','web_video'), 'string'=>'video'),
         'mpg'  => array ('type'=>'video/mpeg', 'icon'=>'mpeg', 'groups'=>array('video','web_video'), 'string'=>'video'),
+
+        'nbk'       => array ('type'=>'application/x-smarttech-notebook', 'icon'=>'archive'),
+        'notebook'  => array ('type'=>'application/x-smarttech-notebook', 'icon'=>'archive'),
 
         'odt'  => array ('type'=>'application/vnd.oasis.opendocument.text', 'icon'=>'writer', 'groups'=>array('document')),
         'ott'  => array ('type'=>'application/vnd.oasis.opendocument.text-template', 'icon'=>'writer', 'groups'=>array('document')),
@@ -1565,6 +1586,8 @@ function &get_mimetypes_array() {
         'webm'  => array ('type'=>'video/webm', 'icon'=>'video', 'groups'=>array('video'), 'string'=>'video'),
         'wmv'  => array ('type'=>'video/x-ms-wmv', 'icon'=>'wmv', 'groups'=>array('video'), 'string'=>'video'),
         'asf'  => array ('type'=>'video/x-ms-asf', 'icon'=>'wmv', 'groups'=>array('video'), 'string'=>'video'),
+
+        'xbk'  => array ('type'=>'application/x-smarttech-notebook', 'icon'=>'archive'),
         'xdp'  => array ('type'=>'application/pdf', 'icon'=>'pdf'),
         'xfd'  => array ('type'=>'application/pdf', 'icon'=>'pdf'),
         'xfdf' => array ('type'=>'application/pdf', 'icon'=>'pdf'),
@@ -1579,6 +1602,7 @@ function &get_mimetypes_array() {
 
         'xml'  => array ('type'=>'application/xml', 'icon'=>'markup'),
         'xsl'  => array ('type'=>'text/xml', 'icon'=>'markup'),
+
         'zip'  => array ('type'=>'application/zip', 'icon'=>'archive', 'groups'=>array('archive'), 'string'=>'archive')
     );
     return $mimearray;
@@ -2286,7 +2310,7 @@ function send_file($path, $filename, $lifetime = 'default' , $filter=0, $pathiss
             $options = new stdClass();
             $options->newlines = false;
             $options->noclean = true;
-            $text = htmlentities($pathisstring ? $path : implode('', file($path)));
+            $text = htmlentities($pathisstring ? $path : implode('', file($path)), ENT_QUOTES, 'UTF-8');
             $output = '<pre>'. format_text($text, FORMAT_MOODLE, $options, $COURSE->id) .'</pre>';
 
             readstring_accel($output, $mimetype, false);
@@ -3034,6 +3058,12 @@ class curl {
         }
         curl_setopt($curl, CURLOPT_HTTPHEADER, $this->header);
 
+        // Bypass proxy (for this request only) if required.
+        if (!empty($this->options['CURLOPT_URL']) &&
+                is_proxybypass($this->options['CURLOPT_URL'])) {
+            unset($this->options['CURLOPT_PROXY']);
+        }
+
         if ($this->debug){
             echo '<h1>Options</h1>';
             var_dump($this->options);
@@ -3393,6 +3423,45 @@ class curl {
      */
     public function get_errno() {
         return $this->errno;
+    }
+
+    /**
+     * When using a proxy, an additional HTTP response code may appear at
+     * the start of the header. For example, when using https over a proxy
+     * there may be 'HTTP/1.0 200 Connection Established'. Other codes are
+     * also possible and some may come with their own headers.
+     *
+     * If using the return value containing all headers, this function can be
+     * called to remove unwanted doubles.
+     *
+     * Note that it is not possible to distinguish this situation from valid
+     * data unless you know the actual response part (below the headers)
+     * will not be included in this string, or else will not 'look like' HTTP
+     * headers. As a result it is not safe to call this function for general
+     * data.
+     *
+     * @param string $input Input HTTP response
+     * @return string HTTP response with additional headers stripped if any
+     */
+    public static function strip_double_headers($input) {
+        // I have tried to make this regular expression as specific as possible
+        // to avoid any case where it does weird stuff if you happen to put
+        // HTTP/1.1 200 at the start of any line in your RSS file. This should
+        // also make it faster because it can abandon regex processing as soon
+        // as it hits something that doesn't look like an http header. The
+        // header definition is taken from RFC 822, except I didn't support
+        // folding which is never used in practice.
+        $crlf = "\r\n";
+        return preg_replace(
+                // HTTP version and status code (ignore value of code).
+                '~^HTTP/1\..*' . $crlf .
+                // Header name: character between 33 and 126 decimal, except colon.
+                // Colon. Header value: any character except \r and \n. CRLF.
+                '(?:[\x21-\x39\x3b-\x7e]+:[^' . $crlf . ']+' . $crlf . ')*' .
+                // Headers are terminated by another CRLF (blank line).
+                $crlf .
+                // Second HTTP status code, this time must be 200.
+                '(HTTP/1.[01] 200 )~', '$1', $input);
     }
 }
 
@@ -4264,7 +4333,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
                 send_file_not_found();
             }
 
-            $bprecord = $DB->get_record('block_positions', array('blockinstanceid' => $context->instanceid), 'visible');
+            $bprecord = $DB->get_record('block_positions', array('contextid' => $context->id, 'blockinstanceid' => $context->instanceid));
             // User can't access file, if block is hidden or doesn't have block:view capability
             if (($bprecord && !$bprecord->visible) || !has_capability('moodle/block:view', $context)) {
                  send_file_not_found();

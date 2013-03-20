@@ -516,7 +516,7 @@ M.core_dock.fixTitleOrientation = function(item, title, text) {
     // We need to fix a font-size - sorry theme designers.
     var fontsize = '11px';
     var transform = (clockwise) ? 'rotate(90deg)' : 'rotate(270deg)';
-    var test = Y.Node.create('<h2><span style="font-size:'+fontsize+';position:absolute;">'+text+'</span></h2>');
+    var test = Y.Node.create('<h2><span class="transform-test-node" style="font-size:'+fontsize+';">'+text+'</span></h2>');
     this.nodes.body.insert(test, 0);
     var width = test.one('span').get('offsetWidth') * 1.2;
     var height = test.one('span').get('offsetHeight');
@@ -936,7 +936,7 @@ M.core_dock.genericblock.prototype = {
             }, this);
             // Add a close icon
             // Must set the image src seperatly of we get an error with XML strict headers
-            var closeicon = Y.Node.create('<span class="hidepanelicon" tabindex="0"><img alt="" /></span>');
+            var closeicon = Y.Node.create('<span class="hidepanelicon" tabindex="0"><img alt="'+M.str.block.hidepanel+'" title="'+M.str.block.hidedockpanel+'" /></span>');
             closeicon.one('img').setAttribute('src', M.util.image_url('t/dockclose', 'moodle'));
             closeicon.on('forceclose|click', this.hide, this);
             closeicon.on('dock:actionkey',this.hide, this, {actions:{enter:true,toggle:true}});

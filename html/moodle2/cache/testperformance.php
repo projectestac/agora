@@ -55,13 +55,14 @@ $strinvalidplugin = new lang_string('invalidplugin', 'cache');
 $strunsupportedmode = new lang_string('unsupportedmode', 'cache');
 $struntestable = new lang_string('untestable', 'cache');
 $strtested = new lang_string('tested', 'cache');
+$strnotready = new lang_string('storenotready', 'cache');
 
 foreach (get_plugin_list_with_file('cachestore', 'lib.php', true) as $plugin => $path) {
 
     $class = 'cachestore_'.$plugin;
     $plugin = get_string('pluginname', 'cachestore_'.$plugin);
 
-    if (!class_exists($class) || !method_exists($class, 'initialise_test_instance')) {
+    if (!class_exists($class) || !method_exists($class, 'initialise_test_instance') || !$class::are_requirements_met()) {
         $applicationtable->data[] = array($plugin, $strinvalidplugin, '-', '-', '-', '-');
         $sessiontable->data[] = array($plugin, $strinvalidplugin, '-', '-', '-', '-');
         $requesttable->data[] = array($plugin, $strinvalidplugin, '-', '-', '-', '-');
@@ -74,6 +75,8 @@ foreach (get_plugin_list_with_file('cachestore', 'lib.php', true) as $plugin => 
         $store = $class::initialise_test_instance($application);
         if ($store === false) {
             $applicationtable->data[] = array($plugin, $struntestable, '-', '-', '-', '-');
+        } else if (!$store->is_ready()) {
+            $applicationtable->data[] = array($plugin, $strnotready, '-', '-', '-', '-');
         } else {
             $result = array($plugin, $strtested, 0, 0, 0);
             $start = microtime(true);
@@ -100,7 +103,7 @@ foreach (get_plugin_list_with_file('cachestore', 'lib.php', true) as $plugin => 
             }
             $result[5] = sprintf('%01.4f', microtime(true) - $start);
             $applicationtable->data[] = $result;
-            $store->cleanup();
+            $store->instance_deleted();
         }
     }
 
@@ -110,6 +113,8 @@ foreach (get_plugin_list_with_file('cachestore', 'lib.php', true) as $plugin => 
         $store = $class::initialise_test_instance($session);
         if ($store === false) {
             $sessiontable->data[] = array($plugin, $struntestable, '-', '-', '-', '-');
+        } else if (!$store->is_ready()) {
+            $sessiontable->data[] = array($plugin, $strnotready, '-', '-', '-', '-');
         } else {
             $result = array($plugin, $strtested, 0, 0, 0);
             $start = microtime(true);
@@ -136,7 +141,7 @@ foreach (get_plugin_list_with_file('cachestore', 'lib.php', true) as $plugin => 
             }
             $result[5] = sprintf('%01.4f', microtime(true) - $start);
             $sessiontable->data[] = $result;
-            $store->cleanup();
+            $store->instance_deleted();
         }
     }
 
@@ -146,6 +151,8 @@ foreach (get_plugin_list_with_file('cachestore', 'lib.php', true) as $plugin => 
         $store = $class::initialise_test_instance($request);
         if ($store === false) {
             $requesttable->data[] = array($plugin, $struntestable, '-', '-', '-', '-');
+        } else if (!$store->is_ready()) {
+            $requesttable->data[] = array($plugin, $strnotready, '-', '-', '-', '-');
         } else {
             $result = array($plugin, $strtested, 0, 0, 0);
             $start = microtime(true);
@@ -172,7 +179,7 @@ foreach (get_plugin_list_with_file('cachestore', 'lib.php', true) as $plugin => 
             }
             $result[5] = sprintf('%01.4f', microtime(true) - $start);
             $requesttable->data[] = $result;
-            $store->cleanup();
+            $store->instance_deleted();
         }
     }
 

@@ -426,6 +426,7 @@ M.util.init_select_autosubmit = function(Y, formid, selectid, nothing) {
                     if (e.button == 1) {
                         buttonflag = 1;
                     }
+                    paramobject.lastindex = select.get('selectedIndex');
                 };
 
                 var changedown = function(e, paramobject) {
@@ -433,6 +434,7 @@ M.util.init_select_autosubmit = function(Y, formid, selectid, nothing) {
                         if(e.keyCode == 13) {
                             form.submit();
                         }
+                        paramobject.lastindex = select.get('selectedIndex');
                     }
                 }
 
@@ -866,6 +868,16 @@ M.util.focus_login_form = function(Y) {
     }
 }
 
+/**
+ * Set focus on login error message
+ */
+M.util.focus_login_error = function(Y) {
+    var errorlog = Y.one('#loginerrormessage');
+
+    if (errorlog) {
+        errorlog.focus();
+    }
+}
 /**
  * Adds lightbox hidden element that covers the whole node.
  *
@@ -1521,7 +1533,7 @@ M.util.help_icon = {
                         });
                         this.overlay.render(Y.one(document.body));
 
-                        footerbtn.on('click', this.overlay.hide, this.overlay);
+                        footerbtn.on('click', this.close, this);
 
                         var boundingBox = this.overlay.get("boundingBox");
 
@@ -1582,8 +1594,14 @@ M.util.help_icon = {
                     },
 
                     display_callback : function(content) {
-                        content = '<div role="alert">' + content + '</div>';
-                        this.overlay.set('bodyContent', content);
+                        var contentnode, heading;
+                        contentnode = Y.Node.create('<div role="alert">' + content + '</div>');
+                        this.overlay.set('bodyContent', contentnode);
+                        heading = contentnode.one('h1');
+                        if (heading) {
+                            heading.set('tabIndex', 0);
+                            heading.focus();
+                        }
                     },
 
                     hideContent : function() {

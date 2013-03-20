@@ -28,11 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 global $CFG;
 require_once($CFG->libdir . '/outputcomponents.php');
 
-
 /**
  * Unit tests for the user_picture class
  */
-class user_picture_testcase extends advanced_testcase {
+class outputcomponents_testcase extends advanced_testcase {
 
     public function test_fields_aliasing() {
         $fields = user_picture::fields();
@@ -197,7 +196,6 @@ class user_picture_testcase extends advanced_testcase {
         $this->assertEquals($CFG->wwwroot.'/theme/image.php/standard/core/1/u/f2', $up3->get_url($page, $renderer)->out(false));
         $this->assertTrue($reads < $DB->perf_get_reads());
 
-
         // test gravatar
         set_config('enablegravatar', 1);
 
@@ -278,13 +276,6 @@ class user_picture_testcase extends advanced_testcase {
         $up3 = new user_picture($user3);
         $this->assertEquals($CFG->wwwroot.'/theme/image.php?theme=standard&component=core&rev=1&image=u%2Ff2', $up3->get_url($page, $renderer)->out(false));
     }
-}
-
-
-/**
- * Unit tests for the custom_menu class
- */
-class custom_menu_testcase extends basic_testcase {
 
     public function test_empty_menu() {
         $emptymenu = new custom_menu();
@@ -394,5 +385,34 @@ EOF;
         $children = $infomenu->get_children();
         $infomenu = array_pop( $children);
         $this->assertFalse($infomenu->has_children());
+    }
+
+    public function test_prepare() {
+        $expecteda = array('1',
+                           '<a href="index.php?page=1">2</a>',
+                           '<a href="index.php?page=2">3</a>',
+                           '<a href="index.php?page=3">4</a>',
+                           '<a href="index.php?page=4">5</a>',
+                           '<a href="index.php?page=5">6</a>',
+                           '<a href="index.php?page=6">7</a>',
+                           '<a href="index.php?page=7">8</a>',
+                           );
+        $expectedb = array('<a href="page?page=3">4</a>',
+                           '<a href="page?page=4">5</a>',
+                           '6',
+                           '<a href="page?page=6">7</a>',
+                           '<a href="page?page=7">8</a>',
+                           );
+
+        $mpage = new moodle_page();
+        $rbase = new renderer_base($mpage, "/");
+        $pbara = new paging_bar(40, 0, 5, 'index.php');
+        $pbara->prepare($rbase,$mpage, "/");
+        $pbarb = new paging_bar(100, 5, 5, 'page');
+        $pbarb->maxdisplay = 5;
+        $pbarb->prepare($rbase,$mpage,"/");
+
+        $this->assertEquals($pbara->pagelinks, $expecteda);
+        $this->assertEquals($pbarb->pagelinks, $expectedb);
     }
 }

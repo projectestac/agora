@@ -385,6 +385,13 @@ class mod_quiz_mod_form extends moodleform_mod {
         // -------------------------------------------------------------------------------
         $this->standard_coursemodule_elements();
 
+        // Check and act on whether setting outcomes is considered an advanced setting.
+        $mform->setAdvanced('modoutcomes', !empty($quizconfig->outcomes_adv));
+
+        // The standard_coursemodule_elements method sets this to 100, but the
+        // quiz has its own setting, so use that.
+        $mform->setDefault('grade', $quizconfig->maximumgrade);
+
         // -------------------------------------------------------------------------------
         $this->add_action_buttons();
     }
@@ -522,11 +529,16 @@ class mod_quiz_mod_form extends moodleform_mod {
         $i = 0;
         while (!empty($data['feedbackboundaries'][$i] )) {
             $boundary = trim($data['feedbackboundaries'][$i]);
-            if (strlen($boundary) > 0 && $boundary[strlen($boundary) - 1] == '%') {
-                $boundary = trim(substr($boundary, 0, -1));
-                if (is_numeric($boundary)) {
-                    $boundary = $boundary * $data['grade'] / 100.0;
-                } else {
+            if (strlen($boundary) > 0) {
+                if ($boundary[strlen($boundary) - 1] == '%') {
+                    $boundary = trim(substr($boundary, 0, -1));
+                    if (is_numeric($boundary)) {
+                        $boundary = $boundary * $data['grade'] / 100.0;
+                    } else {
+                        $errors["feedbackboundaries[$i]"] =
+                                get_string('feedbackerrorboundaryformat', 'quiz', $i + 1);
+                    }
+                } else if (!is_numeric($boundary)) {
                     $errors["feedbackboundaries[$i]"] =
                             get_string('feedbackerrorboundaryformat', 'quiz', $i + 1);
                 }
