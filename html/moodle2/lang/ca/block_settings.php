@@ -26,4 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['enabledock'] = 'Permet que l\'usuari minimitzi aquest bloc';
-$string['pluginname'] = 'Arranjaments';
+$string['pluginname'] = 'Configuració';
+$string['settings:addinstance'] = 'Afegeix un nou bloc de configuració';
+$string['settings:myaddinstance'] = 'Afegir un bloc nou de configuració a la pàgina «El meu Moodle»';

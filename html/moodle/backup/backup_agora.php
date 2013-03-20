@@ -43,7 +43,7 @@ ob_start();
 backup_set_config('backup_sche_modules', 1);
 backup_set_config('backup_sche_coursefiles', 1);
 backup_set_config('backup_sche_withuserdata', 0);
-backup_set_config('backup_sche_users', 0);
+backup_set_config('backup_sche_users', 1);
 backup_set_config('backup_sche_userfiles', 0);
 $preferences = schedule_backup_course_configure($course, $ara);
 $nom_backup = schedule_backup_launch_backup($course, $ara);

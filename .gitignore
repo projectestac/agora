@@ -5,6 +5,7 @@ html/config/env-config-eoi-pro.php
 html/config/env-config-pro.php
 html/config/config-restricted.php
 html/config/sync-config.sh
+html/config/.htaccess
 html/moodle/config.php
 html/moodle2/config.php
 nbproject/*
@@ -17,6 +18,7 @@ portaldata/pnTemp/Theme_compiled/*
 portaldata/pnTemp/Theme_Config/*
 portaldata/pnTemp/view_cache/*
 portaldata/pnTemp/view_compiled/*
+portaldata/pnTemp/purifierCache/*
 sh/*
 zkdata/usu*/*
 .Trash-1000/

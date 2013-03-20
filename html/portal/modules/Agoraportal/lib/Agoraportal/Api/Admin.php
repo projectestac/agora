@@ -149,9 +149,12 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     /**
      * Activate moodle service. Each service have got its activation function.
-     * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param 		Client-service identity
-     * @return 		The assigned database number if success and false otherwise 
+     * 
+     * @author 	Albert Pérez Monfort (aperezm@xtec.cat)
+     *
+     * @param string Client-service identity
+     * 
+     * @return  array if Ok / boolean if error
      */
     public function activeService_moodle($args) {
         // Security check
@@ -206,70 +209,90 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             }
         }
 
-        // get client vars
-        $userId = UserUtil::getIdFromName($item[$clientServiceId]['contactName']);
-        $clientVars = UserUtil::getVars($userId);
-
-        // modify site properties
         global $agora;
         $prefix = $agora[$serviceName]['prefix'];
 
-        // Update user admin of moodle
-        // If there is a password, add it. Otherwise, do not change password for admin moodle.
-        // remove 1$xxxxx$ in zikula password. Because the md5 hash usually have 32 characters get the last 32 characters of the string
-        $password = (isset($clientVars['pass']) && !empty($clientVars['pass'])) ? " password='" . substr($clientVars['pass'], -32) . "', " : '';
-        $sql = "UPDATE {$prefix}user SET
-			$password
-            firstname='Administrador/a',
-			lastname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) .
-                "',email='" . str_replace("'", "''", $item[$clientServiceId]['clientCode']) . "@xtec.cat',
-                institution='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) .
-                "',address='" . str_replace("'", "''", $item[$clientServiceId]['clientAddress']) .
-                "',city='" . substr(str_replace("'", "''", $item[$clientServiceId]['clientCity']), 0, 20) .
-                "' WHERE username='admin'";
-
+        // Query to get admin id
+        $sql = "SELECT id FROM {$prefix}user WHERE username='admin'";
+        // Actual execution
         $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
                     'sql' => $sql,
                     'serviceName' => $serviceName,
                 ));
+        // Error check. Stop in case of error.
         if (!$result['success']) {
             return LogUtil::registerError($this->__('No s\'ha pogut executar la consulta: ' . $sql . '. Error: ' . $result['errorMsg']));
+        } else {
+            // Keep result
+            $adminId = $result['values'][0]['ID'];
         }
 
-        // Update site information of moodle
-        $sql = "UPDATE {$prefix}course SET
-			fullname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) .
-                "', shortname='" . str_replace("'", "''", $item[$clientServiceId]['clientDNS']) .
-                "', summary='Moodle del centre " . str_replace("'", "''", $item[$clientServiceId]['clientName']) .
-                "' WHERE id=1";
+        // Generate a password for Moodle admin user
+        $password = $this->createRandomPass();
+        $passwordEnc = md5($password);
 
-        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
-                    'sql' => $sql,
-                    'serviceName' => $serviceName,
-                ));
+        // Query to update admin password
+        $sqls[] = "
+            UPDATE {$prefix}user
+            SET password='$passwordEnc',
+                firstname='Administrador/a',
+                lastname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
+                email='" . str_replace("'", "''", $item[$clientServiceId]['clientCode']) . "@xtec.cat',
+                institution='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
+                address='" . str_replace("'", "''", $item[$clientServiceId]['clientAddress']) . "',
+                city='" . substr(str_replace("'", "''", $item[$clientServiceId]['clientCity']), 0, 20) . "'
+            WHERE id=$adminId
+            ";
 
-        // Update cookie of moodle
+        // Query to force change of password of user admin
+        $sqls[] = "
+            UPDATE {$prefix}user_preferences
+            SET value=1
+            WHERE name='auth_forcepasswordchange' AND userid=$adminId
+            ";
+
+        // Query to update site name and site description
+        $sqls[] = "
+            UPDATE {$prefix}course 
+            SET	fullname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
+                shortname='" . str_replace("'", "''", $item[$clientServiceId]['clientDNS']) . "',
+                summary='Moodle del centre " . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "'
+            WHERE id=1
+            ";
+
+        // Query to update the cookie name
         $sessionPrefix = ($serviceName == 'moodle') ? 'mdl_' : 'moodle';
-        $sql = "UPDATE {$prefix}config 
-                SET value='$sessionPrefix" . $item[$clientServiceId]['clientId'] . "' 
-                WHERE name='sessioncookie'";
+        $sqls[] = "
+            UPDATE {$prefix}config 
+            SET value='$sessionPrefix" . $item[$clientServiceId]['clientId'] . "' 
+            WHERE name='sessioncookie'
+            ";
 
-        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
-                    'sql' => $sql,
-                    'serviceName' => $serviceName,
-                ));
-        if (!$result['success']) {
-            return LogUtil::registerError($this->__('No s\'ha pogut executar la consulta: ' . $sql . '. Error: ' . $result['errorMsg']));
+        // Execute the querys
+        foreach ($sqls as $sql) {
+            // Actual execution
+            $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
+                        'sql' => $sql,
+                        'serviceName' => $serviceName,
+                    ));
+            // Error check. Stop in case of error.
+            if (!$result['success']) {
+                return LogUtil::registerError($this->__('No s\'ha pogut executar la consulta: ' . $sql . '. Error: ' . $result['errorMsg']));
+            }
         }
 
-        return $db;
+        return array('db' => $db, 'password' => $password);
     }
 
     /**
      * Activate intranet service. Each service have got its activation function
-     * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param 		Client-service identity
-     * @return 		The assigned database number if success and false otherwise 
+     *
+     * @author 	Albert Pérez Monfort (aperezm@xtec.cat)
+     *
+     * @param string $clientServiceId
+     * @param string Data base server including optional port
+     * 
+     * @return 	array if Ok / boolean if error
      */
     public function activeService_intranet($args) {
         // Security check
@@ -303,9 +326,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         // needed to maintain comptability during migration from 1.2.x to 1.3.x
         $compat = ModUtil::apiFunc('Agoraportal', 'admin', 'compat', array('intranetVersion' => $item[$clientServiceId]['version']));
 
-        // Get user info. Will be needed ahead.
-        $userId = UserUtil::getIdFromName($item[$clientServiceId]['contactName']);
-        $userData = UserUtil::getVars($userId);
+        // Generate a password for Intraweb admin user
+        $password = $this->createRandomPass();
+        $passwordEnc = md5($password);
 
         global $agora;
         $username = $agora['intranet']['userprefix'] . $db;
@@ -333,7 +356,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $sql[4] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['coreModuleName']}' AND {$compat['fieldsPrefix']}name='startdate'";
 
         // modify the admin password
-        $sql[5] = "UPDATE {$compat['tablePrefix']}users set {$compat['fieldsPrefix']}pass='" . substr($userData['pass'], -32) . "' WHERE {$compat['fieldsPrefix']}uname='admin'";
+        $sql[5] = "UPDATE {$compat['tablePrefix']}users set {$compat['fieldsPrefix']}pass='$passwordEnc' WHERE {$compat['fieldsPrefix']}uname='admin'";
 
         // modify intranet documents root
         $value = DataUtil::formatForStore(serialize($agora['server']['root'] . $agora['intranet']['datadir'] . $username . '/data'));
@@ -364,71 +387,19 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             }
         }
 
-        return $db;
+        return array ('db' => $db, 'password' => $password);
     }
 
     /**
-     * Activate moodle service. Each service have got its activation function.
-     * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param 		Client-service identity
-     * @return 		The assigned database number if success and false otherwise 
+     * Activate marsupial service.
+     * 
+     * @author Albert Pérez Monfort (aperezm@xtec.cat)
+     * 
+     * @return 	array with dummy value
      */
     public function activeService_marsupial($args) {
-        return 1;
+        return array ('db' => 1, 'password' => '');
     }
-
-    /**
-     * Open a database connexion with specified user id
-     * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param 		database number
-     * @param 		serviceName. Default intranet
-     * @return: 	database connexion
-     */
-    /*    public function connectExtDB($args) {
-      // Security check
-      if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-      throw new Zikula_Exception_Forbidden();
-      }
-
-      $host = FormUtil::getPassedValue('host', (isset($args['host']) && (!empty($args['host']))) ? $args['host'] : null, 'GETPOST');
-      $database = FormUtil::getPassedValue('database', isset($args['database']) ? $args['database'] : null, 'GETPOST');
-      $serviceName = FormUtil::getPassedValue('serviceName', isset($args['serviceName']) ? $args['serviceName'] : 'intranet', 'GETPOST');
-
-      // Needed argument
-      if ($serviceName == 'moodle' && (!isset($database) || !is_numeric($database))) {
-      return LogUtil::registerError($this->__('La variable $database té un valor incorrecte: ' . $database));
-      }
-
-      // Load general config and Zikula config
-      global $agora;
-
-      switch ($serviceName) {
-      case 'intranet':
-      $databaseName = $agora['intranet']['userprefix'] . $database;
-      if (is_null($host) || empty($host)) {
-      $connect = false;
-      break;
-      }
-      $connect = mysql_connect($host, $agora['intranet']['username'], $agora['intranet']['userpwd']);
-      if (!mysql_select_db($databaseName, $connect))
-      return false;
-      break;
-      case 'moodle':
-      case 'moodle2':
-      $dbNum = floor($database / 200) + (($database % 200) == 0 ? (((int) $agora['moodle']['dbnumber']) - 1) : ((int) $agora['moodle']['dbnumber']));
-      $databaseName = $agora['moodle']['database'] . ($dbNum > 1 ? "" . $dbNum : "");
-      $user = $agora['moodle']['username'] . $database;
-      $connect = oci_connect($user, $agora['moodle']['userpwd'], $databaseName);
-      break;
-      }
-
-      if (!$connect) {
-      return LogUtil::registerError($this->__f('No s\'ha pogut connectar a la base de dades <strong>%s</strong>. Paràmetres de depuració: host: %s, dbname: %s', array($serviceName, $host, $databaseName)));
-      }
-
-      return $connect;
-      }
-     */
 
     /**
      *  Find free database number
@@ -1031,7 +1002,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                                         0,
                                         $mnethostid,
                                         'xtecadmin',
-                                        '" . md5($agora['config']['xtecadmin']) . "',
+                                        '" . $agora['config']['xtecadmin'] . "',
                                         ' ',
                                         'Administrador/a',
                                         'XTEC',
@@ -1049,7 +1020,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                                         ' ',
                                         'Barcelona',
                                         'es',
-                                        'ca_utf8',
+                                        'ca',
                                         ' ',
                                         '99',
                                         0,
@@ -1124,7 +1095,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                                         0,
                                         $mnethostid,
                                         'xtecadmin',
-                                        '" . md5($agora['config']['xtecadmin']) . "',
+                                        '" . $agora['config']['xtecadmin'] . "',
                                         ' ',
                                         'Administrador/a',
                                         'XTEC',
@@ -1293,9 +1264,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     //the user doesn't exists and create it
                     $sql = ($item[$clientServiceId]['version'] == '128') ?
                             "INSERT INTO zk_users (pn_uname, pn_pass, pn_email, pn_hash_method,pn_activated)
-                        VALUES ('xtecadmin','" . md5($agora['config']['xtecadmin']) . "','agora@xtec.cat',1,1)" :
+                        VALUES ('xtecadmin','" . $agora['config']['xtecadmin'] . "','agora@xtec.cat',1,1)" :
                             "INSERT INTO users (uname, pass, email, activated)
-                        VALUES ('xtecadmin','" . '1$$' . md5($agora['config']['xtecadmin']) . "','agora@xtec.cat',1)"
+                        VALUES ('xtecadmin','" . '1$$' . $agora['config']['xtecadmin'] . "','agora@xtec.cat',1)"
                     ;
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                                 'sql' => $sql,
@@ -1891,6 +1862,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         $pntables = DBUtil::getTables();
         $c = $pntables['agoraportal_request_column'];
+        $lcolumn = $pntables['agoraportal_clients_column'];
 
         $where = '';
 
@@ -1902,6 +1874,21 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             if ($args['state'] != '-1') {
                 $where .= ( $where != '') ? ' AND ' : '';
                 $where .= "tbl.$c[requestStateId] = $args[state]";
+            }
+        }
+
+        if ((isset($args['search']) && $args['search'] != 0) && $args['searchText'] != '') {
+            $where .= ( $where != '') ? ' AND ' : '';
+            switch ($args['search']) {
+                case '1':
+                    $where .= "b.$lcolumn[clientCode]" . " LIKE '%" . $args['searchText'] . "%'";
+                    break;
+                case '2':
+                    $where .= "b.$lcolumn[clientName]" . " LIKE '%" . $args['searchText'] . "%'";
+                    break;
+                case '3':
+                    $where .= "b.$lcolumn[clientCity]" . " LIKE '%" . $args['searchText'] . "%'";
+                    break;
             }
         }
 
@@ -1948,7 +1935,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
 
         if ($items === false) {
-            return LogUtil::registerError($this->__('S\'ha produït un error en carregar elements'));
+            // return LogUtil::registerError($this->__('S\'ha produït un error en carregar elements'));
         }
 
         return $items;
@@ -2016,6 +2003,14 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         global $agora;
 
+        $serviceName = ($serviceName == 'moodle2') ? 'moodle' : $serviceName;
+        $dbType = (isset($agora[$serviceName]['dbtype'])) ? $agora[$serviceName]['dbtype'] : 'mysql';
+
+        // Exception for portal. Is not a multisite service
+        if ($serviceName == 'portal') {
+            $dbType = 'mysql';
+        }
+        
         $connect = ModUtil::apiFunc('Agoraportal', 'user', 'connectExtDB', array('database' => $database,
                     'serviceName' => $serviceName,
                     'host' => $host,
@@ -2034,9 +2029,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             'errorMsg' => $errorMsg,
             'values' => $values,
         );
-
-        $serviceName = ($serviceName == 'moodle2') ? 'moodle' : $serviceName;
-        $dbType = (isset($agora[$serviceName]['dbtype'])) ? $agora[$serviceName]['dbtype'] : 'mysql';
 
         switch ($dbType) {
             case 'mysql':
@@ -2085,6 +2077,29 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             'errorMsg' => $errorMsg,
             'values' => $values,
         );
+    }
+
+    /**
+     * Create random password
+     * 
+     * @author Toni Ginard
+     * 
+     * @return string The password
+     */
+    public function createRandomPass() {
+
+        // Chars allowed in password
+        $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz023456789";
+
+        // Sets the seed for rand function
+        srand((float) microtime() * 1000000);
+
+        for ($i = 0, $pass = ''; $i < 8; $i++) {
+            $num = rand() % strlen($chars);
+            $pass = $pass . substr($chars, $num, 1);
+        }
+
+        return $pass;
     }
 
 }

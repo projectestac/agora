@@ -604,7 +604,7 @@ function getSchoolMoodleStats_Users($con, $year, $month, $daysofmonth) {
         }
     }
 
-    $sql = 'SELECT count(ID) as users FROM ' . MOODLE_PREFIX . 'user WHERE confirmed=1 deleted=0 AND firstaccess<>0';
+    $sql = 'SELECT count(ID) as users FROM ' . MOODLE_PREFIX . 'user WHERE confirmed=1 AND deleted=0 AND firstaccess<>0';
     $stmt = oci_parse($con, $sql);
     if (oci_execute($stmt, OCI_DEFAULT)) {
         if (oci_fetch($stmt)) {

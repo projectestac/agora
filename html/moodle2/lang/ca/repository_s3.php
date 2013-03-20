@@ -29,5 +29,5 @@ $string['access_key'] = 'Clau d\'accés';
 $string['configplugin'] = 'Paràmetres de l\'Amazon S3';
 $string['needaccesskey'] = 'Us cal la contrasenya';
 $string['pluginname'] = 'Amazon S3';
-$string['s3:view'] = 'Mostra el dipòsit Amazon s3';
+$string['s3:view'] = 'Mostra el repositori Amazon s3';
 $string['secret_key'] = 'Clau secreta';

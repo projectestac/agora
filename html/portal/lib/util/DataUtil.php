@@ -404,13 +404,19 @@ class DataUtil
 
             $clean_array = array();
 
+            //Check if it is a windows absolute path beginning with "c:" or similar
+            $windowsAbsolutePath = preg_match("#^[A-Za-z]:#", $var);
+
+            //Check if it is a linux absolute path beginning "/"
+            $linuxAbsolutePath = (substr($var, 0, 1) == '/') ? true : false;
+
             //if we're supporting absolute paths and the first charater is a slash and , then
             //an absolute path is passed
-            $absolutepathused = ($absolute && substr($var, 0, 1) == '/');
+            $absolutepathused = ($absolute && ($linuxAbsolutePath || $windowsAbsolutePath));
 
             // Split the path at possible path delimiters.
             // Setting PREG_SPLIT_NOEMPTY eliminates double delimiters on the fly.
-            $dirty_array = preg_split('#[:/\\\\]#', $var, -1, PREG_SPLIT_NO_EMPTY);
+            $dirty_array = preg_split('#[/\\\\]#', $var, -1, PREG_SPLIT_NO_EMPTY);
 
             // now walk the path and do the relevant things
             foreach ($dirty_array as $current) {
@@ -430,12 +436,13 @@ class DataUtil
             // Build the path
             // Rather than use DIRECTORY_SEPARATOR, normalise the $var because we cannot be sure what we got
             // and since we cannot use realpath() because this will turn paths into absolute - for legacy reasons
-            // recipient's of the call my not be expecting absolute values (drak).
+            // recipient's of the call may not be expecting absolute values (drak).
             $var = str_replace('\\', '/', $var);
             $var = implode('/', $clean_array);
 
-            // If an absolute path was passed to the function, we need to make it absolute again
-            if ($absolutepathused) {
+            // If an absolute linux path was passed to the function, we need to make it absolute again
+            // An absolute windows path is still absolute.
+            if ($absolutepathused && !$windowsAbsolutePath) {
                 $var = '/' . $var;
             }
 
@@ -474,15 +481,37 @@ class DataUtil
         $permasearch = explode(',', System::getVar('permasearch'));
         $permareplace = explode(',', System::getVar('permareplace'));
         foreach ($permasearch as $key => $value) {
-            $var = mb_ereg_replace("[$value]", $permareplace[$key], $var);
+            $var = mb_ereg_replace($value, $permareplace[$key], $var);
         }
 
-        $var = preg_replace("#(\s*\/\s*|\s*\+\s*|\s+)#", '-', strtolower($var)); 
+        $var = preg_replace("#(\s*\/\s*|\s*\+\s*|\s+)#", '-', strtolower($var));
 
         // final clean
         $permalinksseparator = System::getVar('shorturlsseparator');
         $var = mb_ereg_replace("[^a-z0-9_{$permalinksseparator}]", '', $var, "imsr");
+        $var = preg_replace('/'.$permalinksseparator.'+/', $permalinksseparator, $var); // remove replicated separator
         $var = trim($var, $permalinksseparator);
+
+        return $var;
+    }
+
+    /**
+     * Transliterate a variable.
+     *
+     * @param string $var The variable to format.
+     *
+     * @return string The formatted variable.
+     */
+    public static function formatTransliterate($var)
+    {
+        $strIsUpper = (strcmp($var, mb_strtoupper($var)) == 0);
+        // replace all chars $permasearch with the one in $permareplace
+        $permasearch = explode(',', System::getVar('permasearch'));
+        $permareplace = explode(',', System::getVar('permareplace'));
+        foreach ($permasearch as $key => $value) {
+            $var = mb_ereg_replace($value, $permareplace[$key], $var);
+        }
+        if ($strIsUpper) $var = mb_strtoupper($var);
 
         return $var;
     }
@@ -531,6 +560,7 @@ class DataUtil
     public static function hash($string, $type = 'sha1')
     {
         LogUtil::log(__f('Warning! Function %1$s is deprecated. Please use %2$s instead.', array('DataUtil::hash()', 'hash()')), E_USER_DEPRECATED);
+
         return hash(strtolower($type), $string);
     }
 
@@ -623,6 +653,7 @@ class DataUtil
     public static function _mb_unserialize_callback($match)
     {
         $length = strlen($match[2]);
+
         return "s:$length:\"$match[2]\";";
     }
 
@@ -642,6 +673,7 @@ class DataUtil
             foreach ($input as $key => $value) {
                 $return[$key] = self::convertToUTF8($value);
             }
+
             return $return;
         } elseif (is_string($input)) {
             if (function_exists('mb_convert_encoding')) {
@@ -668,6 +700,7 @@ class DataUtil
             foreach ($input as $key => $value) {
                 $return[$key] = self::convertFromUTF8($value);
             }
+
             return $return;
         } elseif (is_string($input)) {
             if (function_exists('mb_convert_encoding')) {
@@ -691,6 +724,7 @@ class DataUtil
     public static function transformNumberInternal($number)
     {
         $i18n = ZI18n::getInstance();
+
         return $i18n->transformNumberInternal($number);
     }
 
@@ -704,6 +738,7 @@ class DataUtil
     public static function transformCurrencyInternal($number)
     {
         $i18n = ZI18n::getInstance();
+
         return $i18n->transformCurrencyInternal($number);
     }
 
@@ -717,6 +752,7 @@ class DataUtil
     public static function formatCurrency($number)
     {
         $i18n = ZI18n::getInstance();
+
         return $i18n->transformCurrencyDisplay($number);
     }
 
@@ -731,6 +767,7 @@ class DataUtil
     public static function formatNumber($number, $decimal_points=null)
     {
         $i18n = ZI18n::getInstance();
+
         return $i18n->transformNumberDisplay($number, $decimal_points);
     }
 

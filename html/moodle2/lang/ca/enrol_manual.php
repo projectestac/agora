@@ -31,18 +31,33 @@ $string['altertimestart'] = 'Canvia la data inicial';
 $string['assignrole'] = 'Assigneu un rol';
 $string['confirmbulkdeleteenrolment'] = 'Esteu segur de voler suprimir aquestes inscripcions d\'usuaris ?';
 $string['defaultperiod'] = 'Duració de la inscripció per defecte';
-$string['defaultperiod_desc'] = 'Temps per defecte (en segons) durant el qual la inscripció serà vàlida. Si es posa a cero, la duració per defecte de la inscripció serà il·limitada.';
+$string['defaultperiod_desc'] = 'Temps per defecte durant el qual la inscripció serà vàlida. Si es posa a cero, la duració per defecte de la inscripció serà il·limitada.';
 $string['defaultperiod_help'] = 'Temps per defecte (en segons) durant el qual la inscripció serà vàlida, començant des d\'el moment en que l\'usuari s\'inscriu. Si es deshabilita, el temps per defecte de la inscripció serà il·limitat .';
 $string['deleteselectedusers'] = 'Esborreu els usuaris inscrits';
 $string['editenrolment'] = 'Editeu la inscripció';
 $string['editselectedusers'] = 'Edita les inscripcions del usuaris seleccionats';
 $string['enrolledincourserole'] = 'S\'ha efectuat la inscripció en "{$a->course}" com a "{$a->role}"';
 $string['enrolusers'] = 'Inscriviu usuaris';
+$string['expiredaction'] = 'Acció de venciment de la inscripció';
+$string['expiredaction_help'] = 'Seleccioneu l\'acció que es realitzarà quan venci la inscripció. Tingueu en compte que algunes dades d\'usuari i configuracions es purguen del curs durant la cancel·lació de la inscripció.';
+$string['expirymessageenrolledbody'] = 'Benvolgut/da {$a->user},
+
+Us notifiquem que la vostra inscripció al curs \'{$a->course}\' és a punt de vèncer el {$a->timeend}.
+
+Si necessiteu ajuda, si us plau poseu-vos en contacte amb  {$a->enroller}.';
+$string['expirymessageenrolledsubject'] = 'Notificació de venciment d\'inscripció';
+$string['expirymessageenrollerbody'] = 'La inscripció en el curs \'{$a->course}\' vencerà en els propers {$a->threshold} per als usuaris següents:
+
+{$a->users}
+
+Per estendre la seva inscripció, aneu a {$a->extendurl}';
+$string['expirymessageenrollersubject'] = 'Notificació de venciment d\'inscripció';
 $string['manual:config'] = 'Configura les instàncies d\'inscripció manual';
 $string['manual:enrol'] = 'Inscriviu usuaris';
 $string['manual:manage'] = 'Gestioneu la inscripció de l\'usuari';
 $string['manual:unenrol'] = 'Cancel·la la inscripció d\'usuaris del curs';
 $string['manual:unenrolself'] = 'Cancel·la la meva inscripció en aquest curs';
+$string['messageprovider:expiry_notification'] = 'Notificacions manuals de venciment d\'inscripció';
 $string['pluginname'] = 'Inscripcions manuals';
 $string['pluginname_desc'] = 'El connector d\'inscripció manual permet als usuaris inscriure\'s de forma manual mitjançant un enllaç als paràmetres d\'administració del curs per un usuari amb els permisos apropiats, com un professor. Aquest connector s\'hauria d\'habilitar,  ja que altres connectors, com l\'auto inscripció, el requereixen.';
 $string['status'] = 'Habiliteu les inscripcions manuals';

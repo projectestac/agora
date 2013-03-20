@@ -37,6 +37,12 @@
                  </a>
              </td>
          </tr>
+         {foreachelse}
+         <tr>
+             <td colspan="10">
+                 {gt text="No s'han trobat continguts"}
+             </td>
+         </tr>
          {/foreach}
         </tbody>
     </table>

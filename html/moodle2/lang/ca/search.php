@@ -77,5 +77,5 @@ $string['tofetchtheseresults'] = 'obtenir aquests resultats';
 $string['totalsize'] = 'Mida total';
 $string['type'] = 'Tipus';
 $string['uncompleteindexingerror'] = 'La indexació no s\'ha completat amb èxit. Reinicieu-la.';
-$string['versiontoolow'] = 'La cerca global requereix PHP 5.0.0 o superior (esteu utilitzant una versió anterior)';
+$string['versiontoolow'] = 'La cerca global requereix PHP 5.0.0 o superior';
 $string['wordsintitle'] = 'Paraules en el títol';

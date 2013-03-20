@@ -39,3 +39,4 @@ $string['numberofphotos'] = 'Nombre d\'imatges';
 $string['pluginname'] = 'Flickr';
 $string['relevance'] = 'Rellevància';
 $string['sortby'] = 'Ordenar per';
+$string['tag_flickr:addinstance'] = 'Afegir un bloc nou de flickr';

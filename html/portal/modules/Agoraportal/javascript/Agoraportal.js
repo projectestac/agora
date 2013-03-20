@@ -27,7 +27,7 @@ function sqlservicesList(search, searchText) {
 	
     var which = document.getElementById("which").value;
 	
-    if(which == "selected"){
+    if(which == "selected") {
         var service = document.getElementById("service_sel").value;
         document.getElementById("servicesListContent").className="visible";
         document.getElementById("cerca").className="form_right visible";
@@ -35,18 +35,25 @@ function sqlservicesList(search, searchText) {
         if(document.getElementById("order_sel")){
             order = document.getElementById("order_sel").value;
         }
-        else{
+        else {
             order = 1;
         }
-        var pars = "module=Agoraportal&func=sqlservicesList&service=" + service + "&search=" + search + "&searchText=" + searchText + "&order=" + order;
-        Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-        var myAjax = new Ajax.Request("ajax.php", 
-        {
-            method: 'get', 
-            parameters: pars, 
-            onComplete: servicesList_response,
-            onFailure: servicesList_failure
-        });
+        
+        // Service = 0 is a fake service to refer to the portal
+        if (service != 0) {
+            var pars = "module=Agoraportal&func=sqlservicesList&service=" + service + "&search=" + search + "&searchText=" + searchText + "&order=" + order;
+            Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
+            var myAjax = new Ajax.Request("ajax.php", 
+            {
+                method: 'get', 
+                parameters: pars, 
+                onComplete: servicesList_response,
+                onFailure: servicesList_failure
+            });
+        } else {
+            document.getElementById("servicesListContent").className="hidden";
+            document.getElementById("cerca").className="form_right hidden";
+        }
     }
     else{
         document.getElementById("servicesListContent").className="hidden";

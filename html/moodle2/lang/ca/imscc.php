@@ -35,5 +35,6 @@ $string['cc_import_req_libxml'] = 'ERROR: La importació Common Cartridge requer
 $string['cc_import_req_libxmlminversion'] = 'ERROR: La importació Common Cartridge requereix la versió 2.6.30 o superior de LIBXML.';
 $string['cc_import_req_php5'] = 'ERROR: La importació Common Cartridge requereix PHP 5 o superior.';
 $string['cc_import_req_xsl'] = 'ERROR: La importació Common Cartridge requereix XSL.';
+$string['checkingforimscc'] = 'S\'està comprovant IMS-CC...';
 $string['enable_cc_import'] = 'Habilita la importació CC';
 $string['enable_cc_import_description'] = 'Això habilita la importació de paquets Common Cartridge (IMS-CC) utilitzant la funcionalitat estàndard de restauració. Fixeu-vos que requereix la instal·lació al servidor de les extensions PHP5 , DOM, XSL, i LIBXML (2.6.30 o superior).';

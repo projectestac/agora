@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['accessnoticesheader'] = 'Podeu previsualitzar aquest qüestionari, però no podrieu contestar-lo perquè:';
 $string['action'] = 'Acció';
+$string['activityoverview'] = 'Teniu qüestionaris per respondre';
 $string['adaptive'] = 'Mode adaptatiu';
 $string['adaptive_help'] = 'Si s\'activa, es permet que s\'intenti respondre una pregunta diverses vegades en el mateix intent. Per exemple, si una resposta es marca com a incorrecta, l\'alumnat podrà tornar a intentar la resposta immediatament.
 Depenent del paràmetre "Aplica penalització", la puntuació va minvant després de cada intent.';
@@ -166,6 +167,7 @@ $string['configintro'] = 'Els valors que establiu aquí defineixen els valors pe
 $string['configmaximumgrade'] = 'La qualificació per defecte a la qual s\'escala el qüestionari.';
 $string['confignavmethod'] = 'En la navegació Lliure, les preguntes poden contestar-se en qualsevol ordre utilitzant la navegació. En la Seqüencial, les preguntes han de contestar-se seguint una seqüència estricta.';
 $string['confignewpageevery'] = 'Quan s\'afegeixin preguntes al qüestionari, els salts de pàgina s\'inseriran automàticament seguint aquest paràmetre.';
+$string['configoutcomesadvanced'] = 'Si aquesta opció s\'activa, les competències en el formulari d\'edició del qüestionari esdevindran paràmetres avançats.';
 $string['configpenaltyscheme'] = 'Penalització per a cada mala resposta en mode adaptatiu.';
 $string['configpopup'] = 'Força que l\'intent s\'obri en una finestra emergent i s\'utilitzen trucs JavaScript per restringir accions per copiar i enganxar, etc. durant la realització del qüestionari.';
 $string['configrequirepassword'] = 'Els estudiants hauran d\'escriure aquest mot de pas abans de començar a resoldre el qüestionari.';
@@ -307,17 +309,17 @@ $string['exportname'] = 'Nom del fitxer';
 $string['exportquestions'] = 'Exporta preguntes en un fitxer';
 $string['extraattemptrestrictions'] = 'Restriccions extres durant els intents';
 $string['false'] = 'Fals';
-$string['feedback'] = 'Retroalimentació';
-$string['feedbackerrorboundaryformat'] = 'Els límits de la qualificació per a la retroalimentació han de ser o un percentatge o un nombre. El valor que heu introduït al límit {$a} no s\'ha reconegut.';
+$string['feedback'] = 'Retroacció';
+$string['feedbackerrorboundaryformat'] = 'Els límits de la qualificació per a la retroacció han de ser o un percentatge o un nombre. El valor que heu introduït al límit {$a} no s\'ha reconegut.';
 $string['feedbackerrorboundaryoutofrange'] = 'Els límits de la qualificació per a la retroacció han d\'estar entre el 0 i el 100%. El valor que heu introduït al límit {$a} està fora d\'aquests límits.';
-$string['feedbackerrorjunkinboundary'] = 'Heu d\'omplir els camps dels límits de la qualificació per a la retroalimentació sense deixar buits.';
-$string['feedbackerrorjunkinfeedback'] = 'Heu d\'omplir els camps de la retroalimentació sense deixar buits.';
-$string['feedbackerrororder'] = 'Els límits de la qualificació per a la retroalimentació han d\'estar ordenats, el més alt primer. El valor que heu introduït al límit {$a} no segueix l\'ordre.';
+$string['feedbackerrorjunkinboundary'] = 'Heu d\'omplir els camps dels límits de la qualificació per a la retroacció sense deixar buits.';
+$string['feedbackerrorjunkinfeedback'] = 'Heu d\'omplir els camps de la retroacció sense deixar buits.';
+$string['feedbackerrororder'] = 'Els límits de la qualificació per a la retroacció han d\'estar ordenats, el més alt primer. El valor que heu introduït al límit {$a} no segueix l\'ordre.';
 $string['file'] = 'Fitxer';
 $string['fileformat'] = 'Format de fitxer';
 $string['fillcorrect'] = 'Emplena amb l\'opció correcta';
-$string['filloutnumericalanswer'] = 'Heu de proporcionar almenys una possible resposta i un grau de tolerància. La primera resposta coincident s\'utilitzarà per determinar la puntuació i la retroalimentació. Si proporcioneu una retroalimentació sense resposta al final, aquesta es mostrarà quan la resposta de l\'estudiant no coincideixi amb cap de les que especifiqueu aquí.';
-$string['filloutoneanswer'] = 'Heu d\'emplenar almenys una possible resposta. Les respostes en blanc no es tindran en compte. Podeu usar «*» com a comodí per fer-lo concordar amb qualsevol caràcter. La primera resposta concordant s\'usarà per a determinar la puntuació i la retroalimentació.';
+$string['filloutnumericalanswer'] = 'Heu de proporcionar almenys una possible resposta i un grau de tolerància. La primera resposta coincident s\'utilitzarà per determinar la puntuació i la retroacció. Si proporcioneu una retroacció sense resposta al final, aquesta es mostrarà quan la resposta de l\'estudiant no coincideixi amb cap de les que especifiqueu aquí.';
+$string['filloutoneanswer'] = 'Heu d\'emplenar almenys una possible resposta. Les respostes en blanc no es tindran en compte. Podeu usar «*» com a comodí per fer-lo concordar amb qualsevol caràcter. La primera resposta concordant s\'usarà per a determinar la puntuació i la retroacció.';
 $string['filloutthreequestions'] = 'Heu d\'emplenar almenys tres preguntes amb aparellaments. Podeu proporcionar respostes errònies proporcionant una resposta amb una opció en blanc. Les entrades on la pregunta i la resposta estiguin en blanc no es tindran en compte.';
 $string['fillouttwochoices'] = 'Heu d\'emplenar almenys dues opcions. Les opcions en blanc no es tindran en compte.';
 $string['finishattemptdots'] = 'Acaba l\'intent ...';
@@ -333,7 +335,7 @@ $string['fractionsnomax'] = 'Una de les respostes ha de valer 100%, de manera qu
 $string['fromfile'] = 'del fitxer:';
 $string['functiondisabledbysecuremode'] = 'Aquesta funcionalitat es troba inactiva, de moment.';
 $string['generalfeedback'] = 'Retroacció general';
-$string['generalfeedback_help'] = 'La retroacció general és un text que es mostra després que s\'hagi intentat una resposta. A diferència de la retroacció específica, que depèn de la resposta proporcionada, la retroalimentació general sempre és la mateixa.';
+$string['generalfeedback_help'] = 'La retroacció general és un text que es mostra després que s\'hagi intentat una resposta. A diferència de la retroacció específica, que depèn de la resposta proporcionada, la retroacció general sempre és la mateixa.';
 $string['graceperiod'] = 'Període de gràcia per a l\'enviament';
 $string['graceperiod_desc'] = 'Si està definit què fer quan el temps expira com a \'Permet un període de gràcia per a l\'enviament, però no canvies les respostes\', la quantitat predeterminada de temps extra que es permet, s\'estableix en segons.';
 $string['graceperiod_help'] = 'Si està definit què fer quan el temps expira com a \'Permet un període de gràcia per a l\'enviament, però no canvies les respostes\', s\'estableix la quantitat predeterminada de temps extra que es permet.';
@@ -434,7 +436,21 @@ $string['missingcorrectanswer'] = 'S\'ha d\'especificar la resposta correcta';
 $string['missingitemtypename'] = 'Falta el nom';
 $string['missingquestion'] = 'Aquesta pregunta sembla no existir ja';
 $string['modulename'] = 'Qüestionari';
-$string['modulename_help'] = 'El mòdul de qüestionaris permet que el professorat prepari i assigni qüestionaris amb preguntes de selecció múltiple, cert-fals, aparellaments i altres tipus. Cada intent es puntua automàticament, i el professorat pot decidir si es mostren comentaris i retroacció i si es mostren les respostes correctes.';
+$string['modulename_help'] = 'El mòdul de qüestionaris permet al professorat crear qüestionaris amb preguntes de diversos tipus, com ara de selecció múltiple, cert-fals, aparellaments, resposta curta i numèriques.
+
+El professor pot permetre múltiples intents del qüestionari, amb les preguntes barrejades o escollides a l\'atzar d\'entre un banc de preguntes. Es pot establir un límit de temps.
+
+Cada intent es puntua automàticament, amb l\'excepció de les preguntes de tipus «assaig», i la nota es registra al llibre de qualificacions.
+
+El professor pot decidir si es mostren als alumnes (i quan) comentaris, retroacció i les respostes correctes.
+
+Els qüestionaris es poden utilitzar:
+
+* Com a examens del curs.
+* Com a mini-tests després de tasques de lectura, o al final d\'un tema.
+* Com a exàmen de repàs si s\'utilitzen preguntes de qüestionaris anteriors.
+* Per oferir retroacció immediata sobre les capacitats de l\'alumnat.
+* Per auto-avaluació.';
 $string['modulenameplural'] = 'Qüestionaris';
 $string['moveselectedonpage'] = 'Mou les preguntes seleccionades a la pàgina: {$a}';
 $string['multichoice'] = 'Opcions múltiples';
@@ -510,6 +526,7 @@ Per afegir salts de pàgina després d\'una pregunta determinada, marqueu els qu
 Per distribuir les preguntes en un nombre de pàgines feu clic al botó "Repagina" i seleccioneu el nombre de preguntes per pàgina.';
 $string['orderingquiz'] = 'Ordre i paginació';
 $string['orderingquizx'] = 'Ordre i paginació: {$a}';
+$string['outcomesadvanced'] = 'Les competències són paràmetres avançats';
 $string['outof'] = '{$a->grade} d\'un màxim de {$a->maxgrade}';
 $string['outofpercent'] = '{$a->grade} sobre {$a->maxgrade} ({$a->percent}%)';
 $string['outofshort'] = '{$a->grade}/{$a->maxgrade}';
@@ -575,6 +592,7 @@ $string['questionnonav'] = '<span class="accesshide">Pregunta </span>{$a->number
 $string['questionnonavinfo'] = '<span class="accesshide">Informació </span>{$a->number}<span class="accesshide"> {$a->attributes}</span>';
 $string['questionnotloaded'] = 'La pregunta {$a} no s\'ha pogut carregar des de la base de dades';
 $string['questionorder'] = 'Ordre de les preguntes';
+$string['questionposition'] = 'Nova posició d\'ordenació de la pregunta {$a}';
 $string['questions'] = 'Preguntes';
 $string['questionsinclhidden'] = 'Preguntes (incloses les ocultes)';
 $string['questionsinthisquiz'] = 'Preguntes d\'aquest qüestionari';
@@ -660,7 +678,7 @@ $string['reportattemptsthatare'] = 'Intents que són';
 $string['reportdisplayoptions'] = 'Visualitza les opcions';
 $string['reportfullstat'] = 'Estadístiques detallada';
 $string['reportmulti_percent'] = 'Percentatges múltiples';
-$string['reportmulti_q_x_student'] = 'Múltiples opcions per estudiant';
+$string['reportmulti_q_x_student'] = 'Opcions per estudiants múltiples';
 $string['reportmulti_resp'] = 'Respostes individuals';
 $string['reportmustselectstate'] = 'Heu de triar almenys un estat';
 $string['reportnotfound'] = 'Informe desconegut ({$a})';
@@ -815,6 +833,7 @@ $string['summaryofattempt'] = 'Resum de l\'intent';
 $string['summaryofattempts'] = 'Resum dels vostres intents anteriors';
 $string['temporaryblocked'] = 'Temporalment no us és permès de tornar a contestar aquest qüestionari.<br />Podeu tornar a contestar-lo en:';
 $string['theattempt'] = 'L\'intent';
+$string['theattempt_help'] = 'Si l\'estudiant pot revisar l\'intent o no.';
 $string['time'] = 'Temps';
 $string['timecompleted'] = 'Completat';
 $string['timedelay'] = 'No us permès de tornar a contestar aquest qüestionari perquè no heu deixat passar el temps estipulat per a nous intents.';

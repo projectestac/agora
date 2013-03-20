@@ -49,6 +49,11 @@ $string['framesize'] = 'Alçada del marc';
 $string['invalidstoredurl'] = 'No es pot visualitzar aquest recurs: l\'URL és invàlid.';
 $string['invalidurl'] = 'L\'URL que heu introduït és invàlid';
 $string['modulename'] = 'URL';
+$string['modulename_help'] = 'El mòdul URL permet al professor subministrar un enllaç web com a recurs docent. Es pot enllaçar a qualsevol cosa que estigui disponible lliurement en línia, com ara documents o imatges. La URL no té perquè ser la pàgina principal d\'un lloc web, podeu copiar i enganxar les URL de pàgines particulars o bé podeu emprar el selector de fitxers per escollir un enllaç a un repositori com Flickr, YouTube o Wikimedia (en funció de quins repositoris tingueu habilitats al vostre lloc Moodle).
+
+Hi ha certes opcions de visualització per la URL, com ara incrustada o en una nova finestra, i opcions avançades per passar informació -com ara el nom de l\'estudiant- a la URL si és necessari.
+
+Noteu que les URL també es poden afegir a qualsevol altre recurs o activitat a través de l\'editor de textos.';
 $string['modulenameplural'] = 'URL';
 $string['neverseen'] = 'No s\'ha vist mai';
 $string['optionsheader'] = 'Opcions';

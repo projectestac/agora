@@ -39,7 +39,7 @@ class Agoraportal_Block_AgoraQuestion extends Zikula_Controller_AbstractBlock {
      * @return       output      the rendered bock
      */
     public function display($blockinfo) {
-        // Check if the Profile module is available.
+        // Check if the module is available
         if (!ModUtil::available('Agoraportal')) {
             return false;
         }
@@ -52,13 +52,10 @@ class Agoraportal_Block_AgoraQuestion extends Zikula_Controller_AbstractBlock {
             return false;
         }
 
-        // Get variables from content block
-        $vars = BlockUtil::varsFromContent($blockinfo['content']);
-
         $managerUName = UserUtil::getVar('uname');
         $user = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerUName' => $managerUName));
 
-        // Check if the user is in the z_Agoraportal_client_managers table and his state is 0
+        // Check if the user is in the Agoraportal_client_managers table and his state is 0
         if (!$user || $user['state'] != 0) {
             return false;
         }

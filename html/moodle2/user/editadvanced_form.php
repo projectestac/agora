@@ -45,7 +45,7 @@ class user_editadvanced_form extends moodleform {
         $mform->addElement('text', 'username', get_string('username'), 'size="20"');
         $mform->addRule('username', $strrequired, 'required', null, 'client');
         $mform->setType('username', PARAM_RAW);
-
+        
         $auths = get_plugin_list('auth');
         $auth_options = array();
         foreach ($auths as $auth => $unused) {
@@ -90,6 +90,13 @@ class user_editadvanced_form extends moodleform {
         } else {
             $user = false;
         }
+        
+        //XTEC ************ AFEGIT - To avoid admin changes its own username
+        //2013.02.06  @sarjona
+        if ($mform->getElementValue('username') == 'admin'){
+            $mform->freeze('username');
+        }
+        //************ FI
 
         // if language does not exist, use site default lang
         if ($langsel = $mform->getElementValue('lang')) {

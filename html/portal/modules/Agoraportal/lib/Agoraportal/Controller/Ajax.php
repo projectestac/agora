@@ -10,7 +10,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $service = FormUtil::getPassedValue('service', -1, 'GET');
         $stateFilter = FormUtil::getPassedValue('stateFilter', -1, 'GET');
         $search = FormUtil::getPassedValue('search', -1, 'GET');
-        $searchText = FormUtil::getPassedValue('searchText', -1, 'GET');
+        $searchText = trim(FormUtil::getPassedValue('searchText', -1, 'GET'));
         $init = FormUtil::getPassedValue('init', -1, 'GET');
         $order = FormUtil::getPassedValue('order', -1, 'GET');
         $rpp = FormUtil::getPassedValue('rpp', -1, 'GET');
@@ -584,7 +584,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $service = FormUtil::getPassedValue('service', -1, 'GET');
         $stateFilter = FormUtil::getPassedValue('stateFilter', -1, 'GET');
         $search = FormUtil::getPassedValue('search', -1, 'GET');
-        $searchText = FormUtil::getPassedValue('searchText', -1, 'GET');
+        $searchText = trim(FormUtil::getPassedValue('searchText', -1, 'GET'));
         $init = FormUtil::getPassedValue('init', -1, 'GET');
         $order = FormUtil::getPassedValue('order', -1, 'GET');
         $rpp = FormUtil::getPassedValue('rpp', -1, 'GET');

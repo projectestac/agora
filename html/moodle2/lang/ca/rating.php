@@ -40,9 +40,11 @@ $string['aggregatetype_help'] = 'El tipus d\'agregació defineix com es combinen
 * Suma de qualificacions - Totes les qualificacions s\'afegeixen juntes. Fixeu-vos que el total no pot excedir la qualificació màxima de l\'activitat.
 
 Si està seleccionat "Sense qualificació", llavors l\'activitat no apareix en el butlletí de qualificacions.';
+$string['allowratings'] = 'Voleu permetre que els elements es qualifiquin?';
 $string['allratingsforitem'] = 'Totes les puntuacions enviades.';
 $string['capabilitychecknotavailable'] = 'La capacitat de comprovació no està disponible fins que l\'activitat sigui desada.';
 $string['couldnotdeleteratings'] = 'Disculpeu, això no és pot eliminar doncs hi ha persones que han estat qualificades amb aquest element.';
+$string['norate'] = 'No es permet la qualificació d\'elements.';
 $string['noratings'] = 'No s\'han enviat qualificacions.';
 $string['noviewanyrate'] = 'Sols podeu veure els resultats per als elements que heu creat.';
 $string['noviewrate'] = 'No teniu la capacitat per veure notes d\'activitats.';

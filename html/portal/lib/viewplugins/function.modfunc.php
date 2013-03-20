@@ -36,12 +36,11 @@
  * @param Zikula_View $view   Reference to the Zikula_View object.
  *
  * @see    function.ModUtil::apiFunc.php::smarty_function_modapifunc()
- * 
+ *
  * @return string The results of the module function.
  */
 function smarty_function_modfunc($params, Zikula_View $view)
 {
-    //889$saveDomain = $view->renderDomain;
     $assign  = isset($params['assign'])                  ? $params['assign']  : null;
     $func    = isset($params['func']) && $params['func'] ? $params['func']    : 'main';
     $modname = isset($params['modname'])                 ? $params['modname'] : null;
@@ -56,6 +55,7 @@ function smarty_function_modfunc($params, Zikula_View $view)
 
     if (!$modname) {
         $view->trigger_error(__f('Error! in %1$s: the %2$s parameter must be specified.', array('modfunc', 'modname')));
+
         return false;
     }
 

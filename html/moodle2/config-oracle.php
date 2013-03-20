@@ -1,9 +1,8 @@
-<?php  // Moodle configuration file
+<?php
 
 define('AGORA_BASE', 'agora');
-
-
 define('INSTALL_BASE', '/srv/www/' . AGORA_BASE . '/'); 
+
 require_once(INSTALL_BASE . 'html/config/env-config.php');
 
 unset($CFG);
@@ -29,7 +28,7 @@ $CFG->directorypermissions = 0777;
 
 $CFG->langotherroot = dirname(__FILE__) . '/lang/';
 
-//$CFG->passwordsaltalt1 = '';
+$CFG->passwordsaltalt1 = '';
 $CFG->passwordsaltmain = 'y7a!Eb019n8Z5*43Sl5J&ly4pjJUk-b';
 
 $school_info = array('clientCode' => 0);
@@ -47,11 +46,9 @@ $school_info = array('clientCode' => 0);
   // You can specify a comma separated list of user ids that that always see
   // debug messages, this overrides the debug flag in $CFG->debug and $CFG->debugdisplay
   // for these users only.
-  //$CFG->debugusers = '2';
+  $CFG->debugusers = '2';
 */
 
 require_once(dirname(__FILE__) . '/settings.php');
 require_once(dirname(__FILE__) . '/lib/setup.php');
 
-// There is no php closing tag in this file,
-// it is intentional because it prevents trailing whitespace problems!

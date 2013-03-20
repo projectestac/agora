@@ -42,7 +42,7 @@ $PAGE->set_heading($course->fullname);
 
 echo $OUTPUT->header();
 echo $OUTPUT->heading(format_string($journal->name));
-    
+
 /// Check to see if groups are being used here
 $groupmode = groups_get_activity_groupmode($cm);
 $currentgroup = groups_get_activity_group($cm, true);
@@ -60,7 +60,7 @@ if ($entriesmanager) {
 $journal->intro = trim($journal->intro);
 
 if (!empty($journal->intro)) {
-    
+
     $intro = format_module_intro('journal', $journal, $cm->id);
     echo $OUTPUT->box($intro, 'generalbox', 'intro');
 }
@@ -87,11 +87,10 @@ if ($timenow > $timestart) {
 
     // Edit button
     if ($timenow < $timefinish) {
-        
+
         if ($canadd) {
-            echo '<center>';
-            echo $OUTPUT->single_button('edit.php?id='.$cm->id, get_string('startoredit','journal'), 'get');
-            echo '</center>';
+            echo $OUTPUT->single_button('edit.php?id='.$cm->id, get_string('startoredit','journal'), 'get',
+                array("class" => "singlebutton journalstart"));
         }
     }
 
@@ -107,7 +106,7 @@ if ($timenow > $timestart) {
     }
 
     echo $OUTPUT->box_end();
-    
+
     // Info
     if ($timenow < $timefinish) {
         if (!empty($entry->modified)) {
@@ -116,13 +115,13 @@ if ($timenow > $timestart) {
             echo ' ('.get_string('numwords', '', count_words($entry->text)).')';
             echo "</div>";
         }
-        
+
         if (!empty($journal->days)) {
             echo '<div class="editend"><strong>'.get_string('editingends', 'journal').': </strong> ';
             echo userdate($timefinish).'</div>';
         }
-        
-    } else {    
+
+    } else {
         echo '<div class="editend"><strong>'.get_string('editingended', 'journal').': </strong> ';
         echo userdate($timefinish).'</div>';
     }

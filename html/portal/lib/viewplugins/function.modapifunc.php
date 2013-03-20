@@ -44,7 +44,6 @@
  */
 function smarty_function_modapifunc($params, Zikula_View $view)
 {
-    //889$saveDomain = $view->renderDomain;
     $assign  = isset($params['assign'])                  ? $params['assign']  : null;
     $func    = isset($params['func']) && $params['func'] ? $params['func']    : 'main';
     $modname = isset($params['modname'])                 ? $params['modname'] : null;
@@ -58,6 +57,7 @@ function smarty_function_modapifunc($params, Zikula_View $view)
 
     if (!$modname) {
         $view->trigger_error(__f('Error! in %1$s: the %2$s parameter must be specified.', array('modapifunc', 'modname')));
+
         return false;
     }
 
@@ -67,9 +67,6 @@ function smarty_function_modapifunc($params, Zikula_View $view)
     }
 
     $result = ModUtil::apiFunc($modname, $type, $func, $params);
-
-    // ensure the renderDomain wasnt overwritten
-    //889$view->renderDomain = $saveDomain;
 
     if ($assign) {
         $view->assign($assign, $result);

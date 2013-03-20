@@ -58,6 +58,13 @@
                     {/foreach}
                 </div>
                 {/if}
+                {if isset($password_errors.pass) && !empty($password_errors.pass)}
+                <div class="z-formnote z-errormsg">
+                    {foreach from=$password_errors.pass item='message' name='messages'}
+                    <p>{$message}</p>
+                    {/foreach}
+                </div>
+                {/if}
             </div>
             {if $modvars.Users.use_password_strength_meter == 1}
             <div id="users_user_changepassword_passmeter">
@@ -90,11 +97,11 @@
         </fieldset>
         <div class="z-formbuttons z-buttons">
             {if $login}
-            {button src='button_ok.png' set='icons/extrasmall' __alt='Save and continue logging in' __title='Save and continue logging in' __text='Save and continue logging in'}
+            {button class='z-bt-ok' __alt='Save and continue logging in' __title='Save and continue logging in' __text='Save and continue logging in'}
             {else}
-            {button src='button_ok.png' set='icons/extrasmall' __alt='Save' __title='Save' __text='Save'}
+            {button class='z-bt-ok' __alt='Save' __title='Save' __text='Save'}
             {/if}
-            <a href="{modurl modname='Users' type='user' func='main'}" title="{gt text='Cancel'}">{img modname='core' src='button_cancel.png' set='icons/extrasmall' __alt='Cancel' __title='Cancel'} {gt text='Cancel'}</a>
+            <a href="{modurl modname='Users' type='user' func='main'}" title="{gt text='Cancel'}" class='z-bt-cancel'>{gt text='Cancel'}</a>
         </div>
     </div>
 </form>

@@ -27,11 +27,11 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['alfresco_url'] = 'URL Alfresco';
 $string['alfrescourltext'] = 'L\'URL de l\'API Alfresco hauria de ser: http://elvostrelloc.com/alfresco/api';
-$string['alfresco:view'] = 'Mostra el dipòsit alfresco';
+$string['alfresco:view'] = 'Mostra el repositori alfresco';
 $string['configplugin'] = 'Configuració Alfresco';
 $string['notitle'] = 'sensetítol';
 $string['password'] = 'Contrasenya';
-$string['pluginname'] = 'Dipòsit Alfresco';
+$string['pluginname'] = 'Repositori Alfresco';
 $string['pluginname_help'] = 'Un connector per al CMS Alfresco';
 $string['soapmustbeenabled'] = 'Cal que l\'extensió SOAP estigui habilitada per al connector alfresco';
 $string['username'] = 'Nom d\'usuari';

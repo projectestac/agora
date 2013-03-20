@@ -40,9 +40,16 @@ The component provides a lot of features like output coloring, input and
 output abstractions (so that you can easily unit-test your commands),
 validation, automatic help messages, ...
 
-Resources
+Tests
 ---------
 
-Unit tests:
+You can run the unit tests with the following command:
 
-https://github.com/symfony/symfony/tree/master/tests/Symfony/Tests/Component/Console
+    phpunit -c src/Symfony/Component/Console
+
+Resources
+---------    
+
+[The Console Component](http://symfony.com/doc/current/components/console.html)
+
+[How to create a Console Command](http://symfony.com/doc/current/cookbook/console/console_command.html)

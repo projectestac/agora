@@ -27,12 +27,12 @@
             <span class="toCheck">{gt text="Servei pendent d'activació"}</span>
             {elseif $client.state eq -2}
             <span class="denegated">{gt text="Sol·licitud denegada"}</span>
-            {elseif $client.state eq -3}
-            {if $client.observations neq ''}
-            <div class="denegated">
-                {$client.observations|nl2br}
-            </div>
-            {/if}
+            {elseif $client.state eq -3 or $client.state eq -4}
+                {if $client.observations neq ''}
+                <div class="denegated">
+                    {$client.observations|nl2br}
+                </div>
+                {/if}
             {elseif $client.state eq 1}
             {if $services[$client.serviceId].serviceName neq 'marsupial'}
             {gt text="Accés"}: <a href="{$client.clientCode|serviceLink:$services[$client.serviceId].serviceName:$client.clientDNS:$client.clientCode}" target="_blank">{$client.clientCode|serviceLink:$services[$client.serviceId].serviceName:$client.clientDNS:$client.clientCode}</a>

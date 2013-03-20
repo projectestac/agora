@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Configuració del dipòsit dels fitxers privats d\'usuari';
+$string['configplugin'] = 'Configuració del repositori dels fitxers privats d\'usuari';
 $string['emptyfilelist'] = 'No hi ha fitxers per mostrar';
 $string['pluginname'] = 'Fitxers privats';
 $string['pluginname_help'] = 'Fitxers a l\'àrea privada de l\'usuari';

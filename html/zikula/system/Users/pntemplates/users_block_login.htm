@@ -1,7 +1,7 @@
 <!--[*  $Id: users_block_login.htm 27353 2009-11-02 11:56:33Z mateo $  *]-->
 <!--[pnmodgetvar module='Users' name='loginviaoption' assign='loginviaoption']-->
 
-<form action="<!--[pnmodurl modname="Users" type="user" func="login"]-->" method="post">
+<form action="<!--[pnmodurl modname="Users" type="user" func="login" ssl=true]-->" method="post">
     <div style="text-align:left">
         <!--[if $loginviaoption eq 0]-->
         <div><label for="loginblock_username"><!--[gt text="User name" domain='zikula']--></label></div>

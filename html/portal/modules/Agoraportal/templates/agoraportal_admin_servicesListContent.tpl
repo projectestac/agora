@@ -109,6 +109,10 @@
              <span class="denegated">
                  {gt text="Donat de baixa"}
              </span>
+             {elseif $client.state eq -4}
+             <span class="denegated">
+                 {gt text="Desactivat"}
+             </span>
              {else}
              {gt text="No s'ha trobat"}
              {/if}

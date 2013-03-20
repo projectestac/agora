@@ -1523,8 +1523,17 @@ function print_section($course, $section, $mods, $modnamesused, $absolute=false,
                     $textcss = '';
                 }
 
+                //XTEC ************ MODIFICAT - To fix bug when openning URL in new window 
+                //2013.02.12  @sarjona - https://tracker.moodle.org/browse/MDL-37015
+                // Get on-click attribute value if specified and decode the onclick - it
+                // has already been encoded for display (puke).
+                $onclick = htmlspecialchars_decode($mod->get_on_click(), ENT_QUOTES);
+                //************ ORIGINAL
+                /*
                 // Get on-click attribute value if specified
                 $onclick = $mod->get_on_click();
+                 */
+                //************ FI    
 
                 $groupinglabel = '';
                 if (!empty($mod->groupingid) && has_capability('moodle/course:managegroups', context_course::instance($course->id))) {

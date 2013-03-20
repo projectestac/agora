@@ -26,7 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['completionprogressdetails'] = 'Detalls del progrés de la compleció.';
+$string['completionstatus:addinstance'] = 'Afegeix un bloc nou d\'estat de compleció del curs';
 $string['criteriagroup'] = 'Criteri del grup';
 $string['firstofsecond'] = '$a->first} de {$a->second}';
 $string['pluginname'] = 'Estat de compleció del curs';
 $string['requirement'] = 'Requisit';
+$string['returntocourse'] = 'Torna al curs';

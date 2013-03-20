@@ -40,6 +40,13 @@ abstract class Zikula_Response_Ajax_AbstractMediatorBase extends Zikula_Response
     protected $newCsrfToken = true;
 
     /**
+     * The ajax payload (raw)
+     *
+     * @var mixed $payload
+     */
+    protected $payload;
+
+    /**
      * Response status messages.
      *
      * @var array
@@ -63,6 +70,7 @@ abstract class Zikula_Response_Ajax_AbstractMediatorBase extends Zikula_Response
         $payload = json_encode($this->generatePayload());
         header($this->createHttpResponseHeader());
         header('Content-type: application/json');
+
         return $payload;
     }
 

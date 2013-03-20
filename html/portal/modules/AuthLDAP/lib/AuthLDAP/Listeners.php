@@ -96,12 +96,14 @@ class AuthLDAP_Listeners {
 
         if (!empty($user) && isset($user['uid'])) {
             $uid = $user['uid'];
-            // rewrite user password with the correct one
-            $item = array('pass' => '1$$' . md5($pass));
-            $where = "uid=$uid";
-            DBUtil::updateObject($item, 'users', $where);
-        } 
-        else {
+            /*
+              // rewrite user password with the correct one
+              $item = array('pass' => '1$$' . md5($pass));
+              $where = "uid=$uid";
+              DBUtil::updateObject($item, 'users', $where);
+             * 
+             */
+        } else {
             // User doesn't exist. Create the user in Zikula users table
             $item = array('uname' => $info[0]['uid'][0],
                 'email' => $info[0]['mail'][0],

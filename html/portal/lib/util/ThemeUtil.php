@@ -125,6 +125,19 @@ class ThemeUtil
             }
         }
 
+        foreach ($themesarray[$key] as $theme => $values) {
+            if (file_exists('themes/'.$theme.'/templates/master.tpl')) {
+                $themesarray[$key][$theme]['structure'] = true;
+            } else {
+                if (FormUtil::getPassedValue('type', 'POST') == 'admin') {
+                    LogUtil::registerError(__f('The structure of the theme %s is not valid!', $values['name']));
+                    $themesarray[$key][$theme]['structure'] = false;
+                } else {
+                    unset($themesarray[$key][$theme]);
+                }
+            }
+        }
+
         return $themesarray[$key];
     }
 
@@ -165,6 +178,7 @@ class ThemeUtil
 
             if (!isset($themeid[$theme])) {
                 $themeid[$theme] = false;
+
                 return false;
             }
         }
@@ -200,6 +214,7 @@ class ThemeUtil
 
             if (!isset($themeinfo[$themeid])) {
                 $themeinfo[$themeid] = false;
+
                 return $themeinfo[$themeid];
             }
         }
@@ -279,6 +294,7 @@ class ThemeUtil
                 break;
             }
         }
+
         return $csssrc;
     }
 

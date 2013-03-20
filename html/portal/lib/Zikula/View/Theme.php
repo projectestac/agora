@@ -215,6 +215,9 @@ class Zikula_View_Theme extends Zikula_View
         }
 
         $this->cache_lifetime = ModUtil::getVar('Theme', 'cache_lifetime');
+        if (!$this->homepage) {
+            $this->cache_lifetime = ModUtil::getVar('Theme', 'cache_lifetime_mods');
+        }
 
         // assign all our base template variables
         $this->_base_vars();
@@ -256,9 +259,9 @@ class Zikula_View_Theme extends Zikula_View
     /**
      * Get Theme instance.
      *
-     * @param string       $themeName  Theme name.
-     * @param integer|null $caching  Whether or not to cache (Zikula_View::CACHE_*) or use config variable (null).
-     * @param string       $cache_id Cache Id.
+     * @param string       $themeName Theme name.
+     * @param integer|null $caching   Whether or not to cache (Zikula_View::CACHE_*) or use config variable (null).
+     * @param string       $cache_id  Cache Id.
      *
      * @return Zikula_Theme This instance.
      */
@@ -302,7 +305,7 @@ class Zikula_View_Theme extends Zikula_View
         ob_end_clean();
 
         // add the module wrapper
-        if (!$this->themeinfo['system'] && (bool)$this->themeconfig['modulewrapper']) {
+        if (!$this->themeinfo['system'] && (bool)$this->themeconfig['modulewrapper'] && $this->toplevelmodule) {
             $maincontent = '<div id="z-maincontent" class="'.($this->homepage ? 'z-homepage ' : '').'z-module-' . DataUtil::formatForDisplay(strtolower($this->toplevelmodule)) . '">' . $maincontent . '</div>';
         }
 
@@ -369,7 +372,7 @@ class Zikula_View_Theme extends Zikula_View
 
         } else {
             if (!empty($block['title'])) {
-                $return .= '<h4>' . DataUtil::formatForDisplay($block['title']) . ' ' . $block['minbox'] . '</h4>';
+                $return .= '<h4>' . DataUtil::formatForDisplayHTML($block['title']) . ' ' . $block['minbox'] . '</h4>';
             }
             $return .= $block['content'];
         }
@@ -410,6 +413,7 @@ class Zikula_View_Theme extends Zikula_View
             if (!System::isLegacyMode()) {
                 if (is_readable($templateFile)) {
                     $this->templateCache[$template] = $relativePath;
+
                     return $relativePath;
                 } else {
                     return false;
@@ -419,6 +423,7 @@ class Zikula_View_Theme extends Zikula_View
             if (is_readable($override)) {
                 $path = substr($override, 0, strrpos($override, $osTemplate));
                 $this->templateCache[$template] = $path;
+
                 return $path;
             }
         }
@@ -438,6 +443,7 @@ class Zikula_View_Theme extends Zikula_View
         foreach ($search_path as $path) {
             if (is_readable("$path/$osTemplate")) {
                 $this->templateCache[$template] = $path;
+
                 return $path;
             }
         }
@@ -472,6 +478,34 @@ class Zikula_View_Theme extends Zikula_View
     }
 
     /**
+     * Clears the cache for a specific cache_id's in all active themes.
+     *
+     * @param string $cache_ids Array of given cache ID's for which to clear theme cache.
+     * @param string $themes    Array of theme objects for which to clear theme cache, defaults to all active themes.
+     *
+     * @return boolean True on success.
+     */
+    public function clear_cacheid_allthemes($cache_ids, $themes = null)
+    {
+        if ($cache_ids) {
+            if (!is_array($cache_ids)) {
+                $cache_ids = array($cache_ids);
+            }
+            if (!$themes) {
+                $themes = ThemeUtil::getAllThemes();
+            }
+            $theme = Zikula_View_Theme::getInstance();
+            foreach ($themes as $themearr) {
+                foreach ($cache_ids as $cache_id) {
+                    $theme->clear_cache(null, $cache_id, null, null, $themearr['directory']);
+                }
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * Get a concrete filename for automagically created content.
      *
      * Generates a filename path like: Theme / auto_id [/ source_dir / filename-l{lang}.ext]
@@ -483,7 +517,7 @@ class Zikula_View_Theme extends Zikula_View
      *
      * @return string The concrete path and file name to the content.
      */
-    function _get_auto_filename($path, $auto_source = null, $auto_id = null)
+    public function _get_auto_filename($path, $auto_source = null, $auto_id = null, $themedir = null)
     {
         // enables a flags to detect when is treating compiled templates
         $tocompile = ($path == $this->compile_dir) ? true : false;
@@ -492,7 +526,11 @@ class Zikula_View_Theme extends Zikula_View
         $auto_source = DataUtil::formatForOS($auto_source);
 
         // add the Theme name as first folder
-        $path .= '/' . $this->directory;
+        if (empty($themedir)) {
+            $path .= '/' . $this->directory;
+        } else {
+            $path .= '/' . $themedir;
+        }
 
         // the last folder is the cache_id if set
         $path .= !empty($auto_id) ? '/' . $auto_id : '';
@@ -539,8 +577,11 @@ class Zikula_View_Theme extends Zikula_View
         $this->pagetype = 'module';
         if ((stristr(System::serverGetVar('PHP_SELF'), 'admin.php') || strtolower($this->type) == 'admin')) {
             $this->pagetype = 'admin';
-        } elseif (empty($module)) {
-            $this->pagetype = 'home';
+        } else {
+            $module = FormUtil::getPassedValue('module', null, 'GETPOST', FILTER_SANITIZE_STRING);
+            if (empty($module)) {
+                $this->pagetype = 'home';
+            }
         }
 
         // set some basic class variables from Zikula
@@ -555,10 +596,10 @@ class Zikula_View_Theme extends Zikula_View
 
         // define the cache_id if not set yet
         if ($this->caching && !$this->cache_id) {
-            // module / type / function / uid_X|guest / customargs|homepage/startpageargs
+            // module / type / function / customargs|homepage/startpageargs / uid_X|guest
             $this->cache_id = $this->toplevelmodule . '/' . $this->type . '/' . $this->func
-                            . '/' . UserUtil::getUidCacheString()
-                            . (!$this->homepage ? $this->_get_customargs() : '/homepage/' . str_replace(',', '/', System::getVar('startargs')));
+                            . (!$this->homepage ? $this->_get_customargs() : '/homepage/' . str_replace(',', '/', System::getVar('startargs')))
+                            . '/' . UserUtil::getUidCacheString();
         }
 
         // assign some basic paths for the engine
@@ -656,7 +697,7 @@ class Zikula_View_Theme extends Zikula_View
                 $file = $pageconfigurations['*'.$this->type]['file'];
 
             // identify an admin-like type
-            } else if (strpos($this->type, 'admin') === 0 && isset($pageconfigurations['*admin'])) {
+            } elseif (strpos($this->type, 'admin') === 0 && isset($pageconfigurations['*admin'])) {
                 $file = $pageconfigurations['*admin']['file'];
 
             // search for arguments match

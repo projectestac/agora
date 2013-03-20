@@ -25,10 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Configuració del dipòsit de fitxers recents';
+$string['configplugin'] = 'Configuració del repositori de fitxers recents';
 $string['emptyfilelist'] = 'No hi ha fitxers per mostrar';
 $string['notitle'] = 'Sense títol';
 $string['pluginname'] = 'Fitxers recents';
 $string['pluginname_help'] = 'Fitxers utilitzats recentment per l\'usuari actual';
 $string['recentfilesnumber'] = 'Nombre de fitxers recents';
-$string['recent:view'] = 'Mostra el connector del dipòsit de fitxers recents';
+$string['recent:view'] = 'Mostra el connector del repositori de fitxers recents';

@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Configuració del tipus de dipòsit Wikimedia';
+$string['configplugin'] = 'Configuració del tipus de repositori Wikimedia';
 $string['keyword'] = 'Text complet';
 $string['pluginname'] = 'Wikimedia';
-$string['wikimedia:view'] = 'Mostra el dipòsit wikimedia';
+$string['wikimedia:view'] = 'Mostra el repositori wikimedia';

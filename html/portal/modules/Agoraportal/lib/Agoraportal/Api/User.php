@@ -147,28 +147,44 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $where = "(b.$lcolumn[noVisible] = 0 || b.$lcolumn[clientCode] = '$clientCode')";
             }
         }
+
         if ((isset($args['service']) && $args['service'] != 0) || (isset($args['state']) && $args['state'] != '-1')) {
             if ($args['service'] != 0) {
                 $where .= ( $where != '') ? ' AND ' : '';
                 $where .= "a.$ocolumn[serviceId] = $args[service]";
             }
-            if ($args['state'] != '-1') {
+            // Check if there are several desired states
+            if (is_array($args['state'])) {
+                $tmp = array();
+                foreach ($args['state'] as $state) {
+                    if ($state != '-1') {
+                        $tmp[] = "a.$ocolumn[state] = $state";
+                    }
+                }
                 $where .= ( $where != '') ? ' AND ' : '';
-                $where .= "a.$ocolumn[state] = $args[state]";
+                $where .= '(' . implode(' OR ', $tmp) . ')';
+            } else {
+                if ($args['state'] != '-1') {
+                    $where .= ( $where != '') ? ' AND ' : '';
+                    $where .= "a.$ocolumn[state] = $args[state]";
+                }
             }
         }
+
         if (isset($args['location']) && $args['location'] != 0) {
             $where .= ( $where != '') ? ' AND ' : '';
             if ($args['location'] != 0) {
                 $where .= "b.$lcolumn[locationId] = $args[location]";
             }
         }
+
         if (isset($args['type']) && $args['type'] != 0) {
             $where .= ( $where != '') ? ' AND ' : '';
             if ($args['type'] != 0) {
                 $where .= "b.$lcolumn[typeId] = $args[type]";
             }
         }
+
         if ((isset($args['search']) && $args['search'] != 0) && $args['searchText'] != '') {
             $where .= ( $where != '') ? ' AND ' : '';
             switch ($args['search']) {
@@ -183,6 +199,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     break;
             }
         }
+
         if (isset($args['order'])) {
             switch ($args['order']) {
                 case 1:
@@ -327,7 +344,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             $ocolumn = $tables['agoraportal_client_services_column'];
             $lcolumn = $tables['agoraportal_clients_column'];
             $where = $conditionsString . " AND a.$ocolumn[state]=1";
-            $orderby = "b.$lcolumn[clientName], b.$lcolumn[clientDNS], a.$ocolumn[serviceId]";
+            $orderby = "a.$ocolumn[serviceId]";
             $items = DBUtil::selectExpandedObjectArray('agoraportal_client_services', $myJoin, $where, $orderby, -1, -1, 'clientServiceId');
             if ($items === false) {
                 return LogUtil::registerError($this->__('S\'ha produït un error en carregar elements'));
@@ -441,6 +458,11 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
             throw new Zikula_Exception_Forbidden();
         }
+        // @aginard: This func name is in conflict with inherited func name from lib/Zikula/AbstractBase.php,
+        //  so a check for a needed arg is required!
+        if (!is_array($args)) {
+            return false;
+        }
         $item = DBUtil::selectObjectByID('agoraportal_services', $args['serviceId'], 'serviceId');
         // Check for an error with the database code, and if so set an appropriate
         // error message and return
@@ -492,7 +514,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
                     'rpp' => 50,
                     'service' => 0,
-                    'state' => -1,
+                    'state' => array(0, 1),
                     'search' => 1,
                     'searchText' => $clientCode));
         // get client values in case don't have any actived service
@@ -706,7 +728,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function addLog($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
             throw new Zikula_Exception_Forbidden();
         }
 
@@ -786,14 +808,14 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('La paraula clau de confirmació no coincideix amb la proporcionada pel centre. Assegura\'t de que està ben escrita i, en cas que els problemes persisteixin, contacta amb el gestor/a del centre.'));
         }
 
-        $where = "WHERE " . $c['clientCode'] . " = '" . $clientCode . "' AND " . $c['managerUName'] . " = '" . $args['uname'] . "'";
+//        $where = "WHERE " . $c['clientCode'] . " = '" . $clientCode . "' AND " . $c['managerUName'] . " = '" . $args['uname'] . "'";
         $items = array('state' => 1);
-        if (!DBUTil::updateObject($items, 'agoraportal_client_managers', $where)) {
+        if (!DBUtil::updateObject($items, 'agoraportal_client_managers', $where)) {
             return LogUtil::registerError($this->__('No s \'ha pogut habilitar el gestor'));
         }
 
         $items = array('gid' => 4, 'uid' => $args['uid']);
-        if (!$foo = DBUTil::insertObject($items, 'group_membership')) {
+        if (!DBUtil::insertObject($items, 'group_membership')) {
             return LogUtil::registerError($this->__('No s \'ha pogut habilitar el gestor'));
         }
 
@@ -1570,6 +1592,13 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         global $ZConfig;
 
         switch ($serviceName) {
+            case 'portal':
+                $databaseName = $agora['admin']['database'];
+                $host = $agora['admin']['host'] . ':' . $agora['admin']['port'];
+                $connect = mysql_connect($host, $agora['admin']['username'], $agora['admin']['userpwd']);
+                if (!mysql_select_db($databaseName, $connect))
+                    return false;
+                break;
             case 'intranet':
                 $databaseName = $agora['intranet']['userprefix'] . $database;
                 if ($clientService != false) {

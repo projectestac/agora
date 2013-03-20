@@ -25,7 +25,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
         $this->checkAjaxToken();
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Categories::', '::', ACCESS_EDIT));
 
-        $data  = json_decode($this->request->getPost()->get('data'), true);
+        $data  = json_decode($this->request->request->get('data'), true);
         $cats = CategoryUtil::getSubCategories(1, true, true, true, true, true, '', 'id');
 
         foreach ($cats as $k => $cat) {
@@ -41,6 +41,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
         $result = array(
             'response' => true
         );
+
         return new Zikula_Response_Ajax($result);
     }
 
@@ -48,12 +49,12 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
     {
         $this->checkAjaxToken();
 
-        $mode = $this->request->getPost()->get('mode', 'new');
+        $mode = $this->request->request->get('mode', 'new');
         $accessLevel = $mode == 'edit' ? ACCESS_EDIT : ACCESS_ADD;
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Categories::', '::', $accessLevel));
 
-        $cid = isset($args['cid']) ? $args['cid'] : $this->request->getPost()->get('cid', 0);
-        $parent = isset($args['parent']) ? $args['parent'] : $this->request->getPost()->get('parent', 1);
+        $cid = isset($args['cid']) ? $args['cid'] : $this->request->request->get('cid', 0);
+        $parent = isset($args['parent']) ? $args['parent'] : $this->request->request->get('parent', 1);
         $validationErrors = FormUtil::getValidationErrors();
         $editCat = '';
 
@@ -99,6 +100,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
         if ($validationErrors) {
             return new Zikula_Response_Ajax_BadData($validationErrors, $result);
         }
+
         return new Zikula_Response_Ajax($result);
     }
 
@@ -107,8 +109,8 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
         $this->checkAjaxToken();
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Categories::', '::', ACCESS_ADD));
 
-        $cid = $this->request->getPost()->get('cid');
-        $parent = $this->request->getPost()->get('parent');
+        $cid = $this->request->request->get('cid');
+        $parent = $this->request->request->get('parent');
 
         $cat = new Categories_DBObject_Category(DBObject::GET_FROM_DB, $cid);
         $cat->copy($parent);
@@ -142,6 +144,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
             'leafstatus' => $leafStatus,
             'result' => true
         );
+
         return new Zikula_Response_Ajax($result);
     }
 
@@ -150,7 +153,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
         $this->checkAjaxToken();
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Categories::', '::', ACCESS_DELETE));
 
-        $cid = $this->request->getPost()->get('cid');
+        $cid = $this->request->request->get('cid');
         $cat = new Categories_DBObject_Category(DBObject::GET_FROM_DB, $cid);
         $cat->delete(true);
 
@@ -159,6 +162,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
             'cid' => $cid,
             'result' => true
         );
+
         return new Zikula_Response_Ajax($result);
     }
 
@@ -167,8 +171,8 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
         $this->checkAjaxToken();
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Categories::', '::', ACCESS_DELETE));
 
-        $cid = $this->request->getPost()->get('cid');
-        $parent = $this->request->getPost()->get('parent');
+        $cid = $this->request->request->get('cid');
+        $parent = $this->request->request->get('parent');
         $cat = new Categories_DBObject_Category(DBObject::GET_FROM_DB, $cid);
         $cat->deleteMoveSubcategories($parent);
         // need to re-render new parents node
@@ -201,6 +205,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
             'leafstatus' => $leafStatus,
             'result' => true
         );
+
         return new Zikula_Response_Ajax($result);
     }
 
@@ -209,7 +214,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
         $this->checkAjaxToken();
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Categories::', '::', ACCESS_DELETE));
 
-        $cid = $this->request->getPost()->get('cid');
+        $cid = $this->request->request->get('cid');
         $allCats = CategoryUtil::getSubCategories(1, true, true, true, false, true, $cid);
         $selector = CategoryUtil::getSelector_Categories($allCats);
 
@@ -220,6 +225,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
         $result = array(
             'result' => $this->view->fetch('categories_adminajax_delete.tpl'),
         );
+
         return new Zikula_Response_Ajax($result);
     }
 
@@ -228,7 +234,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
         $this->checkAjaxToken();
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Categories::', '::', ACCESS_EDIT));
 
-        $cid = $this->request->getPost()->get('cid');
+        $cid = $this->request->request->get('cid');
         $cat = new Categories_DBObject_Category(DBObject::GET_FROM_DB, $cid);
         $cat->setDataField('status', 'A');
         $cat->update();
@@ -238,6 +244,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
             'cid' => $cid,
             'result' => true
         );
+
         return new Zikula_Response_Ajax($result);
     }
 
@@ -246,7 +253,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
         $this->checkAjaxToken();
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Categories::', '::', ACCESS_EDIT));
 
-        $cid = $this->request->getPost()->get('cid');
+        $cid = $this->request->request->get('cid');
         $cat = new Categories_DBObject_Category(DBObject::GET_FROM_DB, $cid);
         $cat->setDataField('status', 'I');
         $cat->update();
@@ -256,13 +263,14 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
             'cid' => $cid,
             'result' => true
         );
+
         return new Zikula_Response_Ajax($result);
     }
 
     public function save()
     {
         $this->checkAjaxToken();
-        $mode = $this->request->getPost()->get('mode', 'new');
+        $mode = $this->request->request->get('mode', 'new');
         $accessLevel = $mode == 'edit' ? ACCESS_EDIT : ACCESS_ADD;
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Categories::', '::', $accessLevel));
 
@@ -277,12 +285,13 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
                 'parent' => $cat->getDataField('parent_id'),
                 'mode' => $mode
             );
+
             return $this->edit($args);
         }
 
         $attributes = array();
-        $values = $this->request->getPost()->get('attribute_value');
-        foreach ($this->request->getPost()->get('attribute_name') as $index => $name) {
+        $values = $this->request->request->get('attribute_value');
+        foreach ($this->request->request->get('attribute_name') as $index => $name) {
             if (!empty($name)) {
                 $attributes[$name] = $values[$index];
             }
@@ -292,7 +301,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
 
         if ($mode == 'edit') {
             // retrieve old category from DB
-            $category = $this->request->getPost()->get('category');
+            $category = $this->request->request->get('category');
             $oldCat = new Categories_DBObject_Category(DBObject::GET_FROM_DB, $category['id']);
 
             // update new category data
@@ -335,6 +344,7 @@ class Categories_Controller_Ajax extends Zikula_Controller_AbstractAjax
             'leafstatus' => $leafStatus,
             'result' => true
         );
+
         return new Zikula_Response_Ajax($result);
     }
 

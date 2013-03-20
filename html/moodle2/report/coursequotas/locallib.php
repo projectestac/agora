@@ -23,17 +23,15 @@ function report_coursequotas_getCategoryData() {
     global $CFG, $DB;
 
     // Step 1: get system context ID, which is unique, but its value may vary
-    $dbRecords = $DB->get_records_select('context', "contextlevel='10'", null, 'ID', 'ID');
-    $dbRecords = reset($dbRecords); // Gets first element of the array
-    $systemContextId = $dbRecords->id;
+    $dbRecord = $DB->get_record_select('context', "contextlevel='10'", null, 'ID');
+    $systemContextId = $dbRecord->id;
 
     // Step 2: build category tree
-    $dbRecords = $DB->get_records_select('course_categories', '', null, 'ID', 'ID, NAME, PARENT, DEPTH');
+    $dbRecords = $DB->get_records_select('course_categories', '', null, 'PARENT, DEPTH', 'ID, NAME, PARENT, DEPTH');
     $categoryTree = report_coursequotas_buildCatTree($dbRecords, 0, 1);
 
     // Step 3: add courses to each category
-    $dbRecords = $DB->get_records_select('course', '', null, 'ID', 'ID, CATEGORY, FULLNAME');
-    $categoryTree = report_coursequotas_addCoursesToTree($dbRecords, $categoryTree, true);
+    $categoryTree = report_coursequotas_addCoursesToTree($categoryTree, true);
 
     // Step 4: Get all context elements belonging to /systemid/categoryid/.../categoryid/courseid
     // Step 5: Search contextid into m2files, get disk usage and add to tree
@@ -79,29 +77,30 @@ function report_coursequotas_buildCatTree($dbRecords, $catID, $depth) {
  *
  * @return array Tree with data (see description)
  */
-function report_coursequotas_addCoursesToTree($dbRecords, $categoryTree, $addFrontPageCourse = false) {
+function report_coursequotas_addCoursesToTree($categoryTree, $addFrontPageCourse = false) {
 
+    global $DB;
+
+    if ($addFrontPageCourse) {
+        // Add front page course
+        $dbRecord = $DB->get_record_select('course', 'category=0', null, 'ID, FULLNAME');
+        $categoryTree['0'] = array('Id' => 0, 'Name' => get_string('front_page', 'report_coursequotas'), 'Subcategories' => array());
+        $categoryTree['0']['courses'][$dbRecord->id] = array('Id' => $dbRecord->id, 'Fullname' => $dbRecord->fullname, 'coursesize' => 0);
+    }
+
+    // Add ordinary courses to category
     foreach ($categoryTree as $key => $cat) {
+        $dbRecords = $DB->get_records_select('course', "category='$key'", null, 'ID', 'ID, CATEGORY, FULLNAME');
         foreach ($dbRecords as $record) {
-            // Front page course
-            if (($record->category == 0) && $addFrontPageCourse) {
-                $categoryTree['0'] = array('Id' => 0, 'Name' => get_string('front_page', 'report_coursequotas'), 'Subcategories' => array());
-                $categoryTree['0']['courses'][$record->id] = array('Id' => $record->id, 'Fullname' => $record->fullname, 'coursesize' => 0);
-            }
+            $categoryTree[$key]['courses'][$record->id] = array('Id' => $record->id, 'Fullname' => $record->fullname, 'coursesize' => 0);
+        }
 
-            // Other courses
-            if ($cat['Id'] == $record->category) {
-                $categoryTree[$key]['courses'][$record->id] = array('Id' => $record->id, 'Fullname' => $record->fullname, 'coursesize' => 0);
-            } elseif (!isset($categoryTree[$key]['courses'])) {
-                $categoryTree[$key]['courses'] = array();
-            }
-
-            // Recursive call for subcategories
-            if (!empty($cat['Subcategories'])) {
-                $categoryTree[$key]['Subcategories'] = report_coursequotas_addCoursesToTree($dbRecords, $categoryTree[$key]['Subcategories'], false);
-            }
+        // Recursive call for subcategories
+        if (!empty($cat['Subcategories'])) {
+            $categoryTree[$key]['Subcategories'] = report_coursequotas_addCoursesToTree($categoryTree[$key]['Subcategories'], false);
         }
     }
+
     return $categoryTree;
 }
 
@@ -120,6 +119,7 @@ function report_coursequotas_addCoursesToTree($dbRecords, $categoryTree, $addFro
  * @return array Tree with data (see description)
  */
 function report_coursequotas_addContextElemsToTree($categoryTree, $systemContextId, $depth = 2) {
+
     global $DB;
 
     // One iteration per category of a given level
@@ -130,34 +130,35 @@ function report_coursequotas_addContextElemsToTree($categoryTree, $systemContext
         // $key equal to 0 is a fake category for front page course
         if ($key == 0) {
             // Get the site course. Ensure it's front page course by forcing depth = 2
-            $dbRecords = $DB->get_records_select('context', "contextlevel='50' and path like '/$systemContextId/%' and depth='2'", null, 'ID', 'ID, PATH, INSTANCEID');
+            $dbRecord = $DB->get_record_select('context', "contextlevel='50' and path like '/$systemContextId/%' and depth='2'", null, 'ID, PATH, INSTANCEID');
 
             // Get context id of everything belonging to the site course
-            $record = reset($dbRecords); // Get the first element of the array
-            $path = $record->path;
-            $courseId = $record->instanceid;
-
+            $path = $dbRecord->path;
+            $courseId = $dbRecord->instanceid;
             $dbRecords = $DB->get_records_select('context', "path like '$path/%'", null, 'ID', 'ID');
 
             // Look for all content id's in files table
+            $contextId = array();
             foreach ($dbRecords as $record) {
-                $contextId = $record->id;
-                $dbRecords_2 = $DB->get_records_select('files', "contextid = '$contextId'", null, 'ID', 'ID, FILESIZE');
-                if (!empty($dbRecords_2)) {
-                    foreach ($dbRecords_2 as $record_2) {
-                        $totalSize += $record_2->filesize;
-                    }
-                }
+                $contextId[] = $record->id;
             }
+
+            // Calculate size of all the files inside the course
+            $sql = "SELECT sum(filesize) AS total
+                    FROM {files}
+                    WHERE contextid='" . implode("' or contextid='", $contextId) . "'";
+
+            $totalSize += $DB->get_record_sql($sql, null)->total;
+
             $categoryTree['0']['categorysize'] = $totalSize;
             $categoryTree['0']['courses'][$courseId]['coursesize'] = $totalSize;
         }
         // All other categories
         else {
             // Context id of the current category is unknown. This gets it.
-            $dbRecords = $DB->get_records_select('context', "contextlevel='40' and instanceid='$cat[Id]' and depth='$depth'", null, 'ID', 'ID, PATH');
+            $dbRecord = $DB->get_record_select('context', "contextlevel='40' and instanceid='$cat[Id]' and depth='$depth'", null, 'ID, PATH');
 
-            $path = reset($dbRecords)->path;
+            $path = $dbRecord->path;
             $courseDepth = $depth + 1;
 
             // Get context elements which are courses in this category
@@ -172,17 +173,22 @@ function report_coursequotas_addContextElemsToTree($categoryTree, $systemContext
                 $dbRecords_2 = $DB->get_records_select('context', "path like '$coursePath/%'", null, 'ID', 'ID');
                 $totalCourseSize = 0;
 
-                // Look for all content id's in files table
-                foreach ($dbRecords_2 as $record_2) {
-                    $contextId = $record_2->id;
-                    $dbRecords_3 = $DB->get_records_select('files', "contextid = '$contextId' and filesize <> 0", null, 'ID', 'ID, FILESIZE');
-                    if (!empty($dbRecords_3)) {
-                        foreach ($dbRecords_3 as $record_3) {
-                            $totalCourseSize += $record_3->filesize;
-                            $totalSize += $record_3->filesize;
-                        }
-                    }
+                 // Look for all content id's in files table
+                $contextId = array();
+                foreach ($dbRecords_2 as $record) {
+                    $contextId[] = $record->id;
                 }
+
+                // Calculate size of all the files inside the course
+                $sql = "SELECT sum(filesize) AS total
+                        FROM {files}
+                        WHERE contextid='" . implode("' or contextid='", $contextId) . "'";
+
+                $courseSize = $DB->get_record_sql($sql, null);
+
+                $totalCourseSize += $courseSize->total;
+                $totalSize += $courseSize->total;
+
                 $categoryTree[$key]['courses'][$courseId]['coursesize'] = $totalCourseSize;
             }
         }
@@ -354,19 +360,18 @@ function report_coursequotas_getCoursesDataBody($data) {
  * @return int Number of bytes used
  */
 function report_coursequotas_getBackupUsage() {
+
     global $DB;
 
     // component equal to backup means "course level backup"
     // filearea equal to backup means "user level backup" which is not associated to any course
-    $dbRecords = $DB->get_records_select('files', "component='backup' or filearea='backup'", null, 'ID', 'ID, FILESIZE');
+    $sql = "SELECT sum(filesize) AS total
+            FROM {files}
+            WHERE component='backup' or filearea='backup'";
 
-    $backupSize = 0;
-    foreach ($dbRecords as $record) {
-        $backupSize += $record->filesize;
-    }
-
-    return $backupSize;
+    return $DB->get_record_sql($sql, null)->total;
 }
+
 
 /**
  * Formats a size figure and adds unit information

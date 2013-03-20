@@ -1624,6 +1624,15 @@ function quiz_groups_group_deleted_handler($event) {
              WHERE quiz.course = :courseid AND grp.id IS NULL";
     $params = array('courseid'=>$event->courseid);
     $records = $DB->get_records_sql_menu($sql, $params);
+
+//XTEC ************ AFEGIT - Errors en mode debug en esborrar un grup.
+//2013.03.13 @jmiro227
+
+    if (!$records) {
+      return;
+    }
+//************ FI
+
     $DB->delete_records_list('quiz_overrides', 'id', array_keys($records));
     quiz_update_open_attempts(array('quizid'=>array_unique(array_values($records))));
 }

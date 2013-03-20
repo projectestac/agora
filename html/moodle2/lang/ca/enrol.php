@@ -36,7 +36,12 @@ $string['configenrolplugins'] = 'Seleccioneu tots els mòduls requerits i organi
 $string['custominstancename'] = 'Nom de la instància personalitzat';
 $string['defaultenrol'] = 'Afegeix instància als nous cursos';
 $string['defaultenrol_desc'] = 'És possible afegir aquest mòdul a tots els nous cursos per defecte.';
-$string['deleteinstanceconfirm'] = 'Realment voleu esborrar la instància del mòdul d\'inscripcions "{$a->name}" amb {$a->users} usuaris inscrits?';
+$string['deleteinstanceconfirm'] = 'Esteu a punt de suprimir el mètode d\'inscripció "{$a->name}". Les inscripcions de tots els {$a->users} usuaris inscrits mitjançant aquest mètode seran cancel·lades i se suprimiran totes les seves dades relatives a aquests cursos, com ara qualificacions, pertinença a grups o subscripcions a fòrums.
+
+Esteu segur que voleu continuar?';
+$string['deleteinstancenousersconfirm'] = 'Esteu a punt de suprimir el mètode d\'inscripció "{$a->name}".
+
+Esteu segur que voleu continuar?';
 $string['durationdays'] = '{$a} dies';
 $string['enrol'] = 'Inscriu';
 $string['enrolcandidates'] = 'Usuaris no inscrits';
@@ -54,6 +59,7 @@ $string['enrolmentoptions'] = 'Opcions d\'inscripció';
 $string['enrolments'] = 'Inscripcions';
 $string['enrolnotpermitted'] = 'No teniu permís o no podeu inscriure ningú en aquest curs';
 $string['enrolperiod'] = 'Durada de la inscripció';
+$string['enroltimecreated'] = 'S\'ha creat la inscripció';
 $string['enroltimeend'] = 'La inscripció acaba';
 $string['enroltimestart'] = 'La inscripció comença';
 $string['enrolusage'] = 'Instàncies / inscripcions';
@@ -63,7 +69,15 @@ $string['errajaxsearch'] = 'S\'ha produït un error mentre es cercaven usuaris';
 $string['erroreditenrolment'] = 'S\'ha produït un error mentre s\'intentava editar una inscripció d\'usuaris';
 $string['errorenrolcohort'] = 'S\'ha produït un error mentre es creava una instància d\'inscripció de cohorts sincronitzades en aquest curs';
 $string['errorenrolcohortusers'] = 'S\'ha produït un error mentre s\'inscrivien membres d\'una cohort en aquest curs.';
+$string['errorthresholdlow'] = 'El llindar de notificació ha de ser com a mínim 1 dia.';
 $string['errorwithbulkoperation'] = 'Ha succeït un error quan es processava el canvi d\'inscripció en bloc.';
+$string['expirynotify'] = 'Notifica abans que venci la inscripció';
+$string['expirynotifyall'] = 'A l\'usuari inscrit i a qui fa les inscripcions';
+$string['expirynotifyenroller'] = 'Només a l\'usuari que fa les inscripcions';
+$string['expirynotify_help'] = 'Aquest paràmetre determina l\'enviament de missatges per a notificar el venciment de la inscripció.';
+$string['expirynotifyhour'] = 'Hora per a enviar notificacions de venciment d\'inscripció';
+$string['expirythreshold'] = 'Llindar de notificació';
+$string['expirythreshold_help'] = 'Quant de temps abans del venciment cal notificar-ho als usuaris?';
 $string['extremovedaction'] = 'Acció de cancel·lació d\'inscripció externa';
 $string['extremovedaction_help'] = 'Seleccioneu l\'acció per dur a terme quan la inscripció d\'usuaris desaparegui de la font d\'inscripció externa. Tingueu en compte que algunes dades d\'usuari i paràmetres són purgats del curs durant la cancel·lació d\'inscripció del curs.';
 $string['extremovedkeep'] = 'Mantingues l\'usuari inscrit';
@@ -86,6 +100,7 @@ $string['participationactive'] = 'Actiu';
 $string['participationstatus'] = 'Estat';
 $string['participationsuspended'] = 'Suspès';
 $string['periodend'] = 'fins a {$a}';
+$string['periodnone'] = 'inscrits {$a}';
 $string['periodstart'] = 'des de {$a}';
 $string['periodstartend'] = 'des de {$a->start} fins a {$a->end}';
 $string['recovergrades'] = 'Recupera les qualificacions antigues d\'usuari si és possible';
@@ -103,8 +118,13 @@ $string['unenrolconfirm'] = 'Esteu segur que voleu cancel·lar la inscripció de
 $string['unenrolme'] = 'Cancel·la la meva inscripció en {$a}';
 $string['unenrolnotpermitted'] = 'No teniu permís o no podeu cancel·lar la inscripció d\'aquest usuari en aquest curs.';
 $string['unenrolroleusers'] = 'Cancel·la la inscripció dels usuaris';
-$string['uninstallconfirm'] = 'Ara se suprimirà completament el mòdul d\'inscripció \'{$a} \'. Això suprimirà per complet tot de la base de dades associada a aquest tipus d\'inscripció. Esteu SEGUR que voleu continuar?';
+$string['uninstallconfirm'] = 'Esteu a punt de desinstal·lar el connector d\'inscripcions \'{$a} \'. Com a conseqüència se suprimiran totes les dades associades amb aquest tipus d\'inscripció, incloent-hi qualificacions d\'usuaris, pertinença a grups, fòrums, subscripcions a fòrums i qualssevol altres dades relatives a aquests cursos.
+
+Esteu SEGUR que voleu continuar?';
+$string['uninstalldelete'] = 'Suprimeix totes les inscripcions i desinstal·la';
 $string['uninstalldeletefiles'] = 'S\'han suprimit totes les dades relacionades amb el mòdul d\'inscripció \'{$a->plugin}\'. Per completar l\'eliminació (i impedir que el mòdul es torne a instal·lar per si mateix), heu de suprimir ara aquest directori del vostre servidor: {$a->directory}';
+$string['uninstallmigrate'] = 'Desinstal·la però manté totes les inscripcions';
+$string['uninstallmigrating'] = 'S\'estan migrant "{$a}" inscripcions';
 $string['unknowajaxaction'] = 'Sol·licitud d\'acció desconeguda';
 $string['unlimitedduration'] = 'Il·limitat';
 $string['usersearch'] = 'Cerca';

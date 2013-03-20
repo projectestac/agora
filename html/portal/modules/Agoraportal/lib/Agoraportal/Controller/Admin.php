@@ -163,24 +163,29 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $dbHost = $agora['intranet']['host'];
             }
 
+            // Create a var for admin password where to keep it in order to send it by e-mail
+            $password = '';
+
             // If it is an activation, checks if the service exists. If not create it
             if ($state == 1) {
                 if ($clientService['activedId'] == 0) {
                     $serviceName = $services[$clientService['serviceId']]['serviceName'];
                     // the activation function is the same for moodle and moodle2 because the database structure is the same
-                    if ($serviceName == 'moodle2') {
-                        $funcToCall = 'moodle';
-                    } else {
-                        $funcToCall = $serviceName;
-                    }
-                    if (!$db = ModUtil::apiFunc('Agoraportal', 'admin', 'activeService_' . $funcToCall, array('clientServiceId' => $clientServiceId,
-                                'dbHost' => $dbHost))) {
+                    $funcToCall = ($serviceName == 'moodle2') ? 'moodle' : $serviceName;
+
+                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'activeService_' . $funcToCall,
+                                                array('clientServiceId' => $clientServiceId,
+                                                      'dbHost' => $dbHost));
+                    if (!is_array($result)) {
                         LogUtil::registerError($this->__('S\'ha produït un error en la creació del servei.'));
                         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList', array('init' => $init,
                                             'search' => $search,
                                             'searchText' => $searchText,
                                             'service' => $service,
                                             'stateFilter' => $stateFilter)));
+                    } else {
+                        $db = $result['db'];
+                        $password = $result['password'];
                     }
 
                     // Get the database value depending on the service requested
@@ -238,23 +243,29 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 }
             }
 
-            // Deactivate the service
+            // Deny the new service
+            if ($state == -2) {
+                // Insert the action in logs table
+                ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
+                    'action' => $this->__f('S\'ha denegat el servei %s', $services[$clientService['serviceId']]['serviceName'])));
+            }
+
+            // Withdraw the service
             if ($state == -3) {
                 // edit service information and delete the database assigned
                 $clientServiceEdited = ModUtil::apiFunc('Agoraportal', 'admin', 'editService', array('clientServiceId' => $clientServiceId,
                             'items' => array('serviceDB' => '',
-                                'timeCreated' => '',
                                 'activedId' => '')));
-                // insert the action in logs table
+                // Insert the action in logs table
                 ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
                     'action' => $this->__f('S\'ha desactivat el servei %s', $services[$clientService['serviceId']]['serviceName'])));
             }
 
-            // Deny the new service
-            if ($state == -2) {
-                // insert the action in logs table
+            // Deactivate the new service
+            if ($state == -4) {
+                // Insert the action in logs table
                 ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
-                    'action' => $this->__f('S\'ha denegat el servei %s', $services[$clientService['serviceId']]['serviceName'])));
+                    'action' => $this->__f('S\'ha desactivat el servei %s', $services[$clientService['serviceId']]['serviceName'])));
             }
 
             // This call activates the service
@@ -284,8 +295,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
             // send informational mail if it is necessary
             // check if module mailer is active
-            $modid = ModUtil::getIdFromName('Mailer');
-            $modinfo = ModUtil::getInfo($modid);
+            $modinfo = ModUtil::getInfo(ModUtil::getIdFromName('Mailer'));
             if ($modinfo['state'] == 3 && $sendMail == 1) {
                 // We need to know service base URL
                 $mailContent = $this->view->assign('baseURL', $agora['server']['server'] . $agora['server']['base'])
@@ -296,14 +306,16 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ->assign('observations', $observations)
                         ->assign('state', $state)
                         ->assign('userName', $contactName)
+                        ->assign('password', $password)
                         ->fetch('agoraportal_admin_sendMail.tpl');
 
                 // get client's email (a8000001@xtec.cat)
                 $uidClient = UserUtil::getIdFromName($clientCode);
                 $clientVars = UserUtil::getVars($uidClient);
 
-                // Send e-mail to site admin and to client code
-                $toUsers = array(UserUtil::getVar('email'), $clientVars['email']);
+                // Send e-mail to client code
+                $toUsers = array($clientVars['email']);
+
                 // Get all managers
                 $managers = ModUtil::apiFunc('Agoraportal', 'admin', 'getManagers', array('clientCode' => $clientCode));
                 // Add managers to destination
@@ -312,13 +324,15 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 }
                 $toUsers = array_merge($toUsers, $toManagers);
 
-                // Send the e-mail
-                $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => UserUtil::getVar('uname'),
+                // Send the e-mail (BCC to site e-mail)
+                $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => $clientName,
                             'toaddress' => $toUsers,
-                            'subject' => __('Estat dels serveis a Àgora'),
+                            'subject' => __('Estat dels serveis del centre a Àgora'),
+                            'bcc' => System::getVar('adminmail'),
                             'body' => $mailContent,
                             'html' => 1));
-                if ($mailSended) {
+
+                if ($sendMail) {
                     LogUtil::registerStatus($this->__('S\'ha enviat un missatge informatiu'));
                 }
             }
@@ -490,7 +504,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
         $servicesListContent = ModUtil::func('Agoraportal', 'admin', 'servicesListContent', array('init' => $init,
                     'search' => $search,
-                    'searchText' => $searchText,
+                    'searchText' => trim($searchText),
                     'stateFilter' => $stateFilter,
                     'service' => $service,
                     'rpp' => $rpp,
@@ -519,6 +533,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 1, 'POST');
         $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : null, 'POST');
         $order = FormUtil::getPassedValue('order', isset($args['order']) ? $args['order'] : 2, 'POST');
+
+        // Escape special chars
+        $searchText = addslashes($searchText);
 
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
@@ -1369,7 +1386,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $action = 'exe';
         }
 
-        if (isset($action) && ( empty($sqlfunc) || ($which == "selected" && empty($clients_sel)) || empty($service_sel) )) {
+        if (isset($action) && ( empty($sqlfunc) || ($which == "selected" && empty($clients_sel)) || $service_sel === false)) {
             LogUtil::registerError($this->__('Heu d\'emplenar tots els camps'));
             $action = "show";
         }
@@ -1383,29 +1400,39 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $comands = ModUtil::func('Agoraportal', 'admin', 'sqlComandList', array('serviceId' => $service_sel));
 
         if (isset($action) && ($action == "ask" || $action == "exe")) {
-            //Common parts on ask and execute
+            // Initialization
+            $serviceName = '';
+            $sqlClients = '';
+            
+            // Common parts on ask and execute
+            if ($service_sel == 0) {
+                // Exception for portal. Is not a multisite service
+                $serviceName = 'portal';
+                // Dummy array. Required by foreach loop
+                $sqlClients = array('0' => array('dbHost' => '', 'serviceDB' => ''));
+            } else {
+                $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
+                $serviceName = $services[$service_sel]['serviceName'];
 
-            $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
-            $serviceName = $services[$service_sel]['serviceName'];
+                $clients = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 1, //Default
+                            'rpp' => 0, //No pages
+                            'service' => $service_sel,
+                            'state' => 1, //Active
+                        ));
 
-            $clients = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 1, //Default
-                        'rpp' => 0, //No pages
-                        'service' => $service_sel,
-                        'state' => 1, //Active
-                    ));
-
-            if ($which == 'selected') {
-                $sqlClients = Array();
-                foreach ($clients_sel as $k => $client_sel) {
-                    foreach ($clients as $client) {
-                        if ($client['clientId'] == $client_sel) {
-                            $sqlClients[$k] = $client;
-                            break;
+                if ($which == 'selected') {
+                    $sqlClients = Array();
+                    foreach ($clients_sel as $k => $client_sel) {
+                        foreach ($clients as $client) {
+                            if ($client['clientId'] == $client_sel) {
+                                $sqlClients[$k] = $client;
+                                break;
+                            }
                         }
                     }
+                } else {
+                    $sqlClients = $clients;
                 }
-            } else {
-                $sqlClients = $clients;
             }
 
             $view->assign('serviceName', $serviceName);
@@ -1467,6 +1494,15 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     }
                 }
 
+                global $agora;
+                
+                if ($serviceName == 'portal') {
+                    $view->assign('prefix', $agora['admin']['database']);
+                } else {
+                    $view->assign('prefix', $agora['server']['userprefix']);
+                }
+                
+                $view->assign('which', $which);
                 $view->assign('results', $results);
                 $view->assign('success', $success);
                 $view->assign('messages', $messages);
@@ -1581,6 +1617,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $messages = Array();
                 $ok = 0;
                 $error = 0;
+                // Get message from session
+                $message = unserialize(SessionUtil::getVar('noticeboardMessage'));
 
                 switch ($serviceName) {
                     case 'intranet':
@@ -1897,11 +1935,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 return $view->fetch('agoraportal_admin_advices_exe.tpl');
             }
 
-            //Else ask to execute SQL
+            // Else ask to execute SQL
+            // Save message to session
+            SessionUtil::setVar('noticeboardMessage', serialize($message));
+
             return $view->fetch('agoraportal_admin_advices_ask.tpl');
         }
 
-        //Else  show form
+        //Else show form
         $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 0, 'GETPOST');
         $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
 
@@ -3361,6 +3402,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $warningMsgTpl .= "<p>Els gestors dels serveis Àgora del centre poden sol·licitar l'ampliació de la quota del servei des de la secció <strong>altres sol·licituds</strong> de l'<a href=\"" . $agora['server']['server'] . $agora['server']['base'] . "portal\">aplicació de gestió dels serveis d'Àgora</a>.</p>";
         $warningMsgTpl .= "<p>Atentament,</p>";
         $warningMsgTpl .= "<p>---<br />L'equip del projecte Àgora</p>";
+        $warningMsgTpl .= "<p>P.D.: Aquest missatge s'envia automàticament. Si us plau, no el respongueu.</p>";
 
         // Get available services (currently: intranet, marsupial, moodle)
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
@@ -3668,8 +3710,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $uidClient = UserUtil::getIdFromName($clientCode);
             $clientVars = UserUtil::getVars($uidClient);
 
-            // Send e-mail to site admin and to client code
-            $toUsers = array(UserUtil::getVar('email'), $clientVars['email']);
+            // Send e-mail to client code
+            $toUsers = array($clientVars['email']);
+
             // Get all managers
             $managers = ModUtil::apiFunc('Agoraportal', 'admin', 'getManagers', array('clientCode' => $clientCode));
             // Add managers to destination
@@ -3677,13 +3720,16 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $toManagers[] = $manager['email'];
             }
             $toUsers = array_merge($toUsers, $toManagers);
-            // Send the e-mail
-            $sendEmail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => UserUtil::getVar('uname'),
+
+            // Send the e-mail (BCC to site e-mail)
+            $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => $clientCode,
                         'toaddress' => $toUsers,
-                        'subject' => $this->__('Estat de sol·licituds a Àgora'),
+                        'subject' => __('Estat de les sol·licituds a Àgora'),
+                        'bcc' => System::getVar('adminmail'),
                         'body' => $mailContent,
                         'html' => 1));
-            if ($sendEmail) {
+
+            if ($sendMail) {
                 LogUtil::registerStatus($this->__('S\'ha enviat un missatge de correu electrònic informatiu al centre i als gestors'));
             }
         }
@@ -3763,7 +3809,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
         $servicesListContent = ModUtil::func('Agoraportal', 'admin', 'requestsListContent', array('init' => $init,
                     'search' => $search,
-                    'searchText' => $searchText,
+                    'searchText' => trim($searchText),
                     'stateFilter' => $stateFilter,
                     'service' => $service,
                     'rpp' => $rpp));
@@ -3792,6 +3838,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 1, 'POST');
         $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : null, 'POST');
         $order = FormUtil::getPassedValue('order', isset($args['order']) ? $args['order'] : 2, 'POST');
+
+        // Escape special chars
+        $searchText = addslashes($searchText);
 
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {

@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['comments:addinstance'] = 'Afegeix un bloc nou de comentaris';
+$string['comments:myaddinstance'] = 'Afegeix un bloc nou de comentaris a la pàgina del «meu Moodle»';
 $string['pluginname'] = 'Comentaris';

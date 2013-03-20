@@ -1,55 +1,50 @@
 <?php
 
-/**
- * Steps to execute this script:
- * 1. Change the env-config.php with the correct environment information
- * 2. Review manualReplace or multiReplace function, with the string to replace 
- * and the connection data
- * 3. Add a call to manualReplace or multiReplace
- * 
- */
+$dns = (isset($_REQUEST['dns'])) ? $_REQUEST['dns'] : '';
 
-include_once('env-config.php');
-include_once('dblib-mysql.php');
+if (empty($dns)) { // Show form
+?>
 
-/**
- * Uncomment some of this calls to execute the replacing function (Step 3).
- */
-//multiReplace();
-//manualReplace();
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Canvi d'URL als Moodles antics</title>
+    </head>
+    <body>
+        <form action="replaceMoodle.php" method="post">
+        Llista de noms propis separats per comes: <br />
+        <textarea name="dns" rows="5" cols="80" placeholder="Exemple: usu1, usu2, usu3"></textarea><br />
+        <input type="submit" />
+        </form>
+    </body>
+    </html>    
 
-/**
- * Update all specified schools from array of dns
- */
-function multiReplace(){
-$schools = array('usu1', 'usux', 'usu2');
+<?php
+
+} else { // Do the work
+    
+    require_once('env-config.php');
+    require_once('dblib-mysql.php');
+    
+    $schools = explode(',', $dns);
     foreach ($schools as $school){
-        $dns = $school;
-        $oldURL = $agora['server']['server'].$agora['server']['base'].$dns.'/moodle/';
-        $newURL = $agora['server']['server'].$agora['server']['base'].$dns.'/antic/';
-        // Get data connection
+        $dns = trim($school);
+        $oldURL = $agora['server']['server'] . $agora['server']['base'] . $dns . '/moodle/';
+        $newURL = $agora['server']['server'] . $agora['server']['base'] . $dns . '/antic/';
+
+        // Get service connection data ($dns is checked for security in getSchoolDBInfo)
         $school = getSchoolDBInfo($dns);
-        if (array_key_exists('id_moodle', $school)){    
+        if (is_array($school) && array_key_exists('id_moodle', $school)) {    
             replaceMoodle($dns, $school['id_moodle'], $school['database_moodle'], $oldURL, $newURL);
-        } else{
-            print_r('<br>El centre especificat ('.$dns.') no t&eacute; assignada cap base de dades pel servei Moodle');
+        } else {
+            echo 'No s\'ha pogut fer el canvi d\'URL. Les causes possibles s&oacute;n: (1) 
+                el centre especificat no existeix, (2) el centre no t&eacute; assignada cap 
+                base de dades pel servei Moodle i (3) no s\'ha pogut connectar a la base
+                de dades d\'administraci&oacute;.';
         }    
     }
 }
 
-/**
- * Replace only specified school
- */
-function manualReplace(){
-    $school_dns = 'eoi2';
-    $school_id = 2;
-    $school_database = 'EOIMOODL';
-    
-    $oldURL = 'http://agora-eoi.xtec.cat/'.$school_dns.'/moodle/';
-    $newURL = 'http://agora-eoi.xtec.cat/'.$school_dns.'/antic/';
-
-    replaceMoodle($school_dns, $school_id, $school_database, $oldURL, $newURL);    
-}
 
 /**
  * Replace $old string to $new string at specified school with 'school_id' and 'database'
@@ -62,6 +57,7 @@ function manualReplace(){
  * @return type Boolean
  */
 function replaceMoodle($dns, $school_id, $school_database, $old, $new){
+
     global $agora;
     
     print_r('<br><br>################ <b>'.$dns.'</b> Replacing \''.$old.'\' by \''.$new.'\'');

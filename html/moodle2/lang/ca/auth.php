@@ -123,7 +123,7 @@ $string['recaptcha_help'] = 'El CAPTCHA s\'usa per evitar l\'abús dels programe
 
 Si no sabeu segur quines paraules són, podeu provar un altre CAPTCHA o bé un CAPTCHA sonor.';
 $string['selfregistration'] = 'Autoregistre';
-$string['selfregistration_help'] = 'Si seleccioneu un connector d\'autenticació, per exemple l\'autoregistre basat en correu electrònic, usuaris potencials es podran inscriure i crear comptes. Això fa possible que s\'enviï brossa a fòrums, bitàcoles, etc. Per evitar aquest perill, inhabiliteu l\'autoregistre o limiteu-lo mitjançant el paràmetre <em>Dominis de correu permesos</em>';
+$string['selfregistration_help'] = 'Si seleccioneu un connector d\'autenticació, per exemple l\'autoregistre basat en correu electrònic, usuaris potencials es podran inscriure i crear comptes. Això fa possible que s\'enviï brossa a fòrums, blogs, etc. Per evitar aquest perill, inhabiliteu l\'autoregistre o limiteu-lo mitjançant el paràmetre <em>Dominis de correu permesos</em>';
 $string['sha1'] = 'Resum SHA-1';
 $string['showguestlogin'] = 'Podeu ocultar o mostrar el botó d\'entrada com a visitant a la pàgina d\'entrada.';
 $string['stdchangepassword'] = 'Utilitza la pàgina estàndard de canvi de contrasenya';

@@ -27,7 +27,7 @@
  *
  * Zikula offers a set of API functions to manipulate page variables.
  *
- * A module can register a new page variable by providing its metadata using the pnPageRegisterVar
+ * A module can register a new page variable by providing its metadata using the RegisterVar
  * function.
  *
  * Zikula doesn't impose any restriction on the page variable's name except for duplicate
@@ -41,7 +41,7 @@
  * <li>header</li>
  * <li>footer</li>
  * </ul>
- * 
+ *
  * In addition, if your system is operating in legacy compatibility mode, then
  * the variable 'rawtext' is reserved, and maps to 'header'. (When not operating in
  * legacy compatibility mode, 'rawtext' is not reserved and will not be rendered
@@ -64,7 +64,7 @@ class PageUtil
      * <li>header</li>
      * <li>footer</li>
      * </ul>
-     * 
+     *
      * In addition, if your system is operating in legacy compatibility mode, then
      * the variable 'rawtext' is reserved, and maps to 'header'. (When not operating in
      * legacy compatibility mode, 'rawtext' is not reserved and will not be rendered
@@ -210,6 +210,18 @@ class PageUtil
         }
 
         if (isset($_pageVars[$varname]) && isset($_pageVars[$varname]['contents'])) {
+            if ($varname == 'title') {
+                $title = System::getVar('pagetitle', '');
+                if (!empty($title) && $title != '%pagetitle%') {
+                    $title = str_replace('%pagetitle%', $_pageVars[$varname]['contents'], $title);
+                    $title = str_replace('%sitename%', System::getVar('sitename', ''), $title);
+                    $moduleInfo = ModUtil::getInfoFromName(ModUtil::getName());
+                    $moduleDisplayName = $moduleInfo['displayname'];
+                    $title = str_replace('%modulename%', $moduleDisplayName, $title);
+
+                    return $title;
+                }
+            }
             return $_pageVars[$varname]['contents'];
         } elseif (isset($_pageVars[$varname]['default'])) {
             return $_pageVars[$varname]['default'];
@@ -242,10 +254,12 @@ class PageUtil
             switch ($varname) {
                 case 'description':
                     $sm['zikula_view.metatags']['description'] = $value;
+
                     return true;
                     break;
                 case 'keywords':
                     $sm['zikula_view.metatags']['keywords'] = $value;
+
                     return true;
                     break;
                 case 'rawtext':
@@ -299,7 +313,7 @@ class PageUtil
                     break;
             }
         }
-        
+
         // check for $_pageVars sanity
         if (!isset($_pageVars)) {
             $_pageVars = array();

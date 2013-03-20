@@ -40,7 +40,7 @@
         
         // Add an element: key = previous DNS, value = current DNS. This will be
         //   used to show an info page explaining that the DNS has changed
-        if (isset($school['old_dns'])) {
+        if (isset($school['old_dns']) && !empty($school['old_dns'])) {
             $schools[$school['old_dns']]['new_dns'] = $dns;
         }
     }

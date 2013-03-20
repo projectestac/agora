@@ -32,6 +32,5 @@ $string['advice_start_date'] = 'Tip start date';
 $string['advice_stop_date'] = 'Tip stop date';
 $string['show_admins'] = 'This message is only shown to site administrators';
 $string['enabled'] = 'Enabled';
-$string['admin_bookmarks:addinstance'] = 'Add a new advices block';
-$string['admin_bookmarks:myaddinstance'] = 'Add a new advices block to the My Moodle page';
+$string['advices:addinstance'] = 'Add a new advices block';
 

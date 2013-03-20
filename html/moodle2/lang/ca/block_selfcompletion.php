@@ -28,4 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['alreadyselfcompleted'] = 'Ja heu marcat aquest curs com a completat';
 $string['completecourse'] = 'Curs completat';
 $string['pluginname'] = 'Autocompletat';
+$string['selfcompletion:addinstance'] = 'Afegir un bloc nou d\'autocompleció';
 $string['selfcompletionnotenabled'] = 'L\'autocompletat no està activat per aquest curs';

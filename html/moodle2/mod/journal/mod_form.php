@@ -32,11 +32,11 @@ class mod_journal_mod_form extends moodleform_mod {
         } else {
             $mform->setDefault('days', '0');
         }
-        
+
         $this->standard_grading_coursemodule_elements();
-        
+
         $this->standard_coursemodule_elements();
-        
+
         $this->add_action_buttons();
     }
 

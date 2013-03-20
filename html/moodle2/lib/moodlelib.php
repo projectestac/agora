@@ -5428,7 +5428,7 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
         //XTEC ************ AFEGIT - Avoid replying to SMTP address when sending using Gmail
         //2012.03.13  @aginard
         if (empty($replyto)) {
-            $tempreplyto[] = array($CFG->noreplyaddress);
+            $tempreplyto[] = array($CFG->noreplyaddress, get_string('noreplyname'));
         }
         //************ FI     
     } else if ($usetrueaddress and $from->maildisplay) {
@@ -5437,7 +5437,7 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
         //XTEC ************ AFEGIT - Avoid replying to SMTP address when sending using Gmail
         //2012.03.13  @aginard
         if (empty($replyto)) {
-            $tempreplyto[] = array($CFG->noreplyaddress);
+            $tempreplyto[] = array($CFG->noreplyaddress, get_string('noreplyname'));
         }
         //************ FI     
     } else {

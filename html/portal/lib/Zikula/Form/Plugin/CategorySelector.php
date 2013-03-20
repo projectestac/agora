@@ -69,18 +69,18 @@ class Zikula_Form_Plugin_CategorySelector extends Zikula_Form_Plugin_DropdownLis
      * @var boolean (default false)
      */
     public $enableDoctrine;
-    
+
     public $doctrine2;
-    
+
     public $registryId;
-    
+
 
     /**
      * Get filename of this file.
      *
      * @return string
      */
-    function getFilename()
+    public function getFilename()
     {
         return __FILE__;
     }
@@ -97,7 +97,7 @@ class Zikula_Form_Plugin_CategorySelector extends Zikula_Form_Plugin_DropdownLis
      *
      * @return void
      */
-    static function loadParameters(&$list, $includeEmptyElement, $params)
+    public static function loadParameters(&$list, $includeEmptyElement, $params)
     {
         $all            = isset($params['all'])         ? $params['all']         : false;
         $lang           = isset($params['lang'])        ? $params['lang']        : ZLanguage::getLanguageCode();
@@ -110,7 +110,7 @@ class Zikula_Form_Plugin_CategorySelector extends Zikula_Form_Plugin_DropdownLis
         $recurse        = isset($params['recurse'])     ? $params['recurse']     : true;
         $relative       = isset($params['relative'])    ? $params['relative']    : true;
         $sortField      = isset($params['sortField'])   ? $params['sortField']   : 'sort_value';
-        $field          = isset($params['field'])       ? $params['field']       : 'id';
+        $catField       = isset($params['catField'])    ? $params['catField']    : 'id';
 
         $allCats = array();
 
@@ -156,19 +156,19 @@ class Zikula_Form_Plugin_CategorySelector extends Zikula_Form_Plugin_DropdownLis
             }
 
             $catName = html_entity_decode((isset($cat['display_name'][$lang]) ? $cat['display_name'][$lang] : $cat['name']));
-            $list->addItem($indent . ' ' . $catName, isset($cat[$field]) ? $cat[$field] : $cat['id']);
+            $list->addItem($indent . ' ' . $catName, isset($cat[$catField]) ? $cat[$catField] : $cat['id']);
         }
     }
 
     /**
      * Load event handler.
      *
-     * @param Zikula_Form_View $view    Reference to Form render object.
+     * @param Zikula_Form_View $view Reference to Form render object.
      * @param array            &$params Parameters passed from the Smarty plugin function.
      *
      * @return void
      */
-    function load(Zikula_Form_View $view, &$params)
+    public function load(Zikula_Form_View $view, &$params)
     {
         $this->includeEmptyElement = (isset($params['includeEmptyElement']) ? $params['includeEmptyElement'] : false);
         $this->enableDBUtil = (isset($params['enableDBUtil']) ? $params['enableDBUtil'] : false);
@@ -186,11 +186,11 @@ class Zikula_Form_Plugin_CategorySelector extends Zikula_Form_Plugin_DropdownLis
      *
      * @return string The rendered output
      */
-    function render(Zikula_Form_View $view)
+    public function render(Zikula_Form_View $view)
     {
         $result = parent::render($view);
 
-        if ($this->editLink && !empty($this->category) && SecurityUtil::checkPermission('Categories::', "$this->category[id]::", ACCESS_EDIT)) {
+        if ($this->editLink && !empty($this->category) && SecurityUtil::checkPermission('Categories::', "{$this->category['id']}::", ACCESS_EDIT)) {
             $url = DataUtil::formatForDisplay(ModUtil::url('Categories', 'user', 'edit', array('dr' => $this->category['id'])));
             $result .= "&nbsp;&nbsp;<a href=\"{$url}\"><img src=\"images/icons/extrasmall/xedit.png\" title=\"" . __('Edit') . '" alt="' . __('Edit') . '" /></a>';
         }
@@ -204,12 +204,12 @@ class Zikula_Form_Plugin_CategorySelector extends Zikula_Form_Plugin_DropdownLis
      * Called by the render when doing $render->getValues()
      * Uses the group parameter to decide where to store data.
      *
-     * @param Zikula_Form_View $view  Reference to Form render object.
+     * @param Zikula_Form_View $view Reference to Form render object.
      * @param array            &$data Data object.
      *
      * @return void
      */
-    function saveValue(Zikula_Form_View $view, &$data)
+    public function saveValue(Zikula_Form_View $view, &$data)
     {
         if ($this->enableDBUtil && $this->dataBased) {
             if ($this->group == null) {
@@ -220,7 +220,7 @@ class Zikula_Form_Plugin_CategorySelector extends Zikula_Form_Plugin_DropdownLis
                 }
                 $data[$this->group]['__CATEGORIES__'][$this->dataField] = $this->getSelectedValue();
             }
-        } else if ($this->enableDoctrine && $this->dataBased) {
+        } elseif ($this->enableDoctrine && $this->dataBased) {
             if ($this->group == null) {
                 $data['Categories'][$this->dataField] = array('category_id' => $this->getSelectedValue(),
                                                               'reg_property' => $this->dataField);
@@ -231,27 +231,43 @@ class Zikula_Form_Plugin_CategorySelector extends Zikula_Form_Plugin_DropdownLis
                 $data[$this->group]['Categories'][$this->dataField] = array('category_id' => $this->getSelectedValue(),
                                                                             'reg_property' => $this->dataField);
             }
-        } else if($this->doctrine2) {
+        } elseif ($this->doctrine2) {
             $entity = $view->get_template_vars($this->group);
-            
+
             // load category from db
             $em = ServiceUtil::getService('doctrine.entitymanager');
-            $category = $em->find('Zikula_Doctrine2_Entity_Category', $this->getSelectedValue());
-            
+
             $collection = $em->getClassMetadata(get_class($entity))
                              ->getFieldValue($entity, $this->dataField);
-            
-            if(!$collection) {
+
+            if (!$collection) {
                 $collection = new \Doctrine\Common\Collections\ArrayCollection();
                 $em->getClassMetadata(get_class($entity))
                    ->setFieldValue($entity, $this->dataField, $collection);
             }
 
-            if($collection->containsKey($this->registryId)) {
-                $collection->get($this->registryId)->setCategory($category);
+
+            if (is_array($this->getSelectedValue())) {
+                $selectedValues = $this->getSelectedValue();
             } else {
+                $selectedValues[] = $this->getSelectedValue();
+            }
+
+           foreach ($collection->getKeys() as $key) {
+               $categoryId = $collection->get($key)->getCategoryRegistryId();
+               if ($categoryId == $this->registryId) {
+                    $collection->remove($key);
+               }
+            }
+
+            $em->flush();
+
+
+            foreach ($selectedValues as $selectedValue) {
+
+                $category = $em->find('Zikula_Doctrine2_Entity_Category', $selectedValue);
                 $class = $em->getClassMetadata(get_class($entity))->getAssociationTargetClass($this->dataField);
-                $collection->set($this->registryId, new $class($this->registryId, $category, $entity));
+                $collection->add(new $class($this->registryId, $category, $entity));
             }
         } else {
             parent::saveValue($view, $data);
@@ -264,12 +280,12 @@ class Zikula_Form_Plugin_CategorySelector extends Zikula_Form_Plugin_DropdownLis
      * Called internally by the plugin itself to load values from the render.
      * Can also by called when some one is calling the render object's Zikula_Form_View::setValues.
      *
-     * @param Zikula_Form_View $view    Reference to Zikula_Form_View render object.
+     * @param Zikula_Form_View $view Reference to Zikula_Form_View render object.
      * @param array            &$values Values to load.
      *
      * @return void
      */
-    function loadValue(Zikula_Form_View $view, &$values)
+    public function loadValue(Zikula_Form_View $view, &$values)
     {
         if ($this->enableDBUtil && $this->dataBased) {
             $items = null;
@@ -299,7 +315,8 @@ class Zikula_Form_Plugin_CategorySelector extends Zikula_Form_Plugin_DropdownLis
             }
 
             $this->setSelectedValue($value);
-        } else if ($this->enableDoctrine && $this->dataBased) {
+
+        } elseif ($this->enableDoctrine && $this->dataBased) {
             $items = null;
             $value = null;
 
@@ -321,20 +338,29 @@ class Zikula_Form_Plugin_CategorySelector extends Zikula_Form_Plugin_DropdownLis
                     }
                 }
             }
-            
+
             if ($items != null) {
                 $this->setItems($items);
             }
 
             $this->setSelectedValue($value);
-        } else if($this->doctrine2) {
-            if(isset($values[$this->group])) {
+
+        } elseif ($this->doctrine2) {
+            if (isset($values[$this->group])) {
                 $entity = $values[$this->group];
-                if(isset($entity[$this->dataField])) {
+                if (isset($entity[$this->dataField])) {
                     $collection = $entity[$this->dataField];
-                    if(isset($collection[$this->registryId])) {
-                        $value = $collection[$this->registryId]->getCategory()->getId();
-                        $this->setSelectedValue($value);
+                    $selectedValues = array();
+                    foreach ($collection as $c) {
+                        $categoryId = $c->getCategoryRegistryId();
+                        if ($categoryId == $this->registryId) {
+                            $selectedValues[] = $c->getCategory()->getId();
+                        }
+                    }
+                    if ($this->selectionMode == 'single' && isset($selectedValues[0])) {
+                        $this->setSelectedValue($selectedValues[0]);
+                    } else {
+                        $this->setSelectedValue($selectedValues);
                     }
                 }
             }

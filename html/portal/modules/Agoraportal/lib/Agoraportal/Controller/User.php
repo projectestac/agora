@@ -165,11 +165,11 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             }
         }
 
-        // get client services information
+        // Get active client services
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
                     'rpp' => 50,
                     'service' => 0,
-                    'state' => -1,
+                    'state' => array(0, 1),
                     'search' => 1,
                     'searchText' => $clientCode,
                     'clientCode' => $clientCode,
@@ -181,11 +181,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                 $haveMoodle = true;
             $clientServices[$info['serviceId']] = $info['serviceId'];
         }
-        // check not solicited services
+
+        // Get not asked services
         $notsolicitedServices = array_diff_key($allowedServices, $clientServices);
-
-        //print_r($notsolicitedServices);die();
-
 
         if (empty($notsolicitedServices)) {
             if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
@@ -234,7 +232,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                                 'acceptUseTerms' => $acceptUseTerms)));
         }
         if ($contactProfile == '') {
-            LogUtil::registerError($this->__('No especificat quin és el teu càrrec en el centre.'));
+            LogUtil::registerError($this->__('No has especificat quin és el teu càrrec en el centre.'));
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
                                 'contactProfile' => $contactProfile,
                                 'acceptUseTerms' => $acceptUseTerms)));
@@ -1168,6 +1166,42 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             // insert the action in logs table
             ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 1,
                 'action' => $this->__f('S\'ha afegit un gestor amb nom d\'usuari/ària %s', $managerUName)));
+
+            // Send an e-mail to the manager
+            // 1.- Check module mailer availability
+            $modinfo = ModUtil::getInfo(ModUtil::getIdFromName('Mailer'));
+
+            if ($modinfo['state'] == 3) {
+                global $agora;
+
+                // We need to know service base URL
+                $mailContent = $this->view->assign('baseURL', $agora['server']['server'] . $agora['server']['base'])
+                        ->assign('clientCode', $clientCode)
+                        ->assign('managerUName', $managerUName)
+                        ->fetch('agoraportal_user_sendMailToNewManager.tpl');
+
+                // get client's email (a8000001@xtec.cat)
+                $uidClient = UserUtil::getIdFromName($clientCode);
+                $clientVars = UserUtil::getVars($uidClient);
+
+                // Set destination
+                $toUsers = array($clientVars['email'], $managerUName . '@xtec.cat');
+
+                // Send the e-mail (BCC to site e-mail)
+                $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => $clientName,
+                            'toaddress' => $toUsers,
+                            'subject' => __('Gestió dels serveis Àgora'),
+                            'bcc' => System::getVar('adminmail'),
+                            'body' => $mailContent,
+                            'html' => 1));
+
+                if ($sendMail) {
+                    LogUtil::registerStatus($this->__('S\'ha enviat un missatge informatiu'));
+                }
+            }
+
+
+
         }
         if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers', array('clientCode' => $clientCode)));

@@ -53,6 +53,7 @@ function smarty_function_modulelinks($params, Zikula_View $view)
         // check our module name
         if (!ModUtil::available($params['modname'])) {
             $view->trigger_error('modulelinks: '.__f("Error! The '%s' module is not available.", DataUtil::formatForDisplay($params['modname'])));
+
             return false;
         }
 
@@ -71,7 +72,7 @@ function smarty_function_modulelinks($params, Zikula_View $view)
         }
     }
 
-    
+
     $html = '';
 
     if (!empty($menuLinks)) {
@@ -97,7 +98,11 @@ function smarty_function_modulelinks($params, Zikula_View $view)
             $html .= !empty($class) ? ' class="'.$class.'"' : '';
             $html .= '>';
             $attr  = !empty($menuitem['title']) ? ' title="'.$menuitem['title'].'"' : '';
-            $attr .= !empty($menuitem['class']) ? ' class="z-iconlink '.$menuitem['class'].'"' : '';
+            $active = '';
+            if (!empty($menuitem['url']) && System::getBaseUrl().$menuitem['url'] === System::getCurrentUrl()) {
+                $active = ' z-bold';
+            }
+            $attr .= !empty($menuitem['class']) ? ' class="z-iconlink '.$menuitem['class'].$active.'"' : '';
 
             if (isset($menuitem['disabled']) && $menuitem['disabled'] == true) {
                 $html .= '<a '.$attr.'>'.$menuitem['text'].'</a>';
@@ -138,7 +143,7 @@ function _smarty_function_modulelinks($id, $links)
     $html .= '<span id="modcontext' .$id .'" class="z-drop">&nbsp;</span>';
     $html .= "<script type='text/javascript'>
             /* <![CDATA[ */
-                var context_modcontext{$id} = new Control.ContextMenu('modcontext{$id}',{
+                var context_modcontext{$id} = new Zikula.UI.ContextMenu('modcontext{$id}',{
                     leftClick: true,
                     animation: false
                 });";

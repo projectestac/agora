@@ -46,6 +46,15 @@ class auth_plugin_db extends auth_plugin_base {
         $extusername = textlib::convert($username, 'utf-8', $this->config->extencoding);
         $extpassword = textlib::convert($password, 'utf-8', $this->config->extencoding);
 
+        //XTEC ************ AFEGIT - detect if validation comes from file iw_index.php
+        //2012.10.25  @aperez16
+        if (!isset($_REQUEST['parm'])) {
+            $this->config->passtype = 'md5';
+        } else{
+            $this->config->passtype = 'plaintext';
+        }
+        //************ FI 
+        
         if ($this->is_internal()) {
             // lookup username externally, but resolve
             // password locally -- to support backend that
@@ -87,23 +96,13 @@ class auth_plugin_db extends auth_plugin_base {
 
         } else {
             // normal case: use external db for both usernames and passwords
-
             $authdb = $this->db_init();
-
-            //XTEC ************ AFEGIT - detect if validation comes from file iw_index.php
-            //2012.10.25  @aperez16
-            if (!isset($_REQUEST['parm'])) {
-                $this->config->passtype = 'md5';
-            }
-            //************ FI 
-            
 
             if ($this->config->passtype === 'md5') {   // Re-format password accordingly
                 $extpassword = md5($extpassword);
             } else if ($this->config->passtype === 'sha1') {
                 $extpassword = sha1($extpassword);
             }
-
             $rs = $authdb->Execute("SELECT * FROM {$this->config->table}
                                 WHERE {$this->config->fielduser} = '".$this->ext_addslashes($extusername)."'
                                   AND {$this->config->fieldpass} = '".$this->ext_addslashes($extpassword)."' ");
@@ -133,7 +132,7 @@ class auth_plugin_db extends auth_plugin_base {
             global $agora, $school_info;
             if (array_key_exists('id_intranet', $school_info)) {
 //            if (empty($this->config->host) && array_key_exists('id_intranet', $school_info)) {
-                $this->config->type = $agora['intranet']['dbtype'];
+                $this->config->host = $school_info['dbhost_intranet'];
                 $this->config->host = $agora['intranet']['host'];
                 $this->config->user = $agora['intranet']['username'];
                 $this->config->pass = $agora['intranet']['userpwd'];
@@ -141,7 +140,6 @@ class auth_plugin_db extends auth_plugin_base {
                 $this->config->table = 'zk_users';
                 $this->config->fielduser = 'pn_uname';
                 $this->config->fieldpass = 'pn_pass';
-                $this->config->passtype = 'plaintext';
             }
         }
         //************ FI     

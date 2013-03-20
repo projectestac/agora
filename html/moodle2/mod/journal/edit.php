@@ -34,7 +34,7 @@ $data = new StdClass();
 
 $entry = $DB->get_record("journal_entries", array("userid" => $USER->id, "journal" => $journal->id));
 if ($entry) {
-    
+
     $data->text["text"] = $entry->text;
     if (can_use_html_editor()) {
         $data->text["format"] = FORMAT_HTML;
@@ -45,7 +45,7 @@ if ($entry) {
 
 $data->id = $cm->id;
 $form = new mod_journal_entry_form(null, array('current' => $data));
-    
+
 /// If data submitted, then process and store.
 if ($fromform = $form->get_data()) {
 
@@ -56,14 +56,14 @@ if ($fromform = $form->get_data()) {
     $newentry->text = $fromform->text["text"];
     $newentry->format = $fromform->text["format"];
     $newentry->modified = $timenow;
-    
+
     if ($entry) {
         $newentry->id = $entry->id;
         if (!$DB->update_record("journal_entries", $newentry)) {
             print_error("Could not update your journal");
         }
         $logaction = "update entry";
-        
+
     } else {
         $newentry->userid = $USER->id;
         $newentry->journal = $journal->id;
@@ -74,7 +74,7 @@ if ($fromform = $form->get_data()) {
     }
 
     add_to_log($course->id, "journal", $logaction, 'view.php?id='.$cm->id, $newentry->id, $cm->id);
-    
+
     redirect('view.php?id='.$cm->id);
     die;
 }

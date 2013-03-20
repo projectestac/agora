@@ -1,0 +1,28 @@
+{include file="IWstats_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="pn-adminpageicon">
+        {img modname='core' src='configure.png' set='icons/large' __alt='Reset site statistics' }
+    </div>
+    <h2>{gt text="Reset site statistics"}</h2>
+    <form class="z-form" action="{modurl modname='IWstats' type='admin' func='reset'}" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+            <input type="hidden" name="confirmation" value="1" />
+            <div class="z-formrow">
+                <label for="IWstats_deleteFromDays">{gt text="Days to conserve (0 delete all the statistics)"}</label>
+                <input id="IWstats_deleteFromDays" type="text" name="deleteFromDays" size="5" maxlength="5" value="{$deleteFromDays}" />
+            </div>
+            <div class="z-warningmsg">
+                {gt text="After doing this action the data can not be restored."}
+            </div>
+            <div class="z-center">
+                <div class="z-buttons">
+                    {button src='button_ok.png' set='icons/small' __alt="Submit" __title="Submit"}
+                    <a href="{modurl modname='IWstats' type='admin' func='main'}" alt="">
+                        {img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

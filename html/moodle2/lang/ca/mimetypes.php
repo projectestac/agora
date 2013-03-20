@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['application/epub_zip'] = 'Llibre electrònic EPUB';
 $string['application/msword'] = 'Document MS Word';
 $string['application/pdf'] = 'Document PDF';
 $string['application/vnd.moodle.backup'] = 'Còpia de seguretat Moodle';

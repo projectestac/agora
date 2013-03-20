@@ -59,7 +59,7 @@ class StringUtil
 
     /**
      * Translate html input newlines to <br /> sequences.
-     * 
+     *
      * This function is necessary as inputted strings will contain
      * "\n\r" instead of just "\n".
      *
@@ -77,7 +77,7 @@ class StringUtil
 
     /**
      * Tokenize a string according to the given parameters.
-     * 
+     *
      * This function just wraps explode to provide a more java-similar syntax.
      *
      * @param string  $string    The string to tokenize.
@@ -107,7 +107,7 @@ class StringUtil
 
     /**
      * Returns the left x chars of a string.
-     * 
+     *
      * If the string is longer than x, the whole string is returned.
      *
      * @param string  $string The string to operate on.
@@ -121,12 +121,13 @@ class StringUtil
         if ($len > $left) {
             $string = mb_substr($string, 0, $left);
         }
+
         return $string;
     }
 
     /**
      * Returns the right x chars of a string.
-     * 
+     *
      * If the string is longer than x, the whole string is returned.
      *
      * @param string  $string The string to operate on.
@@ -140,12 +141,13 @@ class StringUtil
         if ($len > $right) {
             $string = mb_substr($string, $len - $right, $right);
         }
+
         return $string;
     }
 
     /**
      * Markup text with highlight tags around search phrases.
-     * 
+     *
      * Shorten text appropriate to view in hitlist.
      *
      * @param string  $text        The string to operate on.
@@ -158,7 +160,7 @@ class StringUtil
     {
         // Strip HTML tags and special chars completely
         $text = strip_tags($text);
-        $text = html_entity_decode($text);
+        $text = html_entity_decode($text, null, 'UTF-8');
 
         // Split words into word array
         $words = preg_split('/ /', $wordStr, -1, PREG_SPLIT_NO_EMPTY);
@@ -195,7 +197,7 @@ class StringUtil
                 ++$endPos;
             }
 
-            // Setup section 
+            // Setup section
             $section = mb_strcut($text, $startPos, $endPos - $startPos);
         } else {
             // Text is shorter than $contextSize
@@ -210,15 +212,16 @@ class StringUtil
                 ++$i;
             }
         }
+
         return $section;
     }
 
     /**
      * Camelize string.
-     * 
+     *
      * @param string $string    String to operate on.
      * @param string $separator Seperator.
-     * 
+     *
      * @return string
      */
     public static function camelize($string, $separator = '_')

@@ -203,6 +203,18 @@ function getAllSchools($order = 'school_id', $desc = 'asc', $service='all', $sta
 }
 
 /**
+ * Check if the specified DNS is valid to avoid security problems
+ * @param type $dns
+ * @return type boolean True if specified DNS is correct; false otherwise
+ */
+function isValidDNS($dns){
+    if (strlen($dns)>30 || !preg_match("/^[a-z0-9-]+$/", $dns)) {
+        return false;
+    }
+    return true;
+}
+
+/**
  * Get the information of the specified school
  *
  * @param $dns school dns
@@ -213,10 +225,14 @@ function getAllSchools($order = 'school_id', $desc = 'asc', $service='all', $sta
  */
 function getSchoolDBInfo($dns, $codeletter = false) {
 
-    if (!$con = opendb()) {
+    if (!isValidDNS($dns)){
         return false;
     }
 
+    if (!$con = opendb()) {
+        return false;
+    }
+    
     $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, cs.dbHost, c.typeId, s.serviceName, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
 			WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND cs.state = "1"
@@ -281,29 +297,35 @@ function getSchoolDBInfo($dns, $codeletter = false) {
 function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
     global $agora;
 
+    if (!isValidDNS($dns)){
+        return false;
+    }
+
     // If cookie is present load it and return
     if (isset($_COOKIE[$agora['server']['cookie']])) {
-        $data = explode('--', $_COOKIE[$agora['server']['cookie']]);
-        if ($data[0] == $dns) {
-            $school_info['type'] = $data[1];
-            $school_info['id_moodle'] = $data[2];
-            $school_info['database_moodle'] = $data[3];
-            $school_info['id_intranet'] = $data[4];
-            $school_info['database_intranet'] = $data[5];
-            $school_info['new_dns'] = $data[6];
-            $school_info['diskPercent_moodle'] = $data[7];
-            $school_info['diskPercent_intranet'] = $data[8];
-            $school_info['clientCode'] = $data[9];
-            $school_info['is_marsupial'] = $data[10];
-            $school_info['dbhost_intranet'] = $data[11];
-            $school_info['id_moodle2'] = $data[12];
-            $school_info['database_moodle2'] = $data[13];
-            $school_info['diskPercent_moodle2'] = $data[14];
+        $cookie = $_COOKIE[$agora['server']['cookie']];
+        if (isValidCookie($cookie)) {
+            $data = explode('__', $cookie);
+            if ($data[0] == $dns) {
+                $school_info['clientCode'] = $data[1];
+                $school_info['new_dns'] = $data[2];
+                $school_info['id_moodle'] = $data[3];
+                $school_info['database_moodle'] = $data[4];
+                $school_info['diskPercent_moodle'] = $data[5];
+                $school_info['is_marsupial'] = $data[6];
+                $school_info['id_moodle2'] = $data[7];
+                $school_info['database_moodle2'] = $data[8];
+                $school_info['diskPercent_moodle2'] = $data[9];
+                $school_info['id_intranet'] = $data[10];
+                $school_info['database_intranet'] = $data[11];
+                $school_info['dbhost_intranet'] = $data[12];
+                $school_info['diskPercent_intranet'] = $data[13];
 
-            // Debug info
-            $school_info['source'] = 'Cookie';
+                // Debug info
+                $school_info['source'] = 'Cookie';
 
-            return $school_info;
+                return $school_info;
+            }
         }
     }
 
@@ -323,6 +345,8 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
             if (isset($service)) {
                 if ($service == 'moodle' && !array_key_exists('id_moodle', $school_info)) {
                     $school_info = null;
+                } else if ($service == 'moodle2' && !array_key_exists('id_moodle2', $school_info)) {
+                    $school_info = null;
                 } else if ($service == 'intranet' && !array_key_exists('id_intranet', $school_info)) {
                     $school_info = null;
                 }
@@ -338,28 +362,64 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
     }
 
     // Set cookie only if there is information (a moodle or a zikula)
-    if (isset($school_info) && (!empty($school_info['id_moodle']) || !empty($school_info['id_intranet']))) {
+    if ((isset($school_info)) && 
+        (!empty($school_info['id_moodle']) || !empty($school_info['id_moodle2']) || !empty($school_info['id_intranet']))) {
 
-        $bodycookie = $dns . '--' . (array_key_exists('type', $school_info) ? $school_info['type'] : '')
-                . '--' . (array_key_exists('id_moodle', $school_info) ? $school_info['id_moodle'] : '')
-                . '--' . (array_key_exists('database_moodle', $school_info) ? $school_info['database_moodle'] : '')
-                . '--' . (array_key_exists('id_intranet', $school_info) ? $school_info['id_intranet'] : '')
-                . '--' . (array_key_exists('database_intranet', $school_info) ? $school_info['database_intranet'] : '')
-                . '--' . (isset($school_info['new_dns']) ? $school_info['new_dns'] : '')
-                . '--' . (array_key_exists('diskPercent_moodle', $school_info) ? $school_info['diskPercent_moodle'] : '')
-                . '--' . (array_key_exists('diskPercent_intranet', $school_info) ? $school_info['diskPercent_intranet'] : '')
-                . '--' . (array_key_exists('clientCode', $school_info) ? $school_info['clientCode'] : '')
-                . '--' . (array_key_exists('is_marsupial', $school_info) ? $school_info['is_marsupial'] : '')
-                . '--' . (array_key_exists('dbhost_intranet', $school_info) ? $school_info['dbhost_intranet'] : '')
-                . '--' . (array_key_exists('id_moodle2', $school_info) ? $school_info['id_moodle2'] : '')
-                . '--' . (array_key_exists('database_moodle2', $school_info) ? $school_info['database_moodle2'] : '')
-                . '--' . (array_key_exists('diskPercent_moodle2', $school_info) ? $school_info['diskPercent_moodle2'] : '');
+        $bodycookie = $dns 
+                . '__' . (array_key_exists('clientCode', $school_info) ? $school_info['clientCode'] : '')
+                . '__' . (isset($school_info['new_dns']) ? $school_info['new_dns'] : '')
+                . '__' . (array_key_exists('id_moodle', $school_info) ? $school_info['id_moodle'] : '')
+                . '__' . (array_key_exists('database_moodle', $school_info) ? $school_info['database_moodle'] : '')
+                . '__' . (array_key_exists('diskPercent_moodle', $school_info) ? $school_info['diskPercent_moodle'] : '')
+                . '__' . (array_key_exists('is_marsupial', $school_info) ? $school_info['is_marsupial'] : '')
+                . '__' . (array_key_exists('id_moodle2', $school_info) ? $school_info['id_moodle2'] : '')
+                . '__' . (array_key_exists('database_moodle2', $school_info) ? $school_info['database_moodle2'] : '')
+                . '__' . (array_key_exists('diskPercent_moodle2', $school_info) ? $school_info['diskPercent_moodle2'] : '')
+                . '__' . (array_key_exists('id_intranet', $school_info) ? $school_info['id_intranet'] : '')
+                . '__' . (array_key_exists('database_intranet', $school_info) ? $school_info['database_intranet'] : '')
+                . '__' . (array_key_exists('dbhost_intranet', $school_info) ? $school_info['dbhost_intranet'] : '')
+                . '__' . (array_key_exists('diskPercent_intranet', $school_info) ? $school_info['diskPercent_intranet'] : '');
+
+        // Add hash to the text for the cookie
+        $cookiesalt = $agora['admin']['username'] . substr($agora['admin']['userpwd'], 0, 3);
+        $bodycookie .= '_h_' . md5($bodycookie . $cookiesalt);
 
         setcookie($agora['server']['cookie'], $bodycookie, 0, '/');
     }
 
     return $school_info;
 }
+
+/**
+ * Check if cookie has been modified by user. This is not allowed and might be
+ *  an attempt of unauthorized access.
+ * 
+ * @global type $agora
+ * @param string $cookie
+ * @return boolean 
+ */
+function isValidCookie($cookie) {
+
+    global $agora;
+    
+    // Get cookie information
+    $cookie = explode('_h_', $cookie);
+    $cookiedata = $cookie[0];
+    $cookiehash = $cookie[1];
+
+    // Build hash in server side
+    $cookiesalt = $agora['admin']['username'] . substr($agora['admin']['userpwd'], 0, 3);
+    $cookiedata .= $cookiesalt;
+    $serverhash = md5($cookiedata);
+
+    // Compare cookie hash with server hash
+    if ($serverhash == $cookiehash) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
 /**
  * Prints a message if DEBUG_ENABLED is on
@@ -379,6 +439,10 @@ function getDiskInfo($dns, $service) {
     if (!$con = opendb())
         return false;
 
+    if (!isValidDNS($dns)){
+        return false;
+    }
+    
     $sql = 'SELECT s.serviceName, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
 			WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND cs.state = "1"

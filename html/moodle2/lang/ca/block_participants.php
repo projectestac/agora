@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['participants:addinstance'] = 'Afegir un bloc nou de participants';
 $string['pluginname'] = 'Persones';

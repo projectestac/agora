@@ -473,6 +473,7 @@ class FilterUtil extends FilterUtil_AbstractBase
             $obj['value'] = DataUtil::formatForStore($obj['value']);
             $res = $this->_plugin->getSQL($obj['field'], $obj['op'], $obj['value']);
             $res['join'] = & $this->join;
+
             return $res;
         } else {
             $where = '';
@@ -544,6 +545,7 @@ class FilterUtil extends FilterUtil_AbstractBase
         if (isset($obj['field']) && !empty($obj['field'])) {
             $obj['value'] = DataUtil::formatForStore($obj['value']);
             $res = $this->_plugin->getDql($obj['field'], $obj['op'], $obj['value']);
+
             return $res;
         } else {
             $where = '';
@@ -570,7 +572,10 @@ class FilterUtil extends FilterUtil_AbstractBase
             }
         }
 
-        return array('where' => $where, 'params' => $params);
+        return array(
+            'where'  => (empty($where) ? '' : "($where)"),
+            'params' => $params
+        );
     }
 
     /**
@@ -588,7 +593,7 @@ class FilterUtil extends FilterUtil_AbstractBase
         $result = $this->_genDqlRecursive($object);
 
         if (is_array($result) && !empty($result['where'])) {
-            $query->AndWhere($result['where'], $result['params']);
+            $query->andWhere(substr($result['where'], 1, -1), $result['params']);
             $this->_dql = $result;
         }
     }
