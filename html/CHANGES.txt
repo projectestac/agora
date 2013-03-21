@@ -11,6 +11,8 @@ PORTAL
 
 MOODLE2
 - Fixed bug in db authentication related with Intraweb users integration
+- Upgraded Moodle 2.4.0 to 2.4.3
+- Fixed size of input files of login block
 
 ZIKULA
 - Fixed call to stats summarize function in iwcron.php
