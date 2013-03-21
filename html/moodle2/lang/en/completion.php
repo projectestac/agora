@@ -53,9 +53,9 @@ $string['completionexpected_help']='This setting specifies the date when the act
 $string['completionicons'] = 'Completion tick boxes';
 $string['completionicons_help'] = 'A tick next an activity name may be used to indicate when the activity is complete.
 
-If a dotted tick is shown, you can click it to tick the box when you think you have completed the activity. (Clicking it again removes the tick if you change your mind.) The tick is optional and is simply a way of tracking your progress through the course.
+If a box with a dotted border is shown, a tick will appear automatically when you have completed the activity according to conditions set by the teacher.
 
-If a blank tick box is shown, a tick will appear automatically when you have completed the activity according to conditions set by the teacher.';
+If a box with a solid border is shown, you can click it to tick the box when you think you have completed the activity. (Clicking it again removes the tick if you change your mind.) The tick is optional and is simply a way of tracking your progress through the course.';
 $string['completion_manual'] = 'Students can manually mark the activity as completed';
 $string['completion_none'] = 'Do not indicate activity completion';
 $string['completion-title-manual-n'] = 'Mark as complete: {$a}';
@@ -135,9 +135,10 @@ $string['markcomplete']='Mark complete';
 $string['markedcompleteby']='Marked complete by {$a}';
 $string['markingyourselfcomplete']='Marking yourself complete';
 $string['moredetails']='More details';
-$string['notcompleted'] = 'Not completed';
 $string['nocriteriaset']='No completion criteria set for this course';
+$string['notcompleted'] = 'Not completed';
 $string['notenroled']='You are not enrolled in this course';
+$string['nottracked']='You are currently not being tracked by completion in this course';
 $string['notyetstarted']='Not yet started';
 $string['overallcriteriaaggregation']='Overall criteria type aggregation';
 $string['pending']='Pending';

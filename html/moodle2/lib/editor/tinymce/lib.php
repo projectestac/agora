@@ -95,12 +95,12 @@ class tinymce_texteditor extends texteditor {
      * @param null $fpoptions
      */
     public function use_editor($elementid, array $options=null, $fpoptions=null) {
-        global $PAGE;
-        // Note: use full moodle_url instance to prevent standard JS loader.
+        global $PAGE, $CFG;
+        // Note: use full moodle_url instance to prevent standard JS loader, make sure we are using https on profile page if required.
         if (debugging('', DEBUG_DEVELOPER)) {
-            $PAGE->requires->js(new moodle_url('/lib/editor/tinymce/tiny_mce/'.$this->version.'/tiny_mce_src.js'));
+            $PAGE->requires->js(new moodle_url($CFG->httpswwwroot.'/lib/editor/tinymce/tiny_mce/'.$this->version.'/tiny_mce_src.js'));
         } else {
-            $PAGE->requires->js(new moodle_url('/lib/editor/tinymce/tiny_mce/'.$this->version.'/tiny_mce.js'));
+            $PAGE->requires->js(new moodle_url($CFG->httpswwwroot.'/lib/editor/tinymce/tiny_mce/'.$this->version.'/tiny_mce.js'));
         }
         $PAGE->requires->js_init_call('M.editor_tinymce.init_editor', array($elementid, $this->get_init_params($elementid, $options)), true);
         if ($fpoptions) {
@@ -194,6 +194,16 @@ class tinymce_texteditor extends texteditor {
             $params['theme_advanced_buttons1'] = '';
         }
 
+        if (!empty($config->customconfig)) {
+            $config->customconfig = trim($config->customconfig);
+            $decoded = json_decode($config->customconfig, true);
+            if (is_array($decoded)) {
+                foreach ($decoded as $k=>$v) {
+                    $params[$k] = $v;
+                }
+            }
+        }
+
         if (!empty($options['legacy']) or !empty($options['noclean']) or !empty($options['trusted'])) {
             // now deal somehow with non-standard tags, people scream when we do not make moodle code xtml strict,
             // but they scream even more when we strip all tags that are not strict :-(
@@ -208,7 +218,7 @@ class tinymce_texteditor extends texteditor {
         if (!empty($options['required'])) {
             $params['init_instance_callback'] = 'M.editor_tinymce.onblur_event';
         }
-        
+
         // Allow plugins to adjust parameters.
         editor_tinymce_plugin::all_update_init_params($params, $context, $options);
 

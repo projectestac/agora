@@ -297,22 +297,71 @@ class courselib_testcase extends advanced_testcase {
     }
 
     public function test_move_module_in_course() {
+        global $DB;
+
         $this->resetAfterTest(true);
         // Setup fixture
-        $course = $this->getDataGenerator()->create_course(array('numsections'=>5));
+        $course = $this->getDataGenerator()->create_course(array('numsections'=>5), array('createsections' => true));
         $forum = $this->getDataGenerator()->create_module('forum', array('course'=>$course->id));
 
         $cms = get_fast_modinfo($course)->get_cms();
         $cm = reset($cms);
 
-        course_create_sections_if_missing($course, 3);
-        $section3 = get_fast_modinfo($course)->get_section_info(3);
+        $newsection = get_fast_modinfo($course)->get_section_info(3);
+        $oldsectionid = $cm->section;
 
-        moveto_module($cm, $section3);
+        // Perform the move
+        moveto_module($cm, $newsection);
 
+        // reset of get_fast_modinfo is usually called the code calling moveto_module so call it here
+        get_fast_modinfo(0, 0, true);
+        $cms = get_fast_modinfo($course)->get_cms();
+        $cm = reset($cms);
+
+        // Check that the cached modinfo contains the correct section info
         $modinfo = get_fast_modinfo($course);
         $this->assertTrue(empty($modinfo->sections[0]));
         $this->assertFalse(empty($modinfo->sections[3]));
+
+        // Check that the old section's sequence no longer contains this ID
+        $oldsection = $DB->get_record('course_sections', array('id' => $oldsectionid));
+        $oldsequences = explode(',', $newsection->sequence);
+        $this->assertFalse(in_array($cm->id, $oldsequences));
+
+        // Check that the new section's sequence now contains this ID
+        $newsection = $DB->get_record('course_sections', array('id' => $newsection->id));
+        $newsequences = explode(',', $newsection->sequence);
+        $this->assertTrue(in_array($cm->id, $newsequences));
+
+        // Check that the section number has been changed in the cm
+        $this->assertEquals($newsection->id, $cm->section);
+
+
+        // Perform a second move as some issues were only seen on the second move
+        $newsection = get_fast_modinfo($course)->get_section_info(2);
+        $oldsectionid = $cm->section;
+        $result = moveto_module($cm, $newsection);
+        $this->assertTrue($result);
+
+        // reset of get_fast_modinfo is usually called the code calling moveto_module so call it here
+        get_fast_modinfo(0, 0, true);
+        $cms = get_fast_modinfo($course)->get_cms();
+        $cm = reset($cms);
+
+        // Check that the cached modinfo contains the correct section info
+        $modinfo = get_fast_modinfo($course);
+        $this->assertTrue(empty($modinfo->sections[0]));
+        $this->assertFalse(empty($modinfo->sections[2]));
+
+        // Check that the old section's sequence no longer contains this ID
+        $oldsection = $DB->get_record('course_sections', array('id' => $oldsectionid));
+        $oldsequences = explode(',', $newsection->sequence);
+        $this->assertFalse(in_array($cm->id, $oldsequences));
+
+        // Check that the new section's sequence now contains this ID
+        $newsection = $DB->get_record('course_sections', array('id' => $newsection->id));
+        $newsequences = explode(',', $newsection->sequence);
+        $this->assertTrue(in_array($cm->id, $newsequences));
     }
 
     public function test_module_visibility() {
@@ -435,4 +484,55 @@ class courselib_testcase extends advanced_testcase {
         }
     }
 
+    public function test_course_page_type_list() {
+        global $DB;
+        $this->resetAfterTest(true);
+
+        // Create a category.
+        $category = new stdClass();
+        $category->name = 'Test Category';
+
+        $testcategory = $this->getDataGenerator()->create_category($category);
+
+        // Create a course.
+        $course = new stdClass();
+        $course->fullname = 'Apu loves Unit Təsts';
+        $course->shortname = 'Spread the lŭve';
+        $course->idnumber = '123';
+        $course->summary = 'Awesome!';
+        $course->summaryformat = FORMAT_PLAIN;
+        $course->format = 'topics';
+        $course->newsitems = 0;
+        $course->numsections = 5;
+        $course->category = $testcategory->id;
+
+        $testcourse = $this->getDataGenerator()->create_course($course);
+
+        // Create contexts.
+        $coursecontext = context_course::instance($testcourse->id);
+        $parentcontext = $coursecontext->get_parent_context(); // Not actually used.
+        $pagetype = 'page-course-x'; // Not used either.
+        $pagetypelist = course_page_type_list($pagetype, $parentcontext, $coursecontext);
+
+        // Page type lists for normal courses.
+        $testpagetypelist1 = array();
+        $testpagetypelist1['*'] = 'Any page';
+        $testpagetypelist1['course-*'] = 'Any course page';
+        $testpagetypelist1['course-view-*'] = 'Any type of course main page';
+
+        $this->assertEquals($testpagetypelist1, $pagetypelist);
+
+        // Get the context for the front page course.
+        $sitecoursecontext = context_course::instance(SITEID);
+        $pagetypelist = course_page_type_list($pagetype, $parentcontext, $sitecoursecontext);
+
+        // Page type list for the front page course.
+        $testpagetypelist2 = array('*' => 'Any page');
+        $this->assertEquals($testpagetypelist2, $pagetypelist);
+
+        // Make sure that providing no current context to the function doesn't result in an error.
+        // Calls made from generate_page_type_patterns() may provide null values.
+        $pagetypelist = course_page_type_list($pagetype, null, null);
+        $this->assertEquals($pagetypelist, $testpagetypelist1);
+    }
 }

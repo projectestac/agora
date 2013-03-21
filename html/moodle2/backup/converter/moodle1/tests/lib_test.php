@@ -266,13 +266,15 @@ class moodle1_converter_testcase extends advanced_testcase {
         $fileids = $fileman->get_fileids();
         $this->assertEquals(gettype($fileids), 'array');
         $this->assertEquals(0, count($fileids));
-        // try to migrate a non-existing directory
-        $returned = $fileman->migrate_directory('not/existing/directory');
-        $this->assertEquals(gettype($returned), 'array');
-        $this->assertEquals(0, count($returned));
-        $fileids = $fileman->get_fileids();
-        $this->assertEquals(gettype($fileids), 'array');
-        $this->assertEquals(0, count($fileids));
+        // try to migrate an invalid file
+        $fileman->itemid = 1;
+        $thrown = false;
+        try {
+            $fileman->migrate_file('/../../../../../../../../../../../../../../etc/passwd');
+        } catch (moodle1_convert_exception $e) {
+            $thrown = true;
+        }
+        $this->assertTrue($thrown);
         // migrate a single file
         $fileman->itemid = 4;
         $fileman->migrate_file('moddata/unittest/4/icon.gif');
@@ -302,6 +304,72 @@ class moodle1_converter_testcase extends advanced_testcase {
         $this->assertTrue(count($fileman->get_fileids()) > 0);
         $fileman->reset_fileids();
         $this->assertTrue(count($fileman->get_fileids()) == 0);
+        $converter->drop_stash_storage();
+    }
+
+    public function test_migrate_directory() {
+        $this->resetAfterTest(true);
+
+        // Set-up the file manager.
+        $converter = convert_factory::get_converter('moodle1', $this->tempdir);
+        $converter->create_stash_storage();
+        $contextid = $converter->get_contextid(CONTEXT_MODULE, 32);
+        $fileman   = $converter->get_file_manager($contextid, 'mod_unittest', 'testarea');
+        // This fileman has not converted anything yet.
+        $fileids = $fileman->get_fileids();
+        $this->assertEquals(gettype($fileids), 'array');
+        $this->assertEquals(0, count($fileids));
+        // Try to migrate a non-existing directory.
+        $returned = $fileman->migrate_directory('not/existing/directory');
+        $this->assertEquals(gettype($returned), 'array');
+        $this->assertEquals(0, count($returned));
+        $fileids = $fileman->get_fileids();
+        $this->assertEquals(gettype($fileids), 'array');
+        $this->assertEquals(0, count($fileids));
+        // Try to migrate whole course_files.
+        $returned = $fileman->migrate_directory('course_files');
+        $this->assertEquals(gettype($returned), 'array');
+        $this->assertEquals(4, count($returned)); // Two files, two directories.
+        $fileids = $fileman->get_fileids();
+        $this->assertEquals(gettype($fileids), 'array');
+        $this->assertEquals(4, count($fileids));
+        $subdir = substr($this->iconhash, 0, 2);
+        $this->assertTrue(is_file($converter->get_workdir_path().'/files/'.$subdir.'/'.$this->iconhash));
+
+        // Check the file records.
+        $files = array();
+        $filerecordids = $converter->get_stash_itemids('files');
+        foreach ($filerecordids as $filerecordid) {
+            $filerecord = $converter->get_stash('files', $filerecordid);
+            $files[$filerecord['filepath'].$filerecord['filename']] = $filerecord;
+        }
+        $this->assertEquals('array', gettype($files['/.']));
+        $this->assertEquals('array', gettype($files['/file1.gif']));
+        $this->assertEquals('array', gettype($files['/sub1/.']));
+        $this->assertEquals('array', gettype($files['/sub1/file2.gif']));
+        $this->assertEquals(sha1(''), $files['/.']['contenthash']);
+        $this->assertEquals(sha1(''), $files['/sub1/.']['contenthash']);
+        $this->assertEquals($this->iconhash, $files['/file1.gif']['contenthash']);
+        $this->assertEquals($this->iconhash, $files['/sub1/file2.gif']['contenthash']);
+
+        $converter->drop_stash_storage();
+    }
+
+    public function test_migrate_directory_with_trailing_slash() {
+        $this->resetAfterTest(true);
+
+        // Set-up the file manager.
+        $converter = convert_factory::get_converter('moodle1', $this->tempdir);
+        $converter->create_stash_storage();
+        $contextid = $converter->get_contextid(CONTEXT_MODULE, 32);
+        $fileman   = $converter->get_file_manager($contextid, 'mod_unittest', 'testarea');
+        // Try to migrate a subdirectory passed with the trailing slash.
+        $returned = $fileman->migrate_directory('course_files/sub1/');
+        // Debugging message must be thrown in this case.
+        $this->assertDebuggingCalled(null, DEBUG_DEVELOPER);
+        $this->assertEquals(gettype($returned), 'array');
+        $this->assertEquals(2, count($returned)); // One file, one directory.
+
         $converter->drop_stash_storage();
     }
 
@@ -435,6 +503,8 @@ class moodle1_converter_testcase extends advanced_testcase {
 
         $text = 'This is a text containing links to file.php
 as it is parsed from the backup file. <br /><br /><img border="0" width="110" vspace="0" hspace="0" height="92" title="News" alt="News" src="$@FILEPHP@$$@SLASH@$pics$@SLASH@$news.gif" /><a href="$@FILEPHP@$$@SLASH@$pics$@SLASH@$news.gif$@FORCEDOWNLOAD@$">download image</a><br />
+    <div><a href=\'$@FILEPHP@$/../../../../../../../../../../../../../../../etc/passwd\'>download passwords</a></div>
+    <div><a href=\'$@FILEPHP@$$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$etc$@SLASH@$shadow\'>download shadows</a></div>
     <br /><a href=\'$@FILEPHP@$$@SLASH@$MANUAL.DOC$@FORCEDOWNLOAD@$\'>download manual</a><br />';
 
         $files = moodle1_converter::find_referenced_files($text);
@@ -446,6 +516,8 @@ as it is parsed from the backup file. <br /><br /><img border="0" width="110" vs
         $text = moodle1_converter::rewrite_filephp_usage($text, array('/pics/news.gif', '/another/file/notused.txt'));
         $this->assertEquals($text, 'This is a text containing links to file.php
 as it is parsed from the backup file. <br /><br /><img border="0" width="110" vspace="0" hspace="0" height="92" title="News" alt="News" src="@@PLUGINFILE@@/pics/news.gif" /><a href="@@PLUGINFILE@@/pics/news.gif?forcedownload=1">download image</a><br />
+    <div><a href=\'$@FILEPHP@$/../../../../../../../../../../../../../../../etc/passwd\'>download passwords</a></div>
+    <div><a href=\'$@FILEPHP@$$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$..$@SLASH@$etc$@SLASH@$shadow\'>download shadows</a></div>
     <br /><a href=\'$@FILEPHP@$$@SLASH@$MANUAL.DOC$@FORCEDOWNLOAD@$\'>download manual</a><br />');
     }
 

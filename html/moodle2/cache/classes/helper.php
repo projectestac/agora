@@ -55,6 +55,13 @@ class cache_helper {
     protected static $instance;
 
     /**
+     * The site identifier used by the cache.
+     * Set the first time get_site_identifier is called.
+     * @var string
+     */
+    protected static $siteidentifier = null;
+
+    /**
      * Returns true if the cache API can be initialised before Moodle has finished initialising itself.
      *
      * This check is essential when trying to cache the likes of configuration information. It checks to make sure that the cache
@@ -305,15 +312,18 @@ class cache_helper {
         foreach ($instance->get_definitions() as $name => $definitionarr) {
             $definition = cache_definition::load($name, $definitionarr);
             if ($definition->invalidates_on_event($event)) {
-                // Create the cache.
-                $cache = $factory->create_cache($definition);
-                // Initialise, in case of a store.
-                if ($cache instanceof cache_store) {
-                    $cache->initialise($definition);
+                // Check if this definition would result in a persistent loader being in use.
+                if ($definition->should_be_persistent()) {
+                    // There may be a persistent cache loader. Lets purge that first so that any persistent data is removed.
+                    $cache = $factory->create_cache_from_definition($definition->get_component(), $definition->get_area());
+                    $cache->purge();
                 }
-                // Purge the cache.
-                $cache->purge();
-
+                // Get all of the store instances that are in use for this store.
+                $stores = $factory->get_store_instances_in_use($definition);
+                foreach ($stores as $store) {
+                    // Purge each store individually.
+                    $store->purge();
+                }
                 // We need to flag the event in the "Event invalidation" cache if it hasn't already happened.
                 if ($invalidationeventset === false) {
                     // Get the event invalidation cache.
@@ -489,11 +499,73 @@ class cache_helper {
      */
     public static function update_definitions($coreonly = false) {
         global $CFG;
-        // Include locallib
+        // Include locallib.
         require_once($CFG->dirroot.'/cache/locallib.php');
-        // First update definitions
+        // First update definitions.
         cache_config_writer::update_definitions($coreonly);
         // Second reset anything we have already initialised to ensure we're all up to date.
         cache_factory::reset();
+    }
+
+    /**
+     * Update the site identifier stored by the cache API.
+     *
+     * @param string $siteidentifier
+     * @return string The new site identifier.
+     */
+    public static function update_site_identifier($siteidentifier) {
+        global $CFG;
+        // Include locallib.
+        require_once($CFG->dirroot.'/cache/locallib.php');
+        $factory = cache_factory::instance();
+        $factory->updating_started();
+        $config = $factory->create_config_instance(true);
+        $siteidentifier = $config->update_site_identifier($siteidentifier);
+        $factory->updating_finished();
+        cache_factory::reset();
+        return $siteidentifier;
+    }
+
+    /**
+     * Returns the site identifier.
+     *
+     * @return string
+     */
+    public static function get_site_identifier() {
+        global $CFG;
+        if (!is_null(self::$siteidentifier)) {
+            return self::$siteidentifier;
+        }
+        // If site identifier hasn't been collected yet attempt to get it from the cache config.
+        $factory = cache_factory::instance();
+        // If the factory is initialising then we don't want to try to get it from the config or we risk
+        // causing the cache to enter an infinite initialisation loop.
+        if (!$factory->is_initialising()) {
+            $config = $factory->create_config_instance();
+            self::$siteidentifier = $config->get_site_identifier();
+        }
+        if (is_null(self::$siteidentifier)) {
+            // If the site identifier is still null then config isn't aware of it yet.
+            // We'll see if the CFG is loaded, and if not we will just use unknown.
+            // It's very important here that we don't use get_config. We don't want an endless cache loop!
+            if (isset($CFG->siteidentifier)) {
+                self::$siteidentifier = self::update_site_identifier($CFG->siteidentifier);
+            } else {
+                // It's not being recorded in MUC's config and the config data hasn't been loaded yet.
+                // Likely we are initialising.
+                return 'unknown';
+            }
+        }
+        return self::$siteidentifier;
+    }
+
+    /**
+     * Returns the site version.
+     *
+     * @return string
+     */
+    public static function get_site_version() {
+        global $CFG;
+        return (string)$CFG->version;
     }
 }

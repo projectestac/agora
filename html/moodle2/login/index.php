@@ -204,7 +204,10 @@ if ($frm and isset($frm->username)) {                             // Login WITH 
             // no wantsurl stored or external - go to homepage
             $urltogo = $CFG->wwwroot.'/';
             unset($SESSION->wantsurl);
+        }
 
+        // If the url to go to is the same as the site page, check for default homepage.
+        if ($urltogo == ($CFG->wwwroot . '/')) {
             $home_page = get_home_page();
             // Go to my-moodle page instead of site homepage if defaulthomepage set to homepage_my
             if ($home_page == HOMEPAGE_MY && !is_siteadmin() && !isguestuser()) {
@@ -345,7 +348,9 @@ if (isloggedin() and !isguestuser()) {
     echo $OUTPUT->box_end();
 } else {
     include("index_form.html");
-    if (!empty($CFG->loginpageautofocus)) {
+    if ($errormsg) {
+        $PAGE->requires->js_init_call('M.util.focus_login_error', null, true);
+    } else if (!empty($CFG->loginpageautofocus)) {
         //focus username or password
         $PAGE->requires->js_init_call('M.util.focus_login_form', null, true);
     }

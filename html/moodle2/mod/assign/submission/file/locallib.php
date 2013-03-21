@@ -87,10 +87,13 @@ class assign_submission_file extends assign_submission_plugin {
         $mform->disabledIf('assignsubmission_file_maxfiles', 'assignsubmission_file_enabled', 'eq', 0);
 
         $choices = get_max_upload_sizes($CFG->maxbytes, $COURSE->maxbytes, get_config('assignsubmission_file', 'maxbytes'));
+
+        // Remove the option for 0 bytes.
+        unset($choices[0]);
         if ($COURSE->maxbytes == 0) {
-            $choices[0] = get_string('siteuploadlimit', 'assignsubmission_file');
+            $choices = array(0=>get_string('siteuploadlimit', 'assignsubmission_file')) + $choices;
         } else {
-            $choices[0] = get_string('courseuploadlimit') . ' (' . display_size($COURSE->maxbytes) . ')';
+            $choices = array(0=>get_string('courseuploadlimit') . ' (' . display_size($COURSE->maxbytes) . ')') + $choices;
         }
         $settings[] = array('type' => 'select',
                             'name' => 'maxsubmissionsizebytes',
@@ -147,9 +150,10 @@ class assign_submission_file extends assign_submission_plugin {
         $fileoptions = $this->get_file_options();
         $submissionid = $submission ? $submission->id : 0;
 
-
         $data = file_prepare_standard_filemanager($data, 'files', $fileoptions, $this->assignment->get_context(), 'assignsubmission_file', ASSIGNSUBMISSION_FILE_FILEAREA, $submissionid);
-        $mform->addElement('filemanager', 'files_filemanager', '', null, $fileoptions);
+        $mform->addElement('filemanager', 'files_filemanager', html_writer::tag('span', $this->get_name(),
+            array('class' => 'accesshide')), null, $fileoptions);
+
         return true;
     }
 
@@ -225,7 +229,7 @@ class assign_submission_file extends assign_submission_plugin {
      * @param stdClass $submission The submission
      * @return array - return an array of files indexed by filename
      */
-    public function get_files(stdClass $submission) {
+    public function get_files(stdClass $submission, stdClass $user) {
         $result = array();
         $fs = get_file_storage();
 
@@ -298,14 +302,31 @@ class assign_submission_file extends assign_submission_plugin {
      * @return bool Was it a success? (false will trigger rollback)
      */
     public function upgrade_settings(context $oldcontext,stdClass $oldassignment, & $log) {
+        global $DB;
+
         if ($oldassignment->assignmenttype == 'uploadsingle') {
             $this->set_config('maxfilesubmissions', 1);
             $this->set_config('maxsubmissionsizebytes', $oldassignment->maxbytes);
             return true;
-        }else {
-
+        } else if ($oldassignment->assignmenttype == 'upload') {
             $this->set_config('maxfilesubmissions', $oldassignment->var1);
             $this->set_config('maxsubmissionsizebytes', $oldassignment->maxbytes);
+
+            // Advanced file upload uses a different setting to do the same thing.
+            $DB->set_field('assign',
+                           'submissiondrafts',
+                           $oldassignment->var4,
+                           array('id'=>$this->assignment->get_instance()->id));
+
+            // Convert advanced file upload "hide description before due date" setting.
+            $alwaysshow = 0;
+            if (!$oldassignment->var3) {
+                $alwaysshow = 1;
+            }
+            $DB->set_field('assign',
+                           'alwaysshowdescription',
+                           $alwaysshow,
+                           array('id'=>$this->assignment->get_instance()->id));
             return true;
         }
 

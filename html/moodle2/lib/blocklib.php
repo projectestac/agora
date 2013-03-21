@@ -1031,29 +1031,34 @@ class block_manager {
         if ($this->page->user_can_edit_blocks()) {
             // Move icon.
             $controls[] = array('url' => $actionurl . '&bui_moveid=' . $block->instance->id,
-                    'icon' => 't/move', 'caption' => get_string('move'), 'class' => 'editing_move');
+                    'icon' => 't/move', 'caption' => get_string('moveblock', 'block', $block->title),
+                    'class' => 'editing_move');
         }
 
         if ($this->page->user_can_edit_blocks() || $block->user_can_edit()) {
             // Edit config icon - always show - needed for positioning UI.
             $controls[] = array('url' => $actionurl . '&bui_editid=' . $block->instance->id,
-                    'icon' => 't/edit', 'caption' => get_string('configuration'), 'class' => 'editing_edit');
+                    'icon' => 't/edit', 'caption' => get_string('configureblock', 'block', $block->title),
+                    'class' => 'editing_edit');
         }
 
         if ($this->user_can_delete_block($block)) {
             // Delete icon.
             $controls[] = array('url' => $actionurl . '&bui_deleteid=' . $block->instance->id,
-                    'icon' => 't/delete', 'caption' => get_string('delete'), 'class' => 'editing_delete');
+                    'icon' => 't/delete', 'caption' => get_string('deleteblock', 'block', $block->title),
+                    'class' => 'editing_delete');
         }
 
         if ($this->page->user_can_edit_blocks() && $block->instance_can_be_hidden()) {
             // Show/hide icon.
             if ($block->instance->visible) {
                 $controls[] = array('url' => $actionurl . '&bui_hideid=' . $block->instance->id,
-                        'icon' => 't/hide', 'caption' => get_string('hide'), 'class' => 'editing_hide');
+                        'icon' => 't/hide', 'caption' => get_string('hideblock', 'block', $block->title),
+                        'class' => 'editing_hide');
             } else {
                 $controls[] = array('url' => $actionurl . '&bui_showid=' . $block->instance->id,
-                        'icon' => 't/show', 'caption' => get_string('show'), 'class' => 'editing_show');
+                        'icon' => 't/show', 'caption' => get_string('showblock', 'block', $block->title),
+                        'class' => 'editing_show');
             }
         }
 
@@ -1067,7 +1072,8 @@ class block_manager {
 
             $controls[] = array('url' => $CFG->wwwroot . '/' . $CFG->admin .
                     '/roles/assign.php?contextid=' . $block->context->id . '&returnurl=' . urlencode($return),
-                    'icon' => 't/assignroles', 'caption' => get_string('assignroles', 'role'), 'class' => 'editing_roles');
+                    'icon' => 't/assignroles', 'caption' => get_string('assignrolesinblock', 'block', $block->title),
+                    'class' => 'editing_roles');
         }
 
         return $controls;
@@ -1169,6 +1175,27 @@ class block_manager {
             $blocktitle = $block->get_title();
             $strdeletecheck = get_string('deletecheck', 'block', $blocktitle);
             $message = get_string('deleteblockcheck', 'block', $blocktitle);
+
+            // If the block is being shown in sub contexts display a warning.
+            if ($block->instance->showinsubcontexts == 1) {
+                $parentcontext = context::instance_by_id($block->instance->parentcontextid);
+                $systemcontext = context_system::instance();
+                $messagestring = new stdClass();
+                $messagestring->location = $parentcontext->get_context_name();
+
+                // Checking for blocks that may have visibility on the front page and pages added on that.
+                if ($parentcontext->id != $systemcontext->id && is_inside_frontpage($parentcontext)) {
+                    $messagestring->pagetype = get_string('showonfrontpageandsubs', 'block');
+                } else {
+                    $pagetypes = generate_page_type_patterns($this->page->pagetype, $parentcontext);
+                    $messagestring->pagetype = $block->instance->pagetypepattern;
+                    if (isset($pagetypes[$block->instance->pagetypepattern])) {
+                        $messagestring->pagetype = $pagetypes[$block->instance->pagetypepattern];
+                    }
+                }
+
+                $message = get_string('deleteblockwarning', 'block', $messagestring);
+            }
 
             $PAGE->navbar->add($strdeletecheck);
             $PAGE->set_title($blocktitle . ': ' . $strdeletecheck);
@@ -1285,7 +1312,10 @@ class block_manager {
         } else if ($data = $mform->get_data()) {
             $bi = new stdClass;
             $bi->id = $block->instance->id;
+
+            // This may get overwritten by the special case handling below.
             $bi->pagetypepattern = $data->bui_pagetypepattern;
+            $bi->showinsubcontexts = (bool) $data->bui_contexts;
             if (empty($data->bui_subpagepattern) || $data->bui_subpagepattern == '%@NULL@%') {
                 $bi->subpagepattern = null;
             } else {
@@ -1848,6 +1878,7 @@ function block_add_block_ui($page, $output) {
 
     $actionurl = new moodle_url($page->url, array('sesskey'=>sesskey()));
     $select = new single_select($actionurl, 'bui_addblock', $menu, null, array(''=>get_string('adddots')), 'add_block');
+    $select->set_label(get_string('addblock'), array('class'=>'accesshide'));
     $bc->content = $OUTPUT->render($select);
     return $bc;
 }

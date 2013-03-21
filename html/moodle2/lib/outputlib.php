@@ -364,6 +364,9 @@ class theme_config {
         } else if ($themename == theme_config::DEFAULT_THEME) {
             throw new coding_exception('Default theme '.theme_config::DEFAULT_THEME.' not available or broken!');
 
+        } else if ($config = theme_config::find_theme_config($CFG->theme, $settings)) {
+            return new theme_config($config);
+
         } else {
             // bad luck, the requested theme has some problems - admin see details in theme config
             return new theme_config(theme_config::find_theme_config(theme_config::DEFAULT_THEME, $settings));
@@ -820,10 +823,12 @@ class theme_config {
     protected function css_files_get_contents($file, array $keys, css_optimiser $optimiser = null) {
         global $CFG;
         if (is_array($file)) {
+            // We use a separate array to keep everything in the exact same order.
+            $return = array();
             foreach ($file as $key=>$f) {
-                $file[$key] = $this->css_files_get_contents($f, array_merge($keys, array($key)), $optimiser);
+                $return[clean_param($key, PARAM_SAFEDIR)] = $this->css_files_get_contents($f, array_merge($keys, array($key)), $optimiser);
             }
-            return $file;
+            return $return;
         } else {
             $contents = file_get_contents($file);
             $contents = $this->post_process($contents);
@@ -911,7 +916,6 @@ class theme_config {
                 }
             }
         }
-
         return $js;
     }
 

@@ -141,8 +141,8 @@ class assign_feedback_file extends assign_feedback_plugin {
                                                   'assignfeedback_file',
                                                   ASSIGNFEEDBACK_FILE_FILEAREA,
                                                   $gradeid);
-
-        $mform->addElement('filemanager', $elementname . '_filemanager', '', null, $fileoptions);
+        $mform->addElement('filemanager', $elementname . '_filemanager', html_writer::tag('span', $this->get_name(),
+            array('class' => 'accesshide')), null, $fileoptions);
 
         return true;
     }
@@ -403,6 +403,7 @@ class assign_feedback_file extends assign_feedback_plugin {
             // Now copy each of these files to the users feedback file area.
             foreach ($users as $userid) {
                 $grade = $this->assignment->get_user_grade($userid, true);
+                $this->assignment->notify_grade_modified($grade);
 
                 $this->copy_area_files($fs,
                                        $this->assignment->get_context()->id,

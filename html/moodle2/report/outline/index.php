@@ -42,7 +42,7 @@ add_to_log($course->id, 'course', 'report outline', "report/outline/index.php?id
 $showlastaccess = true;
 $hiddenfields = explode(',', $CFG->hiddenuserfields);
 
-if (array_search('lastaccess', $hiddenfields) and !has_capability('moodle/user:viewhiddendetails', $context)) {
+if (array_search('lastaccess', $hiddenfields) !== false and !has_capability('moodle/user:viewhiddendetails', $context)) {
     $showlastaccess = false;
 }
 
@@ -147,7 +147,8 @@ foreach ($modinfo->sections as $sectionnum=>$section) {
             $blogcell = new html_table_cell();
             $blogcell->attributes['class'] = 'blog';
             if ($blogcount = blog_get_associated_count($course->id, $cm->id)) {
-                $blogcell->text = html_writer::link('/blog/index.php?modid='.$cm->id, $blogcount);
+                $blogurl = new moodle_url('/blog/index.php', array('modid' => $cm->id));
+                $blogcell->text = html_writer::link($blogurl, $blogcount);
             } else {
                 $blogcell->text = '-';
             }

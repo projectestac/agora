@@ -116,7 +116,11 @@ define('PARAM_BOOL',     'bool');
 define('PARAM_CAPABILITY',   'capability');
 
 /**
- * PARAM_CLEANHTML - cleans submitted HTML code. use only for text in HTML format. This cleaning may fix xhtml strictness too.
+ * PARAM_CLEANHTML - cleans submitted HTML code. Note that you almost never want
+ * to use this. The normal mode of operation is to use PARAM_RAW when recieving
+ * the input (required/optional_param or formslib) and then sanitse the HTML
+ * using format_text on output. This is for the rare cases when you want to
+ * sanitise the HTML on input. This cleaning may also fix xhtml strictness.
  */
 define('PARAM_CLEANHTML', 'cleanhtml');
 
@@ -1134,7 +1138,7 @@ function clean_param($param, $type) {
 
         case PARAM_TIMEZONE:    //can be int, float(with .5 or .0) or string seperated by '/' and can have '-_'
             $param = fix_utf8($param);
-            $timezonepattern = '/^(([+-]?(0?[0-9](\.[5|0])?|1[0-3]|1[0-2]\.5))|(99)|[[:alnum:]]+(\/?[[:alpha:]_-])+)$/';
+            $timezonepattern = '/^(([+-]?(0?[0-9](\.[5|0])?|1[0-3](\.0)?|1[0-2]\.5))|(99)|[[:alnum:]]+(\/?[[:alpha:]_-])+)$/';
             if (preg_match($timezonepattern, $param)) {
                 return $param;
             } else {
@@ -3082,7 +3086,12 @@ function require_login($courseorid = NULL, $autologinguest = true, $cm = NULL, $
         if ($preventredirect) {
             throw new require_login_exception('Activity is hidden');
         }
-        redirect($CFG->wwwroot, get_string('activityiscurrentlyhidden'));
+        if ($course->id != SITEID) {
+            $url = new moodle_url('/course/view.php', array('id'=>$course->id));
+        } else {
+            $url = new moodle_url('/');
+        }
+        redirect($url, get_string('activityiscurrentlyhidden'));
     }
 
     // Finally access granted, update lastaccess times
@@ -5179,9 +5188,8 @@ function moodle_process_email($modargs,$body) {
 /**
  * Get mailer instance, enable buffering, flush buffer or disable buffering.
  *
- * @global object
  * @param string $action 'get', 'buffer', 'close' or 'flush'
- * @return object|null mailer instance if 'get' used or nothing
+ * @return moodle_phpmailer|null mailer instance if 'get' used or nothing
  */
 function get_mailer($action='get') {
     global $CFG;
@@ -5463,7 +5471,9 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
         $mail->Subject = substr($subject, 0, 900);
     }
     //************ ORIGINAL
-    //$mail->Subject = substr($subject, 0, 900);
+	/*
+    $mail->Subject = substr($subject, 0, 900);
+	*/
     //************ FI
 
     $temprecipients[] = array($user->email, fullname($user));
@@ -5632,13 +5642,12 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
     /*
     if ($mail->Send()) {
         set_send_count($user);
-        $mail->IsSMTP();                               // use SMTP directly
         if (!empty($mail->SMTPDebug)) {
             echo '</pre>';
         }
         return true;
     } else {
-        add_to_log(SITEID, 'library', 'mailer', $FULLME, 'ERROR: '. $mail->ErrorInfo);
+        add_to_log(SITEID, 'library', 'mailer', qualified_me(), 'ERROR: '. $mail->ErrorInfo);
         if (CLI_SCRIPT) {
             mtrace('Error: lib/moodlelib.php email_to_user(): '.$mail->ErrorInfo);
         }
@@ -10524,6 +10533,11 @@ function get_performance_info() {
     $info['includecount'] = count($inc);
     $info['html'] .= '<span class="included">Included '.$info['includecount'].' files</span> ';
     $info['txt']  .= 'includecount: '.$info['includecount'].' ';
+
+    if (!empty($CFG->early_install_lang)) {
+        // We can not track more performance before installation, sorry.
+        return $info;
+    }
 
     $filtermanager = filter_manager::instance();
     if (method_exists($filtermanager, 'get_performance_summary')) {

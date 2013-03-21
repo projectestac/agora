@@ -526,10 +526,10 @@ class comment {
             $c->content     = $u->ccontent;
             $c->format      = $u->cformat;
             $c->timecreated = $u->ctimecreated;
+            $c->strftimeformat = get_string('strftimerecent', 'langconfig');
             $url = new moodle_url('/user/view.php', array('id'=>$u->id, 'course'=>$this->courseid));
             $c->profileurl = $url->out(false);
             $c->fullname = fullname($u);
-            $c->time = userdate($c->timecreated, get_string('strftimerecent', 'langconfig'));
             $c->content = format_text($c->content, $c->format, $formatoptions);
             $c->avatar = $OUTPUT->user_picture($u, array('size'=>18));
 
@@ -628,12 +628,27 @@ class comment {
         $cmt_id = $DB->insert_record('comments', $newcmt);
         if (!empty($cmt_id)) {
             $newcmt->id = $cmt_id;
-            $newcmt->time = userdate($now, get_string('strftimerecent', 'langconfig'));
+            $newcmt->strftimeformat = get_string('strftimerecent', 'langconfig');
             $newcmt->fullname = fullname($USER);
             $url = new moodle_url('/user/view.php', array('id' => $USER->id, 'course' => $this->courseid));
             $newcmt->profileurl = $url->out();
             $newcmt->content = format_text($newcmt->content, $format, array('overflowdiv'=>true));
             $newcmt->avatar = $OUTPUT->user_picture($USER, array('size'=>16));
+
+            $commentlist = array($newcmt);
+
+            if (!empty($this->plugintype)) {
+                // Call the display callback to allow the plugin to format the newly added comment.
+                $commentlist = plugin_callback($this->plugintype,
+                                               $this->pluginname,
+                                               'comment',
+                                               'display',
+                                               array($commentlist, $this->comment_param),
+                                               $commentlist);
+                $newcmt = $commentlist[0];
+            }
+            $newcmt->time = userdate($newcmt->timecreated, $newcmt->strftimeformat);
+
             return $newcmt;
         } else {
             throw new comment_exception('dbupdatefailed');
@@ -793,7 +808,7 @@ class comment {
         $replacements[] = $cmt->avatar;
         $replacements[] = html_writer::link($cmt->profileurl, $cmt->fullname);
         $replacements[] = $cmt->content;
-        $replacements[] = userdate($cmt->timecreated, get_string('strftimerecent', 'langconfig'));
+        $replacements[] = userdate($cmt->timecreated, $cmt->strftimeformat);
 
         // use html template to format a single comment.
         return str_replace($patterns, $replacements, $this->template);

@@ -143,6 +143,8 @@ class assign_upgrade_manager {
                     if (!$plugin->upgrade_settings($oldcontext, $oldassignment, $log)) {
                         $rollback = true;
                     }
+                } else {
+                    $plugin->disable();
                 }
             }
             foreach ($newassignment->get_feedback_plugins() as $plugin) {
@@ -151,6 +153,8 @@ class assign_upgrade_manager {
                     if (!$plugin->upgrade_settings($oldcontext, $oldassignment, $log)) {
                         $rollback = true;
                     }
+                } else {
+                    $plugin->disable();
                 }
             }
 
@@ -160,6 +164,24 @@ class assign_upgrade_manager {
                 $DB->update_record('grading_areas', array('id'=>$gradingarea->id, 'contextid'=>$newassignment->get_context()->id, 'component'=>'mod_assign', 'areaname'=>'submissions'));
                 $gradingdefinitions = $DB->get_records('grading_definitions', array('areaid'=>$gradingarea->id));
             }
+
+            // Upgrade availability data.
+            $DB->set_field('course_modules_avail_fields',
+                           'coursemoduleid',
+                           $newcoursemodule->id,
+                           array('coursemoduleid'=>$oldcoursemodule->id));
+            $DB->set_field('course_modules_availability',
+                           'coursemoduleid',
+                           $newcoursemodule->id,
+                           array('coursemoduleid'=>$oldcoursemodule->id));
+            $DB->set_field('course_modules_availability',
+                           'sourcecmid',
+                           $newcoursemodule->id,
+                           array('sourcecmid'=>$oldcoursemodule->id));
+            $DB->set_field('course_sections_availability',
+                           'sourcecmid',
+                           $newcoursemodule->id,
+                           array('sourcecmid'=>$oldcoursemodule->id));
 
             // upgrade completion data
             $DB->set_field('course_modules_completion', 'coursemoduleid', $newcoursemodule->id, array('coursemoduleid'=>$oldcoursemodule->id));

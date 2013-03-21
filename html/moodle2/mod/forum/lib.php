@@ -96,12 +96,12 @@ function forum_add_instance($forum, $mform = null) {
         $discussion->id = forum_add_discussion($discussion, null, $message);
 
         if ($mform and $draftid = file_get_submitted_draft_itemid('introeditor')) {
-            // ugly hack - we need to copy the files somehow
+            // Ugly hack - we need to copy the files somehow.
             $discussion = $DB->get_record('forum_discussions', array('id'=>$discussion->id), '*', MUST_EXIST);
             $post = $DB->get_record('forum_posts', array('id'=>$discussion->firstpost), '*', MUST_EXIST);
 
-            $post->message = file_save_draft_area_files($draftid, $modcontext->id, 'mod_forum', 'post', $post->id,
-                    mod_forum_post_form::attachment_options($forum), $post->message);
+            $options = array('subdirs'=>true); // Use the same options as intro field!
+            $post->message = file_save_draft_area_files($draftid, $modcontext->id, 'mod_forum', 'post', $post->id, $options, $post->message);
             $DB->set_field('forum_posts', 'message', $post->message, array('id'=>$post->id));
         }
     }
@@ -187,21 +187,19 @@ function forum_update_instance($forum, $mform) {
         $cm         = get_coursemodule_from_instance('forum', $forum->id);
         $modcontext = context_module::instance($cm->id, MUST_EXIST);
 
-        if ($mform and $draftid = file_get_submitted_draft_itemid('introeditor')) {
-            // ugly hack - we need to copy the files somehow
-            $discussion = $DB->get_record('forum_discussions', array('id'=>$discussion->id), '*', MUST_EXIST);
-            $post = $DB->get_record('forum_posts', array('id'=>$discussion->firstpost), '*', MUST_EXIST);
-
-            $post->message = file_save_draft_area_files($draftid, $modcontext->id, 'mod_forum', 'post', $post->id,
-                    mod_forum_post_form::editor_options(), $post->message);
-        }
-
+        $post = $DB->get_record('forum_posts', array('id'=>$discussion->firstpost), '*', MUST_EXIST);
         $post->subject       = $forum->name;
         $post->message       = $forum->intro;
         $post->messageformat = $forum->introformat;
         $post->messagetrust  = trusttext_trusted($modcontext);
         $post->modified      = $forum->timemodified;
-        $post->userid        = $USER->id;    // MDL-18599, so that current teacher can take ownership of activities
+        $post->userid        = $USER->id;    // MDL-18599, so that current teacher can take ownership of activities.
+
+        if ($mform and $draftid = file_get_submitted_draft_itemid('introeditor')) {
+            // Ugly hack - we need to copy the files somehow.
+            $options = array('subdirs'=>true); // Use the same options as intro field!
+            $post->message = file_save_draft_area_files($draftid, $modcontext->id, 'mod_forum', 'post', $post->id, $options, $post->message);
+        }
 
         $DB->update_record('forum_posts', $post);
         $discussion->name = $forum->name;
@@ -209,6 +207,14 @@ function forum_update_instance($forum, $mform) {
     }
 
     $DB->update_record('forum', $forum);
+
+    $modcontext = context_module::instance($forum->coursemodule);
+    if (($forum->forcesubscribe == FORUM_INITIALSUBSCRIBE) && ($oldforum->forcesubscribe <> $forum->forcesubscribe)) {
+        $users = forum_get_potential_subscribers($modcontext, 0, 'u.id, u.email', '');
+        foreach ($users as $user) {
+            forum_subscribe($user->id, $forum->id);
+        }
+    }
 
     forum_grade_item_update($forum);
 
@@ -707,6 +713,14 @@ function forum_cron() {
                 $eventdata->fullmessagehtml  = $posthtml;
                 $eventdata->notification = 1;
 
+                // If forum_replytouser is not set then send mail using the noreplyaddress.
+                if (empty($CFG->forum_replytouser)) {
+                    // Clone userfrom as it is referenced by $users.
+                    $cloneduserfrom = clone($userfrom);
+                    $cloneduserfrom->email = $CFG->noreplyaddress;
+                    $eventdata->userfrom = $cloneduserfrom;
+                }
+
                 $smallmessagestrings = new stdClass();
                 $smallmessagestrings->user = fullname($userfrom);
                 $smallmessagestrings->forumname = "$shortname: ".format_string($forum->name,true).": ".$discussion->name;
@@ -1008,10 +1022,9 @@ function forum_cron() {
                 }
 
                 $attachment = $attachname='';
-                $usetrueaddress = true;
                 // Directly email forum digests rather than sending them via messaging, use the
                 // site shortname as 'from name', the noreply address will be used by email_to_user.
-                $mailresult = email_to_user($userto, $site->shortname, $postsubject, $posttext, $posthtml, $attachment, $attachname, $usetrueaddress, $CFG->forum_replytouser);
+                $mailresult = email_to_user($userto, $site->shortname, $postsubject, $posttext, $posthtml, $attachment, $attachname);
 
                 if (!$mailresult) {
                     mtrace("ERROR!");
@@ -2946,7 +2959,7 @@ function forum_subscribed_users($course, $forum, $groupid=0, $context = null, $f
  */
 function forum_get_course_forum($courseid, $type) {
 // How to set up special 1-per-course forums
-    global $CFG, $DB, $OUTPUT;
+    global $CFG, $DB, $OUTPUT, $USER;
 
     if ($forums = $DB->get_records_select("forum", "course = ? AND type = ?", array($courseid, $type), "id ASC")) {
         // There should always only be ONE, but with the right combination of
@@ -2960,6 +2973,9 @@ function forum_get_course_forum($courseid, $type) {
     $forum = new stdClass();
     $forum->course = $courseid;
     $forum->type = "$type";
+    if (!empty($USER->htmleditor)) {
+        $forum->introformat = $USER->htmleditor;
+    }
     switch ($forum->type) {
         case "news":
             $forum->name  = get_string("namenews", "forum");
@@ -3327,7 +3343,13 @@ function forum_print_post($post, $discussion, $forum, &$cm, $course, $ownpost=fa
     if (!$post->parent && $forum->type == 'news' && $discussion->timestart > time()) {
         $age = 0;
     }
-    if (($ownpost && $age < $CFG->maxeditingtime) || $cm->cache->caps['mod/forum:editanypost']) {
+
+    if ($forum->type == 'single' and $discussion->firstpost == $post->id) {
+        if (has_capability('moodle/course:manageactivities', $modcontext)) {
+            // The first post in single simple is the forum description.
+            $commands[] = array('url'=>new moodle_url('/course/modedit.php', array('update'=>$cm->id, 'sesskey'=>sesskey(), 'return'=>1)), 'text'=>$str->edit);
+        }
+    } else if (($ownpost && $age < $CFG->maxeditingtime) || $cm->cache->caps['mod/forum:editanypost']) {
         $commands[] = array('url'=>new moodle_url('/mod/forum/post.php', array('edit'=>$post->id)), 'text'=>$str->edit);
     }
 
@@ -3335,7 +3357,9 @@ function forum_print_post($post, $discussion, $forum, &$cm, $course, $ownpost=fa
         $commands[] = array('url'=>new moodle_url('/mod/forum/post.php', array('prune'=>$post->id)), 'text'=>$str->prune, 'title'=>$str->pruneheading);
     }
 
-    if (($ownpost && $age < $CFG->maxeditingtime && $cm->cache->caps['mod/forum:deleteownpost']) || $cm->cache->caps['mod/forum:deleteanypost']) {
+    if ($forum->type == 'single' and $discussion->firstpost == $post->id) {
+        // Do not allow deleting of first post in single simple type.
+    } else if (($ownpost && $age < $CFG->maxeditingtime && $cm->cache->caps['mod/forum:deleteownpost']) || $cm->cache->caps['mod/forum:deleteanypost']) {
         $commands[] = array('url'=>new moodle_url('/mod/forum/post.php', array('delete'=>$post->id)), 'text'=>$str->delete);
     }
 
@@ -5673,7 +5697,7 @@ function forum_print_latest_discussions($course, $forum, $maxdiscussions=-1, $di
                     $link = true;
                 } else {
                     $modcontext = context_module::instance($cm->id);
-                    $link = forum_user_can_post($forum, $discussion, $USER, $cm, $course, $modcontext);
+                    $link = forum_user_can_see_discussion($forum, $discussion, $modcontext, $USER);
                 }
 
                 $discussion->forum = $forum->id;

@@ -160,6 +160,13 @@ div.rightinfo {
     margin-top: 40px;
 }
 
+#course-header {
+    width: 93%;
+    min-width: 910px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
 /** main content wraps **/
 
 #outercontainer {
@@ -236,6 +243,13 @@ div.jcontrolsright div.singlebutton, div.jcontrolsright div.forumsearch {
 }
 
 /** foot wraps and inner divs **/
+
+#course-footer {
+    width: 93%;
+    min-width: 910px;
+    margin: 0 auto;
+    overflow: hidden;
+}
 
 #footer {
     width: 91%;
@@ -844,6 +858,11 @@ table#categoryquestions th a {
     padding: 5px;
 }
 
+.generaltable .header,
+.generaltable .header a {
+    padding: 0;
+}
+
 tr.r1 td {
     background-color: #f9f9f9;
 }
@@ -1120,7 +1139,9 @@ div.questionbankwindow.block div.header {
     background: #eee !important;
 }
 
-div.questionbankwindow.block div.header a {
+#page-mod-quiz-edit .questionbankwindow.block div.header div.title h2,
+#page-mod-quiz-edit .questionbankwindow a#showbankcmd,
+#page-mod-quiz-edit .questionbankwindow a#hidebankcmd {
     color: #333333 !important;
     font-size: 11px;
 }

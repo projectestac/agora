@@ -103,19 +103,25 @@ if (!is_null($mode) and has_capability('mod/forum:managesubscriptions', $context
     require_sesskey();
     switch ($mode) {
         case FORUM_CHOOSESUBSCRIBE : // 0
-            forum_forcesubscribe($forum->id, 0);
+            forum_forcesubscribe($forum->id, FORUM_CHOOSESUBSCRIBE);
             redirect($returnto, get_string("everyonecannowchoose", "forum"), 1);
             break;
         case FORUM_FORCESUBSCRIBE : // 1
-            forum_forcesubscribe($forum->id, 1);
+            forum_forcesubscribe($forum->id, FORUM_FORCESUBSCRIBE);
             redirect($returnto, get_string("everyoneisnowsubscribed", "forum"), 1);
             break;
         case FORUM_INITIALSUBSCRIBE : // 2
-            forum_forcesubscribe($forum->id, 2);
+            if ($forum->forcesubscribe <> FORUM_INITIALSUBSCRIBE) {
+                $users = forum_get_potential_subscribers($context, 0, 'u.id, u.email', '');
+                foreach ($users as $user) {
+                    forum_subscribe($user->id, $forum->id);
+                }
+            }
+            forum_forcesubscribe($forum->id, FORUM_INITIALSUBSCRIBE);
             redirect($returnto, get_string("everyoneisnowsubscribed", "forum"), 1);
             break;
         case FORUM_DISALLOWSUBSCRIBE : // 3
-            forum_forcesubscribe($forum->id, 3);
+            forum_forcesubscribe($forum->id, FORUM_DISALLOWSUBSCRIBE);
             redirect($returnto, get_string("noonecansubscribenow", "forum"), 1);
             break;
         default:

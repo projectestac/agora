@@ -254,7 +254,7 @@ class moodle1_converter extends base_converter {
             $path = '/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK/' . $this->currentblock;
 
         } else if (strpos($path, '/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK') === 0) {
-            $path = str_replace('/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK', '/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK/' . $this->currentmod, $path);
+            $path = str_replace('/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK', '/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK/' . $this->currentblock, $path);
         }
 
         if ($path !== $data['path']) {
@@ -350,12 +350,12 @@ class moodle1_converter extends base_converter {
         }
 
         if ($path === '/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK') {
-            $this->currentmod = null;
+            $this->currentblock = null;
             $forbidden = true;
 
         } else if (strpos($path, '/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK') === 0) {
             // expand the BLOCK paths so that they contain the module name
-            $path = str_replace('/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK', '/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK/' . $this->currentmod, $path);
+            $path = str_replace('/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK', '/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK/' . $this->currentblock, $path);
         }
 
         if (empty($this->pathelements[$path])) {
@@ -397,7 +397,7 @@ class moodle1_converter extends base_converter {
             $path = '/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK/' . $this->currentblock;
 
         } else if (strpos($path, '/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK') === 0) {
-            $path = str_replace('/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK', '/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK/' . $this->currentmod, $path);
+            $path = str_replace('/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK', '/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK/' . $this->currentblock, $path);
         }
 
         if (empty($this->pathelements[$path])) {
@@ -642,7 +642,9 @@ class moodle1_converter extends base_converter {
         }
         foreach ($matches[2] as $match) {
             $file = str_replace(array('$@FILEPHP@$', '$@SLASH@$', '$@FORCEDOWNLOAD@$'), array('', '/', ''), $match);
-            $files[] = rawurldecode($file);
+            if ($file === clean_param($file, PARAM_PATH)) {
+                $files[] = rawurldecode($file);
+            }
         }
 
         return array_unique($files);
@@ -1216,6 +1218,10 @@ class moodle1_file_manager implements loggable {
 
         $sourcefullpath = $this->basepath.'/'.$sourcepath;
 
+        if ($sourcefullpath !== clean_param($sourcefullpath, PARAM_PATH)) {
+            throw new moodle1_convert_exception('file_invalid_path', $sourcefullpath);
+        }
+
         if (!is_readable($sourcefullpath)) {
             throw new moodle1_convert_exception('file_not_readable', $sourcefullpath);
         }
@@ -1274,6 +1280,12 @@ class moodle1_file_manager implements loggable {
      * @return array ids of the migrated files, empty array if the $rootpath not found
      */
     public function migrate_directory($rootpath, $relpath='/') {
+
+        // Check the trailing slash in the $rootpath
+        if (substr($rootpath, -1) === '/') {
+            debugging('moodle1_file_manager::migrate_directory() expects $rootpath without the trailing slash', DEBUG_DEVELOPER);
+            $rootpath = substr($rootpath, 0, strlen($rootpath) - 1);
+        }
 
         if (!file_exists($this->basepath.'/'.$rootpath.$relpath)) {
             return array();

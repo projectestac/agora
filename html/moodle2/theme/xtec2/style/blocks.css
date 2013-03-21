@@ -139,4 +139,13 @@
     vertical-align: inherit;
 }
 
-.block_course_summary.block{padding-left:0px!important; padding-top:0px!important; }
+.block_course_summary.block {
+    padding-left: 0px!important;
+    padding-top: 0px!important;
+}
+
+/* Login block. Must use 'input[type=text]' because we're overwriting style defined in theme 'base' */
+input[type=text]#login_username,
+input[type=password]#login_password {
+    width: 160px;
+}

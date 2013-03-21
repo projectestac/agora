@@ -58,7 +58,11 @@ class enrol_database_testcase extends advanced_testcase {
                 set_config('dbsetupsql', "SET NAMES 'UTF-8'", 'enrol_database');
                 set_config('dbsybasequoting', '0', 'enrol_database');
                 if (!empty($CFG->dboptions['dbsocket'])) {
-                    set_config('dbtype', 'mysqli://'.rawurlencode($CFG->dbuser).':'.rawurlencode($CFG->dbpass).'@'.rawurlencode($CFG->dbhost).'/'.rawurlencode($CFG->dbname).'?socket='.rawurlencode($CFG->dboptions['dbsocket']), 'enrol_database');
+                    $dbsocket = $CFG->dboptions['dbsocket'];
+                    if ((strpos($dbsocket, '/') === false and strpos($dbsocket, '\\') === false)) {
+                        $dbsocket = ini_get('mysqli.default_socket');
+                    }
+                    set_config('dbtype', 'mysqli://'.rawurlencode($CFG->dbuser).':'.rawurlencode($CFG->dbpass).'@'.rawurlencode($CFG->dbhost).'/'.rawurlencode($CFG->dbname).'?socket='.rawurlencode($dbsocket), 'enrol_database');
                 }
                 break;
 
@@ -69,7 +73,11 @@ class enrol_database_testcase extends advanced_testcase {
 
             case 'pgsql_native_moodle_database':
                 set_config('dbtype', 'postgres7', 'enrol_database');
-                set_config('dbsetupsql', "SET NAMES 'UTF-8'", 'enrol_database');
+                $setupsql = "SET NAMES 'UTF-8'";
+                if (!empty($CFG->dboptions['dbschema'])) {
+                    $setupsql .= "; SET search_path = '".$CFG->dboptions['dbschema']."'";
+                }
+                set_config('dbsetupsql', $setupsql, 'enrol_database');
                 set_config('dbsybasequoting', '0', 'enrol_database');
                 if (!empty($CFG->dboptions['dbsocket']) and ($CFG->dbhost === 'localhost' or $CFG->dbhost === '127.0.0.1')) {
                     if (strpos($CFG->dboptions['dbsocket'], '/') !== false) {

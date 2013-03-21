@@ -48,6 +48,13 @@ if (!get_protected_agora() && is_rush_hour()) {
 
     // Get category tree with information about its courses and disk usage
     $data = report_coursequotas_getCategoryData();
+
+    /* Debug code - Must be removed when issues will be fixed */
+    if (isset($_GET['debugtree'])) {
+        echo '<pre>Category tree:';
+        print_r($data);
+        echo '</pre>';
+    }
     
     // Calculate quota used by course files (does not include backups)
     $coursesSize = 0;
@@ -56,6 +63,13 @@ if (!get_protected_agora() && is_rush_hour()) {
     }
     $size = report_coursequotas_formatSize($coursesSize);
 
+    /* Debug code - Must be removed when issues will be fixed */
+    if (isset($_GET['debugtree'])) {
+        echo '<pre>Size of the courses:';
+        print_r($size);
+        echo '</pre>';
+    }
+    
     // Variable for the language strings
     $c = new stdClass;
     $c->figure = number_format($size['figure'], 1, ',', '.');

@@ -75,14 +75,29 @@ if (!empty($formdata)) {
         $ical->unserialize($calendar);
         $importresults = calendar_import_icalendar_events($ical, $courseid, $subscriptionid);
     } else {
-        $importresults = calendar_update_subscription_events($subscriptionid);
+        try {
+            $importresults = calendar_update_subscription_events($subscriptionid);
+        } catch (moodle_exception $e) {
+            // Delete newly added subscription and show invalid url error.
+            calendar_delete_subscription($subscriptionid);
+            print_error($e->errorcode, $e->module, $PAGE->url);
+        }
     }
     // Redirect to prevent refresh issues.
-    redirect($PAGE->url);
+    redirect($PAGE->url, $importresults);
 } else if (!empty($subscriptionid)) {
     // The user is wanting to perform an action upon an existing subscription.
     require_sesskey(); // Must have sesskey for all actions.
-    $importresults = calendar_process_subscription_row($subscriptionid, $pollinterval, $action);
+    if (calendar_can_edit_subscription($subscriptionid)) {
+        try {
+            $importresults = calendar_process_subscription_row($subscriptionid, $pollinterval, $action);
+        } catch (moodle_exception $e) {
+            // If exception caught, then user should be redirected to page where he/she came from.
+            print_error($e->errorcode, $e->module, $PAGE->url);
+        }
+    } else {
+        print_error('nopermissions', 'error', $PAGE->url, get_string('managesubscriptions', 'calendar'));
+    }
 }
 
 $sql = 'SELECT *
@@ -100,6 +115,14 @@ $PAGE->set_button(calendar_preferences_button($course));
 $renderer = $PAGE->get_renderer('core_calendar');
 
 echo $OUTPUT->header();
+
+// Filter subscriptions which user can't edit.
+foreach($subscriptions as $subscription) {
+    if (!calendar_can_edit_subscription($subscription)) {
+        unset($subscriptions[$subscription->id]);
+    }
+}
+
 // Display a table of subscriptions.
 echo $renderer->subscription_details($courseid, $subscriptions, $importresults);
 // Display the add subscription form.

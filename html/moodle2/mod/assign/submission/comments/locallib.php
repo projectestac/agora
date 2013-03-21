@@ -78,12 +78,13 @@ class assign_submission_comments extends assign_submission_plugin {
     }
 
     /**
-     * Always return false because at a minimum there is the comments control
+     * Always return true because the submission comments are not part of the submission form.
+     *
      * @param stdClass $submission
      * @return bool
      */
     public function is_empty(stdClass $submission) {
-        return false;
+        return true;
     }
 
   /**
@@ -112,7 +113,12 @@ class assign_submission_comments extends assign_submission_plugin {
      * @return bool was it a success? (false will trigger a rollback)
      */
     public function upgrade_settings(context $oldcontext, stdClass $oldassignment, & $log) {
-        // first upgrade settings (nothing to do)
+        if ($oldassignment->assignmenttype == 'upload') {
+            // Disable if allow notes was not enabled.
+            if (!$oldassignment->var2) {
+                $this->disable();
+            }
+        }
         return true;
     }
 

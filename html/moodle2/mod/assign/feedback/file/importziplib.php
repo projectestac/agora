@@ -112,7 +112,7 @@ class assignfeedback_file_zip_importer {
         if (!$sg) {
             return true;
         }
-        foreach ($plugin->get_files($sg) as $pluginfilename => $file) {
+        foreach ($plugin->get_files($sg, $user) as $pluginfilename => $file) {
             if ($pluginfilename == $filename) {
                 // Extract the file and compare hashes.
                 $contenthash = '';
@@ -144,7 +144,7 @@ class assignfeedback_file_zip_importer {
         $fs = get_file_storage();
 
         return $fs->delete_area_files($contextid,
-                                      'assignfeedback_files',
+                                      'assignfeedback_file',
                                       ASSIGNFEEDBACK_FILE_IMPORT_FILEAREA,
                                       $USER->id);
     }
@@ -266,7 +266,7 @@ class assignfeedback_file_zip_importer {
                     $fileplugin->update_file_count($grade);
 
                     // Update the last modified time on the grade which will trigger student notifications.
-                    $assignment->update_grade($grade);
+                    $assignment->notify_grade_modified($grade);
                 }
             }
         }

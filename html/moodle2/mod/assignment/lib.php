@@ -1397,6 +1397,7 @@ class assignment_base {
 
         $table->no_sorting('finalgrade');
         $table->no_sorting('outcome');
+        $table->text_sorting('submissioncomment');
 
         // Start working -- this is necessary as soon as the niceties are over
         $table->setup();
@@ -3573,12 +3574,16 @@ function assignment_get_all_submissions($assignment, $sort="", $dir="DESC") {
     if ($assignment->course == SITEID) {
         $select = '';
     }*/
-
+    $cm = get_coursemodule_from_instance('assignment', $assignment->id, $assignment->course);
+    $context = context_module::instance($cm->id);
+    list($enroledsql, $params) = get_enrolled_sql($context, 'mod/assignment:submit');
+    $params['assignmentid'] = $assignment->id;
     return $DB->get_records_sql("SELECT a.*
-                                   FROM {assignment_submissions} a, {user} u
+                                    FROM {assignment_submissions} a
+                                    INNER JOIN (". $enroledsql .") u ON u.id = a.userid
                                   WHERE u.id = a.userid
-                                        AND a.assignment = ?
-                               ORDER BY $sort", array($assignment->id));
+                                        AND a.assignment = :assignmentid
+                                  ORDER BY $sort", $params);
 
 }
 

@@ -70,6 +70,12 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
     protected $isready = false;
 
     /**
+     * Set to true once this store instance has been initialised.
+     * @var bool
+     */
+    protected $isinitialised = false;
+
+    /**
      * The cache definition this store was initialised for.
      * @var cache_definition
      */
@@ -106,7 +112,12 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
             $this->servers[] = $server;
         }
 
-        $this->isready = true;
+        $this->connection = new Memcache;
+        foreach ($this->servers as $server) {
+            $this->connection->addServer($server[0], $server[1], true, $server[2]);
+            // Test the connection to this server.
+        }
+        $this->isready = @$this->connection->set($this->parse_key('ping'), 'ping', MEMCACHE_COMPRESSED, 1);
     }
 
     /**
@@ -121,10 +132,7 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
             throw new coding_exception('This memcache instance has already been initialised.');
         }
         $this->definition = $definition;
-        $this->connection = new Memcache;
-        foreach ($this->servers as $server) {
-            $this->connection->addServer($server[0], $server[1], true, $server[2]);
-        }
+        $this->isinitialised = true;
     }
 
     /**
@@ -133,7 +141,7 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
      * @return bool
      */
     public function is_initialised() {
-        return ($this->connection !== null);
+        return ($this->isinitialised);
     }
 
     /**
@@ -184,13 +192,27 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
     }
 
     /**
+     * Parses the given key to make it work for this memcache backend.
+     *
+     * @param string $key The raw key.
+     * @return string The resulting key.
+     */
+    protected function parse_key($key) {
+        if (strlen($key) > 245) {
+            $key = '_sha1_'.sha1($key);
+        }
+        $key = 'mdl_'.$key;
+        return $key;
+    }
+
+    /**
      * Retrieves an item from the cache store given its key.
      *
      * @param string $key The key to retrieve
      * @return mixed The data that was associated with the key, or false if the key did not exist.
      */
     public function get($key) {
-        return $this->connection->get($key);
+        return $this->connection->get($this->parse_key($key));
     }
 
     /**
@@ -203,16 +225,23 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
      *      be set to false.
      */
     public function get_many($keys) {
-        $result = $this->connection->get($keys);
+        $mkeys = array();
+        foreach ($keys as $key) {
+            $mkeys[$key] = $this->parse_key($key);
+        }
+        $result = $this->connection->get($mkeys);
         if (!is_array($result)) {
             $result = array();
         }
-        foreach ($keys as $key) {
-            if (!array_key_exists($key, $result)) {
-                $result[$key] = false;
+        $return = array();
+        foreach ($mkeys as $key => $mkey) {
+            if (!array_key_exists($mkey, $result)) {
+                $return[$key] = false;
+            } else {
+                $return[$key] = $result[$mkey];
             }
         }
-        return $result;
+        return $return;
     }
 
     /**
@@ -223,7 +252,7 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
      * @return bool True if the operation was a success false otherwise.
      */
     public function set($key, $data) {
-        return $this->connection->set($key, $data, MEMCACHE_COMPRESSED, $this->definition->get_ttl());
+        return $this->connection->set($this->parse_key($key), $data, MEMCACHE_COMPRESSED, $this->definition->get_ttl());
     }
 
     /**
@@ -237,7 +266,7 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
     public function set_many(array $keyvaluearray) {
         $count = 0;
         foreach ($keyvaluearray as $pair) {
-            if ($this->connection->set($pair['key'], $pair['value'], MEMCACHE_COMPRESSED, $this->definition->get_ttl())) {
+            if ($this->connection->set($this->parse_key($pair['key']), $pair['value'], MEMCACHE_COMPRESSED, $this->definition->get_ttl())) {
                 $count++;
             }
         }
@@ -251,7 +280,7 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
      * @return bool Returns true if the operation was a success, false otherwise.
      */
     public function delete($key) {
-        return $this->connection->delete($key);
+        return $this->connection->delete($this->parse_key($key));
     }
 
     /**
@@ -276,7 +305,10 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
      * @return boolean True on success. False otherwise.
      */
     public function purge() {
-        $this->connection->flush();
+        if ($this->isready) {
+            $this->connection->flush();
+        }
+
         return true;
     }
 
@@ -319,8 +351,18 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
     /**
      * Performs any necessary clean up when the store instance is being deleted.
      */
-    public function cleanup() {
-        $this->purge();
+    public function instance_deleted() {
+        if ($this->connection) {
+            $connection = $this->connection;
+        } else {
+            $connection = new Memcache;
+            foreach ($this->servers as $server) {
+                $connection->addServer($server[0], $server[1], true, $server[2]);
+            }
+        }
+        @$connection->flush();
+        unset($connection);
+        unset($this->connection);
     }
 
     /**

@@ -40,6 +40,8 @@ class core_message_external_testcase extends externallib_advanced_testcase {
         global $DB, $USER, $CFG;
 
         $this->resetAfterTest(true);
+        // Transactions used in tests, tell phpunit use alternative reset method.
+        $this->preventResetByRollback();
 
         // Turn off all message processors (so nothing is really sent)
         require_once($CFG->dirroot . '/message/lib.php');
@@ -63,6 +65,9 @@ class core_message_external_testcase extends externallib_advanced_testcase {
         $messages = array($message1);
 
         $sentmessages = core_message_external::send_instant_messages($messages);
+
+        // We need to execute the return values cleaning process to simulate the web service server.
+        $sentmessages = external_api::clean_returnvalue(core_message_external::send_instant_messages_returns(), $sentmessages);
 
         $themessage = $DB->get_record('message', array('id' => $sentmessages[0]['msgid']));
 

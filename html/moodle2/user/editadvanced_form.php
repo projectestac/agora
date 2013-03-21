@@ -45,7 +45,7 @@ class user_editadvanced_form extends moodleform {
         $mform->addElement('text', 'username', get_string('username'), 'size="20"');
         $mform->addRule('username', $strrequired, 'required', null, 'client');
         $mform->setType('username', PARAM_RAW);
-        
+
         $auths = get_plugin_list('auth');
         $auth_options = array();
         foreach ($auths as $auth => $unused) {

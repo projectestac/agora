@@ -24,6 +24,5 @@
  */
 
 $string['coursesummary'] = 'Course summary';
-$string['course_summary:addinstance'] = 'Add a new course/site description block';
-$string['course_summary:myaddinstance'] = 'Add a new course/site description block to the My Moodle page';
-$string['pluginname'] = 'Course/Site description';
+$string['course_summary:addinstance'] = 'Add a new course/site summary block';
+$string['pluginname'] = 'Course/site summary';

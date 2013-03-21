@@ -5,15 +5,18 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-
 PORTAL
 - Allow access to file manager to schools with only Moodle 2 (no Moodle 1.9 required)
 
 MOODLE2
 - Fixed bug in db authentication related with Intraweb users integration
+- Upgraded Moodle 2.4.0 to 2.4.3
+- Fixed size of input files of login block
+- Added temporary debug code in coursequotas
 
 ZIKULA
 - Fixed call to stats summarize function in iwcron.php
+- Removed https in login block
 
 
 

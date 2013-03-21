@@ -38,6 +38,10 @@ class block_completionstatus extends block_base {
         $this->title = get_string('pluginname', 'block_completionstatus');
     }
 
+    function applicable_formats() {
+        return array('all' => true, 'mod' => false, 'tag' => false, 'my' => false);
+    }
+
     public function get_content() {
         global $USER;
 
@@ -216,7 +220,7 @@ class block_completionstatus extends block_base {
             $this->content->footer = '<br><a href="'.$details->out().'">'.get_string('moredetails', 'completion').'</a>';
         } else {
             // If user is not enrolled, show error
-            $this->content->text = get_string('notenroled', 'completion');
+            $this->content->text = get_string('nottracked', 'completion');
         }
 
         if (has_capability('report/completion:view', $context)) {

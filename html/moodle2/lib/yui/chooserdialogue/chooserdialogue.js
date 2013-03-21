@@ -5,8 +5,8 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
     }
 
     Y.extend(CHOOSERDIALOGUE, Y.Base, {
-        // The overlay widget
-        overlay: null,
+        // The panel widget
+        panel: null,
 
         // The submit button - we disable this until an element is set
         submitbutton : null,
@@ -31,7 +31,7 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
         },
 
         prepare_chooser : function () {
-            if (this.overlay) {
+            if (this.panel) {
                 return;
             }
 
@@ -43,7 +43,9 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
                 draggable : true,
                 visible : false, // Hide by default
                 zindex : 100, // Display in front of other items
-                lightbox : true // This dialogue should be modal
+                lightbox : true, // This dialogue should be modal
+                shim : true,
+                closeButtonTitle : this.get('closeButtonTitle')
             };
 
             // Override with additional options
@@ -51,23 +53,23 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
               params[paramkey] = this.instanceconfig[paramkey];
             }
 
-            // Create the overlay
-            this.overlay = new M.core.dialogue(params);
+            // Create the panel
+            this.panel = new M.core.dialogue(params);
 
             // Remove the template for the chooser
             this.bodycontent.remove();
             this.headercontent.remove();
 
-            // Hide and then render the overlay
-            this.overlay.hide();
-            this.overlay.render();
+            // Hide and then render the panel
+            this.panel.hide();
+            this.panel.render();
 
             // Set useful links
-            this.container = this.overlay.get('boundingBox').one('.choosercontainer');
+            this.container = this.panel.get('boundingBox').one('.choosercontainer');
             this.options = this.container.all('.option input[type=radio]');
 
             // Add the chooserdialogue class to the container for styling
-            this.overlay.get('boundingBox').addClass('chooserdialogue');
+            this.panel.get('boundingBox').addClass('chooserdialogue');
         },
 
         /**
@@ -82,7 +84,7 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
             // Stop the default event actions before we proceed
             e.preventDefault();
 
-            var bb = this.overlay.get('boundingBox');
+            var bb = this.panel.get('boundingBox');
             var dialogue = this.container.one('.alloptions');
 
             // Get the overflow setting when the chooser was opened - we
@@ -136,11 +138,13 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
             // Hook onto the cancel button to hide the form
             thisevent = this.container.one('.addcancel').on('click', this.cancel_popup, this);
             this.listenevents.push(thisevent);
-            thisevent = bb.one('div.closebutton').on('click', this.cancel_popup, this);
+
+            // Hide will be managed by cancel_popup after restoring the body overflow
+            thisevent = bb.one('button.closebutton').on('click', this.cancel_popup, this);
             this.listenevents.push(thisevent);
 
             // Grab global keyup events and handle them
-            thisevent = Y.one('document').on('keyup', this.handle_key_press, this);
+            thisevent = Y.one('document').on('keydown', this.handle_key_press, this);
             this.listenevents.push(thisevent);
 
             // Add references to various elements we adjust
@@ -153,8 +157,8 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
             // Ensure that the options are shown
             this.options.removeAttribute('disabled');
 
-            // Display the overlay
-            this.overlay.show();
+            // Display the panel
+            this.panel.show();
 
             // Re-centre the dialogue after we've shown it.
             this.center_dialogue(dialogue);
@@ -192,7 +196,7 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
          * @return void
          */
         center_dialogue : function(dialogue) {
-            var bb = this.overlay.get('boundingBox');
+            var bb = this.panel.get('boundingBox');
 
             var winheight = bb.get('winHeight');
             var winwidth = bb.get('winWidth');
@@ -234,11 +238,23 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
             // new max-height
             var totalheight = newheight;
             newheight = newheight - (15 + 15 + 40 + 40);
-            dialogue.setStyle('max-height', newheight + 'px');
-            dialogue.setStyle('height', newheight + 'px');
+            dialogue.setStyle('maxHeight', newheight + 'px');
+
+            dialogueheight = bb.getStyle('height');
+            if (dialogueheight.match(/.*px$/)) {
+                dialogueheight = dialogueheight.replace(/px$/, '');
+            } else {
+                dialogueheight = totalheight;
+            }
+
+            if (dialogueheight < this.get('baseheight')) {
+                dialogueheight = this.get('baseheight');
+                dialogue.setStyle('height', dialogueheight + 'px');
+            }
+
 
             // Re-calculate the location now that we've changed the size
-            var dialoguetop = Math.max(12, ((winheight - totalheight) / 2)) + offsettop;
+            dialoguetop = Math.max(12, ((winheight - dialogueheight) / 2)) + offsettop;
 
             // We need to set the height for the yui3-widget - can't work
             // out what we're setting at present -- shoud be the boudingBox
@@ -276,7 +292,7 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
             }
 
             this.container.detachAll();
-            this.overlay.hide();
+            this.panel.hide();
         },
 
         check_options : function(e) {
@@ -310,8 +326,15 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
             minheight : {
                 value : 300
             },
+            baseheight: {
+                value : 400
+            },
             maxheight : {
                 value : 660
+            },
+            closeButtonTitle : {
+                validator : Y.Lang.isString,
+                value : 'Close'
             }
         }
     });
@@ -319,6 +342,6 @@ YUI.add('moodle-core-chooserdialogue', function(Y) {
     M.core.chooserdialogue = CHOOSERDIALOGUE;
 },
 '@VERSION@', {
-    requires:['base', 'overlay', 'moodle-core-notification']
+    requires:['base', 'panel', 'moodle-core-notification']
 }
 );

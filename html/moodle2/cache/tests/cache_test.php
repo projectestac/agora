@@ -422,7 +422,7 @@ class cache_phpunit_tests extends advanced_testcase {
             'mode' => cache_store::MODE_APPLICATION,
             'component' => 'phpunit',
             'area' => 'ttltest',
-            'ttl' => -10
+            'ttl' => -86400 // Set to a day in the past to be extra sure.
         ));
         $cache = cache::make('phpunit', 'ttltest');
         $this->assertInstanceOf('cache_application', $cache);
@@ -553,6 +553,8 @@ class cache_phpunit_tests extends advanced_testcase {
             'mode' => cache_store::MODE_APPLICATION,
             'component' => 'phpunit',
             'area' => 'eventinvalidationtest',
+            'simplekeys' => true,
+            'simpledata' => true,
             'invalidationevents' => array(
                 'crazyevent'
             )
@@ -567,13 +569,16 @@ class cache_phpunit_tests extends advanced_testcase {
 
         // OK data added, data invalidated, and invalidation time has been set.
         // Now we need to manually add back the data and adjust the invalidation time.
-        $timefile = $CFG->dataroot.'/cache/cachestore_file/default_application/phpunit_eventinvalidationtest/a65/a65b1dc524cf6e03c1795197c84d5231eb229b86.cache';
+        $hash = md5(cache_store::MODE_APPLICATION.'/phpunit/eventinvalidationtest/'.$CFG->wwwroot.'phpunit');
+        $timefile = $CFG->dataroot."/cache/cachestore_file/default_application/phpunit_eventinvalidationtest/las/lastinvalidation-$hash.cache";
+        // Make sure the file is correct.
+        $this->assertTrue(file_exists($timefile));
         $timecont = serialize(cache::now() - 60); // Back 60sec in the past to force it to re-invalidate.
         make_writable_directory(dirname($timefile));
         file_put_contents($timefile, $timecont);
         $this->assertTrue(file_exists($timefile));
 
-        $datafile = $CFG->dataroot.'/cache/cachestore_file/default_application/phpunit_eventinvalidationtest/626/626e9c7a45febd98f064c2b383de8d9d4ebbde7b.cache';
+        $datafile = $CFG->dataroot."/cache/cachestore_file/default_application/phpunit_eventinvalidationtest/tes/testkey1-$hash.cache";
         $datacont = serialize("test data 1");
         make_writable_directory(dirname($datafile));
         file_put_contents($datafile, $datacont);
@@ -586,6 +591,8 @@ class cache_phpunit_tests extends advanced_testcase {
             'mode' => cache_store::MODE_APPLICATION,
             'component' => 'phpunit',
             'area' => 'eventinvalidationtest',
+            'simplekeys' => true,
+            'simpledata' => true,
         ));
         $cache = cache::make('phpunit', 'eventinvalidationtest');
         $this->assertEquals('test data 1', $cache->get('testkey1'));
@@ -597,6 +604,8 @@ class cache_phpunit_tests extends advanced_testcase {
             'mode' => cache_store::MODE_APPLICATION,
             'component' => 'phpunit',
             'area' => 'eventinvalidationtest',
+            'simplekeys' => true,
+            'simpledata' => true,
             'invalidationevents' => array(
                 'crazyevent'
             )
@@ -618,8 +627,82 @@ class cache_phpunit_tests extends advanced_testcase {
                 'crazyevent'
             )
         ));
+        $instance->phpunit_add_definition('phpunit/eventpurgetestpersistent', array(
+            'mode' => cache_store::MODE_APPLICATION,
+            'component' => 'phpunit',
+            'area' => 'eventpurgetestpersistent',
+            'persistent' => true,
+            'invalidationevents' => array(
+                'crazyevent'
+            )
+        ));
         $cache = cache::make('phpunit', 'eventpurgetest');
 
+        $this->assertTrue($cache->set('testkey1', 'test data 1'));
+        $this->assertEquals('test data 1', $cache->get('testkey1'));
+        $this->assertTrue($cache->set('testkey2', 'test data 2'));
+        $this->assertEquals('test data 2', $cache->get('testkey2'));
+
+        // Purge the event.
+        cache_helper::purge_by_event('crazyevent');
+
+        // Check things have been removed.
+        $this->assertFalse($cache->get('testkey1'));
+        $this->assertFalse($cache->get('testkey2'));
+
+        // Now test the persistent cache.
+        $cache = cache::make('phpunit', 'eventpurgetestpersistent');
+        $this->assertTrue($cache->set('testkey1', 'test data 1'));
+        $this->assertEquals('test data 1', $cache->get('testkey1'));
+        $this->assertTrue($cache->set('testkey2', 'test data 2'));
+        $this->assertEquals('test data 2', $cache->get('testkey2'));
+
+        // Purge the event.
+        cache_helper::purge_by_event('crazyevent');
+
+        // Check things have been removed.
+        $this->assertFalse($cache->get('testkey1'));
+        $this->assertFalse($cache->get('testkey2'));
+    }
+
+    /**
+     * Tests session cache event purge
+     */
+    public function test_session_event_purge() {
+        $instance = cache_config_phpunittest::instance();
+        $instance->phpunit_add_definition('phpunit/eventpurgetest', array(
+            'mode' => cache_store::MODE_SESSION,
+            'component' => 'phpunit',
+            'area' => 'eventpurgetest',
+            'invalidationevents' => array(
+                'crazyevent'
+            )
+        ));
+        $instance->phpunit_add_definition('phpunit/eventpurgetestpersistent', array(
+            'mode' => cache_store::MODE_SESSION,
+            'component' => 'phpunit',
+            'area' => 'eventpurgetestpersistent',
+            'persistent' => true,
+            'invalidationevents' => array(
+                'crazyevent'
+            )
+        ));
+        $cache = cache::make('phpunit', 'eventpurgetest');
+
+        $this->assertTrue($cache->set('testkey1', 'test data 1'));
+        $this->assertEquals('test data 1', $cache->get('testkey1'));
+        $this->assertTrue($cache->set('testkey2', 'test data 2'));
+        $this->assertEquals('test data 2', $cache->get('testkey2'));
+
+        // Purge the event.
+        cache_helper::purge_by_event('crazyevent');
+
+        // Check things have been removed.
+        $this->assertFalse($cache->get('testkey1'));
+        $this->assertFalse($cache->get('testkey2'));
+
+        // Now test the persistent cache.
+        $cache = cache::make('phpunit', 'eventpurgetestpersistent');
         $this->assertTrue($cache->set('testkey1', 'test data 1'));
         $this->assertEquals('test data 1', $cache->get('testkey1'));
         $this->assertTrue($cache->set('testkey2', 'test data 2'));
@@ -743,5 +826,86 @@ class cache_phpunit_tests extends advanced_testcase {
         $factory = cache_factory::instance(true);
         $config = $factory->create_config_instance();
         $this->assertEquals('cache_config_phpunittest', get_class($config));
+    }
+
+    /**
+     * Test that multiple loaders work ok.
+     */
+    public function test_multiple_loaders() {
+        $instance = cache_config_phpunittest::instance(true);
+        $instance->phpunit_add_file_store('phpunittest1');
+        $instance->phpunit_add_file_store('phpunittest2');
+        $instance->phpunit_add_definition('phpunit/multi_loader', array(
+            'mode' => cache_store::MODE_APPLICATION,
+            'component' => 'phpunit',
+            'area' => 'multi_loader'
+        ));
+        $instance->phpunit_add_definition_mapping('phpunit/multi_loader', 'phpunittest1', 3);
+        $instance->phpunit_add_definition_mapping('phpunit/multi_loader', 'phpunittest2', 2);
+
+        $cache = cache::make('phpunit', 'multi_loader');
+        $this->assertInstanceOf('cache_application', $cache);
+        $this->assertFalse($cache->get('test'));
+        $this->assertTrue($cache->set('test', 'test'));
+        $this->assertEquals('test', $cache->get('test'));
+    }
+
+    /**
+     * Test switching users with session caches.
+     */
+    public function test_session_cache_switch_user() {
+        $this->resetAfterTest(true);
+        $cache = cache::make_from_params(cache_store::MODE_SESSION, 'phpunit', 'sessioncache');
+        $user1 = $this->getDataGenerator()->create_user();
+        $user2 = $this->getDataGenerator()->create_user();
+
+        // Log in as the first user.
+        $this->setUser($user1);
+        $sesskey1 = sesskey();
+
+        // Set a basic value in the cache.
+        $cache->set('var', 1);
+        $this->assertTrue($cache->has('var'));
+        $this->assertEquals(1, $cache->get('var'));
+
+        // Change to the second user.
+        $this->setUser($user2);
+        $sesskey2 = sesskey();
+
+        // Make sure the cache doesn't give us the data for the last user.
+        $this->assertNotEquals($sesskey1, $sesskey2);
+        $this->assertFalse($cache->has('var'));
+        $this->assertEquals(false, $cache->get('var'));
+    }
+
+    /**
+     * Test multiple session caches when switching user.
+     */
+    public function test_session_cache_switch_user_multiple() {
+        $this->resetAfterTest(true);
+        $cache1 = cache::make_from_params(cache_store::MODE_SESSION, 'phpunit', 'sessioncache1');
+        $cache2 = cache::make_from_params(cache_store::MODE_SESSION, 'phpunit', 'sessioncache2');
+        $user1 = $this->getDataGenerator()->create_user();
+        $user2 = $this->getDataGenerator()->create_user();
+
+        // Log in as the first user.
+        $this->setUser($user1);
+        $sesskey1 = sesskey();
+
+        // Set a basic value in the caches.
+        $cache1->set('var', 1);
+        $cache2->set('var', 2);
+        $this->assertEquals(1, $cache1->get('var'));
+        $this->assertEquals(2, $cache2->get('var'));
+
+        // Change to the second user.
+        $this->setUser($user2);
+        $sesskey2 = sesskey();
+
+        // Make sure the cache doesn't give us the data for the last user.
+        // Also make sure that switching the user has lead to both caches being purged.
+        $this->assertNotEquals($sesskey1, $sesskey2);
+        $this->assertEquals(false, $cache1->get('var'));
+        $this->assertEquals(false, $cache2->get('var'));
     }
 }

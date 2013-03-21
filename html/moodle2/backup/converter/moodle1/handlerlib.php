@@ -88,10 +88,13 @@ abstract class moodle1_handlers_factory {
         foreach ($plugins as $name => $dir) {
             $handlerfile  = $dir . '/backup/moodle1/lib.php';
             $handlerclass = "moodle1_{$type}_{$name}_handler";
-            if (!file_exists($handlerfile)) {
+            if (file_exists($handlerfile)) {
+                require_once($handlerfile);
+            } elseif ($type == 'block') {
+                $handlerclass = "moodle1_block_generic_handler";
+            } else {
                 continue;
             }
-            require_once($handlerfile);
 
             if (!class_exists($handlerclass)) {
                 throw new moodle1_convert_exception('missing_handler_class', $handlerclass);
@@ -1038,6 +1041,24 @@ class moodle1_question_bank_handler extends moodle1_xml_handler {
     private $qtypehandlers = null;
 
     /**
+     * Return the file manager instance used.
+     *
+     * @return moodle1_file_manager
+     */
+    public function get_file_manager() {
+        return $this->fileman;
+    }
+
+    /**
+     * Returns the information about the question category context being currently parsed
+     *
+     * @return array with keys contextid, contextlevel and contextinstanceid
+     */
+    public function get_current_category_context() {
+        return $this->currentcategory;
+    }
+
+    /**
      * Registers path that are not qtype-specific
      */
     public function get_paths() {
@@ -1187,6 +1208,17 @@ class moodle1_question_bank_handler extends moodle1_xml_handler {
             $data['generalfeedback'] = text_to_html($data['generalfeedback'], false, false, true);
             $data['generalfeedbackformat'] = FORMAT_HTML;
         }
+
+        // Migrate files in questiontext.
+        $this->fileman->contextid = $this->currentcategory['contextid'];
+        $this->fileman->component = 'question';
+        $this->fileman->filearea  = 'questiontext';
+        $this->fileman->itemid    = $data['id'];
+        $data['questiontext'] = moodle1_converter::migrate_referenced_files($data['questiontext'], $this->fileman);
+
+        // Migrate files in generalfeedback.
+        $this->fileman->filearea  = 'generalfeedback';
+        $data['generalfeedback'] = moodle1_converter::migrate_referenced_files($data['generalfeedback'], $this->fileman);
 
         // replay the upgrade step 2010080901 - updating question image
         if (!empty($data['image'])) {
@@ -1733,10 +1765,39 @@ abstract class moodle1_qtype_handler extends moodle1_plugin_handler {
         foreach ($answers as $elementname => $elements) {
             foreach ($elements as $element) {
                 $answer = $this->convert_answer($element, $qtype);
+                // Migrate images in answertext.
+                if ($answer['answerformat'] == FORMAT_HTML) {
+                    $answer['answertext'] = $this->migrate_files($answer['answertext'], 'question', 'answer', $answer['id']);
+                }
+                // Migrate images in feedback.
+                if ($answer['feedbackformat'] == FORMAT_HTML) {
+                    $answer['feedback'] = $this->migrate_files($answer['feedback'], 'question', 'answerfeedback', $answer['id']);
+                }
                 $this->write_xml('answer', $answer, array('/answer/id'));
             }
         }
         $this->xmlwriter->end_tag('answers');
+    }
+
+    /**
+     * Migrate files belonging to one qtype plugin text field.
+     *
+     * @param array $text the html fragment containing references to files
+     * @param string $component the component for restored files
+     * @param string $filearea the file area for restored files
+     * @param int $itemid the itemid for restored files
+     *
+     * @return string the text for this field, after files references have been processed
+     */
+    protected function migrate_files($text, $component, $filearea, $itemid) {
+        $context = $this->qbankhandler->get_current_category_context();
+        $fileman = $this->qbankhandler->get_file_manager();
+        $fileman->contextid = $context['contextid'];
+        $fileman->component = $component;
+        $fileman->filearea  = $filearea;
+        $fileman->itemid    = $itemid;
+        $text = moodle1_converter::migrate_referenced_files($text, $fileman);
+        return $text;
     }
 
     /**
@@ -1897,7 +1958,8 @@ abstract class moodle1_qtype_handler extends moodle1_plugin_handler {
         if ($qtype !== 'multichoice') {
             $new['answerformat'] = FORMAT_PLAIN;
         } else {
-            $new['answerformat'] = FORMAT_MOODLE;
+            $new['answertext'] = text_to_html($new['answertext'], false, false, true);
+            $new['answerformat'] = FORMAT_HTML;
         }
 
         if ($CFG->texteditors !== 'textarea') {
@@ -1989,8 +2051,92 @@ abstract class moodle1_resource_successor_handler extends moodle1_mod_handler {
  */
 abstract class moodle1_block_handler extends moodle1_plugin_handler {
 
+    public function get_paths() {
+        $blockname = strtoupper($this->pluginname);
+        return array(
+            new convert_path('block', "/MOODLE_BACKUP/COURSE/BLOCKS/BLOCK/{$blockname}"),
+        );
+    }
+
+    public function process_block(array $data) {
+        $newdata = $this->convert_common_block_data($data);
+
+        $this->write_block_xml($newdata, $data);
+        $this->write_inforef_xml($newdata, $data);
+        $this->write_roles_xml($newdata, $data);
+
+        return $data;
+    }
+
+    protected function convert_common_block_data(array $olddata) {
+        $newdata = array();
+
+        $newdata['blockname'] = $olddata['name'];
+        $newdata['parentcontextid'] = $this->converter->get_contextid(CONTEXT_COURSE, 0);
+        $newdata['showinsubcontexts'] = 0;
+        $newdata['pagetypepattern'] = $olddata['pagetype'].='-*';
+        $newdata['subpagepattern'] = null;
+        $newdata['defaultregion'] = ($olddata['position']=='l')?'side-pre':'side-post';
+        $newdata['defaultweight'] = $olddata['weight'];
+        $newdata['configdata'] = $this->convert_configdata($olddata);
+
+        return $newdata;
+    }
+
+    protected function convert_configdata(array $olddata) {
+        return $olddata['configdata'];
+    }
+
+    protected function write_block_xml($newdata, $data) {
+        $contextid = $this->converter->get_contextid(CONTEXT_BLOCK, $data['id']);
+
+        $this->open_xml_writer("course/blocks/{$data['name']}_{$data['id']}/block.xml");
+        $this->xmlwriter->begin_tag('block', array('id' => $data['id'], 'contextid' => $contextid));
+
+        foreach ($newdata as $field => $value) {
+            $this->xmlwriter->full_tag($field, $value);
+        }
+
+        $this->xmlwriter->begin_tag('block_positions');
+        $this->xmlwriter->begin_tag('block_position', array('id' => 1));
+        $this->xmlwriter->full_tag('contextid', $newdata['parentcontextid']);
+        $this->xmlwriter->full_tag('pagetype', $data['pagetype']);
+        $this->xmlwriter->full_tag('subpage', '');
+        $this->xmlwriter->full_tag('visible', $data['visible']);
+        $this->xmlwriter->full_tag('region', $newdata['defaultregion']);
+        $this->xmlwriter->full_tag('weight', $newdata['defaultweight']);
+        $this->xmlwriter->end_tag('block_position');
+        $this->xmlwriter->end_tag('block_positions');
+        $this->xmlwriter->end_tag('block');
+        $this->close_xml_writer();
+    }
+
+    protected function write_inforef_xml($newdata, $data) {
+        $this->open_xml_writer("course/blocks/{$data['name']}_{$data['id']}/inforef.xml");
+        $this->xmlwriter->begin_tag('inforef');
+        // Subclasses may provide inforef contents if needed
+        $this->xmlwriter->end_tag('inforef');
+        $this->close_xml_writer();
+    }
+
+    protected function write_roles_xml($newdata, $data) {
+        // This is an empty shell, as the moodle1 converter doesn't handle user data.
+        $this->open_xml_writer("course/blocks/{$data['name']}_{$data['id']}/roles.xml");
+        $this->xmlwriter->begin_tag('roles');
+        $this->xmlwriter->full_tag('role_overrides', '');
+        $this->xmlwriter->full_tag('role_assignments', '');
+        $this->xmlwriter->end_tag('roles');
+        $this->close_xml_writer();
+    }
 }
 
+
+/**
+ * Base class for block generic handler
+ */
+class moodle1_block_generic_handler extends moodle1_block_handler {
+
+}
 
 /**
  * Base class for the activity modules' subplugins
