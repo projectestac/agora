@@ -16,6 +16,7 @@ MOODLE2
 
 ZIKULA
 - Fixed call to stats summarize function in iwcron.php
+- Removed https in login block
 
 
 
