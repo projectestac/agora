@@ -114,6 +114,7 @@ class IWdocmanager_Api_User extends Zikula_AbstractApi {
             'validated' => $validated,
             'fileOriginalName' => $args['fileOriginalName'],
             'versionFrom' => $args['versionFrom'],
+            'filesize' => $args['filesize'],
         );
 
         if (!DBUtil::insertObject($item, 'IWdocmanager', 'documentId')) {

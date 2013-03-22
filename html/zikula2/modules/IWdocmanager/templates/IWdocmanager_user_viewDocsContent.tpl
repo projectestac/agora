@@ -7,6 +7,7 @@
     <thead>
         <tr>
             <th>{gt text="Document name"}</th>
+            <th>{gt text="Size"}</th>
             <th>{gt text="Description"}</th>
             <th>{gt text="Version"}</th>
             <th>{gt text="Date"}</th>
@@ -30,6 +31,9 @@
                     {gt text="The document is pending of validation."}
                 </div>
                 {/if}
+            </td>
+            <td>
+                {$document.filesize}
             </td>
             <td class="tableCellTop">
                 {$document.description}

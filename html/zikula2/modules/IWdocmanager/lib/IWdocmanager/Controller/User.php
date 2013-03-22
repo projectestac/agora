@@ -103,6 +103,8 @@ class IWdocmanager_Controller_User extends Zikula_AbstractController {
                 $documents[$document['documentId']]['canDelete'] = true;
                 $canDelete = true; // in order to show delete icon in legend
             }
+
+            $documents[$document['documentId']]['filesize'] = ModUtil::func($this->name, 'user', 'getReadableFileSize', array('filesize' => $document['filesize']));
         }
 
         if ($usersList != '') {
@@ -238,6 +240,9 @@ class IWdocmanager_Controller_User extends Zikula_AbstractController {
             return System::redirect(ModUtil::url($this->name, 'user', 'viewDocs'));
         }
 
+        $versionFrom = '';
+        $filesize = '';
+
         if ($documentId > 0) {
             // get document
             $document = ModUtil::apiFunc($this->name, 'user', 'getDocument', array('documentId' => $documentId));
@@ -250,8 +255,6 @@ class IWdocmanager_Controller_User extends Zikula_AbstractController {
                 LogUtil::registerError($this->__('It is not possible to create a version of this document.'));
                 return System::redirect(ModUtil::url($this->name, 'user', 'viewDocs', array('categoryId' => $document['categoryId'])));
             }
-        } else {
-            $versionFrom = '';
         }
 
         if ($documentFile['name'] != '') {
@@ -264,6 +267,7 @@ class IWdocmanager_Controller_User extends Zikula_AbstractController {
                 return System::redirect(ModUtil::url($this->name, 'user', 'viewDocs'));
             }
             $documentLink = '';
+            $filesize = $documentFile['size'];
         }
 
         $documentLink = (substr($documentLink, 0, 4) != 'http' && $documentLink != '') ? 'http://' . $documentLink : $documentLink;
@@ -274,8 +278,9 @@ class IWdocmanager_Controller_User extends Zikula_AbstractController {
                     'version' => $version,
                     'authorName' => $authorName,
                     'description' => $description,
-                    'fileOriginalName' => str_replace($extension, '', DataUtil::formatPermalink($documentFile['name'])),
+                    'fileOriginalName' => DataUtil::formatPermalink(str_replace('.' . $extension, '', $documentFile['name'])) . '.' . $extension, // remove extension before formatPermalink and then at it again
                     'versionFrom' => $versionFrom,
+                    'filesize' => $filesize,
                 ));
 
         if (!$created) {
@@ -357,8 +362,6 @@ class IWdocmanager_Controller_User extends Zikula_AbstractController {
 
         $extensions = str_replace('|', ', ', ModUtil::getVar('IWmain', 'extensions'));
 
-        $fileExtension = ($document['fileName'] != '') ? FileUtil::getExtension($document['fileName']) : '';
-
         $function = ($newVersion) ? 'createDoc' : 'updateDoc';
 
         return $this->view->assign('document', $document)
@@ -366,7 +369,6 @@ class IWdocmanager_Controller_User extends Zikula_AbstractController {
                         ->assign('extensions', $extensions)
                         ->assign('categories', $categories)
                         ->assign('categoryId', $document['categoryId'])
-                        ->assign('fileExtension', $fileExtension)
                         ->assign('newVersion', $newVersion)
                         ->fetch('IWdocmanager_user_addEditDoc.tpl');
     }
@@ -475,7 +477,7 @@ class IWdocmanager_Controller_User extends Zikula_AbstractController {
         //Use the switch-generated Content-Type
         header("Content-Type: $ctype");
         //Force the download
-        $header = "Content-Disposition: attachment; filename=" . $document['fileOriginalName'] . '.' . $fileExtension . ";";
+        $header = "Content-Disposition: attachment; filename=" . $document['fileOriginalName'] . ";";
         header($header);
         header("Content-Transfer-Encoding: binary");
         header("Content-Length: " . $fileSize);
@@ -496,11 +498,12 @@ class IWdocmanager_Controller_User extends Zikula_AbstractController {
             LogUtil::registerError($this->__('Document not found.'));
             return System::redirect(ModUtil::url($this->name, 'user', 'viewDocs'));
         }
-        
+
         $documentOrigin['extension'] = FileUtil::getExtension($documentOrigin['fileName']);
+        $documentOrigin['filesize'] = ModUtil::func($this->name, 'user', 'getReadableFileSize', array('filesize' => $documentOrigin['filesize']));
 
         $categoryId = $documentOrigin['categoryId'];
-        
+
         // check if user can access to this category
         $canAccess = ModUtil::func($this->name, 'user', 'canAccessCategory', array('categoryId' => $categoryId,
                     'accessType' => 'read',
@@ -549,6 +552,8 @@ class IWdocmanager_Controller_User extends Zikula_AbstractController {
                 $documents[$document['documentId']]['canDelete'] = true;
                 $canDelete = true; // in order to show delete icon in legend
             }
+
+            $documents[$document['documentId']]['filesize'] = ModUtil::func($this->name, 'user', 'getReadableFileSize', array('filesize' => $document['filesize']));
         }
 
         if ($usersList != '') {
@@ -567,6 +572,22 @@ class IWdocmanager_Controller_User extends Zikula_AbstractController {
                         ->assign('canDelete', $canDelete)
                         ->assign('versionsVision', 1)
                         ->fetch('IWdocmanager_user_viewDocumentVersions.tpl');
+    }
+
+    public function getReadableFileSize($args) {
+        $filesize = FormUtil::getPassedValue('filesize', isset($args['filesize']) ? $args['filesize'] : '', 'GET');
+        if ($filesize != '') {
+            if ($filesize > 1024) {
+                $bytes = round($filesize / 1024, 2) . ' Kb';
+            } elseif ($filesize > 1024 * 1024) {
+                $bytes = round($filesize / 1024 / 1024, 2) . ' Mb';
+            } else {
+                $bytes = $filesize . ' b';
+            }
+        } else {
+            $bytes = '---';
+        }
+        return $bytes;
     }
 
 }

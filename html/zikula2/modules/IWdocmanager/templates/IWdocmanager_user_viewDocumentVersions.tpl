@@ -6,6 +6,9 @@
         {/if}
     </div>
     <div>
+        {gt text="Size"}: {$documentOrigin.filesize}
+    </div>
+    <div>
         {gt text="Description"}: {$documentOrigin.description}
     </div>
     <div>

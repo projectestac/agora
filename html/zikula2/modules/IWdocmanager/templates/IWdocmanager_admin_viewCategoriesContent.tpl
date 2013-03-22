@@ -5,7 +5,7 @@
             {gt text="Id"}
         </div>
         <div class="IWdocmanager_main">
-            {gt text="Nom de la categoria"}
+            {gt text="Category name"}
             <div class="IWdocmanager_description">
                 {gt text="Description"}
             </div>
@@ -48,8 +48,8 @@
             <a class="z-pointer" onclick="deleteCategory({$category.categoryId})">
                 {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Delete" __title="Delete"}
             </a>
-            <a class="z-pointer" onclick="addCategory({$category.categoryId})" title="{gt text='Submenu'}">
-                {img modname='IWdocmanager' src='subcategory.png' __alt="Submenu" __title="Submenu"}
+            <a class="z-pointer" onclick="addCategory({$category.categoryId})" title="{gt text='Subcategory'}">
+                {img modname='IWdocmanager' src='subcategory.png' __alt="Subcategory" __title="Subcategory"}
             </a>
         </div>
         <div class="IWdocmanager_groupsAdd">

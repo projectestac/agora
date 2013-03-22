@@ -32,7 +32,7 @@
     <div class="z-formrow">
         <label for="documentFile">{if $newVersion}{gt text="Current file"}{else}{gt text="File"}{/if}</label>
         <div class="z-formnote">
-            <strong>{$document.fileOriginalName}.{$fileExtension}</strong>
+            <strong>{$document.fileOriginalName}</strong>
         </div>
     </div>
     {if $newVersion}
