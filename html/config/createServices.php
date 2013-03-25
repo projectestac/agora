@@ -7,10 +7,10 @@ if (empty($schoolCodes)) { // Show form
     <!DOCTYPE html>
     <html>
         <head>
-            <title>Altes massives a Àgora</title>
+            <title>Altes massives a &Agrave;gora</title>
         </head>
         <body>
-            <form action="newSchools.php" method="post">
+            <form action="createServices.php" method="post">
                 Llista de codis de centre separats per comes: <br />
                 <textarea name="schoolCodes" rows="5" cols="80" placeholder="Exemple: a8000000, a8000001, a8000002"></textarea><br />
                 <input type="submit" />
@@ -51,18 +51,39 @@ if (empty($schoolCodes)) { // Show form
         mysqli_free_result($res);     
         
         // Pas 3: Obtenir l'id de la propera BD lliure (activedId)
+        // TODO: utilitzar aquest algorisme per millorar agoraportal
+        $sql = "SELECT DISTINCT activedId FROM agoraportal_client_services WHERE serviceId = 2 OR serviceId = 4 AND state <> 0 AND activedId <> 0 ORDER BY activedId";
+        $res = mysqli_query ($dbc, $sql);
+        $curIndex = 1;
+        $dbChecked = $dbUser = $dbName = false;
+        while ($row = mysqli_fetch_array ($res, MYSQLI_ASSOC)) {
+            if ($curIndex == $row['activedId']) {
+                $curIndex++;
+            } else {
+                // Comprova si la BD està disponible
+                $connResult = checkConnection ($curIndex);
+                if ($connResult !== false) {
+                    $dbChecked = true;
+                    $dbUser = $connResult['dbuser'];
+                    $dbName = $connResult['dbname'];
+                    break;
+                }
+            }
+        }
+        var_dump($dbChecked);
+        echo $dbUser;
+        echo $dbName;
+        echo $curIndex;
+
+        // Pas 4: Crear el servei a client_services
 
         
         
-        // Pas 4: Calcular la instància de la base de dades
+        // Pas 5: Crear una contrasenya
         
-        // Pas 5: Crear el servei a client_services
+        // Pas 6: Fer els canvis a les taules del Moodle 2
         
-        // Pas 6: Crear una contrasenya
-        
-        // Pas 7: Fer els canvis a les taules del Moodle 2
-        
-        // Pas 8: Desar les dades, sobre tot la contrasenya (fitxer o taula?)
+        // Pas 7: Desar les dades, sobre tot la contrasenya (fitxer o taula?)
         
 
         
@@ -73,117 +94,6 @@ if (empty($schoolCodes)) { // Show form
 
 
     // CODI COPIAT D'AGORAPORTAL (per a referència)
-/*
-    public function getFreeDataBase($args) {
-        // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
-
-        // Needed for connectExtDB
-        $dbHost = $args['dbHost'];
-
-        // Moodle and moodle2 use the same activeId, so must be treated as one 
-        if (isset($args['serviceName']) && ($args['serviceName'] == 'moodle' || $args['serviceName'] == 'moodle2')) {
-            // Get the list of moodle services of all the clients
-            $moodleService = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'moodle'));
-            $moodleServiceId = $moodleService['serviceId'];
-            $moodleClientServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $moodleServiceId,
-                        'state' => -1));
-
-            // Get the list of moodle2 services of all the clients
-            $moodle2Service = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'moodle2'));
-            $moodle2ServiceId = $moodle2Service['serviceId'];
-            $moodle2ClientServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $moodle2ServiceId,
-                        'state' => -1));
-
-            if (empty($moodleClientServices) && empty($moodle2ClientServices)) {
-                return false;
-            }
-
-            // Initial values
-            $databaseIds = array();
-            $max = 0;
-
-            // Get a list of activedId of moodle service
-            foreach ($moodleClientServices as $service) {
-                if ($service['activedId'] != 0) {
-                    $databaseIds[] = $service['activedId'];
-                    if ($service['activedId'] > $max) {
-                        $max = $service['activedId'];
-                    }
-                }
-            }
-
-            // Add to the previous list the activedId of moodle2 service
-            foreach ($moodle2ClientServices as $service) {
-                if ($service['activedId'] != 0) {
-                    $databaseIds[] = $service['activedId'];
-                    if ($service['activedId'] > $max) {
-                        $max = $service['activedId'];
-                    }
-                }
-            }
-
-            // Remove duplicates
-            $databaseIds = array_unique($databaseIds);
-
-            sort($databaseIds);
-        } else {
-            // get all services (all states)
-            $items = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $args['serviceId'],
-                        'state' => -1));
-            if (!$items) {
-                return false;
-            }
-
-            // get all the database used
-            $databaseIds = array();
-            $max = 0;
-            foreach ($items as $item) {
-                if ($item['activedId'] != 0) {
-                    $databaseIds[] = $item['activedId'];
-                    if ($item['activedId'] > $max) {
-                        $max = $item['activedId'];
-                    }
-                }
-            }
-
-            sort($databaseIds);
-        }
-
-        // Look for next free ID
-        $j = 0;
-        // First, look for a free database (a gap in the list)
-        for ($i = 0; $i < $max; $i++) {
-            $j++;
-            if ($databaseIds[$i] != $j) {
-                $free = $j;
-                break;
-            }
-        }
-
-        // No luck, so let's try the following ID
-        if ($j == $max) {
-            $free = $max + 1;
-        }
-
-        // Get info of the service from its ID
-        $serviceInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getService', array('serviceId' => $args['serviceId']));
-
-        $connect = ModUtil::apiFunc('Agoraportal', 'user', 'connectExtDB', array('serviceName' => $serviceInfo['serviceName'],
-                    'database' => $free,
-                    'host' => $dbHost));
-
-        if (!$connect) {
-            return false;
-        }
-
-        return $free;
-    }
-*/
-
-
 /*
     $clientServiceId = $args['clientServiceId'];
     // Needed argument
@@ -319,4 +229,32 @@ function checkCode($code) {
         return $code;
     }
     return false;
+}
+
+
+/**
+ * Check connection to Oracle database
+ * 
+ * @param type $id
+ * @return bool false if error, array if success
+ */
+function checkConnection ($id) {
+    
+    global $agora;
+    
+    $dbUser = $agora['moodle']['username'] . $id;
+
+    $dbNumber = (int) $agora['moodle']['dbnumber'];
+    $offset = floor($id / 200) + (($id % 200) == 0 ? ($dbNumber - 1) : $dbNumber);
+    $offset = ($offset > 1) ? (string) $offset : '';
+    $dbName = $agora['moodle']['database'] . $offset;
+
+    $connect = oci_pconnect($dbUser, $agora['moodle']['userpwd'], $dbName);
+    
+    if ($connect === false) {
+        return false;
+    } else {
+        oci_close($connect);
+        return array('dbuser' => $dbUser, 'dbname' => $dbName);
+    }
 }
