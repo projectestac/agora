@@ -77,10 +77,24 @@ class IWdocmanager_Installer extends Zikula_AbstractInstaller {
         $table = DBUtil::getTables();
         switch ($oldversion) {
             case '0.0.1';
+                $table = DBUtil::getTables();
+                $c = $table['IWdocmanager_column'];
+                $c1 = $table['IWdocmanager_categories_column'];
                 // used in agora module upgrade in order to calc the number of document in each category
                 $categories = DBUtil::selectObjectArray('IWdocmanager_categories', '', '', '-1', '-1', 'categoryId');
                 foreach ($categories as $category) {
-                    ModUtil::func($this->name, 'user', 'countDocuments', array('categoryId' => $category['categoryId']));
+                    $where = "$c[categoryId] = $category[categoryId] AND $c[validated] = 1 AND $c[versioned] <= 0";
+                    $number = DBUtil::selectObjectCount('IWdocmanager', $where);
+
+                    $where = "$c[categoryId] = $category[categoryId] AND $c[validated] = 0 AND $c[versioned] <= 0";
+                    $number1 = DBUtil::selectObjectCount('IWdocmanager', $where);
+                    
+                    $where = "$c1[categoryId] = $category[categoryId]";
+                    $item = array('nDocuments' => $number,
+                        'nDocumentsNV' => $number1
+                    );
+
+                    DBUtil::updateObject($item, 'IWdocmanager_categories', $where);
                 }
             case '1.0.0':
             // future versions
