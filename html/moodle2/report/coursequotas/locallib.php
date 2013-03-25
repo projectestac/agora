@@ -54,15 +54,27 @@ function report_coursequotas_getCategoryData() {
  */
 function report_coursequotas_buildCatTree($dbRecords, $catID, $depth) {
     $catTree = array();
+    
+    // First pass to get categories whose parent is this category (aka subcategories)
     foreach ($dbRecords as $record) {
         if ($record->parent == $catID) {
             $catTree[$record->id] = array('Id' => $record->id, 'Name' => $record->name, 'Subcategories' => array(), 'categorysize' => 0);
-        } else {
-            if (($depth + 1) == $record->depth) {
-                $catTree[$record->parent]['Subcategories'] = report_coursequotas_buildCatTree($dbRecords, $record->parent, $depth + 1);
+        }
+    }
+    
+    // Second pass for recursive call for all the categories in this category. The process
+    //  can't be done in a single pass because we only have the full list of categories 
+    //  of this depth once we have completed the first pass.
+    foreach ($catTree as $cat) {
+        foreach ($dbRecords as $record) {
+            // Condition 1: next level of depth
+            // Condicion 2: the category must be under the current category
+            if (($record->parent == $cat['Id'])) {
+                $catTree[$cat['Id']]['Subcategories'] = report_coursequotas_buildCatTree($dbRecords, $cat['Id'], $depth + 1);
             }
         }
     }
+
     return $catTree;
 }
 
