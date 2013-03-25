@@ -134,8 +134,8 @@ class auth_plugin_db extends auth_plugin_base {
             global $agora, $school_info;
             if (array_key_exists('id_intranet', $school_info)) {
 //            if (empty($this->config->host) && array_key_exists('id_intranet', $school_info)) {
+                $this->config->type = $agora['intranet']['dbtype'];
                 $this->config->host = $school_info['dbhost_intranet'];
-                $this->config->host = $agora['intranet']['host'];
                 $this->config->user = $agora['intranet']['username'];
                 $this->config->pass = $agora['intranet']['userpwd'];
                 $this->config->name = $agora['intranet']['userprefix'] . $school_info['id_intranet'];
