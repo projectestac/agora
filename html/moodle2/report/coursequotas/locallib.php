@@ -27,7 +27,7 @@ function report_coursequotas_getCategoryData() {
     $systemContextId = $dbRecord->id;
 
     // Step 2: build category tree
-    $dbRecords = $DB->get_records_select('course_categories', '', null, 'PARENT, DEPTH', 'ID, NAME, PARENT, DEPTH');
+    $dbRecords = $DB->get_records_select('course_categories', '', null, 'DEPTH, ID', 'ID, NAME, PARENT, DEPTH');
     $categoryTree = report_coursequotas_buildCatTree($dbRecords, 0, 1);
 
     // Step 3: add courses to each category
@@ -56,9 +56,12 @@ function report_coursequotas_buildCatTree($dbRecords, $catID, $depth) {
     $catTree = array();
     
     // First pass to get categories whose parent is this category (aka subcategories)
-    foreach ($dbRecords as $record) {
+    foreach ($dbRecords as $key => $record) {
         if ($record->parent == $catID) {
             $catTree[$record->id] = array('Id' => $record->id, 'Name' => $record->name, 'Subcategories' => array(), 'categorysize' => 0);
+            // Effiency improvement: Once the category is added to the tree, it won't be added again
+            unset($dbRecords[$key]);
+            print_r ($dbRecords);
         }
     }
     
