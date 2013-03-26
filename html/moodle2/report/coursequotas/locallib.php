@@ -61,7 +61,6 @@ function report_coursequotas_buildCatTree($dbRecords, $catID, $depth) {
             $catTree[$record->id] = array('Id' => $record->id, 'Name' => $record->name, 'Subcategories' => array(), 'categorysize' => 0);
             // Effiency improvement: Once the category is added to the tree, it won't be added again
             unset($dbRecords[$key]);
-            print_r ($dbRecords);
         }
     }
     
