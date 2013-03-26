@@ -89,6 +89,7 @@ class IWmenu_Installer extends Zikula_AbstractInstaller {
     public function upgrade($oldversion) {
         DBUtil::changeTable('IWmenu');
         switch ($oldversion) {
+            case '1.0': //upgrade from old versions in Agora
             case '3.0.0':
                 // add language features
                 // get current lang code

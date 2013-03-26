@@ -5,7 +5,8 @@
  *
  * @return Connection handler
  */
-global $ZConfig;
+// global $ZConfig;
+$preupgradeError = false;
 
 function connectdb() {
     require_once('config/config.php');
@@ -13,11 +14,18 @@ function connectdb() {
         return false;
     if (!mysql_select_db($ZConfig['DBInfo']['databases']['default']['dbname'], $con))
         return false;
+
+    $f = fopen('../../zkdata/upgrade.txt', "a") or die('Error en obrir el fitxer de text.');
+    fwrite($f, "===============\n");
+    fwrite($f, date('c', time()) . ' - Actualització de la intranet: ' . $ZConfig['DBInfo']['databases']['default']['dbname'] . "\n\n");
+    fclose($f);
     return $con;
 }
 
+$f = fopen('../../zkdata/upgrade.txt', "a") or die('Error en obrir el fitxer de text.');
+
 if (!$con = connectdb())
-    die('connection failed');
+    fwrite($f, 'connection failed' . "\n");
 
 $commands = array();
 $prefix = 'zk';
@@ -40,7 +48,8 @@ $tables = array($prefix . '_' . 'iw_chat_msg',
 foreach ($tables as $table) {
     $sql = "DROP TABLE $table";
     if (!$result = mysql_query($sql, $con)) {
-        // die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        $preupgradeError = true;
     }
 }
 
@@ -51,7 +60,8 @@ $tables = array($prefix . '_' . 'session_info',
 foreach ($tables as $table) {
     $sql = "TRUNCATE TABLE $table";
     if (!$result = mysql_query($sql, $con)) {
-        // die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        $preupgradeError = true;
     }
 }
 
@@ -75,7 +85,8 @@ $modulesToDelete = array('iw_groups',
 foreach ($modulesToDelete as $module) {
     $sql = "DELETE FROM {$prefix}_modules WHERE pn_name='" . $module . "'";
     if (!$result = mysql_query($sql, $con)) {
-        // die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        $preupgradeError = true;
     }
 }
 
@@ -83,7 +94,8 @@ foreach ($modulesToDelete as $module) {
 $sql = "show tables";
 
 if (!$result = mysql_query($sql, $con)) {
-    die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+    $preupgradeError = true;
 }
 
 while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
@@ -97,7 +109,8 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
 
     $sql = 'SHOW COLUMNS FROM ' . $fila[0];
     if (!$result1 = mysql_query($sql, $con)) {
-        die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        $preupgradeError = true;
     }
     $columns = array();
     while ($fila1 = mysql_fetch_array($result1, MYSQL_NUM)) {
@@ -112,7 +125,8 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
             // prevent serialized fields
             $sql = "select $column[column_name] from $fila[0] where $column[column_name] like '%iw_%'";
             if (!$result2 = mysql_query($sql, $con)) {
-                die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+                fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+                $preupgradeError = true;
             }
             $value = mysql_fetch_row($result2);
             if ($value != '') {
@@ -126,12 +140,14 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
                     $arraySerialized = serialize($newArray);
                     $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = \'' . mysql_real_escape_string($arraySerialized) . '\' WHERE ' . $column['column_name'] . '=\'' . mysql_real_escape_string($value[0]) . '\'';
                     if (!$result2 = mysql_query($sql, $con)) {
-                        die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+                        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+                        $preupgradeError = true;
                     }
                 } else {
                     $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = replace(' . $column['column_name'] . ', \'iw_\', \'IW\') WHERE ' . $column['column_name'] . ' LIKE \'%iw_%\' ';
                     if (!$result2 = mysql_query($sql, $con)) {
-                        die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+                        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+                        $preupgradeError = true;
                     }
                 }
             }
@@ -157,7 +173,8 @@ $commands[] = 'TRUNCATE TABLE hooks';
 
 foreach ($commands as $sql) {
     if (!$result = mysql_query($sql, $con)) {
-        //die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        $preupgradeError = true;
     }
 }
 
@@ -172,7 +189,8 @@ $deleteFrom = array('Stats',
 $commands = array();
 $sql = "SELECT * from module_vars order by pn_modname";
 if (!$result = mysql_query($sql, $con)) {
-    //die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+    $preupgradeError = true;
 }
 while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
     if (!in_array($fila[1], $deleteFrom)) {
@@ -186,6 +204,10 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
 $commands[] = "TRUNCATE module_vars";
 $entry = 'INSERT INTO module_vars (`pn_modname`, `pn_name`, `pn_value`) VALUES ';
 foreach ($vars_entries as $oneentry) {
+    // in module Files the allowed extensions change the separation symbol of elements
+    if ($oneentry['name'] == 'allowedExtensions' && $oneentry['modname'] == 'Files') {
+        $oneentry['value'] = str_replace('|', ',', $oneentry['value']);
+    }
     $entry .= "('" . mysql_real_escape_string($oneentry['modname']) . "','" . mysql_real_escape_string($oneentry['name']) . "','" . mysql_real_escape_string($oneentry['value']) . "'),";
 }
 
@@ -194,7 +216,8 @@ $commands[] = $entry . "('/Plugin','systemplugin.simplepie','" . 'a:2:{s:5:"stat
 
 foreach ($commands as $sql) {
     if (!$result = mysql_query($sql, $con)) {
-        //die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        $preupgradeError = true;
     }
 }
 
@@ -204,13 +227,15 @@ foreach ($commands as $sql) {
 $sql = "INSERT INTO `modules` (`pn_name`, `pn_type`, `pn_displayname`, `pn_url`, `pn_description`, `pn_directory`, `pn_version`, `pn_state`, `pn_securityschema`) VALUES
 ('IWdocmanager', 2, 'Gestió de documents', 'documents', 'Mòdul de gestió documental i control de versions.', 'IWdocmanager', '0.0.1', 3, 'a:1:{s:14:\"IWdocmanager::\";s:2:\"::\";}');";
 if (!$result = mysql_query($sql, $con)) {
-    die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+    $preupgradeError = true;
 }
 // add default module vars
 // get module Downloads folder var current value
 $sql = "select pn_value from module_vars where pn_modname='Downloads' AND pn_name='upload_folder'";
 if (!$result = mysql_query($sql, $con)) {
-    die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+    $preupgradeError = true;
 }
 $value = mysql_fetch_row($result);
 
@@ -220,7 +245,8 @@ $sql = "INSERT INTO module_vars (`pn_modname`, `pn_name`, `pn_value`) VALUES
     ('IWdocmanager','editTime','30'),
     ('IWdocmanager','deleteTime','20');";
 if (!$result = mysql_query($sql, $con)) {
-    die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+    $preupgradeError = true;
 }
 
 // create module tables
@@ -250,7 +276,8 @@ $sql = "CREATE TABLE IF NOT EXISTS `IWdocmanager` (
   KEY `categoryId` (`categoryId`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
 if (!$result = mysql_query($sql, $con)) {
-    die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+    $preupgradeError = true;
 }
 
 // create module tables
@@ -272,7 +299,8 @@ $sql = "CREATE TABLE IF NOT EXISTS `IWdocmanager_categories` (
   PRIMARY KEY (`categoryId`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
 if (!$result = mysql_query($sql, $con)) {
-    die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+    $preupgradeError = true;
 }
 
 // transer data from module Downloads to the module IWdocmanager
@@ -280,7 +308,8 @@ if (!$result = mysql_query($sql, $con)) {
 $document_categories = array();
 $sql = "SELECT * from downloads_categories order by pn_cid";
 if (!$result = mysql_query($sql, $con)) {
-    die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+    $preupgradeError = true;
 }
 while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
     $document_categories[] = array('categoryId' => $fila[0],
@@ -300,7 +329,8 @@ if (!empty($document_categories)) {
     $sql .= ';';
 
     if (!$result = mysql_query($sql, $con)) {
-        die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        $preupgradeError = true;
     }
 }
 
@@ -309,7 +339,8 @@ if (!empty($document_categories)) {
 $documents = array();
 $sql = "SELECT * from downloads_downloads order by pn_lid";
 if (!$result = mysql_query($sql, $con)) {
-    die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+    $preupgradeError = true;
 }
 while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
 
@@ -357,14 +388,25 @@ if (!empty($documents)) {
     $sql .= ';';
 
     if (!$result = mysql_query($sql, $con)) {
-        die('Error: ' . $sql . ' - ERROR: ' . mysql_error());
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        $preupgradeError = true;
     }
 }
-
-
 // change links of module Downloads to IWdocmanager
-// launch zikula upgrader
-header('location:upgrade.php');
+// TODO:
+if ($preupgradeError) {
+    fwrite($f, "ERROR A LA PREPARACIÓ\n");
+} else {
+    fwrite($f, "OK\n");
+}
+
+fwrite($f, "===============\n");
+fclose($f);
+
+if (!$preupgradeError) {
+    // launch zikula upgrader
+    header('location:upgrade.php');
+}
 
 // checks if a value is serialized
 function is_serialized($data) {
