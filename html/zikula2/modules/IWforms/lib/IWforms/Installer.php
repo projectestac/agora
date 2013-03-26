@@ -139,7 +139,6 @@ class IWforms_Installer extends Zikula_AbstractInstaller {
         }
 
         // Update z_blocs table
-
         $c = "UPDATE blocks SET bkey = 'Formnote' WHERE bkey = 'formnote'";
         if (!DBUtil::executeSQL($c)) {
             return false;
@@ -148,6 +147,25 @@ class IWforms_Installer extends Zikula_AbstractInstaller {
         $c = "UPDATE blocks SET bkey = 'Formslist' WHERE bkey = 'formslist'";
         if (!DBUtil::executeSQL($c)) {
             return false;
+        }
+
+        // serialize bloc Formslist content
+        $where = "bkey='Formslist'";
+        $items = DBUtil::selectObjectArray('blocks', $where, '', '-1', '-1');
+        if (!$items) {
+            return false;
+        }
+
+        foreach ($items as $item) {
+            $valuesArray = explode('---', $item['url']);
+            $categories = $valuesArray[0];
+            $listBox = $valuesArray[1];
+            $serialized = serialize(array('categories' => $categories,
+                'listBox' => $listBox));
+            $c = "UPDATE blocks SET content = '$serialized', url='' WHERE bid = $item[bid]";
+            if (!DBUtil::executeSQL($c)) {
+                return false;
+            }
         }
 
         //Array de noms
