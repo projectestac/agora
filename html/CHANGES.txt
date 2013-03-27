@@ -5,8 +5,12 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- First version of utility to massive creation of Moodle 2 services
+
 MOODLE2
-- Fixed error when building category tree 
+- Fixed error when building category tree
+- Import utility now removes backup copies after restoration
 
 
 
