@@ -1,0 +1,25 @@
+#dates .title-time{width:150px;float:left;clear:both;}
+#dates .data-time{float:left;}
+#dates.generalbox{height:30px;}
+
+.qvdates{margin: 10px;}
+
+#qv-preview-link {float:right; margin-top:20px;}
+
+.summary-row{font-weight: bold;}
+
+.firstinitial{clear:both; margin-top:30px;}
+.initialbar {text-align: center;}
+
+#qv_applet{
+	text-align:center;
+	padding-top:10px;
+}
+
+#qv_attempts td.state,
+#qv_attempts td.unread,
+#qv_attempts td.score,
+#qv_attempts td.delivers,
+#qv_attempts td.time{
+	text-align: center;
+}

@@ -11,7 +11,7 @@ GENERAL
 MOODLE2
 - Fixed error when building category tree
 - Import utility now removes backup copies after restoration
-
+- Installed QV module 
 
 
 Changes 13.03.22
