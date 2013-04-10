@@ -1,322 +1,335 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Altes massives al Moodle 2 d'&Agrave;gora</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+
 <?php
 $schoolCodes = (isset($_REQUEST['schoolCodes'])) ? $_REQUEST['schoolCodes'] : '';
 
 if (empty($schoolCodes)) { // Show form
 ?>
 
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <title>Altes massives a Àgora</title>
-        </head>
-        <body>
-            <form action="newSchools.php" method="post">
-                Llista de codis de centre separats per comes: <br />
-                <textarea name="schoolCodes" rows="5" cols="80" placeholder="Exemple: a8000000, a8000001, a8000002"></textarea><br />
-                <input type="submit" />
-            </form>
-        </body>
-    </html>    
+    <form action="createServices.php" method="post">
+        <div>
+            <p>Aquest script crea el servei Moodle 2 per als codis de centre que s'indiquin. Punts a tenir en compte:</p>
+            <ul>
+                <li>El client ha d'existir a la taula agoraportal_clients</li>
+                <li>El codi de centre ha de ser una lletra seguida de 7 números</li>
+                <li>Si el centre té Moodle 1.9, es crearà el Moodle 2 en el mateix usuari</li>
+                <li>Si el centre no té Moodle 1.9, es buscarà la propera BD lliure (sense cap Moodle)</li>
+                <li>Si l'usuari no disposa de les taules del Moodle 2, l'script informa de que no s'ha trobat la taula m2user</li>
+                <li>Es creen contrasenyes aleatòries per a l'admin del Moodle</li>
+                <li>Es desa un registre d'accions a la taula <strong>agoraportal_autoregisterlog</strong> d'adminagora (es crea automàticament)</li>
+            </ul>
+        </div>      
+        <div>Llista de codis de centre separats per comes: </div>
+        <textarea name="schoolCodes" rows="10" cols="80" placeholder="Exemple: a8000000, a8000001, a8000002"></textarea><br />
+        <input type="submit" />
+    </form>
 
 <?php
 } else { // Do the work
-    
-    $codes = explode(',', $schoolCodes);
 
-    foreach ($codes as $code) {
+    $clientCodes = explode(',', $schoolCodes);
+    global $agora;
+
+    foreach ($clientCodes as $clientCode) {
         // Check code validity
-        $code = (checkCode(trim($code))) ? trim($code) : '';
-        if (!$code) {
+        $clientCode = (checkCode(trim($clientCode))) ? trim($clientCode) : '';
+        if (!$clientCode) {
+            echo "El codi <strong>$clientCode</strong> no és vàlid.<br />";
             continue;
         }
-        
-        // Pas 0: Connectar a la base de dades
+
+        // Pas 1: Connectar a la base de dades
         require ('env-config.php');
         $dbc = mysqli_connect($agora['admin']['host'], $agora['admin']['username'], $agora['admin']['userpwd'], $agora['admin']['database'], $agora['admin']['port']);
-        
-        // Pas 1: Obtenir l'id del servei Moodle 2 ('moodle2')
+
+
+        // Pas 2: Obtenir l'id dels serveis moodle i moodle2
+        $sql = "SELECT serviceId FROM agoraportal_services WHERE serviceName='moodle'";
+        $res = mysqli_query($dbc, $sql);
+        $row = mysqli_fetch_array($res, MYSQLI_ASSOC);
+        $serviceIdMdl = $row['serviceId'];
+
         $sql = "SELECT serviceId FROM agoraportal_services WHERE serviceName='moodle2'";
-        $res = mysqli_query ($dbc, $sql);
-        $row = mysqli_fetch_array ($res, MYSQLI_ASSOC);
-        $serviceId = $row['serviceId'];
-        mysqli_free_result($res);
-        
-        // Pas 2: Obtenir l'id del client (taula clients)
-        $sql = "SELECT clientId, clientDNS, clientName FROM agoraportal_clients WHERE clientCode='$code'";
-        $res = mysqli_query ($dbc, $sql);
-        $row = mysqli_fetch_array ($res, MYSQLI_ASSOC);
-        $clientId = $row['clientId'];
-        $clientDNS = $row['clientDNS'];
-        $clientName = $row['clientName'];
-        mysqli_free_result($res);     
-        
-        // Pas 3: Obtenir l'id de la propera BD lliure (activedId)
+        $res = mysqli_query($dbc, $sql);
+        $row = mysqli_fetch_array($res, MYSQLI_ASSOC);
+        $serviceIdMdl2 = $row['serviceId'];
 
-        
-        
-        // Pas 4: Calcular la instància de la base de dades
-        
-        // Pas 5: Crear el servei a client_services
-        
+
+        // Pas 3: Obtenir les dades del client (taula clients)
+        $sql = "SELECT clientId, clientDNS, clientName, clientAddress, clientCity FROM agoraportal_clients WHERE clientCode='$clientCode'";
+        $res = mysqli_query($dbc, $sql);
+        $row = mysqli_fetch_array($res, MYSQLI_ASSOC);
+        if ($row !== null) {
+            $clientId = $row['clientId'];
+            $clientDNS = $row['clientDNS'];
+            $clientName = $row['clientName'];
+            $clientAddress = $row['clientAddress'];
+            $clientCity = $row['clientCity'];
+        } else {
+            echo "El centre amb codi <strong>$clientCode</strong> no apareix a la taula <strong>agoraportal_clients</strong>. Per tant, no es crea el seu servei.<br />";
+            continue;
+        }
+
+        // Pas 4: Comprovar que el centre encara no té Moodle 2
+        $sql = "SELECT activedId, serviceDB FROM agoraportal_client_services 
+                WHERE serviceId = $serviceIdMdl2 AND clientId = $clientId";
+        $res = mysqli_query($dbc, $sql);
+        $row = mysqli_fetch_array($res, MYSQLI_ASSOC);
+        if ($row !== null) {
+            echo "El centre <strong>$clientName</strong> ja disposa de Moodle 2. Per tant, no es crea el seu servei.<br />";
+            continue;
+        }
+
+
+        // Pas 5: Obtenir l'id del Moodle o de la propera BD lliure (activedId)
+        $sql = "SELECT activedId, serviceDB FROM agoraportal_client_services 
+                WHERE serviceId = $serviceIdMdl AND clientId = $clientId";
+        $res = mysqli_query($dbc, $sql);
+        $row = mysqli_fetch_array($res, MYSQLI_ASSOC);
+        $dbChecked = $dbUser = $dbName = false;
+        if ($row !== null) {
+            $activedId = $row['activedId'];
+            // Comprova si la BD està disponible i obté les dades de connexió
+            $connResult = checkConnection($activedId);
+            if ($connResult !== false) {
+                $dbChecked = true;
+                $dbUser = $connResult['dbuser'];
+                $dbName = $connResult['dbname'];
+            }
+        } else {
+            $sql = "SELECT DISTINCT activedId FROM agoraportal_client_services 
+                    WHERE serviceId = $serviceIdMdl OR serviceId = $serviceIdMdl2 AND state <> 0 AND activedId <> 0
+                    ORDER BY activedId";
+            $res = mysqli_query($dbc, $sql);
+            $curIndex = 1;
+            while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+                if ($curIndex == $row['activedId']) {
+                    $curIndex++;
+                } else {
+                    // Comprova si la BD està disponible i obté les dades de connexió
+                    $connResult = checkConnection($curIndex);
+                    if ($connResult !== false) {
+                        $dbChecked = true;
+                        $dbUser = $connResult['dbuser'];
+                        $dbName = $connResult['dbname'];
+                        break;
+                    }
+                }
+            }
+            $activedId = $curIndex;
+        }
+        // Si no ha pogut connectar a la base de dades, prova el següent centre
+        if (!$dbChecked) {
+            echo "No s'ha pogut connectar a l'usuari corresponent a <strong>activedId = $activedId</strong><br />";
+            continue;
+        }
+
+
         // Pas 6: Crear una contrasenya
-        
-        // Pas 7: Fer els canvis a les taules del Moodle 2
-        
-        // Pas 8: Desar les dades, sobre tot la contrasenya (fitxer o taula?)
-        
+        $password = createRandomPass();
+        $passwordEnc = md5($password);
 
-        
+
+        // Pas 7: Fer els canvis a les taules del Moodle 2
+        $prefix = $agora['moodle2']['prefix'];
+        $adminId = 2;
+        // Query to update admin password
+        $sqls['user'] = "
+            UPDATE $prefix" . "user
+            SET password='$passwordEnc',
+                firstname='Administrador/a',
+                lastname='$clientCode',
+                email='$clientCode@xtec.cat',
+                institution='$clientName',
+                address='$clientAddress',
+                city='" . substr($clientCity, 0, 20) . "'
+            WHERE id=$adminId
+            ";
+        // Query to force change of password of user admin
+        $sqls['user_preferences'] = "
+            UPDATE $prefix" . "user_preferences
+            SET value=1
+            WHERE name='auth_forcepasswordchange' AND userid=$adminId
+            ";
+        // Query to update site name and site description
+        $sqls['course'] = "
+            UPDATE $prefix" . "course
+            SET	fullname='$clientName',
+                shortname='$clientDNS',
+                summary='Moodle del centre $clientName'
+            WHERE id=1
+            ";
+        // Query to update the cookie name
+        $sqls['config'] = "
+            UPDATE $prefix" . "config
+            SET value='moodle" . "$clientId'
+            WHERE name='sessioncookie'
+            ";
+        // Execute the queries
+        foreach ($sqls as $key => $sql) {
+            // Actual execution
+            $result = executeSQL($sql, $dbUser, $dbName);
+            // Error check
+            if (is_string($result)) {
+                echo $result;
+                break; // Si falla una consulta, ja no en prova més
+            } else {
+                echo "S'ha actualitzat la taula <strong>$key</strong> del Moodle 2 del centre <strong>$clientName</strong> amb nom propi <strong>$clientDNS</strong><br />";
+            }
+        }
+
+
+        // Pas 8: Crear el servei a client_services
+        $sql = "INSERT INTO agoraportal_client_services
+                (serviceId, clientId, serviceDB, state, activedId, contactProfile, timeCreated, diskSpace)
+                VALUES ($serviceIdMdl2, $clientId, '$dbName', 1, '$activedId', 'Alta automàtica', UNIX_TIMESTAMP(), 2000)";
+        if (mysqli_query($dbc, $sql) === true) {
+            echo "S'ha creat el servei Moodle 2 per al centre <strong>$clientDNS</strong><br />";
+        } else {
+            echo "No s'ha pogut crear el servei Moodle 2 per al centre <strong>$clientDNS</strong><br />";
+        }
+
+
+        // Pas 9: Desar les dades a la taula de registre
+        $sql = "CREATE TABLE IF NOT EXISTS agoraportal_autoregisterlog (
+                    Id int(11) NOT NULL AUTO_INCREMENT,
+                    clientId int(11) NOT NULL DEFAULT 0,
+                    clientCode varchar(10) NOT NULL DEFAULT '',
+                    password varchar(50) NOT NULL DEFAULT '',
+                    dbUser varchar(10) NOT NULL DEFAULT '',
+                    dbName varchar(10) NOT NULL DEFAULT '',
+                    clientDNS varchar(50) NOT NULL DEFAULT '',
+                    clientName varchar(150) NOT NULL DEFAULT '',
+                    clientAddress varchar(150) NOT NULL DEFAULT '',
+                    clientCity varchar(50) NOT NULL DEFAULT '',
+                    timeCreated varchar(25) NOT NULL DEFAULT '',
+                    PRIMARY KEY (`Id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+        if (mysqli_query($dbc, $sql) !== true) {
+            echo "S'ha produït un error en crear la taula <strong>agoraportal_autoregisterlog</strong><br />";
+        }
+        $sql = "INSERT INTO agoraportal_autoregisterlog
+                (clientId, clientCode, password, dbUser, dbName, clientDNS, clientName, clientAddress, clientCity, timecreated)
+                VALUES ($clientId, '$clientCode', '$password', '$dbUser', '$dbName', '$clientDNS', '$clientName', '$clientAddress', '$clientCity', now())";
+        if (mysqli_query($dbc, $sql) !== true) {
+            echo "S'ha produït un error en introduir un registre la taula <strong>agoraportal_autoregisterlog</strong><br />";
+        }
+
         mysqli_close($dbc);
     }
 }
 
-
-
-    // CODI COPIAT D'AGORAPORTAL (per a referència)
-/*
-    public function getFreeDataBase($args) {
-        // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
-
-        // Needed for connectExtDB
-        $dbHost = $args['dbHost'];
-
-        // Moodle and moodle2 use the same activeId, so must be treated as one 
-        if (isset($args['serviceName']) && ($args['serviceName'] == 'moodle' || $args['serviceName'] == 'moodle2')) {
-            // Get the list of moodle services of all the clients
-            $moodleService = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'moodle'));
-            $moodleServiceId = $moodleService['serviceId'];
-            $moodleClientServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $moodleServiceId,
-                        'state' => -1));
-
-            // Get the list of moodle2 services of all the clients
-            $moodle2Service = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'moodle2'));
-            $moodle2ServiceId = $moodle2Service['serviceId'];
-            $moodle2ClientServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $moodle2ServiceId,
-                        'state' => -1));
-
-            if (empty($moodleClientServices) && empty($moodle2ClientServices)) {
-                return false;
-            }
-
-            // Initial values
-            $databaseIds = array();
-            $max = 0;
-
-            // Get a list of activedId of moodle service
-            foreach ($moodleClientServices as $service) {
-                if ($service['activedId'] != 0) {
-                    $databaseIds[] = $service['activedId'];
-                    if ($service['activedId'] > $max) {
-                        $max = $service['activedId'];
-                    }
-                }
-            }
-
-            // Add to the previous list the activedId of moodle2 service
-            foreach ($moodle2ClientServices as $service) {
-                if ($service['activedId'] != 0) {
-                    $databaseIds[] = $service['activedId'];
-                    if ($service['activedId'] > $max) {
-                        $max = $service['activedId'];
-                    }
-                }
-            }
-
-            // Remove duplicates
-            $databaseIds = array_unique($databaseIds);
-
-            sort($databaseIds);
-        } else {
-            // get all services (all states)
-            $items = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $args['serviceId'],
-                        'state' => -1));
-            if (!$items) {
-                return false;
-            }
-
-            // get all the database used
-            $databaseIds = array();
-            $max = 0;
-            foreach ($items as $item) {
-                if ($item['activedId'] != 0) {
-                    $databaseIds[] = $item['activedId'];
-                    if ($item['activedId'] > $max) {
-                        $max = $item['activedId'];
-                    }
-                }
-            }
-
-            sort($databaseIds);
-        }
-
-        // Look for next free ID
-        $j = 0;
-        // First, look for a free database (a gap in the list)
-        for ($i = 0; $i < $max; $i++) {
-            $j++;
-            if ($databaseIds[$i] != $j) {
-                $free = $j;
-                break;
-            }
-        }
-
-        // No luck, so let's try the following ID
-        if ($j == $max) {
-            $free = $max + 1;
-        }
-
-        // Get info of the service from its ID
-        $serviceInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getService', array('serviceId' => $args['serviceId']));
-
-        $connect = ModUtil::apiFunc('Agoraportal', 'user', 'connectExtDB', array('serviceName' => $serviceInfo['serviceName'],
-                    'database' => $free,
-                    'host' => $dbHost));
-
-        if (!$connect) {
-            return false;
-        }
-
-        return $free;
-    }
-*/
-
-
-/*
-    $clientServiceId = $args['clientServiceId'];
-    // Needed argument
-
-    if (!isset($clientServiceId) || !is_numeric($clientServiceId)) {
-        return LogUtil::registerError($this->__('No s\'ha pogut carregar el que volíeu. Reviseu les dades'));
-    }
-
-    $item = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId));
-
-    if ($item == false) {
-        return LogUtil::registerError($this->__('No s\'ha trobat el servei'));
-    }
-
-    $serviceId = $item[$clientServiceId]['serviceId'];
-    // Get the services
-    $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
-    $serviceName = $services[$serviceId]['serviceName'];
-
-    $moodle = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $item[$clientServiceId]['clientId'],
-                'serviceName' => 'moodle'));
-
-    $moodle2 = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $item[$clientServiceId]['clientId'],
-                'serviceName' => 'moodle2'));
-
-    // in case of moodle2 take the same data base as moodle if exists
-    if ($serviceName == 'moodle2' && !empty($moodle) && $moodle['activedId'] > 0) {
-        $haveDB = true;
-        $db = $moodle['activedId'];
-    }
-
-    // and the same for moodle
-    if ($serviceName == 'moodle' && !empty($moodle2) && $moodle2['activedId'] > 0) {
-        $haveDB = true;
-        $db = $moodle2['activedId'];
-    }
-
-    if (!$haveDB) {
-        // the client have not moodle active
-        $db = ModUtil::apiFunc('Agoraportal', 'admin', 'getFreeDataBase', array('serviceId' => $serviceId,
-                    'serviceName' => $serviceName));
-        if (!$db) {
-            LogUtil::registerError($this->__('No queda cap base de dades lliure'));
-            return false;
-        }
-    }
-
-    global $agora;
-    $prefix = $agora[$serviceName]['prefix'];
-
-    // Query to get admin id
-    $sql = "SELECT id FROM {$prefix}user WHERE username='admin'";
-    // Actual execution
-    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
-                'sql' => $sql,
-                'serviceName' => $serviceName,
-            ));
-    // Error check. Stop in case of error.
-    if (!$result['success']) {
-        return LogUtil::registerError($this->__('No s\'ha pogut executar la consulta: ' . $sql . '. Error: ' . $result['errorMsg']));
-    } else {
-        // Keep result
-        $adminId = $result['values'][0]['ID'];
-    }
-
-    // Generate a password for Moodle admin user
-    $password = $this->createRandomPass();
-    $passwordEnc = md5($password);
-
-    // Query to update admin password
-    $sqls[] = "
-        UPDATE {$prefix}user
-        SET password='$passwordEnc',
-            firstname='Administrador/a',
-            lastname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
-            email='" . str_replace("'", "''", $item[$clientServiceId]['clientCode']) . "@xtec.cat',
-            institution='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
-            address='" . str_replace("'", "''", $item[$clientServiceId]['clientAddress']) . "',
-            city='" . substr(str_replace("'", "''", $item[$clientServiceId]['clientCity']), 0, 20) . "'
-        WHERE id=$adminId
-        ";
-
-    // Query to force change of password of user admin
-    $sqls[] = "
-        UPDATE {$prefix}user_preferences
-        SET value=1
-        WHERE name='auth_forcepasswordchange' AND userid=$adminId
-        ";
-
-    // Query to update site name and site description
-    $sqls[] = "
-        UPDATE {$prefix}course 
-        SET	fullname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
-            shortname='" . str_replace("'", "''", $item[$clientServiceId]['clientDNS']) . "',
-            summary='Moodle del centre " . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "'
-        WHERE id=1
-        ";
-
-    // Query to update the cookie name
-    $sessionPrefix = ($serviceName == 'moodle') ? 'mdl_' : 'moodle';
-    $sqls[] = "
-        UPDATE {$prefix}config 
-        SET value='$sessionPrefix" . $item[$clientServiceId]['clientId'] . "' 
-        WHERE name='sessioncookie'
-        ";
-
-    // Execute the querys
-    foreach ($sqls as $sql) {
-        // Actual execution
-        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
-                    'sql' => $sql,
-                    'serviceName' => $serviceName,
-                ));
-        // Error check. Stop in case of error.
-        if (!$result['success']) {
-            return LogUtil::registerError($this->__('No s\'ha pogut executar la consulta: ' . $sql . '. Error: ' . $result['errorMsg']));
-        }
-    }
-
-    return array('db' => $db, 'password' => $password);
- */
-
-    
 /**
  * Check correct format value of school code
  * 
- * @param string $code
- * @return string $code or bool false 
+ * @param string $clientCode
+ * @return string $clientCode or bool false
  */
-function checkCode($code) {
+function checkCode($clientCode) {
     $pattern = '/^[abce]\d{7}$/'; // Matches a1234567
-    if (preg_match($pattern, $code)) {
-        return $code;
+    if (preg_match($pattern, $clientCode)) {
+        return $clientCode;
     }
     return false;
 }
+
+
+/**
+ * Check connection to Oracle database
+ * 
+ * @param type $id
+ * @return bool false if error, array if success
+ */
+function checkConnection($id) {
+    
+    global $agora;
+    
+    $dbUser = $agora['moodle']['username'] . $id;
+    $prefix = strtoupper($agora['moodle2']['prefix']);
+
+    $dbNumber = (int) $agora['moodle']['dbnumber'];
+    $offset = floor($id / 200) + (($id % 200) == 0 ? ($dbNumber - 1) : $dbNumber);
+    $offset = ($offset > 1) ? (string) $offset : '';
+    $dbName = $agora['moodle']['database'] . $offset;
+
+    $connect = oci_pconnect($dbUser, $agora['moodle']['userpwd'], $dbName);
+    
+    if ($connect === false) {
+        echo "No s'ha pogut connectar a l'usuari <strong>$dbUser</strong> de la instància <strong>$dbName</strong><br />";
+        return false;
+    } else {
+        $sql = "select table_name from user_tables where table_name='$prefix"."USER'";
+        $stid = oci_parse($connect, $sql);
+        $result = oci_execute($stid);
+        $row = oci_fetch_array($stid);
+        oci_close($connect);
+        if (!isset($row['TABLE_NAME'])) {
+            echo "No s'ha trobat la taula <strong>$prefix"."USER</strong> a l'usuari <strong>$dbUser</strong> de la base de dades <strong>$dbName</strong><br />";
+            return false;
+        }
+        return array('dbuser' => $dbUser, 'dbname' => $dbName);
+    }
+}
+
+
+/**
+ * Create random password
+ *
+ * @return string The password
+ */
+function createRandomPass() {
+
+        // Chars allowed in password
+        $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz023456789";
+
+        // Sets the seed for rand function
+        srand((float) microtime() * 1000000);
+
+        for ($i = 0, $pass = ''; $i < 8; $i++) {
+            $num = rand() % strlen($chars);
+            $pass = $pass . substr($chars, $num, 1);
+        }
+
+        return $pass;
+}
+
+
+/**
+ * Execute a given query
+ *
+ * @global type $agora
+ * @param type $sql
+ * @param type $dbUser
+ * @param type $dbName
+ * @return boolean true if success, string if error
+ */
+function executeSQL($sql, $dbUser, $dbName) {
+
+    global $agora;
+
+    $connect = oci_pconnect($dbUser, $agora['moodle']['userpwd'], $dbName);
+
+    if ($connect === false) {
+        return "No s'ha pogut connectar a l'usuari <strong>$dbUser</strong> de la base de dades <strong>$dbName</strong><br />";
+    } else {
+        $stid = oci_parse($connect, $sql);
+        if ($stid === false) {
+            $return = "No s'ha pogut parsejar l'sql <strong>$sql</strong> a l'usuari <strong>$dbUser</strong> de la base de dades <strong>$dbName</strong><br />";
+        } else {
+            $result = oci_execute($stid);
+            $return = ($result) ? true : "No s'ha pogut executar l'sql <strong>$sql</strong> a l'usuari <strong>$dbUser</strong> de la base de dades <strong>$dbName</strong><br />";
+        }
+        oci_close($connect);
+        return $return;
+    }
+}
+?>
+
+    </body>
+</html>

@@ -27,7 +27,7 @@ function report_coursequotas_getCategoryData() {
     $systemContextId = $dbRecord->id;
 
     // Step 2: build category tree
-    $dbRecords = $DB->get_records_select('course_categories', '', null, 'PARENT, DEPTH', 'ID, NAME, PARENT, DEPTH');
+    $dbRecords = $DB->get_records_select('course_categories', '', null, 'DEPTH, ID', 'ID, NAME, PARENT, DEPTH');
     $categoryTree = report_coursequotas_buildCatTree($dbRecords, 0, 1);
 
     // Step 3: add courses to each category
@@ -54,15 +54,29 @@ function report_coursequotas_getCategoryData() {
  */
 function report_coursequotas_buildCatTree($dbRecords, $catID, $depth) {
     $catTree = array();
-    foreach ($dbRecords as $record) {
+    
+    // First pass to get categories whose parent is this category (aka subcategories)
+    foreach ($dbRecords as $key => $record) {
         if ($record->parent == $catID) {
             $catTree[$record->id] = array('Id' => $record->id, 'Name' => $record->name, 'Subcategories' => array(), 'categorysize' => 0);
-        } else {
-            if (($depth + 1) == $record->depth) {
-                $catTree[$record->parent]['Subcategories'] = report_coursequotas_buildCatTree($dbRecords, $record->parent, $depth + 1);
+            // Effiency improvement: Once the category is added to the tree, it won't be added again
+            unset($dbRecords[$key]);
+        }
+    }
+    
+    // Second pass for recursive call for all the categories in this category. The process
+    //  can't be done in a single pass because we only have the full list of categories 
+    //  of this depth once we have completed the first pass.
+    foreach ($catTree as $cat) {
+        foreach ($dbRecords as $record) {
+            // Condition 1: next level of depth
+            // Condicion 2: the category must be under the current category
+            if (($record->parent == $cat['Id'])) {
+                $catTree[$cat['Id']]['Subcategories'] = report_coursequotas_buildCatTree($dbRecords, $cat['Id'], $depth + 1);
             }
         }
     }
+
     return $catTree;
 }
 
