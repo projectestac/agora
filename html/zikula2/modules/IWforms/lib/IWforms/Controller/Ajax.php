@@ -887,8 +887,10 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!$fid) {
             throw new Zikula_Exception_Fatal($this->__('no form id'));
         }
-        $expertMode = FormUtil::getPassedValue('expertMode', -1, 'POST');
-        $skinByTemplate = FormUtil::getPassedValue('skinByTemplate', -1, 'POST');
+
+        $expertMode = $this->request->getPost()->get('expertMode', '');
+        $skinByTemplate = $this->request->getPost()->get('skinByTemplate', '');
+        
         //Get field information
         $form = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($form == false) {
@@ -896,6 +898,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         }
         $form['expertMode'] = $expertMode;
         $form['skinByTemplate'] = $skinByTemplate;
+        
         $view = Zikula_View::getInstance('IWforms', false);
         $view->assign('item', $form);
         $content = $view->fetch('IWforms_admin_form_definitionExpertMode.htm');

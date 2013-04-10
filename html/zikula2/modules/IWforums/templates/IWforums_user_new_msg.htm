@@ -6,7 +6,7 @@
             var error=true;
         }
         {{if $adjunts neq "0"}}
-        if(f.adjunt.value!="" && "{{$extensions}}".indexOf(f.adjunt.value.substring(f.adjunt.value.length-3,f.adjunt.value.length))==-1  && !error){
+        if(f.adjunt.value!="" && "{{$extensions}}".indexOf(f.adjunt.value.toLowerCase().substring(f.adjunt.value.toLowerCase().length-3,f.adjunt.value.length))==-1  && "{{$extensions}}".indexOf(f.adjunt.value.toUpperCase().substring(f.adjunt.value.toUpperCase().length-3,f.adjunt.value.length))==-1 && !error){
             alert("{{gt text="The extension of the attached file isn't correct. The valid extensions are: "}}{{$extensions}}");
             var error=true;
         }

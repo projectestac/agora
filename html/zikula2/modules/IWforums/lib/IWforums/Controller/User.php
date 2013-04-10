@@ -578,7 +578,8 @@ class IWforums_Controller_User extends Zikula_AbstractController {
                 return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
             }
             $titol = (strpos($missatge['titol'], 'RE: ') === false) ? 'RE: ' . $missatge['titol'] : $missatge['titol'];
-            $msg = '[quote=' . $userInfo . ' ' . $this->__("wrote on") . ' ' . date('d/m/Y H.i', $missatge['data']) . ']<br />' . $missatge['missatge'] . '<br />[/quote]';
+            // $msg = '[quote=' . $userInfo . ' ' . $this->__("wrote on") . ' ' . date('d/m/Y H.i', $missatge['data']) . ']<br />' . $missatge['missatge'] . '<br />[/quote]';
+            $msg = '<fieldset><legend>' . $userInfo . ' ' . $this->__("wrote on") . ' ' . date('d/m/Y H.i', $missatge['data']) . '</legend>' . $missatge['missatge'] . '</fieldset>';
         } else {
             $fmid = 0;
         }

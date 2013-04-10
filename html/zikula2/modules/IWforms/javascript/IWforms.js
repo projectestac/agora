@@ -1,3 +1,6 @@
+function failure () {
+
+}
 function chgUsers(a){
     show_info('chgInfo');
     var b={
@@ -58,7 +61,8 @@ function modifyField(a,aa){
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=modifyField",{
         parameters: b,
-        onComplete: modifyField_response
+        onComplete: modifyField_response,
+        onFailure: failure
     });
 }
 
@@ -77,7 +81,8 @@ function changeContent(a){
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=changeContent",{
         parameters: b,
-        onComplete: changeContent_response
+        onComplete: changeContent_response,
+        onFailure: failure
     });
 }
 
@@ -118,7 +123,8 @@ function closeForm(a){
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=closeForm",{
         parameters: b,
-        onComplete: closeForm_response
+        onComplete: closeForm_response,
+        onFailure: failure
     });
 }
 
@@ -162,7 +168,8 @@ function markNote(a){
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=markNote",{
         parameters: b,
-        onComplete: markNote_response
+        onComplete: markNote_response,
+        onFailure: failure
     });
 }
 
@@ -187,7 +194,8 @@ function setCompleted(a){
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=setCompleted",{
         parameters: b,
-        onComplete: setCompleted_response
+        onComplete: setCompleted_response,
+        onFailure: failure
     });
 }
 
@@ -207,7 +215,8 @@ function validateNote(a){
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=validateNote",{
         parameters: b,
-        onComplete: validateNote_response
+        onComplete: validateNote_response,
+        onFailure: failure
     });
 }
 
@@ -228,7 +237,8 @@ function editNoteManageContent(a,aa){
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=editNoteManageContent",{
         parameters: b,
-        onComplete: editNoteManageContent_response
+        onComplete: editNoteManageContent_response,
+        onFailure: failure
     });
 }
 
@@ -267,7 +277,8 @@ function submitValue(a,aa,aaa){
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=submitValue",{
         parameters: b,
-        onComplete: submitValue_response
+        onComplete: submitValue_response,
+        onFailure: failure
     });
 }
 
@@ -308,7 +319,8 @@ function modifyForm(a,aa){
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=modifyForm",{
         parameters: b,
-        onComplete: modifyForm_response
+        onComplete: modifyForm_response,
+        onFailure: failure
     });
 }
 
@@ -327,7 +339,8 @@ function changeFormContent(a){
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=changeFormContent",{
         parameters: b,
-        onComplete: changeFormContent_response
+        onComplete: changeFormContent_response,
+        onFailure: failure
     });
 }
 
@@ -366,7 +379,8 @@ function deleteUserNote(a){
         };
         var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=deleteUserNote",{
             parameters: b,
-            onComplete: deleteUserNote_response
+            onComplete: deleteUserNote_response,
+            onFailure: failure
         });
     }
 }
@@ -389,7 +403,8 @@ function changeFilter(a,aa){
         };
         var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=changeFilter",{
             parameters: b,
-            onComplete: changeFilter_response
+            onComplete: changeFilter_response,
+            onFailure: failure
         });
     }else{
         sendChange(1);
@@ -415,7 +430,8 @@ function deleteForm(a){
         };
         var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=deleteForm",{
             parameters: b,
-            onComplete: deleteForm_response
+            onComplete: deleteForm_response,
+            onFailure: failure
         });
     }
 }
@@ -440,7 +456,8 @@ function createField(a,aa){
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=createField",{
         parameters: b,
-        onComplete: createField_response
+        onComplete: createField_response,
+        onFailure: failure
     });
 }
 
@@ -462,7 +479,8 @@ function deleteFormField(a,aa){
         }
         var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=deleteFormField",{
             parameters: b,
-            onComplete: deleteFormField_response
+            onComplete: deleteFormField_response,
+            onFailure: failure
         });
     }
 }
@@ -482,7 +500,8 @@ function newField(a){
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=newField",{
         parameters: b,
-        onComplete: newField_response
+        onComplete: newField_response,
+        onFailure: failure
     });
 }
 
@@ -502,7 +521,8 @@ function actionToDo(a,aa){
     }
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=actionToDo",{
         parameters: b,
-        onComplete: actionToDo_response
+        onComplete: actionToDo_response,
+        onFailure: failure
     });
 }
 
@@ -538,16 +558,18 @@ function expertModeActivation(a, aa) {
             aaaa = 1;
         }
     }
-    var b={
+    var b = {
         fid:a,
-        type:aa,
         expertMode:aaa,
         skinByTemplate: aaaa
     };
+
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforms&func=expertModeActivation",{
         parameters: b,
-        onComplete: expertModeActivation_response
+        onComplete: expertModeActivation_response,
+        onFailure: failure
     });
+    
 }
 
 function expertModeActivation_response(a){
@@ -556,5 +578,6 @@ function expertModeActivation_response(a){
         return
     }
     var b=a.getData();
+
     $('expertModeContent').update(b.content);
 }
