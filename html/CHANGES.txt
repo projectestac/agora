@@ -12,6 +12,7 @@ MOODLE2
 - Fixed error when building category tree
 - Import utility now removes backup copies after restoration
 - Installed QV module 
+- Reviewed default enrol cohorts behaviour to let everybody with cohort:view capability enrol system cohorts
 
 
 Changes 13.03.22
