@@ -92,3 +92,8 @@ $CFG->noreplyaddress = 'noreply@agora.xtec.cat';
 if (isset($agora['server']['enviroment'])){
     $CFG->eoicampus_wsdl_path = INSTALL_BASE. 'html/moodle2/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-'.$agora['server']['enviroment'].'.wsdl';
 }
+
+// Path of the cacheconfig.php file, to have only one MUC file for Àgora (instead of having one for each site in moodledata/usuX/muc/config.php). 
+// This folder has to exists and to be writable
+$CFG->altcacheconfigpath = $agora['server']['root'].'html/moodle2/local/agora/muc/';
+

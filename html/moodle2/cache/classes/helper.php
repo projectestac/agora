@@ -514,6 +514,9 @@ class cache_helper {
      * @return string The new site identifier.
      */
     public static function update_site_identifier($siteidentifier) {
+        //XTEC ************ ELIMINAT - Removed code to avoid update siteidentifier in cacheconfig.php file (because it's shared by all sites)
+        //2013.04.16 @sarjona        
+        /*
         global $CFG;
         // Include locallib.
         require_once($CFG->dirroot.'/cache/locallib.php');
@@ -523,6 +526,8 @@ class cache_helper {
         $siteidentifier = $config->update_site_identifier($siteidentifier);
         $factory->updating_finished();
         cache_factory::reset();
+        */
+        //************ FI    
         return $siteidentifier;
     }
 
