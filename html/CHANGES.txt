@@ -13,6 +13,7 @@ MOODLE2
 - Import utility now removes backup copies after restoration
 - Installed QV module 
 - Reviewed default enrol cohorts behaviour to let everybody with cohort:view capability enrol system cohorts
+- Added CFG param to settings.php to define default blocks when creating a course
 
 
 Changes 13.03.22

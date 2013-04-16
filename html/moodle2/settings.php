@@ -53,6 +53,9 @@ $CFG->sessiontimeout=3600;
 
 //$CFG->enable_hour_restrictions = 1;   /* Set in database */
 
+// These variable define DEFAULT block variables for new courses
+$CFG->defaultblocks_override = ':calendar_month,participants,activity_modules';
+
 //Mail information
 //$CFG->apligestmail = 1;  		/* Set in database */
 //$CFG->apligestlog = 0;		/* Set in database */
