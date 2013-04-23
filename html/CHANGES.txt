@@ -17,7 +17,7 @@ MOODLE2
 - Hidden Cache plugins section (only visible for xtecadmin)
 - Added $CFG->altcacheconfigpath to have only one cache config file for all instances (instead of having one for each site in moodledata/usuX/muc/config.php) 
 - Hidden all themes to avoid schools to change it. Now, only xtec2 and mymobile themes are visible
-
+- Fixed "assignments appear at the end after upgrading them to 2.2".
 
 Changes 13.03.22
 ---------------------------------------------------------------------------------------
