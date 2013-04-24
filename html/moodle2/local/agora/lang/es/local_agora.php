@@ -14,7 +14,7 @@ $string['import19_nodbconnect'] = 'No está disponible la importación de cursos
 $string['diskquotaerror'] = '<strong>ATENCIÓN</strong>: Este Moodle ha superado la cuota de espacio disponible.<br /> No se podrá subir ningún fichero ni generar ninguna copia de seguridad hasta que no se libere espacio y/o se solicite una ampliación de la cuota.';
 
 // Rush hour
-$string['rush_hour'] = 'Esta operación no está permitida en horas punta. Puede realizarse de lunes a viernes antes de las 9:00, de 14:00 a 14:59 y después de las 17:00, así como los fines de semana durante todo el día.';
+$string['rush_hour'] = 'Esta operación no está permitida en horas punta. La restricción aplica de lunes a viernes en las franjas horaries siguientes: <br /> {$a}';
 
 // User bulk action to capitalize
 $string['capitalize'] = 'Poner la primera letra en mayúsculas';

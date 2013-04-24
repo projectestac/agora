@@ -82,7 +82,17 @@ switch ($type) {
 //XTEC ************ AFEGIT - Control backup hours
 //2012.06.04 @aginard
 if (!get_protected_agora() && is_rush_hour()) {
-    print_error('rush_hour', 'local_agora', $CFG->wwwroot . '/course/view.php?id=' . $id);
+    // Build list with not allowed hours for the error message
+    if (isset($CFG->hour_restrictions) && is_array($CFG->hour_restrictions)) {
+        $a = '<ul>';
+        foreach ($CFG->hour_restrictions as $frame) {
+            $a .= "<li>De $frame[start] a $frame[end]</li>";
+        }
+        $a .= '</ul>';
+    } else {
+        $a = '';
+    }
+    print_error('rush_hour', 'local_agora', $CFG->wwwroot . '/course/view.php?id=' . $id, $a);
 }
 //************ FI
 
