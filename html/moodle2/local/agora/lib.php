@@ -24,41 +24,42 @@ function get_protected_agora(){
  * @global Object $CFG
  * @return Boolean true if restrictions apply, false otherwise.
  */
-function is_rush_hour(){
-	global $CFG;
-    
+function is_rush_hour() {
+    global $CFG;
+
     // If param is not defined or is false, there's no rush hour.
-	if (!isset($CFG->enable_hour_restrictions) || ($CFG->enable_hour_restrictions == false)) {
-		return false;
-    }
-	
-    // Rush hour is only defined from monday to friday
-	$weekday = idate('w');
-	if ($weekday == 0 || $weekday == 6) {
+    if (!isset($CFG->enable_hour_restrictions) || ($CFG->enable_hour_restrictions == false)) {
         return false;
     }
 
     // Get the hour frames
     if (!isset($CFG->hour_restrictions) || empty($CFG->hour_restrictions)) {
         // Default values
-        $timeframes = array(array('start' => '9:00', 'end' => '13:59'),
-                            array('start' => '15:00', 'end' => '16:59'));
+        $timeframes = array(array('start' => '9:00', 'end' => '13:59', 'days' => '1|2|3|4|5'),
+                            array('start' => '15:00', 'end' => '16:59', 'days' => '1|2|3|4|5'));
     } else {
         $timeframes = $CFG->hour_restrictions;
     }
 
     // Check the hour frames
+    $weekday = idate('w'); // 0 = sunday
     $hour = idate('H');
-	$minutes = idate('i');
+    $minutes = idate('i');
     $now_minutes = ($hour * 60) + $minutes;
-    
+
     foreach ($timeframes as $frame) {
         $start = explode(':', $frame['start']);
         $end = explode(':', $frame['end']);
-        
-        $start_minutes = ((int)$start[0] * 60) + (int)$start[1];
-        $end_minutes = ((int)$end[0] * 60) + (int)$end[1];
-        
+        $days = explode('|', $frame['days']);
+
+        // Check if "today" is in the list of allowed days
+        if (!in_array($weekday, $days)) {
+            continue;
+        }
+
+        $start_minutes = ((int) $start[0] * 60) + (int) $start[1];
+        $end_minutes = ((int) $end[0] * 60) + (int) $end[1];
+
         // Check if current time is in the frame
         if (($now_minutes >= $start_minutes) && ($now_minutes < $end_minutes)) {
             return true;

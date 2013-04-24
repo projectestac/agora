@@ -52,8 +52,8 @@ $CFG->sessiontimeout=3600;
 //$CFG->sessioncookie = $CFG->center;
 
 //$CFG->enable_hour_restrictions = 1;   /* Set in database */
-$CFG->hour_restrictions = array(array('start' => '9:00', 'end' => '13:59'),
-                                array('start' => '15:00', 'end' => '16:59'));
+$CFG->hour_restrictions = array(array('start' => '9:00', 'end' => '13:59', 'days' => '1|2|3|4|5'),
+                                array('start' => '15:00', 'end' => '16:59', 'days' => '1|2|3|4|5'));
 
 // These variable define DEFAULT block variables for new courses
 $CFG->defaultblocks_override = ':calendar_month,participants,activity_modules';

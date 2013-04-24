@@ -19,17 +19,7 @@ echo $OUTPUT->header();
 $isAgora = is_agora();
 
 if (!get_protected_agora() && is_rush_hour()) {
-    // Build list with not allowed hours for the error message
-    if (isset($CFG->hour_restrictions) && is_array($CFG->hour_restrictions)) {
-        $a = '<ul>';
-        foreach ($CFG->hour_restrictions as $frame) {
-            $a .= "<li>De $frame[start] a $frame[end]</li>";
-        }
-        $a .= '</ul>';
-    } else {
-        $a = '';
-    }
-    print_error('rush_hour', 'local_agora', $CFG->wwwroot, $a);
+    print_error('rush_hour', 'local_agora', $CFG->wwwroot);
 } else {
     if ($isAgora) {
         // Get diskSpace and diskConsume from Agoraportal (might be out-of-date)
