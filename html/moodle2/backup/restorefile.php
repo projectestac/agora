@@ -89,6 +89,13 @@ $PAGE->set_title(get_string('course') . ': ' . $course->fullname);
 $PAGE->set_heading($heading);
 $PAGE->set_pagelayout('admin');
 
+//XTEC ************ AFEGIT - Control backup hours
+//2013.04.24 @aginard
+if (!get_protected_agora() && is_rush_hour()) {
+    print_error('rush_hour', 'local_agora', $CFG->wwwroot . '/course/view.php?id=' . $course->id);
+}
+//************ FI
+
 $form = new course_restore_form(null, array('contextid'=>$contextid));
 $data = $form->get_data();
 if ($data && has_capability('moodle/restore:uploadfile', $context)) {

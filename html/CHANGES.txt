@@ -19,6 +19,7 @@ MOODLE2
 - Hidden all themes to avoid schools to change it. Now, only xtec2 and mymobile themes are visible
 - Fixed "assignments appear at the end after upgrading them to 2.2".
 - Rush hours are now configurable
+- Blocked course restoration in rush hours
 
 
 
