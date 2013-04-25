@@ -21,6 +21,7 @@ MOODLE2
 - Rush hours are now configurable
 - Blocked course restoration in rush hours
 - Logo set in theme xtec2 is now uploaded into Moodle files
+- Removed chat module to avoid performance issues
 
 
 
