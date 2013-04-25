@@ -41,7 +41,7 @@ function is_rush_hour() {
         // Check for serialized data in $CFG->hour_restrictions
         $data = @unserialize($CFG->hour_restrictions);
         if ($CFG->hour_restrictions === 'b:0;' || $data !== false) {
-            $timeframes = unserialize($CFG->hour_restrictions);
+            $timeframes = $data;
         } else {
             $timeframes = $CFG->hour_restrictions;
         }
