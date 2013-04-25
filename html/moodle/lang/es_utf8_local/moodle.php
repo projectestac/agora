@@ -3,7 +3,7 @@
 //XTEC ************ FITXER AFEGIT - Cadenes personalitzades
 
 //******* AFEGIT XTEC to control backups hours
-$string['rush_hour'] = 'Esta operación no está permitida en horas punta. Puede realizar esta operación de lunes a viernes antes de las 9:00, de 14:00 a 14:59 y después de las 17:00. Fines de semana todo el día.';
+$string['rush_hour'] = 'Esta operación no está permitida en horas punta';
 //******* FI
 
 //******* AFEGIT XTEC - To allow capitalize user names
