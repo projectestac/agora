@@ -13,7 +13,14 @@ function xtec2_process_css($css, $theme) {
     
     // Configure site logo
     $logo = $theme->setting_file_url('logo', 'logo');
-    $css = xtec2_set_logo($css, $logo);
+    if (!empty($logo)) {
+        // Image uploaded
+        $css = xtec2_set_logo($css, $logo);
+    } else {
+        // No image uploaded. Show background image (top.jpg)
+        $logo = $OUTPUT->pix_url('theme/top', 'theme'); // Default background image
+        $css = str_replace('[[setting:logo]]', $logo, $css);
+    }
 
     // Set the font size
     if (!empty($theme->settings->fontsize)) {
