@@ -38,7 +38,13 @@ function is_rush_hour() {
         $timeframes = array(array('start' => '9:00', 'end' => '13:59', 'days' => '1|2|3|4|5'),
                             array('start' => '15:00', 'end' => '16:59', 'days' => '1|2|3|4|5'));
     } else {
-        $timeframes = $CFG->hour_restrictions;
+        // Check for serialized data in $CFG->hour_restrictions
+        $data = @unserialize($CFG->hour_restrictions);
+        if ($CFG->hour_restrictions === 'b:0;' || $data !== false) {
+            $timeframes = unserialize($CFG->hour_restrictions);
+        } else {
+            $timeframes = $CFG->hour_restrictions;
+        }
     }
 
     // Check the hour frames
