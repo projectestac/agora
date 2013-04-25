@@ -12,13 +12,8 @@ function xtec2_process_css($css, $theme) {
     global $OUTPUT;
     
     // Configure site logo
-    if (!empty($theme->settings->logourl)) {
-        $logourl = $theme->settings->logourl;
-    } else {
-        $logourl = $OUTPUT->pix_url('theme/top', 'theme'); // Default value
-    }
-    $css = str_replace('[[setting:logourl]]', $logourl, $css);
-
+    $logo = $theme->setting_file_url('logo', 'logo');
+    $css = xtec2_set_logo($css, $logo);
 
     // Set the font size
     if (!empty($theme->settings->fontsize)) {
@@ -137,8 +132,30 @@ function xtec2_process_css($css, $theme) {
     }
     $css = str_replace('[[setting:color6]]', $color6, $css);
 
-
     
     return $css;
 }
 
+
+function xtec2_set_logo($css, $logo) {
+    global $OUTPUT;
+    $tag = '[[setting:logo]]';
+    $replacement = $logo;
+    if (is_null($replacement)) {
+        $replacement = $OUTPUT->pix_url('images/logo','theme');
+    }
+
+    $css = str_replace($tag, $replacement, $css);
+
+    return $css;
+}
+
+
+function theme_xtec2_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {
+        $theme = theme_config::load('xtec2');
+        return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
+    } else {
+        send_file_not_found();
+    }
+}

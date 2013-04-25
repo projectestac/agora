@@ -207,7 +207,7 @@ th.header {
 
 #page-header {
     height: 139px;
-    background-image: url([[setting:logourl]]);
+    background-image: url([[setting:logo]]);
     background-position: right bottom;
     background-repeat: no-repeat;
     background-color: #fff;

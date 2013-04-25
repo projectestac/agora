@@ -24,11 +24,11 @@ if ($ADMIN->fulltree) {
 
     
     // Set the path to the logo image
-    $name = 'theme_xtec2/logourl';
-    $title = get_string('logourl', 'theme_xtec2');
-    $description = get_string('logourldesc', 'theme_xtec2');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_CLEAN);
+    $name = 'theme_xtec2/logo';
+    $title = get_string('logo', 'theme_xtec2');
+    $description = get_string('logodesc', 'theme_xtec2');
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo');
+  	$setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
 
     

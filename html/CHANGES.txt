@@ -20,6 +20,7 @@ MOODLE2
 - Fixed "assignments appear at the end after upgrading them to 2.2".
 - Rush hours are now configurable
 - Blocked course restoration in rush hours
+- Logo set in theme xtec2 is now uploaded into Moodle files
 
 
 
