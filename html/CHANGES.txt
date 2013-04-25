@@ -22,6 +22,7 @@ MOODLE2
 - Blocked course restoration in rush hours
 - Logo set in theme xtec2 is now uploaded into Moodle files
 - Removed chat module to avoid performance issues
+- Added marsupial module for Moodle 2.4
 
 
 
