@@ -5,6 +5,11 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+- Added SVG icons for rcontent and rscorm
+
+
+Changes 13.04.26
+---------------------------------------------------------------------------------------
 GENERAL
 - First version of utility to massive creation of Moodle 2 services
 
