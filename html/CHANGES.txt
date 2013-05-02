@@ -5,7 +5,12 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE2
 - Added SVG icons for rcontent and rscorm
+
+PORTAL
+- Fixed managers not being able to ask for a new service when service 'moodle' doesn't accept new registers
+
 
 
 Changes 13.04.26
@@ -28,7 +33,6 @@ MOODLE2
 - Logo set in theme xtec2 is now uploaded into Moodle files
 - Removed chat module to avoid performance issues
 - Added marsupial module for Moodle 2.4
-
 
 
 Changes 13.03.22
