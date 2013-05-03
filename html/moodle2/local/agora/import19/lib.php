@@ -109,7 +109,7 @@ function import19_restore($filename, $courseid = false) {
  * @global type $agora
  * @global type $school_info
  * @param type $contextid
- * @return type 
+ * @return type
  */
 function import19_course_selector($contextid) {
     global $CFG, $USER, $OUTPUT, $PAGE, $agora, $school_info;
@@ -132,17 +132,53 @@ function import19_course_selector($contextid) {
 
             // Get list of courses which can be restored from current user
             $courses = array();
+
             if (is_siteadmin() || $isadmin19) {
                 $sql = "SELECT c.id, c.shortname, c.fullname, cat.name AS catname, cat.parent AS catparent
-                                    FROM {course} c, {course_categories} cat 
+                                    FROM {course} c, {course_categories} cat
                                     WHERE cat.id = c.category ORDER BY cat.parent DESC";
                 $courses = $dbconn->get_records_sql($sql);
+
             } else if ($user19) {
-                $sql = "SELECT c.id, c.shortname, c.fullname, cat.name AS catname, cat.parent AS catparent
-                                    FROM {course} c, {context} ctx, {role_assignments} ra, {role} r, {course_categories} cat 
-                                    WHERE  r.shortname ='editingteacher' AND r.id=ra.roleid AND ra.userid=$user19->id 
-                                    AND ra.contextid = ctx.id AND ctx.instanceid = c.id AND cat.id = c.category ORDER BY cat.parent DESC";
-                $courses = $dbconn->get_records_sql($sql);
+                // get_records_sql does not accept ':' in SQL, so this is a workaround
+                $caps = array();
+                $sql = "SELECT id, capability FROM {role_capabilities}";
+
+                $capabilities = $dbconn->get_records_sql($sql);
+
+                foreach ($capabilities as $capability) {
+                    if ($capability->capability == 'moodle/site:backup')
+                        $caps[] = ' rc.id=' . $capability->id . ' ';
+                }
+
+                $capabilities = (!empty($caps)) ? '(' . implode('OR', $caps) . ') AND ' : '';
+
+                // Get the category list where user has backup capability
+                $sql = "SELECT distinct cat.id as catid, cat.name as catname, cat.parent as catparent
+                        FROM {course_categories} cat
+                        LEFT JOIN {context} ctx ON cat.id = ctx.instanceid
+                        LEFT JOIN {role_assignments} ra ON ctx.id = ra.contextid
+                        LEFT JOIN {role_capabilities} rc ON rc.roleid = ra.roleid
+                        WHERE $capabilities
+                        ctx.contextlevel=40
+                        AND ra.userid=$user19->id
+                        ORDER BY cat.parent DESC";
+
+                $categories = $dbconn->get_records_sql($sql);
+
+                // Get the courses of the categories
+                foreach ($categories as $category) {
+                    $sql = "SELECT c.id, c.shortname, c.fullname, '$category->catname' as catname, '$category->catparent' as catparent
+                            FROM {course} c
+                            WHERE c.category = $category->catid
+                            ORDER BY c.category DESC";
+
+                    $courses = $dbconn->get_records_sql($sql);
+                }
+
+                if (empty($courses)) {
+                    echo "<br/>Aquest usuari/ària no té accés a cap curs";
+                }
             }
 
             $categories = array();
