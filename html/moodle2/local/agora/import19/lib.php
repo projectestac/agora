@@ -116,6 +116,7 @@ function import19_course_selector($contextid) {
 
     $html = '';
     $dbconn = import19_connect_moodle19_db();
+
     if ($dbconn) {
         // Look for the user in Moodle 1.9 tables
         $user19 = $dbconn->get_record('user', array('username' => $USER->username));
@@ -130,17 +131,18 @@ function import19_course_selector($contextid) {
                 $isadmin19 = $dbconn->get_field_sql($sql) == 1;
             }
 
-            // Get list of courses which can be restored from current user
+            // Get list of courses which can be restored by the current user
             $courses = array();
 
             if (is_siteadmin() || $isadmin19) {
+                // If the user is admin in 1.9, can access the full list of courses
                 $sql = "SELECT c.id, c.shortname, c.fullname, cat.name AS catname, cat.parent AS catparent
                                     FROM {course} c, {course_categories} cat
                                     WHERE cat.id = c.category ORDER BY cat.parent DESC";
-                $courses = $dbconn->get_records_sql($sql);
 
+                $courses = $dbconn->get_records_sql($sql);
             } else if ($user19) {
-                // get_records_sql does not accept ':' in SQL, so this is a workaround
+                // get_records_sql() does not accept ':' in SQL, so this is a workaround
                 $caps = array();
                 $sql = "SELECT id, capability FROM {role_capabilities}";
 
@@ -153,7 +155,7 @@ function import19_course_selector($contextid) {
 
                 $capabilities = (!empty($caps)) ? '(' . implode('OR', $caps) . ') AND ' : '';
 
-                // Get the category list where user has backup capability
+                // Get the category list where user has backup capability (category level role)
                 $sql = "SELECT distinct cat.id as catid, cat.name as catname, cat.parent as catparent
                         FROM {course_categories} cat
                         LEFT JOIN {context} ctx ON cat.id = ctx.instanceid
@@ -166,7 +168,7 @@ function import19_course_selector($contextid) {
 
                 $categories = $dbconn->get_records_sql($sql);
 
-                // Get the courses of the categories
+                // Get the courses in those categories
                 foreach ($categories as $category) {
                     $sql = "SELECT c.id, c.shortname, c.fullname, '$category->catname' as catname, '$category->catparent' as catparent
                             FROM {course} c
@@ -176,12 +178,30 @@ function import19_course_selector($contextid) {
                     $courses = $dbconn->get_records_sql($sql);
                 }
 
+                // Get the course list where user has backup capability (course level role)
+                $sql = "SELECT distinct c.id, c.shortname, c.fullname, cat.name as catname, cat.parent as catparent
+                        FROM {course} c
+                        LEFT JOIN {course_categories} cat ON c.category = cat.id
+                        LEFT JOIN {context} ctx ON c.id = ctx.instanceid
+                        LEFT JOIN {role_assignments} ra ON ctx.id = ra.contextid
+                        LEFT JOIN {role_capabilities} rc ON rc.roleid = ra.roleid
+                        WHERE $capabilities
+                        ctx.contextlevel=50
+                        AND ra.userid=$user19->id
+                        ORDER BY cat.parent DESC";
+
+                $courses_single = $dbconn->get_records_sql($sql);
+
+                // Union of arrays: merge removing duplicates
+                $courses = $courses + $courses_single;
+
                 if (empty($courses)) {
                     echo "<br/>Aquest usuari/ària no té accés a cap curs";
                 }
             }
 
             $categories = array();
+
             if ($courses) {
                 // Create table
                 $shortnamestr = get_string('shortname');
@@ -255,7 +275,7 @@ function import19_course_selector($contextid) {
         } else {
             // Close the DB connection
             $dbconn->dispose();
-            
+
             return $OUTPUT->notification(get_string('import19_nocourses', 'local_agora'));
         }
     } else {
