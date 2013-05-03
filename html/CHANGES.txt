@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 MOODLE2
 - Added SVG icons for rcontent and rscorm
+- Added cron code to upgrade upgradable assigments.
 
 PORTAL
 - Fixed managers not being able to ask for a new service when service 'moodle' doesn't accept new registers
