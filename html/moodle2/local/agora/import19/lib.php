@@ -248,13 +248,20 @@ function import19_course_selector($contextid) {
 
                 $html .= html_writer::end_tag('div');
                 $html .= html_writer::end_tag('div');
+
+                // Close the DB connection
+                $dbconn->dispose();
             }
         } else {
+            // Close the DB connection
+            $dbconn->dispose();
+            
             return $OUTPUT->notification(get_string('import19_nocourses', 'local_agora'));
         }
     } else {
         return $OUTPUT->notification(get_string('import19_nodbconnect', 'local_agora'));
     }
+
     return $html;
 }
 
