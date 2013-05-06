@@ -4,10 +4,6 @@ defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
 
-    // Load xtec2_theme_onload only when in theme configuration page
-    global $PAGE;
-    $PAGE->requires->js_init_code('xtec2_theme_onload();');
-
     // This is the note box for all the settings pages
     $name = 'theme_xtec2/notes';
     $heading = get_string('notes', 'theme_xtec2');
