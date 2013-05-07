@@ -13,14 +13,13 @@
  *  (of that category). Iterates recursively.
  *
  * @author Toni Ginard (aginard@xtec.cat)
- * @global array $CFG
  * @global array $DB
  *
  * @return array Tree with data (see description)
  */
 function report_coursequotas_getCategoryData() {
 
-    global $CFG, $DB;
+    global $DB;
 
     // Step 1: get system context ID, which is unique, but its value may vary
     $dbRecord = $DB->get_record_select('context', "contextlevel='10'", null, 'ID');
