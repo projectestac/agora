@@ -4,7 +4,7 @@
 
 
 
-function import19_restore($filename, $courseid = false) {
+function import19_restore($filename, $courseid = false, $categoryid = false) {
     global $OUTPUT, $CFG, $DB, $USER, $agora;
 
     require_once($CFG->dirroot . '/backup/util/includes/backup_includes.php');
@@ -40,7 +40,7 @@ function import19_restore($filename, $courseid = false) {
     try {
         if (!$courseid) {
             // Create importing category
-            if (!$restorecat = $DB->get_field('course_categories', 'id', array('name' => 'Moodle 1.9', 'parent' => 0))) {
+            if (!$restorecat = $DB->get_field('course_categories', 'id', array('id' => $categoryid))) {
                 $cat = new StdClass();
                 $cat->name = 'Moodle 1.9';
                 $cat->description = "Cursos traspassats del Moodle 1.9 d'Àgora";
@@ -213,9 +213,12 @@ function import19_course_selector($contextid) {
                 $table->align = array('left', 'left', 'left', 'left');
                 $table->width = '90%';
 
+                $cat2form = array();
+
                 foreach ($courses as $course) {
                     $catname = $course->catname;
                     $parent = $course->catparent;
+
                     while ($parent > 0) {
                         if (!isset($categories[$parent])) {
                             $cat = $dbconn->get_record('course_categories', array('id' => $parent), 'name, parent');
@@ -248,16 +251,16 @@ function import19_course_selector($contextid) {
 
                 $html .= html_writer::start_tag('div', array('class' => 'import-course-selector backup-restore'));
                 $html .= html_writer::start_tag('div', array('class' => 'import19 backup-section'));
-
-                //$html .= $OUTPUT->heading(get_string('import19','local_agora'),2,'header');
-
+                
                 $html .= html_writer::start_tag('form', array('method' => 'post', 'action' => $CFG->wwwroot . '/local/agora/import19/bridge.php'));
 
                 $html .= html_writer::start_tag('div', array('class' => 'detail-pair'));
                 $html .= html_writer::tag('label', get_string('selectacourse', 'backup'), array('class' => 'detail-pair-label'));
                 $html .= html_writer::start_tag('div', array('class' => 'detail-pair-value'));
                 $html .= html_writer::tag('div', get_string('totalcoursesearchresults', 'backup', count($courses)));
+                
                 $html .= html_writer::table($table);
+              
                 $html .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'contextid', 'value' => $contextid));
                 $html .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'sesskey', 'value' => sesskey()));
                 $html .= html_writer::empty_tag('input', array('type' => 'submit', 'value' => get_string('continue')));

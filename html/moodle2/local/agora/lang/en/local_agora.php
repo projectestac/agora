@@ -3,11 +3,12 @@
 $string['pluginname'] = 'Agora';
 
 //IMPORT19
+$string['import'] = 'Course restoration';
 $string['import19'] = 'Restore from Moodle 1.9';
 $string['choosefilefrommoodle19'] = 'Restore from Moodle 1.9';
 $string['choosefilefrommoodle19_help'] = 'Restore a course directly from Moodle 1.9';
 
-$string['import19_nocourses'] = 'There isn\'t any available course';
+$string['import19_nocourses'] = 'There are no courses available';
 $string['import19_nodbconnect'] = 'Restore from Moodle 1.9 isn\'t available. It\'s not possible to connect to Moodle 1.9 database.';
 
 // Disk quota

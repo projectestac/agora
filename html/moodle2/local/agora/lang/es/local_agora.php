@@ -3,11 +3,12 @@
 $string['pluginname'] = 'Agora';
 
 //IMPORT19
+$string['import'] = 'Restauración de cursos';
 $string['import19'] = 'Restaurar desde Moodle 1.9';
 $string['choosefilefrommoodle19'] = 'Restaurar desde Moodle 1.9';
 $string['choosefilefrommoodle19_help'] = 'Restauración directa del curso seleccionado desde Moodle 1.9';
 
-$string['import19_nocourses'] = 'No hay ningún curso del Moodle 1.9 disponible o bien el usuario/a actual no existe en el Moodle 1.9 o existe y no tiene acceso como profesorado editor a ningún curso.';
+$string['import19_nocourses'] = 'No hay ningún curso del Moodle 1.9 disponible, o bien el usuario/a actual no existe en el Moodle 1.9, o bien existe y no tiene permisos para realizar copias de seguridad en ningún curso.';
 $string['import19_nodbconnect'] = 'No está disponible la importación de cursos desde el Moodle 1.9. No ha sido posible conectar a la base de datos del Moodle 1.9.';
 
 // Disk quota

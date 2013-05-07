@@ -1,30 +1,31 @@
 <?php
+
 //XTEC ************ FITXER AFEGIT - Create a backup of the specified course without user information
 //2012.07.13 @sarjona
 
 require_once ('../config.php');
 
-require_once ($CFG->dirroot.'/backup/lib.php');
-require_once ($CFG->dirroot.'/backup/backuplib.php');
-require_once ($CFG->dirroot.'/backup/backup_scheduled.php');
+require_once ($CFG->dirroot . '/backup/lib.php');
+require_once ($CFG->dirroot . '/backup/backuplib.php');
+require_once ($CFG->dirroot . '/backup/backup_scheduled.php');
 
-$id = required_param('id',PARAM_INT);
-
+$courseid = required_param('courseid', PARAM_INT);
+$categoryid = required_param('categoryid', PARAM_INT);
 
 // Forbidden to backup course 1
-if($id == 1){
-	import19_error('No es pot fer backup del curs principal');
-} 
-
-// Check if the course exists
-if(!$course = get_record('course','id',$id)){
-	import19_error('El curs '.$id.' no existeix');
+if ($courseid == 1) {
+    import19_error('No es poden fer còpies de seguretat de la pàgina principal');
 }
 
-print_header('Restaurant curs '.$id. ' amb nom '.$course->fullname);
+// Check if the course exists
+if (!$course = get_record('course', 'id', $courseid)) {
+    import19_error('El curs ' . $courseid . ' no existeix');
+}
 
-if(!function_exists('schedule_backup_launch_backup')){
-	import19_error('La funció schedule_backup_launch_backup no existex');
+print_header('Restaurant el curs ' . $courseid . ' amb nom ' . $course->fullname);
+
+if (!function_exists('schedule_backup_launch_backup')) {
+    import19_error('La funció schedule_backup_launch_backup no existex');
 }
 
 $ara = time();
@@ -49,37 +50,36 @@ $preferences = schedule_backup_course_configure($course, $ara);
 $nom_backup = schedule_backup_launch_backup($course, $ara);
 $out = ob_get_clean();
 
-if(isset($backup_config->backup_sche_destination))
-	backup_set_config('backup_sche_destination',$backup_config->backup_sche_destination);
-else
-	backup_set_config('backup_sche_destination',$CFG->dataroot.'/temp/backup');
-	
-echo '<p>Inici el '.userdate($ara).'<br/>';
+if (isset($backup_config->backup_sche_destination)) {
+    backup_set_config('backup_sche_destination', $backup_config->backup_sche_destination);
+} else {
+    backup_set_config('backup_sche_destination', $CFG->dataroot . '/temp/backup');
+}
+
+echo '<p>Inici el ' . userdate($ara) . '<br/>';
 echo nl2br($out);
 
-
-$logs = get_records_select('backup_log',"laststarttime = $ara AND courseid= $id",'time, info');
-foreach($logs as $log){
-	echo '<br/>'.date("H:i:s",$log->time).': '.$log->info;
+$logs = get_records_select('backup_log', "laststarttime = $ara AND courseid = $courseid", 'time, info');
+foreach ($logs as $log) {
+    echo '<br/>' . date("H:i:s", $log->time) . ': ' . $log->info;
 }
 
-if(!$nom_backup){
-	import19_error('El backup no s\'ha executat correctament');
+if (!$nom_backup) {
+    import19_error('El backup no s\'ha executat correctament');
 }
 
-echo '</p><p>Backup <b><span id="backupname">'.$preferences->backup_name.'</span></b> finalitzat</p>';
+echo '</p><p>La còpia de seguretat <strong><span id="backupname">' . $preferences->backup_name . '</span></strong> ha finalitzat</p>';
 
-//regcurs_set($id,'import19',$nom_backup);
+//regcurs_set($courseid,'import19',$nom_backup);
 
 echo "<script type\"text/javascript\">
-	document.getElementById('loading_icon').style.display = 'none';
-	window.scrollTo(0, document.body.scrollHeight);
-</script>";
+        document.getElementById('loading_icon').style.display = 'none';
+        window.scrollTo(0, document.body.scrollHeight);
+      </script>";
 
-
-function import19_error($message){
-	@print_header(get_string('error'));
-	print_simple_box($message, '', '', '', '', 'errorbox');
-	echo "<script type\"text/javascript\">document.getElementById('loading_icon').style.display = 'none';</script>";
-	die();
+function import19_error($message) {
+    @print_header(get_string('error'));
+    print_simple_box($message, '', '', '', '', 'errorbox');
+    echo "<script type\"text/javascript\">document.getElementById('loading_icon').style.display = 'none';</script>";
+    die();
 }

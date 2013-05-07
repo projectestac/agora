@@ -9,10 +9,10 @@ $contextid = required_param('contextid', PARAM_INT);
 list($context, $course, $cm) = get_context_info_array($contextid);
 
 $filename = required_param('backupname', PARAM_TEXT);
+$categoryid = required_param('categoryid', PARAM_INT);
 
-// Must pass login
 require_login($course);
-// Must hold restoretargetimport in the current course
+
 require_capability('moodle/restore:restoretargetimport', $context);
 
 $heading = get_string('import');
@@ -31,6 +31,6 @@ $renderer = $PAGE->get_renderer('core','backup');
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('import19','local_agora'),2);
 
-import19_restore($filename);
+import19_restore($filename, false, $categoryid);
 
 echo $OUTPUT->footer();
