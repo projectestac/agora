@@ -170,12 +170,22 @@ function import19_course_selector($contextid) {
 
                 // Get the courses in those categories
                 foreach ($categories as $category) {
-                    $sql = "SELECT c.id, c.shortname, c.fullname, '$category->catname' as catname, '$category->catparent' as catparent
-                            FROM {course} c
-                            WHERE c.category = $category->catid
-                            ORDER BY c.category DESC";
+                    
+                    // Get the subcategories
+                    $subcategories = agora_import19_getSubcategories($dbconn, $category->catid);
 
-                    $courses = $dbconn->get_records_sql($sql);
+                    // Add current category to subcategories (ok, it's not really a subcategory, but...)
+                    $subcategories[$category->catid] = array('catid' => $category->catid, 'catname' => $category->catname, 'catparent' => $category->catparent);
+
+                    // Get the courses of all the categories
+                    foreach ($subcategories as $cat) {
+                        $sql = "SELECT c.id, c.shortname, c.fullname, '$cat[catname]' as catname, '$cat[catparent]' as catparent
+                                FROM {course} c
+                                WHERE c.category = $cat[catid]
+                                ORDER BY c.category DESC";
+
+                        $courses += $dbconn->get_records_sql($sql);
+                    }
                 }
 
                 // Get the course list where user has backup capability (course level role)
@@ -190,10 +200,8 @@ function import19_course_selector($contextid) {
                         AND ra.userid=$user19->id
                         ORDER BY cat.parent DESC";
 
-                $courses_single = $dbconn->get_records_sql($sql);
-
                 // Union of arrays: merge removing duplicates
-                $courses = $courses + $courses_single;
+                $courses += $dbconn->get_records_sql($sql);
 
                 if (empty($courses)) {
                     echo "<br/>Aquest usuari/ària no té accés a cap curs";
@@ -290,6 +298,11 @@ function import19_course_selector($contextid) {
 
 /**
  * Connect to Moodle 1.9 database
+ * 
+ * @global object $DB
+ * @global object $CFG
+ * @global array $agora
+ * @return db handler 
  */
 function import19_connect_moodle19_db() {
     global $DB, $CFG, $agora;
@@ -310,4 +323,104 @@ function import19_connect_moodle19_db() {
         return false;
     }
     return $handler;
+}
+
+/**
+ * Creates a tree data structure wich contains, only, category information. Iterates
+ *  recursively.
+ *
+ * @author Toni Ginard (aginard@xtec.cat)
+ * @param array $dbRecords Contains all the categories info from the data base
+ * @param int $catID ID of the category where to start
+ * @param int $depth Level of the category being processed. Avoids processing subcategories.
+ *
+ * @return array Tree with data (see description)
+ */
+function agora_import19_buildCatTree($dbRecords, $catID, $depth) {
+    
+   $catTree = array();
+    
+    // First pass to get categories whose parent is this category (aka subcategories)
+    foreach ($dbRecords as $key => $record) {
+        if ($record->parent == $catID) {
+            $catTree[$record->id] = array('Id' => $record->id, 'Name' => $record->name, 'Subcategories' => array(), 'categorysize' => 0);
+            // Effiency improvement: Once the category is added to the tree, it won't be added again
+            unset($dbRecords[$key]);
+        }
+    }
+    
+    // Second pass for recursive call for all the categories in this category. The process
+    //  can't be done in a single pass because we only have the full list of categories 
+    //  of this depth once we have completed the first pass.
+    foreach ($catTree as $cat) {
+        foreach ($dbRecords as $record) {
+            // Condition 1: next level of depth
+            // Condition 2: the category must be under the current category
+            if (($record->parent == $cat['Id'])) {
+                $catTree[$cat['Id']]['Subcategories'] = agora_import19_buildCatTree($dbRecords, $cat['Id'], $depth + 1);
+            }
+        }
+    }
+
+    return $catTree;
+}
+
+/**
+ * Transforms category tree in a string HTML-formatted to be sent to the browser.
+ *  Builds a list with category information
+ *
+ * @author Toni Ginard (aginard@xtec.cat)
+ * @param array $data Category tree
+ *
+ * @return string HTML code to be sent to the browser
+ */
+function agora_import19_printCategoryData($data, $padding = 0) {
+    
+    foreach ($data as $category) {
+
+        // Build list content
+        $content .= html_writer::start_tag('li', array('style' => 'padding: 5px;' . ' padding-left:' . $padding . 'px'));
+        $content .= html_writer::empty_tag('input', array('type' => 'radio', 'name' => 'categoryid', 'value' =>$category['Id']));
+        $content .= html_writer::tag('span', $category['Name']);
+        $content .= html_writer::end_tag('li');
+
+        // Recursive call for subcategories
+        if (!empty($category['Subcategories'])) {
+            $content .= agora_import19_printCategoryData($category['Subcategories'], $padding + 10);
+        }
+    }
+
+    return $content;
+}
+
+/**
+ * Build an array with the current category and its subcategories. Uses database
+ * connection to Moodle 1.9
+ * 
+ * @param handler $dbconn
+ * @param int $catid
+ * @return array 
+ */
+function agora_import19_getSubcategories($dbconn, $catid) {
+    
+    $allcategories = array();
+    
+    // Get categories in this branch and depth level
+    $categories = $dbconn->get_records('course_categories', array('parent' => $catid));
+    
+    // Get subcategories and build result array
+    foreach ($categories as $category) {
+        // Add current category
+        $allcategories[$category->id] = array('catid' => $category->id, 'catname' => $category->name, 'catparent' => $category->parent);
+        
+        // Get subcategories
+        $subcategories = agora_import19_getSubcategories($dbconn, $category->id);
+        
+        // Default return is 'array()' and that value (empty) must be avoided
+        if (!empty($subcategories)) {
+            $allcategories += $subcategories;
+        }
+    }
+    
+    return $allcategories;
 }

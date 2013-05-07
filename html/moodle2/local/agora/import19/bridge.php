@@ -15,6 +15,8 @@ if ($step == '1') {
 
     global $DB;
 
+    require_once('lib.php');
+
     $dbRecords = $DB->get_records_select('course_categories', '', null, 'DEPTH, ID', 'ID, NAME, PARENT, DEPTH');
     $categoryTree = agora_import19_buildCatTree($dbRecords, 0, 1);
     
@@ -111,72 +113,4 @@ if ($step == '1') {
     echo html_writer::end_tag('form'); 
 
     echo $OUTPUT->footer();
-}
-
-/**
- * Creates a tree data structure wich contains, only, category information. Iterates
- *  recursively.
- *
- * @author Toni Ginard (aginard@xtec.cat)
- * @param array $dbRecords Contains all the categories info from the data base
- * @param int $catID ID of the category where to start
- * @param int $depth Level of the category being processed. Avoids processing subcategories.
- *
- * @return array Tree with data (see description)
- */
-function agora_import19_buildCatTree($dbRecords, $catID, $depth) {
-    
-   $catTree = array();
-    
-    // First pass to get categories whose parent is this category (aka subcategories)
-    foreach ($dbRecords as $key => $record) {
-        if ($record->parent == $catID) {
-            $catTree[$record->id] = array('Id' => $record->id, 'Name' => $record->name, 'Subcategories' => array(), 'categorysize' => 0);
-            // Effiency improvement: Once the category is added to the tree, it won't be added again
-            unset($dbRecords[$key]);
-        }
-    }
-    
-    // Second pass for recursive call for all the categories in this category. The process
-    //  can't be done in a single pass because we only have the full list of categories 
-    //  of this depth once we have completed the first pass.
-    foreach ($catTree as $cat) {
-        foreach ($dbRecords as $record) {
-            // Condition 1: next level of depth
-            // Condition 2: the category must be under the current category
-            if (($record->parent == $cat['Id'])) {
-                $catTree[$cat['Id']]['Subcategories'] = agora_import19_buildCatTree($dbRecords, $cat['Id'], $depth + 1);
-            }
-        }
-    }
-
-    return $catTree;
-}
-
-/**
- * Transforms category tree in a string HTML-formatted to be sent to the browser.
- *  Builds a list with category information
- *
- * @author Toni Ginard (aginard@xtec.cat)
- * @param array $data Category tree
- *
- * @return string HTML code to be sent to the browser
- */
-function agora_import19_printCategoryData($data, $padding = 0) {
-    
-    foreach ($data as $category) {
-
-        // Build list content
-        $content .= html_writer::start_tag('li', array('style' => 'padding: 5px;' . ' padding-left:' . $padding . 'px'));
-        $content .= html_writer::empty_tag('input', array('type' => 'radio', 'name' => 'categoryid', 'value' =>$category['Id']));
-        $content .= html_writer::tag('span', $category['Name']);
-        $content .= html_writer::end_tag('li');
-
-        // Recursive call for subcategories
-        if (!empty($category['Subcategories'])) {
-            $content .= agora_import19_printCategoryData($category['Subcategories'], $padding + 10);
-        }
-    }
-
-    return $content;
 }
