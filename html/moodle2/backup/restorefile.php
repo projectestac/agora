@@ -180,10 +180,11 @@ if (!empty($automatedbackups)) {
 require_once($CFG->dirroot.'/local/agora/lib.php');
 $import19lib = $CFG->dirroot.'/local/agora/import19/lib.php';
 if (file_exists($import19lib)) {
+    $showallcourses = optional_param('showallcourses', 0, PARAM_INT);
     require_once($import19lib);
     echo $OUTPUT->heading_with_help(get_string('choosefilefrommoodle19', 'local_agora'), 'choosefilefrommoodle19', 'local_agora');
     echo $OUTPUT->container_start();
-    echo import19_course_selector($contextid);
+    echo import19_course_selector($contextid, $showallcourses);
     echo $OUTPUT->container_end();
 }
 //************ FI

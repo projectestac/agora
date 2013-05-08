@@ -102,17 +102,15 @@ function import19_restore($filename, $courseid = false, $categoryid = false) {
 
 /**
  * Called from backup/restorefile.php to show the courses in Moodle 1.9
+ * 
  * @global type $CFG
  * @global type $USER
  * @global type $OUTPUT
- * @global type $PAGE
- * @global type $agora
- * @global type $school_info
  * @param type $contextid
  * @return type
  */
-function import19_course_selector($contextid) {
-    global $CFG, $USER, $OUTPUT, $PAGE, $agora, $school_info;
+function import19_course_selector($contextid, $showallcourses = false) {
+    global $DB, $CFG, $USER, $OUTPUT;
 
     $html = '';
     $dbconn = import19_connect_moodle19_db();
@@ -204,7 +202,16 @@ function import19_course_selector($contextid) {
                 $courses += $dbconn->get_records_sql($sql);
 
                 if (empty($courses)) {
-                    echo "<br/>Aquest usuari/ària no té accés a cap curs";
+                    $OUTPUT->notification(get_string('nocoursesforuser', 'local_agora'));
+                }
+                
+                // Get the list of courses in Moodle 2              
+                $m2courses = $DB->get_records('course', null, null, 'id, fullname, shortname');
+                
+                // Build an array with the shortnames in order to be able to check it with in_array()
+                $shortnames = array();
+                foreach ($m2courses as $m2course) {
+                    $shortnames[] = $m2course->shortname;
                 }
             }
 
@@ -215,7 +222,7 @@ function import19_course_selector($contextid) {
                 //  function is required (it's defined below in this php file). The field
                 //  currently used is 'fullname'
                 usort($courses, "cmp");
-                
+
                 // Create table
                 $shortnamestr = get_string('shortname');
                 $fullnamestr = get_string('fullname');
@@ -226,8 +233,17 @@ function import19_course_selector($contextid) {
                 $table->align = array('left', 'left', 'left', 'left');
 
                 $cat2form = array();
+                $coursesnotshown = false;
 
-                foreach ($courses as $course) {
+                foreach ($courses as $key => $course) {
+                    // If this course already exists in Moodle 2, skip it!
+                    if (!$showallcourses && in_array($course->shortname, $shortnames)) {
+                        // Fixed count of courses
+                        unset($courses[$key]);
+                        $coursesnotshown = true;
+                        continue;
+                    }
+
                     $catname = $course->catname;
                     $parent = $course->catparent;
 
@@ -263,16 +279,29 @@ function import19_course_selector($contextid) {
 
                 $html .= html_writer::start_tag('div', array('class' => 'import-course-selector backup-restore'));
                 $html .= html_writer::start_tag('div', array('class' => 'import19 backup-section'));
-                
+
                 $html .= html_writer::start_tag('form', array('method' => 'post', 'action' => $CFG->wwwroot . '/local/agora/import19/bridge.php'));
 
                 $html .= html_writer::start_tag('div', array('class' => 'detail-pair'));
-                $html .= html_writer::tag('label', get_string('selectacourse', 'backup'), array('class' => 'detail-pair-label', 'style' => 'width:15%'));
+                $html .= html_writer::start_tag('label', array('class' => 'detail-pair-label', 'style' => 'width:15%'));
+                $html .= html_writer::tag('span', get_string('selectacourse', 'backup'));
+                $html .= html_writer::empty_tag('br');
+                $html .= html_writer::tag('span', get_string('totalcoursesearchresults', 'backup', count($courses)));
+                $html .= html_writer::end_tag('label');
+
                 $html .= html_writer::start_tag('div', array('class' => 'detail-pair-value', 'style' => 'width:75%'));
-                $html .= html_writer::tag('div', get_string('totalcoursesearchresults', 'backup', count($courses)));
-                
+
+                if (!$showallcourses && $coursesnotshown) {
+                    $html .= html_writer::start_tag('p', array('style' => 'margin:0px; padding:0px 15px 5px 15px;'));
+                    $html .= html_writer::tag('span', get_string('showallcourses_desc', 'local_agora'));
+                    $html .= html_writer::start_tag('a', array('href' => $_SERVER['REQUEST_URI'] . '&showallcourses=1'));
+                    $html .= html_writer::tag('span', get_string('showallcourses', 'local_agora'));
+                    $html .= html_writer::end_tag('a');
+                    $html .= html_writer::end_tag('p');
+                }
+
                 $html .= html_writer::table($table);
-              
+
                 $html .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'contextid', 'value' => $contextid));
                 $html .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'sesskey', 'value' => sesskey()));
                 $html .= html_writer::empty_tag('input', array('type' => 'submit', 'value' => get_string('continue')));

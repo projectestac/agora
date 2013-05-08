@@ -7,9 +7,11 @@ $string['import'] = 'Course restoration';
 $string['import19'] = 'Restore from Moodle 1.9';
 $string['choosefilefrommoodle19'] = 'Restore from Moodle 1.9';
 $string['choosefilefrommoodle19_help'] = 'Restore a course directly from Moodle 1.9';
-
 $string['import19_nocourses'] = 'There are no courses available';
 $string['import19_nodbconnect'] = 'Restore from Moodle 1.9 isn\'t available. It\'s not possible to connect to Moodle 1.9 database.';
+$string['showallcourses'] = 'Show all courses';
+$string['showallcourses_desc'] = 'Some courses available in Moodle 1.9 are not being shown because they are already imported. To show all available courses, click the following link: ';
+$string['nocoursesforuser'] = 'You don\'t have access to any course';
 
 // Disk quota
 $string['diskquotaerror'] = '<strong>WARNING</strong>: This Moodle site has expired its disk quota.<br />It won\'t be possible to upload files or do backups before freeing some disk space or requesting an increase of the quota.';
