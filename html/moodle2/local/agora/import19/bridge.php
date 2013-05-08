@@ -19,6 +19,7 @@ if ($step == '1') {
 
     $dbRecords = $DB->get_records_select('course_categories', '', null, 'DEPTH, ID', 'ID, NAME, PARENT, DEPTH');
     $categoryTree = agora_import19_buildCatTree($dbRecords, 0, 1);
+    $courseCategoryTree = agora_import19_getCourseCategoryTree($importcourseid);
     
     require_login($course);
 
@@ -38,7 +39,7 @@ if ($step == '1') {
     
     echo $OUTPUT->header();
     echo $OUTPUT->heading('Selecció de categoria');
-    
+
     $content = html_writer::start_tag('div', array('class' => 'import-category-selector', 'style' => 'margin:20px;'));
     $content .= html_writer::tag('label', 'Trieu la categoria a on es restaurarà el curs', array('style' => 'font-weight:bold;'));
     $content .= html_writer::start_tag('form', array('method' => 'post', 'action' => $CFG->wwwroot . '/local/agora/import19/bridge.php'));
@@ -99,7 +100,7 @@ if ($step == '1') {
         echo '<iframe id="import19frame" 
                       onload="iframedone();"; 
                       src="'.$CFG->import19_backup_path.'?courseid='.$importcourseid.'&categoryid='.$categoryid.'" 
-                      style="min-height:500px; width:100%; height:60%; border: 1px solid #CCC; seamless">
+                      style="min-height:300px; width:100%; height:30%; border: 1px solid #CCC; seamless">
               </iframe>';
     }
 

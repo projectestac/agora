@@ -204,17 +204,17 @@ function import19_course_selector($contextid, $showallcourses = false) {
                 if (empty($courses)) {
                     $OUTPUT->notification(get_string('nocoursesforuser', 'local_agora'));
                 }
-                
-                // Get the list of courses in Moodle 2              
-                $m2courses = $DB->get_records('course', null, null, 'id, fullname, shortname');
-                
-                // Build an array with the shortnames in order to be able to check it with in_array()
-                $shortnames = array();
-                foreach ($m2courses as $m2course) {
-                    $shortnames[] = $m2course->shortname;
-                }
             }
+                
+            // Get the list of courses in Moodle 2              
+            $m2courses = $DB->get_records('course', null, null, 'id, fullname, shortname');
 
+            // Build an array with the shortnames in order to be able to check it with in_array()
+            $shortnames = array();
+            foreach ($m2courses as $m2course) {
+                $shortnames[] = $m2course->shortname;
+            }
+            
             $categories = array();
 
             if ($courses) {
@@ -458,6 +458,55 @@ function agora_import19_getSubcategories($dbconn, $catid) {
     return $allcategories;
 }
 
+
+/**
+ * Build an array with the category name and its parents of specified course
+ * Uses database connection to Moodle 1.9
+ * 
+ * @param type $courseid
+ * @return type array with the name of the course category (lowest index is further parent)
+ */
+function agora_import19_getCourseCategoryTree($courseid){
+    $coursecategories = array();
+    $dbconn = import19_connect_moodle19_db();
+
+    if ($dbconn) {
+        // Look for the category of the specified course
+        $sql = "SELECT cat.name as catname, cat.parent as catparent
+                FROM {course} c
+                LEFT JOIN {course_categories} cat ON c.category = cat.id
+                WHERE c.id=$courseid";
+        $category = $dbconn->get_record_sql($sql);
+        $coursecategories += agora_import19_getCategoryTreeByParent($dbconn, $category->catparent);
+        $coursecategories[] = $category->catname;
+        
+        // Close the DB connection
+        $dbconn->dispose();
+    }
+    
+    return $coursecategories;
+}
+
+/**
+ * Build an array with the category name and its parents of specified category
+ * Uses database connection to Moodle 1.9
+ * 
+ * @param type $dbconn Database connection to Moodle 1.9
+ * @param type $parentid parent category to get the name.
+ * @return type array with the name of the course category (lowest index is further parent)
+ */
+function agora_import19_getCategoryTreeByParent($dbconn, $parentid){
+    $coursecategories = array();
+    
+    if ($parentid != 0) {
+        // While parentid != 0, search name of the category parents
+        $category = $dbconn->get_record('course_categories', array('id' => $parentid), 'name, parent');
+        $coursecategories += agora_import19_getCategoryTreeByParent($dbconn, $category->parent);
+        $coursecategories[] = $category->name;
+    }
+    
+    return $coursecategories;
+}
 
 /**
  * Auxiliary function to order an object by its field 'fullname'
