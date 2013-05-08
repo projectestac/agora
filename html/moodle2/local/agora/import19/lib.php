@@ -211,6 +211,11 @@ function import19_course_selector($contextid) {
             $categories = array();
 
             if ($courses) {
+                // Sort the courses in the array. It's an array of objects, so an auxiliary
+                //  function is required (it's defined below in this php file). The field
+                //  currently used is 'fullname'
+                usort($courses, "cmp");
+                
                 // Create table
                 $shortnamestr = get_string('shortname');
                 $fullnamestr = get_string('fullname');
@@ -219,7 +224,6 @@ function import19_course_selector($contextid) {
                 $table = new html_table();
                 $table->head = array('', $shortnamestr, $fullnamestr, $categorystr);
                 $table->align = array('left', 'left', 'left', 'left');
-                $table->width = '90%';
 
                 $cat2form = array();
 
@@ -263,8 +267,8 @@ function import19_course_selector($contextid) {
                 $html .= html_writer::start_tag('form', array('method' => 'post', 'action' => $CFG->wwwroot . '/local/agora/import19/bridge.php'));
 
                 $html .= html_writer::start_tag('div', array('class' => 'detail-pair'));
-                $html .= html_writer::tag('label', get_string('selectacourse', 'backup'), array('class' => 'detail-pair-label'));
-                $html .= html_writer::start_tag('div', array('class' => 'detail-pair-value'));
+                $html .= html_writer::tag('label', get_string('selectacourse', 'backup'), array('class' => 'detail-pair-label', 'style' => 'width:15%'));
+                $html .= html_writer::start_tag('div', array('class' => 'detail-pair-value', 'style' => 'width:75%'));
                 $html .= html_writer::tag('div', get_string('totalcoursesearchresults', 'backup', count($courses)));
                 
                 $html .= html_writer::table($table);
@@ -423,4 +427,16 @@ function agora_import19_getSubcategories($dbconn, $catid) {
     }
     
     return $allcategories;
+}
+
+
+/**
+ * Auxiliary function to order an object by its field 'fullname'
+ *
+ * @param object $a
+ * @param object $b
+ * @return object 
+ */
+function cmp($a, $b) {
+    return strcmp($a->fullname, $b->fullname);
 }
