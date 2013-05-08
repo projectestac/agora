@@ -1,10 +1,10 @@
 <?php
-
-//XTEC ************ FITXER AFEGIT - Cron per upgradar periòdicament els assigments.
-//2013.05.02 @jmiro227
-
 //ini_set('display_errors', 'On');
 //error_reporting(E_ALL);
+
+
+// Upgrade automatically assignments to assigns
+// 2013.05.02 @jmiro227
 
 echo "\nUpgrading assigments...\n";
 
@@ -29,8 +29,5 @@ foreach ($assignmentids as $assignmentid) {
     else { echo "Fail: $log.\n"; }
     
 }
-
-
-
 
 
