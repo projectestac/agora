@@ -266,8 +266,9 @@ function getSchoolDBInfo($dns, $codeletter = false) {
     }
 
     $value = array();
+    $clientCode = '';
     while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-
+        $clientCode = $row['clientCode'];
         $diskPercent = getDiskPercent($row['diskConsume'], $row['diskSpace']);
         $service = $row['serviceName'];
 
@@ -290,6 +291,11 @@ function getSchoolDBInfo($dns, $codeletter = false) {
         // Do not overwrite type
         if (empty($value['type']))
             $value['type'] = $row['typeId'];
+    }
+    
+    // Get clientCode
+    if (!empty($clientCode)){
+        $value['clientCode'] = $clientCode;
     }
 
     // Get new DNS
@@ -639,7 +645,6 @@ function getMoodleDirrot($school_info, $service='moodle') {
             $moodle_dirroot = (checkExtraFunc(transformClientCode($school_info['clientCode'], 'num2letter'))) ? 'moodle2' : 'moodle';
             break;
     }
-
     return $moodle_dirroot;
 }
 
