@@ -12,6 +12,7 @@ MOODLE2
 - Course import from 1.9 now allows to select target category
 - Fixed code in theme xtec2 which may interfere javascript in other themes
 - Reviewed MUC configuration to avoid use agora_store for questiondata cache
+- Installed alpha version of the GeoGebra module
 
 PORTAL
 - Fixed managers not being able to ask for a new service when service 'moodle' doesn't accept new registers
