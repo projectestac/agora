@@ -407,19 +407,39 @@ function agora_import19_buildCatTree($dbRecords, $catID, $depth) {
  *
  * @return string HTML code to be sent to the browser
  */
-function agora_import19_printCategoryData($data, $padding = 0) {
-    
+function agora_import19_printCategoryData($data, $courseCategoryTree, $padding = 0) {
+
+    // Get the name of the category of this depth in Moodle 1.9
+    $current19Category = array_shift($courseCategoryTree);
+
     foreach ($data as $category) {
 
-        // Build list content
-        $content .= html_writer::start_tag('li', array('style' => 'padding: 5px;' . ' padding-left:' . $padding . 'px'));
-        $content .= html_writer::empty_tag('input', array('type' => 'radio', 'name' => 'categoryid', 'value' =>$category['Id']));
-        $content .= html_writer::tag('span', $category['Name']);
-        $content .= html_writer::end_tag('li');
+        if (empty($courseCategoryTree) && ($current19Category == $category['Name'])) {
+            $selected = true;
+        } else {
+            $selected = false;
+        }
+        
+        // Get the category context. Each category has a different context.
+        $context = CONTEXT_COURSECAT::instance($category['Id']);
+
+        // Only show the category if the logged user can manage it
+        if (has_capability('moodle/category:manage', $context)) {
+            // Build list content
+            $content .= html_writer::start_tag('li', array('style' => 'padding: 5px;' . ' padding-left:' . $padding . 'px'));
+            if ($selected) {
+                $content .= html_writer::empty_tag('input', array('type' => 'radio', 'name' => 'categoryid', 'value' =>$category['Id'], 'checked' => 'checked'));
+            } else {
+                $content .= html_writer::empty_tag('input', array('type' => 'radio', 'name' => 'categoryid', 'value' =>$category['Id']));
+            }
+            
+            $content .= html_writer::tag('span', $category['Name']);
+            $content .= html_writer::end_tag('li');
+        }
 
         // Recursive call for subcategories
         if (!empty($category['Subcategories'])) {
-            $content .= agora_import19_printCategoryData($category['Subcategories'], $padding + 10);
+            $content .= agora_import19_printCategoryData($category['Subcategories'], $courseCategoryTree, $padding + 30);
         }
     }
 

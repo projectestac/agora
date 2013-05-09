@@ -12,6 +12,9 @@ $string['import19_nodbconnect'] = 'Restore from Moodle 1.9 isn\'t available. It\
 $string['showallcourses'] = 'Show all courses';
 $string['showallcourses_desc'] = 'Some courses available in Moodle 1.9 are not being shown because they are already imported. To show all available courses, click the following link: ';
 $string['nocoursesforuser'] = 'You don\'t have access to any course';
+$string['nocapabilitiesoncategories'] = 'You don\'t have capabilities on any course of Moodle 2 and you can\'t import any course';
+$string['goback'] = 'Go back';
+$string['choosecategory'] = 'Choose the category where to restore the course';
 
 // Disk quota
 $string['diskquotaerror'] = '<strong>WARNING</strong>: This Moodle site has expired its disk quota.<br />It won\'t be possible to upload files or do backups before freeing some disk space or requesting an increase of the quota.';

@@ -12,6 +12,9 @@ $string['import19_nodbconnect'] = 'No está disponible la importación de cursos
 $string['showallcourses'] = 'Ver todos los cursos';
 $string['showallcourses_desc'] = 'Algunos cursos disponibles en Moodle 1.9 no se estan mostrando porque ya han sido importados. Para ver todos los cursos disponibles, clica en el enlace siguiente: ';
 $string['nocoursesforuser'] = 'No tienes acceso a ningún curso';
+$string['nocapabilitiesoncategories'] = 'No tienes permisos sobre ninguna categoría del Moodle 2 y no puedes importar ningún curso';
+$string['goback'] = 'Volver';
+$string['choosecategory'] = 'Elige la categoría donde se restaurará el curso';
 
 // Disk quota
 $string['diskquotaerror'] = '<strong>ATENCIÓN</strong>: Este Moodle ha superado la cuota de espacio disponible.<br /> No se podrá subir ningún fichero ni generar ninguna copia de seguridad hasta que no se libere espacio y/o se solicite una ampliación de la cuota.';

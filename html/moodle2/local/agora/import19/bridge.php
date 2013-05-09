@@ -41,16 +41,27 @@ if ($step == '1') {
     echo $OUTPUT->heading('Selecció de categoria');
 
     $content = html_writer::start_tag('div', array('class' => 'import-category-selector', 'style' => 'margin:20px;'));
-    $content .= html_writer::tag('label', 'Trieu la categoria a on es restaurarà el curs', array('style' => 'font-weight:bold;'));
-    $content .= html_writer::start_tag('form', array('method' => 'post', 'action' => $CFG->wwwroot . '/local/agora/import19/bridge.php'));
-    $content .= html_writer::start_tag('ul', array('class' => 'import19categorylist', 'style' => 'list-style-type: none'));
-    $content .= agora_import19_printCategoryData($categoryTree);
-    $content .= html_writer::end_tag('ul');
-    $content .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'step', 'value' => '2'));
-    $content .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'importid', 'value' => $importcourseid));
-    $content .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'contextid', 'value' => $contextid));
-    $content .= html_writer::empty_tag('input', array('type' => 'submit', 'value' => get_string('continue')));
-    $content .= html_writer::end_tag('form');
+
+    $categoryData = agora_import19_printCategoryData($categoryTree, $courseCategoryTree);
+    
+    if (empty($categoryData)) {
+        $content .= html_writer::tag('label', get_string('nocapabilitiesoncategories', 'local_agora'), array('style' => 'font-weight:bold;'));
+        $content .= html_writer::start_tag('form', array('method' => 'post', 'action' => $_SERVER['HTTP_REFERER']));
+        $content .= html_writer::empty_tag('br');
+        $content .= html_writer::empty_tag('input', array('type' => 'submit', 'value' => get_string('goback', 'local_agora')));
+        $content .= html_writer::end_tag('form');
+    } else {
+        $content .= html_writer::tag('label', get_string('choosecategory', 'local_agora'), array('style' => 'font-weight:bold;'));
+        $content .= html_writer::start_tag('form', array('method' => 'post', 'action' => $CFG->wwwroot . '/local/agora/import19/bridge.php'));
+        $content .= html_writer::start_tag('ul', array('class' => 'import19categorylist', 'style' => 'list-style-type: none'));
+        $content .= $categoryData;
+        $content .= html_writer::end_tag('ul');
+        $content .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'step', 'value' => '2'));
+        $content .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'importid', 'value' => $importcourseid));
+        $content .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'contextid', 'value' => $contextid));
+        $content .= html_writer::empty_tag('input', array('type' => 'submit', 'value' => get_string('continue')));
+        $content .= html_writer::end_tag('form');
+    }
     $content .= html_writer::end_tag('div');
 
     echo $content;
