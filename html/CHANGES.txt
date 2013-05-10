@@ -5,6 +5,11 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+Changes 13.05.13
+---------------------------------------------------------------------------------------
 MOODLE2
 - Added SVG icons for rcontent and rscorm
 - Added cron code to upgrade upgradable assigments.
