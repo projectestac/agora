@@ -93,6 +93,12 @@ class moodle1_mod_geogebra_handler extends moodle1_mod_handler {
         }
         // From Moodle 2, URL field only contains information about the GGB file location
         $data['url'] = $parsedVarsURL['filename'];
+        
+        if (strrpos($data['url'], '/') !== FALSE) {
+            // Remove folder path to leave only file name
+            $data['url']= substr($data['url'], strrpos($data['url'], '/')+1);
+        }
+        
         // Remove filename from parsedVarsURL array (to avoid save twice)
         unset($parsedVarsURL['filename']);
         // Store other attributes in the new param
