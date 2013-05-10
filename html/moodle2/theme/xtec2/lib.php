@@ -62,7 +62,7 @@ function xtec2_process_css($css, $theme) {
             $fontstyle = 'font-family: Abecedario!important;';
             break;
         case 'majuscules':
-            $fontstyle = 'text-transform: uppercase';
+            $fontstyle = 'text-transform: uppercase;';
             break;
     }
     $css = str_replace('[[setting:fontstyle]]', $fontstyle, $css);
