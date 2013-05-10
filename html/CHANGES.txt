@@ -5,6 +5,8 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE2
+- Fixed font face "lletra lligada", which only worked in theme design mode
 
 
 
@@ -22,7 +24,6 @@ MOODLE2
 
 PORTAL
 - Fixed managers not being able to ask for a new service when service 'moodle' doesn't accept new registers
-
 
 
 Changes 13.04.26

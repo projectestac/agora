@@ -9,7 +9,7 @@
  */
 function xtec2_process_css($css, $theme) {
 
-    global $OUTPUT;
+    global $OUTPUT, $CFG;
     
     // Configure site logo
     $logo = $theme->setting_file_url('logo', 'logo');
@@ -139,6 +139,10 @@ function xtec2_process_css($css, $theme) {
     }
     $css = str_replace('[[setting:color6]]', $color6, $css);
 
+
+    // Fix for @font-face: when style sheets are minimized, @font-face only
+    // work if the URL are absolute
+    $css = str_replace('[[url]]', $CFG->wwwroot, $css);
     
     return $css;
 }

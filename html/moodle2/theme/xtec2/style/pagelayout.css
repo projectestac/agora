@@ -2,12 +2,12 @@
 
 @font-face {
     font-family: Abecedario;
-    src: url('xtec2/fonts/Abecedario.ttf');
+    src: url('[[url]]/theme/xtec2/fonts/Abecedario.ttf');
 }
 
 @font-face {
     font-family: Abecedario;
-    src: url('xtec2/fonts/AbecedarioNegrita.ttf');
+    src: url('[[url]]/theme/xtec2/fonts/AbecedarioNegrita.ttf');
     font-weight: bold;
 }
 
