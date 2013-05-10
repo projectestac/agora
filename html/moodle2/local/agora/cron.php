@@ -3,10 +3,10 @@
 //error_reporting(E_ALL);
 
 
-// Upgrade automatically assignments to assigns
+// XTEC: Upgrade automatically assignments to assigns
 // 2013.05.02 @jmiro227
 
-echo "\nUpgrading assigments...\n";
+echo "\nUpgrading assignments...\n";
 
 require_once($CFG->dirroot . '/'.$CFG->admin.'/tool/assignmentupgrade/locallib.php');
 require_once($CFG->dirroot . '/course/lib.php');
@@ -19,7 +19,7 @@ $total = count($assignmentids);
 
 foreach ($assignmentids as $assignmentid) {
 
-    echo "Upgrading assigment $assignmentid ($current of $total)...";
+    echo "Upgrading assignment $assignmentid ($current of $total)...";
 
     list($summary, $success, $log) = tool_assignmentupgrade_upgrade_assignment($assignmentid);
 
