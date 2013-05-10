@@ -13,6 +13,7 @@ MOODLE2
 - Fixed code in theme xtec2 which may interfere javascript in other themes
 - Reviewed MUC configuration to avoid use agora_store for questiondata cache
 - Installed alpha version of the GeoGebra module
+- Forced default timezone to Server's local time (to avoid problems with quizzes)
 
 PORTAL
 - Fixed managers not being able to ask for a new service when service 'moodle' doesn't accept new registers

@@ -101,3 +101,4 @@ if (isset($agora['server']['enviroment'])){
 // This folder has to exists and to be writable
 $CFG->altcacheconfigpath = $agora['server']['root'].'html/moodle2/local/agora/muc/';
 
+$CFG->timezone = 99; // Changed by default to Server's local time
