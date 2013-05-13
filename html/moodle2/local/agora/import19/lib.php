@@ -412,6 +412,8 @@ function agora_import19_printCategoryData($data, $courseCategoryTree, $padding =
     // Get the name of the category of this depth in Moodle 1.9
     $current19Category = array_shift($courseCategoryTree);
 
+    $content = '';
+
     foreach ($data as $category) {
 
         if (empty($courseCategoryTree) && ($current19Category == $category['Name'])) {
