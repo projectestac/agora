@@ -52,6 +52,13 @@ $CFG->sessiontimeout=3600;
 //$CFG->sessioncookie = $CFG->center;
 
 //$CFG->enable_hour_restrictions = 1;   /* Set in database */
+// This param (hour_restrictions) can be serialized. This is useful for setting it in database
+// Values for days: 0 = sunday, 1 = monday, ..., 6 = saturday
+$CFG->hour_restrictions = array(array('start' => '9:00', 'end' => '13:59', 'days' => '1|2|3|4|5'),
+                                array('start' => '15:00', 'end' => '16:59', 'days' => '1|2|3|4|5'));
+
+// These variable define DEFAULT block variables for new courses
+$CFG->defaultblocks_override = ':calendar_month,participants,activity_modules';
 
 //Mail information
 //$CFG->apligestmail = 1;  		/* Set in database */
@@ -89,3 +96,9 @@ $CFG->noreplyaddress = 'noreply@agora.xtec.cat';
 if (isset($agora['server']['enviroment'])){
     $CFG->eoicampus_wsdl_path = INSTALL_BASE. 'html/moodle2/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-'.$agora['server']['enviroment'].'.wsdl';
 }
+
+// Path of the cacheconfig.php file, to have only one MUC file for Àgora (instead of having one for each site in moodledata/usuX/muc/config.php). 
+// This folder has to exists and to be writable
+$CFG->altcacheconfigpath = $agora['server']['root'].'html/moodle2/local/agora/muc/';
+
+$CFG->timezone = 99; // Changed by default to Server's local time

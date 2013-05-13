@@ -1296,6 +1296,25 @@ class moodle_page {
         $this->_theme = theme_config::load($themename);
     }
 
+
+//XTEC ************ AFEGIT - Add support for logo upload in themes
+//2013.04.25 @aginard
+
+    /**
+     * Reload theme settings.
+     *
+     * This is used when we need to reset settings
+     * because they are now double cached in theme.
+     */
+    public function reload_theme() {
+        if (!is_null($this->_theme)) {
+            $this->_theme = theme_config::load($this->_theme->name);
+        }
+    }
+
+//************ FI
+
+
     /**
      * This function indicates that current page requires the https
      * when $CFG->loginhttps enabled.

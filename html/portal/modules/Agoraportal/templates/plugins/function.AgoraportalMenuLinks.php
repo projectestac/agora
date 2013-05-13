@@ -22,6 +22,11 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
 
     $availableServicesNumber = 0;
     foreach ($services as $service) {
+        $availableServicesNumber++;
+        // Following code is commented in order to allow the 4th service to be asked for
+        //  even if there is any service which is not accepting new registers. The problem
+        //  appears when an existing service is block for new register.
+        /*
         if ($service['allowedClients'] != '') {
             if (!empty($clientCode) && (strpos($service['allowedClients'], $clientCode) !== false)) {
                 $availableServicesNumber++;
@@ -29,6 +34,7 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
         } else {
             $availableServicesNumber++;
         }
+        */
     }
 
     if ($service['allowedClients'] != '') {

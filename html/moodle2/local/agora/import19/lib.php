@@ -4,7 +4,7 @@
 
 
 
-function import19_restore($filename, $courseid = false) {
+function import19_restore($filename, $courseid = false, $categoryid = false) {
     global $OUTPUT, $CFG, $DB, $USER, $agora;
 
     require_once($CFG->dirroot . '/backup/util/includes/backup_includes.php');
@@ -40,7 +40,7 @@ function import19_restore($filename, $courseid = false) {
     try {
         if (!$courseid) {
             // Create importing category
-            if (!$restorecat = $DB->get_field('course_categories', 'id', array('name' => 'Moodle 1.9', 'parent' => 0))) {
+            if (!$restorecat = $DB->get_field('course_categories', 'id', array('id' => $categoryid))) {
                 $cat = new StdClass();
                 $cat->name = 'Moodle 1.9';
                 $cat->description = "Cursos traspassats del Moodle 1.9 d'Àgora";
@@ -102,20 +102,19 @@ function import19_restore($filename, $courseid = false) {
 
 /**
  * Called from backup/restorefile.php to show the courses in Moodle 1.9
+ * 
  * @global type $CFG
  * @global type $USER
  * @global type $OUTPUT
- * @global type $PAGE
- * @global type $agora
- * @global type $school_info
  * @param type $contextid
- * @return type 
+ * @return type
  */
-function import19_course_selector($contextid) {
-    global $CFG, $USER, $OUTPUT, $PAGE, $agora, $school_info;
+function import19_course_selector($contextid, $showallcourses = false) {
+    global $DB, $CFG, $USER, $OUTPUT;
 
     $html = '';
     $dbconn = import19_connect_moodle19_db();
+
     if ($dbconn) {
         // Look for the user in Moodle 1.9 tables
         $user19 = $dbconn->get_record('user', array('username' => $USER->username));
@@ -130,23 +129,100 @@ function import19_course_selector($contextid) {
                 $isadmin19 = $dbconn->get_field_sql($sql) == 1;
             }
 
-            // Get list of courses which can be restored from current user
+            // Get list of courses which can be restored by the current user
             $courses = array();
+
             if (is_siteadmin() || $isadmin19) {
+                // If the user is admin in 1.9, can access the full list of courses
                 $sql = "SELECT c.id, c.shortname, c.fullname, cat.name AS catname, cat.parent AS catparent
-                                    FROM {course} c, {course_categories} cat 
+                                    FROM {course} c, {course_categories} cat
                                     WHERE cat.id = c.category ORDER BY cat.parent DESC";
+
                 $courses = $dbconn->get_records_sql($sql);
             } else if ($user19) {
-                $sql = "SELECT c.id, c.shortname, c.fullname, cat.name AS catname, cat.parent AS catparent
-                                    FROM {course} c, {context} ctx, {role_assignments} ra, {role} r, {course_categories} cat 
-                                    WHERE  r.shortname ='editingteacher' AND r.id=ra.roleid AND ra.userid=$user19->id 
-                                    AND ra.contextid = ctx.id AND ctx.instanceid = c.id AND cat.id = c.category ORDER BY cat.parent DESC";
-                $courses = $dbconn->get_records_sql($sql);
-            }
+                // get_records_sql() does not accept ':' in SQL, so this is a workaround
+                $caps = array();
+                $sql = "SELECT id, capability FROM {role_capabilities}";
 
+                $capabilities = $dbconn->get_records_sql($sql);
+
+                foreach ($capabilities as $capability) {
+                    if ($capability->capability == 'moodle/site:backup')
+                        $caps[] = ' rc.id=' . $capability->id . ' ';
+                }
+
+                $capabilities = (!empty($caps)) ? '(' . implode('OR', $caps) . ') AND ' : '';
+
+                // Get the category list where user has backup capability (category level role)
+                $sql = "SELECT distinct cat.id as catid, cat.name as catname, cat.parent as catparent
+                        FROM {course_categories} cat
+                        LEFT JOIN {context} ctx ON cat.id = ctx.instanceid
+                        LEFT JOIN {role_assignments} ra ON ctx.id = ra.contextid
+                        LEFT JOIN {role_capabilities} rc ON rc.roleid = ra.roleid
+                        WHERE $capabilities
+                        ctx.contextlevel=40
+                        AND ra.userid=$user19->id
+                        ORDER BY cat.parent DESC";
+
+                $categories = $dbconn->get_records_sql($sql);
+
+                // Get the courses in those categories
+                foreach ($categories as $category) {
+                    
+                    // Get the subcategories
+                    $subcategories = agora_import19_getSubcategories($dbconn, $category->catid);
+
+                    // Add current category to subcategories (ok, it's not really a subcategory, but...)
+                    $subcategories[$category->catid] = array('catid' => $category->catid, 'catname' => $category->catname, 'catparent' => $category->catparent);
+
+                    // Get the courses of all the categories
+                    foreach ($subcategories as $cat) {
+                        $sql = "SELECT c.id, c.shortname, c.fullname, '$cat[catname]' as catname, '$cat[catparent]' as catparent
+                                FROM {course} c
+                                WHERE c.category = $cat[catid]
+                                ORDER BY c.category DESC";
+
+                        $courses += $dbconn->get_records_sql($sql);
+                    }
+                }
+
+                // Get the course list where user has backup capability (course level role)
+                $sql = "SELECT distinct c.id, c.shortname, c.fullname, cat.name as catname, cat.parent as catparent
+                        FROM {course} c
+                        LEFT JOIN {course_categories} cat ON c.category = cat.id
+                        LEFT JOIN {context} ctx ON c.id = ctx.instanceid
+                        LEFT JOIN {role_assignments} ra ON ctx.id = ra.contextid
+                        LEFT JOIN {role_capabilities} rc ON rc.roleid = ra.roleid
+                        WHERE $capabilities
+                        ctx.contextlevel=50
+                        AND ra.userid=$user19->id
+                        ORDER BY cat.parent DESC";
+
+                // Union of arrays: merge removing duplicates
+                $courses += $dbconn->get_records_sql($sql);
+
+                if (empty($courses)) {
+                    $OUTPUT->notification(get_string('nocoursesforuser', 'local_agora'));
+                }
+            }
+                
+            // Get the list of courses in Moodle 2              
+            $m2courses = $DB->get_records('course', null, null, 'id, fullname, shortname');
+
+            // Build an array with the shortnames in order to be able to check it with in_array()
+            $shortnames = array();
+            foreach ($m2courses as $m2course) {
+                $shortnames[] = $m2course->shortname;
+            }
+            
             $categories = array();
+
             if ($courses) {
+                // Sort the courses in the array. It's an array of objects, so an auxiliary
+                //  function is required (it's defined below in this php file). The field
+                //  currently used is 'fullname'
+                usort($courses, "cmp");
+
                 // Create table
                 $shortnamestr = get_string('shortname');
                 $fullnamestr = get_string('fullname');
@@ -155,11 +231,22 @@ function import19_course_selector($contextid) {
                 $table = new html_table();
                 $table->head = array('', $shortnamestr, $fullnamestr, $categorystr);
                 $table->align = array('left', 'left', 'left', 'left');
-                $table->width = '90%';
 
-                foreach ($courses as $course) {
+                $cat2form = array();
+                $coursesnotshown = false;
+
+                foreach ($courses as $key => $course) {
+                    // If this course already exists in Moodle 2, skip it!
+                    if (!$showallcourses && in_array($course->shortname, $shortnames)) {
+                        // Fixed count of courses
+                        unset($courses[$key]);
+                        $coursesnotshown = true;
+                        continue;
+                    }
+
                     $catname = $course->catname;
                     $parent = $course->catparent;
+
                     while ($parent > 0) {
                         if (!isset($categories[$parent])) {
                             $cat = $dbconn->get_record('course_categories', array('id' => $parent), 'name, parent');
@@ -193,15 +280,28 @@ function import19_course_selector($contextid) {
                 $html .= html_writer::start_tag('div', array('class' => 'import-course-selector backup-restore'));
                 $html .= html_writer::start_tag('div', array('class' => 'import19 backup-section'));
 
-                //$html .= $OUTPUT->heading(get_string('import19','local_agora'),2,'header');
-
                 $html .= html_writer::start_tag('form', array('method' => 'post', 'action' => $CFG->wwwroot . '/local/agora/import19/bridge.php'));
 
                 $html .= html_writer::start_tag('div', array('class' => 'detail-pair'));
-                $html .= html_writer::tag('label', get_string('selectacourse', 'backup'), array('class' => 'detail-pair-label'));
-                $html .= html_writer::start_tag('div', array('class' => 'detail-pair-value'));
-                $html .= html_writer::tag('div', get_string('totalcoursesearchresults', 'backup', count($courses)));
+                $html .= html_writer::start_tag('label', array('class' => 'detail-pair-label', 'style' => 'width:15%'));
+                $html .= html_writer::tag('span', get_string('selectacourse', 'backup'));
+                $html .= html_writer::empty_tag('br');
+                $html .= html_writer::tag('span', get_string('totalcoursesearchresults', 'backup', count($courses)));
+                $html .= html_writer::end_tag('label');
+
+                $html .= html_writer::start_tag('div', array('class' => 'detail-pair-value', 'style' => 'width:75%'));
+
+                if (!$showallcourses && $coursesnotshown) {
+                    $html .= html_writer::start_tag('p', array('style' => 'margin:0px; padding:0px 15px 5px 15px;'));
+                    $html .= html_writer::tag('span', get_string('showallcourses_desc', 'local_agora'));
+                    $html .= html_writer::start_tag('a', array('href' => $_SERVER['REQUEST_URI'] . '&showallcourses=1'));
+                    $html .= html_writer::tag('span', get_string('showallcourses', 'local_agora'));
+                    $html .= html_writer::end_tag('a');
+                    $html .= html_writer::end_tag('p');
+                }
+
                 $html .= html_writer::table($table);
+
                 $html .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'contextid', 'value' => $contextid));
                 $html .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'sesskey', 'value' => sesskey()));
                 $html .= html_writer::empty_tag('input', array('type' => 'submit', 'value' => get_string('continue')));
@@ -212,18 +312,30 @@ function import19_course_selector($contextid) {
 
                 $html .= html_writer::end_tag('div');
                 $html .= html_writer::end_tag('div');
+
+                // Close the DB connection
+                $dbconn->dispose();
             }
         } else {
+            // Close the DB connection
+            $dbconn->dispose();
+
             return $OUTPUT->notification(get_string('import19_nocourses', 'local_agora'));
         }
     } else {
         return $OUTPUT->notification(get_string('import19_nodbconnect', 'local_agora'));
     }
+
     return $html;
 }
 
 /**
  * Connect to Moodle 1.9 database
+ * 
+ * @global object $DB
+ * @global object $CFG
+ * @global array $agora
+ * @return db handler 
  */
 function import19_connect_moodle19_db() {
     global $DB, $CFG, $agora;
@@ -244,4 +356,185 @@ function import19_connect_moodle19_db() {
         return false;
     }
     return $handler;
+}
+
+/**
+ * Creates a tree data structure wich contains, only, category information. Iterates
+ *  recursively.
+ *
+ * @author Toni Ginard (aginard@xtec.cat)
+ * @param array $dbRecords Contains all the categories info from the data base
+ * @param int $catID ID of the category where to start
+ * @param int $depth Level of the category being processed. Avoids processing subcategories.
+ *
+ * @return array Tree with data (see description)
+ */
+function agora_import19_buildCatTree($dbRecords, $catID, $depth) {
+    
+   $catTree = array();
+    
+    // First pass to get categories whose parent is this category (aka subcategories)
+    foreach ($dbRecords as $key => $record) {
+        if ($record->parent == $catID) {
+            $catTree[$record->id] = array('Id' => $record->id, 'Name' => $record->name, 'Subcategories' => array(), 'categorysize' => 0);
+            // Effiency improvement: Once the category is added to the tree, it won't be added again
+            unset($dbRecords[$key]);
+        }
+    }
+    
+    // Second pass for recursive call for all the categories in this category. The process
+    //  can't be done in a single pass because we only have the full list of categories 
+    //  of this depth once we have completed the first pass.
+    foreach ($catTree as $cat) {
+        foreach ($dbRecords as $record) {
+            // Condition 1: next level of depth
+            // Condition 2: the category must be under the current category
+            if (($record->parent == $cat['Id'])) {
+                $catTree[$cat['Id']]['Subcategories'] = agora_import19_buildCatTree($dbRecords, $cat['Id'], $depth + 1);
+            }
+        }
+    }
+
+    return $catTree;
+}
+
+/**
+ * Transforms category tree in a string HTML-formatted to be sent to the browser.
+ *  Builds a list with category information
+ *
+ * @author Toni Ginard (aginard@xtec.cat)
+ * @param array $data Category tree
+ *
+ * @return string HTML code to be sent to the browser
+ */
+function agora_import19_printCategoryData($data, $courseCategoryTree, $padding = 0) {
+
+    // Get the name of the category of this depth in Moodle 1.9
+    $current19Category = array_shift($courseCategoryTree);
+
+    foreach ($data as $category) {
+
+        if (empty($courseCategoryTree) && ($current19Category == $category['Name'])) {
+            $selected = true;
+        } else {
+            $selected = false;
+        }
+        
+        // Get the category context. Each category has a different context.
+        $context = CONTEXT_COURSECAT::instance($category['Id']);
+
+        // Only show the category if the logged user can manage it
+        if (has_capability('moodle/category:manage', $context)) {
+            // Build list content
+            $content .= html_writer::start_tag('li', array('style' => 'padding: 5px;' . ' padding-left:' . $padding . 'px'));
+            if ($selected) {
+                $content .= html_writer::empty_tag('input', array('type' => 'radio', 'name' => 'categoryid', 'value' =>$category['Id'], 'checked' => 'checked'));
+            } else {
+                $content .= html_writer::empty_tag('input', array('type' => 'radio', 'name' => 'categoryid', 'value' =>$category['Id']));
+            }
+            
+            $content .= html_writer::tag('span', $category['Name']);
+            $content .= html_writer::end_tag('li');
+        }
+
+        // Recursive call for subcategories
+        if (!empty($category['Subcategories'])) {
+            $content .= agora_import19_printCategoryData($category['Subcategories'], $courseCategoryTree, $padding + 30);
+        }
+    }
+
+    return $content;
+}
+
+/**
+ * Build an array with the current category and its subcategories. Uses database
+ * connection to Moodle 1.9
+ * 
+ * @param handler $dbconn
+ * @param int $catid
+ * @return array 
+ */
+function agora_import19_getSubcategories($dbconn, $catid) {
+    
+    $allcategories = array();
+    
+    // Get categories in this branch and depth level
+    $categories = $dbconn->get_records('course_categories', array('parent' => $catid));
+    
+    // Get subcategories and build result array
+    foreach ($categories as $category) {
+        // Add current category
+        $allcategories[$category->id] = array('catid' => $category->id, 'catname' => $category->name, 'catparent' => $category->parent);
+        
+        // Get subcategories
+        $subcategories = agora_import19_getSubcategories($dbconn, $category->id);
+        
+        // Default return is 'array()' and that value (empty) must be avoided
+        if (!empty($subcategories)) {
+            $allcategories += $subcategories;
+        }
+    }
+    
+    return $allcategories;
+}
+
+
+/**
+ * Build an array with the category name and its parents of specified course
+ * Uses database connection to Moodle 1.9
+ * 
+ * @param type $courseid
+ * @return type array with the name of the course category (lowest index is further parent)
+ */
+function agora_import19_getCourseCategoryTree($courseid){
+    $coursecategories = array();
+    $dbconn = import19_connect_moodle19_db();
+
+    if ($dbconn) {
+        // Look for the category of the specified course
+        $sql = "SELECT cat.name as catname, cat.parent as catparent
+                FROM {course} c
+                LEFT JOIN {course_categories} cat ON c.category = cat.id
+                WHERE c.id=$courseid";
+        $category = $dbconn->get_record_sql($sql);
+        $coursecategories += agora_import19_getCategoryTreeByParent($dbconn, $category->catparent);
+        $coursecategories[] = $category->catname;
+        
+        // Close the DB connection
+        $dbconn->dispose();
+    }
+    
+    return $coursecategories;
+}
+
+/**
+ * Build an array with the category name and its parents of specified category
+ * Uses database connection to Moodle 1.9
+ * 
+ * @param type $dbconn Database connection to Moodle 1.9
+ * @param type $parentid parent category to get the name.
+ * @return type array with the name of the course category (lowest index is further parent)
+ */
+function agora_import19_getCategoryTreeByParent($dbconn, $parentid){
+    $coursecategories = array();
+    
+    if ($parentid != 0) {
+        // While parentid != 0, search name of the category parents
+        $category = $dbconn->get_record('course_categories', array('id' => $parentid), 'name, parent');
+        $coursecategories += agora_import19_getCategoryTreeByParent($dbconn, $category->parent);
+        $coursecategories[] = $category->name;
+    }
+    
+    return $coursecategories;
+}
+
+/**
+ * Auxiliary function to order an object by its field 'fullname'
+ *
+ * @param object $a
+ * @param object $b
+ * @return object 
+ */
+function cmp($a, $b) {
+    return strcmp($a->fullname, $b->fullname);
 }

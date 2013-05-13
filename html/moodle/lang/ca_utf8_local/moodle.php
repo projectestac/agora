@@ -4,7 +4,7 @@
 
 //XTEC ************ AFEGIT - To control backups hours
 //2010.07.07
-$string['rush_hour'] = 'Aquesta operació no està permesa en hores punta. Podeu fer aquesta operació de dilluns a divendres abans de les 9:00, de 14:00 a 14:59 i després de les 17:00. Caps de setmana tot el dia.';
+$string['rush_hour'] = 'Aquesta operació no està permesa en les hores de molt d\'ús de la plataforma';
 //************ FI
 //XTEC ************ AFEGIT - To allow capitalize user names
 //2010.07.07

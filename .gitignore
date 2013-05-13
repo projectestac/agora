@@ -8,6 +8,7 @@ html/config/sync-config.sh
 html/config/.htaccess
 html/moodle/config.php
 html/moodle2/config.php
+html/moodle2/local/agora/muc/cacheconfig.php
 nbproject
 moodledata
 portaldata

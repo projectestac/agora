@@ -81,7 +81,6 @@ class enrol_cohort_plugin extends enrol_plugin {
      */
     protected function can_add_new_instances($courseid) {
         global $DB;
-
         $coursecontext = context_course::instance($courseid);
         if (!has_capability('moodle/course:enrolconfig', $coursecontext) or !has_capability('enrol/cohort:config', $coursecontext)) {
             return false;
@@ -94,7 +93,14 @@ class enrol_cohort_plugin extends enrol_plugin {
         $cohorts = $DB->get_records_sql($sql, $params);
         foreach ($cohorts as $c) {
             $context = context::instance_by_id($c->contextid);
+            //XTEC ************ MODIFICAT - To let everybody with cohort:view capability enrol system cohorts
+            //2013.04.10  @sarjona
+            if ($c->contextid == 1 || has_capability('moodle/cohort:view', $context)) {
+            //************ ORIGINAL
+            /*
             if (has_capability('moodle/cohort:view', $context)) {
+             */
+            //************ FI    
                 return true;
             }
         }

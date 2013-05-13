@@ -409,7 +409,14 @@ foreach (get_plugin_list('tool') as $plugin => $plugindir) {
 }
 
 // Now add the Cache plugins
+//XTEC ************ MODIFICAT - To let access only to xtecadmin user
+//2013.04.16  @sarjona
+if ($hassiteconfig && get_protected_agora() ) {
+//************ ORIGINAL
+/*
 if ($hassiteconfig) {
+*/
+//************ FI
     $ADMIN->add('modules', new admin_category('cache', new lang_string('caching', 'cache')));
     $ADMIN->add('cache', new admin_externalpage('cacheconfig', new lang_string('cacheconfig', 'cache'), $CFG->wwwroot .'/cache/admin.php'));
     $ADMIN->add('cache', new admin_externalpage('cachetestperformance', new lang_string('testperformance', 'cache'), $CFG->wwwroot . '/cache/testperformance.php'));
