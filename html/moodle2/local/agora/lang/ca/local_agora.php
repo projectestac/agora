@@ -12,7 +12,7 @@ $string['import19_nodbconnect'] = 'No està disponible la importació de cursos 
 $string['showallcourses'] = 'Mostra tots els cursos';
 $string['showallcourses_desc'] = 'Alguns cursos disponibles en el Moodle 1.9 no s\'estan mostrant perquè ja estan importats. Si voleu veure tots els cursos disponibles, cliqueu a l\'enllaç següent: ';
 $string['nocoursesforuser'] = 'No teniu accés a cap curs';
-$string['nocapabilitiesoncategories'] = 'No teniu permisos sobre cap categoria del Moodle 2 i no podeu importar cap curs';
+$string['nocapabilitiesoncategories'] = 'No teniu permisos sobre cap categoria del Moodle2 per a poder utilitzar l\'eina d\'importació dels cursos del Moodle 1.9. Podeu utilitzar la restauració estàndard, fent servir una còpia de seguretat feta per vosaltres de forma manual.';
 $string['goback'] = 'Torna enrere';
 $string['choosecategory'] = 'Trieu la categoria a on es restaurarà el curs';
 
