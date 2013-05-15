@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 MOODLE2
 - Fixed font face "lletra lligada", which only worked in theme design mode
+- Fixed course import when category names in Moodle 1.9 have some special chars
 
 
 

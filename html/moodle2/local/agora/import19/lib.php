@@ -177,8 +177,9 @@ function import19_course_selector($contextid, $showallcourses = false) {
 
                     // Get the courses of all the categories
                     foreach ($subcategories as $cat) {
-                        $sql = "SELECT c.id, c.shortname, c.fullname, '$cat[catname]' as catname, '$cat[catparent]' as catparent
+                        $sql = "SELECT c.id, c.shortname, c.fullname, cat.name as catname, cat.parent as catparent
                                 FROM {course} c
+                                LEFT JOIN {course_categories} cat ON c.category = cat.id
                                 WHERE c.category = $cat[catid]
                                 ORDER BY c.category DESC";
 
