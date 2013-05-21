@@ -121,80 +121,82 @@ class IWforms_Installer extends Zikula_AbstractInstaller {
      */
     public function upgrade($oldversion) {
 
-        //ADD new fields to tables
+        switch ($oldVersion) {
+            case '2.0':
+                //ADD new fields to tables
+                $c = "ALTER TABLE `IWforms_definition` ADD `iw_returnURL` VARCHAR (150) NOT NULL";
+                if (!DBUtil::executeSQL($c)) {
+                    return false;
+                }
 
-        $c = "ALTER TABLE `IWforms_definition` ADD `iw_returnURL` VARCHAR (150) NOT NULL";
-        if (!DBUtil::executeSQL($c)) {
-            return false;
-        }
+                $c = "ALTER TABLE `IWforms_definition` ADD `iw_filesFolder` VARCHAR (25) NOT NULL";
+                if (!DBUtil::executeSQL($c)) {
+                    return false;
+                }
 
-        $c = "ALTER TABLE `IWforms_definition` ADD `iw_filesFolder` VARCHAR (25) NOT NULL";
-        if (!DBUtil::executeSQL($c)) {
-            return false;
-        }
+                $c = "ALTER TABLE `IWforms_definition` ADD `iw_lang` VARCHAR (2) NOT NULL DEFAULT ''";
+                if (!DBUtil::executeSQL($c)) {
+                    return false;
+                }
 
-        $c = "ALTER TABLE `IWforms_definition` ADD `iw_lang` VARCHAR (2) NOT NULL DEFAULT ''";
-        if (!DBUtil::executeSQL($c)) {
-            return false;
-        }
+                // Update z_blocs table
+                $c = "UPDATE blocks SET bkey = 'Formnote' WHERE bkey = 'formnote'";
+                if (!DBUtil::executeSQL($c)) {
+                    return false;
+                }
 
-        // Update z_blocs table
-        $c = "UPDATE blocks SET bkey = 'Formnote' WHERE bkey = 'formnote'";
-        if (!DBUtil::executeSQL($c)) {
-            return false;
-        }
+                $c = "UPDATE blocks SET bkey = 'Formslist' WHERE bkey = 'formslist'";
+                if (!DBUtil::executeSQL($c)) {
+                    return false;
+                }
 
-        $c = "UPDATE blocks SET bkey = 'Formslist' WHERE bkey = 'formslist'";
-        if (!DBUtil::executeSQL($c)) {
-            return false;
-        }
+                // serialize bloc Formslist content
+                $where = "bkey='Formslist'";
+                $items = DBUtil::selectObjectArray('blocks', $where, '', '-1', '-1');
+                if (!$items) {
+                    return false;
+                }
 
-        // serialize bloc Formslist content
-        $where = "bkey='Formslist'";
-        $items = DBUtil::selectObjectArray('blocks', $where, '', '-1', '-1');
-        if (!$items) {
-            return false;
-        }
+                foreach ($items as $item) {
+                    $valuesArray = explode('---', $item['url']);
+                    $categories = $valuesArray[0];
+                    $listBox = $valuesArray[1];
+                    $serialized = serialize(array('categories' => $categories,
+                        'listBox' => $listBox));
+                    $c = "UPDATE blocks SET content = '$serialized', url='' WHERE bid = $item[bid]";
+                    if (!DBUtil::executeSQL($c)) {
+                        return false;
+                    }
+                }
 
-        foreach ($items as $item) {
-            $valuesArray = explode('---', $item['url']);
-            $categories = $valuesArray[0];
-            $listBox = $valuesArray[1];
-            $serialized = serialize(array('categories' => $categories,
-                'listBox' => $listBox));
-            $c = "UPDATE blocks SET content = '$serialized', url='' WHERE bid = $item[bid]";
-            if (!DBUtil::executeSQL($c)) {
-                return false;
-            }
-        }
+                //Array de noms
+                $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`modname` = 'IWforms'", '', false, '');
 
-        //Array de noms
-        $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`modname` = 'IWforms'", '', false, '');
+                $newVarsNames = Array('characters', 'resumeview', 'newsColor', 'viewedColor', 'completedColor',
+                    'validatedColor', 'fieldsColor', 'contentColor', 'attached', 'publicFolder');
 
-        $newVarsNames = Array('characters', 'resumeview', 'newsColor', 'viewedColor', 'completedColor',
-            'validatedColor', 'fieldsColor', 'contentColor', 'attached', 'publicFolder');
+                $newVars = Array('characters' => '15',
+                    'resumeview' => '0',
+                    'newsColor' => '#90EE90',
+                    'viewedColor' => '#FFFFFF',
+                    'completedColor' => '#D3D3D3',
+                    'validatedColor' => '#CC9999',
+                    'fieldsColor' => '#ADD8E6',
+                    'contentColor' => '#FFFFE0',
+                    'attached' => 'forms',
+                    'publicFolder' => 'forms/public');
 
-        $newVars = Array('characters' => '15',
-            'resumeview' => '0',
-            'newsColor' => '#90EE90',
-            'viewedColor' => '#FFFFFF',
-            'completedColor' => '#D3D3D3',
-            'validatedColor' => '#CC9999',
-            'fieldsColor' => '#ADD8E6',
-            'contentColor' => '#FFFFE0',
-            'attached' => 'forms',
-            'publicFolder' => 'forms/public');
+                // Delete unneeded vars
+                $del = array_diff($oldVarsNames, $newVarsNames);
+                foreach ($del as $i) {
+                    $this->delVar($i);
+                }
 
-        // Delete unneeded vars
-        $del = array_diff($oldVarsNames, $newVarsNames);
-        foreach ($del as $i) {
-            $this->delVar($i);
-        }
-
-        // Add new vars
-        $add = array_diff($newVarsNames, $oldVarsNames);
-        foreach ($add as $i) {
-            $this->setVar($i, $newVars[$i]);
+                // Add new vars
+                $add = array_diff($newVarsNames, $oldVarsNames);
+                foreach ($add as $i) {
+                    $this->setVar($i, $newVars[$i]);
+                }
         }
 
         return true;
