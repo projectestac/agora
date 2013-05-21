@@ -1,31 +1,21 @@
 <?php
 
-/**
- * Open a connection to the administration database
- *
- * @return Connection handler
- */
-// global $ZConfig;
+global $ZConfig;
+require_once('config/config.php');
+
 $preupgradeError = false;
+$logfile = $ZConfig['Multisites']['filesRealPath'] . '/' . $ZConfig['Multisites']['siteFilesFolder'] . '/upgrade.txt';
 
-function connectdb() {
-    require_once('config/config.php');
-    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['host'] . ':' . '80', $ZConfig['DBInfo']['databases']['default']['user'], $ZConfig['DBInfo']['databases']['default']['password']))
-        return false;
-    if (!mysql_select_db($ZConfig['DBInfo']['databases']['default']['dbname'], $con))
-        return false;
+$dbname = $ZConfig['DBInfo']['databases']['default']['dbname'];
 
-    $f = fopen('../../zkdata/upgrade.txt', "a") or die('Error en obrir el fitxer de text.');
-    fwrite($f, "===============\n");
-    fwrite($f, date('c', time()) . ' - Actualització de la intranet: ' . $ZConfig['DBInfo']['databases']['default']['dbname'] . "\n\n");
-    fclose($f);
-    return $con;
-}
+$f = fopen($logfile, "a") or die('Error en obrir el fitxer de text.');
 
-$f = fopen('../../zkdata/upgrade.txt', "a") or die('Error en obrir el fitxer de text.');
+fwrite($f, "===============\n");
+fwrite($f, date('c', time()) . ' - Actualització de la intranet: ' . $ZConfig['DBInfo']['databases']['default']['dbname'] . "\n\n");
 
-if (!$con = connectdb())
+if (!$con = connectdb()) {
     fwrite($f, 'connection failed' . "\n");
+}
 
 $commands = array();
 $prefix = 'zk';
@@ -46,10 +36,12 @@ $tables = array($prefix . '_' . 'iw_chat_msg',
 );
 
 foreach ($tables as $table) {
-    $sql = "DROP TABLE $table";
-    if (!$result = mysql_query($sql, $con)) {
-        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-        $preupgradeError = true;
+    if (existsTable($dbname, $table, $f, $con)) {
+        $sql = "DROP TABLE $table";
+        if (!$result = mysql_query($sql, $con)) {
+            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+            $preupgradeError = true;
+        }
     }
 }
 
@@ -58,10 +50,12 @@ $tables = array($prefix . '_' . 'session_info',
 );
 
 foreach ($tables as $table) {
-    $sql = "TRUNCATE TABLE $table";
-    if (!$result = mysql_query($sql, $con)) {
-        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-        $preupgradeError = true;
+    if (existsTable($dbname, $table, $f, $con)) {
+        $sql = "TRUNCATE TABLE $table";
+        if (!$result = mysql_query($sql, $con)) {
+            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+            $preupgradeError = true;
+        }
     }
 }
 
@@ -83,10 +77,12 @@ $modulesToDelete = array('iw_groups',
 );
 
 foreach ($modulesToDelete as $module) {
-    $sql = "DELETE FROM {$prefix}_modules WHERE pn_name='" . $module . "'";
-    if (!$result = mysql_query($sql, $con)) {
-        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-        $preupgradeError = true;
+    if (existsTable($dbname, $prefix.'_modules', $f, $con)) {
+        $sql = "DELETE FROM {$prefix}_modules WHERE pn_name='" . $module . "'";
+        if (!$result = mysql_query($sql, $con)) {
+            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+            $preupgradeError = true;
+        }
     }
 }
 
@@ -101,7 +97,8 @@ if (!$result = mysql_query($sql, $con)) {
 while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
     $newname = str_replace($prefix . '_', '', $fila[0]);
     $newname = str_replace('iw_', 'IW', $newname);
-    $newname = str_replace('_def', '_definition', $newname);
+    //$newname = str_replace('_def', '_definition', $newname);
+    $newname = preg_replace('/_def$/', '_definition', $newname);
 
     if ($newname != $fila[0]) {
         $commands[] = "RENAME TABLE " . $fila[0] . " TO " . $newname;
@@ -156,20 +153,27 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
 }
 
 // delete IWmain_Block_IwNotice bloc if exists
-$commands[] = "DELETE FROM blocks WHERE pn_bkey='IwNotice'";
-
-foreach ($modulesToDelete as $module) {
-    $commands[] = "DELETE FROM modules WHERE pn_name='" . $module . "'";
+if (existsField($dbname, 'blocks', 'pn_bkey', $f, $con)) {
+    $commands[] = "DELETE FROM blocks WHERE pn_bkey='IwNotice'";
+    $commands[] = "UPDATE blocks SET pn_bkey = 'IWnews' WHERE pn_bkey = 'iwnews'";
+    $commands[] = "UPDATE blocks SET pn_filter = 'a:0:{}'";
 }
 
-$commands[] = "UPDATE blocks SET pn_bkey = 'IWnews' WHERE pn_bkey = 'iwnews'";
-$commands[] = "UPDATE blocks SET pn_filter = 'a:0:{}'";
+if (existsField($dbname, 'blocks', 'pn_name', $f, $con)) {
+    foreach ($modulesToDelete as $module) {
+        $commands[] = "DELETE FROM modules WHERE pn_name='" . $module . "'";
+    }
+}
 
 // modifiquem el mòdul Modules per Extensions en el menú horitzontal
-$commands[] = 'UPDATE IWmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
-$commands[] = 'UPDATE IWvhmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
-$commands[] = 'TRUNCATE TABLE hooks';
+if (existsTable($dbname, 'IWmenu', $f, $con)) {
+    $commands[] = 'UPDATE IWmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
+}
+if (existsTable($dbname, 'IWvhmenu', $f, $con)) {
+    $commands[] = 'UPDATE IWvhmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
+}
 
+$commands[] = 'TRUNCATE TABLE hooks';
 
 foreach ($commands as $sql) {
     if (!$result = mysql_query($sql, $con)) {
@@ -186,50 +190,56 @@ $deleteFrom = array('Stats',
     'Thumbnail',
 //    'Downloads',
 );
+
 $commands = array();
-$sql = "SELECT * from module_vars order by pn_modname";
-if (!$result = mysql_query($sql, $con)) {
-    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-    $preupgradeError = true;
-}
-while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
-    if (!in_array($fila[1], $deleteFrom)) {
-        $vars_entries[$fila[1] . $fila[2]] = array('modname' => $fila[1],
-            'name' => $fila[2],
-            'value' => $fila[3],
-        );
+if (existsField($dbname, 'module_vars', 'pn_modname', $f, $con)) {
+    $sql = "SELECT * from module_vars order by pn_modname";
+    if (!$result = mysql_query($sql, $con)) {
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        $preupgradeError = true;
+    }
+    while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
+        if (!in_array($fila[1], $deleteFrom)) {
+            $vars_entries[$fila[1] . $fila[2]] = array('modname' => $fila[1],
+                'name' => $fila[2],
+                'value' => $fila[3],
+            );
+        }
+    }
+
+    $commands[] = "TRUNCATE module_vars";
+    $entry = 'INSERT INTO module_vars (`pn_modname`, `pn_name`, `pn_value`) VALUES ';
+    foreach ($vars_entries as $oneentry) {
+        // in module Files the allowed extensions change the separation symbol of elements
+        if ($oneentry['name'] == 'allowedExtensions' && $oneentry['modname'] == 'Files') {
+            $oneentry['value'] = str_replace('|', ',', $oneentry['value']);
+        }
+        $entry .= "('" . mysql_real_escape_string($oneentry['modname']) . "','" . mysql_real_escape_string($oneentry['name']) . "','" . mysql_real_escape_string($oneentry['value']) . "'),";
+    }
+
+    // set SimplePie plugin system as installed
+    $commands[] = $entry . "('/Plugin','systemplugin.simplepie','" . 'a:2:{s:5:"state";i:1;s:7:"version";s:5:"1.2.1";}' . "');";
+
+    foreach ($commands as $sql) {
+        if (!$result = mysql_query($sql, $con)) {
+            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+            $preupgradeError = true;
+        }
     }
 }
 
-$commands[] = "TRUNCATE module_vars";
-$entry = 'INSERT INTO module_vars (`pn_modname`, `pn_name`, `pn_value`) VALUES ';
-foreach ($vars_entries as $oneentry) {
-    // in module Files the allowed extensions change the separation symbol of elements
-    if ($oneentry['name'] == 'allowedExtensions' && $oneentry['modname'] == 'Files') {
-        $oneentry['value'] = str_replace('|', ',', $oneentry['value']);
-    }
-    $entry .= "('" . mysql_real_escape_string($oneentry['modname']) . "','" . mysql_real_escape_string($oneentry['name']) . "','" . mysql_real_escape_string($oneentry['value']) . "'),";
-}
-
-// set SimplePie plugin system as installed
-$commands[] = $entry . "('/Plugin','systemplugin.simplepie','" . 'a:2:{s:5:"state";i:1;s:7:"version";s:5:"1.2.1";}' . "');";
-
-foreach ($commands as $sql) {
+// activate the module IWdocmanager
+//*** Keep Download module tables for security reasons ***/
+// add module in modules table
+if (!existsRegister($dbname, 'modules', 'pn_name', 'IWdocmanager', $f, $con)) {
+    $sql = "INSERT INTO `modules` (`pn_name`, `pn_type`, `pn_displayname`, `pn_url`, `pn_description`, `pn_directory`, `pn_version`, `pn_state`, `pn_securityschema`) VALUES
+    ('IWdocmanager', 2, 'Gestió de documents', 'documents', 'Mòdul de gestió documental i control de versions.', 'IWdocmanager', '0.0.1', 3, 'a:1:{s:14:\"IWdocmanager::\";s:2:\"::\";}');";
     if (!$result = mysql_query($sql, $con)) {
         fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
         $preupgradeError = true;
     }
 }
 
-// activate the module IWdocmanager
-//*** Conserve Download module tables for security reasons ***/
-// add module in modules table
-$sql = "INSERT INTO `modules` (`pn_name`, `pn_type`, `pn_displayname`, `pn_url`, `pn_description`, `pn_directory`, `pn_version`, `pn_state`, `pn_securityschema`) VALUES
-('IWdocmanager', 2, 'Gestió de documents', 'documents', 'Mòdul de gestió documental i control de versions.', 'IWdocmanager', '0.0.1', 3, 'a:1:{s:14:\"IWdocmanager::\";s:2:\"::\";}');";
-if (!$result = mysql_query($sql, $con)) {
-    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-    $preupgradeError = true;
-}
 // add default module vars
 // get module Downloads folder var current value
 $sql = "select pn_value from module_vars where pn_modname='Downloads' AND pn_name='upload_folder'";
@@ -239,14 +249,16 @@ if (!$result = mysql_query($sql, $con)) {
 }
 $value = mysql_fetch_row($result);
 
-$sql = "INSERT INTO module_vars (`pn_modname`, `pn_name`, `pn_value`) VALUES
-    ('IWdocmanager','documentsFolder','" . $value[0] . "'),
-    ('IWdocmanager','notifyMail',''),
-    ('IWdocmanager','editTime','30'),
-    ('IWdocmanager','deleteTime','20');";
-if (!$result = mysql_query($sql, $con)) {
-    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-    $preupgradeError = true;
+if (!existsRegister($dbname, 'module_vars', 'pn_modname', 'IWdocmanager', $f, $con)) {
+    $sql = "INSERT INTO module_vars (`pn_modname`, `pn_name`, `pn_value`) VALUES
+        ('IWdocmanager','documentsFolder','" . $value[0] . "'),
+        ('IWdocmanager','notifyMail','s:0:\"\";'),
+        ('IWdocmanager','editTime','s:2:\"30\";'),
+        ('IWdocmanager','deleteTime','s:2:\"20\";');";
+    if (!$result = mysql_query($sql, $con)) {
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        $preupgradeError = true;
+    }
 }
 
 // create module tables
@@ -274,7 +286,7 @@ $sql = "CREATE TABLE IF NOT EXISTS `IWdocmanager` (
   PRIMARY KEY (`documentId`),
   KEY `author` (`author`),
   KEY `categoryId` (`categoryId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
 if (!$result = mysql_query($sql, $con)) {
     fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
     $preupgradeError = true;
@@ -297,7 +309,7 @@ $sql = "CREATE TABLE IF NOT EXISTS `IWdocmanager_categories` (
   `nDocumentsNV` int(11) NOT NULL DEFAULT '0',
   `groupsAdd` text NOT NULL,
   PRIMARY KEY (`categoryId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
 if (!$result = mysql_query($sql, $con)) {
     fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
     $preupgradeError = true;
@@ -320,17 +332,19 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
 }
 
 if (!empty($document_categories)) {
-    $sql = 'INSERT INTO IWdocmanager_categories (`categoryId`, `parentId`, `categoryName`, `description`, `active`, `groups`, `groupsAdd`) VALUES ';
-    foreach ($document_categories as $oneentry) {
-        $sql .= "(" . mysql_real_escape_string($oneentry['categoryId']) . "," . mysql_real_escape_string($oneentry['parentId']) . ",'" . mysql_real_escape_string($oneentry['categoryName']) . "','" . mysql_real_escape_string($oneentry['description']) . "',1,'a:0:{}','a:0:{}'),";
-    }
-    // remove last , from sql string
-    $sql = substr($sql, 0, strlen($sql) - 1);
-    $sql .= ';';
+    if (!existsRegister($dbname, 'IWdocmanager_categories', 'categoryId', $document_categories[0]['categoryId'], $f, $con)) {
+        $sql = 'INSERT INTO IWdocmanager_categories (`categoryId`, `parentId`, `categoryName`, `description`, `active`, `groups`, `groupsAdd`) VALUES ';
+        foreach ($document_categories as $oneentry) {
+            $sql .= "(" . mysql_real_escape_string($oneentry['categoryId']) . "," . mysql_real_escape_string($oneentry['parentId']) . ",'" . mysql_real_escape_string($oneentry['categoryName']) . "','" . mysql_real_escape_string($oneentry['description']) . "',1,'a:0:{}','a:0:{}'),";
+        }
+        // remove last , from sql string
+        $sql = substr($sql, 0, strlen($sql) - 1);
+        $sql .= ';';
 
-    if (!$result = mysql_query($sql, $con)) {
-        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-        $preupgradeError = true;
+        if (!$result = mysql_query($sql, $con)) {
+            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+            $preupgradeError = true;
+        }
     }
 }
 
@@ -392,6 +406,8 @@ if (!empty($documents)) {
         $preupgradeError = true;
     }
 }
+
+
 // change links of module Downloads to IWdocmanager
 // TODO:
 if ($preupgradeError) {
@@ -406,6 +422,73 @@ fclose($f);
 if (!$preupgradeError) {
     // launch zikula upgrader
     header('location:upgrade.php');
+}
+
+
+
+/**
+ * Open a connection to the administration database
+ *
+ * @return Connection handler
+ */
+function connectdb() {
+
+    global $ZConfig;
+
+    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['host'] . ':' . '80', $ZConfig['DBInfo']['databases']['default']['user'], $ZConfig['DBInfo']['databases']['default']['password']))
+        return false;
+    if (!mysql_select_db($ZConfig['DBInfo']['databases']['default']['dbname'], $con))
+        return false;
+
+    return $con;
+}
+
+function existsTable($dbname, $tablename, $f, $con){
+    
+    $sql = "SELECT count(*)
+            FROM information_schema.tables
+            WHERE table_schema = '$dbname'
+            AND table_name = '$tablename'";
+
+    if (!$result = mysql_query($sql, $con)) {
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        return false;
+    } else {
+        $values = mysql_fetch_array($result, MYSQL_NUM);
+        return (bool)$values[0];
+    }
+}
+
+function existsField($dbname, $tablename, $field, $f, $con){
+    
+    $sql = "SELECT count(*)
+            FROM information_schema.columns
+            WHERE table_schema = '$dbname'
+            AND table_name = '$tablename'
+            AND column_name = '$field'";
+
+    if (!$result = mysql_query($sql, $con)) {
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        return false;
+    } else {
+        $values = mysql_fetch_array($result, MYSQL_NUM);
+        return (bool)$values[0];
+    }
+}
+
+function existsRegister($dbname, $tablename, $field, $register, $f, $con){
+
+    $sql = "SELECT count($field)
+            FROM $dbname.$tablename
+            WHERE $field = '$register'";
+
+    if (!$result = mysql_query($sql, $con)) {
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . " - El registre $register no existeix a la taula $tablename de la base de dades $dbname. \n\n");
+        return false;
+    } else {
+        $values = mysql_fetch_array($result, MYSQL_NUM);
+        return (bool)$values[0];
+    }
 }
 
 // checks if a value is serialized
