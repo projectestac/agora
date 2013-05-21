@@ -241,9 +241,9 @@ $value = mysql_fetch_row($result);
 
 $sql = "INSERT INTO module_vars (`pn_modname`, `pn_name`, `pn_value`) VALUES
     ('IWdocmanager','documentsFolder','" . $value[0] . "'),
-    ('IWdocmanager','notifyMail',''),
-    ('IWdocmanager','editTime','30'),
-    ('IWdocmanager','deleteTime','20');";
+    ('IWdocmanager','notifyMail','s:0:"";'),
+    ('IWdocmanager','editTime','s:2:\"30\";'),
+    ('IWdocmanager','deleteTime','s:2:\"20\";');";
 if (!$result = mysql_query($sql, $con)) {
     fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
     $preupgradeError = true;
