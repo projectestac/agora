@@ -72,7 +72,14 @@ class enrol_cohort_edit_form extends moodleform {
             $rs = $DB->get_recordset_sql($sql, $params);
             foreach ($rs as $c) {
                 $context = context::instance_by_id($c->contextid);
+                //XTEC ************ MODIFICAT - To let everybody with cohort:view capability enrol system cohorts
+                //2013.04.10  @sarjona
+                if ($c->contextid != 1 && !has_capability('moodle/cohort:view', $context)) {
+                //************ ORIGINAL
+                /*
                 if (!has_capability('moodle/cohort:view', $context)) {
+                 */
+                //************ FI    
                     continue;
                 }
                 $cohorts[$c->id] = format_string($c->name);

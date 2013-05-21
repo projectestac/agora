@@ -421,7 +421,14 @@ function enrol_cohort_get_cohorts(course_enrolment_manager $manager) {
     $rs = $DB->get_recordset_sql($sql, $params);
     foreach ($rs as $c) {
         $context = context::instance_by_id($c->contextid);
+        //XTEC ************ MODIFICAT - To let everybody with cohort:view capability enrol system cohorts
+        //2013.04.10  @sarjona
+        if ($c->contextid != 1 && !has_capability('moodle/cohort:view', $context)) {
+        //************ ORIGINAL
+        /*
         if (!has_capability('moodle/cohort:view', $context)) {
+         */
+        //************ FI    
             continue;
         }
         $cohorts[$c->id] = array(
@@ -447,7 +454,14 @@ function enrol_cohort_can_view_cohort($cohortid) {
     $cohort = $DB->get_record('cohort', array('id' => $cohortid), 'id, contextid');
     if ($cohort) {
         $context = context::instance_by_id($cohort->contextid);
+        //XTEC ************ MODIFICAT - To let everybody with cohort:view capability enrol system cohorts
+        //2013.04.10  @sarjona
+        if ($cohort->contextid == 1 || has_capability('moodle/cohort:view', $context)) {
+        //************ ORIGINAL
+        /*
         if (has_capability('moodle/cohort:view', $context)) {
+         */
+        //************ FI    
             return true;
         }
     }
@@ -509,7 +523,14 @@ function enrol_cohort_search_cohorts(course_enrolment_manager $manager, $offset 
         $offset++;
         // Check capabilities.
         $context = context::instance_by_id($c->contextid);
+        //XTEC ************ MODIFICAT - To let everybody with cohort:view capability enrol system cohorts
+        //2013.04.10  @sarjona
+        if ($c->contextid != 1 && !has_capability('moodle/cohort:view', $context)) {
+        //************ ORIGINAL
+        /*
         if (!has_capability('moodle/cohort:view', $context)) {
+         */
+        //************ FI    
             continue;
         }
         if ($limit === 0) {

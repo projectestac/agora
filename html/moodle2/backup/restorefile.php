@@ -89,6 +89,13 @@ $PAGE->set_title(get_string('course') . ': ' . $course->fullname);
 $PAGE->set_heading($heading);
 $PAGE->set_pagelayout('admin');
 
+//XTEC ************ AFEGIT - Control backup hours
+//2013.04.24 @aginard
+if (!get_protected_agora() && is_rush_hour()) {
+    print_error('rush_hour', 'local_agora', $CFG->wwwroot . '/course/view.php?id=' . $course->id);
+}
+//************ FI
+
 $form = new course_restore_form(null, array('contextid'=>$contextid));
 $data = $form->get_data();
 if ($data && has_capability('moodle/restore:uploadfile', $context)) {
@@ -173,10 +180,11 @@ if (!empty($automatedbackups)) {
 require_once($CFG->dirroot.'/local/agora/lib.php');
 $import19lib = $CFG->dirroot.'/local/agora/import19/lib.php';
 if (file_exists($import19lib)) {
+    $showallcourses = optional_param('showallcourses', 0, PARAM_INT);
     require_once($import19lib);
     echo $OUTPUT->heading_with_help(get_string('choosefilefrommoodle19', 'local_agora'), 'choosefilefrommoodle19', 'local_agora');
     echo $OUTPUT->container_start();
-    echo import19_course_selector($contextid);
+    echo import19_course_selector($contextid, $showallcourses);
     echo $OUTPUT->container_end();
 }
 //************ FI

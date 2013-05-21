@@ -19,7 +19,7 @@ echo $OUTPUT->header();
 $isAgora = is_agora();
 
 if (!get_protected_agora() && is_rush_hour()) {
-    error(get_string('rush_hour', 'report_coursequotas'), $CFG->wwwroot);
+    print_error('rush_hour', 'local_agora', $CFG->wwwroot);
 } else {
     if ($isAgora) {
         // Get diskSpace and diskConsume from Agoraportal (might be out-of-date)

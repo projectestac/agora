@@ -4,7 +4,7 @@
 
 //XTEC ************ AFEGIT - To control rush hours
 //2010.07.07 
-$string['rush_hour'] = 'This operation is not allowed in rush hours. You can do this operation from monday to friday before 9:00, from 14:00 to 14:59 and after 17:00. All day on weekends.';
+$string['rush_hour'] = 'This operation is not allowed in rush hours';
 //************ FI
 //XTEC ************ AFEGIT - To allow capitalize user names
 //2010.07.07 

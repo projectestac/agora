@@ -46,19 +46,42 @@ function getDiskPercent($diskConsume, $diskSpace) {
 }
 
 /**
- * Convert code begining with a letter to code begining with a number
+ * Convert a code starting with a letter to a code starting begining with 
+ * a number and viceversa.
  * 
  * @param string $clientCode
+ * @param string $type
  * 
- * @return string client code, replacing first letter for its number (a->0, b->1...)
+ * @return string Client code transformed
  */
-function transformClientCode($clientCode) {
-    $pattern = '/^[abce]\d{7}$/'; // Matches a1234567
-    if (preg_match($pattern, $clientCode)) {
-        // Convert uname begining with a letter to uname begining with a number
-        $search = array('a', 'b', 'c', 'e');
-        $replace = array('0', '1', '2', '4');
-        $clientCode = str_replace($search, $replace, $clientCode);
+function transformClientCode($clientCode, $type = 'letter2num') {
+    if ($type == 'letter2num') {
+        $pattern = '/^[abce]\d{7}$/'; // Matches a1234567
+        if (preg_match($pattern, $clientCode)) {
+            // Convert uname begining with a letter to uname begining with a number
+            $search = array('a', 'b', 'c', 'e');
+            $replace = array('0', '1', '2', '4');
+            $clientCode = str_replace($search, $replace, $clientCode);
+        }
+    } elseif ($type == 'num2letter') {
+        $pattern = '/^\d{8}$/'; // Matches 01234567
+        if (preg_match($pattern, $clientCode)) {
+            // Convert first number into a letter
+            switch ($clientCode[0]) {
+                case '0':
+                    $clientCode[0] = 'a';
+                    break;
+                case '1':
+                    $clientCode[0] = 'b';
+                    break;
+                case '2':
+                    $clientCode[0] = 'c';
+                    break;
+                case '4':
+                    $clientCode[0] = 'e';
+                    break;
+            }
+        }
     }
     return $clientCode;
 }
@@ -243,8 +266,9 @@ function getSchoolDBInfo($dns, $codeletter = false) {
     }
 
     $value = array();
+    $clientCode = '';
     while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-
+        $clientCode = $row['clientCode'];
         $diskPercent = getDiskPercent($row['diskConsume'], $row['diskSpace']);
         $service = $row['serviceName'];
 
@@ -267,6 +291,11 @@ function getSchoolDBInfo($dns, $codeletter = false) {
         // Do not overwrite type
         if (empty($value['type']))
             $value['type'] = $row['typeId'];
+    }
+    
+    // Get clientCode
+    if (!empty($clientCode)){
+        $value['clientCode'] = $clientCode;
     }
 
     // Get new DNS
@@ -599,16 +628,57 @@ function getServicesToTest($service) {
  * @param type $service
  * @return string 
  */
-
-function getMoodleDirrot($school_info, $service='moodle'){
+function getMoodleDirrot($school_info, $service='moodle') {
     $moodle_dirroot = 'moodle';
-    switch ($service){
+    switch ($service) {
         case 'moodle':
             // If is enabled moodle2 service, moodle 1.9 is accessed by antic URL
-            if (array_key_exists('id_moodle2', $school_info) && !empty($school_info['id_moodle2'])) $moodle_dirroot = 'antic';    
+            if (array_key_exists('id_moodle2', $school_info) && !empty($school_info['id_moodle2'])) {
+                // If client has param 'extraFunc' with value 'moodle2', changes $moodle_dirroot 
+                if (!checkExtraFunc(transformClientCode($school_info['clientCode'], 'num2letter'))) {
+                    $moodle_dirroot = 'antic';
+                }
+            }
             break;
         case 'moodle2':
+            // If client has param 'extraFunc' with value 'moodle2', changes $moodle_dirroot 
+            $moodle_dirroot = (checkExtraFunc(transformClientCode($school_info['clientCode'], 'num2letter'))) ? 'moodle2' : 'moodle';
             break;
     }
     return $moodle_dirroot;
+}
+
+
+/**
+ * Checks param extraFunc, associated to a client. Returns true if value 
+ * is 'moodle2' and false otherwise.
+ *
+ * @param string $clientCode
+ * @return boolean 
+ */
+function checkExtraFunc($clientCode) {
+
+    // Open DB connection to adminagora
+    if (!$con = opendb()) {
+        return false;
+    }
+    
+    $return = false;
+
+    $sql = 'SELECT extraFunc
+            FROM `agoraportal_clients`
+            WHERE clientCode = \'' . $clientCode . '\'';
+
+    if (!$result = mysql_query($sql)) {
+        echo 'S\'ha produ&iuml;t un error MySQL: ' . mysql_error();
+    } else {
+        if ($row = mysql_fetch_assoc($result)) {
+            if ($row['extraFunc'] == 'moodle2') {
+                $return = true;
+            }
+        }
+    }
+
+    mysql_close($con);
+    return $return;
 }
