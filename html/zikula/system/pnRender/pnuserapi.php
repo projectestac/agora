@@ -20,11 +20,15 @@
  */
 function pnRender_userapi_clear_compiled($args)
 {
+//XTEC ************ ELIMINAT - Permetre la execució des del cron
+//2013.05.21 @aginard
+/*
     // security check
     if (!SecurityUtil::checkPermission('pnRender::', '::', ACCESS_EDIT)) {
         return LogUtil::registerPermissionError();
     }
-
+*/
+    
     // CacheUtil::clearLocalDir() is broken in some situations so we use the good old
     // Smarty-object again.
     $smarty  = new Smarty;
@@ -54,10 +58,14 @@ function pnRender_userapi_clear_compiled($args)
  */
 function pnRender_userapi_clear_cache($args)
 {
+//XTEC ************ ELIMINAT - Permetre la execució des del cron
+//2013.05.21 @aginard
+/*
     if (!SecurityUtil::checkPermission('pnRender::', '::', ACCESS_EDIT)) {
         return LogUtil::registerPermissionError();
     }
-
+*/
+    
     if(isset($args['module']) && !empty($args['module']) && pnModAvailable($args['module'])) {
         $pnRender = & pnRender::getInstance($args['module']);
         $res = $pnRender->clear_cache();
