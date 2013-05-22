@@ -1,0 +1,12 @@
+<div class="z-formrow">
+    <label for="onlineblock_unsee">{gt text="Unregistered users can see online users"}</label>
+    <input id="onlineblock_unsee" {if $unsee eq 1}checked="checked"{/if} type="checkbox" name="unsee" value="1" />
+</div>
+<div class="z-formrow">
+    <label for="onlineblock_sessiontime">{gt text="Session time (between 10 and 120 minutes)"}</label>
+    <input id="onlineblock_sessiontime" type="text" name="sessiontime" value="{$sessiontime}" />
+</div>
+<div class="z-formrow">
+    <label for="onlineblock_refreshtime">{gt text="Block time refresh in seconds (minimum 100)"}</label>
+    <input id="onlineblock_refreshtime" type="text" name="refreshtime" value="{$refreshtime}" />
+</div>

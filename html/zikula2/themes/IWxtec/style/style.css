@@ -1,0 +1,366 @@
+
+body {
+	background-color: #CCC;
+	color: #000;
+	font-size: 12px;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* block element styles */
+table, div, p, span, input, textarea, select, li {
+}
+
+td { vertical-align: top; }
+
+/* prevent textareas from forcing horizontal scroll bar */
+textarea { width: 99%; }
+
+/* remove border from linked images */
+a img { border: 0px; }
+
+/* Header styles */
+h1, .pn-pagetitle {
+	font-weight: bold;
+	font-size: 1.3em;
+	text-align: center;
+}
+h2, .pn-title {
+	font-weight: bold;
+	font-size: 1.2em;
+	text-align: center;
+}
+h3 {
+	font-size: 1em;
+	text-align: left;
+	margin: 3px;
+	padding: 0px 3px 2px 3px;
+	color: #000;
+	background: #e4e1df;
+}
+h4 {
+	margin: 0px;
+	padding: 0.5em;
+}
+
+/* defaut styling for lists */
+ul {
+	margin-left: 1em;
+	margin-top: 0px;
+	padding-left: 0em;
+	padding-top: 1em;
+	text-indent: 0em;
+	list-style-type: disc;
+}
+
+/* anchor styles */
+a {
+	color: #457fb9;
+	text-decoration: none;
+}
+
+/* form and control styles */
+.input {
+	border: 1px solid #CCC;
+	font-size: 10px;
+}
+
+/* PostNuke specific classes */
+.pn-menu {
+	text-align: center;
+}
+.pn-pager {
+	text-align: center;
+}
+
+/* General styles */
+#logotop {
+	padding-left: 50px;
+	border-bottom: 1px solid #ccc;
+}
+
+#sitename {
+	color: #000;
+	padding-left: 5%;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	font-size: 3.0em;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic; 
+}
+
+#wrapper {
+    background-color: #ffffff;
+    width: 99%;
+    -moz-border-radius: 6px 6px 6px 6px;
+    border-radius: 6px 6px 6px 6px;
+	margin: auto;
+	padding: 2px;
+}
+
+#themelogo {
+    background-color: #ffffff;
+    -moz-border-radius: 6px 6px 6px 6px;
+    border-radius: 6px 6px 6px 6px;
+	border-bottom: 1px solid #ccc;
+	height: 80px;
+}
+
+#menu {
+    background-color: #ffffff;
+    height: 30px;
+}
+
+#themefooter {
+	text-align: center;
+	font-size: 0.8em;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#themefootertext {
+	margin:0px 195px 0px 195px;
+}
+
+#themefooterimageleft {
+	float: left;
+	margin-top: -15px;
+	margin-left: 20px;
+}
+
+#themefooterimageright {
+	float: right;
+	margin-top:-15px;
+	margin-right: 50px;
+}
+
+#contenttable {
+    width: 100%;
+}
+
+#lcol {
+    width: 20%;
+}
+
+#ccol2col {
+    padding:0px 8px 0px 8px;
+}
+
+#ccol3col {
+    padding:0px 8px 0px 8px;
+}
+
+#rcol {
+    width: 25%;
+}
+
+
+/* Left blocks */
+.left_inside { 
+    margin:4px 0px 8px 0px;
+}
+
+.left_block_title {
+    color: #000;
+    background: #e4e1df;
+    margin: 0px;
+    padding: 4px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    -moz-border-radius: 6px 6px 0px 0px;
+    border-radius: 6px 6px 0px 0px;
+}
+
+.left_block_content { 
+    background: #b3cadb;
+    padding: 0px 5px 5px 5px;
+    -moz-border-radius: 0px 0px 6px 6px;
+    border-radius: 0px 0px 6px 6px;
+    border: 1px solid #ccc;
+}
+
+.left_block_content p { 
+    margin: 0px;
+    padding: 3px;
+    padding-top: 1em;
+}
+
+.z-admincontainer {
+    -moz-border-radius: 0px 0px 6px 6px;
+    border-radius: 0px 0px 6px 6px;
+    border: 1px solid #ccc;
+}
+
+.pn-bkey-messages .left_inside .left_block_content  {
+    background-color: #fff;
+    margin: 0px;
+    border: none;
+}
+
+.admin_messages_block, .z-formnote, .z-statusmsg, .pn-statusmsg, .z-warningmsg, .z-errormsg, .pn-errormsg, .z-informationmsg, #z-securityanalyzer {
+    -moz-border-radius: 6px 6px 6px 6px;
+    border-radius: 6px 6px 6px 6px;
+}
+
+/* Styles for module content */
+.content-page-heading h3 {
+	background: #fff;
+}
+
+/* News styles */
+.news_xtec {
+    margin-bottom:34px;
+    margin-top:6px;
+    border:1px solid #ccc;
+    background:#fff;
+    -moz-border-radius: 6px 6px 6px 6px;
+    border-radius: 6px 6px 6px 6px;
+}
+
+.news_title_xtec {
+    min-height: 49px;
+    color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.news_title_xtec_inside {
+     width: 90%;
+     padding-left: 8px;
+     padding-top: 8px;
+}
+
+.news_footer_xtec {
+    clear: both;
+    padding: 10px;
+    min-height: 20px;
+    color: #fff;
+    border-top: 1px solid #ccc;
+    -moz-border-radius: 0px 0px 6px 6px;
+    border-radius: 0px 0px 6px 6px;
+}
+
+
+/* utility clearer class */
+.clearing {
+	height: 10px;
+	margin-bottom: 0px;
+	clear: both;
+}
+
+/* Imported from andreas08 for iw_qv */
+.theme_box{
+	margin:0 0 20px 0;
+	padding:10px;
+	border:1px solid #c0c0c0;
+	background-color:#fafbfc;
+	color:#505050;
+	line-height:1.5em;
+}
+
+/* Table styles based on style from the css table gallery 
+   STYLESHEET: CLEAR BLUE, AUTHOR: ROBERT HARTL */
+
+table.pn-datatable {
+	width:100%;
+	line-height:1.2em;
+	background-color:#fff;
+	border-collapse:collapse;
+	text-align:left;
+	letter-spacing:.1em;
+	margin-bottom:1em;
+}
+  
+table.pn-datatable thead th, 
+table.pn-datatable tfoot th, 
+table.pn-datatable tfoot td {
+	border-right: 1px solid #fff;
+	padding-left:5px;
+	font-variant:small-caps;
+	letter-spacing:0.1em;
+	color: #000;
+	background: #e4e1df;
+}
+  
+table.pn-datatable tfoot th, 
+table.pn-datatable tfoot td {
+	border-top: 2pt double #009;
+}
+
+table.pn-datatable td, 
+table.pn-datatable th {
+	padding:4px;
+}
+
+table.pn-datatable tbody tr th, 
+table.pn-datatable tbody tr td {
+	border-bottom: 1px dotted #467aa7;
+}
+
+table.pn-datatable tbody tr:hover td, 
+table.pn-datatable tbody tr:hover th {
+	border-bottom: 1px solid #467aa7;
+}
+
+table.pn-datatable tbody td a, 
+table.pn-datatable tbody th a {
+	background: transparent;
+	text-decoration: none;
+	border:none;
+}
+
+table.pn-datatable tbody td a:hover, 
+table.pn-datatable tbody th a:hover {
+	background: transparent;
+}
+
+table.pn-datatable .odd {
+	background: #e3e3f4;
+}
+
+table.pn-datatable tbody tr:hover {
+	color: #333;
+	background: #e8eaec;
+}
+
+table.pn-datatable tbody tr th:hover {
+	background: #fff;
+}
+
+
+/* IW Menu */
+#iw_menu li:hover {
+	background-color: #B3CADB !important;
+}
+
+#iw_menu>ul>li.branch { 
+	border-bottom: 1px solid #B3CADB !important;
+}
+
+#iw_menu li li:hover {
+	background-color: #B3CADB !important;
+}
+
+#iw_menu li li.branch {
+	border-right: 3px solid #B3CADB !important;
+}
+
+
+/* Minitabs */
+ul#minitabs a:link, ul#minitabs a:visited, ul.minitabs a:link, ul.minitabs a:visited
+{
+    -moz-border-radius: 6px 6px 0px 0px;
+    border-radius: 6px 6px 0px 0px;
+}
+
+
+/* Admin pannel */
+.z-admin-breadcrumbs {
+    margin:10px;
+}
+#z-securityanalyzer {
+    padding:10px!important;
+}
+

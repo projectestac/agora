@@ -1,0 +1,7 @@
+div.pagebreak, hr.pagebreak {
+    font-size: 1px;
+    page-break-after: always;
+    height: 1px;
+    background-color: rgb(192, 192, 192);
+    clear: all;
+}

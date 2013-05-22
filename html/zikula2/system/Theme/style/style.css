@@ -1,0 +1,125 @@
+
+#theme_modifymenu.minitabs {
+    padding-left: 10px !important;
+    width: auto !important;
+}
+#theme_modifymenu.minitabs+h4 {
+    margin-top: 0.7em;
+}
+
+.theme_preview {
+    background-color: #FAFAFA; /*non-CSS3 browsers*/
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#f2f2f2'); /* for IE */
+    background: -webkit-gradient(linear,left top, left bottom,from(#FAFAFA),to(#f2f2f2)); /*webkit*/
+    background: -moz-linear-gradient(center top , #FAFAFA, #F2F2F2) repeat scroll 0 0 transparent; /*gecko*/
+    background: linear-gradient(#FAFAFA, #F2F2F2); /*CSS3*/
+    border: solid 1px #b4b4b4;
+}
+
+.theme_preview img,
+img#theme_credits_preview {
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #D9E0E6;
+    background: #fff;
+}
+
+.theme_preview h4 {
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+.marktooltip {
+    border-bottom: 1px dashed #aaa;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+div#theme_undefinedblockpositions {
+    /*width: 85%;*/
+}
+
+div#theme_undefinedblockpositions p {
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+div#theme_undefinedblockpositions ul {
+    display: inline;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+div#theme_undefinedblockpositions ul li {
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+div#theme_undefinedblockpositions ul li:after {
+    content: ", ";
+}
+
+div#theme_undefinedblockpositions ul li.last:after {
+    content: ". ";
+}
+
+/* styles for the navigation filter on main page */
+div#mthemes-alphafilter {
+    font-size: xx-small;
+}
+
+img.theme_colorpicker_image {
+    margin-left: 5px;
+}
+
+.z-indented {
+    margin-left: 2.5em;
+}
+
+/* Theme list in user frontend */
+#themes_list dl.theme_item {
+    background: #fafafa;
+    border-color: #D9E0E6 #C8CDD2 #C8CDD2 #D9E0E6;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    margin: 1%;
+    padding: 4px;
+    text-align: center;
+    min-width: 208px;
+    width: 29%;
+    overflow: hidden;
+    color: #333;
+}
+
+#themes_list dl.theme_item a {
+    color: #333;
+    font-weight: normal;
+}
+
+#themes_list dl.theme_item a:hover {
+    text-decoration:underline;
+}
+
+#themes_list dl.theme_item:hover {
+    border: 1px solid #aaa;
+}
+
+#themes_list dl.theme_item dt {
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0.5em 0;
+}
+
+#themes_list dl.theme_item dd {
+    font-size: 0.9em;
+    margin: 0.5em 0;
+    padding: 0;
+}
+
+.colorpicker {
+    cursor: pointer;
+}

@@ -1,0 +1,497 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Pages 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-21 21:09+0000\n"
+"PO-Revision-Date: 2012-03-02 18:56+0100\n"
+"Last-Translator: intraweb <intraweb@xtec.cat>\n"
+"Language-Team: Intraweb <intraweb@xtec.cat>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.1.6\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: lib/Pages/Api/User.php:145
+#: lib/Pages/Api/Search.php:94
+#: lib/Pages/Api/Search.php:127
+msgid "Error! Could not load any page."
+msgstr "No s'ha pogut carregar cap pàgina."
+
+#: lib/Pages/Api/Admin.php:53
+#: lib/Pages/Api/Admin.php:162
+msgid "The permalinks retrieved from the title has to be unique!"
+msgstr "Els enllaços permanents obtinguts del títol han de ser únics"
+
+#: lib/Pages/Api/Admin.php:55
+#: lib/Pages/Api/Admin.php:164
+msgid "The permalink has to be unique!"
+msgstr "L'enllaç permanent ha de ser únic"
+
+#: lib/Pages/Api/Admin.php:57
+#: lib/Pages/Api/Admin.php:166
+msgid "The permalink has been removed, please update the page with a correct and unique permalink"
+msgstr "S'ha esborrat l'enllaç permanent. Actualitzeu la pàgina amb un enllaç permanent que sigui únic."
+
+#: lib/Pages/Api/Admin.php:61
+msgid "Error! Creation attempt failed."
+msgstr "No s'ha pogut fer la creació"
+
+#: lib/Pages/Api/Admin.php:88
+#: lib/Pages/Api/Admin.php:124
+#: lib/Pages/Controller/User.php:239
+#: lib/Pages/Controller/User.php:268
+#: lib/Pages/Controller/User.php:276
+#: lib/Pages/Controller/Admin.php:96
+#: lib/Pages/Controller/Admin.php:193
+msgid "No such page found."
+msgstr "No s'ha trobat la pàgina."
+
+#: lib/Pages/Api/Admin.php:94
+msgid "Error! Deletion attempt failed."
+msgstr "No s'ha pogut fer l'esborrament"
+
+#: lib/Pages/Api/Admin.php:170
+#: lib/Pages/Installer.php:69
+#: lib/Pages/Installer.php:80
+#: lib/Pages/Installer.php:86
+#: lib/Pages/Installer.php:94
+#: lib/Pages/Installer.php:222
+msgid "Error! Update attempt failed."
+msgstr "No s'ha pogut fer l'actualització"
+
+#: lib/Pages/Api/Admin.php:240
+#: lib/Pages/Block/Pageslist.php:26
+#: templates/user/view.tpl:1
+#: templates/user/view.tpl:32
+msgid "Pages list"
+msgstr "Llista de pàgines"
+
+#: lib/Pages/Api/Admin.php:245
+#: templates/admin/new.tpl:6
+msgid "Create a page"
+msgstr "Crea una pàgina"
+
+#: lib/Pages/Api/Admin.php:250
+msgid "Purge permalinks"
+msgstr "Esborra els enllaços permanents"
+
+#: lib/Pages/Api/Admin.php:253
+#: templates/admin/modifyconfig.tpl:4
+msgid "Settings"
+msgstr "Configuració"
+
+#: lib/Pages/Installer.php:30
+msgid "Warning! Could not create the default Pages category tree. If you want to use categorization for the pages, register at least one property for the module in the Category Registry."
+msgstr "No ha estat possible crear l'arbre de categories de pàgines per defecte. Si voleu fer ús de la categorització de pàgines, heu de registrar com a mínim una propietat per a aquest mòdul en el 'registre de categories'."
+
+#: lib/Pages/Installer.php:303
+#: templates/user/main.tpl:1
+#: templates/search/options.tpl:3
+msgid "Pages"
+msgstr "Pàgines estàtiques"
+
+#: lib/Pages/Installer.php:304
+#: lib/Pages/Version.php:7
+msgid "Static pages"
+msgstr "Pàgines estàtiques"
+
+#: lib/Pages/Installer.php:346
+msgid "Warning! Could not create the introductory page."
+msgstr "Atenció! No s'ha pogut crear la pàgina introductòria."
+
+#: lib/Pages/Controller/User.php:103
+msgid "Invalid category passed."
+msgstr "La categoria indicada no és vàlida."
+
+#: lib/Pages/Controller/User.php:171
+#: templates/admin/view.tpl:83
+msgid "No pages found."
+msgstr "No s'han trobat pàgines."
+
+#: lib/Pages/Controller/Admin.php:63
+msgid "Done! Page created."
+msgstr "S'ha creat la pàgina."
+
+#: lib/Pages/Controller/Admin.php:66
+msgid "Error! Hook data did not validate. Page not created."
+msgstr "Les dades del lligam no s'han validat. No s'ha creat la pàgina."
+
+#: lib/Pages/Controller/Admin.php:151
+msgid "Done! Page updated."
+msgstr "S'ha modificat la pàgina."
+
+#: lib/Pages/Controller/Admin.php:216
+msgid "Done! Page deleted."
+msgstr "S'ha esborrat la pàgina."
+
+#: lib/Pages/Controller/Admin.php:280
+msgid "Purging of the pemalinks was successful"
+msgstr "Els enllaços permanents s'han esborrat correctament"
+
+#: lib/Pages/Controller/Admin.php:282
+msgid "Purging of the pemalinks has failed"
+msgstr "No s'han pogut esborrar els enllaços permanents"
+
+#: lib/Pages/Controller/Admin.php:319
+msgid "View"
+msgstr "Mostra"
+
+#: lib/Pages/Controller/Admin.php:324
+#: templates/user/display.tpl:52
+msgid "Edit"
+msgstr "Edita"
+
+#: lib/Pages/Controller/Admin.php:329
+msgid "Delete"
+msgstr "Esborra"
+
+#: lib/Pages/Controller/Admin.php:424
+msgid "Done! Module configuration updated."
+msgstr "S'ha actualitzat la configuració del mòdul"
+
+#: lib/Pages/Version.php:8
+msgid "Manager of the static pages of the site."
+msgstr "Permet gestionar pàgines estàtiques."
+
+# les URL no poden contenir accents ni espais en blanc
+#. ! this defines the module's url
+#: lib/Pages/Version.php:11
+msgid "pages"
+msgstr "pages"
+
+#: lib/Pages/Version.php:27
+msgid "Pages Hooks"
+msgstr "Lligams amb les pàgines"
+
+#: lib/Pages/Version.php:37
+msgid "Pages Filter Hooks"
+msgstr "Filtre dels lligams amb les pàgines"
+
+#: lib/Pages/Block/Page.php:19
+msgid "Show page"
+msgstr "Mostra la pàgina"
+
+#: lib/Pages/Block/Page.php:20
+msgid "Show a page in a block"
+msgstr "Mostra una pàgina dins d'un bloc"
+
+#: lib/Pages/Block/Pageslist.php:27
+msgid "Display a list of pages"
+msgstr "Mostra una llista de les pàgines"
+
+#: templates/admin/new.tpl:13
+#: templates/admin/new.tpl:43
+#: templates/admin/modify.tpl:15
+#: templates/admin/modify.tpl:51
+msgid "Content"
+msgstr "Contingut"
+
+#: templates/admin/new.tpl:15
+#: templates/admin/modify.tpl:17
+#: templates/admin/view.tpl:42
+msgid "Title"
+msgstr "Títol"
+
+#: templates/admin/new.tpl:20
+#: templates/admin/modify.tpl:22
+msgid "PermaLink URL title"
+msgstr "URL de l'enllaç permanent"
+
+#: templates/admin/new.tpl:22
+#: templates/admin/modify.tpl:24
+msgid "(Blank = auto-generate)"
+msgstr "(En blanc = generat automàticament)"
+
+#: templates/admin/new.tpl:27
+#: templates/admin/modify.tpl:29
+#: templates/admin/view.tpl:45
+msgid "Category"
+msgstr "Categoria"
+
+#: templates/admin/new.tpl:28
+#: templates/admin/modify.tpl:30
+msgid "Choose a category"
+msgstr "Trieu una categoria"
+
+#: templates/admin/new.tpl:38
+#: templates/admin/modify.tpl:46
+#: templates/admin/view.tpl:23
+#: templates/admin/view.tpl:48
+msgid "Language"
+msgstr "Idioma"
+
+#: templates/admin/new.tpl:45
+#: templates/admin/modify.tpl:53
+msgid "If you want multiple pages you can write &lt;!--pagebreak--&gt; where you want to cut."
+msgstr "Si voleu múltiples pàgines podeu escriure &lt;!--pagebreak--&gt; on vulgueu tallar la pàgina."
+
+#: templates/admin/new.tpl:49
+#: templates/admin/modify.tpl:57
+msgid "Meta tags"
+msgstr "Meta etiquetes"
+
+#: templates/admin/new.tpl:51
+#: templates/admin/modify.tpl:59
+msgid "Description"
+msgstr "Descripció"
+
+#: templates/admin/new.tpl:55
+#: templates/admin/modify.tpl:63
+msgid "Keywords"
+msgstr "Paraules clau"
+
+#: templates/admin/new.tpl:60
+#: templates/admin/modify.tpl:68
+msgid "Specific page settings"
+msgstr "Paràmetres de configuració específics"
+
+#: templates/admin/new.tpl:63
+#: templates/admin/modify.tpl:71
+#: templates/admin/modifyconfig.tpl:24
+msgid "Display additional information"
+msgstr "Mostra la informació addicional amb la pàgina"
+
+#: templates/admin/new.tpl:67
+#: templates/admin/modify.tpl:75
+#: templates/admin/modifyconfig.tpl:28
+msgid "Display page title"
+msgstr "Mostra el títol de la pàgina"
+
+#: templates/admin/new.tpl:71
+#: templates/admin/modify.tpl:79
+#: templates/admin/modifyconfig.tpl:32
+msgid "Display page creation date"
+msgstr "Mostra la data de creació de la pàgina"
+
+#: templates/admin/new.tpl:75
+#: templates/admin/modify.tpl:83
+#: templates/admin/modifyconfig.tpl:36
+msgid "Display page update date"
+msgstr "Mostra la data de modificació de la pàgina"
+
+#: templates/admin/new.tpl:79
+#: templates/admin/modify.tpl:87
+#: templates/admin/modifyconfig.tpl:40
+msgid "Display page text statistics"
+msgstr "Mostra les estadístiques del text de la pàgina"
+
+#: templates/admin/new.tpl:83
+#: templates/admin/modify.tpl:91
+#: templates/admin/modifyconfig.tpl:44
+msgid "Display page print link"
+msgstr "Mostra l'enllaç a la versió d'impressió de la pàgina"
+
+#: templates/admin/new.tpl:92
+msgid "Create"
+msgstr "Crea"
+
+#: templates/admin/new.tpl:93
+#: templates/admin/modify.tpl:114
+#: templates/admin/delete.tpl:16
+#: templates/admin/modifyconfig.tpl:62
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: templates/admin/modify.tpl:6
+msgid "Update page"
+msgstr "Actualitza la pàgina"
+
+#: templates/admin/modify.tpl:97
+msgid "Meta data"
+msgstr "Metadades"
+
+#: templates/admin/modify.tpl:101
+#, php-format
+msgid "Created by %s"
+msgstr "Creat per %s"
+
+#: templates/admin/modify.tpl:102
+#, php-format
+msgid "Created on %s"
+msgstr "Creat el %s"
+
+#: templates/admin/modify.tpl:104
+#, php-format
+msgid "Last update by %s"
+msgstr "Darrera actualització feta per %s"
+
+#: templates/admin/modify.tpl:105
+#, php-format
+msgid "Updated on %s"
+msgstr "Modificat el %s"
+
+#: templates/admin/modify.tpl:113
+msgid "Update"
+msgstr "Valida"
+
+#: templates/admin/filtercats.tpl:2
+msgid "All These Categories"
+msgstr "Totes aquestes categories"
+
+#: templates/admin/filtercats.tpl:17
+msgid "Select Multiple"
+msgstr "Selecció múltiple"
+
+#: templates/admin/view.tpl:6
+msgid "View pages list"
+msgstr "Mostra la llista de pàgines"
+
+#: templates/admin/view.tpl:12
+msgid "active"
+msgstr "activa"
+
+#: templates/admin/view.tpl:12
+msgid "inactive"
+msgstr "inactiva"
+
+#: templates/admin/view.tpl:13
+#, php-format
+msgid "Filter %1$s, %2$s page listed"
+msgid_plural "Filter %1$s, %2$s pages listed"
+msgstr[0] "Filtre %1$s, %2$s la pàgina donada"
+msgstr[1] "Filtre %1$s, %2$s les pàgines donades"
+
+#: templates/admin/view.tpl:30
+msgid "Filter"
+msgstr "Filtra"
+
+#: templates/admin/view.tpl:31
+msgid "Clear"
+msgstr "Netejar"
+
+#: templates/admin/view.tpl:41
+msgid "ID"
+msgstr "ID"
+
+#: templates/admin/view.tpl:43
+msgid "Creator"
+msgstr "Creador"
+
+#: templates/admin/view.tpl:50
+msgid "Created"
+msgstr "Creat a"
+
+#: templates/admin/view.tpl:51
+msgid "Actions"
+msgstr "Accions"
+
+#: templates/admin/delete.tpl:4
+msgid "Delete page"
+msgstr "Esborra la pàgina"
+
+#: templates/admin/delete.tpl:7
+msgid "Do you really want to delete this page?"
+msgstr "Esteu segur/a de que voleu esborrar aquesta pàgina?"
+
+#: templates/admin/delete.tpl:15
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: templates/admin/modifyconfig.tpl:11
+msgid "General settings"
+msgstr "Paràmetres generals"
+
+#: templates/admin/modifyconfig.tpl:13
+msgid "Enable categorization"
+msgstr "Activa l'ús de categories"
+
+#: templates/admin/modifyconfig.tpl:17
+msgid "Items per page"
+msgstr "Elements per pàgina"
+
+#: templates/admin/modifyconfig.tpl:22
+msgid "New page defaults"
+msgstr "Paràmetres per defecte de les pàgines noves"
+
+#: templates/admin/modifyconfig.tpl:49
+msgid "Permalinks settings"
+msgstr "Configuració dels enllaços permanents"
+
+#: templates/admin/modifyconfig.tpl:51
+msgid "Add category title to permalink"
+msgstr "Afegeix el títol de la categoria a l'enllaç permanent"
+
+#: templates/admin/modifyconfig.tpl:55
+msgid "Show permalink input field"
+msgstr "Mostra el camp d'entrada de l'enllaç permanent"
+
+#: templates/admin/modifyconfig.tpl:61
+msgid "Save"
+msgstr "Desa"
+
+#: templates/user/display.tpl:21
+#, php-format
+msgid "Created by %1$s on %2$s"
+msgstr "Creat per %1$s el %2$s"
+
+#: templates/user/display.tpl:25
+#, php-format
+msgid "Last update by %1$s on %2$s"
+msgstr "Darrera modificació feta per %1$s el %2$s"
+
+#: templates/user/display.tpl:28
+msgid "Categories"
+msgstr "Categories"
+
+#: templates/user/display.tpl:56
+#, php-format
+msgid "%s total words in this text"
+msgstr "Hi ha %s paraules en aquest text"
+
+#: templates/user/display.tpl:58
+#, php-format
+msgid "%s reads"
+msgstr "%s lectures"
+
+#: templates/user/display.tpl:62
+msgid "Print page"
+msgstr "Versió per imprimir"
+
+#: templates/user/view.tpl:6
+msgid "Contents"
+msgstr "Continguts"
+
+#: templates/user/view.tpl:7
+#: templates/user/main.tpl:7
+msgid "Available categories:"
+msgstr "Categories disponibles:"
+
+#: templates/user/view.tpl:29
+#, php-format
+msgid "Category: %s"
+msgstr "Categoria: %s"
+
+#: templates/user/view.tpl:30
+msgid "Pages published under this category:"
+msgstr "Pàgines publicades en aquesta categoria:"
+
+#: templates/user/view.tpl:33
+msgid "Available pages:"
+msgstr "Pàgines disponibles:"
+
+#: templates/user/main.tpl:17
+#: templates/user/main.tpl:19
+#, php-format
+msgid "%s page"
+msgid_plural "%s pages"
+msgstr[0] "%s pàgina"
+msgstr[1] "%s pàgines"
+
+#: templates/block/pageslist_modify.tpl:2
+msgid "Number of pages to display"
+msgstr "Nombre de pàgines que s'han de mostrar"
+
+#: templates/block/pageblock_modify.tpl:2
+msgid "Page ID"
+msgstr "ID de la pàgina"
+

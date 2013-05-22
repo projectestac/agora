@@ -1,0 +1,17 @@
+{if isset($list) AND $list}
+<select name="group" onChange="javascript:addGroupProceed({$uid},this.value)">
+    <option value="0">{gt text="Choose a group..."}</option>
+    {foreach item="group" from="$groups"}
+    <option value="{$group.id}">{$group.name}</option>
+    {/foreach}
+</select>
+{else}
+{if not isset($group.id)}
+{assign var=group value=0}
+{else}
+{assign var=group value=$group.id}
+{/if}
+<a href="javascript:addUserGroup({$user.uid})">
+    <img id="iconGroup_{$user.uid}_{$group}" src="images/icons/extrasmall/add_group.png" alt="" />
+</a>
+{/if}

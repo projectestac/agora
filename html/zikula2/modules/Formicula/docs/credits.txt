@@ -1,0 +1,27 @@
+// ----------------------------------------------------------------------
+// vpContact module for Rogue 0.711
+// Copyright (c) 2002 by
+// http://www.beginner-ag.de/postnuke
+// ----------------------------------------------------------------------
+//
+// Formicula 0.1 - 0.3
+// Smartyfied version for use with pnRender by Frank Schummertz, Jim Hadfield
+// (in fact this an 80% rewrite of the older vpContact code)
+// frank.schummertz@landseer-stuttgart.de
+// jim@snowbankih.com
+// http://snowbankih.tzo.com
+// ----------------------------------------------------------------------
+//
+// Formicula 0.5
+// store contacts in seperate contacts table (like vpContact)
+// reiner.maiwald@freenet.de
+//
+// Formicula 0.6 - 1.0
+// frank.schummertz@landseer-stuttgart.de
+//
+// Thanks to Carsten Volmer for extensive testing.
+// French translation by Christophe Beaujean (yokav) 
+//
+// Formicula 2.0ff
+// frank.schummertz@landseer-stuttgart.de
+// Stylesheet adjustments by Carsten Volmer

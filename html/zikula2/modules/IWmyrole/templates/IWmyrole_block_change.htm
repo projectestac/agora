@@ -1,0 +1,54 @@
+<div style="padding: 5px;">
+    <form  enctype="application/x-www-form-urlencoded" method="post" name="change" action="{modurl modname="IWmyrole" type=admin func="changeRole"}">
+           <div style="margin-bottom:15px;">
+            <strong>{gt text="Choose the groups..."}</strong><br><br>
+            {foreach item=group from=$groups name=rols}
+            <div>
+                <input type="checkbox" name="roles[]" {if isset($roleGroups[$group.id])}checked{/if} value="{$group.id}" />
+                       {$group.name}
+            </div>
+            {/foreach}
+            <div>
+                &nbsp;
+            </div>
+            <div>
+                <input type="checkbox" name="setDefault" value="1" /> {gt text="Set as default"}
+            </div>
+        </div>
+        {if isset($invalidChange) && $invalidChange eq 1}
+        <div style="color: red;">
+            {gt text="No change has been made due to possible lost of previous roles. Review the permissions related with the change roles group. Be sure that this permission is in second place in the permissions list."}
+        </div>
+        {/if}
+
+        {if $roleGroups|@count < 2}
+        <div style="color:red">
+            {gt text="The permissions for all users are applied."}
+        </div>
+        {/if}
+        <div style="float: left;">
+            <a href="{modurl modname='IWmyrole' type='admin' func='resetRoles'}">
+                {gt text="Reset"}
+            </a>
+            <a href="{modurl modname='IWmyrole' type='admin' func='resetRoles'}">
+                {img modname='core' src='quick_restart.png' set='icons/extrasmall' __alt="Reset" __title="Reset" style="cursor:pointer;"}
+            </a>
+        </div>
+        <div style="float: right;">
+            <a href="javascript:document.change.submit()">
+                {gt text="Apply new roles"}
+            </a>
+            <a href="javascript:document.change.submit()">
+                {img modname='core' src='agt_update_recommended.png' set='icons/extrasmall' __alt="Apply new roles" __title="Apply new roles" style="cursor:pointer;"}
+            </a>
+        </div>
+        <div style="clear: both;">
+            <a href="{modurl modname=IWmyrole type=admin func=main}"> 
+                {gt text="Administration"}
+            </a>
+            <a href="{modurl modname=IWmyrole type=admin func=main}">
+                {img modname='core' src='configure.png' set='icons/extrasmall' __alt="Administration" __title="Administration"}
+            </a>
+        </div>
+    </form>
+</div>

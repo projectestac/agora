@@ -1,0 +1,77 @@
+{include file="IWmenu_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='windowlist.png' set='icons/large' __alt=''}</div>
+    <h2>{gt text="Menu options"}</h2>
+    {if $menuarray|count gt 0}
+    <div id="IWmenu_admin">
+        {foreach item=item from=$menuarray}
+        <div class="IWmenu_item {if $item.active eq 1}IWmenu_active{else}IWmenu_inactive{/if}">
+            <div class="IWmenu_left">
+                <div class="IWmenu_arrows" style="padding-left:{$item.padding};">
+                    {if $item.iorder gt 2}
+                    <a href="{modurl modname='IWmenu' type='admin' func='order' mid=$item.mid id_parent=$item.id_parent puts=1}"  title="{gt text="Move to left or up"}">
+                       <img src="modules/IWmenu/images/up.png" alt="{gt text="Move to left or up"}" />
+                    </a>
+                    {/if}
+                    {if $item.downarrow}
+                    <a href="{modurl modname=IWmenu type=admin func=order mid=$item.mid id_parent=$item.id_parent puts=-1}" title="{gt text="Move to right or down"}">
+                       <img src="modules/IWmenu/images/down.png" alt="{gt text="Move to right or down"}" />
+                    </a>
+                    {/if}
+                    &nbsp; {* needed to padding the item. Otherwise the padding value doesn't take effect*}
+                </div>
+                {if $item.level neq ''}
+                <div class="IWmenu_level">
+                    {$item.level}
+                </div>
+                {/if}
+                <div class="IWmenu_icon">
+                    {if $item.icon neq ''}
+                    <img src={$baseurl}{modurl modname=IWmenu type=user func=getFile fileName=$item.imagepath} alt='' />
+                    {/if}
+                </div>
+                <div class="IWmenu_main">
+                    {$item.text}
+                    <br />
+                    {$item.url}
+                    <br />
+                    <span class="IWmenu_description">
+                        {$item.descriu}
+                    </span>
+                </div>
+            </div>
+            <div class="IWmenu_groups">
+                <div class="IWmenu_group">
+                    {$item.groups_array}
+                </div>
+                <div class="IWmenu_addgroup">
+                    <a href="{modurl modname='IWmenu' type='admin' func='add_group' mid=$item.mid}">
+                        <img src="modules/IWmenu/images/addgroup.png" alt="{gt text="Add a group"}" /> {gt text="Add a group"}
+                    </a>
+                </div>
+            </div>
+            <div class="IWmenu_actions">
+                <a href="{modurl modname='IWmenu' type='admin' func='newItem' mid=$item.mid m=e}" title="{gt text="Edit"}">
+                   <img src="modules/IWmenu/images/edit.png" alt="{gt text="Edit"}" />
+                </a>
+                <a href="{modurl modname='IWmenu' type='admin' func='delete' mid=$item.mid}" title="{gt text="Delete"}">
+                   <img src="modules/IWmenu/images/delete.png" alt="{gt text="Delete"}" />
+                </a>
+                <a href="{modurl modname='IWmenu' type='admin' func='newItem' mid=$item.mid m=c}" title="{gt text="Copy"}">
+                   <img src="modules/IWmenu/images/copy.png" alt="{gt text="Copy"}" />
+                </a>
+                <a href="{modurl modname='IWmenu' type='admin' func='new_sub' mid=$item.mid m=s}" title="{gt text="Submenu"}">
+                   <img src="modules/IWmenu/images/submenu.png" alt="{gt text="Submenu"}" />
+                </a>
+                <a href="{modurl modname='IWmenu' type='admin' func='movelevel' mid=$item.mid}" title="{gt text="Move level"}">
+                   <img src="modules/IWmenu/images/movelevel.png" alt="{gt text="Move level"}" />
+                </a>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+        {/foreach}
+    </div>
+    {else}
+    {gt text="There is no root option defined."}<br />
+    {/if}
+</div>

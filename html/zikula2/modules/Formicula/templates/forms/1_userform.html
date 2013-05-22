@@ -1,0 +1,127 @@
+{include file='forms/1_userheader.html'}
+{pageaddvar name="javascript" value="javascript/ajax/prototype.js"}
+{pageaddvar name="javascript" value="javascript/ajax/validation.js"}
+{pageaddvar name="javascript" value="javascript/ajax/effects.js"}
+
+<form id="contactform" action="{modurl modname=Formicula type=user func=send}" method="post">
+<div>
+<input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+<input type="hidden" name="form" value="1" />
+<input type="hidden" name="adminformat" value="html" />
+<input type="hidden" name="userformat" value="html" />
+<input type="hidden" name="numFields" value="7" />
+<input type="hidden" name="cid" value="1" />
+<input type="hidden" name="dataformat" value="array" />
+
+<p>
+    {gt text="Mandatory fields are indicated with a"}<span class="mandatory">*</span>
+</p>
+
+<p>
+    <label for="apply_as">{gt text='Apply as'}<span class="mandatory">*</span></label><br />
+    <input type="hidden" name="custom[apply_as][name]" value="{gt text='Apply as'}" />
+    <input type="hidden" name="custom[apply_as][mandatory]" value="1" />
+    <input type="text" class="formborder required" name="custom[apply_as][data]" id="apply_as" size="35" maxlength="80" value="{$custom.apply_as.data}" />
+</p>
+<p id="advice-required-custom0data" class="custom-advice" style="display:none">{gt text='This is a mandatory field.'}</p>
+
+<p style="clear: left;">
+    <span style="float:left; width: 49%;">
+        <label for="uname">{gt text='Your Name'}<span class="mandatory">*</span></label><br />
+        <input type="text" class="formborder required" name="userdata[uname]" id="uname" size="35" maxlength="80" value="{$userdata.uname}" />
+        <span id="advice-required-uname" class="custom-advice" style="display:none"><br />{gt text='This is a mandatory field.'}</span>
+    </span>
+    <span style="float:left; width: 49%;">
+        <label for="dateofbirth">{gt text='Date of birth'}<span class="mandatory">*</span></label><br />
+        <input type="hidden" name="custom[dateofbirth][name]" value="{gt text='Date of birth'}" />
+        <input type="hidden" name="custom[dateofbirth][mandatory]" value="1" />
+        <input type="text" class="formborder required validate-date" name="custom[dateofbirth][data]" id="dateofbirth" size="35" maxlength="40" value="{$custom.dateofbirth.data}" />
+        <span id="advice-required-dateofbirth" class="custom-advice" style="display:none"><br />{gt text='This is a mandatory field.'}</span>
+        <span id="advice-validate-date-dateofbirth" class="custom-advice" style="display:none"><br />{gt text='Please enter a valid date.'}</span>
+    </span>
+</p>
+
+<p style="clear: left;">
+    <span style="float:left; width: 49%;">
+        <label for="street">{gt text='Street'}<span class="mandatory">*</span></label><br />
+        <input type="hidden" name="custom[street][name]" value="{gt text='Street'}" />
+        <input type="hidden" name="custom[street][mandatory]" value="1" />
+        <input type="text" class="formborder required" name="custom[street][data]" id="street" size="35" maxlength="40" value="{$custom.street.data}" />
+        <span id="advice-required-street" class="custom-advice" style="display:none"><br />{gt text='This is a mandatory field.'}</span>
+    </span>
+    <span style="float:left; width: 49%;">
+        <label for="salary">{gt text='Salary'}<span class="mandatory">*</span></label><br />
+        <input type="hidden" name="custom[salary][name]" value="{gt text='Salary'}" />
+        <input type="hidden" name="custom[salary][mandatory]" value="1" />
+        <input type="text" class="formborder required validate-number" name="custom[salary][data]" id="salary" size="35" maxlength="40" value="{$custom.salary.data}" />
+        <span id="advice-required-salary" class="custom-advice" style="display:none"><br />{gt text='This is a mandatory field.'}</span>
+        <span id="advice-validate-number-salary" class="custom-advice" style="display:none"><br />{gt text='Please use only numeric characters.'}</span>
+    </span>
+</p>
+
+<p style="clear: left;">
+    <span style="float:left; width: 49%;">
+        <label for="zipcity">{gt text='Zip City'}<span class="mandatory">*</span></label><br />
+        <input type="hidden" name="custom[zipcity][name]" value="{gt text='Zip City'}" />
+        <input type="hidden" name="custom[zipcity][mandatory]" value="1" />
+        <input type="text" class="formborder required" name="custom[zipcity][data]" id="zipcity" size="35" maxlength="40" value="{$custom.zipcity.data}" />
+        <span id="advice-required-zipcity" class="custom-advice" style="display:none"><br />{gt text='This is a mandatory field.'}</span>
+    </span>
+    <span style="float:left; width: 49%;">
+        <label for="entrydate">{gt text='Entry date'}<span class="mandatory">*</span></label><br />
+        <input type="hidden" name="custom[entrydate][name]" value="{gt text='Entry date'}" />
+        <input type="hidden" name="custom[entrydate][mandatory]" value="1" />
+        <input type="text" class="formborder required validate-date" name="custom[entrydate][data]" id="entrydate" size="35" maxlength="40" value="{$custom.entrydate.data}" />
+        <span id="advice-required-entrydate" class="custom-advice" style="display:none"><br />{gt text='This is a mandatory field.'}</span>
+        <span id="advice-validate-date-entrydate" class="custom-advice" style="display:none"><br />{gt text='Please enter a valid date.'}</span>
+    </span>
+</p>
+
+<p style="clear: left;">
+    <span style="float:left; width: 49%;">
+        <label for="phonenr">{gt text='Phone Number'}<span class="mandatory">*</span></label><br />
+        <input type="hidden" name="custom[phonenr][name]" value="{gt text='Phone Number'}" />
+        <input type="hidden" name="custom[phonenr][mandatory]" value="1" />
+        <input type="text" class="formborder required" name="custom[phonenr][data]" id="phonenr" size="35" maxlength="40" value="{$custom.phonenr.data}" />
+        <span id="advice-required-phonenr" class="custom-advice" style="display:none"><br />{gt text='This is a mandatory field.'}</span>
+    </span>
+    <span style="float:left; width: 49%;">
+        <label for="url">{gt text='Homepage'}</label><br />
+        <input type='text' class="formborder validate-url" name="userdata[url]" id="url" value="{$userdata.url}" size="35" maxlength="40" />
+        <span id="advice-validate-url-url" class="custom-advice" style="display:none"><br />{gt text='Please enter a valid internet address like http://www.example.com.'}</span>
+    </span>
+</p>
+
+<p style="clear: left; width: 49%;">
+    <label for="uemail">{gt text='Email'}<span class="mandatory">*</span></label><br />
+    <input type="text" class="formborder required validate-email" name="userdata[uemail]" id="uemail" value="{$userdata.uemail}" size="35" maxlength="40" />
+    <span id="advice-required-uemail" class="custom-advice" style="display:none"><br />{gt text='This is a mandatory field.'}</span>
+    <span id="advice-validate-email-uemail" class="custom-advice" style="display:none"><br />{gt text='Please enter a valid email address like user@example.com.'}</span>
+</p>
+
+<p style="clear: left;">
+    <label for="comment">{gt text='Comment'}<span class="mandatory">*</span></label><br />
+    <textarea class="formborder required" rows="10" cols="45" name="userdata[comment]" id="comment">{$userdata.comment}</textarea>
+</p>
+<p id="advice-required-comment" class="custom-advice" style="display:none">{gt text='This is a mandatory field.'}</p>
+
+{if $spamcheck eq 1}
+<p>
+    <label for="formicula_captcha">{gt text='Please solve this calculation'}<span class="mandatory">*</span></label>
+    &nbsp;{simplecaptcha font='arial' size='12' bgcolor='ffffff' fgcolor='000000'} <input id="formicula_captcha" name="captcha" type="text" size="5" maxlength="5" value="" />
+    <span class="z-sub">{gt text='(to prevent spam)'}</span>
+</p>
+{/if}
+
+{notifydisplayhooks eventname='formicula.ui_hooks.forms.form_edit' id=null}
+
+<p class="z-buttons">
+    <input class="z-bt-ok" type="submit" name="submit" value="{gt text="Send"}" />
+</p>
+
+<script type="text/javascript">
+   var valid = new Validation('contactform');
+</script>
+
+</div>
+</form>

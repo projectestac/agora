@@ -1,0 +1,113 @@
+CHANGELOG
+=========
+
+#### 3.0.0
+
+    http://code.zikula.org/news/query?milestone=3.0.0
+    News is "1.3 Pure" - in other words it is not Backward compatible with Zikula 1.2.x - it REQUIRES Zikula 1.3
+        * conversion to correct template delimiters { }
+        * conversion to OOP model
+        * removed all deprecated plugin and function calls
+        * implemented 1.3-style hook model
+        * implemented 1.3-style pending content model
+        * refactor of Ajax to 1.3 standards
+    Now including TCPDF library with News module. PDFs from News stories simply a config setting.
+    Moved all image handling to ImageUtil lib
+    Integrated Printer/RSS/Atom templates into main module distro with new method for display
+    Removed BOM character from all files
+    Added index image to RSS/Atom feeds
+    Added publication data to tooltip in admin view
+    Added pagelock functionality when PageLock module is active
+    Improved translatable strings
+
+
+#### 2.6.2 (22 Aug 2010)
+
+    The 2.6.x series contains database changes: backwards compatibility fields have been removed. This is because of the compatibility with Zikula 1.3. Check your templates for usage of old redundant fields that are not there any more
+    (so now use cr_uid instead of aid, from instead of time, contributor instead of informant, hideonindex instead of ihome, disallowcomments instead of withcomm)
+
+    * Most important is that the picture uploading is more robust and final bugs should be gone
+    * You get more detailed feedback when an upload of pictures was not ok
+    * The picture upload directory presence and writability is being checked with ajax in the admin interface
+    * An htaccess file (restricting access to only images) is written in the picture upload folder when you click the checkbox to make this folder automatically. This to increase security.
+    * The pagevar description can be filled with the index page teaser text up to a specified nr of characters. configurable in the admin interface
+    * The Content module plugin has a configurable template in the settings. With this you can have a different look and feel of the News articles plugs in Content
+
+
+#### 2.6.1 (14 Aug 2010)
+
+    http://code.zikula.org/news/query?milestone=2.6.1
+    * The templates for the Printer, rss and Atom themes are now up to date
+    * Picture uploading has been made more robust.
+      o The admin settings now checks with Ajax if the specified folder already exists and if it is writable.
+      o A checkbox is added to choose for creation of the upload folder.
+      o The error messages have been made more specific (too big, wrong extension etc).
+      o I switched to jpg files. I suddenly noticed that the thumbs were created in png, which gives much larger files. If you already have a large number of images, you have to convert them by hand, sorry about that
+      o If you have ADD permission, the article becomes Draft if one of the pictures is not correctly uploaded.
+      o The allowed extension list (comma seperated) is now without spaces.
+
+
+#### 2.6.0 (5 Aug 2010)
+
+    http://code.zikula.org/news/query?milestone=2.6
+    Compatibility with Zikula 1.3.0
+    A lot of minor and major bugs have been solved, check out the link above
+    The old permission scheme Stories::Story is now only News:: (will be updated automatically)
+    Some changes to the PDF display possibilities (thanks nikp)
+    New functionality for picture(s) upload with thumbnail generation (phpthumb) and automatic display in the teaser text and full article, see for more info this ticket (thanks msshams). This is new functionality, so use with a little caution.
+    Optimizations for less SQL queries when using shorturls and category based permissions (with a new switch)
+    Some new permission options are added for the situation where you would normally require ADD permission:
+          o News:pictureupload: | :: ADD can be used to enable picture uploading for users with COMMENT rights
+          o News:publicationdetails: | :: ADD can be used to enable publication details access for users with COMMENT rights
+    News templates for the printer, atom and rss themes are now included in the package
+
+
+#### 2.5.2 (11 Mar 2010)
+
+    #183, submitting in IE6 and IE7 was not ok
+    #192, minor template error
+
+
+#### 2.5.1 (2 Feb 2010)
+
+    http://code.zikula.org/news/query?milestone=2.5.1
+    There was a language string error in the big block (today's most read article), so I've re-uploaded the package, since it was just released some hours ago. Instead of making a whole new version. If you have already downloaded the package, please do so again. Sorry about that.
+
+        * Fixed javascript errors while editing articles
+        * Several gettext language updates
+        * Content module newsarticles plugin templates fixed
+        * Fixed pnmailzapi plugin
+        * Attributes itemlist now uses the Core itemlist in Zikula 1.2
+
+    Thanks for testing and Carsten for several updates !
+    If you are using PendingContent don't forget to update the tablename (stories -> news) for News 2.5 and 2.5.1.
+
+
+#### 2.5 (20 Jan 2010)
+
+    http://code.zikula.org/news/query?milestone=2.5
+    The module is now Gettext based and has had a major language review (thanks Drak and David). This means the module can only be used in Zikula 1.2 and beyond.
+    Database table renamed to <prefix>_news and permission scheme is now using News:: as Component. The upgrade script will take care of the renaming.
+    There is a new Draft status for an article. In the administrators new form, AJAX is being used for saving the draft article on the fly. This will be worked on further for the next version(s).
+    Articles contain a new weight field. This field can be used in sorting in the index page and the various blocks.
+    First set of documentation available at the wiki.
+    The user-id that approves a Pending Review article is now being stored.
+    A lot of layout and interface improvements in the various News areas (also thanks to Carsten)
+    A mailz plugin is available
+    Multihook needle is now available, using NEWS{article-id}.
+    Ajax editing works again with scribite 4.1 and Xinha.
+    You can switch on E-mail notification for a new Pending Review article.
+    You can switch on the display of "More Articles in this category" for an article.
+    PDF display of an article is available with the use of TCPDF open source PHP class. More information in the wiki.
+    When News is installed for the first time an introductory article is present.
+    News (link Submit an article) is shown in Profile overview (thanks Ralf)
+    Date selection with popup calendar (date/time picker)
+    Improvements to the upgrade script (thanks for testing guys !)
+    Blocks permission schemas changed to use the ID instead the Title
+
+
+#### 2.4.1 (21 Jun 2009)
+
+#### 2.4 (11 Apr 2009)
+
+#### 2.3 (4 Jan 2009)

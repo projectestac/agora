@@ -1,0 +1,34 @@
+{include file="IWbooks_admin_menu.htm"}
+<div class="pn-admincontainer">
+    <div class="pn-adminpageicon">
+        {img modname='core' src='easymoblog.png' set='icons/large'}
+    </div>
+    <h2>{gt text="Copy all the books in the following year"}</h2>
+    <div>
+        <form id="IWbook"  class="z-form" action="{modurl modname='IWbooks' type='admin' func='copia_tot'}" method="post" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+            <input type="hidden" name="any" value="{$any}" />
+            <input type="hidden" name="noucurs" value="{$noucurs}" />
+            <fieldset class="IWbooks-fieldset">
+                <legend></legend>
+                <div class="z-formnote">
+                    {gt text="Are you sure you want copy all the books from the current year (%s) to the next year (%s)?" tag1=$any tag2=$noucurs}
+                </div>
+            </fieldset>
+            <div class="z-center">
+                <span class="z-buttons">
+                    <a href="javascript:document.forms['IWbook'].submit();">
+                        {img modname='core' src='button_ok.png' set='icons/small' __alt="Yes" __title="Yes"}
+                        {gt text="Yes"}
+                    </a>
+                </span>
+                <span class="z-buttons">
+                    <a href="{modurl modname=IWbooks type=admin func=view}">
+                        {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
+                        {gt text="Cancel"}
+                    </a>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>

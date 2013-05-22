@@ -1,0 +1,54 @@
+{include file="IWstats_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">
+        {img modname='core' src='configure.png' set='icons/large' __alt='Settings' }
+    </div>
+    <h2>{gt text="Settings"}</h2>
+    <form id="config" class="z-form" action="{modurl modname='IWstats' type='admin' func='updateconfig'}" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+            <div class="z-formrow">
+                <label for="deleteFromDays">{gt text="Default value in reset days"}</label>
+                <input type="text" id="deleteFromDays" name="deleteFromDays" value="{$deleteFromDays}" />
+            </div>
+            <div class="z-formrow">
+                <label for="keepDays">{gt text="Keep days in summarise process"}</label>
+                <input type="text" id="keepDays" name="keepDays" value="{$keepDays}" />
+            </div>
+            <div class="z-formrow">
+                <label for="skippedIps">{gt text="skipped IPs (separeted by comma). * values are wildcards"}</label>
+                <textarea id="skippedIps" name="skippedIps">{$skippedIps}</textarea>
+                <div class="z-formnote z-informationmsg">
+                    <ol>
+                        <li>Wildcard format: 1.2.3.*</li>
+                        <li>Start-End IP format: 1.2.3.0-1.2.3.255</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="z-formrow">
+                <label>{gt text="Skip modules"}</label>
+                <div class="z-formnote">
+                    {foreach item=module from=$modules}
+                    <div class="modulesList">
+                        <input type="checkbox" {if $module.active}checked="checked"{/if} name="moduleId[{$module.id}]" value="{$module.id}" /> {$module.name}
+                    </div>
+                    {/foreach}
+                </div>
+            </div>
+            <div class="z-center">
+                <span class="z-buttons">
+                    <a href="javascript:document.forms['config'].submit();">
+                        {img modname='core' src='button_ok.png' set='icons/large'}
+                        {gt text="Update Configuration"}
+                    </a>
+                </span>
+                                <span class="z-buttons">
+                    <a href="{modurl modname='IWstats' type='admin' func='main'}">
+                        {img modname='core' src='button_cancel.png' set='icons/large' __alt='Cancel' }
+                        {gt text="Cancel"}
+                    </a>
+                </span>
+            </div>
+        </div>
+    </form>
+</div>

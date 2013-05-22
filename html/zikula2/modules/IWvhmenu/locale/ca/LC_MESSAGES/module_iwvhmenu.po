@@ -1,0 +1,682 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-28 12:25+0100\n"
+"PO-Revision-Date: 2010-01-28 12:44+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:28
+#: pnuserapi.php:62
+#: pnadminapi.php:43
+#: pnadminapi.php:181
+msgid "Error! Could not load items."
+msgstr "S'ha produït un error en carregar elements"
+
+#: pninit.php:26
+#: pnadmin.php:19
+msgid "Module iw_main is needed. You have to install the iw_main module previously to install it."
+msgstr "El mòdul iw_main ha d'estar instal·lat. Instal·leu-lo per poder instal·lar aquest mòdul."
+
+#: pnadminapi.php:74
+#: pnadminapi.php:127
+#: pnadminapi.php:172
+#: pnadminapi.php:206
+#: pnadminapi.php:248
+#: pnadminapi.php:303
+#: pnadminapi.php:348
+#: pnadminapi.php:395
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "No s'ha pogut carregar el que volíeu. Reviseu les dades"
+
+#: pnadminapi.php:93
+#: pnadminapi.php:146
+msgid "Error! Creation attempt failed."
+msgstr "L'intent de creació ha fallat"
+
+#: pnadminapi.php:215
+#: pnadminapi.php:254
+#: pnadminapi.php:309
+#: pnadminapi.php:354
+#: pnadminapi.php:401
+msgid "No such item found."
+msgstr "No s'ha trobat l'element"
+
+#: pnadminapi.php:220
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr "L'intent d'esborrament ha fallat"
+
+#: pnadminapi.php:275
+#: pnadminapi.php:320
+#: pnadminapi.php:365
+#: pnadminapi.php:413
+msgid "Error! Update attempt failed."
+msgstr "No s'ha pogut actualitzar"
+
+#: pntemplates/plugins/function.iwvhmenumenulinks.php:22
+#: pnadmin.php:232
+msgid "Add a new option to the menu"
+msgstr "Afegeix una opció nova"
+
+#: pntemplates/plugins/function.iwvhmenumenulinks.php:25
+msgid "Show the options"
+msgstr "Mostra les opcions del menú"
+
+#: pntemplates/plugins/function.iwvhmenumenulinks.php:28
+#: pntemplates/iw_vhmenu_admin_conf.htm:77
+msgid "Configure the module"
+msgstr "Configura el mòdul"
+
+#: pnadmin.php:92
+#: pnadmin.php:259
+#: pnadmin.php:369
+#: pnadmin.php:483
+#: pnadmin.php:1048
+msgid "Unregistered"
+msgstr "No registrats"
+
+#: pnadmin.php:195
+#: pnadmin.php:337
+#: pnadmin.php:461
+#: pnadmin.php:474
+#: pnadmin.php:971
+#: pnadmin.php:1034
+#: pnadmin.php:1114
+#: pnadmin.php:1162
+#: pnadmin.php:1201
+msgid "Menu option not found"
+msgstr "No s'ha trobat l'opció sobre la qual fer l'acció"
+
+#: pnadmin.php:233
+msgid "Create the option of the menu"
+msgstr "Crea l'opció del menú"
+
+#: pnadmin.php:236
+msgid "Option edit"
+msgstr "Modifica l'opció"
+
+#: pnadmin.php:237
+msgid "Save changes"
+msgstr "Desa els canvis"
+
+#: pnadmin.php:240
+msgid "Copy the option"
+msgstr "Còpia l'opció"
+
+#: pnadmin.php:241
+#: pntemplates/iw_vhmenu_admin_main.htm:106
+msgid "Copy"
+msgstr "Copia"
+
+#: pnadmin.php:244
+msgid "Add a new option to the submenu"
+msgstr "Afegeix una opció nova al submenú"
+
+#: pnadmin.php:245
+msgid "Create the option of the submenu"
+msgstr "Crea l'opció del submenú"
+
+#: pnadmin.php:255
+#: pnadmin.php:365
+#: pnadmin.php:479
+#: pnadmin.php:92
+#: pnadmin.php:94
+#: pnadmin.php:1048
+#: pnadmin.php:1050
+msgid "All"
+msgstr "Tots"
+
+#: pnadmin.php:562
+msgid "The option has been updated successfully"
+msgstr "S'ha modificat l'opció"
+
+#: pnadmin.php:586
+#: pnadmin.php:664
+msgid "A new option has been created"
+msgstr "S'ha creat una opció nova"
+
+#: pnadmin.php:714
+msgid "The access to the option has been granted to a group"
+msgstr "S'ha donat accés a un grup a una opció"
+
+#: pnadmin.php:934
+msgid "Menu configuration completed successfully"
+msgstr "S'ha configurat el menú correctament"
+
+#: pnadmin.php:995
+msgid "The option and its submenus have been deleted"
+msgstr "S'han esborrat l'opció i tots els submenús associats"
+
+#: pnadmin.php:1071
+msgid "The access of the group to the option has been revoked"
+msgstr "S'ha tret l'accés d'un grup a l'opció"
+
+#: pnadmin.php:1212
+msgid "Root"
+msgstr "Arrel"
+
+#: pnadmin.php:1237
+msgid "The option has been moved to the parent level"
+msgstr "S'ha pujat l'opció de nivell"
+
+#: pnversion.php:11
+msgid "Provides an interface to manage fully customizable JavaScript menu"
+msgstr "Proporciona una interfície per administrar un menú Javascript completament personalitzable"
+
+#: pnversion.php:12
+msgid "VHMenu"
+msgstr "VHMenú"
+
+#: pnversion.php:13
+msgid "iw_vhmenu"
+msgstr "iw_vhmenu"
+
+#: pntemplates/iw_vhmenu_admin_movelevel.htm:4
+msgid "Increase the level of the option"
+msgstr "Puja el menú de nivell"
+
+#: pntemplates/iw_vhmenu_admin_movelevel.htm:10
+msgid "Choose the level to move the option"
+msgstr "Trieu el nivell on voleu ubicar l'opció"
+
+#: pntemplates/iw_vhmenu_admin_movelevel.htm:17
+msgid "Confirm"
+msgstr "Confirma"
+
+#: pntemplates/iw_vhmenu_admin_movelevel.htm:18
+msgid "Cancel the increasing of the level"
+msgstr "Cancel·la l'acció de pujar l'opció de nivell"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:7
+msgid "You have not written the text of the option of the submenu"
+msgstr "No heu escrit el text de l'opció del submenú"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:23
+msgid "Add a new option"
+msgstr "Afegeix una opció nova en el submenú"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:32
+#: pntemplates/iw_vhmenu_admin_new.htm:31
+#: pntemplates/iw_vhmenu_admin_del_group.htm:14
+#: pntemplates/iw_vhmenu_admin_add_group.htm:20
+msgid "Text of the option"
+msgstr "Text de l'opció"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:37
+#: pntemplates/iw_vhmenu_admin_new.htm:36
+msgid "Graphic menu (you must specify rollover images 1 and 2)"
+msgstr "Menú gràfic (cal especificar les imatges de substitució 1 i 2)"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:42
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:53
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:107
+#: pntemplates/iw_vhmenu_admin_new.htm:41
+#: pntemplates/iw_vhmenu_admin_new.htm:52
+#: pntemplates/iw_vhmenu_admin_new.htm:113
+#: pntemplates/iw_vhmenu_admin_main.htm:100
+msgid "Background image"
+msgstr "Imatge de fons"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:65
+#: pntemplates/iw_vhmenu_admin_new.htm:65
+#: pntemplates/iw_vhmenu_admin_add_group.htm:25
+#: pntemplates/iw_vhmenu_admin_main.htm:80
+#: pntemplates/iw_vhmenu_admin_main.htm:82
+msgid "URL"
+msgstr "URL"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:70
+#: pntemplates/iw_vhmenu_admin_new.htm:70
+#: pntemplates/iw_vhmenu_admin_add_group.htm:30
+msgid "Description"
+msgstr "Descripció"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:75
+#: pntemplates/iw_vhmenu_admin_new.htm:76
+#: pntemplates/iw_vhmenu_admin_add_group.htm:35
+msgid "Group that can access the option"
+msgstr "Grup que hi tindrà accés"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:88
+#: pntemplates/iw_vhmenu_admin_new.htm:89
+msgid "Subgroup that can access the option"
+msgstr "Subgrup que hi tindrà accés"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:98
+#: pntemplates/iw_vhmenu_admin_new.htm:102
+msgid "Link target"
+msgstr "Lloc on s'ha d'obrir l'enllaç"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:100
+#: pntemplates/iw_vhmenu_admin_new.htm:104
+msgid "In the Same window"
+msgstr "Sobre el portal"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:101
+msgid "In a new window"
+msgstr "En una nova finestra"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:102
+#: pntemplates/iw_vhmenu_admin_new.htm:105
+msgid "Within the webbox"
+msgstr "Dins el contenidor de webs"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:118
+#: pntemplates/iw_vhmenu_admin_new.htm:124
+#: pntemplates/iw_vhmenu_admin_main.htm:88
+msgid "Width"
+msgstr "Amplada"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:123
+#: pntemplates/iw_vhmenu_admin_new.htm:129
+#: pntemplates/iw_vhmenu_admin_main.htm:90
+msgid "Height"
+msgstr "Alçada"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:128
+#: pntemplates/iw_vhmenu_admin_new.htm:134
+msgid "State (Active/Inactive)"
+msgstr "Estat (Actiu/No actiu)"
+
+#: pntemplates/iw_vhmenu_admin_new_sub.htm:133
+msgid "Create the option"
+msgstr "Crea l'opció del submenú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:6
+#: pntemplates/iw_vhmenu_admin_conf.htm:10
+#: pntemplates/iw_vhmenu_admin_conf.htm:14
+#: pntemplates/iw_vhmenu_admin_conf.htm:18
+#: pntemplates/iw_vhmenu_admin_conf.htm:22
+#: pntemplates/iw_vhmenu_admin_conf.htm:26
+#: pntemplates/iw_vhmenu_admin_conf.htm:30
+#: pntemplates/iw_vhmenu_admin_conf.htm:34
+#: pntemplates/iw_vhmenu_admin_conf.htm:38
+#: pntemplates/iw_vhmenu_admin_conf.htm:42
+#: pntemplates/iw_vhmenu_admin_conf.htm:46
+msgid "The value of the field"
+msgstr "El valor del camp"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:6
+#: pntemplates/iw_vhmenu_admin_conf.htm:98
+msgid "Default height for the options"
+msgstr "Alçada per defecte de les opcions"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:6
+#: pntemplates/iw_vhmenu_admin_conf.htm:10
+#: pntemplates/iw_vhmenu_admin_conf.htm:14
+#: pntemplates/iw_vhmenu_admin_conf.htm:18
+#: pntemplates/iw_vhmenu_admin_conf.htm:22
+#: pntemplates/iw_vhmenu_admin_conf.htm:26
+#: pntemplates/iw_vhmenu_admin_conf.htm:30
+#: pntemplates/iw_vhmenu_admin_conf.htm:34
+#: pntemplates/iw_vhmenu_admin_conf.htm:38
+#: pntemplates/iw_vhmenu_admin_conf.htm:42
+#: pntemplates/iw_vhmenu_admin_conf.htm:46
+msgid "must be numeric."
+msgstr "ha de ser necessàriament numèric."
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:10
+#: pntemplates/iw_vhmenu_admin_conf.htm:103
+msgid "Default width for the options"
+msgstr "Amplada per defecte de les opcions"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:14
+#: pntemplates/iw_vhmenu_admin_conf.htm:168
+msgid "Border width (pixels)"
+msgstr "Amplada de la vora en píxels"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:18
+#: pntemplates/iw_vhmenu_admin_conf.htm:183
+msgid "Font size"
+msgstr "Mida de la lletra"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:22
+#: pntemplates/iw_vhmenu_admin_conf.htm:225
+msgid "Horizontal overlap"
+msgstr "Superposició horitzontal"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:26
+#: pntemplates/iw_vhmenu_admin_conf.htm:230
+msgid "Vertical overlap"
+msgstr "Superposició vertical"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:30
+#: pntemplates/iw_vhmenu_admin_conf.htm:235
+msgid "Vertical position of the top side of the menu"
+msgstr "Posició vertical d'inici del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:34
+#: pntemplates/iw_vhmenu_admin_conf.htm:240
+msgid "Horizontal position of the left side of the menu"
+msgstr "Posició horitzontal d'inici del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:38
+#: pntemplates/iw_vhmenu_admin_conf.htm:257
+msgid "Left padding"
+msgstr "Separació del text en relació al marge de la dreta o de l'esquerra"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:42
+msgid "Top Padding"
+msgstr "Separació del text en relació al marge superior"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:46
+#: pntemplates/iw_vhmenu_admin_conf.htm:285
+msgid "Disappear delay (ms)"
+msgstr "Temps que tarda a desaparèixer el menú (ms)"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:84
+msgid "Init of the file folder"
+msgstr "Inici del directori de fitxers"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:89
+msgid "Server directory for the menu icons"
+msgstr "Directori del servidor amb les imatges del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:94
+msgid "The menu icons folder not have been found"
+msgstr "No s'ha trobat el directori per a les icones del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:108
+msgid "Background color when cursor is not over the option of the menu"
+msgstr "Color de fons quan el ratolí no està a sobre l'opció del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:114
+msgid "Background color when cursor is not over the option of the submenu"
+msgstr "Color de fons quan el ratolí no està a sobre l'opció del submenú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:120
+msgid "Background color when cursor is over the option of the menu"
+msgstr "Color de fons quan el ratolí està a sobre l'opció del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:126
+msgid "Background color when cursor is over the option of the submenu"
+msgstr "Color de fons quan el ratolí està a sobre l'opció del submenú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:132
+msgid "Text color when cursor is not over the option of the menu"
+msgstr "Color del text quan el ratolí no està a sobre l'opció del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:138
+msgid "Text color when cursor is not over the option of the submenu"
+msgstr "Color del text quan el ratolí no està a sobre l'opció del submenú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:144
+msgid "Text color when cursor is over the option of the menu"
+msgstr "Color del text quan el ratolí està a sobre l'opció del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:150
+msgid "Text color when cursor is over the option of the submenu"
+msgstr "Color del text quan el ratolí està a sobre l'opció del submenú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:156
+msgid "Menu border color"
+msgstr "Color de la vora del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:162
+msgid "Submenus border color"
+msgstr "Color de la vora del submenú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:173
+msgid "Show the border between the options"
+msgstr "Mostra la vora entre els elements"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:178
+msgid "Font family"
+msgstr "Tipus de lletra"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:188
+msgid "Bold"
+msgstr "Negreta"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:193
+msgid "Italic"
+msgstr "Cursiva"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:198
+msgid "Text position in the cell of the menu"
+msgstr "Posició del text dins la casella de l'opció"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:200
+#: pntemplates/iw_vhmenu_admin_conf.htm:209
+msgid "Left"
+msgstr "Esquerra"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:201
+#: pntemplates/iw_vhmenu_admin_conf.htm:209
+msgid "Center"
+msgstr "Centre"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:202
+#: pntemplates/iw_vhmenu_admin_conf.htm:210
+msgid "Right"
+msgstr "Dreta"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:207
+msgid "Position of the menu"
+msgstr "Posició del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:215
+msgid "Vertical position"
+msgstr "Posició vertical del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:217
+msgid "Top"
+msgstr "Superior"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:218
+msgid "Middle"
+msgstr "Central"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:219
+msgid "Bottom"
+msgstr "Inferior"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:220
+msgid "Static"
+msgstr "Estàtic"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:246
+msgid "Vertical correction"
+msgstr "Correcció vertical del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:251
+msgid "Horizontal correction"
+msgstr "Correcció horitzontal del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:262
+msgid "Top padding"
+msgstr "Separació del text en relació al marge superior"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:267
+#: pntemplates/iw_vhmenu_admin_conf.htm:276
+msgid "Arrangement"
+msgstr "Disposició del menú"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:269
+msgid "Vertical"
+msgstr "Vertical"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:270
+msgid "Horizontal"
+msgstr "Horitzontal"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:278
+msgid "in rows"
+msgstr "per files"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:279
+msgid "in columns"
+msgstr "per columnes"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:291
+msgid "MENUTakeOverBgColor??"
+msgstr "MENUTakeOverBgColor??"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:295
+msgid "MENUFirstLineFrame??"
+msgstr "MENUFirstLineFrame??"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:299
+msgid "MENUSecLineFrame??"
+msgstr "MENUSecLineFrame??"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:303
+msgid "MENUDocTargetFrame??"
+msgstr "MENUDocTargetFrame??"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:307
+msgid "MENUTargetLoc??"
+msgstr "MENUTargetLoc??"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:311
+msgid "MENUHideTop??"
+msgstr "MENUHideTop??"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:315
+msgid "MENUMenuWrap??"
+msgstr "MENUMenuWrap??"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:321
+msgid "Right to left"
+msgstr "Desplega de dreta a esquerra"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:326
+msgid "Unfold on click"
+msgstr "Desplega en fer clic"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:332
+msgid "MENUWebMasterCheck??"
+msgstr "MENUWebMasterCheck??"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:338
+msgid "Show arrows"
+msgstr "Mostra les fletxes"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:343
+msgid "Keep path highlighted"
+msgstr "Ressalta el camí seleccionat"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:347
+msgid "Save"
+msgstr "Envia les dades"
+
+#: pntemplates/iw_vhmenu_admin_conf.htm:347
+msgid "Execute changes"
+msgstr "Executa els canvis"
+
+#: pntemplates/iw_vhmenu_admin_menu.htm:4
+msgid "Menu administration"
+msgstr "Administració del menú horitzontal"
+
+#: pntemplates/iw_vhmenu_admin_new.htm:6
+msgid "You have not written the text of the option of the menu"
+msgstr "No heu escrit el text de l'opció del menú"
+
+#: pntemplates/iw_vhmenu_admin_del.htm:4
+msgid "Delete the option"
+msgstr "Esborra l'opció"
+
+#: pntemplates/iw_vhmenu_admin_del.htm:12
+msgid "Please, confirm that you want to delete the option and all its submenus"
+msgstr "Confirmeu que voleu esborrar l'opció i tots els submenús que pugui tenir associats"
+
+#: pntemplates/iw_vhmenu_admin_del.htm:15
+#: pntemplates/iw_vhmenu_admin_del_group.htm:20
+msgid "Confirm deletion?"
+msgstr "Confirmació de l'esborrament de l'element"
+
+#: pntemplates/iw_vhmenu_admin_del.htm:16
+#: pntemplates/iw_vhmenu_admin_del_group.htm:21
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: pntemplates/iw_vhmenu_admin_del_group.htm:11
+msgid "Revoke the access to the option"
+msgstr "Treu l'accés del grup a l'opció"
+
+#: pntemplates/iw_vhmenu_admin_del_group.htm:17
+msgid "Confirm the revocation of the access of the group to the option"
+msgstr "Confirmeu que voleu treure l'accés del grup a l'opció"
+
+#: pntemplates/iw_vhmenu_admin_add_group.htm:12
+#: pntemplates/iw_vhmenu_admin_main.htm:77
+msgid "Add a group"
+msgstr "Afegeix un grup"
+
+#: pntemplates/iw_vhmenu_admin_add_group.htm:44
+msgid "Grant access to the group"
+msgstr "Dóna accés al grup"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:46
+msgid "Menu options"
+msgstr "Opcions definides del menú"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:52
+msgid "Move to left or up"
+msgstr "Mou a l'esquerra o puja"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:53
+msgid "Move to right or down"
+msgstr "Mou a la dreta o baixa"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:68
+msgid "Image 1"
+msgstr "Imatge 1"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:70
+msgid "Image 2"
+msgstr "Imatge 2"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:83
+msgid "Test"
+msgstr "Prova"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:92
+msgid "State"
+msgstr "Estat"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:94
+msgid "Active"
+msgstr "Actiu"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:96
+msgid "Inactive"
+msgstr "No actiu"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:100
+msgid "Image"
+msgstr "Imatge"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:104
+msgid "Edit"
+msgstr "Edició"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:105
+msgid "Delete"
+msgstr "Esborrament"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:107
+msgid "Submenu"
+msgstr "Submenú"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:108
+msgid "Move level"
+msgstr "Mou de nivell"
+
+#: pntemplates/iw_vhmenu_admin_main.htm:117
+msgid "There is no root option defined."
+msgstr "No hi ha cap opció principal del menú definida."
+
+#: pntemplates/iw_vhmenu_admin_main.htm:122
+msgid "About this module"
+msgstr "Pel que fa a aquest mòdul"
+

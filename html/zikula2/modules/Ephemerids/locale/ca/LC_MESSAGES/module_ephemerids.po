@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-03 11:42-0500\n"
+"PO-Revision-Date: 2010-04-22 16:28+0200\n"
+"Last-Translator: Albert Pérez Monfort <aperezm@xtec.cat>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
+
+#: pnadmin.php:99
+msgid "Done! Ephemerid created."
+msgstr "S'ha creat l'efemèride."
+
+#: pnadmin.php:128 pnadmin.php:228
+msgid "No such ephemerid found."
+msgstr "No s'ha trobat l'efemèride."
+
+#: pnadmin.php:190
+msgid "Done! Ephemerid updated."
+msgstr "S'ha actualitzat l'efemèride."
+
+#: pnadmin.php:261
+msgid "Done! Ephemerid deleted."
+msgstr "S'ha esborrat l'efemèride."
+
+#: pnadmin.php:306
+msgid "Edit"
+msgstr "Edició"
+
+#: pnadmin.php:310 pntemplates/ephemerids_admin_delete.htm:16
+msgid "Delete"
+msgstr "Esborrament"
+
+#: pnadmin.php:382
+msgid "Done! Saved module configuration."
+msgstr "S'ha desat la configuració del mòdul."
+
+#: pnuserapi.php:63 pnuserapi.php:150
+msgid "Error! Could not load any ephemerids."
+msgstr "No ha estat possible carregar cap efemèride."
+
+#: pnblocks/ephem.php:31 pntemplates/ephemerids_admin_menu.htm:4
+msgid "Ephemerids"
+msgstr "Efemèrides"
+
+#: pnblocks/ephem.php:32
+msgid "Ephemerid"
+msgstr "Efemèride"
+
+#: pnversion.php:17
+msgid "Ephemerids "
+msgstr "Efemèrides "
+
+#: pnversion.php:18
+msgid ""
+"Provides a block displaying an information byte (historical event, thought "
+"for the day, etc.) linked to the day's date, with daily roll-over, and "
+"incorporates an interface for adding, editing and maintaining ephemerids."
+msgstr ""
+"Proporciona un bloc que mostra un byte d'informació (esdeveniments "
+"històrics, cita del dia, etc.) relacionada amb la data actual. Es renova "
+"diàriament i incorpora una interfície per tal d'afegir, editar i mantenir "
+"efemèrides."
+
+#. ! module name that appears in URL
+#: pnversion.php:20
+msgid "ephemerids"
+msgstr "ephemerids"
+
+#: pnadminapi.php:49
+msgid "Error! Could not create the new ephemerid."
+msgstr "No s'ha pogut crear una efemèride nova."
+
+#: pnadminapi.php:79
+msgid "No such ephemerid found"
+msgstr "No s'ha trobat l'efemèride"
+
+#: pnadminapi.php:88
+msgid "Error! Could not delete the ephemerid."
+msgstr "No s'ha pogut esborrar l'efemèride."
+
+#: pnadminapi.php:128
+msgid "Error! No such ephemerid found"
+msgstr "No s'ha trobat l'efemèride"
+
+#: pnadminapi.php:146
+msgid "Error! Could not save your changes."
+msgstr "No s'han pogut desar els canvis."
+
+#: pnadminapi.php:170 pntemplates/ephemerids_admin_view.htm:3
+msgid "Ephemerids list"
+msgstr "Llista d'efemèrides"
+
+#: pnadminapi.php:173 pntemplates/ephemerids_admin_new.htm:3
+msgid "Create new ephemerid"
+msgstr "Crea una efemèride nova"
+
+#: pnadminapi.php:176 pntemplates/ephemerids_admin_modifyconfig.htm:4
+#: pntemplates/ephemerids_admin_modifyconfig.htm:5
+msgid "Settings"
+msgstr "Modifica la configuració"
+
+#: pntemplates/ephemerids_admin_modifyconfig.htm:10
+msgid "General settings"
+msgstr "Paràmetres generals"
+
+#: pntemplates/ephemerids_admin_modifyconfig.htm:12
+msgid "Items per page in admin panel list view"
+msgstr "Ítems per pàgina en el panell d'administració"
+
+#: pntemplates/ephemerids_admin_modifyconfig.htm:18
+#: pntemplates/ephemerids_admin_modify.htm:32
+#: pntemplates/ephemerids_admin_new.htm:31
+msgid "Save"
+msgstr "Tramet"
+
+#: pntemplates/ephemerids_admin_modifyconfig.htm:19
+#: pntemplates/ephemerids_admin_modify.htm:33
+#: pntemplates/ephemerids_admin_new.htm:32
+#: pntemplates/ephemerids_admin_delete.htm:17
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: pntemplates/ephemerids_admin_modify.htm:3
+msgid "Edit ephemerid"
+msgstr "Edita l'efemèride"
+
+#: pntemplates/ephemerids_admin_modify.htm:14
+#: pntemplates/ephemerids_admin_new.htm:13
+#: pntemplates/ephemerids_admin_view.htm:10
+msgid "Date"
+msgstr "Data"
+
+#: pntemplates/ephemerids_admin_modify.htm:16
+#: pntemplates/ephemerids_admin_new.htm:15
+msgid ""
+"The year can't be lower than the unix epoch one (1970) or will be reseted to "
+"1970 for formatting purposes."
+msgstr ""
+"L'any no pot ser menor que la primera època d'unix (1970) o serà reiniciat a "
+"1970 per motius de format."
+
+#: pntemplates/ephemerids_admin_modify.htm:21
+#: pntemplates/ephemerids_admin_new.htm:20
+msgid "Language"
+msgstr "Idioma"
+
+#: pntemplates/ephemerids_admin_modify.htm:26
+#: pntemplates/ephemerids_admin_new.htm:25
+#: pntemplates/ephemerids_admin_view.htm:11
+msgid "Content"
+msgstr "Contingut"
+
+#: pntemplates/ephemerids_admin_new.htm:11
+msgid "New ephemerid"
+msgstr "Efemèride nova"
+
+#: pntemplates/ephemerids_admin_view.htm:12
+msgid "Internal ID"
+msgstr "ID interna"
+
+#: pntemplates/ephemerids_admin_view.htm:13
+msgid "Actions"
+msgstr "Accions"
+
+#: pntemplates/ephemerids_admin_view.htm:30
+msgid "No items found."
+msgstr "No s'ha trobat cap element"
+
+#: pntemplates/ephemerids_admin_delete.htm:3
+msgid "Delete ephemerid"
+msgstr "Esborra l'efemèride"
+
+#: pntemplates/ephemerids_admin_delete.htm:7
+msgid "Do you really want to delete this ephemerid?"
+msgstr "Esteu segur/a de que voleu esborrar aquesta efemèride?"

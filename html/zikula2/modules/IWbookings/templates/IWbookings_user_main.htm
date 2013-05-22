@@ -1,0 +1,30 @@
+{include file="IWbookings_user_menu.htm"}
+<div class="z-admincontainer">
+    <h2>{gt text="Rooms and equipment to book"}</h2>
+    {if $hi_ha_espais}
+    <table class="z-admintable">
+        <thead>
+            <tr style="text-align: center">
+                <th >{gt text="To book"}</th>
+                <th>{gt text="Description"}</th>
+                <th>{gt text="Access"}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {section name=espais loop=$espais}
+            <tr height="25" >
+                <td width="30%" align="center" bgcolor="{$espais[espais].color}">{$espais[espais].nom_espai}</td>
+                <td width="55%" align="center" bgcolor="{$espais[espais].color}">{$espais[espais].descriu}</td>
+                <td width="15%" align="center" bgcolor="{$espais[espais].color}">
+                    <a href="{modurl modname='IWbookings' type='user' func='assigna' sid=$espais[espais].sid mensual=$mensual}">{$action}</a>
+                </td>
+            </tr>
+            {/section}
+        </tbody>
+    </table>
+    {else}
+    <div style="margin: 20px;">
+        {gt text="There are no rooms or equipment to book"}
+    </div>
+    {/if}    
+</div>

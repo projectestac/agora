@@ -1,0 +1,90 @@
+{include file="IWusers_user_menu.htm"}
+<h2>{gt text="User configurable values"}</h2>
+<form  class="z-form" enctype="multipart/form-data" method="post" name="conf" id="conf" action="{modurl modname='IWusers' type='user' func='updateprofile'}">
+    <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+    <div>
+        {if $usersCanManageName}
+        <fieldset>
+            <legend>{gt text="Change your real name"}</legend>
+            <div class="z-formrow">
+                <label for="userName">{gt text="Name"}</label>
+                <input id="username" type="text" name="userName" value="{$userName}" />
+            </div>
+            <div class="z-formrow">
+                <label for="userSurname1">{gt text="1st surname"}</label>
+                <input id="userSurname1" type="text" name="userSurname1" value="{$userSurname1}" />
+            </div>
+            <div class="z-formrow">
+                <label for="userSurname2">{gt text="2nd surname"}</label>
+                <input id="userSurname2" type="text" name="userSurname2" value="{$userSurname2}" />
+            </div>
+        </fieldset>
+        {/if}
+        {if $allowUserSetTheirSex}
+        <fieldset>
+            <legend>{gt text="Your sex"}</legend>
+            <div class="z-formrow">
+                <label for="sex">{gt text="Sex"}</label>
+                <select id="sex" name="sex">
+                    <option value="0">{gt text="Choose an option..."}</option>
+                    <option {if $sex eq 'M'}selected="selected"{/if} value="M">{gt text="Mail"}</option>
+                    <option {if $sex eq 'F'}selected="selected"{/if} value="F">{gt text="Femail"}</option>
+                </select>
+            </div>
+        </fieldset>
+        {/if}
+        {if $canChangeAvatar}
+        <fieldset>
+            <legend>{gt text="Avatar replacement"}</legend>
+            <div style="float:left;">
+                {if $photo neq ''}
+                <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$photo}" alt="" />
+                <div>
+                    <input type="checkbox" name="deleteAvatar" value="1" />{gt text="Delete"}
+                </div>
+                {else}
+                {img modname='IWusers' src='noImage.png'}
+                {/if}
+            </div>
+            <div style="float:left; padding-left: 20px;">
+                {if !$avatarChangeValidationNeeded || $photo_s eq ''}
+                {if $photo eq ''}
+                {gt text="Upload your avatar"}
+                {else}
+                {gt text="If you want, you can change your avatar from here:"}
+                {/if}
+                {if $avatarChangeValidationNeeded eq 1}
+                <br />
+                {gt text="(The avatar change required administrator validation)"}
+                {/if}
+                <div style="margin-top: 20px;">
+                    <input type="file" name="avatar" size="50">
+                </div>
+                <div style="margin-top: 20px;" class="z-informationmsg">
+                    {gt text="Your avatar's image sizes must be 90x120 px aproximately with one of the next formats: jpg, gif or png."}
+                </div>
+                {else}
+                <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$photo_s}" alt="" />
+                <div>
+                    {gt text="Your avatar changement request is waiting for an administrator validation."}
+                </div>
+                {/if}
+            </div>
+        </fieldset>
+        {/if}
+        {if $allowUserDescribeTheirSelves}
+        <fieldset>
+            <legend>{gt text="Describe yourself"}</legend>
+            <div class="z-formrow">
+                <label for="description">{gt text="Your description"}</label>
+                <textarea id="description" name="description" rows="7" cols="70">{$description}</textarea>
+            </div>
+        </fieldset>
+        {/if}
+    </div>
+    <div class="z-center z-buttons">
+        <a onclick="javascript: forms['conf'].submit();">
+            {img modname='core' src='button_ok.png' set='icons/small' __alt="OK" __title="OK"} {gt text="OK"}
+        </a>
+    </div>
+</form>

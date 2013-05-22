@@ -1,0 +1,41 @@
+<!-- ********************** Calendari ******************************* -->
+{if empty($showontop)}
+<link rel="stylesheet" href="modules/IWmain/js/calendar/css/jscal2.css" type="text/css" />
+<link rel="stylesheet" href="modules/IWmain/js/calendar/css/border-radius.css" type="text/css" />
+<link rel="stylesheet" href="modules/IWmain/js/calendar/css/style.css" type="text/css" />
+<script type="text/javascript" src="modules/IWmain/js/calendar/jscal2.js"></script>
+<script type="text/javascript" src="modules/IWmain/js/calendar/lang/ca.js"></script>
+{/if}
+
+<form id = "picDate" enctype="multipart/form-data" method="post" action= "{modurl modname='IWbookings' type='user' func='assigna' sid = $sid}">
+    <input type="hidden" name="sid" id="sid" value="{$sid}" />
+    <table width="99%" >
+        <tr>
+            <td align ="center">
+                <a href="{modurl modname='IWbookings' type='user' func='assigna' sid = $sid mensual= $mensual d= $prevWeek}">
+                    {img modname='core' src='1leftarrow.png' set='icons/small' style="cursor:pointer;"  __alt="Previous week" __title="Previous week"}
+                </a>
+                {gt text ='Period from ' }<b>{$start}</b>{gt text =' to '}<b>{$end}</b>
+                <a href="{modurl modname='IWbookings' type='user' func='assigna' sid = $sid mensual= $mensual d= $nextWeek}">
+                    {img modname='core' src='1rightarrow.png' set='icons/small' style="cursor:pointer;"   __alt="Next week" __title="Next week"}
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td align ="left" style="color:#0066FF; border:1px ;font-weight: bold;">
+                {gt text ='Select a week'}
+                <input type="hidden" id="date" name="date" />
+                <img id="newWeekDate_btn" src="modules/IWmain/images/calendar.gif" style="cursor:pointer;" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+<script type="text/javascript">   
+    var newWeek = Calendar.setup({
+        onSelect       :    function(newWeek) { newWeek.hide() },
+        onSelect       :    function() {document.forms['picDate'].submit()}
+    });
+    newWeek.manageFields("newWeekDate_btn", "date", "%Y-%m-%d");
+</script>
+<!-- ********************** Fi Calendari ******************************* -->

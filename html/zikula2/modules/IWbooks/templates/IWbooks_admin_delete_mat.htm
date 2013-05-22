@@ -1,0 +1,31 @@
+{include file="IWbooks_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">
+        {img modname='core' src='easymoblog.png' set='icons/large'}
+    </div>
+    <h2>{gt text="Delete selected subject"}</h2>
+    <div>
+        <form id="IWbook"  class="z-form" action="{modurl modname='IWbooks' type='admin' func='delete_mat'}" method="post" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+            <input type="hidden" name="tid" value="{$item.tid}" />
+            <input type="hidden" name="confirmation" value="1" />
+            <div>
+                {gt text="Do you really want to delete?"}: {$item.materia}
+            </div>
+            <div class="z-center">
+                <span class="z-buttons">
+                    <a href="javascript:document.forms['IWbook'].submit();">
+                        {img modname='core' src='button_ok.png' set='icons/small' __alt="Delete" __title="Delete"}
+                        {gt text="Delete"}
+                    </a>
+                </span>
+                <span class="z-buttons">
+                    <a href="{modurl modname=IWbooks type=admin func=view_mat itemsperpage=10}">
+                        {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
+                        {gt text="Cancel"}
+                    </a>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+/* style.css */
+.pn-noteinfo {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+
+input:focus, textarea:focus, select:focus{
+	background-color: lightyellow;
+}
+
+div#iwqv_actionlinks {
+    float:right;
+}
+p.iwqv_meta {
+   font-size: smaller;
+}
+
+
+.iwqv_help{
+	font-size: 9px;
+}
+
+table.pn-datatable tbody tr td.center{
+	text-align: center;
+}
+table.pn-datatable tbody tr td.iwqv-row{
+	vertical-align: top;
+}
+
+.mandatory-field{
+	border: solid 1px red;
+}
