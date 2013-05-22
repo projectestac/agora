@@ -16,7 +16,7 @@ class IWtimeframes_Version extends Zikula_AbstractVersion
         $meta['description'] = $this->__("Allows to set timetables frames.");
         $meta['url'] = $this->__("IWtimeframes");
         $meta['version'] = '3.0.0';
-        $meta['securityschema'] = array('IWmyrole::' => '::');
+        $meta['securityschema'] = array('IWtimeframes::' => '::');
         /*
         $meta['dependencies'] = array(array('modname' => 'IWmain',
                                             'minversion' => '3.0.0',

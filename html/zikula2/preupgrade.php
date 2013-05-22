@@ -62,7 +62,6 @@ foreach ($tables as $table) {
 //******* esborrar mòduls de la taula modules
 $modulesToDelete = array('iw_groups',
     'iw_chat',
-    'iw_timeFrames',
     'iw_moodle',
     'Referers',
     'Stats',
@@ -159,11 +158,14 @@ if (existsField($dbname, $prefix . '_blocks', 'pn_bkey', $f, $con)) {
     $commands[] = "UPDATE blocks SET pn_filter = 'a:0:{}'";
 }
 
+/*
 if (existsField($dbname, $prefix . '_blocks', 'pn_name', $f, $con)) {
     foreach ($modulesToDelete as $module) {
         $commands[] = "DELETE FROM modules WHERE pn_name='" . $module . "'";
     }
 }
+ * 
+ */
 
 // modifiquem el mòdul Modules per Extensions en el menú horitzontal
 if (existsTable($dbname, $prefix . '_IWmenu', $f, $con)) {
@@ -226,6 +228,13 @@ if (existsField($dbname, 'module_vars', 'pn_modname', $f, $con)) {
             $preupgradeError = true;
         }
     }
+}
+
+// replace timeFrames for timeframes
+$sql = "UPDATE modules set pn_name='IWtimeframes', pn_directory='IWtimframes', pn_url='IWtimframes', pn_securityschema='a:1:{s:14:\"IWtimeframes::\";s:2:\"::\";' WHERE pn_name='IWtimeFrames';";
+if (!$result = mysql_query($sql, $con)) {
+    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+    $preupgradeError = true;
 }
 
 // activate the module IWdocmanager
