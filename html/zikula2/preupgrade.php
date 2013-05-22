@@ -153,23 +153,23 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
 }
 
 // delete IWmain_Block_IwNotice bloc if exists
-if (existsField($dbname, 'blocks', 'pn_bkey', $f, $con)) {
+if (existsField($dbname, $prefix . '_blocks', 'pn_bkey', $f, $con)) {
     $commands[] = "DELETE FROM blocks WHERE pn_bkey='IwNotice'";
     $commands[] = "UPDATE blocks SET pn_bkey = 'IWnews' WHERE pn_bkey = 'iwnews'";
     $commands[] = "UPDATE blocks SET pn_filter = 'a:0:{}'";
 }
 
-if (existsField($dbname, 'blocks', 'pn_name', $f, $con)) {
+if (existsField($dbname, $prefix . '_blocks', 'pn_name', $f, $con)) {
     foreach ($modulesToDelete as $module) {
         $commands[] = "DELETE FROM modules WHERE pn_name='" . $module . "'";
     }
 }
 
 // modifiquem el mòdul Modules per Extensions en el menú horitzontal
-if (existsTable($dbname, 'IWmenu', $f, $con)) {
+if (existsTable($dbname, $prefix . '_IWmenu', $f, $con)) {
     $commands[] = 'UPDATE IWmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
 }
-if (existsTable($dbname, 'IWvhmenu', $f, $con)) {
+if (existsTable($dbname, $prefix . '_IWvhmenu', $f, $con)) {
     $commands[] = 'UPDATE IWvhmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
 }
 
