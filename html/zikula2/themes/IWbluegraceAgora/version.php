@@ -10,7 +10,7 @@
  * @package PostNuke_Themes
  * @subpackage iw_xtec
  */
-$themeversion['name'] = __('IWbluegrace_agora');
+$themeversion['name'] = __('IWbluegraceAgora');
 $themeversion['displayname'] = __('Intraweb Bluegrace Àgora');
 $themeversion['description'] = __('Theme developed by the Intraweb project staff for the Agora-intranet service');
 $themeversion['regid'] = 0;

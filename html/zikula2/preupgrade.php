@@ -158,6 +158,10 @@ if (existsField($dbname, $prefix . '_blocks', 'pn_bkey', $f, $con)) {
     $commands[] = "UPDATE blocks SET pn_filter = 'a:0:{}'";
 }
 
+// rename theme name from IWbluegrace_agora to IWbluegraceAgora
+$commands[] = "UPDATE module_vars SET pn_value='s:16:\"IWbluegraceAgora\";' WHERE pn_value LIKE '%IWbluegrace_agora%';";
+$commands[] = "UPDATE themes SET pn_name = 'IWbluegraceAgora', pn_directory = 'IWbluegraceAgora' WHERE pn_name='IWbluegrace_agora';";
+
 /*
 if (existsField($dbname, $prefix . '_blocks', 'pn_name', $f, $con)) {
     foreach ($modulesToDelete as $module) {
@@ -168,10 +172,10 @@ if (existsField($dbname, $prefix . '_blocks', 'pn_name', $f, $con)) {
  */
 
 // modifiquem el mòdul Modules per Extensions en el menú horitzontal
-if (existsTable($dbname, $prefix . '_IWmenu', $f, $con)) {
+if (existsTable($dbname, $prefix . '_iw_menu', $f, $con)) {
     $commands[] = 'UPDATE IWmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
 }
-if (existsTable($dbname, $prefix . '_IWvhmenu', $f, $con)) {
+if (existsTable($dbname, $prefix . '_iw_vhmenu', $f, $con)) {
     $commands[] = 'UPDATE IWvhmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
 }
 
