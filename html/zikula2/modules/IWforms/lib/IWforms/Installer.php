@@ -151,10 +151,6 @@ class IWforms_Installer extends Zikula_AbstractInstaller {
         // serialize bloc Formslist content
         $where = "bkey='Formslist'";
         $items = DBUtil::selectObjectArray('blocks', $where, '', '-1', '-1');
-        if (!$items) {
-            return false;
-        }
-
         foreach ($items as $item) {
             $valuesArray = explode('---', $item['url']);
             $categories = $valuesArray[0];
