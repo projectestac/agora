@@ -15,6 +15,7 @@ MOODLE2
 
 ZIKULA
 - Fixed iwcron.php not calling properly some maintenance functions
+- Fixed potential security issue reported by CESICAT
 
 
 Changes 13.05.13

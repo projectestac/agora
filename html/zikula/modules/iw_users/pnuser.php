@@ -76,6 +76,13 @@ function iw_users_user_members($args)
 {
 	$dom=ZLanguage::getModuleDomain('iw_users');
 	$gid = FormUtil::getPassedValue('gid', isset($args['gid']) ? $args['gid'] : null, 'GET');
+    $uid = pnUserGetVar('uid');
+
+    // Anonymous access not allowed
+    if ($gid === null || $uid === null) {
+        return LogUtil::registerError(__('Sorry! No authorization to access this module.', $dom), 403);
+    }
+    
 	// Security check
 	if (!SecurityUtil::checkPermission('iw_users::', "::", ACCESS_READ)) {
 		return LogUtil::registerError(__('Sorry! No authorization to access this module.', $dom), 403);
@@ -84,7 +91,7 @@ function iw_users_user_members($args)
 	$sv = pnModFunc('iw_main', 'user', 'genSecurityValue');
 	$isMember = pnModFunc('iw_main', 'user', 'isMember', array('sv' => $sv,
 																'gid' => $gid,
-																'uid' => pnUserGetVar('uid')));
+																'uid' => $uid));
 	// Security check
 	if (!SecurityUtil::checkPermission('iw_users::', "::", ACCESS_COMMENT) && $isMember != 1 && $gid > 0) {
 		return LogUtil::registerError(__('Sorry! No authorization to access this module.', $dom), 403);
