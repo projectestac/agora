@@ -1,0 +1,1058 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula component\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-09 03:55-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/plugins/function.profileuserlinks.php:75
+#: templates/plugins/function.profileuserlinks.php:112
+#: templates/plugins/function.profileuserlinks.php:147
+msgid "User account panel"
+msgstr ""
+
+#: templates/plugins/function.profileuserlinks.php:78
+#: lib/Profile/Api/Account.php:60 templates/profile_user_members_view.tpl:1
+msgid "Registered users list"
+msgstr ""
+
+#: templates/plugins/function.profileuserlinks.php:81
+#: templates/profile_user_members_recent.tpl:1
+#, php-format
+msgid "Last %s registered users"
+msgstr ""
+
+#: templates/plugins/function.profileuserlinks.php:84
+#: templates/profile_user_members_online.tpl:1
+msgid "Users currently on-line"
+msgstr ""
+
+#: templates/plugins/function.profileuserlinks.php:116
+#: templates/profile_user_modify.tpl:1
+msgid "Edit personal info"
+msgstr ""
+
+#: templates/plugins/function.profileuserlinks.php:120
+msgid "View personal info"
+msgstr ""
+
+#: templates/plugins/function.profileuserlinks.php:127
+#: templates/profile_user_members_view.tpl:76
+#: templates/profile_user_members_online.tpl:21
+#: templates/profile_block_membersonline.tpl:10
+#: templates/profile_user_members_recent.tpl:41
+msgid "Send private message"
+msgstr ""
+
+#: templates/plugins/function.profileuserlinks.php:149
+#, php-format
+msgid "Show %s's contacts"
+msgstr ""
+
+#: templates/plugins/function.profileuserlinks.php:151
+msgid "Edit contact"
+msgstr ""
+
+#: templates/plugins/function.profileuserlinks.php:153
+msgid "Add as contact"
+msgstr ""
+
+#: templates/plugins/function.profilesection.php:35
+#: templates/plugins/function.profilesection.php:41
+#, php-format
+msgid "Error! in %1$s: the %2$s parameter must be specified."
+msgstr ""
+
+#: templates/plugins/function.duditemmodify.php:149
+msgid "Go to the Avatar manager"
+msgstr ""
+
+#. ! This is from the core domain (datelong)
+#: templates/plugins/function.duditemmodify.php:242
+msgid "%A, %B %d, %Y"
+msgstr ""
+
+#. ! This is from the core domain (datebrief)
+#: templates/plugins/function.duditemmodify.php:246
+#: templates/plugins/function.duditemmodify.php:274
+#: templates/plugins/function.duditemdisplay.php:186
+#: lib/Profile/Api/Dud.php:322
+msgid "%b %d, %Y"
+msgstr ""
+
+#. ! This is from the core domain (datestring)
+#: templates/plugins/function.duditemmodify.php:250
+msgid "%A, %B %d @ %H:%M:%S"
+msgstr ""
+
+#. ! This is from the core domain (datestring2)
+#: templates/plugins/function.duditemmodify.php:254
+msgid "%A, %B %d"
+msgstr ""
+
+#. ! This is from the core domain (datetimebrief)
+#: templates/plugins/function.duditemmodify.php:258
+msgid "%b %d, %Y - %I:%M %p"
+msgstr ""
+
+#. ! This is from the core domain (datetimelong)
+#: templates/plugins/function.duditemmodify.php:262
+msgid "%A, %B %d, %Y - %I:%M %p"
+msgstr ""
+
+#. ! This is from the core domain (timebrief)
+#: templates/plugins/function.duditemmodify.php:266
+msgid "%I:%M %p"
+msgstr ""
+
+#. ! This is from the core domain (timelong)
+#: templates/plugins/function.duditemmodify.php:270
+msgid "%T %p"
+msgstr ""
+
+#. ! string to describe the user's site
+#: templates/plugins/function.duditemdisplay.php:210
+#, php-format
+msgid "%s's site"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:75 lib/Profile/Controller/Admin.php:108
+#: lib/Profile/Controller/Admin.php:113 lib/Profile/Controller/Admin.php:117
+msgid "Required"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:85 templates/profile_admin_view.tpl:53
+msgid "Deactivate"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:94 templates/profile_admin_view.tpl:54
+msgid "Activate"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:100
+msgid "Not editable field"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:104
+msgid "Third-party (not editable)"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:108 lib/Profile/Controller/Admin.php:117
+msgid "Third-party"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:113
+msgid "Normal"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:127
+#: templates/profile_user_members_view.tpl:89
+#: templates/profile_user_members_recent.tpl:54
+msgid "Edit"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:133
+msgid "Up"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:140
+msgid "Down"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:147
+#: templates/profile_user_members_view.tpl:91
+#: templates/profile_user_members_recent.tpl:56
+#: templates/profile_admin_delete.tpl:16
+msgid "Delete"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:185 lib/Profile/Controller/Admin.php:344
+msgid "Text box"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:186 lib/Profile/Controller/Admin.php:345
+msgid "Text area"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:187 lib/Profile/Controller/Admin.php:346
+msgid "Checkbox"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:188 lib/Profile/Controller/Admin.php:347
+msgid "Radio button"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:189 lib/Profile/Controller/Admin.php:348
+msgid "Dropdown list"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:190 lib/Profile/Controller/Admin.php:349
+msgid "Date"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:191 lib/Profile/Controller/Admin.php:350
+msgid "Multiple checkbox set"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:195 lib/Profile/Controller/Admin.php:354
+#: templates/profile_admin_modifyconfig.tpl:40
+#: templates/profile_admin_modifyconfig.tpl:45
+msgid "No"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:196 lib/Profile/Controller/Admin.php:355
+#: templates/profile_admin_modifyconfig.tpl:38
+#: templates/profile_admin_modifyconfig.tpl:43
+msgid "Yes"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:200 lib/Profile/Controller/Admin.php:359
+msgid "Everyone"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:201 lib/Profile/Controller/Admin.php:360
+msgid "Registered users only"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:202 lib/Profile/Controller/Admin.php:361
+msgid "Admins and account owner only"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:203 lib/Profile/Controller/Admin.php:362
+msgid "Admins only"
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:254
+msgid ""
+"Error! The personal info item must have a label. An example of a recommended "
+"label is: '_MYDUDLABEL'."
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:258
+msgid ""
+"Error! The personal info item must have an attribute name. An example of an "
+"acceptable name is: 'mydudfield'."
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:262
+msgid "Error! There is already an personal info item label with this naming."
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:266
+msgid "Error! There is already an attribute name with this naming."
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:272
+msgid ""
+"Warning! The personal info item label has been accepted, but was filtered "
+"and altered to ensure it contains no special characters or spaces in its "
+"naming."
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:290
+msgid "Done! Created new personal info item."
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:326 lib/Profile/Controller/Admin.php:458
+#: lib/Profile/Controller/Admin.php:510 lib/Profile/Controller/Admin.php:544
+#: lib/Profile/Api/Admin.php:125 lib/Profile/Api/Admin.php:239
+#: lib/Profile/Api/Admin.php:334
+msgid "Error! No such personal info item found."
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:422 lib/Profile/Controller/Admin.php:523
+#: lib/Profile/Controller/Admin.php:561 lib/Profile/Controller/Admin.php:586
+#: lib/Profile/Controller/Admin.php:617
+msgid "Done! Saved your changes."
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:488
+msgid "Done! Deleted the personal info item."
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:553
+msgid "Error! You cannot decrease the weight of this account property."
+msgstr ""
+
+#: lib/Profile/Controller/Admin.php:703
+msgid "Done! Saved your settings changes."
+msgstr ""
+
+#: lib/Profile/Controller/Ajax.php:33 lib/Profile/Controller/Ajax.php:83
+#: lib/Profile/Controller/Ajax.php:125
+msgid "Sorry! You do not have authorisation for this module."
+msgstr ""
+
+#: lib/Profile/Controller/Ajax.php:37
+msgid ""
+"Invalid authorisation key ('authkey'). This is probably either because you "
+"pressed the 'Back' button to return to a page which does not allow that, or "
+"else because the page's authorisation key expired due to prolonged "
+"inactivity. Please refresh the page and try again."
+msgstr ""
+
+#: lib/Profile/Controller/Ajax.php:44 lib/Profile/Api/Dud.php:64
+#, php-format
+msgid "Error! Invalid '%s' passed."
+msgstr ""
+
+#: lib/Profile/Controller/Ajax.php:64 lib/Profile/Controller/Ajax.php:103
+#: lib/Profile/Api/Admin.php:207
+msgid "Error! Could not save your changes."
+msgstr ""
+
+#: lib/Profile/Controller/Ajax.php:143
+msgid "Error! Could not load the section."
+msgstr ""
+
+#: lib/Profile/Controller/Form.php:38 lib/Profile/Controller/Form.php:81
+#: lib/Profile/Controller/Form.php:128
+msgid "Error! You cannot access form functions directly."
+msgstr ""
+
+#: lib/Profile/Controller/User.php:67 lib/Profile/Controller/User.php:74
+msgid "Error! Could not find this user."
+msgstr ""
+
+#: lib/Profile/Controller/User.php:112
+#, php-format
+msgid "Error! Could not find profile page [%s]."
+msgstr ""
+
+#: lib/Profile/Controller/User.php:143
+msgid "Error! Could not load personal info items."
+msgstr ""
+
+#: lib/Profile/Controller/User.php:195
+#, php-format
+msgid "Error! A required profile item [%s] is missing."
+msgstr ""
+
+#: lib/Profile/Controller/User.php:214
+msgid "Done! Saved your changes to your personal information."
+msgstr ""
+
+#: lib/Profile/Listener/UsersUiHandler.php:206
+#, php-format
+msgid "The '%1$s' field is required."
+msgstr ""
+
+#: lib/Profile/Listener/UsersUiHandler.php:212
+#, php-format
+msgid "There was a problem with one of the personal information fields."
+msgid_plural "There were problems with %1$d personal information fields."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/Profile/Block/Featureduser.php:41
+msgid "Featured user"
+msgstr ""
+
+#: lib/Profile/Block/Featureduser.php:42
+msgid "Show featured user"
+msgstr ""
+
+#: lib/Profile/Block/Lastxusers.php:39
+msgid "Last X registered users"
+msgstr ""
+
+#: lib/Profile/Block/Lastxusers.php:40
+msgid "Show last X registered users"
+msgstr ""
+
+#: lib/Profile/Block/Lastseen.php:39
+msgid "Recent visitors"
+msgstr ""
+
+#: lib/Profile/Block/Lastseen.php:40
+msgid "Show registered users having visited the site recently"
+msgstr ""
+
+#: lib/Profile/Block/Membersonline.php:39
+msgid "Users on-line"
+msgstr ""
+
+#: lib/Profile/Block/Membersonline.php:40
+msgid "Show which registered users are currently on-line"
+msgstr ""
+
+#: lib/Profile/Installer.php:148
+msgid "_UREALNAME"
+msgstr ""
+
+#: lib/Profile/Installer.php:158
+msgid "_UFAKEMAIL"
+msgstr ""
+
+#: lib/Profile/Installer.php:168
+msgid "_YOURHOMEPAGE"
+msgstr ""
+
+#: lib/Profile/Installer.php:178
+msgid "_TIMEZONEOFFSET"
+msgstr ""
+
+#: lib/Profile/Installer.php:188
+msgid "_YOURAVATAR"
+msgstr ""
+
+#: lib/Profile/Installer.php:198
+msgid "_YICQ"
+msgstr ""
+
+#: lib/Profile/Installer.php:208
+msgid "_YAIM"
+msgstr ""
+
+#: lib/Profile/Installer.php:218
+msgid "_YYIM"
+msgstr ""
+
+#: lib/Profile/Installer.php:228
+msgid "_YMSNM"
+msgstr ""
+
+#: lib/Profile/Installer.php:238
+msgid "_YLOCATION"
+msgstr ""
+
+#: lib/Profile/Installer.php:248
+msgid "_YOCCUPATION"
+msgstr ""
+
+#: lib/Profile/Installer.php:258
+msgid "_SIGNATURE"
+msgstr ""
+
+#: lib/Profile/Installer.php:268
+msgid "_EXTRAINFO"
+msgstr ""
+
+#: lib/Profile/Installer.php:278
+msgid "_YINTERESTS"
+msgstr ""
+
+#: lib/Profile/Api/Admin.php:59 lib/Profile/Api/Admin.php:147
+#: lib/Profile/Api/Dud.php:75
+#, php-format
+msgid "Error! There is already an personal info item with the label '%s'."
+msgstr ""
+
+#: lib/Profile/Api/Admin.php:63 lib/Profile/Api/Dud.php:79
+#, php-format
+msgid ""
+"Error! There is already an personal info item with the attribute name '%s'."
+msgstr ""
+
+#: lib/Profile/Api/Admin.php:94
+msgid "Error! Could not create new attribute."
+msgstr ""
+
+#: lib/Profile/Api/Admin.php:244
+msgid "Error! You cannot delete this personal info item."
+msgstr ""
+
+#: lib/Profile/Api/Admin.php:261 lib/Profile/Api/Admin.php:267
+#: lib/Profile/Api/Dud.php:154 lib/Profile/Api/Dud.php:160
+msgid "Error! Could not delete the personal info item."
+msgstr ""
+
+#: lib/Profile/Api/Admin.php:305
+msgid "Error! Activation failed."
+msgstr ""
+
+#: lib/Profile/Api/Admin.php:339
+msgid "Error! You cannot deactivate this personal info item."
+msgstr ""
+
+#: lib/Profile/Api/Admin.php:350 lib/Profile/Api/Admin.php:368
+msgid "Error! Could not deactivate the personal info item."
+msgstr ""
+
+#: lib/Profile/Api/Admin.php:385
+msgid "Users Module"
+msgstr ""
+
+#: lib/Profile/Api/Admin.php:391 templates/profile_admin_view.tpl:5
+msgid "Personal info items list"
+msgstr ""
+
+#: lib/Profile/Api/Admin.php:396 templates/profile_admin_new.tpl:5
+msgid "Create new personal info item"
+msgstr ""
+
+#: lib/Profile/Api/Admin.php:401 templates/profile_admin_modifyconfig.tpl:4
+msgid "User account panel settings"
+msgstr ""
+
+#: lib/Profile/Api/Admin.php:406
+msgid "Help"
+msgstr ""
+
+#: lib/Profile/Api/Dud.php:58
+#, php-format
+msgid "Error! Could not find the specified module (%s)."
+msgstr ""
+
+#: lib/Profile/Api/Dud.php:99
+msgid "Error! Could not create the new personal info item."
+msgstr ""
+
+#. ! account panel link
+#: lib/Profile/Api/Account.php:54
+msgid "Personal info"
+msgstr ""
+
+#: lib/Profile/Api/User.php:386 lib/Profile/Api/User.php:476
+#: lib/Profile/Api/User.php:519
+#, php-format
+msgid "Missing dynamic data array in call to %1$s"
+msgstr ""
+
+#: lib/Profile/Api/Memberslist.php:43 lib/Profile/Api/Memberslist.php:49
+#, php-format
+msgid "Invalid %1$s."
+msgstr ""
+
+#: lib/Profile/Api/Memberslist.php:303 lib/Profile/Api/Memberslist.php:342
+#: lib/Profile/Api/Memberslist.php:382 lib/Profile/Api/Memberslist.php:418
+#: lib/Profile/Api/Memberslist.php:462
+msgid "Error! Could not load data."
+msgstr ""
+
+#: lib/Profile/Version.php:28
+msgid "Profile"
+msgstr ""
+
+#: lib/Profile/Version.php:29
+msgid ""
+"Provides a personal account control panel for each registered user, an "
+"interface to administer the personal information items displayed within it, "
+"and a registered users list functionality. Works in close unison with the "
+"'Users' module."
+msgstr ""
+
+#: lib/Profile/Version.php:31
+msgid "profile"
+msgstr ""
+
+#: templates/profile_dudedit_textarea.tpl:4
+#: templates/profile_dudedit_radio.tpl:4 templates/profile_dudedit_date.tpl:4
+#: templates/profile_dudedit_select.tpl:6 templates/profile_dudedit_text.tpl:4
+msgid ""
+"Sorry! A required personal info item is missing. Please correct and try "
+"again."
+msgstr ""
+
+#: templates/profile_dudedit_textarea.tpl:8
+#: templates/profile_dudedit_radio.tpl:10
+#: templates/profile_dudedit_date.tpl:10
+#: templates/profile_dudedit_multicheckbox.tpl:2
+#: templates/profile_dudedit_select.tpl:10
+#: templates/profile_dudedit_text.tpl:8
+msgid "*"
+msgstr ""
+
+#: templates/profile_admin_menu.tpl:3
+msgid "Profile manager"
+msgstr ""
+
+#: templates/profile_user_modify.tpl:9
+msgid "Items marked with an asterisk ('*') are required entries."
+msgstr ""
+
+#: templates/profile_user_modify.tpl:16 templates/profile_admin_new.tpl:65
+#: templates/profile_admin_modify.tpl:67
+#: templates/profile_admin_modifyconfig.tpl:71
+msgid "Save"
+msgstr ""
+
+#: templates/profile_user_modify.tpl:17 templates/profile_admin_new.tpl:66
+#: templates/profile_admin_modify.tpl:68 templates/profile_admin_delete.tpl:17
+#: templates/profile_admin_modifyconfig.tpl:72
+msgid "Cancel"
+msgstr ""
+
+#: templates/profile_block_featureduser_modify.tpl:2
+#: templates/profile_user_members_view.tpl:45
+#: templates/profile_user_members_online.tpl:7
+#: templates/profile_user_members_recent.tpl:9
+msgid "User name"
+msgstr ""
+
+#: templates/profile_block_featureduser_modify.tpl:7
+msgid "Information to show"
+msgstr ""
+
+#: templates/profile_block_featureduser_modify.tpl:19
+msgid "Show registration date"
+msgstr ""
+
+#: templates/profile_admin_view.tpl:12
+msgid ""
+"Notice: Use drag and drop to arrange the arrange the personal info items "
+"into your desired order. The new order will be saved automatically when you "
+"drop the item into place."
+msgstr ""
+
+#: templates/profile_admin_view.tpl:15 templates/profile_admin_new.tpl:15
+#: templates/profile_admin_modify.tpl:16
+msgid "Label"
+msgstr ""
+
+#: templates/profile_admin_view.tpl:16 templates/profile_admin_new.tpl:22
+#: templates/profile_admin_modify.tpl:23
+msgid "Attribute name"
+msgstr ""
+
+#: templates/profile_admin_view.tpl:17
+msgid "Type"
+msgstr ""
+
+#: templates/profile_admin_view.tpl:18
+msgid "Status"
+msgstr ""
+
+#: templates/profile_admin_view.tpl:19
+#: templates/profile_user_members_view.tpl:56
+#: templates/profile_user_members_recent.tpl:21
+msgid "Actions"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:10
+msgid "Search"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:13
+msgid "Go search"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:19
+msgid "Search in user names"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:24
+msgid "Search in real names"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:30
+msgid "Search in site"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:37
+msgid "All"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:47
+#: templates/profile_user_members_online.tpl:8
+#: templates/profile_user_members_recent.tpl:12
+msgid "Real name"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:50
+#: templates/profile_user_members_online.tpl:10
+#: templates/profile_user_members_recent.tpl:15
+msgid "PM"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:53
+#: templates/profile_user_members_online.tpl:12
+#: templates/profile_user_members_recent.tpl:18
+msgid "Site"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:66
+#: templates/profile_user_members_recent.tpl:30
+msgid "On-line"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:68
+#: templates/profile_user_members_recent.tpl:32
+msgid "Off-line"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:97
+msgid "No users found."
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:104
+msgid "Membership statistics"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:106
+msgid "Registered:"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:107
+msgid "On-line:"
+msgstr ""
+
+#: templates/profile_user_members_view.tpl:108
+msgid "Newest user:"
+msgstr ""
+
+#: templates/profile_profile_ui_view.tpl:3
+msgid "Personal Information"
+msgstr ""
+
+#: templates/profile_block_lastxusers_modify.tpl:2
+msgid "Number of recently-registered users to display"
+msgstr ""
+
+#: templates/profile_block_featureduser.tpl:17
+#, php-format
+msgid "Registered on %s"
+msgstr ""
+
+#: templates/profile_user_members_online.tpl:32
+msgid "No registered users are currently on-line."
+msgstr ""
+
+#: templates/profile_user_main.tpl:1
+msgid "Account Panel"
+msgstr ""
+
+#: templates/profile_block_membersonline.tpl:8
+msgid "unread"
+msgstr ""
+
+#: templates/profile_block_membersonline.tpl:8
+msgid "total"
+msgstr ""
+
+#: templates/profile_block_membersonline.tpl:19
+#: templates/profile_block_membersonline.tpl:25
+#, php-format
+msgid "%s registered user"
+msgid_plural "%s registered users"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/profile_block_membersonline.tpl:20
+#: templates/profile_block_membersonline.tpl:23
+#, php-format
+msgid "%s on-line."
+msgstr ""
+
+#: templates/profile_block_membersonline.tpl:22
+#: templates/profile_block_membersonline.tpl:26
+#, php-format
+msgid "%s anonymous guest"
+msgid_plural "%s anonymous guests"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/profile_block_membersonline.tpl:27
+#, php-format
+msgid "%1$s and %2$s online."
+msgstr ""
+
+#: templates/profile_dudedit_date.tpl:14
+msgid "%Y-%m-%d"
+msgstr ""
+
+#: templates/profile_admin_help.tpl:4
+msgid "About Profile"
+msgstr ""
+
+#: templates/profile_admin_help.tpl:8
+msgid ""
+"There are some details that you may know about Profile and how it let you "
+"translate the Account Properties labels and values of your site."
+msgstr ""
+
+#: templates/profile_admin_help.tpl:9
+msgid ""
+"First of all, it's recommended to move the translation files of Profile to "
+"the /config directory to custom them there."
+msgstr ""
+
+#: templates/profile_admin_help.tpl:10
+msgid ""
+"Copy all the files of the /modules/Profile/locale directory to /config/"
+"locale. There you will customize the catalog module_profile.pot and the "
+"translations afterwards."
+msgstr ""
+
+#: templates/profile_admin_help.tpl:13
+msgid "About the property labels"
+msgstr ""
+
+#: templates/profile_admin_help.tpl:15
+msgid ""
+"It's recommended to use unique words for the labels, for that reason we use "
+"the format: _DUDLABEL and translate them for each available language in the "
+"site to a readable text."
+msgstr ""
+
+#: templates/profile_admin_help.tpl:16
+msgid ""
+"After you create a new property label (such as _MYDUDLABEL), you must add "
+"the msgid to your catalog (POT file). You will need two lines per label: "
+"<strong>msgid '_MYDUDLABEL'</strong> then one line after the <strong>msgstr "
+"''</strong> (study the default catalog content)."
+msgstr ""
+
+#: templates/profile_admin_help.tpl:17
+msgid ""
+"With the updated POT, you can syncronize the translations (.PO files) for "
+"each available language, or even create a new .PO from the catalog with a "
+"tool like poEdit."
+msgstr ""
+
+#: templates/profile_admin_help.tpl:18
+msgid ""
+"In the .PO file you will be able to translate _MYDUDLABEL to the "
+"corresponding text for each specific language, to provide a legible display "
+"string like 'My DUD Label'."
+msgstr ""
+
+#: templates/profile_admin_help.tpl:21
+msgid "About the property values"
+msgstr ""
+
+#: templates/profile_admin_help.tpl:23
+msgid ""
+"Some display types like checkboxes, radio buttons, dropdown lists and "
+"multicheckboxes, allows to define a specific set of options to show."
+msgstr ""
+
+#: templates/profile_admin_help.tpl:24
+msgid ""
+"Each option can be added in the catalog to be translated. Also, if you use a "
+"custom date format that needs translation, it can be added to the catalog "
+"too.<br />Enjoy!"
+msgstr ""
+
+#: templates/profile_profile_ui_edit.tpl:3 templates/profile_form_edit.tpl:2
+msgid "Personal information"
+msgstr ""
+
+#: templates/profile_user_members_recent.tpl:10
+msgid "Registration date"
+msgstr ""
+
+#: templates/profile_user_members_recent.tpl:62
+msgid "No recently-registered users found."
+msgstr ""
+
+#: templates/profile_user_view.tpl:7
+#, php-format
+msgid "Personal info for %s"
+msgstr ""
+
+#: templates/profile_user_view.tpl:23
+msgid "User name:"
+msgstr ""
+
+#: templates/profile_user_view.tpl:33
+msgid "Registration date:"
+msgstr ""
+
+#: templates/profile_user_view_example.tpl:3
+#, php-format
+msgid "Latest submissions of %s"
+msgstr ""
+
+#: templates/profile_admin_new.tpl:12 templates/profile_admin_modify.tpl:13
+msgid "Personal info item"
+msgstr ""
+
+#: templates/profile_admin_new.tpl:13 templates/profile_admin_modify.tpl:14
+msgid ""
+"Notice: No special characters or spaces are allowed in the personal info "
+"item's label or attribute name."
+msgstr ""
+
+#: templates/profile_admin_new.tpl:19 templates/profile_admin_modify.tpl:20
+#, php-format
+msgid ""
+"Check the <strong><a href=\"%s\">help page</a></strong> to get more "
+"information about labels and translatable stuff."
+msgstr ""
+
+#: templates/profile_admin_new.tpl:24
+msgid ""
+"Notice: The attribute name you enter cannot be changed afterwards, so you "
+"should choose it carefully."
+msgstr ""
+
+#: templates/profile_admin_new.tpl:27 templates/profile_admin_modify.tpl:27
+msgid "Make this a 'Required' item"
+msgstr ""
+
+#: templates/profile_admin_new.tpl:33 templates/profile_admin_modify.tpl:33
+msgid "Visibility"
+msgstr ""
+
+#: templates/profile_admin_new.tpl:39 templates/profile_admin_modify.tpl:40
+msgid "Type of control to display"
+msgstr ""
+
+#: templates/profile_admin_new.tpl:45 templates/profile_admin_modify.tpl:46
+msgid "Content"
+msgstr ""
+
+#: templates/profile_admin_new.tpl:48 templates/profile_admin_modify.tpl:49
+msgid ""
+"Notice: Precede output options by '@@'. Example: '@@No@@Yes', "
+"'@@Disabled@@Enabled'. The order is important. If you want to have a "
+"different label in the edit form, you can use the following format: "
+"'EditLabel@@DisplayNo@@DisplayYes'. All the values are translatable."
+msgstr ""
+
+#: templates/profile_admin_new.tpl:49 templates/profile_admin_modify.tpl:50
+msgid ""
+"Notice: Use the following format for each option: '@@label@id'. Example: "
+"'@@radio option 1@id1@@radio option 2@id2@@radio option 3@id3'. The options "
+"are translatable."
+msgstr ""
+
+#: templates/profile_admin_new.tpl:50 templates/profile_admin_modify.tpl:51
+msgid ""
+"Notice: Use the following format for each option: '@@label@id'. Example for "
+"a simple list: '@@option 1@id1@@option 2@id2@@option 3@id3'. Example for a "
+"multiple checkbox set: '1@@option 1@id1@@option 2@id2@@option 3@id3'. The "
+"options are translatable."
+msgstr ""
+
+#: templates/profile_admin_new.tpl:51 templates/profile_admin_modify.tpl:52
+msgid ""
+"Notice: You can specify the date format to use, either via Zikula core "
+"templating variables ('datelong', 'datebrief', 'datestring', 'datestring2', "
+"'datetimebrief', 'datetimelong', 'timebrief' or 'timelong'), or via a custom "
+"format such as '%b %d of %Y', possibly using PHP options (see the <a href="
+"\"http://www.php.net/manual/en/function.strftime.php\">PHP documentation</a> "
+"for more information). The format is translatable."
+msgstr ""
+
+#: templates/profile_admin_new.tpl:52 templates/profile_admin_modify.tpl:53
+msgid ""
+"Notice: Use the following format for each option: 'id,label;'. Example: 'id1,"
+"label1;id2,label2;id3,label3'. Each property should be separated with a "
+"semicolon (';'). The ID and label of each property should be separated by a "
+"comma (','). The labels are translatable."
+msgstr ""
+
+#: templates/profile_admin_new.tpl:55 templates/profile_admin_modify.tpl:57
+msgid ""
+"Notice: Entering an ID is optional. If you do not specify an ID, the option "
+"position will be used for the ID (starting from zero), instead of the user-"
+"defined ID you can enter here. You are recommended to choose an ID that is "
+"unique, and to avoid subsequently modifying it."
+msgstr ""
+
+#: templates/profile_admin_new.tpl:59 templates/profile_admin_modify.tpl:61
+msgid "Notice to display with personal info item"
+msgstr ""
+
+#: templates/profile_admin_modify.tpl:5
+msgid "Edit personal info item"
+msgstr ""
+
+#: templates/profile_admin_modify.tpl:56
+msgid ""
+"Warning! If you want to edit the ID of an option without losing associated "
+"user data in the database, its label must not be renamed simultaneously. "
+"Also, do not assign IDs and labels the same naming. You are recommended to "
+"give each option an unique ID and a unique name, and to try to avoid "
+"renaming an ID once it has been created."
+msgstr ""
+
+#: templates/profile_block_membersonline_modify.tpl:2
+msgid "Maximum number of characters to display"
+msgstr ""
+
+#: templates/sections/profile_section_news.tpl:3
+#, php-format
+msgid "Latest articles of %s"
+msgstr ""
+
+#: templates/sections/profile_section_news.tpl:8
+#: templates/sections/profile_section_ezcomments.tpl:8
+#, php-format
+msgid "On %s"
+msgstr ""
+
+#: templates/sections/profile_section_news.tpl:15
+msgid "No recent articles found."
+msgstr ""
+
+#: templates/sections/profile_section_ezcomments.tpl:3
+#, php-format
+msgid "Latest comments of %s"
+msgstr ""
+
+#: templates/sections/profile_section_ezcomments.tpl:15
+msgid "No recent commets found."
+msgstr ""
+
+#: templates/profile_admin_delete.tpl:4
+msgid "Delete personal info item"
+msgstr ""
+
+#: templates/profile_admin_delete.tpl:7
+msgid "Do you really want to delete this personal info item?"
+msgstr ""
+
+#: templates/profile_admin_delete.tpl:14
+msgid "Confirmation prompt"
+msgstr ""
+
+#: templates/profile_block_lastseen_modify.tpl:2
+msgid "Number of recent visitors to display"
+msgstr ""
+
+#: templates/profile_admin_modifyconfig.tpl:12
+msgid "Registered users list settings"
+msgstr ""
+
+#: templates/profile_admin_modifyconfig.tpl:14
+msgid "Display the user's registration date"
+msgstr ""
+
+#: templates/profile_admin_modifyconfig.tpl:22
+msgid "Users per page in 'Registered users list'"
+msgstr ""
+
+#: templates/profile_admin_modifyconfig.tpl:26
+msgid "Users per page in 'Users currently on-line' page"
+msgstr ""
+
+#: templates/profile_admin_modifyconfig.tpl:30
+msgid "Users per page in 'Recent registrations' page"
+msgstr ""
+
+#: templates/profile_admin_modifyconfig.tpl:34
+msgid "Filter unverified users from 'Registered users list'"
+msgstr ""
+
+#: templates/profile_admin_modifyconfig.tpl:51
+msgid "User registration form settings"
+msgstr ""
+
+#: templates/profile_admin_modifyconfig.tpl:52
+msgid ""
+"The personal info items that you activate below will be displayed in the "
+"user registration form if the 'Users' module is configured to display "
+"personal info items during user registration, and if the 'Profile' module is "
+"specified in the 'General settings manager' as the module to provide the "
+"site's user profile management functionality. Personal info items that are "
+"configured as 'Required' will always be displayed in the user registration "
+"form. The list below only includes properties that are not 'Required' items."
+msgstr ""
+
+#: templates/profile_admin_modifyconfig.tpl:54
+msgid "Personal info items to include in user registration form"
+msgstr ""

@@ -1,0 +1,54 @@
+{include file="IWtimeframes_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='db_remove.png' set='icons/large'}</div>
+    <h2>{gt text="Delete the timeFrame"}: {$nom_marc}</h2>
+    {if not isset($referenced) OR not $referenced}
+    {gt text="Confirm the deletion of the timeFrame."}
+    <form name="delete" method="post" id="delete" action="{modurl modname='IWtimeframes' type='admin' func='delete'}">
+        <input type="hidden" name="mdid" value="{$mdid}" />
+        <input type="hidden" name="m" value="noref" />
+        <input type="hidden" name="confirmacio" value="true" />
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <div class="z-center">
+            <span class="z-buttons">
+                <a href="javascript:document.forms['delete'].submit();">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Confirm the deletion of the timeframe" __title="Confirm the deletion of the timeframe"} {gt text="Confirm"}
+                </a>
+            </span>
+            <span class="z-buttons">
+                <a href="{modurl modname='IWtimeframes' type='admin' func='main'}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Suspended the file" __title="Suspended the file"} {gt text="Cancel"}
+                </a>
+            </span>
+        </div>
+    </form>
+    {else}
+    <form name="delete" method="post" id="delete" action="{modurl modname='IWtimeframes' type='admin' func='delete'}">
+        <input type="hidden" name="mdid" value="{$mdid}" />
+        <input type="hidden" name="m" value="all" />
+        <input type="hidden" name="r" value="{$referenced}" />
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <div class="z-errormsg">
+        {gt text="Note: there are areas of reserves that refer to this timeFrame."}
+        </div>
+        <div class="z-center">
+            <span class="z-buttons">
+                <a href="{modurl modname='IWtimeframes' type='admin' func='delete' mdid=$mdid m='all' r=$referenced};">
+                {img modname='core' src='button_ok.png' set='icons/small'  __alt="Erase frame and associated bookings" __title="Erase frame and associated bookings"}{gt text="Delete all: time frame and all bookings"}
+                </a>
+            </span>
+            <span class="z-buttons">
+            <a href="{modurl modname='IWtimeframes' type='admin' func='delete' mdid=$mdid m='keep' r=$referenced}">
+                {img modname='core' src='cal.png' set='icons/small'   __alt="Conserve the reserves" __title="Conserve the reserves"} {gt text="Conserve reserves"}
+            </a>
+            </span>
+            <span class="z-buttons">
+            <a href="{modurl modname='IWtimeframes' type='admin' func='main'}">
+                {img modname='core' src='button_cancel.png' set='icons/small' __alt="Suspended the file" __title="Suspended the file"} {gt text="Cancel"}
+            </a>
+            </span>
+        </div>
+    </form>
+    {/if}
+
+</div>

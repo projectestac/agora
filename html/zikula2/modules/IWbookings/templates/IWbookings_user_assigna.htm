@@ -1,0 +1,28 @@
+{$menu}
+{insert name="getstatusmsg"}
+<div>
+    {if $noTable}
+    <div class="z-form">
+        {$formulari}
+    </div>
+    <div class="z-usercalendari">
+        {$calendari}
+    </div>
+    <div class="z-datatable">
+        {$taula}
+        <br />
+    </div>
+    {else}
+    {if $showontop}
+    <div class="z-form">
+        {$formulari}
+    </div>
+    {/if}
+    <div class="z-usercalendari">
+        {$calendari}
+    </div>
+    <div class="z-datatable">
+        {$taula}
+    </div>
+    {/if}
+</div>

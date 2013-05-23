@@ -1,5 +1,3 @@
-#ErrorDocument 503 https://sites.google.com/a/xtec.cat/agora/anuncis/manteniment
-
 RewriteEngine on
 
 RewriteBase /agora/
@@ -17,6 +15,11 @@ RewriteRule ^([^.]*)/antic/(.*)$ moodle/$2?ccentre=$1 [QSA,L]
 RewriteCond %{REQUEST_URI} ([^/]*)/usu1/moodle/ [OR]
 RewriteCond %{REQUEST_URI} ([^/]*)/usu2/moodle/ 
 RewriteRule ^([^.]*)/moodle/(.*)$ moodle2/$2?ccentre=$1 [QSA,L]
+
+# for the intranets that test the new version
+RewriteCond %{REQUEST_URI} ([^/]*)/usu1/intranet/ [OR]
+RewriteCond %{REQUEST_URI} ([^/]*)/usu3/intranet/
+RewriteRule ^([^.]*)/intranet/(.*)$ zikula2/$2?ccentre=$1 [QSA,L]
 
 RewriteRule ^([^/]*)/moodle/(.*)$ moodle/$2?ccentre=$1 [QSA,L]
 RewriteRule ^([^/]*)/moodle2/(.*)$ moodle2/$2?ccentre=$1 [QSA,L]

@@ -1,0 +1,57 @@
+<script type="text/javascript" src="modules/IWqv/pnjavascript/IWqv.js"></script>
+<div id="iwqv_summaryblock" class="{if isset($isblock) AND $isblock}navcontainer{else}content{/if}">
+    {if count($teacherassignments)>0}
+    <div id="iwqv_teacherassignments" class="{if isset($isblock) AND $isblock}navcontainer{else}theme_box{/if}">
+
+
+        {if isset($isblock) AND $isblock}
+        <h4>
+            <a href="{modurl modname='IWqv' type='user' func='show_assignments_to_correct'}">
+                {gt text="Correct assignments"}
+            </a>
+        </h4>
+        {else}
+        <h2>
+            <a href="{modurl modname='IWqv' type='user' func='show_assignments_to_correct'}">
+                {gt text="Correct assignments"}
+            </a>
+        </h2>
+        {/if}
+        <ul class="navlist">
+            {section name=assign loop=$teacherassignments}
+            <li>
+                <a href="javascript:void(0);" onclick="iwqvShowAssignment({$teacherassignments[assign].qvid}, 'teacher')" >
+                    {$teacherassignments[assign].title}
+                </a>
+            </li>
+            {/section}
+        </ul>
+    </div>
+    {/if}
+    {if count($studentassignments)>0}
+    <div id="iwqv_studentassignments" class="{if isset($isblock) AND $isblock}navcontainer{else}theme_box{/if}">
+        {if isset($isblock) AND $isblock}
+        <h4>
+            <a href="{modurl modname='IWqv' type='user' func='show_assignments_to_answer'}">
+                {gt text="View assignments"}
+            </a>
+        </h4>
+        {else}
+        <h2>
+            <a href="{modurl modname='IWqv' type='user' func='show_assignments_to_answer'}">
+                {gt text="View assignments"}
+            </a>
+        </h2>
+        {/if}
+        <ul class="navlist">
+            {section name=assign loop=$studentassignments}
+            <li>
+                <a href="javascript:void(0);" onclick="iwqvShowAssignment({$studentassignments[assign].qvid}, 'student')">
+                    {$studentassignments[assign].title}
+                </a>
+            </li>
+            {/section}
+        </ul>
+    </div>
+    {/if}
+</div>

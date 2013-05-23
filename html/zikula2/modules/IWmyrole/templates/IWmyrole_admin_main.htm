@@ -1,0 +1,32 @@
+{admincategorymenu}
+<div class="z-adminbox">
+    <h1>{gt text="myRole"}</h1>
+</div>
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
+    <div style="height:10px;">&nbsp;</div>
+    <h2>{gt text="Group selection"}</h2>
+    <div style="height:15px;">&nbsp;</div>
+    <form id="changeGroup" class="z-form" enctype="application/x-www-form-urlencoded" method="post" action="{modurl modname="IWmyrole" type="admin" func="changeGroup"}">
+          <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <div class="z-formrow">
+            <label for="gid">{gt text="Choose the change role group"}:</label>
+            <select name="gid">
+                {foreach item=group from=$groups}
+                <option {if $group.id eq $roleGroup}selected{/if} value="{$group.id}">{$group.name}</option>.
+                {/foreach}
+            </select>
+        </div>
+        <div class="z-formrow">
+            <label for="groupsNotChangeable">{gt text="Groups not listed in the chooseable groups list"}:</label>
+            <div class="z-formnote">
+                {foreach item=group from=$groupsArray}
+                <div><input type="checkbox" name="groups[{$group.id}]" value="{$group.id}" {if $group.checked}checked{/if} />{$group.name}</div>
+                {/foreach}
+            </div>
+        </div>
+        <div class="z-center z-buttons">
+            <a onClick="javascript:forms['changeGroup'].submit();">{img modname='core' src='button_ok.png' set='icons/small' __alt="Modify" __title="Modify"} {gt text="Modify"}</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,80 @@
+/**
+* Style2 for the Standard template set for EZComments
+*
+* @author Mateo Tibaquira, Carsten Volmer
+* @author Alen Grakalic
+* @link   http://templatica.com/articles/comments/02.html
+*/
+
+#ezc_comments .ezcomments_wrapper,
+#ezc_comments .ezcomments_wrapper li,
+#ezc_comments .ezcomments_wrapper ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+#ezc_comments .ezcomments_wrapper li.ezc_comment {
+    font-size:13px;
+    margin:1.5em 0;
+    position:relative;
+}
+#ezc_comments .ezcomments_wrapper a {
+    color:#89c140;
+    text-decoration:none;
+}
+#ezc_comments .ezcomments_wrapper a:hover {
+    color:#555;
+}
+#ezc_comments .ezcomments_wrapper .ezc_metadata li {
+    color:#777;
+    display:inline;
+    line-height:36px;
+    margin:0;
+    font-size:13px;
+    position:static;
+}
+#ezc_comments .ezcomments_wrapper .ezc_metadata .ezc_author {
+    background:url(images/02_ico_comments.gif) no-repeat 0 50%;
+    float:left;
+    font-weight:bold;
+    padding-left:35px;
+}
+#ezc_comments .ezcomments_wrapper .ezc_metadata .ezc_options {
+    float:left;
+    padding-left:10px;
+}
+#ezc_comments .ezcomments_wrapper .ezc_metadata .ezc_avatar {
+    display:none;
+}
+#ezc_comments .ezcomments_wrapper .ezc_metadata .ezc_date {
+    color:#999;
+    float:right;
+    font-style:italic;
+    font-size:11px;
+}
+#ezc_comments .ezcomments_wrapper .ezc_body {
+    background:#fff url(images/02_bg_comments.gif) repeat-x;
+    clear:both;
+    padding:20px 20px;
+}
+
+.z-buttons .ezc-bt-clone {
+  background: url("../../images/irc_online.png") #dfdfdf 10px 50% no-repeat; /*non-CSS3 browsers*/
+  background: url("../../images/irc_online.png") 10px 50% no-repeat, -moz-linear-gradient(center top , #ffffff, #dfdfdf) repeat scroll 0 0 transparent; /*gecko*/
+  background: url("../../images/irc_online.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#dfdfdf)) repeat scroll 0 0 transparent; /*webkit*/
+  background: url("../../images/irc_online.png") 10px 50% no-repeat, linear-gradient(#ffffff, #dfdfdf); /*CSS3*/
+}
+.z-buttons .ezc-bt-clone:hover,
+.z-buttons .ezc-bt-clone.hover {
+  background: url("../../images/irc_online.png") #cfcfcf 10px 50% no-repeat; /*non-CSS3 browsers*/
+  background: url("../../images/irc_online.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #fafafa, #cfcfcf) repeat scroll 0 0 transparent; /*gecko*/
+  background: url("../../images/irc_online.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#cfcfcf)) repeat scroll 0 0 transparent; /*webkit*/
+  background: url("../../images/irc_online.png") 10px 50% no-repeat, linear-gradient(#fafafa, #cfcfcf); /*CSS3*/
+}
+.z-buttons .ezc-bt-clone:active,
+.z-buttons .ezc-bt-clone.active {
+  background: url("../../images/irc_online.png") #fafafa 10px 50% no-repeat; /*non-CSS3 browsers*/
+  background: url("../../images/irc_online.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #cfcfcf, #fafafa) repeat scroll 0 0 transparent; /*gecko*/
+  background: url("../../images/irc_online.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#cfcfcf), to(#fafafa)) repeat scroll 0 0 transparent; /*webkit*/
+  background: url("../../images/irc_online.png") 10px 50% no-repeat, linear-gradient(#cfcfcf, #fafafa); /*CSS3*/
+}

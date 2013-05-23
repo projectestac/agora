@@ -1,0 +1,95 @@
+{ajaxheader modname='IWagendas' filename='IWagendas.js'}
+{pageaddvar name='javascript' value='modules/IWmain/js/ColorPicker2.js'}
+{pageaddvar name='javascript' value='modules/IWmain/js/AnchorPosition.js'}
+{pageaddvar name='javascript' value='modules/IWmain/js/PopupWindow.js'}
+
+{include file='IWagendas_admin_menu.htm'}
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
+    <h2>{gt text='List of defined agendas'}</h2>
+
+    <table class="z-admintable">
+        <thead>
+            <tr>
+                <th>{gt text="Name"}</th>
+                <th>{gt text="Description"}</th>
+                <th>{gt text="Group"}</th>
+                <th>{gt text="In charge"}</th>
+                <th>{gt text="Features"}</th>
+                <th>{gt text="Options"}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {foreach item=agenda from=$agendas}
+            <tr class="{cycle values='z-odd,z-even'}" id="agenda_{$agenda.daid}">
+                <td align="left" valign="top">
+                    {$agenda.nom_agenda}
+                </td>
+                <td align="left" valign="top">
+                    {$agenda.descriu}
+                    <div id="agenda_{$agenda.daid}" class="z-hide z-noteinfo"></div>
+                </td>
+                <td valign="top" style="text-align:right;">
+                    {foreach item=group from=$agenda.groups}
+                    {$group.groupName}
+                    &raquo;
+                    {if $group.accessType eq 2}
+                    {gt text="Read and write"}
+                    {elseif $group.accessType eq 3}
+                    {gt text="Manage own"}
+                    {else}
+                    {gt text="Read only"}
+                    {/if}
+                    <a href="{modurl modname='IWagendas' type='admin' func='deleteGroup' id=$group.id daid=$agenda.daid}">
+                        {img modname='core' src='delete_group.png' set='icons/extrasmall'   __alt="Delete" __title="Delete"}
+                    </a>
+                    <br />
+                    {/foreach}
+                    <div class="formOptions">
+                        <a href="{modurl modname='IWagendas' type='admin' func='addGroup' daid=$agenda.daid}">
+                            {img modname='core' src='add_group.png' set='icons/extrasmall'   __alt="Add a group" __title="Add a group"}
+                        </a>
+                    </div>
+                </td>
+                <td valign="top"  style="text-align:right;">
+                    {foreach item=manager from=$agenda.managers}
+                    {$manager.userName}
+                    <a href="{modurl modname='IWagendas' type='admin' func='deleteManager' daid=$agenda.daid id=$manager.uid}">
+                        {img modname='core' src='delete_user.png' set='icons/extrasmall'   __alt="Delete" __title="Delete"}
+                    </a>
+                    <br />
+                    {/foreach}
+                    <div class="formOptions">
+                        <a href="{modurl modname='IWagendas' type='admin' func='addManager' daid=$agenda.daid}">
+                            {img modname='core' src='add_user.png' set='icons/extrasmall'   __alt="Add a manager" __title="Add a manager"}
+                        </a>
+                    </div>
+                </td>
+                <td align="left" valign="top" width="150">
+                    <div id="agendaChars_{$agenda.daid}" name="agenda_{$agenda.daid}">
+                        {include file="IWagendas_admin_mainChars.htm" agenda=$agenda}
+                    </div>
+                </td>
+                <td align="right" valign="top" width="80">
+                    <a href="{modurl modname='IWagendas' type='admin' func='edit' daid=$agenda.daid}">
+                        {img modname='core' src='edit.png' set='icons/extrasmall'   __alt="Edit" __title="Edit"}
+                    </a>
+                    <a href="{modurl modname='IWagendas' type='admin' func='delete' daid=$agenda.daid}">
+                        {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Delete" __title="Delete"}
+                    </a>
+                </td>
+                {foreachelse}
+            <tr>
+                <td colspan="10" align="left">
+                    {gt text="There are no agendas created"}
+                </td>
+            </tr>
+            {/foreach}
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    var modifyingfield = '{{gt text="...modifying..."}}';
+</script>

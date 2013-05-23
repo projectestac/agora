@@ -1,0 +1,117 @@
+.htmlarea {
+  border:1px solid #DDDDDD;
+  margin: 0;
+}
+
+.htmlarea .toolbar
+{
+  background-color: #EDEDED;
+  border: none;
+  padding: 0 0 3px 3px;
+}
+
+.htmlarea .toolbarRow
+{
+  border: none;
+  margin: 0;
+  padding: 3px 0 0 3px;
+  height: 25px;
+}
+
+.htmlarea .toolbar .button
+{
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-image: url(button.png);
+  background-position: left top;
+  background-repeat: repeat-x;
+  width: 18px;
+  height: 18px;
+  margin: 1px;
+  padding: 1px 2px;
+  border: 1px solid #B2B2B2;
+}
+
+.htmlarea .toolbar a.button:hover
+{
+  background-color: #D5D5D5;
+  background-position: 0 -10px;
+  border-color: #AAAAAA !important;
+}
+
+.htmlarea .toolbar a.buttonDisabled:hover
+{
+  border-color: #F7F8FD;
+}
+
+.htmlarea .toolbar .button.buttonActive,
+.htmlarea .toolbar .button.buttonPressed
+{
+  border: 1px solid;
+  border-color: #CCC white white #CCC;
+}
+
+.buttonImageContainer
+{
+}
+
+.htmlarea .toolbar .separator
+{
+  background: none repeat scroll 0 0 transparent;
+  border: none;
+  margin: 0 2px;
+  overflow: hidden;
+  width: 1px;
+}
+
+.htmlarea .statusBar
+{
+  border: none;
+  border-top: 1px solid #DDDDDD;
+  height: 20px;
+  background-color: #F2F2F2;
+  color: #000000;
+  font: 11px helvetica,arial,sans-serif;
+}
+
+.htmlarea .statusBar .statusBarWidgetContainer
+{
+  background-color: #EDEDED;
+}
+
+.htmlarea .statusBar .statusBarTree
+{
+  display: block;
+  margin: 2px;
+}
+
+.htmlarea .statusBar .statusBarTree a
+{
+  padding: 1px 2px;
+  color: #00f;
+  text-decoration:none;
+}
+.htmlarea .statusBar .statusBarTree a:hover
+{
+  background-color: transparent;
+  border: none;
+  color: #000000;
+  padding: 1px 2px;
+}
+
+.htmlarea .panel h1
+{
+  font-size:1.1em;
+}
+
+/* z-form overrides */
+.z-form div.z-formrow .htmlarea select {
+  padding: 0;
+}
+.z-form div.z-formrow .htmlarea textarea:focus,
+.z-form div.z-formrow .htmlarea textarea:hover,
+.z-form div.z-formrow .htmlarea textarea:active {
+    border: 1px solid #aaa;
+    background: #fff;
+}

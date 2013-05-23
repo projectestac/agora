@@ -1,0 +1,82 @@
+{include file="IWbooks_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">
+        {img modname='core' src='easymoblog.png' set='icons/large'}
+    </div>
+    <h2>{gt text="Settings"}</h2>
+    <form class="z-form" action="{modurl modname='IWbooks' type='admin' func='updateconfig'}" method="post" enctype="application/x-www-form-urlencoded">
+        <div>
+            <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+            <fieldset class="IWbooks-fieldset">
+                <legend>{gt text="Settings"}</legend>
+
+                <div class="z-formrow">
+                    <label for="IWbooks_any">{gt text="Default Academic year"}</label>
+                    <input id="IWbooks_any" type="text" name="any" size="4" value="{$any|safetext}" />
+                </div>
+                <div class="z-formrow">
+                    <label for="activitats_itemsperpage">{gt text="Items per page (screen)"}</label>
+                    <input id="IWbooks_itemsperpage" type="text" name="itemsperpage" size="3" value="{$itemsperpage|safetext}" />
+                </div>
+                {if $root_dir eq ''}
+                <p class="z-warningmsg">{gt text="It's not possible to define an image header because IWmain module is not available or root directory is not defined."}</p>
+                {else}
+                {if not $multizk}
+                <div class="z-formrow">
+                    <label for="root_dir">{gt text="Root directory defined on IWmain module"}</label>
+                    <input id="root_dir" name="root_dir" type="text" size="50" value="{$root_dir}/" disabled="true" />
+                </div>
+                {if $dir_exists == '0'}
+                <p class="z-errormsg">{gt text="Root directory don't exists"}</p>
+                {/if}
+                {/if}		
+                <div class="z-formrow">
+                    <label for="IWbooks_encap">{gt text="Name and path of the image header listings"}</label>
+                    <input id="IWbooks_encap" name="encap" type="text" size="50" value="{$encap|safetext}" />
+                </div>	
+                {if $file_exists == '0'}
+                <p class="z-errormsg">{gt text="Header image don't exists"}</p>
+                {/if}
+                {/if}
+                <div class="z-formrow">
+                    <label for="IWbooks_fpdf">{gt text="Road where the library FPDF (with / end)"}</label>
+                    <input id="IWbooks_fpdf" name="fpdf" type="text" size="50" value="{$fpdf|safetext}" />
+                </div>
+                <div class="z-formrow">
+                    <label for="IWbooks_nivells">{gt text="Highest level"}</label>
+                    <textarea id="IWbooks_nivells" name="nivells" type="text" rows="4" cols="50" style="width:auto;">{$nivells|safetext}</textarea>
+                </div>
+                <div class="z-formrow">
+                    <label for="IWbooks_plans">{gt text="Syllabuses (Code # Desc. Code | Ex.: ESO # Ed. Sec. Request. |)"}</label>
+                    <textarea id="IWbooks_plans" name="plans" type="text" rows="4" cols="50" style="width:auto;">{$plans|safetext}</textarea>
+                </div>
+            </fieldset>
+            <fieldset class="IWbooks-fieldset">
+                <legend>Presentació</legend>
+                <div class="z-formrow">
+                    <label for="IWbooks_mida_font">{gt text="Font size of the list"}</label>
+                    <input id="IWbooks_mida_font" name="mida_font" type="text" size="2" value="{$mida_font|safetext}" />
+                </div>
+                <div class="z-formrow">
+                    <label for="IWbooks_llistar_materials">{gt text="Listed materials too?"}</label>
+                    {if $llistar_materials eq 1}
+                    <input id="IWbooks_llistar_materials" name="llistar_materials" type="checkbox" value="1" checked="checked" />
+                    {else}
+                    <input id="IWbooks_llistar_materials" name="llistar_materials" type="checkbox" value="1" />
+                    {/if}
+                </div>
+                <div class="z-formrow">
+                    <label for="IWbooks_marca_aigua">{gt text="Provisional (watermark)"}</label>
+                    {if $marca_aigua eq 1}
+                    <input id="IWbooks_marca_aigua" name="marca_aigua" type="checkbox" value="1" checked="checked" />
+                    {else}
+                    <input id="IWbooks_marca_aigua" name="marca_aigua" type="checkbox" value="1" />
+                    {/if}
+                </div>
+            </fieldset>
+            <div class="z-buttons z-center">
+                <input name="submit" type="submit" value="{gt text='Update Configuration'}" />
+            </div>
+        </div>
+    </form>
+</div>

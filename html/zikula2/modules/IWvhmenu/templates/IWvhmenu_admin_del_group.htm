@@ -1,0 +1,26 @@
+{include file="IWvhmenu_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='editdelete.png' set='icons/large'}</div>
+    <form class="z-form" name="delete" id="delete" action="{modurl modname=IWvhmenu type=admin func=del_group}" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="mid" value="{$mid}" />
+        <input type="hidden" name="confirmation" value="true" />
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="groups" value="{$groups}" />
+
+        <h2>{gt text="Revoke the access to the option"}: {$group}</h2>
+        <div>
+            <div class="z-formrow">
+                {gt text="Text of the option"}: {$text}
+            </div>
+            <div class="z-formrow">
+                {gt text="Confirm the revocation of the access of the group to the option"}
+            </div>
+            <div class="z-center">
+                {button src='button_ok.png' set='icons/small' __alt="Confirm deletion?" __title="Confirm deletion?"}
+                <a href="{modurl modname=IWvhmenu type=admin func=main}">
+                    {img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"}
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

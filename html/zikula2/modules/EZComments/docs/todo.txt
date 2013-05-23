@@ -1,0 +1,13 @@
+Things left to be done:
+
+ - Finding a soultion for deleting threaded comments
+   When a comment is deleted now, its childen remain orphaned
+   (they can be seen by using a "flat" template, though)
+
+ - Make a switch in Admin Panel to allow/deny users to delete or
+   modify their own comments
+
+ - find bugs ;-)
+
+ - Additional feature requests can be submitted to the project page
+   at http://code.zikula.org/ezcomments/

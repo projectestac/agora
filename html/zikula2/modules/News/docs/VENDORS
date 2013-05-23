@@ -1,0 +1,114 @@
+This file contains a list of vendor libraries distributed with News
+-------------------------------------------------------------------
+
+PHP LIBRARIES
+-------------
+tcpdf 5.9.074
+    Vendor website: http://www.tcpdf.org/
+    Downloaded from: https://sourceforge.net/projects/tcpdf/files/
+    License: GPL v3
+    Location in News: modules/News/lib/vendor/tcpdf
+    Patch details:
+        Removed the following subdirectories
+            /cache
+            /examples
+        Removed all files from /fonts except
+            courier.php
+            helvetica.php
+            helveticab.php
+            helveticabi.php
+            helveticai.php
+            README.TXT
+            symbol.php
+            times.php
+            timesb.php
+            timesbi.php
+            timesi.php
+            zapfdingbats.php
+        Removed all files from /images except
+            _blank.png
+            alpha.png
+            tcpdf_logo.jpg
+            tcpdf_signature.png
+
+phpthumb 3.0.066
+    Vendor website: http://phpthumb.gxdlabs.com https://github.com/masterexploder/PHPThumb
+    Downloaded from: http://phpthumb.gxdlabs.com/download.php
+    License: MIT
+    Location in News: modules/News/lib/vendor/phpthumb
+    Patch details:
+        Removed /examples subdirectory
+
+
+JAVASCRIPT LIBRARIES
+--------------------
+
+Datepicker
+    Author: Jeremy Jongsma
+    Vendor Website: http://home.jongsma.org/software/js/datepicker
+    Downloaded from: http://home.jongsma.org/software/js/datepicker
+    License: Gnu Public License
+    Location in News:
+        modules/News/javascript/datepicker.js
+        modules/News/javascript/datepicker-locale.js
+        modules/News/javascript/prototype-date-extensions.js
+        modules/News/javascript/prototype-base-extensions.js
+        modules/News/style/datepicker.css
+        modules/News/images/clock.png
+        modules/News/images/calendar.png
+    Patch details: none
+    Additional info:
+        used in new/modify templates
+
+simpletree.js
+    Vendor Website: http://www.dynamicdrive.com/dynamicindex1/navigate1.htm
+    Downloaded from: http://www.dynamicdrive.com/dynamicindex1/navigate1.htm
+    License: http://www.dynamicdrive.com/notice.htm - Terms of Use
+    Location in News:
+        modules/News/javascript/simpletree.js
+        modules/News/style/news_treeview.css
+    Patch details: none
+    Additional info:
+        used in collapsing tree view in Archive
+        not using images from package
+
+Multiple image upload
+    Vendor Website: http://the-stickman.com/web-development/javascript/upload-multiple-files-with-a-single-file-element/
+    Downloaded from: http://the-stickman.com/files/multiple-file-element.zip
+    License: MIT
+    Location in News:
+        modules/News/javascript/multifile.js
+    Patch details: file has been modified
+
+Slideshow block for News messages
+    Vendor Website: http://www.queness.com/post/152/simple-jquery-image-slide-show-with-semi-transparent-caption
+    Downloaded from: http://www.queness.com/resources/archives/jquery-slideshow.zip
+    License: "The effects and techniques demonstrated in tutorials on Queness can be used in whatever manner you wish without attribution."
+    Location in News:
+        modules/News/javascript/slideshow.js
+        modules/News/style/slideshow.css
+    Patch details: Javascript file converted to prototype by E. Spaan
+
+Memory Ticker
+    Vendor Website: http://www.dynamicdrive.com/dynamicindex2/memoryticker.htm
+    Downloaded from: http://www.dynamicdrive.com/dynamicindex2/memoryticker.htm
+    License: http://www.dynamicdrive.com/notice.htm - Terms of Use
+    Location in News:
+        modules/News/javascript/storiesext_fade.js
+    Patch details: none
+
+Cross browser Marquee II
+    Vendor Website: http://www.dynamicdrive.com/dynamicindex2/cmarquee2.htm
+    Downloaded from: http://www.dynamicdrive.com/dynamicindex2/cmarquee2.htm
+    License: http://www.dynamicdrive.com/notice.htm - Terms of Use
+    Location in News:
+        modules/News/javascript/storiesext_marquee.js
+    Patch details: none
+
+Pausing up-down scroller
+    Vendor Website: http://www.dynamicdrive.com/dynamicindex2/crosstick.htm
+    Downloaded from: http://www.dynamicdrive.com/dynamicindex2/crosstick.htm
+    License: http://www.dynamicdrive.com/notice.htm - Terms of Use
+    Location in News:
+        modules/News/javascript/storiesext_pausing.js
+    Patch details: none

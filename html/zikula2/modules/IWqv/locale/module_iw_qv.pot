@@ -1,0 +1,419 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-03 11:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnblocks/qvsummary.php:20 pnversion.php:10 pnversion.php:14
+msgid "IWqv"
+msgstr ""
+
+#: pnblocks/qvsummary.php:24
+msgid "Block with the user assignment"
+msgstr ""
+
+#: pnuserapi.php:15
+msgid "@default"
+msgstr ""
+
+#: pnuserapi.php:16
+msgid "@formal"
+msgstr ""
+
+#: pnuserapi.php:17
+msgid "@infantil"
+msgstr ""
+
+#: pnuserapi.php:35
+msgid "Catalan"
+msgstr ""
+
+#: pnuserapi.php:36
+msgid "English"
+msgstr ""
+
+#: pnuserapi.php:37
+msgid "Spanish"
+msgstr ""
+
+#: pnuserapi.php:149 pnuserapi.php:188 pnuserapi.php:266
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pnuserapi.php:181 pnuserapi.php:249 pnuserapi.php:381 pnuserapi.php:447
+#: pnuserapi.php:495 pnuserapi.php:591 pnuserapi.php:652 pnuserapi.php:696
+#: pnuserapi.php:738 pnuserapi.php:780 pnuserapi.php:824 pnuser.php:319
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: pnuserapi.php:460 pnuserapi.php:507 pnuserapi.php:510 pnuserapi.php:619
+#: pnuser.php:285 pnuser.php:367
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: pnuserapi.php:465 pnuserapi.php:624 pnuser.php:286
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnuserapi.php:583 pnuserapi.php:647 pnuserapi.php:691 pnuserapi.php:733
+#: pnuserapi.php:775 pnuser.php:13 pnuser.php:64 pnuser.php:81 pnuser.php:122
+#: pnuser.php:139 pnuser.php:167 pnuser.php:226 pnuser.php:310 pnuser.php:346
+#: pnajax.php:14 pnajax.php:42 pnadmin.php:12 pnadmin.php:46 pnadmin.php:73
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnuserapi.php:657 pnuserapi.php:701 pnuserapi.php:743 pnuserapi.php:785
+msgid "No such item found."
+msgstr ""
+
+#: pnuserapi.php:664 pnuserapi.php:669 pnuserapi.php:711 pnuserapi.php:750
+#: pnuserapi.php:755 pnuserapi.php:793 pnuserapi.php:797 pnajax.php:22
+#: pnajax.php:50
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: pninit.php:26 pninit.php:87
+msgid ""
+"The modul IWmain must be installed. Install it, for install this modul."
+msgstr ""
+
+#: pnuser.php:188
+msgid "Select one..."
+msgstr ""
+
+#: pnuser.php:192 pntemplates/IWqv_user_show_teacher_assignments.htm:42
+msgid "Edit"
+msgstr ""
+
+#: pnuser.php:196
+msgid "Add"
+msgstr ""
+
+#: pnuser.php:290 pnuser.php:371 pnadmin.php:85
+msgid "Done! %1$s updated."
+msgstr ""
+
+#: pnuser.php:290 pnuser.php:291 pnajax.php:20
+msgid "QV assignment"
+msgstr ""
+
+#: pnuser.php:291
+msgid "Done! %1$s created."
+msgstr ""
+
+#: pnuser.php:371 pnajax.php:48
+msgid "User assignment"
+msgstr ""
+
+#: pntemplates/plugins/function.iwqvuserprintstate.php:13
+msgid "Corrected"
+msgstr ""
+
+#: pntemplates/plugins/function.iwqvuserprintstate.php:16
+msgid "Delivered"
+msgstr ""
+
+#: pntemplates/plugins/function.iwqvuserprintstate.php:19
+msgid "Started"
+msgstr ""
+
+#: pntemplates/plugins/function.iwqvusermenulinks.php:22
+msgid "Home page"
+msgstr ""
+
+#: pntemplates/plugins/function.iwqvusermenulinks.php:23
+#: pntemplates/IWqv_block_summary.htm:21
+msgid "View assignments"
+msgstr ""
+
+#: pntemplates/plugins/function.iwqvusermenulinks.php:27
+#: pntemplates/IWqv_block_summary.htm:6
+msgid "Correct assignments"
+msgstr ""
+
+#: pntemplates/plugins/function.iwqvusermenulinks.php:28
+msgid "Assign assessment"
+msgstr ""
+
+#: pntemplates/plugins/function.iwqvuserassignmentactionmenulinks.php:22
+msgid "preview"
+msgstr ""
+
+#: pntemplates/plugins/function.iwqvuserassignmentactionmenulinks.php:23
+msgid "correct"
+msgstr ""
+
+#: pntemplates/plugins/function.iwqvuserassignmentactionmenulinks.php:24
+msgid "edit"
+msgstr ""
+
+#: pntemplates/plugins/function.iwqvuserassignmentactionmenulinks.php:27
+msgid "delete"
+msgstr ""
+
+#: pnajax.php:20 pnajax.php:48
+msgid "Done! %1$s deleted."
+msgstr ""
+
+#: pnadmin.php:85
+msgid "settings"
+msgstr ""
+
+#: pnversion.php:12
+msgid "Allows assign assessments to users designated"
+msgstr ""
+
+#: pnversion.php:13 pntemplates/IWqv_admin_menu.htm:4
+#: pntemplates/IWqv_user_show_assignment.htm:11
+#: pntemplates/IWqv_user_menu.htm:7
+msgid "Quaderns Virtuals"
+msgstr ""
+
+#: pntemplates/IWqv_admin_menu.htm:6
+msgid "Administrator"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:12
+msgid "Title required"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:21
+msgid "Link of the assessment required"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:32
+msgid "Group/s required"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:24
+msgid "Link of the assessment: the format is not correct"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:64
+#: pntemplates/IWqv_user_show_teacher_assignments.htm:43
+msgid "Delete"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:82
+msgid "Edit the assignnment of the assessment"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:89
+msgid "Settings"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:91
+msgid "Title"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:95
+msgid "Description"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:101
+msgid "Parameters of the assessment"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:103
+msgid "Link of the assessment"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:108
+msgid "Skin"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:112
+msgid "Language"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:116
+#: pntemplates/IWqv_admin_conf.htm:18
+msgid "Maximum number of deliveries"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:120
+msgid "Show the correction"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:124
+msgid "Show the interaction"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:130
+msgid "Window/frame"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:132
+msgid "Open the assessment"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:136
+msgid "Width"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:140
+msgid "Height"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:146
+msgid "Group/s"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:148
+msgid "Selected groups"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:160
+msgid "New group"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:162
+msgid "add"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:167
+#: pntemplates/IWqv_user_user_assignment_form.htm:8
+msgid "Settings of the teacher"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:169
+#: pntemplates/IWqv_user_user_assignment_form.htm:14
+#: pntemplates/IWqv_user_show_teacher_assignments.htm:23
+msgid "Observations"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:173
+#: pntemplates/IWqv_user_show_assignments.htm:9
+#: pntemplates/IWqv_user_show_teacher_assignments.htm:6
+msgid "Active"
+msgstr ""
+
+#: pntemplates/IWqv_user_assignment_form.htm:181
+#: pntemplates/IWqv_admin_conf.htm:30
+#: pntemplates/IWqv_user_user_assignment_form.htm:22
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/IWqv_user_show_assignment.htm:15
+msgid "Start the assessment"
+msgstr ""
+
+#: pntemplates/IWqv_user_show_assignment.htm:20
+msgid "Teacher comments"
+msgstr ""
+
+#: pntemplates/IWqv_admin_conf.htm:6
+msgid "Setting parameters"
+msgstr ""
+
+#: pntemplates/IWqv_admin_conf.htm:8
+msgid "Assessment skins"
+msgstr ""
+
+#: pntemplates/IWqv_admin_conf.htm:10 pntemplates/IWqv_admin_conf.htm:15
+msgid "[separated by commas]"
+msgstr ""
+
+#: pntemplates/IWqv_admin_conf.htm:13
+msgid "Assessment languages"
+msgstr ""
+
+#: pntemplates/IWqv_admin_conf.htm:20
+msgid "[separated by commas. -1 = unlimited]"
+msgstr ""
+
+#: pntemplates/IWqv_admin_conf.htm:23
+msgid "Web adress directory dist/html"
+msgstr ""
+
+#: pntemplates/IWqv_admin_conf.htm:25
+msgid "[Web adress like http://clic.xtec.cat/qv_viewer/dist/html/]"
+msgstr ""
+
+#: pntemplates/IWqv_admin_conf.htm:33
+msgid "About this module"
+msgstr ""
+
+#: pntemplates/IWqv_user_show_assignments.htm:9
+#: pntemplates/IWqv_user_show_teacher_assignments.htm:6
+msgid "Inactive"
+msgstr ""
+
+#: pntemplates/IWqv_user_show_assignments.htm:21
+msgid "Confirm the Quadern Virtual deletion"
+msgstr ""
+
+#: pntemplates/IWqv_user_user_assignment_form.htm:10
+#: pntemplates/IWqv_user_show_teacher_assignments.htm:22
+msgid "Comments"
+msgstr ""
+
+#: pntemplates/IWqv_user_show_teacher_assignments.htm:17
+msgid "Name"
+msgstr ""
+
+#: pntemplates/IWqv_user_show_teacher_assignments.htm:18
+msgid "State"
+msgstr ""
+
+#: pntemplates/IWqv_user_show_teacher_assignments.htm:19
+msgid "Score"
+msgstr ""
+
+#: pntemplates/IWqv_user_show_teacher_assignments.htm:20
+msgid "Deliveries"
+msgstr ""
+
+#: pntemplates/IWqv_user_show_teacher_assignments.htm:21
+msgid "Time"
+msgstr ""
+
+#: pntemplates/IWqv_user_show_teacher_assignments.htm:24
+msgid "Options"
+msgstr ""
+
+#: pntemplates/IWqv_user_show_teacher_assignments.htm:52
+msgid "Observations about the assessment:"
+msgstr ""
+
+#: pnuserapi.php:70
+msgid "In a new window"
+msgstr ""
+
+#: pnuserapi.php:70
+msgid "In the same window"
+msgstr ""
+
+#: pnuserapi.php:55
+msgid "Unlimited"
+msgstr ""
+
+#: pntemplates/IWqv_user_show_teacher_assignments.htm:11
+#: pntemplates/IWqv_user_show_assignment.htm:7
+#: pntemplates/IWqv_user_show_assignment.htm:14
+msgid "Assigned for %s at %s"
+msgstr ""
+
+#: pntemplates/IWqv_assignment_form.htm:105
+msgid "You can get the adress from the <a href=\"http://clic.xtec.cat/qv_biblio/act_list.jsp?lang=en\" target=\"_blank\" title=\"Library of the assessments\" alt=\"Library of the assessments\">Library of Quaderns Virtuals</a> (for example, <i>http://clic.xtec.cat/qv_viewer/quaderns/biblioteca/clima_ca</i>) or from the <a href=\"http://clic.xtec.cat/qv_editor\" target=\"_blank\" title=\"Editor\" alt=\"Editor\">Editor of Quaderns Virtuals</a> (like <i>http://clic.edu365.cat/qv_viewer/quaderns/sarjona/planetes/</i>),  for example."
+msgstr ""
+
+#: pntemplates/plugins/function.iwqvuserformyesnoselect.php:9
+msgid "Yes"
+msgstr ""
+
+#: pntemplates/plugins/function.iwqvuserformyesnoselect.php:10
+msgid "No"
+msgstr ""

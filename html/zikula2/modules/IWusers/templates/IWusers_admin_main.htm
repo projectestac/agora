@@ -1,0 +1,127 @@
+{include file="IWusers_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
+    <h2>{gt text="List of users"}</h2>
+    <form  class="z-adminform" enctype="application/x-www-form-urlencoded" method="post" name="usersList" action="{modurl modname="IWusers" type="admin" func="main"}">
+        <input type="hidden" name="filtre" value="{$filtre}" />
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="campfiltre" value="{$campfiltre}" />
+        <input type="hidden" name="numitems" value="{$numitems}" />
+        <input type="hidden" name="inici" value="0" />
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td align="left">
+                        [
+                        {section name=leters loop=$leters}
+                        {if $filtre neq $leters[leters]}
+                        <a href="{modurl modname=IWusers type=admin func=main inici=0 filtre=$leters[leters]}">{$leters[leters]}</a> |
+                        {else}
+                        <strong><u>{$leters[leters]}</u></strong> |
+                        {/if}
+                        {/section}
+                        {if $filtre eq '' or $filtre eq '0'}
+                        <strong><u>{gt text="All"}</u></strong>
+                        {else}
+                        <a href="{modurl modname=IWusers type=admin func=main inici=0 filtre=0}">
+                            {gt text="All"}
+                        </a>
+                        {/if}
+                        ]
+                    </td>
+                    <td align="right">
+                        {gt text="N. records"}:&nbsp;
+                        <select name="numitems" onchange='this.form.submit()'>
+                            {section name=numitems_MS loop=$numitems_MS}
+                            <option {if $numitems eq $numitems_MS[numitems_MS].id}selected{/if} value="{$numitems_MS[numitems_MS].id}">{$numitems_MS[numitems_MS].name}</option>
+                            {/section}
+                        </select>
+                    </td>
+                    <td align="right">
+                        {gt text="Order"}:&nbsp;
+                        <select name="campfiltre" onchange='this.form.submit()'>
+                            {section name=campsfiltre_MS loop=$campsfiltre_MS}
+                            <option {if $campfiltre eq $campsfiltre_MS[campsfiltre_MS].id}selected{/if} value="{$campsfiltre_MS[campsfiltre_MS].id}">{$campsfiltre_MS[campsfiltre_MS].name}</option>
+                            {/section}
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <form  class="z-form" enctype="application/x-www-form-urlencoded" method="post" name="usersListOptions" action="">
+        <table class="z-admintable">
+            <thead>
+                <tr>
+                    <th>{gt text="Id"}</th>
+                    <th>&nbsp;</th>
+                    <th>{gt text="User name"}</th>
+                    <th>{gt text="Name"}</th>
+                    <th>{gt text="1st surname"}</th>
+                    <th>{gt text="2nd surname"}</th>
+                    <th>{gt text="Group/a"}</th>
+                    <th>{gt text="Options"}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {foreach item=user from=$users}
+                <tr class="{cycle values="z-odd,z-even"}" id="uid_{$user.uid}">
+                    <td>
+                         {$user.uid}
+                     </td>
+                     <td width="10">
+                         {if $user.photo neq ''}
+                         <img src="{modurl modname=IWmain type=user func=getPhoto fileName=$user.photo}" alt="{$user.uname}"/>
+                         {else}
+                         &nbsp;
+                         {/if}
+                     </td>
+                     <td>
+                         {$user.uname}
+                         <br />
+                         <font size='-2'>{$user.email}</font>
+                     </td>
+                     <td>
+                         {$user.nom}
+                     </td>
+                     <td>
+                         {$user.cognom1}
+                     </td>
+                     <td>
+                         {$user.cognom2}
+                     </td>
+                     <td>
+                         <div id="userGroupsList_{$user.uid}">
+                             {include file="IWusers_admin_userGroupsList.htm"}
+                         </div>
+                         <div id="addGroup_{$user.uid}" style="float: right;">
+                         {include file="IWusers_admin_addGroupForm.htm"}
+                     </div>
+                 </td>
+                 <td align="center">
+                     <input type="checkbox" name="userId[]" value="{$user.uid}" />
+                 </td>
+                </tr>
+                {/foreach}
+                <tr>
+                    <th colspan="10" align="right">
+                        <input type="button" onClick="javascript:send(0)" value="{gt text="Edit"}" />
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    {gt text="No. Records"}: {$usersNumber}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar='inici'}
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

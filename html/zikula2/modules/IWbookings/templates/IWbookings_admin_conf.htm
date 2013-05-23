@@ -1,0 +1,43 @@
+{include file="IWbookings_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large'}</div>
+    <h2>{gt text="Modify module configuration"}</h2>
+    <form id="configurar" class="z-form" action="{modurl modname='IWbookings' type='admin' func='conf_modifica'}" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <div class="z-formrow">
+            <label for="grup">{gt text="Group for preferential bookings"}</label>
+            <select id="grup" name="grup">
+                {foreach from=$grups item=grup_item}
+                <option {if $grup eq $grup_item.id} selected {/if}value="{$grup_item.id}">{$grup_item.name}</option>
+                {/foreach}
+            </select>
+        </div>
+        <div class="z-formrow">
+            <label for="setmanes">{gt text="Number of weeks allowed to book"}</label>
+            <input type="text" name="setmanes" id="setmanes" value="{$setmanes}" size="2" maxlength="2" tabindex="2" />
+        </div>
+        <div class="z-formrow">
+            <label for="capsetmana">{gt text="Show weekends"}</label>
+            <input type="checkbox" name="capsetmana" id="capsetmana" "{if $capsetmana}checked{/if}" value="1" />
+        </div>
+        <div class="z-formrow">
+            <label for="taula">{gt text="Initially show table of month"}</label>
+            <input type="checkbox" id="taula" name="taula" {if $taula}checked="checked"{/if} value="1" />
+        </div>
+        <div class="z-formrow">
+            <label for="delantigues">{gt text="Automatically delete old bookings"}</label>
+            <input type="checkbox" id="delantigues" name="delantigues" {if $delantigues}checked="checked"{/if} value="1" />
+        </div>
+        <div class="z-formrow">
+            <label for="mostracolors">{gt text="Show colors on table of bookings"}</label>
+            <input type="checkbox" name="mostracolors" id="mostracolors" {if $mostracolors}checked="checked"{/if} value="1" />
+        </div>
+        <div class="z-center">
+            <div class="z-buttons">
+                <a href="javascript:document.forms['configurar'].submit();">
+                    {img modname='core' src='button_ok.png' set='icons/large' __alt="Update" __title="Update"} {gt text="Update"}
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

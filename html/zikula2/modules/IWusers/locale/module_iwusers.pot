@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula component\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-03-25 14:20+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/IWusers/Api/User.php:108 lib/IWusers/Api/Admin.php:13
+#: lib/IWusers/Api/Admin.php:43 lib/IWusers/Api/Admin.php:79
+#: lib/IWusers/Api/Admin.php:116 lib/IWusers/Api/Admin.php:147
+#: lib/IWusers/Api/Admin.php:176 lib/IWusers/Api/Admin.php:205
+#: lib/IWusers/Api/Admin.php:236 lib/IWusers/Api/Admin.php:259
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: lib/IWusers/Api/User.php:127 lib/IWusers/Api/User.php:209
+msgid "Error! Could not load items."
+msgstr ""
+
+#: lib/IWusers/Api/User.php:230 lib/IWusers/Api/Admin.php:17
+#: lib/IWusers/Api/Admin.php:57 lib/IWusers/Api/Admin.php:91
+#: lib/IWusers/Api/Admin.php:308
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: lib/IWusers/Api/User.php:252 lib/IWusers/Api/Admin.php:154
+#: lib/IWusers/Api/Admin.php:183 lib/IWusers/Api/Admin.php:212
+#: lib/IWusers/Api/Admin.php:239 lib/IWusers/Api/Admin.php:262
+#: lib/IWusers/Api/Admin.php:265 lib/IWusers/Api/Admin.php:268
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: lib/IWusers/Api/User.php:268 lib/IWusers/Api/Admin.php:126
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: lib/IWusers/Api/User.php:277
+msgid "Shows the groups I belong"
+msgstr ""
+
+#: lib/IWusers/Api/User.php:280
+msgid "Show all the groups"
+msgstr ""
+
+#: lib/IWusers/Api/User.php:283
+msgid "Show contacts' list"
+msgstr ""
+
+#: lib/IWusers/Api/Admin.php:151 lib/IWusers/Api/Admin.php:180
+#: lib/IWusers/Api/Admin.php:209
+msgid "You can not remove yourself"
+msgstr ""
+
+#: lib/IWusers/Api/Admin.php:1320
+msgid "Create user"
+msgstr ""
+
+#: lib/IWusers/Api/Admin.php:1321
+msgid "Show the list of users"
+msgstr ""
+
+#: lib/IWusers/Api/Admin.php:1322
+msgid "Configure the module"
+msgstr ""
+
+#: lib/IWusers/Controller/User.php:66 lib/IWusers/Controller/User.php:77
+#: lib/IWusers/Controller/User.php:87 lib/IWusers/Controller/Admin.php:232
+#: lib/IWusers/Controller/Admin.php:316 lib/IWusers/Controller/Admin.php:421
+#: lib/IWusers/Controller/Admin.php:467 lib/IWusers/Controller/Admin.php:614
+#: lib/IWusers/Controller/Admin.php:2198 lib/IWusers/Controller/Admin.php:2350
+#: lib/IWusers/Controller/Admin.php:2370 lib/IWusers/Controller/Admin.php:2437
+#: lib/IWusers/Controller/Admin.php:2509 lib/IWusers/Controller/Admin.php:2549
+#: lib/IWusers/Controller/Ajax.php:8 lib/IWusers/Controller/Ajax.php:48
+#: lib/IWusers/Controller/Ajax.php:69 lib/IWusers/Controller/Ajax.php:100
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:195
+msgid "User name"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:196
+msgid "Name"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:197
+msgid "1st surname"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:198
+msgid "2nd surname"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:236 lib/IWusers/Controller/Admin.php:618
+#: lib/IWusers/Controller/Admin.php:2373
+msgid "No users have chosen"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:244 lib/IWusers/Controller/Admin.php:627
+#: lib/IWusers/Controller/Admin.php:800 lib/IWusers/Controller/Admin.php:2380
+msgid "No users found"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:330
+msgid "There was some mistake while editing"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:369
+msgid "Probably the note have been sent without the attached file"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:407 lib/IWusers/Controller/Admin.php:2496
+msgid "The records have been published successfully"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:477
+msgid "You do not have written the name of user"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:483
+msgid "You do not have written the password of the user"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:489
+msgid "You do not have written the e-mail to the user"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:495
+msgid "You have not selected the initial group of the user"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:508 lib/IWusers/Controller/Admin.php:2460
+msgid "Username"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:508 lib/IWusers/Controller/Admin.php:2460
+msgid "already exists. You have to choose another."
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:515
+msgid ""
+"The password chosen by the user is too short. The minimum character must "
+"have the password is"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:526
+msgid "There was an error in the creation of the user."
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:545
+msgid "User without avatar"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:580
+msgid ""
+"The user has been created but there was an error in the entry of personal "
+"information. Create this user and makes it the right information."
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:590
+msgid ""
+"The user has been created but there was an error in the allocation of the "
+"initial group of the user. Put this user in a group/s that you think "
+"appropriate  from the management module group."
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:594
+msgid "We have created a user new"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:678
+msgid "There was an error and failed to remove the information from the user"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:686
+msgid "There was an error deleting user groups. The user could not be removed"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:695
+msgid "There was an error deleting users from the database"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:699
+msgid "The user or users have been deleted"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:839
+msgid ""
+"An error occurred while creating the data file. Checks from the global "
+"configuration of the module (IWmain), the temporary directory exists."
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:2493
+msgid "Has been a problem updating the user login information."
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:2562
+msgid "The configuration has changed"
+msgstr ""
+
+#: lib/IWusers/Version.php:6 lib/IWusers/Version.php:8
+msgid "IWusers"
+msgstr ""
+
+#: lib/IWusers/Version.php:7
+msgid "Improves the chances of users of the module."
+msgstr ""
+
+#: lib/IWusers/Installer.php:10
+msgid ""
+"Module IWmain is needed. You have to install the IWmain module before "
+"installing it."
+msgstr ""
+
+#: lib/IWusers/Block/welcome.php:50
+msgid "Show a welcome message wend user is in home page"
+msgstr ""
+
+#: lib/IWusers/Block/welcome.php:90 lib/IWusers/Block/welcome.php:126
+msgid "Hi"
+msgstr ""
+
+#: lib/IWusers/Block/welcome.php:91 lib/IWusers/Block/welcome.php:127
+msgid "welcome to the intranet"
+msgstr ""
+
+#: lib/IWusers/Block/welcome.php:130
+msgid "Geeting"
+msgstr ""
+
+#: lib/IWusers/Block/welcome.php:131
+msgid "Welcome text"
+msgstr ""
+
+#: lib/IWusers/Block/welcome.php:132
+msgid "Include date and time"
+msgstr ""

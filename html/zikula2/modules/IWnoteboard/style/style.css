@@ -1,0 +1,34 @@
+/* style.css */
+
+.messageBody p>br {
+    display: none;
+}
+
+.commentInfo {
+    text-align: right;
+}
+
+table.z-datatable td,
+table.z-datatable th,
+table.z-admintable td,
+table.z-admintable th {
+    vertical-align: top !important;
+}
+
+.messageBody {
+    margin-bottom: 15px;
+}
+
+.comments {
+    font-weight: bold;
+    border-bottom: 1px solid #777;
+}
+
+.userAvatar {
+    margin-top: 7px;
+}
+
+.noteInBlock {
+    border-bottom: 1px dotted #555;
+    margin-bottom: 15px;
+}

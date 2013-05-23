@@ -1,0 +1,43 @@
+{include file="IWqv_user_menu.htm"}
+<form method="post" name="userassignment_form" id="userassignment_form" class="z-form" >
+    <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+    <input type="hidden" name="qvid" value="{$qvid}" />
+    <input type="hidden" name="userid" value="{$userid}" />
+
+    <fieldset class="z-form-fieldset">
+        <legend>{gt text="Settings of the teacher"}</legend>
+        <div class="z-formrow">
+            <label for="teachercomments">{gt text="Comments"}</label>
+            <textarea rows="15" cols="61" name="teachercomments" id="teachercomments" class="z-form-text" >{$assignment.teachercomments}</textarea>
+        </div>	
+        <div class="z-formrow">
+            <label for="teacherobservations">{gt text="Observations"}</label>
+            <textarea rows="15" cols="61" name="teacherobservations" id="teacherobservations" class="z-form-text" >{$assignment.teacherobservations}</textarea>
+        </div>	
+    </fieldset>
+    <br>
+    <div class="z-center">
+        <span class="z-buttons">
+            <a href="#" onClick="javascript:iwqvSenduserAssignmentForm();" >
+                {img modname='core' src='button_ok.png' set='icons/small'}
+                {gt text="Send"}
+            </a>
+        </span>
+        <span class="z-buttons">
+            <a href="#" onclick ='javascript:history.back(-1)'>
+                {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
+                {gt text="Cancel"}
+            </a>
+        </span>
+    </div>
+    <br>
+</form>
+<script language="javascript">
+    function iwqvSenduserAssignmentForm(){
+        var form = document.userassignment_form;
+        var formaction="index.php?module=IWqv&func=create_user_assignment";
+        form.action=formaction;
+        form.submit();		
+        return true;
+    }
+</script>

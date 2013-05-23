@@ -1,0 +1,2421 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Content 4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-21 21:07+0000\n"
+"PO-Revision-Date: 2012-03-02 19:02+0100\n"
+"Last-Translator: intraweb <intraweb@xtec.cat>\n"
+"Language-Team: Intraweb <intraweb@xtec.cat>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.1.6\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: pnneedleapi/content.php:37
+msgid "Unknown id"
+msgstr "Id desconegut"
+
+#: pnneedleapi/content.php:40
+msgid "Content not available"
+msgstr "El contingut no està disponible"
+
+#: pnneedleapi/content.php:45
+msgid "No needle id"
+msgstr "No s'ha trobat l'id del \"needle\""
+
+#: templates/plugins/function.contenteditthis.php:33
+msgid "Edit this page"
+msgstr "Edita aquesta pàgina"
+
+#: templates/plugins/function.contenteditthis.php:35
+msgid "Translate this page"
+msgstr "Tradueix aquesta pàgina"
+
+#: templates/plugins/function.contenteditthis.php:42
+#, php-format
+msgid "Edit this: %1$s [ID%2$s]"
+msgstr "Edita: %1$s [ID%2$s]"
+
+#: templates/plugins/function.contenteditthis.php:43
+msgid "Click to edit this content item"
+msgstr "Feu clic per editar aquest ítem de contingut"
+
+#: templates/plugins/function.contenteditthis.php:45
+#: templates/admin/editpage.tpl:45
+#: templates/admin/editpage.tpl:208
+#: templates/admin/editcontent.tpl:58
+#: templates/admin/tocedit.tpl:34
+msgid "Translate"
+msgstr "Tradueix"
+
+#: templates/plugins/function.contenthtmleditor.php:43
+#, php-format
+msgid "The WYSIWYG editor (%s) is installed but no default editor is assigned."
+msgstr "L'editor WYSIWYG (%s) està instal·lat però no s'ha assignat un editor per defecte."
+
+#: templates/plugins/function.contenthtmleditor.php:48
+#, php-format
+msgid "Please install the %s module to use the WYSIWYG HTML editor."
+msgstr "Si us plau, instal·leu el mòdul %s per usar l'editor d'HTML WYSIWYG."
+
+#: templates/plugins/function.contenthtmleditor.php:58
+#: templates/plugins/function.contentcodeeditor.php:33
+msgid "Please install the BBCode module to enable BBCodes display."
+msgstr "Si us plau, instal·leu el mòdul BBCode per habilitar la visualització de codi BBCodes."
+
+#: templates/plugins/function.contentareatitle.php:15
+#, php-format
+msgid "%s area"
+msgstr "%s àrea"
+
+#: templates/plugins/function.contentinsertlink.php:21
+msgid "Add new content here"
+msgstr "Afegiu el contingut nou aquí"
+
+#: lib/Content/AbstractContentType.php:371
+msgid "Unable to locate original translation template."
+msgstr "No ha estat possible localitzar la plantilla de traducció original."
+
+#: lib/Content/AbstractContentType.php:377
+msgid "Unable to locate new translation template."
+msgstr "No ha estat possible localitzar la plantilla de traducció nova."
+
+#: lib/Content/LayoutType/Column21212.php:18
+#: lib/Content/LayoutType/Column2header.php:18
+#: lib/Content/LayoutType/Column2d3070.php:18
+#: lib/Content/LayoutType/Column2d3862.php:18
+#: lib/Content/LayoutType/Column2d2575.php:18
+#: lib/Content/LayoutType/Column3d255025.php:18
+#: lib/Content/LayoutType/Column2d7525.php:18
+#: lib/Content/LayoutType/Column21212rightcol.php:18
+#: lib/Content/LayoutType/Column2d6633.php:18
+#: lib/Content/LayoutType/Column1.php:18
+#: lib/Content/LayoutType/Column212.php:18
+#: lib/Content/LayoutType/Column2d6238.php:18
+#: lib/Content/LayoutType/Column2d7030.php:18
+#: lib/Content/LayoutType/Column3header.php:18
+#: lib/Content/LayoutType/Column3d252550.php:18
+#: lib/Content/LayoutType/Column1top.php:20
+#: lib/Content/LayoutType/Column2d3366.php:18
+#: lib/Content/LayoutType/Column3d502525.php:18
+msgid "Header"
+msgstr "Títol"
+
+#: lib/Content/LayoutType/Column21212.php:19
+#: lib/Content/LayoutType/Column21212rightcol.php:19
+#: lib/Content/LayoutType/Column212.php:19
+msgid "Left column1"
+msgstr "Columna esquerra 1"
+
+#: lib/Content/LayoutType/Column21212.php:20
+#: lib/Content/LayoutType/Column21212rightcol.php:20
+#: lib/Content/LayoutType/Column212.php:20
+msgid "Right column1"
+msgstr "Columna dreta 1"
+
+#: lib/Content/LayoutType/Column21212.php:21
+#: lib/Content/LayoutType/Column21212rightcol.php:21
+msgid "Center1"
+msgstr "Centre 1"
+
+#: lib/Content/LayoutType/Column21212.php:22
+#: lib/Content/LayoutType/Column21212rightcol.php:22
+#: lib/Content/LayoutType/Column212.php:22
+msgid "Left column2"
+msgstr "Columna esquerra 2"
+
+#: lib/Content/LayoutType/Column21212.php:23
+#: lib/Content/LayoutType/Column21212rightcol.php:23
+#: lib/Content/LayoutType/Column212.php:23
+msgid "Right column2"
+msgstr "Columna dreta 2"
+
+#: lib/Content/LayoutType/Column21212.php:24
+#: lib/Content/LayoutType/Column21212rightcol.php:24
+msgid "Center2"
+msgstr "Centre 2"
+
+#: lib/Content/LayoutType/Column21212.php:25
+#: lib/Content/LayoutType/Column21212rightcol.php:25
+msgid "Left column3"
+msgstr "Columna esquerra 3"
+
+#: lib/Content/LayoutType/Column21212.php:26
+#: lib/Content/LayoutType/Column21212rightcol.php:26
+msgid "Right column3"
+msgstr "Columna dreta 3"
+
+#: lib/Content/LayoutType/Column21212.php:27
+#: lib/Content/LayoutType/Column2header.php:21
+#: lib/Content/LayoutType/Column2d3070.php:21
+#: lib/Content/LayoutType/Column2d3862.php:21
+#: lib/Content/LayoutType/Column2d2575.php:21
+#: lib/Content/LayoutType/Column3d255025.php:22
+#: lib/Content/LayoutType/Column2d7525.php:21
+#: lib/Content/LayoutType/Column21212rightcol.php:27
+#: lib/Content/LayoutType/Column2d6633.php:21
+#: lib/Content/LayoutType/Column212.php:24
+#: lib/Content/LayoutType/Column2d6238.php:21
+#: lib/Content/LayoutType/Column2d7030.php:21
+#: lib/Content/LayoutType/Column3header.php:22
+#: lib/Content/LayoutType/Column3d252550.php:22
+#: lib/Content/LayoutType/Column2d3366.php:21
+#: lib/Content/LayoutType/Column3d502525.php:22
+msgid "Footer"
+msgstr "Peu de pàgina"
+
+#: lib/Content/LayoutType/Column21212.php:32
+msgid "2-1-2-1-2 columns (50|50)"
+msgstr "2-1-2-1-2 columnes (50|50)"
+
+#: lib/Content/LayoutType/Column21212.php:36
+msgid "Header + two-one-two-one-two columns (50|50) + footer"
+msgstr "Capçalera + dues-una-dues-una-dues columnes (50|50) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column2header.php:19
+#: lib/Content/LayoutType/Column2d3070.php:19
+#: lib/Content/LayoutType/Column2d3862.php:19
+#: lib/Content/LayoutType/Column2d2575.php:19
+#: lib/Content/LayoutType/Column3d255025.php:19
+#: lib/Content/LayoutType/Column2d7525.php:19
+#: lib/Content/LayoutType/Column2d6633.php:19
+#: lib/Content/LayoutType/Column2d6238.php:19
+#: lib/Content/LayoutType/Column2d7030.php:19
+#: lib/Content/LayoutType/Column3header.php:19
+#: lib/Content/LayoutType/Column3d252550.php:19
+#: lib/Content/LayoutType/Column2d3366.php:19
+#: lib/Content/LayoutType/Column3d502525.php:19
+msgid "Left column"
+msgstr "Columna esquerra"
+
+#: lib/Content/LayoutType/Column2header.php:20
+#: lib/Content/LayoutType/Column2d3070.php:20
+#: lib/Content/LayoutType/Column2d3862.php:20
+#: lib/Content/LayoutType/Column2d2575.php:20
+#: lib/Content/LayoutType/Column3d255025.php:21
+#: lib/Content/LayoutType/Column2d7525.php:20
+#: lib/Content/LayoutType/Column2d6633.php:20
+#: lib/Content/LayoutType/Column2d6238.php:20
+#: lib/Content/LayoutType/Column2d7030.php:20
+#: lib/Content/LayoutType/Column3header.php:21
+#: lib/Content/LayoutType/Column3d252550.php:21
+#: lib/Content/LayoutType/Column2d3366.php:20
+#: lib/Content/LayoutType/Column3d502525.php:21
+msgid "Right column"
+msgstr "Columna dreta"
+
+#: lib/Content/LayoutType/Column2header.php:25
+msgid "2 columns (50|50)"
+msgstr "2 columnes (50|50)"
+
+#: lib/Content/LayoutType/Column2header.php:29
+msgid "Header + two columns (50|50) + footer"
+msgstr "Capçalera + dues columnes (50|50) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column2d3070.php:25
+msgid "2 columns (30|70)"
+msgstr "2 columnes (30|70)"
+
+#: lib/Content/LayoutType/Column2d3070.php:29
+msgid "Header + two columns (30|70) + footer"
+msgstr "Capçalera + dues columnes (30|70) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column2d3862.php:25
+msgid "2 columns (38|62)"
+msgstr "2 columnes (38|62)"
+
+#: lib/Content/LayoutType/Column2d3862.php:29
+msgid "Header + two columns (38|62) + footer"
+msgstr "Capçalera + dues columnes (38|62) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column2d2575.php:25
+msgid "2 columns (25|75)"
+msgstr "2 columnes (25|75)"
+
+#: lib/Content/LayoutType/Column2d2575.php:29
+msgid "Header + two columns (25|75) + footer"
+msgstr "Capçalera + dues columnes (25|75) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column3d255025.php:20
+#: lib/Content/LayoutType/Column1woheader.php:18
+#: lib/Content/LayoutType/Column1.php:19
+#: lib/Content/LayoutType/Column3header.php:20
+#: lib/Content/LayoutType/Column3d252550.php:20
+#: lib/Content/LayoutType/Column1top.php:22
+#: lib/Content/LayoutType/Column3d502525.php:20
+msgid "Centre column"
+msgstr "Columna central"
+
+#: lib/Content/LayoutType/Column3d255025.php:26
+msgid "3 columns (25|50|25)"
+msgstr "3 columnes (25|50|25)"
+
+#: lib/Content/LayoutType/Column3d255025.php:30
+msgid "Header + three columns (25|50|25) + footer"
+msgstr "Capçalera + tres columnes (25|50|25) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column1woheader.php:22
+msgid "1 column no header"
+msgstr "1 columna sense capçalera"
+
+#: lib/Content/LayoutType/Column1woheader.php:26
+msgid "Single 100% wide column without header"
+msgstr "Columna única amb una amplada del 100% i sense capçalera"
+
+#: lib/Content/LayoutType/Column2d7525.php:25
+msgid "2 columns (75|25)"
+msgstr "2 columnes (75|25)"
+
+#: lib/Content/LayoutType/Column2d7525.php:29
+msgid "Header + two columns (75|25) + footer"
+msgstr "Capçalera + dues columnes (75|25) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column21212rightcol.php:28
+msgid "Right Extra Column Top"
+msgstr "Columna extra a dalt a la dreta"
+
+#: lib/Content/LayoutType/Column21212rightcol.php:29
+msgid "Right Extra Column Bottom"
+msgstr "Columna extra a baix a la dreta"
+
+#: lib/Content/LayoutType/Column21212rightcol.php:34
+msgid "2-1-2-1-2 columns (50|50) + extra right column"
+msgstr "2-1-2-1-2 columnes (50|50) + columna extra a la dreta"
+
+#: lib/Content/LayoutType/Column21212rightcol.php:38
+msgid "Header + two-one-two-one-two columns (50|50) + footer + extra right column"
+msgstr "Capçalera + dues-una-dues-una-dues columnes (50|50) + columna extra a la dreta"
+
+#: lib/Content/LayoutType/Column2d6633.php:25
+msgid "2 columns (66|33)"
+msgstr "2 columnes (66|33)"
+
+#: lib/Content/LayoutType/Column2d6633.php:29
+msgid "Header + two columns (66|33) + footer"
+msgstr "Capçalera + dues columnes (66|33) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column1.php:23
+msgid "1 column"
+msgstr "1 columna"
+
+#: lib/Content/LayoutType/Column1.php:27
+msgid "Header + single 100% wide column"
+msgstr "1 columna"
+
+#: lib/Content/LayoutType/Column212.php:21
+msgid "Center"
+msgstr "Centre"
+
+#: lib/Content/LayoutType/Column212.php:29
+msgid "2-1-2 columns (50|50)"
+msgstr "2-1-2 columnes (50|50)"
+
+#: lib/Content/LayoutType/Column212.php:33
+msgid "Header + two-one-two columns (50|50) + footer"
+msgstr "Capçalera + dues-una-dues columnes (50|50) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column2d6238.php:25
+msgid "2 columns (62|38)"
+msgstr "2 columnes (62|38)"
+
+#: lib/Content/LayoutType/Column2d6238.php:29
+msgid "Header + two columns (62|38) + footer"
+msgstr "Capçalera + dues columnes (62|38) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column2d7030.php:25
+msgid "2 columns (70|30)"
+msgstr "2 columnes (70|30)"
+
+#: lib/Content/LayoutType/Column2d7030.php:29
+msgid "Header + two columns (70|30) + footer"
+msgstr "Capçalera + dues columnes (70|30) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column3header.php:26
+msgid "3 columns (33|33|33)"
+msgstr "3 columnes (33|33|33)"
+
+#: lib/Content/LayoutType/Column3header.php:30
+msgid "Header + three columns (33|33|33) + footer"
+msgstr "Capçalera + tres columnes (33|33|33) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column3d252550.php:26
+msgid "3 columns (25|25|50)"
+msgstr "3 columnes (25|25|50)"
+
+#: lib/Content/LayoutType/Column3d252550.php:30
+msgid "Header + three columns (25|25|50) + footer"
+msgstr "Capçalera + tres columnes (25|25|50) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column1top.php:21
+msgid "Header above page headline"
+msgstr "La capçalera per sobre del títol de pàgina"
+
+#: lib/Content/LayoutType/Column1top.php:26
+msgid "1 column, header above page headline"
+msgstr "1 columna, capçalera per sobre del títol de pàgina"
+
+#: lib/Content/LayoutType/Column1top.php:30
+msgid "Single 100% wide column and a top-header above the page headline (for e.g. breadcrumbs or author-information above the title)"
+msgstr "Una columna simple del 100% de l'amplada i la capçalera per sobre del títol de pàgina"
+
+#: lib/Content/LayoutType/Column2d3366.php:25
+msgid "2 columns (33|66)"
+msgstr "2 columnes (33|66)"
+
+#: lib/Content/LayoutType/Column2d3366.php:29
+msgid "Header + two columns (33|66) + footer"
+msgstr "Capçalera + dues columnes (33|66) + peu de pàgina"
+
+#: lib/Content/LayoutType/Column3d502525.php:26
+msgid "3 columns (50|25|25)"
+msgstr "3 columnes (50|25|25)"
+
+#: lib/Content/LayoutType/Column3d502525.php:30
+msgid "Header + three columns (50|25|25) + footer"
+msgstr "Capçalera + tres columnes (50|25|25) + peu de pàgina"
+
+#: lib/Content/Api/User.php:24
+#: lib/Content/Api/Admin.php:43
+#: lib/Content/Form/Handler/Admin/NewPage.php:41
+#: templates/admin/newpage.tpl:5
+#: templates/user/pageinfo.tpl:22
+msgid "Add new page"
+msgstr "Afegeix una pàgina nova"
+
+#: lib/Content/Api/User.php:32
+msgid "Admin"
+msgstr "Admin"
+
+#: lib/Content/Api/User.php:40
+msgid "Page lists"
+msgstr "Llista de pàgines"
+
+#: lib/Content/Api/User.php:45
+#: lib/Content/Api/Admin.php:29
+#: lib/Content/Controller/User.php:271
+#: templates/admin/main_unneeded.tpl:14
+msgid "Sitemap"
+msgstr "Mapa dels continguts"
+
+#: lib/Content/Api/User.php:49
+#: lib/Content/Api/Admin.php:31
+msgid "Extended"
+msgstr "Estès"
+
+#: lib/Content/Api/User.php:53
+#: lib/Content/Api/Admin.php:33
+msgid "Complete"
+msgstr "Complet"
+
+#: lib/Content/Api/User.php:57
+#: lib/Content/Api/Admin.php:35
+msgid "Category list"
+msgstr "Llista de categories"
+
+#: lib/Content/Api/Page.php:363
+msgid "Error! Cannot create sub-page without parent page ID"
+msgstr "No es poden crear subpàgines sense l'ID d'una pàgina pare."
+
+#: lib/Content/Api/Page.php:394
+#: lib/Content/Api/Page.php:440
+#: lib/Content/Api/Page.php:458
+#: lib/Content/Api/Page.php:687
+#: lib/Content/Api/Page.php:931
+#: lib/Content/Api/Page.php:967
+#: lib/Content/Api/Page.php:1006
+msgid "Error! There is already another page registered with the supplied permalink URL."
+msgstr "Ja existeix una altra pàgina amb aquest enllaç permanent."
+
+#: lib/Content/Api/Page.php:596
+#: lib/Content/Api/History.php:91
+msgid "Translated"
+msgstr "S'ha fet la traducció"
+
+#: lib/Content/Api/Page.php:629
+#: lib/Content/Api/History.php:94
+msgid "Translation deleted"
+msgstr "S'ha esborrat la traducció"
+
+#: lib/Content/Api/Page.php:913
+msgid "Error! It is not possible to move a parent page beneath one of its descendants."
+msgstr "No es pot desplaçar una pàgina sota d'un dels seus descendents."
+
+#: lib/Content/Api/Page.php:1001
+msgid "Error! The indentation of this page cannot be increased."
+msgstr "No s'ha pogut incrementar la sagnia d'aquesta pàgina."
+
+#: lib/Content/Api/Page.php:1260
+#: lib/Content/Api/Page.php:1349
+#: lib/Content/Api/Search.php:75
+msgid "Error! Could not load items."
+msgstr "S'ha produït un error en carregar elements."
+
+#: lib/Content/Api/Account.php:32
+msgid "Add a new page"
+msgstr "Afegeix una pàgina nova"
+
+#: lib/Content/Api/Admin.php:25
+#: templates/admin/main_unneeded.tpl:10
+#: templates/user/list.tpl:1
+#: templates/user/list.tpl:2
+#: templates/user/pageinfo.tpl:24
+msgid "Page list"
+msgstr "Llista de pàgines"
+
+#: lib/Content/Api/Admin.php:37
+msgid "Restore pages"
+msgstr "Restaura les pàgines"
+
+#: lib/Content/Api/Admin.php:49
+#: templates/admin/settings.tpl:15
+#: templates/admin/settings.tpl:17
+#: templates/admin/main_unneeded.tpl:12
+msgid "Settings"
+msgstr "Paràmetres"
+
+#: lib/Content/Api/Admin.php:53
+msgid "Upgrade ContentTypes"
+msgstr "Actualitza el tipus de continguts"
+
+#: lib/Content/Api/Admin.php:57
+msgid "Migrate Data"
+msgstr "Migra les dades"
+
+#: lib/Content/Api/Content.php:27
+msgid "Error! Unknown content-ID"
+msgstr "L'ID del contingut és desconegut"
+
+#: lib/Content/Api/Content.php:60
+msgid "disabled plugin"
+msgstr "deshabilita els connectors"
+
+#: lib/Content/Api/Content.php:62
+#, php-format
+msgid "Disabled: Inaccessible plugin output (%1$s, %2$s)."
+msgstr "No habilitat: la sortida del connector no és accessible (%1$s, %2$s)."
+
+#: lib/Content/Api/Content.php:178
+msgid "Error! Can't load content plugin"
+msgstr "No s'ha pogut carregar el connector del mòdul"
+
+#: lib/Content/Api/Content.php:761
+#, php-format
+msgid "Error! Unable to load plugin [%1$s] in module [%2$s] since the class is not defined. Upgrade of %2$s module required."
+msgstr "No ha estat possible carregar el connector [%1$s] del mòdul [%2$s] perquè la classe no està definida. És necessari actualitzar el mòdul %2$s."
+
+#: lib/Content/Api/Content.php:770
+#, php-format
+msgid "Error! Unable to load plugin [%1$s] in module [%2$s] since the module is not available."
+msgstr "No s'ha pogut carregar el connector [%1$s] del mòdul [%2$s], ja que el mòdul no està disponible."
+
+#: lib/Content/Api/Content.php:774
+#, php-format
+msgid "Error! Unable to load plugin [%1$s] in module [%2$s] for some unknown reason."
+msgstr "No s'ha pogut carregar el connector [%1$s] del mòdul [%2$s] per alguna raó desconeguda."
+
+#: lib/Content/Api/History.php:32
+#: lib/Content/Api/History.php:207
+msgid "Unknown user"
+msgstr "Usuari/ària desconegut"
+
+#: lib/Content/Api/History.php:85
+msgid "Content updated"
+msgstr "S'ha actualitzat el contingut"
+
+#: lib/Content/Api/History.php:88
+msgid "Content deleted"
+msgstr "S'ha esborrat el contingut"
+
+#: lib/Content/Api/History.php:97
+msgid "Content moved"
+msgstr "S'ha desplaçat el contingut"
+
+#: lib/Content/Api/History.php:100
+msgid "Content added"
+msgstr "S'ha afegit el contingut"
+
+#: lib/Content/Api/History.php:103
+msgid "Page added"
+msgstr "S'ha afegit la pàgina"
+
+#: lib/Content/Api/History.php:106
+#, php-format
+msgid "Page cloned from page [%s]"
+msgstr "Pàgina clonada des de la pàgina [%s]"
+
+#: lib/Content/Api/History.php:109
+msgid "Page updated"
+msgstr "S'ha actualitzat la pàgina"
+
+#: lib/Content/Api/History.php:112
+#, php-format
+msgid "Page restored from version [%s]"
+msgstr "Pàgina restaurada des de la versió [%s]"
+
+#: lib/Content/Api/History.php:115
+msgid "Page deleted"
+msgstr "Pàgina esborrada"
+
+#: lib/Content/Api/History.php:204
+#: lib/Content/Api/History.php:281
+#, php-format
+msgid "Error! Unknown version ID [%s]"
+msgstr "Versió de l'ID [%s] desconeguda"
+
+#: lib/Content/Api/History.php:310
+msgid "Error! Could not reinsert page"
+msgstr "No s'ha pogut tornar a inserir la pàgina"
+
+#: lib/Content/Api/History.php:385
+msgid "Error! Re-created old content item but did not restore old ID."
+msgstr "S'ha tornar a crear el contingut de l'element, però no s'ha restaurat l'ID antic."
+
+#: lib/Content/ContentType/Block.php:35
+msgid "Blocks"
+msgstr "Blocs"
+
+#: lib/Content/ContentType/Block.php:39
+msgid "Display Zikula blocks."
+msgstr "Mostra blocs del Zikula."
+
+#: lib/Content/ContentType/Unfiltered.php:115
+msgid "Unfiltered raw text"
+msgstr "Text sense filtrar"
+
+#: lib/Content/ContentType/Unfiltered.php:119
+msgid "A plugin for unfiltered raw output (iframes, JavaScript, banners, etc)"
+msgstr "Un connector per a la sortida de continguts sense filtrar (iframes, JavaScript, banners, etc)"
+
+#: lib/Content/ContentType/Unfiltered.php:168
+#, php-format
+msgid "An <strong>iframe</strong> is included with<br />src = %1$s<br />width = %2$s and height = %3$s"
+msgstr "Un <strong>iframe</strong> és inclòs amb<br />src = %1$s<br />width = %2$s i height = %3$s"
+
+#: lib/Content/ContentType/Unfiltered.php:170
+#, php-format
+msgid "The following <strong>unfiltered text</strong> will be included literally<br />%s"
+msgstr "El <strong>text no filtrat</strong> següent serà inclòs literalment<br />%s"
+
+#: lib/Content/ContentType/Unfiltered.php:178
+msgid "Add unfiltered text here ..."
+msgstr "Afegeix text no filtrat aquí..."
+
+#: lib/Content/ContentType/Author.php:26
+msgid "Author Infobox"
+msgstr "Informació de l'autor/a"
+
+#: lib/Content/ContentType/Author.php:30
+msgid "Various information about the author of the page."
+msgstr "Informacions diverses sobre l'autor/a de la pàgina."
+
+#: lib/Content/ContentType/PageNavigation.php:15
+#: lib/Content/ContentType/PageNavigation.php:67
+msgid "Page navigation"
+msgstr "Navegador de la pàgina"
+
+#: lib/Content/ContentType/PageNavigation.php:19
+msgid "Allows to navigate within pages on the same level."
+msgstr "Permet navegar entre pàgines del mateix nivell."
+
+#: lib/Content/ContentType/YouTube.php:81
+msgid "YouTube video clip"
+msgstr "Vídeo de YouTube"
+
+#: lib/Content/ContentType/YouTube.php:85
+msgid "Display YouTube video clip."
+msgstr "Mostra un vídeoclip del YouTube."
+
+#: lib/Content/ContentType/YouTube.php:113
+#, php-format
+msgid "Video-ID : %1$s<br />Size in pixels: %2$s x %3$s"
+msgstr "Vídeo-ID : %1$s<br />Mida en píxels: %2$s x %3$s"
+
+#: lib/Content/ContentType/Html.php:37
+msgid "HTML text"
+msgstr "Text HTML"
+
+#: lib/Content/ContentType/Html.php:42
+msgid "A rich HTML editor for adding text to your page."
+msgstr "Editor HTML enriquit per afegir text les vostres pàgines."
+
+#: lib/Content/ContentType/Html.php:84
+msgid "Add text here ..."
+msgstr "Afegiu el text aquí..."
+
+#: lib/Content/ContentType/Rss.php:58
+msgid "RSS feed"
+msgstr "Canal RSS"
+
+#: lib/Content/ContentType/Rss.php:62
+msgid "Display list of items in an RSS feed. Needs the ZFeed system plugin."
+msgstr "Mostra la llista d'ítems en una font de notícies RSS. Cal el connector de sistema ZFeed."
+
+#: lib/Content/ContentType/Slideshare.php:81
+msgid "Slideshare"
+msgstr "Slideshare"
+
+#: lib/Content/ContentType/Slideshare.php:85
+msgid "Display slides from slideshare.com"
+msgstr "Mostra presentacions de diapositives publicades a slideshare.com"
+
+#: lib/Content/ContentType/Slideshare.php:113
+#, php-format
+msgid "Slideshare: %s"
+msgstr "Slideshare: %s"
+
+#: lib/Content/ContentType/Vimeo.php:81
+msgid "Vimeo video clip"
+msgstr "Vídeo de Vimeo"
+
+#: lib/Content/ContentType/Vimeo.php:85
+msgid "Display Vimeo video clip."
+msgstr "Mostra el vídeo de Vimeo."
+
+#: lib/Content/ContentType/OpenStreetMap.php:70
+msgid "OpenStreetMap map"
+msgstr "OpenStreetMap map"
+
+#: lib/Content/ContentType/OpenStreetMap.php:74
+msgid "Display OpenStreetMap map position."
+msgstr "Mostra la posició de l'OpenStreetMap map."
+
+#: lib/Content/ContentType/OpenStreetMap.php:78
+msgid "If you want to add OpenStreetMap maps to your content you don't need an API key."
+msgstr "Si voleu afegir mapes d'OpenStreetMap en els vostres continguts no necessiteu una clau API."
+
+#: lib/Content/ContentType/JoinPosition.php:26
+msgid "Join Position"
+msgstr "Uneix la posició"
+
+#: lib/Content/ContentType/JoinPosition.php:30
+msgid "Joins different positions, e.g. if you used position: top-right then this can fix the layout/textflow."
+msgstr "Uneix diferents posicions, per exemple, Si heu utilitzat la posició: dalt a la dreta, llavors això pot ajustar el disseny/TextFlow."
+
+#: lib/Content/ContentType/Heading.php:37
+#: lib/Content/ContentType/Heading.php:71
+#: templates/contenttype/heading_edit.tpl:4
+#: templates/contenttype/heading_translate_new.tpl:2
+#: templates/contenttype/heading_translate_original.tpl:2
+msgid "Heading"
+msgstr "Títol"
+
+#: lib/Content/ContentType/Heading.php:41
+msgid "Section heading for structuring larger amounts of text."
+msgstr "Estructura de subtítols per a textos llargs."
+
+#: lib/Content/ContentType/ComputerCode.php:28
+msgid "Computer Code"
+msgstr "Codi font"
+
+#: lib/Content/ContentType/ComputerCode.php:33
+msgid "A text editor for computer code. Line numbers are added to the text and it is displayed in a monospaced font."
+msgstr "Editor de text per al codi font. S'afegeixen números de línia en el text i es mostra en un tipus de lletra mono espaiat."
+
+#: lib/Content/ContentType/TableOfContents.php:93
+msgid "Table of contents"
+msgstr "Taula de continguts"
+
+#: lib/Content/ContentType/TableOfContents.php:97
+msgid "A table of contents of headings and subpages (built from the available Content pages)."
+msgstr "Una taula de continguts de títols i sub-pàgines (construïda a partir de les pàgines de continguts disponibles)."
+
+#: lib/Content/ContentType/TableOfContents.php:193
+#: lib/Content/ContentType/TableOfContents.php:209
+#: lib/Content/Block/Menu.php:77
+#: lib/Content/Block/Mostviewed.php:93
+msgid "All pages"
+msgstr "Totes les pàgines"
+
+#: lib/Content/ContentType/TableOfContents.php:198
+#, php-format
+msgid "Table of contents of %s"
+msgstr "Taula de continguts per %s"
+
+#: lib/Content/ContentType/TableOfContents.php:215
+#: lib/Content/ContentType/TableOfContents.php:216
+msgid "No"
+msgstr "No"
+
+#: lib/Content/ContentType/TableOfContents.php:215
+#: lib/Content/ContentType/TableOfContents.php:216
+msgid "Yes, unlimited"
+msgstr "Sí, sense límits"
+
+#: lib/Content/ContentType/TableOfContents.php:215
+#: lib/Content/ContentType/TableOfContents.php:216
+msgid "Yes, limited"
+msgstr "Sí, limitat"
+
+#: lib/Content/ContentType/Quote.php:25
+msgid "Quote"
+msgstr "Citació"
+
+#: lib/Content/ContentType/Quote.php:29
+msgid "A highlighted quote with source."
+msgstr "Una citació en negreta amb origen"
+
+#: lib/Content/ContentType/Quote.php:70
+msgid "Add quote text here..."
+msgstr "Escriviu la citació aquí..."
+
+#: lib/Content/ContentType/Quote.php:72
+msgid "Name of the Source"
+msgstr "Nom de l'origen"
+
+#: lib/Content/ContentType/GoogleMap.php:103
+msgid "Google map"
+msgstr "Mapa del Google"
+
+#: lib/Content/ContentType/GoogleMap.php:107
+msgid "Display Google map position."
+msgstr "Mostra la posició dels mapes de Google."
+
+#: lib/Content/ContentType/GoogleMap.php:111
+msgid "A Google maps API key is not needed any more in the new version 3 of the Javascript API."
+msgstr "La clau API de Google maps ja no és necessària a partir de la versió 3 de l'API de Javascript"
+
+#: lib/Content/ContentType/Flickr.php:51
+msgid "Photos from Flickr.com"
+msgstr "Fotos des de Flickr.com"
+
+#: lib/Content/ContentType/Flickr.php:56
+msgid "Display thumbnails from specific Flickr user or tags."
+msgstr "Mostra imatges en miniatura d'un usuari/ària de Flickr."
+
+#: lib/Content/ContentType/Flickr.php:61
+#: templates/admin/settings.tpl:40
+msgid "If your want to add Flickr photos to your content then you need a Flickr API key. You can get this from <a href=\"http://www.flickr.com/api\">flickr.com</a>."
+msgstr "Si voleu afegir fotos del Flickr als vostres continguts necessiteu una clau API de Flickr. En podeu aconseguir una a <a href=\"http://www.flickr.com/api\">flickr.com</a>."
+
+#: lib/Content/ContentType/Flickr.php:110
+#, php-format
+msgid "Flickr photos from user %1$s associated with tags %2$s"
+msgstr "Les fotos de Flickr de l'usuari/ària %1$s estan associats amb les etiquetes %2$s"
+
+#: lib/Content/ContentType/Camtasia.php:104
+msgid "Camtasia Flash video"
+msgstr "Vídeo Flash de Camtasia"
+
+#: lib/Content/ContentType/Camtasia.php:109
+msgid "Display a Camtasia Flash video."
+msgstr "Mostra un vídeo Flash de Camtasia"
+
+#: lib/Content/ContentType/Camtasia.php:157
+#, php-format
+msgid "Flash Video-Path: %1$s<br>Size in pixels: %2$s"
+msgstr "Camí del vídeo Flash: %1$s<br>Mida en píxels: %2$s"
+
+#: lib/Content/ContentType/Camtasia.php:158
+#, php-format
+msgid "Video description: %s"
+msgstr "Descripció del vídeo: %s"
+
+#: lib/Content/ContentType/ModuleFunc.php:49
+msgid "Module display"
+msgstr "Mostra un mòdul"
+
+#: lib/Content/ContentType/ModuleFunc.php:53
+msgid "Display output from any installed module."
+msgstr "Mostra la sortida generada per qualsevol mòdul instal·lat."
+
+#: lib/Content/ContentType/ModuleFunc.php:71
+msgid "Maximum number of pages-in-pages reached! You probably included this page in itself."
+msgstr "El nombre màxim de pàgines en una pàgina ha arribat! És probable que hagis inclòs aquesta pàgina en ella mateixa."
+
+#: lib/Content/ContentType/Breadcrumb.php:15
+msgid "BreadCrumb"
+msgstr "Darreres pàgines visitades"
+
+#: lib/Content/ContentType/Breadcrumb.php:20
+msgid "Show breadcrumbs for hierarchical pages"
+msgstr "Mostra darreres pàgines visitades per les pàgines jeràrquiques"
+
+#: lib/Content/Installer.php:40
+msgid "Warning! Could not create the default Content category tree. If you want to use categorisation with Content, register at least one property for the module in the Category Registry."
+msgstr "Atenció! No s'ha pogut crear l'arbre de categories de continguts per defecte. Si voleu fer servir les categories, registreu almenys una propietat pel mòdul en el registre de categories."
+
+#: lib/Content/Installer.php:131
+msgid "Table creation failed for 'content_translatedcontent': "
+msgstr "La creació de la taula ha fallat per 'content_translatedcontent': "
+
+#: lib/Content/Installer.php:134
+msgid "Table creation failed for 'content_translatedpage': "
+msgstr "La creació de la taula ha fallat per 'content_translatedpage': "
+
+#: lib/Content/Installer.php:352
+msgid "Content introduction page"
+msgstr "Pàgina introductòria del mòdul de continguts"
+
+#: lib/Content/Installer.php:353
+msgid "content-introduction-page"
+msgstr "content-introduction-page"
+
+#: lib/Content/Installer.php:361
+msgid "Warning! Could not create the default Content introductory page."
+msgstr "Atenció! No s'ha pogut crear la pàgina introductòria per defecte."
+
+#: lib/Content/Installer.php:370
+msgid "A Content page consists of various content items in a chosen layout"
+msgstr "Una pàgina de continguts consisteix diversos ítems de contingut situats sobre una estructura de escollida"
+
+#: lib/Content/Installer.php:377
+msgid "<p>Each created page has a specific layout, like 1 column with and without a header, 2 columns, 3 columns. The chosen layout contains various content areas. In each area you can place 1 or more content items of various kinds like:</p> <ul> <li>HTML text;</li> <li>YouTube videos;</li> <li>Google maps;</li> <li>Flickr photos;</li> <li>RSS feeds;</li> <li>Computer Code;</li> <li>the output of another Zikula module.</li> </ul> <p>Within these content areas you can sort the content items by means of drag & drop.<br /> You can make an unlimited number of pages and structure them hierarchical. Your page structure can be displayed in a multi level menu in your website.</p>"
+msgstr "<p>Cadascuna de les pàgines creades té una estructura específica, com 1 columna amb i sense capçalera, 2 columnes, 3 columnes. L'estructura escollida conté vàries àrees de continguts. A cadascuna de les àrees podeu situar 1 o més ítems de continguts de diferents tipus com:</p> <ul> <li>Text HTML;</li> <li>Vídeos de YouTube;</li> <li>Mapes de Google;</li> <li>Àlbums de fotos de Flickr;</li> <li>Fonts de notícies RSS;</li> <li>Codi de programació;</li> <li>la sortida d'un altre mòdul de Zikula.</li> </ul> <p>Dins d'aquestes àrees de continguts podeu ordenar els ítems arrossegant-los i deixant-los allà on han d'anar.<br /> Podeu crear un nombre il·limitat de pàgines i estructurar-les jeràrquicament. La vostra estructura de pàgina pot ser mostrada en un menú de multi nivell en el vostre lloc web.</p>"
+
+#: lib/Content/Installer.php:384
+msgid "<p><strong>This is a second HTML text content item in the left column</strong><br /> Content is an extendible module. You can create your own content plugins and layouts and other Zikula modules can also offer content items. The News published module for instance has a Content plugin for a list of the latest articles.</p>"
+msgstr "<p><strong>Aquest és un segon ítem de contingut amb text HTML a la columna de l'esquerra</strong><br /> El mòdul de continguts és extensible. Podeu crear els vostres propis connectors pel mòdul i estructures, i altres mòdul de Zikula també poden oferir ítems de continguts. Per exemple, el mòdul de notícies disposa d'un connector que permet mostrar la llista dels darrers articles creats.</p>"
+
+#: lib/Content/Installer.php:391
+msgid "No matter what your needs, Zikula can provide the solution."
+msgstr "És igual el que necessitis, Zikula et pot aportar la solució."
+
+#: lib/Content/Installer.php:398
+msgid "$this->doAction($var); // just some code"
+msgstr "$this->doAction($var); // només una mica de codi"
+
+#: lib/Content/Installer.php:404
+msgid "<p>So you see that you can place all kinds of content on the page in your own style and liking. This makes Content a really powerful module.</p> <p>This page uses the <strong>2 column (62|38) layout</strong> which has a header, 2 colums with 62% width on the left and 38% width on the right and a footer</p>"
+msgstr "<p>Com podeu comprovar us és possible situar qualsevol contingut a la pàgina segon el vostre estil i com us agradi. Això del mòdul de continguts un mòdul realment potent.</p> <p>Aquesta pàgina fa ús de l'estructura de <strong>2 columen (62|38)</strong>, que té una capçalera, 2 columnes de 62% d'amplada a l'esquerra i 38% d'amplada a la dreta i un peu de pàgina</p>"
+
+#: lib/Content/Installer.php:411
+msgid "This <strong>footer</strong> finishes of this introduction page. Good luck with using Content. The <a href=\"index.php?module=content&type=admin\">Edit Contents</a> interface lets you edit or delete this introduction page. In the <a href=\"index.php?module=content&type=admin\">administration</a> interface you can further control the Content module."
+msgstr "Aquest <strong>peu de pàgina</strong> és el final de la pàgina introductòria. Bona sort amb l'ús del mòdul de continguts. La interfície d'<a href=\"index.php?module=content&type=admin\">edició de continguts</a> us permet editar o esborrar aquesta pàgina introductòria. Des de la interfície d'<a href=\"index.php?module=content&type=admin\">administració</a> podeu editar les característiques i tenir el controls del mòdul de continguts."
+
+#: lib/Content/Installer.php:507
+#, php-format
+msgid "%1$s ContentTypes upgraded for %2$s"
+msgstr "%1$s tipus de continguts actualitzat per a %2$s"
+
+#: lib/Content/Form/Handler/Admin/NewContent.php:41
+msgid "Missing page ID (pid) in URL"
+msgstr "S'ha perdut la ID (pid) de la pàgina la URL"
+
+#: lib/Content/Form/Handler/Admin/NewContent.php:45
+msgid "Missing content area index (cai) in URL"
+msgstr "S'ha perdut l'índex de l'àrea de contingut (cai) a la URL"
+
+#: lib/Content/Form/Handler/Admin/NewContent.php:53
+#: templates/admin/newcontent.tpl:4
+msgid "Add new content to page"
+msgstr "Afegeix contingut a la pàgina"
+
+#: lib/Content/Form/Handler/Admin/DeletedPages.php:26
+#: templates/admin/deletedpages.tpl:4
+msgid "Restore deleted pages"
+msgstr "Restaura les pàgines esborrades"
+
+#: lib/Content/Form/Handler/Admin/TranslatePage.php:25
+#: lib/Content/Form/Handler/Admin/TranslateContent.php:46
+#, php-format
+msgid "Sorry, you cannot translate an item to the same language as it's default language (\"%1$s\"). Change the current site language (\"%2$s\") to some other language on the <a href=\"%3$s\">localisation settings</a> page.<br /> Another way is to add, for instance, <strong>&amp;lang=de</strong> to the url for changing the current site language to German and after that the item can be translated to German."
+msgstr "Disculpeu, no podeu traduir un ítem al mateix idioma que l'idioma original (\"%1$s\"). Modifiqueu l'idioma per defecte de la pàgina (\"%2$s\") a altres idiomes des de la pàgina de <a href=\"%3$s\">paràmetres de localització</a>.<br /> Una altra manera és afegir, per exemple, <strong>&amp;lang=ca</strong> a la url per canviar l'idioma actual de la pàgina a català. Després d'això l'ítem pot ser traduït a català."
+
+#: lib/Content/Form/Handler/Admin/TranslatePage.php:30
+#: templates/admin/translatepage.tpl:4
+#: templates/user/pageinfo.tpl:18
+msgid "Translate page"
+msgstr "Tradueix la pàgina"
+
+#: lib/Content/Form/Handler/Admin/TranslateContent.php:54
+#: templates/admin/translatecontent.tpl:4
+msgid "Translate content item"
+msgstr "Tradueix aquest element de contingut"
+
+#: lib/Content/Form/Handler/Admin/NewPage.php:47
+msgid "Located below:"
+msgstr "Situat a continuació:"
+
+#: lib/Content/Form/Handler/Admin/NewPage.php:49
+msgid "Located after:"
+msgstr "Situat després de:"
+
+#: lib/Content/Form/Handler/Admin/NewPage.php:59
+#: lib/Content/Form/Handler/Admin/ClonePage.php:45
+msgid "Error! You have not been granted access to create pages."
+msgstr "No podeu accedir a la creació de pàgines."
+
+#: lib/Content/Form/Handler/Admin/EditContent.php:71
+msgid "Unknown"
+msgstr "Desconegut"
+
+#: lib/Content/Form/Handler/Admin/EditContent.php:72
+msgid "Unknown plugin - requires upgrade"
+msgstr "Connector desconegut - cal actualitzar"
+
+#: lib/Content/Form/Handler/Admin/EditContent.php:73
+#: lib/Content/Form/Handler/Admin/EditContent.php:74
+msgid "Disabled plugin - requires upgrade"
+msgstr "Connector deshabilitat - cal actualitzar"
+
+#: lib/Content/Form/Handler/Admin/EditContent.php:101
+msgid "Edit content item"
+msgstr "Edita un element de contingut"
+
+#: lib/Content/Form/Handler/Admin/EditContent.php:107
+msgid "public (all)"
+msgstr "públic (tothom)"
+
+#: lib/Content/Form/Handler/Admin/EditContent.php:109
+#: templates/content_include_contentedit.tpl:8
+msgid "only logged in members"
+msgstr "només membres validats"
+
+#: lib/Content/Form/Handler/Admin/EditContent.php:111
+#: templates/content_include_contentedit.tpl:8
+msgid "only not logged in people"
+msgstr "només persones no validades"
+
+#: lib/Content/Form/Handler/Admin/Page.php:41
+#: templates/admin/history.tpl:5
+#: templates/user/pageinfo.tpl:16
+msgid "Edit page"
+msgstr "Edita la pàgina"
+
+#: lib/Content/Form/Handler/Admin/Page.php:111
+msgid "Layout changed"
+msgstr "S'ha canviat la disposició"
+
+#: lib/Content/Form/Handler/Admin/Settings.php:10
+msgid "Use 2 category levels (1st level single, 2nd level multi selection)"
+msgstr "Fes ús de 2 nivells de categoria (1er nivell simple, 2on nivell de multi selecció)"
+
+#: lib/Content/Form/Handler/Admin/Settings.php:11
+msgid "Use 2 category levels (both single selection)"
+msgstr "Utilitza 2 nivells de categoria (els dos de selecció simple)"
+
+#: lib/Content/Form/Handler/Admin/Settings.php:12
+msgid "Use 1 category level"
+msgstr "Fes us d'un nivell de categoria"
+
+#: lib/Content/Form/Handler/Admin/Settings.php:13
+msgid "Don't use Categories at all"
+msgstr "No facis ús de les categories"
+
+#: lib/Content/Form/Handler/Admin/Settings.php:17
+msgid "New pages will be active and available in the menu"
+msgstr "Les pàgines noves estaran actives i disponibles en el menú"
+
+#: lib/Content/Form/Handler/Admin/Settings.php:18
+msgid "New pages will be inactive and available in the menu"
+msgstr "Les pàgines noves no estaran actives, però sí disponibles en el menú"
+
+#: lib/Content/Form/Handler/Admin/Settings.php:19
+msgid "New pages will be active and not available in the menu"
+msgstr "Les pàgines noves estaran actives, però no disponibles en el menú"
+
+#: lib/Content/Form/Handler/Admin/Settings.php:20
+msgid "New pages will be inactive and not available in the menu"
+msgstr "Les pàgines noves no estaran actives ni disponibles en el menú"
+
+#: lib/Content/Form/Handler/Admin/Settings.php:48
+msgid "Failed to set configuration variables"
+msgstr "S'ha produït un error en establir les variables de configuració"
+
+#: lib/Content/Form/Handler/Admin/Settings.php:54
+msgid "Main category property does not exist."
+msgstr "La propietat de la categoria principal no existeix."
+
+#: lib/Content/Form/Handler/Admin/Settings.php:59
+msgid "Second category property does not exist."
+msgstr "La segona propietat de la categoria no existeix."
+
+#: lib/Content/Form/Handler/Admin/Settings.php:63
+msgid "Done! Saved module configuration."
+msgstr "S'ha modificat la configuració del mòdul."
+
+#: lib/Content/Form/Handler/Admin/Main.php:29
+#: templates/admin/main.tpl:5
+msgid "Page list and content structure"
+msgstr "Llista de pàgines i estructura del contingut"
+
+#: lib/Content/Form/Handler/Admin/ClonePage.php:26
+msgid "Page not found"
+msgstr "No s'ha trobat la pàgina"
+
+#: lib/Content/Form/Handler/Admin/ClonePage.php:34
+#: templates/admin/clonepage.tpl:4
+#: templates/admin/tocedit.tpl:28
+msgid "Clone page"
+msgstr "Clona la pàgina"
+
+#: lib/Content/Form/Handler/Admin/HistoryContent.php:46
+msgid "Page history"
+msgstr "Historial de la pàgina"
+
+#: lib/Content/Form/Plugin/PositionSelector.php:46
+msgid "No box"
+msgstr "Sense caixa"
+
+#: lib/Content/Form/Plugin/PositionSelector.php:51
+msgid "Above"
+msgstr "A dalt"
+
+#: lib/Content/Form/Plugin/PositionSelector.php:56
+msgid "Float, left"
+msgstr "Flota a l'esquerra"
+
+#: lib/Content/Form/Plugin/PositionSelector.php:61
+msgid "Float, right"
+msgstr "Flota a la dreta"
+
+#: lib/Content/Form/Plugin/PositionSelector.php:66
+msgid "Above, left"
+msgstr "A dalt a l'esquerra"
+
+#: lib/Content/Form/Plugin/PositionSelector.php:71
+msgid "Above, right"
+msgstr "A dalt a la dreta"
+
+#: lib/Content/Controller/Edit.php:16
+#: lib/Content/Controller/Edit.php:24
+#: lib/Content/Controller/Edit.php:32
+#: lib/Content/Controller/Edit.php:40
+#: lib/Content/Controller/Edit.php:48
+#: lib/Content/Controller/Edit.php:56
+#: lib/Content/Controller/Edit.php:64
+#: lib/Content/Controller/Edit.php:72
+#: lib/Content/Controller/Edit.php:80
+#: lib/Content/Controller/Edit.php:88
+#, php-format
+msgid "Warning! %1$s is deprecated. Please use the Admin controller instead."
+msgstr "Atenció! %1$s és obsolet. Si us plau, feu servir Admin controller en lloc seu."
+
+#: lib/Content/Controller/User.php:97
+#, php-format
+msgid "Version #%1$s - %2$s - %3$s by %4$s from %5$s"
+msgstr "Versió #%1$s - %2$s - %3$s de %4$s des de %5$s"
+
+#: lib/Content/Controller/User.php:121
+#: templates/admin/editpage.tpl:199
+#: templates/admin/tocedit.tpl:25
+msgid "Preview"
+msgstr "Previsualitza"
+
+#: lib/Content/Controller/User.php:238
+msgid "Error! Unknown page."
+msgstr "Pàgina desconeguda"
+
+#: lib/Content/Controller/Admin.php:142
+msgid "No ContentTypes upgraded (there were no matches found)."
+msgstr "No hi ha actualitzacions dels tipus de pàgines (no s'han trobat coincidències)."
+
+#: lib/Content/Controller/Admin.php:154
+#, php-format
+msgid "Module '%s' migrated successfully."
+msgstr "El mòdul '%s' s'ha migrat satisfactòriament."
+
+#: lib/Content/Controller/Admin.php:156
+#, php-format
+msgid "Error: Unable to migrate module '%s'."
+msgstr "No s'ha pogut migrar el mòdul '%s'."
+
+#: lib/Content/Controller/Ajax.php:33
+msgid "Ok"
+msgstr "D'acord"
+
+#: lib/Content/Controller/Ajax.php:52
+#: lib/Content/Controller/Ajax.php:78
+msgid "Error! No page ID passed."
+msgstr "No s'ha passat la ID de la pàgina."
+
+#: lib/Content/Controller/Ajax.php:57
+#: lib/Content/Controller/Ajax.php:83
+msgid "Error! Could not update state."
+msgstr "No s'ha pogut actualitzar l'estat."
+
+#: lib/Content/Version.php:19
+msgid "Content editing"
+msgstr "Edició de continguts"
+
+#: lib/Content/Version.php:20
+msgid "Content is a page editing module. With it you can insert and edit various content items, such as HTML texts, videos, Google maps and much more."
+msgstr "Mòdul de creació de continguts."
+
+#: lib/Content/Version.php:22
+msgid "content"
+msgstr "contingut"
+
+#: lib/Content/Version.php:42
+msgid "Content Display Hooks"
+msgstr "Lligams de visualització de continguts"
+
+#: lib/Content/Version.php:52
+msgid "Content Filter Hooks"
+msgstr "Filtre de lligams de continguts"
+
+#: lib/Content/Block/OnePage.php:22
+msgid "Content onepage"
+msgstr "Contingut en una pàgina"
+
+#: lib/Content/Block/OnePage.php:23
+msgid "Content onepage block"
+msgstr "Contingut en una pàgina de bloc"
+
+#: lib/Content/Block/OnePage.php:46
+msgid "No page selected"
+msgstr "No s'ha seleccionat cap pàgina"
+
+#: lib/Content/Block/OnePage.php:61
+msgid "Select a page"
+msgstr "Menú de continguts"
+
+#: lib/Content/Block/Menu.php:21
+msgid "Content menu"
+msgstr "Menú de continguts"
+
+#: lib/Content/Block/Menu.php:22
+msgid "Content menu block"
+msgstr "Bloc de menú de continguts"
+
+#: lib/Content/Block/Mostviewed.php:21
+msgid "Content Most Viewed"
+msgstr "Contingut més vist"
+
+#: lib/Content/Block/Mostviewed.php:22
+msgid "Content Most viewed Pages block"
+msgstr "Bloc de pàgines més visitades"
+
+#: lib/Content/Block/SubPages.php:21
+msgid "Content subpages of current page"
+msgstr "Sub-pàgines de continguts de la pàgina actual"
+
+#: lib/Content/Block/SubPages.php:22
+msgid "Content subpages of the current page in a block"
+msgstr "Sub-pàgines de continguts de la pàgina actual en un bloc"
+
+#: templates/admin/settings.tpl:4
+msgid "Module settings"
+msgstr "Configuració del mòdul"
+
+#: templates/admin/settings.tpl:7
+msgid "This is where you configure various parts of the content module."
+msgstr "Des d'aquí podeu configurar diverses parts del mòdul de continguts."
+
+#: templates/admin/settings.tpl:19
+msgid "Short URL suffix"
+msgstr "Sufix per als URL curts"
+
+#: templates/admin/settings.tpl:21
+msgid "File suffix of short URLs (including a dot - for instance \".html\"). This is only used if you enable short URLs in Zikula's admin section."
+msgstr "Sufix del fitxer o URL curt (incloent el punt - per exemple \".html\"). Només s'utilitza si s'habiliten els URL curts des del tauler d'administració del Zikula."
+
+#: templates/admin/settings.tpl:24
+msgid "State of new pages"
+msgstr "Estat de les pàgines noves"
+
+#: templates/admin/settings.tpl:28
+msgid "Count page views"
+msgstr "Mostra el comptador de pàgines vistes"
+
+#: templates/admin/settings.tpl:30
+msgid "Page views are only counted when not in preview or edit mode and only when the user has no edit access."
+msgstr "El nombre de pàgines vistes no són comptabilitzades si no esteu en mode de previsualització o edició i només quan l'usuari/ària no té accés d'edició."
+
+#: templates/admin/settings.tpl:33
+msgid "Google maps API key"
+msgstr "Clau de l'API del Google Maps"
+
+#: templates/admin/settings.tpl:35
+msgid "A Google Maps API key is no longer needed for including maps with the Javascript API v3. More information at <a href=\"http://code.google.com/apis/maps/documentation/javascript/basics.html\">Google</a>."
+msgstr "La clau de l'API de Google ja no és necessària per incloure mapes amb l'API de Javascript v3. Podeu trobar més informació a <a href=\"http://code.google.com/apis/maps/documentation/javascript/basics.html\">Google</a>."
+
+#: templates/admin/settings.tpl:38
+msgid "Flickr API key"
+msgstr "Clau de l'API del Flickr"
+
+#: templates/admin/settings.tpl:44
+msgid "Scribite editor"
+msgstr "Editor d'Scribite"
+
+#: templates/admin/settings.tpl:46
+msgid "Selecting \"-\" here will use the scribite default editor. If no default editor is set in scribite, then no editor will display."
+msgstr "Si seleccioneu \"-\" s'utilitzarà l'editor per defecte. Si a l'Scribite no s'ha definit cap editor per defecte, no es mostrarà cap editor."
+
+#: templates/admin/settings.tpl:46
+msgid "Creating Content-specific module settings in the Scribite settings will have no effect."
+msgstr "La configuració de la creació de continguts en tindran efectes sobre la configuració del mòdul Scribite."
+
+#: templates/admin/settings.tpl:50
+msgid "Enable the unfiltered raw text plugin"
+msgstr "Habilitat el connector de text no filtrat"
+
+#: templates/admin/settings.tpl:52
+msgid "Use this plugin with caution and if you can trust your editors, since no filtering is being done on the content. To be used for iframes, JavaScript blocks, etc."
+msgstr "Feu ús d'aquest connector amb precaució si podeu confiar amb els vostres editors, ja que no hi ha filtre del que es fa sobre el contingut. S'utilitzarà per a iframes, blocs de JavaScript, etc."
+
+#: templates/admin/settings.tpl:55
+#: templates/admin/editcontent.tpl:44
+msgid "Styling"
+msgstr "Estils"
+
+#: templates/admin/settings.tpl:57
+msgid "A list of CSS class names available for styling of content elements. The end user can select one class for each element on a page - for instance \"note\" for an element styled as a note. Write one class name on each line. Please separate the CSS classes and displaynames with | - eg. \"note | Memo\"."
+msgstr "Llista de noms de classes CSS disponibles pels estils dels elements de contingut. L'usuari/ària pot seleccionar una classe per a cada element d'una pàgina - per exemple \"nota\" per a un element de tipus nota. Escriviu un nom de classe per línia. Separa les classes CSS i els noms a mostrar amb el símbol | - per exemple \"nota | Memo\"."
+
+#: templates/admin/settings.tpl:60
+msgid "Enable version history"
+msgstr "Activa el control de versions"
+
+#: templates/admin/settings.tpl:64
+msgid "Category usage"
+msgstr "Ús de categories"
+
+#: templates/admin/settings.tpl:69
+msgid "Category Property for the first category selection"
+msgstr "Propietat de la categoria per la primera selecció de categoria"
+
+#: templates/admin/settings.tpl:71
+#, php-format
+msgid "(In the <a href=\"%s\">category registry</a> you can set the property to use for the first category)"
+msgstr "(En el <a href=\"%s\">registre de categories</a> podeu establir la propietat a usar per a la primera categoria)"
+
+#: templates/admin/settings.tpl:74
+msgid "Category Property for the second category selection"
+msgstr "Propietat de la categoria per la selecció de la segona categoria"
+
+#: templates/admin/settings.tpl:76
+#, php-format
+msgid "(In the <a href=\"%s\">category registry</a> you can set the property to use for the second category if being used)"
+msgstr "(En el <a href=\"%s\">registre de categories</a> podeu establir la propietat a usar per a la segona categoria, si és usada)"
+
+#: templates/admin/settings.tpl:81
+msgid "Available Plugins"
+msgstr "Connectors disponibles"
+
+#: templates/admin/settings.tpl:82
+msgid "Content includes an API that other modules can use to provide their content. Moreover some modules introduce extra functions to plugins delivered with Content."
+msgstr "El mòdul de continguts inclou una API que altres mòduls poden utilitzar per proporcionar als seus continguts. A més, alguns mòduls poden disposar de funcions addicionals als connectors que incorpora el mòdul de continguts."
+
+#: templates/admin/settings.tpl:87
+#: templates/admin/settings.tpl:98
+msgid "Installed"
+msgstr "Instal·lat"
+
+#: templates/admin/settings.tpl:88
+#: templates/admin/settings.tpl:101
+#: templates/admin/editpage.tpl:116
+#: templates/admin/editcontent.tpl:21
+#: templates/admin/tocedit.tpl:89
+#: templates/admin/tocedit.tpl:90
+msgid "Active"
+msgstr "Actiu"
+
+#: templates/admin/settings.tpl:89
+msgid "Module"
+msgstr "Mòdul"
+
+#: templates/admin/settings.tpl:90
+msgid "Plugin"
+msgstr "Connector"
+
+#: templates/admin/settings.tpl:91
+#: templates/admin/editpage.tpl:102
+#: templates/contenttype/openstreetmap_translate_new.tpl:2
+#: templates/contenttype/quote_edit.tpl:12
+#: templates/contenttype/quote_translate_new.tpl:11
+#: templates/contenttype/openstreetmap_translate_original.tpl:2
+msgid "Description"
+msgstr "Descripció"
+
+#: templates/admin/settings.tpl:103
+#: templates/admin/tocedit.tpl:93
+#: templates/admin/tocedit.tpl:94
+msgid "Inactive"
+msgstr "Inactiu"
+
+#: templates/admin/settings.tpl:120
+#: templates/admin/editpage.tpl:200
+#: templates/admin/translatepage.tpl:49
+#: templates/admin/translatecontent.tpl:30
+#: templates/admin/editcontent.tpl:53
+msgid "Save"
+msgstr "Desa"
+
+#: templates/admin/settings.tpl:121
+#: templates/admin/migrate.tpl:23
+#: templates/admin/newpage.tpl:61
+#: templates/admin/editpage.tpl:210
+#: templates/admin/translatepage.tpl:51
+#: templates/admin/translatecontent.tpl:34
+#: templates/admin/clonepage.tpl:35
+#: templates/admin/newcontent.tpl:26
+#: templates/admin/editcontent.tpl:60
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: templates/admin/migrate.tpl:4
+msgid "Migrate Data to Content"
+msgstr "Migrar les dades cap el mòdul de continguts"
+
+#: templates/admin/migrate.tpl:11
+msgid "Module selection"
+msgstr "Selecció del mòdul"
+
+#: templates/admin/migrate.tpl:13
+msgid "Select a module"
+msgstr "Seleccioneu un mòdul"
+
+#: templates/admin/migrate.tpl:22
+msgid "Migrate"
+msgstr "Migrar"
+
+#: templates/admin/newpage.tpl:8
+msgid "Select Layout"
+msgstr "Seleccioneu una estructura"
+
+#: templates/admin/newpage.tpl:32
+#: templates/admin/editpage.tpl:71
+#: templates/admin/translatepage.tpl:17
+#: templates/admin/translatepage.tpl:33
+#: templates/admin/clonepage.tpl:17
+msgid "Page title"
+msgstr "Títol de la pàgina"
+
+#: templates/admin/newpage.tpl:36
+#: templates/admin/editpage.tpl:79
+#: templates/admin/clonepage.tpl:21
+msgid "Permalink URL name"
+msgstr "Nom de l'URL permanent"
+
+#: templates/admin/newpage.tpl:38
+#: templates/admin/editpage.tpl:81
+msgid "(Used in shorturl mode and generated automatically if left blank)"
+msgstr "(Usat en el mode d'adreces curtes i generat automàticament si es deixa en blanc)"
+
+#: templates/admin/newpage.tpl:43
+msgid "Please select a specific layout for your page"
+msgstr "Seleccioneu la disposició dels continguts d'aquesta pàgina"
+
+#: templates/admin/newpage.tpl:45
+#: templates/admin/editpage.tpl:180
+#: templates/admin/editpage.tpl:182
+msgid "Page layout"
+msgstr "Disposició de la pàgina"
+
+#: templates/admin/newpage.tpl:49
+#: templates/admin/editpage.tpl:186
+msgid "Layout preview and description"
+msgstr "Visualització prèvia de l'estructura i descripció"
+
+#: templates/admin/newpage.tpl:60
+#: templates/admin/newcontent.tpl:25
+msgid "Create"
+msgstr "Crea"
+
+#: templates/admin/history.tpl:11
+#: templates/admin/deletedpages.tpl:8
+msgid "Version history is currently disabled and no new entries will be recorded."
+msgstr "L'historial de versions està deshabilitat per defecte i les entrades noves no es desaran."
+
+#: templates/admin/history.tpl:19
+msgid "Revision #"
+msgstr "Revisió #"
+
+#: templates/admin/history.tpl:20
+#: templates/admin/deletedpages.tpl:17
+msgid "Date"
+msgstr "Data"
+
+#: templates/admin/history.tpl:21
+msgid "Event"
+msgstr "Esdeveniment"
+
+#: templates/admin/history.tpl:22
+#: templates/admin/deletedpages.tpl:18
+msgid "User"
+msgstr "Usuari/ària"
+
+#: templates/admin/history.tpl:23
+#: templates/admin/deletedpages.tpl:19
+msgid "IP.No."
+msgstr "IP"
+
+#: templates/admin/history.tpl:24
+#: templates/admin/deletedpages.tpl:20
+msgid "Action"
+msgstr "Acció"
+
+#: templates/admin/history.tpl:35
+#: templates/admin/deletedpages.tpl:30
+msgid "Restore"
+msgstr "Restaura"
+
+#: templates/admin/history.tpl:38
+#: templates/admin/deletedpages.tpl:33
+msgid "No history data recorded."
+msgstr "No hi ha dades de versions anteriors."
+
+#: templates/admin/editpage.tpl:23
+msgid "Edit Page"
+msgstr "Editar la pàgina"
+
+#: templates/admin/editpage.tpl:38
+#: templates/admin/tocedit.tpl:24
+msgid "Edit"
+msgstr "Edita"
+
+#: templates/admin/editpage.tpl:40
+msgid "Clone content"
+msgstr "Clona el contingut"
+
+#: templates/admin/editpage.tpl:41
+msgid "Add new content above"
+msgstr "Afegeix un contingut abans"
+
+#: templates/admin/editpage.tpl:42
+msgid "Add new content below"
+msgstr "Afegeix un contingut després"
+
+#: templates/admin/editpage.tpl:44
+#: templates/admin/editpage.tpl:205
+#: templates/admin/translatepage.tpl:50
+#: templates/admin/translatecontent.tpl:32
+#: templates/admin/editcontent.tpl:55
+#: templates/admin/tocedit.tpl:38
+msgid "Delete"
+msgstr "Esborra"
+
+#: templates/admin/editpage.tpl:58
+#: templates/admin/tocedit.tpl:35
+msgid "History"
+msgstr "Historial"
+
+#: templates/admin/editpage.tpl:62
+#: templates/admin/editcontent.tpl:16
+#: templates/search/options.tpl:3
+msgid "Content"
+msgstr "Contingut"
+
+#: templates/admin/editpage.tpl:63
+msgid "Here you manage the content of this page. You can add/edit/delete content as well as drag the content boxes around to get the layout right. Click on the icon next to the title for the options of that content item."
+msgstr "Aquí podeu gestionar el contingut d'aquesta pàgina. Podeu afegir/editar/esborrar continguts així com arrossegar les caixes de continguts per aconseguir l'estructura desitjada. Feu clic a la icona següent del títol per veure les opcions d'aquest ítem de continguts."
+
+#: templates/admin/editpage.tpl:67
+msgid "Options"
+msgstr "Opcions"
+
+#: templates/admin/editpage.tpl:69
+msgid "Page settings"
+msgstr "Configuració de la pàgina"
+
+#: templates/admin/editpage.tpl:75
+msgid "Display title on page"
+msgstr "Mostrar el títol de la pàgina"
+
+#: templates/admin/editpage.tpl:84
+msgid "Page language"
+msgstr "Idioma de la pàgina"
+
+#: templates/admin/editpage.tpl:88
+msgid "Include page in menu"
+msgstr "Inclou aquesta pàgina al menú"
+
+#: templates/admin/editpage.tpl:90
+msgid "You can include/exclude the page in the menu. The page is only shown when it is also Online."
+msgstr "Podeu incloure/excloure la pàgina al menú. La pàgina només es mostrada quan està en línia. És a dir, quan està activa i dins del període de publicació definit."
+
+#: templates/admin/editpage.tpl:93
+msgid "Do not display hooks on this page"
+msgstr "No mostreu els lligams en aquesta pàgina"
+
+#: templates/admin/editpage.tpl:95
+msgid "Checking this option will just ignore all the hooks for this page, it does not replace permissions."
+msgstr "Si es marca aquesta opció s'ignoraran els lligams per aquesta pàgina, això no reemplaça els permisos."
+
+#: templates/admin/editpage.tpl:100
+msgid "Meta tags"
+msgstr "Meta tags"
+
+#: templates/admin/editpage.tpl:106
+msgid "Keywords"
+msgstr "Keywords"
+
+#: templates/admin/editpage.tpl:114
+msgid "Page state"
+msgstr "Estat de la pàgina"
+
+#: templates/admin/editpage.tpl:118
+msgid "You can set the page active/inactive as well as supply a publication date interval. A page is only online if it is active and within the publication interval."
+msgstr "Podeu establir la pàgina com a activa/inactiva així com un període de publicació. La pàgina només és accessible si està activa i dins del període de publicació."
+
+#: templates/admin/editpage.tpl:121
+msgid "Start date"
+msgstr "Des de (AAAA-MM-DD)"
+
+#: templates/admin/editpage.tpl:125
+msgid "End date"
+msgstr "fins a (AAAA-MM-DD)"
+
+#: templates/admin/editpage.tpl:129
+msgid "Created"
+msgstr "Creada"
+
+#: templates/admin/editpage.tpl:130
+#: templates/admin/editpage.tpl:134
+#: templates/admin/tocedit.tpl:108
+#, php-format
+msgid "on %1$s by %2$s"
+msgstr "el %1$s per %2$s"
+
+#: templates/admin/editpage.tpl:133
+msgid "Updated"
+msgstr "Actualitzada"
+
+#: templates/admin/editpage.tpl:146
+#: templates/admin/editpage.tpl:148
+msgid "Category"
+msgstr "Categoria"
+
+#: templates/admin/editpage.tpl:154
+#: templates/user/main.tpl:1
+msgid "Categories"
+msgstr "Categories"
+
+#: templates/admin/editpage.tpl:156
+msgid "Primary category"
+msgstr "Categoria principal"
+
+#: templates/admin/editpage.tpl:163
+msgid "Secondary category"
+msgstr "Categoria secundària"
+
+#: templates/admin/editpage.tpl:168
+msgid "Secondary categories"
+msgstr "Categories secundàries"
+
+#: templates/admin/editpage.tpl:178
+#: templates/admin/editcontent.tpl:31
+#: templates/admin/editcontent.tpl:33
+msgid "Layout"
+msgstr "Disposició"
+
+#: templates/admin/editpage.tpl:202
+msgid "Save & View"
+msgstr "Desa i mostra"
+
+#: templates/admin/translatepage.tpl:7
+msgid "You can only translate the actual page data here. The content items must be translated one by one."
+msgstr "Pots modificar la data de la pàgina des d'aquí. El contingut dels articles s'han de traduir un a un."
+
+#: templates/admin/translatepage.tpl:15
+#: templates/admin/translatecontent.tpl:15
+msgid "Original content"
+msgstr "Contingut original"
+
+#: templates/admin/translatepage.tpl:21
+#: templates/admin/translatepage.tpl:37
+msgid "Meta description"
+msgstr "Meta descrició"
+
+#: templates/admin/translatepage.tpl:25
+#: templates/admin/translatepage.tpl:41
+msgid "Meta keywords"
+msgstr "Meta keywords"
+
+#: templates/admin/translatepage.tpl:31
+#: templates/admin/translatecontent.tpl:22
+msgid "Translated content"
+msgstr "Contingut traduït"
+
+#: templates/admin/translatepage.tpl:47
+#: templates/admin/translatecontent.tpl:28
+msgid "Next"
+msgstr "Següent"
+
+#: templates/admin/translatepage.tpl:48
+#: templates/admin/translatecontent.tpl:29
+msgid "Skip"
+msgstr "Salta"
+
+#: templates/admin/translatepage.tpl:50
+msgid "Delete page translation AND all content translations"
+msgstr "Esborra la pàgina traduïda i totes les traduccions de contingut"
+
+#: templates/admin/main_unneeded.tpl:4
+msgid "Module administration"
+msgstr "Administració del mòdul"
+
+#: templates/admin/main_unneeded.tpl:7
+msgid "Welcome to your content administration. We have split the editing and administrative setup into separate systems. So please select from the list below or the menu above."
+msgstr "Benvingut/da a l'administració del mòdul Content (\"continguts\"). S'ha dividit l'edició i configuració administrativa en sistemes separats. Seleccioneu les opcions des de la llista de baix o des del menú de dalt."
+
+#: templates/admin/main_unneeded.tpl:15
+msgid "Extended page list (showing page headers)"
+msgstr "Llista estesa de pàgines (només mostra els títols de les pàgines)"
+
+#: templates/admin/main_unneeded.tpl:16
+msgid "Complete page list (showing complete pages)"
+msgstr "Llista de pàgines senceres (mostra el contingut complet)"
+
+#: templates/admin/main_unneeded.tpl:17
+msgid "Show content by category"
+msgstr "Mostra els continguts per categoria"
+
+#: templates/admin/deletedpages.tpl:16
+msgid "Original page title"
+msgstr "Títol original de la pàgina"
+
+#: templates/admin/translatecontent.tpl:27
+msgid "Previous"
+msgstr "Previ"
+
+#: templates/admin/translatecontent.tpl:38
+msgid "Error! There is nothing to translate for this content type."
+msgstr "Aquest tipus de contingut no es pot traduir"
+
+#: templates/admin/translatecontent.tpl:41
+msgid "Back"
+msgstr "Enrere"
+
+#: templates/admin/clonepage.tpl:23
+msgid "Used to refer this page in short URLs mode. Leave as blank for default value."
+msgstr "Es fa servir per accedir a aquesta pàgina quan estan activats els URL curts. Deixeu-lo buit per a generar-lo automàticament."
+
+#: templates/admin/clonepage.tpl:26
+msgid "Clone translations"
+msgstr "Clona les traduccions"
+
+#: templates/admin/clonepage.tpl:34
+msgid "Clone"
+msgstr "Clona"
+
+#: templates/admin/newcontent.tpl:17
+msgid "Please select the type of content you want to add to your page."
+msgstr "Seleccioneu el tipus de contingut que voleu afegir a la pàgina"
+
+#: templates/admin/newcontent.tpl:20
+msgid "Select content type"
+msgstr "Seleccioneu el tipus de contingut"
+
+#: templates/admin/editcontent.tpl:4
+#, php-format
+msgid "Edit %s"
+msgstr "Edita %s"
+
+#: templates/admin/editcontent.tpl:18
+msgid "ID"
+msgstr "ID"
+
+#: templates/admin/editcontent.tpl:25
+msgid "Visible for"
+msgstr "Visible per"
+
+#: templates/admin/editcontent.tpl:34
+msgid "Positioning works only with fixed width!"
+msgstr "El posicionament només funciona amb amplades fixes!"
+
+#: templates/admin/editcontent.tpl:36
+msgid "Position"
+msgstr "Posició"
+
+#: templates/admin/editcontent.tpl:40
+msgid "Width"
+msgstr "Amplada"
+
+#: templates/admin/tocedit.tpl:29
+msgid "New page"
+msgstr "Pàgina nova"
+
+#: templates/admin/tocedit.tpl:30
+#: templates/user/pageinfo.tpl:21
+msgid "New sub-page"
+msgstr "Afegeix una subpàgina nova"
+
+#: templates/admin/tocedit.tpl:32
+msgid "Decrease indent"
+msgstr "Disminueix el sagnat"
+
+#: templates/admin/tocedit.tpl:33
+msgid "Increase indent"
+msgstr "Augmenta el sagnat"
+
+#: templates/admin/tocedit.tpl:41
+msgid "Order subpages by title"
+msgstr "Ordena les sub-pàgines per títol"
+
+#: templates/admin/tocedit.tpl:43
+msgid "Expand All"
+msgstr "Expandeix-ho tot"
+
+#: templates/admin/tocedit.tpl:44
+msgid "Collapse All"
+msgstr "Contreu-ho tot"
+
+#: templates/admin/tocedit.tpl:47
+msgid "Click to activate this page"
+msgstr "Feu clic per activar aquesta pàgina"
+
+#: templates/admin/tocedit.tpl:48
+msgid "Click to deactivate this page"
+msgstr "Feu clic per desactivar aquesta pàgina"
+
+#: templates/admin/tocedit.tpl:49
+msgid "Click to put this page in the menu"
+msgstr "Feu clic per posar aquesta pàgina en el menú"
+
+#: templates/admin/tocedit.tpl:50
+msgid "Click to pull this page from the menu"
+msgstr "Feu clic per treure aquesta pàgina del menú"
+
+#: templates/admin/tocedit.tpl:56
+msgid "Page title [id]"
+msgstr "Títol de la pàgina [id]"
+
+#: templates/admin/tocedit.tpl:57
+msgid "Status"
+msgstr "Estat"
+
+#: templates/admin/tocedit.tpl:58
+msgid "Menu"
+msgstr "Menú"
+
+#: templates/admin/tocedit.tpl:59
+msgid "Last updated (revision)"
+msgstr "Darrera actualització (revisió)"
+
+#: templates/admin/tocedit.tpl:59
+msgid "Last updated"
+msgstr "Darrera actualització"
+
+#: templates/admin/tocedit.tpl:60
+#: templates/user/pageinfo.tpl:30
+msgid "Language"
+msgstr "Idioma"
+
+#: templates/admin/tocedit.tpl:70
+msgid "Click to hide sub-pages"
+msgstr "Feu clic per amagar les sub-pàgines"
+
+#: templates/admin/tocedit.tpl:72
+msgid "Click to show sub-pages"
+msgstr "Feu clic per mostrar les sub-pàgines"
+
+#: templates/admin/tocedit.tpl:79
+msgid "Page draggable"
+msgstr "La pàgina es pot arrossegar"
+
+#: templates/admin/tocedit.tpl:100
+#: templates/admin/tocedit.tpl:101
+msgid "In"
+msgstr "Dins"
+
+#: templates/admin/tocedit.tpl:104
+#: templates/admin/tocedit.tpl:105
+msgid "Out"
+msgstr "Fora"
+
+#: templates/admin/tocedit.tpl:114
+#, php-format
+msgid "%1$s (%2$s original)"
+msgstr "%1$s (%2$s original)"
+
+#: templates/admin/tocedit.tpl:114
+#, php-format
+msgid "%s original used"
+msgstr "%s usat com a original"
+
+#: templates/admin/tocedit.tpl:117
+msgid "No pages available."
+msgstr "No hi ha pàgines disponibles."
+
+#: templates/admin/main.tpl:10
+msgid "This is where you manage all your pages. You can add/edit/delete/translate pages (depending on permission rights) as well as drag them around to get the content structure right."
+msgstr "Aquí és on gestioneu totes les vostres pàgines. Podeu afegir/editar/esborrar/traduir pàgines (en funció dels vostres permisos) així com arrossegar les pagines al lloc desitjat per obtenir l'estructura correcta."
+
+#: templates/admin/main.tpl:15
+msgid "Click on the arrow right of a page title for the options of that page. To drag and drop a page you must select the folder icon left of the title and drop it on the title of another page. A page with sub-pages can be expanded or contracted by clicking on the plus or minus left of the page title. To activate/deactive pages or make pages (not) available in the menu click on the led icons."
+msgstr "Feu clic a la fletxa de la dreta del títol de la pàgina per accedir a les opcions de la pàgina. Per arrossegar i situar una pàgina heu de seleccionar la icona de carpeta a l'esquerra del títol i arrossegar-la fins el títol d'una altra pàgina. Una pàgina amb sub-pàgines és pot expandir o contraure en fer clic en els símbols de positiu i negatiu a l'esquerra del títol de la pàgina. Per activar/desactivar pàgines o crear-ne (no) disponible en el menú feu clic a la icona amb forma de led."
+
+#: templates/user/pagelist.tpl:1
+#: templates/user/pagelist.tpl:4
+msgid "Complete page list"
+msgstr "Llista completa de pàgines"
+
+#: templates/user/pagelist.tpl:11
+msgid "View full page"
+msgstr "Mostra la pàgina sencera"
+
+#: templates/user/pagelist.tpl:16
+#: templates/user/extlist.tpl:18
+#: templates/user/list.tpl:13
+#: templates/user/main.tpl:19
+msgid "There are no pages to display."
+msgstr "No hi ha pàgines per mostrar."
+
+#: templates/user/extlist.tpl:1
+#: templates/user/extlist.tpl:2
+msgid "Extended page list"
+msgstr "Llista estesa de pàgines"
+
+#: templates/user/extlist.tpl:14
+msgid "more"
+msgstr "més"
+
+#: templates/user/subpages.tpl:1
+#, php-format
+msgid "Subpages of %s"
+msgstr "Subpàgines de %s"
+
+#: templates/user/subpages.tpl:6
+msgid "No subpages available"
+msgstr "No hi ha subpàgines disponibles"
+
+#: templates/user/pageinfo.tpl:7
+msgid "Properties"
+msgstr "Propietats"
+
+#: templates/user/pageinfo.tpl:12
+msgid "Edit-mode off"
+msgstr "Desactiva el mode d'edició"
+
+#: templates/user/pageinfo.tpl:14
+msgid "Edit-mode on"
+msgstr "Activa el mode d'edició"
+
+#: templates/user/pageinfo.tpl:27
+#, php-format
+msgid "Created by %1$s on %2$s"
+msgstr "Creada per %1$s el %2$s"
+
+#: templates/user/pageinfo.tpl:28
+#, php-format
+msgid "Last updated by %1$s on %2$s"
+msgstr "Darrera actualització per %1$s el %2$s"
+
+#: templates/user/pageinfo.tpl:29
+msgid "Version"
+msgstr "Versió"
+
+#: templates/user/main.tpl:3
+msgid "Contents"
+msgstr "Continguts"
+
+#: templates/user/main.tpl:5
+#, php-format
+msgid "Welcome to the contents for %s"
+msgstr "Benvingut/da als continguts per a %s"
+
+#: templates/user/main.tpl:8
+msgid "The available sections are as follows:"
+msgstr "Les categories disponibles són les següents:"
+
+#: templates/contenttype/slideshare_edit.tpl:3
+msgid "Slideshare's Wordpress code"
+msgstr "Codi de l'Slideshare per al Wordpress"
+
+#: templates/contenttype/slideshare_edit.tpl:5
+msgid "Copy Slideshare's Wordpress embed code here (including square brackets and all). Click on Embed and Customize to show the wordpress embed code. It should look something like [slideshare id=145849&doc=prototype-jquery-going-from-one-to-the-other-1193346036472971-5]"
+msgstr "Copieu el codi embed de Slideshare de Wordpress aquí. Feu clic a Embed i adapteu-lo per mostrar el codi embed de Wordpress. Això hauria de ser quelcom similar a [slideshare id=145849&doc=prototype-jquery-going-from-one-to-the-other-1193346036472971-5]"
+
+#: templates/contenttype/slideshare_edit.tpl:9
+msgid "Slide description"
+msgstr "Descripció de la presentació de diapositives"
+
+#: templates/contenttype/slideshare_edit.tpl:14
+msgid "Slideshare's embedded player width"
+msgstr "Amplada de l'Slideshare"
+
+#: templates/contenttype/slideshare_edit.tpl:19
+msgid "Slideshare's embedded player height"
+msgstr "Alçada de l'Slideshare"
+
+#: templates/contenttype/tableofcontents_edit.tpl:2
+msgid "Page"
+msgstr "Pàgina"
+
+#: templates/contenttype/tableofcontents_edit.tpl:7
+msgid "Include self into the table of contents"
+msgstr "Inclou la mateixa pàgina dins de la taula de continguts"
+
+#: templates/contenttype/tableofcontents_edit.tpl:9
+msgid "(if page isn't 'All pages')"
+msgstr "(si la pàgina no és 'Totes les pàgines')"
+
+#: templates/contenttype/tableofcontents_edit.tpl:13
+msgid "Include subpages that are not in the menus"
+msgstr "Inclou sub-pàgines que no estan en els menús"
+
+#: templates/contenttype/tableofcontents_edit.tpl:18
+msgid "Include headings"
+msgstr "Inclou títols"
+
+#: templates/contenttype/tableofcontents_edit.tpl:23
+msgid "Include headings up to level"
+msgstr "Inclou els títols fins el nivell"
+
+#: templates/contenttype/tableofcontents_edit.tpl:25
+msgid "if headings are included and not unlimited; select 0 to include menu only for the selected page"
+msgstr "si els títols són inclosos i no són sense límit; seleccioneu 0 per incloure el menú només per la pàgina seleccionada."
+
+#: templates/contenttype/tableofcontents_edit.tpl:29
+msgid "Include subpages"
+msgstr "Inclou les sub-pàgines"
+
+#: templates/contenttype/tableofcontents_edit.tpl:34
+msgid "Include subpages into table up to level"
+msgstr "Inclou les sub-pàgines dis de la taula fine el nivell"
+
+#: templates/contenttype/tableofcontents_edit.tpl:36
+msgid "if subpages are included and not unlimited"
+msgstr "si s'han inclòs les sub-pàgines i no són sense limit"
+
+#: templates/contenttype/author_view.tpl:5
+msgid "By"
+msgstr "Per"
+
+#: templates/contenttype/modulefunc_edit.tpl:2
+msgid "Use this feature carefully! Some modules do not work when displayed together with other modules. DO NOT create circular module references, e.g., adding a Content page that displays itself ..."
+msgstr "Utilitzeu aquesta funcionalitat amb compte! Alguns mòduls no funcionen quan es mostren juntament amb altres mòduls. Aneu amb compte de no crear referències creuades entre mòduls que generin bucles, per exemple, afegint una pàgina de continguts que es mostra a sí mateixa."
+
+#: templates/contenttype/modulefunc_edit.tpl:4
+msgid "Module name"
+msgstr "Nom del mòdul"
+
+#: templates/contenttype/modulefunc_edit.tpl:9
+msgid "Function type"
+msgstr "Tipus de funció"
+
+#: templates/contenttype/modulefunc_edit.tpl:14
+msgid "Function name"
+msgstr "Nom de la funció"
+
+#: templates/contenttype/modulefunc_edit.tpl:19
+msgid "Function parameters"
+msgstr "Paràmetres de la funció"
+
+#: templates/contenttype/modulefunc_edit.tpl:21
+msgid "Separate by commas, e.g., x=5,y=2"
+msgstr "Separats per comes, per exemple, x=5,y=2"
+
+#: templates/contenttype/quote_edit.tpl:2
+#: templates/contenttype/html_edit.tpl:3
+#: templates/contenttype/html_translate_new.tpl:2
+msgid "Text"
+msgstr "Text"
+
+#: templates/contenttype/quote_edit.tpl:7
+#: templates/contenttype/quote_translate_new.tpl:6
+msgid "Source"
+msgstr "Origen"
+
+#: templates/contenttype/heading_edit.tpl:9
+msgid "Header size"
+msgstr "Mida del títol"
+
+#: templates/contenttype/joinposition_edit.tpl:5
+msgid "both"
+msgstr "ambdós"
+
+#: templates/contenttype/joinposition_edit.tpl:7
+msgid "left"
+msgstr "esquerra"
+
+#: templates/contenttype/joinposition_edit.tpl:9
+msgid "right"
+msgstr "dreta"
+
+#: templates/contenttype/unfiltered_translate_new.tpl:2
+#: templates/contenttype/unfiltered_edit.tpl:3
+#: templates/contenttype/unfiltered_translate_original.tpl:2
+msgid "Unfiltered text"
+msgstr "Text sense filtrar"
+
+#: templates/contenttype/unfiltered_translate_new.tpl:7
+#: templates/contenttype/unfiltered_edit.tpl:22
+#: templates/contenttype/unfiltered_translate_original.tpl:7
+msgid "iframe name parameter"
+msgstr "nom del paràmetre de l'iframe"
+
+#: templates/contenttype/unfiltered_translate_new.tpl:12
+#: templates/contenttype/unfiltered_edit.tpl:27
+#: templates/contenttype/unfiltered_translate_original.tpl:12
+msgid "iframe title parameter"
+msgstr "títol del paràmetre de l'iframe"
+
+#: templates/contenttype/camtasia_edit.tpl:3
+msgid "Name of the Camtasia-Flash video"
+msgstr "Nom dels vídeo de Camtasia-Flash"
+
+#: templates/contenttype/camtasia_edit.tpl:5
+msgid "You have to upload your camtasia project in the folder defined below <folder>/project/project.mp4 first. Here you have to give only the name of your project without path and file extension."
+msgstr "Primer heu de pujar el vostre projecte de camtasia al directori definit tot seguit <folder>/project/project.mp4. Aquí només heu de donar el nom del vostre projecte sense camí ni extensió del fitxer."
+
+#: templates/contenttype/camtasia_edit.tpl:9
+#: templates/contenttype/vimeo_edit.tpl:9
+#: templates/contenttype/youtube_edit.tpl:9
+msgid "Video display width [in pixels]"
+msgstr "Amplada en píxels del vídeo"
+
+#: templates/contenttype/camtasia_edit.tpl:14
+#: templates/contenttype/vimeo_edit.tpl:14
+#: templates/contenttype/youtube_edit.tpl:14
+msgid "Video display height [in pixels]"
+msgstr "Alçada en píxels del vídeo"
+
+#: templates/contenttype/camtasia_edit.tpl:19
+msgid "Thumbnail display width in popup mode [in pixels]"
+msgstr "Amplada de la miniatura en píxels pel mode de finestres emergents"
+
+#: templates/contenttype/camtasia_edit.tpl:24
+msgid "Thumbnail display height in popup mode [in pixels]"
+msgstr "Alçada de la miniatura en píxels pel mode de finestres emergents"
+
+#: templates/contenttype/camtasia_edit.tpl:29
+#: templates/contenttype/camtasia_translate_new.tpl:2
+#: templates/contenttype/camtasia_translate_original.tpl:7
+#: templates/contenttype/vimeo_translate_new.tpl:2
+#: templates/contenttype/youtube_translate_new.tpl:2
+#: templates/contenttype/vimeo_edit.tpl:19
+#: templates/contenttype/youtube_translate_original.tpl:7
+#: templates/contenttype/vimeo_translate_original.tpl:7
+#: templates/contenttype/youtube_edit.tpl:19
+msgid "Video description"
+msgstr "Descripció del vídeo"
+
+#: templates/contenttype/camtasia_edit.tpl:34
+msgid "Optional author of the video"
+msgstr "Autor original del vídeo"
+
+#: templates/contenttype/camtasia_edit.tpl:39
+msgid "Folder where the files are uploaded"
+msgstr "Directori on es pugen els fitxers"
+
+#: templates/contenttype/camtasia_edit.tpl:46
+#: templates/contenttype/vimeo_edit.tpl:26
+#: templates/contenttype/youtube_edit.tpl:26
+msgid "Show video inline"
+msgstr "Mostra el vídeo dins de la pàgina"
+
+#: templates/contenttype/camtasia_edit.tpl:49
+#: templates/contenttype/vimeo_edit.tpl:29
+#: templates/contenttype/youtube_edit.tpl:29
+msgid "Show video in popup window"
+msgstr "Mostra el vídeo dins d'una finestra emergent"
+
+#: templates/contenttype/camtasia_view.tpl:16
+#, php-format
+msgid "by %s"
+msgstr "per %s"
+
+#: templates/contenttype/camtasia_view.tpl:29
+#: templates/contenttype/vimeo_view.tpl:23
+#: templates/contenttype/youtube_view.tpl:23
+msgid "Play Video"
+msgstr "Reprodueix el vídeo"
+
+#: templates/contenttype/rss_edit.tpl:3
+msgid "URL of RSS feed (include http://)"
+msgstr "URL de la font RSS (incloent http://)"
+
+#: templates/contenttype/rss_edit.tpl:8
+msgid "Include feed text in addition to the title"
+msgstr "Inclou el text de la font juntament amb el títol"
+
+#: templates/contenttype/rss_edit.tpl:13
+msgid "Refresh time (in minutes)"
+msgstr "Temps d'actualització (en minuts)"
+
+#: templates/contenttype/rss_edit.tpl:18
+msgid "Max. no. of items to display"
+msgstr "Nombre màxim d'elements a mostrar"
+
+#: templates/contenttype/camtasia_translate_original.tpl:2
+msgid "Path to the Shockwave-Flash video"
+msgstr "Camí al vídeo de Shockwave-Flash"
+
+#: templates/contenttype/vimeo_edit.tpl:3
+#: templates/contenttype/youtube_translate_original.tpl:2
+#: templates/contenttype/vimeo_translate_original.tpl:2
+#: templates/contenttype/youtube_edit.tpl:3
+msgid "URL to the video clip"
+msgstr "Adreça del vídeo"
+
+#: templates/contenttype/vimeo_edit.tpl:5
+msgid "Something like \"http://vimeo.com/7504225\"."
+msgstr "Quelcom similar a \"http://vimeo.com/2933183\""
+
+#: templates/contenttype/googlemap_view.tpl:9
+msgid "Get directions from start address"
+msgstr "Obtenir adreces de la direcció d'inici"
+
+#: templates/contenttype/googlemap_view.tpl:11
+msgid "Show Directions"
+msgstr "Mostra adreces"
+
+#: templates/contenttype/googlemap_view.tpl:12
+msgid "Clear Directions"
+msgstr "Netejar les adreces"
+
+#: templates/contenttype/googlemap_view.tpl:18
+msgid "Get directions to this location"
+msgstr "Obtenir adreces des d'aquesta localització"
+
+#: templates/contenttype/openstreetmap_view.tpl:6
+msgid "Show information on the map"
+msgstr "Mostra informació en el mapa"
+
+#: templates/contenttype/openstreetmap_view.tpl:6
+msgid "Hide information on the map"
+msgstr "Amaga la informació del mapa"
+
+#: templates/contenttype/author_edit.tpl:10
+msgid "Author"
+msgstr "Autor/a"
+
+#: templates/contenttype/googlemap_translate_new.tpl:2
+#: templates/contenttype/googlemap_translate_original.tpl:2
+#: templates/contenttype/openstreetmap_edit.tpl:108
+#: templates/contenttype/googlemap_edit.tpl:90
+msgid "Description to be shown below the map"
+msgstr "Descripció que s'ha de mostrar amb el mapa"
+
+#: templates/contenttype/googlemap_translate_new.tpl:7
+#: templates/contenttype/googlemap_translate_original.tpl:6
+#: templates/contenttype/googlemap_edit.tpl:95
+msgid "Text to be shown in the popup window of the marker"
+msgstr "Text que s'ha de mostrar a la finestra emergent de la marca"
+
+#: templates/contenttype/html_edit.tpl:13
+msgid "HTML"
+msgstr "HTML"
+
+#: templates/contenttype/html_edit.tpl:16
+msgid "Formatted text"
+msgstr "Text formatat"
+
+#: templates/contenttype/html_edit.tpl:18
+msgid "Unformatted text"
+msgstr "Text sense format"
+
+#: templates/contenttype/openstreetmap_edit.tpl:81
+#: templates/contenttype/googlemap_edit.tpl:53
+msgid "Select a geographical position either by clicking on the map or writing the position (latitude and longitude) directly. You can drag the map with your mouse, and double-click to zoom and select position."
+msgstr "Seleccioneu el lloc geogràfic ja sigui fent clic sobre el mapa o escrivint la posició (latitud i longitud) directament. Podeu arrossegar el mapa amb el ratolí, i fer doble clic per ampliar i seleccionar la posició."
+
+#: templates/contenttype/openstreetmap_edit.tpl:84
+#: templates/contenttype/googlemap_edit.tpl:56
+msgid "Latitude"
+msgstr "Latitud"
+
+#: templates/contenttype/openstreetmap_edit.tpl:86
+#: templates/contenttype/openstreetmap_edit.tpl:92
+#: templates/contenttype/googlemap_edit.tpl:58
+#: templates/contenttype/googlemap_edit.tpl:64
+msgid "(a comma-separated numeral that has a precision to 6 decimal places. For example, 40.714728)"
+msgstr "(un nombre seprat per comes que té una precisió de 6 dígits decimals. Per exemple, 40.714728)"
+
+#: templates/contenttype/openstreetmap_edit.tpl:90
+#: templates/contenttype/googlemap_edit.tpl:62
+msgid "Longitude"
+msgstr "Longitud"
+
+#: templates/contenttype/openstreetmap_edit.tpl:96
+#: templates/contenttype/googlemap_edit.tpl:68
+msgid "Zoom level"
+msgstr "Nivell de zoom"
+
+#: templates/contenttype/openstreetmap_edit.tpl:98
+#: templates/contenttype/googlemap_edit.tpl:70
+msgid "(from 0 for the entire world to 21 for individual buildings)"
+msgstr "(des de 0 pel món sencer fins a 21 per edificis individuals)"
+
+#: templates/contenttype/openstreetmap_edit.tpl:102
+#: templates/contenttype/googlemap_edit.tpl:74
+msgid "Height of the displayed map in pixels"
+msgstr "Alçada en píxels del mapa"
+
+#: templates/contenttype/openstreetmap_edit.tpl:104
+#: templates/contenttype/googlemap_edit.tpl:76
+msgid "(below 350 pixels the navigation controls will be small)"
+msgstr "(per sota dels 350 píxels els controls de navegació seran petits)"
+
+#: templates/contenttype/unfiltered_edit.tpl:9
+msgid "Use an iframe instead of the textfield"
+msgstr "Fes ús d'un iframe en lloc del camp de text"
+
+#: templates/contenttype/unfiltered_edit.tpl:11
+msgid "If this setting is enabled the text field above will be ignored and iframe parameters will be used."
+msgstr "Si aquest configuració està habilitada el camp de text de sota serà ignorat i s'usaran els paràmetres de l'iframe."
+
+#: templates/contenttype/unfiltered_edit.tpl:16
+msgid "iframe src"
+msgstr "iframe src"
+
+#: templates/contenttype/unfiltered_edit.tpl:18
+msgid "the src parameter of the iframe"
+msgstr "el paràmetre src de l'iframe"
+
+#: templates/contenttype/unfiltered_edit.tpl:32
+msgid "iframe Style"
+msgstr "Estil de l'iframe"
+
+#: templates/contenttype/unfiltered_edit.tpl:34
+msgid "the style parameter of the iframe, e.g. \"border:0\""
+msgstr "el paràmetre d'estil de l'iframe. Per exemple, \"border:0\""
+
+#: templates/contenttype/unfiltered_edit.tpl:38
+msgid "iframe Width [in pixels]"
+msgstr "Amplada en píxels de l'iframe"
+
+#: templates/contenttype/unfiltered_edit.tpl:40
+msgid "the width parameter of the iframe, e.g. \"800\""
+msgstr "el paràmetre width de l'iframe. Per exemple \"800\""
+
+#: templates/contenttype/unfiltered_edit.tpl:44
+msgid "iframe Height [in pixels]"
+msgstr "Alçada en píxels de l'iframe"
+
+#: templates/contenttype/unfiltered_edit.tpl:46
+msgid "the height parameter of the iframe, e.g. \"600\""
+msgstr "el paràmetre height de l'iframe. Per exemple \"600\""
+
+#: templates/contenttype/unfiltered_edit.tpl:50
+msgid "iframe frameborder"
+msgstr "bora de l'iframe (frameborder)"
+
+#: templates/contenttype/unfiltered_edit.tpl:52
+msgid "the frameborder parameter of the iframe, e.g. \"0\""
+msgstr "el paràmetre frameborder de l'iframe. Per exemple \"0\""
+
+#: templates/contenttype/unfiltered_edit.tpl:56
+msgid "iframe scrolling"
+msgstr "iframe amb barres de desplaçament"
+
+#: templates/contenttype/unfiltered_edit.tpl:58
+msgid "the scrolling parameter of the iframe, e.g. \"no\""
+msgstr "el paràmetre scrolling de l'iframe. Per exemple \"no\""
+
+#: templates/contenttype/unfiltered_edit.tpl:62
+msgid "Allow transparancy on the iframe"
+msgstr "Permet transparència a l'iframe"
+
+#: templates/contenttype/googlemap_edit.tpl:80
+msgid "Display the streetview control"
+msgstr "Mostra el control streetview"
+
+#: templates/contenttype/googlemap_edit.tpl:85
+msgid "Display a link to directions to this location in Google Maps "
+msgstr "Mostra un enllaç a adreces per aquesta localització a Google Maps "
+
+#: templates/contenttype/googlemap_edit.tpl:97
+msgid "(can contain HTML markup. Leave this field empty for disabling the popup window."
+msgstr "(pot contenir etiquetes HTML. Deixeu aquest camp buit per deshabilitar la finestra emergent."
+
+#: templates/contenttype/pagenavigation_view.tpl:5
+msgid "<- Back"
+msgstr "<- Enrere"
+
+#: templates/contenttype/pagenavigation_view.tpl:7
+msgid "Overview"
+msgstr "Previsualització"
+
+#: templates/contenttype/pagenavigation_view.tpl:9
+msgid "Forward ->"
+msgstr "Endavant ->"
+
+#: templates/contenttype/block_edit.tpl:4
+msgid "Please enter the Block-ID"
+msgstr "Indiqueu l'ID del bloc"
+
+#: templates/contenttype/flickr_edit.tpl:4
+#, php-format
+msgid "No Flickr API key available! You must specify a Flickr API key to use this feature. You can get a key from %s."
+msgstr "No hi ha cap clau API de Flickr disponible. Heu d'especificar una clau API de Flickr per poder fer ús d'aquesta funcionalitat. La podeu obtenir de %s."
+
+#: templates/contenttype/flickr_edit.tpl:8
+msgid "Display photos from this user"
+msgstr "Mostra les fotos d'aquest usuari/ària"
+
+#: templates/contenttype/flickr_edit.tpl:13
+msgid "Display photos tagged with these tags (comma separated)"
+msgstr "Mostra les fotos marcades amb aquestes etiquetes (separades per comes)"
+
+#: templates/contenttype/flickr_edit.tpl:18
+msgid "Number of photos to show"
+msgstr "Nombre de fotos a mostrar"
+
+#: templates/contenttype/computercode_edit.tpl:3
+msgid "Computer code lines"
+msgstr "Línies de codi"
+
+#: templates/contenttype/computercode_edit.tpl:9
+msgid "Use native code filter"
+msgstr "Fes ús del filtre de codi natiu"
+
+#: templates/contenttype/computercode_edit.tpl:13
+msgid "Use BBCode filter"
+msgstr "Fer ús del filtre de BBCode"
+
+#: templates/contenttype/computercode_edit.tpl:15
+msgid "If the BBCode module is available, you can filter your code with BBCode instead."
+msgstr "Si el mòdul BBCode està disponible, podeu filtrar el vostre codi amb BBCode."
+
+#: templates/contenttype/computercode_edit.tpl:16
+msgid "There is no need to 'hook' BBCode to Content for this functionality."
+msgstr "No és necessari establir un lligam amb BBCode per aquesta funcionalitat."
+
+#: templates/contenttype/youtube_edit.tpl:5
+msgid "Something like \"http://www.youtube.com/watch?v=ABcDEFgHij&feature=dir\"."
+msgstr "Quelcom similar a \"http://www.youtube.com/watch?v=N2sDc8o-DzA\""
+
+#: templates/content_include_contentedit.tpl:8
+msgid "Item not Active"
+msgstr "l'ítem no és actiu"
+
+#: templates/content_include_contentedit.tpl:11
+#, php-format
+msgid "ID %d"
+msgstr "ID %d"
+
+#: templates/block/mostviewed_modify.tpl:2
+#: templates/block/menu_modify.tpl:2
+msgid "Include the following subpages"
+msgstr "Inclou les subpàgines següents"
+
+#: templates/block/mostviewed_modify.tpl:13
+msgid "How many pages should be shown"
+msgstr "Quantes pàgines s'haurien de mostrar"
+
+#: templates/block/mostviewed_modify.tpl:18
+#: templates/block/subpages_modify.tpl:4
+msgid "Use caching in this block"
+msgstr "Feu ús de la memòria cau en aquest bloc"
+
+#: templates/block/mostviewed_modify.tpl:20
+#: templates/block/subpages_modify.tpl:6
+#: templates/block/menu_modify.tpl:15
+msgid "Overrides global setting."
+msgstr "Sobreescriu la configuració global."
+
+#: templates/block/mostviewed_modify.tpl:24
+#: templates/block/subpages_modify.tpl:10
+msgid "Use only pages activated for the menu"
+msgstr "Fes ús només de les pàgines activades pel menú"
+
+#: templates/block/subpages.tpl:8
+msgid "No subpages"
+msgstr "No sub-pàgines"
+
+#: templates/block/onepage_modify.tpl:2
+msgid "Include the following page"
+msgstr "Inclou la pàgina següent"
+
+#: templates/block/subpages_modify.tpl:1
+msgid "This block will only show the subpages of a Content page when that Content page is being displayed."
+msgstr "Aquest bloc només mostrarà les sub-pàgines d'una pàgina de continguts quan s'estigui mostrant la pàgina."
+
+#: templates/block/menu_modify.tpl:13
+msgid "Use caching in the menu block"
+msgstr "Fes ús de memòria cau en el bloc de menú"
+

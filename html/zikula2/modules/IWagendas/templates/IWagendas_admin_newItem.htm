@@ -1,0 +1,120 @@
+{pageaddvar name='javascript' value='modules/IWmain/js/ColorPicker2.js'}
+{pageaddvar name='javascript' value='modules/IWmain/js/AnchorPosition.js'}
+{pageaddvar name='javascript' value='modules/IWmain/js/PopupWindow.js'}
+
+{include file='IWagendas_admin_menu.htm'}
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='filenew.png' set='icons/large'}</div>
+    <h2>{gt text='Add a new agenda'}</h2>
+
+    <form name="newAgenda" id="newAgenda" class="z-form" action="{modurl modname='IWagendas' type='admin' func='create'}" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+
+        <fieldset>
+            <legend>{gt text='General information'}</legend>
+            <div class="z-formrow">
+                <label for="nom_agenda">{gt text="Name"}</label>
+                <input type="text" name="nom_agenda" size="50" maxlength="32" />
+            </div>
+            <div class="z-formrow">
+                <label for="descriu">{gt text="Description"}</label>
+                <input type="text" name="descriu" size="50" maxlength="200" />
+            </div>
+            <div class="z-formrow">
+                <label for="color">{gt text="Colour"}</label>
+                <input type="text" name="color" size="7" maxlength="7" />
+                <a class="z-formnote" href="#" onClick="pick('pick','color');return false;" name="pick" id="pick">{gt text="Choose a color"}</a>
+            </div>
+            <div class="z-formrow">
+                <label for="adjunts">{gt text="Agenda allows attached files"}</label>
+                <input type="checkbox" name="adjunts" value="1"/>
+            </div>
+            <div class="z-formrow">
+                <label for="protegida">{gt text="Events protected default"}</label>
+                <input type="checkbox" name="protegida" value="1"/>
+            </div>
+            <div class="z-formrow">
+                <label for="activa">{gt text="Active/Inactive"}</label>
+                <input type="checkbox" name="activa" value="1"/>
+            </div>
+        </fieldset>
+
+        <div class="z-informationmsg">{gt text="* The options in the selection fields must be separated with a hyphen (-). To leave first option empty, add a hyphen before first option"}</div>
+
+        {foreach item="field" from="$fields"}
+        <fieldset>
+            <legend>&nbsp;{$field.nomcamp}&nbsp;</legend>
+            <div class="z-formrow" >
+                <label for="cx">{gt text="Descriptive"}</label>
+                <input type="text" name="c{$field.order}" size="50" maxlength="100" />
+            </div>
+            <div class="z-formrow">
+                <label for="tcx">{gt text="Type"}</label>
+                <select name="tc{$field.order}">
+                    {foreach item=camp from=$field.camps}
+                    <option value="{$camp.id}">{$camp.name}</option>
+                    {/foreach}
+                </select>
+            </div>
+            {if $field.order > 1}
+            <div class="z-formrow">
+                <label for="opx">{gt text="Options *"}</label>
+                <input type="text" name="op{$field.order}" size="50" maxlength="255" />
+            </div>
+            {/if}
+        </fieldset>
+        {/foreach}
+
+        <div class="z-center">
+            <span class="z-buttons">
+                <a href="javascript:sendNew()">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Add" __title="Add"}{gt text='Add'}
+                </a>
+            </span>
+            <span class="z-buttons">
+                <a href="{modurl modname='IWagendas' type='admin' func='main'}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}{gt text='Cancel'}
+                </a>
+            </span>
+        </div>
+    </form>
+
+</div>
+
+<script type="text/javascript">
+    function sendNew()
+    {
+        var error=false;
+        if (document.newAgenda.nom_agenda.value=="") {
+            alert("{{gt text='Agenda name is needed'}}");
+            var error=true;
+        }
+        if (document.newAgenda.c1.value=="" && !error) {
+            alert("{{gt text='Descriptive in first field is needed'}}");
+            var error=true;
+        }
+        if(!error) {
+            document.newAgenda.submit();
+        }
+    }
+
+    var cp = new ColorPicker('window');
+    // Runs when a color is clicked
+
+    function pickColor(color) {
+        field.value = color;
+        //document.forms.newAgenda.color.style.backgroundColor=color;
+        changeColor();
+    }
+
+    var field;
+    function pick(anchorname,camp) {
+        field = eval('document.forms.newAgenda.'+camp);
+        cp.show(anchorname);
+    }
+
+    function changeColor(){
+        document.forms.newAgenda.color.style.backgroundColor=document.forms.newAgenda.color.value;
+    }
+</script>

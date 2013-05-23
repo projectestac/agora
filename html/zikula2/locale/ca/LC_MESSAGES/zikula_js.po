@@ -1,0 +1,302 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.3.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-12-16 10:29+0000\n"
+"PO-Revision-Date: 2012-02-27 16:02+0100\n"
+"Last-Translator: intraweb <intraweb@xtec.cat>\n"
+"Language-Team: Intraweb <intraweb@xtec.cat>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.1.6\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: javascript/helpers/Zikula.itemlist.js:236
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:46
+msgid "Maximum depth reached. Limit is: "
+msgstr "S'ha arribat al màxim de profunditat. El límit és:"
+
+#: javascript/helpers/Zikula.itemlist.js:237
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:47
+msgid "You have unsaved changes!"
+msgstr "Alguns canvis no s'han desat"
+
+#: javascript/helpers/Zikula.UI.js:945
+#: javascript/helpers/Zikula.UI.js:1028
+#: javascript/helpers/Zikula.UI.js:1192
+msgid "Ok"
+msgstr "D'acord"
+
+#: javascript/helpers/Zikula.UI.js:1029
+#: javascript/helpers/Zikula.UI.js:1148
+#: system/Categories/javascript/categories_admin_view.js:93
+#: system/Categories/javascript/categories_admin_view.js:104
+#: system/Categories/javascript/categories_admin_view.js:249
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:42
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: javascript/helpers/Zikula.UI.js:1147
+#: system/Categories/javascript/categories_admin_view.js:248
+msgid "Submit"
+msgstr "Tramet"
+
+#: javascript/helpers/Zikula.UI.js:1190
+msgid "Select multiple"
+msgstr "Selecció múltiple"
+
+#: javascript/helpers/Zikula.js:105
+#, php-format
+msgid ""
+"illegal JSON response: \\n"
+"%1$s in\\n"
+"%2$s"
+msgstr ""
+"Resposta JSON incorrecta: \\n"
+"%1$s a\\n"
+"%2$s"
+
+#: javascript/helpers/Zikula.js:406
+msgid "Ajax connection time out!"
+msgstr "S'ha exhaurit el temps d'espera de la connexió AJAX"
+
+#: javascript/helpers/Zikula.js:689
+#: javascript/helpers/Zikula.js:781
+msgid "hello"
+msgstr "hola"
+
+#: javascript/helpers/Zikula.js:690
+#: javascript/helpers/Zikula.js:795
+#, php-format
+msgid "hello %s"
+msgstr "hola %s"
+
+#: javascript/helpers/Zikula.js:691
+#: javascript/helpers/Zikula.js:810
+msgid "hello my friend"
+msgid_plural "hello my friends"
+msgstr[0] "Hola amic meu"
+msgstr[1] "Hola amics"
+
+#: javascript/helpers/Zikula.js:692
+#: javascript/helpers/Zikula.js:833
+#, php-format
+msgid "hello my friend %s"
+msgid_plural "hello my friends %s"
+msgstr[0] "Hola amic %s"
+msgstr[1] "Hola %s"
+
+#: javascript/helpers/Zikula.ImageViewer.js:68
+msgid "Close"
+msgstr "Tanca"
+
+#: javascript/helpers/Zikula.ImageViewer.js:69
+msgid "Next"
+msgstr "Següent"
+
+#: javascript/helpers/Zikula.ImageViewer.js:70
+msgid "Prev"
+msgstr "Anterior"
+
+#: javascript/helpers/Zikula.ImageViewer.js:71
+msgid "Image #{index} of #{total}"
+msgstr "Imatge #{index} de #{total}"
+
+#: system/Categories/javascript/categories_admin_view.js:30
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:30
+msgid "Edit"
+msgstr "Edita"
+
+#: system/Categories/javascript/categories_admin_view.js:36
+#: system/Categories/javascript/categories_admin_view.js:92
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:31
+msgid "Delete"
+msgstr "Esborra"
+
+#: system/Categories/javascript/categories_admin_view.js:42
+msgid "Copy"
+msgstr "Copia"
+
+#: system/Categories/javascript/categories_admin_view.js:48
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:28
+msgid "Activate"
+msgstr "Activa"
+
+#: system/Categories/javascript/categories_admin_view.js:57
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:29
+msgid "Deactivate"
+msgstr "Desactiva"
+
+#: system/Categories/javascript/categories_admin_view.js:66
+msgid "Add category (after selected)); ?>"
+msgstr "Afegeix una categoria (després de seleccionar); ?>"
+
+#: system/Categories/javascript/categories_admin_view.js:72
+msgid "Add subcategory (into selected)); ?>"
+msgstr "Afegeix una subcategoria (en les seleccionades)); ?>"
+
+#: system/Categories/javascript/categories_admin_view.js:89
+msgid "Do you really want to delete this category?"
+msgstr "Realment voleu esborrar aquesta categoria?"
+
+#: system/Categories/javascript/categories_admin_view.js:97
+#, php-format
+msgid "It contains %s direct sub-categories."
+msgstr "Això conté %s subdirectoris directes."
+
+#: system/Categories/javascript/categories_admin_view.js:99
+msgid "Please also choose what to do with this category's sub-categories."
+msgstr "Si us plau, trieu què cal fer amb aquesta sub-categoria d'aquesta categoria."
+
+#: system/Categories/javascript/categories_admin_view.js:102
+msgid "Delete all sub-categories"
+msgstr "Esborra totes les subcategories"
+
+#: system/Categories/javascript/categories_admin_view.js:103
+msgid "Move all sub-categories"
+msgstr "Mou totes les subcategories"
+
+#: system/Categories/javascript/categories_admin_view.js:110
+#: system/PageLock/javascript/pagelock.js:27
+msgid "Confirmation prompt"
+msgstr "Missatge de confirmació"
+
+#: system/PageLock/javascript/pagelock.js:26
+msgid "Are you sure you want to break this lock?"
+msgstr "Està segur de què vol trencar aquest bloqueig?"
+
+#: system/PageLock/javascript/pagelock.js:130
+msgid "Back"
+msgstr "Torna enrere"
+
+#: system/PageLock/javascript/pagelock.js:131
+msgid "Check again"
+msgstr "Comproveu de nou"
+
+#: system/PageLock/javascript/pagelock.js:132
+msgid "Ignore Lock"
+msgstr "No faci cas de bloqueig"
+
+#: system/Admin/javascript/admin_admin_ajax.js:418
+msgid "You must enter a name for the new category"
+msgstr "Heu d'introduir un nom per a la categoria"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:20
+msgid "Do you really want to delete this node and all of it child nodes?"
+msgstr "Esteu segur/a de que voleu esborrar aquest node i tots els nodes que en pengen?"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:21
+msgid "Link name"
+msgstr "Nom de l'enllaç"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:22
+msgid "Link URL"
+msgstr "URL de l'enllaç"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:23
+msgid "Link title"
+msgstr "Títol de l'enllaç"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:24
+msgid "Link class"
+msgstr "Classe de l'enllaç"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:25
+msgid "Select class"
+msgstr "Seleccioneu una classe"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:26
+msgid "Language"
+msgstr "Idioma"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:27
+msgid "Active?"
+msgstr "Actiu"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:32
+msgid "Add new..."
+msgstr "Afegeix-ne una de nova..."
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:33
+msgid "before"
+msgstr "abans"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:34
+msgid "after"
+msgstr "després"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:35
+msgid "as child"
+msgstr "afegeix com a subopció"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:36
+msgid "Expand this node"
+msgstr "Expandeix el node actual"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:37
+msgid "Collapse this node"
+msgstr "Plega aquest node"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:38
+msgid "Status"
+msgstr "Estat"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:39
+msgid "Activate for all langs"
+msgstr "Activa per a tots els idiomes"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:40
+msgid "Deactivate for all langs"
+msgstr "Desactiva per a tots els idiomes"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:41
+msgid "Use one for all langs"
+msgstr "Utilitza'n un per a tots els idiomes"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:43
+msgid "Save"
+msgstr "Desa"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:44
+msgid "Please fill required fields"
+msgstr "Heu d'omplir tots els camps requerits"
+
+#: system/Blocks/javascript/Zikula.Menutree.Tree.js:45
+msgid "Marked fields are required"
+msgstr "Els camps marcats són requerits"
+
+#: system/Users/javascript/Zikula.Users.PassMeter.js:154
+msgid "Weak"
+msgstr "Feble"
+
+#: system/Users/javascript/Zikula.Users.PassMeter.js:154
+msgid "Normal"
+msgstr "Normal"
+
+#: system/Users/javascript/Zikula.Users.PassMeter.js:154
+msgid "Strong"
+msgstr "Forta"
+
+#: system/Users/javascript/Zikula.Users.PassMeter.js:154
+msgid "Very Strong"
+msgstr "Molt forta"
+
+#: system/Users/javascript/Zikula.Users.PassMeter.js:158
+#, php-format
+msgid "The minimum length for user passwords is %s characters."
+msgstr "La longitud mínima de les contrasenyes d'usuari/ària és de %s caràcters."
+
+#: system/Users/javascript/Zikula.Users.PassMeter.js:164
+msgid "Password can not match the username, choose a different password."
+msgstr "La contrasenya no pot coincidir amb el nom d'usuari, trieu una contrasenya diferent."
+

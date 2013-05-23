@@ -1,0 +1,24 @@
+{include file="IWbookings_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='db_remove.png' set='icons/large'}</div>
+    <div style="height:10px;">&nbsp;</div>
+    <h2>{gt text="Delete the room or equipment"}: {$nom_espai}</h2>
+    {gt text="Confirmation of deletion of the room or equipment"}
+    <form method="post" id="delete" action="index.php?module=IWbookings&type=admin&func=delete">
+        <input type="hidden" name="sid" value="{$sid}">
+        <input type="hidden" name="confirmation" value="true">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <div class="z-center">
+            <span class="z-buttons">
+                <a href="javascript:document.forms['delete'].submit();">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Confirmation of deletion of the room or equipment" __title="Confirmation of deletion of the room or equipment"} {gt text="Confirm"}
+                </a>
+            </span>
+            <span class="z-buttons">
+                <a href="{modurl modname='IWbookings' type='admin' func='main'}">
+                    {img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel deletion" __title="Cancel deletion"} {gt text="Cancel"}
+                </a>
+            </span>
+        </div>
+    </form>
+</div>

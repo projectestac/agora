@@ -1,0 +1,24 @@
+{include file="IWusers_user_menu.htm"}
+<h2>
+    {if isset($all) AND $all}
+    {gt text="All the groups"}
+    {else}
+    {gt text="Groups you're already a member"}
+    {/if}
+</h2>
+<table class="usertable">
+    <thead>
+        <tr>
+            <th>{gt text="Group"}</th>
+            <th>{gt text="N. components"}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {foreach item=group from=$groups}
+        <tr bgcolor="{cycle values="#ffffff, #eeeeee"}">
+            <td><a href="{modurl modname=IWusers type=user func=members gid=$group.gid}">{$group.name}</a></td>
+            <td align="right">{$group.members}</td>
+        </tr>
+        {/foreach}
+    </tbody>
+</table>

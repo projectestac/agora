@@ -1,0 +1,49 @@
+<script language="javascript">
+    function send(valor) {
+        var f=document.new_menu;
+        f.action="index.php?module=IWvhmenu&type=admin&func=create_add_group";
+        f.submit();
+    }
+</script>
+
+{include file="IWvhmenu_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='agt_forum.png' set='icons/large'}</div>
+    <h2>{gt text="Add a group"}</h2>
+    <form  method="post" name="new_menu" id="new_menu" class="z-form">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="mid" value="{$mid}" />
+        <input type="hidden" name="groups_db" value="{$groups_db}" />
+
+        <div class="z-formrow">
+            <label for="text">{gt text="Text of the option"}</label>
+            <span>{$text}</span>
+        </div>
+
+        <div class="z-formrow">
+            <label for="url">{gt text="URL"}</label>
+            <span>{$url}</span>
+        </div>
+        <div class="z-formrow">
+            <label for="descriu">{gt text="Description"}</label>
+            <span>{$descriu}</span>
+        </div>
+        <div class="z-formrow">
+            <label for="grup">{gt text="Group that can access the option"}</label>
+            <select name="grup">
+                {foreach from=$grups item=element}
+                <option value="{$element.id}">{$element.name}</option>
+                {/foreach}
+            </select>
+        </div>
+
+        <div class="z-center">
+            <div class="z-buttons">
+                <a onClick="javascript:send(0)" title="{gt text="Grant access to the group"}">
+                   {img modname='core' src='button_ok.png' set='icons/small'}
+                   {gt text="Grant access to the group"}
+            </a>
+        </div>
+    </div>
+</form>
+</div>

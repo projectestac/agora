@@ -1,0 +1,75 @@
+{include file="IWqv_admin_menu.htm"}
+<div class="z-admincontainer">
+    <form name="conf_form" action="{modurl modname='IWqv' type='admin' func='confupdate'}" method="POST" class="z-form" >
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <fieldset>
+            <legend>{gt text="Setting parameters"}</legend>
+            <div class="z-formrow">
+                <label for="skins">{gt text="Assessment skins"}</label>
+                <div class="z-formnote">
+                    <input type="text" id="skins" name="skins" value="{$skins}" size="50" />
+                    <span class="iwqv_help">{gt text="[separated by commas]"}</span>
+                </div>
+            </div>
+            <div class="z-formrow">
+                <label for="langs">{gt text="Assessment languages"}</label>
+                <div class="z-formnote">
+                    <input type="text" id="langs" name="langs" value="{$langs}" size="50" />
+                    <span class="iwqv_help">{gt text="[separated by commas]"}</span>
+                </div>
+            </div>
+            <div class="z-formrow">
+                <label for="maxdelivers">{gt text="Maximum number of deliveries"}</label>
+                <div class="z-formnote">
+                    <input type="text" id="maxdelivers" name="maxdelivers" value="{$maxdelivers}" size="50" />
+                    <span class="iwqv_help">{gt text="[separated by commas. -1 = unlimited]"}</span>
+                </div>
+            </div>
+            <div class="z-formrow">
+                <label for="basedisturl">{gt text="Web adress directory dist/html"}</label>
+                <div class="z-formnote">
+                    <input type="basedisturl" id="basedisturl" name="basedisturl" value="{$basedisturl}" size="50" />
+                    <span class="iwqv_help">{gt text="[Web adress like http://clic.xtec.cat/qv_viewer/dist/html/]"}</span>
+                </div>
+            </div>
+        </fieldset>
+        <div class="z-center">
+            <span class="z-buttons">
+                <a href="#" onClick="javascript:iwqvSendConfForm();">
+                    {img modname='core' src='button_ok.png' set='icons/small'}
+                    {gt text="Send"}
+                </a>
+            </span>
+            <span class="z-buttons">
+                <a href="{modurl modname='Admin' type='admin' func='adminpanel'}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
+                    {gt text="Cancel"}
+                </a>
+            </span>
+        </div>		
+    </form>
+</div>
+
+<script language="javascript">
+    function iwqvSendConfForm(){
+        var form = document.conf_form;
+	
+        // Check form restrictions
+        var error='';
+        if (form.skins.value==''){
+            error = '{{gt text="form.skins: required"}}';
+        }
+	
+        // If there are errors, alert and don't send the form
+        /*if (error != '') {
+                window.scrollTo(0,0);
+                field.focus();
+                alert(error);
+                return false;
+        }*/
+	
+        // If there aren't errors, send the form
+        form.submit();		
+        return true;
+    }
+</script>

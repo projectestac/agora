@@ -1,0 +1,723 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-21 08:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:49 pnuserapi.php:167 pnuser.php:57 pnadminapi.php:193
+#: pnadminapi.php:217 pnadmin.php:14 pnadmin.php:57 pnadmin.php:75
+#: pnadmin.php:113 pnadmin.php:162 pnadmin.php:244
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnuserapi.php:58
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pnuserapi.php:80 pnuserapi.php:191 pnuserapi.php:428 pnadminapi.php:59
+#: pnadminapi.php:100 pnadminapi.php:149 pnadminapi.php:282 pnadminapi.php:324
+#: pnadminapi.php:353
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: pnuserapi.php:195 pnuserapi.php:432 pnuserapi.php:551 pnuserapi.php:588
+#: pnuser.php:18 pnuser.php:79 pnuser.php:137 pnuser.php:303 pnuser.php:447
+#: pnuser.php:668 pnuser.php:744 pnuser.php:921 pnuser.php:1109
+#: pnuser.php:1170 pnadminapi.php:144 pnadminapi.php:286 pnadminapi.php:330
+#: pnadminapi.php:368 pnadminapi.php:391 pnadmin.php:304 pnadmin.php:355
+#: pnadmin.php:528 pnadmin.php:608 pnadmin.php:733 pnadmin.php:774
+msgid "You are not allowed to administrate the bookings"
+msgstr ""
+
+#: pnuserapi.php:207 pnuserapi.php:453 pnadminapi.php:75 pnadminapi.php:301
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pnuserapi.php:522
+msgid ""
+"An error has occurred while getting registers from the data base. Please, "
+"contact webmaster"
+msgstr ""
+
+#: pnuserapi.php:631
+msgid "Can't obtain NTP servers time"
+msgstr ""
+
+#: pnuser.php:93 pntemplates/plugins/function.iwbookingsadminmenulinks.php:27
+msgid "Show rooms and equipment bookings"
+msgstr ""
+
+#: pnuser.php:96
+msgid "Show table of the week"
+msgstr ""
+
+#: pnuser.php:99
+msgid "Show table of month"
+msgstr ""
+
+#: pnuser.php:108 pntemplates/IWbookings_admin_emptyspace.htm:4
+msgid "Delete all bookings of "
+msgstr ""
+
+#: pnuser.php:114
+msgid "Delete old bookings"
+msgstr ""
+
+#: pnuser.php:116
+msgid "Module administration"
+msgstr ""
+
+#: pnuser.php:163 pnuser.php:468 pnadminapi.php:108 pnadminapi.php:155
+#: pnadminapi.php:362 pnadmin.php:312 pnadmin.php:767
+msgid "The room or equipment was not found"
+msgstr ""
+
+#: pnuser.php:167 pnuser.php:800
+msgid "All rooms and equipments"
+msgstr ""
+
+#: pnuser.php:183 pnuser.php:1037
+msgid "Bookings can only be made for the following "
+msgstr ""
+
+#: pnuser.php:183
+msgid " week(s). Booking date is not valid"
+msgstr ""
+
+#: pnuser.php:221 pnuser.php:1073
+msgid "An error has occurred when loading the table or the form"
+msgstr ""
+
+#: pnuser.php:318 pnuser.php:326 pnuser.php:456 pnuser.php:561 pnuser.php:563
+#: pnuser.php:777 pnuser.php:779 pnadmin.php:362 pnadmin.php:541
+#: pnadmin.php:627
+msgid "Monday"
+msgstr ""
+
+#: pnuser.php:319 pnuser.php:327 pnuser.php:456 pnuser.php:561 pnuser.php:563
+#: pnuser.php:777 pnuser.php:779 pnadmin.php:362 pnadmin.php:542
+#: pnadmin.php:627
+msgid "Tuesday"
+msgstr ""
+
+#: pnuser.php:320 pnuser.php:328 pnuser.php:456 pnuser.php:561 pnuser.php:563
+#: pnuser.php:777 pnuser.php:779 pnadmin.php:362 pnadmin.php:543
+#: pnadmin.php:627
+msgid "Wednesday"
+msgstr ""
+
+#: pnuser.php:321 pnuser.php:329 pnuser.php:456 pnuser.php:561 pnuser.php:563
+#: pnuser.php:777 pnuser.php:779 pnadmin.php:362 pnadmin.php:544
+#: pnadmin.php:627
+msgid "Thursday"
+msgstr ""
+
+#: pnuser.php:322 pnuser.php:330 pnuser.php:456 pnuser.php:562 pnuser.php:564
+#: pnuser.php:777 pnuser.php:779 pnadmin.php:362 pnadmin.php:545
+#: pnadmin.php:627
+msgid "Friday"
+msgstr ""
+
+#: pnuser.php:323 pnuser.php:456 pnuser.php:562 pnuser.php:777
+msgid "Saturday"
+msgstr ""
+
+#: pnuser.php:324 pnuser.php:456 pnuser.php:562 pnuser.php:777
+msgid "Sunday"
+msgstr ""
+
+#: pnuser.php:389 pnadmin.php:581
+msgid ""
+"Permanent bookings are not possible as long as the group is empty. Please "
+"check module configuration"
+msgstr ""
+
+#: pnuser.php:641
+msgid "Period from "
+msgstr ""
+
+#: pnuser.php:641 pnuser.php:1087
+msgid " to "
+msgstr ""
+
+#: pnuser.php:679 pnuser.php:720
+msgid ""
+"An error has ocurred while cancelling the booking. Please, try it again. If "
+"the problem persists, please, contact webmaster. Additionally, check you are "
+"not cancelling a book on past dates"
+msgstr ""
+
+#: pnuser.php:685
+msgid "You are not allowed to cancel bookings from other people"
+msgstr ""
+
+#: pnuser.php:702
+msgid "This booking belongs to a set of simultaneous bookings"
+msgstr ""
+
+#: pnuser.php:703
+msgid "Warning, this is a preferential booking."
+msgstr ""
+
+#: pnuser.php:722
+msgid ""
+"Thanks for freeing the room or equipment. Possibly somebody will be grateful"
+msgstr ""
+
+#: pnuser.php:725
+msgid ""
+"Invalid 'authkey':  this probably means that you pressed the 'Back' button, "
+"or that the page 'authkey' expired. Please refresh the page and try again."
+msgstr ""
+
+#: pnuser.php:782
+msgid "January"
+msgstr ""
+
+#: pnuser.php:782
+msgid "February"
+msgstr ""
+
+#: pnuser.php:782
+msgid "March"
+msgstr ""
+
+#: pnuser.php:782
+msgid "April"
+msgstr ""
+
+#: pnuser.php:782
+msgid "May"
+msgstr ""
+
+#: pnuser.php:782
+msgid "June"
+msgstr ""
+
+#: pnuser.php:782
+msgid "July"
+msgstr ""
+
+#: pnuser.php:782
+msgid "August"
+msgstr ""
+
+#: pnuser.php:782
+msgid "September"
+msgstr ""
+
+#: pnuser.php:782
+msgid "October"
+msgstr ""
+
+#: pnuser.php:782
+msgid "November"
+msgstr ""
+
+#: pnuser.php:782
+msgid "December"
+msgstr ""
+
+#: pnuser.php:871 pntemplates/IWbookings_user_monthly_view.htm:99
+#: pntemplates/IWbookings_user_taula.htm:11
+#: pntemplates/IWbookings_user_taula.htm:45
+#: pntemplates/.tmp_IWbookings_user_monthly_view.htm.1128~:98
+#: pntemplates/IWbookings_admin_taula.htm:9
+#: pntemplates/IWbookings_admin_taula.htm:39
+msgid "Preferential"
+msgstr ""
+
+#: pnuser.php:872
+msgid "Teacher"
+msgstr ""
+
+#: pnuser.php:873 pnuser.php:1079
+#: pntemplates/IWbookings_user_assigna_frm.htm:111
+#: pntemplates/IWbookings_user_assigna_frm.htm:204
+#: pntemplates/IWbookings_user_delete_bookings.htm:4
+#: pntemplates/IWbookings_admin_reserva.htm:5
+msgid "Group: "
+msgstr ""
+
+#: pnuser.php:875 pnuser.php:1079
+#: pntemplates/IWbookings_user_assigna_frm.htm:115
+#: pntemplates/IWbookings_user_assigna_frm.htm:208
+msgid "Reason for booking"
+msgstr ""
+
+#: pnuser.php:988 pnadmin.php:631
+msgid "You must specify a group"
+msgstr ""
+
+#: pnuser.php:995 pnadmin.php:645
+msgid "You must specify a finish date"
+msgstr ""
+
+#: pnuser.php:1001 pnadmin.php:651
+msgid "Finish date is minnor than actual date"
+msgstr ""
+
+#: pnuser.php:1037
+msgid " week(s). Haven't made all the requested bookings."
+msgstr ""
+
+#: pnuser.php:1078
+msgid "Booking receipt"
+msgstr ""
+
+#: pnuser.php:1078 pntemplates/IWbookings_user_assigna_frm.htm:78
+#: pntemplates/IWbookings_user_delete_bookings.htm:2
+#: pntemplates/IWbookings_admin_reserva.htm:2
+msgid "Booking day: "
+msgstr ""
+
+#: pnuser.php:1078 pntemplates/IWbookings_user_assigna_frm.htm:94
+#: pntemplates/IWbookings_user_assigna_frm.htm:136
+#: pntemplates/IWbookings_user_taula.htm:30
+#: pntemplates/IWbookings_user_delete_bookings.htm:3
+#: pntemplates/IWbookings_admin_taula.htm:23
+msgid "Time: "
+msgstr ""
+
+#: pnuser.php:1080 pntemplates/IWbookings_user_assigna_frm.htm:117
+#: pntemplates/IWbookings_user_assigna_frm.htm:215
+msgid "Repeat next weeks"
+msgstr ""
+
+#: pnuser.php:1085
+msgid "Booking failed! The following times are reserved:"
+msgstr ""
+
+#: pnuser.php:1087
+msgid "</b> from "
+msgstr ""
+
+#: pnuser.php:1136 pnadmin.php:34
+msgid "Column"
+msgstr ""
+
+#: pnuser.php:1136 pnadmin.php:34
+msgid "Row"
+msgstr ""
+
+#: pnuser.php:1145
+msgid "Make a booking"
+msgstr ""
+
+#: pnuser.php:1145
+msgid "See the bookings"
+msgstr ""
+
+#: pnadminapi.php:125
+msgid "An error has occurred while modifying the room or equipment"
+msgstr ""
+
+#: pnadminapi.php:160 pnadmin.php:742
+msgid "An error has occurred while deleting the register"
+msgstr ""
+
+#: pnadminapi.php:173
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: pntemplates/plugins/function.iwbookingsadminmenulinks.php:25
+#: pnadmin.php:194
+msgid "Add a new booking"
+msgstr ""
+
+#: pntemplates/plugins/function.iwbookingsadminmenulinks.php:30
+msgid "Empty table"
+msgstr ""
+
+#: pntemplates/plugins/function.iwbookingsadminmenulinks.php:33
+msgid "Module configuration"
+msgstr ""
+
+#: pnadmin.php:84
+msgid "No groups found"
+msgstr ""
+
+#: pnadmin.php:144
+msgid "Configuration updated"
+msgstr ""
+
+#: pnadmin.php:173 pnadmin.php:387
+msgid "Error! Could not load module."
+msgstr ""
+
+#: pnadmin.php:195
+msgid "Create the room or equipment"
+msgstr ""
+
+#: pnadmin.php:198
+msgid "Edit room or equipment"
+msgstr ""
+
+#: pnadmin.php:199 pntemplates/IWbookings_admin_conf.htm:62
+msgid "Update"
+msgstr ""
+
+#: pnadmin.php:268
+msgid "A new room or equipment to book has been created"
+msgstr ""
+
+#: pnadmin.php:282
+msgid "Room or equipment updated"
+msgstr ""
+
+#: pnadmin.php:336
+msgid "Room or equipment deleted"
+msgstr ""
+
+#: pnadmin.php:638
+msgid "You must specify a user for preferential booking"
+msgstr ""
+
+#: pnadmin.php:677
+msgid "Finish time is earlier than start time"
+msgstr ""
+
+#: pnadmin.php:691
+msgid "Chosen time for preferential booking is occupied"
+msgstr ""
+
+#: pnadmin.php:701
+msgid "Booking failed"
+msgstr ""
+
+#: pnadmin.php:745
+msgid "Preferential booking cancelled"
+msgstr ""
+
+#: pnadmin.php:798
+msgid "Table emptied"
+msgstr ""
+
+#: pnversion.php:14
+msgid "Allows the creation of items to be reserved"
+msgstr ""
+
+#: pnversion.php:15
+msgid "Bookings"
+msgstr ""
+
+#: pnversion.php:16
+msgid "IWbookings"
+msgstr ""
+
+#: pntemplates/.tmp_IWbookings_user_assigna.htm.33473~:7
+msgid "Table of bookings"
+msgstr ""
+
+#: pntemplates/.tmp_IWbookings_user_assigna.htm.33473~:17
+#: pntemplates/IWbookings_admin_main.htm:41
+#: pntemplates/IWbookings_user_assigna.htm:17
+#: pntemplates/.tmp_IWbookings_user_assigna.htm.91504~:17
+#: pntemplates/IWbookings_user_main.htm:33
+msgid "About this module"
+msgstr ""
+
+#: pntemplates/IWbookings_user_assigna_frm.htm:70
+msgid "Form for bookings"
+msgstr ""
+
+#: pntemplates/IWbookings_user_assigna_frm.htm:80
+#: pntemplates/IWbookings_user_assigna_frm.htm:189
+msgid "Owner of the booking: "
+msgstr ""
+
+#: pntemplates/IWbookings_user_assigna_frm.htm:96
+msgid "+ Add time frames"
+msgstr ""
+
+#: pntemplates/IWbookings_user_assigna_frm.htm:107
+msgid "Add selected frames"
+msgstr ""
+
+#: pntemplates/IWbookings_user_assigna_frm.htm:113
+#: pntemplates/IWbookings_user_assigna_frm.htm:212
+msgid "End of the booking"
+msgstr ""
+
+#: pntemplates/IWbookings_user_assigna_frm.htm:119
+#: pntemplates/IWbookings_user_assigna_frm.htm:219
+msgid "Finish date"
+msgstr ""
+
+#: pntemplates/IWbookings_user_assigna_frm.htm:125
+msgid "Day of the week: "
+msgstr ""
+
+#: pntemplates/IWbookings_user_assigna_frm.htm:148
+#: pntemplates/IWbookings_admin_reserva.htm:3
+msgid "Start time: "
+msgstr ""
+
+#: pntemplates/IWbookings_user_assigna_frm.htm:167
+#: pntemplates/IWbookings_admin_reserva.htm:4
+msgid "Finish time: "
+msgstr ""
+
+#: pntemplates/IWbookings_user_assigna_frm.htm:224
+msgid "Make booking"
+msgstr ""
+
+#: pntemplates/IWbookings_user_select_date.htm_:13
+msgid "Date selection"
+msgstr ""
+
+#: pntemplates/IWbookings_user_select_date.htm_:14
+msgid "Calendar"
+msgstr ""
+
+#: pntemplates/IWbookings_user_select_date.htm_:16
+#: pntemplates/IWbookings_user_select_date.htm:15
+msgid "Previous week"
+msgstr ""
+
+#: pntemplates/IWbookings_user_select_date.htm_:17
+#: pntemplates/IWbookings_user_monthly_view.htm:62
+#: pntemplates/IWbookings_user_monthly_view.htm:65
+#: pntemplates/IWbookings_user_select_date.htm:16
+#: pntemplates/.tmp_IWbookings_user_monthly_view.htm.1128~:60
+#: pntemplates/.tmp_IWbookings_user_monthly_view.htm.1128~:63
+msgid "Previous month"
+msgstr ""
+
+#: pntemplates/IWbookings_user_select_date.htm_:19
+msgid "Period from"
+msgstr ""
+
+#: pntemplates/IWbookings_user_select_date.htm_:19
+msgid "to"
+msgstr ""
+
+#: pntemplates/IWbookings_user_select_date.htm_:21
+#: pntemplates/IWbookings_user_monthly_view.htm:65
+#: pntemplates/IWbookings_user_select_date.htm:18
+#: pntemplates/.tmp_IWbookings_user_monthly_view.htm.1128~:63
+msgid "Next month"
+msgstr ""
+
+#: pntemplates/IWbookings_user_select_date.htm_:22
+#: pntemplates/IWbookings_user_select_date.htm:19
+msgid "Next week"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_main.htm:8
+#: pntemplates/IWbookings_user_menu.htm:4
+#: pntemplates/IWbookings_admin_menu.htm:3
+msgid "Rooms and equipment booking"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_main.htm:12
+#: pntemplates/IWbookings_admin_new.htm:40
+msgid "Room or equipment name"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_main.htm:13
+#: pntemplates/IWbookings_admin_new.htm:44
+#: pntemplates/IWbookings_user_main.htm:13
+msgid "Description"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_main.htm:14
+#: pntemplates/IWbookings_admin_new.htm:54
+msgid "Timetable"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_main.htm:15
+msgid "Orientation"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_main.htm:16
+#: pntemplates/IWbookings_admin_new.htm:73
+msgid "Status (active/inactive)"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_main.htm:17
+msgid "Actions"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_main.htm:26
+msgid "Active"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_main.htm:27
+msgid "Inactive"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_main.htm:29
+#: pntemplates/IWbookings_user_taula.htm:64
+#: pntemplates/IWbookings_admin_taula.htm:46
+msgid "Assign"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_main.htm:30
+msgid "Edit"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_main.htm:31
+msgid "Delete"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_main.htm:37
+#: pntemplates/IWbookings_user_main.htm:29
+msgid "There are no rooms or equipment to book"
+msgstr ""
+
+#: pntemplates/IWbookings_user_monthly_view.htm:41
+msgid ""
+"If you want to book an equipment you must select it in the following list "
+"and go to the table of the week."
+msgstr ""
+
+#: pntemplates/IWbookings_user_monthly_view.htm:96
+#: pntemplates/IWbookings_user_taula.htm:20
+#: pntemplates/IWbookings_user_taula.htm:55
+#: pntemplates/.tmp_IWbookings_user_monthly_view.htm.1128~:95
+#: pntemplates/IWbookings_user_delete_bookings.htm:27
+#: pntemplates/IWbookings_admin_emptyspace.htm:15
+#: pntemplates/IWbookings_admin_taula.htm:15
+#: pntemplates/IWbookings_admin_taula.htm:42
+#: pntemplates/IWbookings_admin_del.htm:16
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/IWbookings_user_delete_bookings.htm:1
+#: pntemplates/IWbookings_user_delete_bookings.htm:26
+#: pntemplates/IWbookings_admin_del.htm:7
+#: pntemplates/IWbookings_admin_del.htm:14
+msgid "Confirmation of deletion of the room or equipment"
+msgstr ""
+
+#: pntemplates/IWbookings_user_delete_bookings.htm:19
+msgid "Delete all?"
+msgstr ""
+
+#: pntemplates/IWbookings_user_delete_bookings.htm:19
+msgid "Yes"
+msgstr ""
+
+#: pntemplates/IWbookings_user_delete_bookings.htm:20
+msgid "No"
+msgstr ""
+
+#: pntemplates/IWbookings_user_delete_bookings.htm:26
+#: pntemplates/IWbookings_admin_emptyspace.htm:13
+#: pntemplates/IWbookings_admin_del.htm:14
+msgid "Confirm"
+msgstr ""
+
+#: pntemplates/IWbookings_user_delete_bookings.htm:27
+#: pntemplates/IWbookings_admin_del.htm:16
+msgid "Cancel deletion"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_conf.htm:5
+msgid "Modify module configuration"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_conf.htm:12
+msgid "Group for preferential bookings"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_conf.htm:22
+msgid "Number of weeks allowed to book"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_conf.htm:28
+msgid "Show weekends"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_conf.htm:35
+msgid "Initially show table of month"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_conf.htm:41
+msgid "Automatically delete old bookings"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_conf.htm:47
+msgid "Show colors on table of bookings"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_conf.htm:54
+msgid "Get the time from a NTP server"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_new.htm:5
+msgid "You must type a name for the room or equipment"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_new.htm:48
+msgid "Associated color"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_new.htm:50
+msgid "Choose color"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_new.htm:64
+msgid "Table"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_new.htm:64
+msgid "(Only works when a timetable is selected)"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_reserva.htm:1
+msgid "Preferential booking created"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_reserva.htm:7
+msgid "Back to table"
+msgstr ""
+
+#: pntemplates/IWbookings_user_main.htm:11
+msgid "Rooms and equipment to book"
+msgstr ""
+
+#: pntemplates/IWbookings_user_main.htm:12
+msgid "To book"
+msgstr ""
+
+#: pntemplates/IWbookings_user_main.htm:14
+msgid "Access"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_emptyspace.htm:5
+msgid "If you continue with this action all a bookings of "
+msgstr ""
+
+#: pntemplates/IWbookings_admin_emptyspace.htm:6
+msgid "will be deleted.<br>Do you want to continue?"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_emptyspace.htm:13
+msgid "Confirm deletion of table"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_emptyspace.htm:15
+msgid "Cancel of table emptying"
+msgstr ""
+
+#: pntemplates/IWbookings_admin_del.htm:5
+msgid "Delete the room or equipment"
+msgstr ""
+
+#: pntemplates/IWbookings_user_select_date.htm:22
+msgid "Select a week"
+msgstr ""

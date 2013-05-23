@@ -1,0 +1,43 @@
+{include file="IWmenu_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large' __alt=''}</div>
+    <h2>{gt text="Configure the module"}</h2>
+    <div style="height:20px;">&nbsp;</div>
+    <form  class="z-form" enctype="application/x-www-form-urlencoded" method="post" id="menu" action="{modurl modname='IWmenu' type='admin' func='conf_update'}">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        {if not $multizk}
+        <div class="z-formrow">
+            <label for="directoriroot">{gt text="Init of the file folder"}</label>
+            <input type="text" name="directoriroot" size="50" maxlength="50" value="{$directoriroot}" onFocus='blur()' />
+        </div>
+        {/if}
+        <div class="z-formrow">
+            <label for="imagedir">{gt text="Server directory for the menu icons"}</label>
+            <input type="text" name="imagedir" value="{$menu_vars.imagedir}" size="30" maxlength="100" />
+            {if $noFolder}
+            <div class="z-formnote z-errormsg">
+                {gt text="The menu icons folder not have been found."}
+            </div>
+            {/if}
+            {if not $writeable AND !$noFolder}
+            <div class="z-formnote z-errormsg">
+                {gt text="The menu icons folder is not writeable."}
+            </div>
+            {/if}
+        </div>
+        <div class="z-formrow">
+            <label for="width">{gt text="Width for the options"}</label>
+            <input type="text" name="width" value="{$menu_vars.width}" size="7" maxlength="11" />
+        </div>
+        <div class="z-center">
+            <div class="z-buttons">
+                <a onClick="javascript:sendConf()">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Save" __title="Execute changes"} {gt text="Save"}
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+<script language="javascript">
+    var InvalidData = "{{gt text="The value of the field"}} \"{{gt text="Default width for the options"}}\" {{gt text="must be numeric."}}";
+</script>
