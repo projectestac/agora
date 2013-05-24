@@ -132,26 +132,37 @@ require_once("$CFG->libdir/filelib.php");
         echo $OUTPUT->box_end();
     }
      
-   /**
+    
+    /**
      * Display the geogebra applet
-     *
+     * 
+     * @param type $geogebra
+     * @param type $cm
+     * @param type $context
+     * @param type $attemptid
+     * @param type $viewmode 'submit' (default, let user to submit), 'preview' (show the geogebra without loading status) or 'view' (show geogebra with status but without buttons to submit)
+     * @param type $timenow 
      */
-    function geogebra_view_applet($geogebra, $context, $attemptid=null, $ispreview=false, $timenow=null) {
+    function geogebra_view_applet($geogebra, $cm, $context, $attemptid=null, $viewmode='submit', $timenow=null) {
         global $OUTPUT, $PAGE, $CFG, $USER;
         
         if (is_null($timenow)) $timenow = time();
         $isopen = (empty($geogebra->timeavailable) || $geogebra->timeavailable < $timenow);
         $isclosed = (!empty($geogebra->timedue) && $geogebra->timedue < $timenow);
-        // TODO: Get attempts of current user
-        $attempts = 0;
-        //$attempts = geogebra_get_attempts($geogebra->id, $USER->id);
+        $attempts = geogebra_count_finished_attempts($geogebra->id, $USER->id);
         
-        if (!$ispreview && !$isopen){
+        if ($viewmode=='submit' && !$isopen){
             echo $OUTPUT->box(get_string('notopenyet', 'geogebra', userdate($geogebra->timeavailable)), 'generalbox boxaligncenter geogebradates');
-        } else if (!$ispreview && $isclosed ) {
+        } else if ($viewmode=='submit' && $isclosed ) {
             echo $OUTPUT->box(get_string('expired', 'geogebra', userdate($geogebra->timedue)), 'generalbox boxaligncenter geogebradates'); 
         } else {
-            if ($geogebra->maxattempts<0 || $attempts < $geogebra->maxattempts){
+            if ($viewmode!='submit' || $geogebra->maxattempts<0 || $attempts < $geogebra->maxattempts){
+                // Show results when viewmode is "view"
+                if ($viewmode == 'view' && !empty($attemptid)){
+                    // TODO: Change $USER by selected userid
+                    geogebra_view_userid_results($geogebra, $USER, $cm, $viewmode, $attemptid);
+                }
+                
                 parse_str($geogebra->attributes, $attributes);
                 $attributes['filename'] = $geogebra->url;
    
@@ -176,8 +187,8 @@ require_once("$CFG->libdir/filelib.php");
                 // TODO: Review to include also javascript code from GGB file
                 //  print_r(geogebra_get_js_from_geogebra($filename));                
                 
-                // If not preview mode, load state and show submit buttons
-                if (!$ispreview) {                    
+                // If not preview mode, load state
+                if (!$viewmode!='preview') {                    
                     if (!empty($attemptid)){
                         // If specified, show specific attempt
                         $attempt = geogebra_get_attempt($attemptid);
@@ -210,8 +221,11 @@ require_once("$CFG->libdir/filelib.php");
                     echo '<input type="hidden" name="id" value="'.$context->instanceid.'"/>';
                     echo '<input type="hidden" name="n" value="'.$geogebra->id.'"/>';
                     echo '<input type="hidden" name="f" value="0"/>';
-                    echo '<input type="submit" value="' . get_string('savewithoutsubmitting', 'geogebra') . '" />';
-                    echo '<input type="submit" onclick = "this.form.f.value = 1;" value="' . get_string('submitandfinish', 'geogebra') . '" />';
+                    // Only show submit buttons if not view mode
+                    if ($viewmode!='view' && $geogebra->showsubmit){
+                        echo '<input type="submit" value="' . get_string('savewithoutsubmitting', 'geogebra') . '" />';
+                        echo '<input type="submit" onclick = "this.form.f.value = 1;" value="' . get_string('submitandfinish', 'geogebra') . '" />';
+                    }
                     echo '<input type="hidden" name="prevAppletInformation" value="' . $edu_xtec_adapter_parameters . '" />';
                     echo ' </form>';
                     echo '</div>';
@@ -630,24 +644,23 @@ require_once("$CFG->libdir/filelib.php");
             $extrafields = array();
         }
         $tablecolumns = array_merge(array('picture', 'fullname'), $extrafields,
-                array('starttime', 'attempts', 'solveddone', 'totaltime', 'grade'));
+                array('attempts', 'duration', 'grade', 'description', 'lastmodifiedsubmission', 'lastmodifiedgrade'));
 
         $extrafieldnames = array();
         foreach ($extrafields as $field) {
             $extrafieldnames[] = get_user_field_name($field);
         }
         
-        $strstarttime = ($action=='showall')?get_string('starttime', 'geogebra'):get_string('lastaccess', 'geogebra');
-
         $tableheaders = array_merge(
                 array('', get_string('fullnameuser')),
                 $extrafieldnames,
                 array(
-                    $strstarttime,
                     get_string('attempts', 'geogebra'),
-                    get_string('solveddone', 'geogebra'),
-                    get_string('totaltime', 'geogebra'),
+                    get_string('duration', 'geogebra'),
                     get_string('grade'),
+                    get_string('description', 'geogebra'),
+                    get_string('lastmodifiedsubmission', 'geogebra'),
+                    get_string('lastmodifiedgrade', 'geogebra'),
                 ));
 
         require_once($CFG->libdir.'/tablelib.php');
@@ -675,11 +688,10 @@ require_once("$CFG->libdir/filelib.php");
         $table->set_attribute('class', 'results generaltable generalbox');
         $table->set_attribute('width', '100%');
 
-        $table->no_sorting('starttime'); 
-        $table->no_sorting('solveddone'); 
-        $table->no_sorting('totaltime'); 
         $table->no_sorting('attempts'); 
+        $table->no_sorting('duration'); 
         $table->no_sorting('grade'); 
+        $table->no_sorting('description'); 
 
         // Start working -- this is necessary as soon as the niceties are over
         $table->setup();
@@ -704,7 +716,7 @@ require_once("$CFG->libdir/filelib.php");
                    'WHERE '.$where.'u.id IN ('.implode(',',$users).') ';
 
             $ausers = $DB->get_records_sql($select.$sql.$sort, $params, $table->get_page_start(), $table->get_page_size());
-
+            
             $table->pagesize($perpage, count($users));
             $offset = $page * $perpage; //offset used to calculate index of student in that particular query, needed for the pop up to know who's next
             if ($ausers !== false) {
@@ -766,9 +778,18 @@ require_once("$CFG->libdir/filelib.php");
         $table->print_html();  /// Print the whole table    
     }
     
-    function geogebra_get_results_table_columns(){
+    function geogebra_get_results_table_columns($cm=null){
         //$tablecolumns = array('picture', 'fullname', 'attempts', 'duration', 'grade', 'comment', 'datestudent', 'dateteacher', 'status');
-        $tablecolumns = array('attempts', 'duration', 'grade', 'comment', 'datestudent', 'dateteacher', 'status');
+        //$tablecolumns = array('attempts', 'duration', 'grade', 'comment', 'datestudent', 'dateteacher', 'status');
+        $tablecolumns = array('attempts', 'duration', 'grade');
+        if (!empty($cm)){
+            array_push($tablecolumns, 'comment');
+        }
+        array_push($tablecolumns, 'datestudent');
+        array_push($tablecolumns, 'dateteacher');
+        if (!empty($cm)){
+            array_push($tablecolumns, 'status');
+        }
         $tableheaders = array();
         foreach ($tablecolumns as $tablecolumn){
             $tableheaders[]=get_string($tablecolumn, 'geogebra');
@@ -776,13 +797,13 @@ require_once("$CFG->libdir/filelib.php");
         return array('tablecolumns'=>$tablecolumns, 'tableheaders'=>$tableheaders);
     }
  
-    function geogebra_view_userid_results($geogebra, $user, $context, $cm, $course, $action){
+    function geogebra_view_userid_results($geogebra, $user, $cm, $action, $attemptid=null){
         global $CFG, $DB, $OUTPUT, $PAGE;
         
         require_once($CFG->libdir.'/tablelib.php');
         $table = new flexible_table('mod-geogebra-results');
 
-        $tablecolumns = geogebra_get_results_table_columns();
+        $tablecolumns = geogebra_get_results_table_columns($action=='view'?null:$cm);
         $table->define_columns($tablecolumns['tablecolumns']);
         $table->define_headers($tablecolumns['tableheaders']);
         $table->define_baseurl($CFG->wwwroot.'/mod/geogebra/view.php?id='.$cm->id.'&amp;action='.$action);
@@ -807,22 +828,73 @@ require_once("$CFG->libdir/filelib.php");
 
         // Show results only for specified user
         $picture = $OUTPUT->user_picture($user);
-        $attempts = geogebra_get_user_attempts($geogebra->id, $user->id);
-        foreach ($attempts as $attempt) {
+        if (!empty($attemptid)){
+            // Show only results of specified attempt
+            $attempt = geogebra_get_attempt($attemptid);
+/*            $row = geogebra_get_attempt_row($attempt, $user);
+            $rowclass = '';
+            $table->add_data($row, $rowclass);            
+            $table->print_html();  /// Print the whole table
+            echo '<br/>';
+*/            
+            
+            $table = new html_table();
+            $table->size = array('10%', '90%');
+
             parse_str($attempt->vars, $parsedVars);
             $numattempt = $parsedVars['attempts'];
             $duration = geogebra_time2str($parsedVars['duration']);
             $grade = $parsedVars['grade'];
-            $gradecomment = !empty($attempt->gradecomment) ? shorten_text(trim(strip_tags(format_text($attempt->gradecomment))), 25) : '';
-            $datestudent = !empty($attempt->datestudent) ? userdate($attempt->datestudent) : '';
-            $dateteacher = !empty($attempt->dateteacher) ? userdate($attempt->dateteacher) : '';
-            $status = '<a href="' . $CFG->wwwroot . '/mod/geogebra/view.php?id=' . $cm->id . '&student=' . $user->id .'&attemptid='.$attempt->id.'"> ' . get_string('viewattempt', 'geogebra') . '</a>';
-            $row = array($numattempt, $duration, $grade, $gradecomment, $datestudent, $dateteacher, $status);
-            $rowclass = '';
-            $table->add_data($row, $rowclass);        
+            geogebra_add_table_row_tuple($table, get_string('attempt', 'geogebra'), $numattempt);
+            geogebra_add_table_row_tuple($table, get_string('duration', 'geogebra'), $duration);
+            geogebra_add_table_row_tuple($table, get_string('grade'), $grade);
+            geogebra_add_table_row_tuple($table, get_string('comment', 'geogebra'), $attempt->gradecomment);
+            echo html_writer::table($table);            
+          
+        } else{
+            // Show all attempts information
+            $attempts = geogebra_get_user_attempts($geogebra->id, $user->id);
+            foreach ($attempts as $attempt) {
+                $row = geogebra_get_attempt_row($attempt, $user, $cm);
+                $rowclass = '';
+                $table->add_data($row, $rowclass);
+            }
+            $table->print_html();  /// Print the whole table
         }
-        $table->print_html();  /// Print the whole table    
+            
     }    
+    
+    function geogebra_get_attempt_row($attempt, $user, $cm=null){
+        global $CFG;
+        
+        parse_str($attempt->vars, $parsedVars);
+        $numattempt = $parsedVars['attempts'];
+        $duration = geogebra_time2str($parsedVars['duration']);
+        $grade = $parsedVars['grade'];
+//        $row = array($numattempt, $duration, $grade, $gradecomment, $datestudent, $dateteacher);
+        $row = array($numattempt, $duration, $grade);
+        if (!empty($cm)){
+            $gradecomment = !empty($attempt->gradecomment) ? shorten_text(trim(strip_tags(format_text($attempt->gradecomment))), 25) : '';
+            array_push($row, $gradecomment);
+        }
+        $datestudent = !empty($attempt->datestudent) ? userdate($attempt->datestudent) : '';
+        array_push($row, $datestudent);
+        $dateteacher = !empty($attempt->dateteacher) ? userdate($attempt->dateteacher) : '';
+        array_push($row, $dateteacher);
+        if (!empty($cm)){
+            $status = '<a href="' . $CFG->wwwroot . '/mod/geogebra/view.php?action=view&id=' . $cm->id . '&student=' . $user->id .'&attemptid='.$attempt->id.'"> ' . get_string('viewattempt', 'geogebra') . '</a>';
+            array_push($row, $status);
+        }
+        return $row;
+    }
+    
+    function geogebra_add_table_row_tuple(html_table $table, $first, $second){
+        $row = new html_table_row();
+        $cell1 = new html_table_cell('<b>'.$first.'</b>');
+        $cell2 = new html_table_cell($second);
+        $row->cells = array($cell1, $cell2);
+        $table->data[] = $row;
+    }
     
     /**
      * Workaround to fix an Oracle's bug when inserting a row with date
