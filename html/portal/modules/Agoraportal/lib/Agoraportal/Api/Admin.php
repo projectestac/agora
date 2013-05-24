@@ -1596,6 +1596,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         // Update config_plugins table in Moodle 2 (if service is active)
         if ($moodle2Active) {
+// @aginard: This section of the connection is no longer necessary in Moodle 2
+/*
             // Delete previous configuration if it exists
             $sql = "DELETE FROM {$prefix2}config_plugins
                     WHERE {$prefix2}config_plugins.plugin='auth/db'";
@@ -1698,7 +1700,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             } else {
                 LogUtil::registerStatus($this->__('S\'han connectat el Moodle 2 i la intranet.'));
             }
-
+*/
             $modulevars = array('dbprefix' => serialize($prefix2),
                 'moodleurl' => serialize('../moodle'),
                 'dfl_language' => serialize('ca'));
