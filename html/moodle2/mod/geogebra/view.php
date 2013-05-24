@@ -88,7 +88,11 @@ if (!empty($action)){
             }
             break;
         case 'result':
-            geogebra_view_userid_results($geogebra, $USER, $cm, $action);
+            if ($cangrade){
+                geogebra_view_results($geogebra, $context, $cm, $course, $action);
+            } else {
+                geogebra_view_userid_results($geogebra, $USER, $cm, $action);
+            }
             break;
     }
 } else{
