@@ -20,6 +20,7 @@ $lastCronSuccessfull = pnModFunc('iw_main', 'user', 'userGetVar',
 										'module' => 'iw_main_cron',
 										'sv' => $sv));
 
+/*
 if($lastCronSuccessfull > time() - 7*60*60){
 	if(isset($_REQUEST['return']) && $_REQUEST['return'] == 1){
 		LogUtil::registerError (__('The cron has been executed too recenty', $dom));
@@ -29,6 +30,7 @@ if($lastCronSuccessfull > time() - 7*60*60){
 		exit;
 	}
 }
+*/
 
 //Check if module Mailer is active
 $modid = pnModGetIDFromName('Mailer');
@@ -121,11 +123,9 @@ pnModAPIFunc('Theme', 'user', 'clear_compiled');
 pnModAPIFunc('Theme', 'user', 'clear_cache');
 
 // Summarize stats info
-pnModAPIFunc('IWstats', 'admin', 'summary');
-
+echo 'Summary response: ' . pnModFunc('IWstats', 'admin', 'summary');
 
 LogUtil::_cleanLogFiles();
-
 
 pnShutDown();
 

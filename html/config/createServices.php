@@ -47,6 +47,7 @@ if (empty($schoolCodes)) { // Show form
         // Pas 1: Connectar a la base de dades
         require ('env-config.php');
         $dbc = mysqli_connect($agora['admin']['host'], $agora['admin']['username'], $agora['admin']['userpwd'], $agora['admin']['database'], $agora['admin']['port']);
+        $dbc->set_charset('utf8');
 
 
         // Pas 2: Obtenir l'id dels serveis moodle i moodle2
@@ -68,13 +69,14 @@ if (empty($schoolCodes)) { // Show form
         if ($row !== null) {
             $clientId = $row['clientId'];
             $clientDNS = $row['clientDNS'];
-            $clientName = $row['clientName'];
-            $clientAddress = $row['clientAddress'];
-            $clientCity = $row['clientCity'];
+            $clientName = str_replace("'", "''", $row['clientName']);
+            $clientAddress = str_replace("'", "''", $row['clientAddress']);
+            $clientCity = str_replace("'", "''", $row['clientCity']);
         } else {
             echo "El centre amb codi <strong>$clientCode</strong> no apareix a la taula <strong>agoraportal_clients</strong>. Per tant, no es crea el seu servei.<br />";
             continue;
         }
+
 
         // Pas 4: Comprovar que el centre encara no té Moodle 2
         $sql = "SELECT activedId, serviceDB FROM agoraportal_client_services 
@@ -146,9 +148,9 @@ if (empty($schoolCodes)) { // Show form
                 firstname='Administrador/a',
                 lastname='$clientCode',
                 email='$clientCode@xtec.cat',
-                institution='$clientName',
+                institution='" . mb_substr($clientName, 0, 39) . "',
                 address='$clientAddress',
-                city='" . substr($clientCity, 0, 20) . "'
+                city='" . mb_substr($clientCity, 0, 119) . "'
             WHERE id=$adminId
             ";
         // Query to force change of password of user admin
@@ -221,6 +223,16 @@ if (empty($schoolCodes)) { // Show form
             echo "S'ha produït un error en introduir un registre la taula <strong>agoraportal_autoregisterlog</strong><br />";
         }
 
+        // Pas 10: Indicar que el centre farà servir el URL moodle2
+        $sql = "UPDATE agoraportal_clients
+                SET extraFunc = 'moodle2'
+                WHERE clientCode = '$clientCode' ";
+        if (mysqli_query($dbc, $sql) === true) {
+            echo "S'ha indicat que el centre <strong>$clientDNS</strong> farà servir el URL /moodle2 per accedir al servei<br />";
+        } else {
+            echo "No s'ha pogut actualitzar el valor extrafunc per al centre <strong>$clientDNS</strong><br />";
+        }
+
         mysqli_close($dbc);
     }
 }
@@ -253,9 +265,14 @@ function checkConnection($id) {
     $dbUser = $agora['moodle']['username'] . $id;
     $prefix = strtoupper($agora['moodle2']['prefix']);
 
-    $dbNumber = (int) $agora['moodle']['dbnumber'];
-    $offset = floor($id / 200) + (($id % 200) == 0 ? ($dbNumber - 1) : $dbNumber);
-    $offset = ($offset > 1) ? (string) $offset : '';
+    if (empty($agora['moodle']['dbnumber'])) {
+        $offset = '';
+    } else {
+        $dbNumber = (int) $agora['moodle']['dbnumber'];    
+        $offset = floor($id / 200) + (($id % 200) == 0 ? ($dbNumber - 1) : $dbNumber);       
+        $offset = ($offset > 1) ? (string) $offset : '';
+    }
+
     $dbName = $agora['moodle']['database'] . $offset;
 
     $connect = oci_pconnect($dbUser, $agora['moodle']['userpwd'], $dbName);

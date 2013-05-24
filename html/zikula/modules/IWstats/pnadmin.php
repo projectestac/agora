@@ -531,9 +531,14 @@ function IWstats_admin_viewStats($args) {
 }
 
 function IWstats_admin_summary() {
+
+//XTEC ************ ELIMINAT - Permetre la execució del resum des del cron
+//2013.05.21 @aginard
+/*
     if (!SecurityUtil::checkPermission('IWstats::', '::', ACCESS_ADMIN)) {
-        //return LogUtil::registerPermissionError();
+        return LogUtil::registerPermissionError();
     }
+*/
 
     $dom = ZLanguage::getModuleDomain('IWstats');
 

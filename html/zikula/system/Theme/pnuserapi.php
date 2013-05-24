@@ -242,11 +242,14 @@ function theme_userapi_createinifile($args)
  */
 function theme_userapi_clear_compiled($args)
 {
+//XTEC ************ ELIMINAT - Permetre la execució del resum des del cron
+//2013.05.21 @aginard
+/*
     // security check
     if (!SecurityUtil::checkPermission('Theme::', '::', ACCESS_EDIT)) {
         return LogUtil::registerPermissionError();
     }
-
+*/
     $ospntemp = CacheUtil::getLocalDir();
 
     $pnRender  = new Smarty;
@@ -270,10 +273,13 @@ function theme_userapi_clear_compiled($args)
  */
 function theme_userapi_clear_cache($args)
 {
+//XTEC ************ ELIMINAT - Permetre la execució des del cron
+//2013.05.21 @aginard
+/*
     if (!SecurityUtil::checkPermission('Theme::', '::', ACCESS_EDIT)) {
         return LogUtil::registerPermissionError();
     }
-
+*/
     $ospntemp = CacheUtil::getLocalDir();
 
     $pnRender = new Smarty;

@@ -5,9 +5,16 @@ development home at http://projectes.lafarga.cat/projects/agora/
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- Modified createSchoolsListsFiles.php to call Moodle 2 crons even if its URL ends with /moodle2
+
 MOODLE2
 - Fixed font face "lletra lligada", which only worked in theme design mode
+- Fixed course import when category names in Moodle 1.9 have some special chars
+- Added code in theme xtec2 removed in v13.05.13
 
+ZIKULA
+- Fixed iwcron.php not calling properly some maintenance functions
 
 
 Changes 13.05.13
