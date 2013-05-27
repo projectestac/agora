@@ -75,8 +75,22 @@ $modulesToDelete = array('iw_groups',
     'Downloads',
 );
 
-foreach ($modulesToDelete as $module) {
-    if (existsTable($dbname, $prefix.'_modules', $f, $con)) {
+if (existsTable($dbname, $prefix.'_modules', $f, $con) && existsTable($dbname, $prefix.'_blocks', $f, $con)) {
+    foreach ($modulesToDelete as $module) {
+        // get module id modid
+        $sql = "SELECT pn_id from {$prefix}_modules WHERE pn_name='" . $module . "'";
+        if (!$result = mysql_query($sql, $con)) {
+            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+            $preupgradeError = true;
+        }
+        $value = mysql_fetch_row($result);
+        // delete module active blocks
+        $sql = "DELETE FROM {$prefix}_blocks WHERE pn_mid=$value[0]";
+        if (!$result = mysql_query($sql, $con)) {
+            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+            $preupgradeError = true;
+        }
+        // delete module in modules table
         $sql = "DELETE FROM {$prefix}_modules WHERE pn_name='" . $module . "'";
         if (!$result = mysql_query($sql, $con)) {
             fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
