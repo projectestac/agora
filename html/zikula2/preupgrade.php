@@ -75,19 +75,6 @@ $modulesToDelete = array('iw_groups',
     'Downloads',
 );
 
-/*
-foreach ($modulesToDelete as $module) {
-    if (existsTable($dbname, $prefix.'_modules', $f, $con)) {
-        $sql = "DELETE FROM {$prefix}_modules WHERE pn_name='" . $module . "'";
-        if (!$result = mysql_query($sql, $con)) {
-            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-            $preupgradeError = true;
-        }
-    }
-}
- * 
- */
-
 if (existsTable($dbname, $prefix.'_modules', $f, $con) && existsTable($dbname, $prefix.'_blocks', $f, $con)) {
     foreach ($modulesToDelete as $module) {
         // get module id modid
