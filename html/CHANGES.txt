@@ -10,6 +10,9 @@ GENERAL
 - dblib-mysql: added info of intranet version to cookie
 - replaceMoodle: added support for Moodle 2 and any kind of text replacement
 
+MOODLE
+- Added permision to xtecadmin to access to scheduled backup parameters
+
 MOODLE2
 - Fixed font face "lletra lligada", which only worked in theme design mode
 - Fixed course import when category names in Moodle 1.9 have some special chars
