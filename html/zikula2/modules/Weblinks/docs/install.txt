@@ -1,0 +1,69 @@
+#######################################
+###          Installation           ###
+#######################################
+
+Install as any other API compatible module:
+
+Upload;
+Initialize;
+Activate.
+
+#######################################
+###             Update              ###
+#######################################
+
+Upgrade from earlier versions just like any other API compatible module:
+
+Delete the 'Web_Links' folder and all folder and files inside;
+Upload;
+Upgrade.
+
+#######################################
+###            Permissions          ###
+#######################################
+
+You have some possibilities to set permissions
+
+Users
+
+Group | Weblinks:: | .* | read
+// the group can see all links
+
+Group | Weblinks:: | .* | comment
+// the group can add a link and comment a link, announce a broken link, submit a modification
+
+Group | Weblinks::Category | ::CatID | none
+// the group cant see the category with the ID
+
+
+Moduleadmins
+
+Group | Weblinks:: | .* | edit
+// the group can modify links and categories
+
+Group | Weblinks:: | .* | add
+// the group can modify and add links and categories
+
+Group | Weblinks:: | .* | delete
+// the group can delete, modify and add links and categories
+
+Group | Weblinks::Category | .* | edit / add / delete
+// the group can only modify / add / delete categories
+
+Group | Weblinks::Link | .* | edit / add / delete
+// the group can only modify / add / delete links
+
+Group | Weblinks:: | .* | admin
+// the group can administrate the Weblinks module with all functions
+
+
+scribite
+Group | scribite:: | Weblinks:: | comment
+// the group can use scribite in Weblinks textareas if they have no comment permissions (unregistered Users)
+
+// if a group has add permissions and higher, they can see an icon in their user profile to add links
+
+#######################################
+###   Hint for the pending module   ###
+#######################################
+pending content now works automatically without configuration. Simply check the box in the admin settings.

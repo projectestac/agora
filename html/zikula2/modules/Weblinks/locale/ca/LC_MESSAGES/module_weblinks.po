@@ -1,0 +1,1022 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-07-15 11:39+0200\n"
+"PO-Revision-Date: 2010-07-15 11:59+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnuserapi.php:38
+#: pnuserapi.php:71
+#: pnuserapi.php:111
+#: pnuserapi.php:157
+#: pnuserapi.php:409
+#: pnuserapi.php:875
+#: pnuserapi.php:890
+#: pnuserapi.php:905
+#: pnuserapi.php:949
+#: pnuserapi.php:993
+#: pnadminapi.php:108
+#: pnsearchapi.php:73
+#: pnsearchapi.php:94
+msgid "Error! Could not load items."
+msgstr "Error! Could not load items."
+
+#: pnuserapi.php:49
+#: pnuserapi.php:82
+#: pnuserapi.php:121
+#: pnuserapi.php:133
+#: pnuserapi.php:192
+#: pnuserapi.php:232
+#: pnuserapi.php:301
+#: pnuserapi.php:387
+#: pnuserapi.php:437
+#: pnuserapi.php:507
+#: pnuserapi.php:539
+#: pnuserapi.php:581
+#: pnuserapi.php:638
+#: pnuserapi.php:695
+#: pnuserapi.php:739
+#: pnuserapi.php:925
+#: pnuserapi.php:969
+#: pnadminapi.php:90
+#: pnadminapi.php:291
+#: pntemplates/plugins/function.catpath.php:20
+#: pntemplates/plugins/function.countsublinks.php:20
+#: pntemplates/plugins/function.subcategorynewlinkgraphic.php:20
+#: pntemplates/plugins/function.categorynewlinkgraphic.php:20
+#: pntemplates/plugins/function.catlist.php:20
+#: pntemplates/plugins/function.catlist.php:47
+#: pntemplates/plugins/function.catlist.php:83
+#: pnadmin.php:80
+#: pnadmin.php:144
+#: pnadmin.php:187
+#: pnadmin.php:209
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "Error! Could not do what you wanted. Please check your input."
+
+#: pnuserapi.php:824
+msgid "Sorry! This URL is already listed in the database!"
+msgstr "Aquest URL ja hi és a la base de dades"
+
+#: pnuserapi.php:828
+msgid "Sorry! Error! You must type a URL for the web link!"
+msgstr "No s'ha introduït l'URL de l'enllaç"
+
+#: pnuserapi.php:832
+msgid "Sorry! Error! You must type a title for the URL!"
+msgstr "No s'ha introduït el títol"
+
+#: pnuserapi.php:836
+msgid "Sorry! Error! No category"
+msgstr "No s'ha especificat la categoria"
+
+#: pnuserapi.php:840
+msgid "Sorry! Error! You must type a description for the URL!"
+msgstr "No s'ha introduït la descripció"
+
+#: pnuserapi.php:857
+msgid "You didn't enter an e-mail address. However, your link will still be checked."
+msgstr "No heu indicat cap adreça de correu electrònic. Tot i això, es comprovarà l'enllaç."
+
+#: pnuserapi.php:859
+msgid "Thank you! You'll receive an e-mail message when it's approved."
+msgstr "Rebreu un missatge de correu electrònic quan s'aprovi l'enllaç"
+
+#: pnuser.php:37
+msgid "No existing categories"
+msgstr "No s'ha trobat cap categoria"
+
+#: pnuser.php:133
+msgid "Link existiert nicht..."
+msgstr "L'enllaç no existeix"
+
+#: pnuser.php:142
+#: pnadminapi.php:22
+msgid "Sorry! No authorization to access this module."
+msgstr "Sorry! No authorization to access this module."
+
+#: pnuser.php:328
+msgid "%A, %B %d, %Y"
+msgstr "%A, %B %d, %Y"
+
+#: pnuser.php:480
+#: pnuser.php:512
+msgid "Invalid 'authkey':  this probably means that you pressed the 'Back' button, or that the page 'authkey' expired. Please refresh the page and try again."
+msgstr "Invalid 'authkey':  this probably means that you pressed the 'Back' button, or that the page 'authkey' expired. Please refresh the page and try again."
+
+#: pnuser.php:499
+#: pntemplates/weblinks_user_modifylinkrequest.html:5
+msgid "Sorry! Only registered users can suggest link modifications."
+msgstr "Només poden proposar canvis en els enllaços els usuaris validats"
+
+#: pnaccountapi.php:44
+#: pntemplates/weblinks_user_links.html:6
+#: pntemplates/weblinks_admin_view.html:73
+#: pntemplates/weblinks_admin_linkview.html:11
+#: pntemplates/weblinks_admin_linkview.html:43
+msgid "Add link"
+msgstr "Afegeix un enllaç"
+
+#: pnadminapi.php:28
+#: pntemplates/weblinks_admin_view.html:3
+#: pntemplates/weblinks_admin_view.html:4
+#: pntemplates/weblinks_admin_listbrokenlinks.html:3
+msgid "Overview"
+msgstr "Resum de continguts"
+
+#: pnadminapi.php:29
+#: pntemplates/weblinks_admin_catview.html:4
+#: pntemplates/weblinks_admin_catview.html:5
+msgid "Categories administer"
+msgstr "Categories d'enllaços"
+
+#: pnadminapi.php:30
+#: pntemplates/weblinks_admin_modlink.html:3
+#: pntemplates/weblinks_admin_modlink.html:4
+#: pntemplates/weblinks_admin_linkview.html:4
+#: pntemplates/weblinks_admin_linkview.html:5
+#: pntemplates/weblinks_admin_listmodrequests.html:4
+#: pntemplates/weblinks_admin_validate.html:4
+msgid "Links administer"
+msgstr "Administració dels enllaços"
+
+#: pnadminapi.php:31
+#: pntemplates/weblinks_admin_getconfig.html:113
+msgid "Modify configuration"
+msgstr "Modifica la configuració"
+
+#: pnadminapi.php:32
+#: pntemplates/weblinks_admin_import.html:6
+msgid "Import"
+msgstr "Importa"
+
+#: pnadminapi.php:65
+#: pntemplates/weblinks_admin_catview.html:19
+#: pntemplates/weblinks_admin_validate.html:32
+msgid "None"
+msgstr "Cap"
+
+#: pntemplates/plugins/function.catpath.php:48
+msgid "Start"
+msgstr "Inici"
+
+#: pntemplates/plugins/function.newlinkgraphic.php:28
+#: pntemplates/plugins/function.subcategorynewlinkgraphic.php:47
+#: pntemplates/plugins/function.categorynewlinkgraphic.php:46
+msgid "%d-%m-%Y"
+msgstr "%d-%m-%Y"
+
+#: pntemplates/plugins/function.newlinkgraphic.php:32
+#: pntemplates/plugins/function.subcategorynewlinkgraphic.php:51
+#: pntemplates/plugins/function.categorynewlinkgraphic.php:50
+msgid "New today"
+msgstr "Afegit avui"
+
+#: pntemplates/plugins/function.newlinkgraphic.php:35
+#: pntemplates/plugins/function.subcategorynewlinkgraphic.php:54
+#: pntemplates/plugins/function.categorynewlinkgraphic.php:53
+msgid "New during last 3 days"
+msgstr "Afegit en els darrers 3 dies"
+
+#: pntemplates/plugins/function.newlinkgraphic.php:38
+#: pntemplates/plugins/function.subcategorynewlinkgraphic.php:57
+#: pntemplates/plugins/function.categorynewlinkgraphic.php:56
+msgid "New this week"
+msgstr "Afegit aquesta setmana"
+
+#: pntemplates/plugins/function.ezcommentscounter.php:37
+msgid "Add a comment"
+msgstr "Afegeix un comentari"
+
+#: pntemplates/plugins/function.ezcommentscounter.php:38
+msgid "Comment"
+msgstr "Comentari"
+
+#: pntemplates/plugins/function.ezcommentscounter.php:39
+msgid "Comments"
+msgstr "Comentaris"
+
+#: pntemplates/plugins/function.popgraphic.php:20
+#: pntemplates/weblinks_admin_getconfig.html:62
+#: pntemplates/weblinks_user_links.html:8
+msgid "Popular"
+msgstr "Popular"
+
+#: pntemplates/plugins/function.newlinksbyday.php:34
+msgid "%M %d, %Y"
+msgstr "d, M Y"
+
+#: pntemplates/plugins/function.orderbyTrans.php:20
+#: pntemplates/weblinks_user_sortlinksbymenu.html:8
+msgid "Popularity (from fewest hits to most hits)"
+msgstr "Popularitat (de menys a més clics)"
+
+#: pntemplates/plugins/function.orderbyTrans.php:23
+#: pntemplates/weblinks_user_sortlinksbymenu.html:8
+msgid "Popularity (from most hits to fewest hits)"
+msgstr "Popularitat (de més a menys clics)"
+
+#: pntemplates/plugins/function.orderbyTrans.php:26
+#: pntemplates/weblinks_user_sortlinksbymenu.html:6
+msgid "Title (A to Z)"
+msgstr "Títol (d'A a Z)"
+
+#: pntemplates/plugins/function.orderbyTrans.php:29
+#: pntemplates/weblinks_user_sortlinksbymenu.html:6
+msgid "Title (Z to A)"
+msgstr "Títol (de Z a A)"
+
+#: pntemplates/plugins/function.orderbyTrans.php:32
+#: pntemplates/weblinks_user_sortlinksbymenu.html:7
+msgid "Date (oldest links listed first)"
+msgstr "Per data (primer els enllaços més antics)"
+
+#: pntemplates/plugins/function.orderbyTrans.php:35
+#: pntemplates/weblinks_user_sortlinksbymenu.html:7
+msgid "Date (newest links listed first)"
+msgstr "Per data (primer els enllaços més nous)"
+
+#: pnadmin.php:97
+msgid "ERROR: The category"
+msgstr "La categoria no és correcta"
+
+#: pnadmin.php:107
+msgid "Category successfully added"
+msgstr "La categoria s'ha afegit correctament"
+
+#: pnadmin.php:175
+msgid "Category successfully modified"
+msgstr "S'ha modificat la categoria correctament"
+
+#: pnadmin.php:249
+msgid "Category successfully deleted"
+msgstr "La categoria s'ha esborrat amb èxit"
+
+#: pnadmin.php:300
+msgid "Sorry! Please try again: this link is already listed in the database!"
+msgstr "Aquest enllaç ja existeix a la base de dades i no es pot tornar a afegir"
+
+#: pnadmin.php:305
+msgid "Sorry! Please try again: you need to specify a TITLE for your link!"
+msgstr "Heu de donar un títol al recurs enllaçat"
+
+#: pnadmin.php:310
+msgid "Sorry! Please try again: you need to specify a URL for your link!"
+msgstr "Heu d'indicar un URL pel recurs enllaçat"
+
+#: pnadmin.php:337
+msgid "Your link at"
+msgstr "El vostre enllaç a"
+
+#: pnadmin.php:338
+msgid "Hello"
+msgstr "Hola"
+
+#: pnadmin.php:338
+msgid "Your link submission has been approved for the site's search engine. "
+msgstr "L'enllaç que vàreu enviar ha estat aprovat"
+
+#: pnadmin.php:338
+#: pntemplates/weblinks_user_modifylinkrequest.html:16
+#: pntemplates/weblinks_admin_listmodrequests.html:18
+#: pntemplates/weblinks_admin_validate.html:16
+msgid "Link title"
+msgstr "Títol de l'enllaç"
+
+#: pnadmin.php:339
+#: pntemplates/weblinks_user_addlink.html:21
+#: pntemplates/weblinks_admin_modlink.html:16
+#: pntemplates/weblinks_admin_view.html:53
+#: pntemplates/weblinks_user_modifylinkrequest.html:19
+#: pntemplates/weblinks_admin_linkview.html:22
+#: pntemplates/weblinks_admin_listmodrequests.html:23
+msgid "URL"
+msgstr "URL"
+
+#: pnadmin.php:339
+#: pntemplates/weblinks_admin_catview.html:23
+#: pntemplates/weblinks_admin_modlink.html:20
+#: pntemplates/weblinks_admin_view.html:61
+#: pntemplates/weblinks_admin_listmodrequests.html:33
+#: pntemplates/weblinks_admin_modcategory.html:17
+msgid "Description:"
+msgstr "Descripció:"
+
+#: pnadmin.php:340
+msgid "The site's search engine is available at: "
+msgstr "El cercador està disponible a:"
+
+#: pnadmin.php:341
+msgid "Thank you for your submission!"
+msgstr "Gràcies pel vostre enviament"
+
+#: pnadmin.php:341
+msgid "Team."
+msgstr "Equip"
+
+#: pnadmin.php:346
+#: pnadmin.php:350
+msgid "New link added to the database"
+msgstr "S'ha afegit l'enllaç a la base de dades"
+
+#: pnadmin.php:378
+msgid "New link removed from the database"
+msgstr "S'ha esborrat l'enllaç de la base de dades"
+
+#: pnadmin.php:544
+#: pnadmin.php:831
+msgid "Link removed from the database"
+msgstr "S'ha esborrat l'enllaç de la base de dades"
+
+#: pnadmin.php:586
+msgid "Ignore requests"
+msgstr "Ignora les peticions"
+
+#: pnadmin.php:666
+msgid "Link was changed successfuly"
+msgstr "S'ha modificat l'enllaç correctament"
+
+#: pnadmin.php:714
+msgid "User link modification requests was ignored"
+msgstr "La petició de modificació de l'enllaç s'ha ignorat"
+
+#: pnadmin.php:787
+msgid "Link successfully modified"
+msgstr "S'ha modificat l'enllaç correctament"
+
+#: pnadmin.php:941
+msgid "Configuration updates"
+msgstr "Actualitzacions de la configuració"
+
+#: pnadmin.php:1051
+msgid "anonymous user"
+msgstr "anonymous user"
+
+#: pntemplates/weblinks_user_addlink.html:6
+msgid "Instructions"
+msgstr "Instruccions"
+
+#: pntemplates/weblinks_user_addlink.html:7
+msgid "Please submit each link only once."
+msgstr "Envieu els enllaços només una vegada"
+
+#: pntemplates/weblinks_user_addlink.html:8
+msgid "All links are reviewed before being posted online."
+msgstr "Els enllaços es revisen abans de ser publicats"
+
+#: pntemplates/weblinks_user_addlink.html:9
+msgid "Your user name and IP are recorded, so please don't abuse the system."
+msgstr "El vostre nom d'usuari i la vostra contrasenya es desaran, així que no abuseu del sistema."
+
+#: pntemplates/weblinks_user_addlink.html:15
+msgid "Add a new link"
+msgstr "Afegeix un enllaç nou"
+
+#: pntemplates/weblinks_user_addlink.html:18
+msgid "Sitetitle"
+msgstr "Nom del lloc"
+
+#: pntemplates/weblinks_user_addlink.html:24
+#: pntemplates/weblinks_admin_catview.html:41
+#: pntemplates/weblinks_admin_catview.html:58
+#: pntemplates/weblinks_admin_modlink.html:36
+#: pntemplates/weblinks_admin_view.html:57
+#: pntemplates/weblinks_user_modifylinkrequest.html:22
+#: pntemplates/weblinks_user_newlinksdate.html:10
+#: pntemplates/weblinks_user_category.html:6
+#: pntemplates/weblinks_admin_linkview.html:26
+#: pntemplates/weblinks_user_mostpopular.html:25
+#: pntemplates/weblinks_admin_listmodrequests.html:28
+#: pntemplates/weblinks_user_searchresults.html:26
+#: pntemplates/weblinks_user_details.html:6
+msgid "Category"
+msgstr "Categoria"
+
+#: pntemplates/weblinks_user_addlink.html:27
+#: pntemplates/weblinks_user_modifylinkrequest.html:25
+#: pntemplates/weblinks_admin_linkview.html:30
+msgid "Description: (255 characters max)"
+msgstr "Descripció: (255 caràcters com a màxim)"
+
+#: pntemplates/weblinks_user_addlink.html:30
+msgid "Your name"
+msgstr "El vostre nom"
+
+#: pntemplates/weblinks_user_addlink.html:33
+msgid "Your e-mail address"
+msgstr "La vostra adreça de correu electrònic"
+
+#: pntemplates/weblinks_user_addlink.html:39
+msgid "Add this URL"
+msgstr "Afegeix aquest URL"
+
+#: pntemplates/weblinks_user_addlink.html:40
+#: pntemplates/weblinks_admin_getconfig.html:114
+#: pntemplates/weblinks_user_modifylinkrequest.html:33
+#: pntemplates/weblinks_user_brokenlink.html:20
+#: pntemplates/weblinks_user_searchresults.html:43
+#: pntemplates/weblinks_admin_suredelcategory.html:19
+#: pntemplates/weblinks_user_add.html:5
+#: pntemplates/weblinks_admin_modcategory.html:24
+msgid "Back"
+msgstr "Enrere"
+
+#: pntemplates/weblinks_user_addlink.html:46
+msgid "Sorry! You are not a registered user or you have not logged-in."
+msgstr "Sou un usuari/ària anònim o no heu entrat a la intranet."
+
+#: pntemplates/weblinks_user_addlink.html:47
+msgid "If you were registered, you could contribute links to this web site."
+msgstr "Per poder proposar enllaços, cal ser un usuari/ària registrat."
+
+#: pntemplates/weblinks_user_addlink.html:48
+msgid "Becoming a registered user is a quick and easy process."
+msgstr "Registrar-se és un procés ràpid i fàcil."
+
+#: pntemplates/weblinks_user_addlink.html:49
+msgid "Why is registration required for access to certain features?"
+msgstr "Es requereix el registre per poder accedir a determinades funcionalitats."
+
+#: pntemplates/weblinks_user_addlink.html:50
+msgid "So that you are offered only the highest-quality content,"
+msgstr "D'aquesta manera es pot controlar la qualitat dels continguts."
+
+#: pntemplates/weblinks_user_addlink.html:51
+msgid "each item is individually reviewed and approved."
+msgstr "Cada enviament es revisa i aprova individualment."
+
+#: pntemplates/weblinks_user_addlink.html:52
+msgid "The site editor aims to offer useful information only."
+msgstr "Els responsables d'aquest lloc web demanen que només s'enviï informació útil."
+
+#: pntemplates/weblinks_user_addlink.html:53
+msgid "Register for a new user account"
+msgstr "Crea un nou compte d'usuari"
+
+#: pntemplates/weblinks_admin_getconfig.html:4
+#: pntemplates/weblinks_admin_getconfig.html:89
+#: pntemplates/weblinks_admin_import.html:5
+msgid "Settings"
+msgstr "Paràmetres"
+
+#: pntemplates/weblinks_admin_getconfig.html:5
+msgid "Configuration"
+msgstr "Configuració"
+
+#: pntemplates/weblinks_admin_getconfig.html:10
+msgid "Number of links"
+msgstr "Nombre d'enllaços"
+
+#: pntemplates/weblinks_admin_getconfig.html:12
+msgid "Links per page"
+msgstr "Enllaços per pàgina"
+
+#: pntemplates/weblinks_admin_getconfig.html:23
+msgid "Number of links as new"
+msgstr "Nombre d'enllaços marcats com a nous"
+
+#: pntemplates/weblinks_admin_getconfig.html:34
+msgid "Number of links required to qualify as best"
+msgstr "Nombre d'enllaços necessaris per fer el rànquing dels millors"
+
+#: pntemplates/weblinks_admin_getconfig.html:45
+msgid "Links in search results"
+msgstr "Enllaços a la pàgina de resultats"
+
+#: pntemplates/weblinks_admin_getconfig.html:56
+msgid "Number of links in the block"
+msgstr "Nombre d'enllaços en el bloc"
+
+#: pntemplates/weblinks_admin_getconfig.html:64
+msgid "Number of hits required to qualify as popular"
+msgstr "Nombre de clics necessaris per ser considerat popular"
+
+#: pntemplates/weblinks_admin_getconfig.html:75
+msgid "Enter 1 to show most-popular links as a percentage (otherwise, enter the number of links to show)"
+msgstr "Introduïu un 1 per mostrar com a percentatge. Altrament, indiqueu el nombre d'enllaços."
+
+#: pntemplates/weblinks_admin_getconfig.html:79
+msgid "Most-popular links: either a number of links or the percentage to display (percentage as whole number, such as 25/100)"
+msgstr "Enllaços més populars: mostra un nombre d'enllaços o un percentatge"
+
+#: pntemplates/weblinks_admin_getconfig.html:83
+msgid "Leading links: either number of links or the  percentage of links to show (percentage as whole number, such as 25/100)"
+msgstr "Enllaços destacats: nombre d'enllaços o percentatge d'enllaços a mostrar (el percentatge s'ha d'indicar amb nombres enters, per exemple 25/100)"
+
+#: pntemplates/weblinks_admin_getconfig.html:91
+msgid "Show featured link box on web links main page?"
+msgstr "Mostra una caixa amb els enllaços a la pàgina principal"
+
+#: pntemplates/weblinks_admin_getconfig.html:92
+#: pntemplates/weblinks_admin_getconfig.html:97
+#: pntemplates/weblinks_admin_getconfig.html:102
+#: pntemplates/weblinks_admin_getconfig.html:107
+msgid "yes"
+msgstr "sí"
+
+#: pntemplates/weblinks_admin_getconfig.html:93
+#: pntemplates/weblinks_admin_getconfig.html:98
+#: pntemplates/weblinks_admin_getconfig.html:103
+#: pntemplates/weblinks_admin_getconfig.html:108
+msgid "no"
+msgstr "no"
+
+#: pntemplates/weblinks_admin_getconfig.html:96
+msgid "Open link in a new window"
+msgstr "Obre l'enllaç en una finestra nova"
+
+#: pntemplates/weblinks_admin_getconfig.html:101
+msgid "Disable unregistered users from suggesting link changes?"
+msgstr "Impedeix que els usuaris no registrats puguin suggerir canvis en els enllaços"
+
+#: pntemplates/weblinks_admin_getconfig.html:106
+msgid "Disable unregistered users to post new links?"
+msgstr "Impedeix que els usuaris no registrats puguin enviar enllaços nous"
+
+#: pntemplates/weblinks_admin_catview.html:9
+#: pntemplates/weblinks_admin_catview.html:28
+#: pntemplates/weblinks_admin_view.html:73
+msgid "Add a category"
+msgstr "Afegeix una categoria"
+
+#: pntemplates/weblinks_admin_catview.html:13
+#: pntemplates/weblinks_admin_modlink.html:24
+#: pntemplates/weblinks_admin_view.html:65
+#: pntemplates/weblinks_admin_linkview.html:34
+#: pntemplates/weblinks_admin_modcategory.html:13
+msgid "Name"
+msgstr "Nom"
+
+#: pntemplates/weblinks_admin_catview.html:18
+msgid "in category"
+msgstr "a la categoria"
+
+#: pntemplates/weblinks_admin_catview.html:37
+#: pntemplates/weblinks_admin_catview.html:46
+#: pntemplates/weblinks_admin_modcategory.html:4
+#: pntemplates/weblinks_admin_modcategory.html:8
+#: pntemplates/weblinks_admin_modcategory.html:23
+msgid "Modify a category"
+msgstr "Modifica una categoria"
+
+#: pntemplates/weblinks_admin_catview.html:54
+#: pntemplates/weblinks_admin_catview.html:63
+#: pntemplates/weblinks_admin_suredelcategory.html:4
+#: pntemplates/weblinks_admin_suredelcategory.html:8
+#: pntemplates/weblinks_admin_suredelcategory.html:18
+msgid "Delete category"
+msgstr "Esborra la categoria"
+
+#: pntemplates/weblinks_user_links.html:4
+msgid "Link-Index"
+msgstr "Pàgina inicial dels enllaços"
+
+#: pntemplates/weblinks_user_links.html:7
+msgid "New"
+msgstr "Nou"
+
+#: pntemplates/weblinks_user_links.html:9
+msgid "Random"
+msgstr "Aleatori"
+
+#: pntemplates/weblinks_admin_modlink.html:8
+#: pntemplates/weblinks_admin_linkview.html:51
+msgid "Modify/Delete a link"
+msgstr "Modifica o esborra un enllaç"
+
+#: pntemplates/weblinks_admin_modlink.html:8
+#: pntemplates/weblinks_admin_view.html:43
+#: pntemplates/weblinks_user_modifylinkrequest.html:13
+#: pntemplates/weblinks_admin_linkview.html:54
+msgid "Link ID"
+msgstr "ID de l'enllaç"
+
+#: pntemplates/weblinks_admin_modlink.html:12
+#: pntemplates/weblinks_user_search.html:2
+#: pntemplates/weblinks_user_search.html:3
+#: pntemplates/weblinks_admin_view.html:49
+#: pntemplates/weblinks_admin_linkview.html:18
+#: pntemplates/weblinks_user_header.html:6
+msgid "Pagetitle"
+msgstr "Enllaços"
+
+#: pntemplates/weblinks_admin_modlink.html:16
+#: pntemplates/weblinks_admin_view.html:53
+msgid "Visit"
+msgstr "Visita"
+
+#: pntemplates/weblinks_admin_modlink.html:28
+#: pntemplates/weblinks_admin_view.html:69
+#: pntemplates/weblinks_admin_linkview.html:38
+msgid "E-mail address"
+msgstr "Adreça de correu electrònic"
+
+#: pntemplates/weblinks_admin_modlink.html:32
+#: pntemplates/weblinks_user_newlinksdate.html:14
+#: pntemplates/weblinks_user_category.html:29
+#: pntemplates/weblinks_user_mostpopular.html:29
+#: pntemplates/weblinks_user_searchresults.html:30
+#: pntemplates/weblinks_user_details.html:12
+msgid "Hits"
+msgstr "clics"
+
+#: pntemplates/weblinks_admin_modlink.html:42
+#: pntemplates/weblinks_admin_linkview.html:58
+msgid "_WL_MODLINK"
+msgstr "_WL_MODLINK"
+
+#: pntemplates/weblinks_admin_modlink.html:43
+#: pntemplates/weblinks_admin_view.html:74
+msgid "delete link"
+msgstr "Esborra l'enllaç"
+
+#: pntemplates/weblinks_user_search.html:4
+msgid "search keywords"
+msgstr "Paraules a cercar"
+
+#: pntemplates/weblinks_user_search.html:5
+msgid "Search"
+msgstr "Cerca"
+
+#: pntemplates/weblinks_user_view.html:5
+msgid "Main-Categories"
+msgstr "Categories principals"
+
+#: pntemplates/weblinks_user_view.html:35
+#: pntemplates/weblinks_admin_view.html:7
+msgid "There are"
+msgstr "Hi ha"
+
+#: pntemplates/weblinks_user_view.html:35
+#: pntemplates/weblinks_admin_view.html:7
+#: pntemplates/weblinks_user_mostpopular.html:7
+#: pntemplates/weblinks_user_searchresults.html:18
+msgid "Links"
+msgstr "Enllaços"
+
+#: pntemplates/weblinks_user_view.html:35
+#: pntemplates/weblinks_admin_view.html:7
+msgid "and"
+msgstr "i"
+
+#: pntemplates/weblinks_user_view.html:35
+#: pntemplates/weblinks_admin_view.html:7
+msgid "Categories"
+msgstr "Categories"
+
+#: pntemplates/weblinks_user_view.html:35
+#: pntemplates/weblinks_admin_view.html:7
+msgid "in the database"
+msgstr "a la base de dades"
+
+#: pntemplates/weblinks_user_view.html:41
+msgid "Last links"
+msgstr "Darrers enllaços"
+
+#: pntemplates/weblinks_user_view.html:53
+msgid "Most-popular links"
+msgstr "Enllaços més populars"
+
+#: pntemplates/weblinks_user_sortlinksbymenu.html:4
+msgid "Sites currently sorted by"
+msgstr "Llocs ordenats per"
+
+#: pntemplates/weblinks_user_sortlinksbymenu.html:5
+msgid "Sort links by"
+msgstr "Ordena els enllaços per"
+
+#: pntemplates/weblinks_user_sortlinksbymenu.html:6
+msgid "Title"
+msgstr "Títol"
+
+#: pntemplates/weblinks_user_sortlinksbymenu.html:7
+msgid "Date"
+msgstr "Data"
+
+#: pntemplates/weblinks_user_sortlinksbymenu.html:8
+msgid "Popularity"
+msgstr "Popularitat"
+
+#: pntemplates/weblinks_admin_view.html:6
+#: pntemplates/weblinks_admin_validate.html:15
+msgid "Status"
+msgstr "Estat"
+
+#: pntemplates/weblinks_admin_view.html:11
+msgid "Broken link reports"
+msgstr "Notificació d'enllaços trencats"
+
+#: pntemplates/weblinks_admin_view.html:12
+msgid "Link modification requests"
+msgstr "Peticions de modificació d'enllaços"
+
+#: pntemplates/weblinks_admin_view.html:19
+msgid "Link validation"
+msgstr "Validació d'enllaços"
+
+#: pntemplates/weblinks_admin_view.html:21
+#: pntemplates/weblinks_admin_view.html:23
+#: pntemplates/weblinks_admin_validate.html:9
+msgid "Check categories"
+msgstr "Comprova les categories"
+
+#: pntemplates/weblinks_admin_view.html:27
+#: pntemplates/weblinks_admin_validate.html:6
+msgid "Check ALL links"
+msgstr "Comprova tots els enllaços"
+
+#: pntemplates/weblinks_admin_view.html:34
+msgid "Links awaiting validation"
+msgstr "Enllaços a l'espera de validació"
+
+#: pntemplates/weblinks_admin_view.html:45
+#: pntemplates/weblinks_admin_listmodrequests.html:41
+#: pntemplates/weblinks_admin_listmodrequests.html:43
+#: pntemplates/weblinks_admin_listbrokenlinks.html:21
+msgid "Submitter"
+msgstr "Enviat per"
+
+#: pntemplates/weblinks_user_modifylinkrequest.html:13
+msgid "Request link modification"
+msgstr "Demana la modificació d'un enllaç"
+
+#: pntemplates/weblinks_user_modifylinkrequest.html:32
+msgid "Send request"
+msgstr "Envia una petició"
+
+#: pntemplates/weblinks_user_newlinksdate.html:5
+msgid "New link"
+msgstr "Enllaç nou"
+
+#: pntemplates/weblinks_user_newlinksdate.html:5
+#: pntemplates/weblinks_user_newlinks.html:4
+msgid "New links"
+msgstr "Enllaços nous"
+
+#: pntemplates/weblinks_user_newlinksdate.html:14
+#: pntemplates/weblinks_user_category.html:29
+#: pntemplates/weblinks_user_mostpopular.html:29
+#: pntemplates/weblinks_user_searchresults.html:30
+#: pntemplates/weblinks_user_details.html:12
+msgid "Added on"
+msgstr "Afegit el"
+
+#: pntemplates/weblinks_user_category.html:13
+msgid "links also available in"
+msgstr "També hi ha enllaços a les subcategories"
+
+#: pntemplates/weblinks_user_category.html:13
+msgid "sub-categories"
+msgstr "Subcategories"
+
+#: pntemplates/weblinks_admin_linkview.html:64
+#: pntemplates/weblinks_admin_validate.html:37
+msgid "No link found"
+msgstr "No s'ha trobat cap enllaç"
+
+#: pntemplates/weblinks_user_mostpopular.html:7
+#: pntemplates/weblinks_user_mostpopular.html:9
+msgid "Most-popular - leading"
+msgstr "Més visitats"
+
+#: pntemplates/weblinks_user_mostpopular.html:7
+msgid "of all"
+msgstr "de tots"
+
+#: pntemplates/weblinks_user_mostpopular.html:12
+msgid "Show leading"
+msgstr "Mostra els primers"
+
+#: pntemplates/weblinks_user_brokenlink.html:11
+#: pntemplates/weblinks_user_brokenlink.html:19
+#: pntemplates/weblinks_user_linkbottommenu.html:8
+#: pntemplates/weblinks_user_details.html:24
+msgid "Report broken link"
+msgstr "Informa d'un enllaç trencat"
+
+#: pntemplates/weblinks_user_brokenlink.html:13
+msgid "Thank you for helping maintain this directory's integrity."
+msgstr "Gràcies per ajudar a mantenir els enllaços funcionant correctament"
+
+#: pntemplates/weblinks_user_brokenlink.html:14
+msgid "For security reasons, your user name and IP address will also be recorded temporarily."
+msgstr "Per raons de seguretat, es registrarà del vostre nom d'usuari i la vostra adreça."
+
+#: pntemplates/weblinks_user_newlinks.html:5
+msgid "Total new links"
+msgstr "Total d'enllaços nous"
+
+#: pntemplates/weblinks_user_newlinks.html:5
+msgid "Last week"
+msgstr "Darrers 7 dies"
+
+#: pntemplates/weblinks_user_newlinks.html:5
+msgid "Last 30 days"
+msgstr "Darrers 30 dies"
+
+#: pntemplates/weblinks_user_newlinks.html:7
+msgid "Show"
+msgstr "Mostra"
+
+#: pntemplates/weblinks_user_newlinks.html:8
+msgid "1 week"
+msgstr "1 setmana"
+
+#: pntemplates/weblinks_user_newlinks.html:9
+msgid "2 weeks"
+msgstr "2 setmanes"
+
+#: pntemplates/weblinks_user_newlinks.html:10
+msgid "30 days"
+msgstr "30 dies"
+
+#: pntemplates/weblinks_user_newlinks.html:12
+msgid "Total new links over the last"
+msgstr "Total d'enllaços nous en els darrers"
+
+#: pntemplates/weblinks_user_newlinks.html:12
+msgid "Days"
+msgstr "dies"
+
+#: pntemplates/weblinks_search_options.htm:4
+#: pntemplates/weblinks_admin_header.html:4
+msgid "Web links"
+msgstr "Enllaços"
+
+#: pntemplates/weblinks_user_brokenlinks.html:4
+#: pntemplates/weblinks_user_modifylinkrequests.html:4
+msgid "Thank you for the information."
+msgstr "Gràcies per la informació"
+
+#: pntemplates/weblinks_user_brokenlinks.html:4
+#: pntemplates/weblinks_user_modifylinkrequests.html:4
+msgid "Thank you! Your request has been submitted for examination."
+msgstr "La vostra proposta resta pendent de revisió."
+
+#: pntemplates/weblinks_admin_listmodrequests.html:5
+msgid "User link modification requests"
+msgstr "Sol·licituds de modificació d'enllaços"
+
+#: pntemplates/weblinks_admin_listmodrequests.html:12
+msgid "Original"
+msgstr "Original"
+
+#: pntemplates/weblinks_admin_listmodrequests.html:13
+msgid "Proposed"
+msgstr "Proposat"
+
+#: pntemplates/weblinks_admin_listmodrequests.html:50
+#: pntemplates/weblinks_admin_listmodrequests.html:52
+msgid "Owner"
+msgstr "Propietari/ària"
+
+#: pntemplates/weblinks_admin_listmodrequests.html:58
+msgid "Accept"
+msgstr "Accepta"
+
+#: pntemplates/weblinks_admin_listmodrequests.html:58
+#: pntemplates/weblinks_admin_listbrokenlinks.html:23
+msgid "Ignore"
+msgstr "Ignora"
+
+#: pntemplates/weblinks_admin_listmodrequests.html:68
+msgid "No link modification requests"
+msgstr "No hi ha cap sol·licitud de modificació d'enllaços"
+
+#: pntemplates/weblinks_user_searchresults.html:7
+msgid "Search results for"
+msgstr "Resultats de la cerca de"
+
+#: pntemplates/weblinks_user_searchresults.html:10
+msgid "Sub-categories"
+msgstr "Subcategories"
+
+#: pntemplates/weblinks_user_searchresults.html:43
+#: pntemplates/weblinks_user_searchresults.html:56
+msgid "No matches found to your query"
+msgstr "No s'ha trobat cap resultat per a la cerca"
+
+#: pntemplates/weblinks_user_searchresults.html:47
+msgid "Try to search"
+msgstr "Prova de cercar"
+
+#: pntemplates/weblinks_user_searchresults.html:47
+msgid "on other search engines"
+msgstr "en altres cercadors"
+
+#: pntemplates/weblinks_admin_import.html:9
+msgid "Ratings"
+msgstr "Valoracions"
+
+#: pntemplates/weblinks_admin_import.html:12
+msgid "With this function <strong>Web_Links-Votes</strong> will be imported to the <strong>Rating</strong> module.<br /><strong>!Attention!</strong> - befor you use this function you should set the style of the Ratings."
+msgstr "Aquesta funció importa els vots del mòdul d'enllaços al mòdul de valoracions.<br /><strong>Atenció!</strong> Abans d'utilitzar aquesta funció heu de configurar el mòdul de valoracions."
+
+#: pntemplates/weblinks_admin_import.html:16
+#: pntemplates/weblinks_admin_import.html:34
+#: pntemplates/weblinks_admin_validate.html:30
+msgid "OK"
+msgstr "D'acord"
+
+#: pntemplates/weblinks_admin_import.html:20
+msgid "Rating-Hook isn't activated for the Web_Links module!"
+msgstr "El lligam del mòdul Ratings (Valoracions) amb el Web_Links no està activat"
+
+#: pntemplates/weblinks_admin_import.html:20
+#: pntemplates/weblinks_admin_import.html:38
+msgid "to the hooks of Web_Links module"
+msgstr "Lligams del mòdul d'enllaços"
+
+#: pntemplates/weblinks_admin_import.html:27
+msgid "EZComments"
+msgstr "EZComments"
+
+#: pntemplates/weblinks_admin_import.html:30
+msgid "With this function <strong>Web_Links-Comments</strong> will be imported to the <strong>EZComments</strong> module."
+msgstr "Aquesta funció importa els comentaris dels enllaços al mòdul <strong>EZComments</strong>."
+
+#: pntemplates/weblinks_admin_import.html:38
+msgid "EZComments-Hook isn't activated for the Web_Links module!"
+msgstr "El lligam del mòdul EZComments amb el Web_Links no està activat"
+
+#: pntemplates/weblinks_user_linkbottommenu.html:3
+#: pntemplates/weblinks_user_details.html:19
+msgid "Edit this link"
+msgstr "Edita aquest enllaç"
+
+#: pntemplates/weblinks_user_linkbottommenu.html:6
+#: pntemplates/weblinks_user_details.html:22
+msgid "modify"
+msgstr "Modifica"
+
+#: pntemplates/weblinks_user_linkbottommenu.html:10
+msgid "Details"
+msgstr "Detalls"
+
+#: pntemplates/weblinks_admin_suredelcategory.html:13
+msgid "Confirmation prompt: are you sure you want to delete this category and ALL its links?"
+msgstr "Pregunta de confirmació: esteu segur/a de voler esborrar aquesta categoria i tots els enllaços que conté?"
+
+#: pntemplates/weblinks_user_add.html:7
+msgid "Thank you! Your link submission has been received."
+msgstr "La vostra proposta d'enllaç s'ha desat correctament"
+
+#: pntemplates/weblinks_admin_validate.html:17
+msgid "Functions"
+msgstr "Accions"
+
+#: pntemplates/weblinks_admin_validate.html:24
+msgid "Failed!"
+msgstr "S'ha produït un error"
+
+#: pntemplates/weblinks_admin_validate.html:26
+msgid "Edit"
+msgstr "Edit"
+
+#: pntemplates/weblinks_admin_validate.html:26
+#: pntemplates/weblinks_admin_listbrokenlinks.html:24
+msgid "Delete"
+msgstr "Esborra"
+
+#: pntemplates/weblinks_user_details.html:5
+msgid "Link profile"
+msgstr "Perfil de l'enllaç"
+
+#: pntemplates/weblinks_user_details.html:27
+msgid "Visit this web site"
+msgstr "Visita aquest lloc web"
+
+#: pntemplates/weblinks_admin_listbrokenlinks.html:4
+msgid "User-reported broken links"
+msgstr "Avisos d'enllaços trencats"
+
+#: pntemplates/weblinks_admin_listbrokenlinks.html:7
+msgid "Ignore (deletes all <strong><em>requests</em></strong> for a given link)"
+msgstr "Ignora (esborra els avisos referents a un enllaç)"
+
+#: pntemplates/weblinks_admin_listbrokenlinks.html:8
+msgid "Delete (deletes <strong><em>broken link</em></strong> and <strong><em>requests</em></strong> for a given link)"
+msgstr "Esborra (esborra l'enllaç i els avisos que hi fan referència)"
+
+#: pntemplates/weblinks_admin_listbrokenlinks.html:13
+msgid "No broken links found"
+msgstr "No s'ha trobat cap enllaç trencat"
+
+#: pntemplates/weblinks_admin_listbrokenlinks.html:20
+msgid "Link"
+msgstr "Enllaç"
+
+#: pntemplates/weblinks_admin_listbrokenlinks.html:22
+msgid "Link owner"
+msgstr "Propietari/ària de l'enllaç"
+
