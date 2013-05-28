@@ -13,6 +13,39 @@
  */
 
 include 'lib/bootstrap.php';
+
+
+// XTEC ************ AFEGIT - Block access while upgrade is pending
+// 2013.05.28 @aginard
+
+$host = $ZConfig['DBInfo']['databases']['default']['host'];
+$user = $ZConfig['DBInfo']['databases']['default']['user'];
+$pass = $ZConfig['DBInfo']['databases']['default']['password'];
+$db   = $ZConfig['DBInfo']['databases']['default']['dbname'];
+
+$dbc = mysqli_connect($host, $user, $pass, $db);
+
+$sql = "SELECT count(*) as num_tables
+        FROM information_schema.tables
+        WHERE table_schema = '$db'
+        AND table_name = 'module_vars'";
+
+$res = mysqli_query($dbc, $sql);
+$row = mysqli_fetch_array($res, MYSQLI_ASSOC);
+
+if ($row['num_tables'] == 0) {
+    die ('<div style="font-size:2em; text-align:center; margin:80px; margin-bottom:40px;">
+            La intranet resta temporalment fora de servei per tasques 
+            d\'actualitzaci&oacute;. El servei es restablir&agrave; en breu.
+         </div>
+         <div style="font-size:1.2em; text-align:center;">
+            Preguem disculpeu les mol&egrave;sties
+         </div>');
+}
+
+// ************ FI
+
+
 $core->init();
 
 $core->getEventManager()->notify(new Zikula_Event('frontcontroller.predispatch'));
