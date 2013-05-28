@@ -11,14 +11,14 @@ function AdminMessages_tables() {
     // Get the name for the table.
     $message = DBUtil::getLimitedTablename('message');
     $tables['message'] = $message;
-    $tables['message_column'] = array('mid' => 'pn_mid',
-        'title' => 'pn_title',
-        'content' => 'pn_content',
-        'date' => 'pn_date',
-        'expire' => 'pn_expire',
-        'active' => 'pn_active',
-        'view' => 'pn_view',
-        'language' => 'pn_language');
+    $tables['message_column'] = array('mid' => 'mid',
+        'title' => 'title',
+        'content' => 'content',
+        'date' => 'date',
+        'expire' => 'expire',
+        'active' => 'active',
+        'view' => 'view',
+        'language' => 'language');
 
     $tables['message_column_def'] = array('mid' => 'I PRIMARY AUTO',
         'title' => "C(100) NOTNULL DEFAULT ''",

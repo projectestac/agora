@@ -75,7 +75,7 @@ $modulesToDelete = array('iw_groups',
     'Downloads',
 );
 
-if (existsTable($dbname, $prefix.'_modules', $f, $con) && existsTable($dbname, $prefix.'_blocks', $f, $con)) {
+if (existsTable($dbname, $prefix . '_modules', $f, $con) && existsTable($dbname, $prefix . '_blocks', $f, $con)) {
     foreach ($modulesToDelete as $module) {
         // get module id modid
         $sql = "SELECT pn_id from {$prefix}_modules WHERE pn_name='" . $module . "'";
@@ -169,21 +169,13 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
 if (existsField($dbname, $prefix . '_blocks', 'pn_bkey', $f, $con)) {
     $commands[] = "DELETE FROM blocks WHERE pn_bkey='IwNotice'";
     $commands[] = "UPDATE blocks SET pn_bkey = 'IWnews' WHERE pn_bkey = 'iwnews'";
+    $commands[] = "UPDATE blocks SET pn_bkey = 'Messages' WHERE pn_bkey = 'messages'";
     $commands[] = "UPDATE blocks SET pn_filter = 'a:0:{}'";
 }
 
 // rename theme name from IWbluegrace_agora to IWbluegraceAgora
 $commands[] = "UPDATE module_vars SET pn_value='s:16:\"IWbluegraceAgora\";' WHERE pn_value LIKE '%IWbluegrace_agora%';";
 $commands[] = "UPDATE themes SET pn_name = 'IWbluegraceAgora', pn_directory = 'IWbluegraceAgora' WHERE pn_name='IWbluegrace_agora';";
-
-/*
-if (existsField($dbname, $prefix . '_blocks', 'pn_name', $f, $con)) {
-    foreach ($modulesToDelete as $module) {
-        $commands[] = "DELETE FROM modules WHERE pn_name='" . $module . "'";
-    }
-}
- * 
- */
 
 // modifiquem el mòdul Modules per Extensions en el menú horitzontal
 if (existsTable($dbname, $prefix . '_iw_menu', $f, $con)) {
@@ -250,6 +242,13 @@ if (existsField($dbname, 'module_vars', 'pn_modname', $f, $con)) {
 
 // replace timeFrames for timeframes
 $sql = "UPDATE modules set pn_name='IWtimeframes', pn_directory='IWtimframes', pn_url='IWtimframes', pn_securityschema='a:1:{s:14:\"IWtimeframes::\";s:2:\"::\";' WHERE pn_name='IWtimeFrames';";
+if (!$result = mysql_query($sql, $con)) {
+    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+    $preupgradeError = true;
+}
+
+// replace Admin_Messages for AdminMessages
+$sql = "UPDATE modules set pn_name='AdminMessages', pn_directory='AdminMessages', pn_url='AdminMessages', pn_securityschema='a:1:{s:15:\"AdminMessages::\";s:25:\"message title::message id\";}' WHERE pn_name='Admin_Messages';";
 if (!$result = mysql_query($sql, $con)) {
     fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
     $preupgradeError = true;
@@ -437,6 +436,7 @@ if (!empty($documents)) {
 
 // change links of module Downloads to IWdocmanager
 // TODO:
+
 if ($preupgradeError) {
     fwrite($f, "ERROR A LA PREPARACIÓ\n");
 } else {
@@ -450,8 +450,6 @@ if (!$preupgradeError) {
     // launch zikula upgrader
     header('location:upgrade.php');
 }
-
-
 
 /**
  * Open a connection to the administration database
@@ -470,8 +468,8 @@ function connectdb() {
     return $con;
 }
 
-function existsTable($dbname, $tablename, $f, $con){
-    
+function existsTable($dbname, $tablename, $f, $con) {
+
     $sql = "SELECT count(*)
             FROM information_schema.tables
             WHERE table_schema = '$dbname'
@@ -482,12 +480,12 @@ function existsTable($dbname, $tablename, $f, $con){
         return false;
     } else {
         $values = mysql_fetch_array($result, MYSQL_NUM);
-        return (bool)$values[0];
+        return (bool) $values[0];
     }
 }
 
-function existsField($dbname, $tablename, $field, $f, $con){
-    
+function existsField($dbname, $tablename, $field, $f, $con) {
+
     $sql = "SELECT count(*)
             FROM information_schema.columns
             WHERE table_schema = '$dbname'
@@ -499,11 +497,11 @@ function existsField($dbname, $tablename, $field, $f, $con){
         return false;
     } else {
         $values = mysql_fetch_array($result, MYSQL_NUM);
-        return (bool)$values[0];
+        return (bool) $values[0];
     }
 }
 
-function existsRegister($dbname, $tablename, $field, $register, $f, $con){
+function existsRegister($dbname, $tablename, $field, $register, $f, $con) {
 
     $sql = "SELECT count($field)
             FROM $dbname.$tablename
@@ -514,7 +512,7 @@ function existsRegister($dbname, $tablename, $field, $register, $f, $con){
         return false;
     } else {
         $values = mysql_fetch_array($result, MYSQL_NUM);
-        return (bool)$values[0];
+        return (bool) $values[0];
     }
 }
 
