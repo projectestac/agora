@@ -73,7 +73,7 @@ class IWmoodle_Controller_User extends Zikula_AbstractController {
         }
 
         // Open Moodle into the the website
-        $view = & new view();
+        $view = new Zikula_View(ServiceUtil::getManager());
         $view->caching = false;
 
         $url = $url . '&check=' . $check;
