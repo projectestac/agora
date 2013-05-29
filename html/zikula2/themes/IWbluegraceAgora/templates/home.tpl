@@ -45,12 +45,12 @@
                                                    <a href="index.php">{$modvars.ZConfig.sitename}</a>
                                                </div>
                                            </div>
-
-                                           <div id="content">
-                                               {blockposition name=center}      
-                                               {$maincontent}	       
+                                           <div id="z-maincontent">
+                                               <div id="content">
+                                                   {blockposition name=center}      
+                                                   {$maincontent}	       
+                                               </div>
                                            </div>
-
                                            <div id="sidebar">
                                                <div id="sidebar-left">
                                                    {blockposition name=left}      

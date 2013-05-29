@@ -44,11 +44,11 @@
                                                <a href="index.php">{$modvars.ZConfig.sitename}</a>
                                            </div>
                                        </div>
-
-                                       <div id="zadmin">
-                                           {$maincontent}	       
+                                       <div id="z-maincontent">
+                                           <div id="zadmin">
+                                               {$maincontent}	       
+                                           </div>
                                        </div>
-
                                        <div style="clear:both;">&nbsp;</div>
         </div> 
 

@@ -44,11 +44,11 @@
                                                <a href="index.php">{$modvars.ZConfig.sitename}</a>
                                            </div>
                                        </div>
-
-                                       <div id="content_1_col">
-                                           {$maincontent}	       
+                                       <div id="z-maincontent">
+                                           <div id="content_1_col">
+                                               {$maincontent}	       
+                                           </div>
                                        </div>
-
                                        <div id="sidebar">
                                            <div id="sidebar-left">	
                                                {blockposition name=left}   
