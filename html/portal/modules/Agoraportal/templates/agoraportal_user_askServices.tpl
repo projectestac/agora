@@ -23,7 +23,7 @@
                     </div>
                     {foreach item=service from=$notsolicitedServices}
                     <div class="serviceCheckbox">
-                        <input type="checkbox" id="{$service.serviceName}" name="serviceId[]" {if $service.disabled}disabled="disabled"{/if} value="{$service.serviceId}" onClick="javascript:askServiceCheckActive('{$service.serviceName}');" />
+                        <input type="checkbox" id="{$service.serviceName}" name="serviceId[]" value="{$service.serviceId}" onClick="javascript:askServiceCheckActive('{$service.serviceName}');" />
                                <img src="modules/Agoraportal/images/{$service.serviceName}.gif" alt="{$service.serviceName}" title="{$service.serviceName}" align="middle" />
                     </div>
                     {/foreach}

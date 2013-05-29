@@ -1,9 +1,9 @@
 {include file="IWnoteboard_admin_menu.htm"}
 <div class="z-admincontainer">
     {if $m eq 0}
-    <div class="z-adminpageicon">{img modname='core' src='filenew.gif' set='icons/large' __alt=$templatetitle}</div>
+    <div class="z-adminpageicon">{img modname='core' src='filenew.png' set='icons/large'}</div>
     {else}
-    <div class="z-adminpageicon">{img modname='core' src='edit.gif' set='icons/large' __alt=$templatetitle}</div>
+    <div class="z-adminpageicon">{img modname='core' src='edit.png' set='icons/large'}</div>
     {/if}
     <h2>{$title}</h2>
     <form action="" class="z-form" enctype="application/x-www-form-urlencoded" method="post" name="newShared" id="newShared">
@@ -19,9 +19,9 @@
         </div>
         <div class="z-formbuttons">
             <a onClick="javascript:send({$m})" title="{$submit}">
-                {img modname='core' src='button_ok.gif' set='icons/small'}
+                {img modname='core' src='button_ok.png' set='icons/small'}
             </a>{$submit}
-            <a href="#" onclick ='javascript:history.back(-1)'>{img modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"}</a>
+            <a href="#" onclick ='javascript:history.back(-1)'>{img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"}</a>
         </div>
     </form>
 </div>
