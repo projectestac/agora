@@ -39,20 +39,20 @@
             <div id="theme-top">
                 {blockposition name=top}
             </div>
-
-            <div id="theme_content">
-                <table id="theme_table_content">
-                    <tr>
-                        <td id="theme_content_left">
-                            {blockposition name=left}
-                        </td>
-                        <td id="theme_content_center">
-                            {$maincontent}
-                        </td>
-                    </tr>
-                </table>
+            <div id="z-maincontent">
+                <div id="theme_content">
+                    <table id="theme_table_content">
+                        <tr>
+                            <td id="theme_content_left">
+                                {blockposition name=left}
+                            </td>
+                            <td id="theme_content_center">
+                                {$maincontent}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-
             <div id="theme_footer">
                 <a href="http://agora.xtec.cat/"><img src="{$imagepath}/logo_agora.gif" alt="&Agrave;gora" /></a>
                 <a href="http://www.zikula.org"><img src="{$imagepath}/logo_zikula.gif" alt="Zikula" /></a>&nbsp;&nbsp;&nbsp;
