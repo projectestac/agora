@@ -1,0 +1,34 @@
+Version 3.0.0
+- converted to 1.3 standards (including conversion to Doctrine 2)
+- removed need for modrequest and newlink tables through refactoring
+- added 1.3-style hooks
+- css in forms/buttons re-styled to 1.3-standards
+- removed all old deprecated tables (votes, etc)
+- removed all import routines (import as needed before upgrade to 3.0.0)
+- pending content moved to new standard which requires no configuration. just check
+    the box in the admin settings
+- added more information to the delete category page so it is clear what is to be deleted
+- added additional link validation in places where useful
+- add Content plugin to display list of links by category
+- add javascript subcategory show/hide to main user view
+
+Version 2.1.0 (not released)
+- converted to Gettext
+- css has changed to Zikula 1.2 style
+- little bugfixes
+- now it is possible to change the parent of a category
+- import function for CmodsWebLinks
+- allow multiple use of an URL
+- thumbnails with websnapr
+
+Version 2.0.1
+- all db calls changed to DBUtil
+- Permissions should work now (see install.txt for more information)
+- some little fixes for bugs I found
+
+Version 2.0
+- fully templated using pnRender
+- some stuff was killed (Votes, Comments, Editorial)
+- supports the Rating-Hook and EZComments-Hook, I think any other too
+- it is possible to set a setting in the configuration for open links in a new window
+- you can activate the last and the best links at the module main site (Featured Link-Box)

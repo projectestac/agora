@@ -62,7 +62,9 @@ class Blocks_Installer extends Zikula_AbstractInstaller
                 DBUtil::executeSQL($sql);
                 // Optional upgrade
                 if (in_array(DBUtil::getLimitedTablename('message'), DBUtil::metaTables())) {
-                    $this->migrateMessages();
+                    // ******* ELIMINAT XTEC
+                    // $this->migrateMessages();
+                    // ******* FINAL ELIMINAT XTEC
                 }
                 $this->migrateBlockNames();
                 $this->migrateExtMenu();

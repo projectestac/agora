@@ -323,7 +323,7 @@ function _upg_upgrademodules($username, $password)
 
     // wipe out the deprecated modules from Modules list.
     $modTable = 'modules';
-    $sql = "DELETE FROM $modTable WHERE name = 'Header_Footer' OR name = 'AuthPN' OR name = 'pnForm' OR name = 'Workflow' OR name = 'pnRender' OR name = 'Admin_Messages'";
+    $sql = "DELETE FROM $modTable WHERE name = 'Header_Footer' OR name = 'AuthPN' OR name = 'pnForm' OR name = 'Workflow' OR name = 'pnRender'";
     DBUtil::executeSQL($sql);
 
     // store localized displayname and description for Extensions module
