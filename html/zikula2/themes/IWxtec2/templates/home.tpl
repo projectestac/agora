@@ -40,23 +40,23 @@
             <div id="theme-top">
                 {blockposition name=top}
             </div>
-
-            <div id="theme_content">
-                <table id="theme_table_content">
-                    <tr>
-                        <td id="theme_content_left">
-                            {blockposition name=left}
-                        </td>
-                        <td id="theme_content_center">
-                            {blockposition name=center}
-                            {$maincontent}
-                        </td>
-                        <td id="theme_content_right">
-                            {blockposition name=right}
-                        </td>
-                    </tr>
-                </table>
-            </div>
+            <div id="z-maincontent">
+                <div id="theme_content">
+                    <table id="theme_table_content">
+                        <tr>
+                            <td id="theme_content_left">
+                                {blockposition name=left}
+                            </td>
+                            <td id="theme_content_center">
+                                {blockposition name=center}
+                                {$maincontent}
+                            </td>
+                            <td id="theme_content_right">
+                                {blockposition name=right}
+                            </td>
+                        </tr>
+                    </table>
+                </div></div>
 
             <div id="theme_footer">
                 <a href="http://agora.xtec.cat/"><img src="{$imagepath}/logo_agora.gif" alt="&Agrave;gora" /></a>
