@@ -84,17 +84,20 @@ if (existsTable($dbname, $prefix . '_modules', $f, $con) && existsTable($dbname,
             $preupgradeError = true;
         }
         $value = mysql_fetch_row($result);
-        // delete module active blocks
-        $sql = "DELETE FROM {$prefix}_blocks WHERE pn_mid=$value[0]";
-        if (!$result = mysql_query($sql, $con)) {
-            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-            $preupgradeError = true;
-        }
-        // delete module in modules table
-        $sql = "DELETE FROM {$prefix}_modules WHERE pn_name='" . $module . "'";
-        if (!$result = mysql_query($sql, $con)) {
-            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-            $preupgradeError = true;
+
+        if ($value != '') {
+            // delete module active blocks
+            $sql = "DELETE FROM {$prefix}_blocks WHERE pn_mid=$value[0]";
+            if (!$result = mysql_query($sql, $con)) {
+                fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+                $preupgradeError = true;
+            }
+            // delete module in modules table
+            $sql = "DELETE FROM {$prefix}_modules WHERE pn_name='" . $module . "'";
+            if (!$result = mysql_query($sql, $con)) {
+                fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+                $preupgradeError = true;
+            }
         }
     }
 }
@@ -110,7 +113,6 @@ if (!$result = mysql_query($sql, $con)) {
 while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
     $newname = str_replace($prefix . '_', '', $fila[0]);
     $newname = str_replace('iw_', 'IW', $newname);
-    //$newname = str_replace('_def', '_definition', $newname);
     $newname = preg_replace('/_def$/', '_definition', $newname);
 
     if ($newname != $fila[0]) {
@@ -177,12 +179,14 @@ if (existsField($dbname, $prefix . '_blocks', 'pn_bkey', $f, $con)) {
 $commands[] = "UPDATE module_vars SET pn_value='s:16:\"IWbluegraceAgora\";' WHERE pn_value LIKE '%IWbluegrace_agora%';";
 $commands[] = "UPDATE themes SET pn_name = 'IWbluegraceAgora', pn_directory = 'IWbluegraceAgora' WHERE pn_name='IWbluegrace_agora';";
 
-// modifiquem el mòdul Modules per Extensions en el menú horitzontal
+// modifiquem el mòdul Modules per Extensions en el menú horitzontal i l'enlla de sortida en el menú horitzontal
 if (existsTable($dbname, $prefix . '_iw_menu', $f, $con)) {
     $commands[] = 'UPDATE IWmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
+    $commands[] = 'UPDATE IWmenu SET iw_url = replace(iw_url, \'user.php?op=logout\', \'index.php?module=users&type=user&func=logout\') WHERE iw_url LIKE \'%user.php?op=logout%\' ';
 }
 if (existsTable($dbname, $prefix . '_iw_vhmenu', $f, $con)) {
     $commands[] = 'UPDATE IWvhmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
+    $commands[] = 'UPDATE IWvhmenu SET iw_url = replace(iw_url, \'user.php?op=logout\', \'index.php?module=users&type=user&func=logout\') WHERE iw_url LIKE \'%user.php?op=logout%\' ';
 }
 
 $commands[] = 'TRUNCATE TABLE hooks';
