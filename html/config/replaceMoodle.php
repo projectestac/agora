@@ -1,51 +1,88 @@
 <?php
 
-$dns = (isset($_REQUEST['dns'])) ? $_REQUEST['dns'] : '';
+require_once('env-config.php');
 
-if (empty($dns)) { // Show form
+$dns = (isset($_REQUEST['dns'])) ? $_REQUEST['dns'] : '';
+$version = (isset($_REQUEST['version'])) ? $_REQUEST['version'] : '1';
+$textOrig = (isset($_REQUEST['textorig'])) ? $_REQUEST['textorig'] : $agora['server']['server'] . $agora['server']['base'] . '$nomcentre/moodle/';
+$textTarg = (isset($_REQUEST['texttarg'])) ? $_REQUEST['texttarg'] : $agora['server']['server'] . $agora['server']['base'] . '$nomcentre/antic/';
+
 ?>
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Canvi d'URL als Moodles antics</title>
-    </head>
-    <body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvi d'URL al Moodle</title>
+    <meta charset="UTF-8" />
+</head>
+<body style="padding:5px 25px 5px 25px;">
+    <h1 style="text-align:center;">Canvi d'URL al Moodle</h1>
+    
+<?php
+if (empty($dns)) { // Show form
+?>
         <form action="replaceMoodle.php" method="post">
         Llista de noms propis separats per comes: <br />
-        <textarea name="dns" rows="5" cols="80" placeholder="Exemple: usu1, usu2, usu3"></textarea><br />
+        <textarea name="dns" rows="5" cols="80" placeholder="Exemple: usu1, usu2, usu3"></textarea>
+        <br /><br />
+        Text origen (el que s'ha de canviar): 
+        <input type="text" name="textorig" value="<?php echo $textOrig ?>" size="50" />
+        <br />
+        Text destí (el nou valor)
+        <input type="text" name="texttarg" value="<?php echo $textTarg ?>" size="50" />
+        <br />
+        <div style="font-weight:bold; margin: 10px 30px 10px 30px;">
+            ATENCIÓ: <em>$nomcentre</em> és un text variable que serà substituït 
+            pel nom propi del centre. Això permet canviar un URL personalitzat a 
+            molts centres simultàniament.
+        </div>
+        <br />
+        <input type="radio" name="version" value="1" checked="checked" />Executa al Moodle 1.9
+        <br />
+        <input type="radio" name="version" value="2" />Executa al Moodle 2
+        <br /><br />
         <input type="submit" />
         </form>
-    </body>
-    </html>    
 
 <?php
-
 } else { // Do the work
-    
-    require_once('env-config.php');
     require_once('dblib-mysql.php');
-    
-    $schools = explode(',', $dns);
-    foreach ($schools as $school){
-        $dns = trim($school);
-        $oldURL = $agora['server']['server'] . $agora['server']['base'] . $dns . '/moodle/';
-        $newURL = $agora['server']['server'] . $agora['server']['base'] . $dns . '/antic/';
 
+    $dns_array = explode(',', $dns);
+    $prefix = ($version == '1') ? $agora['moodle']['prefix'] : $agora['moodle2']['prefix'];
+
+    foreach ($dns_array as $dns) {
         // Get service connection data ($dns is checked for security in getSchoolDBInfo)
+        $dns = trim($dns);
         $school = getSchoolDBInfo($dns);
-        if (is_array($school) && array_key_exists('id_moodle', $school)) {    
-            replaceMoodle($dns, $school['id_moodle'], $school['database_moodle'], $oldURL, $newURL);
+
+        $oldText = str_replace('$nomcentre', $dns, $textOrig);
+        $newText = str_replace('$nomcentre', $dns, $textTarg);
+
+        if (is_array($school) && (array_key_exists('id_moodle', $school) || array_key_exists('id_moodle2', $school))) {
+            
+            $result = replaceMoodle($dns, $school['id_moodle'], $school['database_moodle'], $prefix, $oldText, $newText);
+            
+            if ($result) {
+                echo "<div style=\"font-weight:bold;\">S'ha executat correctament el canvi de text al centre $dns</div>";
+            } else {
+                echo "<div style=\"font-weight:bold; color:red;\">El canvi de text no ha finalitzat correctament al centre $dns</div>";
+            }
+
         } else {
-            echo 'No s\'ha pogut fer el canvi d\'URL. Les causes possibles s&oacute;n: (1) 
-                el centre especificat no existeix, (2) el centre no t&eacute; assignada cap 
-                base de dades pel servei Moodle i (3) no s\'ha pogut connectar a la base
-                de dades d\'administraci&oacute;.';
-        }    
+            echo '<div>No s\'ha pogut fer el canvi d\'URL. Les causes possibles 
+                són: (1) el centre especificat no existeix, (2) el centre no té
+                assignada cap base de dades pels serveis Moodle o Moodle 2 i (3)
+                no s\'ha pogut connectar a la base de dades d\'administració.</div>';
+        }
     }
 }
+?>
 
+</body>
+</html>    
 
+<?php
 /**
  * Replace $old string to $new string at specified school with 'school_id' and 'database'
  * 
@@ -56,11 +93,11 @@ if (empty($dns)) { // Show form
  * @param type $new new string
  * @return type Boolean
  */
-function replaceMoodle($dns, $school_id, $school_database, $old, $new){
+function replaceMoodle($dns, $school_id, $school_database, $prefix, $old, $new){
 
     global $agora;
     
-    print_r('<br><br>################ <b>'.$dns.'</b> Replacing \''.$old.'\' by \''.$new.'\'');
+    print_r('<br /><br />########### <strong>'.$dns.':</strong> Replacing \'<strong>'.$old.'</strong>\' by \'<strong>'.$new.'</strong>\'');
     $school = array();
     $school['id'] = $school_id;
     $school['database'] = $school_database;
@@ -71,7 +108,7 @@ function replaceMoodle($dns, $school_id, $school_database, $old, $new){
     }
 
     // Get all tables
-    $sql = 'SELECT table_name FROM user_tables WHERE table_name like \''.strtoupper($agora['moodle']['prefix']).'%\' ';
+    $sql = 'SELECT table_name FROM user_tables WHERE table_name like \''.strtoupper($prefix).'%\' ';
     $stmt = oci_parse($con, $sql);
     $tables = array();
     if(!oci_execute($stmt, OCI_DEFAULT)) return false;
@@ -101,7 +138,7 @@ function replaceMoodle($dns, $school_id, $school_database, $old, $new){
                 $columns = array();
                 if(!oci_execute($stmt, OCI_DEFAULT)) {
                     $e = oci_error($stmt); 
-                    echo '<br/>&nbsp;&nbsp;&nbsp;<b style="color:red">ERROR</b>: '.$e['message'];
+                    echo '<br />&nbsp;&nbsp;&nbsp;<strong style="color:red">ERROR</strong>: '.$e['message'];
                     continue;
                 }
             }

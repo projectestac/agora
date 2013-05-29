@@ -12,6 +12,10 @@ Changes in progress (Moodle 2 version)
   * Backup/Restory activities (even from Moodle 1.9)
   * View current student attempts (pending adapt function to show all students when current user can grade)
 
+- Pending:
+  * Add new tab for "Preview" results (currently there are showed in "View" tab)
+  * Show number of attempt (or, at least, a message when is the last one)
+  * Review format of the attempt summary information (to add bold to the titles, for instance)
 
 Changes in progress (Moodle 1.9 version)
 ---------------------------------------------------------------------------------------

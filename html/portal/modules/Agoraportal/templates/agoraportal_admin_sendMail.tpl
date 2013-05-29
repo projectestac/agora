@@ -14,17 +14,6 @@
         {assign var='serviceName4URL' value='intranet'}
     {/if}
     
-    {if $serviceName eq 'moodle2'}
-    <p>
-        Tot i que hav&iacute;eu demanat l'alta al servei Moodle 1.9, s'ha duit a 
-        terme l'alta al servei Moodle 2. El motiu &eacute;s que s'han deixat de
-        fer altes al Moodle 1.9. Tots els centres que actualment utilitzen 
-        aquest servei hauran de fer la migraci&oacute; al Moodle 2 el proper 
-        estiu. D'aquesta manera us incorporeu directament a la nova versi&oacute; 
-        i no haureu de realitzar la migraci&oacute;.
-    </p>
-    {/if}
-
     {if $serviceName neq 'marsupial'}
     <p>
         Podeu accedir al vostre espai <strong>{$serviceName}</strong> des de
@@ -55,17 +44,12 @@
     </p>
     {/if}
     
-    {if $serviceName eq 'moodle2'}
+    {if $serviceName eq 'moodle' or $serviceName eq 'moodle2'}
     <p>
-        Teniu a la vostra disposici&oacute; el 
-        <a href="http://agora.xtec.cat/moodle/moodle/course/view.php?id=121">curs 
-        de suport al pilot del Moodle 2</a>, a on trobareu tota la
-        informaci&oacute; relativa a aquesta experi&egrave;ncia i a on podeu
+        Per resoldre qualsevol dubte o problema relacionat amb aquest servei, teniu a la vostra disposici&oacute; el 
+        <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=181">fòrum d'&Agrave;gora-moodle</a>, a on podeu
         expressar la vostra opini&oacute;, fer suggeriments i demanar suport.
     </p>
-    {/if}
-
-    {if $serviceName eq 'moodle' or $serviceName eq 'moodle2'}
     <p>
         Tal com s'especifica a les condicions d'&uacute;s del servei, recordeu 
         que a la XTEC no hi ha cap figura destinada a solucionar les q&uuml;estions 

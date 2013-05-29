@@ -132,26 +132,37 @@ require_once("$CFG->libdir/filelib.php");
         echo $OUTPUT->box_end();
     }
      
-   /**
+    
+    /**
      * Display the geogebra applet
-     *
+     * 
+     * @param type $geogebra
+     * @param type $cm
+     * @param type $context
+     * @param type $attemptid
+     * @param type $viewmode 'submit' (default, let user to submit), 'preview' (show the geogebra without loading status) or 'view' (show geogebra with status but without buttons to submit)
+     * @param type $timenow 
      */
-    function geogebra_view_applet($geogebra, $context, $attemptid=null, $ispreview=false, $timenow=null) {
+    function geogebra_view_applet($geogebra, $cm, $context, $attemptid=null, $viewmode='submit', $timenow=null) {
         global $OUTPUT, $PAGE, $CFG, $USER;
         
         if (is_null($timenow)) $timenow = time();
         $isopen = (empty($geogebra->timeavailable) || $geogebra->timeavailable < $timenow);
         $isclosed = (!empty($geogebra->timedue) && $geogebra->timedue < $timenow);
-        // TODO: Get attempts of current user
-        $attempts = 0;
-        //$attempts = geogebra_get_attempts($geogebra->id, $USER->id);
+        $attempts = geogebra_count_finished_attempts($geogebra->id, $USER->id);
         
-        if (!$ispreview && !$isopen){
+        if ($viewmode=='submit' && !$isopen){
             echo $OUTPUT->box(get_string('notopenyet', 'geogebra', userdate($geogebra->timeavailable)), 'generalbox boxaligncenter geogebradates');
-        } else if (!$ispreview && $isclosed ) {
+        } else if ($viewmode=='submit' && $isclosed ) {
             echo $OUTPUT->box(get_string('expired', 'geogebra', userdate($geogebra->timedue)), 'generalbox boxaligncenter geogebradates'); 
         } else {
-            if ($geogebra->maxattempts<0 || $attempts < $geogebra->maxattempts){
+            if ($viewmode!='submit' || $geogebra->maxattempts<0 || $attempts < $geogebra->maxattempts){
+                // Show results when viewmode is "view"
+                if ($viewmode == 'view' && !empty($attemptid)){
+                    // TODO: Change $USER by selected userid
+                    geogebra_view_userid_results($geogebra, $USER, $cm, $viewmode, $attemptid);
+                }
+                
                 parse_str($geogebra->attributes, $attributes);
                 $attributes['filename'] = $geogebra->url;
    
@@ -176,8 +187,8 @@ require_once("$CFG->libdir/filelib.php");
                 // TODO: Review to include also javascript code from GGB file
                 //  print_r(geogebra_get_js_from_geogebra($filename));                
                 
-                // If not preview mode, load state and show submit buttons
-                if (!$ispreview) {                    
+                // If not preview mode, load state
+                if (!$viewmode!='preview') {                    
                     if (!empty($attemptid)){
                         // If specified, show specific attempt
                         $attempt = geogebra_get_attempt($attemptid);
@@ -210,8 +221,11 @@ require_once("$CFG->libdir/filelib.php");
                     echo '<input type="hidden" name="id" value="'.$context->instanceid.'"/>';
                     echo '<input type="hidden" name="n" value="'.$geogebra->id.'"/>';
                     echo '<input type="hidden" name="f" value="0"/>';
-                    echo '<input type="submit" value="' . get_string('savewithoutsubmitting', 'geogebra') . '" />';
-                    echo '<input type="submit" onclick = "this.form.f.value = 1;" value="' . get_string('submitandfinish', 'geogebra') . '" />';
+                    // Only show submit buttons if not view mode
+                    if ($viewmode!='view' && (empty($attempt) || !$attempt->finished) ){
+                        echo '<input type="submit" value="' . get_string('savewithoutsubmitting', 'geogebra') . '" />';
+                        echo '<input type="submit" onclick = "this.form.f.value = 1;" value="' . get_string('submitandfinish', 'geogebra') . '" />';
+                    }
                     echo '<input type="hidden" name="prevAppletInformation" value="' . $edu_xtec_adapter_parameters . '" />';
                     echo ' </form>';
                     echo '</div>';
@@ -401,129 +415,8 @@ require_once("$CFG->libdir/filelib.php");
     
     
 ////////////////////////////////////////////////////////////////////////////////
-// Activity sessions                                                          //
+// Attempts                                                         //
 ////////////////////////////////////////////////////////////////////////////////
-    
-
-    /**
-    * Get user sessions
-    *
-    * @return array			[0=>session1,1=>session2...] where session1 is an array with keys: id,score,totaltime,starttime,done,solved,attempts. First sessions are newest.
-    * @param object $geogebraid	The geogebra to get sessions
-    * @param object $userid		The user id to get sessions
-    */
-    function geogebra_get_sessions($geogebraid, $userid) {
-        global $CFG, $DB;
-        
-        $sessions=array();
-        geogebra_normalize_date();
-        $sql = "SELECT js.*
-                FROM {geogebra} j, {geogebra_sessions} js 
-                WHERE j.id=js.geogebraid AND js.geogebraid=? AND js.user_id=?
-                ORDER BY js.session_datetime";
-        $params = array($geogebraid, $userid);
-        
-        if($rs = $DB->get_records_sql($sql, $params)){
-            $i = 0;
-            foreach($rs as $session){
-                    $activity = geogebra_get_activity($session);
-                    $activity->attempts=$i+1;
-                    $sessions[$i++]=$activity;
-            }
-        }
-        return $sessions;
-    }    
-    
-    /**
-    * Get session activities
-    *
-    * @return array			[0=>act0,1=>act1...] where act0 is an array with keys: activity_id,activity_name,num_actions,score,activity_solved,qualification, total_time. First activity are oldest.
-    * @param string $session_id		The session id to get actitivies
-    */
-    function geogebra_get_activities($session_id) {
-        global $CFG, $DB;
-        
-        $activities = array();
-        if($rs = $DB->get_records('geogebra_activities', array('session_id'=>$session_id), 'activity_id')){
-            $i=0;
-            foreach($rs as $activity){
-                $activities[$i++]=$activity;
-            }
-        }
-        return $activities;
-    }
-    
-    
-    /**
-    * Get information about activities of specified session
-    *
-    * @return array		Array has these keys id,score,totaltime,starttime,done,solved,attempts
-    * @param object $session	The session object
-    */
-    function geogebra_get_activity($session) {
-        global $CFG, $DB;
-
-        $activity = new stdClass();
-        $activity->starttime=$session->session_datetime;
-        $activity->session_id=$session->session_id;
-        if($rs = $DB->get_record_sql("SELECT AVG(ja.qualification) as qualification, SUM(ja.total_time) as totaltime
-                                 FROM {geogebra_activities} ja 
-                                 WHERE ja.session_id='$session->session_id'")){
-                $activity->score = round($rs->qualification,0);                
-                $activity->totaltime = geogebra_format_time($rs->totaltime);
-        }
-        if ($rs = $DB->get_record_sql("SELECT COUNT(*) as done
-                            FROM (SELECT DISTINCT ja.activity_name 
-                                  FROM  {geogebra_activities} ja 
-                                  WHERE ja.session_id='$session->session_id') t")){
-            $activity->done=$rs->done;
-        }
-        
-        if ($rs = $DB->get_record_sql("SELECT COUNT(*) as solved
-                                FROM (SELECT DISTINCT ja.activity_name 
-                                      FROM {geogebra_activities} ja 
-                                      WHERE ja.session_id='$session->session_id' AND ja.activity_solved=1) t")){
-            $activity->solved=$rs->solved;
-        }
-        
-        return $activity;
-    }    
-        
-    /**
-    * Print a table data with all session activities 
-    * 
-    * @param string $session_id The session identifier
-    */
-    function geogebra_get_session_activities_html($session_id){
-        $table_html='';
-
-        // Import language strings
-        $stractivity = get_string("activity", "geogebra");
-        $strsolved = get_string("solved", "geogebra");
-        $stractions = get_string("actions", "geogebra");
-        $strtime = get_string("time", "geogebra");
-        $strscore  = get_string("score", "geogebra");
-        $stryes = get_string("yes");
-        $strno = get_string("no");
-        
-
-        // Print activities for each session
-        $activities = geogebra_get_activities($session_id);    
-        if (sizeof($activities)>0){ 
-            $table = new html_table();
-            $table->attributes = array('class'=>'geogebra-activities-table');
-            $table->head = array($stractivity, $strsolved, $stractions, $strtime, $strscore);
-            foreach($activities as $activity){
-                $act_percent=$activity->num_actions>0?round(($activity->score/$activity->num_actions)*100,0):0;
-                $row = new html_table_row();
-                $row->attributes = array('class' => ($activity->activity_solved?'geogebra-activity-solved':'geogebra-activity-unsolved') ) ;
-                $row->cells = array($activity->activity_name, ($activity->activity_solved?$stryes:$strno), $activity->score.'/'.$activity->num_actions.' ('.$act_percent.'%)', geogebra_time2str($activity->total_time), $activity->qualification.'%');
-                $table->data[] = $row;
-            }
-            $table_html = html_writer::table($table);
-        }
-        return $table_html;
-    }
     
     /**
      * Convert specified time (in milliseconds) to XX' YY'' format
@@ -534,48 +427,6 @@ require_once("$CFG->libdir/filelib.php");
         return floor($time/60000)."' ".round(fmod($time,60000)/1000,0)."''";
     }
 
-    /**
-    * Get user activity summary
-    *
-    * @return object	session object with score, totaltime, activities done and solved and attempts information
-    */
-    function geogebra_get_sessions_summary($geogebraid, $userid) {
-        global $CFG, $DB;
-
-        geogebra_normalize_date();
-        $sessions_summary = new stdClass(); 
-        $sessions_summary->attempts = '';
-        $sessions_summary->score = '';
-        $sessions_summary->totaltime = '';
-        $sessions_summary->starttime = '';
-        $sessions_summary->done = '';
-        $sessions_summary->solved = '';
-        
-        if ($rs = $DB->get_record_sql("SELECT COUNT(*) AS attempts, AVG(t.qualification) AS qualification, SUM(t.totaltime) AS totaltime, MAX(t.starttime) AS starttime
-                            FROM (SELECT AVG(ja.qualification) AS qualification, SUM(ja.total_time) AS totaltime, MAX(js.session_datetime) AS starttime
-                                  FROM {geogebra} j, {geogebra_sessions} js, {geogebra_activities} ja  
-                                  WHERE j.id=js.geogebraid AND js.user_id='$userid' AND js.geogebraid=$geogebraid AND ja.session_id=js.session_id
-                                  GROUP BY js.session_id) t")){
-                $sessions_summary->attempts=$rs->attempts;
-                $sessions_summary->score=round($rs->qualification,0);
-                $sessions_summary->totaltime= geogebra_format_time($rs->totaltime);
-                $sessions_summary->starttime=$rs->starttime;
-        }
-
-        if ($rs = $DB->get_record_sql("SELECT COUNT(*) as done
-                            FROM (SELECT DISTINCT ja.activity_name 
-                                  FROM {geogebra} j, {geogebra_sessions} js, {geogebra_activities} ja 
-                                  WHERE j.id=js.geogebraid AND js.user_id='$userid' AND js.geogebraid=$geogebraid AND js.session_id=ja.session_id)  t")){
-                $sessions_summary->done=$rs->done;
-        }
-        if ($rs = $DB->get_record_sql("SELECT COUNT(*) as solved
-                            FROM (SELECT DISTINCT ja.activity_name 
-                                  FROM {geogebra} j, {geogebra_sessions} js, {geogebra_activities} ja 
-                                  WHERE j.id=js.geogebraid AND js.user_id='$userid' AND js.geogebraid=$geogebraid AND js.session_id=ja.session_id AND ja.activity_solved=1) t")){
-        $sessions_summary->solved=$rs->solved;
-        }
-        return $sessions_summary;
-    }    
 
     /**
      * Format time from milliseconds to string 
@@ -630,24 +481,24 @@ require_once("$CFG->libdir/filelib.php");
             $extrafields = array();
         }
         $tablecolumns = array_merge(array('picture', 'fullname'), $extrafields,
-                array('starttime', 'attempts', 'solveddone', 'totaltime', 'grade'));
+                array('attempts', 'duration', 'grade', 'comment', 'lastmodifiedsubmission', 'lastmodifiedgrade', 'status'));
 
         $extrafieldnames = array();
         foreach ($extrafields as $field) {
             $extrafieldnames[] = get_user_field_name($field);
         }
         
-        $strstarttime = ($action=='showall')?get_string('starttime', 'geogebra'):get_string('lastaccess', 'geogebra');
-
         $tableheaders = array_merge(
                 array('', get_string('fullnameuser')),
                 $extrafieldnames,
                 array(
-                    $strstarttime,
                     get_string('attempts', 'geogebra'),
-                    get_string('solveddone', 'geogebra'),
-                    get_string('totaltime', 'geogebra'),
+                    get_string('duration', 'geogebra'),
                     get_string('grade'),
+                    get_string('comment', 'geogebra'),
+                    get_string('lastmodifiedsubmission', 'geogebra'),
+                    get_string('lastmodifiedgrade', 'geogebra'),
+                    get_string('status', 'geogebra'),
                 ));
 
         require_once($CFG->libdir.'/tablelib.php');
@@ -675,11 +526,11 @@ require_once("$CFG->libdir/filelib.php");
         $table->set_attribute('class', 'results generaltable generalbox');
         $table->set_attribute('width', '100%');
 
-        $table->no_sorting('starttime'); 
-        $table->no_sorting('solveddone'); 
-        $table->no_sorting('totaltime'); 
         $table->no_sorting('attempts'); 
+        $table->no_sorting('duration'); 
         $table->no_sorting('grade'); 
+        $table->no_sorting('comment'); 
+        $table->no_sorting('status'); 
 
         // Start working -- this is necessary as soon as the niceties are over
         $table->setup();
@@ -696,15 +547,15 @@ require_once("$CFG->libdir/filelib.php");
 
         $ufields = user_picture::fields('u', $extrafields);
         // TODO: Review to show all users information
-//        if (!empty($users)) {
-        if (false) {
+        if (!empty($users)) {
+//        if (false) {
             $select = "SELECT $ufields ";
 
             $sql = 'FROM {user} u '.
                    'WHERE '.$where.'u.id IN ('.implode(',',$users).') ';
 
             $ausers = $DB->get_records_sql($select.$sql.$sort, $params, $table->get_page_start(), $table->get_page_size());
-
+            
             $table->pagesize($perpage, count($users));
             $offset = $page * $perpage; //offset used to calculate index of student in that particular query, needed for the pop up to know who's next
             if ($ausers !== false) {
@@ -724,17 +575,28 @@ require_once("$CFG->libdir/filelib.php");
                         $extradata[] = $auser->{$field};
                     }
 
-                    // Sessions summary
-                    $attempts = geogebra_get_user_attempts($geogebra->id, $auser->id);                    
-                    $sessions_summary->attempts = 1;
-                    $starttime = (sizeof($sessions)>0)?get_string('totals', 'geogebra'):(isset($sessions_summary->starttime)?date('d/m/Y H:i',strtotime($sessions_summary->starttime)):'-');
-                    $grade = $sessions_summary->score; 
-                    $totaltime = $sessions_summary->totaltime;
-                    $attempts = $sessions_summary->attempts;
+                    // Attempts summary
+                    $attempts = geogebra_get_user_attempts($geogebra->id, $auser->id);
+                    // TODO: Get duration and grade depending on the grading method
                     $row = array_merge(array($picture, $userlink), $extradata,
-                            array(sizeof($attempts), $attempts, $totaltime, $grade));
-                    $rowclass = (sizeof($sessions)>0)?'summary-row':'';
+                            array(sizeof($attempts), '', '', '','','',''));
+                    $rowclass = (sizeof($attempts)>0)?'summary-row':'';
                     $table->add_data($row, $rowclass);
+                    
+                    // Show attempts information
+                    foreach ($attempts as $attempt){
+                        $row = array();
+                        // In the attempts row, show only the summary of the attempt (it's not necessary to repeat user information)
+                        for ($i=0;$i<sizeof($extradata)+2;$i++){
+                            array_push($row, '');
+                        }
+                        // Attempt information
+                        $row = geogebra_get_attempt_row($attempt, $auser, $cm, $row);
+                        /*array_push($row, $attempt->duration);
+                        array_push($row, $attempt->grade);
+                        array_push($row, $attempt->comment);*/
+                        $table->add_data($row);
+                    }
                     
                     // Forward iterator
                     $currentposition++;
@@ -766,9 +628,18 @@ require_once("$CFG->libdir/filelib.php");
         $table->print_html();  /// Print the whole table    
     }
     
-    function geogebra_get_results_table_columns(){
+    function geogebra_get_results_table_columns($cm=null){
         //$tablecolumns = array('picture', 'fullname', 'attempts', 'duration', 'grade', 'comment', 'datestudent', 'dateteacher', 'status');
-        $tablecolumns = array('attempts', 'duration', 'grade', 'comment', 'datestudent', 'dateteacher', 'status');
+        //$tablecolumns = array('attempts', 'duration', 'grade', 'comment', 'datestudent', 'dateteacher', 'status');
+        $tablecolumns = array('attempts', 'duration', 'grade');
+        if (!empty($cm)){
+            array_push($tablecolumns, 'comment');
+        }
+        array_push($tablecolumns, 'datestudent');
+        array_push($tablecolumns, 'dateteacher');
+        if (!empty($cm)){
+            array_push($tablecolumns, 'status');
+        }
         $tableheaders = array();
         foreach ($tablecolumns as $tablecolumn){
             $tableheaders[]=get_string($tablecolumn, 'geogebra');
@@ -776,13 +647,13 @@ require_once("$CFG->libdir/filelib.php");
         return array('tablecolumns'=>$tablecolumns, 'tableheaders'=>$tableheaders);
     }
  
-    function geogebra_view_userid_results($geogebra, $user, $context, $cm, $course, $action){
+    function geogebra_view_userid_results($geogebra, $user, $cm, $action, $attemptid=null){
         global $CFG, $DB, $OUTPUT, $PAGE;
         
         require_once($CFG->libdir.'/tablelib.php');
         $table = new flexible_table('mod-geogebra-results');
 
-        $tablecolumns = geogebra_get_results_table_columns();
+        $tablecolumns = geogebra_get_results_table_columns($action=='view'?null:$cm);
         $table->define_columns($tablecolumns['tablecolumns']);
         $table->define_headers($tablecolumns['tableheaders']);
         $table->define_baseurl($CFG->wwwroot.'/mod/geogebra/view.php?id='.$cm->id.'&amp;action='.$action);
@@ -807,22 +678,87 @@ require_once("$CFG->libdir/filelib.php");
 
         // Show results only for specified user
         $picture = $OUTPUT->user_picture($user);
-        $attempts = geogebra_get_user_attempts($geogebra->id, $user->id);
-        foreach ($attempts as $attempt) {
+        if (!empty($attemptid)){
+            // Show only results of specified attempt
+            $attempt = geogebra_get_attempt($attemptid);
+/*            $row = geogebra_get_attempt_row($attempt, $user);
+            $rowclass = '';
+            $table->add_data($row, $rowclass);            
+            $table->print_html();  /// Print the whole table
+            echo '<br/>';
+*/            
+            
+            $table = new html_table();
+            $table->size = array('10%', '90%');
+
             parse_str($attempt->vars, $parsedVars);
             $numattempt = $parsedVars['attempts'];
+            if (!$attempt->finished) $numattempt.=' (' . get_string('unfinished', 'geogebra') . ')';
             $duration = geogebra_time2str($parsedVars['duration']);
             $grade = $parsedVars['grade'];
-            $gradecomment = !empty($attempt->gradecomment) ? shorten_text(trim(strip_tags(format_text($attempt->gradecomment))), 25) : '';
-            $datestudent = !empty($attempt->datestudent) ? userdate($attempt->datestudent) : '';
-            $dateteacher = !empty($attempt->dateteacher) ? userdate($attempt->dateteacher) : '';
-            $status = '<a href="' . $CFG->wwwroot . '/mod/geogebra/view.php?id=' . $cm->id . '&student=' . $user->id .'&attemptid='.$attempt->id.'"> ' . get_string('viewattempt', 'geogebra') . '</a>';
-            $row = array($numattempt, $duration, $grade, $gradecomment, $datestudent, $dateteacher, $status);
-            $rowclass = '';
-            $table->add_data($row, $rowclass);        
+            geogebra_add_table_row_tuple($table, get_string('attempt', 'geogebra'), $numattempt);
+            geogebra_add_table_row_tuple($table, get_string('duration', 'geogebra'), $duration);
+            geogebra_add_table_row_tuple($table, get_string('grade'), $grade);
+            geogebra_add_table_row_tuple($table, get_string('comment', 'geogebra'), $attempt->gradecomment);
+            echo html_writer::table($table);            
+          
+        } else{
+            // Show all attempts information
+            $attempts = geogebra_get_user_attempts($geogebra->id, $user->id);
+            foreach ($attempts as $attempt) {
+                $row = geogebra_get_attempt_row($attempt, $user, $cm);
+                $rowclass = '';
+                $table->add_data($row, $rowclass);
+            }
+            $table->print_html();  /// Print the whole table
         }
-        $table->print_html();  /// Print the whole table    
+            
     }    
+    
+    /**
+     *
+     * @global type $CFG
+     * @param type $attempt
+     * @param type $user
+     * @param type $cm  
+     * @param array $row
+     * @return array 
+     */
+    function geogebra_get_attempt_row($attempt, $user, $cm=null, $row=null){
+        global $CFG;
+        
+        if (empty($row)) $row = array();
+        parse_str($attempt->vars, $parsedVars);
+        $numattempt = $parsedVars['attempts'];
+        if (!$attempt->finished) $numattempt.=' (' . get_string('unfinished', 'geogebra') . ')';
+        array_push($row, $numattempt);
+        $duration = geogebra_time2str($parsedVars['duration']);
+        array_push($row, $duration);
+        $grade = $parsedVars['grade'];
+        array_push($row, $grade);
+//        $row = array($numattempt, $duration, $grade, $gradecomment, $datestudent, $dateteacher);
+        if (!empty($cm)){
+            $gradecomment = !empty($attempt->gradecomment) ? shorten_text(trim(strip_tags(format_text($attempt->gradecomment))), 25) : '';
+            array_push($row, $gradecomment);
+        }
+        $datestudent = !empty($attempt->datestudent) ? userdate($attempt->datestudent) : '';
+        array_push($row, $datestudent);
+        $dateteacher = !empty($attempt->dateteacher) ? userdate($attempt->dateteacher) : '';
+        array_push($row, $dateteacher);
+        if (!empty($cm)){
+            $status = '<a href="' . $CFG->wwwroot . '/mod/geogebra/view.php?action=view&id=' . $cm->id . '&student=' . $user->id .'&attemptid='.$attempt->id.'"> ' . get_string('viewattempt', 'geogebra') . '</a>';
+            array_push($row, $status);
+        }
+        return $row;
+    }
+    
+    function geogebra_add_table_row_tuple(html_table $table, $first, $second){
+        $row = new html_table_row();
+        $cell1 = new html_table_cell('<b>'.$first.'</b>');
+        $cell2 = new html_table_cell($second);
+        $row->cells = array($cell1, $cell2);
+        $table->data[] = $row;
+    }
     
     /**
      * Workaround to fix an Oracle's bug when inserting a row with date
