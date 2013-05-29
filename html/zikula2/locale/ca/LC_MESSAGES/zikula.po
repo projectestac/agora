@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Core versió 1.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-29 18:05+0000\n"
-"PO-Revision-Date: 2013-01-04 10:45+0100\n"
-"Last-Translator: intraweb <intraweb@xtec.cat>\n"
+"PO-Revision-Date: 2013-05-28 17:39+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
 "Language-Team: Intraweb <intraweb@xtec.cat>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -11272,7 +11272,7 @@ msgstr "Provant permís..."
 
 #: system/Permissions/templates/permissions_admin_view.tpl:16
 msgid "This permission rule has been locked. If you need to unlock it, go to the Permission rules manager Settings page."
-msgstr "Aquest permís està bloquejat. Si el voleu desbloquejar, heu d'anar a la configuració del mòdul de permisos."
+msgstr "Aquest permís està bloquejat. El podeu desbloquejar des de la configuració del mòdul de permisos."
 
 #: system/Permissions/templates/permissions_admin_view.tpl:34
 msgid "Notice: Arrange your permission rules in the desired order of evaluation, using drag and drop. The sort order will be saved immediately and automatically."

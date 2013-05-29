@@ -831,4 +831,3 @@ class auth_plugin_db extends auth_plugin_base {
     }
 }
 
-
