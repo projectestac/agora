@@ -112,9 +112,18 @@ function import19_restore($filename, $courseid = false, $categoryid = false) {
 function import19_course_selector($contextid, $showallcourses = false) {
     global $DB, $CFG, $USER, $OUTPUT;
     
-    $user_cap_course = get_user_capability_course('moodle/category:manage', $USER->id);
-    if (empty($user_cap_course)) {
-        // If user has no capability to manage any category, list of Moodle 1.9 courses won't be showed
+    // Check if the user has capabitily to create courses in some of the categories
+    $allcoursecategories = $DB->get_records('context', array('contextlevel' => CONTEXT_COURSECAT), null, 'id');
+    $usercancreatecourses = false;
+    foreach ($allcoursecategories as $coursecat) {
+        $contextcat = get_context_instance_by_id($coursecat->id);
+        if (has_capability('moodle/course:create', $contextcat, $USER->id)) {
+            $usercancreatecourses = true;
+            break;
+        }
+    }
+    if ($usercancreatecourses === FALSE) {
+        // If user has no capability to create courses in any category, list of Moodle 1.9 courses won't be showed
         return $OUTPUT->notification(get_string('nocapabilitiesoncategories', 'local_agora'));
     } 
 
@@ -433,7 +442,7 @@ function agora_import19_printCategoryData($data, $courseCategoryTree, $padding =
         $context = CONTEXT_COURSECAT::instance($category['Id']);
 
         // Only show the category if the logged user can manage it
-        if (has_capability('moodle/category:manage', $context)) {
+        if (has_capability('moodle/course:create', $context)) {
             // Build list content
             $content .= html_writer::start_tag('li', array('style' => 'padding: 5px;' . ' padding-left:' . $padding . 'px'));
             if ($selected) {
