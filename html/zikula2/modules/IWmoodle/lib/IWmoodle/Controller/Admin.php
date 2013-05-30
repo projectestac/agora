@@ -581,20 +581,24 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             array('id' => '100',
                 'name' => '100'));
 
-        // gets all the users in the intranet who satisfy the conditions
+        // Get all the users in Zikula who satisfy the conditions
         $usuaris = ModUtil::apiFunc('IWmoodle', 'admin', 'getusers', array('campfiltre' => $campfiltre,
                     'filtre' => $filtre,
                     'inici' => $inici,
                     'numitems' => $numitems));
+        
+        $moodleUsers = ModUtil::apiFunc('IWmoodle', 'admin', 'getMoodleUsers');
 
         if ($usuaris) {
             foreach ($usuaris as $usuari) {
-                $userMDuid = ModUtil::apiFunc('IWmoodle', 'user', 'getuserMDuid', array('username' => $usersName[$usuari['uid']]));
-                //$userConnect = ($userMDuid['auth'] == 'db') ? 1 : (ModUtil::apiFunc('IWmoodle', 'user', 'is_user', array('user' => $usersName[$usuari['uid']]))) ? 0 : -1;
-                if ($userMDuid['auth'] == 'db'){
-                    $userConnect = 1;
-                } else {
-                    $userConnect = (ModUtil::apiFunc('IWmoodle', 'user', 'is_user', array('user' => $usersName[$usuari['uid']]))) ? 0 : -1;
+                // Check if the Zikula users are also Moodle users
+                $userConnect = -1;
+                $userid = 0;
+                foreach ($moodleUsers as $moodleUser) {
+                    if ($usersName[$usuari['uid']] == $moodleUser['username']) {
+                        $userConnect = ($moodleUser['auth'] == 'db') ? 1 : 0;
+                        $userid = $usuari['uid'];
+                    }
                 }
                 
                 $users_MS[] = array('uid' => $usuari['uid'],
@@ -617,15 +621,8 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
                     'total' => $nombre,
                     'urltemplate' => 'index.php?module=IWmoodle&type=admin&func=sincron&filtre=' . $filtre . '&inici=%%&numitems=' . $numitems . '&campfiltre=' . $campfiltre));
 
-
-
-
-
-        $moodleUsers = ModUtil::apiFunc('IWmoodle', 'admin', 'getMoodleUsers');
-
+        // Check all Moodle users to get a list of users who are not in Zikula
         $moodleUsersArray = array();
-
-        //foreach moodle user check if it is intranet user
         foreach ($moodleUsers as $user) {
             $userid = UserUtil::getIdFromName($user['username']);
             if (!$userid > 0) {

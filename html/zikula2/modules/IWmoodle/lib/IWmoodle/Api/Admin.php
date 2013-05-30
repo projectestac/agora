@@ -705,7 +705,7 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         }
         $time = time();
         $sql = "SELECT
-				id,username, password, firstname, lastname, email
+				id, username, password, firstname, lastname, email, auth, mnethostid
 			FROM
 				$prefix" . "user
 			WHERE
@@ -726,10 +726,13 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
                 'password' => $array[2],
                 'firstname' => $array[3],
                 'lastname' => $array[4],
-                'email' => $array[5]);
+                'email' => $array[5],
+                'auth' => $array[6],
+                'mnethostid' => $array[7]);
         }
 
         oci_close($connect);
+        
         return $usersArray;
     }
 
@@ -771,16 +774,15 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         if (!DBUtil::insertObject($items, 'group_membership')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
-        die('Api:Admin.php:775:falla la insersió a la taula IWusers. Mirar perquè');
-        /*
-        $items = array('uid' => $result['uid'],
-            'nom' => $nom,
-            'cognom1' => $cognoms);
-        if (!DBUtil::insertObject($items, 'IWusers', 'suid')) {
+       // die('Api:Admin.php:775:falla la insersió a la taula IWusers. Mirar perquè');
+        
+        $items = array('iw_uid' => $result['uid'],
+            'iw_nom' => $nom,
+            'iw_cognom1' => $cognoms);
+        if (!DBUtil::insertObject($items, 'IWusers', 'iw_suid')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
-         * 
-         */
+
         // Return the id of the newly created user to the calling process
         return $result['uid'];
     }
