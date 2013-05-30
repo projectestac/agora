@@ -23,6 +23,7 @@ PORTAL
 - Updated messages for activation of new services
 - Commented code to syncronize Intraweb and Moodle 2 (no longer needed)
 - Moodle 1.9 no longer needed to request marsupial
+- Updated Terms of Service
 
 ZIKULA
 - Fixed iwcron.php not calling properly some maintenance functions
