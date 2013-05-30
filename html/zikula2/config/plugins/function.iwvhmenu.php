@@ -15,7 +15,6 @@ function NumberSubitems($id_parent) {
     $getAllSubMenuItems = ModUtil::apiFunc('IWvhmenu', 'user', 'getAllSubMenuItems', array('id_parent' => $id_parent));
 
     $num_items = 0;
-    $isMember = false;
 
     // Count items allowed to access
     foreach ($getAllSubMenuItems as $item) {
@@ -56,7 +55,6 @@ function show_subelems($id_parent, $items, $menu) {
     }
 
     $num_items = 0;
-    $isMember = false;
 
     $getAllSubMenuItems = ModUtil::apiFunc('IWvhmenu', 'user', 'getAllSubMenuItems', array('id_parent' => $id_parent));
 
@@ -146,7 +144,6 @@ function smarty_function_iwvhmenu($params, &$smarty) {
     }
 
     $num_items = 0;
-    $isMember = false;
 
     $getAllMenuItems = ModUtil::apiFunc('IWvhmenu', 'user', 'getAllMenuItems');
 
@@ -160,6 +157,7 @@ function smarty_function_iwvhmenu($params, &$smarty) {
         foreach ($groups_vector as $group) {
             if ($group != '') {
                 $gids = explode("|", $group);
+                $isMember = false;
                 if ($uid != '-1') {
                     $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
                     $isMember = ModUtil::func('IWmain', 'user', 'isMember', array('uid' => $uid,
