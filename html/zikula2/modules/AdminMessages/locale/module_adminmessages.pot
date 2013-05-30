@@ -1,0 +1,315 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-05-30 09:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/AdminMessages/Api/Admin.php:58
+msgid "Error! Could not create the new item."
+msgstr ""
+
+#: lib/AdminMessages/Api/Admin.php:81 lib/AdminMessages/Api/Admin.php:131
+msgid "Sorry! No such item found."
+msgstr ""
+
+#: lib/AdminMessages/Api/Admin.php:90
+msgid "Error! Could not perform the deletion."
+msgstr ""
+
+#: lib/AdminMessages/Api/Admin.php:155
+msgid "Error! Could not save your changes."
+msgstr ""
+
+#: lib/AdminMessages/Api/Admin.php:176
+#: templates/admin_messages_admin_view.tpl:2
+msgid "Messages list"
+msgstr ""
+
+#: lib/AdminMessages/Api/Admin.php:179
+#: templates/admin_messages_admin_new.tpl:2
+msgid "Create new message"
+msgstr ""
+
+#: lib/AdminMessages/Api/Admin.php:182
+#: templates/admin_messages_admin_modifyconfig.tpl:2
+msgid "Settings"
+msgstr ""
+
+#: lib/AdminMessages/Api/User.php:54 lib/AdminMessages/Api/User.php:147
+msgid "Error! Could not load data."
+msgstr ""
+
+#: lib/AdminMessages/Version.php:17 lib/AdminMessages/Version.php:19
+msgid "AdminMessages"
+msgstr ""
+
+#: lib/AdminMessages/Version.php:18
+msgid ""
+"Provides a means of publishing, editing and scheduling special announcements "
+"from the site administrator."
+msgstr ""
+
+#: lib/AdminMessages/Installer.php:93
+msgid "This site is powered by Zikula!"
+msgstr ""
+
+#: lib/AdminMessages/Installer.php:94
+msgid ""
+"<p><a href=\"http://www.zikula.org\">Zikula</a> is a content management "
+"system (CMS) and application framework. It is secure and stable, and is a "
+"good choice for sites with a large volume of traffic.</p><p>With Zikula:</"
+"p><ul><li>you can customise all aspects of the site's appearance through "
+"themes, with support for CSS style sheets, JavaScript, Flash and all other "
+"modern web development technologies;</li><li>you can mark content as being "
+"suitable for either a single language or for all languages, and can control "
+"all aspects of localisation and internationalisation of your site and pages;"
+"</li><li>you can be sure that your pages will display properly in all "
+"browsers, thanks to Zikula's full compliance with W3C HTML standards;</"
+"li><li>you get a standard application-programming interface (API) that lets "
+"you easily augment your site's functionality through modules, blocks and "
+"other extensions;</li><li>you can get help and support from the Zikula "
+"community of webmasters and developers at <a href=\"http://www.zikula.org"
+"\">zikula.org</a>.</li></ul><p>Enjoy using Zikula!</p><p><strong>The Zikula "
+"team</strong></p><p><em>Note: Zikula is Free Open Source Software (FOSS) "
+"licensed under the GNU General Public License.</em></p>"
+msgstr ""
+
+#: lib/AdminMessages/Block/Messages.php:34
+msgid "Messages"
+msgstr ""
+
+#: lib/AdminMessages/Block/Messages.php:35
+msgid "Display administrator messages"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:92
+msgid "Done! Created administrator message."
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:120
+#: lib/AdminMessages/Controller/Admin.php:209
+msgid "Sorry! No such administrator message found."
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:172
+msgid "Done! Saved administrator message."
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:238
+msgid "Done! Deleted administrator message."
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:278
+msgid "All"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:283
+#: lib/AdminMessages/Controller/Admin.php:286
+#: templates/admin_messages_admin_modify.tpl:59
+#: templates/admin_messages_admin_modify.tpl:61
+#: templates/admin_messages_admin_new.tpl:47
+msgid "All visitors"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:289
+#: templates/admin_messages_admin_modify.tpl:64
+#: templates/admin_messages_admin_modify.tpl:66
+#: templates/admin_messages_admin_new.tpl:48
+msgid "Registered users only"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:292
+#: templates/admin_messages_admin_modify.tpl:69
+#: templates/admin_messages_admin_modify.tpl:71
+#: templates/admin_messages_admin_new.tpl:49
+msgid "Anonymous guests only"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:295
+#: templates/admin_messages_admin_modify.tpl:74
+#: templates/admin_messages_admin_modify.tpl:76
+#: templates/admin_messages_admin_new.tpl:50
+msgid "Administrators only"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:300
+#: templates/admin_messages_admin_modify.tpl:33
+#: templates/admin_messages_admin_modify.tpl:42
+#: templates/admin_messages_admin_new.tpl:31
+msgid "Yes"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:300
+#: templates/admin_messages_admin_modify.tpl:35
+#: templates/admin_messages_admin_modify.tpl:44
+#: templates/admin_messages_admin_new.tpl:33
+msgid "No"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:303
+msgid "Never"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:305
+msgid "day"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:307
+msgid "days"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:310
+msgid "No expiration date"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:319
+msgid "Edit"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:323
+#: templates/admin_messages_admin_delete.tpl:17
+msgid "Delete"
+msgstr ""
+
+#: lib/AdminMessages/Controller/Admin.php:387
+msgid "Done! Saved module configuration."
+msgstr ""
+
+#: templates/admin_messages_admin_delete.tpl:2
+msgid "Delete administrator message"
+msgstr ""
+
+#: templates/admin_messages_admin_delete.tpl:8
+msgid "Do you really want to delete this administrator message?"
+msgstr ""
+
+#: templates/admin_messages_admin_delete.tpl:15
+msgid "Confirmation prompt"
+msgstr ""
+
+#: templates/admin_messages_admin_delete.tpl:19
+#: templates/admin_messages_admin_modifyconfig.tpl:26
+#: templates/admin_messages_admin_modify.tpl:85
+#: templates/admin_messages_admin_new.tpl:58
+msgid "Cancel"
+msgstr ""
+
+#: templates/admin_messages_admin_view.tpl:11
+msgid "Internal ID"
+msgstr ""
+
+#: templates/admin_messages_admin_view.tpl:12
+#: templates/admin_messages_admin_modify.tpl:16
+#: templates/admin_messages_admin_new.tpl:14
+msgid "Title"
+msgstr ""
+
+#: templates/admin_messages_admin_view.tpl:13
+#: templates/admin_messages_admin_modify.tpl:21
+#: templates/admin_messages_admin_new.tpl:19
+msgid "Language"
+msgstr ""
+
+#: templates/admin_messages_admin_view.tpl:14
+#: templates/admin_messages_admin_modify.tpl:55
+#: templates/admin_messages_admin_new.tpl:44
+msgid "Visibility"
+msgstr ""
+
+#: templates/admin_messages_admin_view.tpl:15
+#: templates/admin_messages_admin_modify.tpl:30
+#: templates/admin_messages_admin_new.tpl:28
+msgid "Active"
+msgstr ""
+
+#: templates/admin_messages_admin_view.tpl:16
+#: templates/admin_messages_admin_modify.tpl:48
+#: templates/admin_messages_admin_new.tpl:37
+msgid "Expiration"
+msgstr ""
+
+#: templates/admin_messages_admin_view.tpl:17
+msgid "Expiration date"
+msgstr ""
+
+#: templates/admin_messages_admin_view.tpl:18
+msgid "Actions"
+msgstr ""
+
+#: templates/admin_messages_admin_view.tpl:43
+msgid "No items found."
+msgstr ""
+
+#: templates/admin_messages_admin_modifyconfig.tpl:12
+msgid "General settings"
+msgstr ""
+
+#: templates/admin_messages_admin_modifyconfig.tpl:14
+msgid "Items per page"
+msgstr ""
+
+#: templates/admin_messages_admin_modifyconfig.tpl:18
+msgid "Allow searching of inactive messages"
+msgstr ""
+
+#: templates/admin_messages_admin_modifyconfig.tpl:24
+#: templates/admin_messages_admin_modify.tpl:83
+#: templates/admin_messages_admin_new.tpl:56
+msgid "Save"
+msgstr ""
+
+#: templates/admin_messages_search_options.tpl:4
+msgid "Administrator messages"
+msgstr ""
+
+#: templates/admin_messages_search_options.tpl:8
+msgid "Include active messages only"
+msgstr ""
+
+#: templates/admin_messages_admin_menu.tpl:3
+msgid "Admin messages"
+msgstr ""
+
+#: templates/admin_messages_admin_modify.tpl:1
+msgid "admin message"
+msgstr ""
+
+#: templates/admin_messages_admin_modify.tpl:2
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: templates/admin_messages_admin_modify.tpl:14
+msgid "Message"
+msgstr ""
+
+#: templates/admin_messages_admin_modify.tpl:26
+#: templates/admin_messages_admin_new.tpl:24
+msgid "Content"
+msgstr ""
+
+#: templates/admin_messages_admin_modify.tpl:39
+msgid "Reset publication date"
+msgstr ""
+
+#: templates/admin_messages_admin_modify.tpl:51
+#: templates/admin_messages_admin_new.tpl:40
+msgid "days (0 = never)"
+msgstr ""
+
+#: templates/admin_messages_admin_new.tpl:12
+msgid "New message"
+msgstr ""
