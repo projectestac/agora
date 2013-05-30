@@ -326,7 +326,7 @@ throw new Zikula_Exception_Forbidden();
                 $file_exists = '0';
         }
 
-        $multizk = (isset($GLOBALS['PNConfig']['Multisites']['multi']) && $GLOBALS['PNConfig']['Multisites']['multi'] == 1) ? 1 : 0;
+        $multizk = (isset($GLOBALS['ZConfig']['Multisites']['multi']) && $GLOBALS['ZConfig']['Multisites']['multi'] == 1) ? 1 : 0;
 
         $view->assign('multizk', $multizk);
         $view->assign('file_exists', $file_exists);

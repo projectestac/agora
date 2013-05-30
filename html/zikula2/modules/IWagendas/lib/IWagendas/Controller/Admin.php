@@ -918,7 +918,7 @@ class IWagendas_Controller_Admin extends Zikula_AbstractController {
             if (!is_writeable($directoriroot . '/' . $urladjunts))
                 $noWriteable = true;
         }
-        $multizk = (isset($GLOBALS['PNConfig']['Multisites']['multi']) && $GLOBALS['PNConfig']['Multisites']['multi'] == 1) ? 1 : 0;
+        $multizk = (isset($GLOBALS['ZConfig']['Multisites']['multi']) && $GLOBALS['ZConfig']['Multisites']['multi'] == 1) ? 1 : 0;
         $this->view->assign('multizk', $multizk);
         $this->view->assign('directoriroot', $directoriroot);
         $this->view->assign('vista', $vista);
