@@ -104,7 +104,7 @@ class auth_plugin_db extends auth_plugin_base {
             } else if ($this->config->passtype === 'sha1') {
                 $extpassword = sha1($extpassword);
             }
-
+            
             $rs = $authdb->Execute("SELECT * FROM {$this->config->table}
                                 WHERE {$this->config->fielduser} = '".$this->ext_addslashes($extusername)."'
                                   AND {$this->config->fieldpass} = '".$this->ext_addslashes($extpassword)."' ");
@@ -128,23 +128,34 @@ class auth_plugin_db extends auth_plugin_base {
     }
 
     function db_init() {
-        //XTEC ************ AFEGIT - Add automatically external db information if the school has intranet
-        //2012.08.28  @sarjona
+
+        // XTEC ************ AFEGIT - Add automatically external db information if the school has intranet
+        // 2012.08.28 @sarjona
+        // 2013.05.24 @aginard
         if (is_agora()) {
+
             global $agora, $school_info;
+
             if (array_key_exists('id_intranet', $school_info)) {
-//            if (empty($this->config->host) && array_key_exists('id_intranet', $school_info)) {
                 $this->config->type = $agora['intranet']['dbtype'];
                 $this->config->host = $school_info['dbhost_intranet'];
                 $this->config->user = $agora['intranet']['username'];
                 $this->config->pass = $agora['intranet']['userpwd'];
                 $this->config->name = $agora['intranet']['userprefix'] . $school_info['id_intranet'];
-                $this->config->table = 'zk_users';
-                $this->config->fielduser = 'pn_uname';
-                $this->config->fieldpass = 'pn_pass';
+                if ($school_info['version_intranet'] == '128') {
+                    $this->config->table = 'zk_users';
+                    $this->config->fielduser = 'pn_uname';
+                    $this->config->fieldpass = 'pn_pass';
+                } else {
+                    $this->config->table = 'users';
+                    $this->config->fielduser = 'uname';
+                    $this->config->fieldpass = 'pass';
+                }
             }
         }
-        //************ FI     
+
+        // ************ FI
+
         // Connect to the external database (forcing new connection)
         $authdb = ADONewConnection($this->config->type);
         if (!empty($this->config->debugauthdb)) {
@@ -812,5 +823,4 @@ class auth_plugin_db extends auth_plugin_base {
         return $text;
     }
 }
-
 

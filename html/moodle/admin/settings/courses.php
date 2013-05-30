@@ -80,7 +80,7 @@ if ($hassiteconfig
 
 //XTEC ************ AFEGIT - To improve the performance
 //2010.06.30
-if (!is_agora()){
+if (get_protected_agora()){
 //************ FI
         $bi[] = new admin_setting_configselect('backup_sche_keep', get_string('keep'),
                                                get_string('backupkeephelp'), 1, array(0 => get_string('all'), 1 => '1',

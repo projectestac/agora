@@ -349,6 +349,7 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
                 $school_info['database_intranet'] = $data[11];
                 $school_info['dbhost_intranet'] = $data[12];
                 $school_info['diskPercent_intranet'] = $data[13];
+                $school_info['version_intranet'] = $data[14];
 
                 // Debug info
                 $school_info['source'] = 'Cookie';
@@ -407,11 +408,12 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
                 . '__' . (array_key_exists('id_intranet', $school_info) ? $school_info['id_intranet'] : '')
                 . '__' . (array_key_exists('database_intranet', $school_info) ? $school_info['database_intranet'] : '')
                 . '__' . (array_key_exists('dbhost_intranet', $school_info) ? $school_info['dbhost_intranet'] : '')
-                . '__' . (array_key_exists('diskPercent_intranet', $school_info) ? $school_info['diskPercent_intranet'] : '');
+                . '__' . (array_key_exists('diskPercent_intranet', $school_info) ? $school_info['diskPercent_intranet'] : '')
+                . '__' . (array_key_exists('version_intranet', $school_info) ? $school_info['version_intranet'] : '');
 
         // Add hash to the text for the cookie
         $cookiesalt = $agora['admin']['username'] . substr($agora['admin']['userpwd'], 0, 3);
-        $bodycookie .= '_h_' . md5($bodycookie . $cookiesalt);
+        $bodycookie .= '__h_' . md5($bodycookie . $cookiesalt);
 
         setcookie($agora['server']['cookie'], $bodycookie, 0, '/');
     }
