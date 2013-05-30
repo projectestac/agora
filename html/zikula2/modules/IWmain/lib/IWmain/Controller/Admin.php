@@ -80,7 +80,7 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
             }
         }
 
-        $multizk = (isset($GLOBALS['PNConfig']['Multisites']['multi']) && $GLOBALS['PNConfig']['Multisites']['multi'] == 1) ? 1 : 0;
+        $multizk = (isset($GLOBALS['ZConfig']['Multisites']['multi']) && $GLOBALS['ZConfig']['Multisites']['multi'] == 1) ? 1 : 0;
 
         // Create output object
         return $this->view->assign('noWriteabledocumentRoot', $noWriteabledocumentRoot)
@@ -139,15 +139,6 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
             LogUtil::registerError($this->__('The value of the life time for users variables is incorrect') . ': ' . $usersvarslife);
             $usersvarslife = 0;
         }
-
-        // TODO
-        /*
-          // Update module variables
-          if (!isset($GLOBALS['PNConfig']['Multisites']['multi']) || $GLOBALS['PNConfig']['Multisites']['multi'] == 0) {
-          $multizk = $Intraweb['multizk'];
-          $this->setVar('documentRoot', $documentRoot);
-          }
-         */
 
         $this->setVar('extensions', $extensions)
                 ->setVar('documentRoot', $documentRoot)

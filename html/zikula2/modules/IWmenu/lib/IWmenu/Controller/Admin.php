@@ -704,7 +704,7 @@ class IWmenu_Controller_Admin extends Zikula_AbstractController {
         $menu_vars = array('width' => ModUtil::getVar('IWmenu', 'width'),
             'imagedir' => ModUtil::getVar('IWmenu', 'imagedir'));
 
-        $multizk = (isset($GLOBALS['PNConfig']['Multisites']['multi']) && $GLOBALS['PNConfig']['Multisites']['multi'] == 1) ? 1 : 0;
+        $multizk = (isset($GLOBALS['ZConfig']['Multisites']['multi']) && $GLOBALS['ZConfig']['Multisites']['multi'] == 1) ? 1 : 0;
 
         return $this->view->assign('multizk', $multizk)
                         ->assign('noFolder', $noFolder)

@@ -400,7 +400,7 @@ class IWusers_Controller_Admin extends Zikula_AbstractController {
                 'name' => $group['name'],
                 'checked' => $checked);
         }
-        $multizk = (isset($GLOBALS['PNConfig']['Multisites']['multi']) && $GLOBALS['PNConfig']['Multisites']['multi'] == 1) ? 1 : 0;
+        $multizk = (isset($GLOBALS['ZConfig']['Multisites']['multi']) && $GLOBALS['ZConfig']['Multisites']['multi'] == 1) ? 1 : 0;
         return $this->view->assign('friendsSystemAvailable', $friendsSystemAvailable)
                         ->assign('invisibleGroupsInList', $invisibleGroupsInList)
                         ->assign('usersCanManageName', $usersCanManageName)

@@ -1,16 +1,5 @@
 <?php
-/**
- * Zikula Application Framework
- *
- * @copyright  (c) Zikula Development Team
- * @link       http://www.zikula.org
- * @version    $Id: file.php 202 2009-12-09 20:28:11Z aperezm $
- * @license    GNU/GPL - http://www.gnu.org/copyleft/gpl.html
- * @author     Albert Pérez Monfort <aperezm@xtec.cat>
- * @category   Zikula_Extension
- * @package    Utilities
- * @subpackage Files
- */
+
 
 include_once ('config/config.php');
 // this file gets the files from the public directories of the users.
@@ -19,24 +8,15 @@ $fileNameGet = (isset($_GET['file'])) ? $_GET['file'] : null;
 if (strpos($fileNameGet, "..") !== false || $fileNameGet == null) {
     return false;
 }
-$pos = strrpos($fileNameGet, '/');
-if($GLOBALS['PNConfig']['Multizk']['multi'] == 1){
-    $folderPath = $GLOBALS['PNConfig']['Multizk']['filesRealPath'] . '/' . $_GET['siteDNS'] . $GLOBALS['PNConfig']['Multizk']['siteFilesFolder'] . '/';
-} else {
-    // it is necessary to load zikula engine to get the folderPath
-    // you can avoid it writting the fisical path here instead of get it from zikula database
-    // in this case you should delete the include of the file pnAPI.php and the call to the function pnInit
-    // if you decide to do it you have to delete the call to pnShutDown(); too below in this code
-    // init zikula engine
-    include 'includes/pnAPI.php';
-	pnInit(PN_CORE_CONFIG |
-            PN_CORE_ADODB |
-	        PN_CORE_DB |
-            PN_CORE_OBJECTLAYER |
-            PN_CORE_TABLES |
-            PN_CORE_THEME);
-    $folderPath = pnModGetVar('Files', 'folderPath') . '/';
 
+$pos = strrpos($fileNameGet, '/');
+if ($GLOBALS['ZConfig']['Multisites']['multi'] == 1) {
+    $folderPath = $GLOBALS['ZConfig']['Multisites']['filesRealPath'] . '/' . $_GET['siteDNS'] . $GLOBALS['ZConfig']['Multisites']['siteFilesFolder'] . '/';
+} else {
+    // init zikula engine
+    include 'lib/bootstrap.php';
+    $core->init();
+    $folderPath = ModUtil::getVar('Files', 'folderPath') . '/';
 }
 $fileName = $folderPath . $fileNameGet;
 $filePath = substr($fileNameGet, 0, $pos);
@@ -71,16 +51,15 @@ while (!feof($handle)) {
     }
 }
 $status = fclose($handle);
-if($GLOBALS['PNConfig']['Multizk']['multi'] != 1){
-    pnShutDown();
+if ($GLOBALS['ZConfig']['Multisites']['multi'] != 1) {
+    System::shutdown();
 }
 
 /**
  * get the list of information about file types based on extensions.
  * @return an array with the list of information about file types based on extensions
  */
-function getMimetype($extension)
-{
+function getMimetype($extension) {
     $mimeTypes = array(
         'xxx' => array('type' => 'document/unknown', 'icon' => 'unknown.gif'),
         '3gp' => array('type' => 'video/quicktime', 'icon' => 'video.gif'),

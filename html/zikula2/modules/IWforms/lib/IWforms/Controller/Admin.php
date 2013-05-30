@@ -1146,7 +1146,7 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
         //get all categories
         $categories = ModUtil::apiFunc('IWforms', 'user', 'getAllCategories');
         global $Intraweb;
-        $multizk = (isset($GLOBALS['PNConfig']['Multisites']['multi']) && $GLOBALS['PNConfig']['Multisites']['multi'] == 1) ? 1 : 0;
+        $multizk = (isset($GLOBALS['ZConfig']['Multisites']['multi']) && $GLOBALS['ZConfig']['Multisites']['multi'] == 1) ? 1 : 0;
 
         $filesFolder = ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWforms', 'attached');
 
@@ -1481,7 +1481,7 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
         }
         //get all categories
         $categories = ModUtil::apiFunc('IWforms', 'user', 'getAllCategories');
-        $multizk = (isset($GLOBALS['PNConfig']['Multisites']['multi']) && $GLOBALS['PNConfig']['Multisites']['multi'] == 1) ? 1 : 0;
+        $multizk = (isset($GLOBALS['ZConfig']['Multisites']['multi']) && $GLOBALS['ZConfig']['Multisites']['multi'] == 1) ? 1 : 0;
         return $this->view->assign('multizk', $multizk)
                         ->assign('noWriteable', $noWriteable)
                         ->assign('noPublicFolder', $noPublicFolder)
