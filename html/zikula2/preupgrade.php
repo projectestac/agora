@@ -141,7 +141,7 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
                 $preupgradeError = true;
             }
             $value = mysql_fetch_row($result2);
-            if ($value != '') {
+            if (!empty($value)) {
                 if (is_serialized($value[0])) {
                     $array = unserialize($value[0]);
                     $newArray = rec_array_replace('iw_', 'IW', $array);
