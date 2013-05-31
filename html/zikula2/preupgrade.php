@@ -148,6 +148,7 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
                     do {
                         $array = unserialize($value[0]);
                         $newArray = rec_array_replace('iw_', 'IW', $array);
+                        $newArray = rec_array_replace('Downloads', 'IWdocmanager', $newArray);
 
                         if ($column['column_name'] == 'pn_content' && $column['data_type'] == "longtext") {
                             $newArray = rec_array_replace('[', 'index.php?module=', $newArray);
@@ -457,7 +458,7 @@ fclose($f);
 
 if (!$preupgradeError) {
     // launch zikula upgrader
-//    header('location:upgrade.php');
+    header('location:upgrade.php');
 }
 
 /**
