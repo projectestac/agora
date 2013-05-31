@@ -5,3 +5,4 @@
     </p>
     {nocache}{pagerendertime}{/nocache}
 </div>
+{iwvhmenu}
