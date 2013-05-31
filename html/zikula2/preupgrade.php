@@ -135,29 +135,34 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
     foreach ($columns as $column) {
         if (strpos($column['data_type'], "varchar") !== false || $column['data_type'] == "text" || $column['data_type'] == "longtext") {
             // prevent serialized fields
-            $sql = "select $column[column_name] from $fila[0] where $column[column_name] like '%iw_%'";
+            $sql = "select $column[column_name] from $fila[0] where $column[column_name] like '%iw\_%'";
             if (!$result2 = mysql_query($sql, $con)) {
                 fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
                 $preupgradeError = true;
             }
+
             $value = mysql_fetch_row($result2);
+
             if (!empty($value)) {
                 if (is_serialized($value[0])) {
-                    $array = unserialize($value[0]);
-                    $newArray = rec_array_replace('iw_', 'IW', $array);
-                    if ($column['column_name'] == 'pn_content' && $column['data_type'] == "longtext") {
-                        $newArray = rec_array_replace('[', 'index.php?module=', $newArray);
-                        $newArray = rec_array_replace(']', '', $newArray);
-                    }
-                    $arraySerialized = serialize($newArray);
-                    $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = \'' . mysql_real_escape_string($arraySerialized) . '\' WHERE ' . $column['column_name'] . '=\'' . mysql_real_escape_string($value[0]) . '\'';
-                    if (!$result2 = mysql_query($sql, $con)) {
-                        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-                        $preupgradeError = true;
-                    }
+                    do {
+                        $array = unserialize($value[0]);
+                        $newArray = rec_array_replace('iw_', 'IW', $array);
+
+                        if ($column['column_name'] == 'pn_content' && $column['data_type'] == "longtext") {
+                            $newArray = rec_array_replace('[', 'index.php?module=', $newArray);
+                            $newArray = rec_array_replace(']', '', $newArray);
+                        }
+                        $arraySerialized = serialize($newArray);
+                        $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = \'' . mysql_real_escape_string($arraySerialized) . '\' WHERE ' . $column['column_name'] . '=\'' . mysql_real_escape_string($value[0]) . '\'';
+                        if (!$result3 = mysql_query($sql, $con)) {
+                            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+                            $preupgradeError = true;
+                        }
+                    } while ($value = mysql_fetch_row($result2));
                 } else {
                     $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = replace(' . $column['column_name'] . ', \'iw_\', \'IW\') WHERE ' . $column['column_name'] . ' LIKE \'%iw_%\' ';
-                    if (!$result2 = mysql_query($sql, $con)) {
+                    if (!$result3 = mysql_query($sql, $con)) {
                         fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
                         $preupgradeError = true;
                     }
@@ -452,7 +457,7 @@ fclose($f);
 
 if (!$preupgradeError) {
     // launch zikula upgrader
-    header('location:upgrade.php');
+//    header('location:upgrade.php');
 }
 
 /**
@@ -466,9 +471,12 @@ function connectdb() {
 
     if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['host'] . ':' . '80', $ZConfig['DBInfo']['databases']['default']['user'], $ZConfig['DBInfo']['databases']['default']['password']))
         return false;
+
+    mysql_set_charset('utf8', $con);
+    
     if (!mysql_select_db($ZConfig['DBInfo']['databases']['default']['dbname'], $con))
         return false;
-
+   
     return $con;
 }
 
@@ -522,11 +530,11 @@ function existsRegister($dbname, $tablename, $field, $register, $f, $con) {
 
 // checks if a value is serialized
 function is_serialized($data) {
-    $data = @unserialize($data);
-    if ($data === false) {
-        return false;
-    } else {
+    $data_unserialized = @unserialize($data);
+    if ($data === 'b:0;' || $data_unserialized !== false) {    
         return true;
+    } else {
+        return false;
     }
 }
 
@@ -537,6 +545,7 @@ function rec_array_replace($find, $replace, $array) {
     }
     $newArray = array();
     foreach ($array as $key => $value) {
+        $key = str_replace($find, $replace, $key);
         $newArray[$key] = rec_array_replace($find, $replace, $value);
     }
     return $newArray;
