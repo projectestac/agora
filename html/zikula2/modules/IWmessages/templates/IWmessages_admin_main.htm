@@ -13,7 +13,7 @@
             <div style="margin-left:50px">
                 {section name=groupsUpdate loop=$groupsUpdate}
                 <div>
-                    {$groupsUpdate[groupsUpdate].name}<a href="{modurl modname=IWmessages func=deleteUpdateGroup group=$groupsUpdate[groupsUpdate].id type=admin}">{img modname='IWmessages' src='del.gif' set='images' __alt=''}</a>
+                    {$groupsUpdate[groupsUpdate].name}<a href="{modurl modname=IWmessages func=deleteUpdateGroup group=$groupsUpdate[groupsUpdate].id type=admin}">{img modname='IWmessages' src='del.gif' __alt=''}</a>
                 </div>
                 {/section}
             </div>
@@ -41,7 +41,7 @@
             <div style="margin-left:50px">
                 {section name=groupsMulti loop=$groupsMulti}
                 <div>
-                    {$groupsMulti[groupsMulti].name}<a href="{modurl modname=IWmessages func=deleteMultiGroup group=$groupsMulti[groupsMulti].id type=admin}">{img modname='IWmessages' src='del.gif' set='images' __alt=''}</a>
+                    {$groupsMulti[groupsMulti].name}<a href="{modurl modname=IWmessages func=deleteMultiGroup group=$groupsMulti[groupsMulti].id type=admin}">{img modname='IWmessages' src='del.gif' __alt=''}</a>
                 </div>
                 {/section}
             </div>
