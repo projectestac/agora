@@ -5,7 +5,7 @@
 <div class="z-admincontainer">
     <div class="z-adminpageicon">{img modname=core src=configure.gif set=icons/large alt=$templatetitle}</div>
     <h2>{$templatetitle}</h2>
-    <form class="z-form" action="{modurl modname='Admin_Messages' type='admin' func='updateconfig'}" method="post" enctype="application/x-www-form-urlencoded">
+    <form class="z-form" action="{modurl modname='AdminMessages' type='admin' func='updateconfig'}" method="post" enctype="application/x-www-form-urlencoded">
         <div>
             <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
             <fieldset>
