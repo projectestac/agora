@@ -19,7 +19,6 @@
                     <input id="admin_messages_allowsearchinactive" name="allowsearchinactive" type="checkbox"{if $allowsearchinactive} checked="checked"{/if} />
                 </div>
             </fieldset>
-            {modcallhooks hookobject=module hookaction=modifyconfig module=AdminMessages}
             <div class="z-formbuttons">
                 {button src=button_ok.png set=icons/small __alt="Save" __title="Save"}
                 <a href="{modurl modname='AdminMessages' type='admin' func='view'}">
