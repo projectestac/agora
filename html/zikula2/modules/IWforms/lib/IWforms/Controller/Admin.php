@@ -1469,16 +1469,6 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
             $noPublicFolderWriteable = (!is_writeable(ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWforms', 'publicFolder')) ||
                     file_exists(ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWforms', 'publicFolder') . '/.locked')) ? true : false;
         }
-        $nodpCaptchaAvailable = false;
-        $nodpCaptchaHooked = false;
-        //check if module dpCaptcha is installed
-        if (!ModUtil::available('dpCaptcha')) {
-            $nodpCaptchaAvailable = true;
-        } else {
-            //check if IWforms is hooked with dpCaptcha
-            if (!ModUtil::isHooked('dpCaptcha', 'IWforms'))
-                $nodpCaptchaHooked = true;
-        }
         //get all categories
         $categories = ModUtil::apiFunc('IWforms', 'user', 'getAllCategories');
         $multizk = (isset($GLOBALS['ZConfig']['Multisites']['multi']) && $GLOBALS['ZConfig']['Multisites']['multi'] == 1) ? 1 : 0;
@@ -1496,8 +1486,6 @@ class IWforms_Controller_Admin extends Zikula_AbstractController {
                         ->assign('fieldsColor', $fieldsColor)
                         ->assign('contentColor', $contentColor)
                         ->assign('publicFolder', $publicFolder)
-                        ->assign('nodpCaptchaAvailable', $nodpCaptchaAvailable)
-                        ->assign('nodpCaptchaHooked', $nodpCaptchaHooked)
                         ->assign('noFolder', $noFolder)
                         ->fetch('IWforms_admin_conf.htm');
     }

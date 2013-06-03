@@ -85,22 +85,6 @@
             {gt text="You should give write permissions in this folder or set it as public"}
         </div>
         {/if}
-        {if $nodpCaptchaAvailable}
-        <div class="z-formnote z-errormsg">
-            {gt text="DpCaptcha module is not available. If you are planning to open the forms to unregistered users you may want to install them this module."}
-        </div>
-        <div class="z-formnote z-informationmsg">
-            {gt text="The module dpCaptcha prevents robots can send notes to forms automatically. With this module successfully activated and you get linked to when a user sends an unregistered entry, is obliged to recognize and write a set of characters that can not recognize an automated system."}
-        </div>
-        {/if}
-        {if $nodpCaptchaHooked}
-        <div class="z-formnote z-errormsg">
-            {gt text="The module is not bound dpCaptcha (hook). If you are planning to open the forms to unregistered users recommend linking this module. You can do this from the administration of the modules."}
-        </div>
-        <div class="z-formnote z-informationmsg">
-            {gt text="The module dpCaptcha prevents robots can send notes to forms automatically. With this module successfully activated and you get linked to when a user sends an unregistered entry, is obliged to recognize and write a set of characters that can not recognize an automated system."}
-        </div>
-        {/if}
         <div class="z-formrow">
             <label for="newsColor">{gt text="Color for the new notes"}</label>
             <div class="z-formnote">
