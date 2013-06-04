@@ -1,6 +1,3 @@
-Pages 2.6.0
-  * DBUtil migrated to Doctrine2
-
 Pages 2.5.1
   * Search problem fixed, issue #10.
   * Caching problem fixed, issue #9.

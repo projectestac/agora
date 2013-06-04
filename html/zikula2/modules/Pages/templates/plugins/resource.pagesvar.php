@@ -7,26 +7,22 @@
 * Version:  1.0 [Sep 28, 2002 boots since Sep 28, 2002 boots]
 * -------------------------------------------------------------
 */
-function smarty_resource_pagesvar_source($tplName, &$tplSource, &$smarty)
+function smarty_resource_pagesvar_source($tpl_name, &$tpl_source, &$smarty)
 {
-    if (isset($tplName)) {
-        $tplSource = $GLOBALS[$tplName];
-
-        return true;
+    if (isset($tpl_name)) {
+         $tpl_source = $GLOBALS[$tpl_name];
+          return true;
     }
-
-    return false;
+       return false;
 }
 
-function smarty_resource_pagesvar_timestamp($tplName, $tplTimestamp, &$smarty)
+function smarty_resource_pagesvar_timestamp($tpl_name, $tpl_timestamp, &$smarty)
 {
-    if (isset($tplName)) {
-       $tplTimestamp = microtime();
-
-       return true;
+       if (isset($tpl_name)) {
+          $tpl_timestamp = microtime();
+          return true;
     }
-
-    return false;
+       return false;
 }
 
 function smarty_resource_pagesvar_secure($tpl_name, &$smarty)
@@ -35,7 +31,7 @@ function smarty_resource_pagesvar_secure($tpl_name, &$smarty)
     return true;
 }
 
-function smarty_resource_pagesvar_trusted($tplName, &$smarty)
+function smarty_resource_pagesvar_trusted($tpl_name, &$smarty)
 {
     // not used for templates
 }

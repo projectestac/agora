@@ -80,7 +80,7 @@ class Pages_Block_Pageslist extends Zikula_Controller_AbstractBlock
 
         // Check for no items returned
         if (empty($items)) {
-            return false;
+            return;
         }
 
         // Call the modules API to get the numitems
@@ -95,17 +95,15 @@ class Pages_Block_Pageslist extends Zikula_Controller_AbstractBlock
         $this->view->setCacheId($blockinfo['bid']);
 
         // Display each item, permissions permitting
-        $shownResults = 0;
+        $shown_results = 0;
         $pagesitems = array();
         foreach ($items as $item) {
             if (SecurityUtil::checkPermission('Pages::', "{$item['title']}::{$item['pageid']}", ACCESS_OVERVIEW)) {
-                $shownResults++;
-                if ($shownResults <= $vars['numitems']) {
+                $shown_results++;
+                if ($shown_results <= $vars['numitems']) {
                     if (SecurityUtil::checkPermission('Pages::', "{$item['title']}::{$item['pageid']}", ACCESS_READ)) {
-                        $pagesitems[] = array(
-                            'url'   => ModUtil::url('Pages', 'user', 'display', array('pageid' => $item['pageid'])),
-                            'title' => $item['title']
-                        );
+                        $pagesitems[] = array('url'   => ModUtil::url('Pages', 'user', 'display', array('pageid' => $item['pageid'])),
+                                'title' => $item['title']);
                     } else {
                         $pagesitems[] = array('title' => $item['title']);
                     }

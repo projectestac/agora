@@ -15,9 +15,6 @@
 
 class Pages_Api_User extends Zikula_AbstractApi
 {
-
-
-
     /**
      * get a specific item
      *
@@ -27,84 +24,191 @@ class Pages_Api_User extends Zikula_AbstractApi
      */
     public function get($args)
     {
-        $page = new Pages_ContentType_Page();
-        $page->find($args);
-        return $page->toArray();
+        // Argument check
+        if ((!isset($args['pageid']) || !is_numeric($args['pageid'])) &&
+                !isset($args['title'])) {
+            return LogUtil::registerArgsError();
+        }
+
+        // define the permission filter to apply
+        $permFilter   = array();
+        $permFilter[] = array('component_left'  => 'Pages',
+                'instance_left'   => 'title',
+                'instance_right'  => 'pageid',
+                'level'           => ACCESS_READ);
+
+        if (isset($args['pageid']) && is_numeric($args['pageid'])) {
+            $item = DBUtil::selectObjectByID('pages', $args['pageid'], 'pageid', '', $permFilter);
+        } else {
+            $item = DBUtil::selectObjectByID('pages', $args['title'], 'urltitle', '', $permFilter);
+        }
+
+        // need to do this here as the category expansion code can't know the
+        // root category which we need to build the relative path component
+        if ($item && isset($args['catregistry']) && $args['catregistry']) {
+            ObjectUtil::postProcessExpandedObjectCategories($item, $args['catregistry']);
+        }
+
+        if (ModUtil::getVar('Pages', 'enablecategorization') && !empty($item['__CATEGORIES__'])) {
+            if (!CategoryUtil::hasCategoryAccess($item['__CATEGORIES__'], 'Pages')) {
+                return false;
+            }
+        }
+
+        return $item;
     }
 
     /**
      * get all pages
      *
-     * @param array $args Arguments.
+     * @param array $args Arguments array.
      *
      * @return mixed array of items, or false on failure
      */
     public function getall($args)
     {
-        $pages = new Pages_ContentType_Pages();
-        if (isset($args['startnum']) && !empty($args['category'])) {
-            $pages->setStartNumber($args['startnum']);
+        // Optional arguments.
+        if (!isset($args['startnum']) || empty($args['startnum'])) {
+            $args['startnum'] = 0;
         }
+        if (!isset($args['numitems']) || empty($args['numitems'])) {
+            $args['numitems'] = -1;
+        }
+        if (!isset($args['ignoreml']) || !is_bool($args['ignoreml'])) {
+            $args['ignoreml'] = false;
+        }
+        if (!isset($args['language'])) {
+            $args['language'] = null;
+        }
+        if (!isset($args['category'])) {
+            $args['category'] = null;
+        }
+
+        if (!is_numeric($args['startnum']) || !is_numeric($args['numitems'])) {
+            return LogUtil::registerArgsError();
+        }
+
+        // Security check
+        if (!SecurityUtil::checkPermission('Pages::', '::', ACCESS_READ)) {
+            return array();
+        }
+
+        $catFilter = array();
         if (isset($args['category']) && !empty($args['category'])) {
-            $pages->setStartNumber($args['startnum']);
+            if (is_array($args['category'])) {
+                $catFilter = $args['category'];
+            } elseif (isset($args['property'])) {
+                $property = $args['property'];
+                $catFilter[$property] = $args['category'];
+            }
+            $catFilter['__META__'] = array('module' => 'Pages');
+        } elseif (isset($args['catfilter'])) {
+            $catFilter = $args['catfilter'];
         }
-        if (isset($args['language']) && !empty($args['language'])) {
-            $pages->setLanguage($args['language']);
+
+        // populate an array with each part of the where clause and then implode the array if there is a need.
+        // credit to Jorg Napp for this technique - markwest
+        $table = DBUtil::getTables();
+        $pagescolumn = $table['pages_column'];
+        $queryargs = array();
+        if (System::getVar('multilingual') == 1 && !$args['ignoreml'] && $args['language']) {
+            $queryargs[] = '(' . $pagescolumn['language'] . ' = "' . DataUtil::formatForStore($args['language']) . '"'
+                    .' OR ' . $pagescolumn['language'] . ' = "")';
         }
-        $orderby = 'pageid';
+
+        $where = null;
+        if (count($queryargs) > 0) {
+            $where = ' WHERE ' . implode(' AND ', $queryargs);
+        }
+
+        // define the permission filter to apply
+        $permFilter   = array();
+        $permFilter[] = array('component_left'  => 'Pages',
+                'instance_left'   => 'title',
+                'instance_right'  => 'pageid',
+                'level'           => ACCESS_READ);
+
+        $orderby = $pagescolumn['pageid'];
         if (isset($args['order']) && !empty($args['order'])) {
-            $orderby = strtolower($args['order']);
+            $orderby = $pagescolumn[strtolower($args['order'])];
         }
         $orderdir = 'DESC';
         if (isset($args['orderdir']) && !empty($args['orderdir'])) {
             $orderdir = $args['orderdir'];
         }
-        $pages->setOrder($orderby, $orderdir);
+        $orderby = $orderby . ' ' . $orderdir;
 
-        return $pages->get();
+        // get the objects from the db
+        $objArray = DBUtil::selectObjectArray(
+            'pages',
+            $where,
+            $orderby,
+            $args['startnum']-1,
+            $args['numitems'],
+            '',
+            $permFilter,
+            $catFilter
+        );
+
+        // check for an error with the database code, and if so set an appropriate
+        // error message and return
+        if ($objArray === false) {
+            return LogUtil::registerError($this->__('Error! Could not load any page.'));
+        }
+
+        // need to do this here as the category expansion code can't know the
+        // root category which we need to build the relative path component
+        if ($objArray && isset($args['catregistry']) && $args['catregistry']) {
+            ObjectUtil::postProcessExpandedObjectArrayCategories($objArray, $args['catregistry']);
+        }
+
+        // return the items
+        return $objArray;
     }
 
     /**
      * utility function to count the number of items held by this module
      *
-     * @param array $args Arguments.
+     *
      *
      * @return integer number of items held by this module
      */
     public function countitems($args)
     {
-        if (isset($args['category']) && !empty($args['category'])) {
-
+        $catFilter = array();
+        if (isset($args['category']) && !empty($args['category'])){
             if (is_array($args['category'])) {
-                $args['category'] = $args['category']['Main'][0];
+                $catFilter = $args['category'];
+            } elseif (isset($args['property'])) {
+                $property = $args['property'];
+                $catFilter[$property] = $args['category'];
             }
-
-            $qb = $this->entityManager->createQueryBuilder();
-            $qb->select('count(p)')
-                ->from('Pages_Entity_Page', 'p')
-                ->join('p.categories', 'c')
-                ->where('c.category = :categories')
-                ->setParameter('categories', $args['category']);
-            return $qb->getQuery()->getSingleScalarResult();
+            $catFilter['__META__'] = array('module' => 'Pages');
+        } elseif (isset($args['catfilter'])) {
+            $catFilter = $args['catfilter'];
         }
 
-        $qb = $this->entityManager->createQueryBuilder();
-        $qb->select('count(p)')->from('Pages_Entity_Page', 'p');
-        return  $qb->getQuery()->getSingleScalarResult();
+        // return the number of items
+        return DBUtil::selectObjectCount('pages', '', 'pageid', false, $catFilter);
     }
 
     /**
      * increment the item read count
-     *
-     * @param array $args Arguments.
-     *
+     * @author Mark West
      * @return bool true on success, false on failiure
      */
     public function incrementreadcount($args)
     {
-        $page = new Pages_ContentType_Page();
-        $page->find($args);
-        return $page->incrementReadCount();
+        if ((!isset($args['pageid']) || !is_numeric($args['pageid'])) &&
+                !isset($args['title'])) {
+            return LogUtil::registerArgsError();
+        }
+
+        if (isset($args['pageid'])) {
+            return DBUtil::incrementObjectFieldByID('pages', 'counter', $args['pageid'], 'pageid');
+        } else {
+            return DBUtil::incrementObjectFieldByID('pages', 'counter', $args['title'], 'urltitle');
+        }
     }
 
     /**
@@ -145,7 +249,7 @@ class Pages_Api_User extends Zikula_AbstractApi
             if (isset($args['args']['objectid'])) {
                 $args['args']['pageid'] = $args['args']['objectid'];
             }
-            // get the item (will be cached by doctrine)
+            // get the item (will be cached by DBUtil)
             if (isset($args['args']['pageid'])) {
                 $item = ModUtil::apiFunc('Pages', 'user', 'get', array('pageid' => $args['args']['pageid']));
             } else {
@@ -226,10 +330,9 @@ class Pages_Api_User extends Zikula_AbstractApi
             if (ModUtil::getVar('Pages', 'addcategorytitletopermalink') && !empty($args['vars'][$nextvar+1])) {
                 ($args['vars'][$varscount-2] == 'page') ? $pagersize = 2 : $pagersize = 0;
                 $category = array_slice($args['vars'], 0, $varscount - 1 - $pagersize);
-                System::queryStringSetVar('cat', implode('/', $category));
+                System::queryStringSetVar('cat', implode('/',$category));
                 array_splice($args['vars'], 0, $varscount - 1 - $pagersize);
             }
-
             if (is_numeric($args['vars'][$nextvar])) {
                 System::queryStringSetVar('pageid', $args['vars'][$nextvar]);
             } else {
@@ -251,23 +354,21 @@ class Pages_Api_User extends Zikula_AbstractApi
      */
     public function getmodulemeta()
     {
-        return array(
-            'viewfunc'    => 'view',
-            'displayfunc' => 'display',
-            'newfunc'     => 'new',
-            'createfunc'  => 'create',
-            'modifyfunc'  => 'modify',
-            'updatefunc'  => 'update',
-            'deletefunc'  => 'delete',
-            'titlefield'  => 'title',
-            'itemid'      => 'pageid'
-        );
+        return array('viewfunc'    => 'view',
+                'displayfunc' => 'display',
+                'newfunc'     => 'new',
+                'createfunc'  => 'create',
+                'modifyfunc'  => 'modify',
+                'updatefunc'  => 'update',
+                'deletefunc'  => 'delete',
+                'titlefield'  => 'title',
+                'itemid'      => 'pageid');
     }
 
     /**
      * Clear cache for given item. Can be called from other modules to clear an item cache.
      *
-     * @param array $item array with data or id of the item
+     * @param $item - the item: array with data or id of the item
      */
     public function clearItemCache($item)
     {
@@ -276,66 +377,32 @@ class Pages_Api_User extends Zikula_AbstractApi
         }
         if ($item) {
             // Clear View_cache
-            $cacheIds = array();
-            $cacheIds[] = $item['sid'];
-            $cacheIds[] = 'view';
-            $cacheIds[] = 'main';
+            $cache_ids = array();
+            $cache_ids[] = $item['sid'];
+            $cache_ids[] = 'view';
+            $cache_ids[] = 'main';
             $view = Zikula_View::getInstance('Pages');
-            foreach ($cacheIds as $cacheId) {
-                $view->clear_cache(null, $cacheId);
+            foreach ($cache_ids as $cache_id) {
+                $view->clear_cache(null, $cache_id);
             }
 
             // Clear Theme_cache
-            $cacheIds = array();
-            // for given page Id, according to new cacheId structure in Zikula 1.3.2.dev (1.3.3)
-            $cacheIds[] = 'Pages/user/display/pageid_'.$item['pageid'];
-            $cacheIds[] = 'homepage'; // for homepage (it can be adjustment in module settings)
-            $cacheIds[] = 'Pages/user/view'; // view function (pages list)
-            $cacheIds[] = 'Pages/user/main'; // main function
+            $cache_ids = array();
+            $cache_ids[] = 'Pages/user/display/pageid_'.$item['pageid']; // for given page Id, according to new cache_id structure in Zikula 1.3.2.dev (1.3.3)
+            $cache_ids[] = 'homepage'; // for homepage (it can be adjustment in module settings)
+            $cache_ids[] = 'Pages/user/view'; // view function (pages list)
+            $cache_ids[] = 'Pages/user/main'; // main function
             $theme = Zikula_View_Theme::getInstance();
             //if (Zikula_Core::VERSION_NUM > '1.3.2') {
             if (method_exists($theme, 'clear_cacheid_allthemes')) {
-                $theme->clear_cacheid_allthemes($cacheIds);
+                $theme->clear_cacheid_allthemes($cache_ids);
             } else {
                 // clear cache for current theme only
-                foreach ($cacheIds as $cacheId) {
-                    $theme->clear_cache(null, $cacheId);
+                foreach ($cache_ids as $cache_id) {
+                    $theme->clear_cache(null, $cache_id);
                 }
             }
         }
     }
 
-    /**
-     * Get the categories registered for the Pages
-     *
-     * @return array
-     */
-    public function getCategories()
-    {
-        $catregistry = CategoryRegistryUtil::getRegisteredModuleCategories('Pages', 'pages');
-        $properties  = array_keys($catregistry);
-
-        $propertiesdata = array();
-        foreach ($properties as $property) {
-            $rootcat = CategoryUtil::getCategoryByID($catregistry[$property]);
-            if (!empty($rootcat)) {
-                $rootcat['path'] .= '/'; // add this to make the relative paths of the subcategories with ease - mateo
-                $subcategories = CategoryUtil::getCategoriesByParentID($rootcat['id']);
-                foreach ($subcategories as $k => $category) {
-                    $subcategories[$k]['count'] = ModUtil::apiFunc(
-                        'Pages',
-                        'user',
-                        'countitems', array('category' => $category['id'], 'property' => $property)
-                    );
-                }
-                $propertiesdata[] = array(
-                    'name' => $property,
-                    'rootcat' => $rootcat,
-                    'subcategories' => $subcategories
-                );
-            }
-        }
-
-        return array($properties, $propertiesdata);
-    }
 }

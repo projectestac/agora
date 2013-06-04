@@ -31,9 +31,9 @@ class Pages_Util
             $catsarray = is_array($filtercats['__CATEGORIES__']) ? $filtercats['__CATEGORIES__'] : array('Main' => 0);
             foreach ($catsarray as $propname => $propid) {
                 if (is_array($propid)) { // select multiple used
-                    foreach ($propid as $intKey => $intId) {
-                        if ($intId <= 0) {
-                            unset($catsarray[$propname][$intKey]); // removes categories set to 'all' (0)
+                    foreach ($propid as $int_key => $int_id) {
+                        if ($int_id <= 0) {
+                            unset($catsarray[$propname][$int_key]); // removes categories set to 'all' (0)
                         }
                         if (empty($catsarray[$propname])) {
                             unset($catsarray[$propname]);

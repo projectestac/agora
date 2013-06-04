@@ -8,35 +8,31 @@
     {setmetatag name='keywords' value=$item.metakeywords|safehtml}
 {/if}
 
-<div class="Pages_ContentType_Page_container">
+<div class="pages_page_container">
     {if $item.displaytitle}
     <h2>{$item.title|safehtml}</h2>
     {/if}
 
     {if $item.displaywrapper or $item.displaycreated or $item.displayupdated}
-    <div class="Pages_ContentType_Page_header">
+    <div class="pages_page_header">
         <ul>
-            {if $item.displaycreated && isset($item.cr_uid)}
+            {if $item.displaycreated and $item.cr_uid}
             {usergetvar name='uname' uid=$item.cr_uid assign='cr_uname'}
             <li>{gt text='Created by %1$s on %2$s' tag1=$cr_uname|profilelinkbyuname tag2=$item.cr_date|dateformat}</li>
             {/if}
-            {if $item.displayupdated && isset($item.lu_uid)}
+            {if $item.displayupdated and $item.lu_uid}
             {usergetvar name='uname' uid=$item.lu_uid assign='lu_uname'}
             <li>{gt text='Last update by %1$s on %2$s' tag1=$lu_uname|profilelinkbyuname tag2=$item.lu_date|dateformat}</li>
             {/if}
-
-            {if $modvars.Pages.enablecategorization && isset($item.categories)}
+            {if $item.__CATEGORIES__}
             <li>{gt text='Categories'}:
-                {foreach from=$item.categories key='property' item='c' name='cats'}
-                {if isset($c.category.displayName.$lang)}
-                {assign var="name" value=$c.category.displayName.$lang}
-                {else}
-                {assign var="name" value=$c.category.name}
-                {/if}
+                {foreach from=$item.__CATEGORIES__ key='property' item='category' name='cats'}
+                {if $category.accessible}
                 {if $modvars.ZConfig.shorturls}
-                <a href="{modurl modname='Pages' type='user' func='view' prop='Main' cat=$c.category.name}" title="{$c.category.name}">{$c.category.name}</a>
+                <a href="{modurl modname='Pages' type='user' func='view' prop=$property cat=$category.path_relative}" title="{$category.display_desc.$lang}">{$category.display_name.$lang}</a>
                 {else}
-                <a href="{modurl modname='Pages' type='user' func='view' cat=$c.category.Id}" title="{$name}">{$name}</a>
+                <a href="{modurl modname='Pages' type='user' func='view' prop=$property cat=$category.id}" title="{$category.display_desc.$lang}">{$category.display_name.$lang}</a>
+                {/if}
                 {/if}
                 {if $smarty.foreach.cats.last}{else}, {/if}
                 {/foreach}
@@ -44,20 +40,15 @@
             {/if}
         </ul>
     </div>
-
-
-
-
-
     {/if}
 
-    <div class="Pages_ContentType_Page_body">
+    <div class="pages_page_body">
         {$item.content|notifyfilters:'pages.filter_hooks.pages.filter'|safehtml}
     </div>
 
-    {if $item.displayprint or $item.displaytextinfo or $displayeditlink}
-    <div class="Pages_ContentType_Page_footer">
-        {if $displayeditlink}
+    {if $item.displayprint or $item.displaytextinfo or $item.displayeditlink}
+    <div class="pages_page_footer">
+        {if $item.displayeditlink}
         <a href="{modurl modname='Pages' type='admin' func='modify' pageid=$item.pageid}">{gt text='Edit'}</a>
         <span class="text_separator">|</span>
         {/if}
@@ -67,7 +58,7 @@
         {gt text='%s reads' tag1=$item.counter}
         {/if}
         {if $item.displayprint}
-        <span class="Pages_ContentType_Page_printerlink">
+        <span class="pages_page_printerlink">
             <a href="{modurl modname='Pages' type='user' func='display' pageid=$item.pageid theme='Printer'}">{img modname='core' src='printer.png' set='icons/small' __alt='Print page'}</a>
         </span>
         {/if}

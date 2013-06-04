@@ -30,7 +30,7 @@ class Pages_Version extends Zikula_AbstractVersion
         $meta = array();
         $meta['displayname'] = $this->__('Static pages');
         $meta['description'] = $this->__('Manager of the static pages of the site.');
-        $meta['version'] = '2.6.0';
+        $meta['version'] = '2.5.1';
         //! this defines the module's url
         $meta['url'] = $this->__('pages');
         $meta['core_min'] = '1.3.0'; // requires minimum 1.3.0 or later

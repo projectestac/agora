@@ -59,7 +59,7 @@ class Pages_Block_Page extends Zikula_Controller_AbstractBlock
     {
         // Security check
         if (!SecurityUtil::checkPermission('Pages:pageblock:', "$blockinfo[title]::", ACCESS_READ)) {
-            return false;
+            return;
         }
 
         // Get variables from content block
@@ -67,7 +67,7 @@ class Pages_Block_Page extends Zikula_Controller_AbstractBlock
 
         // return if no pid
         if (empty($vars['pid'])) {
-            return false;
+            return;
         }
 
         // get the page
@@ -75,16 +75,16 @@ class Pages_Block_Page extends Zikula_Controller_AbstractBlock
 
         // check for a valid item
         if (!$item) {
-            return false;
+            return;
         }
 
         if (!SecurityUtil::checkPermission('Pages::', "{$item['title']}::{$item['pageid']}", ACCESS_READ)) {
-            return false;
+            return;
         }
 
         // Create output object
         if (!isset($item['content'])) {
-            return false;
+            return;
         }
 
         // create the output object

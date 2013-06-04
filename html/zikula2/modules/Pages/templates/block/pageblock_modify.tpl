@@ -5,7 +5,7 @@
     <label for="htmlpages_pid">{gt text='Page' domain='module_pages'}</label>    
     <select id="htmlpages_pid" name='pid' class="chzn-select">
         {foreach from=$pages item="page"}
-            <option value="{$page.pageid|safehtml}" {if isset($pid) && $page.pageid == $pid}selected="selected"{/if} >
+            <option value="{$page.pageid|safehtml}" {if $page.pageid == $pid}selected="selected"{/if} >
                 {$page.title|safehtml}
             </option>
         {/foreach}
