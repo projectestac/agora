@@ -285,9 +285,26 @@ if (!$result = mysql_query($sql, $con)) {
 }
 $value = mysql_fetch_row($result);
 
+// remove documentroot directory from de string
+$sql = "select pn_value from module_vars where pn_modname='IWmain' AND pn_name='documentRoot'";
+if (!$result = mysql_query($sql, $con)) {
+    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+    $preupgradeError = true;
+}
+$value1 = mysql_fetch_row($result);
+$prevalue = unserialize($value[0]);
+$prevalue1 = unserialize($value1[0]);
+$prevalue = str_replace($prevalue1, '', $prevalue);
+if (substr($prevalue, -1) == '/') {
+    $prevalue = substr($prevalue, 0, strlen($prevalue) - 1);
+}
+if (substr($prevalue, 0, 1) == '/') {
+    $prevalue = substr($prevalue, 1, strlen($prevalue));
+}
+$documentsFolder = serialize($prevalue);
 if (!existsRegister($dbname, 'module_vars', 'pn_modname', 'IWdocmanager', $f, $con)) {
     $sql = "INSERT INTO module_vars (`pn_modname`, `pn_name`, `pn_value`) VALUES
-        ('IWdocmanager','documentsFolder','" . $value[0] . "'),
+        ('IWdocmanager','documentsFolder','" . $documentsFolder . "'),
         ('IWdocmanager','notifyMail','s:0:\"\";'),
         ('IWdocmanager','editTime','s:2:\"30\";'),
         ('IWdocmanager','deleteTime','s:2:\"20\";');";
@@ -474,10 +491,10 @@ function connectdb() {
         return false;
 
     mysql_set_charset('utf8', $con);
-    
+
     if (!mysql_select_db($ZConfig['DBInfo']['databases']['default']['dbname'], $con))
         return false;
-   
+
     return $con;
 }
 
@@ -532,7 +549,7 @@ function existsRegister($dbname, $tablename, $field, $register, $f, $con) {
 // checks if a value is serialized
 function is_serialized($data) {
     $data_unserialized = @unserialize($data);
-    if ($data === 'b:0;' || $data_unserialized !== false) {    
+    if ($data === 'b:0;' || $data_unserialized !== false) {
         return true;
     } else {
         return false;
