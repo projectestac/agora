@@ -23,7 +23,6 @@ function pages_init_check()
 /**
  * Admin panel functions
  */
-
 function pages_filter_init()
 {
     $('pages_property').observe('change', pages_property_onchange);

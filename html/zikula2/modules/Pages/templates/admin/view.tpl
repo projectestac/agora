@@ -59,21 +59,20 @@
             {usergetvar uid=$page.cr_uid name='uname' assign='uname'}
             <td>{$uname|safehtml}</td>
             {if $modvars.Pages.enablecategorization}
-            <td>{assignedcategorieslist item=$page}</td>
+            <td>{assignedcategorieslist categories=$page.categories doctrine2=true}</td>
             {/if}
             {if $modvars.ZConfig.multilingual}
-            <td>{$page.language|getlanguagename|safehtml}</td>
+            <td>{$page.language|getlanguagename|safehtml|default:'All'}</td>
             {/if}
             <td>{$page.cr_date|dateformat|safehtml}</td>
             <td>
-                {assign var='options' value=$page.options}
-                {section name='options' loop=$options}
-                <a href="{$options[options].url|safetext}">{img modname='core' set='icons/extrasmall' src=$options[options].image title=$options[options].title alt=$options[options].title}</a>
-                {/section}
+                <a href="{modurl modname='Pages' type='user'  func='display' pageid=$page.pageid}">{img modname='core' set='icons/extrasmall' src='kview.png' __title='View' __alt='View'}</a>
+                <a href="{modurl modname='Pages' type='admin' func='modify'  pageid=$page.pageid}">{img modname='core' set='icons/extrasmall' src='xedit.png' __title='Edit' __alt='Edit'}</a>
+                <a href="{modurl modname='Pages' type='admin' func='delete'  pageid=$page.pageid}">{img modname='core' set='icons/extrasmall' src='14_layer_deletelayer.png' __title='Delete' __alt='Delete'}</a>
             </td>
         </tr>
         {foreachelse}
-        {assign var='colspan' value=4}
+        {assign var='colspan' value=5}
         {if $modvars.Pages.enablecategorization}
         {assign var='colspan' value=$colspan+1}
         {/if}

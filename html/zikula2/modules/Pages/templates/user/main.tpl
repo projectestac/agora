@@ -2,7 +2,6 @@
 {pagesetvar name='title' value=$templatetitle}
 {insert name='getstatusmsg'}
 
-{if $modvars.Pages.enablecategorization}
 <h2>{$templatetitle}</h2>
 <p>{gt text='Available categories:'}</p>
 {foreach from=$propertiesdata item='property'}
@@ -19,8 +18,8 @@
     <li><a href="{modurl modname='Pages' type='user' func='view' prop=$property.name cat=$category.id}" title="{$categorydesc}">{$categoryname}</a> ({gt text='%s page' plural='%s pages' count=$category.count tag1=$category.count})</li>
     {/if}
     {/foreach}
+
+
+
 </ul>
 {/foreach}
-{else}
-{modfunc modname='Pages' type='user' func='view'}
-{/if}

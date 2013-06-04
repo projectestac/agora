@@ -1,4 +1,17 @@
 <?php
+/**
+ * Copyright Pages Team 2012
+ *
+ * This work is contributed to the Zikula Foundation under one or more
+ * Contributor Agreements and licensed to You under the following license:
+ *
+ * @license GNU/LGPLv3 (or at your option, any later version).
+ * @package Pages
+ * @link https://github.com/zikula-modules/Pages
+ *
+ * Please see the NOTICE file distributed with this source code for further
+ * information regarding copyright and licensing.
+ */
 
 /**
  * Internal callback class used to check permissions to each Page
@@ -20,8 +33,7 @@ class pages_result_checker
     function checkResult(&$item)
     {
         $ok = SecurityUtil::checkPermission('Pages::', "$item[title]::$item[pageid]", ACCESS_OVERVIEW);
-        if ($this->enablecategorization)
-        {
+        if ($this->enablecategorization) {
             ObjectUtil::expandObjectWithCategories($item, 'pages', 'pageid');
             $ok = $ok && CategoryUtil::hasCategoryAccess($item['__CATEGORIES__'], 'Pages');
         }
@@ -30,20 +42,35 @@ class pages_result_checker
 
 }
 
+/**
+ * The search for items.
+ */
 class Pages_Api_Search extends Zikula_AbstractApi
 {
 
     /**
-     * Search plugin info
+     * The search for items.
+     *
+     * @return array
      */
     public function info()
     {
-        return array('title' => 'Pages',
-            'functions' => array('pages' => 'search'));
+        return array(
+            'title' => 'Pages',
+            'functions' => array('pages' => 'search')
+        );
     }
 
     /**
-     * Search form component
+     * Render the search form component for Users.
+     *
+     * Parameters passed in the $args array:
+     * -------------------------------------
+     * boolean 'active' Indicates that the Users module is an active part of the search(?).
+     *
+     * @param array $args All parameters passed to this function.
+     *
+     * @return string The rendered template for the Users search component.
      */
     public function options($args)
     {
@@ -59,40 +86,41 @@ class Pages_Api_Search extends Zikula_AbstractApi
     }
 
     /**
-     * Search plugin main function
+     * Perform a search.
+     *
+     * Parameters passed in the $args array:
+     * -------------------------------------
+     * ? $args['q'] ?.
+     * ? $args[?]   ?.
+     *
+     * @param array $args All parameters passed to this function.
+     *
+     * @return bool True on success or null result, false on error.
      */
     public function search($args)
     {
         ModUtil::dbInfoLoad('Search');
         $table = DBUtil::getTables();
-        $pagestable = $table['pages'];
-        $pagescolumn = $table['pages_column'];
         $searchTable = $table['search_result'];
         $searchColumn = $table['search_result_column'];
 
-        $where = Search_Api_User::construct_where($args,
-                        array($pagescolumn['title'],
-                            $pagescolumn['content']),
-                        null);
+
+        // this is a bit of a hacky way to ustilize this API for Doctrine calls.
+        // the 'a' prefix is the table alias in CalendarEventRepository
+        $where = Search_Api_User::construct_where($args, array('p.title', 'p.content'), null);
+        if (!empty($where)) {
+            $where = trim(substr(trim($where), 1, -1));
+        }
+        $qb = $this->entityManager->createQueryBuilder();
+        $qb->select('p')
+            ->from('Pages_Entity_Page', 'p')
+            ->add('where', $where);
+        $objArray = $qb->getQuery()->getArrayResult();
+
+
 
         $sessionId = session_id();
 
-        /*
-          // define the permission filter to apply
-          $permFilter = array(array('realm'           => 0,
-          'component_left'  => 'Pages',
-          'component_right' => 'Page',
-          'instance_left'   => 'title',
-          'instance_right'  => 'pageid',
-          'level'           => ACCESS_READ));
-         */
-
-        // get the objects from the db
-        $permChecker = new pages_result_checker();
-        $objArray = DBUtil::selectObjectArrayFilter('pages', $where, 'pageid', 1, -1, '', $permChecker);
-        if ($objArray === false) {
-            return LogUtil::registerError($this->__('Error! Could not load any page.'));
-        }
 
         $addcategorytitletopermalink = ModUtil::getVar('Pages', 'addcategorytitletopermalink');
 
@@ -109,9 +137,13 @@ class Pages_Api_Search extends Zikula_AbstractApi
         // Process the result set and insert into search result table
         foreach ($objArray as $obj) {
             if ($addcategorytitletopermalink) {
-                $extra = serialize(array(
-                    'pageid' => $obj['pageid'],
-                    'cat' => isset($obj['__CATEGORIES__']['Main']['name']) ? $obj['__CATEGORIES__']['Main']['name'] : null));
+                $cat = isset($obj['__CATEGORIES__']['Main']['name']) ? $obj['__CATEGORIES__']['Main']['name'] : null;
+                $extra = serialize(
+                    array(
+                        'pageid' => $obj['pageid'],
+                        'cat'    => $cat
+                    )
+                );
             } else {
                 $extra = serialize(array('pageid' => $obj['pageid']));
             }
@@ -119,7 +151,7 @@ class Pages_Api_Search extends Zikula_AbstractApi
                     . '\'' . DataUtil::formatForStore($obj['title']) . '\', '
                     . '\'' . DataUtil::formatForStore($obj['content']) . '\', '
                     . '\'' . DataUtil::formatForStore($extra) . '\', '
-                    . '\'' . DataUtil::formatForStore($obj['cr_date']) . '\', '
+                    . '\'' . DateUtil::formatDatetime($obj['cr_date']) . '\', '
                     . '\'' . 'Pages' . '\', '
                     . '\'' . DataUtil::formatForStore($sessionId) . '\')';
             $insertResult = DBUtil::executeSQL($sql);
@@ -132,21 +164,27 @@ class Pages_Api_Search extends Zikula_AbstractApi
     }
 
     /**
-     * Do last minute access checking and assign URL to items
+     * Do last minute access checking and assign URL to items.
      *
      * Access checking is ignored since access check has
-     * already been done. But we do add a URL to the found item
+     * already been done. But we do add a URL to the found user.
+     *
+     * Parameters passed in the $args array:
+     * -------------------------------------
+     * array $args['datarow'] ?.
+     *
+     * @param array $args The search results.
+     *
+     * @return bool True.
      */
-    public function search_check(&$args)
+    public function search_check($args)
     {
         $datarow = &$args['datarow'];
         $extra = unserialize($datarow['extra']);
 
-        $datarow['url'] = ModUtil::url('pages', 'user', 'display',
-                        array('pageid' => $extra['pageid'],
-                            'cat' => $extra['cat']));
+        $params = array('pageid' => $extra['pageid'], 'cat' => $extra['cat']);
+        $datarow['url'] = ModUtil::url('Pages', 'user', 'display', $params);
 
         return true;
     }
-
 }

@@ -1,11 +1,27 @@
 <?php
+/**
+ * Copyright Pages Team 2012
+ *
+ * This work is contributed to the Zikula Foundation under one or more
+ * Contributor Agreements and licensed to You under the following license:
+ *
+ * @license GNU/LGPLv3 (or at your option, any later version).
+ * @package Pages
+ * @link https://github.com/zikula-modules/Pages
+ *
+ * Please see the NOTICE file distributed with this source code for further
+ * information regarding copyright and licensing.
+ */
+
+/**
+ * A pages list block.
+ */
 class Pages_Block_Pageslist extends Zikula_Controller_AbstractBlock
 {
     /**
-     * initialise block
+     * Initialise block.
      *
-     * @author       Mark West
-     * @version      $Revision: 434 $
+     * @return void
      */
     public function init()
     {
@@ -16,29 +32,28 @@ class Pages_Block_Pageslist extends Zikula_Controller_AbstractBlock
     /**
      * get information on block
      *
-     * @author       Mark West
-     * @version      $Revision: 434 $
-     * @return       array       The block information
+     * @return array The block information
      */
     public function info()
     {
-        return array('module'          => 'Pages',
-                'text_type'       => $this->__('Pages list'),
-                'text_type_long'  => $this->__('Display a list of pages'),
-                'allow_multiple'  => true,
-                'form_content'    => false,
-                'form_refresh'    => false,
-                'show_preview'    => true,
-                'admin_tableless' => true);
+        return array(
+            'module'          => 'Pages',
+            'text_type'       => $this->__('Pages list'),
+            'text_type_long'  => $this->__('Display a list of pages'),
+            'allow_multiple'  => true,
+            'form_content'    => false,
+            'form_refresh'    => false,
+            'show_preview'    => true,
+            'admin_tableless' => true
+        );
     }
 
     /**
-     * display block
+     * Display block.
      *
-     * @author       Mark West
-     * @version      $Revision: 434 $
-     * @param        array       $blockinfo     a blockinfo structure
-     * @return       output      the rendered bock
+     * @param array $blockinfo A blockinfo structure.
+     *
+     * @return string|void The rendered block.
      */
     public function display($blockinfo)
     {
@@ -65,7 +80,7 @@ class Pages_Block_Pageslist extends Zikula_Controller_AbstractBlock
 
         // Check for no items returned
         if (empty($items)) {
-            return;
+            return false;
         }
 
         // Call the modules API to get the numitems
@@ -80,15 +95,17 @@ class Pages_Block_Pageslist extends Zikula_Controller_AbstractBlock
         $this->view->setCacheId($blockinfo['bid']);
 
         // Display each item, permissions permitting
-        $shown_results = 0;
+        $shownResults = 0;
         $pagesitems = array();
         foreach ($items as $item) {
             if (SecurityUtil::checkPermission('Pages::', "{$item['title']}::{$item['pageid']}", ACCESS_OVERVIEW)) {
-                $shown_results++;
-                if ($shown_results <= $vars['numitems']) {
+                $shownResults++;
+                if ($shownResults <= $vars['numitems']) {
                     if (SecurityUtil::checkPermission('Pages::', "{$item['title']}::{$item['pageid']}", ACCESS_READ)) {
-                        $pagesitems[] = array('url'   => ModUtil::url('Pages', 'user', 'display', array('pageid' => $item['pageid'])),
-                                'title' => $item['title']);
+                        $pagesitems[] = array(
+                            'url'   => ModUtil::url('Pages', 'user', 'display', array('pageid' => $item['pageid'])),
+                            'title' => $item['title']
+                        );
                     } else {
                         $pagesitems[] = array('title' => $item['title']);
                     }
@@ -106,10 +123,9 @@ class Pages_Block_Pageslist extends Zikula_Controller_AbstractBlock
     /**
      * modify block settings
      *
-     * @author       Mark West
-     * @version      $Revision: 434 $
-     * @param        array       $blockinfo     a blockinfo structure
-     * @return       output      the bock form
+     * @param array $blockinfo a blockinfo structure
+     *
+     * @return output the bock form
      */
     public function modify($blockinfo)
     {
@@ -134,10 +150,9 @@ class Pages_Block_Pageslist extends Zikula_Controller_AbstractBlock
     /**
      * update block settings
      *
-     * @author       Mark West
-     * @version      $Revision: 434 $
-     * @param        array       $blockinfo     a blockinfo structure
-     * @return       $blockinfo  the modified blockinfo structure
+     * @param array $blockinfo A blockinfo structure.
+     *
+     * @return array The modified blockinfo structure.
      */
     public function update($blockinfo)
     {
