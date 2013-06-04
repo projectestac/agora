@@ -8,7 +8,7 @@
         {if not $multizk}
         <div class="z-formrow">
             <label for="directoriroot">{gt text="Home directory of files"}</label>
-            <input id="directoriroot" type="text" name="directoriroot" size="50" maxlength="50" value="{$directoriroot}" onFocus='blur()' />
+            <input id="directoriroot" type="text" name="directoriroot" size="50" value="{$directoriroot}" onFocus='blur()' />
         </div>
         {/if}
         <div class="z-formrow">
