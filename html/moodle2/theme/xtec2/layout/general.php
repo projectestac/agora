@@ -121,8 +121,8 @@ echo $OUTPUT->doctype()
             <?php } ?>
             <div class="clearfix"></div>
             <div class="footerlogos">
-                <img src="<?php echo $OUTPUT->pix_url('theme/logo_main', 'theme'); ?>" alt="" title="" />
-                <img src="<?php echo $OUTPUT->pix_url('theme/logo_moodle', 'theme'); ?>" alt="" title="" />
+                <?php if (is_agora()) { ?> <a href="http://agora.xtec.cat" target="_blank"><?php } ?><img src="<?php echo $OUTPUT->pix_url('theme/logo_main', 'theme'); ?>" alt="" title="" /><?php if (is_agora()) { ?></a> <?php } ?>
+                <a href="http://moodle.org" target="_blank"><img src="<?php echo $OUTPUT->pix_url('theme/logo_moodle', 'theme'); ?>" alt="Moodle" title="Moodle" /></a>
             </div>           
         </div>
         <?php echo $OUTPUT->standard_end_of_body_html() ?>

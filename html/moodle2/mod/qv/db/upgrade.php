@@ -137,7 +137,7 @@ function xmldb_qv_upgrade($oldversion=0) {
         }
 
         // timeavailable
-        $field = new xmldb_field('timeavailable', XMLDB_TYPE_INTEGER, '10', XMLDB_UNSIGNED, null, null, '0', 'exiturl');
+        $field = new xmldb_field('timeavailable', XMLDB_TYPE_INTEGER, '10', XMLDB_UNSIGNED, null, null, '0', 'height');
         if (!$dbman->field_exists($table, $field)) {
 			$dbman->add_field($table, $field);
 		}
