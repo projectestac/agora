@@ -264,6 +264,25 @@ if (!$result = mysql_query($sql, $con)) {
     $preupgradeError = true;
 }
 
+// Replace new to newitem in scribite entries
+if (existsTable($dbname, 'scribite', $f, $con)) {
+    $sql = "SELECT pn_modfunc FROM scribite where pn_modfunc LIKE '%\"new\"%'";
+    if (!$result = mysql_query($sql, $con)) {
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        $preupgradeError = true;
+    }
+    while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
+        $array = unserialize($fila[0]);
+        $newArray = rec_array_replace('new', 'newitem', $array);
+        $arraySerialized = serialize($newArray);
+        $sql = 'UPDATE scribite SET pn_modfunc = \'' . mysql_real_escape_string($arraySerialized) . '\' WHERE pn_modfunc=\'' . mysql_real_escape_string($fila[0]) . '\'';
+        if (!$result3 = mysql_query($sql, $con)) {
+            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+            $preupgradeError = true;
+        }
+    }
+}
+
 // activate the module IWdocmanager
 //*** Keep Download module tables for security reasons ***/
 // add module in modules table
