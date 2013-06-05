@@ -160,7 +160,7 @@ require_once("$CFG->libdir/filelib.php");
                 // Show results when viewmode is "view"
                 if ($viewmode == 'view' && !empty($attemptid)){
                     // TODO: Change $USER by selected userid
-                    geogebra_view_userid_results($geogebra, $USER, $cm, $viewmode, $attemptid);
+                    geogebra_view_userid_results($geogebra, $USER, $cm, $context, $viewmode, $attemptid);
                 }
                 
                 parse_str($geogebra->attributes, $attributes);
@@ -443,9 +443,23 @@ require_once("$CFG->libdir/filelib.php");
     function geogebra_view_results($geogebra, $context, $cm, $course, $action){
         global $CFG, $DB, $OUTPUT, $PAGE, $USER;
         
+        if ($action == 'submitgrade'){
+            // Upgrade submitted grade
+            // TODO: Save HTML format (only arrives text, without HTML tags)
+            $grade = optional_param('grade', '', PARAM_INT);
+            $gradecomment = optional_param_array('comment_editor', '', PARAM_TEXT);
+            $attemptid = optional_param('attemptid', '', PARAM_INT);
+            $attempt = geogebra_get_attempt($attemptid);
+            parse_str($attempt->vars, $parsedVars);
+            $parsedVars['grade']=$grade;
+            $attempt->vars = http_build_query($parsedVars, '', '&');
+            
+            geogebra_update_attempt($attemptid, $attempt->vars, GEOGEBRA_UPDATE_TEACHER, $gradecomment['text']);
+        }
+        
         // TODO: Add Javascript options to show all attempts
         //$PAGE->requires->js('/mod/geogebra/geogebra.js');
-                
+
         // Show students list with their results
         require_once($CFG->libdir.'/gradelib.php');
         $perpage = optional_param('perpage', 10, PARAM_INT);
@@ -481,7 +495,7 @@ require_once("$CFG->libdir/filelib.php");
             $extrafields = array();
         }
         $tablecolumns = array_merge(array('picture', 'fullname'), $extrafields,
-                array('attempts', 'duration', 'grade', 'comment', 'lastmodifiedsubmission', 'lastmodifiedgrade', 'status'));
+                array('attempts', 'duration', 'grade', 'comment', 'datestudent', 'dateteacher', 'status'));
 
         $extrafieldnames = array();
         foreach ($extrafields as $field) {
@@ -530,6 +544,8 @@ require_once("$CFG->libdir/filelib.php");
         $table->no_sorting('duration'); 
         $table->no_sorting('grade'); 
         $table->no_sorting('comment'); 
+        $table->no_sorting('datestudent'); 
+        $table->no_sorting('dateteacher'); 
         $table->no_sorting('status'); 
 
         // Start working -- this is necessary as soon as the niceties are over
@@ -647,8 +663,8 @@ require_once("$CFG->libdir/filelib.php");
         return array('tablecolumns'=>$tablecolumns, 'tableheaders'=>$tableheaders);
     }
  
-    function geogebra_view_userid_results($geogebra, $user, $cm, $action, $attemptid=null){
-        global $CFG, $DB, $OUTPUT, $PAGE;
+    function geogebra_view_userid_results($geogebra, $user, $cm, $context, $action, $attemptid=null){
+        global $CFG, $DB, $OUTPUT, $PAGE, $USER;
         
         require_once($CFG->libdir.'/tablelib.php');
         $table = new flexible_table('mod-geogebra-results');
@@ -677,16 +693,9 @@ require_once("$CFG->libdir/filelib.php");
         }
 
         // Show results only for specified user
-        $picture = $OUTPUT->user_picture($user);
         if (!empty($attemptid)){
             // Show only results of specified attempt
             $attempt = geogebra_get_attempt($attemptid);
-/*            $row = geogebra_get_attempt_row($attempt, $user);
-            $rowclass = '';
-            $table->add_data($row, $rowclass);            
-            $table->print_html();  /// Print the whole table
-            echo '<br/>';
-*/            
             
             $table = new html_table();
             $table->size = array('10%', '90%');
@@ -696,11 +705,41 @@ require_once("$CFG->libdir/filelib.php");
             if (!$attempt->finished) $numattempt.=' (' . get_string('unfinished', 'geogebra') . ')';
             $duration = geogebra_time2str($parsedVars['duration']);
             $grade = $parsedVars['grade'];
-            geogebra_add_table_row_tuple($table, get_string('attempt', 'geogebra'), $numattempt);
-            geogebra_add_table_row_tuple($table, get_string('duration', 'geogebra'), $duration);
-            geogebra_add_table_row_tuple($table, get_string('grade'), $grade);
-            geogebra_add_table_row_tuple($table, get_string('comment', 'geogebra'), $attempt->gradecomment);
-            echo html_writer::table($table);            
+            if (has_capability('mod/geogebra:grade', $context, $USER->id, false)) {
+                // Show form to grade and comment this attempt
+                require_once('gradeform.php');
+
+                $data = new stdClass();
+                $data->id = $cm->id;
+                $data->student = $user->id;
+                $data->attemptid = $attempt->id;
+                $data->attempt = $numattempt;
+                $data->duration = $duration;
+                $data->grade = $grade;
+                $data->comment_editor['text'] = $attempt->gradecomment;
+                $data->comment_editor['format'] = FORMAT_HTML;
+                
+                // Create form
+                $mform = new mod_geogebra_grade_form(null, array($geogebra, $data, null), 'post', '', array('class'=>'gradeform'));
+            } else {
+                // Show attempt 
+                geogebra_add_table_row_tuple($table, get_string('attempt', 'geogebra'), $numattempt);
+                geogebra_add_table_row_tuple($table, get_string('duration', 'geogebra'), $duration);
+                geogebra_add_table_row_tuple($table, get_string('grade'), $grade);
+                geogebra_add_table_row_tuple($table, get_string('comment', 'geogebra'), $attempt->gradecomment);                
+            }
+                        
+            // Print attempt information with grade and comment form if user can grade
+            if (!empty($mform)){
+                // Print user information
+                $picture = $OUTPUT->user_picture($user);
+                $userlink = '<a href="' . $CFG->wwwroot . '/user/view.php?id=' . $user->id . '&amp;course=' . $geogebra->course . '">' . fullname($user, has_capability('moodle/site:viewfullnames', $context)) . '</a>';
+                echo $picture.' '.$userlink.' ('.$user->email.')';
+                // Print form
+                $mform->display();
+            } else{
+                echo html_writer::table($table);
+            }
           
         } else{
             // Show all attempts information

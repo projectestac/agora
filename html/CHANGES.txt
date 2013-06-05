@@ -20,6 +20,7 @@ MOODLE2
 - Added Single Sign On with IWmoodle for Zikula 1.3
 - Reviewed import19 tool to load Moodle 1.9 courses only when the user has the capability to create courses in some category
 - Added link to Àgora and Moodle portal from XTEC2 footer
+- Updated GeoGebra module
 
 PORTAL
 - Updated messages for activation of new services
