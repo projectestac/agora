@@ -477,7 +477,7 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         $orderby = "$lcolumn[uname]";
 
         $where = '';
-        if ($filtre != '' && $filtre != 0) {
+        if ($filtre != '' && $filtre != '0') {
             $where = "$lcolumn[uname] LIKE '" . $filtre . "%'";
         }
         if ($campfiltre > 0) {
