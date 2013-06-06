@@ -526,24 +526,14 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
      * @return:	True if success
      */
     public function sincron($args) {
-        $inici = FormUtil::getPassedValue('inici', isset($args['inici']) ? $args['inici'] : null, 'REQUEST');
-        $filtre = FormUtil::getPassedValue('filtre', isset($args['filtre']) ? $args['filtre'] : null, 'REQUEST');
-        $campfiltre = FormUtil::getPassedValue('campfiltre', isset($args['campfiltre']) ? $args['campfiltre'] : null, 'REQUEST');
-        $numitems = FormUtil::getPassedValue('numitems', isset($args['numitems']) ? $args['numitems'] : null, 'REQUEST');
+        $inici = FormUtil::getPassedValue('inici', isset($args['inici']) ? $args['inici'] : 0, 'REQUEST');
+        $filtre = FormUtil::getPassedValue('filtre', isset($args['filtre']) ? $args['filtre'] : '', 'REQUEST');
+        $campfiltre = FormUtil::getPassedValue('campfiltre', isset($args['campfiltre']) ? $args['campfiltre'] : 0, 'REQUEST');
+        $numitems = FormUtil::getPassedValue('numitems', isset($args['numitems']) ? $args['numitems'] : 20, 'REQUEST');
 
         // Security check
         if (!SecurityUtil::checkPermission('IWmoodle::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
-        }
-
-        if ($numitems == '') {
-            $numitems = 20;
-        }
-        if ($campfiltre == '') {
-            $campfiltre = '0';
-        }
-        if ($filtre == '') {
-            $filtre = '';
         }
 
         $maxitem = 0;
@@ -586,7 +576,7 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
                     'filtre' => $filtre,
                     'inici' => $inici,
                     'numitems' => $numitems));
-        
+
         $moodleUsers = ModUtil::apiFunc('IWmoodle', 'admin', 'getMoodleUsers');
 
         if ($usuaris) {
@@ -600,7 +590,7 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
                         $userid = $usuari['uid'];
                     }
                 }
-                
+
                 $users_MS[] = array('uid' => $usuari['uid'],
                     'username' => $usersName[$usuari['uid']],
                     'user' => $usersFullname[$usuari['uid']],
@@ -613,13 +603,12 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
             }
         }
 
-        $nombre = ModUtil::apiFunc('IWmoodle', 'admin', 'nombre', array('filtre' => $filtre,
-                    'campfiltre' => $campfiltre));
+        $nombre = ModUtil::apiFunc('IWmoodle', 'admin', 'getusers', array('filtre' => $filtre,
+                    'campfiltre' => $campfiltre,
+                    'onynumber' => 1));
 
-        $pager = ModUtil::func('IWmoodle', 'admin', 'pager', array('inici' => $inici,
-                    'rpp' => $numitems,
-                    'total' => $nombre,
-                    'urltemplate' => 'index.php?module=IWmoodle&type=admin&func=sincron&filtre=' . $filtre . '&inici=%%&numitems=' . $numitems . '&campfiltre=' . $campfiltre));
+        $pager = array('numitems' => $nombre,
+            'itemsperpage' => $numitems);
 
         // Check all Moodle users to get a list of users who are not in Zikula
         $moodleUsersArray = array();
@@ -646,6 +635,7 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
                         ->assign('users_MS', $users_MS)
                         ->assign('inici', $inici)
                         ->assign('moodleUsers', $moodleUsersArray)
+                        ->assign('nombre', $nombre)
                         ->fetch('iwmoodle_admin_sincron.htm');
     }
 
@@ -796,82 +786,6 @@ class IWmoodle_Controller_Admin extends Zikula_AbstractController {
         return System::redirect(ModUtil::url('IWmoodle', 'admin', 'sincron', array('filtre' => $filtre,
                             'campfiltre' => $campfiltre,
                             'numitems' => $numitems)));
-    }
-
-    /**
-     * Create a pager for the users sincronize page
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
-     * @param:	args   Array with the apameters of the current page
-     * @return:	Return the pager
-     */
-    public function pager($args) {
-        $inici = FormUtil::getPassedValue('inici', isset($args['inici']) ? $args['inici'] : null, 'REQUEST');
-        $total = FormUtil::getPassedValue('total', isset($args['total']) ? $args['total'] : null, 'REQUEST');
-        $rpp = FormUtil::getPassedValue('rpp', isset($args['rpp']) ? $args['rpp'] : null, 'REQUEST');
-        $urltemplate = FormUtil::getPassedValue('urltemplate', isset($args['urltemplate']) ? $args['urltemplate'] : null, 'REQUEST');
-
-        // Security check
-        if (!SecurityUtil::checkPermission('IWmoodle::', '::', ACCESS_ADMIN)) {
-            return LogUtil::registerPermissionError();
-        }
-
-        // Quick check to ensure that we have work to do
-        if ($total <= $rpp) {
-            return;
-        }
-
-        if (!isset($inici) || empty($inici)) {
-            $inici = 1;
-        }
-
-        if (!isset($rpp) || empty($rpp)) {
-            $rpp = 10;
-        }
-
-        // Show startnum link
-        if ($inici != 1) {
-            $url = preg_replace('/%%/', 1, $urltemplate);
-            $text = '<a href="' . $url . '"><<</a> | ';
-        } else {
-            $text = '<< | ';
-        }
-        $items[] = array('text' => $text);
-
-        // Show following items
-        $pagenum = 1;
-
-        for ($curnum = 1; $curnum <= $total; $curnum += $rpp) {
-            if (($inici < $curnum) || ($inici > ($curnum + $rpp - 1))) {
-                //mod by marsu - use sliding window for pagelinks
-                if ((($pagenum % 10) == 0) // link if page is multiple of 10
-                        || ($pagenum == 1) // link first page
-                        || (($curnum > ($inici - 4 * $rpp)) //link -3 and +3 pages
-                        && ($curnum < ($inici + 4 * $rpp)))
-                ) {
-                    // Not on this page - show link
-                    $url = preg_replace('/%%/', $curnum, $urltemplate);
-                    $text = '<a href="' . $url . '">' . $pagenum . '</a> | ';
-                    $items[] = array('text' => $text);
-                }
-                //end mod by marsu
-            } else {
-                // On this page - show text
-                $text = $pagenum . ' | ';
-                $items[] = array('text' => $text);
-            }
-            $pagenum++;
-        }
-
-        if (($curnum >= $rpp + 1) && ($inici < $curnum - $rpp)) {
-            $url = preg_replace('/%%/', $curnum - $rpp, $urltemplate);
-            $text = '<a href="' . $url . '">>></a>';
-        } else {
-            $text = '>>';
-        }
-        $items[] = array('text' => $text);
-
-        return $this->view->assign('items', $items)
-                        ->fetch('iwmoodle_admin_pager.htm');
     }
 
 }

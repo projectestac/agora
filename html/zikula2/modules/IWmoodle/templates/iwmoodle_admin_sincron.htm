@@ -2,7 +2,6 @@
 <div class="pn-admincontainer">
     <div class="pn-adminpageicon">{img modname='core' src='folder_public.png' set='icons/large'}</div>
     <h2>{gt text="Synchronize users"}</h2>
-    <div style="height:5px;">&nbsp;</div>
     <form  class="pn-adminform" enctype="application/x-www-form-urlencoded" method="post" name="sincro" action="{modurl modname='IWmoodle' type='admin' func='filtratge'}">
         <input type="hidden" name="filtre" value="{$filtre}" />
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
@@ -51,6 +50,7 @@
             </tbody>
         </table>
     </form>
+    {pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar='inici'}
 
     {if $users_MS|@count gt 0}
     <form id="sincron" class="z-form" enctype="application/x-www-form-urlencoded" method="post" action="{modurl modname='IWmoodle' type='admin' func='changeAuth'}">
@@ -105,13 +105,7 @@
             </div>
         </div>
     </form>
-    <table>
-        <tr>
-            <td>
-                {$pager}
-            </td>
-        </tr>
-    </table>
+    {pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar='inici'}
 
     <table>
         <tr>

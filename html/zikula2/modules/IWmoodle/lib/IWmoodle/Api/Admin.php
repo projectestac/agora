@@ -326,98 +326,6 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
     }
 
     /**
-     * Count the number of users who satisfy a rule
-     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:	args   the rule that have to be satisfied
-     * @return:	The number of users who satisfy the rule
-     */
-    public function nombre($args) {
-        extract($args);
-        // Security check
-        if (!SecurityUtil::checkPermission('IWmoodle::', '::', ACCESS_ADMIN)) {
-            return LogUtil::registerPermissionError();
-        }
-        /*
-          $myJoin[] = array('join_table' => 'group_membership',
-          'join_field' => array(),
-          'object_field_name' => array(),
-          'compare_field_table' => 'uid',
-          'compare_field_join' => 'uid');
-
-          $myJoin[] = array('join_table' => 'users',
-          'join_field' => array('uid', 'pass'),
-          'object_field_name' => array('uid', 'pass'),
-          'compare_field_table' => 'uid',
-          'compare_field_join' => 'uid');
-
-          $tables = DBUtil::getTables();
-          $ocolumn = $tables['group_membership_column'];
-          $lcolumn = $tables['users_column'];
-          if ($filtre == '0') {
-          $filtre = '';
-          }
-          $filtregrup = ($campfiltre != '0') ? " $ocolumn[gid] = " . (int) DataUtil::formatForStore($campfiltre) . " and " : '';
-          $where = $filtregrup . " $lcolumn[uname] LIKE '" . $filtre . "%'";
-          $orderby = "$lcolumn[uname]";
-          $items = DBUtil::selectObjectCount('group_membership', $myJoin, $where);
-          return $items;
-         * 
-         */
-        $pntable = DBUtil::getTables();
-        $t = $pntable['group_membership'];
-        $c = $pntable['group_membership_column'];
-        $t1 = $pntable['users'];
-        $c1 = $pntable['users_column'];
-        if ($filtre == '0') {
-            $filtre = '';
-        }
-        $filtregrup = ($campfiltre != '0') ? " $c[gid] = " . (int) DataUtil::formatForStore($campfiltre) . " and " : '';
-        $sql = "SELECT COUNT(DISTINCT $t.$c[uid])
-          FROM
-          $t, $t1
-          WHERE
-          " . $filtregrup . " $t.$c[uid] = $t1.$c1[uid]
-          AND $c1[uname] LIKE '" . $filtre . "%'
-          ORDER BY
-          $c1[uname]";
-
-        $registre = DBUtil::executeSQL($sql);
-
-        list($nombre) = $registre->fields;
-
-        // Return and array with values
-        return $nombre;
-
-        /*
-          $t = $pntable['group_membership'];
-          $c = $pntable['group_membership_column'];
-          $t1 = $pntable['users'];
-          $c1 = $pntable['users_column'];
-          if ($filtre == '0') {
-          $filtre = '';
-          }
-          $filtregrup = ($campfiltre != '0') ? " $c[gid] = " . (int) DataUtil::formatForStore($campfiltre) . " and " : '';
-          $sql = "SELECT COUNT(DISTINCT $t.$c[uid])
-          FROM
-          $t, $t1
-          WHERE
-          " . $filtregrup . " $t.$c[uid] = $t1.$c1[uid]
-          AND $c1[uname] LIKE '" . $filtre . "%'
-          ORDER BY
-          $c1[uname]";
-          $registre = $dbconn->Execute($sql);
-          if ($dbconn->ErrorNo() != 0) {
-          oci_close($connect);
-          return LogUtil::registerError($this->__('Error! Could not load items.'));
-          }
-          list($nombre) = $registre->fields;
-          // Return and array with values
-          return $nombre;
-         * 
-         */
-    }
-
-    /**
      * Change the method used by the user to validate into Moodle. Two possibilities: from the website via db or from the Moodle using the manual method
      * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   id of the users that have to change their validation method
@@ -555,110 +463,44 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
      * @return:	an array with the main information of the users
      */
     public function getusers($args) {
-        /*
-          extract($args);
-          // Security check
-          $registres = array();
-          // Security check
-          if (!SecurityUtil::checkPermission('IWmoodle::', '::', ACCESS_ADMIN)) {
-          return LogUtil::registerPermissionError();
-          }
-          $pntable = DBUtil::getTables();
-          $t = $pntable['group_membership'];
-          $c = $pntable['group_membership_column'];
-          $t1 = $pntable['users'];
-          $c1 = $pntable['users_column'];
-          if ($filtre == '0') {
-          $filtre = '';
-          }
-          $inici = $inici - 1;
-          if ($inici < 0)
-          $inici = 0;
-          $filtregrup = ($campfiltre != '0') ? " $c[gid] = " . (int) DataUtil::formatForStore($campfiltre) . " and " : '';
-          $sql = "SELECT DISTINCT
-          $t1.$c1[uid], $c1[pass]
-          FROM
-          $t, $t1
-          WHERE
-          " . $filtregrup . " $t.$c[uid] = $t1.$c1[uid]
-          AND
-          $c1[uname] LIKE '" . $filtre . "%'
-          ORDER BY
-          $c1[uname]
-          LIMIT $inici,$numitems";
-
-          $registres = DBUtil::executeSQL($sql);
-
-          // Return and array with values
-          return $registres;
-         */
-
-
         extract($args);
         // Security check
-        $registres = array();
+        $items = array();
         // Security check
         if (!SecurityUtil::checkPermission('IWmoodle::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
         }
-        $myJoin[] = array('join_table' => 'group_membership',
-            'join_field' => array(),
-            'object_field_name' => array(),
-            'compare_field_table' => 'uid',
-            'compare_field_join' => 'uid');
-
-        $myJoin[] = array('join_table' => 'users',
-            'join_field' => array('uid', 'pass'),
-            'object_field_name' => array('uid', 'pass'),
-            'compare_field_table' => 'uid',
-            'compare_field_join' => 'uid');
-
         $tables = DBUtil::getTables();
         $ocolumn = $tables['group_membership_column'];
         $lcolumn = $tables['users_column'];
-        if ($filtre == '0') {
-            $filtre = '';
-        }
-        $filtregrup = ($campfiltre != '0') ? " $ocolumn[gid] = " . (int) DataUtil::formatForStore($campfiltre) . " and " : '';
-        $where = $filtregrup . " $lcolumn[uname] LIKE '" . $filtre . "%'";
-        $orderby = "$lcolumn[uname]";
-        $items = DBUtil::selectExpandedObjectArray('group_membership', $myJoin, $where, $orderby, $numitems, $inici - 1, 'uid');
-        return $items;
 
-        //die('reconstruir la funció amb dbutil');
-        /*
-          $pntable = & DBUtil::getTables();
-          $t = $pntable['group_membership'];
-          $c = $pntable['group_membership_column'];
-          $t1 = $pntable['users'];
-          $c1 = $pntable['users_column'];
-          if ($filtre == '0') {
-          $filtre = '';
-          }
-          $filtregrup = ($campfiltre != '0') ? " $c[gid] = " . (int) DataUtil::formatForStore($campfiltre) . " and " : '';
-          $sql = "SELECT DISTINCT
-          $t1.$c1[uid], $c1[pass]
-          FROM
-          $t, $t1
-          WHERE
-          " . $filtregrup . " $t.$c[uid] = $t1.$c1[uid]
-          AND
-          $c1[uname] LIKE '" . $filtre . "%'
-          ORDER BY
-          $c1[uname]";
-          $registre = $dbconn->SelectLimit($sql, (int) $numitems, (int) $inici - 1);
-          if ($dbconn->ErrorNo() != 0) {
-          return LogUtil::registerError($this->__('Error! Could not load items.'));
-          }
-          for (; !$registre->EOF; $registre->MoveNext()) {
-          list($uid, $password) = $registre->fields;
-          $registres[] = array('uid' => $uid, 'password' => $password);
-          }
-          oci_close($connect);
-          // Return and array with values
-          return $registres;
-         * 
-         */
+        $orderby = "$lcolumn[uname]";
+
+        $where = '';
+        if ($filtre != '' && $filtre != 0) {
+            $where = "$lcolumn[uname] LIKE '" . $filtre . "%'";
+        }
+        if ($campfiltre > 0) {
+            $usersGroup = ModUtil::func('getMembersGroup');
+            $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+            $groupMembers = ModUtil::func('IWmain', 'user', 'getMembersGroup', array('sv' => $sv,
+                        'gid' => $campfiltre));
+
+            $and = ($where != '') ? ' AND ' : '';
+            $where .= $and . "(";
+
+            foreach ($groupMembers as $member) {
+                $where .= "$ocolumn[uid] = $member[id] OR ";
+            }
+            $where = substr($where, 0, strlen($where) - 3) . ')';
+        }
+
+        if ($onynumber == 1) {
+            $items = DBUtil::selectObjectCount('users', $where);
+        } else {
+            $items = DBUtil::selectObjectArray('users', $where, $orderby, $inici - 1, $numitems, 'uid');
+        }
+        return $items;
     }
 
     /**
@@ -732,7 +574,7 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         }
 
         oci_close($connect);
-        
+
         return $usersArray;
     }
 
@@ -774,8 +616,8 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         if (!DBUtil::insertObject($items, 'group_membership')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
-       // die('Api:Admin.php:775:falla la insersió a la taula IWusers. Mirar perquè');
-        
+        // die('Api:Admin.php:775:falla la insersió a la taula IWusers. Mirar perquè');
+
         $items = array('iw_uid' => $result['uid'],
             'iw_nom' => $nom,
             'iw_cognom1' => $cognoms);

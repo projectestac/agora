@@ -32,19 +32,15 @@ function IWmoodle_tables() {
         'uid' => "I NOTNULL DEFAULT '0'",
         'role' => "I NOTNULL DEFAULT '0'");
 
-    /*
-      // Define tables from groups and users that are used in this module
-      $table['group_membership'] = DBUtil::getLimitedTablename('group_membership');
-      $table['group_membership_column'] = array('pn_uid' => 'pn_uid');
+    // Define tables from groups and users that are used in this module
+    $table['group_membership'] = DBUtil::getLimitedTablename('group_membership');
+    $table['group_membership_column'] = array('uid' => 'uid',
+        'gid' => 'gid');
 
-      $table['users'] = DBUtil::getLimitedTablename('users');
-      $table['users_column'] = array('pn_uid' => 'pn_uid',
-      'pn_pass' => 'pn_pass',
-      'pn_uname' => 'pn_uname');
-     */
-
-
-
+    $table['users'] = DBUtil::getLimitedTablename('users');
+    $table['users_column'] = array('uid' => 'uid',
+        'pass' => 'pass',
+        'uname' => 'uname');
 
     ObjectUtil::addStandardFieldsToTableDefinition($table['IWmoodle_column'], 'pn_');
     ObjectUtil::addStandardFieldsToTableDataDefinition($table['IWmoodle_column_def'], 'iw_');
