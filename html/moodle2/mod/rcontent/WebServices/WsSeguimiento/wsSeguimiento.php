@@ -787,7 +787,7 @@ function valid_unit($ResultExt, $book, $rcontent, &$unidad)
                 {
 // XTEC ************ MODIFICAT -> When recive a non stored unit/activity and call to the book structure ws just get the structure of the selected book, not all the catalog for this publisher
 // 2012.03.01 @mmartinez 
-                    $publisher = $DB->get_record('rcommon_publisher', 'id', $book->publisherid);
+                    $publisher = $DB->get_record('rcommon_publisher', array('id' => $book->publisherid));
                 	get_book_structure($publisher->urlwsbookstructure, $publisher->username, $publisher->password, $book->isbn);
 // ************ ORIGINAL                	
                     //get_all_books_structure($book->publisherid, $book->isbn);
@@ -935,7 +935,7 @@ function valid_activity($ResultExt, $book, $rcontent, $unidad, &$actividad)
                 {
 // XTEC ************ MODIFICAT -> When recive a non stored unit/activity and call to the book structure ws just get the structure of the selected book, not all the catalog for this publisher
 // 2012.03.01 @mmartinez 
-                    $publisher = $DB->get_record('rcommon_publisher', 'id', $book->publisherid);
+                    $publisher = $DB->get_record('rcommon_publisher', array('id' => $book->publisherid) );
                 	get_book_structure($publisher->urlwsbookstructure, $publisher->username, $publisher->password, $book->isbn);
 // ************ ORIGINAL
                     //get_all_books_structure($book->publisherid, $book->isbn);

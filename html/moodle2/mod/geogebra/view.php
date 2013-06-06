@@ -46,7 +46,7 @@ if ($id) {
     $course     = $DB->get_record('course', array('id' => $geogebra->course), '*', MUST_EXIST);
     $cm         = get_coursemodule_from_instance('geogebra', $geogebra->id, $course->id, false, MUST_EXIST);
 } else {
-    error('You must specify a course_module ID or an instance ID');
+    print_error('You must specify a course_module ID or an instance ID');
 }
 
 require_login($course, true, $cm);
@@ -88,10 +88,11 @@ if (!empty($action)){
             }
             break;
         case 'result':
+        case 'submitgrade':
             if ($cangrade){
                 geogebra_view_results($geogebra, $context, $cm, $course, $action);
             } else {
-                geogebra_view_userid_results($geogebra, $USER, $cm, $action);
+                geogebra_view_userid_results($geogebra, $USER, $cm, $context, $action);
             }
             break;
     }

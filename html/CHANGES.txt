@@ -1,7 +1,7 @@
 Release notes for Agora (http://agora.xtec.cat)
 
 More information on each of the fixes can be found in the project 
-development home at http://projectes.lafarga.cat/projects/agora/
+development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
@@ -19,6 +19,9 @@ MOODLE2
 - Fixed course import when category names in Moodle 1.9 have some special chars
 - Added code in theme xtec2 removed in v13.05.13
 - Added Single Sign On with IWmoodle for Zikula 1.3
+- Reviewed import19 tool to load Moodle 1.9 courses only when the user has the capability to create courses in some category
+- Added link to Àgora and Moodle portal from XTEC2 footer
+- Updated GeoGebra module
 
 PORTAL
 - Updated messages for activation of new services
