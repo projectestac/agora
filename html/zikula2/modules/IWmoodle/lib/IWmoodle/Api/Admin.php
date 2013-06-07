@@ -616,12 +616,12 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         if (!DBUtil::insertObject($items, 'group_membership')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
-        // die('Api:Admin.php:775:falla la insersió a la taula IWusers. Mirar perquè');
 
-        $items = array('iw_uid' => $result['uid'],
-            'iw_nom' => $nom,
-            'iw_cognom1' => $cognoms);
-        if (!DBUtil::insertObject($items, 'IWusers', 'iw_suid')) {
+        $items = array('uid' => $result['uid'],
+            'nom' => $nom,
+            'cognom1' => $cognoms);
+
+        if (!ModUtil::apiFunc('IWusers', 'admin', 'create', $items)) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
 
