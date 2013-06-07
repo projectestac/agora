@@ -39,10 +39,12 @@
         {formlabel for="send_user" __text='Send confirmation email to user'}
         {formcheckbox id="send_user" checked=$coredata.Formicula.send_user}
     </div>
+    {*XTEC ******* ElIMINAT - Amaga el directori del servidor}
     <div class="z-formrow">
         {formlabel for="upload_dir" __text='directory for uploaded file(s)'}
         {formtextinput size="40" maxLength="80" id="upload_dir" text=$coredata.Formicula.upload_dir}
     </div>
+    {******* FI  *}
     <div class="z-formrow">
         {formlabel for="delete_file" __text='Delete uploaded file(s) after sending'}
         {formcheckbox id="delete_file" checked=$coredata.Formicula.delete_file}
@@ -58,10 +60,12 @@
         <div class="z-formnote z-informationmsg">{gt text="Make sure you the necessary form fields are available, see the docs for more information. This option will be turned off by Formicula automatically if no PHP-functions for creating images are available"}</div>
     </div>
     <div id="formicula_spamcheck_details">
+        {*XTEC ******* ElIMINAT - Amaga el directori del servidor}
         <div class="z-formrow">
             <label>{gt text='Cache directory'}</label>
             <span>{$cachedir}</span>
         </div>
+        {******* FI  *}
         <div class="z-formrow">
             {formlabel for="excludespamcheck" __text='Do not use spam check in these forms'}
             {formtextinput size="20" maxLength="40" id="excludespamcheck" text=$coredata.Formicula.excludespamcheck}

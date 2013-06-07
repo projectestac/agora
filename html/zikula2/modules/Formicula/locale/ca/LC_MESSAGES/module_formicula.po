@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Mòdul Formicula\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-11-10 19:33+0000\n"
-"PO-Revision-Date: 2013-06-04 11:44+0100\n"
+"PO-Revision-Date: 2013-06-07 14:42+0100\n"
 "Last-Translator: intraweb <intraweb@xtec.cat>\n"
 "Language-Team: Intraweb <intraweb@xtec.cat>\n"
 "Language: ca\n"
@@ -791,4 +791,22 @@ msgstr "No heu indicat el nom de contacte."
 
 msgid "Error! No email address supplied."
 msgstr "No heu indicat l'adreça de correu electrònic."
+
+msgid "The webserver cannot write into this directory!"
+msgstr "El servidor no pot escriure en aquest directori!"
+
+msgid ".htaccess file needed in formicula_cache directory not exist"
+msgstr "El fitxer .htaccess necessari en el directori de memòria cau no existeix"
+
+msgid "Please enter a valid email address like user@example.com."
+msgstr "Si us plau, entreu una adreça de correu electrònic vàlida."
+
+msgid "The calculation to prevent spam was incorrect. Please try again."
+msgstr "El càlcul per prevenir el correu brossa és incorrecte. Si us plau, torneu-ho a provar."
+
+msgid "Mandatory fields are indicated with a"
+msgstr "Els camps obligatoris estan marcats amb un"
+
+msgid "We will respond to your email as soon as possible."
+msgstr "Respondrem el vostre correu electrònic tan aviat com ens sigui possible."
 
