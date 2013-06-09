@@ -74,7 +74,7 @@ $completion->set_module_viewed($cm);
 
 $action = optional_param('action', '', PARAM_TEXT);
 geogebra_view_header($geogebra, $cm, $course);
-$cangrade = has_capability('mod/geogebra:grade', $context, $USER->id, false);
+$cangrade = is_siteadmin() || has_capability('mod/geogebra:grade', $context, $USER->id, false);
 geogebra_view_intro($geogebra, $cm, $cangrade, $action);
 
 if (!empty($action)){
@@ -84,7 +84,12 @@ if (!empty($action)){
             break;
         case 'view':
             if (!empty($attemptid)){
-                geogebra_view_applet($geogebra, $cm, $context, $attemptid, $action);
+                $attempt = geogebra_get_attempt($attemptid);
+                if ($cangrade || $attempt->userid == $USER->id) {
+                    geogebra_view_applet($geogebra, $cm, $context, $attempt, $action);
+                } else{
+                    print_error(get_string('accessdenied', 'admin'));
+                }
             }
             break;
         case 'result':

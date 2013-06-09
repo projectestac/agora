@@ -102,8 +102,10 @@ require_once("$CFG->libdir/filelib.php");
         $currenttab = 'view';
         if ( ($cangrade && empty($action)) || $action=='result' ){
             $currenttab = 'result';
+        } else if ($action == 'view') {
+            $currenttab  = 'viewattempt';
         }
-        print_tabs(geogebra_get_tabs($cm, $cangrade), $currenttab);
+        print_tabs(geogebra_get_tabs($cm, $action, $cangrade), $currenttab);
     }
 
     /**
@@ -139,11 +141,11 @@ require_once("$CFG->libdir/filelib.php");
      * @param type $geogebra
      * @param type $cm
      * @param type $context
-     * @param type $attemptid
+     * @param type $attempt
      * @param type $viewmode 'submit' (default, let user to submit), 'preview' (show the geogebra without loading status) or 'view' (show geogebra with status but without buttons to submit)
      * @param type $timenow 
      */
-    function geogebra_view_applet($geogebra, $cm, $context, $attemptid=null, $viewmode='submit', $timenow=null) {
+    function geogebra_view_applet($geogebra, $cm, $context, $attempt=null, $viewmode='submit', $timenow=null) {
         global $OUTPUT, $PAGE, $CFG, $USER;
         
         if (is_null($timenow)) $timenow = time();
@@ -158,9 +160,27 @@ require_once("$CFG->libdir/filelib.php");
         } else {
             if ($viewmode!='submit' || $geogebra->maxattempts<0 || $attempts < $geogebra->maxattempts){
                 // Show results when viewmode is "view"
-                if ($viewmode == 'view' && !empty($attemptid)){
+                if ($viewmode == 'view' && !empty($attempt)){
                     // TODO: Change $USER by selected userid
-                    geogebra_view_userid_results($geogebra, $USER, $cm, $context, $viewmode, $attemptid);
+                    geogebra_view_userid_results($geogebra, $USER, $cm, $context, $viewmode, $attempt);
+                } else if ($viewmode != 'preview'){
+                    echo $OUTPUT->box_start('generalbox');
+                    if ($geogebra->maxattempts<0) {
+                        echo get_string('unlimitedattempts', 'geogebra').'<br/>'; 
+                    } else if ($attempts == $geogebra->maxattempts-1) {
+                        echo get_string('lastattemptremaining', 'geogebra').'<br/>'; 
+                    } else {
+                        echo get_string('attemptsremaining', 'geogebra').($geogebra->maxattempts - $attempts).'<br/>';                         
+                    }
+                    
+                    if (empty($attempt)) {
+                        //If there is some unfinished attempt, show it
+                        $attempt = geogebra_get_unfinished_attempt($geogebra->id, $USER->id);
+                        if (!empty($attempt)){
+                            echo '('.get_string('resumeattempt', 'geogebra').')';                        
+                        }
+                    }
+                    echo $OUTPUT->box_end();
                 }
                 
                 parse_str($geogebra->attributes, $attributes);
@@ -178,7 +198,7 @@ require_once("$CFG->libdir/filelib.php");
                 echo geogebra_get_applet_param('showToolBarHelp', $attributes);
                 echo '<param name="language" value="' . $attributes['language'] . '" />';
                 echo geogebra_get_applet_param('enableRightClick', $attributes);
-                $attributes['framePossible'] = has_capability('mod/geogebra:gradeactivity', $context);
+                $attributes['framePossible'] = is_siteadmin() || has_capability('mod/geogebra:grade', $context);
                 echo geogebra_get_applet_param('framePossible', $attributes);
                 echo '<param name="useBrowserForJS" value="true" />';
                 echo get_string('warningnojava', 'geogebra');
@@ -189,13 +209,6 @@ require_once("$CFG->libdir/filelib.php");
                 
                 // If not preview mode, load state
                 if (!$viewmode!='preview') {                    
-                    if (!empty($attemptid)){
-                        // If specified, show specific attempt
-                        $attempt = geogebra_get_attempt($attemptid);
-                    } else{
-                        //If there is some unfinished attempt, show it
-                        $attempt = geogebra_get_unfinished_attempt($geogebra->id, $USER->id);                
-                    }
                     $parsedVars = null;
                     if ($attempt) {
                         parse_str($attempt->vars, $parsedVars);
@@ -222,7 +235,7 @@ require_once("$CFG->libdir/filelib.php");
                     echo '<input type="hidden" name="n" value="'.$geogebra->id.'"/>';
                     echo '<input type="hidden" name="f" value="0"/>';
                     // Only show submit buttons if not view mode
-                    if ($viewmode!='view' && (empty($attempt) || !$attempt->finished) ){
+                    if ($viewmode=='submit' && (empty($attempt) || !$attempt->finished) ){
                         echo '<input type="submit" value="' . get_string('savewithoutsubmitting', 'geogebra') . '" />';
                         echo '<input type="submit" onclick = "this.form.f.value = 1;" value="' . get_string('submitandfinish', 'geogebra') . '" />';
                     }
@@ -445,9 +458,8 @@ require_once("$CFG->libdir/filelib.php");
         
         if ($action == 'submitgrade'){
             // Upgrade submitted grade
-            // TODO: Save HTML format (only arrives text, without HTML tags)
             $grade = optional_param('grade', '', PARAM_INT);
-            $gradecomment = optional_param_array('comment_editor', '', PARAM_TEXT);
+            $gradecomment = optional_param_array('comment_editor', '', PARAM_RAW);
             $attemptid = optional_param('attemptid', '', PARAM_INT);
             $attempt = geogebra_get_attempt($attemptid);
             parse_str($attempt->vars, $parsedVars);
@@ -607,7 +619,7 @@ require_once("$CFG->libdir/filelib.php");
                             array_push($row, '');
                         }
                         // Attempt information
-                        $row = geogebra_get_attempt_row($attempt, $auser, $cm, $row);
+                        $row = geogebra_get_attempt_row($geogebra, $attempt, $auser, $cm, $context, $row);
                         /*array_push($row, $attempt->duration);
                         array_push($row, $attempt->grade);
                         array_push($row, $attempt->comment);*/
@@ -663,7 +675,7 @@ require_once("$CFG->libdir/filelib.php");
         return array('tablecolumns'=>$tablecolumns, 'tableheaders'=>$tableheaders);
     }
  
-    function geogebra_view_userid_results($geogebra, $user, $cm, $context, $action, $attemptid=null){
+    function geogebra_view_userid_results($geogebra, $user, $cm, $context, $action, $attempt=null){
         global $CFG, $DB, $OUTPUT, $PAGE, $USER;
         
         require_once($CFG->libdir.'/tablelib.php');
@@ -693,10 +705,8 @@ require_once("$CFG->libdir/filelib.php");
         }
 
         // Show results only for specified user
-        if (!empty($attemptid)){
+        if (!empty($attempt)){
             // Show only results of specified attempt
-            $attempt = geogebra_get_attempt($attemptid);
-            
             $table = new html_table();
             $table->size = array('10%', '90%');
 
@@ -705,7 +715,8 @@ require_once("$CFG->libdir/filelib.php");
             if (!$attempt->finished) $numattempt.=' (' . get_string('unfinished', 'geogebra') . ')';
             $duration = geogebra_time2str($parsedVars['duration']);
             $grade = $parsedVars['grade'];
-            if (has_capability('mod/geogebra:grade', $context, $USER->id, false)) {
+            if ($grade < 0 ) $grade = '';
+            if (is_siteadmin() || has_capability('mod/geogebra:grade', $context, $USER->id, false)) {
                 // Show form to grade and comment this attempt
                 require_once('gradeform.php');
 
@@ -722,6 +733,11 @@ require_once("$CFG->libdir/filelib.php");
                 // Create form
                 $mform = new mod_geogebra_grade_form(null, array($geogebra, $data, null), 'post', '', array('class'=>'gradeform'));
             } else {
+                if ($geogebra->grade < 0 ) {
+                    // Get scale name
+                    $grademenu = make_grades_menu($geogebra->grade);
+                    if (!empty($grade)) $grade = $grademenu[$grade];
+                }                
                 // Show attempt 
                 geogebra_add_table_row_tuple($table, get_string('attempt', 'geogebra'), $numattempt);
                 geogebra_add_table_row_tuple($table, get_string('duration', 'geogebra'), $duration);
@@ -745,7 +761,7 @@ require_once("$CFG->libdir/filelib.php");
             // Show all attempts information
             $attempts = geogebra_get_user_attempts($geogebra->id, $user->id);
             foreach ($attempts as $attempt) {
-                $row = geogebra_get_attempt_row($attempt, $user, $cm);
+                $row = geogebra_get_attempt_row($geogebra, $attempt, $user, $cm, $context);
                 $rowclass = '';
                 $table->add_data($row, $rowclass);
             }
@@ -763,8 +779,8 @@ require_once("$CFG->libdir/filelib.php");
      * @param array $row
      * @return array 
      */
-    function geogebra_get_attempt_row($attempt, $user, $cm=null, $row=null){
-        global $CFG;
+    function geogebra_get_attempt_row($geogebra, $attempt, $user, $cm=null, $context=null, $row=null){
+        global $CFG, $USER;
         
         if (empty($row)) $row = array();
         parse_str($attempt->vars, $parsedVars);
@@ -774,6 +790,12 @@ require_once("$CFG->libdir/filelib.php");
         $duration = geogebra_time2str($parsedVars['duration']);
         array_push($row, $duration);
         $grade = $parsedVars['grade'];
+        if ($grade < 0 ) $grade = '-';
+        else if ($geogebra->grade < 0 ) {
+            // Get scale name
+            $grademenu = make_grades_menu($geogebra->grade);
+            $grade = $grademenu[$grade];
+        }
         array_push($row, $grade);
 //        $row = array($numattempt, $duration, $grade, $gradecomment, $datestudent, $dateteacher);
         if (!empty($cm)){
@@ -785,7 +807,15 @@ require_once("$CFG->libdir/filelib.php");
         $dateteacher = !empty($attempt->dateteacher) ? userdate($attempt->dateteacher) : '';
         array_push($row, $dateteacher);
         if (!empty($cm)){
-            $status = '<a href="' . $CFG->wwwroot . '/mod/geogebra/view.php?action=view&id=' . $cm->id . '&student=' . $user->id .'&attemptid='.$attempt->id.'"> ' . get_string('viewattempt', 'geogebra') . '</a>';
+            $textlink = get_string('viewattempt', 'geogebra');
+            if (is_siteadmin() || has_capability('mod/geogebra:grade', $context, $USER->id, false)){
+                if ($attempt->dateteacher < $attempt->datestudent ) {
+                    $textlink = '<span class="pendinggrade" >'. get_string('grade'). '</span>'; 
+                } else {
+                    $textlink = get_string('update');
+                }
+            }
+            $status = '<a href="' . $CFG->wwwroot . '/mod/geogebra/view.php?action=view&id=' . $cm->id . '&student=' . $user->id .'&attemptid='.$attempt->id.'"> ' . $textlink . '</a>';            
             array_push($row, $status);
         }
         return $row;
@@ -908,7 +938,7 @@ require_once("$CFG->libdir/filelib.php");
         return ($DB->update_record('geogebra_attempts', $attempt) !== false);
     }
 
-    function geogebra_get_tabs($cm, $cangrade=false){
+    function geogebra_get_tabs($cm, $action=null, $cangrade=false){
         global $CFG;
         
         if ($cangrade){
@@ -918,6 +948,11 @@ require_once("$CFG->libdir/filelib.php");
         }
         
         $tabs[] = new tabobject('result', $CFG->wwwroot . '/mod/geogebra/view.php?id=' . $cm->id.'&action=result', get_string('resultstab', 'geogebra'));
+        
+        if ($action == 'view') {
+            $tabs[] = new tabobject('viewattempt', $CFG->wwwroot . '/mod/geogebra/view.php?id=' . $cm->id.'&action=view', get_string('viewattempttab', 'geogebra'));
+        }
+        
         return array($tabs);
     }
     

@@ -34,6 +34,7 @@ require_once ($CFG->libdir.'/formslib.php');
 require_once($CFG->dirroot . '/mod/geogebra/locallib.php');
 /** Required for advanced grading */
 require_once('HTML/QuickForm/input.php');
+require_once($CFG->dirroot .'/rating/lib.php');
 
 
 class mod_geogebra_grade_form extends moodleform {
@@ -59,8 +60,22 @@ class mod_geogebra_grade_form extends moodleform {
         $durationelement->freeze();
 
         
-        $gradingelement = $mform->addElement('text', 'grade', get_string('grade', 'geogebra'));
-        $mform->setType('grade', PARAM_TEXT);
+        if ($geogebra->grade > 0) {
+            $gradingelement = $mform->addElement('text', 'grade', get_string('grade', 'geogebra'));
+            $mform->setType('grade', PARAM_TEXT);
+        } else {
+            $grademenu = make_grades_menu($geogebra->grade);
+            if (count($grademenu) > 0) {
+                $grademenu = array(RATING_UNSET_RATING => get_string('rate', 'rating').'...') + $grademenu;
+                $gradingelement = $mform->addElement('select', 'grade', get_string('grade').':', $grademenu);
+
+                // The grade is already formatted with format_float so it needs to be converted back to an integer.
+                if (!empty($data->grade)) {
+                    $data->grade = (int)unformat_float($data->grade);
+                }
+                $mform->setType('grade', PARAM_INT);
+            }
+        }
 
         $mform->addElement('editor', 'comment_editor', get_string('comment', 'geogebra'), null, null); 
         $mform->setType('comment_editor', PARAM_RAW);        

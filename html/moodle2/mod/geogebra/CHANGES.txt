@@ -10,13 +10,10 @@ Changes in progress (Moodle 2 version)
   * View GGB activities with students mode recovering status
   * Save/Update attempts (from students view)
   * Backup/Restory activities (even from Moodle 1.9)
-  * View current student attempts (pending adapt function to show all students when current user can grade)
-  * Teacher grade (pending save also HTML content and review scales behavior)
+  * View current student attempts
+  * Teacher can grade and comment
 
 - Pending:
-  * Add new tab for "Preview" results (currently they are showed in "View" tab)
-  * Show number of attempt (or, at least, a message when is the last one)
-  * Review format of the attempt summary information (to add bold to the titles, for instance)
   * Pending review behaviour with groups
 
 

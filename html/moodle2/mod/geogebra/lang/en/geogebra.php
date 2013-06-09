@@ -155,3 +155,4 @@ $string['expired'] = 'Sorry, this activity closed on {$a} and is no longer avail
 $string['msg_noattempts']= 'You have done this activity the maximum number of times';
 $string['lastmodifiedsubmission'] = 'Last modified (submission)';
 $string['lastmodifiedgrade'] = 'Last modified (grade)';
+$string['viewattempttab'] = 'View attempt';
