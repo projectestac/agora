@@ -9,6 +9,7 @@ GENERAL
 - Modified createSchoolsListsFiles.php to call Moodle 2 crons even if its URL ends with /moodle2
 - dblib-mysql: added info of intranet version to cookie
 - replaceMoodle: added support for Moodle 2 and any kind of text replacement
+- chekFiles.php: shows web server name
 
 MOODLE
 - Added permision to xtecadmin to access to scheduled backup parameters
