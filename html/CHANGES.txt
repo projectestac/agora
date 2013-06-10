@@ -22,6 +22,7 @@ MOODLE2
 - Reviewed import19 tool to load Moodle 1.9 courses only when the user has the capability to create courses in some category
 - Added link to Àgora and Moodle portal from XTEC2 footer
 - Updated GeoGebra module
+- To let access to langimport subpackage only to xtecadmin user
 
 PORTAL
 - Updated messages for activation of new services
