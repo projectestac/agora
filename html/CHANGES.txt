@@ -9,6 +9,7 @@ GENERAL
 - Modified createSchoolsListsFiles.php to call Moodle 2 crons even if its URL ends with /moodle2
 - dblib-mysql: added info of intranet version to cookie
 - replaceMoodle: added support for Moodle 2 and any kind of text replacement
+- chekFiles.php: shows web server name
 
 MOODLE
 - Added permision to xtecadmin to access to scheduled backup parameters
@@ -20,6 +21,7 @@ MOODLE2
 - Added Single Sign On with IWmoodle for Zikula 1.3
 - Reviewed import19 tool to load Moodle 1.9 courses only when the user has the capability to create courses in some category
 - Added link to Àgora and Moodle portal from XTEC2 footer
+- Updated GeoGebra module
 
 PORTAL
 - Updated messages for activation of new services
@@ -30,6 +32,7 @@ PORTAL
 ZIKULA
 - Fixed iwcron.php not calling properly some maintenance functions
 - Fixed potential security issue reported by CESICAT
+- Added directory zikula2 to start upgrade of Intrawebs
 
 
 Changes 13.05.13

@@ -46,7 +46,7 @@ if ($id) {
     $course     = $DB->get_record('course', array('id' => $geogebra->course), '*', MUST_EXIST);
     $cm         = get_coursemodule_from_instance('geogebra', $geogebra->id, $course->id, false, MUST_EXIST);
 } else {
-    error('You must specify a course_module ID or an instance ID');
+    print_error('You must specify a course_module ID or an instance ID');
 }
 
 require_login($course, true, $cm);
@@ -74,7 +74,7 @@ $completion->set_module_viewed($cm);
 
 $action = optional_param('action', '', PARAM_TEXT);
 geogebra_view_header($geogebra, $cm, $course);
-$cangrade = has_capability('mod/geogebra:grade', $context, $USER->id, false);
+$cangrade = is_siteadmin() || has_capability('mod/geogebra:grade', $context, $USER->id, false);
 geogebra_view_intro($geogebra, $cm, $cangrade, $action);
 
 if (!empty($action)){
@@ -84,14 +84,20 @@ if (!empty($action)){
             break;
         case 'view':
             if (!empty($attemptid)){
-                geogebra_view_applet($geogebra, $cm, $context, $attemptid, $action);
+                $attempt = geogebra_get_attempt($attemptid);
+                if ($cangrade || $attempt->userid == $USER->id) {
+                    geogebra_view_applet($geogebra, $cm, $context, $attempt, $action);
+                } else{
+                    print_error(get_string('accessdenied', 'admin'));
+                }
             }
             break;
         case 'result':
+        case 'submitgrade':
             if ($cangrade){
                 geogebra_view_results($geogebra, $context, $cm, $course, $action);
             } else {
-                geogebra_view_userid_results($geogebra, $USER, $cm, $action);
+                geogebra_view_userid_results($geogebra, $USER, $cm, $context, $action);
             }
             break;
     }

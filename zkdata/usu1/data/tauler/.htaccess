@@ -1,3 +1,0 @@
-# Avoid direct web access to folder files
-Order deny,allow
-Deny from all

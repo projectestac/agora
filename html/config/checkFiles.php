@@ -2,6 +2,8 @@
 
 require_once('env-config.php');
 
+echo '<h4>Servidor web: ' . gethostname() . ' (' .php_uname('s') . ')</h4>';
+
 echo '<h4>Prova de connexi&oacute; de curl</h4>';
 
 $url = $agora['server']['school_information'] . '08011941';

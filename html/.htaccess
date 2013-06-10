@@ -7,6 +7,7 @@ RewriteRule ^([^/]*)/moodle$ $1/moodle/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/moodle/my$ $1/moodle/my/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/moodle2$ $1/moodle2/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/moodle2/my$ $1/moodle2/my/ [QSA,R=permanent,L]
+RewriteRule ^([^/]*)/intranet$ $1/intranet/ [QSA,R=permanent,L]
 
 RewriteCond %{REQUEST_URI} ([^/]*)/usu1/antic/ [OR]
 RewriteCond %{REQUEST_URI} ([^/]*)/usu2/antic/
@@ -16,13 +17,14 @@ RewriteCond %{REQUEST_URI} ([^/]*)/usu1/moodle/ [OR]
 RewriteCond %{REQUEST_URI} ([^/]*)/usu2/moodle/ 
 RewriteRule ^([^.]*)/moodle/(.*)$ moodle2/$2?ccentre=$1 [QSA,L]
 
+<<<<<<< HEAD
 # for the intranets that test the new version
+=======
+>>>>>>> 42da34f73246d65e5c188c704f9228230240a3e0
 RewriteCond %{REQUEST_URI} ([^/]*)/usu1/intranet/ [OR]
 RewriteCond %{REQUEST_URI} ([^/]*)/usu3/intranet/
 RewriteRule ^([^.]*)/intranet/(.*)$ zikula2/$2?ccentre=$1 [QSA,L]
 
 RewriteRule ^([^/]*)/moodle/(.*)$ moodle/$2?ccentre=$1 [QSA,L]
 RewriteRule ^([^/]*)/moodle2/(.*)$ moodle2/$2?ccentre=$1 [QSA,L]
-
-RewriteRule ^([^/]*)/intranet$ $1/intranet/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/intranet/(.*)$ zikula/$2?ccentre=$1 [QSA,L]
