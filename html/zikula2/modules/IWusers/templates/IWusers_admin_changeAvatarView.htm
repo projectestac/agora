@@ -1,0 +1,53 @@
+{include file="IWusers_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='agt_update-product.png' set='icons/large' __alt="Admin - change avatar"}</div>
+    <h2>{gt text="Avatar change request"}</h2>
+    <div style="height:20px;">&nbsp;</div>
+    <table class="z-admintable" summary="table files">
+        <thead>
+            <tr>
+                <th>{gt text="User"}</th>
+                <th>{gt text="Current avatar"}</th>
+                <th>{gt text="New avatar"}</th>
+                <th>{gt text="Options"}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {foreach item=avatar from=$avatars}
+                <tr class="{cycle values="z-odd, z-even"}" id="change_{$avatar.newavatar}">
+                    <td>
+                        {$users[$avatar.uid]}
+                    </td>
+                    <td align="center">
+                        {if $avatar.avatar neq ''}
+                            <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$avatar.avatarfile}" />
+                        {else}
+                            {img modname='IWusers' src='noImage.png'}
+                        {/if}
+                    </td>
+                    <td align="center">
+                        <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$avatar.newavatarfile}" />
+                    </td>
+                    <td align="center">
+                        <a href="javascript:change({$avatar.uid},'{gt text="Confirm the avatar change"}','ch')">
+                            {img modname='core' src='button_ok.png' set='icons/extrasmall' __alt="Approve the avatar changer" __title="Approve the avatar changer"}
+                        </a>
+                        <a href="javascript:change({$avatar.uid},'{gt text="Confirm the deletion"}','del')">
+                            {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Delete" __title="Delete"}
+                        </a>
+                    </td>
+                </tr>
+            {foreachelse}
+                <tr>
+                    <td colspan="10">
+                        {gt text="Not requests found"}
+                    </td>
+                </tr>
+            {/foreach}
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    var deletingAvatar = "{{gt text="--- Deleting avatar ---"}}";
+    var changingAvatar = "{{gt text="--- Changing avatar ---"}}";
+</script>

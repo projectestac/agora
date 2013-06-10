@@ -1,0 +1,183 @@
+Scribite Version 4.3.0
+  Update to be native Zikula 1.3 module
+  Remove FCKEditor deprecated in earlier version
+  Deprecate openWYSIWYG and remove lib from distro
+  Fix YUI to work correctly
+  Remove snoopy lib
+  Correct pagebreak plugin
+  Added markItUp 1.1.12
+  Update TinyMCE to 3.4.7
+  Update CKEditor to 3.6.2
+  Xinha: Removed plugins for pagesetter, folder, photoshare
+  Xinha: Renamed Mediashare plugin
+
+Scribite Version 4.2.3
+  added support for CKEditor editor
+  Upgrade openWYSIWYG to 1.4.7
+  Upgrade Nicedit to 0.9 r23 compressed version.
+  Upgrade Xinha to 0.96.1
+  bugfixes
+
+Scribite Version 4.1
+  removed GPL incompatible things from Xinha
+  removed donation link
+  removed versioncheck plugin
+  minor bugfixes
+
+Scribite Version 4.0
+  using gettext language system
+  removed TinyMCE and FCKeditor for security reasons
+  moving editors to /modules/Scribite/includes/ for upcoming core changes
+  added new Xinha plugin "Files" for upcoming Files module
+  bugfixes
+
+Scribite Version 3.2
+  CAUTION: This version is Scribite without editors! Licensing issues. Sorry for that.
+  (lost) #53 - PostCalendar modfuncs changed to "all"
+  modified textarea ids for Profile module
+  new Snoopy.class version 1.2.4
+  removed PWC
+  following editor related things only available via svn or separate download
+    updated Xinha to version 0.96beta2
+    updated TinyMCE to version 3.2.4.1
+    updated FCKeditor to version 2.6.4
+
+Scribite Version 3.1
+  new module supported: crpVideo
+  new module supported: Newsletter
+  new module supported: Web_Links (only on addlink, modifylink and admin-addlink page at the moment available)
+  added YUI Rich Text Editor 2.6.0
+  moved editor functions to own admin files
+  new nicedit version 0.9 r23 with nicUpload, nicXHTML, nicBBCode, nicFloating and nicCode plugins added #39
+  new nicedit call and many improvements like imageshack upload, editable button control in templates and so on
+  modified nicedit.js #41
+  bugfixes #28, #29, #31, #32, #37, #39, #41
+
+Scribite Version 3.0
+  new systemhook - no more template edits needed ;)
+  code improvements
+  loading from scripts of zikula related modules plugins to pnuser.php via PageUtil
+  tickets #26, #14, #13
+  mostly following Zikula Coding Standards
+  Xinha security patch #1363
+
+Scribite Version 2.2
+  new module supported: Content
+  some bugs fixed
+  admin templates improvements
+  added xinha pagebreak-button for Pages module
+
+Scribite Version 2.1 (.8)
+  new module supported: crpCalendar
+  new DefaultEditor option for modules calling Scribite directly
+  modified xinha plugins MediaAttach, Pagesetter, Mediashare, Photoshare, pnUpper for supporting entrypoint js
+  added nicEdit 0.90 as new editor
+  new Xinha v0.95 (with FF3 and Safari support!)
+  new FCKeditor v2.6
+  new openWYSIWYG v1.4.7
+  new language nds (low saxon)
+  new french documentation (thanks to Christophe Beaujean for translation)
+  code improvements
+  permission check added to pnRender plugin in order to improve performance
+  brand changes (Postnuke > Zikula)
+
+Scribite Version 2.0 (.8)
+  new call for module developers in order to integrate Scribite directly (see dev docs)
+  new template order
+  new documentation
+  added bos/hrv/srp languages - thanks to Dinmana
+  added spa language - thanks to AnyKiller
+  added fra language - thanks to Yokav
+  added pol language - thanks to Jussuf
+  added openWYSIWYG v1.4.6c as new editor
+  new Xinha v0.94
+  new TinyMCE v2.1.2
+  new FCKeditor v2.4.3
+  added new Xinha-Plugin for MediaAttach/removed plugin for pnUpper
+  new module supported: About v1.1 (for pn.8x)
+  new module supported: Book v1.12 (use files from /ext_modules/Book.1.12)
+  new module supported: CoType v1.0
+  new module supported: pnhelp 1.0.0.0 (use files from /ext_modules/help.1.0.0.0)
+  new module supported: Mediashare 3.1.x (for funcs additem, edititem)
+  new module supported: PhotoGallery v1.0
+  new module supported: ShoppingCart v0.3 (only update field - identical id's!)
+  added plugin versioncheck for automatic online version check / PWC and Snoopy included
+  fixed editor.css issue - now works in all browsers ;)
+  fixed some paths and other bugs in templates
+  fixed some bugs (4667,4668)
+  feature request (4669) - plugin should be located in config/plugins
+  feature request (5116) - "TinyMCPUK" plugin for TinyMCE, Thanks to Eric Spaan
+  and many many code improvements
+
+Scribite Version 1.3 (.8)
+  added new modules: tFAQ, cotype 0.1
+  code improvements for pn.8
+  bugfixes: areas and funcs switched in CE/element, fixed fckeditor call for pagesetter and PagEd (all areas)
+  templates renamed
+  removed tabber.js and changed submenus to pn.8 standards
+  prototype.js is now needed for Scribite (included in package)
+   calls from FCKeditor and xinha changed to use prototype.js in order to prevent problems with other onload functions
+  modules can be added with functions and areas in order to get Scribite to run with own modules
+  modules can now have different editors - per module setting ;)
+  module functions and areas can be edited or modules can be removed from database
+  parameter "all" added for all functions or areas in modules (extra "PagEd" for all areas in PagEd except newingress & newrelatedlinks)
+
+Scribite Version 1.2 (.8)
+  added slv language - thanks to Blaz Carli
+  code improvements
+  fixed bug in pagesetter files (xinha pagesetter plugins returns no links)
+  moved javascripts from /modules/Scribite/includes to /javascript for security reasons in pn.8 (/modules/.htaccess !)
+  xinha
+  change xinha to compressed version in order to save space
+  removed some buggy plugins from package
+  support for FCKeditor (v2.4, Build 1148)
+
+Scribite Version 1.1
+  added nld language files (many thanks to arjen tebbenhoff)
+  added xinha plugin for folder module from elfisk.dk
+  new xinha (rev.739)
+  added new modules: element, ContentExpress
+  NOC bugfixes: 4064, 4066, 4069
+  added new modifier modifier.makeParagraph.php from kaffeeringe.de in order to set none "paragraphed" text into p-tags
+  since text from textareas where no ENTER has been pressed has no p-tags
+
+Scribite Version 1.0
+  bugfixes and code improvements
+  included tabber.js script by Patrick Fitzgerald (http://www.barelyfitz.com/projects/tabber/)
+  new xinha scripts (rev647) included
+  new parameters in administration available
+  added configurations for some plugins in "pntemplates/xinha_editorheader.html"
+  support for TinyMCE (v2.0.9)
+  only allowed html is processed in editor
+  some parameters available in administration
+  extra template "pntemplates/tinymce_editorheader.html"
+  added new modules: pnweblog
+  added turkish language files (many thanks to tuerkyilmaz from http://www.cakiragakoyu.de/)
+  !!! changed permissions to COMMENT !!!
+
+(xinha) Version 1.0
+  bugfixes
+  new xinha nightly build (rev607) included
+  new plugin-call via pnRender-Template
+  new xinha plugin for mediashare
+  completely new Admin-Interface
+  3 toolbar modes (full/reduced/mini)
+  toolbar modes are defined in seperate templates
+  xinha-plugins can be switched on/off in Administration - deleted some modules, where's no use for it in Zikula
+  modules can be switched on/off in Administration. Only installed modules are shown
+  "out of the box" support for AddStory, Submit_News, Admin_Messages, htmlpages, pnMessages, pnForum, Mailer and PagEd (>1.x)
+  "hacked" support for FAQ, Reviews, Sections and Settings (footer) in pn version <.764
+  "hacked" support for PagEd (v0.931), pagesetter (v6.2.0/6.3.x), PostCalendar (4.0.2 CVS) and pncommerce(ItemDescription).
+  -> See pndocs/modules.txt for further information
+  pnconfig/editor.css added to config xinha-styles in editor
+  pnconfig/DynamicCSS.css added to use for DynamicCSS plugin styles
+
+(xinha) Version 660 (developer edition, perhaps a few installations)
+  minor fixes in pnRender-Plugin
+  new xinha nightly build included
+  added: permission EDIT required for editor
+  added: Support for PagEd, Pagesetter
+  new xinha plugin for pagesetter and photoshare
+  choosable skin
+
+(xinha) Version 261 - initial version from Andreas Krapohl (larsneo)

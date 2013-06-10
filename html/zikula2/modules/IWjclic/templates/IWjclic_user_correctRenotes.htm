@@ -1,0 +1,25 @@
+{if $do eq 'print'}
+<div id="correct_renotes_{$session.uid}">
+    {if $session.renotes neq ''}
+    <div style="background-color: #ffffaf; padding: 3px; margin: 3px;">
+        {$session.renotes|nl2br|safehtml|replace:"|per|":"%"|replace:"|par|":"#"|replace:"|int|":"?"|replace:"|amp|":"&"}
+    </div>
+    {/if}
+</div>
+{/if}
+
+{if $do eq 'edit'}
+<form name="submitValueFormR_{$uid}" id="submitValueFormR_{$uid}" class="z-form" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+    <input type="hidden" name="jid" value="{$jid}" />
+    <input type="hidden" name="uid" value="{$uid}" />
+    <input type="hidden" name="toDo" value="renotes" />
+    <textarea name="renotes" style="width: 98%;">{$content|replace:"|per|":"%"|replace:"|int|":"?"|replace:"|amp|":"&"}</textarea>
+    <div style="text-align: right;">
+        <a onClick="javascript:submitValue({$jid},{$uid},'renotes');" title="{gt text='Send'}">
+            {img modname='core' src='button_ok.png' set='icons/small'}
+            {gt text="Send"}
+        </a>
+    </div>
+</form>
+{/if}

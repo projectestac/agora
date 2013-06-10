@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-25 14:15+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: version.php:14
+msgid "iw_bluegrace_agora"
+msgstr ""
+
+#: version.php:15
+msgid "Intraweb Bluegrace Àgora"
+msgstr ""
+
+#: version.php:16
+msgid ""
+"Theme developed by the Intraweb project staff for the Agora-intranet service"
+msgstr ""
+
+#: templates/admin.htm:29 templates/master.htm:29 templates/home.htm:29
+msgid "Home"
+msgstr ""
+
+#: templates/admin.htm:30 templates/master.htm:30 templates/home.htm:30
+msgid "Search"
+msgstr ""
+
+#: templates/admin.htm:32 templates/master.htm:32 templates/home.htm:32
+msgid "Account Panel"
+msgstr ""
+
+#: templates/admin.htm:33 templates/master.htm:33 templates/home.htm:33
+msgid "Log out"
+msgstr ""
+
+#: templates/admin.htm:62 templates/master.htm:68 templates/home.htm:72
+msgid "Powered by"
+msgstr ""
+
+#: templates/modules/News/news_user_articlecontent.htm:12
+#: templates/modules/News/news_user_index.htm:25
+msgid "Posted by"
+msgstr ""
+
+#: templates/modules/News/news_user_articlecontent.htm:12
+#: templates/modules/News/news_user_index.htm:25
+msgid "on"
+msgstr ""
+
+#: templates/modules/News/news_user_articlecontent.htm:21
+#: templates/modules/News/news_user_index.htm:19
+msgid "reads"
+msgstr ""

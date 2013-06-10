@@ -1,0 +1,428 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-21 21:08+0000\n"
+"PO-Revision-Date: 2013-06-03 09:27+0100\n"
+"Last-Translator: intraweb <intraweb@xtec.cat>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: bootstrap.php:16
+msgid "Fatal error: SimplePie system plugin is not available"
+msgstr "El connector SimplePie no està disponible"
+
+#: lib/Feeds/Api/User.php:70
+#: lib/Feeds/Api/Search.php:65
+#: lib/Feeds/Api/Search.php:92
+msgid "Error! Could not load any Feed."
+msgstr "No s'ha pogut carregar la font de notícies."
+
+#: lib/Feeds/Api/Admin.php:31
+#: lib/Feeds/Api/Admin.php:117
+msgid "The provided URL is too long (200 chars max.)."
+msgstr "La URL donada és massa marga (200 caràcters com a màxim)."
+
+#: lib/Feeds/Api/Admin.php:37
+#: lib/Feeds/Api/Admin.php:123
+msgid "Invalid protocol selected. Only http and https are allowed."
+msgstr "El protocol escollit no és vàlid. Només estan permesos els protocols http i https."
+
+#: lib/Feeds/Api/Admin.php:46
+msgid "Error! Creation attempt failed."
+msgstr "L'intent de creació a fallat."
+
+#: lib/Feeds/Api/Admin.php:69
+#: lib/Feeds/Api/Admin.php:104
+#: lib/Feeds/Controller/Admin.php:82
+#: lib/Feeds/Controller/Admin.php:143
+msgid "No such Feed found."
+msgstr "No s'ha trobat la font de notícies"
+
+#: lib/Feeds/Api/Admin.php:78
+msgid "Error! Deletion attempt failed."
+msgstr "L'intent d'esborrament ha fallat."
+
+#: lib/Feeds/Api/Admin.php:132
+#: lib/Feeds/Installer.php:80
+#: lib/Feeds/Installer.php:87
+#: lib/Feeds/Installer.php:100
+#: lib/Feeds/Installer.php:111
+msgid "Error! Update attempt failed."
+msgstr "L'intent d'edició ha fallat."
+
+#: lib/Feeds/Api/Admin.php:199
+msgid "List Feeds"
+msgstr "Llista de fonts de notícies"
+
+#: lib/Feeds/Api/Admin.php:205
+msgid "Create a Feed"
+msgstr "Crea una font de notícies nova"
+
+#: lib/Feeds/Api/Admin.php:211
+msgid "Purge PermaLinks"
+msgstr "Purga els enllaços permanents"
+
+#: lib/Feeds/Api/Admin.php:215
+#: templates/admin/modifyconfig.tpl:4
+msgid "Settings"
+msgstr "Configuració"
+
+#: lib/Feeds/Installer.php:39
+msgid "Warning! Could not create the default Feeds category tree. If you want to use categorisation with Feeds, register at least one property for the module in the Category Registry."
+msgstr "Atenció! No s'ha pogut crear l'arbre de categories per defecte. Si voleu fer ús de les categories a les fonts de notícies, registreu almenys una propietat per al mòdul en el registre de categories."
+
+#: lib/Feeds/Installer.php:195
+#: lib/Feeds/Version.php:14
+#: templates/search/options.tpl:3
+msgid "Feeds"
+msgstr "Fonts de notícies"
+
+#: lib/Feeds/Installer.php:196
+msgid "Feed Reader."
+msgstr "Lector de fonts de notícies."
+
+#: lib/Feeds/Controller/User.php:71
+#: lib/Feeds/Controller/User.php:227
+#: lib/Feeds/Controller/User.php:255
+msgid "Invalid category"
+msgstr "La categoria no és vàlida"
+
+#: lib/Feeds/Controller/User.php:110
+#: lib/Feeds/Controller/User.php:263
+#: lib/Feeds/Controller/User.php:319
+#: templates/admin/view.tpl:75
+msgid "No Feeds found."
+msgstr "No s'han trobat fonts de notícies."
+
+#: lib/Feeds/Controller/User.php:178
+msgid "Error! Could not load any Feeds."
+msgstr "No s'ha pogut carregar cap font de notícies."
+
+#: lib/Feeds/Controller/User.php:313
+msgid "Incorrect Key given. No update performed."
+msgstr "La clau donada no és correcta. No s'ha pogut actualitzar."
+
+#: lib/Feeds/Controller/User.php:338
+msgid "Items updated in Feed cache"
+msgstr "Els ítems han estat actualitzats a la memòria cau de les fonts de notícies"
+
+#: lib/Feeds/Controller/User.php:340
+msgid "Error"
+msgstr "Error"
+
+#: lib/Feeds/Controller/Admin.php:57
+msgid "Done! Feed created."
+msgstr "S'ha creat la font de notícies."
+
+#: lib/Feeds/Controller/Admin.php:119
+msgid "Done! Feed updated."
+msgstr "S'ha actualitzat la font de notícies."
+
+#: lib/Feeds/Controller/Admin.php:165
+msgid "Done! Feed deleted."
+msgstr "S'ha esborrat la font de notícies."
+
+#: lib/Feeds/Controller/Admin.php:186
+msgid "Purging of the pemalinks was successful"
+msgstr "La purga dels enllaços permanents s'ha portat a terme correctament"
+
+#: lib/Feeds/Controller/Admin.php:188
+msgid "Purging of the pemalinks has failed"
+msgstr "La purga dels enllaços permanents ha fallat"
+
+#: lib/Feeds/Controller/Admin.php:238
+msgid "Edit"
+msgstr "Edita"
+
+#: lib/Feeds/Controller/Admin.php:243
+msgid "Delete"
+msgstr "Esborra"
+
+#: lib/Feeds/Controller/Admin.php:329
+msgid "Done! Module configuration updated."
+msgstr "S'ha actualitzat la configuració del mòdul."
+
+#: lib/Feeds/Version.php:15
+msgid "The Feeds module provides a feed reader to your website."
+msgstr "El mòdul de fonts de notícies proporciona un lector de fonts de notícies per el teu lloc web."
+
+#. !module name that appears in URL
+#: lib/Feeds/Version.php:16
+msgid "feeds"
+msgstr "fonts de notícies"
+
+#: lib/Feeds/Block/Displayfeed.php:28
+msgid "Display feed"
+msgstr "Mostra la font de notícies"
+
+#: lib/Feeds/Block/Displayfeed.php:29
+msgid "Show a feed item"
+msgstr "Mostra un ítem de la font de notícies"
+
+#: templates/admin/newfeed.tpl:4
+msgid "Create a feed"
+msgstr "Crea una font de notícies"
+
+#: templates/admin/newfeed.tpl:10
+msgid "New Feed"
+msgstr "Nova font de notícies"
+
+#: templates/admin/newfeed.tpl:13
+#: templates/admin/modify.tpl:14
+#: templates/admin/view.tpl:47
+msgid "Name"
+msgstr "Nom"
+
+#: templates/admin/newfeed.tpl:17
+#: templates/admin/modify.tpl:35
+msgid "PermaLink URL title"
+msgstr "Títol de la URL de l'enllaç permanent"
+
+#: templates/admin/newfeed.tpl:19
+#: templates/admin/modify.tpl:37
+msgid "(Blank = auto-generate)"
+msgstr "(Blanc = auto generat)"
+
+#: templates/admin/newfeed.tpl:23
+#: templates/admin/modify.tpl:19
+#: templates/admin/view.tpl:12
+#: templates/admin/view.tpl:50
+msgid "Category"
+msgstr "Categoria"
+
+#: templates/admin/newfeed.tpl:24
+#: templates/admin/modify.tpl:20
+#: templates/admin/view.tpl:13
+msgid "Choose a category"
+msgstr "Trieu una categoria"
+
+#: templates/admin/newfeed.tpl:33
+#: templates/admin/modify.tpl:40
+#: templates/admin/view.tpl:48
+#: templates/user/display.tpl:21
+msgid "URL"
+msgstr "URL"
+
+#: templates/admin/newfeed.tpl:39
+#: templates/admin/modify.tpl:57
+#: templates/admin/modifyconfig.tpl:64
+msgid "Save"
+msgstr "Desa"
+
+#: templates/admin/newfeed.tpl:40
+#: templates/admin/modify.tpl:58
+#: templates/admin/delete.tpl:16
+#: templates/admin/modifyconfig.tpl:65
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: templates/admin/modify.tpl:4
+msgid "Update feed"
+msgstr "Actualitza la font de notícies"
+
+#: templates/admin/modify.tpl:12
+msgid "Content"
+msgstr "Contingut"
+
+#: templates/admin/modify.tpl:45
+msgid "Meta data"
+msgstr "Meta dada"
+
+#: templates/admin/modify.tpl:48
+#, php-format
+msgid "Created by %s"
+msgstr "Creat per %s"
+
+#: templates/admin/modify.tpl:49
+#, php-format
+msgid "Created on %s"
+msgstr "Creat el %s"
+
+#: templates/admin/modify.tpl:51
+#, php-format
+msgid "Last update by %s"
+msgstr "Darrera actualització per %s"
+
+#: templates/admin/modify.tpl:52
+#, php-format
+msgid "Updated on %s"
+msgstr "Actualitzada el %s"
+
+#: templates/admin/view.tpl:5
+msgid "View feeds"
+msgstr "Mostra les fonts de notícies"
+
+#: templates/admin/view.tpl:36
+msgid "Filter"
+msgstr "Filtra"
+
+#: templates/admin/view.tpl:37
+msgid "Reset"
+msgstr "Fes reset"
+
+#: templates/admin/view.tpl:52
+msgid "Actions"
+msgstr "Accions"
+
+#: templates/admin/delete.tpl:4
+msgid "Delete feed"
+msgstr "Esborra la font de notícies"
+
+#: templates/admin/delete.tpl:14
+msgid "Do you really want to delete this Feed?"
+msgstr "Voleu realment esborrar aquesta font de notícies?"
+
+#: templates/admin/delete.tpl:15
+msgid "Confirm deletion?"
+msgstr "Confirmeu l'esborrament"
+
+#: templates/admin/modifyconfig.tpl:11
+msgid "General Settings"
+msgstr "Configuracions generals"
+
+#: templates/admin/modifyconfig.tpl:13
+msgid "Enable categorization"
+msgstr "Habilita la categorització"
+
+#: templates/admin/modifyconfig.tpl:17
+msgid "Display item names in bold"
+msgstr "Mostra els noms dels ítems en negreta"
+
+#: templates/admin/modifyconfig.tpl:21
+msgid "Open links in new browser window"
+msgstr "Obre els enllaços en una finestra nova del navegador"
+
+#: templates/admin/modifyconfig.tpl:25
+msgid "Items per page"
+msgstr "Ítemps per pàgina"
+
+#: templates/admin/modifyconfig.tpl:29
+msgid "Number of feeds to list per page"
+msgstr "Nombre de fonts de notícies a mostrar per pàgina"
+
+#: templates/admin/modifyconfig.tpl:33
+msgid "Maximum items to add per feed"
+msgstr "Nombre màxims d'ítems a afegir per font de notícies"
+
+#: templates/admin/modifyconfig.tpl:35
+msgid "for combined feeds (0 to add all)"
+msgstr "per a les fonts de notícies combinades (0 per afegir-les totes)"
+
+#: templates/admin/modifyconfig.tpl:39
+msgid "Cache Settings"
+msgstr "Configuració de la memòria cau"
+
+#: templates/admin/modifyconfig.tpl:41
+msgid "Cache directory for feeds"
+msgstr "Directori de la memòria cau per a les notícies"
+
+#: templates/admin/modifyconfig.tpl:43
+#, php-format
+msgid "(relative to [%s])"
+msgstr "(relatiu a [%s])"
+
+#: templates/admin/modifyconfig.tpl:46
+msgid "Cache interval for feeds"
+msgstr "Interval de la memòria cau per a la font de notícies"
+
+#: templates/admin/modifyconfig.tpl:48
+msgid "in seconds (3600 = 1 hour)"
+msgstr "en segons (3600 = 1 hora)"
+
+#: templates/admin/modifyconfig.tpl:52
+msgid "Cron Job Settings"
+msgstr "Configuració de la feina del cron"
+
+#: templates/admin/modifyconfig.tpl:54
+msgid "Using a Cron Job to update the cache"
+msgstr "Fer ús d'un cron per actualitzar la memòria cau"
+
+#: templates/admin/modifyconfig.tpl:56
+msgid "(see instructions)"
+msgstr "(mireu les instruccions)"
+
+#: templates/admin/modifyconfig.tpl:59
+msgid "Link for using a Cron Job"
+msgstr "Enllaç per fer ús d¡un cron"
+
+#: templates/user/display.tpl:17
+#: templates/block/displayfeed_modify.tpl:2
+msgid "Feed"
+msgstr "Font de notícies"
+
+#: templates/user/display.tpl:40
+#: templates/user/category.tpl:37
+#, php-format
+msgid "by %s"
+msgstr "per %s"
+
+#: templates/user/display.tpl:46
+#: templates/user/category.tpl:44
+msgid "Read more"
+msgstr "Llegeix més"
+
+#: templates/user/category.tpl:7
+#: templates/user/category.tpl:9
+#: templates/user/view.tpl:26
+#, php-format
+msgid "Category: %s"
+msgstr "Categoria: %s"
+
+#: templates/user/view.tpl:5
+#, php-format
+msgid "Welcome to the Feeds of %s"
+msgstr "Benvingut/da a la font de notícies per %s"
+
+#: templates/user/view.tpl:8
+msgid "Choose a category to see the Feeds that belongs to it"
+msgstr "Escolliu una categoria per veure a la font de notícies a la qual pertany"
+
+#: templates/user/view.tpl:29
+msgid "The Feeds of this category are as follows:"
+msgstr "Les fonts de notícies d'aquesta categoria són les següents:"
+
+#: templates/user/view.tpl:31
+msgid "View all feeds"
+msgstr "Mostra totes les fonts de notícies"
+
+#: templates/user/view.tpl:34
+msgid "Feeds list"
+msgstr "Llista de les fonts de notícies"
+
+#: templates/user/view.tpl:37
+msgid "Available feeds"
+msgstr "Fonts de notícies habilitades"
+
+#: templates/block/displayfeed_modify.tpl:9
+msgid "Display feed image"
+msgstr "Mostra la imatge de la font de notícies"
+
+#: templates/block/displayfeed_modify.tpl:11
+#: templates/block/displayfeed_modify.tpl:17
+msgid "(if available in feed)"
+msgstr "(si està disponible a la font de notícies)"
+
+#: templates/block/displayfeed_modify.tpl:15
+msgid "Display feed description"
+msgstr "Mostra la descripció de la font de notícies"
+
+#: templates/block/displayfeed_modify.tpl:21
+msgid "Use alternate layout"
+msgstr "Fes ús d'una sortida alternativa"
+
+#: templates/block/displayfeed_modify.tpl:26
+msgid "Number of items to display"
+msgstr "Nombre d'ítems a mostrar"
+
+#: templates/block/displayfeed_modify.tpl:28
+msgid "(upto the maximum supplied by the feed or -1 for all items)"
+msgstr "(indiqueu el màxim suportat per la font de notícies o -1 per tots els ítems)"
+

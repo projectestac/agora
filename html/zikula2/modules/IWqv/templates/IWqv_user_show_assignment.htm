@@ -1,0 +1,24 @@
+{include file="IWqv_user_menu.htm"}
+{ajaxheader modname=IWqv filename=IWqv.js}
+<div id="assignment_{$qv.qvid}" class="assignment">
+    <h2>{$qv.title}</h2>
+    <p class="iwqv_meta">
+        {gt text="Assigned for %s at %s" tag1=$qv.teachername tag2=$qv.briefcrdate}
+    </p>			
+    {$qv.description|nl2br}
+    {if $qv.target eq 'self'}
+    <iframe src='{$assignment.fullurl}' title='{gt text="Quaderns Virtuals"}' width='{$qv.width}' height='{$qv.height}'></iframe>
+    {else}
+    <div>
+        <br>
+        <a href='#' onclick='window.open("{$assignment.fullurl}", "iwqv","toolbar=no,status=no,scrollbars=yes,resizable=yes,width={$qv.width},height={$qv.height}");'>
+            {gt text="Start the assessment"}
+        </a>
+    </div>
+    {/if}
+    {if $assignment.teachercomments neq ''}
+    <br><br>
+    <strong>{gt text="Teacher comments"}</strong><br>
+    {$assignment.teachercomments|nl2br}
+    {/if}
+</div>

@@ -1,0 +1,123 @@
+/*ADMIN*/
+.IWdocmanager_item{
+    clear: both;
+    width: 97%;
+    float: left;
+    border-bottom: 1px solid #555;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+#IWdocmanager_admin .IWdocmanager_active{
+    border-left: 10px solid #BBFFBB;
+}
+
+#IWdocmanager_admin .IWdocmanager_inactive{
+    border-left: 10px solid #FFBBBB;
+}
+
+#IWdocmanager_admin div{
+    background-color: inherit;	
+}
+#IWdocmanager_admin .IWdocmanager_left{
+    width: auto;
+    float: left;
+}
+
+#IWdocmanager_admin .IWdocmanager_level, #IWdocmanager_admin .IWdocmanager_main{
+    float: left;
+    padding-left: 5px;
+    height: auto;
+}
+
+.IWdocmanager_description{
+    font-style:italic;
+    max-width: 430px;
+}
+
+.IWdocmanager_groups {
+    padding-left:1em;
+    float: right;
+    width: 170px;
+}
+
+.IWdocmanager_groupsAdd {
+    padding-left:1em;
+    float: right;
+    width: 170px;
+}
+
+.IWdocmanager_actions{
+    float: right;
+    width:auto;
+    width: 70px;
+}
+
+.IWdocmanager_categoryId {
+    float: left;
+    width: 20px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.IWdocmanager_documentOrigin {
+padding: 15px;
+background-color: #BBFFBB;
+border: 1px dotted #aa0000;
+}
+
+.categoryNameList{
+    float: left;
+    max-width: 330px;
+}
+
+.categoryDescriptionList{
+    float: right;
+    width: 500px;
+    padding-right: 7px;
+}
+
+.categorynDocumentsList {
+    float: right;
+    width: 70px;
+}
+
+.categoryListRow{
+    background-color: #BBFFBB;
+    border-bottom: 1px solid #777;
+    padding: 7px;
+}
+
+.notValiatedDocument {
+    background-color: #FFBBBB;
+}
+
+#IWdocmanager_admin .tablehead {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    background-color: #777;
+    height: 30px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.categoryListTitle {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    background-color: #777;
+    height: 40px;
+    font-weight: bold;
+    color: #fff;
+    padding-right: 7px;
+}
+
+.notValidatedLabel{
+    color: #aa0000;
+    font-style: italic;
+    margin-top: 7px;
+}
+
+.tableCellTop{
+    vertical-align: top !important;
+    padding: 5px;
+}

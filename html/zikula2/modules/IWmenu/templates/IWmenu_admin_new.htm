@@ -1,0 +1,111 @@
+{include file="IWmenu_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='filenew.png' set='icons/large' __alt=''}</div>
+    <h2>{$accio}</h2>
+    <form  class="z-form" enctype="multipart/form-data" method="post" id="new_menu">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="mid" value="{$mid}" />
+        <input type="hidden" name="m" value="{$m}" />
+        <input type="hidden" name="id_parent" value="{$record.id_parent}" />
+        <div class="z-formrow">
+            <label for="text">{gt text="Text of the option"}</label>
+            {foreach  item=lang from=$languages}
+            <div class="z-formnote">
+                {$lang} => <input type="text" name="text[{$lang}]" maxlength="50" value="{$record.text[$lang]}" />
+            </div>
+            {/foreach}
+        </div>
+        <div class="z-formrow">
+            <label for="url">{gt text="URL"}</label>
+            {foreach  item=lang from=$languages}
+            <div class="z-formnote">
+                {$lang} => <input type="text" name="url[{$lang}]" maxlength="250" value="{$record.url[$lang]}" />
+            </div>
+            {/foreach}
+        </div>
+        <div class="z-formrow">
+            <label for="descriu">{gt text="Description"}</label>
+            <input id="descriu" type="text" name="descriu" size="50" maxlength="200" value="{$record.descriu}" />
+        </div>
+        {if $m eq "n"}
+        <div class="z-formrow">
+            <label for="grup">{gt text="Group that can access the option"}</label>
+            <select id="grup" name="grup">
+                {foreach item="group" from="$grups"}
+                {if $record.grup eq $group.id}
+                {assign var=selected value="selected"}
+                {else}
+                {assign var=selected value=""}
+                {/if}
+                <option value="{$group.id}" {$selected}>{$group.name}</option>
+                {/foreach}
+            </select>
+        </div>
+        {/if}
+        <div class="z-formrow">
+            <label for="target">{gt text="Link target"}</label>
+            <select id="target" name="target">
+                {if $record.target eq 0}
+                <option selected="selected" value="0">{gt text="In the Same window"}</option>
+                {else}
+                <option value="0">{gt text="In the Same window"}</option>
+                {/if}
+                {if $record.target eq 1}
+                <option selected="selected" value="1">{gt text="In a new window"}</option>
+                {else}
+                <option value="1">{gt text="In a new window"}</option>
+                {/if}
+                {if $iwwebbox}
+                {if $record.target eq 2}
+                <option selected="selected" value="2">{gt text="Within the webbox"}</option>
+                {else}
+                <option value="2">{gt text="Within the webbox"}</option>
+                {/if}
+                {/if}
+            </select>
+        </div>
+        <div class="z-formrow">
+            <label for="icon">{gt text="Icon"}</label>
+            {if $record.icon neq ''}
+            <input id="icon" type="hidden" name="iconEdited" value="{$record.icon}" />
+            {if $folder}
+            <span>
+                <img src={$baseurl}{modurl modname='IWmenu' type='user' func='getFile' fileName=$imagePath} alt="" />
+                <input type="checkbox" name="deleteIcon" value="1" />{gt text="Delete icon"}
+            </span>
+            {else}
+            <div class="z-errormsg">
+                {gt text="The icons are not possible. Please, check the module settings."}
+            </div>
+            {/if}
+            {else}
+            {if $folder}
+            <input type="file" name="icon" />
+            {else}
+            <div class="z-formnote z-errormsg">
+                {gt text="The icons are not possible. Please, check the module settings."}
+            </div>
+            {/if}
+            {/if}
+        </div>
+        <div class="z-formrow">
+            {if isset($record.active) AND $record.active}
+            {assign var=checked value="checked"}
+            {else}
+            {assign var=checked value=""}
+            {/if}
+            <label for="active">{gt text="State (Active/Inactive)"}</label>
+            <input id="active" type="checkbox" value="1" name="active" {$checked} />
+        </div>
+        <div class="z-center">
+            <div class="z-buttons">
+                <a onClick="javascript:sendNewItem()" title="{$acciosubmit}">
+                    {img modname='core' src='button_ok.png' set='icons/small'} {$acciosubmit}
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+<script language="javascript">
+    var NoText = "{{gt text="You have not written the text of the option of the menu"}}";
+</script>

@@ -1,0 +1,2 @@
+// Copyright Zikula Foundation 2010 - license GNU/LGPLv3 (or at your option, any later version).
+document.observe("dom:loaded",mailer_testconfig_init);function mailer_testconfig_init(){$("message_type").on("click","input",mailer_msgtype_onclick);mailer_msgtype_onclick()}function mailer_msgtype_onclick(){var c=$$("[name=msgtype]:checked"),d=c&&c[0]?c[0].getValue():null,a=$("mailer_body_div"),b=$("mailer_textbody_div");switch(d){case"html":a.show();b.hide();break;case"multipart":a.show();b.show();break;default:a.hide();b.show()}};

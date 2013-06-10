@@ -1,0 +1,305 @@
+<script type="text/javascript">
+    function show_frames()
+    {
+        $('frames_link').hide();
+        $('frames').show();
+    }
+
+    function hide_frames()
+    {
+        $('frames_link').show();
+        $('frames').hide();
+    }
+
+    function change_frame(frame)
+    {
+        if ($('chk_'+frame).checked){
+            newframe = ++frame;
+            if ($('chk_'+newframe) != undefined){
+                $('chk_'+newframe).enable();
+                $('frame_'+newframe).style.fontStyle = 'normal';
+            }
+          
+        }else{
+            newframe = ++frame;
+            while ($('chk_'+newframe) != undefined){
+                $('chk_'+newframe).disable();
+                $('chk_'+newframe).checked = false;
+                $('frame_'+newframe).style.fontStyle = 'italic';
+                newframe = ++frame;
+            }
+        }
+        add_frames($('period_fix').value);
+    }
+
+
+    function add_frames(bydefault){
+  
+        empty = true;
+        frame = 0;
+        next = true;
+        actual = $F('hora');
+        start_time = actual.substr(0,5);
+        finish_time = actual.substr(8,5);
+        while (($('chk_'+frame) != undefined)&&(next == true)){
+            if ($('chk_'+frame).checked){
+                empty = false;
+                finish_time = $F('chk_'+frame);
+                finish_time = finish_time.substr(8,5);
+            }else{
+                next = false;
+            }
+            ++frame;
+        }
+        if (empty == true){
+            time = bydefault;
+        }else{
+            time = start_time+' - '+finish_time;
+        }
+        $('hora').value = time;        
+        $('period').update(time);
+    }
+</script>
+
+<div align="center">
+    <form name="frm_assign" action="index.php?module=IWbookings&func=reserva" method="post">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type = "hidden" name="sid" value="{$sid}" />
+        <input type = "hidden" name="fh" value="{$fh}" />
+        <input type = "hidden" name="dow" value="{$dayofweek}" />
+        <strong><i>{gt text="Form for bookings"}</i></strong>
+        <table style = "background-color: #CCCCFF; border:1px dotted" cellpadding="5" cellspacing="5" >
+            <!-- **************************************** -->
+            {if !empty($sot)}<!-- The user has click the link in the booking table -->		
+            <input name="hora" id="hora" value="{$period}" type="hidden" />
+            <input name="dia" value="{$dayofweek1}" type="hidden" />
+            <input name="bookingDate" value="{$bookingDate}" type="hidden" />
+            <input name="period_fix" id ="period_fix" value="{$period}" type="hidden" />
+            <tr>
+                <td align="right">
+                    <b>{gt text="Booking day: "}</b></td><td>{$diasetmana}, {$bookingDate}
+                </td>
+                <td>&nbsp;</td>
+                <td align="right">
+                    <b>{gt text="Owner of the booking: "}</b>
+                </td>
+                <td>
+                    {if !empty($professorat)}
+                    <select name="user">
+                        {section name=profe loop=$professorat}
+                        <option value="{$professorat[profe].id}">{$professorat[profe].name}</option>
+                        {/section}
+                    </select>
+                    {else}
+                    {$username}
+                    <input type = "hidden" name="user" value="{$user}" >
+                    {/if}
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>{gt text="Time: "}</b>
+                </td>
+                <td>
+                    <span id="period">{$period}</span>
+                    <br />
+                    <a style="font-size:x-small;" id="frames_link" href="#" onclick="show_frames()">
+                        {gt text="+ Add time frames"}
+                    </a>
+                    <div id="frames" style="display:none;">
+                        {foreach from=$extra_frames item=franja}
+                        {if $franja.name neq $period}
+                        {if $franja.pos eq '0'}
+                        <div id="frame_{$franja.pos}">
+                            <input type="checkbox" id="chk_{$franja.pos}" name="frame" value="{$franja.id}" onclick="change_frame({$franja.pos})" />&nbsp;{$franja.name}
+                        </div>
+                        {else}
+                        <div id="frame_{$franja.pos}" style="font-style:italic;">
+                            <input type="checkbox" id="chk_{$franja.pos}" name="frame" value="{$franja.id}" onclick="change_frame({$franja.pos})" disabled="true" />
+                            {$franja.name}
+                        </div>
+                        {/if}
+                        {/if}
+                        {/foreach}
+                        <a style="font-size:x-small;" href="#" onclick="hide_frames()">{gt text="Hide frame selection"}</a>
+                    </div>
+                </td>
+                <td>&nbsp;</td>
+                <td align="right">
+                    <b>{gt text="Group: "}</b>
+                </td>
+                <td>
+                    <input tabindex="1" type="text" name="group" size="18" maxlength="18" value="{if isset($grup)}{$grup}{/if}" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="bottom">
+                    <b>{gt text="End of the booking"}</b>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td align="right">
+                    <b>{gt text="Reason for booking"}</b>
+                </td>
+                <td>
+                    <textarea rows="1" cols="35" name="reason"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="book_end" value="weeks" checked />
+                    {gt text="Repeat next weeks"}
+                </td>
+                <td>
+                    <input type="text" name="nsessions" size="2" maxlength="2" value="1" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="book_end" value="date" />
+                    {gt text="Finish date"}
+                </td>
+                <td>
+                    <input type="text" size="7" name="date_input" id="date_input" />
+                </td>
+            </tr>
+            {else}
+            <!-- **************************************** --><!-- The user uses the form to fill the booking information -->
+            <tr>
+                <td align="right" >
+                    <b>{gt text="Day of the week: "}</b>
+                </td>
+                <td align="left" >
+                    <select name="bookingDate">
+                        {section name=dia loop=$dia}
+                        <option value="{$dates[dia]}">
+                            {$dia[dia].name} {$dates[dia]}
+                        </option>
+                        {/section}
+                    </select>
+                <td>
+            </tr>
+            <tr>
+                {if !empty($franges)}
+                <td align="right">
+                    <b>{gt text="Time: "}</b>
+                </td>
+                <td align="left">
+                    <select name="hora">
+                        {section name=hora loop=$franges}
+                        <option {if $period eq $franges[hora].id}selected{/if}value="{$franges[hora].id}" >
+                            {$franges[hora].name}
+                    </option>
+                    {/section}
+                </select>
+            </td>
+            {else} 
+            {* ----------- No hi ha marc horari definit ----------- *}
+            <td align="right">
+                <b>{gt text="Start time: "}</b>
+            </td>
+            <td align="left">
+                <select name="inici_h">
+                    {section name=ih loop=$hora}
+                    <option {if $hora eq $hora[ih].id}selected{/if} value="{$hora[ih].name}">
+                        {$hora[ih].name}
+                </option>
+                {/section}
+            </select>
+            :
+            <select name="inici_m">
+                {section name=im loop=$minut}
+                <option {if $minut eq $minut[im].id}selected{/if}value="{$minut[im].name}">
+                    {$minut[im].name}
+            </option>
+            {/section}
+        </select>
+    </td>
+</tr>
+<tr>
+    <td align="right"><b>{gt text="Finish time: "}</b></td>
+    <td align="left">
+        <select name="final_h">
+            {section name=ih loop=$hora}
+            <option {if $hora eq $hora[ih].id}selected{/if} value="{$hora[ih].name}">
+                {$hora[ih].name}
+        </option>
+        {/section}
+    </select>
+    :
+    <select name="final_m">
+        {section name=im loop=$minut}
+        <option {if $minut eq $minut[im].id}selected{/if}value="{$minut[im].name}">
+            {$minut[im].name}
+    </option>
+    {/section}
+</select>
+</td>
+</tr>
+{/if}
+</tr>
+<tr>
+    <td align="right"><b>{gt text="Owner of the booking: "}</b></td>
+    <td>
+        {if !empty($professorat)}
+        <select name="user">
+            {section name=profe loop=$professorat}
+            <option value="{$professorat[profe].id}">
+                {$professorat[profe].name}
+            </option>
+            {/section}
+        </select>
+        {else}
+        {$username}
+        <input type = "hidden" name="user" value="{$user}" >
+        {/if}
+    </td>
+</tr>	
+<tr>
+    <td align="right">
+        <b>{gt text="Group: "}</b>
+    </td>
+    <td align="left">
+        <input type="text" name="group" size="18" maxlength="18" value="{if isset($grup)}{$grup}{/if}" />
+    </td>
+</tr>
+<tr>
+    <td valign="top"  align="right" >
+        <b>{gt text="Reason for booking"}:</b>
+    </td>
+    <td align="left">
+        <textarea rows="1" cols="35" name="reason"></textarea>
+    </td>
+</tr> 
+<tr>
+    <td align="right">
+        <b>{gt text="End of the booking"}</b>
+    </td>
+</tr>
+<tr>
+    <td>
+        <input type="radio" name="book_end" value="weeks" checked /> {gt text="Repeat next weeks"}
+    </td>
+    <td>
+        <input type="text" name="nsessions" size="2" maxlength="2" value="1" />
+    </td>
+</tr>
+<tr>
+    <td>
+        <input type="radio" name="book_end" value="date" /> {gt text="Finish date"}
+    </td>
+    <td>
+        <input type="text" size="7" name="date_input" id="date_input" />
+    </td>
+</tr>
+{/if}
+<tr>
+    <td colspan=5 align="center">
+        <input name="boto" value="{gt text="Make booking"}" type="submit">
+    </td>
+</tr>
+
+</table>
+</form>
+
+</div>

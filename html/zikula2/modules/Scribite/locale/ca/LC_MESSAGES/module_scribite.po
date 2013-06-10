@@ -1,0 +1,388 @@
+# scribite! for Zikula.
+# Copyright (C) 2009
+# This file is distributed under the same license as the scribite! package.
+# Sven Schomacker <hilope@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: Scribite 4.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-10-30 06:26-0400\n"
+"PO-Revision-Date: 2012-03-20 16:37+0100\n"
+"Last-Translator: intraweb <intraweb@xtec.cat>\n"
+"Language-Team: Intraweb <intraweb@xtec.act>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: pnadmin.php:81
+#: pnadmin.php:136
+#: pnadmin.php:207
+#: pnadmin.php:266
+#: pnadmin.php:325
+#: pnadmin.php:412
+#: pnadmin.php:476
+#: pnadmin.php:560
+#: pnadmin.php:622
+#: pnadmin.php:677
+msgid "Invalid 'authkey':  this probably means that you pressed the 'Back' button, or that the page 'authkey' expired. Please refresh the page and try again."
+msgstr "La clau d'autorització ('authkey') no és vàlida. Causes possibles d'aquest error són haver clicat el botó de tornar enrere del navegador, navegar simultàniament amb vàries pestanyes o un període llarg d'inactivitat. Torneu a carregar la pàgina i torneu-ho a provar."
+
+#: pnadmin.php:95
+#: pnadmin.php:101
+#: pnadmin.php:159
+#: pnadmin.php:227
+#: pnadmin.php:331
+#: pnadmin.php:335
+#: pnadmin.php:339
+#: pnadmin.php:344
+#: pnadmin.php:349
+#: pnadmin.php:354
+#: pnadmin.php:358
+#: pnadmin.php:362
+#: pnadmin.php:366
+#: pnadmin.php:373
+#: pnadmin.php:418
+#: pnadmin.php:423
+#: pnadmin.php:428
+#: pnadmin.php:482
+#: pnadmin.php:487
+#: pnadmin.php:491
+#: pnadmin.php:496
+#: pnadmin.php:501
+#: pnadmin.php:508
+#: pnadmin.php:512
+#: pnadmin.php:516
+#: pnadmin.php:566
+#: pnadmin.php:570
+#: pnadmin.php:575
+#: pnadmin.php:580
+#: pnadmin.php:584
+#: pnadmin.php:628
+#: pnadmin.php:632
+#: pnadmin.php:683
+#: pnadmin.php:687
+#: pnadmin.php:691
+#: pnadmin.php:695
+#: pnadmin.php:699
+#: pnadmin.php:703
+#: pnadminapi.php:66
+#: pnadminapi.php:92
+#: pnadminapi.php:120
+#: pnadminapi.php:142
+msgid "Configuration not updated"
+msgstr "No s'ha pogut actualitzar la configuració"
+
+#: pnadmin.php:106
+#: pnadmin.php:156
+#: pnadmin.php:224
+#: pnadmin.php:279
+#: pnadmin.php:378
+#: pnadmin.php:433
+#: pnadmin.php:521
+#: pnadmin.php:589
+#: pnadmin.php:637
+#: pnadmin.php:707
+msgid "Done! Module configuration updated."
+msgstr "S'ha actualitzat la configuració del mòdul"
+
+#: pnuser.php:79
+#: pnadminapi.php:62
+#: pnadminapi.php:82
+#: pnadminapi.php:109
+#: pnadminapi.php:137
+#: pnadminapi.php:158
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "No s'ha pogut carregar el que volíeu. Reviseu les dades."
+
+#: pnversion.php:18
+#: pnversion.php:19
+msgid "scribite"
+msgstr "scribite"
+
+#: pnadminapi.php:20
+msgid "Settings"
+msgstr "Configuració"
+
+#: pnadminapi.php:24
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+msgid "Xinha"
+msgstr "Xinha"
+
+#: pnadminapi.php:27
+#: pntemplates/scribite_admin_modifytinymce.htm:1
+msgid "TinyMCE"
+msgstr "TinyMCE"
+
+#: pnadminapi.php:30
+#: pntemplates/scribite_admin_modifyfckeditor.htm:1
+msgid "FCKeditor"
+msgstr "FCKeditor"
+
+#: pnadminapi.php:33
+#: pntemplates/scribite_admin_modifyopenwysiwyg.htm:1
+msgid "openWYSIWYG"
+msgstr "OpenWYSIWYG"
+
+#: pnadminapi.php:36
+#: pntemplates/scribite_admin_modifynicedit.htm:1
+msgid "NicEdit"
+msgstr "NicEdit"
+
+#: pnadminapi.php:45
+#: pntemplates/scribite_admin_modifyyui.htm:1
+msgid "YUI Editor"
+msgstr "Editor YUI"
+
+#: pninit.php:25
+#: pninit.php:128
+msgid "This version of scribite! only works with Zikula 1.2.x and higher. Please upgrade your Zikula version or use scribite! version 2.x or 3.x ."
+msgstr "Aquesta versió del mòdul scribite! només funciona amb Zikula 1.2.x o superior. Actualitzeu el vostre Zikula o utilitzeu scribite! 2.x o 3.x."
+
+#: pninit.php:30
+#: pninit.php:133
+msgid "Error creating Hook!"
+msgstr "No s'ha pogut crear el lligam!"
+
+#: pninit.php:33
+#: pninit.php:137
+msgid "<strong>scribite!</strong> was activated as core hook. You can check settings <a href=\"index.php?module=Modules&type=admin&func=hooks&id=0\">here</a>!<br />The template plugin from previous versions of scribite! can be removed from templates."
+msgstr "S'ha activat l'<strong>scribite!</strong> mitjançant un lligam del nucli. Podeu revisar la configuració des d'<a href=\"index.php?module=Modules&type=admin&func=hooks&id=0\">aquí</a>!<br />Podeu esborrar el connector de les plantilles utilitzat a les versions anteriors."
+
+#: pninit.php:107
+msgid "Error! Could not update module configuration."
+msgstr "No s'ha pogut actualitzar la configuració del mòdul."
+
+#: pninit.php:213
+msgid "Error deleting Hook!"
+msgstr "No s'ha pogut esborrar el lligam"
+
+#: pntemplates/scribite_admin_addmodule.htm:1
+msgid "Add module"
+msgstr "Afegeix un mòdul"
+
+#: pntemplates/scribite_admin_addmodule.htm:1
+msgid "module name"
+msgstr "nom del mòdul"
+
+#: pntemplates/scribite_admin_addmodule.htm:1
+#: pntemplates/scribite_admin_modifymodule.htm:1
+msgid "module functions (comma separated, \"all \" for all funcs)"
+msgstr "funcions del mòdul (separades per comes, \"all\" per a totes les funcions)"
+
+#: pntemplates/scribite_admin_addmodule.htm:1
+#: pntemplates/scribite_admin_modifymodule.htm:1
+msgid "textarea-ID's (comma separated, \"all\" for all areas)"
+msgstr "ID de les àrees de text que carregaran l'editor visual (separades per comes, \"all\" per a totes les àrees)"
+
+#: pntemplates/scribite_admin_addmodule.htm:1
+#: pntemplates/scribite_admin_modifymodule.htm:1
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+msgid "editor"
+msgstr "Editor"
+
+#: pntemplates/scribite_admin_addmodule.htm:1
+#: pntemplates/scribite_admin_modifytinymce.htm:1
+#: pntemplates/scribite_admin_modifynicedit.htm:1
+#: pntemplates/scribite_admin_modifyyui.htm:1
+#: pntemplates/scribite_admin_modifymodule.htm:1
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+#: pntemplates/scribite_admin_modifyfckeditor.htm:1
+#: pntemplates/scribite_admin_modifyopenwysiwyg.htm:1
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+#: pntemplates/scribite_admin_delmodule.htm:1
+msgid "Save Configuration"
+msgstr "Desa la configuració"
+
+#: pntemplates/scribite_admin_addmodule.htm:1
+#: pntemplates/scribite_admin_modifytinymce.htm:1
+#: pntemplates/scribite_admin_modifynicedit.htm:1
+#: pntemplates/scribite_admin_modifyyui.htm:1
+#: pntemplates/scribite_admin_modifymodule.htm:1
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+#: pntemplates/scribite_admin_modifyfckeditor.htm:1
+#: pntemplates/scribite_admin_modifyopenwysiwyg.htm:1
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+#: pntemplates/scribite_admin_delmodule.htm:1
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: pntemplates/scribite_admin_modifytinymce.htm:1
+#: pntemplates/scribite_admin_modifyfckeditor.htm:1
+msgid "Editorlanguage"
+msgstr "Idioma de l'editor"
+
+#: pntemplates/scribite_admin_modifytinymce.htm:1
+msgid "Theme"
+msgstr "Aparença"
+
+#: pntemplates/scribite_admin_modifytinymce.htm:1
+msgid "Date format"
+msgstr "Format de la data"
+
+#: pntemplates/scribite_admin_modifytinymce.htm:1
+msgid "Time format"
+msgstr "Format de l'hora"
+
+#: pntemplates/scribite_admin_modifytinymce.htm:1
+#: pntemplates/scribite_admin_modifyyui.htm:1
+#: pntemplates/scribite_admin_modifyfckeditor.htm:1
+#: pntemplates/scribite_admin_modifyopenwysiwyg.htm:1
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+msgid "Editor width and height"
+msgstr "Amplada i alçada de l'editor"
+
+#: pntemplates/scribite_admin_modifytinymce.htm:1
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+msgid "Editor-Stylesheet"
+msgstr "Full d'estils de l'editor"
+
+#: pntemplates/scribite_admin_modifytinymce.htm:1
+msgid "TinyMCE Plugins (<a href=\"http://wiki.moxiecode.com/index.php/TinyMCE:Plugins\" target=\"_blank\">documentation</a>)"
+msgstr "Connectors del TinyMCE (<a href=\"http://wiki.moxiecode.com/index.php/TinyMCE:Plugins\" target=\"_blank\">documentació</a>)"
+
+#: pntemplates/scribite_admin_modifynicedit.htm:1
+msgid "Full toolbar"
+msgstr "Barra d'eines completa"
+
+#: pntemplates/scribite_admin_modifynicedit.htm:1
+msgid "XHTML (experimental)"
+msgstr "XHTML (experimental)"
+
+#: pntemplates/scribite_admin_modifyyui.htm:1
+#: pntemplates/scribite_admin_modifyfckeditor.htm:1
+#: pntemplates/scribite_admin_modifyopenwysiwyg.htm:1
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+msgid "Toolbar"
+msgstr "Barra d'eines"
+
+#: pntemplates/scribite_admin_modifyyui.htm:1
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+msgid "Statusbar"
+msgstr "Mostra la barra d'estat"
+
+#: pntemplates/scribite_admin_modifyyui.htm:1
+msgid "Animation"
+msgstr "Animació"
+
+#: pntemplates/scribite_admin_modifyyui.htm:1
+msgid "Collapsable"
+msgstr "Plegable"
+
+#: pntemplates/scribite_admin_modifymodule.htm:1
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+msgid "edit module"
+msgstr "Edita un mòdul"
+
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+msgid "Warning"
+msgstr "Avís"
+
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+msgid "JS Quick Tags are activated.<br />For proper use you should deactivate this in Zikula Settings"
+msgstr "Les etiquetes de JS Quick estan activades. <br />Per assegurar el correcte funcionament les hauríeu de desactivar des de la configuració general del Zikula."
+
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+msgid "Version"
+msgstr "Versió"
+
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+msgid "Editorpath"
+msgstr "Ubicació dels editors"
+
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+msgid "Default editor"
+msgstr "Editor per defecte"
+
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+msgid "Modules"
+msgstr "Mòduls"
+
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+msgid "add module"
+msgstr "Afegeix un mòdul"
+
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+msgid "Module"
+msgstr "Mòdul"
+
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+msgid "Options"
+msgstr "Opcions"
+
+#: pntemplates/scribite_admin_modifyconfig.htm:1
+#: pntemplates/scribite_admin_delmodule.htm:1
+msgid "delete module"
+msgstr "Esborra un mòdul"
+
+#: pntemplates/scribite_admin_modifyfckeditor.htm:1
+msgid "automatic language"
+msgstr "Idioma automàtic"
+
+#: pntemplates/scribite_admin_modifyopenwysiwyg.htm:1
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+msgid "full"
+msgstr "Completa"
+
+#: pntemplates/scribite_admin_modifyopenwysiwyg.htm:1
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+msgid "reduced"
+msgstr "reduïda"
+
+#: pntemplates/scribite_admin_menu.htm:13
+msgid "scribite!"
+msgstr "scribite!"
+
+#: pntemplates/scribite_admin_menu.htm:13
+msgid "WYSIWYG for Zikula"
+msgstr "Editors visuals per al Zikula"
+
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+msgid "Language"
+msgstr "Idioma de l'editor"
+
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+msgid "mini"
+msgstr "mínima"
+
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+msgid "Skin"
+msgstr "Aparença"
+
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+msgid "Convert urls to links"
+msgstr "Converteix els URL en enllaços"
+
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+msgid "Show loading"
+msgstr "Mostra el missatge de càrrega de l'editor"
+
+#: pntemplates/scribite_admin_modifyxinha.htm:1
+msgid "Xinha Plugins (<a href=\"http://xinha.python-hosting.com/wiki/Plugins\" target=\"_blank\">documentation</a>)"
+msgstr "Connectors del Xinha (<a href=\"http://xinha.python-hosting.com/wiki/Plugins\" target=\"_blank\">documentació</a>)"
+
+#: pntemplates/scribite_admin_delmodule.htm:1
+msgid "Do you really want to remove the following module?"
+msgstr "Esteu segur/a de que voleu esborrar el mòdul següent?"
+
+#: pninit.php:1
+msgid "<strong>Caution!</strong><br />All editors have moved to /modules/scribite/pnincludes in preparation for upcoming features of Zikula. Please check all your settings!<br />If you have adapted files from editors you have to check them too.<br /><br /><strong>Dropped support for FCKeditor and TinyMCE<strong><br />For security reasons these editors will not be supported anymore. Please change editors to an other editor."
+msgstr "<strong>Atenció!</strong><br />Tots els editors s'han traslladat a /modules/scribite/pnincludes en previsió de futurs canvis en el Zikula. Verifiqueu les vostres configuracions!<br />Si heu modificat fitxers dels editors també els hauríeu de revisar.<br /><br /><strong>Per raons de seguretat s'ha deixat de donar suport a  FCKeditor i TinyMCE<strong><br /> Si us plau, canvieu aquests editors per algun altre."
+
+msgid "Functions"
+msgstr "Funcions"
+
+msgid "Module functions"
+msgstr "Funcions del mòdul"
+
+msgid "Save"
+msgstr "Emmagatzema"
+
+msgid "(comma separated, 'all' for all funcs)"
+msgstr "(separats per coma, 'all' per a totes les funcions)"
+

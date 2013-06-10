@@ -1,0 +1,93 @@
+<script type="text/javascript" src="modules/IWmain/js/ColorPicker2.js"></script>
+<script type="text/javascript" src="modules/IWmain/js/AnchorPosition.js"></script>
+<script type="text/javascript" src="modules/IWmain/js/PopupWindow.js"></script>
+
+<script type="text/javascript">
+    var cp = new ColorPicker('window');
+    // Runs when a color is clicked
+    function pickColor(color) {
+        field.value = color;
+        document.forms.periode.color.style.backgroundColor=color;
+    }
+
+    var field;
+    function pick(anchorname) {
+        field = document.forms.periode.color;
+        cp.show(anchorname);
+    }
+</script>
+
+{include file="IWagendas_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">
+        {img modname='core' src='configure.png' set='icons/large'}
+    </div>
+    <h2>{$title}</h2>
+    <form id="periode" class="z-form" action="{modurl modname="IWagendas" type="admin" func="modifica_llistes"}" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="index" value="{$index}" />
+        <input type="hidden" name="dada" value="{$dada}" />
+
+        <div class="z-formrow">
+            <label for="nom_agenda">{$title1}</label>
+            <div class="z-formnote">
+                <select name="dia1">
+                    {foreach item=dia from=$dies_MS}
+                        <option {if $dia1 eq $dia.id}selected{/if} value="{$dia.id}">{$dia.name}</option>
+                    {/foreach}
+                </select>
+                /
+                <select name="mes1">
+                    {foreach item=mes from=$mesos_MS}
+                        <option {if $mes1 eq $mes.id}selected{/if} value="{$mes.id}">{$mes.name}</option>
+                    {/foreach}
+                </select>
+                {if $index > 1}
+                    /
+                    <select name="any1">
+                        {foreach item=any from=$anys_MS}
+                            <option {if $any1 eq $any.id}selected{/if} value="{$any.id}">{$any.name}</option>
+                        {/foreach}
+                    </select>
+                {/if}
+            </div>
+        </div>
+
+        {if $index eq 3}
+            <div class="z-formrow">
+                <label for="nom_agenda">{gt text="Date of the end of the period"}</label>
+                <div class="z-formnote">
+                    <select name="dia2">
+                        {foreach item=dia from=$dies_MS}
+                            <option {if $dia2 eq $dia.id}selected{/if} value="{$dia.id}">{$dia.name}</option>
+                        {/foreach}
+                    </select>
+                    /
+                    <select name="mes2">
+                        {foreach item=mes from=$mesos_MS}
+                            <option {if $mes2 eq $mes.id}selected{/if} value="{$mes.id}">{$mes.name}</option>
+                        {/foreach}
+                    </select>
+                    /
+                    <select name="any2">
+                        {foreach item=any from=$anys_MS}
+                            <option {if $any2 eq $any.id}selected{/if} value="{$any.id}">{$any.name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+            <div class="z-formrow">
+                <label for="color">{gt text="Period colour. Format (#RRGGBB)"}</label>
+                <input style="background-color:{$color};" type="text" name="color" size="7" maxlength="7" value="{$color}"/>
+                <a href="#" onClick="pick('pick');return false;" name="pick" id="pick">{gt text="Colour picker"}</a>
+            </div>
+        {/if}
+        <div class="z-formrow">
+            <label for="text">{gt text="Label text"}</label>
+            <input type="text" name="text" size="50" maxlength="255" value="{$text}"/>
+        </div>
+        <div class="z-formbuttons" style="text-align:center;">
+            {button src='button_ok.png' set='icons/small' __alt="Add to the list" __title="Add to the list"}{gt text="Add to the list"}
+        </div>
+    </form>
+</div>

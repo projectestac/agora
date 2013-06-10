@@ -1,0 +1,366 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quotes\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-09 18:36-0500\n"
+"PO-Revision-Date: 2012-09-20 14:11+0100\n"
+"Last-Translator: intraweb <intraweb@xtec.cat>\n"
+"Language-Team: intraweb <intraweb@xtec.cat>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: lib/Quotes/Api/Admin.php:37
+msgid "Error! Quote creation failed."
+msgstr "La creació de la cita ha fallat."
+
+#: lib/Quotes/Api/Admin.php:61
+#: lib/Quotes/Api/Admin.php:97
+#: lib/Quotes/Controller/Admin.php:206
+#: lib/Quotes/Controller/Admin.php:253
+msgid "No such Quote found."
+msgstr "No s'ha trobat la cita."
+
+#: lib/Quotes/Api/Admin.php:67
+msgid "Error! Quote deletion failed."
+msgstr "No s'ha pogut esborrar la cita."
+
+#: lib/Quotes/Api/Admin.php:112
+msgid "Error! Quote update failed."
+msgstr "No s'ha pogut modificar la cita."
+
+#: lib/Quotes/Api/Admin.php:128
+msgid "Quotes list"
+msgstr "Llista de cites"
+
+#: lib/Quotes/Api/Admin.php:131
+msgid "Create quote"
+msgstr "Crea una cita nova"
+
+#: lib/Quotes/Api/Admin.php:134
+#: templates/quotes_admin_modifyconfig.tpl:4
+msgid "Settings"
+msgstr "Configuració"
+
+#: lib/Quotes/Api/User.php:120
+msgid "Error! Could not load any quotes."
+msgstr "No s'ha pogut carregar cap cita."
+
+#: lib/Quotes/Block/Quote.php:29
+msgid "Quote"
+msgstr "Cita"
+
+#: lib/Quotes/Block/Quote.php:30
+msgid "Random quote block"
+msgstr "Bloc de cites aleatòries"
+
+#: lib/Quotes/Block/Quote.php:100
+#: lib/Quotes/Block/Quote.php:194
+#, php-format
+msgid "Error! Could not load [%s] class."
+msgstr "No s'ha pogut carregar la classe [%s]."
+
+#: lib/Quotes/Block/Quote.php:116
+msgid "There are too few Quotes in the database"
+msgstr "Hi ha massa poques cites a la base de dades"
+
+#: lib/Quotes/Controller/Admin.php:138
+msgid "Edit"
+msgstr "Edita"
+
+#: lib/Quotes/Controller/Admin.php:143
+msgid "Delete"
+msgstr "Esborra"
+
+#: lib/Quotes/Controller/Admin.php:282
+msgid "Done! Quote deleted."
+msgstr "La cita ha estat esborrada."
+
+#: lib/Quotes/Controller/Admin.php:329
+msgid "Done! Quote created."
+msgstr "S'ha creat una cita nova."
+
+#: lib/Quotes/Controller/Admin.php:362
+msgid "Done! Quote updated."
+msgstr "La cita ha estat modificada."
+
+#: lib/Quotes/Controller/Admin.php:389
+msgid "Done! Module configuration updated."
+msgstr "S'ha modificat la configuració del mòdul."
+
+#: lib/Quotes/Installer.php:33
+msgid "Warning! Could not create the default Quotes category tree. If you want to use categorisation with Quotes, register at least one property for the module in the Category Registry."
+msgstr "No ha estat possible crear l'arbre de categories per defecte. Si voleu fer ús de categories, registreu almenys una propietat pel mòdul en el registre de categories."
+
+#: lib/Quotes/Installer.php:65
+#: lib/Quotes/Installer.php:217
+msgid "Error! Update attempt failed."
+msgstr "La modificació ha fallat."
+
+#: lib/Quotes/Installer.php:149
+msgid "Quotes"
+msgstr "Cites"
+
+#: lib/Quotes/Installer.php:150
+msgid "Random quotes"
+msgstr "Cites aleatòries"
+
+#: lib/Quotes/Installer.php:194
+msgid "Imported quotes"
+msgstr "Cites importades"
+
+#: lib/Quotes/Installer.php:195
+msgid "Quotes imported from .7x version"
+msgstr "Cites importades des de la versió .7x"
+
+#: lib/Quotes/Version.php:14
+msgid "Quotes publisher"
+msgstr "Publicador de cites"
+
+#: lib/Quotes/Version.php:15
+msgid "Manage and display quotes or reflections, with support for categories."
+msgstr "Permet administrar i mostrar cites o reflexions amb suport per a categories."
+
+#: lib/Quotes/Version.php:17
+msgid "quotes"
+msgstr "cites"
+
+#: templates/quotes_admin_delete.tpl:4
+msgid "Delete quote"
+msgstr "Esborra la cita"
+
+#: templates/quotes_admin_delete.tpl:9
+msgid "Do you really want to delete this Quote?"
+msgstr "Voleu realment esborrar aquest cita?"
+
+#: templates/quotes_admin_delete.tpl:16
+msgid "Confirm deletion?"
+msgstr "Confirmeu l'esborrament?"
+
+#: templates/quotes_admin_delete.tpl:17
+#: templates/quotes_admin_modify.tpl:59
+#: templates/quotes_admin_modifyconfig.tpl:22
+#: templates/quotes_admin_new.tpl:43
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: templates/quotes_admin_modify.tpl:4
+msgid "Edit quote"
+msgstr "Edita la cita"
+
+#: templates/quotes_admin_modify.tpl:12
+msgid "Content"
+msgstr "Contingut"
+
+#: templates/quotes_admin_modify.tpl:14
+#: templates/quotes_admin_new.tpl:15
+msgid "Quote Text"
+msgstr "Text de la cita"
+
+#: templates/quotes_admin_modify.tpl:18
+#: templates/quotes_admin_new.tpl:19
+#: templates/quotes_admin_view.tpl:44
+#: templates/quotes_admin_view.tpl:61
+msgid "Author"
+msgstr "Autor"
+
+#: templates/quotes_admin_modify.tpl:23
+#: templates/quotes_admin_new.tpl:24
+msgid "Categories"
+msgstr "Categories"
+
+#: templates/quotes_admin_modify.tpl:24
+#: templates/quotes_admin_new.tpl:25
+msgid "Choose a category"
+msgstr "Trieu una categoria"
+
+#: templates/quotes_admin_modify.tpl:39
+#: templates/quotes_admin_new.tpl:34
+#: templates/quotes_admin_view.tpl:66
+msgid "Status"
+msgstr "Estat"
+
+#: templates/quotes_admin_modify.tpl:41
+#: templates/quotes_admin_new.tpl:36
+#: templates/quotes_admin_view.tpl:83
+msgid "Active"
+msgstr "Activa"
+
+#: templates/quotes_admin_modify.tpl:42
+#: templates/quotes_admin_new.tpl:37
+#: templates/quotes_admin_view.tpl:82
+msgid "Inactive"
+msgstr "Innactiva"
+
+#: templates/quotes_admin_modify.tpl:47
+msgid "Meta data"
+msgstr "Meta dada"
+
+#: templates/quotes_admin_modify.tpl:50
+#, php-format
+msgid "Created by %s"
+msgstr "Creada per %s"
+
+#: templates/quotes_admin_modify.tpl:51
+#, php-format
+msgid "Created on %s"
+msgstr "Creada a %s"
+
+#: templates/quotes_admin_modify.tpl:53
+#, php-format
+msgid "Last update by %s"
+msgstr "Darrera actualització per %s"
+
+#: templates/quotes_admin_modify.tpl:54
+#, php-format
+msgid "Updated on %s"
+msgstr "Modificada el %s"
+
+#: templates/quotes_admin_modify.tpl:58
+msgid "Update"
+msgstr "Modifica"
+
+#: templates/quotes_admin_modifyconfig.tpl:12
+msgid "Enable categorization"
+msgstr "Habilita les categories"
+
+#: templates/quotes_admin_modifyconfig.tpl:16
+msgid "Items per page"
+msgstr "Registres per pàgina"
+
+#: templates/quotes_admin_modifyconfig.tpl:21
+msgid "Save"
+msgstr "Emmagatzema"
+
+#: templates/quotes_admin_new.tpl:4
+msgid "Create new quote"
+msgstr "Crea un cita nova"
+
+#: templates/quotes_admin_new.tpl:42
+msgid "Create"
+msgstr "Crea"
+
+#: templates/quotes_admin_view.tpl:6
+msgid "Quotes List"
+msgstr "Llista de cites"
+
+#: templates/quotes_admin_view.tpl:11
+msgid "active"
+msgstr "activa"
+
+#: templates/quotes_admin_view.tpl:11
+msgid "inactive"
+msgstr "innactiva"
+
+#: templates/quotes_admin_view.tpl:12
+#, php-format
+msgid "Filter %1$s, %2$s page listed"
+msgid_plural "Filter %1$s, %2$s records listed"
+msgstr[0] "Filtre %1$s, %2$s pàgina de la llista"
+msgstr[1] "Filtre %1$s, %2$s registres de la llista"
+
+#: templates/quotes_admin_view.tpl:15
+#: templates/quotes_admin_view.tpl:63
+msgid "Category"
+msgstr "Categoria"
+
+#: templates/quotes_admin_view.tpl:16
+msgid "All"
+msgstr "Totes"
+
+#: templates/quotes_admin_view.tpl:40
+msgid "Search by keyword"
+msgstr "Cerca per paraula clau"
+
+#: templates/quotes_admin_view.tpl:46
+msgid "All authors"
+msgstr "Tots els autors"
+
+#: templates/quotes_admin_view.tpl:51
+msgid "Filter"
+msgstr "Filtre"
+
+#: templates/quotes_admin_view.tpl:52
+msgid "Clear"
+msgstr "Neteja"
+
+#: templates/quotes_admin_view.tpl:60
+msgid "Quote content"
+msgstr "Contingut de la cita"
+
+#: templates/quotes_admin_view.tpl:65
+msgid "ID"
+msgstr "ID"
+
+#: templates/quotes_admin_view.tpl:67
+msgid "Actions"
+msgstr "Accions"
+
+#: templates/quotes_admin_view.tpl:92
+msgid "No Quotes found."
+msgstr "No s'ha trobat la cita."
+
+#: templates/quotes_block_quote_modify.tpl:2
+msgid "From hour"
+msgstr "Des de l'hora"
+
+#: templates/quotes_block_quote_modify.tpl:4
+#: templates/quotes_block_quote_modify.tpl:11
+#: templates/quotes_block_quote_modify.tpl:20
+#: templates/quotes_block_quote_modify.tpl:27
+#: templates/quotes_block_quote_modify.tpl:36
+#: templates/quotes_block_quote_modify.tpl:43
+#: templates/quotes_block_quote_modify.tpl:52
+#: templates/quotes_block_quote_modify.tpl:59
+msgid "Not set"
+msgstr "No establerta"
+
+#: templates/quotes_block_quote_modify.tpl:9
+msgid "To hour"
+msgstr "A l'hora"
+
+#: templates/quotes_block_quote_modify.tpl:18
+msgid "From day of the week"
+msgstr "Des del dia de la setmana"
+
+#: templates/quotes_block_quote_modify.tpl:25
+msgid "To day of the week"
+msgstr "Al dia de la setmana"
+
+#: templates/quotes_block_quote_modify.tpl:34
+msgid "From day of the month"
+msgstr "De del dia del mes"
+
+#: templates/quotes_block_quote_modify.tpl:41
+msgid "To day of the month"
+msgstr "Fins el dia del mes"
+
+#: templates/quotes_block_quote_modify.tpl:50
+msgid "From month"
+msgstr "Des del mes"
+
+#: templates/quotes_block_quote_modify.tpl:57
+msgid "To month"
+msgstr "Al mes"
+
+#: templates/quotes_block_quote_modify.tpl:67
+msgid "Choose categories"
+msgstr "Tria categories"
+
+#: templates/quotes_block_quote_modify.tpl:79
+msgid "Cache time (enter positive number in seconds to enable cache)"
+msgstr "Temps de la memòria cau (entreu nombres positius per habilitar la memòria cau)"
+
+#: templates/quotes_block_quote_modify.tpl:83
+msgid "Cache directory name (within Zikula Temp directory)"
+msgstr "Nom del directori de la memòria cau (dins del directori temporal de Zikula)"
+

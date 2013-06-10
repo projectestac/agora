@@ -1,0 +1,7 @@
+Pages 2.5.1
+  * Search problem fixed, issue #10.
+  * Caching problem fixed, issue #9.
+  * Chosen added, issue #7.
+  * Notice problem solved, issue, issue #5
+  * Custom tpl problem fixed, issue #4.
+  * Redirct problem fixed, issue #3.

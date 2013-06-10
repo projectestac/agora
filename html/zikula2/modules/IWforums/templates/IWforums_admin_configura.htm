@@ -1,0 +1,51 @@
+{include file="IWforums_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large'}</div>
+    <h2>{gt text="Create a new forum"}</h2>
+    <form  class="z-form" method="post" id="configura" action="{modurl modname='IWforums' type='admin' func='update_conf'}" >
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <div style="height:40px;">&nbsp;</div>
+        {if not $multizk}
+        <div class="z-formrow">
+            <label for="directoriroot">{gt text="Root of the file folder"}</label>
+            <input type="text" name="directoriroot" size="50" maxlength="50" value="{$directoriroot}" onFocus='blur()' />
+        </div>
+        {/if}
+        <div class="z-formrow">
+            <label for="urladjunts">{gt text="Server folder where will be save the attached files"}</label>
+            <input type="text" name="urladjunts" size="30" maxlength="30" value="{$urladjunts}" />
+            {if $noFolder}
+            <div class="z-errormsg z-formnote">
+                {gt text="The attached files folder have not been found."}
+            </div>
+            {/if}
+            {if $noWriteable}
+            <div class="z-errormsg z-formnote">
+                {gt text="This folder needs writting atributes."}
+            </div>
+            {/if}
+        </div>
+        <div class="z-formrow">
+            <label for="avatarsVisible">{gt text="The unregistered users can view messages writers avatars"}</label>
+            <input id="avatarsVisible" type="checkbox" name="avatarsVisible" value="1" {if $avatarsVisible eq 1}checked{/if} />
+        </div>
+        <div class="z-formrow">
+            <label for="smiliesActive">{gt text="Smilies active"}</label>
+            <input id="smiliesActive" type="checkbox" name="smiliesActive" value="1" {if $smiliesActive}checked="checked"{/if}/>
+        </div>
+        <div class="z-center">
+            <span class="z-buttons">
+                <a onclick="javascript: forms['configura'].submit();">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Modify" __title="Modify"}
+                    {gt text="Modify"}
+                </a>
+            </span>
+            <span class="z-buttons">
+                <a href="{modurl modname='IWforums' type='admin' func='main'}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
+                    {gt text="Cancel"}
+                </a>
+            </span>
+        </div>
+    </form>
+</div>

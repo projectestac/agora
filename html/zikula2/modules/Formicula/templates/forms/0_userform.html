@@ -1,0 +1,117 @@
+{include file='forms/0_userheader.html'}
+
+{pageaddvar name="javascript" value="javascript/ajax/prototype.js"}
+{pageaddvar name="javascript" value="javascript/ajax/validation.js"}
+{pageaddvar name="javascript" value="javascript/ajax/effects.js"}
+
+<p class="z-informationmsg">
+    {gt text="Mandatory fields are indicated with a"} <span class="mandatory">*</span>
+</p>
+
+<form id="contactform2" class="z-form" action="{modurl modname=Formicula type=user func=send}" method="post">
+    <fieldset>
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="form" value="0" />
+        <input type="hidden" name="adminformat" value="html" />
+        <input type="hidden" name="dataformat" value="array" />
+
+        <legend>{gt text='Contact our team'}</legend>
+        <div class="z-formrow">
+            <label for="cid">{gt text="Contact or Theme"}</label>
+            <select class="formborder" id="cid" name="cid">
+                {foreach item=contact from=$contacts}
+                {if $contact.public == "1"}
+                <option value="{$contact.cid}">{$contact.name}</option>
+                {/if}
+                {/foreach}
+            </select>
+        </div>
+
+        <div class="z-formrow">
+            <label for="uname">{gt text="Your Name"}<span class="mandatory">*</span></label>
+            <input type="text" class="formborder required" id="uname" name="userdata[uname]" size="40" maxlength="80" value="{$userdata.uname}" />
+            <p id="advice-required-uname" class="z-formnote custom-advice" style="display:none">{gt text='This is a mandatory field.'}</p>
+        </div>
+
+        <div class="z-formrow">
+            <label for="uemail">{gt text="Email"}<span class="mandatory">*</span></label>
+            <input type="text" class="formborder required validate-email" id="uemail" name="userdata[uemail]" size="40" maxlength="40" value="{$userdata.uemail}" />
+            <p id="advice-validate-email-uemail" class="z-formnote custom-advice" style="display:none">{gt text='Please enter a valid email address like user@example.com.'}</p>
+            <p id="advice-required-uemail" class="z-formnote custom-advice" style="display:none">{gt text='This is a mandatory field.'}</p>
+        </div>
+
+        {if $coredata.Formicula.show_url==1}
+        <div class="z-formrow">
+            <label for="url">{gt text="Homepage"}</label>
+            <input type="text" class="formborder validate-url" id="url" name="userdata[url]" size="40" maxlength="40" value="{$userdata.url}" />
+            <p id="advice-validate-url-url" class="z-formnote custom-advice" style="display:none">{gt text='Please enter a valid internet address like http://www.example.com.'}</p>
+        </div>
+        {/if}
+
+        {if $coredata.Formicula.show_phone==1}
+        <div class="z-formrow">
+            <label for="phone">{gt text="Phone Number"}</label>
+            <input type="text" class="formborder" id="phone" name="userdata[phone]" size="40" maxlength="40" value="{$userdata.phone}" />
+        </div>
+        {/if}
+
+        {if $coredata.Formicula.show_company==1}
+        <div class="z-formrow">
+            <label for="company">{gt text="Company"}</label>
+            <input type="text" class="formborder" id="company" name="userdata[company]" size="40" maxlength="40" value="{$userdata.company}" />
+        </div>
+        {/if}
+
+        {if $coredata.Formicula.show_location==1}
+        <div class="z-formrow">
+            <label for="location">{gt text="Location"}</label>
+            <input type="text" class="formborder" id="location" name="userdata[location]" size="40" maxlength="40" value="{$userdata.location}" />
+        </div>
+        {/if}
+
+        <div class="z-formrow">
+            <label for="comment">{gt text="Comment"}<span class="mandatory">*</span></label>
+            <textarea class="formborder required" rows="6" cols="45" id="comment" name="userdata[comment]">{$userdata.comment}</textarea>
+            <p id="advice-required-comment" class="z-formnote custom-advice" style="display:none">{gt text='This is a mandatory field.'}</p>
+        </div>
+
+        <div class="z-formrow">
+            <label for="userformat">{gt text="Email Format"}</label>
+            <select class="formborder" id="userformat" name="userformat">
+                <option value="html">{gt text="HTML"}</option>
+                <option value="plain" selected="selected">{gt text="Text"}</option>
+            </select>
+        </div>
+
+        {if $spamcheck eq 1}
+        <div class="z-formrow">
+            <label for="formicula_captcha">{gt text='Please solve this calculation'}<span class="mandatory">*</span></label>
+            <span>
+                {simplecaptcha font='arial' size='12' bgcolor='ffffff' fgcolor='000000'}
+                <input id="formicula_captcha" name="captcha" type="text" size="5" maxlength="5" value="" />
+                <span class="z-sub">{gt text='(to prevent spam)'}</span>
+            </span>
+        </div>
+        {/if}
+
+    </fieldset>
+
+    {notifydisplayhooks eventname='formicula.ui_hooks.forms.form_edit' id=null assign='hooks'}
+    {foreach from=$hooks key='provider_area' item='hook'}
+    {if $hook}
+    <fieldset>
+        <div class="z-formnote">
+            {$hook}
+        </div>
+    </fieldset>
+    {/if}
+    {/foreach}
+
+    <div class="z-formbuttons z-buttons">
+        {button src='button_ok.png' name='submit' value='submit' set='icons/extrasmall' __alt='Send' __title='Send' __text='Send'}
+    </div>
+
+    <script type="text/javascript">
+        var valid = new Validation('contactform2');
+    </script>
+</form>

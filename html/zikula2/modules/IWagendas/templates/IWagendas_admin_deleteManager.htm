@@ -1,0 +1,28 @@
+{include file='IWagendas_admin_menu.htm'}
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='IWagendas' src='delete_user_large.gif'}</div>
+    <h2>{gt text='Delete manager'} &raquo; {$item.nom_agenda}</h2>
+
+    <form id="deleteManager" class="z-form" action="{modurl modname='IWagendas' type='admin' func='deleteManager'}" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="daid" value="{$item.daid|safetext}" />
+        <input type="hidden" name="id" value="{$id|safetext}" />
+        <input type="hidden" name="confirm" value="1" />
+        <div>
+            {gt text="Confirm the deletion of the manager"} <strong>{$userName}</strong>
+        </div>
+        <div class="z-center">
+            <span class="z-buttons">
+                <a href="javascript:document.forms['deleteManager'].submit();">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Delete" __title="Delete"}{gt text="Delete"}
+                </a>
+            </span>
+            <span class="z-buttons">
+                <a href="{modurl modname='IWagendas' type='admin' func='main'}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}{gt text="Cancel"}
+                </a>
+            </span>
+        </div>
+    </form>
+</div>

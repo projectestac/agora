@@ -1,0 +1,440 @@
+{pageaddvar name='javascript' value='modules/IWmain/js/ColorPicker2.js'}
+{pageaddvar name='javascript' value='modules/IWmain/js/AnchorPosition.js'}
+{pageaddvar name='javascript' value='modules/IWmain/js/PopupWindow.js'}
+
+<script type="text/javascript">
+    var cp = new ColorPicker('window');
+    // Runs when a color is clicked
+    function pickColor(color) {
+        field.value = color;
+        //document.forms.conf.color1.style.backgroundColor=color;
+        changeColor();
+    }
+    var field;
+    function pick(anchorname,camp) {
+        field = eval('document.forms.conf.'+camp);
+        cp.show(anchorname);
+    }
+    function changeColor(){
+        document.forms.conf.colors.style.backgroundColor=document.forms.conf.colors.value;
+    }
+</script>
+
+{include file='IWagendas_admin_menu.htm'}
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large'}</div>
+    <h2>{gt text="Agenda configuration"}</h2>
+
+    <form name="conf" id="conf" class="z-form" action="{modurl modname='IWagendas' type='admin' func='conf_modifica'}" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <fieldset>
+            <legend>{gt text="Agenda colour configuration"}</legend>
+
+            <table width="600" border="0" style="text-align:center;">
+                <tr>
+                    <td align="center" style="background: #fff;">
+                        <table cellpadding="0" style="width:200px; border: 2px solid #{$colors[7]}; background-color:#{$colors[4]}">
+                            {* Puts the month name and the navigator *}
+                            <tr>
+                                <td align="center" bgcolor="#{$colors[0]}" colspan="7">
+                                    <a href="#">
+                                        {img modname='IWagendas' src='mesmenys.gif' __alt="Previous month" __title="Previous month"}
+                                    </a>
+                                    <a href="#" style="color:#{$colors[1]}">
+                                        <strong>{$month_name}&nbsp;{$year}</strong>
+                                    </a>
+                                    <a href="#">
+                                        {img modname='IWagendas' src='mesmes.gif'  __alt="Next month" __title="Next month"}
+                                    </a>
+                                </td>
+                            </tr>
+
+                            {* Puts the name of the days of the week abbreviated *}
+                            <tr>
+                            {section name=day_name loop=$day_names_abbr} <!-- Header with the name of the day abbreviated -->
+                                <td style="color:#{$colors[3]}; background:#{$colors[2]}; text-align:center;">{$day_names_abbr[day_name]}</td>
+                            {/section}
+                            </tr>
+                            {* Builds the calendar *}
+                            <tr>
+                            {foreach from=$days key=k_day item=v_day name=day_loop} {* One iteration per day *}
+                                {if $smarty.foreach.day_loop.iteration <= $days_month} {* In fact there's one iteration per array element, so this puts a limit *}
+                                    {if $smarty.foreach.day_loop.iteration == 1} {* Puts empty cells *}
+                                        {section name=empty_days loop=$first_day start=1}
+                                            <td style="width:14.27%; text-align:center;">&nbsp;</td>
+                                        {/section}
+                                    {/if}
+                                    {if ($first_day + $smarty.foreach.day_loop.iteration - 2) is div by 7} {* Change of row *}
+                                        </tr><tr>
+                                    {/if}
+                                    <td style="width:14.27%; background:#{$v_day.bgcolor}; text-align:center;">
+                                        <span style="color:#{$v_day.color};">{$smarty.foreach.day_loop.iteration}</span>
+                                    </td>
+                                {/if}
+                            {/foreach}
+                            </tr>
+                        </table>
+                        <br />
+                        <table border="1" width="200" cellspacing="0" bgcolor="#{$colors[4]}">
+                            <tr>
+                                <td align="left" width="70" valign="top" bgcolor="#{$colors[9]}" bordercolor="#{$colors[9]}">
+                                    <a href="#" style="color:#{$colors[5]}">
+                                        <font style="background-color: #{$colors[9]}"><b>21</b></font>
+                                    </a>
+                                    <br />
+                                    <font style="background-color: #{$colors[12]}" color="#{$colors[5]}"><b>14:00</b></font>
+                                    <br />
+                                    {img modname='IWagendas' src='mesinfo.gif' __alt="More information" __title="More information"}
+                                    {img modname='IWagendas' src='editar.gif' __alt="Edit" __title="Edit"}
+                                    {img modname='IWagendas' src='del.gif' __alt="Delete" __title="Delete"}
+                                    {img modname='IWagendas' src='amaga.gif' __alt="Hide" __title="Hide"}
+                                    {img modname='IWagendas' src='meva.gif'}
+                                    <br />
+                                    <font style="background-color: #{$colors[13]}; color: #{$colors[15]}">{gt text="Note content"}</font>
+                                    <br />
+                                    <br />
+                                </td>
+                                <td align="left" width="70" valign="top" bgcolor="#{$colors[9]}" bordercolor="#{$colors[9]}">
+                                    <a href="#" style="color:#{$colors[5]}">
+                                        <font style="background-color: #{$colors[9]}"><b>22</b></font>
+                                    </a>
+                                    <br />
+                                    <font style="background-color: #{$colors[11]}" color="#{$colors[5]}"><b>13:00</b></font>
+                                    <br />
+                                    {img modname='IWagendas' src='mesinfo.gif' __alt="More information" __title="More information"}
+                                    {img modname='IWagendas' src='editar.gif' __alt="Edit" __title="Edit"}
+                                    {img modname='IWagendas' src='del.gif' __alt="Delete" __title="Delete"}
+                                    {img modname='IWagendas' src='amaga.gif' __alt="Hide" __title="Hide"}
+                                    {img modname='IWagendas' src='meva.gif'}
+                                    <br />
+                                    <font style="background-color: #{$colors[13]}; color: #{$colors[15]}">{gt text="Here there is the content for a new note"}</font>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table width="100%">
+                            {foreach name="colorsfor" item="color" from=$confcolors}
+                            <tr>
+                                <td align="left">
+                                    {$color}
+                                </td>
+                                <td align="right">
+                                    {assign var='num' value='$smarty.foreach.colorsfor.iteration-1}
+                                    <input id="colors" style="background-color: #{$colors[$num]};" type="text" name="colors[]" value="{$colors[$num]}" size="6" maxlength="6" />
+                                </td>
+                            </tr>
+                            {/foreach}
+                            <tr>
+                                <td colspan="2" align="right">
+                                    <a href="#" onClick="cp.show('pick',this);return false;" name="pick" id="pick">{gt text="Colour picker"}</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="submit"  name="submit" value="{gt text='Update'}">
+                                </td>
+                                <td>
+                                    <input type="submit" name="submit" value="{gt text='Restore'}">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <legend>{gt text="Agenda general parameters configuration"}</legend>
+            <div class="z-formrow">
+                <label for="vista">{gt text="Default view on table format"}</label>
+                <input type="checkbox" name="vista" {if $vista}checked="checked"{/if} value="1"/>
+                <div class="z-formnote">
+                    {gt text="(Otherwise, default view is on calendar format)"}
+                </div>
+            </div>
+            <div class="z-formrow">
+                <label for="maxnotes">{gt text="Maximum number of events for users"}</label>
+                <input type="text" name="maxnotes" value="{$maxnotes}" size="4" maxlength="4"/>
+                <div class="z-formnote">
+                    {gt text="(Keeping zero value implies no limit)"}
+                </div>
+            </div>
+            <div class="z-formrow">
+                <label for="adjuntspersonals">{gt text="Personal agendas allow attached files"}</label>
+                <input type="checkbox" name="adjuntspersonals" {if $adjuntspersonals}checked="checked"{/if} value="1"/>
+            </div>
+            <div class="z-formrow">
+                <label for="caducadies">{gt text="Events are automatically deleted after "}</label>
+                <input type="text" name="caducadies" value="{$caducadies}" size="2" maxlength="3"/>
+                <div class="z-formnote">
+                    {gt text=" days from the date"}
+                </div>
+            </div>
+            {* Working on it }
+            {if $zendGdataFuncAvailable}
+            <div class="z-formrow">
+                <label for="allowGCalendar">{gt text="Allow to sincronize with Google Calendar"}</label>
+                <input type="checkbox" name="allowGCalendar" {if $allowGCalendar}checkedchecked="checked"{/if} value="1"/>
+            </div>
+            <div class="z-informationmsg z-formnote">
+                {gt text="If these funcions are available and you check this option users will be able to sincronize their agendas with Google Calendar."}
+            </div>
+            {else}
+            <div class="z-errormsg z-formnote">
+                {gt text="If you check this function and the Zend Gdata functions are not available the module will not work and an error will occurs."}
+            </div>
+            {/if}
+            { soon available *}
+            {if not $multizk}
+            <div class="z-formrow">
+                <label for="directoriroot">{gt text="Root of the file folder"}</label>
+                <input type="text" name="directoriroot" size="50" maxlength="50" value="{$directoriroot}" onFocus='blur()' />
+            </div>
+            {/if}
+            <div class="z-formrow">
+                <label for="urladjunts">{gt text="Attached files folder"}</label>
+                <input type="text" name="urladjunts" value="{$urladjunts}" size="50" maxlength="255"/>
+                {if $noFolder}
+                <div class="z-errormsg z-formnote">
+                    {gt text="The attached files folder have not been found"}
+                </div>
+                {/if}
+                {if $noWriteable}
+                <div class="z-errormsg z-formnote">
+                    {gt text="This folder must be writable"}
+                </div>
+                {/if}
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>{gt text="Bank holidays repeated every year"}</legend>
+            <table class="z-datatable">
+                <thead>
+                    <tr>
+                        <th>{gt text="Day"}</th>
+                        <th>{gt text="Label"}</th>
+                        <th>{gt text="Options"}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach item=festiu from=$festiussempre}
+                    <tr class="{cycle values='z-odd,z-even'}">
+                        <td align="left" valign="top">
+                            {$festiu.date}
+                        </td>
+                        <td align="left" valign="top">
+                            {$festiu.label}
+                        </td>
+                        <td align="right" valign="top" width="80">
+                            <a href="{modurl modname='IWagendas' type='admin' func='nouallista' index=1 dada=$festiu.festiu}">
+                                {img modname='core' src='edit.png' set='icons/extrasmall' __alt="Modify" __title="Edit"}
+                            </a>
+                            <a href="{modurl modname='IWagendas' type='admin' func='esborra' index=1 dada=$festiu.optionText}">
+                                {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Delete" __title="Delete"}
+                            </a>
+                        </td>
+                    </tr>
+                    {foreachelse}
+                    <tr>
+                        <td colspan="10" align="left">
+                            {gt text="There are no bank holidays defined in this list"}
+                        </td>
+                    </tr>
+                     {/foreach}
+                    <tr>
+                        <td colspan="10" align="left">
+                            <a href="{modurl modname='IWagendas' type='admin' func='nouallista' index=1}">{gt text="Add a new bank holiday to the list"}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <legend>{gt text="Other bank holidays"}</legend>
+            <table class="z-datatable">
+                <thead>
+                    <tr>
+                        <th>{gt text="Day"}</th>
+                        <th>{gt text="Label"}</th>
+                        <th>{gt text="Options"}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach item=altrefestiu from=$altresfestius}
+                    <tr class="{cycle values='z-odd,z-even'}">
+                        <td align="left" valign="top">
+                            {$altrefestiu.date}
+                        </td>
+                        <td align="left" valign="top">
+                            {$altrefestiu.label}
+                        </td>
+                        <td align="right" valign="top" width="80">
+                            <a href="{modurl modname='IWagendas' type='admin' func='nouallista' index=2 dada=$altrefestiu.festiu}">
+                                {img modname='core' src='edit.png' set='icons/extrasmall'   __alt="Modify" __title="Edit"}
+                            </a>
+                            <a href="{modurl modname='IWagendas' type='admin' func='esborra' index=2 dada=$altrefestiu.optionText}">
+                                {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall'   __alt="Delete" __title="Delete"}
+                            </a>
+                        </td>
+                    </tr>
+                    {foreachelse}
+                    <tr>
+                        <td colspan="10" align="left">
+                            {gt text="There are no bank holidays defined in this list"}
+                        </td>
+                    </tr>
+                    {/foreach}
+                    <tr>
+                        <td colspan="10" align="left">
+                            <a href="{modurl modname='IWagendas' type='admin' func='nouallista' index=2}">{gt text="Add a new bank holiday to the list"}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                {gt text="School calendar"}
+                {if $inicicurs}
+                    {gt text="of the course"} {$inicicurs}-{$inicicurs1}
+                {/if}
+            </legend>
+            <div class="z-formrow">
+                <label for="inici">{gt text="Initial year of the course"}</label>
+                <input type="text" name="inici" value="{$inicicurs}" size="4" maxlength="4"/>
+            </div>
+            {if !$inicicurs}
+                <div>{gt text="The rest of the parameters of the school calendar cannot be configured until there is a valid initial year introduced"}</div>
+                <div class="z-formbuttons" style="text-align:center;">
+                    {button src='button_ok.png' set='icons/small' __alt="Modify configuration" __title="Modify configuration"}{gt text="Modify configuration"}
+                </div>
+            {/if}
+            <div class="z-formrow">
+                <label for="ce">{gt text="Show school calendar"}</label>
+                <input type="checkbox" name="ce" {if $calendariescolar}checked="checked"{/if} value="1"/>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>{gt text="School periods to show on the school calendar"}</legend>
+            <table class="z-datatable">
+                <thead>
+                    <tr>
+                        <th>{gt text="Beginning"}</th>
+                        <th>{gt text="End"}</th>
+                        <th>{gt text="Label"}</th>
+                        <th>{gt text="Colour"}</th>
+                        <th>{gt text="Options"}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach item=periode from=$periodes}
+                    <tr class="{cycle values='z-odd,z-even'}">
+                        <td align="left" valign="top">
+                            {$periode.init}
+                        </td>
+                        <td align="left" valign="top">
+                            {$periode.end}
+                        </td>
+                        <td align="left" valign="top">
+                            {$periode.label}
+                        </td>
+                        <td align="left" valign="top" style="background-color: {$periode.color};">
+                             {$periode.color}
+                        </td>
+                        <td align="right" valign="top" width="80">
+                            <a href="{modurl modname='IWagendas' type='admin' func='nouallista' index=3 dada=$periode.festiu}">
+                                {img modname='core' src='edit.png' set='icons/extrasmall'   __alt="Modify" __title="Edit"}
+                            </a>
+                            <a href="{modurl modname='IWagendas' type='admin' func='esborra' index=3 dada=$periode.optionText}">
+                                {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall'   __alt="Delete" __title="Delete"}
+                            </a>
+                        </td>
+                    </tr>
+                    {foreachelse}
+                    <tr>
+                        <td colspan="10" align="left">
+                            {gt text="There are no school periods defined"}
+                        </td>
+                    </tr>
+                    {/foreach}
+                    <tr>
+                        <td colspan="10" align="left">
+                            <a href="{modurl modname='IWagendas' type='admin' func='nouallista' index=3}">{gt text="Add a new period to this list"}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="z-formrow">
+                <label for="llegenda">{gt text="Show the legend of the defined periods"}</label>
+                <input type="checkbox" name="llegenda" {if $llegenda}checked="checked"{/if} value="1"/>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>{gt text="Icons to show in the school calendar"}</legend>
+            <table class="z-datatable">
+                <thead>
+                    <tr>
+                        <th>{gt text="Day"}</th>
+                        <th>{gt text="Information"}</th>
+                        <th>{gt text="Options"}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach item=informacio from=$informacions}
+                    <tr class="{cycle values='z-odd,z-even'}">
+                        <td align="left" valign="top">
+                            {$informacio.date}
+                        </td>
+                        <td align="left" valign="top">
+                            {$informacio.label}
+                        </td>
+                        <td align="right" valign="top" width="80">
+                            <a href="{modurl modname='IWagendas' type='admin' func='nouallista' index=4 dada=$informacio.festiu}">
+                                {img modname='core' src='edit.png' set='icons/extrasmall'   __alt="Modify" __title="Edit"}
+                            </a>
+                            <a href="{modurl modname='IWagendas' type='admin' func='esborra' index=4 dada=$informacio.optionText}">
+                                {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall'   __alt="Delete" __title="Delete"}
+                            </a>
+                        </td>
+                    </tr>
+                    {foreachelse}
+                    <tr>
+                        <td colspan="10" align="left">
+                            {gt text="There are no icons defined"}
+                        </td>
+                    </tr>
+                    {/foreach}
+                    <tr>
+                        <td colspan="10" align="left">
+                            <a href="{modurl modname='IWagendas' type='admin' func='nouallista' index=4}">{gt text="Add a new icon"}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="z-formrow">
+                <label for="infos">{gt text="Show the legend of the icons"}</label>
+                <input type="checkbox" name="infos" {if $infos}checked="checked"{/if} value="1"/>
+            </div>
+        </fieldset>
+
+        <fieldset class="z-linear">
+            <legend>{gt text='Comments'}</legend>
+            <div class="z-formrow">
+                <label for="infos">{gt text="Comments to show with school calendar (HTML allowed)"}</label>
+                <textarea name="comentaris" cols="80" rows="10">{$comentaris}</textarea>
+            </div>
+        </fieldset>
+
+        <div class="z-buttons z-formbuttons">
+            {button src='button_ok.png' set='icons/small' __text="Modify configuration" __alt="Modify configuration" __title="Modify configuration"}
+        </div>
+    </form>
+</div>

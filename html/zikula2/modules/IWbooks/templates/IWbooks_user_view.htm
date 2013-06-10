@@ -1,0 +1,88 @@
+{include file="IWbooks_user_menu.htm"}
+<div class="z-menu">
+    <form id="filtra" action="{modurl modname="IWbooks" type="user" func="view"}" method="post" enctype="application/x-www-form-urlencoded">
+          <div style="text-align:center;">
+            <fieldset class="IWbooks-fieldset">
+                <legend>{gt text="Options filter"}</legend>
+                <label for="IWbooks_any">{gt text="Try course:"}</label>
+                <select id="IWbooks_curs"  name="curs">{html_options options=$aanys selected=$cursselec}</select>&nbsp;
+                <label for="IWbooks_pla">{gt text="Plan:"}</label>
+                <select id="IWbooks_pla"  name="etapa">{html_options options=$aplans selected=$etapaselec}</select>&nbsp;
+                <label for="IWbooks_nivell">{gt text="Level:"}</label>
+                <select id="IWbooks_nivell"  name="nivell">{html_options options=$anivells selected=$nivellselec}</select>&nbsp;
+                <label for="IWbooks_materia">{gt text="Subject:"}</label>
+                <select id="IWbooks_materia"  name="materia">{html_options options=$amateries selected=$materiaselec}</select>&nbsp;
+                <label for="IWbooks_lectura">{gt text="Reads:"}</label>
+                {if $lecturaselec eq 1}
+                <input id="IWbooks_lectura" name="lectura" type="checkbox" value="1" checked="checked" />
+                {else}
+                <input id="IWbooks_lectura" name="lectura" type="checkbox" value="1" />
+                {/if}
+                <div>
+                    <input name="submit" type="submit" value="{gt text="Filter"}" />
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>
+
+
+{if $mostra eq "1"}
+<h2>{gt text="List of Textbooks"} {if ($lectura eq "1" )} {gt text="and reading"} {/if} · {gt text="Course"} {$cursacad}  {$mostra_pla} {$nivell_abre} {$mostra_mat}</h2>
+<form id="filtra" action="{modurl modname="IWbooks" type="user" func="view"}" method="post" enctype="application/x-www-form-urlencoded">
+      <input type="hidden" name="curs" value="{$cursselec}" />
+    <input type="hidden" name="etapa" value="{$etapaselec}" />
+    <input type="hidden" name="nivell" value="{$nivellselec}" />
+    <input type="hidden" name="materia" value="{$materiaselec}" />
+    {if $lecturaselec eq 1}
+    <input type="hidden" name="lectura" value="1" />
+    {else}
+    <input type="hidden" name="lectura" value="0" />
+    {/if}
+    <div style="padding-bottom:10px; float:right;">
+        <input name="pdf" type="submit" value="{gt text='Crea llistat PDF'}" />
+        <img src="modules/IWbooks/pnimages/pdf.gif" style="width:25px;vertical-align:bottom;" />
+    </div>		
+</form>
+<table class="z-datatable">
+    <thead>
+        <tr>
+            <th>{gt text="Subject"}</th>
+            <th>{gt text="Author"}</th>
+            <th>{gt text="Title"}</th>
+            <th>{gt text="Editorial"}</th>
+            <th>{gt text="Level"}</th>
+            <th>{gt text="Optional?"}</th>
+            <th>{gt text="Read?"}</th>
+            <th>{gt text="Eval."}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {section name="IWbooksitems" loop=$IWbooksitems}  
+        <tr class="{cycle values=pn-odd,pn-even}">
+            <td>{$IWbooksitems[IWbooksitems].codi_mat|safehtml}</td>
+            <td>{$IWbooksitems[IWbooksitems].autor|safehtml}</td>
+            <td>{$IWbooksitems[IWbooksitems].titol|safehtml}</td>
+            <td>{$IWbooksitems[IWbooksitems].editorial|safehtml}</td>
+            <td>{$IWbooksitems[IWbooksitems].nivell|safehtml}</td>
+            <td>{$IWbooksitems[IWbooksitems].optativa|safehtml}</td>
+            <td>{$IWbooksitems[IWbooksitems].lectura|safehtml}</td>
+            <td>{$IWbooksitems[IWbooksitems].avaluacio|safehtml}</td>
+            {strip}
+            {if isset($options)}
+            {section name=options loop=$options}
+    <a href="{$options[options].url|safetext}" title="{gt text=$options[options].descrip}">
+        {gt text="$options[options].title"}
+    </a>
+    {if !$smarty.section.options.last} {/if}
+    {/section}
+    {/if}
+    {/strip}
+</td>
+</tr>
+{/section}
+</tbody>
+</table>
+{gt text="Total number of books for this selection"}: {$pager.numitems|safetext}
+{pager show=page rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum shift=1}
+{/if}

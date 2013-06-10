@@ -1,0 +1,14 @@
+Weblinks Credits
+================
+
+Before version 3.0.0 this module was expertly developed and maintained by Petzi-Juist - Klaus Petzka
+Many thanks to him for all his work. His unreleased v2.1.0 was critical in completing
+the development of version 3.0.0
+
+This module is based on an original creation by Francisco Burzi.
+License is GPL, please see license page.
+
+Many thanks to Carsten Volmer aka Herr.Vorragend (http://www.carsten-volmer.de) for his great work in the templates and css.
+
+Thanks to all who helped me (Petzi) with ideas and bugfixes...
+(Landseer, gf, quan, Herr.Vorragend, Guite, slam, Teb, dmm... if I have forget someone, please excuse me)

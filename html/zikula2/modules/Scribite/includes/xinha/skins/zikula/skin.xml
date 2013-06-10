@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<skin>
+  <meta name="name" value="zikula" />
+  <meta name="developer" value="Mateo Tibaquira" />
+  <meta name="developer_url" value="http://blanktheme.org" />
+  <meta name="sponsor" value="" />
+  <meta name="sponsor_url" value="" />
+  <meta name="version" value="1.0" />
+  <meta name="license" value="htmlArea" />
+  <recommendedIcons>Crystal</recommendedIcons>
+</skin>

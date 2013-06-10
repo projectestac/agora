@@ -1,0 +1,49 @@
+
+/**************** Body and tag styles ****************/
+/*
+ *TEMA: Grana   Escull  Or      Llima   Tardor  Nostalgia
+COLOR1: #AC2013 #FF0011 #CC7000 #74AB00 #CD6000 #457FB9
+COLOR2: #AC2013 #FF4444 #E99B00 #5A6E31 #E68804 #457FB9
+COLOR3: #303030 #00BBBB #0B3D41 #333333 #344D00 #457FB9
+COLOR4: #59110A #008888 #145C61 #000000 #4E7104 #457FB9
+COLOR5: #D0D0D0 #BBEEEE #87BDC1 #FFEDBA #B3CD7B #B3CADB
+*/
+
+a:link, a:visited{
+	color: #4E7104;/*COLOR4*/
+}
+
+a:hover{
+	color: #CD6000; /*COLOR1*/
+}
+
+/**************** Header and navigation styles ****************/
+
+#theme_header_top{
+	background-color: #344D00; /*COLOR3*/
+}
+
+#theme_header h1, #theme_header h1 a{
+	color: #CD6000; /*COLOR1*/
+}
+
+#theme_header h2{
+	color: #344D00; /*COLOR3*/
+}
+
+#theme_navigation_bar{
+	background-color: #B3CD7B; /*COLOR5*/
+}
+
+#theme_navigation_bar .selected, #theme_navigation_bar li:hover{
+	background-color: #E68804; /*COLOR2*/
+}
+
+/**************** Blocks **************************/
+
+h4.z-block-title{
+	background-color:#E68804; /*COLOR2*/
+	border-color: #E68804; /*COLOR2*/
+}
+
+

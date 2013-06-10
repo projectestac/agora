@@ -1,0 +1,10 @@
+{if $add}
+<a href="javascript:delContact({$fuid},{$gid})">
+    <img src="images/icons/small/delete_user.png" id="img_{$fuid}" name="img_{$fuid}" alt="{gt text="Delete from contacts' list"}" title="{gt text="Delete from contacts' list"}" />
+</a>
+{else}
+<a href="javascript:addContact({$fuid},{$gid})">
+    <img src="images/icons/small/add_user.png" id="img_{$fuid}" name="img_{$fuid}" alt="{gt text="Add to contacts' list"}" title="{gt text="Add to contacts' list"}" />
+</a>
+{/if}
+<a href="{modurl modname=IWmessages type=user func=compose uname=$uname}">{img modname='core' src='mail_send.png' set='icons/small'   __alt="Send a private message" __title="Send a private message"}</a>

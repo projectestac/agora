@@ -1,0 +1,17 @@
+{gt text='Hello,'}
+
+{gt text='A visitor of to your web site used the form for contact and sent the following:'}
+
+{gt text='Form #'} : { $form }
+{gt text='Contact or Theme'} : { $contact.name }
+{gt text='Your Name'} : { $userdata.uname }
+{gt text='Email'} : { $userdata.uemail }
+{gt text='Homepage'} : { $userdata.url }
+{gt text='Company'} : { $userdata.company }
+{gt text='Phone Number'} : { $userdata.phone }
+{gt text='Location'} : { $userdata.location }
+
+{gt text='Comment'} :
+{ $userdata.comment|safetext }
+
+{gt text='The user has the following IP address/hostname: '} { $ip } / { $host }

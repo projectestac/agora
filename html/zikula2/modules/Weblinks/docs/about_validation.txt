@@ -1,0 +1,15 @@
+ABOUT LINK VALIDATION
+=====================
+
+It should be noted that link "validation" in the Weblinks module is extremely
+rudimentary and is not "safe" in that it prevents malicious attacks or code
+injections. Care should be taken to carefully investigate each link submission
+and make intelligent choices regarding the publishing of these links.
+
+The links validator (as of 3.0.0) only checks for 'empty' links and then 
+attempts to open a socket connection with the host via `fsockopen()`. According
+to the php documentation, this can produce false results ("UDP sockets will 
+sometimes appear to have opened without an error, even if the remote host is 
+unreachable.") So, therefore this method should not be assumed reliable.
+
+Use at your own risk.

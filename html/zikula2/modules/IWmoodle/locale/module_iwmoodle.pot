@@ -1,0 +1,491 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-27 08:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pnblocks/courses.php:13
+msgid "Courses available in Moodle"
+msgstr ""
+
+#: pnuserapi.php:24 pnuserapi.php:84 pnuserapi.php:197 pnuserapi.php:244
+#: pnuserapi.php:279 pnadminapi.php:29 pnadminapi.php:292 pnadminapi.php:342
+#: pnadminapi.php:514 pnadminapi.php:582
+msgid "Error! Could not load items."
+msgstr ""
+
+#: pnuserapi.php:45 pnadminapi.php:19 pnadminapi.php:536 pnadminapi.php:616
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: pnuserapi.php:49 pnadminapi.php:106
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: pnuserapi.php:72 pnuserapi.php:109 pnuserapi.php:141 pnuserapi.php:188
+#: pnuserapi.php:230 pnadminapi.php:51 pnadminapi.php:96 pnadminapi.php:130
+#: pnadminapi.php:168 pnadminapi.php:217 pnadminapi.php:277 pnadminapi.php:367
+#: pnadminapi.php:417 pnadminapi.php:567
+msgid "The connection to Moodle database has failed."
+msgstr ""
+
+#: pninit.php:26 pnadmin.php:20
+msgid ""
+"Module iw_main is needed. You have to install the iw_main module before to "
+"install it."
+msgstr ""
+
+#: pnadminapi.php:145 pnadminapi.php:391
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: pnadminapi.php:303
+msgid "An error occurred doing the action."
+msgstr ""
+
+#: pnadminapi.php:471 pnadminapi.php:543 pnadminapi.php:626 pnadminapi.php:633
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: pntemplates/plugins/function.iwmoodlemenulinks.php:25
+msgid "Show available courses"
+msgstr ""
+
+#: pntemplates/plugins/function.iwmoodlemenulinks.php:28
+msgid "Enrol users into the course"
+msgstr ""
+
+#: pntemplates/plugins/function.iwmoodlemenulinks.php:31
+msgid "Module configuration"
+msgstr ""
+
+#: pntemplates/plugins/function.iwmoodlemenulinks.php:34
+#: pntemplates/iwmoodle_admin_sincron.htm:4
+msgid "Synchronize users"
+msgstr ""
+
+#: pntemplates/plugins/function.iwmoodlemenulinks.php:37
+msgid "Return to the course users list"
+msgstr ""
+
+#: pnajax.php:12 pnajax.php:53
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: pnadmin.php:37
+msgid "Weekly"
+msgstr ""
+
+#: pnadmin.php:40
+msgid "Topics"
+msgstr ""
+
+#: pnadmin.php:43
+msgid "Social"
+msgstr ""
+
+#: pnadmin.php:190
+msgid "The module configuration has been changed"
+msgstr ""
+
+#: pnadmin.php:257
+msgid "He/She is a Moodle user but not an intranet user"
+msgstr ""
+
+#: pnadmin.php:339
+msgid "The user hasn't been found"
+msgstr ""
+
+#: pnadmin.php:360
+msgid ""
+"The user was already enrolled for the course. There has been any action."
+msgstr ""
+
+#: pnadmin.php:369
+msgid "The user has been enrolled in the course"
+msgstr ""
+
+#: pnadmin.php:371
+msgid "The user's enrollment in the course has failed."
+msgstr ""
+
+#: pnadmin.php:386
+msgid ""
+"The user was already pre-enrolled for the course. There has been any action."
+msgstr ""
+
+#: pnadmin.php:389
+msgid "The user has been pre-enrolled in the course"
+msgstr ""
+
+#: pnadmin.php:391
+msgid "The user's pre-enrollment in the course has failed."
+msgstr ""
+
+#: pnadmin.php:423
+msgid "The pre-enrolment of selected users has been removed"
+msgstr ""
+
+#: pnadmin.php:432
+msgid "The enrolment of selected users has been removed"
+msgstr ""
+
+#: pnadmin.php:463
+msgid "Course requested not found"
+msgstr ""
+
+#: pnadmin.php:468
+msgid "Choose a group..."
+msgstr ""
+
+#: pnadmin.php:477 pntemplates/iwmoodle_admin_ajax.htm:2
+#: pntemplates/iwmoodle_admin_sincron.htm:26
+#: pntemplates/iwmoodle_admin_sincron.htm:29
+msgid "All"
+msgstr ""
+
+#: pnadmin.php:523
+msgid "Some fields are needed"
+msgstr ""
+
+#: pnadmin.php:542
+msgid "The result of the enrolment / pre-enrolment:"
+msgstr ""
+
+#: pnadmin.php:736
+msgid "Options saved"
+msgstr ""
+
+#: pnadmin.php:742 pnadmin.php:800
+msgid "There has been no action because no user has been selected "
+msgstr ""
+
+#: pnadmin.php:792
+msgid "The user creation has failed"
+msgstr ""
+
+#: pnadmin.php:807
+msgid "The users have been created correctly"
+msgstr ""
+
+#: pnversion.php:8
+msgid "Integration of Moodle into PostNuke"
+msgstr ""
+
+#: pnversion.php:10
+msgid "IWmoodle"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:4
+msgid "Modify the module configuration"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:9
+msgid "Location of Moodle installation"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:13
+msgid "Prefix of the Moodle tables on database"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:18
+msgid "Open Moodle in a new window"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:22
+msgid "Account that will be used by guest users"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:26
+msgid "Default country for new users"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:28
+msgid "Choose a country..."
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:35
+msgid "Default town/city for new users"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:40
+msgid "Default language for new users"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:42
+msgid "Choose a language..."
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:49
+msgid "Default description for new users"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:54
+msgid "Default timezone for new users"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:109
+msgid "Server's local time"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:113
+#: pntemplates/iwmoodle_admin_sincron.htm:100
+msgid "Execute changes"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_conf.htm:113
+msgid "Edit the module configuration"
+msgstr ""
+
+#: pntemplates/iwmoodle_block_display.htm:5
+msgid "You're not user of Moodle. Click to link"
+msgstr ""
+
+#: pntemplates/iwmoodle_block_display.htm:5
+#: pntemplates/iwmoodle_block_display.htm:36
+msgid "Go to Moodle"
+msgstr ""
+
+#: pntemplates/iwmoodle_block_display.htm:5
+msgid "to activate your account"
+msgstr ""
+
+#: pntemplates/iwmoodle_block_display.htm:9
+#: pntemplates/iwmoodle_admin_list.htm:48
+#: pntemplates/iwmoodle_admin_list.htm:92
+msgid "Courses to which you are enrolled.:"
+msgstr ""
+
+#: pntemplates/iwmoodle_block_display.htm:25
+msgid "Close"
+msgstr ""
+
+#: pntemplates/iwmoodle_block_display.htm:32
+msgid "You're not enrolled to any courses."
+msgstr ""
+
+#: pntemplates/iwmoodle_block_display.htm:40
+msgid "Administration"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:5
+msgid "List of available courses"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:10
+msgid "Code"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:11
+msgid "Title"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:12
+msgid "Summary"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:13
+msgid "Type"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:14
+msgid "State"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:15
+msgid "Options"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:36
+#: pntemplates/iwmoodle_admin_ajax.htm:12
+msgid "Disabled"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:38
+#: pntemplates/iwmoodle_admin_ajax.htm:14
+msgid "Enabled"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:44
+#: pntemplates/iwmoodle_admin_ajax.htm:18
+msgid "List"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:47
+#: pntemplates/iwmoodle_admin_ajax.htm:21
+msgid "Active"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:49
+#: pntemplates/iwmoodle_admin_ajax.htm:23
+msgid "Inactive"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:58
+msgid "Not found courses"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_main.htm:62
+msgid "About this module"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_enrole.htm:9
+msgid "Enrole users in the course"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_enrole.htm:22
+msgid "People"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_enrole.htm:25
+#: pntemplates/iwmoodle_admin_sincron.htm:43
+msgid "Group"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_enrole.htm:28
+#: pntemplates/iwmoodle_admin_list.htm:18
+msgid "Role"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_enrole.htm:33
+msgid "People to register"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_enrole.htm:52
+msgid "Choose a role..."
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_enrole.htm:61
+msgid "Send"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_enrole.htm:62
+msgid "Cancel"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_enrole.htm:67
+msgid "No role selected for users"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_enrole.htm:68
+msgid "No users selected"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_ajax.htm:8
+msgid "Not users"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_pager.htm:1
+msgid "Page"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_list.htm:6
+msgid "List of users in the course"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_list.htm:16
+msgid "Lastname, Firstname"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_list.htm:17
+msgid "Username"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_list.htm:19
+msgid "Sign in"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_list.htm:20
+msgid "Last Moodle access"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_list.htm:21
+#: pntemplates/iwmoodle_admin_list.htm:67
+msgid "Delete"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_list.htm:22
+msgid "Check all"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_list.htm:50
+#: pntemplates/iwmoodle_admin_list.htm:84
+msgid "Users enrolled in the course but not in the intranet"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_list.htm:52
+#: pntemplates/iwmoodle_admin_list.htm:76
+msgid "Users enrolled in the course"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_list.htm:67
+msgid "You have not selected any user!"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_list.htm:67
+msgid "Do you really want to delete the teachers selected from the course?"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_list.htm:97
+msgid "This course has not assigned users"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_sincron.htm:35
+msgid "N. records"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_sincron.htm:88
+msgid "Change validation to do it from the Moodle"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_sincron.htm:90
+msgid "Change validation to do it from the intranet"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_sincron.htm:92
+msgid "Create Moodle user"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_sincron.htm:117
+msgid "User validated in Moodle from the intranet"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_sincron.htm:125
+msgid "User not validated in Moodle from the intranet"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_sincron.htm:133
+msgid "Not Moodle user"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_sincron.htm:138
+msgid "Not found users"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_sincron.htm:145
+msgid "Moodle users but not zikula users"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_sincron.htm:181
+msgid "Create the user in the web site"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_sincron.htm:185
+msgid "All the Moodle users are web site users"
+msgstr ""
+
+#: pntemplates/iwmoodle_admin_menu.htm:4
+msgid "Moodle Integration"
+msgstr ""

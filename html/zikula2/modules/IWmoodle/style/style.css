@@ -1,0 +1,8 @@
+/* style.css */
+.active{
+	color: green;
+}
+
+.inactive{
+	color: red;
+}

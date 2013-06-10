@@ -1,0 +1,650 @@
+input.date {
+    width: 8em;
+}
+
+ul.contentPositionSelector {
+    list-style: none;
+    margin: 0px 0px 10px 0px;
+    padding: 0px;
+    float: left;
+}
+
+ul.contentPositionSelector li {
+    float: left;
+}
+
+ul.contentPositionSelector label {
+    display: block;
+    float: none;
+}
+
+ul.content-subtabs {
+    list-style: none;
+    display: block;
+    margin: -30px 0px 0px 0px; /* -30 = move above Forms tabs */
+    padding: 0px;
+    float: right;
+}
+
+ul.content-subtabs li {
+    display: inline;
+}
+
+div.content-page-heading h2 {
+    border-bottom: 1px solid #777;
+    margin-bottom: 0px !important;
+    padding-bottom: 0px;
+}
+
+div.content-page-heading h3 {
+    text-align: right;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+div.content-toc img.draggable {
+    cursor: move;
+    vertical-align: middle;
+}
+
+div.content-toc a.hoverdrop {
+    background-color: #dde;
+    border: 1px solid #aab;
+    border-width: 1px 0;
+}
+
+div.content-label-help {
+    font-size: 0.9em;
+    margin-left:30%;
+    padding-left: 0.7em;
+}
+
+div.content-form {
+    float: left;
+    width: 100%;
+}
+
+div.content-form fieldset {
+    padding: 2px 10px 2px 10px;
+}
+
+div.content-form div.content_buttons {
+    margin: 10px 0px 10px 0px;
+}
+
+div.content-form div.content_buttons * {
+    vertical-align: middle;
+}
+
+div.content-actionbar {
+    background-color: #666;
+    color: #FFF;
+    padding: 2px 4px;
+}
+
+a.content-action {
+    text-decoration: none;
+    font-size: 80%;
+    font-weight: normal;
+}
+
+div.content-actionbar a.content-action {
+    color: #FFF;
+}
+
+div.content-page-path {
+    font-weight: bold;
+}
+
+div.content-editthis a {
+    display: block;
+    font-size: 0.9em;
+    color: #467aa7;
+    padding: 1px 1px 1px 5px;
+    margin: 1px 0;
+    border: 1px #eef solid;
+    background: #dde;
+}
+
+div.content-editthis a:hover {
+    color: #2a5a8a;
+    border: 1px solid #aab;
+    background: #d0d0e0;
+}
+
+div.z-pager * {
+    vertical-align: middle;
+}
+
+div.content-sitemap ul {
+    margin-bottom: 0px !important; /* Andreas08 theme modifier */
+}
+
+p.content-versionpreview {
+    background-color: #D0D0D0;
+    border: 1px solid #404040;
+    color: #808080;
+    margin: 0px 0px 6px 0px;
+    padding: 4px;
+}
+
+p.content-versionpreview * {
+    vertical-align: middle;
+}
+
+div.content-pageinfo {
+    position: relative;
+}
+
+div.content-pageinfo .content {
+    background-color:#FFFFFF;
+    border:1px outset #333333;
+    display:block;
+    padding:7px;
+    position:absolute;
+    left: 22px;
+    z-index:900;
+}
+
+div.content-pageinfo .content ul {
+    border-top: 1px solid #999;
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    margin:0 !important;
+    padding:5px 0 !important;
+}
+
+div.content-pageinfo .content li {
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.content_activationbutton {
+    display: none;
+}
+
+
+/* ----------------------------------------------------------------------------
+Layouts
+---------------------------------------------------------------------------- */
+
+.content-area-top {
+}
+
+.content-area-topheader {
+}
+
+div.content-area-top h4,
+div.content-area-top h3,
+div.content-area-top h2 {
+    margin-bottom: 10px;
+}
+
+div.content-layout.column2 p,
+div.content-layout.column3 p {
+    text-align:justify;
+}
+
+/* widths are located in the templates for easier adjustment */
+div.content-layout.column2 div.content-area-left {
+    /*    width: 48%;*/
+    float: left;
+}
+
+div.content-layout.column2 div.content-area-right {
+    /*    width: 48%;*/
+    float: right;
+    padding-left: 2%;
+}
+
+div.content-layout.column3 div.content-area-left {
+    /*    width: 30%;*/
+    float: left;
+}
+
+div.content-layout.column3 div.content-area-center {
+    /*    width: 30%;*/
+    float: left;
+    padding: 0 2%;
+}
+
+div.content-layout.column3 div.content-area-right {
+    /*    width: 30%;*/
+    float: right;
+}
+
+div.content-layout.column3 div.content-area-bottom,
+div.content-layout.column2 div.content-area-bottom,
+div.content-layout.column2 div.content-area-middle {
+    clear: both;
+}
+
+/* ----------------------------------------------------------------------------
+Content editing
+---------------------------------------------------------------------------- */
+
+.clickable {
+    cursor: pointer;
+}
+
+table.content-layout-edit {
+    width: 100%;
+    border-collapse: separate;
+}
+
+table.content-layout-edit td.content-area {
+    border: 1px dashed #777;
+    vertical-align: top;
+}
+
+/* For placeholder table cells in the edit layout use this class */
+table.content-layout-edit td.content-area-inactive {
+    border: 1px dashed #a77;
+    vertical-align: top;
+    background-color: #fee;
+}
+
+/* Portal widget specific */
+.widget {
+    border: 1px solid #bbb;
+    margin-bottom: 10px;
+    display: table;
+    width: 100%;
+}
+
+.widget_nw {
+    height: 18px;
+    background-color: #dde;
+    padding: 2px 5px;
+}
+
+.widget_w {
+}
+
+.widget_sw {
+}
+
+.widget_onlymembers {
+    background-color: #cdf;
+}
+
+.widget_onlynonmembers {
+    background-color: #fdc;
+}
+
+.widget_inactive {
+    background-color: #ccc;
+}
+
+.widget_title {
+    font-weight: bold;
+    text-align: left;
+}
+
+.widget_content {
+    padding: 2px;
+}
+
+.widget_draggable {
+    cursor: move;
+}
+
+.widget_ghost {
+    background: #dcc;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    position: relative;
+    border: 2px dashed #f00;
+}
+
+#layout_preview img {
+    padding: 5px;
+    background: #dde;
+    border: 1px solid #bbb;
+}
+
+/* ----------------------------------------------------------------------------
+Content styling
+---------------------------------------------------------------------------- */
+
+div.figure-topLeft {
+    margin: 0px 15px 5px 0px;
+}
+
+div.figure-topRight {
+    margin: 0px 0px 5px 15px;
+}
+
+div.w25 { width: 23%; }
+div.w30 { width: 28%; }
+div.w33 { width: 31%; }
+div.w38 { width: 36%; }
+div.w40 { width: 38%; }
+div.w50 { width: 48%; }
+div.w60 { width: 58%; }
+div.w62 { width: 60%; }
+div.w66 { width: 64%; }
+div.w70 { width: 68%; }
+div.w75 { width: 73%; }
+div.w100 { width: 100%; }
+div.wauto { width: auto; }
+
+/* IE6 hacks */
+* html div.w25 { width: 21%; }
+* html div.w30 { width: 26%; }
+* html div.w33 { width: 29%; }
+* html div.w38 { width: 32%; }
+* html div.w40 { width: 36%; }
+* html div.w50 { width: 46%; }
+* html div.w60 { width: 54%; }
+* html div.w62 { width: 58%; }
+* html div.w66 { width: 62%; }
+* html div.w70 { width: 66%; }
+* html div.w75 { width: 71%; }
+* html div.w100 { width: 96%; }
+
+div.greybox {
+    border:solid 1px #DEDEDE;
+    background:#EFEFEF;
+    color:#222222;
+    padding:0.5em;
+}
+
+div.redbox {
+    border:solid 1px #CC0000;
+    background:#F7CBCA;
+    color:#CC0000;
+    padding:0.5em;
+}
+
+div.yellowbox {
+    border:solid 1px #DEDEDE;
+    background:#FFFFCC;
+    color:#222222;
+    padding:0.5em;
+}
+
+div.greenbox {
+    border:solid 1px #349534;
+    background:#C9FFCA;
+    color:#008000;
+    padding:0.5em;
+}
+
+/* ----------------------------------------------------------------------------
+Various content plugins
+---------------------------------------------------------------------------- */
+
+div.content-item p.content-description {
+    font-style: italic;
+    margin-bottom: 0px;
+}
+
+.content-googlemap {
+    border: 1px solid #000;
+    background-color:#c0c0c0;
+    width:100%;
+    margin:0 0 10px 0 !important;
+    padding:0 !important;
+}
+.map {
+    height:200px;
+}
+.content-googlemap dd,
+.content-googlemap dt {
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.content-description {
+    font-style:italic;
+}
+
+.content-computercode {
+    overflow: auto;
+    border: 1px solid #000;
+    margin: 10px 0px;
+}
+
+.content-layout-edit .content-computercode {
+    border: none;
+}
+
+.content-computercode li {
+    font: 100% monospace;
+}
+
+.content-computercode li pre {
+    margin: 0px;
+}
+
+.content-author .authoravatar {
+    background:#FFFFFF none repeat scroll 0 0;
+    border-color:#D9E0E6 #C8CDD2 #C8CDD2 #D9E0E6;
+    border-style:solid;
+    border-width:1px;
+    float:left;
+    margin:0 5px 5px 0;
+    padding:5px;
+}
+
+dl.content-video,
+dl.content-video dt,
+dl.content-video dd {
+    text-align: center;
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.content-video .play-icon {
+    background: url(../../../images/icons/extrasmall/agt_forward.png) no-repeat 0 50%;
+    margin: 0 0.5em;
+    font-size: 1em;
+    padding: 2px 0 2px 19px;
+}
+
+.content-quote blockquote {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 0 2em;
+}
+
+.content-quote blockquote p {
+    margin: 0;
+    padding: 0;
+    text-align: left !important;
+}
+
+.content-quote p.source {
+    text-align: right !important;
+}
+
+.itemleft { /* used by MediaAttach */
+    float:left;
+    padding-right:5px;
+}
+.itemright { /* used by MediaAttach */
+    float:right;
+    padding-left:5px;
+}
+
+div.content-pageinfo .content a.con_image,
+div.content-pageinfo .content button.con_image {
+    margin: 0 !important;
+    font-size: 1em !important;
+    padding: 2px 0 2px 22px !important; /* 16px image + spacer */
+    display: block !important;
+}
+div.content-pageinfo .content a.translate {
+    background: url(../../../images/icons/extrasmall/voice-support.png) no-repeat 0 50%;
+}
+div.content-pageinfo .content a.edit {
+    background: url(../../../images/icons/extrasmall/edit.png) no-repeat 0 50%;
+}
+div.content-pageinfo .content a.insertsub {
+    background: url(../../../images/icons/extrasmall/insert_table_row.png) no-repeat 0 50%;
+}
+div.content-pageinfo .content a.insertpage {
+    background: url(../../../images/icons/extrasmall/filenew.png) no-repeat 0 50%;
+}
+div.content-pageinfo .content a.pagelist {
+    background: url(../../../images/icons/extrasmall/windowlist.png) no-repeat 0 50%;
+}
+div.content-pageinfo .content a.editoff {
+    background: url(../../../images/icons/extrasmall/redled.png) no-repeat 0 50%;
+}
+div.content-pageinfo .content a.editon {
+    background: url(../../../images/icons/extrasmall/greenled.png) no-repeat 0 50%;
+}
+
+.contextMenu {
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding: 1px;
+    vertical-align: middle;
+}
+
+.contextMenu:hover {
+    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+}
+
+.con_area {
+    background :#FAFAFA;
+    border-bottom: 1px dashed #777777;
+    color: #444444;
+    display: block;
+    font-size: 0.8em;
+    margin: 1px 0;
+    padding: 1px;
+    text-transform: uppercase;
+}
+
+.z-buttons input.con-bt-clone {
+    background: url("../../../images/icons/extrasmall/editcopy.png") #dfdfdf 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/editcopy.png") 10px 50% no-repeat, -moz-linear-gradient(center top , #ffffff, #dfdfdf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/editcopy.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#dfdfdf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/editcopy.png") 10px 50% no-repeat, linear-gradient(#ffffff, #dfdfdf); /*CSS3*/
+}
+
+.z-buttons input.con-bt-clone:hover {
+    background: url("../../../images/icons/extrasmall/editcopy.png") #cfcfcf 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/editcopy.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #fafafa, #cfcfcf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/editcopy.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#cfcfcf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/editcopy.png") 10px 50% no-repeat, linear-gradient(#fafafa, #cfcfcf); /*CSS3*/
+}
+
+.z-buttons input.con-bt-clone:active {
+    background: url("../../../images/icons/extrasmall/editcopy.png") #fafafa 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/editcopy.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #cfcfcf, #fafafa) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/editcopy.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#cfcfcf), to(#fafafa)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/editcopy.png") 10px 50% no-repeat, linear-gradient(#cfcfcf, #fafafa); /*CSS3*/
+}
+
+.z-buttons input.con-bt-translate {
+    background: url("../../../images/icons/extrasmall/voice-support.png") #dfdfdf 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/voice-support.png") 10px 50% no-repeat, -moz-linear-gradient(center top , #ffffff, #dfdfdf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/voice-support.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#dfdfdf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/voice-support.png") 10px 50% no-repeat, linear-gradient(#ffffff, #dfdfdf); /*CSS3*/
+}
+
+.z-buttons input.con-bt-translate:hover {
+    background: url("../../../images/icons/extrasmall/voice-support.png") #cfcfcf 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/voice-support.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #fafafa, #cfcfcf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/voice-support.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#cfcfcf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/voice-support.png") 10px 50% no-repeat, linear-gradient(#fafafa, #cfcfcf); /*CSS3*/
+}
+
+.z-buttons input.con-bt-translate:active {
+    background: url("../../../images/icons/extrasmall/voice-support.png") #fafafa 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/voice-support.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #cfcfcf, #fafafa) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/voice-support.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#cfcfcf), to(#fafafa)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/voice-support.png") 10px 50% no-repeat, linear-gradient(#cfcfcf, #fafafa); /*CSS3*/
+}
+
+.z-buttons input.con-bt-next {
+    background: url("../../../images/icons/extrasmall/forward.png") #dfdfdf 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/forward.png") 10px 50% no-repeat, -moz-linear-gradient(center top , #ffffff, #dfdfdf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/forward.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#dfdfdf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/forward.png") 10px 50% no-repeat, linear-gradient(#ffffff, #dfdfdf); /*CSS3*/
+}
+
+.z-buttons input.con-bt-next:hover {
+    background: url("../../../images/icons/extrasmall/forward.png") #cfcfcf 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/forward.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #fafafa, #cfcfcf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/forward.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#cfcfcf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/forward.png") 10px 50% no-repeat, linear-gradient(#fafafa, #cfcfcf); /*CSS3*/
+}
+
+.z-buttons input.con-bt-next:active {
+    background: url("../../../images/icons/extrasmall/forward.png") #fafafa 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/forward.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #cfcfcf, #fafafa) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/forward.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#cfcfcf), to(#fafafa)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/forward.png") 10px 50% no-repeat, linear-gradient(#cfcfcf, #fafafa); /*CSS3*/
+}
+
+.z-buttons input.con-bt-prev {
+    background: url("../../../images/icons/extrasmall/previous.png") #dfdfdf 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/previous.png") 10px 50% no-repeat, -moz-linear-gradient(center top , #ffffff, #dfdfdf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/previous.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#dfdfdf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/previous.png") 10px 50% no-repeat, linear-gradient(#ffffff, #dfdfdf); /*CSS3*/
+}
+
+.z-buttons input.con-bt-prev:hover {
+    background: url("../../../images/icons/extrasmall/previous.png") #cfcfcf 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/previous.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #fafafa, #cfcfcf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/previous.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#cfcfcf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/previous.png") 10px 50% no-repeat, linear-gradient(#fafafa, #cfcfcf); /*CSS3*/
+}
+
+.z-buttons input.con-bt-prev:active {
+    background: url("../../../images/icons/extrasmall/previous.png") #fafafa 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/previous.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #cfcfcf, #fafafa) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/previous.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#cfcfcf), to(#fafafa)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/previous.png") 10px 50% no-repeat, linear-gradient(#cfcfcf, #fafafa); /*CSS3*/
+}
+
+.z-buttons input.con-bt-skip {
+    background: url("../../../images/icons/extrasmall/agt_reload.png") #dfdfdf 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/agt_reload.png") 10px 50% no-repeat, -moz-linear-gradient(center top , #ffffff, #dfdfdf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/agt_reload.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#dfdfdf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/agt_reload.png") 10px 50% no-repeat, linear-gradient(#ffffff, #dfdfdf); /*CSS3*/
+}
+
+.z-buttons input.con-bt-skip:hover {
+    background: url("../../../images/icons/extrasmall/agt_reload.png") #cfcfcf 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/agt_reload.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #fafafa, #cfcfcf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/agt_reload.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#cfcfcf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/agt_reload.png") 10px 50% no-repeat, linear-gradient(#fafafa, #cfcfcf); /*CSS3*/
+}
+
+.z-buttons input.con-bt-skip:active {
+    background: url("../../../images/icons/extrasmall/agt_reload.png") #fafafa 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/agt_reload.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #cfcfcf, #fafafa) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/agt_reload.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#cfcfcf), to(#fafafa)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/agt_reload.png") 10px 50% no-repeat, linear-gradient(#cfcfcf, #fafafa); /*CSS3*/
+}
+
+.z-buttons input.con-bt-view {
+    background: url("../../../images/icons/extrasmall/14_layer_visible.png") #dfdfdf 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/14_layer_visible.png") 10px 50% no-repeat, -moz-linear-gradient(center top , #ffffff, #dfdfdf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/14_layer_visible.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#dfdfdf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/14_layer_visible.png") 10px 50% no-repeat, linear-gradient(#ffffff, #dfdfdf); /*CSS3*/
+}
+
+.z-buttons input.con-bt-view:hover {
+    background: url("../../../images/icons/extrasmall/14_layer_visible.png") #cfcfcf 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/14_layer_visible.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #fafafa, #cfcfcf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/14_layer_visible.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#cfcfcf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/14_layer_visible.png") 10px 50% no-repeat, linear-gradient(#fafafa, #cfcfcf); /*CSS3*/
+}
+
+.z-buttons input.con-bt-view:active {
+    background: url("../../../images/icons/extrasmall/14_layer_visible.png") #fafafa 10px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../../../images/icons/extrasmall/14_layer_visible.png") 10px 50% no-repeat, -moz-linear-gradient(top,  #cfcfcf, #fafafa) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../../../images/icons/extrasmall/14_layer_visible.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#cfcfcf), to(#fafafa)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../../../images/icons/extrasmall/14_layer_visible.png") 10px 50% no-repeat, linear-gradient(#cfcfcf, #fafafa); /*CSS3*/
+}

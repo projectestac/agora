@@ -1,0 +1,271 @@
+/*******************************************************************************/
+/* General
+/*******************************************************************************/
+
+#wl-main .wl-borderbox {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #D9DCC2;
+}
+#wl-main .wl-center {
+  text-align:center;
+}
+#wl-main .wl-catrow {
+  margin:0 0 1em 0;
+}
+#wl-main .wl-cat {
+  float:left;
+  margin:5px;
+  padding:0;
+  width:48%;
+}
+#wl-main a.wl-catmain {
+  padding: 2px 0 2px 19px;
+  background: url('../../../images/icons/extrasmall/folder_blue.png') no-repeat 0 50%;
+}
+#wl-main a.wl-catsub {
+  padding: 2px 0 2px 19px;
+  background: url('../../../images/icons/extrasmall/folder_green.png') no-repeat 0 50%;
+}
+#wl-main .wl-catname {
+  margin:0 0 0.5em 0;
+  padding:0;
+}
+#wl-main .wl-catdescr {
+  padding: 2px 0 2px 19px;
+  margin:0 0 0.5em 0;
+}
+#wl-main .wl-sub {
+  margin:0 0 0 19px;
+  padding:0;
+  display:none;
+}
+#wl-main .wl-stats {
+  margin:1em 0;
+}
+
+#wl-main h2, #wl-main h3 {
+  border-bottom: 1px dotted #D9DCC2;
+}
+
+.wl-toggle-link-open,
+.wl-toggle-link-open:link,
+.wl-toggle-link-open:visited {
+    background-image: url("../../../images/global/toggle-bl.png");
+    background-repeat: no-repeat;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    border: 0pt none;
+    background-position: right -15px;
+}
+.wl-toggle-link-closed,
+.wl-toggle-link-closed:link,
+.wl-toggle-link-closed:visited {
+    background-image: url("../../../images/global/toggle-bl.png");
+    background-repeat: no-repeat;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    border: 0pt none;
+    background-position: right 2px;
+}
+
+/*******************************************************************************/
+/* LinkBox
+/*******************************************************************************/
+
+#wl-main .wl-linkbox {
+  border:1px solid #d9dcc2;
+  margin:1em;
+  padding:1em;
+}
+#wl-main .wl-linkbox dt {
+  font-size:1.3em;
+  margin:5px;
+}
+#wl-main .wl-linkbox dd {
+  margin:5px;
+}
+#wl-main .wl-topbox {
+  padding-bottom:10px;
+  border-bottom:1px dotted #d9dcc2;
+  font-size:1.3em;
+  margin-bottom:10px;
+}
+#wl-main .wl-centerbox {
+
+}
+#wl-main .wl-bottombox {
+  padding-top:10px;
+  border-top:1px dotted #d9dcc2;
+  margin-top:10px;
+}
+#wl-main .wl-thumb {
+  float:right;
+  padding: 3px 0 0 10px;
+}
+/*******************************************************************************/
+/* Inline-Blocks
+/*******************************************************************************/
+
+#wl-main .blocklast {
+  float:left;
+  width:48%;
+  margin:0.35em;
+}
+#wl-main .blockmostpopular {
+  float:right;
+  width:48%;
+  margin:0.35em;
+}
+/*******************************************************************************/
+/* Navigation
+/*******************************************************************************/
+
+#wl-main ul.wl-nav {
+  font-weight:bold;
+  list-style: none;
+  margin:0.5em 0;
+  padding:0;
+}
+#wl-main ul.wl-nav li {
+  display:inline;
+  margin:0 0.5em;
+  white-space:nowrap;
+}
+
+/*******************************************************************************/
+/* SubCat-List
+/*******************************************************************************/
+
+#wl-main dl.wl-sublist {
+  list-style: none;
+  line-height:2em;
+  margin:0 auto;
+  padding:0.5em;
+}
+#wl-main dl.wl-sublist dt {
+  border-bottom:1px dashed #DDDDDD;
+  font-weight:normal;
+  margin:0.5em;
+  padding:0;
+}
+#wl-main dl.wl-sublist dd {
+  display:inline;
+  margin:0 0.5em;
+  white-space:nowrap;
+}
+
+/*******************************************************************************/
+/* SortLinks
+/*******************************************************************************/
+
+#wl-main .wl-sortlinks {
+  margin:1em 0;
+}
+#wl-main .wl-sortlinks dt,
+#wl-main .wl-sortlinks dd {
+  margin:5px;
+}
+
+/*******************************************************************************/
+/* Forms
+/*******************************************************************************/
+
+#wl-main .wl-form dl dt {
+  clear: both;
+  display: block;
+  float: left;
+  text-align: right;
+  width: 30%;
+  padding: 0;
+  margin: 0.5em;
+  line-height: 2em;
+}
+#wl-main .wl-form dl dd {
+  display: block;
+  float: left;
+  text-align: left;
+  width: 65%;
+  margin: 0.5em;
+  padding: 0;
+  line-height: 2em;
+}
+
+/*******************************************************************************/
+/* Integration of Ratings-Hook
+/*******************************************************************************/
+
+#wl-main #ratingsratecontent h3 {
+  display: none;
+}
+/*
+#wl-main #ratingsratecontent ul,
+#wl-main #ratingsratecontent form,
+#wl-main #ratingsratecontent {
+  text-align:center;
+  margin:0 auto;
+}
+*/
+
+/*******************************************************************************/
+/* Blocks
+/*******************************************************************************/
+
+#wl-main ol.lastweblinks,
+#wl-main ol.mostpopularweblinks {
+  margin:10px 5px 5px 30px;
+  list-style:decimal;
+}
+.randomweblinks li,
+.mostpopularweblinks li,
+.lastweblinks li {
+  padding:2px;
+  margin-bottom:2px;
+}
+.randomweblinks li a,
+.mostpopularweblinks li a,
+.lastweblinks li a{
+  text-decoration:none;
+}
+.randomweblinks li a:hover,
+.mostpopularweblinks li a:hover,
+.lastweblinks li a:hover {
+  text-decoration:none;
+}
+.randomweblinks li ul,
+.mostpopularweblinks li ul,
+.lastweblinks li ul {
+  margin:3px 0 3px 10px;
+  font-size:1em;
+  font-weight:normal;
+}
+.randomweblinks li ul li,
+.mostpopularweblinks li ul li,
+.lastweblinks li ul li {
+  margin-bottom:0;
+}
+.randomweblinks li ul a,
+.mostpopularweblinks li ul a,
+.lastweblinks li ul a {
+  font-weight:normal;
+}
+.tb {
+  display: table;
+  width: 100%;
+}
+.tb>div {
+  display: table-row;
+}
+.tb>div>div {
+  display: table-cell;
+  width: 95%;
+}
+
+/***/
+/* other stuff
+/***/
+
+.wl-red {
+    border: 1px solid #CC0000 !important;
+    background-color: #F7CBCA !important;
+}

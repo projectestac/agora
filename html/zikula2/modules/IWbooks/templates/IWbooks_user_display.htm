@@ -1,0 +1,25 @@
+{include file="IWbooks_user_menu.htm"}
+{section name="itembook"}
+{gt text="Author"}: <strong>{$itembook.autor|safehtml}</strong> <br />
+{gt text="Title"}: <strong>{$itembook.titol|safehtml}</strong><br /><br />
+{gt text="Editorial"}: <strong>{$itembook.editorial|safehtml}</strong><br />
+{gt text="Release Year"}: <strong>{$itembook.any_publi|safehtml}</strong><br />
+{gt text="ISBN"}: <strong>{$itembook.isbn|safehtml}</strong><br />
+{gt text="Subject:"} <strong>{$materia}</strong> ({$itembook.codi_mat|safehtml})<br />
+{gt text="Plan:"} <strong>{$itembook.etapa}</strong><br />
+{gt text="Level"}: <strong>{$itembook.nivell|safehtml}</strong><br />
+{gt text="Optional?"}: <strong>{$itembook.optativa|safehtml}</strong><br /> <br />
+{gt text="Read?"}: <strong>{$itembook.lectura|safehtml}</strong><br />
+{gt text="Evaluation (Read Only)"}: <strong>{$itembook.avaluacio|safehtml}</strong><br />
+{gt text="Academic Year"}: <strong>{$itembook.any|safehtml}</strong><br />
+{gt text="Comment"}: <strong>{$itembook.observacions|safehtml}</strong><br />
+{gt text="Home course materials (books, brushes ...)"}: <strong>{$itembook.materials|safehtml}</strong><br />
+{/section}
+<div>
+    <a href="index.php?module=IWbooks&func=view">
+        {gt text="Back"}
+    </a>
+</div>
+
+
+

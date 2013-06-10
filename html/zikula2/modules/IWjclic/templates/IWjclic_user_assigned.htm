@@ -1,0 +1,15 @@
+{include file="IWjclic_user_menu.htm"}
+<div class="usercontainer">
+    <div class="userpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
+    <h2>{gt text="List of activities that have assigned"}</h2>
+    {if count($activities) > 0}
+    {foreach item="activity" from="$activities"}
+    <div id="act_{$activity.jid}">
+        {include file="IWjclic_user_assignedContent.htm"}
+    </div>
+    {/foreach}
+    {else}
+    {gt text="You have no assignment"}
+    {/if}
+    <div style="height:20px;">&nbsp;</div>
+</div>

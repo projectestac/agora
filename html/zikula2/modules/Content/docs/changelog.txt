@@ -1,0 +1,253 @@
+Content (C) 2007-2011, Content Development Team
+---------------------------
+http://code.zikula.org/content
+http://github.com/zikula-modules/Content
+
+Version 4.0.0
+-------------
+
+This version is converted to a pure Zikula 1.3 version. This means it is not compatible with 
+Zikula 1.2.x any more.
+
+Version 3.2.1
+-------------
+
+Summary of changes:
+- Several bugs are solved
+- The table of contents plugin has been extended with more features (thanks mrtux)
+- A new plugin for unfiltered content has been added
+- A RSS template has been added for the extended page list
+
+All tickets:
+* Add #17 new content type: text not passed through output filter
+* Add #29 general backend option: disable output filter
+* Fix #192 Table structure: TEXT to LONGTEXT for con_data field
+* Fix #75 Saving html content deletes content.
+* Fix #173 Content block does not included root of selected subtree
+* Add #197 RSS-Feed for the module
+* Add #204 Add a check for pageData===false in page api
+* Fix #213 interaction with menutree failed
+* Fix #214 camtasia plugin - embedded is not working
+* Add #215 camtasia plugin - use FirstFrame.png as preview picture
+* Add #217 table of content plugin upgrade hides a lot of subpages
+* Add #218 Content plugin for table of content does not included root of selected subtree
+* Fix #221 RSS of Dizkus in Content
+* Add #228 Facebook Like Box
+* Add #229 Generic Iframe Content Type
+* Fix #240 upgrade TOC from 3.1.0 to 3.2.1git shows empty TOC
+* Add #110 Google Calendar Plugin or Iframe Plugin(?)
+* Add #216 camtasia plugin - ugly template for lightwindow
+* Fix #219 Update pnSecAddSchema in menu and mostviewed
+
+UPGRADE INSTRUCTIONS:
+    1) Before upgrading, please make a backup of the old module files and database tables, 
+    since there are changes to the database. The upgrade process has been tested, 
+    but Content is a complex module, so better be safe than sorry.
+    2) After backup you can just run the upgrade to the new version and the database tables 
+    will be updated and new variables will be automatically added.
+
+Version 3.2.0
+-------------
+
+Summary of changes:
+- Permission checks are updated, more checks on the correct locations and Delete rights are needed for deleting pages
+- New features like cloning of a page and restoring deleted pages
+- New admin setting for new pages (online/offline and used/not used in the menu)
+- New plugin with OpenStreetMap maps (thanks hilope)
+- New basic plugin for camtasia videos (thanks Ralf for the ideas)
+- YouTube and Vimeo video plugin have more options like width and height
+- The Google maps plugin has been updated to the latest JavaScript API version
+- Several minor updates to the permalink generation
+- Category use is now configurable
+- More layout templates to choose from
+- A lot of layout updates and nicer look & feel
+- The page list has ajax enabled green/red buttons for activating pages and placing them in the menu
+- Several database tables now have indexes for more speed (thanks mrtux!)
+- Hook calls are now implemented (to enable for instance crpTag)
+- A new breadcrumb plugin for hierarchical pages (thanks mrtux)
+- A introduction article is created on a fresh install
+
+All tickets:
+* Fix   #58	    Fatal error after Update to 3.0.3
+* Fix   #105	admin rights shows no content when editing
+* Fix   #109	Is the isActive-query really correct?
+* Fix   #113	wrong menu when using content more than one times
+* Fix   #106	Slideshare plugin fails
+* Fix   #107	Scriptaculous effets don't load on editing a page
+* Fix   #108	wrong condition? (isInMenu vs. isActive)
+* Fix   #111	+ char in permalink leads to error
+* Fix   #117	automatically generated short url wrong
+* Fix   #118	css problem
+* Fix   #131	Content SVN with ZK1.3 shows datatimebrief on last updated field
+* Fix   #171	Wrong naming in registration of category registry
+* Fix   #176	Restoring from history might set wrong parentpageId
+* Fix   #177	History onlyshows the latest 20 events
+* Fix   #181	Don't call logerror in pageAPI
+* Fix   #182	isUniqueUrlnameByPageId ignores inactive pages
+* Fix   #183	Sort array output in contentlayoutselector
+* Fix   #186	new pages are offline
+* Fix   #187	Make sure Preview and Save & View take Active into account
+* Add   #16	    disable use of categories
+* Add   #56	    Menu block cache
+* Add   #62	    Copy Page feature
+* Add   #83	    import from other content modules (News first)
+* Add   #94	    if history is stored, make recreate available after deleting a page
+* Add   #145	Add   openstreetmap plugin
+* Add   #146	Update the Google Maps plug to v3 and more options
+* Add   #162	Add   a plugin for direct inclusion of a SWF video
+* Add   #67	    Remove special layout of content when edit
+* Add   #93	    edit right are able to delete pages!
+* Add   #148	Add   admin links to the sitemap page
+* Patch #119	content doesn't work with other plugins like crpTag
+* Patch #127	add and use indexes
+* Patch #136	correctly remember editmode
+* Patch #137	modifier to add local links to content module
+* Patch #158	make it work with other hooks
+* Patch #159	Optical bug
+* Patch #160	BreadCrumb plugin
+* Patch #163	Optimize admin-right-checks
+* Patch #164	fix broken filter-usage
+* Patch #165	New pages should be marked as "offline"
+* Patch #166	Translate-link is always in contextmenu of content_edit_main
+* Patch #167	some layouttypesapi implementations doesn't store the contentArea-titles correctly
+* Patch #168	Show contentArea-titles in editmode
+* Patch #169	Content-Position like top-right breaks edit-view
+* Patch #170	Add new contenttype to join different positions
+* Patch #174	Defining width and height for youtube plugin
+* Patch #175	Allow to hide content on pages
+* Task  #1	    Work with Zikula Category Permissions
+* Task  #154	Remove Google Maps API key, since it is not required in JS API v3
+* Task  #161	Replace br clear=all by clearfix solution					
+
+
+UPGRADE INSTRUCTIONS:
+    1) Before upgrading, please make a backup of the old module files and database tables, 
+    since there are changes to the database. The upgrade process has been tested, 
+    but Content is a complex module, so better be safe than sorry.
+    2) After backup you can just run the upgrade to the new version and the database tables 
+    will be updated and new variables will be automatically added.
+
+Version 3.1.0
+-------------
+* IMPORTANT       - Security schema has now been changed to lowercase "content::"  !!!
+                  - Minimum requirements: Core 1.2.1
+
+* Add #15         - MultiHook Needle support
+* Add #57         - Support for Google Sitemaps
+* Add #51         - Vimeo contenttype
+* Add #86         - More css-classes for each contenttype
+* Add #68         - Add second and third level of Sub-Headings
+* Fix #78         - Converted module to gettext
+* Fix #49         - Fixed bug in paragraph-modifier
+* Fix #76         - Drag&Drop not working in MSIE
+* Fix #65         - Missed translation
+* Fix #24/#60     - Module not showing in admin-panel
+* Fix #53/#61/#72 - Removed SimplePie and backend errors
+* Fix #85         - Replaced lightboxXL and greybox with Lightwindow
+* Fix #77         - Page title gets sanitized twice
+* Fix #80         - If short URL suffix was empty, short URL didn't work
+* Fix #71         - Problems with directory-based shorturls
+* Fix #59         - Caching bug in menu blocks
+* Fix #87         - Removed Circavie.com plugin
+* Fix #89         - wrong slideshare regex
+* Fix #92         - Not possible to restore old revisions and actions not translated
+
+UPGRADE INSTRUCTIONS:
+  If you want to use the new additional CSS classes, you must add them
+  manually into the module settings. Current module defaults:
+  ---------------------------
+  greybox|Grey box
+  redbox|Red box
+  yellowbox|Yellow box
+  greenbox|Green box
+  ---------------------------
+
+Version 3.0.0
+-------------
+* Added versioning with complete version history
+* Added check for BBCode in text plugin
+* Added plugin overview in configuration
+* Added 1 column layout without header area
+* Added Circavie.com plugin
+* Works with Scribite 3.x
+* Hiding translation links to avoid translating from language X to X
+* Added module selector to module content plugin
+* Add #40 - Added max. no. of items for RSS plugins
+* Add #5  - Display page language
+* Add #37 - Add link to admin settings
+* Fix #18 - Drop history table when module deleted
+* Fix #42 - menu block must ignore "invisible" pages
+
+UPGRADE INSTRUCTIONS:
+  Make sure current language is the same language as your content items are
+  written in. During upgrade all content items will be associated with the
+  current language (all translations are kept intact).
+
+
+Version 2.1.0
+-------------
+* Now possible to collapse the page tree while editing
+* Now possible to collapse the page tree while editing
+* Added left/right positioning af content elements
+* Added CSS styling of content elements through classes defined by admin
+* Now using dropdown for content type selection
+* Now possible to select HTML editor in Scribite (still defaults to FCKEditor)
+* Added: menu block caching
+* Added: improved youtube display
+* Added: check for multilinguality setting (Translation functions won't be displayed if site is set to only one language)
+* Added: [#13171] pagesetter publist plugin
+* Added: [#15546] In "Content Menu Block" add a Class descriptor
+
+
+Version 2.0.1
+-------------
+* Bugfix: [#15977] Category registry cannot be read after editing
+* Bugfix: [#15976] Drag&Drop not working 
+* Bugfix: error in general permission check
+* Bugfix: did not redirect after save of configuration
+
+
+Version 2.0.0
+-------------
+* Added: [#15297] Plain text
+* Added: [#13187] Multilanguage
+* Added: [#13181] Short URLs
+* Added: [#15256] change layout -> overview
+* Added: [#15254] missing visual feedback 
+* Added: [#15479] Layout plugin management
+  (permission control on both layout and content plugins)
+* Added: [#15477] Edit mode: enable/disable display of edit-this links
+* Redesigned main editing page list
+* Changed URLs to various lists. Now we have
+  - func=main (sitemap)
+  - func=list (simple bulleted list of pages)
+  - func=categories (list of categories with links to simple list)
+  - func=extlist (extended list display the header content area of each page)
+  - func=sitemap (nested bulleted list of all pages)
+* Added German, Spanish and French translation
+* Adjusted permission control. 
+  All rules are now uppercase "C" in "Content"
+* Changed copyright notice to cover whole team
+* Bugfix: could not save secondary categories
+* Bugfix: [#15395] Page title E_ALL issue
+* Bugfix: [#15370] Sort order doesn't work
+* Bugfix: [#15295] unclosed DIV
+* Bugfix: [#15483] "previous" jumps to wrong place
+* Bugfix: [#15496] Formatting Correction in "Add new content to page"
+* Bugfix: [#15322] Admin display messed with 3 column theme
+* Bugfix: [#15298] Plain text causes PN to hang
+* Bugfix: [#15350] Scribite and content make two editors in one time
+* Bugfix: [#15466] Flickr Field can't be empty
+* Bugfix: [#15399] AJAX shift in Pager Edit
+* Bugfix: [#15497] Error after drag&drop
+* Bugfix: [#15716] Blank index.html in folders
+* Bugfix: [#15727] Windows image database file in SVN
+* Bugfix: [#15373] MySQL 5 Strict mode error when creating new content
+* Bugfix: [#15761] securityschema
+* Bugfix: [#15917] CSS problem with float/clear
+
+
+Version 1.1.0
+-------------
+* Added Danish translation
+* Bugfix: [#15255] Can't preview or view content

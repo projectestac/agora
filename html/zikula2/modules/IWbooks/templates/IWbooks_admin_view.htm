@@ -1,0 +1,82 @@
+{include file="IWbooks_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">
+        {img modname='core' src='windowlist.png' set='icons/large' }
+    </div>
+    <h2>{gt text="See all the books entered"}</h2>
+    <div>
+        <form id="filtra"  class="pn-form" action="{modurl modname='IWbooks' type='admin' func='view'}" method="post" enctype="application/x-www-form-urlencoded">
+            <fieldset class="IWbooks-fieldset">
+                <legend>{gt text="Options filter"}</legend>
+                <label for="IWbooks_any">{gt text="Curs acad.: "}</label>
+                <select id="IWbooks_curs"  name="curs">{html_options options=$aanys selected=$cursselec}</select>
+                <label for="IWbooks_etapa">{gt text="Pla: "}</label>
+                <select id="IWbooks_etapa"  name="etapa">{html_options options=$aplans selected=$plaselec}</select>
+                <label for="IWbooks_nivell">{gt text="Nivell: "}</label>
+                <select id="IWbooks_nivell"  name="nivell">{html_options options=$anivells selected=$nivellselec}</select>
+                <label for="IWbooks_materia">{gt text="Matèria: "}</label>
+                <select id="IWbooks_materia"  name="materia">{html_options options=$amateries selected=$materiaselec}</select>
+                <input name="submit" type="submit" value="{gt text='Filter'}" />
+                <input name="pdf" type="submit" value="{gt text='Create PDF list'}" />
+            </fieldset>
+        </form>
+    </div>
+    <div>
+        <h2>Llistat de Llibres de text · Curs: {$cursacad}  {$mostra_pla} {$nivell_abre} {$mostra_mat}</h2>	
+    </div>
+    <div>
+        <table class="z-datatable">
+            <thead>
+                <tr>
+                    <th>{gt text="Autor"}</th>
+                    <th>{gt text="Tí­tol"}</th>
+                    <th>{gt text="Editorial"}</th>
+                    <th>{gt text="Any"}</th>
+                    <th>{gt text="Codi"}</th>
+                    <th>{gt text="Pla"}</th>
+                    <th>{gt text="Nivell"}</th>
+                    <th>{gt text="Lect?"}</th>
+                    <th>{gt text="Aval"}</th>
+                    <th>{gt text="Opt?"}</th>
+                    <th>{gt text="Mat"}</th>
+                    <th>{gt text="Opcions"}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {section name="IWbooksitems" loop=$IWbooksitems}  
+                <tr class="{cycle values=z-odd,z-even}">
+                    <td>{$IWbooksitems[IWbooksitems].autor|safehtml}</td>
+                    <td>{$IWbooksitems[IWbooksitems].titol|safehtml}</td>
+                    <td>{$IWbooksitems[IWbooksitems].editorial|safehtml}</td>
+                    <td>{$IWbooksitems[IWbooksitems].any|safehtml}</td>	  
+                    <td>{$IWbooksitems[IWbooksitems].codi_mat|safehtml}</td>
+                    <td>{$IWbooksitems[IWbooksitems].etapa|safehtml}</td>
+                    <td>{$IWbooksitems[IWbooksitems].nivell|safehtml}</td>	  
+                    <td>{$IWbooksitems[IWbooksitems].lectura|safehtml}</td>	  
+                    <td>{$IWbooksitems[IWbooksitems].avaluacio|safehtml}</td>
+                    <td>{$IWbooksitems[IWbooksitems].optativa|safehtml}</td>
+                    <td>{$IWbooksitems[IWbooksitems].materials|safehtml}</td>
+                    <td>
+                        {assign var="options" value=$IWbooksitems[IWbooksitems].options}
+                        {section name=options loop=$options}
+                        <a href="{$options[options].url|safetext}">
+                            {img modname='core' set='icons/extrasmall' src=$options[options].image __alt=$options[options].title}
+                        </a>
+                        {/section}
+                    </td>
+                </tr>
+                {sectionelse}
+                <tr class="pn-admintableempty">
+                    <td colspan="4">
+                        {gt text="No items found."}
+                    </td>
+                </tr>
+                {/section}
+            </tbody>
+        </table>
+        {pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum shift=1 img_prev=images/icons/extrasmall/previous.gif img_next=images/icons/extrasmall/next.gif}
+    </div>
+    <div>
+        {gt text="Legend"}: {$llegenda}
+    </div>
+</div>

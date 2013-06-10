@@ -1,0 +1,73 @@
+{include file="IWmenu_admin_menu.htm"}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='filenew.png' set='icons/large'}</div>
+    <h2>{gt text="Add a new option"}</h2>
+    <form class="z-form" method="post" name="new_menu" id="new_menu" enctype="multipart/form-data">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="mid" value="{$mid}" />
+        <div class="z-formrow">
+            <label for="text">{gt text="Text of the option"}</label>
+            {foreach  item=lang from=$languages}
+            <div class="z-formnote">
+                {$lang} => <input type="text" name="text[{$lang}]" maxlength="50" />
+            </div>
+            {/foreach}
+        </div>
+        <div class="z-formrow">
+            <label for="url">{gt text="URL"}</label>
+            {foreach  item=lang from=$languages}
+            <div class="z-formnote">
+                {$lang} => <input type="text" name="url[{$lang}]" maxlength="250" />
+            </div>
+            {/foreach}
+        </div>
+
+        <div class="z-formrow">
+            <label for="descriu">{gt text="Description"}</label>
+            <input id="descriu" type="text" name="descriu" size="50" maxlength="200" />
+        </div>
+
+        <div class="z-formrow">
+            <label for="grup">{gt text="Group that can access the option"}</label>
+            <select name="grup" id="grup">
+                {foreach item="group" from="$grups"}
+                <option value="{$group.id}">{$group.name}</option>
+                {/foreach}
+            </select>
+        </div>
+        <div class="z-formrow">
+            <label for="target">{gt text="Link target"}</label>
+            <select name="target" id="target">
+                <option value="0">{gt text="In the Same window"}</option>
+                <option value="1">{gt text="In a new windows"}</option>
+                {if $iwwebbox}
+                <option value="2">{gt text="Within the webbox"}</option>
+                {/if}
+            </select>
+        </div>
+        <div class="z-formrow">
+            <label for="icon">{gt text="Icon"}</label>
+            {if $folder}
+            <input type="file" name="icon" id="icon" />
+            {else}
+            <div class="z-errormsg z-formnote">
+                {gt text="The icons are not possible. Please, check the module settings."}
+            </div>
+            {/if}
+        </div>
+        <div class="z-formrow">
+            <label for="active">{gt text="State (Active/Inactive)"}</label>
+            <input id="active" type="checkbox" name="active" value="1" />
+        </div>
+        <div class="z-center">
+            <div class="z-buttons">
+                <a onClick="javascript:sendNewItemSub()" title="{gt text='Create the option'}">
+                    {img modname='core' src='button_ok.png' set='icons/small'} {gt text="Create the option"}
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+<script language="javascript">
+    var NoText = "{{gt text="You have not written the text of the option of the submenu"}}";
+</script>

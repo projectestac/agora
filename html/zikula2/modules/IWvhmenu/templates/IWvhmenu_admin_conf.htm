@@ -1,0 +1,311 @@
+<script language="javascript">
+    function send(){
+        f=document.menu;
+        var error=false;		
+        if(!IsNumeric(f.height.value)){
+            alert("{{gt text="The value of the field"}} \"{{gt text="Default height for the options"}}\" {{gt text="must be numeric."}}");
+            error=true;
+        }
+        if(!IsNumeric(f.BorderWidth.value) && !error){
+            alert("{{gt text="The value of the field"}} \"{{gt text="Default width for the options"}}\" {{gt text="must be numeric."}}");
+            error=true;
+        }
+        if(!IsNumeric(f.width.value) && !error){
+            alert("{{gt text="The value of the field"}} \"{{gt text="Border width (pixels)"}}\" {{gt text="must be numeric."}}");
+            error=true;
+        }
+        if(!IsNumeric(f.FontSize.value) && !error){
+            alert("{{gt text="The value of the field"}} \"{{gt text="Font size"}}\" {{gt text="must be numeric."}}");
+            error=true;
+        }
+        if(!IsNumeric(f.ChildOverlap.value) && !error){
+            alert("{{gt text="The value of the field"}} \"{{gt text="Horizontal overlap"}}\" {{gt text="must be numeric."}}");
+            error=true;
+        }
+        if(!IsNumeric(f.ChildVerticalOverlap.value) && !error){
+            alert("{{gt text="The value of the field"}} \"{{gt text="Vertical overlap"}}\" {{gt text="must be numeric."}}");
+            error=true;
+        }
+        if(!IsNumeric(f.StartTop.value) && !error){
+            alert("{{gt text="The value of the field"}} \"{{gt text="Vertical position of the top side of the menu"}}\" {{gt text="must be numeric."}}");
+            error=true;
+        }
+        if(!IsNumeric(f.StartLeft.value) && !error){
+            alert("{{gt text="The value of the field"}} \"{{gt text="Horizontal position of the left side of the menu"}}\" {{gt text="must be numeric."}}");
+            error=true;
+        }
+        if(!IsNumeric(f.LeftPaddng.value) && !error){
+            alert("{{gt text="The value of the field"}} \"{{gt text="Left padding"}}\" {{gt text="must be numeric."}}");
+            error=true;
+        }
+        if(!IsNumeric(f.TopPaddng.value) && !error){
+            alert("{{gt text="The value of the field"}} \"{{gt text="Top Padding"}}\" {{gt text="must be numeric."}}");
+            error=true;
+        }
+        if(!IsNumeric(f.DissapearDelay.value) && !error){
+            alert("{{gt text="The value of the field"}} \"{{gt text="Disappear delay (ms)"}}\" {{gt text="must be numeric."}}");
+            error=true;
+        }										
+        if(!error){f.submit();}		
+    }
+	
+    function IsNumeric(strString){
+        //  check for valid numeric strings	
+        var strValidChars = "0123456789.-";
+        var strChar;
+        var blnResult = true;
+	
+        if (strString.length == 0) return false;
+	
+        //  test strString consists of valid characters listed above
+        for (i = 0; i < strString.length && blnResult == true; i++)
+        {
+            strChar = strString.charAt(i);
+            if (strValidChars.indexOf(strChar) == -1)
+            {
+                blnResult = false;
+            }
+        }
+        return blnResult;
+    }
+</script>
+
+{include file="IWvhmenu_admin_menu.htm"}
+
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large'}</div>
+    <h2>{gt text="Configure the module"}</h2>
+    <form  class="z-form" enctype="application/x-www-form-urlencoded" method="post" name="menu" action="{modurl modname='IWvhmenu' type='admin' func='conf_update'}">
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        {if not $multizk}
+        <div class="z-formrow">
+            <label for="directoriroot">{gt text="Init of the file folder"}</label>
+            <input id="directoriroot" type="text" name="directoriroot" size="50" maxlength="50" value="{$directoriroot}" onFocus='blur()' />
+        </div>
+        {/if}
+        <div class="z-formrow">
+            <label for="imagedir">{gt text="Server directory for the menu icons"}</label>
+            <input id="imagedir" type="text" name="imagedir" value="{$menu_vars.imagedir}" size="30" maxlength="100" />
+        </div>
+        {if $noFolder}
+        <div class="z-errormsg">
+            {gt text="The menu icons folder not have been found"}
+        </div>
+        {/if}
+        <div class="z-formrow">
+            <label for="height">{gt text="Default height for the options"}</label>
+            <input id="height" type="text" name="height" value="{$menu_vars.height}" size="7" maxlength="11" />
+        </div>
+
+        <div class="z-formrow">
+            <label for="width">{gt text="Default width for the options"}</label>
+            <input id="width" type="text" name="width" value="{$menu_vars.width}" size="7" maxlength="11" />
+        </div>
+
+        <div class="z-formrow">
+            <label for="LowBgColor">{gt text="Background color when cursor is not over the option of the menu"}</label>
+            <div class="z-formnote">
+                <input id="LowBgColor" type="text" name="LowBgColor" value="{$menu_vars.LowBgColor}" size="10" maxlength="11" />
+                <span style="background-color:{$menu_vars.LowBgColor}; border: solid 1px #FF0000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="z-formrow">
+            <label for="LowSubBgColor">{gt text="Background color when cursor is not over the option of the submenu"}</label>
+            <div class="z-formnote">
+                <input id="LowSubBgColor" type="text" name="LowSubBgColor" value="{$menu_vars.LowSubBgColor}" size="10" maxlength="11" />
+                <span style="background-color:{$menu_vars.LowSubBgColor}; border: solid 1px #FF0000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="z-formrow">
+            <label for="HighBgColor">{gt text="Background color when cursor is over the option of the menu"}</label>
+            <div class="z-formnote">
+                <input id="HighBgColor" type="text" name="HighBgColor" value="{$menu_vars.HighBgColor}" size="10" maxlength="11" />
+                <span style="background-color:{$menu_vars.HighBgColor}; border: solid 1px #FF0000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="z-formrow">
+            <label for="HighSubBgColor">{gt text="Background color when cursor is over the option of the submenu"}</label>
+            <div class="z-formnote">
+                <input id="HighSubBgColor" type="text" name="HighSubBgColor" value="{$menu_vars.HighSubBgColor}" size="10" maxlength="11" />
+                <span style="background-color:{$menu_vars.HighSubBgColor}; border: solid 1px #FF0000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="z-formrow">
+            <label for="FontLowColor">{gt text="Text color when cursor is not over the option of the menu"}</label>
+            <div class="z-formnote">
+                <input id="FontLowColor" type="text" name="FontLowColor" value="{$menu_vars.FontLowColor}" size="10" maxlength="11" />
+                <span style="background-color:{$menu_vars.FontLowColor}; border: solid 1px #FF0000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="z-formrow">
+            <label for="FontSubLowColor">{gt text="Text color when cursor is not over the option of the submenu"}</label>
+            <div class="z-formnote">
+                <input id="FontSubLowColor" type="text" name="FontSubLowColor" value="{$menu_vars.FontSubLowColor}" size="10" maxlength="11" />
+                <span style="background-color:{$menu_vars.FontSubLowColor}; border: solid 1px #FF0000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="z-formrow">
+            <label for="FontHighColor">{gt text="Text color when cursor is over the option of the menu"}</label>
+            <div class="z-formnote">
+                <input id="FontHighColor" type="text" name="FontHighColor" value="{$menu_vars.FontHighColor}" size="10" maxlength="11" />
+                <span style="background-color:{$menu_vars.FontHighColor}; border: solid 1px #FF0000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="z-formrow">
+            <label for="FontSubHighColor">{gt text="Text color when cursor is over the option of the submenu"}</label>
+            <div class="z-formnote">
+                <input id="FontSubHighColor" type="text" name="FontSubHighColor" value="{$menu_vars.FontSubHighColor}" size="10" maxlength="11" />
+                <span style="background-color:{$menu_vars.FontSubHighColor}; border: solid 1px #FF0000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="z-formrow">
+            <label for="BorderColor">{gt text="Menu border color"}</label>
+            <div class="z-formnote">
+                <input id="BorderColor" type="text" name="BorderColor" value="{$menu_vars.BorderColor}" size="10" maxlength="11" />
+                <span style="background-color:{$menu_vars.BorderColor}; border: solid 1px #FF0000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="z-formrow">
+            <label for="BorderSubColor">{gt text="Submenus border color"}</label>
+            <div class="z-formnote">
+                <input id="BorderSubColor" type="text" name="BorderSubColor" value="{$menu_vars.BorderSubColor}" size="10" maxlength="11" />
+                <span style="background-color:{$menu_vars.BorderSubColor}; border: solid 1px #FF0000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="z-formrow">
+            <label for="BorderWidth">{gt text="Border width (pixels)"}</label>
+            <input id="" type="text" name="BorderWidth" value="{$menu_vars.BorderWidth}" size="7" maxlength="7" />
+        </div>
+
+        <div class="z-formrow">
+            <label for="BorderBtwnElmnts">{gt text="Show the border between the options"}</label>
+            <input type="checkbox" name="BorderBtwnElmnts" {if $menu_vars.BorderBtwnElmnts eq 1}checked{/if} />
+        </div>
+
+        <div class="z-formrow">
+            <label for="FontFamily">{gt text="Font family"}</label>
+            <input type="text" name="FontFamily" value="{$menu_vars.FontFamily}" size="30" maxlength="100" />
+        </div>
+
+        <div class="z-formrow">
+            <label for="FontSize">{gt text="Font size"}</label>
+            <input type="text" name="FontSize" value="{$menu_vars.FontSize}" size="7" maxlength="7" />
+        </div>
+
+        <div class="z-formrow">
+            <label for="FontBold">{gt text="Bold"}</label>
+            <input type="checkbox" name="FontBold" {if $menu_vars.FontBold eq 1}checked{/if} />
+        </div>
+
+        <div class="z-formrow">
+            <label for="FontItalic">{gt text="Italic"}</label>
+            <input type="checkbox" name="FontItalic" {if $menu_vars.FontItalic eq 1}checked{/if} />
+        </div>
+
+        <div class="z-formrow">
+            <label for="MenuTextCentered">{gt text="Text position in the cell of the menu"}</label>
+            <select name="MenuTextCentered">
+                <option value="left" {if $menu_vars.MenuTextCentered eq "left"}selected{/if}>{gt text="Left"}</option>
+                <option value="center" {if $menu_vars.MenuTextCentered eq "center"}selected{/if}>{gt text="Center"}</option>
+                <option value="right" {if $menu_vars.MenuTextCentered eq "right"}selected{/if}>{gt text="Right"}</option>
+            </select>
+        </div>
+
+        <div class="z-formrow">
+            <label for="MenuCentered">{gt text="Position of the menu"}</label>
+            <select name="MenuCentered">
+                <option value="left" {if $menu_vars.MenuCentered eq "left"}selected{/if}>{gt text="Left"}</option>				<option value="center" {if $menu_vars.MenuCentered eq "center"}selected{/if}>{gt text="Center"}</option>
+                <option value="right" {if $menu_vars.MenuCentered eq "right"}selected{/if}>{gt text="Right"}</option>
+            </select>
+        </div>
+
+        <div class="z-formrow">
+            <label for="MenuVerticalCentered">{gt text="Vertical position"}</label>
+            <select name="MenuVerticalCentered">
+                <option value="top" {if $menu_vars.MenuVerticalCentered eq "top"}selected{/if}>{gt text="Top"}</option>
+                <option value="middle" {if $menu_vars.MenuVerticalCentered eq "middle"}selected{/if}>{gt text="Middle"}</option>
+                <option value="bottom" {if $menu_vars.MenuVerticalCentered eq "bottom"}selected{/if}>{gt text="Bottom"}</option>
+                <option value="static" {if $menu_vars.MenuVerticalCentered eq "static"}selected{/if}>{gt text="Static"}</option>
+            </select>
+        </div>
+
+        <div class="z-formrow">
+            <label for="ChildOverlap">{gt text="Horizontal overlap"}</label>
+            <input type="text" name="ChildOverlap" value="{$menu_vars.ChildOverlap}" size="7" maxlength="7" />
+        </div>
+
+        <div class="z-formrow">
+            <label for="ChildVerticalOverlap">{gt text="Vertical overlap"}</label>
+            <input type="text" name="ChildVerticalOverlap" value="{$menu_vars.ChildVerticalOverlap}" size="7" maxlength="7" />
+        </div>
+
+        <div class="z-formrow">
+            <label for="StartTop">{gt text="Vertical position of the top side of the menu"}</label>
+            <input type="text" name="StartTop" value="{$menu_vars.StartTop}" size="7" maxlength="7" />
+        </div>
+
+        <div class="z-formrow">
+            <label for="StartLeft">{gt text="Horizontal position of the left side of the menu"}</label>
+            <input type="text" name="StartLeft" value="{$menu_vars.StartLeft}" size="7" maxlength="7" />
+        </div>
+        <div class="z-formrow">
+            <label for="LeftPaddng">{gt text="Left padding"}</label>
+            <input type="text" name="LeftPaddng" value="{$menu_vars.LeftPaddng}" size="7" maxlength="7" />
+        </div>
+
+        <div class="z-formrow">
+            <label for="TopPaddng">{gt text="Top padding"}</label>
+            <input type="text" name="TopPaddng" value="{$menu_vars.TopPaddng}" size="7" maxlength="7" />
+        </div>
+
+        <div class="z-formrow">
+            <label for="FirstLineHorizontal">{gt text="Arrangement"}</label>
+            <select name="FirstLineHorizontal">
+                <option value="0" {if $menu_vars.FirstLineHorizontal eq "0"}selected{/if}>{gt text="Vertical"}</option>
+                <option value="1" {if $menu_vars.FirstLineHorizontal eq "1"}selected{/if}>{gt text="Horizontal"}</option>
+            </select>
+        </div>
+        <div class="z-formrow">
+            <label for="DissapearDelay">{gt text="Disappear delay (ms)"}</label>
+            <input type="text" name="DissapearDelay" value="{$menu_vars.DissapearDelay}" size="7" maxlength="7" />
+        </div>
+
+        <div class="z-formrow">
+            <label for="RightToLeft">{gt text="Right to left"}</label>
+            <input type="checkbox" name="RightToLeft" {if $menu_vars.RightToLeft eq 1}checked{/if} />
+        </div>
+
+        <div class="z-formrow">
+            <label for="UnfoldsOnClick">{gt text="Unfold on click"}</label>
+            <input id="UnfoldsOnClick" type="checkbox" name="UnfoldsOnClick" {if $menu_vars.UnfoldsOnClick eq 1}checked{/if} />
+        </div>
+
+        <div class="z-formrow">
+            <label for="ShowArrow">{gt text="Show arrows"}</label>
+            <input id="ShowArrow" type="checkbox" name="ShowArrow" {if $menu_vars.ShowArrow eq 1}checked{/if} />
+        </div>
+
+        <div class="z-formrow">
+            <label for="KeepHilite">{gt text="Keep path highlighted"}</label>
+            <input id="KeepHilite" type="checkbox" name="KeepHilite" {if $menu_vars.KeepHilite eq 1}checked{/if} />
+        </div>
+        <div class="z-center">
+            <div class="z-buttons">
+                <a onClick="javascript:send()">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Save" __title="Execute changes"}
+                    {gt text="Save"}
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

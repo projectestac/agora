@@ -1,0 +1,266 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: iw_webbox module\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-28 13:05+0100\n"
+"PO-Revision-Date: 2012-01-20 13:48+0100\n"
+"Last-Translator: intraweb <intraweb@xtec.cat>\n"
+"Language-Team: Intraweb <intraweb@xtec.cat>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: pnuserapi.php:34
+msgid "Error! Could not load items."
+msgstr "S'ha produït un error en carregar elements"
+
+#: pnuserapi.php:51
+#: pnuserapi.php:67
+#: pnadminapi.php:27
+#: pnadminapi.php:57
+#: pnadminapi.php:108
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr "No s'ha pogut carregar el que volíeu. Reviseu les dades"
+
+#: pnuser.php:45
+msgid "URL not found. Please check the reference"
+msgstr "No s'ha trobat l'adreça demanada. Comproveu que la referència donada sigui correcta."
+
+#: pnadminapi.php:37
+msgid "Error! Creation attempt failed."
+msgstr "L'intent de creació ha fallat"
+
+#: pnadminapi.php:64
+#: pnadminapi.php:117
+#: pnadmin.php:94
+msgid "No such item found."
+msgstr "No s'ha trobat l'element"
+
+#: pnadminapi.php:73
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr "L'intent d'esborrament ha fallat"
+
+#: pnadminapi.php:126
+msgid "Error! Update attempt failed."
+msgstr "No s'ha pogut actualitzar"
+
+#: pntemplates/plugins/function.iwwebboxmenulinks.php:22
+msgid "Show existing URL"
+msgstr "Mostra les adreces creades"
+
+#: pntemplates/plugins/function.iwwebboxmenulinks.php:28
+#: pntemplates/iw_webbox_admin_config.htm:4
+msgid "Module configuration"
+msgstr "Configura el mòdul"
+
+#: pnadmin.php:14
+#: pnadmin.php:40
+#: pnadmin.php:157
+msgid "Sorry! No authorization to access this module."
+msgstr "No teniu autorització per accedir a aquest mòdul"
+
+#: pnadmin.php:71
+msgid "A new URL reference has been created"
+msgstr "S'ha creat una nova adreça"
+
+#: pnadmin.php:131
+msgid "URL reference updated"
+msgstr "S'ha actualitzat l'adreça"
+
+#: pnadmin.php:152
+msgid "URL not found"
+msgstr "No s'ha trobat l'adreça sobre la qual fer l'acció sol·licitada."
+
+#: pnadmin.php:182
+msgid "URL reference removed"
+msgstr "S'ha esborrat l'adreça."
+
+#: pnadmin.php:245
+msgid "Done! Module configuration updated."
+msgstr "S'ha actualitzat la configuració del mòdul"
+
+#: pnversion.php:9
+#: pnversion.php:13
+msgid "iw_webbox"
+msgstr "iw_webbox"
+
+#: pnversion.php:11
+#: pntemplates/iw_webbox_admin_new.htm:16
+#: pntemplates/iw_webbox_admin_edit.htm:18
+#: pntemplates/iw_webbox_admin_main.htm:12
+msgid "Description"
+msgstr "Carrega pàgines web externes dins del lloc web"
+
+#: pnversion.php:12
+msgid "Webbox"
+msgstr "Webbox"
+
+#: pntemplates/iw_webbox_admin_menu.htm:4
+msgid "URL administration"
+msgstr "Definició d'adreces"
+
+#: pntemplates/iw_webbox_admin_new.htm:4
+#: pntemplates/iw_webbox_admin_edit.htm:4
+#: pntemplates/plugins/function.iwwebboxmenulinks.php:25
+msgid "Add new URL"
+msgstr "Afegeix una nova adreça"
+
+#: pntemplates/iw_webbox_admin_new.htm:8
+#: pntemplates/iw_webbox_admin_edit.htm:10
+#: pntemplates/iw_webbox_admin_main.htm:10
+msgid "Reference"
+msgstr "Referència"
+
+#: pntemplates/iw_webbox_admin_new.htm:12
+#: pntemplates/iw_webbox_admin_edit.htm:14
+#: pntemplates/iw_webbox_admin_main.htm:11
+#: pntemplates/iw_webbox_block_edit.htm:2
+msgid "URL"
+msgstr "URL"
+
+#: pntemplates/iw_webbox_admin_new.htm:20
+#: pntemplates/iw_webbox_admin_edit.htm:22
+#: pntemplates/iw_webbox_admin_main.htm:13
+#: pntemplates/iw_webbox_block_edit.htm:6
+#: pntemplates/iw_webbox_admin_config.htm:12
+msgid "Width (%)"
+msgstr "Amplada en %"
+
+#: pntemplates/iw_webbox_admin_new.htm:28
+#: pntemplates/iw_webbox_admin_edit.htm:30
+#: pntemplates/iw_webbox_admin_main.htm:14
+#: pntemplates/iw_webbox_block_edit.htm:10
+#: pntemplates/iw_webbox_admin_config.htm:20
+msgid "Height (pixels)"
+msgstr "Llargada en píxels"
+
+#: pntemplates/iw_webbox_admin_new.htm:32
+#: pntemplates/iw_webbox_admin_edit.htm:34
+#: pntemplates/iw_webbox_admin_main.htm:15
+#: pntemplates/iw_webbox_block_edit.htm:24
+#: pntemplates/iw_webbox_admin_config.htm:24
+msgid "Show scroll"
+msgstr "Desplaçadors"
+
+#: pntemplates/iw_webbox_admin_new.htm:33
+#: pntemplates/iw_webbox_admin_edit.htm:35
+#: pntemplates/iw_webbox_admin_config.htm:25
+msgid "(recommended)"
+msgstr "(Es recomana marcar l'opció)"
+
+#: pntemplates/iw_webbox_admin_new.htm:36
+msgid "Create"
+msgstr "Crea"
+
+#: pntemplates/iw_webbox_admin_new.htm:38
+#: pntemplates/iw_webbox_admin_delete.htm:16
+#: pntemplates/iw_webbox_admin_edit.htm:40
+#: pntemplates/iw_webbox_admin_config.htm:30
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: pntemplates/iw_webbox_admin_new.htm:49
+#: pntemplates/iw_webbox_admin_edit.htm:51
+msgid "You must introduce a reference"
+msgstr "No heu indicat la referència de l'adreça."
+
+#: pntemplates/iw_webbox_admin_new.htm:53
+#: pntemplates/iw_webbox_admin_edit.htm:55
+#: pntemplates/iw_webbox_admin_config.htm:41
+msgid "You must introduce an URL address"
+msgstr "No heu indicat l'adreça."
+
+#: pntemplates/iw_webbox_admin_new.htm:57
+#: pntemplates/iw_webbox_admin_edit.htm:59
+#: pntemplates/iw_webbox_admin_config.htm:45
+msgid "Width introduced is not valid. The maximum value for percentual unit is 100"
+msgstr "L'amplada indicada no és vàlida. Si la unitat per l'amplada és percentual, el valor màxim és 100."
+
+#: pntemplates/iw_webbox_admin_new.htm:61
+#: pntemplates/iw_webbox_admin_edit.htm:63
+#: pntemplates/iw_webbox_admin_config.htm:49
+msgid "Height introduced is not valid"
+msgstr "La llargada indicada no és vàlida."
+
+#: pntemplates/iw_webbox_admin_delete.htm:4
+msgid "Remove URL reference"
+msgstr "Esborra l'adreça"
+
+#: pntemplates/iw_webbox_admin_delete.htm:11
+msgid "Confirm remove the URL reference"
+msgstr "Confirma l'esborrament de la referència"
+
+#: pntemplates/iw_webbox_admin_delete.htm:14
+msgid "Confirm deletion?"
+msgstr "Confirmació de l'esborrament de l'element"
+
+#: pntemplates/iw_webbox_admin_edit.htm:38
+#: pntemplates/iw_webbox_admin_config.htm:28
+msgid "Modify"
+msgstr "Modifica"
+
+#: pntemplates/iw_webbox_admin_main.htm:4
+msgid "References List"
+msgstr "Llista de referències"
+
+#: pntemplates/iw_webbox_admin_main.htm:16
+msgid "Options"
+msgstr "Opcions"
+
+#: pntemplates/iw_webbox_admin_main.htm:41
+msgid "Yes"
+msgstr "Sí"
+
+#: pntemplates/iw_webbox_admin_main.htm:43
+msgid "No"
+msgstr "No"
+
+#: pntemplates/iw_webbox_admin_main.htm:48
+#: pntemplates/iw_webbox_admin_main.htm:51
+msgid "Edit"
+msgstr "Edició"
+
+#: pntemplates/iw_webbox_admin_main.htm:51
+msgid "Delete"
+msgstr "Esborrament"
+
+#: pntemplates/iw_webbox_admin_main.htm:59
+msgid "To call a reference it is necessary to write 'module=iw_webbox&ref=Reference'"
+msgstr "Per cridar a una referència cal escriure 'module=iw_webbox&ref=Referència'"
+
+#: pntemplates/iw_webbox_admin_main.htm:62
+msgid "There are not URL created"
+msgstr "No hi ha cap adreça definida."
+
+#: pntemplates/iw_webbox_admin_main.htm:65
+msgid "About this module"
+msgstr "Pel que fa a aquest mòdul"
+
+#: pntemplates/iw_webbox_block_edit.htm:14
+msgid "Hide block title"
+msgstr "Amaga el títol del bloc"
+
+#: pntemplates/iw_webbox_block_edit.htm:34
+msgid "Only visible for unregistered users"
+msgstr "Només visible pels usuaris no registrats"
+
+#: pntemplates/iw_webbox_admin_config.htm:8
+msgid "Home URL for the module"
+msgstr "Pàgina inicial del contenidor"
+
+#: pnadmin.php
+msgid "The given reference exists. Choose a different name for the reference."
+msgstr "La referència ja existeix. Trieu un nom diferent per a aquesta referència."
+
+#: pnadmin.php
+msgid "The given reference contain no valid characters."
+msgstr "La referència conté caràcters no vàlids."

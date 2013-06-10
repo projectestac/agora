@@ -1,0 +1,106 @@
+<script language="javascript">
+    function canviforum(){
+        document.move_msg.action="index.php?module=IWforums&func=mou";
+        document.move_msg.moutema.value=1;
+        document.move_msg.submit();
+    }
+    function move(){
+        document.move_msg.action="index.php?module=IWforums&func=mou";
+        document.move_msg.moutema.value=0;
+        document.move_msg.submit();
+    }
+</script>
+{include file="IWforums_user_menu.htm" m1=1 m2=1 m4=1 m3=1 m9=1 fid=$fid ftid=$ftid u=$u}
+<div class="usercontainer">
+    <div class="userpageicon">{img modname='core' src='editdelete.png' set='icons/large'}</div>
+    <h2>{$name} => {if $ftid neq 0}{$tema} => {/if}{gt text="Move the message"}</h2>
+    <div style="height:15px;">&nbsp;</div>
+    <table class="usertable">
+        <tr>
+            <td>
+                <font face="arial" color="#0080C0"><b>{$msg_title}</b></font>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {gt text="From: "}
+                <font color=green><b>{$user}</b></font>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {gt text="Date"}: <font face="arial" size="2" color=#696969>{$date}</font>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {gt text="Time"}: <font face="arial" size="2" color="#696969">{$time}</font>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <hr />
+            </td>
+        </tr>
+        <tr>
+            <td>{$message|nl2br}</td>
+        </tr>
+        <tr>
+            <td><hr /></td>
+        </tr>
+    </table>
+    {gt text="Confirm the transfer"}
+    <br><br>
+    <form name="move_msg" method="post" id="move_msg" class="z-form" action="">
+        <input type="hidden" name="fmid" value="{$fmid}" />
+        <input type="hidden" name="ftid" value="{$ftid}" />
+        <input type="hidden" name="fid" value="{$fid}" />
+        <input type="hidden" name="moutema" />
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="u" value="{$u}" />
+        {if $modera|@count gt 1}
+        {gt text="Move the message to the forum"} =>
+        <select name="nouforum" id="nouforum" onChange="javascript:canviforum()">
+            {section name=modera loop=$modera}
+            <option {if $modera[modera].fid eq $nouforum}selected{/if} value="{$modera[modera].fid}">{$modera[modera].nom_forum}</option>
+            {/section}
+        </select>
+        <br /><br />
+        {else}
+        <input type="hidden" name="nouforum" value="{$fid}" />
+        {/if}
+        {gt text="Move the message to the topic"} =>
+        <select name="noutema" id="noutema">
+            <option value="0">{gt text="Without topic"}</option>
+            {section name=temes loop=$temes}
+            {if $temes[temes].ftid neq $ftid}
+            <option value="{$temes[temes].ftid}">{$temes[temes].titol}</option>
+            {/if}
+            {/section}
+        </select>
+        <div>
+            <input type="checkbox" name="keepCopy" value="1" /> {gt text="Keep a copy in the source forum and topic"}
+        </div>
+        <div class="z-center">
+            <span class="z-buttons">
+                <a href="javascript:move()">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Confirm the transfer" __title="Confirm the transfer"}
+                    {gt text="Confirm the transfer"}
+                </a>
+            </span>
+            <span class="z-buttons">
+                {if $ftid neq 0}
+                <a href="{modurl modname='IWforums' type='user' func='llista_msg' ftid=$ftid fid=$fid u=$u}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel the transfer of the message" __title="Cancel the transfer of the message"}
+                    {gt text="Cancel"}
+                </a>
+                {else}
+                <a href="{modurl modname='IWforums' type='user' func='forum' fid=$fid u=$u}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel the transfer of the message" __title="Cancel the transfer of the message"}
+                    {gt text="Cancel"}
+                </a>
+                {/if}
+            </span>
+        </div>
+    </form>
+</div>

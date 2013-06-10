@@ -1,0 +1,37 @@
+News TODO 10-Mar-09
+Last update 17-Jan-2010
+
+New/Modify interface:
+- Adjust New(user/admin)/Modify views with a right column for publicationoptions, status, category and Preview/Publish/Schedule buttons. Sort of based on Wordpress interface
+- DONE Remove Publish/Preview dropdownlist for a seperate Preview/Publish button. Eases Direct publishing one click less. 
+- DONE Adjust publish button into Schedule when unlimited is not checked (make sure that ajax editing also works !)
+- DONE Add Calendar (JSCalendar or Proto/script one) to the Date selection of From and To (needs change in the templates and processing of the datetime)
+DONE - Remove seconds from Date seletion and make minutes in 5 minute interval. An admin setting might be a good idea: (only days, only hours, default 10mins, 5mins, mins).
+
+Featuring Articles based upon attributes
+SOLVED by weight article property. This can be used in various ways.
+- Make a admin setting, use default FeatureStory attribute yes/no
+- Extend the attributes for some default ones to be read only if no ADMIN rights are there
+- Make a default FeatureStory attribute set to 0 if admin setting is on
+- Make a FeatureStory block that uses the FeatureStory attribute to display them in a block, order ?
+
+Admin interface:
+- Add inline quick edit mode for title, publication options, status using ajax.
+DONE - Make sure categories are taken into account for the [ all(#) | published (#) | ... ] links. This needs the news_{property}_category form to be independent of property
+- Optional place the actions below the title in a hidden state and showing when you hover over that article (instead of on the right), discuss first with Mateo (see Wordpress)
+- seperate setting of the number of articles to be shown in the admin interface
+
+Article etc templates:
+- DONE Add the dateformatHuman modifier to the dates there with a nicevalue of 3 (or 4), so only within one day (or specified days as admin setting) display human dates
+- DONE Display all categories (so all cats in all cat properties like in news_user_index) with the article and article content.
+
+dateformatHuman modifier:
+- Extend the nicevalue with an additional value for Human readable dates with a specified nr of days, so up until nrOfDays ago display that otherwise format
+
+Tickets:
+DONE AND OK NOW - Test the autonews and queue update procedure for those 764 tables.
+DONE - editing with ajax and scribite/shorturls etc to be solved. 
+
+Removing/Cleanup Legacy stuff:
+- DONE Change the permission sheme from Stories:: to News:: (the admin panel in zk111 uses the module name to check for permissions. Requires also an update of the already present permissions during the pninit upgrade.
+- DONE Change the database name from zk_stories to zk_news and make a clear note forPendingContent users that use the dbase directly. Discuss first.

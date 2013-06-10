@@ -1,0 +1,9 @@
+# ----------------------------------------------------------------------
+# Purpose of file: block any web access to files stored here, except
+# those in the whitelist
+# ----------------------------------------------------------------------
+deny from all
+<FilesMatch "\.(css|js|jpg|gif|png|tif|swf|flv|html|htm|txt|htc|xml|php)$">
+order allow,deny
+allow from all
+</filesmatch>

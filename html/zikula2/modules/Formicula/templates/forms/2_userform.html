@@ -1,0 +1,105 @@
+{include file=forms/2_userheader.html}
+
+{pageaddvar name="javascript" value="javascript/ajax/prototype.js"}
+{pageaddvar name="javascript" value="javascript/ajax/validation.js"}
+{pageaddvar name="javascript" value="javascript/ajax/effects.js"}
+
+<form id="contactform" action="{modurl modname=Formicula type=user func=send}" method="post">
+    <div>
+        <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <input type="hidden" name="form" value="2" />
+        <input type="hidden" name="adminformat" value="html" />
+        <input type="hidden" name="dataformat" value="array" />
+
+        <p>
+            {gt text="Mandatory fields are indicated with a"}<span class="mandatory">*</span>
+        </p>
+
+        <p>
+            <label for="cid">{gt text="Contact or Theme"}&nbsp;:</label><br />
+            <select class="formborder" id="cid" name="cid">
+                {foreach item=contact from=$contacts}
+                {if $contact.public == "1"}
+                <option value="{$contact.cid}">{$contact.name}</option>
+                {/if}
+                {/foreach}
+            </select>
+        </p>
+
+        <p>
+            <label for="uname">{gt text="Your Name"}&nbsp;:<span class="mandatory">*</span></label><br />
+            <input type="text" class="formborder required" id="uname" name="userdata[uname]" size="40" maxlength="80" value="{$userdata.uname}" />
+        </p>
+        <p id="advice-required-uname" class="custom-advice" style="display:none">{gt text='This is a mandatory field.'}</p>
+
+        <p>
+            <label for="uemail">{gt text="Email"}&nbsp;:<span class="mandatory">*</span></label><br />
+            <input type="text" class="formborder required validate-email" id="uemail" name="userdata[uemail]" size="40" maxlength="40" value="{$userdata.uemail}" />
+        </p>
+        <p id="advice-validate-email-uemail" class="custom-advice" style="display:none">{gt text='Please enter a valid email address like user@example.com.'}</p>
+        <p id="advice-required-uemail" class="custom-advice" style="display:none">{gt text='This is a mandatory field.'}</p>
+
+        {if $coredata.Formicula.show_url==1}
+        <p>
+            <label for="url">{gt text="Homepage"}&nbsp;:</label><br />
+            <input type="text" class="formborder validate-url" id="url" name="userdata[url]" size="40" maxlength="40" value="{$userdata.url}" />
+        </p>
+        <p id="advice-validate-url-url" class="custom-advice" style="display:none">{gt text='Please enter a valid internet address like http://www.example.com.'}</p>
+        {/if}
+
+        {if $coredata.Formicula.show_phone==1}
+        <p>
+            <label for="phone">{gt text="Phone Number"}&nbsp;:</label><br />
+            <input type="text" class="formborder" id="phone" name="userdata[phone]" size="40" maxlength="40" value="{$userdata.phone}" />
+        </p>
+        {/if}
+
+        {if $coredata.Formicula.show_company==1}
+        <p>
+            <label for="company">{gt text="Company"}&nbsp;:</label><br />
+            <input type="text" class="formborder" id="company" name="userdata[company]" size="40" maxlength="40" value="{$userdata.company}" />
+        </p>
+        {/if}
+
+        {if $coredata.Formicula.show_location==1}
+        <p>
+            <label for="location">{gt text="Location"}&nbsp;:</label><br />
+            <input type="text" class="formborder" id="location" name="userdata[location]" size="40" maxlength="40" value="{$userdata.location}" />
+        </p>
+        {/if}
+
+        <p>
+            <label for="comment">{gt text="Comment"}&nbsp;:<span class="mandatory">*</span></label><br />
+            <textarea class="formborder required" rows="6" cols="45" id="comment" name="userdata[comment]">{$userdata.comment}</textarea>
+        </p>
+        <p id="advice-required-comment" class="custom-advice" style="display:none">{gt text='This is a mandatory field.'}</p>
+
+        <p>
+            <label for="userformat">{gt text="Email Format"}&nbsp;:</label><br />
+            <select class="formborder" id="userformat" name="userformat">
+                <option value="html">{gt text="HTML"}</option>
+                <option value="plain" selected="selected">{gt text="Text"}</option>
+            </select>
+        </p>
+
+        {if $spamcheck eq 1}
+        <p>
+            <label for="formicula_captcha">{gt text='Please solve this calculation'} :<span class="mandatory">*</span></label>
+            &nbsp;{simplecaptcha font='arial' size='12' bgcolor='ffffff' fgcolor='000000'} 
+            <input id="formicula_captcha" name="captcha" type="text" size="5" maxlength="5" value="" />
+            <span class="z-sub">{gt text='(to prevent spam)'}</span>
+        </p>
+        {/if}
+
+        {notifydisplayhooks eventname='formicula.ui_hooks.forms.form_edit' id=null}
+
+        <p class="z-buttons">
+            <input class="z-bt-ok" type="submit" name="submit" value="{gt text="Send"}" />
+        </p>
+
+        <script type="text/javascript">
+            var valid = new Validation('contactform');
+        </script>
+
+    </div>
+</form>
