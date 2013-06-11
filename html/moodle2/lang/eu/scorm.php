@@ -1,0 +1,270 @@
+<?php
+
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * Strings for component 'scorm', language 'eu', branch 'MOODLE_24_STABLE'
+ *
+ * @package   scorm
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+defined('MOODLE_INTERNAL') || die();
+
+$string['activation'] = 'Aktibazioa';
+$string['activityloading'] = 'Ondoko jarduerara eramango zaitugu automatikoki';
+$string['activitypleasewait'] = 'Jarduera kargatzen, itxaron mesedez...';
+$string['adminsettings'] = 'Kudeaketaren ezarpenak';
+$string['advanced'] = 'Parametroak';
+$string['aicchacpkeepsessiondata'] = 'AICC HACP saioaren datuak';
+$string['allowtypeaicchacp'] = 'Gaitu kanpoko AICC HACP';
+$string['allowtypeexternal'] = 'Kanpoko pakete-mota gaitu';
+$string['allowtypeexternalaicc'] = 'Gaitu AICC-ren URL zuzena';
+$string['allowtypeimsrepository'] = 'IMS pakete-mota gaitu';
+$string['allowtypelocalsync'] = 'Gaitu jaitsitako pakete-mota';
+$string['areacontent'] = 'Eduki-fitxategiak';
+$string['areapackage'] = 'Pakete-fitxategia';
+$string['asset'] = 'Baliabidea';
+$string['assetlaunched'] = 'Baliabidea - Ikusia';
+$string['attempt'] = 'Saiakera';
+$string['attempt1'] = 'saiakera 1';
+$string['attempts'] = 'Saiakerak';
+$string['attemptsx'] = '{$a} saiakera';
+$string['attr_error'] = '({$a->attr}) atributuaren balore desegokia {$a->tag} etiketan.';
+$string['autocontinue'] = 'Jarraipen automatikoa';
+$string['autocontinuedesc'] = 'Hobespen honek berezko jarraipen automatikoa ezartzen du jarduerarako';
+$string['averageattempt'] = 'Saiakeren batez bestekoa';
+$string['badmanifest'] = 'Manifestu-erroreak: erroreen erregistroa ikusi';
+$string['badpackage'] = 'Paketearekin arazoak daude. Konprobatu eta berriz saiatu.';
+$string['browse'] = 'Aurrebista';
+$string['browsed'] = 'Nabigatua';
+$string['browsemode'] = 'Aurrebista-modua';
+$string['browserepository'] = 'Biltegian zehar nabigatu';
+$string['cannotfindsco'] = 'Ezin da SCO aurkitu';
+$string['chooseapacket'] = 'SCORM paketea aukeratu edo eguneratu';
+$string['completed'] = 'Osatua';
+$string['completionstatus_completed'] = 'Osatua';
+$string['confirmloosetracks'] = 'KONTUZ: Badirudi paketea aldatu egin dela. Paketearen egitura aldatu egin bada zenbait erabiltzaileren pistak agian galdu egingo ziren eguneratze-prozesuan.';
+$string['contents'] = 'Edukiak';
+$string['coursepacket'] = 'Ikastaro-paketea';
+$string['coursestruct'] = 'Ikastaro-egitura';
+$string['currentwindow'] = 'Oraingo leihoa';
+$string['datadir'] = 'Sistema-errorea: Ikastaroko datuen direktorioa ezin da sortu';
+$string['defaultdisplaysettings'] = 'Erakusteko berezko ezarpenak';
+$string['defaultgradesettings'] = 'Berezko kalifikazio-ezarpenak';
+$string['defaultothersettings'] = 'Berezko beste ezarpen batzuk';
+$string['deleteallattempts'] = 'SCORMen saiakera guztiak ezabatu';
+$string['deleteattemptcheck'] = 'Ziur al zaude saiakera hauek ezabatu nahi dituzula?';
+$string['details'] = 'Miaketaren zehaztapenak';
+$string['directories'] = 'Direktorioaren estekak erakutsi';
+$string['disabled'] = 'Desgaituta';
+$string['display'] = 'Erakutsi paketea';
+$string['displayattemptstatus'] = 'Erakutsi saiakeren egoera';
+$string['displayattemptstatusdesc'] = 'Hobespen honek berezko balorea ezartzen du saiakera-estatusaren ezarpenak erakusteko';
+$string['displayattemptstatus_help'] = 'Gaituz gero, saiakeren puntuazioak eta kalifikazioak SCORM-en laburpen-orrian erakutsiko dira.';
+$string['displaycoursestructure'] = 'Erakutsi ikastaro-egitura';
+$string['displaycoursestructuredesc'] = 'Hobespen honek berezko balorea ezartzen du ikastaro-egituraren ezarpenak erakusteko';
+$string['displaycoursestructure_help'] = 'Gaituz gero, eduki-taula SCORM-en laburpen-orrian erakutsiko da';
+$string['displaydesc'] = 'Hobespen honek berezko balorea ezartzen du jarduera baten paketea erakusteko ala ez';
+$string['displaysettings'] = 'Erakutsi ezarpenak';
+$string['domxml'] = 'DOMXML kanpoko liburutegia';
+$string['duedate'] = 'Amaiera-data';
+$string['element'] = 'Elementua';
+$string['elementdefinition'] = 'Elementuaren definizioa';
+$string['enter'] = 'Sartu';
+$string['entercourse'] = 'Sartu SCORM ikastarora';
+$string['errorlogs'] = 'Erroreen erregistroa';
+$string['everyday'] = 'Egunero';
+$string['everytime'] = 'Erabiltzen den bakoitzean';
+$string['exceededmaxattempts'] = 'Gehienezko saiakera-kopurua egin duzu.';
+$string['exit'] = 'Ikastarotik irten';
+$string['exitactivity'] = 'Jarduera utzi';
+$string['expired'] = 'Barkatu, jarduera {$a} -n itxi zen eta dagoeneko ez dago eskura';
+$string['external'] = 'Kanpoko paketeen denboralizazioa eguneratu';
+$string['failed'] = 'Errorea';
+$string['finishscorm'] = 'Baliabide hau ikusten amaitu baduzu,  {$a}';
+$string['finishscormlinkname'] = 'Sakatu honi ikastaroko hasiera-orrira itzultzeko';
+$string['firstaccess'] = 'Lehenengo sarrera';
+$string['firstattempt'] = 'Lehenengo saiakera';
+$string['forcecompleted'] = 'Behartu osatzera';
+$string['forcenewattempt'] = 'Behartu saiakera berria';
+$string['forcenewattempt_help'] = 'Gaituz gero, SCORM paketea bisitatzen den bakoitzean saiakera berritzat hartuko da.';
+$string['found'] = 'Manifestua aurkitu da';
+$string['frameheight'] = 'Hobespen honek SCO markorako lehenetsitako altuera ezartzen du';
+$string['framewidth'] = 'Ezarpen honek SCO markorako lehenetsitako zabalera ezartzen du';
+$string['fullscreen'] = 'Pantaila osoa bete';
+$string['general'] = 'Datu orokorrak';
+$string['gradeaverage'] = 'Batez besteko kalifikazioa';
+$string['gradeforattempt'] = 'Saikerarako kalifikazioa';
+$string['gradehighest'] = 'Kalifikazio altuena';
+$string['grademethod'] = 'Kalifikazio-metodoa';
+$string['grademethoddesc'] = 'Hobespen honek jarduera baterako lehenetsitako kalifikazio-metodoa ezartzen du';
+$string['gradereported'] = 'Emandako kalifikazioa';
+$string['gradescoes'] = 'Ikasteko objektuak';
+$string['gradesettings'] = 'Kalifikazioen ezarpenak';
+$string['gradesum'] = 'Batutako kalifikazioak';
+$string['height'] = 'Altuera';
+$string['hidden'] = 'Ezkutuan';
+$string['hidebrowse'] = 'Aurrebista-botoia ezkutatu';
+$string['hideexit'] = 'Ezkutatu irteera-esteka';
+$string['hidenav'] = 'Nabigazio-botoiak ezkutatu';
+$string['hidereview'] = 'Ezkutatu berrikusketa-esteka';
+$string['hidetoc'] = 'Ikastaroaren egitura erakutsi';
+$string['highestattempt'] = 'Saiakera altuena';
+$string['identifier'] = 'Galdera-identifikatzailea';
+$string['incomplete'] = 'Osatu gabea';
+$string['info'] = 'Informazioa';
+$string['interactions'] = 'Elkarrekintzak';
+$string['interactionsid'] = 'Elementuaren IDa';
+$string['interactionslearnerresponse'] = 'Ikaslearen erantzuna';
+$string['interactionsresponse'] = 'Ikaslearen erantzuna';
+$string['interactionstype'] = 'Galdera-mota';
+$string['invalidactivity'] = 'Scorm jarduera ez da zuzena';
+$string['last'] = 'Azken sarrera hemen';
+$string['lastaccess'] = 'Azken sarrera';
+$string['lastattempt'] = 'Azken saiakera';
+$string['lastattemptlock'] = 'Blokeatu azken saiakeraren ondoren';
+$string['location'] = 'Kokapen-barra erakutsi';
+$string['max'] = 'Gehieneko kalifikazioa';
+$string['maximumattempts'] = 'Saiakera-kopurua';
+$string['maximumattemptsdesc'] = 'Hobespen honek jarduera baterako lehenetsitako gehienezko saiakera-kopurua ezartzen du';
+$string['maximumattempts_help'] = 'Ezarpen honek erabiltzaileei baimendutako saiakera-kopurua zehazten du. SCORM 1.2 eta AICC paketeetan baino ezin da aplikatu.';
+$string['maximumgradedesc'] = 'Hobespen honek jarduera baterako lehenetsitako gehienezko kalifikazioa ezartzen du';
+$string['menubar'] = 'Menu-barra erakutsi';
+$string['min'] = 'Gutxieneko kalifikazioa';
+$string['missing_attribute'] = '{$a->attr} atributua {$a->tag} etiketan falta da';
+$string['missingparam'] = 'Beharrezko elementu bat falta da edo okerra da';
+$string['missing_tag'] = '{$a->tag} etiketa falta da';
+$string['mode'] = 'Modua';
+$string['modulename'] = 'SCORM paketea';
+$string['modulenameplural'] = 'SCORM paketeak';
+$string['navigation'] = 'Nabigazioa';
+$string['newattempt'] = 'Saiakera berria hasi';
+$string['next'] = 'Jarraitu';
+$string['noactivity'] = 'Informaziorik ez';
+$string['noattemptsallowed'] = 'Baimendutako saiakera-kopurua';
+$string['noattemptsmade'] = 'Egin duzun saiakera-kopurua';
+$string['no_attributes'] = '{$a->tag} etiketak atributuak izan behar ditu';
+$string['no_children'] = '{$a->tag} etiketak seme-alabak izan behar ditu';
+$string['nolimit'] = 'Saiakera mugagabeak';
+$string['nomanifest'] = 'Manifestua ez da aurkitu';
+$string['noprerequisites'] = 'Sentitzen dugu, baina ez dituzu ikasteko objektu honetara sarbidea izateko aurrebaldintza guztiak  bete';
+$string['noreports'] = 'Ez dago txostenik erakusteko';
+$string['normal'] = 'Arrunta';
+$string['noscriptnoscorm'] = 'Zure nabigatzaileak ez du javascript onartzen, edo ez dago gaiturik. Ez da pistarik gordeko.';
+$string['notattempted'] = 'Saiatu gabea';
+$string['not_corr_type'] = '{$a->tag} etiketari ez dagokio mota hau';
+$string['notopenyet'] = 'Barkatu, jarduera hau ez dago eskuragarri {$a} arte';
+$string['objectives'] = 'Helburuak';
+$string['optallstudents'] = 'erabiltzaile guztiak';
+$string['optattemptsonly'] = 'saiakerak egin dituzten erabiltzaileak baino ez';
+$string['options'] = 'Aukerak';
+$string['optionsadv'] = 'Aukerak (aurreratuak)';
+$string['optnoattemptsonly'] = 'saiakerak egin ez dituzten erabiltzaileak baino ez';
+$string['organization'] = 'Erakundea';
+$string['organizations'] = 'Erakundeak';
+$string['othersettings'] = 'Aukerako ezarpenak';
+$string['othertracks'] = 'Beste pistak';
+$string['package'] = 'Eduki-paketea';
+$string['packagedir'] = 'Sistema-errorea: Pakete-direktorioa ezin da sortu';
+$string['packagefile'] = 'Ez da paketerik zehaztu';
+$string['package_help'] = 'Paketearen fitxategia zip (edo pif) formatukoa da eta SCORM/AICC moldeko ikastaroen fitxategiak ditu.';
+$string['packageurl'] = 'URLa';
+$string['page-mod-scorm-x'] = 'SCORM moduluaren edozein orri';
+$string['pagesize'] = 'Orriaren tamaina';
+$string['passed'] = 'Gainditua';
+$string['php5'] = 'PHP 5 (DOMXML jatorrizko liburutegia)';
+$string['pluginadministration'] = 'SCORM/AICC-en kudeaketa';
+$string['pluginname'] = 'SCORM paketea';
+$string['popup'] = 'Leiho berrian';
+$string['popupmenu'] = 'Zabaltzen den menuan';
+$string['popupopen'] = 'Paketea leiho berrian ireki';
+$string['position_error'] = '{$a->tag} etiketa ezin da {$a->parent} etiketaren seme-alaba izan';
+$string['preferencesuser'] = 'Txosten honetarako hobespenak';
+$string['prev'] = 'Aurrekoa';
+$string['raw'] = 'Puntuazio gordina';
+$string['regular'] = 'Manifestu erregularra';
+$string['report'] = 'Txostena';
+$string['reportcountattempts'] = '{$a->nbresults} emaitzak ({$a->nbusers} erabiltzaileak)';
+$string['reports'] = 'Txostenak';
+$string['resizable'] = 'Leihoaren tamaina-aldaketa onartu';
+$string['result'] = 'Emaitza';
+$string['results'] = 'Emaitzak';
+$string['review'] = 'Berrikusketa';
+$string['reviewmode'] = 'Berrikusketa-modua';
+$string['scoes'] = 'Ikasteko objektuak';
+$string['score'] = 'Puntuazioa';
+$string['scorm:addinstance'] = 'Gehitu beste SCORM pakete bat';
+$string['scormclose'] = 'Noiz arte';
+$string['scormcourse'] = 'Ikasteko ikastaroa';
+$string['scorm:deleteownresponses'] = 'Ezabatu norberaren saiakerak';
+$string['scorm:deleteresponses'] = 'SCORM saiakerak ezabatu';
+$string['scormloggingoff'] = 'API sarbidea itxita';
+$string['scormloggingon'] = 'API sarbidea zabalik';
+$string['scormopen'] = 'Zabalik';
+$string['scormresponsedeleted'] = 'Erabiltzailearen saiakerak ezabatuta';
+$string['scorm:savetrack'] = 'Gorde pistak';
+$string['scorm:skipview'] = 'Berrikusketari jaramonik ez egin';
+$string['scormtype'] = 'Mota';
+$string['scorm:viewreport'] = 'Txostenak ikusi';
+$string['scorm:viewscores'] = 'Puntuazioak ikusi';
+$string['scrollbars'] = 'Leihoa mugitzea onartu';
+$string['selectall'] = 'Aukeratu dena';
+$string['selectnone'] = 'Ez aukeratu guztiak';
+$string['show'] = 'Erakutsi';
+$string['sided'] = 'Ezker aldean';
+$string['skipview'] = 'Ikasleak ez dio jaramonik egingo orriaren eduki-egiturari';
+$string['slashargs'] = 'KONTUZ: slash argumentuak ez daude gaituta gune honetan eta litekeena da behar bezala ez funtzionatzea';
+$string['stagesize'] = 'Markoaren edo leihoaren tamaina';
+$string['started'] = 'Hemen hasita';
+$string['status'] = 'Egoera';
+$string['statusbar'] = 'Erakutsi egoera-barra';
+$string['student_response'] = 'Erantzuna';
+$string['subplugintype_scormreport'] = 'Txostena';
+$string['subplugintype_scormreport_plural'] = 'Txostenak';
+$string['suspended'] = 'Bere horretan utzia';
+$string['syntax'] = 'Sintaxi-errorea';
+$string['tag_error'] = 'Etiketa ezezagun honek ({$a->tag}) eduki hau dauka: {$a->value}';
+$string['time'] = 'Ordua';
+$string['timerestrict'] = 'Mugatu erantzuteko denbora denbora-tarte honetara';
+$string['title'] = 'Izenburua';
+$string['toc'] = 'TOC';
+$string['toolbar'] = 'Tresna-barra erakutsi';
+$string['too_many_attributes'] = 'Etiketa honek ({$a->tag}) atributu gehiegi dauka';
+$string['too_many_children'] = 'Etiketa honek ({$a->tag}) seme-alaba gehiegi dauka';
+$string['totaltime'] = 'Ordua';
+$string['trackingloose'] = 'KONTUZ: Pakete honen miaketa-datuak galdu egingo dira!';
+$string['type'] = 'Mota';
+$string['typeaiccurl'] = 'Kanpoko AICC-ren URLa';
+$string['typeexternal'] = 'Kanpoko SCORM manifestua';
+$string['typeimsrepository'] = 'IMS eduki-biltegi lokala';
+$string['typelocal'] = 'Igotako paketea';
+$string['typelocalsync'] = 'Jaitsitako paketea';
+$string['unziperror'] = 'Errorea gertatu da zip paketea deskonprimatzean';
+$string['updatefreq'] = 'Frekuentzia automatikoki eguneratu';
+$string['updatefreqdesc'] = 'Hobespen honek jarduera bat automatikoki eguneratzeko lehenetsitako frekuentzia ezartzen du';
+$string['validateascorm'] = 'SCORM paketea onartu';
+$string['validation'] = 'Onespenaren emaitza';
+$string['validationtype'] = 'Hobespen honek SCORM Manifestua onartzeko erabili den DOMXML liburutegian ezarpenak egiten ditu. Zalantzak izatekotan, aukera aktibatuta utzi.';
+$string['value'] = 'Balorea';
+$string['versionwarning'] = 'Manifestuaren bertsioa 1.3 baino lehenagokoa da. Kontuz {$a->tag} etiketarekin';
+$string['viewallreports'] = '{$a} saiakeren txostenak ikusi';
+$string['viewalluserreports'] = '{$a} erabiltzaileen txostenak ikusi';
+$string['whatgrade'] = 'Saiakeren kalifikazioa';
+$string['whatgradedesc'] = 'Hobespen honek lehenetsitako saiakeren kalifikazioa ezartzen du';
+$string['width'] = 'Zabalera';
+$string['window'] = 'Marko/Leihoa';

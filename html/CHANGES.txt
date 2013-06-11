@@ -24,6 +24,7 @@ MOODLE2
 - Updated GeoGebra module
 - Grant access to langimport subpackage only to xtecadmin user
 - Updated catalan translation files (11-06-2013)
+- Added translations files for Arabic, Greek, Basque, Galician, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Swedish, Urdu and Chinese
 
 PORTAL
 - Updated messages for activation of new services
