@@ -94,6 +94,8 @@ $string['pluginname_desc'] = '<p>Podeu utilitzar un servidor LDAP per controlar 
 <p>Aquest connector també es pot configurar per crear automàticament nous cursos quan apareixen nous grups en el LDAP.</p>';
 $string['pluginnotenabled'] = 'Connector no habilitat!';
 $string['role_mapping'] = '<p>Per a cada rol que vulgueu assignar a LDAP us caldrà especificar la llista de contexts on el rol del curs està situat. Separeu diferents contexts amb  \';\'.</p><p>Us caldrà també especificar l\'atribut que el vostre servidor LDAP utilitza per mantindre els membre d\'un grup. Normalment  \'membre\' o \'membreUid\'</p>';
+$string['role_mapping_attribute'] = 'Atribut de membre de LDAP per a {$a}';
+$string['role_mapping_context'] = 'Context LDAP per a {$a}';
 $string['role_mapping_key'] = 'Fes el mapatge de rols de LDAP';
 $string['roles'] = 'Mapatge de rols';
 $string['server_settings'] = 'Configuració del servidor LDAP';

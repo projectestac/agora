@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addmoreqblanks'] = '{no} més conjunts d\'espais en blanc';
+$string['answer'] = 'Resposta {$a}';
 $string['availablechoices'] = 'Opcions disponibles';
 $string['correctansweris'] = 'La resposta correcta és: {$a}.';
 $string['filloutthreeqsandtwoas'] = 'Heu de proporcionar almenys dues preguntes i tres respostes. Podeu proporcionar més respostes dolentes escrivint respostes en preguntes en blanc. Les entrades on ambdós quadres, pregunta i resposta, estiguin buits s\'ignoraran.';
@@ -34,6 +35,11 @@ $string['nomatchinganswerforq'] = 'Heu d\'especificar una resposta per a aquesta
 $string['notenoughqsandas'] = 'Heu de proporcionar almenys {$a->q} preguntes i {$a->a} respostes.';
 $string['notenoughquestions'] = 'Heu de proporcionar almenys {$a} parells de preguntes i respostes';
 $string['pleaseananswerallparts'] = 'Si us plau, responeu totes les parts de la pregunta.';
+$string['pluginname'] = 'Aparellament';
+$string['pluginnameadding'] = 'S\'està afegint una pregunta d\'aparellament.';
+$string['pluginnameediting'] = 'S\'està editant una pregunta d\'aparellament.';
+$string['pluginname_help'] = 'Per respondre bé les preguntes d\'aparellament cal que l\'alumne aparelli correctament una llista de noms o enunciats (preguntes) amb una altra llista de noms o enunciats (les respostes).';
+$string['pluginnamesummary'] = 'La resposta a cadascuna d\'una sèrie de preguntes s\'ha de seleccionar d\'una llista de possibilitats.';
 $string['shuffle'] = 'Barreja';
 $string['shuffle_help'] = '<p>Si activeu aquesta opció, l\'ordre dels parells pregunta-resposta es modificarà aleatòriament cada vegada que l\'estudiant entri en un qüestionari que contingui aquesta pregunta, sempre que "Barreja dins de les preguntes" estigui activat en els paràmetres del qüestionari.</p>
 

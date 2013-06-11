@@ -185,7 +185,7 @@ Comunitat Moodle|http://moodle.org
 -Novetats del Moodle|http://moodle.org/news
 Moodle mantingut
 -Hostatge comercial del Moodle|http://moodle.com/hosting
--Suport comercial del Moodle|jttp://moodle.com/support
+-Suport comercial del Moodle|http://moodle.com/support
 </pre>';
 $string['configdbsessions'] = 'Si habiliteu aquest paràmetre, la base de dades emmagatzemarà la informació de les sessions dels usuaris. Això és especialment útil en llocs amb molts usuaris o en llocs que funcionen en clústers de servidors. Per a la majoria de llocs probablement és millor no habilitar-lo i utilitzar el disc del servidor en lloc de la base de dades. Teniu en compte que si canvieu ara aquest paràmetre tancareu les sessions de tots els usuaris (la vostra inclosa). Si utilitzeu MySQL assegureu-vos que el paràmetre \'max_allowed_packet\' de my.cnf (o my.ini) és com a mínim 4M.';
 $string['configdebug'] = 'Si activeu aquest paràmetre s\'incrementarà l\'error_reporting del PHP, de manera que es visualitzaran més avisos. Útil només per a desenvolupadors.';
@@ -559,6 +559,7 @@ $string['frontpageroles'] = 'Rols de la primera plana';
 $string['frontpagesettings'] = 'Paràmetres de la primera plana';
 $string['fullnamedisplay'] = 'Format del nom complet';
 $string['gdrecommended'] = 'L\'extensió GD s\'utilitza per a la manipulació d\'imatges. Algunes característiques com ara les imatges dels perfils d\'usuari podrien no estar disponibles si falta aquesta extensió.';
+$string['gdrequired'] = 'L\'extensió GD és necessària per a la conversió d\'imatges en Moodle.';
 $string['gdversion'] = 'Versió GD';
 $string['generalsettings'] = 'Paràmetres generals';
 $string['geoipfile'] = 'Fitxer de dades GeoIP City';
@@ -723,6 +724,8 @@ $string['navshowfrontpagemods'] = 'Mostra les activitats de la pàgina principal
 $string['navshowfrontpagemods_help'] = 'Si s\'activa, les activitats de la pàgina principal del curs es mostraran en la navegació a les pàgines del lloc.';
 $string['navshowmycoursecategories'] = 'Mostra les meves categories de curs';
 $string['navshowmycoursecategories_help'] = 'Si hi ha cursos habilitats en usuaris, mostra la meva branca de cursos en categories.';
+$string['navsortmycoursessort'] = 'Ordena els meus cursos';
+$string['navsortmycoursessort_help'] = 'Determina com s\'ordenaran els cursos en la branca «Els meus cursos» dins de la navegació. Per defecte s\'usa l\'ordre predeterminat.';
 $string['neverdeleteruns'] = 'No elimineu mai les execucions.';
 $string['nobookmarksforuser'] = 'No teniu cap drecera.';
 $string['nodatabase'] = 'Cap base de dades';
@@ -952,6 +955,10 @@ $string['sitesectionhelp'] = 'Si activeu aquesta opció, es mostrarà una secci�
 $string['slasharguments'] = 'Utilitza arguments en barra';
 $string['smartpix'] = 'Cerca intel·ligent d\'imatges';
 $string['soaprecommended'] = 'Instal·lar l\'extensió opcional SOAP és útil pels serveis web i alguns mòduls no oficials.';
+$string['sort_fullname'] = 'Nom complet';
+$string['sort_idnumber'] = 'Número ID';
+$string['sort_shortname'] = 'Nom curt';
+$string['sort_sortorder'] = 'Ordre';
 $string['spellengine'] = 'Motor d\'ortografia';
 $string['spelllanguagelist'] = 'Llista d\'idiomes';
 $string['splrequired'] = 'Ara el Moodle requereix l\'extensió de PHP SPL.';

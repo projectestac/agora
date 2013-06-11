@@ -25,4 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['disclaimer'] = 'Entenc els riscos d\'aquesta operació:';
+$string['notifyfinished'] = '...finalitzat';
+$string['notifyrebuilding'] = 'S\'està reconstruint la memòria cau del curs...';
+$string['notimplemented'] = 'Disculpeu però aquesta característica està implementada per a bases de dades MySQL i PostgreSQL.';
+$string['notsupported'] = 'Aquest script no té suport. Feu una còpia de seguretat completa abans de continuar.<br/>.Aquesta operació no es pot revertir!';
+$string['pageheader'] = 'Cerca i reemplaça text en tota la base de dades.';
 $string['pluginname'] = 'Buscar i reemplaçar en la base de dades';
+$string['replacewith'] = 'Reemplaceu per aquesta cadena:';
+$string['replacewithhelp'] = 'generalment el nou URL del servidor';
+$string['searchwholedb'] = 'Cerca en tota la base de dades:';
+$string['searchwholedbhelp'] = 'generalment l\'URL antic del servidor';

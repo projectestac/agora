@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['algebraicexpression'] = 'Expressió algebraica';
 $string['filtername'] = 'Notació algebraica';

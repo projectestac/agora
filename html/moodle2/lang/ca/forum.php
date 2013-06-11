@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = 'Hi ha missatges nous al fòrum';
 $string['addanewdiscussion'] = 'Afegeix un nou tema de debat';
 $string['addanewquestion'] = 'Afegeix una nova pregunta';
 $string['addanewtopic'] = 'Afegeix un nou tema';
@@ -157,6 +158,7 @@ $string['forum'] = 'Fòrum';
 $string['forum:addinstance'] = 'Afegeix un fòrum nou';
 $string['forum:addnews'] = 'Afegir notícies';
 $string['forum:addquestion'] = 'Afegeix una pregunta';
+$string['forum:allowforcesubscribe'] = 'Permetre imposar la subscripció';
 $string['forumauthorhidden'] = 'Autor (ocult)';
 $string['forumblockingalmosttoomanyposts'] = 'Us esteu apropant al llindar de missatges. Heu enviat {$a->numposts} missatges en {$a->blockperiod} i el límit són {$a->blockafter} missatges.';
 $string['forumbodyhidden'] = 'No podeu veure aquest missatge, probablement perquè encara no heu enviat un missatge en aquest debat. O encara no ha conclòs el temps màxim d\'edició.';
@@ -209,7 +211,7 @@ $string['invaliddiscussionid'] = 'L\'ID del debat és incorrecte o el debat s\'h
 $string['invalidforcesubscribe'] = 'El mode de subscripció obligatòria no és vàlid';
 $string['invalidforumid'] = 'L\'ID del fòrum és incorrecte';
 $string['invalidparentpostid'] = 'L\'ID del missatge original és incorrecte';
-$string['invalidpostid'] = '';
+$string['invalidpostid'] = 'ID de missatge invàlid - {$a}';
 $string['lastpost'] = 'Darrer missatge';
 $string['learningforums'] = 'Fòrums d\'aprenentatge';
 $string['longpost'] = 'Missatge llarg';

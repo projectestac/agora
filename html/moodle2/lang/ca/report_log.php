@@ -25,8 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['logsformat'] = 'Format dels informes';
 $string['log:view'] = 'Veure els registres del curs';
 $string['log:viewtoday'] = 'Veure els registres d\'avui';
+$string['page'] = 'Pàgina {$a}';
 $string['page-report-log-index'] = 'Informe d\'activitat del curs';
 $string['page-report-log-user'] = 'Informe d\'activitat de l\'usuari';
 $string['page-report-log-x'] = 'Qualsevol informe d\'activitat';
+$string['pluginname'] = 'Registres';

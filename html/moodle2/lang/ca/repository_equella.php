@@ -37,5 +37,13 @@ $string['pluginname'] = 'Repositori EQUELLA';
 $string['restrictionattachmentsonly'] = 'Només recurs adjunt';
 $string['restrictionitemsonly'] = 'Només element de resum';
 $string['restrictionnone'] = 'Sense restricció';
+$string['search'] = 'Cerca EQUELLA';
 $string['selectrestriction'] = 'Restringeix la selecció';
-$string['selectrestriction.desc'] = '';
+$string['selectrestriction.desc'] = 'Trieu si els editors del curs només han de ser capaços  de seleccionar un resum de l\'article, un recurs connectats o bé una altra cosa.';
+$string['sharedid'] = 'ID secreta compartida';
+$string['sharedidtitle'] = 'ID secreta compartida';
+$string['sharedsecrets'] = 'Contrasenya secreta compartida';
+$string['sharedsecretsheading'] = 'Configuració de la contrasenya secreta compartida';
+$string['sharedsecretshelp'] = '<p> A continuació podeu configurar la contrasenya secreta EQUELLA compartida amb usuaris d\'una sola signatura. Podeu configurar diferents contraseneyes secretes compartides per ús general (lectura), i una funció especialitzada  d\'una contrasenya secreta compartida basada per a cada rol <em>d\'escriptura</em> al vostre lloc Moodle.
+Si un ID  secret compartit no està configurat per a un rol llavors s\'utilitzen el valor per omissió de l\'ID secret compartit i de la contrasenya secreta compartida. </p><p> Totes les ID secretes compartides i  contrasenyes secretes compartides cal que es configurin dins d\'EQUELLA i el mòdul de secret compartit habilitat. Aquesta configuració es troba a la consola d\'administració EQUELLA sota «Gestió d\'usuaris» > «Contrasenyes secretes compartides». </p>';
+$string['sharedsecrettitle'] = 'Contrasenya secreta compartida';

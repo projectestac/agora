@@ -26,3 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['moodlemedia:browsemedia'] = 'Troba i carrega un so, vídeo o aplicació de java...';
+$string['moodlemedia:desc'] = 'Insereix materials de Moodle';
+$string['nopreview'] = 'No es pot previsualitzar els materials.';
+$string['pluginname'] = 'Insereix materials';

@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = 'Teniu tasques que necessiten la vostra atenció';
 $string['addsubmission'] = 'Afegeix tramesa';
 $string['allowdeleting'] = 'Permet suprimir';
 $string['allowdeleting_help'] = '<p>Si habiliteu aquesta opció, els participants podran suprimir els fitxers que hagin penjat, sempre que no hagin estat ja qualificats.</p>';
@@ -59,6 +60,8 @@ $string['assignment:view'] = 'Veure tasca';
 $string['availabledate'] = 'Disponible des de';
 $string['cannotdeletefiles'] = 'S\'ha produït un error i no es poden suprimir els fitxers';
 $string['cannotviewassignment'] = 'No podeu veure aquesta tasca';
+$string['changegradewarning'] = 'Aquesta tasca té enviaments qualificats, i canviar la qualificació no recalcularà automàticament les qualificacions dels enviaments ja qualificats. Si voleu canviar la qualificació, heu de requalificar tots els enviaments.';
+$string['closedassignment'] = 'La data d\'enviament d\'aquesta tasca s\'ha tancat.';
 $string['comment'] = 'Comentari';
 $string['commentinline'] = 'Comentaris inserits';
 $string['commentinline_help'] = '<p>Si seleccioneu aquesta opció, la tramesa original es copiarà en el camp de comentaris de retroacció quan aneu a qualificar, de manera que sigui més fàcil inserir comentaris (potser fent servir un color diferent) o editar el text original.</p>';
@@ -107,6 +110,7 @@ $string['feedbackfromteacher'] = 'Retroacció del {$a}';
 $string['feedbackupdated'] = 'S\'ha actualitzat la retroacció en les tasques de {$a} persones';
 $string['finalize'] = 'Impedeix l\'enviament d\'actualitzacions';
 $string['finalizeerror'] = 'S\'ha produït un error i no s\'ha pogut completar la tramesa';
+$string['futureaassignment'] = 'Aquesta tasca encara no està disponible.';
 $string['graded'] = 'Qualificada';
 $string['guestnosubmit'] = 'Els visitants no poden trametre una tasca. Abans de trametre una tasca heu d\'entrar o us heu de registrar.';
 $string['guestnoupload'] = 'Els usuaris visitants no poden penjar fitxers.';
@@ -196,7 +200,7 @@ $string['submitted'] = 'S\'ha tramès';
 $string['submittedfiles'] = 'Fitxers tramesos';
 $string['subplugintype_assignment'] = 'Tipus de tasca';
 $string['subplugintype_assignment_plural'] = 'Tipus de tasques';
-$string['trackdrafts'] = 'Habilita Envia per avaluar';
+$string['trackdrafts'] = 'Habilita el botó  «Envia per a puntuar»';
 $string['trackdrafts_help'] = '<p>El botó "Envia per avaluar" permet que els usuaris indiquin al seu professorat que han acabat de treballar en una tasca. El professorat tindrà llavors l\'opció de tornar la tasca a l\'estat d\'esborrany, p. ex. si considera que l\'estudiant ha de treballar-hi més.</p>';
 $string['typeblog'] = 'Entrada del blog';
 $string['typeoffline'] = 'Activitat fora de línia';

@@ -28,4 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['page-report-stats-index'] = 'Informe d\'estadístiques del curs';
 $string['page-report-stats-user'] = 'Informe d\'estadístiques d\'usuari';
 $string['page-report-stats-x'] = 'Qualsevol informe d\'estadístiques';
+$string['pluginname'] = 'Estadístiques';
 $string['stats:view'] = 'Veure informe d\'estadístiques del curs';

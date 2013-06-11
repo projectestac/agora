@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = '';
+$string['apikey'] = 'Clau d\'API';
 $string['boxnet:view'] = 'Mostra el repositori box.net';
 $string['callbackurl'] = 'URL de retrocridada';
 $string['callbackurltext'] = '<ol> <li>Visiteu de nou <a href="http://www.box.net/developers/services">el lloc web box.net</a>.</li> <li>Comproveu que establiu l\'URL de la retrocridada d\'aquest servei box.net a <strong>{$a}</strong></li></ol>';

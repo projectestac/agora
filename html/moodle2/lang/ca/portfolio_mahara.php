@@ -44,5 +44,6 @@ $string['mnet_notoken'] = 'No s\'ha pogut trobar el testimoni corresponent a aqu
 $string['mnet_wronghost'] = 'El servidor remot no correspon al registre de tranferència d\'aquest token';
 $string['pf_description'] = 'Permet els usuaris inserir contingut de Moodle en aquest servidor<br />Subscriviu <b>i</b> publiqueu aquest servei per permetre els usuaris autenticats del vostre lloc d\'inserir contingut en {$a}<br /><ul><li><em>Dependència</em>: heu de <strong>publicar</strong> també el servei SSO (Proveïdor d\'identitats) per a {$a}.</li><li><em>Dependència</em>: heu de <strong>subscriure</strong> també el servei SSO (Proveïdor de servei) en {$a}</li><li><em>Dependència</em>: heu d\'activar també el connector d\'autenticació MNet.</li></ul></br />';
 $string['pf_name'] = 'Serveis de portafolis';
+$string['pluginname'] = 'Mahara ePortfolio';
 $string['senddisallowed'] = 'No es poden transferir fitxers a Mahara en aquest moment';
 $string['url'] = 'URL';

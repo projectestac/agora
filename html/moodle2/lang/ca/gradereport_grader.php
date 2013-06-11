@@ -34,3 +34,5 @@ $string['grader:manage'] = 'Gestionar l\'informe del qualificador';
 $string['grader:view'] = 'Veure l\'informe del qualificador';
 $string['pluginname'] = 'Qualificador';
 $string['preferences'] = 'Preferències de l\'informe de qualificacions';
+$string['useractivityfeedback'] = 'retroacció {$a}';
+$string['useractivitygrade'] = 'qualificació {$a}';

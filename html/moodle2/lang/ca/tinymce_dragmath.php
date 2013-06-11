@@ -27,4 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['dragmath:desc'] = 'Insereix equació';
 $string['javaneeded'] = 'Per utilitzar aquesta pàgina us cal un navegador amb Java habilitat. Descarregueu el darrer connector de Java des de {$a}.';
+$string['pluginname'] = 'Insereix equació';
+$string['requiretex'] = 'Requereix el filtre TeX';
+$string['requiretex_desc'] = 'Si s\'habilita, el botó DragMath només és visible quan el filtre TeX està habilitat en el context de l\'editor. Deshabiliteu-lo si teniu un filtre TeX personalitzat habilitat amb abast global.';
 $string['title'] = 'Editor d\'equacions Dragmath';

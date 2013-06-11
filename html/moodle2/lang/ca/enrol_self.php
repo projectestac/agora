@@ -25,7 +25,16 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cohortnonmemberinfo'] = 'Només el membres de la cohort \'{$a}\' poden inscriure\'s ells mateixos.';
+$string['cohortonly'] = 'Només membres de la cohort';
+$string['cohortonly_help'] = 'L\'autoinscripció pot estar restringida als membres de la cohort especificada. Fixeu-vos que canviar aquest paràmetre no té cap efecte sobre les inscripcions que ja existeixen.';
 $string['customwelcomemessage'] = 'Missatge de benvinguda personalitzat';
+$string['customwelcomemessage_help'] = 'Podeu afegir un missatge personalitzat de benvinguda en text pla o en autoformat de Moodle, incloent-hi etiquetes HTML i etiquetes en múltiples llegües.
+
+Els següents marcadors de posició poden ser inclosos en el missatge:
+
+* Nom del Curs {$a->coursename}
+* Enllaç a la pàgina de perfil de l\'usuari {$a->profileurl}';
 $string['defaultrole'] = 'Assignació de rol per defecte';
 $string['defaultrole_desc'] = 'Trieu el rol que serà assignat als usuaris durant el procés d\'inscripció';
 $string['editenrolment'] = 'Editeu la inscripció';
@@ -34,10 +43,24 @@ $string['enrolenddate_help'] = 'Si s\'habilita, els usuaris només es poden insc
 $string['enrolenddaterror'] = 'La fi del període d\'inscripció no pot ser abans de la data d\'inici.';
 $string['enrolme'] = 'Inscriu-me';
 $string['enrolperiod'] = 'Duració de la inscripció';
-$string['enrolperiod_desc'] = 'La duració del temps d\'inscripció per defecte en segons. Si es configura amb el valor cero, la duració de la inscripció esdevé il·limitada.';
+$string['enrolperiod_desc'] = 'La durada per defecte de la inscripció. Si es configura amb el valor zero, la durada de la inscripció esdevé il·limitada.';
 $string['enrolperiod_help'] = 'La data en que la inscripció és vàlida, que comença al moment en que l\'usuari s\'inscriu ell mateix. Si es deshabilita, la duració de la inscripció esdevé il·limitada.';
 $string['enrolstartdate'] = 'Data d\'inici';
 $string['enrolstartdate_help'] = 'Si s\'habilita, els usuaris només es poden inscriure a partir d\'aquest període';
+$string['expiredaction'] = 'Acció en vèncer la inscripció';
+$string['expiredaction_help'] = 'Seleccioneu l\'acció a realitzar quan la inscripció de l\'usuari venci. Tingueu en compte que algunes dades d\'usuari i configuracions es suprimeixen del curs durant la cancel·lació de la inscripció del curs.';
+$string['expirymessageenrolledbody'] = 'Estimat/da {$a->user},
+
+Aquesta és una notificació per comunicar-vos que la inscripció al curs \'{$a->course}\'  és a punt de vèncer el  {$a->timeend}.
+
+Si us cal ajuda, si us plau poseu-vos en contacte amb {$a->enroller}.';
+$string['expirymessageenrolledsubject'] = 'Notificació de venciment d\'autoinscripció.';
+$string['expirymessageenrollerbody'] = 'L\'autoinscripció al curs \'{$a->course}\'  vencerà dins de {$a->threshold} per als següents usuaris:
+
+{$a->users}
+
+Per estendre la inscripció, aneu a  {$a->extendurl}';
+$string['expirymessageenrollersubject'] = 'Notificació de venciment d\'autoinscripció.';
 $string['groupkey'] = 'Utilitza les claus d\'inscripció del grup';
 $string['groupkey_desc'] = 'Utilitza les claus d\'inscripció de grup per defecte.';
 $string['groupkey_help'] = 'A més a més de restringir l\'accés  al curs, a l\'únic que coneix la clau, utilitza una clau d\'inscripció de grup. Els usuaris s\'afegiran al grup de forma automàtica quan s\'inscriguen al curs.
@@ -49,6 +72,7 @@ Aquest paràmetre especifica aquest temps límit.';
 $string['maxenrolled'] = 'Nombre màxim d\'usuaris inscrits';
 $string['maxenrolled_help'] = 'Especifica el nombre màxim d\'usuaris que es poden inscriure. 0 significa que no hi ha límit';
 $string['maxenrolledreached'] = 'Ja s\'ha assolit el nombre màxim d\'usuaris que heu permès auto inscriure\'s.';
+$string['messageprovider:expiry_notification'] = 'Notificació de venciment d\'autoinscripció.';
 $string['nopassword'] = 'No cal clau d\'inscripció.';
 $string['password'] = 'Clau d\'inscripció';
 $string['password_help'] = 'Una clau d\'inscripció habilita per accedir al curs que està restringit sols als qui coneixen la clau.

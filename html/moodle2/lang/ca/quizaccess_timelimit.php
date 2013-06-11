@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Temps límit per accedir a la pregunta';
 $string['quiztimelimit'] = 'Temps màxim: {$a}';

@@ -25,5 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['defaultname'] = 'Pregunta importada {$a}';
+$string['importnotext'] = 'S\'ha perdut el text de la pregunta en el fitxer XML';
+$string['notenoughtsubans'] = 'No s\'ha pogut importar la pregunta \'{$a}\' perquè una pregunta d\'aparellaments ha de tenir almenys dues preguntes i tres respostes.';
 $string['pluginname'] = 'Blackboard';
 $string['pluginname_help'] = 'El format Blackboard permet importar  preguntes desades en el format d\'exportació tipus «POOL» de la versió 5 del Blackboard.';
