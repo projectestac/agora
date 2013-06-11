@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['acceptederror'] = 'Error acceptat';
 $string['addmoreanswerblanks'] = 'Blancs per a {no} preguntes més';
 $string['addmoreunitblanks'] = 'Blancs per a {no} unitats més';
+$string['answercolon'] = 'Resposta:';
 $string['answermustbenumberorstar'] = 'La resposta ha de ser un nombre, per exemple -1,234 o 3e8, o \'*\'.';
 $string['answerno'] = 'Resposta {$a}';
 $string['decfractionofquestiongrade'] = 'com una fracció decimal (0-1) de la qualificació de la pregunta';
@@ -77,7 +78,7 @@ $string['unitappliedpenalty'] = 'Aquests valors inclouen una penalització de {$
 $string['unitchoice'] = 'Opcions múltiples (botons/caixes de selecció)';
 $string['unitedit'] = 'Edita la unitat';
 $string['unitgraded'] = 'Es qualificarà la RESPOSTA NUMÈRICA i també LES UNITATS';
-$string['unithandling'] = 'Direcció de la unitat';
+$string['unithandling'] = 'Tractament de les unitats';
 $string['unithdr'] = 'Unitat {$a}';
 $string['unitincorrect'] = 'No heu posat la resposta correcta';
 $string['unitmandatory'] = 'Obligatori';

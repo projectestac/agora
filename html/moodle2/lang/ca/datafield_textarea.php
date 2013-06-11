@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['maxbytes'] = 'Mida màxima de fitxer incrustat (bytes)';
-$string['maxbytes_desc'] = 'Si es posa a cero el valor serà il·limitat per defecte.';
+$string['maxbytes_desc'] = 'Si es posa a zero el valor serà il·limitat per defecte.';
 $string['pluginname'] = 'Àrea de text';

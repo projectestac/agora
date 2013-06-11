@@ -112,6 +112,7 @@ $string['groupnameexists'] = 'Ja existeix un grup denominat \'{$a}\' en aquest c
 $string['groupnotamember'] = 'No sou membre d\'aquest grup';
 $string['groups'] = 'Grups';
 $string['groupscount'] = 'Grups ({$a})';
+$string['groupsettingsheader'] = 'Grups';
 $string['groupsgroupings'] = 'Grups i agrupaments';
 $string['groupsinselectedgrouping'] = 'Grups:';
 $string['groupsnone'] = 'Sense grups';

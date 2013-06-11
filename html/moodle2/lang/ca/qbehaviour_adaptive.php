@@ -30,4 +30,11 @@ $string['gradingdetails'] = 'Puntuacions d\'aquest lliurament: {$a->raw} / {$a->
 $string['gradingdetailsadjustment'] = 'Tenint en compte els intents previs, la puntuació és <strong>{$a->cur}/{$a->max}</strong>.';
 $string['gradingdetailspenalty'] = 'Aquest lliurament ha acumulat una penalització de {$a}.';
 $string['gradingdetailspenaltytotal'] = 'Total de la penalització fins ara: {$a}';
+$string['gradingdetailswithadjustment'] = 'Puntuacions per a aquesta tramesa:
+{$a->raw} /{$a->max}. Tenint en compte els intents anteriors, això dóna <strong>{$a->cur} / {$a->max}.</strong>';
+$string['gradingdetailswithadjustmentpenalty'] = 'Puntuacions per a aquesta tramesa: {$a->raw} / {$a->max}. Tenint en compte els intents anteriors, això dóna <strong>{$a->cur} / {$a->max}.</strong> Aquesta tramesa té una penalització de {$a->penalty}.';
+$string['gradingdetailswithadjustmenttotalpenalty'] = 'Puntuacions per a aquesta tramesa: {$a->raw} / {$a->max}. Tenint en compte els intents anteriors, això dóna <strong>{$a->cur} / {$a->max}.</strong> Aquesta tramesa té una penalització de {$a->penalty}. Penalitzacions totals fins ara: {$a->totalpenalty}.';
+$string['gradingdetailswithpenalty'] = 'Puntuacions per a aquesta tramesa: {$a->raw} / {$a->max}. Aquesta tramesa té una penalització de {$a->penalty}.';
+$string['gradingdetailswithtotalpenalty'] = 'Puntuacions per a aquesta tramesa: {$a->raw} / {$a->max}. Aquesta tramesa té una penalització de {$a->penalty}. Penalització total fins ara: {$a->totalpenalty}.';
 $string['notcomplete'] = 'Incomplet';
+$string['pluginname'] = 'Mode adaptatiu';

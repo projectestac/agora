@@ -166,6 +166,7 @@ $string['loglifetime'] = 'Mantingues els registres de';
 $string['managefiles'] = 'Gestiona els fitxers de còpia de seguretat';
 $string['missingfilesinpool'] = 'Alguns fitxers no s\'han pogut desar mentre es feia la còpia de seguretat, No es podran restaurar.';
 $string['moodleversion'] = 'Versió de Moodle';
+$string['morecoursesearchresults'] = 'S\'han trobat més de {$a} cursos. Es mostraran els primers {$a} resultats.';
 $string['moreresults'] = 'Hi ha massa resultats. Introduïu una cerca més específica.';
 $string['nomatchingcourses'] = 'No hi ha cursos a mostrar';
 $string['norestoreoptions'] = 'No hi ha categories o cursos existents on pugueu restaurar';

@@ -16,15 +16,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_calendar_month', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'taskchainreport_overview', language 'ca', branch 'MOODLE_24_STABLE'
  *
- * @package   block_calendar_month
+ * @package   taskchainreport_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['calendar_month:addinstance'] = 'Afegeix un nou bloc de calendari';
-$string['calendar_month:myaddinstance'] = 'Afegeix un nou bloc de calendari a la pàgina del «meu Moodle».';
-$string['pluginname'] = 'Calendari';
+$string['pluginname'] = 'Informe global';

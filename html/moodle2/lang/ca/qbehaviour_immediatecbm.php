@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pleaseselectacertainty'] = 'Si us plau, seleccioneu un nivell de certesa.';
+$string['pluginname'] = 'Retroacció immediata amb PBC (CBM)';

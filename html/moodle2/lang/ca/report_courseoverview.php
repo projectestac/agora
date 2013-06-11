@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['courseoverview:view'] = 'Mostra l\'informe resumit del curs';
+$string['courseoverview:view'] = 'Mostra l\'informe global del curs';
+$string['pluginname'] = 'Característiques del curs';

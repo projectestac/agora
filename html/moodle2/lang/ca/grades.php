@@ -230,6 +230,7 @@ $string['enableajax_help'] = 'Afegeix una capa de funcions AJAX en l\'informe de
 $string['enableoutcomes'] = 'Habilita competències';
 $string['enableoutcomes_help'] = 'El suport per a competències (objectius, estàndards, criteris...) significa que es pot avaluar coses mitjançant una o més escales vinculades a declaracions de competències. Habilitar les competències fa possible utilitzar aquest tipus de qualificació a tot el lloc.';
 $string['encoding'] = 'Codificació';
+$string['errorcalculationbroken'] = 'Probablement una referència circular o formula de càlcul errònia.';
 $string['errorcalculationnoequal'] = 'La fórmula ha de començar per un signe igual (=1+2)';
 $string['errorcalculationunknown'] = 'La fórmula no es vàlida';
 $string['errorgradevaluenonnumeric'] = 'S\'ha rebut un valor no numèric per a la qualificació més alta o més baixa en';

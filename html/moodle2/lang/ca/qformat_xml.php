@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['invalidxml'] = 'Fitxer XML invàlid - s\'esperava una cadena (useu CDATA?)';
+$string['pluginname'] = 'Format XML de Moodle';
+$string['pluginname_help'] = 'Aquest és un format específic de Moodle per importar i exportar preguntes.';
 $string['truefalseimporterror'] = '<b>Compte</b>: La pregunta cert/fals \'{$a->questiontext}\' no es pot importar correctament. No es distingeix si la resposta és cert o fals. La pregunta s\'ha importat assumint que la resposta és \'[$a->answer}\'. Si no és un canvi correcte, haureu d\'editar la pregunta.';
 $string['unsupportedexport'] = 'El tipus de pregunta {$a} no es pot exportar en XML';
 $string['xmlimportnoname'] = 'Falta el nom de la pregunta al fitxer XML';

@@ -240,6 +240,7 @@ $string['filternotenabled'] = 'El filtre no està activat';
 $string['filternotinstalled'] = 'El filtre {$a} no està instal·lat';
 $string['forumblockingtoomanyposts'] = 'Heu sobrepassat el llindar de missatges definit per a aquest fòrum';
 $string['generalexceptionmessage'] = 'Excepció - {$a}';
+$string['gradecantregrade'] = 'S\'ha produït un error durant el càlcul de la qualificació: {$a}';
 $string['gradepubdisable'] = 'La publicació de qualificacions està desactivada';
 $string['groupalready'] = 'L\'usuari ja pertany al grup {$a}';
 $string['groupexistforcourse'] = 'El grup "{$a}" ja existeix en aquest curs';

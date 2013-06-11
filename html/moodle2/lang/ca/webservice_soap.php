@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Protocol SOAP';
 $string['soap:use'] = 'Utilitzar el protocol SOAP';

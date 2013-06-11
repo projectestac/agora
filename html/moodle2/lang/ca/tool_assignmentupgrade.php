@@ -40,6 +40,7 @@ $string['conversionfailed'] = 'La conversió de la tasca ha fallat.
 El registre de l\'actualització ha sigut: : <br />{$a}';
 $string['listnotupgraded'] = 'Llista de tasques que no han sigut actualitzades de versió.';
 $string['listnotupgraded_desc'] = 'Podeu actualitzar tasques de forma individual des d\'aquí';
+$string['noassignmentsselected'] = 'No hi ha tasques seleccionades';
 $string['noassignmentstoupgrade'] = 'No hi ha tasques que calgui actualitzar';
 $string['notupgradedintro'] = 'Aquesta pàgina llista les tasques creades amb un versió de Moodle antiga que no han sigut actualitzades de versió al nou mòdul de tasques en Moodle 2.3 . Totes les tasques no s\'hauran pogut atualitzar- si han sigut creades amb un subtípus personalitzat, llavors aquest subtípus cal que sigui actualitzat de versió al nou format de connector de tasques per completar l\'actualització de versió.';
 $string['notupgradedtitle'] = 'Tasques no actualitzades de versió';

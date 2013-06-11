@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Format Learnwise';
+$string['pluginname_help'] = 'Aquest format permet la importació de preguntes d\'opció múltiple desades en format XML de Learnwise.';

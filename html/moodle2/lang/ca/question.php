@@ -113,6 +113,7 @@ $string['decimalplacesingrades'] = 'Decimals en graus';
 $string['defaultfor'] = 'Categoria per defecte en {$a}';
 $string['defaultinfofor'] = 'La categoria per defecte per a preguntes compartides en el context \'{$a}\'';
 $string['defaultmark'] = 'Puntuació per defecte';
+$string['defaultmarkmustbepositive'] = 'La puntuació per defecte ha de ser positiva.';
 $string['deletebehaviourareyousure'] = 'Esborra el comportament {$a}: segur?';
 $string['deletebehaviourareyousuremessage'] = 'Esteu a punt de suprimir completament el comportament de la pregunta {$a}. Això suprimirà a la base de dades tot allò relacionat amb el comportament de la pregunta. SEGUR que voleu continuar?';
 $string['deletecoursecategorywithquestions'] = ' Hi ha preguntes del banc de preguntes associades amb aquesta categoria del curs. Si procediu, s\'esborraran. Podeu desplaçar-les abans de continuar des de la interfície del banc de preguntes.';

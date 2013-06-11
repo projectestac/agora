@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['overview:view'] = 'Veure l\'informe de conjunt';
-$string['pluginname'] = 'Informe de conjunt';
+$string['overview:view'] = 'Veure l\'informe global';
+$string['pluginname'] = 'Informe global';

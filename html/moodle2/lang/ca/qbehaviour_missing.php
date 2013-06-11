@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Falta el comportament';
 $string['questionusedunknownmodel'] = 'Aquesta pregunta es va intentar respondre amb un comportament que ara no es troba disponible. Es mostra la pregunta de la millor manera possible, però algunes parts poden haver quedat perdudes o ser errònies.';

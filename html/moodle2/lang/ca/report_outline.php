@@ -29,3 +29,4 @@ $string['outline:view'] = 'Veure informe d\'activitat';
 $string['page-report-outline-index'] = 'Informe esquemàtic del curs';
 $string['page-report-outline-user'] = 'Informe esquemàtic de l\'usuari en el curs';
 $string['page-report-outline-x'] = 'Qualsevol informe esquemàtic';
+$string['pluginname'] = 'Informe d\'activitat';
