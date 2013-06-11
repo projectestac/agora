@@ -5,3 +5,4 @@ AuthUserFile /srv/www/agora/html/config/.htpasswd
 Satisfy Any
 Order allow,deny
 Allow from localhost
+Allow from 127.0.0.1
