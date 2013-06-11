@@ -16,8 +16,7 @@
 /**
  * Administrative API functions for the Profile module.
  */
-class Profile_Api_Admin extends Zikula_AbstractApi
-{
+class Profile_Api_Admin extends Zikula_AbstractApi {
 
     /**
      * Create a new dynamic user data item.
@@ -32,8 +31,7 @@ class Profile_Api_Admin extends Zikula_AbstractApi
      * 
      * @return boolean|integer dud item ID on success, false on failure
      */
-    public function create($args)
-    {
+    public function create($args) {
         // Argument check
         if ((!isset($args['label']) || empty($args['label'])) ||
                 (!isset($args['attribute_name']) || empty($args['attribute_name'])) ||
@@ -110,8 +108,7 @@ class Profile_Api_Admin extends Zikula_AbstractApi
      * 
      * @return bool True on success, false on failure.
      */
-    public function update($args)
-    {
+    public function update($args) {
         // Argument check
         if (!isset($args['label']) || stristr($args['label'], '-') ||
                 !isset($args['dudid']) || !is_numeric($args['dudid'])) {
@@ -222,8 +219,7 @@ class Profile_Api_Admin extends Zikula_AbstractApi
      * 
      * @return bool true on success, false on failure
      */
-    public function delete($args)
-    {
+    public function delete($args) {
         // Argument check
         if (!isset($args['dudid']) || !is_numeric($args['dudid'])) {
             return LogUtil::registerArgsError();
@@ -240,7 +236,7 @@ class Profile_Api_Admin extends Zikula_AbstractApi
         }
 
         // normal type validation
-        if ((int)$item['prop_dtype'] != 1) {
+        if ((int) $item['prop_dtype'] != 1) {
             return LogUtil::registerError($this->__('Error! You cannot delete this personal info item.'), 404);
         }
 
@@ -284,8 +280,7 @@ class Profile_Api_Admin extends Zikula_AbstractApi
      * 
      * @todo remove weight; can be got from get API
      */
-    public function activate($args)
-    {
+    public function activate($args) {
         // Argument check
         if (!isset($args['dudid']) || !is_numeric($args['dudid'])) {
             return LogUtil::registerArgsError();
@@ -295,7 +290,7 @@ class Profile_Api_Admin extends Zikula_AbstractApi
         $weightlimits = ModUtil::apiFunc('Profile', 'user', 'getweightlimits');
 
         // Update the item
-        $obj = array('prop_id' => (int)$args['dudid'],
+        $obj = array('prop_id' => (int) $args['dudid'],
             'prop_weight' => $weightlimits['max'] + 1);
 
         $res = DBUtil::updateObject($obj, 'user_property', '', 'prop_id');
@@ -321,8 +316,7 @@ class Profile_Api_Admin extends Zikula_AbstractApi
      * 
      * @todo remove weight; can be got from get API.
      */
-    public function deactivate($args)
-    {
+    public function deactivate($args) {
         // Argument check
         if (!isset($args['dudid']) || !is_numeric($args['dudid'])) {
             return LogUtil::registerArgsError();
@@ -340,7 +334,7 @@ class Profile_Api_Admin extends Zikula_AbstractApi
         }
 
         // Update the item
-        $obj = array('prop_id' => (int)$args['dudid'],
+        $obj = array('prop_id' => (int) $args['dudid'],
             'prop_weight' => 0);
 
         $res = DBUtil::updateObject($obj, 'user_property', '', 'prop_id');
@@ -359,7 +353,7 @@ class Profile_Api_Admin extends Zikula_AbstractApi
         // Update the other items
         $sql = "UPDATE $propertytable
             SET    $propertycolumn[prop_weight] = $propertycolumn[prop_weight] - 1
-            WHERE  $propertycolumn[prop_weight] > '" . (int)DataUtil::formatForStore($item['weight']) . "'";
+            WHERE  $propertycolumn[prop_weight] > '" . (int) DataUtil::formatForStore($item['weight']) . "'";
 
         $res = DBUtil::executeSQL($sql);
 
@@ -376,15 +370,22 @@ class Profile_Api_Admin extends Zikula_AbstractApi
      * 
      * @return array An array of admin links.
      */
-    public function getlinks()
-    {
+    public function getlinks() {
         $links = array();
 
-        // Add User module links
+        //******* MODIFICAT XTEC
+        // @albert 11/06/2013 - Per evitar un error SQL durant la càrrega del pannell d'administrador
         $links[] = array('url' => ModUtil::url('Profile', 'admin', 'view'),
             'text' => $this->__('Users Module'),
             'class' => 'z-icon-es-user',
-            'links' => ModUtil::apiFunc('Users', 'admin', 'getlinks'));
+            'links' => '');
+        /* XTEC ******* ELIMINAT XTEC
+          // Add User module links
+          $links[] = array('url' => ModUtil::url('Profile', 'admin', 'view'),
+          'text' => $this->__('Users Module'),
+          'class' => 'z-icon-es-user',
+          'links' => ModUtil::apiFunc('Users', 'admin', 'getlinks'));
+         * FI ******* */
 
         if (SecurityUtil::checkPermission('Profile::', '::', ACCESS_EDIT)) {
             $links[] = array('url' => ModUtil::url('Profile', 'admin', 'view'),
