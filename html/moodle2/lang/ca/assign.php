@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['activityoverview'] = 'Teniu tasques per';
+$string['activityoverview'] = 'Teniu tasques que necessiten la vostra atenció';
 $string['addsubmission'] = 'Afegeix tramesa';
 $string['allowsubmissions'] = 'Permet a l\'usuari continuar realitzant trameses per a aquesta tasca.';
 $string['allowsubmissionsanddescriptionfromdatesummary'] = 'Els detalls de la tasca i el formulari de la tramesa estaran disponibles des de <strong>{$a}</strong>';
@@ -71,6 +71,8 @@ $string['batchoperationunlock'] = 'desbloca les trameses';
 $string['blindmarking'] = 'Qualificació a cegues';
 $string['blindmarking_help'] = 'La qualificació a cegues oculta la identitat dels estudiants als qualificadors. La configuració de la qualificació a cegues quedaran bloquejats quan s\'hagi fet una tramesa o qualificació en relació amb aquesta tasca.';
 $string['changegradewarning'] = 'Aquesta tasca té trameses qualificades i si canvieu la puntuació NO es recalcularan automàticament les qualificacions existents. Si voleu canviar la puntuació, haureu de requalificar totes les trameses existents.';
+$string['choosegradingaction'] = 'Acció de qualificar';
+$string['chooseoperation'] = 'Tria operació';
 $string['comment'] = 'Comentari';
 $string['completionsubmit'] = 'Cal que els estudiants trametin quelcom per completar l\'activitat.';
 $string['configshowrecentsubmissions'] = 'Tothom pot veure les notificacions de trameses en els informes d\'activitat recent.';

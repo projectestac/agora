@@ -51,6 +51,7 @@ $string['modulenameplural'] = 'Llibres';
 $string['navexit'] = 'Sortir del llibre';
 $string['navnext'] = 'Següent';
 $string['navprev'] = 'Prèvi';
+$string['nocontent'] = 'No s\'ha afegit encara cap contingut al llibre.';
 $string['numbering'] = 'Numeració de capítols';
 $string['numbering0'] = 'Cap';
 $string['numbering1'] = 'Nombres';

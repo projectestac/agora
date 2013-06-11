@@ -25,4 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['beginanswernotfound'] = 'No s\'ha trobat el caràcter obligatori "{" en el contingut del fitxer importat.';
+$string['endanswernotfound'] = 'No s\'ha trobat el caràcter obligatori "}" en el contingut del fitxer importat.';
+$string['noanswerfound'] = 'No s\'han trobat respostes en la qüestió';
 $string['pluginname'] = 'Format de paraula omesa';
+$string['pluginname_help'] = 'El format de les paraules que manquen permet la importació de presguntes mitjançant un fitxer de text.';

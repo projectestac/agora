@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['notavailable'] = 'Aquest qüestionari no està disponible';
+$string['pluginname'] = 'Data d\'obertura i tancament per accedir a la pregunta';
 $string['quiznotavailable'] = 'Aquest qüestionari estarà disponible a partir de: {$a}';

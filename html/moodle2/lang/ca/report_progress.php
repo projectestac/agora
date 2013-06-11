@@ -28,4 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['page-report-progress-index'] = 'Informe de compleció d\'activitats';
 $string['page-report-progress-user'] = 'Informe de compleció d\'activitats de l\'usuari';
 $string['page-report-progress-x'] = 'Qualsevol informe de compleció d\'activitats';
+$string['pluginname'] = 'Compleció de l\'activitat';
 $string['progress:view'] = 'Veure informes de compleció d\'activitats';

@@ -40,6 +40,7 @@ $string['spamfromcomments'] = 'En comentaris:';
 $string['spamfromforumpost'] = 'En missatges dels fòrums:';
 $string['spamfrommessages'] = 'En missatges:';
 $string['spaminvalidresult'] = 'Resultat desconegut però no vàlid';
+$string['spamkeyword'] = 'Paraula clau';
 $string['spamoperation'] = 'Operació';
 $string['spamresult'] = 'Resultats de la cerca en perfils que contenen:';
 $string['spamsearch'] = 'Cerca aquestes paraules clau';

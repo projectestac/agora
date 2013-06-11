@@ -72,6 +72,7 @@ L\'equació per al càlcul de la ponderació efectiva de la pregunta no es pot a
 Si es modifiqués el qüestionari i es donés a aquestes preguntes amb covariància negativa un valor màxim de zero, aleshores la ponderació efectiva de la pregunta en aquests casos seria zero i, per a la resta de preguntes, el valor real de la ponderació efectiva de la pregunta seria aquest que s\'ha calculat ara.';
 $string['nostudentsingroup'] = 'Encara no hi ha estudiants en aquest grup';
 $string['optiongrade'] = 'Crèdit parcial';
+$string['partofquestion'] = 'Part de la pregunta';
 $string['pluginname'] = 'Estadístiques';
 $string['position'] = 'Posició';
 $string['positions'] = 'Posició(ns)';

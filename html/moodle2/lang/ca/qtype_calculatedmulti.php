@@ -27,3 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Opcions múltiples calculada.';
 $string['pluginnameadding'] = 'S\'està afegint una pregunta d\'opcions múltiples calculada.';
+$string['pluginnameediting'] = 'S\'està editant una pregunta de selecció múltiple amb càlcul';
+$string['pluginname_help'] = 'Les preguntes de slecció múltiple amb càlcul són semblants a les preguntes de selecció múltiple en què als seus elements de selecció es poden incloure resultats de fórmules numèriques usant comodins entre claus que són substituïts per valors individuals quan es visualitza el qüestionari. Per exemple, si la pregunta "Quina és l\'àrea d\'un rectangle de longitud {l} i amplada {w}?" una de les opcions és {= {l}*{w}} (on * significa multiplicació).';
+$string['pluginnamesummary'] = 'Les preguntes de selecció múltiple amb càlcul són semblants a les les preguntes de selecció múltiple en les quals els elements de selecció poden incloure resultats de formules  presos de valors numèrics que són seleccionats aleatòriament d\'un conjunt quan s\'intenta el qüestionari.';

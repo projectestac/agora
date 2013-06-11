@@ -25,5 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['defaultname'] = 'Pregunta importada {$a}';
+$string['errormanifest'] = 'Error en analitzar el manifest del document IMS';
+$string['filenothandled'] = 'Aquest arxiu conté una referencia a un fitxer {$a} que la importació no pot gestionar encara.';
+$string['imagenotfound'] = 'El fitxer imatge amb camí {$a} no s\'ha trobat en la importació.';
+$string['importnotext'] = 'S\'ha perdut el text de la pregunta en el fitxer XML';
+$string['notenoughtsubans'] = 'No s\'ha pogut importar la pregunta \'{$a}\' perquè una pregunta d\'aparellaments ha de tenir almenys dues preguntes i tres respostes.';
 $string['pluginname'] = 'Blackboard V6+';
 $string['pluginname_help'] = 'El format Blackboard V6+ permet importar a través d\'un fitxer zip les preguntes desades en el format d\'exportació del Blackboard. Ofereix un suport limitat per les versions 6 i 7 del Blackboard.';
+$string['unhandledpresblock'] = 'Bloc de presentació no gestionat';
+$string['unknownorunhandledtype'] = 'Tipus de pregunta desconegut: {$a}';

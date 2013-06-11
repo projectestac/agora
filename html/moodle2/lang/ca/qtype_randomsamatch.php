@@ -27,3 +27,8 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['nosaincategory'] = 'No hi ha preguntes de resposta breu en la categoria seleccionada \'{$a->catname}\'. Trieu una altra categoria o creeu preguntes en aquesta categoria.';
 $string['notenoughsaincategory'] = 'Només hi ha {$a->nosaquestions} preguntes de resposta breu en la categoria seleccionada \'{$a->catname}\'. Trieu una altra categoria, creeu més preguntes en aquesta categoria o reduïu la quantitat de preguntes seleccionades.';
+$string['pluginname'] = 'Aparellament de respostes curtes aleatòries';
+$string['pluginnameadding'] = 'S\'està afegint una pregunta aleatòria de resposta curta';
+$string['pluginnameediting'] = 'S\'està editant una pregunta aleatòria de resposta curta';
+$string['pluginname_help'] = 'Des de la perspectiva dels estudiants, això s\'assembla a una pregunta d\'aparellament. La diferència és que la llista de noms o enunciats (preguntes) per aparellament s\'extreuen a l\'atzar de les preguntes de resposta curta de la mateixa categoria. Hi ha d\'haver suficients preguntes de resposta curta no utilitzades en la categoria, en cas contrari es mostrarà un missatge d\'error.';
+$string['pluginnamesummary'] = 'Igual que una pregunta d\'aparellament, però creat a l\'atzar de les preguntes de resposta curta en una categoria particular.';

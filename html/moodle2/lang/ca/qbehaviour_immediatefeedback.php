@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['notcomplete'] = 'Incomplet';
+$string['pluginname'] = 'Retroacció immediata';

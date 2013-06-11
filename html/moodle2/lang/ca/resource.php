@@ -71,6 +71,15 @@ $string['legacyfiles'] = 'Migració d\'un fitxer de curs antic';
 $string['legacyfilesactive'] = 'Actiu';
 $string['legacyfilesdone'] = 'Finalitzat';
 $string['modulename'] = 'Fitxer';
+$string['modulename_help'] = 'El mòdul de fitxer permet a un professor proporcionar un fitxer com un recurs del curs. Sempre que sigui possible, es mostrarà el fitxer en la interfície de curs; en cas contrari, a l\'estudiantat se li presentarà l\'opció de baixar-lo. El fitxer pot incloure altres fitxers de suport, per exemple una pàgina HTML pot incloure imatges o objectes Flash.
+
+Teniu en compte que l\'estudiantat necessita tenir el programari adequat en els seus equips per tal d\'obrir el fitxer.
+
+Un fitxer pot servir per a:
+
+* Compartir presentacions utilitzades en classe.
+* Incloure un mini lloc web com un recurs dins del curs
+* Proporcionar plantilles o esborranys de documents de certes aplicacions (per exemple .psd de Photoshop) de manera que l\'estudiantat pugui editar-les i trametre-les per avaluar-les.';
 $string['modulenameplural'] = 'Fitxers';
 $string['neverseen'] = 'Mai vist';
 $string['notmigrated'] = 'Ho lamento però aquest tipus de recurs ({$a}) no es pot migrar.';

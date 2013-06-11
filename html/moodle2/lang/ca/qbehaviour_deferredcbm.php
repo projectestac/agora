@@ -31,3 +31,4 @@ $string['certainty2'] = 'Força (més del 67%)';
 $string['certainty3'] = 'Molt (més del 80%)';
 $string['howcertainareyou'] = 'Fins a quin punt n\'esteu segur? {$a}';
 $string['markadjustment'] = 'Basada en el grau de certesa que heu expressat, la puntuació de base {$a->rawmark} s\'ha ajustat a {$a->mark}.';
+$string['pluginname'] = 'Retroacció diferida amb PBC (CBM)';

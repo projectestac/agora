@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['amf:use'] = 'Utilitzar el protocol AMF';
+$string['pluginname'] = 'Protocol AMF';
