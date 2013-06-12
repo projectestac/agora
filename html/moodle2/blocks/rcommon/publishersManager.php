@@ -54,7 +54,7 @@ echo '<div>
 		<ul class="unlist">
 			<li>
 				<div class="coursebox clearfix">
-					<div class="info" style="float:none;">
+					<div class="info-manager">
 						<div class="name">';
 }
 switch($action){

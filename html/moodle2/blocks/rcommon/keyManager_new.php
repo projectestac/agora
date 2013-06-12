@@ -77,7 +77,7 @@ echo '<div id="block-block_rcommon">
 		<ul class="unlist">
 			<li>
 				<div class="coursebox clearfix">
-					<div class="info">
+					<div class="info-manager">
 						<div class="name">';
 
 switch ($action){
