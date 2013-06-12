@@ -500,7 +500,7 @@ fclose($f);
 
 if (!$preupgradeError) {
     // launch zikula upgrader
-    //header('location:upgrade.php');
+    header('location:upgrade.php');
 }
 
 /**
