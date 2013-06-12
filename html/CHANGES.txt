@@ -17,7 +17,7 @@ MOODLE
 MOODLE2
 - Fixed font face "lletra lligada", which only worked in theme design mode
 - Fixed course import when category names in Moodle 1.9 have some special chars
-- Added code in theme xtec2 removed in v13.05.13
+- Fixed javascript interference from theme xtec2 to other themes. Credits to mTorres for the fix (https://github.com/projectestac/agora/issues/14)
 - Added Single Sign On with IWmoodle for Zikula 1.3
 - Reviewed import19 tool to load Moodle 1.9 courses only when the user has the capability to create courses in some category
 - Added link to Àgora and Moodle portal from XTEC2 footer
