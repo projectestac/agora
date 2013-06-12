@@ -11,7 +11,7 @@ if (strpos($fileNameGet, "..") !== false || $fileNameGet == null) {
 
 $pos = strrpos($fileNameGet, '/');
 if ($GLOBALS['ZConfig']['Multisites']['multi'] == 1) {
-    $folderPath = $GLOBALS['ZConfig']['Multisites']['filesRealPath'] . '/' . $_GET['siteDNS'] . $GLOBALS['ZConfig']['Multisites']['siteFilesFolder'] . '/';
+    $folderPath = $GLOBALS['ZConfig']['Multisites']['filesRealPath'] . '/' . $GLOBALS['ZConfig']['Multisites']['siteFilesFolder'] . '/';
 } else {
     // init zikula engine
     include 'lib/bootstrap.php';
