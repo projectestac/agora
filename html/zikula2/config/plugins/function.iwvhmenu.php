@@ -22,6 +22,7 @@ function NumberSubitems($id_parent) {
         foreach ($groups_vector as $group) {
             if ($group != '') {
                 $gids = explode("|", $group);
+                $isMember = false;
                 if ($uid != '-1') {
                     $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
                     $isMember = ModUtil::func('IWmain', 'user', 'isMember', array('uid' => $uid,
