@@ -149,8 +149,3 @@ input[type=text]#login_username,
 input[type=password]#login_password {
     width: 160px;
 }
-
-/* Fix for style in module quiz which is incorrectly overriden by style in rcommon block */
-.que .info {
-	width: 100px !important;
-}
