@@ -36,6 +36,8 @@ PORTAL
 ZIKULA
 - Fixed iwcron.php not calling properly some maintenance functions
 - Fixed potential security issue reported by CESICAT
+
+ZIKULA2
 - Added directory zikula2 to start upgrade of Intrawebs
 
 
