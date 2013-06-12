@@ -68,6 +68,7 @@ function show_subelems($id_parent, $items, $menu) {
         $groups_vector = explode("$", $item['groups']);
         foreach ($groups_vector as $group) {
             if ($group != '') {
+                $isMember = false;
                 $gids = explode("|", $group);
                 if ($uid != '-1') {
                     $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
