@@ -185,6 +185,7 @@ if (existsField($dbname, $prefix . '_blocks', 'pn_bkey', $f, $con)) {
     $commands[] = "UPDATE blocks SET pn_bkey = 'IWnews' WHERE pn_bkey = 'iwnews'";
     $commands[] = "UPDATE blocks SET pn_bkey = 'Messages' WHERE pn_bkey = 'messages'";
     $commands[] = "UPDATE blocks SET pn_bkey = 'LastWeblinks' WHERE pn_bkey = 'Lastweblinks'";
+    $commands[] = "UPDATE blocks SET pn_bkey = 'MostPopularWeblinks' WHERE pn_bkey = 'mostpopularweblinks'";
     $commands[] = "UPDATE blocks SET pn_filter = 'a:0:{}'";
 }
 
