@@ -5,6 +5,12 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE
+- Fixed "inconsistent datatypes: expected - got CLOB" bug when creating questionnaire backup.
+
+
+Changes 13.06.14
+---------------------------------------------------------------------------------------
 GENERAL
 - Modified createSchoolsListsFiles.php to call Moodle 2 crons even if its URL ends with /moodle2
 - dblib-mysql: added info of intranet version to cookie

@@ -387,7 +387,14 @@ function questionnaire_get_participants($questionnaireid) {
     global $CFG;
 
     //Get students
+//XTEC ************ MODIFICAT - To fix "inconsistent datatypes: expected - got CLOB" bug
+//2013.06.17 @sarjona
+    $users = get_records_sql('SELECT DISTINCT u.id AS userid, u.firstname, u.lastname, u.picture '.
+//************ ORIGINAL
+/*
     $users = get_records_sql('SELECT DISTINCT u.* '.
+ */
+//************ FI
                              'FROM '.$CFG->prefix.'user u, '.
                              '     '.$CFG->prefix.'questionnaire_attempts qa '.
                              'WHERE qa.qid = \''.$questionnaireid.'\' AND '.
