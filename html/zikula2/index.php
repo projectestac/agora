@@ -19,11 +19,20 @@ include 'lib/bootstrap.php';
 // 2013.05.28 @aginard
 
 $host = $ZConfig['DBInfo']['databases']['default']['hostmigrate'];
+$port = $ZConfig['DBInfo']['databases']['default']['portmigrate'];
 $user = $ZConfig['DBInfo']['databases']['default']['user'];
 $pass = $ZConfig['DBInfo']['databases']['default']['password'];
 $db   = $ZConfig['DBInfo']['databases']['default']['dbname'];
 
-$dbc = mysqli_connect($host, $user, $pass, $db);
+if (!empty($port)) {
+    $dbc = mysqli_connect($host, $user, $pass, $db, $port);
+} else {
+    $dbc = mysqli_connect($host, $user, $pass, $db);
+}
+
+if (mysqli_connect_errno($dbc)) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
 
 $sql = "SELECT count(*) as num_tables
         FROM information_schema.tables
