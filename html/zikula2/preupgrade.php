@@ -214,11 +214,16 @@ foreach ($commands as $sql) {
 
 // clean module_vars data preventing duplicated values and unnecessary modules
 $vars_entries = array();
-$deleteFrom = array('Stats',
-    'Referers',
+$deleteFrom = array('Admin_Messages',
+    'advMailer',
+    'bbcode',
+    'bbsmile',
+//  'Downloads',
     'IWchat',
+    'IWgroups',
+    'Referers',
+    'Stats',
     'Thumbnail',
-//    'Downloads',
 );
 
 $commands = array();
