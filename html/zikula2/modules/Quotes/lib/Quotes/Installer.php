@@ -122,11 +122,11 @@ class Quotes_Installer extends Zikula_AbstractInstaller
 
         // delete module variables
         ModUtil::delVar('Quotes');
-
+        
         // delete entries from category registry
         ModUtil::dbInfoLoad('Categories');
-        DBUtil::deleteWhere('categories_registry', "crg_modname = 'Quotes'");
-        DBUtil::deleteWhere('categories_mapobj', "cmo_modname = 'Quotes'");
+        DBUtil::deleteWhere('categories_registry', "modname = 'Quotes'");
+        DBUtil::deleteWhere('categories_mapobj', "modname = 'Quotes'");
 
         // deletion successful
         return true;
