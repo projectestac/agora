@@ -514,7 +514,7 @@ function connectdb() {
 
     global $ZConfig;
 
-    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['hostmigrate'], $ZConfig['DBInfo']['databases']['default']['user'], $ZConfig['DBInfo']['databases']['default']['password']))
+    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['hostmigrate'].':'.$ZConfig['DBInfo']['databases']['default']['portmigrate'], $ZConfig['DBInfo']['databases']['default']['user'], $ZConfig['DBInfo']['databases']['default']['password']))
         return false;
 
     mysql_set_charset('utf8', $con);
