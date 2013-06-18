@@ -8,6 +8,9 @@ Changes in progress
 MOODLE
 - Fixed "inconsistent datatypes: expected - got CLOB" bug when creating questionnaire backup.
 
+ZIKULA2
+- Fixed connection to DB when parameters are not standard
+
 
 Changes 13.06.14
 ---------------------------------------------------------------------------------------

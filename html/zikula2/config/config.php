@@ -13,8 +13,7 @@
  */
 require_once('../config/env-config.php');
 
-global $agora;
-global $ZConfig;
+global $agora, $ZConfig;
 
 $ZConfig['System']['installed'] = 1;        // installer will change this during installation
 $ZConfig['System']['temp'] = 'ztemp';       // location of temporary folder
@@ -29,8 +28,7 @@ $ZConfig['System']['system.chmod_dir'] = 0777;  // The default chmod for new dir
 // This is the definition for the default Zikula system database.
 // It must be named 'default'
 // ----------------------------------------------------------------------
-$host = (empty($agora['admin']['port'])) ? $agora['admin']['host'] : $agora['admin']['host'] . ';port=' . $agora['admin']['port'];
-$ZConfig['DBInfo']['databases']['default']['host'] = $host;
+$ZConfig['DBInfo']['databases']['default']['host'] = '';
 $ZConfig['DBInfo']['databases']['default']['user'] = $agora['intranet']['username'];
 $ZConfig['DBInfo']['databases']['default']['password'] = $agora['intranet']['userpwd'];
 $ZConfig['DBInfo']['databases']['default']['dbname'] = '';

@@ -514,13 +514,15 @@ function connectdb() {
 
     global $ZConfig;
 
-    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['host'] . ':' . '80', $ZConfig['DBInfo']['databases']['default']['user'], $ZConfig['DBInfo']['databases']['default']['password']))
+    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['hostmigrate'], $ZConfig['DBInfo']['databases']['default']['user'], $ZConfig['DBInfo']['databases']['default']['password']))
         return false;
 
     mysql_set_charset('utf8', $con);
 
-    if (!mysql_select_db($ZConfig['DBInfo']['databases']['default']['dbname'], $con))
+    if (!mysql_select_db($ZConfig['DBInfo']['databases']['default']['dbname'], $con)) {
+        echo "No s'ha pogut connectar a la base de dades";
         return false;
+    }
 
     return $con;
 }

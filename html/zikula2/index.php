@@ -18,7 +18,7 @@ include 'lib/bootstrap.php';
 // XTEC ************ AFEGIT - Block access while upgrade is pending
 // 2013.05.28 @aginard
 
-$host = $ZConfig['DBInfo']['databases']['default']['host'];
+$host = $ZConfig['DBInfo']['databases']['default']['hostmigrate'];
 $user = $ZConfig['DBInfo']['databases']['default']['user'];
 $pass = $ZConfig['DBInfo']['databases']['default']['password'];
 $db   = $ZConfig['DBInfo']['databases']['default']['dbname'];
