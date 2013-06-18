@@ -36,11 +36,13 @@ class Files_Installer extends Zikula_AbstractInstaller
         ModUtil::setVar('Files', 'showHideFiles', '0');
         ModUtil::setVar('Files', 'allowedExtensions', 'gif,png,jpg,odt,doc,pdf,zip');
         ModUtil::setVar('Files', 'defaultQuota', 1);
-        ModUtil::setVar('Files', 'groupsQuota', 's:0:"";');
+        ModUtil::setVar('Files', 'groupsQuota', '');
         ModUtil::setVar('Files', 'filesMaxSize', '1000000');
         ModUtil::setVar('Files', 'maxWidth', '250');
         ModUtil::setVar('Files', 'maxHeight', '250');
         ModUtil::setVar('Files', 'editableExtensions', 'php,htm,html,htaccess,css,js,tpl');
+        ModUtil::setVar('Files', 'usersFolder', 'users');
+
         // Set up module hook
         ModUtil::registerHook('item', 'display', 'GUI', 'Files', 'user', 'Files');
         return true;
@@ -56,16 +58,7 @@ class Files_Installer extends Zikula_AbstractInstaller
         // Delete module table
         DBUtil::dropTable('Files');
         //Delete module vars
-        $this->delVar('folderPath');
-        $this->delVar('usersFolder');
-        $this->delVar('showHideFiles');
-        $this->delVar('allowedExtensions');
-        $this->delVar('defaultQuota');
-        $this->delVar('groupsQuota');
-        $this->delVar('filesMaxSize');
-        $this->delVar('maxWidth');
-        $this->delVar('maxHeight');
-        $this->delVar('editableExtensions');
+        $this->delVars();
         //Deletion successfull
         return true;
     }
