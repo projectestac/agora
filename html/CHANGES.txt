@@ -10,6 +10,7 @@ MOODLE
 
 ZIKULA2
 - Fixed connection to DB when parameters are not standard
+- Improvements to styles of theme IWxtec
 
 
 Changes 13.06.14

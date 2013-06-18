@@ -5,7 +5,7 @@
 		<div class="news_title_xtec_inside">
 			<p class="entrytitle" style="margin:0px; font-weight:bold;">{$preformat.catandtitle}</p>
 			<p class="postedby" style="margin:0px;">
-				<span class="pn-sub">{gt text="Posted by"} {$info.informant} {gt text="on"} {$info.longdatetime}</span>
+				<span class="pn-sub">{gt text='Contributed'} {gt text='by %1$s on %2$s' tag1=$info.contributor tag2=$info.from|dateformat:'datetimebrief'}</span>
 				<span>{articleadminlinks sid=$info.sid}</span>
 			</p>
 		</div>
