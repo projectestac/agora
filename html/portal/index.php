@@ -35,15 +35,16 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
 
 if ($module == 'users' && $type == 'user' && ($func == 'login' || $func == 'loginscreen')) {
     if ($rurl == 'http') {
-        //header('location:https://' . System::serverGetVar('HTTP_HOST') . System::getBaseUri() . '/' . ModUtil::url('users', 'user', 'login'));
-        system::redirect('https://' . System::serverGetVar('HTTP_HOST') . System::getBaseUri() . '/' . ModUtil::url('users', 'user', 'login'));
+        header('location:https://' . System::serverGetVar('HTTP_HOST') . System::getBaseUri() . '/' . ModUtil::url('users', 'user', 'login'));
     }
 } else {
     if ($rurl == 'https') {
-        system::redirect('http://' . System::serverGetVar('HTTP_HOST') . System::getCurrentUri());
+        header('location:http://' . System::serverGetVar('HTTP_HOST') . System::getCurrentUri());
     }
 }
 //************ FI
+
+
 // check requested module
 $arguments = array();
 

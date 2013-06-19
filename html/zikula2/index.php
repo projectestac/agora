@@ -83,6 +83,29 @@ if (!$module) {
     }
 }
 
+
+// XTEC ************ AFEGIT - provide https login using BigIP
+// 2013.06.19 @aginard
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+    $rurl = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+} elseif (isset($_SERVER['HTTPS'])) {
+    $rurl = strtolower($_SERVER['HTTPS']) == 'off' ? 'http' : 'https';
+} else {
+    $rurl = 'http';
+}
+
+if ($module == 'users' && $type == 'user' && ($func == 'login' || $func == 'loginscreen')) {
+    if ($rurl == 'http') {
+        header('location:https://' . System::serverGetVar('HTTP_HOST') . System::getBaseUri() . '/' . ModUtil::url('users', 'user', 'login'));
+    }
+} else {
+    if ($rurl == 'https') {
+        header('location:http://' . System::serverGetVar('HTTP_HOST') . System::getCurrentUri());
+    }
+}
+//************ FI
+
+
 // get module information
 $modinfo = ModUtil::getInfoFromName($module);
 

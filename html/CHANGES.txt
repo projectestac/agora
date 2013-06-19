@@ -12,6 +12,7 @@ ZIKULA2
 - Fixed connection to DB when parameters are not standard
 - Improvements to styles of theme IWxtec
 - Fixed uninstall of module Quotes
+- Added https login
 
 
 Changes 13.06.14
