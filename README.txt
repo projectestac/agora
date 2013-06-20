@@ -1,7 +1,7 @@
 ##
 # ÀGORA
 #
-# @copyright 2008 Departament d'Ensenyament de la Generalitat de Catalunya
+# @copyright 2008 onwards Departament d'Ensenyament de la Generalitat de Catalunya
 # @source https://github.com/projectestac/agora/
 # @license http://www.gnu.org/licenses/gpl-2.0.txt
 ##
@@ -33,6 +33,8 @@ to http://www.gnu.org/copyleft/gpl.html or write to
 -----------------------------------------------------------------------------
 REQUIREMENTS
 PHP 5.3
+MYSQL 5.1
+ORACLE 10.2
 
 -----------------------------------------------------------------------------
 INSTALL
@@ -40,7 +42,7 @@ See INSTALL.txt for installation instructions.
 
 -----------------------------------------------------------------------------
 
-Old versions of the source code of this program is also available in:
+Older versions of the source code are available at:
 
   http://projectes.lafarga.cat/projects/agora/
 
@@ -51,6 +53,7 @@ Developers:
    Sara Arjona      (sarjona@xtec.cat) 
    Albert Pérez     (aperez16@xtec.cat)
    Toni Ginard      (aginard@xtec.cat)
+   Jaume Miró       (jmiro227@xtec.cat)
    Pau Ferrer       (crazyserver@gmail.com)
    Fèlix Casanellas (fcasanel@xtec.cat)
    Jaume Fernández  (jfern343@xtec.cat)
@@ -59,25 +62,25 @@ Developers:
 With the support of:
    Francesc Busquets
    Eduard Cercós
+   Mònica Grau
    Pablo Mariña
    Jordi Vivancos
    
 AGORA uses code from the following projects:
 
-   - Moodle: Open Source Course Management System (http://moodle.org/)
-   - Intraweb: School content management system (http://phobos.xtec.cat/intraweb/)
+   - Moodle: Learning Management System (http://moodle.org/)
+   - Intraweb: Content Management System for Education (http://intraweb.xtec.cat/)
 
 
 AGORA includes external resources like:
 
-   - Abecedario: True Type Font (has been revised)
+   - Abecedario: True Type Font (revised version)
    - /course/senzill/pix/f/flash.png: CC (by-nc-sa) http://barrymieny.deviantart.com/
    - /course/senzill/pix/f/zip.png: CC (by-nc-nd) http://thvg.deviantart.com/
 
 
 Special Thanks:
    Catalan schools involved in the project
-   Mònica Grau
    Albert Gasset
    Govern d'Andorra 
    UPCnet
@@ -86,4 +89,3 @@ Special Thanks:
 -----------------------------------------------------------------------------
 [1] http://agora.xtec.cat
 [2] http://www.gencat.cat/ensenyament
-

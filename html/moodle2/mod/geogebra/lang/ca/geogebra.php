@@ -117,33 +117,39 @@ $string['discardchanges'] = 'Torna sense desar';
 /* Revision Moodle 2 */
 $string['modulename_help'] = '<b>ATENCIÓ!!</b> <br>Versió alfa del mòdul del GeoGebra pel Moodle 2. Està incompleta i, per tant, algunes parts poden no funcionar adequadament.';
 $string['pluginname'] = 'GeoGebra';
-$string['pluginadministration'] = 'GeoGebra administration';
-$string['geogebra:view'] = 'View GeoGebra';
-$string['geogebra:submit'] = 'Submit GeoGebra';
-$string['geogebra:grade'] = 'Grade GeoGebra';
+$string['pluginadministration'] = 'Administració de GeoGebra';
+$string['geogebra:view'] = 'Visualitza GeoGebra';
+$string['geogebra:submit'] = 'Envia GeoGebra';
+$string['geogebra:grade'] = 'Avalua GeoGebra';
 
-$string['geogebra:addinstance'] = 'Add GeoGebra';
-$string['header_geogebra']='GeoGebra Settings';
-$string['header_score']='Avaluation Settings';
-$string['filetype'] = 'Type';
-$string['filetype_help'] = 'This setting determines how the GeoGebra activity is included in the course. There are up to 2 options:
+$string['geogebra:addinstance'] = 'Afegeix una activitat GeoGebra';
+$string['header_geogebra']='Paràmetres del GeoGebra';
+$string['header_score']='Paràmetres d\'avaluació del GeoGebra';
+$string['filetype'] = 'Tipus';
+$string['filetype_help'] = 'Aquest paràmetre determina com s\'incorporarà l\'activitat GeoGebra al curs. Hi ha dues opcions:
 
-* Uploaded GeoGebra - Enables a valid ".ggb" package to be chosen by the file picker. 
-* External URL - Enables a URL to be specified. Note: The URL must start with http(s) or www and contain a valid ".ggb" file.';
-$string['filetypeexternal'] = 'External URL';
-$string['filetypelocal'] = 'Uploaded file';
-$string['invalidgeogebrafile'] = 'Invalid GeoGebra specified. It must have the ".ggb" extension.';
-$string['invalidurl'] = 'Invalid URL specified. It must start with http(s) and has to be a valid ".ggb" file.';
+* Fitxer pujat - Permet escollir un fitxer ".ggb" vàlid mitjançant el selector d\'arxius. 
+* URL extern - Permet especificar el URL d\'una activitat GeoGebra. Nota: El URL ha de començar amb http(s) o www i contenir un fitxer ".ggb" vàlid.';
+$string['filetypeexternal'] = 'URL extern';
+$string['filetypelocal'] = 'Fitxer pujat';
+$string['invalidgeogebrafile'] = 'S\'ha especificat un fitxer GeoGebra no vàlid. El fitxer ha de tenir l\'extensió ".ggb".';
+$string['invalidurl'] = 'S\'ha especificat un URL no vàlid. El URL ha de començar amb http(s) i ha d\'enllaçar a un fitxer ".ggb" vàlid.';
 $string['geogebraurl'] = 'URL';
-$string['geogebraurl_help'] = 'This setting enables a URL for the GeoGebra file to be specified, rather than choosing a file via the file picker.';
-$string['geogebrafile'] = 'GeoGebra file';
-$string['geogebrafile_help'] = 'The .ggb file.';
-$string['urledit'] = 'GeoGebra file';
-$string['urledit_help'] = 'The ".ggb" file where you will find the GeoGebra activity.';
+$string['geogebraurl_help'] = 'Aquest paràmetre permet especificar el URL de l\'activitat GeoGebra enlloc de seleccionar-la mitjançant el selector d\'arxius.';
+$string['geogebrafile'] = 'Fitxer GeoGebra';
+$string['geogebrafile_help'] = 'El fitxer ".ggb" que conté l\'activitat GeoGebra.';
+$string['urledit'] = 'Fitxer GeoGebra';
+$string['urledit_help'] = 'El fitxer ".ggb" que conté l\'activitat GeoGebra.';
 
-$string['lastaccess']='Last visited';
-$string['datestudent'] = 'Last modified (submission)';
-$string['dateteacher']= 'Last modified (grade)';
+$string['datestudent'] = 'Darrera modificació (tramesa)';
+$string['dateteacher']= 'Darrera modificació (qualificació)';
 $string['status'] = 'Estat';
-$string['viewattempt'] = 'View';
-$string['previewtab'] = 'Preview';
+$string['viewattempt'] = 'Visualitza';
+$string['previewtab'] = 'Previsualitza';
+
+$string['notopenyet'] = 'Ho sentim, aquesta activitat no estarà disponible fins {$a}';
+$string['expired'] = 'Ho sentim, aquesta activitat es va tancar el {$a} i, per tant, ja no està disponible';
+$string['msg_noattempts']= 'Ja has fet aquesta activitat el nombre m&agrave;xim de vegades perm&egrave;s.';
+$string['lastmodifiedsubmission'] = $string['datestudent'];
+$string['lastmodifiedgrade'] = $string['dateteacher'];
+$string['viewattempttab'] = 'Intent';

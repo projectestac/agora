@@ -35,10 +35,12 @@
                 <input id="theme_force_compile" name="force_compile" type="checkbox" value="1" {if $force_compile eq 1}checked="checked"{/if} />
                 <a class="z-indented" href="{modurl modname=Theme type=admin func=clear_compiled csrftoken=$csrftoken}">{gt text="Delete compiled theme templates"}</a>
             </div>
+            {* XTEC ******* ELIMINAT}
             <div class="z-formrow">
                 <label for="render_compile_dir">{gt text="Compiled render templates directory"}</label>
                 <span id="render_compile_dir"><em>{render->compile_dir}</em></span>
             </div>
+            {FI *******}
             <div class="z-formrow">
                 <label for="render_compile_check">{gt text="Check for updated version of render templates"}</label>
                 <input id="render_compile_check" type="checkbox" name="render_compile_check" value="1"{if $render_compile_check}checked="checked"{/if} />
@@ -88,10 +90,12 @@
                     </div>
                 </div>
             </div>
+            {* XTEC ******* ELIMINAT}
             <div class="z-formrow">
                 <label for="render_cache_dir">{gt text="Cached templates directory"}</label>
                 <span id="render_cache_dir"><em>{render->cache_dir}</em></span>
             </div>
+            {FI *******}
             <div class="z-formrow">
                 <label for="render_cache">{gt text="Enable render caching"}</label>
                 <input id="render_cache" type="checkbox" name="render_cache" value="1"{if $render_cache}checked="checked"{/if} />

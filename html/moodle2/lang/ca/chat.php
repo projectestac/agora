@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = 'Teniu un xat nou';
 $string['ajax'] = 'Versió Ajax';
 $string['autoscroll'] = 'Desplaçament automàtic';
 $string['beep'] = 'bip';
@@ -40,6 +41,7 @@ $string['chat:readlog'] = 'Llegir registres de xat';
 $string['chatreport'] = 'Sessions de xat';
 $string['chat:talk'] = 'Participar en un xat';
 $string['chattime'] = 'Proper dia i hora de xat';
+$string['composemessage'] = 'Redacta un missatge';
 $string['configmethod'] = 'El mètode normal de xat implica que els clients contactin regularment el servidor en cerca d\'actualitzacions. No necessita cap configuració i funciona enlloc, però pot crear una càrrega gran al servidor si s\'apleguen molts usuaris. Utilitzar un dimoni servidor requereix accés a l\'intèrpret d\'ordres d\'Unix, però comporta un entorn de xat ràpid i escalable.';
 $string['confignormalupdatemode'] = 'El refresc de la sala de xat se sol realitzar d\'una manera prou eficient per mitjà de la característica <em>Keep-Alive</em> de l\'HTTP 1.1, però això és bastant pesat per al servidor. Un mètode més avançat consisteix a utilitzar l\'estratègia <em>Corrent de dades</em> per enviar les actualitzacions als usuaris. L\'estratègia <em>Corrent de dades</em> és més escalable (similar al mètode chatd) però no funciona en tots els servidors.';
 $string['configoldping'] = 'Després de quant temps d\'estar en silenci cal considerar que un usuari ha marxat?';
@@ -55,6 +57,7 @@ $string['deletesession'] = 'Suprimeix aquesta sessió';
 $string['deletesessionsure'] = 'Esteu segur que voleu suprimir aquesta sessió?';
 $string['donotusechattime'] = 'No publiquis el dia i hora dels xats';
 $string['enterchat'] = 'Feu clic aquí per entrar al xat';
+$string['entermessage'] = 'Escriviu el vostre missatge';
 $string['errornousers'] = 'No s\'ha pogut trobar cap usuari!';
 $string['explaingeneralconfig'] = 'Aquests paràmetres són efectius <strong>sempre</strong>';
 $string['explainmethoddaemon'] = 'Aquests paràmetres <strong>només</strong> compten si heu seleccionat "Dimoni servidor de chat" en chat_method';
@@ -77,8 +80,17 @@ $string['methodajax'] = 'Mètode Ajax';
 $string['methoddaemon'] = 'Dimoni servidor de xat';
 $string['methodnormal'] = 'Mètode normal';
 $string['modulename'] = 'Xat';
-$string['modulename_help'] = 'El mòdul de xat permet que els participants mantinguin una conversa sincrònica en temps real a través del web. Aquesta és una manera útil de tenir un major coneixement dels altres i el tema en debat - la manera de
-de la utilització d\'una sala de xat és bastant diferent dels fòrums asíncrons.';
+$string['modulename_help'] = 'El mòdul d\'activitat de xat permet que els participants mantinguin una conversa escrita sincrònica, en temps real.
+
+El xat pot ser una activitat d\'una sola vegada o es pot repetir a la mateixa hora cada dia o cada setmana. Les sessions de xat es desen i es poden posar a disposició de tothom per llegir-les o restringir als usuaris amb la capacitat de veure els registres de sessions de xat.
+
+Els xats són especialment útils quan el grup no no es pot trobar presencialment. Exemples:
+
+* Reunions periòdiques d\'estudiants que participen en cursos en línia, de manera que puguin compartir experiències amb altres participants del mateix curs però que no resideixen al mateix lloc.
+* Un estudiant que temporalment no pot assistir en persona pot parlar així amb el professorat per mantenir-se al corrent de la feina.
+* Els estudiants més joves poden utilitzar el xat des de casa fora de l\'horari escolar com una forma (controlada) d\'iniciació al món de les xarxes socials.
+* Una sessió de preguntes i respostes amb un expert invitat.
+* Sessions per a ajudar els estudiants a preparar-se per als exàmens, en les quals el professorat o altres estudiants posen exemples de preguntes.';
 $string['modulenameplural'] = 'Xats';
 $string['neverdeletemessages'] = 'No suprimeixis mai els missatges';
 $string['nextsession'] = 'Propera sessió programada';

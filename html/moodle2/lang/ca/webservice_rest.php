@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Protocol REST';
 $string['rest:use'] = 'Utilitzar el protocol REST';

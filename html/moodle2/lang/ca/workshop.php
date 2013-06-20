@@ -36,6 +36,7 @@ $string['allocationdone'] = 'S\'ha efectuat l\'assignació';
 $string['allocationerror'] = 'Error en l\'assignació';
 $string['allsubmissions'] = 'Totes les trameses ({$a})';
 $string['alreadygraded'] = 'Ja qualificat';
+$string['areaconclusion'] = 'Text d\'acabament';
 $string['areainstructauthors'] = 'Instruccions per a la tramesa';
 $string['areainstructreviewers'] = 'Instruccions per a l\'avaluació';
 $string['areasubmissionattachment'] = 'Adjuncions a la tramesa';
@@ -79,6 +80,8 @@ $string['clearaggregatedgrades_help'] = 'S\'esborraran les qualificacions agrega
 $string['clearassessments'] = 'Esborra les avaluacions';
 $string['clearassessmentsconfirm'] = 'Segur que voleu esborrar totes les qualificacions de les avaluacions? No podreu reconstruir aquesta informació vós mateix, sinó que els revisors hauran de tornar a avaluar les trameses assignades.';
 $string['clearassessments_help'] = 'Les qualificacions calculades de les trameses i avaluacions es reiniciaran. Encara es conservarà la informació sobre com s\'han omplert els formularis d\'avaluació, però tots els revisors hauran d\'obrir el formulari d\'avaluació i tornar-lo a desar per tal de fer que es tornin a calcular les qualificacions.';
+$string['conclusion'] = 'Conclusió';
+$string['conclusion_help'] = 'El text d\'acabament es mostra als participants al final de l\'activitat.';
 $string['configexamplesmode'] = 'Mode d\'avaluació d\'exemples establert per omissió en els tallers.';
 $string['configgrade'] = 'Qualificació màxima per omissió de les trameses en els tallers.';
 $string['configgradedecimals'] = 'Nombre de dígits que cal mostrar després del separador decimal quan es mostrin les qualificacions.';
@@ -158,7 +161,14 @@ $string['latesubmissionsallowed'] = 'Es permeten les trameses fora de termini';
 $string['latesubmissions_desc'] = 'Permet les trameses fora de termini';
 $string['latesubmissions_help'] = 'Si s\'habilita, un autor podrà enviar la seva feina després del termini establert, o durant la fase d\'avaluació. Tanmateix, les trameses fora de termini no poden editar-se.';
 $string['maxbytes'] = 'Mida màxima de fitxer';
+$string['miscellaneoussettings'] = 'Paràmetres diversos';
 $string['modulename'] = 'Taller';
+$string['modulename_help'] = 'El mòdul d\'activitat del taller permet la recollida, anàlisi i col·laboració dels dels estudiants.
+Els estudiants poden presentar qualsevol contingut digital (fitxers), com documents o fulls de càlcul en Word o LibreOffice , i també es pot escriure text directament en un camp utilitzant l\'editor de text.
+
+Les contribucions seran avaluades mitjançant un formulari d\'avaluació de múltiples criteris definits pel professor. El procés d\'avaluació per parells i la comprensió de la forma d\'avaluació es pot practicar amb exemples de presentacions proporcionades pel professor, així com una avaluació de referència. Els estudiants tenen l\'oportunitat d\'avaluar una o diverses de les presentacions dels seus companys. Els enviaments i revisions poden ser anònimes si cal.
+
+Els estudiants obtenen dues notes en una activitat de taller - un qualificació per a la seva presentació i una qualificació per la seva avaluació de les presentacions dels seus companys. Ambdós qualificacions es registren en el llibre de qualificacions.';
 $string['modulenameplural'] = 'Tallers';
 $string['mysubmission'] = 'La meva tramesa';
 $string['nattachments'] = 'Nombre màxim d\'adjuncions a la tramesa';
@@ -247,6 +257,7 @@ $string['switchphase50info'] = 'Ara tancareu el taller. Això farà que les qual
 $string['taskassesspeers'] = 'Avalueu els companys';
 $string['taskassesspeersdetails'] = 'total: {$a->total}<br />pendents: {$a->todo}';
 $string['taskassessself'] = 'Autoavalueu-vos';
+$string['taskconclusion'] = 'Proporcioneu una conclusió de l\'activitat';
 $string['taskinstructauthors'] = 'Especifiqueu les instruccions per la tramesa';
 $string['taskinstructreviewers'] = 'Especifiqueu les instruccions per l\'avaluació';
 $string['taskintro'] = 'Establiu la introducció del taller';
@@ -288,4 +299,5 @@ $string['workshop:viewauthorpublished'] = 'Mostra els autors de les trameses pub
 $string['workshop:viewpublishedsubmissions'] = 'Mostra les trameses publicades';
 $string['workshop:viewreviewernames'] = 'Mostra els noms dels revisors';
 $string['yourassessment'] = 'La vostra avaluació';
+$string['yourgrades'] = 'Les vostres qualificacions';
 $string['yoursubmission'] = 'La vostra tramesa';

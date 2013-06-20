@@ -59,24 +59,38 @@
     $ZConfig['Multisites']['filesRealPath']   = $agora['server']['root'] . $agora['intranet']['datadir'] . $database_intranet;
     $ZConfig['Multisites']['siteFilesFolder'] = 'data';
 
-    $ZConfig['DBInfo']['databases']['default']['host']   = $school_info['dbhost_intranet'];
-    $ZConfig['DBInfo']['databases']['default']['dbname']   = $database_intranet;
-    $ZConfig['System']['temp']                = $agora['server']['root'] . $agora['intranet']['datadir'] . $database_intranet . '/pnTemp';
+    // Special process of dbhost due to specifics of Doctrine
+    $dbhost = explode(':', $school_info['dbhost_intranet']);
+    if (!empty($dbhost[1])) {
+        $dbhoststring = $dbhost[0] . ';port=' . $dbhost[1];
+        // hostmigrate and portmigrate must be deleted after all Zikula's migrations are finished
+        $ZConfig['DBInfo']['databases']['default']['hostmigrate'] = $dbhost[0];
+        $ZConfig['DBInfo']['databases']['default']['portmigrate'] = $dbhost[1];
+    } else {
+        $dbhoststring = $dbhost[0];
+        // hostmigrate and portmigrate must be deleted after all Zikula's migrations are finished
+        $ZConfig['DBInfo']['databases']['default']['hostmigrate'] = $school_info['dbhost_intranet'];
+        $ZConfig['DBInfo']['databases']['default']['portmigrate'] = '';
+    }
+    
+    $ZConfig['DBInfo']['databases']['default']['host']        = $dbhoststring;
+    $ZConfig['DBInfo']['databases']['default']['dbname']      = $database_intranet;
+    $ZConfig['System']['temp'] = $agora['server']['root'] . $agora['intranet']['datadir'] . $database_intranet . '/pnTemp';
 
-    $ZConfig['DBInfo']['databases']['moodle']['dbtabletype']    = $agora['intranet']['moodle_dbtype'];
-    $ZConfig['DBInfo']['databases']['moodle']['dbdriver'] = 'mysql';
-    $ZConfig['DBInfo']['databases']['moodle']['host']    = $agora['moodle']['dbhost'];
-    $ZConfig['DBInfo']['databases']['moodle']['password']    = $agora['moodle']['userpwd'];
-    $ZConfig['DBInfo']['databases']['moodle']['dbname']    = $school_info['database_moodle'];
-    $ZConfig['DBInfo']['databases']['moodle']['user']   = $agora['moodle']['username'] . $school_info['id_moodle'];
-    $ZConfig['DBInfo']['databases']['moodle']['charset'] = 'utf8';
-    $ZConfig['DBInfo']['databases']['moodle']['collate'] = 'utf8_general_ci';
+    $ZConfig['DBInfo']['databases']['moodle']['dbtabletype']  = $agora['intranet']['moodle_dbtype'];
+    $ZConfig['DBInfo']['databases']['moodle']['dbdriver']     = 'mysql';
+    $ZConfig['DBInfo']['databases']['moodle']['host']         = $agora['moodle']['dbhost'];
+    $ZConfig['DBInfo']['databases']['moodle']['password']     = $agora['moodle']['userpwd'];
+    $ZConfig['DBInfo']['databases']['moodle']['dbname']       = $school_info['database_moodle'];
+    $ZConfig['DBInfo']['databases']['moodle']['user']         = $agora['moodle']['username'] . $school_info['id_moodle'];
+    $ZConfig['DBInfo']['databases']['moodle']['charset']      = 'utf8';
+    $ZConfig['DBInfo']['databases']['moodle']['collate']      = 'utf8_general_ci';
 
-    $ZConfig['DBInfo']['databases']['moodle2']['dbtabletype']    = $agora['intranet']['moodle_dbtype'];
-    $ZConfig['DBInfo']['databases']['moodle2']['dbdriver'] = 'mysql';
-    $ZConfig['DBInfo']['databases']['moodle2']['host']    = $agora['moodle']['dbhost'];
+    $ZConfig['DBInfo']['databases']['moodle2']['dbtabletype'] = $agora['intranet']['moodle_dbtype'];
+    $ZConfig['DBInfo']['databases']['moodle2']['dbdriver']    = 'mysql';
+    $ZConfig['DBInfo']['databases']['moodle2']['host']        = $agora['moodle']['dbhost'];
     $ZConfig['DBInfo']['databases']['moodle2']['password']    = $agora['moodle']['userpwd'];
-    $ZConfig['DBInfo']['databases']['moodle2']['dbname']    = $school_info['database_moodle'];
-    $ZConfig['DBInfo']['databases']['moodle2']['user']   = $agora['moodle']['username'] . $school_info['id_moodle'];
-    $ZConfig['DBInfo']['databases']['moodle2']['charset'] = 'utf8';
-    $ZConfig['DBInfo']['databases']['moodle2']['collate'] = 'utf8_general_ci';
+    $ZConfig['DBInfo']['databases']['moodle2']['dbname']      = $school_info['database_moodle'];
+    $ZConfig['DBInfo']['databases']['moodle2']['user']        = $agora['moodle']['username'] . $school_info['id_moodle'];
+    $ZConfig['DBInfo']['databases']['moodle2']['charset']     = 'utf8';
+    $ZConfig['DBInfo']['databases']['moodle2']['collate']     = 'utf8_general_ci';

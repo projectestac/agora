@@ -5,6 +5,18 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE
+- Fixed "inconsistent datatypes: expected - got CLOB" bug when creating questionnaire backup.
+
+ZIKULA2
+- Fixed connection to DB when parameters are not standard
+- Improvements to styles of theme IWxtec
+- Fixed uninstall of module Quotes
+- Added https login
+
+
+Changes 13.06.14
+---------------------------------------------------------------------------------------
 GENERAL
 - Modified createSchoolsListsFiles.php to call Moodle 2 crons even if its URL ends with /moodle2
 - dblib-mysql: added info of intranet version to cookie
@@ -18,12 +30,15 @@ MOODLE
 MOODLE2
 - Fixed font face "lletra lligada", which only worked in theme design mode
 - Fixed course import when category names in Moodle 1.9 have some special chars
-- Added code in theme xtec2 removed in v13.05.13
+- Fixed javascript interference from theme xtec2 to other themes. Credits to mTorres for the fix (https://github.com/projectestac/agora/issues/14)
 - Added Single Sign On with IWmoodle for Zikula 1.3
 - Reviewed import19 tool to load Moodle 1.9 courses only when the user has the capability to create courses in some category
 - Added link to Àgora and Moodle portal from XTEC2 footer
 - Updated GeoGebra module
-- To let access to langimport subpackage only to xtecadmin user
+- Grant access to langimport subpackage only to xtecadmin user
+- Updated catalan translation files (11-06-2013)
+- Added translations files for Arabic, Greek, Basque, Galician, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Swedish, Urdu and Chinese
+- Fix for style in module quiz which is incorrectly overriden by style in rcommon block
 
 PORTAL
 - Updated messages for activation of new services
@@ -34,6 +49,8 @@ PORTAL
 ZIKULA
 - Fixed iwcron.php not calling properly some maintenance functions
 - Fixed potential security issue reported by CESICAT
+
+ZIKULA2
 - Added directory zikula2 to start upgrade of Intrawebs
 
 

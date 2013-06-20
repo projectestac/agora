@@ -135,18 +135,24 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
     foreach ($columns as $column) {
         if (strpos($column['data_type'], "varchar") !== false || $column['data_type'] == "text" || $column['data_type'] == "longtext") {
             // prevent serialized fields
-            $sql = "select $column[column_name] from $fila[0] where $column[column_name] like '%iw\_%'";
+            $sql = "select $column[column_name] as columna from $fila[0] where $column[column_name] like '%iw\_%'";
+
             if (!$result2 = mysql_query($sql, $con)) {
                 fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
                 $preupgradeError = true;
             }
 
-            $value = mysql_fetch_row($result2);
-
-            if (!empty($value)) {
-                if (is_serialized($value[0])) {
-                    do {
-                        $array = unserialize($value[0]);
+            // Tables IWstats and IWstats_summary can contain a huge quantity of registers, so they need to processed specifically
+            if ($fila[0] == $prefix . '_' . 'IWstats' || $fila[0] == $prefix . '_' . 'IWstats_summary') {
+                $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = replace(' . $column['column_name'] . ', \'iw_\', \'IW\') WHERE ' . $column['column_name'] . ' LIKE \'%iw_%\' ';
+                if (!$result3 = mysql_query($sql, $con)) {
+                    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+                    $preupgradeError = true;
+                }
+            } else {
+                while ($value = mysql_fetch_array($result2)) {
+                    if (is_serialized($value['columna'])) {
+                        $array = unserialize($value['columna']);
                         $newArray = rec_array_replace('iw_', 'IW', $array);
                         $newArray = rec_array_replace('Downloads', 'IWdocmanager', $newArray);
 
@@ -160,12 +166,12 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
                             fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
                             $preupgradeError = true;
                         }
-                    } while ($value = mysql_fetch_row($result2));
-                } else {
-                    $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = replace(' . $column['column_name'] . ', \'iw_\', \'IW\') WHERE ' . $column['column_name'] . ' LIKE \'%iw_%\' ';
-                    if (!$result3 = mysql_query($sql, $con)) {
-                        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-                        $preupgradeError = true;
+                    } else {
+                        $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = replace(' . $column['column_name'] . ', \'iw_\', \'IW\') WHERE ' . $column['column_name'] . ' LIKE \'%iw_%\' ';
+                        if (!$result3 = mysql_query($sql, $con)) {
+                            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+                            $preupgradeError = true;
+                        }
                     }
                 }
             }
@@ -178,6 +184,8 @@ if (existsField($dbname, $prefix . '_blocks', 'pn_bkey', $f, $con)) {
     $commands[] = "DELETE FROM blocks WHERE pn_bkey='IwNotice'";
     $commands[] = "UPDATE blocks SET pn_bkey = 'IWnews' WHERE pn_bkey = 'iwnews'";
     $commands[] = "UPDATE blocks SET pn_bkey = 'Messages' WHERE pn_bkey = 'messages'";
+    $commands[] = "UPDATE blocks SET pn_bkey = 'LastWeblinks' WHERE pn_bkey = 'Lastweblinks'";
+    $commands[] = "UPDATE blocks SET pn_bkey = 'MostPopularWeblinks' WHERE pn_bkey = 'mostpopularweblinks'";
     $commands[] = "UPDATE blocks SET pn_filter = 'a:0:{}'";
 }
 
@@ -206,11 +214,16 @@ foreach ($commands as $sql) {
 
 // clean module_vars data preventing duplicated values and unnecessary modules
 $vars_entries = array();
-$deleteFrom = array('Stats',
-    'Referers',
+$deleteFrom = array('Admin_Messages',
+    'advMailer',
+    'bbcode',
+    'bbsmile',
+//  'Downloads',
     'IWchat',
+    'IWgroups',
+    'Referers',
+    'Stats',
     'Thumbnail',
-//    'Downloads',
 );
 
 $commands = array();
@@ -506,13 +519,15 @@ function connectdb() {
 
     global $ZConfig;
 
-    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['host'] . ':' . '80', $ZConfig['DBInfo']['databases']['default']['user'], $ZConfig['DBInfo']['databases']['default']['password']))
+    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['hostmigrate'].':'.$ZConfig['DBInfo']['databases']['default']['portmigrate'], $ZConfig['DBInfo']['databases']['default']['user'], $ZConfig['DBInfo']['databases']['default']['password']))
         return false;
 
     mysql_set_charset('utf8', $con);
 
-    if (!mysql_select_db($ZConfig['DBInfo']['databases']['default']['dbname'], $con))
+    if (!mysql_select_db($ZConfig['DBInfo']['databases']['default']['dbname'], $con)) {
+        echo "No s'ha pogut connectar a la base de dades";
         return false;
+    }
 
     return $con;
 }

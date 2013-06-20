@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Comprova el navegador segur per accedir a la pregunta';
 $string['requiresafeexambrowser'] = 'Necessita utilitzar un navegador d\'exàmens';
 $string['safebrowsererror'] = 'Aquest qüestionari s\'ha preparat perquè només s\'hi pugui accedir fent servir el navegador d\'exàmens. No podreu accedir-hi des d\'un navegador web normal.';
 $string['safebrowsernotice'] = 'El qüestionari s\'ha configurat de tal manera que l\'estudiant només pot intentar respondre\'l fent servir el navegador d\'exàmens.';

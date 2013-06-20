@@ -27,12 +27,14 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['allowdeletes'] = 'Permet supressions';
 $string['allowrenames'] = 'Permet canvis de nom';
+$string['allowsuspends'] = 'Permet la suspensió i activació de comptes.';
 $string['csvdelimiter'] = 'Delimitador CSV';
 $string['defaultvalues'] = 'Valors per defecte';
 $string['deleteerrors'] = 'Suprimeix errors';
 $string['encoding'] = 'Codificació';
 $string['errors'] = 'Errors';
 $string['nochanges'] = 'Sense canvis';
+$string['pluginname'] = 'Càrrega d\'usuari';
 $string['renameerrors'] = 'S\'han produït errors en els canvis de nom';
 $string['requiredtemplate'] = 'Requerit. Podeu usar-hi la sintaxi de plantilles (%l = cognom, %f = nom, %u = nom d\'usuari). Per a més detalls i exemples consulteu l\'ajuda.';
 $string['rowpreviewnum'] = 'Previsualització de files';
@@ -82,6 +84,7 @@ reznort, somesecret, Trent, Reznor, reznort@someplace.edu, en_us, 6736733, 0, Ad
 $string['uploaduserspreview'] = 'Previsualització de la càrrega d\'usuaris';
 $string['uploadusersresult'] = 'Resultats de la càrrega d\'usuaris';
 $string['useraccountupdated'] = 'S\'ha actualitzat l\'usuari';
+$string['useraccountuptodate'] = 'Usuari actualitzat';
 $string['userdeleted'] = 'S\'ha suprimit l\'usuari';
 $string['userrenamed'] = 'S\'ha canviat el nom de l\'usuari';
 $string['userscreated'] = 'S\'han creat els usuaris';
@@ -104,9 +107,12 @@ $string['uuoptype_addinc'] = 'Afegeix tots els usuaris, afegeix si escau un comp
 $string['uuoptype_addnew'] = 'Afegeix només usuaris nous, omet els ja existents';
 $string['uuoptype_addupdate'] = 'Afegeix usuaris nous i actualitza els ja existents';
 $string['uuoptype_update'] = 'Només actualiza els usuaris ja existents';
+$string['uupasswordcron'] = 'Generat en cron';
 $string['uupasswordnew'] = 'Nova contrasenya d\'usuari';
 $string['uupasswordold'] = 'Contrasenya d\'usuari existent';
+$string['uustandardusernames'] = 'Estandarditza els noms d\'usuari';
 $string['uuupdateall'] = 'Sobreescriu amb el fitxer i els valors predeterminats';
 $string['uuupdatefromfile'] = 'Sobreescriu amb el fitxer';
 $string['uuupdatemissing'] = 'Omple els buits amb el fitxer i els valors predeterminats';
 $string['uuupdatetype'] = 'Detalls de l\'usuari existent';
+$string['uuusernametemplate'] = 'Plantilla de noms d\'usuari';

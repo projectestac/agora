@@ -31,4 +31,7 @@ $string['deletedquestion'] = 'Pregunta desconeguda';
 $string['deletedquestiontext'] = 'Aquesta pregunta és de tipus desconegut. Impossible mostrar res.';
 $string['missing'] = 'Pregunta d\'un tipus no instal·lat en aquest sistema.';
 $string['missingqtypewarning'] = 'Aquesta pregunta és d\'un tipus que no es troba instal·lat al sistema. No podreu fer res amb la pregunta.';
+$string['pluginname'] = 'Tipus desconegut';
+$string['pluginnameadding'] = 'S\'està afegint una pregunta d\'un tipus que no està instal·lat en aquest sistema.';
+$string['pluginnameediting'] = 'S\'està editant una pregunta d\'un tipus que no està instal·lat en aquest sistema.';
 $string['warningmissingtype'] = '<b>Aquesta pregunta és d\'un tipus que no s\'ha instal·lat en aquest Moodle encara.<br/> Si us plau aviseu l\'administració del Moodle<(b>';

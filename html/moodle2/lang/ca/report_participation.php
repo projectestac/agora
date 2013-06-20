@@ -28,3 +28,4 @@ defined('MOODLE_INTERNAL') || die();
 $string['page-report-participation-index'] = 'Informe de participació al curs';
 $string['page-report-participation-x'] = 'Qualsevol informe de participació';
 $string['participation:view'] = 'Veure informe de participació al curs';
+$string['pluginname'] = 'Participació al curs';

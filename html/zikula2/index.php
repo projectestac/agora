@@ -18,12 +18,21 @@ include 'lib/bootstrap.php';
 // XTEC ************ AFEGIT - Block access while upgrade is pending
 // 2013.05.28 @aginard
 
-$host = $ZConfig['DBInfo']['databases']['default']['host'];
+$host = $ZConfig['DBInfo']['databases']['default']['hostmigrate'];
+$port = $ZConfig['DBInfo']['databases']['default']['portmigrate'];
 $user = $ZConfig['DBInfo']['databases']['default']['user'];
 $pass = $ZConfig['DBInfo']['databases']['default']['password'];
 $db   = $ZConfig['DBInfo']['databases']['default']['dbname'];
 
-$dbc = mysqli_connect($host, $user, $pass, $db);
+if (!empty($port)) {
+    $dbc = mysqli_connect($host, $user, $pass, $db, $port);
+} else {
+    $dbc = mysqli_connect($host, $user, $pass, $db);
+}
+
+if (mysqli_connect_errno($dbc)) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
 
 $sql = "SELECT count(*) as num_tables
         FROM information_schema.tables
@@ -73,6 +82,29 @@ if (!$module) {
         }
     }
 }
+
+
+// XTEC ************ AFEGIT - provide https login using BigIP
+// 2013.06.19 @aginard
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+    $rurl = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+} elseif (isset($_SERVER['HTTPS'])) {
+    $rurl = strtolower($_SERVER['HTTPS']) == 'off' ? 'http' : 'https';
+} else {
+    $rurl = 'http';
+}
+
+if ($module == 'users' && $type == 'user' && ($func == 'login' || $func == 'loginscreen')) {
+    if ($rurl == 'http') {
+        header('location:https://' . System::serverGetVar('HTTP_HOST') . System::getBaseUri() . '/' . ModUtil::url('users', 'user', 'login'));
+    }
+} else {
+    if ($rurl == 'https') {
+        header('location:http://' . System::serverGetVar('HTTP_HOST') . System::getCurrentUri());
+    }
+}
+//************ FI
+
 
 // get module information
 $modinfo = ModUtil::getInfoFromName($module);

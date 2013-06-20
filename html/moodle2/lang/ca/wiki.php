@@ -35,8 +35,10 @@ $string['attachmentimage'] = 'Afegeix una imatge';
 $string['attachmentlink'] = 'Afegeix un enllaç';
 $string['attachments'] = 'Fitxers adjunts';
 $string['backtomapmenu'] = 'Torna a l\'índex del menú';
+$string['cannoteditpage'] = 'No podeu editar aquesta pàgina.';
 $string['cannotmanagefiles'] = 'No teniu permís per gestionar els fitxers wiki';
 $string['cannotviewfiles'] = 'No teniu permís per veure els fitxers wiki';
+$string['cannotviewpage'] = 'No podeu veure aquesta pàgina.';
 $string['comments'] = 'Comentaris';
 $string['comparesel'] = 'Compara els seleccionats';
 $string['comparewith'] = 'S\'està comparant la versió {$a->old} amb la versió  {$a->new}';
@@ -69,6 +71,7 @@ $string['editfiles'] = 'Edita els fitxers wiki';
 $string['editing'] = 'S\'està editant la pàgina wiki';
 $string['editingcomment'] = 'S\'està editant el comentari';
 $string['editingpage'] = 'S\'està editant aquesta pàgina \'{$a}\'';
+$string['editsection'] = 'Edita';
 $string['filenotuploadederror'] = 'El fitxer \'{$a}\' no s\'ha pogut carregar de forma correcta.';
 $string['files'] = 'Fitxers';
 $string['filtername'] = 'Enllaços automàtics a pàgines wiki';
@@ -107,6 +110,17 @@ $string['map'] = 'Mapa';
 $string['mapmenu'] = 'Index del menú';
 $string['modified'] = 'Modificat';
 $string['modulename'] = 'Wiki';
+$string['modulename_help'] = 'El mòdul d\'activitat wiki permet als participants afegir i editar una col·lecció de pàgines web. Una wiki pot ser de col·laboració, on tothom té la possibilitat d\'editar o individual, on cada un té la seva pròpia wiki que només ell/a poden editar.
+
+Es manté una història de les versions anteriors de cada pàgina en el wiki, enumerant les edicions realitzades per cada participant.
+
+Les wiki tenen molts usos, com ara:
+
+* Per a les notes de classe de grup o guies d\'estudi
+* Per als membres de la facultat per a planificar un esquema de treball o una reunió junts
+* Per als estudiants per a col·laborar i fer un llibre en línia, o la creació de continguts en un tema establert pel seu tutor
+* Per a la creació poètica, on cada participant escriu una línia o vers *
+Com un diari personal per a les notes dels exàmens o la revisió (utilitzant un wiki individual)';
 $string['modulenameplural'] = 'Wikis';
 $string['navigation'] = 'Navegació';
 $string['navigationfrom'] = 'Aquesta pàgina prove de';
@@ -149,6 +163,7 @@ $string['page-mod-wiki-history'] = 'Pàgina d\'historial de la wiki';
 $string['page-mod-wiki-map'] = 'Pàgina mapa de la wiki';
 $string['page-mod-wiki-view'] = 'Pàgina principal del mòdul wiki';
 $string['page-mod-wiki-x'] = 'Qualsevol pàgina del mòdul wiki';
+$string['pagename'] = 'Nom de la pàgina';
 $string['pluginadministration'] = 'Administració de la wiki';
 $string['pluginname'] = 'Wiki';
 $string['prettyprint'] = 'Versió fàcilment imprimible';
@@ -171,6 +186,7 @@ $string['saving'] = 'S\'està desant la pàgina wiki';
 $string['savingerror'] = 'S\'està desant l\'error';
 $string['searchcontent'] = 'Cerca en la pàgina de continguts';
 $string['searchresult'] = 'Resultats de la cerca:';
+$string['searchterms'] = 'Cerca els termes';
 $string['searchwikis'] = 'Cerca wikis';
 $string['special'] = 'Especial';
 $string['tableofcontents'] = 'Taula de continguts';

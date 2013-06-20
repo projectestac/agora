@@ -132,6 +132,7 @@ $string['moredetails'] = 'Més detalls';
 $string['nocriteriaset'] = 'No s\'han definit criteris de compleció per a aquest curs';
 $string['notcompleted'] = 'No completat';
 $string['notenroled'] = 'No us heu inscrit en aquest curs';
+$string['nottracked'] = 'A hores d\'ara no s\'està realitzant el seguiment de la vostra compleció en aquest curs.';
 $string['notyetstarted'] = 'No començat encara';
 $string['overallcriteriaaggregation'] = 'Sobre tots els tipus de criteri d\'agregació';
 $string['pending'] = 'Pendents';

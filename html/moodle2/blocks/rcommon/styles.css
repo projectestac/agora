@@ -12,10 +12,11 @@
 	margin: auto auto;
 }
 
-.info{
-	float:none; 
-	width: 90% !important;
-	margin: auto auto;
+.info-manager {
+	float: none; 
+	width: 90%;
+	margin: auto;
+	margin-top: 20px;
 }
 
 #block-block_rcommon div.right{

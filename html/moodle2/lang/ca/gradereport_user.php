@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Usuari';
+$string['pluginname'] = 'Informe d\'usuari';
 $string['user:view'] = 'Visualitzar l\'informe de qualificacions propi';

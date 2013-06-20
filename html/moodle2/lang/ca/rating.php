@@ -53,6 +53,6 @@ $string['ratepermissiondenied'] = 'No teniu permís per qualificar aquesta activ
 $string['rating'] = 'Puntuació';
 $string['ratinginvalid'] = 'La puntuació és invàlida';
 $string['ratings'] = 'Puntuacions';
-$string['ratingtime'] = 'Restringeix les qualificacions per a les activitats amb dades en aquest rang:';
+$string['ratingtime'] = 'Restringeix la qualificació a les entrades fetes entre aquestes dates:';
 $string['rolewarning'] = 'Rols amb permís per qualificar';
 $string['rolewarning_help'] = 'Per enviar qualificacions als usuaris els cal al moodle/rating: capacitat de qualificar i totes les capacitats especifiques del mòdul. Els usuaris que tinguin assignats els següents rols tindran capacitat per puntuar activitats. La llista de rols pot ser modificada mitjançant els permisos seguint l\'enllaç al bloc de configuracions.';

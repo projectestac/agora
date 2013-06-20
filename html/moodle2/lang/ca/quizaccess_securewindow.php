@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Seguretat JavaScript per accedir a la pregunta';
 $string['popupwithjavascriptsupport'] = 'Finestra emergent completa amb alguna seguretat JavaScript';

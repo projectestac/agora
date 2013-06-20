@@ -119,6 +119,7 @@ $string['configuration'] = 'Configuració';
 $string['description'] = 'Descripció';
 $string['details'] = 'Detalls';
 $string['issue'] = 'Incidència';
+$string['pluginname'] = 'Característiques de la seguretat';
 $string['security:view'] = 'Mostra l\'informe de seguretat';
 $string['status'] = 'Estat';
 $string['statuscritical'] = 'Crític';

@@ -95,7 +95,8 @@ require_once("$CFG->libdir/filelib.php");
      */
     function geogebra_view_intro($geogebra, $cm, $cangrade=false, $action=null) {
         global $OUTPUT, $CFG;
-        echo $OUTPUT->heading(format_string($geogebra->name, false, array('context' => $cm)));
+
+        echo $OUTPUT->heading(format_string($geogebra->name, false));
         echo $OUTPUT->box_start('generalbox boxaligncenter', 'intro');
         echo format_module_intro('geogebra', $geogebra, $cm->id);
         echo $OUTPUT->box_end();

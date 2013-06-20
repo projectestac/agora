@@ -25,5 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Temps entre intents per accedir a la pregunta.';
 $string['youcannotwait'] = 'Aquest qüestionari es tancarà abans que pugueu començar un altre intent.';
 $string['youmustwait'] = 'Encara no podeu tornar a contestar aquest qüestionari. Podreu iniciar un altre intent després de: {$a}.';

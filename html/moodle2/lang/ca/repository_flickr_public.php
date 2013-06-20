@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['all'] = 'Tot';
+$string['apikey'] = 'Clau API';
 $string['backtosearch'] = 'Torna a la pantalla de cerca';
 $string['by'] = 'Llicència Reconeixement';
 $string['by-nc'] = 'Llicència Reconeixement-NoComercial';

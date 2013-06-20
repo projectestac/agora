@@ -26,5 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['passworderror'] = 'La contrasenya és incorrecta';
+$string['pluginname'] = 'Contrasenya per accedir a la pregunta';
 $string['quizpassword'] = 'Contrasenya del qüestionari';
 $string['requirepasswordmessage'] = 'Per contestar aquest qüestionari heu de saber la contrasenya';

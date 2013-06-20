@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['attemptsallowedn'] = 'Intents permesos: {$a}';
+$string['pluginname'] = 'Nombre d\'intents per accedir a la pregunta.';

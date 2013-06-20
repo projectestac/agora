@@ -142,7 +142,6 @@ $string['geogebrafile_help'] = 'The .ggb file.';
 $string['urledit'] = 'GeoGebra file';
 $string['urledit_help'] = 'The ".ggb" file where you will find the GeoGebra activity.';
 
-$string['lastaccess']='Last visited';
 $string['datestudent'] = 'Last modified (submission)';
 $string['dateteacher']= 'Last modified (grade)';
 $string['status'] = 'Estat';

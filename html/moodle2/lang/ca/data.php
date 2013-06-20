@@ -106,6 +106,7 @@ $string['data:comment'] = 'Escriure comentaris';
 $string['data:exportallentries'] = 'Exporta totes les entrades de la base de dades';
 $string['data:exportentry'] = 'Exporta una entrada de la base de dades';
 $string['data:exportownentry'] = 'Exporta l\'entrada de la base de dades pròpia';
+$string['data:exportuserinfo'] = 'Exporta la informació de l\'usuari';
 $string['data:managecomments'] = 'Gestionar comentaris';
 $string['data:manageentries'] = 'Gestionar entrades';
 $string['data:managetemplates'] = 'Gestionar plantilles';
@@ -199,6 +200,9 @@ $string['headerrsstemplate'] = 'Defineix l\'aparença de l\'entrades en els cana
 $string['headersingletemplate'] = 'Defineix la interfície de visualització d\'entrades individuals';
 $string['importentries'] = 'Importa les entrades';
 $string['importsuccess'] = 'La predefinició s\'ha aplicat amb èxit';
+$string['includeapproval'] = 'Inclou l\'estat d\'aprovació';
+$string['includetime'] = 'Inclou el temps afegit/modificat';
+$string['includeuserdetails'] = 'Inclou els detalls de l\'usuari';
 $string['insufficiententries'] = 'fan falta més entrades per veure aquesta base de dades';
 $string['intro'] = 'Introducció';
 $string['invalidaccess'] = 'No heu accedit a aquesta pàgina correctament';
@@ -226,7 +230,7 @@ $string['maxentries'] = 'Nombre màxim d\'entrades';
 $string['maxentries_help'] = '<p align="center"><strong>Nombre màxim d\'entrades</strong></p>
 
 <p>El nombre màxim d\'entrades que un participant pot trametre en aquesta activitat.</p>';
-$string['maxsize'] = 'Mida màxima: {$a}';
+$string['maxsize'] = 'Mida màxima';
 $string['menu'] = 'Menú (selecció única)';
 $string['menuchoose'] = 'Trieu...';
 $string['missingdata'] = 'Cal que afegiu dades id o objecte al camp';
@@ -368,6 +372,7 @@ $string['uploadrecords_help'] = 'Es poden carregar les entrades mitjançant un f
 
 El tancament és un caràcter que envolta cada camp en cada registre. Normalment es pot deixar desactivat.';
 $string['url'] = 'URL';
+$string['usedate'] = 'Inclou en la cerca.';
 $string['usestandard'] = 'utilitza un predefinit';
 $string['usestandard_help'] = 'Per utilitzar un predefinit disponible arreu del lloc, seleccioneu-lo de la llista. (Si heu afegit un predefinit a la llista utilitzant la funció Desa com a predefinit, aleshores teniu l\'opció d\'esborrar-lo).';
 $string['viewfromdate'] = 'Visualitza des de';

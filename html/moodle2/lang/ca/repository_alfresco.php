@@ -34,4 +34,5 @@ $string['password'] = 'Contrasenya';
 $string['pluginname'] = 'Repositori Alfresco';
 $string['pluginname_help'] = 'Un connector per al CMS Alfresco';
 $string['soapmustbeenabled'] = 'Cal que l\'extensió SOAP estigui habilitada per al connector alfresco';
+$string['space'] = 'Espai';
 $string['username'] = 'Nom d\'usuari';

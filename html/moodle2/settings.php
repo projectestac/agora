@@ -68,6 +68,9 @@ $CFG->apligestlogpath = $CFG->dataroot.'/repository/files/mailsender.log';
 $CFG->apligestenv = $agora['server']['enviroment'];
 $CFG->apligestaplic = 'AGORA';
 
+// Only allow some of the languages
+$CFG->langlist = 'ca, en, es, fr, de';
+
 // Àtria-marsupial information
 //$CFG->center = '08929684';
 $CFG->atriaUsername = $agora['atria']['username'];

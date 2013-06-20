@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Adreça IP per accedir a la pregunta.';
 $string['subnetwrong'] = 'Aquest qüestionari només és accessible des d\'ubicacions específiques, i el vostre ordinador no es troba a la llista.';
