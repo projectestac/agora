@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 MOODLE
 - Fixed "inconsistent datatypes: expected - got CLOB" bug when creating questionnaire backup.
+- Revised procedure to create a backup of the specified course without user information (1.9 -> 2 import tool).
 
 ZIKULA2
 - Fixed connection to DB when parameters are not standard
@@ -25,7 +26,6 @@ GENERAL
 
 MOODLE
 - Added permision to xtecadmin to access to scheduled backup parameters
-- Revised procedure to create a backup of the specified course without user information (1.9 -> 2 import tool)
 
 MOODLE2
 - Fixed font face "lletra lligada", which only worked in theme design mode
