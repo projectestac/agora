@@ -5,6 +5,12 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+
+Changes 13.06.21
+---------------------------------------------------------------------------------------
 MOODLE
 - Fixed "inconsistent datatypes: expected - got CLOB" bug when creating questionnaire backup.
 - Revised procedure to create a backup of the specified course without user information (1.9 -> 2 import tool).
