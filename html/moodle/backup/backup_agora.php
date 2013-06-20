@@ -1,7 +1,7 @@
 <?php
 
 //XTEC ************ FITXER AFEGIT - Create a backup of the specified course without user information
-//2012.07.13 @sarjona
+//2013.07.18 @jmiro
 
 require_once ('../config.php');
 
@@ -24,13 +24,7 @@ if (!$course = get_record('course', 'id', $courseid)) {
 
 print_header('Restaurant el curs ' . $courseid . ' amb nom ' . $course->fullname);
 
-if (!function_exists('schedule_backup_launch_backup')) {
-    import19_error('La funció schedule_backup_launch_backup no existex');
-}
-
 $ara = time();
-
-$backup_config = backup_get_config();
 
 if (is_agora()) {
     $backuppath = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle']['username'] . $school_info['id_moodle2'] . $agora['moodle2']['repository_files'];
@@ -38,39 +32,35 @@ if (is_agora()) {
     $backuppath = $agora['moodle2']['backuppath'];
 }
 
-backup_set_config('backup_sche_destination', $backuppath);
-
 ob_start();
-backup_set_config('backup_sche_modules', 1);
-backup_set_config('backup_sche_coursefiles', 1);
-backup_set_config('backup_sche_withuserdata', 0);
-backup_set_config('backup_sche_users', 1);
-backup_set_config('backup_sche_userfiles', 0);
-$preferences = schedule_backup_course_configure($course, $ara);
-$nom_backup = schedule_backup_launch_backup($course, $ara);
-$out = ob_get_clean();
 
-if (isset($backup_config->backup_sche_destination)) {
-    backup_set_config('backup_sche_destination', $backup_config->backup_sche_destination);
-} else {
-    backup_set_config('backup_sche_destination', $CFG->dataroot . '/temp/backup');
-}
+$prefs['backup_course_files'] = 1;
+$prefs['backup_site_files'] = 1;
+$prefs['backup_userdata'] = 0;
+$prefs['backup_users'] = 1;
+$prefs['backup_user_files'] = 0;
+$prefs['backup_metacourse'] = 1;
+$prefs['backup_logs'] = 0;
+$prefs['backup_messages'] = 0;
+$prefs['backup_gradebook_history'] = 0;
+
+$preferences = backup_generate_preferences_artificially($course, $prefs);
+$preferences -> backup_destination = $backuppath;
+
+$errorstring = '';
+$status = backup_execute($preferences, $errorstring);
+$nom_backup = $preferences->backup_name;
+
+$out = ob_get_clean();
 
 echo '<p>Inici el ' . userdate($ara) . '<br/>';
 echo nl2br($out);
 
-$logs = get_records_select('backup_log', "laststarttime = $ara AND courseid = $courseid", 'time, info');
-foreach ($logs as $log) {
-    echo '<br/>' . date("H:i:s", $log->time) . ': ' . $log->info;
-}
-
-if (!$nom_backup) {
+if (!$status) {
     import19_error('El backup no s\'ha executat correctament');
 }
 
 echo '</p><p>La còpia de seguretat <strong><span id="backupname">' . $preferences->backup_name . '</span></strong> ha finalitzat</p>';
-
-//regcurs_set($courseid,'import19',$nom_backup);
 
 echo "<script type\"text/javascript\">
         document.getElementById('loading_icon').style.display = 'none';

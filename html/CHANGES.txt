@@ -13,6 +13,7 @@ GENERAL
 
 MOODLE
 - Added permision to xtecadmin to access to scheduled backup parameters
+- Revised procedure to create a backup of the specified course without user information (1.9 -> 2 import tool)
 
 MOODLE2
 - Fixed font face "lletra lligada", which only worked in theme design mode
