@@ -94,7 +94,7 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
     $rurl = 'http';
 }
 
-if ($module == 'users' && $type == 'user' && ($func == 'login' || $func == 'loginscreen')) {
+if (($module == 'users' || $module == 'usuaris') && $type == 'user' && ($func == 'login' || $func == 'loginscreen')) {
     if ($rurl == 'http') {
         header('location:https://' . System::serverGetVar('HTTP_HOST') . System::getBaseUri() . '/' . ModUtil::url('users', 'user', 'login'));
     }

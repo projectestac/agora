@@ -8,6 +8,11 @@ Changes in progress
 MOODLE2
 - Changed lib/moodlelib.php to add odissea auth method
 
+PORTAL
+- Added catalan name of module Users to https login
+
+ZIKULA2
+- Added catalan name of module Users to https login
 
 
 Changes 13.06.21
