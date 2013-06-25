@@ -9,9 +9,15 @@ html/config/.htaccess
 html/moodle/config.php
 html/moodle2/config.php
 html/moodle2/local/agora/muc/cacheconfig.php
+html/moodle2/auth/odissea
 nbproject
 moodledata
 portaldata
 sh
 zkdata
 .Trash-1000/
+cache_ins/
+muc/
+html/moodle/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-LOCAL.wsdl
+html/moodle2/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-LOCAL.wsdl
+

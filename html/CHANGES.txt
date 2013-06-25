@@ -5,7 +5,8 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-
+MOODLE2
+- Changed lib/moodlelib.php to add odissea auth method
 
 
 
