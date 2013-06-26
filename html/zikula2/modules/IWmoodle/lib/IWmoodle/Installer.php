@@ -52,15 +52,15 @@ class IWmoodle_Installer extends Zikula_AbstractInstaller {
         DBUtil::dropTable('IWmoodle');
 
         //Delete module vars
-        $this->delVar('IWmoodle', 'moodleurl')
-                ->delVar('IWmoodle', 'newwindow')
-                ->delVar('IWmoodle', 'guestuser')
-                ->delVar('IWmoodle', 'dbprefix')
-                ->delVar('IWmoodle', 'dfl_description')
-                ->delVar('IWmoodle', 'dfl_language')
-                ->delVar('IWmoodle', 'dfl_country')
-                ->delVar('IWmoodle', 'dfl_city')
-                ->delVar('IWmoodle', 'dfl_gtm');
+        $this->delVar('moodleurl')
+                ->delVar('newwindow')
+                ->delVar('guestuser')
+                ->delVar('dbprefix')
+                ->delVar('dfl_description')
+                ->delVar('dfl_language')
+                ->delVar('dfl_country')
+                ->delVar('dfl_city')
+                ->delVar('dfl_gtm');
         return true;
     }
 
