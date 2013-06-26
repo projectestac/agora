@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- Added muc directory and cacheconfig.php to checkFiles.php
+
 MOODLE2
 - Changed lib/moodlelib.php to add odissea auth method
 
