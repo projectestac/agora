@@ -69,7 +69,7 @@ $CFG->apligestenv = $agora['server']['enviroment'];
 $CFG->apligestaplic = 'AGORA';
 
 // Only allow some of the languages
-$CFG->langlist = 'ca, en, es, fr, de';
+$CFG->langlist = 'ca,en,es,fr,de';
 
 // Àtria-marsupial information
 //$CFG->center = '08929684';

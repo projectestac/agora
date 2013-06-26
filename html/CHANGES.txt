@@ -10,6 +10,7 @@ GENERAL
 
 MOODLE2
 - Changed lib/moodlelib.php to add odissea auth method
+- Fixed whitespaces in langlist
 
 PORTAL
 - Added catalan name of module Users to https login
