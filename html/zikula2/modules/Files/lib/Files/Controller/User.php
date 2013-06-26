@@ -227,14 +227,14 @@ class Files_Controller_User extends Zikula_AbstractController {
                                 'fileName' => $object,
                                 'folder' => $folderName,
                                 'external' => $external)),
-                            'image' => 'folder_tar.png',
+                            'image' => 'package.png',
                             'title' => $this->__('Unzip file'),
                             'hook' => $hook);
                         $options[] = array('url' => ModUtil::url('Files', 'user', 'action', array('do' => 'listcontentzip',
                                 'fileName' => $object,
                                 'folder' => $folderName,
                                 'external' => $external)),
-                            'image' => 'list.png',
+                            'image' => 'folder_tar.png',
                             'title' => $this->__('List of the file content'),
                             'hook' => $hook);
                     }

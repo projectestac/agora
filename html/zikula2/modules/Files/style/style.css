@@ -41,17 +41,17 @@
     padding:2px 0 2px 21px;
 }
 .fi_createdir {
-    background: url(../../../images/icons/extrasmall/folder_new.png) no-repeat 0 50%;
+    background: url(../../../images/icons/extrasmall/folder_new.png) no-repeat 0 50% !important;
 }
 .fi_uploadfile {
-    background: url(../../../images/icons/extrasmall/fileimport.png) no-repeat 0 50%;
+    background: url(../../../images/icons/extrasmall/fileimport.png) no-repeat 0 50% !important;
 }
 .fi_folder {
-    background: url(../../../images/icons/extrasmall/folder_yellow.png) no-repeat 0 50%;
+    background: url(../../../images/icons/extrasmall/folder_yellow.png) no-repeat 0 50% !important;
 }
 .fi_notpublic {
-    background: url(../../../images/icons/extrasmall/folder_blue.png) no-repeat 0 50%;
+    background: url(../../../images/icons/extrasmall/folder_blue.png) no-repeat 0 50% !important;
 }
 .fi_public {
-    background: url(../../../images/icons/extrasmall/folder_blank.png) no-repeat 0 50%;
+    background: url(../../../images/icons/extrasmall/folder_blank.png) no-repeat 0 50% !important;
 }
