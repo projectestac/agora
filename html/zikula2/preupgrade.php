@@ -495,6 +495,51 @@ if (!empty($documents)) {
 
 // change links of module Downloads to IWdocmanager
 // TODO:
+// END activate the module IWdocmanager
+// activate the module XtecMailer
+// get adminmail from module vars table
+$sql = "select pn_value from module_vars where pn_modname='/PNConfig' AND pn_name='adminmail'";
+if (!$result = mysql_query($sql, $con)) {
+    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+    $preupgradeError = true;
+}
+$value = mysql_fetch_row($result);
+
+// create module vars
+if (!existsRegister($dbname, 'module_vars', 'pn_modname', 'XtecMailer', $f, $con)) {
+    $sql = "INSERT INTO module_vars (`pn_modname`, `pn_name`, `pn_value`) VALUES
+        ('XtecMailer','enabled','i:1;'),
+        ('XtecMailer','idApp','s:5:\"AGORA\";'),
+        ('XtecMailer','replyAddress','" . mysql_real_escape_string($value[0]) . "'),
+        ('XtecMailer','sender','s:8:\"educacio\";'),
+        ('XtecMailer','environment','" . serialize($agora['server']['enviroment']) . "'),
+        ('XtecMailer','contenttype','i:2;'),
+        ('XtecMailer','log','i:0;'),
+        ('XtecMailer','debug','i:0;'),
+        ('XtecMailer','logpath','s:0:\"\";'),
+        ('/EventHandlers','XtecMailer','a:1:{i:0;a:3:{s:9:\"eventname\";s:29:\"module.mailer.api.sendmessage\";s:8:\"callable\";a:2:{i:0;s:20:\"XtecMailer_Listeners\";i:1;s:8:\"sendMail\";}s:6:\"weight\";i:10;}}');";
+    if (!$result = mysql_query($sql, $con)) {
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        $preupgradeError = true;
+    }
+}
+
+// activate the module XtecMailer
+// add module in modules table
+if (!existsRegister($dbname, 'modules', 'pn_name', 'XtecMailer', $f, $con)) {
+    $sql = "INSERT INTO `modules` (`pn_name`, `pn_type`, `pn_displayname`, `pn_url`, `pn_description`, `pn_directory`, `pn_version`, `pn_state`, `pn_securityschema`) VALUES
+    ('XtecMailer', 2, 'XtecMailer', 'XtecMailer', 'Amplia les funcionalitats del mòdul Mailer per poder enviar correu electrònic utilitzant el servei web de la XTEC', 'XtecMailer', '1.0.0', 3, 'a:1:{s:12:\"XtecMailer::\";s:2:\"::\";}');";
+    if (!$result = mysql_query($sql, $con)) {
+        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+        $preupgradeError = true;
+    }
+}
+
+// END activate the module XtecMailer
+
+
+
+
 
 if ($preupgradeError) {
     fwrite($f, "ERROR A LA PREPARACIÓ\n");
@@ -519,7 +564,7 @@ function connectdb() {
 
     global $ZConfig;
 
-    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['hostmigrate'].':'.$ZConfig['DBInfo']['databases']['default']['portmigrate'], $ZConfig['DBInfo']['databases']['default']['user'], $ZConfig['DBInfo']['databases']['default']['password']))
+    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['hostmigrate'] . ':' . $ZConfig['DBInfo']['databases']['default']['portmigrate'], $ZConfig['DBInfo']['databases']['default']['user'], $ZConfig['DBInfo']['databases']['default']['password']))
         return false;
 
     mysql_set_charset('utf8', $con);
