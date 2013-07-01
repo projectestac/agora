@@ -14,6 +14,7 @@ MOODLE2
 
 PORTAL
 - Added catalan name of module Users to https login
+- Removed shortening of city name when activating moodle service
 
 ZIKULA2
 - Added catalan name of module Users to https login

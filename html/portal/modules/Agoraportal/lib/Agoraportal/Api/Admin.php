@@ -240,7 +240,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 email='" . str_replace("'", "''", $item[$clientServiceId]['clientCode']) . "@xtec.cat',
                 institution='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
                 address='" . str_replace("'", "''", $item[$clientServiceId]['clientAddress']) . "',
-                city='" . substr(str_replace("'", "''", $item[$clientServiceId]['clientCity']), 0, 20) . "'
+                city='" . str_replace("'", "''", $item[$clientServiceId]['clientCity']) . "'
             WHERE id=$adminId
             ";
 
