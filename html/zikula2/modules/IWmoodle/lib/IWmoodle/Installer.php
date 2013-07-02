@@ -29,7 +29,7 @@ class IWmoodle_Installer extends Zikula_AbstractInstaller {
             return false;
 
         //Create module vars
-        $this->setVar('moodleurl', '../moodle2')
+        $this->setVar('moodleurl', '../moodle')
                 ->setVar('newwindow', 1)
                 ->setVar('guestuser', 'guest')
                 ->setVar('dbprefix', 'm2')
