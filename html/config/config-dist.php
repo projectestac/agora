@@ -27,7 +27,7 @@
     // General vars
     $agora['server']['school_information'] = 'http://aplitic.educacio.intranet/pls/xtec/agora_dades_centre?p_codi_centre=';
     $agora['server']['html']               = $agora['server']['server'] . $agora['server']['base'];
-    $agora['server']['cookie']             = 'agoraSchool'.$agora['server']['enviroment'];
+    $agora['server']['cookie']             = 'xtecSchool';
 
     // ubr_upload vars
     $agora['server']['cgi_script']         = $agora['server']['server'] . $agora['server']['cgi_base'] . 'ubr_upload.pl';
@@ -37,7 +37,7 @@
     $agora['server']['ca_bundle']          = $agora['server']['root'] . 'html/config/ca-bundle.crt';
 
     // Database config info source
-    $agora['dbsource']['defaulttype']      = 1; // 1.- allSchools.php  2.- Database
+    $agora['dbsource']['defaulttype']      = 1;
     $agora['dbsource']['dir']              = $agora['server']['root'] . 'syncdata/';
     $agora['dbsource']['syncdir']          = $agora['dbsource']['dir'] . 'sync/';
     $agora['dbsource']['filename']         = 'allSchools.php';
@@ -52,7 +52,7 @@
     // Load restricted vars
     include_once $agora['server']['root'] . 'html/config/config-restricted.php';
 
-/*
+
     // Codi dels talls de servei
     if (!strpos($_SERVER['REQUEST_URI'], "analytics1") &&
         !strpos($_SERVER['REQUEST_URI'], "analytics2") &&
@@ -61,9 +61,9 @@
         !strpos($_SERVER['REQUEST_URI'], "analytics4")) {
 
         // Intervals de tall
-        $talls = array( array('inici' => strtotime("23 Jul 2012 9 hours"), 'final' => strtotime("23 Jul 2012 17 hours")),
-                        array('inici' => strtotime("24 Jul 2012 9 hours"), 'final' => strtotime("24 Jul 2012 17 hours")),
-                        array('inici' => strtotime("25 Jul 2012 9 hours"), 'final' => strtotime("25 Jul 2012 17 hours")) );
+        $talls = array( array('inici' => strtotime("22 Jul 2013 9 hours"), 'final' => strtotime("22 Jul 2013 17 hours")),
+                        array('inici' => strtotime("23 Jul 2013 9 hours"), 'final' => strtotime("23 Jul 2013 17 hours")),
+                        array('inici' => strtotime("24 Jul 2013 9 hours"), 'final' => strtotime("24 Jul 2013 17 hours")) );
 
         foreach ($talls as $tall) {
 
@@ -75,4 +75,3 @@
            }
         }
     }
-*/

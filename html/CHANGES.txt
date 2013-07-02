@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 GENERAL
 - Added muc directory and cacheconfig.php to checkFiles.php
+- Added code to block access during stress tests
 
 MOODLE2
 - Changed lib/moodlelib.php to add odissea auth method
