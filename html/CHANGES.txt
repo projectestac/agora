@@ -13,6 +13,7 @@ MOODLE2
 - Changed lib/moodlelib.php to add odissea auth method
 - Fixed whitespaces in langlist
 - Added support for SSO from Zikula 1.3
+- Added removal of temp files to local/agora/cron.php
 
 PORTAL
 - Added catalan name of module Users to https login
