@@ -324,6 +324,22 @@ class IWdocmanager_Controller_User extends Zikula_AbstractController {
 
         LogUtil::registerStatus($returnMsg);
 
+        // informs via email about the document creation
+        if ($this->getVar('notifyMail') != '') {
+            $subject = $this->__f('A new document has been created by %s', UserUtil::getVar('uname'));
+            $body = $this->__f('A new document <strong>%1$s</strong> has been received. It has been created by %2$s. Please check the documents list and proceed to validate it, if necessary.', array($documentName, UserUtil::getVar('uname')));
+            $sendMessageArgs = array(
+                'fromname' => UserUtil::getVar('uname'),
+                'fromaddress' => UserUtil::getVar('email'),
+                'toname' => 'IWdocmanager',
+                'toaddress' => $this->getVar('notifyMail'),
+                'replytoname' => 'noReply',
+                'replytoaddress' => 'no-reply@server.dom',
+                'subject' => $subject,
+                'body' => $body,
+            );
+        }
+
         return System::redirect(ModUtil::url($this->name, 'user', 'viewDocs', array('categoryId' => $categoryId)));
     }
 

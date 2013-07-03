@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Zikula 1.x\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-19 17:57+0100\n"
-"PO-Revision-Date: 2013-03-22 10:47+0100\n"
+"PO-Revision-Date: 2013-07-03 12:47+0100\n"
 "Last-Translator: intraweb <intraweb@xtec.cat>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -614,4 +614,12 @@ msgstr "Crea"
 
 msgid "Size"
 msgstr "Mida"
+
+#, php-format
+msgid "A new document has been created by %s"
+msgstr "%s ha creat un document nou"
+
+#, php-format
+msgid "A new document <strong>%1$s</strong> has been received. It has been created by %2$s. Please check the documents list and proceed to validate it, if necessary."
+msgstr "S'ha creat el document nou <strong>%1$s</strong> i l'ha creat l'usuari/ària %2$s. Si us plau, comproveu la llista de documents i valideu-lo si fos necessari."
 
