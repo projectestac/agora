@@ -79,7 +79,7 @@ function show_subelems($id_parent, $items, $menu) {
                 }
                 if ($isMember || ($gids[0] == '-1' && $uid == '-1')) {
                     // Put target in detic_portal if available and selected
-                    if ($item['target'] == 2 && pnModAvailable('IWwebbox')) {
+                    if ($item['target'] == 2 && ModUtil::available('IWwebbox')) {
                         $item['url'] = str_replace('?', '**', $item['url']);
                         $item['url'] = str_replace('&', '*', $item['url']);
                         $item['url'] = 'index.php?module=IWwebbox&url=' . $item['url'];
@@ -169,7 +169,7 @@ function smarty_function_iwvhmenu($params, &$smarty) {
                 }
                 if ($isMember || ($gids[0] == '-1' && $uid == '-1')) {
                     // Put target in detic_portal if available and selected
-                    if ($item['target'] == 2 && pnModAvailable('IWwebbox')) {
+                    if ($item['target'] == 2 && ModUtil::available('IWwebbox')) {
                         $item['url'] = str_replace('?', '**', $item['url']);
                         $item['url'] = str_replace('&', '*', $item['url']);
                         $item['url'] = 'index.php?module=IWwebbox&url=' . $item['url'];
