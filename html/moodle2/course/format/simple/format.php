@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -26,8 +27,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->libdir.'/filelib.php');
-require_once($CFG->libdir.'/completionlib.php');
+require_once($CFG->libdir . '/filelib.php');
+require_once($CFG->libdir . '/completionlib.php');
 
 // Horrible backwards compatible parameter aliasing..
 if ($topic = optional_param('topic', 0, PARAM_INT)) {
@@ -40,7 +41,7 @@ if ($topic = optional_param('topic', 0, PARAM_INT)) {
 
 $context = context_course::instance($course->id);
 
-if (($marker >=0) && has_capability('moodle/course:setcurrentsection', $context) && confirm_sesskey()) {
+if (($marker >= 0) && has_capability('moodle/course:setcurrentsection', $context) && confirm_sesskey()) {
     $course->marker = $marker;
     course_set_marker($course->id, $marker);
 }
@@ -50,19 +51,23 @@ $course = course_get_format($course)->get_course();
 course_create_sections_if_missing($course, range(0, $course->numsections));
 
 //$is_teacher = has_capability('moodle/course:setcurrentsection', $context);
-if($PAGE->user_is_editing()) {
-	$alt_format = 'topics';
-	include($CFG->dirroot.'/course/format/'.$alt_format.'/format.php');
-	return;
+if ($PAGE->user_is_editing()) {
+    $alt_format = 'topics';
+    include($CFG->dirroot . '/course/format/' . $alt_format . '/format.php');
+    return;
 }
 
-require_once($CFG->dirroot.'/course/format/simple/lib.php');
+require_once($CFG->dirroot . '/course/format/simple/lib.php');
 
 $renderer = $PAGE->get_renderer('format_simple');
 
 // Fixes error when URL contains param "&section=-1"
-if ($displaysection < 0) {
+if (isset($displaysection) && ($displaysection < 0)) {
     $displaysection = 0;
 }
 
-$renderer->print_single_section_page($course, null, null, null, null, $displaysection);
+if (!empty($displaysection)) {
+    $renderer->print_single_section_page($course, null, null, null, null, $displaysection);
+} else {
+    $renderer->print_multiple_section_page($course, null, null, null, null);
+}
