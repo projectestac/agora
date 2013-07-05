@@ -15,6 +15,7 @@ MOODLE2
 - Added support for SSO from Zikula 1.3
 - Added removal of temp files to local/agora/cron.php
 - Fixed course format 'Senzill per temes' not being able to go to next topic
+- Updated catalan translation files (05-07-2013)
 
 PORTAL
 - Added catalan name of module Users to https login
