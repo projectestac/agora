@@ -16,6 +16,7 @@ MOODLE2
 - Added removal of temp files to local/agora/cron.php
 - Fixed course format 'Senzill per temes' not being able to go to next topic
 - Updated catalan translation files (05-07-2013)
+- Fixed theme selector to let select a theme when !is_agora
 
 PORTAL
 - Added catalan name of module Users to https login
