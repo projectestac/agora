@@ -5,6 +5,11 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+Changes 13.07.10
+---------------------------------------------------------------------------------------
 GENERAL
 - Added muc directory and cacheconfig.php to checkFiles.php
 - Added code to block access during stress tests
