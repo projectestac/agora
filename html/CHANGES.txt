@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE
+- Fixed backup copies not being automatically removed when moving to Moodle 2
+
 MOODLE 2
 - Fix for style in module page which is incorrectly overriden by style in rcommon block
 

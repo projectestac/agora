@@ -46,6 +46,9 @@ $prefs['backup_gradebook_history'] = 0;
 
 $preferences = backup_generate_preferences_artificially($course, $prefs);
 $preferences -> backup_destination = $backuppath;
+$preferences -> backup_keep = 0;
+$preferences -> keep_name = backup_get_keep_name($course);
+schedule_backup_course_delete_old_files($preferences, $ara);
 
 $errorstring = '';
 $status = backup_execute($preferences, $errorstring);
