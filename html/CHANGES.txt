@@ -5,7 +5,8 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-
+MOODLE 2
+- Fix for style in module page which is incorrectly overriden by style in rcommon block
 
 
 Changes 13.07.10

@@ -188,7 +188,7 @@ switch ($action){
 			</script>';
 		
 		// print content
-		echo '<p class="center"><h3>' . $book->name . ' (' . $book->isbn . ')</h3></p>';
+		echo '<p class="center_rcommon"><h3>' . $book->name . ' (' . $book->isbn . ')</h3></p>';
         echo '<div class="right"><input onclick="document.location.href=\'keyManager_new.php?action=add&id_bk=' . $id . '\';" type="submit" value="'.get_string('keymanager_add', 'block_rcommon').'" /></div>';
 		echo '<form action="keyManager_new.php?id_bk=' . $id . '" id="frm" name="frm" method="post">
 		<table cellpading="5" width="100%" class="generaltable">
@@ -247,12 +247,12 @@ switch ($action){
 				}
 			}
 		</script>';
-		echo '<p class="center"><h3>' . $book->name . ' (' . $book->isbn . ')</h3></p>
+		echo '<p class="center_rcommon"><h3>' . $book->name . ' (' . $book->isbn . ')</h3></p>
 			<p id="pErrorMessage" style="color:red; display:none;">' . get_string('checkcredentialko_messageempty', 'block_rcommon') . '</p>
 			<form action="' . $CFG->wwwroot . '/blocks/rcommon/keyManager_new.php?action=doEdit&id_bk=' . $id_bk . '" method="POST" onsubmit="validate(this); return false;"><input type="hidden" name="id_cr" value="' . $id . '">
                <p>' . get_string('credential', 'block_rcommon'). ': <input type="text" id="new_credential" name="new_credential" value="' . $credential->credentials . '"> <input type="submit" value="' . get_string('keymanager_save', 'block_rcommon') . '"></p>
 			</form>
-		<p class="center"><a href="keyManager_new.php?action=manage&id_bk=' . $id_bk . '" title=""><button>' . get_string('back') . '</button></a></p>';
+		<p class="center_rcommon"><a href="keyManager_new.php?action=manage&id_bk=' . $id_bk . '" title=""><button>' . get_string('back') . '</button></a></p>';
 		
 		break;
 	case 'doEdit':
@@ -267,12 +267,12 @@ switch ($action){
 		$update->timemodified = time();
 		
 		if ($DB->update_record('rcommon_user_credentials', $update)){
-			echo '<p class="center">' . get_string('keymanager_doEdit_ok', 'block_rcommon') . '</p>';
+			echo '<p class="center_rcommon">' . get_string('keymanager_doEdit_ok', 'block_rcommon') . '</p>';
 		} else {
-			echo '<p class="center">' . get_string('keymanager_doEdit_ko', 'block_rcommon') . '</p>';
+			echo '<p class="center_rcommon">' . get_string('keymanager_doEdit_ko', 'block_rcommon') . '</p>';
 		}
 		
-		echo '<p class="center">(' . get_string('keymanager_doEdit_message', 'block_rcommon') . ' <a href="keyManager_new.php?action=manage&id_bk=' . $id_book . '" title="' . get_string('goback_title', 'block_rcommon') . '">' . get_string('click_here', 'block_rcommon') . '<a>)</p>
+		echo '<p class="center_rcommon">(' . get_string('keymanager_doEdit_message', 'block_rcommon') . ' <a href="keyManager_new.php?action=manage&id_bk=' . $id_book . '" title="' . get_string('goback_title', 'block_rcommon') . '">' . get_string('click_here', 'block_rcommon') . '<a>)</p>
 			<script type="text/javascript">setTimeout(function(){ location.href = \'keyManager_new.php?action=manage&id_bk=' . $id_book . '\'}, 2000);</script>';
 		
 		break;
@@ -282,12 +282,12 @@ switch ($action){
 		$ids_where = implode(',', $ids);
 		
 	   	if ($DB->execute("UPDATE {$CFG->prefix}rcommon_user_credentials SET euserid = '0', timemodified = '" . time() . "' WHERE id IN ({$ids_where})")){
-	   		echo '<p class="center">' . get_string('keymanager_unassing_ok', 'block_rcommon') . '</p>';
+	   		echo '<p class="center_rcommon">' . get_string('keymanager_unassing_ok', 'block_rcommon') . '</p>';
 	   	} else {
-	   		echo '<p class="center">' . get_string('keymanager_unassing_ko', 'block_rcommon') . '</p>';
+	   		echo '<p class="center_rcommon">' . get_string('keymanager_unassing_ko', 'block_rcommon') . '</p>';
 	   	}
 	   	
-	   	echo '<p class="center">(' . get_string('keymanager_doEdit_message', 'block_rcommon') . ' <a href="keyManager_new.php?action=manage&id_bk=' . $id_bk . '" title="' . get_string('goback_title', 'block_rcommon') . '">' . get_string('click_here', 'block_rcommon') . '<a>)</p>
+	   	echo '<p class="center_rcommon">(' . get_string('keymanager_doEdit_message', 'block_rcommon') . ' <a href="keyManager_new.php?action=manage&id_bk=' . $id_bk . '" title="' . get_string('goback_title', 'block_rcommon') . '">' . get_string('click_here', 'block_rcommon') . '<a>)</p>
 	   	<script type="text/javascript">setTimeout(function(){ location.href = \'keyManager_new.php?action=manage&id_bk=' . $id_bk . '\'}, 2000);</script>';
 	   	
 		break;
@@ -297,12 +297,12 @@ switch ($action){
 		$ids_where = implode(',', $ids);
 		
 	   	if ($DB->execute("DELETE FROM {$CFG->prefix}rcommon_user_credentials WHERE id IN ({$ids_where})")){
-	   		echo '<p class="center">' . get_string('keymanager_delete_ok', 'block_rcommon') . '</p>';
+	   		echo '<p class="center_rcommon">' . get_string('keymanager_delete_ok', 'block_rcommon') . '</p>';
 	   	} else {
-	   		echo '<p class="center">' . get_string('keymanager_delete_ko', 'block_rcommon') . '</p>';
+	   		echo '<p class="center_rcommon">' . get_string('keymanager_delete_ko', 'block_rcommon') . '</p>';
 	   	}
 	   	
-	   	echo '<p class="center">(' . get_string('keymanager_doEdit_message', 'block_rcommon') . ' <a href="keyManager_new.php?action=manage&id_bk=' . $id_bk . '" title="' . get_string('goback_title', 'block_rcommon') . '">' . get_string('click_here', 'block_rcommon') . '<a>)</p>
+	   	echo '<p class="center_rcommon">(' . get_string('keymanager_doEdit_message', 'block_rcommon') . ' <a href="keyManager_new.php?action=manage&id_bk=' . $id_bk . '" title="' . get_string('goback_title', 'block_rcommon') . '">' . get_string('click_here', 'block_rcommon') . '<a>)</p>
 	   	<script type="text/javascript">setTimeout(function(){ location.href = \'keyManager_new.php?action=manage&id_bk=' . $id_bk . '\'}, 2000);</script>';
 	   	
 		break;
@@ -476,7 +476,7 @@ switch ($action){
 		$user_to_show_cnt = is_array($users_to_show)?count($users_to_show): 0;
 		//echo '<hr>users_to_show: ' . serialize($users_to_show) . '<hr>';
 
-		echo '<p class="center"><h3>' . $book->name . ' (' . $book->isbn . ')</h3></p>
+		echo '<p class="center_rcommon"><h3>' . $book->name . ' (' . $book->isbn . ')</h3></p>
 		<p>' . get_string('keymanager_selected_for_assign', 'block_rcommon', $ids_cnt) . '<br>' . get_string('keymanager_no_assigned_user', 'block_rcommon', $already_unassigned) . '</p>';
 		echo '<script type="text/javascript">
 			function check_max_users(){
@@ -639,7 +639,7 @@ switch ($action){
 				}
 			}
 		</script>';
-		echo '<p class="center"><h3>' . $book->name . ' (' . $book->isbn . ')</h3></p>
+		echo '<p class="center_rcommon"><h3>' . $book->name . ' (' . $book->isbn . ')</h3></p>
 			<form action="keyManager_new.php?action=doAdd&id_bk=' . $id_bk . '" method="POST" onsubmit="validate(this); return false;">
 			<p id="pErrorMessage" style="color:red; display:none;">' . get_string('checkcredentialko_messageempty', 'block_rcommon') . '</p>
 			<p>' . get_string('credential', 'block_rcommon'). ': <input type="text" id="new_credential" name="new_credential" value=""> <input type="submit" value="' . get_string('keymanager_save', 'block_rcommon') . '"></p>
@@ -664,11 +664,11 @@ switch ($action){
 			//$cred = $DB->get_record_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$bk->isbn}' AND credentials = '{$new_credential}'");
 			//if ($cred){
 // ************ FI
-				echo '<p class="center">' . get_string('keymanager_addrepitedcredential_message', 'block_rcommon') . '</p>
+				echo '<p class="center_rcommon">' . get_string('keymanager_addrepitedcredential_message', 'block_rcommon') . '</p>
 				<form action="keyManager_new.php?action=doAdd&id_bk=' . $id_bk .  '" method="post">
 					<input type="hidden" name="new_credential" value="' . $new_credential . '">
 					<input type="hidden" name="confirm" value="1">
-					<p class="center"><input type="submit" value="' . get_string('yes') . '"> <input type="button" value="' . get_string('no') . '" onclick="location.href=\'keyManager_new.php?action=manage&id_bk=' . $id_bk . '\'"></p>
+					<p class="center_rcommon"><input type="submit" value="' . get_string('yes') . '"> <input type="button" value="' . get_string('no') . '" onclick="location.href=\'keyManager_new.php?action=manage&id_bk=' . $id_bk . '\'"></p>
 				</form>';
 				break;	
 			}
@@ -682,12 +682,12 @@ switch ($action){
 		$insert->timemodified = time();
 		
 		if ($DB->insert_record('rcommon_user_credentials', $insert)){
-			echo '<p class="center">' . get_string('keymanager_doAdd_ok', 'block_rcommon') . '</p>';
+			echo '<p class="center_rcommon">' . get_string('keymanager_doAdd_ok', 'block_rcommon') . '</p>';
 		} else {
-			echo '<p class="center">' . get_string('keymanager_doAdd_ko', 'block_rcommon') . '</p>';
+			echo '<p class="center_rcommon">' . get_string('keymanager_doAdd_ko', 'block_rcommon') . '</p>';
 		}
 		
-		echo '<p class="center">(' . get_string('keymanager_doEdit_message', 'block_rcommon') . ' <a href="keyManager_new.php?action=manage&id_bk=' . $id_bk . '" title="' . get_string('goback_title', 'block_rcommon') . '">' . get_string('click_here', 'block_rcommon') . '<a>)</p>
+		echo '<p class="center_rcommon">(' . get_string('keymanager_doEdit_message', 'block_rcommon') . ' <a href="keyManager_new.php?action=manage&id_bk=' . $id_bk . '" title="' . get_string('goback_title', 'block_rcommon') . '">' . get_string('click_here', 'block_rcommon') . '<a>)</p>
 			<script type="text/javascript">setTimeout(function(){ location.href = \'keyManager_new.php?action=manage&id_bk=' . $id_bk . '\'}, 2000);</script>';
 		
 		break;
@@ -719,7 +719,7 @@ switch ($action){
 		<form action="keyManager_new.php?action=importstep2" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="MAX_FILE_SIZE" value="' . $post_max_size_bytes . '"/>
 			<input type="file" name="file">';
-			echo '<br><p class="center"><input type="submit" value="' . get_string('keymanager_import_button', 'block_rcommon') . '"/> <input type="button" value="' . get_string('back') . '" onclick="location.href=\'keyManager_new.php\'"></p>
+			echo '<br><p class="center_rcommon"><input type="submit" value="' . get_string('keymanager_import_button', 'block_rcommon') . '"/> <input type="button" value="' . get_string('back') . '" onclick="location.href=\'keyManager_new.php\'"></p>
 		</form>';
 		break;
 	case 'importstep2':
@@ -737,10 +737,10 @@ switch ($action){
 		if (!isset($_FILES['file']) || $_FILES['file']['error'] > 0){
 			if ($_FILES['file']['error'] > 0 && $_FILES['file']['error'] < 8){
 				echo '<p style="color:red;">' . get_string('keymanager_import_error_' . $_FILES['file']['error'], 'block_rcommon') . '</p>';
-				echo '<br><p class="center"><a href="keyManager_new.php?action=import"><button>' . get_string('back') . '</button></a></p>';
+				echo '<br><p class="center_rcommon"><a href="keyManager_new.php?action=import"><button>' . get_string('back') . '</button></a></p>';
 			} else {
 				echo '<p style="color:red;">' . get_string('keymanager_import_error', 'block_rcommon') . '</p>';
-				echo '<br><p class="center"><a href="keyManager_new.php?action=import"><button>' . get_string('back') . '</button></a></p>';
+				echo '<br><p class="center_rcommon"><a href="keyManager_new.php?action=import"><button>' . get_string('back') . '</button></a></p>';
 			}
 			break;
 		}
@@ -950,12 +950,12 @@ switch ($action){
 			
 			//test file not empty
 			if ($i == 0){
-				echo '<br><br><p class="center"><a href="keyManager_new.php?action=import"><button>' . get_string('back') . '</button></a></p>';
+				echo '<br><br><p class="center_rcommon"><a href="keyManager_new.php?action=import"><button>' . get_string('back') . '</button></a></p>';
 				break;
 			}
 			if ($i == 1){
 				echo '<p>' . get_string('keymanager_import_error_17', 'block_rcommon') . '</p>';
-				echo '<br><br><p class="center"><a href="keyManager_new.php?action=import"><button>' . get_string('back') . '</button></a></p>';
+				echo '<br><br><p class="center_rcommon"><a href="keyManager_new.php?action=import"><button>' . get_string('back') . '</button></a></p>';
 				break;
 			}
 			
@@ -989,7 +989,7 @@ switch ($action){
 			
 			if ($critical_error){
 				echo '<p>' . get_string('keymanager_import_resum_error', 'block_rcommon') . '</p>';
-				echo '<p class="center"><a href="keyManager_new.php?action=import"><button>' . get_string('cancel') . '</button></a></p>';
+				echo '<p class="center_rcommon"><a href="keyManager_new.php?action=import"><button>' . get_string('cancel') . '</button></a></p>';
 			} else {
 				
 				if (count($rows_error) != 0){
@@ -999,13 +999,13 @@ switch ($action){
 						echo '<p>' . get_string('keymanager_import_resum_msg', 'block_rcommon') . '</p>';
 					}
 				
-					echo '<form id="frm" name="frm" action="keyManager_new.php?action=importstep3" method="post" class="center">
+					echo '<form id="frm" name="frm" action="keyManager_new.php?action=importstep3" method="post" class="center_rcommon">
 						<input type="hidden" name="columns" value=\'' . serialize($columns) . '\'>
 						<input type="hidden" name="rows" value=\'' . serialize($rows) . '\'>
 						<input type="hidden" name="rows_alert" value=\'' . serialize($rows_alert) . '\'>';
-					echo '<br><p class="center"><input type="submit" value="' . get_string('continue') . '"/> <a href="keyManager_new.php"><input type="button" value="' . get_string('back') . '"/></a></p></form>';
+					echo '<br><p class="center_rcommon"><input type="submit" value="' . get_string('continue') . '"/> <a href="keyManager_new.php"><input type="button" value="' . get_string('back') . '"/></a></p></form>';
 				} else {
-					echo '<form id="frm" name="frm" action="keyManager_new.php?action=importstep3" method="post" class="center">
+					echo '<form id="frm" name="frm" action="keyManager_new.php?action=importstep3" method="post" class="center_rcommon">
 					<input type="hidden" name="columns" value=\'' . serialize($columns) . '\'>
 					<input type="hidden" name="rows" value=\'' . serialize($rows) . '\'>
 					<input type="hidden" name="rows_alert" value=\'' . serialize($rows_alert) . '\'>';
@@ -1014,7 +1014,7 @@ switch ($action){
 			}
 		} else {
 			echo get_string('keymanager_import_error_8', 'block_rcommon');
-			echo '<br><br><p class="center"><a href="keyManager_new.php?action=import"><button>' . get_string('back') . '</button></a></p>';
+			echo '<br><br><p class="center_rcommon"><a href="keyManager_new.php?action=import"><button>' . get_string('back') . '</button></a></p>';
 			break;
 		}
 		
@@ -1051,7 +1051,7 @@ switch ($action){
 				}
 			}
 		echo '</table>
-		<div class="center" style="width: 300px;background-color: #e1e1e1; margin: 10px 0 0 300px; padding: 3px;">
+		<div class="center_rcommon" style="width: 300px;background-color: #e1e1e1; margin: 10px 0 0 300px; padding: 3px;">
 			<p><b>' . get_string('keymanager_import_resum', 'block_rcommon') . '</b></p>
 			<p style="text-align:left;">' . get_string('marsupialcredentials', 'block_rcommon') . '<span style="float:right; margin-right: 5px;">' . count($rows) . '</span></p>
 			<p style="text-align:left;">' . get_string('keymanager_import_resum_alerts', 'block_rcommon') . '<span style="float:right; margin-right: 5px;">' . count($rows_alert) . '</span></p>
@@ -1061,8 +1061,8 @@ switch ($action){
 		<form action="keyManager_new.php?action=importstep4" method="post">
 			<input type="hidden" name="columns" value=\'' . serialize($columns) . '\'>
 			<input type="hidden" name="rows" value=\'' . $rows_ser . '\'>
-			<!--p class="center">' . get_string('keymanager_import_resum_msg', 'block_rcommon', count($rows)) . '</p-->
-			<p class="center"><input type="submit" value="' . get_string('keymanager_import_button', 'block_rcommon') . '"/> <a href="' . $CFG->wwwroot . '/blocks/rcommon/keyManager_new.php"><input type="button" value="' . get_string('cancel') . '"/></a></p>
+			<!--p class="center_rcommon">' . get_string('keymanager_import_resum_msg', 'block_rcommon', count($rows)) . '</p-->
+			<p class="center_rcommon"><input type="submit" value="' . get_string('keymanager_import_button', 'block_rcommon') . '"/> <a href="' . $CFG->wwwroot . '/blocks/rcommon/keyManager_new.php"><input type="button" value="' . get_string('cancel') . '"/></a></p>
 		</form>';
 		
 		break;
@@ -1104,7 +1104,7 @@ switch ($action){
 			$a = new stdClass();
 			$a->ok = count($rows);
 		}
-		echo '<p class="center">' . get_string($msg, 'block_rcommon', $a) . ' <a href="keyManager_new.php" title="' . get_string('goback_title', 'block_rcommon') . '">' . get_string('click_here', 'block_rcommon') . '<a>)</p>
+		echo '<p class="center_rcommon">' . get_string($msg, 'block_rcommon', $a) . ' <a href="keyManager_new.php" title="' . get_string('goback_title', 'block_rcommon') . '">' . get_string('click_here', 'block_rcommon') . '<a>)</p>
 			<script type="text/javascript">setTimeout(function(){ location.href = \'keyManager_new.php\'}, 2000);</script>';
 		break;
 	default:

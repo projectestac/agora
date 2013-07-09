@@ -71,12 +71,12 @@ switch($action){
 				}
 			}
 		</script>';
-		echo '<p class="center">' . $book->name . ' (' . $book->isbn . ')</p>
+		echo '<p class="center_rcommon">' . $book->name . ' (' . $book->isbn . ')</p>
 		<form action="' . $CFG->wwwroot . '/blocks/my_books/manageKey.php?action=doEdit&id_cd=' . $id . '" method="POST" onsubmit="validate(this); return false;"><input type="hidden" name="id_cr" value="' . $id . '">
-		<p id="pErrorMessage" class="center" style="color:red; display:none;">' . get_string('checkcredentialko_messageempty', 'block_my_books') . '</p>
-		<p class="center">' . get_string('credential', 'block_my_books'). ': <input type="text" id="new_credential" name="new_credential" value="' . $credential->credentials . '"> <input type="submit" value="' . get_string('keymanager_save', 'block_my_books') . '"></p>
+		<p id="pErrorMessage" class="center_rcommon" style="color:red; display:none;">' . get_string('checkcredentialko_messageempty', 'block_my_books') . '</p>
+		<p class="center_rcommon">' . get_string('credential', 'block_my_books'). ': <input type="text" id="new_credential" name="new_credential" value="' . $credential->credentials . '"> <input type="submit" value="' . get_string('keymanager_save', 'block_my_books') . '"></p>
 		</form>
-		<p class="center"><a href="' . $CFG->wwwroot . '/blocks/my_books/manageKey.php" title=""><button>' . get_string('back') . '</button></a></p>';
+		<p class="center_rcommon"><a href="' . $CFG->wwwroot . '/blocks/my_books/manageKey.php" title=""><button>' . get_string('back') . '</button></a></p>';
 		
 		break;
 	case 'doEdit':
@@ -111,12 +111,12 @@ switch($action){
 			$update->timemodified = time();
 			
 			if ($DB->update_record('rcommon_user_credentials', $update)){
-				echo '<p class="center">' . get_string('keymanager_doEdit_ok', 'block_my_books') . '</p>';
+				echo '<p class="center_rcommon">' . get_string('keymanager_doEdit_ok', 'block_my_books') . '</p>';
 			} else {
-				echo '<p class="center">' . get_string('keymanager_doEdit_ko', 'block_my_books') . '</p>';
+				echo '<p class="center_rcommon">' . get_string('keymanager_doEdit_ko', 'block_my_books') . '</p>';
 			}
 			
-			echo '<p class="center">(' . get_string('keymanager_doEdit_message', 'block_my_books') . ' <a href="manageKey.php" title="' . get_string('goback_title', 'block_my_books') . '">' . get_string('click_here', 'block_my_books') . '<a>)</p>
+			echo '<p class="center_rcommon">(' . get_string('keymanager_doEdit_message', 'block_my_books') . ' <a href="manageKey.php" title="' . get_string('goback_title', 'block_my_books') . '">' . get_string('click_here', 'block_my_books') . '<a>)</p>
 				<script type="text/javascript">setTimeout(function(){ location.href = \'manageKey.php\'}, 2000);</script>';
 		} else {
 			//print_content
@@ -130,12 +130,12 @@ switch($action){
 				}
 			}
 			</script>';
-			echo '<p class="center">' . $credential->name . ' (' . $credential->isbn . ')</p>
+			echo '<p class="center_rcommon">' . $credential->name . ' (' . $credential->isbn . ')</p>
 			<form action="manageKey.php?action=doEdit&id_cd=' . $id . '" method="POST" onsubmit="validate(this); return false;">
-			<p id="pErrorMessage" class="center" style="color: red;">' . get_string('checkcredentialko_message', 'block_my_books', get_string('error_code_' . $result->AutenticarUsuarioContenidoResult->Codigo, 'block_my_books')) . '</p>
-			<p class="center">' . get_string('credential', 'block_my_books'). ': <input type="text" id="new_credential" name="new_credential" value="' . $new_credential . '"> <input type="submit" value="' . get_string('keymanager_save', 'block_my_books') . '"></p>
+			<p id="pErrorMessage" class="center_rcommon" style="color: red;">' . get_string('checkcredentialko_message', 'block_my_books', get_string('error_code_' . $result->AutenticarUsuarioContenidoResult->Codigo, 'block_my_books')) . '</p>
+			<p class="center_rcommon">' . get_string('credential', 'block_my_books'). ': <input type="text" id="new_credential" name="new_credential" value="' . $new_credential . '"> <input type="submit" value="' . get_string('keymanager_save', 'block_my_books') . '"></p>
 			</form>
-			<p class="center"><a href="manageKey.php" title="' . get_string('goback_title', 'block_my_books') . '"><button>' . get_string('back') . '</button></a></p>';
+			<p class="center_rcommon"><a href="manageKey.php" title="' . get_string('goback_title', 'block_my_books') . '"><button>' . get_string('back') . '</button></a></p>';
 		}
 		
 		break;
@@ -147,12 +147,12 @@ switch($action){
 			// *************** ORIGINAL
 			//if (execute_sql("UPDATE {$CFG->prefix}rcommon_user_credentials SET euserid = '0', timemodified = '" . time() . "' WHERE id IN ({$id})", false)){
 			// *************** FI
-				echo '<p class="center">' . get_string('keymanager_unassing_ok', 'block_my_books') . '</p>';
+				echo '<p class="center_rcommon">' . get_string('keymanager_unassing_ok', 'block_my_books') . '</p>';
 			} else {
-				echo '<p class="center">' . get_string('keymanager_unassing_ko', 'block_my_books') . '</p>';
+				echo '<p class="center_rcommon">' . get_string('keymanager_unassing_ko', 'block_my_books') . '</p>';
 			}
 			 
-			echo '<p class="center">(' . get_string('keymanager_doEdit_message', 'block_my_books') . ' <a href="manageKey.php" title="' . get_string('goback_title', 'block_my_books') . '">' . get_string('click_here', 'block_my_books') . '<a>)</p>
+			echo '<p class="center_rcommon">(' . get_string('keymanager_doEdit_message', 'block_my_books') . ' <a href="manageKey.php" title="' . get_string('goback_title', 'block_my_books') . '">' . get_string('click_here', 'block_my_books') . '<a>)</p>
 			<script type="text/javascript">setTimeout(function(){ location.href = \'manageKey.php\'}, 2000);</script>';
 			 
 			break;
