@@ -5,11 +5,11 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-MOODLE
-- Fixed backup copies not being automatically removed when moving to Moodle 2
+GENERAL
+- Updated cron URL for Moodle 2 after URL change
 
 MOODLE 2
-- Fix for style in module page which is incorrectly overriden by style in rcommon block
+- Changed cron order to delete files from temp before uppgrading assignments (to avoid problems with course sections) and reviewed code to avoid warning when trying to delete '.' folder
 
 
 Changes 13.07.10
@@ -17,6 +17,9 @@ Changes 13.07.10
 GENERAL
 - Added muc directory and cacheconfig.php to checkFiles.php
 - Added code to block access during stress tests
+
+MOODLE
+- Fixed backup copies not being automatically removed when moving to Moodle 2
 
 MOODLE2
 - Changed lib/moodlelib.php to add odissea auth method
@@ -26,6 +29,7 @@ MOODLE2
 - Fixed course format 'Senzill per temes' not being able to go to next topic
 - Updated catalan translation files (05-07-2013)
 - Fixed theme selector to let select a theme when !is_agora
+- Fix for style in module page which is incorrectly overriden by style in rcommon block
 
 PORTAL
 - Added catalan name of module Users to https login
