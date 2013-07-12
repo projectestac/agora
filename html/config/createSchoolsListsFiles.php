@@ -128,7 +128,7 @@ if (isset($_REQUEST['update'])) {
 
     $schools_var = '';
     foreach ($schools2 as $school) {
-        $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle2/admin/cron.php\n";
+        $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/cron.php\n";
     }
 
     echo '<br /><br />';
