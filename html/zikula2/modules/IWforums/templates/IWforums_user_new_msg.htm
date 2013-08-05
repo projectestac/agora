@@ -38,7 +38,7 @@
             {if $adjunts neq "0"}
             <div class="z-formrow">
                 <label for="adjunt">{gt text="Attached file"}</label>
-                <input type="file" id="adjunt" name="adjunt" size="50" />
+                <input type="file" id="adjunt" name="adjunt" />
             </div>
             {/if}
             {if $icons neq ''}
@@ -47,7 +47,8 @@
                 <div class="z-formnote">
                     <input type="radio" id="icon" name="icon" value="" checked />
                     {section name=icons loop=$icons}
-                    <input type="radio" name="icon" value="{$icons[icons].imgsrc}" /><img src="modules/IWmain/images/smilies/{$icons[icons].imgsrc}" alt="" />
+                    <input type="radio" name="icon" value="{$icons[icons].imgsrc}" />
+                    <img src="modules/IWmain/images/smilies/{$icons[icons].imgsrc}" alt="" style="vertical-align: middle;" />
                     {/section}
                 </div>
             </div>
@@ -55,7 +56,7 @@
             <input type="hidden" name="icon" value="" />
             {/if}
             <div class="z-formrow">
-                <label for="adjunt">{gt text="Message"}</label>
+                <label for="intraweb">{gt text="Message"}</label>
                 <textarea name="msg" cols="80" rows="10" id="intraweb"></textarea>
             </div>
         </fieldset>

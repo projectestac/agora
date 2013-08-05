@@ -1,19 +1,19 @@
 {userloggedin assign=userid}
 <div class="usercontainer">
     <table class="usertable">
-        {if $photo neq '' AND ($userid neq '' OR $avatarsVisible eq 1)}
-            <tr>
-                <td rowspan="3" width="30" valign="top" style="vertical-align: top;">
-                    <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$photo}" class="photoImg" />
-                </td>
-            </tr>
-        {/if}
+        <tr>
+            <td rowspan="3" width="50" valign="top" style="vertical-align: top;">
+                {if $photo neq '' AND ($userid neq '' OR $avatarsVisible eq 1)}
+                <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$photo}" class="photoImg" />
+                {/if}
+            </td>
+        </tr>
         {if $adjunt neq ""}
         <tr>
             <td>
                 <div>
                     {gt text="Attached file"}:
-                    <img src="modules/IWmain/images/fileIcons/{$fileIcon}"/>
+                    <img src="modules/IWmain/images/fileIcons/{$fileIcon}" style="vertical-align: middle;" />
                     <a href="{modurl modname='IWforums' type='user' func='download' fileName=$adjunt fmid=$fmid fid=$fid}">
                         {$adjunt|safetext}
                     </a>

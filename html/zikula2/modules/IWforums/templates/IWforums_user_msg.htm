@@ -38,7 +38,7 @@
         {if $adjunt neq ""}
         <div>
             {gt text="Attached file"}:
-            <img src="modules/IWmain/images/fileIcons/{$fileIcon}" />
+            <img src="modules/IWmain/images/fileIcons/{$fileIcon}" style='vertical-align: middle;' />
             <a href="{modurl modname='IWforums' type='user' func='download' fileName=$adjunt fmid=$fmid fid=$fid}">
                 {$adjunt|safetext}
             </a>
@@ -55,12 +55,16 @@
     <table class="usertable">
         <tr>
             {if $userid neq ''}
-            <th>{img modname='IWforums' src='marcat.gif'}</th>
+            <th><img src="modules/IWforums/images/marcat.gif" style="vertical-align: middle;" /></th>
             {/if}
-            {if $icons}<th>&nbsp;</th>{/if}
-            {if $adjunts}<th>{img modname='IWforums' src='file.gif'}</th>{/if}
+            {if $icons}
+            <th>&nbsp;</th>
+            {/if}
+            {if $adjunts}
+            <th><img src="modules/IWforums/images/file.gif" style="vertical-align: middle;" /></th>
+            {/if}
             {if $userid neq ''}
-            <th>{img modname='IWforums' src='MsgNoMsg.gif'}</th>
+            <th><img src="modules/IWforums/images/MsgNoMsg.gif" style="vertical-align: middle;" /></th>
             {/if}
             <th style="text-align:left;">{gt text="Title"}</th>
             <th style="text-align:left;">{gt text="Sender"}</th>
@@ -72,14 +76,14 @@
             {if $userid neq ''}
             <td align="center" width="10">
                 <a href="javascript:mark({$fid},{$messageList.fmid})">
-                    {img modname='IWforums' src=$messageList.marcat __alt=$messageList.textmarca __title=$messageList.textmarca id=$messageList.fmid}
+                    <img src="modules/IWforums/images/{$messageList.marcat}" style="vertical-align: middle;" alt="{$messageList.textmarca}" title="{$messageList.textmarca}" id={$messageList.fmid} />
                 </a>
             </td>
             {/if}
             {if $icons}
             <td align="center" width="10">
                 {if $messageList.icon neq ""}
-                {img modname='IWmain' src=$messageList.icon set='smilies' __alt=$messageList.icon __title=$messageList.icon}
+                <img src="modules/IWmain/images/smilies/{$messageList.icon}" style="vertical-align: middle;" alt="{$messageList.icon}" title="{$messageList.icon}" />
                 {/if}
             </td>
             {/if}
@@ -87,7 +91,7 @@
             <td align="center" width="10">
                 {if $messageList.adjunt neq ""}
                 <a title="{$messageList.adjunt}">
-                    {img modname='IWforums' src='file.gif' __alt=$messageList.adjunt __title=$messageList.adjunt}
+                    <img src="modules/IWforums/images/file.gif" style="vertical-align: middle;" alt="{$messageList.adjunt}" title="{$messageList.adjunt}" />
                 </a>
                 {/if}
             </td>
@@ -95,7 +99,7 @@
             {if $userid neq ''}
             <td style="text-align:center;" width="10">
                 <a href="{modurl modname='IWforums' type='user' func='msg' fmid=$messageList.fmid ftid=$ftid fid=$fid u=$u oid=$messageList.oid inici=$inici}">
-                    {img modname='IWforums' src=$messageList.imatge}
+                    <img src="modules/IWforums/images/{$messageList.imatge}" style="vertical-align: middle;" />
                 </a>
             </td>
             {/if}
@@ -110,8 +114,8 @@
             <td style="color:#777; text-align:center;">
                 <strong>{$messageList.date}</strong>
             </td>
-            <td style="color:#777; text-align:center;"><strong>
-                    {$messageList.time}</strong>
+            <td style="color:#777; text-align:center;">
+                <strong>{$messageList.time}</strong>
             </td>
         </tr>
         {/foreach}

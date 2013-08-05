@@ -143,7 +143,7 @@
         {foreach item=message from=$messages}
         <tr bgcolor="{cycle values="#ffffff, #eeeeee"}">
             {if $userid neq ''}
-            <td align="center" width="10" onclick="javascript:mark({$fid},{$message.fmid})">
+            <td align="center" width="10" onclick="javascript:mark({$fid}, {$message.fmid})">
                 {img modname='IWforums' src=$message.marcat __alt=$message.textmarca __title=$message.textmarca id=$message.fmid}
             </td>
             {/if}
@@ -177,7 +177,7 @@
                     </a>
                 </div>
                 <div class="titleRowIcon">
-                    <img src="modules/IWforums/images/msgopen.gif" onClick="javascript:openMsg({$message.fmid},{$fid},{$ftid},{$u},{$message.oid},{$inici})" id="openMsgIcon_{$message.fmid}" name="openMsgIcon_{$message.fmid}">
+                    <img src="modules/IWforums/images/msgopen.gif" onClick="javascript:openMsg({$message.fmid}, {$fid}, {$ftid}, {$u}, {$message.oid}, {$inici})" id="openMsgIcon_{$message.fmid}" name="openMsgIcon_{$message.fmid}">
                 </div>
             </td>
             <td style="color:green;"><strong>{$users[$message.user]}</strong></td>
