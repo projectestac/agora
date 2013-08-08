@@ -18,20 +18,16 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
 
         $forums = array();
-        $registres = ModUtil::apiFunc('IWforums', 'user', 'getall',
-                        array('filter' => '1'));
+        $registres = ModUtil::apiFunc('IWforums', 'user', 'getall', array('filter' => '1'));
         foreach ($registres as $registre) {
-            $access = ModUtil::func('IWforums', 'user', 'access',
-                            array('fid' => $registre['fid']));
-            $n_msg = ModUtil::apiFunc('IWforums', 'user', 'compta_msg',
-                            array('fid' => $registre['fid'],
-                                'tots' => true));
+            $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $registre['fid']));
+            $n_msg = ModUtil::apiFunc('IWforums', 'user', 'compta_msg', array('fid' => $registre['fid'],
+                        'tots' => true));
             $n_msg_no_llegits = $n_msg['nollegits'];
             $marcats = $n_msg['marcats'];
             $n_msg = $n_msg['nmsg'];
             $color_no_read = ($n_msg_no_llegits > 0) ? "red" : "black";
-            $n_temes = ModUtil::apiFunc('IWforums', 'user', 'compta_temes',
-                            array('fid' => $registre['fid']));
+            $n_temes = ModUtil::apiFunc('IWforums', 'user', 'compta_temes', array('fid' => $registre['fid']));
             $forums[] = array('fid' => $registre['fid'],
                 'nom_forum' => $registre['nom_forum'],
                 'descriu' => $registre['descriu'],
@@ -44,7 +40,7 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
 
         return $this->view->assign('forums', $forums)
-                ->fetch('IWforums_user_main.htm');
+                        ->fetch('IWforums_user_main.htm');
     }
 
     /**
@@ -62,8 +58,7 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         $uid = FormUtil::getPassedValue('uid', isset($args['uid']) ? $args['uid'] : UserUtil::getVar('uid'), 'POST');
         $sv = FormUtil::getPassedValue('sv', isset($args['sv']) ? $args['sv'] : null, 'POST');
         $requestByCron = false;
-        if (!ModUtil::func('IWmain', 'user', 'checkSecurityValue',
-                        array('sv' => $sv))) {
+        if (!ModUtil::func('IWmain', 'user', 'checkSecurityValue', array('sv' => $sv))) {
             // security check
             if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
                 throw new Zikula_Exception_Forbidden();
@@ -77,9 +72,8 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
         // get item
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $item = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid,
-                            'sv' => $sv));
+        $item = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid,
+                    'sv' => $sv));
         if ($item == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -104,9 +98,8 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         // check if user can access the forum throug the group
         // get user groups
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $groups = ModUtil::func('IWmain', 'user', 'getAllUserGroups',
-                        array('sv' => $sv,
-                            'uid' => $uid));
+        $groups = ModUtil::func('IWmain', 'user', 'getAllUserGroups', array('sv' => $sv,
+                    'uid' => $uid));
         $accessType = 0;
         foreach ($groups as $group) {
             $pos = strpos($item['grup'], '$' . $group['id'] . '|');
@@ -136,24 +129,21 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
         //check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 1) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
 
         // get the forum
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($registre == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get the topics of the forum
-        $llistatemes = ModUtil::apiFunc('IWforums', 'user', 'get_temes',
-                        array('fid' => $fid,
-                            'u' => $u));
+        $llistatemes = ModUtil::apiFunc('IWforums', 'user', 'get_temes', array('fid' => $fid,
+                    'u' => $u));
         $hi_ha_temes = ($llistatemes != false) ? true : false;
         $usersList = '';
         $hi_ha_missatges = false;
@@ -162,14 +152,13 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             $usersList .= $tema['lastuser'] . '$$' . $tema['usuari'] . '$$';
         }
         // get list of messages into the topic
-        $listmessages = ModUtil::apiFunc('IWforums', 'user', 'getall_msg',
-                        array('ftid' => 0,
-                            'fid' => $registre['fid'],
-                            'usuari' => $u,
-                            'indent' => 0,
-                            'idparent' => 0,
-                            'inici' => $inici,
-                            'rpp' => 10));
+        $listmessages = ModUtil::apiFunc('IWforums', 'user', 'getall_msg', array('ftid' => 0,
+                    'fid' => $registre['fid'],
+                    'usuari' => $u,
+                    'indent' => 0,
+                    'idparent' => 0,
+                    'inici' => $inici,
+                    'rpp' => 10));
         if ($listmessages != false) {
             $hi_ha_missatges = true;
             foreach ($listmessages as $message) {
@@ -195,7 +184,9 @@ class IWforums_Controller_User extends Zikula_AbstractController {
                     'editable' => $editable,
                     'textmarca' => $textmarca,
                     'indent' => $message['indent'],
-                    'oid' => $message['oid']);
+                    'oid' => $message['oid'],
+                    'onTop' => $message['onTop'],
+                );
             }
         }
 
@@ -203,29 +194,25 @@ class IWforums_Controller_User extends Zikula_AbstractController {
 
         $adjunts = ($registre['adjunts'] == 1) ? true : false;
         $icons = (ModUtil::getVar('IWforums', 'smiliesActive')) ? true : false;
-        $total = ModUtil::apiFunc('IWforums', 'user', 'compta_msg',
-                        array('ftid' => $ftid,
-                            'fid' => $fid,
-                            'u' => $u));
-        $pager = ModUtil::func('IWforums', 'user', 'pager',
-                        array('inici' => $inici,
-                            'total' => $total['nparent'],
-                            'rpp' => 10,
-                            'urltemplate' => 'index.php?module=IWforums&func=forum&inici=%%&fid=' . $fid . '&ftid=' . $ftid . '&u=' . $u));
+        $total = ModUtil::apiFunc('IWforums', 'user', 'compta_msg', array('ftid' => $ftid,
+                    'fid' => $fid,
+                    'u' => $u));
+        $pager = ModUtil::func('IWforums', 'user', 'pager', array('inici' => $inici,
+                    'total' => $total['nparent'],
+                    'rpp' => 10,
+                    'urltemplate' => 'index.php?module=IWforums&func=forum&inici=%%&fid=' . $fid . '&ftid=' . $ftid . '&u=' . $u));
         // get list of users who have writed into the forum
-        $usuaris_rem = ModUtil::apiFunc('IWforums', 'user', 'getremitents',
-                        array('ftid' => 0,
-                            'fid' => $registre['fid']));
+        $usuaris_rem = ModUtil::apiFunc('IWforums', 'user', 'getremitents', array('ftid' => 0,
+                    'fid' => $registre['fid']));
 
         foreach ($usuaris_rem as $user) {
             $usersList .= $user['usuari'] . '$$';
         }
         // get all users information
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo',
-                        array('sv' => $sv,
-                            'info' => 'ncc',
-                            'list' => $usersList));
+        $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv,
+                    'info' => 'ncc',
+                    'list' => $usersList));
         $usuaris[] = array('id' => 0,
             'name' => $this->__('Choose the sender...'));
         foreach ($usuaris_rem as $usuari_rem) {
@@ -236,22 +223,22 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
 
         return $this->view->assign('users', $users)
-                ->assign('icons', $icons)
-                ->assign('name', $registre['nom_forum'])
-                ->assign('adjunts', $adjunts)
-                ->assign('access', $access)
-                ->assign('hi_ha_temes', $hi_ha_temes)
-                ->assign('hi_ha_missatges', $hi_ha_missatges)
-                ->assign('temes', $llistatemes)
-                ->assign('moderator', $moderator)
-                ->assign('messages', $messages)
-                ->assign('usuaris', $usuaris)
-                ->assign('u', $u)
-                ->assign('fid', $fid)
-                ->assign('ftid', $ftid)
-                ->assign('pager', $pager)
-                ->assign('inici', $inici)
-                ->fetch('IWforums_user_forum.htm');
+                        ->assign('icons', $icons)
+                        ->assign('name', $registre['nom_forum'])
+                        ->assign('adjunts', $adjunts)
+                        ->assign('access', $access)
+                        ->assign('hi_ha_temes', $hi_ha_temes)
+                        ->assign('hi_ha_missatges', $hi_ha_missatges)
+                        ->assign('temes', $llistatemes)
+                        ->assign('moderator', $moderator)
+                        ->assign('messages', $messages)
+                        ->assign('usuaris', $usuaris)
+                        ->assign('u', $u)
+                        ->assign('fid', $fid)
+                        ->assign('ftid', $ftid)
+                        ->assign('pager', $pager)
+                        ->assign('inici', $inici)
+                        ->fetch('IWforums_user_forum.htm');
     }
 
     /**
@@ -272,27 +259,25 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
         // check if user can access the forum
-        if (ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid)) < 3) {
+        if (ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid)) < 3) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
 
         // get forum information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($registre == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         return $this->view->assign('adjunts', $registre['adjunts'])
-                ->assign('inici', $inici)
-                ->assign('name', $registre['nom_forum'])
-                ->assign('fid', $fid)
-                ->assign('ftid', 0)
-                ->assign('title', '')
-                ->assign('extensions', ModUtil::getVar('IWmain', 'extensions'))
-                ->fetch('IWforums_user_new_tema.htm');
+                        ->assign('inici', $inici)
+                        ->assign('name', $registre['nom_forum'])
+                        ->assign('fid', $fid)
+                        ->assign('ftid', 0)
+                        ->assign('title', '')
+                        ->assign('extensions', ModUtil::getVar('IWmain', 'extensions'))
+                        ->fetch('IWforums_user_new_tema.htm');
     }
 
     /**
@@ -317,15 +302,13 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
         $this->checkCsrfToken();
         // get forum information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($registre == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 3) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -333,10 +316,9 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         // check if user can moderate the forum
         $moderator = ($access == 4) ? true : false;
         // create a new topic
-        $lidTema = ModUtil::apiFunc('IWforums', 'user', 'crear_tema',
-                        array('fid' => $fid,
-                            'titol' => $titol,
-                            'descriu' => $descriu));
+        $lidTema = ModUtil::apiFunc('IWforums', 'user', 'crear_tema', array('fid' => $fid,
+                    'titol' => $titol,
+                    'descriu' => $descriu));
         if ($lidTema != false) {
             $missatge = $this->__('A new topic has been created.');
             if ($registre['msgDelTime'] > 0 && !$moderator)
@@ -351,10 +333,9 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         if ($fileName != '') {
             $folder = ModUtil::getVar('IWforums', 'urladjunts');
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            $update = ModUtil::func('IWmain', 'user', 'updateFile',
-                            array('sv' => $sv,
-                                'folder' => $folder,
-                                'file' => $_FILES['adjunt']));
+            $update = ModUtil::func('IWmain', 'user', 'updateFile', array('sv' => $sv,
+                        'folder' => $folder,
+                        'file' => $_FILES['adjunt']));
             // the function returns the error string if the update fails and and empty string if success
             if ($update['msg'] != '') {
                 LogUtil::registerError($update['msg'] . ' ' . $this->__('An error has occurred in the attachment of the file. The message has been sent without the attached file.'));
@@ -363,13 +344,12 @@ class IWforums_Controller_User extends Zikula_AbstractController {
                 $nom_fitxer = $update['fileName'];
         }
         if ($titolmsg != '' && $msg != '') {
-            $lid = ModUtil::apiFunc('IWforums', 'user', 'crear_msg',
-                            array('fid' => $fid,
-                                'ftid0' => $lidTema,
-                                'titolmsg' => $titolmsg,
-                                'msg' => $msg,
-                                'adjunt' => $nom_fitxer,
-                                'icon' => $icon));
+            $lid = ModUtil::apiFunc('IWforums', 'user', 'crear_msg', array('fid' => $fid,
+                        'ftid0' => $lidTema,
+                        'titolmsg' => $titolmsg,
+                        'msg' => $msg,
+                        'adjunt' => $nom_fitxer,
+                        'icon' => $icon));
             if ($lid == false) {
                 // error creating message
                 LogUtil::registerError($this->__('An error has occurred while creating a new message'));
@@ -394,8 +374,7 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 1) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -406,31 +385,28 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         if (!isset($inici) || $inici == '')
             $inici = 1;
         // get the forum information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($registre == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         if ($ftid > 0) {
             // get the topic information
-            $topic = ModUtil::apiFunc('IWforums', 'user', 'get_tema',
-                            array('fid' => $fid,
-                                'ftid' => $ftid));
+            $topic = ModUtil::apiFunc('IWforums', 'user', 'get_tema', array('fid' => $fid,
+                        'ftid' => $ftid));
         } else {
             $topic = array('titol' => '');
         }
         // check if user can moderate the forum
         $moderator = ($access == 4) ? true : false;
         // get all the messages to show
-        $listmessages = ModUtil::apiFunc('IWforums', 'user', 'getall_msg',
-                        array('ftid' => $ftid,
-                            'fid' => $registre['fid'],
-                            'usuari' => $u,
-                            'indent' => 0,
-                            'idparent' => 0,
-                            'inici' => $inici,
-                            'rpp' => 10));
+        $listmessages = ModUtil::apiFunc('IWforums', 'user', 'getall_msg', array('ftid' => $ftid,
+                    'fid' => $registre['fid'],
+                    'usuari' => $u,
+                    'indent' => 0,
+                    'idparent' => 0,
+                    'inici' => $inici,
+                    'rpp' => 10));
         $messages = array();
         $hi_ha_missatges = false;
         // process the messages
@@ -471,12 +447,13 @@ class IWforums_Controller_User extends Zikula_AbstractController {
                 'editable' => $editable,
                 'textmarca' => $textmarca,
                 'indent' => $message['indent'],
-                'oid' => $message['oid']);
+                'oid' => $message['oid'],
+                'onTop' => $message['onTop'],
+            );
         }
         // get users who have created a message
-        $usuaris_rem = ModUtil::apiFunc('IWforums', 'user', 'getremitents',
-                        array('ftid' => $ftid,
-                            'fid' => $registre['fid']));
+        $usuaris_rem = ModUtil::apiFunc('IWforums', 'user', 'getremitents', array('ftid' => $ftid,
+                    'fid' => $registre['fid']));
         $usersList = '';
         foreach ($usuaris_rem as $user) {
             $usersList .= $user['usuari'] . '$$';
@@ -486,10 +463,9 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         if ($usersList != '') {
             // get all users information
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo',
-                            array('sv' => $sv,
-                                'info' => 'ncc',
-                                'list' => $usersList));
+            $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv,
+                        'info' => 'ncc',
+                        'list' => $usersList));
         }
 
         $usuaris[] = array('id' => 0,
@@ -502,32 +478,30 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
         $adjunts = ($registre['adjunts'] == 1) ? true : false;
         $icons = (ModUtil::getVar('IWforums', 'smiliesActive')) ? true : false;
-        $total = ModUtil::apiFunc('IWforums', 'user', 'compta_msg',
-                        array('ftid' => $ftid,
-                            'fid' => $fid,
-                            'u' => $u));
-        $pager = ModUtil::func('IWforums', 'user', 'pager',
-                        array('inici' => $inici,
-                            'total' => $total['nparent'],
-                            'rpp' => 10,
-                            'urltemplate' => 'index.php?module=IWforums&func=llista_msg&inici=%%&fid=' . $fid . '&ftid=' . $ftid . '&u=' . $u));
+        $total = ModUtil::apiFunc('IWforums', 'user', 'compta_msg', array('ftid' => $ftid,
+                    'fid' => $fid,
+                    'u' => $u));
+        $pager = ModUtil::func('IWforums', 'user', 'pager', array('inici' => $inici,
+                    'total' => $total['nparent'],
+                    'rpp' => 10,
+                    'urltemplate' => 'index.php?module=IWforums&func=llista_msg&inici=%%&fid=' . $fid . '&ftid=' . $ftid . '&u=' . $u));
         return $this->view->assign('name', $registre['nom_forum'])
-                ->assign('icons', $icons)
-                ->assign('topicName', $topic['titol'])
-                ->assign('adjunts', $adjunts)
-                ->assign('users', $users)
-                ->assign('access', $access)
-                ->assign('moderator', $moderator)
-                ->assign('messages', $messages)
-                ->assign('usuaris', $usuaris)
-                ->assign('u', $u)
-                ->assign('fid', $fid)
-                ->assign('ftid', $ftid)
-                ->assign('hi_ha_missatges', $hi_ha_missatges)
-                ->assign('pager', $pager)
-                ->assign('inici', $inici)
-                ->assign('hi_ha_temes', false)
-                ->fetch('IWforums_user_forum.htm');
+                        ->assign('icons', $icons)
+                        ->assign('topicName', $topic['titol'])
+                        ->assign('adjunts', $adjunts)
+                        ->assign('users', $users)
+                        ->assign('access', $access)
+                        ->assign('moderator', $moderator)
+                        ->assign('messages', $messages)
+                        ->assign('usuaris', $usuaris)
+                        ->assign('u', $u)
+                        ->assign('fid', $fid)
+                        ->assign('ftid', $ftid)
+                        ->assign('hi_ha_missatges', $hi_ha_missatges)
+                        ->assign('pager', $pager)
+                        ->assign('inici', $inici)
+                        ->assign('hi_ha_temes', false)
+                        ->fetch('IWforums_user_forum.htm');
     }
 
     /**
@@ -550,29 +524,28 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
         // check if user can access the forum
-        if (ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid)) < 2) {
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
+        if ($access < 2) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
 
+        $moderator = ($access == 4) ? true : false;
+
         // get forum information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($registre == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // if message have any answare get message information
         if ($fmid != null) {
-            $missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg',
-                            array('fmid' => $fmid));
+            $missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid));
             // get all users information
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            $userInfo = ModUtil::func('IWmain', 'user', 'getUserInfo',
-                            array('sv' => $sv,
-                                'uid' => $missatge['usuari'],
-                                'info' => 'ncc'));
+            $userInfo = ModUtil::func('IWmain', 'user', 'getUserInfo', array('sv' => $sv,
+                        'uid' => $missatge['usuari'],
+                        'info' => 'ncc'));
             if ($missatge == false) {
                 LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
                 return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -590,18 +563,19 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
 
         return $this->view->assign('icons', $icons)
-                ->assign('fid', $fid)
-                ->assign('ftid', $ftid)
-                ->assign('fmid', $fmid)
-                ->assign('name', $registre['nom_forum'])
-                ->assign('msg', $msg)
-                ->assign('title', $titol)
-                ->assign('adjunts', $registre['adjunts'])
-                ->assign('extensions', ModUtil::getVar('IWmain', 'extensions'))
-                ->assign('u', $u)
-                ->assign('inici', $inici)
-                ->assign('oid', $oid)
-                ->fetch('IWforums_user_new_msg.htm');
+                        ->assign('fid', $fid)
+                        ->assign('ftid', $ftid)
+                        ->assign('fmid', $fmid)
+                        ->assign('name', $registre['nom_forum'])
+                        ->assign('msg', $msg)
+                        ->assign('title', $titol)
+                        ->assign('adjunts', $registre['adjunts'])
+                        ->assign('extensions', ModUtil::getVar('IWmain', 'extensions'))
+                        ->assign('u', $u)
+                        ->assign('inici', $inici)
+                        ->assign('oid', $oid)
+                        ->assign('moderator', $moderator)
+                        ->fetch('IWforums_user_new_msg.htm');
     }
 
     /*
@@ -621,6 +595,8 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         $adjunt = FormUtil::getPassedValue('adjunt', isset($args['adjunt']) ? $args['adjunt'] : null, 'POST');
         $icon = FormUtil::getPassedValue('icon', isset($args['icon']) ? $args['icon'] : null, 'POST');
         $oldmsg = FormUtil::getPassedValue('oldmsg', isset($args['oldmsg']) ? $args['oldmsg'] : null, 'POST');
+        $onTop = FormUtil::getPassedValue('onTop', isset($args['onTop']) ? $args['onTop'] : 0, 'POST');
+
         // gets the attached file array
         $fileName = $_FILES['adjunt']['name'];
         // security check
@@ -629,16 +605,14 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
         $this->checkCsrfToken();
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 2) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
 
         // get forum information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($registre == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -649,10 +623,9 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         if ($fileName != '') {
             $folder = ModUtil::getVar('IWforums', 'urladjunts');
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            $update = ModUtil::func('IWmain', 'user', 'updateFile',
-                            array('sv' => $sv,
-                                'folder' => $folder,
-                                'file' => $_FILES['adjunt']));
+            $update = ModUtil::func('IWmain', 'user', 'updateFile', array('sv' => $sv,
+                        'folder' => $folder,
+                        'file' => $_FILES['adjunt']));
             // the function returns the error string if the update fails and and empty string if success
             if ($update['msg'] != '') {
                 LogUtil::registerError($update['msg'] . ' ' . $this->__('An error has occurred in the attachment of the file. The message has been sent without the attached file.'));
@@ -665,15 +638,16 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             $msg .= '<br />' . $oldmsg;
         }
         // create message
-        $lid = ModUtil::apiFunc('IWforums', 'user', 'crear_msg',
-                        array('fid' => $fid,
-                            'ftid' => $ftid,
-                            'titol' => $titol,
-                            'msg' => $msg,
-                            'adjunt' => $nom_fitxer,
-                            'icon' => $icon,
-                            'idparent' => $fmid,
-                            'oid' => $oid));
+        $lid = ModUtil::apiFunc('IWforums', 'user', 'crear_msg', array('fid' => $fid,
+                    'ftid' => $ftid,
+                    'titol' => $titol,
+                    'msg' => $msg,
+                    'adjunt' => $nom_fitxer,
+                    'icon' => $icon,
+                    'idparent' => $fmid,
+                    'oid' => $oid,
+                    'onTop' => $onTop,
+                ));
         // check if user canmoderate the forum
         $moderator = false;
         if ($access == 4)
@@ -693,13 +667,11 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             LogUtil::registerError($this->__('An error has occurred while creating a new message'));
         }
         if ($ftid != 0) {
-            return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg',
-                            array('fid' => $fid,
+            return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg', array('fid' => $fid,
                                 'ftid' => $ftid,
                                 'u' => $u)));
         } else {
-            return System::redirect(ModUtil::url('IWforums', 'user', 'forum',
-                            array('fid' => $fid,
+            return System::redirect(ModUtil::url('IWforums', 'user', 'forum', array('fid' => $fid,
                                 'u' => $u)));
         }
     }
@@ -727,45 +699,39 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
 
         $uid = UserUtil::getVar('uid');
-        
+
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 1) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get forum information
-        $forum = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $forum = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($forum == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get message information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get_msg',
-                        array('fmid' => $fmid,
-                            'fid' => $fid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid,
+                    'fid' => $fid));
         if ($registre == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $userFullName = ModUtil::func('IWmain', 'user', 'getUserInfo',
-                        array('sv' => $sv,
-                            'info' => 'ncc',
-                            'uid' => $registre['usuari']));
+        $userFullName = ModUtil::func('IWmain', 'user', 'getUserInfo', array('sv' => $sv,
+                    'info' => 'ncc',
+                    'uid' => $registre['usuari']));
         // set user as message reader
         if (strpos($registre['llegit'], '$' . $uid . '$') == 0) {
-            $llegit = ModUtil::apiFunc('IWforums', 'user', 'llegit',
-                            array('fmid' => $registre['fmid'],
-                                'llegit' => $registre['llegit']));
+            $llegit = ModUtil::apiFunc('IWforums', 'user', 'llegit', array('fmid' => $registre['fmid'],
+                        'llegit' => $registre['llegit']));
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            ModUtil::func('IWmain', 'user', 'userSetVar',
-                            array('module' => 'IWmain_block_news',
-                                'name' => 'have_news',
-                                'value' => 'fo',
-                                'sv' => $sv));
+            ModUtil::func('IWmain', 'user', 'userSetVar', array('module' => 'IWmain_block_news',
+                'name' => 'have_news',
+                'value' => 'fo',
+                'sv' => $sv));
         }
         // prepare printing messages
         /*
@@ -785,16 +751,14 @@ class IWforums_Controller_User extends Zikula_AbstractController {
          */
         $marcatMsg = (strpos($registre['marcat'], '$' . $uid . '$') == 0) ? false : true;
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $photo = ModUtil::func('IWmain', 'user', 'getUserPicture',
-                        array('uname' => UserUtil::getVar('uname', $registre['usuari']),
-                            'sv' => $sv));
-      
+        $photo = ModUtil::func('IWmain', 'user', 'getUserPicture', array('uname' => UserUtil::getVar('uname', $registre['usuari']),
+                    'sv' => $sv));
+
         // ff user didn't click a first-level message, get the first-level message
         if ($oid != $fmid) {
             // get message information
-            $origen = ModUtil::apiFunc('IWforums', 'user', 'get_msg',
-                            array('fmid' => $oid,
-                                'fid' => $fid));
+            $origen = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $oid,
+                        'fid' => $fid));
             if ($origen == false) {
                 LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
                 return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -828,15 +792,14 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             'indent' => 0,
             'oid' => $oid);
         // get the messages of the thread where the message belongs
-        $listmessages = ModUtil::apiFunc('IWforums', 'user', 'getall_msg',
-                        array('ftid' => $ftid,
-                            'fid' => $fid,
-                            'usuari' => 0,
-                            'indent' => 0,
-                            'idparent' => $oid,
-                            'tots' => 1,
-                            'inici' => 0,
-                            'rpp' => 10));
+        $listmessages = ModUtil::apiFunc('IWforums', 'user', 'getall_msg', array('ftid' => $ftid,
+                    'fid' => $fid,
+                    'usuari' => 0,
+                    'indent' => 0,
+                    'idparent' => $oid,
+                    'tots' => 1,
+                    'inici' => 0,
+                    'rpp' => 10));
         $usersList = $origen['usuari'] . '$$';
         // process the messages
         foreach ($listmessages as $message) {
@@ -868,10 +831,9 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
         // get all users information
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo',
-                        array('sv' => $sv,
-                            'info' => 'ncc',
-                            'list' => $usersList));
+        $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv,
+                    'info' => 'ncc',
+                    'list' => $usersList));
         // get smarticons if module bbsmile is active
         $icons = array();
         if (ModUtil::getVar('IWforums', 'smiliesActive')) {
@@ -881,36 +843,35 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         // get file extension
         $fileExtension = strtolower(substr(strrchr($registre['adjunt'], "."), 1));
         // get file icon
-        $ctypeArray = ModUtil::func('IWmain', 'user', 'getMimetype',
-                        array('extension' => $fileExtension));
+        $ctypeArray = ModUtil::func('IWmain', 'user', 'getMimetype', array('extension' => $fileExtension));
         $fileIcon = $ctypeArray['icon'];
 
         return $this->view->assign('users', $users)
-                ->assign('marcat', $marcatMsg)
-                ->assign('fileIcon', $fileIcon)
-                ->assign('icons', $icons)
-                ->assign('oid', $oid)
-                ->assign('fmid', $fmid)
-                ->assign('messages', $messages)
-                ->assign('origen', $origen)
-                ->assign('ftid', $ftid)
-                ->assign('fid', $fid)
-                ->assign('u', $u)
-                ->assign('inici', $inici)
-                ->assign('avatarsVisible', ModUtil::getVar('IWforums', 'avatarsVisible'))
-                ->assign('title', $registre['titol'])
-                ->assign('message', $registre['missatge'])
-                ->assign('adjunt', $registre['adjunt'])
-                ->assign('adjunts', $adjunts)
-                ->assign('user', $userFullName)
-                ->assign('date', date('d/m/y', $registre['data']))
-                ->assign('time', date('H:i', $registre['data']))
-                ->assign('photo', $photo)
-                ->assign('foto', ModUtil::getVar('IWforums', 'fotos'))
-                ->assign('urladjunts', ModUtil::getVar('IWforums', 'urladjunts'))
-                ->assign('usuari', $registre['usuari'])
-                ->assign('uid', $uid)
-                ->fetch('IWforums_user_msg.htm');
+                        ->assign('marcat', $marcatMsg)
+                        ->assign('fileIcon', $fileIcon)
+                        ->assign('icons', $icons)
+                        ->assign('oid', $oid)
+                        ->assign('fmid', $fmid)
+                        ->assign('messages', $messages)
+                        ->assign('origen', $origen)
+                        ->assign('ftid', $ftid)
+                        ->assign('fid', $fid)
+                        ->assign('u', $u)
+                        ->assign('inici', $inici)
+                        ->assign('avatarsVisible', ModUtil::getVar('IWforums', 'avatarsVisible'))
+                        ->assign('title', $registre['titol'])
+                        ->assign('message', $registre['missatge'])
+                        ->assign('adjunt', $registre['adjunt'])
+                        ->assign('adjunts', $adjunts)
+                        ->assign('user', $userFullName)
+                        ->assign('date', date('d/m/y', $registre['data']))
+                        ->assign('time', date('H:i', $registre['data']))
+                        ->assign('photo', $photo)
+                        ->assign('foto', ModUtil::getVar('IWforums', 'fotos'))
+                        ->assign('urladjunts', ModUtil::getVar('IWforums', 'urladjunts'))
+                        ->assign('usuari', $registre['usuari'])
+                        ->assign('uid', $uid)
+                        ->fetch('IWforums_user_msg.htm');
     }
 
     /*
@@ -935,63 +896,56 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 1) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get forum information
-        $forum = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $forum = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($forum == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get message information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get_msg',
-                        array('fmid' => $fmid,
-                            'fid' => $fid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid,
+                    'fid' => $fid));
         if ($registre == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // set user as message reader
         if (strpos($registre['llegit'], '$' . UserUtil::getVar('uid') . '$') == 0) {
-            $llegit = ModUtil::apiFunc('IWforums', 'user', 'llegit',
-                            array('fmid' => $registre['fmid'],
-                                'llegit' => $registre['llegit']));
+            $llegit = ModUtil::apiFunc('IWforums', 'user', 'llegit', array('fmid' => $registre['fmid'],
+                        'llegit' => $registre['llegit']));
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            ModUtil::func('IWmain', 'user', 'userSetVar',
-                            array('module' => 'IWmain_block_news',
-                                'name' => 'have_news',
-                                'value' => 'fo',
-                                'sv' => $sv));
+            ModUtil::func('IWmain', 'user', 'userSetVar', array('module' => 'IWmain_block_news',
+                'name' => 'have_news',
+                'value' => 'fo',
+                'sv' => $sv));
         }
         // get file extension
         $fileExtension = strtolower(substr(strrchr($registre['adjunt'], "."), 1));
         // get file icon
-        $ctypeArray = ModUtil::func('IWmain', 'user', 'getMimetype',
-                        array('extension' => $fileExtension));
+        $ctypeArray = ModUtil::func('IWmain', 'user', 'getMimetype', array('extension' => $fileExtension));
         $fileIcon = $ctypeArray['icon'];
 
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $photo = ModUtil::func('IWmain', 'user', 'getUserPicture',
-                        array('uname' => UserUtil::getVar('uname', $registre['usuari']) . '_s',
-                            'sv' => $sv));
+        $photo = ModUtil::func('IWmain', 'user', 'getUserPicture', array('uname' => UserUtil::getVar('uname', $registre['usuari']) . '_s',
+                    'sv' => $sv));
 
         return $this->view->assign('photo', $photo)
-                ->assign('message', $registre['missatge'])
-                ->assign('adjunt', $registre['adjunt'])
-                ->assign('fileIcon', $fileIcon)
-                ->assign('u', $u)
-                ->assign('inici', $inici)
-                ->assign('fmid', $fmid)
-                ->assign('ftid', $ftid)
-                ->assign('fid', $fid)
-                ->assign('oid', $oid)
-                ->assign('access', $access)
-                ->fetch('IWforums_user_openMsg.htm');
+                        ->assign('message', $registre['missatge'])
+                        ->assign('adjunt', $registre['adjunt'])
+                        ->assign('fileIcon', $fileIcon)
+                        ->assign('u', $u)
+                        ->assign('inici', $inici)
+                        ->assign('fmid', $fmid)
+                        ->assign('ftid', $ftid)
+                        ->assign('fid', $fid)
+                        ->assign('oid', $oid)
+                        ->assign('access', $access)
+                        ->fetch('IWforums_user_openMsg.htm');
     }
 
     /**
@@ -1008,8 +962,7 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        return ModUtil::func('IWmain', 'user', 'getFile',
-                array('fileName' => $fileName,
+        return ModUtil::func('IWmain', 'user', 'getFile', array('fileName' => $fileName,
                     'sv' => $sv));
     }
 
@@ -1034,16 +987,14 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 1) {
             LogUtil::registerError($this->__('You are not allowed to do this action'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         $fileNameInServer = ModUtil::getVar('IWforums', 'urladjunts') . '/' . $fileName;
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        return ModUtil::func('IWmain', 'user', 'downloadFile',
-                array('fileName' => $fileName,
+        return ModUtil::func('IWmain', 'user', 'downloadFile', array('fileName' => $fileName,
                     'fileNameInServer' => $fileNameInServer,
                     'sv' => $sv));
     }
@@ -1070,48 +1021,41 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
 
         // get forum information
-        $forum = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $forum = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($forum == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 1) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get message information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get_msg',
-                        array('fmid' => $fmid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid));
         if ($registre == false) {
             LogUtil::registerError($this->__('No messages have been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         $marcat = ($m == 1) ? $registre['marcat'] . '$' . UserUtil::getVar('uid') . '$' : str_replace('$' . UserUtil::getVar('uid') . '$', '', $registre['marcat']);
-        $ha_marcat = ModUtil::apiFunc('IWforums', 'user', 'marcat',
-                        array('marcat' => $marcat,
-                            'fmid' => $fmid));
+        $ha_marcat = ModUtil::apiFunc('IWforums', 'user', 'marcat', array('marcat' => $marcat,
+                    'fmid' => $fmid));
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        ModUtil::func('IWmain', 'user', 'userSetVar',
-                        array('module' => 'IWmain_block_flagged',
-                            'name' => 'have_flags',
-                            'value' => 'fo',
-                            'sv' => $sv));
+        ModUtil::func('IWmain', 'user', 'userSetVar', array('module' => 'IWmain_block_flagged',
+            'name' => 'have_flags',
+            'value' => 'fo',
+            'sv' => $sv));
         if ($ftid != 0) {
             if (isset($msg)) {
-                return System::redirect(ModUtil::url('IWforums', 'user', 'msg',
-                                array('fid' => $fid,
+                return System::redirect(ModUtil::url('IWforums', 'user', 'msg', array('fid' => $fid,
                                     'u' => $u,
                                     'ftid' => $ftid,
                                     'fmid' => $fmid,
                                     'inici' => $inici,
                                     'oid' => $oid)));
             } else {
-                return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg',
-                                array('fid' => $fid,
+                return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg', array('fid' => $fid,
                                     'u' => $u,
                                     'ftid' => $ftid,
                                     'inici' => $inici,
@@ -1119,16 +1063,14 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             }
         } else {
             if (isset($msg)) {
-                return System::redirect(ModUtil::url('IWforums', 'user', 'msg',
-                                array('fid' => $fid,
+                return System::redirect(ModUtil::url('IWforums', 'user', 'msg', array('fid' => $fid,
                                     'u' => $u,
                                     'ftid' => $ftid,
                                     'fmid' => $fmid,
                                     'inici' => $inici,
                                     'oid' => $oid)));
             } else {
-                return System::redirect(ModUtil::url('IWforums', 'user', 'forum',
-                                array('fid' => $fid,
+                return System::redirect(ModUtil::url('IWforums', 'user', 'forum', array('fid' => $fid,
                                     'u' => $u,
                                     'inici' => $inici,
                                     'oid' => $oid)));
@@ -1154,22 +1096,19 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
 
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 1) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get message information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get_msg',
-                        array('fmid' => $fmid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid));
         if ($registre == false) {
             LogUtil::registerError($this->__('No messages have been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get forum information
-        $tema = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $tema = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($tema == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -1181,10 +1120,9 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
         // get all users information
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $usersInfo = ModUtil::func('IWmain', 'user', 'getAllUsersInfo',
-                        array('sv' => $sv,
-                            'info' => 'ccn',
-                            'list' => $usersList));
+        $usersInfo = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv,
+                    'info' => 'ccn',
+                    'list' => $usersList));
         $readers = array();
         foreach ($lectors as $lector) {
             $readers[] = array('user' => $usersInfo[$lector]);
@@ -1192,12 +1130,12 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         sort($readers);
 
         return $this->view->assign('readers', $readers)
-                ->assign('fid', $fid)
-                ->assign('ftid', $ftid)
-                ->assign('fmid', $fmid)
-                ->assign('oid', $oid)
-                ->assign('u', $u)
-        ->fetch('IWforums_user_readers.htm');
+                        ->assign('fid', $fid)
+                        ->assign('ftid', $ftid)
+                        ->assign('fmid', $fmid)
+                        ->assign('oid', $oid)
+                        ->assign('u', $u)
+                        ->fetch('IWforums_user_readers.htm');
     }
 
     /**
@@ -1218,37 +1156,32 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
 
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 2) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get forum information
-        $forum = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $forum = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($forum == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get message information
-        $missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg',
-                        array('fmid' => $fmid));
+        $missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid));
         if ($missatge == false) {
             LogUtil::registerError($this->__('No messages have been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get user information
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $userInfo = ModUtil::func('IWmain', 'user', 'getUserInfo',
-                        array('sv' => $sv,
-                            'uid' => $missatge['usuari'],
-                            'info' => 'ncc'));
+        $userInfo = ModUtil::func('IWmain', 'user', 'getUserInfo', array('sv' => $sv,
+                    'uid' => $missatge['usuari'],
+                    'info' => 'ncc'));
         if ($ftid != 0) {
             // get topic information
-            $tema = ModUtil::apiFunc('IWforums', 'user', 'get_tema',
-                            array('ftid' => $ftid,
-                                'fid' => $fid));
+            $tema = ModUtil::apiFunc('IWforums', 'user', 'get_tema', array('ftid' => $ftid,
+                        'fid' => $fid));
             if ($tema == false) {
                 LogUtil::registerError($this->__('No messages have been found'));
                 return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -1263,36 +1196,32 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // check if the message is parent
-        if (ModUtil::apiFunc('IWforums', 'user', 'is_parent',
-                        array('fmid' => $fmid))) {
+        if (ModUtil::apiFunc('IWforums', 'user', 'is_parent', array('fmid' => $fmid))) {
             LogUtil::registerError($this->__('The message can not be deleted because have answers. You can move the answers to an other theme or forum.'));
             if ($ftid != 0) {
-                return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg',
-                                array('fid' => $fid,
+                return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg', array('fid' => $fid,
                                     'ftid' => $ftid)));
             } else {
-                return System::redirect(ModUtil::url('IWforums', 'user', 'forum',
-                                array('fid' => $fid)));
+                return System::redirect(ModUtil::url('IWforums', 'user', 'forum', array('fid' => $fid)));
             }
         }
         // axk of deleteion confirmation
         if (empty($confirmation)) {
             return $this->view->assign('name', $forum['nom_forum'])
-                    ->assign('tema', $tema['titol'])
-                    ->assign('ftid', $ftid)
-                    ->assign('fid', $fid)
-                    ->assign('fmid', $fmid)
-                    ->assign('msg_title', $missatge['titol'])
-                    ->assign('user', $userInfo)
-                    ->assign('date', date('d/m/y', $missatge['data']))
-                    ->assign('time', date('H.i', $missatge['data']))
-                    ->assign('message', $missatge['missatge'])
-                    ->fetch('IWforums_user_del_msg.htm');
+                            ->assign('tema', $tema['titol'])
+                            ->assign('ftid', $ftid)
+                            ->assign('fid', $fid)
+                            ->assign('fmid', $fmid)
+                            ->assign('msg_title', $missatge['titol'])
+                            ->assign('user', $userInfo)
+                            ->assign('date', date('d/m/y', $missatge['data']))
+                            ->assign('time', date('H.i', $missatge['data']))
+                            ->assign('message', $missatge['missatge'])
+                            ->fetch('IWforums_user_del_msg.htm');
         }
         $this->checkCsrfToken();
         // delete message
-        if (ModUtil::apiFunc('IWforums', 'user', 'del_msg',
-                        array('fmid' => $fmid))) {
+        if (ModUtil::apiFunc('IWforums', 'user', 'del_msg', array('fmid' => $fmid))) {
             // deletion successfuly
             LogUtil::registerStatus($this->__('The message has been deleted.'));
             // delete attached files is exist
@@ -1302,12 +1231,10 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
         // redirect user to the list of messages
         if ($ftid != 0) {
-            return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg',
-                            array('fid' => $fid,
+            return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg', array('fid' => $fid,
                                 'ftid' => $ftid)));
         } else {
-            return System::redirect(ModUtil::url('IWforums', 'user', 'forum',
-                            array('fid' => $fid)));
+            return System::redirect(ModUtil::url('IWforums', 'user', 'forum', array('fid' => $fid)));
         }
     }
 
@@ -1332,22 +1259,19 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
 
         //check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 2) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get forum information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($registre == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get message information
-        $missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg',
-                        array('fmid' => $fmid));
+        $missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid));
         if ($missatge == false) {
             LogUtil::registerError($this->__('No messages have been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -1370,14 +1294,15 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         $missatge['missatge'] = $message;
 
         return $this->view->assign('icons', $icons)
-                ->assign('fid', $fid)
-                ->assign('ftid', $ftid)
-                ->assign('missatge', $missatge)
-                ->assign('name', $registre['nom_forum'])
-                ->assign('adjunts', $registre['adjunts'])
-                ->assign('extensions', ModUtil::getVar('IWmain', 'extensions'))
-                ->assign('u', $u)
-                ->fetch('IWforums_user_edit_msg.htm');
+                        ->assign('fid', $fid)
+                        ->assign('ftid', $ftid)
+                        ->assign('missatge', $missatge)
+                        ->assign('name', $registre['nom_forum'])
+                        ->assign('adjunts', $registre['adjunts'])
+                        ->assign('extensions', ModUtil::getVar('IWmain', 'extensions'))
+                        ->assign('u', $u)
+                        ->assign('moderator', $moderator)
+                        ->fetch('IWforums_user_edit_msg.htm');
     }
 
     /**
@@ -1406,15 +1331,13 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         $this->checkCsrfToken();
 
         //check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 2) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get forum information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($registre == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -1425,8 +1348,7 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             $msg = $oldmsg;
         $moderator = ($access == 4) ? true : false;
         // get message information
-        $missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg',
-                        array('fmid' => $fmid));
+        $missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid));
         if ($missatge == false) {
             LogUtil::registerError($this->__('No messages have been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -1439,10 +1361,9 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         if ($nom_adjunt != '' && $registre['adjunts']) {
             $folder = ModUtil::getVar('IWforums', 'urladjunts');
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            $update = ModUtil::func('IWmain', 'user', 'updateFile',
-                            array('sv' => $sv,
-                                'folder' => $folder,
-                                'file' => $_FILES['adjunt']));
+            $update = ModUtil::func('IWmain', 'user', 'updateFile', array('sv' => $sv,
+                        'folder' => $folder,
+                        'file' => $_FILES['adjunt']));
             //the function returns the error string if the update fails and and empty string if success
             if ($update['msg'] != '') {
                 LogUtil::registerError($update['msg'] . ' ' . $this->__('Probably the message has been sended without the attached file.'));
@@ -1451,12 +1372,11 @@ class IWforums_Controller_User extends Zikula_AbstractController {
                 $nom_fitxer = $update['fileName'];
         } else
             $nom_fitxer = $missatge['adjunt'];
-        $lid = ModUtil::apiFunc('IWforums', 'user', 'update_msg',
-                        array('fmid' => $fmid,
-                            'titol' => $titol,
-                            'msg' => $msg,
-                            'fadjunt' => $nom_fitxer,
-                            'icon' => $icon));
+        $lid = ModUtil::apiFunc('IWforums', 'user', 'update_msg', array('fmid' => $fmid,
+                    'titol' => $titol,
+                    'msg' => $msg,
+                    'fadjunt' => $nom_fitxer,
+                    'icon' => $icon));
         if ($lid != false) {
             // creation success
             LogUtil::registerStatus($this->__('The message has been modified'));
@@ -1464,13 +1384,11 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             LogUtil::registerError($this->__('Error trying to edit the message'));
         }
         if ($ftid != 0) {
-            return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg',
-                            array('fid' => $fid,
+            return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg', array('fid' => $fid,
                                 'ftid' => $ftid,
                                 'u' => $u)));
         } else {
-            return System::redirect(ModUtil::url('IWforums', 'user', 'forum',
-                            array('fid' => $fid,
+            return System::redirect(ModUtil::url('IWforums', 'user', 'forum', array('fid' => $fid,
                                 'u' => $u)));
         }
     }
@@ -1499,32 +1417,28 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
 
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 4) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         $forumtriat = ($moutema == 1) ? $nouforum : $fid;
         // get forum information
-        $forum = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $forum = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($forum == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get message information
-        $missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg',
-                        array('fmid' => $fmid));
+        $missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid));
         if ($missatge == false) {
             LogUtil::registerError($this->__('No messages have been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         if ($ftid != 0) {
             // get topic information
-            $tema = ModUtil::apiFunc('IWforums', 'user', 'get_tema',
-                            array('ftid' => $ftid,
-                                'fid' => $fid));
+            $tema = ModUtil::apiFunc('IWforums', 'user', 'get_tema', array('ftid' => $ftid,
+                        'fid' => $fid));
             if ($tema == false) {
                 LogUtil::registerError($this->__('No messages have been found'));
                 return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -1535,48 +1449,44 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         // get moderators list
         $forums = ModUtil::apiFunc('IWforums', 'user', 'getall');
         foreach ($forums as $forumlist) {
-            $access = ModUtil::func('IWforums', 'user', 'access',
-                            array('fid' => $forumlist['fid']));
+            $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $forumlist['fid']));
             if ($access == 4) {
                 $modera[] = array('fid' => $forumlist['fid'],
                     'nom_forum' => $forumlist['nom_forum']);
             }
         }
         // get list of topics
-        $temes = ModUtil::apiFunc('IWforums', 'user', 'get_temes',
-                        array('forumtriat' => $forumtriat));
+        $temes = ModUtil::apiFunc('IWforums', 'user', 'get_temes', array('forumtriat' => $forumtriat));
         // ask for change position
         if ($moutema == "" || $moutema == 1) {
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            $userFullName = ModUtil::func('IWmain', 'user', 'getUserInfo',
-                            array('sv' => $sv,
-                                'info' => 'ncc',
-                                'uid' => $missatge['usuari']));
+            $userFullName = ModUtil::func('IWmain', 'user', 'getUserInfo', array('sv' => $sv,
+                        'info' => 'ncc',
+                        'uid' => $missatge['usuari']));
 
             if (!isset($nouforum))
                 $nouforum = $fid;
 
             return $this->view->assign('modera', $modera)
-                    ->assign('name', $forum['nom_forum'])
-                    ->assign('tema', $tema['titol'])
-                    ->assign('ftid', $ftid)
-                    ->assign('fid', $fid)
-                    ->assign('nouforum', $nouforum)
-                    ->assign('fmid', $fmid)
-                    ->assign('msg_title', $missatge['titol'])
-                    ->assign('user', $userFullName)
-                    ->assign('date', date('d/m/y', $missatge['data']))
-                    ->assign('time', date('H.i', $missatge['data']))
-                    ->assign('message', $missatge['missatge'])
-                    ->assign('temes', $temes)
-                    ->assign('u', $u)
-                    ->fetch('IWforums_user_move_msg.htm');
+                            ->assign('name', $forum['nom_forum'])
+                            ->assign('tema', $tema['titol'])
+                            ->assign('ftid', $ftid)
+                            ->assign('fid', $fid)
+                            ->assign('nouforum', $nouforum)
+                            ->assign('fmid', $fmid)
+                            ->assign('msg_title', $missatge['titol'])
+                            ->assign('user', $userFullName)
+                            ->assign('date', date('d/m/y', $missatge['data']))
+                            ->assign('time', date('H.i', $missatge['data']))
+                            ->assign('message', $missatge['missatge'])
+                            ->assign('temes', $temes)
+                            ->assign('u', $u)
+                            ->fetch('IWforums_user_move_msg.htm');
         }
 
         $this->checkCsrfToken();
         // check if user can access the forum as moderator
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $nouforum));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $nouforum));
         if ($access < 4) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -1589,12 +1499,11 @@ class IWforums_Controller_User extends Zikula_AbstractController {
                 LogUtil::registerError($this->__('No action done because the source and destiny forum and topic are the same'));
             }
             // send the message to the new topic
-            if (ModUtil::apiFunc('IWforums', 'user', 'copy',
-                            array('fmid' => $fmid,
-                                'noutema' => $noutema,
-                                'nouforum' => $nouforum,
-                                'fid' => $fid,
-                                'ftid' => $ftid))) {
+            if (ModUtil::apiFunc('IWforums', 'user', 'copy', array('fmid' => $fmid,
+                        'noutema' => $noutema,
+                        'nouforum' => $nouforum,
+                        'fid' => $fid,
+                        'ftid' => $ftid))) {
                 // success change of position
                 LogUtil::registerStatus($this->__('The message has been copied to the new destiny.'));
             } else {
@@ -1602,25 +1511,22 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             }
         } else {
             // send the message to the new topic
-            if (ModUtil::apiFunc('IWforums', 'user', 'mou',
-                            array('fmid' => $fmid,
-                                'noutema' => $noutema,
-                                'nouforum' => $nouforum,
-                                'fid' => $fid,
-                                'ftid' => $ftid))) {
+            if (ModUtil::apiFunc('IWforums', 'user', 'mou', array('fmid' => $fmid,
+                        'noutema' => $noutema,
+                        'nouforum' => $nouforum,
+                        'fid' => $fid,
+                        'ftid' => $ftid))) {
                 // success change of position
                 LogUtil::registerStatus($this->__('The message has been transferred'));
             }
         }
         // redirect user to messages list
         if ($ftid != 0) {
-            return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg',
-                            array('fid' => $fid,
+            return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg', array('fid' => $fid,
                                 'ftid' => $ftid,
                                 'u' => $u)));
         } else {
-            return System::redirect(ModUtil::url('IWforums', 'user', 'forum',
-                            array('fid' => $fid,
+            return System::redirect(ModUtil::url('IWforums', 'user', 'forum', array('fid' => $fid,
                                 'u' => $u)));
         }
     }
@@ -1642,44 +1548,37 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
 
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 1) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get forum information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($registre == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get messages information
-        $missatges = ModUtil::apiFunc('IWforums', 'user', 'getall_msg_unread',
-                        array('fid' => $fid));
+        $missatges = ModUtil::apiFunc('IWforums', 'user', 'getall_msg_unread', array('fid' => $fid));
         // mark messages as readed
         foreach ($missatges as $missatge) {
             if (strpos($missatge['llegit'], '$' . UserUtil::getVar('uid') . '$') == 0) {
-                ModUtil::apiFunc('IWforums', 'user', 'llegit',
-                                array('fmid' => $missatge['fmid'],
-                                    'llegit' => $missatge['llegit']));
+                ModUtil::apiFunc('IWforums', 'user', 'llegit', array('fmid' => $missatge['fmid'],
+                    'llegit' => $missatge['llegit']));
                 $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-                ModUtil::func('IWmain', 'user', 'userSetVar',
-                                array('module' => 'IWmain_block_news',
-                                    'name' => 'have_news',
-                                    'value' => 'fo',
-                                    'sv' => $sv));
+                ModUtil::func('IWmain', 'user', 'userSetVar', array('module' => 'IWmain_block_news',
+                    'name' => 'have_news',
+                    'value' => 'fo',
+                    'sv' => $sv));
             }
         }
         if ($ftid == null) {
-            return System::redirect(ModUtil::url('IWforums', 'user', 'forum',
-                            array('fid' => $fid,
+            return System::redirect(ModUtil::url('IWforums', 'user', 'forum', array('fid' => $fid,
                                 'inici' => $inici,
                                 'u' => $u)));
         } else {
-            return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg',
-                            array('fid' => $fid,
+            return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg', array('fid' => $fid,
                                 'ftid' => $ftid,
                                 'inici' => $inici,
                                 'u' => $u)));
@@ -1703,28 +1602,25 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
 
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 1) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get forum information
-        $forum = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $forum = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($forum == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get messages information
-        $missatges_llista = ModUtil::apiFunc('IWforums', 'user', 'getall_msg',
-                        array('fid' => $fid,
-                            'ftid' => $ftid,
-                            'usuari' => $u,
-                            'indent' => 0,
-                            'idparent' => 0,
-                            'inici' => 1,
-                            'rpp' => 100000000));
+        $missatges_llista = ModUtil::apiFunc('IWforums', 'user', 'getall_msg', array('fid' => $fid,
+                    'ftid' => $ftid,
+                    'usuari' => $u,
+                    'indent' => 0,
+                    'idparent' => 0,
+                    'inici' => 1,
+                    'rpp' => 100000000));
         if ($missatges_llista == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -1733,16 +1629,14 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         foreach ($missatges_llista as $missatge) {
             $fileIcon = '';
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-            $photo = ModUtil::func('IWmain', 'user', 'getUserPicture',
-                            array('uname' => UserUtil::getVar('uname', $missatge['usuari']),
-                                'sv' => $sv));
+            $photo = ModUtil::func('IWmain', 'user', 'getUserPicture', array('uname' => UserUtil::getVar('uname', $missatge['usuari']),
+                        'sv' => $sv));
             $usersList .= $missatge['usuari'] . '$$';
             if ($missatge['adjunt'] != '') {
                 // get file extension
                 $fileExtension = strtolower(substr(strrchr($missatge['adjunt'], "."), 1));
                 // get file icon
-                $ctypeArray = ModUtil::func('IWmain', 'user', 'getMimetype',
-                                array('extension' => $fileExtension));
+                $ctypeArray = ModUtil::func('IWmain', 'user', 'getMimetype', array('extension' => $fileExtension));
                 $fileIcon = $ctypeArray['icon'];
             }
             $missatges[] = array('titol' => $missatge['titol'],
@@ -1757,24 +1651,22 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             );
             //set user as messages readed
             if (strpos($missatge['llegit'], '$' . UserUtil::getVar('uid') . '$') == 0) {
-                $llegit = ModUtil::apiFunc('IWforums', 'user', 'llegit',
-                                array('fmid' => $missatge['fmid'],
-                                    'llegit' => $missatge['llegit']));
+                $llegit = ModUtil::apiFunc('IWforums', 'user', 'llegit', array('fmid' => $missatge['fmid'],
+                            'llegit' => $missatge['llegit']));
             }
         }
         //get all users information
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo',
-                        array('sv' => $sv,
-                            'info' => 'ncc',
-                            'list' => $usersList));
+        $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('sv' => $sv,
+                    'info' => 'ncc',
+                    'list' => $usersList));
 
         return $this->view->assign('users', $users)
-                ->assign('missatges', $missatges)
-                ->assign('fid', $fid)
-                ->assign('avatarsVisible', ModUtil::getVar('IWforums', 'avatarsVisible'))
-                ->assign('ftid', $ftid)
-                ->fetch('IWforums_user_allmsg.htm');
+                        ->assign('missatges', $missatges)
+                        ->assign('fid', $fid)
+                        ->assign('avatarsVisible', ModUtil::getVar('IWforums', 'avatarsVisible'))
+                        ->assign('ftid', $ftid)
+                        ->fetch('IWforums_user_allmsg.htm');
     }
 
     /**
@@ -1792,22 +1684,19 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 4) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get forum information
-        $forum = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $forum = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($forum == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
-        $tema = ModUtil::apiFunc('IWforums', 'user', 'get_tema',
-                        array('ftid' => $ftid,
-                            'fid' => $fid));
+        $tema = ModUtil::apiFunc('IWforums', 'user', 'get_tema', array('ftid' => $ftid,
+                    'fid' => $fid));
         if ($tema == false) {
             LogUtil::registerError($this->__('No messages have been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -1815,22 +1704,20 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         if (empty($confirmation)) {
 
             return $this->view->assign('name', $forum['nom_forum'])
-                    ->assign('tema', $tema['titol'])
-                    ->assign('ftid', $ftid)
-                    ->assign('fid', $fid)
-                    ->fetch('IWforums_user_del_tema.htm');
+                            ->assign('tema', $tema['titol'])
+                            ->assign('ftid', $ftid)
+                            ->assign('fid', $fid)
+                            ->fetch('IWforums_user_del_tema.htm');
         }
         $this->checkCsrfToken();
         // delete record
-        if (ModUtil::apiFunc('IWforums', 'user', 'deltema',
-                        array('fid' => $fid,
-                            'ftid' => $ftid))) {
+        if (ModUtil::apiFunc('IWforums', 'user', 'deltema', array('fid' => $fid,
+                    'ftid' => $ftid))) {
             // deletion successful
             LogUtil::registerStatus($this->__('The topic has been deleted.'));
         }
         // redirect user to forums table
-        return System::redirect(ModUtil::url('IWforums', 'user', 'forum',
-                        array('fid' => $fid,
+        return System::redirect(ModUtil::url('IWforums', 'user', 'forum', array('fid' => $fid,
                             'ftid' => $ftid)));
     }
 
@@ -1850,37 +1737,31 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
         //check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 4) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get forum information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($registre == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
-        $tema = ModUtil::apiFunc('IWforums', 'user', 'get_tema',
-                        array('ftid' => $ftid,
-                            'fid' => $fid));
+        $tema = ModUtil::apiFunc('IWforums', 'user', 'get_tema', array('ftid' => $ftid,
+                    'fid' => $fid));
         if ($tema == false) {
             LogUtil::registerError($this->__('No messages have been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
 
         $ordre = ($puts == '-1') ? $tema['order'] + 3 : $tema['order'] - 3;
-        ModUtil::apiFunc('IWforums', 'user', 'put_order',
-                        array('ftid' => $ftid,
-                            'ordre' => $ordre,
-                            'fid' => $fid));
+        ModUtil::apiFunc('IWforums', 'user', 'put_order', array('ftid' => $ftid,
+            'ordre' => $ordre,
+            'fid' => $fid));
         // reorder the topics
-        ModUtil::func('IWforums', 'user', 'reorder',
-                        array('fid' => $fid));
-        return System::redirect(ModUtil::url('IWforums', 'user', 'forum',
-                        array('fid' => $fid)));
+        ModUtil::func('IWforums', 'user', 'reorder', array('fid' => $fid));
+        return System::redirect(ModUtil::url('IWforums', 'user', 'forum', array('fid' => $fid)));
     }
 
     /**
@@ -1897,8 +1778,7 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
         // get topics
-        $temes = ModUtil::apiFunc('IWforums', 'user', 'get_temes',
-                        array('fid' => $fid));
+        $temes = ModUtil::apiFunc('IWforums', 'user', 'get_temes', array('fid' => $fid));
         if ($temes == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -1906,14 +1786,12 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         // reorder all elements with the values 0 2 4 6 8...
         foreach ($temes as $tema) {
             $i = $i + 2;
-            ModUtil::apiFunc('IWforums', 'user', 'put_order',
-                            array('ftid' => $tema['ftid'],
-                                'ordre' => $i,
-                                'fid' => $fid));
+            ModUtil::apiFunc('IWforums', 'user', 'put_order', array('ftid' => $tema['ftid'],
+                'ordre' => $i,
+                'fid' => $fid));
         }
         // redirect user to forums list
-        return System::redirect(ModUtil::url('IWforums', 'user', 'forum',
-                        array('fid' => $fid)));
+        return System::redirect(ModUtil::url('IWforums', 'user', 'forum', array('fid' => $fid)));
     }
 
     /**
@@ -1935,30 +1813,26 @@ class IWforums_Controller_User extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 2) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // get forum information
-        $registre = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($registre == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
 
         // get message information
-        $dades_missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg',
-                        array('fmid' => $fmid));
+        $dades_missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid));
         if ($dades_missatge == false) {
             LogUtil::registerError($this->__('No messages have been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         // check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access',
-                        array('fid' => $fid));
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
         if ($access < 2) {
             LogUtil::registerError($this->__('You can\'t access the forum'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -1977,14 +1851,12 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         }
         //Procedim a fer l'esborrat del fitxer adjunt al missatge
         if ($segur == 'on') {
-            if (ModUtil::apiFunc('IWforums', 'user', 'del_adjunt',
-                            array('fmid' => $fmid))) {
+            if (ModUtil::apiFunc('IWforums', 'user', 'del_adjunt', array('fmid' => $fmid))) {
                 $dades_missatge['adjunt'] = '';
             }
         }
         // get forum information
-        $forum = ModUtil::apiFunc('IWforums', 'user', 'get',
-                        array('fid' => $fid));
+        $forum = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         if ($forum == false) {
             LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
@@ -2001,14 +1873,14 @@ class IWforums_Controller_User extends Zikula_AbstractController {
         $missatge['missatge'] = $message;
 
         return $this->view->assign('icons', $icons)
-                ->assign('fid', $fid)
-                ->assign('ftid', $ftid)
-                ->assign('missatge', $missatge)
-                ->assign('adjunts', $registre['adjunts'])
-                ->assign('extensions', ModUtil::getVar('IWmain', 'extensions'))
-                ->assign('u', $u)
-                ->assign('name', $forum['nom_forum'])
-                ->fetch('IWforums_user_edit_msg.htm');
+                        ->assign('fid', $fid)
+                        ->assign('ftid', $ftid)
+                        ->assign('missatge', $missatge)
+                        ->assign('adjunts', $registre['adjunts'])
+                        ->assign('extensions', ModUtil::getVar('IWmain', 'extensions'))
+                        ->assign('u', $u)
+                        ->assign('name', $forum['nom_forum'])
+                        ->fetch('IWforums_user_edit_msg.htm');
     }
 
     /**
@@ -2076,7 +1948,64 @@ class IWforums_Controller_User extends Zikula_AbstractController {
 
         $items[] = array('text' => $text);
         return $this->view->assign('items', $items)
-                ->fetch('IWforums_user_pager.htm');
+                        ->fetch('IWforums_user_pager.htm');
+    }
+
+    /**
+     * Set a message as main message and maintain it on top
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
+     * @param:	message, topic and forum identities
+     * @return:	Redirect user to readers page
+     */
+    public function onTop($args) {
+
+        $fmid = FormUtil::getPassedValue('fmid', isset($args['fmid']) ? $args['fmid'] : null, 'GET');
+        $ftid = FormUtil::getPassedValue('ftid', isset($args['ftid']) ? $args['ftid'] : null, 'GET');
+        $fid = FormUtil::getPassedValue('fid', isset($args['fid']) ? $args['fid'] : null, 'GET');
+        // security check
+        if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        // check if user can access the forum as moderator
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
+        if ($access < 4) {
+            LogUtil::registerError($this->__('You can\'t access the forum'));
+            return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
+        }
+
+        // get message information
+        $missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid));
+        if ($missatge == false) {
+            LogUtil::registerError($this->__('No messages have been found'));
+            return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
+        }
+
+        // check if the message is parent
+        if ($missatge['idparent'] != 0) {
+            LogUtil::registerError($this->__('The message can not be set as main message.'));
+            if ($ftid != 0) {
+                return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg', array('fid' => $fid,
+                                    'ftid' => $ftid)));
+            } else {
+                return System::redirect(ModUtil::url('IWforums', 'user', 'forum', array('fid' => $fid)));
+            }
+        }
+        // set message as main message
+        if (ModUtil::apiFunc('IWforums', 'user', 'onTop', array('fmid' => $fmid,
+                ))) {
+            $msg = ($missatge['onTop'] == 1) ? $this->__('The message has been set as not main message.'):$this->__('The message has been set as main message.');
+            // success
+            LogUtil::registerStatus($msg);
+        }
+
+        // redirect user to the list of messages
+        if ($ftid != 0) {
+            return System::redirect(ModUtil::url('IWforums', 'user', 'llista_msg', array('fid' => $fid,
+                                'ftid' => $ftid)));
+        } else {
+            return System::redirect(ModUtil::url('IWforums', 'user', 'forum', array('fid' => $fid)));
+        }
     }
 
 }

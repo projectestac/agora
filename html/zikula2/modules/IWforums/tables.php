@@ -82,7 +82,9 @@ function IWforums_tables() {
         'llegit' => 'iw_llegit',
         'marcat' => 'iw_marcat',
         'idparent' => 'iw_idparent',
-        'lastdate' => 'iw_lastdate');
+        'lastdate' => 'iw_lastdate',
+        'onTop' => 'iw_onTop',
+        );
 
     $tables['IWforums_msg_column_def'] = array('fmid' => "I NOTNULL AUTO PRIMARY",
         'fid' => "I NOTNULL DEFAULT '0'",
@@ -96,7 +98,9 @@ function IWforums_tables() {
         'llegit' => "X NOTNULL",
         'marcat' => "X NOTNULL",
         'idparent' => "I NOTNULL DEFAULT '0'",
-        'lastdate' => "C(20) NOTNULL DEFAULT ''");
+        'lastdate' => "C(20) NOTNULL DEFAULT ''",
+        'onTop' => "I(1) NOTNULL DEFAULT '0'",
+        );
 
     ObjectUtil::addStandardFieldsToTableDefinition($tables['IWforums_msg_column'], 'pn_');
     ObjectUtil::addStandardFieldsToTableDataDefinition($tables['IWforums_msg_column_def'], 'iw_');

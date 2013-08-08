@@ -55,6 +55,12 @@
             {else}
             <input type="hidden" name="icon" value="" />
             {/if}
+            {if $moderator}
+            <div class="z-formrow">
+                <label for="onTop">{gt text="Set as main message"}</label>
+                <input type="checkbox" name="onTop" id="onTop" value="1" />
+            </div>
+            {/if}
             <div class="z-formrow">
                 <label for="intraweb">{gt text="Message"}</label>
                 <textarea name="msg" cols="80" rows="10" id="intraweb"></textarea>

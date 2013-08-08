@@ -67,7 +67,8 @@ class IWforums_Installer extends Zikula_AbstractInstaller {
         //Delete module vars
         $this->delVar('urladjunts')
                 ->delVar('avatarsVisible')
-                ->delVar('smiliesActive');;
+                ->delVar('smiliesActive');
+        ;
         //success
         return true;
     }
@@ -79,7 +80,13 @@ class IWforums_Installer extends Zikula_AbstractInstaller {
      * @return bool true if successful, false otherwise
      */
     public function upgrade($oldversion) {
-       
+
+        //ADD new fields to tables
+        $c = "ALTER TABLE `IWforums_msg` ADD `iw_onTop` TINYINT (4) NOT NULL DEFAULT '0'";
+        if (!DBUtil::executeSQL($c)) {
+            return false;
+        }
+
         //Array de noms
         $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`modname` = 'IWforums'", '', false, '');
 
@@ -99,8 +106,8 @@ class IWforums_Installer extends Zikula_AbstractInstaller {
         $add = array_diff($newVarsNames, $oldVarsNames);
         foreach ($add as $i) {
             $this->setVar($i, $newVars[$i]);
-        }    
-        
+        }
+
         return true;
     }
 
