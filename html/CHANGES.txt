@@ -10,6 +10,7 @@ GENERAL
 
 MOODLE 2
 - Changed cron order to delete files from temp before uppgrading assignments (to avoid problems with course sections) and reviewed code to avoid warning when trying to delete '.' folder
+- Fixed bug for JClic activities when upgrading from Moodle 1.9 empty maxgrade (reported by Ferran Recio - UPCnet)
 
 ZIKULA 2
 - Imporved module IWforums and added the functionality of setting messages in top of messages list
