@@ -108,6 +108,7 @@ function xmldb_jclic_upgrade($oldversion) {
         // Update jclic.grade with the jclic.max_grade value
         if ($jclics = $DB->get_records('jclic')){
             foreach($jclics as $jclic){
+                if (empty($jclic->maxgrade)) $jclic->maxgrade = 10;
                 $jclic->grade= $jclic->maxgrade;
                 $DB->update_record("jclic", $jclic);
             }
