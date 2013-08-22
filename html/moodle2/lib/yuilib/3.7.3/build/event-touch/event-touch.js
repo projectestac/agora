@@ -139,9 +139,18 @@ if (Y.Node.DOM_EVENTS) {
 
 //Add properties to Y.EVENT.GESTURE_MAP based on feature detection.
 if ((win && ("ontouchstart" in win)) && !(Y.UA.chrome && Y.UA.chrome < 6)) {
+//XTEC ************ MODIFICAT - To fix SMART Board incompatibility with Drag&Drop
+//2013.08.22  @sarjona - https://tracker.moodle.org/browse/MDL-37528
+    GESTURE_MAP.start = ["touchstart", "mousedown"];
+    GESTURE_MAP.end = ["touchend", "mouseup"];
+    GESTURE_MAP.move = ["touchmove", "mousemove"];
+//************ ORIGINAL
+/*
     GESTURE_MAP.start = "touchstart";
     GESTURE_MAP.end = "touchend";
     GESTURE_MAP.move = "touchmove";
+*/
+//************ FI
 }
 
 
