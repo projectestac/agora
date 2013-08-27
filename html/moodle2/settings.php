@@ -105,3 +105,4 @@ if (isset($agora['server']['enviroment'])){
 $CFG->altcacheconfigpath = $agora['server']['root'].'html/moodle2/local/agora/muc/';
 
 $CFG->timezone = 99; // Changed by default to Server's local time
+$CFG->cronremotepassword = '';  // changed to avoid schools change it
