@@ -13,6 +13,7 @@ MOODLE 2
 - Fixed bug for JClic activities when upgrading from Moodle 1.9 empty maxgrade (reported by Ferran Recio - UPCnet)
 - Fixed bug related with SMART Board incompatibility with Drag&Drop AJAX (https://tracker.moodle.org/browse/MDL-37528)
 - Added first version of the replacextec tool
+- Added first version of the odisseagtafsync tool
 
 ZIKULA 2
 - Imporved module IWforums and added the functionality of setting messages in top of messages list
