@@ -1,6 +1,6 @@
 <?php
 
-include("../../../../config.php");  
+include('../../../../config.php');  
 require_once($CFG->dirroot.'/blocks/rcommon/WebServices/lib.php');
 
 //echo $defWSDL;
@@ -310,7 +310,7 @@ function ResultadoDetalleExtendido($Resultado)
                 else
                 {
                     //seek rcontent data
-                    $query = "SELECT * FROM {$CFG->prefix}rcontent where id = ".$Resultado->ResultadoExtendido->idContenidoLMS;
+                   $query = "SELECT * FROM {$CFG->prefix}rcontent where id = ".$Resultado->ResultadoExtendido->idContenidoLMS;
                    $rcontent = $DB->get_record_sql($query, array(), IGNORE_MULTIPLE);
                    $cm=get_coursemodule_from_instance('rcontent', $rcontent->id, $rcontent->course);
                    $contextmodule = get_context_instance(CONTEXT_MODULE,$cm->id);
@@ -752,8 +752,8 @@ function valid_unit($ResultExt, $book, $rcontent, &$unidad)
     
     try
     {   
-        //busco la unidad por unitid del rcontent
-        if ($rcontent->unitid != 0)
+        //busco la unidad por unitid del rcontent, excepto cuando está presente el parámetro ForzarGuardar y es 1
+        if ($rcontent->unitid != 0 && (!property_exists($ResultExt, 'ForzarGuardar') || $ResultExt->ForzarGuardar!=1) )
         {
             $unidad = $DB->get_record_sql("SELECT * FROM {$CFG->prefix}rcommon_books_units where id = {$rcontent->unitid}", array(), IGNORE_MULTIPLE);
 
@@ -893,8 +893,8 @@ function valid_activity($ResultExt, $book, $rcontent, $unidad, &$actividad)
     
     try
     {   
-        //busco la actividad por actividadid del rcontent
-        if ($rcontent->activityid != 0)
+        //busco la actividad por actividadid del rcontent, excepto cuando está presente el parámetro ForzarGuardar y es igual a 1
+        if ($rcontent->activityid != 0 && (!property_exists($ResultExt, 'ForzarGuardar') || $ResultExt->ForzarGuardar!=1) )
         {
             $actividad = $DB->get_record_sql("SELECT * FROM {$CFG->prefix}rcommon_books_activities WHERE id = ".$rcontent->activityid, array(), IGNORE_MULTIPLE);
             
@@ -1215,11 +1215,18 @@ function generate_wsdl(){
           <s:element minOccurs="0" maxOccurs="1" name="idActividad" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="ActividadTitulo" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="ActividadOrden" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ForzarGuardar" type="tns:TipoForzarGuardar" />
           <s:element minOccurs="0" maxOccurs="1" name="Resultado" type="tns:Resultado" />
           <s:element minOccurs="0" maxOccurs="1" name="Detalles" type="tns:ArrayOfDetalleResultado" />
           <s:element minOccurs="0" maxOccurs="1" default="100" name="SumaPesos" type="s:long" />
         </s:sequence>
       </s:complexType>
+      <s:simpleType name="TipoForzarGuardar">
+        <s:restriction base="s:int">
+          <s:enumeration value="0"/>
+          <s:enumeration value="1"/>
+      </s:restriction>
+      </s:simpleType>
       <s:complexType name="Resultado">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="1" name="FechaHoraInicio" type="s:long" />

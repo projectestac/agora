@@ -1,21 +1,22 @@
 Changes in progress
 ------------------------------------------- 
+- Added ForzarGuardar parameter.
 
 
-Versió 2013042200 - ITTERIA/UPCNET (2013-04-22 @sarjona)
+VersiÃ³ 2013042200 - ITTERIA/UPCNET (2013-04-22 @sarjona)
 -------------------------------------------
 - Adapted version to Moodle 2. Tested and compatible with Moodle 2.3 and 2.4
 
 
 
-Versió 2012092191 - IECISA (mmartinez)
+VersiÃ³ 2012092191 - IECISA (mmartinez)
 -------------------------------------------
 - Added extra control for response errors
 - Update URLVIEWRESULTS fields sizes for large urls
 
 
 
-Versió 2012030291 - IECISA (mmartinez)
+VersiÃ³ 2012030291 - IECISA (mmartinez)
 -------------------------------------------
 - Fixed bug in the searching of the stored activities values
 - When recive a non stored unit/activity and call to the book structure ws just get the structure of the selected book, not all the catalog for this publisher
@@ -25,7 +26,7 @@ Versió 2012030291 - IECISA (mmartinez)
 
 
 
-Versió 2012011091 - IECISA (mmartinez)
+VersiÃ³ 2012011091 - IECISA (mmartinez)
 -------------------------------------------
 - wsTrack check that DetalleResultado is always a array
 - Fixed bug in min unit and activity search, first search min unit and then search min activity for the searched unit
@@ -37,45 +38,45 @@ Versió 2012011091 - IECISA (mmartinez)
 - Fix bug when showing row status
 
 
-Versió 2011111491 - IECISA (mmartinez)
+VersiÃ³ 2011111491 - IECISA (mmartinez)
 -------------------------------------------
 - Change obligatory field from Calificacion to Descripcion
 
 
-Versió 2011110391 - IECISA (mmartinez)
+VersiÃ³ 2011110391 - IECISA (mmartinez)
 -------------------------------------------
 - Fixed bug when there was just 1 detail
 
 
-Versió 2011103191 - IECISA (mmartinez)
+VersiÃ³ 2011103191 - IECISA (mmartinez)
 -------------------------------------------
 - Fixed bug when startime is empty
 - Fixed bug in database model
 
 
-Versió 2011102591 - IECISA (mmartinez)
+VersiÃ³ 2011102591 - IECISA (mmartinez)
 -------------------------------------------
 - Fixed bug in load activities sql statment
 
 
-Versió 2011101991 - IECISA (gantolin, mmartinez)
+VersiÃ³ 2011101991 - IECISA (gantolin, mmartinez)
 -------------------------------------------
 - Extra control to prevend posible display notifications
 - Fixed bug in database model
   
 
-Versió 2011092791 - IECISA (mmartinez)
+VersiÃ³ 2011092791 - IECISA (mmartinez)
 -------------------------------------------
 - Fix bug, in PostgreSQL this statment was wrong
 - To save view rcontent action to the Moodle log
 
 
-Versió 2011090891 - IECISA (mmartinez)
+VersiÃ³ 2011090891 - IECISA (mmartinez)
 -------------------------------------------
 - Report filter by status
 
 
-Versió 2011052091 - IECISA (mmartinez)
+VersiÃ³ 2011052091 - IECISA (mmartinez)
 -------------------------------------------
 - Added new parameter idgrade to search just for it  
 - Report show info directly
@@ -100,14 +101,14 @@ Versió 2011052091 - IECISA (mmartinez)
 - Lang files add new values POR_CORREGIR and CORREGIDO
 
 
-Versió 2011012091 - IECISA (mmartinez)
+VersiÃ³ 2011012091 - IECISA (mmartinez)
 -------------------------------------------
 - View added text "Exit activity" when the activity is open in popup
 - Add/edit fixed bug that show two times the error message
-- Updated to Àgora-Moodle version 1.9.9
+- Updated to Ã€gora-Moodle version 1.9.9
 
 
-Versió 2010121652 - IECISA (mmartinez)
+VersiÃ³ 2010121652 - IECISA (mmartinez)
 -------------------------------------------
 - Add/edit form combo level changed for just show levels that have books
 - Report after doing a data update automatically refreshes the description field

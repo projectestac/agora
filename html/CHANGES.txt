@@ -15,6 +15,7 @@ MOODLE 2
 - Added first version of the replacextec tool
 - Added first version of the odisseagtafsync tool
 - Added Marsupial rgrade block (developed by Text-La Galera)
+- Added ForzarGuardar parameter to rcontent module
 
 ZIKULA 2
 - Imporved module IWforums and added the functionality of setting messages in top of messages list
