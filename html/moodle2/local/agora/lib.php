@@ -86,7 +86,7 @@ function is_rush_hour() {
 function is_enabled_in_agora ($mod){
     global $CFG;
     if ( (isset($CFG->isagora) && $CFG->isagora) &&
-         (((!isset($CFG->ismarsupial) || !$CFG->ismarsupial) && ($mod=='rcontent' || $mod=='rscorm' || $mod=='atria' || $mod=='rcommon' || $mod=='my_books') ) 
+         (((!isset($CFG->ismarsupial) || !$CFG->ismarsupial) && ($mod=='rcontent' || $mod=='rscorm' || $mod=='atria' || $mod=='rcommon' || $mod=='my_books' || $mod=='rgrade') ) 
          || ((!isset($CFG->iseoi) || !$CFG->iseoi) && ($mod=='eoicampus') ) 
          || ((!isset($CFG->isportal) || !$CFG->isportal) && $mod == 'admin_service' ) 
          || ( $mod=='afterburner' || $mod=='anomaly' || $mod=='arialist' || $mod == 'base' || $mod == 'binarius' || $mod == 'boxxie' || $mod == 'brick' || $mod == 'canvas' || $mod == 'formal_white' || $mod == 'formfactor' || $mod == 'fusion' || $mod == 'leatherbound' || $mod == 'magazine' || $mod == 'nimble' || $mod == 'nonzero' || $mod=='overlay' || $mod=='serenity' || $mod=='sky_high' || $mod=='splash' || $mod=='standard' || $mod=='standardold' || (!$CFG->enabledevicedetection && $mod=='mymobile' )) ) ) {        
