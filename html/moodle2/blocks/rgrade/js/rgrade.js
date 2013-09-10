@@ -319,7 +319,7 @@ function Rgrade(courseid, bookid, unitid, studentid) {
 
 	function formatScore(score) {
 
-		var BASE = 10.0;
+		var BASE = 1.0;
 
 		return (score * BASE).toFixed(2);
 	}

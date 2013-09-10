@@ -944,3 +944,9 @@ a.button.disabled {
 table#row-header{
 	margin-bottom:0px;
 }
+
+/* Evitar que el número de intento se corte */
+#rgrade_table td.attempt {
+	text-overflow:clip;
+	white-space:nowrap;
+}

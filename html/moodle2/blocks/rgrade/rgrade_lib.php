@@ -208,7 +208,7 @@ $groupid = null, $userid, $state = null, $begin = null, $end = null) {
 
 	global $CFG, $DB;
 
-	$sql = "SELECT g.id, g.userid, g.unitid, g.activityid, g.grade/g.maxgrade as grade, ".
+	$sql = "SELECT g.id, g.userid, g.unitid, g.activityid, g.grade, ".
 	"g.starttime, g.totaltime , g.attempt, g.urlviewresults, g.comments, g.status ".
 	"FROM {$CFG->prefix}rcontent_grades g ".
 	"INNER JOIN {$CFG->prefix}rcontent rc ON rc.id = g.rcontentid ";
