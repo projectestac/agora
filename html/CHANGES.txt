@@ -19,6 +19,9 @@ MOODLE 2
 
 ZIKULA 2
 - Imporved module IWforums and added the functionality of setting messages in top of messages list
+- Added missing lang file for editor Xinha which threw a popup error window in some systems
+
+
 
 Changes 13.07.10
 ---------------------------------------------------------------------------------------

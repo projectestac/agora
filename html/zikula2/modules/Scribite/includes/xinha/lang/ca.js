@@ -42,7 +42,7 @@
   "Would you like to clear font sizes?": "Voleu eliminar les definicions de mida de la font?",
   "Would you like to clear font colours?": "Voleu eliminar les definicions de color de la font?",
   "Split Block": "Dividir el bloc",
-  "Toggle Borders": "Afegir/Treure bores",
+  "Toggle Borders": "Afegir/Treure vores",
   "Save as": "Guardar com",
   "Insert/Overwrite": "Inserir/Sobreescriure",
   "&#8212; format &#8212;": "&#8212; format &#8212;",
