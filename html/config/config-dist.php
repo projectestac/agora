@@ -52,7 +52,7 @@
     // Load restricted vars
     include_once $agora['server']['root'] . 'html/config/config-restricted.php';
 
-
+/*
     // Codi dels talls de servei
     if (!strpos($_SERVER['REQUEST_URI'], "analytics1") &&
         !strpos($_SERVER['REQUEST_URI'], "analytics2") &&
@@ -75,3 +75,4 @@
            }
         }
     }
+*/
