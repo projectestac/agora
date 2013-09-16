@@ -17,9 +17,13 @@ MOODLE 2
 - Added Marsupial rgrade block (developed by Text-La Galera)
 - Added ForzarGuardar parameter to rcontent module
 
+ZIKULA
+- Added ability to reduce the size of right column when it is empty in themes iw_xtec and iw_xtec2
+
 ZIKULA 2
 - Imporved module IWforums and added the functionality of setting messages in top of messages list
 - Added missing lang file for editor Xinha which threw a popup error window in some systems
+- Added ability to reduce the size of right column when it is empty in themes IWxtec and IWxtec2
 
 
 

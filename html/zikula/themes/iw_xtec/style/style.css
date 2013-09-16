@@ -133,6 +133,27 @@ a {
 	margin-right: 50px;
 }
 
+#contenttable {
+    width: 100%;
+}
+
+#lcol {
+    width: 20%;
+}
+
+#ccol2col {
+    padding:0px 8px 0px 8px;
+}
+
+#ccol3col {
+    padding:0px 8px 0px 8px;
+}
+
+#rcol {
+    max-width: 25%;
+    min-width: 0%;
+}
+
 /* Left blocks */
 .left_inside { 
     margin:4px 0px 8px 0px;

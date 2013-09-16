@@ -154,7 +154,8 @@ a {
 }
 
 #rcol {
-    width: 25%;
+    max-width: 25%;
+    min-width: 0%;
 }
 
 
@@ -365,4 +366,3 @@ ul#minitabs a:link, ul#minitabs a:visited, ul.minitabs a:link, ul.minitabs a:vis
 #z-securityanalyzer {
     padding:10px!important;
 }
-
