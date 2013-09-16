@@ -78,3 +78,6 @@
     $PNConfig['DBInfo']['moodle2']['dbuname']   = $agora['moodle']['username'] . $school_info['id_moodle'];
     $PNConfig['DBInfo']['moodle2']['encoded']   = 0;
     $PNConfig['DBInfo']['moodle2']['pconnect']  = 1;
+
+    // Needed for SSO with Moodle for salted passwords created in Moodle
+    $PNConfig['MoodleSalt'][0] = 'y7a!Eb019n8Z5*43Sl5J&ly4pjJUk-b';

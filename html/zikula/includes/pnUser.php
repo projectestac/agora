@@ -103,11 +103,36 @@ function pnUserLogIn($uname, $pass, $rememberme = false, $checkPassword = true)
             $upass = $user['pass'];
             $pnuser_hash_number = $user['hash_method'];
             $hashmethodsarray = pnModAPIFunc('Users', 'user', 'gethashmethods', array('reverse' => true));
+            
+            //XTEC ************ AFEGIT - Validation of users with imported salted passwords from Moodle
+            //2013.09.16 @aginard
 
-            $hpass = DataUtil::hash($pass, $hashmethodsarray[$pnuser_hash_number]);
-            if ($hpass != $upass) {
-                return false;
+            global $PNConfig;
+
+            if (isset($PNConfig['MoodleSalt'])) {
+                $hpasses[] = DataUtil::hash($pass, $hashmethodsarray[$pnuser_hash_number]);
+                foreach ($PNConfig['MoodleSalt'] as $salt) {
+                    $hpasses[] = DataUtil::hash($pass . $salt, 'md5');
+                }
+
+                if (!in_array($upass, $hpasses)) {
+                    return false;
+                }
+            } else {
+
+                //************ FI
+
+                $hpass = DataUtil::hash($pass, $hashmethodsarray[$pnuser_hash_number]);
+                if ($hpass != $upass) {
+                    return false;
+                }
+
+            //XTEC ************ AFEGIT - Validation of users with imported salted passwords from Moodle
+            //2013.09.16 @aginard
+
             }
+
+            //************ FI
 
             // Check stored hash matches the current system type, if not convert it.
             $system_hash_method = $uservars['hash_method'];

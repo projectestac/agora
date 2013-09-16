@@ -20,6 +20,7 @@ MOODLE 2
 ZIKULA
 - Added ability to reduce the size of right column when it is empty in themes iw_xtec and iw_xtec2
 - iw_bluegrace_agora: Reduced size of input field for login
+- Validation of users with imported salted passwords from Moodle
 
 ZIKULA 2
 - Imporved module IWforums and added the functionality of setting messages in top of messages list
