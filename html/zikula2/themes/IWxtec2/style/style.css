@@ -202,7 +202,7 @@ border:0;
 
 #theme_content_right{
 	max-width:30%;
-	min-width:0%;
+	min-width:0%; /* Reduce the width of right column when it's empty */
 	vertical-align:top;
 }
 
