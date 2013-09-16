@@ -490,3 +490,8 @@ img.right {
   margin-left:15px;
   margin-bottom:10px;
 }
+
+input, select, textarea, button {
+    font-family: inherit;
+    font-size:inherit;
+}
