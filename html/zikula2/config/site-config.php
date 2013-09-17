@@ -94,3 +94,6 @@
     $ZConfig['DBInfo']['databases']['moodle2']['user']        = $agora['moodle']['username'] . $school_info['id_moodle'];
     $ZConfig['DBInfo']['databases']['moodle2']['charset']     = 'utf8';
     $ZConfig['DBInfo']['databases']['moodle2']['collate']     = 'utf8_general_ci';
+
+    // Needed for SSO with Moodle for salted passwords created in Moodle
+    $PNConfig['MoodleSalt'][0] = 'y7a!Eb019n8Z5*43Sl5J&ly4pjJUk-b';

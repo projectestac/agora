@@ -669,10 +669,32 @@ class SecurityUtil
                 $hashMethodName = $hashMethod;
             }
 
+            //XTEC ************ MODIFICAT - Validation of users with imported salted passwords from Moodle
+            //2013.09.17 @aginard
+
+            global $PNConfig;
+
+            if (isset($PNConfig['MoodleSalt'])) {
+                $hpasses[] = hash($hashMethodName, $unhashedData);
+                foreach ($PNConfig['MoodleSalt'] as $salt) {
+                    $hpasses[] = hash($hashMethodName, $unhashedData . $salt);
+                }
+
+                if (!in_array($upass, $hpasses)) {
+                    $dataMatches = false;
+                } else {
+                    $dataMatches = 1;
+                }
+            }
+
+            //************ ORIGINAL
+            /*
             if (array_search($hashMethodName, $algoList) !== false) {
                 $dataHash = hash($hashMethodName, $saltStr . $unhashedData);
                 $dataMatches = is_string($dataHash) ? (int)($dataHash == $correctHash) : false;
             }
+            */
+            //************ FI
         }
 
         return $dataMatches;

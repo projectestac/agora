@@ -26,7 +26,7 @@ ZIKULA 2
 - Imporved module IWforums and added the functionality of setting messages in top of messages list
 - Added missing lang file for editor Xinha which threw a popup error window in some systems
 - Added ability to reduce the size of right column when it is empty in themes IWxtec and IWxtec2
-
+- Validation of users with imported salted passwords from Moodle
 
 
 Changes 13.07.10
