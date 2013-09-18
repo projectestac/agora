@@ -1,4 +1,5 @@
 adminInfo/*
+html/.htaccess
 html/config/config.php
 html/config/env-config.php
 html/config/env-config-eoi-pro.php
