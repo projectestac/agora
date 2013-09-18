@@ -96,4 +96,4 @@
     $ZConfig['DBInfo']['databases']['moodle2']['collate']     = 'utf8_general_ci';
 
     // Needed for SSO with Moodle for salted passwords created in Moodle
-    $PNConfig['MoodleSalt'][0] = 'y7a!Eb019n8Z5*43Sl5J&ly4pjJUk-b';
+    $ZConfig['MoodleSalt'][0] = 'y7a!Eb019n8Z5*43Sl5J&ly4pjJUk-b';

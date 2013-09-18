@@ -672,15 +672,15 @@ class SecurityUtil
             //XTEC ************ MODIFICAT - Validation of users with imported salted passwords from Moodle
             //2013.09.17 @aginard
 
-            global $PNConfig;
+            global $ZConfig;
 
-            if (isset($PNConfig['MoodleSalt'])) {
+            if (isset($ZConfig['MoodleSalt'])) {
                 $hpasses[] = hash($hashMethodName, $unhashedData);
-                foreach ($PNConfig['MoodleSalt'] as $salt) {
+                foreach ($ZConfig['MoodleSalt'] as $salt) {
                     $hpasses[] = hash($hashMethodName, $unhashedData . $salt);
                 }
 
-                if (!in_array($upass, $hpasses)) {
+                if (!in_array($correctHash, $hpasses)) {
                     $dataMatches = false;
                 } else {
                     $dataMatches = 1;
