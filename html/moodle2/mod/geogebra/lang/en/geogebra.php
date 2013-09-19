@@ -116,7 +116,14 @@ $string['discardchanges'] = 'Discard changes and return';
 
 
 /* Revision Moodle 2 */
-$string['modulename_help'] = '<b>ATTENTION!!</b> <br>Alpha version of the GeoGebra module for Moodle 2. It\'s incomplete and there are some functionalities which are not working properly ';
+$string['modulename_help'] = '<p><a href="http://www.geogebra.org" target="_blank">GeoGebra</a> is a free and multi-platform dynamic mathematics software for all levels of education that joins geometry, algebra, tables, graphing, statistics and calculus in one easy-to-use package.</p>
+<p>Therefore, the <a href="http://www.gencat.cat/ensenyament/" target="_blank">Departament of Education of Catalonia</a> in collaboration with the <a href="http://acgeogebra.cat/" target="_blank">Catalan Association of GeoGebra</a> (ACG) and the GeoGeobra development team have implemented this module that allows the incorporation of GeoGebra activities in Moodle. Its main features are:
+<ul>  
+    <li>Allows embedding easily GeoGebra activities in some Moodle course.</li>
+    <li>Facilitates students tracing because it stores the score, date, duration and construction of each of the attempts made ​​by the users.</li>
+    <li>Students can save the state of the activities to continue them later.</li>
+</ul>
+</p>';
 $string['pluginname'] = 'GeoGebra';
 $string['pluginadministration'] = 'GeoGebra administration';
 $string['geogebra:view'] = 'View GeoGebra';

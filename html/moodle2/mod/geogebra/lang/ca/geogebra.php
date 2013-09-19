@@ -115,7 +115,13 @@ $string['discardchanges'] = 'Torna sense desar';
 
 
 /* Revision Moodle 2 */
-$string['modulename_help'] = '<b>ATENCIÓ!!</b> <br>Versió alfa del mòdul del GeoGebra pel Moodle 2. Està incompleta i, per tant, algunes parts poden no funcionar adequadament.';
+$string['modulename_help'] = '<p><a href="http://www.geogebra.org" target="_blank">GeoGebra</a> és una aplicació de matemàtica dinàmica, gratuïta, lliure i multiplataforma, enfocada a tots els nivells educatius, que aglutina la geometria, l\'àlgebra, el full de càlcul, l\'estadística i l\'anàlisi, en un únic paquet integrat, molt fàcil d\'utilitzar.</p>
+<p>Per aquest motiu, el <a href="http://www.gencat.cat/ensenyament/" target="_blank">Departament d\'Ensenyament de Catalunya</a>, en col·laboració amb l\'<a href="http://acgeogebra.cat/" target="_blank">Associació Catalana de GeoGebra</a> (ACG) i l\'equip de desenvolupament de GeoGebra han implementat aquest mòdul que permet la incorporació d\'aquest tipus d\'activitats a Moodle. Les seves característiques principals són:
+<ul>
+    <li>Permet incrustar activitats GeoGebra a qualsevol curs de forma molt senzilla.</li>
+    <li>Facilita el seguiment ja que guarda la puntuació, data, durada i construccions de cadascun dels intents que realitza l\'alumnat.</li>
+    <li>L\'alumnat pot desar l\'estat de les activitats realitzades per continuar-les en un altre moment.</li>
+</ul></p>';
 $string['pluginname'] = 'GeoGebra';
 $string['pluginadministration'] = 'Administració de GeoGebra';
 $string['geogebra:view'] = 'Visualitza GeoGebra';
