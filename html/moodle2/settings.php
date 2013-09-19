@@ -28,7 +28,7 @@ $CFG->recaptchaprivatekey='6LcgQgsAAAAAAMAOLB0yfxPACo0e60sKD5ksV_hP';
 //Mail
 $CFG->smtpmaxbulk = 20;
 //$CFG->noreplyaddress = "noreply@agora.xtec.cat";
-$CFG->digestmailtime = '01';
+$CFG->digestmailtime = 1;
 $CFG->mailheader = '[Àgora]';
 
 //Cleanup
