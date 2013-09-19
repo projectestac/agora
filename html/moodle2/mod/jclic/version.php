@@ -37,4 +37,4 @@ $module->requires  = 2011033009;      // Requires this Moodle version (2.0)
 $module->cron      = 0;               // Period for cron to check this module (secs)
 $module->component = 'mod_jclic';     // To check on upgrade, that module sits in correct place
 $module->release   = 'v0.2.3';        // Human-readable version name
-$module->maturity = MATURITY_RC;      // How stable the plugin is
+$module->maturity = MATURITY_STABLE;      // How stable the plugin is
