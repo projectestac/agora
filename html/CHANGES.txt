@@ -17,6 +17,7 @@ MOODLE 2
 - Added Marsupial rgrade block (developed by Text-La Galera)
 - Added ForzarGuardar parameter to rcontent module
 - Fixed bug with rscorm to let update the launch when it has been changed (patch reported by Santillana)
+- Upgraded qformat_hotpot from v2.0.8 to v.2.0.13 to fix some importing problems
 
 ZIKULA
 - Added ability to reduce the size of right column when it is empty in themes iw_xtec and iw_xtec2

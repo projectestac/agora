@@ -154,17 +154,17 @@ class qformat_hotpot extends qformat_default {
             // there is usually only one exercise in a file
 
             $question = $this->defaultquestion();
-            $question->qtype = MULTIANSWER;
+            $question->qtype = 'multianswer';
             $question->name = $this->hotpot_get_title($source, $x, ($x>0));
             $question->questiontext = '';
             $question->questiontextformat = FORMAT_HTML;
 
             if (intval($source->xml_value('hotpot-config-file,'.$source->hbs_quiztype.',use-drop-down-list'))) {
                 $dropdownlist = $this->hotpot_jcloze_wordlist($source);
-                $answertype = MULTICHOICE;
+                $answertype = 'multichoice';
             } else {
                 $dropdownlist = false;
-                $answertype = SHORTANSWER;
+                $answertype = 'shortanswer';
 
                 // add wordlist, if required (not required if we are using dropdowns)
                 if (intval($source->xml_value('hotpot-config-file,'.$source->hbs_quiztype.',include-word-list'))) {
@@ -198,7 +198,7 @@ class qformat_hotpot extends qformat_default {
 
                     // initialize gap details
                     $gap = new stdClass();
-                    $gap->qtype = $answertype;
+                    $gap->qtype = $answertype; // leave as lower case
                     $gap->defaultmark = $defaultmark; // Moodle 2.1+
                     $gap->defaultgrade = $defaultmark; // Moodle 2.0
                     $gap->usecase = 0;
@@ -206,7 +206,7 @@ class qformat_hotpot extends qformat_default {
                     $gap->fraction = array();
                     $gap->feedback = array();
 
-                    if ($answertype==MULTICHOICE) {
+                    if ($answertype=='multichoice') {
                         $gap->single = 1;
                         $gap->answernumbering = 0;
                         $gap->shuffleanswers = 0;
@@ -238,7 +238,7 @@ class qformat_hotpot extends qformat_default {
                                 $fraction = 0;
                                 $feedback = '';
                             }
-                            $gap->answer[] = $text;
+                            $gap->answer[] = array('text' => $text, 'format' => FORMAT_HTML);
                             $gap->fraction[] = $fraction;
                             $gap->feedback[] = array('text' => $feedback, 'format' => FORMAT_HTML);
                             $answers[] = ($fraction==0 ? '' : '=').$text.($feedback=='' ? '' : ('#'.$feedback));
@@ -263,7 +263,7 @@ class qformat_hotpot extends qformat_default {
                     }
                     // compile answers into question text
                     $gap->questiontext = array(
-                        'text' => '{'.$defaultmark.':'.$answertype.':'.implode('~', $answers).'}',
+                        'text' => '{'.$defaultmark.':'.strtoupper($answertype).':'.implode('~', $answers).'}',
                         'format' => FORMAT_MOODLE,
                     );
                     $question->options->questions[] = $gap;
@@ -348,7 +348,7 @@ class qformat_hotpot extends qformat_default {
 
             if ($text && $answer) {
                 $question = $this->defaultquestion();
-                $question->qtype = SHORTANSWER;
+                $question->qtype = 'shortanswer';
                 $question->name = $this->hotpot_get_title($source, $x, true);
 
                 if ($source->xml_value_bool($source->hbs_software.'-config-file,'.$source->hbs_quiztype.',case-sensitive')) {
@@ -388,7 +388,7 @@ class qformat_hotpot extends qformat_default {
             // there is usually only one exercise in a file
 
             $question = $this->defaultquestion();
-            $question->qtype = MATCH;
+            $question->qtype = 'match';
             $question->name = $this->hotpot_get_title($source, $x, ($x>0));
 
             $question->correctfeedback = array('text'=>'', 'format'=>FORMAT_HTML);
@@ -441,7 +441,7 @@ class qformat_hotpot extends qformat_default {
             // there is usually only one exercise in a file
 
             $question = $this->defaultquestion();
-            $question->qtype = SHORTANSWER;
+            $question->qtype = 'shortanswer';
             $question->name = $this->hotpot_get_title($source, $x, ($x>0));
 
             $question->answer = array();
@@ -519,9 +519,9 @@ class qformat_hotpot extends qformat_default {
                 //  4 : multiple select
 
                 if ($type==2) {
-                    $question->qtype = SHORTANSWER;
+                    $question->qtype = 'shortanswer';
                 } else {
-                    $question->qtype = MULTICHOICE;
+                    $question->qtype = 'multichoice';
                     $question->correctfeedback = array('text'=>'', 'format'=>FORMAT_HTML);
                     $question->incorrectfeedback = array('text'=>'', 'format'=>FORMAT_HTML);
                     $question->partiallycorrectfeedback = array('text'=>'', 'format'=>FORMAT_HTML);
@@ -571,7 +571,7 @@ class qformat_hotpot extends qformat_default {
                     }
                     $answertext = $this->hotpot_prepare_str($source->xml_value($tags, $answer."['text'][0]['#']"));
                     if (strlen($answertext)) {
-                        if ($question->qtype==SHORTANSWER) {
+                        if ($question->qtype=='shortanswer') {
                             $question->answer[$aa] = $answertext;
                         } else {
                             $question->answer[$aa] = array('text'=>$answertext, 'format' => FORMAT_HTML);

@@ -14,23 +14,26 @@ Pre-requisites
 ======================================
 
     1. This plugin is designed to run on Moodle 2.x.
-        It will not work on Moodle 1.x.
+       It will not work on Moodle 1.x.
 
     2. This plugin requires the HotPot module for Moodle 2.x
-        which can be downloaded from either of the following locations: 
+       which can be downloaded from any of the following locations:
 
-        (i) the Moodle.org plugins repository
-        (ii) http://bateson.kanazawa-gu.ac.jp/moodle/zip/plugins_mod_hotpot.zip
+        (a) GIT: https://github.com/gbateson/moodle-mod_hotpot.git
+        (b) CVS: the Moodle CVS repository (contrib/plugins/mod/hotpot)
+        (c) zip: the Moodle.org -> Plugins repository (search for HotPot)
+        (d) zip: http://bateson.kanazawa-gu.ac.jp/zip/plugins_mod_hotpot.zip
 
 ======================================
 To INSTALL or UPDATE this plugin
 ======================================
 
-    1. download zip file for this plugin from either of the following locations:
+    1. download the files for this plugin from any one of the following locations:
 
-        (i) the Moodle.org plugins repository
-        (ii) http://bateson.kanazawa-gu.ac.jp/moodle/zip/plugins_qformat_hotpot.zip
+        (a) GIT: https://github.com/gbateson/moodle-qformat_hotpot.git
+        (b) zip: the Moodle.org -> Plugins repository (search for HotPot)
+        (c) zip: http://bateson.kanazawa-gu.ac.jp/zip/plugins_qformat_hotpot.zip
 
-    2. unzip the zip file, to create a folder called "hotpot"
-
-    3. upload this "hotpot" folder to "question/format/hotpot" on your Moodle 2.x site
+        If you are installing from a zip file, unzip the zip file, to create a folder called "hotpot"
+        and upload or move this "hotpot" folder to the "question/format" folder on your Moodle 2.x site
+        to create a new folder at "question/format/hotpot"
