@@ -1183,7 +1183,8 @@ function generate_error($codError, $descError, $functionError)
 function generate_wsdl(){
 	global $CFG;
 	
-	if(!is_file("$CFG->dataroot/1/WebServices/WsSeguimiento/wsSeguimiento.wsdl")){
+	if(!is_file("$CFG->dataroot/1/WebServices/WsSeguimiento/wsSeguimiento.wsdl") || 
+            filemtime("$CFG->dataroot/1/WebServices/WsSeguimiento/wsSeguimiento.wsdl") < 1379462400){ // It's necessary to update WSDL after of 2013/09/18 to add ForzarGuardar parameter
 		log_to_file("wsSeguimiento: WSDL no exists");
 		$strwsdl='<?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://educacio.gencat.cat/agora/seguimiento/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://educacio.gencat.cat/agora/seguimiento/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
