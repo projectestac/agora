@@ -16,6 +16,7 @@ MOODLE 2
 - Added first version of the odisseagtafsync tool
 - Added Marsupial rgrade block (developed by Text-La Galera)
 - Added ForzarGuardar parameter to rcontent module
+- Fixed bug with rscorm to let update the launch when it has been changed (patch reported by Santillana)
 
 ZIKULA
 - Added ability to reduce the size of right column when it is empty in themes iw_xtec and iw_xtec2

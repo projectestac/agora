@@ -559,10 +559,20 @@ function rscorm_parse_scorm($pkgdir, $scorm) {
                 		$newitem->manifest = $manifest;
                 		$update=true;
                 	}
-                	if (!$olditemid || ($olditemid && $olditem->organization!=$organization)){
-                		$newitem->organization = $organization;
+                        
+                        //NETEX (Santillana). Patch to update ticket allways.
+                	if (!$olditemid || ($olditemid && $olditem->launch!=$item->launch)){
+                		$newitem->launch = $item->launch;
                 		$update=true;
                 	}
+                        //END NETEX patch
+                                                
+                        
+                    if (!$olditemid || ($olditemid && $olditem->organization!=$organization)){
+                        $newitem->organization = $organization;
+                        $update=true;
+                    }
+                    
                 	if (!$olditemid || ($olditemid && isset($item->parent) && $olditem->parent!=$item->parent)){
                 		$newitem->parent = addslashes_js($item->parent);
                 		$update=true;
@@ -574,7 +584,7 @@ function rscorm_parse_scorm($pkgdir, $scorm) {
                 	if (!$olditemid || ($olditemid && isset($item->scormtype) && $olditem->scormtype!=$item->scormtype)){
                 		$newitem->scormtype = addslashes_js($item->scormtype);
                 		$update=true;
-                	}
+                	}                    
                 	if (!$olditemid || ($olditemid && isset($item->title) && $olditem->title!=$item->title)){
                 		// MARSUPIAL ********** MODIFICAT -> Fixed bug in the sql activity insert
                 		// 2011.09.01 @mmartinez
