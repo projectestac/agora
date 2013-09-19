@@ -43,12 +43,12 @@ $string['completedwarningtext'] = 'Un o més estudiants ({$a}) ja tenen completa
 $string['completion'] = 'Seguiment de compleció';
 $string['completion-alt-auto-enabled'] = 'El sistema indica que aquest apartat està completat d\'acord amb les condicions: {$a}';
 $string['completion-alt-auto-fail'] = 'Completat: {$a} (no han aconseguit assolir la qualificació)';
-$string['completion-alt-auto-n'] = 'No completat: {$a}';
+$string['completion-alt-auto-n'] = 'Incomplet: {$a}';
 $string['completion-alt-auto-pass'] = 'Completat: {$a} (han assolit la qualificació)';
 $string['completion-alt-auto-y'] = 'Completat: {$a}';
 $string['completion-alt-manual-enabled'] = 'L\'estudiantat pot marcar de forma manual aquest apartat com completat: {$a}';
-$string['completion-alt-manual-n'] = 'No completat: {$a}. Seleccioneu-lo per marcar com completat.';
-$string['completion-alt-manual-y'] = 'Completat: {$a}. Seleccioneu-lo per marcar com a no completat';
+$string['completion-alt-manual-n'] = 'Incomplet: {$a}. Seleccioneu-lo per marcar com a completat.';
+$string['completion-alt-manual-y'] = 'Completat: {$a}. Seleccioneu-lo per marcar com a incomplet';
 $string['completion_automatic'] = 'Mostra l\'activitat com completada si es compleixen les condicions';
 $string['completiondependencies'] = 'Dependències de compleció';
 $string['completiondisabled'] = 'Deshabilitada, no mostreu els paràmetres de l\'activitat';
@@ -62,44 +62,43 @@ Una marca al costat del nom de l\'activitat en la pàgina del curs indica que l\
 $string['completionicons'] = 'Caixa de marques de compleció';
 $string['completionicons_help'] = 'Una marca a la vora d\'un nom d\'activitat pot ser utilitzada per indicar que l\'activitat està completada.
 
-Si es mostra una marca puntejada, podeu prémer sobre ella per marcar la caixa quan penseu que l\'activitat s\'ha finalitzat. (Prémer una altra vegada sobre la marca la traurà si canvies de parer).
-La marca és opcional però és una forma senzilla de seguir el progres del curs.
+Si es mostra una marca puntejada, una marca apareixerà de forma automàtica quan hagis completat l\'activitat d\'acord amb les condicions establertes pel professor.
 
-Si es mostra una marca blanca, una marca apareixerà de forma automàtica quan hagis completat l\'activitat d\'acord amb les condicions establertes pel professor.
-';
+Si es mostra una marca blanca, podeu prémer sobre ella per marcar la caixa quan penseu que l\'activitat s\'ha finalitzat. (Prémer una altra vegada sobre la marca la traurà si canvies de parer).
+La marca és opcional però és una forma senzilla de seguir el progres del curs.';
 $string['completion_manual'] = 'Els estudiants poden marcar de forma manual l\'activitat com completada';
 $string['completionmenuitem'] = 'Compleció';
-$string['completion-n'] = 'No completat';
+$string['completion-n'] = 'Incomplet';
 $string['completion_none'] = 'No indiqueu la compleció de l\'activitat';
 $string['completionnotenabled'] = 'No s\'ha habilitat la compleció';
 $string['completionnotenabledforcourse'] = 'No s\'ha habilitat la compleció en aquest curs';
 $string['completionnotenabledforsite'] = 'No s\'ha habilitat la compleció en aquest lloc';
 $string['completiononunenrolment'] = 'Compleció quan es cancel·li la inscripció';
-$string['completion-pass'] = 'Completat (han assolit la qualificació)';
+$string['completion-pass'] = 'Completat (s\'ha assolit la qualificació)';
 $string['completionsettingslocked'] = 'Bloquejats els paràmetres de compleció';
 $string['completionstartonenrol'] = 'El seguiment de la compleció comença amb la inscripció al curs';
 $string['completionstartonenrolhelp'] = 'Comença el seguiment del progrés d\'un estudiant en la compleció del curs en inscriure\'s al curs';
 $string['completion-title-manual-n'] = 'Marca com completat: {$a}';
-$string['completion-title-manual-y'] = 'Marca com no completat: {$a}';
+$string['completion-title-manual-y'] = 'Marca com a incomplet: {$a}';
 $string['completionusegrade'] = 'Qualificació requerida';
 $string['completionusegrade_desc'] = 'L\'estudiant ha de rebre una qualificació per completar aquesta activitat';
 $string['completionusegrade_help'] = 'Si s\'habilita, aquesta activitat es considerada completa quan una estudiant rep una una nota. La icona aprova o  suspèn es mostrarà si s\'ha configurat la nota d\'aprovat  per a l\'activitat.';
 $string['completionview'] = 'Visualització requerida';
-$string['completionview_desc'] = 'El estudiant cal que visualitzi aquesta activitat per completar-la.';
+$string['completionview_desc'] = 'Cal que l\'estudiant visualitzi aquesta activitat per completar-la.';
 $string['completion-y'] = 'Completat';
 $string['configenablecompletion'] = 'Quan s\'habilita, us permet activar el seguiment de la compleció (progrés) dins d\'un curs.';
 $string['confirmselfcompletion'] = 'Confirma auto-compleció';
 $string['coursealreadycompleted'] = 'Ja heu completat aquest curs';
 $string['coursecomplete'] = 'Curs complet';
-$string['coursecompleted'] = 'Curs finalitzat';
-$string['coursegrade'] = 'Nota del curs';
+$string['coursecompleted'] = 'Curs completat';
+$string['coursegrade'] = 'Qualificació del curs';
 $string['coursesavailable'] = 'Cursos disponibles';
 $string['coursesavailableexplaination'] = '<i>Cal configurar els criteris de compleció del curs per tal que aparegui en aquesta llista</i>';
-$string['criteria'] = 'Criteri';
+$string['criteria'] = 'Criteris';
 $string['criteriagradenote'] = 'Tingueu en compte que actualitzar ací la qualificació requerida no actualitzarà la qualificació actual per a aprovar el curs.';
 $string['criteriagroup'] = 'Grup de criteris';
 $string['criteriarequiredall'] = 'Calen tots els criteris de sota. ';
-$string['criteriarequiredany'] = 'No cal cap criteri de sota';
+$string['criteriarequiredany'] = 'Cal qualsevol dels criteris de sota';
 $string['csvdownload'] = 'Descarrega en una fulla de càlcul en format (UTF-8 .csv)';
 $string['datepassed'] = 'Data en què es va aprovar';
 $string['days'] = 'Dies';
@@ -122,7 +121,7 @@ $string['excelcsvdownload'] = 'Descarrega en format compatible amb Excel (.csv)'
 $string['fraction'] = 'Fracció';
 $string['graderequired'] = 'Qualificació requerida';
 $string['gradexrequired'] = '{$a} requerit';
-$string['inprogress'] = 'en progrés ';
+$string['inprogress'] = 'En progrés';
 $string['manualcompletionby'] = 'Compleció manual per';
 $string['manualselfcompletion'] = 'Auto-compleció manual';
 $string['markcomplete'] = 'Senyala completat';
@@ -130,7 +129,7 @@ $string['markedcompleteby'] = 'Senyala completat per {$a}';
 $string['markingyourselfcomplete'] = 'Autosenyalant completat';
 $string['moredetails'] = 'Més detalls';
 $string['nocriteriaset'] = 'No s\'han definit criteris de compleció per a aquest curs';
-$string['notcompleted'] = 'No completat';
+$string['notcompleted'] = 'Incomplet';
 $string['notenroled'] = 'No us heu inscrit en aquest curs';
 $string['nottracked'] = 'A hores d\'ara no s\'està realitzant el seguiment de la vostra compleció en aquest curs.';
 $string['notyetstarted'] = 'No començat encara';

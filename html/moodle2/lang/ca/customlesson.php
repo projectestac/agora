@@ -16,19 +16,17 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_completionstatus', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'customlesson', language 'ca', branch 'MOODLE_24_STABLE'
  *
- * @package   block_completionstatus
+ * @package   customlesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['completionprogressdetails'] = 'Detalls del progrés de la compleció.';
-$string['completionstatus:addinstance'] = 'Afegeix un bloc nou d\'estat de compleció del curs';
-$string['criteriagroup'] = 'Criteri del grup';
-$string['firstofsecond'] = '{$a->first} de {$a->second}';
-$string['pluginname'] = 'Estat de compleció del curs';
-$string['requirement'] = 'Requisit';
-$string['returntocourse'] = 'Torna al curs';
+$string['completed'] = 'Completat';
+$string['completederror'] = 'Completa la lliçó';
+$string['completethefollowingconditions'] = 'Heu de completar la següent condició en la lliçó <b>{$a}</b> abans de poder continuar.';
+$string['notcompleted'] = 'Incomplet';
+$string['progresscompleted'] = 'Heu completat el {$a}% de la lliçó';

@@ -354,7 +354,7 @@ $string['versionwarning'] = 'La versió del manifest és anterior a la 1.3, aví
 $string['viewallreports'] = 'Visualitza informes de {$a} intents';
 $string['viewalluserreports'] = 'Veure els informes de {$a} usuaris';
 $string['whatgrade'] = 'Qualificació dels intents';
-$string['whatgradedesc'] = 'Aquesta preferència estableix el valor per defecte sobre la qualificació dels intents';
+$string['whatgradedesc'] = 'Si s\'enregistra en el butlletí de qualificacions la qualificació més alta, la mitjana, la del primer o la del darrer intent completat, si es permeten diversos intents.';
 $string['whatgrade_help'] = 'Si es permeten múltiples intents, aquest paràmetre especifica si s\'emmagatzemarà al llibre de qualificacions el valor més alt, el promig (la mitja), el primer intent o l\'últim.
 
 Gestió de Múltiples Intents
