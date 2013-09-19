@@ -80,7 +80,7 @@ $string['reviewtab'] = 'Revisión';
 $string['availabledate'] = 'Disponible desde';
 $string['duedate'] = 'Hasta';
 
-$string['configjavacodebase'] = 'URL de los archivos JAR de GeoGebra';
+$string['javacodebase_help'] = 'URL de los archivos JAR de GeoGebra';
 $string['filename'] = 'Nombre del archivo';
 $string['enableRightClick'] = 'Habilita el botón derecho';
 $string['enableLabelDrags'] = 'Permite arrastrar las etiquetas';

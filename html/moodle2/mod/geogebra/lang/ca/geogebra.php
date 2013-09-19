@@ -80,7 +80,7 @@ $string['reviewtab'] = 'Revisió';
 $string['availabledate'] = 'Disponible des de';
 $string['duedate'] = 'Fins a';
 
-$string['configjavacodebase'] = 'URL dels fitxers JAR de GeoGebra';
+$string['javacodebase_help'] = 'URL dels fitxers JAR de GeoGebra';
 $string['filename'] = 'Nom del fitxer';
 $string['enableRightClick'] = 'Habilita el botó dret';
 $string['enableLabelDrags'] = 'Permet arrossegar les etiquetes';

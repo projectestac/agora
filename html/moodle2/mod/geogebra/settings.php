@@ -28,11 +28,7 @@ defined('MOODLE_INTERNAL') || die;
 if ($ADMIN->fulltree) {
     require_once($CFG->dirroot.'/mod/geogebra/lib.php');
 
-/*    $settings->add(new admin_setting_configtext('geogebra_jarbase', get_string('geogebrajarbase', 'geogebra'),
-                       get_string('geogebrajarbase_help', 'geogebra'), JCLIC_DEFAULT_JARBASE, PARAM_URL, 60));
-
-    $settings->add(new admin_setting_configtext('geogebra_lap', get_string('lap', 'geogebra'),
-                       get_string('lap_help', 'geogebra'), JCLIC_DEFAULT_LAP, PARAM_INT));
-*/    
+    $settings->add(new admin_setting_configtext('geogebra_javacodebase', get_string('javacodebase', 'geogebra'),
+                       get_string('javacodebase_help', 'geogebra'), GEOGEBRA_DEFAULT_CODEBASE, PARAM_URL, 60));    
 }
 

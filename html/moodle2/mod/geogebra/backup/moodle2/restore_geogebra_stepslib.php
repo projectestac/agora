@@ -52,6 +52,9 @@ class restore_geogebra_activity_structure_step extends restore_activity_structur
         $oldid = $data->id;
         $data->course = $this->get_courseid();
 
+        if (empty($data->attributes)) {
+            $data->attributes = '&';
+        }
         $data->timeavailable = $this->apply_date_offset($data->timeavailable);
         $data->timedue = $this->apply_date_offset($data->timedue);
 

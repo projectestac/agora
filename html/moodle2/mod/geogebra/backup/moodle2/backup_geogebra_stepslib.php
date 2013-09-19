@@ -38,7 +38,7 @@ class backup_geogebra_activity_structure_step extends backup_activity_structure_
  
         // Define each element separated
         $geogebra = new backup_nested_element('geogebra', array('id'), array(
-            'name', 'intro', 'introformat', 'url', 'width', 'height', 
+            'name', 'intro', 'introformat', 'url', 'attributes', 'width', 'height', 
             'showsubmit', 'grade', 'autograde', 'maxattempts', 'grademethod',
             'timeavailable', 'timedue', 'timecreated', 'timemodified'));
  

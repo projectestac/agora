@@ -58,10 +58,10 @@ if ($geogebra->autograde == 0) {
 
 if ($attempt) { //Exists an unfishined attempt
     if (!(geogebra_update_attempt($attempt->id, $vars, GEOGEBRA_UPDATE_STUDENT, $attempt->gradecomment, $f)))
-        error(get_string('errorattempt', 'geogebra'));
+        print_error(get_string('errorattempt', 'geogebra'));
 } else {
     if (!(geogebra_add_attempt($geogebra->id, $USER->id, $vars, $f)))
-        error(get_string('errorattempt', 'geogebra'));
+        print_error(get_string('errorattempt', 'geogebra'));
 }
 
 // TODO: Show saved information message

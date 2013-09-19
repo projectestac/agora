@@ -3,18 +3,9 @@ Release notes for GeoGebra Module for Moodle (http://moodle.org/plugins/pluginve
 More information on each of the fixes can be found in the project 
 development home at https://github.com/projectestac/moodle-mod_geogebra
 
-Changes in progress (Moodle 2 version)
+Changes in 0.2.4 RC (2013/09/19)
 ---------------------------------------------------------------------------------------
-- At the moment, only works:
-  * Create GGB activities 
-  * View GGB activities with students mode recovering status
-  * Save/Update attempts (from students view)
-  * Backup/Restory activities (even from Moodle 1.9)
-  * View current student attempts
-  * Teacher can grade and comment
-
-- Pending:
-  * Pending review behaviour with groups
+- First version of the GeoGebra module for Moodle 2.4
 
 
 Changes in progress (Moodle 1.9 version)

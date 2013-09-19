@@ -81,7 +81,7 @@ $string['reviewtab'] = 'Review';
 $string['availabledate'] = 'Available from';
 $string['duedate'] = 'Due date';
 
-$string['configjavacodebase'] = 'GeoGebra jar files URL';
+$string['javacodebase_help'] = 'GeoGebra jar files URL';
 $string['filename'] = 'Filename';
 $string['enableRightClick'] = 'Enable right click';
 $string['enableLabelDrags'] = 'Enable dragging of labels';
