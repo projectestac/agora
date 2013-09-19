@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['activity_completion'] = 'Compleció de l\'activitat';
+$string['activity_completion'] = 'compleció de l\'activitat';
+$string['completed'] = 'completat';

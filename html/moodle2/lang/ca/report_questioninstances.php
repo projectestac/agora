@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['editquestionshere'] = 'Edita preguntes en aquest context';
-$string['getreport'] = 'Pren l\'informe';
+$string['getreport'] = 'Obtén l\'informe';
 $string['hiddenquestions'] = 'Amagades';
 $string['intro'] = 'Aquest informe enumera tots els contextos del sistema en els quals hi ha preguntes d\'un tipus concret.';
 $string['pluginname'] = 'Instàncies de la pregunta';
