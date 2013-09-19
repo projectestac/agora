@@ -534,13 +534,15 @@ function jclic_grade_item_delete($jclic) {
  * @return array array of grades, false if none
  */
 function jclic_get_user_grades($jclic, $userid=0) {
-    global $CFG, $DB;
+    global $CFG;
     require_once($CFG->dirroot.'/mod/jclic/locallib.php');
 
     // sanity check on $jclic->id
     if (! isset($jclic->id)) {
         return;
     }
+    
+    $grades[$userid] = new stdClass();
     $sessions_summary = jclic_get_sessions_summary($jclic->id, $userid);
     $grades[$userid]->userid = $userid;
     $grades[$userid]->attempts = $sessions_summary->attempts;
@@ -569,7 +571,7 @@ function jclic_get_user_grades($jclic, $userid=0) {
  * @return void
  */
 function jclic_update_grades(stdClass $jclic, $userid = 0, $nullifnone=true) {
-    global $CFG, $DB;
+    global $CFG;
     require_once($CFG->libdir.'/gradelib.php');
 
     if ($jclic->grade == 0) {
