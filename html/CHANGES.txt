@@ -5,6 +5,12 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+
+Changes 13.09.23
+---------------------------------------------------------------------------------------
 GENERAL
 - Updated cron URL for Moodle 2 after URL change
 
