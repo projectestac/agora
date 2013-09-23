@@ -27,7 +27,7 @@
     // General vars
     $agora['server']['school_information'] = 'http://aplitic.educacio.intranet/pls/xtec/agora_dades_centre?p_codi_centre=';
     $agora['server']['html']               = $agora['server']['server'] . $agora['server']['base'];
-    $agora['server']['cookie']             = 'xtecSchool';
+    $agora['server']['cookie']             = 'agoraSchool'.$agora['server']['enviroment'];
 
     // ubr_upload vars
     $agora['server']['cgi_script']         = $agora['server']['server'] . $agora['server']['cgi_base'] . 'ubr_upload.pl';
@@ -37,7 +37,7 @@
     $agora['server']['ca_bundle']          = $agora['server']['root'] . 'html/config/ca-bundle.crt';
 
     // Database config info source
-    $agora['dbsource']['defaulttype']      = 1;
+    $agora['dbsource']['defaulttype']      = 1; // 1.- allSchools.php  2.- Database
     $agora['dbsource']['dir']              = $agora['server']['root'] . 'syncdata/';
     $agora['dbsource']['syncdir']          = $agora['dbsource']['dir'] . 'sync/';
     $agora['dbsource']['filename']         = 'allSchools.php';
