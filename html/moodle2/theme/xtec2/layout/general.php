@@ -9,9 +9,6 @@ $showsidepost = $hassidepost && !$PAGE->blocks->region_completely_docked('side-p
 $custommenu = $OUTPUT->custom_menu();
 $hascustommenu = (empty($PAGE->layout_options['nocustommenu']) && !empty($custommenu));
 
-// Check the theme settings to show the user profile picture
-$logourl = $PAGE->theme->settings->logourl;
-
 $bodyclasses = array();
 if ($showsidepre && !$showsidepost) {
     $bodyclasses[] = 'side-pre-only';
