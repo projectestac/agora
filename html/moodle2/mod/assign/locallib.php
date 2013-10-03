@@ -607,6 +607,10 @@ class assign {
                            WHERE a.course=:course";
             $params = array ("course" => $data->courseid);
 
+            //XTEC ************ AFEGIT - To fix bug when reseting assign grades (MDL-41877)
+            //2013.10.03  @sarjona
+            $DB->delete_records_select('assign_grades', "assignment IN ($assignssql)", $params);
+            //************ FI
             $DB->delete_records_select('assign_submission', "assignment IN ($assignssql)", $params);
             $status[] = array('component'=>$componentstr,
                               'item'=>get_string('deleteallsubmissions','assign'),

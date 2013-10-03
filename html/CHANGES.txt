@@ -5,8 +5,8 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-
-
+MOODLE 2
+- Fixed bug when reseting assign grades (https://tracker.moodle.org/browse/MDL-41877)
 
 
 Changes 13.09.23
