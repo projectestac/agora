@@ -434,7 +434,7 @@ function isValidCookie($cookie) {
     global $agora;
     
     // Get cookie information
-    $cookie = explode('_h_', $cookie);
+    $cookie = explode('__h_', $cookie);
     $cookiedata = $cookie[0];
     $cookiehash = $cookie[1];
 

@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- Fixed bug in Agora cookie that caused to use always file allSchools.php
+
 MOODLE 2
 - Fixed bug when reseting assign grades (https://tracker.moodle.org/browse/MDL-41877)
 - Installed Wiris Quizzes (version 3.23.0.0749)
