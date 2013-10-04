@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="question/type/wq/db" VERSION="20120622" COMMENT="XMLDB file for Moodle question/type/wq" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../lib/xmldb/xmldb.xsd">
+  <TABLES>
+    <TABLE NAME="qtype_wq" COMMENT="General table for all wiris questions">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="question"/>
+        <FIELD NAME="question" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" COMMENT="Foreign key references question.id." PREVIOUS="id" NEXT="xml"/>
+        <FIELD NAME="xml" TYPE="text" LENGTH="medium" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="XML serialization of the question definition" PREVIOUS="question" NEXT="hash"/>
+        <FIELD NAME="hash" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" DEFAULT="hash" SEQUENCE="false" COMMENT="Caching hash" PREVIOUS="xml" NEXT="options"/>
+		<FIELD NAME="options" TYPE="char" LENGTH="255" NOTNULL="true" UNSIGNED="true" DEFAULT="options" SEQUENCE="false" COMMENT="Options" PREVIOUS="hash"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="question"/>
+        <KEY NAME="question" TYPE="foreign" FIELDS="question" REFTABLE="question" REFFIELDS="id" PREVIOUS="primary"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
