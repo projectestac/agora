@@ -12,6 +12,10 @@ MOODLE 2
 - Fixed bug when reseting assign grades (https://tracker.moodle.org/browse/MDL-41877)
 - Installed Wiris Quizzes (version 3.23.0.0749)
 
+ZIKULA 2
+- Fixed configuration for connection to Moodle 2
+
+
 
 Changes 13.09.23
 ---------------------------------------------------------------------------------------

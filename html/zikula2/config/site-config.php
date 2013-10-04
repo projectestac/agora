@@ -90,8 +90,8 @@
     $ZConfig['DBInfo']['databases']['moodle2']['dbdriver']    = 'mysql';
     $ZConfig['DBInfo']['databases']['moodle2']['host']        = $agora['moodle']['dbhost'];
     $ZConfig['DBInfo']['databases']['moodle2']['password']    = $agora['moodle']['userpwd'];
-    $ZConfig['DBInfo']['databases']['moodle2']['dbname']      = $school_info['database_moodle'];
-    $ZConfig['DBInfo']['databases']['moodle2']['user']        = $agora['moodle']['username'] . $school_info['id_moodle'];
+    $ZConfig['DBInfo']['databases']['moodle2']['dbname']      = $school_info['database_moodle2'];
+    $ZConfig['DBInfo']['databases']['moodle2']['user']        = $agora['moodle']['username'] . $school_info['id_moodle2'];
     $ZConfig['DBInfo']['databases']['moodle2']['charset']     = 'utf8';
     $ZConfig['DBInfo']['databases']['moodle2']['collate']     = 'utf8_general_ci';
 
