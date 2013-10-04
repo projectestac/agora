@@ -4,7 +4,8 @@ class IWmoodle_Api_User extends Zikula_AbstractApi {
 
     public function connectExtDB($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('IWmoodle:coursesblock:', "::", ACCESS_READ)) {
+        if (!SecurityUtil::checkPermission('IWmoodle:coursesblock:', "::", ACCESS_READ)
+            && !SecurityUtil::checkPermission('IWmoodle::', "::", ACCESS_READ)) {
             return false;
         }
 
@@ -13,7 +14,7 @@ class IWmoodle_Api_User extends Zikula_AbstractApi {
         $databaseName = $ZConfig['DBInfo']['databases']['moodle2']['dbname'];
         $userpwd = $ZConfig['DBInfo']['databases']['moodle2']['password'];
 
-        $connect = oci_connect($user, $userpwd, $databaseName);
+        $connect = oci_pconnect($user, $userpwd, $databaseName);
 
         if (!$connect) {
             return LogUtil::registerError($this->__f('connectExtDB: No s\'ha pogut connectar al servei <strong>%s</strong>. Paràmetres de depuració: host: %s, dbname: %s, user: %s', array($serviceName, $host, $databaseName, $user)));
