@@ -15,6 +15,7 @@ MOODLE 2
 ZIKULA 2
 - Fixed configuration for connection to Moodle 2
 - IWmoodle: fixed permission and set connection to persistent
+- AdminMessages: fixed translation of name for URL
 
 
 
