@@ -607,10 +607,6 @@ class assign {
                            WHERE a.course=:course";
             $params = array ("course" => $data->courseid);
 
-            //XTEC ************ AFEGIT - To fix bug when reseting assign grades (MDL-41877)
-            //2013.10.03  @sarjona
-            $DB->delete_records_select('assign_grades', "assignment IN ($assignssql)", $params);
-            //************ FI
             $DB->delete_records_select('assign_submission', "assignment IN ($assignssql)", $params);
             $status[] = array('component'=>$componentstr,
                               'item'=>get_string('deleteallsubmissions','assign'),
@@ -1130,8 +1126,37 @@ class assign {
      * @param int $currentgroup
      * @return int number of matching users
      */
-    public function count_participants($currentgroup) {
-        return count_enrolled_users($this->context, "mod/assign:submit", $currentgroup);
+    public function count_participants($currentgroup) { 
+
+//XTEC ************ MODIFICAT
+//2013.09.08 @jmiro227
+//Si el curs és SEPARATEGROUPS retorna la suma de tots els altres participants de tots els grups on està l'usuari que crida la funció.
+//Si un participant està a varis grups contabilitzarà un cop per cada grup.
+//Aquest canvi dona una solució aproximada a https://tracker.moodle.org/browse/MDL-38128
+
+        global $USER;
+        $userid = $USER->id;
+        $count = 0;
+
+        if (groups_get_activity_groupmode($this->get_course_module()) == SEPARATEGROUPS) {   
+
+            $groups = groups_get_all_groups($this->get_course()->id, $userid);
+
+            foreach ($groups as $group) {
+              $count = $count + count_enrolled_users($this->context, "mod/assign:submit", $group->id);
+            }
+
+            return $count;
+        }
+
+        else { return count_enrolled_users($this->context, "mod/assign:submit", $currentgroup); }
+
+//************ ORIGINAL
+/*
+       return count_enrolled_users($this->context, "mod/assign:submit", $currentgroup);
+*/
+//************Fi
+
     }
 
     /**
