@@ -14,6 +14,7 @@ MOODLE 2
 - Participants count correction shown in Grading summary page (https://tracker.moodle.org/browse/MDL-38128)
 - Added tool uploadcourse for bulk courses creation
 - Added tool uploadcoursecategory for bulk course categories creation
+- Updated Marsupial modules to v2.0.3
 
 ZIKULA
 - IWmoodle: fixed group list in enrolment

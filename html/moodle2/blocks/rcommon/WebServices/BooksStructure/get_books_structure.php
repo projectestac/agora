@@ -14,7 +14,7 @@ function get_all_books_structure($publisherid = 0, $isbn = '')
     {
         $select = "SELECT * FROM ".$CFG->prefix."rcommon_publisher";
         if ($publisherid != 0)
-                $select = $select." WHERE ID = ".$publisherid;
+                $select = $select." WHERE id = ".$publisherid;
         
         if ($publishers = $DB->get_records_sql($select))
         {
