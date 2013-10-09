@@ -13,6 +13,9 @@ MOODLE 2
 - Installed Wiris Quizzes (version 3.23.0.0749)
 - Participants count correction shown in Grading summary page (https://tracker.moodle.org/browse/MDL-38128)
 
+ZIKULA
+- IWmoodle: fixed group list in enrolment
+
 ZIKULA 2
 - Fixed configuration for connection to Moodle 2
 - IWmoodle: fixed permission and set connection to persistent

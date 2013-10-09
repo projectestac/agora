@@ -34,25 +34,25 @@
                 </td>
                 <td>
                     <select multiple size="5" name="person[]" id="person">
-                        {section name=people loop=$people}
-                        <option {if $person eq $people[people].id}selected{/if} value="{$people[people].id}">{$people[people].name}</option>
-                        {/section}
+						{foreach from=$people item=people}
+							<option {if $person eq $people.id}selected{/if} value="{$people.id}">{$people.name}</option>
+						{/foreach}
                     </select>
                     <div id="chgInfo" class="pn-hide pn-noteinfo" style="float:left; margin-left:20px;">&nbsp;</div>
                 </td>
                 <td>
                     <select name="group" id="group" onchange="javascript:chgUsers(this.value)">
-                        {section name=groups loop=$groups}
-                        <option {if $group eq $groups[groups].id}selected{/if} value="{$groups[groups].id}">{$groups[groups].name}</option>
-                        {/section}
+						{foreach from=$groups item=groups}
+							<option {if $group eq $groups.id}selected{/if} value="{$groups.id}">{$groups.name}</option>
+						{/foreach}
                     </select>
                 </td>
                 <td>
                     <select name="role">
                         <option value="0">{gt text="Choose a role..."}</option>
-                        {section name=roles loop=$roles}
-                        <option {if $role eq $roles[roles].id}selected{/if} value="{$roles[roles].id}">{$roles[roles].name}</option>
-                        {/section}
+						{foreach from=$roles item=roles}
+							<option {if $role eq $roles.id}selected{/if} value="{$roles.id}">{$roles.name}</option>
+						{/foreach}
                     </select>
                 </td>		
             </tr>
