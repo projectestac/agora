@@ -12,6 +12,8 @@ MOODLE 2
 - Fixed bug when reseting assign grades (https://tracker.moodle.org/browse/MDL-41877)
 - Installed Wiris Quizzes (version 3.23.0.0749)
 - Participants count correction shown in Grading summary page (https://tracker.moodle.org/browse/MDL-38128)
+- Added tool uploadcourse for bulk courses creation
+- Added tool uploadcoursecategory for bulk course categories creation
 
 ZIKULA
 - IWmoodle: fixed group list in enrolment
