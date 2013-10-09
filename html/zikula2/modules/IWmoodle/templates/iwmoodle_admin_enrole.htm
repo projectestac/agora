@@ -57,9 +57,17 @@
                 </td>		
             </tr>
         </table>
-        <div style="text-align: right;">
-            <img style="cursor: pointer;" src="images/icons/small/button_ok.gif" onClick="javascript:send(0)" /> {gt text="Send"}
-            <a href="{modurl modname=IWmoodle type=admin func=usersList id=$id}">{img modname='core' src='button_cancel.gif' set='icons/small' __alt=$templatetitle} {gt text="Cancel"}</a>
+        <div class="z-center">
+            <div class="z-buttons">
+                <a href="javascript:send(0);">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Execute changes" __title="Execute changes"}
+                    {gt text="Send"}
+                </a>
+                <a href="{modurl modname=IWmoodle type=admin func=usersList id=$id}">
+                    {img modname='core' src='button_cancel.gif' set='icons/small' __alt=$templatetitle __title=$templatetitle}
+                    {gt text="Cancel"}
+                </a>
+            </div>
         </div>
     </form>
 </div>

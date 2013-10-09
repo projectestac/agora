@@ -8,7 +8,7 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         if (SecurityUtil::checkPermission('IWmoodle::', "::", ACCESS_ADMIN)) {
             $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'main'), 'text' => $this->__('Show available courses'), 'class' => 'z-icon-es-view');
             if ($id > 0) {
-                $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'enrole'), 'text' => $this->__('Enrol users into the course'), 'class' => 'z-icon-es-group');
+                $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'enrole', array('id' => $id)), 'text' => $this->__('Enrol users into the course'), 'class' => 'z-icon-es-group');
             }
             $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'conf'), 'text' => $this->__('Module configuration'), 'class' => 'z-icon-es-config');
             $links[] = array('url' => ModUtil::url('IWmoodle', 'admin', 'sincron'), 'text' => $this->__('Synchronize users'), 'class' => 'z-icon-es-group');
@@ -296,29 +296,33 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
 
         // get context id
         $sql = "SELECT $prefix" . "context.id FROM $prefix" . "context WHERE $prefix" . "context.instanceid=$course AND $prefix" . "context.contextlevel=50";
-        $rs = $connect->Execute($sql);
-        if (!$rs) {
+        $results = oci_parse($connect, $sql);
+        $r = oci_execute($results);
+        if (!$r) {
             oci_close($connect);
             return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
-        $array = $rs->FetchRow();
-        $contextid = $array[0];
+        if ($array = oci_fetch_array($results)) {
+            $contextid = $array[0];
+        }
 
         $sql = "INSERT INTO $prefix" . "role_assignments (userid,roleid,contextid,timemodified,modifierid) VALUES ($user,$role,$contextid,'$time'," . UserUtil::getVar("uid") . ")";
 
-        $result = $connect->Execute($sql);
-        if (!$result) {
+        $results = oci_parse($connect, $sql);
+        $r = oci_execute($results);
+        if (!$r) {
             oci_close($connect);
-            return LogUtil::registerError($this->__('An error occurred doing the action.'));
+            return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
-
+        
         $sql = "INSERT INTO $prefix" . "user_enrolments (status,enrolid,userid,timestart,timeend,modifierid,timecreated,timemodified)
                                                                           VALUES (0,$enrolid,$user,'$time','2147483647',$user,'$time','$time')";
 
-        $result = $connect->Execute($sql);
-        if (!$result) {
+        $results = oci_parse($connect, $sql);
+        $r = oci_execute($results);
+        if (!$r) {
             oci_close($connect);
-            return LogUtil::registerError($this->__('An error occurred doing the action.'));
+            return LogUtil::registerError($this->__('EAn error occurred doing the action.'));
         }
 
         oci_close($connect);
