@@ -197,10 +197,12 @@ $commands[] = "UPDATE themes SET pn_name = 'IWbluegraceAgora', pn_directory = 'I
 if (existsTable($dbname, $prefix . '_iw_menu', $f, $con)) {
     $commands[] = 'UPDATE IWmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
     $commands[] = 'UPDATE IWmenu SET iw_url = replace(iw_url, \'user.php?op=logout\', \'index.php?module=users&type=user&func=logout\') WHERE iw_url LIKE \'%user.php?op=logout%\' ';
+    $commands[] = 'UPDATE IWmenu SET iw_url = replace(iw_url, \'index.php?module=IWgroups&type=admin\', \'index.php?module=Groups&type=admin\') WHERE iw_url LIKE \'%index.php?module=IWgroups&type=admin%\' ';
 }
 if (existsTable($dbname, $prefix . '_iw_vhmenu', $f, $con)) {
     $commands[] = 'UPDATE IWvhmenu SET iw_url = replace(iw_url, \'module=Modules\', \'module=Extensions\') WHERE iw_url LIKE \'%module=Modules%\' ';
     $commands[] = 'UPDATE IWvhmenu SET iw_url = replace(iw_url, \'user.php?op=logout\', \'index.php?module=users&type=user&func=logout\') WHERE iw_url LIKE \'%user.php?op=logout%\' ';
+    $commands[] = 'UPDATE IWvhmenu SET iw_url = replace(iw_url, \'index.php?module=IWgroups&type=admin\', \'index.php?module=Groups&type=admin\') WHERE iw_url LIKE \'%index.php?module=IWgroups&type=admin%\' ';
 }
 
 $commands[] = 'TRUNCATE TABLE hooks';

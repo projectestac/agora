@@ -25,6 +25,7 @@ ZIKULA 2
 - AdminMessages: fixed translation of name for URL
 - IWmoodle: fixed group list in enrolment
 - IWmoodle: fixed enrolment in Moodle from Intraweb
+- Upgrader: changed IWgroups by Groups in menu because iw_groups no longer exists
 
 
 
