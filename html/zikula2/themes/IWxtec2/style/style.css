@@ -456,3 +456,7 @@ table.z-datatable tbody tr th:hover {
 	margin: 0;
 	padding-top: 0px;
 }
+
+.z-adminiconcontainer {
+    height: 90px;
+}
