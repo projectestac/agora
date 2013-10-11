@@ -28,6 +28,7 @@ ZIKULA 2
 - Upgrader: changed IWgroups by Groups in menu because iw_groups no longer exists
 - Groups: fixed group creation link not being shown
 - Theme IWxtec2: fixed alignment of icons in admin tabs
+- Added legacy icons for compatibility when upgrading
 
 
 
