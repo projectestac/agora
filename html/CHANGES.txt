@@ -26,6 +26,7 @@ ZIKULA 2
 - IWmoodle: fixed group list in enrolment
 - IWmoodle: fixed enrolment in Moodle from Intraweb
 - Upgrader: changed IWgroups by Groups in menu because iw_groups no longer exists
+- Groups: fixed group creation link not being shown
 
 
 
