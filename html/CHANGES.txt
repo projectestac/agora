@@ -29,6 +29,7 @@ ZIKULA 2
 - Groups: fixed group creation link not being shown
 - Theme IWxtec2: fixed alignment of icons in admin tabs
 - Added legacy icons for compatibility when upgrading
+- IWforms: Fixed litle bugs in manage functionalities
 
 
 
