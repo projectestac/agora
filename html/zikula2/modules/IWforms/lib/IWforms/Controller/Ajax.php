@@ -488,10 +488,6 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             throw new Zikula_Exception_Fatal($this->__('no action defined'));
         }
         $value = FormUtil::getPassedValue('value', -1, 'POST');
-        if (!$value) {
-            throw new Zikula_Exception_Fatal($this->__('no value defined'));
-        }
-
         // in the case of editing the content of a note the parameter fmid refers to fnid
         if ($toDo == 'content') {
             $fnid = $fmid;

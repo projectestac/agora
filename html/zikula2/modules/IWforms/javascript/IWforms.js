@@ -157,7 +157,6 @@ function IWforms_deleteNote_response(a){
         return
     }
     var b=a.getData();
-    alert(b.text);
     $("note_"+b.fmid).toggle();
     reloadFlaggedBlock();
 }
@@ -299,7 +298,6 @@ function submitValue_response(a){
         return
     }
     var b=a.getData();
-    
     if(b.toDo == 'observations'){
         $('note_observations_'+b.fmid).update(b.content);
     }
