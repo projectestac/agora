@@ -27,6 +27,7 @@ ZIKULA 2
 - IWmoodle: Fixed permission and set connection to persistent
 - IWmoodle: Fixed group list in enrolment
 - IWmoodle: Fixed enrolment in Moodle from Intraweb
+- IWmoodle: Fixed users created from Moodle not being activated
 - Upgrader: changed IWgroups by Groups in menu because iw_groups no longer exists
 - Groups: fixed group creation link not being shown
 - Theme IWxtec2: fixed alignment of icons in admin tabs

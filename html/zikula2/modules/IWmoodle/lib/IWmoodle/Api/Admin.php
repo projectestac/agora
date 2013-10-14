@@ -613,6 +613,50 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         if (!$result) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
+
+        
+        /* @aginard: Following there's a hack in order to get users activated and configured. Users 
+         * creation system in Zikula 1.3 is complex and non-documented, and we couldn't find the 
+         * correct way to get this done
+         */
+        
+        global $ZConfig;
+
+        $dbc = mysqli_connect(  $ZConfig['DBInfo']['databases']['default']['host'],
+                                $ZConfig['DBInfo']['databases']['default']['user'],
+                                $ZConfig['DBInfo']['databases']['default']['password'], 
+                                $ZConfig['DBInfo']['databases']['default']['dbname']);
+        $dbc->set_charset('utf8');
+
+        $sqls[] = " UPDATE users 
+                    SET email = '$email', 
+                        activated = 1,
+                        approved_by = 2,
+                        user_regdate = '" . date("Y-m-d H:i:s", time()) . "',
+                        approved_date = '" . date("Y-m-d H:i:s", time()) . "'
+                    WHERE uid = $result[uid]";
+        
+        if (ModUtil::available('Legal')) {
+            $now = new DateTime();
+            $sqls[] = "INSERT INTO objectdata_attributes
+                            (attribute_name, object_id, object_type, value)
+                       VALUES
+                            ('_Legal_termsOfUseAccepted', $result[uid], 'users', '" . $now->format(DateTime::ISO8601) . "'),
+                            ('_Legal_privacyPolicyAccepted', $result[uid], 'users', '" . $now->format(DateTime::ISO8601) . "'),
+                            ('_Legal_agePolicyConfirmed', $result[uid], 'users', '" . $now->format(DateTime::ISO8601) . "')";
+        }
+
+        foreach ($sqls as $sql) {
+            $res = mysqli_query($dbc, $sql);
+        }
+
+        mysqli_close($dbc);
+
+        /*
+         * @aginard: End of the hack
+         */
+
+        
         //add user to default group
         $defaultgroup = ModUtil::getVar('Groups', 'defaultgroup');
         $items = array('uid' => $result['uid'],
