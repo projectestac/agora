@@ -373,6 +373,18 @@ class odissea_gtaf_synchronizer {
         $manualcache    = array(); // cache of used manual enrol plugins in each course
         $supportedauths = odissea_uu_supported_auths();
         
+
+        //XTEC ************ MODIFICAT - Enrolments must be set to 'manual' in order to be edited from Moodle
+        //2013.10.14 @aginard
+        if (enrol_is_enabled('manual')) {
+            $manual = enrol_get_plugin('manual');
+        } else {
+            $manual = NULL;
+            $this->errors[] = get_string('manualnotenabled', 'tool_odisseagtafsync');
+            return;
+        }
+        //************ ORIGINAL
+        /*
         // We use flatfile plugin to unenrol users throught the cron
         if (enrol_is_enabled('flatfile')) {
             $manual = enrol_get_plugin('flatfile');
@@ -381,6 +393,9 @@ class odissea_gtaf_synchronizer {
             $this->errors[] = get_string('flatfilenotenabled', 'tool_odisseagtafsync');
             return;
         }
+        */
+        //************ FI                        
+
 
         // clear bulk selection
         if ($bulk) {
@@ -1014,19 +1029,20 @@ class odissea_gtaf_synchronizer {
                 if (!isset($manualcache[$courseid])) {
                     $manualcache[$courseid] = false;
                     if ($manual) {
-                        //ODISSEAGTAFSYNC-XTEC ************ MODIFICAT - Add enrol flatfile instance to the course if non-existent
-                        //2013.08.23  @sarjona
+                        //ODISSEAGTAFSYNC-XTEC ************ MODIFICAT - Add enrol manual instance to the course if it isn't
+                        //2013.08.23 @sarjona
+                        //2013.10.14 @aginard: changed 'flatfile' by 'manual'
                         $instance = $DB->get_record('enrol',
-                                        array('courseid' => $courseid, 'enrol' => 'flatfile'));
+                                        array('courseid' => $courseid, 'enrol' => 'manual'));
                         if (empty($instance)) {
-                            $enrol_flatfile = new enrol_flatfile_plugin();
-                            $enrolid = $enrol_flatfile->add_instance($course);
+                            $enrol_manual = new enrol_manual_plugin();
+                            $enrolid = $enrol_manual->add_instance($course);
                             $instance = $DB->get_record('enrol', array('id' => $enrolid));
                             $manualcache[$courseid] = $instance;
                         } else {
                             if ($instances = enrol_get_instances($courseid, false)) {
                                 foreach ($instances as $instance) {
-                                    if ($instance->enrol === 'flatfile') {
+                                    if ($instance->enrol === 'manual') {
                                         $manualcache[$courseid] = $instance;
                                         break;
                                     }
