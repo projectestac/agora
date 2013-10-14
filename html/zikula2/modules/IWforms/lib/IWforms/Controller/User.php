@@ -173,6 +173,7 @@ class IWforms_Controller_User extends Zikula_AbstractController {
         $init = FormUtil::getPassedValue('init', isset($args['init']) ? $args['init'] : 0, 'REQUEST');
         $fidReload = FormUtil::getPassedValue('fidReload', isset($args['fidReload']) ? $args['fidReload'] : null, 'POST');
         $fmid = FormUtil::getPassedValue('fmid', isset($args['fmid']) ? $args['fmid'] : null, 'GET');
+        $u = FormUtil::getPassedValue('u', isset($args['u']) ? $args['u'] : 0, 'GETPOST');
         if ($fidReload != null) {
             $fid = $fidReload;
         }
@@ -200,7 +201,7 @@ class IWforms_Controller_User extends Zikula_AbstractController {
         }
         $contentBySkin = '';
         $oneRecord = false;
-        $usersList = '$$'; //I have written it in case the form is annonimous. In this case the var would be empty and I want to avoid it
+        $usersList = '';
         $validate = ($access['level'] == 7) ? 0 : 1;
         if ($fmid != null) {
             $fmidArray[] = $fmid;
@@ -216,7 +217,10 @@ class IWforms_Controller_User extends Zikula_AbstractController {
             $notes = ModUtil::apiFunc('IWforms', 'user', 'getAllNotes', array('fid' => $fid,
                         'ipp' => $ipp,
                         'init' => $init,
-                        'validate' => $validate));
+                        'validate' => $validate,
+                        'u' => $u,
+                        'filterValue' => $u,
+                        'filter' => 0));
         }
         // set the default template
         $template = 'IWforms_user_read.htm';
@@ -234,12 +238,14 @@ class IWforms_Controller_User extends Zikula_AbstractController {
                 $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
                 $photo = ModUtil::func('IWmain', 'user', 'getUserPicture', array('uname' => $userName,
                             'sv' => $sv));
-                $usersList .= $note['user'] . '$$';
                 $user = ($note['user'] != '') ? $note['user'] : '-1';
+                $hideUsers = false;
             } else {
                 $user = '';
                 $userName = '';
                 $photo = '';
+                $hideUsers = true;
+                $u = 0;
             }
             if (strpos($note['viewed'], '$' . $uid . '|') == 0) {
                 // set the note as viewed by user
@@ -283,10 +289,20 @@ class IWforms_Controller_User extends Zikula_AbstractController {
                 'content' => $noteContent,
                 'contentBySkin' => $contentBySkin);
         }
-        $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
-        $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('info' => 'ccn',
-                    'sv' => $sv,
-                    'list' => $usersList));
+	$users = array();
+        if (!$hideUsers) {
+	    // get users ho have send a note
+            $senders = ModUtil::apiFunc('IWforms', 'user', 'getSenders', array('fid' => $fid));
+            foreach ($senders as $sender){
+		$usersList .= $sender . '$$';
+            }
+            if ($usersList != '') {
+                $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+                $users = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('info' => 'ccn',
+                            'sv' => $sv,
+                            'list' => $usersList));
+            }
+        }
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         ModUtil::func('IWmain', 'user', 'userSetVar', array('module' => 'IWmain_block_news',
             'name' => 'have_news',
@@ -294,11 +310,13 @@ class IWforms_Controller_User extends Zikula_AbstractController {
             'sv' => $sv));
         //get all notes
         $total = ModUtil::apiFunc('IWforms', 'user', 'getTotalNotes', array('fid' => $fid,
-                    'validate' => 1));
+                    'validate' => 1,
+                    'filterValue' => $u,
+                    'filter' => 0));
         $pager = ModUtil::func('IWforms', 'user', 'pager', array('init' => $init,
                     'ipp' => $ipp,
                     'total' => $total,
-                    'urltemplate' => 'index.php?module=IWforms&func=read&init=%%&ipp=' . $ipp . '&fid=' . $fid));
+                    'urltemplate' => 'index.php?module=IWforms&func=read&init=%%&ipp=' . $ipp . '&fid=' . $fid . '&u=' . $u));
         if ($form['skincss'] != '' &&
                 ($form['skin'] != '' || $form['skinNote'] != '') &&
                 $form['expertMode'] == 1 &&
@@ -319,6 +337,8 @@ class IWforms_Controller_User extends Zikula_AbstractController {
                         ->assign('viewedColor', ModUtil::getVar('IWforms', 'viewedColor'))
                         ->assign('completedColor', ModUtil::getVar('IWforms', 'completedColor'))
                         ->assign('validatedColor', ModUtil::getVar('IWforms', 'validatedColor'))
+                        ->assign('hideUsers', $hideUsers)
+                        ->assign('u', $u)
                         ->fetch($template);
     }
 

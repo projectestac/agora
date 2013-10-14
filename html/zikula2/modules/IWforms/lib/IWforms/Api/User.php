@@ -1775,6 +1775,29 @@ class IWforms_Api_User extends Zikula_AbstractApi {
         return false;
     }
 
+    public function getSenders($args) {
+        // Security check
+        if (!SecurityUtil::checkPermission('IWforms::', "::", ACCESS_READ)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+        $pntable = DBUtil::getTables();
+        $c = $pntable['IWforms_column'];
+
+        $where = "$c[fid] = $args[fid]";
+        $items = DBUtil::selectObjectArray('IWforms', $where, '', '-1', '-1', 'user', '', '', array('user'));
+
+        if ($items === false) {
+            return LogUtil::registerError($this->__('Error! Could not load items.'));
+        }
+
+	$uids = array();
+	foreach ($items as $item) {
+		$uids[] = $item['user'];
+	}
+
+	return $uids;
+    }
+
     public function getlinks($args) {
         $func = (isset($args['func'])) ? $args['func'] : null;
         $fid = (isset($args['fid'])) ? $args['fid'] : null;
