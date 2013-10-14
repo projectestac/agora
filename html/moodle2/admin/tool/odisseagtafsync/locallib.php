@@ -162,7 +162,10 @@ class odissea_gtaf_synchronizer {
                 $fnamearray = explode("/", $file);
                 $fname = $fnamearray[count($fnamearray) - 1];
                 $prefixfname = substr($fname, 0, strlen($fname) - 16);
-                if ($prefixfname == self::SYNCHRO_STUDENT || $prefixfname == self::SYNCHRO_TEACHERS || $prefixfname == self::SYNCHRO_ENROLMENTS) {
+                if ($prefixfname == self::SYNCHRO_STUDENT 
+                        || $prefixfname == self::SYNCHRO_TEACHERS 
+//                        || $prefixfname == self::SYNCHRO_ENROLMENTS   // Commented to avoid unenrolments - Request of Odissea team (20131014)
+                        ) {
                     if (!$this->ftp->get_file($file, $this->outputtmppath . '/' . $fname, false)) {
                         continue;
                     }
@@ -182,9 +185,11 @@ class odissea_gtaf_synchronizer {
                         case self::SYNCHRO_STUDENT: case self::SYNCHRO_TEACHERS:
                             $results[$file] = $this->synchro_users($file);
                             break;
+/* Commented to avoid unenrolments - Request of Odissea team (20131014)
                         case self::SYNCHRO_ENROLMENTS:
                             $results[$file] = $this->synchro_enrolments($file);
                             break;
+ */
                     }
                 }
             }
