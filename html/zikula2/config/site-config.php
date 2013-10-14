@@ -77,15 +77,6 @@
     $ZConfig['DBInfo']['databases']['default']['dbname']      = $database_intranet;
     $ZConfig['System']['temp'] = $agora['server']['root'] . $agora['intranet']['datadir'] . $database_intranet . '/pnTemp';
 
-    $ZConfig['DBInfo']['databases']['moodle']['dbtabletype']  = $agora['intranet']['moodle_dbtype'];
-    $ZConfig['DBInfo']['databases']['moodle']['dbdriver']     = 'mysql';
-    $ZConfig['DBInfo']['databases']['moodle']['host']         = $agora['moodle']['dbhost'];
-    $ZConfig['DBInfo']['databases']['moodle']['password']     = $agora['moodle']['userpwd'];
-    $ZConfig['DBInfo']['databases']['moodle']['dbname']       = $school_info['database_moodle'];
-    $ZConfig['DBInfo']['databases']['moodle']['user']         = $agora['moodle']['username'] . $school_info['id_moodle'];
-    $ZConfig['DBInfo']['databases']['moodle']['charset']      = 'utf8';
-    $ZConfig['DBInfo']['databases']['moodle']['collate']      = 'utf8_general_ci';
-
     $ZConfig['DBInfo']['databases']['moodle2']['dbtabletype'] = $agora['intranet']['moodle_dbtype'];
     $ZConfig['DBInfo']['databases']['moodle2']['dbdriver']    = 'mysql';
     $ZConfig['DBInfo']['databases']['moodle2']['host']        = $agora['moodle']['dbhost'];
