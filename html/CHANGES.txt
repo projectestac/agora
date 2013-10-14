@@ -17,16 +17,16 @@ MOODLE 2
 - Updated Marsupial modules to v2.0.3
 
 ZIKULA
-- iw_moodle: fixed group list in enrolment
-- iw_moodle: fixed connection to Moodle 2 when there is no Moodle 1.9
+- iw_moodle: Fixed group list in enrolment
+- iw_moodle: Fixed connection to Moodle 2 when there is no Moodle 1.9
 
 ZIKULA 2
-- Fixed configuration for connection to Moodle 2
-- AdminMessages: fixed translation of name for URL
-- IWmoodle: fixed permission and set connection to persistent
-- IWmoodle: fixed group list in enrolment
-- IWmoodle: fixed enrolment in Moodle from Intraweb
-- IWmoodle: removed code to connect to Moodle 1.9 (for it is not supported)
+- AdminMessages: Fixed translation of name for URL
+- IWmoodle: Fixed configuration for connection to Moodle 2
+- IWmoodle: Removed code to connect to Moodle 1.9 (for it is not supported)
+- IWmoodle: Fixed permission and set connection to persistent
+- IWmoodle: Fixed group list in enrolment
+- IWmoodle: Fixed enrolment in Moodle from Intraweb
 - Upgrader: changed IWgroups by Groups in menu because iw_groups no longer exists
 - Groups: fixed group creation link not being shown
 - Theme IWxtec2: fixed alignment of icons in admin tabs
