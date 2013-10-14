@@ -33,6 +33,7 @@ ZIKULA 2
 - Theme IWxtec2: fixed alignment of icons in admin tabs
 - Added legacy icons for compatibility when upgrading
 - IWforms: Fixed litle bugs in manage functionalities
+- IWforms: Added users filter functionality
 
 
 
