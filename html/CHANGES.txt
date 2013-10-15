@@ -5,6 +5,12 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+
+Changes 13.10.16
+---------------------------------------------------------------------------------------
 GENERAL
 - Fixed bug in Agora cookie that caused to use always file allSchools.php
 
@@ -36,7 +42,6 @@ ZIKULA 2
 - Added legacy icons for compatibility when upgrading
 - IWforms: Fixed litle bugs in manage functionalities
 - IWforms: Added users filter functionality
-
 
 
 Changes 13.09.23
