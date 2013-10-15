@@ -25,6 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['calendar_month:addinstance'] = 'Afegeix un bloc de calendari';
-$string['calendar_month:myaddinstance'] = 'Afegeix un bloc de calendari a la pàgina del «meu Moodle»';
+$string['calendar_month:addinstance'] = 'Afegeix un bloc calendari nou';
+$string['calendar_month:myaddinstance'] = 'Afegeix un bloc calendari nou a la pàgina del «meu Moodle»';
 $string['pluginname'] = 'Calendari';

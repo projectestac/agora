@@ -187,7 +187,7 @@ $string['forumtrackednot'] = 'No s\'està fent el seguiment dels missatges no ll
 $string['forumtype'] = 'Tipus de fòrum';
 $string['forumtype_help'] = 'Hi ha 5 tipus de fòrums:
 
-* Un debat únic - És un sol tema de debat al qual tothom pot respondre
+* Un debat únic - És un sol tema de debat al qual tothom pot respondre (no es pot fer servir amb grups separats).
 * Cada persona envia un debat - Cada estudiant pot obrir únicament un tema de debat (i tothom pot enviar-hi respostes).
 * Fòrum P/R (pregunta/resposta) - L\'estudiant ha d\'enviar la seva resposta per a poder veure les respostes dels seus companys.
 * Fòrum estàndard en format de blog - És un fòrum obert en el qual tothom pot iniciar un nou tema de debat en qualsevol moment. I els temes de debat es mostren en una pàgina amb enllaços de «Debateu aquest tema".

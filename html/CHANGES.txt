@@ -16,6 +16,7 @@ MOODLE 2
 - Added tool uploadcoursecategory for bulk course categories creation
 - Updated Marsupial modules to v2.0.3
 - Odisseagtafsync: Enrolments from file are now done with 'Manual' plugin
+- Updated catalan language pack (15-10-2013)
 
 ZIKULA
 - iw_moodle: Fixed group list in enrolment

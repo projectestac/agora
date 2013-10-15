@@ -107,6 +107,7 @@ Nota: Les qualificacions són enviades a Moodle immediatament després que el q�
 $string['delay3specific'] = 'Utilitza un temps específic (en segons)';
 $string['delay3summary'] = 'Temps de retard al final del qüestionari';
 $string['delay3template'] = 'Usa els paràmetres del fitxer font/plantilla';
+$string['deleteallattempts'] = 'Suprimeix tots els intents';
 $string['deleteattempts'] = 'Suprimeix els intents';
 $string['detailsrecords'] = 'Registres dels detalls HotPot';
 $string['d_index'] = 'Índex de discriminació';

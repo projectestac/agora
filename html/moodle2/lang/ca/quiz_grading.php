@@ -33,7 +33,6 @@ $string['automaticallygraded'] = 'Qualificat automàticament';
 $string['backtothelistofquestions'] = 'Torna a la llista de preguntes';
 $string['bydate'] = 'Per data';
 $string['bystudentidnumber'] = 'Per ID d\'estudiant';
-$string['bystudentname'] = 'Per nom d\'estudiant';
 $string['cannotgradethisattempt'] = 'No s\'ha pogut qualificar aquest intent';
 $string['cannotloadquestioninfo'] = 'No s\'ha pogut carregar la informació de pregunta específica de tipus de pregunta';
 $string['changeoptions'] = 'Canvia les opcions';

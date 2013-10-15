@@ -276,6 +276,7 @@ $string['noquestions'] = 'No s\'han trobat preguntes que puguin ser exportades. 
 $string['noquestionsinfile'] = 'No hi ha preguntes en el fitxer';
 $string['noresponse'] = '[Sense resposta]';
 $string['notanswered'] = 'No s\'ha respost';
+$string['notchanged'] = 'No ha canviat des de l\'últim intent';
 $string['notenoughanswers'] = 'Aquest tipus de pregunta necessita almenys {$a} resposta/respostes';
 $string['notenoughdatatoeditaquestion'] = 'No s\'han especificat l\'identificador de la pregunta, ni el de la categoria i el tipus de pregunta.';
 $string['notenoughdatatomovequestions'] = 'Heu de proporcionar els identificadors de les preguntes que voleu moure.';

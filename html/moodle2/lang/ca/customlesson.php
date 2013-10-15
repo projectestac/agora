@@ -25,8 +25,17 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['attempts'] = 'Intents';
+$string['attemptsdeleted'] = 'Intents eliminats';
 $string['completed'] = 'Completat';
 $string['completederror'] = 'Completa la lliçó';
 $string['completethefollowingconditions'] = 'Heu de completar la següent condició en la lliçó <b>{$a}</b> abans de poder continuar.';
+$string['deleteallattempts'] = 'Elimina tots els intents de la lliçó';
+$string['maximumnumberofattempts'] = 'Nombre màxim d\'intents';
+$string['nolessonattempts'] = 'Ningú no ha intentat aquesta lliçó.';
 $string['notcompleted'] = 'Incomplet';
+$string['ongoingnormal'] = 'Heu contestat correctament {$a->correct} de {$a->viewed} intents.';
 $string['progresscompleted'] = 'Heu completat el {$a}% de la lliçó';
+$string['viewreports'] = 'Mostra {$a->attempts} intents completats per {$a->student}';
+$string['viewreports2'] = 'Mostra {$a} intents completats';
+$string['xattempts'] = '{$a} intents';

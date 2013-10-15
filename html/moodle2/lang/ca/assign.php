@@ -133,6 +133,7 @@ $string['gradebelowzero'] = 'La qualificació ha de ser major o igual que zero.'
 $string['graded'] = 'Qualificada';
 $string['gradedby'] = 'Qualificat per';
 $string['gradedon'] = 'Qualificat el';
+$string['gradelocked'] = 'Aquesta qualificació està bloquejada o rectificada al llibre de qualificacions.';
 $string['gradeoutof'] = 'Qualificació sobre {$a}';
 $string['gradeoutofhelp'] = 'Qualificació';
 $string['gradeoutofhelp_help'] = 'Introduïu la qualificació per a la tramesa de l\'estudiant ací. Podeu incloure decimals.';

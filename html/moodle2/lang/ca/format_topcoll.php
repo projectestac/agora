@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['arrow'] = 'Fletxa';
 $string['colourrule'] = 'Introduïu un color RGB vàlid, de sis dígits hexadecimals.';
 $string['columnhorizontal'] = 'Horitzontal';
+$string['columnvertical'] = 'Vertical';
 $string['ctreset_help'] = 'Reinicia a les opcions per defecte de temes replegats.';
 $string['currentsection'] = 'Aquesta secció';
 $string['defaultcoursedisplay'] = 'Visualització del curs per defecte';
@@ -37,3 +38,5 @@ $string['defaultlayoutcolumnorientation_desc'] = 'Orientació per defecte de les
 $string['defaultlayoutcolumns'] = 'Nombre de columnes per defecte';
 $string['defaultlayoutcolumns_desc'] = 'Nombre de columnes entre una i quatre.';
 $string['defaultlayoutelement'] = 'Configuració de la presentació per defecte';
+$string['topcollclosed'] = 'Tanca tot';
+$string['topcollopened'] = 'Obre tot';

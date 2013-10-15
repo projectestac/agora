@@ -16,14 +16,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_multianswer', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'richmedia', language 'ca', branch 'MOODLE_24_STABLE'
  *
- * @package   qformat_multianswer
+ * @package   richmedia
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Respostes incrustades (Cloze)';
-$string['pluginname_help'] = 'El format de respostes incrustades (Cloze) permet importar un fragment de text amb preguntes del tipus resposta múltiple o resposta curta incrustades dins del text.';
+$string['attempts'] = 'Intents';
