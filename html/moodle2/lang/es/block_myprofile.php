@@ -45,6 +45,6 @@ $string['display_skype'] = 'Mostrar Skype';
 $string['display_un'] = 'Mostrar nombre';
 $string['display_yahoo'] = 'Mostrar Yahoo';
 $string['myprofile:addinstance'] = 'Añadir un nuevo bloque de usuario identificado';
-$string['myprofile:myaddinstance'] = 'Añadir un nuevo bloque de usuario identificado en la página Mi Moodle';
+$string['myprofile:myaddinstance'] = 'Añadir un nuevo bloque de usuario identificado al Área personal';
 $string['myprofile_settings'] = 'Información de usuario visible';
 $string['pluginname'] = 'Usuario identificado';

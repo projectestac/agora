@@ -52,7 +52,7 @@ $string['attempt1'] = '1 intento';
 $string['attempts'] = 'Intentos';
 $string['attemptstatusall'] = 'Área personal y página de inicio';
 $string['attemptstatusentry'] = 'Solo página de inicio';
-$string['attemptstatusmy'] = 'Solo área personal';
+$string['attemptstatusmy'] = 'Solo Área personal';
 $string['attemptsx'] = '{$a} intentos';
 $string['attr_error'] = 'Valor incorrecto para el atributo ({$a->attr}) en la marca {$a->tag}.';
 $string['autocontinue'] = 'Continuación automática';
@@ -91,13 +91,14 @@ $string['defaultgradesettings'] = 'Configuración de calificación predeterminad
 $string['defaultothersettings'] = 'Otras configuraciones predeterminadas';
 $string['deleteallattempts'] = 'Eliminar todos los intentos SCORM';
 $string['deleteattemptcheck'] = '¿Está totalmente seguro que quiere eliminar completamente estos intentos?';
+$string['deleteuserattemptcheck'] = '¿Está seguro que quiere eliminar completamente todos sus intentos?';
 $string['details'] = 'Detalles del rastreo SCO';
 $string['directories'] = 'Mostrar enlaces de directorio';
 $string['disabled'] = 'Dehabilitado';
 $string['display'] = 'Mostrar';
 $string['displayattemptstatus'] = 'Mostrar estado de intentos';
 $string['displayattemptstatusdesc'] = 'Esta preferencia fija el valor por defecto para mostrar el ajuste de estado de intentos';
-$string['displayattemptstatus_help'] = 'Si está activado, las puntuaciones y las calificaciones de los intentos se muestran en la página de resumen SCORM.';
+$string['displayattemptstatus_help'] = 'Esta preferencia permite mostrar un resumen de los intentos de los usuarios en el bloque Vista general del curso en Mi Moodle y/o en la página de entrada del SCORM.';
 $string['displaycoursestructure'] = 'Mostrar estructura del curso en la página de entrada';
 $string['displaycoursestructuredesc'] = 'Esta preferencia fija el valor por defecto para mostrar el ajuste de estructura del curso en la página de entrada';
 $string['displaycoursestructure_help'] = 'Si está activado, la tabla de contenidos se mostrará en la página de resumen SCORM.';
@@ -167,7 +168,7 @@ $string['hidenav'] = 'Ocultar botones de navegación';
 $string['hidenavdesc'] = 'Esta preferencia fija el valor por defecto sobre mostrar o no los botones de navegación';
 $string['hidereview'] = 'Ocultar botón de revisión';
 $string['hidetoc'] = 'Mostrar la estructura del curso en el reproductor';
-$string['hidetocdesc'] = 'Esta preferencia fija el valor por defecto sobre mostrar o no la estructura del curso (TOC) en el reproductor SCORM';
+$string['hidetocdesc'] = 'Este ajuste especifica cómo se muestra la tabla de contenidos en el reproductor SCORM';
 $string['hidetoc_help'] = 'Esta configuración especifica cómo se muestra la tabla de contenidos en el reproductor de SCORM.';
 $string['highestattempt'] = 'Intento más alto';
 $string['identifier'] = 'Identificador de preguntas';
@@ -211,7 +212,14 @@ $string['missingparam'] = 'Un elemento requerido falta o es erróneo';
 $string['missing_tag'] = 'Falta marca {$a->tag}';
 $string['mode'] = 'Moda';
 $string['modulename'] = 'Paquete SCORM';
-$string['modulename_help'] = 'SCORM y AICC son un conjunto de especificaciones que permiten la interoperabilidad, la accesibilidad y la reutilización de los contenidos de aprendizaje basados en la web. El módulo SCORM/AICC permite que se incluyan en el curso paquetes SCORM/AICC.';
+$string['modulename_help'] = 'Un paquete SCORM es un conjunto de archivos que se empaquetan conforme a una norma estándar para los objetos de aprendizaje. El módulo de actividad SCORM permite cargar y añadir a los cursos paquetes SCORM o AICC como archivos zip.
+
+El contenido se muestra normalmente en varias páginas, con navegación entre las páginas. Hay varias opciones para la visualización de los contenidos, con ventanas pop-up, en tablas de contenidos, con botones de navegación, etc Las actividades SCORM generalmente incluyen preguntas calificables, que se registra en el libro de calificaciones.
+
+Las actividades SCORM se puede usar
+
+* Para la presentación de contenidos multimedia y animaciones
+* Como herramienta de evaluación';
 $string['modulenameplural'] = 'Paquetes SCORM';
 $string['navigation'] = 'Navegación';
 $string['newattempt'] = 'Comenzar un nuevo intento';
@@ -293,6 +301,7 @@ $string['scoes'] = 'Objetos de aprendizaje';
 $string['score'] = 'Puntuación';
 $string['scormclose'] = 'Hasta';
 $string['scormcourse'] = 'Curso de Aprendizaje';
+$string['scorm:deleteownresponses'] = 'Eliminar los intentos propios';
 $string['scorm:deleteresponses'] = 'Eliminar intentos SCORM';
 $string['scormloggingoff'] = 'Entrada API desconectada';
 $string['scormloggingon'] = 'Entrada API conectada';
@@ -316,15 +325,7 @@ $string['show'] = 'Mostrar';
 $string['sided'] = 'Lateral';
 $string['skipview'] = 'Pasar por alto al estudiante la página de estructura de contenidos';
 $string['skipviewdesc'] = 'Esta preferencia fija el valor por defecto sobre cuándo pasar por alto la estructura de contenido de una página';
-$string['skipview_help'] = '<p>Si añade un paquete con únicamente un objeto de apredizaje, puede elegir omitir automáticamente la página de estructura de contenidos cuando los usuario seleccionan una actividad SCORM en la página del curso.</p>
-
-<p>Puede elegir:
-   <ul>
-       <li>Omitir la página de estructura de contenidos <strong>nunca</strong>.</li>
-       <li>Omitir la página de estructura de contenidos en el <strong>primer acceso</strong>.</li>
-       <li>Omitir la página de estructura de contenidos <strong>siempre</strong>.</li>
-   </ul>
-</p>';
+$string['skipview_help'] = 'Este ajuste especifica si la estructura de la página de contenido debe ser omitida (no se muestra). Si el paquete contiene sólo un objeto de aprendizaje, la página de la estructura del contenido siempre se puede omitir.';
 $string['slashargs'] = 'ATENCIÓN: los argumentos \'slash\' están deshabilitados en este sitio y los objetos pueden no funcionar como se espera.';
 $string['stagesize'] = 'Tamaño de marco/ventana';
 $string['stagesize_help'] = '<p>Estos dos parámetros definen la altura y la anchura del marco o ventana en el que se visualizará el objeto de aprendizaje.</p>';

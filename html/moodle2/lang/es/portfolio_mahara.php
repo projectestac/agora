@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['enableleap2a'] = 'Habilitar admisión de portafolio Leap2A (requiere Mahara 1.3 o superior)';
 $string['err_invalidhost'] = 'Cliente MNet no válido';
 $string['err_networkingoff'] = 'MNet no está operativa';
 $string['err_nomnetauth'] = 'La extensión de identificación MNet está deshabilitada';
@@ -33,6 +34,9 @@ $string['err_nomnethosts_help'] = 'Esta extensión se basa en pares MNet con SSO
 $string['failedtojump'] = 'No se ha podido iniciar comunicación con el servidor remoto';
 $string['failedtoping'] = 'No se ha podido iniciar comunicación con el servidor remoto {$a}';
 $string['mnethost'] = 'Host MNet';
+$string['mnet_notoken'] = 'No se ha encontrado la ficha correspondiente a esta transferencia';
+$string['mnet_wronghost'] = 'El host remoto no se corresponde con el registro de transferencia para esta ficha';
+$string['pf_name'] = 'Servicios de portafolio';
 $string['pluginname'] = 'Mahara ePortfolio';
 $string['senddisallowed'] = 'No se pueden transferir archivos a Mahara en este momento';
 $string['url'] = 'URL';

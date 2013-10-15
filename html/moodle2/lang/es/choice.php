@@ -77,15 +77,15 @@ Una Consulta puede utilizarse
 
 * Para facilitar la toma de decisiones, por ejemplo permitiendo a los estudiantes votar algún aspecto relacionado con el curso.';
 $string['modulenameplural'] = 'Consultas';
-$string['moveselectedusersto'] = 'Trasladar a los usuarios seleccionados a...';
+$string['moveselectedusersto'] = 'Mover los usuarios seleccionados a...';
 $string['mustchooseone'] = 'Debe elegir una respuesta antes de guardar. No se ha guardado nada.';
 $string['noguestchoose'] = 'Lo sentimos, los invitados no pueden responder encuestas.';
 $string['noresultsviewable'] = 'Los resultados no pueden verse en este momento.';
 $string['notanswered'] = 'Sin contestar aún';
 $string['notenrolledchoose'] = 'Lo sentimos, solo los usuarios matriculados pueden seleccionar una opción.';
 $string['notopenyet'] = 'Lo sentimos, esta actividad no estará disponible hasta {$a}';
-$string['numberofuser'] = 'Número de usuario';
-$string['numberofuserinpercentage'] = 'El número de usuario en porcentaje';
+$string['numberofuser'] = 'Número de usuarios';
+$string['numberofuserinpercentage'] = 'El número de usuarios en porcentaje';
 $string['option'] = 'Opción';
 $string['page-mod-choice-x'] = 'Cualquier página del módulo Consulta';
 $string['pluginadministration'] = 'Administración';
@@ -113,4 +113,4 @@ $string['timerestrict'] = 'Restringir la respuesta a este período';
 $string['userchoosethisoption'] = 'El usuario elige esta opción';
 $string['viewallresponses'] = 'Ver {$a} respuestas';
 $string['withselected'] = 'Con seleccionados';
-$string['yourselection'] = 'Su selección';
+$string['yourselection'] = 'Su elección';

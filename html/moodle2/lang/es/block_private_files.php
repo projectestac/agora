@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['managemyfiles'] = 'Gestionar mis archivos';
-$string['pluginname'] = 'Archivos privados del usuario';
+$string['pluginname'] = 'Mis archivos privados';
 $string['privatefiles'] = 'Archivos privados';
-$string['private_files:addinstance'] = 'Añadir un nuevo bloque de archivos privados del usuario';
-$string['private_files:myaddinstance'] = 'Añadir un nuevo bloque de archivos privados del usuario en la página Mi Moodle';
+$string['private_files:addinstance'] = 'Añadir un nuevo bloque de archivos privados';
+$string['private_files:myaddinstance'] = 'Añadir un nuevo bloque de archivos privados del usuario al Área personal';

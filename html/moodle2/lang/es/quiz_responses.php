@@ -27,12 +27,17 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['cannotloadoptions'] = 'No se pudieron cargar las opciones de pregunta';
 $string['pagesize'] = 'Tamaño de página';
+$string['pluginname'] = 'Respuestas';
 $string['reportresponses'] = 'Respuestas detalladas';
 $string['responses'] = 'Respuestas detalladas';
 $string['responsesdownload'] = 'Descarga de respuestas';
+$string['responsesfilename'] = 'respuestas';
 $string['responsesoptions'] = 'Opciones de respuesta';
 $string['responsesreport'] = 'Informe de respuestas';
 $string['responsestitle'] = 'Respuestas detalladas';
+$string['responsex'] = 'Respuesta {$a}';
+$string['rightanswer'] = 'respuesta correcta';
 $string['rightanswerx'] = 'Respuesta correcta {$a}';
+$string['showattempts'] = 'Solo mostrar / descargar intentos';
 $string['summaryofquestiontext'] = 'Resumen de la pregunta';
 $string['summaryofrightanswer'] = 'Resumen de la respuesta correcta';

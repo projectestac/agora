@@ -28,12 +28,13 @@ defined('MOODLE_INTERNAL') || die();
 $string['addcompletions'] = 'Agregar {no} condiciones de actividad al formulario';
 $string['addgrades'] = 'Agregar {no} condiciones de calificación al formulario';
 $string['adduserfields'] = 'Añadir {no} condiciones de campo de usuario.';
-$string['availabilityconditions'] = 'Restringir disponibilidad';
-$string['availablefrom'] = 'Disponible a partir de';
-$string['availablefrom_help'] = 'El acceso desde/hasta las fechas determinan cuándo los estudiantes pueden acceder a la actividad a través de un enlace en la página del curso.<br>
-La diferencia entre las fechas desde/hasta y los ajustes de disponibilidad de la actividad es que, al margen de las fechas de ajuste, los ajustes de disponibilidad permiten a los estudiantes ver la descripción de la actividad, en tanto que \'disponible desde/hasta\' impide el acceso completo.';
-$string['availableuntil'] = 'Accesible hasta';
-$string['badavailabledates'] = 'Fechas no válidas. Si se ajustan ambas fechas, la fecha \'disponible desde\' debería ser anterior a la fecha \'hasta\'.';
+$string['availabilityconditions'] = 'Restricciones de acceso';
+$string['availablefrom'] = 'Permitir el acceso desde';
+$string['availablefrom_help'] = '<strong>Permitir el acceso desde/hasta la fecha</strong>, determina el periodo de tiempo durante el que los estudiantes pueden acceder a la actividad mediante un enlace situado en la página del curso.
+
+La diferencia entre las fechas de <strong>acceso desde/hasta</strong> y las condiciones de temporalización de la actividad <strong>abrir/cerrar actividad</strong> es que estos últimos parámetros muestran a los estudiantes la descripción de la actividad en el curso mientras que  <strong>Permitir el acceso  desde/hasta la fecha</strong> restringen incluso la visualización de esta descripción.';
+$string['availableuntil'] = 'Permitir el acceso hasta';
+$string['badavailabledates'] = 'Fechas no válidas. Si se ajustan ambas fechas, la fecha \'Permitir el acceso desde\' debe ser anterior a la fecha \'Permitir el acceso hasta\'.';
 $string['badgradelimits'] = 'Si pone ambos límites superior e inferior, el límite superior debe ser mayor que el límite inferior';
 $string['completion_complete'] = 'debe marcarse como completada';
 $string['completioncondition'] = 'Condición de finalización de actividad';
@@ -55,13 +56,13 @@ $string['endswith'] = 'termina en';
 $string['fielddeclaredmultipletimes'] = 'No puede declarar el mismo campo más de una vez por actividad.';
 $string['grade_atleast'] = 'debe ser al menos';
 $string['gradecondition'] = 'Condición de calificación';
-$string['gradecondition_help'] = 'Este ajuste determina cualesquiera condiciones de calificación que deben cumplirse para acceder a la actividad.
+$string['gradecondition_help'] = 'Este ajuste determina las condiciones sobre calificaciones previas que deben haberse obtenido para poder acceder a la actividad.
 
-Si se desea, se pueden ajustar múltiples condiciones de calificación de la actividad. Si se hace así, la actividad sólo estará disponible cuando se cumplan TODAS las condiciones de calificación.';
+Si se desea, se pueden establecer varias condiciones de calificación para acceder a la actividad. Si se hace así, la actividad sólo estará disponible cuando se cumplan TODAS las condiciones de calificación establecidas.';
 $string['gradeconditionsection'] = 'Condición de calificación';
-$string['gradeconditionsection_help'] = 'Esta configuración determina las condiciones de calificación que deben cumplirse para acceder a la sección.
+$string['gradeconditionsection_help'] = 'Este ajuste determina las condiciones sobre calificaciones previas que deben haberse obtenido para poder acceder a la sección.
 
-Se pueden configurar múltiples condiciones. En esos casos, solamente se permitirá el acceso cuando se hayan cumplido TODAS las condiciones.';
+Si se desea, se pueden establecer varias condiciones de calificación para acceder a la sección. Si se hace así, la sección sólo estará disponible cuando se cumplan TODAS las condiciones de calificación establecidas.';
 $string['gradeitembutnolimits'] = 'Debe poner un límite superior, o inferior, o ambos';
 $string['gradelimitsbutnoitem'] = 'Debe escojer un elemento de calificación.';
 $string['gradesmustbenumeric'] = 'Las calificaciones mínimas y máximas deben ser numéricas ( o en blanco)';
@@ -96,7 +97,7 @@ $string['showavailability_hide'] = 'Ocultar completamente la actividad';
 $string['showavailabilitysection'] = 'Antes de que pueda accederse a esta sección';
 $string['showavailabilitysection_hide'] = 'Ocultar la sección completamente';
 $string['showavailabilitysection_show'] = 'Mostrar la sección en gris pálido, con información sobre la restricción';
-$string['showavailability_show'] = 'Mostrar actividad en gris, sin información de restricción';
+$string['showavailability_show'] = 'Mostrar actividad en gris, con información de restricción';
 $string['startswith'] = 'comienza con';
 $string['userfield'] = 'Campo de usuario';
 $string['userfield_help'] = 'Se puede restringir el acceso basándose en cualquier campo del perfil de los usuarios.';

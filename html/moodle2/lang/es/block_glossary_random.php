@@ -25,12 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addentry'] = '¡Agregue sus citas favoritas!';
+$string['addentry'] = 'Añadir una nueva entrada';
 $string['askaddentry'] = 'Cuando se permita a los usuarios agregar entradas al glosario, mostrar un enlace con este texto';
 $string['askinvisible'] = 'Cuando los usuarios no puedan editar o ver el glosario, mostrar este texto (sin enlace)';
 $string['askviewglossary'] = 'Cuando los usuarios puedan ver el glosario pero no agregar entradas, mostrar un enlace con este texto';
-$string['glossary_random:addinstance'] = 'Añadir un nuevo bloque de entrada aleatoria del glosario';
-$string['glossary_random:myaddinstance'] = 'Añadir un nuevo bloque de entrada aleatoria del glosario en la página Mi Moodle';
+$string['glossary_random:addinstance'] = 'Añadir un nuevo bloque de entrada aleatoria';
+$string['glossary_random:myaddinstance'] = 'Añadir un nuevo bloque de entrada aleatoria del glosario al Área personal';
 $string['intro'] = 'Asegúrese de que tiene al menos un glosario con una entrada. Entonces podrá determinar los siguientes ajustes';
 $string['invisible'] = '(continuará)';
 $string['lastmodified'] = 'Última entrada modificada';
@@ -45,5 +45,5 @@ $string['select_glossary'] = 'Tomar entradas de este glosario';
 $string['showconcept'] = 'Mostrar el concepto (cabecera) para cada entrada';
 $string['title'] = 'Título';
 $string['type'] = 'Cómo se elige una nueva entrada';
-$string['viewglossary'] = 'Más citas...';
+$string['viewglossary'] = 'Ver todas las entradas';
 $string['whichfooter'] = 'Puede mostrar enlaces a las acciones del glosario con el que está asociado este bloque. El bloque únicamente muestra enlaces a las accciones que están habilitadas para dicho glosario.';

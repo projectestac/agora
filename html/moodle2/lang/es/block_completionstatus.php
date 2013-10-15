@@ -27,7 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['completionprogressdetails'] = 'Detalles del progreso en la finalización';
 $string['completionstatus:addinstance'] = 'Añadir un nuevo bloque de estatus de finalización del curso';
-$string['completionstatus:myaddinstance'] = 'Añadir un nuevo bloque de estatus de finalización del curso a la página Mi Moodle';
 $string['criteriagroup'] = 'Grupo de criterios';
 $string['firstofsecond'] = '{$a->first} de {$a->second}';
 $string['pluginname'] = 'Estatus de finalización del curso';

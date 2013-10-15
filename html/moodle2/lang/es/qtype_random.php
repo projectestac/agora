@@ -26,8 +26,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configselectmanualquestions'] = '¿Puede el tipo de pregunta aleatoria seleccionar una pregunta calificada manualmente cuando está haciendo su selección aleatoria a partir de una pregunta obtenida de una categoría?';
+$string['includingsubcategories'] = 'Incluyendo subcategorías';
 $string['pluginname'] = 'Aleatoria';
 $string['pluginnameediting'] = 'Editando una pregunta aleatoria';
 $string['pluginname_help'] = 'Una pregunta aleatoria no es un tipo de pregunta sino una manera de insertar en un cuestionario una pregunta escogida al azar entre las de una categoría determinada.';
 $string['randomqname'] = 'Aleatoria ({$a})';
+$string['randomqplusname'] = 'Aleatorio ({$a} y sub-categorías)';
+$string['selectedby'] = '{$a->questionname} seleccionado por {$a->randomname}';
 $string['selectmanualquestions'] = 'Las preguntas aleatorias pueden utilizar preguntas calificadas manualmente';

@@ -27,7 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['answerno'] = 'Respuesta {$a}';
 $string['cannotchangeamissingqtype'] = 'Usted no puede hacer ningún cambio a una pregunta de tipo desconocido';
+$string['deletedquestion'] = 'Falta pregunta';
 $string['deletedquestiontext'] = 'Esta pregunta no se encuentra. No se puede mostrar nada.';
 $string['missingqtypewarning'] = 'Esta pregunta es de un tipo que no está instalado en este sistema. Usted no podrá hacer nada con esta pregunta.';
+$string['pluginname'] = 'Tipo desconocido';
 $string['pluginnameediting'] = 'Editando una pregunta de tipo desconocido';
 $string['warningmissingtype'] = '<b>Esta pregunta es de un tipo que aún no ha sido instalado en su Moodle.<br />Por favor, adviértaselo a su administrador de Moodle.</b>';

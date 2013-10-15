@@ -26,11 +26,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addmoreqblanks'] = '{no} Más conjuntos de espacios en blanco';
+$string['answer'] = 'Respuesta {$a}';
+$string['availablechoices'] = 'Opciones disponibles';
 $string['correctansweris'] = 'La respuesta correcta es: {$a}';
 $string['filloutthreeqsandtwoas'] = 'Debe proporcionar al menos dos preguntas y tres respuestas. Puede incluir respuestas erróneas extra dando una respuesta con una pregunta en blanco. Las entradas correspondientes a la pregunta y respuesta en blanco serán pasadas por alto.';
+$string['nomatchinganswer'] = 'Debe especificar una respuesta que corresponda a la pregunta \'{$a}\'';
 $string['nomatchinganswerforq'] = 'Debe especificar una respuesta para esta pregunta.';
 $string['notenoughqsandas'] = 'Debe suministrar al menos {$a->q} preguntas y {$a->a} respuestas.';
 $string['notenoughquestions'] = 'Debe suministrar al menos {$a} pares de preguntas y respuestas.';
+$string['pleaseananswerallparts'] = 'Por favor, responda a todas las partes de la pregunta.';
 $string['pluginname'] = 'Emparejamiento';
 $string['pluginnameadding'] = 'Agregando una pregunta de emparejamiento';
 $string['pluginnameediting'] = 'Editando una pregunta de emparejamiento';

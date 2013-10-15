@@ -37,11 +37,7 @@ $string['createnewcategories_desc'] = '<p>Si el elemento &lt;org&gt;&lt;orgunit&
 
 <p>Si no existe ninguna categoría con el nombre deseado, se creará una categoría OCULTA.</p>';
 $string['createnewcourses'] = 'Crear cursos nuevos (ocultas) si no se encuentran en Moodle';
-$string['createnewcourses_desc'] = '<p>El \'plugin\' de matriculación de IMS Enterprise puede crear nuevos cursos para cualquiera que encuentre en los datos IMS, pero no en la base de datos de Moodle si esta opción está activada.</p>
-
-<p>Los cursos son en primer lugar buscados por su "idnumber" - un campo alfanumérico en la tabla de cursos de Moodle, que puede especificar el código usado para identificar el curso en el Sistema de Información del Estudiante (por ejemplo). Si no se encuentra, se buscará en la tabla de cursos la "descripción corta" que en Moodle es el identificador de curso tal como se muestra, por ejemplo, en los \'breadcrumbs\' (en algunos sistemas estos dos campos pueden ser idénticos). Sólo cuando la búsqueda no haya tenido resultado podrá opcionalmente el \'plugin\' crear nuevos cursos.</p>
-
-<p>Los cursos nuevos así generados estarán OCULTOS cuando son creados, a fin de evitar que los estudiantes deambulen por cursos enteramente vacíos sin que el profesor tenga constancia de ello.</p>';
+$string['createnewcourses_desc'] = 'Si está activado, la matriculación IMS Enterprise puede crear nuevos cursos para aquellos cursos que  encuentre en los datos de IMS, pero no en la base de datos de Moodle. Cualquier curso de nueva creación estará inicialmente oculto.';
 $string['createnewusers'] = 'Crear cuentas de usuario para usuarios aún no registrados en Moodle';
 $string['createnewusers_desc'] = 'Los datos de matriculación de IMS Enterprise típicamente describen a un conjunto de usuarios. Si esta opción está activada, pueden crearse cuentas para cualquier usuario que no se encuentre en la base de datos de Moodle.
 
@@ -66,6 +62,7 @@ $string['mailusers'] = 'Notificar a los usuarios por email';
 $string['messageprovider:imsenterprise_enrolment'] = 'Mensajes de matriculación IMS Enterprise';
 $string['miscsettings'] = 'Miscelánea';
 $string['pluginname'] = 'Archivo IMS Enterprise';
+$string['pluginname_desc'] = 'Este método comprobará y procesará un archivo de texto con formato especial en la ubicación que usted especifique. El archivo debe seguir las especificaciones IMS Enterprise que contienen los elementos XML persona, grupo y pertenencia.';
 $string['processphoto'] = 'Agregar foto de usuario al perfil';
 $string['processphotowarning'] = 'ATENCIÓN: El procesamiento de imágenes probablemente agregará una carga significativa al servidor. Se recomienda no activar esta opción si se espera procesar un número elevado de estudiantes.';
 $string['restricttarget'] = 'Procesar los datos sólo si es especificado el objetivo siguiente';
@@ -75,6 +72,9 @@ $string['restricttarget_desc'] = '<p>Podría pensarse en un archivo de datos IMS
 </p>';
 $string['roles'] = 'Roles';
 $string['sourcedidfallback'] = 'Usar el "sourcedid" para el userid de una persona si no se encuentra el campo "userid"';
+$string['sourcedidfallback_desc'] = 'En los datos IMS, el campo <sourcedid> representa el código de identificación persistente para una persona tal como se utiliza en el sistema de origen. El campo <userid> es un campo independiente, que debe contener el código de identificación utilizado por el usuario al iniciar sesión. En muchos casos, estos dos códigos pueden ser el mismo - pero no siempre.
+
+Algunos sistemas de información de estudiantes no generan el campo <userid>. Si este es el caso, debe habilitar esta configuración para permitir el uso de la <sourcedid> como el ID de usuario de Moodle. De lo contrario, deje esta opción desactivada.';
 $string['truncatecoursecodes'] = 'Truncar los códigos del curso a esta longitud';
 $string['truncatecoursecodes_desc'] = '<p>En determinadas situaciones usted tendrá códigos de curso que desee truncar a una determinada longitud antes de su procesamiento. Si éste fuera el caso, escriba el número de caracteres en esta caja. En caso contrario, déjela <strong>en blanco</strong>.</p>';
 $string['usecapitafix'] = 'Marcar esta caja si se usa "Capita" (su formato XML es ligeramente erróneo)';

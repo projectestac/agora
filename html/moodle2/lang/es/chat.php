@@ -25,21 +25,23 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = 'Hay sesiones de chat programadas';
 $string['ajax'] = 'Versión usando Ajax';
 $string['autoscroll'] = 'Desplazamiento automático';
-$string['beep'] = 'beep';
+$string['beep'] = 'Beep';
 $string['cantlogin'] = 'No se pudo ingresar en la sala de chat';
 $string['chat:addinstance'] = 'Añadir un nuevo chat';
 $string['chat:chat'] = 'Acceder a la sala';
 $string['chat:deletelog'] = 'Eliminar registros de chat';
 $string['chat:exportparticipatedsession'] = 'Exportar sesión de chat en que usted ha participado';
 $string['chat:exportsession'] = 'Exportar cualquier sesión de chat';
-$string['chatintro'] = 'Texto introductorio';
+$string['chatintro'] = 'Descripción';
 $string['chatname'] = 'Nombre de la sala';
 $string['chat:readlog'] = 'Leer registros de chat';
 $string['chatreport'] = 'Sesiones';
 $string['chat:talk'] = 'Hablar en un chat';
 $string['chattime'] = 'Próxima cita';
+$string['composemessage'] = 'Escriba un mensaje';
 $string['configmethod'] = 'El método ajax del chat trabaja de forma interna contactando de forma regular con el servidor para llevar a cabo las actualizaciones.
 El método normal de chat implica que los usuarios contactan con el servidor de forma regular para llevar a cabo las actualizaciones. No requiere configuración y funciona en cualquier parte, pero puede ocasionar una sobrecarga en el servidor cuando hay muchos usuarios simultáneamente en la sala. Utilizar un \'daemon\' (i.e., proceso de ejecución independiente en segundo plano) en el servidor requiere acceso shell (de intérprete de comandos) a Unix, pero proporcionará  un servicio de chat más rápido y escalable.';
 $string['confignormalupdatemode'] = 'Las actualizaciones de la sala de chat normalmente son servidas eficientemente utilizando la característica de HTTP 1.1 <em>Keep-Alive</em>, pero esto resulta una tarea bastante pesada para el servidor. Un método más avanzado consiste en utilizar la estrategia <em>Stream</em> para enviar actualizaciones a los usuarios. Al utilizar <em>Stream</em> se consigue un escalamiento mucho mejor (es similar al método chatd), pero es posible que su servidor no tenga disponible esta opción.';
@@ -103,7 +105,7 @@ $string['nopermissiontoseethechatlog'] = 'No tiene permiso para ver los registro
 $string['normalkeepalive'] = 'KeepAlive';
 $string['normalstream'] = 'Stream';
 $string['noscheduledsession'] = 'No hay sesión programada';
-$string['notallowenter'] = 'No tiene permiso para entrar en la sala de chat';
+$string['notallowenter'] = 'No tiene permiso para entrar en la sala de chat.';
 $string['notlogged'] = '¡Usted no se ha identificado!';
 $string['oldping'] = 'Desconectar tiempo de espera';
 $string['page-mod-chat-x'] = 'Cualquier página del módulo de chat';
@@ -127,7 +129,7 @@ $string['serverip'] = 'IP del servidor';
 $string['servermax'] = 'Número máximo de usuarios';
 $string['serverport'] = 'Puerto del servidor';
 $string['sessions'] = 'Sesiones';
-$string['sessionstart'] = 'La sesión de chat comenzará en: {$a}';
+$string['sessionstart'] = 'La próxima sesión de chat comenzará en  {$a}';
 $string['strftimemessage'] = '%H:%M';
 $string['studentseereports'] = 'Todos pueden ver las sesiones pasadas';
 $string['studentseereports_help'] = 'Si se selecciona \'No\', solo los usuarios que tienen el permiso \'mod/chat:readlog\' pueden ver los registros de chat';

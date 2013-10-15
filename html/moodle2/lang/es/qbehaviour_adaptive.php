@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['disregardedwithoutpenalty'] = 'La entrega no era válida, y se ha obviado sin penalización.';
 $string['gradingdetails'] = 'Puntos para este envío:
 {$a->raw}/{$a->max}.';
 $string['gradingdetailsadjustment'] = 'Con las penalizaciones previas da como resultado

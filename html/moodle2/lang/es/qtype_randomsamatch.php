@@ -30,3 +30,5 @@ $string['notenoughsaincategory'] = '{$a->nosaquestions} preguntas de respuesta c
 $string['pluginname'] = 'Emparejamiento aleatorio';
 $string['pluginnameadding'] = 'Añadir una pregunta de tipo Emparejamiento aleatorio';
 $string['pluginnameediting'] = 'Editar una pregunta de tipo Emparejamiento aleatorio';
+$string['pluginname_help'] = 'Desde la perspectiva del alumno, es muy semejante a una pregunta de Emparejamiento. La diferencia es que la lista de nombre o enunciados (preguntas) para el Emparejamiento son seleccionados aleatoriamente de entre las preguntas de respuesta corta de la categoría elegida. Deben de haber un número suficiente de preguntas de respuesta corta sin usar en la categoría, de lo contrario se mostrará un mensaje de error.';
+$string['pluginnamesummary'] = 'Como una pregunta de Emparejamiento, pero creada aleatoriamente a partir de las preguntas de Respuesta corta de una categoría en concreto.';

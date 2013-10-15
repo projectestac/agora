@@ -44,6 +44,7 @@ $string['randomallocationsettings'] = 'Ajustes de asignación';
 $string['randomallocationsettings_help'] = 'Los parámetros de la asignación aleatoria se definen aquí. Estos parámetros serán usados por la herramienta de asignación automática para la asignación actual de las entregas.';
 $string['resultdisabled'] = 'Asignación programación deshabilitada';
 $string['resultenabled'] = 'Asignación programación habilitada';
+$string['resultexecuted'] = 'Éxito';
 $string['resultfailed'] = 'No ha sido posible asignar automáticamente los envíos';
 $string['resultfailedconfig'] = 'Asignación programación no configurada';
 $string['resultfaileddeadline'] = 'El taller no tiene fecha límite de entrega programada';

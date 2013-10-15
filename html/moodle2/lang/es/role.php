@@ -32,7 +32,7 @@ $string['advancedoverride'] = 'Anular rol avanzado';
 $string['allow'] = 'Permitir';
 $string['allowassign'] = 'Permitir asignar roles';
 $string['allowed'] = 'Permitido';
-$string['allowoverride'] = 'Permitir anular roles';
+$string['allowoverride'] = 'Permitir sobreescribir roles';
 $string['allowroletoassign'] = 'Permitir a los usuarios con el rol {$a->fromrole} asignar el rol {$a->targetrole}';
 $string['allowroletooverride'] = 'Permitir a los usuarios con el rol {$a->fromrole} anular el rol {$a->targetrole}';
 $string['allowroletoswitch'] = 'Permitir a los usuarios con el rol {$a->fromrole} cambiar al rol {$a->targetrole}';
@@ -57,38 +57,10 @@ $string['assignmentoptions'] = 'Opciones de asignación';
 $string['assignrole'] = 'Asignar rol';
 $string['assignrolenameincontext'] = 'Asignar rol \'{$a->role}\' en {$a->context}';
 $string['assignroles'] = 'Asignar roles';
-$string['assignroles_help'] = '<p>
-Al asignar un rol a un usuario en un contexto, usted
+$string['assignroles_help'] = 'Al asignar un rol a un usuario en un contexto,
 le está garantizando los permisos propios de ese rol
 en el contexto actual y en todos los contextos de
-rango \'inferior\'.
-</p>
-
-<p>
-Contextos:
-<ol>
-<li>Sitio/Sistema</li>
-<li>Categorías de cursos</li>
-<li>Cursos</li>
-<li>Bloques y Actividades</li>
-</ol>
-</p>
-
-<p>
-Así, si le da a un estudiante el rol de usuario de un
-curso, tendrá ese rol para ese curso, pero también para
-todos los bloques y actividades dentro del curso. Sus
-permisos reales dependerán de otros roles y anularán
-los que han sido definidos.
-</p>
-
-<p>
-Vea también
-<a href="help.php?file=roles.html">Roles</a>,
-<a href="help.php?file=contexts.html">Contextos</a>,
-<a href="help.php?file=permissions.html">Permisos</a> y
-<a href="help.php?file=overrides.html">Anulaciones</a>.
-</p>';
+rango inferior. Por ejemplo, si un usuario se le asigna el rol de estudiante en un curso, también tendrá el rol de estudiante en todas las actividades y bloques dentro del curso.';
 $string['assignrolesin'] = 'Asignar roles en {$a}';
 $string['assignrolesrelativetothisuser'] = 'Asignar roles relativos a este usuario';
 $string['backtoallroles'] = 'Regresar a la lista de todos los roles';
@@ -260,8 +232,8 @@ $string['manageroles'] = 'Gestionar roles';
 $string['maybeassignedin'] = 'Tipos de contexto en que puede asignarse este rol';
 $string['morethan'] = 'Más de {$a}';
 $string['multipleroles'] = 'Roles múltiples';
-$string['my:configsyspages'] = 'Configurar plantillas del sistema para las páginas de Mi Moodle';
-$string['my:manageblocks'] = 'Gestionar bloques de página Mi Moodle';
+$string['my:configsyspages'] = 'Configurar plantillas del sistema para las páginas Área personal';
+$string['my:manageblocks'] = 'Gestionar bloques de la página Área personal';
 $string['neededroles'] = 'Roles con permiso';
 $string['nocapabilitiesincontext'] = 'Permisos no disponibles en este contexto';
 $string['noneinthisx'] = 'Nombre en este {$a}';

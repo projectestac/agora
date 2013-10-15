@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['outline:view'] = 'Ver informe de actividad del curso';
+$string['page-report-outline-index'] = '';
 $string['pluginname'] = 'Actividad del curso';

@@ -34,6 +34,7 @@ $string['hostappname'] = 'Aplicación';
 $string['hostname'] = 'Nombre del host';
 $string['hosturl'] = 'URL del host remoto';
 $string['nopublishers'] = 'No hay disponibles pares remotos.';
+$string['noroamingusers'] = 'Los usuarios necesitan la capacidad \'{$a}\' en el contexto del sistema para inscribirse/matricularse en los cursos a distancia, sin embargo actualmente no hay usuarios con esta capacidad. Haga clic en el botón Continuar para asignar la capacidad necesaria a uno o más roles de su sitio.';
 $string['otherenrolledusers'] = 'Otros usuarios matriculados';
 $string['pluginname'] = 'Servicio de matriculación remota';
 $string['refetch'] = 'Volver a buscar estado actualizado desde hosts remotos';

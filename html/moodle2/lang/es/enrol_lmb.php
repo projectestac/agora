@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_lmb', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_lmb', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_lmb
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cathidden'] = '';
 $string['disableenrolhelp'] = 'Desactivar la matriculación en lugar de darles de baja. Evita la posible pérdida de datos en algunas versiones y configuraciones de Moodle cuando los usuarios se eliminan y se vuelven a añadir a un curso.';
 $string['lmb:unenrol'] = 'Dar de baja alumnos del curso';
 $string['lmb:unenrolself'] = 'Darse de baja del curso';

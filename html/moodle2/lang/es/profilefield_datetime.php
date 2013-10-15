@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['currentdatedefault'] = 'Marcar el uso de la fecha actual como valor por defecto';
 $string['defaultdate'] = 'Fecha por defecto';
 $string['endyear'] = 'Año de finalización';
 $string['notset'] = 'No establecido';

@@ -31,4 +31,28 @@ $string['location'] = 'Ubicación del archivo';
 $string['mailadmin'] = 'Notificar administrador por correo electrónico';
 $string['mailstudents'] = 'Notificar a los estudiantes por correo electrónico';
 $string['mailteachers'] = 'Notificar a los profesores por correo electrónico';
+$string['mapping'] = 'Mapeo de archivos planos';
+$string['messageprovider:flatfile_enrolment'] = 'Mensajes de archivos planos de matriculación';
 $string['pluginname'] = 'Archivo plano (CSV)';
+$string['pluginname_desc'] = 'Este método comprobará habitualmente y procesará un archivo de texto con un formato especial en la ubicación que usted especifique. El archivo es un archivo separado por comas que debe tener cuatro o seis campos por línea:
+
+<pre class="informationbox">
+* operation, role, idnumber(user), idnumber(course) [, starttime, endtime] donde:
+
+* operation = add | del
+* role = student | teacher | teacheredit
+* idnumber(user) = idnumber in the user table NB not id
+* idnumber(course) = idnumber in the course table NB not id
+* starttime = start time (in seconds since epoch) - optional
+* endtime = end time (in seconds since epoch) - optional </pre>
+
+Será similar algo así:
+
+ <pre class="informationbox">
+   add, student, 5, CF101
+   add, teacher, 6, CF101
+   add, teacheredit, 7, CF101
+   del, student, 8, CF101
+   del, student, 17, CF101
+   add, student, 21, CF101, 1091115000, 1091215000
+</pre>';

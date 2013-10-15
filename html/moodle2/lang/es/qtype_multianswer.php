@@ -49,7 +49,9 @@ $string['questioninquiz'] = '<ul><li> añadir o eliminar preguntas, </li><li> ca
 $string['questionnotfound'] = 'Imposible encontrar la pregunta de la parte de pregunta #{$a}';
 $string['questionsadded'] = '"Pregunta agregada"';
 $string['questionsaveasedited'] = 'La pregunta se guardará como editada.';
+$string['questionsless'] = 'hay {$a} pregunta(s) menos que en la pregunta multiple almacenada en la base de datos';
 $string['questionsmissing'] = 'No hay preguntas válidas, escriba al menos una pregunta';
+$string['questionsmore'] = 'hay {$a} pregunta(s) más que en la pregunta multiple almacenada en la base de datos';
 $string['questiontypechanged'] = 'Se ha modificado este tipo de pregunta';
 $string['questiontypechangedcomment'] = 'Al menos un tipo de pregunta ha sido modificada.
 

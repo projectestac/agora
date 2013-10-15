@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Regla de acceso por dirección IP';
 $string['subnetwrong'] = 'Este cuestionario sólo es accesible desde ciertos lugares: este ordenador no está en la lista de admitidos.';

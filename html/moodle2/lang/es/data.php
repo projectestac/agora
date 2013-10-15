@@ -57,6 +57,7 @@ $string['cancel'] = 'Cancelar';
 $string['cannotaccesspresentsother'] = 'No se le permite acceder a los ajustes previos de otros usuarios';
 $string['cannotadd'] = 'No se pueden añadir entradas';
 $string['cannotdeletepreset'] = 'Error al eliminar un ajuste previo';
+$string['cannotoverwritepreset'] = 'Error sobrescribiendo cvalor preestablecido';
 $string['cannotunziptopreset'] = 'No se ha podido descomprimir al directorio de ajustes previos';
 $string['checkbox'] = 'Caja de selección';
 $string['chooseexportfields'] = 'Seleccione los campos que desea exportar:';
@@ -74,10 +75,10 @@ $string['configenablerssfeeds'] = 'Esta opción habilita la posibilidad de canal
 $string['confirmdeletefield'] = 'Está a punto de eliminar este campo. ¿Está seguro?';
 $string['confirmdeleterecord'] = '¿Está seguro de que desea eliminar esta entrada?';
 $string['csstemplate'] = 'Plantilla CSS';
-$string['csvfailed'] = 'No se pueden leer los datos del archivo CVS';
+$string['csvfailed'] = 'No se pueden leer los datos del archivo CSV';
 $string['csvfile'] = 'Archivo CSV';
 $string['csvimport'] = 'Importar archivo CSV';
-$string['csvimport_help'] = '<p align="center"><strong>Importar de un archivo CVS</strong></p>
+$string['csvimport_help'] = '<p align="center"><strong>Importar de un archivo CSV</strong></p>
 
 <p>CSV significa \'Valores Separados por Comas\' (\'Comma-Separated-Values\') y es un formato común para intercambiar texto.</p>
 
@@ -97,13 +98,14 @@ $string['csvimport_help'] = '<p align="center"><strong>Importar de un archivo CV
 </pre>
 
 <p>ADVERTENCIA: es posible que no se admitan todos los tipos de campo.</p>';
-$string['csvwithselecteddelimiter'] = '<acronym title="Comma Separated Values">texto</acronym> CVS con el delimitador seleccionado:';
+$string['csvwithselecteddelimiter'] = '<acronym title="Comma Separated Values">texto</acronym> CSV con el delimitador seleccionado:';
 $string['data:addinstance'] = 'Añadir una nueva base de datos';
 $string['data:approve'] = 'Aprobar entradas pendientes';
 $string['data:comment'] = 'Escribir comentarios';
 $string['data:exportallentries'] = 'Exportar todas las entradas de la base de datos';
 $string['data:exportentry'] = 'Exportar una entrada de la base de datos';
 $string['data:exportownentry'] = 'Exportar la propia entrada de la base de datos';
+$string['data:exportuserinfo'] = 'Exportar la información del  usuario';
 $string['data:managecomments'] = 'Gestionar comentarios';
 $string['data:manageentries'] = 'Gestionar entradas';
 $string['data:managetemplates'] = 'Gestionar plantillas';
@@ -140,7 +142,7 @@ $string['editorenable'] = 'Activar editor';
 $string['emptyadd'] = 'La plantilla Añadir está vacía, generando un formulario por defecto...';
 $string['emptyaddform'] = '¡No ha rellenado ningún campo!';
 $string['entries'] = 'Entradas';
-$string['entrieslefttoadd'] = 'Debe añadir {$a->entriesleft} entrada(s) más antes de poder ver las entradas de otro participante.';
+$string['entrieslefttoadd'] = 'Debe agregar {$a->entriesleft} entrada(s) más para poder finalizar esta actividad';
 $string['entrieslefttoaddtoview'] = 'Debe añadir {$a->entrieslefttoview} entrada(s) antes de poder ver las entradas de otros participantes.';
 $string['entry'] = 'Entrada';
 $string['entrysaved'] = 'Su entrada se ha guardado';
@@ -207,8 +209,11 @@ $string['headerrsstemplate'] = 'Define la apariencia de las entradas en canales 
 $string['headersingletemplate'] = 'Define la interfaz de navegación en canales RSS';
 $string['importentries'] = 'Importar entradas';
 $string['importsuccess'] = 'El ajuste previo ha sido aplicado con éxito.';
+$string['includeapproval'] = 'Incluya el estado de aprobación';
+$string['includetime'] = 'Incluya fecha añadido / modificado';
+$string['includeuserdetails'] = 'Incluya detalles del usuario';
 $string['insufficiententries'] = 'se necesitan más entradas para ver esta base de datos';
-$string['intro'] = 'Introducción';
+$string['intro'] = 'Descripción';
 $string['invalidaccess'] = 'No se ha accedido correctamente a esta página';
 $string['invalidfieldid'] = 'El campo ID es incorrecto';
 $string['invalidfieldname'] = 'Por favor, seleccione otro nombre para este campo';
@@ -374,5 +379,5 @@ $string['usedate'] = 'Incluir en la búsqueda';
 $string['usestandard'] = 'Use un ajuste previo';
 $string['usestandard_help'] = 'Para utilizar un ajuste previo disponible en todo el sitio, selecciónelo de la lista. (Si ha agregado un ajuste previo de la lista mediante la función guardar como predeterminado entonces usted tiene la opción de eliminarlo.)';
 $string['viewfromdate'] = 'Solo lectura desde';
-$string['viewtodate'] = 'Solo lectura para';
+$string['viewtodate'] = 'Solo lectura hasta';
 $string['wrongdataid'] = 'Datos de id erróneos';

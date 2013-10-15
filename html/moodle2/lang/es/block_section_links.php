@@ -27,14 +27,14 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['incby1'] = 'Incrementar en';
 $string['incby2'] = 'Incremento alternativo en';
-$string['incbydesc1'] = 'Este es el valor en que se incrementa la sección cada vez que se muestra un enlace de sección comenzando por 1.';
-$string['incbydesc2'] = 'Este es el valor en que se incrementa la sección cada vez que se muestra un enlace de sección comenzando por 1.';
+$string['incbydesc1'] = 'Este es el valor con el que la sección se incrementa cada vez que se muestra un enlace a la sección comenzando en 1.';
+$string['incbydesc2'] = 'Este es el valor con el que la sección se incrementa cada vez que se muestra un enlace a la sección comenzando en 1.';
 $string['jumptocurrenttopic'] = 'Ir al tema actual';
 $string['jumptocurrentweek'] = 'Ir a la semana actual';
 $string['numsections1'] = 'Número de secciones';
 $string['numsections2'] = 'Número alternativo de secciones';
-$string['numsectionsdesc1'] = 'Una vez que el número de secciones del curso alcanza este número, se usa el incremento por el valor.';
-$string['numsectionsdesc2'] = 'Una vez que el número de secciones del curso alcanza este número, se usa el incremento alternativo por el valor.';
+$string['numsectionsdesc1'] = 'Una vez que el número de secciones en el curso alcanza este número, se utilizará el incremento por valor.';
+$string['numsectionsdesc2'] = 'Una vez que el número de secciones en el curso alcanza este número, se utilizará el incremento por valor.';
 $string['pluginname'] = 'Enlaces de sección';
 $string['section_links:addinstance'] = 'Añadir un nuevo bloque de enlaces de sección';
 $string['topics'] = 'Temas';

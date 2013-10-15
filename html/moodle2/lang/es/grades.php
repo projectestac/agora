@@ -29,7 +29,7 @@ $string['activities'] = 'Actividades';
 $string['addcategory'] = 'Añadir categoría';
 $string['addcategoryerror'] = 'No se pudo añadir categoría.';
 $string['addexceptionerror'] = 'Ocurrió un error al añadir una excepción a userid:gradeitem';
-$string['addfeedback'] = 'Añadiur retroalimentación';
+$string['addfeedback'] = 'Agregar retroalimentación';
 $string['addgradeletter'] = 'Añadir letra de calificación';
 $string['addidnumbers'] = 'Añadir números ID';
 $string['additem'] = 'Añadir ítem de calificación';
@@ -81,17 +81,7 @@ $string['aggregationcoefextra_help'] = '<h2>Para Agregación de Suma de Califica
     <li>La calificación total del estudiante para la Categoría 1 será de 95/100 debido a que 20*2 + (40 + 70)/2 = 95</li>
 </ul>';
 $string['aggregationcoefextrasum'] = 'Actuar como puntos extra';
-$string['aggregationcoefextrasum_help'] = '<p>Cuando se usa la estrategia de agregación "Suma de calificaciones", un elemento de calificación puede actuar como crédito extra en la categoría. Esto significa que la calificación máxima del elemento no se añadirá a la calificación máxima del total de la categoría, sino a la calificación del elemento. Por ejemplo:</p>
-
-<ul>
-    <li>El elemento 1 se califica de 0 a 100</li>
-    <li>El elemento 2 se califica de0 a 75</li>
-    <li>El elemento 1 tiene marcada la casilla "Actuar como crédito extra", pero el elemento 2 no la tiene marcada.</li>
-    <li>Ambos elementos pertenecen a la Categoría 1, que tiene como estrategia de agregación "Suma de calificaciones"</li>
-    <li>El total de la Categoría 1 será calificado de 0 a 75</li>
-    <li>Un estudiante es calificado con 20 en el elemento 1 y con 70 en el elemento 2</li>
-    <li>El total del estudiante en la Categoría 1 será de 75/75 (20+70 = 90 pero el elemento 1 actúa sólo como crédito extra, de modo que lleva al total a su máximo valor)</li>
-</ul>';
+$string['aggregationcoefextrasum_help'] = 'Si está marcada la casilla de verificación Crédito extra, la calificación máxima del elemento de calificación no se agrega a la calificación máxima de la categoría, con el resultado de que es posible alcanzar la calificación máxima en la categoría (o una calificación superior a la máxima si lo ha habilitado el administrador) sin tener la calificación máxima en todos los elementos de calificación.';
 $string['aggregationcoefextraweight'] = 'Ponderación del crédito extra';
 $string['aggregationcoefextraweight_help'] = '<p>Un valor mayor que 0 trata las calificaciones de este elemento de calificación como crédito extra durante la agregación. El número es un factor por el cual se multiplicará el valor de la calificación antes de agregarse a la suma de todas las calificaciones, pero el elemento en sí mismo no será contado en la división. Por ejemplo:</p>
 
@@ -210,6 +200,7 @@ $string['enableajax_help'] = 'Agrega una capa de funcionalidad AJAX al informe d
 $string['enableoutcomes'] = 'Habilitar resultados';
 $string['enableoutcomes_help'] = 'Apoyo para los Resultados (también conocidos como \'competencias\', \'objetivos\', \'estándars\' o \'criterios\'). Significa que calificamos usando una o más escalas que están conectadas a las declaraciones de resultados. La activación de los resultados posibilita esta forma especial de calificación en todo el sitio.';
 $string['encoding'] = 'Codificación';
+$string['errorcalculationbroken'] = 'Probablemente una referencia circular o una fórmula de cálculo errónea';
 $string['errorcalculationnoequal'] = 'La fórmula debe comenzar por el signo \'igual\' (=1+2)';
 $string['errorcalculationunknown'] = 'Fórmula no válida';
 $string['errorgradevaluenonnumeric'] = 'Recibido valor no numérico para calificación baja o alta para';
@@ -480,6 +471,7 @@ $string['numberofgrades'] = 'Número de calificaciones';
 $string['onascaleof'] = 'en una escala de {$a->grademin} a {$a->grademax}';
 $string['operations'] = 'Operaciones';
 $string['options'] = 'Opciones';
+$string['others'] = 'Otros';
 $string['outcome'] = 'Resultado';
 $string['outcomeassigntocourse'] = 'Asignar otro resultado a este curso';
 $string['outcomecategory'] = 'Crear resultados en categoría';
@@ -525,7 +517,7 @@ $string['percentascending'] = 'Clasificar por porcentaje ascendente';
 $string['percentdescending'] = 'Ordenar por porcentaje descendente';
 $string['percentshort'] = '%';
 $string['plusfactor'] = 'Compensar';
-$string['plusfactor_help'] = '<p>Es el valor que se sumará a cada calificación de este elemento de calificación, después de haber aaplicado el multiplicador.</p>';
+$string['plusfactor_help'] = '<p>Es el valor que se sumará a cada calificación de este elemento de calificación, después de haber aplicado el multiplicador.</p>';
 $string['plusfactorvalue'] = 'Valor de compensación para {$a}';
 $string['points'] = 'puntos';
 $string['pointsascending'] = 'Clasificar por puntos ascendente';
@@ -631,7 +623,7 @@ $string['shownumberofgrades'] = 'Mostrar número de calificaciones en los promed
 $string['shownumberofgrades_help'] = 'Muestra el número de calificaciones que se están agregando junto a cada promedio, entre paréntesis. Ejemplo: 45 (34).';
 $string['showpercentage'] = 'Mostrar porcentaje';
 $string['showpercentage_help'] = '¿Mostrar el porcentaje de cada ítem de calificación.?';
-$string['showquickfeedback'] = 'Mostrar Retroalimentación Rápida';
+$string['showquickfeedback'] = 'Mostrar retroalimentación rápida';
 $string['showquickfeedback_help'] = 'La Retroalimentación Rápida agrega un ítem de texto a cada celda de calificación en el informe del calificador, permitiéndole editar los comentarios de muchas calificaciones a la vez. Puede entonces hacer clic en el botón Actualizar para ejecutar todos estos cambios de una vez en lugar de hacerlo uno a uno.';
 $string['showrange'] = 'Mostrar rangos';
 $string['showrange_help'] = '¿Mostrar la columna de rangos?';
@@ -694,6 +686,7 @@ $string['usepercent'] = 'Usar porcentaje';
 $string['user'] = 'Usuario';
 $string['userenrolmentsuspended'] = 'Matriculación de usuarios suspendida';
 $string['usergrade'] = 'Usuario {$a->fullname} ({$a->useridnumber}) en el ítem {$a->gradeidnumber}';
+$string['userid'] = 'ID de usuario';
 $string['userpreferences'] = 'Preferencias del usuario';
 $string['useweighted'] = 'Usar ponderación';
 $string['verbosescales'] = 'Escalas de texto';

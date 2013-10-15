@@ -25,8 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['headingcolordesc'] = 'Color de la cabecera para cabeceras grandes (noticias del sitio, mis cursos) y otras cabeceras.';
 $string['linkcolor'] = 'enlace';
 $string['linkcolordesc'] = 'Establece el color de los enlaces en el tema, utilice el código HTML hexadecimal.';
+$string['linkhover'] = 'linkhover';
 $string['logo'] = 'logotipo';
 $string['maincolordesc'] = 'Ajuste el código hexadecimal del color de la cabecera, barra lateral y otras áreas. Se ve mejor con un color oscuro o saturado.';
 $string['region-side-post'] = 'Derecha';

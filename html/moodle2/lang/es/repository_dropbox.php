@@ -26,10 +26,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'Clave de la API de Dropbox';
+$string['cachelimit'] = 'Límite del caché';
 $string['configplugin'] = 'Configuración de Dropbox';
 $string['dropbox'] = 'Dropbox';
 $string['dropbox:view'] = 'Mostrar una carpeta de Dropbox';
 $string['instruction'] = 'La clave de API y la clave secreta se pueden obtener desde el sitio oficial de <a href="http://www.dropbox.com/developers/apps">desarrolladores Dropbox</ a>';
+$string['logoutdesc'] = '(Salir cuando termine de usar Dropbox)';
 $string['notitle'] = 'sin título';
 $string['pluginname'] = 'Dropbox';
 $string['remember'] = 'Recordarme';

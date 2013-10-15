@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['assignrole'] = 'Asignando rol \'{$a->role_shortname}\' al usuario \'{$a->user_username}\' en el curso {$a->course_shortname}\' (id {$a->course_id})';
+$string['assignrolefailed'] = 'Fallo al asignarr el rol \'{$a->role_shortname}\' al usuario \'{$a->user_username}\' en el curso {$a->course_shortname}\' (id {$a->course_id})';
 $string['autocreate'] = '<p>Los cursos pueden crearse automáticamente si existen matriculaciones en un curso que aún no existe en Moodle.</p><p>Si va a utilizar la creación automática de curso, se recomienda que quite las siguientes capacidades:
 moodle/course:changeidnumber,
 moodle/course:changeshortname,
@@ -48,30 +50,41 @@ $string['course_fullname'] = 'Opcional: campo LDAP del que conseguir el nombre c
 $string['course_fullname_key'] = 'Nombre completo';
 $string['course_idnumber'] = 'Mapa del identificador único en LDAP, normalmente  <em>cn</em> or <em>uid</em>. Se recomienda bloquear el valor si se está utilizando la creación automática del curso.';
 $string['course_idnumber_key'] = 'Número ID';
+$string['coursenotexistskip'] = 'El curso \'{$a} no existe y la creación automática esta deshabilitada; se pasa por alto';
+$string['course_search_sub'] = 'Buscar pertenencia a grupos en subcontextos';
 $string['course_search_sub_key'] = 'Buscar subcontextos';
 $string['course_settings'] = 'Ajustes de matriculación de Curso';
 $string['course_shortname'] = 'Opcional: campo LDAP del que conseguir el nombre corto.';
 $string['course_shortname_key'] = 'Nombre corto';
 $string['course_summary'] = 'Opcional: campo LDAP del que conseguir el sumario.';
 $string['course_summary_key'] = 'Resumen';
+$string['createcourseextid'] = 'CREAR usuario matriculado en un curso inexistente \'{$a->courseextid}\'';
+$string['createnotcourseextid'] = 'Usuario matriculado en un curso inexistente \'{$a->courseextid}\'';
+$string['creatingcourse'] = 'Creando curso \'{$a}\'...';
 $string['editlock'] = 'Bloquear valor';
 $string['emptyenrolment'] = 'Matriculación vacía para el rol \'{$a->role_shortname}\' en el curso \'{$a->course_shortname}\'';
 $string['enrolname'] = 'LDAP';
 $string['enroluser'] = 'Matricular al usuario \'{$a->user_username}\' en el curso \'{$a->course_shortname}\' (id {$a->course_id})';
 $string['enroluserenable'] = 'Matriculación habilitada para el usuario \'{$a->user_username}\' en el curso \'{$a->course_shortname}\' (id {$a->course_id})';
+$string['explodegroupusertypenotsupported'] = 'ldap_explode_group() no soporta el tipo de usuario seleccionado: {$a}';
 $string['extcourseidinvalid'] = 'La id del curso externo no es válido';
 $string['extremovedsuspend'] = 'Matriculación habilitada para el usuario \'{$a->user_username}\' en el curso \'{$a->course_shortname}\' (id {$a->course_id})';
 $string['extremovedsuspendnoroles'] = 'Matriculación deshabilitada y roles eliminados para el usuario \'{$a->user_username}\' en el curso \'{$a->course_shortname}\' (id {$a->course_id})';
 $string['extremovedunenrol'] = 'Dar de baja el usuario \'{$a->user_username}\' del curso \'{$a->course_shortname}\' (id {$a->course_id})';
 $string['failed'] = 'Error';
 $string['general_options'] = 'Opciones generales';
+$string['group_memberofattribute'] = 'Nombre del atributo que especifica a qué grupos pertenece un determinado usuario o grupo (por ejemplo, memberOf, groupMembership, etc)';
+$string['group_memberofattribute_key'] = 'Atributo \'Miembro de\'';
 $string['host_url'] = 'Especifique el host LDAP en formato URL, e.g.,  \'ldap://ldap.myorg.com/\'
 or \'ldaps://ldap.myorg.com/\'';
 $string['host_url_key'] = 'URL del servidor';
 $string['idnumber_attribute'] = 'Si la pertenencia a grupo contiene \'nombres distinguidos\', especifique el mismo atributo que ha usado para el mapeo del \'Número ID\' del usuario, en la configuración de identificación LDAP';
+$string['idnumber_attribute_key'] = 'Número ID del atributo';
+$string['ldap_encoding'] = 'Indique la codificación utilizada por el servidor LDAP. Lo más probable es que sea utf-8;  MS AD v2 utiliza  codificaciones predeterminadas de la plataforma como cp1252, cp1250, etc';
 $string['ldap_encoding_key'] = 'Codificación LDAP';
 $string['ldap:manage'] = 'Gestionar ejemplos de matriculación LDAP';
 $string['memberattribute'] = 'Atributo de miembro LDAP';
+$string['memberattribute_isdn'] = 'Si la pertenencia a grupo contiene \'nombres distinguidos\'  necesita especificarlo aquí. Si es así, también necesita configurar el resto de parámetros de esta sección.';
 $string['memberattribute_isdn_key'] = 'El atributo de miembro usa dn';
 $string['nested_groups'] = '¿Desea usar grupos anidados (i.e., grupos de grupos) para la matriculación?';
 $string['nested_groups_key'] = 'Grupos anidados';
@@ -91,17 +104,30 @@ $string['pluginname_desc'] = '<p>Usted puede utilizar un servidor LDAP para colt
 <p>Las matriculaciones se actualizarán cuando el usuario se identifique. Consulte en <em>enrol/ldap/enrol_ldap_sync.php</em>.</p>
 <p>Esta extensión  puede también ajustarse para crear nuevos cursos de forma automática cuando aparecen nuevos grupos en LDAP.</p>';
 $string['pluginnotenabled'] = 'El plugin no está habilitado';
+$string['role_mapping'] = 'Para cada rol que desee asignar a partir de LDAP, debe especificar la lista de contextos donde se localizan los grupos del curso con este rol. Separe los diferentes contextos con punto y coma \';\'.
+
+También es necesario especificar el atributo que su servidor LDAP utiliza para mantener los miembros de un grupo. Por lo general, \'member\' o \'memberUid\'';
+$string['role_mapping_attribute'] = 'Atributo de miembro LDAP para {$a}';
+$string['role_mapping_context'] = 'Contextos LDAP para {$a}';
 $string['role_mapping_key'] = 'Mapa de roles de LDAP';
 $string['roles'] = 'Mapeo de roles';
 $string['server_settings'] = 'Configuración del Servidor LDAP';
+$string['synccourserole'] = '== Sincronizando curso \'{$a->idnumber}\' para el rol\'{$a->role_shortname}\'';
 $string['template'] = 'Opcional: los cursos auto-creados pueden copiar sus ajustes a partir de un curso-plantilla.';
 $string['template_key'] = 'Plantilla';
+$string['unassignrole'] = 'Quitando la asignación al rol  \'{$a->role_shortname}\' al usuario \'{$a->user_username}\' en el curso \'{$a->course_shortname}\' (id {$a->course_id})';
+$string['unassignrolefailed'] = 'Fallo al quitar la asignación al rol \'{$a->role_shortname}\' al usuario \'{$a->user_username}\' en el curso \'{$a->course_shortname}\' (id {$a->course_id})';
+$string['unassignroleid'] = 'Quitando la asignación al rol con id  \'{$a->role_id}\' al usuario con id \'{$a->user_id}\'';
 $string['updatelocal'] = 'Actualizar datos locales';
 $string['user_attribute'] = 'Si la pertenencia a grupo contiene \'nombres distinguidos\', especifique el atributo utilizado para nombrar/buscar a los usuarios. Si está utilizando la identificación LDAP, este valor debe coincidir con el atributo especificado en el \'número ID\' en la extensión de identificación LDAP';
 $string['user_attribute_key'] = 'ID de atributo de número';
+$string['user_contexts'] = 'Si la pertenencia a grupo contiene \'nombres distinguido\' especifique la lista de los contextos en los que se encuentran los usuarios. Separe los diferentes contextos con coma \',\'.
+Por ejemplo: \'ou=users,o=org; ou=others,o=org\'';
 $string['user_contexts_key'] = 'Contextos';
+$string['user_search_sub'] = 'Si la pertenencia a grupo contiene \'nombres distinguidos\', especifique si la búsqueda de los usuarios se realiza también en subcontextos';
 $string['user_search_sub_key'] = 'Buscar subcontextos';
 $string['user_settings'] = 'Configuración de búsqueda de usuario';
+$string['user_type'] = 'Si la pertenencia al grupo contiene los nombres particulares, especifique cómo se almacenan los usuarios en LDAP';
 $string['user_type_key'] = 'Tipo de usuario';
 $string['version'] = 'Versión del protocolo LDAP usado por el servidor.';
 $string['version_key'] = 'Versión';

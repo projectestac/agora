@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['actualresponse'] = 'Respuesta real';
 $string['allattempts'] = 'todos los intentos';
 $string['allattemptsavg'] = 'Promedio de todos los intentos';
 $string['allattemptscount'] = 'Número total de intentos';
@@ -58,6 +59,7 @@ $string['frequency'] = 'Frecuencia';
 $string['intended_weight'] = 'Peso estimado';
 $string['kurtosis'] = 'Curtosis de la distribución de puntuaciones (para {$a})';
 $string['median'] = 'Calificación media (de {$a})';
+$string['modelresponse'] = 'Respuesta modelo';
 $string['negcovar'] = 'Covarianza negativa de la calificación con la calificación de los intentos totales';
 $string['nostudentsingroup'] = 'Aún no hay estudiantes en este grupo';
 $string['optiongrade'] = 'Porcentage parcial';

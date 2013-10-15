@@ -25,4 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['backgroundcolor'] = 'Fondo de la cabecera';
+$string['footerline'] = 'Footerline';
+$string['footerlinedesc'] = 'Agregar texto (copyright, info, etc.) al pie.';
+$string['region-side-post'] = 'Derecha';
 $string['region-side-pre'] = 'Izquierda';

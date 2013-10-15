@@ -40,7 +40,7 @@ $string['aggregatetype_help'] = 'El tipo de consolidación define cómo se combi
 * Mínima calificación - La calificación más baja se convierte en la nota final
 * Suma de calificaciones- Todas las calificaciones se suman. Tenga en cuenta que el total no puede exceder la nota máxima de la actividad.
 
-Si "No hay valoraciones" está seleccionado, entonces la actividad no aparecen en el libro de calificaciones.';
+Si "No hay valoraciones" está seleccionado, entonces la actividad no aparece en el libro de calificaciones.';
 $string['allowratings'] = '¿Permitir que los ítems sean calificados?';
 $string['allratingsforitem'] = 'Todas las clasificaciones emitidas';
 $string['capabilitychecknotavailable'] = 'La comprobación de privilegios no está disponible hasta que se guarde la actividad';

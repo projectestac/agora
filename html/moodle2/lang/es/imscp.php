@@ -29,6 +29,7 @@ $string['areabackup'] = 'Paquete de archivo';
 $string['areacontent'] = 'Contenido';
 $string['contentheader'] = 'Contenido';
 $string['deploymenterror'] = 'Error en el paquete de contenidos';
+$string['imscp:addinstance'] = 'Añadir un nuevo paquete de contenido IMS';
 $string['imscp:view'] = 'Mostrar contenido IMS';
 $string['keepold'] = 'Archivo de paquetes';
 $string['keepoldexplain'] = '¿Cuántos paquetes desea archivar?';

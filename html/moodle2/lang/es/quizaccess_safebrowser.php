@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Regla de acceso por Navegador de Examen Seguro';
 $string['requiresafeexambrowser'] = 'Requiere el uso de un navegador de examen seguro';
 $string['safebrowsererror'] = 'Se ha determinado que este cuestionario únicamente se conteste usando un navegador de examen seguro. No puede intentar resolverlo con este navegador.';
 $string['safebrowsernotice'] = 'Este cuestionario se ha configurado de modo que los estudiantes sólo puedan contestarlo usando un navegador de examen seguro.';

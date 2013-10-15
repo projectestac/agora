@@ -65,9 +65,12 @@ $string['amount'] = 'Cantidad';
 $string['anauthcode'] = 'Obtener authcode';
 $string['anauthcodedesc'] = 'Si la tarjeta de crédito de un usuario no pueden ser capturada directamente en Internet, obtener el código de autorización a través del teléfono del banco del cliente.';
 $string['anavs'] = 'Sistema de verificación de direcciones';
+$string['anavsdesc'] = '';
 $string['ancaptureday'] = 'Día de captura';
+$string['ancapturedaydesc'] = '';
 $string['anemailexpired'] = 'Notificación de expiración';
 $string['anemailexpiredteacher'] = 'Notificación de expiración - Profesor';
+$string['anemailexpiredteacherdesc'] = '';
 $string['anlogin'] = 'Authorize.net: Usuario';
 $string['anpassword'] = 'Authorize.net: Contraseña';
 $string['anreferer'] = 'Escriba aquí la referencia URL en el caso de que usted la ajuste en su cuenta authorize.net, que enviará una cabecera "Referer: URL" en la petición web.';
@@ -157,6 +160,7 @@ $string['logindesc'] = 'Puede seleccionar la opción <a href="{$a->url}">loginht
 <br /><br />
 Si la selecciona, Moodle usará una conexión https segura únicamente en la página de acceso y pago.';
 $string['logininfo'] = 'Debido a precauciones de seguridad, no se muestran el nombre de usuario, la contraseña ni la clave de transacción. No es preciso entrar de nuevo si usted ha configurado estos campos con anterioridad. Puede ver un texto en verde a la izquierda de la caja si algún campo está ya configurado. Si accede a estos campos por vez primera, es necesario el nombre de usuario (*) y usted deberá escribir <strong>o bien</strong> la clave de transacción (#1) <strong>o bien</strong> la contraseña (#2) en la casilla adecuada. Le recomendamos que escriba la clave de transacción debido a razones de seguridad. Si desea eliminar la contraseña actual, marque la casilla correspondiente.';
+$string['messageprovider:authorize_enrolment'] = 'Mensajes de inscripción Authorize.Net';
 $string['methodcc'] = 'Tarjeta de crédito';
 $string['methodccdesc'] = 'Seleccione más abajo la tarjeta de crédito y los tipos aceptados';
 $string['methodecheck'] = 'eCheque (ACH)';
@@ -210,7 +214,7 @@ Usted tiene que aceptar o rechazar los pagos manualmente debido a que el adminis
 
 {$a->url}';
 $string['pendingorderssubject'] = 'ATENCIÓN: {$a->course}, {$a->pending} orden(es) expirarán en {$a->days} día(s).';
-$string['pluginname'] = 'Autorizar';
+$string['pluginname'] = 'Authorize.Net';
 $string['reason11'] = 'Se ha enviado una transacción duplicada';
 $string['reason13'] = 'La ID del login del proveedor no es válida o la cuenta está inactiva.';
 $string['reason16'] = 'La transacción no se ha encontrado.';

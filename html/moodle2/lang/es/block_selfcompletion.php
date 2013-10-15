@@ -29,5 +29,4 @@ $string['alreadyselfcompleted'] = 'Usted ya se ha marcado a sí mismo como \'fin
 $string['completecourse'] = 'Completar curso';
 $string['pluginname'] = 'Autocompletar';
 $string['selfcompletion:addinstance'] = 'Añadir un nuevo bloque  autocompletar';
-$string['selfcompletion:myaddinstance'] = 'Añadir un nuevo bloque  autocompletar a la página Mi Moodle';
 $string['selfcompletionnotenabled'] = 'Los criterios de propia finalización  no se ha habilitado para este curso';

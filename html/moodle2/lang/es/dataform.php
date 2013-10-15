@@ -249,6 +249,7 @@ $string['importadd'] = 'Añadir una nueva vista Importar';
 $string['incorrect'] = 'Incorrecto';
 $string['index'] = 'Índice';
 $string['intro'] = 'Introducción';
+$string['invalidname'] = 'Por favor elija otro nombre para este/a {$a}';
 $string['invalidurl'] = 'La URL que recién escribió no es válida';
 $string['jscode'] = 'Código JavaScript';
 $string['jsinclude'] = 'JS';

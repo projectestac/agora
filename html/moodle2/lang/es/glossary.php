@@ -62,24 +62,7 @@ $string['areyousuredeletecomment'] = '¿Está seguro de que desea borrar este co
 $string['areyousureexport'] = '¿Realmente desea exportar esta entrada a';
 $string['ascending'] = '(ascendente)';
 $string['attachment'] = 'Adjunto';
-$string['attachment_help'] = '<p>De forma opcional, usted puede adjuntar UN archivo desde su propio
-   ordenador a cualquier entrada del glosario. Este archivo se sube
-   al servidor y se almacena con su entrada.</p>
-
-<p>Esta opción resulta útil cuando usted desea, por ejemplo, compartir
-   una imagen o un documento Word.</p>
-
-<p>El archivo en cuestión puede ser de cualquier tipo, pero se recomienda
-   que se denomine utilizando los sufijos estándar de 3 letras usados en
-   internet, tales como .doc para un documento Word, .jpg o .png para una
-   imagen, y así sucesivamente. Esto facilitará a otras personas descargar
-   y ver en sus navegadores el archivo enviado.</p>
-
-<p>Si usted reedita una entrada y adjunta un nuevo archivo, quedarán
-   reemplazados cualesquiera archivos asociados a dicha entrada.</p>
-
-<p>Si usted reedita una entrada con un archivo adjunto y deja este espacio
-   en blanco, entonces el archivo adjunto original se conservará.</p>';
+$string['attachment_help'] = 'De forma opcional puede adjuntar uno o más archivos a una entrada del glosario';
 $string['author'] = 'autor';
 $string['authorview'] = 'Vista por Autor';
 $string['back'] = 'Volver';
@@ -87,11 +70,7 @@ $string['cantinsertcat'] = 'No se puede insertar la categoría';
 $string['cantinsertrec'] = 'No se puede insertar el registro';
 $string['cantinsertrel'] = 'No se puede insertar la relación registro-categoría';
 $string['casesensitive'] = 'Esta entrada es en Mayúsculas y minúsculas';
-$string['casesensitive_help'] = '<P>Esta variable especifica si las mayúsculas y minúsculas deben coincidir
-exactamente para crear el enlace automático a las entradas.</p>
-
-<p>Por ejemplo, si se encuentra habilitada, la palabra "html" en un mensaje de
-un foro no generará un hiperenlace a la entrada "HTML".</p>';
+$string['casesensitive_help'] = 'Este parámetro especifica si las mayúsculas y las minúsculas deben coincidir exactamente para crear el enlace automático a la entrada.';
 $string['cat'] = 'cat';
 $string['categories'] = 'Categorías';
 $string['category'] = 'Categoría';
@@ -101,13 +80,13 @@ $string['changeto'] = 'cambiar a {$a}';
 $string['cnfallowcomments'] = 'Define si el glosario aceptará por defecto comentarios a las entradas';
 $string['cnfallowdupentries'] = 'Define si el glosario aceptará por defecto entradas duplicadas';
 $string['cnfapprovalstatus'] = 'Define el estado por defecto de las entradas colocadas por los estudiantes';
-$string['cnfcasesensitive'] = 'Define si una entrada, cuando es hiperenlace, es sensible al uso de mayúsculas y minúsculas';
+$string['cnfcasesensitive'] = 'Define si una entrada, cuando enlaza, es sensible al uso de mayúsculas y minúsculas';
 $string['cnfdefaulthook'] = 'Seleccione la visualización por defecto para presentar al glosario por primera vez';
 $string['cnfdefaultmode'] = 'Seleccione el marco por defecto para presentar al glosario por primera vez';
-$string['cnffullmatch'] = 'Define si una entrada, cuando es hiperenlace, debe por defecto corresponder exactamente en sus mayúsculas y minúsculas con el texto';
-$string['cnflinkentry'] = 'Define si una entrada debe ser automáticamente convertida en hiperenlace';
-$string['cnflinkglossaries'] = 'Define si el glosario debe ser automáticamente convertido en hiperenlace';
-$string['cnfrelatedview'] = 'Seleccione el formato de visualización para el hiperenlace automático.';
+$string['cnffullmatch'] = 'Define si una entrada, cuando enlaza, debe coincidir exactamente en mayúsculas y minúsculas con el texto de destino, por defecto';
+$string['cnflinkentry'] = 'Define si una entrada debe ser automáticamente convertida en enlace, por defecto';
+$string['cnflinkglossaries'] = 'Define si un glosario debe ser enlazado automáticamente, por defecto';
+$string['cnfrelatedview'] = 'Seleccione el formato de visualización para el enlace automático y la vista de entradas.';
 $string['cnfshowgroup'] = 'Especifique si mostrar o no el grupo.';
 $string['cnfsortkey'] = 'Seleccione la clave de organización por defecto.';
 $string['cnfsortorder'] = 'Seleccione el orden por defecto.';
@@ -127,7 +106,7 @@ $string['currentglossary'] = 'Glosario actual';
 $string['date'] = 'fecha';
 $string['dateview'] = 'Vista por Fecha';
 $string['defaultapproval'] = 'Estado de aprobación por defecto';
-$string['defaultapproval_help'] = 'Si se establece a No, las entradas requieren la aprobación de un profesor antes de que pudan ser visibles para todos.';
+$string['defaultapproval_help'] = 'Si se establece en No, las entradas requieren la aprobación de un profesor antes de que puedan ser visibles para todos.';
 $string['defaulthook'] = '\'Hook\' por defecto';
 $string['defaultmode'] = 'Modo por defecto';
 $string['defaultsortkey'] = 'Clave de clasificación por defecto';
@@ -148,8 +127,9 @@ $string['destination_help'] = '<P>Puede especificar dónde desea importar las en
   información encontrada en el archivo importado y luego las entradas serán
   añadidas al mismo.</li>
 </ul>';
-$string['displayformat'] = 'Formato de muestra de entradas';
+$string['displayformat'] = 'Formato de visualización de entradas';
 $string['displayformatcontinuous'] = 'Continuo sin autor';
+$string['displayformatdefault'] = 'Por defecto la misma que el formato de visualización';
 $string['displayformatdictionary'] = 'Simple, estilo diccionario';
 $string['displayformatencyclopedia'] = 'Enciclopedia';
 $string['displayformatentrylist'] = 'Lista de entradas';
@@ -236,7 +216,7 @@ $string['exporttomainglossary'] = 'Exportar al glosario principal';
 $string['filetoimport'] = 'Archivo a importar';
 $string['filetoimport_help'] = '<P ALIGN=CENTER><b>Archivos a importar</b></P>
 
-<P>Seleccione en su computadora los archivos XML que contienen las entradas a
+<P>Seleccione en su ordenador los archivos XML que contienen las entradas a
 importar.</p>';
 $string['fillfields'] = 'Los campos Concepto y Definición son obligatorios.';
 $string['filtername'] = 'Enlace automático a glosario';
@@ -275,12 +255,26 @@ $string['isglobal'] = '¿Este es el glosario global?';
 $string['isglobal_help'] = 'Un glosario global tiene entradas que están enlazadas desde cualquier lugar del sitio, no solo desde el curso en que reside el glosario. Únicamente los administradores pueden determinar que un glosario sea global.';
 $string['letter'] = 'letra';
 $string['linkcategory'] = 'Enlazar automáticamente esta categoría';
-$string['linkcategory_help'] = 'Si la opción <strong>Enlace automático al glosario</strong> ha sido habilitada por un administrador y la opción <Hiperenlace automático</strong> está habilitada en el glosario, el nombre de la categoría se enlazará automáticamente cuando aparezca en cualquier otro sitio del curso. Cuando un participante siga un enlace de nombre de la categoría, será llevado a la "Búsqueda por categoría" en la página del glosario.';
+$string['linkcategory_help'] = 'Si el enlace automático al glosario ha sido habilitado y este parámetro está habilitado, el nombre de la categoría se enlazará automáticamente allá donde aparezca en el resto del curso. Cuando un participante enlace con un nombre de la categoría, será llevado a la página del glosario "Búsqueda por categoría"';
 $string['linking'] = 'Auto-enlace';
 $string['mainglossary'] = 'Glosario principal';
 $string['maxtimehaspassed'] = 'Lo sentimos, pero ya excedió el tiempo máximo de edición.';
 $string['modulename'] = 'Glosario';
-$string['modulename_help'] = 'El módulo Glosario permite a los participantes crear y mantener una lista de definiciones, igual que un diccionario. Las entradas del glosario pueden enlazarse automáticamente con cualquier lugar del curso en que aparezcan los conceptos y palabras.';
+$string['modulename_help'] = 'El módulo de actividad glosario permite a los participantes crear y mantener una lista de definiciones, de forma similar a un diccionario, o para recoger y organizar recursos o información.
+
+El profesor puede permitir que se adjunten archivos a las entradas del glosario. Las imágenes adjuntas se mostrarán en la entrada. Las entradas se pueden buscar y se puede navegar por ellas en orden alfabético o por categoría, fecha o autor. Las entradas pueden aprobarse por defecto o requerir la aprobación de un profesor antes de que sean visibles para los demás alumnos.
+
+Si se ha habilitado el filtro de vinculación automática del glosario, las entradas se enlazan automáticamente cuando las palabras o frases aparecen en el curso.
+
+El profesor puede permitir comentarios en las entradas. Las entradas también se pueden calificar por profesores o por los demás estudiantes (evaluación por pares). Las calificaciones pueden agregarse para formar una calificación final que se registra en el libro de calificaciones.
+
+Los glosarios tienen muchos usos, como
+
+* Un registro cooperativo de términos clave
+* Un espacio para darse a conocer, donde los estudiantes nuevos añadan su nombre y sus datos personales
+* Un recurso con "consejos prácticos" con las mejores prácticas en un tema concreto
+* Un área para compartir vídeos, imágenes o archivos de sonido
+* Un recurso con "asuntos que recordar"';
 $string['modulenameplural'] = 'Glosarios';
 $string['newentries'] = 'Nuevas entradas al glosario';
 $string['newglossary'] = 'Glosario nuevo';
@@ -342,7 +336,7 @@ $string['special'] = 'Especial';
 $string['standardview'] = 'Vista Alfabética';
 $string['studentcanpost'] = 'Los estudiantes pueden agregar entradas';
 $string['totalentries'] = 'Total de entradas';
-$string['usedynalink'] = 'Hiperenlace automático';
+$string['usedynalink'] = 'Enlace automático a las entradas del glosario';
 $string['usedynalink_help'] = 'Si el <strong>Enlace automático al glosario</strong> ha sido habilitada por un administrador y esta opción está activada, la opción del formulario "Agregar una nueva entrada" permite vincular automáticamente las palabras y frases del concepto allá donde aparezcan en el resto del curso.';
 $string['waitingapproval'] = 'Esperando aprobación';
 $string['warningstudentcapost'] = '(Esto sólo aplica si el glosario no es el principal)';

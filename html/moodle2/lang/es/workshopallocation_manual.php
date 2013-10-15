@@ -25,11 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addreviewee'] = 'Agregar revisado';
-$string['addreviewer'] = 'Agregar revisor';
-$string['allocationadded'] = 'El envío ha sido asignado con éxito';
-$string['allocationexists'] = 'La asignación ya existe';
-$string['areyousuretodeallocate'] = '¿Está seguro de que quiere desasignar el envío seleccionado?';
-$string['areyousuretodeallocategraded'] = 'Está a punto de eliminar la evaluación que ya ha sido calificada. ¿Está seguro de que quiere hacerlo?';
+$string['addreviewee'] = 'Añadir revisor';
+$string['addreviewer'] = 'Añadir revisor';
+$string['allocationadded'] = 'El envío ha sido asignado exitosamente';
+$string['allocationexists'] = 'Ya existe la asignación';
+$string['areyousuretodeallocate'] = '¿Está Usted seguro de querer des-asignar la evaluación seleccionada?';
+$string['areyousuretodeallocategraded'] = 'Usted va a remover la evaluación que ya había sido calificada. ¿Está realmente seguro de querer hacerlo?';
 $string['pluginname'] = 'Asignación manual';
 $string['showallparticipants'] = 'Mostrar todos los participantes';

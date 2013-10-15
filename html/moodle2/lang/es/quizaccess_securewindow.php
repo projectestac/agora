@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Regla de acceso por seguridad JavaScripct';
 $string['popupwithjavascriptsupport'] = 'Ventana emergente a pantalla completa con alguna seguridad JavaScript';

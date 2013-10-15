@@ -41,12 +41,12 @@ $string['completedunlockedtext'] = 'Cuando guarda los cambios, se borrará el es
 $string['completedwarning'] = 'Opciones de finalización bloqueadas';
 $string['completedwarningtext'] = 'Uno o más estudiantes ({$a}) ya ha(n) marcado esta actividad como finalizada. Cambiar las opciones de finalización borrará su estado de finalización y puede ocasionar confusión. Por tanto, estas opciones han sido bloqueadas y no se deberían desbloquear salvo que fuera absolutamente necesario.';
 $string['completion'] = 'Rastreo de finalización';
-$string['completion-alt-auto-enabled'] = 'El sistema marca este ítem como completo de acuerdo con las condiciones';
+$string['completion-alt-auto-enabled'] = 'El sistema marca este ítem como finalizado de acuerdo con las condiciones {$a}';
 $string['completion-alt-auto-fail'] = 'Finalizado {$a} (no ha alcanzado la calificación de aprobado)';
 $string['completion-alt-auto-n'] = 'Sin finalizar: {$a}';
 $string['completion-alt-auto-pass'] = 'Finalizado: {$a} (ha alcanzado la calificación de aprobado)';
 $string['completion-alt-auto-y'] = 'Finalizado: {$a}';
-$string['completion-alt-manual-enabled'] = 'Los estudiantes pueden marcar manualmente este ítem como completado';
+$string['completion-alt-manual-enabled'] = 'Los estudiantes pueden marcar manualmente este ítem como finalizado: {$a}';
 $string['completion-alt-manual-n'] = 'No finalizado; {$a}. Seleccione para marcar como finalizado';
 $string['completion-alt-manual-y'] = 'Finalizado; {$a} seleccione para marcar como no finalizado';
 $string['completion_automatic'] = 'Mostrar la actividad como completada cuando se cumplan las condiciones';
@@ -62,9 +62,9 @@ Una marca al lado del nombre de la actividad enla página del curso indica cuán
 $string['completionicons'] = 'Casillas para marcar el grado de finalización';
 $string['completionicons_help'] = 'Una marca junto al nombre de la actividad puede utilizarse para indicar que una actividad se completó.
 
-Si se muestra una casilla punteada, entonces será posible hacer clic sobre ella para activarla e indicar que la actividad se ha realizado. Si se vuelve a hacer clic sobre ella, la marca desaparece. Esto es una acción opcional que se utiliza para llevar un seguimiento personal del progreso a través del curso.
+Si se muestra una casilla con el borde punteado, la marca aparecerá automáticamente cuando se haya completado la actividad de acuerdo con las condiciones establecidas por el profesor.
 
-Si se muestra una casilla en blanco, la marca aparecerá cuando se haya completado la actividad de acuerdo con las condiciones establecidas por el profesor.';
+Si se muestra una casilla con el borde sólido, entonces será posible hacer clic sobre ella cuando piense que ha finalizado la actividad. (Si se vuelve a hacer clic sobre ella, la marca desaparece en caso de que haya cambiado de opinión). Esto es una acción opcional que se utiliza para llevar un seguimiento personal del progreso a través del curso.';
 $string['completion_manual'] = 'Los estudiantes pueden marcar manualmente la actividad como completada';
 $string['completionmenuitem'] = 'Finalización';
 $string['completion-n'] = 'No finalizado';
@@ -77,13 +77,13 @@ $string['completion-pass'] = 'Finalizado (ha alcanzado la califiación de aproba
 $string['completionsettingslocked'] = 'Ajustes de finalización bloqueados';
 $string['completionstartonenrol'] = 'El rastreo de la finalización comienza en la matriculación';
 $string['completionstartonenrolhelp'] = 'Comenzar el seguimiento del progreso de un estudiante respecto a su evolución una vez se haya matriculado en el curso.';
-$string['completion-title-manual-n'] = 'Marcar como completo';
-$string['completion-title-manual-y'] = 'Marcar como no finalizado';
+$string['completion-title-manual-n'] = 'Marcar como finalizado: {$a}';
+$string['completion-title-manual-y'] = 'Marcar como no finalizado: {$a}';
 $string['completionusegrade'] = 'Requerir calificación';
-$string['completionusegrade_desc'] = 'El estudiante debe recibir una calificación para completar esta actividad';
-$string['completionusegrade_help'] = 'Si se activa, la actividad se considera finalizada cuando un estudiante recibe una calificación. Los iconos Aprobrar y Suspender se muestran si se ha estasblecido una calificación de aprobado para la actividad.';
+$string['completionusegrade_desc'] = 'El estudiante debe recibir una calificación para finalizar esta actividad';
+$string['completionusegrade_help'] = 'Si se activa, la actividad se considera finalizada cuando un estudiante recibe una calificación. Los iconos Aprobar y Suspender se muestran si se ha establecido una calificación de aprobado para la actividad.';
 $string['completionview'] = 'Requerir ver';
-$string['completionview_desc'] = 'El estudiante debe ver esta actividad para completarla';
+$string['completionview_desc'] = 'El estudiante debe ver esta actividad para finalizarla';
 $string['completion-y'] = 'Finalizado';
 $string['configenablecompletion'] = 'Si se activa esta opción, se vuelve a las características del rastreo (progreso) del grado de finalización en el nivel curso.';
 $string['confirmselfcompletion'] = 'Confirmar completar automáticamente';
@@ -104,7 +104,7 @@ $string['days'] = 'Días';
 $string['daysafterenrolment'] = 'Días después de la matriculación';
 $string['deletecompletiondata'] = 'Borrar datos de finalización';
 $string['dependencies'] = 'Dependencias';
-$string['dependenciescompleted'] = 'Dependencias completadas';
+$string['dependenciescompleted'] = 'Dependencias finalizadas';
 $string['durationafterenrolment'] = 'Duración después de la matriculación';
 $string['editcoursecompletionsettings'] = 'Editar ajustes de grado de finalización del curso';
 $string['enablecompletion'] = 'Habilitar rastreo del grado de finalización';
@@ -121,8 +121,8 @@ $string['fraction'] = 'Fracción';
 $string['graderequired'] = 'Calificación requerida';
 $string['gradexrequired'] = '{$a} requerido';
 $string['inprogress'] = 'En curso';
-$string['manualcompletionby'] = 'Grado de finalización manual por';
-$string['manualselfcompletion'] = 'Auto-completar manualmente';
+$string['manualcompletionby'] = 'Finalización manual por';
+$string['manualselfcompletion'] = 'Autocompletar manualmente';
 $string['markcomplete'] = 'Marcar completo';
 $string['markedcompleteby'] = 'Marcado completo por {$a}';
 $string['markingyourselfcomplete'] = 'Marcado propio completado';
@@ -130,6 +130,7 @@ $string['moredetails'] = 'Más detalles';
 $string['nocriteriaset'] = 'No hay criterios establecidos para la terminación de este curso';
 $string['notcompleted'] = 'No finalizado';
 $string['notenroled'] = 'Usted no está matriculado en este curso';
+$string['nottracked'] = 'En este momento no se le está realizando un seguimiento en la finalización de este curso';
 $string['notyetstarted'] = 'Aún no comenzado';
 $string['overallcriteriaaggregation'] = 'Criterio global de agregación';
 $string['pending'] = 'Pendiente';

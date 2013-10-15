@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['hints'] = 'Pistas';
 $string['next2task'] = 'Pasar por alto la siguiente tarea';
 $string['next3task'] = 'Pasar por alto 2 tareas';
 $string['next4task'] = 'Pasar por alto 3 tareas';

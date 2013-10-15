@@ -25,4 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['database'] = 'Base de datos';
+$string['database_help'] = 'El nombre de la base de datos a utilizar.';
+$string['extendedmode'] = 'Usar claves extendidas';
+$string['password'] = 'Contraseña';
+$string['password_help'] = 'La contraseña del usuario es la misma que se utiliza para la conexión.';
+$string['pluginname'] = 'MongoDB';
+$string['server'] = 'Servidor';
+$string['testserver'] = 'Servidor de prueba';
 $string['testserver_desc'] = 'Esta es la cadena de caracteres para la conexión con el servidor de prueba que desea utilizar. Los servidores de prueba son totalmente opcionales, y especificando un servidor de prueba puede ejecutar pruebas PHPUnit para este entorno y ejecutar pruebas de rendimiento.';
+$string['username'] = 'Nombre de usuario';
+$string['username_help'] = 'El nombre de usuario que se utilizará al realizar una conexión.';

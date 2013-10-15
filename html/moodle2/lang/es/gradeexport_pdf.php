@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradeexport_pdf', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'gradeexport_pdf', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   gradeexport_pdf
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,5 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pdf:publish'] = 'Publicar calificaciones exportadas en PDF';
-$string['pdf:view'] = 'Usar calificaciones exportadas en PDF';
+$string['pdf:publish'] = 'Publicar PDF exportación de calificaciones';
+$string['pdf:view'] = 'Usar PDF exportación de calificaciones';
+$string['pluginname'] = 'Documento PDF';

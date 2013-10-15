@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_cmanager', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_cmanager', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   block_cmanager
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,5 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['cmanagerConfirmCancel'] = '¿Está seguro que quiere cancelar esta petición?';
+$string['cmanagerEnrolmentInstruction'] = 'El Mánager de Solicitudes de Cursos puede generar una clave de matriculación automática o usted puede elegir pedirle al usuario una clave de matriculación de su elección.';
 $string['configure_delete'] = '¿Está seguro que quiere cancelar esta petición?';
 $string['configure_deleteMail'] = '¿Está seguro que quiere eliminar esta dirección de correo del admin?';
+$string['configure_EnrolmentKeyInstruction'] = 'El Mánager de Solicitudes de Cursos puede generar una clave de matriculación automática o usted puede elegir pedirle al usuario una clave de inscripción de su elección. Si usted elige pedirle una clave al usuario, se añadirá un campo para escribir la clave de matriculación en la primera página del formato de solicitud.';
+$string['snamingConvetionInstruction'] = 'Por favor elija un nombre corto para los cursos nuevos creados';

@@ -25,4 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Informe de interacciones';
+$string['questionx'] = 'Pregunta {$a}';
+$string['responsex'] = 'Respuesta {$a}';
+$string['rightanswerx'] = 'Respuesta correcta {$a}';
+$string['summaryofquestiontext'] = 'Resumen de la pregunta';
+$string['summaryofresponse'] = 'Resumen de respuestas';
 $string['summaryofrightanswer'] = 'Resumen de respuestas correctas';

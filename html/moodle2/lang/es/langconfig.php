@@ -32,7 +32,13 @@ $string['firstdayofweek'] = '0';
 $string['iso6391'] = 'en';
 $string['iso6392'] = 'eng';
 $string['labelsep'] = ':';
+//XTEC ************ MODIFICAT - Fix for https://tracker.moodle.org/browse/MDL-30788
+//2013.10.15 @aginard
+$string['listsep'] = ';';
+/*
 $string['listsep'] = ',';
+*/
+//************ FI 
 $string['locale'] = 'es_ES.UTF-8';
 $string['localewin'] = 'Spanish_Spain.1252';
 $string['localewincharset'] = 'WINDOWS-1252';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_birthday', language 'es', branch 'MOODLE_21_STABLE'
+ * Strings for component 'block_birthday', language 'es', branch 'MOODLE_23_STABLE'
  *
  * @package   block_birthday
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,15 +32,14 @@ $string['blockname'] = 'Cumpleaños';
 $string['blockshow'] = 'Bloque visible cuando no hay cumpleaños';
 $string['blocktitle'] = 'Cumpleaños de hoy';
 $string['blockvisible'] = 'Bloquar visibilidad';
-$string['blockvisible_info'] = '¿Mostrar bloque si no hay cumpleaños?';
+$string['blockvisible_info'] = 'Elija si se muestra o se oculta el bloque cuando no haya cumpleaños. Por defecto se oculta el bloque.';
 $string['daysahead'] = 'Días de antelación';
 $string['daysahead_info'] = '(Entero) El número de días de antelación con los que se vmostrarán los cumpleaños (el valor predeterminado es 0 y se muestran sólo los cumpleaños del día de hoy).';
 $string['happybirthday'] = '¡Feliz Cumpleaños!';
 $string['nobirthdaystoday'] = 'Hoy no hay cumpleaños';
-$string['nouserprofilefields'] = 'No hay campos para elegir del tipo fecha/hora en el perfil de usuario. Antes debe crear uno.';
+$string['nouserprofilefields'] = 'No hay campos de perfil de usuario de tipo Fecha/Hora para elegir. Primero debe crear uno de estos campos.';
 $string['periodnminutes'] = 'durante los ultimos {$a} minutos';
 $string['pluginname'] = 'Cumpleaños';
-$string['strftimedate'] = '	
-%B %d';
+$string['strftimedate'] = '%B %d';
 $string['user_info_field_name'] = 'Nombre del campo de Información de usuario';
 $string['user_info_field_name_info'] = 'Campo de perfil de usuario que contiene la fecha de nacimiento del usuario (sólo se muestra el campo día/hora)';

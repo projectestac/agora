@@ -25,5 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['hash'] = 'Método hash';
+$string['hash_crc'] = 'CRC';
+$string['hash_default'] = 'Por defecto (una a la vez)';
+$string['hash_help'] = 'Especifica el algoritmo hash utilizado para las claves de los elementos. Cada algoritmo hash tiene sus ventajas y sus desventajas. Utilice el valor por defecto si usted no sabe o no le importa.';
+$string['hash_md5'] = 'MD5';
+$string['prefix'] = 'Clave de prefijo';
+$string['servers'] = 'Servidores';
 $string['testservers'] = 'Servidores de prueba';
 $string['testservers_desc'] = 'Los servidores de prueba se utilizan para las pruebas unitarias y las pruebas de rendimiento. Es totalmente opcional utilizar servidores de prueba. Cada servidor se define en una por línea mediante una dirección de servidor y opcionalmente un puerto y su relevancia. Si no se especifica un puerto se usa el puerto por defecto (11211).';
+$string['usecompression'] = 'Usar compresión';
+$string['usecompression_help'] = 'Activa o desactiva la compresión. Cuando está activado, los elementos de más de un cierto umbral (actualmente 100 bytes) se comprimen durante el almacenamiento y se descomprime durante la recuperación de forma transparente.';

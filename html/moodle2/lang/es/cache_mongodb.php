@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['testserver'] = '';
 $string['testserver_desc'] = 'Esta es la cadena de caracteres para la conexión con el servidor de prueba que desea utilizar. Los servidores de prueba son totalmente opcionales, y especificando un servidor de prueba puede ejecutar pruebas PHPUnit para este entorno y ejecutar pruebas de rendimiento.';

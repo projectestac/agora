@@ -50,6 +50,7 @@ $string['levelempty'] = 'Clic para editar el nivel';
 $string['name'] = 'Nombre';
 $string['needregrademessage'] = 'La definición de la rúbrica fue cambiada después de que este estudiante hubiera sido calificado. El estudiante no puede ver esta rúbrica hasta que usted la verifique y  actualice la calificación.';
 $string['pluginname'] = 'Rúbrica';
+$string['previewrubric'] = 'Previsualizar rubrica';
 $string['regrademessage1'] = 'Usted está a punto de guardar los cambios en una rúbrica que ya ha sido utilizada para calificar. Por favor, indique si las calificaciones existentes deben ser revisadas. Si decide que debe ser así, entonces la rúbrica se ocultará a los estudiantes hasta el elemento sea recalificado.';
 $string['regrademessage5'] = 'Usted está a punto de guardar cambios significativos en una rúbrica que ya ha sido utilizada para la clasificación. El valor del libro de calificaciones no se verá afectado, pero la rúbrica no será visible para los estudiantes hasta que sus elementos  sean recalificados.';
 $string['regradeoption0'] = 'No marcar para recalificar';

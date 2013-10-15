@@ -45,7 +45,7 @@ $string['notupgradedintro'] = 'Esta página muestra las tareas creadas con una v
 $string['notupgradedtitle'] = 'Tareas no actualizadas';
 $string['pluginname'] = 'Motor de Ayuda para actualizar Tareas';
 $string['select'] = 'Selección';
-$string['submissions'] = 'Enviós';
+$string['submissions'] = 'Envíos';
 $string['supported'] = 'Actualice';
 $string['unknown'] = 'Desconocida';
 $string['updatetable'] = 'Actualizar tabla';
@@ -53,7 +53,7 @@ $string['upgradable'] = 'Actualizable';
 $string['upgradeall'] = 'Actualice todas las tareas';
 $string['upgradeallconfirm'] = '¿Actualizar todas las tareas?';
 $string['upgradeassignmentfailed'] = 'Resultado: Fallo en la actualización. El log de la actualización es: <br/><div class="tool_assignmentupgrade_upgradelog">{$a->log}</div>';
-$string['upgradeassignmentsuccess'] = 'Resultado: Éxito eb la actualización';
+$string['upgradeassignmentsuccess'] = 'Resultado: Éxito en la actualización';
 $string['upgradeassignmentsummary'] = 'Actualización de tarea: {$a->name} (Course: {$a->shortname})';
 $string['upgradeprogress'] = 'Actualizar la tarea {$a->current} de {$a->total}';
 $string['upgradeselected'] = 'Actualizar tareas seleccionadas';

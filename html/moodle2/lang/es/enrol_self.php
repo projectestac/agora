@@ -42,7 +42,7 @@ $string['enrolenddate'] = 'Fecha límite';
 $string['enrolenddate_help'] = 'Si está habilitado, los usuarios pueden matricularse a si mismos solo hasta esta fecha ';
 $string['enrolenddaterror'] = 'La fecha final de matriculación no puede ser anterior a la fecha inicial';
 $string['enrolme'] = 'Matricularme';
-$string['enrolperiod'] = 'Período de matriculación';
+$string['enrolperiod'] = 'Duración de la matrícula';
 $string['enrolperiod_desc'] = 'Periodo de tiempo por defecto en el que la matricula es válida. Si se establece a cero, la matricula durará de forma ilimitada por defecto';
 $string['enrolperiod_help'] = 'Periodo de tiempo en el que la matrícula será válida, a partir del momento en que el usuario se matricula a si mismo. Si está desactivado, la duración de la matrícula será ilimitado.';
 $string['enrolstartdate'] = 'Fecha de inicio';
@@ -86,7 +86,7 @@ $string['pluginname_desc'] = '<p>La extensión para matrícula libre permite a l
 <p> Internamente, la matriculación se realiza a través de la extensión para la matriculación manual, que debe estar habilitada en el mismo curso.</p>';
 $string['requirepassword'] = 'Se precisa clave de matriculación';
 $string['requirepassword_desc'] = 'Se precisa clave de matriculación en nuevos cursos y se evita la eliminación de la clave de matriculación de los cursos existentes.';
-$string['role'] = 'Asignar rol';
+$string['role'] = 'Rol asignado por defecto';
 $string['self:config'] = 'Configure la auto-matriculación';
 $string['self:manage'] = 'Gestionar usuarios matriculados';
 $string['self:unenrol'] = 'Dar de baja usuarios del curso';

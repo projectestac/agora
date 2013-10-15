@@ -37,6 +37,7 @@ $string['dimensionweight'] = 'Ponderación';
 $string['excellent'] = 'Excelente';
 $string['good'] = 'Bueno';
 $string['incorrect'] = 'Incorrecto';
+$string['mustchoosegrade'] = 'Tiene que seleccionar una calificación para este aspecto';
 $string['pluginname'] = 'Calificación acumulativa';
 $string['poor'] = 'Pobre';
 $string['present'] = 'Presente';

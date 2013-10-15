@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['configtimetosee'] = 'Número de minutos para detectar que un usuario está en línea';
 $string['online_users:addinstance'] = 'Añadir un nuevo bloque de usuarios en línea';
-$string['online_users:myaddinstance'] = 'Añadir un nuevo bloque de usuarios en línea en la página Mi Moodle';
+$string['online_users:myaddinstance'] = 'Añadir un nuevo bloque de usuarios conectados al Área personal';
 $string['online_users:viewlist'] = 'Ver lista de usuarios en línea';
 $string['periodnminutes'] = 'últimos {$a} minutos';
 $string['pluginname'] = 'Usuarios en línea';

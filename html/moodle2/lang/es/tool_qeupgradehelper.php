@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['alreadydone'] = 'Todo ya ha sido convertido';
 $string['areyousure'] = '¿Está seguro?';
 $string['areyousuremessage'] = '¿Desea continuar con la actualización de todos los {$a-> numtoconvert} intentos del cuestionarioo \'{$a->name}\' en el curso {$a->shortname}?';
 $string['areyousureresetmessage'] = 'El cuestionario \'{$a->name}\' en el curso {$a->shortname} tiene {$a->totalattempts} intentos, de los que {$a->convertedattempts} fueron actualizados a partir del sistema anterior. De todos ellos, {$a->resettableattempts} pueden ser reiniciados, para posteriormente reconvertirlos. ¿Esta seguro que quiere continuar con ello?';
@@ -46,7 +47,7 @@ $string['listtodo'] = 'Listado de cuestionarios aún por actualizar';
 $string['listtodo_desc'] = 'Mostrará un informe de todos los cuestionarios en el sistema (si los hay) que tienen intentos que todavía necesitan ser actualizados al nuevo motor de preguntas.';
 $string['listtodointro'] = 'Estos son todos los cuestionarios con con los datos de los intentos que todavía hay que convertir. Puede convertir los intentos pulsando sobre el enlace.';
 $string['listupgraded'] = 'Listado de cuestionarios ya actualizados que pueden ser reiniciados';
-$string['listupgraded_desc'] = 'Mostrará un informe de todos los cuestionarios del sistema cuyos intentos han sido actualizados y en los que todavñia hay información antigua, por lo que la actualización debe ser reiniciada y hecha de nuevo.';
+$string['listupgraded_desc'] = 'Mostrará un informe de todos los cuestionarios del sistema cuyos intentos han sido actualizados y en los que todavía hay información antigua, por lo que la actualización debe ser reiniciada y hecha de nuevo.';
 $string['listupgradedintro'] = 'Estos son todos los cuestionarios que tienen intentos que se han actualizado, y donde están los datos de los intentos antiguos, por lo que se pueden restablecer, y volver a realizar la actualización..';
 $string['noquizattempts'] = 'Su sitio no tiene ningun intento de cuestionario';
 $string['numberofattempts'] = 'Número de intentos del cuestioanrio';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choicegroup', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'choicegroup', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   choicegroup
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,7 +39,9 @@ $string['choicegroupfull'] = 'Este grupo está completo y no es posible añadiir
 $string['choicegroupname'] = 'Título de la actividad';
 $string['choicegroupopen'] = 'Abierto';
 $string['choicegroupoptions'] = 'Opciones de elección.';
-$string['choicegroupoptions_help'] = 'Aquí es donde se especifica el grupo y límite de miembros posibles para cada uno de ellos. Se puede considerar cualquier valor. Si deja en blanco algunas de las opciones disponibles, éstas no se mostrarán. Si necesita añadir más, haga clic en el botón "Añadir 3 campos al formulario"';
+$string['choicegroupoptions_help'] = 'Aquí es donde se especifica las opciones entra las que los participantes podrán escoger.
+
+Puede rellenar cualquier número de estas. Si deja en blanco algunas de las opciones disponibles, éstas no se mostrarán. Si necesita añadir más, haga clic en el botón "Añadir 3 campos al formulario".';
 $string['choicegroup:readresponses'] = 'Leer las respuestas.';
 $string['choicegroupsaved'] = 'Su selección se ha guardado.';
 $string['choicetext'] = 'Texto de la selección';

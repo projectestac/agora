@@ -44,6 +44,7 @@ $string['criteriondelete'] = 'Eliminar criterio';
 $string['criterionempty'] = 'Pulsar para editar criterio';
 $string['criterionmovedown'] = 'Mover abajo';
 $string['criterionmoveup'] = 'Mover arriba';
+$string['criterionname'] = 'Nombre del criterio';
 $string['definemarkingguide'] = 'Definir guía de evaluación';
 $string['description'] = 'Descripción';
 $string['descriptionmarkers'] = 'Descripción para los evaluadores';

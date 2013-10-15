@@ -29,6 +29,6 @@ $string['error_authmnetneeded'] = 'La extensión de identificación de MNet debe
 $string['error_localusersonly'] = 'Los usuarios remotos no pueden saltar a otros servidores de la red MNet desde este host';
 $string['error_roamcapabilityneeded'] = 'Los usuarios necesitan el permiso \'Pasar a una aplicación remota vía MNet\' para ver la lista de servidores de la red MNet';
 $string['mnet_hosts:addinstance'] = 'Añadir un nuevo bloque de servidores en red';
-$string['mnet_hosts:myaddinstance'] = 'Añadir un nuevo bloque de servidores en red a la página de Mi Moodle';
+$string['mnet_hosts:myaddinstance'] = 'Añadir un nuevo bloque de servidores en red al Área personal';
 $string['pluginname'] = 'Servidores de Red';
 $string['server'] = 'Servidor';

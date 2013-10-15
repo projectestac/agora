@@ -25,6 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['calendar_month:addinstance'] = 'Añadir un nuevo bloque de calendario';
-$string['calendar_month:myaddinstance'] = 'Añadir un nuevo bloque de calendario a la página Mi Moodle';
+$string['calendar_month:addinstance'] = 'Añadir un nuevo bloque calendario';
+$string['calendar_month:myaddinstance'] = 'Añadir un nuevo bloque calendario al Área personal';
 $string['pluginname'] = 'Calendario';

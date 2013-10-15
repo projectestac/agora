@@ -36,6 +36,7 @@ $string['auth_shibboleth_manual_login'] = 'Acceso manual';
 $string['auth_shibboleth_select_member'] = 'Soy un miembro de...';
 $string['auth_shibboleth_select_organization'] = 'Para identificarse vía Shibboleth, seleccione por favor su organización en la lista desplegable.';
 $string['auth_shib_changepasswordurl'] = 'URL para cambio de contraseña';
+$string['auth_shib_contact_administrator'] = 'En caso de que no esté asociado con estas organizaciones y necesite acceso a un curso en este servidor, por favor contacte con el <a href="mailto:{$a}">Administrador</a>.';
 $string['auth_shib_convert_data'] = 'API de modificación de datos';
 $string['auth_shib_convert_data_description'] = 'Puede usar este API para modificar más adelante los datos proporcionados por Shibboleth. Lea <a href="../auth/shibboleth/README.txt" target="_blank">README</a> para ver instrucciones adicionales.';
 $string['auth_shib_convert_data_warning'] = 'El archivo no existe o no es legible por el proceso del servidor.';

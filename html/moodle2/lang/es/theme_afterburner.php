@@ -27,4 +27,5 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['customcss'] = 'CSS personalizado';
 $string['customcssdesc'] = 'Cualquiera que sean las normas CSS que añada a esta caja de texto se reflejarán en todas las páginas, lo que facilita la personalización de este tema.';
+$string['region-side-post'] = 'Derecha';
 $string['region-side-pre'] = 'Izquierda';

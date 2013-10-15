@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradeexport_checklist', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'gradeexport_checklist', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   gradeexport_checklist
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,28 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['alldistrict'] = 'Todos';
-$string['checklistnotfound'] = 'No se encuentra la lista de verificación';
-$string['checklistreport'] = 'Informe';
-$string['checklist:view'] = 'Ver informe de verificación (Excel)';
+$string['checklistnotfound'] = 'Lista de verificación no encontrada';
+$string['checklistreport'] = 'informe';
+$string['checklist:view'] = 'Ver informe de lista de verificación (Excel)';
+$string['checklist:viewall'] = 'Ver informe de lista de verificación para todos los estudiantes del curso';
+$string['checklist:viewdistrict'] = 'Ver informe de lista de verificación para  los estudiantes del mismo distrito';
+$string['choosechecklist'] = 'Lista de verificación a exportar';
+$string['choosedistrict'] = 'Distrito a incluir';
+$string['enroldate'] = 'Fecha de inscripción';
+$string['export'] = 'Exportar archivo Excel';
+$string['exportoptional'] = 'Incluir ítems opcionales';
+$string['modulename'] = 'Lista de verificación';
+$string['nochecklists'] = 'No se encontró lista de verificación apropiada';
+$string['nodistrict'] = 'Error: el usuario actual no tiene distrito';
+$string['nopermission'] = 'Usted no tiene permiso para hacer esta exportación';
+$string['nousers'] = 'Sin usuarios para exportar';
+$string['percent'] = 'Porciento (requerido)';
+$string['percentcol'] = 'Columna porcentajes';
+$string['percentcol2'] = 'Mostrar (ítems requeridos) porcentaje completo para cada estudiante';
+$string['percentheadings'] = 'Porcentaje para encabezados';
+$string['percentheadings2'] = 'Mostrar porcentaje de ítems requeridos revisados debajo de cada encabezado';
+$string['percentrow'] = 'Fila de porcentajes';
+$string['percentrow2'] = 'Mostrar porcentaje de estudiantes que hayan palomeado cada ítem';
+$string['pluginname'] = 'Lista de verificación';
+$string['startdate'] = 'Fecha de inicio';
+$string['wrongdistrict'] = 'Usted no tiene permiso para ver informes de ese distrito';

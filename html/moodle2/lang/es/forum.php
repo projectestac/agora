@@ -133,19 +133,11 @@ $string['discussionsstartedbyrecent'] = 'Debate recientemente comenzado por {$a}
 $string['discussionsstartedbyuserincourse'] = 'Discusiones iniciadas por {$a->fullname} en {$a->coursename}';
 $string['discussthistopic'] = 'Hacer un comentario en este tema';
 $string['displayend'] = 'Mostrar final';
-$string['displayend_help'] = '<p>Puede elegir si los mensajes del foro se muestran a partir de una fecha determinada, expiran en una fecha concreta o son visibles sólo a lo largo de un determinado período.</p>
-
-<p>Deje sin seleccionar la(s) opcion(es) de deshabilitar para activar las fechas inicial y final en que son visibles los mensajes.</p>
-
-<p>Note que los usuarios con acceso de Administrador verán los mensajes antes de su fecha de aparición y después de su fecha de expiración.</p>';
+$string['displayend_help'] = 'Este ajuste especifica si un mensaje en el foro debe estar oculto después de una fecha determinada. Tenga en cuenta que los administradores siempre pueden ver los mensajes en el foro.';
 $string['displaymode'] = 'Mostrar modo';
 $string['displayperiod'] = 'Mostrar período';
 $string['displaystart'] = 'Mostrar inicio';
-$string['displaystart_help'] = '<p>Puede elegir si los mensajes del foro se muestran a partir de una fecha determinada, expiran en una fecha concreta o son visibles sólo a lo largo de un determinado período.</p>
-
-<p>Deje sin seleccionar la(s) opcion(es) de deshabilitar para activar las fechas inicial y final en que son visibles los mensajes.</p>
-
-<p>Note que los usuarios con acceso de Administrador verán los mensajes antes de su fecha de aparición y después de su fecha de expiración.</p>';
+$string['displaystart_help'] = 'Este ajuste especifica si un mensaje en el foro debe mostrarse a partir de una fecha determinada. Tenga en cuenta que los administradores siempre pueden ver los mensajes en el foro.';
 $string['eachuserforum'] = 'Cada persona plantea un tema';
 $string['edit'] = 'Editar';
 $string['editedby'] = 'Editado por {$a->name} - envío original {$a->date}';
@@ -178,7 +170,7 @@ $string['forum:editanypost'] = 'Editar cualquier mensaje';
 $string['forum:exportdiscussion'] = 'Exportar discusión completa';
 $string['forum:exportownpost'] = 'Exportar mensaje propio';
 $string['forum:exportpost'] = 'Exportar mensaje';
-$string['forumintro'] = 'Introducción';
+$string['forumintro'] = 'Descripción';
 $string['forum:managesubscriptions'] = 'Gestionar suscripciones';
 $string['forum:movediscussions'] = 'Trasladar debates';
 $string['forumname'] = 'Nombre del foro';
@@ -192,7 +184,7 @@ $string['forum:splitdiscussions'] = 'Dividir debates';
 $string['forum:startdiscussion'] = 'Comenzar nuevos debates';
 $string['forumsubjecthidden'] = 'Tema (oculto)';
 $string['forumtracked'] = 'Se están rastreando los mensajes no leídos';
-$string['forumtrackednot'] = 'Los mensajes no leídos no se están rastreando l';
+$string['forumtrackednot'] = 'Los mensajes no leídos no se están rastreando';
 $string['forumtype'] = 'Tipo de foro';
 $string['forumtype_help'] = '<P>Hay cinco tipos diferentes de foros entre los que elegir:
 
@@ -237,13 +229,9 @@ $string['markreadbutton'] = 'Marcar<br />leídos';
 $string['markunread'] = 'Marcar como no leído';
 $string['markunreadbutton'] = 'Marcar<br />no leídos';
 $string['maxattachments'] = 'Número máximo de archivos adjuntos';
-$string['maxattachments_help'] = 'Este ajuste determina el número máximo de archivos que se pueden adjuntar a un mensaje en el foro.';
+$string['maxattachments_help'] = 'Este ajuste especifica si el número de palabras de cada mensaje se debe mostrar o no';
 $string['maxattachmentsize'] = 'Tamaño máximo del archivo adjunto';
-$string['maxattachmentsize_help'] = '<P>El tamaño de los archivos adjuntos pueden ser limitado por la persona
-   que configura el foro.
-
-<P>En ocasiones es posible subir un archivo de un tamaño mayor al especificado,
-   pero en este caso no se guardará en el servidor y aparecerá un mensaje de error.';
+$string['maxattachmentsize_help'] = 'Este ajuste especifica el tamaño máximo de archivo que se puede adjuntar a un mensaje en el foro.';
 $string['maxtimehaspassed'] = 'Lo sentimos, pero el tiempo máximo para editar ({$a}) ya venció.';
 $string['message'] = 'Mensaje';
 $string['messageprovider:digests'] = 'Compendios suscritos del foro';
@@ -254,7 +242,24 @@ $string['modeflatoldestfirst'] = 'Ordenar desde el más antiguo';
 $string['modenested'] = 'Mostrar respuestas anidadas';
 $string['modethreaded'] = 'Mostrar respuestas por rama';
 $string['modulename'] = 'Foro';
-$string['modulename_help'] = 'El módulo Foro permite a los participantes entablar debates en modo asíncrono.';
+$string['modulename_help'] = 'El módulo de actividad foro permite a los participantes tener discusiones asincrónicas, es decir discusiones que tienen lugar durante un período prolongado de tiempo.
+
+Hay varios tipos de foro para elegir, como el foro estándar donde cualquier persona puede iniciar una nueva discusión en cualquier momento, un foro en el que cada alumno puede iniciar una única discusión, o un foro de pregunta y respuesta en el que los estudiantes primero deben participar antes de poder ver los mensajes de otros estudiantes. El profesor puede permitir que se adjunten archivos a las aportaciones al foro. Las imágenes adjuntas se muestran en el mensaje en el foro.
+
+Los participantes pueden suscribirse a un foro para recibir notificaciones cuando hay nuevos mensajes en el foro. El profesor puede establecer el modo de suscripción,  opcional, forzado o auto, o prohibir completamente la suscripción. Si es necesario, los estudiantes pueden ser bloqueados a la hora de publicar más de un número determinado de mensajes en un determinado período de tiempo; esta medida puede evitar que determinadas personas dominen las discusiones.
+
+Los mensajes en el foro puede ser evaluado por profesores o estudiantes (evaluación por pares). Las clasificaciones pueden agregarse a una calificación final que se registra en el libro de calificaciones.
+
+Los foros tiene muchos usos, como por ejemplo
+
+* Un espacio social para que los estudiantes se conozcan
+* Para los avisos del curso (usando un foro de noticias con suscripción forzada)
+* Para discutir el contenido del curso o de materiales de lectura
+* Para continuar en línea una cuestión planteada previamente en una sesión presencial
+* Para discusiones solo entre profesores del curso (mediante un foro oculto)
+* Un centro de ayuda donde los tutores y los estudiantes pueden dar consejos
+* Un área de soporte uno-a-uno para comunicaciones entre alumno y profesor (usando un foro con grupos separados y con un estudiante por grupo)
+* Para actividades complementarias, como una "lluvia de ideas" donde los estudiantes puedan reflexionar y proponer ideas';
 $string['modulenameplural'] = 'Foros';
 $string['more'] = 'más';
 $string['movedmarker'] = '(Trasladada)';
@@ -349,11 +354,7 @@ $string['resetforumsall'] = 'Eliminar todos los mensajes';
 $string['resetsubscriptions'] = 'Eliminar todas las suscripciones al foro';
 $string['resettrackprefs'] = 'Eliminar todas las preferencias de rastreo de los foros';
 $string['rssarticles'] = 'Número de artículos recientes RSS';
-$string['rssarticles_help'] = '<P>Esta opción le permite seleccionar el número de artículos a incluir
-   en el Canal RSS.
-
-<P>Un número comprendido entre 5 y 20 debería ser apropiado para la mayoría
-   de los foros. Auméntelo si se trata de un foro muy utilizado.';
+$string['rssarticles_help'] = 'Este ajuste especifica el número de artículos (ya sean debates o aportaciones) a incluir en el canal RSS. Un número entre 5 y 20 se considera aceptable.';
 $string['rsssubscriberssdiscussions'] = 'Canal RSS de debates';
 $string['rsssubscriberssposts'] = 'Canal RSS de mensajes';
 $string['rsstype'] = 'Canal RSS de esta actividad';
@@ -421,7 +422,7 @@ $string['tracking'] = 'Rastrear';
 $string['trackingoff'] = 'Desconectado';
 $string['trackingon'] = 'Conectado';
 $string['trackingoptional'] = 'Opcional';
-$string['trackingtype'] = '¿Leer rastreo de este foro?';
+$string['trackingtype'] = 'Rastreo de lectura';
 $string['trackingtype_help'] = '<p>Si está activada, los usuarios pueden realizar el seguimiento de mensajes leídos y no leídos en los foros y discusiones.
 </p>
 

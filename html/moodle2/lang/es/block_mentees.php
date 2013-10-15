@@ -29,6 +29,6 @@ $string['configtitle'] = 'Título del Bloque';
 $string['configtitleblankhides'] = 'Título del Bloque (no título si está en blanco)';
 $string['leaveblanktohide'] = 'dejar en blanco para ocultar el título';
 $string['mentees:addinstance'] = 'Añadir un nuevo bloque de mentees';
-$string['mentees:myaddinstance'] = 'Añadir un nuevo bloque de mentees a la página Mi Moodle';
+$string['mentees:myaddinstance'] = 'Añadir un nuevo bloque mentees al Área personal';
 $string['newmenteesblock'] = '(nuevo Bloque Mentees)';
 $string['pluginname'] = 'Mentees';

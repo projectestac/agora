@@ -26,4 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['nosessiontoken'] = 'No existe ficha de sesión que impida exportar a google.';
+$string['oauthinfo'] = '<p> Para utilizar este plugin, debe registrar su sitio en Google, como se describe en la documentación <a href="{$a->docsurl}">Google OAuth 2.0 setup</a>.</p><p> Como parte del proceso de registro, tendrá que introducir la siguiente URL como "Authorized Redirect URIs \': </p><p> {$a->callbackurl} </p> Una vez registrado, se le proporcionará un ID de cliente y el secreto que se puede utilizar para configurar los Google Docs y Picasa plugins. </p>';
 $string['pluginname'] = 'Google Docs';
+$string['sendfailed'] = 'No se ha podido transferir el archivo {$a} a google';

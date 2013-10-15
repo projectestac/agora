@@ -25,8 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['assumingcertainty'] = 'No ha seleccionado un grado de certeza. Asumiendo: {$a}.';
 $string['certainty1'] = 'No mucho (menor a 67%)';
 $string['certainty2'] = 'Regular (más de 67%)';
 $string['certainty3'] = 'Muy (más de 80%)';
 $string['howcertainareyou'] = '¿Qué tan seguro estás? {$a}';
+$string['markadjustment'] = 'Sobre la base del grado de certeza que usted ha expresado, su marca de base de {$a->rawmark} se ha ajustado a {$a->mark}.';
 $string['pluginname'] = 'Retroalimentación diferida con CBM';

@@ -25,10 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['downloadas'] = 'Descargar datos de la tabla como';
-$string['downloadcsv'] = 'archivo de texto con valores separados por comas';
-$string['downloadexcel'] = 'hoja de cálculo Microsoft Excel';
-$string['downloadods'] = 'hoja de cálculo OpenDocument (ODS)';
+$string['downloadas'] = 'Descargar datos de tabla como {$a->formatsmenu} {$a->downloadbutton}';
+$string['downloadcsv'] = 'Archivo de texto con valores separados por comas';
+$string['downloadexcel'] = 'Hoja de cálculo en formato: Microsoft Excel';
+$string['downloadods'] = 'Hoja de cálculo en formato OpenDocument (ODS)';
 $string['downloadoptions'] = 'Elija las opciones de descarga';
-$string['downloadtsv'] = 'archivo de texto con valores separados por tabuladores';
-$string['downloadxhtml'] = 'documento XHTML no paginado';
+$string['downloadtsv'] = 'Archivo de texto con valores separados por tabuladores';
+$string['downloadxhtml'] = 'Documento XHTML no paginado';

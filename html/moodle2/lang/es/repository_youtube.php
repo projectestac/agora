@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['configplugin'] = 'Configuración del tipo de repositorio YouTube';
 $string['pluginname'] = 'Videos YouTube';
 $string['search'] = 'Buscar videos';
+$string['sortby'] = 'Ordenar por';
 $string['sortpublished'] = 'Fecha de publicación';
 $string['sortrating'] = 'Valoración';
 $string['sortrelevance'] = 'Relevancia';

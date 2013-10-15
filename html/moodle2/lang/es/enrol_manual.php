@@ -43,11 +43,13 @@ $string['expiredaction_help'] = 'Seleccione la acción a llevar a cabo cuando la
 $string['expirymessageenrolledbody'] = 'Apreciado  {$a->user},
 
 Este es un aviso de que su matrícula en el \'{$a->course}\' está próxima a expirar en {$a->timeend}. Si necesita ayuda, por favor póngase en contacto con {$a->enroller}.';
+$string['expirymessageenrolledsubject'] = 'Notificación de la caducidad de la matricula';
 $string['expirymessageenrollerbody'] = 'La matrícula en el curso \'{$a->course}\' finalizará dentro del próximo {$a->threshold} para los siguientes usuarios:
 
 {$a->users}
 
 Para extender su matrícula, vaya a {$a->extendurl}';
+$string['expirymessageenrollersubject'] = 'Notificación de la caducidad de la matricula';
 $string['manual:config'] = 'Configurar instancias de la matriculaciñon manual';
 $string['manual:enrol'] = 'Matricular usuarios';
 $string['manual:manage'] = 'Gestión de matriculas de usuario';
@@ -66,6 +68,6 @@ $string['unenrolselectedusers'] = 'Dar de baja la matrícula de los usuarios sel
 $string['unenrolselfconfirm'] = '¿Desea realmente darse de baja del curso "{$a}" ?';
 $string['unenroluser'] = '¿Desea realmente dar de baja la matrícula del usuario "{$a->user}" del curso "{$a->course}"';
 $string['unenrolusers'] = 'Dar de baja usuarios';
-$string['wscannotenrol'] = 'Con esta estensión (plugin) no se puede matricular manualmente un uusario en el curso id = {$a->courseid}';
+$string['wscannotenrol'] = 'Con esta extensión no se puede matricular manualmente un usuario en el curso id = {$a->courseid}';
 $string['wsnoinstance'] = 'La extensión (plugin) para la matriculación manual no existe o está deshabilitada para el curso (id = {$a->courseid})';
 $string['wsusercannotassign'] = 'Usted no tiene permisos para asignar el rol ({$a->roleid}) a este usuario ({$a->userid}) en este curso ({$a->courseid}).';

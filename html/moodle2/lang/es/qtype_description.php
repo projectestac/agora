@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['informationtext'] = 'Texto informativo';
 $string['pluginname'] = 'Descripción';
 $string['pluginnameadding'] = 'Agregando una descripción';
 $string['pluginnameediting'] = 'Editando una descripción';

@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['autoactivedescription'] = 'Escoja si desea o no hacer copias de seguridad automáticas. Si selecciona el modo manual las copias de seguridad automáticas  sólo serán posibles mediante el "script" CLI. También se pueden hacer manualmente medinate la línea de comandos o a través de cron.';
+$string['autoactivedescription'] = 'Escoja si desea o no hacer copias de seguridad automáticas. Si selecciona el modo manual las copias de seguridad automáticas sólo serán posibles mediante el "script" CLI. También se pueden hacer manualmente mediante la línea de comandos o a través del cron.';
 $string['autoactivedisabled'] = 'Desactivado';
 $string['autoactiveenabled'] = 'Activado';
 $string['autoactivemanual'] = 'Manual';
@@ -163,7 +163,9 @@ $string['lockedbypermission'] = 'Usted no tiene permisos suficientes para cambia
 $string['loglifetime'] = 'Mantener los registro durante';
 $string['managefiles'] = 'Gestionar archivos de copia de seguridad';
 $string['missingfilesinpool'] = 'Algunos archivos no pudieron guardarse al hacer la copia de seguridad. No será posible restaurarlos.';
+$string['module'] = 'Módulo';
 $string['moodleversion'] = 'Versión de Moodle';
+$string['morecoursesearchresults'] = 'Más de {$a} cursos encontrados, mostrando los primeros {$a} resultados';
 $string['moreresults'] = 'Hay demasiados resultados, escriba una búsqueda más específica.';
 $string['nomatchingcourses'] = 'No hay cursos para mostrar';
 $string['norestoreoptions'] = 'No hay categorías o cursos que pueda restaurar';
@@ -201,7 +203,7 @@ $string['restorestage8action'] = 'Siguiente';
 $string['restoretarget'] = 'Destino de la restauración';
 $string['restoretocourse'] = 'Restaurar al curso:';
 $string['restoretocurrentcourse'] = 'Restaurar en este curso';
-$string['restoretocurrentcourseadding'] = 'Fusionar la copia de segurida con este curso';
+$string['restoretocurrentcourseadding'] = 'Fusionar la copia de seguridad con este curso';
 $string['restoretocurrentcoursedeleting'] = 'Borrar el contenido del curso actual y después restaurar';
 $string['restoretoexistingcourse'] = 'Restaurar en un curso existente';
 $string['restoretoexistingcourseadding'] = 'Fusionar la copia de seguridad del curso con el curso existente';
@@ -231,7 +233,7 @@ $string['selectacategory'] = 'Seleccione una categoría';
 $string['selectacourse'] = 'Seleccione un curso';
 $string['setting_course_fullname'] = 'Nombre del curso';
 $string['setting_course_shortname'] = 'Nombre corto del curso';
-$string['setting_course_startdate'] = 'Fecha de comienzo del curso';
+$string['setting_course_startdate'] = 'Inicio del curso';
 $string['setting_keep_groups_and_groupings'] = 'Mantener los grupos y las agrupaciones actuales';
 $string['setting_keep_roles_and_enrolments'] = 'Mantener los roles y matriculaciones actuales';
 $string['setting_overwriteconf'] = 'Sobreescribir la configuración del curso';
@@ -244,5 +246,7 @@ $string['skipmodifprevhelp'] = 'Elija si desea o no pasar por alto cursos que no
 $string['storagecourseandexternal'] = 'Área de ficheros de copia de seguridad y carpeta específica';
 $string['storagecourseonly'] = 'Área de archivos de copia de seguridad';
 $string['storageexternalonly'] = 'Especifique directorio para las copias de seguridad automáticas';
+$string['title'] = 'Título';
 $string['totalcategorysearchresults'] = 'Total de categorías: {$a}';
 $string['totalcoursesearchresults'] = 'Cursos totales: {$a}';
+$string['userinfo'] = 'Información de usuario';

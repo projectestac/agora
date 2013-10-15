@@ -26,5 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Archivo XML';
+$string['useridnumberwarning'] = 'Los usuarios sin un número ID están excluídos de la exportación XML y tampoco pueden ser importados';
 $string['xml:publish'] = 'Publicar exportación de calificaciones XML';
 $string['xml:view'] = 'Usar exportación de calificaciones XML';

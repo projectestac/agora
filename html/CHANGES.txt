@@ -23,6 +23,7 @@ MOODLE 2
 - Updated Marsupial modules to v2.0.3
 - Odisseagtafsync: Enrolments from file are now done with 'Manual' plugin
 - Updated catalan language pack (15-10-2013)
+- Updated spanish language pack (15-10-2013) and fix for https://tracker.moodle.org/browse/MDL-30788
 
 ZIKULA
 - iw_moodle: Fixed group list in enrolment

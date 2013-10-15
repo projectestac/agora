@@ -28,4 +28,4 @@ defined('MOODLE_INTERNAL') || die();
 $string['enabledock'] = 'Permitir al usuario agregar este bloque';
 $string['pluginname'] = 'Ajustes';
 $string['settings:addinstance'] = 'Añadir un nuevo bloque de ajustes';
-$string['settings:myaddinstance'] = 'Añadir un nuevo bloque de ajustes en la página Mi Moodle';
+$string['settings:myaddinstance'] = 'Añadir un nuevo bloque de ajustes al Área personal';

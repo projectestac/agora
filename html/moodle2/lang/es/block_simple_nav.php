@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_simple_nav', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_simple_nav', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   block_simple_nav
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

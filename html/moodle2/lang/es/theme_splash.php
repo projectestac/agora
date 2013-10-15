@@ -38,6 +38,7 @@ $string['loginhere'] = 'Entrar aquí';
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'Escriba la URL enlazada a una imagen para usar como logo de este sitio, e.g: http://www.yoursite.com/path/to/logo.png. El logo no deberá tener más de 230 píxels de anchura.';
 $string['pluginname'] = 'Splash';
+$string['region-side-post'] = 'Derecha';
 $string['region-side-pre'] = 'Izquierda';
 $string['tagline'] = 'Tagline';
 $string['taglinedesc'] = 'El contenido de este área de texto se mostrará debajo del logo del sitio en la portada';

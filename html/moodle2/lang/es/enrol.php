@@ -116,7 +116,9 @@ $string['unenrolconfirm'] = '¿Realmente desea dar de baja al usuario "{$a->user
 $string['unenrolme'] = 'Darme de baja en {$a}';
 $string['unenrolnotpermitted'] = 'No dispone de permiso o no puede dar de baja a este usuario de este curso.';
 $string['unenrolroleusers'] = 'Dar de baja a usuarios';
-$string['uninstallconfirm'] = 'Está a punto de eliminar completamente el plugin de matriculación \'{$a}\'. Esta acción eliminará completamente toda la información en la base de datos asociada con este tipo de matriculación. ¿Está SEGURO de que desea continuar?';
+$string['uninstallconfirm'] = 'Está a punto de eliminar completamente la extensión de matriculación \'{$a}\'. Esta acción eliminará completamente toda la información en la base de datos asociada con este tipo de matriculación.
+
+¿Está SEGURO de que desea continuar?';
 $string['uninstalldelete'] = 'Eliminar todas las matrículas y desinstalar';
 $string['uninstalldeletefiles'] = 'Todos los datos asociados con el plugin de matriculación \'{$a->plugin}\' han sido eliminados de la base de datos. Para completar la eliminación (y evitar que el plugin vuelva a instalarse automáticamente), debería eliminar ahora este directorio de su servidor: {$a->directory}';
 $string['uninstallmigrate'] = 'Desinstalar pero mantener todas las matrículas';

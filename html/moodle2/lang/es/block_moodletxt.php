@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_moodletxt', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_moodletxt', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   block_moodletxt
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['adminbutremovefilterusers'] = 'Quitar los usuarios seleccionados del filtro';
 $string['admindescrssexpire'] = 'Tiempo en el que una nueva actualización de RSS se debe mostrar en la página del administrador tras haber sido publicada.';

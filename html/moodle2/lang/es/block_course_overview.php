@@ -25,13 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['activityoverview'] = '{$a}s requiere atención';
-$string['alwaysshowall'] = 'Todos';
+$string['activityoverview'] = 'Tiene {$a}s que requieren atención';
+$string['alwaysshowall'] = 'Mostrar todos siempre';
 $string['collapseall'] = 'Colapsar listas de todos los cursos';
 $string['configotherexpanded'] = 'Si se habilita, Otros Cursos será expandido por defecto, a menos que fuera anulado por preferencias del usuario.';
 $string['configpreservestates'] = 'Si se habilita, los estados de colapsado/expandido configurados por el usuario se guardan y emplean en cada carga.';
-$string['course_overview:addinstance'] = 'Añadir un nuevo bloque de vista general del curso';
-$string['course_overview:myaddinstance'] = 'Añadir un nuevo bloque de vista general del curso a la página de Mi Moodle';
+$string['course_overview:myaddinstance'] = 'Añadir un nuevo bloque de vista general del curso al Área personal';
 $string['defaultmaxcourses'] = 'Número máximo de cursos por omosión';
 $string['defaultmaxcoursesdesc'] = 'El número máximo de cursos que deberán ser mostrados en el bloque de curso. 0 mostrará todos los cursos';
 $string['expandall'] = 'Expandir todas las listas del curso';
@@ -44,7 +43,7 @@ $string['messages'] = 'mensajes';
 $string['movecoursehere'] = 'Mover curso aquí';
 $string['numtodisplay'] = 'Número de cursos para mostrar:';
 $string['otherexpanded'] = 'Otros Cursos expandidos';
-$string['pluginname'] = 'Visión general del curso';
+$string['pluginname'] = 'Vista general del curso';
 $string['preservestates'] = 'Preservar  Estados Expandidos';
 $string['shortnameprefix'] = 'Incluye {$a}';
 $string['shortnamesufixprural'] = '(y otros {$a} )';

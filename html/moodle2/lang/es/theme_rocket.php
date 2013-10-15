@@ -54,7 +54,6 @@ $string['mymodules'] = 'Mis Módulos';
 $string['myunits'] = 'Mis Unidades';
 $string['navigation'] = 'navegación';
 $string['pluginname'] = 'Cohete (rocket)';
-$string['region-search'] = 'Buscar/Perfil';
 $string['region-side-post'] = 'Derecha';
 $string['region-side-pre'] = 'Izquierda';
 $string['screenwidth'] = 'Ancho de Pantalla';

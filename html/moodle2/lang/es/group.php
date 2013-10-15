@@ -79,11 +79,7 @@ $string['groupinfomembers'] = 'Información sobre los miembros seleccionados';
 $string['groupinfopeople'] = 'Información sobre las personas seleccionadas';
 $string['grouping'] = 'Agrupamiento';
 $string['groupingdescription'] = 'Descripción del agrupamiento';
-$string['grouping_help'] = '<p>Un agrupamiento es un conjunto de grupos dentro de un curso.</p>
-
-<p>Si se selecciona un agrupamiento, los usuarios asignados a los grupos dentro del agrupamiento podrán trabajar juntos.</p>
-
-<p>El modo de grupo debe estar ajustado a grupos visibles o separados.</p>';
+$string['grouping_help'] = 'Un agrupamiento es un conjunto de grupos dentro de un curso. Si se selecciona un agrupamiento, los usuarios asignados a los grupos dentro del agrupamiento podrán trabajar juntos.';
 $string['groupingname'] = 'Nombre del agrupamiento';
 $string['groupingnameexists'] = 'El nombre de agrupamiento {$a} ya existe en este curso. Por favor, elija otro.';
 $string['groupings'] = 'Agrupamientos';
@@ -103,32 +99,27 @@ $string['groupmodeforce'] = 'Forzar el modo de grupo';
 $string['groupmodeforce_help'] = 'Si se fuerza el modo grupo, entonces el modo de grupo en el curso se aplica a todas las actividades del curso. En ese caso se pasan por alto los ajustes del modo de grupo.';
 $string['groupmode_help'] = '<p>El modo grupo puede ser de alguno de estos tres niveles:
    <ul>
-      <li>Sin grupos - No hay grupos, todos son parte de un gran grupo</li>
+      <li>Sin grupos - No hay grupos, todos son parte de una gran comunidad.</li>
       <li>Grupos separados - Cada estudiante sólo puede ver su propio grupo; los demás son invisibles</li>
       <li>Grupos visibles - Cada estudiante trabaja dentro de su grupo, pero también puede ver a los otros grupos</li>
    </ul>
 </p>
 
-<P>El modo grupo puede ser definido a dos niveles:</p>
+<p>El modo grupo puede ser definido a dos niveles:</p>
 
 <dl>
    <dt><b>1. Nivel Curso</b></dt>
-   <dd>El modo grupal definido a nivel de curso viene por defecto
-       para todas las actividades definidas dentro del curso<br /><br /></dd>
+   <dd>El modo grupal definido a nivel de curso viene por defecto para todas las actividades definidas dentro del curso<br /><br /></dd>
    <dt><b>2. Nivel Actividad</b></dt>
-   <dd>Toda actividad que soporte grupos puede definir su propio
-       modo de agrupación. Si el curso está configurado como
-       "<a href="help.php?module=moodle&amp;file=groupmodeforce.html">forzar modo de grupo</a>" entonces
-             no se tendrá en cuenta la configuración de cada actividad.</dd>
-</dl>
-
-<P>';
+   <dd>Toda actividad que soporte grupos puede definir su propio modo de agrupación. Si el curso está configurado como  "<a href="help.php?module=moodle&file=groupmodeforce.html">forzar modo de grupo</a>" entonces no se tendrá en cuenta la configuración de cada actividad.</dd>
+</dl>';
 $string['groupmy'] = 'Mi grupo';
 $string['groupname'] = 'Nombre del grupo';
 $string['groupnameexists'] = 'El nombre de grupo \'{$a}\' ya existe en este curso; por favor, elija otro.';
 $string['groupnotamember'] = 'Lo sentimos, usted no es miembro de ese grupo';
 $string['groups'] = 'Grupos';
 $string['groupscount'] = 'Grupos ({$a})';
+$string['groupsettingsheader'] = 'Grupos';
 $string['groupsgroupings'] = 'Grupos &amp; agrupamientos';
 $string['groupsinselectedgrouping'] = 'Grupos en:';
 $string['groupsnone'] = 'No hay grupos';

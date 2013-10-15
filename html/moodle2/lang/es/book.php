@@ -42,7 +42,13 @@ Si se marca la opción "Títulos personalizados", el título del capítulo no se
 $string['editingchapter'] = 'Edición de capítulo';
 $string['errorchapter'] = 'Error al leer el capítulo del libro.';
 $string['modulename'] = 'Libro';
-$string['modulename_help'] = 'El libro es un simple material de estudio de múltiples páginas.';
+$string['modulename_help'] = 'El módulo libro permite crear material de estudio de múltiples páginas en formato libro, con capítulos y subcapítulos. El libro puede incluir contenido multimedia así como texto y es útil para mostrar grandes volúmenes de información repartido en secciones.
+
+Un libro puede usarse
+
+* Para mostrar material de lectura de los módulos individuales de estudio
+* Como un manual para el personal del departamento
+* Como un portafolio de trabajos de los estudiantes';
 $string['modulenameplural'] = 'Libros';
 $string['navexit'] = 'Salir del Libro';
 $string['navnext'] = 'Siguiente';
@@ -53,12 +59,11 @@ $string['numbering0'] = 'Nada';
 $string['numbering1'] = 'Númerica';
 $string['numbering2'] = 'Viñetas';
 $string['numbering3'] = 'Sangrado';
-$string['numbering_help'] = '* Ninguno - los títulos de capítulos y subcapítulos no tienen formato alguno, utilicelos si desea definir estilos especiales de numeración. Por ejemplo, letras: escriba en el título del capítulo "Un Primer Capítulo", "A.1 Algún Subcapítulo",...
+$string['numbering_help'] = '* Ninguno - los títulos de capítulos y subcapítulos no tienen formato
 * Números - los capítulos y subcapítulos son numerados (1, 1.1, 1.2, 2, ...)
 * Viñetas - los subcapítulos son indentados y son mostrados con viñetas
-* Sangría - los subcapítulos son indentados
-';
-$string['numberingoptions'] = 'Validar opciones de numeración';
+* Sangría - los subcapítulos son indentados';
+$string['numberingoptions'] = 'Opciones de formato de capítulos disponibles';
 $string['numberingoptions_desc'] = 'Seleccionar opciones de numeración que estaran disponibles al crear nuevos libros.';
 $string['page-mod-book-x'] = 'Cualquier página del módulo Libro';
 $string['pluginadministration'] = 'Administración del Libro';
@@ -67,5 +72,5 @@ $string['subchapter'] = 'Subcapítulo';
 $string['subchapternotice'] = '(Disponible una vez que el primer capítulo se haya creado)';
 $string['subplugintype_booktool'] = 'Herramienta Libro';
 $string['subplugintype_booktool_plural'] = 'Herramientas Libro';
-$string['toc'] = 'Tabla de Contenido';
+$string['toc'] = 'Tabla de contenidos';
 $string['top'] = 'arriba';

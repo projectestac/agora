@@ -27,43 +27,30 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['accesscontrol'] = 'Control de acceso';
 $string['actionaftercorrectanswer'] = 'Acción posterior a la respuesta correcta';
-$string['actionaftercorrectanswer_help'] = '<p>La acción normal es seguir el salto de página tal como se ha especificado en la respuesta.
-    En la mayoría de los casos se mostrará la página siguiente de la lección. Se conduce al
-    estudiante a través de la lección siguiendo un camino lógico desde el principio hasta el final.</p>
+$string['actionaftercorrectanswer_help'] = 'Después de contestar correctamente una pregunta, hay 3 opciones para la página siguiente:
 
-<p>Sin embargo, el módulo Lección puede también usarse como si fuera una tarea a base de <i>tarjetas</i> (<I>flash-cards</I>).
-    Se muestra (opcionalmente) al estudiante alguna información y se le formula una pregunta
-    habitualmente de forma aleatoria. No hay ni principio ni final establecidos, sino simplemente
-    un conjunto de <i>fichas</i> que se muestran unas junto a otras sin ajustarse a un orden
-    particular.</p>
-
-<p>Esta opción permite dos variantes muy similares al comportamiento de las tarjetas. La opción
-    "Ir a una página no vista" nunca muestra dos veces la misma página (incluso aunque el estudiante
-    <b>no</b> haya contestado correctamente la pregunta asociada con la página o la tarjeta. La otra
-    opción ("Mostrar unan página no contestada") permite al estudiante ver páginas que pueden haber
-    aparecido antes, pero sólo si ha contestado erróneamente a la pregunta asociada.</p>
-
-<p>En las lecciones a base de tarjetas el profesor puede decidir si utiliza bien todas las páginas/tarjeta
-    de la lección o sólo un subconjunto aleatorio. Esto se lleva a cabo a través del parámetro &quot; Número
-    de Páginas (Tarjetas) a mostrar&quot;.</p>';
+* Normal - Se sigue el itinerario de la lección
+* Mostrar una página no vista  - Las páginas se muestran en un orden aleatorio, sin que ninguna página se muestre dos veces
+* Mostrar una página aún no respondida - Las páginas se muestran en un orden aleatorio, de manera que las páginas que contienen preguntas sin respuesta se muestra de nuevo';
 $string['actions'] = 'Acciones';
 $string['activitylink'] = 'Enlace a una actividad';
 $string['activitylink_help'] = '<p>El menú emergente contiene todas las actividades del curso. Si se selecciona una de ellas, al final de la        lección aparecerá un enlace a dicha actividad.</p>';
-$string['activitylinkname'] = 'Ir a: {$a}';
+$string['activitylinkname'] = 'Ir a {$a}';
+$string['activityoverview'] = 'Tiene lecciones pendientes';
 $string['addabranchtable'] = 'Añadir una página de contenido';
-$string['addanendofbranch'] = 'Agregar un final de ramificación';
+$string['addanendofbranch'] = 'Añadir un final de ramificación';
 $string['addanewpage'] = 'Añadir una nueva página';
-$string['addaquestionpage'] = 'Añadir página';
-$string['addaquestionpagehere'] = 'Agregar aquí una página de pregunta';
-$string['addbranchtable'] = 'Agregar una página de contenido';
-$string['addcluster'] = 'Agregar un cluster';
-$string['addedabranchtable'] = 'Agregar una página de contenido';
-$string['addedanendofbranch'] = 'Agregado un final de ramificación';
-$string['addedaquestionpage'] = 'Agregada página de preguntas';
-$string['addedcluster'] = 'Agregado cluster';
-$string['addedendofcluster'] = 'Agregado un final de cluster';
-$string['addendofcluster'] = 'Agregar un final de cluster';
-$string['addpage'] = 'Agregar una página';
+$string['addaquestionpage'] = 'Añadir una página de pregunta';
+$string['addaquestionpagehere'] = 'Añadir aquí una página de pregunta';
+$string['addbranchtable'] = 'Añadir una página de contenido';
+$string['addcluster'] = 'Añadir un clúster';
+$string['addedabranchtable'] = 'Añadida una página de contenido';
+$string['addedanendofbranch'] = 'Añadido un final de ramificación';
+$string['addedaquestionpage'] = 'Añadida una página de preguntas';
+$string['addedcluster'] = 'Añadido un clúster';
+$string['addedendofcluster'] = 'Añadido un final de clúster';
+$string['addendofcluster'] = 'Añadir un final de clúster';
+$string['addpage'] = 'Añadir una página';
 $string['anchortitle'] = 'Comienzo del contenido principal';
 $string['and'] = 'Y';
 $string['answer'] = 'Respuesta';
@@ -88,7 +75,7 @@ $string['cannotfindfirstpage'] = 'No se pudo encontrar la primera página';
 $string['cannotfindgrade'] = 'Error: no se pudieron encontrar las calificaciones';
 $string['cannotfindnewestgrade'] = 'Error: no se puede encontrar la calificación más reciente';
 $string['cannotfindnextpage'] = 'Retroalimentación de la lección: no se pudo encontrar la Página Siguiente';
-$string['cannotfindpagerecord'] = 'Agregar final de ramificación: registro de página no encontrado';
+$string['cannotfindpagerecord'] = 'Añadir un final de ramificación: registro de página no encontrado';
 $string['cannotfindpages'] = 'No se han encontrado páginas en la lección';
 $string['cannotfindpagetitle'] = 'Confirmar eliminación: título de página no encontrado';
 $string['cannotfindpreattempt'] = 'No se ha encontrado el registro de intento previo';
@@ -136,18 +123,16 @@ $string['confirmdelete'] = 'Eliminar página';
 $string['confirmdeletionofthispage'] = 'Confirme que desea eliminar esta página';
 $string['congratulations'] = 'Enhorabuena, ha llegado al final de la lección';
 $string['continue'] = 'Continuar';
-$string['continuetoanswer'] = 'Continuar a cambiar respuestas.';
+$string['continuetoanswer'] = 'Continuar en cambiar respuestas.';
+$string['continuetonextpage'] = 'Continuar en la página siguiente';
 $string['correctanswerjump'] = 'Salto a respuesta correcta';
 $string['correctanswerscore'] = 'Puntuación de respuesta correcta';
 $string['correctresponse'] = 'Comentario (correcto)';
 $string['credit'] = 'Crédito';
 $string['customscoring'] = 'Puntuación personalizada';
-$string['customscoring_help'] = '<p>Esta opción le permite asignar un valor numérico a cada respuesta. Las respuestas
-   pueden tener valores negativos o positivos. Se asignará automáticamente a las preguntas
-   importadas 1 punto a cada respuesta correcta y 0 puntos a cada respuesta incorrecta,
-   si bien usted puede cambiar esto después de importarlas.</p>';
+$string['customscoring_help'] = 'Si está habilitada, se puede dar a cada respuesta una puntuación numérica (positiva o negativa).';
 $string['deadline'] = 'Fecha final';
-$string['defaultessayresponse'] = 'Su ensayo será calificado por el instructor del curso.';
+$string['defaultessayresponse'] = 'Su ensayo será calificado por su profesor.';
 $string['deleteallattempts'] = 'Eliminar todos los intentos de resolver la lección';
 $string['deletedefaults'] = 'Eliminada {$a} x lección por defecto';
 $string['deletedpage'] = 'Página eliminada';
@@ -178,14 +163,15 @@ $string['displayinleftmenu'] = '¿Mostrar en menú de la izquierda?';
 $string['displayleftif'] = 'Mostrar el menú izquierdo solo si la calificación es mayor que';
 $string['displayleftif_help'] = 'Esta configuración determina si un estudiante debe obtener una cierta puntuación para poder ver el menú de la izquierda. Esto obliga al estudiante a pasar por toda la lección en su primer intento y así obtener la puntuación necesaria para poder utilizar el menú de la izquierda para la revisión.';
 $string['displayleftmenu'] = 'Mostrar menú de la izquierda';
-$string['displayleftmenu_help'] = '<p>Esta opción muestra una lista de las páginas (tablas de ramas) de la lección. Las
-páginas de preguntas, las páginas de conglomerados, etc., no se mostrarán por defecto
-(usted puede elegir el mostrar las páginas de preguntas marcando esa opción en la
-pregunta).</p>';
+$string['displayleftmenu_help'] = 'Si está habilitada, se mostrará una lista de páginas.';
 $string['displayofgrade'] = 'Mostrar calificación (sólo para estudiantes)';
-$string['displayreview'] = 'Mostrar botón Revisar';
+$string['displayreview'] = 'Proporcionar una opción para tratar de nuevo la pregunta';
 $string['displayreview_help'] = 'Si se activa, cuando una pregunta se responde incorrectamente, se le da al estudiante la opción de intentarlo de nuevo sin crédito de puntos, o continuar con la lección.';
-$string['displayscorewithessays'] = 'Usted ha obtenido una puntuación de {$a->score} sobre {$a->tempmaxgrade} en las preguntas calificadas automáticamente.<br>La(s) {$a->essayquestions} pregunta(s) de su ensayo serán calificadas y añadidas<br>a su calificación final en una fecha posterior.<br><br>Su calificación actual sin contar esa(s) pregunta(s) es de is {$a->score} sobre {$a->grade}';
+$string['displayscorewithessays'] = 'Usted ha obtenido una puntuación de {$a->score} sobre {$a->tempmaxgrade} en las preguntas calificadas automáticamente.
+
+Sus {$a->essayquestions} preguntas de tipo ensayo se calificarán posteriormente y su calificación se añadirá a su calificación final
+
+Su calificación actual sin contar esas preguntas es de is {$a->score} sobre {$a->grade}';
 $string['displayscorewithoutessays'] = 'Su puntuación es {$a->score} (sobre {$a->grade}).';
 $string['edit'] = 'Edición';
 $string['editingquestionpage'] = 'Editando página de preguntas {$a}';
@@ -196,6 +182,7 @@ $string['email'] = 'Email';
 $string['emailallgradedessays'] = 'Enviar por email TODOS los<br>ensayos calificados';
 $string['emailgradedessays'] = 'Enviar por email los ensayos calificados';
 $string['emailsuccess'] = 'Email enviado con éxito';
+$string['emptypassword'] = 'La contraseña no puede estar vacía';
 $string['endofbranch'] = 'Fin de ramificación';
 $string['endofcluster'] = 'Final de cluster';
 $string['endofclustertitle'] = 'Fin de cluster';
@@ -207,15 +194,18 @@ $string['eolstudentoutoftime'] = 'Atención: Usted ha sobrepasado el tiempo fija
 $string['eolstudentoutoftimenoanswers'] = 'No ha contestado a ninguna pregunta. En esta lección ha obtenido 0 puntos.';
 $string['essay'] = 'Ensayo';
 $string['essayemailmessage'] = '<p>Ensayo:<blockquote>{$a->question}</blockquote></p><p>Su respuesta:<blockquote><em>{$a->response}</em></blockquote></p><p>{$a->comment} del profesor:<blockquote><em>{$a->comment}</em></blockquote></p><p>Usted ha recibido {$a->earned} sobre un total de {$a->outof} en esta pregunta de ensayo.</p><p>Su calificación en la lección ha cambiado a {$a->newgrade}%.</p>';
+$string['essayemailmessage2'] = '<p>Indicador de ensayo:<blockquote>{$a->question}</blockquote></p><p>Su respueta:<blockquote><em>{$a->response}</em></blockquote></p><p>Comentario del calificador:<blockquote><em>{$a->comment}</em></blockquote></p><p>Ha obtenido {$a->earned} sobre {$a->outof} en esta pregunta de ensayo.</p><p>Su calificación en esta lección ha cambiado a {$a->newgrade}%.</p>';
 $string['essayemailsubject'] = 'Su calificación para la pregunta {$a}';
 $string['essays'] = 'Ensayos';
 $string['essayscore'] = 'Puntuación del ensayo';
 $string['fileformat'] = 'Formato de archivo';
+$string['finish'] = 'Terminado';
 $string['firstanswershould'] = 'de elementos';
 $string['firstwrong'] = 'Lo sentimos, usted no puede obtener este punto porque su respuesta no es correcta. ¿Desea seguir intentándolo? (únicamente para aprender, no para ganar el punto).';
 $string['flowcontrol'] = 'Control de Flujo';
 $string['full'] = 'Expandido';
 $string['general'] = 'General';
+$string['gotoendoflesson'] = 'Ir al final de la lección';
 $string['grade'] = 'Calificación';
 $string['gradebetterthan'] = 'Calificación superior a (%)';
 $string['gradebetterthanerror'] = 'Obtener una calificación superior al {$a} por ciento';
@@ -223,12 +213,7 @@ $string['gradeessay'] = 'Calificar preguntas de ensayo ({$a->notgradedcount} no 
 $string['gradeis'] = 'La calificación es {$a}';
 $string['gradeoptions'] = 'Opciones de Calificación';
 $string['handlingofretakes'] = 'Calificación con varios intentos';
-$string['handlingofretakes_help'] = '<p>Cuando se permite a los estudiantes retomar o repetir la lección, esta opción
-permite elegir al profesor la clase de calificación final del alumno, por ejemplo, en
-la página de calificaciones. Puede ser la <b>media</b>, la <b>primera</b> o la
-<b>mejor</b> calificación de las obtenidas en todos los intentos o repeticiones de la lección.</p>
-
-<p>Esta opción puede cambiarla en cualquier momento.</p>';
+$string['handlingofretakes_help'] = 'Si se permite repetir la lección, este ajuste especifica si la calificación de la lección es la media o máxima de todos los intentos.';
 $string['havenotgradedyet'] = 'Aún no calificado.';
 $string['here'] = 'aquí';
 $string['highscore'] = 'Puntuación alta';
@@ -236,115 +221,19 @@ $string['highscores'] = 'Puntuaciones altas';
 $string['hightime'] = 'Tiempo alto';
 $string['importcount'] = 'Importando {$a} preguntas';
 $string['importquestions'] = 'Importar preguntas';
-$string['importquestions_help'] = '<P>Esta función permite importar preguntas de archivos de texto, subidos mediante un formulario.
-
-<P>Los formatos permitidos son:
-
-<P><B>GIFT</B></P>
-<ul>
-<p>GIFT es el formato de importación de preguntas más amigable para Moodle de todos los formatos disponible.  Su diseño permite que los profesores pueden escribir las preguntas en un archivo de texto de forma fácil. Permite preguntas de opción múltiple, Verdadero o Falso, Cortas, Emparejar y numéricas, también permite las preguntas de rellenar huecos
-insertándolas como  _____ . Se pueden mezclar Varios tipos de preguntas en un solo archivo del texto, y este formato también permite líneas comentarios, los nombres de la pregunta, retroalimentación y los porcentaje-peso (ponderar) calificaciones.  Veamos algunos ejemplos:</p>
-<pre>Who\'s buried in Grant\'s tomb?{~Grant ~Jefferson =no one}
-
-Grant is {~buried =entombed ~living} in Grant\'s tomb.
-
-Grant is buried in Grant\'s tomb.{FALSE}
-
-Who\'s buried in Grant\'s tomb?{=no one =nobody}
-
-When was Ulysses S. Grant born?{#1822}
-</pre>
-
-<p align=right><a href="help.php?file=formatgift.html&module=quiz">Más información sobre el formato "GIFT" </a></p>
-</ul>
-
-<P><B>Aiken</B></P>
-<ul>
-<p>El formato Aiken es una manera simple de crear preguntas de opción múltiple usando un
-formato de fácil lectura. Un ejemplo del formato:</p>
-<pre>¿Qué objetivo tienen los primeros auxilios?
-A. Salvar la vida, prevenir más lesiones, mantener el buen estado de salud.
-B. Dar tratamiento médico o sanitario
-C. prevenir más lesiones
-D. Ayudar a las victimas que pedir auxilio
-ANSWER: A
-</pre>
-
-<p align=right><a href="help.php?file=formataiken.html&module=quiz">Más información sobre el formato "Aiken" </a></p>
-</ul>
-
-
-<P><B>Llenar el hueco</B></P>
-<UL>
-<P>Este formato sólo soporta preguntas de opción múltiple. Cada pregunta se separa con un tilde (~), y la respuesta correcta se precede con un signo de igual (=). Un ejemplo:
-
-
-<BLOCKQUOTE>Cuando comenzamos a explorar las partes de nuestro cuerpo nos convertimos en estudiosos de: {=anatomía y fisiología ~reflexología ~la ciencia ~los experimentos}, y en cierto sentido somos estudiantes de la vida.
-
-</BLOCKQUOTE>
-
-<p align=right><a href="help.php?file=formatmissingword.html&module=quiz">Más información sobre el formato "Llenar
-el hueco"</a></p>
-</UL>
-
-
-<P><B>AON</B></P>
-<UL>
-<P>Este es el mismo caso de llenar el hueco, excepto que luego de ser importadas, todas las preguntas se convierten en grupos de cuatro preguntas de seleccionar la correcta.
-</P>
-<p>Además, las respuestas de opción múltiple son mezcladas  aleatoriamente en la importación.
-<p>Se le llama así en honor a una empresa que impulsó el desarrollo de muchas
-características para los cuestionarios.
-</p>
-</UL>
-
-
-<P><B>Blackboard</B></P>
-<UL>
-<P>Este módulo puede importar preguntas guardadas con la característica de exportar preguntas del programa Blackboard. Se apoya en la capacidad de compilar funciones XML en sus correspondientes PHP.</P>
-
-<p align=right><a href="help.php?file=formatblackboard.html&module=quiz">Más información sobre el formato "Blackboard"</a></p>
-</UL>
-
-<P><B>Course Test Manager</B></P>
-<UL>
-<P>Este módulo puede importar las preguntas guardadas en una banco de preguntas de Course Test Manager.  Tenemos varias formas de acceder al banco de preguntas en formato
-Access de Microsoft, dependiendo si Moodle está funcionando en un servidor de Windows o de Linux:</P>
-<p>Desde Windows debemos subir la base de datos como cualquier otro archivo para importar sus datos.</p>
-<p>Desde Linux, debemos instalar el software ODBC Socket Server, que utiliza XML para transferir datos a
-Moodle desde el servidor Linux.</p>  <p>Por favor, lea todo el archivo de ayuda antes de importar este tipo de formato.</p>
-
-
-<p align=right><a href="help.php?file=formatctm.html&module=quiz">Más información sobre el formato "CTM"</a></p>
-</UL>
-
-<P><B>Personal</B></P>
-<UL>
-<P>Si tiene su propio formato que desea importar, puede implementarlo editando mod/quiz/format/custom.php
-
-
-<P>La cantidad de código nuevo necesaria es bastante pequeña - será suficiente con analizar una sola pregunta del texto-.
-
-<p align=right><a href="help.php?file=formatcustom.html&module=quiz">Más información sobre el formato "Personal"</a></p>
-</UL>
-
-
-<P>Se están desarrollando más formatos, incluyendo WebCT, IMS QTI y cualquier otro que los usuarios de Moodle quieran aportar.</p>';
+$string['importquestions_help'] = 'Esta función permite importar preguntas de diferentes formatos mediante archivos de texto,';
 $string['insertedpage'] = 'Página insertada';
 $string['invalidfile'] = 'Archivo no válido';
+$string['invalidid'] = 'No se superó ningún ID de módulo o de lección en el curso';
 $string['invalidlessonid'] = 'La ID de la lección es incorrecta';
 $string['invalidpageid'] = 'ID de página no válida';
 $string['jump'] = 'Saltar';
 $string['jumps'] = 'Saltos';
-$string['jumps_help'] = '<p>Cada respuesta tiene un salto de página hacia un enlace. Cuando se elige una
-respuesta se muestra el refuerzo al estudiante. Después de ver el mensaje de
-refuerzo se produce el salto de página hacia el enlace. Este enlace puede ser
-absoluto o relativo. Los enlaces relativos son <b>Esta página </b>y <b>Siguiente página</b>. <b>Esta página</b> significa que el estudiante ve la misma página otra vez. La <b>Siguiente página </b>muestra la página que le sigue en el orden lógico de las páginas. Un enlace Absoluto se determina eligiendo el título de la página.</p>
-<p>Nota: si cambia el orden de  las páginas el salto de página (relativo) <b>Siguiente página</b> puede mostrar una página diferente. Cuando se usa un enlace absoluto con el título de la página siempre mostrará la página seleccionada aunque las cambie de orden</p>
-<p>&nbsp;</p>';
+$string['jumps_help'] = 'Cada respuesta (a una pregunta) o cada  descripción (de una página de contenido) tiene su correspondiente salto. El salto puede ser relativo, como "Esta página" o "Página siguiente", o absoluto, especificando cualquiera de las páginas de la lección.';
 $string['jumpsto'] = 'Saltos a <em>{$a}</em>';
 $string['leftduringtimed'] = 'Se ha interrumpido una lección con tiempo fijo.<br>Por favor, haga clic en Continuar para volver a empezar la lección.';
 $string['leftduringtimednoretake'] = 'Se ha interrumpido una lección con tiempo fijo y<br>no se permite volver a empezar o continuar la lección.';
+$string['leftduringtimedsession'] = 'Ha salido de una lección con tiempo programado';
 $string['lesson:addinstance'] = 'Añadir una nueva lección';
 $string['lessonattempted'] = 'Lección intentada';
 $string['lessonclosed'] = 'Esta lección se cerró el {$a}.';
@@ -369,40 +258,18 @@ $string['matchesanswer'] = 'Concuerda con la respuesta';
 $string['matching'] = 'Emparejamiento';
 $string['matchingpair'] = 'Pareja {$a}';
 $string['maxgrade'] = 'Calificación máxima';
-$string['maxgrade_help'] = '<p>Este valor determina la máxima calificación que se puede obtener con la
-lección.    El rango va de&nbsp; 0 a 100%. Este valor puede cambiarse en
-cualquier momento. Los cambios tendrán un efecto inmediato en la página de
-calificaciones y los alumnos podrán ver sus calificaciones en diferentes
-listas.</p>';
+$string['maxgrade_help'] = 'Este ajuste especifica la calificación máxima de la lección. Si se establece en 0, la lección no aparece en las páginas de notas.';
 $string['maxhighscores'] = 'Número de puntuaciones más altas para mostrar';
 $string['maximumnumberofanswersbranches'] = 'Número máximo de respuestas';
-$string['maximumnumberofanswersbranches_help'] = '<p>Este valor determina máximo número de respuestas que usará el profesor. El
-valor por defecto es 4. Si una lección solo utilizará preguntas de VERDADERO o
-FALSO podemos asignarle el valor de 2.</p>
-
-<p>Este valor también se usa para asignar el máximo número de capítulos que se
-usarán en la lección.</p>
-
-<p>Puede editar, de forma segura, este valor en las lecciones ya creadas. De hecho,
-será necesario si desea añadir un pregunta con muchas opciones o ampliar el
-número de capítulos. Después de que haya añadido las preguntas o capítulos
-también puede reducir el valor a uno más &quot;estándar&quot;.</p>';
+$string['maximumnumberofanswersbranches_help'] = 'Este ajuste determina el número máximo de respuestas que se pueden usar en la lección. Si solo se utilizan preguntas de tipo Verdadero/Falso, podemos establecer el valor de 2.
+Este valor se puede cambiar en cualquier momento ya que sólo afecta a lo que el profesor ve, no a los datos.';
 $string['maximumnumberofattempts'] = 'Número máximo de intentos';
-$string['maximumnumberofattempts_help'] = '<p>Este valor determina el número máximo de intentos que tienen los estudiantes para responder <b>cualquiera</b> de las preguntas de una lección. En los casos de preguntas que no tienes respuestas, por ejemplo preguntas cortas o numéricas, este valor indica el número de veces que puede responder antes de que lo envíe a la siguiente página de la lección. </p>
-
-<p>El valor por defecto es 5. Valores bajos pueden desalentar al estudiante antes de resolver la pregunta. Valores altos pueden producir
-frustración.</p>
-
-<p>Si asignamos el valor 1 damos al estudiante una única opción para responder cada pregunta. Esto produce un comportamiento similar a los cuestionarios excepto que cada pregunta se presenta en una página individual.</p>
-
-<p>Advierta que este valor es un parámetro global y que se aplica a todas las preguntas de la lección sin tener en cuenta su tipo de pregunta.</p>
-
-<p>Recuerde que este parámetro <b>no</b> se aplica cuando los profesores comprueban las preguntas o cuando navegan por la lección. No son registrados en la base de datos el número de intentos realizados ni las calificaciones obtenidas por los profesores. ¡Los profesores deberían después de todo conocer todas las respuestas!</p>';
+$string['maximumnumberofattempts_help'] = 'Este ajuste especifica el número máximo de intentos permitidos para cada pregunta. Si se responde incorrectamente en repetidas ocasiones, al alcanzar este valor máximo, se muestra la siguiente página de la lección.';
 $string['maximumnumberofattemptsreached'] = 'Se ha alcanzado el número máximo de intentos. Traslado a la página siguiente';
 $string['maxtime'] = 'Límite de tiempo (minutos)';
 $string['maxtimewarning'] = 'Dispone de {$a} minuto(s) para terminar la lección.';
 $string['mediaclose'] = 'Mostrar botón de cierre:';
-$string['mediafile'] = 'Archivo multimedia';
+$string['mediafile'] = 'Archivo en ventana emergente';
 $string['mediafile_help'] = '<p>Esta opción crea una ventana emergente al comienzo de la lección a un archivo (e.g., mp3) o página web. Asimismo, en cada página de la lección aparecerá un enlace que abre de nuevo la ventana emergente si fuera necesario.</p>
 
 <p>Opcionalmente aparecerá un botón de "Cerrar ventana" al final de la ventana emergente; pueden ajustarse asimismo la altura y anchura de la ventana.</p>';
@@ -419,15 +286,15 @@ $string['modattempts'] = 'Permitir revisión al estudiante';
 $string['modattempts_help'] = '<p>Esta opción permite al estudiante volver atrás para cambiar sus respuestas.</p>';
 $string['modattemptsnoteacher'] = 'La revisión del estudiante sólo está disponible para los estudiantes.';
 $string['modulename'] = 'Lección';
-$string['modulename_help'] = '<p><img alt="" src="<?php echo $CFG->wwwroot?>/mod/lesson/icon.gif" />&nbsp;<b>Lección</b></p>
-<div class="indent">
-<p>Una lección proporciona contenidos de forma interesante y flexible. Consiste en una
-    serie de páginas. Cada una de ellas normalmente termina con una pregunta y un
-    número de respuestas posibles. Dependiendo de cuál sea la elección del estudiante,
-    progresará a la próxima página o volverá a una página anterior. La navegación a
-    través de la lección puede ser simple o compleja, dependiendo en gran medida de
-    la estructura del material que se está presentando.</p>
-</div>';
+$string['modulename_help'] = 'La actividad lección permite a un profesor presentar contenidos y/ o actividades prácticas de forma interesante y flexible. Un profesor puede utilizar la lección para crear un conjunto lineal de páginas de contenido o actividades educativas que ofrezcan al alumno varios itinerarios u opciones. En cualquier caso, los profesores pueden optar por incrementar la participación del alumno y asegurar la comprensión mediante la inclusión de diferentes tipos de pregunta, tales como la elección múltiple, respuesta corta y correspondencia. Dependiendo de la respuesta elegida por el estudiante y de cómo el profesor desarrolla la lección, los estudiantes pueden pasar a la página siguiente, volver a una página anterior o dirigirse a un itinerario totalmente diferente.
+
+Una lección puede ser calificada y la calificación registrada en el libro de calificaciones.
+
+Las lecciones pueden ser utilizados
+
+* Para el aprendizaje autodirigido de un nuevo tema
+* Para ejercicios basados en escenarios o simulaciones y de  toma de decisiones
+* Para realizar ejercicios de repaso diferenciadas, con distintos conjuntos de preguntas de repaso, dependiendo de las respuestas dadas a las preguntas anteriores';
 $string['modulenameplural'] = 'Lecciones';
 $string['move'] = 'Mover página';
 $string['movedpage'] = 'Página movida';
@@ -450,7 +317,7 @@ $string['nameapproved'] = 'Nombre aprobado';
 $string['namereject'] = 'Lo sentimos, su nombre ha sido rechazado por el filtro.<br>Por favor, pruebe con otro nombre.';
 $string['new'] = 'nueva';
 $string['nextpage'] = 'Página siguiente';
-$string['noanswer'] = 'No se ha dado respuesta';
+$string['noanswer'] = 'Hay una o más preguntas sin responder. Por favor, vuelva atrás y de una respuesta.';
 $string['noattemptrecordsfound'] = 'No se encontraron registros de intentos. Sin calificación';
 $string['nobranchtablefound'] = 'No se ha encontrado página de contenido';
 $string['nocommentyet'] = 'Aún no comentado.';
@@ -474,14 +341,7 @@ $string['notitle'] = 'Sin título';
 $string['numberofcorrectanswers'] = 'Número de respuestas correctas: {$a}';
 $string['numberofcorrectmatches'] = 'Número de emparejamientos correctos: {$a}';
 $string['numberofpagestoshow'] = 'Número de páginas a mostrar';
-$string['numberofpagestoshow_help'] = '<p>Este valor se usa solamente en las lecciones de tipo Tarjeta (<I>Flash Card</I>). Su
-valor por defecto es cero y significa que todas las Páginas/Tarjeta serán
-mostradas en la lección. Cuando el valor es distinto de cero se mostrarán ese
-número de páginas. Después de mostrar ese número de&nbsp; Páginas/Tarjeta viene
-el final de la lección y se muestra la calificación obtenida por el estudiante.</p>
-
-<p>Si el valor que se asigna es superior al número de páginas de la lección se
-mostrarán todas las páginas.</p>';
+$string['numberofpagestoshow_help'] = 'Esta ajuste especifica el número de páginas mostradas en la lección. Sólo es aplicable para las lecciones con páginas que se muestran en orden aleatorio (cuando "Acción después de la respuesta correcta" está ajustado a"Mostrar una página no vista"  o "Mostrar unan página no contestada"). Si se establece en cero, se muestran todas las páginas.';
 $string['numberofpagesviewed'] = 'Número de páginas vistas: {$a}';
 $string['numberofpagesviewednotice'] = 'Número de preguntas contestadas: {$a->nquestions}; (Debería contestar al menos: {$a->minquestions})';
 $string['numerical'] = 'Numérica';
@@ -499,6 +359,8 @@ $string['overview'] = 'Revisión';
 $string['overview_help'] = 'Una lección se compone de un conjunto de páginas y, ocasionalmente, de páginas de contenido. Una página contiene información y normalmente termina con una pregunta. Con cada respuesta a la pregunta está asociado un salto. Este puede ser relativo (e.g., a la página actual o a la siguiente) o absoluto (e.g., a cualquiera de las páginas de la lección). Una página de contenido es aquella que contiene un conjunto de enlaces a otras páginas de la lección, e.g., una Tabla de Contenidos.';
 $string['page'] = 'Página: {$a}';
 $string['pagecontents'] = 'Contenido de la página';
+$string['page-mod-lesson-edit'] = 'Editar página de la lección';
+$string['page-mod-lesson-view'] = 'Ver página de la lección o una vista previa';
 $string['page-mod-lesson-x'] = 'Cualquier página de lección';
 $string['pages'] = 'Páginas';
 $string['pagetitle'] = 'Título de la página';
@@ -528,7 +390,7 @@ Por el momento, la barra de progreso tiene más precisión cuando las lecciones 
 de la barra de progreso pueden modificarse en mod/lesson/styles.php.';
 $string['progressbarteacherwarning'] = 'La barra de progreso no muestra {$a}';
 $string['progressbarteacherwarning2'] = 'Usted no verá la barra de progreso porque puede editar esta lección';
-$string['progresscompleted'] = 'Ha alcanzado el {$a]% de esta lección';
+$string['progresscompleted'] = 'Ha alcanzado el {$a}% de esta lección';
 $string['qtype'] = 'Tipo de página';
 $string['question'] = 'Pregunta';
 $string['questionoption'] = 'Opción de pregunta';
@@ -595,8 +457,9 @@ $string['studentattemptlesson'] = 'Intento número {$a->attempt} de {$a->lastnam
 $string['studentname'] = '{$a} Nombre';
 $string['studentoneminwarning'] = 'Atención: Le queda 1 minuto o menos para terminar la lección.';
 $string['studentresponse'] = 'comentario de {$a}';
+$string['submit'] = 'Enviar';
 $string['submitname'] = 'Enviar nombre';
-$string['teacherjumpwarning'] = 'Un salto {$a->cluster} o {$a->unseen} se está usando en esta lección. En su lugar se usará el salto a la página siguiente. Entre como estudiante para probar estos saltos.';
+$string['teacherjumpwarning'] = 'En esta lección se usa un salto {$a->cluster} o {$a->unseen}. En su lugar se usará el salto a la página siguiente. Entre como estudiante para probar estos saltos.';
 $string['teacherongoingwarning'] = 'La puntuación acumulada sólo se muestra al estudiante. Entre como estudiante para probar la puntuación acumulada.';
 $string['teachertimerwarning'] = 'El temporizador sólo funciona con estudiantes. Entre como estudiante para probar el temporizador.';
 $string['thatsthecorrectanswer'] = 'Esta es la respuesta correcta';

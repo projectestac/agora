@@ -28,7 +28,13 @@ defined('MOODLE_INTERNAL') || die();
 $string['label:addinstance'] = 'Añadir una nueva etiqueta';
 $string['labeltext'] = 'Texto de la etiqueta';
 $string['modulename'] = 'Etiqueta';
-$string['modulename_help'] = 'Una etiqueta permite insertar texto e imágenes en cualquier posición de la lista de enlaces a las actividades y recursos de la página del curso';
+$string['modulename_help'] = 'El módulo etiqueta permite insertar texto y elementos multimedia en las páginas del curso entre los enlaces a otros recursos y actividades. Las etiquetas son muy versátiles y pueden ayudar a mejorar la apariencia de un curso si se usan cuidadosamente.
+
+Las etiquetas pueden ser utilizadas
+
+* Para dividir una larga lista de actividades con un subtítulo o una imagen
+* Para visualizar un archivo de sonido o vídeo incrustado directamente en la página del curso
+* Para añadir una breve descripción de una sección del curso';
 $string['modulenameplural'] = 'Etiquetas';
 $string['pluginadministration'] = 'Administración de etiquetas';
 $string['pluginname'] = 'Etiqueta';

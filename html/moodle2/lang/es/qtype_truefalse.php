@@ -31,6 +31,7 @@ $string['correctanswertrue'] = 'La respuesta correcta es \'Verdadero\'';
 $string['false'] = 'Falso';
 $string['feedbackfalse'] = 'Retroalimentación para la respuesta \'Falso\'.';
 $string['feedbacktrue'] = 'Retroalimentación para la respuesta \'Verdadero\'.';
+$string['pleaseselectananswer'] = 'Por favor selecciona una respuesta.';
 $string['pluginname'] = 'Verdadero/Falso';
 $string['pluginnameadding'] = 'Agregando pregunta verdadero/falso';
 $string['pluginnameediting'] = 'Edición de una pregunta Verdadero/Falso';

@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['acceptederror'] = 'Margen de error';
 $string['addmoreanswerblanks'] = 'Espacios en blanco para {no} opciones más';
 $string['addmoreunitblanks'] = 'Espacios en blanco para {no} unidades más';
+$string['answercolon'] = 'Respuesta:';
 $string['answermustbenumberorstar'] = 'La respuesta debe ser un número, o \'*\'.';
 $string['answerno'] = 'Respuesta {$a}';
 $string['decfractionofquestiongrade'] = 'como fracción decimal (0-1) de la calificación de de la pregunta';
@@ -43,7 +44,10 @@ $string['invalidnumericanswer'] = 'Una de las respuestas que has introducido no 
 $string['invalidnumerictolerance'] = 'Uno de los valores de tolerancia introducidos no es un número válido.';
 $string['leftexample'] = 'en la izquierda, como por ejemplo $1.00 o £1.00';
 $string['manynumerical'] = 'Se calificará la RESPUESTA NUMÉRICA + UNIDAD, siendo opcional la última.';
+$string['multiplier'] = 'Multiplicador';
 $string['nominal'] = 'Nominal';
+$string['noneditableunittext'] = 'Texto de la Unidad Nº 1 NO editable';
+$string['nonvalidcharactersinnumber'] = 'Caracteres no válidos en el número';
 $string['notenoughanswers'] = 'Debe escribir al menos una respuesta.';
 $string['numericalmultiplier'] = 'Multiplicador';
 $string['numericalmultiplier_help'] = 'El multiplicador es el factor por el que la respuesta-numérica correcta se multiplica.
@@ -60,21 +64,24 @@ $string['pluginnameediting'] = 'Editando una pregunta numérica';
 $string['pluginname_help'] = 'Desde la perspectiva del alumno, una pregunta numérica es muy semejante a una pregunta de respuesta corta. La diferencia es que a las respuestas numéricas se les permite tener un margen de error. Esto permite evaluar la respuesta debtro de un rango fijo. Por ejemplo, si la respuesta es 10, con un margen de error de 2, entonces cualquier número entre 8 y 12 se aceptará como correcto.';
 $string['pluginnamesummary'] = 'Permite una respuesta numérica (con posibilidad de especificar las unidades) que es calificada comparándola con distintas respuestas modelo (es posible incluir márgenes de tolerancia).';
 $string['relative'] = 'Relativa';
-$string['rightexample'] = 'DERECHA, como 1.00cm';
+$string['rightexample'] = 'a la derecha, por ejemplo 1.00cm o 1.00km';
 $string['selectunit'] = 'Seleccione una unidad';
 $string['selectunits'] = 'Seleccione uidades';
 $string['studentunitanswer'] = 'RESPUESTA-UNIDAD mostrada como una';
 $string['tolerancetype'] = 'Tipo de tolerancia';
+$string['unit'] = 'Unidad';
 $string['unitappliedpenalty'] = 'Estas marcas incluyen una penalización de {$a} por unidad incorrecta';
 $string['unitchoice'] = 'Elección múltiple';
 $string['unitedit'] = 'Editar unidad';
 $string['unitgraded'] = 'La RESPUESTA-NUMÉRICA y las UNIDADES se calificarán';
 $string['unithandling'] = 'Tratamiento de las unidades';
 $string['unithdr'] = 'Unidad {$a}';
+$string['unitincorrect'] = 'No proporcionó la unidad correcta';
 $string['unitmandatory'] = 'Obligatorio';
 $string['unitmandatory_help'] = '* La respuesta se calificará usando la unidad escrita.
 <br> * La penalización se aplicará si el campo de la unidad está vacío';
 $string['unitnotselected'] = 'No se ha seleccionado unidad';
+$string['unitonerequired'] = 'Debe introducir almenos una unidad';
 $string['unitoptional'] = 'Unidad opcional';
 $string['unitoptional_help'] = '* Si el campo de unidad no está vacío, la respuesta será calificada considerando también la unidad.
 * Si la unidad está mal escrita o es desconocida la respuesta será considerada como no válida.';
@@ -83,4 +90,13 @@ $string['unitpenalty_help'] = 'La penalización se aplica si
 * Se escribe un nombre de unidad sin definir en el campo de respuesta-unidad o
 * Se escribe un nombre de unidad en el campo de respuesta-numérica';
 $string['unitposition'] = 'Posición de unidad';
+$string['unitselect'] = 'menú emergente';
 $string['validnumberformats'] = 'Formatos de número válidos';
+$string['validnumberformats_help'] = '* números regulares 13500.67, 13 500.67, 13500,67 or 13 500,67
+
+* si usa coma (,) como separador de miles, use SIEMPRE el punto (.) decimal, por ejemplo:
+ 13,500.67 : 13,500.
+
+* para la forma exponencial, digamos 1.350067 * 10<sup>4</sup>, utilice
+ 1.350067 E4 : 1.350067 E04';
+$string['validnumbers'] = '13500.67, 13 500.67, 13,500.67, 13500,67, 13 500,67, 1.350067 E4 or 1.350067 E04';

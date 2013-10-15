@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['attemptsallowedn'] = 'Intentos permitidos: {$a}';
+$string['pluginname'] = 'Regla de acceso por número de intentos';
