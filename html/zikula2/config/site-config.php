@@ -63,12 +63,12 @@
     $dbhost = explode(':', $school_info['dbhost_intranet']);
     if (!empty($dbhost[1])) {
         $dbhoststring = $dbhost[0] . ';port=' . $dbhost[1];
-        // hostmigrate and portmigrate must be deleted after all Zikula's migrations are finished
+        // hostmigrate and portmigrate are used by Zikula's migrations and by IWmoodle
         $ZConfig['DBInfo']['databases']['default']['hostmigrate'] = $dbhost[0];
         $ZConfig['DBInfo']['databases']['default']['portmigrate'] = $dbhost[1];
     } else {
         $dbhoststring = $dbhost[0];
-        // hostmigrate and portmigrate must be deleted after all Zikula's migrations are finished
+        // hostmigrate and portmigrate are used by Zikula's migrations and by IWmoodle
         $ZConfig['DBInfo']['databases']['default']['hostmigrate'] = $school_info['dbhost_intranet'];
         $ZConfig['DBInfo']['databases']['default']['portmigrate'] = '';
     }

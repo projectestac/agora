@@ -622,10 +622,11 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         
         global $ZConfig;
 
-        $dbc = mysqli_connect(  $ZConfig['DBInfo']['databases']['default']['host'],
+        $dbc = mysqli_connect(  $ZConfig['DBInfo']['databases']['default']['hostmigrate'],
                                 $ZConfig['DBInfo']['databases']['default']['user'],
                                 $ZConfig['DBInfo']['databases']['default']['password'], 
-                                $ZConfig['DBInfo']['databases']['default']['dbname']);
+                                $ZConfig['DBInfo']['databases']['default']['dbname'],
+                                $ZConfig['DBInfo']['databases']['default']['portmigrate']);
         $dbc->set_charset('utf8');
 
         $sqls[] = " UPDATE users 
