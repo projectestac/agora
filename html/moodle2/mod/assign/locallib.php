@@ -1140,8 +1140,7 @@ class assign {
         $userid = $USER->id;
         $count = 0;
 
-        if (groups_get_activity_groupmode($this->get_course_module()) == SEPARATEGROUPS ) {   
-
+        if (groups_get_activity_groupmode($this->get_course_module()) == SEPARATEGROUPS && !has_capability('moodle/site:accessallgroups', $this->context, $USER->id, true)) { 
             $groups = groups_get_all_groups($this->get_course()->id, $userid);
 
             foreach ($groups as $group) {
@@ -1149,16 +1148,14 @@ class assign {
             }
 
             return $count;
+        } else { 
+            return count_enrolled_users($this->context, "mod/assign:submit", $currentgroup); 
         }
-
-        else { return count_enrolled_users($this->context, "mod/assign:submit", $currentgroup); }
-
         //************ ORIGINAL
         /*
                return count_enrolled_users($this->context, "mod/assign:submit", $currentgroup);
         */
-        //************Fi
-
+        //************ FI  
     }
 
     /**
