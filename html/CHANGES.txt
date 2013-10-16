@@ -5,7 +5,8 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-
+ZIKULA 2
+- IWusers: Fixed some module variables not being called correctly, as they belong to IWusers instead of IWmain
 
 
 

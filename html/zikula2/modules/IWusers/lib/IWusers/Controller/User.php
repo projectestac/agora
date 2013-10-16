@@ -301,7 +301,7 @@ class IWusers_Controller_User extends Zikula_AbstractController {
         // Get groups information
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $groupsInfo = ModUtil::func('IWmain', 'user', 'getAllGroupsInfo', array('sv' => $sv));
-        $folder = ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWmain', 'usersPictureFolder');
+        $folder = ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWusers', 'usersPictureFolder');
         foreach ($members as $member) {
             //get the user small photo
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');

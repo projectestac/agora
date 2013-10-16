@@ -111,7 +111,7 @@ class IWusers_Controller_Admin extends Zikula_AbstractController {
         $usersMail = ModUtil::func('IWmain', 'user', 'getAllUsersInfo', array('info' => 'e',
                     'sv' => $sv,
                     'list' => $usersList));
-        $folder = ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWmain', 'usersPictureFolder');
+        $folder = ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWusers', 'usersPictureFolder');
         // Check all users disponibility in extra database. If user doesn't exists create it
         foreach ($users as $user) {
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
@@ -246,10 +246,10 @@ class IWusers_Controller_Admin extends Zikula_AbstractController {
 
         $canChangeAvatar = true;
         //Check if the users picture folder exists
-        if (!file_exists(ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWmain', 'usersPictureFolder')) || ModUtil::getVar('IWmain', 'usersPictureFolder') == '') {
+        if (!file_exists(ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWusers', 'usersPictureFolder')) || ModUtil::getVar('IWusers', 'usersPictureFolder') == '') {
             $canChangeAvatar = false;
         } else {
-            if (!is_writeable(ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWmain', 'usersPictureFolder')))
+            if (!is_writeable(ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWusers', 'usersPictureFolder')))
                 $canChangeAvatar = false;
         }
 
