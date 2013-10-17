@@ -75,7 +75,7 @@ class tool_odisseagtafsync_config_form extends moodleform {
                          UU_UPDATE_ALLOVERRIDE  => get_string('uuupdateall', 'tool_uploaduser'),
                          UU_UPDATE_MISSING      => get_string('uuupdatemissing', 'tool_uploaduser'));
         $mform->addElement('select', 'uuupdatetype', get_string('uuupdatetype', 'tool_uploaduser'), $choices);
-        $mform->setDefault('uuupdatetype', UU_UPDATE_ALLOVERRIDE);
+        $mform->setDefault('uuupdatetype', UU_UPDATE_FILEOVERRIDE);
         $mform->disabledIf('uuupdatetype', 'uutype', 'eq', UU_USER_ADDNEW);
         $mform->disabledIf('uuupdatetype', 'uutype', 'eq', UU_USER_ADDINC);
         $mform->setAdvanced('uuupdatetype');
