@@ -9,6 +9,9 @@ ZIKULA 2
 - IWusers: Fixed some module variables not being called correctly, as they belong to IWusers instead of IWmain
 
 
+MOODLE 2
+- Fixed bug on submissions count shown in My Moodle summary page
+
 
 Changes 13.10.16
 ---------------------------------------------------------------------------------------

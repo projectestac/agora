@@ -385,6 +385,28 @@ function assign_print_overview($courses, &$htmlarray) {
             }
             // count how many people can submit
             $submissions = 0; // init
+            
+            //XTEC ************ MODIFICAT - To fix bug on submissions count shown in My Moodle summary page
+            //2013.10.21  @sarjona  
+            if ($assignment->groupmode == SEPARATEGROUPS && !has_capability('moodle/site:accessallgroups', $context, $USER->id, true)) { 
+                $groups = groups_get_all_groups($assignment->course, $USER->id);
+
+                $students = array();
+                foreach ($groups as $group) {
+                  $students = array_merge($students, get_enrolled_users($context, 'mod/assign:view', $group->id, 'u.id')); 
+                }
+            } else { 
+                $students = get_enrolled_users($context, 'mod/assign:view', 0, 'u.id'); 
+            }
+            if ($students) {
+                foreach ($students as $student) {
+                    if (isset($unmarkedsubmissions[$assignment->id][$student->id])) {
+                        $submissions++;
+                    }
+                }
+            }
+            //************ ORIGINAL
+            /*
             if ($students = get_enrolled_users($context, 'mod/assign:view', 0, 'u.id')) {
                 foreach ($students as $student) {
                     if (isset($unmarkedsubmissions[$assignment->id][$student->id])) {
@@ -392,6 +414,9 @@ function assign_print_overview($courses, &$htmlarray) {
                     }
                 }
             }
+            */
+            //************ FI  
+            
 
             if ($submissions) {
                 $link = new moodle_url('/mod/assign/view.php', array('id'=>$assignment->coursemodule, 'action'=>'grading'));
