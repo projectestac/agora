@@ -8121,11 +8121,30 @@ function forum_get_courses_user_posted_in($user, $discussionsonly = false, $incl
 
     // Now we need to get all of the courses to search.
     // All courses where the user has posted within a forum will be returned.
+
+
+
+    //XTEC ************ MODIFICAT - Fix for https://tracker.moodle.org/browse/MDL-39788
+    //2013.10.21 @aginard
+
+    $sql = "SELECT DISTINCT c.id, c.visible, dbms_lob.substr(c.modinfo, 3000, 1) as modinfo, dbms_lob.substr(c.sectioncache, 3000, 1) as sectioncache $ctxselect
+            FROM {course} c
+            $joinsql
+            $ctxjoin
+            WHERE $wheresql";
+
+    //************ ORIGINAL
+    /*
     $sql = "SELECT DISTINCT c.* $ctxselect
             FROM {course} c
             $joinsql
             $ctxjoin
             WHERE $wheresql";
+    */
+    //************ FI
+
+
+
     $courses = $DB->get_records_sql($sql, $params, $limitfrom, $limitnum);
     if ($includecontexts) {
         array_map('context_instance_preload', $courses);
