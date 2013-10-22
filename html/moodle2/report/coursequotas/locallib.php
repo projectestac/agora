@@ -148,20 +148,15 @@ function report_coursequotas_addContextElemsToTree($categoryTree, $systemContext
             // Get context id of everything belonging to the site course
             $path = $dbRecord->path;
             $courseId = $dbRecord->instanceid;
-            $dbRecords = $DB->get_records_select('context', "path like '$path/%'", null, 'ID', 'ID');
 
-            // Look for all content id's in files table
-            $contextId = array();
-            foreach ($dbRecords as $record) {
-                $contextId[] = $record->id;
-            }
+            // Calculate size of all the files inside the front page avoiding duplicates
+            $sql = "SELECT sum(total) as total FROM (
+                           SELECT DISTINCT f.contenthash, f.filesize as total
+                           FROM {context} c, {files} f 
+                           WHERE f.contextid=c.id AND c.path like '" . $path . "%'
+                    )";
 
-            // Calculate size of all the files inside the course
-            $sql = "SELECT sum(filesize) AS total
-                    FROM {files}
-                    WHERE contextid='" . implode("' or contextid='", $contextId) . "'";
-
-            $totalSize += $DB->get_record_sql($sql, null)->total;
+            $totalSize = $DB->get_record_sql($sql, null)->total;
 
             $categoryTree['0']['categorysize'] = $totalSize;
             $categoryTree['0']['courses'][$courseId]['coursesize'] = $totalSize;
@@ -182,24 +177,15 @@ function report_coursequotas_addContextElemsToTree($categoryTree, $systemContext
                 $coursePath = $record->path;
                 $courseId = $record->instanceid;
 
-                // Get context id of everything in this course
-                $dbRecords_2 = $DB->get_records_select('context', "path like '$coursePath/%'", null, 'ID', 'ID');
-                $totalCourseSize = 0;
-
-                 // Look for all content id's in files table
-                $contextId = array();
-                foreach ($dbRecords_2 as $record) {
-                    $contextId[] = $record->id;
-                }
-
-                // Calculate size of all the files inside the course
-                $sql = "SELECT sum(filesize) AS total
-                        FROM {files}
-                        WHERE contextid='" . implode("' or contextid='", $contextId) . "'";
-
+                // Calculate size of all the files inside the course avoiding duplicates
+                $sql = "SELECT sum(total) as total FROM (
+                               SELECT DISTINCT f.contenthash, f.filesize as total
+                               FROM {context} c, {files} f 
+                               WHERE f.contextid=c.id AND c.path like '" . $coursePath . "%'
+                        )";
                 $courseSize = $DB->get_record_sql($sql, null);
 
-                $totalCourseSize += $courseSize->total;
+                $totalCourseSize = $courseSize->total;
                 $totalSize += $courseSize->total;
 
                 $categoryTree[$key]['courses'][$courseId]['coursesize'] = $totalCourseSize;
@@ -383,6 +369,37 @@ function report_coursequotas_getBackupUsage() {
             WHERE component='backup' or filearea='backup'";
 
     return $DB->get_record_sql($sql, null)->total;
+}
+
+
+/**
+ * Gets the amount of bytes used in directories moodledata/temp/
+ * and moodledata/trash/
+ *
+ * @author Toni Ginard (aginard@xtec.cat)
+ *
+ * @return int Number of bytes used
+ */
+function report_coursequotas_getTempTrashUsage() {
+
+    global $CFG;
+    $size = array();
+
+    if (file_exists($CFG->dataroot . '/temp/')) {
+        $tempSize = exec('du -sk ' . $CFG->dataroot . '/temp/');
+        $tempSize = explode('/', $tempSize);
+        $tempSize = $tempSize[0]; // Size in kB
+        $size['temp'] = report_coursequotas_formatSize($tempSize * 1024);
+    }
+
+    if (file_exists($CFG->dataroot . '/trashdir/')) {
+        $tempSize = exec('du -sk ' . $CFG->dataroot . '/trashdir/');
+        $tempSize = explode('/', $tempSize);
+        $tempSize = $tempSize[0]; // Size in kB
+        $size['trashdir'] = report_coursequotas_formatSize($tempSize * 1024);
+    }
+
+    return $size;
 }
 
 
