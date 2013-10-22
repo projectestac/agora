@@ -8126,12 +8126,21 @@ function forum_get_courses_user_posted_in($user, $discussionsonly = false, $incl
 
     //XTEC ************ MODIFICAT - Fix for https://tracker.moodle.org/browse/MDL-39788
     //2013.10.21 @aginard
+    global $CFG;
 
-    $sql = "SELECT DISTINCT c.id, c.visible, dbms_lob.substr(c.modinfo, 3000, 1) as modinfo, dbms_lob.substr(c.sectioncache, 3000, 1) as sectioncache $ctxselect
-            FROM {course} c
-            $joinsql
-            $ctxjoin
-            WHERE $wheresql";
+    if ($CFG->dbtype == 'oci8po' || $CFG->dbtype == 'oci8' || $CFG->dbtype == 'oci') {
+        $sql = "SELECT DISTINCT c.id, c.visible, dbms_lob.substr(c.modinfo, 3000, 1) as modinfo, dbms_lob.substr(c.sectioncache, 3000, 1) as sectioncache $ctxselect
+                FROM {course} c
+                $joinsql
+                $ctxjoin
+                WHERE $wheresql";
+    } else {
+        $sql = "SELECT DISTINCT c.* $ctxselect
+                FROM {course} c
+                $joinsql
+                $ctxjoin
+                WHERE $wheresql";
+    }
 
     //************ ORIGINAL
     /*
