@@ -242,7 +242,14 @@ class course_modinfo extends stdClass {
      * @param int $userid User ID
      */
     public function __construct($course, $userid) {
+        //XTEC ************ MODIFICAT - Fix for https://tracker.moodle.org/browse/MDL-36789
+        //2013.10.23 @sarjona - https://github.com/moodle/moodle/commit/b9f0a2b86951886c91a9ac4848ddca6f748240aa#diff-2a492233101c5379bcb847e09394f739
+        global $CFG, $DB, $COURSE, $SITE;
+        //************ ORIGINAL
+        /*
         global $CFG, $DB;
+        */
+        //************ FI
 
         // Check modinfo field is set. If not, build and load it.
         if (empty($course->modinfo) || empty($course->sectioncache)) {
@@ -287,8 +294,36 @@ class course_modinfo extends stdClass {
             }
         }
 
+        //XTEC ************ MODIFICAT - Fix for https://tracker.moodle.org/browse/MDL-36789
+        //2013.10.23 @sarjona - https://github.com/moodle/moodle/commit/b9f0a2b86951886c91a9ac4848ddca6f748240aa#diff-2a492233101c5379bcb847e09394f739
+        // If we haven't already preloaded contexts for the course, do it now.
+        // Modules are also cached here as long as it's the first time this course has been preloaded.
+        preload_course_contexts($course->id);
+
+        // Quick integrity check: as a result of race conditions modinfo may not be regenerated after the change.
+        // It is especially dangerous if modinfo contains the deleted course module, as it results in fatal error.
+        // We can check it very cheap by validating the existence of module context.
+        if ($course->id == $COURSE->id || $course->id == $SITE->id) {
+            // Only verify current course (or frontpage) as pages with many courses may not have module contexts cached.
+            // (Uncached modules will result in a very slow verification).
+            foreach ($info as $mod) {
+                if (!context_module::instance($mod->cm, IGNORE_MISSING)) {
+                    debugging('Course cache integrity check failed: course module with id '. $mod->cm.
+                            ' does not have context. Rebuilding cache for course '. $course->id);
+                    rebuild_course_cache($course->id);
+                    $this->course = $DB->get_record('course', array('id' => $course->id), '*', MUST_EXIST);
+                    $info = unserialize($this->course->modinfo);
+                    $sectioncache = unserialize($this->course->sectioncache);
+                    break;
+                }
+            }
+        }
+        //************ ORIGINAL
+        /*
         // If we haven't already preloaded contexts for the course, do it now
         preload_course_contexts($course->id);
+        */
+        //************ FI
 
         // Loop through each piece of module data, constructing it
         $modexists = array();

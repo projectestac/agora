@@ -14,6 +14,7 @@ MOODLE 2
 - Coursequotas: Added usage info of temp and trashdir directories
 - Forums: Fixed error in My profile > Forum Posts > Discussions (https://tracker.moodle.org/browse/MDL-39788)
 - Fixed bug on simple course format related with save images when editing
+- Fixed bug with modinfo corruption (Fix for https://tracker.moodle.org/browse/MDL-36789)
 
 
 Changes 13.10.16
