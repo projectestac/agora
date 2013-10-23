@@ -61,10 +61,17 @@ require_once($CFG->dirroot . '/course/format/simple/lib.php');
 
 $renderer = $PAGE->get_renderer('format_simple');
 
-// Fixes error when URL contains param "&section=-1"
-if (isset($displaysection) && ($displaysection < 0)) {
-    $displaysection = 0;
+//XTEC ************ AFEGIT - To show current section if none is selected
+//2012.08.20  @sarjona
+if ($course->coursedisplay == COURSE_DISPLAY_MULTIPAGE){
+    $notifyeditingon = optional_param('notifyeditingon', -1, PARAM_BOOL);
+    if ($edit < 0 && $notifyeditingon < 0 && empty($displaysection)) {
+        $displaysection = $course->marker;
+    } else if ($displaysection == -1){
+        $displaysection = 0;
+    }
 }
+//************ FI                    
 
 if (!empty($displaysection)) {
     $renderer->print_single_section_page($course, null, null, null, null, $displaysection);
