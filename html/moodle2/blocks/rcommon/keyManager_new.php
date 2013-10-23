@@ -281,7 +281,7 @@ switch ($action){
 		$ids       = required_param_array('ids', PARAM_RAW);
 		$ids_where = implode(',', $ids);
 		
-	   	if ($DB->execute("UPDATE {$CFG->prefix}rcommon_user_credentials SET euserid = '0', timemodified = '" . time() . "' WHERE id IN ({$ids_where})")){
+	   	if ($DB->execute("UPDATE {$CFG->prefix}rcommon_user_credentials SET euserid = 0, timemodified = '" . time() . "' WHERE id IN ({$ids_where})")){
 	   		echo '<p class="center_rcommon">' . get_string('keymanager_unassing_ok', 'block_rcommon') . '</p>';
 	   	} else {
 	   		echo '<p class="center_rcommon">' . get_string('keymanager_unassing_ko', 'block_rcommon') . '</p>';
@@ -345,7 +345,7 @@ switch ($action){
 			if (!empty($frm->addselect) && confirm_sesskey()) {			
 				//echo '<hr>addselect: ' . serialize($frm->addselect) . '<hr>'; //debug
 				//echo '<hr>ids: ' . $frm->ids . '<hr>'; //Debug
-				$empty_credentials = $DB->get_records_sql("SELECT id, isbn, credentials FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = (SELECT isbn FROM {$CFG->prefix}rcommon_books WHERE id = '{$id_bk}') AND euserid = '0' AND id IN ({$ids})");
+				$empty_credentials = $DB->get_records_sql("SELECT id, isbn, credentials FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = (SELECT isbn FROM {$CFG->prefix}rcommon_books WHERE id = '{$id_bk}') AND euserid = 0 AND id IN ({$ids})");
 				//echo 'empty_credentials: ' . serialize($empty_credentials);
 				if ($empty_credentials){
 					$i = 0;
@@ -354,7 +354,7 @@ switch ($action){
 							break;
 						}
 						
-						if ($user_c = $DB->get_record_sql("SELECT id, credentials FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$c->isbn}' AND euserid = '{$frm->addselect[$i]}'")){
+						if ($user_c = $DB->get_record_sql("SELECT id, credentials FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$c->isbn}' AND euserid = {$frm->addselect[$i]}")){
 							if ($user_c->credentials == ' '){
 								$up               = new stdClass();
 								$up->id           = $user_c->id;
@@ -378,7 +378,7 @@ switch ($action){
 			} else if (!empty($frm->removeselect) && confirm_sesskey()) {
 				//echo 'remove select: ' . serialize($frm->removeselect); //Debug
 				foreach ($frm->removeselect as $u){
-					$cred = $DB->get_record_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE euserid = '{$u}' AND isbn = (SELECT isbn FROM {$CFG->prefix}rcommon_books WHERE id = '{$id_bk}')");
+					$cred = $DB->get_record_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE euserid = {$u} AND isbn = (SELECT isbn FROM {$CFG->prefix}rcommon_books WHERE id = '{$id_bk}')");
 					if ($cred){
 						$up          = new stdClass();
 						$up->id      = $cred->id;
@@ -392,7 +392,7 @@ switch ($action){
         	}
 		}
 		
-		$already_asigned_users     = $DB->get_records_sql("SELECT c.euserid as id, u.firstname, u.lastname, u.email FROM {$CFG->prefix}user u RIGHT JOIN {$CFG->prefix}rcommon_user_credentials c ON u.id = c.euserid WHERE c.id IN ({$ids}) AND euserid NOT LIKE '0'");
+		$already_asigned_users     = $DB->get_records_sql("SELECT c.euserid as id, u.firstname, u.lastname, u.email FROM {$CFG->prefix}user u RIGHT JOIN {$CFG->prefix}rcommon_user_credentials c ON u.id = c.euserid WHERE c.id IN ({$ids}) AND euserid <> 0");
 		$already_asigned_users_cnt = $already_asigned_users? count($already_asigned_users): 0;
 		//echo '<hr>alredy_asigned_users: ' . serialize($already_asigned_users) . '<hr>';
 		
@@ -873,7 +873,7 @@ switch ($action){
 					//test if isset any credential for that book and user
 					$duplicated = false;
 					if (isset($user) && $user){
-						if ($cred = $DB->get_record_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$data[$columns['isbn']]}' AND euserid = '{$user->id}'")){
+						if ($cred = $DB->get_record_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$data[$columns['isbn']]}' AND euserid = {$user->id}")){
 							$row[$columns['credential']] = array('value' => get_string('keymanager_import_error_19', 'block_rcommon'), 'type' => 'error');
 							$error = true;
 							$duplicated = true;
@@ -896,7 +896,7 @@ switch ($action){
 						} else {
 							if (isset($user) && $user){
 								//test if cred it's already assigned
-								if ($cred = $DB->get_record_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$data[$columns['isbn']]}' AND credentials = '{$data[$columns['credential']]}' AND euserid = '{$user->id}'")){
+								if ($cred = $DB->get_record_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$data[$columns['isbn']]}' AND credentials = '{$data[$columns['credential']]}' AND euserid = {$user->id}")){
 									$a = new stdClass();
 									$a->user = $user->username;
 									$a->cred = $data[$columns['credential']];

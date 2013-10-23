@@ -15,6 +15,7 @@ MOODLE 2
 - Forums: Fixed error in My profile > Forum Posts > Discussions (https://tracker.moodle.org/browse/MDL-39788)
 - Fixed bug on simple course format related with save images when editing
 - Fixed bug with modinfo corruption (Fix for https://tracker.moodle.org/browse/MDL-36789)
+- Reviewed rcommon (Marsupial) code to avoid some problems with PostgreSQL (patch reported by UPCnet)
 
 
 Changes 13.10.16
