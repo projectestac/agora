@@ -103,14 +103,18 @@ function simple_get_default_icon_url($mod){
 
 //Updates the selected imatge to the course module from the form
 function simple_update_module_image($data) {
+    if($data->simple_image == 0 && (!isset($data->default_image) || $data->default_image == 'current')) {
+        //It's not necessary to change current image
+        return;
+    }
     
     //First, try to erase current image if current is not selected
-    if($data->simple_image == 0 && $data->default_image != 'current'){
+    if($data->simple_image == 0 && isset($data->default_image) && $data->default_image != 'current'){
     	simple_delete_module_image($data->coursemodule);
     }
     
     //Then copy the image selected to the module space
-	simple_add_module_image($data);
+    simple_add_module_image($data);
 }
 
 //Adds the selected imatge to the course module from the form

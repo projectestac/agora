@@ -36,13 +36,18 @@ require_once($CFG->dirroot.'/course/format/topics/renderer.php');
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class format_simple_renderer extends format_topics_renderer {
-
+    
     /**
      * Generate the starting container html for a list of sections
+     * @param type $addclass boolean to indicate if add or not class attribute
      * @return string HTML to output.
      */
-    protected function start_section_list() {
-        return html_writer::start_tag('ul', array('class' => 'simple'));
+    protected function start_section_list($addclass = false) {
+        if ($addclass) {
+            return html_writer::start_tag('ul', array('class' => 'simple'));
+        } else {
+            return html_writer::start_tag('ul', array('style' => 'list-style: none'));
+        }
     }
     
     /**
@@ -71,7 +76,7 @@ class format_simple_renderer extends format_topics_renderer {
         	
         	if (!$sectioninfo->uservisible) {
 				if (!$course->hiddensections) {
-					echo $this->start_section_list();
+					echo $this->start_section_list(true);
 					echo $this->section_hidden($displaysection);
 					echo $this->end_section_list();
 				}
@@ -86,7 +91,7 @@ class format_simple_renderer extends format_topics_renderer {
         
         $thissection = $modinfo->get_section_info(0);
         if ($thissection->summary or !empty($modinfo->sections[0])) {
-            echo $this->start_section_list();
+            echo $this->start_section_list(true);
             echo $this->section_header($thissection, $course, true, $displaysection);
             $this->print_simple_section($course, $thissection, null, null, true, "100%", false, $displaysection);
             echo $this->section_footer();
@@ -118,7 +123,7 @@ class format_simple_renderer extends format_topics_renderer {
 			echo $sectiontitle;
 
 			// Now the list of sections..
-			echo $this->start_section_list();
+			echo $this->start_section_list(true);
 
 			echo $this->section_header($thissection, $course, true, $displaysection);
 
