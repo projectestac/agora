@@ -4,7 +4,7 @@
  *
  * @copyright (c), Zikula Development Team
  * @link http://www.zikula.org
- * @version $Id: membersonline.php 100 2010-02-02 17:19:36Z yokav $
+ * @version $Id$
  * @license GNU/GPL - http://www.gnu.org/copyleft/gpl.html
  * @package Zikula_System_Modules
  * @subpackage Profile

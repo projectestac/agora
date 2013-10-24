@@ -24,7 +24,6 @@ body {
     background-position: 80% 0;
     background-repeat: repeat-y;
     padding-bottom:2em;
-    padding-top: 5px;
 }
 
 #leftcol {
@@ -895,61 +894,3 @@ div#pn-maincontent a#news_notes_collapse {
 .admin_messages_block {
     margin-top:1em;
 }
-
-/*IW Menu*/
-
-#iw_menu{
-	font-size:14px !important;
-	position:relative;
-	top:-12px;
-}
-
-#iw_menu>ul{
-	background: none !important;
-	border-bottom: none !important;
-	height: 28px !important;
-}
-
-#iw_menu>ul>li{
-	border-top: 2px solid #f8981d !important;
-	margin-left: 10px !important;
-}
-
-#iw_menu li{
-	color: #FFFFFF !important;
-	background-image: url(../images/navtab.png) !important;
-	background-color: #4ba314 !important; /*COLOR5*/
-}
-
-#iw_menu li:hover{ /*Personalizable*/
-	background-color: #5580c0 !important;
-	color: #FFFFFF !important;
-}
-
-#iw_menu li a{
-	text-transform: none !important;
-}
-
-#iw_menu>ul>li{
-	border-right: none !important;
-}
-
-#iw_menu>ul>li.branch{ 
-	border-bottom: 1px solid #f8981d !important;
-}
-
-#iw_menu>ul>li.branch:hover{
-	height: 25px !important;
-	border-bottom: none !important;
-}
-
-#iw_menu li li:hover{ /*Personalizable*/
-	background-color: #5580c0 !important;
-	color: #FFFFFF !important;
-}
-
-#iw_menu li li.branch{ /*Personalizable*/
-	border-right: 3px solid #f8981d !important;
-}
-
-

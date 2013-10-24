@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Zikula Application Framework
  *
@@ -8,6 +7,7 @@
  * @version $Id: index.php 27842 2009-12-12 06:08:16Z drak $
  * @license GNU/GPL - http://www.gnu.org/copyleft/gpl.html
  */
+
 // include base api
 include 'includes/pnAPI.php';
 
@@ -29,14 +29,14 @@ if (SessionUtil::hasExpired()) {
 // detection of zikula - assuming this parameter exists is
 // far from the best solution - markwest
 $module = FormUtil::getPassedValue('module', null, 'GETPOST');
-$type = FormUtil::getPassedValue('type', 'user', 'GETPOST');
-$func = FormUtil::getPassedValue('func', 'main', 'GETPOST');
-$name = FormUtil::getPassedValue('name', null, 'GETPOST');
-$file = FormUtil::getPassedValue('file', 'index', 'GETPOST');
+$type   = FormUtil::getPassedValue('type', 'user', 'GETPOST');
+$func   = FormUtil::getPassedValue('func', 'main', 'GETPOST');
+$name   = FormUtil::getPassedValue('name', null, 'GETPOST');
+$file   = FormUtil::getPassedValue('file', 'index', 'GETPOST');
 
 // Check for site closed
 if (pnConfigGetVar('siteoff') && !SecurityUtil::checkPermission('Settings::', 'SiteOff::', ACCESS_ADMIN) && !($module == 'Users' && $func == 'siteofflogin')) {
-    if (SecurityUtil::checkPermission('Users::', '::', ACCESS_OVERVIEW) && pnUserLoggedIn()) {
+    if (SecurityUtil::checkPermission('Users::', '::', ACCESS_OVERVIEW) && pnUserLoggedIn()){
         pnUserLogOut();
     }
     header('HTTP/1.1 503 Service Unavailable');
@@ -75,9 +75,9 @@ if (empty($name) && empty($module)) {
     // legacy hack - some older themes rely on $GLOBALS['index'] being 1 for center blocks
     $GLOBALS['index'] = 1;
     $module = pnConfigGetVar('startpage');
-    $type = pnConfigGetVar('starttype');
-    $func = pnConfigGetVar('startfunc');
-    $args = explode(',', pnConfigGetVar('startargs'));
+    $type   = pnConfigGetVar('starttype');
+    $func   = pnConfigGetVar('startfunc');
+    $args   = explode(',', pnConfigGetVar('startargs'));
     $arguments = array();
     foreach ($args as $arg) {
         if (!empty($arg)) {
@@ -109,11 +109,9 @@ if ($modinfo['type'] == 2 || $modinfo['type'] == 3) {
 
     // we need to force the mod load if we want to call a modules interactive init
     // function because the modules is not active right now
-    $force_modload = ($type == 'init') ? true : false;
-    if (empty($type))
-        $type = 'user';
-    if (empty($func))
-        $func = 'main';
+    $force_modload = ($type=='init') ? true : false;
+    if (empty($type)) $type = 'user';
+    if (empty($func)) $func = 'main';
     if (pnModLoad($modinfo['name'], $type, $force_modload)) {
         if (pnConfigGetVar('PN_CONFIG_USE_TRANSACTIONS')) {
             $dbConn = pnDBGetConn(true);
@@ -141,7 +139,7 @@ if ($modinfo['type'] == 2 || $modinfo['type'] == 3) {
         if ($return === false) {
             // check for existing errors or set a generic error
             if (!LogUtil::hasErrors()) {
-                LogUtil::registerError(__f("Could not load the '%s' module (at '%s' function).", array($modinfo['url'], $func)), 404);
+                 LogUtil::registerError(__f("Could not load the '%s' module (at '%s' function).", array($modinfo['url'], $func)), 404);
             }
             echo pnModFunc('Errors', 'user', 'main');
         } elseif (is_string($return) && strlen($return) > 1) {

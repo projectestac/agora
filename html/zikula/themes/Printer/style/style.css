@@ -128,9 +128,3 @@ ul {
     overflow:hidden;
 }
 
-
-/* Hidding EZComments form */
-form#post div {
-	display: none;
-}
-

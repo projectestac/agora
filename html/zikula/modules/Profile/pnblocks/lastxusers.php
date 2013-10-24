@@ -4,7 +4,7 @@
  *
  * @copyright (c), Zikula Development Team
  * @link http://www.zikula.org
- * @version $Id: lastxusers.php 90 2010-01-25 08:31:41Z mateo $
+ * @version $Id$
  * @license GNU/GPL - http://www.gnu.org/copyleft/gpl.html
  * @package Zikula_System_Modules
  * @subpackage Profile
