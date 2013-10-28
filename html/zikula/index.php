@@ -34,6 +34,16 @@ $func   = FormUtil::getPassedValue('func', 'main', 'GETPOST');
 $name   = FormUtil::getPassedValue('name', null, 'GETPOST');
 $file   = FormUtil::getPassedValue('file', 'index', 'GETPOST');
 
+
+//XTEC ************ AFEGIT - Protected parameter func from XSS vulnerability
+//2013.10.18 @aginard
+$pattern = '/^[a-zA-Z0-9_-]+$/';
+if (strlen($func) > 50 || !preg_match($pattern, $func)) {
+    $func = 'main';
+}
+//************ FI
+
+
 // Check for site closed
 if (pnConfigGetVar('siteoff') && !SecurityUtil::checkPermission('Settings::', 'SiteOff::', ACCESS_ADMIN) && !($module == 'Users' && $func == 'siteofflogin')) {
     if (SecurityUtil::checkPermission('Users::', '::', ACCESS_OVERVIEW) && pnUserLoggedIn()){
