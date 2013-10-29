@@ -2,7 +2,6 @@
 
 define('MOODLE_PREFIX', 'ml');
 define('MOODLE2_PREFIX', 'm2');
-define('INTRANET_PREFIX', 'zk_');
 define('STATS_PREFIX', '');
 
 define('SECONDS_IN_A_WEEK', '604800');
@@ -56,7 +55,7 @@ foreach ($allSchools as $school) {
     if (($school['service'] == 'moodle') && $doMoodle) {
         process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth, $forceUpdate);
     } else if (($school['service'] == 'intranet') && $doIntranet) {
-        process_intranet_stats($school, $year, $month, $day, $timestampofmonth);
+        process_intranet_stats($school, $year, $month, $day, $timestampofmonth, $school['version']);
     } else if (($school['service'] == 'moodle2') && $doMoodle2) {
         process_moodle2_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth);
     }
@@ -77,17 +76,18 @@ echo '<p>FET!</p>';
  * @param month            Mes del que es volen obtenir les estadistiques
  * @param day              Dia del que es volen obtenir les estadistiques
  * @param timestampofmonth Timestamp del darrer segon del mes del que es volen obtenir les estadistiques
+ * @param zkversion        Version of Zikula
  *
  * @return bool false si hi ha un error recuperable i acaba l'script si es irrecuperable
  */
-function process_intranet_stats($school, $year, $month, $day, $timestampofmonth) {
+function process_intranet_stats($school, $year, $month, $day, $timestampofmonth, $zkversion) {
 
     global $agora;
 
-    $day_usage = getSchoolIntranetStats_DayUsage($school, $year, $month, $day);
+    $day_usage = getSchoolIntranetStats_DayUsage($school, $year, $month, $day, $zkversion);
     $month_usage = getSchoolIntranetStats_MonthUsage($school, $year, $month, (int) $day);
     $month_usage = $month_usage + $day_usage;
-    $month_users = getSchoolIntranetStats_MonthUsers($school, $timestampofmonth);
+    $month_users = getSchoolIntranetStats_MonthUsers($school, $timestampofmonth, $zkversion);
 
     // Connecta a adminagora
     if (!($statsCon = opendb())) {
@@ -135,34 +135,41 @@ function process_intranet_stats($school, $year, $month, $day, $timestampofmonth)
  * @param year          Any del que es volen obtenir les estadistiques
  * @param month         Mes del que es volen obtenir les estadistiques
  * @param day           Dia del que es volen obtenir les estadistiques
+ * @param zkversion     Version of Zikula
  *
  * @return bool false si hi ha un error i el nombre de clics si no n'hi ha
  */
-function getSchoolIntranetStats_DayUsage($school, $year, $month, $day) {
+function getSchoolIntranetStats_DayUsage($school, $year, $month, $day, $zkversion) {
 
     if (!($con = connect_intranet($school))) {
         print '<br>No s\'ha pogut connectar a la base de dades de la intranet del centre ' . $school['dns'];
         return false;
     }
 
-    // Mira si el modul Stats esta actiu
     $stats_active = false;
-    $sql = 'SELECT `pn_state` FROM ' . INTRANET_PREFIX . 'modules WHERE `pn_name` = \'Stats\'';
+    if ($zkversion != '135') {
+        // Mira si el modul Stats esta actiu
+        $sql = 'SELECT `pn_state` FROM zk_modules WHERE `pn_name` = \'Stats\'';
 
-    if ($qry = mysql_query($sql, $con)) {
-        if ($data = mysql_fetch_array($qry)) {
-            if ($data['pn_state'] == 3) {
-                $stats_active = true;
+        if ($qry = mysql_query($sql, $con)) {
+            if ($data = mysql_fetch_array($qry)) {
+                if ($data['pn_state'] == 3) {
+                    $stats_active = true;
+                }
             }
         }
     }
 
     // Mira si el modul IWstats esta actiu
     $iwstats_active = false;
-    $sql = 'SELECT `pn_state` FROM ' . INTRANET_PREFIX . 'modules WHERE `pn_name` = \'IWstats\'';
+    if ($zkversion != '135') {
+        $sql = 'SELECT `pn_state` as state FROM zk_modules WHERE `pn_name` = \'IWstats\'';
+    } else {
+        $sql = 'SELECT `state` FROM modules WHERE `name` = \'IWstats\'';
+    }
     if ($qry = mysql_query($sql, $con)) {
         if ($data = mysql_fetch_array($qry)) {
-            if ($data['pn_state'] == 3) {
+            if ($data['state'] == 3) {
                 $iwstats_active = true;
             }
         }
@@ -178,7 +185,11 @@ function getSchoolIntranetStats_DayUsage($school, $year, $month, $day) {
         // Obte les dades del modul IWstats
         $max = "$year-$month-$day 23:59:59"; // Format datetime del MySQL: 2011-05-02 17:02:55
         $min = "$year-$month-$day 00:00:00";
-        $sql = 'SELECT count(*) AS total FROM ' . INTRANET_PREFIX . 'IWstats WHERE iw_datetime > \'' . $min . '\' AND iw_datetime < \'' . $max . '\'';
+        if ($zkversion != '135') {
+            $sql = 'SELECT count(*) AS total FROM zk_IWstats WHERE iw_datetime > \'' . $min . '\' AND iw_datetime < \'' . $max . '\'';
+        } else {
+            $sql = 'SELECT count(*) AS total FROM IWstats WHERE iw_datetime > \'' . $min . '\' AND iw_datetime < \'' . $max . '\'';
+        }
         if ($qry = mysql_query($sql, $con)) {
             if (mysql_num_rows($qry) == 0) {
                 $hits = 0;
@@ -190,7 +201,7 @@ function getSchoolIntranetStats_DayUsage($school, $year, $month, $day) {
         // Si el modul IWstats esta inactiu i Stats esta actiu, agafa les dades d'aquest mòdul
         if ($stats_active) {
             // Obte les dades del modul Stats
-            $sql = 'SELECT pn_hits FROM ' . INTRANET_PREFIX . 'stats_date WHERE pn_date=' . $date;
+            $sql = 'SELECT pn_hits FROM zk_stats_date WHERE pn_date=' . $date;
             if ($qry = mysql_query($sql, $con)) {
                 if (mysql_num_rows($qry) == 0) {
                     $hits = 0;
@@ -212,7 +223,7 @@ function getSchoolIntranetStats_DayUsage($school, $year, $month, $day) {
  * @param school        Array amb les dades del centre
  * @param year          Any del que es volen obtenir les estadistiques
  * @param month         Mes del que es volen obtenir les estadistiques
- * @param clientcode    Codi del centre
+ * @param day           Dia actual
  *
  * @return int  El nombre de clics
  */
@@ -261,10 +272,11 @@ function getSchoolIntranetStats_MonthUsage($school, $year, $month, $day) {
  *
  * @param school           Array amb les dades del centre
  * @param timestampofmonth Timestamp del darrer segon del mes del que es volen obtenir les estadistiques
+ * @param zkversion        Version of Zikula
  *
  * @return int El nombre de clics d'usuaris i false en cas d'error
  */
-function getSchoolIntranetStats_MonthUsers($school, $timestampofmonth) {
+function getSchoolIntranetStats_MonthUsers($school, $timestampofmonth, $zkversion) {
 
     if (!($con = connect_intranet($school))) {
         print '<br>No s\'ha pogut connectar a la base de dades de la intranet del centre ' . $school['dns'];
@@ -274,7 +286,11 @@ function getSchoolIntranetStats_MonthUsers($school, $timestampofmonth) {
     // Construeix la data de referència. A la BBDD és un datetime (format: 1970-01-01 00:00:00)
     $regdate = date("Y-m-d H:i:s", $timestampofmonth);
 
-    $sql = 'SELECT count(`pn_uid`) FROM ' . INTRANET_PREFIX . 'users where `pn_user_regdate` <= \'' . $regdate . '\'';
+    if ($zkversion != '135') {
+        $sql = 'SELECT count(`pn_uid`) FROM zk_users where `pn_user_regdate` <= \'' . $regdate . '\'';
+    } else {
+        $sql = 'SELECT count(`uid`) FROM users where `user_regdate` <= \'' . $regdate . '\'';
+    }
 
     if ($qry = mysql_query($sql, $con)) {
         if (mysql_num_rows($qry) == 0) {
