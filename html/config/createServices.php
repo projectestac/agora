@@ -96,6 +96,7 @@ if (empty($schoolCodes)) { // Show form
         $row = mysqli_fetch_array($res, MYSQLI_ASSOC);
         $dbChecked = $dbUser = $dbName = false;
         if ($row !== null) {
+            // S'ha obtingut la Id del Moodle 1.9
             $activedId = $row['activedId'];
             // Comprova si la BD està disponible i obté les dades de connexió
             $connResult = checkConnection($activedId);
@@ -105,6 +106,7 @@ if (empty($schoolCodes)) { // Show form
                 $dbName = $connResult['dbname'];
             }
         } else {
+            // No hi ha Moodle 1.9, es busca el proper forat lliure
             $sql = "SELECT DISTINCT activedId FROM agoraportal_client_services 
                     WHERE serviceId = $serviceIdMdl OR serviceId = $serviceIdMdl2 AND state <> 0 AND activedId <> 0
                     ORDER BY activedId";
@@ -125,6 +127,15 @@ if (empty($schoolCodes)) { // Show form
                 }
             }
             $activedId = $curIndex;
+            // Si la clàusula if sempre ha estat certa, cal comprovar la BD
+            if (!$dbChecked) {
+                $connResult = checkConnection($activedId);
+                if ($connResult !== false) {
+                    $dbChecked = true;
+                    $dbUser = $connResult['dbuser'];
+                    $dbName = $connResult['dbname'];
+                }
+            }
         }
         // Si no ha pogut connectar a la base de dades, prova el següent centre
         if (!$dbChecked) {
@@ -223,16 +234,9 @@ if (empty($schoolCodes)) { // Show form
             echo "S'ha produït un error en introduir un registre la taula <strong>agoraportal_autoregisterlog</strong><br />";
         }
 
-        // Pas 10: Indicar que el centre farà servir el URL moodle2
-        $sql = "UPDATE agoraportal_clients
-                SET extraFunc = 'moodle2'
-                WHERE clientCode = '$clientCode' ";
-        if (mysqli_query($dbc, $sql) === true) {
-            echo "S'ha indicat que el centre <strong>$clientDNS</strong> farà servir el URL /moodle2 per accedir al servei<br />";
-        } else {
-            echo "No s'ha pogut actualitzar el valor extrafunc per al centre <strong>$clientDNS</strong><br />";
-        }
-
+        // Comença un servei nou
+        echo '<br />';
+        
         mysqli_close($dbc);
     }
 }

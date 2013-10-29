@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- createServices.php: Fixed bug and removed config to /moodle2
+
 ZIKULA
 - Upgraded to version 1.2.9
 - Fixed XSS vulnerability
