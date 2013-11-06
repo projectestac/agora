@@ -4,27 +4,43 @@
 
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
-//XTEC ************ AFEGIT - To let access only to xtecadmin user
-//2012.05.23  @sarjona
-if (get_protected_agora()) { 
-//************ FI
     // Experimental settings page
     $ADMIN->add('development', new admin_category('experimental', new lang_string('experimental','admin')));
 
     $temp = new admin_settingpage('experimentalsettings', new lang_string('experimentalsettings', 'admin'));
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.05.23  @sarjona
+if (get_protected_agora()) { 
+//************ FI
     //TODO: Re-enable cc-import once re-implemented in 2.0.x
     //$temp->add(new admin_setting_configcheckbox('enableimsccimport', new lang_string('enable_cc_import', 'imscc'), new lang_string('enable_cc_import_description', 'imscc'), 0));
     $temp->add(new admin_setting_configcheckbox('enablesafebrowserintegration', new lang_string('enablesafebrowserintegration', 'admin'), new lang_string('configenablesafebrowserintegration', 'admin'), 0));
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.05.23  @sarjona
+}
+//************ FI
     $temp->add(new admin_setting_configcheckbox('enablegroupmembersonly', new lang_string('enablegroupmembersonly', 'admin'), new lang_string('configenablegroupmembersonly', 'admin'), 0));
 
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.05.23  @sarjona
+if (get_protected_agora()) { 
+//************ FI
     $temp->add(new admin_setting_configcheckbox('dndallowtextandlinks', new lang_string('dndallowtextandlinks', 'admin'), new lang_string('configdndallowtextandlinks', 'admin'), 0));
     // The CSS optimiser setting. When changed we need to reset the theme caches in order to ensure they are regenerated through the optimiser.
     $enablecssoptimiser = new admin_setting_configcheckbox('enablecssoptimiser', new lang_string('enablecssoptimiser','admin'), new lang_string('enablecssoptimiser_desc','admin'), 0);
     $enablecssoptimiser->set_updatedcallback('theme_reset_all_caches');
     $temp->add($enablecssoptimiser);
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.05.23  @sarjona
+}
+//************ FI
 
     $ADMIN->add('experimental', $temp);
 
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.05.23  @sarjona
+if (get_protected_agora()) { 
+//************ FI
     // "debugging" settingpage
     $temp = new admin_settingpage('debugging', new lang_string('debugging', 'admin'));
     $temp->add(new admin_setting_special_debug());
