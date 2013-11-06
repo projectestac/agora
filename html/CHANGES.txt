@@ -26,6 +26,7 @@ MOODLE 2
 - Fixed bug with modinfo corruption (Fix for https://tracker.moodle.org/browse/MDL-36789)
 - Reviewed rcommon (Marsupial) code to avoid some problems with PostgreSQL (patch reported by UPCnet)
 - Enabled enablegroupmembersonly experimental parameter
+- Fixed Moodle footer appearing over "New activity or resource" popup Window
 
 
 Changes 13.10.16
