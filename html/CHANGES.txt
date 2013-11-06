@@ -27,6 +27,7 @@ MOODLE 2
 - Reviewed rcommon (Marsupial) code to avoid some problems with PostgreSQL (patch reported by UPCnet)
 - Enabled enablegroupmembersonly experimental parameter
 - Fixed Moodle footer appearing over "New activity or resource" popup Window
+- Fixed bug on overviewnumpostssince count shown in My Moodle Page
 
 
 Changes 13.10.16

@@ -1318,7 +1318,7 @@ function forum_print_overview($courses,&$htmlarray) {
     if (!$forums = get_all_instances_in_courses('forum',$courses)) {
         return;
     }
-
+    
     // Courses to search for new posts
     $coursessqls = array();
     $params = array();
@@ -1350,7 +1350,7 @@ function forum_print_overview($courses,&$htmlarray) {
     if (!$new = $DB->get_records_sql($sql, $params)) {
         $new = array(); // avoid warnings
     }
-
+    
     // also get all forum tracking stuff ONCE.
     $trackingforums = array();
     foreach ($forums as $forum) {
@@ -1389,7 +1389,7 @@ function forum_print_overview($courses,&$htmlarray) {
         $sql = substr($sql,0,-3); // take off the last OR
         $sql .= ') AND p.modified >= ? AND r.id is NULL GROUP BY d.forum,d.course';
         $params[] = $cutoffdate;
-
+        
         if (!$unread = $DB->get_records_sql($sql, $params)) {
             $unread = array();
         }
@@ -1410,7 +1410,37 @@ function forum_print_overview($courses,&$htmlarray) {
         $showunread = false;
         // either we have something from logs, or trackposts, or nothing.
         if (array_key_exists($forum->id, $new) && !empty($new[$forum->id])) {
-            $count = $new[$forum->id]->count;
+            //XTEC ************ MODIFICAT - To fix bug on overviewnumpostssince count shown in My Moodle Page
+            //2013.11.06  @sarjona
+            $cm = get_coursemodule_from_instance('forum', $forum->id, 0, false, MUST_EXIST);
+            $context = context_module::instance($cm->id);
+            if (groups_get_activity_groupmode($cm) == SEPARATEGROUPS && !has_capability('moodle/site:accessallgroups', $context, $USER->id, true)) { 
+                // Count only the posts have been send to the groups of the current user
+                $sql = "SELECT COUNT(*) as count "
+                            .'FROM {forum} f '
+                            .'JOIN {forum_discussions} d ON d.forum  = f.id '
+                            .'JOIN {forum_posts} p ON p.discussion = d.id '
+                            .'WHERE f.id = ? AND p.created > ? AND p.userid != ? '
+                            .'AND (d.groupid = -1 OR d.groupid = 0 ';
+                $params = array();
+                $params[] = $forum->id;
+                $params[] = $courses[$forum->course]->lastaccess;
+                $params[] = $USER->id;
+                $groups = groups_get_all_groups($courses[$forum->course]->id, $USER->id);
+                foreach ($groups as $group) {
+                    $sql .= 'OR d.groupid = ?';
+                    $params[] = $group->id;
+                }
+                $sql .= ')'; 
+                $count = $DB->count_records_sql($sql, $params);
+            } else{
+                $count = $new[$forum->id]->count;        
+            }
+            //************ ORIGINAL
+            /*
+                $count = $new[$forum->id]->count;        
+            */
+            //************ FI  
         }
         if (array_key_exists($forum->id,$unread)) {
             $thisunread = $unread[$forum->id]->count;
