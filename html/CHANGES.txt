@@ -15,6 +15,7 @@ ZIKULA
 
 ZIKULA 2
 - IWusers: Fixed some module variables not being called correctly, as they belong to IWusers instead of IWmain
+- IWusers: Fixed warning when accessing to users module without being logged in
 - IWmoodle: Fixed dropdown group menu in synchronization section
 
 MOODLE 2

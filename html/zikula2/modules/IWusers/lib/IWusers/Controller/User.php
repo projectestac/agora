@@ -26,6 +26,12 @@ class IWusers_Controller_User extends Zikula_AbstractController {
             }
             $all = true;
         }
+
+        // @aginard: If user is not logged in, redirect to log-in page
+        if (is_null(UserUtil::getVar('uid'))) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $userGroups = ModUtil::func('IWmain', 'user', 'getAllUserGroups', array('sv' => $sv));
         // Gets the groups
@@ -48,8 +54,8 @@ class IWusers_Controller_User extends Zikula_AbstractController {
             }
         }
         return $this->view->assign('groups', $groups)
-                        ->assign('all', $all)
-                        ->fetch('IWusers_user_main.htm');
+                    ->assign('all', $all)
+                    ->fetch('IWusers_user_main.htm');
     }
 
     public function profile() {
