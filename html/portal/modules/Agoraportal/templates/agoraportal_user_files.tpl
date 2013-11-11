@@ -87,7 +87,7 @@
                 {gt text="Per problemes tècnics, la pujada de fitxers grans no funciona amb el navegador Google Chrome."}
             </div>
             <div class="z-informationmsg">
-                <p>{gt text="Des d'aquí podeu afegir fitxers més grans de 10MB al vostre espai, tenint en compte les qüestions següents:"}:</p>
+                <p>{gt text="Des d'aquí podeu afegir fitxers grans al vostre espai Moodle, tenint en compte les condicions següents:"}</p>
                 <ul>
                     <li>{gt text="Només s'admeten fitxers comprimits en format ZIP i MBZ que tinguin una mida compresa entre 10 i 100 MB."}</li>
                     <li>{gt text="Els fitxers de menys de 10 MB s'han de pujar des de l'espai web."}</li>

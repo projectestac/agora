@@ -30,6 +30,11 @@ MOODLE 2
 - Fixed Moodle footer appearing over "New activity or resource" popup Window
 - Fixed bug on overviewnumpostssince count shown in My Moodle Page
 
+PORTAL
+- Upload files: File name can reach 100 characters
+- Upload files: Improved some messages for users
+
+
 
 Changes 13.10.16
 ---------------------------------------------------------------------------------------

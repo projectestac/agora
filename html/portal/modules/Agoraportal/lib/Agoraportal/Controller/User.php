@@ -529,10 +529,10 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             } else {
                 switch ($serviceName) {
                     case 'moodle':
-                        LogUtil::registerStatus($this->__f('S\'ha pujat el fitxer <strong>%s</strong> al servidor. El trobareu en el vostre Moodle a <strong>Administració del lloc</strong> -> <strong>Primera plana</strong> -> <strong>Fitxers del lloc</strong>.', $file));
+                        LogUtil::registerStatus($this->__f('S\'ha pujat el fitxer <strong>%s</strong> al servidor. El trobareu en el vostre Moodle a <strong>Administració del lloc</strong> | <strong>Primera plana</strong> | <strong>Fitxers del lloc</strong>.', $file));
                         break;
                     case 'moodle2':
-                        LogUtil::registerStatus($this->__f('S\'ha pujat el fitxer <strong>%s</strong> al servidor. El trobareu en el repositori <strong>fitxers</strong> del vostres Moodle.', $file));
+                        LogUtil::registerStatus($this->__f('S\'ha pujat el fitxer <strong>%s</strong> al servidor. El trobareu en el repositori <strong>fitxers</strong> del vostre Moodle.', $file));
                 }
                 $size = round(filesize($destination . $file) / 1024);
                 $diskConsume = $clientServices[$clientServiceId]['diskConsume'] + $size;
