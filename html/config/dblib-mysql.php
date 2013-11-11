@@ -519,7 +519,7 @@ function endsWith($haystack, $needle) {
 function connect_moodle($school) {
     global $agora;
 
-    $con = oci_pconnect($agora['moodle']['username'] . $school['id'], $agora['moodle']['userpwd'], $school['database']);
+    $con = oci_pconnect($agora['moodle2']['username'] . $school['id'], $agora['moodle']['userpwd'], $school['database']);
     return $con;
 }
 
@@ -582,7 +582,7 @@ function getServicesToTest($service) {
 
     if ($service == 'intranet') {
         // Get the list of intranets to test
-        $sql = 'SELECT dbHost, min(activedId) as id
+        $sql = 'SELECT dbHost, c.version, min(activedId) as id
                 FROM `agoraportal_client_services` c
                 LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
                 WHERE serviceName = \'' . $service . '\'
@@ -596,9 +596,9 @@ function getServicesToTest($service) {
         }
 
         while ($row = mysql_fetch_assoc($result)) {
-            $schools[$row['id']] = $row['dbHost'];
+            $schools[$row['id']] = array('dbhost' => $row['dbHost'], 'zkversion' => $row['version']);
         }
-    } elseif ($service == 'moodle') {
+    } elseif ($service == 'moodle2') {
         // Get the list of Moodles to test
         $sql = 'SELECT serviceDB, min(activedId) as id
                 FROM `agoraportal_client_services` c

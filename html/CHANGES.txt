@@ -8,6 +8,7 @@ Changes in progress
 GENERAL
 - createServices.php: Fixed bug and removed config to /moodle2
 - statistics.php: Fixed data from Zikula 1.3 not being collected
+- works.php: Support for Zikula 1.3 and moved testing from Moodle 1.9 to Moodle 2
 
 ZIKULA
 - Upgraded to version 1.2.9
