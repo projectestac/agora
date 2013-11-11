@@ -17,7 +17,7 @@
             <form name="statsForm" id="statsForm" action="index.php?module=Agoraportal&type=admin&func=statsGetCSVContent" method="POST">
                 <select name="which" id="which" onchange="javascript:statsServiceSelected()">
                     <option value="all" {if $which neq "selected"}selected="selected"{/if}>{gt text="Tots els centres"}</option>
-                    <option value="selected" {if $which eq "selected"}selected="selected"{/if}>{gt text="Només els sel·leccionats"}</option>
+                    <option value="selected" {if $which eq "selected"}selected="selected"{/if}>{gt text="Només els seleccionats"}</option>
                 </select>
                 <select name="stats_sel" id="stats_sel" onchange="javascript:statsServiceSelected()">
                     <option value="0">{gt text="Selecciona una opció"}</option>

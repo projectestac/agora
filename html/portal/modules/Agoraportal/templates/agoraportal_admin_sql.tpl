@@ -87,7 +87,7 @@
                     <b>{gt text="Executa sobre:"}</b><br/>
                     <select name="which" id="which" onchange="javascript:sqlservicesList()">
                         <option value="all" {if $which neq "selected"}selected="selected"{/if}>{gt text="Tots els centres"}</option>
-                        <option value="selected" {if $which eq "selected"}selected="selected"{/if}>{gt text="Només els sel·leccionats"}</option>
+                        <option value="selected" {if $which eq "selected"}selected="selected"{/if}>{gt text="Només els seleccionats"}</option>
                     </select>
                     <br />
                     <select name="service_sel" id="service_sel" onchange="javascript:sqlservicesList()">

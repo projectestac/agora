@@ -1,6 +1,6 @@
 {if $requestTypeId eq '1' && !$thresholdExceeded}
 <div class="z-informationmsg">
-    El servei sel·leccionat no arriba al mínim d'espai ocupat per demanar l'ampliació 
+    El servei seleccionat no arriba al mínim d'espai ocupat per demanar l'ampliació 
     de quota (actualment, el {$diskRequestThreshold}% de quota consumida amb
     un màxim de {$maxFreeQuotaForRequest} MB lliures).
 </div>

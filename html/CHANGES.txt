@@ -35,6 +35,7 @@ PORTAL
 - Upload files: File name can reach 100 characters
 - Upload files: Improved some messages for users
 - Only admins are allowed to see authors' names in logs
+- Agoraportal: Fixed grammar error
 
 
 
