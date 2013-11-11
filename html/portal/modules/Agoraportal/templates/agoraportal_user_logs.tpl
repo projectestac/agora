@@ -9,7 +9,7 @@
     <div class="z-pageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <h2>{gt text="Registre d'accions fetes"}</h2>
     {if $isAdmin}
-    {include file="agoraportal_admin_clientInfo.tpl"}
+        {include file="agoraportal_admin_clientInfo.tpl"}
     {/if}
     <div class="z-form">
         <fieldset>
@@ -38,13 +38,15 @@
                                     <td><input size="15" id="to_inpt" /><input type="button" id="to_btn" value="..." /></td></tr>
                             </table>
                         </td>
-                        <td>
-                            <span style="margin-left:50px;">&nbsp;</span>
-                        </td>
-                        <td>
-                            {gt text="Filtra per usuari<br>"}
-                            <input type="text" name="uname" id="uname" size="20"/>			
-                        </td>
+                        {if $isAdmin}
+                            <td>
+                                <span style="margin-left:50px;">&nbsp;</span>
+                            </td>
+                            <td>
+                                {gt text="Filtra per nom d'usuari/ària<br />"}
+                                <input type="text" name="uname" id="uname" size="20"/>
+                            </td>
+                        {/if}
                     </tr>
                     <tr>
                         <td>

@@ -31,6 +31,12 @@ MOODLE 2
 - Fixed bug on overviewnumpostssince count shown in My Moodle Page
 - Hidden Alfresco repository (only visible for xtecadmin or when it's enabled)
 
+PORTAL
+- Upload files: File name can reach 100 characters
+- Upload files: Improved some messages for 
+- Only admins are allowed to see authors' names in logs
+
+
 
 Changes 13.10.16
 ---------------------------------------------------------------------------------------

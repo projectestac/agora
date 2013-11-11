@@ -58,11 +58,11 @@ function checkFileNameFormat(){
                 }
 
                 var file_name = string.slice(num_of_last_slash + 1, string.length);
-                var re = /^[\w][\w\.\-\s]{1,48}$/i;
+                var re = /^[\w][\w\.\-\s]{1,100}$/i;
 
                 if(!re.test(file_name)){
                     //alert("Sorry, uploading files in this format is not allowed. Please ensure your file names follow this format. \n\n1. Entire file cannot exceed 48 characters\n2. Format should be filename.extension or filename\n3. Legal characters are 1-9, a-z, A-Z, _, -, space\n");
-                    alert("La càrrega d'aquest tipus de fitxers no està permesa. Si us plau, assegura't de que el fitxer compleix les normes següents:\n\n1. El nom del fitxer no pot excedir els 48 caràcters\n2. El format ha de ser fitxer.extensio o fitxer\n3. Els caràcters permesos són 1-9, a-z, A-Z, _, - i espai en blanc.\n");
+                    alert("La càrrega d'aquest tipus de fitxers no és permesa. Si us plau, assegureu-vos de que el fitxer compleix les normes següents:\n\n1. El nom del fitxer no pot excedir els 100 caràcters.\n2. El format ha de ser fitxer.zip o fitxer.mbz.\n3. Els caràcters permesos són 1-9, a-z, A-Z, _, - i espai en blanc.\n");
                     return true;
                 }
             }
