@@ -20,7 +20,9 @@
         <tr>
             <th>{gt text="Tipus d'acció"}</th>
             <th>{gt text="Acció"}</th>
-            <th>{gt text="Autor"}</th>
+            {if $isAdmin}
+                <th>{gt text="Autor/a"}</th>
+            {/if}
             <th>{gt text="Data"}</th>
         </tr>
     </thead>
@@ -39,9 +41,11 @@
             <td>
                 {$log.action|stripslashes}
             </td>
-            <td class="autor">
-                {$log.uname}
-            </td>				
+            {if $isAdmin}
+                <td class="autor">
+                    {$log.uname}
+                </td>
+            {/if}
             <td class="time">
                 {$log.time|dateformat:"%d-%m-%Y"}
             </td>

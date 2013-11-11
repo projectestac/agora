@@ -945,10 +945,12 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $logs = $response['content'];
         $numLogs = $response['numLogs'];
         $numPags = $response['numPags'];
+        
         $pags = array();
         for ($i = 1; $i <= $numPags; $i++) {
             $pags[$i] = $i;
         }
+        
         $config = array('init' => $init,
             'actionCode' => $actionCode,
             'uname' => $uname,
@@ -956,10 +958,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             'toDate' => $toDate,
             'pag' => $pag);
 
+        $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
+
         return $this->view->assign('logs', $logs)
                         ->assign('pags', $pags)
                         ->assign('config', $config)
                         ->assign('numLogs', $numLogs)
+                        ->assign('isAdmin', $isAdmin)
                         ->fetch('agoraportal_user_logsContent.tpl');
     }
 

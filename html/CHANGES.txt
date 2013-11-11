@@ -32,7 +32,8 @@ MOODLE 2
 
 PORTAL
 - Upload files: File name can reach 100 characters
-- Upload files: Improved some messages for users
+- Upload files: Improved some messages for 
+- Only admins are allowed to see authors' names in logs
 
 
 
