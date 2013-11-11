@@ -1051,9 +1051,10 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:     The new manager identity if success and false otrerwise
      */
     public function addManager($args) {
-        $managerUName = FormUtil::getPassedValue('managerUName', isset($args['managerUName']) ? $args['managerUName'] : null, 'POST');
-        $verifyCode = FormUtil::getPassedValue('verifyCode', isset($args['verifyCode']) ? $args['verifyCode'] : null, 'POST');
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
+        $managerUName = (isset($args['managerUName'])) ? $args['managerUName'] : null;
+        $verifyCode = (isset($args['verifyCode'])) ? $args['verifyCode'] : null;
+        $clientCode = (isset($args['clientCode'])) ? $args['clientCode'] : null;
+
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
             throw new Zikula_Exception_Forbidden();

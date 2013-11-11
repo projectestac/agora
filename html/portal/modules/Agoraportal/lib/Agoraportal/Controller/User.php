@@ -1130,7 +1130,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
         // check if user can add a new manager
-        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array());
         $clientCode = $clientInfo['clientCode'];
         // Confirm authorisation code
         $this->checkCsrfToken();
@@ -1142,6 +1142,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             }
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers'));
         }
+
+        // In case an e-mail address was given, remove text after @
+        $pos = strpos($managerUName, '@');
+        if ($pos !== false) {
+            $managerUName = substr($managerUName, 0, $pos);
+        }
+
         // the user delegated can't have a code username
         if (is_numeric(substr($managerUName, 1, strlen($managerUName)))) {
             LogUtil::registerError($this->__('No pots assignar a usuaris genèrics la gestió.'));

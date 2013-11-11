@@ -75,7 +75,7 @@
             <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
             <input type="hidden" name="clientCode" value="{$client.clientCode}" />
             <div class="z-formrow">
-                <label for="managerUName">{gt text='Nom d\'usuari/ària XTEC del gestor/a'}:</label>
+                <label for="managerUName">{gt text="Nom d'usuari/ària XTEC del gestor/a"}:</label>
                 <input name="managerUName" type="text" name="managerUName" />
             </div>
             <div class="z-formrow">
@@ -110,8 +110,8 @@
     </form>
     {/if}
     <script>
-        var _AGORAPORTALCONFIRMMANAGERDELETION = "{{gt text='Confirma que vols esborrar el gestor/a.'}}";
-        var _AGORAPORTALNOTUSERNAME = "{{gt text='No has escrit el nom d\'usuari/ària XTEC.'}}";
-        var _AGORAPORTALNOTCONFIRMKEY = "{{gt text='No has escrit la paraula clau de confirmació.'}}";
+        var _AGORAPORTALCONFIRMMANAGERDELETION = "{{gt text='Confirmeu que voleu esborrar el gestor/a.'}}";
+        var _AGORAPORTALNOTUSERNAME = "{{gt text='No heu escrit el nom d\'usuari/ària XTEC.'}}";
+        var _AGORAPORTALNOTCONFIRMKEY = "{{gt text='No heu escrit la paraula clau de confirmació.'}}";
     </script>
 </div>

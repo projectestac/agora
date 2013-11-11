@@ -37,6 +37,7 @@ PORTAL
 - Upload files: Improved some messages for users
 - Only admins are allowed to see authors' names in logs
 - Agoraportal: Fixed grammar error and improved message to deny increase of quota
+- Agoraportal: When a manager name is an email, the text after the at sign (@) is removed
 
 
 
