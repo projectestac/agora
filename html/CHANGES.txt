@@ -31,6 +31,7 @@ MOODLE 2
 - Fixed Moodle footer appearing over "New activity or resource" popup Window
 - Fixed bug on overviewnumpostssince count shown in My Moodle Page
 - Hidden Alfresco repository (only visible for xtecadmin or when it's enabled)
+- Showed again Appearance | Default My home page parameters page
 
 PORTAL
 - Upload files: File name can reach 100 characters
