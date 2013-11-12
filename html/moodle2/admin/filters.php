@@ -289,12 +289,22 @@ function get_table_row($filterinfo, $isfirstrow, $islastactive, $applytostrings)
         $row[] = '';
     }
 
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2013.11.12  @sarjona
+    if (get_protected_agora()) {
+    //************ FI
     // Delete
     if (substr($filter, 0, 4) != 'mod/') {
         $row[] = '<a href="' . filters_action_url($filter, 'delete') . '">' . get_string('delete') . '</a>';
     } else {
         $row[] = '';
     }
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2013.11.12  @sarjona
+    } else {
+        $row[] = '';        
+    }
+    //************ FI
 
     return $row;
 }
