@@ -88,3 +88,4 @@
 
     // Needed for SSO with Moodle for salted passwords created in Moodle
     $ZConfig['MoodleSalt'][0] = 'y7a!Eb019n8Z5*43Sl5J&ly4pjJUk-b';
+    $ZConfig['centre']['nomPropi'] = $centre;	

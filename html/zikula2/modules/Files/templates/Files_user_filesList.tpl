@@ -1,4 +1,6 @@
+
 {ajaxheader modname=Files filename=files.js}
+
 <div class="files_container">
     <div class="z-clearfix">
         <div class="userpageicon">{img modname='core' src='lists.png' set='icons/large'}</div>
@@ -12,6 +14,7 @@
         {gt text="It is not possible to write in this directory. Make it writable."}
     </p>
     {/if}
+    
 
     <div class="actionIcons z-menuitem-title">
         <a class="fi_image fi_createdir" href="javascript: createDir('{$folderName}',0)">{gt text="Create directory"}</a>
@@ -26,25 +29,37 @@
         </a>
         {/if}
     </div>
-
+    
     <div id="actionForm" class="actionForm">
-        <div class="diskSpace">
-            {gt text="Disk use:"}
-            {if $usedSpace.maxDiskSpace neq -1048576}
+
+            <!--  ************ ELIMINAT - Moved to another position 
+	    //2013.09.25 @jmeler
+
+	    {gt text="Disk use:"}
+            {if $usedSpace.maxDiskSpace neq -1048576} 
             <div style="width:{$usedSpace.widthUsage}px; background:url({$baseurl}modules/Files/images/usage.gif);">&nbsp;</div>
             {gt text="%s%% - %s of %s" tag1=$usedSpace.percentage tag2=$usedSpace.usedDiskSpace tag3=$usedSpace.maxDiskSpace}
             {else}
             <div class="diskSpace">{$usedSpace.usedDiskSpace}</div>
-            {/if}
-        </div>
+            {/if} ************ FI -->
+
     </div>
+    
+   <!--  ************ MODIFICAT - Only text of warning 
+   2013.09.25 @jmeler -->
 
     {if $publicFolder}
-    <p class="z-informationmsg">
-        {gt text="The files in this directory are accessible directly from the navigator. Anybody can access to them with the URL:"}
-        <strong>{$baseurl}file.php?file={$folderPath}{if $folderPath|substr:-1 neq '/'}/{/if}{gt text="file_name"}</strong>
-    </p>
+        <p class="z-warningmsg">
+        {gt text="The files in this directory are accessible directly from the navigator. Anybody can access to them with the URL:"} 
+    {elseif $folderName neq '' }
+            <p class="z-informationmsg">
+            {gt text="The files in this directory no are accessible directly. Set directory as Public."} 
+    {else}
+            <p class="z-informationmsg">
+            {gt text="The files in root directory aren't accessible directly."} 
     {/if}
+   <!--************ FI -->
+	
 
     <form class="z-form" method="post" action="{modurl modname='Files' type='user' func='actionSelect' folder=$folderName|replace:'/':'|'}" id="form1">
         <table class="z-datatable" summary="table files">
@@ -82,8 +97,9 @@
                      <td>&nbsp;</td>
                  </tr>
                  {/if}
-
+                <!-- folders -->
                  {foreach item=file from=$fileList.dir}
+                 <!-- non equal thumbnail image -->
                  {if $file.name neq '.tbn'}
                  <tr class="{cycle values="z-odd,z-even"}">
                      <td align="center">
@@ -115,16 +131,24 @@
                  </tr>
                  {/if}
                  {/foreach}
-
+                 <!-- files -->
                  {foreach item=file from=$fileList.file}
                  <tr class="{cycle values="z-odd,z-even"}">
                      <td align="center">
                          <input type="checkbox" name="list_{$file.name|replace:'.':'$$$$$'}" onclick="stateCheckAll(this.checked)"/>
                      </td>
                      <td align="left">
-                         <a class="fi_image" style="background: url({$baseurl}modules/Files/images/fileIcons/{$file.fileIcon}) no-repeat 0 50%;" href="{modurl modname='Files' type='user' func='downloadFile' folder=$folderName|replace:'/':'|' fileName=$file.name|replace:'/':'|'}">
-                             {$file.name}
+
+                         <!--XTEC ************ MODIFICAT 
+			 2013.09.18 @jmeler -->
+
+                         <a class="fi_image" 
+                          style="background: url({$baseurl}modules/Files/images/fileIcons/{$file.fileIcon}) no-repeat 0 50%;" 
+                          href="{$baseurl}file.php?file={$folderPath}{if $folderPath neq ''}{if $folderPath|substr:-1 neq '/'}/{/if}{/if}{$file.name}">{$file.name}
                          </a>
+
+                         <!-- *********************FI -->
+
                      </td>
                      <td align="right">
                          {$file.size} {gt text="Bytes"}
@@ -152,6 +176,12 @@
                     <option value="delete">{gt text="Delete them"}</option>
                     <option value="zip">{gt text="Create a zip file with them"}</option>
                 </select>
+             <span style="color:grey;float:right;">{gt text="Disk use:"} {$usedSpace.usedDiskSpace} de {$diskSpace} ({$percentatgeUs}%)</span>
+           
             </fieldset>
+            
         </form>
-    </div>
+    
+ 
+            
+ </div>

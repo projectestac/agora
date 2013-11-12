@@ -1,3 +1,6 @@
+<!--XTEC ************ MODIFICAT - Usability improvements
+2013.09.25 @jmeler -->
+
 {nocache}{include file='user/menu.tpl'}{/nocache}
 {insert name='getstatusmsg'}
 
@@ -22,7 +25,7 @@
 <div class="news_article news_preview" style="background-image: url({img modname='News' src='bg_preview.png' retval='src'})">{$preview}</div>
 {/if}
 
-<h3>{gt text='Create an article'}</h3>
+<!--<h2>{gt text='Create an article'}</h2>-->
 
 
 <form id="news_user_newform" class="z-form" action="{modurl modname='News' type='user' func='create'}" method="post" enctype="{if $accesspicupload AND $modvars.News.picupload_enabled}multipart/form-data{else}application/x-www-form-urlencoded{/if}">
@@ -41,15 +44,15 @@
         <input type="hidden" name="story[hometextcontenttype]" value="1" />
         <input type="hidden" name="story[bodytextcontenttype]" value="1" />
         {/if}
-
-        <fieldset>
+       
+        <fieldset style="display:none">
             <legend>{gt text='Title'}</legend>
 
             <div class="z-formrow">
                 <label for="news_title">{gt text='Title text'}<span class="z-mandatorysym">*</span></label>
                 <input id="news_title" name="story[title]" type="text" size="32" maxlength="255" value="{$item.title|safetext}" />
             </div>
-
+            
             {if $accessadd eq 1}
             <div class="z-formrow">
                 <label for="news_urltitle">{gt text='Permalink URL'}</label>
@@ -57,7 +60,7 @@
                 <em class="z-sub z-formnote">{gt text='(Generated automatically if left blank)'}</em>
             </div>
             {/if}
-
+                
             {if $modvars.News.enablecategorization}
             <div class="z-formrow">
                 <label>{gt text='Category'}</label>
@@ -70,7 +73,7 @@
                 {/nocache}
             </div>
             {/if}
-
+            
             {if $modvars.ZConfig.multilingual}
             <div class="z-formrow">
                 <label for="news_language">{gt text='Language for which article should be displayed'}</label>
@@ -80,37 +83,59 @@
         </fieldset>
 
         <fieldset class="z-linear">
-            <legend>{gt text='Article'}</legend>
+             <legend>{gt text='Create an article'}</legend>
+            
+             <div class="z-formrow">
+                <label for="news_title"><strong>{gt text='Title text'}</strong><span class="z-mandatorysym">*</span></label>
+                <input id="news_title" name="story[title]" type="text" size="32" maxlength="255" value="{$item.title|safetext}" />
+            </div>
+            
+            {if $modvars.News.enablecategorization}
             <div class="z-formrow">
+                <label><strong>{gt text='Category'}</strong></label>
+                {gt text='Choose category' assign='lblDef'}
+                {nocache}
+                {foreach from=$catregistry key='property' item='category'}
+                {array_field assign='selectedValue' array=$item.__CATEGORIES__ field=$property}
+                <div class="z-formnote">{selector_category category=$category name="story[__CATEGORIES__][$property]" field='id' selectedValue=$selectedValue defaultValue='0' defaultText=$lblDef}</div>
+                {/foreach}
+                {/nocache}
+            </div>
+            {/if}
+            
+                      
+            <div class="z-formrow" style="display:none">
                 {if $formattedcontent eq 0}
                 <div class="z-warningmsg">{gt text='Permitted HTML tags'}: {news_allowedhtml}</div>
                 {/if}
                 <div class="z-informationmsg" style='margin-bottom:0 !important;'><span class="z-mandatorysym">*</span> {gt text='You must enter either <strong>teaser text</strong> or <strong>body text</strong>.'}</div>
             </div>
+                       
             <div class="z-formrow">
-                <label for="news_hometext"><strong>{gt text='Index page teaser text'}</strong></label>
+                <label for="news_hometext"><strong>{gt text='Index page teaser text'}</strong><span class="z-mandatorysym">*</span></label>
                 <textarea id="news_hometext" name="story[hometext]" cols="40" rows="10">{$item.hometext|safetext}</textarea>
-                {if $formattedcontent eq 0}<span id="news_hometext_remaining" class="z-formnote z-sub">{gt text='(Limit: %s characters)' tag1='4,294,967,295'}</span>{/if}
             </div>
-
+            
+             </br> 
             {if $formattedcontent eq 0}
-            <div class="z-formrow">
+            <div class="z-formrow"  style="display:none">
                 <label for="news_hometextcontenttype">{gt text='Index page teaser format'}</label>
-                <select id="news_hometextcontenttype" name="story[hometextcontenttype]">
+               <select id="news_hometextcontenttype" name="story[hometextcontenttype]">
                     <option value="0"{if $item.hometextcontenttype eq 0} selected="selected"{/if}>{gt text='Plain text'}</option>
                     <option value="1"{if $item.hometextcontenttype eq 1} selected="selected"{/if}>{gt text='Text formatted with mark-up language'}</option>
                 </select>
             </div>
             {/if}
+            
 
             <div class="z-formrow">
                 <label for="news_bodytext"><strong>{gt text='Article body text'}</strong></label>
                 <textarea id="news_bodytext" name="story[bodytext]" cols="40" rows="10">{$item.bodytext|safetext}</textarea>
-                {if $formattedcontent eq 0}<span id="news_bodytext_remaining" class="z-formnote z-sub">{gt text='#{chars} characters out of 4,294,967,295'}</span>{/if}
             </div>
 
+            
             {if $formattedcontent eq 0}
-            <div class="z-formrow">
+            <div class="z-formrow" style="display:none">
                 <label for="news_bodytextcontenttype">{gt text='Article body format'}</label>
                 <select id="news_bodytextcontenttype" name="story[bodytextcontenttype]">
                     <option value="0"{if $item.bodytextcontenttype eq 0} selected="selected"{/if}>{gt text='Plain text'}</option>
@@ -118,9 +143,10 @@
                 </select>
             </div>
             {/if}
+            
 
             {if $accessadd eq 1}
-            <div class="z-formrow">
+            <div class="z-formrow" style="display:none">
                 <label for="news_notes"><a id="news_notes_collapse" href="javascript:void(0);"><span id="news_notes_showhide">{gt text='Show'}</span> {gt text='Footnote'}</a></label>
                 <p id="news_notes_details">
                     <textarea id="news_notes" name="story[notes]" cols="40" rows="10">{$item.notes|safetext}</textarea>
@@ -128,6 +154,9 @@
                 </p>
             </div>
             {/if}
+            
+            
+            
         </fieldset>
 
         {if $modvars.News.picupload_enabled AND $accesspicupload}
@@ -172,7 +201,7 @@
 
         {if $accesspubdetails}
         <fieldset>
-            <legend><a id="news_publication_collapse" href="javascript:void(0);"><span id="news_publication_showhide">{gt text='Show'}</span> {gt text='Publishing options'}</a></legend>
+            <legend><a id="news_publication_collapse" href="javascript:void(0);"><span style="display:none" id="news_publication_showhide">{gt text=''}</span> {gt text='Publishing options'}</a></legend>
             <div id="news_publication_details">
                 <div class="z-formrow">
                     <label for="news_displayonindex">{gt text='Display on news index page'}</label>
@@ -258,22 +287,27 @@
         </div>
 
         <div class="z-buttonrow z-buttons z-center">
+        
+            <button id="news_button_preview" type="submit" name="story[action]" value="0" title="{gt text='Preview this article'}">{img src='14_layer_visible.png' modname='core' set='icons/extrasmall' __alt='Preview' __title='Preview this article'} {gt text='Preview'}</button>
+            
             {if $accessadd neq 1}
             <button id="news_button_submit" class="z-btgreen" type="submit" name="story[action]" value="1" title="{gt text='Submit this article'}">{img src='button_ok.png' modname='core' set='icons/extrasmall' __alt='Submit' __title='Submit this article' } {gt text='Submit'}</button>
             {else}
-            <button id="news_button_publish" class="z-btgreen" type="submit" name="story[action]" value="2" title="{gt text='Publish this article'}">{img src='button_ok.png' modname='core' set='icons/extrasmall' __alt='Publish' __title='Publish this article' }<span id="news_button_text_publish"> {gt text='Publish'}</span></button>
-            <span id="news_button_savedraft_nonajax">
+            
+            <!-- <span id="news_button_savedraft_nonajax">
                 <button id="news_button_draft_nonajax" type="submit" name="story[action]" value="6" title="{gt text='Save this article as draft'}">{img src='edit.png' modname='core' set='icons/extrasmall' __alt='Save as draft' __title='Save this article as draft'} {gt text='Save as draft'}</button>
             </span>
             <span id="news_button_savedraft_ajax" class="hidelink">
                 <a id="news_button_draft" href="javascript:void(0);" onclick="savedraft();">{img src='edit.png' modname='core' set='icons/extrasmall' __alt='Save quick draft'  __title='Quick save as draft'}
                     <span id="news_button_text_draft"> {gt text='Save quick draft'}</span>
                 </a>
-            </span>
+            </span>-->
+
             <button id="news_button_fulldraft" type="submit" name="story[action]" value="8" title="{gt text='Save full draft'}">{img src='edit.png' modname='core' set='icons/extrasmall' __alt='Save full draft' __title='Save full draft'} {gt text='Save full draft'}</button>
-            <button id="news_button_pending" type="submit" name="story[action]" value="4" title="{gt text='Mark this article as pending'}">{img src='clock.png' modname='core' set='icons/extrasmall' __alt='Pending' __title='Mark this article as pending'} {gt text='Pending'}</button>
+            <!-- <button id="news_button_pending" type="submit" name="story[action]" value="4" title="{gt text='Mark this article as pending'}">{img src='clock.png' modname='core' set='icons/extrasmall' __alt='Pending' __title='Mark this article as pending'} {gt text='Pending'}</button>-->
+            <button id="news_button_publish" class="z-btgreen" type="submit" name="story[action]" value="2" title="{gt text='Publish this article'}">{img src='button_ok.png' modname='core' set='icons/extrasmall' __alt='Publish' __title='Publish this article' }<span id="news_button_text_publish"> {gt text='Publish'}</span></button>
+           
             {/if}
-            <button id="news_button_preview" type="submit" name="story[action]" value="0" title="{gt text='Preview this article'}">{img src='14_layer_visible.png' modname='core' set='icons/extrasmall' __alt='Preview' __title='Preview this article'} {gt text='Preview'}</button>
             <a id="news_button_cancel" href="{modurl modname='News' type='user' func='view'}" class="z-btred">{img modname='core' src='button_cancel.png' set='icons/extrasmall' __alt='Cancel' __title='Cancel'} {gt text='Cancel'}</a>
             <div id="news_status_info" style='padding-top: 1em;'>
                 <span id="news_saving_draft">{img modname='core' src='circle-ball-dark-antialiased.gif' set='ajax'}</span>

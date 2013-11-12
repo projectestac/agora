@@ -1,12 +1,21 @@
 	
 function FilesFindItemXinha(editor, maURL)
 {
+    /*
     var pWidth = screen.width * 0.75;
     var pHeight = screen.height * 0.66;
     var pTop = (screen.height - pHeight) / 2;
     var pLeft = (screen.width - pWidth) / 2;
+    */
     
-    editor._popupDialog(maURL , function(value){editor.insertHTML('<img src="'+ value + '" alt="' + getFileName(value) + '" title="' + getFileName(value) + '"/>')})
+    
+    /* 26.09.13 *************** XTEC MODIFICAT - simply open 
+    @jmeler redirecció a Files    */
+    window.open(maURL,'_blank');
+   /* ***********ORIGINAL
+    * editor._popupDialog(maURL , function(value){editor.insertHTML('<img src="'+ value + '" alt="' + getFileName(value) + '" title="' + getFileName(value) + '"/>')})
+    ************ FI */
+
 }
 
 function getFileName (value) {
@@ -48,7 +57,8 @@ function insertAndClose(file){
 }
 
 function Loadwindow(){
-	url = document.location.pnbaseURL + document.location.entrypoint + "?module=Files&type=external&func=getFiles&hook=1";
+	
+        url = document.location.pnbaseURL + document.location.entrypoint + "?module=Files&type=external&func=getFiles&hook=1";
 	popup=window.open(url,"Files","location=1,status=1,scrollbars=1,width=600,height=700");
 	popup.window.document.getElementsByTagName('body')[0].setAttribute('onblur','self.focus()');
 	

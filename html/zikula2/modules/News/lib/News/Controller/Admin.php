@@ -712,15 +712,22 @@ class News_Controller_Admin extends Zikula_AbstractController
         $articles = FormUtil::getPassedValue('news_selected_articles', array(), 'POST');
         $bulkaction = (int)FormUtil::getPassedValue('news_bulkaction_select', 0, 'POST');
         $cat_data = FormUtil::getPassedValue('news_bulkaction_categorydata', '', 'POST');
-
-        if ($bulkaction >= 1 && $bulkaction <= 5) {
+        
+	//XTEC ************ MODIFICAT - Add new action: 6-Pending
+	//2013.09.25 @jmeler
+       
+        if ($bulkaction >= 1 && $bulkaction <= 6) {
             $actionmap = array(
                 // these indices are not constants, just unrelated integers
                 1 => __('Delete'),
                 2 => __('Archive'),
                 3 => __('Publish'),
                 4 => __('Reject'),
-                5 => __('Change categories'));
+                5 => __('Change categories'),
+                6 => __('Pending'));
+
+	//************ FI
+                
             $updateresult = array(
                 'successful' => array(),
                 'failed' => array());

@@ -564,10 +564,15 @@ button.z-imagebutton, /* Buttons in inline 'ajax' forms */
 .z-form .z-datatable input[type="text"],
 .z-form .z-datatable textarea {
     padding: 0.3em 0.3em;
+    /*XTEC ************ AFEGIT 
+    2013.09.25 @jmeler */	
+    border-color:black;	
 }
 
 .z-form .z-datatable select {
+
     padding: 0.3em 2px 0.3em 1px;
+
 }
 
 /******************************************************************************

@@ -18,6 +18,8 @@ ZIKULA 2
 - IWusers: Fixed some module variables not being called correctly, as they belong to IWusers instead of IWmain
 - IWusers: Fixed warning when accessing to users module without being logged in
 - IWmoodle: Fixed dropdown group menu in synchronization section
+- News: Improvements to user interface to create news
+- Files: Several usability improvements
 
 MOODLE 2
 - Fixed bug on submissions count shown in My Moodle summary page

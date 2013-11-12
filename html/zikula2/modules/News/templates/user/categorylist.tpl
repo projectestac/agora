@@ -118,3 +118,9 @@
 {else}
     {modfunc modname='News' type='user' func='view'}
 {/if}
+
+<!--XTEC ************ AFEGIT - Link new category 
+2013.09.25 @jmeler -->
+<a href="?module=categories&type=user&func=edit&dr=30">Crear una nova categoria</a>
+<!-- ************ FI -->
+

@@ -35,7 +35,7 @@ class News_Controller_User extends Zikula_AbstractController
         );
         $this->redirect(ModUtil::url('News', 'user', 'view', $args));
     }
-
+    
     /**
      * add new item
      *

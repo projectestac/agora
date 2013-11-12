@@ -1,6 +1,6 @@
   xinha_config.toolbar =
     [
-      ["popupeditor","htmlmode","separator","formatblock","bold","italic","underline","forecolor","textindicator","subscript","superscript"],
+      ["popupeditor","htmlmode","separator","formatblock","bold","italic","underline","forecolor","textindicator"],
       ["separator","justifyleft","justifycenter","justifyright","justifyfull","separator","insertorderedlist","insertunorderedlist"],
       ["separator","inserthorizontalrule","createlink","insertimage"],
       ["separator","undo","selectall"], (HTMLArea.is_gecko ? [] : ["separator","cut","copy","paste"]),

@@ -947,7 +947,23 @@ Xinha.Config = function()
    * ];
    *</pre>
    * @type Array
-   */  
+   */ 
+  
+  /*XTEC ************ MODIFICAT - Minimal toolbar (usability)
+    2013.10.30 @jmeler  */
+
+   this.toolbar =
+  [
+    
+    ["fontsize","bold","italic","underline"],
+    ["justifyleft","justifycenter"],
+    ["insertorderedlist","insertunorderedlist"],
+    ["forecolor","hilitecolor"],
+    ["createlink","insertimage","inserttable"],
+    ["htmlmode"]
+  ];
+
+  /* ****************** ORIGINAL 
   this.toolbar =
   [
     ["popupeditor"],
@@ -961,6 +977,21 @@ Xinha.Config = function()
     ["separator","killword","clearfonts","removeformat","toggleborders","splitblock","lefttoright", "righttoleft"],
     ["separator","htmlmode","showhelp","about"]
   ];
+          
+  **************************FI */
+  
+  
+   this.toolbar =
+  [
+    
+    ["fontsize","bold","italic","underline"],
+    ["justifyleft","justifycenter"],
+    ["insertorderedlist","insertunorderedlist"],
+    ["forecolor","hilitecolor"],
+    ["createlink","insertimage","inserttable"],
+    ["htmlmode"]
+  ];
+  
 
   /** The fontnames listed in the fontname dropdown
    * Default value:

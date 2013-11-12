@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: News 3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-21 21:08+0000\n"
-"PO-Revision-Date: 2012-03-02 18:51+0100\n"
-"Last-Translator: intraweb <intraweb@xtec.cat>\n"
+"PO-Revision-Date: 2013-09-25 17:10+0100\n"
+"Last-Translator: Xavi Meler <jmeler@xtec.cat>\n"
 "Language-Team: Intraweb <intraweb@xtec.cat>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -172,7 +172,7 @@ msgstr "contingut de la notícia"
 #: lib/News/Util.php:38
 #, php-format
 msgid "Error! You did not enter the minimum necessary %s."
-msgstr "No heu introduït el mínim necessari %s."
+msgstr "Camps requerits (*) al %s sense omplir."
 
 #: lib/News/ImageUtil.php:111
 #, php-format
@@ -1074,7 +1074,7 @@ msgstr "Enviada per"
 #: templates/block/slideshow_modify.tpl:3
 #: templates/block/stories_modify.tpl:12
 msgid "Category"
-msgstr "Categoria"
+msgstr "CATEGORIA:"
 
 #: templates/admin/view.tpl:66
 #: templates/admin/modify_subform.tpl:103
@@ -1154,12 +1154,12 @@ msgstr "Selecciona una categoria"
 #: templates/block/slideshow_modify.tpl:5
 #: templates/block/stories_modify.tpl:14
 msgid "Choose category"
-msgstr "Trieu una categoria"
+msgstr "Sense categoria"
 
 #: templates/admin/modify_subform.tpl:16
 #: templates/user/create.tpl:49
 msgid "Title text"
-msgstr "Text del títol"
+msgstr "TÍTOL:"
 
 #: templates/admin/modify_subform.tpl:21
 #: templates/user/create.tpl:55
@@ -1194,7 +1194,7 @@ msgstr "Heu d'escriure el <strong>el resum de la pàgina d'inici</b> o bé <stro
 #: templates/admin/modify_subform.tpl:61
 #: templates/user/create.tpl:91
 msgid "Index page teaser text"
-msgstr "Resum de la pàgina d'inici"
+msgstr "INTRODUCCIÓ (es mostra a la pàgina d'inici):"
 
 #: templates/admin/modify_subform.tpl:63
 #: templates/admin/modify_subform.tpl:79
@@ -1227,7 +1227,7 @@ msgstr "Text formatat amb estils predissenyats"
 #: templates/admin/modify_subform.tpl:77
 #: templates/user/create.tpl:107
 msgid "Article body text"
-msgstr "Cos de la notícia"
+msgstr "COS (només es mostra a la noticia completa):"
 
 #: templates/admin/modify_subform.tpl:84
 #: templates/user/create.tpl:114
@@ -1709,15 +1709,15 @@ msgstr "(EZComments ha d'estar enllaçat amb el mòdul de notícies per permetre
 #: templates/user/create.tpl:265
 #: templates/user/create.tpl:266
 msgid "Save quick draft"
-msgstr "Emmagatzema l'esborrany"
+msgstr "Desa l'esborrany"
 
 #: templates/user/create.tpl:265
 msgid "Quick save as draft"
-msgstr "Emmagatzema com a esborrany"
+msgstr "Desa l'esborrany (ajax)"
 
 #: templates/user/create.tpl:269
 msgid "Save full draft"
-msgstr "Emmagatzema l'esborrany complet"
+msgstr "Desa"
 
 #: templates/user/articlecontent.tpl:22
 #: templates/user/archives.tpl:56

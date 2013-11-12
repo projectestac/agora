@@ -33,10 +33,12 @@ class News_Util {
         if ($story['action'] != News_Controller_User::ACTION_PREVIEW && empty($story['title'])) {
             $validationerror .= __f('Error! You did not enter a %s.', __('title', $dom), $dom) . "\n";
         }
-        // both text fields can't be empty
-        if ($story['action'] != News_Controller_User::ACTION_PREVIEW && empty($story['hometext']) && empty($story['bodytext'])) {
+	//XTEC ************ MODIFICAT - only hometext required
+        // 2013.09.25 @jmeler 
+        if ($story['action'] != News_Controller_User::ACTION_PREVIEW && empty($story['hometext'])) {
             $validationerror .= __f('Error! You did not enter the minimum necessary %s.', __('article content', $dom), $dom) . "\n";
         }
+	// ************ FI
 
         return $validationerror;
     }

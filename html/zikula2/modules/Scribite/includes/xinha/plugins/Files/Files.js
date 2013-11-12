@@ -12,11 +12,15 @@ function Files(editor) {
     var self = this;
     cfg.registerButton({
         id       : "files",
-        tooltip  : "insert user file",
+        tooltip  : "cerca enllaç a l'arxiu",
         image    : _editor_url+"plugins/Files/img/files.gif",
         textMode : false,
         action   : function(editor) {
+                    /* 26.09.13 //XTEC ************ MODIFICAT - redirecció a Files
+                     @jmeler redirecció a Files
+                    
                     url = Zikula.Config.baseURL + 'index.php'/*Zikula.Config.entrypoint*/ + "?module=Files&type=external&func=getFiles";
+                    url = Zikula.Config.baseURL + 'index.php'/*Zikula.Config.entrypoint*/ + "?module=Files";
                     FilesFindItemXinha(editor, url);
         }
     })

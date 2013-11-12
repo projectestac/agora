@@ -18,12 +18,17 @@ if ($GLOBALS['ZConfig']['Multisites']['multi'] == 1) {
     $core->init();
     $folderPath = ModUtil::getVar('Files', 'folderPath') . '/';
 }
+
 $fileName = $folderPath . $fileNameGet;
 $filePath = substr($fileNameGet, 0, $pos);
 $accessFile = $folderPath . $filePath . '/.locked';
 // check if the file .locked and the requested file exist.
 // if the requested file do not exist or the .locked file exists the function returns false.
 if (!file_exists($fileName) || file_exists($accessFile)) {
+    //XTEC ************ AFEGIT 
+    //2013.09.18 @jmeler          
+    echo "<p>Heu de fer p&uacute;blic el directori on est&agrave; el fitxer. <a href=https://sites.google.com/a/xtec.cat/projecte-intraweb/creacio-de-continguts/els-fitxers-del-lloc/gestio-de-fitxers-i-directoris>M&eacute;s informaci&oacute;</p>";   
+   //************ FI
     return false;
 }
 // get file extension

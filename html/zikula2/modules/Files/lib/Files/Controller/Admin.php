@@ -35,6 +35,7 @@ class Files_Controller_Admin extends Zikula_AbstractController {
         } else {
             $folderPath = ModUtil::getVar('Files', 'folderPath');
         }
+        
         $moduleVars = array('usersFolder' => ModUtil::getVar('Files', 'usersFolder'),
             'allowedExtensions' => ModUtil::getVar('Files', 'allowedExtensions'),
             'defaultQuota' => ModUtil::getVar('Files', 'defaultQuota'),
