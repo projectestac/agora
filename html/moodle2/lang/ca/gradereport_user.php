@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Informe d\'usuari';
+$string['tablesummary'] = 'La taula està ordenada com una llista d\'elements incloent-hi categories o notes. Quan els elements pertanyen a una categoria s\'indica.';
 $string['user:view'] = 'Visualitzar l\'informe de qualificacions propi';

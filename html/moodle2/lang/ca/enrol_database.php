@@ -30,6 +30,7 @@ $string['dbencoding'] = 'Codificació de la base de dades.';
 $string['dbhost'] = 'Servidor de la base de dades';
 $string['dbhost_desc'] = 'Escriu la IP del servidor de la base de dades o el nom del servidor';
 $string['dbname'] = 'Nom de la base de dades';
+$string['dbname_desc'] = 'Deixeu en blanc si esteu utilitzant un nom DSN en el servidor de la base de dades.';
 $string['dbpass'] = 'Contrasenya de la base de dades';
 $string['dbsetupsql'] = 'Ordre per configurar la base de dades';
 $string['dbsetupsql_desc'] = 'Ordre SQL per configurar la base de dades, sovint utilitzada per configurar la codificació de la comunicació - exemple per MySQL i PostgreSQL: <em>SET NAMES \'utf8\'</em>';

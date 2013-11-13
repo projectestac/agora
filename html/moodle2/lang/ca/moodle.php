@@ -355,6 +355,7 @@ $string['courselegacyfiles_help'] = 'L\'àrea de fitxers del curs proporciona al
 Si utilitzeu aquesta àrea per emmagatzemar fitxers de curs, us exposareu a problemes de privacitat i seguretat, com pèrdua de fitxers en còpies de seguretat, importació de cursos, o continguts compartits o re-utilitzats. Es recomana en conseqüència que no utilitzeu aquesta àrea tret que sapigueu el que esteu fent.
 
 L\'enllaç de sota proporciona més informació sobre tot això i us mostrarà alternatives per gestionar fitxers en Moodle 2.';
+$string['courselegacyfilesofcourse'] = 'Fitxers del curs heretats: {$a}';
 $string['coursemessage'] = 'Missatge als usuaris del curs';
 $string['coursenotaccessible'] = 'Aquest curs no permet accés públic';
 $string['courseoverview'] = 'Resum de cursos';
@@ -874,7 +875,7 @@ $string['idnumbergrouping'] = 'Número ID de l\'agrupament';
 $string['idnumbergrouping_help'] = 'El número ID de l\'agrupament només es fa servir quan es compara l\'agrupament contra sistemes externs i no es veurà en cap lloc del lloc web. Si l\'agrupament té un nom de codi oficial  es pot introduir, en cas contrari el camp es pot deixar en blanc.';
 $string['idnumbermod'] = 'Número ID';
 $string['idnumbermod_help'] = 'Definir un número ID és una manera de poder identificar l\'activitat en els càlculs de qualificacions.
-Si l\'activitat no és inclosa en cap càlcul de qualificacions, podeu deixar en blanc aquest camp de número ID.
+Si l\'activitat no s\'ha inclòs en cap càlcul de qualificacions, podeu deixar en blanc aquest camp de número ID.
 
 El número ID també es pot definir al butlletí de qualificacions, encara que sols es pugui editar en la pàgina de configuració de l\'activitat.';
 $string['idnumbertaken'] = 'Aquest número ID ja s\'està utilitzant';

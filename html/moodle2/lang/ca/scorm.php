@@ -142,13 +142,17 @@ $string['gradeforattempt'] = 'Qualificació de l\'intent';
 $string['gradehighest'] = 'Qualificació més alta';
 $string['grademethod'] = 'Mètode de qualificació';
 $string['grademethoddesc'] = 'Aquesta preferència estableix el valor per defecte del mètode de qualificació d\'una activitat';
-$string['grademethod_help'] = '<p>El mètode de qualificació defineix com es qualifica un intent en l\'activitat determinada. Hi ha quatre mètodes::</p>
-    <ul>
-	<li><b>Nombre SCO</b><br />Aquest mode mostra el nombre de SCO que s\'han passat/completat dins l\'activitat. El valor màxim és el nombre de SCO.</li>
-	<li><b>Qualificació més alta</b><br />La pàgina de qualificacions mostrarà la puntuació més alta obtinguda per cada usuari en tots els SCO que hagi completat.</li>
-	<li><b>Qualificació mitjana</b><br />Si trieu aquest mode, Moodle calcularà la mitjana de totes les puntuacions.</li>
-	<li><b>Suma de qualificacions</b><br />En aquest mode se sumen totes totes les puntuacions.</li>
-</p>';
+$string['grademethod_help'] = 'El mètode de qualificació defineix com es determina la qualificació d\'un intent en l\'activitat.
+
+Hi ha quatre mètodes d\'avaluació:
+
+* Objectes d\'aprenentatge - El nombre d\'objectes d\'aprenentatge que s\'han completat/superat
+
+* Qualificació més alta - La puntuació més alta obtinguda en tots els objectes d\'aprenentatge superats
+
+* Qualificació mitjana - La mitjana de totes les puntuacions
+
+* Suma de qualificacions - La suma de totes les puntuacions';
 $string['gradereported'] = 'Qualificació enviada';
 $string['gradescoes'] = 'Nombre de Sco';
 $string['gradesettings'] = 'Paràmetres de qualificació';

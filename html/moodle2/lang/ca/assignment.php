@@ -210,6 +210,7 @@ $string['typeuploadsingle'] = 'Penjar un fitxer';
 $string['unfinalize'] = 'Torna a l\'esborrany';
 $string['unfinalizeerror'] = 'S\'ha produït un error i no s\'ha pogut revertir a esborrany aquesta tramesa';
 $string['unfinalize_help'] = 'Retornar-ho a draft permet a l\'estudiant actualitzar les seves tasques.';
+$string['unsupportedsubplugin'] = 'El tipus de tasca de \'{$a}\' no funciona actualment. Podeu esperar fins que aquest tipus de tasca estigui disponible, o suprimir aquesta tasca.';
 $string['upgradenotification'] = 'Aquesta activitat es basa en un mòdul de tasca antic.';
 $string['uploadafile'] = 'Pugeu un fitxer';
 $string['uploadbadname'] = 'El nom d\'aquest fitxer contenia caràcters estranys i no s\'ha pogut penjar';

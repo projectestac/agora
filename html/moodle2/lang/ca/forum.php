@@ -401,15 +401,12 @@ $string['trackingoff'] = 'Inactiu';
 $string['trackingon'] = 'Actiu';
 $string['trackingoptional'] = 'Opcional';
 $string['trackingtype'] = 'Voleu fer el seguiment de missatges llegits en aquest fòrum?';
-$string['trackingtype_help'] = '<p>Si els fòrums tenen habilitada l\'opció de seguiment, els usuaris poden realitzar el seguiment dels missatges llegits i no llegits en el fòrum i en els debats. </p>
-
-<p>Aquest paràmetre admet tres possibilitats:</p>
+$string['trackingtype_help'] = '<p>Si s\'habilita aquesta opció, els usuaris poden realitzar el seguiment dels missatges llegits i no llegits en el fòrum i en els debats. Hi ha tres possibilitats:</p>
 <ul>
-<li>Opcional [per defecte]: els estudiants poden activar o desactivar el seguiment com i quan vulguin.</li>
-<li>Inactiu: el seguiment no està mai actiu.</li>
+<li>Opcional: els estudiants poden triar si activen o no el seguiment, mitjançant un enllaç en el bloc d\'administració.</li>
 <li>Actiu: el seguiment està sempre actiu.</li>
-
-</ul';
+<li>Inactiu: no es fa seguiment de missatges llegits i no llegits.</li>
+</ul>';
 $string['unread'] = 'No llegit';
 $string['unreadposts'] = 'Missatges no llegits';
 $string['unreadpostsnumber'] = '{$a} missatges no llegits';

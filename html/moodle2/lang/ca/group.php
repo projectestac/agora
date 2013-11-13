@@ -97,15 +97,13 @@ $string['groupmembersselected'] = 'Membres del grup seleccionat';
 $string['groupmode'] = 'Mode de grups';
 $string['groupmodeforce'] = 'Imposa el mode de grup';
 $string['groupmodeforce_help'] = 'Si es força el mode de grups, el mode de grups del curs s\'aplica a cada activitat del curs. Aleshores els modes de grup de cada activitat no es tenen en compte.';
-$string['groupmode_help'] = '<p>Aquest paràmetre té 3 opcions:
-   <ul>
-      <li>Sense grups: no hi ha subgrups, tots els participants són membres d\'una gran comunitat</li>
-      <li>Grups separats: cada membre d\'un grup veu només dins del seu grup, els altres són invisibles</li>
-      <li>Grups visibles: es treballa dins de cada grup, però es poden veure també els altres grups</li>
-   </ul>
-</p>
+$string['groupmode_help'] = 'Aquest paràmetre té 3 opcions:
 
-<p>El mode de grup definit a nivell de curs és el mode per defecte en totes les activitats definides dins d\'aquest curs. Cada activitat que admeti grups pot definir també el seu propi mode de grup, encara que si s\'imposa el mode de grup a nivell de curs, llavors s\'ignorarà el paràmetre corresponent a cada activitat.</p>';
+* Sense grups: no hi ha subgrups, tots els participants són membres d\'una gran comunitat.
+ * Grups separats: cada membre d\'un grup veu només el seu grup, els altres són invisibles.
+* Grups visibles: cada membre d\'un grup treballa dins del propi grup, però pot veure també els altres grups.
+
+El mode de grup definit a nivell de curs és el mode per defecte en totes les activitats del curs. Cada activitat que admeti grups pot definir també el seu propi mode de grup, encara que si s\'imposa el mode de grup a nivell de curs, s\'ignorarà el paràmetre de mode de grup de cada activitat.';
 $string['groupmy'] = 'El meu grup';
 $string['groupname'] = 'Nom del grup';
 $string['groupnameexists'] = 'Ja existeix un grup denominat \'{$a}\' en aquest curs. Trieu un altre nom.';

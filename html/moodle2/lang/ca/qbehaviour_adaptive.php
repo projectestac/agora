@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['disregardedwithoutpenalty'] = 'El lliurament del qüestionari no ha estat valid i s\'ha descartat sense penalitzacions.';
+$string['disregardedwithoutpenalty'] = 'La tramesa no és vàlida i s\'ha descartat sense penalitzacions.';
 $string['gradingdetails'] = 'Puntuacions d\'aquest lliurament: {$a->raw} / {$a->max}.';
 $string['gradingdetailsadjustment'] = 'Tenint en compte els intents previs, la puntuació és <strong>{$a->cur}/{$a->max}</strong>.';
 $string['gradingdetailspenalty'] = 'Aquest lliurament ha acumulat una penalització de {$a}.';

@@ -5,6 +5,10 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+Changes 13.11.13
+---------------------------------------------------------------------------------------
 GENERAL
 - createServices.php: Fixed bug and removed config to /moodle2
 - statistics.php: Fixed data from Zikula 1.3 not being collected
@@ -34,7 +38,8 @@ MOODLE 2
 - Fixed bug on overviewnumpostssince count shown in My Moodle Page
 - Hidden Alfresco repository (only visible for xtecadmin or when it's enabled)
 - Showed again Appearance | Default My home page parameters page
-- Hidden delete button for admins on Plugins | Filters | Manage filters page 
+- Hidden delete button for admins on Plugins | Filters | Manage filters page
+- Updated catalan translation (13-11-2013)
 
 PORTAL
 - Upload files: File name can reach 100 characters
@@ -42,7 +47,6 @@ PORTAL
 - Only admins are allowed to see authors' names in logs
 - Agoraportal: Fixed grammar error and improved message to deny increase of quota
 - Agoraportal: When a manager name is an email, the text after the at sign (@) is removed
-
 
 
 Changes 13.10.16

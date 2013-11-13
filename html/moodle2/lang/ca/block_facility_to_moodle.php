@@ -16,20 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_url', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_facility_to_moodle', language 'ca', branch 'MOODLE_24_STABLE'
  *
- * @package   repository_url
+ * @package   block_facility_to_moodle
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Configuració del tipus de repositori URL';
-$string['download'] = 'Baixa';
-$string['pluginname'] = 'Baixador d\'URL';
-$string['rename'] = 'Nom';
-$string['url'] = 'URL';
-$string['url:view'] = 'Utilitza el baixador d\'URL al selector de fitxers';
-$string['validfiletype'] = 'Heu de proporcionar l\'URL d\'un fitxer d\'imatge o d\'una pàgina que contingui imatges.';
-$string['validname'] = 'Heu de proporcionar un nom de fitxer vàlid';
+$string['facility_to_moodle:validateparentdata'] = 'Validar els pares';
+$string['validateparent'] = 'Valida els pares';

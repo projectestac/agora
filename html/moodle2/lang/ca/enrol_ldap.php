@@ -53,6 +53,7 @@ $string['course_summary'] = 'Opcional: camp del LDAP d\'on es pot treure el resu
 $string['course_summary_key'] = 'Resum';
 $string['createcourseextid'] = 'CREA l\'usuari inscrit en un curs que no existeix \'{$a->courseextid}\'';
 $string['createnotcourseextid'] = 'Usuari inscrit en un curs que no existeix \'{$a->courseextid}\'';
+$string['duplicateshortname'] = 'Error en la creació del curs. Nom curt duplicat. S\'ometrà el curs amb número ID \'{$a->idnumber}\'...';
 $string['editlock'] = 'Bloca valor';
 $string['emptyenrolment'] = 'Inscripció buida per al rol \'{$a->role_shortname}\' al curs  \'{$a->course_shortname}\'';
 $string['enrolname'] = 'LDAP';

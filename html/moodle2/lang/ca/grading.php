@@ -36,7 +36,8 @@ $string['gradingmanagement'] = 'Qualificació avançada';
 $string['gradingmanagementtitle'] = 'Qualificació avançada: {$a->component} ({$a->area})';
 $string['gradingmethod'] = 'Mètode de qualificació';
 $string['gradingmethod_help'] = 'Trieu el mètode de qualificació avançat que s\'hauria d\'emprar per calcular les qualificacions en el context donat.
-Per tal de deshabilitar la qualificació avançada i tornar al mecanisme de qualificació per defecte, trieu \'Mètode de qualificació senzill\'';
+
+Per tal de deshabilitar la qualificació avançada i tornar al mecanisme de qualificació per defecte, trieu \'Qualificació senzilla\'.';
 $string['gradingmethodnone'] = 'Qualificació senzilla';
 $string['gradingmethods'] = 'Mètodes de qualificació';
 $string['manageactionclone'] = 'Crea un formulari de qualificació nou a partir d\'una plantilla';
