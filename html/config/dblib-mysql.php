@@ -569,7 +569,7 @@ function disconnect_intranet($con) {
  * 
  * @author aginard
  * 
- * @param string $service: the name of the service (intranet or moodle)
+ * @param string $service: the name of the service (intranet or moodle2)
  * 
  * @return array list of schools
  */
@@ -582,7 +582,7 @@ function getServicesToTest($service) {
 
     if ($service == 'intranet') {
         // Get the list of intranets to test
-        $sql = 'SELECT dbHost, c.version, min(activedId) as id
+        $sql = 'SELECT dbHost, min(activedId) as id
                 FROM `agoraportal_client_services` c
                 LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
                 WHERE serviceName = \'' . $service . '\'
@@ -596,7 +596,22 @@ function getServicesToTest($service) {
         }
 
         while ($row = mysql_fetch_assoc($result)) {
-            $schools[$row['id']] = array('dbhost' => $row['dbHost'], 'zkversion' => $row['version']);
+            $sql = 'SELECT c.version
+                    FROM `agoraportal_client_services` c
+                    LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
+                    WHERE s.serviceName = \'' . $service . '\'
+                    AND c.activedId = ' . $row['id'] . ' 
+                    AND c.dbHost = \'' . $row['dbHost'] . '\'';
+
+            if (!$result2 = mysql_query($sql)) {
+                echo 'S\'ha produ&iuml;t un error MySQL: ' . mysql_error();
+                mysql_close($con);
+                return false;
+            }
+
+            if ($row2 = mysql_fetch_assoc($result2)) {
+                $schools[$row['id']] = array('dbhost' => $row['dbHost'], 'zkversion' => $row2['version']);
+            }
         }
     } elseif ($service == 'moodle2') {
         // Get the list of Moodles to test
