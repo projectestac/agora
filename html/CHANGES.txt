@@ -5,9 +5,11 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE 2
+- Reviewed code for reseting assign grades to include also recovergradesdefault parameter (https://tracker.moodle.org/browse/MDL-41877)
+
 ZIKULA 2
 - IWstats: Fixed creation of listeners to collect stats
-
 
 
 Changes 13.11.13
