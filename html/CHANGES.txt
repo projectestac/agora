@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+ZIKULA 2
+- IWstats: Fixed creation of listeners to collect stats
+
 
 
 Changes 13.11.13

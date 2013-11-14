@@ -58,9 +58,12 @@ class IWstats_Installer extends Zikula_AbstractInstaller {
     public function Upgrade($oldversion) {
         DBUtil::changeTable('IWstats');
 
-        switch ($oldversion) {
+//        switch ($oldversion) {
+//        }
 
-        }
+        // create the system init hook
+        EventUtil::registerPersistentModuleHandler('IWstats', 'core.postinit', array('IWstats_Listeners', 'coreinit'));
+
         // Update successful
         return true;
     }
