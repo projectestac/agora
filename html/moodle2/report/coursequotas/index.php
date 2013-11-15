@@ -117,6 +117,8 @@ if (!get_protected_agora() && is_rush_hour()) {
                 '<ul style="margin:auto; width:400px; margin-bottom:20px;">' .
                 '<li>' . get_string('disk_consume_courses', 'report_coursequotas', $c) . '</li>' .
                 '<li>' . get_string('disk_consume_backups', 'report_coursequotas', $d) . '</li>' .
+                $tempInfo .
+                $trashInfo .
                 '</ul>' .
                 '</p>';
     }
