@@ -9,8 +9,12 @@ MOODLE 2
 - Reviewed code for reseting assign grades to include also recovergradesdefault parameter (https://tracker.moodle.org/browse/MDL-41877)
 - Coursequotas: Added temp and trashdir info for non-Agora installs and minor text format changes
 
+PORTAL
+- Upgraded to Zikula 1.3.6
+
 ZIKULA 2
 - IWstats: Fixed creation of listeners to collect stats
+- Upgraded to Zikula 1.3.6
 
 
 Changes 13.11.13

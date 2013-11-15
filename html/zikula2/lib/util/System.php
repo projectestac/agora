@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright Zikula Foundation 2009 - Zikula Application Framework
  *
@@ -18,8 +17,8 @@
  *
  * Core class with the base methods.
  */
-class System {
-
+class System
+{
     /**
      * Internals cache.
      *
@@ -32,19 +31,21 @@ class System {
      *
      * @return void
      */
-    public static function flushCache() {
+    public static function flushCache()
+    {
         self::$cache = array();
     }
 
     /**
      * Get a configuration variable.
      *
-     * @param string $name The name of the variable.
-     * @param mixed $default The default value to return if the requested param is not set.
+     * @param string $name    The name of the variable.
+     * @param mixed  $default The default value to return if the requested param is not set.
      *
      * @return mixed Value of the variable, or false on failure.
      */
-    public static function getVar($name, $default = null) {
+    public static function getVar($name, $default = null)
+    {
         if (!isset($name)) {
             return null;
         }
@@ -71,13 +72,14 @@ class System {
     /**
      * Set a configuration variable.
      *
-     * @param string $name The name of the variable.
-     * @param mixed $value The value of the variable.
+     * @param string $name  The name of the variable.
+     * @param mixed  $value The value of the variable.
      *
      * @return boolean True on success, false on failure.
      */
-    public static function setVar($name, $value = '') {
-        $name = isset($name) ? (string) $name : '';
+    public static function setVar($name, $value = '')
+    {
+        $name = isset($name) ? (string)$name : '';
 
         // The database parameter are not allowed to change
         if (empty($name) || $name == 'system' || $name == 'prefix' || in_array($name, ServiceUtil::getManager()->getArgument('protected.systemvars'))) {
@@ -102,7 +104,8 @@ class System {
      *
      * @return mixed Value of deleted config var or false on failure.
      */
-    public static function delVar($name) {
+    public static function delVar($name)
+    {
         if (!isset($name)) {
             return false;
         }
@@ -136,7 +139,8 @@ class System {
      *
      * @return void
      */
-    public static function stripslashes(&$value) {
+    public static function stripslashes(&$value)
+    {
         if (empty($value)) {
             return;
         }
@@ -151,42 +155,43 @@ class System {
     /**
      * Validate a Zikula variable.
      *
-     * @param mixed $var The variable to validate.
+     * @param mixed  $var  The variable to validate.
      * @param string $type The type of the validation to perform (email, url etc.).
-     * @param mixed $args Optional array with validation-specific settings (deprecated).
+     * @param mixed  $args Optional array with validation-specific settings (deprecated).
      *
      * @return boolean True if the validation was successful, false otherwise.
      */
-    public static function varValidate($var, $type, $args = 0) {
+    public static function varValidate($var, $type, $args = 0)
+    {
         if (!isset($var) || !isset($type)) {
             return false;
         }
 
         // typecasting (might be useless in this function)
-        $var = (string) $var;
-        $type = (string) $type;
+        $var = (string)$var;
+        $type = (string)$type;
 
         static $maxlength = array(
-    'modvar' => 64,
-    'func' => 512,
-    'api' => 187,
-    'theme' => 200,
-    'uname' => 25,
-    'config' => 64);
+        'modvar' => 64,
+        'func' => 512,
+        'api' => 187,
+        'theme' => 200,
+        'uname' => 25,
+        'config' => 64);
 
         static $minlength = array(
-    'mod' => 1,
-    'modvar' => 1,
-    'uname' => 1,
-    'config' => 1);
+        'mod' => 1,
+        'modvar' => 1,
+        'uname' => 1,
+        'config' => 1);
 
         // commented out some regexps until some useful and working ones are found
-        static $regexp = array(// 'mod' => '/^[^\\\/\?\*\"\'\>\<\:\|]*$/',
-    // 'func' => '/[^0-9a-zA-Z_]/',
-    // 'api' => '/[^0-9a-zA-Z_]/',
-    // 'theme' => '/^[^\\\/\?\*\"\'\>\<\:\|]*$/',
-    'email' => '/^(?:[^\s\000-\037\177\(\)<>@,;:\\"\[\]]\.?)+@(?:[^\s\000-\037\177\(\)<>@,;:\\\"\[\]]\.?)+\.[a-z]{2,6}$/Ui',
-    'url' => '/^([!#\$\046-\073=\077-\132_\141-\172~]|(?:%[a-f0-9]{2}))+$/i');
+        static $regexp = array(// 'mod'    => '/^[^\\\/\?\*\"\'\>\<\:\|]*$/',
+        // 'func'   => '/[^0-9a-zA-Z_]/',
+        // 'api'    => '/[^0-9a-zA-Z_]/',
+        // 'theme'  => '/^[^\\\/\?\*\"\'\>\<\:\|]*$/',
+        'email' => '/^(?:[^\s\000-\037\177\(\)<>@,;:\\"\[\]]\.?)+@(?:[^\s\000-\037\177\(\)<>@,;:\\\"\[\]]\.?)+\.[a-z]{2,6}$/Ui',
+        'url' => '/^([!#\$\046-\073=\077-\132_\141-\172~]|(?:%[a-f0-9]{2}))+$/i');
 
         // special cases
         if ($type == 'mod' && $var == ModUtil::CONFIG_MODULE) {
@@ -201,10 +206,10 @@ class System {
         if ($type == 'email' || $type == 'url') {
             // CSRF protection for email and url
             $var = str_replace(array(
-                '\r',
-                '\n',
-                '%0d',
-                '%0a'), '', $var);
+                            '\r',
+                            '\n',
+                            '%0d',
+                            '%0a'), '', $var);
 
             if (self::getVar('idnnames')) {
                 // transfer between the encoded (Punycode) notation and the decoded (8bit) notation.
@@ -268,7 +273,8 @@ class System {
      *
      * @return string Base URI for Zikula.
      */
-    public static function getBaseUri() {
+    public static function getBaseUri()
+    {
         if (!array_key_exists('baseuri.path', self::$cache)) {
             self::$cache['baseuri.path'] = null;
         }
@@ -296,7 +302,8 @@ class System {
      *
      * @return string Base URL for Zikula.
      */
-    public static function getBaseUrl() {
+    public static function getBaseUrl()
+    {
         $server = self::serverGetVar('HTTP_HOST');
 
         // IIS sets HTTPS=off
@@ -317,7 +324,8 @@ class System {
      *
      * @return string Homepage URL for Zikula.
      */
-    public static function getHomepageUrl() {
+    public static function getHomepageUrl()
+    {
         // check the use of friendly url setup
         $shorturls = self::getVar('shorturls', false);
         $langRequired = ZLanguage::isRequiredLangParam();
@@ -345,22 +353,23 @@ class System {
     /**
      * Carry out a redirect.
      *
-     * @param string $redirecturl URL to redirect to.
-     * @param array $additionalheaders Array of header strings to send with redirect.
-     * @param integer $type Number type of the redirect.
+     * @param string  $redirecturl       URL to redirect to.
+     * @param array   $additionalheaders Array of header strings to send with redirect.
+     * @param integer $type              Number type of the redirect.
      *
      * @return boolean True if redirect successful, false otherwise.
      */
-    public static function redirect($redirecturl, $additionalheaders = array(), $type = 302) {
+    public static function redirect($redirecturl, $additionalheaders = array(), $type = 302)
+    {
         // very basic input validation against HTTP response splitting
         $redirecturl = str_replace(array(
-            '\r',
-            '\n',
-            '%0d',
-            '%0a'), '', $redirecturl);
+                        '\r',
+                        '\n',
+                        '%0d',
+                        '%0a'), '', $redirecturl);
 
         // check if the headers have already been sent
-        if (headers_sent()) {
+        if (headers_sent ()) {
             return false;
         }
 
@@ -388,7 +397,7 @@ class System {
             $redirecturl = $baseurl . $redirecturl;
         }
 
-        header("Location: $redirecturl", true, (int) $type);
+        header("Location: $redirecturl", true, (int)$type);
 
         return true;
     }
@@ -400,7 +409,8 @@ class System {
      *
      * @return boolean True if locally referred, false if not.
      */
-    public static function localReferer($strict = false) {
+    public static function localReferer($strict = false)
+    {
         $server = self::serverGetVar('HTTP_HOST');
         $referer = self::serverGetVar('HTTP_REFERER');
 
@@ -422,19 +432,20 @@ class System {
      *
      * E-mail messages should now be send with a ModUtil::apiFunc call to the mailer module.
      *
-     * @param string $to Recipient of the email.
-     * @param string $subject Title of the email.
-     * @param string $message Body of the email.
-     * @param string $headers Extra headers for the email.
-     * @param integer $html Message is html formatted.
-     * @param integer $debug If 1, echo mail content.
-     * @param string $altbody Alternative body.
+     * @param string  $to      Recipient of the email.
+     * @param string  $subject Title of the email.
+     * @param string  $message Body of the email.
+     * @param string  $headers Extra headers for the email.
+     * @param integer $html    Message is html formatted.
+     * @param integer $debug   If 1, echo mail content.
+     * @param string  $altbody Alternative body.
      *
      * @deprecated
      *
      * @return boolean True if the email was sent, false if not.
      */
-    public static function mail($to, $subject, $message = '', $headers = '', $html = 0, $debug = 0, $altbody = '') {
+    public static function mail($to, $subject, $message = '', $headers = '', $html = 0, $debug = 0, $altbody = '')
+    {
         if (empty($to) || !isset($subject)) {
             return false;
         }
@@ -453,7 +464,7 @@ class System {
             $headers = array(); // change to empty array
         }
 
-        return $mailer->send((array) $from, (array) $to, $subject, $body, 'text/plain', null, null, (array) $from, $altbody, $headers, $altBodyContentType, $failedRecipients);
+        return $mailer->send((array)$from, (array)$to, $subject, $body, 'text/plain', null, null, (array)$from, $altbody, $headers, $altBodyContentType, $failedRecipients);
     }
 
     /**
@@ -464,12 +475,13 @@ class System {
      * {@link http://www.php.net/manual/en/reserved.variables.html#reserved.variables.server PHP manual}.
      * If the server variable doesn't exist void is returned.
      *
-     * @param string $name The name of the variable.
-     * @param mixed $default The default value to return if the requested param is not set.
+     * @param string $name    The name of the variable.
+     * @param mixed  $default The default value to return if the requested param is not set.
      *
      * @return mixed Value of the variable.
      */
-    public static function serverGetVar($name, $default = null) {
+    public static function serverGetVar($name, $default = null)
+    {
         // Check the relevant superglobals
         if (!empty($name) && isset($_SERVER[$name])) {
             return $_SERVER[$name];
@@ -486,7 +498,8 @@ class System {
      *
      * @return string HTTP host name.
      */
-    public static function getHost() {
+    public static function getHost()
+    {
         $server = self::serverGetVar('HTTP_HOST');
 
         if (empty($server)) {
@@ -510,7 +523,8 @@ class System {
      *
      * @return string Current URI.
      */
-    public static function getCurrentUri($args = array()) {
+    public static function getCurrentUri($args = array())
+    {
         // get current URI
         $request = self::serverGetVar('REQUEST_URI');
 
@@ -579,7 +593,8 @@ class System {
      *
      * @return string Current HTTP protocol.
      */
-    public static function serverGetProtocol() {
+    public static function serverGetProtocol()
+    {
         if (preg_match('/^http:/', self::getCurrentUri())) {
             return 'http';
         }
@@ -600,7 +615,8 @@ class System {
      *
      * @return string Current URL.
      */
-    public static function getCurrentUrl($args = array()) {
+    public static function getCurrentUrl($args = array())
+    {
         $server = self::getHost();
         $protocol = self::serverGetProtocol();
         $baseurl = "$protocol://$server";
@@ -636,7 +652,8 @@ class System {
      *
      * @return void
      */
-    public static function queryStringDecode() {
+    public static function queryStringDecode()
+    {
         if (self::isInstalling()) {
             return;
         }
@@ -730,7 +747,7 @@ class System {
                 // we are in the homepage, checks if language code is forced
                 if (ZLanguage::getLangUrlRule() && $lang) {
                     // and redirect then
-                    System::redirect(self::getCurrentUrl() . "/$lang");
+                    System::redirect(self::getCurrentUrl()."/$lang");
                     System::shutDown();
                 }
             } else {
@@ -744,18 +761,19 @@ class System {
                         foreach ($args as $k => $v) {
                             $args[$k] = urlencode($v);
                         }
-                        System::redirect(self::getBaseUrl() . $frontController . ($args ? implode('/', $args) : ''));
+                        System::redirect(self::getBaseUrl().$frontController.($args ? implode('/', $args) : ''));
                         System::shutDown();
                     }
                     self::queryStringSetVar('lang', $args[0]);
                     array_shift($args);
+
                 } elseif (ZLanguage::getLangUrlRule()) {
                     // if the lang is forced, redirects the passed arguments plus the lang
                     foreach ($args as $k => $v) {
                         $args[$k] = urlencode($v);
                     }
                     $langTheme = isset($_GET['theme']) ? "$lang/$_GET[theme]" : $lang;
-                    System::redirect(self::getBaseUrl() . $frontController . $langTheme . '/' . implode('/', $args));
+                    System::redirect(self::getBaseUrl().$frontController.$langTheme.'/'.implode('/', $args));
                     System::shutDown();
                 }
 
@@ -828,12 +846,13 @@ class System {
      * Really the _GET superglobal.
      * This API also adds the variable to the _REQUEST superglobal for consistency.
      *
-     * @param string $name Name of the variable to set.
-     * @param mixed $value Value to set.
+     * @param string $name  Name of the variable to set.
+     * @param mixed  $value Value to set.
      *
      * @return bool True if successful, false otherwise.
      */
-    public static function queryStringSetVar($name, $value) {
+    public static function queryStringSetVar($name, $value)
+    {
         if (!isset($name)) {
             return false;
         }
@@ -883,7 +902,8 @@ class System {
      *
      * @return void
      */
-    public static function shutDown($exit_param = '') {
+    public static function shutDown($exit_param = '')
+    {
         // we must deliberately cause the session to close down because if we
         // rely on PHP to do so after an exit is called, the framework gets shutdown
         // by PHP and no longer functions correctly.
@@ -902,8 +922,9 @@ class System {
      *
      * @return boolean
      */
-    public static function isInstalling() {
-        return (bool) defined('_ZINSTALLVER');
+    public static function isInstalling()
+    {
+        return (bool)defined('_ZINSTALLVER');
     }
 
     /**
@@ -911,7 +932,8 @@ class System {
      *
      * @return boolean True if upgrade.php is running, otherwise false.
      */
-    public static function isUpgrading() {
+    public static function isUpgrading()
+    {
         return array_key_exists('_ZikulaUpgrader', $GLOBALS);
     }
 
@@ -920,12 +942,13 @@ class System {
      *
      * @return boolean
      */
-    public static function isLegacyMode() {
+    public static function isLegacyMode()
+    {
         if (!isset($GLOBALS['ZConfig']['System']['compat_layer'])) {
             return false;
         }
 
-        return (bool) $GLOBALS['ZConfig']['System']['compat_layer'];
+        return (bool)$GLOBALS['ZConfig']['System']['compat_layer'];
     }
 
     /**
@@ -933,12 +956,13 @@ class System {
      *
      * @return boolean
      */
-    public static function hasLegacyTemplates() {
+    public static function hasLegacyTemplates()
+    {
         if (!isset($GLOBALS['ZConfig']['System']['legacy_prefilters'])) {
             return false;
         }
 
-        return (bool) $GLOBALS['ZConfig']['System']['legacy_prefilters'];
+        return (bool)$GLOBALS['ZConfig']['System']['legacy_prefilters'];
     }
 
     /**
@@ -946,12 +970,13 @@ class System {
      *
      * @return boolean
      */
-    public static function isDevelopmentMode() {
+    public static function isDevelopmentMode()
+    {
         if (!isset($GLOBALS['ZConfig']['System']['development'])) {
             return false;
         }
 
-        return (bool) $GLOBALS['ZConfig']['System']['development'];
+        return (bool)$GLOBALS['ZConfig']['System']['development'];
     }
 
     /**
@@ -961,7 +986,8 @@ class System {
      *
      * @return string Template file path.
      */
-    public static function getSystemErrorTemplate($templateFile) {
+    public static function getSystemErrorTemplate($templateFile)
+    {
         $templatePath = "system/Theme/templates/system/$templateFile";
         $override = Zikula_View::getTemplateOverride($templatePath);
         if ($override !== false) {
@@ -972,5 +998,4 @@ class System {
             return $templatePath;
         }
     }
-
 }
