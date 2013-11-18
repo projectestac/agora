@@ -16,6 +16,7 @@ ZIKULA 2
 - Upgraded to Zikula 1.3.6
 - IWstats: Fixed creation of listeners to collect stats
 - IWmoodle: Fixed dropdown group menu in synchronization section
+- Added script to fix charset problems in some Zikula databases
 
 
 Changes 13.11.13
@@ -35,7 +36,6 @@ ZIKULA 2
 - IWmoodle: Fixed dropdown group menu in synchronization section
 - News: Improvements to user interface to create news
 - Files: Several usability improvements
-- Added script to fix charset problems in some Zikula databases
 
 MOODLE 2
 - Fixed bug on submissions count shown in My Moodle summary page
