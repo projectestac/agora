@@ -30,6 +30,8 @@
                     <p class="z-formnote z-errormsg">{gt text="The folder does not exist or it is not writable"}</p>
                     {/if}
                 </div>
+                {else}
+                    <input type="hidden" id="folderPath" name="folderPath" value="{$folderPath}" />
                 {/if}
                 <div class="z-formrow">
                     <label for="usersFolder">{gt text="Users' folder"}</label>

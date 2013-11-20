@@ -18,6 +18,7 @@ ZIKULA 2
 - IWstats: Fixed creation of listeners to collect stats
 - IWmoodle: Fixed dropdown group menu in synchronization section
 - Added script to fix charset problems in some Zikula databases
+- Files: Fixed wrong check for directory "users"
 
 
 Changes 13.11.13
