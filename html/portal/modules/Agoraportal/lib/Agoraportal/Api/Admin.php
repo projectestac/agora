@@ -362,20 +362,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $value = DataUtil::formatForStore(serialize($agora['server']['root'] . $agora['intranet']['datadir'] . $username . '/data'));
         $sql[6] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['intrawebModulePrefix']}main' AND {$compat['fieldsPrefix']}name='documentRoot'";
 
-        // modify Downloads folders
-        $value = DataUtil::formatForStore(serialize($agora['server']['root'] . $agora['intranet']['datadir'] . $username . '/data/descarregues/'));
-        $sql[7] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['downloadsModuleName']}' AND {$compat['fieldsPrefix']}name='upload_folder'";
-
-        $value = DataUtil::formatForStore(serialize($agora['server']['root'] . $agora['intranet']['datadir'] . $username . '/data/descarregues/captures/'));
-        $sql[8] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['downloadsModuleName']}' AND {$compat['fieldsPrefix']}name='screenshotlink'";
-
-        $value = DataUtil::formatForStore(serialize($agora['server']['root'] . $agora['intranet']['datadir'] . $username . '/data/descarregues/cache/'));
-        $sql[9] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['downloadsModuleName']}' AND {$compat['fieldsPrefix']}name='captcha_cache'";
-
-        // modify the adminmail
-        $value = DataUtil::formatForStore(serialize($item[$clientServiceId]['clientCode'] . '@xtec.cat'));
-        $sql[10] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['downloadsModuleName']}' AND {$compat['fieldsPrefix']}name='notifymail'";
-
         foreach ($sql as $oneSql) {
             $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
                         'sql' => $oneSql,
@@ -1944,7 +1930,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     }
 
     /**
-     * Get dataabase table prefix and names depending on intranet version to make functions compatible
+     * Get database table prefix and names depending on intranet version to make functions compatible
      * 
      * @author Albert Pérez Monfort (aperezm@xtec.cat)
      * @param  intranetVersion
@@ -1954,7 +1940,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     public function compat($args) {
         $version = $args['intranetVersion'];
         if (!isset($version) || empty($version)) {
-            $version = '128';
+            $version = '135';
         }
 
         switch ($version) {
@@ -1965,7 +1951,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 $intrawebModulePrefix = 'iw_';
                 $downloadsModuleName = 'downloads';
                 break;
-            case '132':
+            case '135':
                 $tablePrefix = '';
                 $fieldsPrefix = '';
                 $coreModuleName = 'ZConfig';
