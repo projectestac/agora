@@ -3367,14 +3367,16 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     }
 
     public function updateDiskUse($args) {
-        // checks if ip have access to this script
-        $allowedIps = ModUtil::getVar('Agoraportal', 'allowedIpsForCalcDisckConsume');
-        $allowedIpsArray = explode(',', $allowedIps);
+        // Security check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            $allowedIps = ModUtil::getVar('Agoraportal', 'allowedIpsForCalcDisckConsume');
+            $allowedIpsArray = explode(',', $allowedIps);
 
-        $requestaddr = (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
-        if (!in_array($requestaddr, $allowedIpsArray)) {
-            LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
+            $requestaddr = (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+            if (!in_array($requestaddr, $allowedIpsArray)) {
+                LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
+                return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
+            }
         }
 
         $debug = FormUtil::getPassedValue('debug', isset($args['debug']) ? true : false, 'GET');
@@ -3892,22 +3894,22 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      * @return type 
      */
     public function listDataFiles($args) {
-        // checks if ip have access to this script
-        $allowedIps = ModUtil::getVar('Agoraportal', 'allowedIpsForCalcDisckConsume');
-        $allowedIpsArray = explode(',', $allowedIps);
+        // Security check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            $allowedIps = ModUtil::getVar('Agoraportal', 'allowedIpsForCalcDisckConsume');
+            $allowedIpsArray = explode(',', $allowedIps);
 
-        $requestaddr = (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
-        if (!in_array($requestaddr, $allowedIpsArray)) {
-            LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
+            $requestaddr = (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+            if (!in_array($requestaddr, $allowedIpsArray)) {
+                LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
+                return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
+            }
         }
-
-        $debug = FormUtil::getPassedValue('debug', isset($args['debug']) ? true : false, 'GET');
 
         // Load general config
         global $agora;
 
-        $moodleDataPath = $agora['server']['root'] . $agora['moodle']['datadir'];
+        $moodleDataPath = $agora['server']['root'] . $agora['moodle2']['datadir'];
         $zikulaDataPath = $agora['server']['root'] . $agora['intranet']['datadir'];
         $dataDirs = array($moodleDataPath, $zikulaDataPath);
 
