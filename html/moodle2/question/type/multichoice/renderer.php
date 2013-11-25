@@ -91,13 +91,24 @@ abstract class qtype_multichoice_renderer_base extends qtype_with_combined_feedb
                     'value' => 0,
                 ));
             }
-            $radiobuttons[] = $hidden . html_writer::empty_tag('input', $inputattributes) .
+	    // ***** XTEC MODIFICAT - Prevent Google Chrome from translating the question identifier
+	    // ***** CODI ORIGINAL
+            //$radiobuttons[] = $hidden . html_writer::empty_tag('input', $inputattributes) .
+            //        html_writer::tag('label',
+            //            $this->number_in_style($value, $question->answernumbering) .
+            //            $question->make_html_inline($question->format_text(
+            //                    $ans->answer, $ans->answerformat,
+            //                    $qa, 'question', 'answer', $ansid)),
+            //       array('for' => $inputattributes['id']));
+ 	    // ***** CODI MODIFICAT
+	    $radiobuttons[] = $hidden . html_writer::empty_tag('input', $inputattributes) .
                     html_writer::tag('label',
-                        $this->number_in_style($value, $question->answernumbering) .
+                        '<span class="notranslate">'.$this->number_in_style($value, $question->answernumbering).'</span>'.
                         $question->make_html_inline($question->format_text(
                                 $ans->answer, $ans->answerformat,
                                 $qa, 'question', 'answer', $ansid)),
                     array('for' => $inputattributes['id']));
+	    // ***** FI
 
             // $options->suppresschoicefeedback is a hack specific to the
             // oumultiresponse question type. It would be good to refactor to
