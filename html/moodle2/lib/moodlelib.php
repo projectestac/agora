@@ -5485,7 +5485,7 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
     if (!isset($CFG->mailheader)) {
         $CFG->mailheader = '';
     }
-    if ($CFG->apligestmail) {
+    if (!empty($CFG->apligestmail)) {
         $mail->Subject = $CFG->mailheader . " [" . get_site()->fullname . "] " . substr($subject, 0, 900);
     } else {
         $mail->Subject = substr($subject, 0, 900);
@@ -5578,7 +5578,7 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
     //17.01.2013 @aginard: added global $FULLME;
     global $FULLME;
     
-    if ($CFG->apligestmail) {
+    if (!empty($CFG->apligestmail)) {
         require_once ($CFG->dirroot.'/local/agora/mailer/message.class.php');
         require_once ($CFG->dirroot.'/local/agora/mailer/mailsender.class.php');
 
