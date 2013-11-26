@@ -3458,6 +3458,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
             // For each service, process the disk usage file and send e-mail if necessary
             foreach ($servicesArray as $service) {
+                // 2013.11.26 @aginard: Don't send e-mail for Moodle 1.9
+                if ($service['serviceName'] == 'moodle') {
+                    continue;
+                }
+                
                 if ($debug)
                     echo '<br/><br/>Servei: ' . strtoupper($service['serviceName']);
 
