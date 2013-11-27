@@ -25,6 +25,7 @@ ZIKULA 2
 - IWmoodle: Fixed dropdown group menu in synchronization section
 - Added script to fix charset problems in some Zikula databases
 - Files: Fixed wrong check for directory "users"
+- Groups: Fixed javascript error due to catalan translation
 
 
 Changes 13.11.13

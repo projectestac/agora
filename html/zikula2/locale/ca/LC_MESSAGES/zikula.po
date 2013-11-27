@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Core versió 1.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-29 18:05+0000\n"
-"PO-Revision-Date: 2013-05-28 17:39+0100\n"
+"PO-Revision-Date: 2013-11-27 10:54+0100\n"
 "Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
 "Language-Team: Intraweb <intraweb@xtec.cat>\n"
 "Language: ca\n"
@@ -11340,11 +11340,11 @@ msgstr "Reinicia"
 
 #: system/Groups/templates/groups_admin_view.tpl:5
 msgid "Updating group"
-msgstr "S'està actualitzant el grup"
+msgstr "S\\'està actualitzant el grup"
 
 #: system/Groups/templates/groups_admin_view.tpl:6
 msgid "Deleting group"
-msgstr "S'està esborrant el grup"
+msgstr "S\\'està esborrant el grup"
 
 #: system/Groups/templates/groups_admin_view.tpl:7
 #: system/Groups/templates/groups_admin_delete.tpl:8
@@ -14751,7 +14751,7 @@ msgstr[1] "Esborra els comptes d'usuari/ària"
 msgid "Do you really want to delete this user account?"
 msgid_plural "Do you really want to delete these user accounts?"
 msgstr[0] "Esteu segur/a de voler esborrar aquest compte d'usuari/ària?"
-msgstr[1] ""
+msgstr[1] "Esteu segur/a de voler esborrar aquests comptes d'usuari/ària?"
 
 #: system/Users/templates/users_admin_verifyregistration.tpl:4
 #, php-format
