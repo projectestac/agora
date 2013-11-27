@@ -26,6 +26,7 @@ ZIKULA 2
 - Added script to fix charset problems in some Zikula databases
 - Files: Fixed wrong check for directory "users"
 - Groups: Fixed javascript error due to catalan translation
+- IWbluegraceAgora: Fixed Smarty templates
 
 
 Changes 13.11.13
