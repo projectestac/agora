@@ -17,6 +17,7 @@ PORTAL
 - Removed updating of variables for Downloads module when activating an Intraweb (module's been removed)
 - Allow admins to access to updateDiskUse and to listDataFiles without checking IP
 - Don't send e-mail of quotas for Moodle 1.9
+- Fixed javascript error due to catalan translation
 
 ZIKULA 2
 - Upgraded to Zikula 1.3.6
