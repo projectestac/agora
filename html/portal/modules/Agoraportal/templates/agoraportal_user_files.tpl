@@ -83,7 +83,7 @@
                 <div style="clear:both; height: 20px;"></div>
                 {/foreach}
             </form>
-            <div class="z-warningmsg">
+            <div class="z-errormsg">
                 {gt text="Per problemes tècnics, la pujada de fitxers grans no funciona amb el navegador Google Chrome."}
             </div>
             <div class="z-informationmsg">
@@ -92,7 +92,7 @@
                     <li>{gt text="Només s'admeten fitxers comprimits en format ZIP i MBZ que tinguin una mida compresa entre 10 i 100 MB."}</li>
                     <li>{gt text="Els fitxers de menys de 10 MB s'han de pujar des de l'espai web."}</li>
                     <li>{gt text="Mantingueu una còpia del fitxer en local fins que hàgiu comprovat que el fitxer s'ha enviat correctament."}</li>
-                    <li>{gt text="Si a la carpeta inicial dels fitxers del lloc n'hi ha un amb el mateix nom, serà sobreescrit."}</li>
+                    <li>{gt text="Si en el repositori <strong>Fitxers</strong> n'hi ha un amb el mateix nom, serà sobreescrit."}</li>
                 </ul>
             </div>
         </div>
