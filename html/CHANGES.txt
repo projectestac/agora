@@ -17,6 +17,8 @@ PORTAL
 - Removed updating of variables for Downloads module when activating an Intraweb (module's been removed)
 - Allow admins to access to updateDiskUse and to listDataFiles without checking IP
 - Don't send e-mail of quotas for Moodle 1.9
+- Fixed javascript error due to catalan translation
+- Improvements to form for upload of big files
 
 ZIKULA 2
 - Upgraded to Zikula 1.3.6
@@ -24,6 +26,8 @@ ZIKULA 2
 - IWmoodle: Fixed dropdown group menu in synchronization section
 - Added script to fix charset problems in some Zikula databases
 - Files: Fixed wrong check for directory "users"
+- Groups: Fixed javascript error due to catalan translation
+- IWbluegraceAgora: Fixed Smarty templates
 
 
 Changes 13.11.13

@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Zikula 1.3.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-16 10:29+0000\n"
-"PO-Revision-Date: 2012-02-27 16:01+0100\n"
-"Last-Translator: intraweb <intraweb@xtec.cat>\n"
+"PO-Revision-Date: 2013-11-27 10:46+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
 "Language-Team: Intraweb <intraweb@xtec.cat>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -11309,19 +11309,19 @@ msgstr "Nivell del permís"
 
 #: system/Permissions/templates/permissions_admin_view.tpl:12
 msgid "Updating permission rule..."
-msgstr "Actualitzant permís..."
+msgstr "Actualitzant el permís..."
 
 #: system/Permissions/templates/permissions_admin_view.tpl:13
 msgid "Deleting permission rule..."
-msgstr "Esborrant permís..."
+msgstr "Esborrant el permís..."
 
 #: system/Permissions/templates/permissions_admin_view.tpl:15
 msgid "Testing permission..."
-msgstr "Provant permís..."
+msgstr "Provant el permís..."
 
 #: system/Permissions/templates/permissions_admin_view.tpl:16
 msgid "This permission rule has been locked. If you need to unlock it, go to the Permission rules manager Settings page."
-msgstr "Aquest permís està bloquejat. Si el voleu desbloquejar, heu d'anar a la configuració del mòdul de permisos."
+msgstr "Aquest permís està bloquejat. Si el voleu desbloquejar, heu d\\'anar a la configuració del mòdul de permisos."
 
 #: system/Permissions/templates/permissions_admin_view.tpl:34
 msgid "Notice: Arrange your permission rules in the desired order of evaluation, using drag and drop. The sort order will be saved immediately and automatically."
@@ -11389,11 +11389,11 @@ msgstr "Reinicia"
 
 #: system/Groups/templates/groups_admin_view.tpl:5
 msgid "Updating group"
-msgstr "S'està actualitzant el grup"
+msgstr "S\\'està actualitzant el grup"
 
 #: system/Groups/templates/groups_admin_view.tpl:6
 msgid "Deleting group"
-msgstr "S'està esborrant el grup"
+msgstr "S\\'està esborrant el grup"
 
 #: system/Groups/templates/groups_admin_view.tpl:7
 #: system/Groups/templates/groups_admin_delete.tpl:8
@@ -14691,7 +14691,7 @@ msgstr[1] "Esborra els comptes d'usuari/ària"
 msgid "Do you really want to delete this user account?"
 msgid_plural "Do you really want to delete these user accounts?"
 msgstr[0] "Esteu segur/a de voler esborrar aquest compte d'usuari/ària?"
-msgstr[1] ""
+msgstr[1] "Esteu segur/a de voler esborrar aquests comptes d'usuari/ària?"
 
 #: system/Users/templates/users_admin_verifyregistration.tpl:4
 #, php-format

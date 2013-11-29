@@ -1,6 +1,8 @@
 fieldset {
-    #padding: 5px;
+    padding: 5px;
+    margin: 25px;
 }
+
 .actived{
     color: green;
 }
@@ -124,10 +126,6 @@ table.data{
     background-color: #ffff9f;
     text-align:center;
     border: 2px solid #333;
-}
-
-fieldset{
-    margin: 25px;
 }
 
 .clientInfoBox {

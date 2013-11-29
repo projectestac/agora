@@ -41,41 +41,41 @@
             {/if}	
 
             <div id="header" style="background:url({IWthemepath file="$logotip" type="logo" theme="IWbluegrace_agora"}) no-repeat top right;">
-                 <div id="btitle">
-                                                   <a href="index.php">{$modvars.ZConfig.sitename}</a>
-                                               </div>
-                                           </div>
-                                           <div id="z-maincontent">
-                                               <div id="content">
-                                                   {blockposition name=center}      
-                                                   {$maincontent}	       
-                                               </div>
-                                           </div>
-                                           <div id="sidebar">
-                                               <div id="sidebar-left">
-                                                   {blockposition name=left}      
-                                               </div>
-                                               <div id="sidebar-right">	
-                                                   {blockposition name=right}   
-                                               </div>
-                                           </div>
-
-                                           <div style="clear:both;">&nbsp;</div>
-            </div> 
-
-            <div id="footer" style="background:url({$imagepath}/bg_bottom.png) repeat-x top left;">
-                <div id="footerlogoleft">
-                    <a href="http://agora.xtec.cat" target="_blank"><img src="{$imagepath}/agora.gif" width="96" height="37" alt="" title="" /></a>
+                <div id="btitle">
+                    <a href="index.php">{$modvars.ZConfig.sitename}</a>
                 </div>
-                <div id="footerlogoright">
-                    <a href="http://phobos.xtec.cat/intraweb" target="_blank"><img src="{$imagepath}/logoiw.png" width="138" height="35" alt="" title="" /></a>
+            </div>
+            <div id="z-maincontent">
+                <div id="content">
+                    {blockposition name=center}      
+                    {$maincontent}	       
                 </div>
-                <div id="footermenu">
-                    <a href="http://zikula.org" target="_blank">{gt text="Powered by"}&nbsp;<a href="http://zikula.org" target="_blank">Zikula</a></a>
+            </div>
+            <div id="sidebar">
+                <div id="sidebar-left">
+                    {blockposition name=left}      
+                </div>
+                <div id="sidebar-right">	
+                    {blockposition name=right}   
                 </div>
             </div>
 
-            {iwvhmenu}
+            <div style="clear:both;">&nbsp;</div>
+        </div> 
 
-        </body>
-    </html>
+        <div id="footer" style="background:url({$imagepath}/bg_bottom.png) repeat-x top left;">
+            <div id="footerlogoleft">
+                <a href="http://agora.xtec.cat" target="_blank"><img src="{$imagepath}/agora.gif" width="96" height="37" alt="" title="" /></a>
+            </div>
+            <div id="footerlogoright">
+                <a href="http://intraweb.xtec.cat" target="_blank"><img src="{$imagepath}/logoiw.png" width="138" height="35" alt="" title="" /></a>
+            </div>
+            <div id="footermenu">
+                <a href="http://zikula.org" target="_blank">{gt text="Powered by"}&nbsp;<a href="http://zikula.org" target="_blank">Zikula</a></a>
+            </div>
+        </div>
+
+        {iwvhmenu}
+
+    </body>
+</html>

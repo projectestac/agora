@@ -12,50 +12,50 @@
         <title>{pagegetvar name='title'}</title>
         <link rel="stylesheet" href="{$themepath}/style/style.css" type="text/css" />
         <link rel="stylesheet" href="{IWthemepath file="$stylesheet" type="css" theme="IWbluegrace_agora"}" type="text/css" />
-</head>
+    </head>
 
-<body style="background:#fff url({$imagepath}/bg_top.png) repeat-x top left;">
-    {pnuserloggedin assign="logged"}
-    <div id="wrap">
-        <div id="logotop">
-            <img src="{$imagepath}/logo_de.png" width="165" height="29" alt="" title="" />
-        </div>
+    <body style="background:#fff url({$imagepath}/bg_top.png) repeat-x top left;">
+        {pnuserloggedin assign="logged"}
+        <div id="wrap">
+            <div id="logotop">
+                <img src="{$imagepath}/logo_de.png" width="165" height="29" alt="" title="" />
+            </div>
 
-        {pnmodavailable modname="IWmenu" assign="IWmenu"}
-        {if $IWmenu ne ""}
-        <div id="theme_top">
-            {blockposition name=top}
-        </div>
-        {else}
-        <div id="menutop">
-            <ul>
-                <li class="page_item"><a href="index.php" title="{gt text="Home"}">{gt text="Home"}</a></li>
-                <li class="page_item"><a href="index.php?module=Search" title="{gt text="Search"}">{gt text="Search"}</a></li>
-                {if $logged}
-                <li class="page_item"><a href="index.php?module=Profile" title="{gt text="Account Panel"}">{gt text="Account Panel"}</a></li>
-                <li class="page_item"><a href="index.php?module=Usuaris&func=logout" title="{gt text="Log out"}">{gt text="Log out"}</a></li>
-                {/if}
-            </ul>
-        </div>
-        {/if}		
+            {pnmodavailable modname="IWmenu" assign="IWmenu"}
+            {if $IWmenu ne ""}
+            <div id="theme_top">
+                {blockposition name=top}
+            </div>
+            {else}
+            <div id="menutop">
+                <ul>
+                    <li class="page_item"><a href="index.php" title="{gt text="Home"}">{gt text="Home"}</a></li>
+                    <li class="page_item"><a href="index.php?module=Search" title="{gt text="Search"}">{gt text="Search"}</a></li>
+                    {if $logged}
+                    <li class="page_item"><a href="index.php?module=Profile" title="{gt text="Account Panel"}">{gt text="Account Panel"}</a></li>
+                    <li class="page_item"><a href="index.php?module=Usuaris&func=logout" title="{gt text="Log out"}">{gt text="Log out"}</a></li>
+                    {/if}
+                </ul>
+            </div>
+            {/if}		
 
-        <div id="header" style="background:url({IWthemepath file="$logotip" type="logo" theme="IWbluegrace_agora"}) no-repeat top right;">
-             <div id="btitle">
-                                               <a href="index.php">{$modvars.ZConfig.sitename}</a>
-                                           </div>
-                                       </div>
-                                       <div id="z-maincontent">
-                                           <div id="content_1_col">
-                                               {$maincontent}	       
-                                           </div>
-                                       </div>
-                                       <div id="sidebar">
-                                           <div id="sidebar-left">	
-                                               {blockposition name=left}   
-                                           </div>
-                                       </div>
+            <div id="header" style="background:url({IWthemepath file="$logotip" type="logo" theme="IWbluegrace_agora"}) no-repeat top right;">
+                <div id="btitle">
+                    <a href="index.php">{$modvars.ZConfig.sitename}</a>
+                </div>
+            </div>
+            <div id="z-maincontent">
+                <div id="content_1_col">
+                    {$maincontent}	       
+                </div>
+            </div>
+            <div id="sidebar">
+                <div id="sidebar-left">	
+                    {blockposition name=left}   
+                </div>
+            </div>
 
-                                       <div style="clear:both;">&nbsp;</div>
+            <div style="clear:both;">&nbsp;</div>
         </div> 
 
         <div id="footer" style="background:url({$imagepath}/bg_bottom.png) repeat-x top left;">
@@ -63,7 +63,7 @@
                 <a href="http://agora.xtec.cat" target="_blank"><img src="{$imagepath}/agora.gif" width="96" height="37" alt="" title="" /></a>
             </div>
             <div id="footerlogoright">
-                <a href="http://phobos.xtec.cat/intraweb" target="_blank"><img src="{$imagepath}/logoiw.png" width="138" height="35" alt="" title="" /></a>
+                <a href="http://intraweb.xtec.cat" target="_blank"><img src="{$imagepath}/logoiw.png" width="138" height="35" alt="" title="" /></a>
             </div>
             <div id="footermenu">
                 <a href="http://zikula.org" target="_blank">{gt text="Powered by"}&nbsp;<a href="http://zikula.org" target="_blank">Zikula</a></a>
