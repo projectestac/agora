@@ -11,6 +11,7 @@ MOODLE 2
 - Coursequotas: Fixed error when counting used space in course and in front page
 - Question: Modified to prevent Google Chrome from translating the question identifier (a,b,c..)
 - Modified patch in email_to_user function to prevent moodle to generate notices when $CFG->apligestmail is not set
+- Fixed upgrade assignment code section. Now it catches exceptions and removes unused duplicated sections that probably caused the exception in the first place.
 
 PORTAL
 - Upgraded to Zikula 1.3.6
