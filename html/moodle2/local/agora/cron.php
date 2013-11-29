@@ -50,13 +50,34 @@ $total = count($assignmentids);
 foreach ($assignmentids as $assignmentid) {
 
     echo "Upgrading assignment $assignmentid ($current of $total)...";
+    
+    try {    
 
-    list($summary, $success, $log) = tool_assignmentupgrade_upgrade_assignment($assignmentid);
+	    list($summary, $success, $log) = tool_assignmentupgrade_upgrade_assignment($assignmentid);
 
-    $current += 1;
+	    $current += 1;
 
-    if ($success) { echo "Success.\n"; }
-    else { echo "Fail: $log.\n"; }
+	    if ($success) { echo "Success.\n"; }
+	    else { echo "Fail: $log.\n"; }
+    } catch(Exception $e) {
+	echo "ERROR upgrading assignment $assignmentid: ".$e->getMessage()."\n";
+	$assignment = $DB->get_record('assignment',array('id' => $assignmentid));
+	$sections = $DB->get_records('course_sections',array('course' => $assignment->course),'id ASC');
+	$list = array();
+	echo "Looking for duplicated sections that may cause the error...\n";
+	$error = false;
+	foreach($sections as $section) {
+		if (in_array($section->section,$list)) {
+			$error = true;
+			echo "Deleting duplicated section ".$section->section." from course ".$section->course." with ID ".$section->id."...";
+			$DB->delete_records('course_sections', array('id' => $section->id));
+			echo "done.\n";
+		} else {
+			$list[] = $section->section;
+		}
+	}
+	if (!$error) echo "No duplicated sections found.\n";
+    }
     
 }
 
