@@ -32,11 +32,23 @@ class Blocks_Api_User extends Zikula_AbstractApi
     {
         // create an empty items array
         $items = array();
-
+        
         // Security check
-        if (!SecurityUtil::checkPermission('Blocks::', '::', ACCESS_OVERVIEW)) {
+
+        
+        ////XTEC ************ MODIFICAT - Ensure block "MyRole" is able to load when the user doesn't belong to any group (prevents admins suicides)
+        //2013.12.02 @aginard
+        if (!SecurityUtil::checkPermission('Blocks::', '::', ACCESS_OVERVIEW) && !SecurityUtil::checkPermission('IWmyrole::', '::', ACCESS_ADMIN)) {
             return $items;
         }
+        //************ ORIGINAL
+        /*
+          if (!SecurityUtil::checkPermission('Blocks::', '::', ACCESS_OVERVIEW)) {
+          return $items;
+          }
+         */
+        //************ FI
+
 
         // backwards compatibility
         if (isset($args['modid']) && !isset($args['module_id'])) {
@@ -148,9 +160,21 @@ class Blocks_Api_User extends Zikula_AbstractApi
         static $block_positions = array();
 
         // Security check
-        if (!SecurityUtil::checkPermission('Blocks::', '::', ACCESS_OVERVIEW)) {
+
+        
+        ////XTEC ************ MODIFICAT - Ensure block "MyRole" is able to load when the user doesn't belong to any group (prevents admins suicides)
+        //2013.12.02 @aginard
+        if (!SecurityUtil::checkPermission('Blocks::', '::', ACCESS_OVERVIEW) && !SecurityUtil::checkPermission('IWmyrole::', '::', ACCESS_ADMIN)) {
             return $block_positions;
         }
+        //************ ORIGINAL
+        /*
+          if (!SecurityUtil::checkPermission('Blocks::', '::', ACCESS_OVERVIEW)) {
+          return $block_positions;
+          }
+         */
+        //************ FI
+
 
         if (empty($block_positions)) {
 

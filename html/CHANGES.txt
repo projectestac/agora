@@ -29,6 +29,7 @@ ZIKULA 2
 - Files: Fixed wrong check for directory "users"
 - Groups: Fixed javascript error due to catalan translation
 - IWbluegraceAgora: Fixed Smarty templates
+- IWMyRole: Ensure block "MyRole" is able to load when the user doesn't belong to any group (prevents admins suicides)
 
 
 Changes 13.11.13
