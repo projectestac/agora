@@ -51,11 +51,11 @@ foreach ($assignmentids as $assignmentid) {
 
     echo "Upgrading assignment $assignmentid ($current of $total)...";
     
+    $current += 1;
+    
     try {    
 
 	    list($summary, $success, $log) = tool_assignmentupgrade_upgrade_assignment($assignmentid);
-
-	    $current += 1;
 
 	    if ($success) { echo "Success.\n"; }
 	    else { echo "Fail: $log.\n"; }
