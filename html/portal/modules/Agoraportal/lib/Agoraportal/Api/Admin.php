@@ -337,7 +337,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         // modify the site name
         $value = DataUtil::formatForStore(serialize($item[$clientServiceId]['clientName']));
-        $sql[0] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['coreModuleName']}' AND {$compat['fieldsPrefix']}name='sitename'";
+        $sql[0] = "UPDATE refix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['coreModuleName']}' AND {$compat['fieldsPrefix']}name='sitename'";
 
         // modify the adminmail
         $value = DataUtil::formatForStore(serialize($item[$clientServiceId]['clientCode'] . '@xtec.cat'));
@@ -1955,7 +1955,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 $tablePrefix = '';
                 $fieldsPrefix = '';
                 $coreModuleName = 'ZConfig';
-                $intrawebModulePrefix = 'IWmain';
+                $intrawebModulePrefix = 'IW';
                 $downloadsModuleName = 'Downloads';
                 break;
         }
