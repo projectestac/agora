@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- replaceMoodle.php: Changed required service from Moodle 1.9 to Moodle 2
+
 MOODLE 2
 - Reviewed code for reseting assign grades to include also recovergradesdefault parameter (https://tracker.moodle.org/browse/MDL-41877)
 - Coursequotas: Added temp and trashdir info for non-Agora installs and minor text format changes

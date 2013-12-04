@@ -61,7 +61,7 @@ if (empty($dns)) { // Show form
 
         if (is_array($school) && (array_key_exists('id_moodle', $school) || array_key_exists('id_moodle2', $school))) {
             
-            $result = replaceMoodle($dns, $school['id_moodle'], $school['database_moodle'], $prefix, $oldText, $newText);
+            $result = replaceMoodle($dns, $school['id_moodle2'], $school['database_moodle2'], $prefix, $oldText, $newText);
             
             if ($result) {
                 echo "<div style=\"font-weight:bold;\">S'ha executat correctament el canvi de text al centre $dns</div>";
