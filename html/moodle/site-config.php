@@ -27,7 +27,32 @@
         header('location: '.WWWROOT.'error.php?s=moodle&dns='.$_REQUEST['ccentre']);
         exit(0);
     }
-    
+
+    // Check to disconnect usu1
+    $disconnectfile = INSTALL_BASE . $agora['moodle']['datadir'] . $agora['moodle']['username'] . '2/1/usu1off.txt';
+
+    // Check if logs are on. There's no database at this stage, so an alternative control system is mandatory.
+    if (($school_info['id_moodle'] == 1) && file_exists($disconnectfile)) {
+		$gestor = fopen($disconnectfile, 'rb');
+		if ($gestor) {
+			// Send file to screen in small chunks for efficience
+			while (!feof($gestor)) {
+				echo fread($gestor, 8192);
+			}
+			fclose($gestor);
+		} else {
+            echo '<html><body>';
+            echo '<div style="text-align:center; font-size:large; border-width:1px; '.
+                 '    border-color:#CCC; border-style:solid; border-radius: 20px; border-collapse: collapse; '.
+                 '    -moz-border-radius:20px; padding:15px; margin: 200px 100px 0px 100px;">';
+            echo '<h2>Aturada per manteniment</h2>';
+            echo '<p>El portal de suport d\'Àgora està en procés d\'actualització i es troba fora de servei. El portal es tornarà obrir en unes hores.</p>';
+            echo '<p style="font-size:medium">Preguem disculpeu les molèsties.</p>';
+            echo '</div></body></html>';
+        }
+        exit(0);
+    }
+
     // Get the correct domain for the school (it's different if the school uses marsupial modules)
     $CFG->ismarsupial = array_key_exists('is_marsupial', $school_info) && $school_info['is_marsupial'];
     $moodle_wwwserver = $agora['server']['server'];
