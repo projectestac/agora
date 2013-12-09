@@ -32,6 +32,19 @@
  */
 abstract class backup_controller_dbops extends backup_dbops {
 
+	//XTEC *********** AFEGIT MDL-41146 Backup: backup_includes_files can leak memory
+	//2013.12.09 @pferre22
+    /**
+     * @var string Backup id for cached backup_includes_files result.
+     */
+    protected static $includesfilescachebackupid;
+
+    /**
+     * @var int Cached backup_includes_files result
+     */
+    protected static $includesfilescache;
+	//************ FI
+
     /**
      * Send one backup controller to DB
      *
@@ -408,6 +421,34 @@ abstract class backup_controller_dbops extends backup_dbops {
         $count = $DB->count_records_sql($sql, array($backupid, $CFG->mnet_localhost_id));
         return (int)(bool)$count;
     }
+
+    /**
+	 * XTEC *********** AFEGIT MDL-37761 Improve backup/restore within Moodle (e.g. course and activity duplication)
+	 * XTEC *********** AFEGIT MDL-41146 Backup: backup_includes_files can leak memory
+     * 2013.12.09 @pferre22
+     * Given the backupid, determine whether this backup should include
+     * files from the moodle file storage system.
+     *
+     * @param string $backupid The ID of the backup.
+     * @return int Indicates whether files should be included in backups.
+     */
+    public static function backup_includes_files($backupid) {
+        // This function is called repeatedly in a backup with many files.
+        // Loading the controller is a nontrivial operation (in a large test
+        // backup it took 0.3 seconds), so we do a temporary cache of it within
+        // this request.
+        if (self::$includesfilescachebackupid === $backupid) {
+            return self::$includesfilescache;
+        }
+
+        // Load controller, get value, then destroy controller and return result.
+        self::$includesfilescachebackupid = $backupid;
+        $bc = self::load_controller($backupid);
+        self::$includesfilescache = $bc->get_include_files();
+        $bc->destroy();
+        return self::$includesfilescache;
+    }
+	//************ FI
 
     /**
      * Given the backupid, detect if the backup contains references to external contents

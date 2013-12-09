@@ -61,6 +61,14 @@ class backup_file_manager {
     public static function copy_file_moodle2backup($backupid, $filerecorid) {
         global $DB;
 
+		// XTEC *********** AFEGIT MDL-37761 Improve backup/restore within Moodle (e.g. course and activity duplication)
+		//2013.12.09 @pferre22
+        if (!backup_controller_dbops::backup_includes_files($backupid)) {
+            // Only include the files if required by the controller.
+            return;
+        }
+		//************ FI
+
         // Normalise param
         if (!is_object($filerecorid)) {
             $filerecorid = $DB->get_record('files', array('id' => $filerecorid));

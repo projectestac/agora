@@ -155,6 +155,15 @@ abstract class backup_general_helper extends backup_helper {
         } else {
             $info->include_file_references_to_external_content = 0;
         }
+		// XTEC *********** AFEGIT MDL-37761 Improve backup/restore within Moodle (e.g. course and activity duplication)
+		//2013.12.09 @pferre22
+        // include_files is a new setting in 2.6.
+        if (isset($infoarr['include_files'])) {
+            $info->include_files = $infoarr['include_files'];
+        } else {
+            $info->include_files = 1;
+        }
+		//************ FI
         $info->type   =  $infoarr['details']['detail'][0]['type'];
         $info->format =  $infoarr['details']['detail'][0]['format'];
         $info->mode   =  $infoarr['details']['detail'][0]['mode'];
