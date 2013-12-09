@@ -23,7 +23,7 @@ require_once($CFG->dirroot.'/mod/rscorm/locallib.php');
 //MARSUPIAL ********** AFEGIT - load instance when update
 if ($CFG->branch < 24) {
     $PAGE->requires->yui2_lib(array('json','connection', 'dom', 'event', 'yahoo'));
-} 
+}
 $PAGE->requires->js('/mod/rscorm/loadselects_ajax.js', true);
 //********** FI
 class mod_rscorm_mod_form extends moodleform_mod {
@@ -39,7 +39,7 @@ class mod_rscorm_mod_form extends moodleform_mod {
         }
 //MARSUPIAL ********** AFEGIT - load instance when update
         $update = optional_param("update",0,PARAM_INT);
-        
+
         if(!empty($update)){
         	if ($cm = get_coursemodule_from_id('rscorm', $update)) {
         		if (!$rscorm = $DB->get_record('rscorm', array('id' => $cm->instance))) {
@@ -80,7 +80,7 @@ class mod_rscorm_mod_form extends moodleform_mod {
         		"var ajax_config = " . json_encode($ajax_config_settings) . ";\n".
         		"//]]></script>\n";*/
 // ********* FI
-        
+
         //Level
         $level_list_array=rscorm_level_list();
         if(!empty($update)){
@@ -93,7 +93,7 @@ class mod_rscorm_mod_form extends moodleform_mod {
         }
         $mform->addElement('select', 'level', get_string('level','rscorm'), $level_list_array, $attrs);
         $mform->setType('level', PARAM_INT);
-        
+
         // Isbn
         //set isbn select onchange event width ajax and without it
         if (!empty($update)){
@@ -113,7 +113,7 @@ class mod_rscorm_mod_form extends moodleform_mod {
         $mform->addElement('select', 'isbn', get_string('isbn','rscorm'), $isbn_list_array, $attrs);
         $mform->setType('isbn', PARAM_INT);
         $mform->addRule('isbn', get_string('isbnerror','rscorm'), 'nonzero', null, 'client');
-        
+
         // Unit
         //loetHelpButton() is deprecad unit select options with ajax and without it
         if(!empty($update)){
@@ -133,7 +133,7 @@ class mod_rscorm_mod_form extends moodleform_mod {
         }
         $mform->addElement('select', 'unit', get_string('unit','rscorm'), $unit_list_array , $attrs);
         $mform->setType('unit', PARAM_INT);
-        
+
         // Activity
         //load activity select options width ajax and widthout it
         if(!empty($update)){
@@ -148,13 +148,13 @@ class mod_rscorm_mod_form extends moodleform_mod {
         $mform->addElement('select', 'activity', get_string('activity','rscorm'), $activity_list_array);
         $mform->setType('activity', PARAM_INT);
         //********** FI
-        
+
         // Summary
 /*        $mform->addElement('htmleditor', 'summary', get_string('summary'));
         $mform->setType('summary', PARAM_RAW);
         / * $mform->addRule('summary', get_string('required'), 'required', null, 'client');* /
         $mform->addHelpButton('summary', 'summary');
-        
+
   */      //MARSUPIAL ********** ELIMINAT - Take out reference field
         /*// Reference
          $mform->addElement('choosecoursefileorimsrepo', 'reference', get_string('package','rscorm'));
@@ -163,7 +163,7 @@ class mod_rscorm_mod_form extends moodleform_mod {
         $mform->setHelpButton('reference',array('package', get_string('package', 'rscorm'), 'rscorm'));
         */
         //********** FI
-        
+
         // Summary
         $this->add_intro_editor(true);
 
@@ -196,7 +196,7 @@ class mod_rscorm_mod_form extends moodleform_mod {
             $mform->addElement('hidden', 'scormtype', RSCORM_TYPE_LOCAL);
         }
 //MARSUPIAL ********** ELIMINAT - Take out package file
-        
+
      //   New local package upload
 //        $maxbytes = get_max_upload_file_size($CFG->maxbytes, $COURSE->maxbytes);
 //        $mform->setMaxFileSize($maxbytes);
@@ -409,10 +409,10 @@ class mod_rscorm_mod_form extends moodleform_mod {
         if (isset($default_values['grademethod'])) {
             $default_values['grademethod'] = intval($default_values['grademethod']);
         }
-        if (isset($default_values['width']) && (strpos($default_values['width'], '%') === false) && ($default_values['width'] <= 100)) {
+        if (isset($default_values['width']) && (textlib::strpos($default_values['width'], '%') === false) && ($default_values['width'] <= 100)) {
             $default_values['width'] .= '%';
         }
-        if (isset($default_values['width']) && (strpos($default_values['height'], '%') === false) && ($default_values['height'] <= 100)) {
+        if (isset($default_values['width']) && (textlib::strpos($default_values['height'], '%') === false) && ($default_values['height'] <= 100)) {
             $default_values['height'] .= '%';
         }
         $scorms = get_all_instances_in_course('rscorm', $COURSE);
@@ -455,7 +455,7 @@ class mod_rscorm_mod_form extends moodleform_mod {
             $default_values['completionstatusrequired'] = $cvalues;
         }
 
-        if (!isset($default_values['completionscorerequired']) || !strlen($default_values['completionscorerequired'])) {
+        if (!isset($default_values['completionscorerequired']) || !textlib::strlen($default_values['completionscorerequired'])) {
             $default_values['completionscoredisabled'] = 1;
         }
 
@@ -467,7 +467,7 @@ class mod_rscorm_mod_form extends moodleform_mod {
 
         $type = $data['scormtype'];
 //MARSUPIAL ********** ELIMINAT - Take out package file
-        
+
  //       if ($type === RSCORM_TYPE_LOCAL) {
 //             if (!empty($data['update'])) {
 //                 //ok, not required
@@ -606,7 +606,7 @@ class mod_rscorm_mod_form extends moodleform_mod {
 
     function completion_rule_enabled($data) {
         $status = !empty($data['completionstatusrequired']);
-        $score = empty($data['completionscoredisabled']) && strlen($data['completionscorerequired']);
+        $score = empty($data['completionscoredisabled']) && textlib::strlen($data['completionscorerequired']);
 
         return $status || $score;
     }

@@ -2,11 +2,9 @@
 
 // This script uses installed report plugins to print quiz reports
 
-    
-
     require_once("../../config.php");
     require_once('locallib.php');
-    
+
     $id         = optional_param('id', '', PARAM_INT);    // Course Module ID, or
     $a          = optional_param('a', '', PARAM_INT);     // Book Id
     $b          = optional_param('b', '', PARAM_INT);     // Unit Id
@@ -47,18 +45,18 @@
         }
     }
 
-require_course_login($course);
+	require_course_login($course);
 
 //    require_login($course->id, false, $cm);
     $url = new moodle_url('/mod/rcontent/report.php', array('id' => $id)); // Base URL
     $PAGE->set_title($rcontent->name);
     $PAGE->set_heading($course->fullname);
-	
+
     $PAGE->set_url($url);
-    
-    $contextmodule = get_context_instance(CONTEXT_MODULE,$cm->id);
+
+    $contextmodule = context_module::instance(,$cm->id);
     if (!$contextmodule) {
-    	$contextmodule = get_context_instance(CONTEXT_SYSTEM);
+    	$contextmodule = context_system::instance();
     }
 
     require_capability('mod/rcontent:viewreport', $contextmodule);
@@ -74,7 +72,7 @@ require_course_login($course);
     if (!isset($action) || ($action!="update" && $action!="saveupdate")){
 	/// Print the page header
 	    if (empty($noheader)) {
-	
+
 	        $strscorms = get_string('modulenameplural', 'rcontent');
 	        $strscorm  = get_string('modulename', 'rcontent');
 	        $strreport  = get_string('report', 'rcontent');
@@ -95,8 +93,8 @@ require_course_login($course);
 		                $PAGE->navbar->add(format_string($rcontent->name), new moodle_url($CFG->wwwroot.'/mod/rcontent/view.php?id='.$id), null, navigation_node::TYPE_CUSTOM, null);
 		            	$PAGE->navbar->add($strreport);
 		            	echo $OUTPUT->header();
-		            	
-// ************ ORIGINAL		            	
+
+// ************ ORIGINAL
 		                /*$navigation = build_navigation($strreport, $cm);
 		                print_header("$course->shortname: ".format_string($rcontent->name), $course->fullname, $navigation,
 		                             '', '', true);*/
@@ -106,9 +104,9 @@ require_course_login($course);
 		                $optionsurl = "&id=$cm->id";
 // ********** FI
 		            } else {
-		
-		                      
-		            	
+
+
+
 		            	// MARSUPIAL ********** MODIFICAT -> Deprected code Moodle 2.3
 		            	// 2012.12.18 @abertranb
 		                $PAGE->navbar->add($strscorms, new moodle_url($CFG->wwwroot.'/mod/rcontent/index.php?id='.$course->id), null, navigation_node::TYPE_CUSTOM, null);
@@ -122,39 +120,39 @@ require_course_login($course);
 		                $navlinks[] = array('name' => $strreport, 'link' => "report.php?id=$cm->id", 'type' => 'title');
 		                $navlinks[] = array('name' => $bookname, 'link' => '', 'type' => 'title');
 		                $navigation = build_navigation($navlinks, $cm);
-		
+
 		                print_header("$course->shortname: ".format_string($rcontent->name), $course->fullname,
 		                             $navigation, '', '', true);
 		                 $heading.=" > ".$bookname;
-		                */  
+		                */
 		            	// ************ FI
-		                
+
 // MARSUPIAL ********** AFEGIT -> Filter by status, set select options url destination
 // 2011.08.30 @mmartinez
 		                $optionsurl = "&a=$a&user=$user&attempt=$attempt";
 // ********** FI
 		            }
 		        } else {
-		
+
 		        	// MARSUPIAL ********** MODIFICAT -> Deprected code Moodle 2.3
 		        	// 2012.12.18 @abertranb
 		            $PAGE->navbar->add($strscorms, new moodle_url($CFG->wwwroot.'/mod/rcontent/index.php?id='.$course->id), null, navigation_node::TYPE_CUSTOM, null);
 		            $PAGE->navbar->add(format_string($rcontent->name), new moodle_url($CFG->wwwroot.'/mod/rcontent/view.php?id='.$cm->id), null, navigation_node::TYPE_CUSTOM, null);
 		            $PAGE->navbar->add($strreport, new moodle_url($CFG->wwwroot.'/mod/rcontent/report.php?id='.$cm->id), null, navigation_node::TYPE_CUSTOM, null);
 		            $PAGE->navbar->add($bookname, new moodle_url($CFG->wwwroot.'/mod/rcontent/report.php?a='.$a.'&user='.$user.'&attempt='.$attempt), null, navigation_node::TYPE_CUSTOM, null);
-		            
-		        	
+
+
 		        	if($unitname=$DB->get_record_select('rcommon_books_units',"bookid=$rcontent->bookid AND id=$b",null,'name')){
 		        		$unitname=$unitname->name;
 		        	}else{
 		        		$unitname=get_string('unit','rcontent').": ".$b;
 		        	}
 		        	$PAGE->navbar->add($unitname, null, null, navigation_node::TYPE_CUSTOM, null);
-		        	
+
 		        	$heading.=" > ".$bookname." > ".$unitname;
 		        	echo $OUTPUT->header();
 		        	// ************ ORIGINAL
-		        	/*  		            
+		        	/*
 		        	$navlinks = array();
 		            $navlinks[] = array('name' => $strreport, 'link' => "report.php?id=$cm->id", 'type' => 'title');
 		            $navlinks[] = array('name' => $bookname, 'link' => "report.php?a=$a&amp;user=$user&amp;attempt=$attempt", 'type' => 'title');
@@ -165,15 +163,15 @@ require_course_login($course);
 					}
 		            $navlinks[] = array('name' => $unitname, 'link' => '', 'type' => 'title');
 		            $navigation = build_navigation($navlinks, $cm);
-		
+
 		            print_header("$course->shortname: ".format_string($rcontent->name), $course->fullname, $navigation,
 		                     '', '', true);
-		                     
+
 		            $heading.=" > ".$bookname." > ".$unitname;
 
 		        	*/
 		        	// ************ FI
-		            
+
 // MARSUPIAL ********** AFEGIT -> Filter by status, set select options url destination
 // 2011.08.30 @mmartinez
 		            $optionsurl = "&a=$a&b=$b&user=$user&attempt=$attempt";
@@ -199,7 +197,7 @@ require_course_login($course);
 				$PAGE->navbar->add($activityname, null, null, navigation_node::TYPE_CUSTOM, null);
 				$heading.=" > ".$bookname." > ".$unitname." > ".$activityname;
 				echo $OUTPUT->header();
-				
+
 				// ************ ORIGINAL
 				/*
 				$navlinks = array();
@@ -209,7 +207,7 @@ require_course_login($course);
 					$unitname=$unitname->name;
 				}else{
 				    $unitname=get_string('unit','rcontent').": ".$b;
-				}	
+				}
 		        $navlinks[] = array('name' => $unitname, 'link' => "report.php?a=$a&amp;b=$b&amp;user=$user&amp;attempt=$attempt", 'type' => 'title');
 			    if($activityname=$DB->get_record_select('rcommon_books_activities',"bookid=$rcontent->bookid AND unitid=$b AND id=$c",null,'name')){
 					$activityname=$activityname->name;
@@ -218,15 +216,15 @@ require_course_login($course);
 				}
 				$navlinks[] = array('name' => $activityname, 'link' => '', 'type' => 'title');
 		        $navigation = build_navigation($navlinks, $cm);
-		
+
 		        print_header("$course->shortname: ".format_string($rcontent->name), $course->fullname, $navigation,
 		             '', '', true);
 		             $heading.=" > ".$bookname." > ".$unitname." > ".$activityname;
 		             */
 				// ************ FI
-				
-		        
-		        
+
+
+
 // MARSUPIAL ********** AFEGIT -> Filter by status, set select options url destination
 // 2011.08.30 @mmartinez
 		        $optionsurl = "&a=$a&b=$b&c=$c&user=$user&attempt=$attempt";
@@ -238,7 +236,7 @@ require_course_login($course);
             $optionsurlandparam = $optionsurl.$optionsparam;
             //$filterbyindex     .= $filterby;
             $optionsparam       = ($filterby != '')? $optionsparam.$filterby : '';
-            
+
             $menu = array();
             $menu['']  = get_string('all', 'rcontent');
             $menu['NO_INICIADO']  = get_string('NO_INICIADO', 'rcontent');
@@ -246,21 +244,21 @@ require_course_login($course);
             $menu['FINALIZADO']   = get_string('FINALIZADO', 'rcontent');
             $menu['POR_CORREGIR'] = get_string('POR_CORREGIR', 'rcontent');
             $menu['CORREGIDO']    = get_string('CORREGIDO', 'rcontent');
-            
+
 // MARSUPIAL ********** MODIFICAT -> Deprected code Moodle 2.3
 // 2012.12.12 @abertranb
             //$PAGE->set_heading($heading?$heading:$course->fullname);
            // if (!empty($heading))
            // 	echo $OUTPUT->heading($heading);
             echo $OUTPUT->single_select(new moodle_url('/mod/rcontent/report.php?'.$optionsurlandparam), 'filterby', $menu, $filterby);
-// ********** ORIGINAL            
+// ********** ORIGINAL
 			//popup_form('', $menu, 'choosestatefilter', $filterbyindex, get_string('chooseaction', 'rcontent'), '', '', false, 'self');
             //print_heading($heading);
 // ********** FI
 	    }
 	    echo $OUTPUT->heading($heading);
 
-		
+
 	    if ($action == 'delete' && has_capability('mod/rcontent:deleteresponses',$contextmodule)) {
 	       if (rcontent_delete_responses($attemptids, $rcontent->id)) { //delete responses.
 	            notify(get_string('responsedeleted', 'rcontent'), 'notifysuccess');
@@ -269,7 +267,7 @@ require_course_login($course);
 //MARSUPIAL *********** AFEGIT -> In case that the user is a student in course context load from db just his registries
 //2011.05.19 @mmartinez
         $user_rol=array_values(get_user_roles($contextmodule));
-//************ FI	    
+//************ FI
 	    if (empty($c)){
 		    if (empty($b)) {
 		        if (empty($a)) {
@@ -280,7 +278,7 @@ require_course_login($course);
 		                    INNER JOIN {$CFG->prefix}groups_members gm ON st.userid = gm.userid
 		                    INNER JOIN {$CFG->prefix}groupings_groups gg ON gm.groupid = gg.groupid
 		                    WHERE st.rcontentid = {$rcontent->id} AND gg.groupingid = {$cm->groupingid}";
-		                
+
 //MARSUPIAL *********** AFEGIT -> In case that the user is a student in course context load from db just his registries
 //2011.05.19 @mmartinez
     					if (!has_capability('mod/rcontent:viewresult', $contextmodule)){
@@ -292,7 +290,7 @@ require_course_login($course);
 		                $sql = "SELECT st.userid, st.attempt
 		                    FROM {$CFG->prefix}rcontent_grades st
 		                    WHERE st.rcontentid = {$rcontent->id}";
-		                
+
 //MARSUPIAL *********** AFEGIT -> In case that the user is a student in course context load from db just his registries
 //2011.05.19 @mmartinez
     					if (!has_capability('mod/rcontent:viewresult', $contextmodule)){
@@ -304,15 +302,15 @@ require_course_login($course);
 		            }
 		            global $USER;
 		            $rcontentusersatempts  = array();
-		            if ($rcontentusers = $DB->get_records_sql($sql)) { 
+		            if ($rcontentusers = $DB->get_records_sql($sql)) {
 		                //echo "<hr>Users with grades: "; print_r($rcontentusers); echo "<hr>"; //just for debug mode
-		            	
+
 		                foreach($rcontentusers as $rcontentus){
 		                	//load all user data
 		                	$sql = "SELECT rg.* FROM {$CFG->prefix}rcontent_grades rg WHERE rg.rcontentid=$rcontent->id AND rg.userid=$rcontentus->userid AND rg.attempt=$rcontentus->attempt";
 		                    $rcontentus = $DB->get_record_sql($sql, array(), IGNORE_MULTIPLE);
 			                //echo "<hr>All data for user $rcontentus->userid: "; print_r($rcontentus); echo "<hr>";  //just for debug mode
-			                
+
 			                //reload data by attempt
 				            $attempt = rcontent_get_last_attempt($rcontent->id,$rcontentus->userid);
 				            for ($at = 1; $at<=$attempt; $at++) {
@@ -326,7 +324,7 @@ require_course_login($course);
 // ********** FI
 			                    //echo "<hr>Min unit and activity values: "; print_r($rcontentusermin); echo "<hr>";  //just for debug mode
 //MARSUPIAL *********** ELIMINAT -> Now the comprovation is done in the sql statment
-//2011.05.19 @mmartinez		                	
+//2011.05.19 @mmartinez
 			                	 //if($user_rol[0]->shortname!='student'||($user_rol[0]->shortname=='student'&&$rcontentuser->userid==$USER->id)){
 //************ FI
 
@@ -340,7 +338,7 @@ require_course_login($course);
 			                		$tempb=$rcontentus->unitid;
 					            	$tempc=$rcontentus->activityid;
 			                	}
-			                	
+
 			                	//reload all the data but with min unit and activity values
 			                	$sql = "rcontentid=$rcontent->id AND userid=$rcontentus->userid AND attempt=$at AND unitid=$rcontentusermin->min_unit AND activityid=$rcontentusermin->min_activity";
 // MARSUPIAL ********** AFEGIT -> Filter by status, set filter by sql
@@ -359,7 +357,7 @@ require_course_login($course);
 					            }
 					            //$rcontentuserat = current($rcontentuserat);
 					            //echo "Reloaded data with min values ($sql): "; print_r($rcontentuserat); echo "<br><br>"; //just for debug mode
-					            foreach ($rcontentuserat as $rcontentuserattemp){    	
+					            foreach ($rcontentuserat as $rcontentuserattemp){
 		                            $rcontentusersatempts[] = $rcontentuserattemp;
 		                            //echo "<hr>Data added: "; print_r($rcontentuserattemp); echo "<br>"; //just for debug
 					            }
@@ -367,7 +365,7 @@ require_course_login($course);
 //2011.05.19 @mmartinez
        			                	//}
 //*********** fi
-		            
+
 				            }
 
 		                }
@@ -420,7 +418,7 @@ require_course_login($course);
 						}
 //************ FI
                         //echo "Showing values: "; print_r($rcontentuser); echo "<br><br>"; //just for debug mode
-                        
+
 					    $userdata = rcontent_get_user_data($rcontentuser->userid);
 				        $row = array();
 				        if (has_capability('mod/rcontent:deleteresponses',$contextmodule)) {
@@ -433,10 +431,10 @@ require_course_login($course);
 				        //********** ORIGINAL
 				        //$row[] = print_user_picture($rcontentuser->userid, $course->id, $userdata->picture, false, true);
 				        //********** FI
-				        
+
 				        $row[] = '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$rcontentuser->userid.'&course='.$course->id.'">'.
 				                 fullname($userdata).'</a>';
-				                            
+
 				        //set href depends on the granularity of the activity
 				        $href = '<a href="report.php?a='.$rcontent->id;
 				        $select = ' AND unitid<>0';
@@ -449,7 +447,7 @@ require_course_login($course);
 				           	}
 				           	//if there arent smalle grades but there are details go direct to details
 				         }
-				                        
+
 				         if(!$DB->get_records_select('rcontent_grades',"rcontentid='$rcontentuser->rcontentid' AND userid='$rcontentuser->userid' AND attempt='$rcontentuser->attempt'".$select)&&
 				             $DB->get_records_select('rcontent_grades_details',"rcontentid=$rcontentuser->rcontentid AND userid=$rcontentuser->userid AND attempt=$rcontentuser->attempt AND unitid=$rcontentuser->unitid AND activityid=$rcontentuser->activityid")){
 				         	 $href.='&action=details';
@@ -460,7 +458,7 @@ require_course_login($course);
 // ********** ORIGINAL
 				         //$href.='&amp;user='.$rcontentuser->userid.'&amp;attempt='.$rcontentuser->attempt.'">'.$rcontentuser->attempt.'</a>';
 // ********** FI
-				         $row[] = $href;				         
+				         $row[] = $href;
 //MARSUPIAL *********** MODIFICAT -> Show info directly
 //2011.05.20 @mmartinez
 						 //set max attempts
@@ -490,7 +488,7 @@ require_course_login($course);
 					         $totaltime = $horas.":".$minutos.":".$segundos;
 					     }
 					     else {
-					         $totaltime = '00:00:00';        
+					         $totaltime = '00:00:00';
 					     }
 				         $row[] = $totaltime;
 				         //show status
@@ -508,7 +506,7 @@ require_course_login($course);
 						 $comments = '<div id="rcontent_comments_'.$rcontentuser->userid.'_'.$rcontentuser->id.'">';
 						 if(strlen($rcontentuser->comments) > 30){
 			        	     $comments .= '<span title="'.$rcontentuser->comments.'">'.substr($rcontentuser->comments,0,27).'...</span>';
-			        	     $justcomments='<span title="'.$rcontentuser->comments.'">'.substr($rcontentuser->comments,0,27).'...</span>';	
+			        	     $justcomments='<span title="'.$rcontentuser->comments.'">'.substr($rcontentuser->comments,0,27).'...</span>';
 			        	 }else{
 			        		$comments.=$rcontentuser->comments;
 			        		$justcomments=$rcontentuser->comments;
@@ -520,7 +518,7 @@ require_course_login($course);
 			        	 $href='';
                          if($rcontentuser->urlviewresults != "" && has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
                              $httptest = '';
-				        	 if (strpos($rcontentuser->urlviewresults,'http://') === false){
+				        	 if (textlib::strpos($rcontentuser->urlviewresults,'http://') === false){
 				        	     $httptest = 'http://';
 				        	 }
 				             $href .= '<a href="'.$httptest.$rcontentuser->urlviewresults.'" target="_blank">'.get_string('view','rcontent').'</a> &middot;';
@@ -550,7 +548,7 @@ require_course_login($course);
 
 				         if(has_capability('mod/rcontent:updatescore', get_context_instance(CONTEXT_MODULE, $cm->id))){
 				             if($tempb == $rcontentuser->unitid && $tempc == $rcontentuser->activityid){
-				                 $popuphref = '/mod/rcontent/report.php?a='.$rcontent->id;				                            
+				                 $popuphref = '/mod/rcontent/report.php?a='.$rcontent->id;
 				                 if ($tempb != 0){
 				                     $popuphref .= '&b='.$tempb;
 				                     if($tempc != 0){
@@ -561,15 +559,15 @@ require_course_login($course);
 					             //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 					             //2012.12.18 @abertranb
 					             $link = new moodle_url($popuphref);
-					              
+
 					             $action = new popup_action('click', $link, 'update_rcontent'.$rcontentuser->userid, array('height' => 450, 'width' => 580));
 					             $href.=' '.$OUTPUT->action_link($link, get_string('rcontent:update', 'rcontent'), $action, array('title'=>get_string('rcontent:update', 'rcontent')));
-					             
+
 					             //********** ORIGINAL
-					             //$href .= ' '.link_to_popup_window (new moodle_url($popuphref),'grade'.$rcontentuser->userid, get_string('update'), 600, 780, get_string('update'), 'none', true, 
+					             //$href .= ' '.link_to_popup_window (new moodle_url($popuphref),'grade'.$rcontentuser->userid, get_string('update'), 600, 780, get_string('update'), 'none', true,
 					             //       'button'.$rcontentuser->userid);
 					             //********** FI
-					             
+
 					             $showhreffield = true;
 				             }
 				         }
@@ -585,18 +583,18 @@ require_course_login($course);
                              $stat = ($filterby != '')? get_string($filterby, 'rcontent') : $realstat;
 // XTEC ************ MODIFICAT -> Fixed bug in the report interface
 // 2012.03.02 @mmartinez
-                             $fieldstoreset = (strpos($row[0], '<input') === false)? array(3 => "", 4 => "", 5 => $stat, 6 => "", 7 => "", 8 => "") : array(4 => "", 5 => "", 6 => $stat, 7 => "", 8 => "", 9 => "");
+                             $fieldstoreset = (textlib::strpos($row[0], '<input') === false)? array(3 => "", 4 => "", 5 => $stat, 6 => "", 7 => "", 8 => "") : array(4 => "", 5 => "", 6 => $stat, 7 => "", 8 => "", 9 => "");
 // ************ ORIGINAL
 							//$fieldstoreset = ($user_rol[0]->shortname == 'student')? array(3 => "", 4 => "", 5 => $stat, 6 => "", 7 => "", 8 => "") : array(4 => "", 5 => "", 6 => $stat, 7 => "", 8 => "", 9 => "");
 // ************ FI
 				         	 foreach ($fieldstoreset as $key => $val){
 				         	 	$row[$key] = $val;
-				         	 }				         	 
-// ********** ORIGINAL 	 
+				         	 }
+// ********** ORIGINAL
 				         	 /*$row[4] = "4";
 				         	 $row[5] = "5";
 				         	 if ($filterby != ''){
-				         	     $row[6] = get_string($filterby, 'rcontent');				         	 
+				         	     $row[6] = get_string($filterby, 'rcontent');
 				         	 }
 				         	 $row[7] = "7";
 				         	 $row[8] = "8";
@@ -613,9 +611,9 @@ require_course_login($course);
 						     $table->rowclass[] = '';
 						 }
 //*********** FI
- 
+
 			         }
-			         
+
 			         if (isset($table->data) && count($table->data) > 0){
 //MARSUPIAL *********** ELIMINAT -> Deleted innecessary comprovations
 //2011.05.20 @mmartinez
@@ -634,54 +632,54 @@ require_course_login($course);
 				             $table->wrap[]  = 'nowrap';
 				             $table->size[]  = '10';
 				         }
-				
+
 				         $table->head[]  = '&nbsp;';
 				         $table->align[] = 'center';
 				         $table->wrap[]  = 'nowrap';
 				         $table->size[]  = '10';
-				
+
 				         $table->head[]  = get_string('name');
 				         $table->align[] = 'left';
 				         $table->wrap[]  = 'nowrap';
 				         $table->size[]  = '*';
-				
+
 	                     $table->head[]= get_string('attempt','rcontent').' '.$maxattempts;
 				         $table->align[] = 'center';
 				         $table->wrap[] = 'nowrap';
 				         $table->size[] = '*';
-				
+
 				         $table->head[]= get_string('started','rcontent');
 				         $table->align[] = 'center';
 				         $table->wrap[] = 'nowrap';
 				         $table->size[] = '*';
-				
+
 				         $table->head[]= get_string('time','rcontent');
 				         $table->align[] = 'center';
 				         $table->wrap[] = 'nowrap';
 				         $table->size[] = '*';
-				                
+
 				         $table->head[]= get_string('status','rcontent');
 				         $table->align[] = 'center';
 				         $table->wrap[] = 'nowrap';
 				         $table->size[] = '*';
-				
+
 				         $table->head[]= get_string('score','rcontent').' '.$range;
 				         $table->align[] = 'center';
 				         $table->wrap[] = 'nowrap';
 				         $table->size[] = '*';
-				                
+
 				         $table->head[]= get_string('comments','rcontent');
 				         $table->align[] = 'center';
 				         $table->wrap[] = 'nowrap';
 				         $table->size[] = '*';
-				              
+
 				         if($showhreffield){
 				             $table->head[]= '';
 				             $table->align[] = 'center';
 				             $table->wrap[] = 'nowrap';
 				             $table->size[] = '*';
 				         }
-					
+
 				         echo '<div id="scormtablecontainer">';
 //MARSUPIAL ********** AFEGIT -> Add pagination
 //2011.05.19 @mmartinez
@@ -692,12 +690,12 @@ require_course_login($course);
 				         //********** ORIGINAL
 				         //print_paging_bar($count, $page, $limit, "report.php?id=".$id.$optionsparam."&amp;", "page", false);
 				         //********** FI
-                    	 
+
 //********** FI
 				         if (has_capability('mod/rcontent:deleteresponses',$contextmodule)) {
 				             echo '<form id="attemptsform" method="post" action="'.$_SERVER['REQUEST_URI'].'" onsubmit="var menu = document.getElementById(\'menuaction\'); return (menu.options[menu.selectedIndex].value == \'delete\' ? \''.addslashes_js(get_string('deleteattemptcheck','quiz')).'\' : true);">';
 				             echo '<input type="hidden" name="id" value="'.$id.'">';
-				             
+
 				             //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 				             //2012.12.18 @abertranb
 				             echo html_writer::table($table);
@@ -718,20 +716,20 @@ require_course_login($course);
 				             $attributes_select['onchange'] = 'if(this.selectedIndex > 0) document.getElementById(\'attemptsform\').submit();';
 				             $selected_menu = '';
 				             $name_select = 'action';
-				             
+
 				             echo html_writer::select($options, $name_select, $selected_menu, array(), $attributes_select);
 				             //********** ORIGINAL
 				             //echo choose_from_menu($options, 'action', '', get_string('withselected', 'rcontent'), 'if(this.selectedIndex > 0) submitFormById(\'attemptsform\');', '', true);
 				             //********** FI
-				             				     
-				             
+
+
 				             echo '<noscript id="noscriptmenuaction" style="display: inline;">';
 				             echo '<div>';
 				             echo '<input type="submit" value="'.get_string('go').'" /></div></noscript>';
 				             echo '<script type="text/javascript">'."\n<!--\n".'document.getElementById("noscriptmenuaction").style.display = "none";'."\n-->\n".'</script>';
 				             echo '</form>';
 				         } else {
-				         	
+
 				         	//MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 				         	//2012.12.18 @abertranb
 				         	echo html_writer::table($table);
@@ -748,7 +746,7 @@ require_course_login($course);
 				         //********** ORIGINAL
 				         //print_paging_bar($count, $page, $limit, "report.php?id=".$id.$optionsparam."&amp;", "page", false);
 				         //********** FI
-				          
+
 //********** FI
 
 //MARSUPIAL *********** ELIMINAT -> Now the comprovation is done in the sql statment
@@ -763,38 +761,23 @@ require_course_login($course);
 			        } else {
 			            notice(get_string('nousersdata', 'rcontent'));
 			        }
-		            
+
 //---------------------------------------------------------------------------------------------------------------------------------------
 		        } else {
 			        if (!empty($user)) {
 // Units/Book details report for a given book, attempt and user
 			            if (!empty($userdata)) {
-			                $showhreffield=false; 	
+			                $showhreffield=false;
 			                //first print the general information
-			              	//MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
-		                    //2012.12.18 @abertranb
 		                    echo $OUTPUT->box_start();
-		                    //********** ORIGINAL
-		                    //print_simple_box_start('center');
-		                    //********** FI
-			                
+
 			                echo $bookname.'<br><br>';
-			                //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
-			                //2012.12.18 @abertranb
 			                $table = new html_table();
-			                //********** ORIGINAL
-			                //$table = new stdClass();
-			                //********** FI
-			                			       
-			                $row = array();       
-			                //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
-			                //2012.12.18 @abertranb
+
+			                $row = array();
 			                $user_tmp = $DB->get_record('user', array('id' => $user));
 				        	$row[] = $OUTPUT->user_picture($user_tmp, array('courseid'=>$course->id));
-			                //********** ORIGINAL
-			                //$row[] = print_user_picture($user, $course->id, $userdata->picture, false, true);
-			                //********** FI
-			                
+
 			                $row[] = '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$user.'&course='.$course->id.'">'.
 			                         fullname($userdata).'</a>';
 			                $row[] = $attempt;
@@ -841,8 +824,8 @@ require_course_login($course);
 						        $table->rowclass[] = '';
 						    }
 //*********** FI
-			                
-			                $table->head=array('', 
+
+			                $table->head=array('',
 			                    get_string('name'),
 			                    get_string('attempt','rcontent').' '.$grade->maxattempts,
 			                    get_string('started','rcontent'),
@@ -850,42 +833,32 @@ require_course_login($course);
 			                	get_string('status','rcontent'),
 			                  	get_string('score','rcontent').' '.$grade->range,
 			                  	get_string('comments','rcontent'));
-			                if($showhreffield){  	
+			                if($showhreffield){
 			                  	$table->head[]=get_string('url','rcontent');
 			                }
 			                $table->align=array('center','center','center','center','center','center','center','center','center');
 			                $table->wrap = array('nowrap', 'nowrap','nowrap','nowrap','nowrap','nowrap','nowrap','nowrap','nowrap');
 			                $table->size = array('*', '*', '*', '*', '*', '*', '*', '*', '*');
 			                $table->width="100%";
-			                        
-			                
-			                //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
-			                //2012.12.18 @abertranb
+
 			                echo html_writer::table($table);
-			                //********** ORIGINAL
-			                //print_table($table);
-			                //********** FI
-			                //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
-			                //2012.12.18 @abertranb
 			                echo $OUTPUT->box_end();
-			                //********** ORIGINAL
-			                //print_simple_box_end();
-			                //********** FI
-			                
+
+
 			                //do bd search now to know how to set tab
-	                        $sql="SELECT DISTINCT rg.unitid, rg.*, rbu.sortorder as sorto FROM {$CFG->prefix}rcontent_grades rg 
-	                            INNER JOIN {$CFG->prefix}rcommon_books_units rbu ON rbu.id=rg.unitid
-	                            WHERE rg.rcontentid='$rcontent->id' AND rg.userid=$user AND rg.attempt=$attempt 
+	                        $sql="SELECT DISTINCT rg.unitid, rg.*, rbu.sortorder as sorto FROM {rcontent_grades} rg
+	                            INNER JOIN {rcommon_books_units} rbu ON rbu.id=rg.unitid
+	                            WHERE rg.rcontentid='$rcontent->id' AND rg.userid=$user AND rg.attempt=$attempt
 	                            AND rg.unitid<>0";
-	                        
-// MARSUPIAL *********** AFEGIT -> Adding filter activityid=0, because the sql gets more than one result and the 
+
+// MARSUPIAL *********** AFEGIT -> Adding filter activityid=0, because the sql gets more than one result and the
 // 2012.12.19 @abertrab
 	                        $sql .= " AND rg.activityid=0 ";
-// *********** FI	                        	                        
+// *********** FI
 // MARSUPIAL *********** AFEGIT -> Filter by statuss
 // 2011.08.30 @mmartinez
 			                if ($filterby != ''){
-		                       	$sql .= " AND (rg.status = '{$filterby}' OR EXISTS (SELECT * FROM {$CFG->prefix}rcontent_grades u WHERE u.rcontentid={$rcontent->id} AND u.userid=$user AND u.attempt=$attempt AND u.unitid = rg.unitid AND u.activityid <> 0 AND u.status='{$filterby}' AND u.attempt=rg.attempt";
+		                       	$sql .= " AND (rg.status = '{$filterby}' OR EXISTS (SELECT * FROM {rcontent_grades} u WHERE u.rcontentid={$rcontent->id} AND u.userid=$user AND u.attempt=$attempt AND u.unitid = rg.unitid AND u.activityid <> 0 AND u.status='{$filterby}' AND u.attempt=rg.attempt";
 		                       	if ($user_rol[0]->shortname=='student'){
 		                           	$sql .= " AND u.userid = ".$USER->id;
 		                        }
@@ -894,7 +867,7 @@ require_course_login($course);
 // *********** FI
 	                        $sql .= " ORDER BY sorto ASC, rg.activityid DESC";
 	                        //echo $sql."<br><br>"; //just for debug mode
-	                        
+
 	                        $activate=array();
 	                        $tabs=array(0=>array());
 // MARSUPIAL *********** MODIFICAT -> Filter by status
@@ -904,7 +877,7 @@ require_course_login($course);
 				            //if(count_records_sql($sql)>0){
                                 //$tabs[0][]=new tabobject('units', "$CFG->wwwroot/mod/rcontent/report.php?a=$a&amp;user=$user&amp;attempt=$attempt", get_string('units','rcontent'));
 			                //}
-// ********* FI				            
+// ********* FI
 	                        if ($details = $DB->get_records_select('rcontent_grades_details',"rcontentid='$rcontent->id' AND userid=$user AND attempt=$attempt AND unitid=0 AND activityid=0 ORDER BY id")) {
 // MARSUPIAL ********** MODIFICAT -> Filter by status
 // 2011.08.30 @mmartinez
@@ -917,12 +890,12 @@ require_course_login($course);
 				            $activate[]=(empty($action))?'units':'details';
 				            print_tabs($tabs, '', array(), $activate);
 				            echo "<p style = 'page-break-after: always;'></p>";
-				                        
+
 			                if (empty($action)){
 //Units
 			                  	if ($units = $DB->get_records_sql($sql)) {
 			                  	    //echo "Units: "; print_r($units); echo "<br><br>";  //just for debug mode
-			                  	    
+
 				                    // Print units data
 				                    $showhreffield=false;
 				                    //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
@@ -957,7 +930,7 @@ require_course_login($course);
 //*********** FI
 //MARSUPIAL ********** AFEGIT -> Get the next value of the array
 //2011.05.19 @mmartinez
-				     			        if ($i > count($units)-1){ 	
+				     			        if ($i > count($units)-1){
 								            break;
 								        }
 								        if ($i == $startindex){
@@ -998,19 +971,19 @@ require_course_login($course);
 		                                }
 		                                if(has_capability('mod/rcontent:updatescore', get_context_instance(CONTEXT_MODULE, $cm->id))){
 		                                	if($DB->get_records_select('rcontent_grades',"rcontentid=$unit->rcontentid AND userid=$unit->userid AND unitid=$unit->unitid AND activityid=0 AND attempt=$unit->attempt")){
-		                        	            
+
 		                                		//MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 		                                		//2012.12.18 @abertranb
 		                                		$link = new moodle_url('/mod/rcontent/report.php?a='.$a.'&b='.$unit->unitid.'&user='.$unit->userid.'&attempt='.$attempt.'&action=update');
-		                                		 
+
 		                                		$action = new popup_action('click', $link, 'update_rcontent'.$unit->unitid, array('height' => 450, 'width' => 580));
 		                                		$href.=' '.$OUTPUT->action_link($link, get_string('rcontent:update', 'rcontent'), $action, array('title'=>get_string('rcontent:update', 'rcontent')));
 		                                		//********** ORIGINAL
-		                                		//$href.=' '.link_to_popup_window ('/mod/rcontent/report.php?a='.$a.'&amp;b='.$unit->unitid.'&amp;user='.$unit->userid.'&amp;attempt='.$attempt.'&amp;action=update', 
-		                                        //    'grade'.$unit->userid, get_string('update'), 600, 780, get_string('update'), 'none', true, 
+		                                		//$href.=' '.link_to_popup_window ('/mod/rcontent/report.php?a='.$a.'&amp;b='.$unit->unitid.'&amp;user='.$unit->userid.'&amp;attempt='.$attempt.'&amp;action=update',
+		                                        //    'grade'.$unit->userid, get_string('update'), 600, 780, get_string('update'), 'none', true,
 		                                        //    'button'.$unit->userid);       'button'.$rcontentuser->userid);
 		                                		//
-		                                		
+
 		                                	}
 		                        	        $showhreffield=true;
 		                                }
@@ -1021,12 +994,12 @@ require_course_login($course);
 		                                $href='';
 		                                $unitdetails=$DB->get_records_select('rcontent_grades_details',"rcontentid='$rcontent->id' AND userid=$user AND attempt=$attempt AND unitid=$unit->unitid AND activityid=0 ORDER BY id");
 		                                $activities=$DB->get_records_select('rcontent_grades',"rcontentid='$rcontent->id' AND userid=$user AND attempt=$attempt AND unitid=$unit->unitid AND activityid<>0 ORDER BY id");
-		                                
+
 		                                if($activities){
 // MARSUPIAL ********** MODIFICAT -> Filter by status
 // 2011.08.30 @mmartinez
 		                                	$href = '<a href="'.$CFG->wwwroot.'/mod/rcontent/report.php?a='.$a.'&b='.$unit->unitid.'&user='.$user.'&attempt='.$attempt.$optionsparam.'">'.get_string('viewactivities','rcontent').'</a>';
-// ********* ORIGINAL 
+// ********* ORIGINAL
                                             //$href = '<a href="'.$CFG->wwwroot.'/mod/rcontent/report.php?a='.$a.'&amp;b='.$unit->unitid.'&amp;user='.$user.'&amp;attempt='.$attempt.'">'.get_string('viewactivities','rcontent').'</a>';
 // ********* FI
 		                                }else if ($unitdetails){
@@ -1035,11 +1008,11 @@ require_course_login($course);
 		                                    $href = '<a href="'.$CFG->wwwroot.'/mod/rcontent/report.php?a='.$a.'&b='.$unit->unitid.'&user='.$user.'&attempt='.$attempt.'&action=details'.$optionsparam.'">'.get_string('viewdetails','rcontent').'</a>';
 // ********* ORIGINAL
                                             //$href = '<a href="'.$CFG->wwwroot.'/mod/rcontent/report.php?a='.$a.'&amp;b='.$unit->unitid.'&amp;user='.$user.'&amp;attempt='.$attempt.'&amp;action=details'.'">'.get_string('viewdetails','rcontent').'</a>';
-// ********* FI	
+// ********* FI
 		                                }
 		                                if ($activities || $unitdetails){
 		                                    $row[]=$href;
-		                                }          
+		                                }
 // MARSUPIAL ********** AFEGIT -> Filter by status
 // 2011.08.20 @mmartinez
 				                         if ($filterby != '' && $grade->status[0] != $filterby){
@@ -1049,7 +1022,7 @@ require_course_login($course);
 			                            	$row[4] = "";
 			                            	$row[5] = "";
 				                         }
-// ********** FI   
+// ********** FI
 				                        $table->data[] = $row;
 //MARSUPIAL *********** AFEGIT -> If original status is POR_CORREGIR set background to red
 //2011.05.18 @mmartinez
@@ -1060,12 +1033,12 @@ require_course_login($course);
 									    }
 //*********** FI
 				                    }
-				                    
-				                    $table->head = array(get_string('unit','rcontent'), 
-				                        get_string('started','rcontent'), 
+
+				                    $table->head = array(get_string('unit','rcontent'),
+				                        get_string('started','rcontent'),
 				                        get_string('time','rcontent'),
-				                        get_string('status','rcontent'), 
-				                        get_string('score','rcontent'), 
+				                        get_string('status','rcontent'),
+				                        get_string('score','rcontent'),
 				                        get_string('comments','rcontent'));
 				                    if($showhreffield){
 				                        $table->head[] = '';
@@ -1093,7 +1066,7 @@ require_course_login($course);
 				   //********** ORIGINAL
 				                    //print_table($table);
 				   //********** FI
-				                    
+
 //MARSUPIAL ********** AFEGIT -> Add pagination
 //2011.05.19 @mmartinez
 				                    //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
@@ -1142,7 +1115,7 @@ require_course_login($course);
 
 //MARSUPIAL ********** AFEGIT -> Get the next value of the array
 //2011.05.19 @mmartinez
-				     			        if ($i > count($details)-1){	
+				     			        if ($i > count($details)-1){
 								            break;
 								        }
 								        if ($i == $startindex){
@@ -1151,7 +1124,7 @@ require_course_login($course);
 								 	        $detail = next($details);
 								        }
 //************ FI
-				                    	
+
 				                        $row = array();
 				                        $grade=rcontent_grade_details_user_attempt($detail->id, $a, $user, $attempt);
 				                        $row[] = $grade->description;
@@ -1164,11 +1137,11 @@ require_course_login($course);
 				                        if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
 				                            $row[] = $grade->url;
 				                            $showhreffield=true;
-				                        }			                                                    
+				                        }
 				                        $table->data[] = $row;
 				                    }
-				                        
-				                    $table->head = array(get_string('description','rcontent'),get_string('started','rcontent'), get_string('time','rcontent'), 
+
+				                    $table->head = array(get_string('description','rcontent'),get_string('started','rcontent'), get_string('time','rcontent'),
 				                        get_string('score','rcontent'),get_string('weight','rcontent').' '.$grade->totalweight);
 				                    if($showhreffield){
 				                        $table->head[]=get_string('url','rcontent');
@@ -1185,7 +1158,7 @@ require_course_login($course);
 				                    //********** ORIGINAL
 				                    //print_paging_bar($count, $page, $limit, "report.php?a=$a&amp;user=$user&amp;attempt=$attempt&amp;action=$action".$optionsparam."&amp;", "page", false);
 				                    //********** FI
-				                    
+
 //********** FI
 				                    //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 				                    //2012.12.18 @abertranb
@@ -1217,10 +1190,10 @@ require_course_login($course);
 		        }
 //---------------------------------------------------------------------------------------------------------------------------------
 		    } else {
-// Activities/Unit details report for a given book, unit, attempt and user 
+// Activities/Unit details report for a given book, unit, attempt and user
 		        if (!empty($user)) {
 			        if (!empty($userdata)) {
-			            $showhreffield=false; 
+			            $showhreffield=false;
 			            //first print the general information
 			            //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 			            //2012.12.18 @abertranb
@@ -1228,16 +1201,16 @@ require_course_login($course);
 			            //********** ORIGINAL
 			            //print_simple_box_start('center');
 			            //********** FI
-			            echo $unitname.'<br><br>';  
+			            echo $unitname.'<br><br>';
 			            //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 			            //2012.12.18 @abertranb
 			            $table = new html_table();
 			            //********** ORIGINAL
 			            //$table = new stdClass();
 			            //********** FI
-			            			     
-			                        
-			            $row = array();		       
+
+
+			            $row = array();
 			            //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 			            //2012.12.18 @abertranb
 			            $user_tmp = $DB->get_record('user', array('id' => $user));
@@ -1245,7 +1218,7 @@ require_course_login($course);
 			            //********** ORIGINAL
 			            //$row[] = print_user_picture($user, $course->id, $userdata->picture, false, true);
 			            //********** FI
-			            			     
+
 			            $row[] = '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$user.'&course='.$course->id.'">'.
 			                         fullname($userdata).'</a>';
 			            $row[] = $attempt;
@@ -1270,7 +1243,7 @@ require_course_login($course);
 			            if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
 			                $row[] = $grade->justurl;
 			                $showhreffield=true;
-			            }	
+			            }
 // MARSUPIAL ************ AFEGIT -> Filter by status
 // 2011.09.06 @mmartinez
                         if ($filterby != '' && $grade->status[0] != $filterby){
@@ -1282,8 +1255,8 @@ require_course_login($course);
                             $row[8] = "";
                             $row[9] = "";
                         }
-// *********** FI	                       
-			            $table->data[] = $row; 
+// *********** FI
+			            $table->data[] = $row;
 //MARSUPIAL *********** AFEGIT -> If original status is POR_CORREGIR set background to red
 //2011.05.18 @mmartinez
 			            if ($grade->status[1] == "POR_CORREGIR"){
@@ -1292,7 +1265,7 @@ require_course_login($course);
 					        $table->rowclass[] = '';
 					    }
 //*********** FI
-			                       
+
 			            $table->head=array('',get_string('name'),get_string('attempt','rcontent').' '.$grade->maxattempts, get_string('started','rcontent'),
 			            	get_string('time','rcontent'),get_string('status','rcontent'),get_string('score','rcontent').' '.$grade->range,
 			               	get_string('comments','rcontent'));
@@ -1303,7 +1276,7 @@ require_course_login($course);
 			            $table->wrap = array('nowrap', 'nowrap','nowrap','nowrap','nowrap','nowrap','nowrap','nowrap','nowrap');
 			            $table->size = array('*', '*', '*', '*', '*', '*', '*', '*', '*');
 			            $table->width="100%";
-			                        
+
  					//MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
                     //2012.12.18 @abertranb
 				                    echo html_writer::table($table);
@@ -1316,11 +1289,11 @@ require_course_login($course);
 	                    //********** ORIGINAL
 	                    //print_simple_box_end();
 	                    //********** FI
-				                    
-			            
-			            $sql="SELECT rg.* FROM {$CFG->prefix}rcontent_grades rg 
+
+
+			            $sql="SELECT rg.* FROM {$CFG->prefix}rcontent_grades rg
 	                                INNER JOIN {$CFG->prefix}rcommon_books_activities rba ON rba.id=rg.activityid
-	                                WHERE rg.rcontentid='$rcontent->id' AND rg.userid=$user AND rg.attempt=$attempt 
+	                                WHERE rg.rcontentid='$rcontent->id' AND rg.userid=$user AND rg.attempt=$attempt
 	                                AND rg.unitid=$b AND rg.activityid<>0";
 // MARSUPIAL *********** AFEGIT -> Filter by statuss
 // 2011.08.30 @mmartinez
@@ -1334,18 +1307,18 @@ require_course_login($course);
 //*********** ORIGINAL
                         //$sql .= "ORDER BY rba.sortorder ASC";
 //*********** FI
-			            
-			            
+
+
 			            $activate=array();
-			            $tabs=array(0=>array());			            
+			            $tabs=array(0=>array());
 // MARSUPIAL ********* MODIFICAT -> Filter by statuss
 // 2011.08.30 @mmartinez
-			            $tabs[0][]=new tabobject('activities', "$CFG->wwwroot/mod/rcontent/report.php?a=$a&b=$b&user=$user&attempt=$attempt".$optionsparam, get_string('activities','rcontent'));	
+			            $tabs[0][]=new tabobject('activities', "$CFG->wwwroot/mod/rcontent/report.php?a=$a&b=$b&user=$user&attempt=$attempt".$optionsparam, get_string('activities','rcontent'));
 // ********* ORIGINAL
 			            //if (count_records_sql($sql)>0){
                             //$tabs[0][]=new tabobject('activities', "$CFG->wwwroot/mod/rcontent/report.php?a=$a&amp;b=$b&amp;user=$user&amp;attempt=$attempt", get_string('activities','rcontent'));
 			            //}
-// ********* FI			            		            
+// ********* FI
 			            if ($details = $DB->get_records_select('rcontent_grades_details',"rcontentid='$rcontent->id' AND userid=$user AND attempt=$attempt AND unitid=$b AND activityid=0 ORDER BY id")){
 // MARSUPIAL *********** MODIFICAT -> Filter by statuss
 // 2011.08.30 @mmartinez
@@ -1358,7 +1331,7 @@ require_course_login($course);
 				        $activate[]=(empty($action))?'activities':'details';
 				        print_tabs($tabs, '', array(), $activate);
 				        echo "<p style = 'page-break-after: always;'></p>";
-				                        
+
 			            if (empty($action)){
 //Activities
 			              	if ($activities = $DB->get_records_sql($sql)) {
@@ -1394,7 +1367,7 @@ require_course_login($course);
 
 //MARSUPIAL ********** AFEGIT -> Get the next value of the array
 //2011.05.19 @mmartinez
-				    		        if ($i > count($activities)-1){	
+				    		        if ($i > count($activities)-1){
 							            break;
 							        }
 							        if ($i == $startindex){
@@ -1404,7 +1377,7 @@ require_course_login($course);
 				    		        }
 //************ FI
 				                    $row = array();
-				                    
+
 				                    if($activityname=$DB->get_record_select('rcommon_books_activities',"bookid=$rcontent->bookid AND unitid=$b AND id=$activity->activityid",null,'name')){
 									    $activityname=$activityname->name;
 									}else{
@@ -1422,7 +1395,7 @@ require_course_login($course);
 //********** ORIGINAL
 									/*if ($grade->status[0]!=''){
 			                            $row[] = get_string($grade->status[0],'rcontent');*/
-//********** FI	
+//********** FI
 			                        } else {
 			        	                $row[] = '';
 			                        }
@@ -1438,16 +1411,16 @@ require_course_login($course);
 		                            	//MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 		                            	//2012.12.18 @abertranb
 		                            	$link = new moodle_url('/mod/rcontent/report.php?a='.$a.'&b='.$b.'&c='.$activity->activityid.'&user='.$activity->userid.'&attempt='.$attempt.'&action=update');
-		                            	
+
 		                            	$action = new popup_action('click', $link, 'update_rcontent'.$activity->activityid, array('height' => 450, 'width' => 580));
 		                            	$href.=' '.$OUTPUT->action_link($link, get_string('rcontent:update', 'rcontent'), $action, array('title'=>get_string('rcontent:update', 'rcontent')));
 		                            	//********** ORIGINAL
-		                            	//$href.=' '.link_to_popup_window ('/mod/rcontent/report.php?a='.$a.'&amp;b='.$b.'&amp;c='.$activity->activityid.'&amp;user='.$activity->userid.'&amp;attempt='.$attempt.'&amp;action=update', 
-		                                //    'grade'.$activity->userid, get_string('rcontent:update', 'rcontent'), 600, 780, get_string('rcontent:update', 'rcontent'), 'none', true, 
+		                            	//$href.=' '.link_to_popup_window ('/mod/rcontent/report.php?a='.$a.'&amp;b='.$b.'&amp;c='.$activity->activityid.'&amp;user='.$activity->userid.'&amp;attempt='.$attempt.'&amp;action=update',
+		                                //    'grade'.$activity->userid, get_string('rcontent:update', 'rcontent'), 600, 780, get_string('rcontent:update', 'rcontent'), 'none', true,
 		                                //    'button'.$activity->userid);
 		                        	    //       'button'.$rcontentuser->userid);
 		                            	//********** FI
-		                            			              
+
 		                        	    $showhreffield=true;
 		                            }
 		                            if($showhreffield){
@@ -1461,19 +1434,19 @@ require_course_login($course);
 		                             	$row[]=$href;
 		                            }
 				                    //print_r($row); echo "<br><br>";
-				                    $table->data[] = $row; 
+				                    $table->data[] = $row;
 //MARSUPIAL *********** AFEGIT -> If original status is POR_CORREGIR set background to red
 //2011.05.18 @mmartinez
-				                    if ($grade->status[1] == "POR_CORREGIR"){ 
+				                    if ($grade->status[1] == "POR_CORREGIR"){
 				                        $table->rowclass[] = 'uuerror';
 				                    } else {
 				                        $table->rowclass[] = '';
 				                    }
 //************ FI
 				                }
-				                        
+
 				                $table->head = array(get_string('activity','rcontent'), get_string('started','rcontent'), get_string('time','rcontent'),
-				                    get_string('status','rcontent'), get_string('score','rcontent'), 
+				                    get_string('status','rcontent'), get_string('score','rcontent'),
 				                    get_string('comments','rcontent'));
 				                if($showhreffield){
 				                	$table->head[]='';
@@ -1493,7 +1466,7 @@ require_course_login($course);
 				                //********** ORIGINAL
 				                //print_paging_bar($count, $page, $limit, "report.php?a=$a&amp;b=$b&amp;user=$user&amp;attempt=$attempt".$optionsparam."&amp;", "page", false);
 				                //********** FI
-				                
+
 //********** FI
 				                //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 				                //2012.12.18 @abertranb
@@ -1510,13 +1483,13 @@ require_course_login($course);
 				                //********** ORIGINAL
 				                //print_paging_bar($count, $page, $limit, "report.php?a=$a&amp;b=$b&amp;user=$user&amp;attempt=$attempt".$optionsparam."&amp;", "page", false);
 				                //********** FI
-				                
+
 //********** FI
 			                }else{
 			         	        notice(get_string('noactivities','rcontent'));
 			                }
 			            }else if($action=="details"){
-//Unit details                    
+//Unit details
 
 			            	if ($details = $DB->get_records_select('rcontent_grades_details',"rcontentid='$rcontent->id' AND userid=$user AND attempt=$attempt AND unitid=$b AND activityid=0 ORDER BY id")) {
 			            		// Print details data
@@ -1551,7 +1524,7 @@ require_course_login($course);
 
 //MARSUPIAL ********** AFEGIT -> Get the next value of the array
 //2011.05.19 @mmartinez
-				    		        if ($i > count($details)-1){	
+				    		        if ($i > count($details)-1){
 							            break;
 							        }
 							        if ($i == $startindex){
@@ -1560,7 +1533,7 @@ require_course_login($course);
 							 	        $detail = next($details);
 				    		        }
 //************ FI
-				                    $row = array();			
+				                    $row = array();
 				                    $grade=rcontent_grade_details_user_attempt($detail->id, $a, $user, $attempt, false, $b);  //bug: saca siempre el mismo valor
 				                    $row[]=$grade->description;
 				                    $timetracks = rcontent_details_get_attempt_runtime($detail->id);   //bug: saca siempre el mismo valor
@@ -1572,11 +1545,11 @@ require_course_login($course);
 				                    if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
 				                        $row[] = $grade->url;
 				                        $showhreffield=true;
-				                    }			                                                    
+				                    }
 				                    $table->data[] = $row;
 				                }
-				                        
-				                $table->head = array(get_string('description','rcontent'),get_string('started','rcontent'), get_string('time','rcontent'), 
+
+				                $table->head = array(get_string('description','rcontent'),get_string('started','rcontent'), get_string('time','rcontent'),
 				                get_string('score','rcontent'),get_string('weight','rcontent').' '.$grade->totalweight);
 				                if($showhreffield){
 				                	$table->head[]=get_string('url','rcontent');
@@ -1593,15 +1566,15 @@ require_course_login($course);
 				                //********** ORIGINAL
 				                //print_paging_bar($count, $page, $limit, "report.php?a=$a&amp;b=$b&amp;user=$user&amp;attempt=$attempt&amp;action=$action".$optionsparam."&amp;", "page", false);
 				                //********** FI
-                                
-//********** FI				                
+
+//********** FI
 				                //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 				                //2012.12.18 @abertranb
 				                echo html_writer::table($table);
 				                //********** ORIGINAL
 				                //print_table($table);
 				                //********** FI
-				                
+
 //MARSUPIAL ********** AFEGIT -> Add pagination
 //2011.05.19 @mmartinez
 				                //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
@@ -1623,12 +1596,12 @@ require_course_login($course);
 			        notice(get_string('nousers.','rcontent'));
 			    }
 		    }
-//--------------------------------------------------------------------------------------------------------------------------------	        
+//--------------------------------------------------------------------------------------------------------------------------------
 	    }else{
 //activity details
 	        if (!empty($user)) {
 		        if (!empty($userdata)) {
-			                 	
+
 		            //first print the general information
 		        	//MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 		        	//2012.12.18 @abertranb
@@ -1636,9 +1609,9 @@ require_course_login($course);
 		        	//********** ORIGINAL
 		        	//print_simple_box_start('center');
 		        	//********** FI
-			        
+
 			        echo $activityname.'<br><br>';
-			        
+
 			        $showhreffield=false;
 			        //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 			        //2012.12.18 @abertranb
@@ -1646,18 +1619,18 @@ require_course_login($course);
 			        //********** ORIGINAL
 			        //$table = new stdClass();
 			        //********** FI
-			        			   
-			                       
-			        $row = array();            
+
+
+			        $row = array();
 			        //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 			        //2012.12.18 @abertranb
-			        
+
 			        $user_tmp = $DB->get_record('user', array('id' => $user));
 			        $row[] = $OUTPUT->user_picture($user_tmp, array('courseid'=>$course->id));
 			        //********** ORIGINAL
 			        //$row[] = print_user_picture($user, $course->id, $userdata->picture, false, true);
 			        //********** FI
-			        			     
+
 			        $row[] = '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$user.'&course='.$course->id.'">'.
 			             fullname($userdata).'</a>';
 			        $row[] = $attempt;
@@ -1682,7 +1655,7 @@ require_course_login($course);
 			        if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
 			            $row[] = $grade->justurl;
 			            $showhreffield=true;
-			        }    
+			        }
 			        $table->data[] = $row;
 //MARSUPIAL *********** AFEGIT -> If original status is POR_CORREGIR set background to red
 //2011.05.18 @mmartinez
@@ -1691,9 +1664,9 @@ require_course_login($course);
 				    } else {
 				        $table->rowclass[] = '';
 				    }
-//*********** FI            
+//*********** FI
 			        $table->head=array('',get_string('name'),get_string('attempt','rcontent').' '.$grade->maxattempts, get_string('started','rcontent'),
-			        	get_string('time','rcontent'),get_string('status','rcontent'),get_string('score','rcontent').' '.$grade->range, 
+			        	get_string('time','rcontent'),get_string('status','rcontent'),get_string('score','rcontent').' '.$grade->range,
 			        	get_string('comments','rcontent'));
 			        if($showhreffield){
 			        	$table->head[]=get_string('url','rcontent');
@@ -1702,22 +1675,22 @@ require_course_login($course);
 			        $table->wrap = array('nowrap', 'nowrap','nowrap','nowrap','nowrap','nowrap','nowrap','nowrap','nowrap');
 			        $table->size = array('*', '*', '*', '*', '*', '*', '*', '*', '*');
 			        $table->width="100%";
-			                        
-			        
+
+
 			        //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 			        //2012.12.18 @abertranb
 			        echo html_writer::table($table);
 			        //********** ORIGINAL
 			        //print_table($table);
 			        //********** FI
-			        			                        
+
 			        //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 			        //2012.12.18 @abertranb
 			        echo $OUTPUT->box_end();
 			        //********** ORIGINAL
 			        //print_simple_box_end();
 			        //********** FI
-			        			   
+
 	                //print the details of the activity
 			        if ($details = $DB->get_records_select('rcontent_grades_details',"rcontentid='$rcontent->id' AND userid=$user AND attempt=$attempt AND unitid=$b AND activityid=$c ORDER BY id")) {
 			            // Print details data
@@ -1752,7 +1725,7 @@ require_course_login($course);
 
 //MARSUPIAL ********** AFEGIT -> Get the next value of the array
 //2011.05.19 @mmartinez
-				            if ($i > count($details)-1){	
+				            if ($i > count($details)-1){
 					            break;
 					        }
 					        if ($i == $startindex){
@@ -1761,7 +1734,7 @@ require_course_login($course);
 				     	        $detail = next($details);
 				 	        }
 //************ FI
-				            $row = array();			
+				            $row = array();
 			                $grade=rcontent_grade_details_user_attempt($detail->id, $a, $user, $attempt, false, $b, $c);
 			                $row[]=$grade->description;
 			                $timetracks = rcontent_details_get_attempt_runtime($detail->id);
@@ -1773,11 +1746,11 @@ require_course_login($course);
 			                if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
 			                    $row[] = $grade->url;
 			                    $showhreffield=true;
-			                }			                                                    
+			                }
 			                $table->data[] = $row;
 			            }
-				                        
-				        $table->head = array(get_string('description','rcontent'),get_string('started','rcontent'), get_string('time','rcontent'), 
+
+				        $table->head = array(get_string('description','rcontent'),get_string('started','rcontent'), get_string('time','rcontent'),
 				        get_string('score','rcontent'), get_string('weight','rcontent').' '.$grade->totalweight);
 				        if($showhreffield){
 				        	$table->head[]=get_string('url','rcontent');
@@ -1787,7 +1760,7 @@ require_course_login($course);
 				        $table->size = array('*', '*', '*', '*', '*', '*');
 //MARSUPIAL ********** AFEGIT -> Add pagination
 //2011.05.19 @mmartinez
-				        
+
 				        //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 				        //2012.12.18 @abertranb
 						echo $OUTPUT->paging_bar($count, $page, $limit,
@@ -1795,19 +1768,19 @@ require_course_login($course);
 				        //********** ORIGINAL
 				        //print_paging_bar($count, $page, $limit, "report.php?a=$a&amp;b=$b&amp;c=$c&amp;user=$user&amp;attempt=$attempt".$optionsparam."&amp;", "page", false);
 				        //********** FI
-                        
-//********** FI		
-						
+
+//********** FI
+
 						//MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 						//2012.12.18 @abertranb
 						echo html_writer::table($table);
 						//********** ORIGINAL
 						//print_table($table);
 						//********** FI
-						
+
 //MARSUPIAL ********** AFEGIT -> Add pagination
 //2011.05.19 @mmartinez
-			            
+
 			            //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 			            //2012.12.18 @abertranb
 			            echo $OUTPUT->paging_bar($count, $page, $limit,
@@ -1815,12 +1788,12 @@ require_course_login($course);
 			            //********** ORIGINAL
 			            //print_paging_bar($count, $page, $limit, "report.php?a=$a&amp;b=$b&amp;c=$c&amp;user=$user&amp;attempt=$attempt".$optionsparam."&amp;", "page", false);
 			            //********** FI
-                        
-//********** FI	
+
+//********** FI
 		            }else{
 		                notice(get_string('nodetails','rcontent'));
 		            }
-		                    
+
 		        }else {
 		            notice(get_string('nousersdata','rcontent'));
 		        }
@@ -1856,7 +1829,7 @@ require_course_login($course);
 //********* ORIGINAL
 			//if ($grade=rcontent_grade_user_attempt($rcontentid,$user,$attempt,$unitid,$activityid)){
 //********* FI
-				
+
 			    global $USER;
 		        $teacher = $USER;
 			    // Set up things for a HTML editor if it's needed
@@ -1865,7 +1838,7 @@ require_course_login($course);
 				} else {
 				    $defaultformat = FORMAT_MOODLE;
 				}
-				
+
 				//set strings
 				$struserfullname=fullname($userdata, true);
 				// MARSUPIAL ********** MODIFICAT -> Deprected code Moodle 2.3
@@ -1874,7 +1847,7 @@ require_course_login($course);
 
 				//$PAGE->set_heading($heading?$heading:$course->fullname);
 				$PAGE->navbar->add(get_string('feedback', 'rcontent').':'.$struserfullname.':'.format_string($rcontent->name), null, null, navigation_node::TYPE_CUSTOM, null);
-				
+
 				echo $OUTPUT->header();
 				echo $OUTPUT->heading($heading);
 				// ************ ORIGINAL
@@ -1882,8 +1855,8 @@ require_course_login($course);
 				print_header(get_string('feedback', 'rcontent').':'.$struserfullname.':'.format_string($rcontent->name));
 				*/
 				// ************ FI
-				
-				
+
+
 				echo '<table cellspacing="0" class="feedback assignmentold" >';
 				    echo '<tr><td class="picture teacher">';
     //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
@@ -1891,7 +1864,7 @@ require_course_login($course);
 				    echo $OUTPUT->user_picture($teacher, array('courseid'=>$course->id));
     //********** ORIGINAL
     //print_user_picture($teacher, $course->id, $teacher->picture);
-    //********** FI		            
+    //********** FI
 		            echo '</td>';
 		            echo '<td class="content">';
 			        echo '<form id="submitform" action="report.php?action=saveupdate" method="post">';
@@ -1923,13 +1896,13 @@ require_course_login($course);
 			            if(isset($c)){
 				    	    echo '<input type="hidden" name="c" value="'.$c.'">';
 				        }
-				        
+
 				        //print student info
 				        echo '<div class="from">';
 				        echo '<div class="fullname">'.fullname($teacher, true).'</div>';
 				        echo '<br>';
 				        echo '</div>';
-				        
+
 				        //print editable fields
 				        echo '<label for="txtgrade">'.get_string('score','rcontent').'</label> <input type="text" id="txtgrade" name="txtgrade" value="'.$grade->justgrade.'" size="3">';
 				        print_textarea($usehtmleditor, 14, 58, 0, 0, 'submissioncomment', $grade->fullcomments, $course->id);
@@ -1941,16 +1914,16 @@ require_course_login($course);
 			                helpbutton("textformat", get_string("helpformatting"));
 			                echo '</div>';
 			            }
-			            
+
 			            // Print Buttons in Single Vie
 				        echo '<div class="buttons">';
 				        echo '<input type="submit" name="submit" value="'.get_string('savechanges').'" onclick = "document.getElementById(\'submitform\').menuindex.value = document.getElementById(\'submitform\').grade.selectedIndex" />';
 				        echo '<input type="submit" name="cancel" value="'.get_string('cancel').'" />';
 				        echo '</div>';
-			            
+
 				        echo '</form>';
 				    echo '</td></tr>';
-		
+
 		            ///End of teacher info row, Start of student info row
 		            echo '<tr>';
 		            echo '<td class="picture user">';
@@ -1961,7 +1934,7 @@ require_course_login($course);
 		            //********** ORIGINAL
 		            //print_user_picture($user, $course->id, $userdata->picture);
 		            //********** FI
-		            
+
 		            echo '</td>';
 		            echo '<td class="topic">';
 		            echo '<div class="from">';
@@ -1971,7 +1944,7 @@ require_course_login($course);
 		            echo '</tr>';
 				echo '</table>';
 				// MARSUPIAL *********** ELIMINAT -> Deprecated code
-				// 2011.08.30 @mmartinez				
+				// 2011.08.30 @mmartinez
 			    /*if ($usehtmleditor) {
                     use_html_editor();
                 }*/
@@ -1992,19 +1965,18 @@ require_course_login($course);
 		    	//$PAGE->set_heading(get_string('changessaved'));
 		    	$PAGE->set_heading(get_string('changessaved'));
 		    	echo $OUTPUT->header();
-		    	 
+
 		    	// ************ ORIGINAL
 		    	/*
 		    	 print_header(get_string('feedback', 'rcontent').':'.format_string($rcontent->name));
 		    	 print_heading(get_string('changessaved'));
 		    	*/
 		    	// ************ FI
-                
+
                 //print_heading(get_string('changessaved'));
 		    }
             close_window();
 		}
-        
+
     }
     //echo $OUTPUT->footer();
-?>

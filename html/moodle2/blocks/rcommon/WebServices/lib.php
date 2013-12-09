@@ -2,42 +2,39 @@
 
 /**
  *  Key looks for a path into an array and returns the value
- *  
+ *
  *  @param array $arraywsdl -> indexed XMLarray
  *  @param array $arraykeys -> array of keys to search
  *  @return string -> value of element array or false if not found
  */
 
-function rcommond_findarrayvalue($arraywsdl, $arraykeys)
-{
-    foreach($arraykeys as $key)
-    {
-        
-        if ($realkey = rcommond_findkey($arraywsdl, $key))
+function rcommond_findarrayvalue($arraywsdl, $arraykeys) {
+    foreach($arraykeys as $key) {
+        if ($realkey = rcommond_findkey($arraywsdl, $key)) {
            $arraywsdl = $arraywsdl[$realkey];
-        else
+        } else {
             return false;
+        }
     }
-    
     return $arraywsdl;
 }
 
 
 /**
  *  Looking for a key that contains the specified value
- *  
+ *
  *  @param array $arraywsdl -> indexed XMLarray
  *  @param string $valor -> value to search
  *  @return string -> original key or false if not found
  */
- 
-function rcommond_findkey($arraywsdl, $valor)
-{
-    //foreach to look in the array for key=definitios 
-    foreach($arraywsdl as $key=>$value){
-        $pos=strpos(strtolower($key), strtolower($valor));
-        if ($pos !== false)
+
+function rcommond_findkey($arraywsdl, $valor) {
+    //foreach to look in the array for key=definitios
+    foreach($arraywsdl as $key => $value){
+        $pos = textlib::strpos(textlib::strtolower($key), textlib::strtolower($valor));
+        if ($pos !== false) {
             return $key;
+        }
     }
     return false;
 }
@@ -47,17 +44,17 @@ function rcommond_findkey($arraywsdl, $valor)
  */
 function rcommon_get_wsdl($urlwdsl){
 	global $CFG;
-	
-	$curl=curl_init();        
-    curl_setopt($curl, CURLOPT_URL, $urlwdsl);     
+
+	$curl=curl_init();
+    curl_setopt($curl, CURLOPT_URL, $urlwdsl);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curl, CURLOPT_HEADER, false);    
-    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);  
-    
+    curl_setopt($curl, CURLOPT_HEADER, false);
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+
 // MARSUPIAL ************ AFEGIT -> Added proxy option
 // 2012.08.30 @mmartinez
-	if ($CFG->proxytype == 'HTTP' && !empty($CFG->proxyhost)){
-		curl_setopt($curl, CURLOPT_PROXY, $CFG->proxyhost);		
+	if (!empty($CFG->proxytype) && $CFG->proxytype == 'HTTP' && !empty($CFG->proxyhost)){
+		curl_setopt($curl, CURLOPT_PROXY, $CFG->proxyhost);
 		if (!empty($CFG->proxyport)){
 			curl_setopt($curl, CURLOPT_PROXYPORT, $CFG->proxyport);
 		}
@@ -68,7 +65,7 @@ function rcommon_get_wsdl($urlwdsl){
 // ************** FI
     $contents = curl_exec($curl);
     curl_close($curl);
-    
+
     return $contents;
 }
 
@@ -77,15 +74,15 @@ function rcommon_get_wsdl($urlwdsl){
  * @param string $urlwdsl
  * @return string -> wdsl namespaces
  */
-function rcommond_wdsl_parser($urlwdsl){
+function rcommond_wdsl_parser($urlwdsl) {
 	$contents='';
-	 
+
     $contents = rcommon_get_wsdl($urlwdsl);
-	
+
     $result = rcommon_xml2array($contents);
-    //foreach to look in the array for key=definitios 
+    //foreach to look in the array for key=definitios
     foreach($result as $key=>$value){
-    	$pos=strpos($key,'definitions');
+    	$pos = textlib::strpos($key,'definitions');
     	if ($pos!==false){
     		break;
     	}
@@ -109,7 +106,7 @@ function rcommon_xml2array($contents, $get_attributes=1) {
     xml_parse_into_struct( $parser, $contents, $xml_values );
     xml_parser_free( $parser );
 
-    if(!$xml_values) return;
+    if(!$xml_values) return array();
     $xml_array = array();
     $parents = array();
     $opened_tags = array();
@@ -126,7 +123,7 @@ function rcommon_xml2array($contents, $get_attributes=1) {
 
             if(isset($attributes)) {
                 foreach($attributes as $attr => $val) {
-                    if($get_attributes == 1) $result['attr'][$attr] = $val; 
+                    if($get_attributes == 1) $result['attr'][$attr] = $val;
                 }
             }
         } elseif(isset($value)) {
@@ -138,7 +135,7 @@ function rcommon_xml2array($contents, $get_attributes=1) {
                 $current[$tag] = $result;
                 $current = &$current[$tag];
 
-            } else { 
+            } else {
                 if(isset($current[$tag][0])) {
                     array_push($current[$tag], $result);
                 } else {
@@ -147,14 +144,14 @@ function rcommon_xml2array($contents, $get_attributes=1) {
                 $last = count($current[$tag]) - 1;
                 $current = &$current[$tag][$last];
             }
-        } elseif($type == "complete") { 
-            if(!isset($current[$tag])) { 
+        } elseif($type == "complete") {
+            if(!isset($current[$tag])) {
                 $current[$tag] = $result;
-            } else { 
+            } else {
                 if((is_array($current[$tag]) and $get_attributes == 0)
                         or (isset($current[$tag][0]) and is_array($current[$tag][0]) and $get_attributes == 1)) {
-                    array_push($current[$tag],$result); 
-                } else { 
+                    array_push($current[$tag],$result);
+                } else {
                     $current[$tag] = array($current[$tag],$result);
                 }
             }
@@ -163,39 +160,35 @@ function rcommon_xml2array($contents, $get_attributes=1) {
         }
     }
     return($xml_array);
-} 
+}
 
 
-function log_to_file($info, $tracer = 'rcontent_tracer')
-{
+function log_to_file($info, $tracer = 'rcontent_tracer') {
     global $CFG;
 //XTEC ************ AFEGIT - Custom folder
 //2013.03.17 @abertranb
-    if  ($CFG->$tracer == 'checked' && isset($CFG->rcommon_data_store_log))
-    {
+    if  ($CFG->$tracer == 'checked' && isset($CFG->rcommon_data_store_log)) {
     	$directorio_log = $CFG->rcommon_data_store_log."/1";
-    	
+
     	//Escribimos en un fichero de texto los mensajes de errores
-    	if(!is_dir($directorio_log))
+    	if(!is_dir($directorio_log)) {
     		mkdir($directorio_log);
+    	}
     	$directorio_log .= "/log_rcommon";
-    	if(!is_dir($directorio_log))
+    	if(!is_dir($directorio_log)) {
     		mkdir($directorio_log);
+    	}
     	// ********* ORIGINAL
 //    if  ($CFG->$tracer == 'checked' )
 //    {
 //    	$directorio_log = $CFG->dataroot."/1/log_rcommon";
 // ********* FI
-        
-         if ($handle = @fopen($directorio_log."/LogRcommon.log", "a")) 
-         {
+
+         if ($handle = @fopen($directorio_log."/LogRcommon.log", "a")) {
              $content = "\r\n".date("Y-m-d H:i:s")." - Data: ".$info;
-             
              @fwrite($handle,$content);
              @fclose($handle);
          }
     }
-     
-}
 
-?>
+}

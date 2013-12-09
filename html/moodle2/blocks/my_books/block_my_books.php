@@ -39,8 +39,8 @@ class block_my_books extends block_list {
         $this->content->footer = '';
         
         /// load user books
-        $sql = "SELECT * FROM {$CFG->prefix}rcommon_user_credentials RUC
-            INNER JOIN {$CFG->prefix}rcommon_books RB ON RB.isbn = RUC.isbn
+        $sql = "SELECT * FROM {rcommon_user_credentials} RUC
+            INNER JOIN {rcommon_books} RB ON RB.isbn = RUC.isbn
             WHERE RUC.euserid = $USER->id
             ORDER BY RB.name";
         
@@ -283,7 +283,7 @@ class block_my_books extends block_list {
 // MARSUPIAL ************ AFEGIT -> EVO: credentials
 // 2012.07.06 @mmartinez
 		$bt = '';
-        $context = get_context_instance(CONTEXT_SYSTEM); // pinned blocks do not have own context		
+        $context = context_system::instance(); // pinned blocks do not have own context		
 		if (has_capability('blocks/my_books:managecredentials', $context)){
 			$bt = '<a href="' . $CFG->wwwroot . '/blocks/my_books/manageKey.php" title="' . get_string('manage_button_title', 'block_my_books') . '"><button>' . get_string('manage_button', 'block_my_books') . '</button></a>';
 		}
@@ -299,4 +299,3 @@ class block_my_books extends block_list {
 }
 
 // ************** END
-?>

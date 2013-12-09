@@ -32,7 +32,7 @@ function rcontent_get_frame_type_array(){
 	             //RCONTENT_YESWITHFRAME => get_string('keepnavigationvisibleyesframe','rcontent'),
 				// RCONTENT_YESWITHOUTFRAME => get_string('keepnavigationvisibleyesobject','rcontent'));
 	// ************ FI
-	            
+
 }
 
 /**
@@ -46,10 +46,10 @@ function rcontent_get_frame_type_array(){
 function rcontent_get_count_users($rcontentid, $groupingid=null, $context, $filter = '') {
 // ********** ORIGINAL
 //function rcontent_get_count_users($rcontentid, $groupingid=null, $context) {
-// ********** FI	
+// ********** FI
 
     global $CFG, $USER, $DB;
-	
+
     //test when the user role is studen and just count his grades
     if(has_capability('mod/rcontent:viewreport', $context)){
     	if (!has_capability('mod/rcontent:viewresult', $context)){
@@ -102,21 +102,21 @@ function rcontent_get_count_users($rcontentid, $groupingid=null, $context, $filt
  * @return int -> the score for that user
  */
 function rcontent_grade_user($rcontent, $userid, $from='') {
-    
+
 	global $DB;
 	//take the global grade for the given activity
     $sql="userid=$userid AND rcontentid=$rcontent->id AND unitid=$rcontent->unitid AND activityid=$rcontent->activityid";
     if(!$grade=$DB->get_records_select('rcontent_grades',$sql)){
         return 0;
     }
-    
+
 	$grade = current($grade);
-	
+
 	$lastattempt = rcontent_get_last_attempt($rcontent->id, $userid);
     if($grade->maxattempts != 0 && $lastattempt >= $grade->maxattempts){
         $lastattempt = $grade->maxattempts;
     }
-    
+
     switch ($rcontent->whatgrade) {
         case RCONTENT_FIRSTATTEMPT:
             $grade=rcontent_grade_user_attempt($rcontent->id, $userid, 1, $grade->unitid, $grade->activityid);
@@ -160,7 +160,7 @@ function rcontent_grade_user($rcontent, $userid, $from='') {
             else
                 return $attemptgrade->justgrade;
         break;
-    }	
+    }
 }
 
 /**
@@ -172,7 +172,7 @@ function rcontent_grade_user($rcontent, $userid, $from='') {
 function rcontent_grade_user_comments($rcontent, $userid){
 	global $DB;
 	switch ($rcontent->whatgrade) {
-		case RCONTENT_FIRSTATTEMPT: 
+		case RCONTENT_FIRSTATTEMPT:
 			if (!$comment=$DB->get_record_select('rcontent_grades',"rcontentid=$rcontent->id AND userid=$userid AND unitid=$rcontent->unitid AND activityid=$rcontent->activityid AND attempt=1", null, 'comments')){
 			    return '';
 			}
@@ -182,7 +182,7 @@ function rcontent_grade_user_comments($rcontent, $userid){
 			if(!$comment=$DB->get_record_select('rcontent_grades',"rcontentid=$rcontent->id AND userid=$userid AND unitid=$rcontent->unitid AND activityid=$rcontent->activityid AND attempt=$lastattempt", null, 'comments')){
 				return '';
 			}
-			
+
 	}
 	return $comment->comments;
 }
@@ -195,7 +195,7 @@ function rcontent_grade_user_comments($rcontent, $userid){
 * @return bool -> true deleted all responses, false failed deleting an attempt - stopped here
 */
 function rcontent_delete_responses($attemptids,$rcontentid) {
-    
+
     if(!is_array($attemptids) || empty($attemptids)) {
         return false;
     }
@@ -277,13 +277,13 @@ function rcontent_get_attempt_runtime($rcontentid, $userid, $attempt=1, $unitid=
     $timedata->start='';
     $timedata->finish='';
     global $DB;
-    
+
     $sql = "userid=$userid AND rcontentid=$rcontentid AND attempt=$attempt";
     $sql.=($unitid!='')?" AND unitid=$unitid":" AND unitid=0";
     $sql.=($activityid!='')?" AND activityid=$activityid":" AND activityid=0";
     $sql.=($starttime!='')?" AND starttime = $starttime": "";
     if($tracks = $DB->get_records_select('rcontent_grades',"$sql ORDER BY timemodified ASC")){
-    
+
 	    if ($tracks) {
 	        $tracks = array_values($tracks);
 	    }
@@ -292,13 +292,13 @@ function rcontent_get_attempt_runtime($rcontentid, $userid, $attempt=1, $unitid=
 	   if ($tracks && !empty($tracks[0]->starttime) && $tracks[0]->starttime > 0) {
 // *********** ORIGINAL
            //if ($tracks) {
-// *********** FI	        
+// *********** FI
            $timedata->start = userdate($tracks[0]->starttime, get_string('strftimedaydatetime'));
 	    }
 	    else {
 	        $timedata->start = '';
 	    }
-	    
+
 	    if ($tracks[0]->totaltime!='') {
 	        $segundos= $tracks[0]->totaltime;
 	        $horas=intval($segundos/3600);
@@ -311,10 +311,10 @@ function rcontent_get_attempt_runtime($rcontentid, $userid, $attempt=1, $unitid=
 	        $timedata->finish=$horas.":".$minutos.":".$segundos;
 	    }
 	    else {
-	        $timedata->finish = '00:00:00';        
+	        $timedata->finish = '00:00:00';
 	    }
     }
-    
+
     return $timedata;
 }
 
@@ -331,14 +331,14 @@ function rcontent_details_get_attempt_runtime($id) {
     $timedata->finish='';
     global $DB;
     $tracks = $DB->get_record('rcontent_grades_details', array('id' => $id));
-   
+
    if ($tracks && $tracks->starttime > 0) {
         $timedata->start = userdate($tracks->starttime, get_string('strftimedaydatetime'));
     }
     else {
         $timedata->start = '';
     }
-    
+
     if ($tracks->totaltime != '' && $tracks->totaltime > 0) {
         $segundos= $tracks->totaltime;
         $horas=intval($segundos/3600);
@@ -351,9 +351,9 @@ function rcontent_details_get_attempt_runtime($id) {
         $timedata->finish=$horas.":".$minutos.":".$segundos;
     }
     else {
-        $timedata->finish = '';        
+        $timedata->finish = '';
     }
-    
+
     return $timedata;
 }
 
@@ -370,7 +370,7 @@ function rcontent_details_get_attempt_runtime($id) {
 //2011.05.20 @mmartinez
 function rcontent_grade_user_attempt($rcontentid, $userid, $attempt=1, $unitid='', $activityid='', $idgrade = '', $starttime = '') {
 	global $CFG, $DB;
-		
+
     //take the grade of the activity
     if (!empty($idgrade)){
     	$sql = "id = $idgrade";
@@ -384,8 +384,8 @@ function rcontent_grade_user_attempt($rcontentid, $userid, $attempt=1, $unitid='
         $sql .=($activityid!='')?" AND activityid=$activityid":" AND activityid=0";
         $sql .=($starttime!='')?" AND starttime=$starttime": "";
     }
-    
-    $grade=$DB->get_records_select("rcontent_grades", $sql);
+
+    $grade=$DB->get_records_select('rcontent_grades', $sql);
     //echo "<br>---- "; print_r($grade); echo " ----<br>";
     $return = new stdClass();
     $return->id='';
@@ -404,23 +404,23 @@ function rcontent_grade_user_attempt($rcontentid, $userid, $attempt=1, $unitid='
     $return->comments='';
     $return->justcomments='&nbsp;';
     $return->fullcomments='&nbsp;';
-    
+
     if ($grade) {
 //MARSUPIAL ********** ADDED -> Calculate grade in fact of the option selected in activity configuration
 //2011.06.07 @mmartinez
     	if (count($grade) > 1){
-	    	if ($rcon = $DB->get_record("rcontent", array("id" => $rcontentid))){ 
-	        	switch ($rcon->whatgrade){
+	    	if ($rcon = $DB->get_record("rcontent", array("id" => $rcontentid))){
+	    		switch ($rcon->whatgrade){
 	        		case RCONTENT_FIRSTATTEMPT:
-	        			$grade_sql = $DB->get_record_sql("SELECT * FROM {$CFG->prefix}rcontent_grades WHERE {$sql} AND timecreated = (SELECT MIN(timecreated) FROM {$CFG->prefix}rcontent_grades WHERE ".$sql.")", array(), IGNORE_MULTIPLE);
+	        			$grade_sql = $DB->get_record_sql("SELECT * FROM {rcontent_grades} WHERE {$sql} AND timecreated = (SELECT MIN(timecreated) FROM {rcontent_grades} WHERE ".$sql.")", array(), IGNORE_MULTIPLE);
 	        			$grade = $grade_sql;
 	        		break;
 	        		case RCONTENT_LASTATTEMPT:
-	        			$grade_sql = $DB->get_record_sql("SELECT * FROM {$CFG->prefix}rcontent_grades WHERE {$sql} AND timecreated = (SELECT MAX(timecreated) FROM {$CFG->prefix}rcontent_grades WHERE ".$sql.")", array(), IGNORE_MULTIPLE);
+	        			$grade_sql = $DB->get_record_sql("SELECT * FROM {rcontent_grades} WHERE {$sql} AND timecreated = (SELECT MAX(timecreated) FROM {rcontent_grades} WHERE ".$sql.")", array(), IGNORE_MULTIPLE);
 	        			$grade = $grade_sql;
 	        		break;
 	        		case RCONTENT_HIGHESTATTEMPT:
-	        			$grade_sql = $DB->get_record_sql("SELECT * FROM {$CFG->prefix}rcontent_grades WHERE {$sql} AND grade=(SELECT max(grade) as grade FROM {$CFG->prefix}rcontent_grades WHERE ".$sql.")", array(), IGNORE_MULTIPLE);
+	        			$grade_sql = $DB->get_record_sql("SELECT * FROM {rcontent_grades} WHERE {$sql} AND grade=(SELECT max(grade) as grade FROM {rcontent_grades} WHERE ".$sql.")", array(), IGNORE_MULTIPLE);
 	        			$grade = $grade_sql;
 	        		break;
 	        		case RCONTENT_AVERAGEATTEMPT:
@@ -447,7 +447,7 @@ function rcontent_grade_user_attempt($rcontentid, $userid, $attempt=1, $unitid='
 //*********** FI
         if($grade->urlviewresults!=""){
         	$httptest='';
-        	if (strpos($grade->urlviewresults,'http://')===false){
+        	if (textlib::strpos($grade->urlviewresults,'http://')===false){
         		$httptest='http://';
         	}
             $return->url='<a href="'.$httptest.$grade->urlviewresults.'" target="_blank">'.get_string('view','rcontent').'</a> &middot;';
@@ -457,7 +457,7 @@ function rcontent_grade_user_attempt($rcontentid, $userid, $attempt=1, $unitid='
         	$return->comments='<div id="rcontent_comments_'.$userid.'_'.$grade->id.'">';
         	if(strlen($grade->comments)>30){
         	     $return->comments.='<span title="'.$grade->comments.'">'.substr($grade->comments,0,27).'...</span>';
-        	     $return->justcomments='<span title="'.$grade->comments.'">'.substr($grade->comments,0,27).'...</span>';	
+        	     $return->justcomments='<span title="'.$grade->comments.'">'.substr($grade->comments,0,27).'...</span>';
         	}else{
         		$return->comments.=$grade->comments;
         		$return->justcomments=$grade->comments;
@@ -468,7 +468,7 @@ function rcontent_grade_user_attempt($rcontentid, $userid, $attempt=1, $unitid='
         	$return->comments='<div id="rcontent_comments_'.$userid.'_'.$grade->id.'"></div>';
         }
     }
-	
+
 	return $return;
 }
 
@@ -483,7 +483,7 @@ function rcontent_grade_user_attempt($rcontentid, $userid, $attempt=1, $unitid='
 function rcontent_grade_details_user_attempt($id, $rcontentid, $userid, $attempt=1, $time=false, $unitid='', $activityid='') {
 	global $DB;
     $grade=$DB->get_record('rcontent_grades_details', array('id' => $id));
-    
+
     $return = new stdClass();
     $return->grade='';
     $return->range='';
@@ -492,7 +492,7 @@ function rcontent_grade_details_user_attempt($id, $rcontentid, $userid, $attempt
     $return->url='';
     $return->description='';
     $return->totalweight='';
-    
+
     if ($grade) {
         $return->grade=$grade->grade;
         $return->range="($grade->mingrade-$grade->maxgrade)";
@@ -500,45 +500,45 @@ function rcontent_grade_details_user_attempt($id, $rcontentid, $userid, $attempt
         $return->weight=$grade->weight;
         if($grade->urlviewresults!=""){
         	$httptest='';
-            if (strpos($grade->urlviewresults,'http://')===false){
+            if (textlib::strpos($grade->urlviewresults,'http://')===false){
         		$httptest='http://';
         	}
             $return->url='<a href="'.$httptest.$grade->urlviewresults.'" target="_blank">'.get_string('view','rcontent').'</a>';
         }
         if($grade->description!=""){
         	if(strlen($grade->description)>30){
-        	     $return->description='<span title="'.$grade->description.'">'.substr($grade->description,0,27).'...</span>';	
+        	     $return->description='<span title="'.$grade->description.'">'.substr($grade->description,0,27).'...</span>';
         	}else{
         		$return->description=$grade->description;
         	}
         }
-        //take the sumweight for the parent 
-        $sql="userid=$userid AND rcontentid=$rcontentid AND attempt=$attempt";
-        $sql.=($unitid!='')?" AND unitid=$unitid":" AND unitid=0";
-        $sql.=($activityid!='')?" AND activityid=$activityid":" AND activityid=0";
-        
-    	if($totalweight=$DB->get_records_select('rcontent_grades',$sql)){
-    		foreach ($totalweight as $tw){
-    		    $return->totalweight='('.$tw->sumweights.')';
+
+        //take the sumweight for the parent
+        $paramssql = array('userid'=>$userid, 'rcontentid'=> $rcontentid, 'attempt' => $attempt);
+        $paramssql['unitid'] = ($unitid!='') ? $unitid : 0;
+        $paramssql['activityid'] = ($activityid!='') ? $activityid : 0;
+    	if($totalweight = $DB->get_records('rcontent_grades',$paramssql)) {
+    		foreach ($totalweight as $tw) {
+    		    $return->totalweight = '('.$tw->sumweights.')';
     		}
-    	}    		
+    	}
     }
-	
+
 	return $return;
 }
 
 //MARSUPIAL ************ AFEGIT -> New function to calculate the parent status depending off the child status
 //2011.05.17 @mmartinez
 function rcontent_grade_calculate_status ($rcontentid, $userid, $attempt=1, $unitid = 0, $activityid = 0, $starttime = ''){
-	
+
 	global $CFG,$DB;
 	//echo "unit: $unitid, activity: $activityid<br>";  //just  for debug
 	//get status of the given grade
 	$sql_general  = "userid=$userid AND rcontentid=$rcontentid AND attempt=$attempt";
 	$sql_general .= ($starttime != "")? " AND starttime = {$starttime}": "";
     $sql_unit     = ($unitid != '')? " AND unitid=$unitid" : " AND unitid=0";
-    $sql_activity = ($activityid != '')? " AND activityid=$activityid" : " AND activityid=0";  
-    
+    $sql_activity = ($activityid != '')? " AND activityid=$activityid" : " AND activityid=0";
+
     if ($status = $DB->get_records_select('rcontent_grades',$sql_general.$sql_unit.$sql_activity)){
 	    $status = array_pop($status);
 	    $orig_status = $status->status;
@@ -559,52 +559,52 @@ function rcontent_grade_calculate_status ($rcontentid, $userid, $attempt=1, $uni
 	   //print_r($return); echo "<br>"; //just for debug mode
 	   return $return;
 	}
-	    
+
 	//check if we are calculating for a unit
 	if ($unitid != 0 && $activityid == 0) {
 		//search for activities status if unit status is diferrent to POR_CORREGIR
 		if ($status->status != "POR_CORREGIR"){
 //MARSUPIAL ************* MODIFICAT -> All to str lower
 //2011.10.26 @mmartinez
-            $sql = "SELECT count(*) FROM {$CFG->prefix}rcontent_grades u WHERE u.userid=$userid AND u.rcontentid=$rcontentid AND u.attempt=$attempt AND u.unitid=$unitid AND u.activityid<>0 AND u.status='POR_CORREGIR'";
+            $sql = "userid=$userid AND rcontentid=$rcontentid AND attempt=$attempt AND unitid=$unitid AND activityid <> 0 AND status='POR_CORREGIR'";
 //*********** ORIGINAL
 		    //$sql = "SELECT * FROM {$CFG->prefix}RCONTENT_GRADES U WHERE U.USERID=$userid AND U.RCONTENTID=$rcontentid AND U.ATTEMPT=$attempt AND U.UNITID=$unitid AND U.ACTIVITYID<>0 AND U.STATUS='POR_CORREGIR'";
 //*********** FI
-			if ($DB->count_records_sql($sql)>0){
+			if ($DB->count_records_select('rcontent_grades', $sql) > 0){
 				$return[0] = "POR_CORREGIR";
 				return $return;
 			}
 			$return[0] = $status->status;
-			
+
 		} else {
 			$return[0] = $status->status;
 		}
-		
-	}	
+
+	}
 	//check if we are calculating for a book
 	if ($unitid == 0 && $activityid == 0){
 		//search for units status
 		if ($status->status != "POR_CORREGIR"){
 // MARSUPIAL ********** MODIFICAT -> Fix bug when showing row status
 // 2012.01.05 @mmartinez
-		    $sql = "SELECT COUNT(b.status) FROM {$CFG->prefix}rcontent_grades b WHERE b.userid=$userid AND b.rcontentid=$rcontentid AND b.attempt=$attempt AND b.unitid<>0 AND (b.status = 'POR_CORREGIR' OR EXISTS (SELECT * FROM {$CFG->prefix}rcontent_grades u WHERE u.userid=$userid AND u.rcontentid=$rcontentid AND u.unitid <> 0 AND u.status='POR_CORREGIR' AND u.attempt=b.attempt))";
+		    $sql = "SELECT COUNT(b.status) FROM {rcontent_grades} b WHERE b.userid=$userid AND b.rcontentid=$rcontentid AND b.attempt=$attempt AND b.unitid<>0 AND (b.status = 'POR_CORREGIR' OR EXISTS (SELECT * FROM {$CFG->prefix}rcontent_grades u WHERE u.userid=$userid AND u.rcontentid=$rcontentid AND u.unitid <> 0 AND u.status='POR_CORREGIR' AND u.attempt=b.attempt))";
 // ********** ORIGINAL
             //$sql = "SELECT COUNT(b.status) FROM {$CFG->prefix}rcontent_grades b WHERE b.userid=$userid AND b.rcontentid=$rcontentid AND b.attempt=$attempt AND b.unitid=0 AND b.activityid=0 AND (b.status = 'POR_CORREGIR' OR EXISTS (SELECT * FROM {$CFG->prefix}rcontent_grades u WHERE u.userid=$userid AND u.rcontentid=$rcontentid AND u.unitid <> 0 AND u.status='POR_CORREGIR' AND u.attempt=b.attempt))";
 // ********** FI
-			if ($DB->count_records_sql($sql)>0){
+			if ($DB->count_records_sql($sql) > 0){
 				$return[0] = "POR_CORREGIR";
 				return $return;
 			}
 			$return[0] = $status->status;
-			
+
 		} else {
 			$return[0] = $status->status;
 		}
-		
+
 	}
     //print_r($return); echo "<br>";  //just for debug
 	return $return;
-    
+
 }
 //************ FI
 
@@ -614,38 +614,38 @@ function rcontent_grade_calculate_status ($rcontentid, $userid, $attempt=1, $uni
  */
 function rcontent_update_grade_instance(){
 	global $DB;
-	
+
     if (!$feedback = data_submitted()) {      // No incoming data?
 	    return false;
     }
-    
+
 	if (!empty($feedback->cancel)) {          // User hit cancel button
         return false;
     }
-    
+
     if(!is_numeric($feedback->txtgrade)){
     	echo '<script type="text/javascript">'."\n<!--\n";
         echo 'history.back();';
         echo "\n-->\n</script>";
     	return false;
-    }    
-    
+    }
+
     $update=new stdClass();
     $update->id=$feedback->idgrade;
     $update->grade=round($feedback->txtgrade,2);
     $update->comments=$feedback->submissioncomment;
-    
+
 //MARSUPIAL ********* AFEGIT -> Update the modified date
 //2011.05.19 @mmartinez
     $update->timemodified = time();
 //********* FI
-    
+
 //MARSUPIAL ********** AFEGIT -> Update status but just if the actuall status is POR_CORREGIR
 //2011.05.18 @mmartinez
     //retrieve data of that registry from db to know if status must be update or not
-    if ($rdata = $DB->get_record_select('rcontent_grades', 'id = '.$feedback->idgrade, null, 'status')){
+    if ($rdata_status = $DB->get_field('rcontent_grades', 'status', array('id' =>$feedback->idgrade))){
     	//print_r($rdata); die; //just for debug
-    	if ($rdata->status == "POR_CORREGIR"){
+    	if ($rdata_status == "POR_CORREGIR") {
     		$update->status = "CORREGIDO";
     	}
     }
@@ -653,27 +653,27 @@ function rcontent_update_grade_instance(){
     if (!$return=$DB->update_record('rcontent_grades', $update)) {
         return false;
     }
-    
-    if(strlen($feedback->submissioncomment)>30){
-        $comment='<span title="'.$feedback->submissioncomment.'">'.substr($feedback->submissioncomment,0,27).'...</span>';	
-    }else{
+
+    if(strlen($feedback->submissioncomment) > 30 ){
+        $comment='<span title="'.$feedback->submissioncomment.'">'.substr($feedback->submissioncomment,0,27).'...</span>';
+    } else {
     	$comment=$feedback->submissioncomment;
     }
-    
+
     /// Run some Javascript to try and update the parent page
     echo '<script type="text/javascript">'."\n<!--\n";
         echo 'opener.document.getElementById("rcontent_grade_'.$feedback->user.'_'.$feedback->idgrade.'").innerHTML="'.round($feedback->txtgrade,2).'";';
         echo 'opener.document.getElementById("rcontent_comments_'.$feedback->user.'_'.$feedback->idgrade.'").innerHTML=\''.$comment.'\';';
     echo "\n-->\n</script>";
-    
-    
+
+
     //Update gradebook
     $rcontent=$DB->get_record('rcontent', array('id'=>$feedback->rcontentid));
     rcontent_update_grades($rcontent,$feedback->user);
-    
-    add_to_log($feedback->course, 'rcontent', 'update grades', 'report.php?id='.$feedback->id.'&user='.$feedback->user, 
+
+    add_to_log($feedback->course, 'rcontent', 'update grades', 'report.php?id='.$feedback->id.'&user='.$feedback->user,
         $feedback->user, $feedback->id);
-    
+
     return true;
 }
 
@@ -681,23 +681,22 @@ function rcontent_update_grade_instance(){
  * Load level list from bd table mdl_rcommon_level
  * @return array with the loaded data
  */
-function rcontent_level_list(){
+function rcontent_level_list() {
     global $CFG,$DB;
     $return[0]='- '.get_string('level','rcontent').' -';
 
 //********** MODIFICAT MARSUPIAL - levels with books and level code added to the list
-    
-    $sql = "SELECT * FROM {$CFG->prefix}rcommon_level
-            WHERE id IN (Select distinct levelid from {$CFG->prefix}rcommon_books where upper(format) = 'WEBCONTENT')";
+	//TODO: upper is not a valid SQL function for all DB's user SQL_like instead
+    $sql = "SELECT * FROM {rcommon_level}
+            WHERE id IN (SELECT DISTINCT levelid FROM {rcommon_books} WHERE upper(format) = 'WEBCONTENT')";
 
-    if($records = $DB->get_records_sql($sql))
-    {
-        foreach($records as $r){
+    if($records = $DB->get_records_sql($sql)) {
+        foreach($records as $r) {
             $return[$r->id] = $r->code." - ".$r->name ;
         }
     }
-//**********    
-    return $return; 
+//**********
+    return $return;
 }
 
 /**
@@ -707,54 +706,56 @@ function rcontent_level_list(){
  * @return array -> (id=>name)
  */
 function rcontent_isbn_list($levelid='',$from='ajax'){
-    global $CFG,$DB;
-    if($from=='updateform'){
+    global $CFG, $DB;
+    if($from == 'updateform') {
     	$return[0]='- '.get_string('isbn','rcontent').' -';
-    }else{
+    } else {
     	$return[]=array('id'=>0,'name'=>'- '.get_string('isbn','rcontent').' -');
     }
+
 	if($levelid!=""){
-		$sql="SELECT rb.*, rp.name as publiname FROM {$CFG->prefix}rcommon_books rb
-		    INNER JOIN {$CFG->prefix}rcommon_publisher rp ON rb.publisherid=rp.id
+		$sql="SELECT rb.*, rp.name as publiname FROM {rcommon_books} rb
+		    INNER JOIN {rcommon_publisher} rp ON rb.publisherid=rp.id
 		    WHERE rb.levelid='".$levelid."' AND rb.format='webcontent'
 		    ORDER BY rb.name ASC";
-        if($records=$DB->get_records_sql($sql)){
-    	    foreach($records as $r){
-    	    	if($from=='updateform'){
+        if($records=$DB->get_records_sql($sql)) {
+    	    foreach($records as $r) {
+    	    	if($from=='updateform') {
     	    		$return[$r->id]=$r->name." ($r->publiname)";
-    	    	}else{
+    	    	} else {
     	    	    $return[]=array('id'=>$r->id,'name'=>$r->name." ($r->publiname)");
     	    	}
     	    }
-    	    
+
         }
 	}
-    return $return; 
+    return $return;
 }
 
 /**
  * Load the units of a determinate book from bd rcommon_books_units
  * @param $bookid int -> ID of the book
- * @param $from string -> for select the array structure of the response 
+ * @param $from string -> for select the array structure of the response
  * @return array -> (id=>name)
  */
 function rcontent_unit_list($bookid='',$from='ajax'){
 	global $CFG,$DB;
-	if($from=='updateform'){
+	if($from=='updateform' ){
 		$return[0]='- '.get_string('unit','rcontent').' -';
-	}else{
+	} else {
 		$return[]=array('id'=>0,'name'=>'- '.get_string('unit','rcontent').' -');
 	}
-	if($bookid!=""){
-        if($records=$DB->get_records('rcommon_books_units',array('bookid'=>$bookid),'sortorder')){
-    	    foreach($records as $r){
-    	    	if($from=='updateform'){
+
+	if($bookid!="") {
+        if($records=$DB->get_records('rcommon_books_units',array('bookid'=>$bookid),'sortorder')) {
+    	    foreach($records as $r) {
+    	    	if($from=='updateform') {
     	    		$return[$r->id]=$r->name;
-    	    	}else{
+    	    	} else {
     	    	    $return[]=array('id'=>$r->id,'name'=>$r->name);
     	    	}
     	    }
-    	    
+
         }
 	}
 	return $return;
@@ -769,21 +770,21 @@ function rcontent_unit_list($bookid='',$from='ajax'){
  */
 function rcontent_activity_list($bookid='',$unitid='',$from='ajax'){
 	global $CFG,$DB;
-	if($from=='updateform'){
+	if($from == 'updateform') {
 		$return[0]='- '.get_string('activity','rcontent').' -';
-	}else{
+	} else {
 		$return[]=array('id'=>0,'name'=>'- '.get_string('activity','rcontent').' -');
 	}
-	if($bookid!=""&&$unitid!=""){
-	    if($records=$DB->get_records_sql("SELECT * FROM {$CFG->prefix}rcommon_books_activities WHERE bookid='".$bookid."' AND unitid='".$unitid."' ORDER BY sortorder ASC")){
-	    	foreach($records as $r){
-	    	if($from=='updateform'){
+
+	if($bookid!=""&&$unitid!="") {
+	    if($records = $DB->get_records('rcommon_books_activities',array('bookid'=>$bookid,'unitid'=>$unitid),'sortorder ASC')){
+	    	foreach($records as $r) {
+	    		if($from=='updateform') {
     	    		$return[$r->id]=$r->name;
-    	    	}else{
+    	    	} else {
     	    	    $return[]=array('id'=>$r->id,'name'=>$r->name);
     	    	}
 	    	}
-	    	
 	    }
 	}
 	return $return;
@@ -791,15 +792,15 @@ function rcontent_activity_list($bookid='',$unitid='',$from='ajax'){
 
 /**
  * Insert a note into the error log of the bd rcommond_errors_log
- * @param $action string -> 
+ * @param $action string ->
  * @param $bookis int ->
  * @param $cmid int ->
  * @return int -> ID of the new entry in the log or false if failds
  */
 function rcontent_insert_error_log($action, $bookid, $cmid=0){
-	
+
 	global $USER, $COURSE, $DB;
-	
+
 	$tmp = new stdClass();
 	$tmp->time      =  time();
 	$tmp->userid    =  $USER->id;
@@ -810,7 +811,6 @@ function rcontent_insert_error_log($action, $bookid, $cmid=0){
 	$tmp->action    =  $action;
 	$tmp->url       =  $_SERVER['REQUEST_URI'];
 	$tmp->info      =  "Bookid: ".$bookid.", Text: ".get_string($action,'rcontent');
-	
+
 	return $DB->insert_record("rcommon_errors_log",$tmp);
 }
-?>

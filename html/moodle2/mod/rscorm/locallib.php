@@ -213,12 +213,12 @@ function rscorm_parse($scorm, $full) {
 
         if ($packagefile) {
             if (!$full and $packagefile and $scorm->sha1hash === $newhash) {
-                if (strpos($scorm->version, 'RSCORM') !== false) {
+                if (textlib::strpos($scorm->version, 'RSCORM') !== false) {
                     if ($fs->get_file($context->id, 'mod_rscorm', 'content', 0, '/', 'imsmanifest.xml')) {
                         // no need to update
                         return;
                     }
-                } else if (strpos($scorm->version, 'AICC') !== false) {
+                } else if (textlib::strpos($scorm->version, 'AICC') !== false) {
                     // TODO: add more sanity checks - something really exists in scorm_content area
                     return;
                 }
@@ -345,7 +345,7 @@ function rscorm_get_sco($id, $what=RSCO_ALL) {
     		$sco->launch=$launch;
     	}
     	//********** FI
-    	
+
         $sco = ($what == RSCO_DATA) ? new stdClass() : $sco;
         if (($what != RSCO_ONLY) && ($scodatas = $DB->get_records('rscorm_scoes_data', array('scoid'=>$id)))) {
             foreach ($scodatas as $scodata) {
@@ -876,7 +876,7 @@ function rscorm_simple_play($scorm, $user, $context, $cmid) {
 	$scoes = $DB->get_recordset_sql("SELECT RS.* FROM {$CFG->prefix}rscorm_scoes RS
     JOIN {$CFG->prefix}rscorm_scoes_users RSU ON RSU.scoid = RS.id WHERE RS.scorm='".$scorm->id."' AND RSU.launch<>'".$DB->sql_empty()."' AND RSU.userid='".$user->id."'");
 //*********FI
-   
+
     if ($scoes) {
         $orgidentifier = '';
         if ($sco = rscorm_get_sco($scorm->launch, RSCO_ONLY)) {
@@ -950,7 +950,7 @@ function rscorm_reconstitute_array_element($sversion, $userdata, $element_name, 
     // filter out the ones we want
     $element_list = array();
     foreach ($userdata as $element => $value) {
-        if (substr($element, 0, strlen($element_name)) == $element_name) {
+        if (textlib::substr($element, 0, textlib::strlen($element_name)) == $element_name) {
             $element_list[$element] = $value;
         }
     }
@@ -976,7 +976,7 @@ function rscorm_reconstitute_array_element($sversion, $userdata, $element_name, 
             $current_subelement = '';
             $current_sub = '';
             $count_sub = 0;
-            $end = strpos($element, $matches[1])+strlen($matches[1]);
+            $end = textlib::strpos($element, $matches[1])+textlib::strlen($matches[1]);
             $subelement = substr($element, 0, $end);
             echo '    '.$subelement." = new Object();\n";
             // now add the children
@@ -1003,7 +1003,7 @@ function rscorm_reconstitute_array_element($sversion, $userdata, $element_name, 
             $current_subelement = $matches[1];
             $current_sub = '';
             $count_sub = 0;
-            $end = strpos($element, $matches[1])+strlen($matches[1]);
+            $end = textlib::strpos($element, $matches[1])+textlib::strlen($matches[1]);
             $subelement = substr($element, 0, $end);
             echo '    '.$subelement." = new Object();\n";
         }
@@ -1012,7 +1012,7 @@ function rscorm_reconstitute_array_element($sversion, $userdata, $element_name, 
         if (count($matches) > 0 && $current_sub != $matches[2]) {
             $current_sub = $matches[2];
             $count_sub++;
-            $end = strrpos($element, $matches[2])+strlen($matches[2]);
+            $end = textlib::strrpos($element, $matches[2])+textlib::strlen($matches[2]);
             $subelement = substr($element, 0, $end);
             echo '    '.$subelement." = new Object();\n";
         }
@@ -1321,7 +1321,7 @@ $return[0]='- '.get_string('isbn','rscorm').' -';
 					$return[]=array('id'=>$r->id,'name'=>$r->name." ($r->publiname)");
 					}
 					}
-						
+
 					}
 					}
 					return $return;
@@ -1350,7 +1350,7 @@ global $CFG, $DB;
 	$return[]=array('id'=>$r->id,'name'=>$r->name);
 	}
 	}
-		
+
 	}
 	}
 	return $return;
@@ -1365,7 +1365,7 @@ global $CFG, $DB;
 	 */
 function rscorm_activity_list($bookid='',$unitid='',$from='ajax'){
 	 global $CFG, $DB;
-	 
+
 	 if($from=='updateform'){
 		$return[0]='- '.get_string('activity','rscorm').' -';
 	}else{
@@ -1440,7 +1440,7 @@ function rscorm_set_manifest_by_user($scorm, $manifesturl){
 	/*copiamos manifiesto a la carpeta de cada usuario*/
 	// MARSUPIAL ********** AFEGIT -> Cleaning extra info in imsmanifest file name to fix windows systems bug
 	// 2011.08.29 @mmartinez
-	if ($pos = strpos($manifesturl, '?')){
+	if ($pos = textlib::strpos($manifesturl, '?')){
 		$manifesturl = substr($manifesturl, 0, $pos);
 		//echo "pos: {$pos} - manifesturl: {$manifesturl}"; //just for debug purpose
 	}
@@ -1455,7 +1455,7 @@ function rscorm_set_manifest_by_user($scorm, $manifesturl){
 	curl_setopt($curl, CURLOPT_HEADER, 0);
 
 	if($outfile = @fopen($localuserreference, 'wb')){
-		 
+
 		curl_setopt($curl, CURLOPT_FILE, $outfile);
 		// MARSUPIAL ************ AFEGIT -> Added proxy option
 		// 2012.08.30 @mmartinez
@@ -1479,7 +1479,7 @@ function rscorm_set_manifest_by_user($scorm, $manifesturl){
 		//set the description to show
 		error(get_string('error_authentication', 'blocks/rcommon')." -1, ".get_string('error_code_-1', 'blocks/rcommon'));
 		//save error on bd
-		 
+
 	}
 }
 //********** FI

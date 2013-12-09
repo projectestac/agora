@@ -255,7 +255,7 @@ function rscorm_update_instance($scorm, $mform=null) {
 // MARSUPIAL ********** ELIMINAT - not needed because save by selects
     //rscorm_parse($scorm, (bool)$scorm->updatefreq);
 //********* FI
-    
+
     rscorm_grade_item_update($scorm);
     rscorm_update_grades($scorm);
 
@@ -959,7 +959,7 @@ function rscorm_pluginfile($course, $cm, $context, $filearea, $args, $forcedownl
     // ********* ORIGINAL
     //require_login($course, false, $cm);
     // ********* FI
-    
+
     $lifetime = isset($CFG->filelifetime) ? $CFG->filelifetime : 86400;
 
     if ($filearea === 'content') {
@@ -1172,7 +1172,7 @@ function rscorm_version_check($scormversion, $version='') {
         }
     }
     if (empty($version) || $version == RSCORM_AICC) {
-        if (strpos($scormversion, 'aicc')) {
+        if (textlib::strpos($scormversion, 'aicc')) {
             return RSCORM_AICC;
         }
         if (!empty($version)) {
@@ -1269,7 +1269,7 @@ function rscorm_get_completion_state($course, $cm, $userid, $type) {
                 continue;
             }
 
-            if (strlen($track->value) && floatval($track->value) >= $maxscore) {
+            if (textlib::strlen($track->value) && floatval($track->value) >= $maxscore) {
                 $maxscore = floatval($track->value);
             }
         }

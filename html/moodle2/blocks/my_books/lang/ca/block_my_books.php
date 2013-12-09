@@ -91,4 +91,3 @@ $string['keymanager_selectall'] = 'Selecciona-ho tot';
 $string['keymanager_unselectall'] = 'Desmarca-ho tot';
 $string['keymanager_messageunassing2'] = 'Esteu segur/a que voleu desassignar la credencial seleccionada?';
 // *********** FI
-?>

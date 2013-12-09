@@ -9,9 +9,9 @@ if ($hassiteconfig) {
 //If site is allowed to use Marsupial
 //MARSUPIAL ************ AFEGIT - Check if block rcommon exists
 //2013.02.05 @abertranb
-	if ($DB->get_records('block', array('name'=>'rcommon')) && (!isset($CFG->ismarsupial) || $CFG->ismarsupial)) {
+	if ($DB->record_exists('block', array('name'=>'rcommon')) && (!isset($CFG->ismarsupial) || $CFG->ismarsupial)) {
 // ************ FI
-	if ( has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM))){
+	if ( has_capability('moodle/site:config', context_system::instance())){
 		// Add main category
 		    $ADMIN->add('root', new admin_category('rcommon', get_string('rcommon','block_rcommon')));    
 		    

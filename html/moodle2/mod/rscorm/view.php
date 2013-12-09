@@ -90,12 +90,12 @@ if (isset($return->AutenticarUsuarioContenidoResult->URL)){
 	$url = "";
 }
 
-if(!$localurl=rscorm_set_manifest_by_user($scorm,$url)){
+if(!$localurl = rscorm_set_manifest_by_user($scorm, $url)){
 	error("error getting acces to activity");
 }
 
 require_once('datamodels/scormlib.php');
-rscorm_parse_scorm(substr($localurl,0,strlen($localurl)-16),$scorm);
+rscorm_parse_scorm(textlib::substr($localurl,0,textlib::strlen($localurl)-16),$scorm);
 
 //********** FI
 

@@ -4,48 +4,22 @@ require_once('../../config.php');
 require_once($CFG->dirroot.'/course/lib.php');
 require_once("{$CFG->libdir}/formslib.php");
 
-// MARSUPIAL ************ MODIFICAT -> check isadmin
-// 2012.12.6 @abertranb
-if(!has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM))) {
-	exit;
-}
-// ************ ORIGINAL
-//if(!isadmin()) { exit; }
-// ************ FI
+require_login();
+
+require_capability('moodle/site:config', context_system::instance());
 
 if(!$site = get_site()) {
 	redirect($CFG->wwwroot.'/'.$CFG->admin.'/index.php');
 }
 
-
-require_login();
-// MARSUPIAL ************ AFEGIT -> Adding header
-// 2012.11.17 @abertranb
 require_once($CFG->libdir.'/adminlib.php');
 admin_externalpage_setup('marsupialmanage_credentials');
-//admin_externalpage_print_header();
 echo $OUTPUT->header();
-// ************ FI
 
 // get parameters
-$action  = optional_param('action', '', PARAM_ALPHA);
+$action  = optional_param('action', '', PARAM_TEXT);
 
-//set headers
-// MARSUPIAL ************ DELETED -> Not needed in Moodle 2.x
-// 2012.11.17 @abertranb
-/*$pagetitle = get_string('keymanager', 'block_rcommon');
 
-$str = get_string('rcommon', 'block_rcommon');
-$navlinks = array();
-$navlinks[] = array('name' => $str,
-					'link' =>'#',
-					'type' => 'misc');
-
-$prefsbutton = "";
-// Print title and header
-$navigation = build_navigation($navlinks);
-*/
-// ********** FI
 //key synchronization
 echo '<div>
 		<h2 class="headingblock header ">'.get_string('keymanager', 'block_rcommon').'</h2>
@@ -57,7 +31,7 @@ echo '<div>
 
 switch ($action){
 	case 'manage':
-		$username = required_param('username', PARAM_RAW);
+		$username = required_param('username', PARAM_TEXT);
 		echo '<p>'.get_string('keysshowingfor','block_rcommon').' <b>'.htmlentities($username).'</b><br/>';
 		$record = $DB->get_record('user', array('username' => $username));
 		if(!$record) {
@@ -88,9 +62,9 @@ switch ($action){
 	break;
 	case 'delete':
 		$id       = required_param('id', PARAM_INT);
-		$username = required_param('username', PARAM_RAW);
-		$confirm  = optional_param('confirm', '', PARAM_RAW);
-		if(empty($confirm)) {
+		$username = required_param('username', PARAM_TEXT);
+		$confirm  = optional_param('confirm', false, PARAM_BOOL);
+		if(!$confirm) {
 			echo '<p>'.get_string('keyconfirmdelete', 'block_rcommon').'</p>';
 			echo '<br/>';
 			echo '<a href="keyManager.php?action=delete&username='.urlencode($username).'&confirm=true&id='.urlencode($id).'">'.get_string('keydelbtn', 'block_rcommon').'</a> &nbsp;&nbsp;<a href="keyManager.php?action=manage&username='.urlencode($username).'">'.get_string('back').'</a>';
@@ -110,15 +84,15 @@ switch ($action){
 			    $bform->addElement('hidden', 'id');
 			    //doi/isbn
 			    $select_list = array();
-                            // MARSUPIAL ********** MODIFICAT -> To order books by title
-                            // 2011.11.04 @sarjona             
-			    $books = $DB->get_records_sql('SELECT '.$CFG->prefix.'rcommon_books.*, '.$CFG->prefix.'rcommon_publisher.name as pname FROM '.$CFG->prefix.'rcommon_books JOIN '.$CFG->prefix.'rcommon_publisher ON '.$CFG->prefix.'rcommon_books.publisherid = '.$CFG->prefix.'rcommon_publisher.id ORDER BY '.$CFG->prefix.'rcommon_books.name ');
-                            // ********** ORIGINAL
-			    //$books = $DB->get_records_sql('SELECT '.$CFG->prefix.'rcommon_books.*, '.$CFG->prefix.'rcommon_publisher.name as pname FROM '.$CFG->prefix.'rcommon_books JOIN '.$CFG->prefix.'rcommon_publisher ON '.$CFG->prefix.'rcommon_books.publisherid = '.$CFG->prefix.'rcommon_publisher.id');
-                            // ********* FI                                                                
-                            foreach($books as $book) {
-                                $select_list[$book->isbn] = $book->name.'&nbsp;('.$book->pname.')';
-                            }
+				// MARSUPIAL ********** MODIFICAT -> To order books by title
+				// 2011.11.04 @sarjona             
+			    $books = $DB->get_records_sql('SELECT b.*, p.name as pname FROM {rcommon_books} b JOIN {rcommon_publisher} p ON b.publisherid = p.id ORDER BY b.name ');
+				// ********** ORIGINAL
+				//$books = $DB->get_records_sql('SELECT '.$CFG->prefix.'rcommon_books.*, '.$CFG->prefix.'rcommon_publisher.name as pname FROM '.$CFG->prefix.'rcommon_books JOIN '.$CFG->prefix.'rcommon_publisher ON '.$CFG->prefix.'rcommon_books.publisherid = '.$CFG->prefix.'rcommon_publisher.id');
+				// ********* FI                                                                
+				foreach($books as $book) {
+					$select_list[$book->isbn] = $book->name.'&nbsp;('.$book->pname.')';
+				}
 			    $bform->addElement('select', 'doi', 'DOI / ISBN', $select_list);
 			    $bform->addRule('doi', null, 'required', null, 'client');
 			    //key
@@ -149,10 +123,10 @@ switch ($action){
 	    
 	break;
 	case 'doAdd':
-		$doi = optional_param('doi', '', PARAM_RAW);
-		$key = optional_param('key', '', PARAM_RAW);
+		$doi = optional_param('doi', '', PARAM_TEXT);
+		$key = optional_param('key', '', PARAM_TEXT);
 		$id  = optional_param('id', '', PARAM_INT);
-		$username = optional_param('username', '', PARAM_RAW);
+		$username = optional_param('username', '', PARAM_TEXT);
 		if(empty($doi) || empty($key) || empty($id)) {
 			echo '<p style="color:red">'.get_string('keyaddformexception', 'block_rcommon').'</p>';
 		} else {
@@ -168,7 +142,7 @@ switch ($action){
 	break;
 	default:
 		echo '				<p>'.get_string('keyslookupusertext','block_rcommon').'<br/>
-							<form action="keyManager.php?action=manage" method="GET">
+							<form actio	n="keyManager.php?action=manage" method="GET">
 								<select name="username">
 								';
                                                                 // MARSUPIAL ********** MODIFICAT -> To avoid deleted or not confirmed users
@@ -193,15 +167,7 @@ switch ($action){
 				</div>
 			</li>
 		</ul>
-	</div>
-	
-	';
+	</div>';
 
-// MARSUPIAL ************ MODIFICAT -> Deprecated code in Moodle 2.x
-// 2012.11.17 @abertranb
 echo $OUTPUT->footer();
-// ************ MODIFICAT
-//print_footer();
-// ************ FI
 
-?>

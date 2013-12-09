@@ -4,45 +4,28 @@
 require_once('../../config.php');
 require_once($CFG->dirroot.'/course/lib.php');
 
-// MARSUPIAL ************ MODIFICAT -> check isadmin
-// 2012.12.6 @abertranb
-if(!has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM))) { exit; }
-// ************ ORIGINAL
-//if(!isadmin()) { exit; }
-// ************ FI
+require_login();
 
+require_capability('moodle/site:config', context_system::instance());
 
 if(!$site = get_site()) {
 	redirect($CFG->wwwroot.'/'.$CFG->admin.'/index.php');
 }
 
-
 $id = required_param('id', PARAM_INT);
 if (($publisher = $DB->get_record('rcommon_publisher', array('id' => $id))) === false) {
     print_error(get_string('nopublisher','block_rcommon'));
 }
-// MARSUPIAL ************ AFEGIT -> Adding header
-// 2012.11.17 @abertranb
-require_login();
+
 require_once($CFG->libdir.'/adminlib.php');
 admin_externalpage_setup($publisher->id);
 echo $OUTPUT->header();
-// ************ FI
 
 $pagetitle = $publisher->name;
 
-/*$navlinks = array();
-$navlinks[] = array('name' => $publisher->name,
-					'link' =>'#',
-					'type' => 'misc');
-
-$prefsbutton = "";
-// Print title and header
-$navigation = build_navigation($navlinks);
-*/
 
 echo '<h2 class="headingblock header ">'.$publisher->name.' - '.get_string('marsupialcontent','block_rcommon').'</h2>';
-$sql = 'SELECT b.*, l.name AS "level" FROM '.$CFG->prefix.'rcommon_books b, '.$CFG->prefix.'rcommon_level l WHERE b.levelid=l.id AND b.publisherid='.$id.' ORDER BY l.name, b.format, b.name';
+$sql = 'SELECT b.*, l.name AS "level" FROM {rcommon_books} b, {rcommon_level} l WHERE b.levelid=l.id AND b.publisherid='.$id.' ORDER BY l.name, b.format, b.name';
 $books = $DB->get_records_sql($sql);
 //$books = $DB->get_records('rcommon_books', array('publisherid'=> $id), 'format, name');
 
@@ -67,12 +50,4 @@ echo '<div id="downloadbookstructures_warning" style="display:none; padding:10px
 
 echo '<div style="padding:10px;">'.get_string("marsupial_bookswarning", "block_rcommon").'</div>';
 
-// MARSUPIAL ************ MODIFICAT -> Deprecated code in Moodle 2.x
-// 2012.11.17 @abertranb
 echo $OUTPUT->footer();
-// ************ MODIFICAT
-//admin_externalpage_print_footer();
-// ************ FI
-
-
-?>

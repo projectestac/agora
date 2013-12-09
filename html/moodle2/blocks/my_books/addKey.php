@@ -8,11 +8,11 @@ require_login();
 if(!$site = get_site()) {
 	redirect($CFG->wwwroot.'/'.$CFG->admin.'/index.php');
 }
-$add = optional_param('add', '', PARAM_RAW);
+$add = optional_param('add', false, PARAM_BOOL);
 $credential = '';
-if (!empty($add)){
-	$id         = required_param('isbn', PARAM_RAW);
-	$credential = required_param('credential', PARAM_RAW);
+if ($add){
+	$id         = required_param('isbn', PARAM_TEXT);
+	$credential = required_param('credential', PARAM_TEXT);
 	$isbn       = $DB->get_record('rcommon_books', array('id' => $id));
 	
 	if (!empty($id) && !empty($credential)){
@@ -64,7 +64,7 @@ $pagetitle = get_string('keymanager', 'block_rcommon');
 $str = get_string('rcommon', 'block_rcommon');
 // MARSUPIAL *************** MODIFICATED -> Moodle 2.2
 // 2012.12.17 @abertranb
-$context = get_context_instance(CONTEXT_SYSTEM);
+$context = context_system::instance();
 $PAGE->set_context($context);
 $url = new moodle_url('/blocks/my_books/addKey.php', $_REQUEST); // Base URL
 $PAGE->set_url($url);
@@ -86,7 +86,7 @@ print_header("$site->shortname: $str: $pagetitle", $str, $navigation,
 		'', '', true, $prefsbutton, user_login_string($site));
 */
 // ************ FI
-$books = $DB->get_records_sql("SELECT rb.id, rb.name as bk_name, rp.name FROM {$CFG->prefix}rcommon_books rb LEFT JOIN {$CFG->prefix}rcommon_publisher rp ON rb.publisherid = rp.id WHERE rb.isbn NOT IN (SELECT isbn FROM {$CFG->prefix}rcommon_user_credentials WHERE euserid = '{$USER->id}')");
+$books = $DB->get_records_sql("SELECT rb.id, rb.name as bk_name, rp.name FROM {rcommon_books} rb LEFT JOIN {rcommon_publisher} rp ON rb.publisherid = rp.id WHERE rb.isbn NOT IN (SELECT isbn FROM {$CFG->prefix}rcommon_user_credentials WHERE euserid = '{$USER->id}')");
 	
 //Changed the field of submit 4 hidden because Firefox doesn't get the parameter add
 echo '<script type="text/javascript">
@@ -127,4 +127,3 @@ echo $OUTPUT->footer();
 // print_footer();
 // ************** FI
 // ************** FI
-?>

@@ -360,7 +360,7 @@ if (!empty($b)) {
                 } else {
                     $row[] = get_string($string, 'rscorm');
                 }
-                if (strpos($element, '_time') === false) {
+                if (textlib::strpos($element, '_time') === false) {
                     $row[] = s($value);
                 } else {
                     $row[] = s(rscorm_format_duration($value));

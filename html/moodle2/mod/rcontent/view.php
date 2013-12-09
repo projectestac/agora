@@ -13,7 +13,7 @@ if ($id !== false) {
     if (($course = $DB->get_record('course', array('id' => $cm->course))) === false) {
         print_error('Course is misconfigured');
     }
-    
+
     if (($rcontent = $DB->get_record('rcontent', array('id' => $cm->instance))) === false) {
         print_error('Course module is incorrect');
     }
@@ -22,11 +22,11 @@ else if ($a !== false) {
     if (($rcontent = $DB->get_record('rcontent', array('id' => $a))) === false) {
         print_error('Course module is incorrect');
     }
-    
+
     if (($course = $DB->get_record('course', array('id' => $rcontent->course))) === false) {
         print_error('Course is misconfigured');
     }
-    
+
     if (($cm = get_coursemodule_from_instance('rcontent', $rcontent->id, $course->id)) === false) {
         print_error('Course Module ID was incorrect');
     }
@@ -75,7 +75,7 @@ $navigation = build_navigation($navlinks);
 //call to autentification web services
 require_once($CFG->dirroot.'/blocks/rcommon/WebServices/Authentication/AuthenticateContent.php');
 $rcontent->module='rcontent';
-$rcontent->cmid=$cm->id; 
+$rcontent->cmid=$cm->id;
 $return = AuthenticateUserContent($rcontent);
 
 // MARSUPIAL ************* AFEGIT -> Added extra control for response errors
@@ -94,7 +94,7 @@ $PAGE->set_button($exitlink.update_module_button($cm->id, $course->id, get_strin
 // 2012.12.13 @abertranb
 if ($CFG->branch < 24) {
     $PAGE->requires->yui2_lib(array('utilities','container','dom-event','dom'));
-} 
+}
 $PAGE->requires->css('/mod/rcontent/iframe.css');
 // ************* ORIGINAL
 /*require_js(array('yui_utilities'));
@@ -102,14 +102,14 @@ require_js(array('yui_container'));
 require_js(array('yui_dom-event'));
 require_js(array('yui_dom'));*/
 // ************* END
- 
+
 
 
 if($rcontent->popup == 1 ){
       $options = $rcontent->popup_options;
 
-    if (strpos($options, ',height')!==false) {
-        $options = substr($options, 0, strpos($options, ',height'));
+    if (textlib::strpos($options, ',height')!==false) {
+        $options = textlib::substr($options, 0, textlib::strpos($options, ',height'));
     }
     $PAGE->requires->data_for_js('rcontentplayerdata', Array('cwidth'=>str_replace('%','',$rcontent->width),
         'cheight'=>str_replace('%','',$rcontent->height),
@@ -123,9 +123,9 @@ if($rcontent->popup == 1 ){
     $content .= "<input type=\"submit\" value=\"".get_string('popupblockedlinkname','rcontent')."\">";
     $content .= '<form></div>';
     echo $OUTPUT->box(get_string('popupblocked','rcontent',$content));
-	
+
 	//echo $OUTPUT->header();
-    //print_header_simple( format_string($rcontent->name),'',$navigation,'','',true,$exitlink.update_module_button($cm->id, $course->id, get_string('modulename', 'rcontent')),navmenu($course,$cm));   
+    //print_header_simple( format_string($rcontent->name),'',$navigation,'','',true,$exitlink.update_module_button($cm->id, $course->id, get_string('modulename', 'rcontent')),navmenu($course,$cm));
 //    $link = "<a  href=\"Javascript:window.open('$url','popup','$rcontent->popup_options');return false;\">".get_string('popupblockedlinkname','rcontent')."</a>";
 // MARSUPIAL ************* MODIFICAT -> Deprecated code Moodle 2.3
 // 2012.12.13 @abertranb
@@ -133,9 +133,9 @@ if($rcontent->popup == 1 ){
 // ************* ORIGINAL
     //print_simple_box(get_string('popupblocked','rcontent',$link),'center');
 // ************* FI
-    
-    //echo "<div ><br /> This resource should appear in a popup window. If it didn't, click here: <a onclick=\"window.open('$url','popup','$rcontent->popup_options');return false;\" href='#'>$rcontent->name</a></div>"; 
-    
+
+    //echo "<div ><br /> This resource should appear in a popup window. If it didn't, click here: <a onclick=\"window.open('$url','popup','$rcontent->popup_options');return false;\" href='#'>$rcontent->name</a></div>";
+
     /*echo "<script type='text/javascript'>";
     echo "window.open('$url','popup','$rcontent->popup_options')";
     echo "</script>";*/
@@ -144,8 +144,8 @@ if($rcontent->popup == 1 ){
     $PAGE->requires->js_init_call('M.mod_rcontentform.init');
     $PAGE->requires->js_init_call('M.mod_rcontentform.dosubmit');
 
-// *********** END 
- 
+// *********** END
+
 }elseif($rcontent->frame == 1){
     if(empty($frameset)){
         echo $OUTPUT->header();
@@ -153,7 +153,7 @@ if($rcontent->popup == 1 ){
         echo'<script type="text/javascript">
                                      //<![CDATA[
                                      function resizeEmbeddedHtml() {
-                                     //calculate new embedded html height size  
+                                     //calculate new embedded html height size
                                      objectheight = yui_getViewportHeight() - 130;
               //the object tag cannot be smaller than a human readable size
                      if (objectheight < 200) {
@@ -166,10 +166,10 @@ if($rcontent->popup == 1 ){
 
                   function yui_getViewportHeight(){
                     if(typeof YAHOO != "undefined") {
-                        // Up to Moodle 2.3                                      
+                        // Up to Moodle 2.3
                         objectheight =  YAHOO.util.Dom.getViewportHeight();
                     } else {
-                        YUI().use("node", function (Y) {                    
+                        YUI().use("node", function (Y) {
                             objectheight = Y.one(document).get("winHeight");
                         });
                     }
@@ -178,10 +178,10 @@ if($rcontent->popup == 1 ){
 
                   function yui_setStyle (element, name, value){
                     if(typeof YAHOO != "undefined") {
-                        // Up to Moodle 2.3                                      
+                        // Up to Moodle 2.3
                         YAHOO.util.Dom.setStyle(element, name, value);
                     } else {
-                        YUI().use("node", function (Y) {                    
+                        YUI().use("node", function (Y) {
                             var myNode = Y.one(document.getElementById(element));
                             myNode.setStyle(name, value);
                         });
@@ -190,7 +190,7 @@ if($rcontent->popup == 1 ){
 
                   resizeEmbeddedHtml();
                   if(typeof YAHOO != "undefined") {
-                      // Up to Moodle 2.3                                      
+                      // Up to Moodle 2.3
                       YAHOO.widget.Overlay.windowResizeEvent.subscribe(resizeEmbeddedHtml);
                   } else {
                       YUI().use("event", function (Y) {
@@ -204,13 +204,13 @@ if($rcontent->popup == 1 ){
 
         //exit('<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8" /></head><frameset rows="'.$CFG->rcontent_framesize.',*"><frame src="view.php?id='.$cm->id.'&amp;frameset=1" title="Resource"/><frame src="'.$url.'" title="Resource"/></frameset></html>');
     }
-    
+
     // MARSUPIAL ********** ELIMINAT -> Not need because is a iframe
 	// 2012.12.12 @abertranb
     /*if(false && !empty($frameset)){
-    	
+
     	$PAGE->set_button($exitlink.update_module_button($cm->id, $course->id, get_string('modulename', 'rcontent')));
-    	
+
     	$navlinks = array(
     	array(
     	        'name' => $course->fullname,
@@ -230,7 +230,7 @@ if($rcontent->popup == 1 ){
     	        'type' => 'activityinstance',
     	)
     	);
-    	
+
     	$navigation = build_navigation($navlinks);
         print_header_simple(
         format_string($rcontent->name),
@@ -241,11 +241,11 @@ if($rcontent->popup == 1 ){
         true,
         $exitlink.update_module_button($cm->id, $course->id, get_string('modulename', 'rcontent')),
         navmenu($course,$cm));
-    
+
     }*/
     // *********** FI
 }elseif($rcontent->popup == 0 and $rcontent->frame == 2 ){
-	
+
     echo $OUTPUT->header();
     //print_header_simple(format_string($rcontent->name),'',$navigation,'','',true,$exitlink.update_module_button($cm->id, $course->id, get_string('modulename', 'rcontent')),navmenu($course,$cm));
 
@@ -254,7 +254,7 @@ if($rcontent->popup == 1 ){
     echo'<script type="text/javascript">
                                  //<![CDATA[
                                  function resizeEmbeddedHtml() {
-                                 //calculate new embedded html height size  
+                                 //calculate new embedded html height size
                                  objectheight = yui_getViewportHeight() - 130;
           //the object tag cannot be smaller than a human readable size
                  if (objectheight < 200) {
@@ -267,10 +267,10 @@ if($rcontent->popup == 1 ){
 
               function yui_getViewportHeight(){
                 if(typeof YAHOO != "undefined") {
-                    // Up to Moodle 2.3                                      
+                    // Up to Moodle 2.3
                     objectheight =  YAHOO.util.Dom.getViewportHeight();
                 } else {
-                    YUI().use("node", function (Y) {                    
+                    YUI().use("node", function (Y) {
                         objectheight = Y.one(document).get("winHeight");
                     });
                 }
@@ -279,10 +279,10 @@ if($rcontent->popup == 1 ){
 
               function yui_setStyle (element, name, value){
                 if(typeof YAHOO != "undefined") {
-                    // Up to Moodle 2.3                                      
+                    // Up to Moodle 2.3
                     YAHOO.util.Dom.setStyle(element, name, value);
                 } else {
-                    YUI().use("node", function (Y) {                    
+                    YUI().use("node", function (Y) {
                         var myNode = Y.one(document.getElementById(element));
                         myNode.setStyle(name, value);
                     });
@@ -291,7 +291,7 @@ if($rcontent->popup == 1 ){
 
               resizeEmbeddedHtml();
               if(typeof YAHOO != "undefined") {
-                  // Up to Moodle 2.3                                      
+                  // Up to Moodle 2.3
                   YAHOO.widget.Overlay.windowResizeEvent.subscribe(resizeEmbeddedHtml);
               } else {
                   YUI().use("event", function (Y) {
@@ -302,17 +302,16 @@ if($rcontent->popup == 1 ){
               //]]>
            </script>
         ';
-        
+
 }else
 {
- redirect($url,'',-1);   
+ redirect($url,'',-1);
 }
 
 // MARSUPIAL ********** AFEGIT -> To save view rcontent action to the Moodle log
 // 2011.09.27 @sarjona
 if(empty($frameset)){
-    add_to_log($course->id, 'rcontent', 'view', "view.php?id=$cm->id", "$rcontent->id", $cm->id);   
+    add_to_log($course->id, 'rcontent', 'view', "view.php?id=$cm->id", "$rcontent->id", $cm->id);
 }
 // ********* FI
 echo $OUTPUT->footer();
-
