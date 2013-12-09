@@ -91,4 +91,3 @@ if ($module = $DB->get_record('modules', array('name' => 'rcontent'), 'id')){
     $settings->add(new admin_setting_configcheckbox('mybooks_addkey', get_string('key_setting', 'block_my_books'),
     		get_string('key_setting_info', 'block_my_books'), 1));
 // ************ FI
-?>

@@ -7,29 +7,20 @@ require_once('../../config.php');
 require_once($CFG->dirroot.'/course/lib.php');
 require_once("{$CFG->libdir}/formslib.php");
 
-// MARSUPIAL ************ MODIFICAT -> check isadmin
-// 2012.12.6 @abertranb
-if(!has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM))) {
-	exit;
-}
+require_login();
+
+require_capability('moodle/site:config', context_system::instance());
+
 $courses = array();
-// ************ ORIGINAL
-//if(!isadmin()) { exit; }
-// ************ FI
 
 if(!$site = get_site()) {
 	redirect($CFG->wwwroot.'/'.$CFG->admin.'/index.php');
 }
 
-
-require_login();
 require_once($CFG->libdir.'/adminlib.php');
 admin_externalpage_setup('marsupial_manage_credentials');
 
-// MARSUPIAL ************ AFEGIT -> Adding header
-// 2012.11.17 @abertranb
 echo $OUTPUT->header();
-// ************ FI
 
 // MARSUPIAL *********** MODIFICAT -> Get the yui lib js version moodle 2.x
 // 2012.12.1 @abertranb
@@ -51,25 +42,9 @@ if ($CFG->branch < 24) {
     
 
 // get parameters
-$action  = optional_param('action', '', PARAM_ALPHANUM);
+$action  = optional_param('action', '', PARAM_TEXT);
 
 $pagetitle = ($action == 'import' || $action == 'importstep2' || $action == 'importstep3' || $action == 'importstep4')? get_string('keymanager_import_title', 'block_rcommon'): get_string('keymanager_new', 'block_rcommon');
-//set headers
-// MARSUPIAL ************ DELETED -> Not needed in Moodle 2.x
-// 2012.11.17 @abertranb
-/*
-$str = get_string('rcommon', 'block_rcommon');
-$navlinks = array();
-$navlinks[] = array('name' => $str,
-					'link' =>'#',
-					'type' => 'misc');
-
-$prefsbutton = "";
-// Print title and header
-$navigation = build_navigation($navlinks);
-
-//admin_externalpage_print_header();*/
-// ********** FI
 
 //key synchronization
 echo '<div id="block-block_rcommon">
@@ -85,7 +60,7 @@ switch ($action){
 		//get data
 		$id = required_param('id_bk', PARAM_INT);
 		$book = $DB->get_record('rcommon_books', array('id' => $id));
-		$credentials = $DB->get_records_sql("SELECT ruc.id, ruc.credentials, ruc.euserid, u.lastname, u.firstname FROM {$CFG->prefix}rcommon_user_credentials ruc LEFT JOIN {$CFG->prefix}user u ON ruc.euserid = u.id WHERE isbn = '{$book->isbn}' ORDER BY u.lastname, u.firstname");
+		$credentials = $DB->get_records_sql("SELECT ruc.id, ruc.credentials, ruc.euserid, u.lastname, u.firstname FROM {rcommon_user_credentials} ruc LEFT JOIN {user} u ON ruc.euserid = u.id WHERE isbn = '{$book->isbn}' ORDER BY u.lastname, u.firstname");
 		
 		//print_js
 		echo '<script type="text/javascript">
@@ -208,7 +183,7 @@ switch ($action){
 				$name = (!empty($credential->lastname) && $credential->lastname != ' ')? $credential->firstname . ' ' . $credential->lastname: ($credential->euserid != 0? get_string('keymanager_usernotfound', 'block_rcommon'): ' - ');
 				echo '<tr>
 					<td><input type="checkbox" name="ids[]" value="' . $credential->id . '" onChange="allow_actions();"></td>
-					<td><span title="' . $credential->credentials . '">' . (strlen($credential->credentials) > 30? substr($credential->credentials, 0, 30) . '...': $credential->credentials) . '</td>
+					<td><span title="' . $credential->credentials . '">' . (textlib::strlen($credential->credentials) > 30? textlib::substr($credential->credentials, 0, 30) . '...': $credential->credentials) . '</td>
 					<td>' . $name . '</td>
 					<td width="150" align="rigth"><a href="keyManager_new.php?action=edit&id_bk=' . $id . '&id_cr=' . $credential->id . '" title="' . get_string('edit') .'" style="margin-left: 15px;">' . get_string('edit') . '</a>';
 					if (!empty($credential->credentials) && !empty($credential->euserid)){
@@ -259,7 +234,7 @@ switch ($action){
 		//get data
 		$id_book        = required_param('id_bk', PARAM_INT);
 		$id             = required_param('id_cr', PARAM_INT);
-		$new_credential = required_param('new_credential', PARAM_RAW);
+		$new_credential = required_param('new_credential', PARAM_TEXT);
 		
 		$update               = new stdClass();
 		$update->id           = $id;
@@ -278,10 +253,10 @@ switch ($action){
 		break;
 	case 'unassing':
 		$id_bk     = required_param('id_bk', PARAM_INT);
-		$ids       = required_param_array('ids', PARAM_RAW);
+		$ids       = required_param_array('ids', PARAM_INT);
 		$ids_where = implode(',', $ids);
 		
-	   	if ($DB->execute("UPDATE {$CFG->prefix}rcommon_user_credentials SET euserid = 0, timemodified = '" . time() . "' WHERE id IN ({$ids_where})")){
+	   	if ($DB->execute("UPDATE {rcommon_user_credentials} SET euserid = 0, timemodified = '" . time() . "' WHERE id IN ({$ids_where})")){
 	   		echo '<p class="center_rcommon">' . get_string('keymanager_unassing_ok', 'block_rcommon') . '</p>';
 	   	} else {
 	   		echo '<p class="center_rcommon">' . get_string('keymanager_unassing_ko', 'block_rcommon') . '</p>';
@@ -296,7 +271,7 @@ switch ($action){
 		$ids       = required_param_array('ids', PARAM_RAW);
 		$ids_where = implode(',', $ids);
 		
-	   	if ($DB->execute("DELETE FROM {$CFG->prefix}rcommon_user_credentials WHERE id IN ({$ids_where})")){
+	   	if ($DB->execute("DELETE FROM {rcommon_user_credentials} WHERE id IN ({$ids_where})")){
 	   		echo '<p class="center_rcommon">' . get_string('keymanager_delete_ok', 'block_rcommon') . '</p>';
 	   	} else {
 	   		echo '<p class="center_rcommon">' . get_string('keymanager_delete_ko', 'block_rcommon') . '</p>';
@@ -313,15 +288,16 @@ switch ($action){
 		
 		//get received info
 		$id_bk          = required_param('id_bk', PARAM_INT);
-		$ids            = optional_param_array('ids', '', PARAM_RAW);
-		$showall        = optional_param('showall', '', PARAM_RAW);
-		$searchtext     = optional_param('searchtext', '', PARAM_RAW); // search string
+		$ids            = optional_param_array('ids', '', PARAM_INT);
 		$userid         = optional_param('userid', 0, PARAM_INT); // needed for user tabs
-		$courseid       = optional_param('courseid', 0, PARAM_INT); // needed for user tabs
-		if (strlen($showall)>0) {
+        $showall        = optional_param('showall', false, PARAM_BOOL);
+		if ($showall) {
 			$searchtext = '';
 			$courseid = 0;
-		}
+		} else {
+            $searchtext     = optional_param('searchtext', '', PARAM_TEXT); // search string
+            $courseid       = optional_param('courseid', 0, PARAM_INT); // needed for user tabs
+        }
 		//echo '<hr>ids: '. serialize($ids) . '<hr>'; //debug
 		
 		//process received data
@@ -345,7 +321,7 @@ switch ($action){
 			if (!empty($frm->addselect) && confirm_sesskey()) {			
 				//echo '<hr>addselect: ' . serialize($frm->addselect) . '<hr>'; //debug
 				//echo '<hr>ids: ' . $frm->ids . '<hr>'; //Debug
-				$empty_credentials = $DB->get_records_sql("SELECT id, isbn, credentials FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = (SELECT isbn FROM {$CFG->prefix}rcommon_books WHERE id = '{$id_bk}') AND euserid = 0 AND id IN ({$ids})");
+				$empty_credentials = $DB->get_records_sql("SELECT id, isbn, credentials FROM {rcommon_user_credentials} WHERE isbn = (SELECT isbn FROM {$CFG->prefix}rcommon_books WHERE id = '{$id_bk}') AND euserid = 0 AND id IN ({$ids})");
 				//echo 'empty_credentials: ' . serialize($empty_credentials);
 				if ($empty_credentials){
 					$i = 0;
@@ -354,7 +330,7 @@ switch ($action){
 							break;
 						}
 						
-						if ($user_c = $DB->get_record_sql("SELECT id, credentials FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$c->isbn}' AND euserid = {$frm->addselect[$i]}")){
+						if ($user_c = $DB->get_record_sql("SELECT id, credentials FROM {rcommon_user_credentials} WHERE isbn = '{$c->isbn}' AND euserid = {$frm->addselect[$i]}")){
 							if ($user_c->credentials == ' '){
 								$up               = new stdClass();
 								$up->id           = $user_c->id;
@@ -378,7 +354,7 @@ switch ($action){
 			} else if (!empty($frm->removeselect) && confirm_sesskey()) {
 				//echo 'remove select: ' . serialize($frm->removeselect); //Debug
 				foreach ($frm->removeselect as $u){
-					$cred = $DB->get_record_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE euserid = {$u} AND isbn = (SELECT isbn FROM {$CFG->prefix}rcommon_books WHERE id = '{$id_bk}')");
+					$cred = $DB->get_record_sql("SELECT id FROM {rcommon_user_credentials} WHERE euserid = {$u} AND isbn = (SELECT isbn FROM {rcommon_books} WHERE id = '{$id_bk}')");
 					if ($cred){
 						$up          = new stdClass();
 						$up->id      = $cred->id;
@@ -403,13 +379,13 @@ switch ($action){
 		if (empty($courseid)){
 // MARSUPIAL ************* MODIFICAT -> Add extra control for just show the users confirmed and non deleted in the assigment books credentials process
 // 2012.09.05 @mmartinez
-			$users_to_show    = $DB->get_records_sql("SELECT u.id, u.firstname, u.lastname, u.email FROM {$CFG->prefix}user u WHERE u.id NOT IN (SELECT DISTINCT euserid FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$book->isbn}') AND deleted = 0 AND confirmed = 1{$search_where} ORDER BY lastname");
+			$users_to_show    = $DB->get_records_sql("SELECT u.id, u.firstname, u.lastname, u.email FROM {user} u WHERE u.id NOT IN (SELECT DISTINCT euserid FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$book->isbn}') AND deleted = 0 AND confirmed = 1{$search_where} ORDER BY lastname");
 // ************ ORIGINAL
 			//$users_to_show    = $DB->get_records_sql("SELECT u.id, u.firstname, u.lastname, u.email FROM {$CFG->prefix}user u WHERE u.id NOT IN (SELECT DISTINCT euserid FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$book->isbn}'){$search_where} ORDER BY lastname");
 // ************ FI
 		} else {
 			/// Setup for group handling.
-			$context = get_context_instance(CONTEXT_SYSTEM); // pinned blocks do not have own context
+			$context = context_system::instance(); // pinned blocks do not have own context
 			if ($course->groupmode == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $context)) {
 				$selectedgroup = get_current_group($course->id);
 				$showgroups = false;
@@ -443,7 +419,7 @@ switch ($action){
 				} else {
 					// MARSUPIAL ************ MODIFICAT -> Deprecated code in Moodle 2.x
 					// 2012.12.14 @abertranb
-					$context_course = get_context_instance(CONTEXT_COURSE, $course->id);
+					$context_course = context_course::instance($course->id);
 					list($esqljoin, $eparams) = get_enrolled_sql($context_course);
 					//$params = array_merge($params, $eparams);
 					
@@ -464,7 +440,7 @@ switch ($action){
 			} else {
 				// MARSUPIAL ************ MODIFICAT -> Deprecated code in Moodle 2.x
 				// 2012.12.14 @abertranb
-				$extrasql = 'id <> '.$CFG->siteguest.' AND id not in (SELECT DISTINCT euserid FROM '.$CFG->prefix.'rcommon_user_credentials WHERE isbn = \''.$book->isbn.'\')';
+				$extrasql = 'id <> '.$CFG->siteguest.' AND id not in (SELECT DISTINCT euserid FROM {rcommon_user_credentials} WHERE isbn = \''.$book->isbn.'\')';
 				$users_to_show = get_users_listing('', '', 0, 0, '', '', '',
 				$extrasql, null, $context);
 				// ************ MODIFICAT
@@ -658,7 +634,7 @@ switch ($action){
 			$bk = $DB->get_record('rcommon_books', array('id' => $id_bk));	
 // MARSUPIAL ************ MODIFICAT -> Fix bug when returns more than one row
 // 2013.03.07 @abertranb
-			$cred = $DB->get_records_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$bk->isbn}' AND credentials = '{$new_credential}'");			
+			$cred = $DB->get_records_sql("SELECT id FROM {rcommon_user_credentials} WHERE isbn = '{$bk->isbn}' AND credentials = '{$new_credential}'");			
 			if ($cred && count($cred)>0){
 // ************ MODIFICAT
 			//$cred = $DB->get_record_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$bk->isbn}' AND credentials = '{$new_credential}'");
@@ -693,7 +669,7 @@ switch ($action){
 		break;
 	case 'import':
 		$post_max_size = ini_get('post_max_size');
-		$post_max_size_bytes = (substr($post_max_size, 0, strlen($post_max_size) - 1) * (1024 * 1024));
+		$post_max_size_bytes = (textlib::substr($post_max_size, 0, textlib::strlen($post_max_size) - 1) * (1024 * 1024));
 		
 		$post_max_size_bytes = ($CFG->maxbytes != 0 && $CFG->maxbytes < $post_max_size_bytes)? $CFG->maxbytes: $post_max_size_bytes;
 		$post_max_size = $post_max_size_bytes / (1024 * 1024);
@@ -727,7 +703,7 @@ switch ($action){
 		@raise_memory_limit('256M');		
 		
 		$post_max_size = ini_get('post_max_size');
-		$post_max_size_bytes = (substr($post_max_size, 0, strlen($post_max_size) - 1) * (1024 * 1024));
+		$post_max_size_bytes = (textlib::substr($post_max_size, 0, textlib::strlen($post_max_size) - 1) * (1024 * 1024));
 		
 		$post_max_size_bytes = ($CFG->maxbytes != 0 && $CFG->maxbytes < $post_max_size_bytes)? $CFG->maxbytes: $post_max_size_bytes;
 		
@@ -757,8 +733,8 @@ switch ($action){
 			while (!feof($file)) {
 				$line  = trim(fgets($file));
 				$line = trim($line, "\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x20");
-                if ($i == 0 && strlen($line) >=3 && (substr($line, 0, 3) === "\xEF\xBB\xBF")){
-                    $line = substr($line, 3);
+                if ($i == 0 && textlib::strlen($line) >=3 && (textlib::substr($line, 0, 3) === "\xEF\xBB\xBF")){
+                    $line = textlib::substr($line, 3);
                 }
                                 
 				$data = explode(';', $line);
@@ -873,7 +849,7 @@ switch ($action){
 					//test if isset any credential for that book and user
 					$duplicated = false;
 					if (isset($user) && $user){
-						if ($cred = $DB->get_record_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$data[$columns['isbn']]}' AND euserid = {$user->id}")){
+						if ($cred = $DB->get_record_sql("SELECT id FROM {rcommon_user_credentials} WHERE isbn = '{$data[$columns['isbn']]}' AND euserid = {$user->id}")){
 							$row[$columns['credential']] = array('value' => get_string('keymanager_import_error_19', 'block_rcommon'), 'type' => 'error');
 							$error = true;
 							$duplicated = true;
@@ -896,7 +872,7 @@ switch ($action){
 						} else {
 							if (isset($user) && $user){
 								//test if cred it's already assigned
-								if ($cred = $DB->get_record_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$data[$columns['isbn']]}' AND credentials = '{$data[$columns['credential']]}' AND euserid = {$user->id}")){
+								if ($cred = $DB->get_record_sql("SELECT id FROM {rcommon_user_credentials} WHERE isbn = '{$data[$columns['isbn']]}' AND credentials = '{$data[$columns['credential']]}' AND euserid = {$user->id}")){
 									$a = new stdClass();
 									$a->user = $user->username;
 									$a->cred = $data[$columns['credential']];
@@ -905,7 +881,7 @@ switch ($action){
 									$error = true;
 								} else {
 									//test if there are more cred like this
-									if ($creds = $DB->get_records_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$data[$columns['isbn']]}' AND credentials = '{$data[$columns['credential']]}'")){
+									if ($creds = $DB->get_records_sql("SELECT id FROM {rcommon_user_credentials} WHERE isbn = '{$data[$columns['isbn']]}' AND credentials = '{$data[$columns['credential']]}'")){
 										$a = new stdClass();
 										$a->cnt = count($creds);
 										$a->bk  = $data[$columns['isbn']];
@@ -917,7 +893,7 @@ switch ($action){
 								}
 							} else {
 								//test if there are more cred like this
-								if ($creds = $DB->get_records_sql("SELECT id FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn = '{$data[$columns['isbn']]}' AND credentials = '{$data[$columns['credential']]}'")){
+								if ($creds = $DB->get_records_sql("SELECT id FROM {rcommon_user_credentials} WHERE isbn = '{$data[$columns['isbn']]}' AND credentials = '{$data[$columns['credential']]}'")){
 									$a = new stdClass();
 									$a->cnt = count($creds);
 									$a->bk  = $data[$columns['isbn']];
@@ -1115,8 +1091,8 @@ switch ($action){
 		
 		//load data form db
 		$sql = "SELECT rb.id, rp.name as ed_name, rb.name as bk_name, data.isbn, data.cnt_tot, data.cnt_assig FROM 
-(SELECT rb.isbn, count(ruc.isbn) as cnt_tot, SUM(case when ruc.euserid > 0 THEN 1 ELSE 0 END) as cnt_assig FROM {$CFG->prefix}rcommon_books rb LEFT JOIN {$CFG->prefix}rcommon_user_credentials ruc ON rb.isbn = ruc.isbn GROUP BY rb.isbn) data
-LEFT JOIN {$CFG->prefix}rcommon_books rb ON data.isbn = rb.isbn LEFT JOIN {$CFG->prefix}rcommon_publisher rp ON rb.publisherid = rp.id ORDER BY ed_name, bk_name";
+(SELECT rb.isbn, count(ruc.isbn) as cnt_tot, SUM(case when ruc.euserid > 0 THEN 1 ELSE 0 END) as cnt_assig FROM {rcommon_books} rb LEFT JOIN {rcommon_user_credentials} ruc ON rb.isbn = ruc.isbn GROUP BY rb.isbn) data
+LEFT JOIN {rcommon_books} rb ON data.isbn = rb.isbn LEFT JOIN {rcommon_publisher} rp ON rb.publisherid = rp.id ORDER BY ed_name, bk_name";
 		//echo '<p style="clear: both;">' . $sql . '</p>'; //debug
 		$list_credentials = $DB->get_records_sql($sql);
 		
@@ -1135,7 +1111,7 @@ LEFT JOIN {$CFG->prefix}rcommon_books rb ON data.isbn = rb.isbn LEFT JOIN {$CFG-
 			foreach ($list_credentials as $credential){
 				echo '<tr>
 						<td>' . $credential->ed_name . '</td>
-						<td><span title="' . $credential->bk_name . ' (' . $credential->isbn . ')">' . (strlen($credential->bk_name) > 50? substr($credential->bk_name, 0, 50) . '...': $credential->bk_name) . ' (' . $credential->isbn . ')</span></td>
+						<td><span title="' . $credential->bk_name . ' (' . $credential->isbn . ')">' . (textlib::strlen($credential->bk_name) > 50? textlib::substr($credential->bk_name, 0, 50) . '...': $credential->bk_name) . ' (' . $credential->isbn . ')</span></td>
 						<td align="center">' . $credential->cnt_assig . '</td>
 						<td align="center">' . $credential->cnt_tot . '</td>
 						<td align="center"><a href="keyManager_new.php?action=manage&id_bk=' . $credential->id .'" title="' . get_string('see_details_atitle', 'block_rcommon') . '">' . get_string('see_details', 'block_rcommon') . '</a></td>
@@ -1154,13 +1130,6 @@ LEFT JOIN {$CFG->prefix}rcommon_books rb ON data.isbn = rb.isbn LEFT JOIN {$CFG-
 		</ul>
 	</div>';
 
-// MARSUPIAL ************ MODIFICAT -> Deprecated code in Moodle 2.x
-// 2012.11.17 @abertranb
 echo $OUTPUT->footer();
-// ************ MODIFICAT
-//print_footer();
-// ************ FI
 
 // **************** FI
-
-?>

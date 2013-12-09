@@ -130,7 +130,7 @@ function rscorm_parse_aicc($scorm) {
 
     foreach ($files as $file) {
         $filename = $file->get_filename();
-        $ext = substr($filename, strrpos($filename, '.'));
+        $ext = textlib::substr($filename, textlib::strrpos($filename, '.'));
         $extension = strtolower(substr($ext, 1));
         if (in_array($extension, $extaiccfiles)) {
             $id = strtolower(basename($filename, $ext));

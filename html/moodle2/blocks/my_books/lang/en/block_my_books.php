@@ -91,4 +91,3 @@ $string['keymanager_selectall'] = 'Select all';
 $string['keymanager_unselectall'] = 'Unselect all';
 $string['keymanager_messageunassing2'] = 'Are you sure you want to unassign the selected credential?';
 // *********** FI
-?>

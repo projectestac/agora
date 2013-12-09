@@ -13,7 +13,7 @@ $pagetitle = get_string('keymanager', 'block_rcommon');
 $url = new moodle_url('/blocks/rcommon/formInsert.php', $_REQUEST); // Base URL
 
 // Auth
-$context = get_context_instance(CONTEXT_SYSTEM);
+$context = context_system::instance();
 $PAGE->set_context($context);
 $PAGE->set_heading($pagetitle);
 
@@ -24,13 +24,13 @@ $PAGE->navbar->add($pagetitle, null, null, navigation_node::TYPE_CUSTOM, null);
 echo $OUTPUT->header();
 // ************ FI
 
-$insertKey = optional_param('insertKey', '', PARAM_RAW);
+$insertKey = optional_param('insertKey', '', PARAM_TEXT);
 
 if(!empty($insertKey)) {
-    $pass = optional_param('key', '', PARAM_RAW);
-    $url = base64_decode(optional_param('url', '', PARAM_RAW));
-    $userid = intval(optional_param('id', '', PARAM_INT));
-    $doi = optional_param('isbn', '', PARAM_RAW);
+    $pass = optional_param('key', '', PARAM_TEXT);
+    $url = base64_decode(optional_param('url', '', PARAM_TEXT));
+    $userid = optional_param('id', 0, PARAM_INT);
+    $doi = optional_param('isbn', '', PARAM_TEXT);
 // MARSUPIAL *********** AFEGIT -> Migrated to Moodle 2.X
 // 2012.11.15 @abertranb
     $record = new stdClass();
@@ -47,9 +47,9 @@ if(!empty($insertKey)) {
     exit;
 }
 
-$url = base64_decode(optional_param('url', '', PARAM_RAW));
-$id = intval(optional_param('id', '', PARAM_INT));
-$isbn = optional_param('isbn', '', PARAM_RAW);
+$url = base64_decode(optional_param('url', '', PARAM_TEXT));
+$id = optional_param('id', 0, PARAM_INT);
+$isbn = optional_param('isbn', '', PARAM_TEXT);
 
 require_once('../../config.php');
 require_once($CFG->dirroot.'/course/lib.php');
@@ -58,24 +58,6 @@ require_once($CFG->dirroot.'/course/lib.php');
 if(!$site = get_site()) {
 	redirect($CFG->wwwroot.'/'.$CFG->admin.'/index.php');
 }
-
-
-
-// Print title and header
-// MARSUPIAL *********** ELIMINAT -> Change deprecated code in Moodle 2.2
-// 2012.11.23 @abertranb
-/*
-$prefsbutton = "";
-$str = get_string('rcommon', 'block_rcommon');
-$navlinks = array();
-$navlinks[] = array('name' => $str,
-					'link' =>'#',
-					'type' => 'misc');
-
-$navigation = build_navigation($navlinks);
-print_header("$site->shortname: $str: $pagetitle", $str, $navigation,
-			 '', '', true, $prefsbutton, user_login_string($site));*/
-// ********** FI 
 ?>
 
 <html>
@@ -96,11 +78,5 @@ print_header("$site->shortname: $str: $pagetitle", $str, $navigation,
 	</body>
 </html>
 <?php
-// MARSUPIAL ************ MODIFICAT -> Deprecated code in Moodle 2.x
-// 2012.11.17 @abertranb
 echo $OUTPUT->footer();
-// ************ MODIFICAT
-//print_footer();
-// ************ FI
 // *********** FI
-?>

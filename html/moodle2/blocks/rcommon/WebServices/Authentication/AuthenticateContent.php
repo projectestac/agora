@@ -2,7 +2,6 @@
 
 require_once($CFG->dirroot.'/blocks/rcommon/WebServices/lib.php');
 
-
 /**
  * Web Service to authenticate users credentials
  * @param object $data -> mod values
@@ -13,17 +12,17 @@ require_once($CFG->dirroot.'/blocks/rcommon/WebServices/lib.php');
 function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
 // ************ ORIGINAL
 //function AuthenticateUserContent($data){
-// ************ FI	
+// ************ FI
 
     global $CFG, $DB, $USER, $SESSION;
 
-    //try { 
+    //try {
 // MARSUPIAL *************** AFEGIT -> take a get parameter to control when come from atria
-        $from = optional_param('from', '', PARAM_RAW);
+        $from = optional_param('from', '', PARAM_TEXT);
 //************* END
         if (!isset($data->bookid)||($book = $DB->get_record('rcommon_books', array('id' => $data->bookid))) == false){
             print_error(get_string('nobookid','block_rcommon'));
-            //save error on bd 
+            //save error on bd
         }
         elseif (($publisher = $DB->get_record('rcommon_publisher', array('id' => $book->publisherid))) == false){
             print_error(get_string('nopublisher','block_rcommon'));
@@ -31,13 +30,15 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
         }
 // MARSUPIAL ************ MODIFICAT -> New functionality to manage credentials
 // 2012.06.06 @mmartinez
-        $usr_creden = (!$usr_creden)? $DB->get_record_sql("SELECT * FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn='".$book->isbn."' AND euserid='".$USER->id."'"): $usr_creden;
-		
+		if(!$usr_creden){
+        	$usr_creden = $DB->get_record('rcommon_user_credentials', array('isbn'=>$book->isbn, 'euserid' => $USER->id));
+		}
+
 		if ($usr_creden && empty($usr_creden->credentials)){
-			$DB->delete_records('rcommon_user_credentials', array('id', $usr_creden->id));
+			$DB->delete_records('rcommon_user_credentials', array('id' => $usr_creden->id));
 			$usr_creden = false;
 		}
-		
+
         if (!$usr_creden){
 // ************* ORIGINAL
 		//elseif (($usr_creden = get_record_sql("SELECT * FROM {$CFG->prefix}rcommon_user_credentials WHERE isbn='".$book->isbn."' AND euserid='".$USER->id."'",true)) == false){
@@ -84,7 +85,7 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
 	// ********** ORIGINAL
             //if ($from != "atria"){
 	// ********** FI
-                /*include("$CFG->dirroot/atria/atria.php"); 
+                /*include("$CFG->dirroot/atria/atria.php");
                 $url .= "&from=atria";
                 /*call atria function*/
                 /*atriaSync($url,$USER->id,$book->isbn,$data->course);
@@ -93,7 +94,7 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
                 }
             }else{*/
 // **************** FI
-        	
+
 // MARSUPIAL ********** MODIFICAT -> Redirect to form to let user write its own credential if it's not found in database
 // 2011.09.20 @sarjona
 // MARSUPIAL ********** MODIFICAT -> Use moodle core function to do the redirect
@@ -129,33 +130,32 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
         }
         //look for the group if he has anyone assigned
         $grupo = $DB->get_recordset_sql("SELECT GRUPO.id
-                        FROM {$CFG->prefix}user USERS
-                        JOIN {$CFG->prefix}role_assignments ra ON ra.userid = USERS.id
-                        JOIN {$CFG->prefix}role r ON ra.roleid = r.id
-                        JOIN {$CFG->prefix}context con ON ra.contextid = con.id
-                        JOIN {$CFG->prefix}course COURSE ON COURSE.id = con.instanceid
+                        FROM {user} USERS
+                        JOIN {role_assignments} ra ON ra.userid = USERS.id
+                        JOIN {role} r ON ra.roleid = r.id
+                        JOIN {context} con ON ra.contextid = con.id
+                        JOIN {course} COURSE ON COURSE.id = con.instanceid
                         AND con.contextlevel =50
-                        JOIN {$CFG->prefix}groups GRUPO ON GRUPO.courseid = COURSE.id
-                        JOIN {$CFG->prefix}groups_members MEMBER ON MEMBER.groupid = GRUPO.id
+                        JOIN {groups} GRUPO ON GRUPO.courseid = COURSE.id
+                        JOIN {groups_members} MEMBER ON MEMBER.groupid = GRUPO.id
                         AND MEMBER.userid = USERS.id
-                        WHERE COURSE.id ={$data->course}
-                        AND USERS.id ={$USER->id}");
-            
+                        WHERE COURSE.id = {$data->course}
+                        AND USERS.id = {$USER->id}");
+
 // MARSUPIAL ************ MODIFICAT -> Moodle 2.2 deprecated code
 // 2012.12.10 @abertranb
-        foreach ($grupo as $grp) 
-// ************ ORIGINAL        	
-        //while ($grp = rs_fetch_next_record($grupo))
-// ************ ORIGINAL          
-        {
+        foreach ($grupo as $grp) {
+// ************ ORIGINAL
+        //while ($grp = rs_fetch_next_record($grupo)) {
+// ************ ORIGINAL
             $grupoid = $grp->id;
-        } 
-        
+        }
+
 // MARSUPIAL ************ AFEGIT -> Added proxy option
 // 2012.08.30 @mmartinez
         $options = array('trace' => 1);
-        if ($CFG->proxytype == 'HTTP' && !empty($CFG->proxyhost)){
-        	$options['proxy_host'] = $CFG->proxyhost;        	
+        if (!empty($CFG->proxytype) && $CFG->proxytype == 'HTTP' && !empty($CFG->proxyhost)){
+        	$options['proxy_host'] = $CFG->proxyhost;
         	if (!empty($CFG->proxyport)){
         		$options['proxy_port'] = $CFG->proxyport;
         	}
@@ -167,35 +167,35 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
         	}
         }
 // ************* FI
-        
+
 // MARSUPIAL *********** MODIFICAT -> Added proxy option
-// 2012.08.30 @mmartinez        
+// 2012.08.30 @mmartinez
         $client = new soapclient($publisher->urlwsauthentication.'?wsdl', $options);
 // *********** ORIGINAL
 		//$client = new soapclient($publisher->urlwsauthentication.'?wsdl', array('trace' => 1));
 // ************* FI
 
         $auth = array('User' => $publisher->username, 'Password' => $publisher->password);
-        
+
         $namespace=rcommond_wdsl_parser($publisher->urlwsauthentication.'?wsdl');
 
         $header = new SoapHeader($namespace, "WSEAuthenticateHeader", $auth);
-        $client->__setSoapHeaders(array($header)); 
-       
+        $client->__setSoapHeaders(array($header));
+
         $params = new stdClass();
         $params->Credencial = new SoapVar($usr_creden->credentials, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
         $params->ISBN = new SoapVar($book->isbn, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
         $params->IdUsuario = new SoapVar($usr_creden->euserid, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
         //$params->NombreApe = new SoapVar($USER->firstname." ".$USER->lastname, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
-        
+
 //MARSUPIAL ********** AFEGIT -> Send role parameter depending on the roles seleccted in the roles lists of the settings
 //2011.05.16 @mmartinez
         //convert rcommon_studentroles to array
-        $rcommon_teacherroles = explode(",", $CFG->rcommon_teacherroles);
+        $rcommon_teacherroles = explode(',', $CFG->rcommon_teacherroles);
         //get user role
 //MARSUPIAL ********** MODIFICAT -> To avoid problems because in some cases the courseid was null
 //2011.09.16 @sarjona
-        $context = get_context_instance(CONTEXT_COURSE,$data->course);
+        $context = context_course::instance($data->course);
 //************** ORIGINAL
         /* $context = get_context_instance(CONTEXT_COURSE,$SESSION->cal_course_referer);*/
 //************** FI
@@ -206,19 +206,19 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
 		    }
 		}
 		//set role string
-		$rolestring="ESTUDIANTE";
+		$rolestring = "ESTUDIANTE";
         if (in_array($iduserrole, $rcommon_teacherroles)){
         	$rolestring = "PROFESOR";
         }
         //check if the web service is prepared to receive rol parameter
         $parsed_wsdl = rcommon_get_wsdl($publisher->urlwsauthentication.'?wsdl');
-        if (strpos($parsed_wsdl, 'name="Rol"') && $rolestring == "PROFESOR"){
+        if (textlib::strpos($parsed_wsdl, 'name="Rol"') && $rolestring == "PROFESOR"){
             $params->Rol = new SoapVar($rolestring, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
         }
 //*********** FI
 
         $params->IdCurso = new SoapVar($data->course, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
-        $centerid=(isset($CFG->center))?$CFG->center:'';
+        $centerid = (isset($CFG->center)) ? $CFG->center : '';
         $params->IdCentro = new SoapVar($centerid, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
         $params->URLResultado = new SoapVar("$CFG->wwwroot/mod/rcontent/WebServices/WsSeguimiento/wsSeguimiento.php", XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
         $params->IdContenidoLMS = new SoapVar($data->id, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
@@ -228,35 +228,35 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
         $params->IdActividad = new SoapVar($activid, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
 
         //he has assigned a group
-        if (isset($grupoid))
+        if (isset($grupoid)) {
             $params->IdGrupo = new SoapVar($grupoid, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
-    
+        }
+
         $response = $client->__soapCall("AutenticarUsuarioContenido", array($params));
-        
+
         //test the response to set parameters name to the standars
-        foreach ($response->AutenticarUsuarioContenidoResult as $key=>$value){
-        	switch(strtolower($key)){
+        foreach ($response->AutenticarUsuarioContenidoResult as $key => $value) {
+        	switch(textlib::strtolower($key)) {
         		case "descripcion":
-        			$response->AutenticarUsuarioContenidoResult->Descripcion=$value;
+        			$response->AutenticarUsuarioContenidoResult->Descripcion = $value;
         		    break;
         		case "codigo":
-        			$response->AutenticarUsuarioContenidoResult->Codigo=$value;
+        			$response->AutenticarUsuarioContenidoResult->Codigo = $value;
         			break;
         		case "url":
-        			$response->AutenticarUsuarioContenidoResult->URL=$value;
+        			$response->AutenticarUsuarioContenidoResult->URL = $value;
         			break;
         	}
-        	
         }
-        
+
         log_to_file("wsAutenthication request: ".$client->__getLastRequest(),'rcommon_tracer');
         log_to_file("wsAutenthication response: ".$client->__getLastResponse(),'rcommon_tracer');
-        
+
         //echo("REQUEST: " . $client->__getLastRequest() . "\n<br><br>RESPONSE: ".$client->__getLastResponse()."<br><br>");
-        //print_r($response); 
-        
+        //print_r($response);
+
         /*//check if the response is empty
-        if (!isset($response->AutenticarUsuarioContenidoResult->Codigo)||empty($response->AutenticarUsuarioContenidoResult)){ 
+        if (!isset($response->AutenticarUsuarioContenidoResult->Codigo)||empty($response->AutenticarUsuarioContenidoResult)){
             $tmpresponse=rcommon_xml2array($client->__getLastResponse());
             if(count($tmpresponse['S:Envelope']['S:Body']['ns2:AutenticarUsuarioContenidoResponse']['AutenticarUsuarioContenidoResult'])==3){
                 $response->AutenticarUsuarioContenidoResult->Codigo=$tmpresponse['S:Envelope']['S:Body']['ns2:AutenticarUsuarioContenidoResponse']['AutenticarUsuarioContenidoResult']['Codigo']['value'];
@@ -266,35 +266,35 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
                 print_error('Error: empty response');
             }
         }*/
-        
+
         //check if there are any response error
-        if ($response->AutenticarUsuarioContenidoResult->Codigo <= 0 ){
+        if ($response->AutenticarUsuarioContenidoResult->Codigo <= 0 ) {
 
             //test if isset the url
             $urlok='';
-            if (isset($response->AutenticarUsuarioContenidoResult->URL)){
-			          $curl=curl_init();        
-				        curl_setopt($curl, CURLOPT_URL, $response->AutenticarUsuarioContenidoResult->URL);     
-				        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-				        curl_setopt($curl, CURLOPT_HEADER, false);    
-				        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);  
-				        
+            if (isset($response->AutenticarUsuarioContenidoResult->URL)) {
+				$curl=curl_init();
+				curl_setopt($curl, CURLOPT_URL, $response->AutenticarUsuarioContenidoResult->URL);
+		        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		        curl_setopt($curl, CURLOPT_HEADER, false);
+		        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+
 // MARSUPIAL ************ AFEGIT -> Added proxy option
 // 2012.08.30 @mmartinez
-				        if ($CFG->proxytype == 'HTTP' && !empty($CFG->proxyhost)){
-				        	curl_setopt($curl, CURLOPT_PROXY, $CFG->proxyhost);
-				        	if (!empty($CFG->proxyport)){
-				        		curl_setopt($curl, CURLOPT_PROXYPORT, $CFG->proxyport);
-				        	}
-				        	if (!empty($CFG->proxyuser)){
-				        		curl_setopt($curl, CURLOPT_PROXYUSERPWD, $CFG->proxyuser . ':' . $CFG->proxypassword);
-				        	}
-				        }
+		        if ($CFG->proxytype == 'HTTP' && !empty($CFG->proxyhost)){
+		        	curl_setopt($curl, CURLOPT_PROXY, $CFG->proxyhost);
+		        	if (!empty($CFG->proxyport)){
+		        		curl_setopt($curl, CURLOPT_PROXYPORT, $CFG->proxyport);
+		        	}
+		        	if (!empty($CFG->proxyuser)){
+		        		curl_setopt($curl, CURLOPT_PROXYUSERPWD, $CFG->proxyuser . ':' . $CFG->proxypassword);
+		        	}
+		        }
 // ************** FI
-				        $urlok = curl_exec($curl);
-				        curl_close($curl);
+		        $urlok = curl_exec($curl);
+		        curl_close($curl);
             }
-            
+
             //save error on bd
             $tmp = new stdClass();
             $tmp->time      =  time();
@@ -303,14 +303,14 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
             $tmp->course    =  $data->course;
             $tmp->module    =  $data->module;
             $tmp->cmid      =  $data->cmid;
-            $tmp->action    =  "wsautenticationerror";
+            $tmp->action    =  'wsautenticationerror';
             $tmp->url       =  $_SERVER['REQUEST_URI'];
-            $tmp->info      =  str_replace("'","''","Instance ID: ".$data->id.", Text: ".get_string('wsautenticationerror',$data->module=='check_credentials'?'rcontent':$data->module).", Code: ".$response->AutenticarUsuarioContenidoResult->Codigo.", Detail: ".$response->AutenticarUsuarioContenidoResult->Descripcion);
+            $tmp->info      =  text_lib::str_replace("'","''","Instance ID: ".$data->id.", Text: ".get_string('wsautenticationerror',$data->module=='check_credentials'?'rcontent':$data->module).", Code: ".$response->AutenticarUsuarioContenidoResult->Codigo.", Detail: ".$response->AutenticarUsuarioContenidoResult->Descripcion);
             if ($urlok)
                 $tmp->info      =  $tmp->info.", URL: ".$response->AutenticarUsuarioContenidoResult->URL;
-                
-            $DB->insert_record("rcommon_errors_log",$tmp);
-            
+
+            $DB->insert_record('rcommon_errors_log',$tmp);
+
             $msg="";
 
             if($urlok && $showurl)
@@ -320,16 +320,15 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
             } else {
             	return $response;
             }
-            
+
             //set the description to show
             $desctext = get_string('error_code_'.$response->AutenticarUsuarioContenidoResult->Codigo, 'block_rcommon');
-            if (substr($desctext, 0, 2) == '[['){
+            if (textlib::substr($desctext, 0, 2) == '[['){
             	  $desctext = $response->AutenticarUsuarioContenidoResult->Codigo;
             }
-            
+
             print_error(get_string('error_authentication','block_rcommon').$response->AutenticarUsuarioContenidoResult->Codigo.', '.$desctext.$msg);
-        }
-        else{
+        } else{
         	//print_r($response);
             return $response;
         }
@@ -350,7 +349,5 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
         $tmp->url       =  $_SERVER['REQUEST_URI'];
         $tmp->info      =  $fault->getMessage();
         $DB->insert_record("rcommon_errors_log",$tmp);
-    } */   
+    } */
 }
-
-?>

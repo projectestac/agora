@@ -177,7 +177,7 @@ foreach ($userdata as $element => $value) {
         if (count($matches) > 0 && $current_objective != $matches[1]) {
             $current_objective = $matches[1];
             $count++;
-            $end = strpos($element, $matches[1])+strlen($matches[1]);
+            $end = textlib::strpos($element, $matches[1])+textlib::strlen($matches[1]);
             $subelement = substr($element, 0, $end);
             echo '    '.$subelement." = new Object();\n";
             echo '    '.$subelement.".score = new Object();\n";
@@ -246,7 +246,7 @@ require_once($CFG->dirroot.'/mod/rscorm/datamodels/callback.js.php');
                 // trigger TOC update
                 var sURL = "<?php echo $CFG->wwwroot; ?>" + "/mod/rscorm/prereqs.php?a=<?php echo $scorm->id ?>&scoid=<?php echo $scoid ?>&attempt=<?php echo $attempt ?>&mode=<?php echo $mode ?>&currentorg=<?php echo $currentorg ?>&sesskey=<?php echo sesskey(); ?>";
                 if(<?php echo $CFG->branch; ?> < 24 )  {
-                    // Up to Moodle 2.3 
+                    // Up to Moodle 2.3
                     YAHOO.util.Connect.asyncRequest('GET', sURL, this.connectPrereqCallback, null);
                 } else{
                     // Moodle 2.4 or higuer

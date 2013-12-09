@@ -23,6 +23,11 @@
     $school_info = getSchoolInfoFromFile($centre, $dbsource, 'moodle2');
     xtec_debug($school_info['source']);
 
+    // Exception for usu1
+    if (($school_info['id_moodle2'] == 1) && ($agora['server']['enviroment'] == 'PRO')) {
+        $CFG->prefix = $agora['moodle']['prefix'];
+    }
+    
     if($school_info === false) {
         header('location: '.WWWROOT.'error.php?s=moodle2&dns='.$_REQUEST['ccentre']);
         exit(0);
