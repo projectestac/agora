@@ -1,0 +1,576 @@
+@font-face {
+    font-family: Abecedario;
+    src: url('xtec2/fonts/Abecedario.ttf');
+}
+
+@font-face {
+    font-family: Abecedario;
+    src: url('xtec2/fonts/AbecedarioNegrita.ttf');
+    font-weight: bold;
+}
+
+body {
+    /*   background-color: #FAFAFA;*/
+    background-color: #FFF;
+    padding-bottom: 15px;
+    margin-bottom: 0px;
+    color:#555555;
+    font-size: [[setting:fontsize]];
+    [[setting:fontstyle]]
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+a {
+    color: [[setting:color5]];
+}
+
+a:hover {
+    color: [[setting:color2]];
+}
+
+fieldset {
+    border-color: #ddd!important;
+}
+
+legend {
+    padding: 0px 5px 0px 5px;
+    font-size: 1.2em;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], button {
+    background-image: url([[pix:theme|theme/button]]);
+    background-position: bottom;
+    background-repeat: repeat-x;
+    padding: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-width: 1px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    font-weight: bold;
+    background-color: [[setting:color2]];
+    color: [[setting:color3]];
+    border-color: [[setting:color2]];
+}
+
+table {
+    border: 1px solid #ddd;
+}
+
+tr, 
+th, 
+td { 
+    border: none !important; 
+}
+
+th {
+    color: #fff;
+    background-color: [[setting:color2]];
+    font-weight: bold;
+}
+
+.box {
+    font-size: 1.1em;
+    padding: 5px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+.generalbox {
+    margin-top: 10px;
+    background-image: url([[pix:theme|theme/borderbottom]]);
+    background-position: bottom;
+    background-repeat: repeat-x;
+    border-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    /*  box-shadow: 3px 3px 3px #bbb;*/
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    /*  -moz-box-shadow: 3px 3px 3px #bbb;*/
+    border-color: #ddd;
+}
+
+/* Fix for courses with incorrect usage of h2 */
+.generalbox h2 {
+    font-size: 1.1em;
+}
+
+.mform {
+    margin: auto;
+    margin-top: 20px;
+    width: 75%;
+}
+
+#page-header {
+    height: 139px;
+    background-image: url([[setting:logourl]]);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.headermain {
+    color: [[setting:color3]];
+    margin-top: 26px;
+    text-shadow: 1px 1px 5px #6B0F07;
+}
+
+.headermenu {
+    height: 34px;
+    width: 100%;
+    padding-top: 10px;
+    clear: both; 
+    /*   background-image: url([[pix:theme|theme/menubar]]);
+       background-color: [[setting:color4]];
+       background-position: top;
+       background-repeat: repeat-x;*/
+    margin: 0px;
+    border-bottom: 2px solid #ad2114;
+    text-align: left;
+}
+
+.headermenu .logininfo a:hover {
+    text-decoration: none;
+}
+
+.headermenu .logininfo {
+    font-size: 1.1em;
+    float: right;
+    margin-top: 5px;
+    margin-right: 20px;
+    color: #555555;
+}
+
+.headermenu .logininfo a {
+    color: #AD2114;
+}
+
+.langmenu {
+    font-size: 1.1em;
+    margin-right: 20px;
+    float:right;
+}
+
+.toplogo{
+    margin-left: 10px;
+    float: left;
+}
+
+.navbar {
+    color: [[setting:color3]];
+    background-color: [[setting:color6]];
+    background-image: url([[pix:theme|theme/navigation]]);
+    background-repeat: repeat-x;
+    height:34px;
+}
+
+.navbutton {
+    padding-top: 4px;
+    padding-right: 10px;
+}
+
+.breadcrumb {
+    color: [[setting:color5]];
+    padding: 7px 10px 10px 10px ;
+}
+
+/*.arrow {
+    color: [[setting:color1]];
+}*/
+
+.arrow {
+    color:#686868;
+}
+
+h2.main {
+    text-align: left;
+    margin-bottom: 0px;
+    border-bottom:1px solid #ddd;
+}
+
+.notifysuccess,
+.continuebutton,
+.buttons,
+.centeredbutton {
+    text-align: center;
+}
+
+.justifytext {
+    text-align: justify;
+}
+
+.filepicker-filelist,
+.filemanager-container {
+    margin-top: 10px !important;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+#custommenu {
+    color: [[setting:color5]];
+    background-color: #ddd;
+    font-weight: bold;
+    padding: 5px 0px 5px 0px;
+}
+
+#custommenu a {
+    color: [[setting:color5]];
+}
+
+.custom_menu_submenu, 
+.yui3-menu, 
+.first-of-type, 
+.yui3-menuitem-active {
+    background-color: #ddd;
+    font-weight: bold;
+}
+
+.yui3-menu-label,
+.yui3-menu-content {
+    border: none !important;
+}
+
+
+
+/* Courses */
+
+ul.weeks,
+ul.unlist,
+ul.topics {
+    margin: 0px;
+    border: 1px solid #ddd;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    /*  box-shadow: 3px 3px 3px #bbb;*/
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    /*  -moz-box-shadow: 3px 3px 3px #bbb;*/
+}
+
+.weeks .section,
+.weeks #section-0,
+.topics .section,
+.topics #section-0 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.course-content a,
+.unlist a {
+    text-decoration: none;
+}
+
+.outline {
+    margin-bottom: 0px !important;
+}
+
+.coursebox {
+    padding-left: 15px;
+    padding-right: 5px;
+}
+
+.course-content .section .right {
+    padding-top: 15px;
+    padding-bottom: 35px;
+}
+
+.course-content .section .left,
+.weeks .section,
+.topics .section {
+    /* background-image: url([[pix:theme|theme/borderbottom]]);*/
+    background-position: bottom;
+    background-repeat: repeat-x;
+    padding-top: 5px;
+    padding-bottom: 25px;
+    border: none;
+}
+
+.topics li.section {
+    margin: 0px !important;
+}
+
+.course-content .section .left {
+    font-size: 3em;
+    font-weight: bold;
+    /* width: 80px !important;*/
+}
+
+.topics .current {
+    border: 3px solid [[setting:color1]];
+    background-color: #fff;
+}
+
+.topics .current .left {
+    color: [[setting:color2]];
+}
+
+.weeks .section .section,
+.topics .section .section {
+    background-image: none;
+}
+
+.weeks #section-0,
+.topics #section-0 {
+    background-color: #eee;    
+}
+
+.weeks #section-0 .left,
+.topics #section-0 .left {
+    background: none;
+}
+
+.weeks li.section {
+    margin-top:0px!important;
+    margin-bottom: 0px;
+    border-top: 0px;
+    border-bottom:1px solid #eee;
+}
+
+.topics .content,
+.weeks .content,
+.weeks .side {
+    padding: 20px 0px 35px 50px;
+}
+
+.weeks-format #left-column {
+    padding: 1px;
+}
+.weeks-format #left-column .block {
+    padding-left: 3px;
+}
+
+.weeks-format #right-column {
+    padding-right: 7px;
+}
+
+.coursebox {
+    width: auto;
+    border: 0px;
+    padding-bottom: 15px;
+    margin-bottom: 0px;
+}
+
+.boxwidthwide {
+    width: inherit;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    /*  -moz-box-shadow: 3px 3px 3px #bbb;
+      box-shadow: 3px 3px 3px #bbb;*/
+}
+
+.course-content .section .left {
+    min-width:40px;
+
+}
+
+.section .left {
+
+    color: #ccc ;
+}
+
+
+.section li {
+    margin-bottom:5px!important;
+}
+
+.current .left { color: [[setting:color3]];
+}
+
+
+
+#page-footer a {
+    text-decoration: none;
+}
+
+#page-footer  {border-top: 1px dotted #B3B3B3; padding-top:10px;}
+
+.footerlogos {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Hidden topics *//*
+#course-view .index .content,
+#course-view .index .right,
+#course-view .weeks .index,
+#course-view .hidden .content,
+#course-view .hidden .right,
+#course-view .weeks .hidden {
+    background-color: #EEE;
+}
+
+#course-view .current .content,
+#course-view .current .right {
+    background-color: #FFFFFF;
+}
+
+#course-view .current .content {
+    border-left-style: none;
+    border-right-style: none;
+}
+
+#course-view .current .right {
+    border-left-style: none;
+}
+
+#course-view .current .left {
+    border-right-style: none;
+    background-color: [[setting:color2]];
+    color: [[setting:color6]];
+}
+
+.topics, 
+#course-view ul.weeks,
+#course-view .weeks {
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-box-shadow: 3px 3px 3px 3px #bbb;
+    box-shadow: 3px 3px 3px 3px #bbb;
+}
+*/
+
+
+
+/* Modules: Forum */
+
+.forumaddnew {
+    text-align: center;
+    margin: auto;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    background-image: url([[pix:theme|theme/borderbottom]]);
+    background-position: bottom;
+    background-repeat: repeat-x;
+    border: 1px solid #ddd;
+    width: 98%;
+}
+
+.forumnodiscuss {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.fcontainer textarea {
+    width: 100%;
+}
+
+.forumheaderlist,
+.forumpost {
+    border: 1px solid #ddd;
+    background-color: #eee;
+    width: 98%;
+    margin: auto;
+    margin-top: 2px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    /* box-shadow: 3px 3px 3px #bbb;*/
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    /*-moz-box-shadow: 3px 3px 3px #bbb;*/
+}
+
+.subscribelink {
+    border-style: solid;
+    border-width: 1px 1px 0px 1px;
+}
+
+.forumpost .content {
+    padding: 0px 10px 10px 10px;
+}
+
+.discussioncontrol .singleselect,
+.discussioncontrol .movediscussionoption {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    width: 98%;
+    margin-left: 10px;
+}
+
+.forumpost .userpicture {
+    padding: 10px;
+}
+
+.forumpost .author {
+    padding: 0px 10px 0px 15px;
+}
+
+.forumpost .commands {
+    padding: 10px;
+    background-image: url([[pix:theme|theme/borderbottom]]);
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
+.forumpost .subject{
+    padding: 15px 10px 0px 15px;
+    font-weight: bold;
+}
+
+.forumpost .maincontent {
+    padding-top: 10px;
+    background-color: #fff;
+}
+
+
+.adminwarning {
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    width: 80%;
+}
+
+.copyright {
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.initialbar a{margin-left:5px; }
+
+.capsula-footer{ display:block; overflow:auto; width:100%; position:; bottom:0; clear:both;}
+
+
+html, body {
+    margin: 0; padding: 0;
+    height: 100%;
+}
+
+#page {
+    margin: 0; padding: 0;
+    min-height: 100%; _height: 100%; /* min-height for smart browsers
+                                     _height for Internet Explorer ;-)*/
+}
+
+#content {
+    padding-bottom: 105px;
+}
+
+.foot {
+    clear: both;
+    height: 100px;
+    margin-top: -100px;
+    position: relative;
+    z-index: 10;
+
+}
+.summary {
+    padding-top: 15px!important;
+    padding-right: 15px!important;
+
+}
+
+.forgetpass{ margin-top:0px; margin-bottom:10px}
+.rememberpass{margin-top:15px;}
+
+/* Must be at the end in order to override any previous style */
+[[setting:customcss]]
+
+
+

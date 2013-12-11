@@ -1,0 +1,242 @@
+/***
+ *** Core
+ ***/
+
+html, body {
+    font-family:Arial, Verdana, Helvetica, sans-serif;
+    margin:0;
+    padding:0;
+    background-color:#EFEFEF;
+    font-size:[[setting:fontsizereference]];
+}
+
+a:link {text-decoration:none;color:black;}
+a:visited {text-decoration:none;color:black;}
+a:hover {text-decoration:underline;color:black;}
+
+h1 {font-size:140%;font-weight:bold;}
+h2 {font-size:130%;}
+h3 {font-size:120%;}
+h4 {font-weight:bold;}
+
+h2.main, h3.main, h4.main {margin:0;padding:0;text-align: center;}
+
+#headerlogo {margin:0.3em;float:left;top:1em;}
+h1.headerheading {margin:14px 11px 8px 11px;float:left;font-size:200%;}
+
+/* headermenu */
+#page-header{line-height:0;overflow:hidden;}
+/*#headerlogo img {margin:7px;}*/
+.headermenu {position:relative;line-height:1.7em;font-size:90%;margin:0.3em 0.3em 0.3em 0;right:0.3em;}
+
+#dock {background-color:[[setting:blockcontentbgc]];border-right:1px #000 dashed;}
+#dock .dockeditem_container {margin-top: 10px;}
+#dock #dockeditempanel .dockeditempanel_hd {background-image:url([[pix:theme|gradient_h]]);background-repeat:repeat-x;text-align:left;height:1.8em;background-color:#E3DFD4;}
+#dock #dockeditempanel .dockeditempanel_hd h2 {display:block;padding-left:0.3em;margin-top:0;text-align:left;}
+#dock #dockeditempanel .dockeditempanel_hd .commands {position:absolute;right:0.3em;top:0.25em;}
+
+/* navbar */
+.navbar {width:auto;padding-top:0.35em;padding-bottom:0.15em;background-image:url([[pix:theme|bg_bread]]);background-color:#AB9D80;}
+.navbar li span {color:#E3DFD4;}
+.navbar li a:link, .navbar li a:visited {color:white;}
+
+/* navbutton */
+.navbutton {padding-right:0.5em;}
+.navbutton table td {padding:0;}
+
+/*.block_navigation .block_tree li.type_category.contains_branch>p span {
+    padding-left: 20px;
+    background-image: url([[pix:theme|folderopen]]);
+    background-repeat: no-repeat;
+    background-position: 0 -1px;
+}
+.block_navigation .block_tree li.type_category.contains_branch.collapsed>p span {
+    padding-left: 20px;
+    background-image: url([[pix:theme|folderclose]]);
+    background-repeat: no-repeat;
+    background-position: 0 -1px;
+}*/
+
+.block_settings .block_tree .tree_item a:link,
+.block_settings .block_tree .tree_item a:visited,
+.block_settings .block_tree .tree_item a:active,
+.block_navigation .block_tree .tree_item a:link,
+.block_navigation .block_tree .tree_item a:visited,
+.block_navigation .block_tree .tree_item a:active {
+    color:#000;
+}
+
+/* breadcrumb */
+.breadcrumb {margin-left:0.8em;}
+
+/* generalbox */
+.generalbox {border-color:#E3DFD4;padding:1em;}
+
+/* generalbox */
+#page-admin-setting-manageauths .generalbox {border:none;}
+
+/* generalbox */
+#page-enrol-instances .generalbox {border:none;}
+#page-enrol-instances .select.menujump {margin-left:0.5em;}
+
+/* environmenttable */
+.environmenttable .error {
+    background-color: red;
+}
+
+.environmenttable .warn {
+    background-color: yellow;
+}
+
+.environmenttable .ok {
+    background-color: lime;
+}
+
+/* adminsettings */
+#adminsettings .form-overridden {
+    background-color: yellow;
+}
+
+/* tables */
+.editcourse th,
+.editcourse td,
+.generaltable th,
+.generaltable td,
+#page-admin-course-category .generalbox th,
+#page-admin-course-category .generalbox td,
+#attempts th,
+#attempts td,
+.plugincompattable th,
+.plugincompattable td,
+.environmenttable th,
+.environmenttable td,
+.forumheaderlist td,
+.forumheaderlist th {
+    border: 1px solid #E3DFD4;
+    border-collapse: collapse;
+}
+
+th.header,
+.formtable tbody th,
+.generalbox th,
+.generaltable th.header {background-image:url([[pix:theme|gradient_h]]);background-repeat:repeat-x;border-top:1px #C6BDA8 solid;background-color:#E3DFD4;}
+/*#modules, .compatibleblockstable {margin-left:auto; margin-right:auto;} waiting for MDL-26760*/
+table.flexible .r0, table.generaltable .r0 {background-color: #F0F0F0;margin-bottom:-3px;}
+table.flexible .r1, table.generaltable .r1 {background-color: #FAFAFA;margin-bottom:-3px;}
+
+/* admin pages */
+div#chooseuser {border:0 transparent none;}
+table.groupmanagementtable,
+table.groupmanagementtable tr,
+table.groupmanagementtable td {border-width:0px;}
+table.groupmanagementtable td#buttonscell {vertical-align:middle;text-align:center;}
+table#defineroletable tr.rolecapheading {background-image:url([[pix:theme|gradient_h]]);background-repeat:repeat-x;background-color:#E3DFD4;}
+/*table#defineroletable tr.rolecap {border-top:1px #F30 dashed;}*/
+tr.rolecap {border-top:1px #F30 dashed;}
+tr.rolecapheading + tr.rolecap {border-top:none;}
+
+/* course categories */
+#page-admin-course-index .editcourse td div.singleselect {text-align:left;}
+
+/* course */
+/* ul.topics .section span.commands {float:right;} /* distanza dei comandi dagli elementi del corso */
+ul.topics .section span.commands {position:absolute;right:1em;}
+
+.mform fieldset {border:1px #DDD solid;}
+.mform .fitem .fitemtitle {width:25%;}
+.mform .fitem .fitemtitle label {padding-right:5px;}
+.mform .fitem .felement {margin-left:26%;width:73%;}
+/*.mform .fitem fieldset.felement {padding-left:0}*/
+.mform .fitem .fitemtitle .helplink img {margin-right:-5px;}
+.mform .fsubmit {text-align:left}
+table td.cell p {margin:0;}
+
+/* block */
+.block {border:1px #C6BDA8 solid;margin-bottom:0.5em;}
+.block .header h2 {margin:0;padding-left:0.3em;}
+.block .header .title {background-image:url([[pix:theme|gradient_h]]);background-repeat:repeat-x;clear:both;line-height:2em;background-color:#E3DFD4;}
+.block .header .title .commands {padding-left:0.3em;text-align:right;}
+.block .content {background-color:[[setting:blockcontentbgc]];}
+
+/* block login */
+.block_login .btn {margin-top:0.5em;text-align:center;}
+
+/* pagelayout-report */
+.pagelayout-report #page-header {float:left;}
+.pagelayout-report #page-content {overflow:hidden;}
+
+/* notice */
+#notice div.buttons {margin-bottom:0;}
+
+/* page-footer */
+#page-footer {text-align:center;width:100%;padding:0;}
+.noframefooter {background-color:#FFF;clear: both;float: left;width:100%;}
+#page-footer-content {text-align:center;border:7px #E3DFD4 double;margin:0;padding:0.5em;}
+#page-footer .logininfo {padding:0.3em 0 0.7em 0;}
+#page-footer .moodledocs {text-align:center;background-color:#EFEFEF;padding:0.7em 0 0.8em 0;}
+
+/* js help messages */
+#helppopupbox .helpheading {margin-top:1em;}
+
+/* pre, code, tt */
+pre, code, tt {
+    font: 1em/1.3 monospace;
+}
+
+/* colors in XMLDB editor section are important */
+#listdirectories,
+#listtables,
+#listfields {
+    color:grey;
+}
+
+#listdirectories tr.r0,
+#listtables tr.r0,
+#listfields tr.r0 {
+    background: none repeat scroll 0 0 #F0F0F0;
+}
+
+#listdirectories tr.r1,
+#listtables tr.r1,
+#listfields tr.r1 {
+    background: none repeat scroll 0 0 #FAFAFA;
+}
+
+#listdirectories .highlight,
+#listtables .highlight
+#listfields .highlight {
+    background: none repeat scroll 0 0 [[setting:lblockcolumnbgc]];
+}
+
+/* MDL-29403 */
+.capdefault {background-image:url([[pix:theme|gradient_h]]);background-repeat:repeat-x;background-color:#E3DFD4;}
+table#defineroletable th {border-top:none;}
+
+form.loginform .rememberusername {
+    padding-left:0.3em;
+    width: auto;
+}
+
+/* RSS - MDL-29367 */
+.block_rss_client .list li:first-child {
+    border-top-width: 0;
+}
+
+.block_rss_client .list li {
+    border-top: 1px solid #DDDDDD;
+    padding: 5px;
+}
+
+/* Upcoming events - MDL-29367 */
+/* to have the same separator as in .block_rss_client .list li */
+.block_calendar_upcoming .content > hr {
+    display:none;
+}
+
+.block_calendar_upcoming .event {
+    border-bottom: 1px solid #DDDDDD;
+    padding: 5px;
+}
+
+/** Custom CSS **/
+[[setting:customcss]]

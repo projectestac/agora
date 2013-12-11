@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/jclic/db" VERSION="20070124" COMMENT="XMLDB file for Moodle mod/jclic"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="jclic" COMMENT="Main information about each jclic activity" NEXT="jclic_sessions">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="course"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="name"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="course" NEXT="intro"/>
+        <FIELD NAME="intro" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" PREVIOUS="name" NEXT="introformat"/>
+        <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" COMMENT="text format of intro field" PREVIOUS="intro" NEXT="url"/>
+        <FIELD NAME="url" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="introformat" NEXT="skin"/>
+        <FIELD NAME="skin" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" PREVIOUS="url" NEXT="maxattempts"/>
+        <FIELD NAME="maxattempts" TYPE="int" LENGTH="3" NOTNULL="false" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" PREVIOUS="skin" NEXT="width"/>
+        <FIELD NAME="width" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="600" SEQUENCE="false" PREVIOUS="maxattempts" NEXT="height"/>
+        <FIELD NAME="height" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="400" SEQUENCE="false" PREVIOUS="width" NEXT="avaluation"/>
+        <FIELD NAME="avaluation" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="height" NEXT="maxgrade"/>
+        <FIELD NAME="maxgrade" TYPE="char" LENGTH="15" NOTNULL="false" SEQUENCE="false" PREVIOUS="avaluation" NEXT="grade"/>
+        <FIELD NAME="grade" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" PREVIOUS="maxgrade" NEXT="lang"/>
+        <FIELD NAME="lang" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="grade" NEXT="exiturl"/>
+        <FIELD NAME="exiturl" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="lang" NEXT="timeavailable"/>
+        <FIELD NAME="timeavailable" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="exiturl" NEXT="timedue"/>
+        <FIELD NAME="timedue" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="timeavailable"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for jclic"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="jclic_sessions" COMMENT="Main information about each jclic session" PREVIOUS="jclic" NEXT="jclic_activities">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="jclicid"/>
+        <FIELD NAME="jclicid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="session_id"/>
+        <FIELD NAME="session_id" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" PREVIOUS="jclicid" NEXT="user_id" COMMENT="Field created for compatibility with JClic reports. It contains the same value that jclic_sessions.id "/>
+        <FIELD NAME="user_id" TYPE="char" LENGTH="50" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="session_id" NEXT="session_datetime"/>
+        <FIELD NAME="session_datetime" TYPE="datetime" LENGTH="14" NOTNULL="true" SEQUENCE="false" PREVIOUS="user_id" NEXT="project_name"/>
+        <FIELD NAME="project_name" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" PREVIOUS="session_datetime" NEXT="session_key"/>
+        <FIELD NAME="session_key" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" PREVIOUS="project_name" NEXT="session_code"/>
+        <FIELD NAME="session_code" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" PREVIOUS="session_key" NEXT="session_context"/>
+        <FIELD NAME="session_context" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" PREVIOUS="session_code" />
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for jclic_sessions" />
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="session_id" UNIQUE="true" FIELDS="session_id" NEXT="user_id"/>
+        <INDEX NAME="user_id" UNIQUE="false" FIELDS="user_id" PREVIOUS="session_id" NEXT="jclicid"/>
+        <INDEX NAME="jclicid" UNIQUE="false" FIELDS="jclicid" PREVIOUS="user_id"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="jclic_activities" COMMENT="Stores user information for each jclic activity" PREVIOUS="jclic_sessions" NEXT="jclic_settings">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="session_id"/>
+        <FIELD NAME="session_id" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="activity_id"/>
+        <FIELD NAME="activity_id" TYPE="int" LENGTH="5" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="session_id" NEXT="activity_name"/>
+        <FIELD NAME="activity_name" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" PREVIOUS="activity_id" NEXT="num_actions"/>
+        <FIELD NAME="num_actions" TYPE="int" LENGTH="4" NOTNULL="false" SEQUENCE="false" PREVIOUS="activity_name" NEXT="score"/>
+        <FIELD NAME="score" TYPE="int" LENGTH="4" NOTNULL="false" SEQUENCE="false" PREVIOUS="num_actions" NEXT="activity_solved"/>
+        <FIELD NAME="activity_solved" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="score" NEXT="qualification"/>
+        <FIELD NAME="qualification" TYPE="int" LENGTH="3" NOTNULL="false" SEQUENCE="false" PREVIOUS="activity_solved" NEXT="total_time"/>
+        <FIELD NAME="total_time" TYPE="int" LENGTH="5" NOTNULL="false" SEQUENCE="false" PREVIOUS="qualification" NEXT="activity_code"/>
+        <FIELD NAME="activity_code" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" PREVIOUS="total_time" />
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for jclic_activities" NEXT="jclic_activities_session_id"/>
+        <KEY NAME="jclic_activities_session_id" TYPE="foreign" FIELDS="session_id" REFTABLE="jclic_sessions" REFFIELDS="session_id" PREVIOUS="primary"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="jclic_settings" COMMENT="Stores settings information" PREVIOUS="jclic_activities" NEXT="jclic_groups">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="setting_key"/>
+        <FIELD NAME="setting_key" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="setting_value"/>
+        <FIELD NAME="setting_value" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="setting_key"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for jclic_settings"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="jclic_groups" COMMENT="Compatibility with JClic Reports" PREVIOUS="jclic_settings" NEXT="jclic_users">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="group_id"/>
+        <FIELD NAME="group_id" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="group_name"/>
+        <FIELD NAME="group_name" TYPE="char" LENGTH="80" NOTNULL="true" SEQUENCE="false" PREVIOUS="group_id" NEXT="group_description"/>
+        <FIELD NAME="group_description" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="group_name" NEXT="group_icon"/>
+        <FIELD NAME="group_icon" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="group_description" NEXT="group_code"/>
+        <FIELD NAME="group_code" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" PREVIOUS="group_icon" NEXT="group_keywords"/>
+        <FIELD NAME="group_keywords" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="group_code" />
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for jclic_groups" />
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="jclic_users" COMMENT="Compatibility with JClic Reports" PREVIOUS="jclic_groups" >
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="user_id"/>
+        <FIELD NAME="user_id" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="group_id"/>
+        <FIELD NAME="group_id" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" PREVIOUS="user_id" NEXT="user_name"/>
+        <FIELD NAME="user_name" TYPE="char" LENGTH="80" NOTNULL="true" SEQUENCE="false" PREVIOUS="group_id" NEXT="user_pwd"/>
+        <FIELD NAME="user_pwd" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="user_name" NEXT="user_icon"/>
+        <FIELD NAME="user_icon" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="user_pwd" NEXT="user_code"/>
+        <FIELD NAME="user_code" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" PREVIOUS="user_icon" NEXT="user_keywords"/>
+        <FIELD NAME="user_keywords" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="user_code" />
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for jclic_users"  />
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

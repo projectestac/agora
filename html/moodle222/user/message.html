@@ -1,0 +1,59 @@
+<form id="theform" method="post" action="messageselect.php">
+<input type="hidden" name="id" value="<?php p($id) ?>" />
+<input type="hidden" name="returnto" value="<?php p($returnto) ?>" />
+<input type="hidden" name="deluser" value="" />
+<?php echo $OUTPUT->box_start(); ?>
+<table border="0" cellpadding="5">
+<tr valign="top">
+    <td align="right"><b>
+     <?php print_string("messagebody"); ?>:
+     </b></td>
+    <td align="left" rowspan="2">
+    <?php print_textarea($usehtmleditor, 25, 65, 630, 400, "messagebody", $messagebody); ?>
+    </td>
+</tr>
+
+<tr valign="top">
+    <td align="right"><b><?php print_string("formattexttype"); ?>:</b></td>
+    <td>
+    <?php
+        if ($usehtmleditor) {   /// Trying this out for a while
+            print_string('formathtml');
+            echo '<input type="hidden" name="format" value="'.FORMAT_HTML.'" />';
+        } else {
+            choose_from_menu(format_text_menu(), "format", $format, "");
+        }
+     ?>
+    </td>
+</tr>
+
+<tr><td align="center" colspan="2"><input type="submit" name="preview" value="<?php print_string('preview'); ?>" /></td></tr>
+</table>
+<?php echo $OUTPUT->box_end(); ?>
+<table align="center"><tr><th colspan="4" scope="row"><?php print_string('currentlyselectedusers'); ?></th></tr>
+<?php
+    if (count($SESSION->emailto[$id])) {
+        foreach ($SESSION->emailto[$id] as $user) {
+            echo '<tr><td>'.fullname($user,true).'</td>';
+            // Check to see if we should be showing the email address.
+            if ($user->maildisplay == 0) { // 0 = don't display my email to anyone.
+                echo '<td>' . get_string('emaildisplayhidden') . '</td><td>';
+            } else {
+                echo '<td>'.$user->email.'</td><td>';
+            }
+            if (empty($user->email)) {
+                $error = get_string('emailempty');
+            }
+            if (!empty($error)) {
+                echo '<img src="'.$OUTPUT->pix_url('t/emailno') . '" alt="'.$error.'" title="'.$error.'"/>';
+                unset($error);
+            }
+            echo '</td><td><input type="submit" onClick="this.form.deluser.value='.$user->id.';" value="' . get_string('remove') . '" /></td></tr>';
+        }
+    }
+    else {
+        echo '<tr><td colspan="3" align="center">'.get_string('nousersyet').'</td></tr>';
+    }
+?>
+</table>
+</form>

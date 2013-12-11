@@ -1,0 +1,34 @@
+<?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * @package    tool
+ * @subpackage customlang
+ * @copyright  2010 David Mudrak <david@moodle.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+defined('MOODLE_INTERNAL') || die();
+
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.05.23  @sarjona
+if (get_protected_agora()) { 
+//************ FI
+$ADMIN->add('language', new admin_externalpage('toolcustomlang', get_string('pluginname', 'tool_customlang'), "$CFG->wwwroot/$CFG->admin/tool/customlang/index.php", 'tool/customlang:view'));
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.05.23  @sarjona
+}
+//************ FI
