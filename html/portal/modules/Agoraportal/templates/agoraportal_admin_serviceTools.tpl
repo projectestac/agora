@@ -23,11 +23,13 @@
     </ul>
     {elseif $services[$client.serviceId].serviceName == 'intranet'}
     <ul>
+        {* @aginard: Connection is no longer used. At the moment, only commented the code, but can be removed}
         <li>
             <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='2' clientServiceId=$client.clientServiceId}">
                 {gt text="Connecta la intranet amb el Moodle"}
             </a>
         </li>
+        {*}
         <li>
             <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='3' clientServiceId=$client.clientServiceId}">
                 {gt text="Crea o esborra l'usuari xtecadmin a la intranet"}

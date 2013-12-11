@@ -323,44 +323,40 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             return false;
         }
 
-        // needed to maintain comptability during migration from 1.2.x to 1.3.x
-        $compat = ModUtil::apiFunc('Agoraportal', 'admin', 'compat', array('intranetVersion' => $item[$clientServiceId]['version']));
-
         // Generate a password for Intraweb admin user
         $password = $this->createRandomPass();
-        $passwordEnc = md5($password);
+        $passwordEnc = '1$$' . md5($password);
 
         global $agora;
         $username = $agora['intranet']['userprefix'] . $db;
 
         $sql = array();
 
-        // modify the site name
         $value = DataUtil::formatForStore(serialize($item[$clientServiceId]['clientName']));
-        $sql[0] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['coreModuleName']}' AND {$compat['fieldsPrefix']}name='sitename'";
+        $sql[] = "UPDATE module_vars set value='$value' WHERE modname='ZConfig' AND name='sitename'";
 
-        // modify the adminmail
+        $value = DataUtil::formatForStore(serialize($item[$clientServiceId]['clientName']));
+        $sql[] = "UPDATE module_vars set value='$value' WHERE modname='ZConfig' AND name='defaultpagetitle'";
+
         $value = DataUtil::formatForStore(serialize($item[$clientServiceId]['clientCode'] . '@xtec.cat'));
-        $sql[1] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['coreModuleName']}' AND {$compat['fieldsPrefix']}name='adminmail'";
+        $sql[] = "UPDATE module_vars set value='$value' WHERE modname='ZConfig' AND name='adminmail'";
 
-        // modify the sessionName
         $value = DataUtil::formatForStore(serialize('ZKSID' . $db));
-        $sql[2] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['coreModuleName']}' AND {$compat['fieldsPrefix']}name='sessionname'";
+        $sql[] = "UPDATE module_vars set value='$value' WHERE modname='ZConfig' AND name='sessionname'";
 
-        // modify the slogan
+        $value = DataUtil::formatForStore(serialize(''));
+        $sql[] = "UPDATE module_vars set value='$value' WHERE modname='ZConfig' AND name='slogan'";
+
         $value = DataUtil::formatForStore(serialize('Intranet de ' . $item[$clientServiceId]['clientName']));
-        $sql[3] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['coreModuleName']}' AND {$compat['fieldsPrefix']}name='slogan'";
+        $sql[] = "UPDATE module_vars set value='$value' WHERE modname='ZConfig' AND name='defaultmetadescription'";
 
-        // modify start date
         $value = DataUtil::formatForStore(serialize(date('m/Y', time())));
-        $sql[4] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['coreModuleName']}' AND {$compat['fieldsPrefix']}name='startdate'";
+        $sql[] = "UPDATE module_vars set value='$value' WHERE modname='ZConfig' AND name='startdate'";
 
-        // modify the admin password
-        $sql[5] = "UPDATE {$compat['tablePrefix']}users set {$compat['fieldsPrefix']}pass='$passwordEnc' WHERE {$compat['fieldsPrefix']}uname='admin'";
+        $sql[] = "UPDATE users set pass='$passwordEnc', email='" . $item[$clientServiceId]['clientCode'] . "@xtec.cat' WHERE uname='admin'";
 
-        // modify intranet documents root
         $value = DataUtil::formatForStore(serialize($agora['server']['root'] . $agora['intranet']['datadir'] . $username . '/data'));
-        $sql[6] = "UPDATE {$compat['tablePrefix']}module_vars set {$compat['fieldsPrefix']}value='$value' WHERE {$compat['fieldsPrefix']}modname='{$compat['intrawebModulePrefix']}main' AND {$compat['fieldsPrefix']}name='documentRoot'";
+        $sql[6] = "UPDATE module_vars set value='$value' WHERE modname='IWmain' AND name='documentRoot'";
 
         foreach ($sql as $oneSql) {
             $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
@@ -1203,11 +1199,12 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 break;
 
             case 2: // Connect Zikula and Moodle
-                // call the connector function
+                /*
                 if (!ModUtil::apiFunc('Agoraportal', 'admin', 'connectIM', array('clientId' => $item[$clientServiceId]['clientId'],
                             'clientServiceId' => $clientServiceId))) {
                     return false;
                 }
+                */
                 break;
 
             case 3: // Create or delete Zikula super administrator
@@ -1249,11 +1246,10 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 } else {
                     //the user doesn't exists and create it
                     $sql = ($item[$clientServiceId]['version'] == '128') ?
-                            "INSERT INTO zk_users (pn_uname, pn_pass, pn_email, pn_hash_method,pn_activated)
+                            "INSERT INTO zk_users (pn_uname, pn_pass, pn_email, pn_hash_method, pn_activated)
                         VALUES ('xtecadmin','" . $agora['config']['xtecadmin'] . "','agora@xtec.cat',1,1)" :
                             "INSERT INTO users (uname, pass, email, activated)
-                        VALUES ('xtecadmin','" . '1$$' . $agora['config']['xtecadmin'] . "','agora@xtec.cat',1)"
-                    ;
+                        VALUES ('xtecadmin','" . '1$$' . $agora['config']['xtecadmin'] . "','agora@xtec.cat',1)";
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                                 'sql' => $sql,
                                 'serviceName' => 'intranet',
@@ -1375,6 +1371,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * @param   int clientId
      * @return  Boolean True if success, 'nomoodle' or 'nointranet' if no error occurred but didn't connect and false in case of error
      */
+    /* 2013.12.11 @aginard: Connection is no longer used. At the moment, only commented the code, but can be removed}
     public function connectIM($args) {
         $clientServiceId = FormUtil::getPassedValue('clientServiceId', (isset($args['clientServiceId'])) ? $args['clientServiceId'] : null, 'GET');
         $clientId = $args['clientId'];
@@ -1582,8 +1579,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         // Update config_plugins table in Moodle 2 (if service is active)
         if ($moodle2Active) {
-// @aginard: This section of the connection is no longer necessary in Moodle 2
-/*
             // Delete previous configuration if it exists
             $sql = "DELETE FROM {$prefix2}config_plugins
                     WHERE {$prefix2}config_plugins.plugin='auth/db'";
@@ -1686,7 +1681,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             } else {
                 LogUtil::registerStatus($this->__('S\'han connectat el Moodle 2 i la intranet.'));
             }
-*/
+
             $modulevars = array('dbprefix' => serialize($prefix2),
                 'moodleurl' => serialize('../moodle'),
                 'dfl_language' => serialize('ca'));
@@ -1710,7 +1705,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         return true;
     }
-
+*/
+    
     /**
      * update a service for a given client
      * @author 		Albert Pérez Monfort (aperezm@xtec.cat)

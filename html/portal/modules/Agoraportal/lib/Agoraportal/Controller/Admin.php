@@ -218,6 +218,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                             'actionCode' => 2,
                             'action' => $this->__f('S\'ha aprovat la sol·licitud del servei %s', $services[$clientService['serviceId']]['serviceName'])));
                         // Connect intranet and Moodle
+                        /* 2013.12.11 @aginard: Connection is no longer used. At the moment, only commented the code, but can be removed
                         if ($serviceName == 'intranet' || $serviceName == 'moodle' || $serviceName == 'moodle2') {
                             $connectResult = ModUtil::apiFunc('Agoraportal', 'admin', 'connectIM', array('clientId' => $clientId, 'clientServiceId' => $clientServiceId));
                             if ($connectResult !== false) {
@@ -231,6 +232,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                 LogUtil::registerError($this->__('S\'ha produït un error en connectar la intranet i el Moodle'));
                             }
                         }
+                        */
                     } else {
                         LogUtil::registerError($this->__('Error en l\'edició del registre'));
                         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList', array('init' => $init,
@@ -258,7 +260,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                 'activedId' => '')));
                 // Insert the action in logs table
                 ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
-                    'action' => $this->__f('S\'ha desactivat el servei %s', $services[$clientService['serviceId']]['serviceName'])));
+                    'action' => $this->__f('S\'ha donat de baixa el servei %s', $services[$clientService['serviceId']]['serviceName'])));
             }
 
             // Deactivate the new service
@@ -325,15 +327,15 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $toUsers = array_merge($toUsers, $toManagers);
 
                 // Send the e-mail (BCC to site e-mail)
-                $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => $clientName,
+                $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => array($clientName),
                             'toaddress' => $toUsers,
                             'subject' => __('Estat dels serveis del centre a Àgora'),
-                            'bcc' => System::getVar('adminmail'),
+                            'bcc' => array('name' => 'Àgora', 'address' => System::getVar('adminmail')),
                             'body' => $mailContent,
                             'html' => 1));
 
                 if ($sendMail) {
-                    LogUtil::registerStatus($this->__('S\'ha enviat un missatge informatiu'));
+                    LogUtil::registerStatus($this->__('S\'ha enviat un missatge informatiu al codi de centre i als gestors'));
                 }
             }
 
