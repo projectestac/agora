@@ -88,7 +88,7 @@ $string['currentgrade'] = 'Qualificació actual en el llibre de qualificacions';
 $string['cutoffdate'] = 'Data límit';
 $string['cutoffdatefromdatevalidation'] = 'La data límit ha de ser posterior a la data inicial del període.';
 $string['cutoffdate_help'] = 'Si s\'habilita, la tasca no acceptarà trameses després d\'aquesta data sense una pròrroga.';
-$string['cutoffdatevalidation'] = 'La data ĺímit ha de ser posterior a la data de venciment.';
+$string['cutoffdatevalidation'] = 'La data límit no pot ser anterior a la data de venciment.';
 $string['defaultplugins'] = 'Paràmetres per defecte de la tasca';
 $string['defaultplugins_help'] = 'Aquests paràmetres defineixen els valors per defecte per a totes les tasques noves.';
 $string['defaultteam'] = 'Grup per omissió';
@@ -123,7 +123,7 @@ $string['feedbackpluginforgradebook'] = 'El connector de retroacció posarà com
 $string['feedbackpluginforgradebook_help'] = 'Només un connector de retroacció de tasca pot posar retroacció en el butlletí de qualificacions.';
 $string['feedbackplugins'] = 'Connectors de retroacció';
 $string['feedbacksettings'] = 'Paràmetres de retroacció';
-$string['filesubmissions'] = 'Trameses de fitxers';
+$string['filesubmissions'] = 'Fitxers de la tramesa';
 $string['filter'] = 'Filtra';
 $string['filternone'] = 'No filtres';
 $string['filterrequiregrading'] = 'Requereix qualificació';
@@ -173,7 +173,7 @@ $string['messageprovider:assign_notification'] = 'Notificacions de la tasca';
 $string['modulename'] = 'Tasca';
 $string['modulename_help'] = 'El mòdul d\'activitat tasca permet al professorat comunicar les instruccions, recollir els treballs i proporcionar qualificacions i retroacció.
 
-L\'estudiantat pot trametre qualsevol contingut digital (fitxers), com ara documents de processador de textos, fulls de càlcul, imatges o clips d\'àudio i vídeo. Alternativament, o a més a més, la tasca pot requerir que l\'estudiantat teclegi el text directament a l\'editor de text. Una tasca també pot utilitzar-se per recordar a l\'estudiantat les tasques del "món real" que han de completar fóra de línia, com ara obres d\'art, i per tant que no requereixen de cap tipus de contingut digital.
+L\'estudiantat pot trametre qualsevol contingut digital (fitxers), com ara documents de processador de textos, fulls de càlcul, imatges o clips d\'àudio i vídeo. Alternativament, o a més a més, la tasca pot requerir que l\'estudiantat teclegi el text directament a l\'editor de text. Una tasca també pot utilitzar-se per recordar a l\'estudiantat les tasques del "món real" que han de completar fóra de línia, com ara obres d\'art, i per tant que no requereixen de cap tipus de contingut digital. L\'estudiantat pot trametre el treball de manera individual o com a membres d\'un grup.
 
 En la revisió de les tasques, el professorat pot deixar comentaris i pujar fitxers de retroacció, com ara trameses corregides de l\'estudiantat, documents amb comentaris o retroacció d\'àudio parlat. Les tasques poden qualificar-se amb una escala numèrica o personalitzada o amb un mètode de qualificació avançada, com ara una rúbrica. Les qualificacions finals es registren en el butlletí de qualificacions.';
 $string['modulenameplural'] = 'Tasques';

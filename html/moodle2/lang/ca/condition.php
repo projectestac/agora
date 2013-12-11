@@ -37,18 +37,18 @@ $string['availableuntil'] = 'Permet l\'accés fins el';
 $string['badavailabledates'] = 'Dates no vàlides. Si poseu ambdues dates, la data \'Permet accés des de\' hauria de ser-hi abans de la data \'fins\'.';
 $string['badgradelimits'] = 'Si establiu un límit superior i inferior per a la puntuació, el límit superior ha de ser major que el límit inferior.';
 $string['completion_complete'] = 'cal marcar-ho com finalitzat';
-$string['completioncondition'] = 'Condició de finalització de l\'activitat';
-$string['completioncondition_help'] = 'Aquest paràmetre determina les condicions de finalització de l\'activitat que s\'han de complir per accedir a l\'activitat. Fixeu-vos que el seguiment de la finalització ha de ser configurat abans que la condició de finalització.
+$string['completioncondition'] = 'Condició de compleció de l\'activitat';
+$string['completioncondition_help'] = 'Aquest paràmetre determina les condicions de compleció de l\'activitat que s\'han de complir per accedir a l\'activitat. Fixeu-vos que el seguiment de la compleció s\'ha de configurar abans de definir la condició de compleció d\'una activitat.
 
-Si ho desitgeu es poden configurar múltiples condicions de finalització d\'activitats. Si es fa així, l\'accés a l\'activitat sols es permetrà quan TOTES les condicions de finalització de l\'activitat s\'hagin complit.';
-$string['completionconditionsection'] = 'Condició de finalització de l\'activitat';
-$string['completionconditionsection_help'] = 'Aquest paràmetre determina les condicions de finalització de l\'activitat que s\'han de complir per accedir a la secció. Fixeu-vos que el seguiment de la finalització ha de ser configurat abans que la condició de finalització.
+Si es desitja es poden configurar múltiples condicions de compleció d\'activitat. Si es fa així, l\'accés a l\'activitat sols es permetrà quan TOTES les condicions de compleció de l\'activitat s\'hagin complit.';
+$string['completionconditionsection'] = 'Condició de compleció de l\'activitat';
+$string['completionconditionsection_help'] = 'Aquest paràmetre determina les condicions de compleció de l\'activitat que s\'han de complir per accedir a la secció. Fixeu-vos que el seguiment de la compleció s\'ha de configurar abans de definir la condició de compleció d\'una activitat.
 
-Si ho desitgeu es poden configurar múltiples condicions de finalització d\'activitats. Si es fa així, l\'accés a la secció sols es permetrà quan TOTES les condicions de finalització de l\'activitat s\'hagin complit.';
+Si es desitja es poden configurar múltiples condicions de compleció d\'activitat. Si es fa així, l\'accés a la secció sols es permetrà quan TOTES les condicions de compleció de l\'activitat s\'hagin complit.';
 $string['completion_fail'] = 'ha d\'estar completada amb qualificació suspesa.';
 $string['completion_incomplete'] = 'no s\'ha de marcar com completada';
 $string['completion_pass'] = 'ha d\'estar completada amb qualificació aprovada';
-$string['configenableavailability'] = 'Si s\'activa, això us permet establir les condicions que controlen si es pot accedir a una activitat o un recurs  (segons la data, la qualificació o la finalització).';
+$string['configenableavailability'] = 'Si s\'activa, això us permet establir les condicions que controlen si es pot accedir a una activitat o un recurs  (segons la data, la qualificació o la compleció).';
 $string['contains'] = 'conté';
 $string['doesnotcontain'] = 'no conté';
 $string['enableavailability'] = 'Habilitar l\'accés condicional';

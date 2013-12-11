@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['description'] = 'Descripció';
 $string['magtest:multipleattempts'] = 'Fes múltiples intents';
+$string['outputgroupdesc'] = 'Descripció del grup generat';

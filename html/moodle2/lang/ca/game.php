@@ -32,6 +32,7 @@ $string['cross_max_attempts'] = 'Nombre màxim d\'intents';
 $string['deleteattemptcheck'] = 'Estàs absolutament segur que vols eliminar completament aquests intents?';
 $string['game:deleteattempts'] = 'Elimina els intents';
 $string['game:reviewmyattempts'] = 'Revisa els meus intents';
+$string['javame_description'] = 'Descripció:';
 $string['noattempts'] = 'No s\'han fet intents en aquest joc.';
 $string['showattempts'] = 'Mostra intents';
 $string['timecompleted'] = 'Completat';

@@ -187,6 +187,7 @@ $string['backuploglaststatus'] = 'Registre de la darrera execució';
 $string['backupmissinguserinfoperms'] = 'Nota: aquesta còpia de seguretat no conté dades d\'usuari. Les activitats de Taller i Exercici no s\'inclouran a la còpia, ja que aquests mòduls no són compatibles amb aquest tipus de còpia seguretat.';
 $string['backupnext'] = 'Còpia de seguretat següent';
 $string['backupnonisowarning'] = 'Avís: aquesta còpia de seguretat és d\'una versió de Moodle no Unicode (anterior a la 1.6). Si la còpia conté textos que no siguin ISO-8859-1, aquests textos es poden corrompre quan intenteu restaurar-los en aquesta versió Unicode de Moodle. Vegeu les <a href="http://docs.moodle.org/en/Backup_FAQ">PMF de còpies de seguretat</a> per a més informació sobre la manera de restaurar correctament aquesta còpia.';
+$string['backupnotyetrun'] = 'Còpies de seguretat automatitzades pendents';
 $string['backuporiginalname'] = 'Nom de la còpia de seguretat';
 $string['backuproleassignments'] = 'Fes còpia de seguretat de les assignacions de rols d\'aquests rols';
 $string['backupsavetohelp'] = 'Camí complet del directori on voleu desar els fitxers de còpies de seguretat<br />(deixeu en blanc per desar-los al directori per defecte del curs)';
@@ -767,7 +768,7 @@ $string['general'] = 'General';
 $string['geolocation'] = 'latitud - longitud';
 $string['gettheselogs'] = 'Obté aquests registres';
 $string['go'] = 'Endavant';
-$string['gpl'] = 'Copyright (C) 1999 onwards  Martin Dougiamas  (http://moodle.com)
+$string['gpl'] = 'Copyright (C) 1999 onwards Martin Dougiamas (http://moodle.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -779,7 +780,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 See the Moodle License information page for full details:
-http://docs.moodle.org/en/License';
+http://docs.moodle.org/dev/License';
 $string['gpl3'] = 'Copyright (C) 1999 onwards Martin Dougiamas (http://moodle.com)
 
 This program is free software: you can redistribute it and/or modify
@@ -792,7 +793,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 See the Moodle License information page for full details:
-http://docs.moodle.org/en/License';
+http://docs.moodle.org/dev/License';
 $string['gpllicense'] = 'Llicència GPL';
 $string['grade'] = 'Qualificació';
 $string['grades'] = 'Qualificacions';
@@ -999,7 +1000,7 @@ $string['maximumupload'] = 'Mida màxima de càrrega';
 $string['maximumupload_help'] = '<p>Aquest paràmetre defineix la mida màxima dels fitxers que poden penjar els estudiants en aquest curs (l\'administrador defineix un límit màxim vàlid per a tot el lloc).</p>
 
 <p>És possible posar límits inferiors dins dels diversos mòdul d\'activitats.</p>';
-$string['maxnumberweeks'] = 'Nombre màxim de setmanes/temes';
+$string['maxnumberweeks'] = 'Nombre màxim de seccions';
 $string['maxnumberweeks_desc'] = 'Això controla les opcions màximes que apareixen al paràmetre "Nombre de setmanes/temes" per als cursos.';
 $string['maxnumcoursesincombo'] = 'Navega per els<a href="{$a->link}">{$a->numberofcourses} cursos</a>.';
 $string['maxsize'] = 'Mida màxima: {$a}';
@@ -1184,7 +1185,7 @@ Salutacions de l\'administrador de
 
 {$a->signoff}';
 $string['newusers'] = 'Nous usuaris';
-$string['newwindow'] = 'nova finestra';
+$string['newwindow'] = 'Finestra nova';
 $string['next'] = 'Següent';
 $string['nextsection'] = 'Secció següent';
 $string['no'] = 'No';
@@ -1254,7 +1255,7 @@ $string['novalidcourses'] = 'No hi ha cursos vàlids per mostrar';
 $string['now'] = 'ara';
 $string['numattempts'] = '{$a} intents fracassats d\'entrada';
 $string['numberofcourses'] = 'Nombre de cursos';
-$string['numberweeks'] = 'Nombre de setmanes/temes';
+$string['numberweeks'] = 'Nombre de temes/setmanes';
 $string['numdays'] = '{$a} dies';
 $string['numhours'] = '{$a} hores';
 $string['numletters'] = '{$a} cartes';
@@ -1274,6 +1275,7 @@ $string['options'] = 'opcions';
 $string['order'] = 'Ordre';
 $string['originalpath'] = 'Ruta original';
 $string['orphanedactivities'] = 'Activitat òrfena';
+$string['orphanedactivitiesinsectionno'] = 'Activitats òrfenes (secció {$a})';
 $string['other'] = 'Altre';
 $string['outline'] = 'Esquema';
 $string['outlinereport'] = 'Informe en esquema';
@@ -1534,7 +1536,8 @@ $string['selectdefault'] = 'Seleccioneu el valor per defecte';
 $string['selectedfile'] = 'Fitxer seleccionat';
 $string['selectednowmove'] = '{$a} fitxers seleccionats per moure\'ls. Ara aneu a la carpeta de destinació i premeu \'Mou els fitxers aquí\'';
 $string['selectfiles'] = 'Fitxers seleccionats';
-$string['selectmoduletoviewhelp'] = 'Seleccioneu un mòdul per veure la seva ajuda.';
+$string['selectmoduletoviewhelp'] = 'Seleccioneu una activitat o recurs per veure la seva ajuda.
+Premeu dues vegades sobre el nom de l\'activitat o recurs per afegir-lo de forma ràpida.';
 $string['selectnos'] = 'Selecciona tot \'no\'';
 $string['selectperiod'] = 'Seleccioneu el període';
 $string['senddetails'] = 'Envia\'m les dades per correu';
@@ -1563,7 +1566,7 @@ $string['showblockcourse'] = 'Mostra llista de cursos que contenen el bloc';
 $string['showcomments'] = 'Mostra/oculta comentaris';
 $string['showcommentsnonjs'] = 'Mostra comentaris';
 $string['showdescription'] = 'Mostra la descripció en la pàgina principal del curs';
-$string['showdescription_help'] = 'Si s\'habilita la introducció/descripció de sobre es mostrarà en la pàgina del curs a sota de l\'enllaç a l\'activitat /recurs.';
+$string['showdescription_help'] = 'Si s\'habilita la descripció de sobre es mostrarà en la pàgina del curs a sota de l\'enllaç a l\'activitat o el recurs.';
 $string['showgrades'] = 'Mostra qualificacions a l\'estudiantat';
 $string['showgrades_help'] = '<p>Moltes activitats poden ser qualificades.</p>
 

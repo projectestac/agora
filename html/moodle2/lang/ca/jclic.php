@@ -28,3 +28,4 @@ defined('MOODLE_INTERNAL') || die();
 $string['actions'] = 'Accions';
 $string['activity'] = 'Activitat';
 $string['attempts'] = 'Intents';
+$string['description'] = 'Descripció';

@@ -25,9 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = 'Clau API';
-$string['err_noapikey'] = 'Sense clau API';
-$string['err_noapikey_help'] = 'No hi ha una clau API configurada per a aquest connector. Podeu obtenir-ne una en la pàgina de desenvolupament d\'OpenBox.';
 $string['existingfolder'] = 'Carpeta existent on posar el/s fitxer/s';
 $string['folderclash'] = 'La carpeta que voleu crear ja existeix';
 $string['foldercreatefailed'] = 'No s\'ha pogut crear la carpeta de destinació en box.net';

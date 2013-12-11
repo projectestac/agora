@@ -51,3 +51,4 @@ $string['groupdependent'] = 'Dependent de grups';
 $string['modulename'] = 'Alternativa';
 $string['modulename_help'] = 'El mòdul alternativa permet als estudiants que registrin una o diverses opcions en una llista donada.';
 $string['modulenameplural'] = 'alternatives';
+$string['optionintro'] = 'Descripció';

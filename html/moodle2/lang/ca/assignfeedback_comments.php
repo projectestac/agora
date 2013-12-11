@@ -27,6 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['default'] = 'Habilitat per defecte';
 $string['default_help'] = 'Si està actiu, aquest mètode de retroacció s\'habilitarà per defecte per a totes les tasques noves.';
-$string['enabled'] = 'Comentaris';
+$string['enabled'] = 'Comentaris de la retroacció';
 $string['enabled_help'] = 'Si està habilitat, qui qualifiqui pot deixar comentaris com a retroacció per a cada tramesa.';
-$string['pluginname'] = 'Comentaris';
+$string['pluginname'] = 'Comentaris de la retroacció';

@@ -29,3 +29,4 @@ $string['anyattempts'] = 'Qualsevol intent';
 $string['attempts'] = 'Intents';
 $string['attemptsallowed'] = 'Intents permesos';
 $string['attemptsunlimited'] = 'Intents il·limitats';
+$string['showdescription'] = 'Mostra la descripció';

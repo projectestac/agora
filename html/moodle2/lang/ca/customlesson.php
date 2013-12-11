@@ -31,6 +31,7 @@ $string['completed'] = 'Completat';
 $string['completederror'] = 'Completa la lliçó';
 $string['completethefollowingconditions'] = 'Heu de completar la següent condició en la lliçó <b>{$a}</b> abans de poder continuar.';
 $string['deleteallattempts'] = 'Elimina tots els intents de la lliçó';
+$string['description'] = 'Descripció';
 $string['maximumnumberofattempts'] = 'Nombre màxim d\'intents';
 $string['nolessonattempts'] = 'Ningú no ha intentat aquesta lliçó.';
 $string['notcompleted'] = 'Incomplet';

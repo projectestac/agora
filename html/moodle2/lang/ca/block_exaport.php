@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['descriptionsaved'] = 'S\'ha desat la descripció';
 $string['invalidassignmentid'] = 'L\'ID de la tasca no és vàlid';
 $string['invalidcourseid'] = 'Aquest no és un ID de curs vàlid';
 $string['invalidinstance'] = 'Aquesta no és una instància vàlida';
+$string['viewdescription'] = 'Descripció';

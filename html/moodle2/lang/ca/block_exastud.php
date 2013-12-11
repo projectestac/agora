@@ -16,15 +16,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choicegroup', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_exastud', language 'ca', branch 'MOODLE_24_STABLE'
  *
- * @package   choicegroup
+ * @package   block_exastud
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['completionsubmit'] = 'Mostra com a complet quan l\'usuari trie una opció';
-$string['hidedescription'] = 'Amaga les descripcions';
-$string['showdescription'] = 'Mostra les descripcions';
+$string['perioddescription'] = 'Descripció';
