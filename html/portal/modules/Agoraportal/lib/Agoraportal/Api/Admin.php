@@ -356,7 +356,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $sql[] = "UPDATE users set pass='$passwordEnc', email='" . $item[$clientServiceId]['clientCode'] . "@xtec.cat' WHERE uname='admin'";
 
         $value = DataUtil::formatForStore(serialize($agora['server']['root'] . $agora['intranet']['datadir'] . $username . '/data'));
-        $sql[6] = "UPDATE module_vars set value='$value' WHERE modname='IWmain' AND name='documentRoot'";
+        $sql[] = "UPDATE module_vars set value='$value' WHERE modname='IWmain' AND name='documentRoot'";
 
         foreach ($sql as $oneSql) {
             $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
