@@ -3531,7 +3531,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                             }
 
                             // Save error message for admin report
-                            $url = $agora['server']['server'] . $agora['server']['base'] . $clientsAndServices[$usageClient]['clientDNS'] . '/' . $service['serviceName'];
+                            $url = ModUtil::Func('Agoraportal', 'user', 'getServiceLink', array('serviceName' => $service['serviceName'],
+                                                                                                'clientCode' => $clientsAndServices[$usageClient]['clientCode'],
+                                                                                                'clientDNS' => $clientsAndServices[$usageClient]['clientDNS']));
                             $adminReport .= '<h4>' . $clientsAndServices[$usageClient]['clientCode'];
                             $adminReport .= " (<a href=\"$url\" target=\"_blank\">$url</a>): </h4>";
                             $adminReport .= $warningMsg . '<br/><hr/><br/>';
