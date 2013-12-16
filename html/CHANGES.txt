@@ -27,6 +27,7 @@ MOODLE 2
 - site-config.php: Added prefix exception for usu1 (PRO)
 - Fixed bug with EOICampus module (pathway selection when editing)
 - Updated catalan translation (11-12-2013)
+- Blocked access to install functions
 
 PORTAL
 - Upgraded to Zikula 1.3.6

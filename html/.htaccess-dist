@@ -4,6 +4,10 @@ RewriteEngine on
 
 RewriteBase /agora/
 
+# Block access to install.php
+RewriteCond %{REQUEST_URI} ([^/]*)/moodle/install.php
+RewriteRule ^([^.]*)/install.php(.*)$ $1/moodle/siteoff.html [QSA,L]
+
 RewriteRule ^([^/]*)/antic$ $1/antic/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/moodle$ $1/moodle/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/moodle/my$ $1/moodle/my/ [QSA,R=permanent,L]
