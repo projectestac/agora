@@ -5,6 +5,8 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE 2
+- Coursequotas: Fixed error in temp and trashdir info for non-Agora installs
 
 
 

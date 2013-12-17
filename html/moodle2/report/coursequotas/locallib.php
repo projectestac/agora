@@ -390,6 +390,8 @@ function report_coursequotas_getTempTrashUsage() {
         $tempSize = explode('/', $tempSize);
         $tempSize = $tempSize[0]; // Size in kB
         $size['temp'] = report_coursequotas_formatSize($tempSize * 1024);
+    } else {
+        $size['temp'] = 0;
     }
 
     if (file_exists($CFG->dataroot . '/trashdir/')) {
@@ -397,6 +399,8 @@ function report_coursequotas_getTempTrashUsage() {
         $tempSize = explode('/', $tempSize);
         $tempSize = $tempSize[0]; // Size in kB
         $size['trashdir'] = report_coursequotas_formatSize($tempSize * 1024);
+    } else {
+        $size['trashdir'] = 0;
     }
 
     return $size;
