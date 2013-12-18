@@ -53,9 +53,9 @@
                 <td colspan="7" style="background:#{$colors[0]}; color:#{$colors[1]}; border:none; padding:5px;">
                     <span style="float: left;">
                         {if $mes eq 1}
-                        <a href="javascript:changeMonth(12,{$any-1},{$daid})">{img src="mesmenys.gif" __alt="Previous month"  __title="Previous month" }</a>
+                        <a href="javascript:changeMonth(12,{$any-1},{$daid})">{img modname=IWagendas src=mesmenys.gif __alt="Previous month"  __title="Previous month" }</a>
                         {else}
-                        <a href="javascript:changeMonth({$mes-1},{$any},{$daid})">{img src="mesmenys.gif" __alt="Previous month"  __title="Previous month" }</a>
+                        <a href="javascript:changeMonth({$mes-1},{$any},{$daid})">{img modname=IWagendas src=mesmenys.gif __alt="Previous month"  __title="Previous month" }</a>
                         {/if}
                         <select name="mes" id="month" onchange="javascript:changeMonth(this.value,{$any},{$daid})">
                             {section name=month loop=$months}
@@ -68,9 +68,9 @@
                             {/section}
                         </select>
                         {if $mes eq 12}
-                        <a href="javascript:changeMonth(1,{$any+1},{$daid})">{img src="mesmes.gif" __alt="Next month"  __title="Next month" }</a>
+                        <a href="javascript:changeMonth(1,{$any+1},{$daid})">{img modname=IWagendas src=mesmes.gif __alt="Next month"  __title="Next month" }</a>
                         {else}
-                        <a href="javascript:changeMonth({$mes+1},{$any},{$daid})">{img src="mesmes.gif" __alt="Next month"  __title="Next month" }</a>
+                        <a href="javascript:changeMonth({$mes+1},{$any},{$daid})">{img modname=IWagendas src=mesmes.gif __alt="Next month"  __title="Next month" }</a>
                         {/if}
                         {if $mes neq $today.month || $any neq $today.year}
                         <a href="javascript:changeMonth({$today.month},{$today.year},{$daid})">{gt text="Today"}</a>

@@ -8,6 +8,8 @@ Changes in progress
 MOODLE 2
 - Coursequotas: Fixed error in temp and trashdir info for non-Agora installs
 
+ZIKULA 2
+- IWagendas: Fixed images not being found when module is loaded as default module
 
 
 Changes 13.12.16
