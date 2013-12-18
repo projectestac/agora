@@ -10,6 +10,7 @@ MOODLE 2
 
 ZIKULA 2
 - IWagendas: Fixed images not being found when module is loaded as default module
+- IWstats: Fixed javascript calendar not being loaded
 
 
 Changes 13.12.16
