@@ -24,7 +24,10 @@
     xtec_debug($school_info['source']);
 
     // Exception for usu1 (This code will be removed when DB prefixes would be changed)
-    if (($school_info['id_moodle2'] == 1) && ($agora['server']['enviroment'] == 'PRO') && ($school_info['database_moodle2'] == 'MOODLE3')) {
+    if (($school_info['id_moodle2'] == 1) && ($agora['server']['enviroment'] == 'PRO') && (($school_info['database_moodle2'] == 'MOODLE3') || ($school_info['database_moodle2'] == 'moodle3'))) {
+        $CFG->prefix = $agora['moodle']['prefix'];
+    }
+    if (($school_info['id_moodle2'] == 5) && ($agora['server']['enviroment'] == 'ACC') && ($school_info['database_moodle2'] == 'MOODLE')) {
         $CFG->prefix = $agora['moodle']['prefix'];
     }
     // End of exception code
