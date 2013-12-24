@@ -44,7 +44,7 @@ function createDir_failure(){
 function uploadFile(folder,external,hook,pngetbaseURL){
 	var pars = "module=Files&func=uploadFile&folder=" + folder + "&external=" + external + "&hook=" + hook;;
     Element.update('actionForm', '<img src="images/ajax/circle-ball-dark-antialiased.gif" />');
-    var url = document.location.pnbaseURL;
+    var url = document.pnbaseURL;
     if (pngetbaseURL != undefined) url = pngetbaseURL;	
 	var myAjax = new Ajax.Request(
 			url + 'ajax.php', 
