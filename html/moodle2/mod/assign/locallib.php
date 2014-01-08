@@ -2711,12 +2711,21 @@ class assign {
     public function can_view_group_submission($groupid) {
         global $USER;
 
-        if (!is_enrolled($this->get_course_context(), $USER->id)) {
-            return false;
-        }
+		//XTEC ************ AFEGIT - MDL-38655 Admin cannot view assignment submission file/image/comments when team submissions is enabled
+        //2014.01.08  @pferre22
         if (has_capability('mod/assign:grade', $this->context)) {
             return true;
         }
+        //************ FI
+        if (!is_enrolled($this->get_course_context(), $USER->id)) {
+            return false;
+        }
+		//XTEC ************ ELIMINAT - MDL-38655 Admin cannot view assignment submission file/image/comments when team submissions is enabled
+        //2014.01.08  @pferre22
+        //if (has_capability('mod/assign:grade', $this->context)) {
+        //    return true;
+        //}
+        //************ FI
         $members = $this->get_submission_group_members($groupid, true);
         foreach ($members as $member) {
             if ($member->id == $USER->id) {
@@ -2735,13 +2744,23 @@ class assign {
     public function can_view_submission($userid) {
         global $USER;
 
+		//XTEC ************ AFEGIT - MDL-38655 Admin cannot view assignment submission file/image/comments when team submissions is enabled
+        //2014.01.08  @pferre22
+        if (has_capability('mod/assign:grade', $this->context)) {
+            return true;
+        }
+        //************ FI
         if (!is_enrolled($this->get_course_context(), $userid)) {
             return false;
         }
         if ($userid == $USER->id && !has_capability('mod/assign:submit', $this->context)) {
             return false;
         }
-        if ($userid != $USER->id && !has_capability('mod/assign:grade', $this->context)) {
+		//XTEC ************ MODIFICAT - MDL-38655 Admin cannot view assignment submission file/image/comments when team submissions is enabled
+        //2014.01.08  @pferre22
+        //if ($userid != $USER->id && !has_capability('mod/assign:grade', $this->context)) {
+		if ($userid != $USER->id) {
+        //************ FI
             return false;
         }
         return true;
