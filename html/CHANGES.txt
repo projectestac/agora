@@ -10,6 +10,7 @@ MOODLE 2
 
 ZIKULA
 - Files: Fixed ajax error when uploading files in Chrome
+- News: Fixed AJAX error with modern browsers
 
 ZIKULA 2
 - IWagendas: Fixed images not being found when module is loaded as default module

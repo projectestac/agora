@@ -70,7 +70,16 @@ function editnews(sid, page)
         Element.show('news_loadnews');
         var pars = 'module=News&func=modify&sid=' + sid  + '&page=' + page;
         var myAjax = new Ajax.Request(
+
+            //XTEC ************ MODIFICAT - Fixed AJAX error with modern browsers
+            //2014.01.08 @aginard
+            document.pnbaseURL+'ajax.php', 
+            //************ ORIGINAL
+            /*
             document.location.pnbaseURL+'ajax.php', 
+            */
+            //************ FI
+                
             {
                 method: 'post', 
                 parameters: pars, 
@@ -147,7 +156,16 @@ function editnews_save(action)
         
         var pars = 'module=News&func=update&action='+ action +'&' + Form.serialize('news_ajax_modifyform');
         var myAjax = new Ajax.Request(
+
+            //XTEC ************ MODIFICAT - Fixed AJAX error with modern browsers
+            //2014.01.08 @aginard
+            document.pnbaseURL+'ajax.php', 
+            //************ ORIGINAL
+            /*
             document.location.pnbaseURL+'ajax.php', 
+            */
+            //************ FI
+                
             {
                 method: 'post', 
                 parameters: pars, 
