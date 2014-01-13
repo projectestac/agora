@@ -10,6 +10,7 @@ GENERAL
 
 MOODLE 2
 - Coursequotas: Fixed error in temp and trashdir info for non-Agora installs
+- GeoGebra: updated module to last version (0.2.5rc)
 
 ZIKULA
 - Files: Fixed ajax error when uploading files in Chrome
