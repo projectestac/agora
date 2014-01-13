@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- Access to Moodle 1.9 changed from /antic to /copiaseg
+
 MOODLE 2
 - Coursequotas: Fixed error in temp and trashdir info for non-Agora installs
 
