@@ -46,7 +46,7 @@ define('GEOGEBRA_FIRST_GRADE', 4);
 define('GEOGEBRA_LAST_GRADE', 5);
 
 // GeoGebra applet vars
-define('GEOGEBRA_DEFAULT_CODEBASE', 'http://www.geogebra.org/webstart/4.2/unsigned/');
+define('GEOGEBRA_DEFAULT_CODEBASE', 'http://www.geogebra.org/webstart/4.2/unpacked/');
 define('GEOGEBRA_ARCHIVE', 'geogebra.jar');
 define('GEOGEBRA_CODE', 'geogebra.GeoGebraApplet');
 
