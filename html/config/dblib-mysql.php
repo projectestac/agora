@@ -649,13 +649,7 @@ function getMoodleDirrot($school_info, $service='moodle') {
     $moodle_dirroot = 'moodle';
     switch ($service) {
         case 'moodle':
-            // If is enabled moodle2 service, moodle 1.9 is accessed by antic URL
-            if (array_key_exists('id_moodle2', $school_info) && !empty($school_info['id_moodle2'])) {
-                // If client has param 'extraFunc' with value 'moodle2', changes $moodle_dirroot 
-                if (!checkExtraFunc(transformClientCode($school_info['clientCode'], 'num2letter'))) {
-                    $moodle_dirroot = 'antic';
-                }
-            }
+            $moodle_dirroot = 'copiaseg';
             break;
         case 'moodle2':
             // If client has param 'extraFunc' with value 'moodle2', changes $moodle_dirroot 
