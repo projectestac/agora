@@ -13,9 +13,10 @@ MOODLE 2
 - Coursequotas: Fixed error in temp and trashdir info for non-Agora installs
 - GeoGebra: updated module to last version (0.2.5rc)
 - Bug correct: MDL-27071 Oracle cannot cope withan IN operator with more than 1000 conditions in it
+- site-config.php: Removed exception for usu1
 
 ZIKULA
-- Files: Fixed ajax error when uploading files or when creating folders in Chrome
+- Files: Fixed AJAX error when uploading files or when creating folders in Chrome
 - News: Fixed AJAX error with modern browsers
 
 ZIKULA 2
