@@ -15,7 +15,7 @@ MOODLE 2
 - Bug correct: MDL-27071 Oracle cannot cope withan IN operator with more than 1000 conditions in it
 
 ZIKULA
-- Files: Fixed ajax error when uploading files in Chrome
+- Files: Fixed ajax error when uploading files or when creating folders in Chrome
 - News: Fixed AJAX error with modern browsers
 
 ZIKULA 2
