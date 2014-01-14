@@ -15,6 +15,9 @@ MOODLE 2
 - Bug correct: MDL-27071 Oracle cannot cope withan IN operator with more than 1000 conditions in it
 - site-config.php: Removed exception for usu1
 
+PORTAL
+- Agoraportal: Moodle sites are not listed in public list
+
 ZIKULA
 - Files: Fixed AJAX error when uploading files or when creating folders in Chrome
 - News: Fixed AJAX error with modern browsers

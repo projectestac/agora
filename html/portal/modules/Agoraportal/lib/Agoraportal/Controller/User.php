@@ -382,7 +382,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
                 if ($site['serviceId'] > 0) {
                     // Exception for marsupial service
-                    if ($services[$site['serviceId']]['serviceName'] != 'marsupial') {
+                    if ($services[$site['serviceId']]['serviceName'] == 'intranet' || $services[$site['serviceId']]['serviceName'] == 'moodle2') {
                         $logos = '<div style="float:left;width:70px;" class="' . $class . '"><a href="' .
                                 ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('clientDNS' => $site['clientDNS'], 'serviceName' => $services[$site['serviceId']]['serviceName'], 'clientCode' => $site['clientCode'])) .
                                 '">' . '<img src="modules/Agoraportal/images/' .
@@ -392,7 +392,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                                 '" title="' .
                                 $services[$site['serviceId']]['serviceName'] .
                                 '"/></a></div>';
-                    } else {
+                    } elseif ($services[$site['serviceId']]['serviceName'] == 'marsupial') {
                         $logos = '<div style="float:left;width:70px;" class="' . $class . '"><img src="modules/Agoraportal/images/' .
                                 $services[$site['serviceId']]['serviceName'] .
                                 '.gif" alt="' .
