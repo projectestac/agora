@@ -11,6 +11,7 @@ GENERAL
 PORTAL
 - Removed upgrade.php because it is no longer necessary
 - Agoraportal: Removed references to /antic
+- Agoraportal: Fixed bcc message when activating service
 
 
 Changes 14.01.15

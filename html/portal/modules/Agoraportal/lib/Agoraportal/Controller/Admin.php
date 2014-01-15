@@ -330,7 +330,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => array($clientName),
                             'toaddress' => $toUsers,
                             'subject' => __('Estat dels serveis del centre a Àgora'),
-                            'bcc' => array('name' => 'Àgora', 'address' => System::getVar('adminmail')),
+                            'bcc' => array(array('address' => System::getVar('adminmail'))),
                             'body' => $mailContent,
                             'html' => 1));
 
