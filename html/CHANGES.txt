@@ -5,7 +5,8 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-
+PORTAL
+- Removed upgrade.php because it is no longer necessary
 
 
 Changes 14.01.15
