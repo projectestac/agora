@@ -5,6 +5,11 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+Changes 14.01.15
+---------------------------------------------------------------------------------------
 GENERAL
 - Access to Moodle 1.9 changed from /antic to /copiaseg
 - checkFiles.php: Added server time
