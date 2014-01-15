@@ -35,7 +35,7 @@
                 {/if}
             {elseif $client.state eq 1}
             {if $services[$client.serviceId].serviceName neq 'marsupial'}
-            {gt text="Accés"}: <a href="{$client.clientCode|serviceLink:$services[$client.serviceId].serviceName:$client.clientDNS:$client.clientCode}" target="_blank">{$client.clientCode|serviceLink:$services[$client.serviceId].serviceName:$client.clientDNS:$client.clientCode}</a>
+            {gt text="Accés"}: <a href="{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}</a>
             <br />
             {/if}
             {gt text="Data d'activació"}: {$client.timeCreated|dateformat:"%d/%m/%Y"}

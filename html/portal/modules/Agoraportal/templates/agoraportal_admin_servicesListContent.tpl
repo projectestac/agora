@@ -24,7 +24,7 @@
              <td align="left" valign="top">
                  <a href="{modurl modname='Agoraportal' type='user' func='myAgora' clientCode=$client.clientCode}">{$client.clientName}</a>
                  {if $client.state eq 1 && $services[$client.serviceId].serviceName neq 'marsupial'}
-                 (<a href="{$client.clientCode|serviceLink:$services[$client.serviceId].serviceName:$client.clientDNS:$client.clientCode}" target="_blank">{gt text="Entra-hi"}</a>)
+                 (<a href="{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}" target="_blank">{gt text="Entra-hi"}</a>)
                  {/if}
                  <br />
                  {$client.clientDNS} - {$client.clientCode}

@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 PORTAL
 - Removed upgrade.php because it is no longer necessary
+- Agoraportal: Removed references to /antic
 
 
 Changes 14.01.15
