@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- Added phpsysinfo to get status information from the web servers
+
 PORTAL
 - Removed upgrade.php because it is no longer necessary
 - Agoraportal: Removed references to /antic
