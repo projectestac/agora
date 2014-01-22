@@ -484,7 +484,7 @@ function sendConfig() {
 function sendUpdateRequest() {
     document.forms.editRequestForm.submit();
 }
-
+/*
 function createUser() {
     var error = false;
     var f = document.forms.createUser;
@@ -605,7 +605,7 @@ function deleteUser_response(req) {
 
 function deleteUser_failure() {
 }
-
+*/
 function editService(serviceId) {
     var pars = "module=Agoraportal&func=editService&serviceId=" + serviceId;
     var myAjax = new Ajax.Request("ajax.php", 
@@ -897,7 +897,7 @@ function logs_response(req) {
 function logs_failure(){
     Element.update('reload','');
 }
-
+/*
 function editUser() {
     var error = false;
     var f = document.forms.editUser;
@@ -913,7 +913,7 @@ function editUser() {
         f.submit();
     }
 }
-
+*/
 /**
  * DHTML email validation script. Courtesy of SmartWebby.com (http://www.smartwebby.com/dhtml/)
  */
@@ -1142,11 +1142,11 @@ function refuseAns(answer) {
 
 function askServiceCheckActive(serviceName) {
     var f=document.forms['askForService'];
-    if (serviceName == 'moodle') {
-        if (document.getElementById('moodle').checked) {
+    if (serviceName == 'moodle2') {
+        if (document.getElementById('moodle2').checked) {
             document.getElementById('marsupial').disabled = false;
         }
-        if (!document.getElementById('moodle').checked) {
+        if (!document.getElementById('moodle2').checked) {
             document.getElementById('marsupial').disabled = true;
             document.getElementById('marsupial').checked = false;
         }
@@ -1268,66 +1268,3 @@ function deleteFileM2x_response(req) {
 
 function deleteFileM2x_failure() {
 }
-
-function deleteFileM19(filename,courseId,clientCode){
-    if(!confirm("Confirmeu que voleu esborrar el fitxer '" + filename + "'.")) {
-        return;
-    }
-    var pars = "module=Agoraportal&func=deleteFileM19&filename=" + filename + "&courseId=" + courseId + "&clientCode=" + clientCode;
-    var myAjax = new Ajax.Request("ajax.php", 
-    {
-        method: 'get', 
-        parameters: pars, 
-        onComplete: deleteFileM19_response,
-        onFailure: deleteFileM19_failure
-    });
-    
-}
-
-function deleteFileM19_response(req) {
-
-    if (req.status != 200 ) { 
-        pnshowajaxerror(req.responseText);
-        return;
-    }
-    
-    var json = pndejsonize(req.responseText);
-
-    //Element.update('filemoved_' + json.filename + '_courseId_' + json.courseId, 'Moved');
-    $('fileRow_' + json.filename + '_courseId_' + json.courseId).toggle();
-}
-
-function deleteFileM19_failure() {
-}
-
-function moveFileToM2x(filename,courseId,clientCode){
-    if(!confirm("Confirmeu que voleu moure el fitxer '" + filename + "' des de Moodle 1.9 a Moodle 2.x.")) {
-        return;
-    }
-    var pars = "module=Agoraportal&func=moveFileToM2x&filename=" + filename + "&courseId=" + courseId + "&clientCode=" + clientCode;
-    var myAjax = new Ajax.Request("ajax.php", 
-    {
-        method: 'get', 
-        parameters: pars, 
-        onComplete: moveFileToM2x_response,
-        onFailure: moveFileToM2x_failure
-    });
-    
-}
-
-function moveFileToM2x_response(req) {
-
-    if (req.status != 200 ) { 
-        pnshowajaxerror(req.responseText);
-        return;
-    }
-    
-    var json = pndejsonize(req.responseText);
-
-    Element.update('filemoved_' + json.filename + '_courseId_' + json.courseId, json.result);
-}
-
-function moveFileToM2x_failure() {
-}
-
-//moveFileToM2x

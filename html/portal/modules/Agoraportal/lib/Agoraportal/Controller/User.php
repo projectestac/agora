@@ -177,7 +177,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $clientServices = array();
         $haveMoodle = false;
         foreach ($clientInfo as $info) {
-            if ($services[$info['serviceId']]['serviceName'] == 'moodle')
+            if ($services[$info['serviceId']]['serviceName'] == 'moodle2')
                 $haveMoodle = true;
             $clientServices[$info['serviceId']] = $info['serviceId'];
         }
@@ -369,14 +369,15 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $sitesArray = array();
 
         // Obtain base URL: https://pwc-acc.xtec.cat/agora/
-        global $agora;
+        //global $agora;
 
-        $siteBaseURL = $agora['server']['server'] . $agora['server']['base'];
+        //$siteBaseURL = $agora['server']['server'] . $agora['server']['base'];
 
         if (count($sites) > 0) {
             foreach ($sites as $site) {
-                if (!isset($site['serviceId']))
+                if (!isset($site['serviceId'])) {
                     $site['serviceId'] = 0;
+                }
                 $class = ($site['serviceId'] > 0) ? $services[$site['serviceId']]['serviceName'] : '';
                 $logos = '';
 
@@ -504,14 +505,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             // send file to folder
             $fileToMove = $agora['server']['ubr_upload'] . $file;
             $serviceName = $services[$clientServices[$clientServiceId]['serviceId']]['serviceName'];
-            switch ($serviceName) {
-                case 'moodle':
-                    $folder = '/1/';
-                    break;
-                case 'moodle2':
-                    $folder = '/repository/files/';
-                    break;
-            }
+            $folder = $agora['moodle2']['repository_files'];
             $destination = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['username'] . $clientServices[$clientServiceId]['activedId'] . $folder;
             if (!file_exists($fileToMove)) {
                 LogUtil::registerError($this->__('No s\'ha trobat el directori d\'origen'));
@@ -527,13 +521,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                 unlink($fileToMove);
                 LogUtil::registerError($this->__('S\'ha pujat el fitxer al servidor, però s\'ha produït un error en moure\'l internament en el servidor.'));
             } else {
-                switch ($serviceName) {
-                    case 'moodle':
-                        LogUtil::registerStatus($this->__f('S\'ha pujat el fitxer <strong>%s</strong> al servidor. El trobareu en el vostre Moodle a <strong>Administració del lloc</strong> | <strong>Primera plana</strong> | <strong>Fitxers del lloc</strong>.', $file));
-                        break;
-                    case 'moodle2':
-                        LogUtil::registerStatus($this->__f('S\'ha pujat el fitxer <strong>%s</strong> al servidor. El trobareu en el repositori <strong>Fitxers</strong> del vostre Moodle.', $file));
-                }
+                LogUtil::registerStatus($this->__f('S\'ha pujat el fitxer <strong>%s</strong> al servidor. El trobareu en el repositori <strong>Fitxers</strong> del vostre Moodle.', $file));
                 $size = round(filesize($destination . $file) / 1024);
                 $diskConsume = $clientServices[$clientServiceId]['diskConsume'] + $size;
                 ModUtil::apiFunc('Agoraportal', 'user', 'saveDiskConsume', array('clientServiceId' => $clientServiceId,
@@ -571,62 +559,6 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             $view->assign('moodle2RepoFiles', $moodle2RepoFiles);
         }
 
-        // read moodle 1.9 courses and files
-        if (in_array('moodle', $activedServicesNames) && $action == 'm19') {
-            $prefix = $agora['moodle']['prefix'];
-            $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientInfo['client'][$clientCode]['clientId'], 'serviceName' => 'moodle'));
-
-            $coursesSQL = "SELECT * FROM {$prefix}COURSE_CATEGORIES";
-            $coursesCategories = ModUtil::apiFunc('Agoraportal', 'user', 'executeSQL', array('database' => $clientService['activedId'],
-                        'sql' => $coursesSQL,
-                        'serviceName' => 'moodle'));
-
-            $categoriesArray = array();
-            foreach ($coursesCategories['values'] as $category) {
-                $categoriesArray[$category['ID']] = $category['NAME'];
-            }
-
-            $coursesSQL = "SELECT * FROM {$prefix}COURSE ORDER BY CATEGORY";
-            $courses = ModUtil::apiFunc('Agoraportal', 'user', 'executeSQL', array('database' => $clientService['activedId'],
-                        'sql' => $coursesSQL,
-                        'serviceName' => 'moodle'));
-            $coursesArray = array();
-            foreach ($courses['values'] as $course) {
-                $category = ($course['CATEGORY'] > 0) ? $categoriesArray[$course['CATEGORY']] : $this->__('Sense categoria');
-                $folder = $agora['server']['root'] . $agora['moodle']['datadir'] . $agora['moodle']['username'] . $clientService['activedId'] . '/' . $course['ID'] . '/backupdata/';
-                $moodle19CourseFiles = array();
-                if (file_exists($folder)) {
-                    $dir_handle = opendir($folder);
-                    $file_object = array();
-                    while ($object = readdir($dir_handle)) {
-                        if (!in_array($object, array('.', '..'))) {
-                            $filename = DataUtil::formatForDisplay($folder . $object);
-                            $fileExtension = FileUtil::getExtension($filename);
-                            if (!is_dir($filename) && (strtolower($fileExtension) == 'zip') || (strtolower($fileExtension) == 'mbz')) {
-                                $file_object = array('name' => DataUtil::formatForDisplay($object),
-                                    'size' => round((filesize($filename) / 1024) / 1024, 2),
-                                    'type' => filetype($filename),
-                                    'time' => date("j F Y, H:i", filemtime($filename)),
-                                );
-                                $moodle19CourseFiles[] = $file_object;
-                            }
-                        }
-                    }
-                }
-
-                if ($course['ID'] == 1) {
-                    $category = $this->__('Primera plana');
-                }
-
-                $coursesArray[] = array('fullname' => $course['FULLNAME'],
-                    'courseId' => $course['ID'],
-                    'files' => $moodle19CourseFiles,
-                    'category' => $category);
-            }
-
-            $view->assign('courses', $coursesArray);
-        }
-
         return $view->fetch('agoraportal_user_files.tpl');
     }
 
@@ -643,17 +575,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
 
-        switch ($target) {
-            case 'm19':
-                $serviceName = 'moodle';
-                $folder = '/' . $courseId . '/backupdata/';
-                break;
-            case 'm2x':
-                $serviceName = 'moodle2';
-                $folder = '/repository/files/';
-                break;
-        }
         global $agora;
+        $folder = $agora['moodle2']['repository_files'];
+
         $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientInfo['client'][$clientCode]['clientId'], 'serviceName' => $serviceName));
         $folder = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['username'] . $clientService['activedId'] . $folder;
 
@@ -706,9 +630,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             case 'intranet':
                 $dir = '../../' . $agora[$serviceName]['datadir'] . $agora['intranet']['userprefix'] . $client[$clientServiceId]['activedId'];
                 break;
-            case 'moodle':
             case 'moodle2':
-                $dir = '../../' . $agora[$serviceName]['datadir'] . $agora['moodle']['username'] . $client[$clientServiceId]['activedId'];
+                $dir = '../../' . $agora[$serviceName]['datadir'] . $agora['moodle2']['username'] . $client[$clientServiceId]['activedId'];
                 break;
         }
 
@@ -743,6 +666,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @param:	Filter values
      * @return:	The disk consumed
      */
+/*
     public function getSumatori($args) {
         $dir = FormUtil::getPassedValue('dir', isset($args['dir']) ? $args['dir'] : null, 'POST');
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
@@ -763,13 +687,14 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         }
         return $array_items;
     }
-
+*/
     /**
      * checks if a client can manage users of the services
      * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	the client code
      * @return:	True if it can and false othewise
      */
+ /*
     public function allowedUsersAdministration($args) {
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
         // Security check
@@ -789,7 +714,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         // client can't manage users
         return false;
     }
-
+*/
     /**
      * Verify the verifyCode sent by the user and change the active nevel if this is correct
      * @author: Fèlix Casanellas (fcasanel@xtec.cat)
@@ -1002,11 +927,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $client = $clientInfo['client'];
         // check user access level in Àgora
         $accessLevel = 'none';
-        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT))
+        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
             $accessLevel = 'comment';
+        }
 
-        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD))
+        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
             $accessLevel = 'add';
+        }
 
         // get client managers
         $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
@@ -1053,8 +980,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         }
         $assigned = false;
         foreach ($managers as $manager) {
-            if ($manager['state'] == 1)
+            if ($manager['state'] == 1) {
                 $assigned = true;
+            }
         }
         // The user is the client but nobody has been delegated yet
         if (UserUtil::getVar('uname') == $clientCode && !$assigned && count($managers) == 0) {
@@ -1086,8 +1014,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
         $assigned = false;
         foreach ($managers as $manager) {
-            if ($manager['state'] == 1)
+            if ($manager['state'] == 1) {
                 $assigned = true;
+            }
         }
         // get a particular manager
         $thisManager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerId' => $managerId));
@@ -1374,9 +1303,6 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $serviceURL = '';
         
         switch($serviceName) {
-            case 'moodle':
-                $serviceURL = 'copiaseg';
-                break;
             case 'moodle2':
                 $serviceURL = 'moodle';
                 break;

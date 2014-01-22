@@ -79,6 +79,38 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     }
 
     /**
+     * Get the client info from its clientCode
+     * 
+     * @author Toni Ginard
+     * @param int ClientId
+     * 
+     * @return array information of the client in table agoraportal_clients
+     */
+    public function getClientById($args) {
+        // Security check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        // Get required param
+        $clientId = (isset($args['clientId'])) ? $args['clientId'] : '';
+
+        // If required param is left, show an error
+        if (empty($clientId)) {
+            return LogUtil::registerError($this->__('No s\'ha indicat l\'Id del client'), 404);
+        }
+
+        // Get the clientId
+        $tables = DBUtil::getTables();
+        $column = $tables['agoraportal_clients_column'];
+        $where = "$column[clientId] = '$clientId'";
+
+        $client = DBUtil::selectObject('agoraportal_clients', $where);
+
+        return $client;
+    }
+
+    /**
      * Get the serviceId's allowed for a given requestType
      * 
      * @author Toni Ginard
@@ -123,6 +155,9 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         }
         $clientCode = (!isset($args['clientCode'])) ? 0 : $args['clientCode'];
         $key = (!isset($args['key'])) ? 'clientServiceId' : $args['key'];
+        $clientServiceId = (isset($args['clientServiceId'])) ? $args['clientServiceId'] : false;
+        $service = (isset($args['service'])) ? $args['service'] : false;
+        $state = (isset($args['state'])) ? $args['state'] : false;
 
         $myJoin = array();
         $myJoin[] = array('join_table' => 'agoraportal_client_services',
@@ -139,7 +174,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $ocolumn = $tables['agoraportal_client_services_column'];
         $lcolumn = $tables['agoraportal_clients_column'];
         $where = '';
-        if (isset($args['clientServiceId'])) {
+        if ($clientServiceId) {
             $where = "a.$ocolumn[clientServiceId] = $args[clientServiceId]";
         } else {
             // filter no visible sites
@@ -148,25 +183,25 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             }
         }
 
-        if ((isset($args['service']) && $args['service'] != 0) || (isset($args['state']) && $args['state'] != '-1')) {
-            if ($args['service'] != 0) {
+        if ($service || (is_numeric($state) && $state != '-1') || is_array($state)) {
+            if (is_numeric($service) && ($service != 0)) {
                 $where .= ( $where != '') ? ' AND ' : '';
                 $where .= "a.$ocolumn[serviceId] = $args[service]";
             }
             // Check if there are several desired states
-            if (is_array($args['state'])) {
+            if (is_array($state)) {
                 $tmp = array();
-                foreach ($args['state'] as $state) {
-                    if ($state != '-1') {
-                        $tmp[] = "a.$ocolumn[state] = $state";
+                foreach ($state as $rowstate) {
+                    if ($rowstate != '-1') {
+                        $tmp[] = "a.$ocolumn[state] = $rowstate";
                     }
                 }
                 $where .= ( $where != '') ? ' AND ' : '';
                 $where .= '(' . implode(' OR ', $tmp) . ')';
             } else {
-                if ($args['state'] != '-1') {
+                if ($state != '-1') {
                     $where .= ( $where != '') ? ' AND ' : '';
-                    $where .= "a.$ocolumn[state] = $args[state]";
+                    $where .= "a.$ocolumn[state] = $state";
                 }
             }
         }
@@ -649,6 +684,42 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         }
 
         return $item[$serviceId];
+    }
+
+    /**
+     * Get the client-service record by its Id
+     * 
+     * @author Toni Ginard
+     * 
+     * @param int clientServiceId
+     * 
+     * @return Array Client-service record
+     */
+    public function getClientServiceById($args) {
+        // Security check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        $clientServiceId = (isset($args['clientServiceId'])) ? $args['clientServiceId'] : false;
+
+        if (!$clientServiceId) {
+            LogUtil::registerError($this->__('No s\'ha especificat el clientServiceId a la funció getClientServiceById'));
+            return false;
+        }
+
+        // get user service id
+        $tables = DBUtil::getTables();
+        $column = $tables['agoraportal_client_services_column'];
+        $where = "$column[clientServiceId] = $clientServiceId";
+        $record = DBUtil::selectObject('agoraportal_client_services', $where);
+
+        if ($record === false) {
+            LogUtil::registerError($this->__('S\'ha produït un error en fer una consulta a la taula client_services'));
+            return false;
+        }
+
+        return $record;
     }
 
     /**
@@ -1574,14 +1645,13 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $serviceDB = FormUtil::getPassedValue('serviceDB', isset($args['serviceDB']) ? $args['serviceDB'] : '', 'GETPOST');
 
         // Needed argument
-        if ($serviceName == 'moodle' && (!isset($database) || !is_numeric($database))) {
+        if ($serviceName == 'moodle2' && (!isset($database) || !is_numeric($database))) {
             return LogUtil::registerError($this->__('La variable $database té un valor incorrecte: ' . $database));
         }
 
-        // Ensure dbhost is set in intranet (MySQL) and serviceDB is set in Moodle X (Oracle)
+        // Ensure dbhost is set in intranet (MySQL) and serviceDB is set in Moodle (Oracle)
         $clientService = false;
         if (($serviceName == 'intranet' && (is_null($host) || empty($host)))
-           || ($serviceName == 'moodle' && (is_null($serviceDB) || empty($serviceDB)))
            || ($serviceName == 'moodle2' && (is_null($serviceDB) || empty($serviceDB))) ) {
                 // Get all client_service info. This function is quite heavy so is worth trying to avoid it.
                 $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientServiceFull', array('serviceName' => $serviceName,
@@ -1609,7 +1679,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 if (!mysql_select_db($databaseName, $connect))
                     return false;
                 break;
-            case 'moodle':
             case 'moodle2':
                 $user = $agora['moodle']['username'] . $database;
                 if ($clientService != false) {

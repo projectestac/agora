@@ -87,12 +87,6 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
         // create module vars
         $this->setVar('siteBaseURL', 'http://agora.xtec.cat')
                 ->setVar('tempFolder', '')
-                ->setVar('serveradr', '127.0.0.1')
-                ->setVar('basedn', 'dc=foo,dc=bar')
-                ->setVar('bindas', '')
-                ->setVar('bindpass', '')
-                ->setVar('searchdn', 'ou=users,dc=foo,dc=bar')
-                ->setVar('serverport', '389')
                 ->setVar('allowedUsersAdministration', 'none')
                 ->setVar('allowedAccessRequest', 0)
                 ->setVar('sqlSecurityCode', '****')

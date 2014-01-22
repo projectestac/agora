@@ -196,7 +196,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         AjaxUtil::output(array('userRow' => $userRow,
             'content' => $content));
     }
-
+/*
     public function updateUserRow($args) {
 
         if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADD)) {
@@ -274,14 +274,15 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         AjaxUtil::output(array('userRow' => $userRow,
             'content' => $content));
     }
-
+*/
     /**
      * get all users list
      * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:  Filer parameters
      * @return:	The list of users for a client
      */
-    public function usersList($args) {
+/*
+     public function usersList($args) {
 
         if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_COMMENT)) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
@@ -331,7 +332,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
         AjaxUtil::output(array('uid' => $uid));
     }
-
+*/
     public function editService($args) {
 
         if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {

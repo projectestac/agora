@@ -34,10 +34,6 @@
     <h2 id="menuuserfiles" class="z-menuitem-title">
         [
         <a href="{modurl modname='Agoraportal' type='user' func='files' action='uploadFiles' clientCode=$clientCode}" >{gt text="Envia fitxers grans al servidor"}</a>
-        {if in_array('moodle', $activedServicesNames)}
-        |
-        <a href="{modurl modname='Agoraportal' type='user' func='files' action='m19' clientCode=$clientCode}">{gt text="Fitxers Moodle 1.9"}</a>
-        {/if}
         {if in_array('moodle2', $activedServicesNames)}
         |
         <a href="{modurl modname='Agoraportal' type='user' func='files' action='m2x' clientCode=$clientCode}">{gt text="Fitxers Moodle 2.x"}</a>
@@ -47,7 +43,7 @@
     {if $isAdmin}
     {include file="agoraportal_admin_clientInfo.tpl"}
     {/if}
-    {if (in_array('moodle', $activedServicesNames) OR  in_array('moodle2', $activedServicesNames)) AND $action eq 'uploadFiles'}
+    {if (in_array('moodle2', $activedServicesNames)) AND $action eq 'uploadFiles'}
     <div id="uploadFiles">
         <h2>{gt text="Envia fitxers grans al servidor"}</h2>
         <div id="formsArea">
@@ -133,69 +129,6 @@
             </center>
         </div>
         <!-- End Progress Bar -->
-    </div>
-    {/if}
-    {if in_array('moodle', $activedServicesNames) AND $action eq 'm19'}
-    <div id="m19">
-        <h2>{gt text="Fitxers Moodle 1.9"}</h2>
-        <table class="z-datatable">
-            <thead>
-                <tr>
-                    <th>
-                        {gt text="Nom del curs"}
-                    </th>
-                    <th>
-                        {gt text="Categoria"}
-                    </th>
-                    <th>
-                        {gt text="Fitxers (mida MB)"}
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {foreach item=course from=$courses}
-                <tr>
-                    <td>
-                        {$course.fullname}
-                    </td>
-                    <td>
-                        {$course.category}
-                    </td>
-                    <td width="500">
-                        {foreach item=file from=$course.files}
-                        <div class="fileListRow" id="fileRow_{$file.name}_courseId_{$course.courseId}">
-                            <div class="fileList">
-                                {$file.name} ({$file.size} MB)
-                            </div>
-                            <div class="fileListOptions" id="filemoved_{$file.name}_courseId_{$course.courseId}">
-                                <a href="javascript:moveFileToM2x('{$file.name}',{$course.courseId},'{$clientCode}');">
-                                    {img modname='core' src='forward.png' set='icons/extrasmall' __alt='Mou el fitxer' __title='Mou el fitxer'}
-                                </a>
-                                |
-                                <a href="javascript:deleteFileM19('{$file.name}',{$course.courseId},'{$clientCode}');">
-                                    {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt='Esborra el fitxer' __title='Esborra el fitxer'}
-                                </a>
-                                |
-                                <a href="{modurl modname='Agoraportal' type='user' func='downloadFile' courseId=$course.courseId filename=$file.name clientCode=$clientCode target='m19'}">
-                                    {img modname='core' src='agt_update_recommended.png' set='icons/extrasmall' __alt='Descarrega\'t el fitxer' __title='Descarrega\'t el fitxer'}
-                                </a>
-                            </div>
-                        </div>
-                        <div style="clear: both;"></div>
-                        {foreachelse}
-                        {gt text="No s'han trobat fitxers"}
-                        {/foreach}
-                    </td>
-                </tr>
-                {foreachelse}
-                <tr>
-                    <td colspan="10">
-                        {gt text="No s'han trobat cursos"}
-                    </td>
-                </tr>
-                {/foreach}
-            </tbody>
-        </table>
     </div>
     {/if}
     {if in_array('moodle2', $activedServicesNames) AND $action eq 'm2x'}

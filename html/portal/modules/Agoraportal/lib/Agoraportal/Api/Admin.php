@@ -151,56 +151,53 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * Activate moodle service. Each service have got its activation function.
      * 
      * @author 	Albert Pérez Monfort (aperezm@xtec.cat)
+     * @author 	Toni Ginard
      *
      * @param string Client-service identity
      * 
      * @return  array if Ok / boolean if error
      */
-    public function activeService_moodle($args) {
+    public function activeService_moodle2($args) {
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
         }
 
-        $haveDB = false;
-
-        $clientServiceId = $args['clientServiceId'];
         // Needed argument
+        $clientServiceId = $args['clientServiceId'];
         if (!isset($clientServiceId) || !is_numeric($clientServiceId)) {
-            return LogUtil::registerError($this->__('No s\'ha pogut carregar el que volíeu. Reviseu les dades'));
+            return LogUtil::registerError($this->__('Falta l\'Id del client-servei'));
         }
 
-        $item = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId));
+        // This function is only for moodle2 service
+        $serviceName = 'moodle2';
 
-        if ($item == false) {
-            return LogUtil::registerError($this->__('No s\'ha trobat el servei'));
+        // Get definition of service moodle2
+        $service = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => $serviceName));
+        if (!is_array($service)) {
+            return LogUtil::registerError($this->__('No s\'ha trobat el servei moodle2'));
         }
 
-        $serviceId = $item[$clientServiceId]['serviceId'];
-        // Get the services
-        $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
-        $serviceName = $services[$serviceId]['serviceName'];
+        $serviceId = $service['serviceId'];
 
-        $moodle = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $item[$clientServiceId]['clientId'],
-                    'serviceName' => 'moodle'));
-
-        $moodle2 = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $item[$clientServiceId]['clientId'],
-                    'serviceName' => 'moodle2'));
-
-        // in case of moodle2 take the same data base as moodle if exists
-        if ($serviceName == 'moodle2' && !empty($moodle) && $moodle['activedId'] > 0) {
-            $haveDB = true;
-            $db = $moodle['activedId'];
+        // Get full client-service record
+        $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientServiceById', array('clientServiceId' => $clientServiceId));
+        if (!$clientService) {
+            return LogUtil::registerError($this->__('No s\'ha trobat la informació del client-servei amb Id ' . $clientServiceId));
         }
 
-        // and the same for moodle
-        if ($serviceName == 'moodle' && !empty($moodle2) && $moodle2['activedId'] > 0) {
-            $haveDB = true;
-            $db = $moodle2['activedId'];
+        // Get full client record
+        $client = ModUtil::apiFunc('Agoraportal', 'user', 'getClientById', array('clientId' => $clientService['clientId']));
+        if (!$client) {
+            return LogUtil::registerError($this->__('No s\'ha trobat la informació del client amb Id ' . $clientServiceId['clientId']));
         }
 
-        if (!$haveDB) {
-            // the client have not moodle active
+        // Get a DB Id
+        if (!empty($clientService) && $clientService['activedId'] > 0) {
+            // This client-service has already an Id assigned
+            $db = $clientService['activedId'];
+        } else {
+            // Get the actual Id
             $db = ModUtil::apiFunc('Agoraportal', 'admin', 'getFreeDataBase', array('serviceId' => $serviceId,
                         'serviceName' => $serviceName));
             if (!$db) {
@@ -236,11 +233,11 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             UPDATE {$prefix}user
             SET password='$passwordEnc',
                 firstname='Administrador/a',
-                lastname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
-                email='" . str_replace("'", "''", $item[$clientServiceId]['clientCode']) . "@xtec.cat',
-                institution='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
-                address='" . str_replace("'", "''", $item[$clientServiceId]['clientAddress']) . "',
-                city='" . str_replace("'", "''", $item[$clientServiceId]['clientCity']) . "'
+                lastname='" . str_replace("'", "''", $client['clientName']) . "',
+                email='" . str_replace("'", "''", $client['clientCode']) . "@xtec.cat',
+                institution='" . str_replace("'", "''", $client['clientName']) . "',
+                address='" . str_replace("'", "''", $client['clientAddress']) . "',
+                city='" . str_replace("'", "''", $client['clientCity']) . "'
             WHERE id=$adminId
             ";
 
@@ -254,17 +251,17 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         // Query to update site name and site description
         $sqls[] = "
             UPDATE {$prefix}course 
-            SET	fullname='" . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "',
-                shortname='" . str_replace("'", "''", $item[$clientServiceId]['clientDNS']) . "',
-                summary='Moodle del centre " . str_replace("'", "''", $item[$clientServiceId]['clientName']) . "'
+            SET	fullname='" . str_replace("'", "''", $client['clientName']) . "',
+                shortname='" . str_replace("'", "''", $client['clientDNS']) . "',
+                summary='Moodle del centre " . str_replace("'", "''", $client['clientName']) . "'
             WHERE id=1
             ";
 
         // Query to update the cookie name
-        $sessionPrefix = ($serviceName == 'moodle') ? 'mdl_' : 'moodle';
+        $sessionPrefix = 'moodle';
         $sqls[] = "
             UPDATE {$prefix}config 
-            SET value='$sessionPrefix" . $item[$clientServiceId]['clientId'] . "' 
+            SET value='$sessionPrefix" . $client['clientId'] . "' 
             WHERE name='sessioncookie'
             ";
 
@@ -288,6 +285,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * Activate intranet service. Each service have got its activation function
      *
      * @author 	Albert Pérez Monfort (aperezm@xtec.cat)
+     * @author 	Toni Ginard
      *
      * @param string $clientServiceId
      * @param string Data base server including optional port
@@ -403,20 +401,17 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $dbHost = $args['dbHost'];
 
         // Moodle and moodle2 use the same activeId, so must be treated as one 
-        if (isset($args['serviceName']) && ($args['serviceName'] == 'moodle' || $args['serviceName'] == 'moodle2')) {
-            // Get the list of moodle services of all the clients
-            $moodleService = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'moodle'));
-            $moodleServiceId = $moodleService['serviceId'];
-            $moodleClientServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $moodleServiceId,
-                        'state' => -1));
-
-            // Get the list of moodle2 services of all the clients
+        if (isset($args['serviceName']) && $args['serviceName'] == 'moodle2') {
+            // Get the list of moodle2 services of all the clients. First step 
+            // is to get the service Id from the service definition. Second step 
+            // is get all the client-services with that Id.
             $moodle2Service = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'moodle2'));
             $moodle2ServiceId = $moodle2Service['serviceId'];
             $moodle2ClientServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $moodle2ServiceId,
                         'state' => -1));
 
-            if (empty($moodleClientServices) && empty($moodle2ClientServices)) {
+            if (empty($moodle2ClientServices)) {
+                LogUtil::registerError($this->__('No s\'han obtingut dades de la taula clientServices'));
                 return false;
             }
 
@@ -424,17 +419,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             $databaseIds = array();
             $max = 0;
 
-            // Get a list of activedId of moodle service
-            foreach ($moodleClientServices as $service) {
-                if ($service['activedId'] != 0) {
-                    $databaseIds[] = $service['activedId'];
-                    if ($service['activedId'] > $max) {
-                        $max = $service['activedId'];
-                    }
-                }
-            }
-
-            // Add to the previous list the activedId of moodle2 service
+            // Get a list of activedId of moodle2 client-services
             foreach ($moodle2ClientServices as $service) {
                 if ($service['activedId'] != 0) {
                     $databaseIds[] = $service['activedId'];
@@ -444,10 +429,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 }
             }
 
-            // Remove duplicates
-            $databaseIds = array_unique($databaseIds);
-
             sort($databaseIds);
+
         } else {
             // get all services (all states)
             $items = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $args['serviceId'],
@@ -515,7 +498,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $pntable = DBUtil::getTables();
         $c = $pntable['agoraportal_services_column'];
         $where = "$c[serviceId] = $args[serviceId]";
-        if (!DBUTil::updateObject($args['service'], 'agoraportal_services', $where)) {
+        if (!DBUtil::updateObject($args['service'], 'agoraportal_services', $where)) {
             return LogUtil::registerError($this->__('No s\'ha pogut actualitzar'));
         }
         return true;
@@ -541,7 +524,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $c = $pntable['agoraportal_location_column'];
         $where = "$c[locationId] = $args[locationId]";
         $items = array('locationName' => $args['locationName']);
-        if (!DBUTil::updateObject($items, 'agoraportal_location', $where)) {
+        if (!DBUtil::updateObject($items, 'agoraportal_location', $where)) {
             return LogUtil::registerError($this->__('No s\'ha pogut actualitzar'));
         }
         return true;
@@ -568,7 +551,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $c = $pntable['agoraportal_requestTypes_column'];
         $where = "$c[requestTypeId] = $id";
         $items = array('name' => $args['requestTypeName'], 'description' => $args['requestTypeDescription'], 'userCommentsText' => $args['requestTypeUserCommentsText']);
-        if (!DBUTil::updateObject($items, 'agoraportal_requestTypes', $where)) {
+        if (!DBUtil::updateObject($items, 'agoraportal_requestTypes', $where)) {
             return LogUtil::registerError($this->__('No s\'ha pogut actualitzar'));
         }
         return true;
@@ -688,7 +671,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $c = $pntable['agoraportal_clientType_column'];
         $where = "$c[typeId] = $args[typeId]";
         $items = array('typeName' => $args['typeName']);
-        if (!DBUTil::updateObject($items, 'agoraportal_clientType', $where)) {
+        if (!DBUtil::updateObject($items, 'agoraportal_clientType', $where)) {
             return LogUtil::registerError($this->__('No s\'ha pogut actualitzar'));
         }
         return true;
@@ -836,8 +819,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         global $agora;
 
         switch ($action) {
-            case 1: // Create or delete Moodle or Moodle2 super administrator
-                // get all the services and trables prefix for moodle tables
+            case 1: 
+                // Create or delete Moodle2 super administrator
+                // get all the services and tables prefix for moodle tables
                 $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
                 $prefix = $agora[$serviceName]['prefix'];
                 $service = $services[$item[$clientServiceId]['serviceId']]['serviceName'];
@@ -845,7 +829,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 $sql = "SELECT id FROM {$prefix}user u WHERE u.username='xtecadmin'";
                 $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                             'sql' => $sql,
-                            'serviceName' => 'moodle',
+                            'serviceName' => $serviceName,
                         ));
                 if (!$result['success']) {
                     return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
@@ -854,60 +838,47 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 $uid = (isset($result['values'][0]['ID']) && $result['values'][0]['ID'] > 0) ? $result['values'][0]['ID'] : 0;
 
                 if ($uid > 0) {
-                    // This Moodle instance has the xtecadmin user and must be deleted.
-                    if ($service == 'moodle2') {
-                        // Moodle 2
-                        // Get xtecadmin user id
-                        $sql = "SELECT id FROM {$prefix}user u WHERE u.username='xtecadmin'";
-                        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                    'sql' => $sql,
-                                    'serviceName' => 'moodle2',
-                                ));
-                        if (!$result['success']) {
-                            return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                        }
-                        $xtecadminID = $result['values'][0]['ID'];
-                        // Get list of site admins
-                        $sql = "SELECT to_char(c.value) as value FROM {$prefix}config c WHERE c.name='siteadmins'";
-                        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                    'sql' => $sql,
-                                    'serviceName' => 'moodle2',
-                                ));
-                        if (!$result['success']) {
-                            return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                        }
-                        // Remove xtecadmin ID from the list of admins
-                        $siteadmins = explode(',', $result['values'][0]['VALUE']);
-                        $siteadmins = array_diff($siteadmins, array($xtecadminID));
-                        $siteadmins = implode(',', $siteadmins);
+                    // Get xtecadmin user id
+                    $sql = "SELECT id FROM {$prefix}user u WHERE u.username='xtecadmin'";
+                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
+                                'sql' => $sql,
+                                'serviceName' => $serviceName,
+                            ));
+                    if (!$result['success']) {
+                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
+                    }
+                    $xtecadminID = $result['values'][0]['ID'];
+                    
+                    // Get list of site admins
+                    $sql = "SELECT to_char(c.value) as value FROM {$prefix}config c WHERE c.name='siteadmins'";
+                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
+                                'sql' => $sql,
+                                'serviceName' => $serviceName,
+                            ));
+                    if (!$result['success']) {
+                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
+                    }
+                    
+                    // Remove xtecadmin ID from the list of admins
+                    $siteadmins = explode(',', $result['values'][0]['VALUE']);
+                    $siteadmins = array_diff($siteadmins, array($xtecadminID));
+                    $siteadmins = implode(',', $siteadmins);
 
-                        // Update list of site admins
-                        $sql = "UPDATE {$prefix}config c SET c.value='$siteadmins' WHERE c.name='siteadmins'";
-                        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                    'sql' => $sql,
-                                    'serviceName' => 'moodle2',
-                                ));
-                        if (!$result['success']) {
-                            return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                        }
-                    } else {
-                        // Moodle 1.9
-                        $sql = "DELETE FROM {$prefix}role_assignments WHERE userid='" . $uid . "'";
-
-                        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                    'sql' => $sql,
-                                    'serviceName' => 'moodle',
-                                ));
-
-                        if (!$result['success'])
-                            return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
+                    // Update list of site admins
+                    $sql = "UPDATE {$prefix}config c SET c.value='$siteadmins' WHERE c.name='siteadmins'";
+                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
+                                'sql' => $sql,
+                                'serviceName' => $serviceName,
+                            ));
+                    if (!$result['success']) {
+                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
                     }
 
                     $sql = "DELETE FROM {$prefix}user WHERE id='" . $uid . "'";
 
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                                 'sql' => $sql,
-                                'serviceName' => 'moodle',
+                                'serviceName' => $serviceName,
                             ));
 
                     if (!$result['success']) {
@@ -921,7 +892,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     $sql = "SELECT mnethostid FROM {$prefix}user u WHERE u.username='admin'";
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                                 'sql' => $sql,
-                                'serviceName' => 'moodle',
+                                'serviceName' => $serviceName,
                             ));
 
                     if (!$result['success']) {
@@ -931,196 +902,100 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     // create user
                     global $agora;
 
-                    if ($service == 'moodle2') {
-                        // Moodle 2
-                        $sql = "INSERT INTO {$prefix}USER(AUTH,
-                                CONFIRMED,
-                                POLICYAGREED,
-                                DELETED,
-                                MNETHOSTID,
-                                USERNAME,
-                                PASSWORD,
-                                IDNUMBER,
-                                FIRSTNAME,
-                                LASTNAME,
-                                EMAIL,
-                                EMAILSTOP,
-                                ICQ,
-                                SKYPE,
-                                YAHOO,
-                                AIM,
-                                MSN,
-                                PHONE1,
-                                PHONE2,
-                                INSTITUTION,
-                                DEPARTMENT,
-                                ADDRESS,
-                                CITY,
-                                COUNTRY,
-                                LANG,
-                                THEME,
-                                TIMEZONE,
-                                FIRSTACCESS,
-                                LASTACCESS,
-                                LASTLOGIN,
-                                CURRENTLOGIN,
-                                LASTIP,
-                                SECRET,
-                                PICTURE,
-                                URL,
-                                DESCRIPTION,
-                                MAILFORMAT,
-                                MAILDIGEST,
-                                MAILDISPLAY,
-                                HTMLEDITOR,
-                                AUTOSUBSCRIBE,
-                                TRACKFORUMS,
-                                TIMEMODIFIED,
-                                TRUSTBITMASK,
-                                IMAGEALT)
-                                VALUES ('manual',
-                                        1,
-                                        0,
-                                        0,
-                                        $mnethostid,
-                                        'xtecadmin',
-                                        '" . $agora['config']['xtecadmin'] . "',
-                                        ' ',
-                                        'Administrador/a',
-                                        'XTEC',
-                                        'agora@xtec.cat',
-                                        1,
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        'Barcelona',
-                                        'es',
-                                        'ca',
-                                        ' ',
-                                        '99',
-                                        0,
-                                        1208419071,
-                                        1208419039,
-                                        1208419069,
-                                        '0.0.0.0',
-                                        ' ',
-                                        0,
-                                        ' ',
-                                        'Administrador/a de la XTEC ',
-                                        1,
-                                        0,
-                                        0,
-                                        1,
-                                        1,
-                                        0,
-                                        1208418989,
-                                        0,
-                                        ' ')";
-                    } else {
-                        // Moodle 1.9
-                        $sql = "INSERT INTO {$prefix}USER(AUTH,
-                                CONFIRMED,
-                                POLICYAGREED,
-                                DELETED,
-                                MNETHOSTID,
-                                USERNAME,
-                                PASSWORD,
-                                IDNUMBER,
-                                FIRSTNAME,
-                                LASTNAME,
-                                EMAIL,
-                                EMAILSTOP,
-                                ICQ,
-                                SKYPE,
-                                YAHOO,
-                                AIM,
-                                MSN,
-                                PHONE1,
-                                PHONE2,
-                                INSTITUTION,
-                                DEPARTMENT,
-                                ADDRESS,
-                                CITY,
-                                COUNTRY,
-                                LANG,
-                                THEME,
-                                TIMEZONE,
-                                FIRSTACCESS,
-                                LASTACCESS,
-                                LASTLOGIN,
-                                CURRENTLOGIN,
-                                LASTIP,
-                                SECRET,
-                                PICTURE,
-                                URL,
-                                DESCRIPTION,
-                                MAILFORMAT,
-                                MAILDIGEST,
-                                MAILDISPLAY,
-                                HTMLEDITOR,
-                                AUTOSUBSCRIBE,
-                                TRACKFORUMS,
-                                TIMEMODIFIED,
-                                TRUSTBITMASK,
-                                IMAGEALT,
-                                SCREENREADER)
-                                VALUES ('manual',
-                                        1,
-                                        0,
-                                        0,
-                                        $mnethostid,
-                                        'xtecadmin',
-                                        '" . $agora['config']['xtecadmin'] . "',
-                                        ' ',
-                                        'Administrador/a',
-                                        'XTEC',
-                                        'agora@xtec.cat',
-                                        1,
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        ' ',
-                                        'Barcelona',
-                                        'es',
-                                        'ca_utf8',
-                                        ' ',
-                                        '99',
-                                        0,
-                                        1208419071,
-                                        1208419039,
-                                        1208419069,
-                                        '0.0.0.0',
-                                        ' ',
-                                        0,
-                                        ' ',
-                                        'Administrador/a de la XTEC ',
-                                        1,
-                                        0,
-                                        0,
-                                        1,
-                                        1,
-                                        0,
-                                        1208418989,
-                                        0,
-                                        ' ',
-                                        0)";
-                    }
+                    $sql = "INSERT INTO {$prefix}USER(AUTH,
+                            CONFIRMED,
+                            POLICYAGREED,
+                            DELETED,
+                            MNETHOSTID,
+                            USERNAME,
+                            PASSWORD,
+                            IDNUMBER,
+                            FIRSTNAME,
+                            LASTNAME,
+                            EMAIL,
+                            EMAILSTOP,
+                            ICQ,
+                            SKYPE,
+                            YAHOO,
+                            AIM,
+                            MSN,
+                            PHONE1,
+                            PHONE2,
+                            INSTITUTION,
+                            DEPARTMENT,
+                            ADDRESS,
+                            CITY,
+                            COUNTRY,
+                            LANG,
+                            THEME,
+                            TIMEZONE,
+                            FIRSTACCESS,
+                            LASTACCESS,
+                            LASTLOGIN,
+                            CURRENTLOGIN,
+                            LASTIP,
+                            SECRET,
+                            PICTURE,
+                            URL,
+                            DESCRIPTION,
+                            MAILFORMAT,
+                            MAILDIGEST,
+                            MAILDISPLAY,
+                            HTMLEDITOR,
+                            AUTOSUBSCRIBE,
+                            TRACKFORUMS,
+                            TIMEMODIFIED,
+                            TRUSTBITMASK,
+                            IMAGEALT)
+                            VALUES ('manual',
+                                    1,
+                                    0,
+                                    0,
+                                    $mnethostid,
+                                    'xtecadmin',
+                                    '" . $agora['config']['xtecadmin'] . "',
+                                    ' ',
+                                    'Administrador/a',
+                                    'XTEC',
+                                    'agora@xtec.cat',
+                                    1,
+                                    ' ',
+                                    ' ',
+                                    ' ',
+                                    ' ',
+                                    ' ',
+                                    ' ',
+                                    ' ',
+                                    ' ',
+                                    ' ',
+                                    ' ',
+                                    'Barcelona',
+                                    'es',
+                                    'ca',
+                                    ' ',
+                                    '99',
+                                    0,
+                                    1208419071,
+                                    1208419039,
+                                    1208419069,
+                                    '0.0.0.0',
+                                    ' ',
+                                    0,
+                                    ' ',
+                                    'Administrador/a de la XTEC ',
+                                    1,
+                                    0,
+                                    0,
+                                    1,
+                                    1,
+                                    0,
+                                    1208418989,
+                                    0,
+                                    ' ')";
+
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                                 'sql' => $sql,
-                                'serviceName' => 'moodle',
+                                'serviceName' => $serviceName,
                             ));
                     if (!$result['success']) {
                         return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
@@ -1130,68 +1005,36 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     $sql = "SELECT id FROM {$prefix}user u WHERE u.username='xtecadmin' ";
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                                 'sql' => $sql,
-                                'serviceName' => 'moodle',
+                                'serviceName' => $serviceName,
                             ));
                     if (!$result['success']) {
                         return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
                     }
                     $xtecadminID = $result['values'][0]['ID'];
 
-                    if ($service == 'moodle2') {
-                        // Moodle 2
-                        // Get list of site admins
-                        $sql = "SELECT to_char(c.value) as value FROM {$prefix}config c WHERE c.name='siteadmins'";
-                        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                    'sql' => $sql,
-                                    'serviceName' => 'moodle2',
-                                ));
-                        if (!$result['success']) {
-                            return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                        }
-                        // Add xtecadmin ID from the list of admins
-                        $siteadmins = explode(',', $result['values'][0]['VALUE']);
-                        array_push($siteadmins, $xtecadminID);
-                        $siteadmins = array_reverse($siteadmins); // xtecadmin will be main admin!
-                        $siteadmins = implode(',', $siteadmins);
+                    // Get list of site admins
+                    $sql = "SELECT to_char(c.value) as value FROM {$prefix}config c WHERE c.name='siteadmins'";
+                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
+                                'sql' => $sql,
+                                'serviceName' => 'moodle2',
+                            ));
+                    if (!$result['success']) {
+                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
+                    }
+                    // Add xtecadmin ID from the list of admins
+                    $siteadmins = explode(',', $result['values'][0]['VALUE']);
+                    array_push($siteadmins, $xtecadminID);
+                    $siteadmins = array_reverse($siteadmins); // xtecadmin will be main admin!
+                    $siteadmins = implode(',', $siteadmins);
 
-                        // Update list of site admins
-                        echo $sql = "UPDATE {$prefix}config c SET c.value='$siteadmins' WHERE c.name='siteadmins'";
-                        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                    'sql' => $sql,
-                                    'serviceName' => 'moodle2',
-                                ));
-                        if (!$result['success']) {
-                            return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                        }
-                    } else {
-                        // Moodle 1.9
-                        $sql = "INSERT INTO {$prefix}ROLE_ASSIGNMENTS(ROLEID,
-                                    CONTEXTID,
-                                    USERID,
-                                    HIDDEN,
-                                    TIMESTART,
-                                    TIMEEND,
-                                    TIMEMODIFIED,
-                                    MODIFIERID,
-                                    ENROL,
-                                    SORTORDER)
-                                    VALUES (1,
-                                            1,
-                                            $xtecadminID,
-                                            0,
-                                            0,
-                                            0,
-                                            1208417604,
-                                            2,
-                                            'manual',
-                                            0)";
-                        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                    'sql' => $sql,
-                                    'serviceName' => 'moodle',
-                                ));
-                        if (!$result['success']) {
-                            return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                        }
+                    // Update list of site admins
+                    echo $sql = "UPDATE {$prefix}config c SET c.value='$siteadmins' WHERE c.name='siteadmins'";
+                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
+                                'sql' => $sql,
+                                'serviceName' => 'moodle2',
+                            ));
+                    if (!$result['success']) {
+                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
                     }
 
                     LogUtil::registerStatus($this->__('S\'ha creat correctament l\'usuari xtecadmin del centre.'));
@@ -1199,12 +1042,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 break;
 
             case 2: // Connect Zikula and Moodle
-                /*
-                if (!ModUtil::apiFunc('Agoraportal', 'admin', 'connectIM', array('clientId' => $item[$clientServiceId]['clientId'],
-                            'clientServiceId' => $clientServiceId))) {
-                    return false;
-                }
-                */
                 break;
 
             case 3: // Create or delete Zikula super administrator
@@ -1364,350 +1201,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     }
 
     /**
-     * Connect the intranet and the Moodle if both services are available
-     * @author	 Albert Pérez Monfort (aperezm@xtec.cat)
-     * @author  Toni Ginard
-     * @param   int clientServiceId
-     * @param   int clientId
-     * @return  Boolean True if success, 'nomoodle' or 'nointranet' if no error occurred but didn't connect and false in case of error
-     */
-    /* 2013.12.11 @aginard: Connection is no longer used. At the moment, only commented the code, but can be removed}
-    public function connectIM($args) {
-        $clientServiceId = FormUtil::getPassedValue('clientServiceId', (isset($args['clientServiceId'])) ? $args['clientServiceId'] : null, 'GET');
-        $clientId = $args['clientId'];
-
-        // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
-
-        // Load general config and Zikula config
-        global $agora;
-        global $ZConfig;
-
-        // Get services info, cause ServiceId is needed
-        $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
-
-        // Check if the client have both intranet and Moodle services active.
-        // Get Moodle service ID
-        $moodle = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientId,
-                    'serviceName' => 'moodle'));
-        $moodleId = $moodle['activedId'];
-        $prefix = strtolower($agora['moodle']['prefix']);
-
-        // Get Moodle2 service ID
-        $moodle2 = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientId,
-                    'serviceName' => 'moodle2'));
-        $moodle2Id = $moodle2['activedId'];
-        $prefix2 = strtolower($agora['moodle2']['prefix']);
-
-        // intranet is also necessary because this action could occur when a moodle is activated
-        $intranet = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientId,
-                    'serviceName' => 'intranet'));
-        $intranetId = $intranet['activedId'];
-        $intranetServiceId = $intranet['clientServiceId'];
-
-        // !intranet happens when there's no register in DB
-        // $intranetId < 1 happens when service exists but is not active
-        if (is_null($intranet) || ($intranetId < 1)) {
-            LogUtil::registerStatus($this->__('No s\'han connectat el Moodle i la intranet perquè no s\'ha trobat l\'Id de la base de dades de la intranet. Probablement el centre no disposa d\'una intranet activa.'));
-            return 'nointranet';
-        }
-
-        // Initial values
-        $moodleActive = false;
-        $moodle2Active = false;
-
-        // !$moodle happens when there's no register in DB
-        // $moodleId < 1 happens when service exists but in not active
-        if (!$moodleId && !$moodle2Id) {
-            LogUtil::registerStatus($this->__('No s\'han connectat el Moodle i la intranet perquè no s\'ha trobat ni l\'Id de la base de dades del Moodle ni el del Moodle2. Probablement el centre no disposa de cap Moodle actiu.'));
-            return 'nomoodle';
-        }
-
-        if (is_null($moodleId) || ($moodleId < 1)) {
-            LogUtil::registerStatus($this->__('No s\'han connectat el Moodle 1.9 i la intranet perquè el centre no disposa d\'un Moodle 1.9.'));
-        } else {
-            $moodleActive = true;
-        }
-
-        if (is_null($moodle2Id) || ($moodle2Id < 1)) {
-            LogUtil::registerStatus($this->__('No s\'han connectat el Moodle 2 i la intranet perquè el centre no disposa d\'un Moodle 2.'));
-        } else {
-            $moodle2Active = true;
-        }
-
-        if (!$moodleActive && !$moodle2Active) {
-            return 'nomoodle';
-        }
-
-        // Needed to keep compatibility during migration from 1.2.x to 1.3.x
-        $compat = ModUtil::apiFunc('Agoraportal', 'admin', 'compat', array('intranetVersion' => $intranet['version']));
-
-        // Get intranet service dbhost
-        $serviceInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $intranetServiceId));
-        $dbHost = $serviceInfo[$intranetServiceId]['dbHost'];
-
-        // Update config_plugins table in Moodle 1.9 (if service is active)
-        if ($moodleActive) {
-            // Delete previous configuration if it exists
-            $sql = "DELETE FROM {$prefix}config_plugins
-                    WHERE {$prefix}config_plugins.plugin='auth/db'";
-
-            $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $moodleId,
-                        'sql' => $sql,
-                        'serviceName' => 'moodle',
-                    ));
-
-            if (!$result['success']) {
-                return LogUtil::registerError($this->__('L\'intent d\'esborrament ha fallat. Error:') . $result['errorMsg']);
-            }
-
-            $values = Array('host' => $dbHost,
-                'type' => 'mysql',
-                'sybasequoting' => '0',
-                'name' => $agora['intranet']['userprefix'] . $intranetId,
-                'user' => $agora['intranet']['username'],
-                'pass' => $agora['intranet']['userpwd'],
-                'table' => "{$compat['tablePrefix']}users",
-                'fielduser' => "{$compat['fieldsPrefix']}uname",
-                'fieldpass' => "{$compat['fieldsPrefix']}pass",
-                'passtype' => 'plaintext',
-                'extencoding' => 'utf-8',
-                'setupsql' => ' ',
-                'debugauthdb' => '0',
-                'removeuser' => '0',
-                'changepasswordurl' => ' ',
-                'field_map_firstname' => ' ',
-                'field_updatelocal_firstname' => 'oncreate',
-                'field_updateremote_firstname' => '0',
-                'field_lock_firstname' => 'unlocked',
-                'field_map_lastname' => ' ',
-                'field_updatelocal_lastname' => 'oncreate',
-                'field_updateremote_lastname' => '0',
-                'field_lock_lastname' => 'unlocked',
-                'field_map_email' => ' ',
-                'field_updatelocal_email' => 'oncreate',
-                'field_updateremote_email' => '0',
-                'field_lock_email' => 'unlocked',
-                'field_map_city' => ' ',
-                'field_updatelocal_city' => 'oncreate',
-                'field_updateremote_city' => '0',
-                'field_lock_city' => 'unlocked',
-                'field_map_country' => ' ',
-                'field_updatelocal_country' => 'oncreate',
-                'field_updateremote_country' => '0',
-                'field_lock_country' => 'unlocked',
-                'field_map_lang' => ' ',
-                'field_updatelocal_lang' => 'oncreate',
-                'field_updateremote_lang' => '0',
-                'field_lock_lang' => 'unlocked',
-                'field_map_description' => ' ',
-                'field_updatelocal_description' => 'oncreate',
-                'field_updateremote_description' => '0',
-                'field_lock_description' => 'unlocked',
-                'field_map_url' => ' ',
-                'field_updatelocal_url' => 'oncreate',
-                'field_updateremote_url' => '0',
-                'field_lock_url' => 'unlocked',
-                'field_map_idnumber' => ' ',
-                'field_updatelocal_idnumber' => 'oncreate',
-                'field_updateremote_idnumber' => '0',
-                'field_lock_idnumber' => 'unlocked',
-                'field_map_institution' => ' ',
-                'field_updatelocal_institution' => 'oncreate',
-                'field_updateremote_institution' => '0',
-                'field_lock_institution' => 'unlocked',
-                'field_map_department' => ' ',
-                'field_updatelocal_department' => 'oncreate',
-                'field_updateremote_department' => '0',
-                'field_lock_department' => 'unlocked',
-                'field_map_phone1' => ' ',
-                'field_updatelocal_phone1' => 'oncreate',
-                'field_updateremote_phone1' => '0',
-                'field_lock_phone1' => 'unlocked',
-                'field_map_phone2' => ' ',
-                'field_updatelocal_phone2' => 'oncreate',
-                'field_updateremote_phone2' => '0',
-                'field_lock_phone2' => 'unlocked',
-                'field_map_address' => ' ',
-                'field_updatelocal_address' => 'oncreate',
-                'field_updateremote_address' => '0',
-                'field_lock_address' => 'unlocked',
-            );
-
-            $sql = '';
-
-            foreach ($values as $key => $value) {
-                $sql .= "INSERT INTO {$prefix}config_plugins (plugin, name, value)
-                    VALUES ('auth/db','" . $key . "','" . $value . "'); ";
-            }
-
-            $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $moodleId,
-                        'sql' => $sql,
-                        'serviceName' => 'moodle',
-                    ));
-
-            if (!$result['success']) {
-                return LogUtil::registerError($this->__("No s'ha pogut actualitzar la taula {$prefix}config_plugins del Moodle 1.9. SQL: " . $sql));
-            } else {
-                LogUtil::registerStatus($this->__('S\'han connectat el Moodle 1.9 i la intranet.'));
-            }
-
-            $moodleurl = ($moodle2Active) ? '../antic' : '../moodle';
-
-            $modulevars = array('dbprefix' => serialize($prefix),
-                'moodleurl' => serialize($moodleurl),
-                'dfl_language' => serialize('ca_utf8'));
-
-            foreach ($modulevars as $modvarname => $modvarvalue) {
-                $sql = "UPDATE {$compat['tablePrefix']}module_vars 
-                    SET {$compat['fieldsPrefix']}value='$modvarvalue'
-                    WHERE {$compat['fieldsPrefix']}modname='iw_moodle' AND {$compat['fieldsPrefix']}name='$modvarname'";
-
-                $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $intranetId,
-                            'sql' => $sql,
-                            'serviceName' => 'intranet',
-                            'host' => $dbHost,
-                        ));
-
-                if (!$result['success']) {
-                    return LogUtil::registerError($this->__('S\'ha produit un error en la modificació de les taules de la intranet. Error: ' . $result['errorMsg']));
-                }
-            }
-        }
-
-        // Update config_plugins table in Moodle 2 (if service is active)
-        if ($moodle2Active) {
-            // Delete previous configuration if it exists
-            $sql = "DELETE FROM {$prefix2}config_plugins
-                    WHERE {$prefix2}config_plugins.plugin='auth/db'";
-
-            $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $moodle2Id,
-                        'sql' => $sql,
-                        'serviceName' => 'moodle2',
-                    ));
-
-            if (!$result['success']) {
-                return LogUtil::registerError($this->__('L\'intent d\'esborrament ha fallat. Error:') . $result['errorMsg']);
-            }
-
-            $values2 = Array('host' => $dbHost,
-                'type' => 'mysql',
-                'sybasequoting' => '0',
-                'name' => $agora['intranet']['userprefix'] . $intranetId,
-                'user' => $agora['intranet']['username'],
-                'pass' => $agora['intranet']['userpwd'],
-                'table' => "{$compat['tablePrefix']}users",
-                'fielduser' => "{$compat['fieldsPrefix']}uname",
-                'fieldpass' => "{$compat['fieldsPrefix']}pass",
-                'passtype' => 'plaintext',
-                'extencoding' => 'utf-8',
-                'setupsql' => ' ',
-                'debugauthdb' => '0',
-                'removeuser' => '0',
-                'changepasswordurl' => ' ',
-                'field_map_firstname' => ' ',
-                'field_updatelocal_firstname' => 'oncreate',
-                'field_updateremote_firstname' => '0',
-                'field_lock_firstname' => 'unlocked',
-                'field_map_lastname' => ' ',
-                'field_updatelocal_lastname' => 'oncreate',
-                'field_updateremote_lastname' => '0',
-                'field_lock_lastname' => 'unlocked',
-                'field_map_email' => ' ',
-                'field_updatelocal_email' => 'oncreate',
-                'field_updateremote_email' => '0',
-                'field_lock_email' => 'unlocked',
-                'field_map_city' => ' ',
-                'field_updatelocal_city' => 'oncreate',
-                'field_updateremote_city' => '0',
-                'field_lock_city' => 'unlocked',
-                'field_map_country' => ' ',
-                'field_updatelocal_country' => 'oncreate',
-                'field_updateremote_country' => '0',
-                'field_lock_country' => 'unlocked',
-                'field_map_lang' => ' ',
-                'field_updatelocal_lang' => 'oncreate',
-                'field_updateremote_lang' => '0',
-                'field_lock_lang' => 'unlocked',
-                'field_map_description' => ' ',
-                'field_updatelocal_description' => 'oncreate',
-                'field_updateremote_description' => '0',
-                'field_lock_description' => 'unlocked',
-                'field_map_url' => ' ',
-                'field_updatelocal_url' => 'oncreate',
-                'field_updateremote_url' => '0',
-                'field_lock_url' => 'unlocked',
-                'field_map_idnumber' => ' ',
-                'field_updatelocal_idnumber' => 'oncreate',
-                'field_updateremote_idnumber' => '0',
-                'field_lock_idnumber' => 'unlocked',
-                'field_map_institution' => ' ',
-                'field_updatelocal_institution' => 'oncreate',
-                'field_updateremote_institution' => '0',
-                'field_lock_institution' => 'unlocked',
-                'field_map_department' => ' ',
-                'field_updatelocal_department' => 'oncreate',
-                'field_updateremote_department' => '0',
-                'field_lock_department' => 'unlocked',
-                'field_map_phone1' => ' ',
-                'field_updatelocal_phone1' => 'oncreate',
-                'field_updateremote_phone1' => '0',
-                'field_lock_phone1' => 'unlocked',
-                'field_map_phone2' => ' ',
-                'field_updatelocal_phone2' => 'oncreate',
-                'field_updateremote_phone2' => '0',
-                'field_lock_phone2' => 'unlocked',
-                'field_map_address' => ' ',
-                'field_updatelocal_address' => 'oncreate',
-                'field_updateremote_address' => '0',
-                'field_lock_address' => 'unlocked');
-
-            $sql = '';
-
-            foreach ($values2 as $key => $value) {
-                $sql .= "INSERT INTO {$prefix2}config_plugins (plugin, name, value)
-                    VALUES ('auth/db','" . $key . "','" . $value . "'); ";
-            }
-
-            $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $moodle2Id,
-                        'sql' => $sql,
-                        'serviceName' => 'moodle2',
-                    ));
-
-            if (!$result['success']) {
-                return LogUtil::registerError($this->__("No s'ha pogut actualitzar la taula {$prefix2}config_plugins del Moodle 2. SQL: " . $sql));
-            } else {
-                LogUtil::registerStatus($this->__('S\'han connectat el Moodle 2 i la intranet.'));
-            }
-
-            $modulevars = array('dbprefix' => serialize($prefix2),
-                'moodleurl' => serialize('../moodle'),
-                'dfl_language' => serialize('ca'));
-
-            foreach ($modulevars as $modvarname => $modvarvalue) {
-                $sql = "UPDATE {$compat['tablePrefix']}module_vars 
-                    SET {$compat['fieldsPrefix']}value='$modvarvalue'
-                    WHERE {$compat['fieldsPrefix']}modname='IWmoodle' AND {$compat['fieldsPrefix']}name='$modvarname'";
-
-                $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $intranetId,
-                            'sql' => $sql,
-                            'serviceName' => 'intranet',
-                            'host' => $dbHost,
-                        ));
-
-                if (!$result['success']) {
-                    return LogUtil::registerError($this->__('S\'ha produit un error en la modificació de les taules de la intranet. Error: ' . $result['errorMsg']));
-                }
-            }
-        }
-
-        return true;
-    }
-*/
-    
-    /**
      * update a service for a given client
      * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
      * @author      Aida Regi
@@ -1724,12 +1217,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         if (!isset($requestId) || !is_numeric($requestId)) {
             return LogUtil::registerError($this->__('No s\'ha pogut carregar el que volíeu. Reviseu les dades'));
         }
-        //Get item
-        /* $item = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId));
-          if ($item == false) {
-          return LogUtil::registerError($this->__('No s\'ha trobat el servei'));
-          }
-         */
         $pntable = DBUtil::getTables();
         $c = $pntable['agoraportal_request_column'];
         $where = "$c[requestId] = $requestId";
@@ -1987,7 +1474,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         global $agora;
 
-        $serviceName = ($serviceName == 'moodle2') ? 'moodle' : $serviceName;
         $dbType = (isset($agora[$serviceName]['dbtype'])) ? $agora[$serviceName]['dbtype'] : 'mysql';
 
         // Exception for portal. Is not a multisite service
@@ -2009,11 +1495,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $errorMsg = '';
         $values = array();
 
-        $return = array('success' => $success,
-            'errorMsg' => $errorMsg,
-            'values' => $values,
-        );
-
         switch ($dbType) {
             case 'mysql':
                 $results = mysql_query($sql, $connect);
@@ -2032,8 +1513,10 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 break;
             case 'oci8':
             case 'oci8po':
-                if (substr_count(strtolower(trim($sql)), 'insert') > 1) {
-                    // for multiple inserts in Oracle SQL
+                if (substr_count(strtolower(trim($sql)), 'insert') > 1 
+                        || substr_count(strtolower(trim($sql)), 'update') > 1 
+                        || substr_count(strtolower(trim($sql)), 'delete') > 1) {
+                    // for multiple inserts, updates and deletes in Oracle SQL
                     $sql = "BEGIN $sql END;";
                 }
                 $results = oci_parse($connect, $sql);

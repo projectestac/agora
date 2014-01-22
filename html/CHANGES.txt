@@ -17,6 +17,7 @@ PORTAL
 - Removed upgrade.php because it is no longer necessary
 - Agoraportal: Removed references to /antic
 - Agoraportal: Fixed bcc message when activating service
+- Agoraportal: Removed Moodle 1.9 stuff
 
 
 Changes 14.01.15

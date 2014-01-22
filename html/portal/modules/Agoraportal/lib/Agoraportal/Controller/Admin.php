@@ -170,10 +170,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             if ($state == 1) {
                 if ($clientService['activedId'] == 0) {
                     $serviceName = $services[$clientService['serviceId']]['serviceName'];
-                    // the activation function is the same for moodle and moodle2 because the database structure is the same
-                    $funcToCall = ($serviceName == 'moodle2') ? 'moodle' : $serviceName;
 
-                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'activeService_' . $funcToCall,
+                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'activeService_' . $serviceName,
                                                 array('clientServiceId' => $clientServiceId,
                                                       'dbHost' => $dbHost));
                     if (!is_array($result)) {
@@ -194,7 +192,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         case 'intranet':
                             $database = ($db) ? $agora['intranet']['userprefix'] . $db : '';
                             break;
-                        case 'moodle':
                         case 'moodle2':
                             $database = ModUtil::apiFunc('Agoraportal', 'user', 'calcOracleInstance', array('database' => $db));
                             $serviceDB = $database;
@@ -217,22 +214,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('clientCode' => $clientCode,
                             'actionCode' => 2,
                             'action' => $this->__f('S\'ha aprovat la sol·licitud del servei %s', $services[$clientService['serviceId']]['serviceName'])));
-                        // Connect intranet and Moodle
-                        /* 2013.12.11 @aginard: Connection is no longer used. At the moment, only commented the code, but can be removed
-                        if ($serviceName == 'intranet' || $serviceName == 'moodle' || $serviceName == 'moodle2') {
-                            $connectResult = ModUtil::apiFunc('Agoraportal', 'admin', 'connectIM', array('clientId' => $clientId, 'clientServiceId' => $clientServiceId));
-                            if ($connectResult !== false) {
-                                if ($connectResult === true) {
-                                    // Insert the action in logs table
-                                    ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('clientCode' => $clientCode,
-                                        'actionCode' => 2,
-                                        'action' => $this->__('S\'ha connectat la intranet amb el Moodle')));
-                                }
-                            } else {
-                                LogUtil::registerError($this->__('S\'ha produït un error en connectar la intranet i el Moodle'));
-                            }
-                        }
-                        */
                     } else {
                         LogUtil::registerError($this->__('Error en l\'edició del registre'));
                         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList', array('init' => $init,
@@ -553,7 +534,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     'searchText' => $searchText));
         foreach ($clients as $client) {
             if ($services[$client['serviceId']]['serviceName'] == 'marsupial') {
-                $clients[$client['clientServiceId']]['haveMoodle'] = (ModUtil::apiFunc('Agoraportal', 'user', 'existsServiceInClient', array('clientCode' => $client['clientCode'], 'serviceName' => 'moodle'))) ? true : false;
+                $clients[$client['clientServiceId']]['haveMoodle'] = (ModUtil::apiFunc('Agoraportal', 'user', 'existsServiceInClient', array('clientCode' => $client['clientCode'], 'serviceName' => 'moodle2'))) ? true : false;
             } else {
                 $clients[$client['clientServiceId']]['haveMoodle'] = false;
             }
@@ -785,8 +766,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function serviceTools($args) {
         $clientServiceId = FormUtil::getPassedValue('clientServiceId', isset($args['clientServiceId']) ? $args['clientServiceId'] : null, 'GETPOST');
-        $confirm = FormUtil::getPassedValue('confirm', isset($args['confirm']) ? $args['confirm'] : null, 'POST');
         $action = FormUtil::getPassedValue('action', isset($args['action']) ? $args['action'] : null, 'GET');
+
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
@@ -1334,7 +1315,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     public function deleteType($args) {
         $confirmation = FormUtil::getPassedValue('confirmation', isset($args['confirmation']) ? $args['confirmation'] : null, 'POST');
         $typeId = FormUtil::getPassedValue('typeId', isset($args['typeId']) ? $args['typeId'] : null, 'GETPOST');
-        $typeName = FormUtil::getPassedValue('typeName', isset($args['typeName']) ? $args['typeName'] : null, 'POST');
+
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
@@ -1533,8 +1514,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     'which' => $which));
 
         // Create output object
-        if ($comands)
+        if ($comands) {
             $view->assign('comands', $comands);
+        }
         $view->assign('servicesListContent', $servicesListContent);
         $view->assign('search', $search);
         $view->assign('searchText', $searchText);
@@ -1605,8 +1587,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     }
                 }
             }
-            else
+            else {
                 $sqlClients = $clients;
+            }
 
             $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
             $serviceName = $services[$service_sel]['serviceName'];
@@ -1649,7 +1632,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         $sqlupdate = "UPDATE {$compat['tablePrefix']}blocks SET {$compat['fieldsPrefix']}content = '" . $content . "'  WHERE {$compat['fieldsPrefix']}bkey = 'iwNotice'";
                         $sqlminorder = "SELECT MIN({$compat['fieldsPrefix']}order) FROM {$compat['tablePrefix']}block_placements";
                         break;
-                    case 'moodle':
                     case 'moodle2':
                         global $agora;
                         $prefix = $agora[$serviceName]['prefix'];
@@ -1782,78 +1764,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                 }
                             }
                             break;
-                        case 'moodle':
-                            $prefix = $agora[$serviceName]['prefix'];
-                            //Moodle
-                            //See if the block exists in course 1
-                            //Get the block id
-                            $sql = "SELECT ID FROM {$prefix}BLOCK WHERE name='advices'";
-                            $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                        'sql' => $sql,
-                                        'serviceName' => $serviceName));
-                            if ($return['success'] && count($return['values']) > 0) {
-                                $blockid = $return['values'][0]['ID'];
-                                $sql = "SELECT * FROM {$prefix}BLOCK_INSTANCE WHERE blockid=" . $blockid;
-                                $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                            'sql' => $sql,
-                                            'serviceName' => $serviceName));
-                                if ($return['success']) {
-                                    if (count($return['values']) == 0) {
-                                        //INSERT THE BLOCK
-                                        $sql = "INSERT INTO {$prefix}BLOCK_INSTANCE (blockid,pageid,pagetype,position,weight,visible) VALUES ('" . $blockid . "',1,'course-view','r',-999,1)";
-                                        $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                                    'sql' => $sql,
-                                                    'serviceName' => $serviceName));
-                                        if ($return['success'])
-                                            $result = ", bloc afegit";
-                                        else
-                                            $result = ", tot i que no s'ha pogut afegit el bloc";
-                                    }
-                                    else {
-                                        //MAKE IT VISIBLE
-                                        $sql = "UPDATE {$prefix}BLOCK_INSTANCE SET visible = 1, position='r', weight=-999 WHERE blockid = '" . $blockid . "'";
-                                        $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                                    'sql' => $sql,
-                                                    'serviceName' => $serviceName));
-                                        if (!$return['success'])
-                                            $result = ", tot i que no s'ha pogut reiniciarla posició del bloc";
-                                    }
-                                }
 
-                                //See if the line exists
-                                $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                            'sql' => $sqlexists,
-                                            'serviceName' => $serviceName));
-                                if ($return['success']) {
-                                    if (count($return['values']) > 0) //FOUNDED update
-                                        $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                                    'sql' => $sqlupdate,
-                                                    'serviceName' => $serviceName));
-                                    else //Not found, insert it
-                                        $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                                    'sql' => $sqlinsert,
-                                                    'serviceName' => $serviceName));
-                                }
-
-                                if (!$return) {
-                                    $success[$i] = false;
-                                    $messages[$i] = $this->__('No s\'ha pogut executar la comanda a la base de dades ') . $return['errorMsg'];
-                                    $error++;
-                                } else {
-                                    $messages[$i] = $this->__('OK' . $result);
-                                    $success[$i] = true;
-                                    $ok++;
-                                }
-                            } else {
-                                //Module not installed
-                                $success[$i] = false;
-                                $messages[$i] = $this->__('El mòdul d\'avisos no està instal·lat o actualitzat correctament.') . $return['errorMsg'];
-                                $error++;
-                            }
-                            break;
                         case 'moodle2':
                             $prefix = $agora[$serviceName]['prefix'];
-                            //Moodle
                             //See if the block exists in course 1
                             //Get the block id
                             $sql = "SELECT ID FROM {$prefix}BLOCK WHERE name='advices'";
@@ -2953,9 +2866,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         $enllac = "index.php?module=Agoraportal&type=admin&func=statsservicesGraphs&stats=" . $datay1 . "&u=" . $usuari . "&e=" . $est . "&dates=" . $dates . "&yearmonth=" . $yearmonth . "&infotype=" . $infotype . "&datatype=" . $datatype;
 
-        $clientsNumber = count($clients);
         // Create output object
-
         $view->assign('results', $results);
         $view->assign('enllac', $enllac);
         $view->assign('stats', $stats);
@@ -3142,13 +3053,10 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         fclose($fd);
         exit;
 
-        $clientsNumber = count($clients);
-
         // Create output object
         $view = Zikula_View::getInstance('Agoraportal', false);
         $view->assign('results', $results);
         $view->assign('totals', $totals);
-
 
         /* CAT:Bubble chart */
 
@@ -3416,10 +3324,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             // Marsupial has defaultDiskSpace = 0
             if ($service['defaultDiskSpace'] > 0) {
                 switch ($service['serviceName']) {
-                    case 'moodle':
-                        $path = $agora['server']['root'] . $agora['moodle']['datadir'] . $agora['moodle']['discusagefile'];
-                        $userprefix = $agora['moodle']['username'];
-                        break;
                     case 'moodle2':
                         $path = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['discusagefile'];
                         $userprefix = $agora['moodle2']['username'];
@@ -3465,8 +3369,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     continue;
                 }
                 
-                if ($debug)
+                if ($debug) {
                     echo '<br/><br/>Servei: ' . strtoupper($service['serviceName']);
+                }
 
                 // Get all the clients who have the service activated
                 $clientsAndServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array(
@@ -3538,9 +3443,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                             $adminReport .= $warningMsg . '<br/><hr/><br/>';
 
                             // Var for debug
-                            if ($diskConsume > 100)
-                                $textColor = 'red'; else
-                                $textColor = 'orange';
+                            $textColor = ($diskConsume > 100) ? 'red' : 'orange';
                         }
                         if ($debug) {
                             if (isset($clientsAndServices[$usageClient]['clientCode'])) {
@@ -3735,7 +3638,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => $clientCode,
                         'toaddress' => $toUsers,
                         'subject' => __('Estat de les sol·licituds a Àgora'),
-                        'bcc' => System::getVar('adminmail'),
+                        'bcc' => array(array('address' => System::getVar('adminmail'))),
                         'body' => $mailContent,
                         'html' => 1));
 
