@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 GENERAL
 - Added phpsysinfo to get status information from the web servers
+- createSchoolsListsFiles.php: removed Moodle 1.9 stuff
 
 ZIKULA
 - Improved protection against XSS vulnerability
