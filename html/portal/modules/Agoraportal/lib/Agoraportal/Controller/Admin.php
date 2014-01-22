@@ -330,7 +330,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => array($clientName),
                             'toaddress' => $toUsers,
                             'subject' => __('Estat dels serveis del centre a Àgora'),
-                            'bcc' => array('name' => 'Àgora', 'address' => System::getVar('adminmail')),
+                            'bcc' => array(array('address' => System::getVar('adminmail'))),
                             'body' => $mailContent,
                             'html' => 1));
 
@@ -3532,7 +3532,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
                             // Save error message for admin report
                             $url = ModUtil::Func('Agoraportal', 'user', 'getServiceLink', array('serviceName' => $service['serviceName'],
-                                                                                                'clientCode' => $clientsAndServices[$usageClient]['clientCode'],
                                                                                                 'clientDNS' => $clientsAndServices[$usageClient]['clientDNS']));
                             $adminReport .= '<h4>' . $clientsAndServices[$usageClient]['clientCode'];
                             $adminReport .= " (<a href=\"$url\" target=\"_blank\">$url</a>): </h4>";

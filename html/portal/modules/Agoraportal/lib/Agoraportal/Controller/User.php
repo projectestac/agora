@@ -382,9 +382,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
                 if ($site['serviceId'] > 0) {
                     // Exception for marsupial service
-                    if ($services[$site['serviceId']]['serviceName'] != 'marsupial') {
+                    if ($services[$site['serviceId']]['serviceName'] == 'intranet' || $services[$site['serviceId']]['serviceName'] == 'moodle2') {
                         $logos = '<div style="float:left;width:70px;" class="' . $class . '"><a href="' .
-                                ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('clientDNS' => $site['clientDNS'], 'serviceName' => $services[$site['serviceId']]['serviceName'], 'clientCode' => $site['clientCode'])) .
+                                ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('clientDNS' => $site['clientDNS'], 'serviceName' => $services[$site['serviceId']]['serviceName'])) .
                                 '">' . '<img src="modules/Agoraportal/images/' .
                                 $services[$site['serviceId']]['serviceName'] .
                                 '.gif" alt="' .
@@ -392,7 +392,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                                 '" title="' .
                                 $services[$site['serviceId']]['serviceName'] .
                                 '"/></a></div>';
-                    } else {
+                    } elseif ($services[$site['serviceId']]['serviceName'] == 'marsupial') {
                         $logos = '<div style="float:left;width:70px;" class="' . $class . '"><img src="modules/Agoraportal/images/' .
                                 $services[$site['serviceId']]['serviceName'] .
                                 '.gif" alt="' .
@@ -1369,21 +1369,23 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
     public function getServiceLink($args) {
         $serviceName = FormUtil::getPassedValue('serviceName', isset($args['serviceName']) ? $args['serviceName'] : null, 'POST');
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
         $clientDNS = FormUtil::getPassedValue('clientDNS', isset($args['clientDNS']) ? $args['clientDNS'] : null, 'POST');
-        if ($serviceName == 'moodle' || $serviceName == 'moodle2') {
-            // checks if user have active the service moodle2
-            $serviceClientIsActive = ModUtil::apiFunc('Agoraportal', 'user', 'serviceClientIsActive', array('clientCode' => $clientCode,
-                        'serviceName' => 'moodle2'));
-
-            if ($serviceClientIsActive) {
-                //print_r($clientService);die();
-                $serviceName = ($serviceName == 'moodle') ? 'antic' : 'moodle';
-            }
+        
+        $serviceURL = '';
+        
+        switch($serviceName) {
+            case 'moodle':
+                $serviceURL = 'copiaseg';
+                break;
+            case 'moodle2':
+                $serviceURL = 'moodle';
+                break;
+            case 'intranet':
+                $serviceURL = 'intranet';
+                break;
         }
 
-        $link = ModUtil::getVar('Agoraportal', 'siteBaseURL') . $clientDNS . '/' . $serviceName;
-        return $link;
+        return ModUtil::getVar('Agoraportal', 'siteBaseURL') . $clientDNS . '/' . $serviceURL;
     }
 
     public function recalcConsume($args) {

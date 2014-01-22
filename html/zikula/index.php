@@ -38,8 +38,17 @@ $file   = FormUtil::getPassedValue('file', 'index', 'GETPOST');
 //XTEC ************ AFEGIT - Protected parameter func from XSS vulnerability
 //2013.10.18 @aginard
 $pattern = '/^[a-zA-Z0-9_-]+$/';
-if (strlen($func) > 50 || !preg_match($pattern, $func)) {
+if (!empty($func) && (strlen($func) > 50 || !preg_match($pattern, $func))) {
     $func = 'main';
+}
+if (!empty($module) && (strlen($module) > 50 || !preg_match($pattern, $module))) {
+    $module = 'news';
+}
+if (!empty($name) && (strlen($name) > 50 || !preg_match($pattern, $name))) {
+    $name = 'news';
+}
+if (!empty($type) && (strlen($type) > 50 || !preg_match($pattern, $type))) {
+    $type = 'user';
 }
 //************ FI
 

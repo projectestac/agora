@@ -1,5 +1,4 @@
-0	diskUsageMdl2.txt
-107356	usu1
-2636	usu2
-132	usu3
-132	usu4
+19340	usu1
+6912	usu2
+4020	usu3
+3676	usu4

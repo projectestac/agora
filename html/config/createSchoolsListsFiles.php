@@ -2,8 +2,8 @@
 
 /**
  * Purpose of file: create 4 files containing URL used via cron. Two of these
- * files (updateMoodle and updateIntranet) are used when a major upgrade is
- * going to be done in software versions. The other two files (cronMoodle and
+ * files (updateMoodle2 and updateIntranet) are used when a major upgrade is
+ * going to be done in software versions. The other two files (cronMoodle2 and
  * cronIntranet) must be recreated everyday to add and remove schools and are
  * used for maintenance in sites.
  * 
@@ -23,51 +23,19 @@ if (isset($_REQUEST['update'])) {
     /* Params for update Services files */
 
     // $num_exec: if present, moodle URL have repetitions
-    if (isset($_REQUEST['num_exec']) && is_numeric($_REQUEST['num_exec'])) {
-        $num_exec = $_REQUEST['num_exec'];
-    } else {
-        $num_exec = 1;
-    }
+    $num_exec = (isset($_REQUEST['num_exec']) && is_numeric($_REQUEST['num_exec'])) ? $_REQUEST['num_exec'] : 1;
+
     // $new_version: if present, an special URL is added to updateMoodle.txt
-    if (isset($_REQUEST['new_version'])) {
-        $new_version = true;
-    } else {
-        $new_version = false;
-    }
-
-
-    /* MOODLE update file */
-    // get services array where key value is activedId
-    $schools = getAllSchools('c.clientId', 'asc', 'moodle', '1');
-    $schools2 = getAllSchools('c.clientId', 'asc', 'moodle2', '1');
-
-    // because the activedId is the same independently of the moodle version get the services that are in the two sets
-    $intersect = array_intersect_key($schools, $schools2);
-
-    $schools_var = '';
-    foreach ($schools as $school) {
-        // select the correct url depending on the moodle versions activated
-        $url = (key_exists($school['school_id'], $intersect)) ? 'antic' : 'moodle';
-        if ($new_version) {
-            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/$url/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca\n";
-        }
-        for ($i = 0; $i < $num_exec; $i++) {
-            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/$url/admin/index.php?lang=ca&autopilot=1\n";
-        }
-    }
-
-    echo '<b>File name: updateMoodle.txt</b><br />';
-    echo str_replace("\n", '<br />', $schools_var);
-
-    $filename = '../../adminInfo/updateMoodle.txt';
-
-    saveVarToFile($filename, $schools_var);
+    $new_version = (isset($_REQUEST['new_version'])) ? true : false;
 
 
     /* MOODLE 2 update file */
 
+    // get services array where key value is activedId
+    $schools = getAllSchools('activedId', 'asc', 'moodle2', '1');
+
     $schools_var = '';
-    foreach ($schools2 as $school) {
+    foreach ($schools as $school) {
         if ($new_version) {
             $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca\n";
         }
@@ -76,7 +44,6 @@ if (isset($_REQUEST['update'])) {
         }
     }
 
-    echo '<br /><br />';
     echo '<b>File name: updateMoodle2.txt</b><br />';
     echo str_replace("\n", '<br />', $schools_var);
 
@@ -103,35 +70,15 @@ if (isset($_REQUEST['update'])) {
     saveVarToFile($filename, $schools_var);
 } else {
 
-    /* MOODLE CRONFILE */
+    /* MOODLE 2 CRONFILE */
 
-    $schools = getAllSchools('c.clientId', 'asc', 'moodle', '1');
-    $schools2 = getAllSchools('c.clientId', 'asc', 'moodle2', '1');
-
-    $intersect = array_intersect_key($schools, $schools2);
+    $schools = getAllSchools('activedId', 'asc', 'moodle2', '1');
 
     $schools_var = '';
     foreach ($schools as $school) {
-        $url = (key_exists($school['school_id'], $intersect)) ? 'antic' : 'moodle';
-        $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/$url/admin/cron.php\n";
-    }
-
-    echo '<b>File name: cronMoodle.txt</b><br />';
-    echo str_replace("\n", '<br />', $schools_var);
-
-    $filename = '../../adminInfo/cronMoodle.txt';
-
-    saveVarToFile($filename, $schools_var);
-
-
-    /* MOODLE 2 CRONFILE */
-
-    $schools_var = '';
-    foreach ($schools2 as $school) {
         $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/cron.php\n";
     }
 
-    echo '<br /><br />';
     echo '<b>File name: cronMoodle2.txt</b><br />';
     echo str_replace("\n", '<br />', $schools_var);
 
@@ -172,16 +119,16 @@ function saveVarToFile($filename = null, $schools_var = '') {
 
     // Open $filename in append mode
     if (!$handle = fopen($filename, 'w')) {
-        echo "Cannot open file ($filename)";
-        exit;
+        echo "Cannot open file ($filename)<br />";
+        return false;
     }
 
     if (fwrite($handle, $schools_var) === false) {
-        echo "Cannot write to file ($filename)";
-        exit;
+        echo "Cannot write to file ($filename)<br />";
+        fclose($handle);
+        return false;
     }
 
     fclose($handle);
-
     return true;
 }

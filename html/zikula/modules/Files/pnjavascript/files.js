@@ -8,7 +8,7 @@
 function createDir(folder,external,hook,pngetbaseURL){
     Element.update('actionForm', '<img src="images/ajax/circle-ball-dark-antialiased.gif" />');
     var pars = "module=Files&func=createDir&folder=" + folder + "&external=" + external + "&hook=" + hook;
-    var url = document.location.pnbaseURL;
+    var url = document.pnbaseURL;
     if (pngetbaseURL != undefined) url = pngetbaseURL;	
 	var myAjax = new Ajax.Request(
 			url+'ajax.php',

@@ -3,7 +3,7 @@
 require_once('env-config.php');
 
 echo '<h4>Servidor web: ' . gethostname() . ' (' .php_uname('s') . ')</h4>';
-
+echo '<h4>Hora del servidor: ' . date("d-m-Y H:i:s e (P)") . '</h4>';
 echo '<h4>Prova de connexi&oacute; de curl</h4>';
 
 $url = $agora['server']['school_information'] . '08011941';
@@ -19,6 +19,7 @@ echo '<strong>Valor retornat per curl_exec():</strong> ' . $buffer . '<br>';
 
 $files[] = $agora['dbsource']['dir'] . $agora['dbsource']['filename'];
 $files[] = $agora['dbsource']['syncdir'] . $agora['dbsource']['filename'];
+$files[] = $agora['server']['root'] . 'html/.htaccess';
 $files[] = $agora['server']['root'] . 'html/config/env-config.php';
 $files[] = $agora['server']['root'] . 'html/config/config.php';
 $files[] = $agora['server']['root'] . 'html/config/config-restricted.php';

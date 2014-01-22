@@ -1,9 +1,6 @@
 <?php
 
-function smarty_modifier_serviceLink($clientDNS, $serviceName = 'moodle', $clientDNS, $clientCode) {
-    $link = ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('serviceName' => $serviceName,
-                'clientDNS' => $clientDNS,
-                'clientCode' => $clientCode));
-
-    return $link;
+function smarty_modifier_serviceLink($clientDNS, $serviceName) {
+    return ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('serviceName' => $serviceName,
+                'clientDNS' => $clientDNS));
 }
