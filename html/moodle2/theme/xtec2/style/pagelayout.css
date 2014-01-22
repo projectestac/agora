@@ -410,6 +410,10 @@ ul li a.yui3-menuitem-content {
 .section.main.clearfix {border-bottom:1px solid #DDDDDD; }
 .section.main.clearfix.current { border: 3px solid [[setting:color1]];}
 
+.section-navigation.header.headingblock a {
+	color: white;
+}
+
 .topics .current {
     border: 3px solid [[setting:color1]];
     background-color: #fff;
