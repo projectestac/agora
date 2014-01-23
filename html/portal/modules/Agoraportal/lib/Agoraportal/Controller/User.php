@@ -467,7 +467,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         // Create output object
         $view = Zikula_View::getInstance('Agoraportal', false);
         foreach ($clientServices as $clientService) {
-            if ($services[$clientService['serviceId']]['serviceName'] == 'moodle' || $services[$clientService['serviceId']]['serviceName'] == 'moodle2') {
+            if ($services[$clientService['serviceId']]['serviceName'] == 'moodle2') {
                 if ($action == 'uploadFiles') {
                     if ($clientService['diskSpace'] > 0) {
                         //TODO: Now the only service that allow to update files is moodle. In the future other services will allow to update files.
@@ -578,12 +578,12 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         global $agora;
         $folder = $agora['moodle2']['repository_files'];
 
-        $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientInfo['client'][$clientCode]['clientId'], 'serviceName' => $serviceName));
-        $folder = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['username'] . $clientService['activedId'] . $folder;
+        $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientInfo['client'][$clientCode]['clientId'], 'serviceName' => 'moodle2'));
+        $folder = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['username'] . $clientService['activedId'] . $folder;
 
         //Check if file exists. If not returns error.
         if (!file_exists($folder . $filename)) {
-            LogUtil::registerError($this->__f('S\'ha produït algun problema en descarregar el fitxer %s.', array($filename)));
+            LogUtil::registerError($this->__f('S\'ha produït algun problema en descarregar el fitxer %s', array($filename)));
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'files', array('clientCode' => $clientCode,
                                 'action' => $target)));
         }
@@ -688,33 +688,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         return $array_items;
     }
 */
-    /**
-     * checks if a client can manage users of the services
-     * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:	the client code
-     * @return:	True if it can and false othewise
-     */
- /*
-    public function allowedUsersAdministration($args) {
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
-        // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
-        $allowedUsersAdministration = ModUtil::getVar('Agoraportal', 'allowedUsersAdministration');
-        if ($allowedUsersAdministration == '' || $allowedUsersAdministration == '*')
-            return true;
 
-        // get allowed uses list
-        $allowedUsersAdministration = ModUtil::getVar('Agoraportal', 'allowedUsersAdministration');
-        $allowedUsersAdministrationArray = explode(',', $allowedUsersAdministration);
-        if (in_array($clientCode, $allowedUsersAdministrationArray))
-            return true;
-
-        // client can't manage users
-        return false;
-    }
-*/
     /**
      * Verify the verifyCode sent by the user and change the active nevel if this is correct
      * @author: Fèlix Casanellas (fcasanel@xtec.cat)

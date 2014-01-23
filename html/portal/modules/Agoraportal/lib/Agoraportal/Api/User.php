@@ -1502,7 +1502,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      *  
      * @return	Array with success 0 or 1, errorMsg with the error text or '' and values in select commands
      */
-    public function executeSQL($args) {
+/*
+     public function executeSQL($args) {
         $sql = $args['sql'];
         $serviceName = $args['serviceName'];
         $database = $args['database'];
@@ -1538,7 +1539,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             'values' => $values,
         );
 
-        $serviceName = ($serviceName == 'moodle2') ? 'moodle' : $serviceName;
         $dbType = (isset($agora[$serviceName]['dbtype'])) ? $agora[$serviceName]['dbtype'] : 'mysql';
 
         switch ($dbType) {
@@ -1590,7 +1590,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             'values' => $values,
         );
     }
-
+*/
     /**
      * Calculate Oracle database instance for Moodle
      * 
@@ -1680,7 +1680,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     return false;
                 break;
             case 'moodle2':
-                $user = $agora['moodle']['username'] . $database;
+                $user = $agora['moodle2']['username'] . $database;
                 if ($clientService != false) {
                     $databaseName = $clientService[0]['serviceDB'];
                 } else {
@@ -1691,9 +1691,9 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     }
                 }
                 if ($ZConfig['System']['oci_pconnect']) {
-                    $connect = oci_pconnect($user, $agora['moodle']['userpwd'], $databaseName);
+                    $connect = oci_pconnect($user, $agora['moodle2']['userpwd'], $databaseName);
                 } else {
-                    $connect = oci_connect($user, $agora['moodle']['userpwd'], $databaseName);
+                    $connect = oci_connect($user, $agora['moodle2']['userpwd'], $databaseName);
                 }
                 break;
         }

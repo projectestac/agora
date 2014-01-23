@@ -127,25 +127,6 @@
                 </table>
             </div>
             <div class="z-formrow">
-                <label for="allowedAccessRequest">{gt text="Permet que els usuaris puguin sol·licitar accés als centres"}</label>
-                <input type="checkbox" name="allowedAccessRequest" {if $allowedAccessRequest}checked{/if} value="1" />
-            </div>
-            <div class="z-formrow">
-                <label for="tempFolder">{gt text="Carpeta temporal del servidor"}</label>
-                <input type="text" name="tempFolder" size="50" maxlength="50" value="{$tempFolder}" />
-            </div>
-            <div class="z-formrow">
-                <label for="sqlSecurityCode">{gt text="Codi de seguretat per a les crides SQL"}</label>
-                <input type="text" name="sqlSecurityCode" size="50" maxlength="50" value="{$sqlSecurityCode}" />
-            </div>
-            <div class="z-formrow">
-                <label for="allowedUsersAdministration">{gt text="Centres que tenen accés a la gestió d'usuaris"}</label>
-                <textarea name="allowedUsersAdministration" style="width: 300px" rows="7">{$allowedUsersAdministration}</textarea>
-                <div class="z-informationmsg">
-                    {gt text="Separar la llista de codis dels clients per comes. El símbol * significa que tots els clients tenen accés a la gestió dels usuaris."}
-                </div>
-            </div>
-            <div class="z-formrow">
                 <label for="locations">{gt text="Serveis Territorials"}</label>
                 <table class="z-datatable" style="width: 400px">
                     <tbody>
@@ -216,30 +197,6 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <div class="z-formrow">
-            <label for="serveradr">{gt text="Adreça del servidor"}</label>
-            <input id="serveradr" name="serveradr" size="40" value="{$serveradr}" type="text">
-        </div>
-        <div class="z-formrow">
-            <label for="serverport">{gt text="Port"}</label>
-            <input id="serverport" name="serverport" size="40" value="{$serverport}" type="text">
-        </div>
-        <div class="z-formrow">
-            <label for="basedn">{gt text="Base DN"}</label>
-            <input id="basedn" name="basedn" size="40" value="{$basedn}" type="text">
-        </div>
-        <div class="z-formrow">
-            <label for="bindas">{gt text="Nom de l'enllaç"}</label>
-            <input id="bindas" name="bindas" size="40" value="{$bindas}" type="text">
-        </div>
-        <div class="z-formrow">
-            <label for="bindpass">{gt text="Contrasenya de l'enllaç"}</label>
-            <input id="bindpass" name="bindpass" size="40" value="{$bindpass}" type="text">
-        </div>
-        <div class="z-formrow">
-            <label for="searchdn">{gt text="Base de cerca"}</label>
-            <input id="searchdn" name="searchdn" size="40" value="{$searchdn}" type="text">
         </div>
         <div class="z-center">
             <div class="z-buttons">

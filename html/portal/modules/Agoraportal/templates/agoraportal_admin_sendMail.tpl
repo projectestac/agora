@@ -8,7 +8,7 @@
         <a href="{$baseURL}">&Agrave;gora</a> de la XTEC.
     </p>
     
-    {if $serviceName eq 'moodle' or $serviceName eq 'moodle2'}
+    {if $serviceName eq 'moodle2'}
         {assign var='serviceName4URL' value='moodle'}
     {else}
         {assign var='serviceName4URL' value='intranet'}
@@ -44,11 +44,13 @@
     </p>
     {/if}
     
-    {if $serviceName eq 'moodle' or $serviceName eq 'moodle2'}
+    {if $serviceName eq 'moodle2'}
     <p>
-        Per resoldre qualsevol dubte o problema relacionat amb aquest servei, teniu a la vostra disposici&oacute; el 
-        <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=181">fòrum d'&Agrave;gora-moodle</a>, a on podeu
-        expressar la vostra opini&oacute;, fer suggeriments i demanar suport.
+        Per resoldre qualsevol dubte o problema relacionat amb aquest servei, teniu 
+        a la vostra disposici&oacute; el 
+        <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=181">fòrum 
+        d'&Agrave;gora-moodle</a>, a on podeu expressar la vostra opini&oacute;, 
+        fer suggeriments i demanar suport.
     </p>
     <p>
         Tal com s'especifica a les condicions d'&uacute;s del servei, recordeu 
@@ -57,17 +59,12 @@
         resoldre aquests dubtes podeu adre&ccedil;ar-vos als f&ograve;rums en catal&agrave;
         de <a href="http://moodle.org/course/view.php?id=39">Moodle.org</a>.
     </p>
-    {/if}
-
-    {if $serviceName eq 'moodle'}
     <p>
-        Teniu a la vostra disposici&oacute; els materials del 
-        <a href="http://ateneu.xtec.cat/wikiform/wikiexport/cursos/gestio_centres/d204/index">curs
-        d'&Uacute;s i dinamitzaci&oacute; del Moodle</a> i els del
-        <a href="http://ateneu.xtec.cat/wikiform/wikiexport/cursos/gestio_centres/d304/index">curs
-        de gesti&oacute; i administraci&oacute; del Moodle</a>, a on hi trobareu un conjunt 
-        important d'informaci&oacute; sobre l'&uacute;s d'aquesta plataforma 
-        d'aprenentatge.
+        Teniu a la vostra disposici&oacute; els  
+        <a href="http://ateneu.xtec.cat/wikiform/wikiexport/cmd/tac/moodle2/index">
+        materials de suport als cursos telem&agrave;</a> sobre el Moodle 2, a 
+        on hi trobareu un conjunt important d'informaci&oacute; sobre l'&uacute;s 
+        d'aquesta plataforma d'aprenentatge.
     </p>
     {/if}
 
@@ -87,7 +84,7 @@
         <a href="http://ateneu.xtec.cat/wikiform/wikiexport/cursos/gestio_centres/d134/index">curs
         de formaci&oacute; sobre l'administració de la intranet</a> a on hi 
         trobareu un conjunt important d'informaci&oacute; sobre l'&uacute;s 
-        d'aquesta plataforma de comunicació i gestió de centre.
+        d'aquesta plataforma.
     </p>
     {/if}
 

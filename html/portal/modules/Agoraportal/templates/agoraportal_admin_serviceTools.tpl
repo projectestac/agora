@@ -8,7 +8,7 @@
         <img src="modules/Agoraportal/images/{$services[$client.serviceId].serviceName}.gif" />
     </div>
     {gt text="Accions disponibles:"}
-    {if $services[$client.serviceId].serviceName == 'moodle' OR $services[$client.serviceId].serviceName == 'moodle2'}
+    {if $services[$client.serviceId].serviceName == 'moodle2'}
     <ul>
         <li>
             <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='1' clientServiceId=$client.clientServiceId}">
@@ -23,13 +23,6 @@
     </ul>
     {elseif $services[$client.serviceId].serviceName == 'intranet'}
     <ul>
-        {* @aginard: Connection is no longer used. At the moment, only commented the code, but can be removed}
-        <li>
-            <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='2' clientServiceId=$client.clientServiceId}">
-                {gt text="Connecta la intranet amb el Moodle"}
-            </a>
-        </li>
-        {*}
         <li>
             <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='3' clientServiceId=$client.clientServiceId}">
                 {gt text="Crea o esborra l'usuari xtecadmin a la intranet"}
@@ -37,7 +30,7 @@
         </li>
         <li>
             <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='4' clientServiceId=$client.clientServiceId}">
-                {gt text="Crea el primer permí­s d'administració"}
+                {gt text="Crea el primer permís d'administració"}
             </a>
         </li>
         <li>

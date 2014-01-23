@@ -86,10 +86,6 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
         DBUtil::createIndex('idx_moodle2_stats_week', 'agoraportal_moodle2_stats_week', array('clientcode', 'date'));
         // create module vars
         $this->setVar('siteBaseURL', 'http://agora.xtec.cat')
-                ->setVar('tempFolder', '')
-                ->setVar('allowedUsersAdministration', 'none')
-                ->setVar('allowedAccessRequest', 0)
-                ->setVar('sqlSecurityCode', '****')
                 ->setVar('allowedIpsForCalcDisckConsume', '')
                 ->setVar('warningMailsTo', '')
                 ->setVar('requestMailsTo', '')
@@ -176,6 +172,17 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                     return false;
                 if (!DBUtil::changeTable('agoraportal_moodle_stats_month'))
                     return false;
+            case '2.0.7':
+                $this->delVar('tempFolder');
+                $this->delVar('serveradr');
+                $this->delVar('basedn');
+                $this->delVar('bindas');
+                $this->delVar('bindpass');
+                $this->delVar('searchdn');
+                $this->delVar('serverport');
+                $this->delVar('allowedUsersAdministration');
+                $this->delVar('allowedAccessRequest');
+                $this->delVar('sqlSecurityCode');
                 
                 /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
                  * afegir una comprovació amb DBUtil::metaIndexes per saber

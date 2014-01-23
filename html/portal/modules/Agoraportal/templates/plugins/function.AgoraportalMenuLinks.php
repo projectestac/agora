@@ -85,23 +85,18 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
 
     // Decide whether to show files manager on not i MyAgora
     $showFilesManager = false;
-    $isMoodleEnabled = ModUtil::apiFunc('Agoraportal', 'user', 'existsServiceInClient', array('clientCode' => $clientCode,
-                'serviceName' => 'moodle'));
     $isMoodle2Enabled = ModUtil::apiFunc('Agoraportal', 'user', 'existsServiceInClient', array('clientCode' => $clientCode,
                 'serviceName' => 'moodle2'));
-    if ($isMoodleEnabled || $isMoodle2Enabled) {
+    if ($isMoodle2Enabled) {
         $showFilesManager = true;
-    } else {
-        $showFilesManager = false;
     }
 
-    $allowedUsersAdministration = ModUtil::func('Agoraportal', 'user', 'allowedUsersAdministration', array('clientCode' => $clientCode));
     // Administrator menu
     if ($isAdmin) {
         $AgoraportalMenuLinks = '<div>';
         $AgoraportalMenuLinks .= "<span class=\"" . $params['class'] . "\">" . $params['start'] . " ";
         $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'clientsList')) . "\">" . __('Llista de clients') . "</a> " . $params['separator'];
-        $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'newClient')) . "\">" . __('Creació de clients') . "</a> " . $params['separator'];
+        $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'newClient')) . "\">" . __('Client nou') . "</a> " . $params['separator'];
         $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'main')) . "\">" . __('Llista de serveis') . "</a> " . $params['separator'];
         $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'services')) . "\">" . __('Definició de serveis') . "</a> " . $params['separator'];
         $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'sql')) . "\">" . __('Execució d\'SQL') . "</a> " . $params['separator'];

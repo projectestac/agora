@@ -12,7 +12,6 @@
     </div>
     {/if}
     {foreach item=client from=$clientArray}
-        {if $services[$client.serviceId].serviceName neq 'moodle'}
         <div class="serviceInfo z-form">
             <fieldset>
                 <legend>
@@ -58,7 +57,6 @@
                 {/if}
             </fieldset>
         </div>
-        {/if}
     {foreachelse}
     {if $managers|@count gt 0}
     {gt text="No s'han trobat serveis.<br/><br/>"}

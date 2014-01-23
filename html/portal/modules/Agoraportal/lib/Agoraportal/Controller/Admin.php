@@ -815,16 +815,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $requesttypesservices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllRequestTypesServices');
 
         return $this->view->assign('siteBaseURL', $this->getVar('siteBaseURL'))
-                        ->assign('tempFolder', $this->getVar('tempFolder'))
-                        ->assign('serveradr', $this->getVar('serveradr'))
-                        ->assign('basedn', $this->getVar('basedn'))
-                        ->assign('bindas', $this->getVar('bindas'))
-                        ->assign('bindpass', $this->getVar('bindpass'))
-                        ->assign('searchdn', $this->getVar('searchdn'))
-                        ->assign('serverport', $this->getVar('serverport'))
-                        ->assign('allowedUsersAdministration', $this->getVar('allowedUsersAdministration'))
-                        ->assign('allowedAccessRequest', $this->getVar('allowedAccessRequest'))
-                        ->assign('sqlSecurityCode', $this->getVar('sqlSecurityCode'))
                         ->assign('allowedIpsForCalcDisckConsume', $this->getVar('allowedIpsForCalcDisckConsume'))
                         ->assign('warningMailsTo', $this->getVar('warningMailsTo'))
                         ->assign('requestMailsTo', $this->getVar('requestMailsTo'))
@@ -847,16 +837,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function updateConfig($args) {
         $siteBaseURL = FormUtil::getPassedValue('siteBaseURL', isset($args['siteBaseURL']) ? $args['siteBaseURL'] : null, 'POST');
-        $tempFolder = FormUtil::getPassedValue('tempFolder', isset($args['tempFolder']) ? $args['tempFolder'] : null, 'POST');
-        $serveradr = FormUtil::getPassedValue('serveradr', isset($args['serveradr']) ? $args['serveradr'] : null, 'POST');
-        $basedn = FormUtil::getPassedValue('basedn', isset($args['basedn']) ? $args['basedn'] : null, 'POST');
-        $bindas = FormUtil::getPassedValue('bindas', isset($args['bindas']) ? $args['bindas'] : null, 'POST');
-        $bindpass = FormUtil::getPassedValue('bindpass', isset($args['bindpass']) ? $args['bindpass'] : null, 'POST');
-        $searchdn = FormUtil::getPassedValue('searchdn', isset($args['searchdn']) ? $args['searchdn'] : null, 'POST');
-        $serverport = FormUtil::getPassedValue('serverport', isset($args['serverport']) ? $args['serverport'] : null, 'POST');
-        $allowedUsersAdministration = FormUtil::getPassedValue('allowedUsersAdministration', isset($args['allowedUsersAdministration']) ? $args['allowedUsersAdministration'] : null, 'POST');
-        $allowedAccessRequest = FormUtil::getPassedValue('allowedAccessRequest', isset($args['allowedAccessRequest']) ? $args['allowedAccessRequest'] : 0, 'POST');
-        $sqlSecurityCode = FormUtil::getPassedValue('sqlSecurityCode', isset($args['sqlSecurityCode']) ? $args['sqlSecurityCode'] : 0, 'POST');
         $allowedIpsForCalcDisckConsume = FormUtil::getPassedValue('allowedIpsForCalcDisckConsume', isset($args['allowedIpsForCalcDisckConsume']) ? $args['allowedIpsForCalcDisckConsume'] : null, 'POST');
         $warningMailsTo = FormUtil::getPassedValue('warningMailsTo', isset($args['warningMailsTo']) ? $args['warningMailsTo'] : null, 'POST');
         $requestMailsTo = FormUtil::getPassedValue('requestMailsTo', isset($args['requestMailsTo']) ? $args['requestMailsTo'] : null, 'POST');
@@ -873,16 +853,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $this->checkCsrfToken();
 
         $this->setVar('siteBaseURL', $siteBaseURL)
-                ->setVar('tempFolder', $tempFolder)
-                ->setVar('serveradr', $serveradr)
-                ->setVar('basedn', $basedn)
-                ->setVar('bindas', $bindas)
-                ->setVar('bindpass', $bindpass)
-                ->setVar('searchdn', $searchdn)
-                ->setVar('serverport', $serverport)
-                ->setVar('allowedUsersAdministration', $allowedUsersAdministration)
-                ->setVar('allowedAccessRequest', $allowedAccessRequest)
-                ->setVar('sqlSecurityCode', $sqlSecurityCode)
                 ->setVar('allowedIpsForCalcDisckConsume', $allowedIpsForCalcDisckConsume)
                 ->setVar('warningMailsTo', $warningMailsTo)
                 ->setVar('requestMailsTo', $requestMailsTo)
@@ -892,6 +862,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 ->setVar('maxFreeQuotaForRequest', $maxFreeQuotaForRequest);
 
         LogUtil::registerStatus($this->__('S\'ha modificat la configuració'));
+
         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'config'));
     }
 
