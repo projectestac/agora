@@ -1691,9 +1691,13 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     }
                 }
                 if ($ZConfig['System']['oci_pconnect']) {
-                    $connect = oci_pconnect($user, $agora['moodle2']['userpwd'], $databaseName);
+                    $connect = oci_pconnect($user, $agora['moodle']['userpwd'], $databaseName);
                 } else {
-                    $connect = oci_connect($user, $agora['moodle2']['userpwd'], $databaseName);
+                    $connect = oci_connect($user, $agora['moodle']['userpwd'], $databaseName);
+                }
+                if (!$connect) {
+                    $e = oci_error();
+                    LogUtil::registerError(htmlentities($e['message']));
                 }
                 break;
         }

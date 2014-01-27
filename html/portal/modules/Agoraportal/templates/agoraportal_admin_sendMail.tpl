@@ -21,10 +21,9 @@
         amb l'usuari <strong>admin</strong> i la contrasenya <strong>{$password}</strong>.
         Us recomanem que canvieu la contrasenya d'aquest usuari/&agrave;ria despr&eacute;s
         del primer acc&eacute;s al servei. Dins del vostre espai s'ha creat,
-        tamb&eacute;, l'usuari xtecadmin que s'utilitzar&agrave; en cas de
+        tamb&eacute;, l'usuari/&agrave;ria xtecadmin que s'utilitzar&agrave; en cas de
         que hi hagi alguna incid&egrave;ncia que requereixi un suport especial.
-        Us preguem que no esborreu ni canvieu la contrasenya d'acc&eacute;s
-        d'aquest usuari.
+        Us preguem que no l'esborreu ni li canvieu la contrasenya.
     </p>
     {else}
     <p>
@@ -62,7 +61,7 @@
     <p>
         Teniu a la vostra disposici&oacute; els  
         <a href="http://ateneu.xtec.cat/wikiform/wikiexport/cmd/tac/moodle2/index">
-        materials de suport als cursos telem&agrave;</a> sobre el Moodle 2, a 
+        materials de suport als cursos telem&agrave;tics</a> sobre el Moodle 2, a 
         on hi trobareu un conjunt important d'informaci&oacute; sobre l'&uacute;s 
         d'aquesta plataforma d'aprenentatge.
     </p>
@@ -75,7 +74,7 @@
         q&uuml;estions plantejades en relaci&oacute; al funcionament de la 
         intranet. Per tal de resoldre els dubtes relacionats amb aquest tema
         podeu adre&ccedil;ar-vos als 
-        <a href="http://intraweb.xtec.cat/web/index.php?module=Dizkus">f&ograve;rums 
+        <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1161">f&ograve;rums 
         del projecte Intraweb</a>. En aquest f&ograve;rum tothom pot preguntar 
         i respondre les q&uuml;estions que consideri oportunes.
     </p>
