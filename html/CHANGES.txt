@@ -9,6 +9,7 @@ GENERAL
 - Added phpsysinfo to get status information from the web servers
 - createSchoolsListsFiles.php: Removed Moodle 1.9 stuff
 - statistics.php: Removed Moodle 1.9 stuff
+- htaccess: /moodle2 now redirects to /moodle
 
 ZIKULA
 - Improved protection against XSS vulnerability

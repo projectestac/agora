@@ -1,5 +1,3 @@
-#ErrorDocument 503 https://sites.google.com/a/xtec.cat/agora/anuncis/manteniment
-
 RewriteEngine on
 
 RewriteBase /agora/
@@ -8,15 +6,17 @@ RewriteBase /agora/
 RewriteCond %{REQUEST_URI} ([^/]*)/moodle/install.php
 RewriteRule ^([^.]*)/install.php(.*)$ $1/moodle/siteoff.html [QSA,L]
 
-RewriteRule ^([^/]*)/antic$ $1/antic/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/moodle$ $1/moodle/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/moodle/my$ $1/moodle/my/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/intranet$ $1/intranet/ [QSA,R=permanent,L]
 
+# Redirect /moodle2 to /moodle
+RewriteRule ^([^/]*)/moodle2/(.*)$ $1/moodle/$2 [QSA,R=permanent,L]
+RewriteRule ^([^/]*)/moodle2$ $1/moodle/ [QSA,R=permanent,L]
+
 RewriteCond %{REQUEST_URI} ([^/]*)/usu1/intranet/ [OR]
-RewriteCond %{REQUEST_URI} ([^/]*)/usu3/intranet/
+RewriteCond %{REQUEST_URI} ([^/]*)/usu2/intranet/
 RewriteRule ^([^.]*)/intranet/(.*)$ zikula2/$2?ccentre=$1 [QSA,L]
 
 RewriteRule ^([^/]*)/moodle/(.*)$ moodle2/$2?ccentre=$1 [QSA,L]
-RewriteRule ^([^/]*)/antic/(.*)$ moodle/$2?ccentre=$1 [QSA,L]
 RewriteRule ^([^/]*)/intranet/(.*)$ zikula/$2?ccentre=$1 [QSA,L]
