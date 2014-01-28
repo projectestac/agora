@@ -1,7 +1,7 @@
 <p style="margin-left:10px;">Benvolgut Sr./Sra.,</p>
 <p>
     L'estat de la sol&middot;licitud realitzada al <a href="{$baseURL}portal">gestor 
-        dels serveis d'&Agrave;gora</a> ha canviat a <strong>{$stateDesc}</strong>. 
+    dels serveis d'&Agrave;gora</a> ha canviat a <strong>{$stateDesc}</strong>. 
     {if not empty($adminComments)}La resposta dels administradors del servei 
     &eacute;s la seg&uuml;ent:{/if}
 </p>
@@ -12,8 +12,8 @@
     En cas de disconformitat amb la resoluci&oacute; de la sol&middot;licitud, 
     contacteu amb l'equip del projecte &Agrave;gora mitjançant el 
     <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=181">f&ograve;rum 
-        d'&Agrave;gora-moodle</a> o el 
-    <a href="http://intraweb.xtec.cat/web/index.php?module=Dizkus">d'&Agrave;gora-intranet</a>,
+    d'&Agrave;gora-moodle</a> o el 
+    <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1161">d'&Agrave;gora-intranet</a>,
     en funci&oacute; de quin sigui el servei afectat. Si ho preferiu podeu fer 
     una nova sol&middot;licitud i fer-hi constar les circumst&agrave;ncies que considereu
     oportunes.

@@ -10,18 +10,20 @@
     
     {if $serviceName eq 'moodle2'}
         {assign var='serviceName4URL' value='moodle'}
+        {assign var='serviceName4User' value='moodle'}
     {else}
         {assign var='serviceName4URL' value='intranet'}
+        {assign var='serviceName4User' value='intranet'}
     {/if}
     
     {if $serviceName neq 'marsupial'}
     <p>
-        Podeu accedir al vostre espai <strong>{$serviceName}</strong> des de
+        Podeu accedir al vostre espai <strong>{$serviceName4User}</strong> des de
         l'URL <a href="{$baseURL}{$clientDNS}/{$serviceName4URL}/">{$baseURL}{$clientDNS}/{$serviceName4URL}</a>
         amb l'usuari <strong>admin</strong> i la contrasenya <strong>{$password}</strong>.
-        Us recomanem que canvieu la contrasenya d'aquest usuari/&agrave;ria despr&eacute;s
+        Us recomanem que canvieu la contrasenya d'aquest usuari despr&eacute;s
         del primer acc&eacute;s al servei. Dins del vostre espai s'ha creat,
-        tamb&eacute;, l'usuari/&agrave;ria xtecadmin que s'utilitzar&agrave; en cas de
+        tamb&eacute;, l'usuari "xtecadmin" que s'utilitzar&agrave; en cas de
         que hi hagi alguna incid&egrave;ncia que requereixi un suport especial.
         Us preguem que no l'esborreu ni li canvieu la contrasenya.
     </p>
@@ -48,21 +50,19 @@
         Per resoldre qualsevol dubte o problema relacionat amb aquest servei, teniu 
         a la vostra disposici&oacute; el 
         <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=181">fòrum 
-        d'&Agrave;gora-moodle</a>, a on podeu expressar la vostra opini&oacute;, 
-        fer suggeriments i demanar suport.
+        d'&Agrave;gora-moodle</a>, a on hi podeu escriure preguntes, 
+        sol&middot;licitar ajuda o plantejar suggeriments.
     </p>
     <p>
-        Tal com s'especifica a les condicions d'&uacute;s del servei, recordeu 
-        que a la XTEC no hi ha cap figura destinada a solucionar les q&uuml;estions 
-        plantejades en relaci&oacute; al funcionament del Moodle. Per tal de 
-        resoldre aquests dubtes podeu adre&ccedil;ar-vos als f&ograve;rums en catal&agrave;
+        Per resoldre dubtes sobre el funcionament general del Moodle us podeu 
+        adre&ccedil;ar tamb&eacute; als f&ograve;rums en catal&agrave;
         de <a href="http://moodle.org/course/view.php?id=39">Moodle.org</a>.
     </p>
     <p>
         Teniu a la vostra disposici&oacute; els  
         <a href="http://ateneu.xtec.cat/wikiform/wikiexport/cmd/tac/moodle2/index">
-        materials de suport als cursos telem&agrave;tics</a> sobre el Moodle 2, a 
-        on hi trobareu un conjunt important d'informaci&oacute; sobre l'&uacute;s 
+        materials de suport als cursos telem&agrave;tics</a> sobre Moodle, 
+        on trobareu un conjunt important d'informaci&oacute; sobre l'&uacute;s 
         d'aquesta plataforma d'aprenentatge.
     </p>
     {/if}
@@ -97,7 +97,7 @@
 
 {if $state eq '-2'}
 <p>
-    S'ha denegat el servei <strong>{$serviceName}</strong>
+    S'ha denegat el servei <strong>{$serviceName4User}</strong>
     per al centre <strong>{$clientName}</strong> dins de l'espai 
     <a href="{$baseURL}">&Agrave;gora</a>. El motiu de la 
     denegaci&oacute; ha estat:
@@ -109,7 +109,7 @@
 
 {if $state eq '-3'}
 <p>
-    S'ha donat de baixa el servei <strong>{$serviceName}</strong>
+    S'ha donat de baixa el servei <strong>{$serviceName4User}</strong>
     per al centre <strong>{$clientName}</strong> dins de l'espai 
     <a href="{$baseURL}">&Agrave;gora</a>. El motiu de la baixa 
     ha estat:
@@ -121,7 +121,7 @@
 
 {if $state eq '-4'}
 <p>
-    S'ha desactivat el servei <strong>{$serviceName}</strong>
+    S'ha desactivat el servei <strong>{$serviceName4User}</strong>
     per al centre <strong>{$clientName}</strong> dins de l'espai
     <a href="{$baseURL}">&Agrave;gora</a>. El motiu de la baixa
     ha estat:

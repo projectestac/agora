@@ -19,6 +19,7 @@ PORTAL
 - Agoraportal: Removed references to /antic
 - Agoraportal: Fixed bcc message when activating service
 - Agoraportal: Removed Moodle 1.9 stuff
+- Agoraportal: Updated automatic e-mail messages
 
 
 Changes 14.01.15
