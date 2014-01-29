@@ -1,0 +1,3 @@
+[submodule "html/zikula2/modules/IWagendas"]
+	path = html/zikula2/modules/IWagendas
+	url = git://github.com/intraweb-modules13/IWagendas.git
