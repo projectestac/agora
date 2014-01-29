@@ -23,7 +23,7 @@
         amb l'usuari <strong>admin</strong> i la contrasenya <strong>{$password}</strong>.
         Us recomanem que canvieu la contrasenya d'aquest usuari despr&eacute;s
         del primer acc&eacute;s al servei. Dins del vostre espai s'ha creat,
-        tamb&eacute;, l'usuari "xtecadmin" que s'utilitzar&agrave; en cas de
+        tamb&eacute;, l'usuari <strong>xtecadmin</strong> que s'utilitzar&agrave; en cas de
         que hi hagi alguna incid&egrave;ncia que requereixi un suport especial.
         Us preguem que no l'esborreu ni li canvieu la contrasenya.
     </p>
