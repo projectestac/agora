@@ -196,9 +196,19 @@
                     <h1><?php echo __('The site is currently off-line.'); ?></h1>
                     <h2><?php echo (Zikula_Core::VERSION_NUM != System::getVar('Version_Num')) ? __('This site needs to be upgraded, please contact the system administrator.') : System::getVar('siteoffreason');?></h2>
                     <p>
+                        <!-- MODIFICAT XTEC -->
+                        <!-- 2014.01.29 @aginard: Fixed form loading in Firefox -->
+                        <span style="cursor:pointer;" class="showloginbutton" onclick="toggleLoginBox();" title="<?php echo __('Administrator log-in'); ?>">
+                            <strong><?php echo __('Administrator log-in'); ?></strong>
+                        </span>
+                        <!-- Original BEGIN -->
+                        <!--
                         <a href="javacript:void(0);" class="showloginbutton" onclick="toggleLoginBox();" title="<?php echo __('Administrator log-in'); ?>">
                             <strong><?php echo __('Administrator log-in'); ?></strong>
                         </a>
+                        -->
+                        <!-- Original END -->
+                        <!-- MODIFICAT XTEC END -->
                     </p>
                     <form id="login" action="<?php System::getVar('entrypoint', 'index.php'); ?>?module=Users&amp;type=user&amp;func=siteofflogin" method="post">
                         <div>

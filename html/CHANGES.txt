@@ -17,6 +17,7 @@ ZIKULA
 ZIKULA 2
 - Fixed incorrect saving of IWmain params
 - Updated URL of Intraweb project
+- Fixed siteoff template not loading login form in Firefox
 
 PORTAL
 - Removed upgrade.php because it is no longer necessary
@@ -25,6 +26,7 @@ PORTAL
 - Agoraportal: Removed Moodle 1.9 stuff
 - Agoraportal: Updated automatic e-mail messages
 - Fixed incorrect saving of IWmain params
+- Fixed siteoff template not loading login form in Firefox
 
 
 Changes 14.01.15
