@@ -11,7 +11,7 @@
 // @autor: Toni Ginard Lladó
 // @license GNU/GPL - http://www.gnu.org/copyleft/gpl.html
 //
-// This module is part of Intraweb project (http://phobos.xtec.cat/intraweb)
+// This module is part of Intraweb project (http://projectestac.github.io/intraweb/)
 // To run this module you need to have the IWmain module installed at least in the version 0.3.
 //
 // **************************************************

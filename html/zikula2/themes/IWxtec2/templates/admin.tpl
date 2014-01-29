@@ -56,7 +56,7 @@
             <div id="theme_footer">
                 <a href="http://agora.xtec.cat/"><img src="{$imagepath}/logo_agora.gif" alt="&Agrave;gora" /></a>
                 <a href="http://www.zikula.org"><img src="{$imagepath}/logo_zikula.gif" alt="Zikula" /></a>&nbsp;&nbsp;&nbsp;
-                <a href="http://phobos.xtec.cat/intraweb"><img src="{$imagepath}/logo_intraweb.gif" alt="Intraweb" /></a>
+                <a href="http://projectestac.github.io/intraweb/"><img src="{$imagepath}/logo_intraweb.gif" alt="Intraweb" /></a>
             </div>
 
         </div>

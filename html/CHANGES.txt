@@ -16,6 +16,7 @@ ZIKULA
 
 ZIKULA 2
 - Fixed incorrect saving of IWmain params
+- Updated URL of Intraweb project
 
 PORTAL
 - Removed upgrade.php because it is no longer necessary

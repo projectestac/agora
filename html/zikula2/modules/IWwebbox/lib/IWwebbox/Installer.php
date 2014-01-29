@@ -13,7 +13,7 @@ class IWwebbox_Installer extends Zikula_AbstractInstaller {
             return false;
 
         //Create module vars
-        $this->setVar('url', 'http://phobos.xtec.cat/intraweb')
+        $this->setVar('url', 'http://projectestac.github.io/intraweb/')
                 ->setVar('width', '100')
                 ->setVar('height', '600')
                 ->setVar('scrolls', '1')
@@ -60,7 +60,7 @@ class IWwebbox_Installer extends Zikula_AbstractInstaller {
 
         $newVarsNames = Array('url', 'width', 'height', 'scrolls', 'widthunit');
 
-        $newVars = Array('url' => 'http://phobos.xtec.cat/intraweb',
+        $newVars = Array('url' => 'http://projectestac.github.io/intraweb/',
             'width' => '100',
             'height' => '600',
             'scrolls' => '1',

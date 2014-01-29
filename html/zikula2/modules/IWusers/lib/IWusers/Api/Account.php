@@ -3,8 +3,8 @@
 /**
  * @package      IWmain
  * @version      3.0
- * @author	 Albert Pérez Monfort
- * @link         http://phobos.xtec.cat/intraweb
+ * @author      Albert Pérez Monfort
+ * @link         http://projectestac.github.io/intraweb/
  * @copyright    Copyright (C) 2009
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
  */

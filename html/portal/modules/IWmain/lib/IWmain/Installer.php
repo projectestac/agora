@@ -30,7 +30,7 @@ class IWmain_Installer extends Zikula_AbstractInstaller {
             return false;
 
         //Create module vars
-        $this->setVar('url', 'http://phobos.xtec.net/intraweb')
+        $this->setVar('url', 'http://projectestac.github.io/intraweb/')
                 ->setVar('email', 'intraweb@xtec.cat')
                 ->setVar('documentRoot', 'data')
                 ->setVar('extensions', 'odt|ods|odp|zip|pdf|doc|jpg|gif|txt')
@@ -97,7 +97,7 @@ class IWmain_Installer extends Zikula_AbstractInstaller {
         $newVarsNames = Array('url', 'email', 'documentRoot', 'extensions', 'maxsize', 'usersvarslife',
             'cronHeaderText', 'cronFooterText', 'showHideFiles', 'URLBase');
 
-        $newVars = Array('url' => 'http://phobos.xtec.net/intraweb',
+        $newVars = Array('url' => 'http://projectestac.github.io/intraweb/',
             'email' => 'intraweb@xtec.cat',
             'documentRoot' => 'data',
             'extensions' => 'odt|ods|odp|zip|pdf|doc|jpg|gif|txt',
