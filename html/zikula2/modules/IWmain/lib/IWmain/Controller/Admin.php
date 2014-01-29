@@ -81,11 +81,13 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
         }
 
         $multizk = (isset($GLOBALS['ZConfig']['Multisites']['multi']) && $GLOBALS['ZConfig']['Multisites']['multi'] == 1) ? 1 : 0;
+        $superadmin = $this->isSuperadmin();
 
         // Create output object
         return $this->view->assign('noWriteabledocumentRoot', $noWriteabledocumentRoot)
                         ->assign('noFolder', $noFolder)
                         ->assign('multizk', $multizk)
+                        ->assign('superadmin', $superadmin)
                         ->assign('extensions', $this->getVar('extensions'))
                         ->assign('maxsize', $this->getVar('maxsize'))
                         ->assign('usersvarslife', $this->getVar('usersvarslife'))
@@ -234,4 +236,12 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
         return $dir_objects;
     }
 
+    /**
+     * Check if current logged user is superadmin
+     * @author: Toni Ginard
+     * @return: Boolean true if it's superadmin, false otherwise
+     */
+    public function isSuperadmin(){
+        return $superadmin = (UserUtil::getVar('uname') == 'xtecadmin') ? true : false;
+    }
 }

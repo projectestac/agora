@@ -14,12 +14,16 @@ GENERAL
 ZIKULA
 - Improved protection against XSS vulnerability
 
+ZIKULA 2
+- Fixed incorrect saving of IWmain params
+
 PORTAL
 - Removed upgrade.php because it is no longer necessary
 - Agoraportal: Removed references to /antic
 - Agoraportal: Fixed bcc message when activating service
 - Agoraportal: Removed Moodle 1.9 stuff
 - Agoraportal: Updated automatic e-mail messages
+- Fixed incorrect saving of IWmain params
 
 
 Changes 14.01.15

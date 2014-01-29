@@ -10,7 +10,7 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
     /**
      * Give access to the main Intraweb configuration
      * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
-     * @return:	The form for general configuration values of the Intraweb modules
+     * @return: The form for general configuration values of the Intraweb modules
      */
     public function main() {
         // Security check
@@ -62,13 +62,14 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
     /**
      * Give access to the Intraweb configuration
      * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
-     * @return:	The form for general configuration values of the Intraweb modules
+     * @return: The form for general configuration values of the Intraweb modules
      */
     public function conf() {
         // Security check
         if (!SecurityUtil::checkPermission('IWmain::', '::', ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
         }
+        
         $noWriteabledocumentRoot = false;
         $noFolder = false;
         //Check if the directory of document root files exists
@@ -80,12 +81,14 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
             }
         }
 
-        $multizk = (isset($GLOBALS['PNConfig']['Multisites']['multi']) && $GLOBALS['PNConfig']['Multisites']['multi'] == 1) ? 1 : 0;
+        $multizk = (isset($GLOBALS['ZConfig']['Multisites']['multi']) && $GLOBALS['ZConfig']['Multisites']['multi'] == 1) ? 1 : 0;
+        $superadmin = $this->isSuperadmin();
 
         // Create output object
         return $this->view->assign('noWriteabledocumentRoot', $noWriteabledocumentRoot)
                         ->assign('noFolder', $noFolder)
                         ->assign('multizk', $multizk)
+                        ->assign('superadmin', $superadmin)
                         ->assign('extensions', $this->getVar('extensions'))
                         ->assign('maxsize', $this->getVar('maxsize'))
                         ->assign('usersvarslife', $this->getVar('usersvarslife'))
@@ -99,8 +102,8 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Show the module information
-     * @author	Albert Pérez Monfort (aperezm@xtec.cat)
-     * @return	The module information
+     * @author  Albert Pérez Monfort (aperezm@xtec.cat)
+     * @return  The module information
      */
     public function executeCron() {
         // Security check
@@ -114,7 +117,7 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
     /**
      * Update the module configuration
      * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
-     * @return:	True if success or false in other case
+     * @return: True if success or false in other case
      */
     public function updateconfig() {
         // Get parameters from whatever input we need.
@@ -140,15 +143,6 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
             $usersvarslife = 0;
         }
 
-        // TODO
-        /*
-          // Update module variables
-          if (!isset($GLOBALS['PNConfig']['Multisites']['multi']) || $GLOBALS['PNConfig']['Multisites']['multi'] == 0) {
-          $multizk = $Intraweb['multizk'];
-          $this->setVar('documentRoot', $documentRoot);
-          }
-         */
-
         $this->setVar('extensions', $extensions)
                 ->setVar('documentRoot', $documentRoot)
                 ->setVar('maxsize', $maxsize)
@@ -169,8 +163,8 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
     /**
      * Check if it is installed the correct version of IWmain when somebody try to install a new module that needs IWmain
      * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:	args   Array with the version of the module IWmain needed
-     * @return:	True if the version is correct and false in other case
+     * @param:  args   Array with the version of the module IWmain needed
+     * @return: True if the version is correct and false in other case
      */
     public function checkVersion($args) {
         // Checks if module IWmain is installed. If not returns error
@@ -185,9 +179,9 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * redirect administrator to IWfiles modules. The management files has been removed from the IWmain module
-     * @author:	Robert Barrera (rbarrer5@xtec.cat)
-     * @param:	args   Array with the folder name where list the files and subfolders
-     * @return:	The list of files and folders
+     * @author: Robert Barrera (rbarrer5@xtec.cat)
+     * @param:  args   Array with the folder name where list the files and subfolders
+     * @return: The list of files and folders
      */
     public function filesList($args) {
         return System::redirect(ModUtil::url('Files', 'user', 'main'));
@@ -195,9 +189,9 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * List the information files in folder
-     * @author:	Robert Barrera (rbarrer5@xtec.cat)
-     * @param:	dir Folder Path
-     * @return:	Objects array of the files
+     * @author: Robert Barrera (rbarrer5@xtec.cat)
+     * @param:  dir Folder Path
+     * @return: Objects array of the files
      */
     public function dir_list($args) {
         $folder = FormUtil::getPassedValue('folder', isset($args['folder']) ? $args['folder'] : null, 'POST');
@@ -243,4 +237,12 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
         return $dir_objects;
     }
 
+    /**
+     * Check if current logged user is superadmin
+     * @author: Toni Ginard
+     * @return: Boolean true if it's superadmin, false otherwise
+     */
+    public function isSuperadmin(){
+        return $superadmin = (UserUtil::getVar('uname') == 'xtecadmin') ? true : false;
+    }
 }

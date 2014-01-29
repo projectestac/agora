@@ -4,7 +4,7 @@
     <h2>{gt text="Modify the configuration"}</h2>
     <form  class="z-form" enctype="application/x-www-form-urlencoded" method="post" id="conf" action="{modurl modname='IWmain' type='admin' func='updateconfig'}">
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
-        {if not $multizk}
+        {if not $multizk or $superadmin}
         <div class="z-formrow">
             <label for="documentRoot">{gt text="Server files directori"}</label>
             <input type="text" name="documentRoot" value="{$documentRoot}" size="50" maxlength="255" />
@@ -19,6 +19,8 @@
             </div>
             {/if}
         </div>
+        {else}
+            <input type="hidden" name="documentRoot" value="{$documentRoot}" size="50" maxlength="255" />
         {/if}
         <div class="z-formrow">
             <label for="extensions">{gt text="Allowed extensions"}</label>
