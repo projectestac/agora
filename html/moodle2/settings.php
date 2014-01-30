@@ -2,10 +2,11 @@
 require_once(dirname(__FILE__) . '/local/agora/lib.php');
 
 // Force general preferences. Prevailes over database params.
-$CFG->isagora = false;
+$CFG->isagora = 1;
 //$CFG->iseoi = false;  /* Set in database */
 $CFG->isportal = false;
-$CFG->center = '17006733';
+$CFG->center = array_key_exists('clientCode', $school_info) ? $school_info['clientCode'] : $school_info['id_moodle2'];
+
 // The following line calculates correctly the diskPercent (uploading files will be disabled when diskPercent >= 100)
 $CFG->diskPercent = array_key_exists('diskPercent_moodle2', $school_info) ? $school_info['diskPercent_moodle2'] : 0;
 $CFG->userquota = 0;  // To avoid the private files area
@@ -102,7 +103,7 @@ if (isset($agora['server']['enviroment'])){
 
 // Path of the cacheconfig.php file, to have only one MUC file for Àgora (instead of having one for each site in moodledata/usuX/muc/config.php). 
 // This folder has to exists and to be writable
-//$CFG->altcacheconfigpath = $agora['server']['root'].'html/moodle2/local/agora/muc/';
+$CFG->altcacheconfigpath = $agora['server']['root'].'html/moodle2/local/agora/muc/';
 
 $CFG->timezone = 99; // Changed by default to Server's local time
 $CFG->cronremotepassword = '';  // changed to avoid schools change it
