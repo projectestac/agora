@@ -27,6 +27,8 @@ PORTAL
 - Agoraportal: Updated automatic e-mail messages
 - Fixed incorrect saving of IWmain params
 - Fixed siteoff template not loading login form in Firefox
+- Agoraportal: Improved function listDataDirs
+- IWportal: Reduced font-size to 13 pixels
 
 
 Changes 14.01.15
