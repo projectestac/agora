@@ -2,7 +2,7 @@
 <table class="z-datatable">
     <thead>
         <tr>
-            <th>{gt text="N. BD"}</th>
+            <th>{gt text="BD"}</th>
             <th>{gt text="Nom client"}</th>
             <th>{gt text="Tipus"}</th>
             <th>{gt text="Servei"}</th>
@@ -24,7 +24,8 @@
              <td align="left" valign="top">
                  <a href="{modurl modname='Agoraportal' type='user' func='myAgora' clientCode=$client.clientCode}">{$client.clientName}</a>
                  {if $client.state eq 1 && $services[$client.serviceId].serviceName neq 'marsupial'}
-                 (<a href="{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}" target="_blank">{gt text="Entra-hi"}</a>)
+                 (<a href="{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}" target="_blank">{gt text="Entra-hi"}</a> - 
+                 <a href="{modurl modname='Agoraportal' type='admin' func='listDataDirs' serviceName=$services[$client.serviceId].serviceName activedId=$client.activedId}">{gt text="Fitxers"}</a>)
                  {/if}
                  <br />
                  {$client.clientDNS} - {$client.clientCode}

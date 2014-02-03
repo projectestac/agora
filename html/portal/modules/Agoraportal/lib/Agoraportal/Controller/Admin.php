@@ -3769,13 +3769,19 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     }
 
     /**
-     * List and remove temp files from all Moodle and intranets
+     * List files from moodledata and zkdata
      * 
-     * @global type $agora
-     * @param type $args
-     * @return type 
+     * @global array    agora
+     * @param string    serviceName
+     * @param int       activedId
+     * 
+     * @return Boolean 
      */
-    public function listDataFiles($args) {
+    public function listDataDirs() {
+
+        $serviceName = FormUtil::getPassedValue('serviceName');
+        $activedId = FormUtil::getPassedValue('activedId');
+
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             $allowedIps = ModUtil::getVar('Agoraportal', 'allowedIpsForCalcDisckConsume');
@@ -3791,40 +3797,52 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         // Load general config
         global $agora;
 
-        $moodleDataPath = $agora['server']['root'] . $agora['moodle2']['datadir'];
-        $zikulaDataPath = $agora['server']['root'] . $agora['intranet']['datadir'];
-        $dataDirs = array($moodleDataPath, $zikulaDataPath);
+        if (isset($serviceName) && isset($activedId)) {
+            $dataDir = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora['server']['userprefix'] . $activedId;
+            if (filetype($dataDir) == 'dir') {
+                echo '<h3>' . $agora['server']['userprefix'] . $activedId . ': ' . exec("du -skh $dataDir") . '</h3>';
+                $dh2 = opendir($dataDir);
+                if ($dh2) {
+                    while (($subDir = readdir($dh2)) !== false) {
+                        if ($subDir != '.' && $subDir != '..') {
+                            echo "<strong>$subDir</strong>: " . exec("du -skh $dataDir/$subDir") . "<br />";
+                        }
+                    }
+                    closedir($dh2);
+                }
+            }
+        } else {
+            $moodleDataPath = $agora['server']['root'] . $agora['moodle2']['datadir'];
+            $zikulaDataPath = $agora['server']['root'] . $agora['intranet']['datadir'];
+            $dataDirs = array($moodleDataPath, $zikulaDataPath);
 
-        foreach ($dataDirs as $dataDir) {
-            if (is_dir($dataDir)) {
-                $dh = opendir($dataDir);
-                if ($dh) {
-                    while (($file = readdir($dh)) !== false) {
-                        if (preg_match('/^' . $agora['server']['userprefix'] . '[1-9]\d*$/', $file)) {
-                            if (filetype($dataDir . $file) == 'dir') {
-                                echo "<h3>$file:" . exec("du -sk $dataDir$file") . "</h3>";
-                                $dh2 = opendir($dataDir . $file);
-                                if ($dh2) {
-                                    while (($subDir = readdir($dh2)) !== false) {
-                                        if ($subDir != '.' && $subDir != '..' && $subDir != '.svn') {
-                                            echo "<strong>$subDir</strong>: " . exec("du -sh $dataDir$file/$subDir") . "<br />";
+            foreach ($dataDirs as $dataDir) {
+                if (is_dir($dataDir)) {
+                    $dh = opendir($dataDir);
+                    if ($dh) {
+                        while (($file = readdir($dh)) !== false) {
+                            if (preg_match('/^' . $agora['server']['userprefix'] . '[1-9]\d*$/', $file)) {
+                                if (filetype($dataDir . $file) == 'dir') {
+                                    echo "<h3>$file: " . exec("du -skh $dataDir$file") . "</h3>";
+                                    $dh2 = opendir($dataDir . $file);
+                                    if ($dh2) {
+                                        while (($subDir = readdir($dh2)) !== false) {
+                                            if ($subDir != '.' && $subDir != '..') {
+                                                echo "<strong>$subDir</strong>: " . exec("du -skh $dataDir$file/$subDir") . "<br />";
+                                            }
                                         }
+                                        closedir($dh2);
                                     }
-                                    closedir($dh2);
                                 }
                             }
                         }
+                        closedir($dh);
+                        echo '<br /><br /><br />';
                     }
-                    closedir($dh);
-                    echo "<br /><br /><br />";
                 }
             }
         }
-        // Info Agoraportal admins of the presence of errors
-        if ($error) {
-            echo '<br/><br/>ERRORS:<br/>' . $errorMsg;
-        }
+
         return true;
     }
-
 }
