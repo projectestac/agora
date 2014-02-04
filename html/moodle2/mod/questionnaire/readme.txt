@@ -28,3 +28,10 @@ IF YOU ARE UPGRADING TO MOODLE 2.3...
 
 Make sure that you upgrade the questionnaire module to the latest 2.2 version in
 a Moodle 2.2 install first.
+
+Version 2.4.1 - Release date 20130519
+
+In accordance with current Moodle languages policy, all language folders other than English have been
+removed from the lang folder. All translations are now available from AMOS.
+
+

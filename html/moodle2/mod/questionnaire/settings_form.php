@@ -36,9 +36,21 @@ class questionnaire_settings_form extends moodleform {
         //-------------------------------------------------------------------------------
         $mform->addElement('header', 'contenthdr', get_string('contentoptions', 'questionnaire'));
 
-        $mform->addElement('select', 'realm', get_string('realm', 'questionnaire'), $QUESTIONNAIRE_REALMS);
-        $mform->setDefault('realm', $questionnaire->survey->realm);
-        $mform->addHelpButton('realm', 'realm', 'questionnaire');
+        $capabilities = questionnaire_load_capabilities($questionnaire->cm->id);
+        if (!$capabilities->createtemplates) {
+            unset($QUESTIONNAIRE_REALMS['template']);
+        }
+        if (!$capabilities->createpublic) {
+            unset($QUESTIONNAIRE_REALMS['public']);
+        }
+        if (isset($QUESTIONNAIRE_REALMS['public']) || isset($QUESTIONNAIRE_REALMS['template'])) {
+            $mform->addElement('select', 'realm', get_string('realm', 'questionnaire'), $QUESTIONNAIRE_REALMS);
+            $mform->setDefault('realm', $questionnaire->survey->realm);
+            $mform->addHelpButton('realm', 'realm', 'questionnaire');
+        } else {
+            $mform->addElement('hidden', 'realm', 'private');
+        }
+        $mform->setType('realm', PARAM_RAW);
 
         $mform->addElement('text', 'title', get_string('title', 'questionnaire'), array('size'=>'60'));
         $mform->setDefault('title', $questionnaire->survey->title);
@@ -85,9 +97,13 @@ class questionnaire_settings_form extends moodleform {
         //-------------------------------------------------------------------------------
         // Hidden fields
         $mform->addElement('hidden', 'id', 0);
+        $mform->setType('id', PARAM_INT);
         $mform->addElement('hidden', 'sid', 0);
+        $mform->setType('sid', PARAM_INT);
         $mform->addElement('hidden', 'name', '');
+        $mform->setType('name', PARAM_TEXT);
         $mform->addElement('hidden', 'owner', '');
+        $mform->setType('owner', PARAM_RAW);
 
         //-------------------------------------------------------------------------------
         // buttons

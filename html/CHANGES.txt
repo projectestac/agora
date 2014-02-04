@@ -5,6 +5,11 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+Changes 14.02.05
+---------------------------------------------------------------------------------------
 GENERAL
 - Added phpsysinfo to get status information from the web servers
 - createSchoolsListsFiles.php: Removed Moodle 1.9 stuff
@@ -14,6 +19,7 @@ GENERAL
 MOODLE 2
 - Repairing of course_section duplicates
 - Instaled some questiontypes of the Open University (gapselect, ddimageortext, ddmarker and ddwtos)
+- Updated Questionnaire from version 2.3.3 to version 2.4.2
 
 ZIKULA
 - Improved protection against XSS vulnerability

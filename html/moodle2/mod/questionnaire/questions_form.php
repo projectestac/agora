@@ -23,7 +23,7 @@
 */
 
 require_once ($CFG->dirroot.'/course/moodleform_mod.php');
-require_once($CFG->dirroot.'/mod/questionnaire/lib.php');
+require_once($CFG->dirroot.'/mod/questionnaire/questiontypes/questiontypes.class.php');
 
 class questionnaire_questions_form extends moodleform {
 
@@ -33,7 +33,7 @@ class questionnaire_questions_form extends moodleform {
     }
 
     function definition() {
-        global $CFG, $questionnaire, $SESSION;
+        global $CFG, $questionnaire, $SESSION, $OUTPUT;
         global $DB;
 
         $mform    =& $this->_form;
@@ -134,7 +134,9 @@ class questionnaire_questions_form extends moodleform {
             $quesgroup = 'quesgroup_'.$pos;
             $$quesgroup = array();
             $butclass = array('class' => 'questionnaire_qbut');
-
+            $disabledclass = array('class' => 'questionnaire_qbut_disabled',
+                        'disabled' => 'disabled', 'style' => 'width: 11px;');
+            $spacer = $OUTPUT->pix_url('spacer');
             if (!$this->moveq) {
                 $uextra = array('value' => $question->id,
                                 'alt' => get_string('moveup', 'questionnaire'),
@@ -152,24 +154,24 @@ class questionnaire_questions_form extends moodleform {
                                 'alt' => get_string('remove', 'questionnaire'),
                                 'title' => get_string('remove', 'questionnaire')) + $butclass;
                 if ($pos == 1) {
-                    $usrc = $CFG->wwwroot.'/mod/questionnaire/images/upd.gif';
-                    $uextra += array('disabled' => 'disabled');
+                    $usrc = $spacer;
+                    $uextra = $disabledclass;
                 } else {
-                    $usrc = $CFG->wwwroot.'/mod/questionnaire/images/up.gif';
+                    $usrc = $OUTPUT->pix_url('t/up');
                 }
                 if ($pos == ($numq)) {
-                    $dsrc = $CFG->wwwroot.'/mod/questionnaire/images/downd.gif';
-                    $dextra += array('disabled' => 'disabled');
+                    $dsrc = $spacer;
+                    $dextra = $disabledclass;
                 } else {
-                    $dsrc = $CFG->wwwroot.'/mod/questionnaire/images/down.gif';
+                    $dsrc = $OUTPUT->pix_url('t/down');
                 }
                 if ($question->type_id == QUESPAGEBREAK) {
-                    $esrc = $CFG->wwwroot.'/mod/questionnaire/images/editd.gif';
-                    $eextra += array('disabled' => 'disabled');
+                    $esrc = $spacer;
+                    $eextra  = $disabledclass;
                 } else {
-                    $esrc = $CFG->wwwroot.'/mod/questionnaire/images/edit.gif';
+                    $esrc = $OUTPUT->pix_url('t/edit');
                 }
-                $rsrc = $CFG->wwwroot.'/mod/questionnaire/images/delete.gif';
+                $rsrc = $OUTPUT->pix_url('t/delete');
 
             //Question numbers
                 ${$quesgroup}[] =& $mform->createElement('static', 'qnums', '', '<div class="qnums">'.$qnum_txt.'</div>');
@@ -179,23 +181,22 @@ class questionnaire_questions_form extends moodleform {
                 ${$quesgroup}[] =& $mform->createElement('image', 'moveupbutton['.$question->id.']', $usrc, $uextra);
                 ${$quesgroup}[] =& $mform->createElement('image', 'movednbutton['.$question->id.']', $dsrc, $dextra);
                 ${$quesgroup}[] =& $mform->createElement('image', 'movebutton['.$question->id.']',
-                                   $CFG->wwwroot.'/mod/questionnaire/images/move.gif', $mextra);
+                                   $OUTPUT->pix_url('t/move'), $mextra);
                 ${$quesgroup}[] =& $mform->createElement('image', 'editbutton['.$question->id.']', $esrc, $eextra);
                 ${$quesgroup}[] =& $mform->createElement('image', 'removebutton['.$question->id.']', $rsrc, $rextra);
                 ${$quesgroup}[] =& $mform->createElement('static', 'closetag_'.$question->id, '', '</div>');
             } else {
                 ${$quesgroup}[] =& $mform->createElement('static', 'qnum', '', '<div class="qnums">'.$qnum_txt.'</div>');
                 if ($this->moveq != $question->id) {
-                $mextra = array('value' => $question->id,
+                    $mextra = array('value' => $question->id,
                                 'alt' => get_string('movehere', 'questionnaire'),
                                 'title' => get_string('movehere', 'questionnaire')) + $butclass;
-                $msrc = $CFG->wwwroot.'/mod/questionnaire/images/movehere.gif';
+                $msrc = $OUTPUT->pix_url('movehere');
                 ${$quesgroup}[] =& $mform->createElement('static', 'opentag_'.$question->id, '', '<div class="qicons">');
                 $newposition = $max == $pos ? 0 : $pos;
                 ${$quesgroup}[] =& $mform->createElement('image', 'moveherebutton['.$newposition.']', $msrc, $mextra);
                 ${$quesgroup}[] =& $mform->createElement('static', 'closetag_'.$question->id, '', '</div>');
-            }
-                else {
+                } else {
                     ${$quesgroup}[] =& $mform->createElement('static', 'qnums', '', '<div class="qicons">Move From Here</div>');
                 }
             }
@@ -231,8 +232,12 @@ class questionnaire_questions_form extends moodleform {
         //-------------------------------------------------------------------------------
         // Hidden fields
         $mform->addElement('hidden', 'id', 0);
+        $mform->setType('id', PARAM_INT);
         $mform->addElement('hidden', 'sid', 0);
+        $mform->setType('sid', PARAM_INT);
         $mform->addElement('hidden', 'action', 'main');
+        $mform->setType('action', PARAM_RAW);
+        $mform->setType('moveq', PARAM_RAW);
 
         //-------------------------------------------------------------------------------
         // buttons
@@ -382,6 +387,7 @@ class questionnaire_edit_question_form extends moodleform {
         if ($question->type_id == QUESYESNO || $question->type_id == QUESDROP || $question->type_id == QUESDATE ||
             $question->type_id == QUESSECTIONTEXT) {
             $mform->addElement('hidden', 'length', $deflength);
+            $mform->setType('length', PARAM_INT);
         } else if ($question->type_id == QUESRADIO) {
             $lengroup = array();
             $lengroup[] =& $mform->createElement('radio', 'length', '', get_string('vertical', 'questionnaire'), '0');
@@ -391,6 +397,7 @@ class questionnaire_edit_question_form extends moodleform {
         } else { // QUESTEXT or QUESESSAY or QUESRATE
             $question->length = isset($question->length) ? $question->length : $deflength;
             $mform->addElement('text', 'length', get_string($lhelpname, 'questionnaire'), array('size'=>'1'));
+            $mform->setType('length', PARAM_TEXT);
             $mform->addHelpButton('length', $lhelpname, 'questionnaire');
         }
 
@@ -410,6 +417,7 @@ class questionnaire_edit_question_form extends moodleform {
             $mform->addElement('text', 'precise', get_string($phelpname, 'questionnaire'), array('size'=>'1'));
             //$mform->addHelpButton('precise', $phelpname, 'questionnaire');
         }
+        $mform->setType('precise', PARAM_INT);
 
         /// Content field:
         $modcontext    = $this->_customdata['modcontext'];
@@ -450,15 +458,21 @@ class questionnaire_edit_question_form extends moodleform {
             $mform->addElement('html', '</div>');
 
             $mform->addElement('hidden', 'num_choices', $num_choices);
+            $mform->setType('num_choices', PARAM_INT);
         }
 
         //-------------------------------------------------------------------------------
         // Hidden fields
         $mform->addElement('hidden', 'id', 0);
+        $mform->setType('id', PARAM_INT);
         $mform->addElement('hidden', 'qid', 0);
+        $mform->setType('qid', PARAM_INT);
         $mform->addElement('hidden', 'sid', 0);
+        $mform->setType('sid', PARAM_INT);
         $mform->addElement('hidden', 'type_id', $question->type_id);
+        $mform->setType('type_id', PARAM_INT);
         $mform->addElement('hidden', 'action', 'question');
+        $mform->setType('action', PARAM_RAW);
 
         //-------------------------------------------------------------------------------
         // buttons

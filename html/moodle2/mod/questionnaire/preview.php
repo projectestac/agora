@@ -17,7 +17,7 @@
 /// This page displays a non-completable instance of questionnaire
 
     require_once("../../config.php");
-    require_once($CFG->dirroot.'/mod/questionnaire/lib.php');
+    require_once($CFG->dirroot.'/mod/questionnaire/questionnaire.class.php');
 
     $id     = optional_param('id', 0, PARAM_INT);
     $sid    = optional_param('sid', 0, PARAM_INT);
@@ -79,13 +79,14 @@
     $owner = (trim($questionnaire->survey->owner) == trim($course->id));
 
     $canpreview = (!isset($questionnaire->capabilities) &&
-                   has_capability('mod/questionnaire:manage', get_context_instance(CONTEXT_COURSE, $course->id))) ||
-                  (isset($questionnaire->capabilities) && $questionnaire->capabilities->editquestions && $owner);
+                   has_capability('mod/questionnaire:preview', get_context_instance(CONTEXT_COURSE, $course->id))) ||
+                  (isset($questionnaire->capabilities) && $questionnaire->capabilities->preview && $owner);
     if (!$canpreview) {
         /// Should never happen, unless called directly by a snoop...
         print_error('nopermissions', 'questionnaire', $CFG->wwwroot.'/mod/questionnaire/view.php?id='.$cm->id);
     }
 
+    $SESSION->questionnaire->current_tab = new stdClass();
     $SESSION->questionnaire->current_tab = 'preview';
 
     $qp = get_string('preview_questionnaire', 'questionnaire');

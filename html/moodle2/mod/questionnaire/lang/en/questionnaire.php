@@ -1,4 +1,28 @@
-<?php // $Id$
+<?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * Strings for component 'questionnaire', language 'en', branch 'MOODLE_24_STABLE'
+ *
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 $string['action'] = 'Action';
 $string['additionalinfo'] = 'Additional Info';
 $string['additionalinfo_help'] = 'Text to be displayed at the top of the first page of this questionnaire. (i.e. instructions, background info, etc.)';
@@ -92,6 +116,7 @@ $string['includechoicetext'] = 'Include choice text';
 $string['incorrectcourseid'] = 'Course ID is incorrect';
 $string['incorrectmodule'] = 'Course Module ID was incorrect';
 $string['incorrectquestionnaire'] = 'Questionnaire is incorrect';
+$string['attemptstillinprogress'] = 'In progress. Saved on:';
 $string['invalidresponse'] = 'Invalid response specified.';
 $string['invalidresponserecord'] = 'Invalid response record specified.';
 $string['invalidsurveyid'] = 'Invalid questionnaire ID.';
@@ -215,6 +240,7 @@ $string['questionnaire:deleteresponses'] = 'Delete any response';
 $string['questionnaire:downloadresponses'] = 'Download responses in a CSV file';
 $string['questionnaire:editquestions'] = 'Create and edit questionnaire questions';
 $string['questionnaire:manage'] = 'Create and edit questionnaires';
+$string['questionnaire:preview'] = 'Preview questionnaires';
 $string['questionnaire:printblank'] = 'Print blank questionnaire';
 $string['questionnaire:readallresponseanytime'] = 'Read all responses any time';
 $string['questionnaire:readallresponses'] = 'Read response summaries, subject to open times';
