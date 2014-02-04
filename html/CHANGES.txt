@@ -13,6 +13,7 @@ GENERAL
 
 MOODLE 2
 - Repairing of course_section duplicates
+- Instaled some questiontypes of the Open University (gapselect, ddimageortext, ddmarker and ddwtos)
 
 ZIKULA
 - Improved protection against XSS vulnerability
