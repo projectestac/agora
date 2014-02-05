@@ -1,6 +1,8 @@
 <?php
 require_once(dirname(__FILE__) . '/local/agora/lib.php');
 
+get_debug();
+
 // Force general preferences. Prevailes over database params.
 $CFG->isagora = 1;
 //$CFG->iseoi = false;  /* Set in database */
@@ -108,3 +110,4 @@ $CFG->altcacheconfigpath = $agora['server']['root'].'html/moodle2/local/agora/mu
 $CFG->timezone = 99; // Changed by default to Server's local time
 $CFG->cronremotepassword = '';  // changed to avoid schools change it
 $CFG->cronclionly = 0; // changed to avoid schools change it
+

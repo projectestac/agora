@@ -13,10 +13,45 @@ function is_xtecadmin($user=null){
 		   && $user->username=='xtecadmin';
 }
 
+function require_xtecadmin(){
+	require_login(0, false);
+        if (!is_xtecadmin())
+                print_error('noxtecadmin');
+
+}
+
 function get_protected_agora(){
 	global $CFG, $USER;
 	return !is_agora() || is_xtecadmin();
 }
+
+function get_debug(){
+	global $CFG;
+
+	//Consult the cookie (only changes if the cookie is enabled), if not, takes default settings
+	if(isset($_COOKIE['agora_debug']) && $_COOKIE['agora_debug'] == 1){
+	        $CFG->debug = E_ALL | E_STRICT;
+	        $CFG->debugdisplay = 1;
+        	error_reporting($CFG->debug);
+	        @ini_set('display_errors', '1');
+        	@ini_set('log_errors', '0');
+	}
+}
+
+function local_agora_extends_settings_navigation($settingsnav, $context) {
+    if(is_xtecadmin()){
+        if ($settingnode = $settingsnav->find('root', navigation_node::TYPE_SETTING)) {
+	    $agora_node = $settingnode->add('Àgora');
+		if(isset($_COOKIE['agora_debug']) && $_COOKIE['agora_debug'] == 1){
+	                $agora_node->add(get_string('disable').' '.get_string('debug','admin'), $CFG->wwwroot.'/local/agora/debug.php?agora_debug=0');
+        	}
+	        else{
+        	        $agora_node->add(get_string('enable').' '.get_string('debug','admin'), $CFG->wwwroot.'/local/agora/debug.php?agora_debug=1');
+	        }
+	}
+    }
+}
+
 
 /**
  * Check if the current time is considered rush hour in order to apply restrictions

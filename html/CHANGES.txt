@@ -5,7 +5,8 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-
+MOODLE 2
+- Added debug by session feature
 
 
 Changes 14.02.05
