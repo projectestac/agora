@@ -21,14 +21,14 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['addmorechoiceblanks'] = 'Blanks for {no} more choices';
-$string['answer'] = 'Answer';
-$string['correctansweris'] = 'The correct answer is: {$a}';
-$string['infinite'] = 'Infinite';
-$string['pleaseputananswerineachbox'] = 'Please put an answer in each box.';
-$string['pluginname'] = 'Drag and drop into text';
-$string['pluginname_help'] = 'Type in some question text like "The [[1]] jumped over the [[2]]", then enter the possible words to go in gaps 1 and 2 underneath.';
+$string['addmorechoiceblanks'] = 'Blancs per a {no} opcions més';
+$string['answer'] = 'Resposta';
+$string['correctansweris'] = 'La resposta correcta és: {$a}';
+$string['infinite'] = 'Infinit';
+$string['pleaseputananswerineachbox'] = 'Si us plau, posa una respota a cada caixa.';
+$string['pluginname'] = 'Arrossega i deixa anar dins del text';
+$string['pluginname_help'] = 'Introdueix alguna pregunta com "El [[1]] va saltar sobre el [[2]]", i a continuació, escriu les paraules que poden anar als forats 1 i 2.';
 $string['pluginname_link'] = 'question/type/ddwtos';
-$string['pluginnameadding'] = 'Adding a drag and drop into text';
-$string['pluginnameediting'] = 'Editing a drag and drop into text';
-$string['pluginnamesummary'] = 'Missing words in some text are filled in using drag-and-drop.';
+$string['pluginnameadding'] = 'S\'està afegint una pregunta d\'arrossegar i deixar anar';
+$string['pluginnameediting'] = 'S\'està editant una pregunta d\'arrossegar i deixar anar';
+$string['pluginnamesummary'] = 'Les paraules que falten al text s\'omplen arrossegant i deixant anar.';

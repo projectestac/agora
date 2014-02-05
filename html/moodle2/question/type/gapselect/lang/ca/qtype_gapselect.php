@@ -22,23 +22,23 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['addmorechoiceblanks'] = 'Blanks for {no} more choices';
-$string['answer'] = 'Answer';
-$string['choices'] = 'Choices';
-$string['choicex'] = 'Choice {no}';
-$string['correctansweris'] = 'The correct answer is: {$a}';
-$string['errorblankchoice'] = 'Please check the Choices: Choice {$a} is empty.';
-$string['errormissingchoice'] = 'Please check the Question text: {$a} was not found in Choices! Only the choice numbers that exist in choices are allowed to be used a place holders.';
-$string['errornoslots'] = 'The question text must contain placeholders like [[1]] to show where the missing words go.';
-$string['errorquestiontextblank'] = 'You must enter some question text.';
-$string['group'] = 'Group';
-$string['pleaseputananswerineachbox'] = 'Please put an answer in each box.';
-$string['pluginname'] = 'Select missing words';
-$string['pluginname_help'] = 'Type in some question text like "The [[1]] jumped over the [[2]]", then enter the possible words to go in gaps 1 and 2 underneath.';
+$string['addmorechoiceblanks'] = 'Blancs per a {no} opcions més';
+$string['answer'] = 'Resposta';
+$string['choices'] = 'Opcions';
+$string['choicex'] = 'Opció {no}';
+$string['correctansweris'] = 'La resposta correcta és: {$a}';
+$string['errorblankchoice'] = 'Comprova les Opcions: l\'Opció {$a} està buida.';
+$string['errormissingchoice'] = 'Comprova el text de la pregunta: {$a} no es troba a cap de les Opcions! Només es poden utilitzar els números d\'opció (1, 2...) que hi ha a les Opcions com a marcadors de posició.';
+$string['errornoslots'] = 'El text de la pregunta ha de contenir algun marcador de posició com ara [[1]] per mostrar on van les paraules que falten.';
+$string['errorquestiontextblank'] = 'Has d\'introduir el text de la pregunta.';
+$string['group'] = 'Grup';
+$string['pleaseputananswerineachbox'] = 'Posa una resposta a cada camp.';
+$string['pluginname'] = 'Selecciona les paraules que falten';
+$string['pluginname_help'] = 'Introdueix algun text de la pregunta com "El [[1]] va saltar sobre el [[2]]" i a continuació, escriu les paraules que poden anar als forats 1 i 2.';
 $string['pluginname_link'] = 'question/type/gapselect';
-$string['pluginnameadding'] = 'Adding a select missing words question';
-$string['pluginnameediting'] = 'Editing a select missing words question';
-$string['pluginnamesummary'] = 'Missing words in some text are filled in using dropdown menus.';
-$string['shuffle'] = 'Shuffle';
-$string['tagsnotallowed'] = '{$a->tag} is not allowed. (Only {$a->allowed} are permitted.)';
-$string['tagsnotallowedatall'] = '{$a->tag} is not allowed. (No HTML is allowed here.)';
+$string['pluginnameadding'] = 'S\'està afegint una pregunta d\'omplir forats';
+$string['pluginnameediting'] = 'S\'està editant una pregunta d\'omplir forats';
+$string['pluginnamesummary'] = 'Permet crear preguntes d\'omplir forats en què les paraules que falten dins d\'un text s\'emplenen utilitzant menús desplegables.';
+$string['shuffle'] = 'Barreja';
+$string['tagsnotallowed'] = 'L\'etiqueta {$a->tag} no està permesa. (Només estan permeses {$a->allowed}.)';
+$string['tagsnotallowedatall'] = 'L\'etiqueta {$a->tag} no està permesa. (Aquí no s\'admet codi HTML.)';
