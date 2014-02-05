@@ -20,6 +20,7 @@ MOODLE 2
 - Repairing of course_section duplicates
 - Instaled some questiontypes of the Open University (gapselect, ddimageortext, ddmarker and ddwtos)
 - Updated Questionnaire from version 2.3.3 to version 2.4.2
+- Bug repair: MDL-43511 do not cache the MUC cache in question code
 
 ZIKULA
 - Improved protection against XSS vulnerability

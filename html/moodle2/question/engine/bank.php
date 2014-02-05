@@ -434,8 +434,11 @@ class question_finder implements cache_data_source {
     /** @var question_finder the singleton instance of this class. */
     protected static $questionfinder = null;
 
-    /** @var cache the question definition cache. */
-    protected $cache = null;
+// XTEC ELIMINAT MDL-43511 do not cache the MUC cache in question code 
+//2014.02.05 @pferre22
+//    /** @var cache the question definition cache. */
+//    protected $cache = null;
+//************ FI
 
     /**
      * @return question_finder a question finder.
@@ -456,10 +459,15 @@ class question_finder implements cache_data_source {
      * @return get the question definition cache we are using.
      */
     protected function get_data_cache() {
-        if ($this->cache == null) {
-            $this->cache = cache::make('core', 'questiondata');
-        }
-        return $this->cache;
+// XTEC MODIFICAT MDL-43511 do not cache the MUC cache in question code 
+//2014.02.05 @pferre22
+//        if ($this->cache == null) {
+//            $this->cache = cache::make('core', 'questiondata');
+//        }
+//        return $this->cache;
+          // Do not double cache here because it may break cache resetting.
+          return cache::make('core', 'questiondata');
+//************ FI
     }
 
     /**
