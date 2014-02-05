@@ -21,14 +21,14 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['addmorechoiceblanks'] = 'Blancs per a {no} opcions mÈs';
+$string['addmorechoiceblanks'] = 'Blancs per a {no} opcions m√©s';
 $string['answer'] = 'Resposta';
-$string['correctansweris'] = 'La resposta correcta Ès: {$a}';
+$string['correctansweris'] = 'La resposta correcta √©s: {$a}';
 $string['infinite'] = 'Infinit';
 $string['pleaseputananswerineachbox'] = 'Si us plau, posa una respota a cada caixa.';
 $string['pluginname'] = 'Arrossega i deixa anar dins del text';
-$string['pluginname_help'] = 'Introdueix alguna pregunta com "El [[1]] va saltar sobre el [[2]]", i a continuaciÛ, escriu les paraules que poden anar als forats 1 i 2.';
+$string['pluginname_help'] = 'Introdueix alguna pregunta com "El [[1]] va saltar sobre el [[2]]", i a continuaci√≥, escriu les paraules que poden anar als forats 1 i 2.';
 $string['pluginname_link'] = 'question/type/ddwtos';
-$string['pluginnameadding'] = 'S\'est‡ afegint una pregunta d\'arrossegar i deixar anar';
-$string['pluginnameediting'] = 'S\'est‡ editant una pregunta d\'arrossegar i deixar anar';
+$string['pluginnameadding'] = 'S\'est√† afegint una pregunta d\'arrossegar i deixar anar';
+$string['pluginnameediting'] = 'S\'est√† editant una pregunta d\'arrossegar i deixar anar';
 $string['pluginnamesummary'] = 'Les paraules que falten al text s\'omplen arrossegant i deixant anar.';
