@@ -7,6 +7,8 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 MOODLE 2
 - Added debug by session feature
+- Updated catalan translation of questiontypes of the Open University (gapselect, ddimageortext, ddmarker and ddwtos)
+
 
 
 Changes 14.02.05
