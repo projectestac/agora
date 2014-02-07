@@ -7,8 +7,9 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 MOODLE 2
 - Added debug by session feature
-- Updated catalan translation of questiontypes of the Open University (gapselect, ddimageortext, ddmarker and ddwtos)
 
+ZIKULA
+- Removed module iw_moodle to connect to Moodle 1.9
 
 
 Changes 14.02.05
