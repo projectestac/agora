@@ -346,6 +346,38 @@ function import19_course_selector($contextid, $showallcourses = false) {
 }
 
 /**
+ * Check the presence of Moodle 1.9 tables. Currently only checks table 'user'
+ * which is pretty like to exist if Moodle is working.
+ * 
+ * @global array $USER
+ * 
+ * @return boolean true if 1.9 is present, false otherwise
+ */
+function import19_check_moodle_tables() {
+
+    global $USER;
+    $noerror = true;
+
+    $dbconn = import19_connect_moodle19_db();
+
+    if ($dbconn) {
+        try {
+            $user19 = $dbconn->get_record('user', array('username' => $USER->username));
+        } catch (Exception $ex) {
+            if ($ex->getCode() == 'ddltablenotexist') {
+                $noerror = false;
+            } else {
+                echo '<div>No s\'ha pogut connectar al Moodle 1.9</div>';
+            }
+        }
+
+        // Close the DB connection
+        $dbconn->dispose();
+    }
+    return $noerror;
+}
+
+/**
  * Connect to Moodle 1.9 database
  * 
  * @global object $DB

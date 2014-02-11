@@ -182,10 +182,13 @@ $import19lib = $CFG->dirroot.'/local/agora/import19/lib.php';
 if (file_exists($import19lib)) {
     $showallcourses = optional_param('showallcourses', 0, PARAM_INT);
     require_once($import19lib);
-    echo $OUTPUT->heading_with_help(get_string('choosefilefrommoodle19', 'local_agora'), 'choosefilefrommoodle19', 'local_agora');
-    echo $OUTPUT->container_start();
-    echo import19_course_selector($contextid, $showallcourses);
-    echo $OUTPUT->container_end();
+    // Check presence of tables from Moodle 1.9
+    if (import19_check_moodle_tables()) {
+        echo $OUTPUT->heading_with_help(get_string('choosefilefrommoodle19', 'local_agora'), 'choosefilefrommoodle19', 'local_agora');
+        echo $OUTPUT->container_start();
+        echo import19_course_selector($contextid, $showallcourses);
+        echo $OUTPUT->container_end();
+    }
 }
 //************ FI
 

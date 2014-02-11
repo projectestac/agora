@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 MOODLE 2
 - Added debug by session feature
+- Import19: Don't show import section if tables of Moodle 1.9 are not present and avoid current error
 
 ZIKULA
 - Removed module iw_moodle to connect to Moodle 1.9
