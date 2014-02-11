@@ -39,19 +39,18 @@ function get_debug(){
 }
 
 function local_agora_extends_settings_navigation($settingsnav, $context) {
-    if(is_xtecadmin()){
+    if (is_xtecadmin()) {
+        global $CFG;
         if ($settingnode = $settingsnav->find('root', navigation_node::TYPE_SETTING)) {
-	    $agora_node = $settingnode->add('Àgora');
-		if(isset($_COOKIE['agora_debug']) && $_COOKIE['agora_debug'] == 1){
-	                $agora_node->add(get_string('disable').' '.get_string('debug','admin'), $CFG->wwwroot.'/local/agora/debug.php?agora_debug=0');
-        	}
-	        else{
-        	        $agora_node->add(get_string('enable').' '.get_string('debug','admin'), $CFG->wwwroot.'/local/agora/debug.php?agora_debug=1');
-	        }
-	}
+            $agora_node = $settingnode->add('Àgora');
+            if (isset($_COOKIE['agora_debug']) && $_COOKIE['agora_debug'] == 1) {
+                $agora_node->add(get_string('disable') . ' ' . get_string('debug', 'admin'), $CFG->wwwroot . '/local/agora/debug.php?agora_debug=0');
+            } else {
+                $agora_node->add(get_string('enable') . ' ' . get_string('debug', 'admin'), $CFG->wwwroot . '/local/agora/debug.php?agora_debug=1');
+            }
+        }
     }
 }
-
 
 /**
  * Check if the current time is considered rush hour in order to apply restrictions
