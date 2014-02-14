@@ -1,13 +1,13 @@
 <?php defined('MOODLE_INTERNAL') || die();
  $configuration = array (
   'siteidentifier' => 'unknown',
-  'stores' => 
+  'stores' =>
   array (
-    'default_application' => 
+    'default_application' =>
     array (
       'name' => 'default_application',
       'plugin' => 'file',
-      'configuration' => 
+      'configuration' =>
       array (
       ),
       'features' => 6,
@@ -16,11 +16,11 @@
       'class' => 'cachestore_file',
       'lock' => 'cachelock_file_default',
     ),
-    'default_session' => 
+    'default_session' =>
     array (
       'name' => 'default_session',
       'plugin' => 'session',
-      'configuration' => 
+      'configuration' =>
       array (
       ),
       'features' => 6,
@@ -29,11 +29,11 @@
       'class' => 'cachestore_session',
       'lock' => 'cachelock_file_default',
     ),
-    'default_request' => 
+    'default_request' =>
     array (
       'name' => 'default_request',
       'plugin' => 'static',
-      'configuration' => 
+      'configuration' =>
       array (
       ),
       'features' => 6,
@@ -42,11 +42,11 @@
       'class' => 'cachestore_static',
       'lock' => 'cachelock_file_default',
     ),
-    'agora_store' => 
+    'agora_store' =>
     array (
       'name' => 'agora_store',
       'plugin' => 'file',
-      'configuration' => 
+      'configuration' =>
       array (
         'path' => '/srv/www/agora/cache_ins',
       ),
@@ -58,30 +58,30 @@
       'lock' => 'cachelock_file_default',
     ),
   ),
-  'modemappings' => 
+  'modemappings' =>
   array (
-    0 => 
+    0 =>
     array (
       'store' => 'default_request',
       'mode' => 4,
       'sort' => 0,
     ),
-    1 => 
+    1 =>
     array (
       'store' => 'agora_store',
       'mode' => 2,
       'sort' => 0,
     ),
-    2 => 
+    2 =>
     array (
       'store' => 'default_application',
       'mode' => 1,
       'sort' => 0,
     ),
   ),
-  'definitions' => 
+  'definitions' =>
   array (
-    'core/string' => 
+    'core/string' =>
     array (
       'mode' => 1,
       'simplekeys' => true,
@@ -91,10 +91,10 @@
       'component' => 'core',
       'area' => 'string',
     ),
-    'core/databasemeta' => 
+    'core/databasemeta' =>
     array (
       'mode' => 1,
-      'requireidentifiers' => 
+      'requireidentifiers' =>
       array (
         0 => 'dbfamily',
       ),
@@ -103,7 +103,7 @@
       'component' => 'core',
       'area' => 'databasemeta',
     ),
-    'core/eventinvalidation' => 
+    'core/eventinvalidation' =>
     array (
       'mode' => 1,
       'persistent' => true,
@@ -112,7 +112,7 @@
       'component' => 'core',
       'area' => 'eventinvalidation',
     ),
-    'core/questiondata' => 
+    'core/questiondata' =>
     array (
       'mode' => 1,
       'simplekeys' => true,
@@ -122,43 +122,48 @@
       'component' => 'core',
       'area' => 'questiondata',
     ),
-    'core/htmlpurifier' => 
+    'core/htmlpurifier' =>
     array (
       'mode' => 1,
       'component' => 'core',
       'area' => 'htmlpurifier',
     ),
   ),
-  'definitionmappings' => 
+  'definitionmappings' =>
   array (
-    0 => 
+    0 =>
     array (
       'store' => 'agora_store',
       'definition' => 'core/htmlpurifier',
       'sort' => 1,
     ),
-    1 => 
+    1 =>
     array (
       'store' => 'agora_store',
       'definition' => 'core/string',
       'sort' => 1,
     ),
-    2 => 
+    2 =>
     array (
       'store' => 'agora_store',
       'definition' => 'core/databasemeta',
       'sort' => 1,
     ),
-    3 => 
+    3 =>
     array (
       'store' => 'agora_store',
       'definition' => 'core/eventinvalidation',
       'sort' => 1,
     ),
+    4 => array (
+      'store' => 'agora_store',
+      'definition' => 'core/questiondata',
+      'sort' => 1,
+    ),
   ),
-  'locks' => 
+  'locks' =>
   array (
-    'cachelock_file_default' => 
+    'cachelock_file_default' =>
     array (
       'name' => 'cachelock_file_default',
       'type' => 'cachelock_file',
