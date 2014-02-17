@@ -1,5 +1,43 @@
 <?php
 
+function agora_assignments_upgrade(){
+	global $CFG, $DB;
+
+	// XTEC: Upgrade automatically assignments to assigns
+	// 2013.05.02 @jmiro227
+
+	mtrace("Upgrading assignments...","\n");
+
+	require_once($CFG->dirroot . '/'.$CFG->admin.'/tool/assignmentupgrade/locallib.php');
+	require_once($CFG->dirroot . '/course/lib.php');
+
+	$current = 1;
+	$assignmentids = tool_assignmentupgrade_load_all_upgradable_assignmentids();
+	$total = count($assignmentids);
+
+	foreach ($assignmentids as $assignmentid) {
+
+	    mtrace("Upgrading assignment $assignmentid ($current of $total)...","\n");
+
+	    $current++;
+
+	    try {
+		    list($summary, $success, $log) = tool_assignmentupgrade_upgrade_assignment($assignmentid);
+
+		    if ($success) {
+		    	mtrace("Success","\n");
+		    } else {
+		    	mtrace("Fail: $log","\n");
+		   	}
+	    } catch(Exception $e) {
+			mtrace("ERROR upgrading assignment $assignmentid: ".$e->getMessage(), "\n");
+			$assignment = $DB->get_record('assignment',array('id' => $assignmentid));
+			repair_duplicated_course_sections($assignment->course);
+	    }
+	}
+
+}
+
 //Repara la duplicació de funcions
 function repair_duplicated_course_sections($courseid = false){
 	global $DB;

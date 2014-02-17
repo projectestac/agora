@@ -8,7 +8,7 @@ function is_agora(){
 function is_xtecadmin($user=null){
 	global $USER;
         if (empty($user)) $user = $USER;
-	return isset($user) 
+	return isset($user)
 		   && array_key_exists('username', $user)
 		   && $user->username=='xtecadmin';
 }
@@ -36,6 +36,75 @@ function get_debug(){
 	        @ini_set('display_errors', '1');
         	@ini_set('log_errors', '0');
 	}
+}
+
+//Execute a command via CLI
+function run_cli($command, $output_file = false, $append = true, $background = true, $params = array()){
+    global $CFG;
+
+    $command = $CFG->dirroot . '/'.$command;
+
+    $params['ccentre'] = $CFG->dnscentre;
+    if($params && is_array($params)){
+        foreach($params as $key => $value){
+            $command .= ' --'.$key.'='.$value;
+        }
+    }
+
+    if(isset($CFG->clicommand)){
+        $cmd = $CFG->clicommand;
+    } else {
+        $cmd = "php";
+    }
+
+    $command = 'nohup '.$cmd.' '.$command;
+
+    if($append){
+        $command .= ' >> ';
+    } else {
+        $command .= ' > ';
+    }
+
+    if(empty($output_file)){
+        if($background){
+            $output_file = '/dev/null';
+        } else {
+            $output_file = '/dev/stdout';
+        }
+    }
+
+    $command .= $output_file.' 2>&1 ';
+
+    if($background){
+         $command .= ' & echo $!';
+    }
+
+    $output = "";
+    $return_var = "";
+    exec($command ,$output, $return_var);
+
+    if (is_xtecadmin()){
+        mtrace($command,'<br/>');
+        print_object($output);
+        mtrace("Return var: $return_var",'<br/>');
+    }
+
+    return $return_var;
+}
+
+//Executes a cron via CLI
+function run_cli_cron($background = true){
+    global $CFG;
+
+    $command = $CFG->admin.'/cli/cron.php';
+
+    if(isset($CFG->savecronlog) && !empty($CFG->savecronlog)) {
+        $output_file = $CFG->datarootusu1.'/crons/cron_'.$CFG->dbuser.'_'.date("Ymd").'.log';
+    } else {
+        $output_file = false;
+    }
+    $append = true;
+    return run_cli($command, $output_file, $append, $background);
 }
 
 function local_agora_extends_settings_navigation($settingsnav, $context) {
@@ -112,7 +181,7 @@ function is_rush_hour() {
 /**
  * Check if specified module/block name is enabled
  * @global Object $CFG
- * @param String $mod module name 
+ * @param String $mod module name
  * @return Boolean True if specified module name is enabled and false otherwise.
  *
  * @author sarjona
@@ -120,11 +189,11 @@ function is_rush_hour() {
 function is_enabled_in_agora ($mod){
     global $CFG;
     if ( (isset($CFG->isagora) && $CFG->isagora) &&
-         (((!isset($CFG->ismarsupial) || !$CFG->ismarsupial) && ($mod=='rcontent' || $mod=='rscorm' || $mod=='atria' || $mod=='rcommon' || $mod=='my_books' || $mod=='rgrade') ) 
-         || ((!isset($CFG->iseoi) || !$CFG->iseoi) && ($mod=='eoicampus') ) 
-         || ((!isset($CFG->isportal) || !$CFG->isportal) && $mod == 'admin_service' ) 
-         || ( $mod=='afterburner' || $mod=='anomaly' || $mod=='arialist' || $mod == 'base' || $mod == 'binarius' || $mod == 'boxxie' || $mod == 'brick' || $mod == 'canvas' || $mod == 'formal_white' || $mod == 'formfactor' || $mod == 'fusion' || $mod == 'leatherbound' || $mod == 'magazine' || $mod == 'nimble' || $mod == 'nonzero' || $mod=='overlay' || $mod=='serenity' || $mod=='sky_high' || $mod=='splash' || $mod=='standard' || $mod=='standardold' || (!$CFG->enabledevicedetection && $mod=='mymobile' )) ) 
-         || (!is_xtecadmin() && $mod == 'alfresco') ) {        
+         (((!isset($CFG->ismarsupial) || !$CFG->ismarsupial) && ($mod=='rcontent' || $mod=='rscorm' || $mod=='atria' || $mod=='rcommon' || $mod=='my_books' || $mod=='rgrade') )
+         || ((!isset($CFG->iseoi) || !$CFG->iseoi) && ($mod=='eoicampus') )
+         || ((!isset($CFG->isportal) || !$CFG->isportal) && $mod == 'admin_service' )
+         || ( $mod=='afterburner' || $mod=='anomaly' || $mod=='arialist' || $mod == 'base' || $mod == 'binarius' || $mod == 'boxxie' || $mod == 'brick' || $mod == 'canvas' || $mod == 'formal_white' || $mod == 'formfactor' || $mod == 'fusion' || $mod == 'leatherbound' || $mod == 'magazine' || $mod == 'nimble' || $mod == 'nonzero' || $mod=='overlay' || $mod=='serenity' || $mod=='sky_high' || $mod=='splash' || $mod=='standard' || $mod=='standardold' || (!$CFG->enabledevicedetection && $mod=='mymobile' )) )
+         || (!is_xtecadmin() && $mod == 'alfresco') ) {
         return false;
     }
     return true;
