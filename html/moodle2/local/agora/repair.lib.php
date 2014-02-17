@@ -38,6 +38,130 @@ function agora_assignments_upgrade(){
 
 }
 
+function repair_duplicated_course_completions($courseid = false){
+	global $DB;
+	//Serveix per poder tenir duplicats
+	$concat = $DB->sql_concat('userid', 'course');
+	//
+	if($courseid){
+		mtrace ('Seleccionat el curs '.$courseid, '<br/>');
+		$sql = "SELECT $concat as uc, userid, course, count(*) as count
+				FROM {course_completions}
+				WHERE course = $courseid
+				GROUP BY userid, course
+				HAVING ( COUNT(*) > 1 )
+				ORDER BY userid";
+	} else {
+		$sql = "SELECT $concat as uc, userid, course, count(*) as count
+				FROM {course_completions}
+				GROUP BY userid, course
+				HAVING ( COUNT(*) > 1 )
+				ORDER BY userid";
+	}
+
+	$duplicates = $DB->get_records_sql($sql);
+	mtrace (count($duplicates).' course completions duplicats', '<br/>');
+	if(count($duplicates) > 0){
+		foreach($duplicates as $duplicate){
+			$params = array('course'=>$duplicate->course, 'userid' => $duplicate->userid);
+			$complets = $DB->get_records('course_completions', $params, 'timestart DESC');
+
+			mtrace("Course {$duplicate->course} userid {$duplicate->userid} duplicats {$duplicate->count}", '<br/>');
+			$count = $duplicate->count;
+
+			$first = false;
+			foreach($complets as $complet){
+				if(!$first){
+					$first = $complet;
+					mtrace("-->$count PRIMER, no fem res {$complet->id}", '<br/>');
+				} else {
+					// Si son iguals amb el primer... podem esborrar
+					if($first->timeenrolled == $complet->timeenrolled &&
+						$first->timestarted == $complet->timestarted &&
+						$first->timecompleted == $complet->timecompleted &&
+						$first->timereaggregate == $complet->timereaggregate) {
+						mtrace("-->$count DELETE {$complet->id}", '<br/>');
+						//$DB->delete_records('course_completions', array('id'=>$complet->id));
+					} else {
+						mtrace("-->$count DIFERENT, no fem res... :-( {$complet->id}", '<br/>');
+					}
+				}
+				$count--;
+			}
+		}
+
+		$duplicates = $DB->get_records_sql($sql);
+		mtrace (count($duplicates).' course completions duplicats', '<br/>');
+	}
+
+	if(count($duplicates) == 0){
+		mtrace('OK: ja no hi ha course completions duplicats', '<br/>');
+		return true;
+	} else {
+		mtrace('ERROR: Encara queden course completions duplicats', '<br/>');
+		return false;
+	}
+}
+
+
+function repair_duplicated_quiz_attempts($courseid = false){
+	global $DB;
+	//Serveix per poder tenir duplicats
+	$concat = $DB->sql_concat('quiz', 'userid', 'attempt');
+	//
+	if($courseid){
+		mtrace ('Seleccionat el curs '.$courseid, '<br/>');
+		$sql = "SELECT $concat as qua, qa.quiz, qa.userid, qa.attempt, count(*) as count
+				FROM {quiz_attempts} qa, {course_modules} cm, {modules} m
+				WHERE m.name = 'quiz' AND cm.module = m.id AND cm.instance = qa.quiz AND cm.course = $courseid
+				GROUP BY qa.quiz, qa.userid, qa.attempt
+				HAVING ( COUNT(*) > 1 )
+				ORDER BY qa.quiz, qa.userid";
+	} else {
+		$sql = "SELECT $concat as qua, quiz, userid, attempt, count(*) as count
+				FROM {quiz_attempts}
+				GROUP BY quiz, userid, attempt
+				HAVING ( COUNT(*) > 1 )
+				ORDER BY quiz, userid";
+	}
+
+	$duplicates = $DB->get_records_sql($sql);
+	mtrace (count($duplicates).' quiz attempts duplicats', '<br/>');
+	if(count($duplicates) > 0){
+		foreach($duplicates as $duplicate){
+			$params = array('quiz'=>$duplicate->quiz, 'userid' => $duplicate->userid, 'attempt' => $duplicate->attempt);
+			$attempts = $DB->get_records('quiz_attempts', $params, 'timestart DESC');
+
+			mtrace("Quiz {$duplicate->quiz} userid {$duplicate->userid} attempt {$duplicate->attempt} duplicats {$duplicate->count}", '<br/>');
+			$count = $duplicate->count;
+
+			$sql_last = "SELECT MAX(attempt) FROM {quiz_attempts} WHERE quiz = :quiz AND userid = :userid";
+			$last_attempt = $DB->get_field_sql($sql_last, array('quiz'=>$duplicate->quiz, 'userid' => $duplicate->userid));
+			foreach($attempts as $attempt){
+				if($count > 1){
+					$last_attempt++;
+					mtrace("-->$count MOVE {$attempt->id} to $last_attempt", '<br/>');
+					//$DB->set_field('quiz_attempts', 'attempt', $last_attempt, array('id'=>$attempt->id));
+					$count--;
+				} else {
+					mtrace("-->$count ULTIM, no fem res {$attempt->id}", '<br/>');
+				}
+			}
+		}
+
+		$duplicates = $DB->get_records_sql($sql);
+		mtrace (count($duplicates).' quiz attempts duplicats', '<br/>');
+	}
+
+	if(count($duplicates) == 0){
+		mtrace('OK: ja no hi ha quiz attempts duplicats', '<br/>');
+		return true;
+	} else {
+		mtrace('ERROR: Encara queden quiz attempts duplicats', '<br/>');
+		return false;
+	}
+}
+
 //Repara la duplicació de funcions
 function repair_duplicated_course_sections($courseid = false){
 	global $DB;

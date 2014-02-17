@@ -79,6 +79,14 @@ function run_cli($command, $output_file = false, $append = true, $background = t
          $command .= ' & echo $!';
     }
 
+    // Això és una marranada a evitar...
+    if(isset($CFG->cli_ldlibrarypath)){
+        putenv('LD_LIBRARY_PATH='.$CFG->cli_ldlibrarypath);
+    }
+    if(isset($CFG->cli_path)){
+        putenv('PATH='.$CFG->cli_path);
+    }
+
     $output = "";
     $return_var = "";
     exec($command ,$output, $return_var);
