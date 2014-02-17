@@ -12,6 +12,10 @@ MOODLE 2
 ZIKULA
 - Removed module iw_moodle to connect to Moodle 1.9
 
+ZIKULA 2
+- IWdocmanager: Fixed deletion of files due to unscaped javascript text
+- IWdocmanager: Aesthetical & usability improvements
+
 
 Changes 14.02.05
 ---------------------------------------------------------------------------------------
