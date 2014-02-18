@@ -16,17 +16,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'countries', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'countries', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   countries
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-//XTEC ************ AFEGIT - Added Catalonia to countries list
-//2012.08.22  @sarjona
-$string['CT'] = 'Catalonia';
-//************ FI 
+defined('MOODLE_INTERNAL') || die();
+
 $string['AD'] = 'Andorra';
 $string['AE'] = 'United Arab Emirates';
 $string['AF'] = 'Afghanistan';

@@ -16,13 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for core component 'bulkusers'
+ * Strings for component 'bulkusers', language 'en', branch 'MOODLE_24_STABLE'
  *
- * @package    core
- * @subpackage bulkusers
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   bulkusers
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['addall'] = 'Add all';
 $string['addsel'] = 'Add to selection';
@@ -39,7 +40,7 @@ $string['selected'] = 'Selected';
 $string['selectedlist'] = 'Selected user list...';
 $string['selectedlist_help'] = 'Users can be added or removed from the selected users list by clicking on the users\' names then clicking on an appropriate button. Multiple users may be selected by holding down the Apple or Ctrl key whilst clicking on the users\' names.';
 $string['users'] = 'Users';
-$string['users_help'] = 'All users who passed the active filters are listed in the available box. If no filter is set, all site users are listed.';
 $string['usersfound'] = '{$a} user(s) found.';
+$string['users_help'] = 'All users who passed the active filters are listed in the available box. If no filter is set, all site users are listed.';
 $string['usersinlist'] = 'Users in list';
 $string['usersselected'] = '{$a} user(s) selected.';

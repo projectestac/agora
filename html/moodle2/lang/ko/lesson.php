@@ -36,6 +36,7 @@ $string['actions'] = '활동';
 $string['activitylink'] = '활동에 대한 링크';
 $string['activitylink_help'] = '완전학습의 마지막에 강좌의 다른 활동으로으 링크를 제공하려면 내림목록에서 활동을 선택하십시요.';
 $string['activitylinkname'] = '{$a} 로 가기';
+$string['activityoverview'] = '제출 마감인 완전학습이 있습니다.';
 $string['addabranchtable'] = '콘텐츠 페이지 추가';
 $string['addanendofbranch'] = '분기 끝 추가';
 $string['addanewpage'] = '페이지 추가';
@@ -215,6 +216,7 @@ $string['jumpsto'] = '{$a} 로 건너 뜀';
 $string['leftduringtimed'] = '당신은 규정된 학습시간에 자리를 비웠습니다.<br />
 학습을 다시 시작하려면 계속 버튼을 눌러주세요.';
 $string['leftduringtimednoretake'] = '당신은 규정된 학습시간에 자리를 비웠기 때문에<br />재학습을 하거나 계속할 수 없습니다.';
+$string['leftduringtimedsession'] = '시간이 정해진 세션에서 나갔습니다.';
 $string['lesson:addinstance'] = '새 완전학습 추가';
 $string['lessonattempted'] = '완전학습 시도됨';
 $string['lessonclosed'] = '이 완전학습은 {$a} 에 종료되었습니다.';

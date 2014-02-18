@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['advancedsearch'] = 'Bilaketa aurreratua';
-$string['pluginname'] = 'Foroetan bilatu';
-$string['search_forums:addinstance'] = 'Gehitu beste foroetan bilatu bloke bat';
+$string['pluginname'] = 'Bilatu foroetan';
+$string['search_forums:addinstance'] = 'Gehitu beste "bilatu  foroetan" bloke bat';

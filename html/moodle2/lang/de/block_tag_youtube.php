@@ -44,5 +44,5 @@ $string['petsanimals'] = 'Tiere';
 $string['pluginname'] = 'YouTube';
 $string['scienceandtech'] = 'Wissenschaft & Technik';
 $string['sports'] = 'Sport';
-$string['tag_youtube:addinstance'] = 'YouTube-Block hinzufügen';
+$string['tag_youtube:addinstance'] = 'Block \'YouTube\' hinzufügen';
 $string['travel'] = 'Reisen & Orte';

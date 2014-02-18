@@ -25,4 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Отчет о взаимодействии';
 $string['questionx'] = 'Вопрос {$a}';
+$string['responsex'] = 'Ответ {$a}';
+$string['rightanswerx'] = 'Правильный ответ {$a}';

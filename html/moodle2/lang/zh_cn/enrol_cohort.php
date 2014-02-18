@@ -25,9 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addgroup'] = '加到小组';
 $string['ajaxmore'] = '更多...';
+$string['assignrole'] = '赋予角色';
 $string['cohort:config'] = '配置群组实例';
 $string['cohortsearch'] = '搜索';
 $string['cohort:unenrol'] = '移除禁用的用户';
 $string['pluginname'] = '群组同步';
 $string['pluginname_desc'] = '群组选课插件同步课程成员和群组成员';
+$string['status'] = '激活';

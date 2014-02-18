@@ -25,6 +25,4 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['jumptocurrenttopic'] = 'Sauter à la section en cours';
-$string['jumptocurrentweek'] = 'Sauter à la semaine en cours';
 $string['pluginname'] = 'Sections du cours';

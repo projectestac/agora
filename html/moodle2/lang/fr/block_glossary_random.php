@@ -25,12 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addentry'] = 'Ajouter vos citations préférées !';
+$string['addentry'] = 'Ajouter un concept';
 $string['askaddentry'] = 'Quand les utilisateurs peuvent ajouter des articles dans le glossaire, afficher un lien avec ce texte ';
 $string['askinvisible'] = 'Quand les utilisateurs ne peuvent ni voir, ni modifier le glossaire, afficher ce texte (sans lien) ';
 $string['askviewglossary'] = 'Quand les utilisateurs peuvent voir le glossaire, mais pas le modifier, afficher un lien avec ce texte ';
 $string['glossary_random:addinstance'] = 'Ajouter un bloc article d\'un glossaire';
-$string['glossary_random:myaddinstance'] = 'Ajouter un bloc article d\'un glossaire à la page Mon Moodle';
+$string['glossary_random:myaddinstance'] = 'Ajouter un bloc article de glossaire aléatoire à Ma page';
 $string['intro'] = 'Assurez-vous que vous disposez dans ce cours d\'au moins un glossaire comprenant au moins un article. Vous pourrez alors modifier les réglages ci-dessous';
 $string['invisible'] = '(suite)';
 $string['lastmodified'] = 'Dernier article modifié';
@@ -45,5 +45,5 @@ $string['select_glossary'] = 'Choisir les articles dans ce glossaire';
 $string['showconcept'] = 'Afficher le concept (nom) de chaque article';
 $string['title'] = 'Titre';
 $string['type'] = 'Comment un nouvel article est choisi';
-$string['viewglossary'] = 'Plus de citations...';
+$string['viewglossary'] = 'Afficher tous les concepts';
 $string['whichfooter'] = 'Vous pouvez afficher des liens vers des actions du glossaire auquel ce bloc est associé. Le bloc n\'affichera que les liens vers des actions activées dans ce glossaire.';

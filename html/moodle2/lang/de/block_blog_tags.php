@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['blog_tags:addinstance'] = 'Neuen Block \'Blogschlagworte\' hinzufügen';
+$string['blog_tags:addinstance'] = 'Block \'Blogschlagworte\' hinzufügen';
 $string['pluginname'] = 'Blogschlagworte';

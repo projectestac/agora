@@ -25,14 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['capabilitylabel'] = 'Berechtigung:';
-$string['capabilityreport'] = 'Berechtigungsbericht';
+$string['capabilitylabel'] = 'Recht:';
+$string['capabilityreport'] = 'Rechteübersicht';
 $string['changeoverrides'] = 'Überschreibungen in diesem Kontext ändern';
 $string['changeroles'] = 'Rollendefinitionen ändern';
 $string['forroles'] = 'Für Rolle {$a}';
 $string['getreport'] = 'Bericht aufrufen';
-$string['intro'] = 'Der Bericht zeigt für eine einzelne Berechtigung, welche Erlaubnisse sich daraus in jeder Rolle (oder einer Rollenauswahl) ergeben und wo überall die Rolle überschrieben wurde.';
-$string['pluginname'] = 'Berechtigungsbericht';
-$string['reportforcapability'] = 'Bericht für Berechtigung {$a}:';
-$string['reportsettings'] = 'Berichtseinstellungen';
+$string['intro'] = 'Der Bericht zeigt für ein einzelnes Recht, welche Erlaubnisse sich in allen Rollen (oder in einer Rollenauswahl) daraus ergeben und wo überall das Recht geändert wurde.';
+$string['pluginname'] = 'Rechteübersicht';
+$string['reportforcapability'] = 'Übersicht für das Recht \'{$a}\':';
+$string['reportsettings'] = 'Einstellungen';
 $string['roleslabel'] = 'Rollen:';

@@ -101,6 +101,7 @@ $string['auth_ntlmsso_enabled'] = 'NTLM 도메인에서 싱글사인온을 하�
 $string['auth_ntlmsso_enabled_key'] = '활성화';
 $string['auth_ntlmsso_ie_fastpath'] = 'NTLM SSO fast path를 활성화하려면 예로 설정(MS 익스플로어를 브라우저로 사용할 경우에만 약간의 과정 건너 뜀)';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'MS IE fast path?';
+$string['auth_ntlmsso_remoteuserformat_key'] = '원격 사용자 이름 형식';
 $string['auth_ntlmsso_subnet'] = '설정되면 이 서브넷에 있는 클라이언트에 대해 SSO를 시도합니다.  포맷: xxx.xxx.xxx.xxx/bitmask. 다중 서브넷은 콤마 (,)로 분리하세요.';
 $string['auth_ntlmsso_subnet_key'] = '서브넷';
 $string['auth_ntlmsso_type'] = '웹 서버에서 사용자 인증을 받기 위해 설정한 인증 방법(잘 모르겠으면, NTLM을 선택)';

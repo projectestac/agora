@@ -25,6 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Picasa容器配置';
-$string['picasa:view'] = '查看picasa容器';
-$string['pluginname'] = 'Picasa网络相册';
+$string['clientid'] = '客户 ID';
+$string['configplugin'] = 'Picasa 资源库配置';
+$string['oauth2upgrade_message_small'] = 'Picasa 网络相册插件已被禁用，请参考谷歌 OAuth 2.0 文档的配置描述进行配置。';
+$string['oauth2upgrade_message_subject'] = '关于 Picasa 网络相册插件的重要信息';
+$string['picasa:view'] = '查看 Picasa 资源库';
+$string['pluginname'] = 'Picasa 网络相册';

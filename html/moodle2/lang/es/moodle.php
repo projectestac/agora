@@ -188,6 +188,7 @@ $string['backupmissinguserinfoperms'] = 'Nota: Esta copia de seguridad no contie
 $string['backupnext'] = 'Siguiente copia de seguridad';
 $string['backupnonisowarning'] = 'ATENCIÓN: esta copia proviene de una versión de Moodle no Unicode (anterior a la 1.6). Si la copia contiene cualquier texto que no sea ISO-8859-1 puede CORROMPERSE si intenta restaurarla a esta versión Unicode de Moodle.
 Si desea más información sobre cómo recuperar correctamente la copia, puede consultar <a href="http://docs.moodle.org/en/Backup_FAQ">Backup FAQ</a>';
+$string['backupnotyetrun'] = 'Copia de seguridad automática pendiente';
 $string['backuporiginalname'] = 'Nombre de la copia de seguridad';
 $string['backuproleassignments'] = 'Copia de seguridad de las asignaciones de rol de estos roles';
 $string['backupsavetohelp'] = 'Ruta completa del directorio en el que desea que se guarden las copias de seguridad<br />(dejarlo en blanco para guardarlas en el directorio por defecto de cada curso)';
@@ -324,7 +325,7 @@ $string['coursecreators'] = 'Creador de curso';
 $string['coursecreatorsdescription'] = 'Los creadores de cursos pueden crear nuevos cursos.';
 $string['coursedeleted'] = 'Eliminado el curso {$a}';
 $string['coursedisplay'] = 'Paginación del curso';
-$string['coursedisplay_help'] = 'Este parámetro determina si el curso completo se muestra en una página o se desglosa en varias páginas. El parámetro no tiene efecto sobre algunos formatos de cursos como los SCORM.';
+$string['coursedisplay_help'] = 'Este parámetro determina si el curso completo se muestra en una página o se desglosa en varias páginas.';
 $string['coursedisplay_multi'] = 'Mostrar una sección por página';
 $string['coursedisplay_single'] = 'Mostrar todas las secciones en una página';
 $string['courseextendednamedisplay'] = '{$a->shortname} {$a->fullname}';
@@ -1192,7 +1193,7 @@ En la mayoría de programas de correo electrónico, debería aparecer en forma d
 Un saludo del administrador de \'{$a->sitename}\',
 {$a->signoff}';
 $string['newusers'] = 'Nuevos usuarios';
-$string['newwindow'] = 'nueva ventana';
+$string['newwindow'] = 'Nueva ventana';
 $string['next'] = 'Siguiente';
 $string['nextsection'] = 'Siguiente sección';
 $string['no'] = 'No';
@@ -1281,6 +1282,7 @@ $string['options'] = 'opciones';
 $string['order'] = 'Ordenar';
 $string['originalpath'] = 'Ruta original';
 $string['orphanedactivities'] = 'Actividades huérfanas';
+$string['orphanedactivitiesinsectionno'] = 'Actividades huérfanas (sección {$a})';
 $string['other'] = 'Otro';
 $string['outline'] = 'Diagrama';
 $string['outlinereport'] = 'Diagrama de informe';
@@ -1548,7 +1550,7 @@ $string['selectagroup'] = 'Seleccionar un grupo';
 $string['selectall'] = 'Seleccionar todos';
 $string['selectamodule'] = 'Por favor, seleccione un módulo de actividad';
 $string['selectanaction'] = 'Seleccionar acciones';
-$string['selectanoptions'] = 'Seleccionar opciones';
+$string['selectanoptions'] = 'Seleccione una opción';
 $string['selectaregion'] = 'Seleccionar una región';
 $string['selectdefault'] = 'Seleccionar por defecto';
 $string['selectedfile'] = 'Archivo seleccionado';
@@ -1557,7 +1559,7 @@ $string['selectfiles'] = 'Seleccionar archivos';
 $string['selectmoduletoviewhelp'] = 'Seleccione una actividad o un recurso para ver la ayuda.
 
 Haga doble clic en el nombre de una actividad o recurso para añadirla de forma rápida';
-$string['selectnos'] = 'Seleccionar todos \'no\'';
+$string['selectnos'] = 'Seleccione todos \'no\'';
 $string['selectperiod'] = 'Seleccionar período';
 $string['senddetails'] = 'Enviar detalles por correo electrónico';
 $string['separate'] = 'Separar';

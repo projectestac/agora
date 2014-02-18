@@ -29,3 +29,5 @@ $string['configjabberhost'] = 'الخادم الذي ستم الاتصال به 
 $string['configjabberpassword'] = 'كلمة المرور التي ستستخدم عند الدخول إلى خادم خدمة جابر  (Jabber)';
 $string['configjabberport'] = 'المنفذ الذي سيستخدم عند الأتصال بخادم خدمة جابر  (Jabber)';
 $string['configjabberusername'] = 'أسم المستخدم الذي سيستخدم عند الدخول إلى خادم خدمة جابر  (Jabber)';
+$string['notconfigured'] = 'لم يتم إعداد مخدم جابر (Jabber)، لذلك فإنه لا يمكن إرسال رسائل جابر.';
+$string['pluginname'] = 'رسائل جابر (Jabber)';

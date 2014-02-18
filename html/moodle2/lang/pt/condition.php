@@ -30,9 +30,9 @@ $string['addgrades'] = 'Adicionar {no} condições de nota';
 $string['adduserfields'] = 'Adicionar {no} campos de condições do utilizador ao formulário';
 $string['availabilityconditions'] = 'Condições de acesso';
 $string['availablefrom'] = 'Permitir acesso de';
-$string['availablefrom_help'] = 'Permitir acesso de/até determina em que momento os alunos podem aceder à atividade a partir do respetivo link na página da disciplina.
+$string['availablefrom_help'] = 'A opção \'Permitir acesso de/até\' determina o intervalo de datas em que os alunos podem aceder à atividade a partir da respetiva hiperligação na página da disciplina.
 
-A diferença entre as opções Permitir acesso de/até e os momentos de inicio e fecho da atividade é que estes últimos não impedem os alunos de ver a descrição da atividade mas apenas de a realizar, enquanto que fora do intervalo de tempo definido pelas opções de Permitir acesso de/até, é impedido o acesso à atividade.';
+A diferença entre a opção \'Permitir acesso de/até\' e as configurações de disponibilidade da atividade é que estas permitem que os alunos vejam a descrição da atividade, ainda que fora das datas, enquanto que a opção \'Permitir acesso de/até\' impede o total acesso à atividade fora do intervalo de datas estabelecido.';
 $string['availableuntil'] = 'Permitir acesso até';
 $string['badavailabledates'] = 'Datas inválidas. Se ativar ambas as datas, a data de inicio deverá ser anterior à de fim.';
 $string['badgradelimits'] = 'Se definir uma nota mínima e máxima, a  máxima deve ser superior à mínima.';

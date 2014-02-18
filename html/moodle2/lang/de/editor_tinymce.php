@@ -28,24 +28,20 @@ defined('MOODLE_INTERNAL') || die();
 $string['advanced:address'] = 'Adresse';
 $string['advanced:anchor_delta_height'] = '0';
 $string['advanced:anchor_delta_width'] = '13';
-$string['advanced:anchor_desc'] = 'Anker einfügen/bearbeiten
-';
+$string['advanced:anchor_desc'] = 'Anker einfügen/bearbeiten';
 $string['advanced:backcolor_desc'] = 'Hintergrundfarbe';
 $string['advanced:block'] = 'Vorlage';
 $string['advanced:blockquote'] = 'Zitatblock';
 $string['advanced:blockquote_desc'] = 'Zitatblock';
-$string['advanced:bold_desc'] = 'Fett
-';
-$string['advanced:bullist_desc'] = 'Einfügen/entfernen unsortierte Liste';
+$string['advanced:bold_desc'] = 'Fett';
+$string['advanced:bullist_desc'] = 'Unsortierte Liste einfügen/entfernen';
 $string['advanced:charmap_delta_height'] = '0';
 $string['advanced:charmap_delta_width'] = '0';
 $string['advanced:charmap_desc'] = 'Sonderzeichen einfügen';
-$string['advanced:cleanup_desc'] = 'Quellcode bereinigen
-';
-$string['advanced:clipboard_msg'] = 'Kopieren, Ausschneiden und Einfügen sind im Mozilla Firefox nicht möglich.
-Möchten Sie mehr über dieses Problem erfahren?';
+$string['advanced:cleanup_desc'] = 'Quellcode bereinigen';
+$string['advanced:clipboard_msg'] = 'Kopieren, Ausschneiden und Einfügen sind im Mozilla Firefox nicht möglich. Möchten Sie mehr über dieses Problem erfahren?';
 $string['advanced:code'] = 'Code';
-$string['advanced:code_desc'] = 'HTML-Quellcode bearbeiten';
+$string['advanced:code_desc'] = 'HTML-Code bearbeiten';
 $string['advanced:colorpicker_delta_height'] = '0';
 $string['advanced:colorpicker_delta_width'] = '0';
 $string['advanced:copy_desc'] = 'Kopieren';
@@ -53,10 +49,9 @@ $string['advanced:custom1_desc'] = 'Eigene Beschreibung';
 $string['advanced:cut_desc'] = 'Ausschneiden';
 $string['advanced:dd'] = 'Definitionsbeschreibung';
 $string['advanced:div'] = 'DIV';
-$string['advanced_dlg:about_author'] = 'Autor/in
-';
-$string['advanced_dlg:about_general'] = 'Über...
-';
+$string['advanced_dlg:'] = ' ';
+$string['advanced_dlg:about_author'] = 'Autor/in';
+$string['advanced_dlg:about_general'] = 'Über...';
 $string['advanced_dlg:about_help'] = 'Hilfe';
 $string['advanced_dlg:about_license'] = 'Lizenzbedingungen';
 $string['advanced_dlg:about_loaded'] = 'Geladene Plugins';
@@ -64,12 +59,11 @@ $string['advanced_dlg:about_plugin'] = 'Plugin';
 $string['advanced_dlg:about_plugins'] = 'Plugins';
 $string['advanced_dlg:about_title'] = 'Über TinyMCE';
 $string['advanced_dlg:about_version'] = 'Version';
-$string['advanced_dlg:accessibility_help'] = 'Hilfe für Barrierefreiheit';
-$string['advanced_dlg:accessibility_usage_title'] = 'Generelle Nutzung';
-$string['advanced_dlg:anchor_invalid'] = 'Bitte vergeben Sie einen gültigen Namen für den Anker.';
+$string['advanced_dlg:accessibility_help'] = 'Hilfe zur Barrierefreiheit';
+$string['advanced_dlg:accessibility_usage_title'] = 'Allgemeine Nutzung';
+$string['advanced_dlg:anchor_invalid'] = 'Geben Sie dem Anker einen gültigen Namen.';
 $string['advanced_dlg:anchor_name'] = 'Name des Ankers';
-$string['advanced_dlg:anchor_title'] = 'Anker einfügen/bearbeiten
-';
+$string['advanced_dlg:anchor_title'] = 'Anker einfügen/bearbeiten';
 $string['advanced_dlg:charmap_title'] = 'Sonderzeichen auswählen';
 $string['advanced_dlg:charmap_usage'] = 'Verwenden Sie die Pfeiltasten nach rechts und links zur Navigation.';
 $string['advanced_dlg:code_title'] = 'HTML-Quellcode bearbeiten';
@@ -94,23 +88,18 @@ $string['advanced_dlg:image_align_texttop'] = 'Oben im Text';
 $string['advanced_dlg:image_align_top'] = 'Oben';
 $string['advanced_dlg:image_alt'] = 'Bildbeschreibung';
 $string['advanced_dlg:image_border'] = 'Rahmen';
-$string['advanced_dlg:image_dimensions'] = 'Größe
-';
+$string['advanced_dlg:image_dimensions'] = 'Größe';
 $string['advanced_dlg:image_hspace'] = 'Horizontaler Abstand';
 $string['advanced_dlg:image_list'] = 'Bilderliste';
 $string['advanced_dlg:image_src'] = 'Adresse';
-$string['advanced_dlg:image_title'] = '
-Bild einfügen/bearbeiten
-';
+$string['advanced_dlg:image_title'] = 'Bild einfügen/bearbeiten';
 $string['advanced_dlg:image_vspace'] = 'Vertikaler Abstand';
 $string['advanced_dlg:invalid_color_value'] = 'Ungültiger Farbwert';
-$string['advanced_dlg:link_is_email'] = 'Diese URL scheint eine E-Mail-Adresse zu sein. Möchten Sie das dazu benötigte Prefix \'mailto:\' voranstellen?';
-$string['advanced_dlg:link_is_external'] = 'Diese URL scheint ein externer Link zu sein. Möchten Sie das dazu benötigte Prefix \'http://\' voranstellen?';
+$string['advanced_dlg:link_is_email'] = 'Diese URL scheint eine E-Mail-Adresse zu sein. Möchten Sie das notwendige Prefix \'mailto:\' voranstellen?';
+$string['advanced_dlg:link_is_external'] = 'Diese URL scheint ein externer Link zu sein. Möchten Sie das notwendige Prefix \'http://\' voranstellen?';
 $string['advanced_dlg:link_list'] = 'Linkliste';
 $string['advanced_dlg:link_target'] = 'Fenster';
-$string['advanced_dlg:link_target_blank'] = '
-Neues Fenster öffnen
-';
+$string['advanced_dlg:link_target_blank'] = 'Neues Fenster öffnen';
 $string['advanced_dlg:link_target_same'] = 'Im selben Fenster öffnen';
 $string['advanced_dlg:link_title'] = 'Link einfügen/bearbeiten';
 $string['advanced_dlg:link_titlefield'] = 'Titel';
@@ -130,35 +119,31 @@ $string['advanced:help_shortcut'] = 'ALT+F10 öffnet die Werkzeugleiste, Alt-0 d
 $string['advanced:hr_desc'] = 'Trennlinie einfügen';
 $string['advanced:image_delta_height'] = '0';
 $string['advanced:image_delta_width'] = '0';
-$string['advanced:image_desc'] = 'Bild einfügen/bearbeiten
-';
+$string['advanced:image_desc'] = 'Bild einfügen/bearbeiten';
 $string['advanced:image_props_desc'] = 'Bildeigenschaften';
 $string['advanced:indent_desc'] = 'Einrücken';
-$string['advanced:italic_desc'] = 'Kursiv
-';
+$string['advanced:italic_desc'] = 'Kursiv';
 $string['advanced:justifycenter_desc'] = 'Zentriert';
 $string['advanced:justifyfull_desc'] = 'Blocksatz';
 $string['advanced:justifyleft_desc'] = 'Linksbündig';
 $string['advanced:justifyright_desc'] = 'Rechtsbündig';
 $string['advanced:link_delta_height'] = '0';
 $string['advanced:link_delta_width'] = '0';
-$string['advanced:link_desc'] = 'Link einfügen/bearbeiten
-';
+$string['advanced:link_desc'] = 'Link einfügen/bearbeiten';
 $string['advanced:more_colors'] = 'Weitere Farben';
 $string['advanced:newdocument'] = 'Möchten Sie den gesamten Inhalt wirklich löschen?';
 $string['advanced:newdocument_desc'] = 'Neues Dokument';
-$string['advanced:numlist_desc'] = 'Einfügen/entfernen der geordneten Liste';
+$string['advanced:numlist_desc'] = 'Geordneten Liste einfügen/entfernen';
 $string['advanced:outdent_desc'] = 'Ausrücken';
 $string['advanced:paragraph'] = 'Absatz';
 $string['advanced:paste_desc'] = 'Einfügen';
-$string['advanced:path'] = 'Pfad';
+$string['advanced:path'] = 'Format';
 $string['advanced:pre'] = 'Vorformatiert';
-$string['advanced:redo_desc'] = 'Wiederholen
-';
+$string['advanced:redo_desc'] = 'Wiederholen';
 $string['advanced:removeformat_desc'] = 'Formatierungen entfernen';
 $string['advanced:rich_text_area'] = 'Textbereich (Rich Text)';
 $string['advanced:samp'] = 'Beispiel';
-$string['advanced:shortcuts_desc'] = 'Hilfe für Barrierefreiheit';
+$string['advanced:shortcuts_desc'] = 'Hilfe zur Barrierefreiheit';
 $string['advanced:striketrough_desc'] = 'Durchgestrichen';
 $string['advanced:style_select'] = 'Format';
 $string['advanced:sub_desc'] = 'Tiefgestellt';
@@ -166,16 +151,14 @@ $string['advanced:sup_desc'] = 'Hochgestellt';
 $string['advanced:toolbar'] = 'Werkzeugleiste';
 $string['advanced:toolbar_focus'] = 'Zur Werkzeugleiste springen: Alt+Q; zum Editor springen: Alt-Z; zum Elementpfad springen: Alt-X';
 $string['advanced:underline_desc'] = 'Unterstrichen';
-$string['advanced:undo_desc'] = 'Rückgängig
-';
+$string['advanced:undo_desc'] = 'Rückgängig';
 $string['advanced:unlink_desc'] = 'Link entfernen';
-$string['advanced:visualaid_desc'] = 'Hilfslinien und unsichtbare Elemente ein-/ausblenden';
+$string['advanced:visualaid_desc'] = 'Hilfslinien und Elemente anzeigen/verbergen';
 $string['advhr:advhr_desc'] = 'Horizontale Trennlinie';
 $string['advhr:delta_height'] = '0';
 $string['advhr:delta_width'] = '0';
 $string['advhr_dlg:normal'] = 'Normal';
-$string['advhr_dlg:noshade'] = 'Ohne Schatten
-';
+$string['advhr_dlg:noshade'] = 'Ohne Schatten';
 $string['advhr_dlg:size'] = 'Höhe';
 $string['advhr_dlg:width'] = 'Breite';
 $string['advhr_dlg:widthunits'] = 'Einheiten';
@@ -197,8 +180,7 @@ $string['advimage_dlg:classes'] = 'Klassen';
 $string['advimage_dlg:constrain_proportions'] = 'proportional';
 $string['advimage_dlg:dialog_title'] = 'Bild einfügen/bearbeiten';
 $string['advimage_dlg:dimensions'] = 'Größe';
-$string['advimage_dlg:example_img'] = 'Vorschau
-';
+$string['advimage_dlg:example_img'] = 'Vorschau';
 $string['advimage_dlg:general'] = 'Allgemein';
 $string['advimage_dlg:height'] = 'Höhe';
 $string['advimage_dlg:hspace'] = 'Horizontaler Abstand';
@@ -212,10 +194,8 @@ $string['advimage_dlg:ltr'] = 'Links nach rechts';
 $string['advimage_dlg:map'] = 'Image-Map';
 $string['advimage_dlg:misc'] = 'Verschiedenes';
 $string['advimage_dlg:missing_alt'] = 'Möchten Sie wirklich keine Bildbeschreibung eingeben? Nutzer/innen mit Einschränkungen im sehen, Nutzer/innen, die im Browser keine Bilder anzeigen lassen oder Nur-Text-Browser verwenden entgalten dann keine Informationen zum Bild.';
-$string['advimage_dlg:mouseout'] = 'ohne Mauskontakt
-';
-$string['advimage_dlg:mouseover'] = 'bei Mauskontakt
-';
+$string['advimage_dlg:mouseout'] = 'ohne Mauskontakt';
+$string['advimage_dlg:mouseover'] = 'bei Mauskontakt';
 $string['advimage_dlg:preview'] = 'Vorschau';
 $string['advimage_dlg:rtl'] = 'Rechts nach links';
 $string['advimage_dlg:src'] = 'Adresse';
@@ -227,8 +207,7 @@ $string['advimage_dlg:tab_general'] = 'Allgemein';
 $string['advimage_dlg:title'] = 'Titel';
 $string['advimage_dlg:vspace'] = 'Vertikaler Abstand';
 $string['advimage_dlg:width'] = 'Breite';
-$string['advimage:image_desc'] = 'Bild einfügen/bearbeiten
-';
+$string['advimage:image_desc'] = 'Bild einfügen/bearbeiten';
 $string['advlink:delta_height'] = '0';
 $string['advlink:delta_width'] = '0';
 $string['advlink_dlg:accesskey'] = 'Tastaturkürzel';
@@ -236,27 +215,22 @@ $string['advlink_dlg:advanced_props'] = 'Erweiterte Eigenschaften';
 $string['advlink_dlg:advanced_tab'] = 'Erweitert';
 $string['advlink_dlg:anchor_names'] = 'Anker';
 $string['advlink_dlg:classes'] = 'Klassen';
-$string['advlink_dlg:encoding'] = 'Zeichenkodierung
-';
+$string['advlink_dlg:encoding'] = 'Zeichenkodierung';
 $string['advlink_dlg:event_props'] = 'Ereignisse';
 $string['advlink_dlg:events_tab'] = 'Ereignisse';
-$string['advlink_dlg:general_props'] = 'Grundeigenschaften
-';
+$string['advlink_dlg:general_props'] = 'Grundeigenschaften';
 $string['advlink_dlg:general_tab'] = 'Allgemein';
 $string['advlink_dlg:height'] = 'Höhe';
 $string['advlink_dlg:id'] = 'ID';
-$string['advlink_dlg:is_email'] = 'Diese URL scheint eine E-Mail-Adresse zu sein. Möchten Sie das dazu benötigte \'mailto:\' voranstellen?';
-$string['advlink_dlg:is_external'] = 'Diese URL scheint ein externer Link zu sein. Möchten Sie das dazu benötigte \'http://\' voranstellen?';
+$string['advlink_dlg:is_email'] = 'Diese URL scheint eine E-Mail-Adresse zu sein. Möchten Sie das notwendige \'mailto:\' voranstellen?';
+$string['advlink_dlg:is_external'] = 'Diese URL scheint ein externer Link zu sein. Möchten Sie das notwendige \'http://\' voranstellen?';
 $string['advlink_dlg:langcode'] = 'Sprachcode';
 $string['advlink_dlg:langdir'] = 'Schriftrichtung';
 $string['advlink_dlg:link_list'] = 'Linkliste';
 $string['advlink_dlg:list'] = 'Linkliste';
 $string['advlink_dlg:ltr'] = 'Links nach rechts';
-$string['advlink_dlg:mime'] = 'MIME-Type
-';
-$string['advlink_dlg:popup'] = '
-JavaScript-Popup
-';
+$string['advlink_dlg:mime'] = 'MIME-Type';
+$string['advlink_dlg:popup'] = 'JavaScript-Popup';
 $string['advlink_dlg:popup_dependent'] = 'Browserabhängig <br /> (nur Firefox)';
 $string['advlink_dlg:popup_location'] = 'Adressleiste anzeigen';
 $string['advlink_dlg:popup_menubar'] = 'Browsermenü anzeigen';
@@ -279,13 +253,11 @@ $string['advlink_dlg:style'] = 'Format';
 $string['advlink_dlg:tabindex'] = 'Tabindex';
 $string['advlink_dlg:target'] = 'Fenster';
 $string['advlink_dlg:target_blank'] = 'Neues Fenster öffnen';
-$string['advlink_dlg:target_langcode'] = 'Sprache
-';
+$string['advlink_dlg:target_langcode'] = 'Sprache';
 $string['advlink_dlg:target_name'] = 'Name der Zielseite';
 $string['advlink_dlg:target_parent'] = 'In übergeordnetem Fenster/Frame öffnen';
 $string['advlink_dlg:target_same'] = 'Im selben Fenster/Frame öffnen';
-$string['advlink_dlg:target_top'] = 'Im obersten Frame öffnen (ersetzt Frameset)
-';
+$string['advlink_dlg:target_top'] = 'Im obersten Frame öffnen (ersetzt Frameset)';
 $string['advlink_dlg:title'] = 'Link einfügen/bearbeiten';
 $string['advlink_dlg:titlefield'] = 'Titel';
 $string['advlink_dlg:url'] = 'Adresse';
@@ -293,35 +265,20 @@ $string['advlink_dlg:width'] = 'Breite';
 $string['advlink:link_desc'] = 'Link einfügen/bearbeiten';
 $string['advlist:circle'] = 'Kreis';
 $string['advlist:def'] = 'Standard';
-$string['advlist:disc'] = '
-Punkt
-';
-$string['advlist:lower_alpha'] = '
-a. b. c.
-';
-$string['advlist:lower_greek'] = '
-1. 2. 3.
-';
-$string['advlist:lower_roman'] = '
-i. ii. iii.
-';
+$string['advlist:disc'] = 'Punkt';
+$string['advlist:lower_alpha'] = 'a. b. c.';
+$string['advlist:lower_greek'] = '1. 2. 3.';
+$string['advlist:lower_roman'] = 'i. ii. iii.';
 $string['advlist:square'] = 'Quadrat';
-$string['advlist:types'] = 'Varianten
-';
-$string['advlist:upper_alpha'] = '
-A. B. C.
-';
-$string['advlist:upper_roman'] = '
-I. II. III.
-';
+$string['advlist:types'] = 'Varianten';
+$string['advlist:upper_alpha'] = 'A. B. C.';
+$string['advlist:upper_roman'] = 'I. II. III.';
 $string['aria:rich_text_area'] = 'Textbereich (Rich Text)';
-$string['autosave:restore_content'] = 'Automatisch gespeicherten Inhalt wiederherstellen
-';
+$string['autosave:restore_content'] = 'Automatisch gespeicherten Inhalt wiederherstellen';
 $string['autosave:unload_msg'] = 'Ihre Änderungen gehen verloren, wenn Sie die Seite verlassen.';
 $string['autosave:warning_message'] = 'Wenn Sie den automatisch gesicherten Inhalt wiederherstellen, gehen die aktuellen Daten im Editor verloren.
 
-Möchten SIe wirklich den Inhalt wiederherstellen?
-';
+Möchten Sie wirklich den Inhalt wiederherstellen?';
 $string['availablebuttons'] = 'Verfügbare Buttons';
 $string['colors:000000'] = 'Schwarz';
 $string['colors:000080'] = 'Marineblau';
@@ -367,20 +324,15 @@ $string['common:apply'] = 'Übernehmen';
 $string['common:browse'] = 'Durchsuchen';
 $string['common:cancel'] = 'Abbrechen';
 $string['common:class_name'] = 'CSS-Klasse';
-$string['common:clipboard_msg'] = 'Kopieren, Ausschneiden und Einfügen sind im Mozilla Firefox nicht möglich. Möchten Sie mehr über dieses Problem erfahren?
-';
-$string['common:clipboard_no_support'] = '
-Wird derzeit in Ihrem Browser nicht unterstützt. Bitte benutzen Sie stattdessen die Tastenkürzel.
-';
+$string['common:clipboard_msg'] = 'Kopieren, Ausschneiden und Einfügen sind im Mozilla Firefox nicht möglich. Möchten Sie mehr über dieses Problem erfahren?';
+$string['common:clipboard_no_support'] = 'Dies wird von Ihrem Browser nicht unterstützt. Benutzen Sie stattdessen die Tastenkürzel.';
 $string['common:close'] = 'Schließen';
-$string['common:edit_confirm'] = '
-Möchten Sie diesen Text jetzt bearbeiten?
-';
+$string['common:edit_confirm'] = 'Möchten Sie diesen Text jetzt bearbeiten?';
 $string['common:insert'] = 'Einfügen';
 $string['common:invalid_data'] = 'Fehler: Sie haben ungültige Werte eingegeben (rot markiert).';
 $string['common:invalid_data_min'] = '{#field} muss größer sein als {#min}';
 $string['common:invalid_data_number'] = '{#field} muss eine Zahl sein';
-$string['common:invalid_data_size'] = '{field} muss eine Zahl oder ein Prozentwert sein';
+$string['common:invalid_data_size'] = '{#field} muss eine Zahl oder ein Prozentwert sein';
 $string['common:more_colors'] = 'Weitere Farben';
 $string['common:not_set'] = '- nicht festgelegt -';
 $string['common:popup_blocked'] = 'Leider hat Ihr Popup-Blocker ein Fenster unterdrückt, das für die Funktionalität nötig ist. Bitte deaktivieren Sie den Popup-Blocker für diese Website.';
@@ -391,8 +343,10 @@ $string['contextmenu:center'] = 'Zentriert';
 $string['contextmenu:full'] = 'Blocksatz';
 $string['contextmenu:left'] = 'Linksbündig';
 $string['contextmenu:right'] = 'Rechtsbündig';
-$string['customtoolbar'] = 'Werkzeugleiste des Editors';
-$string['customtoolbar_desc'] = 'Jede Zeile enthält eine Komma-getrennte Liste von Butonnamen. "|" wird zur Trennung zwischen Gruppen verwendet. Leerzeilen werden ignoriert. <a href="{$a}" target="_blank">{$a}</a> zeigt die Liste der Standard-Buttons des TinyMCE Editors.';
+$string['customconfig'] = 'Erweiterte Einstellungen';
+$string['customconfig_desc'] = 'Die erweiterte Einstellungen des TinyMCE Editors werden im in JSON Format angegeben, d.h. in der folgenden Form: {"option1" : "value2", "option2" : "value2"}. Alle hier gesetzten Optionen überschreiben die Standardeinstellungen.';
+$string['customtoolbar'] = 'Symbolleiste des Editors';
+$string['customtoolbar_desc'] = 'Jede Zeile enthält eine kommagetrennte Liste von Symbolnamen. "|" wird zur Trennung zwischen Gruppen verwendet. Leerzeilen werden ignoriert. <a href="{$a}" target="_blank">{$a}</a> zeigt die Liste der Standardsymbole des TinyMCE Editors.';
 $string['directionality:ltr_desc'] = 'Schrift von links nach rechts';
 $string['directionality:rtl_desc'] = 'Schrift von rechts nach links';
 $string['emotions:delta_height'] = '0';
@@ -417,7 +371,7 @@ $string['emotions_dlg:usage'] = 'Verwenden Sie die \'nach links\' und \'nach rec
 $string['emotions_dlg:wink'] = 'Zwinkernd';
 $string['emotions_dlg:yell'] = 'Brüllend';
 $string['emotions:emotions_desc'] = 'Smilies';
-$string['fontselectlist'] = 'Liste verfügbarer Zeichensätze';
+$string['fontselectlist'] = 'Verfügbare Zeichensätze';
 $string['fullpage:delta_height'] = '0';
 $string['fullpage:delta_width'] = '0';
 $string['fullpage:desc'] = 'Dokument-Eigenschaften';
@@ -438,8 +392,7 @@ $string['fullpage_dlg:appearance_marginprops'] = 'Abstände des Body';
 $string['fullpage_dlg:appearance_style'] = 'CSS-Stylesheet und Stileigenschaften';
 $string['fullpage_dlg:appearance_tab'] = 'Darstellung';
 $string['fullpage_dlg:appearance_textprops'] = 'Text-Eigenschaften';
-$string['fullpage_dlg:author'] = 'Autor/in
-';
+$string['fullpage_dlg:author'] = 'Autor/in';
 $string['fullpage_dlg:base_element'] = 'Base-Element';
 $string['fullpage_dlg:bgcolor'] = 'Hintergrundfarbe';
 $string['fullpage_dlg:bgimage'] = 'Hintergrundbild';
@@ -471,14 +424,11 @@ $string['fullpage_dlg:link_element'] = 'Link-Element';
 $string['fullpage_dlg:ltr'] = 'Links nach Rechts';
 $string['fullpage_dlg:media'] = 'Media';
 $string['fullpage_dlg:meta_description'] = 'Beschreibung';
-$string['fullpage_dlg:meta_element'] = 'Meta-Element
-';
+$string['fullpage_dlg:meta_element'] = 'Meta-Element';
 $string['fullpage_dlg:meta_index_follow'] = 'Indizieren und den Links folgen';
 $string['fullpage_dlg:meta_index_nofollow'] = 'Indizieren, aber den Links nicht folgen';
-$string['fullpage_dlg:meta_keywords'] = 'Keywords';
-$string['fullpage_dlg:meta_noindex_follow'] = '
-Nicht indizieren, aber den Links folgen
-';
+$string['fullpage_dlg:meta_keywords'] = 'Schlagworte';
+$string['fullpage_dlg:meta_noindex_follow'] = 'Nicht indizieren, aber den Links folgen';
 $string['fullpage_dlg:meta_noindex_nofollow'] = 'Nicht indizieren und nicht den Links folgen';
 $string['fullpage_dlg:meta_props'] = 'Meta-Information';
 $string['fullpage_dlg:meta_robots'] = 'Robots';
@@ -507,12 +457,9 @@ $string['fullpage_dlg:top_margin'] = 'Oberer Abstand';
 $string['fullpage_dlg:type'] = 'Typ';
 $string['fullpage_dlg:value'] = 'Wert';
 $string['fullpage_dlg:visited_color'] = 'Visited-Farbe';
-$string['fullpage_dlg:xml_pi'] = '
-XML Deklaration
-';
+$string['fullpage_dlg:xml_pi'] = 'XML Deklaration';
 $string['fullscreen:desc'] = 'Vollbildschirm';
-$string['iespell:download'] = 'ieSpell konnte nicht gefunden werden. Möchten Sie es installieren?
-';
+$string['iespell:download'] = 'ieSpell konnte nicht gefunden werden. Möchten Sie es installieren?';
 $string['iespell:iespell_desc'] = 'Rechtschreibprüfung';
 $string['insertdatetime:date_fmt'] = '%d.%m.%Y';
 $string['insertdatetime:day_long'] = 'Sonntag,Montag,Dienstag,Mittwoch,Donnerstag,Freitag,Samstag,Sonntag';
@@ -523,13 +470,9 @@ $string['insertdatetime:months_long'] = 'Januar,Februar,März,April,Mai,Juni,Jul
 $string['insertdatetime:months_short'] = 'Jan,Feb,März,Apr,Mai,Juni,Juli,Aug,Sept,Okt,Nov,Dez';
 $string['insertdatetime:time_fmt'] = '%H:%M:%S';
 $string['layer:absolute_desc'] = 'Absolute Positionierung';
-$string['layer:backward_desc'] = '
-Nach hinten legen
-';
+$string['layer:backward_desc'] = 'Nach hinten legen';
 $string['layer:content'] = 'Neue Ebene...';
-$string['layer:forward_desc'] = '
-Nach vorne holen
-';
+$string['layer:forward_desc'] = 'Nach vorne holen';
 $string['layer:insertlayer_desc'] = 'Neue Ebene einfügen';
 $string['media:delta_height'] = '0';
 $string['media:delta_width'] = '0';
@@ -609,9 +552,9 @@ $string['media_dlg:preload_none'] = 'Nicht zuvor laden';
 $string['media_dlg:preview'] = 'Vorschau';
 $string['media_dlg:progress'] = 'Fortschritt';
 $string['media_dlg:qt_options'] = 'QuickTime-Optionen';
-$string['media_dlg:qtsrc'] = 'QT Quelle';
+$string['media_dlg:qtsrc'] = 'Quicktime-Quelle';
 $string['media_dlg:qtsrcchokespeed'] = 'Choke speed';
-$string['media_dlg:qt_stream_warn'] = 'Gestreamte RTSP Medien sollten im Feld \'QT Src\'  eingefügt werden. Zusätzlich sollten Sie auch eine nicht-gestreamte Version im Feld Source angeben.';
+$string['media_dlg:qt_stream_warn'] = 'Gestreamte RTSP Medien sollten im Feld \'Quicktime-Quelle\'  eingefügt werden. Zusätzlich sollten Sie auch eine nicht-gestreamte Version im Feld Source angeben.';
 $string['media_dlg:quality'] = 'Qualität';
 $string['media_dlg:quicktime'] = 'QuickTime';
 $string['media_dlg:rate'] = 'Rate';
@@ -619,9 +562,7 @@ $string['media_dlg:realmedia'] = 'Real Media';
 $string['media_dlg:rmp_options'] = 'Optionen für Real Media Player';
 $string['media_dlg:salign'] = 'S-Ausrichtung';
 $string['media_dlg:scale'] = 'Skalierung';
-$string['media_dlg:scriptcallbacks'] = '
-Script callbacks
-';
+$string['media_dlg:scriptcallbacks'] = 'Script callbacks';
 $string['media_dlg:shockwave'] = 'Shockwave';
 $string['media_dlg:shockwave_options'] = 'Shockwave-Optionen';
 $string['media_dlg:shuffle'] = 'Zufällige Wiedergabe';
@@ -629,8 +570,7 @@ $string['media_dlg:size'] = 'Abmessungen';
 $string['media_dlg:sound'] = 'Ton';
 $string['media_dlg:source'] = 'Quelle';
 $string['media_dlg:starttime'] = 'Startzeitpunkt';
-$string['media_dlg:stretchtofit'] = 'Größe an verfügbaren Platz anpassen
-';
+$string['media_dlg:stretchtofit'] = 'Größe an verfügbaren Platz anpassen';
 $string['media_dlg:swstretchhalign'] = 'Stretch H-Ausrichtung';
 $string['media_dlg:swstretchstyle'] = 'Stretch style';
 $string['media_dlg:swstretchvalign'] = 'Stretch V-Ausrichtung';
@@ -652,8 +592,7 @@ $string['pagebreak:desc'] = 'Seitenumbruch für Druck einfügen';
 $string['paste_dlg:text_linebreaks'] = 'Zeilenumbrüche beibehalten';
 $string['paste_dlg:text_title'] = 'Drücken Sie auf Ihrer Tastatur Strg+V, um den Text einzufügen.';
 $string['paste_dlg:word_title'] = 'Drücken Sie auf Ihrer Tastatur Strg+V, um den Text einzufügen.';
-$string['paste:paste_text_desc'] = 'Als unformatierten Text einfügen
-';
+$string['paste:paste_text_desc'] = 'Als unformatierten Text einfügen';
 $string['paste:paste_word_desc'] = 'Als formatierten Text einfügen';
 $string['paste:plaintext_mode'] = 'Einfügemodus ist nun "Nur Text". Erneut klicken stellt den Normalmodus wieder her. Danach wird wieder in den regulären Einfüge-Modus umgeschaltet.';
 $string['paste:plaintext_mode_stick'] = 'Einfügemodus ist nun "Nur Text". Erneut klicken stellt den Normalmodus wieder her.';
@@ -681,9 +620,8 @@ $string['searchreplace_dlg:search_title'] = 'Suchen';
 $string['searchreplace_dlg:up'] = 'Aufwärts';
 $string['searchreplace:replace_desc'] = 'Suchen/Ersetzen';
 $string['searchreplace:search_desc'] = 'Suchen';
-$string['settings'] = 'Allgemeine Einstellungen';
-$string['simple:bold_desc'] = 'Fett
-';
+$string['settings'] = 'Grundeinstellungen';
+$string['simple:bold_desc'] = 'Fett';
 $string['simple:bullist_desc'] = 'Aufzählung einfügen/entfernen';
 $string['simple:cleanup_desc'] = 'Quellcode bereinigen';
 $string['simple:italic_desc'] = 'Kursiv';
@@ -698,9 +636,7 @@ $string['spellchecker:ignore_words'] = 'Alle ignorieren';
 $string['spellchecker:langs'] = 'Sprachen';
 $string['spellchecker:learn_word'] = 'Wort lernen';
 $string['spellchecker:menu'] = 'Einstellungen der Rechtschreibprüfung';
-$string['spellchecker:no_mpell'] = '
-Keine Rechtschreibfehler gefunden.
-';
+$string['spellchecker:no_mpell'] = 'Keine Rechtschreibfehler gefunden';
 $string['spellchecker:no_sug'] = 'Keine Vorschläge';
 $string['spellchecker:sug'] = 'Vorschläge';
 $string['spellchecker:wait'] = 'Bitte warten...';
@@ -709,8 +645,7 @@ $string['style:delta_width'] = '0';
 $string['style:desc'] = 'CSS-Styles bearbeiten';
 $string['style_dlg:apply'] = 'Übernehmen';
 $string['style_dlg:background'] = 'Hintergrund';
-$string['style_dlg:background_attachment'] = 'Wasserzeichen
-';
+$string['style_dlg:background_attachment'] = 'Wasserzeichen';
 $string['style_dlg:background_color'] = 'Hintergrundfarbe';
 $string['style_dlg:background_hpos'] = 'Position X';
 $string['style_dlg:background_image'] = 'Hintergrundbild';
@@ -742,7 +677,7 @@ $string['style_dlg:height'] = 'Höhe';
 $string['style_dlg:left'] = 'Links';
 $string['style_dlg:list'] = 'Liste';
 $string['style_dlg:list_tab'] = 'Liste';
-$string['style_dlg:list_type'] = 'Listenpunkt-Art';
+$string['style_dlg:list_type'] = 'Listenpunkt';
 $string['style_dlg:margin'] = 'Äußerer Abstand';
 $string['style_dlg:overflow'] = 'Verhalten bei Übergröße';
 $string['style_dlg:padding'] = 'Innerer Abstand';
@@ -754,20 +689,17 @@ $string['style_dlg:right'] = 'Rechts';
 $string['style_dlg:same'] = 'Alle gleich';
 $string['style_dlg:style'] = 'Format';
 $string['style_dlg:text'] = 'Text';
-$string['style_dlg:text_blink'] = 'Blinkend
-';
+$string['style_dlg:text_blink'] = 'Blinkend';
 $string['style_dlg:text_case'] = 'Schreibung';
 $string['style_dlg:text_color'] = 'Farbe';
 $string['style_dlg:text_decoration'] = 'Gestaltung';
 $string['style_dlg:text_font'] = 'Schriftart';
 $string['style_dlg:text_lineheight'] = 'Zeilenhöhe';
 $string['style_dlg:text_none'] = 'Keine';
-$string['style_dlg:text_overline'] = 'Überstrichen
-';
+$string['style_dlg:text_overline'] = 'Überstrichen';
 $string['style_dlg:text_props'] = 'Text';
 $string['style_dlg:text_size'] = 'Größe';
-$string['style_dlg:text_striketrough'] = 'Durchgestrichen
-';
+$string['style_dlg:text_striketrough'] = 'Durchgestrichen';
 $string['style_dlg:text_style'] = 'Stil';
 $string['style_dlg:text_tab'] = 'Text';
 $string['style_dlg:text_underline'] = 'Unterstrichen
@@ -777,12 +709,10 @@ $string['style_dlg:text_weight'] = 'Dicke';
 $string['style_dlg:title'] = 'CSS-Styles bearbeiten';
 $string['style_dlg:toggle_insert_span'] = 'Span für Auswahl hnzufügen';
 $string['style_dlg:top'] = 'Oben';
-$string['style_dlg:visibility'] = '
-Sichtbar
-';
+$string['style_dlg:visibility'] = 'Sichtbar';
 $string['style_dlg:width'] = 'Breite';
 $string['style_dlg:zindex'] = 'Z-Wert';
-$string['subplugindeleteconfirm'] = 'Sie sind dabei das TinyMCE-Plugin \'{$a}\' entfernen. Damit löschen Sie auch alle damit verknüpften Einträge in der Datenbank. Sind Sie sicher?';
+$string['subplugindeleteconfirm'] = 'Sie sind dabei das TinyMCE-Plugin \'{$a}\' entfernen. Sie löschen auch alle damit verknüpften Einträge in der Datenbank. Sind Sie sicher?';
 $string['subplugintype_tinymce_plural'] = 'Plugins';
 $string['table:cell'] = 'Zelle';
 $string['table:cell_desc'] = 'Eigenschaften der Zelle';
@@ -793,13 +723,9 @@ $string['table:col_after_desc'] = 'Spalte rechts einfügen';
 $string['table:col_before_desc'] = 'Spalte links einfügen';
 $string['table:copy_row_desc'] = 'Zeile kopieren';
 $string['table:cut_row_desc'] = 'Zeile ausschneiden';
-$string['table:del'] = '
-Tabelle löschen
-';
+$string['table:del'] = 'Tabelle löschen';
 $string['table:delete_col_desc'] = 'Spalte löschen';
-$string['table:delete_row_desc'] = '
-Zeile löschen
-';
+$string['table:delete_row_desc'] = 'Zeile löschen';
 $string['table:desc'] = 'Tabelle erstellen/bearbeiten';
 $string['table_dlg:advanced_props'] = 'Erweiterte Einstellungen';
 $string['table_dlg:advanced_tab'] = 'Erweitert';
@@ -841,9 +767,8 @@ $string['table_dlg:langcode'] = 'Sprachcode';
 $string['table_dlg:langdir'] = 'Schriftrichtung';
 $string['table_dlg:ltr'] = 'Links nach rechts';
 $string['table_dlg:merge_cells_title'] = 'Zellen vereinen';
-$string['table_dlg:mime'] = 'MIME-Type
-';
-$string['table_dlg:missing_scope'] = 'Möchten Sie wirklich keine alternative Beschreibung für diese Überschrift angeben?';
+$string['table_dlg:mime'] = 'MIME-Type';
+$string['table_dlg:missing_scope'] = 'Möchten Sie wirklich keine alternative Beschreibung für diese Tabellenüberschrift angeben?';
 $string['table_dlg:row_all'] = 'Alle Zeilen verändern';
 $string['table_dlg:row_even'] = 'Gerade Zeilen verändern';
 $string['table_dlg:rowgroup'] = 'Zeilen gruppieren';
@@ -890,15 +815,11 @@ $string['table:rowprops_delta_width'] = '0';
 $string['table:split_cells_desc'] = 'Verbundene Zellen trennen';
 $string['table:table_delta_height'] = '0';
 $string['table:table_delta_width'] = '0';
-$string['template:desc'] = '
-Inhalt aus Vorlage einfügen
-';
+$string['template:desc'] = 'Inhalt aus Vorlage einfügen';
 $string['template_dlg:cdate_format'] = '%d.%m.%Y %H:%M:%S';
 $string['template_dlg:day_long'] = 'Sonntag,Montag,Dienstag,Mittwoch,Donnerstag,Freitag,Samstag,Sonntag';
 $string['template_dlg:day_short'] = 'So,Mo,Di,Mi,Do,Fr,Sa,So';
-$string['template_dlg:desc'] = '
-Inhalt aus Vorlage einfügen
-';
+$string['template_dlg:desc'] = 'Inhalt aus Vorlage einfügen';
 $string['template_dlg:desc_label'] = 'Beschreibung';
 $string['template_dlg:label'] = 'Vorlage';
 $string['template_dlg:mdate_format'] = '%d.%m.%Y %H:%M:%S';
@@ -909,7 +830,7 @@ $string['template_dlg:select'] = 'Vorlage auswählen';
 $string['template_dlg:title'] = 'Vorlagen';
 $string['template_dlg:warning'] = 'Warnung: Eine Vorlage mit einer anderen zu aktualisieren kann zu Datenverlust führen!';
 $string['visualblocks:desc'] = 'Blockelemente anzeigen/verbergen';
-$string['visualchars:desc'] = 'Sichtbarkeit der Steuerzeichen an/aus';
+$string['visualchars:desc'] = 'Steuerzeichen anzeigen/verbergen';
 $string['wordcount:words'] = 'Worte:';
 $string['xhtmlxtras:abbr_delta_height'] = '0';
 $string['xhtmlxtras:abbr_delta_width'] = '0';

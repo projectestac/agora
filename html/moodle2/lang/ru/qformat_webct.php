@@ -32,6 +32,6 @@ $string['paragraphquestion'] = 'Часть вопроса';
 $string['pluginname'] = 'Формат WebCT';
 $string['pluginname_help'] = 'Формат WebCT позволяет вопросы Множественного выбора и Короткие ответы сохранить в текстовом формате WebCT для дальнейшего импорта.';
 $string['questionnametoolong'] = 'Название вопроса слишком длинное на строке {$a} (255 символов максимум). Название будет обрезано.';
-$string['unknowntype'] = 'Неизвестный тип';
+$string['unknowntype'] = 'Неизвестный тип вопроса после строки {$a}';
 $string['warningsdetected'] = 'обнаружено предупреждений: {$a} ';
 $string['wronggrade'] = 'Неверная оценка (после строки {$a}):';

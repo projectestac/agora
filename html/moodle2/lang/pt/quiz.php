@@ -27,9 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['accessnoticesheader'] = 'Pode pré-visualizar o teste, mas se fosse uma tentativa real seria impedido porque:';
 $string['action'] = 'Ação';
-$string['activityoverview'] = 'Tem testes que ultrapassaram a data limite de submissão';
+$string['activityoverview'] = 'Existem Testes que requerem a sua atenção';
 $string['adaptive'] = 'Modo adaptável';
-$string['adaptive_help'] = 'Se selecionar sim, o aluno poderá responder várias vezes à mesma pergunta, durante a mesma tentativa de resolução do teste. Por exemplo, se a primeira resposta for incorreta, o aluno poderá, de imediato, responder novamente até acertar. Porém, se a configuração "Aplicar penalizações" estiver ativa será aplicada uma penalização na nota da pergunta por cada tentativa errada.';
+$string['adaptive_help'] = 'Se selecionar \'Sim\', o aluno poderá responder várias vezes à mesma pergunta, durante a mesma tentativa de resolução do teste. Por exemplo, se a primeira resposta for incorreta, o aluno poderá, de imediato, responder novamente até acertar. Porém, se a configuração "Aplicar penalizações" estiver ativa será aplicada uma penalização na nota da pergunta por cada tentativa errada.';
 $string['addaquestion'] = 'Criar pergunta';
 $string['addarandomquestion'] = 'Criar pergunta aleatória';
 $string['addarandomquestion_help'] = 'Quando adiciona uma pergunta aleatória, esta será selecionada aleatoriamente entre as perguntas de uma determinada categoria. Isto significa que os diferentes alunos obterão uma diferente seleção de perguntas e, quando o teste permite múltiplas tentativas, cada tentativa conterá uma diferente seleção de perguntas.';
@@ -152,7 +152,7 @@ $string['comment'] = 'Comentário';
 $string['commentorgrade'] = 'Introduzir comentário ou ajustar a nota';
 $string['comments'] = 'Comentários';
 $string['completedon'] = 'Completo em';
-$string['configadaptive'] = 'Se selecionar Sim, os alunos podem responder várias vezes à mesma pergunta na mesma tentativa de resolução do teste.';
+$string['configadaptive'] = 'Se selecionar \'Sim\', os alunos podem responder várias vezes à mesma pergunta na mesma tentativa de resolução do teste.';
 $string['configattemptsallowed'] = 'Restrição no número de tentativas de resolução do teste que os alunos podem fazer.';
 $string['configdecimaldigits'] = 'Número de casas decimais apresentadas na nota.';
 $string['configdecimalplaces'] = 'Número de casas decimais apresentadas na nota do teste.';
@@ -285,7 +285,7 @@ $string['emailoverduesmall'] = 'Não submeteu a sua tentativa de resolução do 
 $string['emailoverduesubject'] = 'Tentativa expirada: {$a->quizname}';
 $string['empty'] = 'Vazio';
 $string['enabled'] = 'Ativado';
-$string['endtest'] = 'Terminar tentativa …';
+$string['endtest'] = 'Terminar tentativa';
 $string['erroraccessingreport'] = 'Não pode consultar este relatório';
 $string['errorinquestion'] = 'Erro na pergunta';
 $string['errormissingquestion'] = 'Erro: A pergunta com id {$a} está em falta no sistema.';
@@ -317,7 +317,7 @@ $string['filloutnumericalanswer'] = 'Indique pelo menos uma resposta possível e
 $string['filloutoneanswer'] = 'Deve preencher pelo menos uma resposta possível. As respostas em branco não serão consideradas.* pode ser usado como um carater universal para representar qualquer sequência de carateres. A primeira resposta possível que coincidir com a do aluno será usada para determinar a nota e o feedback.';
 $string['filloutthreequestions'] = 'Deve preencher pelo menos três perguntas com respostas correspondentes. Pode acrescentar respostas extra erradas, introduzindo a resposta e deixando a pergunta em branco. As perguntas em que tanto a pergunta como a resposta se encontrem em branco serão ignoradas.';
 $string['fillouttwochoices'] = 'Deve preencher pelo menos duas opções. Opções em branco serão ignoradas.';
-$string['finishattemptdots'] = 'Terminar tentativa…';
+$string['finishattemptdots'] = 'Terminar tentativa';
 $string['finishreview'] = 'Terminar revisão';
 $string['forceregeneration'] = 'forçar regeneração';
 $string['formatnotfound'] = 'não foi encontrado o formato {$a} de importação/exportação';
@@ -548,7 +548,7 @@ $string['parsingquestions'] = 'A ler perguntas do ficheiro importado.';
 $string['partiallycorrect'] = 'Parcialmente correto';
 $string['penalty'] = 'Penalização';
 $string['penaltyscheme'] = 'Aplicar penalizações';
-$string['penaltyscheme_help'] = 'Se selecionar sim, a penalização é subtraída à nota final da pergunta, por cada tentativa errada. O valor da penalização é definido nas configurações da pergunta. Esta configuração só é aplicável em testes em modo adaptável.';
+$string['penaltyscheme_help'] = 'Se selecionar \'Sim\', a penalização é subtraída à nota final da pergunta, por cada tentativa errada. O valor da penalização é definido nas configurações da pergunta. Esta configuração só é aplicável em testes em modo adaptável.';
 $string['percentcorrect'] = 'Percentagem correta';
 $string['pleaseclose'] = 'O seu pedido foi processado. Pode fechar a janela';
 $string['pluginadministration'] = 'Administração do teste';
@@ -639,7 +639,7 @@ $string['randomwithsubcat'] = 'Perguntas desta categoria e suas subcategorias';
 $string['readytosend'] = 'Está prestes a submeter o teste para a avaliação. Tem a certeza que deseja continuar?';
 $string['reattemptquiz'] = 'Iniciar uma nova tentativa de resolução do teste';
 $string['recentlyaddedquestion'] = 'Pergunta recentemente adicionada!';
-$string['recurse'] = 'Mostrar perguntas de subcategorias';
+$string['recurse'] = 'Incluir também perguntas das subcategorias';
 $string['regrade'] = 'Reclassificar todas as tentativas';
 $string['regradecomplete'] = 'Todas as tentativas foram reclassificadas';
 $string['regradecount'] = '{$a->changed} em {$a->attempt} notas foram alteradas';
@@ -706,15 +706,15 @@ $string['reviewofpreview'] = 'Revisão da pré-visualização';
 $string['reviewopen'] = 'Mais tarde, com o teste ainda aberto';
 $string['reviewoptions'] = 'Os alunos podem rever o teste';
 $string['reviewoptionsheading'] = 'Informação exibida na revisão do teste';
-$string['reviewoptionsheading_help'] = 'Estas opções definem qual a informação que os alunos podem ver ao rever uma tentativa ou ao consultar os relatórios do teste.
+$string['reviewoptionsheading_help'] = 'Estas opções definem a informação que os alunos podem ver ao rever uma tentativa ou ao consultar os relatórios do teste.
 
-**Durante a tentativa** é relevante apenas para alguns comportamentos de perguntas, como o \'interativo com múltiplas tentativas\', que podem exibir feedback durante a tentativa.
+**Durante a tentativa** é relevante apenas para alguns tipos de comportamentos de perguntas, como o \'interativo com múltiplas tentativas\', que podem exibir feedback durante a tentativa.
 
 **Imediatamente a seguir à tentativa** aplicável ao período de dois minutos após o aluno submeter a realização do teste e, como tal, ao relatório de revisão do teste que surge imediatamente a seguir.
 
-**Mais tarde, enquanto o teste estiver aberto** aplicável do período anterior até à data de fecho do teste.
+**Mais tarde, enquanto o teste estiver aberto** aplicável desde o período anterior até à data de fecho do teste.
 
-**After the quiz is closed** aplicável após a data de fecho do teste. Se o teste não tem data de fecho definida, este estado nunca é aplicado.';
+**Depois do teste fechar** aplicável após a data de fecho do teste. Se o teste não tiver uma data de fecho definida, este estado nunca é aplicado.';
 $string['reviewoverallfeedback'] = 'Feedback global';
 $string['reviewoverallfeedback_help'] = 'Feedback global dado ao aluno no final da tentativa em função da nota total obtida.';
 $string['reviewresponse'] = 'Rever respostas';
@@ -753,7 +753,7 @@ $string['shortanswer'] = 'Resposta curta';
 $string['show'] = 'Mostrar';
 $string['showall'] = 'Mostrar todas as perguntas numa página';
 $string['showblocks'] = 'Mostrar blocos durante a realização do teste';
-$string['showblocks_help'] = 'Se selecionar sim, os blocos serão mostrados durante a realização do teste';
+$string['showblocks_help'] = 'Se selecionar \'Sim\', os blocos serão mostrados durante a realização do teste';
 $string['showbreaks'] = 'Mostrar quebras de página';
 $string['showcategorycontents'] = 'Mostrar conteúdo da categoria {$a->arrow}';
 $string['showcorrectanswer'] = 'No feedback, mostrar respostas corretas?';
@@ -766,14 +766,14 @@ $string['shownoattemptsonly'] = 'Mostrar apenas alunos sem tentativas';
 $string['showreport'] = 'Mostrar relatório';
 $string['showteacherattempts'] = 'Mostrar tentativas de professores';
 $string['showuserpicture'] = 'Mostrar fotografia do utilizador';
-$string['showuserpicture_help'] = 'Se selecionar Sim, o nome dos alunos e a sua fotografia serão exibidos durante a resolução do teste. Assim, torna-se mais fácil verificar se o aluno que está autenticado é o que está a fazer o exame num ambiente vigiado.';
+$string['showuserpicture_help'] = 'Se selecionar \'Sim\', o nome dos alunos e a sua fotografia serão exibidos durante a resolução do teste. Assim, torna-se mais fácil verificar se o aluno que está autenticado é o que está a fazer o exame num ambiente vigiado.';
 $string['shuffle'] = 'Baralhar';
 $string['shuffleanswers'] = 'Baralhar opções de resposta';
 $string['shuffledrandomly'] = 'Baralhadas aleatoriamente';
 $string['shufflequestions'] = 'Baralhar perguntas';
 $string['shufflequestionsselected'] = 'A opção de baralhar perguntas está ativa, logo algumas ações relativas às páginas não se encontram disponíveis. Para alterar as configurações das perguntas baralhadas,clique em {$a}.';
 $string['shufflewithin'] = 'Baralhar dentro das perguntas';
-$string['shufflewithin_help'] = 'Se selecionar sim, as opções de resposta serão baralhadas aleatoriamente cada vez que o aluno realiza uma tentativa do teste. Esta configuração só se aplica a perguntas com várias opções como as de resposta múltipla ou correspondência.';
+$string['shufflewithin_help'] = 'Se selecionar \'Sim\', as opções de resposta serão baralhadas aleatoriamente cada vez que o aluno realiza uma tentativa do teste. Esta configuração só se aplica a perguntas com várias opções como as de resposta múltipla ou correspondência.';
 $string['singleanswer'] = 'Escolha uma resposta…';
 $string['sortage'] = 'Ordenar por idade';
 $string['sortalpha'] = 'Ordenar por nome';

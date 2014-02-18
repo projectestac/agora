@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['configlog'] = 'Изменения конфигурации';
 $string['oldvalue'] = 'Исходное значение';
 $string['plugin'] = 'Плагин';
+$string['pluginname'] = 'Изменения конфигурации';
 $string['setting'] = 'Параметр';
 $string['timemodified'] = 'Дата';
 $string['value'] = 'Новое значение';

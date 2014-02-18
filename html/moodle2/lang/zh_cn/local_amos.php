@@ -30,7 +30,8 @@ $string['about'] = '<p>AMOS是Automated Manipulation Of Strings（字符串自�
 $string['amos'] = 'AMOS — Moodle翻译工具';
 $string['amos:commit'] = '将暂存的字符串提交到主容器';
 $string['amos:execute'] = '执行给定的AMOS脚本';
-$string['amos:importfile'] = '从上传的文件导入字符串';
+$string['amos:importfile'] = '从上传文件导入并暂存翻译';
+$string['amos:importstrings'] = '将字符串（包括英文原文）直接导入主容器';
 $string['amos:manage'] = '管理AMOS入口';
 $string['amos:stage'] = '使用AMOS翻译工具并暂存这些字符串';
 $string['amos:stash'] = '将当前暂存的字符串永久保存到储藏室';
@@ -43,6 +44,7 @@ $string['commitstage_help'] = '永久保存AMOS容器中所有暂存的字符串
 $string['committableall'] = '所有语言';
 $string['committablenone'] = '没有可提交的语言——请联系AMOS管理员';
 $string['componentsall'] = '全部';
+$string['componentsenlarge'] = '扩大';
 $string['componentsnone'] = '无';
 $string['componentsstandard'] = '标准';
 $string['confirmaction'] = '此项操作不能被撤销。您确定一定以及肯定吗？';
@@ -71,7 +73,7 @@ $string['contribincomingnone'] = '没有收到任何贡献';
 $string['contribincomingsome'] = '收到贡献（{$a}）';
 $string['contriblanguage'] = '语言';
 $string['contribreject'] = '拒收';
-$string['contribresign'] = '重新分配';
+$string['contribresign'] = '取消分配';
 $string['contribstaged'] = '暂存的{$a->author}的贡献 <a href="contrib.php?id={$a->id}">#{$a->id}</a>';
 $string['contribstagedinfo'] = '暂存的贡献';
 $string['contribstagedinfo_help'] = '暂存区包含由社区成员贡献的字符串。语言包维护人应评估它们，并设置它们的状态为“接受”（如果提交了）或“拒收”（如果出于某些原因，他们不能被包含在官方语言包中）。';
@@ -96,6 +98,13 @@ $string['contribsubmittednone'] = '没有已提交的贡献';
 $string['contribsubmittedsome'] = '您的贡献（{$a}）';
 $string['contribtimemodified'] = '修改于';
 $string['contributions'] = '贡献';
+$string['creditscontact'] = '发送消息';
+$string['creditscontributors'] = '其它贡献者';
+$string['creditsmaintainedby'] = '维护人';
+$string['creditsnomaintainer'] = '目前尚无维护人。<a href="{$a->url}">你来吧！</a>';
+$string['creditsthanks'] = '在此，我们向所有为 Moodle 翻译做过贡献的人表示感谢。没有他们的工作，Moodle 就不可能传遍世界。';
+$string['creditstitlelong'] = '语言包维护人和贡献人';
+$string['creditstitleshort'] = '致谢';
 $string['diff'] = '比较';
 $string['diffaction'] = '如果检测到差异';
 $string['diffaction1'] = '将两种翻译暂存在各自的分支';
@@ -164,7 +173,9 @@ $string['importfile_help'] = '如果您是离线翻译的字符串，可以在�
 * 文件必须是合法的Moodle PHP字符串定义文件。Moodle的”/lang/en“目录下的文件都是例子。
 * 文件名必须是字符串所属的组件的英文名（例如”moodle.php“、”assignment.php“或”enrol_manual.php“）。
 
-文件中所有字符串都会按照所选的版本和语言放入暂存区。';
+文件中所有字符串都会按照所选的版本和语言放入暂存区。
+
+将多个 PHP 文件放到一个 ZIP 文件中，可以同时处理。';
 $string['language'] = '语言';
 $string['languages'] = '语言';
 $string['languagesall'] = '全部';
@@ -181,10 +192,12 @@ $string['logfilterlang'] = '语言';
 $string['logfiltershow'] = '显示过滤后的提交和字符串';
 $string['logfiltersource'] = '源';
 $string['logfiltersourceamos'] = 'amos（基于web的翻译器）';
+$string['logfiltersourceautomerge'] = '自动合并（从另一分支拷贝的翻译）';
 $string['logfiltersourcebot'] = '机器人（用脚本执行的批量操作）';
 $string['logfiltersourcecommitscript'] = 'commitscript（提交信息中有AMOScript）';
 $string['logfiltersourcefixdrift'] = '修正漂移（已修正的AMOS-git漂移）';
 $string['logfiltersourcegit'] = 'git（Moodle源代码和1.x包的git镜像）';
+$string['logfiltersourceimport'] = '导入（导入第三方插件的字符串）';
 $string['logfiltersourcerevclean'] = 'revclean（反向清理过程）';
 $string['logfilterstringid'] = '字符串标识符';
 $string['logfilterstrings'] = '字符串过滤器';

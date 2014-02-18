@@ -25,9 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = 'API 키';
-$string['err_noapikey'] = 'API키 없음';
-$string['err_noapikey_help'] = '이 플러그인에 API 키가 설정되어 있지 않습니다. 키는 OpenBox 개발페이지에서 얻을 수 있습니다.';
 $string['existingfolder'] = '파일을 넣어둘 기존 폴더';
 $string['folderclash'] = '생성 요청한 폴더는 이미 존재함!';
 $string['foldercreatefailed'] = 'box.net에 폴더 생성 실패';

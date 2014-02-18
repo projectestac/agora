@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Общественная деятельность';
+$string['social_activities:addinstance'] = 'Добавлять новый блок Общественная деятельность';

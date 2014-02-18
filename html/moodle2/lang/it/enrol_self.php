@@ -62,9 +62,9 @@ Per prorogare l\'iscrizione, recati su $a->extendurl}';
 $string['expirymessageenrollersubject'] = 'Notifica scadenza iscrizione spontanea';
 $string['groupkey'] = 'Utilizza chiavi di iscrizione ai gruppi';
 $string['groupkey_desc'] = 'Utilizza per default le chiavi di iscrizione ai gruppi';
-$string['groupkey_help'] = 'Oltre alla chiave di accesso al corso, è possibile usare chiavi di iscrizione ai gruppi per regolare sia l\'accesso al corso sia l\'inserimento dell\'utente in un gruppo.
+$string['groupkey_help'] = 'Oltre alla chiave di accesso al corso, è possibile usare chiavi di iscrizione ai gruppi per regolare sia l\'accesso al corso sia l\'inserimento automatico dell\'utente in un gruppo.
 
-Per usare una chiave di iscrizione al gruppo è necessario specificare sia la chiave di accesso al corso (nelle impostazioni del corso) sia la chiave di iscrizione al gruppo (nelle impostazioni dei gruppi).';
+Nota: per usare una chiave di iscrizione al gruppo è necessario specificare sia la chiave di accesso al corso sia la chiave di iscrizione al gruppo.';
 $string['longtimenosee'] = 'Disiscrivi utenti non attivi dopo';
 $string['longtimenosee_help'] = 'Consente di disiscvievre automaticamente quegli utenti che non abbiamo svolto attività per il numero di giorni impostato.';
 $string['maxenrolled'] = 'Numero max. di iscrizioni';

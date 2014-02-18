@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['clientid'] = 'Bezeroaren IDa';
 $string['configplugin'] = 'Picasa biltegiaren ezarpenak';
-$string['picasa:view'] = 'Picasa biltegia ikusi';
+$string['oauth2upgrade_message_subject'] = 'Picasa biltegi-pluginari buruzko informazio garrantzitsua';
+$string['picasa:view'] = 'ikusi Picasa biltegia';
 $string['pluginname'] = 'Picasa Web Albuma';
 $string['secret'] = 'Sekretua';

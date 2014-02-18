@@ -26,8 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['completionprogressdetails'] = 'Kursbearbeitungsdetails';
-$string['completionstatus:addinstance'] = 'Neuen Block \'Bearbeitungsstand\' hinzufügen';
-$string['completionstatus:myaddinstance'] = 'Neuen Block \'Bearbeitungsstand\' für \'Meine Startseite\' hinzufügen';
+$string['completionstatus:addinstance'] = 'Block \'Bearbeitungsstand\' hinzufügen';
 $string['criteriagroup'] = 'Kriteriengruppen';
 $string['firstofsecond'] = '{$a->first} von {$a->second}';
 $string['pluginname'] = 'Bearbeitungsstand';

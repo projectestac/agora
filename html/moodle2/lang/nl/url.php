@@ -40,11 +40,10 @@ $string['displayselect_help'] = 'Deze instelling, samen met het bestandstype van
 
 * Automatisch - De beste weergave van de URL wordt automatisch gekozen
 * Embed - De URL wordt weergegeven binnen de pagina onder de navigatiebalk, samen met de URL beschrijving en andere blokken
-* Gedwongen download - De gebruiker wordt gevraagd om het URL bestand te downloaden
 * Open - Enkel de URL wordt weergegeven in het browservenster
 * In pop-up - De URL wordt weergegeven in een nieuw browservenster zonder menu\'s of een adressenbalk
 * In frame - De URL wordt weergegeven in een frame onder de navigatiebalk en de URL beschrijving.
-* Nieuw venster - De URL wordt weergegeven in een nieuw browservenster met menu\'s en een adressenbalk';
+* Nieuw venster - De URL wordt weergegeven in een nieuw browservenster met menu\'s en een adresbalk';
 $string['externalurl'] = 'Externe URL';
 $string['framesize'] = 'Frame hoogte';
 $string['invalidstoredurl'] = 'Kan deze bron niet tonen, URL is niet geldig.';

@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['configtimetosee'] = 'Noiztik aurrera (minututan) ulertu behar da erabiltzaile bat offline dagoela?';
 $string['online_users:addinstance'] = 'Gehitu beste on-line erabiltzaileak bloke bat';
-$string['online_users:myaddinstance'] = 'Gehitu beste on-line erabiltzaileak bloke bat Nire Moodle orrian';
+$string['online_users:myaddinstance'] = 'Gehitu on-line erabiltzaileak bloke berria Nire hasieran';
 $string['online_users:viewlist'] = 'On-line erabiltzaileen zerrenda ikusi';
 $string['periodnminutes'] = 'azken {$a} minutuetan';
 $string['pluginname'] = 'On-line erabiltzaileak';

@@ -30,9 +30,9 @@ $string['addgrades'] = 'Ajouter {no} conditions de note';
 $string['adduserfields'] = 'Ajouter au formulaire {no} champs pour conditions';
 $string['availabilityconditions'] = 'Restreindre la disponibilité';
 $string['availablefrom'] = 'Disponible dès le';
-$string['availablefrom_help'] = 'Les dates de disponibilité dès le/jusqu\'au détermine la période durant laquelle les participants peuvent accéder à l\'activité via un lien sur la page du cours.
+$string['availablefrom_help'] = 'Les dates d\'accès dès le/jusqu\'au déterminent la période durant laquelle les participants peuvent accéder à l\'activité via un lien sur la page du cours.
 
-La différence entre ces dates et les dates d\'accès indiquées dans les réglages de l\'activité est que ces dernières permettent de voir la description de l\'activité, tandis que les dates de disponibilité empêchent totalement l\'accès à l\'activité.';
+La différence entre ces dates et les dates de disponibilité indiquées dans les réglages de l\'activité est que les dates de disponibilité permettent de voir la description de l\'activité, tandis que les dates d\'accès empêchent totalement l\'accès à l\'activité.';
 $string['availableuntil'] = 'Disponible jusqu\'au';
 $string['badavailabledates'] = 'Dates non valables. Si vous définissez les deux dates, assurez-vous que la date de début de disponibilité soit antérieure à celle de fin.';
 $string['badgradelimits'] = 'Si vous définissez une limite supérieure et une limite inférieure, la limite supérieure doit être plus grande que la limite inférieure.';

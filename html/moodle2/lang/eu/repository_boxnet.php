@@ -27,7 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'API giltza';
 $string['boxnet:view'] = 'Box.net biltegia ikusi';
-$string['callbackurl'] = 'Atzera deiaren URLa';
+$string['callbackurl'] = 'Berbideratu URLa';
+$string['callbackurltext'] = '1. Bisitatu<a href="http://www.box.net/developers/services">box.net guneko garatzaileak</a> berriz.
+2. Ziurta ezazu  atzera deiaren URL-aren ezarpena box.net zerbitzu honetarako: {$a}.';
 $string['configplugin'] = 'Box.net-en ezarpenak';
 $string['information'] = 'Lortu <a href="http://enabled.box.net/">Box.net-erako API giltza</a> zure Moodle gunerako. ';
 $string['invalidpassword'] = 'Pasahitzak ez du balio';

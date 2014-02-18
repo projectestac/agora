@@ -34,7 +34,11 @@ $string['imscp:view'] = 'Ikusi IMS edukia';
 $string['keepold'] = 'Paketeak gorde';
 $string['keepoldexplain'] = 'Zenbat pakete gorde  behar dira?';
 $string['modulename'] = 'IMS eduki-paketea';
-$string['modulename_help'] = 'IMS eduki-paketeari esker ikastaroan IMS Content Packaging izeneko espezifikazioa betetzen duten eduki-paketeak erakutsi ahal ditugu.';
+$string['modulename_help'] = 'IMS eduki-paketeak sistema ezberdinetan erabiliak izan daitezen adostutako estandarrei jarraituz bildutako fitxategi-multzoak dira. IMS eduki-paketea jarduerak ikastaroan baliabide gisa erabiliak izateko ZIP fitxategi batean igo daitezke.
+
+Edukia hainbat orritan erakutsi ohi da, orrien arteko nabigazioarekin. Edukiak erakusteko modu ezberdinak daude: pop-up leiho batetan, nabigazio-menuarekin edo botoiekin,...
+
+IMS eduki-paketea eduki multimedia eta animazioak erakusteko erabil daiteke.';
 $string['modulenameplural'] = 'IMS eduki-paketeak';
 $string['navigation'] = 'Nabigazioa';
 $string['packagefile'] = 'Paketearen fitxategia';

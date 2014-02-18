@@ -66,6 +66,7 @@ $string['ex_unabletolock'] = 'No s\'ha pogut adquirir un bloqueig per a la memò
 $string['ex_unmetstorerequirements'] = 'No podeu utilitzar aquest magatzem en aquest moment. Consulteu la documentació per determinar els seus requeriments.';
 $string['gethit'] = 'Èxit';
 $string['getmiss'] = 'Fracàs';
+$string['inadequatestoreformapping'] = 'Aquest magatzem no compleix els requeriments per a totes les definicions conegudes. Les definicions per a les quals és inadequat aquest magatzem rebran el magatzem original per defecte en lloc del magatzem seleccionat.';
 $string['invalidplugin'] = 'Connector invàlid';
 $string['invalidstore'] = 'Heu proporcionat un magatzem invàlid per a la memòria cau';
 $string['lockdefault'] = 'Per defecte';

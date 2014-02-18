@@ -16,13 +16,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'error', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'error', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   error
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
+
+$string['alreadyloggedin'] = 'You are already logged in as {$a}, you need to log out before logging in as different user.';
 $string['authnotexisting'] = 'The autorization plugin doesn\'t exist';
 $string['backupcontainexternal'] = 'This backup file contains external Moodle Network Hosts that are not configured locally';
 $string['backuptablefail'] = 'Backup tables could NOT be set up successfully!';
@@ -195,11 +198,11 @@ $string['ddldependencyerror'] = '{$a->targettype} "{$a->targetname}" cannot be m
 $string['ddlexecuteerror'] = 'DDL sql execution error';
 $string['ddlfieldalreadyexists'] = 'Field "{$a}" already exists';
 $string['ddlfieldnotexist'] = 'Field "{$a->fieldname}" does not exist in table "{$a->tablename}"';
-$string['ddsequenceerror'] = 'Incorrect table "{$a}" definition; there can be only one auto column and it must be defined as a key.';
 $string['ddltablealreadyexists'] = 'Table "{$a}" already exists';
 $string['ddltablenotexist'] = 'Table "{$a}" does not exist';
 $string['ddlunknownerror'] = 'Unknown DDL library error';
 $string['ddlxmlfileerror'] = 'XML database file errors found';
+$string['ddsequenceerror'] = 'Incorrect table "{$a}" definition; there can be only one auto column and it must be defined as a key.';
 $string['destinationcmnotexit'] = 'The destination course module does not exist';
 $string['detectedbrokenplugin'] = 'Plugin "{$a}" is defective or outdated, can not continue, sorry.';
 $string['dmlexceptiononinstall'] = '<p>A database error has occurred [{$a->errorcode}].<br />{$a->debuginfo}</p>';
@@ -243,8 +246,8 @@ $string['filternotenabled'] = 'Filter not enabled!';
 $string['filternotinstalled'] = 'Filter {$a} is not currently installed';
 $string['forumblockingtoomanyposts'] = 'You have exceeded the posting threshold set for this forum';
 $string['generalexceptionmessage'] = 'Exception - {$a}';
-$string['gradepubdisable'] = 'Grade publishing disabled';
 $string['gradecantregrade'] = 'An error occurred during grade calculation: {$a}';
+$string['gradepubdisable'] = 'Grade publishing disabled';
 $string['groupalready'] = 'User already belongs to group {$a}';
 $string['groupexistforcourse'] = 'Group "{$a}" already exists for this course';
 $string['groupexistforcoursewithidnumber'] = '{$a->problemgroup}: Group "{$a->name}" with an idnumber of "{$a->idnumber}" already exists for this course';
@@ -279,9 +282,9 @@ $string['invalidbulkenrolop'] = 'Invalid bulk enrolment operation requested.';
 $string['invalidcategory'] = 'Incorrect category!';
 $string['invalidcategoryid'] = 'Incorrect category id!';
 $string['invalidcomment'] = 'Comment is incorrect';
+$string['invalidcommentarea'] = 'Invalid comment area';
 $string['invalidcommentid'] = 'Invalid comment id';
 $string['invalidcommentitemid'] = 'Invalid comment itemid';
-$string['invalidcommentarea'] = 'Invalid comment area';
 $string['invalidcommentparam'] = 'Invalid comment parameters';
 $string['invalidcomponent'] = 'Invalid component name';
 $string['invalidconfirmdata'] = 'Invalid confirmation data';
@@ -330,12 +333,12 @@ $string['invalidscaleid'] = 'Incorrect scale id';
 $string['invalidsection'] = 'Course module record contains invalid section';
 $string['invalidsesskey'] = 'Incorrect sesskey submitted, form not accepted!';
 $string['invalidshortname'] = 'That\'s an invalid short course name';
-$string['invalidstatedetected'] = 'Something has gone wrong: {$a}. This should never normally happen.';
 $string['invalidsourcefield'] = 'Draft file\'s source field is invalid';
+$string['invalidstatedetected'] = 'Something has gone wrong: {$a}. This should never normally happen.';
 $string['invalidurl'] = 'Invalid URL';
 $string['invaliduser'] = 'Invalid user';
-$string['invaliduserid'] = 'Invalid user id';
 $string['invaliduserfield'] = 'Invalid user field: {$a}';
+$string['invaliduserid'] = 'Invalid user id';
 $string['invalidusername'] = 'The given username contains invalid characters';
 $string['invalidxmlfile'] = '"{$a}" is not a valid XML file';
 $string['iplookupfailed'] = 'Cannot find geo information about this IP address {$a}';
@@ -352,19 +355,19 @@ $string['listupdatefail'] = 'DB operation failed when editing list hierarchy';
 $string['logfilenotavailable'] = 'Logs not available';
 $string['loginasnoenrol'] = 'You cannot use enrol or unenrol when in course "Login as" session';
 $string['loginasonecourse'] = 'You cannot enter this course.<br /> You have to terminate the "Login as" session before entering any other course.';
-$string['maxbytes'] = 'This file is bigger than the maximum size';
 $string['maxareabytes'] = 'Not enough available space to store this file';
+$string['maxbytes'] = 'This file is bigger than the maximum size';
 $string['messagingdisable'] = 'Messaging is disabled on this site';
 $string['mimetexisnotexist'] = 'Your system is not configured to run mimeTeX. You need to download the appropriate executable for you PHP_OS platform from <a href="http://moodle.org/download/mimetex/">http://moodle.org/download/mimetex/</a>, or obtain the C source from <a href="http://www.forkosh.com/mimetex.zip"> http://www.forkosh.com/mimetex.zip</a>, compile it and put the executable into your moodle/filter/tex/ directory.';
 $string['mimetexnotexecutable'] = 'Custom mimetex is not executable!';
 $string['missingfield'] = 'Field "{$a}" is missing';
 $string['missingkeyinsql'] = 'ERROR: missing param "{$a}" in query';
+$string['missing_moodle_backup_xml_file'] = 'Backup is missing XML file: {$a}';
 $string['missingparam'] = 'A required parameter ({$a}) was missing';
 $string['missingparameter'] = 'Parameter missing';
 $string['missingrequiredfield'] = 'Some required field is missing';
 $string['missinguseranditemid'] = 'Missing userid and itemid';
 $string['missingvarname'] = 'Required variable name is missing!';
-$string['missing_moodle_backup_xml_file'] = 'Backup is missing XML file: {$a}';
 $string['mixedtypesqlparam'] = 'ERROR: Mixed types of sql query parameters!!';
 $string['mnetdisable'] = 'MNET is disabled';
 $string['mnetlocal'] = 'Remote MNET users cannot login locally';
@@ -435,6 +438,7 @@ $string['prefixcannotbeempty'] = '<p>Error: database table prefix cannot be empt
 $string['prefixtoolong'] = '<p>Error: database table prefix is too long ({$a->dbfamily})</p>
 <p>The site administrator must fix this problem. Maximum length for table prefixes in {$a->dbfamily} is {$a->maxlength} characters.</p>';
 $string['processingstops'] = 'Processing stops here. Remaining records ignored.';
+$string['protected_cc_not_supported'] = 'Protected cartridges not supported.';
 $string['redirecterrordetected'] = 'Unsupported redirect detected, script execution terminated';
 $string['refoundto'] = 'Can be refunded to {$a}';
 $string['refoundtoorigi'] = 'Refunded to original amount: {$a}';
@@ -450,20 +454,20 @@ $string['restrictedcontextexception'] = 'Sorry, execution of external function v
 $string['restricteduser'] = 'Sorry, but your current account "{$a}" is restricted from doing that';
 $string['reverseproxyabused'] = 'Reverse proxy enabled, server can not be accessed directly, sorry.<br />Please contact server administrator.';
 $string['rpcerror'] = 'Ooops! Your MNET communication has failed! Here\'s that error message to pass on to your administrator: {$a}';
+$string['scheduledbackupsdisabled'] = 'Scheduled backups have been disabled by the server admin';
 $string['secretalreadyused'] = 'Change password confirmation link was already used, password was not changed';
 $string['sectionnotexist'] = 'This section does not exist';
 $string['sendmessage'] = 'Send message';
 $string['serverconnection'] = 'Error connecting to the server';
 $string['servicedonotexist'] = 'The service does not exist';
-$string['sessionwaiterr'] = 'Timed out while waiting for session lock.<br />Wait for your current requests to finish and try again later.';
 $string['sessioncookiesdisable'] = 'Incorrect use of require_key_login() - session cookies must be disabled!';
 $string['sessiondiskfull'] = 'The session partition is full. It is not possible to login at this time.<br /><br />Please notify server administrator.';
 $string['sessionerroruser'] = 'Your session has timed out.  Please login again.';
 $string['sessionerroruser2'] = 'A server error that affects your login session was detected. Please login again or restart your browser.';
 $string['sessionipnomatch'] = 'Sorry, but your IP number seems to have changed from when you first logged in.  This security feature prevents crackers stealing your identity while logged in to this site.  Normal users should not be seeing this message - please ask the site administrator for help.';
 $string['sessionipnomatch2'] = 'Sorry, but your IP number seems to have changed from when you first logged in.  This security feature prevents crackers stealing your identity while logged in to this site. You may see this error if you use wireless networks or if you are roaming between different networks. Please ask the site administrator for more help.<br /><br />If you want to continue please press F5 key to refresh this page.';
+$string['sessionwaiterr'] = 'Timed out while waiting for session lock.<br />Wait for your current requests to finish and try again later.';
 $string['shortnametaken'] = 'Short name is already used for another course';
-$string['scheduledbackupsdisabled'] = 'Scheduled backups have been disabled by the server admin';
 $string['socksnotsupported'] = 'SOCKS5 proxy is not supported in PHP4';
 $string['spellcheckernotconf'] = 'Spellchecker not configured';
 $string['sslonlyaccess'] = 'For security reasons only https connections are allowed, sorry.';
@@ -493,8 +497,8 @@ $string['unknownblockregion'] = 'The block region \'{$a}\' is not recognised on 
 $string['unknowncontext'] = 'This is an unknown context.';
 $string['unknowncourse'] = 'Unknown course named "{$a}"';
 $string['unknowncourseidnumber'] = 'Unknown course ID "{$a}"';
-$string['unknowncoursesection'] = 'Unknown course section in course "{$a}"';
 $string['unknowncourserequest'] = 'Unknown course request';
+$string['unknowncoursesection'] = 'Unknown course section in course "{$a}"';
 $string['unknownfiletype'] = 'Error unknown filtertype';
 $string['unknowngroup'] = 'Unknown group "{$a}"';
 $string['unknownhelp'] = 'Unknown help topic {$a}';
@@ -549,6 +553,4 @@ $string['wscouldnotcreateecoursenopermission'] = 'WS - Could not create course -
 $string['wwwrootmismatch'] = 'Incorrect access detected, this server may be accessed only through "{$a}" address, sorry.<br />Please notify server administrator.';
 $string['wwwrootslash'] = 'Detected incorrect $CFG->wwwroot in config.php, it must not contain trailing slash.<br />Please notify server administrator.';
 $string['xmldberror'] = 'XMLDB error!';
-$string['alreadyloggedin'] = 'You are already logged in as {$a}, you need to log out before logging in as different user.';
 $string['youcannotdeletecategory'] = 'You cannot delete category \'{$a}\' because you can neither delete the contents, nor move them elsewhere.';
-$string['protected_cc_not_supported'] = 'Protected cartridges not supported.';

@@ -16,25 +16,27 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'pagetype', language 'en'
+ * Strings for component 'pagetype', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   pagetype
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
+
 $string['page-admin-current'] = 'The current site administration page';
 $string['page-admin-x'] = 'Any site administration page';
+$string['page-course-report-x'] = 'Any course report';
 $string['page-course-view-x'] = 'Any type of course main page';
 $string['page-course-x'] = 'Any course page';
-$string['page-course-report-x'] = 'Any course report';
 $string['page-mod-x'] = 'Any activity module page';
 $string['page-mod-x-view'] = 'Any main activity module page';
 $string['page-my-index'] = 'My home page';
 $string['page-report-x'] = 'Any report page';
 $string['page-site-index'] = 'The front page only';
 $string['page-site-x'] = 'Any top-level site page';
-$string['page-user-view'] = 'Only user profile pages';
 $string['page-user-profile'] = 'Only user profile pages';
+$string['page-user-view'] = 'Only user profile pages';
 $string['page-user-x'] = 'All user pages';
 $string['page-x'] = 'Any page';

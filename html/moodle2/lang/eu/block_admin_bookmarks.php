@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['admin_bookmarks:addinstance'] = 'Gehitu kudeatzailearen markak bloke berria';
-$string['admin_bookmarks:myaddinstance'] = 'Gehitu kudeatzailearen markak bloke berria Nire Moodle orrian';
+$string['admin_bookmarks:myaddinstance'] = 'Gehitu kudeatzailearen markak bloke berria Nire hasieran';
 $string['pluginname'] = 'Kudeatzailearen markak';

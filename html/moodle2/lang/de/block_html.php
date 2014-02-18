@@ -25,14 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['allowadditionalcssclasses'] = 'Eigene CSS-Klassen einfügen';
-$string['configallowadditionalcssclasses'] = 'Konfigurationsoption zum Textblock hinzufügen, um für jeden Block eigene CSS Klasssen zuzulassen.';
-$string['configclasses'] = 'Eigene CSS-Klassen';
-$string['configclasses_help'] = 'Die Idee dieser Option ist, mehrere Textblöcke durch eigene CSS-Festlegungen unterscheidbar zu machen.';
+$string['allowadditionalcssclasses'] = 'Eigenes CSS erlauben';
+$string['configallowadditionalcssclasses'] = 'Option hinzufügen, um für jeden Textblock eigenes CSS zu erlauben';
+$string['configclasses'] = 'Eigenes CSS';
+$string['configclasses_help'] = 'Zweck dieser Option ist, mehrere Textblöcke durch eigene CSS-Festlegungen unterscheidbar zu machen. Alle hier eingegebenen CSS-Klassen (Lerzeichen getrennt) werden den standardmäßigen Klassen hinzugefügt.';
 $string['configcontent'] = 'Inhalt';
 $string['configtitle'] = 'Blocktitel';
 $string['html:addinstance'] = 'Textblock hinzufügen';
-$string['html:myaddinstance'] = 'Neuen Textblock für \'Meine Startseite\' hinzufügen';
+$string['html:myaddinstance'] = 'Textblock für \'Meine Startseite\' hinzufügen';
 $string['leaveblanktohide'] = 'Ohne Titel bei leerem Feld';
 $string['newhtmlblock'] = '(Textblock)';
 $string['pluginname'] = 'Textblock';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'ouwiki', language 'zh_cn', branch 'MOODLE_23_STABLE'
+ * Strings for component 'ouwiki', language 'zh_cn', branch 'MOODLE_24_STABLE'
  *
  * @package   ouwiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -154,7 +154,6 @@ $string['nochanges'] = '没有作出任何贡献的用户';
 $string['nojsbrowser'] = '我们向你道歉，但您正使用一个我们不完全支持的浏览器。';
 $string['nojsdisabled'] = '您已经在浏览器设置里禁用了 JavaScript。';
 $string['nojswarning'] = '结果是，我们只能为您保持这个页面 {$a->minutes} 分钟。请保证您在 {$a->deadline} （现在是 {$a->now}）前保存了您的更改。否则，别人可能会编辑这个页面，导致您的更改丢失';
-$string['non_format_template'] = '注：这个 wiki 不能作为一个 wiki 模板文件下载，因为它包含图像或附件。';
 $string['nousersingroup'] = '选择的小组没有用户。';
 $string['nowikipages'] = '此 Wiki 没有任何页面。';
 $string['numedits'] = '{$a} 次编辑';

@@ -25,13 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmorechoiceblanks'] = 'Шаблоны для ещё {no} вариантов';
+$string['addmorechoiceblanks'] = 'Шаблоны для еще {no} вариантов';
 $string['answer'] = 'Ответ';
 $string['correctansweris'] = 'Верный ответ: {$a}';
 $string['infinite'] = 'несколько';
 $string['pleaseputananswerineachbox'] = 'Пожалуйста, введите ответ в каждое поле';
 $string['pluginname'] = 'Перетаскивание в текст';
-$string['pluginnameadding'] = 'Добавить "Перетаскивание в текст"';
-$string['pluginnameediting'] = 'Редактирование "Перетаскивание в текст"';
-$string['pluginname_help'] = 'Напишите текст вопроса,  например "[[1]] перепрыгнул через [[2]]", затем ниже введите верные слова для меток 1 и 2';
+$string['pluginnameadding'] = 'Добавить «Перетаскивание в текст»';
+$string['pluginnameediting'] = 'Редактирование «Перетаскивание в текст»';
+$string['pluginname_help'] = 'Напишите текст вопроса, например «[[1]] перепрыгнул через [[2]]», затем ниже введите верные слова для меток 1 и 2';
 $string['pluginnamesummary'] = 'Пропущенные слова в тексте заполняются с помощью перетаскивания';

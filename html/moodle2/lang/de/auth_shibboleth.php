@@ -36,6 +36,7 @@ $string['auth_shibboleth_manual_login'] = 'Manueller Login';
 $string['auth_shibboleth_select_member'] = 'Ich bin Mitglied von ...';
 $string['auth_shibboleth_select_organization'] = 'Wählen Sie bitte aus dem Aufklappmenü die Organisation aus, der Sie angehören:';
 $string['auth_shib_changepasswordurl'] = 'URL zur Kennwortänderung';
+$string['auth_shib_contact_administrator'] = 'Falls Sie nicht dieser Organisation zugeordnet wurden und Kurszugriff benötigen, nehmen Sie bitte mit dem <a href="mailto:{$a}">Moodle Administrator</a> Kontakt auf.';
 $string['auth_shib_convert_data'] = 'Datenmodifikation APU';
 $string['auth_shib_convert_data_description'] = 'Sie können diese API nutzen, um Daten von Shibboleth zu bearbeiten. <a href="../auth/shibboleth/README.txt" target="_blank">Hier</a> finden Sie weitere Hinweise.';
 $string['auth_shib_convert_data_warning'] = 'Die Datei existiert nicht oder ist vom Server nicht lesbar.';

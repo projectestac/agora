@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pleaseselectacertainty'] = '確実性を選択してください。';
+$string['pleaseselectacertainty'] = '確信度を選択してください。';
 $string['pluginname'] = '即時フィードバック (CBM)';

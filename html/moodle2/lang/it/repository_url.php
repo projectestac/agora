@@ -31,4 +31,5 @@ $string['pluginname'] = 'URL Downloader';
 $string['rename'] = 'Nome';
 $string['url'] = 'URL';
 $string['url:view'] = 'Usare URL Downloader nel file picker';
+$string['validfiletype'] = 'E\' necessario fornire un URL di una immagine o di una pagina che contiene immagini';
 $string['validname'] = 'Devi fornire un nome di file valido';

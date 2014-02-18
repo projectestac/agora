@@ -25,5 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['beginanswernotfound'] = 'Keine notwendige Klammer \'{\' im Dateiimport gefunden';
+$string['endanswernotfound'] = 'Keine notwendige Klammer \'}\' im Dateiimport gefunden';
+$string['noanswerfound'] = 'Keine Antworten zur Frage gefunden';
 $string['pluginname'] = 'Format \'Missing Word\'';
 $string['pluginname_help'] = 'Das Format \'Missing Word\' erlaubt den Import von Fragen als Textdatei.';

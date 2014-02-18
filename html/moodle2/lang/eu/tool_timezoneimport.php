@@ -29,4 +29,5 @@ $string['configintrotimezones'] = 'Orri honek ordutegi-eremuen inguruko informaz
 $string['importtimezones'] = 'Ordutegi-eremuen zerrenda osoa eguneratu';
 $string['importtimezonescount'] = '{$a->source}-(e)tik inportatutako {$a->count} sarrerak';
 $string['importtimezonesfailed'] = 'Ez da iturririk aurkitu! (albiste txarra)';
+$string['pluginname'] = 'Ordutegi-guneak eguneratzeko tresna';
 $string['updatetimezones'] = 'Ordutegi-guneak eguneratu';

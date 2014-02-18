@@ -25,4 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addgroup'] = 'Добавить в группу';
+$string['ajaxmore'] = 'Подробнее ...';
+$string['assignrole'] = 'Назначить роль';
+$string['cohort:config'] = 'Настраивать глобальную группу';
+$string['cohortsearch'] = 'Поиск';
+$string['cohort:unenrol'] = 'Отчислять приостановленных пользователей';
+$string['instanceexists'] = 'Глобальная группа уже синхронизирована с выбранной ролью';
 $string['pluginname'] = 'Синхронизация глобальной группы';
+$string['pluginname_desc'] = 'Метод записи «Глобальная группа» записывает членов глобальной группы в участники курса.';
+$string['status'] = 'Активный';

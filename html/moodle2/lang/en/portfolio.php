@@ -16,12 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'portfolio', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   portfolio
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['activeexport'] = 'Resolve active export';
 $string['activeportfolios'] = 'Available portfolios';

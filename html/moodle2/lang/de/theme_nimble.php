@@ -42,7 +42,7 @@ $string['choosereadme'] = '<div class="clearfix">
 </div>
 <div class="theme_description">
 <h2>Über Nimble</h2>
-<p>Nimble ist ein Zwei-Spalten-Design mit variabler Breite für Moodle 2.0. Es nutzt benutzerdefinierte Menüs, die oben auf jeder Seite angezeigt werden. Zusätzlich verfügt es über Einstellungmöglichkeiten, um die Linkfarbe zu ändern, einen Untertitel auf der Startseite bzw. eine Fußzeile auf jeder Seite hinzuzufügen.</p>
+<p>Nimble ist ein Zwei-Spalten-Design mit variabler Breite für Moodle 2.0. Das Design hat Einstellungen für die Linkfarbe, für einen Untertitel auf der Startseite und für eine Fußzeile auf jeder Seite.</p>
 <h2>Hinweise</h2>
 <p>Dieses Design basiert auf den beiden in Moodle enthaltenen Grunddesigns Base und Canvas. Wenn Sie Änderungen vornehmen wollen, empfehlen wir unbedingt, vorher immer eine Kopie zu erstellen und diese umzubenennen. So wird verhindert, dass Ihre Änderungen bei einem Update von Moodle verloren gehen; Sollte Ihnen ein Fehler in den Änderungen unterlaufen, haben Sie so ebenfalls noch eine funktionierende Sicherheitskopie. Weitere Informationen zum Bearbeiten von Designs finden Sie in der <a href="http://docs.moodle.org/de/Designs">Designdokumentation</a>.</p>
 <h2>Autor</h2>
@@ -54,7 +54,7 @@ $string['choosereadme'] = '<div class="clearfix">
 $string['footerline'] = 'Fußzeile';
 $string['footerlinedesc'] = 'Beliebigen Text für die Fußzeile hinzufügen, z.B. einen Copyrighthinweis o.ä.';
 $string['linkcolor'] = 'Linkfarbe';
-$string['linkcolordesc'] = 'Diese Farbe wird für alle Links benutzt.';
+$string['linkcolordesc'] = 'Diese Farbe wird für alle Links benutzt. Verwenden Sie HTML hex-Code.';
 $string['linkhover'] = 'Menüfarbe (on hover)';
 $string['linkhoverdesc'] = 'Diese Farbe wird für Menülinks (on hover) benutzt. (HTML-Hexcode)';
 $string['pluginname'] = 'Nimble';

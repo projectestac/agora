@@ -27,11 +27,11 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['accesscontrol'] = 'Controllo accesso';
 $string['actionaftercorrectanswer'] = 'Azione dopo una risposta corretta';
-$string['actionaftercorrectanswer_help'] = 'Dopo aver riposto correttamente ad una domanda, sono disponibili 3 opzioni per la pagina successiva:
+$string['actionaftercorrectanswer_help'] = 'Dopo aver risposto correttamente ad una domanda, sono disponibili 3 opzioni per la pagina successiva:
 
 * Normale - segui il flusso della lezione
 * Visualizza una pagina non vista - Le pagine vengono visualizzate casualmente evitando di visualizzare due volte la stessa pagina.
-* Visualizza una pagina dove non è stata data una riposta - Le pagine vengono visualizzate casualmente e le pagine dove non è stata data una risposta vengono visualizzate di nuovo';
+* Visualizza una pagina dove non è stata data una risposta - Le pagine vengono visualizzate casualmente e le pagine dove non è stata data una risposta vengono visualizzate di nuovo';
 $string['actions'] = 'Azioni';
 $string['activitylink'] = 'Collegamento ad una attività';
 $string['activitylink_help'] = 'Per fornire un collegamento ad un\'altra attività del corso quando si raggiunge la fine della lezione, seleziona il collegamento con il menu a discesa.';
@@ -176,7 +176,7 @@ $string['essays'] = 'Testi liberi';
 $string['essayscore'] = 'Punteggio testo libero';
 $string['fileformat'] = 'Formato file';
 $string['finish'] = 'Termina';
-$string['firstanswershould'] = 'La prima risposta dovrebbe portare alla pagina relativa alla riposta "Corretta"';
+$string['firstanswershould'] = 'La prima risposta dovrebbe portare alla pagina relativa alla risposta "Corretta"';
 $string['firstwrong'] = 'Sfortunatamente non puoi ottenere punti per questa domanda, perché la tua risposta non è corretta. Vuoi continuare a provare per il solo piacere di imparare (ma non per migliorare il tuo punteggio)?';
 $string['flowcontrol'] = 'Controllo del flusso';
 $string['full'] = 'Formato esteso';
@@ -237,7 +237,7 @@ $string['maxgrade'] = 'Voto massimo';
 $string['maxgrade_help'] = 'L\'impostazione determina il voto massima che può essere ottenuta nella lezione. Se il valore è impostato a 0, la lezione non apparirà nelle valutazioni.';
 $string['maxhighscores'] = 'Numero di voti migliori da visualizzare';
 $string['maximumnumberofanswersbranches'] = 'Numero massimo di risposte';
-$string['maximumnumberofanswersbranches_help'] = 'Specifica il numero max. di risposte utilizzabili nelle pagine della lezione. Se la lezione usa solamente domande del tipo Vero/Falso questo valore può essere impostato a 2. E\' possibile cambiare l\'impostazione in qualsiasi momento in quanto influisce solo la vista del docente, senza alterare i dati.';
+$string['maximumnumberofanswersbranches_help'] = 'Specifica il numero max. di risposte utilizzabili nella lezione. Se la lezione usa solamente domande del tipo Vero/Falso questo valore può essere impostato a 2. E\' possibile cambiare l\'impostazione in qualsiasi momento in quanto influisce solo la vista docente, senza alterare i dati.';
 $string['maximumnumberofattempts'] = 'Numero massimo di tentativi';
 $string['maximumnumberofattempts_help'] = 'Il massimo numero di tentativi concesso per rispondere a ciascuna domanda. Rispondendo correttamente in modo ripetuto, al termine dei tentativi consentiti verrà visualizzata la pagina successiva della lezione.';
 $string['maximumnumberofattemptsreached'] = 'E\' stato raggiunto il massimo numero di tentativi - Passaggio alla pagina successiva';
@@ -323,7 +323,7 @@ $string['ordered'] = 'Ordinato';
 $string['other'] = 'Altro';
 $string['outof'] = 'su {$a}';
 $string['overview'] = 'Riepilogo';
-$string['overview_help'] = 'Una lezione è composta da un insieme di pagine con domande e, opzionalmente,  pagine di diramazione. Una pagina con domanda contiene del contenuto e propone una domanda. Ad ogni possibile riposta è associato un salto verso altre pagine. Il salto può essere relativo, ad esempio la stessa pagina o la pagina seguente, oppure assoluto, ossia una qualsiasi delle pagine che compongono una lezione. Una pagina con diramazione è una pagina che contiene una serie di collegamenti ad altre pagine della lezione, come ad esempio un sommario.';
+$string['overview_help'] = 'Una lezione è composta da un insieme di pagine con domande e, opzionalmente,  pagine di diramazione. Una pagina con domanda contiene del contenuto e propone una domanda. Ad ogni possibile risposta è associato un salto verso altre pagine. Il salto può essere relativo, ad esempio la stessa pagina o la pagina seguente, oppure assoluto, ossia una qualsiasi delle pagine che compongono una lezione. Una pagina con diramazione è una pagina che contiene una serie di collegamenti ad altre pagine della lezione, come ad esempio un sommario.';
 $string['page'] = 'Pagina: {$a}';
 $string['pagecontents'] = 'Contenuto della pagina';
 $string['page-mod-lesson-edit'] = 'Modifica pagina della lezione';

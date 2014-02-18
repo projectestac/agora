@@ -25,14 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['alfresco_url'] = 'Alfresco链接';
-$string['alfrescourltext'] = 'Afresco API url类似于：http://yoursite.com/alfresco/api
-';
-$string['alfresco:view'] = '查看alfresco容器';
-$string['configplugin'] = 'Alfresco配置';
+$string['alfresco_url'] = 'Alfresco 链接';
+$string['alfrescourltext'] = 'Afresco API URL 类似于：http://yoursite.com/alfresco/api';
+$string['alfresco:view'] = '查看 Alfresco 资源库';
+$string['configplugin'] = 'Alfresco 配置';
 $string['notitle'] = '无标题';
 $string['password'] = '密码';
-$string['pluginname'] = 'Alfresco容器';
-$string['pluginname_help'] = '支持Alfresco CMS的插件';
-$string['soapmustbeenabled'] = '必须启用SOAP扩展才能使用alfresco插件';
+$string['pluginname'] = 'Alfresco 资源库';
+$string['pluginname_help'] = '支持 Alfresco CMS的插件';
+$string['soapmustbeenabled'] = '使用 Alfresco 插件要求必须启用 PHP 的  SOAP 扩展';
+$string['space'] = '空间';
 $string['username'] = '用户名';

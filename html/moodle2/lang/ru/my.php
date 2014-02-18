@@ -26,12 +26,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addpage'] = 'Добавить страницу';
-$string['defaultpage'] = 'Страница "Мой Moodle" по умолчанию';
+$string['defaultpage'] = 'Страница «Мой Moodle» по умолчанию';
 $string['defaultprofilepage'] = 'Страница профиля по-умолчанию';
 $string['delpage'] = 'Удалить страницу';
 $string['managepages'] = 'Управлять страницами';
 $string['mymoodle'] = 'Мой Moodle';
 $string['nocourses'] = 'Нет информации для отображения.';
-$string['noguest'] = 'Страница "Мой Moodle" недоступна для гостей';
+$string['noguest'] = 'Страница «Мой Moodle» недоступна для гостей';
 $string['pinblocks'] = 'Настроить расположение блоков';
-$string['pinblocksexplan'] = 'Любая настройка блока, установленная здесь будет видима (и не редактируема) для любого пользователя системы на его странице "Мой Moodle"';
+$string['pinblocksexplan'] = 'Любая настройка блока, установленная здесь будет видима (и не редактируема) для любого пользователя системы на его странице «Мой Moodle»';

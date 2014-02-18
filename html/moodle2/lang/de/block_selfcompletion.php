@@ -28,6 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['alreadyselfcompleted'] = 'Sie haben bereits selbst angegeben, dass der Kurs abgeschlossen ist.';
 $string['completecourse'] = 'Kurs beenden';
 $string['pluginname'] = 'Kurs abschließen';
-$string['selfcompletion:addinstance'] = 'Neuen Block \'Kurs abschließen\' hinzufügen';
-$string['selfcompletion:myaddinstance'] = 'Neuen Block \'Kurs abschließen\' für \'Meine Startseite\' hinzufügen';
+$string['selfcompletion:addinstance'] = 'Block \'Kurs abschließen\' hinzufügen';
 $string['selfcompletionnotenabled'] = 'Die Selbstbestätigung des Abschlusses ist in diesem Kurs nicht aktiviert';

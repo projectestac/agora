@@ -56,6 +56,7 @@ $string['createlink'] = 'Infoga  en webblänk';
 $string['cut'] = 'Klipp ut urvalet';
 $string['cutpastemozilla'] = 'Tyvärr så kan Du f.n. inte använda de vanliga genvägarna (tangentbordskommandona)(eller ens knappen "Klistra in") för att klistra in med den här online redigeraren. Det beror på en funktion för säkerhet som är inbyggd i vissa versioner av Mozilla och Firefox webbläsare. Det finns några kända knep som Du kan använda<br />1. Istället för Ctrl-v, kan Du använda Shift+Insert<br />2. Använd menyalternativet Redigera->Klistra in i Din webbläsare.<br />3. Ändra inställningarna i Din webbläsare genom att redigera filen user.js.<br /><br />Klicka på knappen "OK" här nedan för mer hjälp eller på "Avbryt" för att återgå till redigeraren.';
 $string['delete'] = 'Ta bort';
+$string['editordeleteconfirm'] = 'Du håller på att helt ta bort insticksmodulen för redigering \'{$a}. Detta kommer radera allting i databasen som är associerat med den här insticksmodulen. Är du SÄKER på att du vill fortsätta?';
 $string['editors'] = 'Textredigerare';
 $string['editorsettings'] = 'Administrera redigerare';
 $string['enterurlfirst'] = 'Du måste mata in en URL först';

@@ -29,5 +29,6 @@ $string['jumptocurrenttopic'] = 'Gai hau ikusi';
 $string['jumptocurrentweek'] = 'Aste hau ikusi';
 $string['numsections1'] = 'Atal-kopurua';
 $string['pluginname'] = 'Ataletarako estekak';
+$string['section_links:addinstance'] = 'Gehitu ataletarako estekak bloke berria';
 $string['topics'] = 'Gaiak';
 $string['weeks'] = 'Asteak';

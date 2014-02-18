@@ -33,7 +33,6 @@ $string['automaticallygraded'] = '자동으로 채점됨';
 $string['backtothelistofquestions'] = '질문 목록으로 돌아가기';
 $string['bydate'] = '날짜별로';
 $string['bystudentidnumber'] = '학생 아이디별로';
-$string['bystudentname'] = '학생 이름 별로';
 $string['cannotgradethisattempt'] = '이 시도를 채점할 수 없습니다.';
 $string['cannotloadquestioninfo'] = '특정 질문 유형의 질문 정보를 불러올 수 없습니다.';
 $string['changeoptions'] = '옵션 변경';

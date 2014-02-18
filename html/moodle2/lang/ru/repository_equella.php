@@ -25,4 +25,24 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['breadcrumb'] = 'EQUELLA';
+$string['configplugin'] = 'Конфигурация хранилища EQUELLA';
+$string['equellaaction'] = 'Действия EQUELLA';
+$string['equellaoptions'] = 'Опции EQUELLA';
+$string['equellaurl'] = 'URL-адрес EQUELLA';
+$string['equella:view'] = 'Просматривать хранилище EQUELLA';
+$string['group'] = 'Настройки роли {$a}';
 $string['groupdefault'] = 'По умолчанию';
+$string['pluginname'] = 'Хранилище EQUELLA';
+$string['restrictionattachmentsonly'] = 'Только прикрепленный ресурс';
+$string['restrictionitemsonly'] = 'Только описание элемента';
+$string['restrictionnone'] = 'Нет ограничений';
+$string['search'] = 'Поиск в EQUELLA';
+$string['selectrestriction'] = 'Выбрать ограничение';
+$string['selectrestriction.desc'] = 'Определите, смогут ли редакторы  курса выбрать только описание элемента либо прикрепленный ресурс или то и другое.';
+$string['sharedid'] = 'ID общего ключа';
+$string['sharedidtitle'] = 'ID общего ключа';
+$string['sharedsecrets'] = 'Общий ключ';
+$string['sharedsecretsheading'] = 'Настройки общего ключа';
+$string['sharedsecretshelp'] = '<p> Ниже Вы можете установить по умолчанию общий ключ EQUELLA для технологии единого входа (SSO) пользователей. Вы можете настроить различные общие ключи для основного  использования (чтение), а также специализированную роль на основе общего ключа для каждой <em>записи?????</em> роль на своем сайте Moodle. Если ID общего ключа не настроен на роль, то, по умолчанию используются ID общего ключа и общий ключ. </p><p> В EQUELLA должны быть настроены все ID общих ключей и общие ключи и включен общий ключ модуля. Эти настройки находятся в консоли администрирования EQUELLA под Управление пользователями > Общие ключи. </p>';
+$string['sharedsecrettitle'] = 'Общий ключ';

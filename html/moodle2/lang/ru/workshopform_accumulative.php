@@ -37,6 +37,7 @@ $string['dimensionweight'] = 'Вес';
 $string['excellent'] = 'Отлично';
 $string['good'] = 'Хорошо';
 $string['incorrect'] = 'Неверно';
+$string['mustchoosegrade'] = 'Вы должны выбрать оценку для этого аспекта';
 $string['pluginname'] = 'Совокупное оценивание';
 $string['poor'] = 'Плохо';
 $string['present'] = 'Присутствует';

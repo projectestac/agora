@@ -45,7 +45,7 @@ $string['noneinstalled'] = 'Non ci sono plugin di questo tipo installati.';
 $string['notdownloadable'] = 'Non è possibile scaricare i pacchetti';
 $string['notdownloadable_help'] = 'Non è possibile scaricare automaticamente i pacchetti ZIP degli aggiornamenti. Per aiuto ulteriore consulta la documentazione.';
 $string['notes'] = 'Note';
-$string['notwritable'] = 'I file del pugin non sono scrivibili';
+$string['notwritable'] = 'I file del plugin non sono scrivibili';
 $string['notwritable_help'] = 'L\'installazione automatica degli aggiornamenti è abilitata e sono disponibili aggiornamenti per questo plugin, ma il web server non ha i gli appropriati permessi di scrittura e pertanto non è possibile proseguire con l\'installazione
 
 Per installare automaticamente gli aggiornamenti del plugin è necessario dare gli appropriati permessi di scrittura sulle cartelle e sui file del plugin.';
@@ -143,7 +143,7 @@ $string['updateavailable_moreinfo'] = 'Ulteriori informazioni';
 $string['updateavailable_release'] = 'Release {$a}';
 $string['updatepluginconfirm'] = 'Conferma aggiornamento plugin';
 $string['updatepluginconfirmexternal'] = 'Sembra che la versione in uso del plugin sia stata ottenuta tramite un checkout del source code management system ({$a}). Installando l\'aggiornamento non sarà più possibile ottenere aggiornamenti del plugin tramite source code management system. Assicurati di voler realmente aggiornare il plugin prima di proseguire.';
-$string['updatepluginconfirminfo'] = 'Stai per installare una nuova versione del plugin <strong>{$a->name}</strong>. Un pacchetto zip contenente la versione {$a->version} del plugin sarà scaricato da  <a href="{$a->url}">{$a->url}</a>, espanso nella cartella di instalalzione di Moodle ed aggiornato.';
+$string['updatepluginconfirminfo'] = 'Stai per installare una nuova versione del plugin <strong>{$a->name}</strong>. Un pacchetto zip contenente la versione {$a->version} del plugin sarà scaricato da  <a href="{$a->url}">{$a->url}</a>, espanso nella cartella di installazione di Moodle ed aggiornato.';
 $string['updatepluginconfirmwarning'] = 'Da notare che Moodle non effettuerà automaticamente una copia del database prima dell\'aggiornamento. E\' fortemente consigliato effettuare una copia completa di backup per poter ripristinare il sito nel caso di bug con il codice aggiornato o di problemi con il database. Prosegui a tuo rischio.';
 $string['version'] = 'Versione';
 $string['versiondb'] = 'Versione attuale';

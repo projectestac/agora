@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['calendar_upcoming:addinstance'] = '다가오는 이벤트 블록 추가';
+$string['calendar_upcoming:myaddinstance'] = '내 공부방에 다가오는 이벤트 블록 추가';
 $string['pluginname'] = '예정된 행사';

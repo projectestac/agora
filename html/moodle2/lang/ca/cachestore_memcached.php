@@ -41,6 +41,7 @@ $string['hash_murmur'] = 'Murmur';
 $string['pluginname'] = 'Memòria cau';
 $string['prefix'] = 'Prefix de la clau';
 $string['prefix_help'] = 'Això pot ser usat per crear un «domini» de les seues claus que li permetrà crear diversos magatzems de memòria cau en una sola instal·lació cau. No pot tenir més de 16 caràcters, a fi de garantir que no es tinguem problemes de longitud de clau.';
+$string['prefixinvalid'] = 'Prefix invàlid. Sols podeu utilitzar a-z A-Z 0-9-_.';
 $string['serialiser_igbinary'] = 'El serializador «igbinary».';
 $string['serialiser_json'] = 'El serialitzador JSON';
 $string['serialiser_php'] = 'El serialitzador per defecte de PHP';

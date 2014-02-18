@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = '사회 활동';
+$string['social_activities:addinstance'] = '사회적 활동 블록 추가';

@@ -44,5 +44,7 @@ $string['display_picture'] = 'Irudia erakutsi';
 $string['display_skype'] = 'Skype erakutsi';
 $string['display_un'] = 'Izena erakutsi';
 $string['display_yahoo'] = 'Yahoo erakutsi';
+$string['myprofile:addinstance'] = 'Gehitu saioa hasitako erabiltzailea bloke berria';
+$string['myprofile:myaddinstance'] = 'Gehitu saioa hasitako erabiltzailea bloke berria Nire hasieran';
 $string['myprofile_settings'] = 'Norberaren profilaren ezarpenak';
 $string['pluginname'] = 'Saioa hasitako erabiltzailea';

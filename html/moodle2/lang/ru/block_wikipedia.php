@@ -27,5 +27,5 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Википедия';
 $string['search'] = 'Поиск';
-$string['wikipedia:addinstance'] = 'Добавлять новый блок "Википедия"';
-$string['wikipedia:myaddinstance'] = 'Добавлять новый блок "Википедия"';
+$string['wikipedia:addinstance'] = 'Добавлять новый блок «Википедия»';
+$string['wikipedia:myaddinstance'] = 'Добавлять новый блок «Википедия»';

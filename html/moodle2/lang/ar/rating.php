@@ -34,6 +34,7 @@ $string['aggregatesum'] = 'مجموع التقييمات';
 $string['aggregatetype'] = 'إجمالي نوع';
 $string['allowratings'] = 'هل سيسمح بتقييم العناصر';
 $string['allratingsforitem'] = 'جميع التقييمات المسلمة';
+$string['capabilitychecknotavailable'] = 'التحقق من الإمكانات غير متوفر حتى يتم حفظ هذا النشاط';
 $string['noratings'] = 'لم يتم تسليم أي تقييمات';
 $string['noviewanyrate'] = 'يمكن فقط معاينة نتائج عناصر التي قمت بها';
 $string['rate'] = 'قييم';

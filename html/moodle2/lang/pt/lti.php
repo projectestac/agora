@@ -156,13 +156,13 @@ $string['forced_help'] = 'Esta configuração foi forçada numa disciplina ou a 
 $string['force_ssl'] = 'Forçar SSL';
 $string['force_ssl_help'] = 'Selecionar esta opção obriga todos os arranques desta ferramenta a usar SSL.
 
-Além disso, todas as solicitações de serviço Web do fornecedor de ferramenta usarão SSL.
+Além disso, todas as solicitações de web services do fornecedor de ferramenta usarão SSL.
 
 Se usar esta opção, confirme que este site Moodle e o fornecedor da ferramenta suportam SSL.';
 $string['global_tool_types'] = 'Tipos de ferramenta global';
 $string['grading'] = 'A enviar notas';
 $string['icon_url'] = 'URL do Ícone';
-$string['icon_url_help'] = 'O URL do ícone  permite que o ícone que aparece na lista de cursos para essa atividade seja alterado. Em vez de usar o ícone LTI predefinido, o ícone que representa este tipo de atividade pode ser especificado.';
+$string['icon_url_help'] = 'O URL do ícone  permite que o ícone que aparece na lista de disciplinas para essa atividade seja alterado. Em vez de usar o ícone LTI predefinido, o ícone que representa este tipo de atividade pode ser especificado.';
 $string['id'] = 'id';
 $string['invalidid'] = 'O ID do LTI está incorreto';
 $string['launch_in_moodle'] = 'Arrancar ferramenta no moodle';
@@ -186,11 +186,11 @@ Se não sabe o que inserir no URL de arranque, por favor contacte o fornecedor d
 Se tiver selecionado um tipo de ferramenta específica, pode não precisar de inserir um URL de arranque. Se o link para a ferramenta é usado apenas para iniciar
 o fornecedor da ferramenta do sistema, e não vai para nenhum recurso específico, provavelmente será o caso.';
 $string['lti'] = 'LTI';
-$string['lti:addcoursetool'] = 'Avaliar atividades LTI';
-$string['lti:addinstance'] = 'Adicionar nova atividade LTI';
+$string['lti:addcoursetool'] = 'Adicionar configurações específicas da Ferramenta LTI';
+$string['lti:addinstance'] = 'Adicionar nova atividade Ferramenta LTI';
 $string['lti_administration'] = 'Administração do LTI';
 $string['lti_errormsg'] = 'A ferramenta deu a seguinte mensagem de erro: "{$a}"';
-$string['lti:grade'] = 'Avaliar atividades LTI';
+$string['lti:grade'] = 'Ver notas devolvidas pela Ferramenta LTI';
 $string['lti_launch_error'] = 'Ocorreu um erro ao abrir a ferramenta LTI';
 $string['lti_launch_error_tool_request'] = '<p>
 Para enviar um pedido ao administrador para concluir a configuração da ferramenta, clique em <a href="{$a->admin_request_url}" target="_top">here</a>.
@@ -202,11 +202,11 @@ $string['lti_launch_error_unsigned_help'] = '<p>
         Se tem uma senha compartilhada com o consumidor, pode inseri-la ao editar a instância da ferramenta LTI (certifique-se que as opções avançadas estão visíveis).<br />
         Em alternativa, pode criar um nível de configuração do fornecedor da ferramenta <a href="{$a->course_tool_editor}">aqui</a>.
     </p>';
-$string['lti:manage'] = 'Editar atividades LTI';
-$string['lti:requesttooladd'] = 'Submeter ferramenta para os administradores configurarem';
+$string['lti:manage'] = 'Ser um Instrutor quando a Ferramenta LTI arranca';
+$string['lti:requesttooladd'] = 'Requerer que a Ferramenta LTI seja configurada ao nível do site';
 $string['lti_tool_request_added'] = 'O pedido de configuração da ferramenta foi submetido com êxito. Pode precisar entrar em contacto com um administrador para concluir a configuração da ferramenta.';
 $string['lti_tool_request_existing'] = 'A ferramenta de configuração para o domínio de ferramentas já foi inserida.';
-$string['lti:view'] = 'Ver atividades LTI';
+$string['lti:view'] = 'Arrancar atividades Ferramenta LTI';
 $string['main_admin'] = 'Ajuda geral';
 $string['main_admin_help'] = 'As ferramentas externas permitem que os utilizadores do Moodle acedam a recursos de aprendizagem alojados remotamente. Através de um protocolo especial
 de arranque, a ferramenta remota terá acesso a algumas informações gerais sobre o utilizador que iniciou a ferramento. Por exemplo,
@@ -356,55 +356,35 @@ O único caso em que esta opção deve ser selecionada é se a ferramenta de con
 Por exemplo, se todos os arranques para o provedor de ferramenta levarem o utilizador para uma página de destino, em vez de a um recurso específico.';
 $string['size'] = 'Parâmetros de tamanho';
 $string['submission'] = 'Submissão';
+$string['submissionsfor'] = 'Submissões para {$a}';
 $string['toggle_debug_data'] = 'Toggle Debug Data';
 $string['tool_config_not_found'] = 'A configuração não foi encontrada neste URL.';
 $string['tool_settings'] = 'Configurações da ferramenta';
 $string['toolsetup'] = 'Configurações da ferramenta LTI';
 $string['toolurl'] = 'URL base da ferramenta';
-$string['toolurl_help'] = 'O URL base da ferramenta é usado para combinar os URLs de arranque da ferramenta com a sua configuração correta. O prefixo http(s) no URL é opcional.
+$string['toolurl_help'] = 'O URL base da Ferramenta LTI é usado para combinar os URLs de arranque da Ferramenta LTI com a sua configuração correta. O prefixo http(s) no URL é opcional.
 
-Além disso, o URL de base é usado como o URL de arranque se um URL de arranque não for especificado na ferramenta LTI.
+Além disso, o URL de base é usado como o URL de arranque se um URL de arranque não for especificado na Ferramenta LTI.
 
-<table>
-    <thead>
-        <tr>
-            <td>
-                <b>Base URL</b>
-            </td>
-            <td>
-                <b>Matches</b>
-            </td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                tool.com
-            </td>
-            <td>
-                tool.com, tool.com/quizzes, tool.com/quizzes/quiz.php?id=10, www.tool.com/quizzes
-            </td>
-        </tr>
-        <tr>
-            <td>
-                www.tool.com/quizzes
-            </td>
-            <td>
-                tool.com/quizzes, tool.com/quizzes/take.php?id=10, www.tool.com/quizzes
-            </td>
-        </tr>
-        <tr>
-            <td>
-                quiz.tool.com
-            </td>
-            <td>
-                quiz.tool.com, quiz.tool.com/take.php?id=10
-            </td>
-        </tr>
-    </tbody>
-</table>
+Por exemplo, o URL base de *tool.com* iria corresponder ao seguinte:
 
-If two different tool configurations are for the same domain, the most specific match will be used.';
+* tool.com
+* tool.com/quizzes
+* tool.com/quizzes/quiz.php?id=10
+* www.tool.com/quizzes;
+
+O URL base de  *www.tool.com/quizzes* iria corresponder ao seguinte:
+
+* www.tool.com/quizzes
+* tool.com/quizzes
+* tool.com/quizzes/take.php?id=10
+
+O URL base de *quiz.tool.com* iria corresponder ao seguinte:
+
+* quiz.tool.com
+* quiz.tool.com/take.php?id=10.
+
+Se duas configurações diferentes de Ferramenta LTI forem do mesmo domínio, será usada a correspondência mais específica.';
 $string['typename'] = 'Nome da ferramenta';
 $string['typename_help'] = 'O nome da ferramenta é usada para identificar o fornecedor da ferramenta dentro do Moodle. O nome introduzido será visível
 aos professores ao adicionar ferramentas externas dentro nas suas disciplinas.';

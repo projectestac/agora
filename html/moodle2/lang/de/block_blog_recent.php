@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['blog_recent:addinstance'] = 'Neuen Block \'Aktuelle Blogeinträge\' hinzufügen';
+$string['blog_recent:addinstance'] = 'Block \'Aktuelle Blogeinträge\' hinzufügen';
 $string['norecentblogentries'] = 'Keine aktuellen Einträge';
 $string['numentriestodisplay'] = 'Anzahl der Einträge';
 $string['pluginname'] = 'Aktuelle Blogeinträge';

@@ -29,4 +29,4 @@ $string['managemyfiles'] = 'Nire fitxategiak kudeatu';
 $string['pluginname'] = 'Nire fittxategi pribatuak';
 $string['privatefiles'] = 'Fitxategi pribatuak';
 $string['private_files:addinstance'] = 'Gehitu fitxategi pribatuak bloke berria';
-$string['private_files:myaddinstance'] = 'Gehitu beste fitxategi pribatuak bloke bat Nire Moodle orrian';
+$string['private_files:myaddinstance'] = 'Gehitu fitxategi pribatuak bloke berria Nire hasieran';

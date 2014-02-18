@@ -44,6 +44,7 @@ $string['criteriondelete'] = '기준 삭제';
 $string['criterionempty'] = '기준을 편집하기 위해 클릭';
 $string['criterionmovedown'] = '아래로 이동';
 $string['criterionmoveup'] = '위로 이동';
+$string['criterionname'] = '기준 이름';
 $string['definemarkingguide'] = '채점 가이드 정의';
 $string['description'] = '설명';
 $string['descriptionmarkers'] = '채점자를 위한 설명';

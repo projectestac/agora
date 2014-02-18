@@ -193,6 +193,7 @@ $string['typeuploadsingle'] = 'Consegna singola';
 $string['unfinalize'] = 'Riporta a bozza';
 $string['unfinalizeerror'] = 'Si è verificato un errore e la consegna non può essere riportata a bozza';
 $string['unfinalize_help'] = 'Riportando la consegna a bozza, lo studente potrà aggiornare nuovamente il proprio compito.';
+$string['unsupportedsubplugin'] = 'Il tipo di compito  \'{$a}\' non è al momento supportato. E\' possibile attendere che il tipo di compito venga reso disponibile oppure eliminare il compito.';
 $string['upgradenotification'] = 'Questa attività si basa su un modulo compito obsoleto.';
 $string['uploadafile'] = 'Carica un file';
 $string['uploadbadname'] = 'Questo file contiene caratteri non conformi e non può essere caricato';

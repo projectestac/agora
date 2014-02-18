@@ -30,6 +30,7 @@ $string['prefix'] = 'Prefisso chiave';
 $string['prefix_help'] = 'Il prefisso da usare per tutti nomi delle chiavi nel server memcache.
 * se il server ospita una singola istanza Moodle, è possibile lasciare il nome al suo default
 * a causa di limitazioni sulla lunghezza delle chiavi, il prefisso può essere lungo al massimo 5 caratteri.';
+$string['prefixinvalid'] = 'Prefisso non valido. E\' possibile usare solamente a-z A-Z 0-9-_.';
 $string['servers'] = 'Server';
 $string['servers_help'] = 'Imposta i server usati dall\'adapter memcache.
 I server devono essere definiti usando una linea per ciascun server contenente obbligatoriamente l\'indirizzo e opzionalmente la porta ed il peso. In assenza di indicazione sulla porta da usare sarà utilizzata la porta di default (11211).

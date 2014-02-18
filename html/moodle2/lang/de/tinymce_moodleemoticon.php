@@ -28,4 +28,4 @@ defined('MOODLE_INTERNAL') || die();
 $string['moodleemoticon:desc'] = 'Emoticon einfügen';
 $string['pluginname'] = 'Emoticon einfügen';
 $string['requireemoticon'] = 'Emoticon-Filter notwendig';
-$string['requireemoticon_desc'] = 'Wenn diese Option aktiviert wird, ist die Emoticon-Taste sichtbar, sobald der Emoticon-Filter im Editorkontext aktiviert ist.';
+$string['requireemoticon_desc'] = 'Wenn diese Option aktiviert wird und der Emoticon-Filter im Editorkontext aktiviert ist, wird die Emoticon-Taste sichtbar.';

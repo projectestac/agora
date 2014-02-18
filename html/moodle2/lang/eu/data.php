@@ -56,6 +56,7 @@ $string['cancel'] = 'Utzi';
 $string['cannotaccesspresentsother'] = 'Ez duzu beste erabiltzaile batzuen aurretiko ezarpenetara sartzeko baimenik';
 $string['cannotadd'] = 'Ezin da sarrerarik gehitu';
 $string['cannotdeletepreset'] = 'Errorea aurretiko ezarpena ezabatzean!';
+$string['cannotoverwritepreset'] = 'Errorea aurretiko ezarpenak gainidaztean';
 $string['cannotunziptopreset'] = 'Ezin izan da aurretiko ezarpenen direktorioa deskonprimitu';
 $string['checkbox'] = 'Aukera anitzeko laukitxoa';
 $string['chooseexportfields'] = 'Aukeratu esportatu nahi duzun eremua';
@@ -103,6 +104,7 @@ $string['data:comment'] = 'Iruzkinak idatzi';
 $string['data:exportallentries'] = 'Datu-baseko sarrera guztiak esportatu ';
 $string['data:exportentry'] = 'Datu-baseko sarrera bat esportatu ';
 $string['data:exportownentry'] = 'Datu-baseko norberaren sarrera esportatu ';
+$string['data:exportuserinfo'] = 'Eportatu erabiltzailearen infomazioa';
 $string['data:managecomments'] = 'Iruzkinak kudeatu';
 $string['data:manageentries'] = 'Sarrerak kudeatu';
 $string['data:managetemplates'] = 'Txantiloiak kudeatu';
@@ -204,8 +206,11 @@ $string['headerrsstemplate'] = 'RSS jarioen sarreren itxura definitzen du';
 $string['headersingletemplate'] = 'Sarrera baterako nabigazio-itxura definitzen du';
 $string['importentries'] = 'Sarrerak inportatu';
 $string['importsuccess'] = 'Aurretiko ezarpena egoki aplikatu da';
+$string['includeapproval'] = 'Sartu onarpen-egoera';
+$string['includetime'] = 'Sartu denbora gehituta/aldatuta';
+$string['includeuserdetails'] = 'Sartu erabiltzaile-xehetasunak';
 $string['insufficiententries'] = 'datu-base hau ikusteko sarrera gehiago beharrezkoak dira';
-$string['intro'] = 'Sarrera';
+$string['intro'] = 'Deskribapena';
 $string['invalidaccess'] = 'Orri honetarako sarbidea ez da zuzena izan';
 $string['invalidfieldid'] = 'Eremuaren IDa ez da zuzena';
 $string['invalidfieldname'] = 'Eremu honetarako beste izen bat aukeratu, mesedez';
@@ -224,6 +229,7 @@ $string['latlongotherfields'] = 'Bestelako eremuak';
 $string['list'] = 'Zerrenda ikusi';
 $string['listtemplate'] = 'Txantiloi-zerrenda';
 $string['longitude'] = 'Longitudea';
+$string['mapexistingfield'] = 'Mapatu {$a}-(e)ra';
 $string['mapnewfield'] = 'Beste eremu bat sortu';
 $string['mappingwarning'] = 'Eremu berrira mapeatu gabeko eremu zahar guztiak galdu egingo dira eta ezabatu egingo dira eremu horietako datuak';
 $string['maxentries'] = 'Gehienezko sarrera-kopurua';
@@ -232,8 +238,20 @@ $string['maxsize'] = 'Gehienezko tamaina';
 $string['menu'] = 'Menua';
 $string['menuchoose'] = 'Aukeratu...';
 $string['missingdata'] = 'Objektuaren edo datuen IDa eman behar duzu eremu-motan';
+$string['missingfield'] = 'Programatze-errorea: zehaztu behar duzu eremua edota datua eremu-mota definitzerakoan.';
 $string['modulename'] = 'Datu-basea';
-$string['modulename_help'] = 'Datu-basea moduluak aukera ematen die irakasleei edota ikasleei edozein gairen inguruko erregistrodun sarreren biltegi bat sortu, erakutsi eta bilatzeko. Ia mugagagabeak dira sarrera horien formatu eta egiturak, besteak beste, irudiak, fitxategiak, URLak, zenbakiak eta testua.';
+$string['modulename_help'] = 'Datu-basea jarduera moduluak aukera ematen die irakasleei edota ikasleei edozein gairen inguruko sarreren bilduma bat sortu, erakutsi eta bilatzeko. Sarreren egitura irakasleek definitzen dituzten eremuen bidez eratzen da. Eremuak mota askotakoak izan daitezke, besteak beste kontrol-laukiak, aukera-botoiak, aukera-menuak, testu edo zenbaki eremuak, URLak, irudiak eta igotako fitxategiak.
+
+Informazioa erakusteko diseinua (editatzean edo zerrenda zein sarrera bakarra ikustean) txantiloien bidez kontrolatu daiteke. Datu-base jarduerak ikastaroen artean aurrezarpen moduan elkarbana daitezke eta irakasleek datu-base sarrerak inporta eta esporta ditzakete.
+
+Datu-baserako esteka automatikoak egiteko iragazkia piztuta badago, datu-basean dagoen edozein sarrera automatikoki estekatuko da ikastaroan hitz edo esaldi horiek agertzen direnean.
+
+Irakasleek sarreretan iruzkinak egitea ahalbide dezake. Irakasleek sarrerak kalifika ditzakete, baita ikasleek ere (berdinen ebaluazioa). Ebaluazioak pilatu daitezke behin-betiko ebaluazioa lortzeko, eta azken hau izango da kalifikazio-liburuan gordeko dena.
+
+Datu-base jarduerak erabilera anitzak izan ditzake, hala nola
+
+* Elkarlanean egindako bildumak sortzeko (web-estekak, liburuak, liburu-ritikak, aldizkari-erreferentziak,...)
+* Ikasleek sortutako edukiak erakusteko (argazkiak, posterrak, web-guneak, olerkiak,...) eta beren iruzkinak eta kritikak jasotzeko.';
 $string['modulenameplural'] = 'Datu-baseak';
 $string['more'] = 'Gehiago';
 $string['moreurl'] = 'URL gehiago';
@@ -346,7 +364,15 @@ $string['unsupportedexport'] = '({$a->fieldtype}) ezin da esportatu.';
 $string['updatefield'] = 'Jadanik dagoen eremua eguneratu';
 $string['uploadfile'] = 'Igo fitxategia';
 $string['uploadrecords'] = 'Datuak fitxategi batetik igo';
+$string['uploadrecords_help'] = 'Sarrerak testu-fitxategien bitartez igo daitezke. Fitxategiaren formatuak honelakoa izan behar du:
+
+* Fitxategiaren lerro bakoitzak erregistro bat dauka
+* Erregistro bakoitza komaz (edo beste mugatzaile batez) bereizitako datu-serie bat da
+* Lehenengo erregistroak eremu-izenen zerrenda eduki behar du, eta fitxategiaren gainerakoaren formatua definituko du
+
+Eremu-itxitura da erregistro bakoitzaren eremu bakoitza inguratzen duen karaktere bat. Normalean ezarri gabe utzi daiteke.';
 $string['url'] = 'Url';
+$string['usedate'] = 'Sartu bilaketan.';
 $string['usestandard'] = 'Erabili aurretiko ezarpena';
 $string['usestandard_help'] = '<p>Erabili gune mailan erabili moduko txantiloia.</p>
 <p> Bestalde, aurretiko ezarpena \'Gorde aurretiko ezarpen gisa\'

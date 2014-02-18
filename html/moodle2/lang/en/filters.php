@@ -16,12 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'filters', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'filters', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   filters
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['actfilterhdr'] = 'Active filters';
 $string['addfilter'] = 'Add filter';
@@ -47,10 +49,10 @@ $string['doesnotcontain'] = 'doesn\'t contain';
 $string['endswith'] = 'ends with';
 $string['filterallwarning'] = 'Applying filters to headings as well as content can greatly increase the load on your server. Please use that \'Apply to\' settings sparingly. The main use is with the multilang filter.';
 $string['filtersettings'] = 'Filter settings';
+$string['filtersettingsforin'] = 'Filter settings for {$a->filter} in {$a->context}';
 $string['filtersettings_help'] = 'This page lets you turn filters on or off in a particular part of the site.
 
 Some filters may also let you set local settings, in which case there will be a settings link next to their name.';
-$string['filtersettingsforin'] = 'Filter settings for {$a->filter} in {$a->context}';
 $string['filtersettingsin'] = 'Filter settings in {$a}';
 $string['firstaccess'] = 'First access';
 $string['globalrolelabel'] = '{$a->label} is {$a->value}';

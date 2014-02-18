@@ -45,5 +45,5 @@ $string['nullphotolist'] = 'このアカウントに関連する写真はあり�
 $string['pluginname'] = 'Flickr';
 $string['pluginname_help'] = 'flickr.comのリポジトリ';
 $string['remember'] = '次回から入力を省略する';
-$string['secret'] = 'Secret';
+$string['secret'] = '秘密鍵';
 $string['username'] = 'Flickrアカウントメール';

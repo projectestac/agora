@@ -43,18 +43,27 @@ $string['check_indexes'] = 'Fehlende Datenbank-Indizes suchen';
 $string['checkoraclesemantics'] = 'Semantische Prüfung';
 $string['check_oracle_semantics'] = 'Suche nach fehlerhaften semantischen Längen';
 $string['completelogbelow'] = '(das vollständige Suchprotokoll folgt)';
-$string['confirmcheckbigints'] = 'Diese Funktion sucht nach <a href="http://tracker.moodle.org/browse/MDL-11038"> möglicherweise ungültigen Zahlenwerten</a> in Ihrem Moodle-Server und erzeugt automatisch die notwendigen SQL-Anweisungen, um die Integer Werte in der Datenbank zu korrigieren (die SQL-Anweisungen werden erzeugt, aber nicht ausgeführt!). <br /><br /> Nachdem die Anweisungen erzeugt wurden, können Sie diese kopieren und sie sicher in Ihrer bevorzugten SQL-Oberfläche ausführen (vergessen Sie bitte nicht, Ihre Daten vorher zu sichern!!). <br /><br /> Es wird dringend empfohlen, auf die jeweils neueste Variante Ihrer Moodle-Version (1.8, 1.9, 2.x ...) zu updaten, bevor Sie die Suche nach ungültigen Werten durchführen.<br /><br /> Die Funktion führt selber keinerlei Aktionen mit der Datenbank durch (außer lesend auf sie zuzugreifen), so dass die Funktion zu jedem Zeitpunkt sicher ausgeführt werden kann.';
-$string['confirmcheckdefaults'] = 'Diese Funktion sucht nach inkonsistenten Defaultwerten auf dem Moodle-Server und erstellt erforderliche SQL-Statements zur Korrektur dieser Werte, ohne jedoch automatisch die SQL Anpassungen vorzunehmen. <br/><br/>
-Wenn die Prüfung ausgeführt und das SQL Statement erstellt wurde, können Sie mit dieses mit dem Werkzeug Ihrer Wahl in der Datenbank ausführen. Vorher unbedingt ein Backup der Datenbank erstellen. <br/><br/>
-Es ist sehr wichtig zuvor die letzte (+Version) des Moodle Releases (1.8;1.9;2.x...) zu installieren. <br/><br/>
+$string['confirmcheckbigints'] = 'Diese Funktion sucht nach <a href="http://tracker.moodle.org/browse/MDL-11038"> möglicherweise ungültigen Zahlenwerten</a> in Ihrem Moodle-Server und erzeugt automatisch die notwendigen SQL-Anweisungen, um die Integer Werte in der Datenbank zu korrigieren (die SQL-Anweisungen werden erzeugt, aber nicht ausgeführt!).
+
+Nachdem die Anweisungen erzeugt wurden, können Sie diese kopieren und sie sicher in Ihrer bevorzugten SQL-Oberfläche ausführen (vergessen Sie bitte nicht, Ihre Daten vorher zu sichern!!).
+
+Es wird dringend empfohlen, auf die jeweils neueste Variante Ihrer Moodle-Version (1.8, 1.9, 2.x ...) zu updaten, bevor Sie die Suche nach ungültigen Werten durchführen.
+
+Die Funktion führt selber keinerlei Aktionen mit der Datenbank durch (außer lesend auf sie zuzugreifen), so dass die Funktion zu jedem Zeitpunkt sicher ausgeführt werden kann.';
+$string['confirmcheckdefaults'] = 'Diese Funktion sucht nach inkonsistenten Defaultwerten auf dem Moodle-Server und erstellt erforderliche SQL-Statements zur Korrektur dieser Werte, ohne jedoch automatisch die SQL Anpassungen vorzunehmen.
+
+Wenn die Prüfung ausgeführt und das SQL Statement erstellt wurde, können Sie mit dieses mit dem Werkzeug Ihrer Wahl in der Datenbank ausführen. Vorher unbedingt ein Backup der Datenbank erstellen.
+
+Es ist sehr wichtig zuvor die letzte (+Version) des Moodle Releases (1.8;1.9;2.x...) zu installieren.
+
 Diese Prüfung verändert keine Einstellungen und Inhalte in Ihrer Datenbank. Es werden nur bestehende Einstellungen gelesen. Die Prüfung kann also jederzeit ausgeführt werden.';
-$string['confirmcheckforeignkeys'] = 'Diese Funktion sucht nach möglicherweise zerstörten Fremdschlüsseln, die in der install.xml definiert wurden. (Moodle generiert zur Zeit keine Fremdschlüssel in der Datenbank, da ungültige Daten verfügbar sein könnten.)<br /><br />
-Es wird dringend empfohlen, die neueste verfügbare (+Version) zu Ihrem Moodle-Release (1.8, 1.9, 2.x ...) zu installieren, bevor Sie die Suche nach fehlenden Indizes starten.<br /><br />
-Die Funktion führt keine SQL-Anweisungen auf Ihrer Datenbank aus (außer dass sie lesend zugreift), so dass die Funktion zu jedem Zeitpunkt sicher ausgeführt werden kann.';
-$string['confirmcheckindexes'] = 'Diese Funktion sucht nach möglicherweise fehlenden Indizes in Ihrem Moodle-Server, wobei die nötigen SQL-Anweisungen für ein Update automatisch erzeugt (aber nicht ausgeführt) werden. Nachdem die Anweisungen erzeugt sind, können Sie sie kopieren und in Ihrem bevorzugten SQL-Zugang ausführen.<br /><br />
-Es wird dringend empfohlen, die neueste verfügbare +Version zu Ihrem Moodle-Release (1.8, 1.9, 2.x ...) zu installieren, bevor Sie die Suche nach fehlenden Indizes starten.<br /><br />
-Die Funktion führt keine SQL-Anweisungen auf Ihrer Datenbank aus (außer dass sie lesend zugreift), so dass die Funktion zu jedem Zeitpunkt sicher ausgeführt werden kann.';
-$string['confirmcheckoraclesemantics'] = 'Diese Funktion sucht nach <a href="http://tracker.moodle.org/browse/MDL-29322">Oracle varchar2 Spalten, die BYTE Semantics</a> verwenden in Ihrem Moodle-Server, wobei die nötigen SQL-Anweisungen zur Konvertierung in CHAR Semantics für ein Update automatisch erzeugt (aber nicht ausgeführt) werden. Diese sind besser für datenbankübergreifende Kompatibilität umfangreichere Cntents. Nachdem die Anweisungen erzeugt sind, können Sie sie kopieren und in Ihrem bevorzugten SQL-Zugang ausführen.<br /><br /> Es wird dringend empfohlen, die neueste verfügbare +Version zu Ihrem Moodle-Release (1.8, 1.9, 2.x ...) zu installieren, bevor Sie die Suche nach BYTE Semantics starten.<br /><br /> Die Funktion führt keine Anweisungen auf Ihrer Datenbank aus (außer dass sie lesend zugreift), so dass die Funktion zu jedem Zeitpunkt sicher ausgeführt werden kann.';
+$string['confirmcheckforeignkeys'] = 'Diese Funktion sucht nach möglicherweise zerstörten Fremdschlüsseln, die in der install.xml definiert wurden. (Moodle generiert zur Zeit keine Fremdschlüssel in der Datenbank, da ungültige Daten verfügbar sein könnten.)
+
+Es wird dringend empfohlen, die neueste verfügbare (+Version) zu Ihrem Moodle-Release zu installieren, bevor Sie die Suche nach fehlenden Indizes starten.
+
+Die Funktion führt keine SQL-Anweisungen auf Ihrer Datenbank aus (ausser dass sie lesend zugreift), so dass die Funktion zu jedem Zeitpunkt sicher ausgeführt werden kann.';
+$string['confirmcheckindexes'] = 'Diese Funktion sucht nach möglicherweise fehlenden Indizes in Ihrem Moodle-Server, wobei die nötigen SQL-Anweisungen für ein Update automatisch erzeugt (aber nicht ausgeführt) werden. Nachdem die Anweisungen erzeugt sind, können Sie sie kopieren und in Ihrem bevorzugten SQL-Zugang ausführen.<br /><br /> Es wird dringend empfohlen, die neueste verfügbare +-Version zu Ihrem Moodle-Release (1.8, 1.9, 2.x ...) zu installieren, bevor Sie die Suche nach fehlenden Indizes starten.<br /><br /> Die Funktion führt keine SQL-Anweisungen auf Ihrer Datenbank aus (außer dass sie lesend zugreift), so dass die Funktion zu jedem Zeitpunkt sicher ausgeführt werden kann.';
+$string['confirmcheckoraclesemantics'] = 'Diese Funktion sucht nach <a href="http://tracker.moodle.org/browse/MDL-29322">Oracle varchar2 Spalten, die BYTE Semantics</a> verwenden auf Ihrem Moodle-Server, wobei die nötigen SQL-Anweisungen zur Konvertierung in CHAR Semantics für ein Update automatisch erzeugt (aber nicht ausgeführt) werden. Diese sind besser für datenbankübergreifende Kompatibilität umfangreichere Contents. Nachdem die Anweisungen erzeugt sind, können Sie sie kopieren und in Ihrem bevorzugten SQL-Zugang ausführen.<br /><br /> Es wird dringend empfohlen, die neueste verfügbare +Version zu Ihrem Moodle-Release (1.8, 1.9, 2.x ...) zu installieren, bevor Sie die Suche nach BYTE Semantics starten.<br /><br /> Die Funktion führt keine Anweisungen auf Ihrer Datenbank aus (außer dass sie lesend zugreift), so dass die Funktion zu jedem Zeitpunkt sicher ausgeführt werden kann.';
 $string['confirmdeletefield'] = 'Sind Sie wirklich sicher, dass Sie dieses Feld löschen wollen:';
 $string['confirmdeleteindex'] = 'Sind Sie wirklich sicher, dass Sie diesen Index löschen wollen:';
 $string['confirmdeletekey'] = 'Sind Sie wirklich sicher, dass Sie diesen Schlüssel löschen wollen:';
@@ -101,6 +110,8 @@ $string['fieldsusedinindex'] = 'Dieses Feld wird als Index verwandt';
 $string['fieldsusedinkey'] = 'Das Feld wird als Schlüssel genutzt';
 $string['filemodifiedoutfromeditor'] = 'Warnung: Die Datei wurde lokal mit dem XMLDB Editor verändert. Speichern überschreibt lokale Änderungen.';
 $string['filenotwriteable'] = 'Datei ist schreibgeschützt';
+$string['fkunknownfield'] = 'Fremder Schlüssel  {$a->keyname} in Tabelle {$a->tablename} verweist auf nicht bestehendes Feld {$a->reffield} in der Verweistabelle {$a->reftable}.';
+$string['fkunknowntable'] = 'Fremder Schlüssel  {$a->keyname} in Tabelle {$a->tablename} verweist auf nicht bestehende Tabelle {$a->reftable}.';
 $string['fkviolationdetails'] = 'Fremdschlüssel {$a->keyname} in der Tabelle {$a->tablename} ist zerstört in {$a->numviolations} von {$a->numrows} Zeilen.';
 $string['float2numbernote'] = 'Hinweis: Auch wenn Felder im Format "float" 100%-ig durch XMLDB unterstützt werden, wird trotzdem die Migration ins Format "number" empfohlen.';
 $string['floatincorrectdecimals'] = 'Falsche Anzahl von Nachkommazahlen (float)';
@@ -165,6 +176,8 @@ $string['selecttable'] = 'Tabelle auswählen:';
 $string['table'] = 'Tabelle';
 $string['tablenameempty'] = 'Der Tabellenname darf nicht leer bleiben.';
 $string['tables'] = 'Tabellen';
+$string['unknownfield'] = 'Verweis auf nicht bekanntes Feld';
+$string['unknowntable'] = 'Verweis auf nicht bekannte Tabelle';
 $string['unload'] = 'Löschen';
 $string['up'] = 'Aufwärts';
 $string['view'] = 'Ansicht';

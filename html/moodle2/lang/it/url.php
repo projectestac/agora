@@ -33,17 +33,17 @@ $string['configrolesinparams'] = 'Rende possibile utilizzare i nomi personalizza
 $string['configsecretphrase'] = 'La chiave viene utilizzata per generare il codice criptato utilizzato per inviare dati dalle risorse che fanno uso di parametri. Il codice criptato è generato tramite la funzione md5 concatenando l\'indirizzo IP dell\'utente con la chiave. Ad esempio: code = md5(IP.secretphrase). Tenere presente che il tutto potrebbe non essere affidabile in quanto gli indirizzi IP cambiano e sono spesso condivisi tra più computer.';
 $string['contentheader'] = 'Contenuto';
 $string['createurl'] = 'Aggiungi un URL';
-$string['displayoptions'] = 'Modalità di visualizzazione disponibili';
+$string['displayoptions'] = 'Opzioni di visualizzazione disponibili';
 $string['displayselect'] = 'Visualizzazione';
 $string['displayselectexplain'] = 'Imposta il tipo di visualizzazione di default. Tenere presente che i vari tipi di URL potrebbero consentire solo alcuni tipi di visualizzazione.';
 $string['displayselect_help'] = 'L\'impostazione, assieme al tipo di URL e ciò che supporta il browser, determina la visualizzazione dell\'URL. Opzioni disponibili:
 
 * Automatica - La visualizzazione migliore sarà scelta automaticamente
-* Embed - L\'URL sarà visualizzato all\'interno della pagina sotto la barra di navigazione assieme alla descrizione ed ai blocchi laterali
-* Apri - Sarà visualizzata solamente l\'URL
+* Incorpora - L\'URL sarà visualizzato all\'interno della pagina sotto la barra di navigazione assieme alla descrizione ed ai blocchi laterali
+* Apri - Nel browser sarà visualizzata solamente l\'URL
 * Popup - L\'URL sarà visualizzata in una nova finestra priva di barre dei menu e di navigazione.
-* Frame - L\'URL sarà visualizzato utilizzando un frame. Nel frame superiore saranno disponibili la navigazione e la descrizione.
-* Nuova finestra - L\'URL sarà visualizzata in una nuova finestra completa di barre dei menu e di navigazione.';
+* Frame - L\'URL sarà visualizzato utilizzando un frame sotto la barra di navigazione e la descrizione dell\'URL stessa
+* Nuova finestra - L\'URL sarà visualizzato in una nuova finestra completa di barre dei menu e di navigazione.';
 $string['externalurl'] = 'URL';
 $string['framesize'] = 'Altezza frame';
 $string['invalidstoredurl'] = 'Non è possibile visualizzare la risorsa, l\'URL non è valida';
@@ -51,7 +51,7 @@ $string['invalidurl'] = 'L\'URL inserito non è valido';
 $string['modulename'] = 'URL';
 $string['modulename_help'] = 'Il modulo URL consente ai docenti di inserire link web come risorse del corso. E\' possibile creare link verso qualsiasi URL liberamente disponibile online, copiando ed incollando l\'URL, oppure scegliendo un file da repository come Flickr, youtube o Wikimedia tramite il file picker (in funzione del repository attivi nel sito).
 
-Sono disponibili molte opzioni di visualizzazione per aprire l\'URL, ad esempio in una finestra popup, facendone l\'embed ed anche opzioni avanzate per inviare all\'URL parametri come il nome dello studente.
+Sono disponibili molte opzioni di visualizzazione per aprire l\'URL, ad esempio in una finestra popup oppure incorporandola, ed anche opzioni avanzate per inviare all\'URL parametri come il nome dello studente.
 
 Da notare che è possibile aggiungere URL ad altri tipi di risorse o attività tramite l\'editor di testo.';
 $string['modulenameplural'] = 'URL';

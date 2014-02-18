@@ -49,8 +49,8 @@ $string['choosereadme'] = '<div class="clearfix">
 </div>
 </div>';
 $string['configtitle'] = 'Nonzero-Einstellungen';
-$string['customcss'] = 'Eigenes CSS';
-$string['customcssdesc'] = 'Das eigene CSS wird benutzt, um das Design an Ihre Bedürfnisse anpassen.';
+$string['customcss'] = 'CSS-Anpassungen';
+$string['customcssdesc'] = 'Die CSS-Anpassungen werden auf jeder Seite benutzt. Das Design kann so einfach geändert werden.';
 $string['pluginname'] = 'Nonzero';
 $string['regionpostwidth'] = 'Rechte Spaltenbreite';
 $string['regionpostwidthdesc'] = 'Diese Einstellung legt die Breite der Blockbereiche in der rechten Spalte fest.';

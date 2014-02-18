@@ -57,6 +57,7 @@ $string['course_summary_key'] = 'Descrizione';
 $string['createcourseextid'] = 'L\'utente CREATE è iscritto ad un corso che non esiste \'{$a->courseextid}\'';
 $string['createnotcourseextid'] = 'L\'utente è iscritto ad un corso che non esiste \'{$a->courseextid}\'';
 $string['creatingcourse'] = 'Creazione del corso \'{$a}\'...';
+$string['duplicateshortname'] = 'La creazione del corso non è riuscita. Titolo abbreviato duplicato. Il corso con codice identificativo \'{$a->idnumber}\' è stato saltato...';
 $string['editlock'] = 'Blocca valore';
 $string['emptyenrolment'] = 'Iscrizione vuota per il ruolo Empty enrolment for role \'{$a->role_shortname}\' nel corso \'{$a->course_shortname}\'{$a->course_id})';
 $string['enrolname'] = 'LDAP';

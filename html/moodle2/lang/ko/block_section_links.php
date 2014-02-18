@@ -36,5 +36,6 @@ $string['numsections2'] = '섹션 대체 수';
 $string['numsectionsdesc1'] = '일단 강좌에서 섹션의 수가 이 숫자에 다다르면, 값에 의한 증가가 사용된다.';
 $string['numsectionsdesc2'] = '일단 강좌에서 섹션의 수가 이 숫자에 다다르면, 대안 값에 의한 증가가 사용된다.';
 $string['pluginname'] = '섹션 링크';
+$string['section_links:addinstance'] = '섹션 링크 블록 추가';
 $string['topics'] = '토픽';
 $string['weeks'] = '주';

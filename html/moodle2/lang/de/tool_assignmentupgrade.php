@@ -41,6 +41,7 @@ $string['listnotupgraded'] = 'Aufgaben auflisten, die noch nicht aktualisiert wu
 $string['listnotupgraded_desc'] = 'An dieser Stelle können Sie einzelne Aufgaben aktualisieren';
 $string['noassignmentsselected'] = 'Keine Aufgaben ausgewählt';
 $string['noassignmentstoupgrade'] = 'Es gibt keine Aufgaben, die aktualisiert werden müssten';
+$string['notsupported'] = ' ';
 $string['notupgradedintro'] = 'Diese Seite zeigt eine Liste der Aufgaben, die mit einem älteren Moodle erstellt und noch nicht in das neue Aufgabenformat von Moodle 2.3 aktualisiert wurden. Nicht alle Aufgaben können umgewandelt werden - falls ein angepasster Aufgabentyp verwendet wurde, muss zuerst der Typ auf das neue Format angepasst werden, um die Aktualisierung durchführen zu können.';
 $string['notupgradedtitle'] = 'Nicht aktualisierte Aufgaben';
 $string['pluginname'] = 'Aufgaben-Update';

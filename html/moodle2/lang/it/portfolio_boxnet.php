@@ -25,13 +25,19 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = 'API key';
-$string['err_noapikey'] = 'Nessuna API Key';
-$string['err_noapikey_help'] = 'Non è stata impostata una API Key per questo plugin. Puoi ottenerne una da OpenBox development';
+$string['apiv1migration_message_content'] = 'Per effetto dell\'aggiornamento a Moodle 2.4.7, il plugin portfolio Box.net è stato disabilitato. Per riabilitarlo, devi riconfigurarlo in accordo la istruzioni presenti nella documentazione {$a->docsurl}.';
+$string['apiv1migration_message_small'] = 'Il plugin è stato disabilitato poiché deve essere configurato in accordo alla documentazione di migrazione APIv1 Box.net.';
+$string['apiv1migration_message_subject'] = 'Informazioni importanti sul plugin portfolio Box.net';
+$string['clientid'] = 'Client ID';
+$string['clientsecret'] = 'Client secret';
 $string['existingfolder'] = 'Cartella esistente dove inserire file:';
 $string['folderclash'] = 'la cartella che hai chiesto di creare è già esistente!';
 $string['foldercreatefailed'] = 'Non è stato possibile creare la cartella destinazione su box.net';
 $string['folderlistfailed'] = 'Non è stato possibile ottenere l\'elenco dei folder da box.net';
+$string['missinghttps'] = 'HTTPS obbligatorio';
+$string['missinghttps_help'] = 'Box.net funziona solo con siti che hanno abilitato HTTPS .';
+$string['missingoauthkeys'] = 'Client ID and secret mancanti';
+$string['missingoauthkeys_help'] = 'Non sono presenti client ID o secret configurati per il plugin., E\' possibile ottenerli nella development page di Box.net';
 $string['newfolder'] = 'Cartella da creare dove inserire file:';
 $string['noauthtoken'] = 'Non è stato possibile ricevere un token di autenticazione da usare in questa sessione';
 $string['notarget'] = 'Per caricare file devi specificare una cartella già esistente oppure una nuova cartella';
@@ -40,11 +46,11 @@ $string['password'] = 'Password box.net (non verrà memorizzata)';
 $string['pluginname'] = 'Box.net';
 $string['sendfailed'] = 'Non è stato possibile inviare contenuti a box.net: {$a}';
 $string['setupinfo'] = 'Istruzioni per il setup';
-$string['setupinfodetails'] = 'Per ottenere una API Key, autenticati su Box.net e visita la pagina <a href="{$a->servicesurl}">OpenBox development</a>. Crea una nuova applicazione tramite \'Developer Tools\' e \'Create new application\'. L\'API Key è visualizzata nella sezione \'Backend parameters\' del form di modifica dell\'applicazione.
-In questo form, compila il campo \'Redirect URL\' con il seguente valore <br /><code>{$a->callbackurl}</code><br />. Se lo desideri, puoi fornire ulteriori informazioni sul tuo sito Moodle, tali informazioni possono essere modificate successivamente in \'View my applications\' ';
+$string['setupinfodetails'] = 'Per ottenere un client ID e un secret, recati su a API Key, autenticati su Box.net e visita la pagina <a href="{$a->servicesurl}">developers page</a>. Tramite \'Create new application\' crea la nuova applicazione per il sito Moodle. Il client ID ed il secret vengono visualizzati nella sezione \'OAuth2 parameters\' del form di modifica applicazione. Se lo si desidera, è anche possibile fornire ulteriori informazioni sul proprio sito.';
 $string['sharedfolder'] = 'Condiviso';
 $string['sharefile'] = 'Condividere questo file?';
 $string['sharefolder'] = 'Condividere questo nuovo folder?';
 $string['targetfolder'] = 'Cartella destinazione';
 $string['tobecreated'] = 'Da creare';
 $string['username'] = 'Username box.net (non verrà memorizzato)';
+$string['warninghttps'] = 'Il portfolio Box.net per funzionare richiede che il sito lavori in HTTPS.';

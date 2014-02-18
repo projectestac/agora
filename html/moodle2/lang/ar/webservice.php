@@ -28,4 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['key'] = 'المعرف';
 $string['operation'] = 'عملية';
 $string['securitykeys'] = 'مفاتيح الأمان';
+$string['webservices'] = 'خدمات الوب';
 $string['wsaccessusersuspended'] = 'تم رفض الدخول لخدمة الوب للمستخدم المعلق: {$a}';

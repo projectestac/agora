@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['news_items:addinstance'] = '최근 뉴스(강좌공지) 블록 추가';
+$string['news_items:myaddinstance'] = '내 공부방에 최근 뉴스(강좌공지) 블록 추가';
 $string['pluginname'] = '최신 뉴스';

@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['participants:addinstance'] = 'Добавлять новый блок Люди';
 $string['pluginname'] = 'Люди';

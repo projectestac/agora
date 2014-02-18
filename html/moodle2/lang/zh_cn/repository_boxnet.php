@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = 'API密钥';
-$string['boxnet:view'] = '查看box.net容器';
-$string['callbackurl'] = '回调链接';
+$string['apikey'] = 'API 密钥';
+$string['boxnet:view'] = '查看box.net 资源库';
+$string['callbackurl'] = '重定向 URL';
 $string['callbackurltext'] = '<ol>
 <li>请再次访问<a href="http://www.box.net/developers/services">box.net开发者网站</a>。</li>
 <li>确认您设置了box.net服务的回调链接为<strong>{$a}</strong></li></ol>';

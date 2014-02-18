@@ -25,6 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addgroup'] = 'Lägg till grupp';
+$string['ajaxmore'] = 'Mer...';
+$string['assignrole'] = 'Tilldela roll';
 $string['cohort:config'] = 'Konfigurera kohorter';
+$string['cohortsearch'] = 'Sök';
+$string['instanceexists'] = 'Kohorten är redan redan kopplat till markerade rollen';
 $string['pluginname'] = 'Koppla kohort';
 $string['pluginname_desc'] = 'Registrering av kohort kopplar medlemmar i kohorten som kursdeltagare.';
+$string['status'] = 'Aktiv';

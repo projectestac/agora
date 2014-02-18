@@ -35,16 +35,18 @@ $string['mapping'] = 'フラットファイルマッピング';
 $string['messageprovider:flatfile_enrolment'] = 'フラットファイル登録メッセージ';
 $string['pluginname'] = 'フラットファイル (CSV)';
 $string['pluginname_desc'] = 'この方法ではあなたが指定した場所に置いた特別にフォーマットされたテキストファイルを繰り返しチェックおよび処理します。ファイルはカンマ区切りのファイル、1行あたり4個または6個のフィールドを持つと想定されます:
-<pre class="informationbox">
+
 * 処理, ロール, IDナンバー (ユーザ), IDナンバー (コース) [, 開始日時, 終了日時]
+
 詳細:
+
 * 処理 = add | del
 * ロール = student | teacher | teacheredit
 * IDナンバー (ユーザ) = userテーブルのidnumber (idではなく)
 * IDナンバー　(コース) = courseテーブルのidnumber (idではなく)
 * 開始日時 = 開始日時 (UNIXエポックからの秒数) - 任意
 * 終了日時 = 終了日時 (UNIXエポックからの秒数) - 任意
-</pre>
+
 ファイルのフォーマットは以下のようになります:
 <pre class="informationbox">
 add, student, 5, CF101

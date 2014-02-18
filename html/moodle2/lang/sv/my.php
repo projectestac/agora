@@ -26,6 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addpage'] = 'Lägg till sida';
+$string['defaultpage'] = 'Mitt Moodle standardsida';
+$string['defaultprofilepage'] = 'Standardprofilsida';
+$string['delpage'] = 'Ta bort sida';
+$string['managepages'] = 'Administrera sidor';
 $string['mymoodle'] = 'Mitt Moodle';
 $string['nocourses'] = 'Det finns ingen kursinformation att visa.';
 $string['noguest'] = 'Sidan \'Mitt Moodle\' är inte tillgänglig för gästanvändare.';

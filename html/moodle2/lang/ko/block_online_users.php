@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configtimetosee'] = '사용자를 온라인으로 표시하려면 몇 분 전을 기준으로 하겠는가?';
+$string['online_users:addinstance'] = '온라인 사용자 블록 추가';
+$string['online_users:myaddinstance'] = '내 공부방에 온라인 사용자 블록 추가';
 $string['online_users:viewlist'] = '온라인 사용자 목록 보기';
 $string['periodnminutes'] = '최근 {$a} 분';
 $string['pluginname'] = '온라인 사용자';

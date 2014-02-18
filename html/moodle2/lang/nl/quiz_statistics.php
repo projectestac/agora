@@ -72,6 +72,7 @@ Onze vergelijking voor effectieve vraagweging kan in dit geval niet berekend wor
 Als je een test bewerkt en de vragen met een negatieve covariantie een maximumcijfer 0 geeft, dat zal de weging van deze vraag 0 zijn en zal de echte weging van deze vraag 0 zijn en zullen de echte effectieve wegingen van de andere vragen berekend worden.';
 $string['nostudentsingroup'] = 'Er zijn nog geen leerlingen in deze groep';
 $string['optiongrade'] = 'Gedeeltelijk krediet';
+$string['partofquestion'] = 'Deel van vraag';
 $string['pluginname'] = 'Statistieken';
 $string['position'] = 'Plaats';
 $string['positions'] = 'Plaats(en)';

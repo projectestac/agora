@@ -87,9 +87,11 @@ $string['default_launch_container'] = 'Tipo di lancio di default';
 $string['default_launch_container_help'] = 'Il tipo di lancio influenza la visualizzazione del tool quando viene lanciato dal corso. Alcuni tipi di lancio forniscono diverse schermate al tool, mentre altre forniscono una migliore integrazione con l\'ambiente Moodle.
 
 * **Default** - Verrà utilizzato il tipo di lancio indicato dalla configurazione del tool
-* **Embed** - Il tool verrà visualizzato in una finestra  di Moodle già aperta, analogamente a quanto già avviene per la maggior parte delle attività.
-* **Embed, senza blocchi** - Il tool verrà visualizzato in una finestra di Moodle già aperta che presenterà la sola navigazione sulla sommità.
-* **Nuova finestra** - Il tool verrà visualizzato in una nuova finestra a tutto schermo. In funzione del broswer utilizzato, la nuova finestra si potrà aprire in una nuova scheda oppure in un nuova finestra. E\' possibile che il browser impedisca l\'apertura della nuova finestra';
+* **Incorpora** - Il tool verrà visualizzato in una finestra  di Moodle già aperta, analogamente a quanto già avviene per la maggior parte delle attività.
+* **Incorpora, senza blocchi** - Il tool verrà visualizzato in una finestra di Moodle già aperta che presenterà la sola navigazione sulla sommità.
+* **Nuova finestra** - Il tool verrà visualizzato in una nuova finestra a tutto schermo.
+
+In funzione del broswer utilizzato, la nuova finestra si potrà aprire in una nuova scheda oppure in un nuova finestra. E\' possibile che il browser impedisca l\'apertura della nuova finestra';
 $string['delegate'] = 'Delega al docente';
 $string['delete'] = 'Elimina';
 $string['delete_confirmation'] = 'Sei sicuro di eliminare la configurazione del tool esterno?';
@@ -111,8 +113,8 @@ $string['donot'] = 'Non inviare';
 $string['donotaccept'] = 'Non accettare';
 $string['donotallow'] = 'Non consentire';
 $string['edittype'] = 'Modifica configurazione del tool esterno';
-$string['embed'] = 'Embed';
-$string['embed_no_blocks'] = 'Embed, senza blocchi';
+$string['embed'] = 'Incorpora';
+$string['embed_no_blocks'] = 'incorporato, senza blocchi';
 $string['enableemailnotification'] = 'Invia notifiche per email';
 $string['enableemailnotification_help'] = 'Consente di inviare email di notifica agli studenti quando la loro consegna del tool sarà stata valutata.';
 $string['errormisconfig'] = 'Il tool è mal configurato. Per favore chiedi al tuo amministratore Moodle di sistemare la configurazione del tool.';
@@ -162,8 +164,8 @@ $string['launch_in_popup'] = 'Lancia il tool in una finestra pop-up';
 $string['launchinpopup_help'] = 'Il contenitore di lancio influenza la visualizzazione del tool quando lo si lancia dal corso. Alcuni contenitori di lancio lasciano più libero il tool mentre altri forniscono una esperienza dell\'utente più integrata con Moodle
 
 * ** Default** - Usa il contenitore di lancio impostato nella configurazione del tool.
-* **Embed** - Il tool viene visualizzato all\'interno della finestra di Moodle già esistente, come la maggior parte delle attività.
-* **Embed, senza blocchi** - Il tool viene visualizzato all\'interno della finestra di Moodle già esistente, ma con i soli controlli di navigazione sulla parte superiore della pagina.
+* **incorpora** - Il tool viene visualizzato all\'interno della finestra di Moodle già esistente, come la maggior parte delle attività.
+* **Incorpora, senza blocchi** - Il tool viene visualizzato all\'interno della finestra di Moodle già esistente, ma con i soli controlli di navigazione sulla parte superiore della pagina.
 * **Nuova finestra** - Il tool viene aperto in una nuova finestra che occuperà tutto lo spazio disponibile. In funzione del tipo di browser, la nuova finestra può essere una nuova finestra browser oppure un tab di una finestra già esistente. E\' possibile che il browser impedisca l\'apertura di nuove finestre.';
 $string['launchoptions'] = 'Opzioni di lancio';
 $string['launch_url'] = 'URL di lancio';
@@ -172,11 +174,11 @@ Se non sei certo su cosa inserire per l\'URL di lancio, verifica le informazioni
 
 Se hai selezionato un tipo di tool specifico, potrebbe non essere necessario inserire l\'URL di lancio, ad esempio quando l\'URl di lancio è utilizzata per accedere al sistema del tool provider invece che ad una specifica risorsa.';
 $string['lti'] = 'LTI';
-$string['lti:addcoursetool'] = 'Valutare attività LTI';
-$string['lti:addinstance'] = 'Aggiungere attività LTI';
+$string['lti:addcoursetool'] = 'Aggiungere configurazioni Tool esterno a livello di corso';
+$string['lti:addinstance'] = 'Aggiungere attività Tool esterno';
 $string['lti_administration'] = 'Gestione LTI';
 $string['lti_errormsg'] = 'Il tool ha restituito il messaggio di errore seguente: "{$a}"';
-$string['lti:grade'] = 'Valutare attività LTI';
+$string['lti:grade'] = 'Visualizzare valutazioni riportate da Tool esterni';
 $string['lti_launch_error'] = 'Si è verificato un errore durante il lancio del tool esterno.';
 $string['lti_launch_error_tool_request'] = '<p>
 Per inviare all\'amministratore una richiesta di completamento di una configurazione di un tool, fai click su  <a href="{$a->admin_request_url}" target="_top">here</a>. </p>
@@ -186,11 +188,11 @@ L\'errore può essere causato dalla mancanza di consumer key e/o shared secret p
 </p> <p>
 Se disponi di consumer key e shared secret, puoi inserirli nella configurazione del tool esterno (accertati che le opzioni avanzate siano visibili)<br />
 In alternativa, puoi creare una configurazione di  tool provider a livello di corso <a href="{$a->course_tool_editor}">here</a>. </p>';
-$string['lti:manage'] = 'Modificare attività LTI';
-$string['lti:requesttooladd'] = 'Invia un tool all\'amministratore per la configurazione';
+$string['lti:manage'] = 'Diventare docente al lancio del tool esterno';
+$string['lti:requesttooladd'] = 'Richiedere una configurazione tool per tutto il sito';
 $string['lti_tool_request_added'] = 'La richiesta di configurare il tool è stata inviata correttamente. Contatta l\'amministratore per completare la configurazione.';
 $string['lti_tool_request_existing'] = 'E\' già stata inviata una configurazione per il dominio del tool.';
-$string['lti:view'] = 'Visualizzare attività LTI';
+$string['lti:view'] = 'Lanciare attività Tool esterno';
 $string['main_admin'] = 'Help generale';
 $string['main_admin_help'] = 'I tool esterni consentono a Moodle di interagire con risorse formative ospitate in altri siti. Tramite uno speciale protocollo di lancio, il tool remoto può accedere ad alcune informazioni relative all\'utente, come ad esempio il nome dell\'istituzione, l\'id del corso, l\'id dell\'utente, il nome dell\'utente e l\'email.
 
@@ -323,6 +325,7 @@ Nella magigor parte dei casi questa opzione non è necessaria, i docenti possono
 L\'unico caso in cui questa opzione è utile è quando la configurazione del tool è utilizzata per il Single Sign On, ad esempio quando l\'utente che lancia il tool viene portato in una pagina di atterraggio anziché ad una risorsa specifica.';
 $string['size'] = 'Dimensione parametri';
 $string['submission'] = 'Invii';
+$string['submissionsfor'] = 'Invii per {$a}';
 $string['toggle_debug_data'] = 'Dati di debug on/off';
 $string['tool_config_not_found'] = 'Per questa URL non è stata trovata nessuna configurazione del tool.';
 $string['tool_settings'] = 'Impostazioni tool';

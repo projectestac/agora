@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['messages:addinstance'] = '메세지 블록 추가';
+$string['messages:myaddinstance'] = '내 공부방에 메세지 블록 추가';
 $string['pluginname'] = '메세지';

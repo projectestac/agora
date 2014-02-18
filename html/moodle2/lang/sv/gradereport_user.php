@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Rapport för användare';
+$string['tablesummary'] = 'Tabellen är uppbyggd som lista över graderade poster inklusive kategorier av graderade objekt. När objekten är i en kategori som de kommer att anges som sådana.';
 $string['user:view'] = 'Visa Din egen betygsrapport';

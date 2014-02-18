@@ -33,6 +33,6 @@ $string['pluginname'] = 'Formato WebCT';
 $string['pluginname_help'] = 'O formato WebCT permite importar perguntas de escolha múltipla e de resposta curta guardadas em formato de texto WebCT';
 $string['pluginname_link'] = 'qformat/webct';
 $string['questionnametoolong'] = 'Nome da pergunta muito longo na linha {$a} (máx de 255 caract). Foi bloqueada.';
-$string['unknowntype'] = 'Tipo desconhecido';
+$string['unknowntype'] = 'Tipo de pergunta desconhecido depois da linha {$a}';
 $string['warningsdetected'] = 'detetados {$a} aviso(s)';
 $string['wronggrade'] = 'Nota errada (após a linha {$a}) :';

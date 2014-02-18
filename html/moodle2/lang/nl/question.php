@@ -269,6 +269,7 @@ $string['noquestions'] = 'Er zijn geen vragen gevonden die geëxporteerd kunnen 
 $string['noquestionsinfile'] = 'Er zijn geen vragen in het importbestand';
 $string['noresponse'] = '[Geen antwoord]';
 $string['notanswered'] = 'Niet beantwoord';
+$string['notchanged'] = 'Niet gewijzigd sinds de laatste poging';
 $string['notenoughanswers'] = 'Dit vraagtype vereist minstens {$a} antwoorden';
 $string['notenoughdatatoeditaquestion'] = 'Noch een vraad ID, een categorie ID of een vraagtype is opgegeven.';
 $string['notenoughdatatomovequestions'] = 'Je moet de vraag id\'s opgeven van de vragen die je wil verplaatsen.';

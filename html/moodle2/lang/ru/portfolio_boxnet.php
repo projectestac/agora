@@ -25,8 +25,30 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = 'API ключ';
-$string['err_noapikey_help'] = 'Нет никакого ключа API, сконфигурированного для этого плагина. Вы можете получить один из них на странице разработчиков OpenBox.';
+$string['apiv1migration_message_small'] = 'Этот плагин был отключен, так как он требует настройки, как описано в документации по миграции с APIv1 Box.net.';
+$string['apiv1migration_message_subject'] = 'Важная информация относительно плагина портфолио Box.net';
+$string['clientid'] = 'ID клиента';
+$string['clientsecret'] = 'Секретный ключ клиента';
+$string['existingfolder'] = 'Поместить файл(ы) в существующий каталог';
+$string['folderclash'] = 'Каталог, который Вы запросили создать, уже существует!';
+$string['foldercreatefailed'] = 'Не удалось создать целевую папку на box.net';
+$string['folderlistfailed'] = 'Не удалось получить список каталогов из box.net';
+$string['missinghttps'] = 'HTTPS требуется';
+$string['missinghttps_help'] = 'Box.net будет работать только с веб-сайтами с поддержкой HTTPS.';
+$string['missingoauthkeys'] = 'Отсутствует ID и секретный ключ клиента';
+$string['newfolder'] = 'Поместить файл(ы) в новый каталог';
+$string['noauthtoken'] = 'Не удалось получить ключ аутентификации для использования в этой сессии';
+$string['notarget'] = 'Необходимо указать или существующий или новый каталог для размещения';
+$string['noticket'] = 'Не удалось получить ключ от box.net, чтобы начать сеанс аутентификации';
+$string['password'] = 'Ваш пароль для box.net  (не будет запомнен)';
 $string['pluginname'] = 'Box.net';
+$string['sendfailed'] = 'Не удалось отправить содержимое на box.net: {$a}';
 $string['setupinfo'] = 'Инструкция по установке';
+$string['setupinfodetails'] = 'Для получения ключа API войдите в Box.net и посетите их <a href="$a->servicesurl}">страницу разработки OpenBox</a>. В разделе «Developer Tools» нажмите \'Создать новое приложение« (»Create new application«) и создайте новое приложение для своего сайта Moodle. Ключ API отображается в разделе »Backend parameters« формы редактирования приложения. В этой форме, заполните поле »URL-адрес перенаправления« (»Redirect URL«): <br /> <code>{$a->callbackurl}</code> <br /> При желании Вы можете также предоставить другую информацию о своем сайте Moodle. Эти значения могут быть отредактированы позже на странице »Просмотр моих приложений« (»View my applications") .';
+$string['sharedfolder'] = 'Общий';
+$string['sharefile'] = 'Это общий файл?';
+$string['sharefolder'] = 'Это общий новый каталог?';
+$string['targetfolder'] = 'Целевой каталог';
 $string['tobecreated'] = 'Будет создан';
+$string['username'] = 'Ваш логин на box.net (не будет запомнен)';
+$string['warninghttps'] = 'Для работы портфолио сайт Box.net требует использования Вашим сайтом протокола HTTPS.';

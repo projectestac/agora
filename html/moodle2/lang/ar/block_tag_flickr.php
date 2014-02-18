@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['configtitle'] = 'عنوان';
 $string['defaulttile'] = 'فليكر';
+$string['includerelatedtags'] = 'تضمين الوسوم ذات الصلة بالاستعلام';
 $string['numberofphotos'] = 'عدد الصور';
 $string['pluginname'] = 'فليكر';
 $string['sortby'] = 'أفرز بـ';

@@ -54,6 +54,15 @@ $string['legacyfiles'] = 'Ikastaro-fitxategi zaharraren migrazioa';
 $string['legacyfilesactive'] = 'Aktiboa';
 $string['legacyfilesdone'] = 'Amaituta';
 $string['modulename'] = 'Fitxategia';
+$string['modulename_help'] = 'Fitxategia baliabideari esker irakasleak fitxategi bat ikastaroko baliabide gisa eskuragarri jar  dezakegu. Posiblea denean fitxategia ikastaroaren interfazearen barruan erakutsiko da; bestela ikasleei fitxategia jaisteko mezu bat agertuko zaie. Fitxategiak fitxategi lagungarriak izan ditzake,  irudiak edo Flash objektuak txertaturik dituzten HTML orriak adibidez.
+
+Kontuan izan ikasleek fitxategia irekiko duen softwarea instalaturik izan beharko dutela.
+
+Fitxategia erabil daiteke
+
+* Klasean erabilitako aurkezpenak partekatzeko
+* Web-gune txiki bat ikastaroko baliabide moduan gehitzeko
+* Software zehatz batzuen zirriborro-fitxategiak eskuragarri jartzeko, ikasleek edita eta kalifikatzeko bidal dezaten';
 $string['modulenameplural'] = 'Fitxategiak';
 $string['neverseen'] = 'Inoiz ez ikusia';
 $string['notmigrated'] = 'Heredatutako baliabide-mota hau ({$a}) ez da oraindik migratu, barkatu.';
@@ -72,7 +81,7 @@ $string['printheadingexplain'] = 'Baliabidearen izena edukiaren gainean erakutsi
 $string['printintro'] = 'Baliabidearen deskribapena erakutsi';
 $string['printintroexplain'] = 'Baliabidearen deskribapena edukiaren azpian? Mota batzuek agian ez dute deskribapena erakutsiko, nahiz aukera hori ezarrita egon.';
 $string['resource:addinstance'] = 'Gehitu beste baliabide bat';
-$string['resourcecontent'] = 'Fitxategiak eta azpidirektorioak';
+$string['resourcecontent'] = 'Fitxategiak eta azpikarpetak';
 $string['resourcedetails_sizetype'] = '{$a->size} {$a->type}';
 $string['resource:exportresource'] = 'Esportatu baliabidea';
 $string['resource:view'] = 'Ikusi baliabidea';

@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['enabledock'] = 'Verschieben des Blocks ins Dock erlauben';
+$string['enabledock'] = 'Blockverschieben ins Dock erlauben';
 $string['pluginname'] = 'Einstellungen';
 $string['settings:addinstance'] = 'Neuen Block \'Einstellungen\' hinzufügen';
-$string['settings:myaddinstance'] = 'Neuen Block \'Einstellungen\' für \'Meine Startseite\' hinzufügen';
+$string['settings:myaddinstance'] = 'Block \'Einstellungen\' für \'Meine Startseite\' hinzufügen';

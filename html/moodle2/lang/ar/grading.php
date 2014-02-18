@@ -25,6 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['gradingmanagement'] = 'تقييم متقدم';
 $string['gradingmethod'] = 'طريقة التقييم';
+$string['gradingmethod_help'] = 'اختر طريقة التقييم المتقدمة التي ستستخدم لاحتساب العلامات في هذا السياق.
+
+لإلغاء التقييم المتقدم والعودة لطريقة التقييم الافتراضية، اختر "تقييم بسيط ومباشر".';
 $string['gradingmethodnone'] = 'تقييم بسيط ومباشر';
 $string['gradingmethods'] = 'طرق التقييم';
+$string['searchtemplate'] = 'البحث في نماذج التقييم';
+$string['statusdraft'] = 'مسودة';

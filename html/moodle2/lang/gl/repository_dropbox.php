@@ -27,10 +27,12 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'Chave da API de Dropbox';
 $string['cachelimit'] = 'Límite da caché';
+$string['cachelimit_info'] = 'Introducir o número máximo de ficheiros (en bytes) que será memorizado no servidor de alias/atallos de Dropbox. Os ficheiros memorizados ofreceranse cando a orixe xa non estea dispoñíbel. Un valor baleiro ou de cero implica a memorización en caché de todos os ficheiros sen considerar o seu tamaño.';
 $string['configplugin'] = 'Configuración de Dropbox';
 $string['dropbox'] = 'Dropbox';
 $string['dropbox:view'] = 'Ver un cartafol de Dropbox';
 $string['instruction'] = 'Pode obter a súa chave de API  e «secreto» dos <a href="http://www.dropbox.com/developers/apps">desenvolvedores de Dropbox</a>. Ao axustar a súa chave, seleccione «Todo Dropbox» como o «Nivel de acceso».';
+$string['logoutdesc'] = '(Cerrar a sesión cando remate de usar Dropbox)';
 $string['notitle'] = 'sen-título';
 $string['pluginname'] = 'Dropbox';
 $string['remember'] = 'Lémbreme';

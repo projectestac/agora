@@ -55,6 +55,7 @@ $string['course_summary_key'] = 'Sumário';
 $string['createcourseextid'] = 'CRIAR Utilizador inscrito numa disciplina que não existe: "{$a->courseextid}"';
 $string['createnotcourseextid'] = 'Utilizador inscrito numa disciplina que não existe: "{$a->courseextid}"';
 $string['creatingcourse'] = 'A criar a disciplina "{$a}" ...';
+$string['duplicateshortname'] = 'A criação da disciplina falhou. Duplique o nome curto. A disciplina com o número ID \'{$a->idnumber}\' será ignorada.';
 $string['editlock'] = 'Bloquear valor';
 $string['emptyenrolment'] = 'Não existem utilizadores com o papel "{$a->role_shortname}" na disciplina "{$a->course_shortname}"';
 $string['enrolname'] = 'LDAP';

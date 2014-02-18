@@ -29,6 +29,6 @@ $string['configplugin'] = 'Configurar repositório "Ficheiros da disciplina (ret
 $string['coursefiles:view'] = 'Usar o repositório de ficheiros da disciplina';
 $string['emptyfilelist'] = 'Este repositório está vazio';
 $string['notitle'] = 'Sem título';
-$string['pluginname'] = 'Ficheiros da disciplina (retrocompatibilidade)';
+$string['pluginname'] = 'Ficheiros da disciplina (retrocompatibilidade com versões anteriores do Moodle)';
 $string['pluginname_help'] = 'Este módulo utiliza o repositório de ficheiros da disciplina existente em versão anteriores do Moodle (anteriores à versão 2.0).';
 $string['remember'] = 'Manter sessão';

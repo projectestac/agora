@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['accessnoticesheader'] = '이 질문을 미리 볼 수는 있지만, 이게 실제 시험이라면 다음과 같은 이유 때문에 볼 수 없게 됩니다:';
 $string['action'] = '활동';
+$string['activityoverview'] = '제출예정인 퀴즈가 있습니다.';
 $string['adaptive'] = '적응 모드';
 $string['adaptive_help'] = '만일 이를 활성화하면, 한 질문에 대해 여러번 답을 할 수 있게 됩니다. 따라서 비록 학생의 답이 틀렸다고 하더라도, 즉시 몇 번이고 다시 질문을 시도할 수 있습니다. 하지만 "감점 적용" 설정에 따라 학생이 오답을 할 때에는 감점이 될 수도 있습니다.';
 $string['addaquestion'] = '질문 추가 ...';
@@ -484,6 +485,7 @@ $string['orderandpaging_help'] = '각 질문의 반대편에 있는 10,20,30... 
 여러 페이지에 걸쳐 질문을 정렬하려면 다시 페이지 나눔 버튼을 클릭하고 페이지당 질문의 수를 선택하세요.';
 $string['orderingquiz'] = '퀴즈 정렬 및 페이지 나누기';
 $string['orderingquizx'] = '정렬 및 페이지 나누기 {$a}';
+$string['outcomesadvanced'] = '학습성과는 고급 설정입니다';
 $string['outof'] = '최대 {$a->maxgrade} 중 {$a->grade}';
 $string['outofpercent'] = '최대 {$a->maxgrade} 중 {$a->grade} ({$a->percent}%)';
 $string['outofshort'] = '{$a->grade}/{$a->maxgrade}';
@@ -546,6 +548,7 @@ $string['questionnonav'] = '<span class="accesshide">질문</span>{$a->number}<s
 $string['questionnonavinfo'] = '<span class="accesshide">정보</span>{$a->number}<span class="accesshide"> {$a->attributes}</span>';
 $string['questionnotloaded'] = '데이터베이스로부터 질문 {$a}을 가져오지 못했습니다.';
 $string['questionorder'] = '질문 순서';
+$string['questionposition'] = '질문 {$a}에 대한 정렬된 새로운 위지';
 $string['questions'] = '질문들';
 $string['questionsinclhidden'] = '질문들(숨겨진 질문 포함)';
 $string['questionsinthisquiz'] = '퀴즈에 속한 질문들';

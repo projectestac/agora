@@ -28,6 +28,6 @@ defined('MOODLE_INTERNAL') || die();
 $string['addoutcome'] = 'Ajouter un objectif';
 $string['courseoutcomes'] = 'Objectif du cours';
 $string['coursespecoutcome'] = 'Objectifs du cours';
-$string['outcomes:view'] = 'Voir les rapports d\'objectifs';
+$string['outcomes:view'] = 'Consulter les rapports d\'objectifs';
 $string['pluginname'] = 'Rapport d\'objectifs';
 $string['usedgradeitem'] = 'Nombre d\'éléments d\'évaluation';

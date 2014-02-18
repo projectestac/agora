@@ -26,8 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configtimetosee'] = 'Zeit (in Minuten), nach der Online-Aktivitäten nicht mehr in der Liste angezeigt werden';
-$string['online_users:addinstance'] = 'Neuen Block \'Online-Aktivitäten\' hinzufügen';
-$string['online_users:myaddinstance'] = 'Neuen Block \'Online-Aktivitäten\' hinzufügen';
+$string['online_users:addinstance'] = 'Block \'Online-Aktivitäten\' hinzufügen';
+$string['online_users:myaddinstance'] = 'Block \'Online-Aktivitäten\' für \'Meine Startseite\' hinzufügen';
 $string['online_users:viewlist'] = 'Liste der Online-Aktivitäten sehen';
 $string['periodnminutes'] = 'in den letzten {$a} Minuten';
 $string['pluginname'] = 'Online-Aktivitäten';

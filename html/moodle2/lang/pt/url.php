@@ -36,15 +36,21 @@ $string['createurl'] = 'Criar um url';
 $string['displayoptions'] = 'Opções de visualização disponíveis';
 $string['displayselect'] = 'Exibir em';
 $string['displayselectexplain'] = 'Escolha a forma de exibição tendo em conta que nem todos os tipos de exibição são adequados para todos os URLs.';
-$string['displayselect_help'] = 'Esta configuração, em conjunto com o tipo de ficheiro do url e possibilidades do browser, determinam a forma como é exibido o ficheiro. As opções podem ser:
+$string['displayselect_help'] = 'Esta configuração, em conjunto com o tipo de ficheiro e possibilidades do navegador, determina a forma como é exibido o ficheiro. As opções podem ser:
 
-* Automático - É selecionada automaticamente a melhor opção para exibir o ficheiro;
-* Incorporar - O ficheiro é incorporado e exibido na página, mantendo a barra de navegação, a descrição do ficheiro e os blocos laterais;
-* Forçar descarga - É aberta uma janela de diálogo para o utilizador abrir ou guardar o ficheiro;
-* Mesma janela - O ficheiro é exibido na janela do browser, ocupando-a toda;
-* Janela de pop-up - O ficheiro é exibido numa nova janela do browser sem menus nem barra de endereço;
-* Frame - O ficheiro é exibido numa frame, mantendo a barra de navegação e a descrição do ficheiro;
-* Nova janela - O ficheiro é exibido numa nova janela do browser, com menus e barra de endereço.';
+* Automático: é selecionada automaticamente a melhor opção para exibir o ficheiro;
+
+* Incorporar. o ficheiro é incorporado e exibido na página, mantendo a barra de navegação, a descrição do ficheiro e os blocos laterais;
+
+* Forçar download: é aberta uma janela de diálogo para o utilizador abrir ou guardar o ficheiro;
+
+* Mesma janela: apenas o ficheiro é exibido na janela do navegador;
+
+* Janela de pop-up: o ficheiro é exibido numa nova janela do navegador sem menus nem barra de endereço;
+
+* Frame: o ficheiro é exibido numa frame, mantendo a barra de navegação e a descrição do ficheiro;
+
+* Nova janela: o ficheiro é exibido numa nova janela do navegador, com menus e barra de endereço.';
 $string['externalurl'] = 'URL externo';
 $string['framesize'] = 'Altura da frame';
 $string['invalidstoredurl'] = 'Não é possível mostrar este recurso, o URL é inválido';
@@ -63,9 +69,9 @@ $string['parametersheader'] = 'Parâmetros';
 $string['parametersheader_help'] = 'Algumas variáveis internas Moodle podem ser automaticamente anexadas ao URL. Defina um nome para o parâmetro nas caixas de texto e, em seguida, selecione a variável correspondente.';
 $string['pluginadministration'] = 'Administração do URL';
 $string['pluginname'] = 'URL';
-$string['popupheight'] = 'Altura da janela de pop-up (em pixels)';
+$string['popupheight'] = 'Altura da janela de pop-up (em píxeis)';
 $string['popupheightexplain'] = 'Especifique a altura predefinida da janela de pop-up';
-$string['popupwidth'] = 'Largura da janela de pop-up (em pixels)';
+$string['popupwidth'] = 'Largura da janela de pop-up (em píxeis)';
 $string['popupwidthexplain'] = 'Especifique a largura predefinida quando abre numa janela de pop-up';
 $string['printheading'] = 'Mostrar nome do URL';
 $string['printheadingexplain'] = 'Mostrar o nome do URL por cima do conteúdo? Alguns modos de exibição não apresentam o nome do URL, mesmo com esta configuração ativa.';

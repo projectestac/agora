@@ -49,7 +49,16 @@ $string['externalurl'] = 'Extern URL';
 $string['framesize'] = 'Höjd på ram';
 $string['invalidstoredurl'] = 'Kan inte visa denna resurs, URL är felaktig';
 $string['invalidurl'] = 'Inmatad URL är felaktig';
-$string['modulename'] = 'URL';
+$string['modulename'] = 'URL/Webbadress';
+$string['modulename_help'] = 'Med URL-(uniform resource locater) eller webbadress-modulen kan en lärare skapa en en webblänk som en kursresurs.
+
+Allt som är fritt tillgängliga på nätet, såsom dokument eller bilder, kan länkas. URL/webbadressen behöver inte vara startsidan på en webbplats. Webbadressen till önskat webbsida kan kopieras och klistras eller en lärare kan använda "filepicker" och välja en länk från ett arkiv som Flickr, YouTube eller Wikimedia (beroende på vilka förråd är aktiverade för webbplatsen).
+
+Det finns ett antal visningsalternativ för URL, till exempel "inbäddad" eller "öppna i ett nytt fönster".
+
+Det finns även avancerade inställningsalternativ som gör det möjligt att definiera informationsöverföring till webbadressen (t.ex. elevs namn) om det behövs eller önskas.
+
+Observera att URL/webbadresser även kan läggas till andra resurser eller aktiviteter genom att använda sig av textredigeraren i respektive element.';
 $string['modulenameplural'] = 'URLer';
 $string['neverseen'] = 'Aldrig visad';
 $string['optionsheader'] = 'Alternativ';
@@ -58,7 +67,7 @@ $string['parameterinfo'] = 'parameter=variabel';
 $string['parametersheader'] = 'Parametrar';
 $string['parametersheader_help'] = 'Vissa interna Moodlevariabler kan bli automatiskt bifogade till URL:en. Skriv ditt namn för parametern i varje textruta(or) och välj sedan den nödvändiga matchande variabeln.';
 $string['pluginadministration'] = 'Administration av modulen URL';
-$string['pluginname'] = 'URL';
+$string['pluginname'] = 'URL/Webbadress';
 $string['popupheight'] = 'Höjd på popup-fönster (i pixlar)';
 $string['popupheightexplain'] = 'Anger standardhöjden på popup-fönster';
 $string['popupwidth'] = 'Bredd på popup-fönster (i pixlar)';
@@ -69,4 +78,5 @@ $string['printintro'] = 'Visa beskrivning för URL';
 $string['printintroexplain'] = 'Visa URL beskrivning nedanför innehållet? Vissa visningstyper kanske inte visas beskrivningen även om detta är valt.';
 $string['rolesinparams'] = 'Ta med namn på roller i parametrar';
 $string['serverurl'] = 'URL till server';
-$string['url:view'] = 'Visa URL';
+$string['url:addinstance'] = 'Lägg till en ny URL/webbadress';
+$string['url:view'] = 'Visa URL/Webbadress';

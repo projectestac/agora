@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['actions'] = 'Acties';
-$string['addinstance'] = 'Voeg instanties toe';
+$string['addinstance'] = 'Voeg een exemplaar toe';
 $string['addstore'] = 'Voeg {$a} opslag toe';
 $string['addstoresuccess'] = 'Toevoegen van een nieuwe {$a} opslag gelukt';
 $string['area'] = 'Zone';
@@ -72,7 +72,7 @@ $string['lockdefault'] = 'Standaard';
 $string['lockmethod'] = 'Blokkeermethode';
 $string['lockmethod_help'] = 'Dit is de blokkermethode die gebruikt wordt als dit vereist wordt door deze opslag.';
 $string['lockname'] = 'Naam';
-$string['locksummary'] = 'Samenvatting van cache blokkeerinstanties.';
+$string['locksummary'] = 'Samenvatting van cache blokkeringen.';
 $string['lockuses'] = 'Gebruik';
 $string['mappingdefault'] = '(standaard)';
 $string['mappingfinal'] = 'Uiteindelijke opslag';
@@ -110,7 +110,7 @@ $string['storeresults_application'] = 'Bewaar vragen als ze gebruikt worden als 
 $string['storeresults_request'] = 'Bewaar vragen als ze gebruikt worden als een vragen-cache';
 $string['storeresults_session'] = 'Bewaar vragen als ze gebruikt worden als een sessie-cache';
 $string['stores'] = 'Opslag';
-$string['storesummaries'] = 'Geconfigureerde opslaginstanties';
+$string['storesummaries'] = 'Geconfigureerde opslagexemplaren';
 $string['supports'] = 'Ondersteunt';
 $string['supports_dataguarantee'] = 'data guarantee';
 $string['supports_keyawareness'] = 'key awareness';

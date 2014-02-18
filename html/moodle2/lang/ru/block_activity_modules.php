@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activity_modules:addinstance'] = 'Добавлять новый блок Элементы курса';
 $string['pluginname'] = 'Элементы курса';

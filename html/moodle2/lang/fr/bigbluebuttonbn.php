@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'bigbluebuttonbn', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'bigbluebuttonbn', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   bigbluebuttonbn
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,7 @@ $string['bbbinprocess'] = 'Cette activité est en cours.';
 $string['bbbnorecordings'] = 'Il n\'y a pas d\'enregistrement actuellement. Merci de revenir plus tard.';
 $string['bbbnotavailableyet'] = 'Désolé, cette session n\'est pas encore disponible.';
 $string['bbbrecordwarning'] = 'Cette session est enregistrée.';
-$string['bbburl'] = 'L\'URL de votre serveur BigBlueButton doit se terminer par /bigbluebutton/. (Cette URL par défaut permet d\'utiliser un serveur fourni par Blindside Networks que vous pouvez utiliser pour tester)';
+$string['bbburl'] = 'L\'URL de votre serveur BigBlueButton doit se terminer par /bigbluebutton/. (Cette URL par défaut est pour un serveur fourni par BigBlueButton Réseaux Blindside que vous pouvez utiliser pour les tests.)';
 $string['bigbluebuttonbn'] = 'BigBlueButton';
 $string['bigbluebuttonbn:addinstance'] = 'Ajouter une nouvelle conférence';
 $string['bigbluebuttonbnfieldset'] = 'Exemple de champ personnalisé';
@@ -42,9 +42,9 @@ $string['bigbluebuttonbn:moderate'] = 'Modérer une conférence';
 $string['bigbluebuttonbnSalt'] = 'Sel de sécurité';
 $string['bigbluebuttonbnUrl'] = 'URL du serveur BigBlueButton';
 $string['bigbluebuttonbnWait'] = 'L\'utilisateur doit patienter';
-$string['configsecuritysalt'] = 'Le sel de sécurité de votre serveur BigBlueButton. (Le sel par défaut est pour un serveur BigBlueButton fourni par Blindside Networks, que vous pouvez utiliser pour des tests)';
+$string['configsecuritysalt'] = 'Le sel de sécurité de votre serveur BigBlueButton. (Le sel par défaut est pour un serveur BigBlueButton fourni par Blindside Networks, que vous pouvez utiliser pour des tests.)';
 $string['general_error_unable_connect'] = 'Impossible de se connecter. Vérifiez l\'URL du serveur BigBlueButton ET vérifiez que le serveur est actif.';
-$string['index_confirm_end'] = 'Souhaitez-vous terminer la conférence ?';
+$string['index_confirm_end'] = 'Souhaitez-vous terminer la conférence ?';
 $string['index_disabled'] = 'désactivé';
 $string['index_enabled'] = 'activé';
 $string['index_ending'] = 'Fermeture de la conférence... merci de patienter';
@@ -60,7 +60,7 @@ $string['index_heading_recording'] = 'Enregistrement';
 $string['index_heading_users'] = 'Utilisateurs';
 $string['index_heading_viewer'] = 'Participants';
 $string['index_running'] = 'en cours';
-$string['index_warning_adding_meeting'] = 'Impossible d\'attribuer un nouveau meetingid.';
+$string['index_warning_adding_meeting'] = 'Impossible d\'attribuer un nouvel identifiant de réunion.';
 $string['mod_form_block_general'] = 'Paramètres généraux';
 $string['mod_form_block_record'] = 'Paramètres d\'enregistrement';
 $string['mod_form_block_schedule'] = 'Planification de session';
@@ -81,11 +81,11 @@ $string['mod_form_field_welcome'] = 'Message d\'accueil';
 $string['mod_form_field_welcome_default'] = '<br>Bienvenue sur <b>%%CONFNAME%%</b>!<br><br>Pour comprendre comment fonctionne BigBlueButton, veuillez voir nos <a href="event:http://www.bigbluebutton.org/content/videos"><u>tutoriels vidéos</u></a>.<br><br>Pour joindre la communication audio, cliquez sur l\'icône du casque (en haut à gauche). <b>Merci d\'utiliser un casque, pour éviter l\'écho.</b>';
 $string['mod_form_field_welcome_help'] = 'Remplace le message de bienvenue par défaut défini pour le serveur BigBlueButton. Le message peut inclure des mots clés (%%CONFNAME%%, %%DIALNUM%%, %%CONFNUM%%) qui seront substitués automatiquement, ainsi que des balises HTML comme <b>...</b> ou <i></i>';
 $string['modulename'] = 'BigBlueButtonBN';
-$string['modulename_help'] = 'BigBlueButtonBN vous permet de créer depuis Moodle des liens vers des classes virtuelles utilisant BigBlueButton, un outil opensource de conférence web conçu pour l\'éducation à distance.
+$string['modulename_help'] = 'BigBlueButtonBN vous permet de créer des liens au sein de Moodle vers des salles de classe virtuelle en ligne en utilisant BigBlueButton, système open source de conférence web pour l\'enseignement à distance.
 
-En utilisant BigBlueButtonBN vous pouvez spécifier un titre, une description, des dates (qui permettent de restreindre les périodes d\'accès à la session), l\'utilisation des groupes et des détails à propos de l\'enregistrement des sessions de conférence en ligne.
+En utilisant BigBlueButtonBN, vous pouvez indiquer le titre, la description, l\'agenda (ce qui donne une plage de dates pour rejoindre la session), des groupes et des détails sur l\'enregistrement de la session en ligne.
 
-Pour voir les enregistrements après coup, ajoutez une ressource Enregistrements BBB à ce cours.';
+Pour visionner les enregistrements plus tard, ajouter une ressource de type RecordingsBN à ce cours.';
 $string['modulenameplural'] = 'BigBlueButtonBN';
 $string['pluginadministration'] = 'Administration BigBlueButton';
 $string['pluginname'] = 'BigBlueButtonBN';

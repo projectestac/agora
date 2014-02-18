@@ -104,6 +104,8 @@ $string['pluginname_desc'] = '<p>LDAP서버를 이용하여 당신은 등록자�
 <p>이 플러그인은 새 모둠이 LDAP에 등록되면 자동적으로 새 강좌를 생성하도록 설정될 수 있다.</p>';
 $string['pluginnotenabled'] = '플러그인이 활성화되지 않았습니다!';
 $string['role_mapping'] = '<p> LDAP에서 부여하고자 하는 역할마다 역할 강좌 모둠이 위치해 있는 문맥 목록을 명시하는 것이 필요합니다. 다른 문맥을 \';\'로 분리하십시요.  </p><p> 또한 모둠의 구성원을 보유하기 위해 LDAP  서버가 사용하는 속성을 명시할 필요가 있습니다. </p>';
+$string['role_mapping_attribute'] = '{$a}에 대한 LDAP 멤버 속성';
+$string['role_mapping_context'] = '{$a}에 대한 LDAP 문맥';
 $string['role_mapping_key'] = 'LDAP으로부터 역할 매핑';
 $string['roles'] = '역할 배치';
 $string['server_settings'] = 'LDAP 서버 설정';

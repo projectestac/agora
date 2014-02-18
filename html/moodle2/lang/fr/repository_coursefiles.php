@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configplugin'] = 'Configuration du dépôt de fichiers du cours (obsolète)';
-$string['coursefiles:view'] = 'Utiliser le plugin de dépôt des fichiers du cours';
+$string['coursefiles:view'] = 'Consulter le dépôt des fichiers du cours';
 $string['emptyfilelist'] = 'Il n\'y a pas de fichier à afficher';
 $string['notitle'] = 'sans titre';
 $string['pluginname'] = 'Fichiers du cours (obsolète)';

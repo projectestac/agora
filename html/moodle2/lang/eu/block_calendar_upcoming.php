@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['calendar_upcoming:addinstance'] = 'Gehitu datozen ekitaldiak bloke berria';
-$string['calendar_upcoming:myaddinstance'] = 'Gehitu datozen ekitaldiak bloke berria Nire Moodle orrian';
+$string['calendar_upcoming:myaddinstance'] = 'Gehitu datozen ekitaldiak bloke berria Nire hasieran';
 $string['pluginname'] = 'Datozen ekitaldiak';

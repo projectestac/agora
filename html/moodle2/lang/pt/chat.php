@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['activityoverview'] = 'Inicia em breve uma sessão de Chat';
+$string['activityoverview'] = 'Tem sessões de Chat a decorrer em breve';
 $string['ajax'] = 'Versão com Ajax';
 $string['autoscroll'] = 'Scroll automático';
 $string['beep'] = 'Chamar';
@@ -86,7 +86,7 @@ O chat pode ocorrer apenas numa sessão ou repetir-se à mesma hora ao longo de 
 
 O Chat é uma ferramenta particularmente útil em situações em que as pessoas não podem encontrar-se presencialmente, tais como:
 
-* Encontros regulares entre alunos inscritos num curso online, o que lhes permite compartilhar experiências com outros alunos inscritos no mesmo curso, independentemente do local (cidade ou país) onde se encontrem
+* Encontros regulares entre alunos inscritos numa disciplina online, o que lhes permite compartilhar experiências com outros alunos inscritos na mesma disciplina, independentemente do local (cidade ou país) onde se encontrem
 * Conversas entre professor e aluno, quando este se encontra temporariamente impedido de comparecer pessoalmente nas aulas, permitindo-lhe recuperar os trabalhos em atraso;
 * Para permitir que os alunos se possam reunir fora do contexto de aula e discutir as suas experiências;
 * Para os pais terem a oportunidade de monitorizar e acompanhar as suas crianças pela descoberta do mundo das redes sociais;

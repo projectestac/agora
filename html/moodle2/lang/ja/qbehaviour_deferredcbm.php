@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['assumingcertainty'] = 'あなたは確実性を選択していません。仮定: {$a}';
+$string['assumingcertainty'] = 'あなたは確信度を選択していません。仮定: {$a}';
 $string['certainty1'] = 'あまり確かではないと思います (67%未満)';
 $string['certainty2'] = 'かなり確かだと思います (67%以上)';
 $string['certainty3'] = '極めて確かだと思います (80%以上)';

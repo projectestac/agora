@@ -48,4 +48,4 @@ $string['wildcardrole'] = 'I Jolly <strong>{x..}</strong> saranno sostituiti da 
 $string['wildcardvalues'] = 'Valori Jolly';
 $string['wildcardvaluesgenerated'] = 'Valori Jolly generati';
 $string['willconverttocalculated'] = 'Se impostato, <strong>Salva come nuova domanda</strong> salverà come nuova domanda calcolata';
-$string['youmustaddatleastonevalue'] = 'Dovete aggiungere almeno un set di Jolly prima di poter salvare la domanda';
+$string['youmustaddatleastonevalue'] = 'Devi aggiungere almeno un set di Jolly prima di poter salvare la domanda';

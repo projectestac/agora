@@ -31,4 +31,5 @@ $string['pluginname'] = 'Téléchargement d\'URL';
 $string['rename'] = 'Nom';
 $string['url'] = 'URL';
 $string['url:view'] = 'Utiliser le téléchargement d\'URL dans le sélecteur de fichiers';
+$string['validfiletype'] = 'Vous devez indiquer une URL vers un image ou vers une page contenant des images.';
 $string['validname'] = 'Veuillez fournir un nom de fichier valable';

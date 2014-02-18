@@ -26,6 +26,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['database'] = 'Datu-basea';
+$string['database_help'] = 'Erabiliko den datu-basearen izena';
 $string['password'] = 'Pasahitza';
+$string['password_help'] = 'Erabiltzailearen pasahitza konexiorako erabilitako bera da.';
+$string['pluginname'] = 'MongoDB';
 $string['server'] = 'Zerbitzaria';
+$string['testserver'] = 'Proba-zerbitzaria';
 $string['username'] = 'Erabiltzaile-izena';
+$string['usesafe'] = 'Erabili segurua';
+$string['usesafevalue'] = 'Erabili balore segurua';

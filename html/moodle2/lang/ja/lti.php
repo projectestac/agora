@@ -181,21 +181,21 @@ $string['launch_url_help'] = '起動URIでは外部ツールのウェブアド�
 
 特定のツールタイプを選択した場合、あなたは起動URIを入力する必要はありません。ツールリンクがツールプロバイダのシステムを起動するのみ、または特定のリソースに移動しない場合がこのケースにあたります。';
 $string['lti'] = 'LTI';
-$string['lti:addcoursetool'] = 'LTI活動を評定する';
-$string['lti:addinstance'] = '新しいLTI活動を追加する';
+$string['lti:addcoursetool'] = 'コース個別ツール設定を追加する';
+$string['lti:addinstance'] = '新しい外部ツール活動を追加する';
 $string['lti_administration'] = 'LTI管理';
 $string['lti_errormsg'] = 'ツールにより次のエラーメッセージが返されました: 「 $a 」';
-$string['lti:grade'] = 'LTI活動を評定する';
-$string['lti_launch_error'] = '外部ツールの起動中にエラーが発生しました:';
+$string['lti:grade'] = '外部ツールから戻された評点を表示する';
+$string['lti_launch_error'] = '外部ツール起動中にエラーが発生しました:';
 $string['lti_launch_error_tool_request'] = '<p>管理者にツール設定の完了をリクエストするには、<a href="{$a->admin_request_url}" target="_top">ここをクリック</a>してください。 </p>';
 $string['lti_launch_error_unsigned_help'] = '<p>ツールプロバイダのコンシューマーキーおよび共通秘密鍵が不足しているため、このエラーが発生したと考えられます。</p>
 
 <p> コンシューマーキーおよび共通秘密鍵がある場合、あなたは外部ツールインスタンスの設定時に入力することができます (拡張要素が表示されていることを確認してください)。<br /> 代わりに、あなたは<a href="{$a->course_tool_editor}">ここで</a>コースレベルのツールプロバイダ設定を作成することができます。</p>';
-$string['lti:manage'] = 'LTI活動を編集する';
-$string['lti:requesttooladd'] = '設定のため、管理者にツールを送信する';
+$string['lti:manage'] = 'ツール起動時、インストラクタになる';
+$string['lti:requesttooladd'] = 'ツールがサイト全体に設定されるようリクエストする';
 $string['lti_tool_request_added'] = 'ツール設定のリクエストが正常に送信されました。ツール設定を完了するため、あなたは管理者に連絡する必要があります。';
 $string['lti_tool_request_existing'] = 'ツールドメインに関するツール設定は、すでに送信されています。';
-$string['lti:view'] = 'ＬＴＩ活動を表示する';
+$string['lti:view'] = '外部ツール活動を起動する';
 $string['main_admin'] = '概要ヘルプ';
 $string['main_admin_help'] = '外部ツールでは、遠隔に設置されたリソースをMoodleユーザがシームレスに利用できること実現します。特別な起動プロトコルを通して、リモートツールは起動ユーザの一般的な情報にアクセスすることができます。例えば、インスティテューション名、コースID、ユーザIDおよびユーザ名またはメールアドレス等の情報です。
 
@@ -325,6 +325,7 @@ $string['show_in_course_help'] = 'このオプションを有効にした場合�
 例えば、ツールプロバイダへの起動すべてがユーザを特定のリソースにアクセスさせるのではなく、ランディングページに移動させる場合です。';
 $string['size'] = 'サイズパラメータ';
 $string['submission'] = '送信';
+$string['submissionsfor'] = '{$a} の提出';
 $string['toggle_debug_data'] = 'デバッグデータに切り替える';
 $string['tool_config_not_found'] = 'このURIではツール設定が見つかりませんでした。';
 $string['tool_settings'] = 'ツール設定';

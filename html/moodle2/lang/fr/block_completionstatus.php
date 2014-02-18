@@ -27,7 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['completionprogressdetails'] = 'Données détaillées d\'achèvement de cours';
 $string['completionstatus:addinstance'] = 'Ajouter un bloc achèvement de cours';
-$string['completionstatus:myaddinstance'] = 'Ajouter un bloc achèvement de cours à la page Mon Moodle';
 $string['criteriagroup'] = 'Groupe de critères';
 $string['firstofsecond'] = '{$a->first} sur {$a->second}';
 $string['pluginname'] = 'Achèvement de cours';

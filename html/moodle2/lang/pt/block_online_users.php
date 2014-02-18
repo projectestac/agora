@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['configtimetosee'] = 'Número de minutos que determina o período de inatividade para que um utilizador deixe de ser considerado como ativo.';
 $string['online_users:addinstance'] = 'Adicionar um novo bloco Utilizadores ativos';
-$string['online_users:myaddinstance'] = 'Adicionar um novo bloco Utilizadores ativos à Minha página principal';
+$string['online_users:myaddinstance'] = 'Adicionar um novo bloco Participantes à Minha página principal';
 $string['online_users:viewlist'] = 'Ver lista de utilizadores on-line';
 $string['periodnminutes'] = 'nos últimos {$a} minutos';
 $string['pluginname'] = 'Utilizadores ativos';

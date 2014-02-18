@@ -25,17 +25,17 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['activityoverview'] = 'Vous avez un message de chat';
+$string['activityoverview'] = 'Vous avez des sessions de chat prévues';
 $string['ajax'] = 'Version Ajax';
 $string['autoscroll'] = 'Défilement automatique';
-$string['beep'] = 'bip';
+$string['beep'] = 'Bip';
 $string['cantlogin'] = 'Connexion au salon de chat impossible !';
 $string['chat:addinstance'] = 'Ajouter un chat';
 $string['chat:chat'] = 'Accéder à un salon de chat';
 $string['chat:deletelog'] = 'Supprimer les historiques des chats';
 $string['chat:exportparticipatedsession'] = 'Exporter les sessions de chat auxquelles vous avez participé';
 $string['chat:exportsession'] = 'Exporter toutes les sessions de chat';
-$string['chatintro'] = 'Texte d\'introduction';
+$string['chatintro'] = 'Description';
 $string['chatname'] = 'Nom de ce salon';
 $string['chat:readlog'] = 'Lire les historiques des chats';
 $string['chatreport'] = 'Sessions de chat';
@@ -125,7 +125,7 @@ $string['serverip'] = 'Adresse IP serveur';
 $string['servermax'] = 'Nombre max d\'utilisateurs';
 $string['serverport'] = 'Port du serveur';
 $string['sessions'] = 'Sessions de chat';
-$string['sessionstart'] = 'La session de chat commencera dans {$a}';
+$string['sessionstart'] = 'La prochaine session de chat commencera dans {$a}';
 $string['strftimemessage'] = '%H:%M';
 $string['studentseereports'] = 'Tout le monde peut consulter les sessions précédentes';
 $string['studentseereports_help'] = 'Si ce réglage est désactivé, seuls les utilisateurs avec la capacité mod/chat:readlog pourront consulter les historiques de chat';

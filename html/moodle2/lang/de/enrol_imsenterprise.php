@@ -30,7 +30,7 @@ $string['allowunenrol'] = 'IMS-Datei das <strong>Löschen</string> von Teilnehme
 $string['allowunenrol_desc'] = 'Wenn diese Option aktiviert ist, werden Kurseineinschreibungen aufgehoben, wenn dies in der IMS-Enterprise-Datei eingetragen ist. ';
 $string['basicsettings'] = 'Grundeinstellungen';
 $string['coursesettings'] = 'Kurseinstellungen';
-$string['createnewcategories'] = 'Erstelle neue (verborgene) Kurskategorien, wenn nicht in Moodle gefunden';
+$string['createnewcategories'] = 'Neue (verborgene) Kurskategorien anlegen, wenn nicht in Moodle gefunden';
 $string['createnewcategories_desc'] = 'Wenn das <org><orgunit> Element in der importierten Datei enthalten ist, wird es benutzt um einen Kurs einer Kurskategorie zuzuordnen, sofern der Kurs neu angelegt wird. Bereits bestehende Kurse werden dadurch NICHT verschoben.
 Wenn keine Kategorie mit dem Namen existiert wird diese neu als verborgene Kategorie angelegt.';
 $string['createnewcourses'] = 'Erstelle neue (verborgene) Kurse, wenn nicht in Moodle gefunden';
@@ -53,7 +53,7 @@ $string['location'] = 'Speicherort für IMS-Datei';
 $string['logtolocation'] = 'Speicherort für Logdatei (leer lassen, um keine Logs zu erstellen)';
 $string['mailadmins'] = 'Administrator/innen per E-Mail benachrichtigen';
 $string['mailusers'] = 'Nutzer/innen per E-Mail benachrichtigen';
-$string['messageprovider:imsenterprise_enrolment'] = 'Mitteilungen bei Einschreibung über IMS Enterprise';
+$string['messageprovider:imsenterprise_enrolment'] = 'Mitteilung bei Einschreibung über IMS Enterprise';
 $string['miscsettings'] = 'Verschiedenes';
 $string['pluginname'] = 'IMS Enterprise Datei';
 $string['pluginname_desc'] = 'IMS Enterprise-Datei';

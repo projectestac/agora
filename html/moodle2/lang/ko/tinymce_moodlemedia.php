@@ -26,3 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['moodlemedia:browsemedia'] = '찾기 혹은 사운드, 비디오 및 애플릿 올리기';
+$string['moodlemedia:desc'] = '무들 미디어 삽입';
+$string['nopreview'] = '미디어를 미리보기 할 수 없습니다.';
+$string['pluginname'] = '미디어 삽입';

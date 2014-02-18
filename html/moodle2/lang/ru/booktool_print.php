@@ -26,8 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Печать книги';
-$string['printbook'] = 'Печатать всю книгу';
-$string['printchapter'] = 'Печатать только эту главу';
+$string['printbook'] = 'Печатать книгу';
+$string['printchapter'] = 'Печатать эту главу';
 $string['printdate'] = 'Дата';
 $string['printedby'] = 'Напечатано:';
 $string['print:print'] = 'Печатать книгу';

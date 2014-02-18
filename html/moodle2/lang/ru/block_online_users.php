@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['configtimetosee'] = 'Количество минут для определения какие из пользователей сейчас на сайте';
 $string['online_users:addinstance'] = 'Добавлять новый блок пользователей онлайн';
+$string['online_users:myaddinstance'] = 'Добавлять новый блок пользователей онлайн в Мой Moodle';
 $string['online_users:viewlist'] = 'Видеть список пользователей онлайн';
 $string['periodnminutes'] = 'последние {$a} минут';
 $string['pluginname'] = 'Пользователи на сайте';

@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['livelogs'] = 'Actions effectuées durant l\'heure écoulée';
-$string['loglive:view'] = 'Afficher les historiques en direct';
+$string['loglive:view'] = 'Consulter les historiques en direct';
 $string['pluginname'] = 'Historiques en direct';

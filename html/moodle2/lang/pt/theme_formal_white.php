@@ -76,7 +76,7 @@ $string['customcssdesc'] = 'Qualquer CSS que inserir aqui será adicionado a cad
 <pre>a:link, a:visited, a:hover, a:active, a:focus {color:blue;}</pre>
 Por favor, ajuste as cores e regras de CSS para que se ajustem ao que pretende.';
 $string['customlogourl'] = 'Logotipo personalizado';
-$string['customlogourldesc'] = 'Altere o logotipo para este tema inserindo o URL, completo ou relativo, da imagem que deseja usar (ex: http://www.seusite.tld/meulogo.png ou ../caminho/para/seu/logo.png). Como referência o logotipo predefinido tem 200px de largura, 50px de altura e funcionará melhor se for um png transparente.';
+$string['customlogourldesc'] = 'Altere o logotipo que será exibido na primeira página do seu site inserindo o URL, completo ou relativo, da imagem que deseja usar (ex: http://www.seusite.tld/meulogo.png ou ../caminho/para/seu/logo.png). Esta configuração substitui a configuração do logotipo personalizado. Como referência, o logotipo padrão tem 300px de largura, 80px de altura e funcionará melhor se for no formato PNG transparente.';
 $string['displayheading'] = 'Mostrar cabeçalho da página';
 $string['displaylogo'] = 'Mostrar logotipo';
 $string['fontsizereference'] = 'Referência do tamanho da fonte';
@@ -86,7 +86,7 @@ $string['footnotedesc'] = 'O conteúdo que inserir será exibido no rodapé de c
 $string['framemargin'] = 'Margem da frame';
 $string['framemargindesc'] = 'Espaço entre a frame e a borda da janela do browser. (Esta configuração será ignorada se "{$a}" for solicitado).';
 $string['frontpagelogourl'] = 'Logotipo personalizado da página da frente';
-$string['frontpagelogourldesc'] = 'Altere o logotipo que será exibido na primeira página do seu site inserindo o URL, completo ou relativo, da imagem que deseja usar (ex: http://www.seusite.tld/meulogo.png ou ../caminho/para/seu/logo.png). Esta configuração substitui a configuração logotipo personalizado. Como referência o logotipo padrão tem 300px de largura, 80px de altura e funcionará melhor se for um png transparente.';
+$string['frontpagelogourldesc'] = 'Altere o logotipo que será exibido na primeira página do seu site inserindo o URL, completo ou relativo, da imagem que deseja usar. Esta configuração substitui a configuração do logotipo personalizado. Como referência, o logotipo padrão tem 300px de largura, 80px de altura e funcionará melhor se for no formato PNG transparente.';
 $string['headerbgc'] = 'Cor de fundo do cabeçalho';
 $string['headerbgcdesc'] = 'Esta opção define a cor de fundo dos blocos do cabeçalho para o tema.';
 $string['headercontent'] = 'Conteúdo do cabeçalho';

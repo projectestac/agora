@@ -35,6 +35,7 @@ $string['notargetconectexception'] = '죄송합니다. 대상 데이터베이스
 $string['options'] = '옵션';
 $string['pluginname'] = '데이터베이스 전송';
 $string['targetdatabase'] = '타겟 데이터베이스';
+$string['targetdatabasenotempty'] = '대상 데이터베이스는 지정된 접두사를 사용하는 테이블을 포함 할 수 없습니다!';
 $string['transferdata'] = '데이터 전송';
 $string['transferdbintro'] = '이 스크립트는 이 데이터베이스의 모든 내용을 다른 데이터베이스 서버로 전송할 것입니다.';
 $string['transferdbtoserver'] = '타 서버로 무들 데이터베이스 전송';

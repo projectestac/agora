@@ -26,6 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configplugin'] = 'Wikimedia biltegi-motaren ezarpenak';
-$string['keyword'] = 'Testu osoa';
+$string['keyword'] = 'Bilatu';
 $string['pluginname'] = 'Wikimedia';
 $string['wikimedia:view'] = 'Wikimedia biltegia ikusi';

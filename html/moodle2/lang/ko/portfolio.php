@@ -149,6 +149,7 @@ $string['multipleinstancesdisallowed'] = '다중 인스턴스 ({$a})를 허용�
 $string['mustsetcallbackoptions'] = 'portfolio_add_button 을 설정하거나 set_callback_options 방법을 이용하여 회신 옵션을 설정하여야 함';
 $string['noavailableplugins'] = '내보낼 포트폴리오가 없음';
 $string['nocallbackclass'] = '({$a})를 사용할 수 있는 회신 클래스를 찾을 수 없음';
+$string['nocallbackcomponent'] = '명시한 {$a} 구성요소를 찾을 수 없습니다.';
 $string['nocallbackfile'] = '내보내려는 포트폴리오가 깨졌음 - 요청한 {$a} 파일을 찾을 수 없음';
 $string['noclassbeforeformats'] = 'portfolio_button의 set_formats을 호출하기 전에 회신 클래스를 설정해야만 함';
 $string['nocommonformats'] = '이용가능한 플러그인과 요청한 위치 {$a->location} 사이에 공통의 포맷이 없음(호출자의 포맷은 {$a->formats}를 지원합니다)';

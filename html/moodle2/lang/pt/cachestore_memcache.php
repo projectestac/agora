@@ -26,6 +26,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Memcache';
+$string['prefix'] = 'Prefixo da chave';
+$string['prefix_help'] = 'Este prefixo é usado para todos os nomes de chave no servidor memcache.
+
+*Se só tiver uma instância Moodle a usar este servidor, pode deixar este valor configurado por predefinição.
+
+*Devido às restrições de extensão da chave, é permitido um máximo de 5 caracteres.';
+$string['prefixinvalid'] = 'Prefixo inválido. Pode usar apenas a-z A-Z 0-9-_.';
 $string['servers'] = 'Servidores';
 $string['servers_help'] = 'Isto define os servidores que devem ser utilizados por este adaptador de memcache. Os servidores devem ser definidos um por cada linha e constituídos por um endereço de servidor e, opcionalmente, uma porta e peso.
 Se nenhuma porta for fornecida será utilizada a porta padrão (11211).

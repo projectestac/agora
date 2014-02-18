@@ -26,4 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['exportimscp:export'] = 'Экспорт книги в виде пакета IMS';
-$string['generateimscp'] = 'Создать пакет IMS';
+$string['generateimscp'] = 'Создать пакет IMS CP';
+$string['nochapters'] = 'Не найдено ни одной главы книги. Экспорт в IMS CP невозможен.';
+$string['pluginname'] = 'Экспорт в IMS CP';

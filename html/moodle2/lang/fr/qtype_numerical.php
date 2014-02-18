@@ -43,7 +43,7 @@ $string['invalidnumbernounit'] = 'Vous devez entrer un nombre valide. Ne mettez 
 $string['invalidnumericanswer'] = 'L\'une des réponses que vous avez saisies n\'est pas un nombre valide.';
 $string['invalidnumerictolerance'] = 'L\'une des tolérances que vous avez saisies n\'est pas un nombre valide.';
 $string['leftexample'] = 'À gauche, comme € 2.50 ou $ 1.25';
-$string['manynumerical'] = 'Les unités sont optionnelles. Si une unité est saisie, elle sera utilisée pour la conversion vers l\'unité 1 avant l\'évaluation.';
+$string['manynumerical'] = 'Les unités sont optionnelles. Si une unité est saisie, elle est utilisée pour la conversion de la réponse donnée vers l\'unité 1 avant l\'évaluation.';
 $string['multiplier'] = 'Coefficient';
 $string['nominal'] = 'Nominal';
 $string['noneditableunittext'] = 'Texte non modifiable pour l\'unité 1';
@@ -101,9 +101,9 @@ $string['unitpenalty_help'] = 'La pénalité est appliquée si :
 $string['unitposition'] = 'Position de l\'unité';
 $string['unitselect'] = 'un menu déroulant';
 $string['validnumberformats'] = 'Formats de nombre valides';
-$string['validnumberformats_help'] = '* nombre régulier 13500.67, 13 500.67, 13500,67 ou 13 500,67
+$string['validnumberformats_help'] = '* nombres réguliers 13500.67, 13 500.67, 13500,67 ou 13 500,67
 
-* si vous utilisez le caractère « , » en tant que séparateur de milliers, il faut impérativement utiliser le caractère « . » pour indiquer la décimale comme dans 13,500.67 ou 13,500
+* si votre paquetage de langue utilise le caractère « , » en tant que séparateur de milliers, il faut *impérativement* utiliser le caractère « . » pour indiquer la décimale comme dans 13,500.67 ou 13,500
 
-* concernant l\'exposant, pour exprimer 1.350067 * 10<sup>4</sup>, il faut utiliser  1.350067 E4 ou 1.350067 E04';
+* pour l\'exposant, par exemple pour écrire 1.350067 * 10<sup>4</sup>, il faut utiliser  1.350067 E4 ou 1.350067 E04';
 $string['validnumbers'] = '13500.67, 13 500.67, 13,500.67, 13500,67, 13 500,67, 1.350067 E4 ou 1.350067 E04';

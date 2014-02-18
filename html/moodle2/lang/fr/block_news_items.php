@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['news_items:addinstance'] = 'Ajouter un bloc dernières nouvelles';
-$string['news_items:myaddinstance'] = 'Ajouter un bloc dernières nouvelles à la page Mon Moodle';
+$string['news_items:myaddinstance'] = 'Ajouter un bloc dernières nouvelles à Ma page';
 $string['pluginname'] = 'Dernières nouvelles';

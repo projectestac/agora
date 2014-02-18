@@ -52,12 +52,12 @@ $string['uploadpicture_usernotfound'] = 'Il n\'y a pas d\'utilisateur dont l\'at
 $string['uploadpicture_userskipped'] = 'Utilisateur {$a} ignoré (il possède déjà un avatar).';
 $string['uploadpicture_userupdated'] = 'Avatar de l\'utilisateur {$a} modifié.';
 $string['uploadusers'] = 'Importation d\'utilisateurs';
-$string['uploadusers_help'] = 'Il est possible d\'importer manuellement des comptes utilisateurs (et optionnellement inscrits à des cours) à partir d\'un fichier texte, ce fichier doit être formaté de la façon suivante :
+$string['uploadusers_help'] = 'Il est possible d\'importer manuellement des comptes utilisateurs (et optionnellement les inscrire à des cours) à partir d\'un fichier texte. Ce fichier doit être formaté de la façon suivante :
 
-* chaque ligne du fichier contient un enregistrement ;
-* les données de chaque enregistrement sont séparées par une virgule (ou un autre caractère de séparation) ;
-* le premier enregistrement contient le nom des champs qui composent les enregistrements, et détermine ainsi la structure de la suite du fichier ;
-* les champs requis sont username, password, firstname, lastname, email';
+* chaque ligne du fichier contient un enregistrement ;
+* les données de chaque enregistrement sont séparées par une virgule (ou un autre caractère de séparation) ;
+* le premier enregistrement contient le nom des champs qui composent les enregistrements, et détermine ainsi la structure de la suite du fichier ;
+* les champs requis sont username, password, firstname, lastname, email';
 $string['uploaduserspreview'] = 'Prévisualisation de la création d\'utilisateurs';
 $string['uploadusersresult'] = 'Résultats de la création d\'utilisateurs';
 $string['useraccountupdated'] = 'Utilisateur modifié';

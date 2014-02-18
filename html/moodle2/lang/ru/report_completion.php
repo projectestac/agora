@@ -25,6 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['completiondate'] = 'Дата завершения';
+$string['completion:view'] = 'Просматривать отчет о завершении курса';
 $string['id'] = 'ID';
 $string['name'] = 'Название';
+$string['page-report-completion-index'] = 'Отчет о завершении курса';
+$string['page-report-completion-user'] = 'Отчет о завершении курса пользователями';
+$string['page-report-completion-x'] = 'Отчет о любом завершении';
 $string['pluginname'] = 'Завершение курса';

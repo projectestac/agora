@@ -26,5 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Файл XML';
+$string['useridnumberwarning'] = 'Пользователи без идентификационного номера, не включаются в экспорт XML, поскольку они не смогут быть импортированы';
 $string['xml:publish'] = 'Опубликовывать ссылку для экспорта оценок в формате XML';
 $string['xml:view'] = 'Использовать экспорт оценок в формате XML';

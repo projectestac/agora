@@ -26,6 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configplugin'] = 'Конфигурация хранилища Wikimedia';
-$string['keyword'] = 'Полный текст';
+$string['keyword'] = 'Искать';
 $string['pluginname'] = 'Wikimedia';
 $string['wikimedia:view'] = 'Просматривать хранилище Wikimedia';

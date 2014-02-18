@@ -25,10 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['label:addinstance'] = 'Neues Textfeld hinzufügen';
-$string['labeltext'] = 'Textfeld im Kurs';
+$string['label:addinstance'] = 'Textfeld hinzufügen';
+$string['labeltext'] = 'Textfeld';
 $string['modulename'] = 'Textfeld';
-$string['modulename_help'] = 'Ein Textfeld erscheint direkt auf der Kursseite: als Überschrift, kurzer Lerninhalt oder zur Orientierung der Teilnehmer';
+$string['modulename_help'] = 'Ein Textfeld wird auf der Kursseite angezeigt, u.z. als Überschrift, kurzer Lerninhalt oder zur Orientierung der Teilnehmer/innen.';
 $string['modulenameplural'] = 'Textfelder';
 $string['pluginadministration'] = 'Textfeld-Administration';
 $string['pluginname'] = 'Textfeld';

@@ -27,7 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['alphabet'] = 'ا،ٓ،ب،پ،ت،ٹ،ث،ج،چ،ح،خ،د،ڈ،ذ،ر،ڑ،ز،ژ،س،ش،ص،ض،ط،ظ،ع،غ،ف،ق،ک،گ،ل،م،ن،ں،و،ہ،ت،ھ،ء،ی،ے';
 $string['backupnameformat'] = '';
+$string['decsep'] = '.';
 $string['firstdayofweek'] = '0';
+$string['listsep'] = ';';
 $string['locale'] = 'ur_PK.UTF-8';
 $string['localewin'] = 'Urdu_Islami Jamhuria Pakistan.1256';
 $string['localewincharset'] = 'WINDOWS-1256';
@@ -46,3 +48,4 @@ $string['strftimetime'] = '%I:%M %p';
 $string['thisdirection'] = 'rtl';
 $string['thislanguage'] = 'اردو';
 $string['thislanguageint'] = 'Urdu';
+$string['thousandssep'] = ',';

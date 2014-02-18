@@ -128,6 +128,7 @@ $string['moredetails'] = '更多细节';
 $string['nocriteriaset'] = '本课程未设置完成条件';
 $string['notcompleted'] = '未完成';
 $string['notenroled'] = '您没有加入此课程';
+$string['nottracked'] = '在此课程中当前没有关于您的进度跟踪信息';
 $string['notyetstarted'] = '还未开始';
 $string['overallcriteriaaggregation'] = '所有条件类型汇总';
 $string['pending'] = '等待中';

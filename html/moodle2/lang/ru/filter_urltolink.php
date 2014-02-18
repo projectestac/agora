@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['embedimages'] = 'Вставлять изображения';
+$string['embedimages_desc'] = 'Заменить URL-адреса изображений на изображения в подобранных текстовых форматах.';
 $string['filtername'] = 'Преобразование URL в гиперссылки и изображения';
 $string['settingformats'] = 'Применять к форматам';
 $string['settingformats_desc'] = 'Фильтр будет использоваться, только если текст был вставлен в одном из выбранных форматов.';

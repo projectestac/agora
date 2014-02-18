@@ -36,7 +36,16 @@ $string['legacyfiles'] = 'Ikastaro zaharren fitxategi-migrazioa';
 $string['legacyfilesactive'] = 'Aktiboa';
 $string['legacyfilesdone'] = 'Amaituta';
 $string['modulename'] = 'Orria';
-$string['modulename_help'] = 'Orriak ikastaroaren barruan ikus eta edita daitekeen web orria sortzea ahalbidetzen du.';
+$string['modulename_help'] = 'Orriak ikastaroaren barruan ikus eta edita daitekeen web orria sortzea ahalbidetzen du, testu editorea erabilita. Orri batek testua, irudiak, soinua, bideoa eta web-estekak eduki ditzake, baita txertaturiko kodea ere, Google maps-ekoa adibidez.
+
+Fitxategi bat erabili beharrean orri bat erabiltzearen onurak edukiak irisgarriagoak (gailu mugikorren erabiltzaileentzat adibidez) eta eguneratzen errazagoak izatea dira.
+
+Eduki-kopuru handientzat gomendagarria da orria erabili beharrean liburua erabiltzea.
+
+Orri bat erabil daiteke
+
+* Ikastaro baten baldintzak, laburpena edo ikasketa-programa aurkezteko
+* Azalpen batekin batera hainbat bideo edo audio txertatzeko';
 $string['modulenameplural'] = 'Orriak';
 $string['neverseen'] = 'Inoiz ez ikusia';
 $string['optionsheader'] = 'Aukerak';

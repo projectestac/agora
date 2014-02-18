@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cohortnonmemberinfo'] = '수업집단  \'{$a}\' 의 구성원 만이 스스로 등록할 수 있습니다.';
+$string['cohortonly'] = '수업집단 구성원만';
 $string['customwelcomemessage'] = '사용자 정의 환영 메세지';
 $string['defaultrole'] = '기본 역할';
 $string['defaultrole_desc'] = '등록하면 사용자에게 부여할 역할 선택';
@@ -38,6 +40,9 @@ $string['enrolperiod_desc'] = '(초로 표시한) 기본 재적 기간';
 $string['enrolperiod_help'] = '*.swf 확장자 파일. 보안상의 이유로 이 필터는 신뢰된 문장들에서만 사용됩니다.';
 $string['enrolstartdate'] = '등록 시작 날짜';
 $string['enrolstartdate_help'] = '활성화되면 사용자들은 이 날 이후로만 등록할 수 있습니다.';
+$string['expiredaction'] = '등록 만료 조치';
+$string['expirymessageenrolledsubject'] = '스스로 등록 만료 통지';
+$string['expirymessageenrollersubject'] = '스스로 등록 만료 통지';
 $string['groupkey'] = '모둠 등록키 사용';
 $string['groupkey_desc'] = '기본으로 모둠 등록키를 사용';
 $string['groupkey_help'] = '키를 아는 사람들에게만 강좌에 대한 접속을 제한할 수 있으며, 모둠 등록키를 사용하면 사용자들이 등록할때 자동으로 모둠에 추가됩니다.
@@ -48,6 +53,7 @@ $string['longtimenosee_help'] = '만일 사용자가 오랫동안 강좌에 접�
 $string['maxenrolled'] = '최대 등록 사용자';
 $string['maxenrolled_help'] = '자체 등록할 수 있는 최대 사용자 수를 명시하세요. 0은 제한이 없음을 의미합니다.';
 $string['maxenrolledreached'] = '자체 등록할 수 있는 최대 사용자 수가 이미 도달하였습니다.';
+$string['messageprovider:expiry_notification'] = '스스로 등록 만료 통지';
 $string['nopassword'] = '등록키가 필요하지 않습니다.';
 $string['password'] = '등록키';
 $string['password_help'] = '등록키는 키를 아는 사람만 강좌에 접속할 수 있게 제한 합니다.

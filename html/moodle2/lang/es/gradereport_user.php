@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Usuario';
+$string['tablesummary'] = 'La tabla está ordenada como una lista de elementos de calificación incluyendo las categorías. Cuando los elementos están en una categoría se indicará como tal.';
 $string['user:view'] = 'Ver su propio informe de calificación';

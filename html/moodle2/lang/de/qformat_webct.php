@@ -32,6 +32,6 @@ $string['paragraphquestion'] = 'Paragraphfrage';
 $string['pluginname'] = 'WebCT-Format';
 $string['pluginname_help'] = 'Das WebCT-Format erlaubt den Import von Kurzantwort- und Multiple-Choice-Fragen, die im Textformat von WebCT gespeichert wurden.';
 $string['questionnametoolong'] = 'Zu langer Fragename in Zeile {$a} (max. 255 Zeichen) wurde verkürzt';
-$string['unknowntype'] = 'Unbekannter Typ';
+$string['unknowntype'] = 'Unbekannter Typ nach Zeile {$a}';
 $string['warningsdetected'] = '{$a} Warnung(en) gefunden';
 $string['wronggrade'] = 'Falsche Bewertung (nach Zeile {$a}):';

@@ -26,4 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['capabilityreport'] = 'مراجعة الإمكانات';
+$string['forroles'] = 'للأدوار {$a}';
+$string['getreport'] = 'الحصول على النظرة العامة';
 $string['pluginname'] = 'مراجعة الإمكانات';
+$string['reportforcapability'] = 'تقرير الإمكانية \'{$a}';
+$string['reportsettings'] = 'إعدادات التقرير';

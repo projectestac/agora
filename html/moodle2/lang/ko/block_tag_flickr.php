@@ -39,3 +39,4 @@ $string['numberofphotos'] = '사진의 갯수';
 $string['pluginname'] = 'Flickr';
 $string['relevance'] = '관련성';
 $string['sortby'] = '정렬';
+$string['tag_flickr:addinstance'] = '플리커 블록 추가';

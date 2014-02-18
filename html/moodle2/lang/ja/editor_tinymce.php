@@ -49,6 +49,7 @@ $string['advanced:custom1_desc'] = '説明文を入力してください。';
 $string['advanced:cut_desc'] = '切り取り';
 $string['advanced:dd'] = '語句説明';
 $string['advanced:div'] = 'DIV';
+$string['advanced_dlg:'] = '&nbsp;';
 $string['advanced_dlg:about_author'] = '作者';
 $string['advanced_dlg:about_general'] = '詳細';
 $string['advanced_dlg:about_help'] = 'ヘルプ';

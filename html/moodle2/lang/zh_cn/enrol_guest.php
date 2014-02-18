@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowguests'] = '该课程允许访客进入';
+$string['guestaccess_withoutpassword'] = '访客可访问';
+$string['guestaccess_withpassword'] = '访客可凭密码访问';
 $string['guest:config'] = '配置访客访问实例';
 $string['password'] = '密码';
 $string['password_help'] = '设定密码可以限定只有知道密码的访客才能访问课程。访客每次访问此课程都会被要求输入密码。';

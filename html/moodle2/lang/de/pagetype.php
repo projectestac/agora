@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['page-admin-current'] = 'Aktuelle Website-Administrationsseite';
-$string['page-admin-x'] = 'Jede Website-Administrationsseite';
+$string['page-admin-current'] = 'Aktuelle Website-Administration';
+$string['page-admin-x'] = 'Jede Website-Administration';
 $string['page-course-report-x'] = 'Jede Kursberichtsseite';
 $string['page-course-view-x'] = 'Jede Kurshauptseite';
 $string['page-course-x'] = 'Jede Kursseite';

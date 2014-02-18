@@ -123,7 +123,7 @@ $string['exampleneedassessed'] = 'Devi prima valutare tutte le consegne di esemp
 $string['exampleneedsubmission'] = 'Devi prima consegnare il tuo lavoro e valutare tutte le consegne di esempio';
 $string['examplesbeforeassessment'] = 'Gli esempi sono disponibili dopo la propria consegna e devono essere valutati prima della fase di valutazione tra pari';
 $string['examplesbeforesubmission'] = 'Gli esempi devono essere valutati prima della propria consegna';
-$string['examplesmode'] = 'Modalità di valutazione degli esempii';
+$string['examplesmode'] = 'Modalità di valutazione degli esempi';
 $string['examplesubmissions'] = 'Consegne di esempio
 ';
 $string['examplesvoluntary'] = 'La valutazione delle consegne di esempio è su base volontaria';

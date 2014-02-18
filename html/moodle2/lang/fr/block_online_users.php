@@ -27,8 +27,8 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['configtimetosee'] = 'Nombre de minutes déterminant la période d\'inactivité après laquelle un utilisateur n\'est plus considéré comme étant en ligne.';
 $string['online_users:addinstance'] = 'Ajouter un bloc utilisateurs en ligne';
-$string['online_users:myaddinstance'] = 'Ajouter un bloc utilisateurs en ligne à la page Mon Moodle';
-$string['online_users:viewlist'] = 'Consulter la liste des utilisateurs en ligne';
+$string['online_users:myaddinstance'] = 'Ajouter un bloc utilisateurs connectés à Ma page';
+$string['online_users:viewlist'] = 'Accéder à la liste des utilisateurs connectés';
 $string['periodnminutes'] = '{$a} dernières minutes';
 $string['pluginname'] = 'Utilisateurs en ligne';
 $string['timetosee'] = 'Retirer les inactifs après (minutes)';

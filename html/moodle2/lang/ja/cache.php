@@ -66,6 +66,7 @@ $string['ex_unabletolock'] = 'キャッシングのロックを取得できま�
 $string['ex_unmetstorerequirements'] = '現在、あなたはこのストアを使用することはできません。必要条件を決定するため、ドキュメンテーションをご覧ください。';
 $string['gethit'] = 'Get - ヒット';
 $string['getmiss'] = 'Get - ミス';
+$string['inadequatestoreformapping'] = 'このストアはすべての既知の定義に対して必要条件を満たしていません。このストアに対する定義が不適切な場合、選択されたストアの代わりにオリジナルのデフォルトストアが与えられます。';
 $string['invalidplugin'] = '無効なプラグイン';
 $string['invalidstore'] = '無効なキャッシュストアが提供されました。';
 $string['lockdefault'] = 'デフォルト';

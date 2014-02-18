@@ -41,6 +41,7 @@ $string['hash_murmur'] = 'Murmur';
 $string['pluginname'] = 'Memcached';
 $string['prefix'] = '前置キー';
 $string['prefix_help'] = 'この設定はアイテムキーに「ドメイン」を作成するために使用することができます。あなたは単一のmemcachedインストレーションにおいて、複数のmemcachedストアを作成できるようになります。キー長の問題に遭遇しないために、文字長は半角16文字以上にすることはできません。';
+$string['prefixinvalid'] = '無効な接頭辞です。あなたは「a-z A-Z 0-9-_」のみ使用することができます。';
 $string['serialiser_igbinary'] = 'igbinaryシリアライザ';
 $string['serialiser_json'] = 'JSONシリアライザ';
 $string['serialiser_php'] = 'デフォルトのPHPシリアライザ';

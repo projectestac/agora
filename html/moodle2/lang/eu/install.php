@@ -32,7 +32,7 @@ Horrela Moodle-ko admin loturak berrezarriko dira.</p>';
 $string['admindirsettinghead'] = 'Ezarri Admin direktorioa...';
 $string['admindirsettingsub'] = '<p>Oso web zerbitzari gutxik erabiltzen dute /admin kontrol-panel edo antzekora era sartzeko URL berezi gisa. Zoritxorrez, hau ez dator bat Moodlen lehenetsitako administrazio-orrien kokapenarekin. Nahi izanez gero, zure instalazioko admin direktorioaren izena alda dezakezu, hemen izen berria idatziz. Adibidez: <blockquote> moodleadmin</blockquote>.
 Horrela Moodle-ko admin loturak berrezarriko dira.</p>';
-$string['availablelangs'] = 'Hizkuntza eskuragarrien zerrenda';
+$string['availablelangs'] = 'Hizkuntza-pakete eskuragarriak';
 $string['caution'] = 'Kontuz';
 $string['chooselanguage'] = 'Aukeratu hizkuntza bat';
 $string['chooselanguagehead'] = 'Aukeratu hizkuntza bat';

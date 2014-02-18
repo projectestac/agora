@@ -63,9 +63,9 @@ Een vinkje naast de activiteitsnaam op de cursuspagina geeft aan of de activitei
 $string['completionicons'] = 'Selectievakjes voor voltooien';
 $string['completionicons_help'] = 'Een vinkje in het selectievakje naast een activiteitsnaam kan worden gebruikt om aan te duiden dat de activiteit voltooid is.
 
-Wanneer je een selectievakje ziet met een puntje in, dan kan je er zelf in klikken om aan te vinken dat de activiteit volgens jou voltooid is. (Je kunt er achteraf nog eens in klikken om het vinkje te verwijderen wanneer je je bedenkt.) Het aanvinken is optioneel; het is enkel een manier om je vooruitgang in de cursus bij te houden.
+Wanneer je een selectievakje ziet waarvan de rand uit puntjes bestaat, zal dit automatisch aangevinkt worden wanneer je de activiteit hebt voltooid volgens de voorwaarden die door de leraar zijn opgesteld.
 
-Wanneer het selectievakje leeg is, zal dit automatisch aangevinkt worden wanneer je de activiteit hebt voltooid volgens de voorwaarden die door de leraar zijn opgesteld.';
+Wanneer je een selectievakje ziet waarvan de rand uit volle lijnen bestaat, dan kan je er zelf in klikken om aan te vinken dat de activiteit volgens jou voltooid is. (Je kunt er achteraf nog eens in klikken om het vinkje te verwijderen wanneer je je bedenkt.) Het aanvinken is optioneel; het is enkel een manier om je vooruitgang in de cursus bij te houden.';
 $string['completion_manual'] = 'Gebruikers kunnen de activiteit manueel als voltooid markeren';
 $string['completionmenuitem'] = 'Voltooien';
 $string['completion-n'] = 'Niet voltooid';

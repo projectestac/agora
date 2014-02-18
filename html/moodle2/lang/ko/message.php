@@ -80,6 +80,7 @@ $string['messagenavigation'] = '메세지 찾아가기';
 $string['messageoutputs'] = '메세지 출력';
 $string['messages'] = '메세지';
 $string['messaging'] = '소식 보내기';
+$string['messagingblockednoncontact'] = '연락처에 없는 사람들을 차단해 놓았기 때문에 {$a}가 답장을 할 수 없습니다.';
 $string['messagingdisabled'] = '이 사이트는 소식전달 기능을 작동시키지 않았습니다. 대신 이메일로 보내질 것입니다.';
 $string['mostrecent'] = '최근 메세지';
 $string['mostrecentconversations'] = '최근 대화';

@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['login:addinstance'] = '로그인 블록 추가';
 $string['pluginname'] = '로그인';

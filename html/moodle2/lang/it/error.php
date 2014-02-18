@@ -49,6 +49,8 @@ $string['cannotcallscript'] = 'Non è possibile chiamare questo script in quel m
 $string['cannotcallusgetselecteduser'] = 'Non puoi chiamare user_selector::get_selected_user se multiselect è true';
 $string['cannotcreatebackupdir'] = 'Non è stato possibile creare la cartella backupdata. L\'amministratore del sito deve sistemare i permessi dei file.';
 $string['cannotcreatecategory'] = 'La categorie non è stata inserita';
+$string['cannotcreatedboninstall'] = '<p>Non è possibile creare il database </p> <p>Il database non esiste e l\'utente fornito non è autorizzato a crearlo.</p>
+<p>E\' necessario che l\'amministratore del sito  verifichi  la configurazione del database.</p>';
 $string['cannotcreategroup'] = 'Si è verificato un errore durante la creazione di un gruppo';
 $string['cannotcreatelangbase'] = 'Errore: non è stato possibile creare la cartella lang';
 $string['cannotcreatelangdir'] = 'Non è possibile creare la cartella lang';
@@ -202,6 +204,7 @@ $string['ddlxmlfileerror'] = 'Sono stati rilevati errori nel file XML del databa
 $string['ddsequenceerror'] = 'Definizione errata della tabella "{$a}"; può essere presente solo una auto column e deve essere definita come key';
 $string['destinationcmnotexit'] = 'Il modulo destinazione del corso non esiste';
 $string['detectedbrokenplugin'] = 'Il plugin "{$a}" è difettoso o non aggiornato, non è possibile proseguire';
+$string['dmlexceptiononinstall'] = '<p>Si è verificato un errore nel database: [{$a->errorcode}].<br />{$a->debuginfo}</p>';
 $string['dmlreadexception'] = 'Si è verificato un errore durante la lettura del database';
 $string['dmltransactionexception'] = 'Si è verificato un errore nella transazione del database';
 $string['dmlwriteexception'] = 'Si è verificato un errore durante la scrittura nel database';
@@ -438,7 +441,7 @@ $string['protected_cc_not_supported'] = 'I cartridge protetti non sono supportat
 $string['redirecterrordetected'] = 'E\' stato indiviuato un redirect non supportato, l\'elaborazione dello script è stata interrotta';
 $string['refoundto'] = 'Può essere restituito a {$a}';
 $string['refoundtoorigi'] = 'Ammontare pagato restituito a {$a}';
-$string['remotedownloaderror'] = 'Lo scaricamento delle componenti non è andato a buon fine. Verificate le impostazioni del proxy. L\'estensione PHP cURL è fortemente consigliata.<br /><br />Dovete scaricare manualmente il file <a href="{$a->url}">{$a->url}</a>, copiarlo in "{$a->dest}" e decomprimerlo.';
+$string['remotedownloaderror'] = 'Lo scaricamento delle componenti non è andato a buon fine. Verificare le impostazioni del proxy. L\'estensione PHP cURL è fortemente consigliata.<br /><br />Devi scaricare manualmente il file <a href="{$a->url}">{$a->url}</a>, copiarlo in "{$a->dest}" e decomprimerlo.';
 $string['remotedownloadnotallowed'] = 'Non è permesso scaricare i componenti su vostro server (allow_url_fopen è disabilitato). <br /><br /> È necessario scaricare manualmente il file <a href="{$a->url}">{$a->url}</a>, copiarlo in "{$a->dest}" sul vostro server e scompattarlo la.';
 $string['reportnotavailable'] = 'Questo tipo di report è disponibile solamente nel corso della pagina home';
 $string['requirecorrectaccess'] = 'URL o porta non valido';
@@ -512,7 +515,7 @@ $string['unspecifycourseid'] = 'E\' necessario specificare l\'id del corso, il t
 $string['unsupportedevent'] = 'Tipo di evento non supportato';
 $string['unsupportedstate'] = 'Stato di completamento non supportato';
 $string['unsupportedwebserver'] = 'Spiacente, ma il software del web server ({$a}) non è supportato.';
-$string['upgraderequires19'] = 'Errore: sul server è stata installata una nuova versione di Moodle, purtroppo l\'upgrade da questa versione precedente non è supportato.<br />Per eseguire l\'upgrade dovete prima aggiornare la vostra installazione alla release 1.9 più recente. Se lo desiderate potete ritornare alla versione di Moodle originaria semplicemente ricopiando i file della versione che stavate usando.';
+$string['upgraderequires19'] = 'Errore: sul server è stata installata una nuova versione di Moodle, purtroppo l\'upgrade da questa versione precedente non è supportato.<br />Per eseguire l\'upgrade, si deve prima aggiornare l\'installazione alla release 1.9 più recente. Se lo si desidera è possibile ritornare alla versione di Moodle originaria semplicemente ricopiando i file della versione precedentemente in uso.';
 $string['upgraderunning'] = 'Il sito è in fase di aggiornamento, per favore provate ad accedere più tardi';
 $string['urlnotdefinerss'] = 'URL non definita per il feed RSS';
 $string['useradmineditadmin'] = 'Solo gli amministratori possono modificare gli altri account da amministratore.';

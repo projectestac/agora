@@ -30,6 +30,7 @@ $string['alwaysshowall'] = '常にすべてを表示する';
 $string['collapseall'] = 'すべてのコース一覧を折りたたむ';
 $string['configotherexpanded'] = 'この設定を有効にした場合、ユーザがプリファレンスでオーバーライドしない限り、他のコースはデフォルトで広げられます。';
 $string['configpreservestates'] = 'この設定を有効にした場合、ユーザによって設定された「折りたたむ/展開する」設定が保存され、それぞれの読み込みに使用されます。';
+$string['course_overview:addinstance'] = '新しいコース概要ブロックを追加する';
 $string['course_overview:myaddinstance'] = '新しいコース概要ブロックをマイホームに追加する';
 $string['defaultmaxcourses'] = 'デフォルト最大コース数';
 $string['defaultmaxcoursesdesc'] = 'コース概要ブロックに表示される最大コース数です。ゼロを設定した場合、すべてのコースが表示されます。';

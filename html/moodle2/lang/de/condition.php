@@ -30,9 +30,9 @@ $string['addgrades'] = '{no} Bewertungsbedingungen hinzufügen';
 $string['adduserfields'] = '{no} Nutzerbedingungen zum Formular hinzufügen';
 $string['availabilityconditions'] = 'Bedingte Verfügbarkeit';
 $string['availablefrom'] = 'Verfügbar ab';
-$string['availablefrom_help'] = 'Die Verfügbarkeitsdauer (von/bis) bestimmt den Zeitraum, in dem im Kurs auf die Aktivität zugegriffen werden kann.
+$string['availablefrom_help'] = 'Die Verfügbarkeitsdauer (von/bis) bestimmt den Zeitraum, in dem die Aktivität im Kurs verfügbar ist.
 
-Im Gegensatz zu den Verfügbarkeitsbedingungen, die den Teilnehmerzugriff an die Erfüllung von Lernfortschritten oder Bewertungen knüpfen, verhindert eine eingestellte  Verfügbarkeitsdauer (von/bis) den Zugriff außerhalb des gesetzten Zeitraums vollständig.';
+Im Gegensatz zu den Zugangsbedingungen, die an die Lernfortschritte oder Bewertungen von Teilnehmer/innen geknüpft sind, verhindert die Verfügbarkeitsdauer (von/bis) den Zugriff außerhalb des gesetzten Zeitraums vollständig.';
 $string['availableuntil'] = 'Verfügbar bis';
 $string['badavailabledates'] = 'Ungültige Daten! Wenn Sie beide Daten eintragen, muss der Eintrag \'Verfügbar ab\' zeitlich vor dem Eintrag \'Verfügbar bis\' liegen.';
 $string['badgradelimits'] = 'Wenn Sie eine obere und eine untere Bewertungsgrenze festlegen, muss die obere Grenze größer als die untere sein.';
@@ -45,9 +45,9 @@ $string['completionconditionsection'] = 'Bedingung für Aktivitätsabschluss';
 $string['completionconditionsection_help'] = 'Diese Option legt fest, welche Abschlussbedingungen bei Aktivitäten in anderen Kursabschlüssen Voraussetzung für einen Zugriff auf den Inhalt dieses Themen-/Wochenabschnitts sind. Die Funktion Abschlussverfolgung muss zuvor in den Kurseinstellungen aktiviert worden sein.
 
 Wenn mehrere Aktivitäten als Voraussetzung definiert werden, müssen alle erfüllt sein, bevor ein Zugriff möglich wird.';
-$string['completion_fail'] = 'muss erfolglos abgeschlossen sein';
+$string['completion_fail'] = 'darf nicht bestanden sein';
 $string['completion_incomplete'] = 'darf nicht als abgeschlossen markiert sein';
-$string['completion_pass'] = 'muss erfolgreich abgeschlossen sein';
+$string['completion_pass'] = 'muss bestanden sein';
 $string['configenableavailability'] = 'Diese Option erlaubt die Festlegung von Bedingungen (basierend auf Zeit, Bewertung oder Fertigstellung), die die Verfügbarkeit von Aktivitäten in Kursen steuern.';
 $string['contains'] = 'enthält';
 $string['doesnotcontain'] = 'enthält nicht';
@@ -92,7 +92,7 @@ $string['requires_user_field_isempty'] = 'Nicht verfügbar bis <strong>{$a->fiel
 $string['requires_user_field_isequalto'] = 'Nicht verfügbar bis <strong>{$a->field}</strong> mit  <strong>{$a->value}</strong> identisch ist.';
 $string['requires_user_field_isnotempty'] = 'Nicht verfügbar wenn <strong>{$a->field}</strong> leer ist.';
 $string['requires_user_field_startswith'] = 'Nicht verfügbar bis <strong>{$a->field}</strong>  mit <strong>{$a->value}</strong> beginnt.';
-$string['showavailability'] = 'Vor der Verfügbarkeit';
+$string['showavailability'] = 'Außerhalb der Verfügbarkeit';
 $string['showavailability_hide'] = 'Aktivität vollständig verbergen';
 $string['showavailabilitysection'] = 'Bevor Sie auf diesen Kursabschnitt zugreifen können';
 $string['showavailabilitysection_hide'] = 'Kursabschnitt verbergen';

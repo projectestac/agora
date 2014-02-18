@@ -28,4 +28,4 @@ defined('MOODLE_INTERNAL') || die();
 $string['enabledock'] = 'Utzi erabiltzaileari blokea ertzera eramaten';
 $string['pluginname'] = 'Ezarpenak';
 $string['settings:addinstance'] = 'Gehitu ezarpenak blokea';
-$string['settings:myaddinstance'] = 'Gehitu beste ezarpenak bloke bat Nire Moodle orrian';
+$string['settings:myaddinstance'] = 'Gehitu ezarpenak bloke berria Nire hasieran';

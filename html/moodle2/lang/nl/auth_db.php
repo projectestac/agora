@@ -39,12 +39,13 @@ $string['auth_dbfieldpass'] = 'Naam van het veld dat de wachtwoorden bevat';
 $string['auth_dbfieldpass_key'] = 'Wachtwoordveld';
 $string['auth_dbfielduser'] = 'Naam van het veld dat de gebruikersnamen bevat';
 $string['auth_dbfielduser_key'] = 'Veld gebruikersnaam';
-$string['auth_dbhost'] = 'De computer die de databaseserver host';
+$string['auth_dbhost'] = 'De computer die de databaseserver host.
+Gebruik een systeem DSN als je OBDC gebruikt.';
 $string['auth_dbhost_key'] = 'Host';
 $string['auth_dbinsertuser'] = 'toegevoegde gebruiker{$a->name} id {$a->id}';
 $string['auth_dbinsertuserduplicate'] = 'Fout bij het invoegen van gebruiker {$a->username} - de gebruiker met deze gebruikersnaam is al gemaakt door de plugin \'{$a->auth}\'.';
 $string['auth_dbinsertusererror'] = 'fout bij toevoegen gebruiker {$a}';
-$string['auth_dbname'] = 'Naam van de database zelf';
+$string['auth_dbname'] = 'Naam van de database zelf. Laat leeg als je ODBC DSN gebruikt.';
 $string['auth_dbname_key'] = 'DB naam';
 $string['auth_dbpass'] = 'Wachtwoord dat bij de bovengenoemde gebruikersnaam past';
 $string['auth_dbpass_key'] = 'Wachtwoord';

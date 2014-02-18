@@ -32,6 +32,6 @@ $string['paragraphquestion'] = 'Alinea vraag';
 $string['pluginname'] = 'WebCT formaat';
 $string['pluginname_help'] = 'Met WebCT-formaat kun je meerkeuzevragen en kort antwoordvragen, bewaard in het WebCT tekstgebaseerd formaat importeren.';
 $string['questionnametoolong'] = 'Vraagnaam te lang op regel {$a}. (255 tekens maximum). Is ingekort.';
-$string['unknowntype'] = 'Onbekend type';
+$string['unknowntype'] = 'Onbekend vraagtype na lijn  {$a}';
 $string['warningsdetected'] = '{$a} waarschuwingen gevonden';
 $string['wronggrade'] = 'Fout beoordelingscijfer (na lijn {$a})';

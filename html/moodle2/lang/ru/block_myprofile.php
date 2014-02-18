@@ -25,13 +25,18 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['contentsettings'] = 'Отображать региональные настройки для  контента';
 $string['display_address'] = 'Показать адрес';
 $string['display_aim'] = 'Показать AIM';
 $string['display_city'] = 'Показать город';
 $string['display_country'] = 'Показать страну';
 $string['display_currentlogin'] = 'Показать текущий логин';
 $string['display_email'] = 'Показать email';
+$string['display_firstaccess'] = 'Показать первый доступ';
 $string['display_icq'] = 'Показать ICQ';
+$string['display_institution'] = 'Показать учреждение';
+$string['display_lastaccess'] = 'Показать последний доступ';
+$string['display_lastip'] = 'Показать последний IP';
 $string['display_msn'] = 'Показать MSN';
 $string['display_phone1'] = 'Показать телефон 1';
 $string['display_phone2'] = 'Показать телефон 2';
@@ -39,5 +44,7 @@ $string['display_picture'] = 'Показать изображение';
 $string['display_skype'] = 'Показать Skype';
 $string['display_un'] = 'Показать имя';
 $string['display_yahoo'] = 'Показать Yahoo';
+$string['myprofile:addinstance'] = 'Добавлять новый блок Текущий пользователь';
+$string['myprofile:myaddinstance'] = 'Добавлять новый блок Текущий пользователь в Мой Moodle';
 $string['myprofile_settings'] = 'Вывод информации о пользователе';
 $string['pluginname'] = 'Текущий пользователь';

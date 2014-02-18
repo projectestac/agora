@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['choosereadme'] = '"Canvas" - родительская тема оформления Moodle 2.0 от Патрика Молли (Patrick Malley).';
+$string['choosereadme'] = '«Canvas» - родительская тема оформления Moodle 2.0 от Патрика Молли (Patrick Malley).';
 $string['pluginname'] = 'Canvas';
 $string['region-side-post'] = 'Справа';
 $string['region-side-pre'] = 'Слева';

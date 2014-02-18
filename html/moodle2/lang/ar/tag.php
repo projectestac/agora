@@ -25,4 +25,28 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addotags'] = 'إضافة وسوم رسمية';
+$string['addtagtomyinterests'] = 'إضف "{$a}" لاهتماماتي';
+$string['edittag'] = 'حرر هذا الوسم';
+$string['entertags'] = 'أدخل الوسوم وبينها فواصل';
+$string['flagasinappropriate'] = 'أشر لهذا كمحتوى غير مرغوب';
+$string['helprelatedtags'] = 'وسوم ذات صلة بينها فواصل';
+$string['manageofficialtags'] = 'إدارة الوسوم الرسمية';
+$string['managetags'] = 'إدارة الوسوم';
+$string['otags'] = 'وسوم رسمية';
+$string['othertags'] = 'وسوم أخرى (أدخل الوسوم وبينها فواصل)';
+$string['page-tag-manage'] = 'إدارة صفحة الوسوم';
+$string['page-tag-search'] = 'صفحة البحث في الوسوم';
 $string['page-tag-x'] = 'كافة صفحات الوسوم';
+$string['ptags'] = 'وسوم المستخدم (بينها فواصل)';
+$string['relatedblogs'] = 'منشورات المدونة الأخيرة';
+$string['relatedtags'] = 'وسوم ذات صلة';
+$string['rsstitle'] = 'تغذية أخبار وسوم المقرر للمستخدم: {$a}';
+$string['search'] = 'بحث';
+$string['searchresultsfor'] = 'نتائج البحث لـ "${a}"';
+$string['searchtags'] = 'البحث في الوسوم';
+$string['seeallblogs'] = 'معاينة كل منشورات المدونة الموسومة بـ"{$a}"...';
+$string['taggedwith'] = 'موسومة بـ"{$a}"';
+$string['tags'] = 'وسوم';
+$string['tagsaredisabled'] = 'الوسوم معطّلة';
+$string['withselectedtags'] = 'مع الوسوم المحددة...';

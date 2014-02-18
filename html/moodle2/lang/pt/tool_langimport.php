@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['install'] = 'Instalar o pacote linguístico selecionado';
+$string['install'] = 'Instalar o(s) pacote(s) linguístico(s) selecionado(s)';
 $string['installedlangs'] = 'Pacotes linguísticos instalados';
 $string['langimport'] = 'Importação de pacote linguístico';
 $string['langimportdisabled'] = 'O recurso de importação de lingua foi desativado. Tem que atualizar o seu pacote linguístico manualmente no sistema de ficheiros. Não se esqueça de limpar as caches após fazê-lo.';
@@ -36,10 +36,10 @@ $string['langpackuptodate'] = 'O pacote linguístico{$a} está atualizado';
 $string['langupdatecomplete'] = 'Atualização do pacote linguístico completa';
 $string['missingcfglangotherroot'] = 'Falta o valor de configuração $CFG->langotherroot';
 $string['missinglangparent'] = 'Falta a lingua-mãe <em>{$a->parent}</em> em <em>{$a->lang}</em>.';
-$string['nolangupdateneeded'] = 'Todos os pacotes de seu idioma estão em dia, não é necessária nenhuma atualização';
+$string['nolangupdateneeded'] = 'Todos os seus pacotes linguísticos estão atualizados, não é necessária nenhuma atualização';
 $string['pluginname'] = 'Pacotes linguísticos';
 $string['purgestringcaches'] = 'Limpar caches das strings';
-$string['remotelangnotavailable'] = 'O Moodle não consegue ligar a download.moodle.org, como tal não é possivel fazer a instalação automática do pacote linguístico. Descarregue o ficheiro zip em http://download.moodle.org, copie-o para a diretoria {$a} e faça o unzip manualmente.';
+$string['remotelangnotavailable'] = 'O Moodle não consegue ligar a download.moodle.org e, por isso, não é possível fazer a instalação automática do pacote linguístico. Descarregue o ficheiro ZIP em http://download.moodle.org, copie-o para a diretoria {$a} e descompacte-o manualmente.';
 $string['uninstall'] = 'Desinstalar o pacote linguístico selecionado';
 $string['uninstallconfirm'] = 'Está prestes a desinstalar completamente o pacote linguístico {$a}, tem a certeza?';
 $string['updatelangs'] = 'Atualizar todos os pacotes linguísticos instalados';

@@ -29,6 +29,6 @@ $string['error_authmnetneeded'] = 'Le plugin d\'authentification MNet doit être
 $string['error_localusersonly'] = 'Les utilisateurs distants ne peuvent pas rejoindre d\'autres serveur du réseau MNet à partir de ce serveur';
 $string['error_roamcapabilityneeded'] = 'Les utilisateurs doit avoir la capacité « Accéder à une application distante via MNet » pour voir la liste des serveurs du réseau MNet';
 $string['mnet_hosts:addinstance'] = 'Ajouter un bloc serveurs du réseau';
-$string['mnet_hosts:myaddinstance'] = 'Ajouter un bloc serveurs du réseau à la page Mon Moodle';
+$string['mnet_hosts:myaddinstance'] = 'Ajouter un bloc serveurs du réseau à Ma page';
 $string['pluginname'] = 'Serveurs du réseau';
 $string['server'] = 'Serveur';

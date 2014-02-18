@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addfields'] = '{$a} Felder zum Formular hinzufügen';
+$string['addfields'] = '{$a} Feld(er) zum Formular hinzufügen';
 $string['advancedelement'] = 'Erweitertes Element';
 $string['close'] = 'Schließen';
 $string['day'] = 'Tag';
@@ -51,7 +51,7 @@ $string['month'] = 'Monat';
 $string['mustbeoverriden'] = 'Die Methode form_definition() in der Klasse {$a} muss geändert werden. Bitte korrigieren Sie den Code.';
 $string['nomethodforaddinghelpbutton'] = 'Es gibt keine Möglichkeit, einen Hilfebutton zum Formularelement {$a->name} (class {$a->classname}) hinzuzufügen.';
 $string['nonexistentformelements'] = 'Sie versuchen, Hilfebuttons zu nicht existierenden Formularelementen hinzuzufügen: {$a}';
-$string['optional'] = 'Optional';
+$string['optional'] = 'Optionale Einträge';
 $string['othersettings'] = 'Andere Einstellungen';
 $string['requiredelement'] = 'Pflichtfeld';
 $string['revealpassword'] = 'Klartext';

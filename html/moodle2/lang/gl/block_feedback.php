@@ -26,5 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['feedback'] = 'Comentarios';
+$string['feedback:addinstance'] = 'Engadir un novo bloque de comentarios';
 $string['missing_feedback_module'] = 'Este bloquea basease no módulo de Comentarios da actividade, mais o módulo non está presente.';
 $string['pluginname'] = 'Comentarios';

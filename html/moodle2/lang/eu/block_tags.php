@@ -71,6 +71,6 @@ $string['showcoursetagsdef'] = 'Erakutsi ikastaroko etiketa funtzioa etiketa-blo
 $string['suggestedtagthisunit'] = 'Ikastaro honetarako gomendatutako etiketak:';
 $string['tags'] = 'etiketak';
 $string['tags:addinstance'] = 'Gehitu etiketa bloke berria';
-$string['tags:myaddinstance'] = 'Gehitu beste etiketa bloke bat Nire Moodle orrian';
+$string['tags:myaddinstance'] = 'Gehitu etiketa bloke berria Nire hasieran';
 $string['tagthisunit'] = 'Ikastaro honen etiketak:';
 $string['tagunits'] = 'zure gogoko ikastaroak etiketatzeko';

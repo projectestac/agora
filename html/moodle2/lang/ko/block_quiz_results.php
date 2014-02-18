@@ -47,6 +47,7 @@ $string['error_emptyquizid'] = '이 구역에 지금 에러가 있습니다: 어
 $string['error_emptyquizrecord'] = '이 구역에 지금 에러가 있습니다: 선택되 퀴즈는 이 데이터 베이스에 존재하지 않는것 같습니다.';
 $string['error_nogroupsexist'] = '이 블록에 지금 오류가 있습니다: 모둠모드에서 성적을 표시하도록 설정되어 있으나, 강좌에 정의된 모둠이 없습니다. ';
 $string['pluginname'] = '퀴즈 결과';
+$string['quiz_results:addinstance'] = '퀴즈 결과 블록 추가';
 $string['worstgrade'] = '가장 낮은 성적';
 $string['worstgrades'] = '{$a} 가장 낮은 성적';
 $string['worstgroupgrade'] = '가장 낮은 평균의 모둠';

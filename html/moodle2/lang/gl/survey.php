@@ -75,7 +75,7 @@ $string['attls9'] = 'Decotío atópome a min mesmo debatendo cos autores dos lib
 $string['attls9short'] = 'debater con autores';
 $string['attlsintro'] = 'O propósito deste cuestionario é axudarnos a avaliar as súas actitudes cara o pensamento e a aprendizaxe.
 
-Non hai respostas «correctas» ou «trabucadas», só nos interesa a súa opinión. As súas respostas trataranse cun con alto grado de confidencialidade e non afectarán a súa avaliación.';
+Non hai respostas «correctas» ou «trabucadas», só nos interesa a súa opinión. Pode estar seguro de que as súas respostas se tratarán con alto grao de confidencialidade e non afectarán a súa avaliación.';
 $string['attlsm1'] = 'Actitudes cara o pensamento e a aprendizaxe';
 $string['attlsm2'] = 'Aprendizaxe colaborativa';
 $string['attlsm3'] = 'Aprendizaxe individualizada';
@@ -146,23 +146,23 @@ $string['colles8'] = 'Penso criticamente sobre as ideas que leo.';
 $string['colles8short'] = 'Son crítico co que leo';
 $string['colles9'] = 'Explico as miñas ideas a outros alumnos.';
 $string['colles9short'] = 'Explico as miñas ideas';
-$string['collesaintro'] = 'O propósito desta enquisa é axudarnos a entender ata que punto a entrega en liña desta unidade facilitoulle a aprendizaxe.
+$string['collesaintro'] = 'O propósito desta enquisa é axudarnos a entender ata que punto a entrega en liña desta unidade lle permitiu aprender.
 
-Cada unha das 24 cuestións seguintes pregúntalle sobre a súa experiencia nesta unidade.
+Cada unha das 24 proposicións seguintes pregúntalle sobre a súa experiencia nesta unidade.
 
-Non hai respostas «correctas» ou «trabucadas», só nos interesa a súa opinión. As súas respostas trataranse cun con alto grado de confidencialidade e non afectarán a súa avaliación.
+Non hai respostas «correctas» ou «trabucadas», só nos interesa a súa opinión. As súas respostas trataranse con alto grado de confidencialidade e non afectarán a súa avaliación.
 
-A súas respostas, pensadas coidadosamente, axudaranos a mellorar a maneira de presentar esta unidade no futuro.
+A súas respostas, pensadas coidadosamente, axudarannos a mellorar a maneira de presentar esta unidade no futuro.
 
 Moitas grazas.';
 $string['collesaname'] = 'COLLES (Real)';
-$string['collesapintro'] = 'O propósito deste cuestionario é axudarnos a entender ata que punto a entrega en liña desta unidade facilitoulle a aprendizaxe.
+$string['collesapintro'] = 'O propósito deste cuestionario é axudarnos a entender ata que punto a entrega en liña desta unidade lle permitiu aprender.
 
-Cada unha das 24 cuestións seguintes pídelle que compare a súa experiencia <b>preferida</b> (ideal) e a <b>real</b> nesta unidade.
+Cada unha das 24 proposicións seguintes pídelle que compare a súa experiencia <b>preferida</b> (ideal) e a <b>real</b> nesta unidade.
 
-Non hai respostas «correctas» ou «trabucadas», só nos interesa a súa opinión. As súas respostas trataranse cun con alto grado de confidencialidade e non afectarán a súa avaliación.
+Non hai respostas «correctas» ou «trabucadas», só nos interesa a súa opinión. Pode estar seguro de que as súas respostas se tratarán con alto grao de confidencialidade e non afectarán a súa avaliación.
 
-A súas respostas, pensadas coidadosamente, axudaranos a mellorar a maneira de presentar esta unidade no futuro.
+A súas respostas, pensadas coidadosamente, axudarannos a mellorar a maneira de presentar esta unidade no futuro.
 
 Moitas grazas.';
 $string['collesapname'] = 'COLLES (Preferida e real)';
@@ -181,11 +181,11 @@ $string['collesm6short'] = 'Interpretación';
 $string['collesmintro'] = 'Nesta unidade na Rede...';
 $string['collespintro'] = 'O propósito desta enquisa é axudarnos a entender que é o que vostede valora nunha experiencia de aprendizaxe en liña.
 
-Cada unha das 24 cuestións seguintes pregúntalle sobre a súa experiencia <b>preferida</b> (ideal) nesta unidade.
+Cada unha das 24 proposicións seguintes pregúntalle sobre a súa experiencia <b>preferida</b> (ideal) nesta unidade.
 
-Non hai respostas «correctas» ou «trabucadas», só nos interesa a súa opinión. As súas respostas trataranse cun con alto grado de confidencialidade e non afectarán a súa avaliación.
+Non hai respostas «correctas» ou «trabucadas», só nos interesa a súa opinión. As súas respostas trataranse con alto grado de confidencialidade e non afectarán a súa avaliación.
 
-A súas respostas, pensadas coidadosamente, axudaranos a mellorar a maneira de presentar esta unidade no futuro.
+A súas respostas, pensadas coidadosamente, axudarannos a mellorar a maneira de presentar esta unidade no futuro.
 
 Moitas grazas.';
 $string['collespname'] = 'COLLES (Preferida)';
@@ -208,9 +208,9 @@ $string['invalidsurveyid'] = 'O ID da enquisa é incorrecto';
 $string['invalidtmptid'] = 'O ID do modelo é incorrecto';
 $string['ipreferthat'] = 'Prefiro isto';
 $string['modulename'] = 'Enquisa';
-$string['modulename_help'] = 'O módulo de actividade de enquisa fornece unha una serie de instrumentos de enquisa verificados que se teñen amosado útiles para avaliar e estimular a aprendizaxe en entornos en liña. Un profesor pode empregalas para recompilar datos dos seus alumnos que lle axuden a aprender tanto sobre a súa clase como sobre a súa propia ensinanza.
+$string['modulename_help'] = 'O módulo de actividade de enquisa fornece unha una serie de instrumentos comprobados de enquisa que se teñen amosado útiles para avaliar e estimular a aprendizaxe en entornos en liña. Un profesor pode utilizalas para compilar datos dos seus alumnos que lle axuden a aprender tanto sobre a súa clase como sobre a súa propia docencia.
 
-Teña en conta que estas ferramentas de enquisa énchense previamente con preguntas. Os profesores que queiran crear a súa propia enquisa deben empregar o módulo de actividade de realimentación.';
+Teña en conta que estas ferramentas de enquisa énchense previamente con preguntas. Os profesores que queiran crear a súa propia enquisa deben empregar o módulo de actividade de comentarios.';
 $string['modulename_link'] = 'mod/survey/view';
 $string['modulenameplural'] = 'Enquisas';
 $string['name'] = 'Nome';

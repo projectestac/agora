@@ -95,7 +95,7 @@ $string['completionreplies'] = '学生は次の件数の返信を投稿する必
 $string['completionrepliesgroup'] = '返信を必要とする';
 $string['completionreplieshelp'] = '完了するには、返信を必要とする';
 $string['configcleanreadtime'] = '古い投稿を「既読」テーブルからクリアする時刻 (時) です。';
-$string['configdigestmailtime'] = 'メール送信を選択したユーザに、投稿内容を要約したメールが毎日送信されます。ここでは、1日の内で何時に要約メールを送信するか設定します (この設定後に実行される次のcronがメールを送信します)。';
+$string['configdigestmailtime'] = 'メール送信を選択したユーザに、投稿内容を要約したメールが毎日送信されます。ここでは1日の内で何時に要約メールを送信するか設定します (この設定後に実行される次のcronがメールを送信します)。';
 $string['configdisplaymode'] = '表示モードが設定されていない場合、ディスカッションで使用されるデフォルト表示モードです。';
 $string['configenablerssfeeds'] = 'すべてのフォーラムのRSS使用を有効にします。ここで設定しても、各フォーラムでRSSフィードを手動で設定する必要があります。';
 $string['configenabletimedposts'] = '新しいフォーラムディスカッションの表示期間の設定を許可したい場合、「Yes」を選択してください。';
@@ -366,13 +366,13 @@ $string['resetforumsall'] = 'すべての投稿を削除する';
 $string['resetsubscriptions'] = 'すべてのフォーラムのメール購読を解除する';
 $string['resettrackprefs'] = 'すべてのフォーラムの未読管理設定を削除する';
 $string['rssarticles'] = '最近の記事のRSS数';
-$string['rssarticles_help'] = '<p>ここでは、RSSフィードに含まれる記事数を設定します。</p>
+$string['rssarticles_help'] = '<p>ここではRSSフィードに含まれる記事数を設定します。</p>
 
 <p>ほとんどのフォーラムでは、5から20の間が適当であると思われます。フォーラムが活発な場合は、この値を増やしてください。</p>';
 $string['rsssubscriberssdiscussions'] = 'ディスカッションのRSSフィード';
 $string['rsssubscriberssposts'] = '投稿のRSSフィード';
 $string['rsstype'] = 'この活動のRSSフィード';
-$string['rsstype_help'] = '<p>ここでは、フォーラムのRSSフィードを利用可にすることができます。</p>
+$string['rsstype_help'] = '<p>ここではフォーラムのRSSフィードを利用可にすることができます。</p>
 
 <p>RSSフィードは、2種類の中から選択することができます:</p>
 
@@ -431,7 +431,9 @@ $string['subscriptionmode_help'] = '参加者がフォーラムを購読する�
 * 任意購読 - 参加者は購読するかどうか選択することができます。
 * 強制購読 - すべての参加者が購読登録され、購読解除することはできません。
 * 自動購読 - 最初にすべての参加者が購読登録されますが、いつでも購読解除することができます。
-* 購読停止 - 購読は許可されません。';
+* 購読停止 - 購読は許可されません。
+
+注意: すべての購読モード変更は将来的にコースに登録するユーザのみに影響して、既存のユーザには影響しません。';
 $string['subscriptionoptional'] = '任意購読';
 $string['subscriptions'] = 'メール購読';
 $string['thisforumisthrottled'] = 'このフォーラムでは、期限内にあなたが投稿できる投稿数を制限しています - 現在 {$a->blockperiod} で {$a->blockafter} 回に設定されています。';
@@ -442,14 +444,14 @@ $string['tracking'] = '未読管理';
 $string['trackingoff'] = 'Off';
 $string['trackingon'] = 'On';
 $string['trackingoptional'] = '任意';
-$string['trackingtype'] = 'このフォーラムを未読管理しますか?';
-$string['trackingtype_help'] = '有効にした場合、参加者はフォーラムおよびディスカッションのメッセージの既読および未読を管理することができます。
+$string['trackingtype'] = '未読管理';
+$string['trackingtype_help'] = '有効にした場合、参加者はフォーラムおよびディスカッションのメッセージの既読および未読を管理することができます。設定には以下3つのオプションがあります:
 
-設定には以下3つのオプションがあります:
-
- 任意: 参加者は未読管理をOnまたはOffにすることができます。
+任意: 参加者は管理ブロック内のリンクで未読管理をOnまたはOffにすることができます。
 On: 常に未読管理します。
-Off: 常に未読管理しません。';
+Off: 未読管理しません。
+
+メモ: ユーザプロファイル設定のフォーラムトラッキングは常に有効にしてください。';
 $string['unread'] = '未読';
 $string['unreadposts'] = '未読の投稿';
 $string['unreadpostsnumber'] = '未読件数 {$a}';

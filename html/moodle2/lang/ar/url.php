@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['clicktoopen'] = 'اضغط الوصلة {$a} لفتح المورد.';
 $string['contentheader'] = 'محتوى';
 $string['displayselect'] = 'عرض';
 $string['optionsheader'] = 'خيارات';

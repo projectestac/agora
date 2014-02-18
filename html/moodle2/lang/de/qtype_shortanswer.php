@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmoreanswerblanks'] = 'Leerfelder für {no} weitere Antworten';
+$string['addmoreanswerblanks'] = 'Leerfelder für {no} weitere Antwort(en)';
 $string['answer'] = 'Antwort: {$a}';
 $string['answermustbegiven'] = 'Sie müssen eine Kurzantwort angeben, falls es eine Bewertung oder ein Feedback geben soll.';
 $string['answerno'] = 'Antwort {$a}';

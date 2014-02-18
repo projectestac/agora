@@ -28,4 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['alreadyselfcompleted'] = '이 강좌를 이수 완료한 것으로 이미 표시하였습니다.';
 $string['completecourse'] = '강좌 완료';
 $string['pluginname'] = '자기주도 완료';
+$string['selfcompletion:addinstance'] = '자기주도 완료 블록 추가';
 $string['selfcompletionnotenabled'] = '이 강좌는 자기 완료 기준이 활성화되지 않았습니다.';

@@ -33,6 +33,7 @@ $string['currentstatusexecution3'] = '{$a->datetime}에 실행될 예정';
 $string['currentstatusexecution4'] = '실행 대기';
 $string['currentstatusnext'] = '다음 실행';
 $string['currentstatusreset'] = '재설정';
+$string['currentstatusresetinfo'] = '체크 박스를 선택하고 실행 결과를 리셋하기 위해 양식을 저장하세요.';
 $string['currentstatusresult'] = '최근 실행 결과';
 $string['enablescheduled'] = '예약 할당 활성화';
 $string['enablescheduledinfo'] = '제출 단계의 끝에 제출물 자동으로 할당';

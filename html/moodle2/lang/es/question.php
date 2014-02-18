@@ -295,6 +295,7 @@ $string['noquestions'] = 'No se encontraron preguntas que pudiesen ser exportada
 $string['noquestionsinfile'] = 'No hay preguntas en el archivo de importación';
 $string['noresponse'] = '[Sin respuesta]';
 $string['notanswered'] = 'Sin contestar';
+$string['notchanged'] = 'Sin cambios desde el último intento';
 $string['notenoughanswers'] = 'Este tipo de pregunta requiere al menos {$a} respuestas';
 $string['notenoughdatatoeditaquestion'] = 'No se ha especificado ni el id de la pregunta ni el de la categoría y tipo de pregunta.';
 $string['notenoughdatatomovequestions'] = 'Necesita proporcionar los ids de las preguntas que quiere mover.';

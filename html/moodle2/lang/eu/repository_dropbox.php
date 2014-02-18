@@ -26,10 +26,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'Dropbox-en API giltza';
+$string['cachelimit'] = 'Cache-muga';
 $string['configplugin'] = 'Dropbox-en ezarpenak';
 $string['dropbox'] = 'Dropbox';
-$string['dropbox:view'] = 'Dropbox direktorioa ikusi';
+$string['dropbox:view'] = 'Ikusi Dropbox karpeta';
 $string['instruction'] = 'API giltza eta sekretua lortu hal dituzu <a href="http://www.dropbox.com/developers/apps">Dropbox-en garatzaileetatik</a>';
+$string['logoutdesc'] = '(Amaitu saioa Dropbox erabiltzen amaitzen duzunean)';
 $string['notitle'] = 'Izenbururik gabe';
 $string['pluginname'] = 'Dropbox';
 $string['remember'] = 'Gogoratu';

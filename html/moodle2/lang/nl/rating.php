@@ -32,14 +32,14 @@ $string['aggregatemin'] = 'Minimumbeoordeling';
 $string['aggregatenone'] = 'Geen beoordelingen';
 $string['aggregatesum'] = 'Som van beoordelingen';
 $string['aggregatetype'] = 'Aggregatieype';
-$string['aggregatetype_help'] = 'Het aggregatietype bepaalt hoe beoordelingen gecombineerd worden om tot het uiteindelijke cijfer in het cijferboek te komen.
+$string['aggregatetype_help'] = 'Het aggregatietype bepaalt hoe beoordelingen gecombineerd worden om tot het uiteindelijke cijfer in het puntenboek te komen.
 
 * Gemiddelde van de beoordelingen - Het gemiddelde van alle beoordelingen
 * Het aantal beoordelingen - Het aantal beoordeelde items wordt het eindcijfer. Merk op dat het totaal aantal niet hoger kan zijn dan het maximumcijfer voor de activiteit.
 * Maximum - De hoogst behaalde beoordeling wordt het eindcijfer.
 * Minimum - De laagst behaalde beoordeling wordt het eindcijfer.
 
-Indien "Geen beoordelingen" is geselecteerd, dan zal de activiteit niet in het cijferboek verschijnen.';
+Indien "Geen beoordelingen" is geselecteerd, dan zal de activiteit niet in het puntenboek verschijnen.';
 $string['allowratings'] = 'Toelaten dat items beoordeeld worden?';
 $string['allratingsforitem'] = 'Alle ingestuurde beoordelingen';
 $string['capabilitychecknotavailable'] = 'Controle mogelijkheid niet beschikbaar tot de activiteit bewaard is';

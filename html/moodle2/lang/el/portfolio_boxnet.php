@@ -25,8 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = 'κλειδί API';
-$string['err_noapikey'] = 'Δεν υπάρχει ρυθμισμένο κλειδί API Key για αυτή την υπομονάδα λογισμικού.  Μπορείτε να λάβετε ένα από την τοποθεσία http://enabled.box.net';
 $string['existingfolder'] = 'Έξοδος από τον κατάλογο για να τοποθετηθούν τα αρχεία σε αυτόν';
 $string['folderclash'] = 'Ο κατάλογος που ζητήσατε να δημιουργηθεί υπάρχει ήδη!';
 $string['foldercreatefailed'] = 'Αποτυχία δημιουργίας του καταλόγου προορισμού στο box.net';

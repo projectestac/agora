@@ -251,4 +251,5 @@ $string['storageexternalonly'] = 'Directori de còpies de seguretat automàtique
 $string['title'] = 'Títol';
 $string['totalcategorysearchresults'] = 'Total de categories: {$a}';
 $string['totalcoursesearchresults'] = 'Total de cursos: {$a}';
+$string['unnamedsection'] = 'Secció sense nom';
 $string['userinfo'] = 'Informació d\'usuari';

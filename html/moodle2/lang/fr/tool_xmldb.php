@@ -43,11 +43,39 @@ $string['check_indexes'] = 'Recherche des index manquants de la base de données
 $string['checkoraclesemantics'] = 'Vérifier les sémantiques';
 $string['check_oracle_semantics'] = 'Recherche des sémantiques de longueur incorrecte';
 $string['completelogbelow'] = '(voir les historiques complets de recherche ci-dessous)';
-$string['confirmcheckbigints'] = 'Cette fonctionnalité recherche les <a href="http://tracker.moodle.org/browse/MDL-11038">champs de type entier potentiellement faux</a> dans votre serveur Moodle, et génère automatiquement (mais n\'exécute pas) les instructions SQL nécessaires pour définir correctement les entiers de votre base de données.<br /><br />Vous pouvez copier alors ces instructions et les lancer avec votre interface SQL préférée. N\'oubliez pas d\'effectuer une sauvegarde de la base de données avant de lancer ces commandes.<br /><br />Il est hautement recommandé d\'avoir la dernière version (version +) disponible pour votre version de Moodle (2.3.x) avant de lancer la recherche des mauvais entiers.<br /><br />Cette fonctionnalité n\'effectue aucune modification de la base de données (elle ne fait que la lire), et peut donc être lancée à tout instant.';
-$string['confirmcheckdefaults'] = 'Cette fonctionnalité recherche les valeurs par défaut incohérentes dans votre serveur Moodle, et génère automatiquement (mais n\'exécute pas) les instructions SQL nécessaires pour définir correctement ces valeurs par défaut.<br /><br />Vous pouvez copier alors ces instructions et les lancer avec votre interface SQL préférée. N\'oubliez pas d\'effectuer une sauvegarde de la base de données avant de lancer ces commandes.<br /><br />Il est hautement recommandé d\'avoir la dernière version (version +) disponible pour votre version de Moodle (2.3.x) avant de lancer la recherche des valeurs par défaut incohérentes.<br /><br />Cette fonctionnalité n\'effectue aucune modification de la base de données (elle ne fait que la lire), et peut donc être lancée à tout instant.';
-$string['confirmcheckforeignkeys'] = 'Cette fonctionnalité recherche les violations potentielles des clefs extérieures définies dans le fichier de définitions install.xml. (Moodle ne génére actuellement dans sa base de données aucune contrainte sur les clefs extérieures, raison pour laquelle des données non valides peuvent être présentes.)<br /><br />Il est hautement recommandé d\'avoir la dernière version (version +) disponible pour votre version de Moodle (2.3.x) avant de lancer la recherche des éventuelles violations.<br /><br />Cette fonctionnalité n\'effectue aucune modification de la base de données (elle ne fait que la lire), et peut donc être lancée à tout instant.';
-$string['confirmcheckindexes'] = 'Cette fonctionnalité recherche les index potentiellement manquants dans votre serveur Moodle, et génère automatiquement (mais n\'exécute pas) les instructions SQL nécessaires pour tout mettre à jour. Vous pouvez copier alors ces instructions et les lancer avec votre interface SQL préférée. N\'oubliez pas d\'effectuer une sauvegarde de la base de données avant de lancer ces commandes.<br /><br />Il est hautement recommandé d\'avoir la dernière version (version +) disponible pour votre version de Moodle (2.3.x) avant de lancer la recherche des index manquants.<br /><br />Cette fonctionnalité n\'effectue aucune modification de la base de données (elle ne fait que la lire), et peut donc être lancée à tout instant.';
-$string['confirmcheckoraclesemantics'] = 'Cette fonctionnalité va rechercher des <a href="http://tracker.moodle.org/browse/MDL-29322">colonnes Oracle varchar2 utilisant la sémantique BYTE</a> sur votre serveur Moodle et générer automatiquement (sans les lancer !) les instructions SQL permettant de convertir ces colonnes de sorte qu\'elles utilisent la sémantique CHAR (meilleur pour la compatibilité et pouvant accepter des contenus de longueur plus grande).<br /><br /> Vous pourrez  copier ces instructions et les lancer depuis votre interface SQL préférée (n\'oubliez pas de sauvegarder vos données avant de le faire).<br /><br /> Il est vivement recommandé de disposer de la version la plus récente (version +) disponible pour votre version de Moodle (2.3.x, ...) avant de lancer la recherche.<br /><br /> Cette fonctionnalité n\'effectue aucune action sur votre base de données et peut donc être lancée à tout moment.';
+$string['confirmcheckbigints'] = 'Cette fonctionnalité recherche les <a href="http://tracker.moodle.org/browse/MDL-11038">champs de type entier potentiellement faux</a> dans votre serveur Moodle, et génère automatiquement (mais n\'exécute pas) les instructions SQL nécessaires pour définir correctement les entiers de votre base de données.
+
+Vous pouvez copier alors ces instructions et les lancer avec votre interface SQL préférée. N\'oubliez pas d\'effectuer une sauvegarde de la base de données avant de lancer ces commandes.
+
+Il est vivement recommandé d\'avoir la dernière version (version +) disponible pour votre version de Moodle avant de lancer la recherche des mauvais entiers.
+
+Cette fonctionnalité n\'effectue aucune modification de la base de données (elle ne fait que la lire), et peut donc être lancée à tout instant.';
+$string['confirmcheckdefaults'] = 'Cette fonctionnalité recherche les valeurs par défaut incohérentes dans votre serveur Moodle, et génère automatiquement (mais n\'exécute pas) les instructions SQL nécessaires pour définir correctement ces valeurs par défaut.
+
+Vous pouvez copier alors ces instructions et les lancer avec votre interface SQL préférée. N\'oubliez pas d\'effectuer une sauvegarde de la base de données avant de lancer ces commandes.
+
+Il est vivement recommandé d\'avoir la dernière version (version +) disponible pour votre version de Moodle avant de lancer la recherche des valeurs par défaut incohérentes.
+
+Cette fonctionnalité n\'effectue aucune modification de la base de données (elle ne fait que la lire), et peut donc être lancée à tout instant.';
+$string['confirmcheckforeignkeys'] = 'Cette fonctionnalité recherche les violations potentielles des clefs extérieures définies dans le fichier de définitions install.xml. (Moodle ne génère actuellement dans sa base de données aucune contrainte sur les clefs extérieures, raison pour laquelle des données non valides peuvent être présentes.)
+
+Il est vivement recommandé d\'avoir la dernière version (version +) disponible pour votre version de Moodle avant de lancer la recherche des éventuelles violations.
+
+Cette fonctionnalité n\'effectue aucune modification de la base de données (elle ne fait que la lire), et peut donc être lancée à tout instant.';
+$string['confirmcheckindexes'] = 'Cette fonctionnalité recherche les index potentiellement manquants dans votre serveur Moodle, et génère automatiquement (mais n\'exécute pas) les instructions SQL nécessaires pour tout mettre à jour.
+
+Vous pouvez copier alors ces instructions et les lancer avec votre interface SQL préférée. N\'oubliez pas d\'effectuer une sauvegarde de la base de données avant de lancer ces commandes.
+
+Il est vivement recommandé d\'avoir la dernière version (version +) disponible pour votre version de Moodle avant de lancer la recherche des index manquants.
+
+Cette fonctionnalité n\'effectue aucune modification de la base de données (elle ne fait que la lire), et peut donc être lancée à tout instant.';
+$string['confirmcheckoraclesemantics'] = 'Cette fonctionnalité va rechercher des <a href="http://tracker.moodle.org/browse/MDL-29322">colonnes Oracle varchar2 utilisant la sémantique BYTE</a> sur votre serveur Moodle et générer automatiquement (sans les lancer !) les instructions SQL permettant de convertir ces colonnes de sorte qu\'elles utilisent la sémantique CHAR (meilleur pour la compatibilité et pouvant accepter des contenus de longueur plus grande).
+
+Vous pourrez  copier ces instructions et les lancer depuis votre interface SQL préférée (n\'oubliez pas de sauvegarder vos données avant de le faire).
+
+Il est vivement recommandé de disposer de la version la plus récente (version +) disponible pour votre version de Moodle avant de lancer la recherche.
+
+Cette fonctionnalité n\'effectue aucune action sur votre base de données et peut donc être lancée à tout moment.';
 $string['confirmdeletefield'] = 'Voulez-vous vraiment supprimer le champ';
 $string['confirmdeleteindex'] = 'Voulez-vous vraiment supprimer l\'index :';
 $string['confirmdeletekey'] = 'Voulez-vous vraiment supprimer la clef :';
@@ -94,6 +122,8 @@ $string['fieldsusedinindex'] = 'Ce champ est utilisé comme index';
 $string['fieldsusedinkey'] = 'Ce champ est utilisé comme clef';
 $string['filemodifiedoutfromeditor'] = 'Attention ! Fichier modifié localement à l\'aide de l\'éditeur XMLDB. L\'enregistrement écrasera les modifications locales.';
 $string['filenotwriteable'] = 'Fichier non accessible en écriture';
+$string['fkunknownfield'] = 'La clef externe {$a->keyname} sur la table {$a->tablename} fait référence à un champ inexistant {$a->reffield} dans la table référencée {$a->reftable}.';
+$string['fkunknowntable'] = 'La clef externe {$a->keyname} sur la table {$a->tablename} fait référence à une table inexistante {$a->reftable}.';
 $string['fkviolationdetails'] = 'La clef extérieure {$a->keyname} sur la table {$a->tablename} subit {$a->numviolations} violations sur un total de {$a->numrows} rangées.';
 $string['float2numbernote'] = 'Remarque : bien que les champs « float » soient supportés à 100% par XMLDB, il est recommandé de les convertir en champs « number ».';
 $string['floatincorrectdecimals'] = 'Nombre de décimales incorrecte pour champ virgule flottante';
@@ -139,8 +169,8 @@ $string['nowrongoraclesemanticsfound'] = 'Aucune colonne Oracle varchar2 utilisa
 $string['numberincorrectdecimals'] = 'Nombre de décimales incorrect pour champ numérique';
 $string['numberincorrectlength'] = 'Longueur du champ numérique incorrecte';
 $string['pendingchanges'] = 'Remarque ! Vous avez effectué des modifications dans ce fichier. Vous pouvez l\'enregistrer quand cela vous convient.';
-$string['pendingchangescannotbesaved'] = 'Ce fichier comprend des modifications, mais ne peut pas être enregistré ! Veuillez vérifier que le dossier, ainsi que le fichier « install.xml » qu\'il contient disposent des permissions d\'écriture du serveur web.';
-$string['pendingchangescannotbesavedreload'] = 'Ce fichier comprend des modifications, mais ne peut pas être enregistré ! Veuillez vérifier que le dossier, ainsi que le fichier « install.xml » qu\'il contient disposent des permissions d\'écriture du serveur web. Rafraîchissez ensuite l\'affichage de cette page, et vous pourrez alors enregistrer les modifications.';
+$string['pendingchangescannotbesaved'] = 'Ce fichier comprend des modifications, mais ne peut pas être enregistré ! Veuillez vérifier que le dossier, ainsi que le fichier « install.xml » qu\'il contient, disposent des droits d\'accès en écriture du serveur web.';
+$string['pendingchangescannotbesavedreload'] = 'Ce fichier comprend des modifications, mais ne peut pas être enregistré ! Veuillez vérifier que le dossier, ainsi que le fichier « install.xml » qu\'il contient, disposent des permissions d\'écriture du serveur web. Rafraîchissez ensuite l\'affichage de cette page, et vous pourrez alors enregistrer les modifications.';
 $string['pluginname'] = 'Éditeur XMLDB';
 $string['primarykeyonlyallownotnullfields'] = 'Les clefs primaires ne peuvent pas être nulles';
 $string['reserved'] = 'Réservé';
@@ -158,6 +188,8 @@ $string['selecttable'] = 'Choisir une table :';
 $string['table'] = 'Table';
 $string['tablenameempty'] = 'Le nom de la table ne peut pas être vide';
 $string['tables'] = 'Tables';
+$string['unknownfield'] = 'Fait référence à un champ inconnu';
+$string['unknowntable'] = 'Fait référence à une table inconnue';
 $string['unload'] = 'Unload';
 $string['up'] = 'Monter';
 $string['view'] = 'Afficher';

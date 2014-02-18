@@ -25,5 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['beginanswernotfound'] = '가져오기한 파일 내용에서 필요한 "{" 를 찾을 수 없습니다.';
+$string['endanswernotfound'] = '가져오기한 파일 내용에서 필요한 "}" 를 찾을 수 없습니다.';
+$string['noanswerfound'] = '질문에 답이 없습니다.';
 $string['pluginname'] = '빈칸 채우기 형식';
 $string['pluginname_help'] = '빈 칸 채우기 형식은 텍스트 파일로 질문들을 가져올 수 있게 합니다.';

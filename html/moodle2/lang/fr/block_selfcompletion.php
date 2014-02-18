@@ -29,5 +29,4 @@ $string['alreadyselfcompleted'] = 'Vous vous êtes déjà marqué vous-même com
 $string['completecourse'] = 'Marquer le cours comme achevé';
 $string['pluginname'] = 'Auto-achèvement';
 $string['selfcompletion:addinstance'] = 'Ajouter un bloc auto-achèvement';
-$string['selfcompletion:myaddinstance'] = 'Ajouter un bloc auto-achèvement à la page Mon Moodle';
 $string['selfcompletionnotenabled'] = 'Le critère d\'auto-achèvement n\'a pas été défini pour ce cours';

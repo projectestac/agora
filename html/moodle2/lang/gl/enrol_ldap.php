@@ -38,9 +38,11 @@ $string['bind_dn_key'] = 'Nome de usuario de conexión';
 $string['bind_pw'] = 'Contrasinal para o usuario de ligazón.';
 $string['bind_pw_key'] = 'Contrasinal';
 $string['bind_settings'] = 'Configuración de conexión';
+$string['cannotcreatecourse'] = 'Non foi posíbel crear o curso: faltan datos requiridos do rexistro LDAP!';
 $string['category'] = 'Categoría para cursos creados automaticamente.';
 $string['category_key'] = 'Categoría';
 $string['contexts'] = 'Contextos LDAP';
+$string['couldnotfinduser'] = 'Non foi posíbel atopar o usuario «{$a}», omitindo';
 $string['course_fullname'] = 'Opcional: Campo LDAP de onde se colle o nome completo.';
 $string['course_fullname_key'] = 'Nome completo';
 $string['course_idnumber'] = 'Mapa para o único identificador no LDAP, normalmente
@@ -56,6 +58,7 @@ $string['course_shortname_key'] = 'Nome curto';
 $string['course_summary'] = 'Opcional: Campo LDAP de onde se colle o resumo.';
 $string['course_summary_key'] = 'Resumo';
 $string['createcourseextid'] = 'CREAR o usuario matriculado no curso \'{$a->courseextid}\' que non existe';
+$string['createnotcourseextid'] = 'O usuario está matriculado nun curso que non existe «{$a->courseextid}»';
 $string['creatingcourse'] = 'Usuario matriculado no curso course \'{$a->courseextid}\' que non existe';
 $string['editlock'] = 'Bloquear valor';
 $string['emptyenrolment'] = 'Matriculación baleira do rol \'{$a->role_shortname}\' no curso \'{$a->course_shortname}\'';
@@ -75,9 +78,25 @@ $string['host_url'] = 'Especificar o servidor LDAP en forma de URL como
                                   ldap://ldap.myorg.com/
                                   ou ldaps://ldap.myorg.com/';
 $string['host_url_key'] = 'URL do equipo';
+$string['idnumber_attribute'] = 'Se os membros do grupo teñen nomes distintos, especifique o mesmo atributo que usou para o mapeamento do «Número ID» do usuario na configuración de autenticación LDAP';
+$string['idnumber_attribute_key'] = 'Atributo de número ID';
+$string['ldap_encoding'] = 'Especifique a codificación utilizada no servidor LDAP. O máis probábel é que sexa utf-8, MS AD v2 utilice unha codificación da plataforma tal como cp1252, cp1250, etc.';
+$string['ldap_encoding_key'] = 'Codificación LDAP';
+$string['ldap:manage'] = 'Xestionar instancia de matriculación LDAP';
 $string['memberattribute'] = 'Atributo de membro LDAP';
+$string['memberattribute_isdn'] = 'Se o grupo de membros contén nomes distintos, faise necesario que o especifique aquí. Se o fai, tamén é necesario configurar a configuración restante desta sección';
+$string['memberattribute_isdn_key'] = 'O atributo do membro utiliza dn';
+$string['nested_groups'] = 'Quere utilizar grupos aniñados (grupos de grupos) para a matriculación?';
+$string['nested_groups_key'] = 'Grupos aniñados';
+$string['nested_groups_settings'] = 'Configuración de grupos aniñados';
 $string['objectclass'] = 'objectClass utilizado para buscar cursos. Normalmente
                                      posixGroup.';
+$string['objectclass_key'] = 'Clase de obxecto';
+$string['ok'] = 'Aceptar!';
+$string['opt_deref'] = 'Se os membros do grupo teñen nomes distintos, especifique como manexar os alias durante a busca. Seleccione un dos seguintes valores: \'Non\' (LDAP_DEREF_NEVER) ou \'Si\' (LDAP_DEREF_ALWAYS)';
+$string['opt_deref_key'] = 'Alias dereferencia';
+$string['phpldap_noextension'] = '<em>O módulo PHP LDAP non parece estar presente. Asegúrese de que está instalado e activado se quere usar este engadido de matriculación.</em>';
+$string['pluginname'] = 'Matriculacións LDAP';
 $string['pluginname_desc'] = '<p>Pode utilizar un servidor LDAP para controlar as súas inscricións.
                           É asumido que a súa árbore LDAP contén grupos que asignan os
                           cursos, e que cada un deses grupos/cursos terán
@@ -97,9 +116,25 @@ $string['pluginname_desc'] = '<p>Pode utilizar un servidor LDAP para controlar a
                           <em>inscribir/ldap/inscrición_ldap_sync.php</em>.</p>
                           <p>Este plugin tamén pode ser definido para crear automaticamente novos
                           cursos ao aparecer grupos novos en LDAP.</p>';
+$string['pluginnotenabled'] = 'Engadido non activado!';
+$string['role_mapping'] = '<p>Por cada rol que queira asignar desde  LDAP, debe especificar a lista de contextos onde se atopan os grupos de roles do curso. Separe os contextos diferentes con «;».</p><p>Tamén necesita especificar o atributo que os seus servidores LDAP utilizan para conter os membros dun grupo. Adoita ser «membro» ou «Uidmembro»</p>';
+$string['role_mapping_attribute'] = 'Atributo do membro LDAP para {$a}';
+$string['role_mapping_context'] = 'Contextos LDAP para {$a}';
+$string['role_mapping_key'] = 'Mapear roles de LDAP';
 $string['roles'] = 'Asignación de papeis';
 $string['server_settings'] = 'Configuración do servidor LDAP';
+$string['synccourserole'] = '== Sincronización do curso «{$a->idnumber}» para o rol «{$a->role_shortname}»';
 $string['template'] = 'Opcional: os cursos creados automaticamente poden copiar
                                   as súas configuracións dun modelo de curso.';
+$string['template_key'] = 'Modelo';
+$string['unassignrole'] = 'Retirarlle o rol «{$a->role_shortname}» ao usuario «{$a->user_username}» do curso «{$a->course_shortname}» (id {$a->course_id})';
 $string['updatelocal'] = 'Actualizar datos locais';
+$string['user_attribute'] = 'Se os membros do grupo teñen nomes distintos, especifique o atributo utilizado para nomear/buscar usuarios. Se está a usar autenticación LDAP, este valor debería coincidir co atributo especificado no mapeamento do «Número ID» do engadido de autenticación';
+$string['user_contexts'] = 'Se os membros do grupo teñen nomes distintos, especifique a lista dos contextos nos que están situados os usuarios. Separe os diferentes contextos con «;». Por exemplo: «ou=users,o=org; ou=others,o=org»';
+$string['user_contexts_key'] = 'Contextos';
+$string['user_search_sub'] = 'Se os membros do grupo teñen nomes distintos, especifique se a busca de usuarios se fai en subcontextos tamén';
+$string['user_search_sub_key'] = 'Buscar subcontextos';
+$string['user_type'] = 'Se os membros do grupo teñen nomes distintos, especifique como se gardan os usuarios en LDAP';
+$string['user_type_key'] = 'Tipo de usuario';
 $string['version'] = 'A versión do protocolo LDAP que está a utilizar o seu servidor.';
+$string['version_key'] = 'Versión';

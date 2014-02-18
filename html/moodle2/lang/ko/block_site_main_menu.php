@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = '주 메뉴';
+$string['site_main_menu:addinstance'] = '주 메뉴 블록 추가';

@@ -46,6 +46,7 @@ $string['gotoresetlink'] = '리셋될 퀴즈 목록으로 가기';
 $string['includedintheupgrade'] = '업그레이드에 포함되었습니까?';
 $string['listpreupgrade'] = '퀴즈와 시도들 목록 표시';
 $string['listtodo'] = '업그레이드할 퀴즈 목록 표시';
+$string['listupgraded'] = '되돌릴 수 있는 이미 업그레이드된 퀴즈 목록 나열';
 $string['nothingupgradedyet'] = '리셋될 수 있는 업그레이드 된 시도가 없습니다.';
 $string['notupgradedsiterequired'] = '이 스크립트는 사이트가 업그레이드 되기 전에만 동작할 수 있습니다.';
 $string['numberofattempts'] = '퀴즈 시도 수';

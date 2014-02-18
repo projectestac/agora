@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Menú principal';
+$string['site_main_menu:addinstance'] = 'Engadir un novo bloque de menú principal';

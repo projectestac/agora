@@ -28,4 +28,4 @@ defined('MOODLE_INTERNAL') || die();
 $string['enabledock'] = 'Permettre à l\'utilisateur de placer ce bloc dans le dock';
 $string['pluginname'] = 'Réglages';
 $string['settings:addinstance'] = 'Ajouter un bloc réglages';
-$string['settings:myaddinstance'] = 'Ajouter un bloc réglages à la page Mon Moodle';
+$string['settings:myaddinstance'] = 'Ajouter un bloc réglages à Ma page';

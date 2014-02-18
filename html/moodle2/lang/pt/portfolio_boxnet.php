@@ -25,13 +25,18 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = 'Chave da API';
-$string['err_noapikey'] = 'Não foi encontrada chave da API';
-$string['err_noapikey_help'] = 'Não foi indicada nenhuma chave para a API deste módulo. Esta pode ser obtida na página de desenvolvimento do site OpenBox.';
+$string['apiv1migration_message_small'] = 'Este plugin foi desativado, pois requer configuração conforme descrito na documentação de migração Box.net APIv1.';
+$string['apiv1migration_message_subject'] = 'Informações importantes sobre o plugin Box.net portfolio';
+$string['clientid'] = 'ID do cliente';
+$string['clientsecret'] = 'Senha do cliente';
 $string['existingfolder'] = 'Pasta onde devem ser colocados os ficheiros';
 $string['folderclash'] = 'A pasta a criar já existe!';
 $string['foldercreatefailed'] = 'Não foi possível criar a pasta de destino no site box.net';
 $string['folderlistfailed'] = 'Não foi possível obter a lista de pastas do site box.net';
+$string['missinghttps'] = 'HTTPS necessários';
+$string['missinghttps_help'] = 'O Box.net só irá funcionar com um site HTTPS ativado.';
+$string['missingoauthkeys'] = 'Falta ID e senha do cliente';
+$string['missingoauthkeys_help'] = 'Não há ID nem senha de cliente configurado para este plugin. Poderá obtê-los a partir da página de desenvolvimento Box.net.';
 $string['newfolder'] = 'Novo ficheiro onde devem ser colocados os ficheiros';
 $string['noauthtoken'] = 'Não foi possível obter um token de autenticação para esta sessão';
 $string['notarget'] = 'Deve indicar uma pasta que já exista ou um novo onde possam ser colocados os ficheiros';
@@ -47,3 +52,4 @@ $string['sharefolder'] = 'Partilhar este nova pasta?';
 $string['targetfolder'] = 'Pasta de destino';
 $string['tobecreated'] = 'A ser criado';
 $string['username'] = 'Username box.net (não será guardado)';
+$string['warninghttps'] = 'Box.net requer que o seu site use HTTPS para que o portfólio funcione.';

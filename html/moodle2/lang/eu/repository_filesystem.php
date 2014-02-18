@@ -27,7 +27,12 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['blockedpath'] = 'Root-erako bide-izena blokeatuta';
 $string['configplugin'] = 'Biltegia konfiguratu fitxategi-sisteman';
+$string['enableuserinstances'] = 'Baimendu kudeatzaileei fitxategi-sistema biltegiko elementu bat gehitzen norberaren erabilerarako (kudeatzaileek bakarrik konfigura dezakete)';
 $string['filesystem:view'] = 'Fitxategi-sistema biltegia ikusi';
+$string['information'] = 'Karpeta hauek <b>{$a}</b> direktorioaren barruan daude.';
+$string['invalidpath'] = 'Root-erako bide baliogabea';
+$string['nosubdir'] = 'Gutxienez karpeta bat sortu behar duzu <b>{$a}</b> direktorioaren barruan, aukeratu ahal izateko.';
 $string['path'] = 'Aukera ezazu azpidirektorio bat';
 $string['pluginname'] = 'Fitxategi-sistema';
 $string['pluginname_help'] = 'Direktorio lokaletik biltegia sortu ';
+$string['root'] = 'Root-a';

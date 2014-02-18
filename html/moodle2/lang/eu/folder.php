@@ -26,15 +26,21 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['contentheader'] = 'Edukia';
-$string['dnduploadmakefolder'] = 'Deskonprimatu fixtategiak eta sortu direktorioa';
-$string['folder:addinstance'] = 'Gehitu beste direktorio bat';
-$string['foldercontent'] = 'Fitxategiak eta azpidirektorioak';
-$string['folder:managefiles'] = 'Fitxategiak kudeatu direktorioa moduluan';
-$string['folder:view'] = 'Ikusi direktorioaren edukia';
-$string['modulename'] = 'Direktorioa';
-$string['modulenameplural'] = 'Direktorioak';
+$string['dnduploadmakefolder'] = 'Deskonprimatu fixtategiak eta sortu karpeta';
+$string['folder:addinstance'] = 'Gehitu beste karpeta bat';
+$string['foldercontent'] = 'Fitxategiak eta azpikarpetak';
+$string['folder:managefiles'] = 'Fitxategiak kudeatu karpeta moduluan';
+$string['folder:view'] = 'Ikusi karpetaren edukia';
+$string['modulename'] = 'Karpeta';
+$string['modulename_help'] = 'Karpeta moduluak aukera ematen dio irakasleari, karpeta bakarrean, zerikusia duten hainbat fitxategi erakusteko, ikastaroaren orrian scrollingn-a murriztuz. Karpeta konprimatuak kargatu ahal izango dira, eta deskonprimatu edukiak erakusteko, edo karpeta hutsa sortu bertara fitxategiak igotzeko.
+
+Karpeta erabil daiteke
+
+* Gai jakinen baten gaineko fitxategiak biltzeko, adibidez; azterketa zaharren bilduma pdf formatuan, edo ikasleen proiektuetan erabiltzeko moduko argazki-bilduma.
+* Ikastaroaren hasiera-orrian fitxategiak igotzeko espazio konpartitua eskaintzeko irakasleei (karpetak ezkutuan egon behar du, irakasleek bakarrik ikus dezaten)';
+$string['modulenameplural'] = 'Karpetak';
 $string['neverseen'] = 'Ikusi gabea';
-$string['page-mod-folder-view'] = 'Direktorioaren orri nagusia';
-$string['page-mod-folder-x'] = 'Direktorioaren edozein orri';
-$string['pluginadministration'] = 'Direktorioaren kudeaketa';
-$string['pluginname'] = 'Direktorioa';
+$string['page-mod-folder-view'] = 'Karpetaren orri nagusia';
+$string['page-mod-folder-x'] = 'Karpetaren edozein orri';
+$string['pluginadministration'] = 'Karpetaren kudeaketa';
+$string['pluginname'] = 'Karpeta';

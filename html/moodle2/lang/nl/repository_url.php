@@ -31,4 +31,5 @@ $string['pluginname'] = 'URL downloader';
 $string['rename'] = 'Naam';
 $string['url'] = 'URL';
 $string['url:view'] = 'Gebruik URL-downloader in de file picker';
+$string['validfiletype'] = 'Je moet een URL geven naar een afbeeldingsbestand of naar een pagina met afbeeldingen.';
 $string['validname'] = 'Je moet een geldige bestandsnaam gebruiken';

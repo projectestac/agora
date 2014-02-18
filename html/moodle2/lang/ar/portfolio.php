@@ -61,6 +61,7 @@ $string['instancenotsaved'] = 'فشل حفظ المحفظة';
 $string['instancesaved'] = 'تم حفظ المحفظة بنجاح';
 $string['manageportfolios'] = 'إدارة محافظ';
 $string['manageyourportfolios'] = 'قم بإدارة محافظ الخاصة بك';
+$string['multipleinstancesdisallowed'] = 'محاولة إنشاء نسخة أخرى من إضافة تمنع إنشاء عدة نسخ ({$a}).';
 $string['noinstanceyet'] = 'لم يتم اختياره بعد';
 $string['nologs'] = 'لا يوجد سجلات للقيام بعرضها';
 $string['notyetselected'] = 'لم يتم اختياره بعد';

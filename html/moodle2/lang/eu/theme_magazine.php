@@ -26,15 +26,16 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['background'] = 'atzeko planoa';
-$string['blockcolor'] = 'blokearen kolorea';
+$string['blockcolor'] = 'Blokearen kolorea';
 $string['configtitle'] = 'Magazine itxura';
-$string['headingcolor'] = 'izenburuaren kolorea';
+$string['headingcolor'] = 'Izenburuaren kolorea';
 $string['headingcolordesc'] = 'Goiburu handietarako eta beste zenbaitetarako kolorea (gunearen berriak, nire ikastaroak).';
 $string['linkcolor'] = 'esteka';
+$string['linkcolordesc'] = 'Ezarri esteken kolorea itxuran. Erabili html hex kodea.';
 $string['linkhover'] = 'sakatutako esteka';
 $string['linkhoverdesc'] = 'Ezarri sakatutako esteken kolorea itxuran. Erabili html hex kodea.';
 $string['logo'] = 'logoa';
-$string['maincolor'] = 'kolore nagusia';
+$string['maincolor'] = 'Kolore nagusia';
 $string['maincolordesc'] = 'Ezarri goiburu, alboko barra eta beste eremu batzuetarako kolorearen kode hamaseitarra. Egokienak kolore ilunak eta saturatuak dira.';
 $string['pluginname'] = 'Magazine';
 $string['region-side-post'] = 'Eskuina';

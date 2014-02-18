@@ -25,13 +25,18 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = 'API-sleutel';
-$string['err_noapikey'] = 'Geen API-sleutel';
-$string['err_noapikey_help'] = 'Er is nog geen API-sleutel geconfigureerd voor deze plugint. Je kunt er één krijgen via de OpenBox development pagina';
+$string['apiv1migration_message_small'] = 'Deze plugin is uitgeschakeld, omdat de configuratie moet aangepast worden zoals beschreven in de Box?net API v1  migratiedocumentatie.';
+$string['apiv1migration_message_subject'] = 'Belangrijke informatie over de Box.net-plugin';
+$string['clientid'] = 'Client ID';
+$string['clientsecret'] = 'Client geheim';
 $string['existingfolder'] = 'Bestaande map om bestand(en) in te zetten';
 $string['folderclash'] = 'De map die je wou maken bestaat al!';
 $string['foldercreatefailed'] = 'Het maken van je map op box.net is mislukt';
 $string['folderlistfailed'] = 'Kon geen mappenlijst krijgen van box.net';
+$string['missinghttps'] = 'HTTPS vereist';
+$string['missinghttps_help'] = 'BOX.NET werkt enkel op sites waar HTTPS is ingeschakeld.';
+$string['missingoauthkeys'] = 'Client ID en geheim ontbreken';
+$string['missingoauthkeys_help'] = 'Er is geen Client ID of geheim geconfigureerd voor deze plugin. Je kunt deze halen van de box.net ontwikkelaarspagina';
 $string['newfolder'] = 'Nieuwe map om bestand(en) in te bewaren';
 $string['noauthtoken'] = 'Kon geen authenticatie-token krijgen om tijdens deze sessie te gebruiken';
 $string['notarget'] = 'Je moet ofwel een bestaande map kiezen of een nieuwe map maken om naar te uploaden';
@@ -40,10 +45,11 @@ $string['password'] = 'Je box.net wachtwoord (wordt niet bewaard)';
 $string['pluginname'] = 'Box.net';
 $string['sendfailed'] = 'Inhoud naar box.net sturen mislukt: {$a}';
 $string['setupinfo'] = 'Installatie-instructies';
-$string['setupinfodetails'] = 'Om een API-sleutel te verkrijgen, moet je inloggen bij box.net en hun <a href="{$a->servicesurl}">OpenBox development page</a> bezoeken.  In \'Developer Tools\', volg \'Create new application\' en maak een nieuwe applicatie voor jouw Moodle site. De API-sleutel wordt getoond in de \'Backend parameters\' sectie van het application edit formulier. In dat formulier vul je het \'Redirect URL\' veld in met:<br /><code>{$a->callbackurl}</code><br />Optioneel kun je ook meer informatie over je Moodle site geven. Deze gegevens kunnen later bewerkt worden via de \'View my applications\' pagina.';
+$string['setupinfodetails'] = 'Om een API-sleutel te verkrijgen, moet je inloggen bij box.net en hun <a href="{$a->servicesurl}">OpenBox development page</a> bezoeken.  In \'Developer Tools\', volg \'Create new application\' en maak een nieuwe applicatie voor jouw Moodle site. De client ID en geheim worden getoond in  \'OAuth2 parameters\'-sectie van het bewerk applicatieformulier. Optioneel kun je ook meer informatie over je Moodle site geven.';
 $string['sharedfolder'] = 'Gedeeld';
 $string['sharefile'] = 'Dit bestand delen?';
 $string['sharefolder'] = 'Deze nieuwe map delen?';
 $string['targetfolder'] = 'Doelmap';
 $string['tobecreated'] = 'Aan te maken';
 $string['username'] = 'Je box.net gebruikersnaam (wordt niet bewaard)';
+$string['warninghttps'] = 'Om Box.net portfolio te doen werken moet je site HTTPS gebruiken.';

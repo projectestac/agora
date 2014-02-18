@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmoredimensions'] = 'Добавить ещё утверждений - {$a}';
+$string['addmoredimensions'] = 'Добавить еще утверждений - {$a}';
 $string['configgrade0'] = 'Текст по умолчанию, описывающий негативную оценку за утверждение.';
 $string['configgrade1'] = 'Текст по умолчанию, описывающий позитивную оценку за утверждение.';
 $string['dimensioncomment'] = 'Комментарий';
@@ -37,7 +37,7 @@ $string['grade0'] = 'Текст для ошибки';
 $string['grade0default'] = 'Нет';
 $string['grade1'] = 'Текст для успеха';
 $string['grade1default'] = 'Да';
-$string['grademapping'] = 'Таблица оценок';
+$string['grademapping'] = 'Таблица сопоставления оценок';
 $string['maperror'] = 'Взвешенное количество ошибок меньше или равно';
 $string['mapgrade'] = 'Оценка работы';
 $string['percents'] = '{$a} %';

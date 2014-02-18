@@ -88,6 +88,7 @@ $string['group'] = 'مجموعة';
 $string['groupevent'] = 'حدث مجموعة';
 $string['groupevents'] = 'أحداث مجموعة';
 $string['hidden'] = 'مخفي';
+$string['hideglobalevents'] = 'إخفاء الأحداث العامة';
 $string['ical'] = 'التقويم الإلكتروني';
 $string['invalidtimedurationminutes'] = 'المدة بالدقائق التي أدخلتها غير صالحة الرجاء أدخل المدة بالدقائق أكبر من الصفر أو اختر لا مدة';
 $string['invalidtimedurationuntil'] = 'الوقت والتاريخ اللذان اخترتهما للمدة "حتى" هي قبل وقت بدء الحدث. رجاءً صحح هذا قبل الإكمال.';

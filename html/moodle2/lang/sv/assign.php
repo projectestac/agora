@@ -170,7 +170,7 @@ $string['manageassignfeedbackplugins'] = 'Hantera insticksmodul för återkoppli
 $string['manageassignsubmissionplugins'] = 'Hantera insticksmodul för inlämning till inlämningsuppgift';
 $string['maxgrade'] = 'Maximalt betyg';
 $string['messageprovider:assign_notification'] = 'Meddelande för inlämningsuppgift';
-$string['modulename'] = 'Inlämningsuppgift';
+$string['modulename'] = 'Uppgift';
 $string['modulename_help'] = 'Aktivitetsmodulen inlämningsuppgift medger för lärare att kommunicera uppgifter, samla arbete och sätta betyg med återkoppling.
 
 Elever kan lämna in digitalt material (filer) såsom dokument från ordbehandlingsprogram, kalkylblad, bilder eller ljud- och videofiler. Alternativt eller som tillägg kan inlämningsuppgiften kräva att eleverna skriver test direkt i testredigeraren. En inlämningsuppgift kan även användas för att påminna elever om en uppgift utanför webbplatsen, som de ska utföra utan att vara inloggade.

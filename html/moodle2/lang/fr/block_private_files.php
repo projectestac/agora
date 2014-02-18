@@ -29,4 +29,4 @@ $string['managemyfiles'] = 'Gérer mes fichiers';
 $string['pluginname'] = 'Mes fichiers personnels';
 $string['privatefiles'] = 'Fichiers personnels';
 $string['private_files:addinstance'] = 'Ajouter un bloc mes fichiers personnels';
-$string['private_files:myaddinstance'] = 'Ajouter un bloc mes fichiers personnels à la page Mon Moodle';
+$string['private_files:myaddinstance'] = 'Ajouter un bloc mes fichiers personnels à Ma page';

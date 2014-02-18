@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['choosereadme'] = 'Base ist ein sehr einfach gehaltenes Basis-Design. Es soll als Grundlage für neue Designs dienen. Aufgrund dessen sollte es nicht für produktive Websites verwendet werden.';
+$string['choosereadme'] = 'Base ist ein sehr einfach gehaltenes Basis-Design, auf dessen Grundlage weitere Designs abgeleitet sind. Dieses Design sollte es nicht für produktive Websites verwendet werden.';
 $string['pluginname'] = 'Base';
 $string['region-side-post'] = 'Rechts';
 $string['region-side-pre'] = 'Links';

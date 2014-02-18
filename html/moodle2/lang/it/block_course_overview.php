@@ -30,6 +30,7 @@ $string['alwaysshowall'] = 'Tutti';
 $string['collapseall'] = 'Elenchi corsi minimizzati';
 $string['configotherexpanded'] = 'L\'elenco Altri corsi sarà espanso per default a meno che l\'utente non cambi le proprie preferenze.';
 $string['configpreservestates'] = 'Consente la memorizzazione e il riutilizzo dello stato minimizzato/espanso impostato dall\'utente.';
+$string['course_overview:addinstance'] = 'Aggiungere blocco Panoramica corsi';
 $string['course_overview:myaddinstance'] = 'Aggiungere blocco Panoramica corsi nella pagina My home';
 $string['defaultmaxcourses'] = 'Numero massimo di corsi di default';
 $string['defaultmaxcoursesdesc'] = 'Il numero massimo di corsi da visualizzare nel blocco Panoramica corsi. Impostare a 0 per visualizzare tutti i corsi.';

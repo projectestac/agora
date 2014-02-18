@@ -25,9 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = 'API key';
-$string['err_noapikey'] = '没有 API key';
-$string['err_noapikey_help'] = '未为此插件配置 API key。您可以从 OpenBox development 页面获取。';
 $string['existingfolder'] = '文件放入哪个已有文件夹';
 $string['folderclash'] = '您请求创建的文件夹已存在！';
 $string['foldercreatefailed'] = '在 box.net 创建您的目标文件夹失败';

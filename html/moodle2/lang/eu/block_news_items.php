@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['news_items:addinstance'] = 'Gehitu beste azken berriak bloke bat';
-$string['news_items:myaddinstance'] = 'Gehitu beste azken berriak bloke bat Nire Moodle orrian';
+$string['news_items:myaddinstance'] = 'Gehitu azken berriak bloke berria Nire hasieran';
 $string['pluginname'] = 'Azken berriak';

@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowguests'] = 'このコースはゲストユーザも利用できます。';
+$string['guestaccess_withoutpassword'] = 'ゲストアクセス';
+$string['guestaccess_withpassword'] = 'ゲストアクセス';
 $string['guest:config'] = 'ゲストアクセスインスタンスを設定する';
 $string['password'] = 'パスワード';
 $string['password_help'] = 'パスワードにより、パスワードを知っているゲストのみコースにゲストアクセスすることができます。ゲストはコースアクセス時、毎回パスワードの入力を求められます。';

@@ -39,7 +39,7 @@ $string['gradingmethod_help'] = 'Escolla o método de cualificación avanzada qu
 Para desactivar a cualificación avanzada e volver ao mecanismo de cualificación predeterminado, escolla «Cualificación directa simple».';
 $string['gradingmethodnone'] = 'Cualificación directa simple';
 $string['gradingmethods'] = 'Métodos de cualificación';
-$string['manageactionclone'] = 'Crear un novo formulario de cualificación a partires dun modelo';
+$string['manageactionclone'] = 'Crear un novo formulario de cualificación a partir dun modelo';
 $string['manageactiondelete'] = 'Eliminar o formulario definido actualmente';
 $string['manageactiondeleteconfirm'] = 'Vai eliminar o formulario de cualificación «{$a->formname}» e toda a información asociada de «{$a->component} ({$a->area})». Asegúrese de que comprende as seguintes consecuencias:
 
@@ -52,7 +52,7 @@ $string['manageactiondeletedone'] = 'O formulario foi eliminado correctamente';
 $string['manageactionedit'] = 'Editar a definición do formulario actual';
 $string['manageactionnew'] = 'Definir un novo formulario de cualificación desde cero';
 $string['manageactionshare'] = 'Publicar o formulario como un modelo novo';
-$string['manageactionshareconfirm'] = 'Vai gardar unha copia do formulario de cualificación «{$a}» como modelo público novo. Outros usuarios do seu sitio seran quen de crear novas formas de cualificación nas súas actividades a partires dese modelo.';
+$string['manageactionshareconfirm'] = 'Vai gardar unha copia do formulario de cualificación «{$a}» como modelo público novo. Outros usuarios do seu sitio seran quen de crear novas formas de cualificación nas súas actividades a partir dese modelo.';
 $string['manageactionsharedone'] = 'O formulario foi correctamente gardado como un modelo';
 $string['noitemid'] = 'Non é posíbel cualificar. Non existe o elemento cualificado.';
 $string['nosharedformfound'] = 'Non se atoparon modelos';
@@ -64,7 +64,7 @@ De xeito predeterminado, só se incluirán nos resultados da busca os formulario
 $string['statusdraft'] = 'Versión preliminar';
 $string['statusready'] = 'Listo para empregar';
 $string['templatedelete'] = 'Eliminar';
-$string['templatedeleteconfirm'] = 'Vai eliminar o modelo compartido «{$a}». A eliminación dun modelo non afecta aos formatos existentes que se crearon a partires del.';
+$string['templatedeleteconfirm'] = 'Vai eliminar o modelo compartido «{$a}». A eliminación dun modelo non afecta aos formatos existentes que se crearon a partir del.';
 $string['templateedit'] = 'Editar';
 $string['templatepick'] = 'Empregar este modelo';
 $string['templatepickconfirm'] = 'Quere empregar o formulario de cualificación «{$a->formname}»  como un modelo para o novo formulario de cualificación en «{$a->component} ({$a->area})»?';

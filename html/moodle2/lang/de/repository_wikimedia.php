@@ -26,6 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configplugin'] = 'Einstellungen für Wikimedia Commons';
-$string['keyword'] = 'Ausführlicher Text';
+$string['keyword'] = 'Suchwort';
 $string['pluginname'] = 'Wikimedia Commons';
 $string['wikimedia:view'] = 'Wikimedia Commons Repository anzeigen';

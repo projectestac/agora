@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['coursesummary'] = '강좌 요약';
+$string['course_summary:addinstance'] = '새 강좌/사이트 요약 블록 추가';
 $string['pluginname'] = '강좌/사이트 설명';

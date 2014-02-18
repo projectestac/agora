@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowguests'] = 'Les visiteurs anonymes sont autorisés dans ce cours';
+$string['guestaccess_withoutpassword'] = 'Accès anonyme';
+$string['guestaccess_withpassword'] = 'Accès anonyme';
 $string['guest:config'] = 'Configurer les méthodes d\'accès anonymes';
 $string['password'] = 'Mot de passe';
 $string['password_help'] = 'Un mot de passe permet de restreindre l\'accès aux seuls utilisateurs anonymes qui connaissent ce mot de passe. Les utilisateurs anonymes devront saisir le mot de passe à chaque accès au cours.';

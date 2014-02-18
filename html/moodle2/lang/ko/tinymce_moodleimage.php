@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['moodleimage:browseimage'] = '찾기 혹은 이미지 올리기';
+$string['pluginname'] = '이미지 삽입';

@@ -25,5 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['beginanswernotfound'] = 'Un caractère « { » requis est introuvable dans le fichier à importer.';
+$string['endanswernotfound'] = 'Un caractère « } » requis est introuvable dans le fichier à importer.';
+$string['noanswerfound'] = 'Aucune réponse trouvée pour la question';
 $string['pluginname'] = 'Format Mot manquant';
 $string['pluginname_help'] = 'Le format mot manquat permet d\'importer des questions à partir d\'un fichier texte.';

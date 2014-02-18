@@ -25,14 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addcomment'] = 'Iruzkina gehitu';
+$string['addcomment'] = 'Gehitu iruzkina';
 $string['addedbegins'] = 'gehitutako hasierak';
 $string['addedends'] = 'gehitutako amaierak';
 $string['admin'] = 'Kudeaketa';
 $string['adminmenu'] = 'Kudeaketaren menua';
 $string['attachmentattach'] = 'Eranskin bezala gehitu';
-$string['attachmentimage'] = 'Irudi bezala gehitu';
-$string['attachmentlink'] = 'Esteka bezala gehitu';
+$string['attachmentimage'] = 'Gehitu irudi bezala';
+$string['attachmentlink'] = 'Gehitu esteka bezala';
 $string['attachments'] = 'Eranskinak';
 $string['backcomments'] = 'Itzuli Iruzkinetara';
 $string['backhistory'] = 'Itzuli historiara';
@@ -52,7 +52,7 @@ $string['contributions'] = 'Ekarpenak';
 $string['contributions_help'] = 'Editatu dituzun orrien zerrenda';
 $string['createcomment'] = 'Iruzkina sortzen';
 $string['createddate'] = '{$a->date}-n {$a->username}-k sortua';
-$string['createpage'] = 'Orria sortu';
+$string['createpage'] = 'Sortu orria';
 $string['creating'] = 'Wiki-orria sortzen';
 $string['creole'] = 'Creole';
 $string['defaultformat'] = 'Berezko formatua';
@@ -98,16 +98,20 @@ $string['formatnwiki_help'] = '<a href="http://docs.moodle.org/eu/NWiki_formatua
 $string['history'] = 'Historia';
 $string['history_help'] = 'Orriaren aurreko bertsioetarako esteka-zerrenden historia';
 $string['html'] = 'HTML';
+$string['incorrectdeleteversions'] = 'Ez dira zuzenak ezabatzeko emandako orrien bertsioak';
 $string['individualpagedoesnotexist'] = 'Norberaren wiki-orria ez da existitzen';
 $string['insertcomment'] = 'Txertatu iruzkina';
 $string['insertimage'] = 'Txertatu irudi bat...';
+$string['insertimage_help'] = 'Zerrenda zabalgarri honek irudia txertatuko du wiki editorean, wikian irudi gehiago txertatzeko "fitxategiak" aukera erabili.';
 $string['invalidlock'] = 'Orri hau dagoeneko beste erabiltzaile batek blokeatu du';
 $string['invalidparameters'] = 'Parametro baliogabeak eman dira.';
 $string['invalidsection'] = 'Atal ezegokia.';
 $string['invalidsesskey'] = 'Emandako sesskey-a ez da baliagarria. Mesedez, bidali berriz datuak';
+$string['javascriptdisabledlocks'] = 'Javascript desgaituta dago zure nabigatzailean, sarrailek ez dute funtzionatzen. Moldaketak ez dira zuzen gordeko.';
 $string['links'] = 'Estekak';
 $string['listall'] = 'Zerrendatu guztiak';
 $string['listorphan'] = 'Zerrenda umezurtza';
+$string['lockingajaxtimeout'] = 'Edizio-orriaren blokeoa freskatzeko tartea';
 $string['lockingtimeout'] = 'Blokeorako denbora';
 $string['map'] = 'Mapa';
 $string['mapmenu'] = 'Mapa-menua';
@@ -116,6 +120,17 @@ $string['migrationfinishednowikis'] = 'Migrazioa amaituta, ez da wikirik migratu
 $string['missingpages'] = 'Edukirik gabeko orriak';
 $string['modified'] = 'Aldatuta';
 $string['modulename'] = 'Wikia';
+$string['modulename_help'] = 'Wiki jarduera moduluak ahalbidetzen du parte hartzaileek web-orri multzoa editatu edo gehitu ahal izatea. Elkarlanerako wikia izan daiteke, denek editatu ahal izago dutena, ala banakakoa, norberak berea baino editatu ezin duena.
+
+Wikiaren historian gordeko dira orri bakoitzaren aurreko bertsio guztiak, parte hartzaile bakoitzak egindako ekarpenen zerrendarekin.
+
+Wikiek hainbat erabilera dute, esate baterako
+
+* Talde-oharren irakurketa edo ikas-gidak
+* Fakultateko kideentzat, lan-plana osatu edo elkarren arteko bileren agenda osatzeko
+* Ikasleentzat, on-line liburu baten egile kolaboratiboa bihurtzeko, edo edukiak sortzeko tutoreak emandako gairen baten gainean.
+* Parte hartzaile bakoitzak lerro edo bertsio bana idazten duten narrazio kolaboratiboak edo poesia-sorkuntza burutzeko
+* Egunkari pertsonal gisara, azterketetako notak berrikusteko (norbanako wikia erabiliz)';
 $string['modulenameplural'] = 'Wikiak';
 $string['navigation'] = 'Nabigazioa';
 $string['navigationfrom'] = 'Orri hau hemendik dator';
@@ -175,6 +190,7 @@ $string['rating'] = 'Puntuazioa';
 $string['ratingmode'] = 'Puntuazio-modua';
 $string['removeallwikitags'] = 'Kendu wiki-etiketa guztiak';
 $string['removepages'] = 'Ezabatu orriak';
+$string['reparsetimeout'] = 'Berezko itxaron-tartearen berrazterketa';
 $string['repeatedsection'] = 'Wiki errorea: Atalaren izena ezin da errepikatu: \'{$a}\'';
 $string['restore'] = 'Berreskuratu';
 $string['restoreconfirm'] = 'Ziur al zaude #{$a} bertsioa berreskuratu nahi duzula?';
@@ -188,6 +204,7 @@ $string['saving'] = 'Wiki-orria gordetzen';
 $string['savingerror'] = 'Errorea gordetzean';
 $string['searchcontent'] = 'Bilatu orriaren edukian';
 $string['searchresult'] = 'Bilaketaren emaitzak';
+$string['searchterms'] = 'Bilaketa-terminoak';
 $string['searchwikis'] = 'Bilatu wikiak';
 $string['special'] = 'Berezia';
 $string['tableofcontents'] = 'Eduki-taula';
@@ -227,6 +244,7 @@ $string['wikiimage'] = 'Irudia';
 $string['wikiinternalurl'] = 'Barruko esteka';
 $string['wikiintro'] = 'Wikiaren deskribapena';
 $string['wikiitalictext'] = 'Etzana';
+$string['wikilockingsettings'] = 'Itxi eta berraztertu denbora-mugak';
 $string['wiki:managecomment'] = 'Kudeatu wikiaren iruzkinak';
 $string['wiki:managefiles'] = 'Kudeatu wikiaren fitxategiak';
 $string['wiki:managewiki'] = 'Wikiaren ezarpenak kudeatu';

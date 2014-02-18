@@ -54,6 +54,7 @@ $string['auth_cas_language_key'] = '언어';
 $string['auth_cas_logincas'] = '보안 연결 접속';
 $string['auth_cas_logoutcas'] = '무들에서 나올때 CAS에서도 로그아웃하려면 \'예\'를 선택하십시요.';
 $string['auth_cas_logoutcas_key'] = 'CAS 로그아웃 옵션';
+$string['auth_cas_logout_return_url_key'] = '로그아웃 리턴 URL';
 $string['auth_cas_multiauth'] = '다중 인증(CAS+기타 인증)을 하려면  \'예\'를 선택하십시요';
 $string['auth_cas_multiauth_key'] = '다중 인증';
 $string['auth_casnotinstalled'] = 'CAS인증을 사용할 수 없음. PHP의 LDAP모듈이 장착되지 않았음.';

@@ -29,4 +29,4 @@ $string['managemyfiles'] = 'マイファイルを管理する';
 $string['pluginname'] = 'マイプライベートファイル';
 $string['privatefiles'] = 'プライベートファイル';
 $string['private_files:addinstance'] = '新しいプライベートファイルブロックを追加する';
-$string['private_files:myaddinstance'] = '新しいプライベートファイルブロックをマイマイホームに追加する';
+$string['private_files:myaddinstance'] = '新しいプライベートファイルブロックをマイホームに追加する';

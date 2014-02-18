@@ -55,6 +55,7 @@ $string['noactivity'] = 'Ingen aktivitet';
 $string['noresponses'] = 'Det gick inte att hitta någon information om individuella frågor och responser.';
 $string['outputformat'] = 'Format för output';
 $string['outputformat_best'] = 'bästa';
+$string['outputformat_hp_6_jmatch_xml_flashcard'] = 'JMatch (flashkort) från xml';
 $string['penalties'] = 'avdrag';
 $string['pluginname'] = 'Hot Potatoes test';
 $string['questionshort'] = 'Q-{$a}';

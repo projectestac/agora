@@ -65,7 +65,7 @@ $string['groupkey'] = 'Gebruik sleutels voor groepsaanmelding';
 $string['groupkey_desc'] = 'Gebruik sleutels voor groepsaanmelding als standaardinstelling';
 $string['groupkey_help'] = 'Het gebruik van een groepsaanmeldingssleutel zal de toegang tot de cursus niet alleen beperken tot diegenen die de sleutel kennen, maar de leerlingen zullen ook ingedeeld worden in hun juiste groep.
 
-Om een groepsaanmeldingssleutel te kunnen gebruiken, moet er een aanmeldingssleutel opgegeven worden, zowel in  \'Aanmeldingsbeheer\', \'Zelf aanmelden\' als in de instellingen van de groep.';
+Om een groepsaanmeldingssleutel te kunnen gebruiken, moet er een aanmeldingssleutel opgegeven worden, zowel in de instellingen  \'Aanmeldingsbeheer\', \'Zelf aanmelden\' als in de instellingen van de groep.';
 $string['longtimenosee'] = 'Afmelden indien langer inactief dan';
 $string['longtimenosee_help'] = 'Als gebruikers een cursus een lange tijd niet meer bezocht hebben, dan worden ze automatisch afgemeld. Deze parameter bepaalt deze limiet';
 $string['maxenrolled'] = 'Maxi aangemelde gebruikers';
@@ -87,7 +87,7 @@ $string['pluginname_desc'] = 'De zelf aanmelden-plugin maakt het voor gebruikers
 $string['requirepassword'] = 'Aanmeldingssleutel vereist';
 $string['requirepassword_desc'] = 'Vereis aanmeldingssleutel voor nieuwe cursussen en verhinder het verwijderen van de sleutel bij bestaande cursussen';
 $string['role'] = 'Standaard toegewezen rol';
-$string['self:config'] = 'Beheer zelf aanmeldinginstanties';
+$string['self:config'] = 'Beheer zelf aanmeldingsexemplaren';
 $string['self:manage'] = 'Beheer aangemelde gebruikers';
 $string['self:unenrol'] = 'Gebruikers afmelden van de cursus';
 $string['self:unenrolself'] = 'Jezelf afmelden van de cursus';

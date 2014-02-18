@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['autoactivedescription'] = 'Ce réglage permet d\'activer ou non les sauvegardes automatiques. Si l\'option « Manuelle » est sélectionnée, les sauvegardes automatiques ne pourront avoir lieu que via le script en ligne de commande, manuellement ou via le cron.';
+$string['autoactivedescription'] = 'Ce réglage permet d\'activer ou non les sauvegardes automatiques. Si l\'option « Manuelle » est sélectionnée, les sauvegardes automatiques ne pourront avoir lieu que via le script en ligne de commande, lancé manuellement ou via un cron spécifique.';
 $string['autoactivedisabled'] = 'Désactivée';
 $string['autoactiveenabled'] = 'Activée';
 $string['autoactivemanual'] = 'Manuelle';
@@ -161,11 +161,13 @@ $string['includeuserinfo'] = 'Données utilisateur';
 $string['locked'] = 'Verrouillé';
 $string['lockedbyconfig'] = 'Ce réglage a été verrouillé par les réglages par défaut des sauvegardes';
 $string['lockedbyhierarchy'] = 'Verrouillé en raison de contraintes';
-$string['lockedbypermission'] = 'Vous n\'avez pas les privilèges nécessaires à la modification de ce réglage';
+$string['lockedbypermission'] = 'Vous n\'avez pas les droits d\'accès nécessaires à la modification de ce réglage';
 $string['loglifetime'] = 'Conserver les historiques durant';
 $string['managefiles'] = 'Gérer les fichiers de sauvegarde';
 $string['missingfilesinpool'] = 'Certains fichiers n\'ont pas pu être enregistrés durant la sauvegarde. Ils ne pourront pas être restaurés.';
+$string['module'] = 'Module';
 $string['moodleversion'] = 'Version de Moodle';
+$string['morecoursesearchresults'] = 'Plus de {$a} cours trouvés, affichage des {$a} premiers';
 $string['moreresults'] = 'Il y a trop de résultats. Veuillez saisir une expression à rechercher plus spécifique.';
 $string['nomatchingcourses'] = 'Aucun cours à afficher';
 $string['norestoreoptions'] = 'Il n\'y a pas de catégorie, ni de cours où effectuer la restauration.';
@@ -235,7 +237,7 @@ $string['setting_course_fullname'] = 'Nom du cours';
 $string['setting_course_shortname'] = 'Nom abrégé du cours';
 $string['setting_course_startdate'] = 'Date de début du cours';
 $string['setting_keep_groups_and_groupings'] = 'Conserver les groupes et groupements actuels';
-$string['setting_keep_roles_and_enrolments'] = 'Conserver les rôles et permissions actuels';
+$string['setting_keep_roles_and_enrolments'] = 'Conserver les rôles et droits d\'accès actuels';
 $string['setting_overwriteconf'] = 'Écraser la configuration du cours';
 $string['skiphidden'] = 'Omettre les cours cachés';
 $string['skiphiddenhelp'] = 'Choisir s\'il faut ou non omettre les cours cachés';
@@ -246,5 +248,8 @@ $string['skipmodifprevhelp'] = 'Choisir s\'il faut ou non omettre les cours n\'a
 $string['storagecourseandexternal'] = 'Zone de sauvegarde de cours et dossier spécifié';
 $string['storagecourseonly'] = 'Zone de sauvegarde de cours';
 $string['storageexternalonly'] = 'Dossier spécifié pour les sauvegardes automatiques';
+$string['title'] = 'Titre';
 $string['totalcategorysearchresults'] = 'Nombre de catégories : {$a}';
 $string['totalcoursesearchresults'] = 'Nombre de cours : {$a}';
+$string['unnamedsection'] = 'Section sans nom';
+$string['userinfo'] = 'Info utilisateur';

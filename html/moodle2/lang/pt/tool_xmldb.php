@@ -43,25 +43,39 @@ $string['check_indexes'] = 'Procurar indíces da BD em falta';
 $string['checkoraclesemantics'] = 'Verificar semântica';
 $string['check_oracle_semantics'] = 'Procurar por semânticas de comprimento errado';
 $string['completelogbelow'] = '(ver abaixo o registo completo da pesquisa)';
-$string['confirmcheckbigints'] = 'Esta funcionalidade vai procurar <a href="http://tracker.moodle.org/browse/MDL-11038">campos inteiros potencialmente errados</a> no seu servidor Moodle, gerando (mas não executando!) automaticamente os comandos SQL necessários para ter todos os campos inteiros da sua BD definidos corretamente.<br /><br />
-Uma vez gerados pode copiar estes comandos podem ser executados de forma segura no seu interface SQL preferido (não se esqueça de fazer uma cópia de segurança dos seus dados antes de executar o comando).<br /><br />
-É fortemente recomendado que esteja a executar a atualização mais recente disponível para a sua versão do Moodle (1.8, 1.9, 2.x ...) antes de executar a pesquisa de inteiros errados.<br /><br />
-Esta funcionalidade não realiza nenhuma ação na BD (apenas a lê), por isso pode ser executada com segurança em qualquer momento.';
-$string['confirmcheckdefaults'] = 'Esta funcionalidade vai procurar valores predefinidos inconsistentes na BD do seu servidor Moodle, gerando (mas não executando!) automaticamente os comandos SQL necessários para ter todos os valores predefinidos da sua BD definidos corretamente.<br /><br />
-Uma vez gerados pode copiar estes comandos podem ser executados de forma segura no seu interface SQL preferido (não se esqueça de fazer uma cópia de segurança dos seus dados antes de executar o comando).<br /><br />
-É fortemente recomendado que esteja a executar a atualização mais recente disponível para a sua versão do Moodle (1.8, 1.9, 2.x ...) antes de executar a pesquisa de valores predefinidos errados.<br /><br />
-Esta funcionalidade não realiza nenhuma ação na BD (apenas a lê), por isso pode ser executada com segurança em qualquer momento.';
-$string['confirmcheckforeignkeys'] = 'Esta funcionalidade vai procurar potenciais violações das chaves estrangeiras defindas nos fichneiros install.xml. ( O Moodle atualmente nao gera restrições de chaves estrangeiras na BD, pelo que é possível existir informação inválida.)<br /><br />
-É fortemente recomendado que esteja a executar a atualização mais recente disponível para a sua versão do Moodle (1.8, 1.9, 2.x ...) antes de executar a pesquisa de potenciais violações de chaves estrangeiras.<br /><br />
-Esta funcionalidade não realiza nenhuma ação na BD (apenas a lê), por isso pode ser executada com segurança em qualquer momento.';
-$string['confirmcheckindexes'] = 'Esta funcionalidade vai procurar índices em falta no seu servidor Moodle, gerando (mas não executando!) automaticamente os comandos SQL necessários para ter tudo atualizado.<br /><br />
-Uma vez gerados pode copiar estes comandos podem ser executados de forma segura no seu interface SQL preferido (não se esqueça de fazer uma cópia de segurança dos seus dados antes de executar o comando).<br /><br />
-É fortemente recomendado que esteja a executar a atualização mais recente disponível para a sua versão do Moodle (1.8, 1.9, 2.x ...) antes de executar a pesquisa de índices em falta.<br /><br />
-Esta funcionalidade não realiza nenhuma ação na BD (apenas a lê), por isso pode ser executada com segurança em qualquer momento.';
-$string['confirmcheckoraclesemantics'] = 'Esta funcionalidade vai procurar <a href="http://tracker.moodle.org/browse/MDL-29322">colunas varchar2 do Oracle usando semântica BYTE</a> no seu servidor Moodle, gerando (mas não executando!) automaticamente os comandos SQL necessários para usar semântica CHAR (melhor para compatibilidade entre BDs e limites superiores de dimensão do conteúdo).<br /><br />
-Uma vez gerados pode copiar estes comandos podem ser executados de forma segura no seu interface SQL preferido (não se esqueça de fazer uma cópia de segurança dos seus dados antes de executar o comando).<br /><br />
-É fortemente recomendado que esteja a executar a atualização mais recente disponível para a sua versão do Moodle (1.8, 1.9, 2.x ...) antes de executar a pesquisa de semânticas BYTE.<br /><br />
-Esta funcionalidade não realiza nenhuma ação na BD (apenas a lê), por isso pode ser executada com segurança em qualquer momento.';
+$string['confirmcheckbigints'] = 'Esta funcionalidade vai procurar <a href="http://tracker.moodle.org/browse/MDL-11038">campos inteiros potencialmente errados</a> no seu servidor Moodle, gerando (mas não executando!) automaticamente os comandos SQL necessários para ter todos os campos inteiros da sua BD definidos corretamente.
+
+Uma vez gerados, pode copiar estes comandos e executá-los de forma segura no seu interface SQL preferido (não se esqueça de fazer uma cópia de segurança dos seus dados antes de executar o comando).
+
+É altamente recomendado que esteja a executar a atualização mais recente disponível para a sua versão do Moodle antes de executar a pesquisa de inteiros errados.
+
+Esta funcionalidade não realiza nenhuma ação na BD (apenas lê a partir desta) e, por isso, pode ser executada com segurança em qualquer momento.';
+$string['confirmcheckdefaults'] = 'Esta funcionalidade vai procurar valores predefinidos inconsistentes na BD do seu servidor Moodle, gerando (mas não executando!) automaticamente os comandos SQL necessários para ter todos os valores predefinidos da sua BD definidos corretamente.
+
+Uma vez gerados, pode copiar estes comandos e executá-los de forma segura no seu interface SQL preferido (não se esqueça de fazer uma cópia de segurança dos seus dados antes de executar o comando).
+
+É altamente recomendado que esteja a executar a atualização mais recente disponível para a sua versão do Moodle antes de executar a pesquisa de valores predefinidos errados.
+
+Esta funcionalidade não realiza nenhuma ação na BD (apenas lê a partir desta) e, por isso, pode ser executada com segurança em qualquer momento.';
+$string['confirmcheckforeignkeys'] = 'Esta funcionalidade vai procurar potenciais violações das chaves estrangeiras definidas nos fichneiros install.xml. (O Moodle atualmente não gera restrições de chaves estrangeiras na BD, pelo que é possível existir informação inválida.)
+
+É altamente recomendado que esteja a executar a atualização mais recente disponível para a sua versão do Moodle antes de executar a pesquisa de potenciais violações de chaves estrangeiras.
+
+Esta funcionalidade não realiza nenhuma ação na BD (apenas lê a partir desta) e, por isso, pode ser executada com segurança em qualquer momento.';
+$string['confirmcheckindexes'] = 'Esta funcionalidade vai procurar índices em falta no seu servidor Moodle, gerando (mas não executando!) automaticamente os comandos SQL necessários para ter tudo atualizado.
+
+Uma vez gerados, pode copiar estes comandos e executá-los de forma segura no seu interface SQL preferido (não se esqueça de fazer uma cópia de segurança dos seus dados antes de executar o comando).
+
+É altamente recomendado que esteja a executar a atualização mais recente disponível para a sua versão do Moodle antes de executar a pesquisa de índices em falta.
+
+Esta funcionalidade não realiza nenhuma ação na BD (apenas lê a partir desta) e, por isso, pode ser executada com segurança em qualquer momento.';
+$string['confirmcheckoraclesemantics'] = 'Esta funcionalidade vai procurar <a href="http://tracker.moodle.org/browse/MDL-29322">colunas varchar2 do Oracle usando semântica BYTE</a> no seu servidor Moodle, gerando (mas não executando!) automaticamente os comandos SQL necessários para usar semântica CHAR (melhor para compatibilidade entre BDs e limites superiores de dimensão do conteúdo).
+
+Uma vez gerados, pode copiar estes comandos e executá-los de forma segura no seu interface SQL preferido (não se esqueça de fazer uma cópia de segurança dos seus dados antes de executar o comando).
+
+É altamente recomendado que esteja a executar a atualização mais recente disponível para a sua versão do Moodle antes de executar a pesquisa de semânticas BYTE.
+
+Esta funcionalidade não realiza nenhuma ação na BD (apenas lê a partir desta) e, por isso, pode ser executada com segurança em qualquer momento.';
 $string['confirmdeletefield'] = 'Tem a certeza absoluta que pretende apagar o campo:';
 $string['confirmdeleteindex'] = 'Tem a certeza absoluta que pretende apagar o índice:';
 $string['confirmdeletekey'] = 'Tem a certeza absoluta que pretende apagar a chave:';
@@ -108,6 +122,8 @@ $string['fieldsusedinindex'] = 'Este campo é usado como índice';
 $string['fieldsusedinkey'] = 'Este campo é usado como chave.';
 $string['filemodifiedoutfromeditor'] = 'Aviso: ficheiro modificado localmente ao usar o Editor XMLDB. Guardar irá substituir alterações locais.';
 $string['filenotwriteable'] = 'Ficheiro sem permissões de escrita';
+$string['fkunknownfield'] = 'Chave estrangeira {$a->keyname} na tabela {$a->tablename} aponta para um ficheiro inexistente {$a->reffield} na tabela referenciada {$a->reftable}.';
+$string['fkunknowntable'] = 'Chave estrangeira {$a->keyname} na tabela {$a->tablename} aponta para uma tabela inexistente {$a->reffield}.';
 $string['fkviolationdetails'] = 'Chave externa {$a->keyname} na tabela {$a->tablename} tem {$a->numviolations} violações em {$a->numrows} registos.';
 $string['float2numbernote'] = 'Advertência: Embora os campos "float" sejam 100% suportados pelo XMLDB, é recomendado migrar estes campos para "number".';
 $string['floatincorrectdecimals'] = 'Nº incorreto de decimais para o campo "float"';
@@ -172,6 +188,8 @@ $string['selecttable'] = 'Selecione a tabela:';
 $string['table'] = 'Tabela';
 $string['tablenameempty'] = 'O nome da tabela não pode estar vazio';
 $string['tables'] = 'Tabelas';
+$string['unknownfield'] = 'Refere-se a um campo desconhecido';
+$string['unknowntable'] = 'Refere-se a uma tabela desconhecida';
 $string['unload'] = 'Anular carregamento';
 $string['up'] = 'Para cima';
 $string['view'] = 'Ver';

@@ -35,3 +35,4 @@ $string['question'] = 'Galdera';
 $string['save'] = 'Gorde';
 $string['savechanges'] = 'Gorde aldaketak';
 $string['selectquestion'] = 'Galdera:';
+$string['sendemailorpostcomments'] = 'Bidali mezuak edo iruzkinak';

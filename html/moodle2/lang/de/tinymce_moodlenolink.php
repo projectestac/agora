@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['moodlenolink:desc'] = 'Auto-Verlinkung verhindern';
-$string['pluginname'] = 'Auto-Verlinkung verhindern';
+$string['moodlenolink:desc'] = 'Autoverlinkung verhindern';
+$string['pluginname'] = 'Autoverlinkung verhindern';

@@ -26,5 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'XML fitxategia';
+$string['useridnumberwarning'] = 'IDrik gabeko erabiltzaileak XML esportaziotik kanpo utzi dira ezin direlako inportatu';
 $string['xml:publish'] = 'XML kalifikazioen esportazioa argitaratu';
 $string['xml:view'] = 'Kalifikazioak esportatzeko XML  erabili';

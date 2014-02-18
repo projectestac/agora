@@ -40,7 +40,7 @@ $string['authenticationoptions'] = 'Opzioni di autenticazione';
 $string['auth_fieldlock'] = 'Campi bloccati nel profilo utente';
 $string['auth_fieldlock_expl'] = '<p><b>Blocca valore:</b>Se abilitato, impedirà  agli utenti e agli amministratori di Moodle di modificare il campo direttamente. Utilizzare questa opzione se si sta gestendo questi dati in un sistema di autenticazione esterno.</p>';
 $string['auth_fieldlocks'] = 'Campi bloccati nel profilo utente';
-$string['auth_fieldlocks_help'] = '<p>È possibile bloccare uno o più campi del profilo utente. La funzione può risultare particolarmente utile in quei siti dove i dati dei profili utente sono gestiti a mano dagli amministratori, i quali possono modificare i record degli utenti oppure caricarli utilizzando la funzione \'Importa utenti\'.</p><p>Se si bloccano campi che Moodle considera indispensabili, accertatevi di fornire tali dati quando create gli account, altrimenti gli account incompleti non saranno utilizzabili.</p><p>Per evitare questo problema, puoi utilizzare l\'opzione \'Libero se vuoto\'.</p>';
+$string['auth_fieldlocks_help'] = '<p>È possibile bloccare uno o più campi del profilo utente. La funzione può risultare particolarmente utile in quei siti dove i dati dei profili utente sono gestiti a mano dagli amministratori, i quali possono modificare i record degli utenti oppure caricarli utilizzando la funzione \'Importa utenti\'.</p><p>Se si bloccano campi che Moodle considera obbligatori, accertarsi di fornire tali dati durante la creazione di account, altrimenti gli account incompleti non saranno utilizzabili.</p><p>Per evitare questo problema, è possibile utilizzare l\'opzione \'Libero se vuoto\'.</p>';
 $string['authinstructions'] = 'In questo campo è possibile inserire istruzioni per il login specifiche per i vostri utenti. Lasciando vuoto il campo verranno visualizzate le istruzioni di default.';
 $string['auth_invalidnewemailkey'] = 'Errore: se stai cercando di confermare un cambio di indirizzo email, puoi aver fatto un errore nel copiare il link che ti abbiamo inviato per email. Prova ancora, copiando correttamente l\'indirizzo.';
 $string['auth_multiplehosts'] = 'Possono essere elencati più macchine remote (es. host1.com;host2.com;host3.com)';
@@ -71,9 +71,9 @@ $string['emailchangecancel'] = 'Annulla cambio email';
 $string['emailchangepending'] = 'Cambio email in corso. Clicca sul link presente nel messaggio che ti è stato inviato a {$a->preference_newemail}.';
 $string['emailnowexists'] = 'L\'indirizzo email che hai cercato di assegnare al tuo profilo è stato, nel frattempo, assegnato a qualcun altro, dal momento della tua richiesta. La richiesta di modifica email è stata quindi annullata, ma puoi provare ancora con un indirizzo email differente.';
 $string['emailupdate'] = 'Modifica indirizzo email';
-$string['emailupdatemessage'] = 'Caro {$a->fullname},
+$string['emailupdatemessage'] = 'Gentile {$a->fullname},
 
-hai richiesto la modifica dell\'indirizzo email del tuo account sul sito {$a->site}. Clicca sul link seguente (o aprilo nel tuo browser) per confermare la richiesta.
+hai richiesto la modifica dell\'indirizzo email del tuo account sul sito {$a->site}. Per confermare la richiesta, apri il link seguente con il browser:
 
 {$a->url}';
 $string['emailupdatesuccess'] = 'L\'indirizzo email dell\'utente <em>{$a->fullname}</em> è stato modificato in <em>{$a->email}</em>.';

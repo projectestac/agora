@@ -59,3 +59,5 @@ $string['language'] = 'اللغة';
 $string['language_help'] = 'الغة الرئيسية لهذا المقرر';
 $string['licence'] = 'الرخصة';
 $string['licence_help'] = 'حدد الرخصة التي تريد نشر هذا المقرر تحتها';
+$string['search'] = 'بحث';
+$string['tags'] = 'وسوم';

@@ -26,10 +26,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['dbexport'] = 'Datu-basearen esportazioa';
-$string['dbtransfer'] = 'Datu-basearen transferentzia';
-$string['exportdata'] = 'Datuak esportatu ';
+$string['dbtransfer'] = 'Datu-basearen migrazioa';
+$string['enablemaintenance'] = 'Gaitu mantenu-modua';
+$string['exportdata'] = 'Esportatu datuak';
 $string['notargetconectexception'] = 'Barkatu, ezin da konektatu helburu datu-basearekin.';
-$string['pluginname'] = 'Datu-basearen esportazioa';
+$string['options'] = 'Aukerak';
+$string['pluginname'] = 'Datu-basearen transferentzia';
 $string['transferdata'] = 'Transferitu datuak';
 $string['transferdbintro'] = 'Script-ak datu-base honetako eduki guztiak beste datu-base zerbitzari batera transferituko ditu.';
 $string['transferdbtoserver'] = 'Transferitu Moodle datu-base hau beste zerbitzari batera';

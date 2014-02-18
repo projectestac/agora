@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['messages:addinstance'] = 'Gehitu beste mezuak bloke bat';
-$string['messages:myaddinstance'] = 'Gehitu mezuak bloke bat Nire hasiera orrian';
+$string['messages:myaddinstance'] = 'Gehitu mezuak bloke bat Nire hasieran';
 $string['pluginname'] = 'Mezuak';

@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['news_items:addinstance'] = 'Lägg till ett nytt block för senaste nyheter';
+$string['news_items:myaddinstance'] = 'Lägg till ett nytt block för senaste nyheter till Mitt Moodle';
 $string['pluginname'] = 'Senaste nytt';

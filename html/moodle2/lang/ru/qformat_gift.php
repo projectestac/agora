@@ -26,12 +26,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['braceerror'] = 'Не удалось найти {...} среди ответов';
-$string['giftleftbraceerror'] = 'Не найдено "{"';
-$string['giftmatchingformat'] = 'Ответы "Вопроса на соответствие" имеют недопустимый формат';
+$string['giftleftbraceerror'] = 'Не найдено «{»';
+$string['giftmatchingformat'] = 'Ответы «Вопроса на соответствие» имеют недопустимый формат';
 $string['giftnonumericalanswers'] = 'Не найдены ответы для числового вопроса';
 $string['giftnovalidquestion'] = 'Не найдено корректных вопросов';
 $string['giftqtypenotset'] = 'Тип вопроса не задан';
-$string['giftrightbraceerror'] = 'Не найдено "}"';
+$string['giftrightbraceerror'] = 'Не найдено «}»';
 $string['importminerror'] = 'Ошибка в вопросе. Не указано ни одного ответа для данного типа вопроса';
+$string['nohandler'] = 'Нет обработчика для типа вопроса {$a}';
 $string['pluginname'] = 'Формат GIFT';
 $string['pluginname_help'] = 'Формат GIFT позволяет экспортировать в текстовый файл или импортировать из него вопросы следующих типов: множественный выбор, альтернативный, короткий ответ, на соответствие, пропущенное слово, числовой и эссе.';

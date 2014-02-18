@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['install'] = 'Installer les langues sélectionnées';
+$string['install'] = 'Installer les paquetages de langue sélectionnés';
 $string['installedlangs'] = 'Langues installées';
 $string['langimport'] = 'Utilitaire d\'importation de langues';
 $string['langimportdisabled'] = 'L\'utilitaire d\'importation de langues a été désactivé. Veuillez effectuer la mise à jour de vos paquetages de langue manuellement au niveau du système de fichiers de votre serveur. N\'oubliez pas de vider les caches une fois cette opération effectuée.';
@@ -39,7 +39,7 @@ $string['missinglangparent'] = 'Le paquetage de la langue parente <em>{$a->paren
 $string['nolangupdateneeded'] = 'Toutes les langues sont à jour. Aucune mise à jour n\'est nécessaire';
 $string['pluginname'] = 'Paquetages langue';
 $string['purgestringcaches'] = 'Vider les caches des chaînes de caractères';
-$string['remotelangnotavailable'] = 'Moodle ne peut pas se connecter au site download.moodle.org. L\'installation automatique des langues ne peut donc pas avoir lieu. Veuillez télécharger le(s) fichier(s) compressé(s) nécessaire(s) dans la liste ci-dessous, les copier dans votre dossier {$a} et les décompresser manuellement.';
-$string['uninstall'] = 'Désinstaller les langues sélectionnées';
+$string['remotelangnotavailable'] = 'Moodle ne peut pas se connecter au site download.moodle.org. L\'installation automatique des langues ne peut donc pas avoir lieu. Veuillez télécharger sur <a href="http://download.moodle.org/langpack/">download.moodle.org/langpack</a> le(s) fichier(s) compressé(s) nécessaire(s) dans la liste ci-dessous, les copier dans votre dossier {$a} et les décompresser manuellement.';
+$string['uninstall'] = 'Désinstaller le paquetage de langue sélectionné';
 $string['uninstallconfirm'] = 'Vous êtes sur le point de supprimer totalement la langue {$a}. Voulez-vous continuer ?';
 $string['updatelangs'] = 'Mettre à jour tous les paquetages de langue installés';

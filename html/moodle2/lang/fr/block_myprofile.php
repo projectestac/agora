@@ -45,6 +45,6 @@ $string['display_skype'] = 'Afficher Skype';
 $string['display_un'] = 'Afficher le nom';
 $string['display_yahoo'] = 'Afficher Yahoo';
 $string['myprofile:addinstance'] = 'Ajouter un bloc utilisateur connecté';
-$string['myprofile:myaddinstance'] = 'Ajouter un bloc utilisateur connecté à la page Mon Moodle';
+$string['myprofile:myaddinstance'] = 'Ajouter un bloc utilisateur connecté à Ma page';
 $string['myprofile_settings'] = 'Informations utilisateur visibles';
 $string['pluginname'] = 'Utilisateur connecté';

@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowguests'] = 'يسمح للمستخدمين الضيوف بالدخول إلى هذا المقرر الدراسي';
+$string['guestaccess_withoutpassword'] = 'دخول الضيف';
+$string['guestaccess_withpassword'] = 'دخول الضيف';
 $string['password'] = 'كلمة السر';
 $string['pluginname'] = 'دخول الضيف';
 $string['status'] = 'السماح بدخول ضيف';

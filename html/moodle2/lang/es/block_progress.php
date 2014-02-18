@@ -46,7 +46,6 @@ $string['config_header_icon'] = 'Icono';
 $string['config_header_locked'] = 'Bloquear a fecha límite';
 $string['config_header_monitored'] = 'Monitorizada';
 $string['config_icons'] = 'Usar iconos en la barra';
-$string['config_monitored'] = 'Actividades/recursos monitorizados';
 $string['config_now'] = 'Usar';
 $string['config_orderby'] = 'Ordenar elementos de la barra por';
 $string['config_orderby_due_time'] = '"Esperado por" fecha y hora';

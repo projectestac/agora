@@ -36,6 +36,6 @@ $string['numsections2'] = 'Untere Grenze2';
 $string['numsectionsdesc1'] = 'Bei einer größeren Anzahl von Abschnitten im Kurs wird im Block nur jeder x1-te Abschnitt verlinkt';
 $string['numsectionsdesc2'] = 'Bei einer größeren Anzahl von Abschnitten im Kurs wird im Block nur jeder x2-te Abschnitt verlinkt';
 $string['pluginname'] = 'Kursabschnitte';
-$string['section_links:addinstance'] = 'Neuen Block \'Kursabschnitte\' hinzufügen';
+$string['section_links:addinstance'] = 'Block \'Kursabschnitte\' hinzufügen';
 $string['topics'] = 'Abschnitte';
 $string['weeks'] = 'Wochen';

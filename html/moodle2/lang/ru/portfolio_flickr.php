@@ -26,10 +26,25 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'API ключ';
+$string['contenttype'] = 'Типы контента';
+$string['err_noapikey'] = 'Нет ключа API';
 $string['err_noapikey_help'] = 'Нет никакого ключа API, сконфигурированного для этого плагина. Вы можете получить один из них на странице службы Flickr.';
+$string['hidefrompublicsearches'] = 'Скрыть эти изображения из общих поисков?';
+$string['isfamily'] = 'Видно семье';
+$string['isfriend'] = 'Видно друзьям';
+$string['ispublic'] = 'Общее (могут видеть все)';
+$string['moderate'] = 'Умеренный';
+$string['noauthtoken'] = 'Не удалось получить ключ аутентификации для использования в этой сессии';
+$string['other'] = 'Произведения искусства, иллюстраций, компьютерная графика и другие не фотографические изображения';
 $string['photo'] = 'Фотографии';
 $string['pluginname'] = 'Flickr.com';
+$string['restricted'] = 'Ограниченно';
+$string['safe'] = 'Безопасный';
+$string['safetylevel'] = 'Уровень безопасности';
 $string['screenshot'] = 'Скриншоты';
+$string['set'] = 'Установить';
 $string['setupinfo'] = 'Инструкция по установке';
+$string['setupinfodetails'] = 'Чтобы получить ключ API и секрет, войдите в Flickr и <a href="{$a->applyurl}">подайте заявку на получение нового ключа</a>. После получения нового ключа и секрета перейдите по ссылке «Edit auth flow for this app». В «App Type» выберите «Web Application». В поле «Callback URL» введите значение: <br /> <code>{$a->callbackurl}</code>. <br /> При желании Вы также можете предоставить описание и логотип своего сайта Moodle. Эти значения могут быть установлены и позже на <a href="{$a->keysurl}">странице</a> списка Ваших приложений Flickr.';
 $string['sharedsecret'] = 'Секретное слово';
 $string['title'] = 'Заголовок';
+$string['uploadfailed'] = 'Не удалось загрузить изображение(я) на flickr.com: {$a}';

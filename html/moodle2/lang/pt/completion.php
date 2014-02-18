@@ -60,11 +60,11 @@ $string['completion_help'] = 'Se ativar esta opção, a conclusão da atividade 
 
 As atividades concluídas serão assinaladas na página da disciplina com um visto junto do nome da atividade .';
 $string['completionicons'] = 'Caixas de verificação da conclusão';
-$string['completionicons_help'] = 'Pode ser usado um visto junto do nome da atividade para indicar quando esta se encontra concluída.
+$string['completionicons_help'] = 'Pode surgir um visto junto ao nome de uma atividade para indicar quando esta atividade está concluída.
 
-Se é mostrado um visto a tracejado, pode clicar no mesmo quando acha que concluiu a atividade. (Se mudar de ideias poderá clicar de novo e remover o visto.) Esta sinalização é opcional e uma forma simples de controlar o seu progresso na disciplina.
+Se for exibida uma caixa com o limite tracejado, o visto aparecerá automaticamente quando a atividade foi concluída de acordo com as condições definidas pelo professor.
 
-Se for exibida uma caixa sem o visto, este será inserido automaticamente quando tiver concluído a atividade, de acordo com as condições definidas pelo professor.';
+Se for exibida uma caixa com o limite sólido, isto significa que pode clicar sobre ela para colocar o visto, indicando assim que completou a atividade (Se clicar novamente o visto é removido, se tiver mudado de ideias). O visto é opcional e consiste apenas numa forma de assinalar o seu progresso ao longo da disciplina.';
 $string['completion_link'] = 'atividade/conclusão';
 $string['completion_manual'] = 'Os alunos podem assinalar a atividade como concluída';
 $string['completionmenuitem'] = 'Conclusão';
@@ -87,7 +87,7 @@ $string['completionview'] = 'Requer visualização';
 $string['completionview_desc'] = 'Os alunos devem ver a atividade para a concluir';
 $string['completion-y'] = 'Completo';
 $string['configenablecompletion'] = 'Se ativar esta opção, será possível ativar a verificação da conclusão (progresso) ao nível da disciplina.';
-$string['confirmselfcompletion'] = 'Confirmar auto-conclusão';
+$string['confirmselfcompletion'] = 'Confirmar autoconclusão';
 $string['coursealreadycompleted'] = 'Já concluiu esta disciplina';
 $string['coursecomplete'] = 'Disciplina concluída';
 $string['coursecompleted'] = 'Disciplina concluída';
@@ -148,7 +148,7 @@ $string['restoringcompletiondata'] = 'A registar dados de conclusão';
 $string['saved'] = 'Guardado';
 $string['seedetails'] = 'Ver detalhes';
 $string['self'] = 'Auto';
-$string['selfcompletion'] = 'Auto-conclusão';
+$string['selfcompletion'] = 'Autoconclusão';
 $string['showinguser'] = 'A mostrar utilizador';
 $string['unenrolingfromcourse'] = 'A cancelar a inscrição na disciplina';
 $string['unenrolment'] = 'Cancelamento da inscrição';

@@ -31,7 +31,7 @@ $string['callbackurltext'] = '<ol>
 <li>Еще раз посетите <a href="http://www.flickr.com/services/api/keys/">ключи API Flickr</a>.</li>
 <li>Убедитесь, что для данного ключа API Flickr установлен Callback URL <strong>{$a}</strong></li></ol>';
 $string['callbackwarning'] = '<ol>
-<li>Получите для вашего сайта Moodle <a href="http://www.flickr.com/services/api/keys/">ключ API Flickr и секретный ключ</a>.</li> <li>Введите их здесь, затем нажмите "Сохранить" и "Настройки", чтобы вернуться на эту страницу. Вы увидете, что для Вас сгенерирован Callback URL</li>
+<li>Получите для вашего сайта Moodle <a href="http://www.flickr.com/services/api/keys/">ключ API Flickr и секретный ключ</a>.</li> <li>Введите их здесь, затем нажмите «Сохранить» и «Настройки», чтобы вернуться на эту страницу. Вы увидете, что для Вас сгенерирован Callback URL</li>
 <li>Снова измените информацию о вашем ключе <a href="http://www.flickr.com/services/api/keys/">Flickr</a>, указав полученный Callback URL.</li></ol>';
 $string['configplugin'] = 'Конфигурация Flickr';
 $string['emailaddress'] = 'Адрес электронной почты';

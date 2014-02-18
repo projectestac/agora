@@ -41,6 +41,7 @@ $string['hash_murmur'] = 'Murmurar';
 $string['pluginname'] = 'Memcached';
 $string['prefix'] = 'Chave de prefixo';
 $string['prefix_help'] = 'Isto pode ser usado para criar um "domínio" para as suas chaves de itens que lhe permite criar vários armazenamentos da memcached numa única instalação memcached. Não pode ter mais do que 16 caracteres, a fim de garantir que não se deparará com questões fundamentais de comprimento inesperadas.';
+$string['prefixinvalid'] = 'Prefixo inválido. Pode usar apenas a-z A-Z 0-9-_.';
 $string['serialiser_igbinary'] = 'O serializador igbinary.';
 $string['serialiser_json'] = 'O serializador JSON.';
 $string['serialiser_php'] = 'O serializador predefinido de PHP.';

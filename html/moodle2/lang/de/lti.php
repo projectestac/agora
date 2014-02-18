@@ -113,7 +113,7 @@ Drei Icons erscheinen in der Liste
 $string['external_tool_types'] = 'Typen des externen Tools';
 $string['failedtoconnect'] = 'Moodle konnte nicht mit dem System \'{$a}\' kommunizieren';
 $string['filter_basiclti_configlink'] = 'Konfigurieren Sie die bevorzugte Seiten und deren Kennworte';
-$string['filter_basiclti_password'] = 'Passwort ist erforderlich';
+$string['filter_basiclti_password'] = 'Kennwort ist erforderlich';
 $string['filterconfig'] = 'LTI Administration';
 $string['filtername'] = 'LTI';
 $string['fixexistingconf'] = 'Verwenden Sie eine bestehende Konfiguration für die fehlerhafte Instanz';
@@ -145,20 +145,20 @@ $string['launch_url'] = 'Start URL';
 $string['launch_url_help'] = 'Die Start-URL bezeichnet die Webadresse des externen Tools. Sie kann zusätzliche Informationen entalten, welche Ressource geanu aufgerufen werden soll. Genauere Informationen gibt der Tool-Anbieter.
 Falls ein spezieller Tool-Typ gewählt wurde, kann u.U. auf die Start URL verzichtet werden.';
 $string['lti'] = 'LTI';
-$string['lti:addcoursetool'] = 'LTI Aktivitäten bewerten';
-$string['lti:addinstance'] = 'Neue LTI Aktivität hinzufügen';
+$string['lti:addcoursetool'] = 'Kursspezifisch LTI Aktivitäten konfigurieren';
+$string['lti:addinstance'] = 'Aktivität Externes Tool hinzufügen';
 $string['lti_administration'] = 'LTI Administration';
 $string['lti_errormsg'] = 'Das Tool gab folgende Fehlermeldung zurück: \'{$a}\'';
-$string['lti:grade'] = 'LTI Aktivitäten bewerten';
+$string['lti:grade'] = 'Bewertungen vom ext. Tool anzeigen';
 $string['lti_launch_error'] = 'Beim Start des externen Tools trat ein Fehler auf:';
 $string['lti_launch_error_tool_request'] = '<p>Zum Versand einer Anfrage an den Administrator zur Vervollständigung der Tool-Konfiguration klicken Sie <a href="{$a->admin_request_url}" target="_top">hier</a>. </p>';
 $string['lti_launch_error_unsigned_help'] = '<p>Der Fehler kann seine Ursache in einem fehlenden Anwenderschlüssel und Sicherheitseinstellungen für den Toolanbieter haben</p><p>WennSie einen Anwenderschlüssel und Daten für die Sicherheitskonfiguration haben, geben Sie diese bei den Einstellungen für das externe Tool  ein. Beachten Sie auch die erweiterten Einstelloptionen.<br />Alternativ können Sie auch eine kursweite Konfiguration für den Tool-Anbieter anlegen. Klicken Sie dazu
 <a href="{$a->course_tool_editor}">hier</a>. </p>';
-$string['lti:manage'] = 'LTI Aktivitäten bearbeiten';
-$string['lti:requesttooladd'] = 'Konfigurationsanfrage an Administratoren senden';
+$string['lti:manage'] = 'Als Trainer/in auf das ext. Tool zugreifen';
+$string['lti:requesttooladd'] = 'Externes Tool zur systemweiten Nutzung anfragen';
 $string['lti_tool_request_added'] = 'Die Konfigurationsanfrage wurde erfolgreich weitergeleitet. Kontakten Sie den Administrator nun, um den Prozess abzuschließen.';
 $string['lti_tool_request_existing'] = 'Für die Domain wurde bereits eine Konfiguration beauftragt.';
-$string['lti:view'] = 'LTI Aktivitäten anzeigen';
+$string['lti:view'] = 'Aktivität Externes Tool aufrufen';
 $string['main_admin'] = 'Allgemeine Hilfe';
 $string['main_admin_help'] = 'Externe Tools ermöglichen es Moodle Nutzern nahtlos mit externen Lernanwendungen zu arbeiten und Daten auszutauschen. Durch ein spezielles Start-Protokoll erhält das externe Tool Zugriff auf bestimmte Daten des Nutzers. Dies können sein: Institutionsbezeichnung, Kurs-ID, Nutzer-ID, Nutzername oder E-Mail.
 
@@ -187,7 +187,7 @@ $string['no_lti_rejected'] = 'Es gibt keine zurückgewiesenen externen Tools.';
 $string['noltis'] = 'Es gibt keine LTI Instanzen';
 $string['noservers'] = 'Keine Server gefunden';
 $string['notypes'] = 'Es sind zur Zeit keine LTI Tools in moodle angelegt. Mit dem Installieren-Link können diese jetzt angelegt werden.';
-$string['noviewusers'] = 'Es wurden keine Nutzer mit der Berechtigung gefunden.';
+$string['noviewusers'] = 'Keine Nutzer mit diesem Recht gefunden.';
 $string['optionalsettings'] = 'Optionale Einstellungen';
 $string['organization'] = 'Organisation Details';
 $string['organizationdescr'] = 'Organisation Beschreibung';
@@ -208,7 +208,7 @@ Das Kennwort wird für eine Authentifizierung beim externen Tool verwandt. Es wi
 
 Tools die keine sichere Kommunikation mit Moodle erfordern, benötigen meist auch kein Kennwort.';
 $string['pending'] = 'Wartend';
-$string['pluginadministration'] = 'LTI Administration';
+$string['pluginadministration'] = 'LTI-Administration';
 $string['pluginname'] = 'LTI';
 $string['preferheight'] = 'Höhe (bevorzugt)';
 $string['preferwidget'] = 'Widget Start (bevorzugt)';
@@ -270,12 +270,36 @@ In den meisten Fällen ist diese Funktion nicht erforderlich. Trainer können in
 Es wird empfohlen, diese Funktion zu verwenden, wenn die Tool-Konfiguration ein Single-Sign-On verwendet. In dem Fall würden die Nutzer nicht auf einer speziellen Seite landen, sondern eine Startseite vorfinden.';
 $string['size'] = 'Größenparameter';
 $string['submission'] = 'Leistungen';
+$string['submissionsfor'] = 'Einreichungen für {$a}';
 $string['toggle_debug_data'] = 'Auf Debug-Modus umschalten';
 $string['tool_config_not_found'] = 'Tool-Konfiguration für diese URL nicht gefunden';
 $string['tool_settings'] = 'Tool-Einstellungen';
 $string['toolsetup'] = 'Konfiguration externes tool';
 $string['toolurl'] = 'Basis URL des Tools';
-$string['toolurl_help'] = 'Die Basis URL des Toolos wird verwendet um die Start URLs mit der korrekten Konfiguration zu verknüpfen. Die Verwendung von http(s) am Beginn ist optional. Die Basis URL wird auch verwandt wenn das Tool keine separate Start URL zur Verfügung stellt. <table> <thead> <tr> <td> <b>Basis URL</b> </td> <td> <b>Zuordnung</b> </td> </tr> </thead> <tbody> <tr> <td> tool.com </td> <td> tool.com, tool.com/quizzes, tool.com/quizzes/quiz.php?id=10, www.tool.com/quizzes </td> </tr> <tr> <td> www.tool.com/quizzes </td> <td> tool.com/quizzes, tool.com/quizzes/take.php?id=10, www.tool.com/quizzes </td> </tr> <tr> <td> quiz.tool.com </td> <td> quiz.tool.com, quiz.tool.com/take.php?id=10 </td> </tr> </tbody> </table> Falls zwei unterschiedliche Tool-Konfigurationen für die gleiche Domain vorhanden sind wird die spezifischere verwandt.';
+$string['toolurl_help'] = 'Die Basis-URL des Tools wird verwendet um die Start URLs mit der korrekten Konfiguration zu verknüpfen. Die Verwendung von http(s) am Beginn ist optional.
+
+Die Basis-URL wird auch verwandt wenn das Tool keine separate Start-URL zur Verfügung stellt.
+
+Die Basis-URL von *tool.com* passt für folgendes:
+
+* tool.com
+* tool.com/quizzes
+* tool.com/quizzes/quiz.php?id=20
+* www.tool.com/quizzes
+
+Die Basis-URL von *www.tool.com/quizzes* hingegen passt für folgendes:
+
+* tool.com/quizzes
+* tool.com/quizzes/quiz.php?id=20
+* www.tool.com/quizzes
+
+
+Die Basis-URL von *quiz.tool.com* hingegen passt für folgendes:
+
+* quiz.tool.com/
+* quiz.tool.com/take.php?id=20
+
+Wenn es zwei unterschiedliche Tool-Konfigurationen für die gleiche Domain gibt, wird diespezifischere verwandt..';
 $string['typename'] = 'Toolbezeichnung';
 $string['typename_help'] = 'Die Toolbezeichnung wird genutzt um den Toolanbieter in Moodle zu identifizieren. Die Bezeichnung wird Trainern gezeigt, wenn sie das Tool in ihren Kursen einbinden.';
 $string['types'] = 'Typen';

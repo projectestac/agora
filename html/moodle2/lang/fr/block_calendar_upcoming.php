@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['calendar_upcoming:addinstance'] = 'Ajouter un bloc événements à venir';
-$string['calendar_upcoming:myaddinstance'] = 'Ajouter un bloc événements à venir à la page Mon Moodle';
+$string['calendar_upcoming:myaddinstance'] = 'Ajouter un bloc événements à venir à Ma page';
 $string['pluginname'] = 'Événements à venir';

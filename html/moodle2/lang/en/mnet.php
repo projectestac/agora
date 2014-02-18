@@ -16,12 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'mnet', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'mnet', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   mnet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['aboutyourhost'] = 'About your server';
 $string['accesslevel'] = 'Access level';
@@ -47,9 +49,9 @@ $string['currentkey'] = 'Current public key';
 $string['current_transport'] = 'Current transport';
 $string['databaseerror'] = 'Could not write details to the database.';
 $string['deleteaserver'] = 'Deleting a server';
-$string['deletehost'] = 'Delete host';
 $string['deletedhostinfo'] = 'This host has been deleted. If you want to undelete it, switch the deleted status back to \'No\'.';
 $string['deletedhosts'] = 'Deleted hosts: {$a}';
+$string['deletehost'] = 'Delete host';
 $string['deletekeycheck'] = 'Are you absolutely sure you want to delete this key?';
 $string['deleteoutoftime'] = 'Your 60-second window for deleting this key has expired. Please start again.';
 $string['deleteuserrecord'] = 'SSO ACL: delete record for user \'{$a->user}\' from {$a->host}.';

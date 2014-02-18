@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Java Script Sicherheit';
-$string['popupwithjavascriptsupport'] = 'Vollbild-Popup mit einer gewissen Javascript-Sicherheit';
+$string['pluginname'] = 'JavaScript Sicherheit';
+$string['popupwithjavascriptsupport'] = 'Vollbild-Popup mit Javascript-Sicherheit';

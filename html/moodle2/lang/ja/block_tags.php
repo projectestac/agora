@@ -71,6 +71,6 @@ $string['showcoursetagsdef'] = 'タグブロック内にコースタグ機能を
 $string['suggestedtagthisunit'] = 'このコースに対する推奨タグ:';
 $string['tags'] = 'タグ';
 $string['tags:addinstance'] = '新しいタグブロックを追加する';
-$string['tags:myaddinstance'] = '新しいタグブロックをマイマイホームに追加する';
+$string['tags:myaddinstance'] = '新しいタグブロックをマイホームに追加する';
 $string['tagthisunit'] = 'このコースにタグ付けする:';
 $string['tagunits'] = 'してください。';

@@ -97,7 +97,7 @@ $string['adminhelpmanagedatabase'] = 'Accéder directement à la base de donnée
 $string['adminhelpmanagefilters'] = 'Choisir les filtres de texte et leurs paramètres';
 $string['adminhelpmanagemodules'] = 'Gérer les modules installés et leurs paramètres';
 $string['adminhelpmanageroles'] = 'Créer et définir les rôles pouvant être assigné aux utilisateurs';
-$string['adminhelpmymoodle'] = 'Configurer les blocs de « Mon moodle » pour les utilisateurs';
+$string['adminhelpmymoodle'] = 'Configurer les blocs de Ma page pour les utilisateurs';
 $string['adminhelpreports'] = 'Rapports du site';
 $string['adminhelpsitefiles'] = 'Publier des fichiers ou télécharger des copies de sauvegarde externes';
 $string['adminhelpsitesettings'] = 'Définir l\'aspect de la page d\'accueil de ce site';
@@ -118,7 +118,7 @@ $string['advancedfilter'] = 'Plus de critères';
 $string['advancedsettings'] = 'Réglages avancés';
 $string['again'] = 'à nouveau';
 $string['aimid'] = 'Identifiant AIM';
-$string['ajaxuse'] = 'AJAX et JavaScript';
+$string['ajaxuse'] = 'AJAX et Javascript';
 $string['all'] = 'Tout';
 $string['allactions'] = 'Toutes les actions';
 $string['allactivities'] = 'Toutes les activités';
@@ -187,6 +187,7 @@ $string['backuploglaststatus'] = 'Rapport de la dernière exécution';
 $string['backupmissinguserinfoperms'] = 'Remarque : cette sauvegarde ne contient aucune donnée d\'utilisateur. Les activités Exercice et Atelier ne seront pas incluses dans la sauvegarde, puisque ces modules ne sont pas compatibles avec de type de sauvegarde.';
 $string['backupnext'] = 'Prochaine sauvegarde';
 $string['backupnonisowarning'] = 'Attention ! Cette sauvegarde provient d\'une version non Unicode de Moodle (antérieure à la version 1.6). Si elle contient des textes en caractères non ISO-8859-1, ceux-ci pourront être ENDOMMAGÉS si vous la restaurez dans cette version Unicode de Moodle. Veuillez consulter la <a href="http://docs.moodle.org/fr/FAQ_de_sauvegarde">FAQ de sauvegarde</a> pour plus d\'informations sur la façon de restaurer correctement cette sauvegarde.';
+$string['backupnotyetrun'] = 'Sauvegarde automatique en attente';
 $string['backuporiginalname'] = 'Nom de la sauvegarde';
 $string['backuproleassignments'] = 'Sauvegarder les attributions de rôles pour ces rôles';
 $string['backupsavetohelp'] = 'Chemin d\'accès complet du dossier où vous voulez enregistrer les sauvegardes<br />(laissez vide pour enregistrer dans le dossier par défaut)';
@@ -335,7 +336,7 @@ $string['coursefilesedit'] = 'Modifier les fichiers du cours';
 $string['coursefileswarning'] = 'Les fichiers du cours sont obsolètes';
 $string['coursefileswarning_help'] = 'Les fichiers du cours sont obsolètes à partir de la version 2.0 de Moodle. Veuillez utiliser des dépôts externes autant que faire se peut.';
 $string['courseformatdata'] = 'Données du format de cours';
-$string['courseformatoptions'] = 'Options de formatage pour {$a}';
+$string['courseformatoptions'] = 'Options du format {$a}';
 $string['courseformats'] = 'Formats de cours';
 $string['courseformatudpate'] = 'Modifier format';
 $string['coursegrades'] = 'Notes du cours';
@@ -344,17 +345,16 @@ $string['coursehelpforce'] = 'Imposer le type de groupe pour chaque activité du
 $string['coursehelpformat'] = 'La page principale du cours sera affichée dans ce format.';
 $string['coursehelphiddensections'] = 'Comment les sections cachées du cours seront affichées pour les étudiants.';
 $string['coursehelpmaximumupload'] = 'Définit la taille maximale de chaque fichier pouvant être déposé dans le cours. Le maximum est limité par un réglage analogue au niveau du site.';
-$string['coursehelpnewsitemsnumber'] = 'Nombre d\'éléments récents affichés sur la page principale du cours, dans le bloc des nouveautés (0 signifie que le bloc ne sera pas affiché).';
-$string['coursehelpnumberweeks'] = 'Nombre de semaines ou de sections affichées sur la page principale du cours.';
+$string['coursehelpnewsitemsnumber'] = 'Nombre d\'éléments récents affichés sur la page du cours, dans le bloc des nouveautés. Si 0 est indiqué, le bloc ne sera pas affiché.';
+$string['coursehelpnumberweeks'] = 'Nombre de sections du cours (n\'est valable que pour certains formats de cours).';
 $string['coursehelpshowgrades'] = 'Active l\'affichage du carnet de note. Ce réglage n\'a pas d\'influence sur l\'affichage des notes dans les diverses activités du cours.';
 $string['coursehidden'] = 'Ce cours n\'est actuellement pas disponible pour les étudiants';
 $string['courseinfo'] = 'Informations du cours';
 $string['courselegacyfiles'] = 'Fichiers du cours (obsolète)';
-$string['courselegacyfiles_help'] = 'La zone des fichiers du cours fournit une compatibilité descendante avec Moodle version 1.9 et antérieure. Tous les fichiers de cette zone sont toujours accessibles par tous les participants du cours, qu\'ils soient liés ou non. Il n\'y a aucun moyen de savoir si ces fichiers sont utilisés dans Moodle.
+$string['courselegacyfiles_help'] = 'La zone des fichiers du cours fournit une compatibilité descendante avec Moodle versions 1.9 et antérieures. Tous les fichiers de cette zone sont toujours accessibles par tous les participants du cours, qu\'ils soient liés ou non. Il n\'y a aucun moyen de savoir si ces fichiers sont utilisés dans Moodle.
 
-Si vous utilisez cette zone pour stocker des fichiers, vous risquez de vous exposer à des questions de protection des données et de sécurité, ainsi que des fichiers manquants dans les sauvegardes, importations de cours. Il est donc recommandé de ne pas utiliser cette zone, à moins que vous ne sachiez vraiment ce que vous faites.
-
-Le lien ci-dessous fournit plus d\'informations à ce sujet et vous indiquera de meilleures façon de gérer les fichiers dans Moodle 2.';
+Si vous utilisez cette zone pour stocker des fichiers, vous risquez de vous exposer à des questions de protection des données et de sécurité, ainsi que des fichiers manquants dans les sauvegardes, lors d\'importations de cours et chaque fois qu\'un contenu est partagé ou réutilisé. Il est donc recommandé de ne pas utiliser cette zone, à moins que vous ne sachiez vraiment ce que vous faites.';
+$string['courselegacyfilesofcourse'] = 'Fichiers de cours obsolètes : {$a}';
 $string['coursemessage'] = 'Message aux participants du cours';
 $string['coursenotaccessible'] = 'Ce cours n\'est pas accessible au public';
 $string['courseoverview'] = 'Aperçu du cours';
@@ -376,7 +376,7 @@ $string['courserequestdetails'] = 'Informations du cours que vous demandez';
 $string['courserequestfailed'] = 'Votre demande n\'a pas pu être enregistrée pour une raison inconnue';
 $string['courserequestintro'] = 'Utiliser ce formulaire pour demander l\'ouverture d\'un cours pour vous.<br />Veuillez remplir toutes les informations possibles pour permettre aux<br />administrateurs de comprendre les raisons de votre demande.';
 $string['courserequestreason'] = 'Pourquoi voulez-vous créer ce cours ?';
-$string['courserequestsuccess'] = 'Votre requête a été enregistrée. Vous recevrez prochainement un courriel pour vous informer du résultat de votre demande';
+$string['courserequestsuccess'] = 'Votre requête a été enregistrée. Vous recevrez prochainement un courriel pour vous informer du résultat de votre demande.';
 $string['courserequestsupport'] = 'Informations supplémentaires pour aider l\'administrateur à évaluer cette demande';
 $string['courserestore'] = 'Restauration du cours';
 $string['courses'] = 'Cours';
@@ -499,6 +499,9 @@ $string['dndenabled'] = 'Glisser-déposer disponible';
 $string['dndenabled_help'] = 'Vous pouvez glisser-déposer un ou plusieurs fichiers de votre bureau dans la boîte ci-dessous pour les déposer sur le serveur.<br />Remarque : ceci ne fonctionnera peut-être pas avec d\'anciens navigateurs';
 $string['dndenabled_inbox'] = 'Vous pouvez glisser des fichiers ici pour les ajouter.';
 $string['dndenabled_insentence'] = 'glisser-déposer disponible';
+$string['dndnotsupported'] = 'Le dépôt de fichiers par glisser-déposer n\'est pas supporté.';
+$string['dndnotsupported_help'] = 'Votre navigateur ne supporte pas le dépôt de fichiers par glisser-déposer.<br />Cette fonctionnalité est disponibles dans les versions récentes de Chrome, Firefox et Safari, ainsi que dans Internet Explorer 10 et versions ultérieures.';
+$string['dndnotsupported_insentence'] = 'Glisser-déposer non supporté';
 $string['dnduploadwithoutcontent'] = 'Ce fichier n\'a pas de contenu';
 $string['dndworkingfile'] = 'Glisser et déposer des fichiers pour les placer dans les sections du cours';
 $string['dndworkingfilelink'] = 'Glisser et déposer des fichiers ou des liens pour les déposer dans les sections du cours';
@@ -697,56 +700,12 @@ $string['forgotten'] = 'Vous avez oublié votre nom d\'utilisateur et/ou votre m
 $string['forgottenduplicate'] = 'Cette adresse de courriel est utilisée dans plusieurs comptes. Veuillez indiquer le nom d\'utilisateur en lieu et place';
 $string['forgotteninvalidurl'] = 'URL de récupération de mot de passe non valable';
 $string['format'] = 'Format';
-$string['format_help'] = '<!-- $Id$ -->
+$string['format_help'] = 'Le format de cours détermine comment est affichée la page de cours.
 
-
-<h2>Format LAMS</h2>
-
-<div class="indent">
-
-<p>Ce format utilise l\'interface Learning Activity Management System (LAMS) comme interface principale. LAMS nécessite l\'intervention d\'un administrateur pour pouvoir utiliser ce format.</p>
-
-</div>
-
-<h2>Format SCORM</h2>
-
-<div class="indent">
-
-<p>Ce format affiche un paquetage SCORM dans la première section de la page du cours. Le module d\'activité SCORM/AICC offre une alternative pour afficher un paquetage SCORM dans un cours.</p>
-
-</div>
-
-<h2>Format informel</h2>
-
-<div class="indent">
-
-<p>Ce format est organisé autour d\'un forum principal, le « Forum public », qui est affiché sur la page du cours. Il est utile dans les situations informelles qui ne sont pas nécessairement des cours. Par exemple, il peut être utilisé comme tableau d\'affichage pour une classe ou un département. </p>
-
-</div>
-
-<h2>Format thématique</h2>
-
-<div class="indent">
-
-<p>Ce format est organisé en sections thématiques. Chacune de ces sections comprend des activités et des ressources.</p>
-
-</div>
-
-<h2>Format hebdomadaire</h2>
-
-<div class="indent">
-
-<p>Le cours est organisé par semaine avec des dates de début et de fin clairement identifiées. Chaque semaine contient des activités et des ressources.</p>
-
-</div>
-
-<h2>Format hebdomadaire - CSS, sans table</h2>
-
-<div class="indent">
-
-<p>Le cours est organisé par semaine. L\'affichage n\'utilise pas les tables HTML.</p>
-
-</div>';
+* Format activité unique - affiche une activité ou une ressource unique (comme par exemple un test ou un paquetage SCORM) dans la première section de la page du cours.
+* Format informel – un forum public est affiché sur la page du cours
+* Format thématique – la page de cours est organisée en sections thématiques
+* Format hebdomadaire – la page de cours est organisée en sections hebdomadaires, la première d\'entre elle commençant à la date de début du cours';
 $string['formathtml'] = 'Format HTML';
 $string['formatmarkdown'] = 'Format Markdown';
 $string['formatplain'] = 'Format texte';
@@ -757,8 +716,8 @@ $string['from'] = 'De';
 $string['frontpagecategorycombo'] = 'Liste combinée';
 $string['frontpagecategorynames'] = 'Liste des catégories de cours';
 $string['frontpagecourselist'] = 'Liste des cours';
-$string['frontpagedescription'] = 'Description sur la page d\'accueil';
-$string['frontpagedescriptionhelp'] = 'Cette description du site sera affichée sur la page d\'accueil.';
+$string['frontpagedescription'] = 'Résumé sur la page d\'accueil';
+$string['frontpagedescriptionhelp'] = 'Ce résumé sera affiché sur la page d\'accueil dans le bloc résumé du cours/du site ou en ajouter une section thématique sur la page d\'accueil.';
 $string['frontpageformat'] = 'Format de la page d\'accueil';
 $string['frontpageformatloggedin'] = 'Format une fois connecté';
 $string['frontpagenews'] = 'Brèves';
@@ -871,13 +830,10 @@ $string['htmlformat'] = 'Format HTML';
 $string['icon'] = 'Icône';
 $string['icqnumber'] = 'Identifiant ICQ';
 $string['idnumber'] = 'Numéro d\'identification';
-$string['idnumbercourse'] = 'No d\'identification du cours';
+$string['idnumbercourse'] = 'N° d\'identification du cours';
 $string['idnumbercoursecategory'] = 'Numéro d\'identifiant de catégorie';
 $string['idnumbercoursecategory_help'] = 'L\'identifiant de catégorie de cours n\'est utilisé que lors de la vérification de correspondance avec des systèmes externes et n\'est affiché nulle part sur le site. Si la catégorie est codée de manière officielle, celui-ce devrait être renseigné ici. Sinon, le champ peut être laissé vide.';
-$string['idnumbercourse_help'] = '<!-- Version: $Id$ -->
-
-
-<p>Le numéro d\'identification (ID) du cours n\'est utilisé que lorsque le cours est mis en relation avec des systèmes externes. Il n\'est jamais affiché dans Moodle. Si vous avez un numéro de code officiel pour ce cours, utilisez-le. Sinon, vous pouvez laisser ce champ vide.</p>';
+$string['idnumbercourse_help'] = 'Le numéro d\'identification (ID) du cours n\'est utilisé que lorsque les cours sont mis en relation avec des systèmes externes. Il n\'est jamais affiché nulle part. Si vous avez un numéro de code officiel pour ce cours, utilisez-le. Sinon, vous pouvez laisser ce champ vide.';
 $string['idnumbergroup'] = 'Identifiant de groupe';
 $string['idnumbergroup_help'] = 'L\'identifiant d\'un groupe n\'est utilisé que lors de l\'utilisation de systèmes externes et n\'est jamais affiché. On renseigne ce champ si le groupe a un code officiel. Sinon, le champ peut être laissé vide.';
 $string['idnumbergrouping'] = 'Identifiant de groupement';
@@ -886,7 +842,7 @@ $string['idnumbermod'] = 'Numéro d\'identification';
 $string['idnumbermod_help'] = 'En définissant un numéro d\'identification (ID number), vous fournissez un moyen d\'identifier une activité, si vous voulez effectuer des calculs avec les notes. Si l\'activité n\'est utilisée dans aucun calcul de note, le numéro d\'identification peut être laissé vide.
 
 Ce numéro d\'identification peut aussi être renseigné dans le carnet de notes. Il ne peut cependant être modifié que sur la page de modification de l\'activité.';
-$string['idnumbertaken'] = 'Ce no d\'identification est déjà utilisé';
+$string['idnumbertaken'] = 'Ce n° d\'identification est déjà utilisé';
 $string['imagealt'] = 'Description de l\'image';
 $string['import'] = 'Importation';
 $string['importdata'] = 'Importer les données d\'un cours';
@@ -1013,12 +969,12 @@ $string['maximumupload_help'] = '<!-- $Id$ -->
 
 <p>L\'enseignant peut aussi ajuster ce paramètre pour chaque activité. Il peut ainsi établir une valeur par défaut pour le cours et des valeurs particulières pour certaines activités.</p>';
 $string['maxnumberweeks'] = 'Nombre maximum de sections';
-$string['maxnumberweeks_desc'] = 'Ce réglage détermine le nombre de choix qui apparaissent dans le réglage des cours « Nombres de sections ».';
+$string['maxnumberweeks_desc'] = 'La valeur maximum du nombre de sections apparaissant dans le menu déroulant (n\'est valable que pour certains formats de cours).';
 $string['maxnumcoursesincombo'] = 'Consultez <a href="{$a->link}">{$a->numberofcourses} cours</a>.';
 $string['maxsize'] = 'Taille maximale : {$a}';
 $string['maxsizeandareasize'] = 'Taille maximale pour les nouveaux fichiers : {$a->size}, limite globale : {$a->areasize}';
 $string['maxsizeandattachments'] = 'Taille maximale des nouveaux fichiers : {$a->size}. Nombre maximal d\'annexes : {$a->attachments}';
-$string['maxsizeandattachmentsandareasize'] = 'Taille maximale pour les nouveaux fichiers : {$a->size}, nombre maximale d\'annexes : {$a->attachments}, limite globale : {$a->areasize}';
+$string['maxsizeandattachmentsandareasize'] = 'Taille maximale pour les nouveaux fichiers : {$a->size}, nombre maximal d\'annexes : {$a->attachments}, limite globale : {$a->areasize}';
 $string['memberincourse'] = 'Personnes dans le cours';
 $string['messagebody'] = 'Texte du message';
 $string['messagedselectedusers'] = 'Le message a été envoyé aux utilisateurs sélectionnés et la liste des destinataires réinitialisée.';
@@ -1122,9 +1078,7 @@ $string['newaccount'] = 'Nouveau compte';
 $string['newcourse'] = 'Nouveau cours';
 $string['newpassword'] = 'Nouveau mot de passe';
 $string['newpasswordfromlost'] = '<strong>Attention !</strong> Votre <strong>Mot de passe actuel</strong> vous a été envoyé dans le <strong>deuxième</strong> des deux courriels envoyés durant le processus de récupération de mot de passe. Veuillez vous assurer que vous avez bien reçu votre mot de passe de remplacement avant de continuer sur cette page.';
-$string['newpassword_help'] = '<!-- $Id$ -->
-
-Laissez vide pour conserver le mot de passe actuel.';
+$string['newpassword_help'] = 'Saisissez un nouveau mot de passe ou laissez vide pour conserver le mot de passe actuel.';
 $string['newpasswordtext'] = 'Bonjour {$a->firstname},
 
 Le mot de passe de votre compte sur « {$a->sitename} » a été remplacé par un nouveau mot de passe temporaire.
@@ -1174,7 +1128,7 @@ Dans la plupart des logiciels de messagerie, cette adresse devrait apparaître c
 Si vous avez besoin d\'aide, veuillez contacter l\'administrateur du site {$a->sitename},
 {$a->signoff}';
 $string['newusers'] = 'Nouveaux utilisateurs';
-$string['newwindow'] = 'nouvelle fenêtre';
+$string['newwindow'] = 'Nouvelle fenêtre';
 $string['next'] = 'Suivant';
 $string['nextsection'] = 'Section suivante';
 $string['no'] = 'Non';
@@ -1263,11 +1217,12 @@ $string['options'] = 'options';
 $string['order'] = 'Ordre';
 $string['originalpath'] = 'Chemin original';
 $string['orphanedactivities'] = 'Activités orphelines';
+$string['orphanedactivitiesinsectionno'] = 'Activités orphelines (section {$a})';
 $string['other'] = 'Autre';
 $string['outline'] = 'Résumé';
 $string['outlinereport'] = 'Rapport résumé';
 $string['page'] = 'Page';
-$string['pageheaderconfigablock'] = 'Configuration d\'un bloc dans %fullname%';
+$string['pageheaderconfigablock'] = 'Configuration d\'un bloc dans {$a->fullname}';
 $string['pagepath'] = 'Chemin de la page';
 $string['pageshouldredirect'] = 'Cette page va vous rediriger automatiquement. Si cela n\'arrive pas, veuillez utiliser le lien Continuer ci-dessous.';
 $string['parentcategory'] = 'Catégorie supérieure';
@@ -1387,7 +1342,7 @@ $string['requestedcourses'] = 'Cours demandés';
 $string['requestreason'] = 'Raison de la demande de création';
 $string['required'] = 'Requis';
 $string['requirespayment'] = 'Un paiement est requis pour accéder à ce cours';
-$string['reset'] = 'Réinitialisation';
+$string['reset'] = 'Réinitialiser';
 $string['resetcomponent'] = 'Composant';
 $string['resetcourse'] = 'Réinitialiser le cours';
 $string['resetinfo'] = 'Cette page vous permet de retirer du cours les données des utilisateurs, tout en conservant les activités et les autres réglages du cours. Veuillez remarquer qu\'en choisissant des éléments ci-dessous et après validation de cette page, les données que vous aurez choisies seront supprimées du cours sans aucun moyen de les restaurer !';
@@ -1438,7 +1393,7 @@ $string['rss'] = 'RSS';
 $string['rssarticles'] = 'Nombre d\'articles RSS récents';
 $string['rsserror'] = 'Erreur lors de la lecture de données RSS';
 $string['rsserrorauth'] = 'Votre lien RSS ne contient pas de jeton d\'authentification valide.';
-$string['rsserrorguest'] = 'Ce flux utilise l\'accès « Utilisateur anonyme » pour accéder aux données, mais ce rôle n\'a pas la permission de lire les données. Veuillez visiter l\'URL de provenance de ce flux en tant qu\'utilisateur connecté et obtenir un lien RSS.';
+$string['rsserrorguest'] = 'Ce flux utilise l\'accès « Utilisateur anonyme » pour accéder aux données, mais ce rôle n\'a pas les droits d\'accès requis pour lire les données. Veuillez visiter l\'URL de provenance de ce flux en tant qu\'utilisateur connecté et obtenir un lien RSS.';
 $string['rsskeyshelp'] = 'Pour assurer la sécurité et la confidentialité, les URLs des flux RSS contiennent une clef identifiant leur utilisateur. Ceci empêche d\'autres utilisateurs d\'accéder à des zones de Moodle auxquelles ils ne doivent pas avoir accès au moyen des flux RSS.</p><p>Cette clef est créée automatiquement la première fois que vous accédez à une zone de Moodle qui produit un flux RSS. Si vous avez des raisons de penser que votre clef de flux RSS a été compromise, vous pouvez en générer une nouvelle en cliquant le lien Réinitialiser. Veuillez prendre note que les URLs actuels de vos flux RSS ne seront alors plus valides.';
 $string['rsstype'] = 'Flux RSS de cette activité';
 $string['saveandnext'] = 'Enregistrer et afficher la suite';
@@ -1472,10 +1427,7 @@ $string['scalescustomcreate'] = 'Ajouter un nouveau barème';
 $string['scalescustomno'] = 'Aucun barème personnalisé n\'a été encore créé';
 $string['scalesstandard'] = 'Barèmes standards';
 $string['scalestandard'] = 'Barème standard';
-$string['scalestandard_help'] = '<!-- $Id$ -->
-
-
-<p>Un barème standard est disponible dans tout le site, pour tous les cours.</p>';
+$string['scalestandard_help'] = 'Un barème standard est disponible dans tout le site, pour tous les cours.';
 $string['scalestip'] = 'Pour créer des barêmes personnalisés, utilisez le liens « Barêmes... » dans le menu d\'administration de votre cours.';
 $string['scalestip2'] = 'Pour créer des barêmes personnalisés, cliquez sur le lien Notes dans le menu d\'administration du cours, puis sélectionnez Modifier > Barêmes dans le menu déroulant.';
 $string['schedule'] = 'Planification';
@@ -1522,7 +1474,9 @@ $string['selectdefault'] = 'Sélection par défaut';
 $string['selectedfile'] = 'Fichier sélectionné';
 $string['selectednowmove'] = '{$a} fichiers sélectionnés pour déplacement. Allez maintenant dans le dossier de destination désiré et cliquez sur « Déplacer les fichiers ici »';
 $string['selectfiles'] = 'Sélectionner des fichiers';
-$string['selectmoduletoviewhelp'] = 'Sélectionnez un module pour afficher l\'aide à son sujet.';
+$string['selectmoduletoviewhelp'] = 'Sélectionnez une activité ou une ressource pour afficher l\'aide à son sujet.
+
+Double-cliquez sur le nom d\'une activité ou d\'une ressource pour l\'ajouter rapidement.';
 $string['selectnos'] = 'Sélectionner tous les « Non »';
 $string['selectperiod'] = 'Sélectionner une période';
 $string['senddetails'] = 'Envoyer un nouveau mot de passe par courriel';
@@ -1555,7 +1509,7 @@ $string['showblockcourse'] = 'Afficher les cours contenant le bloc';
 $string['showcomments'] = 'Afficher/cacher les commentaires';
 $string['showcommentsnonjs'] = 'Afficher les commentaires';
 $string['showdescription'] = 'Afficher la description sur la page de cours';
-$string['showdescription_help'] = 'Si ce réglage est activé, la description ou l\'introduction ci-dessus sera affichée sur la page du cours, juste au-dessous du lien vers l\'activité ou la ressource.';
+$string['showdescription_help'] = 'Si ce réglage est activé, la description ci-dessus sera affichée sur la page du cours, juste au-dessous du lien vers l\'activité ou la ressource.';
 $string['showgrades'] = 'Afficher le carnet de notes aux étudiants';
 $string['showgrades_help'] = 'Plusieurs activités d\'un cours peuvent être évaluées au moyen de notes. Ce réglage détermine si un étudiant peut voir une liste de toutes ses notes données dans ce cours, en cliquant sur le lien « Notes » dans le bloc d\'administration du cours.';
 $string['showlistofcourses'] = 'Afficher la liste des cours';
@@ -1564,16 +1518,7 @@ $string['showonly'] = 'Afficher uniquement';
 $string['showperpage'] = 'Afficher {$a} par page';
 $string['showrecent'] = 'Afficher les événements récents';
 $string['showreports'] = 'Afficher les rapports d\'activités';
-$string['showreports_help'] = '<!-- $Id$ -->
-
-
-<p>Vous pouvez obtenir des rapports d\'activités pour chaque participant à votre cours. Ces rapports contiennent les contributions des participants et la liste des accès aux différentes activités et ressources du cours.</p>
-
-<p>Les enseignants peuvent visualiser ces rapports à l\'aide d\'un bouton dans le profil de l\'utilisateur.</p>
-
-<p>Vous pouvez permettre à vos étudiants de voir leurs propres rapports d\'activités à un des paramètres du cours. Dans certains cours, il peut être pertinent d\'offrir cette possibilité aux étudiants pour les aider dans la participation au cours ; dans d\'autres cas, cela n\'est pas nécessaire.</p>
-
-<p>Remarque : la production de ces rapports peut ralentir le serveur Moodle lorsqu\'il y a beaucoup d\'étudiants et d\'enseignants qui en font la demande.  Pour augmenter les performances du serveur, on peut désactiver ce paramètre.<p>';
+$string['showreports_help'] = 'Les rapports d\'activité sont disponibles pour chaque participant qui affiche ses activités dans le cours. En plus d\'une liste de ses contributions, comme les messages d\'un forum ou les soumissions d\'un devoir, ces rapports incluent également des journaux d\'accès. Ce paramètre détermine si un étudiant peut consulter ses propres rapports d\'activité via sa page de profil.';
 $string['showsettings'] = 'Afficher les réglages';
 $string['showtheselogs'] = 'Afficher cet historique';
 $string['showthishelpinlanguage'] = 'Afficher cette aide dans la langue : {$a}';
@@ -1794,7 +1739,7 @@ $string['userpic'] = 'Image de l\'utilisateur';
 $string['users'] = 'Utilisateurs';
 $string['userselectorautoselectunique'] = 'Si un seul utilisateur correspond à la recherche, le sélectionner automatiquement';
 $string['userselectorpreserveselected'] = 'Conserver les utilisateurs sélectionnés, même s\'ils ne correspondent plus à la recherche';
-$string['userselectorsearchanywhere'] = 'Le critère de recherche peut apparaître n\'importe où dans le nom de l\'utilisateur';
+$string['userselectorsearchanywhere'] = 'Le critère de recherche peut apparaître n\'importe où dans les champs affichés';
 $string['usersnew'] = 'Nouveaux utilisateurs';
 $string['usersnoaccesssince'] = 'Inactifs depuis plus de';
 $string['userswithfiles'] = 'Utilisateurs avec fichiers';

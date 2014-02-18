@@ -25,5 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['managemyfiles'] = 'Xestionar os meus ficheiros';
 $string['pluginname'] = 'Ficheiros privados do usuario';
 $string['privatefiles'] = 'Ficheiros privados';
+$string['private_files:addinstance'] = 'Engadir un novo bloque de ficheiros privados';
+$string['private_files:myaddinstance'] = 'Engadir un novo bloque de ficheiros privados ao meu cartafol persoal';

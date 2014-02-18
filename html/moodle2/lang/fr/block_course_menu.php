@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_menu', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_course_menu', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   block_course_menu
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -48,18 +48,18 @@ $string['displaydirectory'] = 'Afficher le dossier';
 $string['dockedbg'] = 'Couleur de fond de l\'en-tête du bloc';
 $string['dockedbgdesc'] = 'Couleur de fond pour le titre de bloc lorsqu\'il est dans le dock';
 $string['elements'] = 'Éléments';
-$string['emptychapname'] = 'Le nom de chapitre ne peut pas être vide!';
-$string['emptysubchapname'] = 'Le nom du sous-chapitre nom ne peut pas être vide!';
+$string['emptychapname'] = 'Le nom de chapitre ne peut pas être vide !';
+$string['emptysubchapname'] = 'Le nom du sous-chapitre ne peut pas être vide !';
 $string['expandable_tree'] = 'Arbre extensible';
 $string['hide'] = 'Cacher';
 $string['icon'] = 'Icône';
-$string['keeppagenavigation'] = 'Garder la navigation de la page visible dans l\'espace du cours (très déconseillé !)';
+$string['keeppagenavigation'] = 'Garder la navigation de la page visible dans l\'espace du cours (très déconseillé !)';
 $string['link'] = 'Lien';
 $string['linkfileorsite'] = 'Lien vers un fichier ou un site Web';
 $string['linknoname'] = 'Le nom du lien ne peut pas être vide. Merci d\'entrer le nom du lien.';
 $string['linknourl'] = 'Le lien URL ne peut pas être vide. Merci d\'entrer le nom du lien.';
 $string['links'] = 'Liens';
-$string['linkswrongnumber'] = 'Le nombre de liens doit être un nombre correct (seulement chiffres) et supérieure à 0!';
+$string['linkswrongnumber'] = 'Le nombre de liens doit être un nombre correct (seulement chiffres) et supérieure à 0 !';
 $string['mycourses'] = 'Mes cours';
 $string['myprofile'] = 'Mon profil';
 $string['myprofilesettings'] = 'Mes paramètres de profil';
@@ -100,10 +100,10 @@ $string['trimmodecenter'] = 'Réduction par les caractères centraux';
 $string['trimmodeleft'] = 'Réduction par les caractères les plus à gauche';
 $string['trimmoderight'] = 'Réduction par les caractères les plus à droite';
 $string['url'] = 'URL*';
-$string['warningchapnochange'] = 'En changeant le nombre de chapitres, tous les paramètres de votre chapitrage et sous-chapitrage seront restaurés par défaut! Continuer quand même ?';
-$string['warningsubchapenable'] = 'Attention! Après avoir activé le sous-chapitrage, un regroupement par défaut se produira. Souhaitez-vous poursuivre ?';
+$string['warningchapnochange'] = 'En changeant le nombre de chapitres, tous les paramètres de votre chapitrage et sous-chapitrage seront restaurés par défaut ! Continuer quand même ?';
+$string['warningsubchapenable'] = 'Attention ! Après avoir activé le sous-chapitrage, un regroupement par défaut se produira. Souhaitez-vous poursuivre ?';
 $string['warningsubchapnochange'] = 'En changeant le nombre de sous-chapitres, tous les paramètres de votre chapitrage et sous-chapitrage seront restaurés par défaut ! Continuer quand même ?';
 $string['weeks'] = 'Semaines';
 $string['window'] = 'Fenêtre';
-$string['wrongnumber'] = 'Le nombre de chapitres doit être un nombre correct (seulement chiffres), supérieur à 1, inférieur au nombre de sous-chapitres et inférieur au nombre de sections ou semaines visibles!';
-$string['wrongsubchapnumber'] = 'Le nombre de sous-chapitres doit être un nombre correct (seulement chiffres), supérieur au nombre de chapitres et inférieur au nombre de sections ou semaines visibles!';
+$string['wrongnumber'] = 'Le nombre de chapitres doit être un nombre correct (seulement chiffres), supérieur à 1, inférieur au nombre de sous-chapitres et inférieur au nombre de sections ou semaines visibles !';
+$string['wrongsubchapnumber'] = 'Le nombre de sous-chapitres doit être un nombre correct (seulement chiffres), supérieur au nombre de chapitres et inférieur au nombre de sections ou semaines visibles !';

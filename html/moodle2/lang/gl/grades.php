@@ -43,7 +43,7 @@ $string['aggregatemedian'] = 'Mediana de cualificacións';
 $string['aggregatemin'] = 'Cualificación máis baixa';
 $string['aggregatemode'] = 'Moda de cualificacións';
 $string['aggregateonlygraded'] = 'Engadir só as cualificacións non baleiras';
-$string['aggregateonlygraded_help'] = 'Unha cualificación baleira é unha cualificación que non se atopa no libro de cualificacións. Pode ser desde unha entrega de tarefa aue aínda non foi cualificada ou unha proba que aínda non foi intentada, etc.
+$string['aggregateonlygraded_help'] = 'Unha cualificación baleira é unha cualificación que non se atopa no libro de cualificacións. Pode ser desde unha entrega de tarefa que aínda non foi cualificada ou un exame que aínda non foi intentado, etc.
 
 Este axuste determina cando as cualificacións baleiras non están incluídas na agregación ou se contabilizan como cualificacións mínimas, por exemplo 0 para unha tarefa cualificada entre 0 e 100.';
 $string['aggregateoutcomes'] = 'Incluír os resultados na agregación';
@@ -382,7 +382,7 @@ $string['letterpercentage'] = 'Letra (porcentaxe)';
 $string['letterreal'] = 'Letra (real)';
 $string['letters'] = 'Letras';
 $string['linkedactivity'] = 'Actividade liagada';
-$string['linkedactivity_help'] = 'Este axuste especifica unha actividade na que este elemento de resultado esta ligada. Isto empregase para medir o rendemento do alumno  en criterios non avaliados pola cualificación da actividade.';
+$string['linkedactivity_help'] = 'Este axuste especifica unha actividade á que este elemento de resultado esta ligada. Pode utilizarse para medir o rendemento do alumno sobre criterios non avaliados coa cualificación da actividade.';
 $string['linktoactivity'] = 'Ligar coa actividade {$a->name}';
 $string['lock'] = 'Bloquear';
 $string['locked'] = 'Bloqueado';
@@ -559,7 +559,7 @@ $string['showanalysisicon'] = 'Amosar a icona de análise de cualificacións';
 $string['showanalysisicon_desc'] = 'Cando de xeito predeterminado se amosa a icona de análise. Se o módulo o permite, a icona de análise de cualificacións ligará a unha páxina cunha explicación máis detallada da cualificación e a forma na que se obtivo.';
 $string['showanalysisicon_help'] = 'Se o módulo o permite, a icona de análise de cualificacións ligará a unha páxina cunha explicación máis detallada da cualificación e a forma na que se obtivo.';
 $string['showaverage'] = 'Amosar a media';
-$string['showaverage_help'] = 'Amosar a columna de medias? Os alumnos poden ser quen de calcular as cualificacións doutros alumnos se a media se calcula a partires dun pequeno número de cualificacións. Por motivos de rendemento a media é aproximada cando se depende dos elementos agochados.';
+$string['showaverage_help'] = 'Amosar a columna de medias? Os alumnos poden ser quen de calcular as cualificacións doutros alumnos se a media se calcula a partir dun pequeno número de cualificacións. Por motivos de rendemento a media é aproximada cando se depende dos elementos agochados.';
 $string['showaverages'] = 'Amosar a columna de medias';
 $string['showaverages_help'] = 'Se está activado, o informe do cualificador conterá unha fila adicional que presenta a media de cada categoría e o elemento de cualificación.';
 $string['showcalculations'] = 'Amosar os cálculos';

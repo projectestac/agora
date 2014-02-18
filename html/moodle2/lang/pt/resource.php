@@ -44,15 +44,21 @@ $string['contentheader'] = 'Conteúdo';
 $string['displayoptions'] = 'Opções de visualização disponíveis';
 $string['displayselect'] = 'Exibir em';
 $string['displayselectexplain'] = 'Escolha a forma de exibição do recurso (nem todos os tipos de exibição são adequados para todos os ficheiros).';
-$string['displayselect_help'] = 'Esta configuração, em conjunto com o tipo de ficheiro e possibilidades do browser, determina a forma como é exibido o ficheiro. As opções podem ser:
+$string['displayselect_help'] = 'Esta configuração, em conjunto com o tipo de ficheiro e possibilidades do navegador, determina a forma como é exibido o ficheiro. As opções podem ser:
 
-* Automático - É selecionada automaticamente a melhor opção para exibir o ficheiro
-* Incorporar - O ficheiro é incorporado e exibido na página, mantendo a barra de navegação, a descrição do ficheiro e os blocos laterais
-* Forçar download - É aberta uma janela de diálogo para o utilizador abrir ou guardar o ficheiro
-* Mesma janela - O ficheiro é exibido na janela do browser, ocupando-a toda
-* Janela de pop-up - O ficheiro é exibido numa nova janela do browser sem menus nem barra de endereço
-* Frame - O ficheiro é exibido numa frame, mantendo a barra de navegação e a descrição do ficheiro
-* Nova janela - O ficheiro é exibido numa nova janela do browser, com menus e barra de endereço';
+* Automático: é selecionada automaticamente a melhor opção para exibir o ficheiro;
+
+* Incorporar. o ficheiro é incorporado e exibido na página, mantendo a barra de navegação, a descrição do ficheiro e os blocos laterais;
+
+* Forçar download: é aberta uma janela de diálogo para o utilizador abrir ou guardar o ficheiro;
+
+* Mesma janela: apenas o ficheiro é exibido na janela do navegador;
+
+* Janela de pop-up: o ficheiro é exibido numa nova janela do navegador sem menus nem barra de endereço;
+
+* Frame: o ficheiro é exibido numa frame, mantendo a barra de navegação e a descrição do ficheiro;
+
+* Nova janela: o ficheiro é exibido numa nova janela do navegador, com menus e barra de endereço.';
 $string['displayselect_link'] = 'mod/file/mod';
 $string['dnduploadresource'] = 'Criar novo ficheiro';
 $string['encryptedcode'] = 'Código encriptado';
@@ -60,21 +66,20 @@ $string['filenotfound'] = 'Ficheiro não encontrado';
 $string['filterfiles'] = 'Aplicar filtros ao conteúdo do ficheiro';
 $string['filterfilesexplain'] = 'Selecione quais os ficheiros a serem filtrados, tendo em conta que pode causar problemas em alguns applets Java e Flash. Certifique-se que todos os ficheiros de texto se encontram na codificação UTF-8.';
 $string['filtername'] = 'Hiperligações automáticas para nomes dos recursos';
-$string['forcedownload'] = 'Forçar descarga';
+$string['forcedownload'] = 'Forçar download';
 $string['framesize'] = 'Largura da frame';
 $string['legacyfiles'] = 'Migração de ficheiro antigo de disciplina';
 $string['legacyfilesactive'] = 'Ativo';
 $string['legacyfilesdone'] = 'Terminado';
 $string['modulename'] = 'Ficheiro';
-$string['modulename_help'] = 'O recurso Ficheiro permite que um professor insira um ficheiro como recurso de consulta na sua disciplina. Sempre que o navegador o permite, o ficheiro é exibido na integrado na disciplina, caso contrário o navegador permite aos alunos descarregar o mesmo. Este recurso pode incluir ficheiros de suporte, como por exemplo uma página HTML com imagens ou conteúdos em Flash.
+$string['modulename_help'] = 'O recurso Ficheiro permite que um professor insira um ficheiro como um recurso de uma disciplina. Sempre que o navegador o permitir, o ficheiro será exibido dentro da interface da disciplina, caso contrário os alunos poderão fazer o seu download. Este recurso pode incluir ficheiros de suporte, como por exemplo uma página HTML com imagens ou conteúdos em Flash.
 
-Os alunos necessitam dos programas apropriados instalados no seu computador para a visualização dos ficheiros.
+Note que os alunos precisam de ter os programas apropriados instalados nos seus computadores para visualizarem os ficheiros.
 
 Um ficheiro pode ser utilizado para:
-
 * Partilhar apresentações com a turma;
-* Incluir um mini site como um recurso de consulta ao curso.;
-* Disponibilizar ficheiros de certos programas (ex: Photoshop .psd) para os alunos editarem e submeterem como trabalho';
+* Incluir um mini site como um recurso da disciplina;
+* Disponibilizar ficheiros de certos programas (p. ex. Photoshop .psd) para os alunos editarem e submeterem para avaliação.';
 $string['modulename_link'] = 'mod/resource/view';
 $string['modulenameplural'] = 'Ficheiros';
 $string['neverseen'] = 'Nunca visto';
@@ -83,11 +88,11 @@ $string['optionsheader'] = 'Opções';
 $string['page-mod-resource-x'] = 'Qualquer ficheiro dos recursos';
 $string['pluginadministration'] = 'Administração do Ficheiro';
 $string['pluginname'] = 'Ficheiro';
-$string['popupheight'] = 'Altura da janela de pop-up (em pixels)';
+$string['popupheight'] = 'Altura da janela de pop-up (em píxeis)';
 $string['popupheightexplain'] = 'Altura predefinida da janela de pop-up';
 $string['popupresource'] = 'Este documento deve aparecer numa janela de pop-up.';
 $string['popupresourcelink'] = 'Se tal não acontecer, clique aqui:  {$a}';
-$string['popupwidth'] = 'Largura da janela pop-up (em pixels)';
+$string['popupwidth'] = 'Largura da janela de pop-up (em píxeis)';
 $string['popupwidthexplain'] = 'Largura predefinida da janela de pop-up';
 $string['printheading'] = 'Mostrar nome do recurso';
 $string['printheadingexplain'] = 'Mostrar o nome do recurso por cima do conteúdo? Alguns modos de exibição não apresentam o nome do recurso, mesmo com esta configuração ativa.';

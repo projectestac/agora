@@ -26,10 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['blockedpath'] = 'Chemin d\'accès bloqué';
-$string['configplugin'] = 'Configuration dépôt système de fichiers';
+$string['configplugin'] = 'Configuration pour dépôt système de fichiers';
 $string['donotusesysdir'] = 'N\'utilisez pas le dossier système comme dépôt de fichiers, notamment';
-$string['enablecourseinstances'] = 'Permettre aux utilisateurs d\'ajouter un dépôt dans les cours (ne peut être configuré que par les administrateurs)';
-$string['enableuserinstances'] = 'Permettre aux utilisateurs d\'ajouter un dépôt dans leur espace personnel (ne peut être configuré que par les administrateurs)';
+$string['enablecourseinstances'] = 'Permettre aux utilisateurs d\'ajouter un dépôt système de fichiers dans les cours (ne peut être configuré que par les administrateurs)';
+$string['enableuserinstances'] = 'Permettre aux utilisateurs d\'ajouter un dépôt système de fichier dans leur espace personnel (ne peut être configuré que par les administrateurs)';
 $string['filesystem:view'] = 'Consulter le dépôt système de fichiers';
 $string['information'] = 'Ces dossiers sont situés dans le dossier <b>{$a}</b>.';
 $string['invalidpath'] = 'Chemin d\'accès non valide';

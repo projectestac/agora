@@ -50,7 +50,7 @@ $string['attls15short'] = 'Pôr-me na posição dos outros';
 $string['attls16'] = 'Podia dizer-se que a minha forma de analisara as coisas é \'submetê-las à prova\' porque sou cuidadoso(a) na consideração de todas as evidências.';
 $string['attls16short'] = 'Submeter à prova';
 $string['attls17'] = 'Valorizo mais a utilização da lógica e da razão do que as minhas preocupações pessoais, quando estou a resolver problemas.';
-$string['attls17short'] = 'Valorizo a lógica';
+$string['attls17short'] = 'Eu valorizo mais a lógica';
 $string['attls18'] = 'Procuro compreender opiniões diferentes da minha empatizando com elas.';
 $string['attls18short'] = 'Compreensão por empatia';
 $string['attls19'] = 'Quando encontro pessoas com opiniões muito diferentes das minhas, faço um esforço deliberado para tentar ser essas pessoas, e perceber como podem ter essas opiniões.';
@@ -157,15 +157,15 @@ As suas respostas cuidadosas ajudar-nos-ão a melhorar a execução online desta
 
 Muito obrigado pela sua colaboração.';
 $string['collesaname'] = 'COLLES (Realidade)';
-$string['collesapintro'] = 'O objetivo deste inquérito é ajudar-nos a entender o quão útil tem sido o material desta unidade para contribuir para a sua aprendizagem.
+$string['collesapintro'] = 'O objetivo deste inquérito é ajudar-nos a entender o quão útil tem sido o material desta unidade para a sua aprendizagem.
 
-Cada uma das 24 afirmações em baixo pede para comparar a sua <b>preferência</b> (disciplina ideal) com sua experiência <b>real</b> nesta unidade.
+Cada uma das 24 afirmações que se seguem solicitam-lhe que compare a sua <b>preferência</b> (disciplina ideal) com sua experiência <b>real</b> nesta unidade.
 
-Não existem respostas certas nem falsas; estamos apenas interessados na sua opinião.  Garantimos-lhe que as suas respostas serão tratados com um elevado grau de confidencialidade e que não vão influenciar a sua avaliação na disciplina.
+Não existem respostas certas ou erradas; estamos apenas interessados na sua opinião. Garantimos que as suas respostas serão tratadas com um elevado grau de confidencialidade e que não vão influenciar a sua avaliação na disciplina.
 
-As suas respostas ajudar-nos-ão a melhorar no futuro, a forma como esta unidade é apresentada.
+As suas respostas ajudar-nos-ão a melhorar a forma como esta unidade será apresentada no futuro.
 
-Muito obrigado pela sua colaboração.';
+Obrigado pela sua colaboração.';
 $string['collesapname'] = 'COLLES (Ideal e Real)';
 $string['collesm1'] = 'Relevância';
 $string['collesm1short'] = 'Relevância';

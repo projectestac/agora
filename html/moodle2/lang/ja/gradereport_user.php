@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'ユーザレポート';
+$string['tablesummary'] = 'このテーブルは評定アイテムのカテゴリを含む評定アイテム一覧として作成されています。アイテムがカテゴリ内にある場合、そのように表示されます。';
 $string['user:view'] = '自分の評定レポートを表示する';

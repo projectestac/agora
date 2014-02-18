@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['allowdeletes'] = '允许删除';
 $string['allowrenames'] = '允许改名';
+$string['allowsuspends'] = '允许账户注销和激活';
 $string['csvdelimiter'] = 'CSV分隔符';
 $string['defaultvalues'] = '默认值';
 $string['deleteerrors'] = '删除出错';

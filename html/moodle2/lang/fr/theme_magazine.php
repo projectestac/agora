@@ -27,13 +27,13 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['background'] = 'Image de fond';
 $string['backgrounddesc'] = 'Modifier l\'image de fond en saisissant l\'URL d\'une image, par exemple http://www.monsite.fr/mybackground.jpg.';
-$string['blockcolor'] = 'Couleur de l\'entête des blocs';
+$string['blockcolor'] = 'Couleur des blocs';
 $string['blockcolordesc'] = 'Couleur du texte pour les titres des blocs';
 $string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><h2>Magazine</h2><img src="magazine/pix/screenshot.png" /><h3>Forum de discussion sur les thèmes</h3><p><a href="http://moodle.org/mod/forum/view.php?id=46">http://moodle.org/mod/forum/view.php?id=46</a></p><h3>Crédits des thèmes</h3><p><a href="http://docs.moodle.org/en/Theme_credits">http://docs.moodle.org/en/Theme_credits</a></p><h3>Documentation sur les thèmes</h3><p><a href="http://docs.moodle.org/en/Themes">http://docs.moodle.org/en/Themes</a></p><h3>Annoncer un bogue</h3><p><a href="http://tracker.moodle.org">http://tracker.moodle.org</a></p></div><div class="theme_description"><h2>À propos</h2><p>Magazine est un thème à trois colonnes et largeur fluide pour Moodle 2.0.</p><h2>Modifications</h2><p>Ce thème est bâti sur Base et Canvas, deux thèmes inclus dans Moodle. Si vous voulez le modifier, nous recommandons que vous le dupliquiez d\'abord, puis le renommiez avant de faire vos changements. Ce permettra d\'éviter que vos modifications ne soient écrasées lors de futures mises à jour de Moodle, et vous conserverez ainsi les fichiers originaux, au cas où vous feriez des erreurs. Plus d\'informations sur la modification des thèmes se trouve sur <a href="http://docs.moodle.org/en/Theme">MoodleDocs</a>.</p><h2>Credits</h2><p>Ce thème a été codé et est maintenu par John Stabinger de NewSchool Learning. John peut être contacté à contact@newschoollearning.com.</p><h3>Licence</h3><p>Ce thème, ainsi que tous les autres thèmes inclus dans Moodle, est publié sous la <a href="http://www.gnu.org/licenses/gpl.html">Licence Publique Générale GNU</a>.</p></div></div>';
 $string['configtitle'] = 'Réglages thème Magazine';
 $string['forumback'] = 'Couleur de fond du sujet des messages de forums';
 $string['forumbackdesc'] = 'Couleur de fond des sujets des messages de forums';
-$string['headingcolor'] = 'Couleur du texte des titres';
+$string['headingcolor'] = 'Couleur des titres';
 $string['headingcolordesc'] = 'Couleur du texte des grands titres (nouvelles, mes cours) et autres titres';
 $string['linkcolor'] = 'Couleur des liens';
 $string['linkcolordesc'] = 'Couleur des liens (utiliser le code hexadécimal HTML)';
@@ -42,7 +42,7 @@ $string['linkhoverdesc'] = 'Couleur des liens survolés (utiliser le code hexad�
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'Changer le logo affiché en saisissant l\'URL d\'une image, par exemple http://www.monsite.fr/chemin/vers/logo.png. À titre de référence, le logo par défaut a une taille de 300 x 80 px. Un fichier PNG avec transparence est conseillé.';
 $string['maincolor'] = 'Couleur principale';
-$string['maincoloraccent'] = 'Couleur du dock et des bordures';
+$string['maincoloraccent'] = 'Couleur d\'accentuation principale';
 $string['maincoloraccentdesc'] = 'Couleur de mise en évidence du dock et des bordures de l\'entête. Devrait être un peu plus sombre que la couleur principale.';
 $string['maincolordesc'] = 'Indiquez le code hexadécimal de la couleur de l\'entête, du dock et d\'autres zones. Une couleur sombre ou saturée donne un meilleur résultat.';
 $string['pluginname'] = 'Magazine';

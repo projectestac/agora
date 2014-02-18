@@ -25,11 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['adminview'] = 'Просмотр от администратора';
+$string['adminview'] = 'Вид для администратора';
 $string['allcourses'] = 'Администратору доступны все курсы';
 $string['configadminview'] = 'Настроить доступ администратора';
-$string['confighideallcourseslink'] = 'Скрыть ссылку "Все курсы" в нижней части блока. (Администраторы смогут видеть ссылку, несмотря на эту установку.)';
+$string['confighideallcourseslink'] = 'Скрыть ссылку «Все курсы» в нижней части блока. (Администраторы смогут видеть ссылку, несмотря на значение этого параметра.)';
 $string['course_list:addinstance'] = 'Добавлять новый блок курса';
-$string['hideallcourseslink'] = 'Скрыть ссылку "Все курсы"';
+$string['course_list:myaddinstance'] = 'Добавлять новый блок курсов в Мой Moodle';
+$string['hideallcourseslink'] = 'Скрыть ссылку «Все курсы»';
 $string['owncourses'] = 'Администратору доступны только его собственные курсы';
 $string['pluginname'] = 'Курсы';

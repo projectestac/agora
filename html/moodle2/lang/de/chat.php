@@ -28,9 +28,9 @@ defined('MOODLE_INTERNAL') || die();
 $string['activityoverview'] = 'Es gibt einen angekündigten Chat.';
 $string['ajax'] = 'Chat mit Ajax';
 $string['autoscroll'] = 'Automatisch scrollen';
-$string['beep'] = 'beep';
+$string['beep'] = 'Beep';
 $string['cantlogin'] = 'Anmeldung im Chat fehlgeschlagen!!';
-$string['chat:addinstance'] = 'Neuen Chat hinzufügen';
+$string['chat:addinstance'] = 'Chat hinzufügen';
 $string['chat:chat'] = 'Chat betreten';
 $string['chat:deletelog'] = 'Chat-Logdaten löschen';
 $string['chat:exportparticipatedsession'] = 'Chat-Sitzung mit eigener Teilnahme exportieren';
@@ -122,20 +122,20 @@ $string['serverip'] = 'Server-IP';
 $string['servermax'] = 'Maximale Nutzerzahl';
 $string['serverport'] = 'Server-Port';
 $string['sessions'] = 'Chat-Sitzungen';
-$string['sessionstart'] = 'Chat beginnt in: {$a}';
+$string['sessionstart'] = 'Nächster Chat läuft in: {$a}';
 $string['strftimemessage'] = '%H:%M';
 $string['studentseereports'] = 'Chat-Protokolle sichtbar für alle';
-$string['studentseereports_help'] = 'Mit der Einstellung \'Nein\' dürfen nur Nutzer/innen mit der Berechtigung mod/chat:readlog die Chat-Protokolle sehen.';
+$string['studentseereports_help'] = 'Mit der Einstellung \'Nein\' dürfen ausschließlich Nutzer/innen mit dem Recht \'mod/chat:readlog\' die Chat-Protokolle sehen.';
 $string['talk'] = 'Sprechen';
 $string['updatemethod'] = 'Aktualisierungsmodus';
 $string['updaterate'] = 'Aktualisierungsrate:';
 $string['userlist'] = 'Teilnehmerliste';
 $string['usingchat'] = 'Chat verwenden';
-$string['usingchat_help'] = 'Das Modul \'Chat\' besitzt Fähigkeiten, die das Chatten schöner machen.
+$string['usingchat_help'] = 'Der \'Chat\' besitzt Fähigkeiten, die das Chatten schöner machen.
 
-* Smileys - Alle Smileys (emoticons), die in Moodle nutzbar sind, werden auch im Chat angezeigt, z.B. :-)
+* Smileys - Alle Smileys (emoticons) werden auch im Chat angezeigt  :-)
 * Links - Webadressen werden automatisch in Links umgewandelt
-* Personalisierung - Wenn eine Zeile mit "/me" oder ":" beginnt, wird dies durch Ihren Namen ersetzt. Wenn Ihr Name beispielsweise Kim ist und Sie geben ein: ":lacht!" oder "/me lacht!", dann werden alle sehen: "Kim lacht!"
-* Beep - Signale werden an andere gesendet, wenn Sie den Link "beep" oben neben deren Namen anklicken. Um ein Signal an alle zu senden, tippen Sie "beep all" ins Chat-Fenster.
-* HTML - Wenn Sie sich ein bisschen mit HTML-Code auskennen, können Sie damit auch Bilder in Ihren Text einfügen, Farben ändern oder Sounds abspielen';
+* Personalisierung - Wenn eine Zeile mit \'/me\' oder \':\' beginnt, wird Ihr Name vorangestellt. Wenn Ihr Name beispielsweise Kim ist und Sie geben ein \':lacht!\' oder \'/me lacht!\', dann werden alle sehen "Kim lacht!"
+* Beep - Signale werden an andere gesendet, wenn Sie den Link \'beep\' oben neben deren Namen anklicken. Um ein Signal an alle zu senden, tippen Sie \'beep all\' ins Chat-Fenster.
+* HTML - Wenn Sie sich ein bisschen mit HTML-Code auskennen, können Sie damit Bilder in den Text einfügen, Farben ändern oder Sounds abspielen';
 $string['viewreport'] = 'Chat-Protokolle anzeigen';

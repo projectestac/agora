@@ -192,6 +192,7 @@ $string['typeuploadsingle'] = 'Upload een bestand';
 $string['unfinalize'] = 'Terugzetten naar kladwerk';
 $string['unfinalizeerror'] = 'Er is een fout opgetreden. Deze inzending kon niet terug omgezet worden naar kladwerk.';
 $string['unfinalize_help'] = 'Het terugzetten naar kladwerk geeft een leerling de kans om terug aanpassingen te doen aan zijn opdracht';
+$string['unsupportedsubplugin'] = 'Opdrachttype \'{$a}\' wordt nu niet ondersteund. Je kunt wachten tot dit type beschikbaar wordt of de opdracht verwijderen.';
 $string['upgradenotification'] = 'Deze opdracht is gebaseerd op een oudere opdrachtmodule';
 $string['uploadafile'] = 'Upload een bestand';
 $string['uploadbadname'] = 'In deze bestandsnaam staan rare tekens, het bestand kon daardoor niet worden geüpload';

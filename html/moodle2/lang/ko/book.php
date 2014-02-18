@@ -45,6 +45,7 @@ $string['modulenameplural'] = '전자 책';
 $string['navexit'] = '전자 책 나가기';
 $string['navnext'] = '다음';
 $string['navprev'] = '이전';
+$string['nocontent'] = '이 책에 아직 내용이 추가되지 않았습니다.';
 $string['numbering'] = '장 서식';
 $string['numbering0'] = '없음';
 $string['numbering1'] = '숫자';

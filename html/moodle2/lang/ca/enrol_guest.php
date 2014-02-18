@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowguests'] = 'Aquest curs permet entrar als usuaris visitants';
+$string['guestaccess_withoutpassword'] = 'Accés de visitant';
+$string['guestaccess_withpassword'] = 'Accés de visitant';
 $string['guest:config'] = 'Configura instàncies d\'accés dels visitants';
 $string['password'] = 'Contrasenya';
 $string['password_help'] = 'Una contrasenya permet l\'accés de visitant al curs restringit només a qui conegui la contrasenya. Als visitants se\'ls demana proporcionar la contrasenya cada vegada que accedeixen al curs.';

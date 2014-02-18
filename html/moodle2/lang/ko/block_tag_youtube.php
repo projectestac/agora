@@ -44,4 +44,5 @@ $string['petsanimals'] = '동물 및 애완동물';
 $string['pluginname'] = '유튜브';
 $string['scienceandtech'] = '과학 및 기술';
 $string['sports'] = '스포츠';
+$string['tag_youtube:addinstance'] = '유튜브 블록 추가';
 $string['travel'] = '여행 및 여행지';

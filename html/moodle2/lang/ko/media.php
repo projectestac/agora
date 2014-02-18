@@ -26,11 +26,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['flashanimation'] = 'Flash 동영상';
+$string['flashanimation_desc'] = '확장자가 .swf  인 파일. 안전을 위해 이 형식은 신뢰된 문장안에만 임베드되어야 합니다.';
 $string['flashvideo'] = 'Flash 비디오';
 $string['flashvideo_desc'] = '파일 확장자가  *.flv 및 *.f4v 인 파일. Flowplayer를 사용하여 오디오를 재생하는데 플래시 플러그인과 자바스크립트가 필요합니다.';
 $string['html5audio'] = 'HTML5  오디오';
 $string['html5audio_desc'] = '파일 확장자가 *.ogg, *.aac 및 *.mp3 파일들. 주로 이동형기기에 사용됩니다.(포맷은 브라우저에 따라 다릅니다)';
 $string['html5video'] = 'HTML5 비디오';
+$string['html5video_desc'] = '확장자가  *.webm, *.m4v, *.ogv, *.mp4 및 기타인 비디오 파일들. 모바일 기기에 주로 사용됩니다. (포맷 지원은 브라우저에 따라 다릅니다.)';
 $string['legacyheading'] = '기존 미디어 플레이어';
 $string['legacyquicktime'] = '퀵타임 플레이어';
 $string['legacyquicktime_desc'] = '파일 확장자가 *.mov, *.mp4, *.m4a, *.mp4 and *.mpg인 파일. 퀵타임 플레이어나 코덱이 필요합니다.';

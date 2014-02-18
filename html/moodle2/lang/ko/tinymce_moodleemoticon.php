@@ -27,3 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['moodleemoticon:desc'] = '이모티콘 삽입';
 $string['pluginname'] = '이모티콘 삽입';
+$string['requireemoticon'] = '이모티콘 필터가 필요합니다.';

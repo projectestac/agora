@@ -142,6 +142,7 @@ $string['manage'] = '저장소 관리';
 $string['manageurl'] = 'URL 관리';
 $string['manageuserrepository'] = '개별 저장소 관리';
 $string['moving'] = '이동';
+$string['newfolder'] = '새 폴더';
 $string['newfoldername'] = '새 폴더이름';
 $string['noenter'] = '입력내용 없음';
 $string['nofilesattached'] = '첨부물 없음';

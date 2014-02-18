@@ -36,6 +36,7 @@ $string['actions'] = 'Ekintzak';
 $string['activitylink'] = 'Jarduerarekiko lotura';
 $string['activitylink_help'] = 'Ikasgaiaren bukaeran ikastaroko beste jarduera baterako esteka eskaintzeko, aukeratu jarduera zabaltzen den menuan.';
 $string['activitylinkname'] = 'Joan hona: {$a}';
+$string['activityoverview'] = 'Egin gabeko ikasgaiak dituzu';
 $string['addabranchtable'] = 'Gehitu eduki-orria';
 $string['addanendofbranch'] = 'Gehitu adar-taularen bukaera';
 $string['addanewpage'] = 'Gehitu beste orri bat';
@@ -77,13 +78,15 @@ $string['cannotfindnextpage'] = 'Ikasgaiaren segurtasun-kopia: Hurrengo orria ez
 $string['cannotfindpagerecord'] = 'Gehitu adarraren bukaera: ez da orriaren erregistroa aurkitu';
 $string['cannotfindpages'] = 'Ezin dira Ikasgaiaren orriak aurkitu';
 $string['cannotfindpagetitle'] = 'Baieztatu ezabaketa: ez da orriaren izenburua aurkitu';
-$string['cannotfindrecords'] = 'Errorea: ezin dira ikasgaiaren erregistroak aurkitu';
+$string['cannotfindpreattempt'] = 'Ez da aurreko saiakeraren erregistroa aurkitu!';
+$string['cannotfindrecords'] = 'Errorea: ezin izan dira ikasgaiaren erregistroak aurkitu';
+$string['cannotfindtimer'] = 'Errorea: ezin izan dira lesson_timer erregistroak aurkitu';
 $string['cannotfinduser'] = 'Errorea: ezin dira erabiltzaileak aurkitu';
 $string['canretake'] = '{$a} (e)k ikasgaia berriz har dezan baimendu';
 $string['casesensitive'] = 'Maiuskulak eta minuskulak';
 $string['casesensitive_help'] = 'Laukian klik egin  erantzunen analisian esapide erregularrak erabiltzeko.';
 $string['checkbranchtable'] = 'Egiaztatu eduki-orria';
-$string['checkedthisone'] = 'hau egiaztatzen.';
+$string['checkedthisone'] = 'hau egiaztatu da.';
 $string['checknavigation'] = 'Egiaztatu nabigazioa';
 $string['checkquestion'] = 'Egiaztatu galdera';
 $string['classstats'] = 'Taldeko estatistikak';
@@ -101,11 +104,14 @@ $string['conditionsfordependency'] = 'Menpekotasun-baldintza(k)';
 $string['configactionaftercorrectanswer'] = 'Erantzun zuzen baten ondoren berezko ekintza';
 $string['configmaxanswers'] = 'Lehenetsitako gehienezko erantzun-kopurua orriko';
 $string['configmaxhighscores'] = 'Erakutsi beharreko puntuazio altuen kopurua';
+$string['configslideshowbgcolor'] = 'Diapositiba-aurkezpenaren atzeko kolorea, gaituta egonez gero';
+$string['configslideshowheight'] = 'Diapositiba-aurkezpenaren altuera zehazten du, gaituta egonez gero';
+$string['configslideshowwidth'] = 'Diapositiba-aurkezpenaren zabalera zehazten du, gaituta egonez gero';
 $string['confirmdelete'] = 'Ezabatu orria';
 $string['confirmdeletionofthispage'] = 'Ziurtatu orri hau ezabatu nahi duzula';
 $string['congratulations'] = 'Zorionak! Ikasgaiaren bukaerara iritsi zara';
 $string['continue'] = 'Jarraitu';
-$string['continuetoanswer'] = 'Erantzunak aldatzera pasa.';
+$string['continuetoanswer'] = 'Jarraitu erantzunak aldatzeko.';
 $string['continuetonextpage'] = 'Jarraitu hurrengo orrira.';
 $string['correctanswerjump'] = 'Erantzun zuzenerako jauzia';
 $string['correctanswerscore'] = 'Erantzun zuzenaren puntuazioa';
@@ -188,6 +194,7 @@ $string['importquestions'] = 'Inportatu galderak';
 $string['importquestions_help'] = 'Funtzio honek testu-fitxategietatik hainbat formatutako galderak inportatzeko aukera ematen du.';
 $string['insertedpage'] = 'Txertatutako orria';
 $string['invalidfile'] = 'Fitxategi baliogabea';
+$string['invalidid'] = 'Ez da modulu edo ikasgaiaren ID gainditu ikastaroan';
 $string['invalidlessonid'] = 'Ikasgaiaren IDa ez da zuzena';
 $string['invalidpageid'] = 'Orriaren IDak ez du balio';
 $string['jump'] = 'Jauzi';
@@ -246,11 +253,15 @@ $string['modattempts'] = 'Baimendu ikaslearen berrikuspena';
 $string['modattempts_help'] = 'Gaituz gero, ikasleek ikasgaian zehar nagiba dezakete eta berriz hasierara itzuli.';
 $string['modattemptsnoteacher'] = 'Ikaslearen berrikuspena soilik ikasleen eskura dago.';
 $string['modulename'] = 'Ikasgaia';
-$string['modulename_help'] = '<p><img alt="" src="<?php echo $CFG->wwwroot?>/mod/lesson/icon.gif" />&nbsp;<b>Ikasgaia</b></p>
+$string['modulename_help'] = 'Ikasgaiak edukiak edota aktibitateak era malgu eta interesgarrian aurkezteko aukera ematen dio irakasleari. Irakasleak ikasgaia hezkuntza-eduki edo aktibitateen multzo lineal bat sortzeko erabil dezake, ikasleari hainbat aukera eta ibilbide eskainiz. Edonola ere, ikaslegoaren parte-hartzea areagotzeko eta ulermena bermatzeko irakasleak galdera mota ezberdinak erabil ditzake, hala nola aukera anitzekoak, lotzekoak edo erantzun motzekoak. Ikasle bakoitzaren erantzunaren arabera eta irakasleak ikasgaia garatu duen moduaren arabera ikaslea hurrengo orrira pasatuko da, aurreko orri batera itzuliko da edo ibilbide erabat ezberdin batera berbideratua izango da.
 
-<div class="indent">
-<p>Ikasgaiak edukiak ematen ditu era malguan. Orri-segida bat da. Bakoitzaren amaieran galdera bat eta hainbat erantzun egon ohi dira. Ikasleak egindako aukeraren arabera, hurrengo orrira igaroko da edo aurreko batera. Ikasgaian zehar era sinplean edo konplexuan nabigatu ahal izango da, aurkezten den materialaren egituraren arabera, neurri handi batean.
-</div>';
+Ikasgai bat ebalua daiteke, eta kalifikazioa kalifikazio-liburuan gordetzen da.
+
+Ikasgaiak ondokoetarako erabil daitezke
+
+* Gai berri bateko ikasketa auto-gidatua egiteko
+* Erabaki-hartze egoeren eta simulazio-ariketak egiteko
+* Bereizitako birpasorako ariketak egiteko, birpasorako galdera-multzo ezberdinekin, aurreko galderei erantzundakoaren araberakoak.';
 $string['modulenameplural'] = 'Ikasgaiak';
 $string['move'] = 'Mugitu orria';
 $string['movedpage'] = 'Mugitutatako orria';

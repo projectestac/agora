@@ -29,4 +29,4 @@ $string['configplugin'] = 'Configuration fichiers personnels';
 $string['emptyfilelist'] = 'Il n\'y a aucun fichier à afficher';
 $string['pluginname'] = 'Fichiers personnels';
 $string['pluginname_help'] = 'Fichiers de la zone privée de l\'utilisateur';
-$string['user:view'] = 'Afficher les fichiers personnels';
+$string['user:view'] = 'Consulter les fichiers personnels';

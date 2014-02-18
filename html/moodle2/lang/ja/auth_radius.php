@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['auth_radiuschangepasswordurl_key'] = 'パスワード変更URI';
-$string['auth_radiusdescription'] = 'ここでは、ユーザ名およびパスワードが有効であるか確認するため、<a href="http://en.wikipedia.org/wiki/RADIUS">RADIUS</a>サーバを使用します。';
+$string['auth_radiusdescription'] = 'ここではユーザ名およびパスワードが有効であるか確認するため、<a href="http://en.wikipedia.org/wiki/RADIUS">RADIUS</a>サーバを使用します。';
 $string['auth_radiushost'] = 'RADIUSサーバのアドレス';
 $string['auth_radiushost_key'] = 'ホスト';
 $string['auth_radiusnasport'] = '接続に使用するポート';

@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['clientid'] = 'Client ID';
 $string['configplugin'] = 'Einstellungen für Google Docs';
 $string['googledocs:view'] = 'Google Docs Dateiverzeichnis anzeigen';
-$string['oauth2upgrade_message_content'] = 'Im Rahmen des Updates auf Moodle 2.3 wurde das Google Docs Portfolio deaktiviert. Zur Re-Aktivierung muss Ihre Seite bei Google registriert werden. Die Dokumentation {$a->docsurl} beschreibt diesen Vorgang. Sie erhalten eine Kunden-ID und einen Schlüssel, mit denen Sie alle Google Docs und Picasa Plugins konfigurieren können.';
+$string['oauth2upgrade_message_content'] = 'Beim Update auf Moodle 2.3 wurde das Google Docs Portfolio deaktiviert. Zur Reaktivierung muss Ihre Seite bei Google registriert sein. Die Dokumentation {$a->docsurl} beschreibt diesen Vorgang. Sie erhalten eine Client-ID und einen Schlüssel, womit Sie alle Google Docs und Picasa Plugins konfigurieren können.';
 $string['oauth2upgrade_message_small'] = 'Das Google Docs Repository Plugin wurde deaktiviert bis es mit Google OAuth2.0 neu konfiguriert wurde wie in der Dokumentation beschrieben.';
 $string['oauth2upgrade_message_subject'] = 'Wichtige Informationen zum Google Docs Repository Plugin';
 $string['oauthinfo'] = '<p>Um dieses Plugin nutzen zu können, ist eine Registrierung bei Google erforderlich. Entsprechende Informationen finden Sie auf <a href="{$a->docsurl}">Google OAuth 2.0 Setup</a>.</p><p>Während der Registrierung müssen Sie folgende URL als \'Authorized Redirect URIs\' eingeben: <br />{$a->callbackurl}</p>Sie erhalten eine Client ID und ein Secret, mit denen Sie alle Plugins für Google Docs und Picasa konfigurieren können.</p>';

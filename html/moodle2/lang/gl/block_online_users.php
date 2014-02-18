@@ -26,5 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configtimetosee'] = 'Número de minutos determinados para detectar que un usuario está en liña.';
+$string['online_users:addinstance'] = 'Engadir un novo bloque de usuarios conectados';
+$string['online_users:myaddinstance'] = 'Engadir un novo bloque de usuarios conectados ao meu cartafol persoal';
+$string['online_users:viewlist'] = 'Ver a lista de usuarios conectados';
 $string['periodnminutes'] = 'últimos {$a} minutos';
-$string['pluginname'] = 'Usuarios en liña';
+$string['pluginname'] = 'Usuarios conectados';
+$string['timetosee'] = 'Retirar tras inactividade (minutos)';

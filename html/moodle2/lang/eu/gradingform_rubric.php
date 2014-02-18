@@ -48,11 +48,20 @@ $string['gradingof'] = '{$a} kalifikatzen';
 $string['leveldelete'] = 'Ezabatu maila';
 $string['levelempty'] = 'Sakatu maila editatzeko';
 $string['name'] = 'Izena';
+$string['needregrademessage'] = 'Errubrikaren definizioa aldatu da ikasle hau kalifikatu ondoren. Ikasleak ezin du ikusi errubrika hau egiaztatu eta kalifikazioa eguneratu arte.';
 $string['pluginname'] = 'Errubrika';
 $string['previewrubric'] = 'Aurreikusi errubrika';
+$string['regrademessage1'] = 'Aldaketak egin behar dituzu kalifikatzeko erabili den errubrika batean. Mesedez, adierazi orain arteko kalifikazioak berrikusi behar diren. Ezarpen hau gaitzen baduzu, errubrika ikasleei ezkutatuko zaie beren kalifikazioa berrikusi arte.';
+$string['regrademessage5'] = 'Kalifikatzeko erabilia izan den errubrika batean aldaketa nabarmenak egin behar dituzu. Kalifikazio liburuaren balioa ez da aldatuko, baina errubrika ikasleei ezkutatuko zaie beren kalifikazioa berrikusi arte.';
 $string['regradeoption0'] = 'Ez markatu berriz kalifikatzeko';
 $string['regradeoption1'] = 'Markatu berriz kalifikatzeko';
+$string['restoredfromdraft'] = 'OHARRA: pertsona hau kalifikatzeko azken saiakera ez da ondo gorde, beraz, zirriborro kalifikazioak berreskuratu dira. Aldaketa hauek bertan behera utzi nahi badituzu, azpiko \'Utzi\' botoia erabili.';
 $string['rubric'] = 'Errubrika';
+$string['rubricmapping'] = 'Puntuazioetatik kalifikazioetara mapaketa egiteko arauak';
+$string['rubricmappingexplained'] = 'Errubrika honentzako gutxieneko untuazioa  <b>{$a->minscore} puntu</b> da, eta moduluan erabilgarria den gutxieneko kalifikaziora bihurtuko da (eskalarik erabiltzen ez bada, zero izango da).
+   Gehieneko puntuazioa <b>{$a->maxscore} puntu</b> da, eta gehieneko kalifikaziora bihurtuko da.<br />
+   Erdiko puntuazioak era berean eraldatuko dira, eta erabilgarria den gertukoen baliora biribilduko da.<br />
+   Eskala bat erabiltzen bada kalifikazio baten ordez, puntuazioa bihurtuko da eskalaren elementuetako batean, jarraian doazen zenbaki osoak bailiran.';
 $string['rubricnotcompleted'] = 'Mesedez, aukeratu zerbait irizpide bakoitzerako';
 $string['rubricoptions'] = 'Errubrikaren aukerak';
 $string['rubricstatus'] = 'Oraingo errubrikaren egoera';
@@ -65,3 +74,6 @@ $string['showdescriptionteacher'] = 'Erakutsi errubrikaren deskribapena ebaluatu
 $string['showremarksstudent'] = 'Erakutsi iruzkinak ebaluatutako erabiltzaileei';
 $string['showscorestudent'] = 'Erakutsi maila bakoitzaren puntuak ebaluatutako erabiltzaileei';
 $string['showscoreteacher'] = 'Erakutsi maila bakoitzeko puntuak ebaluatu bitartean';
+$string['sortlevelsasc'] = 'Mailentzako orden-mota:';
+$string['sortlevelsasc0'] = 'Goitik behera puntu-kopuruaren arabera';
+$string['sortlevelsasc1'] = 'Behetik gora puntu-kopuruaren arabera';

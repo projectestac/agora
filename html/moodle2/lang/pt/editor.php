@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['about'] = 'Acerca deste editor';
 $string['absbottom'] = 'FundoAbsoluto';
 $string['acteditorshhdr'] = 'Editores de texto disponíveis';
-$string['address'] = 'Morada';
+$string['address'] = 'Endereço';
 $string['alertnoselectedtext'] = 'Tem de selecionar o texto primeiro!';
 $string['alignment'] = 'Alinhamento';
 $string['alternatetext'] = 'Texto alternativo';

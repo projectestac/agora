@@ -26,10 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['blockedpath'] = 'Geblokkeerd root pad';
-$string['configplugin'] = 'Opslagruimte op bestandssysteem instellen';
+$string['configplugin'] = 'Configuratie voor bestandssysteem opslagruimte';
 $string['donotusesysdir'] = 'Systeemmap niet als opslagruimte gebruiken, inclusief';
 $string['enablecourseinstances'] = 'Sta gebruikers toe om een opslagruimte-instantie toe te voegen aan de cursus (kan enkel door beheerders geconfigureerd worden).';
-$string['enableuserinstances'] = 'Sta gebruikers toe om een een opslagruimte-instatie toe te voegen in de gebruikerscontext (kan enkel door beheerders geconfigureerd worden)';
+$string['enableuserinstances'] = 'Sta gebruikers toe om een een opslagruimte-instatie toe te voegen voor persoonlijk gebruik (kan enkel door beheerders geconfigureerd worden)';
 $string['filesystem:view'] = 'Bekijk bestandssysteem opslagruimte';
 $string['information'] = 'Deze mappen bevinden zich in de <b>{$a}</b> map';
 $string['invalidpath'] = 'Ongeldig root pad';

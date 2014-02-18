@@ -178,7 +178,7 @@ $string['backupfailed'] = 'Sommige cursussen zijn niet bewaard!';
 $string['backupfilename'] = 'back-up';
 $string['backupfinished'] = 'De back-up is succesvol afgerond';
 $string['backupfromthissite'] = 'Was de back-up op deze site gemaakt?';
-$string['backupgradebookhistoryhelp'] = 'Indien ingeschakeld zal de historiek van het cijferboek meegenomen worden in de automatische back-ups. Merk op dat cijfergeschiedenis niet mag uitgeschakeld zijn in de serverinstellingen om dit te laten werken';
+$string['backupgradebookhistoryhelp'] = 'Indien ingeschakeld zal de historiek van het puntenboek meegenomen worden in de automatische back-ups. Merk op dat cijfergeschiedenis niet mag uitgeschakeld zijn in de serverinstellingen om dit te laten werken';
 $string['backupincludemoduleshelp'] = 'Selecteer als je cursusmodules met of zonder gebruikersgegevens in de back-up wil';
 $string['backupincludemoduleuserdatahelp'] = 'Gebruikersdata aan automatische back-ups toevoegen?';
 $string['backupkeephelp'] = 'Hoeveel recente back-ups wil je houden voor elke cursus? (oudere zullen automatisch verwijderd worden)';
@@ -187,6 +187,7 @@ $string['backuploglaststatus'] = 'Laatste log van de bewerking';
 $string['backupmissinguserinfoperms'] = 'Opmerking: deze back-up bevat geen gebruikersgegevens. Oefening en Workshop-activiteiten zullen niet in de back-up zitten omdat dieze modules niet compatibel zijn met dit type back-up.';
 $string['backupnext'] = 'Volgende back-up';
 $string['backupnonisowarning'] = 'Waarschuwing: deze back-up is er één van een niet-unicodeversie van Moodle (voor 1.6). Als deze back-up andere dan ISO-8859-1 teksten bevat, dan kunnen deze CORRUPT worden als je ze probeert in een unicode versie van Moodle terug te zetten. Zie de <a href="http://docs.moodle.org/en/Backup_FAQ">Back-up FAQ</a> voor meer informatie over hoe je deze back-up wel kunt terugzetten.';
+$string['backupnotyetrun'] = 'Automatiche backup bezig';
 $string['backuporiginalname'] = 'Naam back-up';
 $string['backuproleassignments'] = 'Back-up de roltoewijzingen voor deze rollen';
 $string['backupsavetohelp'] = 'Volledig pad naar de map waar je de back-upbestanden wil bewaren<br />(laat blanco als je ze in de standaardmap van de cursus wil bewaren)';
@@ -233,7 +234,7 @@ $string['checkall'] = 'Selecteer alles';
 $string['checkingbackup'] = 'Back-up controleren';
 $string['checkingcourse'] = 'Cursus controleren';
 $string['checkingforbbexport'] = 'Controleren voor export naar BlackBoard';
-$string['checkinginstances'] = 'Instanties controleren';
+$string['checkinginstances'] = 'Exemplaren controleren';
 $string['checkingsections'] = 'Secties controleren';
 $string['checklanguage'] = 'Controleer taal';
 $string['checknone'] = 'Annuleer selectie';
@@ -343,17 +344,16 @@ $string['coursehelpforce'] = 'Verplicht de groepmodus voor elke activiteit in de
 $string['coursehelpformat'] = 'De hoofdpagina van de cursus zal in deze format getoond worden.';
 $string['coursehelphiddensections'] = 'Hoe de verborgen secties van een cursus aan leerlingen getoond worden.';
 $string['coursehelpmaximumupload'] = 'Bepaal de maximale grootte van een bestand dat binnen een cursus kan geüpload worden (beperkt door de site instelling).';
-$string['coursehelpnewsitemsnumber'] = 'Aantal recente items die getoond worden op de startpagina van de cursus in een nieuwsblok aan de onderaan de rechterkant van de cursuspagina. (0 betekent dat het nieuwsblok niet verschijnt)';
+$string['coursehelpnewsitemsnumber'] = 'Aantal recente items die getoond worden op de startpagina van de cursus in een nieuwsblok. Als je dit op nul zet, verschijnt het nieuwsblok niet.';
 $string['coursehelpnumberweeks'] = 'Aantal secties in de cursus (geldt enkel voor sommige cursusformaten).';
-$string['coursehelpshowgrades'] = 'Schakelt het tonen van het cijferboek in. Dit verhindert niet dat cijfers getoond worden binnen de afzonderlijke activiteiten.';
+$string['coursehelpshowgrades'] = 'Schakelt het tonen van het puntenboek in. Dit verhindert niet dat cijfers getoond worden binnen de afzonderlijke activiteiten.';
 $string['coursehidden'] = 'Deze cursus is nu niet beschikbaar voor leerlingen';
 $string['courseinfo'] = 'Cursusinformatie';
 $string['courselegacyfiles'] = 'Verouderde cursusbestanden';
-$string['courselegacyfiles_help'] = 'De cursusbestandenzone geeft wat terugwaartse compatibiliteit met Moodle 1.9 en vroeger. Alle bestanden in deze zone zijn altijd toegankelijk voor alle deelnemers van der cursus, of je ze nu linkt of niet, en er is geen manier om te weten te komen of deze bestanden gebruikt worden binnen Moodle of niet.
+$string['courselegacyfiles_help'] = 'De cursusbestandenzone geeft wat terugwaartse compatibiliteit met Moodle 1.9 en vroeger. Alle bestanden in deze zone zijn altijd toegankelijk voor alle deelnemers van de cursus, of je ze nu linkt of niet, en er is geen manier om te weten te komen of deze bestanden gebruikt worden binnen Moodle of niet.
 
-Als je ze gebruikt binnen Moodle, dan stel je jezelf bloot aan een reeks beveiligings- en privacy-problemen en bijkomend problemen met ontbrekende bestanden in back-ups of bij het uitwisselen en hergebruiken van cursussen. Daarom kun je deze zone  beter niet gebruiken, tenzij je goed weet wat je doet.
-
-Onderstaande link geeft meer informatie over dit probleem en toont je betere manieren om bestanden te behandelen in Moodle 2';
+Als je ze gebruikt binnen Moodle, dan stel je jezelf bloot aan een reeks beveiligings- en privacy-problemen en bijkomend problemen met ontbrekende bestanden in back-ups of bij het uitwisselen en hergebruiken van cursussen. Daarom kun je deze zone  beter niet gebruiken, tenzij je goed weet wat je doet.';
+$string['courselegacyfilesofcourse'] = 'Oude cursusbestanden: {$a}';
 $string['coursemessage'] = 'Bericht voor de gebruikers van de cursus';
 $string['coursenotaccessible'] = 'Deze cursus is niet publiek toegankelijk';
 $string['courseoverview'] = 'Cursusoverzicht';
@@ -864,7 +864,7 @@ $string['idnumbergrouping_help'] = 'Het ID nummer van een groepering wordt allee
 $string['idnumbermod'] = 'ID-nummer';
 $string['idnumbermod_help'] = 'Een ID-nummer instellen geeft een manier om de activiteit te identificeren voor de berekening van cijfers. Als de activiteit niet in een cijferberekening opgenomen wordt, dan mag dit veld leeg gelaten worden.
 
-Het ID-nummer kan ook ingesteld worden op de "Bewerk cijferberekening" -pagina in het cijferboek - het kan echter alleen bewerkt worden op de instellingspagina van de activiteit.';
+Het ID-nummer kan ook ingesteld worden op de "Bewerk cijferberekening" -pagina in het puntenboek - het kan echter alleen bewerkt worden op de instellingspagina van de activiteit.';
 $string['idnumbertaken'] = 'Dit ID-nummer is al in gebruik';
 $string['imagealt'] = 'Afbeeldingsbeschrijvingen';
 $string['import'] = 'Importeer';
@@ -1232,6 +1232,7 @@ $string['options'] = 'opties';
 $string['order'] = 'Volgorde';
 $string['originalpath'] = 'Oorspronkelijk pad';
 $string['orphanedactivities'] = 'Verweesde activiteiten';
+$string['orphanedactivitiesinsectionno'] = 'Verweesde activiteiten (sectie {$a})';
 $string['other'] = 'Andere';
 $string['outline'] = 'Overzicht';
 $string['outlinereport'] = 'Overzichtsrapport';

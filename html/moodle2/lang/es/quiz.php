@@ -168,7 +168,7 @@ $string['configintro'] = 'Los valores que especifique aquí definen los valores 
 $string['configmaximumgrade'] = 'Valor por defecto a la que se ajustará la calificación del cuestionario.';
 $string['confignavmethod'] = 'En navegación libre, las preguntas pueden ser contestadas en cualquier orden utilizando la navegación. En navegación secuencial, las preguntas deben ser contestadas en la secuencia establecida.';
 $string['confignewpageevery'] = 'Cuando se agregan preguntas al cuestionario, los saltos de página se insertarán automáticamente de acuerdo con el valor que elija aquí.';
-$string['configoutcomesadvanced'] = '';
+$string['configoutcomesadvanced'] = 'Si esta opción está activada, entonces los resultados en el formulario del cuestionario serán los de los ajustes avanzados.';
 $string['configpenaltyscheme'] = 'Penalización sustraída por cada respuesta errónea en el modo adaptativo.';
 $string['configpopup'] = 'Usar \'tricks\' de JavaScript para tratar de restringir copiar y pegar, etc., durante los intentos de resolver este cuestionario.';
 $string['configrequirepassword'] = 'Los estudiantes deben escribir su contraseña antes de intentar resolver el cuestionario.';
@@ -337,10 +337,10 @@ $string['generalfeedback_help'] = '<p>La retroalimentación general sobre las pr
 <p>Usted puede controlar cuándo se muestra a los estudiantes la retroalimentación general utilizando las casillas de verificación "Los estudiantes pueden revisar:" del formulario de edición del cuestionario.</p>
 
 <p>Puede usar la retroalimentación general para dar a los estudiantes información sobre qué conocimientos tratan de comprobar las preguntas, o bien para suministrarles un enlace a más información que podrían usar en el caso de no entender las preguntas.</p>';
-$string['graceperiod'] = 'Periodo de gracia para en envío';
+$string['graceperiod'] = 'Periodo de gracia para el envío';
 $string['graceperiod_desc'] = 'Si se ha establecido que cuando termina el tiempo para realizar el cuestionario "Se permite un periodo de gracia para hacer el envío, pero sin poder cambiar las respuestas", este parámetro establece el valor por defecto de este tiempo de gracia, en segundos.';
 $string['graceperiod_help'] = 'Si se ha establecido que cuando termina el tiempo para realizar el cuestionario "Se permite un periodo de gracia para hacer el envío, pero sin poder cambiar las respuestas", este parámetro establece el tiempo de gracia, en segundos.';
-$string['graceperiodmin'] = 'Ultimo periodo de gracia para en envío';
+$string['graceperiodmin'] = 'Ultimo periodo de gracia para el envío';
 $string['graceperiodmin_desc'] = 'Existe un problema potencial al final de la realización de los cuestionarios. Por un lado, queremos permitir a los estudiantes que trabajen hasta el último segundo de la prueba (con la ayuda del temporizador que envía automáticamente el cuestionario cuando finaliza el tiempo). Por otra parte, el servidor puede estar sobrecargado y entonces tardar algún tiempo para procesar las respuestas. Por lo tanto, aceptaremos las respuestas enviadas este número de segundos después de que el tiempo haya expirado, por lo que no se producirán sanciones por causa de un servidor lento. Sin embargo, el estudiante puede engañarnos y utilizar estos segundos extras para seguir contestando el cuestionario. Usted debe establecer el valor de esta compensación en función del nivel de confianza que tenga en el rendimiento del servidor durante la realización de los cuestionarios.';
 $string['graceperiodtoosmall'] = 'El periodo de gracia debe se mayor que {$a}';
 $string['grade'] = 'Calificación';
@@ -560,10 +560,10 @@ revisar el trabajo de esta semana", los estudiantes que puntúen 40% o más ver�
 de calificación de 7 significa 7/10 o superior.</p>';
 $string['overdue'] = 'Vencido';
 $string['overduehandling'] = 'Cuando el tiempo ha terminado';
-$string['overduehandlingautoabandon'] = 'el envío del debe hacerse antes de que el tiempo termine, de lo contrario, no se contabilizará';
-$string['overduehandlingautosubmit'] = 'el envío se realiza automáticamente';
+$string['overduehandlingautoabandon'] = 'El envío debe hacerse antes de que el tiempo termine, de lo contrario, no se contabilizará';
+$string['overduehandlingautosubmit'] = 'El envío se realiza automáticamente';
 $string['overduehandling_desc'] = '¿Qué debe suceder  por defecto si un estudiante no envía el cuestionario antes de que expire el plazo de entrega.?';
-$string['overduehandlinggraceperiod'] = 'hay un periodo de gracia para enviar el cuestionario, pero no para respondera más preguntas';
+$string['overduehandlinggraceperiod'] = 'Hay un periodo de gracia para enviar el cuestionario, pero no para responder a más preguntas';
 $string['overduehandling_help'] = 'Este ajuste controla qué sucede si el alumno no envía su intento de resolver el cuestionario antes de que el tiempo expire. Si el estudiante está trabajando activamente en el cuestionario en ese momento, entonces el temporizador enviará automáticamente el intento, pero en caso de haber cerrado la sesión, esta opción controla lo que sucede.';
 $string['overduemustbesubmittedby'] = 'Este intento ha caducado. Debería ya haber sido presentado. Si quiere que este cuestionario se califique, debería presentarlo en {$a}. Si no lo presenta para entonces, no se contarán las puntuaciones de este intento.';
 $string['override'] = 'Anular';

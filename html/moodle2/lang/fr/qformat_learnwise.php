@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['plugidnname_help'] = 'Ce format permet l\'importation de questions à choix multiples en format Learnwise\'s XML';
 $string['pluginname'] = 'Format Learnwise';
+$string['pluginname_help'] = 'Ce format permet l\'importation de questions à choix multiples dans le format XML de Learnwise.';

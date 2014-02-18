@@ -44,7 +44,12 @@ $string['contentheader'] = 'Inhalt';
 $string['displayoptions'] = 'Mögliche Anzeigeoptionen';
 $string['displayselect'] = 'Anzeigen';
 $string['displayselectexplain'] = 'Wählen Sie die Anzeigeart, aber nicht alle Arten sind für alle Dateien sinnvoll';
-$string['displayselect_help'] = 'Diese Einstellung bestimmt zusammen mit dem Dateityp (und den Fähigkeiten des Browsers), wie die Datei angezeigt wird. Folgende Optionen sind möglich:
+$string['displayselect_help'] = 'Die Darstellung des verlinkten Inhalts hängt von verschiedenen Faktoren ab:
+* gewählte Einstellung
+* Dateityp auf den verlinkt wird
+* Browser des Nutzers, der die Seite aufruft
+
+Folgende Einstelloptionen sind möglich:
 
 * Automatisch - Die beste Anzeigeoption für die Datei wird automatisch ausgewählt
 * Eingebettet - Die Datei wird innerhalb der Seite unterhalb der Navigationsleiste angezeigt, zusammen mit der Dateibeschreibung und allen Blöcken
@@ -75,17 +80,17 @@ $string['optionsheader'] = 'Optionen';
 $string['page-mod-resource-x'] = 'Jede Dateiseite';
 $string['pluginadministration'] = 'Datei-Administration';
 $string['pluginname'] = 'Datei';
-$string['popupheight'] = 'Popup-Höhe (Pixel)';
+$string['popupheight'] = 'Höhe des Popups (Pixel)';
 $string['popupheightexplain'] = 'Standardhöhe von Popup-Fenstern festlegen';
 $string['popupresource'] = 'Das Material erscheint in einem Popup-Fenster.';
 $string['popupresourcelink'] = 'Falls es nicht klappt, klicken Sie hier: {$a}';
-$string['popupwidth'] = 'Popup-Breite (Pixel)';
+$string['popupwidth'] = 'Breite des Popups (Pixel)';
 $string['popupwidthexplain'] = 'Standardbreite von Popup-Fenstern festlegen';
 $string['printheading'] = 'Dateiname anzeigen';
 $string['printheadingexplain'] = 'Soll der Dateiname oberhalb des Inhalts angezeigt werden? Einige Anzeigetypen können den Dateinamen nicht anzeigen, selbst wenn diese Option aktiviert ist.';
 $string['printintro'] = 'Beschreibung anzeigen';
 $string['printintroexplain'] = 'Beschreibung unterhalb des Inhalts anzeigen? Einige Anzeigetypen können die Beschreibung nicht anzeigen, selbst wenn diese Option aktiviert ist.';
-$string['resource:addinstance'] = 'Neue Datei hinzufügen';
+$string['resource:addinstance'] = 'Datei hinzufügen';
 $string['resourcecontent'] = 'Dateien und Unterverzeichnisse';
 $string['resourcedetails_sizetype'] = '{$a->size} {$a->type}';
 $string['resource:exportresource'] = 'Material exportieren';

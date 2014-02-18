@@ -101,7 +101,7 @@ $string['drop_feedback'] = 'Apagar desta disciplina';
 $string['edit_item'] = 'Editar questão';
 $string['edit_items'] = 'Editar questões';
 $string['emailnotification'] = 'Enviar notificações por e-mail';
-$string['email_notification'] = 'Enviar notificações por e-mail';
+$string['email_notification'] = 'Ativar notificação de submissões';
 $string['emailnotification_help'] = 'Se ativar esta configuração os professores serão notificados por e-mail sempre que houver novas submissões de inquéritos.';
 $string['emailteachermail'] = 'O utilizador {$a->username} respondeu ao inquérito:
 \'{$a->feedback}\'

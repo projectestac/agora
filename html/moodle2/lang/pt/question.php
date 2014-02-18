@@ -212,7 +212,7 @@ $string['importquestions_help'] = 'Esta função permite importar via ficheiro d
 $string['importquestions_link'] = 'pergunta/importar';
 $string['importwrongfiletype'] = 'O tipo de ficheiro que selecionou ({$a->actualtype}) não corresponde ao tipo esperado neste formato de importação. ({$a->expectedtype}).';
 $string['impossiblechar'] = 'Foi detetado um carater como parêntesis, não compatível {$a}';
-$string['includesubcategories'] = 'Mostrar perguntas de subcategorias';
+$string['includesubcategories'] = 'Mostrar também as perguntas das subcategorias';
 $string['incorrect'] = 'Incorreto';
 $string['incorrectfeedback'] = 'Para qualquer resposta incorreta';
 $string['information'] = 'Informação';
@@ -272,6 +272,7 @@ $string['noquestions'] = 'Não foram encontradas perguntas para exportação. Ce
 $string['noquestionsinfile'] = 'Não existem perguntas no ficheiro de importação';
 $string['noresponse'] = 'Sem resposta';
 $string['notanswered'] = 'Não respondido';
+$string['notchanged'] = 'Não modificada desde a última tentativa';
 $string['notenoughanswers'] = 'Esse tipo de pergunta exige pelo menos {$a} respostas';
 $string['notenoughdatatoeditaquestion'] = 'Não foi especificado o tipo de pergunta, seu código e o da categoria.';
 $string['notenoughdatatomovequestions'] = 'Tem que indicar os códigos das perguntas que deseja mover.';
@@ -306,9 +307,9 @@ $string['penaltyfactor_help'] = 'Este campo determina a fração da nota obtida 
 
 O fator de penalização poderá ser um número entre 0 e 1. Um fator de penalização de 1 quer dizer que o estudante deverá responder corretamente na primeira tentativa para receber qualquer cotação. Um fator de penalização de 0 implica que o estudante pode tentar quantas vezes quiser e ainda obter a cotação máxima.';
 $string['penaltyforeachincorrecttry'] = 'Fator de penalização';
-$string['penaltyforeachincorrecttry_help'] = '"Quando o teste se encontra definido em "Modo Interativo com múltiplas tentativas" ou "Modo Adaptável", para que o aluno possa responder várias vezes até obter a resposta correta à pergunta, esta opção configura qual a penalização por cada resposta errada.
+$string['penaltyforeachincorrecttry_help'] = 'Esta opção configura qual a penalização por cada resposta errada quando o teste se encontra definido no Modo Interativo com múltiplas tentativas ou "Modo Adaptável" e o aluno pode responder várias vezes até obter a resposta correta à pergunta.
 
-A penalização é uma proporção da nota da pergunta, logo, se a pergunta vale 3 pontos, e o fator de penalização é de 0.3333333, então o aluno tem a nota 3 acertar à primeira, 2 se acertar à segunda e 1 se apenas acertar à terceira.';
+A penalização é uma proporção da nota da pergunta, logo, se a pergunta vale 3 pontos, e o fator de penalização é de 0.3333333, então o aluno tem a nota 3 se acertar à primeira, 2 se acertar à segunda e 1 se apenas acertar à terceira.';
 $string['permissionedit'] = 'Editar esta pergunta';
 $string['permissionmove'] = 'Mover esta pergunta';
 $string['permissionsaveasnew'] = 'Gravar como nova pergunta';
@@ -372,8 +373,8 @@ $string['state'] = 'Estado';
 $string['step'] = 'Passo';
 $string['stoponerror'] = 'Parar se ocorrer um erro';
 $string['stoponerror_help'] = 'Esta configuração determina se o processo de importação é interrompido quando um erro é detetado parando assim a importação, ou se as perguntas com erros são ignoradas sendo apenas importadas as válidas.';
-$string['submissionoutofsequence'] = 'Acesso fora da sequência. Por favor, não clique no botão voltar quando trabalha nas perguntas do teste.';
-$string['submissionoutofsequencefriendlymessage'] = 'Inseriu dados fora da sequência. Isto pode acontecer se usar os botões de Avanço e Retroceder do seu browser; por favor não os use durante o teste. Também pode acontecer se clicar em algo enquanto uma página está a carregar. Clique em <strong>Continuar</strong>.';
+$string['submissionoutofsequence'] = 'Acesso fora da sequência. Por favor, não clique no botão Retroceder enquanto trabalha nas perguntas do teste.';
+$string['submissionoutofsequencefriendlymessage'] = 'Inseriu dados fora da sequência. Isto pode acontecer se usar os botões de Avançar e Retroceder do seu navegador; por favor não os use durante o teste. Também pode acontecer se clicar em algo enquanto uma página está a carregar. Clique em <strong>Continuar</strong>.';
 $string['submit'] = 'Submeter';
 $string['submitandfinish'] = 'Submeter e finalizar';
 $string['submitted'] = 'Submetido: {$a}';

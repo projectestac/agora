@@ -25,6 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['alterstatus'] = 'Изменить статус';
+$string['altertimeend'] = 'Изменить время окончания';
+$string['altertimestart'] = 'Изменить время начала';
+$string['assignrole'] = 'Назначить роль';
 $string['confirmbulkdeleteenrolment'] = 'Вы уверены, что хотите отчислить этих пользователей?';
 $string['defaultperiod'] = 'Продолжительность обучения по умолчанию';
 $string['defaultperiod_desc'] = 'Продолжительность обучения по умолчанию. Если установлен ноль, то по умолчанию продолжительность будет неограниченной.';
@@ -32,13 +36,13 @@ $string['defaultperiod_help'] = 'По умолчанию, продолжител
 $string['deleteselectedusers'] = 'Отчислить выбранных пользователей';
 $string['editenrolment'] = 'Изменить зачисление';
 $string['editselectedusers'] = 'Изменить зачисления выбранных пользователей';
-$string['enrolledincourserole'] = 'Записан на курс "{$a->course}" как "{$a->role}"';
+$string['enrolledincourserole'] = 'Записан на курс «{$a->course}» как «{$a->role}»';
 $string['enrolusers'] = 'Запись пользователей на курс';
 $string['expiredaction'] = 'Действие при истечении срока записи';
 $string['expiredaction_help'] = 'Выберите выполняемое действие при истечении срока записи пользователя в курсе. Обратите внимание, что из курса удаляются некоторые настройки  и данные пользователя при исключении его из курса.';
-$string['expirymessageenrolledbody'] = 'Уважаемый(ая) {$a->user}, уведомляем Вас, что обучение в курсе "{$a->course}" истекает {$a->timeend}. При необходимости свяжитесь с {$a->enroller}.';
+$string['expirymessageenrolledbody'] = 'Уважаемый(ая) {$a->user}, уведомляем Вас, что обучение в курсе «{$a->course}» истекает {$a->timeend}. При необходимости свяжитесь с {$a->enroller}.';
 $string['expirymessageenrolledsubject'] = 'Уведомление об окончании обучения';
-$string['expirymessageenrollerbody'] = 'Зачисление в курсе "{$a->course}" истекает в течение следующих {$a->threshold} для перечисленных пользователей:
+$string['expirymessageenrollerbody'] = 'Зачисление в курсе «{$a->course}» истекает в течение следующих {$a->threshold} для перечисленных пользователей:
 
 {$a->users}.
 
@@ -49,7 +53,7 @@ $string['manual:enrol'] = 'Записывать пользователей на 
 $string['manual:manage'] = 'Управлять зачислением пользователей на курс';
 $string['manual:unenrol'] = 'Отчислять пользователей из курса';
 $string['manual:unenrolself'] = 'Отчислять себя из курса';
-$string['messageprovider:expiry_notification'] = 'Уведомления об окончании зачисления вручную';
+$string['messageprovider:expiry_notification'] = 'Уведомления об истечении срока обучения при записи вручную.';
 $string['pluginname'] = 'Зачисление вручную';
 $string['pluginname_desc'] = 'Плагин ручной записи на курсы позволяет администраторам и преподавателям записывать пользователей на курс вручную, используя соответствующую ссылку в настройках курса. Рекомендуется включить этот плагин, т.к. некоторые другие плагины зависят от него, например, самостоятельная запись.';
 $string['status'] = 'Разрешить ручную запись на курсы';
@@ -59,8 +63,8 @@ $string['statusenabled'] = 'Включено';
 $string['status_help'] = 'Этот параметр определяет, могут ли пользователи быть зачислены вручную (посредством ссылки в установках курса) пользователем с соответствующими правами, например, преподавателем.';
 $string['unenrol'] = 'Отчислить пользователя';
 $string['unenrolselectedusers'] = 'Отчислить выбранных пользователей';
-$string['unenrolselfconfirm'] = 'Вы действительно хотите исключить себя из курса "{$a}"?';
-$string['unenroluser'] = 'Вы действительно хотите отчислить пользователя "{$a->user}" из курса "{$a->course}"?';
+$string['unenrolselfconfirm'] = 'Вы действительно хотите исключить себя из курса «{$a}»?';
+$string['unenroluser'] = 'Вы действительно хотите отчислить пользователя «{$a->user}» из курса «{$a->course}»?';
 $string['unenrolusers'] = 'Отчислить пользователей';
 $string['wscannotenrol'] = 'Не удалось зачислить вручную пользователя в курс с id = {$a->courseid}';
 $string['wsnoinstance'] = 'Способ зачисления вручную отсутствует или отключен для курса (id = {$a->courseid})';

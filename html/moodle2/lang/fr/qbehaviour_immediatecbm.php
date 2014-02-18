@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pleaseselectacertainty'] = 'Merci de sélectionner un degré de certitude.';
+$string['pleaseselectacertainty'] = 'Veuillez sélectionner un degré de certitude.';
 $string['pluginname'] = 'Feedback immédiat avec indication de la certitude';

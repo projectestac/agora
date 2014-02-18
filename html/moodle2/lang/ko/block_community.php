@@ -38,6 +38,7 @@ $string['audience_help'] = '어떤 종류의 강좌를 찾고 있습니까? 학�
 $string['blocks'] = '블록';
 $string['cannotselecttopsubject'] = '상위 수준의 주제를 선택할 수 없음';
 $string['comments'] = '덧글 ({$a})';
+$string['community:addinstance'] = '새 커뮤니티 찾기 블록을 추가';
 $string['contentinfo'] = '제목: {$a->subject} - 청중: {$a->audience} - 교육 수준: {$a->educationallevel}';
 $string['continue'] = '계속';
 $string['contributors'] = '- 기여자: {$a}';

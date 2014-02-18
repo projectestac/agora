@@ -39,6 +39,7 @@ $string['activitylink_help'] = '<!-- $Id$ -->
 
 <p>Le menu déroulant présente toutes les activités de ce cours. En en choisissant une, un lien vers cette activité apparaîtra à la fin de la leçon.</p>';
 $string['activitylinkname'] = 'Allez à {$a}';
+$string['activityoverview'] = 'Vous avez des leçons à terminer';
 $string['addabranchtable'] = 'Ajouter une page de contenu';
 $string['addanendofbranch'] = 'Ajouter une fin de branchement';
 $string['addanewpage'] = 'Ajouter une page';
@@ -141,7 +142,7 @@ $string['customscoring_help'] = '<!-- $Id$ -->
 
 <p>Cette option vous permettra d\'affecter une valeur numérique à chaque réponse. Les réponses peuvent avoir une valeur négative ou positive. Les questions importées auront automatiquement la valeur 1 pour les réponses correctes et 0 pour les réponses incorrectes. Toutefois, vous pourrez changer ces valeurs après l\'importation.</p>';
 $string['deadline'] = 'À faire jusqu\'au';
-$string['defaultessayresponse'] = 'Votre composition sera évaluée par un enseignant de ce cours.';
+$string['defaultessayresponse'] = 'Votre composition sera évaluée par votre enseignant.';
 $string['deleteallattempts'] = 'Supprimer toutes les tentatives des leçons';
 $string['deletedefaults'] = 'Leçon par défaut {$a} x supprimée';
 $string['deletedpage'] = 'Page supprimée';
@@ -228,12 +229,7 @@ $string['gradeessay'] = 'Évaluer les questions de composition ({$a->notgradedco
 $string['gradeis'] = 'La note est {$a}';
 $string['gradeoptions'] = 'Options des notes';
 $string['handlingofretakes'] = 'Traitement des différentes tentatives';
-$string['handlingofretakes_help'] = '<!-- $Id$ -->
-
-
-<p>Lorsque les étudiants ont le droit de répéter la leçon, cette option permet à l\'enseignant d\'afficher comme note de la leçon, par exemple dans la page des notes, la note <strong>moyenne</strong> de toutes les tentatives ou la note de la <strong>meilleure</strong> tentative des étudiants.
-
-<p>Cette option peut être modifiée en tout temps.</p>';
+$string['handlingofretakes_help'] = 'Lorsque les étudiants ont le droit de répéter la leçon, ce réglage spécifie si note de la leçon est la moyenne ou la note de la meilleure tentative.';
 $string['havenotgradedyet'] = 'Pas encore été notée.';
 $string['here'] = 'ici';
 $string['highscore'] = 'Meilleure note';
@@ -278,10 +274,7 @@ $string['matchesanswer'] = 'Correspond avec la réponse';
 $string['matching'] = 'Correspondant';
 $string['matchingpair'] = 'Paire correspondante {$a}';
 $string['maxgrade'] = 'Note maximale';
-$string['maxgrade_help'] = '<!-- $Id$ -->
-
-
-<p>Cette valeur détermine la note maximale pouvant être accordée dans cette leçon. Elle doit se situer entre 0 et 100%. Cette valeur peut être modifiée en tout temps durant la leçon. Tout changement aura un effet immédiat dans la page des notes, ainsi que dans les différentes listes affichées pour les étudiants. Si l\'ont met 0 pour cette valeur, la leçon n\'apparaîtra dans aucune des pages de notes.</p>';
+$string['maxgrade_help'] = 'Ce réglage détermine la note maximale pouvant être accordée dans cette leçon. Si la valeur 0 est indiquée, la leçon n\'apparaîtra dans aucune des pages de notes.';
 $string['maxhighscores'] = 'Nombre de meilleurs résultats affichés';
 $string['maximumnumberofanswersbranches'] = 'Nombre maximal de réponses';
 $string['maximumnumberofanswersbranches_help'] = 'Cette valeur détermine le nombre maximal de réponses utilisables dans la leçon. Si une leçon n\'utilise que des questions vrai/faux, elle peut être fixée à 2. Ce paramètre peut être modifié à tout moment, car il n\'a d\'effet que sur ce que voit l\'enseignant, pas sur les données.
@@ -292,7 +285,7 @@ $string['maximumnumberofattemptsreached'] = 'Le nombre maximal de tentatives a �
 $string['maxtime'] = 'Durée maximale (minutes)';
 $string['maxtimewarning'] = 'Il vous reste {$a} minute(s) pour terminer la leçon.';
 $string['mediaclose'] = 'Afficher un bouton fermer :';
-$string['mediafile'] = 'Pop-up vers fichier ou page web';
+$string['mediafile'] = 'Pop-up vers fichier';
 $string['mediafile_help'] = '<!-- $Id$ -->
 
 
@@ -379,7 +372,7 @@ $string['nameapproved'] = 'Nom approuvé';
 $string['namereject'] = 'Désolé, votre nom a été rejeté par le filtre.<br />Veuillez essayer un autre nom.';
 $string['new'] = 'Nouveau';
 $string['nextpage'] = 'Page suivante';
-$string['noanswer'] = 'Aucune réponse donnée. Veuillez revenir en arrière et donner une réponse.';
+$string['noanswer'] = 'Une ou plusieurs questions n\'ont pas de réponse donnée. Veuillez revenir en arrière et donner une réponse.';
 $string['noattemptrecordsfound'] = 'Aucune tentative trouvée : pas de note';
 $string['nobranchtablefound'] = 'Aucune page de contenu';
 $string['nocommentyet'] = 'Pas encore de commentaire.';
@@ -447,10 +440,7 @@ $string['pointsearned'] = 'Points reçus';
 $string['postprocesserror'] = 'Erreur lors du post-traitement !';
 $string['postsuccess'] = 'Message envoyé avec succès';
 $string['practice'] = 'Leçon d\'entraînement';
-$string['practice_help'] = '<!-- $Id$ -->
-
-
-<p>Le résultat d\'une leçon d\'entraînement n\'apparaîtra pas dans le carnet de notes.</p>';
+$string['practice_help'] = 'Le résultat d\'une leçon d\'entraînement n\'apparaîtra pas dans le carnet de notes.';
 $string['preprocesserror'] = 'Erreur lors du pré-traitement !';
 $string['preview'] = 'Prévisualisation';
 $string['previewlesson'] = 'Prévisualiser {$a}';
@@ -475,16 +465,7 @@ $string['report'] = 'Rapport';
 $string['reports'] = 'Rapports';
 $string['response'] = 'Feedback';
 $string['retakesallowed'] = 'Plusieurs tentatives permises';
-$string['retakesallowed_help'] = '<!-- $Id$ -->
-
-
-<p>Cette option détermine si les étudiants peuvent suivre la leçon une seule fois ou à plusieurs reprises. Il est préférable de permettre aux étudiants de suivre la leçon à plusieurs reprises lorsque l\'enseignant estime que le sujet doit être approfondi et très bien compris. Dans le cas où la leçon sert plutôt de test, l\'étudiant ne devrait faire la leçon qu\'une seule fois.</p>
-
-<p>La note retenue dans la page <strong>Notes</strong> est soit la note <strong>moyenne</strong>, soit la note <strong>maximale</strong> obtenue lors des différents essais, dans le cas où la leçon est faite plusieurs fois. Un paramètre permet de choisir laquelle de ces deux options est utilisée.</p>
-
-<p>Toutefois, l\'outil d\'analyse des résultats aux questions utilise uniquement les réponses faites lors de la première tentative, et que les autres tentatives des étudiants sont ignorées.</p>
-
-<p>Par défaut, cette option est réglée sur <strong>Non</strong>, ce qui veut dire que les étudiants peuvent suivre la leçon à plusieurs reprises. On considère que seules des circonstances exceptionnelles devraient mener à régler cette valeur sur <strong>Oui</strong>.';
+$string['retakesallowed_help'] = 'Si ce réglage est activé, les étudiants peuvent effectuer la leçon à plusieurs reprises.';
 $string['returnto'] = 'Retour à {$a}';
 $string['returntocourse'] = 'Retour au cours';
 $string['review'] = 'Relecture';

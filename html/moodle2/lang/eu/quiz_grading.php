@@ -33,7 +33,6 @@ $string['automaticallygraded'] = 'Automatikoki kalifikatua';
 $string['backtothelistofquestions'] = 'Itzuli galdera-zerrendara';
 $string['bydate'] = 'Dataren arabera';
 $string['bystudentidnumber'] = 'Ikaslearen id zenbakiaren arabera';
-$string['bystudentname'] = 'Ikaslearen izenaren arabera';
 $string['cannotgradethisattempt'] = 'Ezin da saiakera hau kalifikatu';
 $string['cannotloadquestioninfo'] = 'Ezin da aurkitu questiontype galdera-informazio zehatza';
 $string['changeoptions'] = 'Aldatu aukerak';

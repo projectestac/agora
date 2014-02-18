@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['comments:addinstance'] = 'Ajouter un bloc commentaires';
-$string['comments:myaddinstance'] = 'Ajouter un bloc commentaires à venir à la page Mon Moodle';
+$string['comments:myaddinstance'] = 'Ajouter un bloc commentaires à venir à Ma page';
 $string['pluginname'] = 'Commentaires';

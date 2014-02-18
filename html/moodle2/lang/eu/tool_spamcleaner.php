@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Spam garbitzailea';
+$string['pluginname'] = 'Spam-garbitzailea';
 $string['spamauto'] = 'Spam-aren patroi komunak automatikoki atzeman.';
 $string['spamcannotdelete'] = 'Ezin da erabiltzaile hau ezabatu';
 $string['spamcannotfinduser'] = 'Zure bilaketak ez du erabiltzailerik aurkitu';
@@ -36,7 +36,11 @@ $string['spamdeleteconfirm'] = 'Ziur al zaude sarrera hau ezabatu egin nahi duzu
 $string['spamdesc'] = 'Deskribapena';
 $string['spameg'] = 'ad: casino, porn, xxx';
 $string['spamfromblog'] = 'Blog-sarreratik:';
+$string['spamfromcomments'] = 'Iruzkinetatik:';
+$string['spamfromforumpost'] = 'Foroko mezutik:';
+$string['spamfrommessages'] = 'Mezuetatik:';
 $string['spaminvalidresult'] = 'Ezezaguna baina emaitzak ez du balio';
+$string['spamkeyword'] = 'Hitz gakoa';
 $string['spamoperation'] = 'Eragiketa';
 $string['spamresult'] = 'Hau duten erabiltzaile-profiletako bilaketaren emaitzak:';
 $string['spamsearch'] = 'Hitz-gako hauen bilaketa';

@@ -29,6 +29,6 @@ $string['error_authmnetneeded'] = 'Das Plugin zur MNet-Authentifizierung muss ak
 $string['error_localusersonly'] = 'Remote-Nutzer können nicht über diesen Host auf andere MNet-Server im Netzwerk zugreifen';
 $string['error_roamcapabilityneeded'] = 'Um die Liste der MNet-Server im Netzwerk sehen zu können, ist die Fähigkeit "Zu einer Remote-Anwendung über MNet weiterleiten" nötig';
 $string['mnet_hosts:addinstance'] = 'Block \'Netzwerkserver\' hinzufügen';
-$string['mnet_hosts:myaddinstance'] = 'Block \'Netzwerkserver\'  für \'Meine Startseite\' hinzufügen';
+$string['mnet_hosts:myaddinstance'] = 'Block \'Netzwerkserver\' für \'Meine Startseite\' hinzufügen';
 $string['pluginname'] = 'Netzwerkserver';
 $string['server'] = 'Server';

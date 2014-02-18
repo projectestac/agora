@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['install'] = 'Instalatu aukeratutako hizkuntza-paketea';
+$string['install'] = 'Instalatu aukeratutako hizkuntza-paketea(k)';
 $string['installedlangs'] = 'Instalatutako hizkuntza-paketeak';
 $string['langimport'] = 'Hizkuntza inportatzeko baliabidea';
 $string['langimportdisabled'] = 'Hizkuntza inportatzeko funtzioa ez dago gaituta. Eskuz eguneratu behar dituzu hizkuntza-paketeak fitxategi-sisteman';
@@ -34,6 +34,7 @@ $string['langpackremoved'] = 'Hizkuntzaren desinstalazioa burutu da';
 $string['langpackupdateskipped'] = '{$a} hizkuntza-paketearen eguneratzea albo batera utzi da';
 $string['langpackuptodate'] = '{$a} hizkuntza-paketea eguneratuta dago';
 $string['langupdatecomplete'] = 'Hizkuntza-paketea eguneratu da';
+$string['missingcfglangotherroot'] = '$CFG->langotherroot konfigurazio-balorea falta da';
 $string['missinglangparent'] = 'Ez dago <em>{$a->lang}</em>-ren <em>{$a->parent}</em> goragoko hizkuntzarik.';
 $string['nolangupdateneeded'] = 'Hizkuntza-pakete guztiak eguneratuta daude: ez dago eguneratu beharrik.';
 $string['pluginname'] = 'Hizkuntza-paketeak';

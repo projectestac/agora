@@ -28,4 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['default'] = 'Berez gaituta';
 $string['default_help'] = 'Ezarriz gero, bidalketa-metodo hau berez gaituko da zeregin berri guztietan';
 $string['enabled'] = 'Bidalketaren iruzkinak';
+$string['enabled_help'] = 'Ezarriz gero, ikasleek iruzkinak jar ditzakete bere bidalketak egiterakoan. Adibidez, erabili daiteke ikasleek adierazteko bidalketan zein den fitxategi nagusia, fitxategi bat baino gehiago dagoenean.';
 $string['pluginname'] = 'Bidalketaren iruzkinak';

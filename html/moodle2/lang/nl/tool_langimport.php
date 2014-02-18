@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['install'] = 'Installeer het geselecteerde taalpakket';
+$string['install'] = 'Installeer geselecteerde taalpakket(ten)';
 $string['installedlangs'] = 'Geïnstalleerde taalpakketten';
 $string['langimport'] = 'Taalpakkettenbeheer';
 $string['langimportdisabled'] = 'De interface voor het importeren van taalpakketten is uitgeschakeld. Je moet je taalpakketten manueel updaten via het bestandssysteem. Vergeet niet de taalcache leeg te maken nadat je dit gedaan hebt.';
@@ -39,7 +39,7 @@ $string['missinglangparent'] = 'Ontbrekende parent language <em>{$a->parent}</em
 $string['nolangupdateneeded'] = 'Al je geïnstalleerde taalpakketten zijn up-to-date. Er is geen update nodig.';
 $string['pluginname'] = 'Pakketten';
 $string['purgestringcaches'] = 'Taalcache leegmaken';
-$string['remotelangnotavailable'] = 'Het is niet mogelijk om automatisch taalpakketten te installeren, omdat Moodle geen verbinding kan maken met Moodle.org. Download daarom de nodige zipbestanden van http://download.moodle.org, copieer ze naar je {$a} map en unzip ze daar.';
-$string['uninstall'] = 'Verwijder het geselecteerde taalpakket';
+$string['remotelangnotavailable'] = 'Het is niet mogelijk om automatisch taalpakketten te installeren, omdat Moodle geen verbinding kan maken met Moodle.org. Download daarom de nodige zipbestanden van <a href="http://download.moodle.org/langpack/">download.moodle.org/langpack</a>,  kopieer ze naar je {$a} map en unzip ze daar.';
+$string['uninstall'] = 'Verwijder geselecteerde taalpakket(ten)';
 $string['uninstallconfirm'] = 'Je gaat zodadelijk het taalpakket {$a} verwijderen. Verder gaan?';
 $string['updatelangs'] = 'Update alle geïnstalleerde taalpakketten';

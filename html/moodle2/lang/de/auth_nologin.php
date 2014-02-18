@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['auth_nologindescription'] = 'Diese Authentifizierungsmethode sollten Sie für ein Nutzerkonto setzen, das Sie temporär sperren, aber nicht endgültig löschen möchten. Das Plugin verhindert das Login und unterdrückt den Mailversand. ';
-$string['pluginname'] = 'Keine Anmeldung';
+$string['auth_nologindescription'] = 'Diese Authentifizierungsmethode sollten Sie für ein Nutzerkonto setzen, das Sie temporär sperren, aber nicht endgültig löschen möchten. Das Plugin verhindert das Login und unterdrückt den Mailversand.';
+$string['pluginname'] = 'Kein Login';

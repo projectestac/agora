@@ -29,4 +29,4 @@ $string['default'] = 'Ativo por predefinição';
 $string['default_help'] = 'Se ativar esta opção, este método de trabalho estará ativo por predefinição para todos os novos trabalhos.';
 $string['enabled'] = 'Comentários';
 $string['enabled_help'] = 'Se ativo, os alunos podem inserir comentários junto dos seus trabalhos. Isto pode ser usado, por exemplo, para permitir que os alunos alertem o professor sobre qual o ficheiro a avaliar no caso de submeterem mais do que um.';
-$string['pluginname'] = 'Comentários';
+$string['pluginname'] = 'Comentários à submissão';

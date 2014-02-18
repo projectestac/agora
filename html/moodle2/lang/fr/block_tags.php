@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['add'] = 'Ajouter';
 $string['alltags'] = 'Tous les tags:';
 $string['arrowtitle'] = 'Cliquez ici pour saisir le texte suggéré (lettres grises).';
+$string['configtitle'] = 'Titre du bloc';
 $string['coursetags'] = 'Tags de cours :';
 $string['defaultdisplay'] = 'Type de tag à afficher';
 $string['disabledtags'] = 'Les tags sont désactivés';
@@ -70,6 +71,6 @@ $string['showcoursetagsdef'] = 'Afficher les possibilités des tags dans le bloc
 $string['suggestedtagthisunit'] = 'Tag suggéré pour ce cours :';
 $string['tags'] = 'tags';
 $string['tags:addinstance'] = 'Ajouter un bloc tags';
-$string['tags:myaddinstance'] = 'Ajouter un bloc tags à la page Mon Moodle';
+$string['tags:myaddinstance'] = 'Ajouter un bloc tags à Ma page';
 $string['tagthisunit'] = 'Mettre un tag à ce cours :';
 $string['tagunits'] = 'pour mettre des tags à vos cours préférés';

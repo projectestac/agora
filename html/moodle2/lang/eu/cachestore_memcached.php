@@ -25,9 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['hash'] = 'Hash metodoa';
+$string['hash_crc'] = 'CRC';
 $string['hash_fnv1_32'] = 'FNV1_32';
 $string['hash_fnv1_64'] = 'FNV1_64';
 $string['hash_fnv1a_32'] = 'FNV1A_32';
 $string['hash_fnv1a_64'] = 'FNV1A_64';
+$string['hash_hsieh'] = 'Hsieh';
 $string['hash_md5'] = 'MD5';
+$string['pluginname'] = 'Memcached';
 $string['servers'] = 'Zerbitzariak';
+$string['testservers'] = 'Proba-zerbitzariak';

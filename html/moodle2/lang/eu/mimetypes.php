@@ -25,10 +25,22 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['application/epub_zip'] = 'EPUB e-liburua';
 $string['application/msword'] = 'Word dokumentua';
 $string['application/pdf'] = 'PDF dokumentua';
+$string['application/vnd.moodle.backup'] = 'Moodle-ren segurtasun-kopia';
 $string['application/vnd.ms-excel'] = 'Excel kalkulu-orria';
 $string['application/vnd.ms-powerpoint'] = 'Powerpoint aurkezpena';
-$string['document/unknown'] = 'fitxategia';
+$string['application/vnd.openxmlformats-officedocument.presentationml.presentation'] = 'Powerpoint aukezpena';
+$string['application/vnd.openxmlformats-officedocument.presentationml.slideshow'] = 'Powerpoint diapositiba-aurkezpena';
+$string['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'] = 'Excel kalkulu-orria';
+$string['application/vnd.openxmlformats-officedocument.spreadsheetml.template'] = 'Excel txantiloia';
+$string['application/vnd.openxmlformats-officedocument.wordprocessingml.document'] = 'Word dokumentua';
+$string['archive'] = 'Gorde ({$a->EXT})';
+$string['audio'] = 'Audio-fitxategia ({$a->EXT})';
+$string['default'] = '{$a->mimetype}';
+$string['document/unknown'] = 'Fitxategia';
+$string['image'] = 'Irudia ({$a->MIMETYPE2})';
+$string['text/html'] = 'HTML dokumentua';
 $string['text/plain'] = 'Testu-fitxategia';
 $string['text/rtf'] = 'RTF dokumentua';

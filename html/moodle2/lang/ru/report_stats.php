@@ -25,4 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['page-report-stats-index'] = 'Отчет о статистике курса';
+$string['page-report-stats-user'] = 'Отчет о статистике участника курса';
+$string['page-report-stats-x'] = 'Любой отчет о статистике';
 $string['pluginname'] = 'Статистика';
+$string['stats:view'] = 'Просматривать отчет о статистике курса';
