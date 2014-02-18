@@ -121,33 +121,57 @@ class moodle1_mod_hotpot_handler extends moodle1_mod_handler {
         $contextid      = $this->converter->get_contextid(CONTEXT_MODULE, $this->moduleid);
 
         // set $path, $filepath and $filename
-        $path = 'course_files/'.$data['sourcefile'];
-        $filepath = dirname($path);
-        $filename = basename($path);
-        if ($filepath=='') {
-            $filepath = '/';
-        } else {
-            $filepath = '/'.$filepath.'/';
+        $is_url = preg_match('|^https?://|', $data['sourcefile']);
+        if ($is_url) {
+
+            $backupinfo = $this->converter->get_stash('backup_info');
+            $originalcourseinfo = $this->converter->get_stash('original_course_info');
+
+            $original_baseurl = $backupinfo['original_wwwroot'].'/'.$originalcourseinfo['original_course_id'].'/';
+            unset($backupinfo, $originalcourseinfo);
+
+            // if the URL is for a file in the original course files folder
+            // then convert it to a simple path, by removing the original base url
+            $search = '/^'.preg_quote($original_baseurl, '/').'/';
+            if (preg_match($search, $data['sourcefile'])) {
+                $data['sourcefile'] = substr($data['sourcefile'], strlen($original_baseurl));
+                $is_url = false;
+            }
         }
 
-        // get a fresh new file manager for this instance
-        $this->fileman = $this->converter->get_file_manager($contextid, 'mod_hotpot');
+        if ($is_url) {
+            $data['sourcetype'] = $this->get_hotpot_sourcetype($data['sourcefile']);
+        } else {
+            $filename = basename($data['sourcefile']);
+            $filepath = dirname($data['sourcefile']);
+            $filepath = trim($filepath, './');
+            if ($filepath=='') {
+                $filepath = '/';
+            } else {
+                $filepath = '/'.$filepath.'/';
+            }
+            $data['sourcefile'] = $filepath.$filename;
+            $path = 'course_files'.$filepath.$filename;
 
-        // migrate hotpot file
-        $this->fileman->filearea = 'sourcefile';
-        $this->fileman->itemid   = 0;
-        $id = $this->fileman->migrate_file($path, $filepath, $filename);
+            // get a fresh new file manager for this instance
+            $this->fileman = $this->converter->get_file_manager($contextid, 'mod_hotpot');
 
-        // get stashed hotpot $filerecord
-        $filerecord = $this->fileman->converter->get_stash('files', $id);
+            // migrate hotpot file
+            $this->fileman->filearea = 'sourcefile';
+            $this->fileman->itemid   = 0;
+            $id = $this->fileman->migrate_file($path, $filepath, $filename);
 
-        // seems like there should be a way to get the file content
-        // using the $filerecord, but I can't see how to do it,
-        // so for now we determine the $fullpath and read from that
+            // get stashed hotpot $filerecord
+            $filerecord = $this->fileman->converter->get_stash('files', $id);
 
-        // set sourcetype
-        $fullpath = $this->fileman->converter->get_tempdir_path().'/'.$path;
-        $data['sourcetype'] = $this->get_hotpot_sourcetype($fullpath, $filerecord);
+            // seems like there should be a way to get the file content
+            // using the $filerecord, but I can't see how to do it,
+            // so for now we determine the $fullpath and read from that
+
+            // set sourcetype
+            $fullpath = $this->fileman->converter->get_tempdir_path().'/'.$path;
+            $data['sourcetype'] = $this->get_hotpot_sourcetype($fullpath, $filerecord);
+        }
 
         // set outputformat
         if ($data['outputformat']==14 && ($data['sourcetype']=='hp_6_jmatch_xml' || $data['sourcetype']=='hp_6_jmix_xml')) {
@@ -203,7 +227,7 @@ class moodle1_mod_hotpot_handler extends moodle1_mod_handler {
      * but in some cases, notably html files, it may be necessary to read the file
      * and analyze its contents in order to determine the sourcetype
      */
-    public function get_hotpot_sourcetype($fullpath, $filerecord) {
+    public function get_hotpot_sourcetype($fullpath, $filerecord=null) {
         if ($pos = strrpos($fullpath, '.')) {
             $filetype = substr($fullpath, $pos+1);
             switch ($filetype) {
@@ -219,11 +243,16 @@ class moodle1_mod_hotpot_handler extends moodle1_mod_handler {
 
         // cannot detect sourcetype from filename alone
         // so we must open the file and examine the contents
-        $fs = get_file_storage();
-        $sourcefile = $fs->create_file_from_pathname($filerecord, $fullpath);
-        $sourcetype = hotpot::get_sourcetype($sourcefile);
-        $sourcefile->delete();
-        return $sourcetype;
+        if ($filerecord) {
+            $fs = get_file_storage();
+            $sourcefile = $fs->create_file_from_pathname($filerecord, $fullpath);
+            $sourcetype = hotpot::get_sourcetype($sourcefile);
+            $sourcefile->delete();
+            return $sourcetype;
+        }
+
+        // could not detect sourcetype
+        return '';
     }
 
     /**
@@ -239,8 +268,10 @@ class moodle1_mod_hotpot_handler extends moodle1_mod_handler {
         $this->open_xml_writer("activities/hotpot_{$this->moduleid}/inforef.xml");
         $this->xmlwriter->begin_tag('inforef');
         $this->xmlwriter->begin_tag('fileref');
-        foreach ($this->fileman->get_fileids() as $fileid) {
-            $this->write_xml('file', array('id' => $fileid));
+        if (isset($this->fileman) && $this->fileman) {
+            foreach ($this->fileman->get_fileids() as $fileid) {
+                $this->write_xml('file', array('id' => $fileid));
+            }
         }
         $this->xmlwriter->end_tag('fileref');
         $this->xmlwriter->end_tag('inforef');

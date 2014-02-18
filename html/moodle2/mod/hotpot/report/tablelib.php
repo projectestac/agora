@@ -171,14 +171,14 @@ class hotpot_report_table extends table_sql {
 
         // add "select all" link
         $text = get_string('selectall', 'quiz');
-        $href = "javascript:select_all_in('FORM',null,'attemptsform');";
+        $href = "javascript:select_all_in('TABLE',null,'attempts');";
         echo html_writer::tag('a', $text, array('href' => $href));
 
         echo ' / ';
 
         // add "deselect all" link
         $text = get_string('selectnone', 'quiz');
-        $href = "javascript:deselect_all_in('FORM',null,'attemptsform');";
+        $href = "javascript:deselect_all_in('TABLE',null,'attempts');";
         echo html_writer::tag('a', $text, array('href' => $href));
 
         echo ' &nbsp; ';
@@ -368,16 +368,16 @@ class hotpot_report_table extends table_sql {
      * @return xxx
      */
     function col_picture($row)  {
-        $courseid = $this->output->hotpot->course->id;
-        $user = (object)array(
-            'id'        => $row->userid,
-            'firstname' => $row->firstname,
-            'lastname'  => $row->lastname,
-            'picture'   => $row->picture,
-            'imagealt'  => $row->imagealt,
-            'email'     => $row->email
-        );
-        return $this->output->user_picture($user, array('courseid'=>$courseid));
+        $user = new stdClass();
+        $fields = explode(',', $this->output->get_userfields());
+        foreach ($fields as $field) {
+            if ($field=='id') {
+                $user->$field = $row->userid;
+            } else {
+                $user->$field = $row->$field;
+            }
+        }
+        return $this->output->user_picture($user, array('courseid'=>$this->output->hotpot->course->id));
     }
 
     /**
@@ -489,11 +489,11 @@ class hotpot_report_table extends table_sql {
      * format_review_link
      *
      * @param xxx $text
-     * @param xxx $attemptid
+     * @param xxx $row from hotpot_attempts table
      * @return xxx
      */
     function format_review_link($text, $row)  {
-        if (strlen($text) && $this->output->hotpot->can_reviewattempts()) {
+        if (strlen($text) && $this->output->hotpot->can_reviewattempt($row)) {
             $url = $this->output->hotpot->review_url($row);
             $text = html_writer::link($url, $text);
         }

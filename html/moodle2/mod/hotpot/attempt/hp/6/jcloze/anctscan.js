@@ -25,9 +25,9 @@
  * JCloze_ANCT_Scan
  *
  * @param xxx sendallclicks
- * @param xxx forceajax
+ * @param xxx ajax
  */
-function JCloze_ANCT_Scan(sendallclicks, forceajax) {
+function JCloze_ANCT_Scan(sendallclicks, ajax) {
     this.quiztype = 'JCloze';
 
     /**
@@ -127,6 +127,6 @@ function JCloze_ANCT_Scan(sendallclicks, forceajax) {
         this.penalties = window.Penalties || 0;
     }
 
-    this.init(I.length, sendallclicks, forceajax);
+    this.init(I.length, sendallclicks, ajax);
 }
 JCloze_ANCT_Scan.prototype = new hpQuizAttempt();

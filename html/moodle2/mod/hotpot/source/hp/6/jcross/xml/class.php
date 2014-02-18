@@ -44,7 +44,7 @@ class hotpot_source_hp_6_jcross_xml extends hotpot_source_hp_6_jcross {
      * @param xxx $sourcefile
      * @return xxx
      */
-    public static function is_quizfile($sourcefile)  {
+    static public function is_quizfile($sourcefile)  {
         return preg_match('/\.jcw$/', $sourcefile->get_filename());
     }
 }

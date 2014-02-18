@@ -27,6 +27,18 @@
 body.path-course-view div.hotpotrecentactivity p {margin: 0px;}
 body.path-course-view div.hotpotrecentactivity ul {font-size: 0.8em; margin: 0em 0em 0em 1em; padding: 0em 0em 0em 1em;}
 
+/** mod hotpot mod **/
+#page-mod-hotpot-mod #reviewoptionshdr .fitem {clear: none; float: left; margin-left: 48px; width: 20%;}
+#page-mod-hotpot-mod #reviewoptionshdr .fitemtitle {font-weight: bold; margin-left: 0; text-align: left; width: 100%;}
+#page-mod-hotpot-mod #reviewoptionshdr fieldset.fgroup {margin-left: 0; text-align: left; width: 100%;}
+#page-mod-hotpot-mod #reviewoptionshdr fieldset.fgroup {clear: left; margin: 0 0 1em;}
+#page-mod-hotpot-mod #reviewoptionshdr fieldset.fgroup > span {clear: left; float: left; line-height: 1.7;}
+#page-mod-hotpot-mod #reviewoptionshdr fieldset.fgroup span label {margin-left: 0.4em;}
+
+#page-mod-hotpot-mod.dir-rtl #reviewoptionshdr .fitem {float: right;}
+#page-mod-hotpot-mod.dir-rtl #reviewoptionshdr .fitemtitle {text-align: right;}
+#page-mod-hotpot-mod.dir-rtl #reviewoptionshdr fieldset.fgroup span {float: right; clear: right;}
+
 /** mod hotpot view **/
 #page-mod-hotpot-view .region-content {text-align: center;}
 #page-mod-hotpot-view .region-content ul.hotpotwarnings,
@@ -62,6 +74,7 @@ body.path-course-view div.hotpotrecentactivity ul {font-size: 0.8em; margin: 0em
 #page-mod-hotpot-report table#attempts {clear: both; margin-left: auto; margin-right: auto;}
 #page-mod-hotpot-report table#attempts.analysis td.c0 {font-weight: bold;}
 #page-mod-hotpot-report table#attempts.analysis td.c0:after {content: ":"}
+#page-mod-hotpot-report table.flexible tr.emptyrow {display: none; }
 /* ================= */
 #page-mod-hotpot-report #page-content {overflow:visible;}
 #page-mod-hotpot-report #page-content #region-main-box #region-post-box #region-main-wrap #region-main {overflow:visible;}
@@ -73,7 +86,7 @@ body.path-course-view div.hotpotrecentactivity ul {font-size: 0.8em; margin: 0em
 #page-mod-hotpot-report ul.response li.correct {color: green; list-style-image: url([[pix:i/tick_green_small]]);}
 #page-mod-hotpot-report ul.response li.ignored {color: grey; list-style-image: url([[pix:i/show]]);}
 #page-mod-hotpot-report ul.response li.wrong {color: red; list-style-image: url([[pix:i/cross_red_small]]);}
-#page-mod-hotpot-report ul.response li.score {color: auto; list-style-image: url([[pix:i/item]]);}
+#page-mod-hotpot-report ul.response li.score {color: inherit; list-style-image: url([[pix:i/item]]);}
 #page-mod-hotpot-report ul.response li.hintsclueschecks {color: #666666; list-style-image: url([[pix:i/item]]);}
 
 /** mod hotpot review **/

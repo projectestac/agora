@@ -97,7 +97,7 @@ class mod_hotpot_attempt_html_xerte_renderer extends mod_hotpot_attempt_html_ren
         // several search-and-replace fixes
         //  - add style to center the Flash Object
         //  - convert MainPreloader.swf to absolute URL
-        //  - break up "script" strings to prevent unwanted QuizPort postprocessing
+        //  - break up "script" strings to prevent unwanted HotPot postprocessing
         $search = array(
             ' style="'."width:' + rloWidth + 'px; height:' + rloHeight + 'px; ".'"',
             'var FileLocation = getLocation();',

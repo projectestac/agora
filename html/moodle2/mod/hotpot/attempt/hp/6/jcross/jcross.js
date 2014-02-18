@@ -25,10 +25,10 @@
  * JCross
  *
  * @param xxx sendallclicks
- * @param xxx forceajax
+ * @param xxx ajax
  * @return xxx
  */
-function JCross(sendallclicks, forceajax) {
+function JCross(sendallclicks, ajax) {
     this.quiztype = 'JCross';
 
     this.direction = new Array();
@@ -209,6 +209,6 @@ function JCross(sendallclicks, forceajax) {
         return s;
     }
 
-    this.init(1, sendallclicks, forceajax);
+    this.init(1, sendallclicks, ajax);
 }
 JCross.prototype = new hpQuizAttempt();

@@ -43,7 +43,7 @@ class mod_hotpot_attempt_hp_6_jcloze_html_renderer extends mod_hotpot_attempt_hp
      *
      * @return array of source file types
      */
-    public static function sourcetypes() {
+    static public function sourcetypes() {
         return array('hp_6_jcloze_html');
     }
 }

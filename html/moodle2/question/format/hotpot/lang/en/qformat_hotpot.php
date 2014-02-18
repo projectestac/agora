@@ -28,7 +28,9 @@ $string['hotpot'] = 'Hot Potatoes XML format';
 $string['hotpot_help'] = 'This is file format for importing questions from Hot Potatoes xml files, JCloze (jcl), JCross (jcw), JMatch (jmt), JMix(jmx), JQuiz (jqz), into the Moodle question bank.';
 $string['hotpot_link'] = 'qformat/hotpot';
 
- // Moodle >= 2.2 
+ // Moodle >= 2.2
 $string['pluginname'] = 'Hot Potatoes XML format';
 $string['pluginname_help'] = 'This is file format for importing questions from Hot Potatoes xml files, JCloze (jcl), JCross (jcw), JMatch (jmt), JMix(jmx), JQuiz (jqz), into the Moodle question bank.';
 $string['pluginname_link'] = 'qformat/hotpot';
+
+$string['requiremodhotpot'] = 'The Hot Potatoes question import plugin cannot be installed because the HotPot activity module is missing. Please download the HotPot activity module, put it at {$a}/mod/hotpot, and reload this page.';

@@ -46,7 +46,7 @@ class mod_hotpot_attempt_hp_6_jmix_xml_v6_plus_deluxe_renderer extends mod_hotpo
     function init($hotpot)  {
         parent::init($hotpot);
         // prepend templates for this output format
-        array_unshift($this->templatesfolders, 'mod/quizport/output/hp/6/jmix/xml/v6/plus/deluxe/templates');
+        array_unshift($this->templatesfolders, 'mod/hotpot/output/hp/6/jmix/xml/v6/plus/deluxe/templates');
     }
 
     /**

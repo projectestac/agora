@@ -85,12 +85,7 @@ class mod_hotpot_attempt_review {
      *
      * @return boolean true if attempt can be reviewed, otherwise false
      */
-    static function can_reviewattempts()  {
-        return self::provide_review();
-
-        // when $hotpot->reviewoptions are implemented,
-        // we can do something like the following ...
-
+    static function can_reviewattempt($attempt=null)  {
         if (self::provide_review() && $hotpot->reviewoptions) {
             if ($attempt = $hotpot->get_attempt()) {
                 if ($hotpot->reviewoptions & hotpot::REVIEW_DURINGATTEMPT) {
@@ -124,55 +119,52 @@ class mod_hotpot_attempt_review {
 
     /**
      * review
+     *
+     * we use call_user_func() a lot in this function to prevent syntax error in PHP 5.2.x
+     * note that PHP 5.4 does not allow pass-by-reference in call_user_func()
+     * in such a case we must use call_user_func_array($callback, array(&$pass_by_reference))
      */
     static function review($hotpot, $class)  {
         global $DB;
 
         // for the time-being we set this setting manually here
         // but one day it will be settable in "mod/hotpot/mod_form.php"
-        $hotpot->reviewoptions = hotpot::REVIEW_DURINGATTEMPT | hotpot::REVIEW_AFTERATTEMPT | hotpot::REVIEW_AFTERCLOSE;
+        //$hotpot->reviewoptions = hotpot::REVIEW_DURINGATTEMPT | hotpot::REVIEW_AFTERATTEMPT | hotpot::REVIEW_AFTERCLOSE;
 
-        // set $reviewoptions to relevant part of $hotpot->reviewoptions
-        $reviewoptions = 0;
-        if ($hotpot->can_reviewallattempts()) {
-            // teacher can always review (anybody's) quiz attempts
-            $reviewoptions = (hotpot::REVIEW_AFTERATTEMPT | hotpot::REVIEW_AFTERCLOSE);
-        } else if ($hotpot->timeclose && $hotpot->timeclose > $hotpot->time) {
-            // quiz is closed
-            if ($hotpot->reviewoptions & hotpot::REVIEW_AFTERCLOSE) {
-                // user can review quiz attempt after quiz closes
-                $reviewoptions = ($hotpot->reviewoptions & hotpot::REVIEW_AFTERCLOSE);
-            } else if ($hotpot->reviewoptions & hotpot::REVIEW_AFTERATTEMPT) {
-                return get_string('noreviewbeforeclose', 'hotpot', userdate($hotpot->timeclose));
+        // the $hotpot should already have the $attempt attached to it
+        if (! $reviewoptions = $hotpot->can_reviewattempt()) {
+            // oops, we are not allowed to review this $hotpot->attempt
+            if ($hotpot->timeclose && $hotpot->timeclose > $hotpot->time) {
+                // quiz is closed
+                if ($hotpot->reviewoptions & hotpot::REVIEW_AFTERATTEMPT) {
+                    return get_string('noreviewbeforeclose', 'hotpot', userdate($hotpot->timeclose));
+                }
             } else {
-                return get_string('noreview', 'hotpot');
+                // quiz is still open
+                if ($hotpot->reviewoptions & hotpot::REVIEW_AFTERCLOSE) {
+                    return get_string('noreviewafterclose', 'hotpot');
+                }
             }
-        } else {
-            // quiz is still open
-            if ($hotpot->reviewoptions & hotpot::REVIEW_AFTERATTEMPT) {
-                // user can review quiz attempt while quiz is open
-                $reviewoptions = ($hotpot->reviewoptions & hotpot::REVIEW_AFTERATTEMPT);
-            } else if ($hotpot->reviewoptions & hotpot::REVIEW_AFTERCLOSE) {
-                return get_string('noreviewafterclose', 'hotpot');
-            } else {
-                return get_string('noreview', 'hotpot');
-            }
+            return get_string('noreview', 'hotpot');
         }
+
+        // we need to know if this user can review all attempts (i.e. a "teacher")
+        $reviewallattempts = $hotpot->can_reviewallattempts();
 
         // if necessary, remove score and weighting fields
         $response_num_fields = call_user_func(array($class, 'response_num_fields'));
-        if (! ($reviewoptions & hotpot::REVIEW_SCORES)) {
+        if (! ($reviewallattempts || $reviewoptions & hotpot::REVIEW_SCORES)) {
             $response_num_fields = preg_grep('/^score|weighting$/', $response_num_fields, PREG_GREP_INVERT);
         }
 
         // if necessary, remove reponses fields
         $response_text_fields = call_user_func(array($class, 'response_text_fields'));
-        if (! ($reviewoptions & hotpot::REVIEW_RESPONSES)) {
+        if (! ($reviewallattempts || $reviewoptions & hotpot::REVIEW_RESPONSES)) {
             $response_text_fields = array();
         }
 
         // set flag to remove, if necessary, labels that show whether responses are correct or not
-        if (! ($reviewoptions & hotpot::REVIEW_ANSWERS)) {
+        if (! ($reviewallattempts || $reviewoptions & hotpot::REVIEW_ANSWERS)) {
             $neutralize_text_fields = true;
         } else {
             $neutralize_text_fields = false;
@@ -236,15 +228,15 @@ class mod_hotpot_attempt_review {
 
                 // add separator
                 if (count($table->data)) {
-                	call_user_func(array($class, 'add_separator'), &$table, $question_colspan);
-                	// may be we are not allowed to pass params by reference with call_user_func(), so ...
-                	// $table = call_user_func(array($class, 'add_separator'), $table, $question_colspan)
+                    $callback = array($class, 'add_separator'); // PHP 5.2
+                    call_user_func_array($callback, array(&$table, $question_colspan));
                 }
 
                 // question text
                 if (call_user_func(array($class, 'show_question_text'))) {
                     if ($text = hotpot::get_question_text($questions[$response->questionid])) {
-                    	call_user_func(array($class, 'add_question_text'), &$table, $text, $question_colspan);
+                        $callback = array($class, 'add_question_text'); // PHP 5.2
+                        call_user_func_array($callback, array(&$table, $text, $question_colspan));
                     }
                 }
 
@@ -270,17 +262,20 @@ class mod_hotpot_attempt_review {
                     if ($neutralize_text_fields) {
                         $neutral_text .= ($neutral_text ? ',' : '').$text;
                     } else {
-                        call_user_func(array($class, 'add_text_field'), &$table, $field, $text, $textfield_colspan);
+                        $callback = array($class, 'add_text_field'); // PHP 5.2
+                        call_user_func_array($callback, array(&$table, $field, $text, $textfield_colspan));
                     }
                 }
                 if ($neutral_text) {
-                    call_user_func(array($class, 'add_text_field'), &$table, 'responses', $neutral_text, $textfield_colspan);
+                    $callback = array($class, 'add_text_field'); // PHP 5.2
+                    call_user_func_array($callback, array(&$table, 'responses', $neutral_text, $textfield_colspan));
                 }
 
                 // numeric fields
                 $row = new html_table_row();
                 foreach ($response_num_fields as $field) {
-                    call_user_func(array($class, 'add_num_field'), &$row, $field, $response->$field);
+                    $callback = array($class, 'add_num_field'); // PHP 5.2
+                    call_user_func_array($callback, array(&$row, $field, $response->$field));
                 }
                 $table->data[] = $row;
             }

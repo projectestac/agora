@@ -98,14 +98,9 @@ class mod_hotpot_attempt_hp_6_rhubarb_renderer extends mod_hotpot_attempt_hp_6_r
         $substr = substr($str, $start, $length);
 
         if ($pos = strpos($substr, '	ShowMessage')) {
-            if ($this->hotpot->delay3==hotpot::TIME_AFTEROK) {
-                $flag = 1; // set form values only
-            } else {
-                $flag = 0; // set form values and send form
-            }
             $insert = ''
                 ."	Finished = true;\n"
-                ."	HP.onunload(".hotpot::STATUS_TIMEDOUT.",$flag);\n"
+                ."	HP_send_results(HP.EVENT_TIMEDOUT);\n"
             ;
             $substr = substr_replace($substr, $insert, $pos, 0);
         }
@@ -216,7 +211,7 @@ class mod_hotpot_attempt_hp_6_rhubarb_renderer extends mod_hotpot_attempt_hp_6_r
      * @return xxx
      */
     function get_stop_function_args()  {
-        return hotpot::STATUS_ABANDONED;
+        return 'HP.EVENT_ABANDONED';
     }
 
     /**

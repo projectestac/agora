@@ -25,9 +25,9 @@
  * JMemori
  *
  * @param xxx sendallclicks
- * @param xxx forceajax
+ * @param xxx ajax
  */
-function JMemori(sendallclicks, forceajax) {
+function JMemori(sendallclicks, ajax) {
     this.quiztype = 'JMatch';
 
     /**
@@ -101,6 +101,6 @@ function JMemori(sendallclicks, forceajax) {
 
     // we don't set up the questions initially, because they
     // will be set up as needed when the user chooses a pair
-    this.init(0, sendallclicks, forceajax);
+    this.init(0, sendallclicks, ajax);
 }
 JMemori.prototype = new hpQuizAttempt();

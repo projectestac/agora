@@ -44,7 +44,7 @@ class hotpot_source_hp_6_jquiz_xml extends hotpot_source_hp_6_jquiz {
      * @param xxx $sourcefile
      * @return xxx
      */
-    public static function is_quizfile($sourcefile)  {
+    static public function is_quizfile($sourcefile)  {
         return preg_match('/\.jqz$/', $sourcefile->get_filename());
     }
 }

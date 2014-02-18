@@ -353,6 +353,13 @@ class mod_hotpot_attempt_hp_6_jquiz_renderer extends mod_hotpot_attempt_hp_6_ren
         // add other changes as per CheckAnswers in other type of HP quiz
         $this->fix_js_CheckAnswers($substr, 0, strlen($substr));
 
+        // use "HP.setScoreAndPenalties(true)" instead of "CalculateOverallScore()"
+        // because it calculates the score for the whole quiz,
+        // not just for questions attempted so far
+        // this is particular important when someone hits the "STOP" button
+        $search = 'CalculateOverallScore();';
+        $substr = str_replace($search, 'HP.setScoreAndPenalties(true);', $substr);
+
         $str = substr_replace($str, $substr, $start, $length);
     }
 

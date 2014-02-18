@@ -44,13 +44,13 @@ class hotpot_source_hp_6_jcloze_html extends hotpot_source_hp_6_jcloze {
      * @param xxx $sourcefile
      * @return xxx
      */
-    public static function is_quizfile($sourcefile)  {
+    static public function is_quizfile($sourcefile)  {
         if (! preg_match('/\.html?$/', $sourcefile->get_filename())) {
             // wrong file type
             return false;
         }
 
-        if (! $content = $sourcefile->get_content()) {
+        if (! $content = self::get_content($sourcefile)) {
             // empty or non-existant file
             return false;
         }

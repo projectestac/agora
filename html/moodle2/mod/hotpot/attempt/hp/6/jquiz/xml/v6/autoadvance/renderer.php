@@ -43,7 +43,7 @@ class mod_hotpot_attempt_hp_6_jquiz_xml_v6_autoadvance_renderer extends mod_hotp
      *
      * @return array of strings
      */
-    public static function sourcetypes()  {
+    static public function sourcetypes()  {
         return array('hp_6_jquiz_xml');
     }
 
@@ -159,7 +159,7 @@ class mod_hotpot_attempt_hp_6_jquiz_xml_v6_autoadvance_renderer extends mod_hotp
 
         $dots = 'squares'; // default
         if ($param = clean_param($this->expand_UserDefined1(), PARAM_ALPHANUM)) {
-            if (is_dir($CFG->dirroot."/mod/quizport/output/hp/6/jquiz/xml/v6/autoadvance/$param")) {
+            if (is_dir($CFG->dirroot."/mod/hotpot/pix/autoadvance/$param")) {
                 $dots = $param;
             }
         }
@@ -254,7 +254,7 @@ class mod_hotpot_attempt_hp_6_jquiz_xml_v6_autoadvance_renderer extends mod_hotp
             // add functions required for progress bar
             $substr .= "\n"
                 ."function AA_images() {\n"
-                ."	return 'output/hp/6/jquiz/xml/v6/autoadvance/$dots';\n"
+                ."	return 'pix/autoadvance/$dots';\n"
                 ."}\n"
                 ."function AA_ProgressArrow() {\n"
                 ."	var img = document.createElement('img');\n"
@@ -932,9 +932,9 @@ class mod_hotpot_attempt_hp_6_jquiz_xml_v6_autoadvance_renderer extends mod_hotp
         $search = '	if (AllDone == true){';
         if ($pos = strpos($substr, $search)) {
             $insert = ''
-                ."	if (typeof(ForceQuizStatus)=='undefined') {\n"
+                ."	if (typeof(ForceQuizEvent)=='undefined') {\n"
                 ."		if (maximumWrong && CountWrong > maximumWrong) {\n"
-                ."			ForceQuizStatus = 3;\n"
+                ."			ForceQuizEvent = 3;\n"
                 ."		}\n"
                 ."		if (TotalWeighting > 0) {\n"
                 ."			BestPossibleScore = Math.floor((BestPossibleScore/TotalWeighting)*100);\n"
@@ -942,7 +942,7 @@ class mod_hotpot_attempt_hp_6_jquiz_xml_v6_autoadvance_renderer extends mod_hotp
                 ."			BestPossibleScore = 100;\n"
                 ."		}\n"
                 ."		if (minimumScore && BestPossibleScore < minimumScore) {\n"
-                ."			ForceQuizStatus = 3;\n"
+                ."			ForceQuizEvent = 3;\n"
                 ."		}\n"
                 ."	}\n"
             ;

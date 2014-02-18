@@ -44,7 +44,7 @@ class hotpot_source_qedoc extends hotpot_source {
      * @param xxx $sourcefile
      * @return xxx
      */
-    public static function is_quizfile($sourcefile)  {
+    static public function is_quizfile($sourcefile)  {
         // e.g. http://www.qedoc.net/library/PLJUB_019.zip
         $search = '/http:\/\/www\.qedoc.(?:com|net)\/library\/\w+\.zip/i';
         return preg_match($search, $sourcefile->get_source());

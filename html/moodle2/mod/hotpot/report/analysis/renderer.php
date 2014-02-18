@@ -53,7 +53,7 @@ class mod_hotpot_report_analysis_renderer extends mod_hotpot_report_renderer {
     function add_responses_to_rawdata(&$table) {
         // attach each response to its parent attempt
         // using the "add_response_to_rawdata()" method
-        parent::add_responses_to_rawdata(&$table);
+        parent::add_responses_to_rawdata($table);
 
         // the fields we are interested in, in the order we want them
         $fields = array('correct', 'wrong', 'ignored', 'hints', 'clues', 'checks'); // , 'weighting'
@@ -163,6 +163,7 @@ class mod_hotpot_report_analysis_renderer extends mod_hotpot_report_renderer {
         // arrays used to detect empty rows and columns
         $delete_rows = array_fill(0, $d_index_row, true);
         $delete_columns = array();
+        $delete_all_columns = true;
 
         // format the statistics
         foreach ($question_columns as $id => $column) {
@@ -198,6 +199,7 @@ class mod_hotpot_report_analysis_renderer extends mod_hotpot_report_renderer {
 
                 // add statistics values for this field
                 if (count($values)) {
+                    $delete_all_columns = false;
                     $delete_rows[$row] = false;
                     $delete_columns[$column] = false;
                     $values = implode("\n", $values);
@@ -237,8 +239,12 @@ class mod_hotpot_report_analysis_renderer extends mod_hotpot_report_renderer {
         }
 
         // remove ununsed rows and columns
-        $table->delete_rows($delete_rows);
-        $table->delete_columns($delete_columns);
+        if ($delete_all_columns) {
+            $table->rawdata = array();
+        } else {
+            $table->delete_rows($delete_rows);
+            $table->delete_columns($delete_columns);
+        }
     }
 
     /**

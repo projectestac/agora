@@ -58,7 +58,7 @@ class mod_hotpot_attempt_hp_6_jmatch_html_flashcard_renderer extends mod_hotpot_
      *
      * @return array of strings
      */
-    public static function sourcetypes()  {
+    static public function sourcetypes()  {
         return array('hp_6_jmatch_html_flashcard');
     }
 
@@ -121,7 +121,7 @@ class mod_hotpot_attempt_hp_6_jmatch_html_flashcard_renderer extends mod_hotpot_
      * @return xxx
      */
     function get_stop_function_name()  {
-        return 'HP.onunload';
+        return 'HP_send_results';
     }
 
     /**
@@ -130,6 +130,6 @@ class mod_hotpot_attempt_hp_6_jmatch_html_flashcard_renderer extends mod_hotpot_
      * @return xxx
      */
     function get_stop_function_args()  {
-        return hotpot::STATUS_COMPLETED;
+        return $this->get_send_results_event();
     }
 }

@@ -92,7 +92,7 @@ $settings->add(
     new admin_setting_configcheckbox('hotpot_lockframe', get_string('lockframe', 'hotpot'), get_string('configlockframe', 'hotpot'), 0)
 );
 
-// store raw xml details of QuizPort quiz attempts (default=1)
+// store raw xml details of HotPot quiz attempts (default=1)
 $str = get_string('cleardetails', 'hotpot');
 $url = new moodle_url('/mod/hotpot/utilities/clear_details.php', array('sesskey' => sesskey()));
 $link = html_writer::link($url, $str, array('class' => 'small', 'style'=> 'white-space: nowrap', 'onclick' => "this.target='_blank'"))."\n";
