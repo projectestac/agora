@@ -51,10 +51,11 @@ class qtype_shortanswerwiris extends qtype_wq {
                 parse_str($data['#']['wiriseditor'][0]['#'], $wiriseditor);
                 if (isset($wiriseditor['multipleAnswers']) && $wiriseditor['multipleAnswers'] == true){
                     if (isset($wiriseditor['testFunctionName'])){
-                        $questionName = '<span style="font-style:italic;">' . $data['#']['name'][0]['#']['text'][0]['#'] . '</span>';
-                        $message = '<br/><span style="color:#ff0000; font-weight:bold;">It\'s not possible to import WIRIS question called: "' . $questionName . '"</span>';
-                        echo $message;
-                        return false;
+                        $msg = '<p><strong>' . get_string('warning') . '</strong>:<br />';
+                        $msg .= '<em>' . $data['#']['name'][0]['#']['text'][0]['#'] . '</em><br />';
+                        $msg .= get_string('shortanswerwiris_cantimportcompoundtest', 'qtype_shortanswerwiris');
+                        $msg .= '</p>';
+                        echo $msg;
                     }
                     $isCompound = true;
                 }

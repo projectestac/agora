@@ -6,7 +6,7 @@ require_once($CFG->dirroot . '/question/type/wq/quizzes/quizzes.php');
 function wrsqz_get_question_instance($qi, $type, $elem, $correct = null, $current = null, $randomSeed = -1){
     global $DB;
     global $CFG;
-    
+
     $rb = com_wiris_quizzes_api_QuizzesBuilder::getInstance();
     
     if ($type == 'eval'){
@@ -25,10 +25,8 @@ function wrsqz_get_question_instance($qi, $type, $elem, $correct = null, $curren
         
         $eqs = $rb->newEvalMultipleAnswersRequest($correct, $current, $q, $qi);
 
-        $quizzes = $rb->getQuizzesService();
         try {
-            $vqs = $quizzes->execute($eqs);
-            $qi->update($vqs);
+            _wrsqz_execute_quizzes_request($rb, $eqs, $elem, $qi);
         }
         catch (Exception $e) {
             throw new moodle_exception('wirisquizzeserror', 'qtype_wq');
@@ -63,22 +61,17 @@ function wrsqz_get_question_instance($qi, $type, $elem, $correct = null, $curren
         }
         
         $vqr = $rb->newVariablesRequest($correct, $q, $qi);
-        $quizzes = $rb->getQuizzesService();
-
-        try{
-            $vqs = $quizzes->execute($vqr);    
-            $qi->update($vqs);
-            //add_to_log($COURSE->id, 'wiris-quizzes', 'request', me(), 'Seed: ' . $qi->userData->randomSeed . ', Question: ' . $elem->id);
+        
+        try {
+            _wrsqz_execute_quizzes_request($rb, $vqr, $elem, $qi);
         }
         catch (Exception $e) {
-            $questionname = $elem->name;
             $a = new stdClass();
-            $a->questionname = $questionname;
+            $a->questionname = $elem->name;
             
             $link = null;
-            $cmid = $_POST['cmid'];
-            if (isset($cmid)){
-                $link = $CFG->wwwroot . '/mod/quiz/view.php?id='.$cmid;
+            if (isset($_POST['cmid'])){
+                $link = $CFG->wwwroot . '/mod/quiz/view.php?id='.$_POST['cmid'];
             }
             
             throw new moodle_exception('wirisquestionincorrect', 'qtype_wq', $link, $a, '');
@@ -90,7 +83,29 @@ function wrsqz_get_question_instance($qi, $type, $elem, $correct = null, $curren
         }
     }
     return $qi;
-}      
+}
+/**
+ * Call WIRIS quizzes service.
+ *
+ * @param $builder QuizzesBuilder instance.
+ * @param $request QuestionRequest instance.
+ * @param $question Moodle question object (only used $question->id for metadata)
+ * @param $qi QuestionInstance object that gets updated with the service results.
+ *
+ * @throws Exception if network or other errors occur during the call.
+ * **/
+function _wrsqz_execute_quizzes_request($builder, $request, $question, $qi) {
+  global $COURSE;
+  global $USER;
+
+  $request->addMetaProperty('questionref', (!empty($COURSE) ? $COURSE->id : '') . '/' . (!empty($question) ? $question->id : ''));
+  $request->addMetaProperty('userref', (!empty($USER) ? $USER->id : ''));
+
+  $quizzes = $builder->getQuizzesService();
+
+  $response = $quizzes->execute($request);
+  $qi->update($response);
+}
 
 function decode_html_entities($xml) {
     $htmlentitiestable = get_html_translation_table(HTML_ENTITIES, ENT_QUOTES, 'UTF-8');

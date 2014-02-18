@@ -264,6 +264,23 @@ class com_wiris_quizzes_impl_QuizzesBuilderImpl extends com_wiris_quizzes_api_Qu
 				unset($i1);
 			}
 		}
+		$syntax = null;
+		$k = null;
+		{
+			$_g1 = 0; $_g = $qq->assertions->length;
+			while($_g1 < $_g) {
+				$k1 = $_g1++;
+				if(_hx_array_get($qq->assertions, $k1)->isSyntactic()) {
+					$syntax = $qq->assertions[$k1];
+				}
+				unset($k1);
+			}
+		}
+		if($syntax === null) {
+			$syntax = new com_wiris_quizzes_impl_Assertion();
+			$syntax->name = com_wiris_quizzes_impl_Assertion::$SYNTAX_EXPRESSION;
+			$qq->assertions->push($syntax);
+		}
 		$pairs = $this->getPairings($correctAnswers->length, $userAnswers->length);
 		{
 			$_g1 = 0; $_g = $pairs->length;
@@ -274,7 +291,6 @@ class com_wiris_quizzes_impl_QuizzesBuilderImpl extends com_wiris_quizzes_api_Qu
 				$user = $pair[1];
 				$foundSyntax = false;
 				$foundEquiv = false;
-				$k = null;
 				{
 					$_g3 = 0; $_g2 = $qq->assertions->length;
 					while($_g3 < $_g2) {
@@ -288,12 +304,13 @@ class com_wiris_quizzes_impl_QuizzesBuilderImpl extends com_wiris_quizzes_api_Qu
 					unset($_g3,$_g2);
 				}
 				if(!$foundSyntax) {
-					$qq->setAssertion(com_wiris_quizzes_impl_Assertion::$SYNTAX_EXPRESSION, $correct, $user);
+					$syntax->addCorrectAnswer($correct);
+					$syntax->addAnswer($user);
 				}
 				if(!$foundEquiv) {
 					$qq->setAssertion(com_wiris_quizzes_impl_Assertion::$EQUIVALENT_SYMBOLIC, $correct, $user);
 				}
-				unset($user,$pair,$k,$i1,$foundSyntax,$foundEquiv,$correct);
+				unset($user,$pair,$i1,$foundSyntax,$foundEquiv,$correct);
 			}
 		}
 		{

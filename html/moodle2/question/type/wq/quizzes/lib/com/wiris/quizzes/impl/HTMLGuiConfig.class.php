@@ -45,6 +45,16 @@ class com_wiris_quizzes_impl_HTMLGuiConfig {
 						$this->optAuxiliarCas = true;
 						$this->tabCorrectAnswer = true;
 						$this->configClasses->push(com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISAUXILIARCAS);
+					} else {
+						if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISVALIDATION) {
+							$this->tabValidation = true;
+							$this->configClasses->push(com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISVALIDATION);
+						} else {
+							if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISGRADINGFUNCTION) {
+								$this->optGradingFunction = true;
+								$this->configClasses->push(com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISGRADINGFUNCTION);
+							}
+						}
 					}
 				}
 				unset($i1,$className);
@@ -79,6 +89,7 @@ class com_wiris_quizzes_impl_HTMLGuiConfig {
 		$this->optOpenAnswer = false;
 		$this->optAuxiliarCas = false;
 		$this->optAuxiliarCasReplaceEditor = false;
+		$this->optGradingFunction = false;
 	}
 	public function openAnswerConfig() {
 		$this->tabCorrectAnswer = true;
@@ -88,8 +99,10 @@ class com_wiris_quizzes_impl_HTMLGuiConfig {
 		$this->optOpenAnswer = true;
 		$this->optAuxiliarCas = false;
 		$this->optAuxiliarCasReplaceEditor = false;
+		$this->optGradingFunction = false;
 	}
 	public $configClasses;
+	public $optGradingFunction;
 	public $optAuxiliarCasReplaceEditor;
 	public $optAuxiliarCas;
 	public $optOpenAnswer;
@@ -111,6 +124,8 @@ class com_wiris_quizzes_impl_HTMLGuiConfig {
 	static $WIRISOPENANSWER = "wirisopenanswer";
 	static $WIRISESSAY = "wirisessay";
 	static $WIRISVARIABLES = "wirisvariables";
+	static $WIRISVALIDATION = "wirisvalidation";
 	static $WIRISAUXILIARCAS = "wirisauxiliarcas";
+	static $WIRISGRADINGFUNCTION = "wirisgradingfunction";
 	function __toString() { return 'com.wiris.quizzes.impl.HTMLGuiConfig'; }
 }

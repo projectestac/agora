@@ -32,8 +32,8 @@ class qtype_matchwiris extends qtype_wq {
     public function export_to_xml($question, qformat_xml $format, $extra=null) {
         $fs = get_file_storage();
         $contextid = $question->contextid;
-        $expout = "    <shuffleanswers>" . $format->get_single($question->options->shuffleanswers) . "</shuffleanswers>\n";        
-        $expout .= $format->write_combined_feedback($question->options);
+        $expout = "    <shuffleanswers>" . $format->get_single($question->options->shuffleanswers) . "</shuffleanswers>\n";
+        $expout .= $format->write_combined_feedback($question->options, $question->id, $question->contextid);
         foreach ($question->options->subquestions as $subquestion) {
             $files = $fs->get_area_files($contextid, 'qtype_match',
                     'subquestion', $subquestion->id);

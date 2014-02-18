@@ -7,6 +7,7 @@ $string['shortanswerwirissummary'] = 'Igual que la pregunta estándar de Respues
 $string['shortanswerwiris_addanswers'] = 'Espacios en blanco para más opciones';
 $string['shortanswerwiris_answersinstruct'] = 'Usted debe proporcionar al menos una respuesta correcta. Las respuestas en blanco no serán utilizadas. La primera respuesta coincidente se utilizará para determinar la puntuación y retroalimentación.';
 $string['shortanswerwiris_algorithm'] = 'Algoritmo';
+$string['shortanswerwiris_cantimportcompoundtest'] = 'The short answer - math & science question could not be imported properly from Moodle 1.9 format. The question can be manually fixed following the instructions at <a href="http://www.wiris.com/quizzes/docs/moodle/manual/compound-answer#upgrade">http://www.wiris.com/quizzes/docs/moodle/manual/compound-answer#upgrade</a>.';
 
 //From Moodle 2.3
 $string['pluginname'] = 'Respuesta corta - Ciencias';

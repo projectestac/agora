@@ -1,6 +1,7 @@
 <?php
 
 interface com_wiris_quizzes_api_QuestionInstance extends com_wiris_quizzes_api_Serializable{
+	function setCasSession($session);
 	function setRandomSeed($seed);
 	function getStudentQuestionInstance();
 	function getAnswerGrade($correctAnswer, $studentAnswer, $question);

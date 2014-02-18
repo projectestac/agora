@@ -5,6 +5,15 @@ class com_wiris_quizzes_impl_QuestionRequestImpl extends com_wiris_util_xml_Seri
 		if(!php_Boot::$skip_constructor) {
 		parent::__construct();
 	}}
+	public function addMetaProperty($name, $value) {
+		if($this->meta === null) {
+			$this->meta = new _hx_array(array());
+		}
+		$p = new com_wiris_quizzes_impl_Property();
+		$p->name = $name;
+		$p->value = $value;
+		$this->meta->push($p);
+	}
 	public function addProcess($p) {
 		if($this->processes === null) {
 			$this->processes = new _hx_array(array());
@@ -42,8 +51,10 @@ class com_wiris_quizzes_impl_QuestionRequestImpl extends com_wiris_util_xml_Seri
 		$this->question = $s->serializeChildName($this->question, com_wiris_quizzes_impl_QuestionImpl::$tagName);
 		$this->userData = $s->serializeChildName($this->userData, com_wiris_quizzes_impl_UserData::$tagName);
 		$this->processes = $s->serializeArrayName($this->processes, "processes");
+		$this->meta = $s->serializeArrayName($this->meta, "meta");
 		$s->endTag();
 	}
+	public $meta;
 	public $processes;
 	public $userData;
 	public $question;

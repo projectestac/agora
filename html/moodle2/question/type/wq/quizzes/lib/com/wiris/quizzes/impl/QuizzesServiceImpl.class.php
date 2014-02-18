@@ -55,7 +55,6 @@ class com_wiris_quizzes_impl_QuizzesServiceImpl implements com_wiris_quizzes_api
 			$http->setParameter("service", "quizzes");
 			$http->setParameter("rawpostdata", "true");
 			$http->setParameter("postdata", $postData);
-			$http->setHeader("Connection", "close");
 			$http->setHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 		} else {
 			$url = $this->getServiceUrl();

@@ -12,49 +12,56 @@ class com_wiris_util_sys_IniFile {
 		while(($start = _hx_index_of($file, "\x0A", $end)) !== -1) {
 			$line = _hx_substr($file, $end, $start - $end);
 			$end = $start + 1;
-			$line = trim($line);
-			if(strlen($line) === 0) {
+			$this->loadPropertiesLine($line, $count);
+			$count++;
+			unset($line);
+		}
+		if($end < strlen($file)) {
+			$line = _hx_substr($file, $end, null);
+			$this->loadPropertiesLine($line, $count);
+		}
+	}
+	public function loadPropertiesLine($line, $count) {
+		$line = trim($line);
+		if(strlen($line) === 0) {
+			return;
+		}
+		if(StringTools::startsWith($line, ";") || StringTools::startsWith($line, "#")) {
+			return;
+		}
+		$equals = _hx_index_of($line, "=", null);
+		if($equals === -1) {
+			throw new HException("Malformed INI file " . $this->filename . " in line " . _hx_string_rec($count, "") . " no equal sign found.");
+		}
+		$key = _hx_substr($line, 0, $equals);
+		$key = trim($key);
+		$value = _hx_substr($line, $equals + 1, null);
+		$value = trim($value);
+		if(StringTools::startsWith($value, "\"") && StringTools::endsWith($value, "\"")) {
+			$value = _hx_substr($value, 1, strlen($value) - 2);
+		}
+		$backslash = 0;
+		while(($backslash = _hx_index_of($value, "\\", $backslash)) !== -1) {
+			if(strlen($value) <= $backslash + 1) {
 				continue;
 			}
-			if(StringTools::startsWith($line, ";") || StringTools::startsWith($line, "#")) {
-				continue;
-			}
-			$equals = _hx_index_of($line, "=", null);
-			if($equals === -1) {
-				throw new HException("Malformed INI file " . $this->filename . " in line " . _hx_string_rec($count, "") . " no equal sign found.");
-			}
-			$key = _hx_substr($line, 0, $equals);
-			$key = trim($key);
-			$value = _hx_substr($line, $equals + 1, null);
-			$value = trim($value);
-			if(StringTools::startsWith($value, "\"") && StringTools::endsWith($value, "\"")) {
-				$value = _hx_substr($value, 1, strlen($value) - 2);
-			}
-			$backslash = 0;
-			while(($backslash = _hx_index_of($value, "\\", $backslash)) !== -1) {
-				if(strlen($value) <= $backslash + 1) {
-					continue;
-				}
-				$letter = _hx_substr($value, $backslash + 1, 1);
-				if($letter === "n") {
-					$letter = "\x0A";
+			$letter = _hx_substr($value, $backslash + 1, 1);
+			if($letter === "n") {
+				$letter = "\x0A";
+			} else {
+				if($letter === "r") {
+					$letter = "\x0D";
 				} else {
-					if($letter === "r") {
-						$letter = "\x0D";
-					} else {
-						if($letter === "t") {
-							$letter = "\x09";
-						}
+					if($letter === "t") {
+						$letter = "\x09";
 					}
 				}
-				$value = _hx_substr($value, 0, $backslash) . $letter . _hx_substr($value, $backslash + 2, null);
-				$backslash++;
-				unset($letter);
 			}
-			$this->props->set($key, $value);
-			$count++;
-			unset($value,$line,$key,$equals,$backslash);
+			$value = _hx_substr($value, 0, $backslash) . $letter . _hx_substr($value, $backslash + 2, null);
+			$backslash++;
+			unset($letter);
 		}
+		$this->props->set($key, $value);
 	}
 	public function loadINI() {
 		$file = null;

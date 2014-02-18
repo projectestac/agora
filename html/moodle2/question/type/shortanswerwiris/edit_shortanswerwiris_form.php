@@ -35,7 +35,7 @@ class qtype_shortanswerwiris_edit_form extends qtype_wq_edit_form {
                     foreach ($elem->_elements as $k => $subel) {
                         if ($subel->_type=='text') {
                             // Ad class info in order to be recognized by WIRIS quizzes
-                            $subel->_attributes['class'] = 'wirisauthoringfield wirisstudio wirisopenanswer wirisvariables wirisauxiliarcas';
+                            $subel->_attributes['class'] = 'wirisauthoringfield wirisstudio wirisopenanswer wirisvariables wirisauxiliarcas wirisgradingfunction';
                         }
                     }
                 }
@@ -55,7 +55,7 @@ class qtype_shortanswerwiris_edit_form extends qtype_wq_edit_form {
             foreach ($mform->_elementIndex as $key => $value){
                 if (substr($key, 0, 7) == 'answer[' && $answer < $correctSize){
                     // Ad class info in order to be recognized by WIRIS quizzes
-                    $mform->_elements[$value]->_attributes['class'] = 'wirisauthoringfield wirisstudio wirisopenanswer wirisvariables wirisauxiliarcas';
+                    $mform->_elements[$value]->_attributes['class'] = 'wirisauthoringfield wirisstudio wirisopenanswer wirisvariables wirisauxiliarcas wirisgradingfunction';
                     $answer++;
                 }else if (substr($key, 0, 7) == 'answer['){
                     $mform->removeElement($key);

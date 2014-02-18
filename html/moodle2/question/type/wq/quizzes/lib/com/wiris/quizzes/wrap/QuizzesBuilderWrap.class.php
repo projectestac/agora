@@ -77,6 +77,7 @@ class com_wiris_quizzes_wrap_QuizzesBuilderWrap extends com_wiris_quizzes_api_Qu
 			}
 			$this->wrapper->start();
 			$r = $this->builder->newEvalMultipleAnswersRequest($correctAnswers, $studentAnswers, $question, $instance);
+			$r = new com_wiris_quizzes_wrap_QuestionRequestWrap($r);
 			$this->wrapper->stop();
 			return $r;
 		}catch(Exception $»e) {
@@ -100,6 +101,7 @@ class com_wiris_quizzes_wrap_QuizzesBuilderWrap extends com_wiris_quizzes_api_Qu
 			}
 			$this->wrapper->start();
 			$r = $this->builder->newEvalRequest($correctAnswer, $studentAnswer, $question, $instance);
+			$r = new com_wiris_quizzes_wrap_QuestionRequestWrap($r);
 			$this->wrapper->stop();
 			return $r;
 		}catch(Exception $»e) {
@@ -123,6 +125,7 @@ class com_wiris_quizzes_wrap_QuizzesBuilderWrap extends com_wiris_quizzes_api_Qu
 			}
 			$this->wrapper->start();
 			$r = $this->builder->newVariablesRequest($html, $question, $instance);
+			$r = new com_wiris_quizzes_wrap_QuestionRequestWrap($r);
 			$this->wrapper->stop();
 			return $r;
 		}catch(Exception $»e) {

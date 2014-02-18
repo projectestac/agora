@@ -14,9 +14,8 @@ class qtype_multianswerwiris_edit_form extends qtype_wq_edit_form {
         parent::definition_inner($mform);
 
         $wirismultianswer = $mform->createElement('text', 'wirismultianswer', get_string('multianswerwiris_algorithm', 'qtype_multianswerwiris'), 
-                array('class' => 'wirisauthoringfield wirisstudio wirismultichoice wirisvariables wirisauxiliarcas'));
+                array('class' => 'wirisauthoringfield wirisstudio wirismultichoice wirisvariables wirisvalidation wirisauxiliarcas'));
         
-        //$wirishdr = $mform->createElement('header', 'wirishdr', 'WIRIS variables ');
         $wirishdr = $mform->createElement('header', 'wirishdr', get_string('multianswerwiris_wiris_variables', 'qtype_multianswerwiris'));
  
         if ($CFG->version>=2013051400) { // 2.5+

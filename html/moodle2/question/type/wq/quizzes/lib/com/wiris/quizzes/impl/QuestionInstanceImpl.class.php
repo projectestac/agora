@@ -9,6 +9,25 @@ class com_wiris_quizzes_impl_QuestionInstanceImpl extends com_wiris_util_xml_Ser
 		$this->variables = null;
 		$this->checks = null;
 	}}
+	public function setCasSession($session) {
+		if($session !== null && strlen(trim($session)) > 0) {
+			$this->setLocalData(com_wiris_quizzes_impl_LocalData::$KEY_CAS_SESSION, $session);
+		} else {
+			if($this->localData !== null) {
+				$i = null;
+				{
+					$_g1 = 0; $_g = $this->localData->length;
+					while($_g1 < $_g) {
+						$i1 = $_g1++;
+						if(_hx_array_get($this->localData, $i1)->name === com_wiris_quizzes_impl_LocalData::$KEY_CAS_SESSION) {
+							$this->localData->remove($this->localData[$i1]);
+						}
+						unset($i1);
+					}
+				}
+			}
+		}
+	}
 	public function setRandomSeed($seed) {
 		$this->userData->randomSeed = $seed;
 	}
@@ -63,18 +82,22 @@ class com_wiris_quizzes_impl_QuestionInstanceImpl extends com_wiris_util_xml_Ser
 		if(StringTools::startsWith($name, "#")) {
 			$name = _hx_substr($name, 1, null);
 		}
-		$textvars = $this->variables->get(com_wiris_quizzes_impl_MathContent::$TYPE_TEXT);
-		if($textvars->exists($name)) {
-			$textValue = $textvars->get($name);
-			return $this->parseTextBoolean($textValue);
+		if($this->variables->exists(com_wiris_quizzes_impl_MathContent::$TYPE_TEXT)) {
+			$textvars = $this->variables->get(com_wiris_quizzes_impl_MathContent::$TYPE_TEXT);
+			if($textvars->exists($name)) {
+				$textValue = $textvars->get($name);
+				return $this->parseTextBoolean($textValue);
+			}
 		}
-		$mmlvars = $this->variables->get(com_wiris_quizzes_impl_MathContent::$TYPE_MATHML);
-		if($mmlvars->exists($name)) {
-			$mmlValue = $textvars->get($name);
-			$striptags = new EReg("<[^>]*>", "");
-			$textValue = $striptags->replace($mmlValue, "");
-			$textValue = trim($textValue);
-			return $this->parseTextBoolean($textValue);
+		if($this->variables->exists(com_wiris_quizzes_impl_MathContent::$TYPE_MATHML)) {
+			$mmlvars = $this->variables->get(com_wiris_quizzes_impl_MathContent::$TYPE_MATHML);
+			if($mmlvars->exists($name)) {
+				$mmlValue = $mmlvars->get($name);
+				$striptags = new EReg("<[^>]*>", "");
+				$textValue = $striptags->replace($mmlValue, "");
+				$textValue = trim($textValue);
+				return $this->parseTextBoolean($textValue);
+			}
 		}
 		return false;
 	}
@@ -164,6 +187,9 @@ class com_wiris_quizzes_impl_QuestionInstanceImpl extends com_wiris_util_xml_Ser
 		return $h;
 	}
 	public function getAnswerFeedback($q, $answer, $lang, $correct, $incorrect, $syntax, $equivalent, $check) {
+		if($this->checks === null || !$this->checks->exists(_hx_string_rec($answer, "") . "")) {
+			return null;
+		}
 		$checks = $this->checks->get(_hx_string_rec($answer, "") . "");
 		$h = new com_wiris_quizzes_impl_HTMLGui($lang);
 		$ass = new _hx_array(array());
@@ -186,6 +212,9 @@ class com_wiris_quizzes_impl_QuestionInstanceImpl extends com_wiris_util_xml_Ser
 	}
 	public function getMatchingChecks($correctAnswer, $userAnswer) {
 		$result = new _hx_array(array());
+		if($this->checks === null || !$this->checks->exists(_hx_string_rec($userAnswer, "") . "")) {
+			return $result;
+		}
 		$checks = $this->checks->get(_hx_string_rec($userAnswer, "") . "");
 		$i = null;
 		$eval = 0;
@@ -217,26 +246,28 @@ class com_wiris_quizzes_impl_QuestionInstanceImpl extends com_wiris_util_xml_Ser
 	}
 	public function isAnswerSyntaxCorrect($answer) {
 		$correct = true;
-		$checks = $this->checks->get(_hx_string_rec($answer, "") . "");
-		$i = null;
-		{
-			$_g1 = 0; $_g = $checks->length;
-			while($_g1 < $_g) {
-				$i1 = $_g1++;
-				$ac = $checks[$i1];
-				$j = null;
-				{
-					$_g3 = 0; $_g2 = com_wiris_quizzes_impl_Assertion::$syntactic->length;
-					while($_g3 < $_g2) {
-						$j1 = $_g3++;
-						if($ac->assertion === com_wiris_quizzes_impl_Assertion::$syntactic[$j1]) {
-							$correct = $correct && $ac->value === 1.0;
+		if($this->checks !== null && $this->checks->exists(_hx_string_rec($answer, "") . "")) {
+			$checks = $this->checks->get(_hx_string_rec($answer, "") . "");
+			$i = null;
+			{
+				$_g1 = 0; $_g = $checks->length;
+				while($_g1 < $_g) {
+					$i1 = $_g1++;
+					$ac = $checks[$i1];
+					$j = null;
+					{
+						$_g3 = 0; $_g2 = com_wiris_quizzes_impl_Assertion::$syntactic->length;
+						while($_g3 < $_g2) {
+							$j1 = $_g3++;
+							if($ac->assertion === com_wiris_quizzes_impl_Assertion::$syntactic[$j1]) {
+								$correct = $correct && $ac->value === 1.0;
+							}
+							unset($j1);
 						}
-						unset($j1);
+						unset($_g3,$_g2);
 					}
-					unset($_g3,$_g2);
+					unset($j,$i1,$ac);
 				}
-				unset($j,$i1,$ac);
 			}
 		}
 		return $correct;
@@ -401,31 +432,35 @@ class com_wiris_quizzes_impl_QuestionInstanceImpl extends com_wiris_util_xml_Ser
 	}
 	public function isAnswerCorrect($answer) {
 		$correct = true;
-		$checks = $this->checks->get(_hx_string_rec($answer, "") . "");
-		$i = null;
-		{
-			$_g1 = 0; $_g = $checks->length;
-			while($_g1 < $_g) {
-				$i1 = $_g1++;
-				$correct = $correct && _hx_array_get($checks, $i1)->value === 1.0;
-				unset($i1);
+		if($this->checks !== null && $this->checks->exists(_hx_string_rec($answer, "") . "")) {
+			$checks = $this->checks->get(_hx_string_rec($answer, "") . "");
+			$i = null;
+			{
+				$_g1 = 0; $_g = $checks->length;
+				while($_g1 < $_g) {
+					$i1 = $_g1++;
+					$correct = $correct && _hx_array_get($checks, $i1)->value === 1.0;
+					unset($i1);
+				}
 			}
 		}
 		return $correct;
 	}
 	public function isAnswerMatching($correctAnswer, $answer) {
 		$correct = true;
-		$checks = $this->checks->get(_hx_string_rec($answer, "") . "");
-		$i = null;
-		{
-			$_g1 = 0; $_g = $checks->length;
-			while($_g1 < $_g) {
-				$i1 = $_g1++;
-				$c = $checks[$i1];
-				if($c->getCorrectAnswer() === $correctAnswer) {
-					$correct = $correct && $c->value === 1.0;
+		if($this->checks !== null && $this->checks->exists(_hx_string_rec($answer, "") . "")) {
+			$checks = $this->checks->get(_hx_string_rec($answer, "") . "");
+			$i = null;
+			{
+				$_g1 = 0; $_g = $checks->length;
+				while($_g1 < $_g) {
+					$i1 = $_g1++;
+					$c = $checks[$i1];
+					if($c->getCorrectAnswer() === $correctAnswer) {
+						$correct = $correct && $c->value === 1.0;
+					}
+					unset($i1,$c);
 				}
-				unset($i1,$c);
 			}
 		}
 		return $correct;
@@ -590,6 +625,9 @@ class com_wiris_quizzes_impl_QuestionInstanceImpl extends com_wiris_util_xml_Ser
 			return null;
 		}
 		$h = new com_wiris_quizzes_impl_HTMLTools();
+		if(com_wiris_quizzes_impl_MathContent::getMathType($text) === com_wiris_quizzes_impl_MathContent::$TYPE_MATHML) {
+			$text = $h->mathMLToText($text);
+		}
 		if($this->variables === null || $this->variables->get(com_wiris_quizzes_impl_MathContent::$TYPE_TEXT) === null) {
 			return $text;
 		} else {
