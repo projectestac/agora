@@ -73,7 +73,7 @@ class core_backup_renderer extends plugin_renderer_base {
      */
     public function backup_details($details, $nextstageurl) {
         $yestick = $this->output->pix_icon('i/valid', get_string('yes'));
-        $notick = $this->output->pix_icon('i/valid', get_string('no'));
+        $notick = $this->output->pix_icon('i/invalid', get_string('no'));
 
         $html  = html_writer::start_tag('div', array('class'=>'backup-restore'));
 
@@ -140,7 +140,7 @@ class core_backup_renderer extends plugin_renderer_base {
                     }
                     if (empty($table)) {
                         $table = new html_table();
-                        $table->head = array('Module', 'Title', 'Userinfo');
+                        $table->head = array(get_string('module','backup'), get_string('title','backup'), get_string('userinfo','backup'));
                         $table->colclasses = array('modulename', 'moduletitle', 'userinfoincluded');
                         $table->align = array('left','left', 'center');
                         $table->attributes = array('class'=>'activitytable generaltable');
@@ -521,6 +521,15 @@ class core_backup_renderer extends plugin_renderer_base {
         $url = $component->get_url();
 
         $output = html_writer::start_tag('div', array('class' => 'restore-course-search'));
+
+        $countstr = '';
+        if ($component->has_more_results()) {
+            $countstr = get_string('morecoursesearchresults', 'backup', $component->get_count());
+        } else {
+            $countstr = get_string('totalcoursesearchresults', 'backup', $component->get_count());
+        }
+
+        $output .= html_writer::tag('div', $countstr, array('class'=>'rcs-totalresults'));
         $output .= html_writer::start_tag('div', array('class' => 'rcs-results'));
 
         $table = new html_table();
@@ -590,8 +599,14 @@ class core_backup_renderer extends plugin_renderer_base {
             return $output;
         }
 
-        $output .= html_writer::tag('div', get_string('totalcoursesearchresults', 'backup', $component->get_count()), array('class'=>'ics-totalresults'));
+        $countstr = '';
+        if ($component->has_more_results()) {
+            $countstr = get_string('morecoursesearchresults', 'backup', $component->get_count());
+        } else {
+            $countstr = get_string('totalcoursesearchresults', 'backup', $component->get_count());
+        }
 
+        $output .= html_writer::tag('div', $countstr, array('class'=>'ics-totalresults'));
         $output .= html_writer::start_tag('div', array('class' => 'ics-results'));
 
         $table = new html_table();
@@ -608,6 +623,14 @@ class core_backup_renderer extends plugin_renderer_base {
                 format_string($course->shortname, true, array('context' => context_course::instance($course->id))),
                 format_string($course->fullname, true, array('context' => context_course::instance($course->id)))
             );
+            $table->data[] = $row;
+        }
+        if ($component->has_more_results()) {
+            $cell = new html_table_cell(get_string('moreresults', 'backup'));
+            $cell->colspan = 3;
+            $cell->attributes['class'] = 'notifyproblem';
+            $row = new html_table_row(array($cell));
+            $row->attributes['class'] = 'rcs-course';
             $table->data[] = $row;
         }
         $output .= html_writer::table($table);

@@ -30,6 +30,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['parentlanguage'] = 'es';
-$string['thisdirection'] = 'ltr';
-$string['thislanguage'] = 'Español - España';
+$string['environmentrequireinstall'] = 'повинен бути встановлений і включений';
+$string['environmentrequireversion'] = 'рекомендується версія {$a->needed}, використовується версія {$a->current}';

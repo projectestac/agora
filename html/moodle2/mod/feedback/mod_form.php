@@ -44,6 +44,7 @@ class mod_feedback_mod_form extends moodleform_mod {
         $mform->addElement('text', 'name', get_string('name', 'feedback'), array('size'=>'64'));
         $mform->setType('name', PARAM_TEXT);
         $mform->addRule('name', null, 'required', null, 'client');
+        $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
 
         $this->add_intro_editor(true, get_string('description', 'feedback'));
 
@@ -202,14 +203,13 @@ class mod_feedback_mod_form extends moodleform_mod {
             $data->page_after_submitformat = $data->page_after_submit_editor['format'];
             $data->page_after_submit = $data->page_after_submit_editor['text'];
 
-            // Turn off completion settings if the checkboxes aren't ticked
-            $autocompletion = !empty($data->completion) AND
-                                    $data->completion==COMPLETION_TRACKING_AUTOMATIC;
-            if (empty($data->completion) || !$autocompletion) {
-                $data->completionsubmit=0;
-            }
-            if (empty($data->completionsubmit)) {
-                $data->completionsubmit=0;
+            if (!empty($data->completionunlocked)) {
+                // Turn off completion settings if the checkboxes aren't ticked
+                $autocompletion = !empty($data->completion) &&
+                    $data->completion == COMPLETION_TRACKING_AUTOMATIC;
+                if (!$autocompletion || empty($data->completionsubmit)) {
+                    $data->completionsubmit=0;
+                }
             }
         }
 

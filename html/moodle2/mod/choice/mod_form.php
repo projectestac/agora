@@ -22,6 +22,7 @@ class mod_choice_mod_form extends moodleform_mod {
             $mform->setType('name', PARAM_CLEANHTML);
         }
         $mform->addRule('name', null, 'required', null, 'client');
+        $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
 
         $this->add_intro_editor(true, get_string('chatintro', 'chat'));
 
@@ -139,8 +140,10 @@ class mod_choice_mod_form extends moodleform_mod {
             return false;
         }
         // Set up completion section even if checkbox is not ticked
-        if (empty($data->completionsection)) {
-            $data->completionsection=0;
+        if (!empty($data->completionunlocked)) {
+            if (empty($data->completionsubmit)) {
+                $data->completionsubmit = 0;
+            }
         }
         return $data;
     }

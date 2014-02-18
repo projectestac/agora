@@ -216,15 +216,15 @@ real estate to the tool, and others provide a more integrated feel with the Mood
         It is possible that browsers will prevent the new window from opening.';
 $string['launchoptions'] = 'Launch Options';
 $string['lti'] = 'LTI';
-$string['lti:addinstance'] = 'Add a new LTI activity';
-$string['lti:addcoursetool'] = 'Grade LTI activities';
-$string['lti:grade'] = 'Grade LTI activities';
-$string['lti:manage'] = 'Edit LTI activities';
-$string['lti:requesttooladd'] = 'Submit a tool to admins for configuration';
-$string['lti:view'] = 'View LTI activities';
+$string['lti:addinstance'] = 'Add new external tool activities';
+$string['lti:addcoursetool'] = 'Add course-specific tool configurations';
+$string['lti:grade'] = 'View grades returned by the external tool';
+$string['lti:manage'] = 'Be an Instructor when the tool is launched';
+$string['lti:requesttooladd'] = 'Request a tool is configured site-wide';
+$string['lti:view'] = 'Launch external tool activities';
 $string['lti_administration'] = 'LTI Administration';
 $string['lti_errormsg'] = 'The tool returned the following error message: "{$a}"';
-$string['lti_launch_error'] = 'An error occured when launching the external tool: ';
+$string['lti_launch_error'] = 'An error occurred when launching the external tool:';
 $string['lti_launch_error_tool_request'] = '<p>
 To submit a request for an administrator to complete the tool configuration, click <a href="{$a->admin_request_url}" target="_top">here</a>.
 </p>';
@@ -395,53 +395,33 @@ The only case in which this option should be selected is if the tool configurati
 For example, if all launches to the tool provider just take the user to a landing page instead of to a specific resource.';
 $string['size'] = 'Size parameters';
 $string['submission'] = 'Submission';
+$string['submissionsfor'] = 'Submissions for {$a}';
 $string['toggle_debug_data'] = 'Toggle Debug Data';
 $string['tool_config_not_found'] = 'Tool configuration not found for this URL.';
 $string['tool_settings'] = 'Tool Settings';
 $string['toolsetup'] = 'External Tool Configuration';
 $string['toolurl'] = 'Tool Base URL';
-$string['toolurl_help'] = 'The tool base URL is used to match tool launch URLs to the correct tool configuration. Prefxing the URL with http(s) is optional.
+$string['toolurl_help'] = 'The tool base URL is used to match tool launch URLs to the correct tool configuration. Prefixing the URL with http(s) is optional.
 
 Additionally, the base URL is used as the launch URL if a launch URL is not specified in the external tool instance.
 
-<table>
-    <thead>
-        <tr>
-            <td>
-                <b>Base URL</b>
-            </td>
-            <td>
-                <b>Matches</b>
-            </td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                tool.com
-            </td>
-            <td>
-                tool.com, tool.com/quizzes, tool.com/quizzes/quiz.php?id=10, www.tool.com/quizzes
-            </td>
-        </tr>
-        <tr>
-            <td>
-                www.tool.com/quizzes
-            </td>
-            <td>
-                tool.com/quizzes, tool.com/quizzes/take.php?id=10, www.tool.com/quizzes
-            </td>
-        </tr>
-        <tr>
-            <td>
-                quiz.tool.com
-            </td>
-            <td>
-                quiz.tool.com, quiz.tool.com/take.php?id=10
-            </td>
-        </tr>
-    </tbody>
-</table>
+For example, a base URL of *tool.com* would match the following:
+
+* tool.com
+* tool.com/quizzes
+* tool.com/quizzes/quiz.php?id=10
+* www.tool.com/quizzes
+
+A base URL of *www.tool.com/quizzes* would match the following:
+
+* www.tool.com/quizzes
+* tool.com/quizzes
+* tool.com/quizzes/take.php?id=10
+
+A base URL of *quiz.tool.com* would match the following:
+
+* quiz.tool.com
+* quiz.tool.com/take.php?id=10
 
 If two different tool configurations are for the same domain, the most specific match will be used.';
 $string['typename'] = 'Tool Name';

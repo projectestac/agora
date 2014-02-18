@@ -7,10 +7,10 @@ body.pagelayout-admin.has_dock {
     width: 100%;
     margin: 0 auto;
     position: relative;
+    max-width: 1664px;
 }
 .pagelayout-admin #page-footer {
     float: none;
-    background: #f3f3f3 none;
     width: 100%;
     margin: 0;
     padding: 0;

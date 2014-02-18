@@ -100,7 +100,7 @@ if (!empty($action) && confirm_sesskey()) {
 
             if (!array_key_exists($store, $stores)) {
                 $notifysuccess = false;
-                $notification = get_string('invalidstore');
+                $notification = get_string('invalidstore', 'cache');
             } else if ($stores[$store]['mappings'] > 0) {
                 $notifysuccess = false;
                 $notification = get_string('deletestorehasmappings', 'cache');
@@ -177,6 +177,7 @@ if (!empty($action) && confirm_sesskey()) {
 
 $PAGE->set_title($title);
 $PAGE->set_heading($SITE->fullname);
+/* @var core_cache_renderer $renderer */
 $renderer = $PAGE->get_renderer('core_cache');
 
 echo $renderer->header();

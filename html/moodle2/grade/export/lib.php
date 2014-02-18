@@ -189,7 +189,7 @@ abstract class grade_export {
             $name .= ' ('.get_string('feedback').')';
         }
 
-        return strip_tags($name);
+        return html_to_text($name, 0, false);
     }
 
     /**
@@ -420,3 +420,13 @@ class grade_export_update_buffer {
     }
 }
 
+/**
+ * Verify that there is a valid set of grades to export.
+ * @param $courseid int The course being exported
+ */
+function export_verify_grades($courseid) {
+    $regraderesult = grade_regrade_final_grades($courseid);
+    if (is_array($regraderesult)) {
+        throw new moodle_exception('gradecantregrade', 'error', '', implode(', ', array_unique($regraderesult)));
+    }
+}

@@ -89,6 +89,9 @@ class restore_assign_activity_structure_step extends restore_activity_structure_
             $data->cutoffdate = $this->apply_date_offset($data->cutoffdate);
         }
 
+        if ($data->grade < 0) { // Scale found, get mapping.
+            $data->grade = -($this->get_mappingid('scale', abs($data->grade)));
+        }
 
         $newitemid = $DB->insert_record('assign', $data);
 
@@ -154,6 +157,7 @@ class restore_assign_activity_structure_step extends restore_activity_structure_
         // Note - the old contextid is required in order to be able to restore files stored in
         // sub plugin file areas attached to the gradeid
         $this->set_mapping('grade', $oldid, $newitemid, false, null, $this->task->get_old_contextid());
+        $this->set_mapping(restore_gradingform_plugin::itemid_mapping('submissions'), $oldid, $newitemid);
     }
 
     /**

@@ -27,7 +27,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot.'/cache/forms.php');
-require_once($CFG->dirroot.'/cache/stores/memcached/lib.php');
 
 /**
  * Form for adding a memcache instance.
@@ -46,5 +45,12 @@ class cachestore_memcache_addinstance_form extends cachestore_addinstance_form {
         $form->addHelpButton('servers', 'servers', 'cachestore_memcache');
         $form->addRule('servers', get_string('required'), 'required');
         $form->setType('servers', PARAM_RAW);
+
+        $form->addElement('text', 'prefix', get_string('prefix', 'cachestore_memcache'),
+                array('maxlength' => 5, 'size' => 5));
+        $form->addHelpButton('prefix', 'prefix', 'cachestore_memcache');
+        $form->setType('prefix', PARAM_TEXT); // We set to text but we have a rule to limit to alphanumext.
+        $form->setDefault('prefix', 'mdl_');
+        $form->addRule('prefix', get_string('prefixinvalid', 'cachestore_memcache'), 'regex', '#^[a-zA-Z0-9\-_]+$#');
     }
 }

@@ -141,6 +141,7 @@ class cachestore_memcached extends cache_store implements cache_is_configurable 
             }
             $this->connection->addServers($this->servers);
         }
+        // Test the connection to the pool of servers.
         $this->isready = @$this->connection->set("ping", 'ping', 1);
     }
 
@@ -203,6 +204,17 @@ class cachestore_memcached extends cache_store implements cache_is_configurable 
      */
     public static function get_supported_features(array $configuration = array()) {
         return self::SUPPORTS_NATIVE_TTL;
+    }
+
+    /**
+     * Returns false as this store does not support multiple identifiers.
+     * (This optional function is a performance optimisation; it must be
+     * consistent with the value from get_supported_features.)
+     *
+     * @return bool False
+     */
+    public function supports_multiple_identifiers() {
+        return false;
     }
 
     /**
@@ -328,7 +340,7 @@ class cachestore_memcached extends cache_store implements cache_is_configurable 
             $options[Memcached::SERIALIZER_JSON] = get_string('serialiser_json', 'cachestore_memcached');
         }
         if (Memcached::HAVE_IGBINARY) {
-            $options[Memcached::SERIALIZER_IGBINARY] = get_string('serialiser_php', 'cachestore_memcached');
+            $options[Memcached::SERIALIZER_IGBINARY] = get_string('serialiser_igbinary', 'cachestore_memcached');
         }
         return $options;
     }
@@ -362,7 +374,12 @@ class cachestore_memcached extends cache_store implements cache_is_configurable 
         $lines = explode("\n", $data->servers);
         $servers = array();
         foreach ($lines as $line) {
-            $line = trim($line, ':');
+            // Trim surrounding colons and default whitespace.
+            $line = trim(trim($line), ":");
+            // Skip blank lines.
+            if ($line === '') {
+                continue;
+            }
             $servers[] = explode(':', $line, 3);
         }
         return array(
@@ -433,7 +450,7 @@ class cachestore_memcached extends cache_store implements cache_is_configurable 
      * Generates an instance of the cache store that can be used for testing.
      *
      * @param cache_definition $definition
-     * @return false
+     * @return cachestore_memcached|false
      */
     public static function initialise_test_instance(cache_definition $definition) {
 

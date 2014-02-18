@@ -71,7 +71,7 @@ $string['addresourceoractivity'] = 'Add an activity or resource';
 $string['addresourcetosection'] = 'Add a resource to section \'{$a}\'';
 $string['address'] = 'Address';
 $string['addstudent'] = 'Add student';
-$string['addsubcategory'] = 'Add a sub-category';
+$string['addsubcategory'] = 'Add a subcategory';
 $string['addteacher'] = 'Add teacher';
 $string['admin'] = 'Admin';
 $string['adminhelpaddnewuser'] = 'To manually create a new user account';
@@ -185,6 +185,7 @@ $string['backuploglaststatus'] = 'Last execution log';
 $string['backupmissinguserinfoperms'] = 'Note: This backup contains no user data. Exercise and Workshop activities will not be included in the backup, since these modules are not compatible with this type of backup.';
 $string['backupnext'] = 'Next backup';
 $string['backupnonisowarning'] = 'Warning: this backup is from a non-Unicode version of Moodle (pre 1.6).  If this backup contains any non-ISO-8859-1 texts then they may be CORRUPTED if you try to restore them to this Unicode version of Moodle.  See the <a href="http://docs.moodle.org/en/Backup_FAQ">Backup FAQ</a> for more information about how to recover this backup correctly.';
+$string['backupnotyetrun'] = 'Automated backup pending';
 $string['backuporiginalname'] = 'Backup name';
 $string['backuproleassignments'] = 'Backup role assignments for these roles';
 $string['backupsavetohelp'] = 'Full path to the directory where you want to save the backup files<br />(leave blank to save in its course default dir)';
@@ -316,7 +317,7 @@ $string['coursehelpforce'] = 'Force the course group mode to every activity in t
 $string['coursehelpformat'] = 'The course main page will be displayed in this format.';
 $string['coursehelphiddensections'] = 'How the hidden sections in the course are displayed to students.';
 $string['coursehelpmaximumupload'] = 'Define the largest size of file that can be uploaded in this course, limited by the site-wide setting.';
-$string['coursehelpnewsitemsnumber'] = 'Number of recent items appearing on the course home page, in a news box down the right-hand side (0 means the news box won\'t appear).';
+$string['coursehelpnewsitemsnumber'] = 'Number of recent items from the news forum appearing in the latest news block on the course page. If set to zero, the latest news block will not be displayed.';
 $string['coursehelpnumberweeks'] = 'Number of sections in the course (applies to certain course formats only).';
 $string['coursehelpshowgrades'] = 'Enable the display of the gradebook. It does not prevent grades from being displayed within the individual activities.';
 $string['coursehidden'] = 'This course is currently unavailable to students';
@@ -326,10 +327,9 @@ $string['coursenotaccessible'] = 'This course does not allow public access';
 $string['courselegacyfiles'] = 'Legacy course files';
 $string['courselegacyfiles_help'] = 'The course files area provides some backward compatibility with Moodle 1.9 and earlier.  All files in this area are always accessible to all participants in the course (whether you link to them or not) and there is no way to know where any of these files are being used in Moodle.
 
-If you use this area to store course files, you can expose yourself to a number of privacy and security issues, as well as experiencing missing files in backups, course imports and any time content is shared or re-used.  It is therefore recommended that you do not use this area unless you really know what you are doing.
-
-The link below provides more information about all this and will show you some better ways to manage files in Moodle 2.';
+If you use this area to store course files, you can expose yourself to a number of privacy and security issues, as well as experiencing missing files in backups, course imports and any time content is shared or re-used.  It is therefore recommended that you do not use this area unless you really know what you are doing.';
 $string['courselegacyfiles_link'] = 'coursefiles2';
+$string['courselegacyfilesofcourse'] = 'Legacy course files: {$a}';
 $string['courseoverview'] = 'Course overview';
 $string['courseoverviewgraph'] = 'Course overview graph';
 $string['courseprofiles'] = 'Course profiles';
@@ -349,7 +349,7 @@ $string['courserequestdetails'] = 'Details of the course you are requesting';
 $string['courserequestfailed'] = 'For some reason, your course request could not be saved';
 $string['courserequestintro'] = 'Use this form to request a course to be created for you.<br />Try and fill in as much information as you can to allow<br />the administrators to understand your reasons for wanting this course.';
 $string['courserequestreason'] = 'Reasons for wanting this course';
-$string['courserequestsuccess'] = 'Successfully saved your course request. Expect an email within a few days with the outcome';
+$string['courserequestsuccess'] = 'Your course request has been saved successfully. You will be sent an email to inform you whether your request was approved.';
 $string['courserequestsupport'] = 'Supporting information to help the administrator evaluate this request';
 $string['courserestore'] = 'Course restore';
 $string['courses'] = 'Courses';
@@ -1158,7 +1158,7 @@ line at the top of your web browser window.
 Cheers from the \'{$a->sitename}\' administrator,
 {$a->signoff}';
 $string['newusers'] = 'New users';
-$string['newwindow'] = 'new window';
+$string['newwindow'] = 'New window';
 $string['next'] = 'Next';
 $string['nextsection'] = 'Next section';
 $string['no'] = 'No';
@@ -1247,6 +1247,7 @@ $string['options'] = 'options';
 $string['order'] = 'Order';
 $string['originalpath'] = 'Original path';
 $string['orphanedactivities'] = 'Orphaned activities';
+$string['orphanedactivitiesinsectionno'] = 'Orphaned activities (section {$a})';
 $string['other'] = 'Other';
 $string['outline'] = 'Outline';
 $string['outlinereport'] = 'Outline report';
@@ -1494,7 +1495,7 @@ $string['selectaregion'] = 'Select a region';
 $string['selctauser'] = 'Select a user';
 $string['selectall'] = 'Select all';
 $string['selectamodule'] = 'Please select an activity module';
-$string['selectanoptions'] = 'Select an options';
+$string['selectanoptions'] = 'Select an option';
 $string['selectdefault'] = 'Select default';
 $string['selectedfile'] = 'Selected file';
 $string['selectednowmove'] = '{$a} files selected for moving. Now go into the destination folder and press \'Move files to here\'';
@@ -1502,7 +1503,7 @@ $string['selectfiles'] = 'Select files';
 $string['selectmoduletoviewhelp'] = 'Select an activity or resource to view its help.
 
 Double-click on an activity or resource name to quickly add it.';
-$string['selectnos'] = 'Select all \'no\'';
+$string['selectnos'] = 'Select all \'No\'';
 $string['selectperiod'] = 'Select period';
 $string['senddetails'] = 'Send my details via email';
 $string['separate'] = 'Separate';
@@ -1632,7 +1633,7 @@ $string['stringsnotset'] = 'The following strings are not defined in {$a}';
 $string['studentnotallowed'] = 'Sorry, but you can not enter this course as \'{$a}\'';
 $string['students'] = 'Students';
 $string['studentsandteachers'] = 'Students and teachers';
-$string['subcategories'] = 'Sub-categories';
+$string['subcategories'] = 'Subcategories';
 $string['submit'] = 'Submit';
 $string['success'] = 'Success';
 $string['summary'] = 'Summary';

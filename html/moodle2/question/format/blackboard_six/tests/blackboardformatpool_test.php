@@ -41,8 +41,10 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 class qformat_blackboard_six_pool_test extends question_testcase {
 
     public function make_test_xml() {
-        $xml = file_get_contents(__DIR__ . '/fixtures/sample_blackboard_pool.dat');
-        return array(0=>$xml);
+        $xmlfile = new qformat_blackboard_six_file();
+        $xmlfile->filetype = 2;
+        $xmlfile->text = file_get_contents(__DIR__ . '/fixtures/sample_blackboard_pool.dat');
+        return array(0=>$xmlfile);
     }
 
     public function test_import_match() {
@@ -50,13 +52,16 @@ class qformat_blackboard_six_pool_test extends question_testcase {
         $xml = $this->make_test_xml();
 
         $importer = new qformat_blackboard_six();
-        $importer->set_filetype(2);
         $questions = $importer->readquestions($xml);
 
         $q = $questions[4];
 
+        // If qtype_ddmatch is installed, the formatter produces ddmatch
+        // qtypes, not match ones.
+        $ddmatchisinstalled = question_bank::is_qtype_installed('ddmatch');
+
         $expectedq = new stdClass();
-        $expectedq->qtype = 'match';
+        $expectedq->qtype = $ddmatchisinstalled ? 'ddmatch' : 'match';
         $expectedq->name = 'Classify the animals.';
         $expectedq->questiontext = '<i>Classify the animals.</i>';
         $expectedq->questiontextformat = FORMAT_HTML;
@@ -77,8 +82,17 @@ class qformat_blackboard_six_pool_test extends question_testcase {
             array('text' => '', 'format' => FORMAT_HTML),
             array('text' => 'frog', 'format' => FORMAT_HTML),
             array('text' => 'newt', 'format' => FORMAT_HTML));
-        $expectedq->subanswers = array('mammal', 'insect', 'amphibian', 'amphibian');
 
+        if ($ddmatchisinstalled) {
+            $expectedq->subanswers = array(
+                array('text' => 'mammal', 'format' => FORMAT_HTML),
+                array('text' => 'insect', 'format' => FORMAT_HTML),
+                array('text' => 'amphibian', 'format' => FORMAT_HTML),
+                array('text' => 'amphibian', 'format' => FORMAT_HTML),
+            );
+        } else {
+            $expectedq->subanswers = array('mammal', 'insect', 'amphibian', 'amphibian');
+        }
         $this->assert(new question_check_specified_fields_expectation($expectedq), $q);
     }
 
@@ -87,7 +101,6 @@ class qformat_blackboard_six_pool_test extends question_testcase {
         $xml = $this->make_test_xml();
 
         $importer = new qformat_blackboard_six();
-        $importer->set_filetype(2);
         $questions = $importer->readquestions($xml);
         $q = $questions[1];
 
@@ -147,7 +160,6 @@ class qformat_blackboard_six_pool_test extends question_testcase {
         $xml = $this->make_test_xml();
 
         $importer = new qformat_blackboard_six();
-        $importer->set_filetype(2);
         $questions = $importer->readquestions($xml);
         $q = $questions[2];
 
@@ -221,7 +233,6 @@ class qformat_blackboard_six_pool_test extends question_testcase {
         $xml = $this->make_test_xml();
 
         $importer = new qformat_blackboard_six();
-        $importer->set_filetype(2);
         $questions = $importer->readquestions($xml);
         $q = $questions[0];
 
@@ -251,7 +262,6 @@ class qformat_blackboard_six_pool_test extends question_testcase {
         $xml = $this->make_test_xml();
 
         $importer = new qformat_blackboard_six();
-        $importer->set_filetype(2);
         $questions = $importer->readquestions($xml);
         $q = $questions[3];
 
@@ -286,7 +296,6 @@ class qformat_blackboard_six_pool_test extends question_testcase {
         $xml = $this->make_test_xml();
 
         $importer = new qformat_blackboard_six();
-        $importer->set_filetype(2);
         $questions = $importer->readquestions($xml);
         $q = $questions[5];
 

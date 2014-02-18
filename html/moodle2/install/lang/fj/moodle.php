@@ -30,5 +30,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['parentlanguage'] = 'es';
-$string['thislanguage'] = 'Español - Argentina';
+$string['language'] = 'Vosa';
+$string['next'] = 'Tabana tarava';
+$string['previous'] = 'eliu';
+$string['reload'] = 'ucuna tale';

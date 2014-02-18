@@ -98,12 +98,16 @@ $STD_FIELDS = array('id', 'firstname', 'lastname', 'username', 'email',
 
 $PRF_FIELDS = array();
 
-if ($prof_fields = $DB->get_records('user_info_field')) {
-    foreach ($prof_fields as $prof_field) {
-        $PRF_FIELDS[] = 'profile_field_'.$prof_field->shortname;
+if ($proffields = $DB->get_records('user_info_field')) {
+    foreach ($proffields as $key => $proffield) {
+        $profilefieldname = 'profile_field_'.$proffield->shortname;
+        $PRF_FIELDS[] = $profilefieldname;
+        // Re-index $proffields with key as shortname. This will be
+        // used while checking if profile data is key and needs to be converted (eg. menu profile field)
+        $proffields[$profilefieldname] = $proffield;
+        unset($proffields[$key]);
     }
 }
-unset($prof_fields);
 
 if (empty($iid)) {
     $mform1 = new admin_uploaduser_form1();
@@ -227,10 +231,10 @@ if ($formdata = $mform2->is_cancelled()) {
                     $user->$key['text']   = $value;
                     $user->$key['format'] = FORMAT_MOODLE;
                 } else {
-                    $user->$key = $value;
+                    $user->$key = trim($value);
                 }
             } else {
-                $user->$key = $value;
+                $user->$key = trim($value);
             }
 
             if (in_array($key, $upt->columns)) {
@@ -331,6 +335,16 @@ if ($formdata = $mform2->is_cancelled()) {
             if (isset($formdata->$field)) {
                 // process templates
                 $user->$field = uu_process_template($formdata->$field, $user);
+
+                // Form contains key and later code expects value.
+                // Convert key to value for required profile fields.
+                require_once($CFG->dirroot.'/user/profile/field/'.$proffields[$field]->datatype.'/field.class.php');
+                $profilefieldclass = 'profile_field_'.$proffields[$field]->datatype;
+                $profilefield = new $profilefieldclass($proffields[$field]->id);
+                if (method_exists($profilefield, 'convert_external_data')) {
+                    $user->$field = $profilefield->edit_save_data_preprocess($user->$field, null);
+                }
+
                 $formdefaults[$field] = true;
             }
         }
@@ -867,6 +881,7 @@ if ($formdata = $mform2->is_cancelled()) {
                 if ($rid) {
                     // find duration
                     $timeend   = 0;
+
                     if (!empty($user->{'enrolperiod'.$i})) {
                         $duration = (int)$user->{'enrolperiod'.$i} * 60*60*24; // convert days to seconds
                         if ($duration > 0) { // sanity check
@@ -998,7 +1013,7 @@ while ($linenum <= $previewrows and $fields = $cir->next()) {
     $rowcols = array();
     $rowcols['line'] = $linenum;
     foreach($fields as $key => $field) {
-        $rowcols[$filecolumns[$key]] = s($field);
+        $rowcols[$filecolumns[$key]] = s(trim($field));
     }
     $rowcols['status'] = array();
 
@@ -1024,7 +1039,7 @@ while ($linenum <= $previewrows and $fields = $cir->next()) {
     }
 
     if (isset($rowcols['city'])) {
-        $rowcols['city'] = trim($rowcols['city']);
+        $rowcols['city'] = $rowcols['city'];
         if (empty($rowcols['city'])) {
             $rowcols['status'][] = get_string('fieldrequired', 'error', 'city');
         }

@@ -123,7 +123,7 @@ class accesslib_testcase extends advanced_testcase {
      * @return void
      */
     public function test_is_siteadmin() {
-        global $DB;
+        global $DB, $CFG;
 
         $this->resetAfterTest();
 
@@ -145,6 +145,20 @@ class accesslib_testcase extends advanced_testcase {
                 $this->assertFalse(is_siteadmin(null));
             }
         }
+
+        // Change the site admin list and check that it still works with
+        // multiple admins. We do this with userids only (not real user
+        // accounts) because it makes the test simpler.
+        $before = $CFG->siteadmins;
+        set_config('siteadmins', '666,667,668');
+        $this->assertTrue(is_siteadmin(666));
+        $this->assertTrue(is_siteadmin(667));
+        $this->assertTrue(is_siteadmin(668));
+        $this->assertFalse(is_siteadmin(669));
+        set_config('siteadmins', '13');
+        $this->assertTrue(is_siteadmin(13));
+        $this->assertFalse(is_siteadmin(666));
+        set_config('siteadmins', $before);
     }
 
     /**
@@ -1227,6 +1241,7 @@ class accesslib_testcase extends advanced_testcase {
         $this->resetAfterTest();
 
         $systemcontext = context_system::instance();
+        $studentrole = $DB->get_record('role', array('shortname'=>'student'), '*', MUST_EXIST);
         $teacherrole = $DB->get_record('role', array('shortname'=>'editingteacher'), '*', MUST_EXIST);
         $course = $this->getDataGenerator()->create_course();
         $coursecontext = context_course::instance($course->id);
@@ -1236,25 +1251,51 @@ class accesslib_testcase extends advanced_testcase {
         $otherrename = (object)array('roleid'=>$otherid, 'name'=>'Ostatní', 'contextid'=>$coursecontext->id);
         $DB->insert_record('role_names', $otherrename);
 
-        $user1 = $this->getDataGenerator()->create_user();
+        $user1 = $this->getDataGenerator()->create_user(array('firstname'=>'John', 'lastname'=>'Smith'));
         role_assign($teacherrole->id, $user1->id, $coursecontext->id);
-        $user2 = $this->getDataGenerator()->create_user();
+        $user2 = $this->getDataGenerator()->create_user(array('firstname'=>'Jan', 'lastname'=>'Kovar'));
         role_assign($teacherrole->id, $user2->id, $systemcontext->id);
+        $user3 = $this->getDataGenerator()->create_user();
+        $this->getDataGenerator()->enrol_user($user3->id, $course->id, $teacherrole->id);
+        $user4 = $this->getDataGenerator()->create_user();
+        $this->getDataGenerator()->enrol_user($user4->id, $course->id, $studentrole->id);
+
+        $group = $this->getDataGenerator()->create_group(array('courseid'=>$course->id));
+        groups_add_member($group, $user3);
 
         $users = get_role_users($teacherrole->id, $coursecontext);
-        $this->assertCount(1, $users);
-        $user = reset($users);
-        $userid = key($users);
-        $this->assertEquals($userid, $user->id);
-        $this->assertEquals($teacherrole->id, $user->roleid);
-        $this->assertEquals($teacherrole->name, $user->rolename);
-        $this->assertEquals($teacherrole->shortname, $user->roleshortname);
-        $this->assertEquals($teacherrename->name, $user->rolecoursealias);
+        $this->assertCount(2, $users);
+        $this->assertArrayHasKey($user1->id, $users);
+        $this->assertEquals($users[$user1->id]->id, $user1->id);
+        $this->assertEquals($users[$user1->id]->roleid, $teacherrole->id);
+        $this->assertEquals($users[$user1->id]->rolename, $teacherrole->name);
+        $this->assertEquals($users[$user1->id]->roleshortname, $teacherrole->shortname);
+        $this->assertEquals($users[$user1->id]->rolecoursealias, $teacherrename->name);
+        $this->assertArrayHasKey($user3->id, $users);
+        $this->assertEquals($users[$user3->id]->id, $user3->id);
+        $this->assertEquals($users[$user3->id]->roleid, $teacherrole->id);
+        $this->assertEquals($users[$user3->id]->rolename, $teacherrole->name);
+        $this->assertEquals($users[$user3->id]->roleshortname, $teacherrole->shortname);
+        $this->assertEquals($users[$user3->id]->rolecoursealias, $teacherrename->name);
 
         $users = get_role_users($teacherrole->id, $coursecontext, true);
-        $this->assertCount(2, $users);
+        $this->assertCount(3, $users);
 
-        $users = get_role_users($teacherrole->id, $coursecontext, false, 'u.id, u.email, u.idnumber', 'u.idnumber', null, 1, 0, 10, 'u.deleted = 0');
+        $users = get_role_users($teacherrole->id, $coursecontext, true, '', null, null, '', 2, 1);
+        $this->assertCount(1, $users);
+
+        $users = get_role_users($teacherrole->id, $coursecontext, false, 'u.id, u.email, u.idnumber', 'u.idnumber');
+        $this->assertCount(2, $users);
+        $this->assertArrayHasKey($user1->id, $users);
+        $this->assertArrayHasKey($user3->id, $users);
+
+        $users = get_role_users($teacherrole->id, $coursecontext, false, 'u.id, u.email, u.idnumber', 'u.idnumber', null, $group->id);
+        $this->assertCount(1, $users);
+        $this->assertArrayHasKey($user3->id, $users);
+
+        $users = get_role_users($teacherrole->id, $coursecontext, true, 'u.id, u.email, u.idnumber, u.firstname', 'u.idnumber', null, '', '', '', 'u.firstname = :xfirstname', array('xfirstname'=>'John'));
+        $this->assertCount(1, $users);
+        $this->assertArrayHasKey($user1->id, $users);
     }
 
     /**
@@ -1975,12 +2016,10 @@ class accesslib_testcase extends advanced_testcase {
             $userids = array_slice($userids, 0, 5);
         }
 
-        // Random time!
-        //srand(666);
-        foreach($userids as $userid) { // no guest or deleted
-            // each user gets 0-10 random roles
+        foreach ($userids as $userid) { // No guest or deleted.
+            // Each user gets 0-10 random roles.
             $rcount = rand(0, 10);
-            for($j=0; $j<$rcount; $j++) {
+            for ($j=0; $j<$rcount; $j++) {
                 $roleid = $roles[rand(0, count($roles)-1)];
                 $contextid = $contexts[rand(0, count($contexts)-1)]->id;
                 role_assign($roleid, $userid, $contextid);
@@ -2248,7 +2287,7 @@ class accesslib_testcase extends advanced_testcase {
                 $this->assertEquals(context_inspection::test_context_cache_size(), CONTEXT_CACHE_MAX_SIZE);
             } else if ($i == CONTEXT_CACHE_MAX_SIZE) {
                 // once the limit is reached roughly 1/3 of records should be removed from cache
-                $this->assertEquals(context_inspection::test_context_cache_size(), (int)(CONTEXT_CACHE_MAX_SIZE * (2/3) +102));
+                $this->assertEquals(context_inspection::test_context_cache_size(), (int)ceil(CONTEXT_CACHE_MAX_SIZE * (2/3) + 101));
             }
         }
         // We keep the first 100 cached

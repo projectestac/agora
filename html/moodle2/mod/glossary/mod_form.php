@@ -22,6 +22,7 @@ class mod_glossary_mod_form extends moodleform_mod {
             $mform->setType('name', PARAM_CLEANHTML);
         }
         $mform->addRule('name', null, 'required', null, 'client');
+        $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
 
         $this->add_intro_editor(true);
 
@@ -195,10 +196,12 @@ class mod_glossary_mod_form extends moodleform_mod {
         if (!$data) {
             return false;
         }
-        // Turn off completion settings if the checkboxes aren't ticked
-        $autocompletion = !empty($data->completion) && $data->completion==COMPLETION_TRACKING_AUTOMATIC;
-        if (empty($data->completionentriesenabled) || !$autocompletion) {
-            $data->completionentries = 0;
+        if (!empty($data->completionunlocked)) {
+            // Turn off completion settings if the checkboxes aren't ticked
+            $autocompletion = !empty($data->completion) && $data->completion==COMPLETION_TRACKING_AUTOMATIC;
+            if (empty($data->completionentriesenabled) || !$autocompletion) {
+                $data->completionentries = 0;
+            }
         }
         return $data;
     }

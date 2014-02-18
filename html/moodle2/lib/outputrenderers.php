@@ -463,7 +463,10 @@ class core_renderer extends renderer_base {
                 $link= '<a title="' . $title . '" href="' . $url . '">' . $txt . '</a>';
                 $output .= '<div class="profilingfooter">' . $link . '</div>';
             }
-            $output .= '<div class="purgecaches"><a href="'.$CFG->wwwroot.'/'.$CFG->admin.'/purgecaches.php?confirm=1&amp;sesskey='.sesskey().'">'.get_string('purgecaches', 'admin').'</a></div>';
+            $purgeurl = new moodle_url('/admin/purgecaches.php', array('confirm' => 1,
+                'sesskey' => sesskey(), 'returnurl' => $this->page->url->out_as_local_url(false)));
+            $output .= '<div class="purgecaches">' .
+                    html_writer::link($purgeurl, get_string('purgecaches', 'admin')) . '</div>';
         }
         if (!empty($CFG->debugvalidators)) {
             // NOTE: this is not a nice hack, $PAGE->url is not always accurate and $FULLME neither, it is not a bug if it fails. --skodak
@@ -533,7 +536,9 @@ class core_renderer extends renderer_base {
             $realuser = session_get_realuser();
             $fullname = fullname($realuser, true);
             if ($withlinks) {
-                $realuserinfo = " [<a href=\"$CFG->wwwroot/course/loginas.php?id=$course->id&amp;sesskey=".sesskey()."\">$fullname</a>] ";
+                $loginastitle = get_string('loginas');
+                $realuserinfo = " [<a href=\"$CFG->wwwroot/course/loginas.php?id=$course->id&amp;sesskey=".sesskey()."\"";
+                $realuserinfo .= "title =\"".$loginastitle."\">$fullname</a>] ";
             } else {
                 $realuserinfo = " [$fullname] ";
             }
@@ -552,7 +557,8 @@ class core_renderer extends renderer_base {
             $fullname = fullname($USER, true);
             // Since Moodle 2.0 this link always goes to the public profile page (not the course profile page)
             if ($withlinks) {
-                $username = "<a href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\">$fullname</a>";
+                $linktitle = get_string('viewprofile');
+                $username = "<a href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\" title=\"$linktitle\">$fullname</a>";
             } else {
                 $username = $fullname;
             }
@@ -571,7 +577,7 @@ class core_renderer extends renderer_base {
             } else if (is_role_switched($course->id)) { // Has switched roles
                 $rolename = '';
                 if ($role = $DB->get_record('role', array('id'=>$USER->access['rsw'][$context->path]))) {
-                    $rolename = ': '.format_string($role->name);
+                    $rolename = ': '.role_get_name($role, $context);
                 }
                 $loggedinas = get_string('loggedinas', 'moodle', $username).$rolename;
                 if ($withlinks) {

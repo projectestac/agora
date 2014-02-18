@@ -67,6 +67,7 @@ class mod_lti_mod_form extends moodleform_mod {
         $mform->addElement('text', 'name', get_string('basicltiname', 'lti'), array('size'=>'64'));
         $mform->setType('name', PARAM_TEXT);
         $mform->addRule('name', null, 'required', null, 'client');
+        $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
         // Adding the optional "intro" and "introformat" pair of fields
         $this->add_intro_editor(false, get_string('basicltiintro', 'lti'));
         $mform->setAdvanced('introeditor');
@@ -152,15 +153,15 @@ class mod_lti_mod_form extends moodleform_mod {
         // Add privacy preferences fieldset where users choose whether to send their data
         $mform->addElement('header', 'privacy', get_string('privacy', 'lti'));
 
-        $mform->addElement('checkbox', 'instructorchoicesendname', '&nbsp;', ' ' . get_string('share_name', 'lti'));
+        $mform->addElement('advcheckbox', 'instructorchoicesendname', '&nbsp;', ' ' . get_string('share_name', 'lti'));
         $mform->setDefault('instructorchoicesendname', '1');
         $mform->addHelpButton('instructorchoicesendname', 'share_name', 'lti');
 
-        $mform->addElement('checkbox', 'instructorchoicesendemailaddr', '&nbsp;', ' ' . get_string('share_email', 'lti'));
+        $mform->addElement('advcheckbox', 'instructorchoicesendemailaddr', '&nbsp;', ' ' . get_string('share_email', 'lti'));
         $mform->setDefault('instructorchoicesendemailaddr', '1');
         $mform->addHelpButton('instructorchoicesendemailaddr', 'share_email', 'lti');
 
-        $mform->addElement('checkbox', 'instructorchoiceacceptgrades', '&nbsp;', ' ' . get_string('accept_grades', 'lti'));
+        $mform->addElement('advcheckbox', 'instructorchoiceacceptgrades', '&nbsp;', ' ' . get_string('accept_grades', 'lti'));
         $mform->setDefault('instructorchoiceacceptgrades', '1');
         $mform->addHelpButton('instructorchoiceacceptgrades', 'accept_grades', 'lti');
 
@@ -194,7 +195,8 @@ class mod_lti_mod_form extends moodleform_mod {
         // add standard buttons, common to all modules
         $this->add_action_buttons();
 
-        $editurl = new moodle_url("/mod/lti/instructor_edit_tool_type.php?sesskey={$USER->sesskey}&course={$COURSE->id}");
+        $editurl = new moodle_url('/mod/lti/instructor_edit_tool_type.php',
+                array('sesskey' => sesskey(), 'course' => $COURSE->id));
         $ajaxurl = new moodle_url('/mod/lti/ajax.php');
 
         $jsinfo = (object)array(

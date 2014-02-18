@@ -77,8 +77,48 @@ function xmldb_scorm_upgrade($oldversion) {
 
 
     // Moodle v2.4.0 release upgrade line
-    // Put any upgrade step following this
+    // Put any upgrade step following this.
 
+    // Fix AICC parent/child relationships (MDL-37394).
+    if ($oldversion < 2012112901) {
+        // Get all AICC packages.
+        $aiccpackages = $DB->get_recordset('scorm', array('version' => 'AICC'), '', 'id');
+        foreach ($aiccpackages as $aicc) {
+            $sql = "UPDATE {scorm_scoes}
+                       SET parent = organization
+                     WHERE scorm = ?
+                       AND " . $DB->sql_isempty('scorm_scoes', 'manifest', false, false) . "
+                       AND " . $DB->sql_isnotempty('scorm_scoes', 'organization', false, false) . "
+                       AND parent = '/'";
+            $DB->execute($sql, array($aicc->id));
+        }
+        $aiccpackages->close();
+        upgrade_mod_savepoint(true, 2012112901, 'scorm');
+    }
+
+    if ($oldversion < 2012112902) {
+        // Fix invalid $scorm->launch records.
+        // Get all scorms that have a launch value that references a sco from a different scorm.
+        $sql = "SELECT s.*
+                 FROM {scorm} s
+            LEFT JOIN {scorm_scoes} c ON s.launch = c.id
+                WHERE c.id IS null OR s.id <> c.scorm";
+        $scorms = $DB->get_recordset_sql($sql);
+        foreach ($scorms as $scorm) {
+            // This scorm has an invalid launch param - we need to calculate it and get the first launchable sco.
+            $sqlselect = 'scorm = ? AND '.$DB->sql_isnotempty('scorm_scoes', 'launch', false, true);
+            // We use get_records here as we need to pass a limit in the query that works cross db.
+            $scoes = $DB->get_records_select('scorm_scoes', $sqlselect, array($scorm->id), 'id', 'id', 0, 1);
+            if (!empty($scoes)) {
+                $sco = reset($scoes); // We only care about the first record - the above query only returns one.
+                $scorm->launch = $sco->id;
+                $DB->update_record('scorm', $scorm);
+            }
+        }
+        $scorms->close();
+
+        upgrade_mod_savepoint(true, 2012112902, 'scorm');
+    }
 
     return true;
 }

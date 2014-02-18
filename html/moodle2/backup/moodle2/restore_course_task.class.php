@@ -71,8 +71,22 @@ class restore_course_task extends restore_task {
             $this->add_step(new restore_course_structure_step('course_info', 'course.xml'));
         }
 
-        // Restore course enrolments (plugins and membership). Conditionally prevented for any IMPORT/HUB operation
-        if ($this->plan->get_mode() != backup::MODE_IMPORT && $this->plan->get_mode() != backup::MODE_HUB) {
+        $this->add_step(new restore_course_legacy_files_step('legacy_files'));
+
+        // Deal with enrolment methods and user enrolments.
+        if ($this->plan->get_mode() == backup::MODE_IMPORT) {
+            // No need to do anything with enrolments.
+
+        } else if (!$this->get_setting_value('users') or $this->plan->get_mode() == backup::MODE_HUB) {
+            if ($this->get_target() == backup::TARGET_CURRENT_ADDING or $this->get_target() == backup::TARGET_EXISTING_ADDING) {
+                // Keep current enrolments unchanged.
+            } else {
+                // If no instances yet add default enrol methods the same way as when creating new course in UI.
+                $this->add_step(new restore_default_enrolments_step('default_enrolments'));
+            }
+
+        } else {
+            // Restore course enrolment data.
             $this->add_step(new restore_enrolments_structure_step('course_enrolments', 'enrolments.xml'));
         }
 
@@ -121,10 +135,16 @@ class restore_course_task extends restore_task {
     static public function define_decode_rules() {
         $rules = array();
 
-        $rules[] = new restore_decode_rule('COURSEVIEWBYID', '/course/view.php?id=$1', 'course');
+        // Link to the course main page (it also covers "&topic=xx" and "&week=xx"
+        // because they don't become transformed (section number) in backup/restore.
+        $rules[] = new restore_decode_rule('COURSEVIEWBYID',       '/course/view.php?id=$1',        'course');
+
+        // A few other key course links.
+        $rules[] = new restore_decode_rule('GRADEINDEXBYID',       '/grade/index.php?id=$1',        'course');
+        $rules[] = new restore_decode_rule('GRADEREPORTINDEXBYID', '/grade/report/index.php?id=$1', 'course');
+        $rules[] = new restore_decode_rule('USERINDEXVIEWBYID',    '/user/index.php?id=$1',         'course');
 
         return $rules;
-
     }
 
 // Protected API starts here

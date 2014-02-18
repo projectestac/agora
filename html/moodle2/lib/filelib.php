@@ -713,6 +713,9 @@ function file_get_submitted_draft_itemid($elname) {
 /**
  * Restore the original source field from draft files
  *
+ * Do not use this function because it makes field files.source inconsistent
+ * for draft area files. This function will be deprecated in 2.6
+ *
  * @param stored_file $storedfile This only works with draft files
  * @return stored_file
  */
@@ -783,58 +786,37 @@ function file_save_draft_area_files($draftitemid, $contextid, $component, $filea
     $draftfiles = $fs->get_area_files($usercontext->id, 'user', 'draft', $draftitemid, 'id');
     $oldfiles   = $fs->get_area_files($contextid, $component, $filearea, $itemid, 'id');
 
-    if (count($draftfiles) < 2) {
-        // means there are no files - one file means root dir only ;-)
-        $fs->delete_area_files($contextid, $component, $filearea, $itemid);
-
-    } else if (count($oldfiles) < 2) {
-        $filecount = 0;
-        // there were no files before - one file means root dir only ;-)
-        foreach ($draftfiles as $file) {
-            $file_record = array('contextid'=>$contextid, 'component'=>$component, 'filearea'=>$filearea, 'itemid'=>$itemid);
-            if (!$options['subdirs']) {
-                if ($file->get_filepath() !== '/' or $file->is_directory()) {
-                    continue;
-                }
-            }
-            if ($options['maxbytes'] and $options['maxbytes'] < $file->get_filesize()) {
-                // oversized file - should not get here at all
-                continue;
-            }
-            if ($options['maxfiles'] != -1 and $options['maxfiles'] <= $filecount) {
-                // more files - should not get here at all
-                break;
-            }
-            if (!$file->is_directory()) {
-                $filecount++;
-            }
-
-            if ($file->is_external_file()) {
-                if (!$allowreferences) {
-                    continue;
-                }
-                $repoid = $file->get_repository_id();
-                if (!empty($repoid)) {
-                    $file_record['repositoryid'] = $repoid;
-                    $file_record['reference'] = $file->get_reference();
-                }
-            }
-            file_restore_source_field_from_draft_file($file);
-
-            $fs->create_file_from_storedfile($file_record, $file);
-        }
-
-    } else {
+    // One file in filearea means it is empty (it has only top-level directory '.').
+    if (count($draftfiles) > 1 || count($oldfiles) > 1) {
         // we have to merge old and new files - we want to keep file ids for files that were not changed
         // we change time modified for all new and changed files, we keep time created as is
 
         $newhashes = array();
+        $filecount = 0;
         foreach ($draftfiles as $file) {
+            if (!$options['subdirs'] && $file->get_filepath() !== '/') {
+                continue;
+            }
+            if (!$allowreferences && $file->is_external_file()) {
+                continue;
+            }
+            if (!$file->is_directory()) {
+                if ($options['maxbytes'] and $options['maxbytes'] < $file->get_filesize()) {
+                    // oversized file - should not get here at all
+                    continue;
+                }
+                if ($options['maxfiles'] != -1 and $options['maxfiles'] <= $filecount) {
+                    // more files - should not get here at all
+                    continue;
+                }
+                $filecount++;
+            }
             $newhash = $fs->get_pathname_hash($contextid, $component, $filearea, $itemid, $file->get_filepath(), $file->get_filename());
-            file_restore_source_field_from_draft_file($file);
             $newhashes[$newhash] = $file;
         }
-        $filecount = 0;
+
+        // Loop through oldfiles and decide which we need to delete and which to update.
+        // After this cycle the array $newhashes will only contain the files that need to be added.
         foreach ($oldfiles as $oldfile) {
             $oldhash = $oldfile->get_pathnamehash();
             if (!isset($newhashes[$oldhash])) {
@@ -844,6 +826,25 @@ function file_save_draft_area_files($draftitemid, $contextid, $component, $filea
             }
 
             $newfile = $newhashes[$oldhash];
+            // Now we know that we have $oldfile and $newfile for the same path.
+            // Let's check if we can update this file or we need to delete and create.
+            if ($newfile->is_directory()) {
+                // Directories are always ok to just update.
+            } else if (($source = @unserialize($newfile->get_source())) && isset($source->original)) {
+                // File has the 'original' - we need to update the file (it may even have not been changed at all).
+                $original = file_storage::unpack_reference($source->original);
+                if ($original['filename'] !== $oldfile->get_filename() || $original['filepath'] !== $oldfile->get_filepath()) {
+                    // Very odd, original points to another file. Delete and create file.
+                    $oldfile->delete();
+                    continue;
+                }
+            } else {
+                // The same file name but absence of 'original' means that file was deteled and uploaded again.
+                // By deleting and creating new file we properly manage all existing references.
+                $oldfile->delete();
+                continue;
+            }
+
             // status changed, we delete old file, and create a new one
             if ($oldfile->get_status() != $newfile->get_status()) {
                 // file was changed, use updated with new timemodified data
@@ -862,8 +863,14 @@ function file_save_draft_area_files($draftitemid, $contextid, $component, $filea
             }
 
             // Updated file source
-            if ($oldfile->get_source() != $newfile->get_source()) {
-                $oldfile->set_source($newfile->get_source());
+            // Field files.source for draftarea files contains serialised object with source and original information.
+            // We only store the source part of it for non-draft file area.
+            $newsource = $newfile->get_source();
+            if ($source = @unserialize($newfile->get_source())) {
+                $newsource = $source->source;
+            }
+            if ($oldfile->get_source() !== $newsource) {
+                $oldfile->set_source($newsource);
             }
 
             // Updated sort order
@@ -877,44 +884,31 @@ function file_save_draft_area_files($draftitemid, $contextid, $component, $filea
             }
 
             // Replaced file content
-            if ($oldfile->get_contenthash() != $newfile->get_contenthash() || $oldfile->get_filesize() != $newfile->get_filesize()) {
-                $oldfile->replace_content_with($newfile);
+            if (!$oldfile->is_directory() &&
+                    ($oldfile->get_contenthash() != $newfile->get_contenthash() ||
+                    $oldfile->get_filesize() != $newfile->get_filesize() ||
+                    $oldfile->get_referencefileid() != $newfile->get_referencefileid() ||
+                    $oldfile->get_userid() != $newfile->get_userid())) {
+                $oldfile->replace_file_with($newfile);
                 // push changes to all local files that are referencing this file
                 $fs->update_references_to_storedfile($oldfile);
             }
 
             // unchanged file or directory - we keep it as is
             unset($newhashes[$oldhash]);
-            if (!$oldfile->is_directory()) {
-                $filecount++;
-            }
         }
 
         // Add fresh file or the file which has changed status
         // the size and subdirectory tests are extra safety only, the UI should prevent it
         foreach ($newhashes as $file) {
             $file_record = array('contextid'=>$contextid, 'component'=>$component, 'filearea'=>$filearea, 'itemid'=>$itemid, 'timemodified'=>time());
-            if (!$options['subdirs']) {
-                if ($file->get_filepath() !== '/' or $file->is_directory()) {
-                    continue;
-                }
-            }
-            if ($options['maxbytes'] and $options['maxbytes'] < $file->get_filesize()) {
-                // oversized file - should not get here at all
-                continue;
-            }
-            if ($options['maxfiles'] != -1 and $options['maxfiles'] <= $filecount) {
-                // more files - should not get here at all
-                break;
-            }
-            if (!$file->is_directory()) {
-                $filecount++;
+            if ($source = @unserialize($file->get_source())) {
+                // Field files.source for draftarea files contains serialised object with source and original information.
+                // We only store the source part of it for non-draft file area.
+                $file_record['source'] = $source->source;
             }
 
             if ($file->is_external_file()) {
-                if (!$allowreferences) {
-                    continue;
-                }
                 $repoid = $file->get_repository_id();
                 if (!empty($repoid)) {
                     $file_record['repositoryid'] = $repoid;
@@ -1484,6 +1478,7 @@ function &get_mimetypes_array() {
         'jcw'  => array ('type'=>'text/xml', 'icon'=>'markup'),
         'jmt'  => array ('type'=>'text/xml', 'icon'=>'markup'),
         'jmx'  => array ('type'=>'text/xml', 'icon'=>'markup'),
+        'jnlp' => array ('type'=>'application/x-java-jnlp-file', 'icon'=>'markup'),
         'jpe'  => array ('type'=>'image/jpeg', 'icon'=>'jpeg', 'groups'=>array('image', 'web_image'), 'string'=>'image'),
         'jpeg' => array ('type'=>'image/jpeg', 'icon'=>'jpeg', 'groups'=>array('image', 'web_image'), 'string'=>'image'),
         'jpg'  => array ('type'=>'image/jpeg', 'icon'=>'jpeg', 'groups'=>array('image', 'web_image'), 'string'=>'image'),
@@ -1493,6 +1488,8 @@ function &get_mimetypes_array() {
         'm'    => array ('type'=>'text/plain', 'icon'=>'sourcecode'),
         'mbz'  => array ('type'=>'application/vnd.moodle.backup', 'icon'=>'moodle'),
         'mdb'  => array ('type'=>'application/x-msaccess', 'icon'=>'base'),
+        'mht'  => array ('type'=>'message/rfc822', 'icon'=>'archive'),
+        'mhtml'=> array ('type'=>'message/rfc822', 'icon'=>'archive'),
         'mov'  => array ('type'=>'video/quicktime', 'icon'=>'quicktime', 'groups'=>array('video','web_video'), 'string'=>'video'),
         'movie'=> array ('type'=>'video/x-sgi-movie', 'icon'=>'quicktime', 'groups'=>array('video'), 'string'=>'video'),
         'm3u'  => array ('type'=>'audio/x-mpegurl', 'icon'=>'mp3', 'groups'=>array('audio'), 'string'=>'audio'),
@@ -1932,7 +1929,7 @@ function file_get_typegroup($element, $groups) {
         }
         $result = array_merge($result, $cached[$element][$group]);
     }
-    return array_unique($result);
+    return array_values(array_unique($result));
 }
 
 /**
@@ -1988,6 +1985,43 @@ function send_header_404() {
 }
 
 /**
+ * The readfile function can fail when files are larger than 2GB (even on 64-bit
+ * platforms). This wrapper uses readfile for small files and custom code for
+ * large ones.
+ *
+ * @param string $path Path to file
+ * @param int $filesize Size of file (if left out, will get it automatically)
+ * @return int|bool Size read (will always be $filesize) or false if failed
+ */
+function readfile_allow_large($path, $filesize = -1) {
+    // Automatically get size if not specified.
+    if ($filesize === -1) {
+        $filesize = filesize($path);
+    }
+    if ($filesize <= 2147483647) {
+        // If the file is up to 2^31 - 1, send it normally using readfile.
+        return readfile($path);
+    } else {
+        // For large files, read and output in 64KB chunks.
+        $handle = fopen($path, 'r');
+        if ($handle === false) {
+            return false;
+        }
+        $left = $filesize;
+        while ($left > 0) {
+            $size = min($left, 65536);
+            $buffer = fread($handle, $size);
+            if ($buffer === false) {
+                return false;
+            }
+            echo $buffer;
+            $left -= $size;
+        }
+        return $filesize;
+    }
+}
+
+/**
  * Enhanced readfile() with optional acceleration.
  * @param string|stored_file $file
  * @param string $mimetype
@@ -2008,8 +2042,8 @@ function readfile_accel($file, $mimetype, $accelerate) {
     header('Last-Modified: '. gmdate('D, d M Y H:i:s', $lastmodified) .' GMT');
 
     if (is_object($file)) {
-        header('ETag: ' . $file->get_contenthash());
-        if (isset($_SERVER['HTTP_IF_NONE_MATCH']) and $_SERVER['HTTP_IF_NONE_MATCH'] === $file->get_contenthash()) {
+        header('Etag: "' . $file->get_contenthash() . '"');
+        if (isset($_SERVER['HTTP_IF_NONE_MATCH']) and trim($_SERVER['HTTP_IF_NONE_MATCH'], '"') === $file->get_contenthash()) {
             header('HTTP/1.1 304 Not Modified');
             return;
         }
@@ -2109,7 +2143,7 @@ function readfile_accel($file, $mimetype, $accelerate) {
     if (is_object($file)) {
         $file->readfile();
     } else {
-        readfile($file);
+        readfile_allow_large($file, $filesize);
     }
 }
 
@@ -2180,11 +2214,11 @@ function send_temp_file($path, $filename, $pathisstring=false) {
 
     header('Content-Disposition: attachment; filename="'.$filename.'"');
     if (strpos($CFG->wwwroot, 'https://') === 0) { //https sites - watch out for IE! KB812935 and KB316431
-        header('Cache-Control: max-age=10');
+        header('Cache-Control: private, max-age=10, no-transform');
         header('Expires: '. gmdate('D, d M Y H:i:s', 0) .' GMT');
         header('Pragma: ');
     } else { //normal http - prevent caching at all cost
-        header('Cache-Control: private, must-revalidate, pre-check=0, post-check=0, max-age=0');
+        header('Cache-Control: private, must-revalidate, pre-check=0, post-check=0, max-age=0, no-transform');
         header('Expires: '. gmdate('D, d M Y H:i:s', 0) .' GMT');
         header('Pragma: no-cache');
     }
@@ -2266,19 +2300,23 @@ function send_file($path, $filename, $lifetime = 'default' , $filter=0, $pathiss
     }
 
     if ($lifetime > 0) {
+        $private = '';
+        if (isloggedin() and !isguestuser()) {
+            $private = ' private,';
+        }
         $nobyteserving = false;
-        header('Cache-Control: max-age='.$lifetime);
+        header('Cache-Control:'.$private.' max-age='.$lifetime.', no-transform');
         header('Expires: '. gmdate('D, d M Y H:i:s', time() + $lifetime) .' GMT');
         header('Pragma: ');
 
     } else { // Do not cache files in proxies and browsers
         $nobyteserving = true;
         if (strpos($CFG->wwwroot, 'https://') === 0) { //https sites - watch out for IE! KB812935 and KB316431
-            header('Cache-Control: max-age=10');
+            header('Cache-Control: private, max-age=10, no-transform');
             header('Expires: '. gmdate('D, d M Y H:i:s', 0) .' GMT');
             header('Pragma: ');
         } else { //normal http - prevent caching at all cost
-            header('Cache-Control: private, must-revalidate, pre-check=0, post-check=0, max-age=0');
+            header('Cache-Control: private, must-revalidate, pre-check=0, post-check=0, max-age=0, no-transform');
             header('Expires: '. gmdate('D, d M Y H:i:s', 0) .' GMT');
             header('Pragma: no-cache');
         }
@@ -2430,17 +2468,21 @@ function send_stored_file($stored_file, $lifetime=86400 , $filter=0, $forcedownl
     }
 
     if ($lifetime > 0) {
-        header('Cache-Control: max-age='.$lifetime);
+        $private = '';
+        if (isloggedin() and !isguestuser()) {
+            $private = ' private,';
+        }
+        header('Cache-Control:'.$private.' max-age='.$lifetime.', no-transform');
         header('Expires: '. gmdate('D, d M Y H:i:s', time() + $lifetime) .' GMT');
         header('Pragma: ');
 
     } else { // Do not cache files in proxies and browsers
         if (strpos($CFG->wwwroot, 'https://') === 0) { //https sites - watch out for IE! KB812935 and KB316431
-            header('Cache-Control: max-age=10');
+            header('Cache-Control: private, max-age=10, no-transform');
             header('Expires: '. gmdate('D, d M Y H:i:s', 0) .' GMT');
             header('Pragma: ');
         } else { //normal http - prevent caching at all cost
-            header('Cache-Control: private, must-revalidate, pre-check=0, post-check=0, max-age=0');
+            header('Cache-Control: private, must-revalidate, pre-check=0, post-check=0, max-age=0, no-transform');
             header('Expires: '. gmdate('D, d M Y H:i:s', 0) .' GMT');
             header('Pragma: no-cache');
         }
@@ -3003,7 +3045,6 @@ class curl {
      */
     private function formatHeader($ch, $header)
     {
-        $this->count++;
         if (strlen($header) > 2) {
             list($key, $value) = explode(" ", rtrim($header, "\r\n"), 2);
             $key = rtrim($key, ':');

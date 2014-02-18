@@ -23,7 +23,7 @@
  * this.options.client_id, the instance id
  * this.options.contextid
  * this.options.itemid
- * this.options.repositories, stores all repositories displaied in file picker
+ * this.options.repositories, stores all repositories displayed in file picker
  * this.options.formcallback
  *
  * Active repository options
@@ -502,6 +502,7 @@ M.core_filepicker.show = function(Y, options) {
         M.core_filepicker.init(Y, options);
     }
     M.core_filepicker.instances[options.client_id].show();
+    document.getElementById("filepicker-"+ options.client_id).focus();
 };
 
 M.core_filepicker.set_templates = function(Y, templates) {
@@ -582,27 +583,23 @@ M.core_filepicker.init = function(Y, options) {
                 method: 'POST',
                 on: {
                     complete: function(id,o,p) {
-                        if (!o) {
-                            // TODO
-                            alert('IO FATAL');
-                            return;
-                        }
                         var data = null;
                         try {
                             data = Y.JSON.parse(o.responseText);
                         } catch(e) {
-                            scope.print_msg(M.str.repository.invalidjson, 'error');
-                            scope.display_error(M.str.repository.invalidjson+'<pre>'+stripHTML(o.responseText)+'</pre>', 'invalidjson')
-                            return;
+                            if (o && o.status && o.status > 0) {
+                                Y.use('moodle-core-notification', function() {
+                                    new M.core.exception(e);
+                                });
+                                return;
+                            }
                         }
                         // error checking
                         if (data && data.error) {
-                            scope.print_msg(data.error, 'error');
-                            if (args.onerror) {
-                                args.onerror(id,data,p);
-                            } else {
-                                this.fpnode.one('.fp-content').setContent('');
-                            }
+                            Y.use('moodle-core-notification', function() {
+                                new M.core.ajaxException(data);
+                            });
+                            this.fpnode.one('.fp-content').setContent('');
                             return;
                         } else {
                             if (data.msg) {
@@ -662,18 +659,16 @@ M.core_filepicker.init = function(Y, options) {
                     'repository_id': this.active_repo.id,
                     'callback': function(id, o, args) {
                         scope.hide();
-                        // editor needs to update url
-                        // filemanager do nothing
                         if (scope.options.editor_target && scope.options.env == 'editor') {
+                            // editor needs to update url
                             scope.options.editor_target.value = data.existingfile.url;
                             scope.options.editor_target.onchange();
-                        } else if (scope.options.env === 'filepicker') {
-                            var fileinfo = {'client_id':scope.options.client_id,
-                                    'url':data.existingfile.url,
-                                    'file':data.existingfile.filename};
-                            var formcallback_scope = scope.options.magicscope ? scope.options.magicscope : scope;
-                            scope.options.formcallback.apply(formcallback_scope, [fileinfo]);
                         }
+                        var fileinfo = {'client_id':scope.options.client_id,
+                                'url':data.existingfile.url,
+                                'file':data.existingfile.filename};
+                        var formcallback_scope = scope.options.magicscope ? scope.options.magicscope : scope;
+                        scope.options.formcallback.apply(formcallback_scope, [fileinfo]);
                     }
                 }, true);
             }
@@ -796,6 +791,8 @@ M.core_filepicker.init = function(Y, options) {
             } else {
                 this.view_as_icons(appenditems);
             }
+            this.fpnode.one('.fp-content').setAttribute('tabIndex', '0');
+            this.fpnode.one('.fp-content').focus();
             // display/hide the link for requesting next page
             if (!appenditems && this.active_repo.hasmorepages) {
                 if (!this.fpnode.one('.fp-content .fp-nextpage')) {
@@ -1067,7 +1064,15 @@ M.core_filepicker.init = function(Y, options) {
             }, false);
         },
         select_file: function(args) {
+            var argstitle = args.title;
+            // Limit the string length so it fits nicely on mobile devices
+            var titlelength = 30;
+            if (argstitle.length > titlelength) {
+                argstitle = argstitle.substring(0, titlelength) + '...';
+            }
+            Y.one('#fp-file_label_'+this.options.client_id).setContent(Y.Escape.html(M.str.repository.select+' '+argstitle));
             this.selectui.show();
+            Y.one('#'+this.selectnode.get('id')).focus();
             var client_id = this.options.client_id;
             var selectnode = this.selectnode;
             var return_types = this.options.repositories[this.active_repo.id].return_types;
@@ -1285,11 +1290,13 @@ M.core_filepicker.init = function(Y, options) {
         },
         render: function() {
             var client_id = this.options.client_id;
+            var fpid = "filepicker-"+ client_id;
+            var labelid = 'fp-dialog-label_'+ client_id;
             this.fpnode = Y.Node.createWithFilesSkin(M.core_filepicker.templates.generallayout).
-                set('id', 'filepicker-'+client_id);
+                set('id', fpid).set('aria-labelledby', labelid);
             this.mainui = new Y.Panel({
                 srcNode      : this.fpnode,
-                headerContent: M.str.repository.filepicker,
+                headerContent: '<span id="'+ labelid +'">'+ M.str.repository.filepicker +'</span>',
                 zIndex       : 7500,
                 centered     : true,
                 modal        : true,
@@ -1308,8 +1315,13 @@ M.core_filepicker.init = function(Y, options) {
             }
             // create panel for selecting a file (initially hidden)
             this.selectnode = Y.Node.createWithFilesSkin(M.core_filepicker.templates.selectlayout).
-                set('id', 'filepicker-select-'+client_id);
+                set('id', 'filepicker-select-'+client_id).
+                set('aria-live', 'assertive').
+                set('role', 'dialog');
+
+            var fplabel = 'fp-file_label_'+ client_id;
             this.selectui = new Y.Panel({
+                headerContent: '<span id="' + fplabel +'">'+M.str.repository.select+'</span>',
                 srcNode      : this.selectnode,
                 zIndex       : 7600,
                 centered     : true,
@@ -1319,6 +1331,7 @@ M.core_filepicker.init = function(Y, options) {
             });
             // allow to move the panel dragging it by it's header:
             this.selectui.plug(Y.Plugin.Drag,{handles:['#filepicker-select-'+client_id+' .yui3-widget-hd']});
+            Y.one('#'+this.selectnode.get('id')).setAttribute('aria-labelledby', fplabel);
             this.selectui.hide();
             // event handler for lazy loading of thumbnails and next page
             this.fpnode.one('.fp-content').on(['scroll','resize'], this.content_scrolled, this);
@@ -1553,7 +1566,7 @@ M.core_filepicker.init = function(Y, options) {
             }
         },
         display_response: function(id, obj, args) {
-            var scope = args.scope
+            var scope = args.scope;
             // highlight the current repository in repositories list
             scope.fpnode.all('.fp-repo.active').removeClass('active');
             scope.fpnode.all('#fp-repo-'+scope.options.client_id+'-'+obj.repo_id).addClass('active')
@@ -1564,6 +1577,8 @@ M.core_filepicker.init = function(Y, options) {
             if (obj.repo_id && scope.options.repositories[obj.repo_id]) {
                 scope.fpnode.addClass('repository_'+scope.options.repositories[obj.repo_id].type)
             }
+            Y.one('.file-picker .fp-repo-items').focus();
+
             // display response
             if (obj.login) {
                 scope.viewbar_set_enabled(false);

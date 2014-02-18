@@ -36,7 +36,7 @@ function js_send_cached($jspath, $etag, $filename = 'javascript.php') {
 
     $lifetime = 60*60*24*60; // 60 days only - the revision may get incremented quite often
 
-    header('Etag: '.$etag);
+    header('Etag: "'.$etag.'"');
     header('Content-Disposition: inline; filename="'.$filename.'"');
     header('Last-Modified: '. gmdate('D, d M Y H:i:s', filemtime($jspath)) .' GMT');
     header('Expires: '. gmdate('D, d M Y H:i:s', time() + $lifetime) .' GMT');
@@ -86,7 +86,7 @@ function js_send_unmodified($lastmodified, $etag) {
     header('Expires: '. gmdate('D, d M Y H:i:s', time() + $lifetime) .' GMT');
     header('Cache-Control: public, max-age='.$lifetime);
     header('Content-Type: application/javascript; charset=utf-8');
-    header('Etag: '.$etag);
+    header('Etag: "'.$etag.'"');
     if ($lastmodified) {
         header('Last-Modified: '. gmdate('D, d M Y H:i:s', $lastmodified) .' GMT');
     }
@@ -106,6 +106,11 @@ function js_minify($files) {
     if (empty($files)) {
         return '';
     }
+
+    // We do not really want any 304 here!
+    // There does not seem to be any better way to prevent them here.
+    unset($_SERVER['HTTP_IF_NONE_MATCH']);
+    unset($_SERVER['HTTP_IF_MODIFIED_SINCE']);
 
     if (0 === stripos(PHP_OS, 'win')) {
         Minify::setDocRoot(); // IIS may need help
@@ -132,7 +137,7 @@ function js_minify($files) {
     $error = 'unknown';
     try {
         $result = Minify::serve('Files', $options);
-        if ($result['success']) {
+        if ($result['success'] and $result['statusCode'] == 200) {
             return $result['content'];
         }
     } catch (Exception $e) {

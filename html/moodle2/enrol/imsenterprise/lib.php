@@ -86,6 +86,7 @@ function cron() {
         $this->logfp = fopen($logtolocation, 'a');
     }
 
+    $fileisnew = false;
     if ( file_exists($filename) ) {
         @set_time_limit(0);
         $starttime = time();
@@ -106,10 +107,8 @@ function cron() {
         if(empty($prev_path)  || ($filename != $prev_path)) {
             $fileisnew = true;
         } elseif(isset($prev_time) && ($filemtime <= $prev_time)) {
-            $fileisnew = false;
             $this->log_line('File modification time is not more recent than last update - skipping processing.');
         } elseif(isset($prev_md5) && ($md5 == $prev_md5)) {
-            $fileisnew = false;
             $this->log_line('File MD5 hash is same as on last update - skipping processing.');
         } else {
             $fileisnew = true; // Let's process it!
@@ -216,7 +215,7 @@ function cron() {
         $this->log_line('File not found: '.$filename);
     }
 
-    if (!empty($mailadmins)) {
+    if (!empty($mailadmins) && $fileisnew) {
         $msg = "An IMS enrolment has been carried out within Moodle.\nTime taken: $timeelapsed seconds.\n\n";
         if(!empty($logtolocation)){
             if($this->logfp){
@@ -233,7 +232,7 @@ function cron() {
 
         $eventdata = new stdClass();
         $eventdata->modulename        = 'moodle';
-        $eventdata->component         = 'imsenterprise';
+        $eventdata->component         = 'enrol_imsenterprise';
         $eventdata->name              = 'imsenterprise_enrolment';
         $eventdata->userfrom          = get_admin();
         $eventdata->userto            = get_admin();
@@ -397,7 +396,7 @@ function process_group_tag($tagcontents) {
                     // Insert default names for teachers/students, from the current language
 
                     // Handle course categorisation (taken from the group.org.orgunit field if present)
-                    if (strlen($group->category)>0) {
+                    if (!empty($group->category)) {
                         // If the category is defined and exists in Moodle, we want to store it in that one
                         if ($catid = $DB->get_field('course_categories', 'id', array('name'=>$group->category))) {
                             $course->category = $catid;
@@ -412,10 +411,10 @@ function process_group_tag($tagcontents) {
                         } else {
                             // If not found and not allowed to create, stick with default
                             $this->log_line('Category '.$group->category.' not found in Moodle database, so using default category instead.');
-                            $course->category = 1;
+                            $course->category = $this->get_default_category_id();
                         }
                     } else {
-                        $course->category = 1;
+                        $course->category = $this->get_default_category_id();
                     }
                     $course->timecreated = time();
                     $course->startdate = time();
@@ -509,13 +508,19 @@ function process_person_tag($tagcontents){
 
 
     // Now if the recstatus is 3, we should delete the user if-and-only-if the setting for delete users is turned on
-    // In the "users" table we can do this by setting deleted=1
     if($recstatus==3){
 
         if($imsdeleteusers){ // If we're allowed to delete user records
-            // Make sure their "deleted" field is set to one
-            $DB->set_field('user', 'deleted', 1, array('username'=>$person->username));
-            $this->log_line("Marked user record for user '$person->username' (ID number $person->idnumber) as deleted.");
+            // Do not dare to hack the user.deleted field directly in database!!!
+            if ($user = $DB->get_record('user', array('username'=>$person->username, 'mnethostid'=>$CFG->mnet_localhost_id, 'deleted'=>0))) {
+                if (delete_user($user)) {
+                    $this->log_line("Deleted user '$person->username' (ID number $person->idnumber).");
+                } else {
+                    $this->log_line("Error deleting '$person->username' (ID number $person->idnumber).");
+                }
+            } else {
+                $this->log_line("Can not delete user '$person->username' (ID number $person->idnumber) - user does not exist.");
+            }
         }else{
             $this->log_line("Ignoring deletion request for user '$person->username' (ID number $person->idnumber).");
         }
@@ -534,8 +539,10 @@ function process_person_tag($tagcontents){
             } else {
 
             // If they don't exist and they have a defined username, and $createnewusers == true, we create them.
-            $person->lang = 'manual'; //TODO: this needs more work due tu multiauth changes
-            $person->auth = $CFG->auth;
+            $person->lang = $CFG->lang;
+            $auth = explode(',', $CFG->auth); //TODO: this needs more work due tu multiauth changes, use first auth for now
+            $auth = reset($auth);
+            $person->auth = $auth;
             $person->confirmed = 1;
             $person->timemodified = time();
             $person->mnethostid = $CFG->mnet_localhost_id;
@@ -563,8 +570,8 @@ function process_person_tag($tagcontents){
         } elseif ($createnewusers) {
             $this->log_line("User record already exists for user '$person->username' (ID number $person->idnumber).");
 
-            // Make sure their "deleted" field is set to zero.
-            $DB->set_field('user', 'deleted', 0, array('idnumber'=>$person->idnumber));
+            // It is totally wrong to mess with deleted users flag directly in database!!!
+            // There is no official way to undelete user, sorry..
         }else{
             $this->log_line("No user record found for '$person->username' (ID number $person->idnumber).");
         }
@@ -801,6 +808,24 @@ function load_role_mappings() {
     function enrol_imsenterprise_allow_group_member_remove($itemid, $groupid, $userid) {
         return false;
     }
+
+    /**
+     * Get the default category id (often known as 'Miscellaneous'),
+     * statically cached to avoid multiple DB lookups on big imports.
+     *
+     * @return int id of default category.
+     */
+    private function get_default_category_id() {
+        static $defaultcategoryid = null;
+
+        if ($defaultcategoryid === null) {
+            $category = get_course_category();
+            $defaultcategoryid = $category->id;
+        }
+
+        return $defaultcategoryid;
+    }
+
 
 } // end of class
 

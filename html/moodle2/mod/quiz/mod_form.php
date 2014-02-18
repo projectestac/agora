@@ -69,6 +69,7 @@ class mod_quiz_mod_form extends moodleform_mod {
             $mform->setType('name', PARAM_CLEANHTML);
         }
         $mform->addRule('name', null, 'required', null, 'client');
+        $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
 
         // Introduction.
         $this->add_intro_editor(false, get_string('introduction', 'quiz'));
@@ -423,10 +424,12 @@ class mod_quiz_mod_form extends moodleform_mod {
             }
         }
 
-        $mform->disabledIf('correctness' . $whenname, 'attempt' . $whenname);
-        $mform->disabledIf('specificfeedback' . $whenname, 'attempt' . $whenname);
-        $mform->disabledIf('generalfeedback' . $whenname, 'attempt' . $whenname);
-        $mform->disabledIf('rightanswer' . $whenname, 'attempt' . $whenname);
+        if ($whenname != 'during') {
+            $mform->disabledIf('correctness' . $whenname, 'attempt' . $whenname);
+            $mform->disabledIf('specificfeedback' . $whenname, 'attempt' . $whenname);
+            $mform->disabledIf('generalfeedback' . $whenname, 'attempt' . $whenname);
+            $mform->disabledIf('rightanswer' . $whenname, 'attempt' . $whenname);
+        }
     }
 
     protected function preprocessing_review_settings(&$toform, $whenname, $when) {
@@ -574,6 +577,9 @@ class mod_quiz_mod_form extends moodleform_mod {
                         get_string('feedbackerrorjunkinfeedback', 'quiz', $i + 1);
             }
         }
+
+        // Any other rule plugins.
+        $errors = quiz_access_manager::validate_settings_form_fields($errors, $data, $files, $this);
 
         return $errors;
     }

@@ -40,7 +40,7 @@ if (empty($CFG->enableblogs)) {
 
 //correct tagid if a text tag is provided as a param
 if (!empty($tag)) {
-    if ($tagrec = $DB->get_record_sql("SELECT * FROM {tag} WHERE ". $DB->sql_like('name', '?', false), array("%$tag%"))) {
+    if ($tagrec = $DB->get_record('tag', array('name' => $tag))) {
         $tagid = $tagrec->id;
     } else {
         unset($tagid);
@@ -183,13 +183,7 @@ if (!empty($userid)) {
             print_error('donothaveblog', 'blog');
         }
     } else {
-        $personalcontext = context_user::instance($userid);
-
-        if (!has_capability('moodle/blog:view', $sitecontext) && !has_capability('moodle/user:readuserblogs', $personalcontext)) {
-            print_error('cannotviewuserblog', 'blog');
-        }
-
-        if (!blog_user_can_view_user_entry($userid)) {
+        if (!has_capability('moodle/blog:view', $sitecontext) || !blog_user_can_view_user_entry($userid)) {
             print_error('cannotviewcourseblog', 'blog');
         }
 

@@ -78,6 +78,8 @@ class moodle1_mod_assignment_handler extends moodle1_mod_handler {
      * data available
      */
     public function process_assignment($data) {
+        global $CFG;
+
         // get the course module id and context id
         $instanceid     = $data['id'];
         $cminfo         = $this->get_cminfo($instanceid);
@@ -94,6 +96,12 @@ class moodle1_mod_assignment_handler extends moodle1_mod_handler {
         $this->fileman->filearea = 'intro';
         $this->fileman->itemid   = 0;
         $data['intro'] = moodle1_converter::migrate_referenced_files($data['intro'], $this->fileman);
+
+        // convert the introformat if necessary
+        if ($CFG->texteditors !== 'textarea') {
+            $data['intro'] = text_to_html($data['intro'], false, false, true);
+            $data['introformat'] = FORMAT_HTML;
+        }
 
         // start writing assignment.xml
         $this->open_xml_writer("activities/assignment_{$this->moduleid}/assignment.xml");
@@ -200,7 +208,8 @@ class moodle1_mod_assignment_handler extends moodle1_mod_handler {
         }
 
         if (!isset($this->subpluginhandlers[$subplugin])) {
-            throw new moodle1_convert_exception('unsupported_subplugin', 'assignment_'.$subplugin);
+            // Generic handling, prevents breaking conversion process...
+            $this->subpluginhandlers[$subplugin] = new moodle1_assignment_unsupported_subplugin_handler($this, $subplugin);
         }
 
         return $this->subpluginhandlers[$subplugin];
@@ -242,4 +251,10 @@ abstract class moodle1_assignment_subplugin_handler extends moodle1_submod_handl
 
         //you will probably want to do stuff with $this->xmlwriter here (within your overridden method) to write plugin specific data.
     }
+}
+
+/**
+ * This class handles subplugins that do not exist or that are not supported
+ */
+class moodle1_assignment_unsupported_subplugin_handler extends moodle1_assignment_subplugin_handler {
 }

@@ -1552,7 +1552,20 @@ abstract class admin_setting {
             rebuild_course_cache(0, true);
         }
 
-        // log change
+        $this->add_to_config_log($name, $oldvalue, $value);
+
+        return true; // BC only
+    }
+
+    /**
+     * Log config changes if necessary.
+     * @param string $name
+     * @param string $oldvalue
+     * @param string $value
+     */
+    protected function add_to_config_log($name, $oldvalue, $value) {
+        global $DB, $USER;
+
         $log = new stdClass();
         $log->userid       = during_initial_install() ? 0 :$USER->id; // 0 as user id during install
         $log->timemodified = time();
@@ -1561,8 +1574,6 @@ abstract class admin_setting {
         $log->value        = $value;
         $log->oldvalue     = $oldvalue;
         $DB->insert_record('config_log', $log);
-
-        return true; // BC only
     }
 
     /**
@@ -1942,6 +1953,22 @@ class admin_setting_configpasswordunmask extends admin_setting_configtext {
      */
     public function __construct($name, $visiblename, $description, $defaultsetting) {
         parent::__construct($name, $visiblename, $description, $defaultsetting, PARAM_RAW, 30);
+    }
+
+    /**
+     * Log config changes if necessary.
+     * @param string $name
+     * @param string $oldvalue
+     * @param string $value
+     */
+    protected function add_to_config_log($name, $oldvalue, $value) {
+        if ($value !== '') {
+            $value = '********';
+        }
+        if ($oldvalue !== '' and $oldvalue !== null) {
+            $oldvalue = '********';
+        }
+        parent::add_to_config_log($name, $oldvalue, $value);
     }
 
     /**
@@ -4059,7 +4086,7 @@ class admin_setting_question_behaviour extends admin_setting_configselect {
     public function load_choices() {
         global $CFG;
         require_once($CFG->dirroot . '/question/engine/lib.php');
-        $this->choices = question_engine::get_archetypal_behaviours();
+        $this->choices = question_engine::get_behaviour_options('');
         return true;
     }
 }
@@ -7895,7 +7922,7 @@ class admin_setting_managewebservicetokens extends admin_setting {
 
                 $validuntil = '';
                 if (!empty($token->validuntil)) {
-                    $validuntil = date("F j, Y"); //TODO: language support (look for moodle function)
+                    $validuntil = userdate($token->validuntil, get_string('strftimedatetime', 'langconfig'));
                 }
 
                 $iprestriction = '';

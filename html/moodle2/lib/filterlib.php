@@ -84,7 +84,7 @@ class filter_manager {
     public static function instance() {
         global $CFG;
         if (is_null(self::$singletoninstance)) {
-            if (!empty($CFG->perfdebug)) {
+            if (!empty($CFG->perfdebug) and $CFG->perfdebug > 7) {
                 self::$singletoninstance = new performance_measuring_filter_manager();
             } else {
                 self::$singletoninstance = new self();
@@ -717,13 +717,23 @@ function filter_get_string_filters() {
  */
 function filter_set_applies_to_strings($filter, $applytostrings) {
     $stringfilters = filter_get_string_filters();
-    $numstringfilters = count($stringfilters);
+    $prevfilters = $stringfilters;
+    $allfilters = filter_get_all_installed();
+
     if ($applytostrings) {
         $stringfilters[$filter] = $filter;
     } else {
         unset($stringfilters[$filter]);
     }
-    if (count($stringfilters) != $numstringfilters) {
+
+    // Remove missing filters.
+    foreach ($stringfilters as $filter) {
+        if (!isset($allfilters[$filter])) {
+            unset($stringfilters[$filter]);
+        }
+    }
+
+    if ($prevfilters != $stringfilters) {
         set_config('stringfilters', implode(',', $stringfilters));
         set_config('filterall', !empty($stringfilters));
     }
@@ -1106,6 +1116,9 @@ function filter_get_global_states() {
  */
 function filter_delete_all_for_filter($filter) {
     global $DB;
+
+    filter_set_applies_to_strings($filter, false);
+
     if (substr($filter, 0, 7) == 'filter/') {
         unset_all_config_for_plugin('filter_' . basename($filter));
     }

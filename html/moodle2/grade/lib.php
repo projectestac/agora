@@ -22,7 +22,8 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once $CFG->libdir.'/gradelib.php';
+require_once($CFG->libdir . '/gradelib.php');
+require_once($CFG->dirroot . '/grade/export/lib.php');
 
 /**
  * This class iterates over all users that are graded in a course.
@@ -128,7 +129,7 @@ class graded_users_iterator {
 
         $this->close();
 
-        grade_regrade_final_grades($this->course->id);
+        export_verify_grades($this->course->id);
         $course_item = grade_item::fetch_course_item($this->course->id);
         if ($course_item->needsupdate) {
             // can not calculate all final grades - sorry
@@ -185,7 +186,7 @@ class graded_users_iterator {
                             LEFT JOIN (SELECT * FROM {user_info_data}
                                 WHERE fieldid = :cf$customfieldscount) cf$customfieldscount
                             ON u.id = cf$customfieldscount.userid";
-                    $userfields .= ", cf$customfieldscount.data AS 'customfield_{$field->shortname}'";
+                    $userfields .= ", cf$customfieldscount.data AS customfield_{$field->shortname}";
                     $params['cf'.$customfieldscount] = $field->customid;
                     $customfieldscount++;
                 }
@@ -1514,6 +1515,10 @@ class grade_structure {
     public function get_hiding_icon($element, $gpr) {
         global $CFG, $OUTPUT;
 
+        if (!$element['object']->can_control_visibility()) {
+            return '';
+        }
+
         if (!has_capability('moodle/grade:manage', $this->context) and
             !has_capability('moodle/grade:hide', $this->context)) {
             return '';
@@ -2461,7 +2466,7 @@ abstract class grade_helper {
             return self::$managesetting;
         }
         $context = context_course::instance($courseid);
-        if (has_capability('moodle/course:update', $context)) {
+        if (has_capability('moodle/grade:manage', $context)) {
             self::$managesetting = new grade_plugin_info('coursesettings', new moodle_url('/grade/edit/settings/index.php', array('id'=>$courseid)), get_string('course'));
         } else {
             self::$managesetting = false;

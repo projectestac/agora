@@ -52,6 +52,12 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
     protected $connection;
 
     /**
+     * Key prefix for this memcache.
+     * @var string
+     */
+    protected $prefix;
+
+    /**
      * An array of servers to use in the connection args.
      * @var array
      */
@@ -80,6 +86,12 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
      * @var cache_definition
      */
     protected $definition;
+
+    /**
+     * Default prefix for key names.
+     * @var string
+     */
+    const DEFAULT_PREFIX = 'mdl_';
 
     /**
      * Constructs the store instance.
@@ -111,12 +123,17 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
             }
             $this->servers[] = $server;
         }
+        if (empty($configuration['prefix'])) {
+            $this->prefix = self::DEFAULT_PREFIX;
+        } else {
+            $this->prefix = $configuration['prefix'];
+        }
 
         $this->connection = new Memcache;
         foreach ($this->servers as $server) {
-            $this->connection->addServer($server[0], $server[1], true, $server[2]);
-            // Test the connection to this server.
+            $this->connection->addServer($server[0], (int) $server[1], true, (int) $server[2]);
         }
+        // Test the connection to the pool of servers.
         $this->isready = @$this->connection->set($this->parse_key('ping'), 'ping', MEMCACHE_COMPRESSED, 1);
     }
 
@@ -182,6 +199,17 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
     }
 
     /**
+     * Returns false as this store does not support multiple identifiers.
+     * (This optional function is a performance optimisation; it must be
+     * consistent with the value from get_supported_features.)
+     *
+     * @return bool False
+     */
+    public function supports_multiple_identifiers() {
+        return false;
+    }
+
+    /**
      * Returns the supported modes as a combined int.
      *
      * @param array $configuration
@@ -201,7 +229,7 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
         if (strlen($key) > 245) {
             $key = '_sha1_'.sha1($key);
         }
-        $key = 'mdl_'.$key;
+        $key = $this->prefix . $key;
         return $key;
     }
 
@@ -322,11 +350,17 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
         $lines = explode("\n", $data->servers);
         $servers = array();
         foreach ($lines as $line) {
-            $line = trim($line, ':');
+            // Trim surrounding colons and default whitespace.
+            $line = trim(trim($line), ":");
+            // Skip blank lines.
+            if ($line === '') {
+                continue;
+            }
             $servers[] = explode(':', $line, 3);
         }
         return array(
             'servers' => $servers,
+            'prefix' => $data->prefix,
         );
     }
 
@@ -345,6 +379,12 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
             }
             $data['servers'] = join("\n", $servers);
         }
+        if (!empty($config['prefix'])) {
+            $data['prefix'] = $config['prefix'];
+        } else {
+            $data['prefix'] = self::DEFAULT_PREFIX;
+        }
+
         $editform->set_data($data);
     }
 
@@ -369,7 +409,7 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
      * Generates an instance of the cache store that can be used for testing.
      *
      * @param cache_definition $definition
-     * @return false
+     * @return cachestore_memcache|false
      */
     public static function initialise_test_instance(cache_definition $definition) {
         if (!self::are_requirements_met()) {

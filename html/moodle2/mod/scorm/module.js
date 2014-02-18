@@ -24,6 +24,7 @@
 mod_scorm_launch_next_sco = null;
 mod_scorm_launch_prev_sco = null;
 mod_scorm_activate_item = null;
+scorm_layout_widget = null;
 
 M.mod_scorm = {};
 
@@ -40,8 +41,7 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
         scorm_disable_toc = true;
     }
 
-    scoes_nav = JSON.parse(scoes_nav);
-    var scorm_layout_widget;
+    scoes_nav = Y.JSON.parse(scoes_nav);
     var scorm_current_node;
     var scorm_buttons = [];
     var scorm_bloody_labelclick = false;
@@ -100,41 +100,20 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
             }
 
             var content = new Y.YUI2.util.Element('scorm_content');
-            try {
-                // first try IE way - it can not set name attribute later
-                // and also it has some restrictions on DOM access from object tag
-                if (window_name || node.title == null) {
-                    var obj = document.createElement('<iframe id="scorm_object" src="">');
-                    if (window_name) {
-                        var mine = window.open('','','width=1,height=1,left=0,top=0,scrollbars=no');
-                        if(! mine) {
-                             alert(M.str.scorm.popupsblocked);
-                        }
-                        mine.close()
-                    }
-                }
-                else {
-                    var obj = document.createElement('<iframe id="scorm_object" src="'+url_prefix + node.title+'">');
-                }
-                // fudge IE7 to redraw the screen
-                if (Y.YUI2.env.ua.ie > 5 && Y.YUI2.env.ua.ie < 8) {
-                    obj.attachEvent("onload", scorm_resize_parent);
-                }
-            } catch (e) {
-                var obj = document.createElement('object');
-                obj.setAttribute('id', 'scorm_object');
-                obj.setAttribute('type', 'text/html');
-                if (!window_name && node.title != null) {
-                    obj.setAttribute('data', url_prefix + node.title);
-                }
-                if (window_name) {
-                    var mine = window.open('','','width=1,height=1,left=0,top=0,scrollbars=no');
-                    if(! mine) {
-                         alert(M.str.scorm.popupsblocked);
-                    }
-                    mine.close()
-                }
+            var obj = document.createElement('iframe');
+            obj.setAttribute('id', 'scorm_object');
+            obj.setAttribute('type', 'text/html');
+            if (!window_name && node.title != null) {
+                obj.setAttribute('src', url_prefix + node.title);
             }
+            if (window_name) {
+                var mine = window.open('','','width=1,height=1,left=0,top=0,scrollbars=no');
+                if(! mine) {
+                    alert(M.str.scorm.popupsblocked);
+                }
+                mine.close()
+            }
+
             var old = Y.YUI2.util.Dom.get('scorm_object');
             if (old) {
                 if(window_name) {
@@ -152,7 +131,7 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
             scorm_resize_frame();
 
             var left = scorm_layout_widget.getUnitByPosition('left');
-            if (left.expanded) {
+            if (left.expand) {
                 scorm_current_node.focus();
             }
             if (scorm_hide_nav == false) {
@@ -176,16 +155,6 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
                         (scoes_nav[launch_sco].flow != 1)) || (scoes_nav[launch_sco].hidecontinue == 1)));
             scorm_buttons[4].set('disabled', (scorm_skipnext(scorm_current_node) == null || scorm_skipnext(scorm_current_node).title == null ||
                         scoes_nav[launch_sco].hidecontinue == 1));
-        };
-
-        var scorm_resize_parent = function() {
-            // fudge  IE7 to redraw the screen
-            parent.resizeBy(-10, -10);
-            parent.resizeBy(10, 10);
-            var ifr = Y.YUI2.util.Dom.get('scorm_object');
-            if (ifr) {
-                ifr.detachEvent("onload", scorm_resize_parent);
-            }
         };
 
         var scorm_resize_layout = function(alsowidth) {
@@ -364,7 +333,7 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
                 var datastring = scoes_nav[launch_sco].url + '&function=scorm_seq_flow&request=backward';
                 result = scorm_ajax_request(M.cfg.wwwroot + '/mod/scorm/datamodels/sequencinghandler.php?', datastring);
                 mod_scorm_seq = encodeURIComponent(result);
-                result = JSON.parse (result);
+                result = Y.JSON.parse (result);
                 if (typeof result.nextactivity.id != undefined) {
                         var node = scorm_prev(scorm_tree_node.getHighlightedNode())
                         if (node == null) {
@@ -390,7 +359,7 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
                 var datastring = scoes_nav[launch_sco].url + '&function=scorm_seq_flow&request=forward';
                 result = scorm_ajax_request(M.cfg.wwwroot + '/mod/scorm/datamodels/sequencinghandler.php?', datastring);
                 mod_scorm_seq = encodeURIComponent(result);
-                result = JSON.parse (result);
+                result = Y.JSON.parse (result);
                 if (typeof result.nextactivity.id != undefined) {
                         var node = scorm_next(scorm_tree_node.getHighlightedNode())
                         if (node == null) {
@@ -492,6 +461,15 @@ M.mod_scorm.init = function(Y, hide_nav, hide_toc, toc_title, window_name, launc
         }
         tree.expandAll();
         tree.render();
+
+        // On getting the window, always set the focus on the current item
+        Y.YUI2.util.Event.on(window, 'focus', function (e) {
+            var current = scorm_tree_node.getHighlightedNode();
+            var left = scorm_layout_widget.getUnitByPosition('left');
+            if (current && left.expand) {
+                current.focus();
+            }
+        });
 
         // navigation
         if (scorm_hide_nav == false) {
@@ -608,9 +586,8 @@ M.mod_scorm.connectPrereqCallback = {
                     hnode = scorm_tree_node.getNodeByIndex(hidx);
                     if (hnode) {
                         hnode.highlight();
-                        scorm_layout_widget = Y.YUI2.widget.Layout.getLayoutById('scorm_layout');
                         var left = scorm_layout_widget.getUnitByPosition('left');
-                        if (left.expanded) {
+                        if (left.expand) {
                             hnode.focus();
                         }
                     }

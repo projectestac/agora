@@ -148,12 +148,7 @@ class repository_upload extends repository {
             }
         }
 
-        // scan the files, throws exception and deletes if virus found
-        // this is tricky because clamdscan daemon might not be able to access the files
-        $permissions = fileperms($_FILES[$elname]['tmp_name']);
-        @chmod($_FILES[$elname]['tmp_name'], $CFG->filepermissions);
         self::antivir_scan_file($_FILES[$elname]['tmp_name'], $_FILES[$elname]['name'], true);
-        @chmod($_FILES[$elname]['tmp_name'], $permissions);
 
         // {@link repository::build_source_field()}
         $sourcefield = $this->get_file_source_info($_FILES[$elname]['name']);
@@ -213,13 +208,14 @@ class repository_upload extends repository {
         $record->userid    = $USER->id;
 
         if (repository::draftfile_exists($record->itemid, $record->filepath, $record->filename)) {
+            $existingfilename = $record->filename;
+            $unused_filename = repository::get_unused_filename($record->itemid, $record->filepath, $record->filename);
+            $record->filename = $unused_filename;
+            $stored_file = $fs->create_file_from_pathname($record, $_FILES[$elname]['tmp_name']);
             if ($overwriteexisting) {
-                repository::delete_tempfile_from_draft($record->itemid, $record->filepath, $record->filename);
+                repository::overwrite_existing_draftfile($record->itemid, $record->filepath, $existingfilename, $record->filepath, $record->filename);
+                $record->filename = $existingfilename;
             } else {
-                $existingfilename = $record->filename;
-                $unused_filename = repository::get_unused_filename($record->itemid, $record->filepath, $record->filename);
-                $record->filename = $unused_filename;
-                $stored_file = $fs->create_file_from_pathname($record, $_FILES[$elname]['tmp_name']);
                 $event = array();
                 $event['event'] = 'fileexists';
                 $event['newfile'] = new stdClass;
@@ -233,9 +229,9 @@ class repository_upload extends repository {
                 $event['existingfile']->url      = moodle_url::make_draftfile_url($record->itemid, $record->filepath, $existingfilename)->out(false);
                 return $event;
             }
+        } else {
+            $stored_file = $fs->create_file_from_pathname($record, $_FILES[$elname]['tmp_name']);
         }
-
-        $stored_file = $fs->create_file_from_pathname($record, $_FILES[$elname]['tmp_name']);
 
         return array(
             'url'=>moodle_url::make_draftfile_url($record->itemid, $record->filepath, $record->filename)->out(false),

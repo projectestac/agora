@@ -152,7 +152,8 @@ if (!empty($forum)) {      // User is starting a new discussion in a forum
         $post->groupid = groups_get_activity_group($cm);
     }
 
-    forum_set_return();
+    // Unsetting this will allow the correct return URL to be calculated later.
+    unset($SESSION->fromdiscussion);
 
 } else if (!empty($reply)) {      // User is writing a new reply
 
@@ -227,6 +228,7 @@ if (!empty($forum)) {      // User is starting a new discussion in a forum
         $post->subject = $strre.' '.$post->subject;
     }
 
+    // Unsetting this will allow the correct return URL to be calculated later.
     unset($SESSION->fromdiscussion);
 
 } else if (!empty($edit)) {  // User is editing their own post
@@ -277,8 +279,8 @@ if (!empty($forum)) {      // User is starting a new discussion in a forum
 
     $post = trusttext_pre_edit($post, 'message', $modcontext);
 
+    // Unsetting this will allow the correct return URL to be calculated later.
     unset($SESSION->fromdiscussion);
-
 
 }else if (!empty($delete)) {  // User is deleting a post
 
@@ -680,7 +682,11 @@ if ($fromform = $mform_post->get_data()) {
 
 
     } else if ($fromform->discussion) { // Adding a new post to an existing discussion
+        // Before we add this we must check that the user will not exceed the blocking threshold.
+        forum_check_throttling($forum, $cm, false);
+
         unset($fromform->groupid);
+
         $message = '';
         $addpost = $fromform;
         $addpost->forum=$forum->id;
@@ -728,7 +734,10 @@ if ($fromform = $mform_post->get_data()) {
         }
         exit;
 
-    } else {                     // Adding a new discussion
+    } else { // Adding a new discussion.
+        // Before we add this we must check that the user will not exceed the blocking threshold.
+        forum_check_throttling($forum, $cm, false);
+
         if (!forum_user_can_post_discussion($forum, $fromform->groupid, -1, $cm, $modcontext)) {
             print_error('cannotcreatediscussion', 'forum');
         }
@@ -864,7 +873,10 @@ if ($forum->type == 'qanda'
     echo $OUTPUT->notification(get_string('qandanotify','forum'));
 }
 
-forum_check_throttling($forum, $cm);
+// If we are not editing a post we need to check the posting threshold.
+if (!$edit) {
+    forum_check_throttling($forum, $cm);
+}
 
 if (!empty($parent)) {
     if (! $discussion = $DB->get_record('forum_discussions', array('id' => $parent->discussion))) {
