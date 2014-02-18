@@ -31,11 +31,11 @@ defined('MOODLE_INTERNAL') || die;
 if (get_protected_agora()) { 
 //************ FI    
 
-    if (has_capability('moodle/restore:restorecourse', $systemcontext)) {
-        $ADMIN->add('courses', new admin_externalpage('tooluploadcourse',
-                    get_string('uploadcourses', 'tool_uploadcourse'),
-                    "$CFG->wwwroot/$CFG->admin/tool/uploadcourse/index.php", 'moodle/site:uploadusers'));
-    }
+if (has_capability('moodle/restore:restorecourse', $systemcontext)) {
+    $ADMIN->add('courses', new admin_externalpage('tooluploadcourse',
+                get_string('uploadcourses', 'tool_uploadcourse'),
+                "$CFG->wwwroot/$CFG->admin/tool/uploadcourse/index.php", 'moodle/site:uploadusers'));
+}
 
 //XTEC ************ AFEGIT - Allow access only to xtecadmin user
 //2013.10.09 @aginard
