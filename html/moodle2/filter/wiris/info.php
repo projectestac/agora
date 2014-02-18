@@ -84,7 +84,7 @@ if (!file_exists($wiris_plugin_base)){
 				<?php
 					$test_name = 'Looking for correct folder';
 					$report_text = 'Filter must be installed in Moodle filter folder.';
-					$solution_link = 'http://www.wiris.com/en/plugins/docs/moodle/moodle-2.0';
+					$solution_link = 'http://www.wiris.com/plugins/docs/moodle/moodle-2.0';
 					$actual_folder = realpath(dirname(__FILE__));
 					$correct_folder = realpath($CFG->dirroot . '/filter/wiris');
 					echo wrs_createTableRow($test_name, $report_text, $solution_link, $actual_folder == $correct_folder);
@@ -94,7 +94,7 @@ if (!file_exists($wiris_plugin_base)){
 				<?php
 					$test_name = 'Looking for filter files';
 					$report_text = 'WIRIS plugin filter for Moodle 2.x must be installed.';
-					$solution_link = 'http://www.wiris.com/en/plugins/moodle/download';
+					$solution_link = 'http://www.wiris.com/plugins/moodle/download';
 					$filter_files = Array('filter.php', 'MoodleConfigurationUpdater.php', 'tinyversion.php', 'version.php');
 					$exist = true;
 					foreach ($filter_files as $value){
@@ -117,14 +117,14 @@ if (!file_exists($wiris_plugin_base)){
 						$report_text = 'Impossible to find WIRIS plugin filter version file.';
 						$condition = false;
 					}
-					$solution_link = 'http://www.wiris.com/en/plugins/moodle/download';
+					$solution_link = 'http://www.wiris.com/plugins/moodle/download';
 					echo wrs_createTableRow($test_name, $report_text, $solution_link, $condition);
 				?>				
 			</tr>
 			<tr>			
 				<?php
 					$test_name = 'WIRIS plugin filter';
-					$solution_link = 'http://www.wiris.com/es/plugins/docs/moodle/moodle-2.0';
+					$solution_link = 'http://www.wiris.com/plugins/docs/moodle/moodle-2.0';
                     $filter_enabled = filter_is_enabled('filter/wiris');
                     if ($filter_enabled){
                         $report_text = 'ENABLED';
@@ -138,7 +138,7 @@ if (!file_exists($wiris_plugin_base)){
 				<?php
 					$test_name = 'Looking for WIRIS plugin for TinyMCE';
 					$report_text = 'WIRIS plugin for TinyMCE must be installed.';
-					$solution_link = 'http://www.wiris.com/en/plugins/moodle/download';
+					$solution_link = 'http://www.wiris.com/plugins/moodle/download';
 					$wiris_plugin = $wiris_plugin_base. '/integration';
 					$condition = file_exists($wiris_plugin);					
                                         if (!$condition){
@@ -172,7 +172,7 @@ if (!file_exists($wiris_plugin_base)){
 						$report_text = 'WIRIS plugin filter and WIRIS plugin for TinyMCE versions don\'t match';
 						$condition = false;
 					}
-					$solution_link = 'http://www.wiris.com/en/plugins/moodle/download';
+					$solution_link = 'http://www.wiris.com/plugins/moodle/download';
 					echo wrs_createTableRow($test_name, $report_text, $solution_link, $condition);
 				?>				
 			</tr>			

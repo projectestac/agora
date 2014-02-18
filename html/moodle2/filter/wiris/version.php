@@ -19,7 +19,16 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2013010900;
-$plugin->release = '3.21.0';
-$plugin->requires = 2010112400;
+$plugin->version = 2013070500;
+$plugin->release = '3.24.0';
+$plugin->requires = 2011120500;
+$plugin->maturity = MATURITY_STABLE;
+$plugin->component = 'filter_wiris';
+/*global $CFG;
+if ($CFG->version>=2012120300) { // Moodle 2.4
+	$plugin->dependencies = array (
+		 'tinymce_tiny_mce_wiris' => 2013070500
+	);
+}*/
+
 ?>

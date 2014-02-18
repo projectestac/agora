@@ -19,8 +19,8 @@
  *
  * @since     2.0
  * @package   format_simple
- * @copyright 2012 UPCnet
- * @author Pau Ferrer Ocaña pau.ferrer-ocana@upcnet.es, Jaume Fernàndez Valiente jfern343@xtec.cat
+ * @copyright 2012-2014 UPCnet
+ * @author Pau Ferrer Ocaña pau.ferrer-ocana@upcnet.es, Jaume Fernàndez Valiente jfern343@xtec.cat, Marc Espinosa Zamora marc.espinosa.zamora@upcnet.es
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -37,7 +37,144 @@ require_once($CFG->dirroot. '/course/format/topics/lib.php');
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class format_simple extends format_topics {
-
+	public function course_format_options($foreditform = false) {
+        	static $courseformatoptions = false;
+	        if ($courseformatoptions === false) {
+        	    $courseconfig = get_config('moodlecourse');
+	            $courseformatoptions = array(
+        	        'numsections' => array(
+                	    'default' => $courseconfig->numsections,
+	                    'type' => PARAM_INT,
+        	        ),
+                	'hiddensections' => array(
+	                    'default' => $courseconfig->hiddensections,
+        	            'type' => PARAM_INT,
+                	),
+	                'coursedisplay' => array(
+        	            'default' => $courseconfig->coursedisplay,
+                	    'type' => PARAM_INT,
+	                ),
+			'showtopiczero' => array(
+                            'default' => 0,
+                            'type' => PARAM_INT,
+                        ),
+			'showblocks' => array(
+                            'default' => 0,
+                            'type' => PARAM_INT,
+                        ),
+			'simpleiconsize' => array(
+                            'default' => 128,
+                            'type' => PARAM_INT,
+                        ),
+        	    );
+	        }
+        	if ($foreditform && !isset($courseformatoptions['coursedisplay']['label'])) {
+	            $courseconfig = get_config('moodlecourse');
+        	    $max = $courseconfig->maxsections;
+	            if (!isset($max) || !is_numeric($max)) {
+        	        $max = 52;
+	            }	
+        	    $sectionmenu = array();
+	            for ($i = 0; $i <= $max; $i++) {
+        	        $sectionmenu[$i] = "$i";
+	            }
+        	    $courseformatoptionsedit = array(
+                	'numsections' => array(
+	                    'label' => new lang_string('numberweeks'),
+        	            'element_type' => 'select',
+                	    'element_attributes' => array($sectionmenu),
+	                ),
+        	        'hiddensections' => array(
+                	    'label' => new lang_string('hiddensections'),
+	                    'help' => 'hiddensections',
+        	            'help_component' => 'moodle',
+                	    'element_type' => 'select',
+	                    'element_attributes' => array(
+        	                array(
+                	            0 => new lang_string('hiddensectionscollapsed'),
+                        	    1 => new lang_string('hiddensectionsinvisible')
+	                        )
+        	            ),
+                	),
+	                'coursedisplay' => array(
+        	            'label' => new lang_string('coursedisplay'),
+                	    'element_type' => 'select',
+	                    'element_attributes' => array(
+        	                array(
+                	            COURSE_DISPLAY_SINGLEPAGE => new lang_string('coursedisplay_single'),
+	                            COURSE_DISPLAY_MULTIPAGE => new lang_string('coursedisplay_multi')
+        	                )
+                	    ),
+	                    'help' => 'coursedisplay',
+        	            'help_component' => 'moodle',
+	                ),
+			'showtopiczero' => array(
+                            'label' => get_string('showtopiczero', 'format_simple'),
+                            'element_type' => 'advcheckbox',
+                        ),
+			'showblocks' => array(
+                            'label' => get_string('showblocks', 'format_simple'),
+                            'element_type' => 'advcheckbox',
+			    'help' => 'showblocks',
+                            'help_component' => 'format_simple',
+                        ),
+			'simpleiconsize' => array(
+                            'label' => get_string('simpleiconsize', 'format_simple'),
+                            'element_type' => 'select',
+			    'element_attributes' => array(
+                                array(
+                                    24 => '24px',
+				    32 => '32px',
+				    48 => '48px',
+                                    64 => '54px',
+				    72 => '72px',
+                                    80 => '80px',	
+				    96 => '96px',
+                                    128 => '128px',
+				    256 => '256px',
+                                )
+                            ),
+                        ),
+        	    );
+	            $courseformatoptions = array_merge_recursive($courseformatoptions, $courseformatoptionsedit);
+	        }
+        	return $courseformatoptions;
+	  }
+	public function get_view_url($section, $options = array()) {
+	        $course = $this->get_course();
+        	$url = new moodle_url('/course/view.php', array('id' => $course->id));
+		$context = context_course::instance($course->id);
+	        $sr = null;
+        	if (array_key_exists('sr', $options)) {
+	            $sr = $options['sr'];
+        	}
+	        if (is_object($section)) {
+        	    $sectionno = $section->section;
+	        } else {
+        	    $sectionno = $section;
+	        }
+        	if ($sectionno !== null) {
+	            if ($sr !== null) {
+        	        if ($sr) {
+                	    $usercoursedisplay = COURSE_DISPLAY_MULTIPAGE;
+	                    $sectionno = $sr;
+        	        } else {
+                	    $usercoursedisplay = COURSE_DISPLAY_SINGLEPAGE;
+	                }
+        	    } else {
+                	$usercoursedisplay = $course->coursedisplay;
+	            }
+        	    if (($sectionno != 0 && $usercoursedisplay == COURSE_DISPLAY_MULTIPAGE) || !has_capability('moodle/course:update',$context)) {
+                	$url->param('section', $sectionno);
+	            } else {
+        	        if (!empty($options['navigation'])) {
+                	    return null;
+	                }
+        	        $url->set_anchor('section-'.$sectionno);
+	            }
+        	}
+	        return $url;
+	}
 	
 }
 

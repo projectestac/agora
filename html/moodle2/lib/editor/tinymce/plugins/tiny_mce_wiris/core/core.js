@@ -37,7 +37,7 @@ var _wrs_safeXmlCharacters = {
 	'tagCloser': '»',		// \xBB
 	'doubleQuote': '¨',		// \xA8
 	'ampersand': '§',		// \xA7
-	'quote': '`',			// \xB4
+	'quote': '`',			// \x60
 	'realDoubleQuote': '¨'
 };
 
@@ -217,6 +217,33 @@ function wrs_containsClass(element, className) {
 	}
 	
 	return false;
+}
+
+/**
+ * Converts old xmlinitialtext attribute (with «») to the correct one(with §lt;§gt;)
+ * @param string text
+ * @return string
+ */
+function wrs_convertOldXmlinitialtextAttribute(text){
+	//Used to fix a bug with Cas imported from Moodle 1.9 to Moodle 2.x
+	//This could be removed in future
+	var val = 'value=';
+	
+	var xitpos = text.indexOf('xmlinitialtext');
+	var valpos = text.indexOf(val, xitpos);
+	var quote = text.charAt(valpos + val.length);
+	var startquote = valpos + val.length + 1;
+	var endquote = text.indexOf(quote, startquote);
+
+	var value = text.substring(startquote, endquote);
+	
+	var newvalue = value.split('«').join('§lt;');
+	newvalue = newvalue.split('»').join('§gt;');
+	newvalue = newvalue.split('&').join('§');
+	newvalue = newvalue.split('¨').join('§quot;');
+	
+	text = text.split(value).join(newvalue);
+	return text;
 }
 
 /**
@@ -1215,17 +1242,18 @@ function wrs_initParseEditMode(code) {
  */
 function wrs_initParseSaveMode(code, language) {
 	if (window._wrs_conf_saveMode) {
-		var safeXml = (_wrs_conf_saveMode == 'safeXml');
-		var characters = _wrs_xmlCharacters;
-		
-		if (safeXml) {
-			characters = _wrs_safeXmlCharacters;
+		if (_wrs_conf_saveMode == 'safeXml') {
+			code = wrs_mathmlDecodeSafeXmlEntities(code);
 			code = wrs_parseSafeAppletsToObjects(code);
-		}
-		
-		if (safeXml || _wrs_conf_saveMode == 'xml') {
+			
 			// Converting XML to tags.
-			code = wrs_parseMathmlToImg(code, characters, language);
+			code = wrs_parseMathmlToLatex(code, _wrs_safeXmlCharacters);
+			code = wrs_parseMathmlToImg(code, _wrs_safeXmlCharacters, language);
+		}
+		else if (_wrs_conf_saveMode == 'xml') {
+			// Converting XML to tags.
+			code = wrs_parseMathmlToLatex(code, _wrs_xmlCharacters);			
+			code = wrs_parseMathmlToImg(code, _wrs_xmlCharacters, language);
 		}
 	}
 	
@@ -1235,10 +1263,27 @@ function wrs_initParseSaveMode(code, language) {
 	for (var i = 0; i < appletList.length; ++i) {
 		var appletCode = code.substring(appletList[i].start + carry, appletList[i].end + carry);
 		
-		if (appletCode.indexOf(' class="' + _wrs_conf_CASClassName + '"') != -1) {
-			var srcStart = appletCode.indexOf(' src="') + ' src="'.length;
-			var srcEnd = appletCode.indexOf('"', srcStart);
-			var src = appletCode.substring(srcStart, srcEnd);
+		//The second control in the if is used to find WIRIS applet which don't have Wiriscas class (as it was in old CAS applets).
+		if (appletCode.indexOf(' class="' + _wrs_conf_CASClassName + '"') != -1 || appletCode.toUpperCase().indexOf('WIRIS') != -1) {
+			if (appletCode.indexOf(' src="') != -1){
+				var srcStart = appletCode.indexOf(' src="') + ' src="'.length;
+				var srcEnd = appletCode.indexOf('"', srcStart);
+				var src = appletCode.substring(srcStart, srcEnd);
+			}else{
+				//This should happen only with old CAS imported from Moodle 1 to Moodle 2
+				if (typeof(_wrs_conf_pluginBasePath) != 'undefined'){
+					var src = _wrs_conf_pluginBasePath + '/integration/showcasimage.php?formula=noimage';
+				}else{
+					var src = '';
+				}
+				if (appletCode.indexOf(' class="' + _wrs_conf_CASClassName + '"') == -1){
+					var closeSymbol = appletCode.indexOf('>');
+					var appletTag = appletCode.substring(0, closeSymbol);
+					var newAppletTag = appletTag.split(' width=').join(' class="Wiriscas" width=');
+					appletCode = appletCode.split(appletTag).join(newAppletTag);
+					appletCode = appletCode.split('\'').join('"');
+				}
+			}
 			
 			// 'Double click to edit' has been removed here.
 			var imgCode = '<img align="middle" class="' + _wrs_conf_CASClassName + '" ' + _wrs_conf_CASMathmlAttribute + '="' + wrs_mathmlEncode(appletCode) + '" src="' + src + '" />';
@@ -1410,6 +1455,16 @@ function wrs_isMathmlInAttribute(content, i) {
 	return exists;
 }
 
+function wrs_mathmlDecodeSafeXmlEntities(input) {
+	// Decoding entities.
+	input = input.split(_wrs_safeXmlCharactersEntities.tagOpener).join(_wrs_safeXmlCharacters.tagOpener);
+	input = input.split(_wrs_safeXmlCharactersEntities.tagCloser).join(_wrs_safeXmlCharacters.tagCloser);
+	input = input.split(_wrs_safeXmlCharactersEntities.doubleQuote).join(_wrs_safeXmlCharacters.doubleQuote);
+	//Added to fix problem due to import from 1.9.x
+	input = input.split(_wrs_safeXmlCharactersEntities.realDoubleQuote).join(_wrs_safeXmlCharacters.realDoubleQuote);
+	return input;
+}
+
 /**
  * WIRIS special encoding.
  * We use these entities because IE doesn't support html entities on its attributes sometimes. Yes, sometimes.
@@ -1417,12 +1472,7 @@ function wrs_isMathmlInAttribute(content, i) {
  * @return string
  */
 function wrs_mathmlDecode(input) {
-	// Decoding entities.
-	input = input.split(_wrs_safeXmlCharactersEntities.tagOpener).join(_wrs_safeXmlCharacters.tagOpener);
-	input = input.split(_wrs_safeXmlCharactersEntities.tagCloser).join(_wrs_safeXmlCharacters.tagCloser);
-	input = input.split(_wrs_safeXmlCharactersEntities.doubleQuote).join(_wrs_safeXmlCharacters.doubleQuote);
-	//Added to fix problem due to import from 1.9.x
-	input = input.split(_wrs_safeXmlCharactersEntities.realDoubleQuote).join(_wrs_safeXmlCharacters.realDoubleQuote);
+	input = wrs_mathmlDecodeSafeXmlEntities(input);
 
 	//Blackboard
 	if ('_wrs_blackboard' in window && window._wrs_blackboard){
@@ -1745,6 +1795,50 @@ function wrs_openEditorWindow(language, target, isIframe) {
 }
 
 /**
+ * Converts all occurrences of mathml code to LATEX.
+ * @param string content
+ * @return string
+ */
+function wrs_parseMathmlToLatex(content, characters){
+	var output = '';
+	var mathTagBegin = characters.tagOpener + 'math';
+	var mathTagEnd = characters.tagOpener + '/math' + characters.tagCloser;
+	var openTarget = characters.tagOpener + 'annotation encoding=' + characters.doubleQuote + 'LaTeX' + characters.doubleQuote + characters.tagCloser;
+	var closeTarget = characters.tagOpener + '/annotation' + characters.tagCloser;
+	var start = content.indexOf(mathTagBegin);
+	var end = 0;
+	var mathml, startAnnotation, closeAnnotation;
+	
+	while (start != -1) {
+		output += content.substring(end, start);
+		end = content.indexOf(mathTagEnd, start);
+		
+		if (end == -1) {
+			end = content.length - 1;
+		}
+		else {
+			end += mathTagEnd.length;
+		}
+
+		mathml = content.substring(start, end);
+	
+		startAnnotation = mathml.indexOf(openTarget);
+		if (startAnnotation != -1){
+			startAnnotation += openTarget.length;
+			closeAnnotation = mathml.indexOf(closeTarget);
+			output += '$$' + mathml.substring(startAnnotation, closeAnnotation) + '$$';
+		}else{
+			output += mathml;
+		}
+		
+		start = content.indexOf(mathTagBegin, end);
+	}
+	
+	output += content.substring(end, content.length);
+	return output;
+}
+
+/**
  * Converts all occurrences of mathml code to the corresponding image.
  * @param string content
  * @return string
@@ -1769,7 +1863,7 @@ function wrs_parseMathmlToImg(content, characters, language) {
 		
 		if (!wrs_isMathmlInAttribute(content, start)){
 			var mathml = content.substring(start, end);
-			mathml = (characters == _wrs_safeXmlCharacters) ? wrs_mathmlDecode(mathml) : wrs_mathmlEntities(mathml);
+			mathml = (characters == _wrs_safeXmlCharacters) ? wrs_mathmlDecode(mathml) : wrs_mathmlEntities(mathml);		// Why mathDecode is applied on safeXmlCharacters? If the mathml is encoded, it cannot be detected.
 			output += wrs_createObjectCode(wrs_mathmlToImgObject(document, mathml, null, language));
 		}
 		else {
@@ -1795,6 +1889,7 @@ function wrs_parseSafeAppletsToObjects(content) {
 	var upperCaseContent = content.toUpperCase();
 	var start = upperCaseContent.indexOf(appletTagBegin);
 	var end = 0;
+	var applet;
 	
 	while (start != -1) {
 		output += content.substring(end, start);
@@ -1807,7 +1902,9 @@ function wrs_parseSafeAppletsToObjects(content) {
 			end += appletTagEnd.length;
 		}
 		
-		output += wrs_mathmlDecode(content.substring(start, end));
+		applet = wrs_convertOldXmlinitialtextAttribute(content.substring(start, end));
+		
+		output += wrs_mathmlDecode(applet);
 		start = upperCaseContent.indexOf(appletTagBegin, end);
 	}
 	

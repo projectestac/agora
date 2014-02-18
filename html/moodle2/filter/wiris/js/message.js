@@ -22,7 +22,7 @@ var a = document.createElement('a');
 a.href = 'http://www.wiris.com/plugins/docs/moodle/troubleshooting';
 a.target = '_blank';
 var img = document.createElement('img');
-img.src = 'http://www.wiris.com/system/files/attachments/1689/WIRIS_manual_icon_17_17.png';
+img.src = 'https://www.wiris.com/system/files/attachments/1689/WIRIS_manual_icon_17_17.png';
 img.alt = '';
 img.style.verticalAlign = '-3px';
 a.appendChild(img);

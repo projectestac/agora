@@ -15,13 +15,13 @@ while (tinymce.ScriptLoader.isDone(_wrs_baseURL + '/plugins/tiny_mce_wiris/core/
 
 /* Configuration */
 var _wrs_conf_editorEnabled = true;		// Specifies if fomula editor is enabled.
-var _wrs_conf_CASEnabled = @CAS_ENABLED@;		// Specifies if WIRIS cas is enabled.
+var _wrs_conf_CASEnabled = true;		// Specifies if WIRIS cas is enabled.
 
-var _wrs_conf_imageMathmlAttribute = '@IMAGE_MATHML_ATTRIBUTE@';	// Specifies the image tag where we should save the formula editor mathml code.
+var _wrs_conf_imageMathmlAttribute = 'data-mathml';	// Specifies the image tag where we should save the formula editor mathml code.
 var _wrs_conf_CASMathmlAttribute = 'alt';	// Specifies the image tag where we should save the WIRIS cas mathml code.
 
 var _wrs_conf_editorPath = _wrs_baseURL + '/plugins/tiny_mce_wiris/integration/editor.php';				// Specifies where is the editor HTML code (for popup window).
-var _wrs_conf_editorAttributes = 'width=@EDITOR_WINDOW_WIDTH@, height=@EDITOR_WINDOW_HEIGHT@, scroll=no, resizable=yes';							// Specifies formula editor window options.
+var _wrs_conf_editorAttributes = 'width=570, height=450, scroll=no, resizable=yes';							// Specifies formula editor window options.
 var _wrs_conf_CASPath = _wrs_baseURL + '/plugins/tiny_mce_wiris/integration/cas.php';					// Specifies where is the WIRIS cas HTML code (for popup window).
 var _wrs_conf_CASAttributes = 'width=640, height=480, scroll=no, resizable=yes';										// Specifies WIRIS cas window options.
 
@@ -32,11 +32,11 @@ var _wrs_conf_getmathmlPath = _wrs_baseURL + '/plugins/tiny_mce_wiris/integratio
 var _wrs_conf_servicePath = _wrs_baseURL + '/plugins/tiny_mce_wiris/integration/service.php';				// Specifies where is the service script.
 var _wrs_conf_getconfigPath = _wrs_baseURL + '/plugins/tiny_mce_wiris/integration/getconfig.php';			// Specifies from where it returns the configuration using AJAX
 
-var _wrs_conf_saveMode = '@SAVE_MODE@';					// This value can be 'tags', 'xml' or 'safeXml'.
-var _wrs_conf_parseModes = [@PARSE_LATEX@];				// This value can contain 'latex'.
-var _wrs_conf_defaultEditMode = '@DEFAULT_EDIT_MODE@';				// This value can be 'images', 'latex' or 'iframes'.
+var _wrs_conf_saveMode = 'safeXml';					// This value can be 'tags', 'xml' or 'safeXml'.
+var _wrs_conf_parseModes = ['latex'];				// This value can contain 'latex'.
+var _wrs_conf_defaultEditMode = 'images';				// This value can be 'images', 'latex' or 'iframes'.
 
-var _wrs_conf_enableAccessibility = @ACCESSIBILITY_STATE@;
+var _wrs_conf_enableAccessibility = true;
 
 var _wrs_conf_pluginBasePath = _wrs_baseURL + '/plugins/tiny_mce_wiris';
 
@@ -101,26 +101,6 @@ if (_wrs_conf_getconfigPath.substr(_wrs_conf_getconfigPath.length - 4) == '.php'
 	}
 }
 
-function configureLatex(){
-	if (window.wrs_arrayContains){
-		if (configuration.wirisparselatex == false) {
-			var pos = wrs_arrayContains(_wrs_conf_parseModes, 'latex');
-			if (pos != -1){
-				_wrs_conf_parseModes.splice(pos, 1);
-			}
-		}else if (configuration.wirisparselatex == true) {
-			var pos = wrs_arrayContains(_wrs_conf_parseModes, 'latex');
-			if (pos == -1){
-				_wrs_conf_parseModes.push('latex');
-			}
-		}		
-	}else{
-		setTimeout(configureLatex, 50);
-	}
-}
-
-configureLatex();
-
 if ('wirisformulaeditoractive' in configuration) {
 	_wrs_conf_editorEnabled = (configuration.wirisformulaeditoractive == true);
 }
@@ -151,6 +131,18 @@ if ('wiriscasactive' in configuration) {
 						if (editor.settings['wirisformulaeditorlang']) {
 							language = editor.settings['wirisformulaeditorlang'];
 						}
+						
+						if (configuration.wirisparselatex == false) {
+							var pos = wrs_arrayContains(_wrs_conf_parseModes, 'latex');
+							if (pos != -1){
+								_wrs_conf_parseModes.splice(pos, 1);
+							}
+						}else if (configuration.wirisparselatex == true) {
+							var pos = wrs_arrayContains(_wrs_conf_parseModes, 'latex');
+							if (pos == -1){
+								_wrs_conf_parseModes.push('latex');
+							}
+						}		
 				
 						//Bug fix: In Moodle2.x when TinyMCE is set to full screen 
 						//the content doesn't need to be filtered.

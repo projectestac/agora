@@ -17,4 +17,4 @@
 //  along with WIRIS Plugin. If not, see <http://www.gnu.org/licenses/>.
 //
 
-$string['pluginname'] = 'Wiris';
+$string['pluginname'] = 'WIRIS plugin for TinyMCE';

@@ -19,8 +19,8 @@
  * Strings for component 'format_simple', language 'en', branch 'MOODLE_20_STABLE'
  *
  * @package   format_simple
- * @copyright 2012 onwards UPCnet
- * @author Pau Ferrer Ocaña pau.ferrer-ocana@upcnet.es, Jaume Fernàndez Valiente jfern343@xtec.cat
+ * @copyright 2012-2014 onwards UPCnet
+ * @author Pau Ferrer Ocaña pau.ferrer-ocana@upcnet.es, Jaume Fernàndez Valiente jfern343@xtec.cat, Marc Espinosa Zamora marc.espinosa.zamora@upcnet.es (Moodle 2.4)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -48,3 +48,8 @@ $string['music'] = 'Music';
 $string['environment'] = 'Discovering the environment';
 $string['visual'] = 'Arts';
 $string['language'] = 'Language';
+
+$string['showblocks'] = 'Show side blocks';
+$string['showblocks_help'] = 'This option will only work if the theme allow it.';
+$string['showtopiczero'] = 'Show topic zero';
+$string['simpleiconsize'] = 'Icon size in pixels';
