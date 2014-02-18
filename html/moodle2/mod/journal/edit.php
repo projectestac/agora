@@ -75,7 +75,7 @@ if ($fromform = $form->get_data()) {
 
     add_to_log($course->id, "journal", $logaction, 'view.php?id='.$cm->id, $newentry->id, $cm->id);
 
-    redirect('view.php?id='.$cm->id);
+    redirect(new moodle_url('/mod/journal/view.php?id='.$cm->id));
     die;
 }
 
