@@ -8,6 +8,9 @@ Changes in progress
 MOODLE 2
 - Added debug by session feature
 - Import19: Don't show import section if tables of Moodle 1.9 are not present and avoid current error
+- Protect cron to run twice at the same time
+- MUC for questiondata is now configured for instances separately
+- Repairing scripts for duplicates of course_completion and quiz_attempts
 
 ZIKULA
 - Removed module iw_moodle to connect to Moodle 1.9
