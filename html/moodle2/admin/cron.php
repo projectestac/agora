@@ -52,6 +52,29 @@ require('../config.php');
 require_once($CFG->libdir.'/clilib.php');
 require_once($CFG->libdir.'/cronlib.php');
 
+//XTEC ************ AFEGIT - Run cron by CLI
+//2014.02.17 @pferre22
+/*if (!empty($CFG->cronclionly)) {
+    $nocli = optional_param('nocli', false, PARAM_BOOL);
+    if(!$nocli){
+        run_cli_cron();
+        mtrace('Cron is being executing in background by CLI...');
+        exit(0);
+    } else {
+        $CFG->cronclionly = false;
+    }
+}*/
+//TO ERASE
+if (empty($CFG->cronclionly)) {
+    $cli = optional_param('cli', false, PARAM_BOOL);
+    if($cli){
+        run_cli_cron();
+        mtrace('Cron is being executing in background by CLI...');
+        exit(0);
+    }
+}
+//************ FI
+
 // extra safety
 session_get_instance()->write_close();
 

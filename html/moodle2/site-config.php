@@ -1,20 +1,33 @@
 <?php
-	
+
     require_once(INSTALL_BASE.'/html/config/dblib-mysql.php');
-	
+
     // Debug code
     $debug_enabled = isset($_GET['debug']) ? $_GET['debug']: 'off';
     define('DEBUG_ENABLED', $debug_enabled);
     xtec_debug("DEBUG ENABLED: $debug_enabled");
-    
+
     $dbsource = isset($_GET['dbsource']) ? $_GET['dbsource']: $agora['dbsource']['defaulttype'];
     xtec_debug("Selected source: $dbsource");
     // End debug
-	
-    //Get info from cookie if exists
-    $centre = $_REQUEST['ccentre'];
 
-    if($centre == null){
+    //Get info from cookie if exists
+    $agora_cli = false;
+    $centre = false;
+    if(isset($_REQUEST['ccentre'])){
+        $centre = $_REQUEST['ccentre'];
+    } else if(isset($_SERVER['argv'])){
+        $argvs = $_SERVER['argv'];
+        foreach($argvs as $arg){
+            $parts = explode('=', $arg);
+            if($parts[0] == '--ccentre'){
+                $centre = $parts[1];
+                $agora_cli = true;
+            }
+        }
+    }
+
+    if(empty($centre)){
         //Envia a una pàgina d'error
         header('location: '.WWWROOT.'error.php?s=moodle2&dns='.$_REQUEST['ccentre']);
         exit(0);
@@ -27,16 +40,16 @@
         header('location: '.WWWROOT.'error.php?s=moodle2&dns='.$_REQUEST['ccentre']);
         exit(0);
     }
-    
+
     // Get the correct domain for the school (it's different if the school uses marsupial modules)
     $CFG->ismarsupial = array_key_exists('is_marsupial', $school_info) && $school_info['is_marsupial'];
 
     if (isset($CFG->ismarsupial) && $CFG->ismarsupial) {
         $moodle_wwwserver = $agora['server']['marsupial'];
     } else {
-        $moodle_wwwserver = $agora['server']['server'];    
+        $moodle_wwwserver = $agora['server']['server'];
     }
-  
+
     $moodle_wwwroot = $moodle_wwwserver . $agora['server']['base'];
 
     // Check if the domain is not the correct one and move if it isn't

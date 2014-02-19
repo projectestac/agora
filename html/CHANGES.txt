@@ -24,6 +24,7 @@ MOODLE 2
 - Added repairing scripts for duplicates of course_completion and quiz_attempts
 - Cleaning of local/agora cron
 - Updated catalan translation of questiontypes of the Open University (gapselect, ddimageortext, ddmarker and ddwtos)
+- Preparing cron to run from CLI
 
 ZIKULA
 - Removed module iw_moodle to connect to Moodle 1.9

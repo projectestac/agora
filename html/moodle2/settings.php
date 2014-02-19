@@ -13,7 +13,7 @@ $CFG->center = array_key_exists('clientCode', $school_info) ? $school_info['clie
 $CFG->diskPercent = array_key_exists('diskPercent_moodle2', $school_info) ? $school_info['diskPercent_moodle2'] : 0;
 $CFG->userquota = 0;  // To avoid the private files area
 
-$CFG->legacyfilesinnewcourses=0;        
+$CFG->legacyfilesinnewcourses=0;
 $CFG->updateautocheck = 0;
 $CFG->disableupdatenotifications=1;
 
@@ -103,7 +103,7 @@ if (isset($agora['server']['enviroment'])){
     $CFG->eoicampus_wsdl_path = INSTALL_BASE. 'html/moodle2/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-'.$agora['server']['enviroment'].'.wsdl';
 }
 
-// Path of the cacheconfig.php file, to have only one MUC file for Àgora (instead of having one for each site in moodledata/usuX/muc/config.php). 
+// Path of the cacheconfig.php file, to have only one MUC file for Àgora (instead of having one for each site in moodledata/usuX/muc/config.php).
 // This folder has to exists and to be writable
 $CFG->altcacheconfigpath = $agora['server']['root'].'html/moodle2/local/agora/muc/';
 
@@ -111,3 +111,9 @@ $CFG->timezone = 99; // Changed by default to Server's local time
 $CFG->cronremotepassword = '';  // changed to avoid schools change it
 $CFG->cronclionly = 0; // changed to avoid schools change it
 
+
+//Here is where the cronlogs will be stored
+//$CFG->savecronlog = 1;  // This parámeter is saved on database to save cronlogs
+if(isset($agora['moodle']['username']) && !empty($agora['moodle']['username'])){
+	$CFG->usu1repofiles  = INSTALL_BASE . $agora['moodle2']['datadir'] . $agora['moodle']['username'] . '1/repository/files';
+}

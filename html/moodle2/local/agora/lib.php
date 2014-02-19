@@ -44,7 +44,9 @@ function run_cli($command, $output_file = false, $append = true, $background = t
 
     $command = $CFG->dirroot . '/'.$command;
 
-    $params['ccentre'] = $CFG->dnscentre;
+    if(isset($CFG->dnscentre)){
+        $params['ccentre'] = $CFG->dnscentre;
+    }
     if($params && is_array($params)){
         foreach($params as $key => $value){
             $command .= ' --'.$key.'='.$value;
@@ -106,10 +108,18 @@ function run_cli_cron($background = true){
 
     $command = $CFG->admin.'/cli/cron.php';
 
+    $output_file = false;
+    // $CFG->savecronlog must be saved on DB
     if(isset($CFG->savecronlog) && !empty($CFG->savecronlog)) {
-        $output_file = $CFG->datarootusu1.'/crons/cron_'.$CFG->dbuser.'_'.date("Ymd").'.log';
-    } else {
-        $output_file = false;
+        if(isset($CFG->usu1repofiles) && !empty($CFG->usu1repofiles)) {
+            $output_dir = $CFG->usu1repofiles.'/crons';
+        } else {
+            $output_dir = $CFG->dataroot.'/crons';
+        }
+        $result = make_writable_directory($output_dir, false);
+        if($result){
+            $output_file = $output_dir.'/cron_'.$CFG->dbuser.'_'.date("Ymd").'.log';
+        }
     }
     $append = true;
     return run_cli($command, $output_file, $append, $background);
