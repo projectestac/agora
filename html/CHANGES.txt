@@ -3,14 +3,27 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 14.02.26
 ---------------------------------------------------------------------------------------
 MOODLE 2
+- Upgrade Moodle2 to 2.4.8 version which includes:
+-- Update QV module
+-- Update of Wiris quizzes question types
+-- Update of journal module
+-- Update of hotpot module and question format
+-- Update of format simple and Wiris plugins
+-- Update of Marsupial to the latest version
+-- Update of Admin tools third party modules
+-- Update of language files
+-- Update Simple course format
+-- Delete patch MDL-27071 already exists on moodle 2.4.8
 - Added debug by session feature
 - Import19: Don't show import section if tables of Moodle 1.9 are not present and avoid current error
 - Protect cron to run twice at the same time
-- MUC for questiondata is now configured for instances separately
-- Repairing scripts for duplicates of course_completion and quiz_attempts
+- MUC for questiondata is now configured and is set for separately for every Moodle instance
+- Added repairing scripts for duplicates of course_completion and quiz_attempts
+- Cleaning of local/agora cron
+- Updated catalan translation of questiontypes of the Open University (gapselect, ddimageortext, ddmarker and ddwtos)
 
 ZIKULA
 - Removed module iw_moodle to connect to Moodle 1.9
