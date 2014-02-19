@@ -29,6 +29,7 @@ $string['pluginname'] = 'Memòria cau';
 $string['prefix'] = 'Prefix de la clau';
 $string['prefix_help'] = 'Aquest prefix s\'utilitza per a tots els noms claus al servidor de memòria cau.
 * Si només teniu una instància Moodle fent servir aquest servidor, podeu deixar aquest valor per defecte. * A causa de les restriccions de longitud de clau, només es permet un màxim de 5 caràcters.';
+$string['prefixinvalid'] = 'Prefix invàlid. Sols podeu utilitzar a-z A-Z 0-9-_.';
 $string['servers'] = 'Servidors';
 $string['servers_help'] = 'Això configura els servidors que han de ser utilitzats per aquest adaptador de memòria cau. Els servidors s\'han de definir un per línia i consisteixen d\'una adreça de servidor i, opcionalment, un port i el pes. Si no es proporciona cap port s\'utilitza el port per defecte (11211).
 Per exemple:

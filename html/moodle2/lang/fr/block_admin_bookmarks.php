@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['admin_bookmarks:addinstance'] = 'Ajouter un bloc marque-pages administrateur';
-$string['admin_bookmarks:myaddinstance'] = 'Ajouter un bloc marque-pages administrateur à la page Mon Moodle';
+$string['admin_bookmarks:myaddinstance'] = 'Ajouter un bloc marque-pages administrateur à Ma page';
 $string['pluginname'] = 'Marque-pages administrateur';

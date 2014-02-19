@@ -26,7 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['abandoned'] = 'Abgebrochen';
+$string['activitycloses'] = 'Aktivität endet';
 $string['activitygrade'] = 'Aktivitätsbewertung';
+$string['activityopens'] = 'Aktivität startet';
 $string['added'] = 'Hinzugefügt';
 $string['addquizchain'] = 'Quizreihe anlegen';
 $string['addquizchain_help'] = 'Sollen alle HotPots aus der Quizreihe hinzugefügt werden?
@@ -51,10 +53,12 @@ $string['attemptscore'] = 'Versuche';
 $string['attemptsunlimited'] = 'Unlimitiert';
 $string['average'] = 'Durchschnitt';
 $string['averagescore'] = 'Durchschnitt';
+$string['bodystyles'] = 'Seitendesign';
+$string['bodystylesbackground'] = 'Hintergrundfarbe und -bild';
+$string['bodystylescolor'] = 'Textfarbe';
+$string['bodystylesfont'] = 'Schriftart und -größe';
+$string['bodystylesmargin'] = 'Linker und rechter Rand';
 $string['cacherecords'] = 'Datensätze im HotPot-Cache';
-$string['canrestartquiz'] = 'Die bisherigen Ergebnisse werden gespeichert und Sie können "{$a}" später wiederholen.';
-$string['canrestartunit'] = 'Ihre bisherigen Ergebnisse werden gespeichert, aber wenn Sie die Aktivität wiederholen möchten, müssen Sie von vorne beginnen.';
-$string['canresumequiz'] = 'Ihre bisherigen Ergebnisse werden gespeichert und Sie können "{$a}" später fortsetzen.';
 $string['checks'] = 'Kontrolle';
 $string['checksomeboxes'] = 'Bitte wählen Sie etwas aus';
 $string['clearcache'] = 'HotPot-Cache löschen';
@@ -67,6 +71,7 @@ $string['clicktrailreport'] = 'Klickpfade';
 $string['closed'] = 'Diese Aktivität ist beendet.';
 $string['clues'] = 'Spurensuche';
 $string['completed'] = 'Beendet';
+$string['configbodystyles'] = 'Standardmäßig werden die Designeinstellungen von HotPot durch die Designeinstellungen von Moodle überschrieben. Alternativ können Sie hier auswählen, welche Designeinstellungen aus HotPot vorrangig behandelt werden sollen.';
 $string['configenablecache'] = 'Die Nutzung des HotPot-Caches kann die Quizbereitstellung entscheidend beschleunigen.';
 $string['configenablecron'] = 'Zu welchen Zeiten soll das HotPot-Cron-Script ausgeführt werden? ';
 $string['configenablemymoodle'] = 'Diese Option legt fest, ob HotPots auf \'Meine Startseite\' angezeigt werden.';
@@ -75,7 +80,7 @@ $string['configenableswf'] = 'In Hotpots wird die Einbettung von SWF-Dateien erl
 $string['configfile'] = 'Konfigurationsdatei';
 $string['configframeheight'] = 'Wenn ein HotPot in einem Frame gezeigt wird, bestimmt diese Einstellung die Höhe (in Pixeln) des Top-Frames mit der Moodle-Navigation.';
 $string['configlocation'] = 'Pfad der Konfigurationsdatei';
-$string['configlockframe'] = 'Wenn der Navigationsframe sichtbar ist, wird er durch diese Option blockiert, d.h. er ist in seiner Größe unveränderbar und auch nicht scrollbar.';
+$string['configlockframe'] = 'Wenn der Navigationsframe sichtbar ist, wird er durch diese Option fixiert, d.h. er ist in seiner Größe unveränderbar und auch nicht scrollbar.';
 $string['configmaxeventlength'] = 'Falls ein HotPot eine Startzeit und eine Endzeit festlegt und die Zeitdauer größer als die hier angegebene Anzahl von Tagen ist, werden zwei Termine im Kurskalender eingetragen. Für eine kürzere Zeitdauer oder falls nur ein Zeitpunkt angegeben ist, wird nur ein Termin eingetragen. Falls keine Zeit festgelegt ist, wird kein Termin eingetragen.
 ';
 $string['configstoredetails'] = 'Wenn diese Option aktiviert ist, werden die XML-Details aller HotPot-Versuche in der Tabelle hotpot_details Tabelle gespeichert. Man kann damit Versuche neu einstufen und Veränderungen im HotPot-Bewertungssystem reflektieren. Die Aktivierung bewirkt allerdings in einem stark benutzen System, dass die Tabelle hotpot_details sehr schnell anwächst.';
@@ -110,6 +115,7 @@ Beachten Sie, dass unabhängig von dieser Einstellung alle HotPot-Ergebnisse imm
 $string['delay3specific'] = 'Angegebene Zeit';
 $string['delay3summary'] = 'Verzögerungszeit am Ende des Quiz';
 $string['delay3template'] = 'Einstellung in der Quelldatei';
+$string['deleteallattempts'] = 'Alle Versuche löschen';
 $string['deleteattempts'] = 'Versuche löschen';
 $string['detailsrecords'] = 'Detailübersicht';
 $string['d_index'] = 'Discrimination Index';
@@ -122,7 +128,7 @@ $string['enableswf'] = 'Eingebettete SWF-Dateien erlauben';
 $string['entry_attempts'] = 'Versuche';
 $string['entrycm'] = 'Vorherige Aktivität';
 $string['entrycmcourse'] = 'Vorherige Aktivität im Kurs';
-$string['entrycm_help'] = 'Diese Einstellung legt fest, welche Aktivität mit welchem Mindestergebnis bearbeitet sein muss, bevor dieses Quiz versucht werden darf.
+$string['entrycm_help'] = 'Diese Einstellung legt fest, welche Aktivität mit welchem Mindestergebnis bearbeitet sein muss, bevor dieses HotPot versucht werden darf.
 
 Es kann eine bestimmte Aktivität angegeben oder eine der nachfolgenden Einstellungen ausgewählt werden:
 
@@ -170,7 +176,7 @@ $string['exit_areyouok'] = 'Hallo, sind Sie noch da?';
 $string['exit_attemptscore'] = 'Ihre Wertung für diesen Versuch ist {$a}';
 $string['exitcm'] = 'Nächste Aktivität';
 $string['exitcmcourse'] = 'Nächste Aktivität im Kurs';
-$string['exitcm_help'] = 'Diese Einstellung legt fest, welche Aktivität bearbeitet werden soll, nachdem dieses Quiz beendet ist.
+$string['exitcm_help'] = 'Diese Einstellung legt fest, welche Aktivität bearbeitet werden soll, nachdem dieses HotPot beendet ist.
 
 Es kann eine bestimmte Aktivität angegeben oder eine der nachfolgenden Einstellungen ausgewählt werden:
 
@@ -179,7 +185,7 @@ Es kann eine bestimmte Aktivität angegeben oder eine der nachfolgenden Einstell
 * Nächste HotPot im Kurs
 * Nächste HotPot im Kursabschnitt
 
-Falls alle anderen Optionen für das Ende des Quiz deaktiviert sind, wird sofort die nächste Aktivität aufgerufen. Andernfalls wird ein Link angezeigt, der auf die nächste Aktivität verweist.';
+Falls alle anderen Optionen für das Ende des HotPot deaktiviert sind, wird sofort die nächste Aktivität aufgerufen. Andernfalls wird ein Link angezeigt, der auf die nächste Aktivität verweist.';
 $string['exitcmsection'] = 'Nächste Aktivität im Kursabschnitt';
 $string['exit_course'] = 'Kurs';
 $string['exit_course_text'] = 'Zum Kurs zurück';
@@ -206,6 +212,7 @@ $string['exit_feedback_help'] = 'Diese Optionen beeinflussen die Anzeige von Fee
 
 Zusätzlich wird eine entsprechende Mitteilung gezeigt, falls die Bewertungsmethode auf \'Bester Versuch\' eingestellt ist und der aktuelle Versuch gleich oder besser als alle vorherigen war.';
 $string['exit_goodtry'] = 'Guter Versuch';
+$string['exitgrade'] = 'Nächste Aktivitätenwertung';
 $string['exit_grades'] = 'Wertung';
 $string['exit_grades_text'] = 'Zu Ihren bisherigen Wertungen im Kurs';
 $string['exithotpotcourse'] = 'Nächstes HotPot in diesem Kurs';
@@ -284,6 +291,7 @@ $string['gradeweighting'] = 'Gewichtung';
 $string['gradeweighting_help'] = 'Wertungen der HotPot-Aktivität werden auf diesen Wert bezogen in der Moodle-Bewertung skaliert.';
 $string['highestscore'] = 'Bester Versuch';
 $string['hints'] = 'Tipps';
+$string['hotpot:addinstance'] = 'Neue HotPot-Aktivität hinzufügen';
 $string['hotpot:attempt'] = 'HotPot versuchen und Ergebnisse eintragen';
 $string['hotpot:deleteallattempts'] = 'Alle Versuche einer HotPot-Aktivität löschen';
 $string['hotpot:deletemyattempts'] = 'Eigene Versuche einer HotPot-Aktivität löschen';
@@ -308,6 +316,16 @@ $string['mediafilter_moodle'] = 'Moodle Mediafilter';
 $string['migratingfiles'] = 'HotPot-Dateien umwandeln';
 $string['missingsourcetype'] = 'Im HotPot-Datensatz fehlt der Quelltyp';
 $string['modulename'] = 'HotPot';
+$string['modulename_help'] = 'Das Modul \'Hotpot\' ermöglicht es, interaktive Lernmaterialien einzubinden und die Übungsergebnisse in Moodle zu übernehmen.
+
+Ein einzelnes HotPot besteht aus einer optionalen Einstiegsseite, einer Übung und einer optionalen Endseite. Die Übung selber ist eine statische oder eine interaktive Webseite, die Text, Audio und Video enthalten kann und die Übungsergebnisse aufzeichnet.
+
+Eine HotPot-Aktivität kann mit folgender Software extern erstellt und dann in Moodle eingebunden werden:
+* Hot Potatoes (Version 6)
+* Qedoc
+* Xerte
+* iSpring
+* HTML-Editor';
 $string['modulenameplural'] = 'HotPots';
 $string['nameadd'] = 'Name';
 $string['nameadd_help'] = 'Der Name kann als Text eingegeben oder automatisch generiert werden.
@@ -368,34 +386,40 @@ $string['outputformat_help'] = 'Diese Einstellung legt das Format fest, um den I
 Die verfügbaren Ausgabeformate sind abhängig vom Typ der Quelldatei. Manche Dateitypen haben nur ein Ausgabeformat, während andere über mehrere Ausgabeformate verfügen.
 
 Die Einstellung "Optimal" zeigt den Inhalt jeweils angepasst für den verwendeten Browser an. ';
-$string['outputformat_hp_6_jcloze_html'] = 'JCloze HP6 html: Standard';
+$string['outputformat_hp_6_jcloze_html'] = 'JCloze (v6) html';
 $string['outputformat_hp_6_jcloze_xml_anctscan'] = 'JCloze HP6 xml: ANCT-Scan';
-$string['outputformat_hp_6_jcloze_xml_dropdown'] = 'JCloze HP6 xml: Rottmeier DropDown';
-$string['outputformat_hp_6_jcloze_xml_findit_a'] = 'JCloze HP6 xml: Rottmeier FindIt (a)';
-$string['outputformat_hp_6_jcloze_xml_findit_b'] = 'JCloze HP6 xml: Rottmeier FindIt (b)';
-$string['outputformat_hp_6_jcloze_xml_jgloss'] = 'JCloze HP6 xml: Rottmeier JGloss';
-$string['outputformat_hp_6_jcloze_xml_v6'] = 'JCloze HP6 xml: Standard';
-$string['outputformat_hp_6_jcross_html'] = 'JCross HP6 html';
-$string['outputformat_hp_6_jcross_xml_v6'] = 'JCross HP6 xml';
-$string['outputformat_hp_6_jmatch_html'] = 'JMatch html';
-$string['outputformat_hp_6_jmatch_xml_flashcard'] = 'JMatch HP6 xml: Flashcard';
-$string['outputformat_hp_6_jmatch_xml_jmemori'] = 'JMatch HP6 xml: Rottmeier JMemori';
-$string['outputformat_hp_6_jmatch_xml_v6'] = 'JMatch HP6 xml: Standard';
-$string['outputformat_hp_6_jmatch_xml_v6_plus'] = 'JMatch HP6 xml: Drag & Drop';
-$string['outputformat_hp_6_jmix_html'] = 'JMix HP6 html';
-$string['outputformat_hp_6_jmix_xml_v6'] = 'JMix HP6 xml: Standard';
-$string['outputformat_hp_6_jmix_xml_v6_plus'] = 'JMix HP6 xml: Drag & Drop';
-$string['outputformat_hp_6_jmix_xml_v6_plus_keypress'] = 'JMix HP6 xml: Drag & Drop mit Tastendruck';
-$string['outputformat_hp_6_jquiz_html'] = 'JQuiz HP6 html';
-$string['outputformat_hp_6_jquiz_xml_v6'] = 'JQuiz HP6 xml: Standard';
-$string['outputformat_hp_6_jquiz_xml_v6_autoadvance'] = 'JQuiz HP6 xml: Auto-advance';
-$string['outputformat_hp_6_jquiz_xml_v6_exam'] = 'JQuiz HP6 xml: Exam';
-$string['outputformat_hp_6_rhubarb_html'] = 'WebRhubarb (v6) html';
-$string['outputformat_hp_6_rhubarb_xml'] = 'WebRhubarb (v6) xml';
-$string['outputformat_hp_6_sequitur_html'] = 'WebSequitur (v6) html';
-$string['outputformat_hp_6_sequitur_html_incremental'] = 'WebSequitur (v6) html, incremental scoring';
-$string['outputformat_hp_6_sequitur_xml'] = 'WebSequitur (v6) xml';
-$string['outputformat_hp_6_sequitur_xml_incremental'] = 'WebSequitur (v6) xml, incremental scoring';
+$string['outputformat_hp_6_jcloze_xml_dropdown'] = 'JCloze HP6 xml: DropDown';
+$string['outputformat_hp_6_jcloze_xml_findit_a'] = 'JCloze HP6 xml: FindIt (a)';
+$string['outputformat_hp_6_jcloze_xml_findit_b'] = 'JCloze HP6 xml: FindIt (b)';
+$string['outputformat_hp_6_jcloze_xml_jgloss'] = 'JCloze HP6 xml: JGloss';
+$string['outputformat_hp_6_jcloze_xml_v6'] = 'JCloze (v6) xml';
+$string['outputformat_hp_6_jcloze_xml_v6_autoadvance'] = 'JCloze (v6) xml: Auto-advance';
+$string['outputformat_hp_6_jcross_html'] = 'JCross (v6) html';
+$string['outputformat_hp_6_jcross_xml_v6'] = 'JCross (v6) xml';
+$string['outputformat_hp_6_jmatch_html'] = 'JMatch (v6) html';
+$string['outputformat_hp_6_jmatch_xml_flashcard'] = 'JMatch (flashcard) xml';
+$string['outputformat_hp_6_jmatch_xml_jmemori'] = 'JMatch HP6 xml: JMemori';
+$string['outputformat_hp_6_jmatch_xml_v6'] = 'JMatch (v6) xml';
+$string['outputformat_hp_6_jmatch_xml_v6_plus'] = 'JMatch (v6+) xml';
+$string['outputformat_hp_6_jmix_html'] = 'JMix (v6) html';
+$string['outputformat_hp_6_jmix_xml_v6'] = 'JMix (v6) xml';
+$string['outputformat_hp_6_jmix_xml_v6_plus'] = 'JMix (v6+) xml';
+$string['outputformat_hp_6_jmix_xml_v6_plus_deluxe'] = 'JMix (v6+ with prefix, suffix with distractors) xml';
+$string['outputformat_hp_6_jmix_xml_v6_plus_keypress'] = 'JMix (v6+ with key press) xml';
+$string['outputformat_hp_6_jquiz_html'] = 'JQuiz (v6) html';
+$string['outputformat_hp_6_jquiz_xml_v6'] = 'JQuiz (v6) xml';
+$string['outputformat_hp_6_jquiz_xml_v6_autoadvance'] = 'JQuiz (v6) xml: Auto-advance';
+$string['outputformat_hp_6_jquiz_xml_v6_exam'] = 'JQuiz (v6) xml: Exam';
+$string['outputformat_hp_6_rhubarb_html'] = 'Rhubarb (v6) html';
+$string['outputformat_hp_6_rhubarb_xml'] = 'Rhubarb (v6) xml';
+$string['outputformat_hp_6_sequitur_html'] = 'Sequitur (v6) html';
+$string['outputformat_hp_6_sequitur_html_incremental'] = 'Sequitur (v6) html, incremental scoring';
+$string['outputformat_hp_6_sequitur_xml'] = 'Sequitur (v6) xml';
+$string['outputformat_hp_6_sequitur_xml_incremental'] = 'Sequitur (v6) xml, incremental scoring';
+$string['outputformat_html_ispring'] = 'iSpring-HTML-Datei';
+$string['outputformat_html_xerte'] = 'Xerte-HTML-Datei';
+$string['outputformat_html_xhtml'] = 'Standard-HTML-Datei';
+$string['outputformat_qedoc'] = 'Qedoc-Datei';
 $string['overviewreport'] = 'Überblick';
 $string['penalties'] = 'Abzüge';
 $string['percent'] = 'Prozent';
@@ -456,6 +480,12 @@ Das Feedback-Fenster erlaubt es, eine Rückmeldung an die Trainer/innen zu über
 **Moodle-Messaging**
 : Das Fenster für das Moodle-Messaging wird angezeigt. Wenn der Kurs mehrere Trainer/innen hat, muss ausgewählt, für wen das Messaging-Fenster geöffnet werden soll.';
 $string['submits'] = 'Einreichungen';
+$string['subplugintype_hotpotattempt'] = 'Ausgabeformat';
+$string['subplugintype_hotpotattempt_plural'] = 'Ausgabeformate';
+$string['subplugintype_hotpotreport'] = 'Bericht';
+$string['subplugintype_hotpotreport_plural'] = 'Berichte';
+$string['subplugintype_hotpotsource'] = 'Quelldatei';
+$string['subplugintype_hotpotsource_plural'] = 'Quelldateien';
 $string['textsourcefile'] = 'Aus der Quelldatei';
 $string['textsourcefilename'] = 'Name der Quelldatei';
 $string['textsourcefilepath'] = 'Pfad der Quelldatei';
@@ -504,7 +534,7 @@ $string['usefilters_help'] = 'Wenn diese Option aktiviert ist, werden Inhalte vo
 $string['useglossary'] = 'Glossar';
 $string['useglossary_help'] = 'Wenn diese Option aktiviert ist, werden Inhalte mit dem Moodlefilter \'Autoverlinkung für Glossare\' verarbeitet, bevor sie angezeigt werden.';
 $string['usemediafilter'] = 'Mediafilter';
-$string['usemediafilter_help'] = 'Diese Einstellung legt die Nutzung des Multimediafilters fest.
+$string['usemediafilter_help'] = 'Diese Einstellung legt die Nutzung des Mediafilters fest.
 
 **Keine**
 : Der Inhalt wird an keinen Multimediafilter übergeben.
@@ -538,8 +568,7 @@ Die Notation mit den eckigen Klammer hat die folgende Syntax:
 **options** (optional)
 : eine kommagetrennte Liste von Optionen zur Weitergabe an den Mediaplayer. Jede Option kann eine einfacher Ein-/Aus-Schalter oder ein Wertepaar sein.
 : **name = Wert
-: **name = "irgendein Wert mit Leerzeichen"
-';
+: **name = "irgendein Wert mit Leerzeichen"';
 $string['utilitiesindex'] = 'HotPot-Werkzeuge';
 $string['viewreports'] = '{$a} Nutzerberichte';
 $string['views'] = 'Aufrufe';

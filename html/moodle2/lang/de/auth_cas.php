@@ -51,6 +51,7 @@ $string['auth_cas_language_key'] = 'Sprache';
 $string['auth_cas_logincas'] = 'Sicherer Zugang';
 $string['auth_cas_logoutcas'] = 'Diese Option legt fest, dass Sie sich gleichzeitig vom CAS abmelden, sobald Sie sich in Moodle abmelden.';
 $string['auth_cas_logoutcas_key'] = 'CAS Abmeldeoption';
+$string['auth_cas_logout_return_url'] = 'Geben Sie die URL ein auf die CAS Nutzer zurückgeleitet werden wenn sie sich ausloggen.<br />Lassen Sie das Feld leer, so werden die Nutzer auf die Seite geführt, die bei Moodle nach dem Logout üblicherweise verwendet.';
 $string['auth_cas_logout_return_url_key'] = 'Alternative URL auf die beim Ausloggen zurückgeführt wird.';
 $string['auth_cas_multiauth'] = 'Diese Option legt fest, dass Sie eine Mehrfach-Authentifizierung wünschen (CAS + andere Authentifizierung)';
 $string['auth_cas_multiauth_key'] = 'Mehrfach-Authentifizierung';

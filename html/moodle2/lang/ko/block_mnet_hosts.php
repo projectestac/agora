@@ -28,5 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['error_authmnetneeded'] = 'MNET 네트워크 서버 목록을 보려면 MNET 인증 플러그인이 활성화되어야 합니다.';
 $string['error_localusersonly'] = '원격 사용자는 이 호스트로부터 다른 MNET 네트워크 서버로 이동해 갈 수 없습니다.';
 $string['error_roamcapabilityneeded'] = 'MNET 네트워크 서버 목록을 보려면 사용자는 \'MNET을 통한 원격 어플리케이션으로 로밍\' 능력이 필요합니다.';
+$string['mnet_hosts:addinstance'] = '네트워크 서버 블록 추가';
+$string['mnet_hosts:myaddinstance'] = '내 공부방에 네트워크 서버 블록 추가';
 $string['pluginname'] = '무들네트웍 서버';
 $string['server'] = '서버';

@@ -208,7 +208,7 @@ $string['grade:view'] = 'Ver calificaciones propias';
 $string['grade:viewall'] = 'Ver calificaciones de otros usuarios';
 $string['grade:viewhidden'] = 'Ver calificaciones ocultas al usuario';
 $string['hidden'] = 'Ocultas';
-$string['highlightedcellsshowdefault'] = 'Las celdas marcadas en la siguiente tabla muestran los permisos predeterminados para cada tipo de rol, en base al \'tipo de rol heredado del nivel superior\'.';
+$string['highlightedcellsshowdefault'] = 'Los permisos señalados en la siguiente tabla son los valores predeterminados para el arquetipo de rol actualmente seleccionado arriba.';
 $string['highlightedcellsshowinherit'] = 'Las celdas marcadas en la siguiente tabla muestra el permiso (si lo hay) que se hereda. Además de los permisos que realmente desea cambiar, debe dejar todo listo para los permisos a heredar.';
 $string['inactiveformorethan'] = 'inactivo durante más de {$a->timeperiod}';
 $string['ingroup'] = 'en el grupo "{$a->group}"';
@@ -266,7 +266,7 @@ Hay 4 opciones:
 * Prohibir: se retira por completo el permiso y no se puede anular en ningún nivel más bajo (más específico).';
 $string['permissions'] = 'Permisos';
 $string['permissionsforuser'] = 'Permisos para {$a}';
-$string['permissionsincontext'] = 'Permissos en {$a}';
+$string['permissionsincontext'] = 'Permisos en {$a}';
 $string['portfolio:export'] = 'Exportar a portafolios';
 $string['potentialusers'] = '{$a} usuarios potenciales';
 $string['potusers'] = 'Usuarios potenciales';

@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['comments:addinstance'] = 'Добавлять новый блок комментариев';
+$string['comments:myaddinstance'] = 'Добавлять новый Блок комментариев в Мой Moodle';
 $string['pluginname'] = 'Комментарии';

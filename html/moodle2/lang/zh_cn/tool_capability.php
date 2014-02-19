@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['capabilitylabel'] = '权限：';
+$string['capabilityreport'] = '权限概况';
 $string['changeoverrides'] = '修改此场景中的重载';
 $string['changeroles'] = '修改角色定义';
 $string['forroles'] = '对角色{$a}';

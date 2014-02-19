@@ -58,17 +58,17 @@ Die Einschreibung kann über folgenden Link verlängert werden: {$a->extendurl}'
 $string['expirymessageenrollersubject'] = 'Mitteilung zum Ablauf der Selbsteinschreibung';
 $string['groupkey'] = 'Einschreibeschlüssel für Gruppen';
 $string['groupkey_desc'] = 'Standardmäßig einen Einschreibeschlüssel für Gruppen benutzen';
-$string['groupkey_help'] = 'Ergänzend zur Zugriffssteuerung über einen Einschreibeschlüssel für den Kurs können zusätzliche Einschreibeschlüssel für Gruppen festgelegt werden, die bei der Kurseinschreibung automatisch alle Nutzer/innen einer bestimmten Gruppe zuweisen.
+$string['groupkey_help'] = 'Ergänzend zum Einschreibeschlüssel für die Kurseinschreibung lassen sich weitere Einschreibeschlüssel für Gruppen festlegen. Nutzer/innen können damit bei ihrer Kurseinschreibung automatisch einer bestimmten Gruppe zugewiesen werden.
 
-Um Einschreibeschlüssel für Gruppen verwenden zu können, muss ein Einschreibeschlüssel für den Kurs vergeben sein, den aber eigentlich niemand kennen muss. Der Einschreibeschlüssel für die jeweilige Gruppe wird in den Gruppeneinstellungen festgelegt.';
+Um Einschreibeschlüssel für Gruppen verwenden zu können, muss zusätzlich ein Einschreibeschlüssel für den Kurs vergeben sein, den aber niemand kennen muss.';
 $string['longtimenosee'] = 'Inaktive abmelden
 ';
-$string['longtimenosee_help'] = 'Wenn Personen lange Zeit nicht mehr auf einen Kurs zugegriffen haben, werden sie automatisch abgemeldet. Dieser Parameter legt die maximale Inaktivitätsdauer fest.';
+$string['longtimenosee_help'] = 'Wenn Personen lange Zeit nicht mehr auf einen Kurs zugreifen, werden sie automatisch abgemeldet. Dieser Parameter legt die maximale Inaktivitätsdauer fest.';
 $string['maxenrolled'] = 'Einschreibungen (max.)';
 $string['maxenrolled_help'] = 'Diese Option legt die Maximalzahl möglicher Nutzer/innen mit Selbsteinschreibung fest. (0= unbeschränkt)';
 $string['maxenrolledreached'] = 'Die maximale Anzahl der erlaubten Nutzer/innen mit Selbsteinschreibung ist bereits erreicht.
 ';
-$string['messageprovider:expiry_notification'] = 'Mitteilungen zum Ablauf der Selbsteinschreibung';
+$string['messageprovider:expiry_notification'] = 'Mitteilung zum Ablauf der Selbsteinschreibung';
 $string['nopassword'] = 'Kein Einschreibeschlüssel notwendig';
 $string['password'] = 'Einschreibeschlüssel';
 $string['password_help'] = 'Ein Einschreibeschlüssel erlaubt den Kurszugriff ausschließlich für diejenigen, die den Einschreibeschlüssel kennen.
@@ -98,7 +98,7 @@ $string['unenrol'] = 'Nutzer/in abmelden';
 $string['unenrolselfconfirm'] = 'Möchten Sie sich wirklich selbst aus dem Kurs \'{$a}\' abmelden?';
 $string['unenroluser'] = 'Möchten Sie wirklich \'{$a->user}\' aus dem Kurs \'{$a->course}\' abmelden?';
 $string['usepasswordpolicy'] = 'Kennwortregeln benutzen';
-$string['usepasswordpolicy_desc'] = 'Die allgemeinen Kennwortregeln gelten auch für die Einschreibeschlüssel.';
+$string['usepasswordpolicy_desc'] = 'Die Kennwortregeln gelten auch für die Einschreibeschlüssel.';
 $string['welcometocourse'] = 'Willkommen zu {$a}';
 $string['welcometocoursetext'] = 'Willkommen im Kurs \'{$a->coursename}\'!
 

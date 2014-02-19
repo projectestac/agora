@@ -44,5 +44,5 @@ $string['display_picture'] = 'Visa bild';
 $string['display_skype'] = 'Visa Skype';
 $string['display_un'] = 'Visa namn';
 $string['display_yahoo'] = 'Visa Yahoo';
-$string['myprofile_settings'] = 'Inställningar för personlig profil';
+$string['myprofile_settings'] = 'Synlig användarinformation';
 $string['pluginname'] = 'Personlig profil';

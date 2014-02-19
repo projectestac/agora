@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['messages:addinstance'] = 'Engadir un novo bloque de mensaxes';
+$string['messages:myaddinstance'] = 'Engadir un novo bloque de mensaxes ao meu cartafol persoal';
 $string['pluginname'] = 'Mensaxes';

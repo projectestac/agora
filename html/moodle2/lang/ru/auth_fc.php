@@ -26,7 +26,16 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['auth_fcchangepasswordurl'] = 'Адрес страницы смены пароля';
+$string['auth_fcconnfail'] = 'Не удалось установить Соединение не удалось, ошибка: {$a->no}; строка ошибки: {$a->str}';
+$string['auth_fccreators'] = 'Список групп, членам которых позволено создать новые курсы. Разделитель для нескольких групп - « ; ». Имена надо писать в точности как на сервере FirstClass. Они чувствительны к регистру.';
+$string['auth_fccreators_key'] = 'Создатели';
 $string['auth_fcdescription'] = 'Этот метод использует сервер FirstClass  для проверки данного имени пользователя и пароля.';
+$string['auth_fcfppport'] = 'Порт сервера (3333 является наиболее распространенным)';
+$string['auth_fcfppport_key'] = 'Порт';
+$string['auth_fchost'] = 'Адрес сервера FirstClass. Используйте IP-адрес или DNS-имя.';
+$string['auth_fchost_key'] = 'Хост';
 $string['auth_fcpasswd'] = 'Пароль для учетной записи выше.';
 $string['auth_fcpasswd_key'] = 'Пароль';
+$string['auth_fcuserid'] = 'ID пользователя аккаунта FirstClass с привилегией «Субадминистратор»';
+$string['auth_fcuserid_key'] = 'ID пользователя';
 $string['pluginname'] = 'FirstClass-сервер';

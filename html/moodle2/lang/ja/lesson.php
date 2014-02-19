@@ -121,7 +121,7 @@ $string['correctanswerscore'] = '正解の評点';
 $string['correctresponse'] = '正解に対するレスポンス';
 $string['credit'] = '承認';
 $string['customscoring'] = 'カスタムスコア';
-$string['customscoring_help'] = '<p>ここでは、それそれの答えに評点を設定することができます。評点には、マイナスまたはプラスの値を使用することができます。インポートされた問題には、自動的に正解に1点、不正解に0点が割り当てられますが、インポートの後で変更することができます。</p>';
+$string['customscoring_help'] = '<p>ここではそれそれの答えに評点を設定することができます。評点には、マイナスまたはプラスの値を使用することができます。インポートされた問題には、自動的に正解に1点、不正解に0点が割り当てられますが、インポートの後で変更することができます。</p>';
 $string['deadline'] = '終了日時';
 $string['defaultessayresponse'] = 'あなたの作文は、あなたの教師によって評定されます。';
 $string['deleteallattempts'] = 'すべてのレッスン受験を削除する';
@@ -226,7 +226,7 @@ $string['importquestions_help'] = '<p>フォームを通してアップロード
 ユリシーズ S. グラントは、いつ生まれましたか?{#1822}
 </pre>
 
-<p class="moreinfo"><a href="help.php?file=formatgift.html&amp;module=quiz">「GIFT」フォーマットの詳細情報</a></p>
+<p class="moreinfo"><a href="help.php?file=formatgift.html&module=quiz">「GIFT」フォーマットの詳細情報</a></p>
 </div>
 
 <h2>Aikenフォーマット</h2>
@@ -241,7 +241,7 @@ D. 助けを求めている被害者を支援する
 ANSWER: A
 </pre>
 
-<p class="moreinfo"><a href="help.php?file=formataiken.html&amp;module=quiz">「Aiken」フォーマットの詳細情報</a></p>
+<p class="moreinfo"><a href="help.php?file=formataiken.html&module=quiz">「Aiken」フォーマットの詳細情報</a></p>
 </div>
 
 <h2>Missing Wordフォーマット</h2>
@@ -252,12 +252,12 @@ ANSWER: A
 ~科学 ~実験}の生徒となります。ある意味、私たちは生涯生徒であり続けます。
 </blockquote>
 
-<p class="moreinfo"><a href="help.php?file=formatmissingword.html&amp;module=quiz">「Missing Word」フォーマットの詳細情報</a></p>
+<p class="moreinfo"><a href="help.php?file=formatmissingword.html&module=quiz">「Missing Word」フォーマットの詳細情報</a></p>
 </div>
 
 <h2>AON</h2>
 <div class="indent">
-<p>これは、Missing Wordフォーマットと同じですが、問題がインポートされた後、すべての記述式問題が組み合わせ問題に変換されます。</p>
+<p>これはMissing Wordフォーマットと同じですが、問題がインポートされた後、すべての記述式問題が組み合わせ問題に変換されます。</p>
 <p>また、インポート時に多肢選択問題の答えがランダムにシャッフルされます。</p>
 <p>多くの小テスト機能の開発を後援している機関にちなんで、フォーマットの名称が付けられました。</p>
 </div>
@@ -266,18 +266,18 @@ ANSWER: A
 <div class="indent">
 <p>このモジュールは、Blackboardのエクスポート機能によって保存された問題をインポートすることができます。あなたのPHPに組み込まれたXML機能を利用します。</p>
 
-<p class="moreinfo"><a href="help.php?file=formatblackboard.html&amp;module=quiz">「Blackboard」フォーマットの詳細情報</a></p>
+<p class="moreinfo"><a href="help.php?file=formatblackboard.html&module=quiz">「Blackboard」フォーマットの詳細情報</a></p>
 </div>
 
 <h2>Course Test Manager</h2>
 <div class="indent">
-<p>このモジュールは、Course Test Manager test bankに保存された問題をインポートすることができます。
+<p>このモジュールはCourse Test Manager test bankに保存された問題をインポートすることができます。
 MoodleがWindowsで動作しているか、Linuxウェブサーバで動作しているかによって、Microsoft Accessデータベースに保存されているtest bankへのアクセス方法が異なります。</p>
 <p>Windows環境では、他のデータインポートファイルと同じようにサーバにアップロードしてください。</p>
 <p>Linux環境では、LinuxサーバのmoodleにXMLデータを転送するODBCソケットとCourse Test Manager test bankを入れたWindowsマシンを同じネットワークに設置する必要があります。</p>
 <p>このインポートクラスを使用する前に、下記の詳細ヘルプをお読みください。</p>
 
-<p class="moreinfo"><a href="help.php?file=formatctm.html&amp;module=quiz">「CTM」フォーマットの詳細情報</a></p>
+<p class="moreinfo"><a href="help.php?file=formatctm.html&module=quiz">「CTM」フォーマットの詳細情報</a></p>
 </div>
 
 <h2>カスタム</h2>
@@ -286,7 +286,7 @@ MoodleがWindowsで動作しているか、Linuxウェブサーバで動作し�
 
 <p>新たに記述する必要のあるコードの量は非常に小さいものです - 与えられたテキストから1つの問題のみを解析できるコードです。</p>
 
-<p class="moreinfo"><a href="help.php?file=formatcustom.html&amp;module=quiz">「カスタム」フォーマットの詳細情報</a></p>
+<p class="moreinfo"><a href="help.php?file=formatcustom.html&module=quiz">「カスタム」フォーマットの詳細情報</a></p>
 </div>
 
 <p>WebCT、IMS QTIを含んだ新たなフォーマットがさらに追加されます。どのようなフォーマットでも、Moodleユーザが貢献することができます! </p>';
@@ -326,8 +326,8 @@ $string['matchesanswer'] = '正解';
 $string['matching'] = '組み合わせ問題';
 $string['matchingpair'] = '組み合わせペア {$a}';
 $string['maxgrade'] = '最大評点';
-$string['maxgrade_help'] = '<p>ここでは、レッスンで与えることのできる最大評点を設定します。評点の範囲は、0 から 100% です。この値はレッスン中、いつでも変更することができます。すべての変更は、評定ページおよび各種学生リストに即座に反映されます。評点にゼロが設定された場合、そのレッスンはどの評定ページにも表示されません。</p>';
-$string['maxhighscores'] = 'ハイスコアの表示件数';
+$string['maxgrade_help'] = '<p>ここではレッスンで与えることのできる最大評点を設定します。評点の範囲は、0 から 100% です。この値はレッスン中、いつでも変更することができます。すべての変更は、評定ページおよび各種学生リストに即座に反映されます。評点にゼロが設定された場合、そのレッスンはどの評定ページにも表示されません。</p>';
+$string['maxhighscores'] = 'ハイスコア表示件数';
 $string['maximumnumberofanswersbranches'] = '答えの最大数';
 $string['maximumnumberofanswersbranches_help'] = 'ここでは小テストで使用される解答の最大数を指定します。○/×問題のみ使用する場合、設定値として2を設定することができます。データではなく教師の見え方のみに影響するため、設定内容はいつでも変更することができます。';
 $string['maximumnumberofattempts'] = '最大受験回数';
@@ -337,7 +337,7 @@ $string['maxtime'] = '制限時間 (分)';
 $string['maxtimewarning'] = 'レッスン終了まで {$a} 分です。';
 $string['mediaclose'] = '「ウィンドウを閉じる」ボタンを表示する:';
 $string['mediafile'] = 'ファイルポップアップ';
-$string['mediafile_help'] = '<p>ここでは、レッスンの最初に表示されるファイル (例: mp3ファイル) またはウェブページへのポップアップウィンドウを作成します。また、必要に応じてポップアップウィンドウを開くことができるよう、リンクはすべてのレッスンページに表示されます。</p>
+$string['mediafile_help'] = '<p>ここではレッスンの最初に表示されるファイル (例: mp3ファイル) またはウェブページへのポップアップウィンドウを作成します。また、必要に応じてポップアップウィンドウを開くことができるよう、リンクはすべてのレッスンページに表示されます。</p>
 
 <p>任意で「ウィンドウを閉じる」ボタンをポップアップの下部に表示することができます。同様に、ウィンドウの高さおよび幅を設定することができます。</p>
 
@@ -364,7 +364,7 @@ $string['minimumnumberofquestions_help'] = 'ここでは活動の評定計算に
 例えば、20に設定した場合、レッスンのオープニングページに次のようなテキストの追加をお勧めします: 「あなたはこのレッスンで少なくとも20問の問題を受験する必要があります。あなたが希望すればさらに問題を受験することができます。しかし、あなたが20問より少なく受験した場合、20問を受験したかのように計算されます」';
 $string['missingname'] = 'ニックネームを入力してください。';
 $string['modattempts'] = '学生のレビューを許可する';
-$string['modattempts_help'] = '<p>ここでは、解答内容を変更するため、学生がレッスンを後戻りすることができるようにします。</p>';
+$string['modattempts_help'] = '<p>ここでは解答内容を変更するため、学生がレッスンを後戻りすることができるようにします。</p>';
 $string['modattemptsnoteacher'] = '学生レビューは学生のみに表示されます。';
 $string['modulename'] = 'レッスン';
 $string['modulename_help'] = 'レッスン活動において、教師は楽しくフレキシブルな方法でコンテンツおよび実践活動を提供することができます。教師は一連の線形のコンテンツパッケージまたは学習者に様々なパスまたはオプションを提供する教育活動のためにレッスンを使用することができます。どちらの場合でも、教師は参加を増やすこと、および多肢選択問題、組み合わせ問題、記述問題等の様々な問題を含むことで、理解を確かめることができます。学生の選択した答えおよび教師のレッスン開発により、学生を次のページに移動させる、、前のページに戻す、または完全に異なるパスにリダイレクトさせることができます。
@@ -482,7 +482,7 @@ $string['report'] = 'レポート';
 $string['reports'] = 'レポート';
 $string['response'] = 'レスポンス';
 $string['retakesallowed'] = '再受験を許可する';
-$string['retakesallowed_help'] = '<p>ここでは、学生がレッスンを1回以上または1回のみ受験できるか設定します。教師は、学生が完全に理解すべき教材がレッスンに含まれることを決定できます。この場合、教材の繰り返し閲覧を許可すべきです。しかし、教材がテストのような性質を持っている場合、学生に再受験を許可してはいけません。</p>
+$string['retakesallowed_help'] = '<p>ここでは学生がレッスンを1回以上または1回のみ受験できるか設定します。教師は、学生が完全に理解すべき教材がレッスンに含まれることを決定できます。この場合、教材の繰り返し閲覧を許可すべきです。しかし、教材がテストのような性質を持っている場合、学生に再受験を許可してはいけません。</p>
 
 <p>学生がレッスンの再受験を許可された場合、評定ページに表示される<b>評点</b>は、再受験の<b>平均</b>評点、またはレッスンの<b>最高</b>評点です。次のオプションでは、どちらの評定方法を使用するか選択します。</p>
 
@@ -509,10 +509,10 @@ $string['showanunseenpage'] = '未閲覧のページを表示する';
 $string['singleanswer'] = '単一解答';
 $string['skip'] = 'ナビゲーションをスキップする';
 $string['slideshow'] = 'スライドショー';
-$string['slideshowbgcolor'] = 'スライドショーの背景色';
-$string['slideshowheight'] = 'スライドショーの高さ';
+$string['slideshowbgcolor'] = 'スライドショー背景色';
+$string['slideshowheight'] = 'スライドショー高';
 $string['slideshow_help'] = '<p>この設定を「Yes」にすると、固定した幅、高さ、独自の背景色のスライドショーとして、レッスンを表示することができます。コンテンツページの幅または高さが指定した範囲を超えた場合、CSSベースのスクロールバーが表示されます。問題は、スライドショーモードでは「除外」され、デフォルトでページ (ブランチテーブル) のみスライド表示されます。オプションが選択された場合、デフォルト言語のラベル付きボタン「次へ」および「戻る」ボタンが、ページの右端および左端に表示されます。他のボタンは、スライドショー下部中央に配置されます。</p>';
-$string['slideshowwidth'] = 'スライドショーの幅';
+$string['slideshowwidth'] = 'スライドショー幅';
 $string['startlesson'] = 'レッスンの開始';
 $string['studentattemptlesson'] = '{$a->lastname}, {$a->firstname} さんの受験回数:  {$a->attempt}';
 $string['studentname'] = '{$a} の氏名';
@@ -544,7 +544,7 @@ $string['usemean'] = '評点平均を使用する';
 $string['usepassword'] = 'レッスンをパスワードで保護する';
 $string['usepassword_help'] = '<p>「Yes」を選択すると、パスワードの入力なしでは、学生はレッスンにアクセスできません。</p>';
 $string['viewgrades'] = '評点を表示する';
-$string['viewhighscores'] = 'ハイスコアリストを表示';
+$string['viewhighscores'] = 'ハイスコアリストを表示する';
 $string['viewreports'] = '{$a->student} の {$a->attempts} 件の受験を表示';
 $string['viewreports2'] = '{$a} 件の受験を表示';
 $string['welldone'] = 'よくできました!';

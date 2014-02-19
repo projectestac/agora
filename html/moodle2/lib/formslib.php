@@ -264,7 +264,8 @@ abstract class moodleform {
                 $submission = $_POST;
             }
         } else {
-            $submission = array_merge_recursive($_GET, $_POST); // emulate handling of parameters in xxxx_param()
+            $submission = $_GET;
+            merge_query_params($submission, $_POST); // Emulate handling of parameters in xxxx_param().
         }
 
         // following trick is needed to enable proper sesskey checks when using GET forms
@@ -280,6 +281,15 @@ abstract class moodleform {
         }
 
         $this->_form->updateSubmission($submission, $files);
+    }
+
+    /**
+     * Internal method - should not be used anywhere.
+     * @deprecated since 2.6
+     * @return array $_POST.
+     */
+    protected function _get_post_params() {
+        return $_POST;
     }
 
     /**
@@ -1063,11 +1073,9 @@ abstract class moodleform {
                             $params = array_merge(array($realelementname), $params);
                             call_user_func_array(array(&$mform, 'addRule'), $params);
                             break;
-                        case 'type' :
-                            //Type should be set only once
-                            if (!isset($mform->_types[$elementname])) {
-                                $mform->setType($elementname, $params);
-                            }
+
+                        case 'type':
+                            $mform->setType($realelementname, $params);
                             break;
                     }
                 }
@@ -1228,6 +1236,37 @@ abstract class moodleform {
                 array('hideadvanced', 'form')
             )
         );
+    }
+
+    /**
+     * Used by tests to simulate submitted form data submission from the user.
+     *
+     * For form fields where no data is submitted the default for that field as set by set_data or setDefault will be passed to
+     * get_data.
+     *
+     * This method sets $_POST or $_GET and $_FILES with the data supplied. Our unit test code empties all these
+     * global arrays after each test.
+     *
+     * @param array  $simulatedsubmitteddata       An associative array of form values (same format as $_POST).
+     * @param array  $simulatedsubmittedfiles      An associative array of files uploaded (same format as $_FILES). Can be omitted.
+     * @param string $method                       'post' or 'get', defaults to 'post'.
+     * @param null   $formidentifier               the default is to use the class name for this class but you may need to provide
+     *                                              a different value here for some forms that are used more than once on the
+     *                                              same page.
+     */
+    public static function mock_submit($simulatedsubmitteddata, $simulatedsubmittedfiles = array(), $method = 'post',
+                                       $formidentifier = null) {
+        $_FILES = $simulatedsubmittedfiles;
+        if ($formidentifier === null) {
+            $formidentifier = get_called_class();
+        }
+        $simulatedsubmitteddata['_qf__'.$formidentifier] = 1;
+        $simulatedsubmitteddata['sesskey'] = sesskey();
+        if (strtolower($method) === 'get') {
+            $_GET = $simulatedsubmitteddata;
+        } else {
+            $_POST = $simulatedsubmitteddata;
+        }
     }
 }
 
@@ -1500,6 +1539,81 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
     }
 
     /**
+     * Return the type(s) to use to clean an element.
+     *
+     * In the case where the element has an array as a value, we will try to obtain a
+     * type defined for that specific key, and recursively until done.
+     *
+     * This method does not work reverse, you cannot pass a nested element and hoping to
+     * fallback on the clean type of a parent. This method intends to be used with the
+     * main element, which will generate child types if needed, not the other way around.
+     *
+     * Example scenario:
+     *
+     * You have defined a new repeated element containing a text field called 'foo'.
+     * By default there will always be 2 occurence of 'foo' in the form. Even though
+     * you've set the type on 'foo' to be PARAM_INT, for some obscure reason, you want
+     * the first value of 'foo', to be PARAM_FLOAT, which you set using setType:
+     * $mform->setType('foo[0]', PARAM_FLOAT).
+     *
+     * Now if you call this method passing 'foo', along with the submitted values of 'foo':
+     * array(0 => '1.23', 1 => '10'), you will get an array telling you that the key 0 is a
+     * FLOAT and 1 is an INT. If you had passed 'foo[1]', along with its value '10', you would
+     * get the default clean type returned (param $default).
+     *
+     * @param string $elementname name of the element.
+     * @param mixed $value value that should be cleaned.
+     * @param int $default default constant value to be returned (PARAM_...)
+     * @return string|array constant value or array of constant values (PARAM_...)
+     */
+    public function getCleanType($elementname, $value, $default = PARAM_RAW) {
+        $type = $default;
+        if (array_key_exists($elementname, $this->_types)) {
+            $type = $this->_types[$elementname];
+        }
+        if (is_array($value)) {
+            $default = $type;
+            $type = array();
+            foreach ($value as $subkey => $subvalue) {
+                $typekey = "$elementname" . "[$subkey]";
+                if (array_key_exists($typekey, $this->_types)) {
+                    $subtype = $this->_types[$typekey];
+                } else {
+                    $subtype = $default;
+                }
+                if (is_array($subvalue)) {
+                    $type[$subkey] = $this->getCleanType($typekey, $subvalue, $subtype);
+                } else {
+                    $type[$subkey] = $subtype;
+                }
+            }
+        }
+        return $type;
+    }
+
+    /**
+     * Return the cleaned value using the passed type(s).
+     *
+     * @param mixed $value value that has to be cleaned.
+     * @param int|array $type constant value to use to clean (PARAM_...), typically returned by {@link self::getCleanType()}.
+     * @return mixed cleaned up value.
+     */
+    public function getCleanedValue($value, $type) {
+        if (is_array($type) && is_array($value)) {
+            foreach ($type as $key => $param) {
+                $value[$key] = $this->getCleanedValue($value[$key], $param);
+            }
+        } else if (!is_array($type) && !is_array($value)) {
+            $value = clean_param($value, $type);
+        } else if (!is_array($type) && is_array($value)) {
+            $value = clean_param_array($value, $type, true);
+        } else {
+            throw new coding_exception('Unexpected type or value received in MoodleQuickForm::getCleanedValue()');
+        }
+        return $value;
+    }
+
+    /**
      * Updates submitted values
      *
      * @param array $submission submitted values
@@ -1511,17 +1625,9 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
         if (empty($submission)) {
             $this->_submitValues = array();
         } else {
-            foreach ($submission as $key=>$s) {
-                if (array_key_exists($key, $this->_types)) {
-                    $type = $this->_types[$key];
-                } else {
-                    $type = PARAM_RAW;
-                }
-                if (is_array($s)) {
-                    $submission[$key] = clean_param_array($s, $type, true);
-                } else {
-                    $submission[$key] = clean_param($s, $type);
-                }
+            foreach ($submission as $key => $s) {
+                $type = $this->getCleanType($key, $s);
+                $submission[$key] = $this->getCleanedValue($s, $type);
             }
             $this->_submitValues = $submission;
             $this->_flagSubmitted = true;
@@ -1815,8 +1921,9 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
                         }
                     }
                     //for editor element, [text] is appended to the name.
+                    $fullelementname = $elementName;
                     if ($element->getType() == 'editor') {
-                        $elementName .= '[text]';
+                        $fullelementname .= '[text]';
                         //Add format to rule as moodleform check which format is supported by browser
                         //it is not set anywhere... So small hack to make sure we pass it down to quickform
                         if (is_null($rule['format'])) {
@@ -1824,8 +1931,8 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
                         }
                     }
                     // Fix for bug displaying errors for elements in a group
-                    $test[$elementName][0][] = $registry->getValidationScript($element, $elementName, $rule);
-                    $test[$elementName][1]=$element;
+                    $test[$fullelementname][0][] = $registry->getValidationScript($element, $fullelementname, $rule);
+                    $test[$fullelementname][1]=$element;
                     //end of fix
                 }
             }
@@ -1856,6 +1963,8 @@ function qf_errorHandler(element, _qfMsg) {
       errorSpan.id = \'id_error_\'+element.name;
       errorSpan.className = "error";
       element.parentNode.insertBefore(errorSpan, element.parentNode.firstChild);
+      document.getElementById(errorSpan.id).setAttribute(\'TabIndex\', \'0\');
+      document.getElementById(errorSpan.id).focus();
     }
 
     while (errorSpan.firstChild) {
@@ -1863,11 +1972,14 @@ function qf_errorHandler(element, _qfMsg) {
     }
 
     errorSpan.appendChild(document.createTextNode(_qfMsg.substring(3)));
-    errorSpan.appendChild(document.createElement("br"));
 
     if (div.className.substr(div.className.length - 6, 6) != " error"
-        && div.className != "error") {
-      div.className += " error";
+      && div.className != "error") {
+        div.className += " error";
+        linebreak = document.createElement("br");
+        linebreak.className = "error";
+        linebreak.id = \'id_error_break_\'+element.name;
+        errorSpan.parentNode.insertBefore(linebreak, errorSpan.nextSibling);
     }
 
     return false;
@@ -1875,6 +1987,10 @@ function qf_errorHandler(element, _qfMsg) {
     var errorSpan = document.getElementById(\'id_error_\'+element.name);
     if (errorSpan) {
       errorSpan.parentNode.removeChild(errorSpan);
+    }
+    var linebreak = document.getElementById(\'id_error_break_\'+element.name);
+    if (linebreak) {
+      linebreak.parentNode.removeChild(linebreak);
     }
 
     if (div.className.substr(div.className.length - 6, 6) == " error") {
@@ -1923,7 +2039,7 @@ function validate_' . $this->_formName . '_' . $escapedElementName . '(element) 
   ret = validate_' . $this->_formName . '_' . $escapedElementName.'(frm.elements[\''.$elementName.'\']) && ret;
   if (!ret && !first_focus) {
     first_focus = true;
-    frm.elements[\''.$elementName.'\'].focus();
+    document.getElementById(\'id_error_'.$elementName.'\').focus();
   }
 ';
 
@@ -2059,12 +2175,21 @@ function validate_' . $this->_formName . '(frm) {
      * is checked. If $condition is something else (like "eq" for equals) then it is checked to see if the value
      * of the $dependentOn element is $condition (such as equal) to $value.
      *
+     * When working with multiple selects, the dependentOn has to be the real name of the select, meaning that
+     * it will most likely end up with '[]'. Also, the value should be an array of required values, or a string
+     * containing the values separated by pipes: array('red', 'blue') or 'red|blue'.
+     *
      * @param string $elementName the name of the element which will be disabled
      * @param string $dependentOn the name of the element whose state will be checked for condition
      * @param string $condition the condition to check
      * @param mixed $value used in conjunction with condition.
      */
-    function disabledIf($elementName, $dependentOn, $condition = 'notchecked', $value='1'){
+    function disabledIf($elementName, $dependentOn, $condition = 'notchecked', $value='1') {
+        // Multiple selects allow for a multiple selection, we transform the array to string here as
+        // an array cannot be used as a key in an associative array.
+        if (is_array($value)) {
+            $value = implode('|', $value);
+        }
         if (!array_key_exists($dependentOn, $this->_dependencies)) {
             $this->_dependencies[$dependentOn] = array();
         }

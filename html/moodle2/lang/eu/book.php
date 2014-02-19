@@ -40,7 +40,13 @@ $string['customtitles_help'] = 'Atalen izenburuak automatikoki eduki-taulan bain
 $string['editingchapter'] = 'Atala editatzen';
 $string['errorchapter'] = 'Errorea liburuaren atala irakurtzean.';
 $string['modulename'] = 'Liburua';
-$string['modulename_help'] = 'Liburua ikasteko material erreza da, hainbat orri izan ditzakeena.';
+$string['modulename_help'] = 'Liburua moduluak aukera ematen dio irakasleari liburu formatuko hainbat orritako baliabidea sortzeko, atal eta azpiatalduna. Liburuak media fitxategiak izan ditzake eta baita testua ere eta erabilgarria da ataletan bana daitezkeen informazio-pasarte luzeak erakusteko.
+
+Liburua honetarako erabil daiteke:
+
+* Ikasteko banakako irakur-materialak erakusteko.
+* Saileko langileen esku-liburu gisa
+* Ikasleen lanaren portfolioaren adibide gisa';
 $string['modulenameplural'] = 'Liburuak';
 $string['navexit'] = 'Irten liburutik';
 $string['navnext'] = 'Hurrengoa';

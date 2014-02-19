@@ -27,3 +27,5 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['moodleemoticon:desc'] = 'Insérer binette';
 $string['pluginname'] = 'Insérer binette';
+$string['requireemoticon'] = 'Nécessite le filtre de binettes';
+$string['requireemoticon_desc'] = 'Si ce réglage est activé, le bouton des binettes n\'est visible que si le filtre de binettes est activé dans le contexte de l\'éditeur.';

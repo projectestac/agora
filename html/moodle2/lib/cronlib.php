@@ -78,7 +78,6 @@ function cron_run() {
     // Run cleanup core cron jobs, but not every time since they aren't too important.
     // These don't have a timer to reduce load, so we'll use a random number
     // to randomly choose the percentage of times we should run these jobs.
-    srand ((double) microtime() * 10000000);
     $random100 = rand(0,100);
     if ($random100 < 20) {     // Approximately 20% of the time.
         mtrace("Running clean-up tasks...");
@@ -109,6 +108,9 @@ function cron_run() {
                                                   AND (lastname = '' OR firstname = '' OR email = '')",
                                           array($cuttime));
             foreach ($rs as $user) {
+                if (isguestuser($user) or is_siteadmin($user)) {
+                    continue;
+                }
                 delete_user($user);
                 mtrace(" Deleted not fully setup user $user->username ($user->id)");
             }
@@ -446,6 +448,9 @@ function cron_run() {
         mtrace('done.');
     }
 
+    mtrace('Running cache cron routines');
+    cache_helper::cron();
+    mtrace('done.');
 
     // Run automated backups if required - these may take a long time to execute
     require_once($CFG->dirroot.'/backup/util/includes/backup_includes.php');

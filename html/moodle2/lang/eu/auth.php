@@ -134,6 +134,7 @@ $string['showguestlogin'] = 'Bisitariek saioa hasteko botoia erakuts edo ezkuta 
 $string['stdchangepassword'] = 'Pasahitza aldatzeko orri estandarra erabili.';
 $string['stdchangepassword_expl'] = 'Kanpoko autentifikazio-sistemak Moodle-n pasahitz aldaketa ahalbidetzen badu,  aukera ezazu BAI. Ezarpen honek \'Pasahitza aldatzeko URLa\' gainditzen du.';
 $string['stdchangepassword_explldap'] = 'OHARRA: LDAP SSL enkripzio-tunel baten gainean erabiltzea aholkatzen da (ldaps://) LDAP zerbitzaria urrutikoa bada.';
+$string['suspended'] = 'Etendako kontua';
 $string['unlocked'] = 'Desblokeatuta';
 $string['unlockedifempty'] = 'Desblokeatua hutsik badago';
 $string['update_never'] = 'Inoiz ez';

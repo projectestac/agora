@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['message'] = '消息';
 $string['messages'] = '消息';
+$string['numtodisplay'] = '显示课程的数量：';
 $string['pluginname'] = '课程概览';
 $string['welcome'] = '{$a}，欢迎您！';
 $string['youhavemessages'] = '您有{$a}条未读';

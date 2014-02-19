@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['availablecourseson'] = 'Eskura dauden ikastaroak hemen: {$a}';
 $string['availablecoursesonnone'] = '<a href="{$a->hosturl}">{$a->hostname}</a> urrutiko ostalariak ez die gure erabiltzaileei ikastarorik eskaintzen.';
-$string['clientname'] = 'Urrutiko matriukulazio-bezeroa';
+$string['clientname'] = 'Urrutiko matrikulazio-bezeroa';
 $string['editenrolments'] = 'Editatu matrikulazioak';
 $string['hostappname'] = 'Aplikazioa';
 $string['hostname'] = 'Ostalariaren izena';

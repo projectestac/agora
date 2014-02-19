@@ -51,8 +51,7 @@ $string['disabled'] = 'Funktionen meddelanden är avaktiverad på den här webbp
 $string['disallowed'] = 'Otillåten';
 $string['discussion'] = 'Diskussion';
 $string['emailmessages'] = 'E-postmeddelanden när jag arbetar i frånkopplat läge';
-$string['emailtagline'] = 'Det här e-postmeddelandet är en kopia av ett meddelande som har skickats till Dig på "{$a>sitename}". Gå till  {$a->url} för att svara.
-';
+$string['emailtagline'] = 'Det här e-postmeddelandet är en kopia av ett meddelande som har skickats till Dig på "{$a->sitename}". Gå till  {$a->url} för att svara.';
 $string['emptysearchstring'] = 'Du måste söka efter någonting';
 $string['errorcallingprocessor'] = 'Fel i sb m anrop till den definierade processorn';
 $string['errortranslatingdefault'] = 'Fel vid översättningen av standardinställningar från plugin, använder systemets standard istället.';

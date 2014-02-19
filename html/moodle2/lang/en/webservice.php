@@ -16,12 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'webservice', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['accessexception'] = 'Access control exception';
 $string['actwebserviceshhdr'] = 'Active web service protocols';
@@ -43,6 +45,8 @@ $string['arguments'] = 'Arguments';
 $string['authmethod'] = 'Authentication method';
 $string['cannotcreatetoken'] = 'No permission to create web service token for the service {$a}.';
 $string['cannotgetcoursecontents'] = 'Cannot get course contents';
+$string['checkusercapability'] = 'Check user capability';
+$string['checkusercapabilitydescription'] = 'The user should have appropriate capabilities according to the protocols used, for example webservice/rest:use, webservice/soap:use. To achieve this, create a web services role with protocol capabilities allowed and assign it to the web services user as a system role.';
 $string['configwebserviceplugins'] = 'For security reasons, only protocols that are in use should be enabled.';
 $string['context'] = 'Context';
 $string['createservicedescription'] = 'A service is a set of web service functions. You will allow the user to access to a new service. On the <strong>Add service</strong> page check \'Enable\' and \'Authorised users\' options. Select \'No required capability\'.';
@@ -94,11 +98,9 @@ $string['forbiddenwsuser'] = 'Can not create token for an unconfirmed, deleted, 
 $string['function'] = 'Function';
 $string['functions'] = 'Functions';
 $string['generalstructure'] = 'General structure';
-$string['checkusercapability'] = 'Check user capability';
-$string['checkusercapabilitydescription'] = 'The user should have appropriate capabilities according to the protocols used, for example webservice/rest:use, webservice/soap:use. To achieve this, create a web services role with protocol capabilities allowed and assign it to the web services user as a system role.';
 $string['information'] = 'Information';
-$string['installserviceshortnameerror'] = 'Coding error: the service shortname "{$a}" should have contains numbers, letters  and _-.. only.';
 $string['installexistingserviceshortnameerror'] = 'A web service with the shortname "{$a}" already exists. Can not install/update a different web service with this shortname.';
+$string['installserviceshortnameerror'] = 'Coding error: the service shortname "{$a}" should have contains numbers, letters  and _-.. only.';
 $string['invalidextparam'] = 'Invalid external api parameter: {$a}';
 $string['invalidextresponse'] = 'Invalid external api response: {$a}';
 $string['invalidiptoken'] = 'Invalid token - your IP is not supported';
@@ -145,10 +147,10 @@ $string['resettokenconfirmsimple'] = 'Do you really want to reset this key? Any 
 $string['response'] = 'Response';
 $string['restcode'] = 'REST';
 $string['restexception'] = 'REST';
+$string['restoredaccountresetpassword'] = 'Restored account need to reset password before getting a token.';
 $string['restparam'] = 'REST (POST parameters)';
 $string['restrictedusers'] = 'Authorised users only';
 $string['restrictedusers_help'] = 'This setting determines whether all users with the permission to create a web services token can generate a token for this service via their security keys page or whether only authorised users can do so.';
-$string['restoredaccountresetpassword'] = 'Restored account need to reset password before getting a token.';
 $string['securitykey'] = 'Security key (token)';
 $string['securitykeys'] = 'Security keys';
 $string['selectauthorisedusers'] = 'Select authorised users';

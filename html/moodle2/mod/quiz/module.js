@@ -65,7 +65,7 @@ M.mod_quiz.timer = {
      */
     init: function(Y, start, preview) {
         M.mod_quiz.timer.Y = Y;
-        M.mod_quiz.timer.endtime = new Date().getTime() + start*1000;
+        M.mod_quiz.timer.endtime = M.pageloadstarttime.getTime() + start*1000;
         M.mod_quiz.timer.preview = preview;
         M.mod_quiz.timer.update();
         Y.one('#quiz-timer').setStyle('display', 'block');
@@ -96,13 +96,7 @@ M.mod_quiz.timer = {
         var Y = M.mod_quiz.timer.Y;
         var secondsleft = Math.floor((M.mod_quiz.timer.endtime - new Date().getTime())/1000);
         
-        // If this is a preview and time expired, display timeleft 0 and don't renew the timer.
-        if (M.mod_quiz.timer.preview && secondsleft < 0) {
-            Y.one('#quiz-time-left').setContent('0:00:00');
-            return;
-        }
-
-        // If time has expired, Set the hidden form field that says time has expired.
+        // If time has expired, set the hidden form field that says time has expired and submit
         if (secondsleft < 0) {
             M.mod_quiz.timer.stop(null);
             Y.one('#quiz-time-left').setContent(M.str.quiz.timesup);

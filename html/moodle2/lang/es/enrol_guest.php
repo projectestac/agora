@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowguests'] = 'Este curso permite la entrada de invitados';
+$string['guestaccess_withoutpassword'] = 'Acceso de invitados';
+$string['guestaccess_withpassword'] = 'Acceso de invitados';
 $string['guest:config'] = 'Configurar las instancias de acceso de invitados';
 $string['password'] = 'Contraseña';
 $string['password_help'] = 'Una contraseña permite el acceso de invitados al curso que queda restringido solo a aquellos que conocen la contraseña. Los invitados tendrán que proporcionar la contraseña cada vez que accedan al curso.';

@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['currentsection'] = 'Aquesta setmana';
+$string['currentsection'] = 'Setmana actual';
 $string['hidefromothers'] = 'Oculta setmana';
 $string['page-course-view-weeks'] = 'Qualsevol pàgina del curs principal en format setmanal';
 $string['page-course-view-weeks-x'] = 'Qualsevol pàgina del curs en format setmanal';

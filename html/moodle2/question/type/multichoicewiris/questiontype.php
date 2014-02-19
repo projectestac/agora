@@ -80,10 +80,11 @@ class qtype_multichoicewiris extends qtype_wq {
                 $overrideAnswers = explode(';', $data['#']['wirisoverrideanswer'][0]['#']);
                 foreach($overrideAnswers as $key => $value){
                     if (trim($value) != ''){
-                        $questionName = '<span style="font-style:italic;">' . $data['#']['name'][0]['#']['text'][0]['#'] . '</span>';
-                        $message = '<br/><span style="color:#ff0000; font-weight:bold;">It\'s not possible to import WIRIS question called: "' . $questionName . '"</span>';
-                        echo $message;
-                        return false;
+                        $msg = '<p><strong>' . get_string('warning') . '</strong>:<br />';
+                        $msg .= '<em>' . $data['#']['name'][0]['#']['text'][0]['#'] . '</em><br />';
+                        $msg .= get_string('multichoicewiris_cantimportoverride', 'qtype_multichoicewiris');
+                        $msg .= '</p>';
+                        echo $msg;
                     }
                 }
             }

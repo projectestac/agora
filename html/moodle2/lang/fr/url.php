@@ -36,13 +36,12 @@ $string['createurl'] = 'Créer une URL';
 $string['displayoptions'] = 'Options d\'affichage disponibles';
 $string['displayselect'] = 'Affichage';
 $string['displayselectexplain'] = 'Choisir le type d\'affichage. Tous les types ne sont pas adéquats pour toutes les URLs.';
-$string['displayselect_help'] = 'Ce réglage, ainsi que le type de fichier de l\'URL et la capacité du navigateur à intégrer des objets (<i>embedding</i>), détermine la façon dont le l\'URL est affichée. Les options sont :
+$string['displayselect_help'] = 'Ce réglage, ainsi que le type de fichier de l\'URL et la capacité du navigateur à intégrer des objets (<i>embedding</i>), détermine la façon dont le l\'URL est affichée. Les options peuvent être :
 
 * Automatique : la meilleure option d\'affichage pour l\'URL concernée est automatiquement sélectionnée
 * Intégrer : l\'URL est affichée dans la page au-dessous de la barre de navigation, avec la description de l\'URL et tous les blocs
-* Forcer le téléchargement : l\'utilisateur est invité à télécharger le fichier de l\'URL
 * Ouvrir : l\'URL est affichée toute seule dans la fenêtre du navigateur
-* Fenêtre surgissante : l\'URL est affichée dans une nouvelle fenêtre de navigateur sans menus ni barre d\'adresse
+* Fenêtre surgissante : l\'URL est affichée dans une nouvelle fenêtre de navigateur sans menu ni barre d\'adresse
 * Dans un cadre : l\'URL est affichée dans un cadre en dessous de la barre de navigation et de la description de l\'URL
 * Nouvelle fenêtre : l\'URL est affichée dans une nouvelle fenêtre du navigateur, avec menus et barre d\'adresse';
 $string['externalurl'] = 'URL externe';

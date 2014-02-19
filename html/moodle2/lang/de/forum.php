@@ -49,7 +49,7 @@ $string['blockafter_help'] = 'Diese Zahl legt fest, wie viele Beiträge pro Nutz
 $string['blockperiod'] = 'Zeitfenster';
 $string['blockperioddisabled'] = 'Nicht sperren';
 $string['blockperiod_help'] = 'In diesem Zeitfenster dürfen maximal so viele Beiträge pro Nutzer/in ins Forum eingetragen werden, wie mit der Zahl \'Sperre\' festgelegt sind. Nutzer/innen mit der Berechtigung mod/forum:postwithoutthrottling sind von einer Sperre ausgenommen.';
-$string['blogforum'] = 'Standardforum, angezeigt in blog-ähnlichem Format';
+$string['blogforum'] = 'Standardforum in blog-ähnlicher Anzeige';
 $string['bynameondate'] = 'von {$a->name} - {$a->date}';
 $string['cannotadd'] = 'Der Beitrag konnte nicht zum Forum hingefügt werden';
 $string['cannotadddiscussion'] = 'Nur Gruppenmitglieder dürfen Beiträge zum Forum hinzufügen.';
@@ -84,7 +84,7 @@ $string['cleanreadtime'] = '\'Gelesen\' zu diesen Zeitpunkt markieren';
 $string['completiondiscussions'] = 'Teilnehmer/in muss ein Thema neu beginnen:';
 $string['completiondiscussionsgroup'] = 'Themen erforderlich';
 $string['completiondiscussionshelp'] = 'Zum Beenden sind Themen erforderlich';
-$string['completionposts'] = 'Teilnehmer/in muss ein Thema neu beginnen oder oder Antworten verfassen:';
+$string['completionposts'] = 'Teilnehmer/in muss ein Thema neu beginnen oder Antworten verfassen:';
 $string['completionpostsgroup'] = 'Forumsbeiträge erforderlich';
 $string['completionpostshelp'] = 'Zum Beenden sind Themen oder Antworten erforderlich';
 $string['completionreplies'] = 'Teilnehmer/in muss Antworten verfassen:';
@@ -120,8 +120,8 @@ $string['digestmailprefs'] = 'Ihr Profil';
 $string['digestmailsubject'] = '{$a}: Zusammenfassung des Forums';
 $string['digestmailtime'] = 'Termin für Foren- Zusammenfassungen';
 $string['digestsentusers'] = 'Die E-Mail-Zusammenfassung wurde erfolgreich an {$a} Teilnehmer/innen versandt.';
-$string['disallowsubscribe'] = 'Das Forums kann nicht abonniert werden';
-$string['disallowsubscribeteacher'] = 'Das Forums kann nicht abonniert werden (nur Trainer/innen)';
+$string['disallowsubscribe'] = 'Das Forum kann nicht abonniert werden';
+$string['disallowsubscribeteacher'] = 'Das Forum kann nicht abonniert werden (nur Trainer/innen)';
 $string['discussion'] = 'Thema';
 $string['discussionmoved'] = 'Dieses Thema wurde verschoben nach \'{$a}\'.';
 $string['discussionmovedpost'] = 'Dieses Thema wurde verschoben nach <a href="{$a->discusshref}">hier</a> ins Forum <a href="{$a->forumhref}">{$a->forumname}</a>';
@@ -155,7 +155,7 @@ $string['existingsubscribers'] = 'Derzeitige Abonnenten';
 $string['exportdiscussion'] = 'Gesamte Diskussion exportieren';
 $string['forcessubscribe'] = 'Dieses Forum muss von allen abonniert werden';
 $string['forum'] = 'Forum';
-$string['forum:addinstance'] = 'Neues Forum hinzufügen';
+$string['forum:addinstance'] = 'Forum hinzufügen';
 $string['forum:addnews'] = 'Nachrichten hinzufügen';
 $string['forum:addquestion'] = 'Frage hinzufügen';
 $string['forum:allowforcesubscribe'] = 'Einschreibung erzwingen zulassen';
@@ -187,11 +187,11 @@ $string['forumtrackednot'] = 'Ungelesene Beiträge werden nicht verfolgt';
 $string['forumtype'] = 'Forumstyp';
 $string['forumtype_help'] = 'Es gibt fünf verschiedene Forentypen:
 
-* Diskussion zu einem Thema - Forum zu nur einem einzigen Thema, zu dem alle etwas schreiben dürfen. Dies ermöglicht kurze und sehr spezielle Diskussionen.
-* Jede Person postet genau ein Thema - Forum in dem jede Person genau ein einziges Diskussionsthema eröffnen darf. Zu jedem Thema dürfen alle anderen etwas antworten.
-* Frage-Antwort-Forum - Forum, bei dem die Teilnehmer/innen zuerst ihre eigene Position posten müssen, bevor sie die anderen Beiträge sehen und darauf antworten können.
-* Standardforum in blog-ähnlichen Anzeigeformat - offenes Forum, in dem jeder zu jeder Zeit ein neues Diskussionsthema eröffnen und auf alle Beiträge antworten kann. Bei diesem Forum werden alle Themen auf einer Seite zusammen mit Links "Dieses Thema diskutieren" gezeigt.
-* Standardforum - ein offenes Forum, in dem jeder zu jeder Zeit ein neues Diskussionsthema eröffnen und auf alle Beiträge antworten kann.';
+* Diskussion zu einem Thema - Forum zu einem einzigen Thema, zu dem alle antworten dürfen. Dieser Typ funktioniert nicht mit separaten Gruppen.
+* Jede Person darf genau ein Thema anlegen - Forum, in dem jede Person genau ein Thema beginnen darf. Alle Personen dürfen dann zu allen Themen antworten.
+* Frage-Antwort-Forum - Forum, bei dem alle Personen zuerst einem eigenen Beitrag schreiben müssen, bevor sie die Beiträge der anderen sehen und darauf antworten können.
+* Standardforum in blog-ähnlicher Anzeige - offenes Forum, in dem jeder zu jeder Zeit ein neues Thema beginnen und auf alle Beiträge antworten kann. In einer Übersicht sind Betreffzeilen und die Beitragsanfänge sichtbar, zum jeweiligen Gesamtbeitrag und zu dessen Antworten führt ein Link.
+* Standardforum - offenes Forum, in dem jeder zu jeder Zeit ein neues Thema eröffnen und auf alle Beiträge antworten kann. In einer Übersicht sind alle Betreffzeilen zu sehen.';
 $string['forum:viewallratings'] = 'Alle Teilwertungen sehen';
 $string['forum:viewanyrating'] = 'Alle Gesamtwertungen sehen';
 $string['forum:viewdiscussion'] = 'Themen sehen';
@@ -199,7 +199,7 @@ $string['forum:viewhiddentimedposts'] = 'Verborgene zeitliche Beiträge sehen';
 $string['forum:viewqandawithoutposting'] = 'Frage- und Antwortbeiträge immer sehen';
 $string['forum:viewrating'] = 'Eigene Gesamtwertung sehen';
 $string['forum:viewsubscribers'] = 'Abonnentenliste sehen';
-$string['generalforum'] = 'Standardforum zur allgemeinen Nutzung';
+$string['generalforum'] = 'Standardforum';
 $string['generalforums'] = 'Allgemeines Forum';
 $string['inforum'] = 'in {$a}';
 $string['introblog'] = 'Die Beiträge in diesem Forum wurden automatisch aus Teilnehmerblogs des Kurses erstellt, weil die Blogeinträge nicht mehr verfügbar sind';
@@ -223,9 +223,9 @@ $string['markread'] = 'Als gelesen markieren';
 $string['markreadbutton'] = 'Als gelesen<br />markieren';
 $string['markunread'] = 'Als ungelesen markieren';
 $string['markunreadbutton'] = 'Als ungelesen<br /> markieren';
-$string['maxattachments'] = 'Anhänge (max. Anzahl)';
+$string['maxattachments'] = 'Anhänge (max.)';
 $string['maxattachments_help'] = 'Diese Einstellung legt fest, wie viele Anhänge maximal pro Beitrag in diesem Forum erlaubt sind.';
-$string['maxattachmentsize'] = 'Dateigröße (max.)';
+$string['maxattachmentsize'] = 'Maximale Dateigröße';
 $string['maxattachmentsize_help'] = 'Diese Einstellung legt fest, welche maximale Dateigröße pro Anhang in diesem Forum erlaubt ist.';
 $string['maxtimehaspassed'] = 'Die Höchstdauer für die Bearbeitung dieses Eintrags ({$a}) ist überschritten!';
 $string['message'] = 'Mitteilung';
@@ -267,8 +267,8 @@ $string['noguesttracking'] = 'Gäste dürfen keine Einstellungen vornehmen';
 $string['nomorepostscontaining'] = 'Es wurden keine weiteren Beiträge mit \'{$a}\' gefunden.';
 $string['nonews'] = 'Keine Nachrichten im Forum';
 $string['noonecansubscribenow'] = 'Abonnements sind jetzt nicht erlaubt';
-$string['nopermissiontosubscribe'] = 'Sie haben nicht die Berechtigung die Liste der Foren-Abonnenten einzusehen';
-$string['nopermissiontoview'] = 'Sie haben keine Berechtigung, diesen Beitrag anzusehen.';
+$string['nopermissiontosubscribe'] = 'Sie haben nicht das Recht, die Liste der Abonnenten im Forum anzuzeigen.';
+$string['nopermissiontoview'] = 'Sie haben nicht das Recht, diesen Beitrag anzuzeigen.';
 $string['nopostforum'] = 'Sie dürfen in diesem Forum keine Beiträge schreiben';
 $string['noposts'] = 'Keine Beiträge';
 $string['nopostscontaining'] = 'Keine Beiträge gefunden, die in denen \'{$a}\' enthaltenen ist';
@@ -296,7 +296,7 @@ $string['oldpostdays'] = '\'Gelesen\' nach x Tagen';
 $string['openmode0'] = 'Keine neuen Themen, keine Antworten';
 $string['openmode1'] = 'Keine neuen Themen, aber Antworten erlaubt';
 $string['openmode2'] = 'Neue Themen und Antworten erlaubt';
-$string['overviewnumpostssince'] = 'Beiträge seit dem letzten Login: {$a}';
+$string['overviewnumpostssince'] = 'Beiträge seit dem letzten Besuch: {$a}';
 $string['overviewnumunread'] = 'Ungelesene Beiträge: {$a}';
 $string['page-mod-forum-discuss'] = 'Forumsdiskussionsseite
 ';
@@ -331,13 +331,13 @@ $string['pruneheading'] = 'Das Thema teilen und mit diesem Beitrag ein neues The
 $string['qandaforum'] = 'Frage-Antwort-Forum';
 $string['qandanotify'] = 'In diesem Frage-Antwort-Forum müssen Sie zuerst eine eigene Antwort eintragen, bevor Sie die Antworten anderer Personen sehen können';
 $string['re'] = 'Re:';
-$string['readtherest'] = 'anzeigen';
+$string['readtherest'] = 'Thema vollständig anzeigen ';
 $string['replies'] = 'Antworten';
 $string['repliesmany'] = '{$a} Antworten';
 $string['repliesone'] = '{$a} Antwort bis jetzt';
 $string['reply'] = 'Antwort';
 $string['replyforum'] = 'Antwort ins Forum';
-$string['replytouser'] = 'E-Mail-Adresse in Antwort verwenden';
+$string['replytouser'] = 'E-Mail-Adresse in Antwort nutzen';
 $string['resetforums'] = 'Beiträge entfernen von';
 $string['resetforumsall'] = 'Alle Beiträge löschen';
 $string['resetsubscriptions'] = 'Alle Forumsabonnements entfernen';
@@ -396,7 +396,9 @@ Es gibt 4 Modi für ein Abonnement:
 * Optional - alle dürfen auswählen, ob sie das Forum abonnieren möchten oder nicht
 * Verpflichtend - alle haben das Forum abonniert und niemand kann es abbestellen
 * Automatisch - alle haben das Forum abonniert, dürfen es aber jederzeit abbestellen
-* Deaktiviert - Das Forum kann von niemandem abonniert werden';
+* Deaktiviert - Das Forum kann von niemandem abonniert werden
+
+Bei einer nachträglichen Änderung des Abonnementtyps, ist es erforderlich, manuell in der Abonnementliste  die Einstellungen für bestehende Nutzer zu ändern.';
 $string['subscriptionoptional'] = 'Optional';
 $string['subscriptions'] = 'Abonnements';
 $string['thisforumisthrottled'] = 'Für dieses Forum ist eine Höchstzahl von Beiträgen innerhalb eines bestimmten Zeitraums festgelegt worden. Dies gilt nach {$a->blockafter} Beiträgen innerhalb von {$a->blockperiod}';
@@ -407,7 +409,7 @@ $string['tracking'] = 'Markieren?';
 $string['trackingoff'] = 'Aus';
 $string['trackingon'] = 'An';
 $string['trackingoptional'] = 'Optional';
-$string['trackingtype'] = 'Lesemarkierung';
+$string['trackingtype'] = 'Lesetracking';
 $string['trackingtype_help'] = 'Wenn diese Option aktiviert ist, sehen Teilnehmer/innen gelesene und ungelesene Beiträge unterschiedlich markiert im Forum.
 
 Es stehen drei Optionen zur Verfügung:

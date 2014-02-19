@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['overview:view'] = 'Просматривать обзорный отчёт';
-$string['pluginname'] = 'Обзорный отчёт';
+$string['overview:view'] = 'Просматривать обзорный отчет';
+$string['pluginname'] = 'Обзорный отчет';

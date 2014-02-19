@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Немедленный отзыв с ранжированием уверенности в ответе';
+$string['pleaseselectacertainty'] = 'Пожалуйста, выберите уверенность.';
+$string['pluginname'] = 'Немедленный отзыв с учетом уверенности в ответе';

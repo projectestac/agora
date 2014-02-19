@@ -38,10 +38,12 @@ $string['creditstomoodleorgdesc'] = 'Afficher le petit logo habituel de Moodle e
 $string['ctmo_ineverypage'] = 'Sur chaque page';
 $string['ctmo_no'] = 'Jamais';
 $string['ctmo_onfrontpageonly'] = 'Sur la page d\'accueil seulement';
-$string['customcss'] = 'CSS personnalisé';
-$string['customcssdesc'] = 'Les règles CSS que vous définissez ici seront ajoutées à chacune des pages, vous permettant ainsi de personnaliser facilement ce thème.';
+$string['customcss'] = 'CSS personnalisée';
+$string['customcssdesc'] = 'Les règles CSS que vous définissez ici seront ajoutées à chacune des pages, vous permettant ainsi de personnaliser facilement ce thème. Par exemple, il est possible de modifier la couleur des liens en ajoutant une ou plusieurs des règles suivantes :
+<pre>a:link, a:visited, a:hover, a:active, a:focus {color:blue;}</pre>
+N\'oubliez pas d\'ajuster les couleurs et règles CSS à vos besoins.';
 $string['customlogourl'] = 'Logo personnalisé';
-$string['customlogourldesc'] = 'Changer le logo de votre site en saisissant l\'URL complète ou relative d\'une image que vous voulez utiliser pour cela (par exemple http://www.monsite.ch/monbeaulogo.png ou ../chemin/vers/mon/beau/logo.png). Ce réglage a précédence sur le réglage du logo personnalisé. Le logo par défaut a une largeur de 200px pour une hauteur de 50px. Une image .png avec transparence fonctionnera le mieux.';
+$string['customlogourldesc'] = 'Changer le logo de votre site en saisissant l\'URL complète ou relative d\'une image que vous voulez utiliser pour cela (par exemple http://www.monsite.ch/monbeaulogo.png ou ../chemin/vers/mon/beau/logo.png). Le logo par défaut a une largeur de 200px pour une hauteur de 50px. Une image .png avec transparence fonctionnera le mieux.';
 $string['displayheading'] = 'Afficher l\'entête de page';
 $string['displaylogo'] = 'Afficher le logo';
 $string['fontsizereference'] = 'Corps de référence';
@@ -51,7 +53,7 @@ $string['footnotedesc'] = 'Le contenu de ce champ sera affiché dans le pied-de-
 $string['framemargin'] = 'Marge du cadre';
 $string['framemargindesc'] = 'Espace entre le cadre et les bords de la fenêtre du navigateur (ce réglage sera ignoré si « {$a} » est demandé.';
 $string['frontpagelogourl'] = 'Logo personnalisé pour la page d\'accueil';
-$string['frontpagelogourldesc'] = 'Changer le logo affiché sur la page d\'accueil de votre site en saisissant l\'URL complète ou relative d\'une image que vous voulez utiliser pour cela (par exemple http://www.monsite.ch/monbeaulogo.png ou ../chemin/vers/mon/beau/logo.png). Ce réglage a précédence sur le réglage du logo personnalisé. Le logo par défaut a une largeur de 300px pour une hauteur de 80px. Une image .png avec transparence fonctionnera le mieux.';
+$string['frontpagelogourldesc'] = 'Changer le logo affiché sur la page d\'accueil de votre site en saisissant l\'URL complète ou relative d\'une image que vous voulez utiliser pour cela. Ce réglage a précédence sur le réglage du logo personnalisé. Le logo par défaut a une largeur de 300px pour une hauteur de 80px. Une image .png avec transparence fonctionnera le mieux.';
 $string['headerbgc'] = 'Couleur de fond de l\'entête';
 $string['headerbgcdesc'] = 'Ce réglage définit la couleur de fond de l\'entête des blocs pour ce thème.';
 $string['headercontent'] = 'Contenu de l\'entête';

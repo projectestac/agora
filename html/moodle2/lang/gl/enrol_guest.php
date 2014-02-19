@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowguests'] = 'Este curso permite o acceso a usuarios convidados';
+$string['guestaccess_withoutpassword'] = 'Acceso como convidado';
+$string['guestaccess_withpassword'] = 'Acceso como convidado';
 $string['guest:config'] = 'Configurar as instancias de usuario convidado';
 $string['password'] = 'Contrasinal';
 $string['password_help'] = 'Un contrasinal que permite acceso como convidado ao curso pode ser restrinxida só a aqueles que coñecen o contrasinal. Os convidados';

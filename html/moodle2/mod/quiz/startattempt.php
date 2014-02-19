@@ -93,7 +93,7 @@ if ($lastattempt && ($lastattempt->state == quiz_attempt::IN_PROGRESS ||
 
     // And, if the attempt is now no longer in progress, redirect to the appropriate place.
     if ($lastattempt->state == quiz_attempt::OVERDUE) {
-         redirect($quizobj->summary_url($lastattempt->id));
+        redirect($quizobj->summary_url($lastattempt->id));
     } else if ($lastattempt->state != quiz_attempt::IN_PROGRESS) {
         redirect($quizobj->review_url($lastattempt->id));
     }
@@ -104,8 +104,12 @@ if ($lastattempt && ($lastattempt->state == quiz_attempt::IN_PROGRESS ||
     }
 
 } else {
+    while ($lastattempt && $lastattempt->preview) {
+        $lastattempt = array_pop($attempts);
+    }
+
     // Get number for the next or unfinished attempt.
-    if ($lastattempt && !$lastattempt->preview && !$quizobj->is_preview_user()) {
+    if ($lastattempt) {
         $attemptnumber = $lastattempt->attempt + 1;
     } else {
         $lastattempt = false;
@@ -205,7 +209,9 @@ if (!($quizobj->get_quiz()->attemptonlast && $lastattempt)) {
         $variantoffset = $attemptnumber;
     }
     $quba->start_all_questions(
-            new question_variant_pseudorandom_no_repeats_strategy($variantoffset), $timenow);
+            new question_variant_pseudorandom_no_repeats_strategy(
+                    $variantoffset, $attempt->userid, $quizobj->get_quizid()),
+            $timenow);
 
     // Update attempt layout.
     $newlayout = array();

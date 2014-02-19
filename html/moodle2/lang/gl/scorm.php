@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['activation'] = 'Activación';
 $string['activityloading'] = 'Vostede será encamiñado automaticamente á actividade en';
+$string['activityoverview'] = 'Ten pendentes paquetes SCORM que necesitan atención';
 $string['activitypleasewait'] = 'Cargando a actividade, agarde ...';
 $string['adminsettings'] = 'Configuración de administración';
 $string['advanced'] = 'Parámetros';
@@ -50,6 +51,9 @@ $string['assetlaunched'] = 'Recurso - Visto';
 $string['attempt'] = 'Intentar';
 $string['attempt1'] = '1 intento';
 $string['attempts'] = 'Intento';
+$string['attemptstatusall'] = 'Cartafol persoal e páxina de entrada';
+$string['attemptstatusentry'] = 'Páxina de entrada unicamente';
+$string['attemptstatusmy'] = 'Cartafol persoal unicamente';
 $string['attemptsx'] = '{$a} intentos';
 $string['attr_error'] = 'Valor incorrecto para o atributo ({$a->attr}) na etiqueta {$a->tag}.';
 $string['autocontinue'] = 'Continuación automática';
@@ -89,6 +93,7 @@ $string['disabled'] = 'Desactivado';
 $string['display'] = 'Presentar o paquete';
 $string['displayattemptstatus'] = 'Presentar o estado dos intentos';
 $string['displayattemptstatusdesc'] = 'Esta preferencia estabelece o valor predeterminado para presentar a configuración do estado de intentos';
+$string['displayattemptstatus_help'] = 'Esta preferencia permite un resumo dos intentos do usuario que se amosará no bloque de vista xeral do curso no cartafol persoal e/ou na páxina de entrada SCORM.';
 $string['displaycoursestructure'] = 'Presentar a estrutura do curso na páxina de entrada';
 $string['displaycoursestructuredesc'] = 'Esta preferencia estabelece o valor predeterminado para presentar a estrutura do curso no axuste da páxina de entrada';
 $string['displaycoursestructure_help'] = 'Se está activado, o índice presentarase na páxina de esquema SCORM.';
@@ -116,7 +121,7 @@ $string['firstaccess'] = 'Primeiro acceso';
 $string['firstattempt'] = 'Primeiro intento';
 $string['forcecompleted'] = 'Forzar finalización';
 $string['forcecompleteddesc'] = 'Esta preferencia estabelece o valor predeterminado para forzar o axuste de finalización';
-$string['forcecompleted_help'] = 'Se está activado, o estado do intento actual forzase a «completado». Este axuste aplicase só aos paquetes SCORM 1.2. É útil se o paquete SCORM non fai a revisión do intento correctamente, sexa na revisión ou no modo de exame, ou de producirse calquera outro funcionamento incorrecto no estado de completado';
+$string['forcecompleted_help'] = 'Se está activado, o estado do intento actual fórzase ao estado «completado». Este axuste aplícaselle só aos paquetes SCORM 1.2.';
 $string['forcejavascript'] = 'Forzar aos usuarios a ter JavaScript activado';
 $string['forcejavascript_desc'] = 'Se está activado (recomendado), impide o acceso aos obxectos SCORM cando JavaScript non está admitido/activado no navegador do usuario. Se está desactivado, o usuario pode ver o SCORM, mais a comunicación co API fallará e non se gardará a información da cualificación.';
 $string['forcejavascriptmessage'] = 'Requírese de JavaScript para ver este obxecto, active JavaScript no seu navegador e tenteo de novo.';
@@ -148,7 +153,7 @@ $string['gradesum'] = 'Cualificacións sumadas';
 $string['height'] = 'Altura';
 $string['hidden'] = 'Agochado';
 $string['hidebrowse'] = 'Desactivar o modo de vista previa';
-$string['hidebrowsedesc'] = 'Esta preferencia estabelece o valor predeterminado sobre activar o desactivar o modo de vista previa';
+$string['hidebrowsedesc'] = 'O modo de previsualización permítelle ao alumnos explorar unha actividade antes de tentar facela.';
 $string['hidebrowse_help'] = 'O modo de vista previa permite a un alumno examinar unha actividade antes de intentalo. Se o modo de vista previa está desactivado, o botón de vista previa estará agochado.';
 $string['hideexit'] = 'Agochar a ligazón de saída';
 $string['hidenav'] = 'Agochar os botóns de navegación';
@@ -168,11 +173,11 @@ $string['interactionslatency'] = 'Tempo transcorrido entre o momento en que se p
 $string['interactionslearnerresponse'] = 'Resposta de aprendizaxe';
 $string['interactionspattern'] = 'Patrón de resposta correcta';
 $string['interactionsresponse'] = 'Resposta do alumno';
-$string['interactionsresult'] = 'Resultado en base á resposta do alumno e <br />o resultado correcto';
+$string['interactionsresult'] = 'Resultado baseado na resposta do alumno e no resultado correcto';
 $string['interactionsscoremax'] = 'Valor máximo no intervalo de puntuación en bruto';
 $string['interactionsscoremin'] = 'Valor mínimo no intervalo de puntuación en bruto';
-$string['interactionsscoreraw'] = 'Número que reflicte o resultado do alumno en relación<br /> co intervalo delimitado polos valores de mínimo e máximo';
-$string['interactionssuspenddata'] = 'Fornece un espazo para almacenar e recuperar <br />datos entre sesións de aprendizaxe';
+$string['interactionsscoreraw'] = 'Número que reflicte o resultado do alumno en relación co intervalo delimitado polos valores de mínimo e máximo';
+$string['interactionssuspenddata'] = 'Fornece un espazo para almacenar e recuperar datos entre sesións de aprendizaxe';
 $string['interactionstime'] = 'Hora na que se iniciou o intento';
 $string['interactionstype'] = 'Tipo de pregunta';
 $string['interactionsweight'] = 'Ponderación asignada ao elemento';
@@ -180,11 +185,12 @@ $string['invalidactivity'] = 'A actividade SCORM é incorrecta';
 $string['invalidhacpsession'] = 'Sesión HACP incorrecta';
 $string['invalidmanifestresource'] = 'AVISO: Os seguintes recursos son mencionados no manifesto, mais non é posíbel atopalos:';
 $string['invalidurl'] = 'Especificouse un URL incorrecto';
+$string['invalidurlhttpcheck'] = 'O URL especificado non é correcto. Depurar a mensaxe: <pre>{$a->cmsg}</pre>';
 $string['last'] = 'Último acceso as';
 $string['lastaccess'] = 'Último acceso';
 $string['lastattempt'] = 'Último intento de completado';
 $string['lastattemptlock'] = 'Bloquear despois do intento final';
-$string['lastattemptlockdesc'] = 'Esta preferencia estabelece o valor predeterminado para o bloqueo despois de axustar o intento final';
+$string['lastattemptlockdesc'] = 'De estar activado, impídeselle ao alumno iniciar o reprodutor SCORM despois de usar todos os intentos designados para el.';
 $string['lastattemptlock_help'] = 'Se está activado, impídeselle ao alumno iniciar o reprodutor SCORM despois de ter empregado todos os intentos que tiña asignados.';
 $string['location'] = 'Amosar a barra de localización';
 $string['max'] = 'Puntuación máxima';
@@ -203,7 +209,7 @@ $string['modulename_help'] = 'Un paquete SCORM é un conxunto de ficheiros que s
 
 O contido amosase normalmente en varias páxinas, con navegación entre as páxinas. Hai varias opcións para ver o contido nunha xanela emerxente, cun índice, con botóns navegación, etc. As actividades SCORM xeralmente inclúen preguntas, con cualificacións que se rexistran no libro de cualificacións.
 
-As actividades de SCORM pódense empregar
+As actividades de SCORM pódense utilizar
 
 * Para a presentación de contidos multimedia e animacións
 * Como unha ferramenta de avaliación';
@@ -219,7 +225,7 @@ $string['no_attributes'] = 'A etiqueta {$a->tag} debe ter atributos';
 $string['no_children'] = 'A etiqueta {$a->tag} debe ter fillas';
 $string['nolimit'] = 'Intentos ilimitados';
 $string['nomanifest'] = 'Non se atopou o manifesto';
-$string['noprerequisites'] = 'Sentímolo, mais vostede non acadou os requisitos previos para acceder a este obxecto de aprendizaxe';
+$string['noprerequisites'] = 'Sentímolo, mais vostede non ten os requisitos previos para acceder a este obxecto de aprendizaxe';
 $string['noreports'] = 'Non hai informes que presentar';
 $string['normal'] = 'Normal';
 $string['noscriptnoscorm'] = 'O seu navegador non admite JavaScript, ou ten a opción JavaScript desactivada. Este paquete SCORM non pode reproducir ou gardar os datos correctamente.';
@@ -336,5 +342,13 @@ $string['viewallreports'] = 'Ver informes para {$a} intentos';
 $string['viewalluserreports'] = 'Ver os informes de {$a} usuarios';
 $string['whatgrade'] = 'Intentos de cualificación';
 $string['whatgradedesc'] = 'Esta preferencia estabelece o valor predeterminado sobre a cualificación de intentos';
+$string['whatgrade_help'] = 'De se permitir intentos múltiplos, esta configuración especifica se o máis alto, o medio (media), o primeiro ou o último intento rematada son o  rexistrado no libro de cualificacións. A opción do último intento completado non inclúe intentos cun estado «fallou».
+
+
+Notas sobre a manipulación de varios intentos:
+
+* A opción de iniciar un novo intento fornécese mediante unha caixa enriba do botón Intro na páxina de estrutura de contidos, para que asegúrese de estar dando acceso a esta páxina, se quere permitir máis de un intento.
+* Algúns paquetes SCORM son intelixentes sobre os novos intentos, non son moitos. O que isto significa é que, se o alumno reintroduce un intento anterior, se o contido SCORM non ten lóxica interna para evitar a substitución de intentos anteriores poden ser sobrescritos, aínda que o intento fose «completado» ou «pasado».
+* A configuración «Forzar o remate», «Forzar un novo intento» e «Bloqueo tras intento final» tamén facilitar aínda máis a xestión de varios intentos.';
 $string['width'] = 'Largura';
 $string['window'] = 'Xanela';

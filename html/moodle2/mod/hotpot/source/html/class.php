@@ -54,15 +54,20 @@ class hotpot_source_html extends hotpot_source {
                 // empty file - shouldn't happen !!
                 return false;
             }
-            if (preg_match('/<h(\d)[^>]>(.*?)<\/h$1>/is', $this->filecontents, $matches)) {
-                $this->name = trim(strip_tags($this->title));
-                $this->title = trim($matches[1]);
-            }
-            if (! $this->name) {
-                if (preg_match('/<title[^>]*>(.*?)<\/title>/is', $this->filecontents, $matches)) {
-                    $this->name = trim(strip_tags($matches[1]));
-                    if (! $this->title) {
-                        $this->title = trim($matches[1]);
+
+            $search = '/<((?:h[1-6])|p|div|title)[^>]*>(.*?)<\/\1[^>]*>/is';
+            if (preg_match_all($search, $this->filecontents, $matches)) {
+
+                // search string to match style and script blocks
+                $search = '/<(script|style)[^>]*>.*?<\/\1[^>]*>\s/is';
+
+                $i_max = count($matches[0]);
+                for ($i=0; $i<$i_max; $i++) {
+                    $match = $matches[2][$i];
+                    $match = preg_replace($search, '', $match);
+                    if ($this->name = trim(strip_tags($match))) {
+                        $this->title = trim($matches[2][$i]);
+                        break;
                     }
                 }
             }

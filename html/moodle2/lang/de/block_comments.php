@@ -25,6 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['comments:addinstance'] = 'Neuen Block \'Kommentar\' hinzufügen';
-$string['comments:myaddinstance'] = 'Neuen Block \'Kommentar\' für \'Meine Startseite\' hinzufügen';
+$string['comments:addinstance'] = 'Block \'Kommentar\' hinzufügen';
+$string['comments:myaddinstance'] = 'Block \'Kommentar\' für \'Meine Startseite\' hinzufügen';
 $string['pluginname'] = 'Kommentare';

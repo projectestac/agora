@@ -27,3 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['advancedsearch'] = 'Busca avanzada';
 $string['pluginname'] = 'Busca nos foros';
+$string['search_forums:addinstance'] = 'Engadir un novo bloque de busca nos foros';

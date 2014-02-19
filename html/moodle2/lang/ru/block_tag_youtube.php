@@ -25,6 +25,24 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['anycategory'] = 'Все категории';
+$string['autosvehicles'] = 'Автомобили и трпнспорт';
 $string['category'] = 'Категория';
+$string['comedy'] = 'Комедия';
 $string['configtitle'] = 'Название';
+$string['education'] = 'Образование';
+$string['entertainment'] = 'Развлечения';
+$string['filmsanimation'] = 'Фильмы и анимация';
+$string['gadgetsgames'] = 'Гаджеты и игры';
+$string['howtodiy'] = 'Инструкции и самоделки';
+$string['includeonlyvideosfromplaylist'] = 'Включать только видео из списка воспроизведения с ID';
+$string['music'] = 'Музыка';
+$string['newspolitics'] = 'Новости и политика';
+$string['numberofvideos'] = 'Видео';
+$string['peopleblogs'] = 'Люди и блоги';
+$string['petsanimals'] = 'Домашние и дикие животные';
 $string['pluginname'] = 'Youtube';
+$string['scienceandtech'] = 'Наука и техника';
+$string['sports'] = 'Спорт';
+$string['tag_youtube:addinstance'] = 'Добавлять новый блок YouTube';
+$string['travel'] = 'Путешествия и места';

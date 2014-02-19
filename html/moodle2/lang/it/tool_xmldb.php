@@ -43,25 +43,39 @@ $string['check_indexes'] = 'Cerca indici mancanti nel DB';
 $string['checkoraclesemantics'] = 'Controlla semantiche';
 $string['check_oracle_semantics'] = 'Cerca semantiche di lunghezza errata';
 $string['completelogbelow'] = '(visualizza il log completo della ricerca)';
-$string['confirmcheckbigints'] = 'Questa funzione individua la presenza di  <a href="http://tracker.moodle.org/browse/MDL-11038">Integer potenzialmente errati </a> nel tuo server Moodle, generando automaticamente il codice SQL necessario per sistemare gli Integer errati individuati. Il codice SQL viene generato ma non eseguito.<br /><br />
-Una volta completata l\'individuazione, puoi copiare il codice SQL generato ed eseguirlo tramite l\'interfaccia SQL  preferita (non dimenticare di effettuare un backup del database prima di eseguire il codice SQL).<br /><br />
-Si raccomanda di utilizzare la versione di Moodle più recente (versione +) disponibile per la vostra release.(1.8, 1.9, 2.x ...) prima di cercare Integer errati..<br /><br />
-Questa funzione non effettua modifiche sul database, legge solamente i dati e pertanto può essere eseguita con sicurezza in qualsiasi momento.';
-$string['confirmcheckdefaults'] = 'Questa funzione individua la presenza di valori di default inconsistenti nel tuo server Moodle, generando automaticamente il codice SQL necessario per sistemare tutti i valori dei default inconsistenti eventualmente presenti. Il codice SQL viene generato ma non eseguito.<br /><br />
-Una volta completata l\'individuazione, puoi copiare il codice SQL generato ed eseguirlo tramite l\'interfaccia SQL preferite (non dimenticare di effettuare un backup del database prima di eseguire il codice SQL).<br /><br />
-Si raccomanda di utilizzare la versione di Moodle più recente (versione +) disponibile per la vostra release.(1.8, 1.9, 2.x ...) prima di cercare Integer errati..<br /><br />
-Questa funzione non effettua modifiche sul database, legge solamente i dati e pertanto può essere eseguita con sicurezza in qualsiasi momento.';
-$string['confirmcheckforeignkeys'] = 'Questa funzione individua la presenza di violazioni delle foreign key definite nel file install.xml. (Al momento Moodle non genera vincoli per le foreign key, ed è questo il motivo per cui potrebbero essere presenti violazioni.<br /><br />
-Si raccomanda di utilizzare la versione di Moodle più recente (versione +) disponibile per la vostra release.(1.8, 1.9, 2.x ...) prima di cercare indici mancanti<br /><br />
-Questa funzione non effettua modifiche sul database, legge solamente i dati e pertanto può essere eseguita con sicurezza in qualsiasi momento.';
-$string['confirmcheckindexes'] = 'Questa funzione individua indici mancanti nel tuo server Moodle, generando automaticamente il codice SQL necessario per sistemare tutti i valori dei default inconsistenti eventualmente presenti. Il codice SQL viene generato ma non eseguito.<br /><br />
-Una volta completata l\'individuazione, puoi copiare il codice SQL generato ed eseguirlo tramite l\'interfaccia SQL preferita (non dimenticare di effettuare un backup del database prima di eseguire il codice SQL).<br /><br />
-Si raccomanda di utilizzare la versione di Moodle più recente (versione +) disponibile per la vostra release.(1.8, 1.9, 2.x ...) prima di cercare Integer errati..<br /><br />
-Questa funzione non effettua modifiche sul database, legge solamente i dati e pertanto può essere eseguita con sicurezza in qualsiasi momento.';
-$string['confirmcheckoraclesemantics'] = 'La funzione cercherà nel tuo sito Moodle <a href="http://tracker.moodle.org/browse/MDL-29322">colonne Oracle varchar2 che usano la semantica BYTE</a> e genererà (senza eseguirlo) il codice SQL necessario per convertire le colonne all\'uso delle semantica CHAR (preferibile sia per la compatibilità tra database sia per la lunghezza massima dei contenuti).<br /><br />
-Una volta generato, il codice SQL può essere eseguito usando l\'interfaccia che preferisci (non scordare di eseguire prima un backup del database).<br /><br />
-Prima di eseguire la ricerca di semantiche BYTE, si raccomanda di utilizzare la release di Moodle più recente (2.2, 2.3, 2.x ...).<br /><br />
-La ricerca non esegue nessuna alterazione del database (solo letture), pertanto può essere eseguita in qualsiasi momento.';
+$string['confirmcheckbigints'] = 'La funzione individua la presenza di  <a href="http://tracker.moodle.org/browse/MDL-11038">Integer potenzialmente errati</a> nel tuo server Moodle, generando automaticamente il codice SQL necessario per sistemare gli Integer errati individuati. Il codice SQL viene generato ma non eseguito.
+
+Una volta completata l\'individuazione, è possibile copiare il codice SQL generato ed eseguirlo tramite l\'interfaccia SQL preferita (effettuare sempre un backup del database prima di eseguire il codice SQL).
+
+Si raccomanda di utilizzare la versione di Moodle più recente (versione +) disponibile per la release in uso prima di cercare valori di Integer errati.
+
+La ricerca non effettua modifiche sul database, legge solamente i dati e pertanto può essere eseguita con sicurezza in qualsiasi momento.';
+$string['confirmcheckdefaults'] = 'La funzione individua la presenza di valori di default inconsistenti nel server Moodle, generando automaticamente il codice SQL necessario per sistemare tutti i valori dei default inconsistenti eventualmente presenti. Il codice SQL viene generato ma non eseguito.
+
+Una volta completata l\'individuazione, è possibile copiare il codice SQL generato ed eseguirlo tramite l\'interfaccia SQL preferita (effettuare sempre un backup del database prima di eseguire il codice SQL).
+
+Si raccomanda di utilizzare la versione di Moodle più recente (versione +) disponibile per la release in uso prima di cercare valori di default inconsistenti.
+
+La ricerca non effettua modifiche sul database, legge solamente i dati e pertanto può essere eseguita con sicurezza in qualsiasi momento.';
+$string['confirmcheckforeignkeys'] = 'La funzione individua la presenza di potenziali violazioni delle foreign key definite nel file install.xml. (Al momento Moodle non genera vincoli per le foreign key, ed è questo il motivo per cui potrebbero essere presenti.)
+
+Si raccomanda di utilizzare la versione di Moodle più recente (versione +) disponibile per la release in uso prima di cercare indici mancanti.
+
+La ricerca non effettua modifiche sul database, legge solamente i dati e pertanto può essere eseguita con sicurezza in qualsiasi momento.';
+$string['confirmcheckindexes'] = 'La funzione individua indici mancanti nel server Moodle, generando automaticamente il codice SQL necessario per sistemare tutti i valori dei default inconsistenti eventualmente presenti. Il codice SQL viene generato ma non eseguito.
+
+Una volta completata l\'individuazione, è possibile copiare il codice SQL generato ed eseguirlo tramite l\'interfaccia SQL preferita (effettuare sempre un backup del database prima di eseguire il codice SQL).
+
+Si raccomanda di utilizzare la versione di Moodle più recente (versione +) disponibile per la release in uso prima di cercare indici mancanti.
+
+la ricerca non effettua modifiche sul database, legge solamente i dati e pertanto può essere eseguita con sicurezza in qualsiasi momento.';
+$string['confirmcheckoraclesemantics'] = 'La funzione cerca nel sito Moodle <a href="http://tracker.moodle.org/browse/MDL-29322">colonne Oracle varchar2 che usano la semantica BYTE</a> e genererà (senza eseguirlo) il codice SQL necessario per convertire le colonne all\'uso delle semantica CHAR (preferibile sia per la compatibilità tra database sia per la lunghezza massima dei contenuti).
+
+Una volta completata la ricerca è possibile copiare il codice SQL generato ed eseguirlo tramite l\'interfaccia SQL preferita (effettuare sempre un backup del database prima di eseguire il codice SQL).
+
+Si raccomanda di utilizzare la versione di Moodle più recente (versione +) disponibile per la release in uso prima di cercare colonne con semantica BYTE.
+
+la ricerca non effettua modifiche sul database, legge solamente i dati e pertanto può essere eseguita con sicurezza in qualsiasi momento.';
 $string['confirmdeletefield'] = 'Sei sicuro di voler rimuovere il campo:';
 $string['confirmdeleteindex'] = 'Sei sicuro di voler rimuovere l\'indice:';
 $string['confirmdeletekey'] = 'Sei sicuro di voler rimuovere la chiave:';
@@ -108,6 +122,8 @@ $string['fieldsusedinindex'] = 'Il campo è usato come indice';
 $string['fieldsusedinkey'] = 'Questo campo è una chiave';
 $string['filemodifiedoutfromeditor'] = 'Attenzione: il file è stato modificato localmente tramite l\'editor XMLDB. Il salvataggio annullerà le modifiche locali.';
 $string['filenotwriteable'] = 'File non scrivibile';
+$string['fkunknownfield'] = 'La foreign key {$a->keyname} nella tabella {$a->tablename} punta ad un campo inesistente {$a->reffield} nella tabella {$a->reftable}.';
+$string['fkunknowntable'] = 'La foreign key {$a->keyname} nella tabella {$a->tablename} punta ad una tabella inesistente {$a->reftable}.';
 $string['fkviolationdetails'] = 'La foreign key {$a->keyname} nella tabella  {$a->tablename} è stata violata  {$a->numviolations} su un totale di {$a->numrows} righe.';
 $string['float2numbernote'] = 'Nota: sebbene i campi "float" siano supportati al 100% da XMLDB, si consiglia comunque di migrare verso campi "number".';
 $string['floatincorrectdecimals'] = 'Numero di decimali non corretto per un campo float';
@@ -172,6 +188,8 @@ $string['selecttable'] = 'Scegli una tabella:';
 $string['table'] = 'Tabella';
 $string['tablenameempty'] = 'Il nome della tabella non può essere lasciato vuoto';
 $string['tables'] = 'Tabelle';
+$string['unknownfield'] = 'Riferimento ad un campo sconosciuto.';
+$string['unknowntable'] = 'Riferimento ad una tabella sconosciuta.';
 $string['unload'] = 'Scarica';
 $string['up'] = 'Su';
 $string['view'] = 'Visualizza';

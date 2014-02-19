@@ -25,9 +25,9 @@
  * JClozeFindItB
  *
  * @param xxx sendallclicks
- * @param xxx forceajax
+ * @param xxx ajax
  */
-function JClozeFindItB(sendallclicks, forceajax) {
+function JClozeFindItB(sendallclicks, ajax) {
     this.quiztype = 'JCloze';
 
     /**
@@ -150,6 +150,6 @@ function JClozeFindItB(sendallclicks, forceajax) {
         this.penalties = window.Penalties || 0;
     }
 
-    this.init(I.length, sendallclicks, forceajax);
+    this.init(I.length, sendallclicks, ajax);
 }
 JClozeFindItB.prototype = new hpQuizAttempt();

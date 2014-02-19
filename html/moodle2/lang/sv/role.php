@@ -401,6 +401,7 @@ $string['roleassignments'] = 'Tilldelning av roller';
 $string['rolefullname'] = 'Namn';
 $string['role:manage'] = 'Skapa och administrera roller';
 $string['role:override'] = 'Översskrid tillstånd för andra';
+$string['roleprohibitinfo'] = 'Välj en roll att lägga till listan av förbjudna roller i kontext {$a->context}, förmåga {$a->cap}:';
 $string['roles'] = 'Roller';
 $string['roleselect'] = 'Välj roll';
 $string['roles_help'] = '<p>

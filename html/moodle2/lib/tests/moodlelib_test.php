@@ -45,6 +45,7 @@ class moodlelib_testcase extends advanced_testcase {
             '9.0i' => array('Windows 7' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)'),
             '10.0' => array('Windows 8' => 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; Touch)'),
             '10.0i' => array('Windows 8' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; Trident/6.0; Touch; .NET4.0E; .NET4.0C; Tablet PC 2.0)'),
+            '11.0' => array('Windows 8.1' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0)'),
         ),
         'Firefox' => array(
             '1.0.6'   => array('Windows XP' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.10) Gecko/20050716 Firefox/1.0.6'),
@@ -84,6 +85,29 @@ class moodlelib_testcase extends advanced_testcase {
                 'Debian Linux' => 'Opera/9.01 (X11; Linux i686; U; en)')
         )
     );
+
+    /**
+     * Define a local decimal separator.
+     *
+     * It is not possible to directly change the result of get_string in
+     * a unit test. Instead, we create a language pack for language 'xx' in
+     * dataroot and make langconfig.php with the string we need to change.
+     * The example separator used here is 'X'; on PHP 5.3 and before this
+     * must be a single byte character due to PHP bug/limitation in
+     * number_format, so you can't use UTF-8 characters.
+     *
+     * @global type $SESSION
+     * @global type $CFG
+     */
+    protected function define_local_decimal_separator() {
+        global $SESSION, $CFG;
+
+        $SESSION->lang = 'xx';
+        $langconfig = "<?php\n\$string['decsep'] = 'X';";
+        $langfolder = $CFG->dataroot . '/lang/xx';
+        check_dir_exists($langfolder);
+        file_put_contents($langfolder . '/langconfig.php', $langconfig);
+    }
 
     function test_cleanremoteaddr() {
         //IPv4
@@ -278,6 +302,15 @@ class moodlelib_testcase extends advanced_testcase {
         $this->assertTrue(check_browser_version('MSIE', '10'));
         $this->assertFalse(check_browser_version('MSIE', '11'));
 
+        $_SERVER['HTTP_USER_AGENT'] = $this->user_agents['MSIE']['11.0']['Windows 8.1'];
+        $this->assertTrue(check_browser_version('MSIE'));
+        $this->assertTrue(check_browser_version('MSIE', 0));
+        $this->assertTrue(check_browser_version('MSIE', '5.0'));
+        $this->assertTrue(check_browser_version('MSIE', '9.0'));
+        $this->assertTrue(check_browser_version('MSIE', '10'));
+        $this->assertTrue(check_browser_version('MSIE', '11'));
+        $this->assertFalse(check_browser_version('MSIE', '12'));
+
         $_SERVER['HTTP_USER_AGENT'] = $this->user_agents['Firefox']['2.0']['Windows XP'];
         $this->assertTrue(check_browser_version('Firefox'));
         $this->assertTrue(check_browser_version('Firefox', '1.5'));
@@ -463,7 +496,7 @@ class moodlelib_testcase extends advanced_testcase {
         $this->assertEquals($object, fix_utf8($object));
 
         // valid utf8 string
-        $this->assertSame("žlutý koníček přeskočil potůček \n\t\r\0", fix_utf8("žlutý koníček přeskočil potůček \n\t\r\0"));
+        $this->assertSame("žlutý koníček přeskočil potůček \n\t\r", fix_utf8("žlutý koníček přeskočil potůček \n\t\r\0"));
 
         // invalid utf8 string
         $this->assertSame('aš', fix_utf8('a'.chr(130).'š'), 'This fails with buggy iconv() when mbstring extenstion is not available as fallback.');
@@ -797,6 +830,21 @@ class moodlelib_testcase extends advanced_testcase {
         $this->assertSame(clean_param('user_', PARAM_COMPONENT), '');
     }
 
+    function test_is_valid_plugin_name() {
+        $this->assertTrue(is_valid_plugin_name('forum'));
+        $this->assertTrue(is_valid_plugin_name('forum2'));
+        $this->assertTrue(is_valid_plugin_name('online_users'));
+        $this->assertTrue(is_valid_plugin_name('blond_online_users'));
+        $this->assertFalse(is_valid_plugin_name('online__users'));
+        $this->assertFalse(is_valid_plugin_name('forum '));
+        $this->assertFalse(is_valid_plugin_name('forum.old'));
+        $this->assertFalse(is_valid_plugin_name('xx-yy'));
+        $this->assertFalse(is_valid_plugin_name('2xx'));
+        $this->assertFalse(is_valid_plugin_name('Xx'));
+        $this->assertFalse(is_valid_plugin_name('_xx'));
+        $this->assertFalse(is_valid_plugin_name('xx_'));
+    }
+
     function test_clean_param_plugin() {
         // please note the cleaning of plugin names is very strict, no guessing here
         $this->assertSame(clean_param('forum', PARAM_PLUGIN), 'forum');
@@ -1058,62 +1106,95 @@ class moodlelib_testcase extends advanced_testcase {
         }
     }
 
-    function test_shorten_text() {
+    function test_shorten_text_no_tags_already_short_enough() {
+        // ......12345678901234567890123456.
         $text = "short text already no tags";
         $this->assertEquals($text, shorten_text($text));
+    }
 
+    function test_shorten_text_with_tags_already_short_enough() {
+        // .........123456...7890....12345678.......901234567.
         $text = "<p>short <b>text</b> already</p><p>with tags</p>";
         $this->assertEquals($text, shorten_text($text));
+    }
 
+    function test_shorten_text_no_tags_needs_shortening() {
+        // Default truncation is after 30 chars, but allowing 3 for the final '...'.
+        // ......12345678901234567890123456789023456789012345678901234.
         $text = "long text without any tags blah de blah blah blah what";
         $this->assertEquals('long text without any tags ...', shorten_text($text));
+    }
 
+    function test_shorten_text_with_tags_needs_shortening() {
+        // .......................................123456789012345678901234567890...
         $text = "<div class='frog'><p><blockquote>Long text with tags that will ".
             "be chopped off but <b>should be added back again</b></blockquote></p></div>";
         $this->assertEquals("<div class='frog'><p><blockquote>Long text with " .
             "tags that ...</blockquote></p></div>", shorten_text($text));
+    }
 
+    function test_shorten_text_with_entities() {
+        // Remember to allow 3 chars for the final '...'.
+        // ......123456789012345678901234567_____890...
         $text = "some text which shouldn't &nbsp; break there";
         $this->assertEquals("some text which shouldn't &nbsp; ...",
             shorten_text($text, 31));
-        $this->assertEquals("some text which shouldn't ...",
+        $this->assertEquals("some text which shouldn't &nbsp;...",
             shorten_text($text, 30));
+        $this->assertEquals("some text which shouldn't ...",
+            shorten_text($text, 29));
+    }
 
+    function test_shorten_text_known_tricky_case() {
         // This case caused a bug up to 1.9.5
+        // ..........123456789012345678901234567890123456789.....0_____1___2___...
         $text = "<h3>standard 'break-out' sub groups in TGs?</h3>&nbsp;&lt;&lt;There are several";
         $this->assertEquals("<h3>standard 'break-out' sub groups in ...</h3>",
+            shorten_text($text, 41));
+        $this->assertEquals("<h3>standard 'break-out' sub groups in TGs?...</h3>",
+            shorten_text($text, 42));
+        $this->assertEquals("<h3>standard 'break-out' sub groups in TGs?</h3>&nbsp;...",
             shorten_text($text, 43));
+    }
 
-        $text = "<h1>123456789</h1>";//a string with no convenient breaks
+    function test_shorten_text_no_spaces() {
+        // ..........123456789.
+        $text = "<h1>123456789</h1>"; // A string with no convenient breaks.
         $this->assertEquals("<h1>12345...</h1>",
             shorten_text($text, 8));
+    }
 
-        // ==== this must work with UTF-8 too! ======
-
-        // text without tags
+    function test_shorten_text_utf8_european() {
+        // Text without tags.
+        // ......123456789012345678901234567.
         $text = "Žluťoučký koníček přeskočil";
-        $this->assertEquals($text, shorten_text($text)); // 30 chars by default
+        $this->assertEquals($text, shorten_text($text)); // 30 chars by default.
         $this->assertEquals("Žluťoučký koníče...", shorten_text($text, 19, true));
         $this->assertEquals("Žluťoučký ...", shorten_text($text, 19, false));
-        // And try it with 2-less (that are, in bytes, the middle of a sequence)
+        // And try it with 2-less (that are, in bytes, the middle of a sequence).
         $this->assertEquals("Žluťoučký koní...", shorten_text($text, 17, true));
         $this->assertEquals("Žluťoučký ...", shorten_text($text, 17, false));
 
+        // .........123456789012345678...901234567....89012345.
         $text = "<p>Žluťoučký koníček <b>přeskočil</b> potůček</p>";
         $this->assertEquals($text, shorten_text($text, 60));
         $this->assertEquals("<p>Žluťoučký koníček ...</p>", shorten_text($text, 21));
         $this->assertEquals("<p>Žluťoučký koníče...</p>", shorten_text($text, 19, true));
         $this->assertEquals("<p>Žluťoučký ...</p>", shorten_text($text, 19, false));
-        // And try it with 2-less (that are, in bytes, the middle of a sequence)
+        // And try it with 2 fewer (that are, in bytes, the middle of a sequence).
         $this->assertEquals("<p>Žluťoučký koní...</p>", shorten_text($text, 17, true));
         $this->assertEquals("<p>Žluťoučký ...</p>", shorten_text($text, 17, false));
-        // And try over one tag (start/end), it does proper text len
+        // And try over one tag (start/end), it does proper text len.
         $this->assertEquals("<p>Žluťoučký koníček <b>př...</b></p>", shorten_text($text, 23, true));
         $this->assertEquals("<p>Žluťoučký koníček <b>přeskočil</b> pot...</p>", shorten_text($text, 34, true));
-        // And in the middle of one tag
+        // And in the middle of one tag.
         $this->assertEquals("<p>Žluťoučký koníček <b>přeskočil...</b></p>", shorten_text($text, 30, true));
+    }
 
+    function test_shorten_text_utf8_oriental() {
         // Japanese
+        // text without tags
+        // ......123456789012345678901234.
         $text = '言語設定言語設定abcdefghijkl';
         $this->assertEquals($text, shorten_text($text)); // 30 chars by default
         $this->assertEquals("言語設定言語...", shorten_text($text, 9, true));
@@ -1122,13 +1203,27 @@ class moodlelib_testcase extends advanced_testcase {
         $this->assertEquals("言語設定言語設定...", shorten_text($text, 13, false));
 
         // Chinese
+        // text without tags
+        // ......123456789012345678901234.
         $text = '简体中文简体中文abcdefghijkl';
         $this->assertEquals($text, shorten_text($text)); // 30 chars by default
         $this->assertEquals("简体中文简体...", shorten_text($text, 9, true));
         $this->assertEquals("简体中文简体...", shorten_text($text, 9, false));
         $this->assertEquals("简体中文简体中文ab...", shorten_text($text, 13, true));
         $this->assertEquals("简体中文简体中文...", shorten_text($text, 13, false));
+    }
 
+    function test_shorten_text_multilang() {
+        // This is not necessaryily specific to multilang. The issue is really
+        // tags with attributes, where before we were generating invalid HTML
+        // output like shorten_text('<span id="x" class="y">A</span> B', 1);
+        // returning '<span id="x" ...</span>'. It is just that multilang
+        // requires the sort of HTML that is quite likely to trigger this.
+        // ........................................1...
+        $text = '<span lang="en" class="multilang">A</span>' .
+                '<span lang="fr" class="multilang">B</span>';
+        $this->assertEquals('<span lang="en" class="multilang">...</span>',
+                shorten_text($text, 1));
     }
 
     function test_usergetdate() {
@@ -1498,6 +1593,59 @@ class moodlelib_testcase extends advanced_testcase {
         // in-memory anyhow
         $CFG->showuseridentity = $oldshowuseridentity;
         $USER = $olduser;
+    }
+
+    /**
+     * Test some critical TZ/DST.
+     *
+     * This method tests some special TZ/DST combinations that were fixed
+     * by MDL-38999. The tests are done by comparing the results of the
+     * output using Moodle TZ/DST support and PHP native one.
+     *
+     * Note: If you don't trust PHP TZ/DST support, can verify the
+     * harcoded expectations below with:
+     * http://www.tools4noobs.com/online_tools/unix_timestamp_to_datetime/
+     */
+    public function test_some_moodle_special_dst() {
+        $stamp = 1365386400; // 2013/04/08 02:00:00 GMT/UTC.
+
+        // In Europe/Tallinn it was 2013/04/08 05:00:00.
+        $expectation = '2013/04/08 05:00:00';
+        $phpdt = DateTime::createFromFormat('U', $stamp, new DateTimeZone('UTC'));
+        $phpdt->setTimezone(new DateTimeZone('Europe/Tallinn'));
+        $phpres = $phpdt->format('Y/m/d H:i:s'); // PHP result.
+        $moodleres = userdate($stamp, '%Y/%m/%d %H:%M:%S', 'Europe/Tallinn', false); // Moodle result.
+        $this->assertSame($expectation, $phpres);
+        $this->assertSame($expectation, $moodleres);
+
+        // In St. Johns it was 2013/04/07 23:30:00.
+        $expectation = '2013/04/07 23:30:00';
+        $phpdt = DateTime::createFromFormat('U', $stamp, new DateTimeZone('UTC'));
+        $phpdt->setTimezone(new DateTimeZone('America/St_Johns'));
+        $phpres = $phpdt->format('Y/m/d H:i:s'); // PHP result.
+        $moodleres = userdate($stamp, '%Y/%m/%d %H:%M:%S', 'America/St_Johns', false); // Moodle result.
+        $this->assertSame($expectation, $phpres);
+        $this->assertSame($expectation, $moodleres);
+
+        $stamp = 1383876000; // 2013/11/08 02:00:00 GMT/UTC.
+
+        // In Europe/Tallinn it was 2013/11/08 04:00:00.
+        $expectation = '2013/11/08 04:00:00';
+        $phpdt = DateTime::createFromFormat('U', $stamp, new DateTimeZone('UTC'));
+        $phpdt->setTimezone(new DateTimeZone('Europe/Tallinn'));
+        $phpres = $phpdt->format('Y/m/d H:i:s'); // PHP result.
+        $moodleres = userdate($stamp, '%Y/%m/%d %H:%M:%S', 'Europe/Tallinn', false); // Moodle result.
+        $this->assertSame($expectation, $phpres);
+        $this->assertSame($expectation, $moodleres);
+
+        // In St. Johns it was 2013/11/07 22:30:00.
+        $expectation = '2013/11/07 22:30:00';
+        $phpdt = DateTime::createFromFormat('U', $stamp, new DateTimeZone('UTC'));
+        $phpdt->setTimezone(new DateTimeZone('America/St_Johns'));
+        $phpres = $phpdt->format('Y/m/d H:i:s'); // PHP result.
+        $moodleres = userdate($stamp, '%Y/%m/%d %H:%M:%S', 'America/St_Johns', false); // Moodle result.
+        $this->assertSame($expectation, $phpres);
+        $this->assertSame($expectation, $moodleres);
     }
 
     public function test_userdate() {
@@ -1968,7 +2116,6 @@ class moodlelib_testcase extends advanced_testcase {
      * Test localised float formatting.
      */
     public function test_format_float() {
-        global $SESSION, $CFG;
 
         // Special case for null
         $this->assertEquals('', format_float(null));
@@ -1984,17 +2131,8 @@ class moodlelib_testcase extends advanced_testcase {
         $this->assertEquals('5.43', format_float(5.43, 5, true, true));
         $this->assertEquals('5', format_float(5.0001, 3, true, true));
 
-        // It is not possible to directly change the result of get_string in
-        // a unit test. Instead, we create a language pack for language 'xx' in
-        // dataroot and make langconfig.php with the string we need to change.
-        // The example separator used here is 'X'; on PHP 5.3 and before this
-        // must be a single byte character due to PHP bug/limitation in
-        // number_format, so you can't use UTF-8 characters.
-        $SESSION->lang = 'xx';
-        $langconfig = "<?php\n\$string['decsep'] = 'X';";
-        $langfolder = $CFG->dataroot . '/lang/xx';
-        check_dir_exists($langfolder);
-        file_put_contents($langfolder . '/langconfig.php', $langconfig);
+        // Tests with a localised decimal separator.
+        $this->define_local_decimal_separator();
 
         // Localisation on (default)
         $this->assertEquals('5X43000', format_float(5.43, 5));
@@ -2003,6 +2141,80 @@ class moodlelib_testcase extends advanced_testcase {
         // Localisation off
         $this->assertEquals('5.43000', format_float(5.43, 5, false));
         $this->assertEquals('5.43', format_float(5.43, 5, false, true));
+    }
+
+    /**
+     * Test localised float unformatting.
+     */
+    public function test_unformat_float() {
+
+        // Tests without the localised decimal separator.
+
+        // Special case for null, empty or white spaces only strings.
+        $this->assertEquals(null, unformat_float(null));
+        $this->assertEquals(null, unformat_float(''));
+        $this->assertEquals(null, unformat_float('    '));
+
+        // Regular use.
+        $this->assertEquals(5.4, unformat_float('5.4'));
+        $this->assertEquals(5.4, unformat_float('5.4', true));
+
+        // No decimal.
+        $this->assertEquals(5.0, unformat_float('5'));
+
+        // Custom number of decimal.
+        $this->assertEquals(5.43267, unformat_float('5.43267'));
+
+        // Empty decimal.
+        $this->assertEquals(100.0, unformat_float('100.00'));
+
+        // With the thousand separator.
+        $this->assertEquals(1000.0, unformat_float('1 000'));
+        $this->assertEquals(1000.32, unformat_float('1 000.32'));
+
+        // Negative number.
+        $this->assertEquals(-100.0, unformat_float('-100'));
+
+        // Wrong value.
+        $this->assertEquals(0.0, unformat_float('Wrong value'));
+        // Wrong value in strict mode.
+        $this->assertFalse(unformat_float('Wrong value', true));
+
+        // Combining options.
+        $this->assertEquals(-1023.862567, unformat_float('   -1 023.862567     '));
+
+        // Bad decimal separator (should crop the decimal).
+        $this->assertEquals(50.0, unformat_float('50,57'));
+        // Bad decimal separator in strict mode (should return false).
+        $this->assertFalse(unformat_float('50,57', true));
+
+        // Tests with a localised decimal separator.
+        $this->define_local_decimal_separator();
+
+        // We repeat the tests above but with the current decimal separator.
+
+        // Regular use without and with the localised separator.
+        $this->assertEquals (5.4, unformat_float('5.4'));
+        $this->assertEquals (5.4, unformat_float('5X4'));
+
+        // Custom number of decimal.
+        $this->assertEquals (5.43267, unformat_float('5X43267'));
+
+        // Empty decimal.
+        $this->assertEquals (100.0, unformat_float('100X00'));
+
+        // With the thousand separator.
+        $this->assertEquals (1000.32, unformat_float('1 000X32'));
+
+        // Bad different separator (should crop the decimal).
+        $this->assertEquals (50.0, unformat_float('50Y57'));
+        // Bad different separator in strict mode (should return false).
+        $this->assertFalse (unformat_float('50Y57', true));
+
+        // Combining options.
+        $this->assertEquals (-1023.862567, unformat_float('   -1 023X862567     '));
+        // Combining options in strict mode.
+        $this->assertEquals (-1023.862567, unformat_float('   -1 023X862567     ', true));
     }
 
     /**
@@ -2143,5 +2355,37 @@ class moodlelib_testcase extends advanced_testcase {
         // Restore system default values.
         date_default_timezone_set($systemdefaulttimezone);
         setlocale(LC_TIME, $oldlocale);
+    }
+
+    public function test_email_to_user() {
+        $this->resetAfterTest();
+
+        $user1 = $this->getDataGenerator()->create_user();
+        $user2 = $this->getDataGenerator()->create_user();
+
+        $subject = 'subject';
+        $messagetext = 'message text';
+        $subject2 = 'subject 2';
+        $messagetext2 = 'message text 2';
+
+        unset_config('noemailever');
+
+        $sink = $this->redirectEmails();
+        email_to_user($user1, $user2, $subject, $messagetext);
+        email_to_user($user2, $user1, $subject2, $messagetext2);
+        $this->assertSame(2, $sink->count());
+        $result = $sink->get_messages();
+        $this->assertCount(2, $result);
+        $sink->close();
+
+        $this->assertSame($subject, $result[0]->subject);
+        $this->assertSame($messagetext, trim($result[0]->body));
+        $this->assertSame($user1->email, $result[0]->to);
+        $this->assertSame($user2->email, $result[0]->from);
+
+        $this->assertSame($subject2, $result[1]->subject);
+        $this->assertSame($messagetext2, trim($result[1]->body));
+        $this->assertSame($user2->email, $result[1]->to);
+        $this->assertSame($user1->email, $result[1]->from);
     }
 }

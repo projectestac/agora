@@ -31,4 +31,5 @@ $string['manual:enrol'] = 'تسجيل المستخدمين';
 $string['manual:unenrol'] = 'إلغاء تسجيل المستخدمين من هذا المقرر.';
 $string['pluginname'] = 'المسجلين بشكل يدوي';
 $string['status'] = 'تفعيل التسجيل بشكل يدوي';
+$string['unenrolselfconfirm'] = 'هل تريد بالفعل إلغاء تسجيلك من المقرر "{$a}"؟';
 $string['unenrolusers'] = 'إلغاء تسجيل المستخدمين';

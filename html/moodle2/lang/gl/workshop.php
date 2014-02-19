@@ -25,23 +25,33 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['allocatedetails'] = 'agardábase: {$a->expected}<br />entregouse: {$a->submitted}<br />para localizar: {$a->allocate}';
 $string['allsubmissions'] = 'Todos os envíos';
 $string['assess'] = 'Avaliar';
 $string['assessment'] = 'Avaliación';
 $string['assessmentby'] = 'por <a href="{$a->url}">{$a->name}</a>';
-$string['assessmentbyfullname'] = 'Avaliación por {$a}';
-$string['assessmentbyyourself'] = 'Tua conta';
-$string['assessmentend'] = 'Fin das avaliacións';
-$string['assessmentendbeforestart'] = 'A dta final de avaliacións non pode ser especificada antes do comezo';
-$string['assessmentenddatetime'] = 'Fin da avalición: {$a->daydatetime} ({$a->distanceday})';
-$string['assessmentendevent'] = '{$a} (fiin das avaliacións)';
-$string['assessmentstart'] = 'Comezo das avaliacións';
-$string['assessmentstartevent'] = '{$a} (comezo das avaliacións)';
+$string['assessmentbyfullname'] = 'Avaliación de {$a}';
+$string['assessmentbyyourself'] = 'A súa avaliación';
+$string['assessmentend'] = 'Data límite de avaliacións';
+$string['assessmentendbeforestart'] = 'A data límite de avaliacións non pode ser anterior á data de comezo da avaliación';
+$string['assessmentenddatetime'] = 'Data límite da avalición: {$a->daydatetime} ({$a->distanceday})';
+$string['assessmentendevent'] = '{$a} (data límite das avaliacións)';
+$string['assessmentstart'] = 'Aberto para avaliacións desde';
+$string['assessmentstartevent'] = '{$a} (aberto para avaliacións)';
 $string['editsubmission'] = 'Editar envío';
+$string['exampleneedsubmission'] = 'Debe enviar o seu traballo e avaliar todos os envíos de exemplo primeiro';
 $string['examplesubmissions'] = 'Envíos de exemplo';
-$string['gradinggrade'] = 'Cualificando a cualificación';
+$string['gradinggrade'] = 'Cualificación para avaliación';
 $string['info'] = 'Información';
+$string['latesubmissions_help'] = 'De estar activado, un autor pode entregar o seu traballo despois da data límite de entrega ou durante a fase de avaliación. As entregas posteriores non se poden editar.';
 $string['modulename'] = 'Taller';
+$string['modulename_help'] = 'O módulo de actividade obradoiro activa a recollida, revisión e avaliación por pares do traballo dos alumnos.
+
+Os alumnos poden entregar calquera contido dixital (ficheiros) tales como documentos procesados por palabras ou follas de cálculo e tamén poden escribir directamente dentro dun campo utilizando o editor de texto.
+
+As entregas son avaliadas utilizando un formulario de avaliación multicriterio definido polo profesor. O proceso de avaliación por pares e a comprensión do formulario de avaliación pódese practicar previamente con exemplos de entregas fornecidas polo profesor, xunto cunha avaliación de referencia. Aos alumnos dáselles a oportunidade de avaliar unha ou máis das entregas dos seus pares. As entregas e os revisores poden ser anónimos se se require.
+
+Os alumnos obteñen dúas cualificacións nunha actividade de seminario - unha cualificación pola súa entrega e outra pola avaliación das entregas dos seus pares. Ambas cualificacións gárdanse no libro de cualificacións.';
 $string['modulenameplural'] = 'Talleres';
 $string['pluginname'] = 'Taller';
 $string['reassess'] = 'Avaliar novamente';

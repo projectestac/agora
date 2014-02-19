@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowguests'] = 'Der Kurs ist für Gäste zugänglich';
+$string['guestaccess_withoutpassword'] = 'Gastzugang';
+$string['guestaccess_withpassword'] = 'Gastzugang';
 $string['guest:config'] = 'Gastzugang konfigurieren';
 $string['password'] = 'Gastschlüssel';
 $string['password_help'] = 'Der Gastzugang ist für alle möglich, die das Kennwort kennen. Gäste müssen das Kennwort jedes Mal eingeben, wenn sie auf den Kurs zugreifen.';
@@ -36,7 +38,7 @@ $string['pluginname_desc'] = 'Das Plugin \'Gastzugang\' ermöglicht einen tempor
 $string['requirepassword'] = 'Gastschlüssel notwendig';
 $string['requirepassword_desc'] = 'Der Gastschlüssel ist bei neuen Kursen notwendig und kann bei vorhandenen Kursen nicht entfernt werden';
 $string['showhint'] = 'Hinweis anzeigen';
-$string['showhint_desc'] = 'Das erste Zeichen des Gastschlüssels wirt angezeigt.';
+$string['showhint_desc'] = 'Das erste Zeichen des Gastschlüssels wird angezeigt.';
 $string['status'] = 'Gastzugang erlauben';
 $string['status_desc'] = 'Standardmäßig den Gastzugang erlauben';
 $string['status_help'] = 'Die Option legt fest, ob für den Kurs ein Gastzugang möglich ist, ohne sich direkt einschreiben zu müssen';

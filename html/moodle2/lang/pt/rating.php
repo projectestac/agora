@@ -40,7 +40,7 @@ $string['aggregatetype_help'] = 'O tipo de avaliação define a forma como as no
 * Nota mínima - A nota atribuída com o valor menor torna-se a nota final
 * Soma de avaliações - Todas as notas são somadas. O total não pode exceder a nota máxima da atividade.
 
-Se selecionar "Sem avaliação", a atividade não aparece no relatório de avaliações.';
+Se selecionar \'Sem avaliação\', a atividade não aparece no relatório de avaliações.';
 $string['allowratings'] = 'Permitir avaliação?';
 $string['allratingsforitem'] = 'Todas as avaliações submetidas';
 $string['capabilitychecknotavailable'] = 'Não pode verificar as permissões enquanto a atividade não for gravada';

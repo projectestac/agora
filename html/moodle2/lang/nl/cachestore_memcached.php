@@ -41,6 +41,7 @@ $string['hash_murmur'] = 'Murmur';
 $string['pluginname'] = 'Memcached';
 $string['prefix'] = 'Prefix sleutel';
 $string['prefix_help'] = 'Dit kan gebruikt worden om een "domein" voor je itemsleutels te zetten, waardoor je meerdere memcached opslagruimten op één enkele memcached installatie kan maken. Dit kan niet langer dan 16 tekens zijn om te verzekeren dat sleutellengtes geen problemen gaan veroorzaken.';
+$string['prefixinvalid'] = 'Ongeldige prefix. Je mag enkel a-z A-Z 0-9 _ gebruiken';
 $string['serialiser_igbinary'] = 'De igbinary serializer.';
 $string['serialiser_json'] = 'De JSON serializer.';
 $string['serialiser_php'] = 'De standaard PHP serialiser.';

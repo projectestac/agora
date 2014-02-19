@@ -74,7 +74,11 @@ if ($data = data_submitted()) {
     foreach ($feedback as $num => $vals) {
         $entry = $entrybyentry[$num];
         // Only update entries where feedback has actually changed.
-        if (($vals['r'] <> $entry->rating) || ($vals['c'] <> addslashes($entry->entrycomment))) {
+        $rating_changed = false;
+        if (($vals['r'] <> $entry->rating) && !($vals['r'] == '' && $entry->rating == "0")) {
+          $rating_changed = true;
+        }
+        if (($rating_changed) || (addslashes($vals['c']) <> addslashes($entry->entrycomment))) {
             $newentry = new StdClass();
             $newentry->rating     = $vals['r'];
             $newentry->entrycomment    = $vals['c'];
@@ -126,11 +130,7 @@ if (!$users) {
         print_error('noentriesmanagers', 'journal');
     }
 
-    $allowedtograde = (groups_get_activity_groupmode($cm) != VISIBLEGROUPS OR groups_is_member($currentgroup));
-
-    if ($allowedtograde) {
-        echo '<form action="report.php" method="post">';
-    }
+    echo '<form action="report.php" method="post">';
 
     if ($usersdone = journal_get_users_done($journal, $currentgroup)) {
         foreach ($usersdone as $user) {
@@ -143,13 +143,11 @@ if (!$users) {
         journal_print_user_entry($course, $user, NULL, $teachers, $grades);
     }
 
-    if ($allowedtograde) {
-        echo "<p class=\"feedbacksave\">";
-        echo "<input type=\"hidden\" name=\"id\" value=\"$cm->id\" />";
-        echo "<input type=\"submit\" value=\"".get_string("saveallfeedback", "journal")."\" />";
-        echo "</p>";
-        echo "</form>";
-    }
+    echo "<p class=\"feedbacksave\">";
+    echo "<input type=\"hidden\" name=\"id\" value=\"$cm->id\" />";
+    echo "<input type=\"submit\" value=\"".get_string("saveallfeedback", "journal")."\" />";
+    echo "</p>";
+    echo "</form>";
 }
 
 echo $OUTPUT->footer();

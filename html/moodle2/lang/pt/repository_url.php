@@ -31,4 +31,5 @@ $string['pluginname'] = 'Descarregar de URL';
 $string['rename'] = 'Nome';
 $string['url'] = 'URL';
 $string['url:view'] = 'Usar o repositório Descarregar de URL no explorador de ficheiros';
+$string['validfiletype'] = 'Tem de fornecer um URL para um ficheiro de imagem ou para uma página que contenha imagens.';
 $string['validname'] = 'O nome do ficheiro é inválido';

@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['alreadyloggedin'] = 'أنت حالياً مسجل كـ{$a}، عليك أولاً الخروج من ذاك الحساب قبل محاولة الدخول كمستخدم جديد.';
 $string['backuptablefail'] = 'لم يتمكن من إعداد جداول النسخ الاحتياطي بنجاح!';
 $string['blockcannotconfig'] = 'هذه الكتلة لا تدعم الإعدادات العامة';
 $string['blockcannotinistantiate'] = 'مشكلة أثناء إنشاء الكتلة';
@@ -123,6 +124,7 @@ $string['coursegroupunknown'] = 'المقرر الدرسي المتطابق مع
 $string['courseidnotfound'] = 'معرّف المقرر الدراسي غير موجود';
 $string['coursemisconf'] = 'تم إعداد المقرر الدراسي بشكل خاطئ';
 $string['csvcolumnduplicates'] = 'تم الكشف عن عمود مكرر';
+$string['csvemptyfile'] = 'ملف الـCSV هذا؛ فارغ';
 $string['csvinvalidcolsnum'] = 'خطأ في ملف CSV - كل سطر يجب أن يحوي 49 أو 70 حقلاً';
 $string['csvloaderror'] = 'خطأ أثناء تحميل ملف CSV!';
 $string['dbsessionhandlerproblem'] = 'فشل إعداد جلسة قاعدة البيانات.<br /><br />رجاءً أخبر مدير السيرفر.';
@@ -216,11 +218,13 @@ $string['noguest'] = 'لا يسمح بزوار هنا!';
 $string['nologinas'] = 'غير مسموح لك الدخول بذلك المستخدم';
 $string['nonmeaningfulcontent'] = 'لا يوجد محتوي ذي معني';
 $string['noparticipants'] = 'لم يتم العثور على مشاركين في هذا المقرر الدراسي';
+$string['nopermissions'] = 'عذراً ولكنك لا تملك حالياً الصلاحيات لتقوم بهذا ({$a})';
 $string['nopermissiontocomment'] = 'لا تستطيع إضافة تعليقات';
 $string['nopermissiontodelentry'] = 'لا تسطيع حذف مدخلات الاخرين';
 $string['nopermissiontoeditcomment'] = 'لا تستطيع تحرير تعليقات الاخرين!';
 $string['nopermissiontohide'] = 'لا يوجد صلاحية لإخفاء هذا!';
 $string['nopermissiontoshow'] = 'لا يوجد صلاحية لمشاهدة هذا!';
+$string['nopermissiontoupdatecalendar'] = 'عذراً ولكنك لا تملك حالياً الصلاحيات لتحرير حدث الرزنامة';
 $string['nopermissiontoviewgrades'] = 'لا يمكن معاينة النتائج';
 $string['nostatstodisplay'] = 'عذراً، لا يوجد بيانات ليتم عرضها';
 $string['notavailable'] = 'غير متوفر حاليا';
@@ -235,6 +239,7 @@ $string['sendmessage'] = 'إرسل رسالة';
 $string['sessionerroruser'] = 'انتهت جلستك، الرجاء الدخول ثانيا';
 $string['shortnametaken'] = 'الاسم المختصر مستخدم لمقرر دراسي أخر';
 $string['spellcheckernotconf'] = 'المدقق الأملائي غير معد';
+$string['tagdisabled'] = 'الوسوم معطّلة!';
 $string['TODO'] = 'للقيام بـــ';
 $string['unknowaction'] = 'إجراء غير معروف';
 $string['unknowcategory'] = 'التصنيف غير معروف';

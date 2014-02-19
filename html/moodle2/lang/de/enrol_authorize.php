@@ -85,7 +85,7 @@ $string['antrankey'] = 'Authorize.net: Transaktionsschlüssel';
 $string['approvedreview'] = 'Überprüfung erfolgreich';
 $string['authcaptured'] = 'Bestätigte / Gezahlte';
 $string['authcode'] = 'Authorisierungscode';
-$string['authorize:config'] = 'Authorize.net-Einschreibung konfigurieren';
+$string['authorize:config'] = 'Einschreibung \'Authorize.net\' konfigurieren';
 $string['authorizedpendingcapture'] = 'Bestätigte / Offene Zahlungen';
 $string['authorizeerror'] = 'Fehler bei Authorize.net: {$a}';
 $string['authorize:manage'] = 'Eingeschriebene Nutzer/innen verwalten';
@@ -159,11 +159,11 @@ $string['invalidaccnum'] = 'Ungültige Kontonummer';
 $string['invalidacctype'] = 'Ungültiger Kontentyp';
 $string['isbusinesschecking'] = 'Ist Geschäftsvorgang geprüft?';
 $string['lastnameoncard'] = 'Nachname auf der Karte';
-$string['logindesc'] = 'Diese Option MUSS aktiviert sein. Stellen Sie sicher, dass die Einstellung <a href="{$a->url}">loginhttps</a> unter Website Administration - Variablen konfigurieren - Sicherheit aktiviert ist.
+$string['logindesc'] = 'Diese Option muss aktiviert sein. Stellen Sie sicher, dass die Einstellung <a href="{$a->url}">loginhttps</a> unter \'Website-Administration > Variablen konfigurieren > Sicherheit\' aktiviert ist.
 <br /><br />
-Wenn diese Option aktiviert ist, verwendet Moodle für die Login- und Zahlungsvorgänge eine sichere HTTPS-Verbindung.';
+Wenn diese Option aktiviert ist, verwendet Moodle für die Login- und Zahlungsvorgänge eine sichere Verbindung über HTTPS.';
 $string['logininfo'] = 'Wenn Sie Ihr Konto bei Authorize.net konfigurieren, müssen Sie Ihren Anmeldenamen und zusätzlich <strong>entweder</strong> den Transaktionschlüssel <strong>oder</strong> das Kennwort in das entsprechende Feld eingeben. Bei Sicherheitsabfragen empfehlen wir die Eingabe des Transaktionsschlüssels.';
-$string['messageprovider:authorize_enrolment'] = 'Authorize.Net Einschreibemitteilungen';
+$string['messageprovider:authorize_enrolment'] = 'Mitteilung bei Einschreibung über Authorize.Net';
 $string['methodcc'] = 'Kreditkarte';
 $string['methodccdesc'] = 'Kreditkarte und akzeptierte Typen auswählen';
 $string['methodecheck'] = 'eCheck (ACH)';

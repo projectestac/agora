@@ -26,10 +26,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowadditionalcssclasses'] = 'Разрешить дополнительные классы CSS';
+$string['configallowadditionalcssclasses'] = 'Добавочный параметр конфигурации HTML-блоков позволяет устанавливать дополнительные классы CSS.';
 $string['configclasses'] = 'Дополнительные классы CSS';
+$string['configclasses_help'] = 'Назначение этой конфигурации - поддержка тем оформления, помогающая различать HTML-блоки друг от друга. Любые введенные здесь классы CSS (разделенные пробелами) будут добавлены к классам блоков по умолчанию.';
 $string['configcontent'] = 'Содержимое';
 $string['configtitle'] = 'Название блока';
 $string['html:addinstance'] = 'Добавлять новый блок HTML';
+$string['html:myaddinstance'] = 'Добавлять новый блок HTML в Мой Moodle';
 $string['leaveblanktohide'] = 'Чтобы убрать заголовок у блока, оставьте поле пустым';
 $string['newhtmlblock'] = '(новый HTML блок)';
 $string['pluginname'] = 'HTML';

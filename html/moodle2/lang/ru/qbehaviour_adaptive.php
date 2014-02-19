@@ -25,7 +25,15 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['disregardedwithoutpenalty'] = 'Представление недействительно и не принимается во внимание без штрафа.';
 $string['gradingdetails'] = 'Баллы за эту попытку: {$a->raw}/{$a->max}.';
+$string['gradingdetailsadjustment'] = 'С учетом предыдущих попыток это дает <strong>{$a->cur} / {$a->max}.</strong>';
 $string['gradingdetailspenalty'] = 'Эта попытка повлекла штраф - {$a}.';
+$string['gradingdetailspenaltytotal'] = 'Всего штрафов до сих пор: {$a}.';
+$string['gradingdetailswithadjustment'] = 'Оценка за этот ответ: {$a->raw} / {$a->max}. С учетом предыдущих попыток это дает <strong>{$a->cur} / {$a->max}.</strong>.';
+$string['gradingdetailswithadjustmentpenalty'] = 'Оценка за этот ответ: {$a->raw} / {$a->max}. С учетом предыдущих попыток это дает <strong>{$a->cur} / {$a->max}.</strong>. Этот ответ повлек штраф {$a->penalty}.';
+$string['gradingdetailswithadjustmenttotalpenalty'] = 'Оценка за этот ответ: {$a->raw} / {$a->max}. С учетом предыдущих попыток это дает <strong>{$a->cur} / {$a->max}.</strong>. Этот ответ повлек штраф {$a->penalty}. Всего штрафов до сих пор: {$a}.';
+$string['gradingdetailswithpenalty'] = 'Оценка за этот ответ: {$a->raw} / {$a->max}.  Этот ответ повлек штраф {$a->penalty}.';
+$string['gradingdetailswithtotalpenalty'] = 'Оценка за этот ответ: {$a->raw} / {$a->max}. Этот ответ повлек штраф {$a->penalty}. Всего штрафов до сих пор: {$a}.';
 $string['notcomplete'] = 'Не завершено';
 $string['pluginname'] = 'Адаптивный режим';

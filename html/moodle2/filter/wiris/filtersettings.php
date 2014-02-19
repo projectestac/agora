@@ -75,7 +75,7 @@ if ($ADMIN->fulltree) {
         }
 	}else{
                 $title = '<br /><br /><br /><span style="color:#aa0000; font-size:18px;">Attention! WIRIS plugin is not installed</span>';
-                $info = '<a target="_blank" href="http://www.wiris.com/plugins/docs/moodle"><img style="vertical-align:-3px;" alt="" src="http://www.wiris.com/system/files/attachments/1689/WIRIS_manual_icon_17_17.png" /></a>';    
+                $info = '<a target="_blank" href="http://www.wiris.com/plugins/docs/moodle"><img style="vertical-align:-3px;" alt="" src="https://www.wiris.com/system/files/attachments/1689/WIRIS_manual_icon_17_17.png" /></a>';    
                 $output = $title . '<br />WIRIS quizzes for Moodle 2.x needs that WIRIS plugin for TinyMCE is installed on your Moodle. ' . $info;                
 	}
 
@@ -92,7 +92,7 @@ if ($ADMIN->fulltree) {
 				$filePath = $cache . '/' . $file;
 				if (is_file($filePath)) {
 					$ext = pathinfo($file, PATHINFO_EXTENSION);
-					if ($ext == 'png'){
+					if ($ext == 'png' || $ext == 'txt'){
 						unlink($filePath);
 					}
 				}

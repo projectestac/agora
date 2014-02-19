@@ -50,14 +50,14 @@ $string['choosereadme'] = '<div class="clearfix">
 </div>
 </div>';
 $string['configtitle'] = 'Overlay-Einstellungen';
-$string['customcss'] = 'Eigenes CSS';
-$string['customcssdesc'] = 'Das eigene CSS wird benutzt, um das Design an Ihre Bedürfnisse anpassen.';
+$string['customcss'] = 'CSS-Anpassungen';
+$string['customcssdesc'] = 'Die CSS-Anpassungen werden auf jeder Seite benutzt. Das Design kann so einfach geändert werden.';
 $string['footertext'] = 'Fußzeilentext';
 $string['footertextdesc'] = 'Fußnote oder Fußzeilentext erstellen';
 $string['headercolor'] = 'Kopfbereichsfarbe';
 $string['headercolordesc'] = 'Diese Farbe wird als Hintergrundfarbe für den Kopfbereich benutzt.';
 $string['linkcolor'] = 'Linkfarbe';
-$string['linkcolordesc'] = 'Diese Einstellung bestimmt die Linkfarbe für das Theme.';
+$string['linkcolordesc'] = 'Diese Einstellung bestimmt die Linkfarbe für das Design.';
 $string['pluginname'] = 'Overlay';
 $string['region-side-post'] = 'Rechts';
 $string['region-side-pre'] = 'Links';

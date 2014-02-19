@@ -188,7 +188,7 @@ class mod_hotpot_attempt_hp_renderer extends mod_hotpot_attempt_renderer {
      * set_headcontent
      */
     function set_headcontent()  {
-        global $CFG, $QUIZPORT;
+        global $CFG;
 
         if (isset($this->headcontent)) {
             return;
@@ -249,7 +249,12 @@ class mod_hotpot_attempt_hp_renderer extends mod_hotpot_attempt_renderer {
                 $this->styles = str_replace('TheBody', $this->themecontainer, $this->styles);
             }
 
+            // remove comments /* ... */
+            $this->styles = preg_replace('/[\n\r]*[\t ]*\/\*.*?\*\//s', '', $this->styles);
+
+            // remove blank lines
             $this->styles = $this->remove_blank_lines($this->styles);
+
         }
 
         // transfer <script> tags from $this->headcontent to $this->scripts
@@ -312,38 +317,32 @@ class mod_hotpot_attempt_hp_renderer extends mod_hotpot_attempt_renderer {
      * @return xxx
      */
     function fix_headcontent_beforeonunload()  {
-        global $QUIZPORT;
-
         // warn user about consequences of navigating away from this page
         switch ($this->can_continue()) {
             case hotpot::CONTINUE_RESUMEQUIZ:
-                $onbeforeunload = get_string('canresumequiz', 'hotpot', format_string($QUIZPORT->quiz->name));
+                $onbeforeunload = ''.get_string('canresumehotpot', 'hotpot', format_string($this->hotpot->name));
                 break;
             case hotpot::CONTINUE_RESTARTQUIZ:
-                $onbeforeunload = get_string('canrestartquiz', 'hotpot', format_string($QUIZPORT->quiz->name));
-                break;
             case hotpot::CONTINUE_RESTARTUNIT:
-                $onbeforeunload = get_string('canrestartunit', 'hotpot');
+                $onbeforeunload = get_string('canrestarthotpot', 'hotpot', format_string($this->hotpot->name));
                 break;
             case hotpot::CONTINUE_ABANDONUNIT:
-                $onbeforeunload = get_string('abandonunit', 'hotpot');
+                $onbeforeunload = get_string('abandonhotpot', 'hotpot');
                 break;
             default:
                 $onbeforeunload = ''; // shouldn't happen !!
         }
         if ($onbeforeunload) {
-            $search = "/(\s*)window.onunload = new Function[^\r\n]*;/s";
-            $replace = '$0$1'
-                ."window.hotpotbeforeunload = function(){".'$1'
-                ."	return '".$this->hotpot->source->js_value_safe($onbeforeunload, true)."';".'$1'
-                ."}".'$1'
-                ."if (window.opera) {".'$1'
-                // user scripts (this is here for reference only)
-                // ."	opera.setOverrideHistoryNavigationMode('compatible');".'$1'
-                // web page scripts
-                ."	history.navigationMode = 'compatible';".'$1'
-                ."}".'$1'
-                ."window.onbeforeunload = window.hotpotbeforeunload;"
+            $search = "/(\s*)window\.(?:hotpotunload|onunload|HP) = /s";
+            $replace = ''
+                .'$1'."window.HP_beforeunload = function() {"
+                .'$1'."	return '".$this->hotpot->source->js_value_safe($onbeforeunload, true)."';"
+                .'$1'."}"
+                .'$1'."if (window.opera) {"
+                .'$1'."	opera.setOverrideHistoryNavigationMode('compatible');"
+                .'$1'."	history.navigationMode = 'compatible';"
+                .'$1'."}"
+                .'$0'
             ;
             $this->headcontent = preg_replace($search, $replace, $this->headcontent, 1);
         }
@@ -559,7 +558,7 @@ class mod_hotpot_attempt_hp_renderer extends mod_hotpot_attempt_renderer {
             $names = explode(',', $names);
         }
         foreach($names as $name) {
-            list($start, $finish) = $this->locate_js_function($name, $this->scripts);
+            list($start, $finish) = $this->locate_js_block('function', $name, $this->scripts);
             if (! $finish) {
                 // debugging("Could not locate JavaScript function: $name", DEBUG_DEVELOPER);
                 continue;
@@ -574,29 +573,50 @@ class mod_hotpot_attempt_hp_renderer extends mod_hotpot_attempt_renderer {
     }
 
     /**
-     * locate_js_function
+     * locate_js_block
      *
-     * @param xxx $name
-     * @param xxx $str (passed by reference)
-     * @param xxx $includewhitespace (optional, default=false)
-     * @return xxx
+     * @param string $type one of "function", "if", "for", "while", "do", "switch"
+     * @param string $name unique string to identify this js block (e.g. function-name OR if-condition)
+     * @param string $str (passed by reference) javascript code
+     * @param boolean $includewhitespace (optional, default=false) TRUE=return leading white space, FALSE otherwise
+     * @param boolean $offset (optional, default=0) char position at which to start search
+     * @return array($start, $finish) start and finish positions of js block within $str
      */
-    function locate_js_function($name, &$str, $includewhitespace=false)  {
+    function locate_js_block($type, $name, &$str, $includewhitespace=false, $offset=0)  {
         $start = 0;
         $finish = 0;
 
-        if ($includewhitespace) {
-            $search = '/\s*'.'function '.$name.'\b/s';
-        } else {
-            $search = '/\b'.'function '.$name.'\b/';
+        // set $search string to locate the start of this block $type
+        switch ($type) {
+
+            // these blocks have an leading parenthetical phrase
+            case 'if':
+            case 'for':
+            case 'while':
+            case 'switch':
+                $search = $type.'\s*\('.preg_quote($name, '/').'\)';
+                break;
+
+            // these blocks have a trailing parenthetical phrase
+            case 'do':
+                $search = $type.'\s*(?=\{)';
+                break;
+
+            // functions - this is the original intention of this locate_js_block()
+            case 'function':
+                $search = 'function\s+'.$name.'\s*\(.*?\)';
+                break;
         }
-        if (preg_match($search, $str, $matches, PREG_OFFSET_CAPTURE)) {
-            // $matches[0][0] : matching string
-            // $matches[0][1] : offset to matching string
-            $start = $matches[0][1];
+        $search = '/'.($includewhitespace ? '\s*' : '').$search.'/s';
+
+        if (preg_match($search, $str, $match, PREG_OFFSET_CAPTURE, $offset)) {
+
+            // $match[0][0] : matching string
+            // $match[0][1] : offset to matching string
+            $start = $match[0][1];
 
             // position of opening curly bracket (or thereabouts)
-            $i = $start + strlen($matches[0][0]);
+            $i = $start + strlen($match[0][0]);
 
             // count how many opening curly brackets we have had so far
             $count = 0;
@@ -677,7 +697,33 @@ class mod_hotpot_attempt_hp_renderer extends mod_hotpot_attempt_renderer {
 
                             case '}':
                                 $count--; // end of Javascript code block
-                                if ($count==0) { // end of outer code block (i.e. end of function)
+
+                                // detect trailing blocks or phrases
+                                switch ($type) {
+
+                                    // "if" blocks may have trailing "else if" or "else" blocks
+                                    case 'if':
+                                        $search = '/^\s*else(?:\s+if\s*\(.*?\))?\s*\{/s';
+                                        if (preg_match($search, substr($str, $i+1), $match)) {
+                                            $i += strlen($match[0]);
+                                            $count++; // continue parsing
+                                        }
+                                        break;
+
+                                    // "do" blocks have a trailing parenthetical phrase
+                                    case 'do':
+                                        $search = '/^\s*while\s*\('.preg_quote($name, '/').'\);/s';
+                                        if (preg_match($search, substr($str, $i+1), $match)) {
+                                            $i += strlen($match[0]);
+                                        }
+                                        break;
+                                }
+
+                                // detect trailing semicolon, if any
+                                if ($str{$i+1}==';') {
+                                    $i++;
+                                }
+                                if ($count==0) { // end of outer code block (e.g. end of function)
                                     $finish = $i + 1;
                                 }
                                 break;
@@ -687,6 +733,7 @@ class mod_hotpot_attempt_hp_renderer extends mod_hotpot_attempt_renderer {
                 $i++;
             } // end while
         } // end if $start
+
         return array($start, $finish);
     }
 
@@ -919,5 +966,18 @@ class mod_hotpot_attempt_hp_renderer extends mod_hotpot_attempt_renderer {
         }
 
         return $url;
+    }
+
+    /**
+     * get_send_results_flag
+     *
+     * @return string
+     */
+    function get_send_results_event() {
+        if ($this->hotpot->delay3==hotpot::TIME_AFTEROK) {
+            return 'HP.EVENT_SETVALUES';
+        } else {
+            return 'HP.EVENT_COMPLETED';
+        }
     }
 }

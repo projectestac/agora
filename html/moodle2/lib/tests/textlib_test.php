@@ -91,6 +91,14 @@ class core_textlib_testcase extends advanced_testcase {
         $this->assertSame(textlib::convert($utf8, 'utf-8', 'GB18030'), $str);
         $this->assertSame(textlib::convert($str, 'GB18030', 'utf-8'), $utf8);
         $this->assertSame(textlib::convert($utf8, 'utf-8', 'utf-8'), $utf8);
+
+        $utf8 = "Žluťoučký koníček";
+        $this->assertSame('Zlutoucky konicek', textlib::convert($utf8, 'utf-8', 'ascii'));
+        $this->assertSame($utf8, textlib::convert($utf8.chr(130), 'utf-8', 'utf-8'));
+        $utf8 = "Der eine stößt den Speer zum Mann";
+        $this->assertSame('Der eine stoesst den Speer zum Mann', textlib::convert($utf8, 'utf-8', 'ascii'));
+        $iso1 = textlib::convert($utf8, 'utf-8', 'iso-8859-1');
+        $this->assertSame('Der eine stoesst den Speer zum Mann', textlib::convert($iso1, 'iso-8859-1', 'ascii'));
     }
 
     /**
@@ -366,6 +374,18 @@ class core_textlib_testcase extends advanced_testcase {
         $this->assertSame($textlib->specialtoascii('ábc'), 'abc');
         $this->assertSame($textlib->strtotitle('abc ABC'), 'Abc Abc');
     }
+
+    /**
+     * Test strrchr.
+     */
+    public function test_strrchr() {
+        $str = "Žluťoučký koníček";
+        $this->assertSame('koníček', textlib::strrchr($str, 'koní'));
+        $this->assertSame('Žluťoučký ', textlib::strrchr($str, 'koní', true));
+        $this->assertFalse(textlib::strrchr($str, 'A'));
+        $this->assertFalse(textlib::strrchr($str, 'ç', true));
+    }
+
 }
 
 

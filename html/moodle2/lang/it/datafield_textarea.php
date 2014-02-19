@@ -25,6 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['maxbytes'] = 'Dimensione massima per il file embedded (in byte)';
+$string['maxbytes'] = 'Dimensione massima per il file incorporati (in byte)';
 $string['maxbytes_desc'] = 'Impostando il valore a zero la dimensione sarà per default illimitata';
 $string['pluginname'] = 'Area di testo';

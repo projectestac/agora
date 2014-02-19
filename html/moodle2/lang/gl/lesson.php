@@ -282,6 +282,7 @@ $string['studentattemptlesson'] = 'Tentativa número {$a->attempt} de {$a->lastn
 $string['studentname'] = 'Nome de {$a}';
 $string['studentoneminwarning'] = 'Aviso: Ten un minuto ou menos para terminar a lección.';
 $string['studentresponse'] = 'Resposta de {$a}';
+$string['submit'] = 'Entregar';
 $string['submitname'] = 'Enviar nome';
 $string['teacherjumpwarning'] = 'Nesta lección estábase a utilizar un salto a {$a->cluster} ou a {$a->unseen}. No seu lugar, utilizarase o salto á páxina seguinte. Inicie sesión como estudante para probar estes saltos.';
 $string['teacherongoingwarning'] = 'A puntuación en curso só se mostra a estudantes. Inicie sesión como estudante para probar a puntuación en curso';

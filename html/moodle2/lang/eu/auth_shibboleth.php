@@ -36,6 +36,7 @@ $string['auth_shib_changepasswordurl'] = 'Pasahitza aldatzeko URLa';
 $string['auth_shib_convert_data'] = 'Datuen aldaketarako APIa';
 $string['auth_shib_convert_data_description'] = 'API hau aurrerago Shibboleth-ek emandako datuak aldatzeko erabil dezakezu. <a href="../auth/shibboleth/README.txt" target="_blank">README</a> irakurri argibide gehigarriak ikusteko.';
 $string['auth_shib_convert_data_warning'] = 'Fitxategirik ez dago, edo zerbitzariaren prozesuak ezin du irakurri.';
+$string['auth_shib_idp_list'] = 'Nortasun-hornitzaileak';
 $string['auth_shib_instructions'] = '<a href="{$a}">Shibboleth login</a> erabili Shibboleth-en bidez sartzeko zure erakundeak onartzen badu.<br />Bestela, hemen erakusten den sarrera arrunteko formularioa erabili.';
 $string['auth_shib_instructions_help'] = 'Hemen zure erabiltzaileei Shibboleth erabiltzeko argibide pertsonalizatuak eman beharko zenizkieke. Sarbide orriko argibideen atalean agertu beharko lirateke, eta "<b>{$a}</b>" esteka erakutsi, Shibboletheko erabiltzaileak erraz sar daitezen. Zuriz utziz gero, argibide estandarrak erakutsiko dira (ez Shibboleth-enak berak)';
 $string['auth_shib_integrated_wayf'] = 'Moodle-ren WAYF zerbitzua';

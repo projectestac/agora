@@ -16,17 +16,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'countries', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'countries', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   countries
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-//XTEC ************ AFEGIT - Added Catalonia to countries list
-//2012.08.22  @sarjona
-$string['CT'] = 'Catalonia';
-//************ FI 
+defined('MOODLE_INTERNAL') || die();
+
 $string['AD'] = 'Andorra';
 $string['AE'] = 'United Arab Emirates';
 $string['AF'] = 'Afghanistan';
@@ -56,7 +54,8 @@ $string['BJ'] = 'Benin';
 $string['BL'] = 'Saint Barthélemy';
 $string['BM'] = 'Bermuda';
 $string['BN'] = 'Brunei Darussalam';
-$string['BO'] = 'Bolivia';
+$string['BO'] = 'Bolivia, Plurinational State Of';
+$string['BQ'] = 'Bonaire, Sint Eustatius And Saba';
 $string['BR'] = 'Brazil';
 $string['BS'] = 'Bahamas';
 $string['BT'] = 'Bhutan';
@@ -69,6 +68,7 @@ $string['CC'] = 'Cocos (Keeling) Islands';
 $string['CD'] = 'Congo, The Democratic Republic Of The';
 $string['CF'] = 'Central African Republic';
 $string['CG'] = 'Congo';
+$string['CH'] = 'Switzerland';
 $string['CI'] = 'Côte D\'Ivoire';
 $string['CK'] = 'Cook Islands';
 $string['CL'] = 'Chile';
@@ -78,6 +78,7 @@ $string['CO'] = 'Colombia';
 $string['CR'] = 'Costa Rica';
 $string['CU'] = 'Cuba';
 $string['CV'] = 'Cape Verde';
+$string['CW'] = 'Curaçao';
 $string['CX'] = 'Christmas Island';
 $string['CY'] = 'Cyprus';
 $string['CZ'] = 'Czech Republic';
@@ -125,7 +126,6 @@ $string['HN'] = 'Honduras';
 $string['HR'] = 'Croatia';
 $string['HT'] = 'Haiti';
 $string['HU'] = 'Hungary';
-$string['CH'] = 'Switzerland';
 $string['ID'] = 'Indonesia';
 $string['IE'] = 'Ireland';
 $string['IL'] = 'Israel';
@@ -161,12 +161,12 @@ $string['LS'] = 'Lesotho';
 $string['LT'] = 'Lithuania';
 $string['LU'] = 'Luxembourg';
 $string['LV'] = 'Latvia';
-$string['LY'] = 'State of Libya';
+$string['LY'] = 'Libya';
 $string['MA'] = 'Morocco';
 $string['MC'] = 'Monaco';
 $string['MD'] = 'Moldova, Republic Of';
 $string['ME'] = 'Montenegro';
-$string['MF'] = 'Saint Martin';
+$string['MF'] = 'Saint Martin (French Part)';
 $string['MG'] = 'Madagascar';
 $string['MH'] = 'Marshall Islands';
 $string['MK'] = 'Macedonia, The Former Yugoslav Republic Of';
@@ -208,7 +208,7 @@ $string['PL'] = 'Poland';
 $string['PM'] = 'Saint Pierre And Miquelon';
 $string['PN'] = 'Pitcairn';
 $string['PR'] = 'Puerto Rico';
-$string['PS'] = 'Palestinian Territory, Occupied';
+$string['PS'] = 'Palestine, State Of';
 $string['PT'] = 'Portugal';
 $string['PW'] = 'Palau';
 $string['PY'] = 'Paraguay';
@@ -224,7 +224,7 @@ $string['SC'] = 'Seychelles';
 $string['SD'] = 'Sudan';
 $string['SE'] = 'Sweden';
 $string['SG'] = 'Singapore';
-$string['SH'] = 'Saint Helena';
+$string['SH'] = 'Saint Helena, Ascension And Tristan Da Cunha';
 $string['SI'] = 'Slovenia';
 $string['SJ'] = 'Svalbard And Jan Mayen';
 $string['SK'] = 'Slovakia';
@@ -233,8 +233,10 @@ $string['SM'] = 'San Marino';
 $string['SN'] = 'Senegal';
 $string['SO'] = 'Somalia';
 $string['SR'] = 'Suriname';
+$string['SS'] = 'South Sudan';
 $string['ST'] = 'Sao Tome And Principe';
 $string['SV'] = 'El Salvador';
+$string['SX'] = 'Sint Maarten (Dutch Part)';
 $string['SY'] = 'Syrian Arab Republic';
 $string['SZ'] = 'Swaziland';
 $string['TC'] = 'Turks And Caicos Islands';
@@ -261,7 +263,7 @@ $string['UY'] = 'Uruguay';
 $string['UZ'] = 'Uzbekistan';
 $string['VA'] = 'Holy See (Vatican City State)';
 $string['VC'] = 'Saint Vincent And The Grenadines';
-$string['VE'] = 'Venezuela';
+$string['VE'] = 'Venezuela, Bolivarian Republic Of';
 $string['VG'] = 'Virgin Islands, British';
 $string['VI'] = 'Virgin Islands, U.S.';
 $string['VN'] = 'Viet Nam';

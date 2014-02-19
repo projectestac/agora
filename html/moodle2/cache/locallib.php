@@ -330,42 +330,11 @@ class cache_config_writer extends cache_config {
      *     Returns a configuration array if it could not be saved. This is a bad situation. Check your error logs.
      */
     public static function create_default_configuration() {
-        global $CFG;
-
         // HACK ALERT.
         // We probably need to come up with a better way to create the default stores, or at least ensure 100% that the
         // default store plugins are protected from deletion.
-        require_once($CFG->dirroot.'/cache/stores/file/lib.php');
-        require_once($CFG->dirroot.'/cache/stores/session/lib.php');
-        require_once($CFG->dirroot.'/cache/stores/static/lib.php');
-
         $writer = new self;
-        $writer->configstores = array(
-            'default_application' => array(
-                'name' => 'default_application',
-                'plugin' => 'file',
-                'configuration' => array(),
-                'features' => cachestore_file::get_supported_features(),
-                'modes' => cache_store::MODE_APPLICATION,
-                'default' => true,
-            ),
-            'default_session' => array(
-                'name' => 'default_session',
-                'plugin' => 'session',
-                'configuration' => array(),
-                'features' => cachestore_session::get_supported_features(),
-                'modes' => cache_store::MODE_SESSION,
-                'default' => true,
-            ),
-            'default_request' => array(
-                'name' => 'default_request',
-                'plugin' => 'static',
-                'configuration' => array(),
-                'features' => cachestore_static::get_supported_features(),
-                'modes' => cache_store::MODE_REQUEST,
-                'default' => true,
-            )
-        );
+        $writer->configstores = self::get_default_stores();
         $writer->configdefinitions = self::locate_definitions();
         $writer->configmodemappings = array(
             array(
@@ -402,6 +371,58 @@ class cache_config_writer extends cache_config {
         $factory->set_state(cache_factory::STATE_SAVING);
         $writer->config_save();
         return true;
+    }
+
+    /**
+     * Returns an array of default stores for use.
+     *
+     * @return array
+     */
+    protected static function get_default_stores() {
+        global $CFG;
+
+        require_once($CFG->dirroot.'/cache/stores/file/lib.php');
+        require_once($CFG->dirroot.'/cache/stores/session/lib.php');
+        require_once($CFG->dirroot.'/cache/stores/static/lib.php');
+
+        return array(
+            'default_application' => array(
+                'name' => 'default_application',
+                'plugin' => 'file',
+                'configuration' => array(),
+                'features' => cachestore_file::get_supported_features(),
+                'modes' => cachestore_file::get_supported_modes(),
+                'default' => true,
+            ),
+            'default_session' => array(
+                'name' => 'default_session',
+                'plugin' => 'session',
+                'configuration' => array(),
+                'features' => cachestore_session::get_supported_features(),
+                'modes' => cachestore_session::get_supported_modes(),
+                'default' => true,
+            ),
+            'default_request' => array(
+                'name' => 'default_request',
+                'plugin' => 'static',
+                'configuration' => array(),
+                'features' => cachestore_static::get_supported_features(),
+                'modes' => cachestore_static::get_supported_modes(),
+                'default' => true,
+            )
+        );
+    }
+
+    /**
+     * Updates the default stores within the MUC config file.
+     */
+    public static function update_default_config_stores() {
+        $factory = cache_factory::instance();
+        $factory->updating_started();
+        $config = $factory->create_config_instance(true);
+        $config->configstores = array_merge($config->configstores, self::get_default_stores());
+        $config->config_save();
+        $factory->updating_finished();
     }
 
     /**
@@ -581,6 +602,7 @@ abstract class cache_administration_helper extends cache_helper {
                     'nativettl' => $store->supports_native_ttl(),
                     'nativelocking' => ($store instanceof cache_is_lockable),
                     'keyawareness' => ($store instanceof cache_is_key_aware),
+                    'searchable' => ($store instanceof cache_is_searchable)
                 )
             );
             if (empty($details['default'])) {
@@ -650,59 +672,32 @@ abstract class cache_administration_helper extends cache_helper {
      * @return array
      */
     public static function get_definition_summaries() {
-        $instance = cache_config::instance();
-        $definitions = $instance->get_definitions();
-
+        $factory = cache_factory::instance();
+        $config = $factory->create_config_instance();
         $storenames = array();
-        foreach ($instance->get_all_stores() as $key => $store) {
+        foreach ($config->get_all_stores() as $key => $store) {
             if (!empty($store['default'])) {
                 $storenames[$key] = new lang_string('store_'.$key, 'cache');
-            }
-        }
-
-        $modemappings = array();
-        foreach ($instance->get_mode_mappings() as $mapping) {
-            $mode = $mapping['mode'];
-            if (!array_key_exists($mode, $modemappings)) {
-                $modemappings[$mode] = array();
-            }
-            if (array_key_exists($mapping['store'], $storenames)) {
-                $modemappings[$mode][] = $storenames[$mapping['store']];
             } else {
-                $modemappings[$mode][] = $mapping['store'];
+                $storenames[$store['name']] = $store['name'];
             }
         }
-
-        $definitionmappings = array();
-        foreach ($instance->get_definition_mappings() as $mapping) {
-            $definition = $mapping['definition'];
-            if (!array_key_exists($definition, $definitionmappings)) {
-                $definitionmappings[$definition] = array();
-            }
-            if (array_key_exists($mapping['store'], $storenames)) {
-                $definitionmappings[$definition][] = $storenames[$mapping['store']];
-            } else {
-                $definitionmappings[$definition][] = $mapping['store'];
-            }
+        /* @var cache_definition[] $definitions */
+        $definitions = array();
+        foreach ($config->get_definitions() as $key => $definition) {
+            $definitions[$key] = cache_definition::load($definition['component'].'/'.$definition['area'], $definition);
         }
-
-        $return = array();
-
         foreach ($definitions as $id => $definition) {
-
             $mappings = array();
-            if (array_key_exists($id, $definitionmappings)) {
-                $mappings = $definitionmappings[$id];
-            } else if (empty($definition['mappingsonly'])) {
-                $mappings = $modemappings[$definition['mode']];
+            foreach (cache_helper::get_stores_suitable_for_definition($definition) as $store) {
+                $mappings[] = $storenames[$store->my_name()];
             }
-
             $return[$id] = array(
                 'id' => $id,
-                'name' => cache_helper::get_definition_name($definition),
-                'mode' => $definition['mode'],
-                'component' => $definition['component'],
-                'area' => $definition['area'],
+                'name' => $definition->get_name(),
+                'mode' => $definition->get_mode(),
+                'component' => $definition->get_component(),
+                'area' => $definition->get_area(),
                 'mappings' => $mappings
             );
         }
@@ -954,7 +949,10 @@ abstract class cache_administration_helper extends cache_helper {
      * @return array An array containing sub-arrays, one for each mode.
      */
     public static function get_default_mode_stores() {
+        global $OUTPUT;
         $instance = cache_config::instance();
+        $adequatestores = cache_helper::get_stores_suitable_for_mode_default();
+        $icon = new pix_icon('i/warning', new lang_string('inadequatestoreformapping', 'cache'));
         $storenames = array();
         foreach ($instance->get_all_stores() as $key => $store) {
             if (!empty($store['default'])) {
@@ -976,6 +974,9 @@ abstract class cache_administration_helper extends cache_helper {
                 $modemappings[$mode][$mapping['store']] = $storenames[$mapping['store']];
             } else {
                 $modemappings[$mode][$mapping['store']] = $mapping['store'];
+            }
+            if (!array_key_exists($mapping['store'], $adequatestores)) {
+                $modemappings[$mode][$mapping['store']] = $modemappings[$mode][$mapping['store']].' '.$OUTPUT->render($icon);
             }
         }
         return $modemappings;

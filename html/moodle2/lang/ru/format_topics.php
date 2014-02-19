@@ -27,8 +27,8 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['currentsection'] = 'Текущая тема';
 $string['hidefromothers'] = 'Скрыть тему';
-$string['page-course-view-topics'] = 'Главная страница любого курса формата "Разделы по темам"';
-$string['page-course-view-topics-x'] = 'Любая страница курса формата "Разделы по темам"';
+$string['page-course-view-topics'] = 'Главная страница любого курса формата «Разделы по темам»';
+$string['page-course-view-topics-x'] = 'Любая страница курса формата «Разделы по темам»';
 $string['pluginname'] = 'Разделы по темам';
 $string['section0name'] = 'Общее';
 $string['sectionname'] = 'Тема';

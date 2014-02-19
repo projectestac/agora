@@ -44,7 +44,7 @@ class hotpot_source_hp_6_sequitur_xml extends hotpot_source_hp_6_sequitur {
      * @param xxx $sourcefile
      * @return xxx
      */
-    public static function is_quizfile($sourcefile)  {
+    static public function is_quizfile($sourcefile)  {
         return preg_match('/\.sqt$/', $sourcefile->get_filename());
     }
 }

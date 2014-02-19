@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Scheda individuale';
+$string['tablesummary'] = 'La tabella è organizzata come elenco di elementi valutati e delle rispettive categorie. E\' evidenziata l\'appartenenza di un elemento ad una categoria.';
 $string['user:view'] = 'Visualizzare la propria scheda individuale';

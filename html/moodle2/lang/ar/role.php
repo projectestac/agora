@@ -36,6 +36,15 @@ $string['allowoverride'] = 'السماح بتخطي الدور';
 $string['allowroletoswitch'] = 'السماخ للمسخدمين من دور  {$a->fromrole} بتبديل دورهم إلى دور {$a->targetrole}';
 $string['allowswitch'] = 'السماح بتبديل الأدوار';
 $string['allsiteusers'] = 'كل مستخدمي الموقع';
+$string['archetype'] = 'النموذج الأصلي للدور';
+$string['archetypecoursecreator'] = 'نموذج أصل: منشيء مقرر';
+$string['archetypeeditingteacher'] = 'نموذج أصل: مدرس (يحرر)';
+$string['archetypefrontpage'] = 'نموذج أصل: مستخدم معروف على الصفحة الرئيسية';
+$string['archetypeguest'] = 'نموذج أصل: ضيف';
+$string['archetypemanager'] = 'نموذج أصل: مدير';
+$string['archetypestudent'] = 'نموذج أصل: طالب';
+$string['archetypeteacher'] = 'نموذج أصل: مدرس (لا يحرر)';
+$string['archetypeuser'] = 'نموذج أصل: مستخدم معروف';
 $string['assignanotherrole'] = 'عيين دور اخر';
 $string['assignedroles'] = 'الدوار التي تم تعيينها';
 $string['assignglobalroles'] = 'عيين ادوار النظام';
@@ -77,6 +86,8 @@ $string['checkuserspermissionshere'] = 'مراجعة صلاحيات {$a->fullnam
 $string['chooseroletoassign'] = 'الرجاء اختيار دور لتعيينه';
 $string['comment:delete'] = 'حذف التعليقات';
 $string['comment:view'] = 'أقراء التعليقات';
+$string['confirmdeladmin'] = 'هل تريد بالفعل إزالة المستخدم "<strong>{$a}</strong>" من مجموعة مدراء النظام؟';
+$string['confirmroleprevent'] = 'هل تريد بالفعل إزالة "<strong>{$a->role}</strong>" من قائمة الأدوار المسموحة للإمكانية "{$a->cap}"؟ في السياق "{$a->context}"؟';
 $string['confirmunassignno'] = 'إلغاء';
 $string['confirmunassigntitle'] = 'تأكيد تغير الدور';
 $string['confirmunassignyes'] = 'اأستبعد';
@@ -124,6 +135,7 @@ $string['deleterolesure'] = 'هل أنت متأكد القيام بحذف الد
 حالياً هذا الدور مخصص لـ المستخدمين
 {$a->count}';
 $string['deletexrole'] = 'حذف {$a} الدور';
+$string['duplicaterole'] = 'نسخ الدور';
 $string['editingrolex'] = 'تحرير الدور "{$a}"';
 $string['editrole'] = 'تحرير الدور';
 $string['errorbadrolename'] = 'اسم الدور خطاء';
@@ -164,10 +176,12 @@ $string['localroles'] = 'الأدوار المعينة محلياً';
 $string['manageadmins'] = 'قم بإدارة مدراء الموقع';
 $string['manager'] = 'مدير';
 $string['manageroles'] = 'قم بإدارة الأدوار';
+$string['maybeassignedin'] = 'أنواع السياقات التي يمكن فيها إسناد هذا الدور';
 $string['my:manageblocks'] = 'قم بإدارة كتل صفحتي في مودل';
 $string['neededroles'] = 'الأدوار ذات الصلاحية';
 $string['nocapabilitiesincontext'] = 'لا يوجد قدرات متاحة في هذا السياق';
 $string['noneinthisx'] = 'لا أحد في هذا العنصر من نوع {$a}';
+$string['notabletoassignroleshere'] = 'لا يمكنك إسناد أي دور هنا';
 $string['notes:manage'] = 'قم بإدارة الملاحظات';
 $string['notes:view'] = 'معاينة الملاحظات';
 $string['notset'] = ' لم يتم إعداده';
@@ -180,6 +194,7 @@ $string['permissionsforuser'] = 'صلاحيات المستخدم {$a}';
 $string['permissionsincontext'] = 'صلاحيات للسياق [{$a}]';
 $string['potentialusers'] = '{$a} مستخدمين محتملين';
 $string['potusers'] = 'مستخدمين محتملين';
+$string['potusersmatching'] = 'مشتخدمين محتملين يطابقون \'{$a}\'‏';
 $string['prevent'] = 'منع';
 $string['prohibit'] = 'تحريم';
 $string['prohibitedroles'] = 'تم تحريمه';
@@ -200,14 +215,17 @@ $string['restore:restorecourse'] = 'إسترجاع المقررات الدراس
 $string['restore:userinfo'] = 'إسترجاع بيانات مستخدم';
 $string['risks'] = 'مجازفات';
 $string['roleallowheader'] = 'السماح بدور:';
+$string['roleallowinfo'] = 'اختر الدور لإضافته لقائمة الأدوار المسموحة في السياق {$a->contect}، الإمكانية {$a->cap}:';
 $string['role:assign'] = 'تعين الأدوار للمستخدمين';
 $string['roleassignments'] = 'تعيين الدور';
 $string['roledefinitions'] = 'تعريف الدور';
 $string['rolefullname'] = 'الاسم';
+$string['roleincontext'] = '{$a->role} في {$a->context}';
 $string['role:manage'] = 'أنشاء وإدارة  الدوار';
 $string['role:override'] = 'تخطي صلاحيات الأخرين';
 $string['roles'] = 'الأدوار';
 $string['roleselect'] = 'اختر دور';
+$string['rolesforuser'] = 'أدوار المستخدم: {$a}';
 $string['roleshortname'] = 'الاسم المختصر';
 $string['role:switchroles'] = 'الأنتقال إلى أدوار أخرى';
 $string['roletoassign'] = 'دور للتعيين';
@@ -260,6 +278,7 @@ $string['user:viewhiddendetails'] = 'معاينة التفاصيل المخفي�
 $string['user:viewuseractivitiesreport'] = 'مشاهدة تقارير نشاط مستخدم';
 $string['user:viewusergrades'] = 'معاينة درجات (علامات) مستخدم';
 $string['useshowadvancedtochange'] = 'استخد "اظهار الخيارات المتقدمة" للقيام بالتغير ';
+$string['viewingdefinitionofrolex'] = 'استعراض تعريف الدور "{$a}"';
 $string['viewrole'] = 'معاينة تفاصيل الدور';
 $string['xuserswiththerole'] = 'المستخدمين المعينين لهذا الدور
 "{$a->role}": {$a->number}';

@@ -27,6 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['configplugin'] = 'Configuration Merlot.org';
 $string['licensekey'] = 'Clef de licence';
-$string['merlot:view'] = 'Afficher le dépot Merlot';
+$string['merlot:view'] = 'Consulter un dépôt Merlot';
 $string['pluginname'] = 'Merlot.org';
 $string['pluginname_help'] = 'Merlot.org';

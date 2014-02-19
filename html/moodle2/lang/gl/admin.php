@@ -116,7 +116,7 @@ $string['commentsperpage'] = 'Comentarios presentados por páxina';
 $string['commonfiltersettings'] = 'Configuración común do filtro';
 $string['commonsettings'] = 'Configuración común';
 $string['componentinstalled'] = 'Compoñente instalado';
-$string['computedfromlogs'] = 'Calculado a partires dos rexistros desde o {$a}.';
+$string['computedfromlogs'] = 'Calculado a partir dos rexistros do {$a}.';
 $string['condifmodeditdefaults'] = 'Os valores que indique aquí definen os valores predeterminados a empregar no formulario de configuración da actividade cando vostede crea unha nova actividade. Pode de vez configurar que configuración da actividade considera como avanzada.';
 $string['confeditorhidebuttons'] = 'Seleccione os botóns que deberían estaren agochados no editor de HTML.';
 $string['configallowassign'] = 'Permitir que as persoas que teñen os roles do lado esquerdo poidan asignar algúns dos roles da columna a outras persoas';
@@ -149,7 +149,7 @@ $string['configcookiesecure'] = 'Se o servidor acepta unicamente conexións http
 $string['configcountry'] = 'Ao definir aquí un país, este será seleccionado como predeterminado nas novas contas de usuario. Se desexa que os usuarios escollan un país déixeo sen definir.';
 $string['configcourserequestnotify'] = 'Escriba o nome de usuario a quen enviar unha notificación cando se solicite un novo curso';
 $string['configcourserequestnotify2'] = 'Usuarios aos que notificar cando é requirido un campo. Nesta lista figuran unicamente os usuarios que poden aprobar as solicitudes de curso.';
-$string['configcoursesperpage'] = 'Enter the number of courses to be displayed per page in a course listing.';
+$string['configcoursesperpage'] = 'Introduza o número de cursos que se presentarán por páxina nunha listaxe de curso.';
 $string['configcronclionly'] = 'Se estabelece isto, só poderá executar o script do cron na liña de comandos en vez de vía Web. Isto anula o contrasinal do cron axustado embaixo.';
 $string['configcronremotepassword'] = 'Isto significa que o script do cron.php non se pode executar desde o explorador Web sen facilitar o contrasinal usando o seguinte formulario URL:<pre>
     http://site.example.com/admin.cron.php?password=opensesame
@@ -721,7 +721,7 @@ $string['pathdvips'] = 'Ruta ao binario <i>dvips</i>';
 $string['pathlatex'] = 'Ruta ao binario <i>latex</i>';
 $string['pathtoclam'] = 'Ruta a clam AV';
 $string['pathtodot'] = 'Ruta a dot';
-$string['pathtodot_help'] = 'Ruta ata o executábel de dot. Probabelmente algo como /usr/bin/dot. Para ser quen de xerar gráficos a partires de ficheiros DOT precisa ter instalado o executábel de dot (das utilidades Graphviz) e apuntar ao mesmo desde aquí. Observe que polo de agora só o empregan as características de perfilado (Desenvolvemento->Perfilado) incorporadas en Moodle.';
+$string['pathtodot_help'] = 'Ruta ata o executábel de dot. Probabelmente algo como /usr/bin/dot. Para ser quen de xerar gráficos a partir de ficheiros DOT precisa ter instalado o executábel de dot (das utilidades Graphviz) e apuntar a el aquí. Vexa que, polo de agora, só o utilizan as características de perfilado (Desenvolvemento->Perfilado) incorporadas en Moodle.';
 $string['pathtodu'] = 'Ruta a du';
 $string['pathtopgdump'] = 'Ruta a pg_dump';
 $string['pathtopgdumpdesc'] = 'Isto só é necesario para entrar se ten máis dun pg_dump no seu sistema (por exemplo, se vostede ten instalada máis dunha versión de PostgreSQ)';
@@ -832,7 +832,7 @@ $string['quarantinedir'] = 'Directorio de corentena';
 $string['question'] = 'Pregunta';
 $string['questionbehaviours'] = 'Comportamento das preguntas';
 $string['questioncwqpfscheck'] = 'Unha ou máis preguntas «ao chou» dun cuestionario dispóñense para seleccionar preguntas dunha mestura de categorías de pregunta compartidas e non compartidas. Pode ver un informe máis detallado <a href="{$a->reporturl}">aquí</a> ou consultar a páxina de Moodle Docs <a href="{$a->docsurl}">here</a>.';
-$string['questioncwqpfsok'] = 'Ben. Non existen preguntas «ao chou» nos seus cuestionarios que estean estabelecidas para seleccionar preguntas a partires dunha mestura de categorías de pregunta compartidas e non compartidas.';
+$string['questioncwqpfsok'] = 'Ben. Non existen preguntas «ao chou» que estean estabelecidas nos seus exames para seleccionar preguntas a partir dunha mestura de categorías compartidas e non compartidas de preguntas.';
 $string['questiontype'] = 'Tipo de pregunta';
 $string['questiontypes'] = 'Tipos de pregunta';
 $string['recaptchaprivatekey'] = 'Chave privada de ReCAPTCHA';
@@ -1000,21 +1000,21 @@ $string['upgradepluginsinfo_link'] = 'admin/upgradepluginsinfo';
 $string['upgradesettings'] = 'Nova configuración';
 $string['upgradesettingsintro'] = 'A configuración amosada embaixo foi engadida durante a última anovación de Moodle. Faga os cambios necesarios aos valores predeterminados e a seguir, prema en «Gardar cambios» na parte inferior desta páxina.';
 $string['upgradestalefiles'] = 'Detectáronse versións mesturadas de Moodle, non é posíbel continuar coa anovación';
-$string['upgradestalefilesinfo'] = 'O proceso de actualización Moodle foi detido porque foron detectadas scripts PHP desde, polo menos, dúas versións maiores de Moodle no directorio Moodle.
+$string['upgradestalefilesinfo'] = 'O proceso de actualización do Moodle detívose porque se detectaron scripts PHP de, polo menos, dúas versións maiores do Moodle no cartafol do Moodle.
 
-Isto pode causar problemas significativos máis tarde, por iso, para seguir ten que garantir que o directorio Moodle contén só os ficheiros para unha única versión de Moodle.
+Isto pode causar problemas significativos máis tarde, por iso, para seguir ten que garantir que o cartafol do Moodle contén só os ficheiros dunha única versión do Moodle.
 
-O xeito recomendado para limpar o seu directorio Moodle é o seguinte:
+O xeito recomendado para limpar o seu cartafol do Moodle é o seguinte:
 
-* Renomée o directorio actual de Moodle para «moodle_old»
-* Cree un directorio Moodle novo contendo só os ficheiros da descarga estándar do paquete Moodle, ou desde o CVS de Moodle ou dos repositorios GIT
-* Mover o ficheiro config.php orixinal e os engadidos non estándar a partires do directorio «moodle_old» para o novo directorio do Moodle
+* Renomee o cartafol actual de Moodle como «moodle_old»
+* Cree un cartafol Moodle novo que conteña só os ficheiros da descarga estándar do paquete do Moodle, ou desde o CVS de Moodle ou dos repositorios GIT
+* Mover o ficheiro config.php orixinal e os engadidos non estándar a partir do directorio «moodle_old» para o novo cartafol do Moodle
 
-Cando teña un directorio Moodle limpo, actualice esta páxina para retomar o proceso de actualización de Moodle.
+Cando teña un cartafol Moodle limpo, actualice esta páxina para retomar o proceso de actualización de Moodle.
 
-Este aviso é causado frecuentemente por descomprimir un paquete Moodle estándar sobre unha versión anterior de Moodle. Mentres isto é aceptábel para pequenas anovacións, está  absolutamente desaconsellado para anovacións principais de Moodle.
+Este aviso adoita producirse por descomprimir un paquete Moodle estándar sobre unha versión anterior do Moodle. Mentres isto é aceptábel para pequenas anovacións, está  absolutamente desaconsellado para anovacións maiores do Moodle.
 
-Este aviso tamén pode ser causado por un check-out incompleto ou unha operación de actualización desde repositorios CVS, SVN ou GIT, nese caso pode agardar a facer a operación completa, ou executar a orde axeitada de limpeza e repetir a operación.
+Este aviso tamén pode ser producido por un check-out incompleto ou unha operación de actualización desde repositorios CVS, SVN ou GIT, nese caso pode agardar a facer a operación completa, ou executar a orde axeitada de limpeza e repetir a operación.
 
 Pode atopar máis información na documentación de anovación en <a href="{$a}">{$a}</a>';
 $string['upgradestart'] = 'Anovar a base de datos Moodle agora';

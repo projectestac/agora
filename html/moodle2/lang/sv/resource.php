@@ -57,6 +57,7 @@ $string['dnduploadresource'] = 'Skapa filresurs';
 $string['encryptedcode'] = 'Krypterad kod';
 $string['filenotfound'] = 'Det gick tyvärr inte att hitta filen.';
 $string['filterfiles'] = 'Filtrera innehåll i fil';
+$string['filterfilesexplain'] = 'Välj typ av filter för filinnehåll. Notera att det kan orsaka problem för vissa flash- och javaapplets. Var god kontrollera att alla textfiler är UTF-8-kodade.';
 $string['filtername'] = 'Automatisk länkning av namn på resurs';
 $string['forcedownload'] = 'Framtvinga nedladdning';
 $string['framesize'] = 'Storlek på ram';

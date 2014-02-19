@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_grid', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'format_grid', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   format_grid
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['currentsection'] = 'Section actuelle';
 $string['display_summary'] = 'sortir du mode image';
 $string['display_summary_alt'] = 'Sortir cette section du mode image';
 $string['editimage'] = 'Modifier';
@@ -32,10 +33,14 @@ $string['editimage_alt'] = 'Définir ou changer l\'image';
 $string['formatgrid'] = 'Vue en image';
 $string['general_information'] = 'Information générale';
 $string['hidden_topic'] = 'Cette section a été masquée';
+$string['hidefromothers'] = 'Masquer la section';
 $string['hide_summary'] = 'mettre la section en mode image';
 $string['hide_summary_alt'] = 'Mettre cette section en mode image';
+$string['imagecannotbeusedasanicon'] = 'L\'image ne peut pas être utilisée comme une icône. Elle doit être au format GIF, JPG ou PNG et la bibliothèque PHP GD doit être installée.';
 $string['namegrid'] = 'Vue en image';
+$string['numbersections'] = 'Nombre de sections';
 $string['pluginname'] = 'Vue en image';
+$string['showfromothers'] = 'Afficher la section';
 $string['title'] = 'Titre de la section';
 $string['topic'] = 'Section';
 $string['topic0'] = 'Général';

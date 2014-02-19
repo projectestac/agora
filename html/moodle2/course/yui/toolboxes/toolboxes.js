@@ -509,7 +509,9 @@ YUI.add('moodle-course-toolboxes', function(Y) {
                 .setAttrs({
                     'name'  : 'title',
                     'value' : titletext,
-                    'autocomplete' : 'off'
+                    'autocomplete' : 'off',
+                    'aria-describedby' : 'id_editinstructions',
+                    'maxLength' : '255'
                 })
                 .addClass('titleeditor');
             var editform = Y.Node.create('<form />')
@@ -517,6 +519,7 @@ YUI.add('moodle-course-toolboxes', function(Y) {
                 .setAttribute('action', '#');
             var editinstructions = Y.Node.create('<span />')
                 .addClass('editinstructions')
+                .setAttrs({'id' : 'id_editinstructions'})
                 .set('innerHTML', M.util.get_string('edittitleinstructions', 'moodle'));
             var activityicon = element.one('img.activityicon').cloneNode();
 

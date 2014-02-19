@@ -25,18 +25,18 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addentry'] = 'Fügen Sie einen Einträge hinzu!';
+$string['addentry'] = 'Neuen Eintrag hinzufügen';
 $string['askaddentry'] = 'Wenn Teilnehmer/innen selbst Einträge zum Glossar hinzufügen dürfen, wird ein Link mit folgendem Text angezeigt.';
 $string['askinvisible'] = 'Wenn Teilnehmer/innen das Glossar weder sehen noch Einträge hinzufügen dürfen, wird folgender Text (ohne Link) angezeigt.';
 $string['askviewglossary'] = 'Wenn Teilnehmer/innen das Glossar sehen können, aber keine Einträge hinzufügen dürfen, wird ein Link mit folgendem Text angezeigt.';
-$string['glossary_random:addinstance'] = 'Neuen Block \'Glossareintrag\' hinzufügen';
-$string['glossary_random:myaddinstance'] = 'Neuen Block \'Glossareintrag\' für \'Meine Startseite\' hinzufügen';
+$string['glossary_random:addinstance'] = 'Block \'Glossareintrag\' hinzufügen';
+$string['glossary_random:myaddinstance'] = 'Block \'Glossareintrag\' für \'Meine Startseite\' hinzufügen';
 $string['intro'] = 'Legen Sie zuerst mindestens ein Glossar mit mindestens einem Eintrag in diesem Kurs an. Danach können Sie die folgenden Einstellungen bearbeiten.';
 $string['invisible'] = '(Fortsetzung folgt)';
 $string['lastmodified'] = 'Zuletzt geänderter Eintrag';
 $string['nextone'] = 'Nächster Eintrag';
 $string['noentriesyet'] = 'Im ausgewählten Glossar gibt es keine Einträge.';
-$string['notyetconfigured'] = 'Legen Sie ein Glossar im Kurs an und konfigurieren Sie danach diesen Block.';
+$string['notyetconfigured'] = 'Legen Sie ein Glossar im Kurs an und bearbeiten Sie dann die Einstellungen für diesen Block.';
 $string['notyetglossary'] = 'Sie müssen mindestens ein Glossar auswählen.';
 $string['pluginname'] = 'Glossareintrag';
 $string['random'] = 'Zufallseintrag';
@@ -45,5 +45,5 @@ $string['select_glossary'] = 'Dieses Glossar nutzen';
 $string['showconcept'] = 'Begriff für jeden Eintrag anzeigen';
 $string['title'] = 'Titel';
 $string['type'] = 'Auswahlmodus';
-$string['viewglossary'] = 'Alle Einträge...';
+$string['viewglossary'] = 'Alle Einträge anzeigen';
 $string['whichfooter'] = 'Links in das Glossar können im Block angezeigt werden.';

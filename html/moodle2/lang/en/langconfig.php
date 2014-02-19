@@ -16,12 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'langconfig', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'langconfig', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   langconfig
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['alphabet'] = 'A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z';
 $string['backupnameformat'] = '%Y%m%d-%H%M';
@@ -29,7 +31,7 @@ $string['decsep'] = '.';
 $string['firstdayofweek'] = '0';
 $string['iso6391'] = 'en';
 $string['iso6392'] = 'eng';
-$string['labelsep'] = ': ';
+$string['labelsep'] = ':';
 $string['listsep'] = ',';
 $string['locale'] = 'en_AU.UTF-8';
 $string['localewin'] = 'English_Australia.1252';

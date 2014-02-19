@@ -114,17 +114,5 @@ class qtype_multianswerwiris_question extends qtype_multianswer_question {
         }
     }
     
-    private function wrsqz_get_randomseed_from_xml($qi_xml){
-        $rb = com_wiris_quizzes_api_QuizzesBuilder::getInstance();
-        $qi = $rb->readQuestionInstance($qi_xml);
-
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
-        $wrap->start();
-        $randomseed = $qi->instance->userData->randomSeed;
-        $wrap->stop();
-
-        return $randomseed;
-    }
-    
 }
 ?>

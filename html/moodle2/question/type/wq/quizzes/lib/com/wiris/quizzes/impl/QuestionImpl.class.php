@@ -371,6 +371,25 @@ class com_wiris_quizzes_impl_QuestionImpl extends com_wiris_quizzes_impl_Questio
 			}
 		}
 	}
+	public function removeCorrectAnswer($index) {
+		$this->correctAnswers->remove($this->correctAnswers[$index]);
+		if($this->assertions !== null) {
+			$i = $this->assertions->length - 1;
+			while($i >= 0) {
+				$a = $this->assertions[$i];
+				$ca = $a->getCorrectAnswer();
+				if($ca === $index) {
+					$this->assertions->remove($a);
+				} else {
+					if($ca > $index) {
+						$a->setCorrectAnswer($ca - 1);
+					}
+				}
+				$i--;
+				unset($ca,$a);
+			}
+		}
+	}
 	public function removeLocalData($name) {
 		$this->id = null;
 		if($this->localData !== null) {

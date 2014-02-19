@@ -30,3 +30,4 @@ $string['costorkey'] = 'الرجاء اختيار أحد الطرق التالي
 $string['paypalaccepted'] = 'تم قبول التبرع المدفوع';
 $string['paypal:unenrol'] = 'إلغاء تسجيل المستخدمين من مقرر';
 $string['sendpaymentbutton'] = 'ارسل القيمة المدفوعة عن طريق التبرع';
+$string['unenrolselfconfirm'] = 'هل تريد بالفعل إلغاء تسجيلك من المقرر "{$a}"؟';

@@ -190,15 +190,9 @@ $string['autosort'] = 'Tri automatique';
 $string['availableidnumbers'] = 'Identifiants disponibles';
 $string['average'] = 'Moyenne';
 $string['averagesdecimalpoints'] = 'Décimales des moyennes de colonnes';
-$string['averagesdecimalpoints_help'] = '<!-- $Id$ -->
-
-
-<p>Spécifie le nombre de décimales à afficher pour chaque moyenne de colonne. Si Hériter est sélectionné, le type d\'affichage de chaque colonne est utilisé.</p>';
+$string['averagesdecimalpoints_help'] = 'Ce réglage spécifie le nombre de décimales à afficher pour chaque moyenne de colonne. Si « Hériter » est sélectionné, le type d\'affichage de chaque colonne est utilisé.';
 $string['averagesdisplaytype'] = 'Type d\'affichage des moyennes de colonnes';
-$string['averagesdisplaytype_help'] = '<!-- $Id$ -->
-
-
-<p>Spécifie comment afficher des moyennes de chaque colonne. Si « Hériter » est sélectionné, le type d\'affichage de chaque colonne est utilisé.</p>';
+$string['averagesdisplaytype_help'] = 'Ce réglage spécifie comment afficher des moyennes de chaque colonne. Si « Hériter » est sélectionné, le type d\'affichage de chaque colonne est utilisé.';
 $string['backupwithoutgradebook'] = 'La sauvegarde ne contient pas la configuration du carnet de notes';
 $string['badgrade'] = 'La note fournie n\'est pas valide';
 $string['badlyformattedscale'] = 'Veuillez spécifier une liste de valeurs séparées par des virgules (au moins deux valeurs requises).';
@@ -288,6 +282,7 @@ $string['enableajax_help'] = 'Ajoute des fonctionnalités AJAX au rapport de l\'
 $string['enableoutcomes'] = 'Activer les objectifs';
 $string['enableoutcomes_help'] = 'L\'activation des objectifs (compétences, buts, standards ou critères) permet d\'évaluer les résultats d\'après un ou plusieurs barèmes liés à des énoncés d\'objectifs. L\'activation de ce réglage active cette option  pour tout le site.';
 $string['encoding'] = 'Encodage';
+$string['errorcalculationbroken'] = 'Référence circulaire ou formule de calcul incorrecte';
 $string['errorcalculationnoequal'] = 'La formule doit commencer par un signe d\'égalité (=1+2)';
 $string['errorcalculationunknown'] = 'Formule non valide';
 $string['errorgradevaluenonnumeric'] = 'Une note non-numérique a été reçue (note haute ou basse) pour';
@@ -320,10 +315,12 @@ $string['extracreditwarning'] = 'Remarque : si tous les éléments d\'une caté
 $string['feedback'] = 'Feedback';
 $string['feedbackadd'] = 'Ajouter feedback';
 $string['feedbackedit'] = 'Modifier feedback';
+$string['feedbackforgradeitems'] = 'Feedback pour {$a}';
 $string['feedback_help'] = '<!-- $Id$ -->
 
 
 <p>Les remarques ajoutées à la note par l\'enseignant. Ces remarques peuvent être détaillées ou au contraire un simple code faisant référence à votre système de feedback personnel.</p>';
+$string['feedbacks'] = 'Feedbacks';
 $string['feedbacksaved'] = 'Feedback enregistré';
 $string['feedbackview'] = 'Afficher feedback';
 $string['finalgrade'] = 'Note finale';
@@ -452,14 +449,9 @@ $string['hidenooutcomes'] = 'Afficher les objectifs';
 $string['hidequickfeedback'] = 'Cacher le feedback rapide';
 $string['hideranges'] = 'Cacher les valeurs possibles';
 $string['hidetotalifhiddenitems'] = 'Cacher les totaux contenant des éléments cachés';
-$string['hidetotalifhiddenitems_help'] = '<!-- $Id$ -->
+$string['hidetotalifhiddenitems_help'] = 'Ce réglage détermine si les totaux contenant un ou plusieurs éléments d\'évaluation cachés seront affichés pour les participants ou remplacés par un tiret (-). S\'ils sont affichés, les totaux seront calculés soit en incluant, soit en excluant les éléments d\'évaluation cachés.
 
-
-<p>Ce réglage détermine si les totaux contenant un ou plusieurs éléments d\'évaluation cachés seront affichés pour les participants ou remplacés par un tiret (-). S\'ils sont affichés, les totaux seront calculés soit en incluant, soit en excluant les éléments d\'évaluation cachés.</p>
-
-<p>Si les éléments cachés sont exclus, le total vu par les participants sera différent de celui vu dans le rapport d\'évaluation par l\'enseignant, puisque celui-ci voit toujours les totaux calculés à partir de tous les éléments, qu\'ils soient cachés ou non.</p>
-
-<p>Si les éléments cachés sont inclus, les participants seront potentiellement en mesure de déduire par le calcul la valeur des éléments cachés.</p>';
+Si les éléments cachés sont exclus, le total vu par les participants sera différent de celui vu dans le rapport d\'évaluation par l\'enseignant, puisque celui-ci voit toujours les totaux calculés à partir de tous les éléments, qu\'ils soient cachés ou non. Si les éléments cachés sont inclus, les participants seront potentiellement en mesure de déduire par le calcul la valeur des éléments cachés.';
 $string['hidetotalshowexhiddenitems'] = 'Afficher les totaux en excluant les éléments cachés';
 $string['hidetotalshowinchiddenitems'] = 'Afficher les totaux en incluant les éléments cachés';
 $string['hideverbose'] = 'Cacher {$a->category} {$a->itemmodule} {$a->itemname}';
@@ -468,6 +460,7 @@ $string['highgradedescending'] = 'Tri décroissant par note maximale';
 $string['highgradeletter'] = 'Haut';
 $string['identifier'] = 'Identifier les utilisateurs par';
 $string['idnumbers'] = 'Identifiants';
+$string['ignore'] = 'Ignorer';
 $string['import'] = 'Importer';
 $string['importcsv'] = 'Importation CSV';
 $string['importcustom'] = 'Importer comme objectifs de ce cours';
@@ -484,7 +477,7 @@ $string['importoutcomesuccess'] = 'Objectif « {$a->name} » importé avec l\'
 $string['importplugins'] = 'Modules d\'importation';
 $string['importpreview'] = 'Prévisualisation de l\'importation';
 $string['importsettings'] = 'Réglages d\'importation';
-$string['importskippednomanagescale'] = 'Vous n\'avez pas les autorisations permettant d\'ajouter un nouveau barème. Par conséquent, l\'objectif « {$a} » a été ignoré, car il requiert la création d\'un nouveau barème';
+$string['importskippednomanagescale'] = 'Vous n\'avez pas les droits d\'accès requis pour ajouter un nouveau barème. L\'objectif « {$a} » a donc été ignoré, car il requiert la création d\'un nouveau barème';
 $string['importskippedoutcome'] = 'Un objectif de même intitulé abrégé « {$a} » existe déjà dans ce contexte. L\'objectif du même nom à importer a été ignoré.';
 $string['importstandard'] = 'Importer comme objectifs standards';
 $string['importsuccess'] = 'Importation des notes réussie';
@@ -587,6 +580,7 @@ $string['numberofgrades'] = 'Nombre de notes';
 $string['onascaleof'] = 'sur un barème de {$a->grademin} à {$a->grademax}';
 $string['operations'] = 'Opérations';
 $string['options'] = 'Options';
+$string['others'] = 'Autres';
 $string['outcome'] = 'Objectif';
 $string['outcomeassigntocourse'] = 'Attribuer un autre objectif à ce cours';
 $string['outcomecategory'] = 'Créer des objectifs dans la catégorie';
@@ -609,10 +603,7 @@ $string['outcomeshortname'] = 'Nom abrégé';
 $string['outcomesstandard'] = 'Objectifs standards';
 $string['outcomesstandardavailable'] = 'Objectifs standards disponibles';
 $string['outcomestandard'] = 'Objectif standard';
-$string['outcomestandard_help'] = '<!-- $Id$ -->
-
-
-<p>Un objectif standard est disponible dans tout le site, pour tous les cours.</p>';
+$string['outcomestandard_help'] = 'Un objectif standard est disponible dans tout le site, pour tous les cours.';
 $string['overallaverage'] = 'Moyenne globale';
 $string['overridden'] = 'Court-circuité';
 $string['overridden_help'] = '<!-- $Id -->
@@ -815,6 +806,7 @@ $string['usepercent'] = 'Utiliser les pourcentages';
 $string['user'] = 'Utilisateur';
 $string['userenrolmentsuspended'] = 'Inscription d\'utilisateurs suspendue';
 $string['usergrade'] = 'Utilisateur {$a->fullname} ({$a->useridnumber}) dans l\'élément {$a->gradeidnumber}';
+$string['userid'] = 'ID utilisateur';
 $string['userpreferences'] = 'Préférences utilisateur';
 $string['useweighted'] = 'Utiliser les pondérations';
 $string['verbosescales'] = 'Barèmes de mots';

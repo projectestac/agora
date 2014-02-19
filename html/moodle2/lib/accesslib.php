@@ -559,8 +559,21 @@ function is_siteadmin($user_or_id = null) {
         $userid = $user_or_id;
     }
 
+    // Because this script is called many times (150+ for course page) with
+    // the same parameters, it is worth doing minor optimisations. This static
+    // cache stores the value for a single userid, saving about 2ms from course
+    // page load time without using significant memory. As the static cache
+    // also includes the value it depends on, this cannot break unit tests.
+    static $knownid, $knownresult, $knownsiteadmins;
+    if ($knownid === $userid && $knownsiteadmins === $CFG->siteadmins) {
+        return $knownresult;
+    }
+    $knownid = $userid;
+    $knownsiteadmins = $CFG->siteadmins;
+
     $siteadmins = explode(',', $CFG->siteadmins);
-    return in_array($userid, $siteadmins);
+    $knownresult = in_array($userid, $siteadmins);
+    return $knownresult;
 }
 
 /**
@@ -3910,7 +3923,7 @@ function get_role_users($roleid, context $context, $parent = false, $fields = ''
     }
 
     if ($whereorsortparams) {
-        $params = array_merge($params, $whereparams);
+        $params = array_merge($params, $whereorsortparams);
     }
 
     if (!$sort) {
@@ -5236,6 +5249,10 @@ abstract class context extends stdClass implements IteratorAggregate {
         $fs = get_file_storage();
         $fs->delete_area_files($this->_id);
 
+        // Delete all repository instances attached to this context.
+        require_once($CFG->dirroot . '/repository/lib.php');
+        repository::delete_all_for_context($this->_id);
+
         // delete all advanced grading data attached to this context
         require_once($CFG->dirroot.'/grade/grading/lib.php');
         grading_manager::delete_all_for_context($this->_id);
@@ -5252,6 +5269,10 @@ abstract class context extends stdClass implements IteratorAggregate {
      */
     public function delete() {
         global $DB;
+
+        if ($this->_contextlevel <= CONTEXT_SYSTEM) {
+            throw new coding_exception('Cannot delete system context');
+        }
 
         // double check the context still exists
         if (!$DB->record_exists('context', array('id'=>$this->_id))) {
@@ -5347,6 +5368,11 @@ abstract class context extends stdClass implements IteratorAggregate {
      */
     public function get_child_contexts() {
         global $DB;
+
+        if (empty($this->_path) or empty($this->_depth)) {
+            debugging('Can not find child contexts of context '.$this->_id.' try rebuilding of context paths');
+            return array();
+        }
 
         $sql = "SELECT ctx.*
                   FROM {context} ctx
@@ -6319,6 +6345,11 @@ class context_coursecat extends context {
      */
     public function get_child_contexts() {
         global $DB;
+
+        if (empty($this->_path) or empty($this->_depth)) {
+            debugging('Can not find child contexts of context '.$this->_id.' try rebuilding of context paths');
+            return array();
+        }
 
         $sql = "SELECT ctx.*
                   FROM {context} ctx

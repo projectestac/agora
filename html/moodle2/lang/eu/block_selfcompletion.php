@@ -28,4 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['alreadyselfcompleted'] = 'Dagoeneko ikastaro hau osatutzat markatu duzu';
 $string['completecourse'] = 'Ikastaroa osatu ';
 $string['pluginname'] = 'Auto-osaketa';
+$string['selfcompletion:addinstance'] = 'Gehitu auto-osaketa bloke berria';
 $string['selfcompletionnotenabled'] = 'Ez da auto-osaketarako irizpiderik ezarri ikastaro honetarako';

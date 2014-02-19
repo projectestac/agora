@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_export_to_quiz', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_glossary_export_to_quiz', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   block_glossary_export_to_quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,8 @@ $string['emptyglossaries'] = 'Les glossaires de ce cours sont vides (aucun artic
 $string['emptyglossary'] = 'Le glossaire de ce cours est vide (aucun article)';
 $string['exportentriestoxml'] = 'Exporter les articles vers un Test (XML)';
 $string['firstmodified'] = 'Articles les plus anciens d\'abord';
+$string['glossary_export_to_quiz:addinstance'] = 'Ajouter un nouveau bloc glossary_export_to_quiz';
+$string['glossary_export_to_quiz:myaddinstance'] = 'Ajouter un nouveau bloc glossary_export_to_quiz à Ma page Moodle';
 $string['lastmodified'] = 'Articles les plus récents d\'abord';
 $string['limitnum'] = 'Nombre maximum d\'articles à exporter';
 $string['limitnum_help'] = 'Laissez ce champ vide pour exporter tous les articles du glossaire ou de la catégorie sélectionné.

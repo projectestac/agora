@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['check_configrw_details'] = '<p>Il est recommandé de modifier les permissions du fichier config.php après installation, afin qu\'il ne soit pas modifié par le serveur web. Veuillez noter que cette mesure n\'améliore pas de façon significative la sécurité du serveur, bien qu\'elle puisse ralentir ou limiter des attaques générales.</p>';
+$string['check_configrw_details'] = '<p>Il est recommandé de modifier les droits d\'accès au fichier config.php après installation, afin qu\'il ne soit pas modifié par le serveur web. Veuillez noter que cette mesure n\'améliore pas de façon significative la sécurité du serveur, bien qu\'elle puisse ralentir ou limiter des attaques générales.</p>';
 $string['check_configrw_name'] = 'Fichier config.php accessible en écriture';
 $string['check_configrw_ok'] = 'Le fichier config.php ne peut pas être modifié par les scripts PHP.';
 $string['check_configrw_warning'] = 'Les scripts PHP pourraient modifier le fichier config.php.';
@@ -57,9 +57,9 @@ $string['check_frontpagerole_name'] = 'Rôle de la page d\'accueil';
 $string['check_frontpagerole_notset'] = 'Le rôle de la page d\'accueil n\'est pas défini.';
 $string['check_frontpagerole_ok'] = 'Définition correcte du rôle de la page d\'accueil';
 $string['check_globals_details'] = '<p>L\'activation du réglage PHP <code>register_globals</code> représente une importante faille de sécurité.</p><p>Veuillez indiquer <code>register_globals=off</code> dans la configuration PHP de votre site. Vous pouvez modifier ce réglage dans le fichier <code>php.ini</code>, dans la configuration de Apache ou IIS ou dans un fichier <code>.htaccess</code>.</p>';
-$string['check_globals_error'] = 'Le réglage <code>register_globals</code> doit être désactivé. Veuillez modifier immédiatement les réglages de PHP !';
+$string['check_globals_error'] = 'Le réglage <em>register_globals</em> doit être désactivé. Veuillez modifier immédiatement les réglages de PHP !';
 $string['check_globals_name'] = 'Register globals';
-$string['check_globals_ok'] = 'Le réglage <code>register_globals</code> est désactivé.';
+$string['check_globals_ok'] = 'Le réglage <em>register_globals</em> est désactivé.';
 $string['check_google_details'] = '<p>L\'activation du réglage « Ouvert à Google » autorise les moteurs de recherche à accéder aux cours en tant que visiteur anonyme. Il n\'y a aucune raison d\'activer ce réglage si l\'accès aux visiteurs anonymes n\'est pas autorisé.</p>';
 $string['check_google_error'] = 'L\'accès aux visiteurs anonymes est autorisé pour les moteurs de recherche alors que l\'accès aux visiteurs anonymes est désactivé.';
 $string['check_google_info'] = 'Les moteurs de recherche peuvent accéder en tant que visiteur anonyme.';
@@ -78,7 +78,7 @@ $string['check_noauth_details'] = '<p>Le plugin d\'authentification <em>Pas d\'a
 $string['check_noauth_error'] = 'Le plugin d\'authentification <em>Pas d\'authentification</em> ne doit pas être utilisé sur des sites en production.';
 $string['check_noauth_name'] = 'Pas d\'authentification';
 $string['check_noauth_ok'] = 'Le plugin d\'authentification <em>Pas d\'authentification</em> est désactivé.';
-$string['check_openprofiles_details'] = '<p>Les profils utilisateurs ouvert peuvent être pollués par des spammeurs. Il est recommandé d\'activer soit le réglage <code>Imposer la connexion pour les profils</code>, soit <code>Imposer la connexion</code>.</p>';
+$string['check_openprofiles_details'] = 'Les profils utilisateurs ouverts peuvent être pollués par des spammeurs. Il est recommandé d\'activer soit le réglage <code>Imposer la connexion pour voir les profils</code>, soit <code>Imposer la connexion</code>.';
 $string['check_openprofiles_error'] = 'Tout le monde peut voir les profils utilisateurs sans se connecter.';
 $string['check_openprofiles_name'] = 'Profils utilisateurs ouverts';
 $string['check_openprofiles_ok'] = 'La connexion est requise pour consulter les profils utilisateurs.';
@@ -120,7 +120,7 @@ $string['description'] = 'Description';
 $string['details'] = 'Détails';
 $string['issue'] = 'Problème';
 $string['pluginname'] = 'Panorama de sécurité';
-$string['security:view'] = 'Afficher le rapport de sécurité';
+$string['security:view'] = 'Consulter le rapport de sécurité';
 $string['status'] = 'Statut';
 $string['statuscritical'] = 'Critique';
 $string['statusinfo'] = 'Information';

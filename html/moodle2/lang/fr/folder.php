@@ -30,7 +30,7 @@ $string['dnduploadmakefolder'] = 'Décompresser les fichiers et créer un dossie
 $string['folder:addinstance'] = 'Ajouter un dossier';
 $string['foldercontent'] = 'fichiers et sous-dossiers';
 $string['folder:managefiles'] = 'Gérer les fichiers dans le module dossier';
-$string['folder:view'] = 'Voir le contenu des dossiers';
+$string['folder:view'] = 'Accéder au contenu des dossiers';
 $string['modulename'] = 'Dossier';
 $string['modulename_help'] = 'Le module dossier permet à un enseignant d\'afficher plusieurs fichiers dans un dossier, réduisant ainsi le défilement horizontal d\'une page de cours. Un dossier compressé (ZIP) peut être déposé et décompressé pour être affiché, ou un dossier vide peut être créé et des fichiers déposés à l\'intérieur.
 

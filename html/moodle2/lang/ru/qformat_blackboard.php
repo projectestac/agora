@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['defaultname'] = 'Импортированный вопрос {$a}';
 $string['importnotext'] = 'Пропущен текст вопроса в XML-файле';
+$string['notenoughtsubans'] = 'Невозможно импортировать вопрос на соответствие "{$a}", потому что такой тип вопроса должен содержать по меньшей мере два вопроса и три ответа.';
 $string['pluginname'] = 'Формат Blackboard';
 $string['pluginname_help'] = 'Формат Blackboard позволяет импортировать вопросы, сохранённые при экспорте в формате Blackboard версии 5 "POOL".';

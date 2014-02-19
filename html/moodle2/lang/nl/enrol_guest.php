@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowguests'] = 'In deze cursus zijn gasten toegestaan';
+$string['guestaccess_withoutpassword'] = 'Gasttoegang';
+$string['guestaccess_withpassword'] = 'Gasttoegang';
 $string['guest:config'] = 'Configureer gasttoegang';
 $string['password'] = 'Wachtwoord';
 $string['password_help'] = 'Met een wachtwoord kun je de toegang voor gasten beperken tot gasten die het wachtwoord kennen. Gasten moeten dit wachtwoord ingeven telkens zij de cursus bekijken.';

@@ -68,13 +68,13 @@ $string['legacyfilesdone'] = 'Finalizada';
 $string['modulename'] = 'Ficheiro';
 $string['modulename_help'] = 'O módulo Ficheiro permítelle aos profesores fornecer un ficheiro como un recurso do curso. Cando sexa posíbel, o ficheiro presentarase dentro da interface do curso; se non é o caso, preguntaráselle aos alumnos se queren descargalo. O ficheiro pode incluír ficheiros auxiliares, por exemplo, unha páxina HTML pode ter integradas imaxes ou obxectos Flash.
 
-Observe que os alumnos precisan dispor do software axeitado nos seus computadores persoais para poder abrir os ficheiros.
+Vexa que os alumnos precisan dispor do software axeitado nos seus computadores persoais para poder abrir os ficheiros.
 
-Un ficheiro pode empregarse para
+Un ficheiro pode utilizarse para
 
-* Compartir presentacións empregadas na aula
-* Incluír un mini sitio web como recurso do curso
-* Fornecer aos alumnos ficheiros de versións preliminares de certos programas de software (p.ex. Photoshop .psd) para que os alumnos poidan editalos e avalialos';
+* Compartir presentacións dadas na clase
+* Incluír un minisitio web como recurso do curso
+* Fornecer os alumnos con ficheiros en borrador de certos programas de software (p.ex. Photoshop .psd) para que os alumnos poidan editalos e envialos para avaliación';
 $string['modulename_link'] = 'mod/resource/view';
 $string['modulenameplural'] = 'Ficheiros';
 $string['neverseen'] = 'Nunca visto';

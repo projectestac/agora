@@ -41,6 +41,11 @@ $string['framesize'] = 'Markoaren altuera';
 $string['invalidstoredurl'] = 'Ezin da baliabide hau erakutsi. URLak ez du balio.';
 $string['invalidurl'] = 'Gehitutako URLak ez du balio';
 $string['modulename'] = 'URLa';
+$string['modulename_help'] = 'URL moduluak web-esteka bat ikastaroaren baliabide gisa erakustea ahalbidetzen dio irakasleari. Online eskuragarri dagoen edozein eduki estekatu daiteke, hala nola dokumentuak edo irudiak; URLak ez du zertan web-gune baten orri nagusia izan. URLa web-gune jakin batetik kopia eta itsats daiteke edo irakasleak Fitxategi-hautatzailea erabilita Flickr, YouTube edo Wikimediako esteka aukera dezake (zure gunean gaitutako dauden biltegien arabera).
+
+URLa erakusteko modu ezberdinak daude, hala nola enbotaturik edo leiho berri batean, eta behar izanez gero badago aukera aurreratu bat estekarekin batera informazio gehiago bidaltzeko, ikaslearen izena adibidez.
+
+Badago, bestalde, beste edozein baliabide edo aktibitateetan testu-editorea erabilita URLak gehitzeko aukera ere.';
 $string['modulenameplural'] = 'URLak';
 $string['neverseen'] = 'Ikusi gabea';
 $string['optionsheader'] = 'Aukerak';

@@ -448,37 +448,43 @@ class qformat_xml extends qformat_default {
      * @return object question object
      */
     public function import_multianswer($question) {
+        global $USER;
         question_bank::get_qtype('multianswer');
 
-        $questiontext['text'] = $this->import_text($question['#']['questiontext'][0]['#']['text']);
-        $questiontext['format'] = FORMAT_HTML;
-        $questiontext['itemid'] = '';
+        $questiontext = $this->import_text_with_files($question,
+                array('#', 'questiontext', 0));
         $qo = qtype_multianswer_extract_question($questiontext);
 
         // 'header' parts particular to multianswer
         $qo->qtype = 'multianswer';
         $qo->course = $this->course;
-        $qo->generalfeedback = '';
 
         $qo->name = $this->clean_question_name($this->import_text($question['#']['name'][0]['#']['text']));
         $qo->questiontextformat = $questiontext['format'];
         $qo->questiontext = $qo->questiontext['text'];
-        $itemid = $this->import_files($this->getpath($question,
-                array('#', 'questiontext', 0, '#', 'file'), array(), false));
-        if (!empty($itemid)) {
-            $qo->questiontextitemid = $itemid;
+        if (!empty($questiontext['itemid'])) {
+            $qo->questiontextitemid = $questiontext['itemid'];
         }
+
         // Backwards compatibility, deal with the old image tag.
         $filedata = $this->getpath($question, array('#', 'image_base64', '0', '#'), null, false);
         $filename = $this->getpath($question, array('#', 'image', '0', '#'), null, false);
         if ($filedata && $filename) {
-            $data = new stdClass();
-            $data->content = $filedata;
-            $data->encoding = 'base64';
-            // Question file areas don't support subdirs, so convert path to filename if necessary.
-            $data->name = clean_param(str_replace('/', '_', $filename), PARAM_FILE);
-            $qo->questiontextfiles[] = $data;
-            $qo->questiontext .= ' <img src="@@PLUGINFILE@@/' . $data->name . '" />';
+            $fs = get_file_storage();
+            if (empty($qo->questiontextitemid)) {
+                $qo->questiontextitemid = file_get_unused_draft_itemid();
+            }
+            $filename = clean_param(str_replace('/', '_', $filename), PARAM_FILE);
+            $filerecord = array(
+                'contextid' => context_user::instance($USER->id)->id,
+                'component' => 'user',
+                'filearea'  => 'draft',
+                'itemid'    => $qo->questiontextitemid,
+                'filepath'  => '/',
+                'filename'  => $filename,
+            );
+            $fs->create_file_from_string($filerecord, base64_decode($filedata));
+            $qo->questiontext .= ' <img src="@@PLUGINFILE@@/' . $filename . '" />';
         }
 
         // restore files in generalfeedback
@@ -1089,6 +1095,7 @@ class qformat_xml extends qformat_default {
     public function writequestion($question) {
         global $CFG, $OUTPUT;
 
+        $invalidquestion = false;
         $fs = get_file_storage();
         $contextid = $question->contextid;
         // Get files used by the questiontext.
@@ -1396,11 +1403,12 @@ class qformat_xml extends qformat_default {
                 break;
 
             default:
-                // try support by optional plugin
+                // Try support by optional plugin.
                 if (!$data = $this->try_exporting_using_qtypes($question->qtype, $question)) {
-                    notify(get_string('unsupportedexport', 'qformat_xml', $question->qtype));
+                    $invalidquestion = true;
+                } else {
+                    $expout .= $data;
                 }
-                $expout .= $data;
         }
 
         // Output any hints.
@@ -1421,8 +1429,11 @@ class qformat_xml extends qformat_default {
 
         // close the question tag
         $expout .= "  </question>\n";
-
-        return $expout;
+        if ($invalidquestion) {
+            return '';
+        } else {
+            return $expout;
+        }
     }
 
     public function write_answers($answers) {

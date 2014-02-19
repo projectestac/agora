@@ -50,4 +50,6 @@ $string['name'] = 'الاسم';
 $string['nocomponent'] = 'تم إنشاؤه يدوياً';
 $string['potusers'] = 'المستخدمين المحتملين';
 $string['potusersmatching'] = 'المستخدمين المحتملين المطابقين';
+$string['search'] = 'بحث';
+$string['searchcohort'] = 'البحث في الأفواج';
 $string['selectfromcohort'] = 'اختر أعضاءً من فوج';

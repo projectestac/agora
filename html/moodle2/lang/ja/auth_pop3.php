@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['auth_pop3changepasswordurl_key'] = 'パスワード変更URI';
-$string['auth_pop3description'] = 'ここでは、ユーザ名およびパスワードが有効であるか確認するため、POP3サーバを使用します。';
+$string['auth_pop3description'] = 'ここではユーザ名およびパスワードが有効であるか確認するため、POP3サーバを使用します。';
 $string['auth_pop3host'] = 'POP3サーバアドレスです。DNS名ではなく、IPアドレスを使用してください。';
 $string['auth_pop3host_key'] = 'ホスト';
 $string['auth_pop3mailbox'] = '接続を試みるメールボックス名 (通常「INBOX」です)';

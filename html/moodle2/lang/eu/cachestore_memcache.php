@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Memcache';
 $string['servers'] = 'Zerbitzariak';
+$string['testservers'] = 'Proba-zerbitzariak';

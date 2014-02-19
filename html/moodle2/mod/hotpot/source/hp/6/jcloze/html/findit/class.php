@@ -44,7 +44,7 @@ class hotpot_source_hp_6_jcloze_html_findit extends hotpot_source_hp_6_jcloze_ht
      * @param xxx $sourcefile
      * @return xxx
      */
-    public static function is_quizfile($sourcefile)  {
+    static public function is_quizfile($sourcefile)  {
         return false;
     }
 }

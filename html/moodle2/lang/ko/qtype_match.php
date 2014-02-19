@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addmoreqblanks'] = '{no} 개의 공백란 추가';
+$string['answer'] = '답 {$a}';
 $string['availablechoices'] = '가능한 선택';
 $string['correctansweris'] = '정답은 {$a} 입니다.';
 $string['filloutthreeqsandtwoas'] = '최소한 두개의 질문과 세개의 답안을 제시해야만 합니다.  비어있는 질문에 대한 답을 제공하기 위해 별도의 오답을 제공할 수 있습니다. 내용이 들어있지 않은 질문 및 답안은 무시됩니다.';

@@ -29,6 +29,6 @@ $string['configtitle'] = 'Titre du bloc';
 $string['configtitleblankhides'] = 'Titre du bloc (pas de titre si vide)';
 $string['leaveblanktohide'] = 'Laisser vide pour cacher le titre';
 $string['mentees:addinstance'] = 'Ajouter un bloc participants suivis';
-$string['mentees:myaddinstance'] = 'Ajouter un bloc participants suivis à la page Mon Moodle';
+$string['mentees:myaddinstance'] = 'Ajouter un bloc participants suivis à Ma page';
 $string['newmenteesblock'] = '(Nouveau bloc participants suivis)';
 $string['pluginname'] = 'Participants suivis';

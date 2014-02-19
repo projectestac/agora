@@ -27,4 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['dragmath:desc'] = '수식 삽입';
 $string['javaneeded'] = '이 페이지를 사용하려면 자바가 활성화된 브라우저가 필요합니다. {$a}에서 최신의 자바 플러그인을 다운받으십시요.';
+$string['pluginname'] = '수식 삽입';
+$string['requiretex'] = 'Tex 필터가 필요합니다.';
 $string['title'] = 'Dragmath 수식 편집기';

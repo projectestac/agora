@@ -31,10 +31,12 @@ $string['aggregation'] = 'Kalifikazioen agregazioa';
 $string['allocate'] = 'Esleitu bidalketak';
 $string['allocatedetails'] = 'hainbeste espero dira: {$a->expected}<br />bidalitakoak: {$a->submitted}<br />esleitzekoak: {$a->allocate}';
 $string['allocation'] = 'Aurkezpena';
+$string['allocationconfigured'] = 'Esleipena konfiguratuta';
 $string['allocationdone'] = 'Esleipena eginda';
 $string['allocationerror'] = 'Esleipen-errorea';
 $string['allsubmissions'] = 'Bidalketa guztiak ({$a})';
 $string['alreadygraded'] = 'Kalifikatuta dagoeneko';
+$string['areaconclusion'] = 'Ondorio-testua';
 $string['areainstructauthors'] = 'Bidalketarako argibideak';
 $string['areainstructreviewers'] = 'Ebaluaziorako argibideak';
 $string['areasubmissionattachment'] = 'Bidalketaren eranskinak';
@@ -50,11 +52,13 @@ $string['assessmentbyfullname'] = '{$a} -ren ebaluazioa';
 $string['assessmentbyyourself'] = 'Zeuk egindako ebaluazioa';
 $string['assessmentdeleted'] = 'Esleipena kendutako ebaluazioa';
 $string['assessmentend'] = 'Ebaluazioetarako amaierako data';
+$string['assessmentendbeforestart'] = 'Ezin da ebaluazioa egiteko epea zehaztu, ebaluaziorako data ireki baino lehen';
 $string['assessmentenddatetime'] = 'Ebaluaziorako azken eguna: {$a->daydatetime} ({$a->distanceday})';
 $string['assessmentendevent'] = '{$a} {Ebaluaziorako azken eguna}';
 $string['assessmentform'] = 'Ebaluaziorako formularioa';
 $string['assessmentofsubmission'] = '<a href="{$a->assessmenturl}">Ebaluazioa</a> of <a href="{$a->submissionurl}">{$a->submissiontitle}</a>';
 $string['assessmentreference'] = 'Erreferentziazko ebaluazioa';
+$string['assessmentreferenceconflict'] = 'Ezin zaio adibidezko bidalketarik ebaluatu erreferentziazko bidalketa egin duenari.';
 $string['assessmentreferenceneeded'] = 'Zuk bidalketa hau ebaluatu behar duzu erreferentziazko ebaluazioa sortzeko. Sakatu "Jarraitu" botoiari bidalketa ebaluatzeko.';
 $string['assessmentsettings'] = 'Ebaluazioaren ezarpenak';
 $string['assessmentstart'] = 'Noiztik irekita ebaluaziorako';
@@ -72,8 +76,12 @@ $string['calculatesubmissiongradesdetails'] = 'hainbeste espero dira: {$a->expec
 $string['chooseuser'] = 'Aukeratu erabiltzailea...';
 $string['clearaggregatedgrades'] = 'Garbitu ebaluazioaren kalifikazio guztiak';
 $string['clearaggregatedgradesconfirm'] = 'Ziur al zaude kalkulatutako kalifikazioak eta ebaluazioaren kalifikazioak ezabatu nahi dituzula?';
+$string['clearaggregatedgrades_help'] = 'Berrezarri egingo dira bidalketetan batutako kalifikazioak eta baita ebaluazioetakoak ere. Kalifikazio hauek berkalkula ditzakezu berriro, kalifikazioen ebaluazio-fasean.';
 $string['clearassessments'] = 'Garbitu ebaluazioak';
 $string['clearassessmentsconfirm'] = 'Ziur al zaude ebaluazioaren kalifikazio guztiak ezabatu nahi dituzula? Ezin izango duzu berriz informazio hau eskuratu, ebaluatzaileek esleitutako lanak berriz kalifikatu beharko dituzte.';
+$string['clearassessments_help'] = 'Bidalketan batutako kalifikazioak eta ebaluazioetakoak berrabiaraziko dira. Gorde egingo da ebaluazio-formularioen informazioa, aztertzaileek, ordea, ebaluazio-formularioa berriro zabaldu beharko dute, eta gorde, emandako kalifikazioak berriro kalkulatzeko.';
+$string['conclusion'] = 'Ondorioak';
+$string['conclusion_help'] = 'Erabiltzaileari ondorioak agertuko zaizkio zeregina amaitutakoan.';
 $string['configexamplesmode'] = 'Tailerretako ebaluazio-adibideen berezko modua';
 $string['configgrade'] = 'Berezko gehienezko kalifikazioa bidalketetarako tailerretan';
 $string['configgradedecimals'] = 'Berez puntuaren atzetik erakutsi behar diren zenbakiak kalifikazioak erakustean';
@@ -147,6 +155,13 @@ $string['latesubmissionsallowed'] = 'Azken orduko bidalketak baimenduta daude';
 $string['latesubmissions_desc'] = 'Baimendu epez kanpoko bidalketak';
 $string['maxbytes'] = 'Fitxategien gehienezko tamaina';
 $string['modulename'] = 'Tailerra';
+$string['modulename_help'] = 'Tailerra jarduerak ikasleen lanak jaso, berrikusi eta berdinen ebaluazioa egiteko aukera ematen du.
+
+Ikasleak edozein eduki digital bidal dezake (fitxategiak), hala nola testu-fitxategiak, eta Moodle-n zuzenean ere idatz dezake testu editorea erabilita.
+
+Bidalitako lanak irakasleak zehazturiko irizpide anitzeko ebaluazio-formulario bat erabilita kalifikatzen dira. Aurretik berdinen ebaluazio prozesua eta ebaluazio formularioa ulertzeko praktikak egin daitezke irakasleak emandako bidalketa-adibideak erabilita, ebaluazio-erreferentzia batekin batera. Ikasleek kide baten edo gehiagoren ebaluazioa egiteko aukera du. Bidalketak eta berrikusketak anonimoak izan daitezke nahi izanez gero.
+
+Ikasleak bi kalifikazio lortuko ditu tailerra jardueran, bat euren bidalketarena eta bestea beste kideei eginiko kalifikazioarena. Biak kalifikatzailean gordetzen dira.';
 $string['modulenameplural'] = 'Tailerrak';
 $string['mysubmission'] = 'Nire bidalketa';
 $string['nattachments'] = 'Gehienezko eranskin-kopurua bidalketako';

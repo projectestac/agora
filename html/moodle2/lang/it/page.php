@@ -29,14 +29,14 @@ $string['configdisplayoptions'] = 'Scegli le opzioni di visualizzazione che desi
 $string['content'] = 'Contenuto della pagina';
 $string['contentheader'] = 'Contenuto';
 $string['createpage'] = 'Crea una pagina';
-$string['displayoptions'] = 'Modalità di visualizzazione disponibili';
+$string['displayoptions'] = 'Opzioni di visualizzazione disponibili';
 $string['displayselect'] = 'Visualizzazione';
 $string['displayselectexplain'] = 'Tipo di visualizzazione';
 $string['legacyfiles'] = 'Migrazione dei file di corsi precedenti';
 $string['legacyfilesactive'] = 'Attivo';
 $string['legacyfilesdone'] = 'Completato';
 $string['modulename'] = 'Pagina';
-$string['modulename_help'] = 'Il modulo pagina consente al docente di creare pagine web utilizzando l\'editor di testo. In una pagina è possibile inserire testi, immagini, suoni, video, link e codice embedded, ad esempio il codice di Google maps.
+$string['modulename_help'] = 'Il modulo pagina consente al docente di creare pagine web utilizzando l\'editor di testo. In una pagina è possibile inserire testi, immagini, suoni, video, link e codice incorporato, ad esempio il codice di Google maps.
 
 Una risorsa pagina rispetto ad una risorsa file in genere risulterà più accessibile, in modo particolare per gli utenti di dispositivi mobili, e più facilmente aggiornabile.
 

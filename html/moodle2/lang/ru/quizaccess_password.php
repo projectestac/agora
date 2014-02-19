@@ -26,5 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['passworderror'] = 'Введенный пароль неверен';
+$string['pluginname'] = 'Правило пароля доступа к тесту';
 $string['quizpassword'] = 'Пароль теста';
 $string['requirepasswordmessage'] = 'Чтобы пройти тест, вам необходимо знать его пароль';

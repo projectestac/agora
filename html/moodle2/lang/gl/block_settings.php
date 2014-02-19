@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['enabledock'] = 'Permitirlle ao usuario ancorar este bloque';
 $string['pluginname'] = 'Configuración';
+$string['settings:myaddinstance'] = 'Engadir un novo bloque de configuración ao cartafol persoal';

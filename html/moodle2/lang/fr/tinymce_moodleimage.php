@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['moodleimage:browseimage'] = 'Chercher ou déposer une image...';
+$string['pluginname'] = 'Insérer image';

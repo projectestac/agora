@@ -27,6 +27,10 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Memcache';
 $string['prefix'] = 'Sleutel voorvoegsel';
+$string['prefix_help'] = 'Dit prefix wordt gebruikt voor alle sleutelnamen op de memcacheserver.
+* Als je slechts één Moodleinstantie op deze server hebt, kun je deze waarde standaard laten.
+* Door de beperking op de sleutellengte mag je slechts 5 tekens gebruiken.';
+$string['prefixinvalid'] = 'Ongeldige prefix. Je mag enkel a-z A-Z 0-9 _ gebruiken';
 $string['servers'] = 'Servers';
 $string['servers_help'] = 'Hiermee worden de servers ingesteld die door de memcache-adaptor gebruikt moeten worden. Servers moeten één per regel gedefiniëerd worden en moeten een serveradres en optioneel een poort en weging bevatten. Als er geen poort opgegeven wordt, dan wordt de standaardpoort gebruikt (11211).
 

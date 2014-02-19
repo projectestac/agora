@@ -6,6 +6,7 @@ $string['addingmultichoicewiris'] = 'S\'està afegint una pregunta de selecció 
 $string['multichoicewirissummary'] = 'Igual que la pregunta estàndard de Selecció múltiple, però es poden crear enunciats i retroalimentacions múltiples inserint variables amb números, fórmules o gràfiques.';
 $string['multichoicewiris_algorithm'] = 'Algorisme';
 $string['multichoicewiris_wiris_variables'] = 'Variables WIRIS ';
+$string['multichoicewiris_cantimportoverride'] = 'The multiple choice - math & science question could not be imported properly from Moodle 1.9 format. The question can be manually fixed following the instructions at <a href="http://www.wiris.com/quizzes/docs/moodle/manual/multiple-choice#frommoodle1">http://www.wiris.com/quizzes/docs/moodle/manual/multiple-choice#frommoodle1</a>.';
 
 //From Moodle 2.3
 $string['pluginname'] = 'Selecció múltiple - Ciències';

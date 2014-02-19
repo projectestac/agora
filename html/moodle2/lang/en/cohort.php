@@ -16,13 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'cohort', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'cohort', language 'en', branch 'MOODLE_24_STABLE'
  *
- * @package    moodlecore
- * @subpackage cohort
- * @copyright  2010 Petr Skoda (info@skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   cohort
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['addcohort'] = 'Add new cohort';
 $string['anycohort'] = 'Any';
@@ -32,10 +33,10 @@ $string['backtocohorts'] = 'Back to cohorts';
 $string['bulkadd'] = 'Add to cohort';
 $string['bulknocohort'] = 'No available cohorts found';
 $string['cohort'] = 'Cohort';
-$string['cohorts'] = 'Cohorts';
-$string['cohortsin'] = '{$a}: available cohorts';
 $string['cohort:assign'] = 'Assign cohort members';
 $string['cohort:manage'] = 'Manage cohorts';
+$string['cohorts'] = 'Cohorts';
+$string['cohortsin'] = '{$a}: available cohorts';
 $string['cohort:view'] = 'Use cohorts and view members';
 $string['component'] = 'Source';
 $string['currentusers'] = 'Current users';
@@ -53,8 +54,8 @@ $string['nocomponent'] = 'Created manually';
 $string['potusers'] = 'Potential users';
 $string['potusersmatching'] = 'Potential matching users';
 $string['removeuserwarning'] = 'Removing users from a cohort may result in unenrolling of users from multiple courses which includes deleting of user settings, grades, group membership and other user information from affected courses.';
+$string['search'] = 'Search';
+$string['searchcohort'] = 'Search cohort';
 $string['selectfromcohort'] = 'Select members from cohort';
 $string['unknowncohort'] = 'Unknown cohort ({$a})!';
 $string['useradded'] = 'User added to cohort "{$a}"';
-$string['search'] = 'Search';
-$string['searchcohort'] = 'Search cohort';

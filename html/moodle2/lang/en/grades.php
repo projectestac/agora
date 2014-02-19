@@ -16,12 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'grades', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['activities'] = 'Activities';
 $string['addcategory'] = 'Add category';
@@ -53,6 +55,21 @@ $string['aggregatesum'] = 'Sum of grades';
 $string['aggregateweightedmean'] = 'Weighted mean of grades';
 $string['aggregateweightedmean2'] = 'Simple weighted mean of grades';
 $string['aggregation'] = 'Aggregation';
+$string['aggregationcoef'] = 'Aggregation coefficient';
+$string['aggregationcoefextra'] = 'Extra credit';
+$string['aggregationcoefextra_help'] = 'If the aggregation is Sum of grades or Simple weighted mean and the extra credit checkbox is ticked, the grade item\'s maximum grade is not added to the category\'s maximum grade, resulting in the possibility of achieving the maximum grade (or grades over the maximum if enabled by the site administrator) in the category without having the maximum grade in all the grade items.
+
+If the aggregation is Mean of grades (with extra credits) and the extra credit is set to a value greater than zero, the extra credit is the factor by which the grade is multiplied before adding it to the total after the computation of the mean.';
+$string['aggregationcoefextra_link'] = 'grade/aggregation';
+$string['aggregationcoefextrasum'] = 'Extra credit';
+$string['aggregationcoefextrasum_help'] = 'If the extra credit checkbox is ticked, the grade item\'s maximum grade is not added to the category\'s maximum grade, resulting in the possibility of achieving the maximum grade (or grades over the maximum if enabled by the site administrator) in the category without having the maximum grade in all the grade items.';
+$string['aggregationcoefextrasum_link'] = 'grade/aggregation';
+$string['aggregationcoefextraweight'] = 'Extra credit weight';
+$string['aggregationcoefextraweight_help'] = 'If the extra credit weight is set to a value greater than zero, the grade acts as extra credit during aggregation. The number is the factor by which the grade is multiplied before adding it to the total for the computation of the mean.';
+$string['aggregationcoefextraweight_link'] = 'grade/aggregation';
+$string['aggregationcoefweight'] = 'Item weight';
+$string['aggregationcoefweight_help'] = 'The item weight is used in the category aggregation to influence the importance of the item compared with other grade items in the same category.';
+$string['aggregationcoefweight_link'] = 'grade/aggregation';
 $string['aggregation_help'] = 'The aggregation determines how grades in a category are combined, such as
 
 * Mean of grades - The sum of all grades divided by the total number of grades
@@ -62,21 +79,6 @@ $string['aggregation_help'] = 'The aggregation determines how grades in a catego
 * Mode of grades - The grade that occurs the most frequently
 * Sum of grades - The sum of all grade values, with scale grades being ignored';
 $string['aggregation_link'] = 'grade/aggregation';
-$string['aggregationcoef'] = 'Aggregation coefficient';
-$string['aggregationcoefextra'] = 'Extra credit'; // for the header of the table at Edit categories and items page
-$string['aggregationcoefextra_help'] = 'If the aggregation is Sum of grades or Simple weighted mean and the extra credit checkbox is ticked, the grade item\'s maximum grade is not added to the category\'s maximum grade, resulting in the possibility of achieving the maximum grade (or grades over the maximum if enabled by the site administrator) in the category without having the maximum grade in all the grade items.
-
-If the aggregation is Mean of grades (with extra credits) and the extra credit is set to a value greater than zero, the extra credit is the factor by which the grade is multiplied before adding it to the total after the computation of the mean.';
-$string['aggregationcoefextra_link'] = 'grade/aggregation';
-$string['aggregationcoefextrasum'] = 'Extra credit'; // for the form with checkboxes: Sum of grades or Simple weighted mean
-$string['aggregationcoefextrasum_help'] = 'If the extra credit checkbox is ticked, the grade item\'s maximum grade is not added to the category\'s maximum grade, resulting in the possibility of achieving the maximum grade (or grades over the maximum if enabled by the site administrator) in the category without having the maximum grade in all the grade items.';
-$string['aggregationcoefextrasum_link'] = 'grade/aggregation';
-$string['aggregationcoefextraweight'] = 'Extra credit weight'; // for the form with input: Mean of grades (with extra credits) only
-$string['aggregationcoefextraweight_help'] = 'If the extra credit weight is set to a value greater than zero, the grade acts as extra credit during aggregation. The number is the factor by which the grade is multiplied before adding it to the total for the computation of the mean.';
-$string['aggregationcoefextraweight_link'] = 'grade/aggregation';
-$string['aggregationcoefweight'] = 'Item weight';
-$string['aggregationcoefweight_help'] = 'The item weight is used in the category aggregation to influence the importance of the item compared with other grade items in the same category.';
-$string['aggregationcoefweight_link'] = 'grade/aggregation';
 $string['aggregationposition'] = 'Aggregation position';
 $string['aggregationposition_help'] = 'This setting determines whether the category and course total columns are displayed first or last in the gradebook reports.';
 $string['aggregationsvisible'] = 'Available aggregation types';
@@ -99,10 +101,10 @@ $string['bonuspoints'] = 'Bonus points';
 $string['bulkcheckboxes'] = 'Bulk checkboxes';
 $string['calculatedgrade'] = 'Calculated grade';
 $string['calculation'] = 'Calculation';
-$string['calculation_help'] = 'A grade calculation is a formula used to determine grades. The formula should start with an equal (=) sign and may use common mathematical operators, such as max, min and sum. If desired, other grade items may be included in the calculation by typing the ID numbers in double square brackets.';
-$string['calculation_link'] = 'grade/calculation';
 $string['calculationadd'] = 'Add calculation';
 $string['calculationedit'] = 'Edit calculation';
+$string['calculation_help'] = 'A grade calculation is a formula used to determine grades. The formula should start with an equal (=) sign and may use common mathematical operators, such as max, min and sum. If desired, other grade items may be included in the calculation by typing the ID numbers in double square brackets.';
+$string['calculation_link'] = 'grade/calculation';
 $string['calculationsaved'] = 'Calculation saved';
 $string['calculationview'] = 'View calculation';
 $string['cannotaccessgroup'] = 'Can not access grades of selected group, sorry.';
@@ -113,8 +115,12 @@ $string['category'] = 'Category';
 $string['categoryedit'] = 'Edit category';
 $string['categoryname'] = 'Category name';
 $string['categorytotal'] = 'Category total';
-$string['categorytotalname'] = 'Category total name';
 $string['categorytotalfull'] = '{$a->category} total';
+$string['categorytotalname'] = 'Category total name';
+$string['changedefaults'] = 'Change defaults';
+$string['changereportdefaults'] = 'Change report defaults';
+$string['chooseaction'] = 'Choose an action ...';
+$string['choosecategory'] = 'Select category';
 $string['combo'] = 'Tabs and Dropdown menu';
 $string['compact'] = 'Compact';
 $string['componentcontrolsvisibility'] = 'Whether this grade item is hidden is controlled by the activity settings.';
@@ -149,8 +155,8 @@ $string['displaypoints'] = 'Display points';
 $string['displayweighted'] = 'Display weighted grades';
 $string['dropdown'] = 'Dropdown menu';
 $string['droplow'] = 'Drop the lowest';
-$string['droplow_help'] = 'This setting enables a specified number of the lowest grades to be excluded from the aggregation.';
 $string['droplowestvalue'] = 'Set drop lowest grade value';
+$string['droplow_help'] = 'This setting enables a specified number of the lowest grades to be excluded from the aggregation.';
 $string['dropped'] = 'Dropped';
 $string['dropxlowest'] = 'Drop X lowest';
 $string['dropxlowestwarning'] = 'Note: If you use drop x lowest the grading assumes that all items in the category have the same point value. If point values differ results will be unpredictable';
@@ -171,6 +177,7 @@ $string['enableajax_help'] = 'Adds a layer of AJAX functionality to the grader r
 $string['enableoutcomes'] = 'Enable outcomes';
 $string['enableoutcomes_help'] = 'Support for Outcomes (also known as Competencies, Goals, Standards or Criteria) means that we can grade things using one or more scales that are tied to outcome statements. Enabling outcomes makes such special grading possible throughout the site.';
 $string['encoding'] = 'Encoding';
+$string['errorcalculationbroken'] = 'Probably circular reference or broken calculation formula';
 $string['errorcalculationnoequal'] = 'Formula must start with equal sign (=1+2)';
 $string['errorcalculationunknown'] = 'Invalid formula';
 $string['errorgradevaluenonnumeric'] = 'Received non-numeric for low or high grade for';
@@ -190,17 +197,19 @@ $string['expand'] = 'Expand category';
 $string['export'] = 'Export';
 $string['exportalloutcomes'] = 'Export all outcomes';
 $string['exportfeedback'] = 'Include feedback in export';
-$string['exportplugins'] = 'Export plugins';
-$string['exportsettings'] = 'Export settings';
 $string['exportonlyactive'] = 'Require active enrolment';
 $string['exportonlyactive_help'] = 'Only include students in the export whose enrolment has not been suspended';
+$string['exportplugins'] = 'Export plugins';
+$string['exportsettings'] = 'Export settings';
 $string['exportto'] = 'Export to';
 $string['extracreditvalue'] = 'Extra credit value for {$a}';
 $string['extracreditwarning'] = 'Note: Setting all items for a category to extra credit will effectively remove them from the grade calculation. Since there will be no point total';
 $string['feedback'] = 'Feedback';
-$string['feedback_help'] = 'This box enables any comments about the grade to be added.';
 $string['feedbackadd'] = 'Add feedback';
 $string['feedbackedit'] = 'Edit feedback';
+$string['feedbackforgradeitems'] = 'Feedback for {$a}';
+$string['feedback_help'] = 'This box enables any comments about the grade to be added.';
+$string['feedbacks'] = 'Feedbacks';
 $string['feedbacksaved'] = 'Feedback saved';
 $string['feedbackview'] = 'View feedback';
 $string['finalgrade'] = 'Final grade';
@@ -226,7 +235,7 @@ $string['gradeboundary_help'] = 'This setting determines the minimum percentage 
 $string['gradecategories'] = 'Grade categories';
 $string['gradecategory'] = 'Grade category';
 $string['gradecategoryonmodform'] = 'Grade category';
-$string['gradecategoryonmodform_help'] =  'This setting controls the category in which this activity\'s grades are placed in the gradebook.';
+$string['gradecategoryonmodform_help'] = 'This setting controls the category in which this activity\'s grades are placed in the gradebook.';
 $string['gradecategorysettings'] = 'Grade category settings';
 $string['gradedisplay'] = 'Grade display';
 $string['gradedisplaytype'] = 'Grade display type';
@@ -300,9 +309,9 @@ $string['gradeview'] = 'View grade';
 $string['gradeweighthelp'] = 'Grade weight help';
 $string['groupavg'] = 'Group average';
 $string['hidden'] = 'Hidden';
-$string['hidden_help'] = 'If ticked, grades are hidden from students. A hidden until date may be set if desired, to release grades after grading is completed.';
 $string['hiddenasdate'] = 'Show submitted date for hidden grades';
 $string['hiddenasdate_help'] = 'If user can not see hidden grades show date of submission instead of \'-\'.';
+$string['hidden_help'] = 'If ticked, grades are hidden from students. A hidden until date may be set if desired, to release grades after grading is completed.';
 $string['hiddenuntil'] = 'Hidden until';
 $string['hiddenuntildate'] = 'Hidden until: {$a}';
 $string['hideadvanced'] = 'Hide advanced features';
@@ -328,12 +337,9 @@ $string['hideverbose'] = 'Hide {$a->category} {$a->itemmodule} {$a->itemname}';
 $string['highgradeascending'] = 'Sort by high grade ascending';
 $string['highgradedescending'] = 'Sort by high grade descending';
 $string['highgradeletter'] = 'High';
-$string['changedefaults'] = 'Change defaults';
-$string['changereportdefaults'] = 'Change report defaults';
-$string['chooseaction'] = 'Choose an action ...';
-$string['choosecategory'] = 'Select category';
 $string['identifier'] = 'Identify user by';
 $string['idnumbers'] = 'ID numbers';
+$string['ignore'] = 'Ignore';
 $string['import'] = 'Import';
 $string['importcsv'] = 'Import CSV';
 $string['importcustom'] = 'Import as custom outcomes (only this course)';
@@ -409,8 +415,8 @@ $string['morethanmax'] = 'The grade entered for {$a->itemname} for {$a->username
 $string['moveselectedto'] = 'Move selected items to';
 $string['movingelement'] = 'Moving {$a}';
 $string['multfactor'] = 'Multiplicator';
-$string['multfactorvalue'] = 'Multiplicator value for {$a}';
 $string['multfactor_help'] = 'The multiplicator is the factor by which all grades for this grade item will be multiplied, with a maximum value of the maximum grade. For example, if the multiplicator is 2 and the maximum grade is 100, then all grades less than 50 are multiplied by 2, and all grades 50 and above are changed to 100.';
+$string['multfactorvalue'] = 'Multiplicator value for {$a}';
 $string['mypreferences'] = 'My preferences';
 $string['myreportpreferences'] = 'My report preferences';
 $string['navmethod'] = 'Navigation method';
@@ -445,8 +451,8 @@ $string['numberofgrades'] = 'Number of grades';
 $string['onascaleof'] = 'on a scale of {$a->grademin} to {$a->grademax}';
 $string['operations'] = 'Operations';
 $string['options'] = 'Options';
+$string['others'] = 'Others';
 $string['outcome'] = 'Outcome';
-$string['outcome_help'] = 'This setting determines the outcome which this grade item will represent in the gradebook.';
 $string['outcomeassigntocourse'] = 'Assign another outcome to this course';
 $string['outcomecategory'] = 'Create outcomes in category';
 $string['outcomecategorynew'] = 'New category';
@@ -454,6 +460,7 @@ $string['outcomeconfirmdelete'] = 'Are you sure you wish to delete the outcome "
 $string['outcomecreate'] = 'Add a new outcome';
 $string['outcomedelete'] = 'Delete outcome';
 $string['outcomefullname'] = 'Full name';
+$string['outcome_help'] = 'This setting determines the outcome which this grade item will represent in the gradebook.';
 $string['outcomeitem'] = 'Outcome item';
 $string['outcomeitemsedit'] = 'Edit outcome item';
 $string['outcomereport'] = 'Outcome report';
@@ -508,6 +515,8 @@ $string['quickgrading_help'] = 'If enabled, when editing is turned on, a text in
 
 Note that when a grade is edited in the grader report, an overridden flag is set, meaning that the grade can no longer be changed from within the related activity.';
 $string['range'] = 'Range';
+$string['rangedecimals'] = 'Range decimal points';
+$string['rangedecimals_help'] = 'The number of decimal points to display for range.';
 $string['rangesdecimalpoints'] = 'Decimals shown in ranges';
 $string['rangesdecimalpoints_help'] = 'This setting determines the number of decimal points to display for each range or whether the overall decimal points setting for the category or grade item is used (inherit).';
 $string['rangesdisplaytype'] = 'Range display type';
@@ -548,33 +557,25 @@ $string['setpreferences'] = 'Set preferences';
 $string['setting'] = 'Setting';
 $string['settings'] = 'Settings';
 $string['setweights'] = 'Set weights';
+$string['showactivityicons'] = 'Show activity icons';
+$string['showactivityicons_help'] = 'If enabled, activity icons are shown next to activity names.';
+$string['showallhidden'] = 'Show hidden';
+$string['showallstudents'] = 'Show all Students';
 $string['showanalysisicon'] = 'Show grade analysis icon';
 $string['showanalysisicon_desc'] = 'Whether to show grade analysis icon by default. If the activity module supports it, the grade analysis icon links to a page with more detailed explanation of the grade and how it was obtained.';
 $string['showanalysisicon_help'] = 'If the activity module supports it, the grade analysis icon links to a page with more detailed explanation of the grade and how it was obtained.';
 $string['showaverage'] = 'Show average';
 $string['showaverage_help'] = 'Show the average column? Students may be able to estimate other student\'s grades if the average is calculated from a small number of grades. For performance reasons the average is approximate if it is dependent on any hidden items.';
-$string['showfeedback'] = 'Show feedback';
-$string['showfeedback_help'] = 'Show the feedback column?';
-$string['showgrade'] = 'Show grades';
-$string['showgrade_help'] = 'Show the grade column?';
-$string['showlettergrade'] = 'Show letter grades';
-$string['showlettergrade_help'] = 'Show the letter grade column?';
-$string['showrange'] = 'Show ranges';
-$string['showrange_help'] = 'Show the range column?';
-$string['showweight'] = 'Show weightings';
-$string['showweight_help'] = 'Show the grade weight column?';
-$string['rangedecimals'] = 'Range decimal points';
-$string['rangedecimals_help'] = 'The number of decimal points to display for range.';
-$string['showactivityicons'] = 'Show activity icons';
-$string['showactivityicons_help'] = 'If enabled, activity icons are shown next to activity names.';
-$string['showallhidden'] = 'Show hidden';
-$string['showallstudents'] = 'Show all Students';
 $string['showaverages'] = 'Show column averages';
 $string['showaverages_help'] = 'If enabled, the grader report will contain an additional row displaying the average (mean) for each category and grade item.';
 $string['showcalculations'] = 'Show calculations';
 $string['showcalculations_help'] = 'If enabled, when editing is turned on, a calculator icon is shown for each grade item and category, with tool tips over calculated items and a visual indicator that a column is calculated.';
 $string['showeyecons'] = 'Show show/hide icons';
 $string['showeyecons_help'] = 'If enabled, when editing is turned on, a show/hide icon is shown for each grade for controlling its visibility to the student.';
+$string['showfeedback'] = 'Show feedback';
+$string['showfeedback_help'] = 'Show the feedback column?';
+$string['showgrade'] = 'Show grades';
+$string['showgrade_help'] = 'Show the grade column?';
 $string['showgroups'] = 'Show groups';
 $string['showhiddenitems'] = 'Show hidden items';
 $string['showhiddenitems_help'] = 'Whether hidden grade items are hidden entirely or if the names of hidden grade items are visible to students.
@@ -583,6 +584,8 @@ $string['showhiddenitems_help'] = 'Whether hidden grade items are hidden entirel
 * Only hidden until - Grade items with a "hide until" date set are hidden completely until the set date, after which the whole item is shown
 * Do not show - Hidden grade items are completely hidden';
 $string['showhiddenuntilonly'] = 'Only hidden until';
+$string['showlettergrade'] = 'Show letter grades';
+$string['showlettergrade_help'] = 'Show the letter grade column?';
 $string['showlocks'] = 'Show locks';
 $string['showlocks_help'] = 'If enabled, when editing is turned on, a lock/unlock icon is shown for each grade for controlling whether the grade can be automatically updated by the related activity.';
 $string['shownohidden'] = 'Do not show';
@@ -595,6 +598,8 @@ $string['showquickfeedback'] = 'Show quick feedback';
 $string['showquickfeedback_help'] = 'If enabled, when editing is turned on, a feedback text input box with a dotted border appears for each grade, allowing the feedback for many grades to be edited at the same time. Changes are saved and highlighted when the update button is clicked.
 
 Note that when feedback is edited in the grader report, an overridden flag is set, meaning that the feedback can no longer be changed from within the related activity.';
+$string['showrange'] = 'Show ranges';
+$string['showrange_help'] = 'Show the range column?';
 $string['showranges'] = 'Show ranges';
 $string['showranges_help'] = 'If enabled, the grader report will contain an additional row displaying the range for each category and grade item.';
 $string['showrank'] = 'Show rank';
@@ -602,6 +607,8 @@ $string['showrank_help'] = 'Show the position of the student in relation to the 
 $string['showuserimage'] = 'Show user profile images';
 $string['showuserimage_help'] = 'Whether to show the user\'s profile image next to the name in the grader report.';
 $string['showverbose'] = 'Show {$a->category} {$a->itemmodule} {$a->itemname}';
+$string['showweight'] = 'Show weightings';
+$string['showweight_help'] = 'Show the grade weight column?';
 $string['simpleview'] = 'Simple view';
 $string['sitewide'] = 'Site-wide';
 $string['sort'] = 'sort';
@@ -624,8 +631,8 @@ $string['switchtosimpleview'] = 'Switch to simple view';
 $string['tabs'] = 'Tabs';
 $string['topcategory'] = 'Super category';
 $string['total'] = 'Total';
-$string['totalweightnot100'] = 'The total weight is not equal to 100';
 $string['totalweight100'] = 'The total weight is equal to 100';
+$string['totalweightnot100'] = 'The total weight is not equal to 100';
 $string['turnfeedbackoff'] = 'Turn feedback off';
 $string['turnfeedbackon'] = 'Turn feedback on';
 $string['typenone'] = 'None';
@@ -634,8 +641,8 @@ $string['typescale_help'] = 'This setting determines the scale used when using t
 $string['typetext'] = 'Text';
 $string['typevalue'] = 'Value';
 $string['uncategorised'] = 'Uncategorised';
-$string['unenrolledusersinimport'] = 'This import included the following grades for users not currently enrolled in this course: {$a}';
 $string['unchangedgrade'] = 'Grade unchanged';
+$string['unenrolledusersinimport'] = 'This import included the following grades for users not currently enrolled in this course: {$a}';
 $string['unlimitedgrades'] = 'Unlimited grades';
 $string['unlimitedgrades_help'] = 'By default grades are limited by the maximum and minimum values of the grade item. Enabling this setting removes this limit, and allows grades of over 100% to be entered directly in the gradebook. It is recommended that this setting is enabled at an off-peak time, as all grades will be recalculated, which may result in a high server load.';
 $string['unlock'] = 'Unlock';
@@ -650,9 +657,10 @@ $string['usenooutcome'] = 'Use no outcome';
 $string['usenoscale'] = 'Use no scale';
 $string['usepercent'] = 'Use percent';
 $string['user'] = 'User';
-$string['usergrade'] = 'User {$a->fullname} ({$a->useridnumber}) on item {$a->gradeidnumber}';
-$string['userpreferences'] = 'User preferences';
 $string['userenrolmentsuspended'] = 'User enrolment suspended';
+$string['usergrade'] = 'User {$a->fullname} ({$a->useridnumber}) on item {$a->gradeidnumber}';
+$string['userid'] = 'User ID';
+$string['userpreferences'] = 'User preferences';
 $string['useweighted'] = 'Use weighted';
 $string['verbosescales'] = 'Verbose scales';
 $string['viewbygroup'] = 'Group';

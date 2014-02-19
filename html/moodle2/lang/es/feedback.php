@@ -170,7 +170,7 @@ La actividad Encuesta puede ser utilizada
 * Para permitir que los participantes se inscriban en módulos de cursos, eventos, etc
 * Para encuestar a los invitados a la hora de la elección de cursos, las políticas escolares, etc
 * Para que en caso de "acoso escolar" los estudiantes pueden reportar incidentes de forma anónima';
-$string['modulenameplural'] = 'Encuesta';
+$string['modulenameplural'] = 'Encuestas';
 $string['movedown_item'] = 'Bajar esta pregunta';
 $string['move_here'] = 'Mover aquí';
 $string['move_item'] = 'Mover esta pregunta';

@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowguests'] = '이 강좌는 손님 계정을 허용함';
+$string['guestaccess_withoutpassword'] = '손님 접속';
+$string['guestaccess_withpassword'] = '손님 접속';
 $string['guest:config'] = '손님 접속 인스턴스 구성';
 $string['password'] = '암호';
 $string['password_help'] = '암호는 손님들이 암호를 아는 사람들만 강좌에 접속할 수 있게 합니다. 손님들은 강좌에 접속할 때마다 암호를 입력해야 합니다.';

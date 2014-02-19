@@ -16,19 +16,20 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'core_enrol', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'enrol', language 'en', branch 'MOODLE_24_STABLE'
  *
- * @package    core
- * @subpackage enrol
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   enrol
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['actenrolshhdr'] = 'Available course enrolment plugins';
 $string['addinstance'] = 'Add method';
+$string['ajaxnext25'] = 'Next 25...';
 $string['ajaxoneuserfound'] = '1 user found';
 $string['ajaxxusersfound'] = '{$a} users found';
-$string['ajaxnext25'] = 'Next 25...';
 $string['assignnotpermitted'] = 'You do not have permission or can not assign roles in this course.';
 $string['bulkuseroperation'] = 'Bulk user operation';
 $string['configenrolplugins'] = 'Please select all required plugins and arrange then in appropriate order.';
@@ -52,15 +53,15 @@ $string['enrolme'] = 'Enrol me in this course';
 $string['enrolmentinstances'] = 'Enrolment methods';
 $string['enrolmentnew'] = 'New enrolment in {$a}';
 $string['enrolmentnewuser'] = '{$a->user} has enrolled in course "{$a->course}"';
-$string['enrolments'] = 'Enrolments';
 $string['enrolmentoptions'] = 'Enrolment options';
+$string['enrolments'] = 'Enrolments';
 $string['enrolnotpermitted'] = 'You do not have permission or are not allowed to enrol someone in this course';
 $string['enrolperiod'] = 'Enrolment duration';
-$string['enrolusage'] = 'Instances / enrolments';
-$string['enrolusers'] = 'Enrol users';
 $string['enroltimecreated'] = 'Enrolment created';
 $string['enroltimeend'] = 'Enrolment ends';
 $string['enroltimestart'] = 'Enrolment starts';
+$string['enrolusage'] = 'Instances / enrolments';
+$string['enrolusers'] = 'Enrol users';
 $string['errajaxfailedenrol'] = 'Failed to enrol user';
 $string['errajaxsearch'] = 'Error when searching users';
 $string['erroreditenrolment'] = 'An error occurred while trying to edit a users enrolment';
@@ -69,12 +70,18 @@ $string['errorenrolcohortusers'] = 'Error enrolling cohort members in this cours
 $string['errorthresholdlow'] = 'Notification threshold must be at least 1 day.';
 $string['errorwithbulkoperation'] = 'There was an error while processing your bulk enrolment change.';
 $string['expirynotify'] = 'Notify before enrolment expires';
-$string['expirynotify_help'] = 'This setting determines whether enrolment expiry notification messages are sent.';
 $string['expirynotifyall'] = 'Enroller and enrolled user';
 $string['expirynotifyenroller'] = 'Enroller only';
+$string['expirynotify_help'] = 'This setting determines whether enrolment expiry notification messages are sent.';
 $string['expirynotifyhour'] = 'Hour to send enrolment expiry notifications';
 $string['expirythreshold'] = 'Notification threshold';
 $string['expirythreshold_help'] = 'How long before expiration should be users notified?';
+$string['extremovedaction'] = 'External unenrol action';
+$string['extremovedaction_help'] = 'Select action to carry out when user enrolment disappears from external enrolment source. Please note that some user data and settings are purged from course during course unenrolment.';
+$string['extremovedkeep'] = 'Keep user enrolled';
+$string['extremovedsuspend'] = 'Disable course enrolment';
+$string['extremovedsuspendnoroles'] = 'Disable course enrolment and remove roles';
+$string['extremovedunenrol'] = 'Unenrol user from course';
 $string['finishenrollingusers'] = 'Finish enrolling users';
 $string['invalidenrolinstance'] = 'Invalid enrolment instance';
 $string['invalidrole'] = 'Invalid role';
@@ -95,10 +102,10 @@ $string['periodnone'] = 'enrolled {$a}';
 $string['periodstart'] = 'from {$a}';
 $string['periodstartend'] = 'from {$a->start} until {$a->end}';
 $string['recovergrades'] = 'Recover user\'s old grades if possible';
-$string['rolefromthiscourse'] = '{$a->role} (Assigned in this course)';
-$string['rolefrommetacourse'] = '{$a->role} (Inherited from parent course)';
 $string['rolefromcategory'] = '{$a->role} (Inherited from course category)';
+$string['rolefrommetacourse'] = '{$a->role} (Inherited from parent course)';
 $string['rolefromsystem'] = '{$a->role} (Assigned at site level)';
+$string['rolefromthiscourse'] = '{$a->role} (Assigned in this course)';
 $string['startdatetoday'] = 'Today';
 $string['synced'] = 'Synced';
 $string['totalenrolledusers'] = '{$a} enrolled users';
@@ -118,11 +125,5 @@ $string['uninstallmigrate'] = 'Uninstall but keep all enrolments';
 $string['uninstallmigrating'] = 'Migrating "{$a}" enrolments';
 $string['unknowajaxaction'] = 'Unknown action requested';
 $string['unlimitedduration'] = 'Unlimited';
-$string['usersearch'] = 'Search ';
+$string['usersearch'] = 'Search';
 $string['withselectedusers'] = 'With selected users';
-$string['extremovedaction'] = 'External unenrol action';
-$string['extremovedaction_help'] = 'Select action to carry out when user enrolment disappears from external enrolment source. Please note that some user data and settings are purged from course during course unenrolment.';
-$string['extremovedsuspend'] = 'Disable course enrolment';
-$string['extremovedsuspendnoroles'] = 'Disable course enrolment and remove roles';
-$string['extremovedkeep'] = 'Keep user enrolled';
-$string['extremovedunenrol'] = 'Unenrol user from course';

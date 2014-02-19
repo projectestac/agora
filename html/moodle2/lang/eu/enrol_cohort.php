@@ -25,9 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addgroup'] = 'Gehitu taldera';
 $string['ajaxmore'] = 'Gehiago...';
+$string['assignrole'] = 'Esleitu rola';
 $string['cohort:config'] = 'Kohorteen instantziak konfiguratu';
 $string['cohortsearch'] = 'Bilatu';
 $string['cohort:unenrol'] = 'Desmatrikulatu kontua etenda duten erabiltzaileak';
+$string['instanceexists'] = 'Kohortea dagoeneko sinkronizatu da aukeratutako rolarekin';
 $string['pluginname'] = 'Sinkronizatu kohortea';
 $string['pluginname_desc'] = 'Kohorteak matrikulatzeko pluginak kohorte jakin bateko partaideak ikastaroko partaideekin sinkronizatzen ditu.';

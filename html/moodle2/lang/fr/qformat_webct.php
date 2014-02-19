@@ -32,6 +32,6 @@ $string['paragraphquestion'] = 'Question paragraphe';
 $string['pluginname'] = 'Format WebCT';
 $string['pluginname_help'] = 'Le format WebCT permet d\'enregistrer des questions à choix multiples et à réponse courte dans un format texte pouvant être importé dans WebCT.';
 $string['questionnametoolong'] = 'Le nom de la question est trop long à la ligne {$a} (255 car. max). Il a été tronqué.';
-$string['unknowntype'] = 'Type inconnu';
+$string['unknowntype'] = 'Type de question inconnu après la ligne {$a}';
 $string['warningsdetected'] = '{$a} avertissement(s) détecté(s)';
 $string['wronggrade'] = 'Note incorrecte (après la ligne {$a}) :';

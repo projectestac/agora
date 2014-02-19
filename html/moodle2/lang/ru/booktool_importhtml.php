@@ -26,8 +26,16 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['doimport'] = 'Импортировать';
+$string['errornochapters'] = 'Не удалось найти главы в выбранном файле';
 $string['import'] = 'Импорт глав';
 $string['importhtml:import'] = 'Импортировать главы';
-$string['importing'] = 'Идёт импорт';
-$string['importingchapters'] = 'Идёт импорт глав в книгу';
+$string['importing'] = 'Идет импорт';
+$string['importingchapters'] = 'Идет импорт глав в книгу';
+$string['pluginname'] = 'Импорт главы книги';
 $string['relinking'] = 'Преобразование ссылок';
+$string['type'] = 'Тип';
+$string['typeonefile'] = 'Одиночный HTML-файл с заголовками как главы';
+$string['typezipdirs'] = 'Каждая папка представляет собой одну главу';
+$string['typezipfiles'] = 'Каждый HTML-файл представляет собой одну главу';
+$string['ziparchive'] = 'Zip-файл';
+$string['ziparchive_help'] = 'Выберите ZIP-файл, содержащий файлы HTML и дополнительные мультимедийные файлы и папки. Чтобы загрузить подглавы, добавьте «_sub» в конец имен файлов HTML и папок.';

@@ -25,9 +25,9 @@
  * JCloze
  *
  * @param xxx sendallclicks
- * @param xxx forceajax
+ * @param xxx ajax
  */
-function JCloze(sendallclicks, forceajax) {
+function JCloze(sendallclicks, ajax) {
     this.quiztype = 'JCloze';
 
     /**
@@ -137,6 +137,7 @@ function JCloze(sendallclicks, forceajax) {
                 // i.e. this g(uess) is a CORRECT response
                 var responses = question.correct;
                 if (setScores && TotalChars) {
+                    SetCorrectAnswer(i, g);
                     State[i].AnsweredCorrectly = true;
                     State[i].ItemScore = (TotalChars - State[i].HintsAndChecks) / TotalChars;
                 }
@@ -148,6 +149,10 @@ function JCloze(sendallclicks, forceajax) {
                     State[i].ItemScore /= 2;
                 }
                 TotalScore += State[i].ItemScore;
+                if (State[i].Guesses==null) {
+                    State[i].Guesses = new Array();
+                }
+                State[i].Guesses.push(g);
             }
             var r_max = responses.length;
             for (var r=0; r<r_max; r++) {
@@ -180,6 +185,6 @@ function JCloze(sendallclicks, forceajax) {
         }
     }
 
-    this.init(I.length, sendallclicks, forceajax);
+    this.init(I.length, sendallclicks, ajax);
 }
 JCloze.prototype = new hpQuizAttempt();

@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['acceptederror'] = '허용된 오류';
 $string['addmoreanswerblanks'] = '여분 답란 생성';
 $string['addmoreunitblanks'] = '여분 단위란 생성';
+$string['answercolon'] = '답:';
 $string['answermustbenumberorstar'] = '답은 숫자이어야 합니다. 예:  -1.234 혹은 3e8, 혹은 \'*\'.';
 $string['answerno'] = '답안 {$a}';
 $string['decfractionofquestiongrade'] = '질문 성적의 부분으로(0-1)';

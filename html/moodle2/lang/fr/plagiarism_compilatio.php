@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plagiarism_compilatio', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'plagiarism_compilatio', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   plagiarism_compilatio
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,8 @@ $string['analysistype_help'] = '<p>Vous disposez de trois options possibles :</p
 <ul>
 <li><strong> Instantanée :</strong> Le document est envoyé à Compilatio et analysé immédiatement</li>
 <li><strong> Manuel :</strong> Le document est envoyé à Compilatio, mais l\'enseignant doit déclencher manuellement les analyses des documents</li>
-<li><strong> Programmée :</strong> Le document est envoyé à Compilatio et analysé, à l\'heure/date choisie(s)</i>
+<li><strong> Programmée :</strong> Le document est envoyé à Compilatio et analysé, à l\'heure/date choisie(s)</li>
+</ul>
 <p>Pour comparer tous les documents les uns avec les autres, choisir le mode manuel et attendre jusqu\'à ce que tous les travaux soient soumis par les étudiants, puis déclencher l\'analyse</p>';
 $string['analysistypemanual'] = 'Manuelle';
 $string['analysistypeprog'] = 'Programmée';
@@ -41,15 +42,16 @@ $string['compilatio_api'] = 'Adresse de l\'API Compilatio';
 $string['compilatio_api_help'] = 'Il s\'agit de l\'adresse de l\'API Compilatio';
 $string['compilatiodefaults'] = 'Valeurs par défaut pour Compilatio';
 $string['compilatio_draft_submit'] = 'Quand le fichier doit être soumis à Compilatio';
+$string['compilatio_enableplugin'] = 'Activer Compilatio pour {$a}';
 $string['compilatioexplain'] = 'Pour obtenir des informations complémentaires sur ce plugin, voir : <a href="http://compilatio.net" target="_blank">http://compilatio.net</a>';
 $string['compilatio_password'] = 'Code établissement';
 $string['compilatio_password_help'] = 'Code établissement fourni par Compilatio pour accéder à l\'API';
 $string['compilatio_show_student_report'] = 'Afficher le rapport d\'analyse de similarité à l\'étudiant';
-$string['compilatio_show_student_report_help'] = 'Le rapport de similitude donne une ventilation sur les parties de la présentation qui ont été plagiés et l\'emplacement où Compilatio a trouvé ce contenu la première fois';
+$string['compilatio_show_student_report_help'] = 'Le rapport de similitude donne une ventilation sur les parties de la présentation qui ont été plagiées et l\'emplacement où Compilatio a trouvé ce contenu la première fois';
 $string['compilatio_show_student_score'] = 'Afficher le score de similarité à l\'étudiant';
 $string['compilatio_show_student_score_help'] = 'Le score de similarité est le pourcentage de la soumission qui est commun avec un autre contenu.';
 $string['compilatio_studentemail'] = 'Envoyer un courriel à l\'étudiant';
-$string['compilatio_studentemail_help'] = 'Ceci enverra un courriel à l\'étudiant quand un fichier a été traité pour leur faire savoir que le rapport est disponible.';
+$string['compilatio_studentemail_help'] = 'Ceci enverra un courriel aux étudiants quand un fichier a été traité pour leur faire savoir que le rapport est disponible.';
 $string['defaultsdesc'] = 'Les paramètres suivants sont les paramètres par défaut définis lors de l\'activation de Compilatio au sein d\'un module d\'activité';
 $string['defaultupdated'] = 'Les valeurs par défaut ont été mises à jour';
 $string['enabledandworking'] = 'Le plugin Compilatio est actif et fonctionnel.';
@@ -77,5 +79,8 @@ $string['submitonfinal'] = 'Soumettre un fichier lorsqu\'un étudiant l\'envoie 
 $string['toolarge'] = 'Le fichier est trop volumineux pour être traité par Compilatio';
 $string['unknownwarning'] = 'Une erreur s\'est produite lors de l\'envoi du fichier à Compilatio';
 $string['unsupportedfiletype'] = 'Ce type de fichier n\'est pas supporté par Compilatio';
-$string['usecompilatio'] = 'Activer Compilatio';
+$string['updatecompilatioanalysis'] = 'Mettre à jour l\'analyse Compilatio';
+$string['updatedanalysis'] = 'L\'analyse Compilatio a été mise à jour';
+$string['usecompilatio'] = 'Activer la détection des similitudes avec Compilatio';
 $string['usedcredits'] = '<strong>Vous avez utilisé {$a->used} crédit(s) sur {$a->credits} et il vous reste {$a->remaining} crédit(s)</strong>';
+$string['waitingforanalysis'] = 'Ce fichier sera traité le {$a}';

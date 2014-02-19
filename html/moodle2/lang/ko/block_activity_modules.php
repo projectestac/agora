@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activity_modules:addinstance'] = '활동 블록 추가';
 $string['pluginname'] = '학습활동';

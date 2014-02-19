@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['auth_shib_auth_method'] = 'Nome del metodo di autenticazione';
 $string['auth_shib_auth_method_description'] = 'Inserite un nome familiare ai vostri utenti per identificare il metodo di autenticazione Shibboleth. Un nome adatto potrebbe essere il nome della vostra federazione Shibboleth, ad esempio <tt>SWITCHaai Login</tt> oppure <tt>InCommon Login</tt>.';
 $string['auth_shibboleth_contact_administrator'] = 'In caso non sei associato con alcuna delle organizzazioni fornite e hai bisogno di accedere a un corso su questo server, contatta';
-$string['auth_shibbolethdescription'] = 'Utilizzando questo metodo gli utenti vengono creati e autenticati utilizzando<a href="http://shibboleth.internet2.edu/" target="_blank">Shibboleth</a>';
+$string['auth_shibbolethdescription'] = 'Utilizzando questo metodo gli utenti vengono creati e autenticati utilizzando <a href="http://shibboleth.internet2.edu/" target="_blank">Shibboleth</a>';
 $string['auth_shibboleth_errormsg'] = 'Seleziona l\'organizzazione di cui sei membro!';
 $string['auth_shibboleth_login'] = 'Login Shibboleth';
 $string['auth_shibboleth_login_long'] = 'Login a Moodle via Shibboleth';
@@ -46,7 +46,7 @@ $string['auth_shib_instructions'] = 'Utilizzare <a href="{$a}">Shibboleth login<
 $string['auth_shib_instructions_help'] = 'Qui dovreste fornire istruzioni su Shibbolet per i vostri utenti. Verranno visualizzate nella pagina di login nella sezione delle istruzioni.
 Dovrebbe includere un collegamento a "<b>{$a}</b>"  in modo che gli utenti Shibboleth possano effettuare facilmente il login.';
 $string['auth_shib_integrated_wayf'] = 'Servizio Moodle WAYF';
-$string['auth_shib_integrated_wayf_description'] = 'E\' possibile consentire a Moodle di usare i propri servizi WAYF al posto di qulli configurati per Shibboleth. In questo caso Moodle visualizzerà un menù a discesa dove l\'utente potrà scegliere la pagina di login.';
+$string['auth_shib_integrated_wayf_description'] = 'E\' possibile consentire a Moodle di usare i propri servizi WAYF al posto di quelli configurati per Shibboleth. In questo caso Moodle visualizzerà un menù a discesa dove l\'utente potrà scegliere la pagina di login.';
 $string['auth_shib_logout_return_url'] = 'Logout return URL alternativa';
 $string['auth_shib_logout_return_url_description'] = 'Inserite l\'URL dove gli utenti Shibboleth saranno indirizzati dopo il logout.<br />Se l\'URL non viene inserita, allora gli utenti saranno indirizzati alla URL dove Moodle indirizza gli utenti.';
 $string['auth_shib_logout_url'] = 'Shibboleth Service Provider logout handler URL';

@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['login:addinstance'] = 'Engadir un novo bloque de inicio';
 $string['pluginname'] = 'Acceso';

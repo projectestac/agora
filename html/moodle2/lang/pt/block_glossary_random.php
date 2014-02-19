@@ -45,5 +45,5 @@ $string['select_glossary'] = 'Selecionar termos deste glossário';
 $string['showconcept'] = 'Exibir conceito (nome) de cada termo';
 $string['title'] = 'Título';
 $string['type'] = 'Como é selecionado um novo termo';
-$string['viewglossary'] = 'Ver todas as entradas';
+$string['viewglossary'] = 'Ver todos os termos';
 $string['whichfooter'] = 'É possível exibir links para ações do glossário associado a este bloco. O bloco exibirá apenas links para ações que estejam ativas para esse glossário.';

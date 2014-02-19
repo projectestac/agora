@@ -28,3 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['managemyfiles'] = '내 파일 관리';
 $string['pluginname'] = '개인 파일';
 $string['privatefiles'] = '내 파일들';
+$string['private_files:addinstance'] = '개인 파일 블록 추가';
+$string['private_files:myaddinstance'] = '내 공부방에 개인 파일 블록 추가';

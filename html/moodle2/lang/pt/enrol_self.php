@@ -58,7 +58,9 @@ Para prolongar estas inscrições, vá a {$a->extendurl}';
 $string['expirymessageenrollersubject'] = 'Notificação de expiração da autoinscrição';
 $string['groupkey'] = 'Usar senhas de inscrição de grupo';
 $string['groupkey_desc'] = 'Usar senhas de inscrição de grupo como configuração predefinida.';
-$string['groupkey_help'] = 'Para além de ser possível restringir o acesso a uma disciplina apenas aos utilizadores que conheçam a senha de inscrição, é possível definir senhas de inscrição em grupos, o que faz com que os utilizadores, aos fazerem a sua inscrição na disciplina, fiquem automaticamente integrados num grupo.';
+$string['groupkey_help'] = 'Para além de restringir o acesso à disciplina apenas aos utilizadores que têm a senha de inscrição, é possível definir senhas de inscrição para grupos, o que faz com que os utilizadores, ao se inscreverem na disciplina, fiquem automaticamente integrados num grupo.
+
+Nota: Uma senha de inscrição para a disciplina deve ser especificada nas configurações de autoinscrição, bem como as senhas de inscrição do grupo nas configurações do grupo.';
 $string['longtimenosee'] = 'Remover inscrições inativas há mais de';
 $string['longtimenosee_help'] = 'Tempo limite após o qual os utilizadores que não acedam à disciplina durante muito tempo verão a sua inscrição cancelada.';
 $string['maxenrolled'] = 'Número máximo de inscrições permitidas';

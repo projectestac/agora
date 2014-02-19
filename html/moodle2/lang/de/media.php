@@ -28,19 +28,19 @@ defined('MOODLE_INTERNAL') || die();
 $string['flashanimation'] = 'Flash-Animation';
 $string['flashanimation_desc'] = 'Dateien mit der Endung *.swf. Aus Sicherheitsgründen wird dieser Filter ausschließlich in vertrauensvollen Texten benutzt.';
 $string['flashvideo'] = 'Flash-Video';
-$string['flashvideo_desc'] = 'Dateien mit den Endungen *.flv und *.f4v. Dieser Filter spielt Videoclips mit dem FlowPlayer ab und benötigt Flash und JavaScript. Ein Fallback auf HTML5-Video ist möglich, falls mehrere Quellen angegeben sind.';
+$string['flashvideo_desc'] = 'Dateien mit den Endungen *.flv und *.f4v. Dieser Filter spielt Videoclips mit dem FlowPlayer ab und benötigt Flash und JavaScript.';
 $string['html5audio'] = 'HTML5-Audio';
-$string['html5audio_desc'] = 'Audio-Dateien mit den Endungen *.ogg, *.aac, *.m4a und anderen. Der Filter arbeitet nur mit aktuellen Webbrowsern, wobei es kein von allen Browsern unterstütztes Format gibt. Ein Fallback ist möglich, wenn mehrere Quellen mit # getrennt angeben sind: (z.B.  http://example.org/audio.ogg#http://example.org/audio.aac#http://example.org/audio.mp3#). Der QuickTime-Player wird als Fallback für ältere Browser verwendet.';
+$string['html5audio_desc'] = 'Audio-Dateien mit den Endungen *.ogg, *.aac, *.m4a. Der Filter arbeitet nur mit aktuellen Browsern, wobei es kein von allen Browsern unterstütztes Format gibt.';
 $string['html5video'] = 'HTML5-Video';
-$string['html5video_desc'] = 'Video-Dateien mit den Endungen *.webm, *.m4v, *.ogv und *.mp4 und anderen. Der Filter arbeitet nur mit aktuellen Webbrowsern, wobei es kein von allen Browsern unterstütztes Format gibt. Ein Fallback ist möglich, wenn mehrere Quellen mit # getrennt angeben sind: (z.B. http://example.org/video.m4v#http://example.org/video.webm#http://example.org/video.ogv#d=640x480). Der QuickTime-Player wird als Fallback für ältere Browser verwendet.';
+$string['html5video_desc'] = 'Video-Dateien mit den Endungen *.webm, *.m4v, *.ogv und *.mp4 und anderen. Der Filter arbeitet nur mit aktuellen Browsern, wobei es kein von allen Browsern unterstütztes Format gibt.';
 $string['legacyheading'] = 'Ältere Medienformate';
-$string['legacyheading_desc'] = 'Folgende Formate werden nicht zum Gebrauch empfohlen, sie werden aber in Installationen mit zentral verwalteten Clients aber oft noch verwendet.';
+$string['legacyheading_desc'] = 'Folgende Formate sind im Web nicht allgemein üblich und benötigen die Installation spezieller Browser Plugins.';
 $string['legacyquicktime'] = 'QuickTime Player';
-$string['legacyquicktime_desc'] = 'Dateien mit den Endungen *.mov, *.mp4, *.m4a, *.mp4 und *.mpg. Dieser Filter benötigt QuickTime oder QuickTime Codecs.';
+$string['legacyquicktime_desc'] = 'Dateien mit den Endungen *.mov, *.mp4, *.m4a und *.mpg. Dieser Filter benötigt QuickTime oder QuickTime Codecs.';
 $string['legacyreal'] = 'RealPlayer';
 $string['legacyreal_desc'] = 'Dateien mit der Endung *.rm, *.ra, *.ram, *.rp, *.rv. Der Filter benötigt den RealPlayer.';
 $string['legacywmp'] = 'Windows Media Player';
-$string['legacywmp_desc'] = 'Dateien mit den Endungen *.avi und *.wmv. Dieser Formate sind kompatibel mit dem Windows Internet Explorer, könnten aber mit anderen Browsern oder Betriebssystemen Probleme bereiten.';
+$string['legacywmp_desc'] = 'Dateien mit den Endungen *.avi, *.asf und *.wmv. Diese Formate sind kompatibel mit dem Windows Internet Explorer, bereiten aber mit anderen Browsern eventuell Probleme.';
 $string['mediaformats'] = 'Verfügbare Medienformate';
 $string['mediaformats_desc'] = 'Die Aktivierung dieser Einstellungen ermöglicht das Einbinden von Dateien über den Mediafilter (wenn aktiviert) oder die Datei bzw. URL Ressource mit Einbetten-Option. Wenn die Funktion nicht aktiviert wird, können die Dateien manuell heruntergeladen werden oder an dem angegebenen Ort aufgerufen werden.
 

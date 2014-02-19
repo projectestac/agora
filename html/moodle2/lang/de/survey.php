@@ -77,11 +77,11 @@ $string['attls9short'] = 'Mit Autoren/innen argumentieren';
 $string['attlsintro'] = 'Mit diesem Fragebogen möchten wir mehr über Ihre Einstellungen in Bezug auf Denken und Lernen erfahren.
 
 Es gibt keine \'richtigen\' oder \'falschen\' Antworten; wir sind nur an Ihrer Meinung interessiert. Wir versichern Ihnen, dass Ihre Antworten vertraulich behandelt werden und keine Auswirkung auf die Beurteilung Ihres Lernerfolgs im Kurs haben.';
-$string['attlsm1'] = 'Einstellungen gegenüber Denken und Lernen';
+$string['attlsm1'] = 'Einstellung zum Denken und Lernen';
 $string['attlsm2'] = 'Gebundenes Lernen';
 $string['attlsm3'] = 'Abgelöstes Lernen';
 $string['attlsmintro'] = 'In einer Diskussion verhalte ich mich so:';
-$string['attlsname'] = 'ATTLS (20 Punkte Version)';
+$string['attlsname'] = 'ATTLS (20 Fragen)';
 $string['cannotfindanswer'] = 'Bisher gibt es keine Antworten für diese Umfrage.';
 $string['cannotfindquestion'] = 'Frage existiert nicht';
 $string['cannotfindsurveytmpt'] = 'Keine Umfragemaske gefunden!';
@@ -157,9 +157,9 @@ Ihre Antworten können uns helfen, zukünftig die Präsentation und das Lernange
 
 Herzlichen Dank!';
 $string['collesaname'] = 'COLLES (tatsächlich)';
-$string['collesapintro'] = 'Diese Umfrage soll uns helfen herauszufinden, wie gut dieser Kurs Sie in Ihrem Lernen unterstützt hat.
+$string['collesapintro'] = 'Mit dieser Umfrage möchten wir herausfinden, wie gut dieser Kurs Sie beim Lernen unterstützt hat.
 
-Bei jeder der folgenden 24 Aussagen vergleichen Sie bitte Ihre <b>bevorzugten</b> (idealen) Lernweisen mit Ihren <b>tatsächlichen</b> Erfahrungen in diesem Modul.
+Bei jeder der folgenden 24 Aussagen vergleichen Sie Ihre <b>bevorzugten</b> (idealen) Lernweisen mit den <b>tatsächlichen</b> Erfahrungen in diesem Modul.
 
 Es gibt keine \'richtigen\' oder \'falschen\' Antworten. Wir sind nur an Ihrer Meinung interessiert. Wir versichern Ihnen, dass Ihre Antworten mit größtmöglicher Vertraulichkeit behandelt werden und keinen Einfluss auf die Beurteilung Ihres Lernerfolgs haben werden.
 
@@ -190,7 +190,7 @@ Ihre Antworten können uns helfen, zukünftig die Präsentation und das Lernange
 
 Herzlichen Dank!';
 $string['collespname'] = 'COLLES (bevorzugt)';
-$string['customintro'] = 'Einführungstext';
+$string['customintro'] = 'Beschreibung';
 $string['deleteallanswers'] = 'Alle Umfrageeinträge löschen';
 $string['deleteanalysis'] = 'Alle Auswertungen der Umfrageeinträge löschen';
 $string['done'] = 'Erledigt';
@@ -218,7 +218,7 @@ $string['newsurveyresponses'] = 'Neue Antworten zu den Umfragen';
 $string['nobodyyet'] = 'Niemand hat diese Umfrage bis jetzt  beantwortet';
 $string['notdone'] = 'Noch nicht durchgeführt';
 $string['notes'] = 'Ihre persönliche Analyse und Anmerkungen';
-$string['notyetanswered'] = 'Bisher nicht beantwortet';
+$string['notyetanswered'] = 'unbeantwortet';
 $string['othercomments'] = 'Haben Sie noch andere Kommentare?';
 $string['page-mod-survey-x'] = 'Jede Umfrageseite';
 $string['peoplecompleted'] = '{$a} Personen haben diese Umfrage ausgefüllt';
@@ -234,13 +234,13 @@ $string['report'] = 'Bericht zur Umfrage';
 $string['responsereports'] = 'Berichte';
 $string['responses'] = 'Antworten';
 $string['savednotes'] = 'Ihre Anmerkungen wurden gespeichert';
-$string['scaleagree5'] = 'Lehne ich vollständig ab, lehne ich überwiegend ab, kaum Ablehnung, kaum Zustimmung, stimme überwiegend zu, bin völlig einverstanden';
+$string['scaleagree5'] = 'vollständige Ablehnung, überwiegende Ablehnung, geringe Ablehnung, geringe Zustimmung, überwiegende Zustimmung, völlige Zustimmung';
 $string['scales'] = 'Skalen';
-$string['scaletimes5'] = 'Fast nie, selten, manchmal, oft, fast immer';
+$string['scaletimes5'] = 'fast nie, selten, manchmal, oft, fast immer';
 $string['seemoredetail'] = 'Hier klicken, um weitere Details sichtbar zu machen';
 $string['selectedquestions'] = 'Ausgewählte Fragen aus einer Skala, alle Teilnehmer/innen';
 $string['summary'] = 'Zusammenfassung';
-$string['survey:addinstance'] = 'Neue Umfrage hinzufügen';
+$string['survey:addinstance'] = 'Umfrage hinzufügen';
 $string['surveycompleted'] = 'Sie haben die Umfrage beendet. Das folgende Diagramm zeigt Ihre Ergebnisse im Vergleich zum Durchschnitt Ihrer Lerngruppe.';
 $string['survey:download'] = 'Antworten herunterladen';
 $string['surveygraph'] = 'Umfragegrafik';

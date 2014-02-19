@@ -32,7 +32,7 @@ $string['admindirsetting'] = 'まれに、コントロールパネルまたは�
 $string['admindirsettinghead'] = '管理ディレクトリの設定中 ...';
 $string['admindirsettingsub'] = 'まれに、コントロールパネルまたはその他の管理ツールにアクセスするためのURIとして/adminディレクトリを使用しているウェブホストがあります。残念ながら、これはMoodle管理ページの標準的なロケーションと衝突します。あなたはインストール時にadminディレクトリをリネームすることができます。ここに新しいディレクトリ名を入力してください。例: <br /> <br /><b>moodleadmin</b><br /> <br />
 これによりMoodleのadminリンクを変更します。';
-$string['availablelangs'] = '利用可能な言語一覧';
+$string['availablelangs'] = '利用可能な言語パック';
 $string['caution'] = '警告';
 $string['chooselanguage'] = '言語を選択してください。';
 $string['chooselanguagehead'] = '言語を選択してください。';

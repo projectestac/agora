@@ -48,14 +48,14 @@ $string['choosereadme'] = '<div class="clearfix">
 </div>
 </div>';
 $string['configtitle'] = 'Splash-Einstellungen';
-$string['customcss'] = 'Eigenes CSS';
-$string['customcssdesc'] = 'Das eigene CSS wird auf jeder Seite eingefügt, um das Design an Ihre Bedürfnisse anzupassen.';
+$string['customcss'] = 'CSS-Anpassungen';
+$string['customcssdesc'] = 'Die CSS-Anpassungen werden auf jeder Seite benutzt. Das Design kann so einfach geändert werden.';
 $string['defaulttagline'] = 'Virtuelles Lernbüro';
 $string['footnote'] = 'Fußnote';
 $string['footnotedesc'] = 'Der Inhalt dieses Textfeldes wird in der Fußzeile auf jeder Seite angezeigt.';
 $string['hide_tagline'] = 'Untertitel verbergen';
 $string['hide_taglinedesc'] = 'Wenn diese Option aktiviert ist, wird der Untertitel unter dem Logo nicht angezeigt.';
-$string['loginhere'] = 'hier einloggen!';
+$string['loginhere'] = 'Hier einloggen!';
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'Um ein eigenes Logo zu verwenden, geben Sie die URL zu einem Logo an (z.B. http://www.server.de/logo.png). Das Logo sollte maximal 230px breit sein.';
 $string['pluginname'] = 'Splash';

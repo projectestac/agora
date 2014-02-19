@@ -85,19 +85,19 @@ define('URL_MATCH_EXACT', 2);
  * Returns $var with HTML characters (like "<", ">", etc.) properly quoted.
  * This function is very similar to {@link p()}
  *
- * @todo Remove obsolete param $obsolete if not used anywhere
- *
  * @param string $var the string potentially containing HTML characters
- * @param boolean $obsolete no longer used.
  * @return string
  */
-function s($var, $obsolete = false) {
+function s($var) {
 
-    if ($var === '0' or $var === false or $var === 0) {
+    if ($var === false) {
         return '0';
     }
 
-    return preg_replace("/&amp;#(\d+|x[0-7a-fA-F]+);/i", "&#$1;", htmlspecialchars($var, ENT_QUOTES, 'UTF-8', true));
+    // When we move to PHP 5.4 as a minimum version, change ENT_QUOTES on the
+    // next line to ENT_QUOTES | ENT_HTML5 | ENT_SUBSTITUTE, and remove the
+    // 'UTF-8' argument. Both bring a speed-increase.
+    return preg_replace('/&amp;#(\d+|x[0-9a-f]+);/i', '&#$1;', htmlspecialchars($var, ENT_QUOTES, 'UTF-8'));
 }
 
 /**
@@ -1894,14 +1894,14 @@ function send_headers($contenttype, $cacheable = true) {
     }
 
     if ($cacheable) {
-        // Allow caching on "back" (but not on normal clicks)
-        @header('Cache-Control: private, pre-check=0, post-check=0, max-age=0');
+        // Allow caching on "back" (but not on normal clicks).
+        @header('Cache-Control: private, pre-check=0, post-check=0, max-age=0, no-transform');
         @header('Pragma: no-cache');
         @header('Expires: ');
     } else {
-        // Do everything we can to always prevent clients and proxies caching
+        // Do everything we can to always prevent clients and proxies caching.
         @header('Cache-Control: no-store, no-cache, must-revalidate');
-        @header('Cache-Control: post-check=0, pre-check=0', false);
+        @header('Cache-Control: post-check=0, pre-check=0, no-transform', false);
         @header('Pragma: no-cache');
         @header('Expires: Mon, 20 Aug 1969 09:23:00 GMT');
         @header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
@@ -3042,11 +3042,12 @@ class progress_bar {
         if (CLI_SCRIPT) {
             return; // temporary solution for cli scripts
         }
+        $widthplusborder = $this->width + 2;
         $htmlcode = <<<EOT
-        <div style="text-align:center;width:{$this->width}px;clear:both;padding:0;margin:0 auto;">
+        <div style="text-align:center;width:{$widthplusborder}px;clear:both;padding:0;margin:0 auto;">
             <h2 id="status_{$this->html_id}" style="text-align: center;margin:0 auto"></h2>
             <p id="time_{$this->html_id}"></p>
-            <div id="bar_{$this->html_id}" style="border-style:solid;border-width:1px;width:500px;height:50px;">
+            <div id="bar_{$this->html_id}" style="border-style:solid;border-width:1px;width:{$this->width}px;height:50px;">
                 <div id="progress_{$this->html_id}"
                 style="text-align:center;background:#FFCC66;width:4px;border:1px
                 solid gray;height:38px; padding-top:10px;">&nbsp;<span id="pt_{$this->html_id}"></span>

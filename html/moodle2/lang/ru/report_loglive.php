@@ -26,3 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['livelogs'] = 'Логи за последний час';
+$string['loglive:view'] = 'Просматривать логи в реальном времени';
+$string['pluginname'] = 'Логи в реальном времени';

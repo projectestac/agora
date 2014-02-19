@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['preferences'] = 'Preferencias de informe de cualificación';
+$string['useractivityfeedback'] = 'comentario {$a}';

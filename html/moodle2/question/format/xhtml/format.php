@@ -66,9 +66,11 @@ class qformat_xhtml extends qformat_default {
         // add header
         $expout .= "<h3>$question->name</h3>\n";
 
-        // Format and add the question text
-        $expout .= '<p class="questiontext">' . format_text($question->questiontext,
-                $question->questiontextformat) . "</p>\n";
+        // Format and add the question text.
+        $text = question_rewrite_questiontext_preview_urls($question->questiontext,
+                $question->contextid, 'qformat_xhtml', $question->id);
+        $expout .= '<p class="questiontext">' . format_text($text,
+                $question->questiontextformat, array('noclean' => true)) . "</p>\n";
 
         // selection depends on question type
         switch($question->qtype) {
@@ -130,11 +132,13 @@ class qformat_xhtml extends qformat_default {
             foreach($question->options->subquestions as $subquestion) {
                 // build drop down for answers
                 $quest_text = $this->repchar( $subquestion->questiontext );
-                $dropdown = html_writer::label(get_string('answer', 'qtype_match', $option+1), 'quest_'.$id.'_'.$option, false, array('class' => 'accesshide'));
-                $dropdown .= html_writer::select($selectoptions, "quest_{$id}_{$option}", '', false, array('id' => "quest_{$id}_{$option}"));
-                $expout .= html_writer::tag('li', $quest_text);;
-                $expout .= $dropdown;
-                $option++;
+                if ($quest_text != '') {
+                    $dropdown = html_writer::label(get_string('answer', 'qtype_match', $option+1), 'quest_'.$id.'_'.$option, false, array('class' => 'accesshide'));
+                    $dropdown .= html_writer::select($selectoptions, "quest_{$id}_{$option}", '', false, array('id' => "quest_{$id}_{$option}"));
+                    $expout .= html_writer::tag('li', $quest_text);
+                    $expout .= $dropdown;
+                    $option++;
+                }
             }
             $expout .= html_writer::end_tag('ul');
             break;

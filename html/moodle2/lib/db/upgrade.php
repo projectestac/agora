@@ -1300,13 +1300,13 @@ function xmldb_main_upgrade($oldversion) {
     }
 
     if ($oldversion < 2012103003.00) {
-        // Fix uuid field in event table to match RFC-2445 UID property
+        // Fix uuid field in event table to match RFC-2445 UID property.
         $table = new xmldb_table('event');
         $field = new xmldb_field('uuid', XMLDB_TYPE_CHAR, '255', null, XMLDB_NOTNULL, null, null, 'visible');
-        if ($dbman->field_exists($table, $field)) {
-            // Changing precision of field uuid on table event to (255)
-            $dbman->change_field_precision($table, $field);
-        }
+        // The column already exists, so make sure there are no nulls (crazy mysql).
+        $DB->set_field_select('event', 'uuid', $DB->sql_empty(), "uuid IS NULL");
+        // Changing precision of field uuid on table event to (255).
+        $dbman->change_field_precision($table, $field);
         // Main savepoint reached
         upgrade_main_savepoint(true, 2012103003.00);
     }
@@ -1467,7 +1467,7 @@ function xmldb_main_upgrade($oldversion) {
 
     if ($oldversion < 2012111200.01) {
         // Force the rebuild of the cache of every courses, some cached information could contain wrong icon references.
-        rebuild_course_cache();
+        $DB->execute('UPDATE {course} set modinfo = ?, sectioncache = ?', array(null, null));
 
         // Main savepoint reached.
         upgrade_main_savepoint(true, 2012111200.01);
@@ -1559,6 +1559,8 @@ function xmldb_main_upgrade($oldversion) {
     }
 
     if ($oldversion < 2012120301.11) {
+        // This upgrade step is re-written under MDL-38228 (see below).
+        /*
         // Retrieve the list of course_sections as a recordset to save memory
         $coursesections = $DB->get_recordset('course_sections', null, 'course, id', 'id, course, sequence');
         foreach ($coursesections as $coursesection) {
@@ -1602,6 +1604,7 @@ function xmldb_main_upgrade($oldversion) {
             }
         }
         $coursesections->close();
+        */
 
         // Main savepoint reached.
         upgrade_main_savepoint(true, 2012120301.11);
@@ -1612,12 +1615,28 @@ function xmldb_main_upgrade($oldversion) {
         $DB->delete_records('course_sections_avail_fields', array('userfield' => 'interests'));
         $DB->delete_records('course_modules_avail_fields', array('userfield' => 'interests'));
         // Clear course cache (will be rebuilt on first visit) in case of changes to these.
-        rebuild_course_cache(0, true);
+        $DB->execute('UPDATE {course} set modinfo = ?, sectioncache = ?', array(null, null));
 
         upgrade_main_savepoint(true, 2012120301.13);
     }
 
     if ($oldversion < 2012120302.01) {
+        // MDL-38228. Single script to upgrade course_modules instead of 2012120301.11.
+        // It replaces two scripts (now commented out) introduced in MDL-37939 and MDL-38173.
+
+        // This upgrade script fixes the mismatches between DB fields course_modules.section
+        // and course_sections.sequence. It makes sure that each module is included
+        // in the sequence of only one section and that course_modules.section points back to it.
+
+        // This script in included in each major version upgrade process so make sure we don't run it twice.
+        if (empty($CFG->movingmoduleupgradescriptwasrun)) {
+            upgrade_course_modules_sequences();
+
+            // To skip running the same script on the upgrade to the next major release.
+            set_config('movingmoduleupgradescriptwasrun', 1);
+        }
+
+        /*
         // Retrieve the list of course_sections as a recordset to save memory.
         // This is to fix a regression caused by MDL-37939.
         // In this case the upgrade step is fixing records where:
@@ -1674,9 +1693,225 @@ function xmldb_main_upgrade($oldversion) {
             }
         }
         $coursesections->close();
+        */
 
         upgrade_main_savepoint(true, 2012120302.01);
     }
+
+    if ($oldversion < 2012120303.02) {
+        // Fixing possible wrong MIME type for MIME HTML (MHTML) files.
+        $extensions = array('%.mht', '%.mhtml');
+        $select = $DB->sql_like('filename', '?', false);
+        foreach ($extensions as $extension) {
+            $DB->set_field_select(
+                'files',
+                'mimetype',
+                'message/rfc822',
+                $select,
+                array($extension)
+            );
+        }
+        upgrade_main_savepoint(true, 2012120303.02);
+    }
+
+    if ($oldversion < 2012120303.06) {
+        // MDL-29877 Some bad restores created grade items with no category information.
+        $sql = "UPDATE {grade_items}
+                   SET categoryid = courseid
+                 WHERE itemtype <> 'course' and itemtype <> 'category'
+                       AND categoryid IS NULL";
+        $DB->execute($sql);
+        upgrade_main_savepoint(true, 2012120303.06);
+    }
+
+    if ($oldversion < 2012120303.08) {
+        require_once($CFG->dirroot.'/cache/locallib.php');
+        // The features bin needs updating.
+        cache_config_writer::update_default_config_stores();
+        // Main savepoint reached.
+        upgrade_main_savepoint(true, 2012120303.08);
+    }
+
+    if ($oldversion < 2012120303.09) {
+        // Adding index to unreadmessageid field of message_working table (MDL-34933)
+        $table = new xmldb_table('message_working');
+        $index = new xmldb_index('unreadmessageid_idx', XMLDB_INDEX_NOTUNIQUE, array('unreadmessageid'));
+
+        // Conditionally launch add index unreadmessageid
+        if (!$dbman->index_exists($table, $index)) {
+            $dbman->add_index($table, $index);
+        }
+
+        // Main savepoint reached.
+        upgrade_main_savepoint(true, 2012120303.09);
+    }
+
+    if ($oldversion < 2012120304.01) {
+        // Fix incorrect cc-nc url. Unfortunately the license 'plugins' do
+        // not give a mechanism to do this.
+
+        $sql = "UPDATE {license}
+                   SET source = :url, version = :newversion
+                 WHERE shortname = :shortname AND version = :oldversion";
+
+        $params = array(
+            'url' => 'http://creativecommons.org/licenses/by-nc/3.0/',
+            'shortname' => 'cc-nc',
+            'newversion' => '2013051500',
+            'oldversion' => '2010033100'
+        );
+
+        $DB->execute($sql, $params);
+
+        // Main savepoint reached.
+        upgrade_main_savepoint(true, 2012120304.01);
+    }
+
+    if ($oldversion < 2012120304.06) {
+        // Clean up old tokens which haven't been deleted.
+        $DB->execute("DELETE FROM {user_private_key} WHERE NOT EXISTS
+                         (SELECT 'x' FROM {user} WHERE deleted = 0 AND id = userid)");
+
+        // Main savepoint reached.
+        upgrade_main_savepoint(true, 2012120304.06);
+    }
+
+    if ($oldversion < 2012120305.01) {
+
+        // Remove orphan repository instances.
+        if ($DB->get_dbfamily() === 'mysql') {
+            $sql = "DELETE {repository_instances} FROM {repository_instances}
+                    LEFT JOIN {context} ON {context}.id = {repository_instances}.contextid
+                    WHERE {context}.id IS NULL";
+        } else {
+            $sql = "DELETE FROM {repository_instances}
+                    WHERE NOT EXISTS (
+                        SELECT 'x' FROM {context}
+                        WHERE {context}.id = {repository_instances}.contextid)";
+        }
+        $DB->execute($sql);
+
+        // Main savepoint reached.
+        upgrade_main_savepoint(true, 2012120305.01);
+    }
+
+    if ($oldversion < 2012120305.08) {
+        // Convert name field in event table to text type as RFC-2445 doesn't have any limitation on it.
+        $table = new xmldb_table('event');
+        $field = new xmldb_field('name', XMLDB_TYPE_TEXT, null, null, XMLDB_NOTNULL, null, null, 'id');
+        if ($dbman->field_exists($table, $field)) {
+            $dbman->change_field_type($table, $field);
+        }
+        // Main savepoint reached.
+        upgrade_main_savepoint(true, 2012120305.08);
+    }
+
+    if ($oldversion < 2012120306.05) {
+        // Fixing possible wrong MIME type for Java Network Launch Protocol (JNLP) files.
+        $select = $DB->sql_like('filename', '?', false);
+        $DB->set_field_select(
+            'files',
+            'mimetype',
+            'application/x-java-jnlp-file',
+            $select,
+            array('%.jnlp')
+        );
+
+        // Main savepoint reached.
+        upgrade_main_savepoint(true, 2012120306.05);
+    }
+
+    if ($oldversion < 2012120306.09) {
+        // Find all fileareas that have missing root folder entry and add the root folder entry.
+        if (empty($CFG->filesrootrecordsfixed)) {
+            $sql = "SELECT distinct f1.contextid, f1.component, f1.filearea, f1.itemid
+                FROM {files} f1 left JOIN {files} f2
+                    ON f1.contextid = f2.contextid
+                    AND f1.component = f2.component
+                    AND f1.filearea = f2.filearea
+                    AND f1.itemid = f2.itemid
+                    AND f2.filename = '.'
+                    AND f2.filepath = '/'
+                WHERE (f1.component <> 'user' or f1.filearea <> 'draft')
+                and f2.id is null";
+            $rs = $DB->get_recordset_sql($sql);
+            $defaults = array('filepath' => '/',
+                            'filename' => '.',
+                            'userid' => $USER->id,
+                            'filesize' => 0,
+                            'timecreated' => time(),
+                            'timemodified' => time(),
+                            'contenthash' => sha1(''));
+            foreach ($rs as $r) {
+                $pathhash = sha1("/$r->contextid/$r->component/$r->filearea/$r->itemid".'/.');
+                $DB->insert_record('files', (array)$r + $defaults +
+                        array('pathnamehash' => $pathhash));
+            }
+            $rs->close();
+            // To skip running the same script on the upgrade to the next major release.
+            set_config('filesrootrecordsfixed', 1);
+        }
+
+        // Main savepoint reached.
+        upgrade_main_savepoint(true, 2012120306.09);
+    }
+
+    if ($oldversion < 2012120307.02) {
+
+        // Delete notes of deleted courses.
+        $sql = "DELETE FROM {post}
+                 WHERE NOT EXISTS (SELECT {course}.id FROM {course}
+                                    WHERE {course}.id = {post}.courseid)
+                       AND {post}.module = ?";
+        $DB->execute($sql, array('notes'));
+
+        // Main savepoint reached.
+        upgrade_main_savepoint(true, 2012120307.02);
+    }
+
+    if ($oldversion < 2012120307.09) {
+        // Purge stored passwords from config_log table, ideally this should be in each plugin
+        // but that would complicate backporting...
+        $items = array(
+            'core/cronremotepassword', 'core/proxypassword', 'core/smtppass', 'core/jabberpassword',
+            'enrol_database/dbpass', 'enrol_ldap/bind_pw', 'url/secretphrase');
+        foreach ($items as $item) {
+            list($plugin, $name) = explode('/', $item);
+            $sqlcomparevalue =  $DB->sql_compare_text('value');
+            $sqlcompareoldvalue = $DB->sql_compare_text('oldvalue');
+            $sqlempty = $DB->sql_empty();
+
+            if ($plugin === 'core') {
+                $sql = "UPDATE {config_log}
+                           SET value = :value
+                         WHERE name = :name AND plugin IS NULL AND $sqlcomparevalue <> :empty";
+                $params = array('value' => '********', 'name' => $name, 'empty' => $sqlempty);
+                $DB->execute($sql, $params);
+
+                $sql = "UPDATE {config_log}
+                           SET oldvalue = :value
+                         WHERE name = :name AND plugin IS NULL AND $sqlcompareoldvalue <> :empty";
+                $params = array('value' => '********', 'name' => $name, 'empty' => $sqlempty);
+                $DB->execute($sql, $params);
+
+            } else {
+                $sql = "UPDATE {config_log}
+                           SET value = :value
+                         WHERE name = :name AND plugin = :plugin AND $sqlcomparevalue <> :empty";
+                $params = array('value' => '********', 'name' => $name, 'plugin' => $plugin, 'empty' => $sqlempty);
+                $DB->execute($sql, $params);
+
+                $sql = "UPDATE {config_log}
+                           SET oldvalue = :value
+                         WHERE name = :name AND plugin = :plugin AND  $sqlcompareoldvalue <> :empty";
+                $params = array('value' => '********', 'name' => $name, 'plugin' => $plugin, 'empty' => $sqlempty);
+                $DB->execute($sql, $params);
+            }
+        }
+        // Main savepoint reached.
+        upgrade_main_savepoint(true, 2012120307.09);
+    }
+
 
     return true;
 }

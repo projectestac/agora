@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['blog_recent:addinstance'] = '최근 블로그 항목 블록 추가';
 $string['norecentblogentries'] = '최근 기록 없음';
 $string['numentriestodisplay'] = '표시할 최근 기록 수';
 $string['pluginname'] = '최근 블로그 기록';

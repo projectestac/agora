@@ -33,7 +33,6 @@ $string['automaticallygraded'] = '已自动评分';
 $string['backtothelistofquestions'] = '回到题目列表';
 $string['bydate'] = '按日期';
 $string['bystudentidnumber'] = '按学号';
-$string['bystudentname'] = '按学生姓名';
 $string['cannotgradethisattempt'] = '不能给此试卷评分。';
 $string['cannotloadquestioninfo'] = '无法加载题目类型指定的题目信息';
 $string['changeoptions'] = '修改选项';

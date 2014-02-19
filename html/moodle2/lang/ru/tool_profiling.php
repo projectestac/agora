@@ -25,5 +25,22 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['calls'] = 'Вызовы функций';
+$string['cannotfindanyrunforrunid'] = 'К сожалению, не удалось найти прогон с идентификатором «{$a}»';
+$string['cannotfindanyrunforurl'] = 'К сожалению, не удалось найти ни одного прогона профилирования для URL «{$a}»';
 $string['comment'] = 'Комментарий';
-$string['summaryof'] = 'Описание для "{$a}"';
+$string['cputime'] = 'Процессорное время';
+$string['differencesbetween2runsof'] = 'Различия между 2 прогонами для «{$a}»';
+$string['executiontime'] = 'Время выполнения';
+$string['lastrunof'] = 'Отчет о последнем прогоне {$a}';
+$string['markreferencerun'] = 'Отметить как эталонный прогон/комментарий';
+$string['memory'] = 'Используемая память';
+$string['pluginname'] = 'Прогоны профилирования';
+$string['profilingfocusscript'] = 'Остановиться на прогонах профилирования для скрипта: {$a}';
+$string['profilingruns'] = 'Прогоны профилирования';
+$string['profilingrunsfor'] = 'Прогоны профилирования для «{$a}»';
+$string['referencerun'] = 'Эталонный прогон/комментарий';
+$string['runid'] = 'Идентификатор прогона';
+$string['summaryof'] = 'Результаты прогона для «{$a}»';
+$string['viewdetails'] = 'Посмотреть подробности профилирования';
+$string['viewdiffdetails'] = 'Посмотреть подробности различия в результатах профилирования';

@@ -433,16 +433,16 @@ $string['modulename_help'] = 'A actividade da proba permítelle a un profesor cr
 
 O profesor pode permitir que a proba se intente múltiplas veces, coas preguntas baralladas ou aleatoriamente seleccionadas do banco de preguntas. Pode estabelecerse un límite de tempo.
 
-Cada intento márcase automaticamente, agás as preguntas de ensaio e a cualificación gárdase no libro de cualificacións.
+Cada intento márcase automaticamente, agás as preguntas de ensaio, e a cualificación gárdase no libro de cualificacións.
 
-O profesor pode escoller cando e como as pistas, a retroalimentación e as respostas correctas se lles amosarán aos alumnos.
+O profesor pode escoller cando e se as pistas, os comentarios e as respostas correctas se lles amosarán ou non aos alumnos.
 
-As probas poden usarse
+As probas pódense utilizar
 
 * Como exames de curso
-* Como miniprobas para ler deberes ou ao final dun tema
+* Como minitests para tarefas de lectura ou ao final dun tema
 * Como práctica de exame que utiliza preguntas de exames pasados
-* Para entregar retroalimentación inmediata sobre rendemento
+* Para facer chegar comentarios inmediatos sobre o rendemento
 * Para autoavaliación';
 $string['modulename_link'] = 'mod/quiz/view';
 $string['modulenameplural'] = 'Probas';

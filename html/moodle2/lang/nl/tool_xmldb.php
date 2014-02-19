@@ -43,21 +43,37 @@ $string['check_indexes'] = 'Zoek ontbrekende DB indexen';
 $string['checkoraclesemantics'] = 'Controleer semantics';
 $string['check_oracle_semantics'] = 'Controleer op semantics met de foute lengte';
 $string['completelogbelow'] = '(complete log van zoeken onderaan)';
-$string['confirmcheckbigints'] = 'Deze functie zal zoeken naar <a href="http://tracker.moodle.org/browse/MDL-11038"> mogelijk foute integer velden op je Moodle server, en hierbij automatisch de nodige SQL-statements genereren (maar niet uitvoeren!) om alle integer velden in je DB juist te zetten. Eens gegenereerd kun je die statements kopiëren en veilig uitvoeren in je favoriete SQL-interface<br /><br />
-Het is ten zeerste aangeraden de laatst beschikbare (+ versie) Moodleversie te gebruiken voor je zoekt naar foute integers.<br /><br />
+$string['confirmcheckbigints'] = 'Deze functie zal zoeken naar <a href="http://tracker.moodle.org/browse/MDL-11038"> mogelijk foute integer velden op je Moodle server, en hierbij automatisch de nodige SQL-statements genereren (maar niet uitvoeren!) om alle integer velden in je DB juist te zetten.
+
+Eens gegenereerd kun je die statements kopiëren en veilig uitvoeren in je favoriete SQL-interface (maak altijd eerst een backup van je databank!).
+
+Het is ten zeerste aangeraden de laatst beschikbare (+ versie) Moodleversie te gebruiken voor je zoekt naar foute integers.
+
 Deze functie schrijft niets weg in de databank (enkel lezen), en kan dus veilig uitgevoerd worden op elk moment.';
-$string['confirmcheckdefaults'] = 'Deze functie zoekt naar inconsistente standaardwaarden in je Moodleserver. De SQL-statements, nodig om de standaardwaarden juist te definiëren, worden daarbij gegenereerd (maar niet uitgevoerd!).<br /><br />
-Als die gegenereerd zijn, kun je ze uitvoeren in je favoriete SQL-interface (vergeet niet je databank te back-uppen voor je dat doet).<br /><br />
-Het is ten zeerste aangeraden om de laatste beschikbare +-versie van je Moodleversie te gebruiken voor je gaatzoeken naar inconsistente standaardwaarden.<br /><br />
+$string['confirmcheckdefaults'] = 'Deze functie zoekt naar inconsistente standaardwaarden in je Moodleserver. De SQL-statements, nodig om de standaardwaarden juist te definiëren, worden daarbij gegenereerd (maar niet uitgevoerd!).
+
+Als die gegenereerd zijn, kun je ze uitvoeren in je favoriete SQL-interface (vergeet niet je databank te back-uppen voor je dat doet).
+
+Het is ten zeerste aangeraden om de laatste beschikbare +-versie van je Moodleversie te gebruiken voor je gaatzoeken naar inconsistente standaardwaarden.
+
 Deze actie leest alleen je databank en kan dus altijd veilig uitgevoerd worden.';
-$string['confirmcheckforeignkeys'] = 'Deze functie zoekt naar mogelijke schendingen van foreign keys, gedefinieerd in de install.xml-definities. (Moodle genereert op dit ogenblik geen foreign key beperkingen in de databank - hierdoor kan er ongeldige data voorkomen.)<br /><br />
-Je kunt best de laatste Moodleversie gebruiken (+-versie) die voor jouw Moodle (1.8, 1.9, 2.x ...) beschikbaar is voor je op zoek gaat naar ontbrekende indexen.<br /><br />
+$string['confirmcheckforeignkeys'] = 'Deze functie zoekt naar mogelijke schendingen van foreign keys, gedefinieerd in de install.xml-definities. (Moodle genereert op dit ogenblik geen foreign key beperkingen in de databank - hierdoor kan er ongeldige data voorkomen.)
+
+Je kunt best de laatste Moodleversie gebruiken (+-versie) die voor jouw Moodle (1.8, 1.9, 2.x ...) beschikbaar is voor je op zoek gaat naar ontbrekende indexen.
+
 Deze functie wijzigt niets aan de databank (enkel lezen). Je kunt dit dus op elk moment veilig uitvoeren.';
-$string['confirmcheckindexes'] = 'Deze functie zal zoeken naar mogelijk ontbrekende indexen op je Moodle server, en hierbij automatisch de nodige SQL-statements genereren (maar niet uitvoeren!) om alles up to date te houden. Eens gegenereerd kun je die statements kopiëren en veilig uitvoeren in je favoriete SQL-interface<br /><br />
-Het is ten zeerste aangeraden de laatst beschikbare (+ versie) Moodleversie te gebruiken voor je zoekt naar ontbrekende indexen.<br /><br />
+$string['confirmcheckindexes'] = 'Deze functie zal zoeken naar mogelijk ontbrekende indexen op je Moodle server, en hierbij automatisch de nodige SQL-statements genereren (maar niet uitvoeren!) om alles up to date te houden. Eens gegenereerd kun je die statements kopiëren en veilig uitvoeren in je favoriete SQL-interface
+
+Het is ten zeerste aangeraden de laatst beschikbare (+ versie) Moodleversie te gebruiken voor je zoekt naar ontbrekende indexen.
+
 Deze functie schrijft niets weg in de databank (enkel lezen), en kan dus veilig uitgevoerd worden op elk moment.';
-$string['confirmcheckoraclesemantics'] = 'Deze functie zal zoeken naar  <a href="http://tracker.moodle.org/browse/MDL-29322">Oracle varchar2 kolommen die BYTE semantics gebruiken</a> op je Moodle server, en hierbij automatisch de nodige SQL-statements genereren (maar niet uitvoeren!) om alle kolommen te converteren neer CHAR semantics (beter voor cross-db compatibiliteit en een grotere maximumlengte voor de inhoud)<br /><br />. Eens gegenereerd kun je die statements kopiëren en veilig uitvoeren in je favoriete SQL-interface (vergeet niet om eerst een back-up te nemen)<br /><br />
-Het is ten zeerste aangeraden de laatst beschikbare (+ versie) Moodleversie te gebruiken voor je zoekt naar BYTE semantics.<br /><br />
+$string['confirmcheckoraclesemantics'] = 'Deze functie zal zoeken naar  <a href="http://tracker.moodle.org/browse/MDL-29322">Oracle varchar2 kolommen die BYTE semantics gebruiken</a> op je Moodle server, en hierbij automatisch de nodige SQL-statements genereren (maar niet uitvoeren!) om alle kolommen te converteren neer CHAR semantics (beter voor cross-db compatibiliteit en een grotere maximumlengte voor de inhoud).
+
+Eens gegenereerd kun je die statements kopiëren en veilig uitvoeren in je favoriete SQL-interface (vergeet niet om eerst een back-up te nemen)
+
+
+Het is ten zeerste aangeraden de laatst beschikbare (+ versie) Moodleversie te gebruiken voor je zoekt naar BYTE semantics.
+
 Deze functie schrijft niets weg in de databank (enkel lezen), en kan dus veilig uitgevoerd worden op elk moment.';
 $string['confirmdeletefield'] = 'Ben je zeker dat je dit veld wil verwijderen:';
 $string['confirmdeleteindex'] = 'Ben je zeker dat je deze index wil verwijderen:';
@@ -169,6 +185,8 @@ $string['selecttable'] = 'Selecteer tabel:';
 $string['table'] = 'Tabel';
 $string['tablenameempty'] = 'De tabelnaam kan niet leeg zijn';
 $string['tables'] = 'Tabellen';
+$string['unknownfield'] = 'Referentie naar een onbekend veld';
+$string['unknowntable'] = 'Referentie naar een onbekende tabel';
 $string['unload'] = 'Laad niet';
 $string['up'] = 'Omhoog';
 $string['view'] = 'Bekijk';

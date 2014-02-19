@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'openmeetings', language 'es', branch 'MOODLE_21_STABLE'
+ * Strings for component 'openmeetings', language 'es', branch 'MOODLE_24_STABLE'
  *
  * @package   openmeetings
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['Allow_Recording'] = 'Grabación permitida';
-$string['Audience'] = 'Audiencia (máximo 32 participantes)';
 $string['Comment'] = 'Comentario';
 $string['Conference'] = 'Conferencia (máximo 16 participantes)';
 $string['Max_User'] = 'Número máximo de usuarios';

@@ -29,4 +29,4 @@ $string['confirmdelete'] = 'Möchten Sie alle nichtunterstützten Zuweisungen zu
 $string['contextlevel'] = 'Kontext';
 $string['count'] = 'Zähler';
 $string['noprolbems'] = 'Keine nicht unterstützten Rollenzuweisungen gefunden';
-$string['pluginname'] = 'Nichtunterstützte Rollenzuweisungen';
+$string['pluginname'] = 'Nicht unterstützte Rollenzuweisungen';

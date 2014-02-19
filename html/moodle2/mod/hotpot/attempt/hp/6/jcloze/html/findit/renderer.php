@@ -43,7 +43,7 @@ class mod_hotpot_attempt_hp_6_jcloze_html_findit_renderer extends mod_hotpot_att
      *
      * @return array of strings
      */
-    public static function sourcetypes()  {
+    static public function sourcetypes()  {
         return array();
     }
 

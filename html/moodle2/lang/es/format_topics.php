@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['currentsection'] = 'Este tema';
+$string['currentsection'] = 'Tema actual';
 $string['hidefromothers'] = 'Ocultar tema';
 $string['page-course-view-topics'] = 'Cualquier página principal de curso en formato por temas';
 $string['page-course-view-topics-x'] = 'Cualquier página de curso en formato por temas';

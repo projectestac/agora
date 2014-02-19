@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['comments:addinstance'] = '덧글 블록 추가';
+$string['comments:myaddinstance'] = '내 공부방에 새 덧글 블록 추가';
 $string['pluginname'] = '덧글';

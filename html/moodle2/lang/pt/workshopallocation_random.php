@@ -38,7 +38,7 @@ $string['noallocationtoadd'] = 'Não existem trabalhos por atribuir';
 $string['nogroupusers'] = '<p>Atenção: Se o workshop estiver no modo \'visible groups\' ou no modo \'separate groups\', os utilizadores devem estar inscritos em pelo menos um grupo para lhe serem atribuídos trabalhos para avaliação a pares. Utilizadores que não se encontrem inscritos em nenhum grupo, podem apenas realizar auto-avaliações e avaliação de trabalhos que deixaram de estar alocados a pares.</p>
 <p>Utilizadores que não se encontrem atualmente inscritos em nenhum grupo: {$a}</p>';
 $string['numofdeallocatedassessment'] = 'Avaliações que deixaram de estar atribuídas {$a}';
-$string['numofrandomlyallocatedsubmissions'] = 'Atribuição aleatória {$a}';
+$string['numofrandomlyallocatedsubmissions'] = 'Atribuição aleatória de {$a} trabalhos';
 $string['numofreviews'] = 'Número de avaliações';
 $string['numofselfallocatedsubmissions'] = 'Auto-avaliação de trabalhos {$a}';
 $string['numperauthor'] = 'por trabalho submetido';

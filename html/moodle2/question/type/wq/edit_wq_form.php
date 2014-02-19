@@ -39,7 +39,7 @@ class qtype_wq_edit_form extends question_edit_form {
         $default_values = array();
         $default_values['wirisquestion[0]'] = $program;
         $mform->setDefaults($default_values);
-        $mform->setShowAdvanced(1);
+        //$mform->setShowAdvanced(1);
 
     }
 

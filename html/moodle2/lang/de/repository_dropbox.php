@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'API Key';
 $string['cachelimit'] = 'Cache-Begrenzung';
-$string['cachelimit_info'] = 'Legen Sie Höchstgrenze für die Größe von Dateien (in Byte) fest, die auf Servern gecacht werden soll für Dropbox Aliases und Shortcuts. Gecachte Dateien werden genutzt wenn die Quelldatei nicht verfügbar ist. Leere Einträge oder der Wert \'0\' bedeuten, dass alle Dateien unabhängig von ihrer Größe gecacht werden.';
+$string['cachelimit_info'] = 'Legen Sie die maximale Dateigröße (in Bytes) fest, die auf dem Server bei Dropbox Aliases/Verknüpfungen gecacht werden soll. Gecachte Dateien werden genutzt, wenn die Quelldatei nicht verfügbar ist. Leere Einträge oder der Wert \'0\' bedeuten, dass alle Dateien unabhängig von ihrer Größe gecacht werden.';
 $string['configplugin'] = 'Einstellungen für Dropbox';
 $string['dropbox'] = 'Dropbox';
 $string['dropbox:view'] = 'Dropbox-Dateien anzeigen';

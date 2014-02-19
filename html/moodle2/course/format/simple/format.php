@@ -20,8 +20,8 @@
  * This format is based on "topics" format from Moodle 2.4
  *
  * @package format_simple
- * @copyright 2012 UPCnet
- * @author Pau Ferrer Ocaña pau.ferrer-ocana@upcnet.es, Jaume Fernàndez Valiente jfern343@xtec.cat
+ * @copyright 2012-2014 UPCnet
+ * @author Pau Ferrer Ocaña pau.ferrer-ocana@upcnet.es, Jaume Fernàndez Valiente jfern343@xtec.cat, Marc Espinosa Zamora marc.espinosa.zamora@upcnet.es
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -73,7 +73,12 @@ if ($course->coursedisplay == COURSE_DISPLAY_MULTIPAGE){
 }
 //************ FI                    
 
-if (!empty($displaysection)) {
+$isstudent = !has_capability('moodle/course:update',$context);
+$section =  optional_param('section',0,PARAM_INT);
+
+if (($notifyeditingon < 0 && $isstudent) || !empty($section)) {
+    //if (empty($displaysection)) $course->showtopiczero = true;
+    $displaysection = !empty($displaysection)?$displaysection:1;
     $renderer->print_single_section_page($course, null, null, null, null, $displaysection);
 } else {
     $renderer->print_multiple_section_page($course, null, null, null, null);

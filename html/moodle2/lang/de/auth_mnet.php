@@ -30,7 +30,7 @@ $string['auth_mnetdescription'] = 'Nutzer/innen werden als vertrauensvoll authen
 $string['auth_mnet_roamin'] = 'Nutzer/innen dieses Hosts können Ihre Website durchsuchen';
 $string['auth_mnet_roamout'] = 'Ihre Nutzer/innen können diese Websites durchsuchen';
 $string['auth_mnet_rpc_negotiation_timeout'] = 'Timeout in Sekunden für die Authentifizierung über den XMLRPC Transfer.';
-$string['auto_add_remote_users'] = 'Automatisches Hinzufügen externer Nutzer';
+$string['auto_add_remote_users'] = 'Remote-Nutzer/innen automatisch hinzufügen';
 $string['pluginname'] = 'MNET Authentifizierung';
 $string['rpc_negotiation_timeout'] = 'RPC negotiation timeout';
 $string['sso_idp_description'] = 'Veröffentlichen Sie diesen Dienst, um Ihren Nutzer/innen einen Zugriff auf {$a} zu ermöglichen, ohne sich dort erneut anmelden zu müssen.
@@ -43,6 +43,6 @@ $string['sso_mnet_login_refused'] = 'Der Anmeldename {$a->user} ist zum Login au
 $string['sso_sp_description'] = 'Veröffentlichen Sie diesen Dienst, um angemeldeten Nutzer/innen von {$a} einen Zugriff auf Ihre Website zu erlauben, ohne sich hier erneut anmelden zu müssen.
 <ul><li><em>Voraussetzung</em>: Sie müssen ebenfalls den SSO-Dienst (Identity Provider) auf {$a} <strong>abonnieren </strong>.</li></ul>
 
-<br />Abonnieren Sie diesen Dienst, um Ihren Nutzer/inneneinen Zugriff auf {$a} zu ermöglichen, ohne sich dort erneut anmelden zu müssen.
+<br />Abonnieren Sie diesen Dienst, um Ihren Nutzer/innen einen Zugriff auf {$a} zu ermöglichen, ohne sich dort erneut anmelden zu müssen.
 <ul><li><em>Voraussetzung</em>: Sie müssen zusätzlich den SSO-Dienst (Identity Provider) für {$a} <strong> veröffentlichen </strong>.</li></ul>';
 $string['sso_sp_name'] = 'SSO (Service Provider)';

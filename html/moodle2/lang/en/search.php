@@ -16,12 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'search', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'search', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   search
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['advancedsearch'] = 'Advanced search';
 $string['all'] = 'All';
@@ -29,6 +31,10 @@ $string['author'] = 'Author';
 $string['authorname'] = 'Author name';
 $string['back'] = 'Back';
 $string['beadmin'] = 'You need to be an admin user to use this page.';
+$string['checkdb'] = 'Check database';
+$string['checkdbadvice'] = 'Check your database for any problems.';
+$string['checkdir'] = 'Check dir';
+$string['checkdiradvice'] = 'Ensure the data directory exists and is writable.';
 $string['commenton'] = 'Comment on';
 $string['createanindex'] = 'create an index';
 $string['createdon'] = 'Created on';
@@ -47,10 +53,6 @@ $string['enteryoursearchquery'] = 'Enter your search query';
 $string['errors'] = 'Errors';
 $string['filesinindexdirectory'] = 'Files in index directory';
 $string['globalsearchdisabled'] = 'Global searching is not enabled.';
-$string['checkdb'] = 'Check database';
-$string['checkdbadvice'] = 'Check your database for any problems.';
-$string['checkdir'] = 'Check dir';
-$string['checkdiradvice'] = 'Ensure the data directory exists and is writable.';
 $string['invalidindexerror'] = 'Index directory either contains an invalid index, or nothing at all.';
 $string['ittook'] = 'It took';
 $string['next'] = 'Next';
@@ -76,5 +78,4 @@ $string['totalsize'] = 'Total size';
 $string['type'] = 'Type';
 $string['uncompleteindexingerror'] = 'Indexing was not successfully completed, please restart it.';
 $string['versiontoolow'] = 'Sorry, global search requires PHP 5.0.0 or later';
-$string['whichmodulestosearch?'] = 'Which modules to search?';
 $string['wordsintitle'] = 'Words in title';

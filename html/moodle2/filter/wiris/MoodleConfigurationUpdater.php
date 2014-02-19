@@ -34,7 +34,7 @@ class com_wiris_plugin_configuration_MoodleConfigurationUpdater implements com_w
     }
 
     private function evalParameter($param){
-        if ($param == 1)
+        if ($param == 1 || $param == "true")
             return true;
         else
             return false;
@@ -52,7 +52,7 @@ class com_wiris_plugin_configuration_MoodleConfigurationUpdater implements com_w
         }        
         $configuration['wiriscachedirectory'] = $CFG->dataroot . '/filter/wiris/cache';
         $configuration['wirisformuladirectory'] = $CFG->dataroot . '/filter/wiris/formulas';
-        $configuration['wirisparselatex'] = !$this->getLatexStatus();
+        $configuration['wirisparselatex'] = $this->evalParameter($configuration['wirisparselatex']) && !$this->getLatexStatus();
         $filter_enabled = filter_is_enabled('filter/wiris');
 		
         if (isset($CFG->filter_wiris_editor_enable)) {

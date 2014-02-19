@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['contentsettings'] = 'Presentar a configuración para contido rexional';
 $string['display_address'] = 'Presentar enderezo';
 $string['display_aim'] = 'Presentar AIM';
 $string['display_city'] = 'Presentar cidade';

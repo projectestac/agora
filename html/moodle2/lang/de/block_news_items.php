@@ -25,6 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['news_items:addinstance'] = 'Neuen Block \'Neue Nachrichten\' hinzufügen';
-$string['news_items:myaddinstance'] = 'Neuen Block \'Neue Nachrichten\' für \'Meine Startseite\' hinzufügen';
+$string['news_items:addinstance'] = 'Block \'Neue Nachrichten\' hinzufügen';
+$string['news_items:myaddinstance'] = 'Block \'Neue Nachrichten\' für \'Meine Startseite\' hinzufügen';
 $string['pluginname'] = 'Neue Nachrichten';

@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information for the calculated question type.
+ * Version information for the hotpot question format
  *
  * @package    qformat
  * @subpackage hotpot
@@ -31,6 +31,19 @@ if (empty($plugin) || ! is_object($plugin)) {
 
 $plugin->component = 'qformat_hotpot';
 $plugin->maturity  = MATURITY_STABLE; // = 200
-$plugin->release   = 'v2.0.13';
 $plugin->requires  = 2010112400; // Moodle 2.0
-$plugin->version   = 2010112413;
+$plugin->release   = '2013.11.30 (15)';
+$plugin->version   = 2013113015;
+
+if (defined('ANY_VERSION')) {
+    // Moodle >= 2.2
+    $plugin->dependencies = array('mod_hotpot' => ANY_VERSION);
+} else if (isset($mods) && empty($mods['hotpot'])) {
+    // Moodle <= 2.1 admin has just logged in
+    // moodle_needs_upgrading() in "lib/moodlelib.php"
+    throw new moodle_exception('requiremodhotpot', 'qformat_hotpot', new moodle_url('/admin/index.php'), $CFG->dirroot);
+} else if (isset($CFG) && ! file_exists($CFG->dirroot.'/mod/hotpot')) {
+    // Moodle <= 2.1 installing new site
+    // upgrade_plugins() in "lib/upgradelib.php"
+    throw new moodle_exception('requiremodhotpot', 'qformat_hotpot', new moodle_url('/admin/index.php'), $CFG->dirroot);
+}

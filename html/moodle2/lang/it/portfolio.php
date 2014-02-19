@@ -56,7 +56,7 @@ $string['displayexpiry'] = 'Ora di scadenza del trasferimento';
 $string['displayinfo'] = 'Informazioni sull\'esportazione';
 $string['dontwait'] = 'Non aspettare';
 $string['enabled'] = 'Abilita portfolio';
-$string['enableddesc'] = 'Gli amministratori potranno configurare sistemi remoti di ePortfolio dove gli utenti potranno esportare contenuti';
+$string['enableddesc'] = 'Gli utenti potranno esportare contenuti, come ad esempio interventi nei forum o compiti consegnati, in portfolio esterni o pagine HTML.';
 $string['err_uniquename'] = 'Il nome del Portfolio deve essere univoco (per ciascun plugin)';
 $string['exportalreadyfinished'] = 'Esportazione portfolio completata.';
 $string['exportalreadyfinisheddesc'] = 'Esportazione portfolio completata.';
@@ -92,7 +92,7 @@ $string['highdbsizethreshold'] = 'Trasferimento db lungo';
 $string['highdbsizethresholddesc'] = 'Numero di record di database sopra il quale il trasferimento sarà considerato lungo';
 $string['highfilesizethreshold'] = 'Trasferimento file lungo';
 $string['highfilesizethresholddesc'] = 'Dimensione dei file sopra la quale il trasferimento sarà considerato lungo';
-$string['insanebody'] = 'Salve, stai ricevendo questo messaggio in qualità di amministratore del sito {$a->sitename}.
+$string['insanebody'] = 'Ricevi questo messaggio in qualità di amministratore del sito {$a->sitename}.
 
 Alcuni portfolio plugin sono stati disabilitati automaticamente poiché non sono stati configurati correttamente. Al momento gli utenti non possono esportare non possono esportare nei portfolio disabilitati.
 
@@ -101,12 +101,12 @@ Elenco dei plugin portfolio disabilitati:
 {$a->textlist}
 
 E\' possibile risolvere il problema visitando la pagina {$a->fixurl}.';
-$string['insanebodyhtml'] = '<p>Salve, stai ricevendo questo messaggio in qualità di amministratore del sito {$a->sitename}.</p>
+$string['insanebodyhtml'] = '<p>Ricevi questo messaggio in qualità di amministratore del sito {$a->sitename}.</p>
 <p>Alcuni portfolio plugin sono stati disabilitati automaticamente poiché non sono stati configurati correttamente. Al momento gli utenti non possono esportare non possono esportare nei portfolio disabilitati.</p>
 <p>Elenco dei plugin portfolio disabilitati:</p>
 {$a->htmllist}
 <p>E\' possibile risolvere il problema visitando la pagina {$a->fixurl}.</p>';
-$string['insanebodysmall'] = 'Salve, stai ricevendo questo messaggio in qualità di amministratore del sito {$a->sitename}. Alcuni portfolio plugin sono stati disabilitati automaticamente poiché non sono stati configurati correttamente. Al momento gli utenti non possono esportare nei portfolio disabilitati. E\' possibile risolvere il problema visitando la pagina {$a->fixurl}.';
+$string['insanebodysmall'] = 'Ricevi  questo messaggio in qualità di amministratore del sito {$a->sitename}. Alcuni portfolio plugin sono stati disabilitati automaticamente poiché non sono stati configurati correttamente. Al momento gli utenti non possono esportare nei portfolio disabilitati. E\' possibile risolvere il problema visitando la pagina {$a->fixurl}.';
 $string['insanesubject'] = 'Alcuni portfolio plugin sono stati disabilitati automaticamente';
 $string['instancedeleted'] = 'Portfolio eliminato';
 $string['instanceismisconfigured'] = 'L\'istanza di portfolio non è configurata correttamente ed è stata ignorata. Errore: {$a}';
@@ -152,13 +152,13 @@ $string['noavailableplugins'] = 'Spiacente, non ci sono portfolio disponibili pe
 $string['nocallbackclass'] = 'Non è stato possibile trovare la classe di callback da utilizzare ({$a})';
 $string['nocallbackcomponent'] = 'Non è stato possibile individuare il componente {$a}.';
 $string['nocallbackfile'] = 'Qualcosa non funziona all\'interno del modulo dal quale state tentando di esportare - non è stato possibile trovare il file portfolio richiesto';
-$string['noclassbeforeformats'] = 'Dovete impostare la classe di callback prima di chiamare  set_formats in portfolio_button';
+$string['noclassbeforeformats'] = 'Devi impostare la classe di callback prima di chiamare set_formats in portfolio_button';
 $string['nocommonformats'] = 'Non ci sono formati comuni tra i portfolio plugin disponibili e la location di chiamata {$a} (il chiamante supporta {$a})';
 $string['noinstanceyet'] = 'Non ancora selezionato';
 $string['nologs'] = 'Non ci sono log da visualizzare';
 $string['nomultipleexports'] = 'Spiacente, il portfolio di destinazione ({$a->plugin}) non supporta esportazioni multiple contemporanee. Per favore <a href="{$a->link}">completa l\'esportazione attiva</a> e riprova.';
 $string['nonprimative'] = 'E\' stato passato un valore non primitive come argomento di callback a portfolio_add_button. Non è possibile proseguire. La chiave era {$a->key} ed il valore {$a->value}';
-$string['nopermissions'] = 'Spiacente, non siete autorizzati ad esportare file da questa area';
+$string['nopermissions'] = 'Spiacente, non sei autorizzato ad esportare file da quest\'area';
 $string['notexportable'] = 'Spiacente, non è possibile esportare il tipo di contenuto che state tentando di esportare';
 $string['notimplemented'] = 'Spiacente, state tentando di esportare contenuti in un formato non ancora implementato ({$a})';
 $string['notyetselected'] = 'Non ancora selezionato';
@@ -184,5 +184,5 @@ $string['thirdpartyexception'] = 'E\' stato lanciato un "third party exception" 
 $string['transfertime'] = 'Ora di trasferimento';
 $string['unknownplugin'] = 'Sconosciuto (probabilmente disinstallata da un amministratore)';
 $string['wait'] = 'Attendi';
-$string['wanttowait_high'] = 'Non si consiglia di attendere il completamento di questo trasferimento, tuttavia se preferite attendere e siete consci della richiesta, potete farlo.';
+$string['wanttowait_high'] = 'Non si consiglia di attendere il completamento di questo trasferimento, tuttavia se preferisci attendere e sai cosa stai facendo, sei libero di farlo.';
 $string['wanttowait_moderate'] = 'Desiderate attendere il completamento del trasferimento? Il trasferimento potrebbe richiedere alcuni minuti.';

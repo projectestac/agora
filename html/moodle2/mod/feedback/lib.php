@@ -39,6 +39,15 @@ define('FEEDBACK_MAX_PIX_LENGTH', '400'); //max. Breite des grafischen Balkens i
 define('FEEDBACK_DEFAULT_PAGE_COUNT', 20);
 
 /**
+ * Returns all other caps used in module.
+ *
+ * @return array
+ */
+function feedback_get_extra_capabilities() {
+    return array('moodle/site:accessallgroups');
+}
+
+/**
  * @uses FEATURE_GROUPS
  * @uses FEATURE_GROUPINGS
  * @uses FEATURE_GROUPMEMBERSONLY
@@ -416,7 +425,12 @@ function feedback_get_recent_mod_activity(&$activities, &$index,
         return;
     }
 
-    $cm_context      = context_module::instance($cm->id);
+    $cm_context = context_module::instance($cm->id);
+
+    if (!has_capability('mod/feedback:view', $cm_context)) {
+        return;
+    }
+
     $accessallgroups = has_capability('moodle/site:accessallgroups', $cm_context);
     $viewfullnames   = has_capability('moodle/site:viewfullnames', $cm_context);
     $groupmode       = groups_get_activity_groupmode($cm, $course);

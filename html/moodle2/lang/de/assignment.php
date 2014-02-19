@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['activityoverview'] = 'Einigre Aufgaben erfordern Ihre Aufmerksamkeit';
+$string['activityoverview'] = 'Einige Aufgaben erfordern Ihre Aufmerksamkeit';
 $string['addsubmission'] = 'Abgabe hinzufügen';
 $string['allowdeleting'] = 'Löschen erlauben';
 $string['allowdeleting_help'] = 'Wenn diese Option aktiviert ist, können die Nutzer/innen ihre hochgeladenen Dateien jederzeit wieder löschen, bevor sie zur Bewertung gegeben werden.';
@@ -36,7 +36,7 @@ $string['allownotes_help'] = 'Wenn diese Option aktiviert ist, können Anmerkung
 $string['allowresubmit'] = 'Erneute Abgabe erlauben';
 $string['allowresubmit_help'] = 'Wenn diese Option aktiviert ist, können Aufgaben erneut abgegeben werden, auch wenn sie bereits bewertet wurden (natürlich um dafür eine erneute Bewertung zu erhalten).';
 $string['alreadygraded'] = 'Ihre Aufgabenabgabe wurde bereits bewertet. Eine erneute Abgabe ist deswegen nicht möglich.';
-$string['assignment:addinstance'] = 'Neue Aufgabe hinzufügen';
+$string['assignment:addinstance'] = 'Aufgabe hinzufügen';
 $string['assignmentdetails'] = 'Aufgabendetails';
 $string['assignment:exportownsubmission'] = 'Eigene Abgabe exportieren';
 $string['assignment:exportsubmission'] = 'Abgabe exportieren';
@@ -57,6 +57,7 @@ $string['availabledate'] = 'Verfügbar von';
 $string['cannotdeletefiles'] = 'Es ist ein Fehler aufgetreten. Die Dateien konnten nicht gelöscht werden.';
 $string['cannotviewassignment'] = 'Sie können diese Aufgabe nicht anzeigen';
 $string['changegradewarning'] = 'In dieser Aufgabe gibt es bereits bewertete Lösungen. Durch die Änderungen bei der Bewertung werden diese nicht automatisch neu berechnet. Eine Neuberechnung muss gesondert gestartet werden.';
+$string['closedassignment'] = 'Der Abgabetermin für diese Aufgabe ist vorbei.';
 $string['comment'] = 'Kommentar';
 $string['commentinline'] = 'Eingearbeiteter Kommentar';
 $string['commentinline_help'] = 'Wenn diese Option aktiviert ist, wird der abgegebene Text zum Feedback in das Kommentarfeld kopiert. So ist es einfach, Anmerkungen oder Korrekturen (eventuell farblich gekennzeichnet) in den Originaltext einzuarbeiten.';
@@ -100,20 +101,21 @@ $string['feedbackfromteacher'] = 'Feedback von {$a}';
 $string['feedbackupdated'] = 'Feedback aktualisiert für {$a} Teilnehmer/innen';
 $string['finalize'] = 'Aktualisierung von hochgeladenen Lösungen unterbinden';
 $string['finalizeerror'] = 'Ein Fehler ist aufgetreten. Die Abgabe konnte nicht beendet werden.';
+$string['futureaassignment'] = 'Diese Aufgabe ist noch nicht verfügbar.';
 $string['graded'] = 'Bewertet';
 $string['guestnosubmit'] = 'Gäste dürfen keine Aufgaben abgeben. Sie müssen sich zuerst registrieren und einloggen, um Ihre Antwort abgeben zu können.';
 $string['guestnoupload'] = 'Gäste dürfen keine Dateien hochladen.';
-$string['helpoffline'] = '<p>Das Modul ist veraltet. <br />Benutzen Sie bitte das Modul \'Aufgabe\'.</p>
+$string['helpoffline'] = '<p><b>Das Modul ist veraltet. <br />Benutzen Sie bitte das Modul \'Aufgabe\'.</b></p>
 <p>Bei diesem Aufgabentyp soll die Erledigung der Aufgabe außerhalb von Moodle erfolgen, z.B. in der persönlichen Unterrichtssituation oder mit der Erstellung einer Facharbeit. Die Teilnehmer/innen bekommen in Moodle die Aufgabenstellung und später die Bewertung.</p>';
-$string['helponline'] = '<p>Das Modul ist veraltet. <br />Benutzen Sie bitte das Modul \'Aufgabe\'.</p>
+$string['helponline'] = '<p><b>Das Modul ist veraltet. <br />Benutzen Sie bitte das Modul \'Aufgabe\'.</b></p>
 <p>Bei diesem Aufgabentyp soll die Lösung in einem Eingabefenster eingetragen werden. Die Trainer/innen können die Lösung online bewerten und dabei direkt Kommentare in den Text einarbeiten oder Korrekturen vornehmen.</p>';
-$string['helpupload'] = '<p>Das Modul ist veraltet. <br />Benutzen Sie bitte das Modul \'Aufgabe\'.</p>
+$string['helpupload'] = '<p><b>Das Modul ist veraltet. <br />Benutzen Sie bitte das Modul \'Aufgabe\'.</b></p>
 <p>Bei diesem Aufgabentyp werden eine oder mehrere Dateien als Lösung hochgeladen (z.B. Text-, Bild- oder andere Dateien). Bitte geben Sie in der Aufgabenstellung an, welche Art von Lösungsdateien Sie erwarten.</p>
 <p>Trainer/innen können über diesen Aufgabentyp auch individuelle Dateien zur Bearbeitung zur Verfügung stellen.</p>
 <p>Dieses Aufgabentyps muss von den Teilnehmer/innen manuell beendet werden. Aufgabenlösungen, die noch nicht fertig sind, werden als "Entwurf" gekennzeichnet.</p>';
-$string['helpuploadsingle'] = '<p>Das Modul ist veraltet. <br />Benutzen Sie bitte das Modul \'Aufgabe\'.</p>
+$string['helpuploadsingle'] = '<p><b>Das Modul ist veraltet. <br />Benutzen Sie bitte das Modul \'Aufgabe\'.</b></p>
 <p>Bei diesem Aufgabentyp wird eine Datei als Lösung hochgeladen (z.B. Text-, Bild- oder andere Datei). Bitte geben Sie in der Aufgabenstellung an, welche Art von Lösungsdatei Sie erwarten.</p>';
-$string['hideintro'] = 'Beschreibung vor dem Veröffentlichungszeitpunkt verbergen';
+$string['hideintro'] = 'Beschreibung vor der Veröffentlichung verbergen';
 $string['hideintro_help'] = 'Wenn diese Option aktiviert ist, wird die Aufgabenbeschreibung bis zum Bearbeitungsstart verborgen. Lediglich der Name der Aufgabe wird angezeigt.</p>';
 $string['invalidassignment'] = 'Ungültige Aufgabe';
 $string['invalidfileandsubmissionid'] = 'Fehlende Datei oder Abgabe-ID';
@@ -127,7 +129,7 @@ $string['late'] = '{$a} zu spät';
 $string['maximumgrade'] = 'Höchste Bewertung';
 $string['maximumsize'] = 'Maximale Dateigröße';
 $string['maxpublishstate'] = 'Maximale Sichtbarkeit für Blogeinträge vor dem Abgabetermin';
-$string['messageprovider:assignment_updates'] = 'Mitteilungen zur Aufgabe (2.2)';
+$string['messageprovider:assignment_updates'] = 'Mitteilung zur Aufgabe (2.2)';
 $string['modulename'] = 'Aufgabe (2.2)';
 $string['modulename_help'] = 'Aufgaben ermöglichen es den Trainer/innen, Arbeitsaufträge zur Online- oder Offlinebearbeitung zu erteilen und anschließend zu bewerten.';
 $string['modulenameplural'] = 'Aufgabe (2.2)';
@@ -140,7 +142,7 @@ $string['nofilesyet'] = 'Bisher wurden keine Dateien abgegeben';
 $string['nomoresubmissions'] = 'Es sind keine weiteren Einträge mehr möglich.';
 $string['norequiregrading'] = 'Keine Aufgaben zur Bewertung vorhanden';
 $string['nosubmisson'] = 'Keine Aufgaben eingereicht';
-$string['notavailableyet'] = 'Diese Aufgabe ist noch nicht verfügbar.<br />Die Arbeitsanweisungen werden erst ab dem angegebenen Termin angezeigt.';
+$string['notavailableyet'] = 'Diese Aufgabe ist noch nicht verfügbar.<br />Die Aufgabenstellung wird erst ab dem angegebenen Termin angezeigt.';
 $string['notes'] = 'Kommentare';
 $string['notesempty'] = 'Kein Eintrag';
 $string['notesupdateerror'] = 'Fehler beim Aktualisieren der Kommentare';
@@ -190,6 +192,7 @@ $string['typeuploadsingle'] = 'Online - eine Datei hochladen';
 $string['unfinalize'] = 'Status in \'Entwurf\' ändern';
 $string['unfinalizeerror'] = 'Es ist ein Fehler aufgetreten. Die Lösung konnte nicht auf \'Entwurf\' zurückgesetzt werden.';
 $string['unfinalize_help'] = 'Ein Zurücksetzen in den Status \'Entwurf\' ermöglicht es, die Lösungen erneut zu bearbeiten.';
+$string['unsupportedsubplugin'] = 'Der Zuordnungstyp \'{$a}\' wird derzeit nicht unterstützt. Sie können darauf warten, dass der Zuordnungstyp zur Verfügung gestellt wird oder die Zuordnung löschen.';
 $string['upgradenotification'] = 'Diese Aktivität basiert auf einem älteren Aufgabenmodul.';
 $string['uploadafile'] = 'Datei hochladen';
 $string['uploadbadname'] = 'Dieser Dateiname enthält unzulässige Zeichen und kann nicht hochgeladen werden';

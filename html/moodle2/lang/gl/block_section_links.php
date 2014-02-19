@@ -25,8 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['incby1'] = 'Incremento de';
+$string['incby2'] = 'Incremento alternativo de';
 $string['jumptocurrenttopic'] = 'Salta ao tema actual';
 $string['jumptocurrentweek'] = 'Salta á semana actual';
+$string['numsections1'] = 'Número de seccións';
+$string['numsections2'] = 'Número alternativo de seccións';
 $string['pluginname'] = 'Ligazóns da sección';
+$string['section_links:addinstance'] = 'Engadir un novo bloque de ligazóns de sección';
 $string['topics'] = 'Temas';
 $string['weeks'] = 'Semanas';

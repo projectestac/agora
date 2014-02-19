@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = '새 포럼 게시글이 있습니다.';
 $string['addanewdiscussion'] = '새 토론 주제 추가';
 $string['addanewquestion'] = '새 질문 추가';
 $string['addanewtopic'] = '새로운 주제 추가';

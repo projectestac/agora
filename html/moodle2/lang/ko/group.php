@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addedby'] = '{$a}가 추가하였습니다.';
 $string['addgroup'] = '사용자를 모둠에 추가';
 $string['addgroupstogrouping'] = '모둠을 모둠무리에 추가';
 $string['addgroupstogroupings'] = '모둠 추가/제거';
@@ -63,6 +64,7 @@ $string['erroraddremoveuser'] = '모둠에 {$a} 사용자 추가/제거 오류';
 $string['erroreditgroup'] = '{$a} 모둠 생성/업데이트 오류';
 $string['erroreditgrouping'] = '{$a} 무리 생성/업데이트 오류';
 $string['errorinvalidgroup'] = '오류, {$a} 모둠은 유효하지 않습니다.';
+$string['errorremovenotpermitted'] = '자동으로 추가된 모둠 구성원 {$a}을 제거할 권한이 없습니다.';
 $string['errorselectone'] = '옵션을 고르기 전에 하나의 모둠을 미리 선택하기 바람';
 $string['errorselectsome'] = '옵션을 고르기 전에 하나 이상의 모둠을 미리 선택하기 바람';
 $string['evenallocation'] = '모둠 할당을 균등히 하기 위해서, 실제 모둠당 구성원 수는 명시한 것과 다를 수 있습니다.';
@@ -86,6 +88,7 @@ $string['groupingname'] = '모둠무리 이름';
 $string['groupingnameexists'] = '이 강좌에 이미 \'{$a}\'라는 모둠무리 이름이 존재합니다. 다른 이름을 쓰세요.';
 $string['groupings'] = '모둠무리';
 $string['groupingsection'] = '모둠무리 접근';
+$string['groupingsection_help'] = '모둠 무리는 강좌내에 모둠들의 집합입니다. 여기서 모둠무리가 선택되면 이 모둠무리안에 있는 모둠에 할당된 학생들만 섹션에 접근할 수 있습니다.';
 $string['groupingsonly'] = '모둠무리만';
 $string['groupmember'] = '모둠 구성원';
 $string['groupmemberdesc'] = '모둠 구성원에 대한 기본 역할';

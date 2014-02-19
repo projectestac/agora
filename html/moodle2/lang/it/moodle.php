@@ -73,7 +73,7 @@ $string['addresourceoractivity'] = 'Aggiungi una attività o una risorsa';
 $string['addresourcetosection'] = 'Aggiungi una risorsa alla sezione \'{$a}\'';
 $string['address'] = 'Indirizzo';
 $string['addstudent'] = 'Aggiungi studente';
-$string['addsubcategory'] = 'Aggiungi una sotto-categoria';
+$string['addsubcategory'] = 'Aggiungi una sotto categoria';
 $string['addteacher'] = 'Aggiungi docente';
 $string['admin'] = 'Amministratore';
 $string['adminhelpaddnewuser'] = 'Crea manualmente un utente';
@@ -82,7 +82,7 @@ $string['adminhelpassigncreators'] = 'I creatori di corsi posso creare nuovi cor
 $string['adminhelpassignsiteroles'] = 'Applica i ruoli del sito a specifici utenti';
 $string['adminhelpassignstudents'] = 'Vai in un corso e aggiungi gli studenti dal menu di amministrazione';
 $string['adminhelpauthentication'] = 'Puoi usare iscrizioni interne o basi di dati esterne';
-$string['adminhelpbackup'] = 'Configura le copie di sicurezza e la loro programmazione';
+$string['adminhelpbackup'] = 'Configura i backup automatici e la loro schedulazione';
 $string['adminhelpconfiguration'] = 'Configura le variabili che agiscono sulle operazioni generali del sito.';
 $string['adminhelpconfigvariables'] = 'Configura le variabili generali del sito';
 $string['adminhelpcourses'] = 'Definisci corsi e categorie e assegnagli le persone';
@@ -113,7 +113,7 @@ $string['administratordescription'] = 'Di norma gli Amministratori possono fare 
 $string['administrators'] = 'Amministratori';
 $string['administratorsall'] = 'Tutti gli amministratori';
 $string['administratorsandteachers'] = 'Amministratori e docenti';
-$string['advanced'] = 'Avanzato';
+$string['advanced'] = 'Avanzata';
 $string['advancedfilter'] = 'Ricerca avanzata';
 $string['advancedsettings'] = 'Impostazioni avanzate';
 $string['again'] = 'ancora';
@@ -153,9 +153,9 @@ $string['authenticateduser'] = 'Utente autenticato';
 $string['authenticateduserdescription'] = 'Tutti gli utenti autenticati.';
 $string['authentication'] = 'Autenticazione';
 $string['authenticationplugins'] = 'Plugin di autenticazione';
-$string['autosubscribe'] = 'Auto iscrizione al forum';
-$string['autosubscribeno'] = 'No: non iscrivermi automaticamente ai forum';
-$string['autosubscribeyes'] = 'Si: quando invio post, iscrivimi a quel forum';
+$string['autosubscribe'] = 'Sottoscrizione automatica forum';
+$string['autosubscribeno'] = 'No: non sottoscrivo i forum automaticamente';
+$string['autosubscribeyes'] = 'Si: quando invio messaggi, sottoscrivo il forum automaticamente';
 $string['availability'] = 'Disponibilità';
 $string['availability_help'] = 'L\'impostazione determina la visibilità del corso nell\'elenco dei corsi. Gli amministratori ed i docenti potranno comunque accedervi, mentre gli altri utenti non potranno entrare nel corso.';
 $string['availablecourses'] = 'Corsi disponibili';
@@ -173,23 +173,24 @@ $string['backupdatenew'] = '{$a->TAG} ora è {$a->weekday}, {$a->mday} {$a->mont
 $string['backupdateold'] = '{$a->TAG} era {$a->weekday}, {$a->mday} {$a->month} {$a->year}';
 $string['backupdaterecordtype'] = '<br />{$a->recordtype} - {$a->recordname}<br />';
 $string['backupdetails'] = 'Dettagli del backup';
-$string['backupexecuteathelp'] = 'Scegli a che ora devono essere effettuati i backup automatici';
-$string['backupfailed'] = 'Alcuni dei vostri corsi non sono stati salvati!';
+$string['backupexecuteathelp'] = 'L\'orario per effettuare i backup automatici';
+$string['backupfailed'] = 'Alcuni corsi non sono stati salvati!';
 $string['backupfilename'] = 'backup';
 $string['backupfinished'] = 'Backup completato correttamente';
 $string['backupfromthissite'] = 'Sono stati eseguiti backup in questo sito?';
 $string['backupgradebookhistoryhelp'] = 'Se abilitato, lo storico delle valutazioni verrà incluso nei backup automatici. Affinché questa impostazione funzioni correttamente è necessario che lo storico delle valutazioni sia abilitato al livello di sistema.';
 $string['backupincludemoduleshelp'] = 'Scegli se includere nei backup automatici i moduli dei corsi, con o senza i dati utente.';
 $string['backupincludemoduleuserdatahelp'] = 'Scegli se vuoi includere i dati utente dei moduli nei backup automatici';
-$string['backupkeephelp'] = 'Quante versioni di backup vuoi conservare per ciascun corso? (quella più vecchia verrà  eliminata automaticamente)';
+$string['backupkeephelp'] = 'Il numero di copie di backup più recenti da mantenere per ciascun corso. (Le copie più vecchie saranno eliminate automaticamente)';
 $string['backuplogdetailed'] = 'Log dettagliato';
 $string['backuploglaststatus'] = 'Log del backup più recente';
 $string['backupmissinguserinfoperms'] = 'Nota: questo backup non contiene dati utente. Le attività Esercizio e workshop non saranno incluse nel backup poiché queste attività non sono compatibili con i backup privi di dati utente.';
 $string['backupnext'] = 'Prossimo backup';
 $string['backupnonisowarning'] = 'Attenzione: questo backup proviene da una versione di Moodle (pre 1.6) non-Unicode. Se il backup contiene qualche testo non-ISO-8859-1, questo potrebbe essere ALTERATO se ne viene fatto il ripristino sulla presente versione Unicode di Moodle. Leggere <a href="http://docs.moodle.org/en/Backup_FAQ">Backup FAQ</a> per maggiori informazioni su come ripristinare correttamente questo backup.';
+$string['backupnotyetrun'] = 'Backup automatico in attesa';
 $string['backuporiginalname'] = 'Nome del backup';
 $string['backuproleassignments'] = 'Backup delle assegnazioni per questi ruoli';
-$string['backupsavetohelp'] = 'Percorso completo della directory dove vuoi salvare i file di backup<br />(lascia vuoto per salvarli nella directory standard)';
+$string['backupsavetohelp'] = 'Percorso completo della cartella dove  salvare i file di backup<br />(lasciare vuoto per salvarli nella cartella di default del dei corsi)';
 $string['backupsitefileshelp'] = 'Se abilitato, i file del sito saranno inclusi nei backup automatici';
 $string['backuptakealook'] = 'Si prega di controllare i log dei backup in: {$a}';
 $string['backupuserfileshelp'] = 'Scegli quali file utente (es immagini del profilo) devono essere incluse nei backup automatici';
@@ -286,12 +287,12 @@ $string['content'] = 'Contenuto';
 $string['continue'] = 'Continua';
 $string['continuetocourse'] = 'Clicca qui per entrare nel tuo corso';
 $string['convertingwikitomarkdown'] = 'Conversione in corso del wiki al formato Markdown ...';
-$string['cookiesenabled'] = 'I cookies devono essere abilitati nel tuo browser';
-$string['cookiesenabled_help'] = '<p>I siti Moodle utilizzano due tipi di cookie.</p>
+$string['cookiesenabled'] = 'Il browser deve avere i cookie abilitati';
+$string['cookiesenabled_help'] = 'I siti Moodle utilizzano due tipi di cookie.
 
-<p>Il primo è un cookie di sessione chiamato <b>MoodleSession</b>. E\' indispensabile che il browser sia configurato per accettare questo cookie al fine di garantire la validità della propria autenticazione navigando tra le pagine mantenendo il proprio login. Quando ci si scollega dal sito Moodle o si chiude il browser, il cookie <b>MoodleSession</b> viene cancellato.</p>
+Il primo è un cookie di sessione chiamato MoodleSession. E\' indispensabile che il browser sia configurato per accettare questo cookie al fine di garantire la validità della propria autenticazione navigando tra le pagine. Quando ci si scollega dal sito Moodle o si chiude il browser, il cookie MoodleSession viene eliminato.
 
-<p>Il secondo cookie, generalmente chiamato <b>MOODLEID</b>, serve solo per ricordare il vostro username all\'interno del browser. Grazie a questo cookie quando ritornerete a far vista al sito Moodle, troverete il campo della pagina di login già riempito con il vostro username. Non ci sono problemi se rifiutate di accettare questo cookie, l\'unico inconveniente sarà quello di dover inserire nuovamente il vostro username nella pagina di login.</p>';
+Il secondo cookie, generalmente chiamato MOODLEID, serve solo per ricordare il tuo username all\'interno del browser. Grazie a questo cookie quando ritornerai a far vista allo stesso sito Moodle, troverai il campo della pagina di login già compilato con il tuo username. Non ci sono problemi se rifiuti questo cookie, l\'unico inconveniente sarà quello di dover inserire nuovamente il tuo username nella pagina di login.';
 $string['cookiesnotenabled'] = 'Purtroppo al momento i cookie non sono abilitati nel tuo browser.';
 $string['copy'] = 'copia';
 $string['copyasnoun'] = 'copia';
@@ -350,6 +351,7 @@ $string['courselegacyfiles'] = 'File legacy del corso';
 $string['courselegacyfiles_help'] = 'L\'area file del corso fornisce una compatibilità con Moodle 1.9 e versioni precedenti. I file presenti in quest\'area sono sempre accessibili da tutti i partecipanti al corso, indipendentemente se sono collegati o meno tramite un link. Inoltre non è possibile sapere dove i file sono utilizzati da Moodle.
 
 Utilizzando i File del corso ti esponi ad una serie di problemi di privacy, di sicurezza e problemi di backup, ripristino ed importazione: in generale potresti incorre in problemi tutte le volte che un file è riutilizzato o condiviso. Si raccomanda di non usare i File del corso a meno che non ti siano perfettamente chiare le limitazioni.';
+$string['courselegacyfilesofcourse'] = 'File legacy del corso: {$a}';
 $string['coursemessage'] = 'Messaggio ai partecipanti';
 $string['coursenotaccessible'] = 'Questo corso non è abilitato all\'accesso pubblico';
 $string['courseoverview'] = 'Sommario del corso';
@@ -371,7 +373,7 @@ $string['courserequestdetails'] = 'Dettagli del corso che desideri sia attivato'
 $string['courserequestfailed'] = 'Per qualche motivo, non è stato possibile salvare la tua richiesta';
 $string['courserequestintro'] = 'Utilizzare questo modulo per richiedere la creazione di un corso.<br /> Fornire più informazioni possibili per consentire agli amministratori di capire la motivazione della richiesta.';
 $string['courserequestreason'] = 'Motivazione della richiesta';
-$string['courserequestsuccess'] = 'La tua richiesta di attivazione è stata salvata. L\'esito della richiesta vi sarà inviato tramite email.';
+$string['courserequestsuccess'] = 'La tua richiesta di corso è stata salvata. L\'esito della richiesta vi sarà inviato tramite email.';
 $string['courserequestsupport'] = 'Informazioni aggiuntive per consentire agli Amministratori di valutare al meglio la richiesta';
 $string['courserestore'] = 'Recupera corso';
 $string['courses'] = 'Corsi';
@@ -386,7 +388,7 @@ $string['courseupdates'] = 'Aggiornamenti del corso';
 $string['courseuploadlimit'] = 'Dimensione massima file caricabili nel corso';
 $string['create'] = 'Crea';
 $string['createaccount'] = 'Crea il mio nuovo account';
-$string['createcategory'] = 'Crea una categoria';
+$string['createcategory'] = 'Crea categoria';
 $string['createfolder'] = 'Crea una cartella dentro {$a}';
 $string['createuser'] = 'Crea utente';
 $string['createuserandpass'] = 'Scegli username e password';
@@ -531,7 +533,7 @@ $string['edhelpfontsize'] = 'font-size imposta la dimensione standard per i font
 $string['edit'] = 'Modifica';
 $string['edita'] = 'Modifica {$a}';
 $string['editcategorysettings'] = 'Modifica impostazioni categoria';
-$string['editcategorythis'] = 'Modifica questa categoria';
+$string['editcategorythis'] = 'Modifica categoria';
 $string['editcoursesettings'] = 'Modifica impostazioni del corso';
 $string['editfiles'] = 'Modifica i file';
 $string['editgroupprofile'] = 'Modifica profilo del gruppo';
@@ -561,7 +563,7 @@ $string['emailactive'] = 'Email attiva';
 $string['emailagain'] = 'Indirizzo email (ripeti)';
 $string['emailcharset'] = 'Codifica caratteri delle email';
 $string['emailconfirm'] = 'Conferma il tuo account';
-$string['emailconfirmation'] = 'Salve {$a->firstname},
+$string['emailconfirmation'] = 'Gentile {$a->firstname},
 
 è stata richiesta la creazione di un nuovo account su \'{$a->sitename}\' con il tuo indirizzo di posta elettronica.
 
@@ -577,10 +579,10 @@ $string['emailconfirmationsubject'] = '{$a}: conferma iscrizione';
 $string['emailconfirmsent'] = '<p>Una email è stata inviata al tuo indirizzo <b>{$a}</b></p>
 <p>Contiene semplici istruzioni per completare la tua registrazione.</p>
 <p>Se hai qualche difficoltà contatta l\'amministratore del sito.</p>';
-$string['emaildigest'] = 'Tipo di raccolta email';
-$string['emaildigestcomplete'] = 'Completa (giornalmente invia i messaggi completi)';
-$string['emaildigestoff'] = 'Nessuna raccolta (ogni messaggio viene spedito via mail)';
-$string['emaildigestsubjects'] = 'Oggetti (giornalmente invia solo gli oggetti dei messaggi)';
+$string['emaildigest'] = 'Tipo email di raccolta';
+$string['emaildigestcomplete'] = 'Completa (email giornaliera con messaggi per intero)';
+$string['emaildigestoff'] = 'Nessuna raccolta (una email per ciascun messaggio)';
+$string['emaildigestsubjects'] = 'Oggetti (email giornaliera con solo l\'oggetto dei messaggi)';
 $string['emaildisable'] = 'Questo indirizzo email è disabilitato.';
 $string['emaildisableclick'] = 'Clicca qui per disabilitare tutte le email dall\'essere spedite a questo indirizzo';
 $string['emaildisplay'] = 'Visualizza email';
@@ -596,59 +598,59 @@ $string['emailmustbereal'] = 'Nota: il tuo indirizzo email deve essere esistente
 $string['emailnotallowed'] = 'Gli indirizzi email di questi domini non sono ammessi ({$a})';
 $string['emailnotfound'] = 'L\'indirizzo email non è stato trovato nella base dati';
 $string['emailonlyallowed'] = 'Questo indirizzo email non è uno di quelli ammessi ({$a})';
-$string['emailpasswordchangeinfo'] = 'Salve {$a->firstname},
+$string['emailpasswordchangeinfo'] = 'Gentile {$a->firstname},
 
-qualcuno (probabilmente tu) ha richiesto una nuova password per la tua registrazione su \'{$a->sitename}\'.
+è stata richiesta una nuova password per il tuo account su \'{$a->sitename}\'.
 
-Per cambiare la tua password vai al seguente indirizzo web:
+Per cambiare la password devi cliccare sul link seguente:
 
 {$a->link}
 
-Nella maggior parte dei programmi di posta, questo dovrebbe apparire come un link blu che puoi cliccare. Se questo non funziona, taglia e incolla l\'indirizzo nell\'area indirizzi in alto nel tuo browser.
+Nella maggior parte dei programmi di posta il link dovrebbe apparire colorato
+di blu ed è sufficiente cliccarlo. Se il link non dovesse essere attivo, copia e incolla il link nella barra dell\'indirizzo del tuo browser e premi il tasto invio.
 
-Se hai bisogno di aiuto, contatta l\'amministratore del sito, {$a->admin}';
-$string['emailpasswordchangeinfodisabled'] = 'Salve {$a->firstname},
+Se hai bisogno di aiuto, contatta l\'amministratore del sito: {$a->admin}';
+$string['emailpasswordchangeinfodisabled'] = 'Gentile {$a->firstname},
 
-qualcuno (probabilmente tu) ha richiesto una nuova password per la tua registrazione su \'{$a->sitename}\'.
+è stata richiesta una nuova password per il tuo account su \'{$a->sitename}\'.
+
 Sfortunatamente il tuo account su questo sito è disabilitato e non può essere riabilitato.
-Contatta l\'amministratore del sito, {$a->admin}';
-$string['emailpasswordchangeinfofail'] = 'Ciao {$a->firstname},
 
-qualcuno (probabilmente tu) ha chiesto una nuova password per il tuo account su \'{$a->sitename}\'.
+Se hai bisogno di aiuto, contatta l\'amministratore del sito: {$a->admin}';
+$string['emailpasswordchangeinfofail'] = 'Gentile {$a->firstname},
 
-Purtroppo su questo sito non possono essere cambiate: per favore contatta l\'amministratore {$a->admin}.';
+è stata richiesta una nuova password per il tuo account su \'{$a->sitename}\'.
+
+Purtroppo su questo sito le password non possono essere cambiate.
+
+Se hai bisogno di aiuto, contatta l\'amministratore del sito: {$a->admin}';
 $string['emailpasswordchangeinfosubject'] = '{$a}: Informazioni su cambio password';
-$string['emailpasswordconfirmation'] = 'Salve, {$a->firstname},
+$string['emailpasswordconfirmation'] = 'Gentile {$a->firstname},
 
-qualcuno (probabilmente tu) ha richiesto una nuova password per il tuo accesso a \'{$a->sitename}\'.
+è stata richiesta una nuova password per il tuo account su \'{$a->sitename}\'.
 
-Per confermare la richiesta e per ricevere la nuova password tramite email, vai al seguente indirizzo web:
+Per confermare il cambiamento e ricevere la nuova password devi cliccare sul link seguente:
 
 {$a->link}
 
-In molti programmi di posta, questo dovrebbe apparire come un link colorato di blu sul quale è sufficiente cliccare. Se in questo modo non dovesse funzionare, allora taglia e incolla il link nella finestra degli indirizzi in alto nel tuo browser e premi invio.
+Nella maggior parte dei programmi di posta il link dovrebbe apparire colorato
+di blu ed è sufficiente cliccarlo. Se il link non dovesse essere attivo, copia e incolla il link nella barra dell\'indirizzo del tuo browser e premi il tasto invio.
 
-Se hai bisogno di aiuto, puoi contattare l\'amministratore del sito,
-{$a->admin}.';
+Se hai bisogno di aiuto, contatta l\'amministratore del sito: {$a->admin}';
 $string['emailpasswordconfirmationsubject'] = '{$a}: Conferma cambiamento password';
 $string['emailpasswordconfirmmaybesent'] = '<p> Se hai fornito uno username corretto o un indirizzo corretto, dovresti ricevere una email.</p>
 <p>Nel messaggio troverai le istruzioni per confermare e completare la modifica della password. Se continui ad avere difficoltà, contatta l\'amministratore del sito.</p>';
-$string['emailpasswordconfirmsent'] = 'Una email sarà spedita al tuo indirizzo <b>{$a}</b>.
+$string['emailpasswordconfirmsent'] = 'E\' stata spedita un\'email  al tuo indirizzo <b>{$a}</b>.
+<br />Nel messaggio troverai le istruzioni per confermare e completare la modifica della password. Se continui ad avere difficoltà, contatta l\'amministratore del sito.';
+$string['emailpasswordsent'] = 'Grazie per aver confermato il cambiamento della password. Riceverai la nuova password su br /><b>{$a->email}</b>.<br />
 
-<p>Essa contiene facili istruzioni per confermare e completare il cambiamento della password.
-
-Se continui ad avere difficoltà, contatta l\'amministratore del sito.</p>';
-$string['emailpasswordsent'] = 'Grazie per aver confermato il cambiamento di password.
-
-<p>Una email contenente la tua nuova password è stata spedita al tuo indirizzo presso <b>{$a->email}</b>.</p>
-
-<p>La nuova password è stata generata in modo automatico - se tu vuoi, puoi <a href="{$a->link}">cambiare la password</a> con qualcosa che sia più facile da ricordare.';
+La nuova password è stata generata automaticamente, <a href="{$a->link}">se vuoi puoi cambiarla con una di tua scelta</a>.';
 $string['enable'] = 'Abilita';
 $string['encryptedcode'] = 'Codice criptato';
 $string['english'] = 'Inglese';
 $string['entercourse'] = 'Clicca per accedere a questo corso';
 $string['enteremail'] = 'Inserisci la tua email';
-$string['enteremailaddress'] = 'Digita la tuo email per e ottenere una nuova password che ti sarà spedita via email.';
+$string['enteremailaddress'] = 'Inserisci la tua email per reimpostare la password e riceverne una nuova.';
 $string['enterusername'] = 'Inserisci il tuo username';
 $string['entries'] = 'Elementi';
 $string['error'] = 'Errore';
@@ -698,8 +700,8 @@ $string['forcelanguage'] = 'Forza lingua';
 $string['forceno'] = 'Non forzare';
 $string['forcepasswordchange'] = 'Forza il cambiamento della password';
 $string['forcepasswordchangecheckfull'] = 'Sei sicuro di voler obbligare {$a} a cambiare la password ?';
-$string['forcepasswordchange_help'] = '<p>Richiede che l\'utente cambi la propria password al suo primo login.</p>';
-$string['forcepasswordchangenot'] = 'Non è stato possibile obbligare il cambio di password per {$a}';
+$string['forcepasswordchange_help'] = 'Obbliga l\'utente a cambiare la propria password al suo primo login.';
+$string['forcepasswordchangenot'] = 'Non è stato possibile obbligare il cambio della password per {$a}';
 $string['forcepasswordchangenotice'] = 'È necessario cambiare la password per proseguire.';
 $string['forcetheme'] = 'Tema obbligato';
 $string['forgotaccount'] = 'Hai dimenticato la password?';
@@ -935,7 +937,7 @@ $string['loginstepsnone'] = '<p>Per accedere ai corsi è necessario creare un ac
 <p>Per farlo, scegli username e password ed autenticati usando questa pagina</p>
 <p>Se lo username scelto è già utilizzato, dovrai scegliere uno username diverso.</p>';
 $string['loginto'] = 'Accesso a {$a}';
-$string['loginusing'] = 'Accedi qui utilizzando il tuo username e la password';
+$string['loginusing'] = 'Autenticati con le tue credenziali';
 $string['logout'] = 'Esci';
 $string['logoutconfirm'] = 'Vuoi uscire veramente?';
 $string['logs'] = 'Log';
@@ -1058,11 +1060,11 @@ $string['moveselectedcoursesto'] = 'Sposta i corsi selezionati in...';
 $string['movetoanotherfolder'] = 'Sposta in un\'altra cartella';
 $string['moveup'] = 'Sposta in alto';
 $string['msnid'] = 'MSN ID';
-$string['mustchangepassword'] = 'La nuova password deve essere diversa da quella che hai scelto';
+$string['mustchangepassword'] = 'La nuova password deve essere diversa dall\'attuale.';
 $string['mustconfirm'] = 'È necessario confermare il tuo accesso';
 $string['mycourses'] = 'I miei corsi';
 $string['myfiles'] = 'File personali';
-$string['myfilesmanage'] = 'Gestisci file personali';
+$string['myfilesmanage'] = 'Gestione file personali';
 $string['myhome'] = 'My home';
 $string['mymoodledashboard'] = 'Dashboard My Moodle';
 $string['myprofile'] = 'Il mio profilo';
@@ -1078,7 +1080,7 @@ $string['newaccount'] = 'Nuovo account';
 $string['newcourse'] = 'Nuovo corso';
 $string['newpassword'] = 'Nuova password';
 $string['newpasswordfromlost'] = '<strong>NOTA:</strong> La tua  <strong>Password </strong> ti verrà spedita nella <strong>seconda</strong> delle due mail spedite dalla procedura di recupero password. Accertati di aver ricevuto la nuova passowrd prima di proseguire.';
-$string['newpassword_help'] = '<p>Lasciare vuoto per mantenere la password attuale.</p>';
+$string['newpassword_help'] = 'Inserisci una password oppure lascia vuoto per mantenere la password attuale.';
 $string['newpasswordtext'] = 'Gentile {$a->firstname},
 
 la password del tuo account su \'{$a->sitename}\' è stata reimpostata.
@@ -1142,7 +1144,7 @@ Se il link non dovesse essere attivo, copia e incolla l\'indirizzo nella barra d
 Saluti dall\'amministratore del sito \'{$a->sitename}\',
 {$a->signoff}';
 $string['newusers'] = 'Nuovi utenti';
-$string['newwindow'] = 'nuova finestra';
+$string['newwindow'] = 'Nuova finestra';
 $string['next'] = 'Successivo';
 $string['nextsection'] = 'Sezione successiva';
 $string['no'] = 'No';
@@ -1231,13 +1233,14 @@ $string['options'] = 'opzioni';
 $string['order'] = 'Ordine';
 $string['originalpath'] = 'Percorso originale';
 $string['orphanedactivities'] = 'Attività orfane';
+$string['orphanedactivitiesinsectionno'] = 'Attività orfane (sezione {$a})';
 $string['other'] = 'Altro';
 $string['outline'] = 'Profilo';
 $string['outlinereport'] = 'Report riassuntivo';
 $string['page'] = 'Pagina';
 $string['pageheaderconfigablock'] = 'Configurazione blocco in {$a->fullname}';
 $string['pagepath'] = 'Percorso della pagina';
-$string['pageshouldredirect'] = 'La pagina dovrebbe reindirizzarvi automaticamente. Se il reindirizzamento non avviene, potete continuare usando il link sottostante.';
+$string['pageshouldredirect'] = 'La pagina dovrebbe reindirizzarti automaticamente. In mancanza, puoi usare il link sottostante.';
 $string['parentcategory'] = 'Categoria di appartenenza';
 $string['parentcoursenotfound'] = 'Corso padre non trovato!';
 $string['parentfolder'] = 'Cartella superiore';
@@ -1248,7 +1251,7 @@ $string['participationreport'] = 'Report della Partecipazione';
 $string['password'] = 'Password';
 $string['passwordchanged'] = 'La password è stata modificata';
 $string['passwordconfirmchange'] = 'Conferma il cambiamento di password';
-$string['passwordextlink'] = 'Il link seguente è stato fornito per recuperare la password smarrita. Questo vi porterà fuori da Moodle.';
+$string['passwordextlink'] = 'Il link seguente è stato fornito per recuperare la password dimenticata. Questo vi porterà fuori da Moodle.';
 $string['passwordforgotten'] = 'Password dimenticata';
 $string['passwordforgotteninstructions'] = 'I tuoi dati devono essere reperiti nel database di Moodle. Inserisci il tuo username <strong>oppure</strong> la tua email nelle caselle corrispondenti. Non è necessario inserirli entrambi.';
 $string['passwordforgotteninstructions2'] = 'Per recuperare la tua password, inserisci lo username oppure la email nei campi sottostanti. Se Moodle troverà il dato nel database, invierà una email con le istruzioni per completare il recupero.';
@@ -1256,18 +1259,18 @@ $string['passwordnohelp'] = 'Non esiste un aiuto per recuperare la password. Sei
 $string['passwordrecovery'] = 'Si, per favore aiutatemi per il login';
 $string['passwordsdiffer'] = 'Le password non corrispondono';
 $string['passwordsent'] = 'La password è stata spedita';
-$string['passwordsenttext'] = '<p>Una email è stata spedita a {$a->email}.</p>
-<p><b> Per favore controlla la tua posta per la nuova password</b></p>
-<p>La nuova password è stata generata automaticamente, perciò potresti voler <a href="{$a->link}">cambiarla in una più facile da ricordare</a>.</p>';
+$string['passwordsenttext'] = 'La nuova password è stata generata automaticamente, <a href="{$a->link}">se vuoi puoi cambiarla con una di tua scelta</a>.<p>E\' stata stata spedita un\'email a {$a->email}.</p>
+<p><b> Per favore controlla la tua casella.</b></p>
+<p>La nuova password è stata generata automaticamente, <a href="{$a->link}">se vuoi puoi cambiarla con una di tua scelta</a>.</p>';
 $string['path'] = 'Percorso';
 $string['pathnotexists'] = 'Il percorso non esiste sul tuo server!';
 $string['pathslasherror'] = 'Il percorso non può terminare con uno slash!!';
-$string['paymentinstant'] = 'Utilizza il bottone sottostante per pagare ed essere iscritto in pochi minuti!';
+$string['paymentinstant'] = 'Utilizza il pulsante sottostante per pagare ed essere iscritto in pochi minuti!';
 $string['paymentpending'] = '(<small><b><u>{$a}</u></b> pendenti</small>)';
 $string['paymentrequired'] = 'L\'accesso al corso richiede un pagamento.';
 $string['payments'] = 'Pagamenti';
-$string['paymentsorry'] = 'Grazie per il pagamento! Sfortunatamente il pagamento non è stato completamente elaborato, e l\'iscrizione al corso "{$a->fullname}" non è stata completata. Per favore prova a cliccare su continua tra alcuni secondi, ma se incontri problemi allora avverti il {$a->teacher} o l\'amministratore del sito.';
-$string['paymentthanks'] = 'Grazie per il pagamento! Ora sei iscritto nel tuo corso:<br />"{$a}"';
+$string['paymentsorry'] = 'Grazie per il pagamento! Sfortunatamente il pagamento non è stato elaborato completamente e l\'iscrizione al corso "{$a->fullname}" non è ancora attiva. Per favore prova a cliccare su continua tra alcuni secondi, ma se continui ad avere problemi avverti {$a->teacher} o l\'amministratore del sito.';
+$string['paymentthanks'] = 'Grazie per il pagamento! Ora sei iscritto nel corso:<br />"{$a}"';
 $string['pendingrequests'] = 'Corsi da approvare';
 $string['periodending'] = 'Termine periodo ({$a})';
 $string['personal'] = 'Personale';
@@ -1317,7 +1320,7 @@ $string['publicsitefileswarning3'] = 'Nota: i file caricati qui possono essere v
 $string['publish'] = 'Pubblica';
 $string['question'] = 'Domanda';
 $string['questionsinthequestionbank'] = 'Domande nel deposito';
-$string['readinginfofrombackup'] = 'Lettura informazioni dal Backup';
+$string['readinginfofrombackup'] = 'Lettura informazioni dal backup';
 $string['readme'] = 'LEGGIMI';
 $string['recentactivity'] = 'Attività recente';
 $string['recentactivityreport'] = 'Report completo dell\'attività recente...';
@@ -1373,7 +1376,7 @@ $string['resortcoursesbyname'] = 'Riordina corsi per nome';
 $string['resource'] = 'Risorsa';
 $string['resourcedisplayauto'] = 'Automatica';
 $string['resourcedisplaydownload'] = 'Forza download';
-$string['resourcedisplayembed'] = 'Embed';
+$string['resourcedisplayembed'] = 'Incorpora';
 $string['resourcedisplayframe'] = 'Frame';
 $string['resourcedisplaynew'] = 'Nuova finestra';
 $string['resourcedisplayopen'] = 'Apri';
@@ -1509,7 +1512,7 @@ $string['shortname'] = 'Nome abbreviato';
 $string['shortnamecollisionwarning'] = '[*] = Questo Titolo abbreviato è già utilizzato da un corso e sarà necessario modificarlo all\'approvazione';
 $string['shortnamecourse'] = 'Titolo abbreviato';
 $string['shortnamecourse_help'] = '<p>Molte istituzioni assegnano ai corsi delle sigle come
-BP102 o COMMS. Se volete potete usare queste sigle come Titolo abbreviato, altrimenti poterete utilizzare un titolo a piacere. Il Titolo abbreviato sarà usato al posto del Titolo del corso in tutte quelle situazioni dove è pratico usare stringhe di caratteri più brevi, come ad esempio nelle briciole di pane o nelle intestazioni delle email.</p>';
+BP102 o COMMS. E\' posisbile usare queste sigle come Titolo abbreviato, oppure utilizzare un titolo a piacere. Il Titolo abbreviato sarà usato al posto del Titolo del corso in tutte quelle situazioni dove è pratico usare stringhe di caratteri più brevi, come ad esempio nelle briciole di pane o nelle intestazioni delle email.</p>';
 $string['shortnametaken'] = 'Titolo abbreviato già in uso in un altro corso ({$a})';
 $string['shortnameuser'] = 'Nome utente abbreviato';
 $string['shortsitename'] = 'Nome abbreviato del sito (es. singola parola)';
@@ -1629,7 +1632,7 @@ $string['stringsnotset'] = 'Le seguenti stringhe non sono definite in {$a}';
 $string['studentnotallowed'] = 'Spiacenti, ma non puoi accedere a questo corso come \'{$a}\'';
 $string['students'] = 'Studenti';
 $string['studentsandteachers'] = 'Studenti e docenti';
-$string['subcategories'] = 'Sottocategorie';
+$string['subcategories'] = 'Sotto categorie';
 $string['submit'] = 'Invia';
 $string['success'] = 'Operazione eseguita con successo';
 $string['summary'] = 'Introduzione';
@@ -1681,9 +1684,9 @@ $string['topichide'] = 'Nascondi questo argomento da {$a}';
 $string['topicoutline'] = 'Indice degli argomenti';
 $string['topicshow'] = 'Visualizza questo argomento a {$a}';
 $string['total'] = 'Totale';
-$string['trackforums'] = 'Evidenziazione messaggi forum';
-$string['trackforumsno'] = 'No, non evidenziare i post non letti';
-$string['trackforumsyes'] = 'Si, evidenzia i post che non ho letto';
+$string['trackforums'] = 'Evidenziamento messaggi forum';
+$string['trackforumsno'] = 'No: non evidenziare i messaggi non letti';
+$string['trackforumsyes'] = 'Si: evidenzia i messaggi non letti';
 $string['trysearching'] = 'Prova a cercare.';
 $string['turneditingoff'] = 'Termina modifica';
 $string['turneditingon'] = 'Attiva modifica';
@@ -1692,11 +1695,11 @@ $string['unfinished'] = 'Non terminato';
 $string['unknowncategory'] = 'Categoria sconosciuta';
 $string['unlimited'] = 'Nessun limite';
 $string['unpacking'] = 'Decompressione {$a}';
-$string['unsafepassword'] = 'Password insicura - provarne un\'altra';
+$string['unsafepassword'] = 'Password non sicura - utilizzane un\'altra';
 $string['untilcomplete'] = 'Fino al completamento';
 $string['unusedaccounts'] = 'Gli account inutilizzati per più di {$a} giorni saranno rimossi automaticamente dal corso.';
 $string['unzip'] = 'Decomprimi';
-$string['unzippingbackup'] = 'Decompressione Backup';
+$string['unzippingbackup'] = 'Decompressione backup';
 $string['up'] = 'In alto';
 $string['update'] = 'Aggiorna';
 $string['updated'] = 'Aggiornato {$a}';
@@ -1854,4 +1857,4 @@ $string['yourlastlogin'] = 'Il tuo login più recente è stato:';
 $string['yourself'] = 'te stesso';
 $string['yourteacher'] = 'il tuo {$a}';
 $string['yourwordforx'] = 'Denomina il ruolo \'{$a}\' come';
-$string['zippingbackup'] = 'Compressione Backup';
+$string['zippingbackup'] = 'Compressione backup';

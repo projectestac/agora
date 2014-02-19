@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['actenrolshhdr'] = 'Beschikbare cursus aanmeldingsplugins';
-$string['addinstance'] = 'Methode toevoege';
+$string['addinstance'] = 'Methode toevoegen';
 $string['ajaxnext25'] = 'Volgende 25...';
 $string['ajaxoneuserfound'] = '1 gebruiker gevonden';
 $string['ajaxxusersfound'] = '{$a} gebruikers gevonden';
@@ -60,7 +60,7 @@ $string['enrolperiod'] = 'Aanmeldingsperiode';
 $string['enroltimecreated'] = 'Aanmelding aangemaakt';
 $string['enroltimeend'] = 'Aanmelding eindigt';
 $string['enroltimestart'] = 'Aanmelding begint';
-$string['enrolusage'] = 'Instanties/ Aanmeldingen';
+$string['enrolusage'] = 'Exemplaren / Aanmeldingen';
 $string['enrolusers'] = 'Meld gebruikers aan';
 $string['errajaxfailedenrol'] = 'Aanmelden gebruiker mislukt';
 $string['errajaxsearch'] = 'Fout bij het zoeken naar gebruikers';

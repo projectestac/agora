@@ -26,4 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Neue Aktivitäten';
-$string['recent_activity:addinstance'] = 'Neuen Block \'Neue Aktivitäten\' hinzufügen';
+$string['recent_activity:addinstance'] = 'Block \'Neue Aktivitäten\' hinzufügen';

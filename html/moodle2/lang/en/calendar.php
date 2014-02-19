@@ -16,12 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'calendar', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['advancedoptions'] = 'Advanced options';
 $string['allday'] = 'All day';
@@ -32,10 +34,10 @@ $string['calendarpreferences'] = 'Calendar preferences';
 $string['calendarurl'] = 'Calendar URL: {$a}';
 $string['clickhide'] = 'click to hide';
 $string['clickshow'] = 'click to show';
+$string['colactions'] = 'Actions';
 $string['colcalendar'] = 'Calendar';
 $string['collastupdated'] = 'Last updated';
 $string['colpoll'] = 'Update';
-$string['colactions'] = 'Actions';
 $string['commontasks'] = 'Options';
 $string['confirmeventdelete'] = 'Are you sure you want to delete this event?';
 $string['course'] = 'Course';
@@ -60,9 +62,9 @@ $string['errorbadsubscription'] = 'Calendar subscription not found.';
 $string['errorbeforecoursestart'] = 'Cannot set event before course start date';
 $string['errorcannotimport'] = 'You cannot set up a calendar subscription at this time.';
 $string['errorinvaliddate'] = 'Invalid date';
+$string['errorinvalidicalurl'] = 'The given iCal URL is invalid.';
 $string['errorinvalidminutes'] = 'Specify duration in minutes by giving a number between 1 and 999.';
 $string['errorinvalidrepeats'] = 'Specify the number of events by giving a number between 1 and 99.';
-$string['errorinvalidicalurl'] = 'The given iCal URL is invalid.';
 $string['errornodescription'] = 'Description is required';
 $string['errornoeventname'] = 'Name is required';
 $string['errorrequiredurlorfile'] = 'Either a URL or a file is required to import a calendar.';
@@ -77,12 +79,12 @@ $string['eventnone'] = 'No events';
 $string['eventrepeat'] = 'Repeats';
 $string['eventsall'] = 'All events';
 $string['eventsdeleted'] = 'Events deleted';
-$string['eventsimported'] = 'Events imported: {$a}';
-$string['eventsupdated'] = 'Events updated: {$a}';
 $string['eventsfor'] = '{$a} events';
+$string['eventsimported'] = 'Events imported: {$a}';
 $string['eventskey'] = 'Events key';
 $string['eventsrelatedtocourses'] = 'Events related to courses';
 $string['eventstarttime'] = 'Start time';
+$string['eventsupdated'] = 'Events updated: {$a}';
 $string['eventtime'] = 'Time';
 $string['eventview'] = 'Event details';
 $string['expired'] = 'Expired';
@@ -109,11 +111,11 @@ $string['hideuserevents'] = 'Hide user events';
 $string['hourly'] = 'Hourly';
 $string['ical'] = 'iCal';
 $string['importcalendar'] = 'Import calendar';
-$string['importcalendarheading'] = 'Import calendar...';
 $string['importcalendarfrom'] = 'Import from';
+$string['importcalendarheading'] = 'Import calendar...';
 $string['importfromfile'] = 'Calendar file (.ics)';
-$string['importfromurl'] = 'Calendar URL';
 $string['importfrominstructions'] = 'Please provide either a URL to a remote calendar, or upload a file.';
+$string['importfromurl'] = 'Calendar URL';
 $string['invalidtimedurationminutes'] = 'The duration in minutes you have entered is invalid. Please enter the duration in minutes greater than 0 or select no duration.';
 $string['invalidtimedurationuntil'] = 'The date and time you selected for duration until is before the start time of the event. Please correct this before proceeding.';
 $string['iwanttoexport'] = 'Export';
@@ -127,9 +129,9 @@ $string['monthnext'] = 'Next month';
 $string['monththis'] = 'This month';
 $string['never'] = 'Never';
 $string['newevent'] = 'New event';
+$string['nocalendarsubscriptions'] = 'You have no calendar subscriptions.';
 $string['notitle'] = 'no title';
 $string['noupcomingevents'] = 'There are no upcoming events';
-$string['nocalendarsubscriptions'] = 'You have no calendar subscriptions.';
 $string['oneevent'] = '1 event';
 $string['pollinterval'] = 'Update interval';
 $string['pollinterval_help'] = 'How often you would like the calendar to update with new events.';
@@ -159,13 +161,13 @@ $string['saturday'] = 'Saturday';
 $string['showcourseevents'] = 'Show course events';
 $string['showglobalevents'] = 'Show global events';
 $string['showgroupsevents'] = 'Show group events';
-$string['showuserevents'] = 'Show user events';
 $string['shown'] = 'shown';
+$string['showuserevents'] = 'Show user events';
 $string['siteevents'] = 'Site events';
 $string['spanningevents'] = 'Events underway';
-$string['subscriptions'] = 'Subscriptions';
 $string['subscriptionname'] = 'Calendar name';
 $string['subscriptionremoved'] = 'Calendar subscription {$a} removed';
+$string['subscriptions'] = 'Subscriptions';
 $string['subscriptionupdated'] = 'Calendar subscription {$a} updated';
 $string['sun'] = 'Sun';
 $string['sunday'] = 'Sunday';

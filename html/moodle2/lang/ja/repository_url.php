@@ -31,4 +31,5 @@ $string['pluginname'] = 'URIダウンローダ';
 $string['rename'] = '名称';
 $string['url'] = 'URI';
 $string['url:view'] = 'ファイルピッカ内のURIダウンローダを使用する';
+$string['validfiletype'] = 'あなたはイメージファイルまたはイメージを含むページのURIを提供する必要があります。';
 $string['validname'] = '有効なファイル名を入力してください。';

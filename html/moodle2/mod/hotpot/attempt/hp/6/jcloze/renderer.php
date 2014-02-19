@@ -185,12 +185,7 @@ class mod_hotpot_attempt_hp_6_jcloze_renderer extends mod_hotpot_attempt_hp_6_re
     function fix_js_Show_Solution(&$str, $start, $length) {
         $substr = substr($str, $start, $length);
 
-        if ($this->hotpot->delay3==hotpot::TIME_AFTEROK) {
-            $flag = 1; // set form values only
-        } else {
-            $flag = 0; // set form values and send form
-        }
-        $substr = str_replace('Finish()', "HP.onunload(".hotpot::STATUS_ABANDONED.",$flag)", $substr);
+        $substr = str_replace('Finish()', "HP_send_results(HP.EVENT_ABANDONED)", $substr);
 
         $str = substr_replace($str, $substr, $start, $length);
     }
@@ -479,14 +474,10 @@ class mod_hotpot_attempt_hp_6_jcloze_renderer extends mod_hotpot_attempt_hp_6_re
         $substr = substr($str, $start, $length);
 
         if ($pos = strrpos($substr, '}')) {
-            if ($this->hotpot->delay3==hotpot::TIME_AFTEROK) {
-                $flag = 1; // set form values only
-            } else {
-                $flag = 0; // set form values and send form
-            }
             $append = "\n"
                 ."// send results after delay\n"
-                ."	setTimeout('HP.onunload(".hotpot::STATUS_ABANDONED.",$flag)',SubmissionTimeout);\n"
+                ."	setTimeout('HP_send_results('+HP.EVENT_ABANDONED+')',SubmissionTimeout);\n"
+                ."	return false;\n"
             ;
             $substr = substr_replace($substr, $append, $pos, 0);
         }
@@ -532,13 +523,8 @@ class mod_hotpot_attempt_hp_6_jcloze_renderer extends mod_hotpot_attempt_hp_6_re
         }
 
         if ($pos = strrpos($substr, '}')) {
-            if ($this->hotpot->delay3==hotpot::TIME_AFTEROK) {
-                $flag = 1; // set form values only
-            } else {
-                $flag = 0; // set form values and send form
-            }
             $insert = ''
-                ."	HP.onunload(".hotpot::STATUS_TIMEDOUT.",$flag);\n"
+                ."	HP_send_results(HP.EVENT_TIMEDOUT);\n"
                 ."	ShowMessage('$msg');\n"
             ;
             $substr = substr_replace($substr, $insert, $pos, 0);

@@ -28,4 +28,4 @@ defined('MOODLE_INTERNAL') || die();
 $string['notcomplete'] = 'Не завершено';
 $string['pluginname'] = 'Интерактивный с несколькими попытками';
 $string['triesremaining'] = 'Осталось попыток: {$a}';
-$string['tryagain'] = 'Попробуйте ещё раз';
+$string['tryagain'] = 'Попробуйте еще раз';

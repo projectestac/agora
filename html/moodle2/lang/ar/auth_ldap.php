@@ -54,6 +54,7 @@ $string['auth_ldap_passtype_key'] = 'تنسيق كلمة المرور';
 $string['auth_ldap_passwdexpire_settings'] = 'إعدادات انتهاء صلاحية كلمة مرور LDAP';
 $string['auth_ldap_preventpassindb_key'] = 'أخفاء كلمة المرور';
 $string['auth_ldap_search_sub'] = 'ضع قيمة <> 0 إذا أردت أن تبحث عن مستخدمين من سياقات فرعية.';
+$string['auth_ldap_search_sub_key'] = 'البحث في السياقات الفرعية';
 $string['auth_ldap_server_settings'] = 'إعدادات مزود LDAP';
 $string['auth_ldap_update_userinfo'] = 'تحديث معلومات المستخدم (الاسم الأول، الاسم الأخير، العنوان، …) من برتوكول الدخول على الدليل الخفيف  LDAPإلى نظام Moodle . أنظر /auth/ldap/attr_mappings.php للحصول على معلومات عن التخطيط';
 $string['auth_ldap_user_attribute'] = 'الوصف المستخدم لتسمية/البحث عن المستخدمين، وغالبا ما يكون \'cn\'.';

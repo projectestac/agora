@@ -30,6 +30,7 @@ $string['allcourses'] = 'O administrador ve todos os cursos';
 $string['configadminview'] = 'Que debería ver o administrador no bloque de listaxe de cursos?';
 $string['confighideallcourseslink'] = 'Agochar a ligazón «Todos os cursos» no fondo do bloque. Agochar as ligazóns non afecta a vista do administrador.';
 $string['course_list:addinstance'] = 'Engadir un novo bloque de cursos';
+$string['course_list:myaddinstance'] = 'Engadir un novo bloque de cursos ao cartafol persoal';
 $string['hideallcourseslink'] = 'Agochar a ligazón a Todos os cursos';
 $string['owncourses'] = 'O administrador ve os seus propios cursos';
 $string['pluginname'] = 'Cursos';

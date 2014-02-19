@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['completiondate'] = 'Date d\'achèvement';
-$string['completion:view'] = 'Afficher le rapport d\'achèvement du cours';
+$string['completion:view'] = 'Consulter le rapport d\'achèvement du cours';
 $string['id'] = 'ID';
 $string['name'] = 'Nom';
 $string['page-report-completion-index'] = 'Rapport d\'achèvement de cours';

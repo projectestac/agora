@@ -146,7 +146,7 @@ Sono disponibili quattro metodi di valutazione:
 * Voto migliore - Il voto più alto ottenuto nei Learning object superati
 * Media dei voti - La media di tutti i voti
 * Somma dei voti - La somma di tutti i voti';
-$string['gradereported'] = 'Voto riportato';
+$string['gradereported'] = 'Voto ottenuto';
 $string['gradescoes'] = 'Learning object';
 $string['gradesettings'] = 'Impostazioni di valutazione';
 $string['gradesum'] = 'Somma dei voti';
@@ -196,7 +196,7 @@ $string['location'] = 'Visualizza la barra dell\'indirizzo';
 $string['max'] = 'Punteggio massimo';
 $string['maximumattempts'] = 'Numero massimo di tentativi';
 $string['maximumattemptsdesc'] = 'Imposta il valore di default per il numero massimo di tentativi';
-$string['maximumattempts_help'] = 'Imposta il numero massimo di tentativi consentitoi. Funziona solamente per pacchetti SCORM.2 e AICC.';
+$string['maximumattempts_help'] = 'Imposta il numero massimo di tentativi consentiti. Funziona solamente per pacchetti SCORM 1.2 e AICC.';
 $string['maximumgradedesc'] = 'Imposta il valore di default per il punteggio massimo dell\'attività';
 $string['menubar'] = 'Visualizza la barra dei menu';
 $string['min'] = 'Punteggio minimo';
@@ -214,7 +214,7 @@ E\' possibile usare attività SCORM per:
 * Presentare contenuti multimediali ed animazioni
 * Valutare le attività degli studenti';
 $string['modulenameplural'] = 'Pacchetti SCORM';
-$string['navigation'] = 'Navigation';
+$string['navigation'] = 'Navigazione';
 $string['newattempt'] = 'Avvia un nuovo tentativo';
 $string['next'] = 'Continua';
 $string['noactivity'] = 'Nessun report';

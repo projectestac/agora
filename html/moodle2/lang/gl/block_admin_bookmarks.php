@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['admin_bookmarks:addinstance'] = 'Engadir un novo bloque de marcadores de administración';
+$string['admin_bookmarks:myaddinstance'] = 'Engadir un novo bloque de marcadores no cartafol persoal';
 $string['pluginname'] = 'Marcadores do administrador';

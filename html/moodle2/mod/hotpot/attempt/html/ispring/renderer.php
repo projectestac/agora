@@ -43,7 +43,7 @@ class mod_hotpot_attempt_html_ispring_renderer extends mod_hotpot_attempt_html_r
      *
      * @return array of strings
      */
-    public static function sourcetypes()  {
+    static public function sourcetypes()  {
         return array('html_ispring');
     }
 

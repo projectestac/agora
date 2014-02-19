@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -15,12 +16,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines names of plugin types and some strings used at the plugin managment
+ * Strings for component 'plugin', language 'en', branch 'MOODLE_24_STABLE'
  *
- * @package    core
- * @subpackage plugin
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   plugin
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -34,30 +34,29 @@ $string['err_response_curl'] = 'Unable to fetch available updates data - unexpec
 $string['err_response_format_version'] = 'Unexpected version of the response format. Please try to re-check for available updates.';
 $string['err_response_http_code'] = 'Unable to fetch available updates data - unexpected HTTP response code.';
 $string['filterall'] = 'Show all';
-$string['filtercontribonly'] = 'Show contributions only';
-$string['filtercontribonlyactive'] = 'Showing contributions only';
+$string['filtercontribonly'] = 'Show add-ons only';
+$string['filtercontribonlyactive'] = 'Showing add-ons only';
 $string['filterupdatesonly'] = 'Show updateable only';
 $string['filterupdatesonlyactive'] = 'Showing updateable only';
 $string['moodleversion'] = 'Moodle {$a}';
 $string['nonehighlighted'] = 'No plugins require your attention now';
 $string['nonehighlightedinfo'] = 'Display the list of all installed plugins anyway';
 $string['noneinstalled'] = 'No plugins of this type are installed';
-$string['notes'] = 'Notes';
 $string['notdownloadable'] = 'Can not download the package';
 $string['notdownloadable_help'] = 'ZIP package with the update can not be downloaded automatically. Please refer to the documentation page for more help.';
 $string['notdownloadable_link'] = 'admin/mdeploy/notdownloadable';
+$string['notes'] = 'Notes';
 $string['notwritable'] = 'Plugin files not writable';
 $string['notwritable_help'] = 'You have enabled automatic updates deployment and there is an available update for this plugin. However, the plugin files are not writable by the web server so the update cannot be installed automatically.
 
 You need to make the plugin folder and all its contents writable to be able to install the available update automatically.';
 $string['notwritable_link'] = 'admin/mdeploy/notwritable';
-$string['numtotal'] = 'Installed: {$a}';
 $string['numdisabled'] = 'Disabled: {$a}';
-$string['numextension'] = 'Contributions: {$a}';
+$string['numextension'] = 'Add-ons: {$a}';
+$string['numtotal'] = 'Installed: {$a}';
 $string['numupdatable'] = 'Updates available: {$a}';
 $string['otherplugin'] = '{$a->component}';
 $string['otherpluginversion'] = '{$a->component} ({$a->version})';
-$string['showall'] = 'Reload and show all plugins';
 $string['pluginchecknotice'] = 'This page displays plugins that may require your attention during the upgrade. Highlighted items include new plugins that are about to be installed, updated plugins that are about to be upgraded and any missing plugins. Add-ons are also highlighted. It is recommended that you check whether there are more recent versions of add-ons available and update their source code before continuing with this Moodle upgrade.';
 $string['plugindisable'] = 'Disable';
 $string['plugindisabled'] = 'Disabled';
@@ -67,6 +66,7 @@ $string['requiredby'] = 'Required by: {$a}';
 $string['requires'] = 'Requires';
 $string['rootdir'] = 'Directory';
 $string['settings'] = 'Settings';
+$string['showall'] = 'Reload and show all plugins';
 $string['somehighlighted'] = 'Number of plugins requiring your attention: {$a}';
 $string['somehighlightedinfo'] = 'Display the full list of installed plugins';
 $string['somehighlightedonly'] = 'Display only plugins requiring your attention';
@@ -138,14 +138,14 @@ $string['type_tool'] = 'Admin tool';
 $string['type_tool_plural'] = 'Admin tools';
 $string['type_webservice'] = 'Webservice protocol';
 $string['type_webservice_plural'] = 'Webservice protocols';
+$string['uninstall'] = 'Uninstall';
 $string['updateavailable'] = 'There is a new version {$a} available!';
 $string['updateavailable_moreinfo'] = 'More info...';
 $string['updateavailable_release'] = 'Release {$a}';
 $string['updatepluginconfirm'] = 'Plugin update confirmation';
-$string['updatepluginconfirminfo'] = 'You are about to install a new version of the plugin <strong>{$a->name}</strong>. A zip package with version {$a->version} of the plugin will be downloaded from <a href="{$a->url}">{$a->url}</a> and extracted to your Moodle installation so it can upgrade your installation.';
 $string['updatepluginconfirmexternal'] = 'It appears that the current version of the plugin has been obtained via source code management system ({$a}) checkout. If you install this update, you will no longer be able to obtain plugin updates from the source code management system. Please ensure that you definitely want to update the plugin before continuing.';
+$string['updatepluginconfirminfo'] = 'You are about to install a new version of the plugin <strong>{$a->name}</strong>. A zip package with version {$a->version} of the plugin will be downloaded from <a href="{$a->url}">{$a->url}</a> and extracted to your Moodle installation so it can upgrade your installation.';
 $string['updatepluginconfirmwarning'] = 'Please note that Moodle will not automatically make a backup of your database before the upgrade. We strongly recommend that you make a full snapshot backup now, to cope with the rare case that the new code has bugs that make your site unavailable or even corrupts your database. Proceed at your own risk.';
-$string['uninstall'] = 'Uninstall';
 $string['version'] = 'Version';
 $string['versiondb'] = 'Current version';
 $string['versiondisk'] = 'New version';

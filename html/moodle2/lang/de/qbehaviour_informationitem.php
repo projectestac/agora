@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Verhalten für Informationen';
+$string['pluginname'] = 'Verhalten für Informationseinheiten';
 $string['seen'] = 'Gesehen';

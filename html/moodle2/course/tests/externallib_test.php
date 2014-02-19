@@ -572,28 +572,54 @@ class core_course_external_testcase extends externallib_advanced_testcase {
         $this->resetAfterTest(true);
 
         $course  = self::getDataGenerator()->create_course();
-        $forum = $this->getDataGenerator()->create_module('forum', array('course'=>$course->id));
+        $forumdescription = 'This is the forum description';
+        $forum = $this->getDataGenerator()->create_module('forum',
+            array('course'=>$course->id, 'intro' => $forumdescription),
+            array('showdescription' => true));
         $forumcm = get_coursemodule_from_id('forum', $forum->cmid);
-        $forumcontext = context_module::instance($forum->cmid);
         $data = $this->getDataGenerator()->create_module('data', array('assessed'=>1, 'scale'=>100, 'course'=>$course->id));
-        $datacontext = context_module::instance($data->cmid);
         $datacm = get_coursemodule_from_instance('page', $data->id);
         $page = $this->getDataGenerator()->create_module('page', array('course'=>$course->id));
-        $pagecontext = context_module::instance($page->cmid);
         $pagecm = get_coursemodule_from_instance('page', $page->id);
+        $labeldescription = 'This is a very long label to test if more than 50 characters are returned.
+                So bla bla bla bla <b>bold bold bold</b> bla bla bla bla.';
+        $label = $this->getDataGenerator()->create_module('label', array('course' => $course->id,
+            'intro' => $labeldescription));
+        $labelcm = get_coursemodule_from_instance('label', $label->id);
 
         // Set the required capabilities by the external function.
         $context = context_course::instance($course->id);
         $roleid = $this->assignUserCapability('moodle/course:view', $context->id);
         $this->assignUserCapability('moodle/course:update', $context->id, $roleid);
 
-        $courses = core_course_external::get_course_contents($course->id, array());
+        $sections = core_course_external::get_course_contents($course->id, array());
 
         // We need to execute the return values cleaning process to simulate the web service server.
-        $courses = external_api::clean_returnvalue(core_course_external::get_course_contents_returns(), $courses);
+        $sections = external_api::clean_returnvalue(core_course_external::get_course_contents_returns(), $sections);
 
-        // Check that the course has the 3 created modules
-        $this->assertEquals(3, count($courses[0]['modules']));
+        // Check that forum and label descriptions are correctly returned.
+        $firstsection = array_pop($sections);
+        $modinfo = get_fast_modinfo($course);
+        $testexecuted = 0;
+        foreach($firstsection['modules'] as $module) {
+            if ($module['id'] == $forumcm->id and $module['modname'] == 'forum') {
+                $cm = $modinfo->cms[$forumcm->id];
+                $formattedtext = format_text($cm->get_content(), FORMAT_HTML,
+                    array('noclean' => true, 'para' => false, 'filter' => false));
+                $this->assertEquals($formattedtext, $module['description']);
+                $testexecuted = $testexecuted + 1;
+            } else if ($module['id'] == $labelcm->id and $module['modname'] == 'label') {
+                $cm = $modinfo->cms[$labelcm->id];
+                $formattedtext = format_text($cm->get_content(), FORMAT_HTML,
+                    array('noclean' => true, 'para' => false, 'filter' => false));
+                $this->assertEquals($formattedtext, $module['description']);
+                $testexecuted = $testexecuted + 1;
+            }
+        }
+        $this->assertEquals(2, $testexecuted);
+
+        // Check that the only return section has the 4 created modules
+        $this->assertEquals(4, count($firstsection['modules']));
     }
 
     /**
@@ -640,5 +666,219 @@ class core_course_external_testcase extends externallib_advanced_testcase {
 
         // Check that the course has been duplicated.
         $this->assertEquals($newcourse['shortname'], $duplicate['shortname']);
+    }
+
+    /**
+     * Test import_course into an empty course
+     */
+    public function test_import_course_empty() {
+        global $USER;
+
+        $this->resetAfterTest(true);
+
+        $course1  = self::getDataGenerator()->create_course();
+        $forum = $this->getDataGenerator()->create_module('forum', array('course' => $course1->id, 'name' => 'Forum test'));
+        $page = $this->getDataGenerator()->create_module('page', array('course' => $course1->id, 'name' => 'Page test'));
+
+        $course2  = self::getDataGenerator()->create_course();
+
+        $course1cms = get_fast_modinfo($course1->id)->get_cms();
+        $course2cms = get_fast_modinfo($course2->id)->get_cms();
+
+        // Verify the state of the courses before we do the import.
+        $this->assertCount(2, $course1cms);
+        $this->assertEmpty($course2cms);
+
+        // Setup the user to run the operation (ugly hack because validate_context() will
+        // fail as the email is not set by $this->setAdminUser()).
+        $this->setAdminUser();
+        $USER->email = 'emailtopass@contextvalidation.me';
+
+        // Import from course1 to course2.
+        core_course_external::import_course($course1->id, $course2->id, 0);
+
+        // Verify that now we have two modules in both courses.
+        $course1cms = get_fast_modinfo($course1->id)->get_cms();
+        $course2cms = get_fast_modinfo($course2->id)->get_cms();
+        $this->assertCount(2, $course1cms);
+        $this->assertCount(2, $course2cms);
+
+        // Verify that the names transfered across correctly.
+        foreach ($course2cms as $cm) {
+            if ($cm->modname === 'page') {
+                $this->assertEquals($cm->name, $page->name);
+            } else if ($cm->modname === 'forum') {
+                $this->assertEquals($cm->name, $forum->name);
+            } else {
+                $this->fail('Unknown CM found.');
+            }
+        }
+
+        // Reset the timeout (see MDL-38989).
+        set_time_limit(0);
+    }
+
+    /**
+     * Test import_course into an filled course
+     */
+    public function test_import_course_filled() {
+        global $USER;
+
+        $this->resetAfterTest(true);
+
+        // Add forum and page to course1.
+        $course1  = self::getDataGenerator()->create_course();
+        $forum = $this->getDataGenerator()->create_module('forum', array('course'=>$course1->id, 'name' => 'Forum test'));
+        $page = $this->getDataGenerator()->create_module('page', array('course'=>$course1->id, 'name' => 'Page test'));
+
+        // Add quiz to course 2.
+        $course2  = self::getDataGenerator()->create_course();
+        $quiz = $this->getDataGenerator()->create_module('quiz', array('course'=>$course2->id, 'name' => 'Page test'));
+
+        $course1cms = get_fast_modinfo($course1->id)->get_cms();
+        $course2cms = get_fast_modinfo($course2->id)->get_cms();
+
+        // Verify the state of the courses before we do the import.
+        $this->assertCount(2, $course1cms);
+        $this->assertCount(1, $course2cms);
+
+        // Setup the user to run the operation (ugly hack because validate_context() will
+        // fail as the email is not set by $this->setAdminUser()).
+        $this->setAdminUser();
+        $USER->email = 'emailtopass@contextvalidation.me';
+
+        // Import from course1 to course2 without deleting content.
+        core_course_external::import_course($course1->id, $course2->id, 0);
+
+        $course2cms = get_fast_modinfo($course2->id)->get_cms();
+
+        // Verify that now we have three modules in course2.
+        $this->assertCount(3, $course2cms);
+
+        // Verify that the names transfered across correctly.
+        foreach ($course2cms as $cm) {
+            if ($cm->modname === 'page') {
+                $this->assertEquals($cm->name, $page->name);
+            } else if ($cm->modname === 'forum') {
+                $this->assertEquals($cm->name, $forum->name);
+            } else if ($cm->modname === 'quiz') {
+                $this->assertEquals($cm->name, $quiz->name);
+            } else {
+                $this->fail('Unknown CM found.');
+            }
+        }
+
+        // Reset the timeout (see MDL-38989).
+        set_time_limit(0);
+    }
+
+    /**
+     * Test import_course with only blocks set to backup
+     */
+    public function test_import_course_blocksonly() {
+        global $USER, $DB;
+
+        $this->resetAfterTest(true);
+
+        // Add forum and page to course1.
+        $course1  = self::getDataGenerator()->create_course();
+        $course1ctx = context_course::instance($course1->id);
+        $forum = $this->getDataGenerator()->create_module('forum', array('course'=>$course1->id, 'name' => 'Forum test'));
+        $block = $this->getDataGenerator()->create_block('online_users', array('parentcontextid' => $course1ctx->id));
+
+        $course2  = self::getDataGenerator()->create_course();
+        $course2ctx = context_course::instance($course2->id);
+        $initialblockcount = $DB->count_records('block_instances', array('parentcontextid' => $course2ctx->id));
+        $initialcmcount = count(get_fast_modinfo($course2->id)->get_cms());
+
+        // Setup the user to run the operation (ugly hack because validate_context() will
+        // fail as the email is not set by $this->setAdminUser()).
+        $this->setAdminUser();
+        $USER->email = 'emailtopass@contextvalidation.me';
+
+        // Import from course1 to course2 without deleting content, but excluding
+        // activities.
+        $options = array(
+            array('name' => 'activities', 'value' => 0),
+            array('name' => 'blocks', 'value' => 1),
+            array('name' => 'filters', 'value' => 0),
+        );
+
+        core_course_external::import_course($course1->id, $course2->id, 0, $options);
+
+        $newcmcount = count(get_fast_modinfo($course2->id)->get_cms());
+        $newblockcount = $DB->count_records('block_instances', array('parentcontextid' => $course2ctx->id));
+        // Check that course modules haven't changed, but that blocks have.
+        $this->assertEquals($initialcmcount, $newcmcount);
+        $this->assertEquals(($initialblockcount + 1), $newblockcount);
+
+
+        // Reset the timeout (see MDL-38989).
+        set_time_limit(0);
+    }
+
+    /**
+     * Test import_course into an filled course, deleting content.
+     */
+    public function test_import_course_deletecontent() {
+        global $USER;
+        $this->resetAfterTest(true);
+
+        // Add forum and page to course1.
+        $course1  = self::getDataGenerator()->create_course();
+        $forum = $this->getDataGenerator()->create_module('forum', array('course'=>$course1->id, 'name' => 'Forum test'));
+        $page = $this->getDataGenerator()->create_module('page', array('course'=>$course1->id, 'name' => 'Page test'));
+
+        // Add quiz to course 2.
+        $course2  = self::getDataGenerator()->create_course();
+        $quiz = $this->getDataGenerator()->create_module('quiz', array('course'=>$course2->id, 'name' => 'Page test'));
+
+        $course1cms = get_fast_modinfo($course1->id)->get_cms();
+        $course2cms = get_fast_modinfo($course2->id)->get_cms();
+
+        // Verify the state of the courses before we do the import.
+        $this->assertCount(2, $course1cms);
+        $this->assertCount(1, $course2cms);
+
+        // Setup the user to run the operation (ugly hack because validate_context() will
+        // fail as the email is not set by $this->setAdminUser()).
+        $this->setAdminUser();
+        $USER->email = 'emailtopass@contextvalidation.me';
+
+        // Import from course1 to course2,  deleting content.
+        core_course_external::import_course($course1->id, $course2->id, 1);
+
+        $course2cms = get_fast_modinfo($course2->id)->get_cms();
+
+        // Verify that now we have two modules in course2.
+        $this->assertCount(2, $course2cms);
+
+        // Verify that the course only contains the imported modules.
+        foreach ($course2cms as $cm) {
+            if ($cm->modname === 'page') {
+                $this->assertEquals($cm->name, $page->name);
+            } else if ($cm->modname === 'forum') {
+                $this->assertEquals($cm->name, $forum->name);
+            } else {
+                $this->fail('Unknown CM found: '.$cm->name);
+            }
+        }
+
+        // Reset the timeout (see MDL-38989).
+        set_time_limit(0);
+    }
+
+    /**
+     * Ensure import_course handles incorrect deletecontent option correctly.
+     */
+    public function test_import_course_invalid_deletecontent_option() {
+        $this->resetAfterTest(true);
+
+        $course1  = self::getDataGenerator()->create_course();
+        $course2  = self::getDataGenerator()->create_course();
+
+        $this->setExpectedException('moodle_exception', get_string('invalidextparam', 'webservice', -1));
+        // Import from course1 to course2, with invalid option
+        core_course_external::import_course($course1->id, $course2->id, -1);;
     }
 }

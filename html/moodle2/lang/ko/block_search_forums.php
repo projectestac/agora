@@ -27,3 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['advancedsearch'] = '상세검색';
 $string['pluginname'] = '포럼검색';
+$string['search_forums:addinstance'] = '포럼 검색 블록 추가';

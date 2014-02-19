@@ -33,4 +33,4 @@ $string['oauth2upgrade_message_small'] = 'Google OAuth 2.0に記載されてい�
 $string['oauth2upgrade_message_subject'] = 'Google Docsリポジトリプラグインに関する重要情報';
 $string['oauthinfo'] = '<p>このプラグインを使用するには、ドキュメンテーション「<a href="{$a->docsurl}">Google OAuth 2.0セットアップ</a>」に記載されているようにあなたのサイトをGoogleに登録する必要があります。</p><p>登録処理の一部として、あなたは次のURIを「公式リダイレクトURI」として入力する必要があります:</p><p>{$a->callbackurl}</p>登録後、すべてのGoogle DocsおよびPicasaプラグインに使用することのできるクライアントIDおよび秘密鍵が提供されます。</p>';
 $string['pluginname'] = 'Google Docs';
-$string['secret'] = 'シークレット';
+$string['secret'] = '秘密鍵';

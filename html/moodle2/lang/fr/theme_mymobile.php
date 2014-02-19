@@ -25,22 +25,22 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><h2>MyMobile</h2><img src="mymobile/pix/screenshot.png" /><h2>À propos</h2><p>MyMobile est thème de Moodle 2.x pour les appareils mobiles. Plus d\'information sur la création des thèmes sur <a href="http://docs.moodle.org/fr/Thèmes">MoodleDocs</a>.</p></div></div>';
+$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><h2>MyMobile</h2><img src="mymobile/pix/screenshot.png" /><h2>À propos</h2><p>MyMobile est un thème de Moodle 2.x pour les appareils mobiles. Plus d\'information sur la création des thèmes sur <a href="http://docs.moodle.org/fr/Thèmes">MoodleDocs</a>.</p></div></div>';
 $string['colourswatch'] = 'Palette de couleurs du thème mobile';
 $string['colourswatch_desc'] = 'Choisir la tonalité de la palette de couleur du thème';
 $string['customcss'] = 'CSS personnalisée';
 $string['customcssdesc'] = 'Les règles CSS indiquées ici seront ajoutées sur chaque page, vous permettant ainsi de personnaliser votre thème.';
 $string['grey'] = 'Gris';
 $string['light'] = 'Bleu ciel';
-$string['mtoggle'] = 'Activer la 2e colonne';
+$string['mtoggle'] = 'Activer la 2ème colonne';
 $string['no'] = 'Non';
 $string['pluginname'] = 'MyMobile';
 $string['region-myblocks'] = 'Région des blocs';
-$string['showfullsizeimages'] = 'Afficher en entier les images sur la page d\'accueil et les pages de cours';
+$string['showfullsizeimages'] = 'Afficher en entier les images sur la page d\'accueil et les pages de cours.';
 $string['showfullsizeimages_desc'] = 'Afficher en entier les images sur la page d\'accueil et les pages de cours, plutôt que des vignettes. Le réglage par défaut est de ne pas afficher les images en entier.';
 $string['showmobileintro'] = 'Texte d\'introduction mobile';
 $string['showmobileintro_desc'] = 'Ajouter un texte/des images sur la page d\'accueil du thème mobile.';
-$string['showsitetopic'] = 'Afficher les sections du site';
+$string['showsitetopic'] = 'Afficher les sections du site :';
 $string['showsitetopic_desc'] = 'Afficher sur la page d\'accueil les sections thématiques standards (si disponibles) pour les utilisateurs du thème mobile.';
 $string['usetableview'] = 'Mode tablette';
 $string['usetableview_desc'] = 'Utiliser le mode tablette pour les appareils avec écran plus grand (oui par défaut).';

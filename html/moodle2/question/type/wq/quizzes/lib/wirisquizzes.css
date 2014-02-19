@@ -408,8 +408,14 @@ ul.wiristestassertionslist{
     padding: 0;
     list-style: none outside none;
 }
-
-
+.wirisinlinewarning{
+    font-size: 0.9em;
+    color: #c02705;
+    font-weight: bold;
+    background: url('?service=resource&name=warning.png') no-repeat left;
+    padding-left:  18px;
+    float: right;
+}
 /***
 Some CSS specially for moodle 2 standard theme.
 **/

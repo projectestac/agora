@@ -216,12 +216,12 @@ if (empty($completions)) {
                 echo '(<i>';
 
                 if ($agg == COMPLETION_AGGREGATION_ALL) {
-                    echo strtolower(get_string('aggregateall', 'completion'));
+                    echo textlib::strtolower(get_string('all', 'completion'));
                 } else {
-                    echo strtolower(get_string('aggregateany', 'completion'));
+                    echo textlib::strtolower(get_string('any', 'completion'));
                 }
 
-                echo '</i> '.strtolower(get_string('required')).')';
+                echo '</i> '.textlib::strtolower(get_string('required')).')';
                 $agg_type = false;
             }
         }

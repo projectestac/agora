@@ -31,6 +31,7 @@ $string['configplugin'] = '드롭박스 설정';
 $string['dropbox'] = '드롭박스';
 $string['dropbox:view'] = '드롭박스 경로 보기';
 $string['instruction'] = '<a href="http://www.dropbox.com/developers/apps">드롭박스 개발자</a>에서 드롭박스의 API 키 및 암호를 얻을 수 있습니다.';
+$string['logoutdesc'] = '(드롭박스 사용을 종료할때 로그아웃)';
 $string['notitle'] = '제목없음';
 $string['pluginname'] = '드롭박스';
 $string['remember'] = '기억해 주세요';

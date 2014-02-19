@@ -25,5 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['managemyfiles'] = 'Управление моими файлами';
 $string['pluginname'] = 'Мои личные файлы';
 $string['privatefiles'] = 'Личные файлы';
+$string['private_files:addinstance'] = 'Добавлять новый блок Личные файлы';
+$string['private_files:myaddinstance'] = 'Добавлять новый блок Личные файлы в Мой Moodle';

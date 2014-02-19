@@ -27,10 +27,10 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['actfilterhdr'] = 'Aktive Suche';
 $string['addfilter'] = 'Filter hinzufügen';
-$string['anycategory'] = 'Beliebiger Kursbereich';
-$string['anycourse'] = 'Beliebiger Kurs';
-$string['anyfield'] = 'Beliebiges Feld';
-$string['anyrole'] = 'Beliebige Rolle';
+$string['anycategory'] = 'Jeder Kursbereich';
+$string['anycourse'] = 'Jeder Kurs';
+$string['anyfield'] = 'Jedes Feld';
+$string['anyrole'] = 'Jede Rolle';
 $string['anyvalue'] = 'Beliebiger Wert';
 $string['applyto'] = 'Aktivieren';
 $string['categoryrole'] = 'Kursbereich-Rolle';

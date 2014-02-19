@@ -43,7 +43,7 @@ class mod_hotpot_attempt_hp_6_jcross_xml_v6_renderer extends mod_hotpot_attempt_
      *
      * @return array of strings
      */
-    public static function sourcetypes()  {
+    static public function sourcetypes()  {
         return array('hp_6_jcross_xml');
     }
 }

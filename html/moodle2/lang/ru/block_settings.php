@@ -28,3 +28,4 @@ defined('MOODLE_INTERNAL') || die();
 $string['enabledock'] = 'Разрешить перемещать этот блок в док';
 $string['pluginname'] = 'Настройки';
 $string['settings:addinstance'] = 'Добавлять новый блок настроек';
+$string['settings:myaddinstance'] = 'Добавлять новый блок настроек в Мой Moodle';

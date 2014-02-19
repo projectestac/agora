@@ -25,5 +25,18 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['courseactivities'] = 'Categorías, cursos e actividades do curso';
 $string['courses'] = 'Categorías e cursos';
+$string['coursestructures'] = 'Categorías, cursos e estruturas de cursos';
+$string['enabledockdesc'] = 'Permitirlle ao usuario ancorar este bloque';
+$string['everything'] = 'Todo';
+$string['expansionlimit'] = 'Xerar navegación para o seguinte';
+$string['linkcategoriesdesc'] = 'Presentar categorías como ligazóns';
+$string['navigation:addinstance'] = 'Engadir un novo bloque de navegación';
+$string['navigation:myaddinstance'] = 'Engadir un novo bloque de navegación ao meu cartafol persoal';
 $string['pluginname'] = 'Navegación';
+$string['trimlength'] = 'Cantos caracteres recurtar a';
+$string['trimmode'] = 'Modo recorte';
+$string['trimmodecenter'] = 'Recurtar caracteres a partir do centro';
+$string['trimmodeleft'] = 'Recurtar caracteres a partir da esquerda';
+$string['trimmoderight'] = 'Recurtar caracteres a partir da dereita';

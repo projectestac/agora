@@ -8,7 +8,22 @@ class com_wiris_util_xml_XmlSerializer {
 		$this->childrenStack = new _hx_array(array());
 		$this->childStack = new _hx_array(array());
 		$this->cacheTagStackCount = 0;
+		$this->ignoreTagStackCount = 0;
 	}}
+	public function isIgnoreTag($s) {
+		if($this->ignore !== null) {
+			$i = $this->ignore->iterator();
+			while($i->hasNext()) {
+				if($i->next() === $s) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	public function setIgnoreTags($ignore) {
+		$this->ignore = $ignore;
+	}
 	public function serializeXml($tag, $elem) {
 		if($this->mode === com_wiris_util_xml_XmlSerializer::$MODE_READ) {
 			if($tag === null || $this->currentChild() !== null && $this->currentChild()->getNodeName() === $tag) {
@@ -238,7 +253,7 @@ class com_wiris_util_xml_XmlSerializer {
 		if($this->mode === com_wiris_util_xml_XmlSerializer::$MODE_READ) {
 			$content = com_wiris_util_xml_XmlSerializer::getXmlTextContent($this->element);
 		} else {
-			if($this->mode === com_wiris_util_xml_XmlSerializer::$MODE_WRITE && $content !== null) {
+			if($this->mode === com_wiris_util_xml_XmlSerializer::$MODE_WRITE && $content !== null && $this->ignoreTagStackCount === 0) {
 				$textNode = null;
 				if(strlen($content) > 100 || StringTools::startsWith($content, "<") && StringTools::endsWith($content, ">")) {
 					$textNode = Xml::createCData($content);
@@ -318,7 +333,7 @@ class com_wiris_util_xml_XmlSerializer {
 			}
 		} else {
 			if($this->mode === com_wiris_util_xml_XmlSerializer::$MODE_WRITE) {
-				if($value !== null && !($value === $def)) {
+				if($value !== null && !($value === $def) && $this->ignoreTagStackCount === 0) {
 					com_wiris_util_xml_WXmlUtils::setAttribute($this->element, $name, $value);
 				}
 			}
@@ -332,14 +347,18 @@ class com_wiris_util_xml_XmlSerializer {
 			$this->nextChild();
 		} else {
 			if($this->mode === com_wiris_util_xml_XmlSerializer::$MODE_WRITE) {
-				$this->element = $this->element->_parent;
+				if($this->ignoreTagStackCount > 0) {
+					$this->ignoreTagStackCount--;
+				} else {
+					$this->element = $this->element->_parent;
+				}
 			} else {
 				if($this->mode === com_wiris_util_xml_XmlSerializer::$MODE_CACHE) {
-					if($this->cacheTagStackCount === 0) {
+					if($this->cacheTagStackCount > 0) {
+						$this->cacheTagStackCount--;
+					} else {
 						$this->mode = com_wiris_util_xml_XmlSerializer::$MODE_WRITE;
 						$this->element = $this->element->_parent;
-					} else {
-						$this->cacheTagStackCount--;
 					}
 				}
 			}
@@ -355,9 +374,13 @@ class com_wiris_util_xml_XmlSerializer {
 			}
 		} else {
 			if($this->mode === com_wiris_util_xml_XmlSerializer::$MODE_WRITE) {
-				$child = Xml::createElement($tag);
-				$this->element->addChild($child);
-				$this->element = $child;
+				if($this->isIgnoreTag($tag) || $this->ignoreTagStackCount > 0) {
+					$this->ignoreTagStackCount++;
+				} else {
+					$child = Xml::createElement($tag);
+					$this->element->addChild($child);
+					$this->element = $child;
+				}
 			} else {
 				if($this->mode === com_wiris_util_xml_XmlSerializer::$MODE_REGISTER && $this->currentTag === null) {
 					$this->currentTag = $tag;
@@ -425,6 +448,8 @@ class com_wiris_util_xml_XmlSerializer {
 	public function getMode() {
 		return $this->mode;
 	}
+	public $ignoreTagStackCount;
+	public $ignore;
 	public $cacheTagStackCount;
 	public $cache;
 	public $currentTag;

@@ -60,11 +60,11 @@ $string['completion_help'] = 'Cette option permet d\'activer le suivi de l\'ach�
 
 Une coche à côté du nom de l\'activité indique sur la page de cours lorsqu\'une activité est terminée.';
 $string['completionicons'] = 'Coches d\'achèvement';
-$string['completionicons_help'] = 'Une coche à côté du nom de l\'activité peut être utilisée pour indiquer sur la page de cours lorsqu\'une activité est terminée.
+$string['completionicons_help'] = 'Une coche à côté du nom de l\'activité peut être utilisée pour indiquer que l\'activité est terminée.
 
-Si la coche est traitillée, vous pouvez la cliquer lorsque vous pensez avoir terminé l\'activité. Vous pouvez cliquer une nouvelle fois si vous changez d\'avis. La coche est optionnelle et vous permet simplement de savoir où vous en êtes dans le cours.
+Si la bordure de la case à cocher est traitillée, une coche apparaîtra automatiquement lorsque l\'activité sera terminée d\'après les conditions fixées par l\'enseignant.
 
-Si une case blanche est affichée, une coche apparaîtra automatiquement lorsque l\'activité sera terminée d\'après les conditions fixées par l\'enseignant.';
+Si la bordure de la case à cocher est continue, vous pouvez la cocher lorsque vous pensez avoir terminé l\'activité. Vous pouvez cliquer une nouvelle fois si vous changez d\'avis. La coche est optionnelle et vous permet simplement de savoir où vous en êtes dans le cours.';
 $string['completion_manual'] = 'Les participants peuvent marquer manuellement cette activité comme terminée';
 $string['completionmenuitem'] = 'Achèvement';
 $string['completion-n'] = 'Pas terminé';
@@ -130,6 +130,7 @@ $string['moredetails'] = 'Plus de détails';
 $string['nocriteriaset'] = 'Aucun critère d\'achèvement défini pour ce cours';
 $string['notcompleted'] = 'Pas terminé';
 $string['notenroled'] = 'Vous n\'êtes pas inscrit à ce cours';
+$string['nottracked'] = 'Vous n\'êtes actuellement pas suivi pour l\'achèvement de ce cours';
 $string['notyetstarted'] = 'Pas encore commencé';
 $string['overallcriteriaaggregation'] = 'Type de combinaison des critères globaux';
 $string['pending'] = 'En suspens';

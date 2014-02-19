@@ -25,6 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['admin_bookmarks:addinstance'] = 'Neuen Block \'Lesezeichen\' hinzufügen';
-$string['admin_bookmarks:myaddinstance'] = 'Neuen Block \'Lesezeichen\'  für \'Meine Startseite\' hinzufügen';
+$string['admin_bookmarks:addinstance'] = 'Block \'Lesezeichen\' hinzufügen';
+$string['admin_bookmarks:myaddinstance'] = 'Block \'Lesezeichen\' für \'Meine Startseite\' hinzufügen';
 $string['pluginname'] = 'Lesezeichen';

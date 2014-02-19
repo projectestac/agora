@@ -305,7 +305,7 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
             $tmp->cmid      =  $data->cmid;
             $tmp->action    =  'wsautenticationerror';
             $tmp->url       =  $_SERVER['REQUEST_URI'];
-            $tmp->info      =  text_lib::str_replace("'","''","Instance ID: ".$data->id.", Text: ".get_string('wsautenticationerror',$data->module=='check_credentials'?'rcontent':$data->module).", Code: ".$response->AutenticarUsuarioContenidoResult->Codigo.", Detail: ".$response->AutenticarUsuarioContenidoResult->Descripcion);
+            $tmp->info      =  str_replace("'","''","Instance ID: ".$data->id.", Text: ".get_string('wsautenticationerror',$data->module=='check_credentials'?'rcontent':$data->module).", Code: ".$response->AutenticarUsuarioContenidoResult->Codigo.", Detail: ".$response->AutenticarUsuarioContenidoResult->Descripcion);
             if ($urlok)
                 $tmp->info      =  $tmp->info.", URL: ".$response->AutenticarUsuarioContenidoResult->URL;
 

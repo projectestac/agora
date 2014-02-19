@@ -28,11 +28,11 @@ defined('MOODLE_INTERNAL') || die();
 $string['addcomment'] = 'Kommentar hinzufügen';
 $string['addentry'] = 'Eintrag hinzufügen';
 $string['addingcomment'] = 'Kommentar hinzufügen';
-$string['alias'] = 'Alternativbegriff';
-$string['aliases'] = 'Alternativbegriffe';
-$string['aliases_help'] = 'Zu jedem Glossareintrag kann eine Reihe von Alternativbegriffen (Synonyme, Keywords, Aliases) angegeben werden. Tragen Sie jeden Alternativbegriff in einer neuen Zeile ein (nicht als kommagetrennte Liste!).
+$string['alias'] = 'Schlagwort';
+$string['aliases'] = 'Schlagworte';
+$string['aliases_help'] = 'Zu jedem Glossareintrag kann eine Reihe von Schlagworten (Alternativbegriffe, Synonyme, Keywords, Tags) angegeben werden. Tragen Sie jedes Schlagwort in einer neuen Zeile ein (nicht als kommagetrennte Liste).
 
-Wenn ein Glossareintrag automatisch verlinkt wird, ist jeder Alternativbegriff ebenfalls so markiert.';
+Wenn ein Glossareintrag automatisch verlinkt wird, ist jedes Schlagwort ebenfalls markiert.';
 $string['allcategories'] = 'Alle Kategorien';
 $string['allentries'] = 'Alle';
 $string['allowcomments'] = 'Kommentare';
@@ -187,7 +187,7 @@ $string['fillfields'] = 'Begriff und Definition sind Pflichtfelder.';
 $string['filtername'] = 'Automatische Verlinkung zum Glossar';
 $string['fullmatch'] = 'Nur vollständige Worte';
 $string['fullmatch_help'] = 'Wenn diese Option aktiviert ist, wird ein Eintrag nur dann verlinkt, wenn ein vollständiges Wort im Text mit dem Eintrag im Glossar übereinstimmt. Dabei wird beispielsweise keine Verlinkung erzeugt, wenn ein im Glossar eingetragener Begriff "Konstrukt" lautet, aber im Text das Wort "Konstruktivität" vorkommt.';
-$string['glossary:addinstance'] = 'Neues Glossar hinzufügen';
+$string['glossary:addinstance'] = 'Glossar hinzufügen';
 $string['glossary:approve'] = 'Einträge freigeben';
 $string['glossary:comment'] = 'Kommentare';
 $string['glossary:export'] = 'Einträge exportieren';
@@ -200,7 +200,7 @@ $string['glossary:managecomments'] = 'Kommentare verwalten';
 $string['glossary:manageentries'] = 'Einträge verwalten';
 $string['glossary:rate'] = 'Einträge bewerten';
 $string['glossarytype'] = 'Glossartyp';
-$string['glossarytype_help'] = 'Das Glossarsystem ermöglicht innerhalb eines Kurses das Importieren von Einträgen aus jedem beliebigen (Standard-)Glossar in das Hauptglossar. Es darf im Kurs nur ein Hauptglossar vorhanden sein. Wenn der Import nicht genutzt wird, sollten alle Glossare als Standardglossare angelegt sein.';
+$string['glossarytype_help'] = 'Das Glossarsystem ermöglicht innerhalb eines Kurses das Importieren von Einträgen aus jedem (Standard-)Glossar in das Hauptglossar. Es darf im Kurs nur ein Hauptglossar vorhanden sein. Wenn der Import nicht genutzt wird, sollten alle Glossare als Standardglossare angelegt sein.';
 $string['glossary:view'] = 'Glossar ansehen';
 $string['glossary:viewallratings'] = 'Alle Teilwertungen sehen';
 $string['glossary:viewanyrating'] = 'Alle Gesamtwertungen sehen';

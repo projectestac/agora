@@ -26,6 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['feedback'] = 'Feedback';
-$string['feedback:addinstance'] = 'Neuen Block \'Feedback\' hinzufügen';
+$string['feedback:addinstance'] = 'Block \'Feedback\' hinzufügen';
 $string['missing_feedback_module'] = 'Dieser Block gehört zur Aktivität \'Feedback\', die aber nicht verfügbar ist!';
 $string['pluginname'] = 'Feedback';

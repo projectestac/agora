@@ -44,5 +44,7 @@ $string['display_picture'] = '사진 공개';
 $string['display_skype'] = 'Skype 아이디 공개';
 $string['display_un'] = '이름 공개';
 $string['display_yahoo'] = 'Yahoo 아이디 공개';
+$string['myprofile:addinstance'] = '로그인 사용자 블록 추가';
+$string['myprofile:myaddinstance'] = '내 공부방에 로그인 사용자 블록 추가';
 $string['myprofile_settings'] = '볼 수 있는 사용자 정보';
 $string['pluginname'] = '로그인한 사용자';

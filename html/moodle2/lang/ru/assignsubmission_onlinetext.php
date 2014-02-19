@@ -27,9 +27,13 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['allowonlinetextsubmissions'] = 'Включено';
 $string['default'] = 'Включено по умолчанию';
+$string['default_help'] = 'Если установлено, то этот метод представления будет включен по умолчанию для всех новых заданий.';
 $string['enabled'] = 'Ответ - в виде текста';
 $string['enabled_help'] = 'Если включен, студенты смогут вводить форматированный текст прямо в редактор, в качестве своего ответа.';
+$string['nosubmission'] = 'Нет представленных ответов на это задание.';
 $string['numwords'] = '(слов - {$a})';
+$string['numwordsforlog'] = 'Количество представленных слов: {$a}';
 $string['onlinetext'] = 'Ответ - в виде текста';
+$string['onlinetextfilename'] = 'onlinetext.html';
 $string['onlinetextsubmission'] = 'Разрешить ответ в виде текста';
 $string['pluginname'] = 'Ответ - в виде текста';

@@ -34,4 +34,5 @@ $string['password'] = 'Pasahitza';
 $string['pluginname'] = 'Alfresco biltegia';
 $string['pluginname_help'] = 'Alfresco CMS-entzako plugina';
 $string['soapmustbeenabled'] = 'SOAP luzapenak gaituta egon behar du alfresco pluginerako';
+$string['space'] = 'Espazioa';
 $string['username'] = 'Erabiltzaile-izena';

@@ -32,6 +32,7 @@ $string['upload_error_cant_write'] = 'Ezin izan da fitxategia diskoan idatzi';
 $string['upload_error_extension'] = 'PHP luzapen batek eten du fitxategiaren igoera.';
 $string['upload_error_form_size'] = 'Igotako fitxategiak HTML formularioan zehaztutako MAX_FILE_SIZE direktiba gainditzen du.';
 $string['upload_error_ini_size'] = 'Igotako fitxategiak php.ini fitxategian zehaztutako upload_max_filesize direktiba gainditzen du.';
+$string['upload_error_invalid_file'] = '\'{$a}\' fitxategia hutsik dago edo karpeta da. Igotzeko lehenengo  zipeatu behar da.';
 $string['upload_error_no_file'] = 'Ez da fitxategirik igo.';
 $string['upload_error_no_tmp_dir'] = 'PHP falta da aldi baterako karpetan.';
 $string['upload_error_partial'] = 'Fitxategiaren zati bat baino ez da igo.';

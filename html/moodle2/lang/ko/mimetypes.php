@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['application/epub_zip'] = 'EPUB 전자책';
 $string['application/msword'] = '워드 문서';
 $string['application/pdf'] = 'PDF 문서';
 $string['application/vnd.moodle.backup'] = '무들 백업';

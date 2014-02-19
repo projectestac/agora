@@ -54,7 +54,7 @@ $string['blank'] = 'Vide';
 $string['buttons'] = 'Actions';
 $string['bynameondate'] = 'par {$a->name}, le {$a->date}';
 $string['cancel'] = 'Annuler';
-$string['cannotaccesspresentsother'] = 'Vous n\'avez pas la permission d\'accéder à des préréglages d\'autres utilisateurs';
+$string['cannotaccesspresentsother'] = 'Vous n\'avez pas l\'autorisation d\'accéder à des préréglages d\'autres utilisateurs';
 $string['cannotadd'] = 'Impossible d\'ajouter des fiches !';
 $string['cannotdeletepreset'] = 'Error deleting a preset!';
 $string['cannotoverwritepreset'] = 'Erreur lors du remplacement du préréglage';
@@ -95,9 +95,9 @@ $string['data:rate'] = 'Évaluer des fiches';
 $string['data:readentry'] = 'Lire des fiches';
 $string['data:viewallratings'] = 'Voir toutes les évaluations brutes données par des participants';
 $string['data:viewalluserpresets'] = 'Voir les préréglages de tous les utilisateurs';
-$string['data:viewanyrating'] = 'Voir les évaluations globales reçues par les participants';
-$string['data:viewentry'] = 'Voir les fiches';
-$string['data:viewrating'] = 'Voir l\'évaluation globale que vous avez reçue';
+$string['data:viewanyrating'] = 'Accéder aux évaluations globales reçues par les participants';
+$string['data:viewentry'] = 'Consulter les fiches';
+$string['data:viewrating'] = 'Voir sa propre évaluation globale reçue';
 $string['data:writeentry'] = 'Ajouter des fiches';
 $string['date'] = 'Date';
 $string['dateentered'] = 'Date de saisie';
@@ -174,7 +174,7 @@ $string['header'] = 'Entête';
 $string['headeraddtemplate'] = 'Définit l\'interface présentée lors de la modification de fiches';
 $string['headerasearchtemplate'] = 'Définit l\'interface présentée pour les recherches avancées';
 $string['headercsstemplate'] = 'Définit les styles CSS des autres modèles';
-$string['headerjstemplate'] = 'Définit du code JavaScript utilisable dans les autres modèles';
+$string['headerjstemplate'] = 'Définit du code Javascript utilisable dans les autres modèles';
 $string['headerlisttemplate'] = 'Définit l\'interface présentée lors de la consultation de plusieurs fiches';
 $string['headerrsstemplate'] = 'Définit l\'aspect des fiches dans les flux RSS';
 $string['headersingletemplate'] = 'Définit l\'interface présentée lors de la consultation d\'une fiche';
@@ -184,7 +184,7 @@ $string['includeapproval'] = 'Inclure le statut d\'approbation';
 $string['includetime'] = 'Inclure la date d\'ajout/de modification';
 $string['includeuserdetails'] = 'Inclure les détails de l\'utilisateur';
 $string['insufficiententries'] = 'autres fiches sont requises pour afficher cette base de données';
-$string['intro'] = 'Introduction';
+$string['intro'] = 'Description';
 $string['invalidaccess'] = 'L\'accès à cette page n\'a pas été effectué correctement';
 $string['invalidfieldid'] = 'L\'identifiant du champ est incorrect';
 $string['invalidfieldname'] = 'Veuillez choisir un autre nom pour ce champ';
@@ -296,12 +296,9 @@ $string['requireapproval_help'] = 'Si vous désirez que les fiches soient approu
 $string['requiredentries'] = 'Fiches requises';
 $string['requiredentries_help'] = 'Le nombre de fiches qu\'un participant a l\'obligation de créer dans cette activité pour qu\'elle soit considérée comme terminée.';
 $string['requiredentriestoview'] = 'Fiches requises avant consultation';
-$string['requiredentriestoview_help'] = '<!-- $Id$ -->
+$string['requiredentriestoview_help'] = 'Ce réglage indique le nombre de fiches qu\'un participant doit créer avant de pouvoir consulter les fiches d\'autres participants.
 
-
-<p>Ce réglage indique le nombre de fiches qu\'un participant doit créer avant de pouvoir consulter les autres fiches de cette activité de base de données.</p>
-
-<p>Remarque ! Cette fonctionnalité ne peut pas être utilisée en même temps que le filtre des liens automatiques des articles de base de données, car ce filtre est incapable de déterminer si un utilisateur a proposé le nombre requis d\'articles.</p>';
+Remarque ! Cette fonctionnalité ne peut pas être utilisée en même temps que le filtre des liens automatiques des articles de base de données, car ce filtre est incapable de déterminer si un utilisateur a proposé le nombre requis d\'articles.';
 $string['resetsettings'] = 'Réinitialiser les filtres';
 $string['resettemplate'] = 'Réinitialiser le modèle';
 $string['resizingimages'] = 'Génération des vignettes...';

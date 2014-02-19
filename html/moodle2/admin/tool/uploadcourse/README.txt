@@ -3,7 +3,7 @@ moodle-tool_uploadcourse
 
 **NOTE**
 
-This plugin is now available in Moodle core as of 2.6.
+This plugin is now available in Moodle core as of 2.6, so this repository is nolonger maintained.  Please refer to https://tracker.moodle.org/browse/MDL-13114 .
 
 
 

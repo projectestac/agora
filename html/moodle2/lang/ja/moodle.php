@@ -53,8 +53,8 @@ $string['addcountertousername'] = 'ユーザ名に数字を付加してユーザ
 $string['addcreator'] = 'コース作成者を追加する';
 $string['adddots'] = '追加 ...';
 $string['added'] = '{$a} が追加されました';
-$string['addedrecip'] = '新しい受信者 {$a} 名が追加されました。';
-$string['addedrecips'] = '新しい受信者 {$a} 名が追加されました。';
+$string['addedrecip'] = '新しい取得者 {$a} 名が追加されました。';
+$string['addedrecips'] = '新しい取得者 {$a} 名が追加されました。';
 $string['addedtogroup'] = 'グループ「 {$a} 」に追加されました。';
 $string['addedtogroupnot'] = 'グループ「 {$a} 」に追加されませんでした。';
 $string['addedtogroupnotenrolled'] = 'コースに登録されていないため、グループ「 {$a} 」に追加されませんでした。';
@@ -66,7 +66,7 @@ $string['addlinkhere'] = 'ここにリンクを追加する';
 $string['addnewcategory'] = '新しいカテゴリを追加する';
 $string['addnewcourse'] = '新しいコースを追加する';
 $string['addnewuser'] = '新しいユーザを追加する';
-$string['addnousersrecip'] = 'この {$a} にアクセスしていないユーザを受信者リストに追加する';
+$string['addnousersrecip'] = 'この {$a} にアクセスしていないユーザを取得者リストに追加する';
 $string['addpagehere'] = 'ここにページを追加する';
 $string['addresource'] = 'リソースを追加する ...';
 $string['addresourceoractivity'] = '活動またはリソースを追加する';
@@ -187,6 +187,7 @@ $string['backuploglaststatus'] = '最新実行ログ';
 $string['backupmissinguserinfoperms'] = '注意: このバックアップには、ユーザデータが含まれていません。また、このタイプのバックアップに互換性がないため、エクササイズおよびワークショップはバックアップに含まれません。';
 $string['backupnext'] = '次のバックアップ';
 $string['backupnonisowarning'] = '警告: このバックアップは、非ユニコードバージョンのMoodle (1.6以前) によって作成されたものです。このバックアップに非ISO-8859-1テキストが含まれている場合、ユニコードバージョンのMoodleにリストアすると文字化けが発生する可能性があります。このバックアップを正常にするための詳細情報は、<a href="http://docs.moodle.org/ja/バックアップFAQ">バックアップFAQ</a>をご覧ください。';
+$string['backupnotyetrun'] = '自動バックアップ保留';
 $string['backuporiginalname'] = 'バックアップ名';
 $string['backuproleassignments'] = 'これらのロールに対するロール割り当てをバックアップする';
 $string['backupsavetohelp'] = 'バックアップファイルの保存先ディレクトリをフルパスで入力してください。<br />(コースのデフォルトディレクトリに保存する場合は空白)';
@@ -287,7 +288,7 @@ $string['cookiesenabled_help'] = '<p>このサイトでは、2種類のクッキ
 
 <p>重要なクッキーはセッションクッキーで、通常 <b>MoodleSession</b> と呼ばれます。継続的にログインして各ページに移動するため、ブラウザをクッキー利用可にしてください。 ログアウトまたはブラウザを閉じた場合、(ブラウザとサーバの) クッキーは破棄されます。</p>
 
-<p>もう1つのクッキーは、純粋に便宜的な理由で使用され、通常 <b>MOODLEID</b> と呼ばれます。このクッキーは、あなたのユーザ名をブラウザに憶えさせるために使用されます。これは、あなたがサイトへ戻ったときに、ログインページにユーザ名が初めから入力されていることを意味します。このクッキーを拒否しても大丈夫です - しかし、ログイン時にあなたのユーザ名を毎回入力する必要があります。</p>';
+<p>もう1つのクッキーは、純粋に便宜的な理由で使用され、通常 <b>MOODLEID</b> と呼ばれます。このクッキーは、あなたのユーザ名をブラウザに憶えさせるために使用されます。これはあなたがサイトへ戻ったときに、ログインページにユーザ名が初めから入力されていることを意味します。このクッキーを拒否しても大丈夫です - しかし、ログイン時にあなたのユーザ名を毎回入力する必要があります。</p>';
 $string['cookiesnotenabled'] = '残念ですが、あなたのブラウザーでは、クッキーの設定が有効にされていません。';
 $string['copy'] = 'コピー';
 $string['copyasnoun'] = 'コピー';
@@ -343,9 +344,10 @@ $string['coursehelpshowgrades'] = '評定表の表示を有効にします。個
 $string['coursehidden'] = '現在、学生はこのコースを利用できません。';
 $string['courseinfo'] = 'コース情報';
 $string['courselegacyfiles'] = 'レガシーコースファイル';
-$string['courselegacyfiles_help'] = 'コースファイルエリアはMoodle 1.9およびそれ以前のバージョンのために下位互換性を確保します。このファイルエリアのファイルすべてには (あなたがリンクするかどうかに関わらず) コース参加者すべてがアクセスすることができます。また、これらのファイルがMoodle内のどこで使用されているか知る手段がありません。
+$string['courselegacyfiles_help'] = 'コースファイルエリアはMoodle 1.9およびそれ以前のバージョンのために下位互換性を確保します。このファイルエリアのファイルすべてには (あなたがリンクするかどうかにかかわらず) コース参加者すべてがアクセスすることができます。また、これらのファイルがMoodle内のどこで使用されているか知る手段がありません。
 
 あなたがこのファイルエリアをコースファイルの保存に使用する場合、多くのプライバシーおよびセキュリティ問題に自分をさらすことになります。同時にバックアップおよびコースインポートのファイル喪失、常にコンテンツが共有および再利用されることを経験することになります。そのため、あなたが何をしているのか本当に理解している場合以外、このエリアの使用はお勧めできません。';
+$string['courselegacyfilesofcourse'] = 'レガシーコースファイル: {$a}';
 $string['coursemessage'] = 'コースユーザにメッセージを送信する';
 $string['coursenotaccessible'] = 'このコースはパブリックアクセスを許可していません。';
 $string['courseoverview'] = 'コース概要';
@@ -367,11 +369,11 @@ $string['courserequestdetails'] = 'あなたがリクエストするコースの
 $string['courserequestfailed'] = '何らかの理由で、あなたのコースリクエストを保存できませんでした。';
 $string['courserequestintro'] = 'あなたのコース作成をリクエストをするには、このフォームを利用してください。<br />コース開設の理由を管理者が理解し、承認するために必要な情報を可能な限りく<br />多入力してください。';
 $string['courserequestreason'] = 'このコースを開設したい理由';
-$string['courserequestsuccess'] = 'あなたのコースリクエストが正常に保存されました。数日以内に審査結果に関するメールが送信される予定です。';
+$string['courserequestsuccess'] = 'あなたのコースリクエストが正常に保存されました。あなたのリクエスト承認に関するメールが送信されます。';
 $string['courserequestsupport'] = '管理者がこのリクエストを判断するための支援情報';
 $string['courserestore'] = 'コースリストア';
 $string['courses'] = 'コース';
-$string['coursesectionsummaries'] = 'コースセクション要約';
+$string['coursesectionsummaries'] = 'コースセクション概要';
 $string['coursesettings'] = 'コースデフォルト設定';
 $string['coursesmovedout'] = '{$a} からコースを移動しました。';
 $string['coursespending'] = '承認審査中コース';
@@ -546,7 +548,7 @@ $string['editorresettodefaults'] = 'デフォルト値にリセットする';
 $string['editorsettings'] = 'エディタ設定';
 $string['editorshortcutkeys'] = 'エディタショートカットキー';
 $string['editsettings'] = '設定を編集する';
-$string['editsummary'] = '要約を編集する';
+$string['editsummary'] = '概要を編集する';
 $string['editthisactivity'] = 'この活動を編集する';
 $string['editthiscategory'] = 'このカテゴリを編集する';
 $string['edittitle'] = 'タイトルを編集する';
@@ -571,9 +573,9 @@ $string['emailconfirmation'] = 'こんにちは {$a->firstname} さん
 
 お分かりにならない場合は、サイト管理者 {$a->admin} にご連絡ください。';
 $string['emailconfirmationsubject'] = '{$a}: アカウントの確定';
-$string['emailconfirmsent'] = '<p>メールが <b>{$a}</b> 宛に送信されました。
-<p>メールには、簡単に登録を確定するための説明が記載されています。
-<p>お分かりにならない場合は、サイト管理者にご連絡ください。';
+$string['emailconfirmsent'] = '<p>あなたの <b>{$a}</b> のメールアドレス宛にメールが送信されました。</p>
+<p>メールには登録を確認するための簡単な説明が記載されています。</p>
+<p>分からない場合、サイト管理者にご連絡ください。</p>';
 $string['emaildigest'] = 'メール要約タイプ';
 $string['emaildigestcomplete'] = '全部 (すべての投稿を毎日メール)';
 $string['emaildigestoff'] = '要約なし (フォーラムの投稿ごとにメール)';
@@ -633,7 +635,8 @@ $string['emailpasswordconfirmation'] = 'こんにちは {$a->firstname} さん
 $string['emailpasswordconfirmationsubject'] = '{$a}: パスワード変更確認';
 $string['emailpasswordconfirmmaybesent'] = '<p>正しいユーザ名またはメールアドレスを入力した場合、あなたにメールが送信されています。</p>
 <p>送信されたメールには、パスワードの変更を確認および完了するため、簡単な説明が記載されています。パスワード変更作業が難しい場合、サイト管理者にご連絡ください。</p>';
-$string['emailpasswordconfirmsent'] = 'メールがあなたのアドレス <b>{$a}</b> 宛に送信されました。<br />送信されたメールにはパスワードの変更を確認・完了するための簡単な説明が書いてあります。問題がある場合、サイト管理者にご連絡ください。';
+$string['emailpasswordconfirmsent'] = 'あなたの <b>{$a}</b> のメールアドレス宛にメールが送信されました。
+<br />このパスワード変更に関して、確認および完了のための簡単な説明が記載されています。分からない場合、サイト管理者にご連絡ください。';
 $string['emailpasswordsent'] = 'パスワードの変更確認ありがとうございます。
 <p>新しいパスワードが記載されたメールがあなたのメールアドレス<br /><b>{$a->email}</b>に送信されました。<br />新しいパスワードは自動的に生成されたものです - <a href="{$a->link}">パスワードの変更</a> で覚えやすいものに変更することができます。';
 $string['enable'] = 'Yes';
@@ -1015,7 +1018,7 @@ $string['missingsitedescription'] = 'サイトの説明が入力されていま�
 $string['missingsitename'] = 'サイト名が入力されていません。';
 $string['missingstrings'] = '未翻訳ストリングを確認する';
 $string['missingstudent'] = '何か選んでください。';
-$string['missingsummary'] = '要約が入力されていません。';
+$string['missingsummary'] = '概要が入力されていません。';
 $string['missingteacher'] = '何か選択してください。';
 $string['missingurl'] = 'リンク切れ';
 $string['missingusername'] = 'ユーザ名が入力されていません。';
@@ -1205,6 +1208,7 @@ $string['options'] = 'オプション';
 $string['order'] = '表示順';
 $string['originalpath'] = 'オリジナルパス';
 $string['orphanedactivities'] = '迷子の活動';
+$string['orphanedactivitiesinsectionno'] = '迷子の活動 (セクション {$a})';
 $string['other'] = '他の';
 $string['outline'] = 'アウトライン';
 $string['outlinereport'] = 'アウトラインレポート';
@@ -1588,9 +1592,9 @@ $string['studentsandteachers'] = '学生と教師';
 $string['subcategories'] = 'サブカテゴリ';
 $string['submit'] = '送信';
 $string['success'] = '成功';
-$string['summary'] = '要約';
-$string['summary_help'] = '要約はトピックまたは週の中の活動を学生が準備するための短いテキストです。テキストはコースページのセクション名の下に表示されます。';
-$string['summaryof'] = '{$a} の要約';
+$string['summary'] = '概要';
+$string['summary_help'] = '概要はトピックまたは週の中の活動を学生が準備するための短いテキストです。テキストはコースページのセクション名の下に表示されます。';
+$string['summaryof'] = '{$a} 概要';
 $string['supplyinfo'] = '詳細情報';
 $string['switchdevicedefault'] = '標準テーマにスイッチする';
 $string['switchdevicerecommended'] = 'あなたのデバイスの推奨テーマにスイッチする';
@@ -1725,19 +1729,19 @@ $string['viewprofile'] = 'プロファイルを表示する';
 $string['views'] = '表示';
 $string['viewsolution'] = '解決方法を表示する';
 $string['virusfound'] = '管理者の方!  {$a->user} によってコース {$a->course} にアップロードされたファイルにClam AVがウイルスを発見しました。clamscanの出力結果は次のとおりです:';
-$string['virusfoundlater'] = '{$a->date} に{$a->filename} というファイル名でコース {$a->course} にあなたがアップロードしたファイルにウイルスが発見されました。あなたのファイルに対して実行された処理の要約です:
+$string['virusfoundlater'] = '{$a->date} に{$a->filename} というファイル名でコース {$a->course} にあなたがアップロードしたファイルにウイルスが発見されました。あなたのファイルに対して実行された処理の概要です:
 
 {$a->action}
 
 これが提出した課題の場合、あなたの教師が閲覧できるよう再度提出してください。';
-$string['virusfoundlateradmin'] = '管理者の方! {$a->date} に{$a->filename} というファイル名でコース {$a->course} へユーザ {$a->user} によってアップロードされたファイルにウイルスが発見されました。感染ファイルに対して実行された処理の要約です:
+$string['virusfoundlateradmin'] = '管理者の方! {$a->date} に{$a->filename} というファイル名でコース {$a->course} へユーザ {$a->user} によってアップロードされたファイルにウイルスが発見されました。感染ファイルに対して実行された処理の概要です:
 
 {$a->action}
 
 ユーザにもウイルスに感染している旨が通知されました。';
 $string['virusfoundlateradminnolog'] = '管理者の方! {$a->filename} というファイル名でアップロードされたファイルにウイルスが発見されました。Moodleはアップロードされたファイルのウイルスを駆除することができませんでした。
 
-感染ファイルに対して実行された処理の要約です:
+感染ファイルに対して実行された処理の概要です:
 
 {$a->action}';
 $string['virusfoundsubject'] = '{$a}: ウイルスが見つかりました!';

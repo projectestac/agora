@@ -108,6 +108,7 @@ $string['data:comment'] = '덧글 쓰기';
 $string['data:exportallentries'] = '모든 데이터베이스 내용 내보내기';
 $string['data:exportentry'] = '데이터베이스 내용 내보내기';
 $string['data:exportownentry'] = '내 데이터베이스 내용 내보내기';
+$string['data:exportuserinfo'] = '사용자 정보 내보내기';
 $string['data:managecomments'] = '덧글 관리';
 $string['data:manageentries'] = '입력내용 관리';
 $string['data:managetemplates'] = '템플릿 관리';
@@ -207,6 +208,9 @@ $string['headerrsstemplate'] = 'RSS 피드 게시물의 모양 정의';
 $string['headersingletemplate'] = '단일 게시물에 대한 검색 인터페이스 정의';
 $string['importentries'] = '항목들 가져오기';
 $string['importsuccess'] = '초기설정이 성공적으로 적용됨';
+$string['includeapproval'] = '승인 상태 포함';
+$string['includetime'] = '추가/변경된 시간 포함';
+$string['includeuserdetails'] = '사용자 세부정보 포함';
 $string['insufficiententries'] = '이 데이터베이스를 보기 위해서는 입력항목이 더 필요함';
 $string['intro'] = '소개';
 $string['invalidaccess'] = '이 페이지는 제대로 접속되지 않았습니다.';
@@ -356,6 +360,7 @@ $string['updatefield'] = '기존 필드 업데이트';
 $string['uploadfile'] = '파일 올리기';
 $string['uploadrecords'] = '파일에서 항목 올리기';
 $string['url'] = 'URL';
+$string['usedate'] = '검색에 포함합니다.';
 $string['usestandard'] = '초기설정 사용';
 $string['usestandard_help'] = '<p align="center"><strong>초기설정 사용</strong></p>
 <p> 사이트 전체에 걸쳐 활용 가능한 템플릿을 사용할 수 있다.</p>

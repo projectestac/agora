@@ -28,7 +28,13 @@ defined('MOODLE_INTERNAL') || die();
 $string['label:addinstance'] = 'Gehitu beste etiketa bat';
 $string['labeltext'] = 'Etiketaren testua';
 $string['modulename'] = 'Etiketa';
-$string['modulename_help'] = 'Etiketa baten bidez ikastaroaren orriko jarduren esteken artean testu eta irudiak txerta daitezke.  ';
+$string['modulename_help'] = 'Etiketa baten bidez testu eta irudiak txerta daitezke ikastaroaren hasiera-orriko jarduera eta baliabideen esteken artean. Etiketek erabilera anitzak dituzte, eta era egokian erabiliz gero ikastaroaren itxura hobetzen lagun dezakete.
+
+Etiketak erabil daitezke
+
+* Aktibitate zerrenda luzeak goiburu edo irudien bitartez zatitzeko
+* Ikastaroan bertan bideo edo audioak txertatzeko.
+* Ikastaroaren atal bati azalpen txiki bat gehitzeko';
 $string['modulenameplural'] = 'Etiketak';
 $string['pluginadministration'] = 'Etiketaren kudeaketa';
 $string['pluginname'] = 'Etiketa';

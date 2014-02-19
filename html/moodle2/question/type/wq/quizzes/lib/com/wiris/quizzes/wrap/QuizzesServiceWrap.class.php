@@ -9,6 +9,8 @@ class com_wiris_quizzes_wrap_QuizzesServiceWrap implements com_wiris_quizzes_api
 	public function execute($request) {
 		try {
 			$this->wrapper->start();
+			$rw = $request;
+			$request = $rw->impl;
 			$response = $this->service->execute($request);
 			$this->wrapper->stop();
 			return $response;

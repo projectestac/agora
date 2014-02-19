@@ -63,16 +63,16 @@ function hpFeedback() {
 				}
 			}
 			html += '</td></tr>'
-				+	'<tr><th valign="top" align="right">' + FEEDBACK[9] + ':</th>'
-				+	'<td><TEXTAREA name="message" rows="10" cols="40"></TEXTAREA></td></tr>'
-				+	'<tr><td>&nbsp;</td><td><input type="submit" value="' + FEEDBACK[6] + '">'
-				+ 	hpHiddenField('realname', FEEDBACK[2], ',', true)
-				+ 	hpHiddenField('email', FEEDBACK[3], ',', true)
-				+ 	hpHiddenField('subject', document.title, ',', true)
-				+ 	hpHiddenField('title', document.title, ',', true)
-				+ 	hpHiddenField('return_link_title', FEEDBACK[10], ',', true)
-				+ 	hpHiddenField('return_link_url', 'javascript:self.close()', ',', true)
-				+	'</td></tr></table></form></body></html>'
+				+ '<tr><th valign="top" align="right">' + FEEDBACK[9] + ':</th>'
+				+ '<td><TEXTAREA name="message" rows="10" cols="40"></TEXTAREA></td></tr>'
+				+ '<tr><td>&nbsp;</td><td><input type="submit" value="' + FEEDBACK[6] + '">'
+				+ hpHiddenField('realname', FEEDBACK[2], ',', true)
+				+ hpHiddenField('email', FEEDBACK[3], ',', true)
+				+ hpHiddenField('subject', document.title, ',', true)
+				+ hpHiddenField('title', document.title, ',', true)
+				+ hpHiddenField('return_link_title', FEEDBACK[10], ',', true)
+				+ hpHiddenField('return_link_url', 'javascript:self.close()', ',', true)
+				+ '</td></tr></table></form></body></html>'
 			;
 		} else if (FEEDBACK[1]) { // url only
 			if (typeof(FEEDBACK[1])=='object') {
@@ -90,8 +90,8 @@ function hpFeedback() {
 					}
 					html += '</select>';
 					html += '</td></tr>'
-						+	'<tr><td>&nbsp;</td><td><input type="submit" value="' + FEEDBACK[6] + '">'
-						+	'</td></tr></table></form></body></html>'
+						+ '<tr><td>&nbsp;</td><td><input type="submit" value="' + FEEDBACK[6] + '">'
+						+ '</td></tr></table></form></body></html>'
 					;
 				} else if (i_max==1) { // one teacher
 					url = FEEDBACK[0] + FEEDBACK[1][0][1];
@@ -104,7 +104,7 @@ function hpFeedback() {
 		}
 		if (url || html) {
 			var w = openWindow(url, 'feedback', FEEDBACK[4], FEEDBACK[5], 'RESIZABLE,SCROLLBARS', html);
-			if (!w) {
+			if (! w) {
 				 // unable to open popup window
                 alert('Please enable pop-up windows on your browser');
 			}
@@ -149,13 +149,13 @@ function openWindow(url, name, width, height, attributes, html) {
 		;
 	}
 	// create global hpWindows object, if necessary
-	if (!window.hpWindows) window.hpWindows = new Array();
+	if (! window.hpWindows) window.hpWindows = new Array();
 	// initialize window object
 	var w = null;
 	// has a window with this name been opened before?
 	if (name && hpWindows[name]) {
 		// http://www.webreference.com/js/tutorial1/exist.html
-		if (hpWindows[name].open && !hpWindows[name].closed) {
+		if (hpWindows[name].open && ! hpWindows[name].closed) {
 			w = hpWindows[name];
 			w.focus();
 		} else {

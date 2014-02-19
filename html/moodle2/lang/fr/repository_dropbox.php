@@ -30,7 +30,7 @@ $string['cachelimit'] = 'Limite du cache';
 $string['cachelimit_info'] = 'Indiquez la taille maximale des fichiers (en octets) à mettre en cache sur le serveur pour les alias/raccourcis Dropbox. Les fichiers en cache seront fournis si la source n\'est plus disponible. Une valeur nulle ou vide indique que tous les fichiers seront mis en cache, quelle que soit leur taille.';
 $string['configplugin'] = 'Configuration Dropbox';
 $string['dropbox'] = 'Dropbox';
-$string['dropbox:view'] = 'Afficher un dossier Dropbox';
+$string['dropbox:view'] = 'Consulter un dépôt Dropbox';
 $string['instruction'] = 'Vous pouvez obtenir votre clef API et votre secret sur <a href="http://www.dropbox.com/developers/apps">Dropbox developers</a>. Indiquer « Full Dropbox » dans les réglages lors de la configuration de la clef.';
 $string['logoutdesc'] = '(Déconnexion après avoir utilisé Dropbox)';
 $string['notitle'] = 'sans titre';

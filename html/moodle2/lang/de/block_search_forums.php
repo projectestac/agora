@@ -27,4 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['advancedsearch'] = 'Erweiterte Suche';
 $string['pluginname'] = 'Suche in Foren';
-$string['search_forums:addinstance'] = 'Neuen Block \'Suche in Foren\' hinzufügen';
+$string['search_forums:addinstance'] = 'Block \'Suche in Foren\' hinzufügen';

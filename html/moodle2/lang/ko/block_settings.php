@@ -27,3 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['enabledock'] = '사용자가 이 블록을 도킹하는 것을 허용';
 $string['pluginname'] = '설정';
+$string['settings:myaddinstance'] = '내 공부방에 설정 블록 추가';

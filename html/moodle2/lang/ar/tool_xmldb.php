@@ -68,6 +68,7 @@ $string['newkey'] = 'مفتاح جديد';
 $string['newtable'] = 'جدول جديد';
 $string['pluginname'] = 'محرر XMLDB';
 $string['save'] = 'حفظ';
+$string['searchresults'] = 'نتائج البحث';
 $string['selectaction'] = 'اختر الإجراء:';
 $string['selectdb'] = 'اختر قاعدة البيانات:';
 $string['selecttable'] = 'أختر الجدول:';

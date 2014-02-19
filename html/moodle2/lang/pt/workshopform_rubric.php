@@ -36,4 +36,4 @@ $string['layoutlist'] = 'Lista';
 $string['levelgroup'] = 'Nota e opção de resposta';
 $string['levels'] = 'Opções de resposta';
 $string['mustchooseone'] = 'Tem de selecionar um dos itens';
-$string['pluginname'] = 'Escolha múltipla';
+$string['pluginname'] = 'Grelha Qualitativa';

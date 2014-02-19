@@ -25,4 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['invaliddata'] = 'Недостаточно данных';
 $string['participants'] = 'Количество участников';
+$string['percent'] = 'Обеспеченный процент (%)';
+$string['pluginname'] = 'Графический отчет';

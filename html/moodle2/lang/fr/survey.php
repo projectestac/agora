@@ -50,7 +50,7 @@ $string['attls15short'] = 'me mettre à leur place';
 $string['attls16'] = 'Ma façon d\'analyser les choses pourrait s\'appeler les « mettre en jugement », car je prends le soin de considérer tous les aspects.';
 $string['attls16short'] = 'mettre en jugement';
 $string['attls17'] = 'Lors de la résolution de problèmes, je donne plus de poids à la logique et à la raison qu\'à mes propres soucis.';
-$string['attls17short'] = 'je trouve la logique plus importante';
+$string['attls17short'] = 'Je trouve la logique plus importante';
 $string['attls18'] = 'J\'arrive à comprendre les opinions différentes des miennes grâce à mon empathie.';
 $string['attls18short'] = 'compréhension par empathie';
 $string['attls19'] = 'Lorsque je rencontre des gens d\'opinions qui me semblent étranges, je fais l\'effort « d\'élargir » mon esprit, pour essayer de comprendre le pourquoi de ces opinions.';
@@ -190,7 +190,7 @@ Vos réponses soigneusement réfléchies nous aideront à améliorer la façon d
 
 Nous vous remercions de votre collaboration.';
 $string['collespname'] = 'COLLES (idéal)';
-$string['customintro'] = 'Introduction personnalisée';
+$string['customintro'] = 'Description';
 $string['deleteallanswers'] = 'Supprimer toutes les réponses des consultations';
 $string['deleteanalysis'] = 'Supprimer les analyses de réponses';
 $string['done'] = 'Terminé';

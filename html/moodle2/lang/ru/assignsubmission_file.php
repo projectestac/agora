@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['configmaxbytes'] = 'Максимальный размер файла';
 $string['countfiles'] = 'Файлов - {$a}';
 $string['default'] = 'Включено по умолчанию';
+$string['default_help'] = 'Если установлено, то этот метод представления будет включен по умолчанию для всех новых заданий.';
 $string['enabled'] = 'Ответ в виде файла';
 $string['enabled_help'] = 'Если включен, студенты смогут загрузить один или более файлов в качестве своего ответа.';
 $string['file'] = 'Ответ в виде файла';
@@ -37,3 +38,4 @@ $string['maxfilessubmission_help'] = 'Если используется отве
 $string['maximumsubmissionsize'] = 'Максимальный размер файла';
 $string['maximumsubmissionsize_help'] = 'Размер файлов, загружаемых студентами, ограничен этим значением.';
 $string['pluginname'] = 'Ответ в виде файла';
+$string['submissionfilearea'] = 'Загружаемых файлов в ответе';

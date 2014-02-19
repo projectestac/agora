@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['admin_bookmarks:addinstance'] = 'Добавлять новый блок Закладки администратора';
+$string['admin_bookmarks:myaddinstance'] = 'Добавлять новый блок Закладки администратора в Мой Moodle';
 $string['pluginname'] = 'Закладки администратора';

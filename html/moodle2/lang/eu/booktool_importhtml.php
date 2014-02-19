@@ -34,4 +34,7 @@ $string['importingchapters'] = 'Atalak liburura inportatzen';
 $string['pluginname'] = 'Liburu-atala inportatu';
 $string['relinking'] = 'Berriz estekatu';
 $string['type'] = 'Mota';
+$string['typeonefile'] = 'Goiburuak atal gisa dituen HTML fitxategia';
+$string['typezipdirs'] = 'Karpeta bakoitzak atal bat osatzen du';
+$string['typezipfiles'] = 'HTML fitxategi bakoitzak atal bat osatzen du';
 $string['ziparchive'] = 'Zip fitxategia';

@@ -25,4 +25,4 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'URL';
+$string['pluginname'] = 'Гиперссылка';

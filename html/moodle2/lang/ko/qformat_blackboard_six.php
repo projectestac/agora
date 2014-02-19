@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['defaultname'] = '질문 가져오기 {$a}';
 $string['errormanifest'] = 'IMS 매니페스트 문서를 파싱하는동안 오류';
+$string['imagenotfound'] = '경로 {$a}에 있는 이미지 파일을 가져오기에서 찾을 수 없습니다.';
 $string['importnotext'] = 'XML 파일에서 누락된 질문 문장';
 $string['pluginname'] = '블랙보드 6판+';
 $string['pluginname_help'] = '블랙보드 6판+ 형식은 블랙보드의 내보내기 형식으로 저장된 질문이  zip으로 가져올 수 있게 합니다. 단 블랙보드 6판과 7판에 대해서는 제한적으로 지원합니다. ';

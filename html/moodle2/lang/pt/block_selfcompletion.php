@@ -27,6 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['alreadyselfcompleted'] = 'Já marcou a disciplina como concluída';
 $string['completecourse'] = 'Concluí a disciplina';
-$string['pluginname'] = 'Auto-conclusão';
-$string['selfcompletion:addinstance'] = 'Adicionar um novo bloco Auto-conclusão';
-$string['selfcompletionnotenabled'] = 'A auto-conclusão não se encontra ativa nesta disciplina';
+$string['pluginname'] = 'Autoconclusão';
+$string['selfcompletion:addinstance'] = 'Adicionar um novo bloco Autoconclusão';
+$string['selfcompletionnotenabled'] = 'A autoconclusão não se encontra ativa nesta disciplina';

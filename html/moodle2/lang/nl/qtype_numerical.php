@@ -101,7 +101,7 @@ $string['unitselect'] = 'een rolmenu';
 $string['validnumberformats'] = 'Geldige getalopmaak';
 $string['validnumberformats_help'] = '* gewone getallen 13500.67, 13 500.67, 13500,67 of 13 500,67
 
-* als je een scheidingsteken voor duizendtallen gebruikt, moet je altijd een . gebruiken voor de decimalen, zoals in 13,500.67 : 13,500.
+* als je taalpakketinstellingen (lanconfig.php-bestand) een komma (,) als scheidingsteken voor duizendtallen gebruikt, moet je altijd een decimaal punt  (.)  gebruiken, zoals in 13,500.67 : 13,500. (noot van de vertaler: Het  Nederlandse taalpakket gebruikt een komma voor de decimalen en een spatie als scheidingsteken voor de duizendtallen. Rapporteer eventuele problemen via https://moodle.org/mod/forum/view.php?id=1312)
 
 * voor exponenten zoals 1.350067 * 10<sup>4</sup>, gebruik je 1.350067 E4 : 1.350067 E04';
 $string['validnumbers'] = '13500.67, 13 500.67, 13,500.67, 13500,67, 13 500,67, 1.350067 E4 of 1.350067 E04';

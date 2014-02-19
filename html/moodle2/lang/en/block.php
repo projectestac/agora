@@ -16,12 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'block', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['addtodock'] = 'Move this to the dock';
 $string['anypagematchingtheabove'] = 'Any page matching the above';
@@ -39,10 +41,10 @@ $string['defaultregion'] = 'Default region';
 $string['defaultregion_help'] = 'Themes may define one or more named block regions where blocks are displayed. This setting defines which of these you want this block to appear in by default. The region may be overridden on specific pages if required.';
 $string['defaultweight'] = 'Default weight';
 $string['defaultweight_help'] = 'The default weight allows you to choose roughly where you want the block to appear in the chosen region, either at the top or the bottom. The final location is calculated from all the blocks in that region (for example, only one block can actually be at the top). This value can be overridden on specific pages if required.';
-$string['deletecheck'] = 'Delete {$a} block?';
 $string['deleteblock'] = 'Delete {$a} block';
 $string['deleteblockcheck'] = 'Are you sure that you want to delete this block titled {$a}?';
 $string['deleteblockwarning'] = '<p>You are about to delete a block that appears elsewhere.</p><p>Original block location: {$a->location}<br />Display on page types: {$a->pagetype}</p><p>Are you sure you want to continue?</p>';
+$string['deletecheck'] = 'Delete {$a} block?';
 $string['hideblock'] = 'Hide {$a} block';
 $string['hidedockpanel'] = 'Hide the dock panel';
 $string['hidepanel'] = 'Hide panel';
@@ -53,15 +55,14 @@ $string['onthispage'] = 'On this page';
 $string['pagetypes'] = 'Page types';
 $string['pagetypewarning'] = 'The previously specified page type is no longer selectable. Please choose the most appropriate page type below.';
 $string['region'] = 'Region';
+$string['restrictpagetypes'] = 'Display on page types';
 $string['showblock'] = 'Show {$a} block';
 $string['showoncontextandsubs'] = 'Display on \'{$a}\' and any pages within it';
 $string['showoncontextonly'] = 'Display on \'{$a}\' only';
 $string['showonentiresite'] = 'Display throughout the entire site';
 $string['showonfrontpageandsubs'] = 'Display on the front page and any pages added to the front page';
 $string['showonfrontpageonly'] = 'Display on the front page only';
-$string['site-*'] = 'Any top-level site page';
 $string['subpages'] = 'Select pages';
-$string['restrictpagetypes'] = 'Display on page types';
 $string['thisspecificpage'] = 'This specific page';
 $string['undockall'] = 'Undock all';
 $string['undockitem'] = 'Undock this item';

@@ -25,5 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['notavailable'] = 'Извините, этот тест недоступен';
+$string['notavailable'] = 'В настоящее время этот тест недоступен';
+$string['pluginname'] = 'Правило дат начала и окончания доступа';
 $string['quiznotavailable'] = 'Тест будет недоступен до {$a}';

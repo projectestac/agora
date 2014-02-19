@@ -16,21 +16,25 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tag', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'tag', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   tag
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
+
 $string['addedotag'] = '"{$a}" was added as an official tag.';
 $string['addotags'] = 'Add official tags';
 $string['addtagtomyinterests'] = 'Add "{$a}" to my interests';
 $string['alltagpages'] = 'All tag pages';
+$string['changename'] = 'Change tag name';
+$string['changetype'] = 'Change tag type';
 $string['count'] = 'Count';
 $string['delete'] = 'Delete';
 $string['deleted'] = 'Deleted';
-$string['deletedcoursetags'] = 'Deleted - course tags';
+$string['deletedcoursetags'] = 'Deleted - Course tags';
 $string['description'] = 'Description';
 $string['edittag'] = 'Edit this tag';
 $string['entertags'] = 'Enter tags separated by commas';
@@ -40,8 +44,6 @@ $string['errorupdatingrecord'] = 'Error updating tag record';
 $string['flag'] = 'Flag';
 $string['flagasinappropriate'] = 'Flag as inappropriate';
 $string['helprelatedtags'] = 'Comma separated related tags';
-$string['changename'] = 'Change tag name';
-$string['changetype'] = 'Change tag type';
 $string['id'] = 'id';
 $string['manageofficialtags'] = 'Manage official tags';
 $string['managetags'] = 'Manage tags';
@@ -53,6 +55,10 @@ $string['officialtag'] = 'Official tag';
 $string['otags'] = 'Official tags';
 $string['othertags'] = 'Other tags (enter tags separated by commas)';
 $string['owner'] = 'Owner';
+$string['page-tag-index'] = 'Single tag page';
+$string['page-tag-manage'] = 'Manage tags page';
+$string['page-tag-search'] = 'Tag search page';
+$string['page-tag-x'] = 'All tag pages';
 $string['ptags'] = 'User defined tags (Comma separated)';
 $string['relatedblogs'] = 'Most recent blog entries';
 $string['relatedtags'] = 'Related tags';
@@ -83,7 +89,3 @@ $string['typechanged'] = 'Tag type changed';
 $string['updated'] = 'Updated';
 $string['updatetag'] = 'Update';
 $string['withselectedtags'] = 'With selected tags...';
-$string['page-tag-x'] = 'All tag pages';
-$string['page-tag-index'] = 'Single tag page';
-$string['page-tag-search'] = 'Tag search page';
-$string['page-tag-manage'] = 'Manage tags page';

@@ -33,7 +33,6 @@ $string['automaticallygraded'] = 'Automatiskt betygsatt';
 $string['backtothelistofquestions'] = 'Tillbaka till listan över frågor';
 $string['bydate'] = 'På datum';
 $string['bystudentidnumber'] = 'På elevidnummer';
-$string['bystudentname'] = 'På elevnamn';
 $string['cannotgradethisattempt'] = 'Kan inte betygsätta detta försök.';
 $string['cannotloadquestioninfo'] = 'Kunde inte ladda frågespecifik information';
 $string['changeoptions'] = 'Ändra alternativ';

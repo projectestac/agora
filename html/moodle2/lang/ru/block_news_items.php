@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['news_items:addinstance'] = 'Добавлять новый блок последних новостей';
+$string['news_items:myaddinstance'] = 'Добавлять новый блок последних новостей в Мой Moodle';
 $string['pluginname'] = 'Последние новости';

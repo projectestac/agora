@@ -26,14 +26,14 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['editquestionshere'] = 'Редактировать вопросы в этом контексте';
-$string['getreport'] = 'Получить отчёт';
+$string['getreport'] = 'Получить отчет';
 $string['hiddenquestions'] = 'Скрытые';
-$string['intro'] = 'В этом отчёте перечисляются все контексты системы, в которых есть вопросы определённого типа.';
+$string['intro'] = 'В этом отчете перечисляются все контексты системы, в которых есть вопросы определенного типа.';
 $string['pluginname'] = 'Экземпляры вопроса';
-$string['questioninstances:view'] = 'Просматривать отчёты о использовании вопросов';
-$string['reportforallqtypes'] = 'Отчёт о вопросах всех типов';
-$string['reportformissingqtypes'] = 'Отчёт о вопросах неизвестных типов';
-$string['reportforqtype'] = 'Отчёт о вопросах типа "{$a}"';
-$string['reportsettings'] = 'Параметры отчёта';
+$string['questioninstances:view'] = 'Просматривать отчеты о использовании вопросов';
+$string['reportforallqtypes'] = 'Отчет о вопросах всех типов';
+$string['reportformissingqtypes'] = 'Отчет о вопросах неизвестных типов';
+$string['reportforqtype'] = 'Отчет о вопросах типа «{$a}»';
+$string['reportsettings'] = 'Параметры отчета';
 $string['totalquestions'] = 'Итого';
 $string['visiblequestions'] = 'Видимые';

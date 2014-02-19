@@ -62,8 +62,8 @@ Dazwischen liegende Punktwerte werden gerundet und ggfs. dem nächstliegenden Pu
 $string['guidenotcompleted'] = 'Geben Sie bitte einen gültigen Wert für jedes Kriterium ein.';
 $string['guideoptions'] = 'Optionen für Bewertungs-Richtlinien';
 $string['guidestatus'] = 'Derzeitiger Status';
-$string['hidemarkerdesc'] = 'Beschreibung für Bewerter/innen verbergen.';
-$string['hidestudentdesc'] = 'Beschreibung für Teilnehmer/innen verbergen.';
+$string['hidemarkerdesc'] = 'Beschreibung für Bewerter/innen verbergen';
+$string['hidestudentdesc'] = 'Beschreibung für Teilnehmer/innen verbergen';
 $string['maxscore'] = 'Höchstbewertung';
 $string['name'] = 'Name';
 $string['needregrademessage'] = 'Die Richtlinie für die Bewertung wurde geändert nachdem diese/r Teilnehmer/in bewertet wurde. Teilnehmer/innen werden die Einstellungen so lange nicht sehen bis Sie den Bewertungsbereich geprüft und die Bewertung aktualisiert haben.';
@@ -80,4 +80,4 @@ $string['saveguidedraft'] = 'Als Entwurf sichern';
 $string['score'] = 'Punkt';
 $string['showmarkerdesc'] = 'Beschreibung für Kriterien anzeigen';
 $string['showmarkspercriterionstudents'] = 'Bewertung je Kriterium Teilnehmer/innen anzeigen';
-$string['showstudentdesc'] = 'Beschreibung der Kriterien Teilnehmer/innen anzeigen';
+$string['showstudentdesc'] = 'Kriterienbeschreibung anzeigen';

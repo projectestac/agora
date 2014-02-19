@@ -26,20 +26,36 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'APIキー';
+$string['apiv1migration_message_content'] = '最新の2.5.3へのMoodleアップグレードの一環として、Box.netリポジトリプラグインは無効にされています。有効にするには、あなたはドキュメント {$a->docsurl} に説明されているとおり、再設定する必要があります。';
+$string['apiv1migration_message_small'] = 'Box.net APIv1移行ドキュメンテーションで説明されている設定が必要なため、このプラグインは無効にされています。';
+$string['apiv1migration_message_subject'] = 'Box.netリポジトリプラグインに関する重要情報';
 $string['boxnet:view'] = 'Box.netリポジトリを表示する';
 $string['callbackurl'] = 'リダイレクトURI';
 $string['callbackurltext'] = '1. 再度、<a href="http://www.box.net/developers/services">box.net開発者サイトにアクセスしてください</a>。
-2. あなたが<strong>{$a}</strong>に対するbox.netサービスのコールバックURIを設定していることを確認してください。';
-$string['callbackwarning'] = '1. このMoodleサイト用にbox.netから<a href="http://www.box.net/developers/services">box.net API</a>を取得してください。
-2. ここにbox.net APIキーを入力および保存した後、このページに戻ってくください。あなたのためにMoodleが生成したコールバックURIが表示されます。
-3. box.netウェブサイトにて、再度あなたのbox.net詳細を編集した後、コールバックURIを設定してください。';
+2. あなたが {$a} に対するbox.netサービスのリダイレクトURIを設定していることを確認してください。';
+$string['callbackwarning'] = '1. このMoodleサイト用に<a href="http://www.box.net/developers/services">www.box.net/developers/services</a>からBox.net APIをを取得してください。
+2. ここにBox.net APIキーを入力および保存した後、このページに戻ってください。あなたのためにMoodleが生成したコールバックURIが表示されます。
+3. Box.netウェブサイトにて、再度あなたのbox.net詳細を編集した後、リダイレクトURIを設定してください。';
+$string['cannotcreatereference'] = 'Box.netのファイルを共有する十分なパーミッションがないため、リファレンスを作成できません。';
+$string['clientid'] = 'クライアントID';
+$string['clientsecret'] = 'クライアント秘密鍵';
 $string['configplugin'] = 'Box.net設定';
+$string['filesourceinfo'] = 'Box.net ({$a->fullname}): {$a->filename}';
 $string['information'] = 'あなたのMoodleサイトに<a href="http://www.box.net/developers/services">Box.net開発者ページ</a>よりAPIキーを取得します。';
+$string['informationapiv2'] = 'あなたのMoodleサイトに<a href="https://app.box.com/developers/services">Box.net開発者ページ</a>よりクライアントIDおよび秘密鍵を取得します。';
 $string['invalidpassword'] = '無効なパスワードです。';
+$string['migrationadvised'] = 'あなたはAPIバージョン1のBox.netを使用しているようです。古いリファレンスを変換するため、<a href="{$a}">移行ツール</a>を実行しましたか?';
+$string['migrationinfo'] = '<p>Box.netから提供されている新しいAPIへの移行の一環として、あなたのファイルリファレンスは移行される必要があります。残念ですが、リファレンスシステムはAPI v2との互換性がありません。そのため、私たちはダウンロードして実ファイルに変換する必要があります。</p>
+<p>リファレンスの使用およびファイルの大きさにより、移行には<strong>非常に長い時間を要する場合があること</strong>に留意してください。</p>
+<p>あなたは下のボタンをクリックして移行ツールを実行することができます。または代わりにCLIスクリプトを実行することもできます: repository/boxnet/cli/migrationv1.php.</p>
+<p>詳細に関して、<a href="{$a->docsurl}">こちら</a>をご覧ください。</p>';
+$string['migrationtool'] = 'Box.net APIv1移行ツール';
 $string['nullfilelist'] = 'このリポジトリにファイルはありません。';
 $string['password'] = 'パスワード';
 $string['pluginname'] = 'Box.net';
 $string['pluginname_help'] = 'box.netのリポジトリ';
+$string['runthemigrationnow'] = '移行ツールを実行する';
 $string['saved'] = 'Box.netデータが保存されました。';
 $string['shareurl'] = '共有URI';
 $string['username'] = 'Box.netユーザ名';
+$string['warninghttps'] = 'Box.netのリポジトリを動作させるには、あなたのウェブサイトがHTTPSを使用している必要があります。';

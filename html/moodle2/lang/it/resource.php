@@ -41,13 +41,13 @@ $string['configpopupstatus'] = 'Impostazione di default per la presenza della ba
 $string['configpopuptoolbar'] = 'Impostazione di default per la presenza della barra degli strumenti nelle finestre popup';
 $string['configpopupwidth'] = 'Larghezza di default (in pixel) delle finestre popup';
 $string['contentheader'] = 'Contenuto';
-$string['displayoptions'] = 'Modalità di visualizzazione disponibili';
+$string['displayoptions'] = 'Opzioni di visualizzazione disponibili';
 $string['displayselect'] = 'Visualizzazione';
 $string['displayselectexplain'] = 'Imposta il tipo di visualizzazione di default. Tenere presente che i vari tipi di file potrebbero consentire solo alcuni tipi di visualizzazione.';
-$string['displayselect_help'] = 'L\'impostazione, assieme al tipo di file e  alla possibilità di effettuare un embed nel browser, determina come sarà visualizzato il file. Le modalità di visualizzazione possono essere:
+$string['displayselect_help'] = 'L\'impostazione, assieme al tipo di file e alle possibilità di incorporare il file nel browser, determina come sarà visualizzato il file. Le modalità di visualizzazione possono essere:
 
 * Automatica - La modalità di visualizzazione migliore viene scelta automaticamente
-* Embed - Il file viene visualizzato all\'interno della pagina sotto la barra di navigazione assieme alla descrizione e ai blocchi
+* Incorpora - Il file viene visualizzato all\'interno della pagina sotto la barra di navigazione assieme alla descrizione e ai blocchi
 * Forza download - Viene visualizzata un finestra di dialogo per scaricare il file
 * Apri - Il file viene visualizzato da solo nella finestra browser
 * Popup - Il file viene visualizzato in un nuova finestra browser priva di menu e barra dell\'indirizzo
@@ -65,9 +65,9 @@ $string['legacyfiles'] = 'Migrazione dei file di corsi precedenti';
 $string['legacyfilesactive'] = 'Attivo';
 $string['legacyfilesdone'] = 'Completato';
 $string['modulename'] = 'File';
-$string['modulename_help'] = 'Il modulo file consente al docente di inserire file tra le risorse del corso. Ove possibile, il file sarà visualizzato all\'interno dell\'interfaccia del corso, altrimenti lo studente avrà la possibilità di scaricarlo. I file possono contenere altri file, come ad esempio pagine HTML contenenti immagini e oggetti Flash.
+$string['modulename_help'] = 'Il modulo file consente al docente di inserire file tra le risorse del corso. Il file potrà essere  visualizzato all\'interno dell\'interfaccia del corso, qualora tale visualizzazione non fosse possibile, sarà fornito un link diretto per scaricare il file. I file possono incapsulare altri file, come ad esempio pagine HTML contenenti immagini e oggetti Flash.
 
-Da notare che lo studente nel proprio computer deve avere il software necessario per il tipo di file usato come risorsa.
+Da notare che lo studente nel proprio computer deve avere il software necessario per visualizzare il tipo di file usato come risorsa.
 
 E\' possibile usare file per:
 

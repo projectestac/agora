@@ -30,6 +30,7 @@ $string['alwaysshowall'] = 'Toon altijd alles';
 $string['collapseall'] = 'Alle cursuslijsten samenklappen';
 $string['configotherexpanded'] = 'Indien ingeschakeld zullen andere cursussen standaard uitgeklapt worden, tenzij anders ingesteld door de gebruiker.';
 $string['configpreservestates'] = 'Indien ingeschakeld wordt de samengeklapt/uitgeklapt statussen, ingesteld door de gebruiker, bewaard worden en telkens gebruikt worden bij het laden.';
+$string['course_overview:addinstance'] = 'Voeg een nieuw cursusoverzichtsblok toe';
 $string['course_overview:myaddinstance'] = 'Voeg een nieuw cursusoverzichtsblok toe aan Mijn startpagina';
 $string['defaultmaxcourses'] = 'Standaard maximale aantal cursussen';
 $string['defaultmaxcoursesdesc'] = 'Maximale aantal cursussen die getoond worden op het cursus overzichtsblok, 0 toont alle cursussen';

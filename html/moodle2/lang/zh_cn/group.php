@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addedby'] = '{$a} 加入';
 $string['addgroup'] = '添加用户到小组';
 $string['addgroupstogrouping'] = '将小组添加到大组中';
 $string['addgroupstogroupings'] = '添加/删除大组';

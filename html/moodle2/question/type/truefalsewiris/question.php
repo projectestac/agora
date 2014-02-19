@@ -35,9 +35,10 @@ class qtype_truefalsewiris_question extends qtype_truefalse_question {
             return array('answer' => $correctanswer);
         }        
 
-        $qi_xml = wrsqz_get_question_instance(null, 'mathml', $this, $this->questiontext . ' ' . $correctanswer . ' ' 
+        $qi = wrsqz_get_question_instance(null, 'mathml', $this, $this->questiontext . ' ' . $correctanswer . ' ' 
                 . $this->falsefeedback . ' ' . $this->truefeedback . ' ' . $this->generalfeedback, null, $randomseed+100000);
-        $qi = wrsqz_get_question_instance($qi_xml, null, $this);        
+        //why this second call?
+        //$qi = wrsqz_get_question_instance($qi_xml, null, $this);        
         
         $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
         $wrap->start();

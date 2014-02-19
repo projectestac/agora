@@ -16,13 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'group', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'group', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   group
- * @copyright 2006 The Open University
- * @author    J.White AT open.ac.uk
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['addedby'] = 'Added by {$a}';
 $string['addgroup'] = 'Add user into group';
@@ -77,23 +78,25 @@ $string['groupinfo'] = 'Info about selected group';
 $string['groupinfomembers'] = 'Info about selected members';
 $string['groupinfopeople'] = 'Info about selected people';
 $string['grouping'] = 'Grouping';
-$string['grouping_help'] = 'A grouping is a collection of groups within a course. If a grouping is selected, students assigned to groups within the grouping will be able to work together.';
-$string['groupingsection'] = 'Grouping access';
-$string['groupingsection_help'] = 'A grouping is a collection of groups within a course. If a grouping is selected here, only students assigned to groups within this grouping will have access to the section.';
 $string['groupingdescription'] = 'Grouping description';
+$string['grouping_help'] = 'A grouping is a collection of groups within a course. If a grouping is selected, students assigned to groups within the grouping will be able to work together.';
 $string['groupingname'] = 'Grouping name';
 $string['groupingnameexists'] = 'The grouping name \'{$a}\' already exists in this course, please choose another one.';
 $string['groupings'] = 'Groupings';
+$string['groupingsection'] = 'Grouping access';
+$string['groupingsection_help'] = 'A grouping is a collection of groups within a course. If a grouping is selected here, only students assigned to groups within this grouping will have access to the section.';
 $string['groupingsonly'] = 'Groupings only';
 $string['groupmember'] = 'Group member';
 $string['groupmemberdesc'] = 'Standard role for a member of a group.';
 $string['groupmembers'] = 'Group members';
 $string['groupmembersonly'] = 'Available for group members only';
-$string['groupmembersonly_help'] = 'If this checkbox is ticked, the activity (or resource) will only be available to students assigned to groups within the selected grouping.';
 $string['groupmembersonlyerror'] = 'Sorry, you must be member of at least one group that is used in this activity.';
+$string['groupmembersonly_help'] = 'If this checkbox is ticked, the activity (or resource) will only be available to students assigned to groups within the selected grouping.';
 $string['groupmemberssee'] = 'See group members';
 $string['groupmembersselected'] = 'Members of selected group';
 $string['groupmode'] = 'Group mode';
+$string['groupmodeforce'] = 'Force group mode';
+$string['groupmodeforce_help'] = 'If group mode is forced, then the course group mode is applied to every activity in the course. Group mode settings in each activity are then ignored.';
 $string['groupmode_help'] = 'This setting has 3 options:
 
 * No groups - There are no sub groups, everyone is part of one big community
@@ -101,14 +104,13 @@ $string['groupmode_help'] = 'This setting has 3 options:
 * Visible groups - Each group member works in their own group, but can also see other groups
 
 The group mode defined at course level is the default mode for all activities within the course. Each activity that supports groups can also define its own group mode, though if the group mode is forced at course level, the group mode setting for each activity is ignored.';
-$string['groupmodeforce'] = 'Force group mode';
-$string['groupmodeforce_help'] = 'If group mode is forced, then the course group mode is applied to every activity in the course. Group mode settings in each activity are then ignored.';
 $string['groupmy'] = 'My group';
 $string['groupname'] = 'Group name';
 $string['groupnameexists'] = 'The group name \'{$a}\' already exists in this course, please choose another one.';
 $string['groupnotamember'] = 'Sorry, you are not a member of that group';
 $string['groups'] = 'Groups';
 $string['groupscount'] = 'Groups ({$a})';
+$string['groupsettingsheader'] = 'Groups';
 $string['groupsgroupings'] = 'Groups &amp; groupings';
 $string['groupsinselectedgrouping'] = 'Groups in:';
 $string['groupsnone'] = 'No groups';
@@ -152,9 +154,9 @@ $string['potentialmembers'] = 'Potential members: {$a}';
 $string['potentialmembs'] = 'Potential members';
 $string['printerfriendly'] = 'Printer-friendly display';
 $string['random'] = 'Randomly';
-$string['removegroupfromselectedgrouping'] = 'Remove group from grouping';
 $string['removefromgroup'] = 'Remove user from group {$a}';
 $string['removefromgroupconfirm'] = 'Do you really want to remove user "{$a->user}" from group "{$a->group}"?';
+$string['removegroupfromselectedgrouping'] = 'Remove group from grouping';
 $string['removegroupingsmembers'] = 'Remove all groups from groupings';
 $string['removegroupsmembers'] = 'Remove all group members';
 $string['removeselectedusers'] = 'Remove selected users';

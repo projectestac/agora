@@ -16,12 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'message', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['addcontact'] = 'Add contact';
 $string['addsomecontacts'] = 'To send a message to someone, or to add a shortcut for them on this page, use the <a href="{$a}">search tab</a> above.';
@@ -32,7 +34,7 @@ $string['allmine'] = 'All messages to me or from me';
 $string['allstudents'] = 'All messages between students in course';
 $string['allusers'] = 'All messages from all users';
 $string['backupmessageshelp'] = 'If enabled, then instant messages will be included in SITE automated backups';
-$string['beepnewmessage'] = 'Beep on new message';
+$string['beepnewmessage'] = 'Beep when popup notification is displayed';
 $string['blockcontact'] = 'Block contact';
 $string['blockedmessages'] = '{$a} message(s) to/from blocked users';
 $string['blockedusers'] = 'Blocked users ({$a})';
@@ -55,9 +57,9 @@ $string['errorcallingprocessor'] = 'Error calling defined output';
 $string['errortranslatingdefault'] = 'Error translating default setting provided by plugin, using system defaults instead.';
 $string['forced'] = 'Forced';
 $string['formorethan'] = 'For more than';
+$string['gotomessages'] = 'Go to messages';
 $string['guestnoeditmessage'] = 'Guest user can not edit messaging options';
 $string['guestnoeditmessageother'] = 'Guest user can not edit other user messaging options';
-$string['gotomessages'] = 'Go to messages';
 $string['includeblockedusers'] = 'Include blocked users';
 $string['incomingcontacts'] = 'Incoming contacts ({$a})';
 $string['keywords'] = 'Keywords';
@@ -67,22 +69,22 @@ $string['loggedin'] = 'Online';
 $string['loggedindescription'] = 'When I\'m logged in';
 $string['loggedoff'] = 'Not online';
 $string['loggedoffdescription'] = 'When I\'m offline';
+$string['mailsent'] = 'Your message was sent via email.';
 $string['managecontacts'] = 'Manage my contacts';
 $string['managemessageoutputs'] = 'Manage message outputs';
-$string['messageoutputs'] = 'Message outputs';
-$string['mostrecent'] = 'Recent messages';
-$string['mostrecentconversations'] = 'Recent conversations';
-$string['mostrecentnotifications'] = 'Recent notifications';
-$string['mailsent'] = 'Your message was sent via email.';
 $string['maxmessages'] = 'Maximum number of messages to show in the discussion history';
 $string['message'] = 'Message';
 $string['messagehistory'] = 'Message history';
 $string['messagehistoryfull'] = 'All messages';
 $string['messagenavigation'] = 'Message navigation:';
+$string['messageoutputs'] = 'Message outputs';
 $string['messages'] = 'Messages';
 $string['messaging'] = 'Messaging';
 $string['messagingblockednoncontact'] = '{$a} will not be able to reply as you have blocked non-contacts';
 $string['messagingdisabled'] = 'Messaging is disabled on this site, emails will be sent instead';
+$string['mostrecent'] = 'Recent messages';
+$string['mostrecentconversations'] = 'Recent conversations';
+$string['mostrecentnotifications'] = 'Recent notifications';
 $string['mycontacts'] = 'My contacts';
 $string['newonlymsg'] = 'Show only new';
 $string['newsearch'] = 'New search';
@@ -103,23 +105,23 @@ $string['outputdoesnotexist'] = 'Message output does not exists';
 $string['outputenabled'] = 'Output enabled';
 $string['outputnotavailable'] = 'Not available';
 $string['outputnotconfigured'] = 'Not configured';
+$string['page-message-x'] = 'Any message pages';
 $string['pagerefreshes'] = 'This page refreshes automatically every {$a} seconds';
 $string['permitted'] = 'Permitted';
-$string['page-message-x'] = 'Any message pages';
 $string['private_config'] = 'Popup message window';
-$string['processortag'] = 'Destination';
 $string['processordeleteconfirm'] = 'You are about to completely delete message output \'{$a}\'.  This will completely delete everything in the database associated with this output. Are you SURE you want to continue?';
 $string['processordeletefiles'] = 'All data associated with the output \'{$a->processor}\' has been deleted from the database.  To complete the deletion (and prevent the output re-installing itself), you should now delete this directory from your server: {$a->directory}';
+$string['processortag'] = 'Destination';
 $string['providers_config'] = 'Configure notification methods for incoming messages';
 $string['providerstag'] = 'Source';
-$string['recent'] = 'Recent';
 $string['readmessages'] = '{$a} read messages';
+$string['recent'] = 'Recent';
 $string['removecontact'] = 'Remove contact';
 $string['savemysettings'] = 'Save my settings';
 $string['search'] = 'Search';
+$string['searchcombined'] = 'Search people and messages';
 $string['searchforperson'] = 'Search for a person';
 $string['searchmessages'] = 'Search messages';
-$string['searchcombined'] = 'Search people and messages';
 $string['sendingvia'] = 'Sending "{$a->provider}" via "{$a->processor}"';
 $string['sendingviawhen'] = 'Sending "{$a->provider}" via "{$a->processor}" when {$a->state}';
 $string['sendmessage'] = 'Send message';
@@ -135,8 +137,8 @@ $string['timesent'] = 'Time sent';
 $string['touserdoesntexist'] = 'You can not send a message to a user id ({$a}) that doesn\'t exist';
 $string['unblockcontact'] = 'Unblock contact';
 $string['unreadmessages'] = 'Unread messages ({$a})';
-$string['unreadnewmessages'] = 'New messages ({$a})';
 $string['unreadnewmessage'] = 'New message from {$a}';
+$string['unreadnewmessages'] = 'New messages ({$a})';
 $string['unreadnewnotification'] = 'New notification';
 $string['unreadnewnotifications'] = 'New notifications ({$a})';
 $string['userisblockingyou'] = 'This user has blocked you from sending messages to them';

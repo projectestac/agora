@@ -25,11 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Spam-Suche';
+$string['pluginname'] = 'Spam suchen';
 $string['spamauto'] = 'Übliche Spam-Inhalte automatisch erkennen';
 $string['spamcannotdelete'] = 'Dieses Nutzerkonto kann nicht gelöscht werden';
 $string['spamcannotfinduser'] = 'Bei Ihrer Suche wurden keine passenden Nutzerkonten gefunden';
-$string['spamcleanerintro'] = 'Dieses Skript erlaubt es Ihnen, alle Nutzerkonten nach bestimmten Schlüsselworten zu durchsuchen. Anschließend können Sie diejenigen Nutzerkonten löschen, die offensichtlich von Spammern angelegt wurden. Um gleichzeitig nach mehreren Worten zu suchen, geben Sie eine kommagetrennte Liste ein (z. B. casino, porn, viagra)<br /><br />Die Moodle-Dokumentation liefert weitere Informationen zum Thema <a href="http://docs.moodle.org/en/Reducing_spam_in_Moodle">Reducing spam in Moodle</a>.';
+$string['spamcleanerintro'] = 'Dieses Skript hilft Ihnen, alle Nutzerkonten nach Schlagworten zu durchsuchen. Anschließend können Sie diejenigen Nutzerkonten löschen, die wahrscheinlich von Spammern angelegt wurden. Um gleichzeitig nach mehreren Schlagworten zu suchen, geben Sie eine kommagetrennte Liste ein (z.B. casino, porn, viagra)<br /><br />Die Dokumentation liefert weitere Informationen zum Thema <a href="http://docs.moodle.org/en/Reducing_spam_in_Moodle">Reducing spam in Moodle</a>.';
 $string['spamdeleteall'] = 'Nutzerkonten löschen';
 $string['spamdeleteallconfirm'] = 'Sind Sie sicher, dass Sie diese Nutzerkonten wirklich löschen möchten? Sie können den Vorgang nicht rückgängig machen!';
 $string['spamdeleteconfirm'] = 'Sind Sie sicher, dass Sie diesen Eintrag löschen möchten? Sie können den Vorgang nicht rückgängig machen!';
@@ -43,4 +43,4 @@ $string['spaminvalidresult'] = 'Ungültiges Ergebnis';
 $string['spamkeyword'] = 'Schlagwort';
 $string['spamoperation'] = 'Vorgang';
 $string['spamresult'] = 'In nachfolgenden Nutzerprofilen wurde mindestens eines der Suchworte gefunden:';
-$string['spamsearch'] = 'Nach diesen Worten suchen';
+$string['spamsearch'] = 'Nach diesen Schlagworten suchen';

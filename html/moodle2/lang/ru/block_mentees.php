@@ -28,5 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['configtitle'] = 'Название блока';
 $string['configtitleblankhides'] = 'Название блока (без названия, если пустое)';
 $string['leaveblanktohide'] = 'оставьте пустым, чтобы не отображать название';
+$string['mentees:addinstance'] = 'Добавлять новый блок Подопечные';
+$string['mentees:myaddinstance'] = 'Добавлять новый блок Подопечные в Мой Moodle';
 $string['newmenteesblock'] = '(новый блок Подопечные)';
 $string['pluginname'] = 'Подопечные';

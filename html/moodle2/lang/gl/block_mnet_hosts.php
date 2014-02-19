@@ -28,5 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['error_authmnetneeded'] = 'O engadido de autenticación de MNet debe estar activado para ver a lista de servidores da rede MNet';
 $string['error_localusersonly'] = 'Os usuarios remotos non poden saltar a outros servidores da rede MNet desde esta máquina';
 $string['error_roamcapabilityneeded'] = 'Os usuarios necesitan o permiso «Pasar a un aplicativo remoto mediante MNet» para ver a lista de servidores da rede MNet';
+$string['mnet_hosts:addinstance'] = 'Engadir un novo bloque de servidores de rede';
+$string['mnet_hosts:myaddinstance'] = 'Engadir un novo bloque de servidores de rede ao meu cartafol persoal';
 $string['pluginname'] = 'Servidores de rede';
 $string['server'] = 'Servidor';

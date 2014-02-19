@@ -26,12 +26,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addpage'] = 'Ajouter page';
-$string['defaultpage'] = 'Page Mon Moodle par défaut';
+$string['defaultpage'] = 'Page Ma page par défaut';
 $string['defaultprofilepage'] = 'Page de profil par défaut';
 $string['delpage'] = 'Supprimer page';
 $string['managepages'] = 'Gérer pages';
-$string['mymoodle'] = 'Mon Moodle';
+$string['mymoodle'] = 'Ma page';
 $string['nocourses'] = 'Aucune information de cours à afficher.';
-$string['noguest'] = 'La page « Mon Moodle » n\'est pas disponible pour les visiteurs anonymes';
-$string['pinblocks'] = 'Configurer les blocs fixes de la page « Mon moodle »';
-$string['pinblocksexplan'] = 'Les blocs que vous configurez ici seront visibles sur la page « Mon Moodle » de chaque utilisateur. Ils ne pourront être modifiés par les utilisateurs.';
+$string['noguest'] = 'La page « Ma page » n\'est pas disponible pour les visiteurs anonymes';
+$string['pinblocks'] = 'Configurer les blocs fixes de Ma page';
+$string['pinblocksexplan'] = 'Les réglages des blocs que vous configurez ici seront valables sur la page Ma page de chaque utilisateur, et non modifiables.';

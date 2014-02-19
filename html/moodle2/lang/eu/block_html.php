@@ -25,10 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['allowadditionalcssclasses'] = 'Onartu CSS mota osagarriak';
+$string['configallowadditionalcssclasses'] = 'HTML blokeari, CSS mota osagarriak ezartzeko aukera eskaintzen duen ezarpen-aukera bat gehitzen dio.';
+$string['configclasses'] = 'CSS mota osagarriak';
+$string['configclasses_help'] = 'Ezarpen honen helburua itxuraketa egiten laguntzea da, HTML blokeak errazago desberdintzeko. Hemen sartutako CSS motak (zuriunez bereizita) blokearen lehenetsitako motei gehituko zaizkie.';
 $string['configcontent'] = 'Edukia';
 $string['configtitle'] = 'Blokearen izenburua';
 $string['html:addinstance'] = 'Gehitu HTML bloke berria';
-$string['html:myaddinstance'] = 'Gehitu HTML bloke berria Nire Moodle orrian';
+$string['html:myaddinstance'] = 'Gehitu HTML bloke berria Nire hasieran';
 $string['leaveblanktohide'] = 'Hutsik utzi izenburua ezkutatzeko';
 $string['newhtmlblock'] = '(HTML bloke berria)';
 $string['pluginname'] = 'HTML';

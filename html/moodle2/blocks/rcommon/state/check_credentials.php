@@ -1,15 +1,14 @@
 <?php
-
-// MARSUPIAL ************ AFEGIT -> New functionality to manage credentials
-// 2012.06.06 @mmartinez
-
     require_once('../../../config.php');
     require_once($CFG->libdir.'/adminlib.php');
     require_once($CFG->dirroot.'/blocks/rcommon/WebServices/Authentication/AuthenticateContent.php');
     
     $cred = optional_param('id_cr', '', PARAM_INT);
     
-    $credential = $DB->get_record_sql ("SELECT b.id AS bookid, cred.euserid as userid, cred.credentials FROM {$CFG->prefix}rcommon_user_credentials cred LEFT JOIN {$CFG->prefix}rcommon_books b ON cred.isbn = b.isbn WHERE cred.id = '{$cred}'");
+    $credential = $DB->get_record_sql ("SELECT b.id AS bookid, cred.euserid as userid, cred.credentials
+    	FROM {rcommon_user_credentials} cred 
+    	LEFT JOIN {rcommon_books} b ON cred.isbn = b.isbn
+    	WHERE cred.id = '{$cred}'");
     
     $data = new stdClass();
     $data->bookid     = $credential->bookid;
@@ -32,5 +31,3 @@
   		echo '<span style="color:red">' . get_string('bad_connection', 'block_rcommon') . ': <span style="font-size:small">' . get_string('error_code_' . $result->AutenticarUsuarioContenidoResult->Codigo, 'block_rcommon') . '</span></span>';
     }
     
-// ************** FI
-?>

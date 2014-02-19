@@ -26,8 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['alwaysshowall'] = 'Erakutsi beti guztiak';
+$string['course_overview:addinstance'] = 'Gehitu ikastaroaren ikuspegi orokorra blokea';
+$string['course_overview:myaddinstance'] = 'Gehitu ikastaroaren ikuspegi orokorra bloke berria Nire hasieran';
 $string['defaultmaxcourses'] = 'Berezko gehinenezko ikastaroak';
-$string['forcedefaultmaxcourses'] = 'behartu gehienezko ikastaroak';
+$string['forcedefaultmaxcourses'] = 'Behartu gehienezko ikastaroak';
 $string['hiddencoursecount'] = '{$a} ikastaro dituzu ezkutuan';
 $string['hiddencoursecountplural'] = '{$a} ikastaro dituzu ezkutuan';
 $string['message'] = 'mezua';
@@ -43,3 +45,4 @@ $string['showwelcomeareadesc'] = 'Erakutsi ongietorri eremua ikastaroen zerrenda
 $string['view_edit_profile'] = '(Ikusi eta editatu zure profila.)';
 $string['welcome'] = 'Ongi etorri {$a}';
 $string['youhavemessages'] = '{$a} irakurri gabe d(it)uzu';
+$string['youhavenomessages'] = 'Ez duzu irakurri gabekorik';

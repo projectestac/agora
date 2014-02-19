@@ -55,7 +55,9 @@ $string['cannotadd'] = 'Ezin da eztabaidarik gehitu foro honetan';
 $string['cannotadddiscussion'] = 'Foro honetan eztabaidak gehitzeko talde bateko kide izan behar da';
 $string['cannotadddiscussionall'] = 'Ez duzu baimenik partaide guztientzako eztabaida-gai berririk gehitzeko.';
 $string['cannotaddsubscriber'] = 'Ezin da {$a} id-a duen harpideduna gehitu foro honetan!';
+$string['cannotaddteacherforumto'] = 'Ezin izan da irakasleen foroa jarri ikastaroaren 0 gaian';
 $string['cannotcreatediscussion'] = 'Ezin da eztabaida sortu';
+$string['cannotcreateinstanceforteacher'] = 'Ezin izan da sortu  erregistro berririk irakasleen foroarentzat course_module taulan';
 $string['cannotdeleteforummodule'] = 'Ezin duzu ezabatu foro modulua.';
 $string['cannotdeletepost'] = 'Ezin duzu mezu hau ezabatu!';
 $string['cannoteditposts'] = 'Ezin duzu beste pertsonen mezurik editatu!';
@@ -76,6 +78,7 @@ $string['cannottrack'] = 'Ezin zaio foro honi jarraitzeari utzi';
 $string['cannotunsubscribe'] = 'Ezin duzu foro honetatik harpidetza kendu';
 $string['cannotupdatepost'] = 'Ezin duzu mezu hau eguneratu';
 $string['cannotviewpostyet'] = 'Eztabaida honetan ezin dituzu beste ikasleen galderak irakurri ez baituzu oraindik mezurik bidali';
+$string['cannotviewusersposts'] = 'Ez dago ikus dezakezun erabiltzaile honen mezurik.';
 $string['cleanreadtime'] = 'Mezu zaharrak irakurritzat emateko ordua';
 $string['completiondiscussions'] = 'Ikasleak eztabaida sortu behar du:';
 $string['completiondiscussionsgroup'] = 'Eztabaidak behar dira';
@@ -158,6 +161,7 @@ $string['forum'] = 'Foroa';
 $string['forum:addinstance'] = 'Gehitu beste foro bat';
 $string['forum:addnews'] = 'Gehitu albisteak';
 $string['forum:addquestion'] = 'Gehitu galdera';
+$string['forum:allowforcesubscribe'] = 'Baimendu harpidetzera behartzea';
 $string['forumauthorhidden'] = 'Egilea (ezkutuan)';
 $string['forumblockingalmosttoomanyposts'] = 'Gehienezko mezu-kopurutik hurbil zaude. {$a->numposts} bidali dituzu azken {$a->blockperiod} eta gehienez {$a->blockafter} bidal daitezke.';
 $string['forumbodyhidden'] = 'Zuk ezin duzu mezu hau ikusi, ziurrenik ez duzulako eztabaida honetara mezurik bidali, editatzeko gehienezko epea agortu delako, eztabaida hasi ez delako edo eztabaida bukatu delako.';
@@ -202,11 +206,13 @@ $string['forum:viewsubscribers'] = 'Harpidedunak ikusi';
 $string['generalforum'] = 'Erabilera orokorrerako foro arrunta';
 $string['generalforums'] = 'Foro orokorrak';
 $string['inforum'] = 'Non: {$a}';
+$string['introblog'] = 'Foro honetako mezuak automatikoki ekarri dira erabiltzaileen blogetatik blog sarrera hauek dagoeneko ez daudelako eskuragarri';
 $string['intronews'] = 'Berri orokorrak eta iragarpenak';
 $string['introsocial'] = 'Foro ireki bat nahi duzun edozertaz aritzeko';
 $string['introteacher'] = 'Irakasleek bakarrik erabiliko duten ohar eta eztabaida foroa';
 $string['invalidaccess'] = 'Orri honetarako sarbidea ez da zuzena izan';
 $string['invaliddiscussionid'] = 'Eztabaidaren IDa ez da zuzena edo dagoeneko ez da existitzen';
+$string['invalidforcesubscribe'] = 'Baliogabea da behartutako harpidetza-mota';
 $string['invalidforumid'] = 'Foroaren IDa ez da zuzena';
 $string['invalidparentpostid'] = 'Goragoko mezuaren IDa ez da zuzena';
 $string['invalidpostid'] = 'Mezuaren ID baliogabea - {$a}';
@@ -229,6 +235,7 @@ $string['maxattachmentsize_help'] = '<P>Foroaren ezarpenak zehazten dituenak auk
 <P>Zenbaitetan gerta daiteke fitxategiren bat zehaztu izan den baino handiagoa izatea. Kasu horietan fitxategia ez da zerbitzarian gordeko eta errore-mezua agertuko da.</p>';
 $string['maxtimehaspassed'] = 'Barkatu, mezu hau({$a}) editatzeko gehienezko denbora amaitu da!';
 $string['message'] = 'Mezua';
+$string['messageprovider:digests'] = 'Harpidetutako foroen mezu-bildumak';
 $string['messageprovider:posts'] = 'Harpidetutako foroen mezuak';
 $string['missingsearchterms'] = 'Ondoko bilaketa-irizpìdeak mezu honen HTML etiketan baino ez dabiltza';
 $string['modeflatnewestfirst'] = 'Erantzunak era lauan erakutsi, berrienak lehen';
@@ -236,7 +243,24 @@ $string['modeflatoldestfirst'] = 'Erantzunak era lauan erakutsi, zaharrenak lehe
 $string['modenested'] = 'Erantzunak hariaren arabera erakutsi';
 $string['modethreaded'] = 'Erantzunak gaika erakutsi';
 $string['modulename'] = 'Foroa';
-$string['modulename_help'] = 'Foroari esker erabiltzaileek eztabaida asinkronoak izan ahal dituzte.';
+$string['modulename_help'] = 'Foroari esker erabiltzaileek eztabaida asinkronoak izan ahal dituzte, hots, denbora epe luzeetan sakabanaturiko eztabaidak izan ditzakete.
+
+Badira zenbait foro-mota aukeran, hala nola foro estandarra (non edonork edozein unetan eztabaida berri bat has dezakeen), ikasle bakoitzak eztabaida bakar bat argitara eman dezakeen foro bat, edo galdera-erantzuna foroa (non ikasleek gai bat argitaratu behar duten beste ikasleen mezuak ikusi ahal izateko). Irakasleek foroetako mezuetan fitxategiak atxikitzea ahalbidetu dezakete. Atxikitutako irudiak foroko mezuan erakusten dira.
+
+Ikasle eta irakasleak foroetako mezuen jakinarazpenak jasotzeko harpidetu daitezke. Irakasleek harpidetza aukeran, behartua edo automatikoa ezar dezakete, baita harpidetza guztiz desgaitu ere. Nahi izanez gero, ikasleek denbora epe zehatzetan idatz dezaketen mezu kopurua blokea daiteke; modu honetan gizabanakoak eztabaidetan nagusitzea saihes daiteke.
+
+Irakasleek foroetako mezuak kalifika ditzakete, baita ikasleek ere (berdinen ebaluazioa). Ebaluazioak pila daitezke behin-betiko ebaluazioa lortzeko, eta azken hau izango da kalifikatzailean gordeko dena.
+
+Foroak erabilera anitzak izan ditzake, hala nola
+
+* Ikasleentzako gune sozial gisa, elkar ezagut dezaten.
+* Ikastaroko jakinarazpenak egiteko (behartutako harpidetza duen berrien foro bat erabilita)
+* Ikastaroko edukiak edo irakurgaiak eztabaidatzeko.
+* Aurrez aurreko saioan plateatutako arazo bati online jarraipena emateko
+* Irakasleen arteko eztabaidak egiteko (ezkutaturiko foro bat erabiliz)
+* Laguntza-zentro gisa, tutore eta ikasleek elkarri aholkuak emateko
+* Banaka irakasle-ikasle artean modu pribatuan komunikatzeko (banaturiko taldekako foro bat erabiliz, ikasle bakoitza talde batean sartuta)
+* Jarduera gehigarrietarako, ‘brain teasers’ modukoak adibidez, ikasleek hausnartu eta soluzioak proposa ditzaten';
 $string['modulenameplural'] = 'Foroak';
 $string['more'] = 'gehiago';
 $string['movedmarker'] = '(Mugituta)';
@@ -293,6 +317,7 @@ $string['openmode1'] = 'Eztabaida berriak ez daude onartuta, baina erantzunak ba
 $string['openmode2'] = 'Eztabaida berriak eta erantzunak onartuta daude';
 $string['overviewnumpostssince'] = '{$a} mezu azken sarreratik';
 $string['overviewnumunread'] = '{$a} mezu irakurri gabe';
+$string['page-mod-forum-discuss'] = 'Foroaren eztabaida-hariaren orria';
 $string['page-mod-forum-view'] = 'Foroaren orri nagusia';
 $string['page-mod-forum-x'] = 'Foroaren edozein orri';
 $string['parent'] = 'Erakutsi abiapuntua';
@@ -307,9 +332,9 @@ $string['postmailinfo'] = 'Hau {$a} web gunean argitaratutako mezu baten kopia d
 
 Erantzuteko, sakatu esteka honi:';
 $string['postmailnow'] = '<p>Mezu hau forora harpidetutako guztiei berehala bidaliko zaie.</p>';
-$string['postrating1'] = 'Batez ere BANATUTAKO jakintza erakusten du';
-$string['postrating2'] = 'Berdin banatuta zein lotuta';
-$string['postrating3'] = 'Batez ere LOTUTAKO jakintza erakusten du';
+$string['postrating1'] = 'Batez ere banatutako jakintza';
+$string['postrating2'] = 'Banatuta eta lotuta';
+$string['postrating3'] = 'Batez ere lotutako jakintza';
 $string['posts'] = 'Mezuak';
 $string['postsmadebyuser'] = 'Mezuen egilea: {$a}';
 $string['postsmadebyuserincourse'] = 'Mezuen egilea {$a->fullname} da ondoko ikastaroan: {$a->coursename}';

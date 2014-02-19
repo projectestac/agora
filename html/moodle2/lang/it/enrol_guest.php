@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowguests'] = 'Questo corso consente l\'accesso ad utenti ospiti';
+$string['guestaccess_withoutpassword'] = 'Accesso ospiti';
+$string['guestaccess_withpassword'] = 'Accesso ospiti';
 $string['guest:config'] = 'Configurare istanze plugin Accesso ospiti';
 $string['password'] = 'Chiave';
 $string['password_help'] = 'Una chiave limita l\'accesso ai soli ospiti che ne sono in possesso. Gli ospiti dovranno inserire la chiave ogni volta che accederanno al corso.';

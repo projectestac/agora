@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'gedrag voor informatieve items';
+$string['pluginname'] = 'Gedrag voor informatieve items';
 $string['seen'] = 'Gezien';

@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['messages:addinstance'] = 'Ajouter un bloc messages';
-$string['messages:myaddinstance'] = 'Ajouter un bloc messages à la page Mon Moodle';
+$string['messages:myaddinstance'] = 'Ajouter un bloc messages à Ma page';
 $string['pluginname'] = 'Messages personnels';

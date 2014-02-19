@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['popupwithjavascriptsupport'] = 'Полноэкранный режим с защитой JavaScript';
+$string['pluginname'] = 'Правило защиты JavaScript при доступе к тесту';
+$string['popupwithjavascriptsupport'] = 'Полноэкранное всплывающее окно с защитой JavaScript';

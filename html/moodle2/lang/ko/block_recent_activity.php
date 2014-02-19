@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = '최근 활동';
+$string['recent_activity:addinstance'] = '최근 활동 블록 추가';

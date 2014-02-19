@@ -47,6 +47,7 @@ $string['error_emptyquizid'] = 'Bloke honek akatsen bat du: zein galdetegitako e
 $string['error_emptyquizrecord'] = 'Akatsen bat dago bloke honetan: aukeratutako galdetegia ez dago datu-basean.';
 $string['error_nogroupsexist'] = 'Akatsen bat dago bloke honetan: talde moduan kalifikazioak ematea aukeratu da, baina ikastaro honek ez du talderik.';
 $string['pluginname'] = 'Galdetegiaren emaitzak';
+$string['quiz_results:addinstance'] = 'Gehitu galdetegiaren emaitzak bloke berria';
 $string['worstgrade'] = 'Notarik baxuena:';
 $string['worstgrades'] = '{$a} kalifikazio baxuenak:';
 $string['worstgroupgrade'] = 'Batez besteko baxuena duen taldea:';

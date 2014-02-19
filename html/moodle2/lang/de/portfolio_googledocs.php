@@ -30,9 +30,9 @@ $string['noauthtoken'] = 'Von Google wurde kein Authentifikationstoken empfangen
 $string['nooauthcredentials'] = 'OAuth Credentials erforderlich';
 $string['nooauthcredentials_help'] = 'Um das Google Docs Portfolio zu verwenden, sind die OAuth Einstellungen für dieses Portfolio vorzunehmen.';
 $string['nosessiontoken'] = 'Ein Export zu Google wird wegen eines fehlenden Sessiontokens verhindert';
-$string['oauth2upgrade_message_content'] = 'Im Rahmen des Updates auf Moodle 2.3 wurde das Google Docs Portfolio deaktiviert. Zur Re-Aktivierung muss Ihre Seite bei Google registriert werden. Die Dokumentation {$a->docsurl} beschreibt diesen Vorgang. Sie erhalten eine Kunden-ID und einen Schlüssel, mit denen Sie alle Google Docs und Picasa Plugins konfigurieren können.';
+$string['oauth2upgrade_message_content'] = 'Beim Update auf Moodle 2.3 wurde das Google Docs Portfolio deaktiviert. Zur Reaktivierung muss Ihre Seite bei Google registriert sein. Die Dokumentation {$a->docsurl} beschreibt diesen Vorgang. Sie erhalten eine Client-ID und einen Schlüssel, womit Sie alle Google Docs und Picasa Plugins konfigurieren können.';
 $string['oauth2upgrade_message_small'] = 'Das Plugin für das Google Docs Portfolio wurde deaktiviert. Nehmen Sie die Konfiguration für Google OAuth2.0 vor wie in der Dokumentation beschrieben.';
-$string['oauth2upgrade_message_subject'] = 'Wichtige Informationen zum Google Docs Portfokio';
+$string['oauth2upgrade_message_subject'] = 'Wichtige Informationen zum Google Docs Portfolio';
 $string['oauthinfo'] = '<p>Zur Verwendung des GoogleDocs Portfolio ist eine Regsitrierung bei Google erforderlich. Informationen hierzu finden Sie in der Dokumentation <a href="{$a->docsurl}">Google OAuth 2.0 Setup</a>.</p><p>Als Teil der Registrierung müssen Sie folgende URL als \'Authorized Redirect URIs\' angeben:<br />{$a->callbackurl}</p><p>Sobald Sie registriert sind, erhalten Sie eine Client ID und ein Secret zur Konfiguration aller Plugins für Google Docs und Picasa.</p>';
 $string['pluginname'] = 'Google Docs';
 $string['secret'] = 'Secret';

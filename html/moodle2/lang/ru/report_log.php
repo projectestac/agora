@@ -26,6 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['logsformat'] = 'Формат логов';
-$string['log:view'] = 'Просмотреть отчеты курса';
+$string['log:view'] = 'Просматривать логи курса';
+$string['log:viewtoday'] = 'Просматривать сегодняшние логи';
 $string['page'] = 'Страница {$a}';
+$string['page-report-log-index'] = 'Отчет о логах курса';
+$string['page-report-log-user'] = 'Отчет о логах участников курса';
+$string['page-report-log-x'] = 'Отчеты о любых логах';
 $string['pluginname'] = 'Логи';

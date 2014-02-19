@@ -16,26 +16,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'mimetypes', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'mimetypes', language 'en', branch 'MOODLE_24_STABLE'
  *
- * Strings are used to display human-readable name of mimetype. Some mimetypes share the same
- * string. The following attributes are passed in the parameter when processing the string:
- *   $a->ext - filename extension in lower case
- *   $a->EXT - filename extension, capitalized
- *   $a->Ext - filename extension with first capital letter
- *   $a->mimetype - file mimetype
- *   $a->mimetype1 - first chunk of mimetype (before /)
- *   $a->mimetype2 - second chunk of mimetype (after /)
- *   $a->Mimetype, $a->MIMETYPE, $a->Mimetype1, $a->Mimetype2, $a->MIMETYPE1, $a->MIMETYPE2
- *      - the same with capitalized first/all letters
- *
- * @see       get_mimetypes_array()
- * @see       get_mimetype_description()
  * @package   mimetypes
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
+
+$string['application/epub_zip'] = 'EPUB ebook';
 $string['application/msword'] = 'Word document';
 $string['application/pdf'] = 'PDF document';
 $string['application/vnd.moodle.backup'] = 'Moodle backup';
@@ -46,7 +36,6 @@ $string['application/vnd.openxmlformats-officedocument.presentationml.slideshow'
 $string['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'] = 'Excel spreadsheet';
 $string['application/vnd.openxmlformats-officedocument.spreadsheetml.template'] = 'Excel template';
 $string['application/vnd.openxmlformats-officedocument.wordprocessingml.document'] = 'Word document';
-$string['application/epub_zip'] = 'EPUB ebook';
 $string['archive'] = 'Archive ({$a->EXT})';
 $string['audio'] = 'Audio file ({$a->EXT})';
 $string['default'] = '{$a->mimetype}';

@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['auth_imapchangepasswordurl_key'] = 'パスワード変更URI';
-$string['auth_imapdescription'] = 'ここでは、ユーザ名およびパスワードが有効であるか確認するため、IMAPサーバを使用します。';
+$string['auth_imapdescription'] = 'ここではユーザ名およびパスワードが有効であるか確認するため、IMAPサーバを使用します。';
 $string['auth_imaphost'] = 'IMAPサーバアドレスです。DNS名ではなく、IPアドレスを使用してください。';
 $string['auth_imaphost_key'] = 'ホスト';
 $string['auth_imapnotinstalled'] = 'IMAP認証を使用できません。PHP IMAPモジュールがインストールされていません。';

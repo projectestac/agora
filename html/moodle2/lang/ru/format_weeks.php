@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['currentsection'] = 'Текущая неделя';
 $string['hidefromothers'] = 'Скрыть неделю';
 $string['page-course-view-weeks'] = 'Главная страница курса в формате Календарь';
+$string['page-course-view-weeks-x'] = 'Любой страница курса в недельном формате';
 $string['pluginname'] = 'Разделы по неделям';
 $string['section0name'] = 'Общее';
 $string['sectionname'] = 'Неделя';

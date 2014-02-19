@@ -443,6 +443,7 @@ $string['media_dlg:enabled'] = 'Enabled';
 $string['media_dlg:enablejavascript'] = 'Enable JavaScript';
 $string['media_dlg:endtime'] = 'End time';
 $string['media_dlg:file'] = 'Fil/URL';
+$string['media_dlg:flash'] = 'Flash';
 $string['media_dlg:flash_options'] = 'Flash options';
 $string['media_dlg:flashvars'] = 'Flashvars';
 $string['media_dlg:fullscreen'] = 'Fullskärm';

@@ -79,20 +79,45 @@ function qv_migrate_activity($qv, $fs = false){
 			$coursecontext = context_course::instance($qv->course);
 
 			$qvfile = clean_param($qv->assessmenturl, PARAM_PATH);
+			$qv_pathparts = pathinfo($qvfile);
+			
+			$dirname =  '/'.$qv_pathparts['dirname'].'/';
+			$basename = $qv_pathparts['basename'];
 			
 			// first copy local files if found
-			if($file = $fs->get_file($context->id, 'course', 'legacy', 0, '/', $qvfile)){
-				$file_record = array('contextid'=>$context->id, 'component'=>'mod_qv', 'filearea'=>'package',
-												 'itemid'=>0, 'filepath'=>'/');
+			if($file = $fs->get_file($coursecontext->id, 'course', 'legacy', 0, $dirname, $basename)){
+				$dirname = dirname($dirname).'/';
+				
+				$filename = basename($dirname);
+				$filename = textlib::strtolower($filename).'.qv.zip';
+				
+				$filestemp = $fs->get_directory_files($coursecontext->id, 'course', 'legacy', 0, $dirname, true, false); 
+				
+				if(count($filestemp) <= 0) return false;
+				
+				$files = array();
+				
 				try {
-					$fs->create_file_from_storedfile($file_record, $file);
+					$basetmp = make_temp_directory('qv_migration/'.$context->id);
+				
+					$cut = strlen($dirname);
+					foreach($filestemp as $file){
+						$basezip = substr($file->get_filepath(), $cut-1);
+						$files[$basezip.$file->get_filename()] = $file->copy_content_to_temp($basetmp);
+					}
+					
+					$fs->delete_area_files($context->id, 'mod_qv', 'package');
+					$packer = get_file_packer('application/zip');
+					$filerecord = $packer->archive_to_storage($files, $context->id, 'mod_qv', 'package', 0, '/', $filename);
+					@unlink($basetmp);
+					
 					//do not delete old file in case they are shared ;-)
 				} catch (Exception $e) {
 					// ignore any errors, we can not do much anyway
 					return false;
 				}
 				
-				$qv->reference = $qvfile;
+				$qv->reference = $filename;
 			} else {
 				return false;
 			}

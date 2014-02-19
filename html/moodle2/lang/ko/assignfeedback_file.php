@@ -25,12 +25,18 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['batchoperationconfirmuploadfiles'] = '선택한 모든 사용자에 대해 하나 이상의 피드백 파일을 업로드 할까요?';
+$string['batchuploadfiles'] = '여러 사용자을 위한 피드백 파일 업로드';
+$string['batchuploadfilesforusers'] = '{$a} 선택된 사용자(들)에게 피드백 파일을 보냅니다.';
 $string['configmaxbytes'] = '최대 파일 크기';
 $string['confirmuploadzip'] = 'zip 업로드 확인';
 $string['countfiles'] = '{$a} 파일';
 $string['default'] = '기본으로 활성화';
 $string['default_help'] = '설정되면 모든 새로운 과제에 대해 기본으로 피드백 방법이 활성화 될 것입니다.';
 $string['enabled'] = '파일 피드백';
+$string['feedbackfileadded'] = '학생 "{$a->student}"에 대한 새로운 피드백 파일 "{$a->filename}"';
+$string['feedbackfileupdated'] = '학생 "{$a->student}"에 대한 수정된 피드백 파일 "{$a->filename}"';
+$string['feedbackzip'] = '피드백 파일들로 파일 압축';
 $string['file'] = '피드백 파일';
 $string['filesadded'] = '피드백 파일이 추가됨: {$a}';
 $string['filesupdated'] = '피드백 파일이 업데이트됨: {$a}';
@@ -42,3 +48,7 @@ $string['moreusers'] = '{$a} 이상';
 $string['nochanges'] = '변경 없음';
 $string['pluginname'] = '파일 피드백';
 $string['selectedusers'] = '사용자 선택';
+$string['uploadfiles'] = '피드백 파일 보내기';
+$string['uploadzip'] = 'zip 파일로 여러 피드백 파일 업로드';
+$string['uploadzipsummary'] = 'zip 파일에서 가져온 피드백 파일들';
+$string['userswithnewfeedback'] = '업데이트된 피드백이 있는 사용자들: {$a}';

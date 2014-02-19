@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['addmorechoiceblanks'] = 'Leerfelder für {no} weitere Auswahlmöglichkeiten';
 $string['answerhowmany'] = 'Eine oder mehrere Antworten?';
-$string['answernumbering'] = 'Fragen nummerieren?';
+$string['answernumbering'] = 'Antworten nummerieren?';
 $string['answernumbering123'] = '1., 2., 3., ...';
 $string['answernumberingabc'] = 'a., b., c., ...';
 $string['answernumberingABCD'] = 'A., B., C., ...';

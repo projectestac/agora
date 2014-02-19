@@ -26,13 +26,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['capabilitylabel'] = 'Право:';
-$string['capabilityreport'] = 'Отчёт о правах';
+$string['capabilityreport'] = 'Отчет о правах';
 $string['changeoverrides'] = 'Изменение переопределений в этом контексте';
 $string['changeroles'] = 'Изменение определения роли';
 $string['forroles'] = 'Для ролей {$a}';
-$string['getreport'] = 'Получить отчёт';
-$string['intro'] = 'В этом отчёте для конкретного права отображается, дано ли такое право каждой из ролей (или выбранным ролям), а также все места на сайте, где это право переопределяется.';
-$string['pluginname'] = 'Отчёт о правах';
-$string['reportforcapability'] = 'Отчёт о праве "{$a}"';
+$string['getreport'] = 'Получить отчет';
+$string['intro'] = 'В этом отчете для конкретного права отображается, дано ли такое право каждой из ролей (или выбранным ролям), а также все места на сайте, где это право переопределяется.';
+$string['pluginname'] = 'Отчет о правах';
+$string['reportforcapability'] = 'Отчет о праве «{$a}»';
 $string['reportsettings'] = 'Параметры отчета';
 $string['roleslabel'] = 'Роли:';

@@ -150,6 +150,11 @@ class restore_gradebook_structure_step extends restore_structure_step {
         if ($data->itemtype=='manual') {
             // manual grade items store category id in categoryid
             $data->categoryid = $this->get_mappingid('grade_category', $data->categoryid, NULL);
+            // if mapping failed put in course's grade category
+            if (NULL == $data->categoryid) {
+                $coursecat = grade_category::fetch_course_category($this->get_courseid());
+                $data->categoryid = $coursecat->id;
+            }
         } else if ($data->itemtype=='course') {
             // course grade item stores their category id in iteminstance
             $coursecat = grade_category::fetch_course_category($this->get_courseid());
@@ -1274,7 +1279,7 @@ class restore_section_structure_step extends restore_structure_step {
             // Otherwise, when you restore to an existing course, it will mess up
             // existing section availability entries.
             if (!$this->get_mappingid('course_sections_availability', $data->id, false)) {
-                return;
+                continue;
             }
 
             // Update source cmid / grade id to new value.
@@ -1287,7 +1292,12 @@ class restore_section_structure_step extends restore_structure_step {
                 $data->gradeitemid = null;
             }
 
-            $DB->update_record('course_sections_availability', $data);
+            // Delete the record if the condition wasn't found, otherwise update it.
+            if ($data->sourcecmid === null && $data->gradeitemid === null) {
+                $DB->delete_records('course_sections_availability', array('id' => $data->id));
+            } else {
+                $DB->update_record('course_sections_availability', $data);
+            }
         }
     }
 }
@@ -1453,7 +1463,6 @@ class restore_course_structure_step extends restore_structure_step {
 
         // Add course related files, without itemid to match
         $this->add_related_files('course', 'summary', null);
-        $this->add_related_files('course', 'legacy', null);
 
         // Deal with legacy allowed modules.
         if ($this->legacyrestrictmodules) {
@@ -1480,6 +1489,29 @@ class restore_course_structure_step extends restore_structure_step {
     }
 }
 
+/**
+ * Execution step that will migrate legacy files if present.
+ */
+class restore_course_legacy_files_step extends restore_execution_step {
+    public function define_execution() {
+        global $DB;
+
+        // Do a check for legacy files and skip if there are none.
+        $sql = 'SELECT count(*)
+                  FROM {backup_files_temp}
+                 WHERE backupid = ?
+                   AND contextid = ?
+                   AND component = ?
+                   AND filearea  = ?';
+        $params = array($this->get_restoreid(), $this->task->get_old_contextid(), 'course', 'legacy');
+
+        if ($DB->count_records_sql($sql, $params)) {
+            $DB->set_field('course', 'legacyfiles', 2, array('id' => $this->get_courseid()));
+            restore_dbops::send_files_to_pool($this->get_basepath(), $this->get_restoreid(), 'course',
+                'legacy', $this->task->get_old_contextid(), $this->task->get_userid());
+        }
+    }
+}
 
 /*
  * Structure step that will read the roles.xml file (at course/activity/block levels)
@@ -1580,6 +1612,29 @@ class restore_ras_and_caps_structure_step extends restore_structure_step {
             // TODO: assign_capability() needs one userid param to be able to specify our restore userid
             // TODO: it seems that assign_capability() doesn't check for valid capabilities at all ???
             assign_capability($data->capability, $data->permission, $newroleid, $this->task->get_contextid());
+        }
+    }
+}
+
+/**
+ * If no instances yet add default enrol methods the same way as when creating new course in UI.
+ */
+class restore_default_enrolments_step extends restore_execution_step {
+    public function define_execution() {
+        global $DB;
+
+        $course = $DB->get_record('course', array('id'=>$this->get_courseid()), '*', MUST_EXIST);
+
+        if ($DB->record_exists('enrol', array('courseid'=>$this->get_courseid(), 'enrol'=>'manual'))) {
+            // Something already added instances, do not add default instances.
+            $plugins = enrol_get_plugins(true);
+            foreach ($plugins as $plugin) {
+                $plugin->restore_sync_course($course);
+            }
+
+        } else {
+            // Looks like a newly created course.
+            enrol_course_updated(true, $course, null);
         }
     }
 }
@@ -3008,13 +3063,15 @@ class restore_create_categories_and_questions extends restore_structure_step {
         $hint = new restore_path_element('question_hint',
                 '/question_categories/question_category/questions/question/question_hints/question_hint');
 
+        $tag = new restore_path_element('tag','/question_categories/question_category/questions/question/tags/tag');
+
         // Apply for 'qtype' plugins optional paths at question level
         $this->add_plugin_structure('qtype', $question);
 
         // Apply for 'local' plugins optional paths at question level
         $this->add_plugin_structure('local', $question);
 
-        return array($category, $question, $hint);
+        return array($category, $question, $hint, $tag);
     }
 
     protected function process_question_category($data) {
@@ -3159,6 +3216,29 @@ class restore_create_categories_and_questions extends restore_structure_step {
         }
         // Create mapping (I'm not sure if this is really needed?)
         $this->set_mapping('question_hint', $oldid, $newitemid);
+    }
+
+    protected function process_tag($data) {
+        global $CFG, $DB;
+
+        $data = (object)$data;
+        $newquestion = $this->get_new_parentid('question');
+
+        if (!empty($CFG->usetags)) { // if enabled in server
+            // TODO: This is highly inneficient. Each time we add one tag
+            // we fetch all the existing because tag_set() deletes them
+            // so everything must be reinserted on each call
+            $tags = array();
+            $existingtags = tag_get_tags('question', $newquestion);
+            // Re-add all the existitng tags
+            foreach ($existingtags as $existingtag) {
+                $tags[] = $existingtag->rawname;
+            }
+            // Add the one being restored
+            $tags[] = $data->rawname;
+            // Send all the tags back to the question
+            tag_set('question', $newquestion, $tags);
+        }
     }
 
     protected function after_execute() {

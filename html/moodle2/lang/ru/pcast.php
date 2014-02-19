@@ -32,4 +32,5 @@ $string['clean'] = 'Очистить';
 $string['configenablerssfeeds2'] = 'Включить RSS-ленты:';
 $string['noresize'] = 'Не менять размеры';
 $string['notcategorised'] = 'Вне категории';
+$string['sortby'] = 'Сортировать по';
 $string['user'] = 'Пользователи';

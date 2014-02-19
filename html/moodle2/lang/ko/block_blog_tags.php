@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['blog_tags:addinstance'] = '블로그 태그 블록 추가';
 $string['pluginname'] = '블로그 태그';

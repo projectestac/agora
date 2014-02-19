@@ -33,7 +33,7 @@ use moodle\mod\lti as lti;
 
 $rawbody = file_get_contents("php://input");
 
-foreach (getallheaders() as $name => $value) {
+foreach (lti\OAuthUtil::get_headers() as $name => $value) {
     if ($name === 'Authorization') {
         // TODO: Switch to core oauthlib once implemented - MDL-30149
         $oauthparams = lti\OAuthUtil::split_header($value);
@@ -106,7 +106,7 @@ switch ($messagetype) {
         $grade = lti_read_grade($ltiinstance, $parsed->userid);
 
         $responsexml = lti_get_response_xml(
-                isset($grade) ? 'success' : 'failure',
+                'success',  // Empty grade is also 'success'
                 'Result read',
                 $parsed->messageid,
                 'readResultResponse'

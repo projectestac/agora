@@ -38,7 +38,7 @@ $string['noallocationtoadd'] = 'Keine Zuordnungen hinzuzufügen';
 $string['nogroupusers'] = '<p>Achtung: Wenn der Workshop sich im Modus "sichtbare Gruppen" oder "getrennten Gruppen" befindet, dann müssen Nutzer/innen als Mitglied in mindestens einer Gruppe eingetragen sein, um eine gegenseitige Beurteilung für diese Aktivität durchführen zu können. Nutzer/innen ohne Gruppe können nur eine neue Selbstbeurteilung vornehmen oder es werden vorhandene Beurteilungen gelöscht.</p>
 <p>Folgende Nutzer/innen sind bisher keiner Gruppe zugeordnet: {$a}</p>';
 $string['numofdeallocatedassessment'] = '{$a} Zuordnung/en aufheben';
-$string['numofrandomlyallocatedsubmissions'] = 'Automatische Zuordnung von {$a} Einreichungen';
+$string['numofrandomlyallocatedsubmissions'] = 'Zufällige Zuordnung von {$a} Einreichungen';
 $string['numofreviews'] = 'Anzahl von Beurteilungsaufträgen';
 $string['numofselfallocatedsubmissions'] = 'Automatisiere Zuordnung von {$a} Einreichung/en';
 $string['numperauthor'] = 'pro Einreichung';

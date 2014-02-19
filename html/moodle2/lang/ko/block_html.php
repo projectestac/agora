@@ -25,8 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['allowadditionalcssclasses'] = '추가적인 CSS 클래스 허용';
+$string['configclasses'] = '추가적인 CSS 클래스';
 $string['configcontent'] = '콘텐츠';
 $string['configtitle'] = '블록 제목';
+$string['html:addinstance'] = '새 HTML 블록 추가';
+$string['html:myaddinstance'] = '내 공부방에 HTML 블록 추가';
 $string['leaveblanktohide'] = '제목을 숨기기 위해서는 빈칸으로 남기세요';
 $string['newhtmlblock'] = '(새로운 HTML 블록)';
 $string['pluginname'] = 'HTML';

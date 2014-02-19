@@ -26,10 +26,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['errbadxmlformat'] = 'Ошибка - неправильный формат XML';
-$string['errduplicategradeidnumber'] = 'Ошибка - в этом курсе есть две оценки с идентификатором "{$a}". Это невозможно.';
+$string['errduplicategradeidnumber'] = 'Ошибка - в этом курсе есть две оценки с идентификатором «{$a}». Это невозможно.';
 $string['errduplicateidnumber'] = 'Ошибка - дублирующийся id номер';
-$string['errincorrectgradeidnumber'] = 'Ошибка - идентификатор "{$a}" из импортированного файла не соответствует какой-либо оценке.';
-$string['errincorrectuseridnumber'] = 'Ошибка - идентификатор "{$a}" из импортированного файла не соответствует какому-либо пользователю.';
+$string['errincorrectgradeidnumber'] = 'Ошибка - идентификатор «{$a}» из импортированного файла не соответствует какой-либо оценке.';
+$string['errincorrectidnumber'] = 'Ошибка - некорректный ID';
+$string['errincorrectuseridnumber'] = 'Ошибка - идентификатор «{$a}» из импортированного файла не соответствует какому-либо пользователю.';
 $string['error'] = 'Произошла ошибка';
 $string['fileurl'] = 'Адрес файла';
 $string['pluginname'] = 'XML файл';

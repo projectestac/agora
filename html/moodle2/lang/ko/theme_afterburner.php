@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['configtitle'] = '애프터버너 맞춤 설정';
 $string['customcss'] = '커스텀 CSS';
 $string['footnote'] = '각주';
+$string['footnotedesc'] = '이 텍스트 영역에 추가한 것은 모든 페이지의 하단에 표시됩니다.';
 $string['logo'] = '로고';
 $string['pluginname'] = '애프터버너';
 $string['region-side-post'] = '오른쪽';

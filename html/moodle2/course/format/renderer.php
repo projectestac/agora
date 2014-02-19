@@ -324,7 +324,7 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
      * @param array    $mods (argument not used)
      * @return string HTML to output.
      */
-    private function section_activity_summary($section, $course, $mods) {
+    protected function section_activity_summary($section, $course, $mods) {
         $modinfo = get_fast_modinfo($course);
         if (empty($modinfo->sections[$section->section])) {
             return '';
@@ -515,7 +515,7 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
         $o.= html_writer::tag('div', '', array('class' => 'left side'));
         $o.= html_writer::tag('div', '', array('class' => 'right side'));
         $o.= html_writer::start_tag('div', array('class' => 'content'));
-        $o.= $this->output->heading(get_string('orphanedactivities'), 3, 'sectionname');
+        $o.= $this->output->heading(get_string('orphanedactivitiesinsectionno', '', $sectionno), 3, 'sectionname');
         return $o;
     }
 

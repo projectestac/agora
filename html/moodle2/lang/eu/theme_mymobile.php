@@ -25,5 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['customcss'] = 'Pertsonalizatu CSSa';
+$string['grey'] = 'Grisa';
+$string['light'] = 'Argia/Urdina';
 $string['no'] = 'Ez';
+$string['pluginname'] = 'MyMobile';
+$string['region-myblocks'] = 'bloke-eremua';
+$string['showfullsizeimages'] = 'Erakutsi irudiak osorik guneko aurkibidean eta ikastaro-orrietan';
+$string['showsitetopic'] = 'Erakutsi guneko gaia:';
+$string['usetableview'] = 'Tablet ikuspegia';
 $string['yes'] = 'Bai';

@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['messages:addinstance'] = 'Добавлять новый блок сообщений';
+$string['messages:myaddinstance'] = 'Добавлять новый блок сообщений в Мой Moodle';
 $string['pluginname'] = 'Обмен сообщениями';

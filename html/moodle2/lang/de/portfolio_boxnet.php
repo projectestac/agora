@@ -25,13 +25,18 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = 'API-Schlüssel';
-$string['err_noapikey'] = 'Kein API-Schlüssel';
-$string['err_noapikey_help'] = 'Für dieses Plugin wurde kein API-Schlüssel konfiguriert, den Sie über <a href="http://www.box.net/developer/services">box.net</a> erhalten können.';
+$string['apiv1migration_message_small'] = 'Dieses Pluigin wurde deaktiviert. Eine neue Konfiguration ist erforderlich. Sie ist beschrieben in der Box.net APIv1 migration-Doku.';
+$string['apiv1migration_message_subject'] = 'Wichtige Informationen zum box.net Portfolio-Plugin.';
+$string['clientid'] = 'Client-ID';
+$string['clientsecret'] = 'Schlüssel';
 $string['existingfolder'] = 'Vorhandenes Dateiverzeichnis';
 $string['folderclash'] = 'Das anzulegende Verzeichnis existiert bereits!';
 $string['foldercreatefailed'] = 'Fehler beim Anlegen Ihres Zielverzeichnisses bei box.net';
 $string['folderlistfailed'] = 'Fehler bei der Abfrage einer Dateiliste von box.net';
+$string['missinghttps'] = 'HTTPS erforderlich';
+$string['missinghttps_help'] = 'box.net kann nur auf Sites mit HTTPS-Verschlüsselung genutzt werden.';
+$string['missingoauthkeys'] = 'Client-ID und Schlüssel fehlen.';
+$string['missingoauthkeys_help'] = 'Für das Plugin wurden kein Client-ID und Schlüssel eingetragen. Sie erhalten diese auf der box.net Entwicklerseite.';
 $string['newfolder'] = 'Neues Dateiverzeichnis';
 $string['noauthtoken'] = 'Kein Authentifizierungstoken für diese Session empfangen';
 $string['notarget'] = 'Sie müssen zum Hochladen ein vorhandenes Verzeichnis wählen oder ein neues Verzeichnis anlegen';
@@ -41,12 +46,13 @@ $string['pluginname'] = 'Box.net
 ';
 $string['sendfailed'] = 'Fehler beim Senden von Daten an box.net: {$a}';
 $string['setupinfo'] = 'Einstellungsanleitung';
-$string['setupinfodetails'] = 'Sie erhalten Ihren API-Key für Box.net über die Seite <a href="{$a->servicesurl} "> OpenBox Development </ a>. Bei den \'Developer Tools\' gehen Sie zu \'Create new application\' und legen eine neue Anwendung für Ihre Moodle-Instanz an. Der API-Key wird im Abschnitt \'Backend Parameter\' angezeigt. Kopieren Sie in das Feld \'Redirect URL\' den folgenden Text: <br /> <code> {$a->callbackurl} </ code> <br />
+$string['setupinfodetails'] = 'Sie erhalten Ihre Client-ID und den Schlüssel für Box.net über die <a href="{$a->servicesurl} "> Entwicklerseite </ a>. Bei den \'Developer Tools\' gehen Sie zu \'Create new application\' und legen eine neue Anwendung für Ihre Moodle-Instanz an. Der Client-ID und der Schlüssel (secret) werden im Abschnitt \'PAuth2 parameters\' angezeigt. <br />
 
-Optional können Sie weitere Informationen über Ihre Moodle-Instanz angeben. Alle Angaben können auch später noch bearbeitet werden, und zwar auf der Seite \'View my applications\'.';
+Optional können Sie weitere Informationen über Ihre Moodle-Instanz angeben.';
 $string['sharedfolder'] = 'Freigegeben';
 $string['sharefile'] = 'Diese Datei freigeben?';
 $string['sharefolder'] = 'Dieses Verzeichnis freigeben?';
 $string['targetfolder'] = 'Zielverzeichnis';
 $string['tobecreated'] = 'Erstellen';
 $string['username'] = 'Ihr Anmeldename für box.net (wird nicht gespeichert)';
+$string['warninghttps'] = 'box.net erfordert, dass Ihre Seite unter HTTPS betrieben wird, um das Portfolio zu verwenden.';

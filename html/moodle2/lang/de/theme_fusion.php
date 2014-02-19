@@ -40,7 +40,7 @@ $string['choosereadme'] = '<div class="clearfix">
 </div>
 <div class="theme_description">
 <h2>Über Fusion:</h2>
-<p>Fusion ist ein Zwei-Spalten-Design mit variabler Breite für Moodle 2.0. Es verwendet eigene Menüs, welche über dem Titel auf jeder Seite angezeigt werden. Darüber hinaus bietet es Einstellungsmöglichkeiten, auf der Sie die Link-Farbe ändern, einen Untertitel über dem Titel der Hauptseite und Text zur Fußzeile hinzufügen können.</p>
+<p>Fusion ist ein Zwei-Spalten-Design mit variabler Breite für Moodle 2.0. Das Design hat Einstellungen für die Linkfarbe, für einen Untertitel auf der Startseite und für ein Fußzeile auf jeder Seite.</p>
 <h2>Hinweise</h2>
 <p>Dieses Design basiert auf den beiden in Moodle enthaltenen Grunddesigns Base und Canvas. Wenn Sie Änderungen vornehmen wollen, empfehlen wir unbedingt, vorher immer eine Kopie zu erstellen und diese umzubenennen. So wird verhindert, dass Ihre Änderungen bei einem Update von Moodle verloren gehen; Sollte Ihnen ein Fehler in den Änderungen unterlaufen, haben Sie so ebenfalls noch eine funktionierende Sicherheitskopie. Weitere Informationen zum Bearbeiten von Designs finden Sie in der <a href="http://docs.moodle.org/de/Designs">Designdokumentation</a>.</p>
 <h2>Danksagungen</h2>
@@ -50,8 +50,8 @@ $string['choosereadme'] = '<div class="clearfix">
 </div>
 </div>';
 $string['configtitle'] = 'Fusion-Einstellungen';
-$string['customcss'] = 'Eigenes CSS';
-$string['customcssdesc'] = 'Das eigene CSS wird benutzt, um das Design an Ihre Bedürfnisse anpassen.';
+$string['customcss'] = 'CSS-Anpassungen';
+$string['customcssdesc'] = 'Die CSS-Anpassungen werden auf jeder Seite benutzt. Das Design kann so einfach geändert werden.';
 $string['footertext'] = 'Fußzeilentext';
 $string['footertextdesc'] = 'Fußnote oder Fußzeilentext einfügen.';
 $string['linkcolor'] = 'Linkfarbe';

@@ -1570,9 +1570,7 @@ class oci_native_moodle_database extends moodle_database {
         return " $s ";
     }
 
-	/**
-	 * XTEC ************ AFEGIT - MDL-27071 Oracle cannot cope withan IN operator with more than 1000 conditions in it
-     * 2014.01.09  @pferre22
+    /**
      * Constructs 'IN()' or '=' sql fragment
      *
      * Method overriding {@link moodle_database::get_in_or_equal} to be able to get

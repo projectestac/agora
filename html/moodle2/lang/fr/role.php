@@ -43,7 +43,7 @@ $string['archetypecoursecreator'] = 'MODÈLE : Créateur de cours';
 $string['archetypeeditingteacher'] = 'MODÈLE : Enseignant';
 $string['archetypefrontpage'] = 'MODÈLE : Utilisateur authentifié sur la page d\'accueil';
 $string['archetypeguest'] = 'MODÈLE : Visiteur anonyme';
-$string['archetype_help'] = 'Le rôle modèle détermine les permissions affectées à un rôle lors de sa réinitialisation. Il détermine également les nouvelles permissions lors d\'une mise à jour du site.';
+$string['archetype_help'] = 'Le modèle de rôle détermine les permissions affectées à un rôle lors de sa réinitialisation. Il détermine également les nouvelles permissions lors d\'une mise à jour du site.';
 $string['archetypemanager'] = 'MODÈLE : Gestionnaire';
 $string['archetypestudent'] = 'MODÈLE : Étudiant';
 $string['archetypeteacher'] = 'MODÈLE : Enseignant non éditeur';
@@ -117,10 +117,10 @@ $string['confirmunassigntitle'] = 'Confirmer le changement de rôle';
 $string['confirmunassignyes'] = 'Retirer';
 $string['context'] = 'Contexte';
 $string['course:activityvisibility'] = 'Cacher/afficher les activités';
-$string['course:bulkmessaging'] = 'Envoyer des messages à de nombreux utilisateurs';
+$string['course:bulkmessaging'] = 'Envoyer des messages à plusieurs utilisateurs';
 $string['course:changecategory'] = 'Modifier la catégorie du cours';
 $string['course:changefullname'] = 'Modifier le nom du cours';
-$string['course:changeidnumber'] = 'Modifier le no d\'identification du cours';
+$string['course:changeidnumber'] = 'Modifier le n° d\'identification du cours';
 $string['course:changeshortname'] = 'Modifier le nom abrégé du cours';
 $string['course:changesummary'] = 'Modifier le résumé du cours';
 $string['course:create'] = 'Créer des cours';
@@ -205,7 +205,7 @@ $string['grade:view'] = 'Voir ses propres notes';
 $string['grade:viewall'] = 'Voir les notes d\'autres utilisateurs';
 $string['grade:viewhidden'] = 'Voir ses propres notes cachées';
 $string['hidden'] = 'Caché';
-$string['highlightedcellsshowdefault'] = 'Les cellules en surbrillance dans le tableau ci-dessous indiquent la permission par défaut pour le rôle modèle spécifié ci-dessus.';
+$string['highlightedcellsshowdefault'] = 'Les cellules en surbrillance dans le tableau ci-dessous indiquent la permission par défaut pour le modèle de rôle spécifié ci-dessus.';
 $string['highlightedcellsshowinherit'] = 'Les cellules en surbrillance dans le tableau ci-dessous indiquent s\'il y a lieu la permission qui sera héritée. À part les capacités dont vous voulez modifier les permissions, il est suggéré de laisser le tout sur Hériter.';
 $string['inactiveformorethan'] = 'inactif depuis plus de {$a->timeperiod}';
 $string['ingroup'] = 'dans le groupe « {$a->group} »';
@@ -229,8 +229,8 @@ $string['manageroles'] = 'Gérer les rôles';
 $string['maybeassignedin'] = 'Types de contextes où ce rôle peut être attribué';
 $string['morethan'] = 'Plus de {$a}';
 $string['multipleroles'] = 'Plusieurs rôles';
-$string['my:configsyspages'] = 'Configurer les modèles système pour les pages Mon Moodle';
-$string['my:manageblocks'] = 'Gérer les blocs de Mon Moodle';
+$string['my:configsyspages'] = 'Configurer les modèles système pour les pages Ma page';
+$string['my:manageblocks'] = 'Gérer les blocs de la page Ma page';
 $string['neededroles'] = 'Rôles avec permission';
 $string['nocapabilitiesincontext'] = 'Aucune capacité dans ce contexte';
 $string['noneinthisx'] = 'Aucun dans ce {$a}';
@@ -246,18 +246,7 @@ $string['overrideanotherrole'] = 'Définir une dérogation pour un autre rôle';
 $string['overridecontext'] = 'Contexte de dérogation';
 $string['overridepermissions'] = 'Définir des dérogations aux permissions';
 $string['overridepermissionsforrole'] = 'Définir des dérogations pour le rôle {$a->role} dans {$a->context}';
-$string['overridepermissions_help'] = '<!-- $Id$ -->
-
-
-<p>Les dérogations sont des permissions spécifiques destinées à remplacer celles d\'un rôle dans un contexte spécifique, vous permettant de régler plus finement vos permissions suivant vos besoins.</p>
-
-<p>Par exemple, si des utilisateurs avec un rôle Étudiant dans votre cours peuvent commencer des discussions dans des forums, et que vous voulez que dans un forum déterminé ils ne puissent le faire, vous pouvez définir une dérogation qui EMPÊCHE pour les étudiants la capacité de « Commencer des discussions ».</p>
-
-<p>Les dérogations peuvent aussi être utilisées pour donner plus de droits dans certaines zones de votre site et cours, lorsque cela peut être utile. Par exemple, vous pouvez essayer d\'expérimenter la capacité pour les étudiants de donner des notes à certains devoirs.</p>
-
-<p>L\'interface est similaire à celle destinée à définir les rôles, à part que seules les capacités pertinentes sont affichées, et que vous y verrez certaines capacités mises en évidence pour vous montrer quelle permission aurait ce rôle sans dérogation active (c\'est-à-dire lorsque la dérogation est réglée sur HÉRITER).</p>
-
-<p>Voir aussi <a href="help.php?file=roles.html">Rôles</a>, <a href="help.php?file=contexts.html">Contextes</a>, <a href="help.php?file=assignroles.html">Attribuer des rôles</a> et <a href="help.php?file=permissions.html">Permissions</a>.</p>';
+$string['overridepermissions_help'] = 'Les dérogations aux permissions permettent d\'accorder ou de retirer des permissions spécifiques pour certaines capacités d\'un rôle dans un contexte spécifique.';
 $string['overridepermissionsin'] = 'Définir des dérogations aux permissions dans {$a}';
 $string['overrideroles'] = 'Définir des dérogations aux rôles';
 $string['overriderolesin'] = 'Définir des dérogations aux rôles dans {$a}';
@@ -269,9 +258,9 @@ $string['permission_help'] = 'Les permissions sont les réglages que vous accord
 * Non défini
 * Autoriser : la permission est donnée pour cette capacité
 * Empêcher : la permission n\'est pas donnée pour cette capacité
-* Interdire : la permission est totalement refusée pour cette capacité et ne peut pas être accordée dans un contexte inférieur (plus spécifique)';
+* Interdire : la permission est totalement refusée pour cette capacité et ne peut pas être accordée dans un contexte inférieur (ou plus spécifique)';
 $string['permissions'] = 'Permissions';
-$string['permissionsforuser'] = 'Permissions pour l\'utilisateur {$a}';
+$string['permissionsforuser'] = 'Permissions de l\'utilisateur {$a}';
 $string['permissionsincontext'] = 'Permissions dans {$a}';
 $string['portfolio:export'] = 'Exporter vers des portfolios';
 $string['potentialusers'] = '{$a} utilisateurs potentiels';
@@ -293,13 +282,13 @@ $string['question:usemine'] = 'Utiliser ses propres questions';
 $string['question:viewall'] = 'Voir toutes les questions';
 $string['question:viewmine'] = 'Voir ses propres questions';
 $string['rating:rate'] = 'Ajouter des notes aux éléments';
-$string['rating:view'] = 'Voir la note globale que vous avez reçue';
+$string['rating:view'] = 'Voir sa propre note globale';
 $string['rating:viewall'] = 'Voir toutes les notes brutes reçues';
 $string['rating:viewany'] = 'Voir les notes globales de tout le monde';
 $string['resetrole'] = 'Réinitialiser le rôle';
-$string['resetrolenolegacy'] = 'Réinitialiser les autorisations';
-$string['resetrolesure'] = '<p>Voulez-vous vraiment revenir aux réglages par défaut du rôle « {$a->name} ({$a->shortname}) » ?</p><p>Ces réglages sont repris du rôle modèle sélectionné ({$a->legacytype}).</p>';
-$string['resetrolesurenolegacy'] = 'Voulez-vous vraiment réinitialiser toutes les autorisations définies dans le rôle « {$a->name} ({$a->shortname}) » ?';
+$string['resetrolenolegacy'] = 'Réinitialiser les permissions';
+$string['resetrolesure'] = '<p>Voulez-vous vraiment revenir aux réglages par défaut du rôle « {$a->name} ({$a->shortname}) » ?</p><p>Ces réglages sont repris du modèle de rôle sélectionné ({$a->legacytype}).</p>';
+$string['resetrolesurenolegacy'] = 'Voulez-vous vraiment réinitialiser toutes les permissions définies pour le rôle « {$a->name} ({$a->shortname}) » ?';
 $string['restore:configure'] = 'Configurer les réglages de restauration';
 $string['restore:createuser'] = 'Créer des utilisateurs lors des restaurations';
 $string['restore:restoreactivity'] = 'Restaurer des activités';
@@ -313,7 +302,7 @@ $string['restore:userinfo'] = 'Restaurer les données des utilisateurs';
 $string['restore:viewautomatedfilearea'] = 'Restaurer les cours à partir des backups automatiques';
 $string['risks'] = 'Risques';
 $string['roleallowheader'] = 'Permettre le rôle';
-$string['roleallowinfo'] = 'Sélectionner un rôle à ajouter à la liste des rôles avec permission pour la capacité {$a->cap} dans le contexte {$a->context} :';
+$string['roleallowinfo'] = 'Sélectionner un rôle à ajouter à la liste des rôles autorisés pour la capacité {$a->cap} dans le contexte {$a->context} :';
 $string['role:assign'] = 'Attribuer des rôles aux utilisateurs';
 $string['roleassignments'] = 'Attributions de rôle';
 $string['roledefinitions'] = 'Définitions des rôles';
@@ -328,29 +317,7 @@ $string['roles'] = 'Rôles';
 $string['role:safeoverride'] = 'Définir des dérogations aux capacités sûres pour d\'autres utilisateurs';
 $string['roleselect'] = 'Sélectionner rôle';
 $string['rolesforuser'] = 'Rôles de l\'utilisateur {$a}';
-$string['roles_help'] = '<!-- $Id$ -->
-
-
-<p>Un rôle est une collection de permissions définies pour la totalité d\'un système Moodle, que l\'on peut attribuer à des utilisateurs déterminés dans des contextes déterminés.</p>
-
-<p>Par exemple, un rôle appelé « Enseignant » peut être défini, permettant à des enseignants d\'effectuer certaines actions (et non d\'autres). Si un tel rôle existe, il est possible de l\'attribuer dans un cours à un utilisateur, pour en faire un enseignant dans ce cours. Vous pouvez également attribuer ce rôle dans le contexte d\'une catégorie de cours, pour en faire un « Enseignant » dans tous les cours de cette catégorie, ou attribuer ce rôle à quelqu\'un dans un seul forum, lui donnant ces capacités dans ce seul forum.</p>
-
-<p>Un rôle doit avoir un <strong>nom</strong>. Si vous devez dénommer un rôle dans diverses langues, vous pouvez utiliser la syntaxe du filtre multilingue, par exemple</p>
-
-<pre>
-  &lt;span lang="fr" class="multilang"&gt;Enseignant&lt;/span&gt;
-  &lt;span lang="de" class="multilang"&gt;Dozent&lt;/span&gt;
-  &lt;span lang="en" class="multilang"&gt;Teacher&lt;/span&gt;
-  &lt;span lang="es_es" class="multilang"&gt;Profesor&lt;/span&gt;
-  </pre>
-
-<p>Si vous le faites, assurez-vous que le réglage « Filtrer toutes les chaînes de caractères » soit activé sur votre Moodle.</p>
-
-<p>Le <strong>Nom abrégé</strong> est nécessaire pour pouvoir être utilisé par d\'autres composants de Moodle devant se référer à vos rôles (par exemple lors de l\'importation de nouveaux utilisateurs à partir d\'un fichier ou de l\'inscription aux cours par une méthode d\'inscription).</p>
-
-<p>La <strong>description</strong> sert simplement à décrire le rôle dans vos propres mots, afin que l\'on puisse comprendre facilement à quoi correspond ce rôle.</p>
-
-<p>Voir aussi <a href="help.php?file=contexts.html">Contextes</a>, <a href="help.php?file=permissions.html">Permissions</a>, <a href="help.php?file=assignroles.html">Attribuer des rôles</a> et <a href="help.php?file=overrides.html">Dérogations</a>.</p>';
+$string['roles_help'] = 'Un rôle est un ensemble de permissions définies pour la totalité d\'un système, et que l\'on peut attribuer à des utilisateurs déterminés dans des contextes déterminés.';
 $string['roleshortname'] = 'Nom abrégé';
 $string['roleshortname_help'] = 'Le nom abrégé du rôle est un identifiant dans lequel seuls les caractères alphanumériques ASCII sont permis. Veuillez ne pas modifier les noms abrégés des rôles standards.';
 $string['role:switchroles'] = 'Prendre d\'autres rôles';
@@ -375,12 +342,12 @@ $string['site:mnetloginfromremote'] = 'Se connecter depuis une application dista
 $string['site:mnetlogintoremote'] = 'Accéder à une application distante via MNet';
 $string['site:readallmessages'] = 'Lire tous les messages sur le site';
 $string['site:restore'] = 'Restaurer les cours';
-$string['site:sendmessage'] = 'Envoyer des messages à tous les utilisateurs';
+$string['site:sendmessage'] = 'Envoyer des messages aux utilisateurs';
 $string['site:trustcontent'] = 'Se fier aux contenus';
 $string['site:uploadusers'] = 'Importer de nouveaux utilisateurs à partir d\'un fichier';
 $string['site:viewfullnames'] = 'Toujours voir les noms complets des utilisateurs';
 $string['site:viewparticipants'] = 'Voir les participants';
-$string['site:viewreports'] = 'Afficher les rapports';
+$string['site:viewreports'] = 'Consulter les rapports';
 $string['site:viewuseridentity'] = 'Voir l\'identité complète des utilisateurs dans les listes';
 $string['tag:create'] = 'Créer de nouveaux tags';
 $string['tag:edit'] = 'Modifier les tags existants';
@@ -413,7 +380,7 @@ $string['usersinthisxmatching'] = 'Utilisateurs dans ce {$a->contexttype} corres
 $string['userswithrole'] = 'Tous les utilisateurs avec un rôle';
 $string['userswiththisrole'] = 'Utilisateurs avec ce rôle';
 $string['user:update'] = 'Mettre à jour les profils des utilisateurs';
-$string['user:viewalldetails'] = 'Afficher toutes les infos utilisateur';
+$string['user:viewalldetails'] = 'Voir toutes les infos utilisateur';
 $string['user:viewdetails'] = 'Voir les profils des utilisateurs';
 $string['user:viewhiddendetails'] = 'Voir les informations cachées des utilisateurs';
 $string['user:viewuseractivitiesreport'] = 'Voir les rapports d\'activités des utilisateurs';

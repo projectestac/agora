@@ -26,10 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['blockedpath'] = 'O caminho para a raiz está bloqueado';
-$string['configplugin'] = 'Configurar repositório "Pasta no servidor"';
+$string['configplugin'] = 'Configuração para o repositório "Pasta no servidor"';
 $string['donotusesysdir'] = 'Não usar a pasta de sistema como repositório, incluindo';
-$string['enablecourseinstances'] = 'Permitir que os utilizadores adicionem uma instância do repositório na disciplina (esta opção só pode ser configurada por administradores)';
-$string['enableuserinstances'] = 'Permitir que os utilizadores adicionem uma instância do repositório no contexto de utilizador (esta opção só pode ser configurada por administradores)';
+$string['enablecourseinstances'] = 'Permitir que os administradores adicionem uma instância do repositório na disciplina (esta opção só pode ser configurada por administradores)';
+$string['enableuserinstances'] = 'Permitir que os administradores adicionem uma instância do repositório "Pasta no servidor" para uso pessoal (esta opção só pode ser configurada por administradores)';
 $string['filesystem:view'] = 'Ver repositório Pasta no servidor';
 $string['information'] = 'Estas pastas estão na pasta <b>{$a}</b>.';
 $string['invalidpath'] = 'O caminho para a raiz é inválido';

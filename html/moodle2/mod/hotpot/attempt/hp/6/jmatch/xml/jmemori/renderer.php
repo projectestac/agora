@@ -62,7 +62,7 @@ class mod_hotpot_attempt_hp_6_jmatch_xml_jmemori_renderer extends mod_hotpot_att
      *
      * @return array of strings
      */
-    public static function sourcetypes()  {
+    static public function sourcetypes()  {
         return array('hp_6_jmatch_xml');
     }
 

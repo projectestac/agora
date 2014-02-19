@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['admin_bookmarks:addinstance'] = '관리 북마크 블록 추가';
+$string['admin_bookmarks:myaddinstance'] = '내 공부방에 관리 북마크 블록 추가';
 $string['pluginname'] = '관리자 북마크주소록';

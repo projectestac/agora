@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'local_amos', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'local_amos', language 'fr', branch 'MOODLE_24_STABLE'
  *
  * @package   local_amos
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,7 +30,8 @@ $string['about'] = '<p>L\'acronyme AMOS signifie « Automated Manipulation Of S
 $string['amos'] = 'AMOS – L\'outil de traduction de Moodle';
 $string['amos:commit'] = 'Implanter les chaînes du chantier dans le dépôt officiel';
 $string['amos:execute'] = 'Lancer le AMOScript donné';
-$string['amos:importfile'] = 'Importer des chaînes d\'un fichier déposé';
+$string['amos:importfile'] = 'Importer des chaînes d\'un fichier et les placer dans le chantier';
+$string['amos:importstrings'] = 'Importer directement les chaînes (y compris chaînes en anglais) dans le dépôt principal';
 $string['amos:manage'] = 'Gérer le portail AMOS';
 $string['amos:stage'] = 'Utiliser l\'outil de traduction AMOS et proposer des chaînes';
 $string['amos:stash'] = 'Enregistrer le chantier actuel dans un entrepôt persistant';
@@ -43,16 +44,17 @@ $string['commitstage_help'] = 'Enregistrer de façon permanente les traductions 
 $string['committableall'] = 'toutes les langues';
 $string['committablenone'] = 'aucune langue permise ; veuillez contacter le gestionnaire de AMOS';
 $string['componentsall'] = 'Tout';
+$string['componentsenlarge'] = 'Agrandir';
 $string['componentsnone'] = 'Aucun';
 $string['componentsstandard'] = 'Standard';
 $string['confirmaction'] = 'Cette opération ne peut pas être annulée. Voulez-vous vraiment continuer ?';
 $string['contribaccept'] = 'Accepter';
 $string['contribactions'] = 'Actions sur les traductions proposées';
-$string['contribactions_help'] = 'Selon vos droits et le processus de contribution des traductions, les actions suivantes sont disponibles.
+$string['contribactions_help'] = 'Selon vos autorisations et le processus de contribution des traductions, les actions suivantes sont disponibles.
 
 * Appliquer : copier la traduction proposée dans votre chantier, sans modifier l\'état de la contribution ;
 * Attribuer à moi : vous désigner comme responsable de la contribution, c\'est-à-dire la personne chargée de l\'examen de la contribution et de son intégration ;
-* Renoncer : ne désigner personne comme responsable de la contribution ;
+* Retirer l\'attribution : ne désigner personne comme responsable de la contribution ;
 * Examiner : vous attribuer la nouvelle contribution, fixer son statut à « En cours d\'examen » et copier la traduction proposée dans votre chantier.
 * Accepter : marquer la contribution comme acceptée ;
 * Rejeter : marquer la contribution comme rejetée. Veuillez indiquer en commentaire la raison du rejet.
@@ -71,7 +73,7 @@ $string['contribincomingnone'] = 'Pas de contribution arrivée';
 $string['contribincomingsome'] = 'Contributions arrivées ({$a})';
 $string['contriblanguage'] = 'Langue';
 $string['contribreject'] = 'Rejeter';
-$string['contribresign'] = 'Renoncer';
+$string['contribresign'] = 'Retirer l\'attribution';
 $string['contribstaged'] = 'Contribution <a href="contrib.php?id={$a->id}">#{$a->id}</a> de {$a->author} copiée dans le chantier';
 $string['contribstagedinfo'] = 'Contribution copiée dans le chantier';
 $string['contribstagedinfo_help'] = 'Le chantier contient les chaînes proposées par un membre de la communauté. Le responsable du paquetage de langue est censé les examiner, puis changer le statut de la contribution en Acceptée (si elles ont été implantées) ou Rejetée (si elles n\'ont pas pu être incorporées dans le paquetage pour une raison ou une autre).';
@@ -96,6 +98,13 @@ $string['contribsubmittednone'] = 'Aucune contribution envoyée';
 $string['contribsubmittedsome'] = 'Vos contributions ({$a})';
 $string['contribtimemodified'] = 'Modifié';
 $string['contributions'] = 'Contributions';
+$string['creditscontact'] = 'Envoyer message';
+$string['creditscontributors'] = 'Autres contributeurs';
+$string['creditsmaintainedby'] = 'Maintenu par';
+$string['creditsnomaintainer'] = 'Pas de mainteneur actuellement. <a href="{$a->url}">Devenez mainteneur !</a>';
+$string['creditsthanks'] = 'Sur cette page, nous tenons à remercier toutes les personnes ayant contribué aux traductions de Moodle. Leur travail a permis le développement de Moodle dans le monde.';
+$string['creditstitlelong'] = 'Mainteneurs et contributeurs des paquetages de langue';
+$string['creditstitleshort'] = 'Remerciements';
 $string['diff'] = 'Comparer';
 $string['diffaction'] = 'Si une différence est détectée';
 $string['diffaction1'] = 'Placer dans le chantier les deux chaînes dans leur branche respective';
@@ -130,11 +139,13 @@ $string['err_invalidlangcode'] = 'Code de langue non valide ';
 $string['err_parser'] = 'Erreur d\'analyse : {$a}';
 $string['filtercmp'] = 'Composants';
 $string['filtercmp_desc'] = 'Afficher les chaînes de ces composants';
+$string['filtercmpnothingselected'] = 'Veuillez sélectionner au moins un composant';
 $string['filterlng'] = 'Langues';
 $string['filterlng_desc'] = 'Afficher les traductions dans ces langues';
+$string['filterlngnothingselected'] = 'Veuillez sélectionner au moins une langue';
 $string['filtermis'] = 'Divers';
 $string['filtermis_desc'] = 'Conditions supplémentaires sur les chaînes à afficher';
-$string['filtermisfglo'] = 'chaînes en liste grise seulement';
+$string['filtermisfglo'] = 'seulement chaînes en liste grise';
 $string['filtermisfhlp'] = 'seulement chaînes d\'aide';
 $string['filtermisfmis'] = 'seulement chaînes manquantes ou obsolètes';
 $string['filtermisfstg'] = 'seulement chaînes du chantier';
@@ -148,6 +159,7 @@ $string['filtertxt_desc'] = 'La chaîne doit contenir le texte saisi';
 $string['filtertxtregex'] = 'regex';
 $string['filterver'] = 'Versions';
 $string['filterver_desc'] = 'Afficher les chaînes de ces versions de Moodle';
+$string['filtervernothingselected'] = 'Veuillez sélectionner au moins une version';
 $string['found'] = '{$a->found} chaînes &nbsp;&nbsp;&nbsp; Manquantes : {$a->missing} ({$a->missingonpage})';
 $string['foundinfo'] = 'Nombre de chaînes trouvées';
 $string['foundinfo_help'] = 'Affiche le nombre total des rangées de la table de traduction, le nombre de traductions manquantes et le nombre de traductions manquantes sur la page affichée. ';
@@ -161,10 +173,14 @@ Vous pouvez gagner un temps considérable en ne traduisant que les chaînes qui 
 Si vous constatez qu\'une chaîne en liste grise est encore utilisée dans Moodle, veuillez nous en informer sur le forum « Translating Moodle » sur ce site.';
 $string['greylistedwarning'] = 'chaîne en liste grise';
 $string['importfile'] = 'Importer des chaînes traduites à partir d\'un fichier';
-$string['importfile_help'] = 'Si vous avez traduit des chaînes sans être connecté, vous pouvez les copier dans le chantier au moyen de ce formulaire.
+$string['importfile_help'] = 'Si vous avez traduit des chaînes localement sur votre ordinateur, vous pouvez les placer dans le chantier au moyen de ce formulaire.
 
 * Le fichier doit être un fichier de chaînes Moodle valide, en PHP. Voir le dossier « /lang/en » de votre installation de Moodle pour des exemples.
-* Le nom du fichier doit correspondre exactement (en anglais) à celui du composant comportant les chaînes traduites, par exemple « moodle.php », « assignment.php » ou « enrol_manual.php ».';
+* Le nom du fichier doit correspondre exactement (en anglais) à celui du composant comportant les chaînes traduites, par exemple « moodle.php », « assignment.php » ou « enrol_manual.php ».
+
+Toutes les chaînes contenues dans le fichier seront placées dans le chantier, pour la version et la langue sélectionnées.
+
+Plusieurs fichiers PHP peuvent être traités simultanément si vous les compressez dans un même fichier ZIP.';
 $string['language'] = 'Langue';
 $string['languages'] = 'Langues';
 $string['languagesall'] = 'Tout';
@@ -181,10 +197,12 @@ $string['logfilterlang'] = 'Langues';
 $string['logfiltershow'] = 'Afficher les implantations et les chaînes filtrées';
 $string['logfiltersource'] = 'Source';
 $string['logfiltersourceamos'] = 'amos (application web de traduction)';
+$string['logfiltersourceautomerge'] = 'fusion (copie de la traduction depuis une autre branche)';
 $string['logfiltersourcebot'] = 'bot (opérations en lot exécutées par un script)';
 $string['logfiltersourcecommitscript'] = 'commitscript (AMOScript dans le message d\'implantation)';
 $string['logfiltersourcefixdrift'] = 'fixdrift (correction du décalage AMOS-git)';
 $string['logfiltersourcegit'] = 'git (miroir git du code source de Moodle et paquetage pour 1.x)';
+$string['logfiltersourceimport'] = 'importation (chaînes importées pour un plugin tiers)';
 $string['logfiltersourcerevclean'] = 'revclean (inversion du processus de nettoyage)';
 $string['logfilterstringid'] = 'Identifiant de chaîne';
 $string['logfilterstrings'] = 'Filtre de chaîne';
@@ -205,6 +223,7 @@ $string['nostringsfoundonpage'] = 'Aucune chaîne trouvée sur la page {$a}';
 $string['nostringtoimport'] = 'Aucune chaîne de caractères n\'a été trouvée dans le fichier. Assurez-vous que le fichier a un nom correct et qu\'il est formaté de façon appropriée.';
 $string['nothingtomerge'] = 'La branche source ne contient aucune nouvelle chaîne manquante dans la branche source. Il n\'y a rien à fusionner.';
 $string['nothingtostage'] = 'L\'opération n\'a retourné aucune chaîne à placer dans le chantier.';
+$string['novalidzip'] = 'Impossible de décompresser le fichier ZIP.';
 $string['numofcommitsabovelimit'] = '{$a->found} implantations correspondant au filtre, affichage des {$a->limit} plus récentes';
 $string['numofcommitsunderlimit'] = '{$a->found} implantations correspondant au filtre';
 $string['numofmatchingstrings'] = 'Parmi celles-ci, {$a->strings} modifications dans {$a->commits} implantations correspondent au filtre';
@@ -318,6 +337,7 @@ Les responsables des paquetages de langue peuvent voir un petit symbole rouge da
 $string['typecontrib'] = 'Plugins non-standards';
 $string['typecore'] = 'Sous-systèmes centraux';
 $string['typestandard'] = 'Plugins standards';
+$string['unableenfixaddon'] = 'Les correctifs pour l\'anglais ne sont acceptés que pour les plugins standards';
 $string['unstage'] = 'Retirer du chantier ?';
 $string['unstageconfirm'] = 'Vraiment ?';
 $string['unstaging'] = 'Retrait du chantier';

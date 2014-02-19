@@ -26,4 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Hauptmenü';
-$string['site_main_menu:addinstance'] = 'Neuen Block \'Hauptmenü\' hinzufügen';
+$string['site_main_menu:addinstance'] = 'Block \'Hauptmenü\' hinzufügen';

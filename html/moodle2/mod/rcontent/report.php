@@ -54,7 +54,7 @@
 
     $PAGE->set_url($url);
 
-    $contextmodule = context_module::instance(,$cm->id);
+    $contextmodule = context_module::instance($cm->id);
     if (!$contextmodule) {
     	$contextmodule = context_system::instance();
     }

@@ -52,6 +52,16 @@ $PAGE->set_url($hotpot->submit_url());
 $PAGE->set_title($hotpot->name);
 $PAGE->set_heading($course->fullname);
 
+// get renderer subtype (e.g. attempt_hp_6_jcloze_xml)
+// and load the appropriate storage class for this attempt
+$subtype = $hotpot->get_attempt_renderer_subtype();
+$subdir = str_replace('_', '/', $subtype);
+require_once($CFG->dirroot.'/mod/hotpot/'.$subdir.'/storage.php');
+require_once($CFG->dirroot.'/mod/hotpot/'.$subdir.'/renderer.php');
+
+// create the renderer for this attempt
+$output = $PAGE->get_renderer('mod_hotpot', $subtype);
+
 // Guests can't do a HotPot, so offer them a choice of logging in or going back.
 if (isguestuser()) {
     echo $output->header();
@@ -72,33 +82,14 @@ if (! ($hotpot->can_attempt() || $hotpot->can_preview())) {
     exit;
 }
 
-// get renderer subtype (e.g. attempt_hp_6_jcloze_xml)
-// and load the appropriate storage class for this attempt
-$subtype = $hotpot->get_attempt_renderer_subtype();
-$subdir = str_replace('_', '/', $subtype);
-require_once($CFG->dirroot.'/mod/hotpot/'.$subdir.'/storage.php');
-
 // store the results (use call_user_func to prevent syntax errors in PHP 5.2.x)
 $class = 'mod_hotpot_'.$subtype.'_storage';
 $storage = call_user_func(array($class, 'store'), $hotpot);
 
-// if we don't need an exit page, go straight back to the next activity or course page (or retry this hotpot)
-if (empty($hotpot->exitpage)) {
-    if ($hotpot->require_exitgrade() && $hotpot->attempt->score < $hotpot->exitgrade) {
-        // score was not good enough, so do automatic retry
-        redirect($hotpot->attempt_url());
-    }
-    if ($cm = $hotpot->get_cm('exit')) {
-        // display next activity
-        redirect($hotpot->view_url($cm));
-    } else {
-        // return to course page
-        redirect($hotpot->course_url());
-    }
+// redirect the browser (only if necessary)
+if ($response = $output->require_response($hotpot)) {
+    $output->send_response($response); // script stops here
 }
-
-// create the renderer for this attempt
-$output = $PAGE->get_renderer('mod_hotpot');
 
 // print access warnings, if required
 if ($warnings = $output->entrywarnings($hotpot)) {

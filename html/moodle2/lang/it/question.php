@@ -179,13 +179,13 @@ $string['fileformat'] = 'Formato file';
 $string['filesareacourse'] = 'area file del corso';
 $string['filesareasite'] = 'area file del sito';
 $string['filestomove'] = 'Sposta / copia i file a {$a}?';
-$string['fillincorrect'] = 'Inserisci le riposte corrette';
+$string['fillincorrect'] = 'Inserisci le risposte corrette';
 $string['flagged'] = 'Contrassegnata';
 $string['flagthisquestion'] = 'Contrassegna questa domanda';
 $string['formquestionnotinids'] = 'Il form contiene una domanda non presente tra le id delle domande.';
 $string['fractionsnomax'] = 'Una delle risposte dovrebbe avere un punteggio del 100% affinché sia possibile ottenere un voto pieno per questa domanda.';
 $string['generalfeedback'] = 'Feedback generale';
-$string['generalfeedback_help'] = 'Il feedback generale viene visualizzato allo studente dopo aver riposto alla domanda. A differenza del feedback specifico, che dipende dal tipo di domanda e dalla riposta data dallo studente, il feedback generale è identico per tutti gli studenti.
+$string['generalfeedback_help'] = 'Il feedback generale viene visualizzato allo studente dopo aver risposto alla domanda. A differenza del feedback specifico, che dipende dal tipo di domanda e dalla riposta data dallo studente, il feedback generale è identico per tutti gli studenti.
 
 Puoi utilizzare il feedback generale per dare agli studenti alcune informazioni relative alle conoscenze necessarie per rispondere alla domanda, oppure per fornire link utili per capire meglio la domanda.';
 $string['getcategoryfromfile'] = 'Categoria da file';
@@ -194,7 +194,7 @@ $string['hidden'] = 'Nascosto';
 $string['hintn'] = 'Suggerimento {no}';
 $string['hinttext'] = 'Testo del suggerimento';
 $string['howquestionsbehave'] = 'Comportamento della domanda';
-$string['howquestionsbehave_help'] = 'Gli studenti possono interagire con le domande del quiz in vari modi. Ad esempio, puoi consentire agli studenti di dare una riposta ad ogni domanda e poi terminare il quiz prima di ricevere valutazioni o feedback: questo è la modalità "feedback differito".
+$string['howquestionsbehave_help'] = 'Gli studenti possono interagire con le domande del quiz in vari modi. Ad esempio, puoi consentire agli studenti di dare una risposta ad ogni domanda e poi terminare il quiz prima di ricevere valutazioni o feedback: questo è la modalità "feedback differito".
 
 In alternativa puoi consentire agli studenti di dare una risposta a ciascuna domanda e ricevere un feedback immediato: se la risposta non è giusta possono provare ancora. Questa è la modalità \'Interattiva con tentativi multipli\'.
 
@@ -306,6 +306,7 @@ $string['noquestions'] = 'Non sono state trovate domande da esportare. Accertati
 $string['noquestionsinfile'] = 'Nel file da importare non ci sono domande';
 $string['noresponse'] = '[Nessuna risposta]';
 $string['notanswered'] = 'Risposta non data';
+$string['notchanged'] = 'Non modificato dopo l\'ultimo tentativo';
 $string['notenoughanswers'] = 'Questo tipo di domanda richiede almeno {$a} risposte';
 $string['notenoughdatatoeditaquestion'] = 'Non è stato specificato un id di domanda, o un id di categoria e il tipo domanda.';
 $string['notenoughdatatomovequestions'] = 'Devi fornire l\'ID delle domande che vuoi spostare.';
@@ -340,7 +341,7 @@ $string['penaltyfactor_help'] = '<p>Per ogni risposta errata può essere definit
 $string['penaltyforeachincorrecttry'] = 'Penalità per ciascuna scelta non corretta';
 $string['penaltyforeachincorrecttry_help'] = 'Se le domande usano i comportamenti \'Interattivo con tentativi multipli\' oppure \'Modo adattativo" per dare allo studente più possibilità per rispondere correttamente, questa opzione consente di controllare quanto penalizzare lo studente per le scelte sbagliate.
 
-La penalità è in proporzione al punteggio totale della domanda, ad esempio se la domanda ha un punteggio pari a tre e la penalità è 0.3333333, lo studente otterrà un punteggio pari a tre se indovina la risposta subito, pari a 2 se indovina la risposta alla seconda scelta, e pari a 1 alla terza scelta.';
+La penalità è in proporzione al punteggio totale della domanda, ad esempio se la domanda ha un punteggio pari a tre e la penalità è 0.3333333, lo studente otterrà un punteggio pari a tre se indovina la risposta subito, pari a 2 se indovina la risposta al secondo tentativo e pari a 1 se indovina la risposta al al terzo tentativo.';
 $string['permissionedit'] = 'Modificare questa domanda';
 $string['permissionmove'] = 'Spostare questa domanda';
 $string['permissionsaveasnew'] = 'Salvare questa domanda come nuova domanda';
@@ -365,7 +366,7 @@ $string['questionname'] = 'Nome della domanda';
 $string['questionno'] = 'Domanda {$a}';
 $string['questions'] = 'Domande';
 $string['questionsaveerror'] = 'Si sono verificati errori durante il salvataggio della domanda - ({$a})';
-$string['questionsinuse'] = '(* Le domande contrassegnate da un asterisco sono quelle giù in uso in altri quiz. Tali domande non saranno eliminate da quei quz ma solo dall\'elenco della categoria.';
+$string['questionsinuse'] = '(* Le domande contrassegnate da un asterisco sono quelle giù in uso in altri quiz. Tali domande non saranno eliminate da quei quiz ma solo dall\'elenco della categoria.)';
 $string['questionsmovedto'] = 'Domande ancora in uso spostate a "{$a}" nella categoria superiore di corso.';
 $string['questionsrescuedfrom'] = 'Domande salvate dal contesto {$a}.';
 $string['questionsrescuedfrominfo'] = 'Queste domande (alcune delle quali possono essere nascoste) sono state salvate quando il contesto {$a} è stato eliminato, in quanto sono ancora utilizzate da qualche quiz o da altre attività.';

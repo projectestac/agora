@@ -25,20 +25,20 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['activityoverview'] = 'Vous avez des  {$a}s qui requièrent votre attention';
+$string['activityoverview'] = 'Vous avez des modules de type {$a} qui requièrent votre attention';
 $string['alwaysshowall'] = 'Toujours tout afficher';
 $string['collapseall'] = 'Replier toutes les listes de cours';
 $string['configotherexpanded'] = 'Si ce réglage est activé, la liste des autres cours sera dépliée par défaut, à moins que l\'utilisateur n\'ai explicitement choisi le contraire dans ses préférences.';
 $string['configpreservestates'] = 'Si ce réglage est activé, les états replié/déplié choisis par l\'utilisateur sont enregistré et utilisé systématiquement.';
-$string['course_overview:addinstance'] = 'Ajouter un bloc vue d\'ensemble des cours';
-$string['course_overview:myaddinstance'] = 'Ajouter un bloc vue d\'ensemble des cours à la page Mon Moodle';
+$string['course_overview:addinstance'] = 'Ajouter un bloc de vue d\'ensemble de cours';
+$string['course_overview:myaddinstance'] = 'Ajouter un bloc vue d\'ensemble des cours à Ma page';
 $string['defaultmaxcourses'] = 'Nombre maximal de cours par défaut';
 $string['defaultmaxcoursesdesc'] = 'Le nombre maximal de cours devant être affichés dans le bloc de vue d\'ensemble des cours. Une valeur de 0 affichera tous les cours';
 $string['expandall'] = 'Déplier la liste de tous les cours';
 $string['forcedefaultmaxcourses'] = 'Imposer le nombre maximal de cours';
 $string['forcedefaultmaxcoursesdesc'] = 'Si ce réglage est activé, les utilisateurs ne pourront pas modifier ce réglage dans leur profil';
-$string['hiddencoursecount'] = 'Vous avez {$a} cours caché';
-$string['hiddencoursecountplural'] = 'Vous avez {$a} cours cachés';
+$string['hiddencoursecount'] = 'Vous avez {$a} cours non affiché';
+$string['hiddencoursecountplural'] = 'Vous avez {$a} cours non affichés';
 $string['message'] = 'message';
 $string['messages'] = 'messages';
 $string['movecoursehere'] = 'Déplacer le cours ici';
@@ -55,5 +55,5 @@ $string['showwelcomearea'] = 'Afficher la zone de bienvenue';
 $string['showwelcomeareadesc'] = 'Si ce réglage est activé, la zone de bienvenue sera affichée au-dessus de la liste de cours';
 $string['view_edit_profile'] = '(Afficher et modifier votre profil)';
 $string['welcome'] = 'Bienvenue {$a}';
-$string['youhavemessages'] = 'Vous avez {$a} messages non lu';
-$string['youhavenomessages'] = 'Vous n\'avez pas de message non lu';
+$string['youhavemessages'] = 'Vous avez un (des) {$a} non lu(s)';
+$string['youhavenomessages'] = 'Vous n\'avez pas de nouveaux';

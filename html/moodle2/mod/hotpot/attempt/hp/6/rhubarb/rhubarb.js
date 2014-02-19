@@ -25,9 +25,9 @@
  * Rhubarb
  *
  * @param xxx sendallclicks
- * @param xxx forceajax
+ * @param xxx ajax
  */
-function Rhubarb(sendallclicks, forceajax) {
+function Rhubarb(sendallclicks, ajax) {
     this.quiztype = 'Rhubarb';
 
     /**
@@ -87,6 +87,6 @@ function Rhubarb(sendallclicks, forceajax) {
         this.score = Math.floor(100*Correct/TotalWords);
     }
 
-    this.init(1, sendallclicks, forceajax);
+    this.init(1, sendallclicks, ajax);
 }
 Rhubarb.prototype = new hpQuizAttempt();

@@ -61,13 +61,10 @@ $string['completion-fail'] = 'Abgeschlossen (ohne Erfolg)';
 $string['completion_help'] = 'Wenn diese Option aktiviert ist, dann werden die Aktivitätsfortschritte manuell oder automatisch entsprechend den gesetzten Bedingungen protokolliert. Mehrfachbedingungen können gesetzt sein, falls dies gewünscht ist. Ist dies der Fall, so wird eine Aktivität erst dann abgeschlossen, wenn ALLE Bedingungen zutreffen.
 
 Ein Häkchen direkt neben den Aktivitätsnamen signalisiert auf der Kursseite, dass diese Aktivität abgeschlossen ist.';
-$string['completionicons'] = 'Fortschrittsanzeige';
-$string['completionicons_help'] = 'Mit einem Häkchen neben einem Aktivitätsnamen können Sie signalisieren, dass Sie diese Aktivität abgeschlossen haben.
+$string['completionicons'] = 'Markierung zur Fortschrittsanzeige';
+$string['completionicons_help'] = 'Das Kästchen an der Seite neben der Aktivität zeigt an, ob Sie die abgeschlossen haben.
 
-Falls ein gepunktetes Häkchen zu sehen, so können Sie darauf klicken und das Häkchen zu setzen,  wenn diese Aktivität Ihrer Meinung nach abgeschlossen ist. Ein erneuter Klick entfernt das Häkchen wieder, falls Sie Ihre Meinung nachträglich ändern sollten. Das Häkchen ist optional und bietet eine einfache Möglichkeit, Ihre Fortschritte im Kurs festzuhalten.
-
-Wenn statt des Häkchens ein leeres Feld gezeigt wird, wird das Häkchen automatisch erscheinen, sobald Sie die Aktivität entsprechend den Trainervorgaben abgeschlossen haben.
-';
+Falls ein gepunktetes Häkchen zu sehen ist, so können Sie darauf klicken, wenn diese Aktivität Ihrer Meinung nach abgeschlossen ist. Ein erneuter Klick entfernt das Häkchen wieder, falls Sie Ihre Meinung nachträglich ändern sollten. Das Häkchen ist optional und bietet eine einfache Möglichkeit, Ihre Fortschritte im Kurs festzuhalten. Wenn statt des Häkchens ein leeres Feld gezeigt wird, wird das Häkchen automatisch erscheinen, sobald Sie die Aktivität entsprechend den Trainervorgaben abgeschlossen haben.';
 $string['completion_manual'] = 'Abschluss wird manuell markiert';
 $string['completionmenuitem'] = 'Abschluss';
 $string['completion-n'] = 'Nicht abgeschlossen';
@@ -119,7 +116,7 @@ $string['err_noroles'] = 'Keine der Rollen in diesem Kurs besitzt die Fähigkeit
 $string['err_nousers'] = 'In diesem Kurs oder in dieser Gruppe gibt es keine Teilnehmer/innen, für die Abschlussinformationen angezeigt werden. (Standardmäßig werden Abschlussinformationen ausschließlich für Teilnehmer/innen angezeigt ... wenn es also keine gibt, so sehen Sie diese Fehlermeldung. Administratoren können diese Einstellung im Administrationsmenü ändern.)';
 $string['err_settingslocked'] = 'Die Einstellung wurde gesperrt, weil bereits Teilnehmer/innen ein Abschlusskriterium erfüllt hat. Wenn Sie die Abschlussbedingungen entsperren, werden die vorhandenen Nutzerdaten gelöscht und es könnte zu Verwirrungen kommen.';
 $string['err_system'] = 'Ein interner Fehler ist im Abschluss-System aufgetreten. (Systemadministratoren können den Debug-Modus aktivieren um weitere Details angezeigt zu bekommen.)';
-$string['excelcsvdownload'] = 'Download als Exceltabelle (.csv)';
+$string['excelcsvdownload'] = 'Download als Tabelle (.csv)';
 $string['fraction'] = 'Bruchteil';
 $string['graderequired'] = 'Wertung erforderlich';
 $string['gradexrequired'] = '{$a} erforderlich';
@@ -133,6 +130,7 @@ $string['moredetails'] = 'Mehr Details';
 $string['nocriteriaset'] = 'Kein Abschlusskriterium für diesen Kurs vorhanden';
 $string['notcompleted'] = 'Nicht abgeschlossen';
 $string['notenroled'] = 'Sie sind nicht in diesem Kurs eingeschrieben';
+$string['nottracked'] = 'Für Sie läuft aktuell in diesen Kurs keine Abschlussverfolgung';
 $string['notyetstarted'] = 'Noch nicht begonnen';
 $string['overallcriteriaaggregation'] = 'Typ der Gesamtbewertung';
 $string['pending'] = 'Unerledigt';
@@ -162,4 +160,4 @@ $string['viewcoursereport'] = 'Kursbericht ansehen';
 $string['viewingactivity'] = '{$a} ansehen';
 $string['writingcompletiondata'] = 'Abschlussdaten schreiben';
 $string['xdays'] = '{$a} Tage';
-$string['yourprogress'] = 'Ihr Bearbeitungsstand';
+$string['yourprogress'] = 'Fortschritte';

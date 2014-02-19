@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['coursesummary'] = 'Sumário da disciplina';
-$string['course_summary:addinstance'] = 'Adicionar um novo bloco de Descrição da disciplina/site';
+$string['course_summary:addinstance'] = 'Adicionar um novo bloco Descrição da disciplina/site';
 $string['pluginname'] = 'Descrição da disciplina/site';

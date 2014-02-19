@@ -52,6 +52,7 @@ function xmldb_qv_upgrade($oldversion=0) {
         $field->setAttributes(XMLDB_TYPE_CHAR, '10', null, XMLDB_NOTNULL, null, null, null, 'ca', 'skin');
 
         $dbman->add_field($table, $field);
+        upgrade_mod_savepoint(true, 2007092500, 'qv');
     }
 
     if ($oldversion < 2008051500) {
@@ -76,6 +77,7 @@ function xmldb_qv_upgrade($oldversion=0) {
         $field4 = new xmldb_field('itemorder');
         $field4->setAttributes(XMLDB_TYPE_INTEGER, '10', XMLDB_UNSIGNED, null, null, null, null, '0', 'sectionorder');
         $dbman->add_field($table2, $field4);
+        upgrade_mod_savepoint(true, 2008051500, 'qv');
     }
     
     if ($oldversion < 2008052600) {
@@ -85,6 +87,7 @@ function xmldb_qv_upgrade($oldversion=0) {
         $field5 = new xmldb_field('time');
         $field5->setAttributes(XMLDB_TYPE_CHAR, '8', null, XMLDB_NOTNULL, null, null, null, '00:00:00', 'state');
         $dbman->add_field($table3, $field5);
+        upgrade_mod_savepoint(true, 2008052600, 'qv');
     }
 	
     if ($oldversion < 2008060300) {
@@ -92,6 +95,7 @@ function xmldb_qv_upgrade($oldversion=0) {
         $field6 = new xmldb_field('pending_scores');
         $field6->setAttributes(XMLDB_TYPE_TEXT, null, null, null, null, null, null, '', 'scores');
         $dbman->add_field($table3, $field6);
+        upgrade_mod_savepoint(true, 2008060300, 'qv');
     }
 
     if ($oldversion < 2008061100) {
@@ -102,6 +106,7 @@ function xmldb_qv_upgrade($oldversion=0) {
                 $DB->update_record('qv_sections', $qv_section);
             }
         }
+        upgrade_mod_savepoint(true, 2008061100, 'qv');
     }
 //===== 2.2 upgrade line ======//
 
@@ -154,17 +159,6 @@ function xmldb_qv_upgrade($oldversion=0) {
             $dbman->add_field($table, $field);
         }
 
-
-        // Migrate to new file storage system)
-        $field = new xmldb_field('assessmenturl');
-		if ($dbman->field_exists($table, $field)) {
-			$migrated = qv_migrate_files();
-			if($migrated){
-				//Delete assessmenturl if all files are migrated
-				$dbman->drop_field($table, $field);
-			}
-		}
-
 		// conditionally migrate to html format in intro
         if ($CFG->texteditors !== 'textarea') {
             $rs = $DB->get_recordset('qv', array('introformat'=>FORMAT_MOODLE), '', 'id,intro,introformat');
@@ -179,6 +173,22 @@ function xmldb_qv_upgrade($oldversion=0) {
         
         // qv savepoint reached
         upgrade_mod_savepoint(true, 2013022800, 'qv');
+    }
+    
+    if ($oldversion < 2013041000) {
+		// Migrate to new file storage system)
+		require_once("$CFG->dirroot/mod/qv/db/upgradelib.php");
+		$table = new xmldb_table('qv');
+        $field = new xmldb_field('assessmenturl');
+		if ($dbman->field_exists($table, $field)) {
+			$migrated = qv_migrate_files();
+			if($migrated){
+				//Delete assessmenturl if all files are migrated
+				$dbman->drop_field($table, $field);
+			}
+		}
+		
+		upgrade_mod_savepoint(true, 2013041000, 'qv');
     }
     
     return true;

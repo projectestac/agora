@@ -27,17 +27,17 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['contentheader'] = 'Inhalt';
 $string['dnduploadmakefolder'] = 'Dateien entpacken und Verzeichnisse anlegen';
-$string['folder:addinstance'] = 'Neues Verzeichnis hinzufügen';
+$string['folder:addinstance'] = 'Verzeichnis hinzufügen';
 $string['foldercontent'] = 'Dateien und Unterverzeichnisse';
-$string['folder:managefiles'] = 'Dateien im Verzeichnismodul verwalten';
+$string['folder:managefiles'] = 'Dateien im Verzeichnis verwalten';
 $string['folder:view'] = 'Verzeichnisinhalt sehen';
 $string['modulename'] = 'Verzeichnis';
-$string['modulename_help'] = 'Sie haben eine größere Anzahl von Dateien für Ihren Kurs vorbereitet. Legen Sie dafür ein Verzeichnis an, laden Sie die Dateien in das Verzeichnis und strukturieren Sie alles übersichtlich in Ordnern.
+$string['modulename_help'] = 'Wenn Sie eine größere Anzahl von Dateien in Ihrem Kurs bereitstellen möchten, legen Sie dafür ein Verzeichnis an. Laden Sie die Dateien ins Verzeichnis und strukturieren Sie alles übersichtlich in Unterverzeichnissen.
 
-Tipps: Nutzen Sie gepackte Zip-Dateien zum Upload und entpacken Sie erst im Verzeichnis oder verwenden Sie die Drag&Drop-Funktion.';
+Laden Sie mehrere Dateien als gepacktes ZIP-Archiv hoch und entpacken Sie sie im Verzeichnis. Auch eine Struktur mit Unterverzeichnissen bleibt beim Übertragen in ein Verzeichnis erhalten.';
 $string['modulenameplural'] = 'Verzeichnisse';
 $string['neverseen'] = 'Nie gesehen';
 $string['page-mod-folder-view'] = 'Verzeichnishauptseite';
 $string['page-mod-folder-x'] = 'Jede Verzeichnisseite';
-$string['pluginadministration'] = 'Verzeichnisadministration';
+$string['pluginadministration'] = 'Verzeichnis-Administration';
 $string['pluginname'] = 'Verzeichnis';

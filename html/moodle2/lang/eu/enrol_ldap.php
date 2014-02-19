@@ -49,6 +49,7 @@ $string['course_summary_key'] = 'Laburpena';
 $string['editlock'] = 'Balorea blokeatu';
 $string['enrolname'] = 'LDAP';
 $string['enroluser'] = 'Matrikulatu \'{$a->user_username}\' erabiltzailea \'{$a->course_shortname}\' ikastaroan (id {$a->course_id})';
+$string['extremovedunenrol'] = 'Desmatrikulatu \'{$a->user_username}\' erabiltzailea \'{$a->course_shortname}\' ikastarotik (id {$a->course_id})';
 $string['failed'] = 'Kale egin du!';
 $string['general_options'] = 'Aukera orokorrak';
 $string['host_url'] = 'Zehaztu LDAP hosta URL formatuan, adib. \'ldap://ldap.myorg.com/\'

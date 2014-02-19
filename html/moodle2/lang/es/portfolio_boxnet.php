@@ -25,9 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = 'Clave de API';
-$string['err_noapikey'] = 'No hay clave de API';
-$string['err_noapikey_help'] = 'No hay ninguna clave de API configurada para este plugin. Puede obtener una en el sitio http://enabled.box.net';
 $string['existingfolder'] = 'Carpeta existente para incluir archivo(s)';
 $string['folderclash'] = 'La carpeta que intenta crear ya existe';
 $string['foldercreatefailed'] = 'No se pudo crear la carpeta de destino en box.net';

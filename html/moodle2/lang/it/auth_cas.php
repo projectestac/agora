@@ -41,9 +41,9 @@ $string['auth_cas_certificate_path_key'] = 'Percorso del certificato';
 $string['auth_cas_changepasswordurl'] = 'URL per cambiare la password';
 $string['auth_cas_create_user'] = 'Attivate questa opzione se desiderate inserire utenti autenticati CAS nel database di Moodle. Se non lo fate, solo gli utenti esistenti nel database di Moodle potranno effettuare il login.';
 $string['auth_cas_create_user_key'] = 'Creare utente';
-$string['auth_casdescription'] = 'Questo metodo utilizza un server CAS (Central Authentication Service) per autenticare utenti in ambiente SSO (Single Sign On environment).
-Potete anche utilizzare una semplice autenticazione LDAP. Se username e password fornite sono ritenute valide per CAS, Moodle creerà una nuova istanza nel suo database, prelevando gli attributi dell\'utente da LDAP, se necessario.
-Nei login successivi, verranno controllati solamente username e password.';
+$string['auth_casdescription'] = 'Questo metodo utilizza un server CAS (Central Authentication Service) per autenticare utenti via SSO (Single Sign On environment).
+E anche possibile utilizzare una semplice autenticazione LDAP. Se CAS ritiene validi lo username e la password inseriti, Moodle creerà un nuovo utente nel proprio database, prelevando i campi dell\'utente da LDAP qualora necessario.
+Nei login successivi, verranno verificati solamente username e password.';
 $string['auth_cas_enabled'] = 'Da attivare se si intende utilizzare l\'autenticazione CAS (Central Authentication Service).';
 $string['auth_cas_hostname'] = 'Nome host del server CAS<br/>Per esempio: host.dominio.it';
 $string['auth_cas_hostname_key'] = 'Nome host';

@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['managemyfiles'] = 'Eigene Dateien verwalten';
-$string['pluginname'] = 'Eigene Dateien';
-$string['privatefiles'] = 'Eigene Dateien';
-$string['private_files:addinstance'] = 'Block \'Eigene Dateien\' hinzufügen';
-$string['private_files:myaddinstance'] = 'Block \'Eigene Dateien\' für \'Meine Startseite\' hinzufügen';
+$string['managemyfiles'] = 'Meine Dateien verwalten';
+$string['pluginname'] = 'Meine Dateien';
+$string['privatefiles'] = 'Meine Dateien';
+$string['private_files:addinstance'] = 'Block \'Meine Dateien\' hinzufügen';
+$string['private_files:myaddinstance'] = 'Block \'Meine Dateien\' für \'Meine Startseite\' hinzufügen';

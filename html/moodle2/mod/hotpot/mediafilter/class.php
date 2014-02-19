@@ -51,11 +51,12 @@ class hotpot_mediafilter {
         'mp3'=>'none', 'ra'=>'none', 'ram'=>'none', 'rm'=>'none', 'rv'=>'none'
     );
 
-    public $param_names = 'movie|src|url';
+    public $param_names = 'movie|song_url|src|url';
     //  wmp        : url
     //  quicktime  : src
     //  realplayer : src
     //  flash      : movie
+    //  other      : song_url
 
     public $tagopen = '(?:(<)|(\\\\u003C))'; // left angle-bracket (uses two parenthese)
     public $tagchars = '(?(1)[^>]|(?(2).(?!\\\\u003E)))*?';  // string of chars inside the tag
@@ -268,7 +269,7 @@ class hotpot_mediafilter {
         $pos = 1;
         switch ($pos) {
             case 0: $search = '/^[^?]*\?'.'[^=]+=([^&]*)'.'.*$/'; break;
-            case 1: $search = '/^[^?]*\?'.'(?:file|src|thesound|mp3)+=([^&]*)'.'.*$/'; break;
+            case 1: $search = '/^[^?]*\?'.'(?:file|song_url|src|thesound|mp3)+=([^&]*)'.'.*$/'; break;
             case 2: $search = '/^[^?]*\?'.'(?:[^=]+=[^&]*&(?:amp;))*'.'[^=]+=([^&]*)'.'$/'; break;
         }
         $url = preg_replace($search, '$1', $url, 1);

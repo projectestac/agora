@@ -35,7 +35,7 @@ $string['chat:chat'] = 'Sartu txat-gelara';
 $string['chat:deletelog'] = 'Txataren agerraldiak ezabatu';
 $string['chat:exportparticipatedsession'] = 'Txat-saioan parte hartutakoak esportatu ';
 $string['chat:exportsession'] = 'Esportatu edozein txat-saio';
-$string['chatintro'] = 'Sarrera-testua';
+$string['chatintro'] = 'Deskribapena';
 $string['chatname'] = 'Txat-gela honen izena';
 $string['chat:readlog'] = 'Txataren agerraldiak irakurri';
 $string['chatreport'] = 'Txat-saioetako txostenak';
@@ -80,7 +80,18 @@ $string['methodajax'] = 'Ajax metodoa';
 $string['methoddaemon'] = 'Txat zerbitzariaren \'daemon\'a';
 $string['methodnormal'] = 'Metodo arrunta';
 $string['modulename'] = 'Txat-gela';
-$string['modulename_help'] = 'Txat moduluak internet bidez elkarrizketa une berean (sinkronoa) egiteko aukera ematen die parte hartzaileei. Baliagarria da gainerako partaideak eta eztabaidagaia hobeto ezagutzeko. Txat-gela edo foroa (asinkronoa) erabiltzea oso kontu ezberdinak dira.';
+$string['modulename_help'] = 'Txat moduluak parte hartzaileak testu bidez denbora errealean eztabaida sinkronoak egitea ahalbidetzen du.
+
+Txata behin erabiltzeko aktibitatea izan daiteke edo hainbat alditan errepika daiteke (egunero ordu berean, astero,...). Txat-saioak gordeta gelditzen dira eta partaide guztiek ikusteko edo baimenak dituztenek soilik ikusteko moduan konfigura daiteke.
+
+Txatak bereziki erabilgarriak dira aurrez aurreko talde-bilerak egin ezin direnean, hala nola
+
+* Online ikastaroetan parte hartzen duten ikasleen artean esperientziak trukatzeko, kokapen geografiko ezberdinetan daudenean.
+* Aldi batez bertaratu ezin den ikasle bat irakaslearekin hitz egiteko besteen maila harrapatzeko.
+* Praktiketan dauden ikasleek euren artean eta irakaslearekin euren esperientziak eztabaidatzeko.
+* Gaztetxoenek etxetik txata erabiltzeko, sare sozialen mundura sarbide kontrolatu (monitorizatu) bat egiteko.
+* Kokapen geografiko ezberdinean dagoen hizlari gonbidatu batekin galde-erantzun saio bat egiteko.
+* Ikasleei azterketak prestatzen laguntzeko saioak egiteko, non irakasleak edo beste ikasle batzuk adibide galderak planteatuko dituzten';
 $string['modulenameplural'] = 'Txat-gelak';
 $string['neverdeletemessages'] = 'Ez ezabatu mezuak';
 $string['nextsession'] = 'Programatutako hurrengo txat-saioa';

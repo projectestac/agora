@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Правило использования Safe Exam Browser при прохождении теста';
 $string['requiresafeexambrowser'] = 'Обязательное использование Safe Exam Browser';
 $string['safebrowsererror'] = 'Выполнить тест можно только в браузере Safe Exam Browser. В используемом Вами браузере тест выполнить нельзя.';
 $string['safebrowsernotice'] = 'Данный тест настроен так, что пройти его можно только в браузере Safe Exam Browser.';

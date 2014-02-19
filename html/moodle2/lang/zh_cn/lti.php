@@ -45,6 +45,7 @@ $string['basiclti_parameters'] = 'LTI 启动参数';
 $string['cannot_delete'] = '您不能删除这个工具的配置。';
 $string['cannot_edit'] = '您不能编辑这个工具的配置。';
 $string['comment'] = '评论';
+$string['configpassword'] = '默认的远程工具密码';
 $string['configtypes'] = '激活 LTI 应用';
 $string['courseid'] = '课程编号';
 $string['coursemisconf'] = '课程配置错误';

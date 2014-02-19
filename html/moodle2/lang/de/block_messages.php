@@ -25,6 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['messages:addinstance'] = 'Neuen Block \'Mitteilungen\' hinzufügen';
-$string['messages:myaddinstance'] = 'Neuen Block \'Mitteilungen\' für \'Meine Startseite\' hinzufügen';
+$string['messages:addinstance'] = 'Block \'Mitteilungen\' hinzufügen';
+$string['messages:myaddinstance'] = 'Block \'Mitteilungen\' für \'Meine Startseite\' hinzufügen';
 $string['pluginname'] = 'Mitteilungen';

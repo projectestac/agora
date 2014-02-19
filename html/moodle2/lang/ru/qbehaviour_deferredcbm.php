@@ -25,4 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Отложенный отзыв с ранжированием уверенности в ответе';
+$string['assumingcertainty'] = 'Вы не выбрали уверенность. Предположительно: {$a}.';
+$string['certainty1'] = 'Не очень (менее 67%)';
+$string['certainty2'] = 'Достаточно (более 67%)';
+$string['certainty3'] = 'Очень (более 80%)';
+$string['howcertainareyou'] = 'Насколько Вы уверены? {$a}';
+$string['markadjustment'] = 'На основании выраженной Вами уверенности, Ваша базовая отметка {$a->rawmark} доведена до {$a->mark}.';
+$string['pluginname'] = 'Отложенный отзыв с учетом уверенности в ответе';

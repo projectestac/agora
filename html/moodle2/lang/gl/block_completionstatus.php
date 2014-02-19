@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['completionprogressdetails'] = 'Detalles do completado de curso en proceso';
+$string['completionstatus:addinstance'] = 'Engadir un novo bloque de estado de completado do curso';
 $string['criteriagroup'] = 'Grupo de criterios';
 $string['firstofsecond'] = '{$a->first} de {$a->second}';
 $string['pluginname'] = 'Estado do completado do curso';

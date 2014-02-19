@@ -77,6 +77,17 @@ function assign_reset_userdata($data) {
             $status = array_merge($status, $assignment->reset_userdata($data));
         }
     }
+    // Updating dates - shift may be negative too.
+    if ($data->timeshift) {
+        shift_course_mod_dates('assign',
+                                array('duedate', 'allowsubmissionsfromdate', 'cutoffdate'),
+                                $data->timeshift,
+                                $data->courseid);
+
+        $status[] = array('component' => get_string('modulenameplural', 'assign'),
+                          'item' => get_string('datechanged'),
+                          'error' => false);
+    }
     return $status;
 }
 
@@ -1067,11 +1078,11 @@ function assign_user_outline($course, $user, $coursemodule, $assignment) {
     $gradingitem = $gradinginfo->items[0];
     $gradebookgrade = $gradingitem->grades[$user->id];
 
-    if (!$gradebookgrade) {
+    if (empty($gradebookgrade->str_long_grade)) {
         return null;
     }
     $result = new stdClass();
-    $result->info = get_string('outlinegrade', 'assign', $gradebookgrade->grade);
+    $result->info = get_string('outlinegrade', 'assign', $gradebookgrade->str_long_grade);
     $result->time = $gradebookgrade->dategraded;
 
     return $result;

@@ -59,6 +59,7 @@ $string['errorlogs'] = 'سجل الأخطاء';
 $string['everyday'] = 'كل يوم';
 $string['exit'] = 'الخروج من المقرر الدراسي';
 $string['exitactivity'] = 'الخروج من نشاط';
+$string['expired'] = 'عذراً، تم إغلاق هذا النشاط في {$a} وهو غير متوفر الآن.';
 $string['failed'] = 'فشل';
 $string['firstaccess'] = 'الدخول الأول';
 $string['firstattempt'] = 'المحاولة الأولى';

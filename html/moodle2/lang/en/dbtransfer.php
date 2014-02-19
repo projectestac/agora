@@ -16,13 +16,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dbtransfer', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'dbtransfer', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   dbtransfer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
+
+$string['checkingsourcetables'] = 'Checking source table structure';
 $string['copyingtable'] = 'Copying table {$a}';
 $string['copyingtables'] = 'Copying table contents';
 $string['creatingtargettables'] = 'Creating the tables in the target database';
@@ -31,7 +34,6 @@ $string['dbtransfer'] = 'Database transfer';
 $string['differenttableexception'] = 'Table {$a} structure does not match.';
 $string['done'] = 'Done';
 $string['exportschemaexception'] = 'Current database structure does not match all install.xml files. <br /> {$a}';
-$string['checkingsourcetables'] = 'Checking source table structure';
 $string['importschemaexception'] = 'Current database structure does not match all install.xml files. <br /> {$a}';
 $string['importversionmismatchexception'] = 'Current version {$a->currentver} does not match exported version {$a->schemaver}.';
 $string['malformedxmlexception'] = 'Malformed XML found, can not continue.';

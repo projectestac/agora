@@ -69,7 +69,7 @@ $string['delete_item'] = 'Ezabatu galdera';
 $string['delete_old_items'] = 'Ezabatu elementu zaharrak';
 $string['delete_template'] = 'Ezabatu txantiloia';
 $string['delete_templates'] = 'Ezabatu txantiloia...';
-$string['depending'] = 'elementu dependenteak';
+$string['depending'] = 'Mendekotasunak';
 $string['dependitem'] = 'elementu dependentea';
 $string['dependvalue'] = 'balore dependentea';
 $string['description'] = 'Deskribapena';
@@ -143,7 +143,16 @@ $string['maximal'] = 'gehienezkoa';
 $string['messageprovider:submission'] = 'Inkestaren jakinarazpenak';
 $string['mode'] = 'Modua';
 $string['modulename'] = 'Inkesta';
-$string['modulename_help'] = 'Feedback moduluek inkesta pertsonalizatuak sortzea ahalbidetzen dute.';
+$string['modulename_help'] = 'Inkesta jarduerak irakasleari inkesta pertsonalizatuak sortzea ahalbidetzen diote, parte-hartzaileen feedback-ak jasotzeko hainbat galdera-mota erabilita, tartean aukera anitzekoak, Bai/Ez modukoak eta testua idaztekoak.
+
+Inkestaren emaitzak ikasleek erantzun ondoren erakutsi daitezke, baita irakasleentzat soilik erakutsi ere. Emaitzak ikasleen izenekin edo modu anonimoan erakutsi daitezke. Moodle-ko hasiera orrian dauden inkestak saioa hasi gabeko erabiltzaileek ere osatu ditzakete.
+
+Inkesta jarduerak erabili daitezke
+
+* Ikastaroko ebaluazioarako, hurrengo parte-hartzaileentzat edukiak hobetzen laguntzeko
+* Parte-hartzaileek ikastaroko moduluetan, ebentoetan, e.a. izena eman dezaten.
+* Gonbidatuen ikastaro aukerak, e.a. zundatzeko
+* Bullying-aren kontrako ikuskapena egiteko, bertan ikasleek modu anonimoan gertakarien berri eman dezaten';
 $string['modulenameplural'] = 'Inkesta';
 $string['movedown_item'] = 'Mugitu galdera hau behera';
 $string['move_here'] = 'Mugitu hona';

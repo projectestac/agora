@@ -16,12 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'notes', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'notes', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   notes
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['addnewnote'] = 'Add a new note';
 $string['addnewnoteselect'] = 'Select users to write notes about';
@@ -47,8 +49,8 @@ $string['notes'] = 'Notes';
 $string['notesdisabled'] = 'Notes are disabled, sorry.';
 $string['notesnotvisible'] = 'You are not allowed to view the notes.';
 $string['nouser'] = 'You must select a user';
-$string['page-notes-x'] = 'Any note pages';
 $string['page-notes-index'] = 'Notes main page';
+$string['page-notes-x'] = 'Any note pages';
 $string['personal'] = 'personal';
 $string['personalnotes'] = 'Personal notes';
 $string['publishstate'] = 'Context';
@@ -57,7 +59,7 @@ $string['publishstate_help'] = 'A note\'s context determines who can see the not
 * Personal - The note will be visible only to you
 * Course - The note will be visible to teachers in this course
 * Site - The note will be visible to teachers in all courses';
-$string['selectnotestate'] = "Select note state";
+$string['selectnotestate'] = 'Select note state';
 $string['site'] = 'site';
 $string['sitenotes'] = 'Site notes';
 $string['unknown'] = 'unknown';

@@ -16,18 +16,28 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'question', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
+
+$string['action'] = 'Action';
+$string['addanotherhint'] = 'Add another hint';
 $string['addcategory'] = 'Add category';
 $string['adminreport'] = 'Report on possible problems in your question database.';
+$string['answer'] = 'Answer';
+$string['answersaved'] = 'Answer saved';
+$string['attemptfinished'] = 'Attempt finished';
+$string['attemptfinishedsubmitting'] = 'Attempt finished submitting:';
+$string['attemptoptions'] = 'Attempt options';
 $string['availableq'] = 'Available?';
 $string['badbase'] = 'Bad base before **: {$a}**';
 $string['behaviour'] = 'Behaviour';
+$string['behaviourbeingused'] = 'Behaviour being used: {$a}';
 $string['broken'] = 'This is a "broken link", it points to a nonexistent file.';
 $string['byandon'] = 'by <em>{$a->user}</em> on <em>{$a->time}</em>';
 $string['cannotcopybackup'] = 'Could not copy backup file';
@@ -59,6 +69,7 @@ $string['cannotretrieveqcat'] = 'Could not retrieve question category';
 $string['cannotunhidequestion'] = 'Failed to unhide the question.';
 $string['cannotunzip'] = 'Could not unzip file.';
 $string['cannotwriteto'] = 'Cannot write exported questions to {$a}';
+$string['category'] = 'Category';
 $string['categorycurrent'] = 'Current category';
 $string['categorycurrentuse'] = 'Use this category';
 $string['categorydoesnotexist'] = 'This category does not exist';
@@ -66,12 +77,27 @@ $string['categoryinfo'] = 'Category info';
 $string['categorymove'] = 'The category \'{$a->name}\' contains {$a->count} questions (some of them may be old, hidden, questions that are still in use in some existing quizzes). Please choose another category to move them to.';
 $string['categorymoveto'] = 'Save in category';
 $string['categorynamecantbeblank'] = 'The category name cannot be blank.';
+$string['changeoptions'] = 'Change options';
+$string['changepublishstatuscat'] = '<a href="{$a->caturl}">Category "{$a->name}"</a> in course "{$a->coursename}" will have it\'s sharing status changed from <strong>{$a->changefrom} to {$a->changeto}</strong>.';
+$string['check'] = 'Check';
+$string['chooseqtypetoadd'] = 'Choose a question type to add';
+$string['clearwrongparts'] = 'Clear incorrect responses';
 $string['clickflag'] = 'Flag question';
 $string['clicktoflag'] = 'Flag this question for future reference';
 $string['clicktounflag'] = 'Remove flag';
 $string['clickunflag'] = 'Remove flag';
+$string['closepreview'] = 'Close preview';
+$string['combinedfeedback'] = 'Combined feedback';
+$string['comment'] = 'Comment';
+$string['commented'] = 'Commented: {$a}';
+$string['commentormark'] = 'Make comment or override mark';
+$string['comments'] = 'Comments';
+$string['commentx'] = 'Comment: {$a}';
+$string['complete'] = 'Complete';
 $string['contexterror'] = 'You shouldn\'t have got here if you\'re not moving a category to another context.';
 $string['copy'] = 'Copy from {$a} and change links.';
+$string['correct'] = 'Correct';
+$string['correctfeedback'] = 'For any correct response';
 $string['created'] = 'Created';
 $string['createdby'] = 'Created by';
 $string['createdmodifiedheader'] = 'Created / last saved';
@@ -88,8 +114,10 @@ will have their sharing status changed to the same sharing status as the categor
 on upgrading to Moodle 1.9. The following categories will have their sharing status changed. Questions which are
 affected will continue to work in all existing quizzes until you remove them from these quizzes.</p>';
 $string['cwrqpfsnoprob'] = 'No question categories in your site are affected by the \'Random questions selecting questions from sub categories\' issue.';
+$string['decimalplacesingrades'] = 'Decimal places in grades';
 $string['defaultfor'] = 'Default for {$a}';
 $string['defaultinfofor'] = 'The default category for questions shared in context \'{$a}\'.';
+$string['defaultmark'] = 'Default mark';
 $string['defaultmarkmustbepositive'] = 'The default mark must be positive.';
 $string['deletebehaviourareyousure'] = 'Delete behaviour {$a}: are you sure?';
 $string['deletebehaviourareyousuremessage'] = 'You are about to completely delete the question behaviour {$a}. This will completely delete everything in the database associated with this question behaviour. Are you SURE you want to continue?';
@@ -102,6 +130,7 @@ $string['deletingbehaviour'] = 'Deleting question behaviour \'{$a}\'';
 $string['deletingqtype'] = 'Deleting question type \'{$a}\'';
 $string['didnotmatchanyanswer'] = '[Did not match any answer]';
 $string['disabled'] = 'Disabled';
+$string['displayoptions'] = 'Display options';
 $string['disterror'] = 'The distribution {$a} caused problems';
 $string['donothing'] = 'Don\'t copy or move files or change links.';
 $string['editcategories'] = 'Edit categories';
@@ -111,7 +140,7 @@ Each category has a context which determines where the questions in the category
 
 * Activity context - Questions only available in the activity module
 * Course context - Questions available in all activity modules in the course
-* Course category context - Questions available in all activity modules and courses in the course category 
+* Course category context - Questions available in all activity modules and courses in the course category
 * System context - Questions available in all courses and activities on the site
 
 Categories are also used for random questions, as questions are selected from a particular category.';
@@ -120,6 +149,7 @@ $string['editcategory'] = 'Edit category';
 $string['editingcategory'] = 'Editing a category';
 $string['editingquestion'] = 'Editing a question';
 $string['editquestion'] = 'Edit question';
+$string['editquestions'] = 'Edit questions';
 $string['editthiscategory'] = 'Edit this category';
 $string['emptyxml'] = 'Unkown error - empty imsmanifest.xml';
 $string['enabled'] = 'Enabled';
@@ -139,6 +169,7 @@ $string['errorpreprocess'] = 'Error occurred during pre-processing!';
 $string['errorprocess'] = 'Error occurred during processing!';
 $string['errorprocessingresponses'] = 'An error occurred while processing your responses ({$a}). Click continue to return to the page you were on and try again.';
 $string['errorsavingcomment'] = 'Error saving the comment for question {$a->name} in the database.';
+$string['errorsavingflags'] = 'Error saving the flag state.';
 $string['errorupdatingattempt'] = 'Error updating attempt {$a->id} in the database.';
 $string['exportcategory'] = 'Export category';
 $string['exportcategory_help'] = 'This setting determines the category from which the exported questions will be taken.
@@ -150,35 +181,54 @@ $string['exportnameformat'] = '%Y%m%d-%H%M';
 $string['exportquestions'] = 'Export questions to file';
 $string['exportquestions_help'] = 'This function enables the export of a complete category (and any subcategories) of questions to file. Please note that, depending on the file format selected, some question data and certain question types may not be exported.';
 $string['exportquestions_link'] = 'question/export';
+$string['feedback'] = 'Feedback';
 $string['filecantmovefrom'] = 'The questions files cannot be moved because you do not have permission to remove files from the place you are trying to move questions from.';
 $string['filecantmoveto'] = 'The question files cannot be moved or copied becuase you do not have permission to add files to the place you are trying to move the questions to.';
 $string['fileformat'] = 'File format';
 $string['filesareacourse'] = 'the course files area';
 $string['filesareasite'] = 'the site files area';
 $string['filestomove'] = 'Move / copy files to {$a}?';
+$string['fillincorrect'] = 'Fill in correct responses';
 $string['flagged'] = 'Flagged';
 $string['flagthisquestion'] = 'Flag this question';
 $string['formquestionnotinids'] = 'Form contained question that is not in questionids';
 $string['fractionsnomax'] = 'One of the answers should have a score of 100% so it is possible to get full marks for this question.';
+$string['generalfeedback'] = 'General feedback';
+$string['generalfeedback_help'] = 'General feedback is shown to the student after they have completed the question. Unlike specific feedback, which depends on the question type and what response the student gave, the same general feedback text is shown to all students.
+
+You can use the general feedback to give students a fully worked answer and perhaps a link to more information they can use if they did not understand the questions.';
 $string['getcategoryfromfile'] = 'Get category from file';
 $string['getcontextfromfile'] = 'Get context from file';
-$string['changepublishstatuscat'] = '<a href="{$a->caturl}">Category "{$a->name}"</a> in course "{$a->coursename}" will have it\'s sharing status changed from <strong>{$a->changefrom} to {$a->changeto}</strong>.';
-$string['chooseqtypetoadd'] = 'Choose a question type to add';
-$string['editquestions'] = 'Edit questions';
+$string['hidden'] = 'Hidden';
+$string['hintn'] = 'Hint {no}';
+$string['hinttext'] = 'Hint text';
+$string['howquestionsbehave'] = 'How questions behave';
+$string['howquestionsbehave_help'] = 'Students can interact with the questions in the quiz in various different ways. For example, you may wish the students to enter an answer to each question and then submit the entire quiz, before anything is graded or they get any feedback. That would be \'Deferred feedback\' mode.
+
+Alternatively, you may wish for students to submit each question as they go along to get immediate feedback, and if they do not get it right immediately, have another try for fewer marks. That would be \'Interactive with multiple tries\' mode.
+
+Those are probably the two most commonly used modes of behaviour.';
 $string['ignorebroken'] = 'Ignore broken links';
-$string['impossiblechar'] = 'Impossible character {$a} detected as parenthesis character';
 $string['importcategory'] = 'Import category';
 $string['importcategory_help'] = 'This setting determines the category into which the imported questions will go.
 
 Certain import formats, such as GIFT and Moodle XML, may include category and context data in the import file. To make use of this data, rather than the selected category, the appropriate checkboxes should be ticked. If categories specified in the import file do not exist, they will be created.';
 $string['importerror'] = 'An error occurred during import processing';
 $string['importerrorquestion'] = 'Error importing question';
+$string['importfromcoursefiles'] = '... or choose a course file to import.';
+$string['importfromupload'] = 'Select a file to upload ...';
 $string['importingquestions'] = 'Importing {$a} questions from file';
 $string['importparseerror'] = 'Error(s) found parsing the import file. No questions have been imported. To import any good questions try again setting \'Stop on error\' to \'No\'';
 $string['importquestions'] = 'Import questions from file';
 $string['importquestions_help'] = 'This function enables questions in a variety of formats to be imported via text file. Note that the file must use UTF-8 encoding.';
 $string['importquestions_link'] = 'question/import';
 $string['importwrongfiletype'] = 'The type of the file you selected ({$a->actualtype}) does not match the type expected by this import format ({$a->expectedtype}).';
+$string['impossiblechar'] = 'Impossible character {$a} detected as parenthesis character';
+$string['includesubcategories'] = 'Also show questions from subcategories';
+$string['incorrect'] = 'Incorrect';
+$string['incorrectfeedback'] = 'For any incorrect response';
+$string['information'] = 'Information';
+$string['invalidanswer'] = 'Incomplete answer';
 $string['invalidarg'] = 'No valid arguments supplied or incorrect server configuration';
 $string['invalidcategoryidforparent'] = 'Invalid category id for parent!';
 $string['invalidcategoryidtomove'] = 'Invalid category id to move!';
@@ -190,14 +240,22 @@ $string['invalidwizardpage'] = 'Incorrect or no wizard page specified!';
 $string['lastmodifiedby'] = 'Last modified by';
 $string['linkedfiledoesntexist'] = 'Linked file {$a} doesn\'t exist';
 $string['makechildof'] = 'Make child of \'{$a}\'';
+$string['makecopy'] = 'Make copy';
 $string['maketoplevelitem'] = 'Move to top level';
+$string['manualgradeoutofrange'] = 'This grade is outside the valid range.';
+$string['manuallygraded'] = 'Manually graded {$a->mark} with comment: {$a->comment}';
+$string['mark'] = 'Mark';
+$string['markedoutof'] = 'Marked out of';
+$string['markedoutofmax'] = 'Marked out of {$a}';
+$string['markoutofmax'] = 'Mark {$a->mark} out of {$a->max}';
+$string['marks'] = 'Marks';
 $string['matchgrades'] = 'Match grades';
 $string['matchgradeserror'] = 'Error if grade not listed';
-$string['matchgradesnearest'] = 'Nearest grade if not listed';
 $string['matchgrades_help'] = 'Imported grades must match one of the fixed list of valid grades - 100, 90, 80, 75, 70, 66.666, 60, 50, 40, 33.333, 30, 25, 20, 16.666, 14.2857, 12.5, 11.111, 10, 5, 0 (also negative values). If not, there are two options:
 
 *  Error if grade not listed - If a question contains any grades not found in the list an error is displayed and that question will not be imported
-* Nearest grade if not listed - If a grade is found that does not match a value in the list, the grade is changed to the closest matching value in the list ';
+* Nearest grade if not listed - If a grade is found that does not match a value in the list, the grade is changed to the closest matching value in the list';
+$string['matchgradesnearest'] = 'Nearest grade if not listed';
 $string['missingcourseorcmid'] = 'Need to provide courseid or cmid to print_question.';
 $string['missingcourseorcmidtolink'] = 'Need to provide courseid or cmid to get_question_edit_link.';
 $string['missingimportantcode'] = 'This question type is missing important code: {$a}.';
@@ -223,190 +281,111 @@ $string['nopermissionmove'] = 'You don\'t have permission to move questions from
 $string['noprobs'] = 'No problems found in your question database.';
 $string['noquestions'] = 'No questions were found that could be exported. Make sure that you have selected a category to export that contains questions.';
 $string['noquestionsinfile'] = 'There are no questions in the import file';
+$string['noresponse'] = '[No response]';
+$string['notanswered'] = 'Not answered';
+$string['notchanged'] = 'Not changed since last attempt';
 $string['notenoughanswers'] = 'This type of question requires at least {$a} answers';
 $string['notenoughdatatoeditaquestion'] = 'Neither a question id, nor a category id and question type, was specified.';
 $string['notenoughdatatomovequestions'] = 'You need to provide the question ids of questions you want to move.';
 $string['notflagged'] = 'Not flagged';
+$string['notgraded'] = 'Not graded';
+$string['notshown'] = 'Not shown';
+$string['notyetanswered'] = 'Not yet answered';
+$string['notyourpreview'] = 'This preview does not belong to you';
 $string['novirtualquestiontype'] = 'No virtual question type for question type {$a}';
 $string['numqas'] = 'No. question attempts';
 $string['numquestions'] = 'No. questions';
 $string['numquestionsandhidden'] = '{$a->numquestions} (+{$a->numhidden} hidden)';
+$string['options'] = 'Options';
 $string['orphanedquestionscategory'] = 'Questions saved from deleted categories';
 $string['orphanedquestionscategoryinfo'] = 'Occasionally, typically due to old software bugs, questions can remain in the database even though the corresponding question category has been deleted. Of course, this should not happen, it has happened in the past on this site. This category has been created automatically, and the orphaned questions moved here so that you can manage them. Note that any images or media files used by these questions have probably been lost.';
-$string['page-question-x'] = 'Any question page';
-$string['page-question-edit'] = 'Question editing page';
 $string['page-question-category'] = 'Question category page';
-$string['page-question-import'] = 'Question import page';
+$string['page-question-edit'] = 'Question editing page';
 $string['page-question-export'] = 'Question export page';
+$string['page-question-import'] = 'Question import page';
+$string['page-question-x'] = 'Any question page';
+$string['parent'] = 'Parent';
 $string['parentcategory'] = 'Parent category';
 $string['parentcategory_help'] = 'The parent category is the one in which the new category will be placed. "Top" means that this category is not contained in any other category. Category contexts are shown in bold type. There must be at least one category in each context.';
 $string['parentcategory_link'] = 'question/category';
 $string['parenthesisinproperclose'] = 'Parenthesis before ** is not properly closed in {$a}**';
 $string['parenthesisinproperstart'] = 'Parenthesis before ** is not properly started in {$a}**';
 $string['parsingquestions'] = 'Parsing questions from import file.';
+$string['partiallycorrect'] = 'Partially correct';
+$string['partiallycorrectfeedback'] = 'For any partially correct response';
 $string['penaltyfactor'] = 'Penalty factor';
 $string['penaltyfactor_help'] = 'This setting determines what fraction of the achieved score is subtracted for each wrong response. It is only applicable if the quiz is run in adaptive mode.
 
 The penalty factor should be a number between 0 and 1. A penalty factor of 1 means that the student has to get the answer right in his first response to get any credit for it at all. A penalty factor of 0 means the student can try as often as he likes and still get the full marks.';
+$string['penaltyforeachincorrecttry'] = 'Penalty for each incorrect try';
+$string['penaltyforeachincorrecttry_help'] = 'When questions are run using the \'Interactive with multiple tries\' or \'Adaptive mode\' behaviour, so that the student will have several tries to get the question right, then this option controls how much they are penalised for each incorrect try.
+
+The penalty is a proportion of the total question grade, so if the question is worth three marks, and the penalty is 0.3333333, then the student will score 3 if they get the question right first time, 2 if they get it right second try, and 1 of they get it right on the third try.';
 $string['permissionedit'] = 'Edit this question';
 $string['permissionmove'] = 'Move this question';
 $string['permissionsaveasnew'] = 'Save this as a new question';
 $string['permissionto'] = 'You have permission to :';
+$string['previewquestion'] = 'Preview question: {$a}';
 $string['published'] = 'shared';
 $string['qbehaviourdeletefiles'] = 'All data associated with the question behaviour \'{$a->behaviour}\' has been deleted from the database. To complete the deletion (and to prevent the behaviour from re-installing itself), you should now delete this directory from your server: {$a->directory}';
 $string['qtypedeletefiles'] = 'All data associated with the question type \'{$a->qtype}\' has been deleted from the database. To complete the deletion (and to prevent the question type from re-installing itself), you should now delete this directory from your server: {$a->directory}';
 $string['qtypeveryshort'] = 'T';
 $string['questionaffected'] = '<a href="{$a->qurl}">Question "{$a->name}" ({$a->qtype})</a> is in this question category but is also being used in <a href="{$a->qurl}">quiz "{$a->quizname}"</a> in another course "{$a->coursename}".';
 $string['questionbank'] = 'Question bank';
-$string['questioncategory'] = 'Question category';
-$string['questioncatsfor'] = 'Question categories for \'{$a}\'';
-$string['questiondoesnotexist'] = 'This question does not exist';
-$string['questionname'] = 'Question name';
-$string['questionno'] = 'Question {$a}';
-$string['questionsaveerror'] = 'Errors occur during saving question - ({$a})';
-$string['questionsinuse'] = '(* Questions marked by an asterisk are already in use in some quizzes. These question will not be deleted from these quizzes but only from the category list.)';
-$string['questionsmovedto'] = 'Questions still in use moved to "{$a}" in the parent course category.';
-$string['questionsrescuedfrom'] = 'Questions saved from context {$a}.';
-$string['questionsrescuedfrominfo'] = 'These questions (some of which may be hidden) were saved when context {$a} was deleted because they are still used by some quizzes or other activities.';
-$string['questiontype'] = 'Question type';
-$string['questionuse'] = 'Use question in this activity';
-$string['questionvariant'] = 'Question variant';
-$string['reviewresponse'] = 'Review response';
-$string['save'] = 'Save';
-$string['saveflags'] = 'Save the state of the flags';
-$string['selectacategory'] = 'Select a category:';
-$string['selectaqtypefordescription'] = 'Select a question type to see its description.';
-$string['selectcategoryabove'] = 'Select a category above';
-$string['selectquestionsforbulk'] = 'Select questions for bulk actions';
-$string['shareincontext'] = 'Share in context for {$a}';
-$string['stoponerror'] = 'Stop on error';
-$string['stoponerror_help'] = 'This setting determines whether the import process stops when an error is detected, resulting in no questions being imported, or whether any questions containing errors are ignored and any valid questions are imported.';
-$string['tofilecategory'] = 'Write category to file';
-$string['tofilecontext'] = 'Write context to file';
-$string['uninstallbehaviour'] = 'Uninstall this question behaviour.';
-$string['uninstallqtype'] = 'Uninstall this question type.';
-$string['unknown'] = 'Unknown';
-$string['unknownquestiontype'] = 'Unknown question type: {$a}.';
-$string['unknowntolerance'] = 'Unknown tolerance type {$a}';
-$string['unpublished'] = 'unshared';
-$string['upgradeproblemcategoryloop'] = 'Problem detected when upgrading question categories. There is a loop in the category tree. The affected category ids are {$a}.';
-$string['upgradeproblemcouldnotupdatecategory'] = 'Could not update question category {$a->name} ({$a->id}).';
-$string['upgradeproblemunknowncategory'] = 'Problem detected when upgrading question categories. Category {$a->id} refers to parent {$a->parent}, which does not exist. Parent changed to fix problem.';
-$string['wrongprefix'] = 'Wrongly formatted nameprefix {$a}';
-$string['youmustselectaqtype'] = 'You must select a question type.';
-$string['yourfileshoulddownload'] = 'Your export file should start to download shortly. If not, please <a href="{$a}">click here</a>.';
-
-$string['action'] = 'Action';
-$string['addanotherhint'] = 'Add another hint';
-$string['answer'] = 'Answer';
-$string['answersaved'] = 'Answer saved';
-$string['attemptfinished'] = 'Attempt finished';
-$string['attemptfinishedsubmitting'] = 'Attempt finished submitting: ';
-$string['behaviourbeingused'] = 'Behaviour being used: {$a}';
-$string['cannotloadquestion'] = 'Could not load question';
-$string['cannotpreview'] = 'You can\'t preview these questions!';
-$string['category'] = 'Category';
-$string['changeoptions'] = 'Change options';
-$string['attemptoptions'] = 'Attempt options';
-$string['displayoptions'] = 'Display options';
-$string['check'] = 'Check';
-$string['clearwrongparts'] = 'Clear incorrect responses';
-$string['closepreview'] = 'Close preview';
-$string['combinedfeedback'] = 'Combined feedback';
-$string['commented'] = 'Commented: {$a}';
-$string['comment'] = 'Comment';
-$string['commentormark'] = 'Make comment or override mark';
-$string['comments'] = 'Comments';
-$string['commentx'] = 'Comment: {$a}';
-$string['complete'] = 'Complete';
-$string['contexterror'] = 'You shouldn\'t have got here if you\'re not moving a category to another context.';
-$string['correct'] = 'Correct';
-$string['correctfeedback'] = 'For any correct response';
-$string['decimalplacesingrades'] = 'Decimal places in grades';
-$string['defaultmark'] = 'Default mark';
-$string['errorsavingflags'] = 'Error saving the flag state.';
-$string['feedback'] = 'Feedback';
-$string['fillincorrect'] = 'Fill in correct responses';
-$string['flagged'] = 'Flagged';
-$string['flagthisquestion'] = 'Flag this question';
-$string['generalfeedback'] = 'General feedback';
-$string['generalfeedback_help'] = 'General feedback is shown to the student after they have completed the question. Unlike specific feedback, which depends on the question type and what response the student gave, the same general feedback text is shown to all students.
-
-You can use the general feedback to give students a fully worked answer and perhaps a link to more information they can use if they did not understand the questions.';
-$string['hidden'] = 'Hidden';
-$string['hintn'] = 'Hint {no}';
-$string['hinttext'] = 'Hint text';
-$string['howquestionsbehave'] = 'How questions behave';
-$string['howquestionsbehave_help'] = 'Students can interact with the questions in the quiz in various different ways. For example, you may wish the students to enter an answer to each question and then submit the entire quiz, before anything is graded or they get any feedback. That would be \'Deferred feedback\' mode.
-
-Alternatively, you may wish for students to submit each question as they go along to get immediate feedback, and if they do not get it right immediately, have another try for fewer marks. That would be \'Interactive with multiple tries\' mode.
-
-Those are probably the two most commonly used modes of behaviour. ';
-$string['importfromcoursefiles'] = '... or choose a course file to import.';
-$string['importfromupload'] = 'Select a file to upload ...';
-$string['includesubcategories'] = 'Also show questions from sub-categories';
-$string['incorrect'] = 'Incorrect';
-$string['incorrectfeedback'] = 'For any incorrect response';
-$string['information'] = 'Information';
-$string['invalidanswer'] = 'Incomplete answer';
-$string['makecopy'] = 'Make copy';
-$string['manualgradeoutofrange'] = 'This grade is outside the valid range.';
-$string['manuallygraded'] = 'Manually graded {$a->mark} with comment: {$a->comment}';
-$string['mark'] = 'Mark';
-$string['markedoutof'] = 'Marked out of';
-$string['markedoutofmax'] = 'Marked out of {$a}';
-$string['markoutofmax'] = 'Mark {$a->mark} out of {$a->max}';
-$string['marks'] = 'Marks';
-$string['noresponse'] = '[No response]';
-$string['notanswered'] = 'Not answered';
-$string['notflagged'] = 'Not flagged';
-$string['notgraded'] = 'Not graded';
-$string['notshown'] = 'Not shown';
-$string['notyetanswered'] = 'Not yet answered';
-$string['notyourpreview'] = 'This preview does not belong to you';
-$string['options'] = 'Options';
-$string['parent'] = 'Parent';
-$string['partiallycorrect'] = 'Partially correct';
-$string['partiallycorrectfeedback'] = 'For any partially correct response';
-$string['penaltyforeachincorrecttry'] = 'Penalty for each incorrect try';
-$string['penaltyforeachincorrecttry_help'] = 'When you run your questions using the \'Interactive with multiple tries\' or \'Adaptive mode\' behaviour, so that the the student will have several tries to get the question right, then this option controls how much they are penalised for each incorrect try.
-
-The penalty is a proportion of the total question grade, so if the question is worth three marks, and the penalty is 0.3333333, then the student will score 3 if they get the question right first time, 2 if they get it right second try, and 1 of they get it right on the third try.';
-$string['previewquestion'] = 'Preview question: {$a}';
 $string['questionbehaviouradminsetting'] = 'Question behaviour settings';
 $string['questionbehavioursdisabled'] = 'Question behaviours to disable';
 $string['questionbehavioursdisabledexplained'] = 'Enter a comma separated list of behaviours you do not want to appear in dropdown menu';
 $string['questionbehavioursorder'] = 'Question behaviours order';
 $string['questionbehavioursorderexplained'] = 'Enter a comma separated list of behaviours in the order you want them to appear in dropdown menu';
+$string['questioncategory'] = 'Question category';
+$string['questioncatsfor'] = 'Question categories for \'{$a}\'';
+$string['questiondoesnotexist'] = 'This question does not exist';
 $string['questionidmismatch'] = 'Question ids mismatch';
 $string['questionname'] = 'Question name';
+$string['questionno'] = 'Question {$a}';
 $string['questions'] = 'Questions';
-$string['questionx'] = 'Question {$a}';
+$string['questionsaveerror'] = 'Errors occur during saving question - ({$a})';
+$string['questionsinuse'] = '(* Questions marked by an asterisk are already in use in some quizzes. These question will not be deleted from these quizzes but only from the category list.)';
+$string['questionsmovedto'] = 'Questions still in use moved to "{$a}" in the parent course category.';
+$string['questionsrescuedfrom'] = 'Questions saved from context {$a}.';
+$string['questionsrescuedfrominfo'] = 'These questions (some of which may be hidden) were saved when context {$a} was deleted because they are still used by some quizzes or other activities.';
 $string['questiontext'] = 'Question text';
+$string['questiontype'] = 'Question type';
+$string['questionuse'] = 'Use question in this activity';
+$string['questionvariant'] = 'Question variant';
+$string['questionx'] = 'Question {$a}';
 $string['requiresgrading'] = 'Requires grading';
 $string['responsehistory'] = 'Response history';
 $string['restart'] = 'Start again';
 $string['restartwiththeseoptions'] = 'Start again with these options';
-$string['updatedisplayoptions'] = 'Update display options';
+$string['reviewresponse'] = 'Review response';
 $string['rightanswer'] = 'Right answer';
 $string['rightanswer_help'] = 'an automatically generated summary of the correct response. This can be limited, so you may wish to consider explaining the correct solution in the general feedback for the question, and turning this option off.';
+$string['save'] = 'Save';
 $string['saved'] = 'Saved: {$a}';
 $string['saveflags'] = 'Save the state of the flags';
+$string['selectacategory'] = 'Select a category:';
+$string['selectaqtypefordescription'] = 'Select a question type to see its description.';
+$string['selectcategoryabove'] = 'Select a category above';
+$string['selectquestionsforbulk'] = 'Select questions for bulk actions';
 $string['settingsformultipletries'] = 'Settings for multiple tries';
+$string['shareincontext'] = 'Share in context for {$a}';
 $string['showhidden'] = 'Also show old questions';
 $string['showmarkandmax'] = 'Show mark and max';
 $string['showmaxmarkonly'] = 'Show max mark only';
-$string['showquestiontext'] = 'Show question text in the question list';
 $string['shown'] = 'Shown';
 $string['shownumpartscorrect'] = 'Show the number of correct responses';
 $string['shownumpartscorrectwhenfinished'] = 'Show the number of correct responses once the question has finished';
+$string['showquestiontext'] = 'Show question text in the question list';
 $string['specificfeedback'] = 'Specific feedback';
 $string['specificfeedback_help'] = 'Feedback that depends on what response the student gave.';
 $string['started'] = 'Started';
 $string['state'] = 'State';
 $string['step'] = 'Step';
+$string['stoponerror'] = 'Stop on error';
+$string['stoponerror_help'] = 'This setting determines whether the import process stops when an error is detected, resulting in no questions being imported, or whether any questions containing errors are ignored and any valid questions are imported.';
 $string['submissionoutofsequence'] = 'Access out of sequence. Please do not click the back button when working on quiz questions.';
-$string['submissionoutofsequencefriendlymessage'] = "You have entered data outside the normal sequence. This can occur if you use your browser's Back or Forward buttons; please don't use these during the test. It can also happen if you click on something while a page is loading. Click <strong>Continue</strong> to resume.";
+$string['submissionoutofsequencefriendlymessage'] = 'You have entered data outside the normal sequence. This can occur if you use your browser\'s Back or Forward buttons; please don\'t use these during the test. It can also happen if you click on something while a page is loading. Click <strong>Continue</strong> to resume.';
 $string['submit'] = 'Submit';
 $string['submitandfinish'] = 'Submit and finish';
 $string['submitted'] = 'Submit: {$a}';
@@ -416,13 +395,27 @@ $string['technicalinfominfraction'] = 'Minimum fraction: {$a}';
 $string['technicalinfoquestionsummary'] = 'Question summary: {$a}';
 $string['technicalinforightsummary'] = 'Right answer summary: {$a}';
 $string['technicalinfostate'] = 'Question state: {$a}';
+$string['tofilecategory'] = 'Write category to file';
+$string['tofilecontext'] = 'Write context to file';
+$string['uninstallbehaviour'] = 'Uninstall this question behaviour.';
+$string['uninstallqtype'] = 'Uninstall this question type.';
+$string['unknown'] = 'Unknown';
 $string['unknownbehaviour'] = 'Unknown behaviour: {$a}.';
 $string['unknownorunhandledtype'] = 'Unknown or unhandled question type: {$a}';
 $string['unknownquestion'] = 'Unknown question: {$a}.';
 $string['unknownquestioncatregory'] = 'Unknown question category: {$a}.';
 $string['unknownquestiontype'] = 'Unknown question type: {$a}.';
+$string['unknowntolerance'] = 'Unknown tolerance type {$a}';
+$string['unpublished'] = 'unshared';
+$string['updatedisplayoptions'] = 'Update display options';
+$string['upgradeproblemcategoryloop'] = 'Problem detected when upgrading question categories. There is a loop in the category tree. The affected category ids are {$a}.';
+$string['upgradeproblemcouldnotupdatecategory'] = 'Could not update question category {$a->name} ({$a->id}).';
+$string['upgradeproblemunknowncategory'] = 'Problem detected when upgrading question categories. Category {$a->id} refers to parent {$a->parent}, which does not exist. Parent changed to fix problem.';
 $string['whethercorrect'] = 'Whether correct';
 $string['whethercorrect_help'] = 'This covers both the textual description \'Correct\', \'Partially correct\' or \'Incorrect\', and any coloured highlighting that conveys the same information.';
 $string['withselected'] = 'With selected';
+$string['wrongprefix'] = 'Wrongly formatted nameprefix {$a}';
 $string['xoutofmax'] = '{$a->mark} out of {$a->max}';
 $string['yougotnright'] = 'You have correctly selected {$a->num}.';
+$string['youmustselectaqtype'] = 'You must select a question type.';
+$string['yourfileshoulddownload'] = 'Your export file should start to download shortly. If not, please <a href="{$a}">click here</a>.';

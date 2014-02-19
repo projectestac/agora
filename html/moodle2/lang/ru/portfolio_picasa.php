@@ -26,4 +26,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['clientid'] = 'ID клиента';
+$string['noauthtoken'] = 'Ключ аутентификации не получен от Google. Пожалуйста, убедитесь, что Вы разрешили Moodle получить доступ к своей учетной записи в Google.';
+$string['nooauthcredentials'] = 'Требуются учетные данные OAuth.';
+$string['nooauthcredentials_help'] = 'Для использования плагина портфолио Picasa необходимо настроить учетные данные OAuth в настройках портфолио.';
+$string['oauth2upgrade_message_content'] = 'При переходе к Moodle 2.3 плагин портфолио Picasa был отключен. Чтобы снова включить его, Ваш сайт Moodle должен быть зарегистрирован в Google с получением ID клиента и ключа, это описано в документации {$a->docsurl}. ID клиента и ключ могут быть использованы для настройки всех плагинов Google Docs и Picasa.';
+$string['oauth2upgrade_message_small'] = 'Этот плагин был отключен, так как он требует настройки. См. описание в документации установки Google OAuth 2.0.';
+$string['oauth2upgrade_message_subject'] = 'Важная информация о плагине портфолио Picasa';
+$string['oauthinfo'] = '<p> Для использования этого плагина Вы должны зарегистрировать свой сайт в Google, как описано в документации <a href="{$a->docsurl}">Установка Google OAuth 2.0</a>. </p><p> При регистрации Вам нужно будет ввести как «URL-адрес авторизованного перенаправления» следующий адрес: </p><p> {$a->callbackurl} .</p> После регистрации Вам будет предоставлен ID клиента и ключ, которые могут быть использованы для настройки всех плагинов Google Docs и Picasa. </p>';
 $string['pluginname'] = 'Picasa';
+$string['secret'] = 'Секрет';
+$string['sendfailed'] = 'Файл {$a} не удалось передать Picasa';

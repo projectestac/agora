@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowguests'] = 'Esta disciplina permite o acesso a visitantes';
+$string['guestaccess_withoutpassword'] = 'Acesso de visitantes';
+$string['guestaccess_withpassword'] = 'Acesso de visitantes';
 $string['guest:config'] = 'Configurar instâncias de acessos de visitante';
 $string['password'] = 'Senha';
 $string['password_help'] = 'A indicação de uma senha permite definir o acesso a uma disciplina apenas a visitantes que conheçam esta senha.';

@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['clientid'] = 'Bezeroaren IDa';
 $string['configplugin'] = 'Konfiguratu Google Docs plugina';
-$string['googledocs:view'] = 'Google Docs biltegia ikusi';
+$string['googledocs:view'] = 'Ikusi Google Docs biltegia';
+$string['oauth2upgrade_message_subject'] = 'Google Docs biltegi-pluginari buruzko informazio garrantzitsua';
 $string['pluginname'] = 'Google Docs';
 $string['secret'] = 'Sekretua';

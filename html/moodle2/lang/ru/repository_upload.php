@@ -32,6 +32,7 @@ $string['upload_error_cant_write'] = 'Ошибка записи файла на 
 $string['upload_error_extension'] = 'Расширение PHP остановило загрузку файла.';
 $string['upload_error_form_size'] = 'Размер загружаемого файла превышает значение директивы MAX_FILE_SIZE, указанную в HTML-форме.';
 $string['upload_error_ini_size'] = 'Размер загружаемого файла превышает значение директивы upload_max_filesize, указанной в php.ini.';
+$string['upload_error_invalid_file'] = 'Файл «{$a}» либо пуст, либо находится в папке. Чтобы загрузить папки, сначала их надо заархивировать в zip.';
 $string['upload_error_no_file'] = 'Ни один файл не был загружен.';
 $string['upload_error_no_tmp_dir'] = 'Отсутствует временная папка PHP.';
 $string['upload_error_partial'] = 'Файл был загружен лишь частично.';

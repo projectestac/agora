@@ -32,7 +32,7 @@ $string['mailadmin'] = 'Administrator/in per E-Mail benachrichtigen';
 $string['mailstudents'] = 'Teilnehmer/innen per E-Mail benachrichtigen';
 $string['mailteachers'] = 'Trainer/innen per E-Mail benachrichtigen';
 $string['mapping'] = 'CSV-Einschreibung (Flat file)';
-$string['messageprovider:flatfile_enrolment'] = 'Mitteilungen bei Einschreibung über Textdatei';
+$string['messageprovider:flatfile_enrolment'] = 'Mitteilung bei Einschreibung über Textdatei (flat file)';
 $string['pluginname'] = 'CSV-Einschreibung (Flat file)';
 $string['pluginname_desc'] = 'Die CSV-Einschreibung (Flat file) arbeitet eine speziell formatierte Textdatei ab, deren Ort Sie selber festlegen. Diese Textdatei enthält mehrere Zeilen von kommagetrennten Listen mit 4 oder 6 Werten:
 

@@ -28,4 +28,6 @@ defined('MOODLE_INTERNAL') || die();
 $string['dragmath:desc'] = 'Vergelijking invoegen';
 $string['javaneeded'] = 'Om deze pagina te gebruiken heb je een browser met Java-ondersteuning nodig. Download de meest recente Java plugin van {$a}';
 $string['pluginname'] = 'Vergelijking invoegen';
+$string['requiretex'] = 'TeX-filter vereist';
+$string['requiretex_desc'] = 'Indien ingeschakeld is de Dragmath knop enkel zichtbaar wanneer de TeX-filter ingeschakeld is in de editor context. Schakel uit als je een aangepaste TeX-filter globaal ingeschakeld hebt.';
 $string['title'] = 'DragMath vergelijkingseditor';

@@ -27,4 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['category:synchronised'] = 'Tarefas de rol sincronizadas coa matriculación do curso';
 $string['pluginname'] = 'Categoría matrículas';
-$string['pluginname_desc'] = 'O complemento de categoría de matrícula é unha solución herdada para matriculacións no nivel de categoría do curso vía tarefas de rol. Recoméndase usar no seu lugar a sincronización de cohortes.';
+$string['pluginname_desc'] = 'O engadido de categoría de matrícula é unha solución herdada para matriculacións no nivel de categoría do curso vía tarefas de rol. Recoméndase usar no seu lugar a sincronización de círculos.';

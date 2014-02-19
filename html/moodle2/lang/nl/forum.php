@@ -269,9 +269,7 @@ $string['movedmarker'] = '(Verplaatst)';
 $string['movethisdiscussionto'] = 'Verplaats deze discussie naar ...';
 $string['mustprovidediscussionorpost'] = 'You moet ofwel een discussie ID of een bericht ID geven om te exporteren';
 $string['namenews'] = 'Nieuwsforum';
-$string['namenews_help'] = '<p>Het nieuwsforum is een speciaal forum dat automatisch aangemaakt wordt in elke cursus en op de startpagina van de site. Het is een plaats voor algemene mededelingen. Je kunt er zo maar één per cursus hebben.</p>
-
-<p>Het "Laatste nieuws"-blok zal de recente discussies van dit speciale forum tonen (zelfs als je het hernoemd). Daarom zal het forum automatisch opnieuw aangemaakt worden als je het "Laatste nieuws"-blok gebruikt.</p>';
+$string['namenews_help'] = 'Het nieuwsforum is een speciaal forum dat automatisch aangemaakt wordt in elke cursus en op de startpagina van de site. Het is een plaats voor algemene mededelingen. Je kunt er zo maar één per cursus hebben. Enkel leraren en beheerders kunnen posten in dit forum. Leerlingen kunnen er niet op antwoorden. Het "Laatste nieuws"-blok toont de recente discussies van dit speciale forum.';
 $string['namesocial'] = 'Sociaal forum';
 $string['nameteacher'] = 'Forum voor leraren';
 $string['newforumposts'] = 'Nieuwe forumberichten';
@@ -403,7 +401,7 @@ $string['subscribersto'] = 'Krijgen e-mail van \'{$a}\'';
 $string['subscribestart'] = 'Stuur me een kopie per e-mail wanneer iemand een bericht op dit forum plaatst';
 $string['subscribestop'] = 'Ik wil geen kopie van inzendingen op dit forum per e-mail ontvangen';
 $string['subscription'] = 'E-mail krijgen';
-$string['subscriptionauto'] = 'Automatisch inschrijven';
+$string['subscriptionauto'] = 'Initieel inschrijven';
 $string['subscriptiondisabled'] = 'Inschrijven uitgeschakeld';
 $string['subscriptionforced'] = 'Verplicht inschrijven';
 $string['subscription_help'] = '<p> Een persoon die ingeschreven is op een forum krijgt een kopie per e-mail van elk bericht in dat forum.
@@ -436,14 +434,14 @@ $string['tracking'] = 'Volgen';
 $string['trackingoff'] = 'Uit';
 $string['trackingon'] = 'Aan';
 $string['trackingoptional'] = 'Optioneel';
-$string['trackingtype'] = 'Lezen van dit forum volgen?';
+$string['trackingtype'] = 'Lezen van dit forum opvolgen';
 $string['trackingtype_help'] = 'Als \'Volgen forum\' is ingeschakeld, dan zien gebruikers welke berichten ze gelezen hebben en welke berichten niet.
 
 Er zijn drie keuzemogelijkheden voor deze instelling:
 
-* Optioneel [standaardinstelling]: leerlingen kunnen volgen inschakelen of uitschakelen voor dit forum zoals ze zelf willen
-* Aan: volgen is altijd ingeschakeld
-* Uit: volgen is altijd uitgeschakeld';
+* Optioneel - deelnemers kunnen volgen inschakelen of uitschakelen voor dit forum zoals ze zelf willen
+* Aan - volgen is altijd ingeschakeld
+* Uit - volgen is altijd uitgeschakeld';
 $string['unread'] = 'Niet gelezen';
 $string['unreadposts'] = 'Niet gelezen berichten';
 $string['unreadpostsnumber'] = '{$a} ongelezen berichten';

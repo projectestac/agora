@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['comments:addinstance'] = 'Gehitu iruzkinak bloke berria';
-$string['comments:myaddinstance'] = 'Gehitu iruzkinak bloke berria Nire Moodle';
+$string['comments:myaddinstance'] = 'Gehitu iruzkinak bloke berria Nire hasieran';
 $string['pluginname'] = 'Iruzkinak';

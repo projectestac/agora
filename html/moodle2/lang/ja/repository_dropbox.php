@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'Dropbox APIキー';
 $string['cachelimit'] = 'キャッシュ制限';
-$string['cachelimit_info'] = 'Dropboxエイリアス/ショートカットのためのサーバ内キャッシュの最大ファイルサイズ (バイト) を入力してください。ソースが利用できない場合、キャッシュされたファイルが提供されます。空白またはゼロに設定した場合、サイズに関わらず、すべてのファイルがキャッシュされます。';
+$string['cachelimit_info'] = 'Dropboxエイリアス/ショートカットのためのサーバ内キャッシュの最大ファイルサイズ (バイト) を入力してください。ソースが利用できない場合、キャッシュされたファイルが提供されます。空白またはゼロに設定した場合、サイズにかかわらず、すべてのファイルがキャッシュされます。';
 $string['configplugin'] = 'Dropbox設定 ';
 $string['dropbox'] = 'Dropbox';
 $string['dropbox:view'] = 'Dropboxフォルダを表示する';

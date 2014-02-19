@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activeexport'] = 'Egin aktibo dagoen esportazioa';
 $string['activeportfolios'] = 'Eskura dauden portfolioak';
 $string['addalltoportfolio'] = 'Esportatu guztia portfoliora';
 $string['addnewportfolio'] = 'Gehitu beste portfolio bat';

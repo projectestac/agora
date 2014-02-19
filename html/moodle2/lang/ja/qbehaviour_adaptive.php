@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['disregardedwithoutpenalty'] = '送信が有効ではないため、ペナリティなしに無視されました。';
+$string['disregardedwithoutpenalty'] = '送信が有効ではないため、ペナルティなしとして無視されました。';
 $string['gradingdetails'] = 'この送信の評点: {$a->raw}/{$a->max}';
 $string['gradingdetailsadjustment'] = '前の受験により <strong>{$a->cur}/{$a->max}</strong> に調整されます。';
 $string['gradingdetailspenalty'] = 'この解答のペナルティ: {$a}';

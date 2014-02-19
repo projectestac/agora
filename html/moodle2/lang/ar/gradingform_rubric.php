@@ -27,3 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'سلم تقييم';
 $string['rubric'] = 'سلم تقييم';
+$string['saverubricdraft'] = 'الحفظ كمسودة';

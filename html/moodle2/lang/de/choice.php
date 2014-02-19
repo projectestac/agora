@@ -26,23 +26,23 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addmorechoices'] = 'Optionen hinzufügen';
-$string['allowupdate'] = 'Änderung der Abstimmung erlauben';
+$string['allowupdate'] = 'Änderung der Auswahl erlauben';
 $string['answered'] = 'Beantwortet';
 $string['atleastoneoption'] = 'Sie müssen mindestens eine mögliche Abstimmoption angeben.';
 $string['choice'] = 'Abstimmung';
-$string['choice:addinstance'] = 'Neue Abstimmung hinzufügen';
+$string['choice:addinstance'] = 'Abstimmung hinzufügen';
 $string['choice:choose'] = 'Abstimmung vornehmen';
 $string['choiceclose'] = 'bis';
-$string['choice:deleteresponses'] = 'Stimmabgaben löschen';
-$string['choice:downloadresponses'] = 'Stimmabgaben herunterladen';
+$string['choice:deleteresponses'] = 'Antworten löschen';
+$string['choice:downloadresponses'] = 'Antworten herunterladen';
 $string['choicefull'] = 'Diese Option ist voll und es sind keine Plätze mehr verfügbar.';
 $string['choicename'] = 'Abstimmungsname';
 $string['choiceopen'] = 'von';
 $string['choiceoptions'] = 'Abstimmoptionen';
-$string['choiceoptions_help'] = 'Tragen Sie hier die Abstimmoptionen ein, zwischen denen sich die Teilnehmer/innen entscheiden sollen.
+$string['choiceoptions_help'] = 'Tragen Sie die Abstimmoptionen ein, zwischen denen sich die Teilnehmer/innen entscheiden sollen.
 
 Sie können jedes der vorhandenen Felder ausfüllen, Sie dürfen aber auch nicht benötigte Felder leer lassen, die dann in der Abstimmung nicht angezeigt werden. Weitere Optionsfelder erhalten Sie über den Knopf "Optionen hinzufügen".';
-$string['choice:readresponses'] = 'Stimmabgaben sehen';
+$string['choice:readresponses'] = 'Antworten sehen';
 $string['choicesaved'] = 'Ihre Auswahl wurde gespeichert';
 $string['choicetext'] = 'Abstimmungstext';
 $string['chooseaction'] = 'Aktion auswählen...';
@@ -51,35 +51,35 @@ $string['completionsubmit'] = 'Als abgeschlossen anzeigen, wenn die Abstimmung d
 $string['displayhorizontal'] = 'Horizontal anzeigen';
 $string['displaymode'] = 'Anzeigemodus';
 $string['displayvertical'] = 'Vertikal anzeigen';
-$string['expired'] = 'Diese Abstimmung ist seit {$a} beendet. Eine Stimmabgabe ist nicht mehr möglich.';
-$string['full'] = '(Obergrenze erreicht)';
+$string['expired'] = 'Diese Abstimmung ist seit {$a} beendet. Eine Auswahl ist nicht mehr möglich.';
+$string['full'] = '(Nicht verfügbar)';
 $string['havetologin'] = 'Sie müssen angemeldet sein, um sich an der Abstimmung beteiligen zu können.';
 $string['limit'] = 'Obergrenze';
-$string['limitanswers'] = 'Obergrenzen für Abstimmung';
+$string['limitanswers'] = 'Anzahl der Antworten bei den Abstimmungoptionen beschränken';
 $string['limitanswers_help'] = 'Diese Option setzt die maximale Anzahl von möglichen Stimmabgaben für die betreffende Abstimmoption. Sobald diese Obergrenze erreicht ist, kann sich niemand mehr für diese Abstimmoption entscheiden.
 
-Wenn die Obergrenzen deaktiviert sind, gibt es keine Beschränkung bei der Abstimmung.';
+Wenn Obergrenzen deaktiviert sind, gibt es keine Beschränkungen bei der Abstimmung.';
 $string['modulename'] = 'Abstimmung';
-$string['modulename_help'] = 'Stellen Sie den Teilnehmer/innen des Kurses eine Frage mit von Ihnen vordefinierten Antwortmöglichkeiten zur Abstimmung.
+$string['modulename_help'] = 'Mit der Abstimmung können Sie im Kurs eine Frage mit vordefinierten Antwortmöglichkeiten stellen.
 
-Die Ergebnisse können direkt angezeigt oder später veröffentlicht werden. Wählen Sie bewusst, ob das Abstimmungsverhalten sichtbar oder anonym sein soll.';
+Die Ergebnisse werden direkt angezeigt oder erst später veröffentlicht. Wählen Sie, ob das Abstimmungsverhalten sichtbar oder anonym sein soll.';
 $string['modulenameplural'] = 'Abstimmungen';
 $string['moveselectedusersto'] = 'Ausgewählte Nutzer/innen bewegen nach...';
 $string['mustchooseone'] = 'Sie müssen eine Option auswählen, um sie speichern können. Bisher wurde noch nichts gespeichert.';
-$string['noguestchoose'] = 'Gäste dürfen nicht an Abstimmungen teilnehmen.';
+$string['noguestchoose'] = 'Gäste dürfen an Abstimmungen nicht teilnehmen.';
 $string['noresultsviewable'] = 'Ergebnisse sind aktuell nicht sichtbar.';
-$string['notanswered'] = 'Noch nicht abgestimmt';
+$string['notanswered'] = 'Nicht abgestimmt';
 $string['notenrolledchoose'] = 'Nur eingeschriebene Teilnehmer/innen dürfen an der Abstimmung teilnehmen.';
-$string['notopenyet'] = 'Aktivität ist erst ab {$a} verfügbar';
+$string['notopenyet'] = 'Aktivität ist ab {$a} verfügbar';
 $string['numberofuser'] = 'Teilnehmerzahl';
-$string['numberofuserinpercentage'] = 'Teilnehmerzahl in Prozent';
+$string['numberofuserinpercentage'] = 'Prozent der Teilnehmer/innen';
 $string['option'] = 'Abstimmoption';
 $string['page-mod-choice-x'] = 'Jede Abstimmungsseite';
-$string['pluginadministration'] = 'Abstimmungsadministration';
+$string['pluginadministration'] = 'Abstimmungs-Administration';
 $string['pluginname'] = 'Abstimmung';
 $string['privacy'] = 'Nicht veröffentlichen';
 $string['publish'] = 'Ergebnisse veröffentlichen';
-$string['publishafteranswer'] = 'Nach der eigenen Stimmabgabe';
+$string['publishafteranswer'] = 'Nach eigener Stimmabgabe';
 $string['publishafterclose'] = 'Nach Abstimmungsende';
 $string['publishalways'] = 'Ergebnisse immer zeigen';
 $string['publishanonymous'] = 'Ergebnisse ohne Namen';
@@ -96,8 +96,8 @@ $string['skipresultgraph'] = 'Ergebnisanzeige überspringen';
 $string['spaceleft'] = 'Platz verfügbar';
 $string['spacesleft'] = 'Plätze verfügbar';
 $string['taken'] = 'Eingetragen';
-$string['timerestrict'] = 'Abstimmung nur im Zeitraum:';
-$string['userchoosethisoption'] = 'Teilnehmer/innen mit dieser Antwort';
+$string['timerestrict'] = 'Abstimmung nur im Zeitraum';
+$string['userchoosethisoption'] = 'Teilnehmer/innen mit dieser Auswahl';
 $string['viewallresponses'] = '{$a} Antworten zeigen';
 $string['withselected'] = 'Mit Auswahl';
 $string['yourselection'] = 'Ihre Auswahl';

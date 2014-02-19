@@ -25,17 +25,18 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = 'API giltza';
-$string['err_noapikey'] = 'Ez dago API giltzarik';
-$string['err_noapikey_help'] = 'Ez dago  API giltzarik konfiguratuta plugin honetarako. OpenBox-en garapen-orritik lor dezakezu bat.';
-$string['foldercreatefailed'] = 'Kale egin du helburu-direktorioa box.net-en sortzeak';
+$string['existingfolder'] = 'Fitxategia(k) gehitzeko existitzen den karpeta';
+$string['folderclash'] = 'Sortu nahi duzun karpeta dagoeneko bada!';
+$string['foldercreatefailed'] = 'Kale egin du helburu-karpeta box.net-en sortzeak';
+$string['folderlistfailed'] = 'Kale egin du box.net-eko karpera-zerrenda berreskuratzeak';
 $string['newfolder'] = 'Fitxategiak gordetzeko direktorio berria';
 $string['noauthtoken'] = 'Ezi izan da autentifikazio-token-ik berreskuratu saio honetan erabiltzeko';
+$string['notarget'] = 'Fitxategia igotzeko, zehaztu nehar duzu dagoeneko existitzen den karpeta bat edo karpeta berri bat';
 $string['password'] = 'Zure box.net-eko pasahitza (ez da gordetzen)';
 $string['pluginname'] = 'Box.net';
 $string['setupinfo'] = 'Instalaziorako argibideak';
 $string['sharedfolder'] = 'Partekatuta';
 $string['sharefile'] = 'Fitxategi hau partekatu nahi al duzu?';
-$string['sharefolder'] = 'Direktorio berri hau partekatu nahi al duzu?';
-$string['targetfolder'] = 'Helburu-direktorioa';
+$string['sharefolder'] = 'Karpeta berri hau partekatu nahi al duzu?';
+$string['targetfolder'] = 'Helburu-karpeta';
 $string['username'] = 'Zure box.net-eko erabiltzaile-izena (ez da gordeko)';

@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['action'] = 'Eragiketa';
+$string['alreadydone'] = 'Dagoeneko dena bihurtu da';
 $string['areyousure'] = 'Ziur al zaude?';
 $string['backtoindex'] = 'Itzuli orri nagusira';
 $string['convertattempts'] = 'Bihurtu saiakerak';

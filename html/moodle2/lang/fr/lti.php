@@ -169,20 +169,20 @@ $string['launch_url_help'] = 'L\'URL de lancement indique l\'adresse web de l\'o
 
 Si vous avez choisi un type d\'outil spécifique, il ne sera peut-être pas nécessaire de saisir une URL. Si le lien n\'est utilisé que pour lancer l\'outil dans le système du fournisseur et n\'envoie pas vers une ressource spécifique, ce sera vraisemblablement le cas.';
 $string['lti'] = 'LTI';
-$string['lti:addcoursetool'] = 'Évaluer les activités LTI';
-$string['lti:addinstance'] = 'Ajouter une activité LTI';
+$string['lti:addcoursetool'] = 'Ajouter des configurations d\'outils externes propres à un cours';
+$string['lti:addinstance'] = 'Ajouter des activités d\'outils externes';
 $string['lti_administration'] = 'Administration LTI';
 $string['lti_errormsg'] = 'L\'outil a retourné le message d\'erreur suivant : « {$a} »';
-$string['lti:grade'] = 'Évaluer des activités LTI';
+$string['lti:grade'] = 'Voir les notes retournées par un outil externe';
 $string['lti_launch_error'] = 'Une erreur est survenue lors du lancement de l\'outil externe :';
 $string['lti_launch_error_tool_request'] = '<p>Pour demander à un administrateur de terminer la configuration de cet outil, cliquez <a href="{$a->admin_request_url}" target="_top">ici</a>.</p>';
 $string['lti_launch_error_unsigned_help'] = '<p>Cette erreur est vraisemblablement le résultat du manque de la clef client et du secret partagé pour ce fournisseur d\'outil.</p>
 <p>Si vous êtes en possession de la clef utilisateur et du secret partagé, veuillez les saisir lors de la mise en place de l\'instance de l\'outil externe (assurez-vous que les réglages avancés sont affichés).<br />AutreSinonment, vous pouvez <a href="{$a->course_tool_editor}">créer une configuration</a> du fournisseur d\'outil au niveau du cours.</p>';
-$string['lti:manage'] = 'Modifier des activités LTI';
-$string['lti:requesttooladd'] = 'Envoyer une demande de configuration d\'outil aux administrateurs';
+$string['lti:manage'] = 'Être formateur lors qu\'un outil externe est lancé';
+$string['lti:requesttooladd'] = 'Demander la configuration d\'outils externes pour tout le site';
 $string['lti_tool_request_added'] = 'La demande de configuration a été envoyée correctement. Vous pouvez contacter un administrateur pour terminer la configuration de l\'outil.';
 $string['lti_tool_request_existing'] = 'Une demande de configuration a déjà été envoyée pour cet outil.';
-$string['lti:view'] = 'Afficher les activités LTI';
+$string['lti:view'] = 'Lancer des activités d\'outils externes';
 $string['main_admin'] = 'Aide générale';
 $string['main_admin_help'] = 'Les outils externes permettent aux utilisateurs de Moodle d\'interagir de manière transparente avec des ressources d\'apprentissage distantes. Au moyen d\'un protocole de lancement spécial, l\'outil externe aura accès à des informations sur l\'utilisateur qui lance l\'outil, par exemple le nom de l\'institution, l\'identifiant du cours, l\'identifiant de l\'utilisateur et d\'autres informations comme le nom d\'utilisateur ou son adresse de courriel.
 
@@ -312,6 +312,7 @@ La plupart du temps, cette option ne devrait pas être activée. Les enseignants
 Le seul cas pour le cas où il faut utiliser cette option est celui où cette configuration n\'est destinée qu\'à une authentification unique. Par exemple, si tous les lancements mènent à une page unique plutôt qu\'à une ressource spécifique.';
 $string['size'] = 'Paramètres de taille';
 $string['submission'] = 'Remise';
+$string['submissionsfor'] = 'Travaux remis pour {$a}';
 $string['toggle_debug_data'] = 'Activer/désactiver les données de débogage';
 $string['tool_config_not_found'] = 'Configuration de l\'outil introuvable avec cet URL';
 $string['tool_settings'] = 'Réglages de l\'outil';
@@ -321,30 +322,25 @@ $string['toolurl_help'] = 'L\'URL de base de l\'outil est utilisée pour apparie
 
 De plus, l\'URL de base est utilisée comme URL de lancement si cette dernière n\'est pas spécifiée dans l\'instance de l\'outil externe.
 
-<table>
-	<thead>
-		<tr>
-			<td> <b>URL de base</b> </td>
-			<td> <b>Correspond à</b> </td>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td> outil.fr </td>
-			<td> outil.fr, outil.fr/quiz, outil.fr/quiz/quiz.php?id=10, www.outil.fr/quiz </td>
-		</tr>
-		<tr>
-			<td> www.outil.fr/quiz </td>
-			<td> outil.fr/quiz, outil.fr/quiz/take.php?id=10, www.outil.fr/quiz </td>
-		</tr>
-		<tr>
-			<td> quiz.outil.fr </td>
-			<td> quiz.outil.fr, quiz.outil.fr/take.php?id=10 </td>
-		</tr>
-	</tbody>
-</table>
+Par exemple, une URL de base *outil.fr* pourra correspondre à :
 
-S\'il y a deux configurations d\'outils différents pour le même domaine, la correspondance la plus spécifique est utilisée.';
+* outil.fr
+* outil.fr/quiz
+* outil.fr/quiz/quiz.php?id=10
+* www.outil.fr/quiz
+
+Une URL de base *www.outil.fr/quiz* pourra correspondre à :
+
+* outil.fr/quiz
+* outil.fr/quiz/take.php?id=10
+* www.outil.fr/quiz
+
+Une URL de base *quiz.outil.fr* pourra correspondre à :
+
+* quiz.outil.fr
+* quiz.outil.fr/take.php?id=10
+
+S\'il y a deux configurations d\'outils différentes pour le même domaine, la correspondance la plus spécifique est utilisée.';
 $string['typename'] = 'Nom de l\'outil';
 $string['typename_help'] = 'Le nom de l\'outil est utilisé pour identifier le fournisseur de l\'outil dans Moodle. Le nom saisi sera visible pour les enseignants lors de l\'ajout d\'outils externes dans leurs cours.';
 $string['types'] = 'Types';

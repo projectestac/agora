@@ -40,7 +40,7 @@ $string['choosereadme'] = '<div class="clearfix">
 </div>
 <div class="theme_description">
 <h2>Über Afterburner:</h2>
-<p>Afterburner ist ein Drei-Spalten-Design mit variabler Breite für Moodle 2.0. Es verwendet eigene Menüs, welche unter dem Titel auf jeder Seite angezeigt werden. Zusätzlich wurde eine Möglichkeit zum Login und Logout in das Menü integriert</p>
+<p>Afterburner ist ein Drei-Spalten-Design mit variabler Breite für Moodle 2.0. Das Design integriert das Login und Logout in das zusätzliche Menü.</p>
 <h2>Hinweise</h2>
 <p>Dieses Design basiert auf dem in Moodle enthaltenen Grunddesign Base. Wenn Sie Änderungen über die angebotenen Einstellungen hinaus vornehmen wollen, empfehlen wir unbedingt, vorher immer eine Kopie zu erstellen und diese umzubenennen. So wird verhindert, dass Ihre Änderungen bei einem Update von Moodle verloren gehen. Sollte Ihnen ein Fehler in den Änderungen unterlaufen, haben Sie so ebenfalls noch eine funktionierende Sicherheitskopie. Weitere Informationen zum Bearbeiten von Designs finden Sie in der <a href="http://docs.moodle.org/de/Designs">Designdokumentation</a>.</p>
 <h2>Danksagungen</h2>
@@ -50,12 +50,12 @@ $string['choosereadme'] = '<div class="clearfix">
 </div>
 </div>';
 $string['configtitle'] = 'Afterburner-Einstellungen';
-$string['customcss'] = 'Eigenes CSS';
-$string['customcssdesc'] = 'Das eigene CSS wird benutzt, um das Design an Ihre Bedürfnisse anpassen.';
+$string['customcss'] = 'CSS-Anpassungen';
+$string['customcssdesc'] = 'Die CSS-Anpassungen werden auf jeder Seite benutzt. Das Design kann so einfach geändert werden.';
 $string['footnote'] = 'Fußzeile';
 $string['footnotedesc'] = 'Fußnote oder Fußzeilentext einfügen';
 $string['logo'] = 'Logo';
-$string['logodesc'] = 'Wenn Sie das Standardlogo ersetzen wollen, tragen Sie die URL zu Ihrer Logo-Datei ein. <br />Das Dateiformat ist JPG und die Bildgröße beträgt 320 px (breit) und 75 px (hoch).';
+$string['logodesc'] = 'Wenn Sie das Standardlogo ersetzen wollen, tragen Sie die URL zu Ihrer Logo-Datei ein. <br />Das Dateiformat des Standardlogos ist JPG und die Bildgröße beträgt 320 px (breit) und 75 px (hoch).';
 $string['pluginname'] = 'Afterburner';
 $string['region-side-post'] = 'Rechts';
 $string['region-side-pre'] = 'Links';

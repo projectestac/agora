@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['filelockedmail'] = 'Le fichier texte que vous utilisez pour l\'inscription ({$a}) ne pourra pas être effacé par le cron. Cela signifie la plupart du temps que ses permissions ne sont pas correctement réglées. Veuillez corriger ces permissions, de sorte que Moodle puisse effacer le fichier. Sans cela les inscriptions pourraient être effectuées à plusieurs reprises.';
+$string['filelockedmail'] = 'Le fichier texte que vous utilisez pour l\'inscription ({$a}) ne pourra pas être effacé par le cron. Cela signifie la plupart du temps que ses droits d\'accès ne sont pas correctement réglés. Veuillez corriger ces droits d\'accès, de sorte que Moodle puisse effacer le fichier. Sans cela les inscriptions pourraient être effectuées à plusieurs reprises.';
 $string['filelockedmailsubject'] = 'Erreur importante : fichier d\'inscriptions';
 $string['location'] = 'Emplacement du fichier';
 $string['mailadmin'] = 'Avertir l\'administrateur par courriel';

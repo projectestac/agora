@@ -41,11 +41,14 @@ $string['aggregatetype_help'] = 'Aggregationstypen (sammanställningstypen) best
 Om "Inga betyg/omdömen" är vald kommer inte aktiviteten att visas i Betygsrapporten.';
 $string['allratingsforitem'] = 'Alla inskickade betyg/omdömen';
 $string['capabilitychecknotavailable'] = 'Rolltillstånd kan inte visas innan aktiviteten sparats';
+$string['couldnotdeleteratings'] = 'Tyvärr, det kan inte tas bort eftersom personer redan har betygsatt/gett omdömen om det.';
 $string['noratings'] = 'Det finns inga inskickade betyg/omdömen';
 $string['noviewanyrate'] = 'Du kan bara titta på resultaten för objekt som du har gjort';
+$string['noviewrate'] = 'Du har inte förmågan att se betyg/omdömen för objekt';
 $string['rate'] = 'Betygssätt/avge omdömen';
 $string['ratepermissiondenied'] = 'Du har inte tillstånd att betygssätta/avge omdöme om det här ';
 $string['rating'] = 'Betyg/omdöme';
+$string['ratinginvalid'] = 'Betyget/omdömet är ogiltigt';
 $string['ratings'] = 'Betyg/omdömen';
 $string['ratingtime'] = 'Begränsa betygsättning till inlägg gjorda inom följande period:';
 $string['rolewarning'] = 'Roller som har tillstånd att sätta betyg/avge omdömen';

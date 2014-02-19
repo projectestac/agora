@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['auth_pamdescription'] = 'Этот модуль аутентификации использует библиотеки PAM (Pluggable Authentication Modules), чтобы получить доступ к учётным записям операционной системы. Для работы этого модуля необходима установка библиотеки <a href="http://www.math.ohio-state.edu/~ccunning/pam_auth/">PAM Authentication</a> языка PHP.';
+$string['auth_pamdescription'] = 'Этот модуль аутентификации использует библиотеки PAM (Pluggable Authentication Modules), чтобы получить доступ к учетным записям операционной системы. Для работы этого модуля необходима установка библиотеки <a href="http://www.math.ohio-state.edu/~ccunning/pam_auth/">PAM Authentication</a> языка PHP.';
 $string['auth_passwordisexpired'] = 'Ваш пароль устарел. Вы хотите поменять свой пароль сейчас?';
 $string['auth_passwordwillexpire'] = 'Дней до окончания срока действия Вашего пароля: {$a}. Вы хотите установить новый пароль сейчас?';
 $string['pluginname'] = 'PAM (Pluggable Authentication Modules)';

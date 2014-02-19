@@ -26,6 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['coursesummary'] = 'Sommaire du cours';
-$string['course_summary:addinstance'] = 'Ajouter un bloc description du cours/site';
-$string['course_summary:myaddinstance'] = 'Ajouter un bloc description du cours/site à la page Mon Moodle';
-$string['pluginname'] = 'Description du cours/du site';
+$string['course_summary:addinstance'] = 'Ajouter un bloc résumé du cours/site';
+$string['pluginname'] = 'Résumé du cours/du site';

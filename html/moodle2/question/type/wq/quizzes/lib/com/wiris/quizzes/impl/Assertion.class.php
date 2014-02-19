@@ -14,6 +14,20 @@ class com_wiris_quizzes_impl_Assertion extends com_wiris_util_xml_SerializableIm
 	public function isSyntactic() {
 		return $this->inArray($this->name, com_wiris_quizzes_impl_Assertion::$syntactic);
 	}
+	public function inIntArray($e, $a) {
+		$i = null;
+		{
+			$_g1 = 0; $_g = $a->length;
+			while($_g1 < $_g) {
+				$i1 = $_g1++;
+				if($e === $a[$i1]) {
+					return true;
+				}
+				unset($i1);
+			}
+		}
+		return false;
+	}
 	public function inArray($e, $a) {
 		$i = null;
 		{
@@ -113,10 +127,35 @@ class com_wiris_quizzes_impl_Assertion extends com_wiris_util_xml_SerializableIm
 		}
 	}
 	public function getAnswers() {
-		return $this->answer;
+		if($this->answer !== null) {
+			return $this->answer;
+		} else {
+			return new _hx_array(array());
+		}
 	}
 	public function getAnswer() {
-		return $this->answer[0];
+		if($this->answer !== null && $this->answer->length > 0) {
+			return $this->answer[0];
+		} else {
+			return -1;
+		}
+	}
+	public function addAnswer($a) {
+		$current = $this->getAnswers();
+		if(!$this->inIntArray($a, $current)) {
+			$newa = new _hx_array(array());
+			$i = null;
+			{
+				$_g1 = 0; $_g = $current->length;
+				while($_g1 < $_g) {
+					$i1 = $_g1++;
+					$newa[$i1] = $current[$i1];
+					unset($i1);
+				}
+			}
+			$newa[$current->length] = $a;
+			$this->setAnswers($newa);
+		}
 	}
 	public function setAnswers($a) {
 		$this->answer = $a;
@@ -125,10 +164,35 @@ class com_wiris_quizzes_impl_Assertion extends com_wiris_util_xml_SerializableIm
 		$this->setAnswers(new _hx_array(array($a)));
 	}
 	public function getCorrectAnswers() {
-		return $this->correctAnswer;
+		if($this->correctAnswer !== null) {
+			return $this->correctAnswer;
+		} else {
+			return new _hx_array(array());
+		}
 	}
 	public function getCorrectAnswer() {
-		return $this->correctAnswer[0];
+		if($this->correctAnswer !== null && $this->correctAnswer->length > 0) {
+			return $this->correctAnswer[0];
+		} else {
+			return -1;
+		}
+	}
+	public function addCorrectAnswer($ca) {
+		$current = $this->getCorrectAnswers();
+		if(!$this->inIntArray($ca, $current)) {
+			$newca = new _hx_array(array());
+			$i = null;
+			{
+				$_g1 = 0; $_g = $current->length;
+				while($_g1 < $_g) {
+					$i1 = $_g1++;
+					$newca[$i1] = $current[$i1];
+					unset($i1);
+				}
+			}
+			$newca[$current->length] = $ca;
+			$this->setCorrectAnswers($newca);
+		}
 	}
 	public function setCorrectAnswers($ca) {
 		$this->correctAnswer = $ca;
@@ -232,8 +296,8 @@ class com_wiris_quizzes_impl_Assertion extends com_wiris_util_xml_SerializableIm
 		$paramvalues->set("constants", $constants);
 		$paramvalues->set("groupoperators", $groupoperators);
 		$paramvalues->set("listoperators", $listoperators);
-		$paramvalues->set("units", "sr, m, g, s, E, K, mol, cd, rad, h, min, l, N, Pa, Hz, W,J, C, V, " . com_wiris_quizzes_impl_Assertion_1($constants, $functions, $groupoperators, $listoperators, $paramvalues) . ", F, S, Wb, b, H, T, lx, lm, Gy, Bq, Sv, kat");
-		$paramvalues->set("unitprefixes", "y, z, a, f, p, n, " . com_wiris_quizzes_impl_Assertion_2($constants, $functions, $groupoperators, $listoperators, $paramvalues) . ", m, c, d, da, h, k, M, G, T, P, E, Z, Y");
+		$paramvalues->set("units", com_wiris_quizzes_impl_Assertion_1($constants, $functions, $groupoperators, $listoperators, $paramvalues) . ", ', \", sr, m, g, s, E, K, mol, cd, rad, h, min, l, N, Pa, Hz, W,J, C, V, " . com_wiris_quizzes_impl_Assertion_2($constants, $functions, $groupoperators, $listoperators, $paramvalues) . ", F, S, Wb, b, H, T, lx, lm, Gy, Bq, Sv, kat");
+		$paramvalues->set("unitprefixes", "m, c, k, M");
 		$paramvalues->set("mixedfractions", "false");
 		$paramvalues->set("itemseparators", "\\n");
 		$paramvalues->set("nobracketslist", "false");
@@ -299,14 +363,14 @@ function com_wiris_quizzes_impl_Assertion_0(&$paramvalues) {
 function com_wiris_quizzes_impl_Assertion_1(&$constants, &$functions, &$groupoperators, &$listoperators, &$paramvalues) {
 	{
 		$s = new haxe_Utf8(null);
-		$s->addChar(937);
+		$s->addChar(176);
 		return $s->toString();
 	}
 }
 function com_wiris_quizzes_impl_Assertion_2(&$constants, &$functions, &$groupoperators, &$listoperators, &$paramvalues) {
 	{
 		$s = new haxe_Utf8(null);
-		$s->addChar(181);
+		$s->addChar(937);
 		return $s->toString();
 	}
 }

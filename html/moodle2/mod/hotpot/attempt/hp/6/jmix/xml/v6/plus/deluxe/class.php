@@ -26,25 +26,25 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * quizport_output_hp_6_jmix_xml_v6_plus_deluxe
+ * hotpot_output_hp_6_jmix_xml_v6_plus_deluxe
  *
  * @copyright 2010 Gordon Bateson
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @since     Moodle 2.0
  */
-class quizport_output_hp_6_jmix_xml_v6_plus_deluxe extends quizport_output_hp_6_jmix_xml_v6_plus {
+class hotpot_output_hp_6_jmix_xml_v6_plus_deluxe extends hotpot_output_hp_6_jmix_xml_v6_plus {
 // constructor function
 
     /**
-     * quizport_output_hp_6_jmix_xml_v6_plus_deluxe
+     * hotpot_output_hp_6_jmix_xml_v6_plus_deluxe
      *
      * @param xxx $quiz (passed by reference)
      */
-    function quizport_output_hp_6_jmix_xml_v6_plus_deluxe(&$quiz) {
-        parent::quizport_output_hp_6_jmix_xml_v6_plus($quiz);
+    function hotpot_output_hp_6_jmix_xml_v6_plus_deluxe(&$quiz) {
+        parent::hotpot_output_hp_6_jmix_xml_v6_plus($quiz);
 
         // prepend templates for this output format
-        array_unshift($this->templatesfolders, 'mod/quizport/output/hp/6/jmix/xml/v6/plus/deluxe/templates');
+        array_unshift($this->templatesfolders, 'mod/hotpot/output/hp/6/jmix/xml/v6/plus/deluxe/templates');
     }
 
     /**

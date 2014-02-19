@@ -41,4 +41,4 @@ $string['grademapping'] = 'Tabela de conversão em nota';
 $string['maperror'] = 'O número ponderado de respostas desfavoráveis é menor ou igual a';
 $string['mapgrade'] = 'Nota do trabalho';
 $string['percents'] = '{$a} %';
-$string['pluginname'] = 'Resposta dupla';
+$string['pluginname'] = 'Número de erros';

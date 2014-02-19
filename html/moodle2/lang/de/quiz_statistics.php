@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['actualresponse'] = 'Aktuelle Antwort';
+$string['actualresponse'] = 'Tatsächliche Antwort';
 $string['allattempts'] = 'Alle Versuche';
 $string['allattemptsavg'] = 'Durchschnittsergebnis aller Versuche';
 $string['allattemptscount'] = 'Gesamtzahl an vollständig bewerteten Versuchen';
@@ -43,7 +43,7 @@ $string['coursename'] = 'Kursname';
 $string['detailedanalysis'] = 'Mehr Details zu den Antworten dieser Frage';
 $string['discrimination_index'] = 'Discrimination Index
 ';
-$string['discriminative_efficiency'] = 'Unterschiedliche Effizienz';
+$string['discriminative_efficiency'] = 'Unterscheidungs-Effizienz';
 $string['downloadeverything'] = 'Bericht herunterladen als als {$a->formatsmenu} {$a->downloadbutton}';
 $string['duration'] = 'Geöffnet für';
 $string['effective_weight'] = 'Effektive Gewichtung';
@@ -55,7 +55,7 @@ $string['errorpowers'] = 'Fehler beim Ermitteln von Daten zur Berechnung der Var
 $string['errorrandom'] = 'Es ist ein Fehler bei den Daten des Unterthemas aufgetreten.';
 $string['errorratio'] = 'Fehlerquotient (für {$a})';
 $string['errorstatisticsquestions'] = 'Fehler beim Ermitteln von Daten zur Berechnung der Statistiken für Fragebewertungen';
-$string['facility'] = 'Möglichkeitsindex';
+$string['facility'] = 'Leichtigkeitsindex';
 $string['firstattempts'] = 'Erste Versuche';
 $string['firstattemptsavg'] = 'Durchschnitt bei erstem Versuch';
 $string['firstattemptscount'] = 'Anzahl der vollständig bewerteten ersten Versuchen';
@@ -71,6 +71,7 @@ $string['negcovar_help'] = '<p>Die Bewertung dieser Frage in diesem Satz von Ver
 <p>Wenn Sie einen Test bearbeiten und dieser/n Frage(n) mit einer negativen Kovarianz eine maximale Bewertung von Null zuweisen, wird die effektive Fragen-Gewichtung dieser Fragen Null sein und die echte effektive Fragen-Gewichtung anderer Fragen ist gleich der eben berechneten.</p>';
 $string['nostudentsingroup'] = 'In dieser Gruppe sind bisher keine Teilnehmer/innen';
 $string['optiongrade'] = 'Teilweise Bewertung';
+$string['partofquestion'] = 'Teil der Frage';
 $string['pluginname'] = 'Statistiken';
 $string['position'] = 'Position';
 $string['positions'] = 'Position(en)';

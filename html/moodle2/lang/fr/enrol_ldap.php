@@ -55,6 +55,7 @@ $string['course_summary_key'] = 'Résumé';
 $string['createcourseextid'] = 'Utilisateur inscrit dans un cours inexistant « {$a->courseextid} »';
 $string['createnotcourseextid'] = 'Utilisateur inscrit dans un cours inexistant « {$a->courseextid} »';
 $string['creatingcourse'] = 'Création du cours « {$a} »';
+$string['duplicateshortname'] = 'La création du cours a échoué, car le nom abrégé du cours existe déjà. Le cours d\'identifiant « {$a->idnumber} » a été ignoré...';
 $string['editlock'] = 'Verrouiller la valeur';
 $string['emptyenrolment'] = 'Inscription vide pour le rôle « {$a->role_shortname} » dans le cours « {$a->course_shortname} »';
 $string['enrolname'] = 'LDAP';
@@ -89,7 +90,7 @@ $string['ok'] = 'OK';
 $string['opt_deref'] = 'Si l\'affiliation à un groupe contient des noms distingués, indiquez comment les alias sont traités durant la recherche. Choisissez l\'une des valeurs suivantes : « Non » (LDAP_DEREF_NEVER) ou « Oui » (LDAP_DEREF_ALWAYS)';
 $string['opt_deref_key'] = 'Dé-référencer les alias';
 $string['phpldap_noextension'] = '<em>L\'extension LDAP de PHP ne semble pas être présente. Veuillez vous assurer qu\'elle est installée et activée si vous souhaitez utiliser ce plugin d\'inscription.</em>';
-$string['pluginname'] = 'InscriptionsLDAP';
+$string['pluginname'] = 'Inscriptions LDAP';
 $string['pluginname_desc'] = '<p>Vous pouvez utiliser un serveur LDAP pour contrôler les inscriptions aux cours. On suppose que votre arbre LDAP contient des groupes correspondant aux cours, et que chacun de ces groupes/cours contiendra les inscriptions à faire correspondre avec les étudiants.</p>
 <p>On suppose que dans LDAP, les cours sont définis comme des groupes, et que chaque groupe comporte plusieurs champs indiquant l\'appartenance (<em>member</em> ou <em>memberUid</em>), contenant un identificateur unique de l\'utilisateur.</p>
 <p>Pour pouvoir utiliser les inscriptions par LDAP, les utilisateurs <strong>doivent</strong> avoir un champ idnumber valide. Les groupes LDAP doivent comporter cet idnumber dans le champ définissant l\'appartenance afin que l\'utilisateur soit inscrit à ce cours. Cela fonctionne bien si vous utilisez déjà l\'authentification par LDAP.</p>

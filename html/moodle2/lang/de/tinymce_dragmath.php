@@ -26,8 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['dragmath:desc'] = 'Formel einfügen';
-$string['javaneeded'] = 'Um diese Seite nutzen zu können, müssen Sie Java im Browser aktivieren. Das aktuelle Java-Plugin finden Sie hier: {$a}';
+$string['javaneeded'] = 'Um diese Seite nutzen zu können, müssen Sie Java im Browser aktivieren. Das aktuelle Java-Plugin finden Sie unter {$a}';
 $string['pluginname'] = 'Formel einfügen';
 $string['requiretex'] = 'TeX-Filter notwendig';
-$string['requiretex_desc'] = 'Wenn diese Option aktiviert wird, ist die DragMath-Taste sichtbar, sobald der TeX-Filter im Editorkontext aktiviert ist. Deaktivieren Sie diese Option, wenn Sie einen eigenen TeX-Filter global verfügbar haben.';
+$string['requiretex_desc'] = 'Wenn diese Option aktiviert wird und der TeX-Filter im Editorkontext aktiviert ist, wird die DragMath-Taste sichtbar. Deaktivieren Sie diese Option, wenn Sie einen eigenen TeX-Filter global verfügbar haben.';
 $string['title'] = 'DragMath Formeleditor';

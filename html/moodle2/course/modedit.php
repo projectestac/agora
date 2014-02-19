@@ -59,6 +59,11 @@ if (!empty($add)) {
     $context = context_course::instance($course->id);
     require_capability('moodle/course:manageactivities', $context);
 
+    // There is no page for this in the navigation. The closest we'll have is the course section.
+    // If the course section isn't displayed on the navigation this will fall back to the course which
+    // will be the closest match we have.
+    navigation_node::override_active_url(course_get_url($course, $section));
+
     course_create_sections_if_missing($course, $section);
     $cw = get_fast_modinfo($course)->get_section_info($section);
 
@@ -122,6 +127,7 @@ if (!empty($add)) {
     } else {
         $pageheading = get_string('addinganew', 'moodle', $fullmodulename);
     }
+    $navbaraddition = $pageheading;
 
 } else if (!empty($update)) {
 
@@ -228,6 +234,7 @@ if (!empty($add)) {
     } else {
         $pageheading = get_string('updatinga', 'moodle', $fullmodulename);
     }
+    $navbaraddition = null;
 
 } else {
     require_login();
@@ -336,7 +343,7 @@ if ($mform->is_cancelled()) {
         $cm->groupmembersonly = $fromform->groupmembersonly;
 
         $completion = new completion_info($course);
-        if ($completion->is_enabled()) {
+        if ($completion->is_enabled() && !empty($fromform->completionunlocked)) {
             // Update completion settings
             $cm->completion                = $fromform->completion;
             $cm->completiongradeitemnumber = $fromform->completiongradeitemnumber;
@@ -424,6 +431,7 @@ if ($mform->is_cancelled()) {
         $newcm->module           = $fromform->module;
         $newcm->instance         = 0; // not known yet, will be updated later (this is similar to restore code)
         $newcm->visible          = $fromform->visible;
+        $newcm->visibleold       = $fromform->visible;
         $newcm->groupmode        = $fromform->groupmode;
         $newcm->groupingid       = $fromform->groupingid;
         $newcm->groupmembersonly = $fromform->groupmembersonly;
@@ -491,7 +499,6 @@ if ($mform->is_cancelled()) {
         // make sure visibility is set correctly (in particular in calendar)
         // note: allow them to set it even without moodle/course:activityvisibility
         set_coursemodule_visible($fromform->coursemodule, $fromform->visible);
-        $DB->set_field('course_modules', 'visibleold', 1, array('id' => $fromform->coursemodule));
 
         if (isset($fromform->cmidnumber)) { //label
             // set cm idnumber - uniqueness is already verified by form validation
@@ -673,6 +680,11 @@ if ($mform->is_cancelled()) {
     $PAGE->set_heading($course->fullname);
     $PAGE->set_title($streditinga);
     $PAGE->set_cacheable(false);
+
+    if (isset($navbaraddition)) {
+        $PAGE->navbar->add($navbaraddition);
+    }
+
     echo $OUTPUT->header();
 
     if (get_string_manager()->string_exists('modulename_help', $module->name)) {

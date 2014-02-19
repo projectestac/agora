@@ -26,10 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><h2>MyMobile</h2><img src="mymobile/pix/screenshot.png" /><h2>Über MyMobile</h2><p>MyMobile ist ein Design für die Anzeige von Moodle 2.x auf mobilen Endgeräten. Weitere Informationen zum Design finden Sie in den <a href="http://docs.moodle.org/en/Theme">MoodleDocs</a>.</p></div></div>';
-$string['colourswatch'] = 'Farbschema für MyMobile';
+$string['colourswatch'] = 'Farbschema für MyMobile auswählen.';
 $string['colourswatch_desc'] = 'Farbschema zwischen grau und blau umschalten';
-$string['customcss'] = 'Custom CSS';
-$string['customcssdesc'] = 'Das eigene CSS wird benutzt, um das Design an Ihre Bedürfnisse anpassen.';
+$string['customcss'] = 'CSS-Anpassungen';
+$string['customcssdesc'] = 'Die CSS-Anpassungen werden auf jeder Seite benutzt. Das Design kann so einfach geändert werden.';
 $string['grey'] = 'Grau';
 $string['light'] = 'Blau';
 $string['mtoggle'] = 'Auf zweite Spalte umschalten';
@@ -38,9 +38,9 @@ $string['pluginname'] = 'MyMobile';
 $string['region-myblocks'] = 'Blockbereich';
 $string['showfullsizeimages'] = 'Bilder vollformatig anzeigen';
 $string['showfullsizeimages_desc'] = 'Bilder werden vollformatig in der Übersicht und auf Kursseiten angezeigt, anstatt sie durch verkleinerte Vorschaubilder zu ersetzen. Standardmäßig werden verkleinerte Bilder gezeigt.';
-$string['showmobileintro'] = 'Mobiler Einleitungstext';
-$string['showmobileintro_desc'] = 'Texte/Bilder, die nur bei der Darstellung für mobile Endgeräte genutzt werden.';
-$string['showsitetopic'] = 'Themenbereich anzeigen:';
+$string['showmobileintro'] = 'Text für mobile Endgeräte';
+$string['showmobileintro_desc'] = 'Texte und Bilder hinzufügen, die nur für mobile Endgeräte genutzt werden';
+$string['showsitetopic'] = 'Themenabschnitt anzeigen:';
 $string['showsitetopic_desc'] = 'Die Standardabschnitte der Startseite für Nutzer des Mobile Themes verwenden (wenn verfügbar)';
 $string['usetableview'] = 'Tablet-Ansicht';
 $string['usetableview_desc'] = 'Tablet-Ansicht für größere Displays verwenden';

@@ -69,7 +69,12 @@ $hotpot->set_preferred_pagelayout($PAGE);
 
 // get renderer subtype (e.g. attempt_hp_6_jcloze_xml)
 // and load the appropriate renderer class for this attempt
-$subtype = $hotpot->get_attempt_renderer_subtype();
+if (! $subtype = $hotpot->get_attempt_renderer_subtype()) {
+    echo $OUTPUT->header();
+    echo get_string('unrecognizedsourcefile', 'hotpot', $hotpot->sourcefile);
+    echo $OUTPUT->footer();
+    exit;
+}
 
 $subdir = str_replace('_', '/', $subtype);
 require_once($CFG->dirroot.'/mod/hotpot/'.$subdir.'/renderer.php');

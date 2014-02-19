@@ -26,7 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['abandoned'] = 'Abandonat';
+$string['abandonhotpot'] = 'Els resultats actuals es desaran, però no es podrà rependre o reiniciar l\'activitat més tard.';
+$string['activitycloses'] = 'L\'activitat es tanca';
 $string['activitygrade'] = 'Qualificació de l\'activitat';
+$string['activityopens'] = 'L\'activitat s\'obre';
 $string['added'] = 'Afegida';
 $string['addquizchain'] = 'Afegeix una cadena de qüestionaris';
 $string['addquizchain_help'] = 'Cal afegir tots els qüestionaris de la cadena de qüestionaris?
@@ -40,6 +43,8 @@ $string['addquizchain_help'] = 'Cal afegir tots els qüestionaris de la cadena d
 Si el fitxer font és una **carpeta**, tots els qüestionaris reconeixibles de la carpeta s\'afegiran al curs per formar una cadena de qüestionaris amb paràmetres idèntics.
 
 Si el fitxer font és un **fitxer unitat**, com per exemple un fitxer Hot Potatoes o un index.html, els qüestionaris llistats en la unitat s\'afegiran al curs com una cadena de qüestionaris amb paràmetres idèntics.';
+$string['allowpaste'] = 'Permet enganxar';
+$string['allowpaste_help'] = 'Si aquest paràmetre està activat, l\'estudiant podrà copiar i enganxar text als quadres d\'edició..';
 $string['allowreview'] = 'Permet la revisió';
 $string['allowreview_help'] = 'Si ho habiliteu els estudiants podran revisar llurs intents després que el qüestionari s\'hagi tancat.';
 $string['analysisreport'] = 'Anàlisi dels elements';
@@ -51,10 +56,17 @@ $string['attemptscore'] = 'Puntuació de l\'intent';
 $string['attemptsunlimited'] = 'Intents il·limitats';
 $string['average'] = 'Mitjana';
 $string['averagescore'] = 'Puntuació mitjana';
+$string['bodystyles'] = 'Estils del cos de text';
+$string['bodystylesbackground'] = 'Color i imatge de fons';
+$string['bodystylescolor'] = 'Color de text';
+$string['bodystylesfont'] = 'Tipus i mida de lletra';
+$string['bodystylesmargin'] = 'Marges dret i esquerre';
 $string['cacherecords'] = 'Registres de la memòria cau HotPot';
-$string['checks'] = 'Comprovacions';
+$string['canrestarthotpot'] = 'Els resultats d\'ara es desaran i podreu tornar a fer "{$a}" més tard.';
+$string['canresumehotpot'] = 'Els resultats d\'ara es desaran i podreu reprendre "{$a}" més tard.';
+$string['checks'] = 'Comprova';
 $string['checksomeboxes'] = 'Si us plau marqueu algunes quadres';
-$string['clearcache'] = 'Neteja la memòria cau HotPot';
+$string['clearcache'] = 'Neteja la memòria cau dels HotPot';
 $string['cleardetails'] = 'Neteja els detalls HotPot';
 $string['clearedcache'] = 'S\'ha esborrat la memòria cau';
 $string['cleareddetails'] = 'S\'han esborrat els detalls HotPot';
@@ -64,6 +76,7 @@ $string['clicktrailreport'] = 'Rastres dels clics';
 $string['closed'] = 'L\'activitat està tancada';
 $string['clues'] = 'Pistes';
 $string['completed'] = 'Completada';
+$string['configbodystyles'] = 'Per defecte, els estils de tema Moodle es sobreposaran als estils de l\'activitat HotPot. No obstant això, per a qualsevol dels estils triats aquí, tindran prioritat sobre els estils del tema Moodle.';
 $string['configenablecache'] = 'Mantenir una memòria cau de qüestionaris HotPot pot augmentar dramàticament la velocitat de lliurament dels qüestionaris als estudiants.';
 $string['configenablecron'] = 'Especifiqueu a quines hores de la vostra zona horària es pot executar l\'script del cron del Hot Potatoes';
 $string['configenablemymoodle'] = 'Aquest paràmetre controla si els qüestionaris Hot Potatoes es llisten a la pàgina de MyMoodle o no';
@@ -202,6 +215,7 @@ $string['exit_feedback_help'] = 'Aquestes opcions habiliten i deshabiliten la vi
 
 A més a més, si el mètode de qualificació de la unitat és «el més gran», es mostrarà a l\'usuari un missatge per informar-lo de si l\'intent més recent ha sigut igual o millor al seu intent previ.';
 $string['exit_goodtry'] = 'Bon intent!';
+$string['exitgrade'] = 'Puntuació de l\'activitat següent';
 $string['exit_grades'] = 'Notes';
 $string['exit_grades_text'] = 'Mireu les notes assolides fins ara en aquest curs';
 $string['exithotpotcourse'] = 'Següent HotPot en aquest curs';
@@ -278,6 +292,7 @@ $string['gradeweighting'] = 'Ponderació de qualificacions';
 $string['gradeweighting_help'] = 'Les qualificacions d\'aquesta activitat Hot Potatoes seran escalades al seu valor numèric en el llibre de qualificacions de Moodle.';
 $string['highestscore'] = 'Qualificació més alta';
 $string['hints'] = 'Suggeriments';
+$string['hotpot:addinstance'] = 'Afegeix una activitat del Hot Potaotes';
 $string['hotpot:attempt'] = 'Realitzar un qüestionari Hot Potatoes i entregar els resultats';
 $string['hotpot:deleteallattempts'] = 'Esborrar tots els intents de l\'usuari en el Hot Potatoes';
 $string['hotpot:deletemyattempts'] = 'Esborrar els intents propis del Hot Potatoes';
@@ -301,6 +316,16 @@ $string['mediafilter_moodle'] = 'Filtres multimèdia estàndard de Moodle';
 $string['migratingfiles'] = 'S\'estan migrant els fitxers del qüestionari Hot Potatoes';
 $string['missingsourcetype'] = 'Al registre de Hot Potatotes manca el tipus d\'origen';
 $string['modulename'] = 'Qüestionari Hot Potatoes';
+$string['modulename_help'] = 'El mòdul HotPot permet al professorat distribuir materials d\'aprenentatge interactius als seus estudiants a través de Moodle i veure informes sobre les respostes i els resultats dels estudiants.
+
+Una activitat Hot Potatoes comprèn una pàgina opcional d\'entrada, un exercici d\'aprenentatge i una pàgina de sortida opcional.
+
+L\'exercici d\'aprenentatge pot ser una pàgina web estàtica o una pàgina web interactiva que ofereix text, àudio i vídeo a l\'alumnat i registra les seves respostes. L\'exercici d\'aprenentatge es crea a l\'ordinador del professorat utilitzant el programari de creació Hot Potatoes i després es puja a Moodle. Una activitat Hot Potatoes pot gestionar exercicis creats amb un d\'aquests programaris  d\'autoria:
+* Hot Potatoes (versió 6)
+* Qedoc
+* Xerte
+* iSpring
+* qualsevol editor HTML';
 $string['modulenameplural'] = 'Qüestionaris Hot Potatoes';
 $string['nameadd'] = 'Nom';
 $string['nameadd_help'] = 'El nom pot ser un text specfic introduït pel professor o pot ser generat de forma automàtica.
@@ -367,17 +392,20 @@ $string['outputformat_hp_6_jcloze_xml_dropdown'] = 'JCloze from HP6 xml: Rottmei
 $string['outputformat_hp_6_jcloze_xml_findit_a'] = 'JCloze from HP6 xml: Rottmeier FindIt (a)';
 $string['outputformat_hp_6_jcloze_xml_findit_b'] = 'JCloze from HP6 xml: Rottmeier FindIt (b)';
 $string['outputformat_hp_6_jcloze_xml_jgloss'] = 'JCloze des de XML HP6: Glossari Rottmeier';
-$string['outputformat_hp_6_jcloze_xml_v6'] = 'JCloze from HP6 xml: estàndard';
+$string['outputformat_hp_6_jcloze_xml_v6'] = 'JCloze des de fitxer HP6 xml: estàndard';
+$string['outputformat_hp_6_jcloze_xml_v6_autoadvance'] = 'JCloze (v6) des de fitxer HP6 xml (Avanç automàtic)';
 $string['outputformat_hp_6_jcross_html'] = 'JCross HP6 html';
 $string['outputformat_hp_6_jcross_xml_v6'] = 'JCross des de XML HP6';
 $string['outputformat_hp_6_jmatch_html'] = 'JMatch des de html';
 $string['outputformat_hp_6_jmatch_xml_flashcard'] = 'JMatch des de XML HP6: Joc de targetes';
 $string['outputformat_hp_6_jmatch_xml_jmemori'] = 'JMatch des de XML HP6: Memòria Rottmeier';
+$string['outputformat_hp_6_jmatch_xml_sort'] = 'JMatch d\'ordenació des de fitxer xml';
 $string['outputformat_hp_6_jmatch_xml_v6'] = 'JMatch des de XML HP6: Estàndard';
 $string['outputformat_hp_6_jmatch_xml_v6_plus'] = 'JMatch from HP6 xml: arrossega i deixa anar';
 $string['outputformat_hp_6_jmix_html'] = 'JMix des de HP6 html';
 $string['outputformat_hp_6_jmix_xml_v6'] = 'JMix from HP6 xml: estàndard';
 $string['outputformat_hp_6_jmix_xml_v6_plus'] = 'JMix from HP6 xml: arrossega i deixa anar';
+$string['outputformat_hp_6_jmix_xml_v6_plus_deluxe'] = 'JMix (v6+ amb prefix, sufix amb paranys) des d\'un fitxer xml';
 $string['outputformat_hp_6_jmix_xml_v6_plus_keypress'] = 'JMix from HP6 xml: arrossega i deixa anar prement una tecla';
 $string['outputformat_hp_6_jquiz_html'] = 'JQuiz HP6 html';
 $string['outputformat_hp_6_jquiz_xml_v6'] = 'JQuiz from HP6 xml: estàndard';
@@ -389,6 +417,10 @@ $string['outputformat_hp_6_sequitur_html'] = 'WebSequitur (v6) des de html';
 $string['outputformat_hp_6_sequitur_html_incremental'] = 'WebSequitur (v6) des de html, puntuació incremental';
 $string['outputformat_hp_6_sequitur_xml'] = 'WebSequitur (v6) des de xml';
 $string['outputformat_hp_6_sequitur_xml_incremental'] = 'WebSequitur (v6) des de xml, puntuació incremental';
+$string['outputformat_html_ispring'] = 'Fitxer HTML iSpring';
+$string['outputformat_html_xerte'] = 'Fitxer HTML Xerte';
+$string['outputformat_html_xhtml'] = 'Fitxer HTML estàndard';
+$string['outputformat_qedoc'] = 'Fitxer Qedoc';
 $string['overviewreport'] = 'Informació general';
 $string['penalties'] = 'Penalitzacions';
 $string['percent'] = 'Percentatge';
@@ -406,7 +438,12 @@ L\'element de qualificació per aquesta activitat no es pot eliminar del llibre 
 
 **Sí**
 Si la qualificació màxima o la ponderació de qualificacions per a aquest qüestionari Hot Potatoes és zero, llavors l\'element de qualificació per a aquesta activitat serà esborrat del llibre de qualificacions de Moodle';
+$string['responses'] = 'Respostes';
 $string['responsesreport'] = 'Respostes';
+$string['reviewafterattempt'] = 'Permet la revisió després de l\'intent';
+$string['reviewafterclose'] = 'Permet la revisió havent tancat el Hot Potaotes';
+$string['reviewduringattempt'] = 'Permet la revisió durant l\'intent';
+$string['reviewoptions'] = 'Opcions de revisió';
 $string['score'] = 'Puntuació';
 $string['scoresreport'] = 'Puntuacions';
 $string['selectattempts'] = 'Trieu intents';
@@ -428,6 +465,9 @@ Per als materials de Qedoc, el fitxer font pot ser la url del mòdul Qedoc que h
 $string['sourcefilenotfound'] = 'No s\'ha trobat el fitxer font (o buit): {$a}';
 $string['status'] = 'Estat';
 $string['stopbutton'] = 'Mostra el botó atura';
+$string['stopbutton_help'] = 'Si aquesta opció està activada, s\'insereix un botó d\'aturada a la pàgina de la pregunta. Si un estudiant fa clic al botó d\'aturada, els resultats del moment es desen al Moodle i l\'estat de l\'intent de  s\'ajustarà a abandonat.
+
+El text que es mostra al botó d\'aturada pot ser una de les frases predefinides dels paquets d\'idioma del Moodle, o el professorat pot especificar el text que s\'hi mostrarà.';
 $string['stopbutton_langpack'] = 'Del paquet d\'idioma';
 $string['stopbutton_specific'] = 'Utilitza el text específic';
 $string['stoptext'] = 'Text del botó atura';
@@ -447,6 +487,12 @@ $string['studentfeedback_help'] = 'Si s\'habilita un enllaç a finestra emergent
 **Missatges de Moodle**
 : Es mostra la finestra de missatgeria instantània de Moodle. Si el curs té varis professors l\'estudiant cal que n\'esculli un abans que la finestra de missatges es mostri.';
 $string['submits'] = 'Enviaments';
+$string['subplugintype_hotpotattempt'] = 'Format de sortida';
+$string['subplugintype_hotpotattempt_plural'] = 'Formats de sortida';
+$string['subplugintype_hotpotreport'] = 'Informe';
+$string['subplugintype_hotpotreport_plural'] = 'Informes';
+$string['subplugintype_hotpotsource'] = 'Fitxer d\'origen';
+$string['subplugintype_hotpotsource_plural'] = 'Fitxers d\'origen';
 $string['textsourcefile'] = 'Obtenir del fitxer font';
 $string['textsourcefilename'] = 'Utilitza el nom del fitxer font';
 $string['textsourcefilepath'] = 'Utilitza la ruta del fitxer font';
@@ -490,6 +536,7 @@ $string['title_help'] = 'Aquest paràmetre especifica el títol que es mostrarà
 **Utilitza el camí al fitxer font**
 : El camí al fitxer font, incloent-hi qualsevol directori, s\'utilitzarà com títol de la pàgina web.';
 $string['unitname_help'] = 'text d\'ajuda per al nom de la unitat';
+$string['unrecognizedsourcefile'] = 'Ho sentim, el mòdul HotPot no ha pogut detectar el tipus de fitxer d\'origen: {$a}';
 $string['updated'] = 'Actualitzat';
 $string['usefilters'] = 'Ús dels filtres';
 $string['usefilters_help'] = 'Si aquest paràmetre s\'habilita, el contingut es passarà pels filtres de Moodle abans de enviar-ho al navegador.';

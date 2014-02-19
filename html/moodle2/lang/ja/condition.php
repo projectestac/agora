@@ -101,5 +101,5 @@ $string['showavailability_show'] = '制限情報とともに活動をグレイ�
 $string['startswith'] = '次の文字で始まる';
 $string['userfield'] = 'ユーザフィールド';
 $string['userfield_help'] = 'あなたはユーザプロファイルフィールドをベースにアクセスを制限することができます。';
-$string['userrestriction_hidden'] = '条件付き制限 (完全に非表示、メッセージなし): {$a}';
-$string['userrestriction_visible'] = '条件付き制限: {$a}';
+$string['userrestriction_hidden'] = '制限 (完全に非表示、メッセージなし): {$a}';
+$string['userrestriction_visible'] = '制限: {$a}';

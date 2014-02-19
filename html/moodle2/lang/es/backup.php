@@ -249,4 +249,5 @@ $string['storageexternalonly'] = 'Especifique directorio para las copias de segu
 $string['title'] = 'Título';
 $string['totalcategorysearchresults'] = 'Total de categorías: {$a}';
 $string['totalcoursesearchresults'] = 'Cursos totales: {$a}';
+$string['unnamedsection'] = 'Sección sin nombre';
 $string['userinfo'] = 'Información de usuario';

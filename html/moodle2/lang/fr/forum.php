@@ -60,7 +60,7 @@ $string['blogforum'] = 'Forum standard affiché comme un blog';
 $string['bynameondate'] = 'par {$a->name}, {$a->date}';
 $string['cannotadd'] = 'Impossible d\'ajouter la discussion dans ce forum';
 $string['cannotadddiscussion'] = 'Pour créer une discussion dans ce forum, vous devez être membre d\'un groupe.';
-$string['cannotadddiscussionall'] = 'Vous n\'avez pas la permission de lancer une nouvelle discussion pour tous les participants.';
+$string['cannotadddiscussionall'] = 'Vous n\'avez pas les droits d\'accès requis pour lancer une nouvelle discussion pour tous les participants.';
 $string['cannotaddsubscriber'] = 'Impossible d\'abonner à ce forum l\'utilisateur d\'identifiant {$a} !';
 $string['cannotaddteacherforumto'] = 'Impossible d\'ajouter le forum des enseignants converti à la section 0 du cours';
 $string['cannotcreatediscussion'] = 'Impossible de créer une nouvelle discussion';
@@ -125,7 +125,7 @@ $string['deletesureplural'] = 'Voulez-vous vraiment supprimer ces messages et to
 $string['digestmailheader'] = 'Ceci est le courriel quotidien contenant tous les nouveaux messages des forums de {$a->sitename}. Pour modifier les réglages de votre abonnement, veuillez aller sur {$a->userprefs}.';
 $string['digestmailprefs'] = 'votre profil utilisateur';
 $string['digestmailsubject'] = 'Courriel quotidien de {$a}';
-$string['digestmailtime'] = 'Heure d\'envoi des messages résumés';
+$string['digestmailtime'] = 'Heure d\'envoi du courriel quotidien';
 $string['digestsentusers'] = 'Les courriels quotidiens ont été envoyés correctement à {$a} utilisateurs.';
 $string['disallowsubscribe'] = 'L\'abonnement n\'est pas autorisé';
 $string['disallowsubscribeteacher'] = 'L\'abonnement n\'est pas autorisé (sauf pour les enseignants)';
@@ -170,7 +170,7 @@ $string['errorenrolmentrequired'] = 'Vous devez être inscrit dans ce cours pour
 $string['errorwhiledelete'] = 'Une erreur est survenue lors de la suppression de l\'enregistrement.';
 $string['everyonecanchoose'] = 'Tous les participants peuvent s\'abonner';
 $string['everyonecannowchoose'] = 'Tous les participants peuvent maintenant choisir de s\'abonner';
-$string['everyoneisnowsubscribed'] = 'Tous les participants sont maintenant abonné à ce forum';
+$string['everyoneisnowsubscribed'] = 'Tous les participants sont maintenant abonnés à ce forum';
 $string['everyoneissubscribed'] = 'Tous les participants sont abonnés à ce forum';
 $string['existingsubscribers'] = 'Abonnés actuels';
 $string['exportdiscussion'] = 'Exporter toute la discussion';
@@ -182,7 +182,7 @@ $string['forum:addquestion'] = 'Ajouter une question';
 $string['forum:allowforcesubscribe'] = 'Permettre d\'imposer l\'abonnement';
 $string['forumauthorhidden'] = 'Auteur (masqué)';
 $string['forumblockingalmosttoomanyposts'] = 'Vous approchez du nombre maximal de messages autorisés. Vous avez écrit {$a->numposts} durant les derniers {$a->blockperiod}. La limite est de {$a->blockafter} messages.';
-$string['forumbodyhidden'] = 'Vous ne pouvez pas voir ce message, probablement parce que vous n\'avez pas encore participé à cette discussion ou que la durée maximale de modification n\'est pas encore passée.';
+$string['forumbodyhidden'] = 'Vous ne pouvez pas voir ce message, probablement parce que vous n\'avez pas encore participé à cette discussion, la durée maximale de modification n\'est pas encore passée, la discussion n\'a pas encore commencée ou elle est déjà terminée.';
 $string['forum:createattachment'] = 'Créer des annexes';
 $string['forum:deleteanypost'] = 'Supprimer des messages (en tout temps)';
 $string['forum:deleteownpost'] = 'Supprimer ses propres messages (durant un délai)';
@@ -190,7 +190,7 @@ $string['forum:editanypost'] = 'Modifier des messages';
 $string['forum:exportdiscussion'] = 'Exporter une discussion complète';
 $string['forum:exportownpost'] = 'Exporter ses propres messages';
 $string['forum:exportpost'] = 'Exporter des messages';
-$string['forumintro'] = 'Introduction au forum';
+$string['forumintro'] = 'Description';
 $string['forum:managesubscriptions'] = 'Gérer les abonnements';
 $string['forum:movediscussions'] = 'Déplacer des discussions';
 $string['forumname'] = 'Nom du forum';
@@ -208,17 +208,17 @@ $string['forumtrackednot'] = 'Les messages non lus ne sont pas marqués';
 $string['forumtype'] = 'Type de forum';
 $string['forumtype_help'] = 'Il y a 5 types de forums :
 
-* Une seule discussion simple : un seul sujet de discussion sur lequel chacun peut s\'exprimer.
+* Une seule discussion simple : un seul sujet de discussion sur lequel chacun peut s\'exprimer (ne peut pas être utilisé avec des groupes séparés).
 * Chaque personne commence une seule discussion : chaque étudiant ne peut entamer qu\'une seule discussion, à laquelle chacun peut répondre.
 * Forum questions/réponses : les étudiants doivent poster un message avant de pouvoir consulter et répondre aux questions et messages des autres participants.
 * Forum standard affiché comme un blog : un forum ouvert, où chacun peut entamer une nouvelle discussion à tout instant. Les sujets de discussion sont affichés sur une page, avec un lien « Discuter sur ce sujet » pour y répondre.
 * Forum standard pour utilisation générale : un forum ouvert, où chacun peut entamer une nouvelle discussion à tout instant.';
-$string['forum:viewallratings'] = 'Voir toutes les évaluations brutes';
-$string['forum:viewanyrating'] = 'Voir toutes les évaluations';
+$string['forum:viewallratings'] = 'Voir toutes les évaluations brutes données par des participants';
+$string['forum:viewanyrating'] = 'Voir toutes les évaluations globales';
 $string['forum:viewdiscussion'] = 'Voir les discussions';
 $string['forum:viewhiddentimedposts'] = 'Voir les messages cachés en attente de publication';
 $string['forum:viewqandawithoutposting'] = 'Toujours voir les questions/réponses';
-$string['forum:viewrating'] = 'Voir les évaluations que vous avez reçues';
+$string['forum:viewrating'] = 'Voir ses propres évaluations globales reçues';
 $string['forum:viewsubscribers'] = 'Voir les abonnés';
 $string['generalforum'] = 'Forum standard pour utilisation générale';
 $string['generalforums'] = 'Forums standards';
@@ -245,10 +245,7 @@ $string['markreadbutton'] = 'Marquer<br />comme lu';
 $string['markunread'] = 'Marquer comme non lu';
 $string['markunreadbutton'] = 'Marquer comme<br />non lu';
 $string['maxattachments'] = 'Nombre maximal d\'annexes';
-$string['maxattachments_help'] = '<!-- $Id$ -->
-
-
-<p>Ce réglage vous permet de fixer le nombre maximal d\'annexes que vous voulez autoriser pour chaque message posté dans ce forum.</p>';
+$string['maxattachments_help'] = 'Ce réglage vous permet de spécifier le nombre maximal d\'annexes de chaque message de forum.';
 $string['maxattachmentsize'] = 'Taille maximale de l\'annexe';
 $string['maxattachmentsize_help'] = '<!-- $Id$ -->
 
@@ -258,7 +255,7 @@ $string['maxattachmentsize_help'] = '<!-- $Id$ -->
 <p>Il est cependant parfois possible de déposer un fichier de taille supérieure à cette valeur. Dans ce cas, le fichier n\'est pas enregistré sur le serveur et un message d\'erreur est affiché.</p>';
 $string['maxtimehaspassed'] = 'Le délai pour modifier ce message ({$a}) est échu';
 $string['message'] = 'Message';
-$string['messageprovider:digests'] = 'Abonnements aux digests de forum';
+$string['messageprovider:digests'] = 'Abonnements aux courriels quotidiens de forum';
 $string['messageprovider:posts'] = 'Abonnements aux messages de forum';
 $string['missingsearchterms'] = 'Le terme recherché suivant n\'apparaît que dans le code HTML de ce message :';
 $string['modeflatnewestfirst'] = 'Réponses en ligne, la plus récente en premier';
@@ -323,7 +320,7 @@ $string['notingroup'] = 'Vous devez faire partie d\'un groupe pour consulter ce 
 $string['notinstalled'] = 'Le module forum n\'est pas installé';
 $string['notpartofdiscussion'] = 'Ce message n\'appartient pas à une discussion !';
 $string['notrackforum'] = 'Ne pas signaler les messages non lus';
-$string['noviewdiscussionspermission'] = 'Vous n\'avez pas l\'autorisation de voir les discussions dans ce forum';
+$string['noviewdiscussionspermission'] = 'Vous n\'avez pas les droits d\'accès requis pour voir les discussions de ce forum';
 $string['nowallsubscribed'] = 'Vous êtes abonné à tous les forums de {$a}.';
 $string['nowallunsubscribed'] = 'Vous êtes désabonné de tous les forums de {$a}.';
 $string['nownotsubscribed'] = '{$a->name} ne sera pas informé des nouveaux messages de « {$a->forum} »';
@@ -441,7 +438,7 @@ Il existe 4 options pour l\'abonnement :
 
 * Abonnement facultatif : les participants peuvent décider de s\'abonner ou non à chaque forum.
 * Abonnement imposé : tous les participants du cours sont abonnés et ne peuvent pas se désabonner.
-* Abonnement automatique : tous les participants du cours sont initialement abonnés, mais peuvent choisir de se désabonner quand il le veulent.
+* Abonnement automatique : tous les participants du cours sont initialement abonnés, mais peuvent choisir de se désabonner quand ils le veulent.
 * Abonnement désactivé : l\'abonnement n\'est pas autorisé.';
 $string['subscriptionoptional'] = 'Abonnement facultatif';
 $string['subscriptions'] = 'Abonnements';
@@ -453,14 +450,14 @@ $string['tracking'] = 'Suivi des messages';
 $string['trackingoff'] = 'Désactivé';
 $string['trackingon'] = 'Activé';
 $string['trackingoptional'] = 'Facultatif';
-$string['trackingtype'] = 'Suivi des messages lus dans ce forum ?';
-$string['trackingtype_help'] = 'Si ce réglage est activé, les participants peuvent d\'un coup d\'oeil distinguer les messages qu\'ils n\'ont pas encore lus de ceux qu\'ils ont déjà lus.
-
-Il existe 3 options pour ce réglage :
+$string['trackingtype'] = 'Suivi de lecture des messages';
+$string['trackingtype_help'] = 'Si ce réglage est activé, les participants peuvent d\'un coup d\'oeil distinguer les messages qu\'ils n\'ont pas encore lus de ceux qu\'ils ont déjà lus dans un forum. 3 options sont disponibles :
 
 * Facultatif : les participants peuvent activer ou désactiver à discrétion le suivi des messages du forum.
 * Activé : le suivi est toujours activé.
-* Désactivé : le suivi est toujours désactivé.';
+* Désactivé : le suivi est toujours désactivé.
+
+Remarque : le suivi des messages doit également être activé dans le profil de l\'utilisateur.';
 $string['unread'] = 'Non lu';
 $string['unreadposts'] = 'Messages non lus';
 $string['unreadpostsnumber'] = '{$a} messages non lus';

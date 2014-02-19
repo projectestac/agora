@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['news_items:addinstance'] = 'Engadir un novo bloque de últimas novas';
+$string['news_items:myaddinstance'] = 'Engadir un novo bloque de últimas novas ao meu cartafol persoal';
 $string['pluginname'] = 'Últimas noticias';

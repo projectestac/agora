@@ -79,7 +79,7 @@ $string['blockediplist'] = 'Lijst met geblokkeerde IP\'s';
 $string['blockinstances'] = 'In gebruik';
 $string['blockmultiple'] = 'Meer';
 $string['blockprotect'] = 'Bescherm blok';
-$string['blockprotect_help'] = 'Als je een bepaald type blok beschermt, dan zal niemand instanties van dit blok kunnen toevoegen of verwijderen. (Je kunt de bescherming natuurlijk opheffen als je blokinstanties moet bewerken.)
+$string['blockprotect_help'] = 'Als je een bepaald type blok beschermt, dan zal niemand exemplaren van dit blok kunnen toevoegen of verwijderen. (Je kunt de bescherming natuurlijk opheffen als je exemplaren van dit blok moet bewerken.)
 
 Dit wordt vooral gebruikt om het navigatie- en instellingenblok te beschermen. Die zijn erg moeilijk terug te zetten zijn indien ze per ongeluk verwijderd worden.';
 $string['blocksettings'] = 'Beheer blokken';
@@ -132,7 +132,7 @@ $string['commonfiltersettings'] = 'Algemene filterinstellingen';
 $string['commonsettings'] = 'Algemene instellingen';
 $string['componentinstalled'] = 'Onderdeel geïnstalleerd';
 $string['computedfromlogs'] = 'Berekend uit logs sinds {$a}';
-$string['condifmodeditdefaults'] = 'De waarde die je hier opgeeft bepaalt de standaardwaarden die gebruikt worden in het instellingsformulier van een activiteit wanneer je een nieuwe activiteit aanmaakt. Je kunt hier ook instellen welke instellingen als geavanceerd worden beschouwd.';
+$string['condifmodeditdefaults'] = 'Er worden standaardwaarden gebruikt in het instellingenformulier wanneer je een nieuwe bron of activiteit maakt.';
 $string['confeditorhidebuttons'] = 'Kies de knoppen die in de HTML-editor verborgen moeten zijn.';
 $string['configallcountrycodes'] = 'Dit is de lijst van landen die op verschillende plaatsen geselecteerd zijn, bijvoorbeeld in een gebruikersprofiel. Als die leeg is (standaardinstelling) dan wordt de lijst in countries.php in het standaard Engelstalig taalpkakket gebruikt. Dat is de lijst van ISO-3166-1. Je kunt ook een kommagescheiden lijst met codes geven, bijvoorbeeld \'GB, FR, ES\'. Als je nieuwe , niet-standaardcodes hier toevoegt, dan moet je ze ook toevoegen in countries.php in \'en\' een in je taalpakket.';
 $string['configallowassign'] = 'Je kunt mensen met de rollen aan de linkerkant toestaan om sommige rollen uit de kolom aan anderen te geven.';
@@ -174,13 +174,15 @@ $string['configcronremotepassword'] = 'Dit betekent dat het script cron.php niet
 http://site.voorbeeld.com/admin/cron.php?password=opensesame
 </pre> Als dit leeggelaten wordt, is er geen wachtwoord nodig';
 $string['configcurlcache'] = 'Levenduur van cURL-cache in sekonden.';
-$string['configcustommenuitems'] = 'Je kunt hier een aangepast menu laten tonen door thema\'s. elke lijn bestaat uit wat menu tekst, een URL (optioneel) en een tooltip titel (optioneel), gescheiden door pipe tekens. Je kunt de structuur opgeven met liggende streepjes. Bijvoorbeeld:
-<pre> Moodle community|http://moodle.org
--Moodle free support|http://moodle.org/support
--Moodle development|http://moodle.org/development
---Moodle Tracker|http://tracker.moodle.org --Moodle Docs|http://docs.moodle.org
--Moodle News|http://moodle.org/news Moodle company
--Moodle commercial hosting|http://moodle.com/hosting -Moodle commercial support|http://moodle.com/support
+$string['configcustommenuitems'] = 'Je kunt hier een aangepast menu laten tonen door thema\'s. Elke lijn bestaat uit wat menu tekst, een URL (optioneel), een tooltip titel (optioneel) en een taalcode of kommagescheiden lijst met codes (optioneel, om de lijn aan gebruikers van een bepaalde taal te tonen), gescheiden door pipe tekens ( | ). Je kunt de structuur opgeven met liggende streepjes. Bijvoorbeeld:
+<pre>
+Moodle community|https://moodle.org
+-Moodle free support|https://moodle.org/support
+-Moodle development|https://moodle.org/development
+--Moodle Tracker|https://tracker.moodle.org
+--Moodle Docs|http://docs.moodle.org|Moodle Docs
+--German Moodle Docs|http://docs.moodle.org/de|Documentation in German|de
+-Moodle.com|https://moodle.com/
 </pre>';
 $string['configdbsessions'] = 'Als dit ingeschakeld is, dan zal de databank gebruikt worden om informatie over de sessies te bewaren. Dit is vooral nuttig op grote, veel gebruikte sites of sites op een cluster van servers.  Voor de meeste sites kan dit waarschijnlijk beter uitgeschakeld zijn zodat de server de informatie op schijf bewaart. Merk op dat het wijzigen van deze instelling alle gebruikers zal afmelden (jij inbegrepen).
 Indien je MySQL gebruikt, zorg er dan voor dat \'max_allowed_packet\' in my.cnf (of my.ini) minstens 4M is.';
@@ -200,7 +202,7 @@ $string['configdenyemailaddresses'] = 'Om e-mailadressen van bepaalde domeinen t
 $string['configdisableuserimages'] = 'Schakel het wijzigen van het profielprentje uit voor alle gebruikers.';
 $string['configdisplayloginfailures'] = 'Dit zal informatie tonen over mislukte aanmeldingen van de geselecteerde gebruikers';
 $string['configdndallowtextandlinks'] = 'Slepen en neerzetten van teksten en links inschakelen of uitschakelen, samen met het slepen en neerzetten van bestanden. Merk op dat het slepen van tekst in Firefox of tussen verschillende browsers onbetrouwbaar is en kan resulteren in geen of verminkte gegevens die geuploaded worden.';
-$string['configdocroot'] = 'Bepaalt het pad naar Moodle Docs. Je kunt dit wijzigen als je je eigen aangepaste online documentatie wil. Als je dat wil doen, moet je er wel voor zorgen dat de vorm van het pad er naartoe dezelfde is als http://docs.moodle.org';
+$string['configdocroot'] = 'Bepaalt het pad naar Moodle Docs voor contextgevoelige hulp via de link \'MoodleDocs voor deze pagina\' onderaan elke pagina. Als dit veld leeg gelaten wordt, dan wordt er geen link getoond.';
 $string['configdoctonewwindow'] = 'Als je dit aanzet zullen links naar Moodle Docs geopend worden in een nieuw venster';
 $string['configeditordictionary'] = 'Deze waarde zal gebruikt worden als aspell geen woordenlijst heeft voor de eigen taal van een gebruiker.';
 $string['configeditorfontlist'] = 'Kies de lettertypes die in het dropdownmenu van de editor zouden moeten verschijnen';
@@ -212,7 +214,7 @@ $string['configenablecomments'] = 'Commentaren inschakelen';
 $string['configenablecourserequests'] = 'Hiermee kan elke gebruiker aanvragen om een nieuwe cursus aan te maken.';
 $string['configenabledevicedetection'] = 'Maakt het detecteren van telefoons, smartphones, tabletcomputers of andere standaardapparatuur (desktops, laptops enz) mogelijk voor het toepassen van thema\'s en andere functies.';
 $string['configenablegroupmembersonly'] = 'Deze instelling schakelt de \'enkel groepsleden\' mogelijkheid in. Merk op dat dit de belasting op je server vergroot.
-Je moet ook categorieën instellen in je cijferboek en wel zo dat activiteiten niet zichtbaar zijn voor niet-groepsleden.';
+Je moet ook categorieën instellen in je puntenboek en wel zo dat activiteiten niet zichtbaar zijn voor niet-groepsleden.';
 $string['configenablemobilewebservice'] = 'Schakel de mobiele service in voor de officiële Moodle app of voor andere toepassingen die dat nodig hebben. Lees voor meer informatie {$a}';
 $string['configenablerssfeeds'] = 'Met deze instelling maak je RSS-feeds mogelijk voor functies over de hele site, zoals blogs, databanken, forums en woordenlijsten. Merk op dat RSS ook moet ingeschakeld worden op het niveau van de activiteitsmodule.';
 $string['configenablerssfeedsdisabled'] = 'Dit is niet beschikbaar omdat RSS voor heel de site is uitgeschakeld. Om RSS in te schakelen ga je naar Configureer variablen onder Beheer Configuratie.';
@@ -1047,14 +1049,14 @@ Dit kan grote problemen opleveren, dus om verder te gaan moet je er voor zorgen 
 Je kunt het volgende doen om je Moodlemap op te schonen:
 
 *hernoem je huidige Moodlemap naar "moodle_oud"
-*maak een nieuwe Moodlemap met enkel bestanden van een standaard Moodleversie, die je download of via CVS of Git bekomt.
+*maak een nieuwe Moodlemap met enkel bestanden van een standaard Moodleversie, die je download of via Git bekomt.
 *verplaats het oorspronkelijke config.php-bestand en alle niet-standaard plugins van je moodle_oud map naar je nieuwe Moodlemap
 
 Wanneer je een propere Moodlemap hebt, ververs dan de pagina om de upgrade verder te zetten.
 
 Deze waarschuwing wordt gewoonlijk veroorzaakt door een standaard Moodlepakket te unzippen over een vorige versie van Moodle. Terwijl dit kan voor kleine updates, wordt het ten zeerste afgerade voor grote Moodle upgrades.
 
-Deze waarschuwing kan ook veroorzaakt worden door een onvolledige checkout van CVS, SVN of Git, waarbij je gewoonlijk moet wachten tot de update operatie klaar is of het juiste opschoonscript te laten lopen en de operatie opnieuw te proberen.
+Deze waarschuwing kan ook veroorzaakt worden door een onvolledige checkout van Git, waarbij je gewoonlijk moet wachten tot de update operatie klaar is of het juiste opschoonscript te laten lopen en de operatie opnieuw te proberen.
 
 Je kunt meer informatie vinden in de upgrade documentatie op <a href="{$a}">{$a}</a>';
 $string['upgradestart'] = 'Moodledatabank nu bijwerken';

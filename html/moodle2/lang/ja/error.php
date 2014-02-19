@@ -49,6 +49,9 @@ $string['cannotcallscript'] = 'このスクリプトを、そのように使う�
 $string['cannotcallusgetselecteduser'] = 'multiselectがtrueの場合、あなたはuser_selector::get_selected_userをコールできません。';
 $string['cannotcreatebackupdir'] = 'バックアップデータフォルダを作成できませんでした。サイト管理者がファイルパーミッションを変更する必要があります。';
 $string['cannotcreatecategory'] = 'カテゴリは追加されませんでした。';
+$string['cannotcreatedboninstall'] = '<p>データベースを作成できません。</p>
+<p>指定されたデータベースは存在しません。また、ユーザにはデータベースを作成するパーミッションがありません。</p>
+<p>サイト管理者はデータベース設定を確認してください。</p>';
 $string['cannotcreategroup'] = 'グループの作成中にエラーが発生しました。';
 $string['cannotcreatelangbase'] = 'エラー: ベース言語ディレクトリを作成できませんでした。';
 $string['cannotcreatelangdir'] = 'langディレクトリを作成できません。';
@@ -174,7 +177,7 @@ $string['courseformatnotfound'] = 'コースフォーマット「 {$a} 」が存
 $string['coursegroupunknown'] = 'コースに関連するグループ {$a} が指定されていません。';
 $string['courseidnotfound'] = 'コースIDが存在しません。';
 $string['coursemisconf'] = 'コース設定が正しくありません。';
-$string['courserequestdisabled'] = '申し訳ございません、リクエストされたコースは管理者によって無効にされています。';
+$string['courserequestdisabled'] = '申し訳ございません、コースリクエストは管理者によって無効にされています。';
 $string['csvcolumnduplicates'] = '重複するカラムが検出されました。';
 $string['csvemptyfile'] = 'CSVファイルが空です。';
 $string['csvfewcolumns'] = 'カラムが不足しています、デリミタ設定を確認してください。';
@@ -202,6 +205,7 @@ $string['ddlxmlfileerror'] = 'XMLデータベースファイルにエラーが�
 $string['ddsequenceerror'] = 'テーブル「 {$a} 」の定義が正しくありません。自動カラムは1つのみ定義することができます。また、そのカラムはキーとして定義する必要があります。';
 $string['destinationcmnotexit'] = '目的のコースモジュールがありません。';
 $string['detectedbrokenplugin'] = '申し訳ございません、プラグイン「 {$a} 」に問題があるため、継続できません。';
+$string['dmlexceptiononinstall'] = '<p>データベースエラーが発生しました: [{$a->errorcode}].<br />{$a->debuginfo}</p>';
 $string['dmlreadexception'] = 'データベースからの読み込み中にエラーが発生しました。';
 $string['dmltransactionexception'] = 'データベーストランザクションエラー';
 $string['dmlwriteexception'] = 'データベースへの書き込み中にエラーが発生しました。';

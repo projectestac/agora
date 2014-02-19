@@ -72,6 +72,7 @@ L\'équation pour une pondération efficace ne peut pas être calculée dans ce 
 Si vous modifiez un test et donnez à ces questions à covariance négative une note maximale de zéro, alors leur pondération efficace sera nulle et les pondérations efficaces des autres questions seront calculées adéquatement.';
 $string['nostudentsingroup'] = 'Il n\'y a pas encore d\'étudiant dans ce groupe';
 $string['optiongrade'] = 'Crédit partiel';
+$string['partofquestion'] = 'Partie de question';
 $string['pluginname'] = 'Statistiques';
 $string['position'] = 'Position';
 $string['positions'] = 'Position(s)';

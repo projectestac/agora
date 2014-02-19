@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['disregardedwithoutpenalty'] = 'Bidalketak ez du balio eta albo batera utzi da penalizaziorik gabe.';
 $string['gradingdetails'] = 'Bidalketa honetarako puntuak: {$a->max}(e)tik {$a->raw}';
 $string['gradingdetailspenalty'] = 'Bidalketa honek penalizazioa du: {$a}.';
 $string['notcomplete'] = 'Osatu gabea';

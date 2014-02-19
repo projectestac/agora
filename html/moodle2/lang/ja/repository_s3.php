@@ -30,4 +30,4 @@ $string['configplugin'] = 'Amazon S3の設定';
 $string['needaccesskey'] = 'アクセスキーを入力してください。';
 $string['pluginname'] = 'Amazon S3';
 $string['s3:view'] = 'Amazon S3リポジトリを表示する';
-$string['secret_key'] = 'シークレットキー';
+$string['secret_key'] = '秘密鍵';

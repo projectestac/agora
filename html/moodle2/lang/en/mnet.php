@@ -16,12 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'mnet', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'mnet', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   mnet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['aboutyourhost'] = 'About your server';
 $string['accesslevel'] = 'Access level';
@@ -47,9 +49,9 @@ $string['currentkey'] = 'Current public key';
 $string['current_transport'] = 'Current transport';
 $string['databaseerror'] = 'Could not write details to the database.';
 $string['deleteaserver'] = 'Deleting a server';
-$string['deletehost'] = 'Delete host';
 $string['deletedhostinfo'] = 'This host has been deleted. If you want to undelete it, switch the deleted status back to \'No\'.';
 $string['deletedhosts'] = 'Deleted hosts: {$a}';
+$string['deletehost'] = 'Delete host';
 $string['deletekeycheck'] = 'Are you absolutely sure you want to delete this key?';
 $string['deleteoutoftime'] = 'Your 60-second window for deleting this key has expired. Please start again.';
 $string['deleteuserrecord'] = 'SSO ACL: delete record for user \'{$a->user}\' from {$a->host}.';
@@ -213,8 +215,8 @@ $string['serviceswesubscribeto'] = 'Services on {$a} that we subscribe to.';
 $string['settings'] = 'Settings';
 $string['showlocal'] = 'Show local users';
 $string['showremote'] = 'Show remote users';
-$string['ssl_acl_allow'] = 'SSO ACL: Allow user {$a->user} from {$a->host}';
-$string['ssl_acl_deny'] = 'SSO ACL: Deny user {$a->user} from {$a->host}';
+$string['ssl_acl_allow'] = 'SSO ACL: Allow user \'{$a->user}\' from \'{$a->host}\'';
+$string['ssl_acl_deny'] = 'SSO ACL: Deny user \'{$a->user}\' from \'{$a->host}\'';
 $string['ssoaccesscontrol'] = 'SSO access control';
 $string['ssoacldescr'] = 'Use this page to grant/deny access to specific users from remote MNet hosts. This is functional when you are offering SSO services to remote users. To control your <em>local</em> users\' ability to roam to other MNet hosts, use the roles system to grant them the <em>mnetlogintoremote</em> capability.';
 $string['ssoaclneeds'] = 'For this functionality to work, you must have Networking on, plus the MNet authentication plugin enabled.';

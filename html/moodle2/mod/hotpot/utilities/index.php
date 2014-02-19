@@ -37,13 +37,14 @@ $PAGE->set_url($CFG->wwwroot.$SCRIPT);
 $title = 'HotPot Utilities index';
 $PAGE->set_title($title);
 $PAGE->set_heading($title);
+$PAGE->set_pagelayout('admin');
 
 echo $OUTPUT->header();
 echo $OUTPUT->box_start();
 
 // get path to this directory
 $dirname = dirname($SCRIPT);
-$dirpath = $CFG->dirroot.'/'.$dirname;
+$dirpath = $CFG->dirroot.$dirname;
 
 echo html_writer::start_tag('ul')."\n";
 
@@ -53,7 +54,7 @@ foreach ($items as $item) {
         continue;
     }
     if ($item->isFile()) {
-        $href = $CFG->wwwroot.'/'.$dirname.'/'.$item;
+        $href = $CFG->wwwroot.$dirname.'/'.$item;
         echo html_writer::tag('li', html_writer::tag('a', $item, array('href' => $href)))."\n";
     }
 }

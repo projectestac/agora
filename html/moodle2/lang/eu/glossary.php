@@ -53,6 +53,8 @@ $string['allowprintview_help'] = '<p>Ikasleei glosategia inprimatzeko bertsioa e
 <p>Irakasleek une oro erabil dezakete inprimatzeko bertsioa.</p>';
 $string['andmorenewentries'] = 'eta {$a} sarrera berri gehiago.';
 $string['answer'] = 'Azalpena';
+$string['approvaldisplayformat'] = 'Onarpena erakusteko modua';
+$string['approvaldisplayformat_help'] = 'Glosategiko elementuak onartzerakoan, erakusteko modu desberdin bat aukeratu dezakezu';
 $string['approve'] = 'Onartu';
 $string['areaattachment'] = 'Eranskinak';
 $string['areaentry'] = 'Definizioak';
@@ -133,6 +135,7 @@ $string['destination_help'] = '<p>Helbide-eremuan inportatutako sarrerak nora jo
 </ul>';
 $string['displayformat'] = 'Erakusteko modua';
 $string['displayformatcontinuous'] = 'Jarraian eta egilerik gabe';
+$string['displayformatdefault'] = 'Lehenetsia erakusteko modu berdina da';
 $string['displayformatdictionary'] = 'Arrunta, hiztegi erakoa';
 $string['displayformatencyclopedia'] = 'Entziklopedia';
 $string['displayformatentrylist'] = 'Sarrera-zerrenda';
@@ -270,6 +273,21 @@ $string['linking'] = 'Autoesteka';
 $string['mainglossary'] = 'Glosategi nagusia';
 $string['maxtimehaspassed'] = 'Barkatu, baina iruzkin hau ({$a}) editatzeko gehienezko denbora agortu egin duzu!';
 $string['modulename'] = 'Glosategia';
+$string['modulename_help'] = 'Glosategiari esker erabiltzaileek definizioen biltegiak osa ditzakete, hiztegi baten antzera, bai eta edukiak zein informazioa batu eta antolatu ere.
+
+Irakasleak glosategi-sarreretan fitxategiak atxikitzea ahalbidetu dezake. Atxikitutako irudiak sarreran erakusten dira. Sarreretan bilaketak egin daitezke, eta alfabetikoki edo kategoria, data, egilearen arabera aztertu daitezke. Sarrerak automatikoki onar daitezke edo edonork ikusi ahal izateko irakasle baten onespena izatera behartu daitezke.
+
+Glosategiko esteka automatikoak egiteko iragazkia piztuta badago, glosategian dagoen edozein sarrera automatikoki estekatuko da ikastaroan hitz edo esaldi horiek agertzen direnean.
+
+Irakasleak sarreretan iruzkinak egitea ahalbidetu dezake. Irakasleak sarrerak kalifika ditzake, baita ikasleek ere (berdinen ebaluazioa). Ebaluazioak pila daitezke behin-betiko kalifikazioa lortzeko, eta azken hau izango da kalifikatzailean gordeko dena.
+
+Glosategiek erabilera anitzak izan ditzake, hala nola
+
+* Elkarlanean egindako hitz-gakoen bildumak egiteko
+* \'Zure burua aurkeztu\' espazio moduan, ikasle berriek euren izena eta xehetasunak gehitzeko
+* \'Aholku erabilgarriak\' baliabide moduan, arazo praktikoak konpontzeko praktika onak azaltzeko
+* Bideo, irudi edo audio-fitxategi erabilgarrien partekatze gune moduan
+* Gogoratu beharreko gertaeren berrikuspen baliabide moduan';
 $string['modulenameplural'] = 'Glosategiak';
 $string['newentries'] = 'Glosategiko sarrera berriak';
 $string['newglossary'] = 'Glosategi berria';

@@ -50,10 +50,10 @@ $string['choosereadme'] = '<div class="clearfix">
 </div>
 </div>';
 $string['configtitle'] = 'Arialist-Einstellungen';
-$string['customcss'] = 'Eigenes CSS';
-$string['customcssdesc'] = 'Das eigene CSS wird benutzt, um das Design an Ihre Bedürfnisse anpassen.';
+$string['customcss'] = 'CSS-Anpassungen';
+$string['customcssdesc'] = 'Die CSS-Anpassungen werden auf jeder Seite benutzt. Das Design kann so einfach geändert werden.';
 $string['linkcolor'] = 'Linkfarbe';
-$string['linkcolordesc'] = 'Dies stellt die Farbe für Links ein.';
+$string['linkcolordesc'] = 'Diese Option stellt die Farbe für Links ein.';
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'Geben Sie die URL zu einem Bild ein, das Sie als Logo verwenden möchten. Es sollte etwa folgender Form entsprechen: http://www.seite.de/verzeichnis/logo.png';
 $string['pluginname'] = 'Arialist';
@@ -62,4 +62,4 @@ $string['region-side-pre'] = 'Links';
 $string['regionwidth'] = 'Spaltenbreite';
 $string['regionwidthdesc'] = 'Diese Einstellung legt die Breite der Blockbereiche in der linken und rechten Spalte fest.';
 $string['tagline'] = 'Untertitel';
-$string['taglinedesc'] = 'Ein kurzer Untertitel, der unterhalb des Seitennamens auf der Hauptseite angezeigt wird.<br />(Wird nicht zusammen mit dem Logo angezeigt.)';
+$string['taglinedesc'] = 'Ein kurzer Untertitel, der unterhalb des Seitennamens auf der Hauptseite angezeigt wird, aber nicht zusammen mit dem Logo';

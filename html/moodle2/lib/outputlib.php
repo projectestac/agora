@@ -523,7 +523,10 @@ class theme_config {
                 $this->rarrow = '&#x25B6;';
                 $this->larrow = '&#x25C0;';
             }
-            elseif (false !== strpos($uagent, 'Konqueror')) {
+            elseif ((false !== strpos($uagent, 'Konqueror'))
+                || (false !== strpos($uagent, 'Android')))  {
+                // The fonts on Android don't include the characters required for this to work as expected.
+                // So we use the same ones Konqueror uses.
                 $this->rarrow = '&rarr;';
                 $this->larrow = '&larr;';
             }
@@ -1239,6 +1242,11 @@ class theme_config {
                     $this->usesvg = false;
                 } else if (check_browser_version('MSIE', 0) and !check_browser_version('MSIE', 9)) {
                     // IE < 9 doesn't support SVG. Say no.
+                    $this->usesvg = false;
+                } else if (check_browser_version('MSIE', 0) and !check_browser_version('MSIE', 10) and
+                        // IE running in Compatibility View?
+                        (preg_match("/MSIE 7.0/", $_SERVER['HTTP_USER_AGENT']) && preg_match("/Trident\/([0-9\.]+)/", $_SERVER['HTTP_USER_AGENT']))) {
+                    // IE 9 Compatibility View doesn't support SVG. Say no.
                     $this->usesvg = false;
                 } else if (preg_match('#Android +[0-2]\.#', $_SERVER['HTTP_USER_AGENT'])) {
                     // Android < 3 doesn't support SVG. Say no.

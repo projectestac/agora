@@ -65,16 +65,7 @@ class qtype_multichoicewiris_single_renderer extends qtype_multichoice_single_re
     }    
     
     public function correct_response(question_attempt $qa) {
-        $question = $qa->get_question();
-        $correct = '';
-        
-        foreach ($question->answers as $ansid => $ans) {
-            if (question_state::graded_state_for_fraction($ans->fraction) ==
-                    question_state::$gradedright) {
-                $correct = $question->make_html_inline(get_string('correctansweris', 'qtype_multichoice', $ans->answer));
-            }
-        }
-        
+        $correct = parent::correct_response($qa);
         $multibase = new qtype_multichoicewiris_renderer_base();
         return $multibase->wrsqz_get_filtered_text($qa, $correct, 'correctresponse');
     }    
@@ -146,16 +137,7 @@ class qtype_multichoicewiris_multi_renderer extends qtype_multichoice_multi_rend
     }        
     
     public function correct_response(question_attempt $qa) {
-        $question = $qa->get_question();
-        $correct = '';
-        
-        foreach ($question->answers as $ansid => $ans) {
-            if (question_state::graded_state_for_fraction($ans->fraction) ==
-                    question_state::$gradedright) {
-                $correct = $question->make_html_inline(get_string('correctansweris', 'qtype_multichoice', $ans->answer));
-            }
-        }
-        
+        $correct = parent::correct_response($qa);
         $multibase = new qtype_multichoicewiris_renderer_base();
         return $multibase->wrsqz_get_filtered_text($qa, $correct, 'correctresponse');
     }    

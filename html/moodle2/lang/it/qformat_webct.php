@@ -32,6 +32,6 @@ $string['paragraphquestion'] = 'Domanda paragragfo';
 $string['pluginname'] = 'Formato WebCT';
 $string['pluginname_help'] = 'Il formato WebCT consente l\'importazione di domande a risposta multipla e a risposta breve salvati nel formato testo WebCT.';
 $string['questionnametoolong'] = 'Il nome della domanda {$a} è troppo lungo ed è stato troncato (il massimo sono 255 caratteri).';
-$string['unknowntype'] = 'Tipo sconosciuto';
+$string['unknowntype'] = 'Tipo sconosciuto di domanda dopo la linea {$a}';
 $string['warningsdetected'] = 'Sono stati individuati {$a} avviso(i)';
 $string['wronggrade'] = 'Valutazione errata (dopo la linea {$a}) :';

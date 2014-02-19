@@ -25,16 +25,16 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configjabberhost'] = 'Jabber-Server für den Versand von Mitteilungen';
+$string['configjabberhost'] = 'Jabber Server für den Versand von Mitteilungen';
 $string['configjabberpassword'] = 'Kennwort für die Verbindung mit dem Jabber Server';
 $string['configjabberport'] = 'Port für die Verbindung mit dem Jabber Server';
-$string['configjabberserver'] = 'XMPP Server-ID (leer, falls identisch mit Jabber Server)';
+$string['configjabberserver'] = 'XMPP Server (leer, wenn Jabber Server)';
 $string['configjabberusername'] = 'Anmeldename für die Verbindung mit dem Jabber Server';
 $string['jabberhost'] = 'Jabber Server';
-$string['jabberid'] = 'Jabber-ID';
+$string['jabberid'] = 'Jabber ID';
 $string['jabberpassword'] = 'Jabber Kennwort';
 $string['jabberport'] = 'Jabber Port';
-$string['jabberserver'] = 'Jabber Server-ID';
+$string['jabberserver'] = 'Jabber Server';
 $string['jabberusername'] = 'Jabber Anmeldename';
 $string['notconfigured'] = 'Der Jabber-Server ist nicht konfiguriert, so dass keine Jabber-Nachrichten versandt werden können. ';
-$string['pluginname'] = 'Jabber-Mitteilung';
+$string['pluginname'] = 'Jabber Mitteilung';

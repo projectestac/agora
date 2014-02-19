@@ -27,8 +27,10 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['calls'] = 'Llamadas de función';
 $string['comment'] = 'Comentario';
-$string['cputime'] = 'Hora CPU';
+$string['cputime'] = 'Tiempo de CPU';
 $string['executiontime'] = 'Tiempo de ejecución';
+$string['lastrunof'] = 'Resumen de la última ejecución de {$a}';
 $string['memory'] = 'Memoria utilizada';
+$string['runid'] = 'Ejecutar ID';
 $string['summaryof'] = 'Resumen de {$a}';
 $string['viewdetails'] = 'Ver detalles del perfil';

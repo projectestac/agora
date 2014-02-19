@@ -68,13 +68,23 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
         // save a reference to the $hotpot record
         $this->hotpot = $hotpot;
 
+        // remove grade filter and column, if not required
+        if (! $hotpot->gradeweighting) {
+            if (array_key_exists('grade', $this->filterfields)) {
+                unset($this->filterfields['grade']);
+            }
+            $i = array_search('grade', $this->tablecolumns);
+            if (is_numeric($i)) {
+                array_splice($this->tablecolumns, $i, 1);
+            }
+        }
+
         // add question numbers to $tablecolumns
         if ($this->has_questioncolumns) {
             if ($records = $DB->get_records('hotpot_questions', array('hotpotid' => $this->hotpot->id), '', 'id,name,text')) {
                 $this->questions = array_values($records);
             }
         }
-
     }
 
     /**
@@ -248,12 +258,12 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
 
         // add user table if needed
         if ($require_usertable && strpos($from, '{user}')===false) {
-            $from   .= ', {user} u';
+            $from .= ' INNER JOIN {user} u ON ha.userid = u.id';
         }
 
         // add attempt table if needed
         if ($require_attempttable && strpos($from, '{hotpot_attempts}')===false) {
-            $from  .= ', {hotpot_attempts} ha';
+            $from = '{hotpot_attempts} ha '.$from;
         }
 
         // join to grade tables if necessary
@@ -263,12 +273,18 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
             // grade tables are required, but missing, so add them to $from
             // the "gg" table alias is added by the "set_sql()" method of this class
             // or the "get_sql_filter_attempts()" method of the hotpot "grade" filter
-            $from   .= ', {grade_items} gi, {grade_grades} gg';
-            $where  .= ' AND ha.userid=gg.userid AND gg.itemid=gi.id'.
-                       ' AND gi.courseid=:courseid AND gi.itemtype=:itemtype'.
-                       ' AND gi.itemmodule=:itemmodule AND gi.iteminstance=:iteminstance';
-            $params += array('courseid' => $this->hotpot->course->id, 'itemtype' => 'mod',
-                             'itemmodule' => 'hotpot', 'iteminstance' => $this->hotpot->id);
+            // Note that we expect that there will always be a "grade_items" record
+            // but there may not necessarily be a "grade_grades" record
+            $from   .= ' LEFT JOIN {grade_items} gi  ON gi.courseid = :courseid'.
+                                                  ' AND gi.itemtype = :itemtype'.
+                                                  ' AND gi.itemmodule = :itemmodule'.
+                                                  ' AND gi.iteminstance = :iteminstance'.
+                       ' LEFT JOIN {grade_grades} gg ON gg.itemid = gi.id'.
+                                                 '  AND gg.userid = ha.userid';
+            $params += array('courseid' => $this->hotpot->course->id,
+                             'itemtype' => 'mod',
+                             'itemmodule' => 'hotpot',
+                             'iteminstance' => $this->hotpot->id);
         }
 
         return array($select, $from, $where, $params);
@@ -318,23 +334,15 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
         }
 
         // sql to select all attempts at this HotPot (and Moodle grade)
-        $select = 'ha.*, (ha.timemodified - ha.timestart) AS duration, '.$select_questions.' ROUND(gg.rawgrade, 0) AS grade';
+        $round_grade = '(CASE WHEN gg.rawgrade IS NULL THEN 0 ELSE ROUND(gg.rawgrade, 0) END)';
+        $select = 'ha.*, (ha.timemodified - ha.timestart) AS duration,'.$select_questions." $round_grade AS grade";
         $from   = '{hotpot_attempts} ha';
         $where  = 'ha.hotpotid=:hotpotid';
         $params = array('hotpotid' => $this->hotpot->id);
 
-
-//XTEC ************ MODIFICAT - Fix for https://tracker.moodle.org/browse/CONTRIB-3896
-//2013.01.04 @aginard (original by @sarjona)
-
-        $userfields = ', u.firstname, u.lastname, u.picture, u.imagealt, u.email';
-
-//************ ORIGINAL
-/*
-        $userfields = ', u.id AS userid, u.firstname, u.lastname, u.picture, u.imagealt, u.email';
-*/
-//************ FI        
-
+        // Note: we don't need "u.id AS userid" because we already have ha.userid
+        //$userfields = ', u.firstname, u.lastname, u.picture, u.imagealt, u.email';
+        $userfields = ', '.$this->get_userfields('u', null, 'userid');
         return $this->add_filter_params($userfields, $userid, $attemptid, $select, $from, $where, $params);
     }
 
@@ -472,5 +480,41 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
             $userid = $record->userid;
             $grade  = $record->grade;
         }
+    }
+
+    /**
+     * get_userfields
+     *
+     * @param string $tableprefix name of database table prefix in query
+     * @param array  $extrafields extra fields to be included in result (do not include TEXT columns because it would break SELECT DISTINCT in MSSQL and ORACLE)
+     * @param string $idalias     alias of id field
+     * @param string $fieldprefix prefix to add to all columns in their aliases, does not apply to 'id'
+     * @return string
+     */
+     function get_userfields($tableprefix = '', array $extrafields = NULL, $idalias = 'id', $fieldprefix = '') {
+        if (class_exists('user_picture')) { // Moodle >= 2.6
+            return user_picture::fields($tableprefix, $extrafields, $idalias, $fieldprefix);
+        }
+        // Moodle <= 2.5
+        $fields = array('id', 'firstname', 'lastname', 'picture', 'imagealt', 'email');
+        if ($tableprefix || $extrafields || $idalias) {
+            if ($tableprefix) {
+                $tableprefix .= '.';
+            }
+            if ($extrafields) {
+                $fields = array_unique(array_merge($fields, $extrafields));
+            }
+            if ($idalias) {
+                $idalias = " AS $idalias";
+            }
+            if ($fieldprefix) {
+                $fieldprefix = " AS $fieldprefix";
+            }
+            foreach ($fields as $i => $field) {
+                $fields[$i] = "$tableprefix$field".($field=='id' ? $idalias : ($fieldprefix=='' ? '' : "$fieldprefix$field"));
+            }
+        }
+        return implode(',', $fields);
+        //return 'u.id AS userid, u.username, u.firstname, u.lastname, u.picture, u.imagealt, u.email';
     }
 }

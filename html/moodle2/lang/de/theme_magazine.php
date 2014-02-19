@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['background'] = 'Hintergrund';
-$string['backgrounddesc'] = 'Um das Hintergrundbild zu ändern, geben Sie die URL zu einem neuen Hintergrundbild an (z.B. http://www.ihredomain.de/hintergrund.jpg).';
+$string['backgrounddesc'] = 'Um das Hintergrundbild zu ändern, geben Sie die URL zu einem neuen Hintergrundbild an (z.B. http://www.meinedomain.de/hintergrund.jpg).';
 $string['blockcolor'] = 'Blockfarbe';
 $string['blockcolordesc'] = 'Diese Farbe wird für die Blocküberschriften benutzt.';
 $string['choosereadme'] = '<div class="clearfix">
@@ -57,13 +57,13 @@ $string['configtitle'] = 'Magazine-Einstellungen';
 $string['forumback'] = 'Forumshintergrund';
 $string['forumbackdesc'] = 'Diese Farbe wird für die Titelhintergründe von Forumsbeiträgen benutzt.';
 $string['headingcolor'] = 'Kopfbereichsfarbe';
-$string['headingcolordesc'] = 'Diese Farbe wird für große Kopfbereiche (Website-News, meine Kurse) und andere Kopfbereiche benutzt.';
+$string['headingcolordesc'] = 'Diese Farbe wird für große Kopfbereiche (Website-Nachrichten, meine Kurse) und andere Kopfbereiche benutzt.';
 $string['linkcolor'] = 'Link';
-$string['linkcolordesc'] = 'Diese Farbe wird für alle Links benutzt.';
+$string['linkcolordesc'] = 'Diese Farbe wird für alle Links benutzt. Verwenden Sie HTML hex-Code.';
 $string['linkhover'] = 'Link (on hover)';
-$string['linkhoverdesc'] = 'Diese Farbe wird für Links (on hover) benutzt.';
+$string['linkhoverdesc'] = 'Diese Farbe wird für Links (on hover) benutzt. Verwenden Sie HTML hex-Code.';
 $string['logo'] = 'Logo';
-$string['logodesc'] = 'Um das Logo zu ändern, geben Sie die URL zu einem neuen Logo an (z.B. http://www.ihredomain.de/logo.png). Das Standardlogo ist 300px breit und 80px hoch. Ein transparentes Logo im Format PNG funktioniert am besten.';
+$string['logodesc'] = 'Um das Logo zu ändern, geben Sie die URL zu einem neuen Logo an (z.B. http://www.meinedomain.de/logo.png). Das Standardlogo ist 300px breit und 80px hoch. Ein transparentes Logo im Format PNG funktioniert am besten.';
 $string['maincolor'] = 'Kopfbereichsfarbe';
 $string['maincoloraccent'] = 'Akzentfarbe zum Kopfbereich';
 $string['maincoloraccentdesc'] = 'Dunkle Akzentfarbe für das Dock und Ränder des Kopfbereichs. Diese Farbe sollte geringfügig dunkler als die Kopfbereichsfarbe sein.';

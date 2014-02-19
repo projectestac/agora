@@ -43,7 +43,7 @@ $string['auth_shib_convert_data_warning'] = 'ファイルが存在しないか�
 $string['auth_shib_idp_list'] = 'アイデンティティプロバイダ';
 $string['auth_shib_idp_list_description'] = 'ログインページでユーザが選択できるよう、アイデンティティプロバイダのエンティティIDリストを入力してください。<br />それぞれの行では、アイデンティティプロバイダのエンティティIDにカンマ区切りのタプル (tuple) を追加してください (詳細は、Shibbolethメタデータファイルをご覧ください)。アイデンティティプロバイダ名がドロップダウンリストに表示されます。<br />あなたのMoodleが複数連盟設定の一部にある場合、任意の第3パラメータとして、Shibbolethセッションイニシエータのロケーションを追加することができます。';
 $string['auth_shib_instructions'] = 'あなたの機関がShibbolethをサポートしている場合、Shibboleth経由のアクセスには、<a href="{$a}">Shibbolethログイン</a>を使用してください。 <br />Shibbolethをサポートしていない場合、ここに表示される通常ログインを使用してください。';
-$string['auth_shib_instructions_help'] = 'Shibbolethに関して、あなたのユーザに提示する説明文です。 これは、ログインページの説明セクションに表示されます。Shibbolethユーザが簡単にログインできるよう、「<b>{$a}</b>」 のようなリンクを入れてください。';
+$string['auth_shib_instructions_help'] = 'Shibbolethに関して、あなたのユーザに提示する説明文です。 これはログインページの説明セクションに表示されます。Shibbolethユーザが簡単にログインできるよう、「<b>{$a}</b>」 のようなリンクを入れてください。';
 $string['auth_shib_integrated_wayf'] = 'Moodle WAYFサービス';
 $string['auth_shib_integrated_wayf_description'] = 'チェックした場合、Shibbolethで設定されたWAYFサービスを使用するのではなく、Moodleは独自のWAYFサービスを使用します。この代替ログインページのため、Moodleはユーザがアイデンティティプロバイダを選択できるドロップダウンリストを表示します。';
 $string['auth_shib_logout_return_url'] = '代替ログアウト戻りURI';

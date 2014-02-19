@@ -25,9 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['apikey'] = 'API-nyckel';
-$string['err_noapikey'] = 'Ingen API-nyckel';
-$string['err_noapikey_help'] = 'Det finns ingen API-nyckel som har konfigurerats för det här plugin-programmet. Du kan hämta en sådan på Openbox\' sida för utveckling.';
 $string['existingfolder'] = 'Befintlig mapp att lagra filer i.';
 $string['folderclash'] = 'Den mapp som Du frågade efter finns redan.';
 $string['foldercreatefailed'] = 'Det gick inte att skapa Din målmapp på box.net';

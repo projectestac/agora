@@ -45,7 +45,7 @@ class hotpot_source_hp_6_jmatch_xml extends hotpot_source_hp_6_jmatch {
      * @param xxx $sourcefile
      * @return xxx
      */
-    public static function is_quizfile($sourcefile)  {
+    static public function is_quizfile($sourcefile)  {
         return preg_match('/\.jmt$/', $sourcefile->get_filename());
     }
 }

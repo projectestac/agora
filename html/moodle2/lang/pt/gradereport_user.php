@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Pauta do aluno';
+$string['tablesummary'] = 'A tabela é organizada como uma lista de itens avaliados incluindo categorias de itens avaliados. Quando os itens estão numa categoria, estes serão indicados como tal.';
 $string['user:view'] = 'Ver pauta do aluno';

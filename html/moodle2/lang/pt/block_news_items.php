@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['news_items:addinstance'] = 'Adicionar um novo bloco Últimas notícias';
-$string['news_items:myaddinstance'] = 'Adicionar um novo bloco Últimas Notícias à Minha página principal';
+$string['news_items:myaddinstance'] = 'Adicionar um novo bloco Últimas notícias à Minha página principal';
 $string['pluginname'] = 'Últimas notícias';

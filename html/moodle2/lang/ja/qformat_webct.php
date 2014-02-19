@@ -32,6 +32,6 @@ $string['paragraphquestion'] = '文章問題';
 $string['pluginname'] = 'WebCTフォーマット';
 $string['pluginname_help'] = 'WebCTフォーマットでは、WebCTテキストベースフォーマットで保存された多肢選択問題および記述問題をインポートすることができます。';
 $string['questionnametoolong'] = '{$a} 行目の問題名が長すぎます (最大半角255文字)。そのため、問題名は省略されました。';
-$string['unknowntype'] = '不明なタイプ';
+$string['unknowntype'] = '{$a} 行目以降に不明な問題タイプがあります。';
 $string['warningsdetected'] = '{$a} 件の警告が見つかりました。';
 $string['wronggrade'] = '正しくない評点 ({$a} 行の後) :';

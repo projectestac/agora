@@ -16,13 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for core subsystem 'blog'
+ * Strings for component 'blog', language 'en', branch 'MOODLE_24_STABLE'
  *
- * @package    core
- * @subpackage blog
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   blog
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $string['addnewentry'] = 'Add a new entry';
 $string['addnewexternalblog'] = 'Register an external blog';
@@ -117,22 +118,25 @@ $string['nosuchentry'] = 'No such blog entry';
 $string['notallowedtoedit'] = 'You are not allowed to edit this entry';
 $string['numberofentries'] = 'Entries: {$a}';
 $string['numberoftags'] = 'Number of tags to display';
+$string['page-blog-edit'] = 'Blog editing pages';
+$string['page-blog-index'] = 'Blog listing pages';
+$string['page-blog-x'] = 'All blog pages';
 $string['pagesize'] = 'Blog entries per page';
 $string['permalink'] = 'Permalink';
 $string['personalblogs'] = 'Users can only see their own blog';
 $string['preferences'] = 'Preferences';
 $string['publishto'] = 'Publish to';
-$string['publishto_help'] = 'There are 3 options:
-
-* Yourself (draft) - Only you and the administrators can see this entry
-* Anyone on this site - Anyone who is registered on this site can read this entry
-* Anyone in the world - Anyone, including guests, could read this entry';
 $string['publishtocourse'] = 'Users sharing a course with you';
 $string['publishtocourseassoc'] = 'Members of the associated course';
 $string['publishtocourseassocparam'] = 'Members of {$a}';
 $string['publishtogroup'] = 'Users sharing a group with you';
 $string['publishtogroupassoc'] = 'Your group members in the associated course';
 $string['publishtogroupassocparam'] = 'Your group members in {$a}';
+$string['publishto_help'] = 'There are 3 options:
+
+* Yourself (draft) - Only you and the administrators can see this entry
+* Anyone on this site - Anyone who is registered on this site can read this entry
+* Anyone in the world - Anyone, including guests, could read this entry';
 $string['publishtonoone'] = 'Yourself (draft)';
 $string['publishtosite'] = 'Anyone on this site';
 $string['publishtoworld'] = 'Anyone in the world';
@@ -163,21 +167,18 @@ $string['valid'] = 'Valid';
 $string['viewallblogentries'] = 'All entries about this {$a}';
 $string['viewallmodentries'] = 'View all entries about this {$a->type}';
 $string['viewallmyentries'] = 'View all of my entries';
-$string['viewentriesbyuseraboutcourse'] = 'View entries about this course by {$a}';
 $string['viewblogentries'] = 'Entries about this {$a->type}';
 $string['viewblogsfor'] = 'View all entries for...';
 $string['viewcourseblogs'] = 'View all entries for this course';
+$string['viewentriesbyuseraboutcourse'] = 'View entries about this course by {$a}';
 $string['viewgroupblogs'] = 'View entries for group...';
 $string['viewgroupentries'] = 'Group entries';
 $string['viewmodblogs'] = 'View entries for module...';
 $string['viewmodentries'] = 'Module entries';
 $string['viewmyentries'] = 'My entries';
-$string['viewmyentriesaboutmodule'] = 'View my entries about this {$a}';
 $string['viewmyentriesaboutcourse'] = 'View my entries about this course';
+$string['viewmyentriesaboutmodule'] = 'View my entries about this {$a}';
 $string['viewsiteentries'] = 'View all entries';
 $string['viewuserentries'] = 'View all entries by {$a}';
 $string['worldblogs'] = 'The world can read entries set to be world-accessible';
 $string['wrongpostid'] = 'Wrong blog post id';
-$string['page-blog-edit'] = 'Blog editing pages';
-$string['page-blog-index'] = 'Blog listing pages';
-$string['page-blog-x'] = 'All blog pages';

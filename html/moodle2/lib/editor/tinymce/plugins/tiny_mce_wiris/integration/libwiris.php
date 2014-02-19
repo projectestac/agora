@@ -40,7 +40,12 @@ $wrs_imageConfigProperties = array(
 	'version' => 'wirisimageserviceversion',
 	'color' => 'wirisimagecolor',
 	'dpi' => 'wirisdpi',
-	'fontFamily' => 'wirisfontfamily'
+	'fontFamily' => 'wirisfontfamily',
+	'rtlLanguages' => 'wirisrtllanguages',
+	'ltrLanguages' => 'wirisltrlanguages',
+	'arabicIndicLanguages' => 'wirisarabicindiclanguages',
+	'easternArabicIndicLanguages' => 'wiriseasternarabicindiclanguages',
+	'europeanLanguages' => 'wiriseuropeanlanguages'
 );
 
 $wrs_xmlFileAttributes = array(
@@ -198,7 +203,9 @@ function wrs_getAvailableCASLanguages($languageString) {
 
 function wrs_getCacheDirectory($config) {
 	$cacheDirectory = (isset($config['wiriscachedirectory'])) ? $config['wiriscachedirectory'] : WRS_CACHE_DIRECTORY;
-	@mkdir($cacheDirectory, 0755, true);
+	if (!file_exists($cacheDirectory)){
+		@mkdir($cacheDirectory, 0755, true);
+	}
 	return $cacheDirectory;
 }
 
@@ -257,6 +264,10 @@ function wrs_fileGetContentsCurl($url, $postVariables, $config, $referer) {
 	
 	//PROXY is used	
 	if (isset($config['wirisproxy']) && $config['wirisproxy'] == 'true') {
+		if (isset($config['wirisproxy_user']) && isset($config['wirisproxy_password'])) {
+			curl_setopt($ch, CURLOPT_PROXYUSERPWD, $config['wirisproxy_user'] . ':' . $config['wirisproxy_password']);
+		}
+		
 		curl_setopt($ch, CURLOPT_PROXY, $config['wirisproxy_host']);
 		curl_setopt($ch, CURLOPT_PROXYPORT, $config['wirisproxy_port']);
 	}

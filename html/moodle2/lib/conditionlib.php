@@ -187,6 +187,10 @@ class condition_info extends condition_info_base {
         }
         return array_key_exists($cm->id, $CONDITIONLIB_PRIVATE->usedincondition[$course->id]);
     }
+
+    protected function get_context() {
+        return context_module::instance($this->item->id);
+    }
 }
 
 
@@ -285,7 +289,7 @@ class condition_info_section extends condition_info_base {
             if (!$userid) {
                 $userid = $USER->id;
             }
-            $context = context_course::instance($this->item->course);
+            $context = $this->get_context();
 
             if ($userid != $USER->id) {
                 // We are requesting for a non-current user so check it individually
@@ -352,6 +356,10 @@ class condition_info_section extends condition_info_base {
     public static function update_section_from_form($section, $fromform, $wipefirst=true) {
         $ci = new condition_info_section($section, CONDITION_MISSING_EVERYTHING);
         parent::update_from_form($ci, $fromform, $wipefirst);
+    }
+
+    protected function get_context() {
+        return context_course::instance($this->item->course);
     }
 }
 
@@ -599,12 +607,17 @@ abstract class condition_info_base {
     }
 
     /**
-     * The user fields we can compare
+     * Returns list of user fields that can be compared.
      *
-     * @global moodle_database $DB
+     * If you specify $formatoptions, then format_string will be called on the
+     * custom field names. This is necessary for multilang support to work so
+     * you should include this parameter unless you are going to format the
+     * text later.
+     *
+     * @param array $formatoptions Passed to format_string if provided
      * @return array Associative array from user field constants to display name
      */
-    public static function get_condition_user_fields() {
+    public static function get_condition_user_fields($formatoptions = null) {
         global $DB;
 
         $userfields = array(
@@ -630,7 +643,11 @@ abstract class condition_info_base {
         // Go through the custom profile fields now
         if ($user_info_fields = $DB->get_records('user_info_field')) {
             foreach ($user_info_fields as $field) {
-                $userfields[$field->id] = $field->name;
+                if ($formatoptions) {
+                    $userfields[$field->id] = format_string($field->name, true, $formatoptions);
+                } else {
+                    $userfields[$field->id] = $field->name;
+                }
             }
         }
 
@@ -802,11 +819,19 @@ abstract class condition_info_base {
 
         // User field conditions
         if (count($this->item->conditionsfield) > 0) {
+            $context = $this->get_context();
             // Need the array of operators
             foreach ($this->item->conditionsfield as $field => $details) {
                 $a = new stdclass;
-                $a->field = $details->fieldname;
-                $a->value = $details->value;
+                // Display the fieldname into current lang.
+                if (is_numeric($field)) {
+                    // Is a custom profile field (will use multilang).
+                    $translatedfieldname = $details->fieldname;
+                } else {
+                    $translatedfieldname = get_user_field_name($details->fieldname);
+                }
+                $a->field = format_string($translatedfieldname, true, array('context' => $context));
+                $a->value = s($details->value);
                 $information .= get_string('requires_user_field_'.$details->operator, 'condition', $a) . ' ';
             }
         }
@@ -1005,14 +1030,22 @@ abstract class condition_info_base {
 
         // Check if user field condition
         if (count($this->item->conditionsfield) > 0) {
+            $context = $this->get_context();
             foreach ($this->item->conditionsfield as $field => $details) {
                 $uservalue = $this->get_cached_user_profile_field($userid, $field);
                 if (!$this->is_field_condition_met($details->operator, $uservalue, $details->value)) {
                     // Set available to false
                     $available = false;
+                    // Display the fieldname into current lang.
+                    if (is_numeric($field)) {
+                        // Is a custom profile field (will use multilang).
+                        $translatedfieldname = $details->fieldname;
+                    } else {
+                        $translatedfieldname = get_user_field_name($details->fieldname);
+                    }
                     $a = new stdClass();
-                    $a->field = $details->fieldname;
-                    $a->value = $details->value;
+                    $a->field = format_string($translatedfieldname, true, array('context' => $context));
+                    $a->value = s($details->value);
                     $information .= get_string('requires_user_field_'.$details->operator, 'condition', $a) . ' ';
                 }
             }
@@ -1114,10 +1147,12 @@ abstract class condition_info_base {
     private function get_cached_grade_score($gradeitemid, $grabthelot=false, $userid=0) {
         global $USER, $DB, $SESSION;
         if ($userid==0 || $userid==$USER->id) {
-            // For current user, go via cache in session
-            if (empty($SESSION->gradescorecache) || $SESSION->gradescorecacheuserid!=$USER->id) {
+            // For current user, go via cache in session. Force reset it every 10 minutes.
+            if (empty($SESSION->gradescorecache) || $SESSION->gradescorecacheuserid!=$USER->id
+                    || !isset($SESSION->gradescorecachereset) || $SESSION->gradescorecachereset+600<time()) {
                 $SESSION->gradescorecache = array();
                 $SESSION->gradescorecacheuserid = $USER->id;
+                $SESSION->gradescorecachereset = time();
             }
             if (!array_key_exists($gradeitemid, $SESSION->gradescorecache)) {
                 if ($grabthelot) {
@@ -1260,8 +1295,8 @@ abstract class condition_info_base {
         }
         $iscurrentuser = $USER->id == $userid;
 
-        if (isguestuser($userid)) {
-            // Must be logged in and can't be the guest. (this should never happen anyway)
+        if (isguestuser($userid) || ($iscurrentuser && !isloggedin())) {
+            // Must be logged in and can't be the guest. (e.g. front page)
             return false;
         }
 
@@ -1397,6 +1432,13 @@ abstract class condition_info_base {
             }
         }
     }
+
+    /**
+     * Obtains context for any necessary checks.
+     *
+     * @return context Suitable context for the item
+     */
+    protected abstract function get_context();
 }
 
 condition_info::init_global_cache();

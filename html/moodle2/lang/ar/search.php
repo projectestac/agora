@@ -65,6 +65,7 @@ $string['runindexertest'] = 'إجراء اختبار الفهرسة';
 $string['score'] = 'نتيجة';
 $string['search'] = 'بحث';
 $string['searching'] = 'البحث في';
+$string['searchnotpermitted'] = 'لا يسمح لك بالبحث';
 $string['seconds'] = 'ثواني';
 $string['solutions'] = 'حلول';
 $string['statistics'] = 'إحصائيات';

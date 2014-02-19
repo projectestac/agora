@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['auth_fcchangepasswordurl'] = 'Pasahitza aldatzeko URLa';
-$string['auth_fcconnfail'] = 'Errnorekiko konekzioak kale egin du: {$a}[0] eta Errore Katea: {$a}[1]';
+$string['auth_fcconnfail'] = 'Errnorekiko konekzioak kale egin du: {$a->no} eta Errore Katea: {$a->str}';
 $string['auth_fccreators'] = 'Ikastaro berriak sor ditzaketen taldeeko partaideen zerrenda. Taldeak \';\' erabiliz banandu. Izenak FirstClass zerbitzarian bezalaxe idatzi behar dira. Sistemak maiuskulak eta minuskulak bereizten ditu.';
 $string['auth_fccreators_key'] = 'Sortzaileak';
 $string['auth_fcdescription'] = 'Metodo honek FirstClass zerbitzaria erabiltzen du erabiltzailearen izena edo pasahitza zuzenak diren baieztatzeko.';

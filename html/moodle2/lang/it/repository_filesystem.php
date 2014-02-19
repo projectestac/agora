@@ -26,11 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['blockedpath'] = 'Percorso root bloccato';
-$string['configplugin'] = 'Impostazione repository File system';
+$string['configplugin'] = 'Configurazione repository File system';
 $string['donotusesysdir'] = 'Non usare le cartelle di sistema come repository, ivi incluse le seguenti cartelle';
-$string['enablecourseinstances'] = 'Gli utenti possono aggiungere repository nei corsi (configurabile solo dagli amministratori)';
-$string['enableuserinstances'] = '	
-Gli utenti possono aggiungere repository nel proprio contesto (configurabile solo dagli amministratori)';
+$string['enablecourseinstances'] = 'Gli amministratori possono aggiungere repository filesystem nei corsi (configurabile solo dagli amministratori)';
+$string['enableuserinstances'] = 'Gli amministratori possono aggiungere repository filesystem per uso individuale (configurabile solo dagli amministratori)';
 $string['filesystem:view'] = 'Visualizzare repository File system';
 $string['information'] = 'Le cartelle si trovano all\'interno di <b>{$a}</b>.';
 $string['invalidpath'] = 'Percorso root non valido';

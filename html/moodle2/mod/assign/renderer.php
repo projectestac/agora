@@ -57,7 +57,7 @@ class mod_assign_renderer extends plugin_renderer_base {
      * @return string
      */
     public function render_assign_files(assign_files $tree) {
-        $this->htmlid = 'assign_files_tree_'.uniqid();
+        $this->htmlid = html_writer::random_id('assign_files_tree');
         $this->page->requires->js_init_call('M.mod_assign.init_tree', array(true, $this->htmlid));
         $html = '<div id="'.$this->htmlid.'">';
         $html .= $this->htmllize_tree($tree, $tree->dir);
@@ -259,11 +259,11 @@ class mod_assign_renderer extends plugin_renderer_base {
                                        $summary->participantcount);
         }
 
-        // drafts
-        if ($summary->submissiondraftsenabled) {
+        // Drafts count and dont show drafts count when using offline assignment.
+        if ($summary->submissiondraftsenabled && $summary->submissionsenabled) {
             $this->add_table_row_tuple($t, get_string('numberofdraftsubmissions', 'assign'),
                                        $summary->submissiondraftscount);
-       }
+        }
 
         // submitted for grading
         if ($summary->submissionsenabled) {

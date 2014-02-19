@@ -25,10 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['checkin'] = 'Egiaztatu kateak diskoan';
-$string['checkout'] = 'Arakatu kateak';
-$string['checkoutdone'] = 'Kateak ondo egiaztatu dira itzultzailean';
-$string['checkoutinprogress'] = 'Kateak egiaztatzen itzultzailean';
+$string['checkin'] = 'Gorde kateak hizkuntza-paketean';
+$string['checkout'] = 'Ireki hizkuntza-paketea editatzeko';
+$string['checkoutdone'] = 'Hizkuntza-paketea igo da';
+$string['checkoutinprogress'] = 'Hizkuntza-paketea igotzen';
 $string['confirmcheckin'] = 'Aldatutako kateak zure hizkuntza-pakete lokalean egiaztatzekotan zara. Honela pertsonalizatutako kateak itzultzailearengandik datu-direktoriora esportatuko dira eta Moodle aldatutako kateak erabiltzen hasiko da. Sakatu \'Jarraitu\' botoiari egiaztatzeko.';
 $string['customlang:edit'] = 'Itzulpen lokala editatu ';
 $string['customlang:view'] = 'Itzulpen lokala ikusi';
@@ -47,7 +47,7 @@ $string['headingstringid'] = 'Katea';
 $string['markinguptodate'] = 'Markatu pertsonalizazioa eguneratu gisa';
 $string['markinguptodate_help'] = 'Pertsonalizatutako itzulpena zaharkitua gera daiteke katea zure gunean pertsonalizatu zenetik jatorrizko Ingeles edo itzulpen ofiziala aldatu bada. Berrikusi pertsonalizatutako itzulpena. Eguneratuta irizten badiozu, markatu laukitxoa. Bestela, editatu.';
 $string['markuptodate'] = 'markatu eguneratu gisa';
-$string['modifiedno'] = 'Ez dago aldatutako katerik egiaztatzeko.';
+$string['modifiedno'] = 'Ez dago aldatutako katerik gordetzeko.';
 $string['modifiednum'] = '{$a} aldatutako kate daude. Egiaztatu egin behar dituzu diskoan behin betiko gordetzeko.';
 $string['nostringsfound'] = 'Ez da katerik aurkitu. Mesedez, aldatu iragazkiaren ezarpenak.';
 $string['placeholder'] = 'Leku-markak';

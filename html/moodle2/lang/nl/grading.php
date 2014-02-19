@@ -47,7 +47,7 @@ $string['manageactiondeleteconfirm'] = 'Je gaat nu beoordelingsformulier \'{$a->
 * Je kunt deze operatie niet ongedaan maken
 * Je kunt naar een andere beoordelingsmethode, zoals \'Eenvoudig rechtstreeks beoordelen\', overschakelen zonder dit formulier te verwijderen.
 * Alle informatie over hoe de beoordelingsformulieren gevuld zijn zal verloren gaan.
-* De berekende resultaatscijfers die in het cijferboek staan zullen niet gewijzigd worden. De manier waarop ze bekomen werden zal niet meer beschikbaar zijn.
+* De berekende resultaatscijfers die in het puntenboek staan zullen niet gewijzigd worden. De manier waarop ze bekomen werden zal niet meer beschikbaar zijn.
 * Deze operatie heeft geen invloed op eventuele kopieën van dit formulier die in andere activiteiten gebruikt worden.';
 $string['manageactiondeletedone'] = 'Het formulier is verwijderd';
 $string['manageactionedit'] = 'Bewerk de huidige formulierdefinitie';

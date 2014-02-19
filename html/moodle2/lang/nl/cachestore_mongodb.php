@@ -40,3 +40,4 @@ $string['username'] = 'Gebruikersnaam';
 $string['username_help'] = 'De gebruikersnaam die je gebruikt om connectie te maken.';
 $string['usesafe'] = 'Veilig gebruiken';
 $string['usesafe_help'] = 'Indien ingeschakeld wordt de usesafe-optie gerbruikt tijdens een insert, get en remove-operatie. Als je met een replicaset werkt, dan zal dit verplicht ingeschakeld zijn.';
+$string['usesafevalue'] = 'Gebruik veilige waarde';

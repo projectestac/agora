@@ -43,7 +43,7 @@ $string['invalidnumbernounit'] = 'Deve inserir um número válido. Não inclua a
 $string['invalidnumericanswer'] = 'Uma das respostas que inseriu não é um número válido.';
 $string['invalidnumerictolerance'] = 'Uma das tolerâncias que inseriu não é um número válido.';
 $string['leftexample'] = 'Esquerda (exemplo: $1.00)';
-$string['manynumerical'] = 'A unidade é opcional. Se introduzida, é usada para converter a resposta para a unidade 1.';
+$string['manynumerical'] = 'A unidade é opcional. Se introduzida, é usada para converter a resposta para a unidade 1 antes de ser avaliada.';
 $string['multiplier'] = 'Multiplicador';
 $string['nominal'] = 'Nominal';
 $string['noneditableunittext'] = 'Texto não editável da Unidade 1';
@@ -103,8 +103,7 @@ $string['unitselect'] = 'Caixa de seleção';
 $string['validnumberformats'] = 'Formatos numéricos válidos';
 $string['validnumberformats_help'] = '* números regulares  13500.67 : 13 500.67 : 13500,67: 13 500,67
 
-* se usar , como separador dos milhares introduza *sempre* o separador decimal como .
- 13,500.67 : 13,500.
+* se as configurações do seu pacote linguístico (langconfig.php file) usarem uma vírgula [,] como separador dos milhares, introduza SEMPRE o ponto [.] como separador decimal, tal como: 13,500.67 : 13,500.
 
 * para formas exponenciais, por exemplo 1,350067 * 10<sup>4</sup>,  use
  1,350067 E4 : 1,350067 E04';

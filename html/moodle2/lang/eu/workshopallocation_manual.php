@@ -29,5 +29,6 @@ $string['addreviewee'] = 'Gehitu ebaluazioa';
 $string['addreviewer'] = 'Gehitu ebaluatzailea';
 $string['allocationadded'] = 'Bidalketa ondo esleitu da';
 $string['allocationexists'] = 'Esleipena dagoeneko badago';
+$string['areyousuretodeallocategraded'] = 'Dagoeneko kalifikatu den ebaluazioa ezabatuko duzu. Ziur al zaude ezabatu nahi duzula?';
 $string['pluginname'] = 'Eskuzko esleipena';
 $string['showallparticipants'] = 'Partaide guztiak erakutsi';

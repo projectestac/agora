@@ -68,6 +68,7 @@ $string['stampcoll:view'] = '查看此活动';
 $string['stampcoll:viewotherstamps'] = '查看其他人的奖章';
 $string['stampcoll:viewownstamps'] = '查看自己的奖章';
 $string['stampimage'] = '奖章图像';
+$string['stampimage_help'] = '建议大小为 35 x 35 像素。如果留空，将会使用默认的图像。';
 $string['stamptext'] = '文本';
 $string['studentsperpage'] = '每页的学生';
 $string['timemodified'] = '最后更改';

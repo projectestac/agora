@@ -117,9 +117,9 @@ $string['deletesure'] = 'Tem a certeza que deseja apagar esta mensagem?';
 $string['deletesureplural'] = 'Tem a certeza que quer apagar esta mensagem e todas as suas respostas? (número de respostas: {$a})';
 $string['digestmailheader'] = 'Este é o seu resumo diário de novas mensagens nos fóruns de {$a->sitename}. Pode alterar as suas preferências de e-mail em {$a->userprefs}.';
 $string['digestmailprefs'] = 'o seu perfil de utilizador';
-$string['digestmailsubject'] = '{$a}: resumo do fórum';
-$string['digestmailtime'] = 'Hora para enviar e-mails com resumos do fórum';
-$string['digestsentusers'] = 'Resumos de fóruns enviados com sucesso para {$a} utilizadores.';
+$string['digestmailsubject'] = '{$a}: sumário do fórum';
+$string['digestmailtime'] = 'Hora para enviar e-mails com sumários do fórum';
+$string['digestsentusers'] = 'Sumários de fóruns enviados com sucesso para {$a} utilizadores.';
 $string['disallowsubscribe'] = 'Não é possível subscrever';
 $string['disallowsubscribeteacher'] = 'Não é possível subscrever (excepto professores)';
 $string['discussion'] = 'Tópico';
@@ -196,7 +196,7 @@ $string['forum:viewallratings'] = 'Ver as avaliações atribuídas por cada part
 $string['forum:viewanyrating'] = 'Ver a avaliação global de cada participante';
 $string['forum:viewdiscussion'] = 'Ver tópicos de discussão';
 $string['forum:viewhiddentimedposts'] = 'Ver mensagens fora do período de visualização';
-$string['forum:viewqandawithoutposting'] = 'Ver sempre Perguntas e Respostas';
+$string['forum:viewqandawithoutposting'] = 'Ver sempre mensagens perguntas-resposta';
 $string['forum:viewrating'] = 'Ver a avaliação global que recebeu';
 $string['forum:viewsubscribers'] = 'Ver lista de subscritores';
 $string['generalforum'] = 'Fórum standard para utilização geral';
@@ -239,7 +239,7 @@ $string['modethreaded'] = 'Mostrar respostas em lista contraída';
 $string['modulename'] = 'Fórum';
 $string['modulename_help'] = 'A atividade Fórum permite aos participantes ter discussões em modo assíncrono.
 
-Existem vários tipos de fórum, como o fórum standard onde qualquer participante pode começar uma nova discussão, o fórum onde cada aluno pode colocar apenas um tópico de discussão ou o fórum de perguntas e respostas no qual os alunos devem primeiro responder a um tópico (pergunta) para conseguirem ver as respostas dos colegas. O professor pode optar por permitir que sejam anexados ficheiros às mensagens, cujo conteúdo, quando são imagens, é exibido na própria mensagem.
+Existem vários tipos de fórum, como o fórum standard onde qualquer participante pode começar uma nova discussão, o fórum onde cada aluno pode colocar apenas um tópico de discussão ou o fórum de pergunta-resposta no qual os alunos devem primeiro responder a um tópico (pergunta) para conseguirem ver as respostas dos colegas. O professor pode optar por permitir que sejam anexados ficheiros às mensagens, cujo conteúdo, quando são imagens, é exibido na própria mensagem.
 
 Os participantes podem subscrever um fórum de forma a receber notificações sempre que são submetidas novas mensagens no mesmo. O professor pode configurar a subscrição para o modo opcional, obrigatória ou opcional (ativa ao inicio) ou desativá-la. Se necessário, os alunos podem ser impedidos de inserir mais do que um determinado número de mensagens num determinado período de tempo, no sentido de impedir que alguns alunos dominem as discussões.
 
@@ -329,13 +329,13 @@ $string['postsmadebyuserincourse'] = 'Mensagens colocadas por {$a->fullname} em 
 $string['posttoforum'] = 'Submeter ao fórum';
 $string['postupdated'] = 'A sua mensagem foi atualizada';
 $string['potentialsubscribers'] = 'Potenciais subscritores';
-$string['processingdigest'] = 'A processar resumos para o utilizador {$a}';
+$string['processingdigest'] = 'A processar sumários para o utilizador {$a}';
 $string['processingpost'] = 'A processar a mensagem {$a}';
 $string['prune'] = 'Separar';
 $string['prunedpost'] = 'Foi criado um novo tópico, a partir desta mensagem';
 $string['pruneheading'] = 'Separar esta mensagem e as suas respostas para um novo tópico deste fórum';
-$string['qandaforum'] = 'Fórum de Perguntas e Respostas';
-$string['qandanotify'] = 'Este é um fórum de Perguntas e Respostas. Para poder ver as respostas às questões, deverá enviar primeiro a sua própria resposta.';
+$string['qandaforum'] = 'Fórum de pergunta-resposta';
+$string['qandanotify'] = 'Este é um fórum de pergunta-resposta. Para poder ver as respostas às questões, deverá enviar primeiro a sua própria resposta.';
 $string['re'] = 'Re:';
 $string['readtherest'] = 'Ler o resto deste tópico';
 $string['replies'] = 'Respostas';
@@ -409,12 +409,10 @@ $string['tracking'] = 'Assinalar';
 $string['trackingoff'] = 'Não';
 $string['trackingon'] = 'Sim';
 $string['trackingoptional'] = 'Opcional';
-$string['trackingtype'] = 'Assinalar mensagens não lidas neste fórum?';
-$string['trackingtype_help'] = 'Se ativo, as mensagens não lidas por cada participante serão assinaladas no fórum quando este o visualiza.
+$string['trackingtype'] = 'Assinalar mensagens';
+$string['trackingtype_help'] = 'Se ativar esta opção, os participantes podem assinalar e marcar como lidas/não lidas os tópicos do fórum bem como nas discussões. Existem três opções:
 
-Existem três opções:
-
-* Opcional - Participantes podem ativar ou desativar a sinalização de mensagens
+* Opcional - Os participantes podem ativar ou desativar a sinalização de mensagens
 * Sim - As mensagens são sempre assinaladas
 * Não - As mensagens nunca são assinaladas';
 $string['unread'] = 'Não lidas';

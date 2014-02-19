@@ -32,7 +32,7 @@ $string['addgroupstogroupings'] = 'Gruppen verwalten';
 $string['adduserstogroup'] = 'Nutzer/innen verwalten';
 $string['allocateby'] = 'Mitglieder zuordnen';
 $string['anygrouping'] = '[Jede Gruppierung]';
-$string['autocreategroups'] = 'Automatisch erstellte Gruppen';
+$string['autocreategroups'] = 'Gruppen automatisch erstellen';
 $string['backtogroupings'] = 'Zurück zu Gruppierungen';
 $string['backtogroups'] = 'Zurück zu Gruppen';
 $string['badnamingscheme'] = 'Muss genau ein \'@\' oder ein \'#\' Zeichen enthalten';
@@ -64,7 +64,7 @@ $string['erroraddremoveuser'] = 'Fehler beim Hinzufügen/Entfernen von {$a} in d
 $string['erroreditgroup'] = 'Fehler beim Bearbeiten der Gruppe {$a}';
 $string['erroreditgrouping'] = 'Fehler beim Bearbeiten der Gruppierung {$a}';
 $string['errorinvalidgroup'] = 'Fehler: Ungültige Gruppe {$a}';
-$string['errorremovenotpermitted'] = 'Sie haben keine Berechtigung die automatisch hinzugefügten Gruppenmitgliedern {$a} zu entfernen.';
+$string['errorremovenotpermitted'] = 'Sie haben nicht das Recht, automatisch hinzugefügte Gruppenmitglieder {$a} zu entfernen.';
 $string['errorselectone'] = 'Bitte markieren Sie nur eine Gruppe, bevor Sie diese Option wählen.';
 $string['errorselectsome'] = 'Bitte markieren Sie eine oder mehrere Gruppen, bevor Sie diese Option wählen.';
 $string['evenallocation'] = 'Anmerkung: Um die Verteilung der Gruppen gleichmäßig zu erteilen, kann die Zahl der Mitglieder je Gruppe von der angegeben Zahl abweichen.';
@@ -109,6 +109,7 @@ $string['groupnameexists'] = 'Der Gruppenname \'{$a}\' existiert in diesem Kurs 
 $string['groupnotamember'] = 'Sie sind nicht Mitglied dieser Gruppe';
 $string['groups'] = 'Gruppen';
 $string['groupscount'] = 'Gruppen ({$a})';
+$string['groupsettingsheader'] = 'Gruppen';
 $string['groupsgroupings'] = 'Gruppen &amp; Gruppierungen';
 $string['groupsinselectedgrouping'] = 'Gruppen in:';
 $string['groupsnone'] = 'Keine Gruppen';
@@ -127,7 +128,7 @@ $string['importgroups_help'] = 'Gruppen können als Textdatei importiert werden,
 * Notwendiges Feld ist groupname (Gruppenname)
 * Optionale Felder sind description (Beschreibung), enrolmentkey (Gruppenschlüssel), picture (Bild), hidepicture (Bild verbergen)
 * Die Felder müssen mit den englischen Bezeichnungen angegeben sein';
-$string['javascriptrequired'] = 'Diese Seite benötigt Javascript, um aktiviert zu werden.';
+$string['javascriptrequired'] = 'Diese Seite benötigt JavaScript.';
 $string['members'] = 'Mitglieder pro Gruppe';
 $string['membersofselectedgroup'] = 'Mitglieder in:';
 $string['namingscheme'] = 'Namenschema';

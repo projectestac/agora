@@ -42,10 +42,10 @@ $string['legacyreal_desc'] = 'File con estensione *.rm, *.ra, *.ram, *.rp, *.rv.
 $string['legacywmp'] = 'Windows media player';
 $string['legacywmp_desc'] = 'File con estensione *.avi e *.wmv. E\' pienamente compatibile con Internet Explorer su Windows, potrebbe presentare qualche probelma con browser o sistemi operativi di altro tipo.';
 $string['mediaformats'] = 'Player disponibili';
-$string['mediaformats_desc'] = 'Abilitando i player tramite le impostazioni seguenti, sarà possibile eseguire l\'embed di file tramite il filtro Plugin multimediali (se abilitato) oppure tramite risorse di tipo File o URL usando l\'opzione Embed. Se un player non è abilitato, non sarà possibile eseguire l\'embed di quel tipo di media e gli utenti dovranno scaricare il file o seguire il link.
+$string['mediaformats_desc'] = 'Abilitando i player tramite le impostazioni seguenti, sarà possibile incorporare file multimediali tramite il filtro Plugin multimediali (se abilitato) oppure tramite risorse di tipo File o URL usando l\'opzione \'Incorpora\'. Se un player non è abilitato, non sarà possibile incorporare quel tipo di media e gli utenti dovranno scaricare il file o seguire il link.
 
 Se due player supportano lo stesso formato, abilitarli entrambi aumenta la compatibilità tra dispositivi diversi, come ad esempio i telefoni cellulari. E\' anche possibile aumentare ulteriormente la compatibilità fornendo più versioni in formati diversi dello stesso clip audio o video.';
-$string['mediasettings'] = 'Media embed';
+$string['mediasettings'] = 'Media incorporati';
 $string['mp3audio'] = 'Audio MP3';
 $string['mp3audio_desc'] = 'File con estensione *.mp3. Esegue audio tramite Flowplayer, prerequisito il plugin Flash.';
 $string['sitevimeo'] = 'Vimeo';

@@ -107,9 +107,9 @@ $string['basicideasofquiz'] = 'Les concepts de base pour créer des tests';
 $string['bestgrade'] = 'Meilleure note';
 $string['bothattempts'] = 'Afficher aussi les étudiants n\'ayant pas fait le test';
 $string['browsersecurity'] = 'Sécurité du navigateur';
-$string['browsersecurity_help'] = 'Si vous sélectionnez l\'option « Nouvelle fenêtre plein écran avec un peu de sécurité JavaScript »,
+$string['browsersecurity_help'] = 'Si vous sélectionnez l\'option « Nouvelle fenêtre plein écran avec un peu de sécurité Javascript »,
 
-* le test démarre uniquement si l\'étudiant possède un navigateur qui accepte le JavaScript ;
+* le test démarre uniquement si l\'étudiant possède un navigateur qui accepte le Javascript ;
 * le test démarre dans une nouvelle fenêtre qui couvre entièrement les autres fenêtres et qui ne possède pas de boutons de navigation ;
 * les fonctions telles que copier-coller sont, autant que possible, bloquées pour l\'étudiant.';
 $string['calculated'] = 'Calculée';
@@ -167,8 +167,9 @@ $string['configintro'] = 'Les valeurs indiquées ici définissent les valeurs ut
 $string['configmaximumgrade'] = 'La note maximale du test par défaut. Si elle est différente de celle du test lui-même, la note des participants sera adaptée adéquatement.';
 $string['confignavmethod'] = 'En mode navigation libre, les questions peuvent être répondues dans n\'importe quel ordre. Dans mode séquentiel, les questions doivent être traitées strictement dans l\'ordre établi.';
 $string['confignewpageevery'] = 'Lors de l\'ajout de questions, des sauts de pages seront insérés automatiquement d\'après ce réglage.';
+$string['configoutcomesadvanced'] = 'Si ce réglage est activé, les objectifs seront des réglages avancés dans le formulaire de modification des tests.';
 $string['configpenaltyscheme'] = 'Pénalité soustraite pour chaque mauvaise réponse dans les tests en mode adaptatif.';
-$string['configpopup'] = 'Forcer l\'affichage du test dans une nouvelle fenêtre et utiliser des astuces JavaScript pour essayer d\'empêcher le copier/coller, etc. durant les tentatives de tests.';
+$string['configpopup'] = 'Forcer l\'affichage du test dans une nouvelle fenêtre et utiliser des astuces Javascript pour essayer d\'empêcher le copier/coller, etc. durant les tentatives de tests.';
 $string['configrequirepassword'] = 'Les participants doivent saisir ce mot de passe avant de pouvoir effectuer des tentatives.';
 $string['configrequiresubnet'] = 'Les participants me peuvent effectuer des tentatives que depuis les ordinateurs sur ces réseaux.';
 $string['configreviewoptions'] = 'Ces options déterminent les informations que les participants peuvent voir lorsqu\'ils relisent une tentative de test ou quand ils consultent les rapports de tests.';
@@ -242,12 +243,7 @@ $string['download'] = 'Cliquer pour télécharger le fichier exporté';
 $string['downloadextra'] = '(le fichier est aussi déposé dans les fichiers du cours, dans le dossier /backupdata/quiz)';
 $string['duplicateresponse'] = 'Cet envoi a été ignoré, car vous avez déjà donné auparavant une réponse équivalente.';
 $string['eachattemptbuildsonthelast'] = 'Chaque tentative complète la précédente';
-$string['eachattemptbuildsonthelast_help'] = '<!-- $Id$ -->
-
-
-<p>Lorsqu\'on autorise l\'étudiant à refaire plusieurs fois un test et que cette option est activée, l\'étudiant pourra commencer une nouvelle tentative à partir des résultats de l\'essai précédent. L\'étudiant pourra ainsi compléter un test en plusieurs séances ou corriger les erreurs qu\'il aurait faites.</p>
-
-<p>Si vous désirez que l\'étudiant recommence à zéro à chaque tentative, choisissez de désactiver cette option.</p>';
+$string['eachattemptbuildsonthelast_help'] = 'Lorsqu\'on autorise l\'étudiant à refaire plusieurs fois un test et que cette option est activée, l\'étudiant pourra commencer une nouvelle tentative à partir des résultats de l\'essai précédent. L\'étudiant pourra ainsi compléter un test en plusieurs fois.';
 $string['editcategories'] = 'Modifier les catégories';
 $string['editcategory'] = 'Modifier la catégorie';
 $string['editcatquestions'] = 'Modifier les questions de la catégorie';
@@ -407,7 +403,7 @@ $string['indivresp'] = 'Réponses de chaque personne à toutes les questions';
 $string['info'] = 'Info';
 $string['infoshort'] = 'i';
 $string['inprogress'] = 'En cours';
-$string['introduction'] = 'Introduction';
+$string['introduction'] = 'Description';
 $string['invalidattemptid'] = 'Cet identifiant de tentative n\'existe pas';
 $string['invalidcategory'] = 'L\'identifiant de catégorie n\'est pas valide';
 $string['invalidnumericanswer'] = 'Une des réponses que vous avez donnée n\'était pas un nombre valide.';
@@ -467,7 +463,7 @@ $string['moveselectedonpage'] = 'Déplacer les questions sélectionnées vers la
 $string['multichoice'] = 'Choix multiples';
 $string['multipleanswers'] = 'Veuillez choisir au moins une réponse.';
 $string['multiplier'] = 'Coefficient';
-$string['mustbesubmittedby'] = 'Cette tentative doit être envoyée par {$a}.';
+$string['mustbesubmittedby'] = 'Cette tentative doit être envoyée avant {$a}.';
 $string['name'] = 'Nom';
 $string['navmethod'] = 'Méthode de navigation';
 $string['navmethod_free'] = 'Libre';
@@ -478,10 +474,7 @@ $string['neverallononepage'] = 'Jamais, toutes les questions sur une page';
 $string['newattemptfail'] = 'Erreur ! Impossible de commencer une tentative de ce test';
 $string['newpage'] = 'Nouvelle page';
 $string['newpageevery'] = 'Commencer automatiquement une nouvelle page';
-$string['newpage_help'] = '<!-- $Id$ -->
-
-
-<p>Pour les tests longs, il peut être utile de répartir le test au travers de plusieurs pages, en définissant un nombre de questions par page. Lorsque vous ajouterez des questions au test, les boutons de changement de page seront automatiquement introduits, selon le paramètre indiqué ici. Par ailleurs, vous pourrez également déplacer manuellement ce changement de page, en éditant la page.</p>';
+$string['newpage_help'] = 'Pour les tests longs, il peut être utile de répartir le test sur plusieurs pages, en définissant un nombre de questions par page. Lorsque vous ajouterez des questions au test, les boutons de changement de page seront automatiquement introduits, selon le paramètre indiqué ici. Par ailleurs, vous pourrez également déplacer manuellement ce changement de page, en modifiant la page.';
 $string['noanswers'] = 'Aucune réponse n\'a été sélectionnée !';
 $string['noattempts'] = 'Aucune tentative n\'a été réalisée sur ce test';
 $string['noattemptsfound'] = 'Aucune tentative trouvée.';
@@ -511,7 +504,7 @@ $string['noreviewattempt'] = 'Vous n\'êtes pas autorisé à relire cette tentat
 $string['noreviewshort'] = 'Non autorisé';
 $string['noreviewuntil'] = 'Vous n\'êtes pas autorisé à relire ce test avant le {$a}';
 $string['noreviewuntilshort'] = 'Disponible le {$a}';
-$string['noscript'] = 'JavaScript doit être activé pour continuer !';
+$string['noscript'] = 'Javascript doit être activé pour continuer !';
 $string['notavailabletostudents'] = 'Ce test n\'est actuellement pas disponible pour vos étudiants';
 $string['notenoughrandomquestions'] = 'Il n\'y a pas assez de questions dans la catégorie {$a->category} pour créer la question {$a->name} ({$a->id}).';
 $string['notenoughsubquestions'] = 'Vous n\'avez pas défini assez de sous-questions !<br />Souhaitez-vous revenir en arrière pour corriger cela ?';
@@ -539,27 +532,12 @@ Pour ajouter des sauts de page après certaines questions, cochez la case en fac
 Pour organiser les questions sur plusieurs pages, cliquez sur le bouton « Repagination » et indiquez le nombre de questions désirées par page.';
 $string['orderingquiz'] = 'Ordre et pagination';
 $string['orderingquizx'] = 'Ordre et pagination {$a}';
+$string['outcomesadvanced'] = 'Les objectifs sont des réglages avancés';
 $string['outof'] = '{$a->grade} sur un maximum de {$a->maxgrade}';
 $string['outofpercent'] = '{$a->grade} sur un maximum de {$a->maxgrade} ({$a->percent}%)';
 $string['outofshort'] = '{$a->grade}/{$a->maxgrade}';
 $string['overallfeedback'] = 'Feedback global';
-$string['overallfeedback_help'] = '<!-- $Id$ -->
-
-
-<p>Le feedback général est un texte qui montré à l\'étudiant lorsqu\'il a terminé une tentative d\'un test. Le texte affiché peut différer suivant la note obtenue par l\'étudiant.</p>
-
-<p>Par exemple, admettons que vous tapiez :</p>
-
-<p>Limite de note 100%<br />
-Feedback Bien joué<br />
-Limite de note 40%<br />
-Feedback Merci d\'étudier encore cette matière<br />
-etc.<br />
-Limite de note 0%</p>
-
-<p>Dans ce cas, le message « Bien joué » sera affiché pour les étudiants obtenant un résultat entre 100% et 40%, et les étudiants obtenant entre 39.99% et 0% verront l\'autre message. Les limites de note définissent les plages de notes pour lesquelles afficher le feedback correspondant.</p>
-
-<p>Les limites de note doivent être indiquées soit sous la forme d\'un pourcentage, par exemple « 31.41% », soit sous la forme d\'un nombre, par exemple « 7 ». Si la note maximale de votre test est de 10, une limite de 7 signifie 7 sur 10 ou plus.</p>';
+$string['overallfeedback_help'] = 'Le feedback global est un texte qui montré à l\'étudiant lorsqu\'il a terminé une tentative d\'un test. En spécifiant des limites de notes supplémentaires (sous forme de nombre ou de pourcentage), le texte affiché peut différer suivant la note obtenue par l\'étudiant.';
 $string['overdue'] = 'En retard';
 $string['overduehandling'] = 'Lorsque le temps imparti échoit';
 $string['overduehandlingautoabandon'] = 'La tentative doit être envoyée avant l\'échéance, sans quoi elle n\'est pas comptabilisée';
@@ -605,7 +583,7 @@ $string['previewquiz'] = 'Prévisualiser {$a}';
 $string['previewquiznow'] = 'Prévisualiser le test maintenant';
 $string['previous'] = 'État précédent';
 $string['publish'] = 'Publier';
-$string['publishedit'] = 'Pour ajouter ou modifier une question de cette catégorie, vous devez avoir ces permissions dans le cours publiant cette catégorie.';
+$string['publishedit'] = 'Pour ajouter ou modifier une question de cette catégorie, vous devez avoir ces droits d\'accès dans le cours publiant cette catégorie.';
 $string['qbrief'] = 'Q. {$a}';
 $string['qname'] = 'nom';
 $string['qti'] = 'Format IMS QTI';
@@ -669,7 +647,7 @@ $string['quiz:reviewmyattempts'] = 'Relire ses propres tentatives';
 $string['quizsettings'] = 'Réglages du test';
 $string['quiztimer'] = 'Minuterie';
 $string['quiz:view'] = 'Voir les informations des tests';
-$string['quiz:viewreports'] = 'Voir les rapports des tests';
+$string['quiz:viewreports'] = 'Consulter les rapports des tests';
 $string['quizwillopen'] = 'Ce test sera ouvert le {$a}';
 $string['random'] = 'Question aléatoire';
 $string['randomcreate'] = 'Créer des questions aléatoires';
@@ -686,7 +664,7 @@ $string['regrade'] = 'Recalculer les notes de toutes les tentatives';
 $string['regradecomplete'] = 'Toutes les notes ont été recalculées';
 $string['regradecount'] = '{$a->changed} sur {$a->attempt} notes ont été changées';
 $string['regradedisplayexplanation'] = 'Les tentatives modifiées durant le nouveau calcul des notes sont affichées comme hyperliens dans la fenêtre de relecture des questions';
-$string['regradenotallowed'] = 'Vous n\'avez pas les autorisations pour ré-évaluer ce test';
+$string['regradenotallowed'] = 'Vous n\'avez pas les droits d\'accès requis pour ré-évaluer ce test';
 $string['regradingquestion'] = 'Nouveau calcul de « {$a} ».';
 $string['regradingquiz'] = 'Nouveau calcul des notes du test « {$a} »';
 $string['remove'] = 'Supprimer';
@@ -725,12 +703,7 @@ $string['reportuserswithorwithout'] = 'Les utilisateurs inscrits qui ont ou n\'o
 $string['reportuserswithout'] = 'Les utilisateurs inscrits qui n\'ont pas effectué le test';
 $string['reportwhattoinclude'] = 'Informations à inclure dans le rapport';
 $string['requirepassword'] = 'Nécessite une clef';
-$string['requirepassword_help'] = '<!-- $Id$ -->
-
-
-<p>Ce champ est optionnel.</p>
-
-<p>Si vous spécifiez ici une clef, les participants devront taper cette même clef avant de pouvoir faire le test.</p>';
+$string['requirepassword_help'] = 'Si vous spécifiez ici un mot de passe, les participants devront le saisir avant de pouvoir faire le test.';
 $string['requiresubnet'] = 'Restriction par adresse IP';
 $string['requiresubnet_help'] = '<!-- $Id$ -->
 
@@ -787,7 +760,7 @@ $string['reviewoptionsheading_help'] = 'Ces options permettent de décider les i
 **Plus tard, alors que le test est encore ouvert** veut dire après ces deux minutes, mais avant que le test soit fermé.
 
 **Après la fermeture du test** veut dire après la date de fermeture du test. Si le test n\'a pas de date de fermeture, cet état n\'est jamais atteint.';
-$string['reviewoverallfeedback'] = 'Feedback général';
+$string['reviewoverallfeedback'] = 'Feedback global';
 $string['reviewoverallfeedback_help'] = 'Le feedback donné au terme d\'une tentative, en fonction du total des points obtenu par le participant.';
 $string['reviewresponse'] = 'Relire la réponse';
 $string['reviewresponsetoq'] = 'Relire la réponse (question {$a})';

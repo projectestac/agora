@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Formato social';
+$string['pluginname'] = 'Formato Social';
 $string['sectionname'] = 'secção';

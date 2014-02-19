@@ -26,4 +26,17 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configtitle'] = 'Название';
+$string['date-posted-asc'] = 'Возрастание даты размещения';
+$string['date-posted-desc'] = 'Убывание даты размещения';
+$string['date-taken-asc'] = 'Возрастание даты получения';
+$string['date-taken-desc'] = 'Убывание даты получения';
+$string['defaulttile'] = 'Flickr';
+$string['getfromphotoset'] = 'Получение фотографий из фотонабора с ID';
+$string['includerelatedtags'] = 'Включать в запрос связанные теги';
+$string['interestingness-asc'] = 'Возрастание привлекательности';
+$string['interestingness-desc'] = 'Убывание привлекательности';
+$string['numberofphotos'] = 'Количество фотографий';
 $string['pluginname'] = 'Flickr';
+$string['relevance'] = 'Актуальность';
+$string['sortby'] = 'Сортировать по';
+$string['tag_flickr:addinstance'] = 'Добавлять новый блок Flickr';

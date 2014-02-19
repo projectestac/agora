@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['calendar_upcoming:addinstance'] = 'Engadir un novo bloque de actividades en vésperas';
+$string['calendar_upcoming:myaddinstance'] = 'Engadir novo bloque de actividades en vésperas ao cartafol persoal';
 $string['pluginname'] = 'Próximos eventos';

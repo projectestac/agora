@@ -4,56 +4,10 @@
     require_once($CFG->libdir.'/adminlib.php');
     require_login();
     admin_externalpage_setup('marsupialstate');
-// MARSUPIAL ************ MODIFICAT -> Deprecated code in Moodle 2.x
-// 2012.11.17 @abertranb
     echo $OUTPUT->header();
-// ************ MODIFICAT
-    //admin_externalpage_print_header();
-// ************ FI
 
     $connection_error = "";
     //If it's necessary, check Atria connectivity
-// MARSUPIAL ************ ELIMINAT -> Deprecated code in Moodle 2.x
-// 2013.01.29 @abertranb
-
-//    	if (isset($CFG->useatria) && $CFG->useatria){
-// ************ MODIFICAT
-    	//    if (!isset($CFG->useatria) || $CFG->useatria){
-// ************ FI
-
-// MARSUPIAL ************ AFEGIT -> Added proxy option
-// 2012.08.30 @mmartinez
-//             $options = array('trace' => 1, 'cache_wsdl' => 0);
-//             if (isset($CFG->proxytype) && $CFG->proxytype == 'HTTP' && !empty($CFG->proxyhost)){
-//             	$options['proxy_host'] = $CFG->proxyhost;
-//             	if (!empty($CFG->proxyport)){
-//             		$options['proxy_port'] = $CFG->proxyport;
-//             	}
-//             	if (!empty($CFG->proxyuser)){
-//             		$options['proxy_login'] = $CFG->proxyuser;
-//             	}
-//             	if (!empty($CFG->proxypassword)){
-//             		$options['proxy_password'] = $CFG->proxypassword;
-//             	}
-//             }
-// ************* FI
-// MARSUPIAL *********** MODIFICAT -> Added proxy option
-// 2012.08.30 @mmartinez
-//            $client = new SoapClient($CFG->atriaWSUrlPublisher, $options);
-// *********** ORIGINAL
-			//$client = new SoapClient($CFG->atriaWSUrlPublisher, array('trace' => true, 'cache_wsdl' => 0));
-// ************* FI
-//             $strHeaderComponent = '<WSAuthHeader xmlns:h="http://www.atria.cat/_layouts/Renacimiento/WebServices" xmlns="http://www.atria.cat/_layouts/Renacimiento/WebServices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><Username>'.$CFG->atriaUsername.'</Username><Password>'.$CFG->atriaPassword.'</Password></WSAuthHeader>';
-//             $objVar = new SoapVar($strHeaderComponent, XSD_ANYXML, null, null, null);
-//             $objHeader = new SoapHeader('http://www.atria.cat/_layouts/Renacimiento/WebServices', 'WSAuthHeader', $objVar);
-//             $client->__setSoapHeaders(array($objHeader));
-//             try{
-//                     $data = $client->GetPublisherData(array('sCodiEntitat' => $CFG->atriaEmpresa . '+' . $CFG->center . '+' . $CFG->atriaEvaType, 'sCodiCentre' => $CFG->center));
-//             }catch (Exception $e) {
-//                     $connection_error = $e->getMessage();
-//             }
-//     }
-
 
     //Number of users with credentials in the total
     $total_users = get_users(false, '', true);
@@ -87,7 +41,6 @@
     //require_js(array('yui_dom-event', 'yui_connection', 'yui_json'));
     // ********** FI
 
-
     echo '	<script type="text/javascript">
                             var callback = {  success: function(o) {
 								document.getElementById("loading_small").style.visibility = "hidden";
@@ -111,25 +64,6 @@
     echo '<h2 class="headingblock header ">'.get_string('marsupialstats','block_rcommon').'</h2>';
     echo '<div class="box generalbox generalboxcontent">';
 
-// MARSUPIAL ************ ELIMINAT -> Deprecated code in Moodle 2.x
-// 2013.01.29 @abertranb
-
-//	    if (isset($CFG->useatria) && $CFG->useatria){
-// ************ MODIFICAT
-//    if (!isset($CFG->useatria) || $CFG->useatria){
-// ************ FI
-//            echo '<p><b>'.get_string('atria_connection', 'block_rcommon').'</b><br/>';
-//           if ($connection_error == '') {
-//                     echo '<img src="'.$OUTPUT->pix_url('go.gif').'" alt="ok" /><span style="color:green"> '.get_string('atria_connection_ok', 'block_rcommon').'</span>';
-//             } else {
-//                     echo '<img src="'.$OUTPUT->pix_url('stop.gif').'" alt="ok" /><span style="color:red"> '.get_string('atria_connection_ko', 'block_rcommon').
-//                             '<br/><span style="font-size:small">'.$connection_error.'</span></span>'.
-//                             '<br/><br/><span style="font-size:small">'.get_string('atria_error_information', 'block_rcommon').'</span>';
-//                     echo '<br><a href="'.$CFG->wwwroot.'/atria/getKeys.php" >'.get_string('marsupialusersync','block_rcommon').'</a>';
-//             }
-//             echo '</p><br/>';
-//     }
-    // ************ FI
     echo '<p><b>'.get_string('user_credentials', 'block_rcommon').'</b><br/>'.get_string('users_proportion', 'block_rcommon', $a).'. <br /><a href="print_users.php">'.get_string('show_users', 'block_rcommon').'</a></p><br/>';
 
     echo '<p><b>'.get_string('publishers', 'block_rcommon').'</b>';

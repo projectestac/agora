@@ -25,10 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Конфигурация хранилища "Файлы на сервере"';
+$string['configplugin'] = 'Конфигурация хранилища «Файлы на сервере»';
 $string['currentusefiles'] = 'Файлы, которые используются';
 $string['emptyfilelist'] = 'Нет файлов для отображения';
-$string['local:view'] = 'Посматривать хранилище "Файлы на сервере"';
+$string['local:view'] = 'Посматривать хранилище «Файлы на сервере»';
 $string['notitle'] = 'без названия';
 $string['pluginname'] = 'Файлы на сервере';
 $string['pluginname_help'] = 'Файлы, ранее загруженные на сервер Moodle';

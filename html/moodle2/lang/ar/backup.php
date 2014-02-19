@@ -178,6 +178,7 @@ $string['restoringcourseshortname'] = 'إسترجاع';
 $string['rootsettingactivities'] = 'ضمن الأنشطة';
 $string['rootsettinganonymize'] = 'عدم شخصنة معلومات المستخدم';
 $string['rootsettingblocks'] = 'ضمن الكتل';
+$string['rootsettingcalendarevents'] = 'تضمين أحداث التقويم';
 $string['rootsettingcomments'] = 'ضمن التعليقات';
 $string['rootsettingfilters'] = 'ضمن المرشحات';
 $string['rootsettinggradehistories'] = 'ضمن تاريخ الدرجات';

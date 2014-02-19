@@ -30,6 +30,7 @@ $string['alwaysshowall'] = 'Amosar sempre todo';
 $string['collapseall'] = 'Contraer todas as listas de cursos';
 $string['configotherexpanded'] = 'Se está activado, expándese a lista de Outros cursos de xeito predeterminado, a non ser que estea anulado polas preferencias do usuario.';
 $string['configpreservestates'] = 'Se está activado, os estados contraida/expandida estabelecidos polo usuario almacenaranse e empregaranse en cada carga.';
+$string['course_overview:myaddinstance'] = 'Engadir un novo bloque de vista xeral ao meu cartafol persoal';
 $string['defaultmaxcourses'] = 'Máximo de cursos como predeterminado';
 $string['defaultmaxcoursesdesc'] = 'Máximo de cursos que deben presentarse no bloque de Vista xeral do curso, 0 amosará todos os cursos';
 $string['expandall'] = 'Expandirá todas as listas de cursos';

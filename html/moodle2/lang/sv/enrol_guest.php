@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allowguests'] = 'Denna kurs tillåter gäster.';
+$string['guestaccess_withoutpassword'] = 'Tillåt gäster';
+$string['guestaccess_withpassword'] = 'Tillåt gäster';
 $string['guest:config'] = 'Konfigurera instanser för gästaccess';
 $string['password'] = 'Gästlösenord';
 $string['password_help'] = 'Ett gästlösenord begränsar tillträde till enbart gäster som känner till lösenordet. Gäster kommer att frågas om lösenordet varje gång de besöker kursen.';

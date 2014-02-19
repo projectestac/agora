@@ -26,3 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['moodlemedia:browsemedia'] = 'Chercher ou déposer un son, une vidéo ou une applet...';
+$string['moodlemedia:desc'] = 'Insérer média Moodle';
+$string['nopreview'] = 'Impossible de prévisualiser le média.';
+$string['pluginname'] = 'Insérer média';

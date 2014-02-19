@@ -57,6 +57,7 @@ $string['hideall'] = 'Laburpenak baino ez erakutsi';
 $string['invalidjclicfile'] = 'Balio ez duen JClic fitxategia ezarri da. Fitxategiak ".jclic.zip" luzapena izan behar du.';
 $string['invalidurl'] = 'Balio ez duen URLa ezarri da. URLak http(s) hasiera izan behar du eta ".jclic.zip" fitxategi baliagarri bat izan behar du.';
 $string['jclic'] = 'JClic';
+$string['jclic:addinstance'] = 'Gehitu JClic';
 $string['jclicfile'] = 'JClic fitxategia';
 $string['jclicfile_help'] = 'JClic paketea duen .jclic.zip fitxategia.';
 $string['jclic:grade'] = 'JClic-en kalifikazioa';

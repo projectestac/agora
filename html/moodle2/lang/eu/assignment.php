@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = 'Zain dituzu hainbat zeregin';
 $string['addsubmission'] = 'Gehitu bidalketa';
 $string['allowdeleting'] = 'Ezabatzen utzi';
 $string['allowdeleting_help'] = 'Aukera hau gaituz gero, ikasleek igotako fitxategiak kalifikatu aurreko edozein momentutan ezabatu ahalko dituzte.';
@@ -62,6 +63,8 @@ $string['assignment:view'] = 'Zeregina ikusi';
 $string['availabledate'] = 'Noiztik aurrera eskuragarri';
 $string['cannotdeletefiles'] = 'Errorea gertatu da eta fitxategiak ezin dira ezabatu';
 $string['cannotviewassignment'] = 'Ein duzu zeregin hau ikusi';
+$string['changegradewarning'] = 'Zeregin honetan badago kalifikatutako bidalketarik, berbidalketak ez ditu automatikoki kalifikazioak berriro kalkulatzen. Badiren bidalketen kalifikazioak berriro kalkulatu behar dituzu, nahi duzun kalifikazioa aldatu ahal izateko.';
+$string['closedassignment'] = 'Zeregin hau itxita dago, amaitu da bidalketak gehitzeko epea.';
 $string['comment'] = 'Iruzkina';
 $string['commentinline'] = 'Lerro arteko iruzkina';
 $string['commentinline_help'] = '<p>Aukera hau gaituta dagoenean, ikasleak bidalitako testua automatikoki kopiatuko da irakasleak kalifikazioa eta iruzkina egiteko erabiltzen duen testu-eremuan. Aukera honek on lineko ebaluazioa errazten du (kolore ezberdinak erabiliz, agian) edo jatorrizko testuaren lerro arteko iruzkinak egiten utziz.</p>';
@@ -109,6 +112,7 @@ $string['feedbackfromteacher'] = '{$a}(r)en feedbacka';
 $string['feedbackupdated'] = 'Bidalketen erantzuna {$a} pertsonarentzat eguneratu da';
 $string['finalize'] = 'Debekatu bidalketak eguneratzea';
 $string['finalizeerror'] = 'Errorea gertatu da eta bidalketa ezin izan da amaitu';
+$string['futureaassignment'] = 'Zeregin hau ez dago jada eskuragarri.';
 $string['graded'] = 'Kalifikatua';
 $string['guestnosubmit'] = 'Barkatu, bisitariek ezin dute eginkizunik bidali. Zure erantzuna bidali ahal izateko, zure datuak bidali behar dituzu edo erregistratu.';
 $string['guestnoupload'] = 'Barkatu, bisitariek ezin dute ezer igo.';
