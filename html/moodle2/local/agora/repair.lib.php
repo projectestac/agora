@@ -29,6 +29,46 @@ function repair_not_erased_activities($courseid = false, $execute = false){
 	$cms->close();
 }
 
+function agora_repair_gradebook($courseid = false){
+	global $CFG, $DB;
+	require_once($CFG->libdir.'/gradelib.php');
+	require_once($CFG->dirroot.'/mod/assign/lib.php');
+	require_once($CFG->dirroot.'/mod/assign/locallib.php');
+
+	if($courseid){
+		mtrace ('Seleccionat el curs '.$courseid, '<br/>');
+	    $params = array('moduletype'=>'assign','courseid'=>$courseid);
+	    $sql = 'SELECT a.*, cm.idnumber as cmidnumber, a.course as courseid
+	            FROM {assign} a, {course_modules} cm, {modules} m
+	            WHERE m.name=:moduletype AND m.id=cm.module AND cm.instance=a.id AND a.course=:courseid';
+	} else {
+		$params = array('moduletype'=>'assign');
+    	$sql = 'SELECT a.*, cm.idnumber as cmidnumber, a.course as courseid
+            FROM {assign} a, {course_modules} cm, {modules} m
+            WHERE m.name=:moduletype AND m.id=cm.module AND cm.instance=a.id';
+	}
+
+    if ($assignments = $DB->get_records_sql($sql,$params)) {
+    	$num_assign = count($assignments);
+    	mtrace("Trobats $num_assign",'<br/>');
+    	$i = 0;
+		foreach ($assignments as $assign) {
+    		$params = array(
+    					'courseid'=> (int)$assign->courseid,
+    					'itemtype' => 'mod',
+    					'itemmodule' => 'assign',
+    					'iteminstance' => $assign->id,
+    					'itemnumber' => 0);
+	    	if (!$grade_items = grade_item::fetch_all($params)) {
+	    		$i++;
+	            assign_grade_item_update($assign);
+	        }
+	    }
+	    mtrace("Fets $i",'<br/>');
+	}
+
+}
+
 function repair_duplicate_assign($courseid = false, $execute = false){
 	global $DB, $CFG;
 	require_once($CFG->dirroot.'/mod/assign/locallib.php');
