@@ -1414,7 +1414,7 @@ function forum_print_overview($courses,&$htmlarray) {
             //2013.11.06  @sarjona
             $cm = get_coursemodule_from_instance('forum', $forum->id, 0, false, MUST_EXIST);
             $context = context_module::instance($cm->id);
-            if (groups_get_activity_groupmode($cm) == SEPARATEGROUPS && !has_capability('moodle/site:accessallgroups', $context, $USER->id, true)) { 
+            if (groups_get_activity_groupmode($cm) == SEPARATEGROUPS && !has_capability('moodle/site:accessallgroups', $context, $USER->id, true)) {
                 // Count only the posts have been send to the groups of the current user
                 $sql = "SELECT COUNT(*) as count "
                             .'FROM {forum} f '
@@ -1428,19 +1428,19 @@ function forum_print_overview($courses,&$htmlarray) {
                 $params[] = $USER->id;
                 $groups = groups_get_all_groups($courses[$forum->course]->id, $USER->id);
                 foreach ($groups as $group) {
-                    $sql .= 'OR d.groupid = ?';
+                    $sql .= 'OR d.groupid = ? ';
                     $params[] = $group->id;
                 }
-                $sql .= ')'; 
+                $sql .= ')';
                 $count = $DB->count_records_sql($sql, $params);
             } else{
-                $count = $new[$forum->id]->count;        
+                $count = $new[$forum->id]->count;
             }
             //************ ORIGINAL
             /*
-                $count = $new[$forum->id]->count;        
+                $count = $new[$forum->id]->count;
             */
-            //************ FI  
+            //************ FI
         }
         if (array_key_exists($forum->id,$unread)) {
             $thisunread = $unread[$forum->id]->count;
