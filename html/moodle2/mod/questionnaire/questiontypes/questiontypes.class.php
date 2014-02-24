@@ -428,10 +428,19 @@ class questionnaire_question {
             $ridstr = ' AND response_id = '.$rids.' ';
         }
 
+        //XTEC ************ MODIFICAT - Questionnaire YES/NO questions results not properly shown
+        //2014.02.24 @pferre22
+        $empty = $DB->sql_empty();
         $sql = 'SELECT choice_id, COUNT(response_id) AS num '.
                'FROM {questionnaire_'.$this->response_table.'} '.
-               'WHERE question_id= ? '.$ridstr.' AND choice_id != \'\' '.
+               'WHERE question_id= ? '.$ridstr.' AND choice_id != \''.$empty.'\' '.
                'GROUP BY choice_id';
+        // CODI ORIGINAL
+        //$sql = 'SELECT choice_id, COUNT(response_id) AS num '.
+        //       'FROM {questionnaire_'.$this->response_table.'} '.
+        //       'WHERE question_id= ? '.$ridstr.' AND choice_id != \'\' '.
+        //       'GROUP BY choice_id';
+        //************ FI
         return $DB->get_records_sql($sql, array($this->id));
     }
 
