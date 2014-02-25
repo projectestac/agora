@@ -138,29 +138,33 @@ function agora_merge_assign_course_section($name, $courseid, $section, $execute 
 	$assign_plugin_config_sql = "SELECT $concat as psn, value FROM {assign_plugin_config} WHERE assignment = :assignment";
 	$assign_plugin_config = $DB->get_records_sql_menu($assign_plugin_config_sql,array('assignment'=>$first_assign->id));
 
-	$cm = get_coursemodule_from_instance('assign', $first_assign->id, 0, false, MUST_EXIST);
-    $original_context = context_module::instance($cm->id);
+	$original_cm = get_coursemodule_from_instance('assign', $first_assign->id, 0, false, MUST_EXIST);
+    $original_context = context_module::instance($original_cm->id);
 
 	$original_assign = array_merge($original_assign, $assign_plugin_config);
 	if($original_assign){
 		foreach($assigns as $assign){
 			$assign_plugin_config = $DB->get_records_sql_menu($assign_plugin_config_sql,array('assignment'=>$assign->id));
 			if(agora_compare_assign($original_assign, $assign, $assign_plugin_config)){
-				agora_merge_assign($first_assign, $assign, $original_context, $execute);
+				$cm = get_coursemodule_from_instance('assign', $assign->id, 0, false, MUST_EXIST);
+				$context = context_module::instance($cm->id);
+				if(agora_compare_cm($original_cm, $cm)){
+					agora_merge_assign($first_assign, $assign, $original_context, $context, $execute);
+				}
 			}
 		}
 	}
 }
 
-function agora_merge_assign($original_assign, $assign, $original_context, $execute = false){
+function agora_merge_assign($original_assign, $assign, $original_context, $context, $execute = false){
 	mtrace("----> OK: Assign {$assign->id}", '<br/>');
-	if(agora_merge_assign_submissions($original_assign->id, $assign->id, $execute)){
+	if(agora_merge_assign_submissions($original_assign->id, $assign->id, $original_context->id, $context->id, $execute)){
 		mtrace("------> OK: Submissions", '<br/>');
 	} else {
 		return false;
 	}
 
-	if(agora_merge_assign_grades($original_assign->id, $assign->id, $execute)){
+	if(agora_merge_assign_grades($original_assign->id, $assign->id, $original_context->id, $context->id, $execute)){
 		mtrace("------> OK: Grades", '<br/>');
 		if($execute){
 			agora_update_assign_grades($original_assign);
@@ -171,12 +175,10 @@ function agora_merge_assign($original_assign, $assign, $original_context, $execu
 	}
 
 	//Files
-	$cm = get_coursemodule_from_instance('assign', $assign->id, 0, false, MUST_EXIST);
-	$context = context_module::instance($cm->id);
-	if(agora_merge_files('mod_assign','intro',$original_context->id,$context->id)){
+	if(agora_merge_files('mod_assign','intro',$original_context->id, $context->id)){
 		//Cleaning
 		if($execute){
-			delete_course_module($cm->id);
+			delete_course_module($context->instanceid);
 			mtrace('Done!','<br>');
 		} else mtrace('not executing','<br>');
 	}
@@ -206,7 +208,32 @@ function agora_compare_assign($original, $compare, $config){
 	return empty($compare);
 }
 
-function agora_merge_assign_submissions($originalid, $assignid, $execute = false){
+function agora_compare_cm($original, $compare){
+	$original = (array)$original;
+	$compare = (array)$compare;
+	unset($compare['id']);
+	unset($original['id']);
+	unset($compare['instance']);
+	unset($original['instance']);
+	unset($compare['added']);
+	unset($original['added']);
+	unset($compare['visible']);
+	unset($original['visible']);
+	unset($compare['visibleold']);
+	unset($original['visibleold']);
+	foreach($original as $key => $value){
+		if(isset($compare[$key]) && $compare[$key] != $value){
+			// Ja no son iguals...
+			mtrace("----> CM DIFFER on key $key : {$compare[$key]} != $value ... skipping...", '<br/>');
+			return false;
+		}
+		// Paràmetre comparat, l'esborrem i després mirarem si està buit per saber si queda algun sense comparar...
+		unset($compare[$key]);
+	}
+	return empty($compare);
+}
+
+function agora_merge_assign_submissions($originalid, $assignid, $original_contextid, $contextid, $execute = false){
 	global $DB;
 	$fields = 'userid,timecreated,timemodified,status,groupid,id';
 
@@ -215,12 +242,6 @@ function agora_merge_assign_submissions($originalid, $assignid, $execute = false
 
 	$assign_submissions = $DB->get_records('assign_submission',array('assignment'=>$assignid),'',$fields);
 	if(!empty($assign_submissions)){
-		$cm = get_coursemodule_from_instance('assign', $assignid, 0, false, MUST_EXIST);
-    	$context = context_module::instance($cm->id);
-
-    	$cm = get_coursemodule_from_instance('assign', $originalid, 0, false, MUST_EXIST);
-    	$original_context = context_module::instance($cm->id);
-
 		mtrace("------> Merging submissions", '<br/>');
 		foreach($assign_submissions as $userid =>$submission){
 			$update = false;
@@ -241,15 +262,15 @@ function agora_merge_assign_submissions($originalid, $assignid, $execute = false
 					}
 				}
 
-				if(!agora_merge_assignsubmission_file($original_submission, $submission, $original_context, $context, $execute)){
+				if(!agora_merge_assignsubmission_file($original_submission, $submission, $original_contextid, $contextid, $execute)){
 					return false;
 				}
 
-				if(!agora_merge_assignsubmission_onlinetext($original_submission, $submission, $original_context, $context, $execute)){
+				if(!agora_merge_assignsubmission_onlinetext($original_submission, $submission, $original_contextid, $contextid, $execute)){
 					return false;
 				}
 
-				if(!agora_merge_assign_comments($original_submission, $submission, $original_context, $context)){
+				if(!agora_merge_assign_comments($original_submission, $submission, $original_contextid, $contextid)){
 					return false;
 				}
 
@@ -271,9 +292,9 @@ function agora_merge_assign_submissions($originalid, $assignid, $execute = false
 					//NEW, move it to the original
 					$DB->set_field('assign_submission', 'assignment', $originalid, array('id'=>$submission->id));
 					$DB->set_field('assignsubmission_file', 'assignment', $originalid, array('submission'=>$submission->id));
-					agora_move_files('assignsubmission_file', 'submission_files', $original_context->id, $context->id, $submission->id, $submission->id, $execute);
+					agora_move_files('assignsubmission_file', 'submission_files', $original_contextid, $contextid, $submission->id, $submission->id, $execute);
 					$DB->set_field('assignsubmission_onlinetext', 'assignment', $originalid, array('submission'=>$submission->id));
-					agora_move_files('assignsubmission_onlinetext', 'submissions_onlinetext', $original_context->id, $context->id, $submission->id, $submission->id, $execute);
+					agora_move_files('assignsubmission_onlinetext', 'submissions_onlinetext', $original_contextid, $contextid, $submission->id, $submission->id, $execute);
 					mtrace('Done!','<br>');
 				} else mtrace('not executing','<br>');
 			}
@@ -282,7 +303,7 @@ function agora_merge_assign_submissions($originalid, $assignid, $execute = false
 	return true;
 }
 
-function agora_merge_assignsubmission_file($original_submission, $submission, $original_context, $context, $execute = false){
+function agora_merge_assignsubmission_file($original_submission, $submission, $original_contextid, $contextid, $execute = false){
 	global $DB;
 
 	$original_file = $DB->get_record('assignsubmission_file',array('submission'=>$original_submission->id));
@@ -291,7 +312,7 @@ function agora_merge_assignsubmission_file($original_submission, $submission, $o
 		mtrace("--------> Merging assignsubmission_file", '<br/>');
 		if($original_file->numfiles == $submission_file->numfiles){
 			//Files: 'assignsubmission_file'=>'submission_files'
-			if(agora_merge_files('assignsubmission_file', 'submission_files', $original_context->id, $context->id, $original_submission->id, $submission->id, $execute)){
+			if(agora_merge_files('assignsubmission_file', 'submission_files', $original_contextid, $contextid, $original_submission->id, $submission->id, $execute)){
 				//$DB->delete_records('assignsubmission_file',array('submission'=>$submission->id));
 				mtrace("------> EQUALS!", '<br/>');
 			} else {
@@ -308,7 +329,7 @@ function agora_merge_assignsubmission_file($original_submission, $submission, $o
 	return true;
 }
 
-function agora_merge_assignsubmission_onlinetext($original_submission, $submission, $original_context, $context, $execute=false){
+function agora_merge_assignsubmission_onlinetext($original_submission, $submission, $original_contextid, $contextid, $execute=false){
 	global $DB;
 
 	$original_onlinetext = $DB->get_record('assignsubmission_onlinetext',array('submission'=>$original_submission->id));
@@ -318,7 +339,7 @@ function agora_merge_assignsubmission_onlinetext($original_submission, $submissi
 		if($original_onlinetext->onlinetext == $submission_onlinetext->onlinetext &&
 			$original_onlinetext->onlineformat == $submission_onlinetext->onlineformat){
 			//Files: 'assignsubmission_onlinetext'=>'submissions_onlinetext'
-			if(agora_merge_files('assignsubmission_onlinetext', 'submissions_onlinetext', $original_context->id, $context->id, $original_submission->id, $submission->id, $execute)){
+			if(agora_merge_files('assignsubmission_onlinetext', 'submissions_onlinetext', $original_contextid, $contextid, $original_submission->id, $submission->id, $execute)){
 				//$DB->delete_records('assignsubmission_onlinetext',array('submission'=>$submission->id));
 				mtrace("------> EQUALS!", '<br/>');
 			} else {
@@ -335,18 +356,18 @@ function agora_merge_assignsubmission_onlinetext($original_submission, $submissi
 	return true;
 }
 
-function agora_merge_assign_comments($original_submission, $submission, $original_context, $context){
+function agora_merge_assign_comments($original_submission, $submission, $original_contextid, $contextid){
 	global $DB;
 
 	$params = array('commentarea'=>'assignsubmission_comments',
 					'itemid' => $original_submission->id,
-					'contextid' => $original_context->id);
+					'contextid' => $original_contextid);
 
 	$original_comment = $DB->get_record('comments', $params);
 
 	$params = array('commentarea'=>'assignsubmission_comments',
 					'itemid' => $submission->id,
-					'contextid' => $context->id);
+					'contextid' => $contextid);
 	$submission_comment = $DB->get_record('comments', $params);
 	if($original_comment || $submission_comment){
 		mtrace("--------> Merging assign_comments", '<br/>');
@@ -437,14 +458,12 @@ function agora_move_files($component, $filearea, $new_contextid, $old_contextid,
     }
 }
 
-function agora_merge_assign_grades($originalid, $assignid, $execute = false){
+function agora_merge_assign_grades($originalid, $assignid, $original_contextid, $contextid, $execute = false){
 	global $DB;
 	$fields = 'userid,timecreated,timemodified,grader,grade,locked,mailed,extensionduedate,id';
 
 	$original = $DB->get_records('assign_grades',array('assignment'=>$originalid), '', $fields);
 	$assign_grades = $DB->get_records('assign_grades',array('assignment'=>$assignid), '', $fields);
-	$cm = get_coursemodule_from_instance('assign', $originalid, 0, false, MUST_EXIST);
-    $original_context = context_module::instance($cm->id);
 	if(!empty($assign_grades)){
 		mtrace("------> Merging grades", '<br/>');
 		foreach($assign_grades as $userid =>$grade){
@@ -475,10 +494,7 @@ function agora_merge_assign_grades($originalid, $assignid, $execute = false){
 					}
 				}
 
-				$cm = get_coursemodule_from_instance('assign', $assignid, 0, false, MUST_EXIST);
-    			$context = context_module::instance($cm->id);
-
-				if(!agora_merge_assignfeedback_file($original_grade, $grade, $original_context, $context, $execute)){
+				if(!agora_merge_assignfeedback_file($original_grade, $grade, $original_contextid, $contextid, $execute)){
 					return false;
 				}
 
@@ -505,7 +521,7 @@ function agora_merge_assign_grades($originalid, $assignid, $execute = false){
 				if($execute){
 					$DB->set_field('assign_grades', 'assignment', $originalid, array('id'=>$grade->id));
 					$DB->set_field('assignfeedback_file', 'assignment', $originalid, array('grade'=>$grade->id));
-					agora_move_files('assignfeedback_file', 'feedback_files', $original_context->id, $context->id, $grade->id, $grade->id, $execute);
+					agora_move_files('assignfeedback_file', 'feedback_files', $original_contextid, $contextid, $grade->id, $grade->id, $execute);
 					$DB->set_field('assignfeedback_comments', 'assignment', $originalid, array('grade'=>$grade->id));
 					mtrace('Done!','<br>');
 				} else mtrace('not executing','<br>');
@@ -515,7 +531,7 @@ function agora_merge_assign_grades($originalid, $assignid, $execute = false){
 	return true;
 }
 
-function agora_merge_assignfeedback_file($original_grade, $grade, $original_context, $context, $execute = false){
+function agora_merge_assignfeedback_file($original_grade, $grade, $original_contextid, $contextid, $execute = false){
 	global $DB;
 
 	$original_file = $DB->get_record('assignfeedback_file',array('grade'=>$original_grade->id));
@@ -524,7 +540,7 @@ function agora_merge_assignfeedback_file($original_grade, $grade, $original_cont
 		mtrace("------> Merging assignfeedback_file", '<br/>');
 		if($original_file->numfiles == $original_file->numfiles){
 			//Files: 'assignfeedback_file'=>'feedback_files'
-			if(agora_merge_files('assignfeedback_file', 'feedback_files', $original_context->id, $context->id, $original_grade->id, $grade->id, $execute)){
+			if(agora_merge_files('assignfeedback_file', 'feedback_files', $original_contextid, $contextid, $original_grade->id, $grade->id, $execute)){
 				//$DB->delete_records('assignfeedback_file',array('grade'=>$grade->id));
 				mtrace("------> EQUALS!", '<br/>');
 			} else {
