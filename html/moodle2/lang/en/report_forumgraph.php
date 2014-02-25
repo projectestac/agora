@@ -32,6 +32,7 @@ $string['discussioncount'] = 'Discussions count';
 $string['errornotopcategory'] = 'Selected course must be inside a course category.';
 $string['firstlevelcategory'] = 'First level course categories';
 $string['forumgraph'] = 'Forum Graph';
+$string['forumgraph:view'] = 'View Forum Graph';
 $string['forumname'] = 'Forum name';
 $string['forumparticipation'] = 'Forum participation';
 $string['mostpostuser'] = 'User with most posts';

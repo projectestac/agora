@@ -233,7 +233,7 @@ $string['submissionendbeforestart'] = '提出開始日時の前に提出終了�
 $string['submissionenddatetime'] = '提出終了日時: {$a->daydatetime} ({$a->distanceday})';
 $string['submissionendevent'] = '{$a} (提出期限)';
 $string['submissionendswitch'] = '提出終了日時後、次のフェーズに移行する';
-$string['submissionendswitch_help'] = '提出終了日時を指定した上でこのチェックボックスをチェックした場合、提出終了日時後にワークショップは自動で評価フェーズに移行します。
+$string['submissionendswitch_help'] = '提出終了日時を指定した上でこの設定を有効にした場合、提出終了日時後にワークショップは自動で評価フェーズに移行します。
 
 あなたがこの機能を有効にした場合、同時にスケジュール割り当てのセットアップをお勧めします。送信が割り当てられていない場合、ワークショップ自体が評価フェーズにあったとしても、評価を実施することはできません。';
 $string['submissiongrade'] = '提出に対する評点';

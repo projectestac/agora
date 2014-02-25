@@ -16,14 +16,18 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_multianswer', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'local_eduweb_databasefiledownload', language 'fr', branch 'MOODLE_23_STABLE'
  *
- * @package   qformat_multianswer
+ * @package   local_eduweb_databasefiledownload
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Respostes incrustades (Cloze)';
-$string['pluginname_help'] = 'El format de respostes incrustades (Cloze) permet importar un fragment de text amb preguntes del tipus resposta múltiple o resposta breu incrustades dins del text.';
+$string['all_uploads'] = 'dossiers structurés';
+$string['all_uploads2'] = 'fichiers non triés';
+$string['all_uploads_student'] = 'Télécharger les fichiers des utilisateurs';
+$string['eduweb_databasefiledownload'] = 'Télécharger les dépôts des utilisateurs';
+$string['pluginname'] = 'Téléchargement des fichiers de la base de données';
+$string['thereareno'] = 'Il n\'y a pas de fichier dans cette base de données.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldapuserrel', language 'en', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_ldapuserrel', language 'en', branch 'MOODLE_24_STABLE'
  *
  * @package   enrol_ldapuserrel
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,9 +39,9 @@ $string['idnumber_attribute_key'] = 'Mentor unique identifier in LDAP';
 $string['ldap_encoding'] = 'Specify encoding used by LDAP server. Most probably utf-8, MS AD v2 uses default platform encoding such as cp1252, cp1250, etc.';
 $string['ldap_encoding_key'] = 'LDAP encoding';
 $string['localobjectuserfield'] = 'User field in Moodle for the mentee';
-$string['localobjectuserfield_desc'] = 'Name of the field in Moodle user table that is used to identified the mentee';
+$string['localobjectuserfield_desc'] = 'Name of the field in Moodle user table that is used to identify the mentee';
 $string['localsubjectuserfield'] = 'User field in Moodle for the mentor';
-$string['localsubjectuserfield_desc'] = 'Name of the field in Moodle user table that is used to identified the mentor';
+$string['localsubjectuserfield_desc'] = 'Name of the field in Moodle user table that is used to identify the mentor';
 $string['pluginname'] = 'LDAP User role assignment';
 $string['pluginname_desc'] = 'You can use LDAP to control your mentor role. It is assumed your LDAP contains at least a field containing a mentee username in mentor entry. These are compared against fields that you choose in the local user tables.';
 $string['remote_fields_mapping'] = 'LDAP remote field mapping';

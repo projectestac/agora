@@ -1795,7 +1795,7 @@ Di seguito viene riportato cosa è avvenuto al file:
 $string['virusfoundsubject'] = '{$a}: trovato virus!';
 $string['virusfounduser'] = 'Il file che hai caricato, {$a->filename}, è stato analizzato dall\'antivirus e ed è stata rilevata un\'infezione. Il caricamento del file non è andato a buon fine.';
 $string['virusplaceholder'] = 'Questo file contiene un virus, pertanto è stato spostato altrove o eliminato. L\'utente è stato informato.';
-$string['visible'] = 'Visibiltà';
+$string['visible'] = 'Visibilità';
 $string['visibletostudents'] = 'Visibile da {$a}';
 $string['warning'] = 'Attenzione';
 $string['warningdeleteresource'] = 'Attenzione: {$a} è collegato a una risorsa. Si vuole aggiornare la risorsa?';

@@ -884,6 +884,7 @@ $string['questioncwqpfsok'] = 'Gut. Keine der \'Zufallsfragen\' in Ihren Tests i
 Fragen aus einem Mix von freigegebenen und nicht freigegebenen Fragenkategorien ausgewählt werden könnten.';
 $string['questiontype'] = 'Fragetyp';
 $string['questiontypes'] = 'Fragetypen';
+$string['quizattemptsupgradedmessage'] = 'In Moodle 2.1 gab es eine umfangreiche Aktualisierung für die Testfragen. Es war allerdings möglich, die Aktualisierung teilweise zu einem späteren Zeitpunkt auszuführen. Vor dem Upgrade auf Moodle 2.7 muss diese Aktualisierung abgeschlossen sein.';
 $string['recaptchaprivatekey'] = 'ReCaptcha: Private Key';
 $string['recaptchapublickey'] = 'ReCaptcha: Public Key';
 $string['register'] = 'Website registrieren';

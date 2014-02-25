@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['auth_joomdledescription'] = 'This method uses Joomdle web services to know whether a user has a valid session in Joomla.Version 0.91';
+$string['auth_joomdledescription'] = 'This method uses Joomdle web services to know whether a user has a valid session in Joomla.Version 0.95';
 $string['auth_joomla_auto_mailing_lists'] = 'Auto mailing lists';
 $string['auth_joomla_auto_mailing_lists_description'] = 'Automatically manage mailing lists following Joomla configuration';
 $string['auth_joomla_auto_sell'] = 'Auto Sell courses<br>';
@@ -55,6 +55,8 @@ $string['auth_joomla_joomla_user_groups_description'] = 'Create Joomla user grou
 $string['auth_joomla_joomla_version'] = 'Joomla version<br>';
 $string['auth_joomla_parent_role_id'] = 'Parent role ID';
 $string['auth_joomla_parent_role_id_description'] = 'Role ID of parent role';
+$string['auth_joomla_redirectless_sso'] = 'Use redirect-less SSO';
+$string['auth_joomla_redirectless_sso_description'] = 'Use SSO without redirection. Requires cURL';
 $string['auth_joomla_sync_to_joomla'] = 'Sync users to Joomla';
 $string['auth_joomla_sync_to_joomla_description'] = 'Syncs new users and profile updates to Joomla';
 $string['auth_joomla_url'] = 'Joomla URL<br>';
@@ -64,5 +66,5 @@ $string['auth_joomla_use_kunena_forums_description'] = 'Sync course forums to Ku
 $string['auth_joomla_version_description'] = 'Joomla version<br>';
 $string['joomla_sp_description'] = 'Services for Joomla Integration<br>';
 $string['joomla_sp_name'] = 'Joomdle';
-$string['pluginame_desc'] = 'This method uses Joomdle web services to know whether a user has a valid session in Joomla.Version 0.91';
+$string['pluginame_desc'] = 'This method uses Joomdle web services to know whether a user has a valid session in Joomla.Version 0.95';
 $string['pluginname'] = 'Joomdle';

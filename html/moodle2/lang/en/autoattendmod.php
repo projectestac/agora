@@ -25,6 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['autoattendmod:addinstance'] = 'Add a new auto attendance module';
+$string['autoattendmod:view'] = 'View module';
+$string['autoattendmod:viewreports'] = 'View reports';
 $string['description'] = 'Description';
 $string['misconfigured'] = 'Course is misconfigured';
 $string['modidincorrect'] = 'Course Module ID was incorrect';

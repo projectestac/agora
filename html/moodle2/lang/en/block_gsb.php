@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['blockname'] = 'GSB';
-$string['gsb:viewgsb'] = 'View the Gold, Silver, Bronze course medal';
-$string['pluginname'] = 'GSB';
-$string['urltext'] = 'Link to GSB Support Guide';
+$string['blockname'] = 'Medal';
+$string['gsb:viewgsb'] = 'View the Course Medal';
+$string['pluginname'] = 'Medal';
+$string['urltext'] = 'Link to Medals Support Guide';

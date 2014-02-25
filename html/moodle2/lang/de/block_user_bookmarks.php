@@ -16,14 +16,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_multianswer', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_user_bookmarks', language 'de', branch 'MOODLE_24_STABLE'
  *
- * @package   qformat_multianswer
+ * @package   block_user_bookmarks
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Respostes incrustades (Cloze)';
-$string['pluginname_help'] = 'El format de respostes incrustades (Cloze) permet importar un fragment de text amb preguntes del tipus resposta múltiple o resposta breu incrustades dins del text.';
+$string['pluginname'] = 'Lesezeichen-Block (Benutzer)';
+$string['user_bookmarks'] = 'Lesezeichen';
+$string['user_bookmarks:addinstance'] = 'Neuen Lesezeichenblock hinzufügen';
+$string['user_bookmarks:bookmarkpage'] = 'Lesezeichen für diese Seite';
+$string['user_bookmarks:deletebookmark'] = 'Lesezeichen entfernen';
+$string['user_bookmarks:editbookmark'] = 'Lesezeichen bearbeiten';
+$string['user_bookmarks:editbookmarktitle'] = 'Titel des Lesezeichens bearbeiten';
+$string['user_bookmarks:enterbookmarktitle'] = 'Titel des Lesezeichens eingeben';
+$string['user_bookmarks:myaddinstance'] = 'Neuen Lesezeichenblock zur Startseite hinzufügen';

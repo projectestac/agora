@@ -118,7 +118,7 @@ $string['errorminbackup20version'] = 'Questo file di backup è stato creato con 
 $string['errorrestorefrontpage'] = 'Non è consentito ripristinare sovrascrivendo l\'home page';
 $string['executionsuccess'] = 'Il file di backup è stato creato correttamente. ';
 $string['filealiasesrestorefailures'] = 'Errori nel ripristino di alias';
-$string['filealiasesrestorefailures_help'] = 'Gli alias sono link simbolici a file, tra cui i file memorizzarti in repository esterni. In alcuni casi Moodle non può ripristinarli, ad esempio nel caso in cui si tenti di ripristinare backup provenienti da altri sito oppure quando il file collegato non esiste.
+$string['filealiasesrestorefailures_help'] = 'Gli alias sono link simbolici a file, tra cui i file memorizzati in repository esterni. In alcuni casi Moodle non può ripristinarli, ad esempio nel caso in cui si tenti di ripristinare backup provenienti da altri siti oppure quando il file collegato non esiste.
 
 Per maggiori informazioni sugli errori consultare il log di ripristino.';
 $string['filealiasesrestorefailuresinfo'] = 'Non è stato possibile ripristinare alcuni alias presenti nel file di backup. L\'elenco che segue presenta le sorgenti dei file ai quali si riferivano gli alias nel sito di origine.';

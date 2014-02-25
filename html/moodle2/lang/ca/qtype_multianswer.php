@@ -40,7 +40,7 @@ $string['noquestions'] = 'La pregunta de buits "<strong>{$a}</strong>" no conté
 $string['pluginname'] = 'Respostes incrustades (Cloze)';
 $string['pluginnameadding'] = 'S\'està afegint una resposta incrustada (activitat de buits)';
 $string['pluginnameediting'] = 'S\'està editant una resposta incrustada (activitat de buits)';
-$string['pluginname_help'] = 'Una pregunta amb respostes incrustades (Cloze) consisteix en un text amb espais per a respostes d\'elecció múltiple o de resposta curta en el text.';
+$string['pluginname_help'] = 'Una pregunta amb respostes incrustades (Cloze) consisteix en un text amb espais per a respostes d\'elecció múltiple o de resposta breu en el text.';
 $string['pluginnamesummary'] = 'Les preguntes d\'aquest tipus són molt flexibles, però només es poden crear mitjançant l\'entrada de text amb codis especials que creen seleccions múltiples incrustades, respostes curtes i preguntes numèriques.';
 $string['qtypenotrecognized'] = 'Tipus de pregunta {$a} no reconegut';
 $string['questiondefinition'] = 'Definició de la pregunta';
@@ -48,7 +48,7 @@ $string['questiondeleted'] = 'Pregunta esborrada';
 $string['questioninquiz'] = '<ul>
  <li>afegeix o esborra preguntes;</li>
  <li>canvia l\'ordre de les preguntes al text;</li>
- <li>canvia el tipus de la pregunta (numèric, resposta curta, selecció múltiple). </li>
+ <li>canvia el tipus de la pregunta (numèrica, resposta breu, selecció múltiple). </li>
 </ul>';
 $string['questionnotfound'] = 'No es pot trobar una pregunta o una seva part #{$a}';
 $string['questionsadded'] = 'Pregunta afegida';

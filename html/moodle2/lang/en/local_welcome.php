@@ -27,24 +27,24 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['default_moderator_email'] = 'Hi moderator,
 
-  A new user: [[user]], has signed up for {$a}';
-$string['default_moderator_email_subject'] = 'A new user signed up on {$a} : [[user]]';
-$string['default_user_email'] = 'Hello [[user]],
+  A new user: [[fullname]], has signed up for {$a}';
+$string['default_moderator_email_subject'] = 'A new user signed up on {$a} : [[fullname]]';
+$string['default_user_email'] = 'Hello [[fullname]],
 
     Thanks for creating an account on {$a}';
-$string['default_user_email_subject'] = 'Hello [[user]] Welcome to {$a}';
+$string['default_user_email_subject'] = 'Hello [[fullname]] Welcome to {$a}';
 $string['message_moderator'] = 'Moderator message';
 $string['message_moderator_desc'] = 'Message send to moderators';
 $string['message_moderator_enabled'] = 'Enable moderator messages';
 $string['message_moderator_enabled_desc'] = 'This tickbox enables the sending of notification messages to moderators';
 $string['message_moderator_subject'] = 'Moderator subject';
-$string['message_moderator_subject_desc'] = 'This will be the subject of the email send to the moderator. Use [[user]] as a tag, this wil be replace with the users Firstname Lastname.';
+$string['message_moderator_subject_desc'] = 'This will be the subject of the email send to the moderator. Use [[fullname]] as a tag, this wil be replace with the users Firstname Lastname.';
 $string['message_user'] = 'User message';
 $string['message_user_desc'] = 'Message send to new users';
 $string['message_user_enabled'] = 'Enable user messages';
 $string['message_user_enabled_desc'] = 'This tickbox enables the sending of welcome messages to new users';
 $string['message_user_subject'] = 'User subject';
-$string['message_user_subject_desc'] = 'This will be the subject of the email send to the user. Use [[user]] as a tag, this will be replace with the users Firstname Lastname.';
+$string['message_user_subject_desc'] = 'This will be the subject of the email send to the user. Use [[fullname]] as a tag, this will be replace with the users Firstname Lastname.';
 $string['moderator_email'] = 'Moderator email';
 $string['moderator_email_desc'] = 'New user notifications are send to this email address';
 $string['pluginname'] = 'Moodle welcome';

@@ -865,6 +865,7 @@ $string['questioncwqpfscheck'] = 'Une ou plusieurs questions aléatoires d\'un t
 $string['questioncwqpfsok'] = 'Il n\'y a dans vos tests aucune question aléatoire tirant ses questions de catégories partagées et de catégories non partagées.';
 $string['questiontype'] = 'Type de question';
 $string['questiontypes'] = 'Types de question';
+$string['quizattemptsupgradedmessage'] = 'Une mise à jour majeure des questions était comprise dans Moodle 2.1. Il était alors possible de retarder cette mise à niveau. Avant de passer à Moodle 2.7, cette mise à jour est désormais obligatoire.';
 $string['recaptchaprivatekey'] = 'Clef privée ReCAPTCHA';
 $string['recaptchapublickey'] = 'Clef publique ReCAPTCHA';
 $string['register'] = 'Enregistrer votre site';

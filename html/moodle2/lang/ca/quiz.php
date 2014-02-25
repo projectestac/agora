@@ -436,7 +436,7 @@ $string['missingcorrectanswer'] = 'S\'ha d\'especificar la resposta correcta';
 $string['missingitemtypename'] = 'Falta el nom';
 $string['missingquestion'] = 'Aquesta pregunta sembla no existir ja';
 $string['modulename'] = 'Qüestionari';
-$string['modulename_help'] = 'El mòdul de qüestionaris permet al professorat crear qüestionaris amb preguntes de diversos tipus, com ara de selecció múltiple, cert-fals, aparellaments, resposta curta i numèriques.
+$string['modulename_help'] = 'El mòdul de qüestionaris permet al professorat crear qüestionaris amb preguntes de diversos tipus, com ara de selecció múltiple, cert-fals, aparellaments, resposta breu i numèriques.
 
 El professor pot permetre múltiples intents del qüestionari, amb les preguntes barrejades o escollides a l\'atzar d\'entre un banc de preguntes. Es pot establir un límit de temps.
 
@@ -448,7 +448,7 @@ Els qüestionaris es poden utilitzar:
 
 * Com a examens del curs.
 * Com a mini-tests després de tasques de lectura, o al final d\'un tema.
-* Com a exàmen de repàs si s\'utilitzen preguntes de qüestionaris anteriors.
+* Com a examen de repàs si s\'utilitzen preguntes de qüestionaris anteriors.
 * Per oferir retroacció immediata sobre les capacitats de l\'alumnat.
 * Per auto-avaluació.';
 $string['modulenameplural'] = 'Qüestionaris';

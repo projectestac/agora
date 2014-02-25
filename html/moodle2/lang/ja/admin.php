@@ -866,6 +866,7 @@ $string['questioncwqpfscheck'] = '1つまたはそれ以上の小テストの「
 $string['questioncwqpfsok'] = '素晴らしい。あなたの小テストでは共有および非共有カテゴリから混在して選択されるよう、設定されている「ランダム」問題はありません。';
 $string['questiontype'] = '問題タイプ';
 $string['questiontypes'] = '問題タイプ';
+$string['quizattemptsupgradedmessage'] = 'Moodle 2.1において、問題の大幅なアップグレードがありました。また、データベースアップグレードの一部を後で実行するよう、遅らせることができました。Moodle 2.7へのアップグレードにおいて、このアップグレードを完了する必要があります。';
 $string['recaptchaprivatekey'] = 'reCAPTCHAプライベートキー';
 $string['recaptchapublickey'] = 'reCAPTCHAパブリックキー';
 $string['register'] = 'あなたのサイトを登録する';
