@@ -61,17 +61,14 @@ require_once($CFG->dirroot . '/course/format/simple/lib.php');
 
 $renderer = $PAGE->get_renderer('format_simple');
 
-//XTEC ************ AFEGIT - To show current section if none is selected
-//2012.08.20  @sarjona
+$notifyeditingon = optional_param('notifyeditingon', -1, PARAM_BOOL);
 if ($course->coursedisplay == COURSE_DISPLAY_MULTIPAGE){
-    $notifyeditingon = optional_param('notifyeditingon', -1, PARAM_BOOL);
     if ($edit < 0 && $notifyeditingon < 0 && empty($displaysection)) {
         $displaysection = $course->marker;
     } else if ($displaysection == -1){
         $displaysection = 0;
     }
 }
-//************ FI                    
 
 $isstudent = !has_capability('moodle/course:update',$context);
 $section =  optional_param('section',0,PARAM_INT);
