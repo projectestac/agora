@@ -57,6 +57,7 @@ $configuration = array (
             'configuration' =>
             array (
                 'path' => '/srv/www/agora/cache_ins/'.$CFG->dbuser,
+                'autocreate' => true
             ),
             'features' => 6,
             'modes' => 3,
