@@ -431,14 +431,32 @@ class oci_native_moodle_database extends moodle_database {
      */
     public function get_indexes($table) {
         $indexes = array();
-        $tablename = strtoupper($this->prefix.$table);
+        $tablename = strtoupper($this->prefix . $table);
+
+
+        //XTEC ************ MODIFICAT - Fix for correct index detection when there's more than 1 Moodle in an Oracle instance
+        //2014.02.27 @aginard
 
         $sql = "SELECT i.INDEX_NAME, i.UNIQUENESS, c.COLUMN_POSITION, c.COLUMN_NAME, ac.CONSTRAINT_TYPE
-                  FROM ALL_INDEXES i
-                  JOIN ALL_IND_COLUMNS c ON c.INDEX_NAME=i.INDEX_NAME
-             LEFT JOIN ALL_CONSTRAINTS ac ON (ac.TABLE_NAME=i.TABLE_NAME AND ac.CONSTRAINT_NAME=i.INDEX_NAME AND ac.CONSTRAINT_TYPE='P')
-                 WHERE i.TABLE_NAME = '$tablename'
-              ORDER BY i.INDEX_NAME, c.COLUMN_POSITION";
+                FROM ALL_INDEXES i
+                JOIN ALL_IND_COLUMNS c ON c.INDEX_NAME=i.INDEX_NAME
+                LEFT JOIN ALL_CONSTRAINTS ac ON (ac.TABLE_NAME=i.TABLE_NAME AND ac.CONSTRAINT_NAME=i.INDEX_NAME AND ac.CONSTRAINT_TYPE='P')
+                WHERE i.TABLE_NAME = '$tablename'
+                AND i.table_owner = (SELECT sys_context('userenv','current_schema') x FROM dual)
+                AND c.index_owner = (SELECT sys_context('userenv','current_schema') x FROM dual)
+                ORDER BY i.INDEX_NAME, c.COLUMN_POSITION";
+
+        //************ ORIGINAL
+        /*
+        $sql = "SELECT i.INDEX_NAME, i.UNIQUENESS, c.COLUMN_POSITION, c.COLUMN_NAME, ac.CONSTRAINT_TYPE
+                FROM ALL_INDEXES i
+                JOIN ALL_IND_COLUMNS c ON c.INDEX_NAME=i.INDEX_NAME
+                LEFT JOIN ALL_CONSTRAINTS ac ON (ac.TABLE_NAME=i.TABLE_NAME AND ac.CONSTRAINT_NAME=i.INDEX_NAME AND ac.CONSTRAINT_TYPE='P')
+                WHERE i.TABLE_NAME = '$tablename'
+                ORDER BY i.INDEX_NAME, c.COLUMN_POSITION";
+        */
+        //************ FI
+
 
         $stmt = $this->parse_query($sql);
         $result = oci_execute($stmt, $this->commit_status);

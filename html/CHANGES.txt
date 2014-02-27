@@ -3,6 +3,13 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes in progress
+---------------------------------------------------------------------------------------
+MOODLE 2
+- Fix for correct index detection when there's more than 1 Moodle in an Oracle instance
+
+
+
 Changes 14.02.26
 ---------------------------------------------------------------------------------------
 MOODLE 2
