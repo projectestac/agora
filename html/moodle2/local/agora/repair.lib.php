@@ -695,7 +695,7 @@ function repair_duplicated_course_completions($courseid = false){
 	if(count($duplicates) > 0){
 		foreach($duplicates as $duplicate){
 			$params = array('course'=>$duplicate->course, 'userid' => $duplicate->userid);
-			$complets = $DB->get_records('course_completions', $params, 'timestart DESC');
+			$complets = $DB->get_records('course_completions', $params, 'timestarted DESC');
 
 			mtrace("Course {$duplicate->course} userid {$duplicate->userid} duplicats {$duplicate->count}", '<br/>');
 			$count = $duplicate->count;
