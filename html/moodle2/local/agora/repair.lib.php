@@ -712,7 +712,7 @@ function repair_duplicated_course_completions($courseid = false){
 						$first->timecompleted == $complet->timecompleted &&
 						$first->timereaggregate == $complet->timereaggregate) {
 						mtrace("-->$count DELETE {$complet->id}", '<br/>');
-						//$DB->delete_records('course_completions', array('id'=>$complet->id));
+						$DB->delete_records('course_completions', array('id'=>$complet->id));
 					} else {
 						mtrace("-->$count DIFERENT, no fem res... :-( {$complet->id}", '<br/>');
 					}
@@ -772,7 +772,7 @@ function repair_duplicated_quiz_attempts($courseid = false){
 				if($count > 1){
 					$last_attempt++;
 					mtrace("-->$count MOVE {$attempt->id} to $last_attempt", '<br/>');
-					//$DB->set_field('quiz_attempts', 'attempt', $last_attempt, array('id'=>$attempt->id));
+					$DB->set_field('quiz_attempts', 'attempt', $last_attempt, array('id'=>$attempt->id));
 					$count--;
 				} else {
 					mtrace("-->$count ULTIM, no fem res {$attempt->id}", '<br/>');
