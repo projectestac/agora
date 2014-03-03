@@ -7,7 +7,7 @@ function is_agora(){
 
 function is_xtecadmin($user=null){
 	global $USER;
-        if (empty($user)) $user = $USER;
+    if (empty($user)) $user = $USER;
 	return isset($user)
 		   && array_key_exists('username', $user)
 		   && $user->username=='xtecadmin';
@@ -126,7 +126,7 @@ function run_cli_cron($background = true){
 }
 
 function local_agora_extends_settings_navigation($settingsnav, $context) {
-    if (is_xtecadmin()) {
+    if (is_siteadmin()) {
         global $CFG;
         if ($settingnode = $settingsnav->find('root', navigation_node::TYPE_SETTING)) {
             $agora_node = $settingnode->add('Àgora');

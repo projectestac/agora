@@ -7,6 +7,9 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 MOODLE 2
 - Fix for correct index detection when there's more than 1 Moodle in an Oracle instance
+- Hotpot report solved CONTRIB-4910
+- Repaired the display of hidden sections on simple course format
+- Debug feature enabled for all siteadmins
 
 
 
