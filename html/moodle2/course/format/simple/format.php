@@ -61,22 +61,20 @@ require_once($CFG->dirroot . '/course/format/simple/lib.php');
 
 $renderer = $PAGE->get_renderer('format_simple');
 
-$notifyeditingon = optional_param('notifyeditingon', -1, PARAM_BOOL);
 if ($course->coursedisplay == COURSE_DISPLAY_MULTIPAGE){
-    if ($edit < 0 && $notifyeditingon < 0 && empty($displaysection)) {
+    if (empty($displaysection)) {
         $displaysection = $course->marker;
     } else if ($displaysection == -1){
         $displaysection = 0;
     }
+} else {
+    $displaysection = false;
 }
 
-$isstudent = !has_capability('moodle/course:update',$context);
-$section =  optional_param('section',0,PARAM_INT);
-
-if (($notifyeditingon < 0 && $isstudent) || !empty($section)) {
-    //if (empty($displaysection)) $course->showtopiczero = true;
-    $displaysection = !empty($displaysection)?$displaysection:1;
-    $renderer->print_single_section_page($course, null, null, null, null, $displaysection);
+$section = optional_param('section', $displaysection, PARAM_INT);
+if ($section !== false) {
+    $course->hiddensections = false;
+    $renderer->print_single_section_page($course, null, null, null, null, $section);
 } else {
     $renderer->print_multiple_section_page($course, null, null, null, null);
 }

@@ -4,24 +4,25 @@ $hasnavbar = (empty($PAGE->layout_options['nonavbar']) && $PAGE->has_navbar());
 $hasfooter = (empty($PAGE->layout_options['nofooter']));
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
-$showsidepre = $hassidepre && !$PAGE->blocks->region_completely_docked('side-pre', $OUTPUT);
-$showsidepost = $hassidepost && !$PAGE->blocks->region_completely_docked('side-post', $OUTPUT);
 $custommenu = $OUTPUT->custom_menu();
 $hascustommenu = (empty($PAGE->layout_options['nocustommenu']) && !empty($custommenu));
 
 //For the "Show Blocks" options to work you have to add this code to your theme course layout:
 if($COURSE->format == 'simple'){
     $context = context_course::instance($COURSE->id);
-    $isstudent = !has_capability('moodle/course:update',$context);
+    $isstudent = !has_capability('moodle/grade:viewall',$context);
     if($isstudent) {
         $format_options = course_get_format($COURSE)->get_format_options();
         //Those variables define if the side-pre and side-post blocks should be visible or not
         if(empty($format_options['showblocks'])){
-            $showsidepre = false;
-            $showsidepost = false;
+            $hassidepre = false;
+            $hassidepost = false;
         }
     }
 }
+
+$showsidepre = $hassidepre && !$PAGE->blocks->region_completely_docked('side-pre', $OUTPUT);
+$showsidepost = $hassidepost && !$PAGE->blocks->region_completely_docked('side-post', $OUTPUT);
 
 
 $bodyclasses = array();

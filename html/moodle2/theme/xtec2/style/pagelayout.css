@@ -86,8 +86,8 @@ table {
     border-radius: 5px;
 }
 
-tr, th, td { 
-    border: none !important; 
+tr, th, td {
+    border: none !important;
 }
 
 th {
@@ -224,10 +224,11 @@ th.header {
     height: 34px;
     width: 100%;
     padding-top: 10px;
-    clear: both; 
+    clear: both;
     margin: 0px;
     border-bottom: 2px solid #ad2114;
     text-align: left;
+    background-color: white;
 }
 
 .headermenu .logininfo a:hover {
@@ -324,9 +325,9 @@ h2.main {
     color: [[setting:color2]];
 }
 
-.custom_menu_submenu, 
-.yui3-menu, 
-.first-of-type, 
+.custom_menu_submenu,
+.yui3-menu,
+.first-of-type,
 .yui3-menuitem-active {
     /*background-color: #ddd;*/
     font-weight: bold;
@@ -344,7 +345,7 @@ li a.yui3-menu-label {
     /*background: url(../theme/xtec2/pix/theme/ralla_menu.png) no-repeat right!important; */
 }
 
-ul li a.yui3-menuitem-content {  
+ul li a.yui3-menuitem-content {
     padding-bottom: 5px ! important;
     padding-top: 5px ! important;
 }
@@ -430,7 +431,7 @@ ul li a.yui3-menuitem-content {
 
 .weeks #section-0,
 .topics #section-0 {
-    background-color: #fff;    
+    background-color: #fff;
 }
 
 .weeks #section-0 .left,
@@ -616,7 +617,7 @@ div.content div.coursebox:only-of-type {
 
 .initialbar a { margin-left: 5px; }
 
-.capsula-footer { 
+.capsula-footer {
     display: block;
     overflow: auto;
     width: 100%;
@@ -714,8 +715,8 @@ li.yui3-menuitem:hover{
     width: 88%;
 }
 
-#page-content #region-main ul.weeks, 
-#page-content #region-main ul.unlist, 
+#page-content #region-main ul.weeks,
+#page-content #region-main ul.unlist,
 #page-content #region-main ul.topics {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -909,7 +910,7 @@ li.yui3-menuitem:hover{
 fieldset div {margin-top:5px }
 
 .yui3-menu li {
-    list-style-type: none; 
+    list-style-type: none;
 }
 
 .yui3-menu li:hover {
@@ -947,7 +948,7 @@ fieldset div {margin-top:5px }
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;   
+    -moz-border-radius-topright: 5px;
 }
 /* Additional styles for selected tab */
 .yui3-tab-selected .yui3-tab-content {
@@ -955,11 +956,11 @@ fieldset div {margin-top:5px }
     background: none!important;
     background-color: [[setting:color2]]!important;
     border-color: [[setting:color2]]!important;
-    color: #fff!important;   
+    color: #fff!important;
 }
 /* Additional styles when mouse is over the tab */
 .yui3-tab .yui3-tab-content:hover {
-    color: #fff!important;   
+    color: #fff!important;
     background: [[setting:color2]]!important;
 }
 
