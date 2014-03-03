@@ -342,7 +342,11 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
 
         // Note: we don't need "u.id AS userid" because we already have ha.userid
         //$userfields = ', u.firstname, u.lastname, u.picture, u.imagealt, u.email';
-        $userfields = ', '.$this->get_userfields('u', null, 'userid');
+
+        //XTEC ************ CODI MODIFICAT CONTRIB-4910 ORA-00918 in hotpot reporting
+        //$userfields = ', '.$this->get_userfields('u', null, 'userid');
+        $userfields = ', '.$this->get_userfields('u', null, 'userid2');
+        //FI
         return $this->add_filter_params($userfields, $userid, $attemptid, $select, $from, $where, $params);
     }
 
