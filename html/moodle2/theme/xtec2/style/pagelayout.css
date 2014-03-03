@@ -86,8 +86,14 @@ table {
     border-radius: 5px;
 }
 
-tr, th, td {
+table.flexible tr, table.generaltable tr, table.generalbox tr,
+table.flexible th, table.generaltable th, table.generalbox th,
+table.flexible td, table.generaltable td, table.generalbox td {
     border: none !important;
+}
+
+tr, th, td {
+    border: none;
 }
 
 th {
@@ -96,27 +102,49 @@ th {
     font-weight: bold;
 }
 
+
+table.flexible tbody th, table.generaltable tbody th, table.generalbox tbody th {
+    background-color: #FFF !important;
+}
+
 tbody th {
     color: #555555;
-    background-color:#FFF!important;
+    background-color: #FFF;
     font-weight: bold;
 }
 
+table.flexible tbody tr, table.generaltable tbody tr, table.generalbox tbody tr {
+    border-bottom: 1px solid #DDDDDD !important;
+}
+
 tbody tr {
-    border-bottom:1px solid #DDDDDD!important;
+    border-bottom:1px solid #DDDDDD;
+}
+
+table.flexible tr.header, table.generaltable tr.header, table.generalbox tr.header {
+    background-color:#DDDDDD !important;
 }
 
 tr.header {
-    background-color:#DDDDDD!important;
+    background-color:#DDDDDD;
+}
+
+table.flexible th.header a, table.generaltable th.header a, table.generalbox th.header a {
+    color: [[setting:color5]] !important;
 }
 
 th.header a {
-    color: [[setting:color5]]!important;
+    color: [[setting:color5]];
+}
+
+table.flexible th.header, table.generaltable th.header, table.generalbox th.header {
+    background-color: [[setting:color6]] !important;
+    color:[[setting:color4]] !important;
 }
 
 th.header {
-    background-color: [[setting:color6]]!important;
-    color:[[setting:color4]]!important;
+    background-color: [[setting:color6]];
+    color:[[setting:color4]];
 }
 
 #page {
@@ -143,7 +171,7 @@ th.header {
 .flexible th a,
 .flexible td a,
 .path-grade-report-grader .heading_name_row th {
-    white-space: normal!important;
+    white-space: normal !important;
     min-width: 60px;
 }
 
@@ -154,16 +182,16 @@ th.header {
 .path-grade-report-grader div.right_scroller td,
 .path-grade-report-grader div.left_scroller th,
 .path-grade-report-grader div.right_scroller th {
-    padding-top: 0px!important;
-    padding-bottom: 0px!important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
 }
 
 .path-grade-report-grader div.left_scroller tr.heading,
 .path-grade-report-grader div.right_scroller tr.heading_name_row,
 .path-grade-report-grader div.left_scroller td.fixedcolumn {
-    height: 70px!important;
-    min-height: 70px!important;
-    max-height: 70px!important;
+    height: 70px !important;
+    min-height: 70px !important;
+    max-height: 70px !important;
 }
 
 
@@ -178,7 +206,7 @@ th.header {
     margin-top: 10px;
     background-position: bottom;
     background-repeat: repeat-x;
-    background-image: none!important;
+    background-image: none !important;
     background-color: #fff;
     border-radius: 5px;
     border-bottom-left-radius: 5px;
