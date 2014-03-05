@@ -14,6 +14,8 @@ MOODLE 2
 - Repaired the display of hidden sections on simple course format
 - Debug feature enabled for all siteadmins
 
+ZIKULA 2
+- Avoid automatic change of icon order in admin tabs
 
 
 Changes 14.02.26

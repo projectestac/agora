@@ -216,7 +216,15 @@ class Admin_Api_Admin extends Zikula_AbstractApi
         $values = array();
         $values['cid'] = (int)$args['category'];
         $values['mid'] = $mid;
-        $values['sortorder'] = ModUtil::apiFunc('Admin', 'admin', 'countModsInCat', array('cid' => $args['category']));
+
+
+        // XTEC ************ ELIMINAT - Avoid automatic change of icon order in admin tabs
+        // 2014.03.05 @aginard
+        /*        
+            $values['sortorder'] = ModUtil::apiFunc('Admin', 'admin', 'countModsInCat', array('cid' => $args['category']));
+        */
+        // ************ FI
+
 
         $item->merge($values);
         $this->entityManager->persist($item);
