@@ -17,7 +17,7 @@ class XtecMailer_Version extends Zikula_AbstractVersion {
      */
     public function getMetaData() {
         $meta = array();
-        $meta['displayname'] = $this->__("XtecMailer");
+        $meta['displayname'] = $this->__("Mailer XTEC");
         $meta['description'] = $this->__("Amplia les funcionalitats del mòdul Mailer per poder enviar correu electrònic utilitzant el servei web de la XTEC");
         $meta['url'] = $this->__("XtecMailer");
         $meta['version'] = '1.0.0';

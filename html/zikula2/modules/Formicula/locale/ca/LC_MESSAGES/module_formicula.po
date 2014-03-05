@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Mòdul Formicula\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-11-10 19:33+0000\n"
-"PO-Revision-Date: 2013-06-07 14:42+0100\n"
-"Last-Translator: intraweb <intraweb@xtec.cat>\n"
+"PO-Revision-Date: 2014-03-04 09:47+0100\n"
+"Last-Translator: jmeler <jmeler@xtec.cat>\n"
 "Language-Team: Intraweb <intraweb@xtec.cat>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -57,7 +57,7 @@ msgstr "Eina per crear diferents tipus de formularis de contacte"
 #: pnversion.php:20
 #: pntemplates/formicula_admin_header.html:6
 msgid "Formicula"
-msgstr "Formicula"
+msgstr "Formularis de contacte"
 
 #. ! module url shoudl be in lowercase without spaces different to displayname
 #: pnversion.php:22

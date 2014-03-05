@@ -380,20 +380,6 @@ class Profile_Api_Admin extends Zikula_AbstractApi
     {
         $links = array();
 
-        //******* MODIFICAT XTEC
-        // @albert 11/06/2013 - Per evitar un error SQL durant la càrrega del pannell d'administrador
-        $links[] = array('url' => ModUtil::url('Profile', 'admin', 'view'),
-            'text' => $this->__('Users Module'),
-            'class' => 'z-icon-es-user',
-            'links' => '');
-        /* XTEC ******* ELIMINAT XTEC
-          // Add User module links
-          $links[] = array('url' => ModUtil::url('Profile', 'admin', 'view'),
-          'text' => $this->__('Users Module'),
-          'class' => 'z-icon-es-user',
-          'links' => ModUtil::apiFunc('Users', 'admin', 'getlinks'));
-         * FI ******* */
-
         if (SecurityUtil::checkPermission('Profile::', '::', ACCESS_EDIT)) {
             $links[] = array('url' => ModUtil::url('Profile', 'admin', 'view'),
                 'text' => $this->__('Personal info items list'),

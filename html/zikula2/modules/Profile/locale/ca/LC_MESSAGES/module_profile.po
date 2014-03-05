@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Profile 1.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-09 03:55-0400\n"
-"PO-Revision-Date: 2013-06-03 12:56+0100\n"
-"Last-Translator: intraweb <intraweb@xtec.cat>\n"
+"PO-Revision-Date: 2014-03-05 19:33+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
 "Language-Team: Zikula Team <drak@zikula.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 #: templates/plugins/function.profileuserlinks.php:112
 #: templates/plugins/function.profileuserlinks.php:147
 msgid "User account panel"
-msgstr "Panell de l'úsuari"
+msgstr "Tauler de l'usuari/ària"
 
 #: templates/plugins/function.profileuserlinks.php:78
 #: lib/Profile/Api/Account.php:60
@@ -136,12 +136,12 @@ msgstr "Requerit"
 #: lib/Profile/Controller/Admin.php:85
 #: templates/profile_admin_view.tpl:53
 msgid "Deactivate"
-msgstr "Desactivat"
+msgstr "Desactiva"
 
 #: lib/Profile/Controller/Admin.php:94
 #: templates/profile_admin_view.tpl:54
 msgid "Activate"
-msgstr "Activat"
+msgstr "Activa"
 
 #: lib/Profile/Controller/Admin.php:100
 msgid "Not editable field"
@@ -184,7 +184,7 @@ msgstr "Esborra"
 #: lib/Profile/Controller/Admin.php:185
 #: lib/Profile/Controller/Admin.php:344
 msgid "Text box"
-msgstr "camp de text"
+msgstr "Camp de text"
 
 #: lib/Profile/Controller/Admin.php:186
 #: lib/Profile/Controller/Admin.php:345
@@ -252,15 +252,15 @@ msgstr "Només administradors"
 
 #: lib/Profile/Controller/Admin.php:254
 msgid "Error! The personal info item must have a label. An example of a recommended label is: '_MYDUDLABEL'."
-msgstr "S'ha produït un error. Els ítems d'informació personal han de tenir una etiqueta. Un exemple d'etiqueta recomanada és: '_MYDUDLABEL'."
+msgstr "S'ha produït un error. Els elements d'informació personal han de tenir una etiqueta. Un exemple d'etiqueta recomanada és: '_MYDUDLABEL'."
 
 #: lib/Profile/Controller/Admin.php:258
 msgid "Error! The personal info item must have an attribute name. An example of an acceptable name is: 'mydudfield'."
-msgstr "S'ha produït un error. Els ítems d'informació personal han de tenir un nom de l'atribut. Un exemple de nom acceptat és: 'mydudfield'."
+msgstr "S'ha produït un error. Els elements d'informació personal han de tenir un nom de l'atribut. Un exemple de nom acceptat és: 'mydudfield'."
 
 #: lib/Profile/Controller/Admin.php:262
 msgid "Error! There is already an personal info item label with this naming."
-msgstr "Ja existeix una etiqueta d'ítem d'informació personal amb aquest nom."
+msgstr "Ja existeix una etiqueta d'element d'informació personal amb aquest nom."
 
 #: lib/Profile/Controller/Admin.php:266
 msgid "Error! There is already an attribute name with this naming."
@@ -268,11 +268,11 @@ msgstr "Ja existeix un atribut amb aquest nom."
 
 #: lib/Profile/Controller/Admin.php:272
 msgid "Warning! The personal info item label has been accepted, but was filtered and altered to ensure it contains no special characters or spaces in its naming."
-msgstr "Atenció! L'ítem d'informació personal ha estat acceptat, però ha estat filtrat i alterat per assegurar que no conté caràcters especials o espais en el seu nom."
+msgstr "Atenció! L'element d'informació personal ha estat acceptat, però ha estat filtrat i alterat per assegurar que no conté caràcters especials o espais en el seu nom."
 
 #: lib/Profile/Controller/Admin.php:290
 msgid "Done! Created new personal info item."
-msgstr "S'ha creat un ítem d'informació personal nou."
+msgstr "S'ha creat un element d'informació personal nou."
 
 #: lib/Profile/Controller/Admin.php:326
 #: lib/Profile/Controller/Admin.php:458
@@ -282,7 +282,7 @@ msgstr "S'ha creat un ítem d'informació personal nou."
 #: lib/Profile/Api/Admin.php:239
 #: lib/Profile/Api/Admin.php:334
 msgid "Error! No such personal info item found."
-msgstr "No s'ha trobat l'ítem d'informació personal."
+msgstr "No s'ha trobat l'element d'informació personal."
 
 #: lib/Profile/Controller/Admin.php:422
 #: lib/Profile/Controller/Admin.php:523
@@ -294,7 +294,7 @@ msgstr "Els canvis han estat emmagatzemats."
 
 #: lib/Profile/Controller/Admin.php:488
 msgid "Done! Deleted the personal info item."
-msgstr "S'ha esborrat l'ítem d'informació pesonal."
+msgstr "S'ha esborrat l'element d'informació personal."
 
 #: lib/Profile/Controller/Admin.php:553
 msgid "Error! You cannot decrease the weight of this account property."
@@ -348,12 +348,12 @@ msgstr "No s'ha pogut trobar la pàgina de perfil [%s]."
 
 #: lib/Profile/Controller/User.php:143
 msgid "Error! Could not load personal info items."
-msgstr "No s'han pogut carregar els ítems d'informació personal."
+msgstr "No s'han pogut carregar els elements d'informació personal."
 
 #: lib/Profile/Controller/User.php:195
 #, php-format
 msgid "Error! A required profile item [%s] is missing."
-msgstr "No s'ha trobat l'ítem de perfil requerit [%s]."
+msgstr "No s'ha trobat l'element de perfil requerit [%s]."
 
 #: lib/Profile/Controller/User.php:214
 msgid "Done! Saved your changes to your personal information."
@@ -368,8 +368,8 @@ msgstr "El camp '%1$s' és requerit."
 #, php-format
 msgid "There was a problem with one of the personal information fields."
 msgid_plural "There were problems with %1$d personal information fields."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "S'ha produït un problema amb un dels camps d'informació personal."
+msgstr[1] "S'han produït problemes amb %1$d camps d'informació personal."
 
 #: lib/Profile/Block/Featureduser.php:41
 msgid "Featured user"
@@ -464,13 +464,13 @@ msgstr "Interests"
 #: lib/Profile/Api/Dud.php:75
 #, php-format
 msgid "Error! There is already an personal info item with the label '%s'."
-msgstr "Ja hi ha un ítem d'informació personal amb aquesta etiqueta '%s'."
+msgstr "Ja hi ha un element d'informació personal amb aquesta etiqueta '%s'."
 
 #: lib/Profile/Api/Admin.php:63
 #: lib/Profile/Api/Dud.php:79
 #, php-format
 msgid "Error! There is already an personal info item with the attribute name '%s'."
-msgstr "Ja hi ha un ítem d'informació personal amb aquest nom d'atribut '%s'."
+msgstr "Ja hi ha un element d'informació personal amb aquest nom d'atribut '%s'."
 
 #: lib/Profile/Api/Admin.php:94
 msgid "Error! Could not create new attribute."
@@ -478,14 +478,14 @@ msgstr "No s'ha pogut crear l'atribut nou."
 
 #: lib/Profile/Api/Admin.php:244
 msgid "Error! You cannot delete this personal info item."
-msgstr "No s'ha pogut esborrar aquest ítem d'informació personal."
+msgstr "No s'ha pogut esborrar aquest element d'informació personal."
 
 #: lib/Profile/Api/Admin.php:261
 #: lib/Profile/Api/Admin.php:267
 #: lib/Profile/Api/Dud.php:154
 #: lib/Profile/Api/Dud.php:160
 msgid "Error! Could not delete the personal info item."
-msgstr "No s'ha pogut esborrar l'ítem d'informació personal."
+msgstr "No s'ha pogut esborrar l'element d'informació personal."
 
 #: lib/Profile/Api/Admin.php:305
 msgid "Error! Activation failed."
@@ -493,12 +493,12 @@ msgstr "L'activació ha fallat"
 
 #: lib/Profile/Api/Admin.php:339
 msgid "Error! You cannot deactivate this personal info item."
-msgstr "No podeu desactivar aquest ítem d'informació personal."
+msgstr "No podeu desactivar aquest element d'informació personal."
 
 #: lib/Profile/Api/Admin.php:350
 #: lib/Profile/Api/Admin.php:368
 msgid "Error! Could not deactivate the personal info item."
-msgstr "No podeu desactivar l'ítem d'informació personal."
+msgstr "No podeu desactivar aquest element d'informació personal."
 
 #: lib/Profile/Api/Admin.php:385
 msgid "Users Module"
@@ -507,17 +507,17 @@ msgstr "Mòdul d'usuaris"
 #: lib/Profile/Api/Admin.php:391
 #: templates/profile_admin_view.tpl:5
 msgid "Personal info items list"
-msgstr "Llista d'ítems d'informació personal"
+msgstr "Elements d'informació personal"
 
 #: lib/Profile/Api/Admin.php:396
 #: templates/profile_admin_new.tpl:5
 msgid "Create new personal info item"
-msgstr "Crea un ítem d'informació personal nou"
+msgstr "Element nou"
 
 #: lib/Profile/Api/Admin.php:401
 #: templates/profile_admin_modifyconfig.tpl:4
 msgid "User account panel settings"
-msgstr "Panell de configuració del compte d'usuari/ària"
+msgstr "Configuració"
 
 #: lib/Profile/Api/Admin.php:406
 msgid "Help"
@@ -530,7 +530,7 @@ msgstr "No s'ha trobat el mòdul especificat (%s)."
 
 #: lib/Profile/Api/Dud.php:99
 msgid "Error! Could not create the new personal info item."
-msgstr "No s'ha pogut crear el nou ítem d'informació personal."
+msgstr "No s'ha pogut crear l'element d'informació personal."
 
 #. ! account panel link
 #: lib/Profile/Api/Account.php:54
@@ -560,11 +560,11 @@ msgstr "No s'han pogut carregar les dades."
 
 #: lib/Profile/Version.php:28
 msgid "Profile"
-msgstr "Perfil"
+msgstr "Perfils"
 
 #: lib/Profile/Version.php:29
 msgid "Provides a personal account control panel for each registered user, an interface to administer the personal information items displayed within it, and a registered users list functionality. Works in close unison with the 'Users' module."
-msgstr "Proporciona un panell de control del compte personal per a cada usuari/ària registrat, una interfície per administrar els ítems d'informació personal i una funcionalitat per a llistes d'usuaris registrats. Treballa estretament amb el mòdul d'usuaris."
+msgstr "Proporciona un tauler de control del compte personal per a cada usuari/ària registrat, una interfície per administrar els elements d'informació personal i una funcionalitat per a llistes d'usuaris registrats. Treballa estretament amb el mòdul d'usuaris."
 
 #: lib/Profile/Version.php:31
 msgid "profile"
@@ -576,7 +576,7 @@ msgstr "perfil"
 #: templates/profile_dudedit_select.tpl:6
 #: templates/profile_dudedit_text.tpl:4
 msgid "Sorry! A required personal info item is missing. Please correct and try again."
-msgstr "Falta un ítem d'informació personal que és requerit. Si us plau, corregiu això i torneu-ho a provar."
+msgstr "Falta un element d'informació personal que és requerit. Si us plau, corregiu això i torneu-ho a provar."
 
 #: templates/profile_dudedit_textarea.tpl:8
 #: templates/profile_dudedit_radio.tpl:10
@@ -593,7 +593,7 @@ msgstr "Gestió del perfil"
 
 #: templates/profile_user_modify.tpl:9
 msgid "Items marked with an asterisk ('*') are required entries."
-msgstr "Els ítems marcats amb un esterisc ('*') corresponen a entrades requerides."
+msgstr "Els elements marcats amb un asterisc ('*') corresponen a entrades requerides."
 
 #: templates/profile_user_modify.tpl:16
 #: templates/profile_admin_new.tpl:65
@@ -627,7 +627,7 @@ msgstr "Mostra la data de registre"
 
 #: templates/profile_admin_view.tpl:12
 msgid "Notice: Use drag and drop to arrange the arrange the personal info items into your desired order. The new order will be saved automatically when you drop the item into place."
-msgstr "Nota: feu ús d'arrossegar i deixar per ordenar els ítems d'informació personal. L'ordre nou serà emmagatzemant automàticament quan deixeu l'ítem en el seu lloc."
+msgstr "Nota: feu ús d'arrossegar i deixar per ordenar els elements d'informació personal. L'ordre nou serà emmagatzemant automàticament quan deixeu l'element en el seu lloc."
 
 #: templates/profile_admin_view.tpl:15
 #: templates/profile_admin_new.tpl:15
@@ -746,7 +746,7 @@ msgstr "EN aquests moments no hi ha usuaris registrats connectats."
 
 #: templates/profile_user_main.tpl:1
 msgid "Account Panel"
-msgstr "Panell del compte"
+msgstr "Tauler del compte"
 
 #: templates/profile_block_membersonline.tpl:8
 msgid "unread"
@@ -761,8 +761,8 @@ msgstr "total"
 #, php-format
 msgid "%s registered user"
 msgid_plural "%s registered users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s usuari/ària registrat"
+msgstr[1] "%s usuaris registrats"
 
 #: templates/profile_block_membersonline.tpl:20
 #: templates/profile_block_membersonline.tpl:23
@@ -775,8 +775,8 @@ msgstr "%s connectats."
 #, php-format
 msgid "%s anonymous guest"
 msgid_plural "%s anonymous guests"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s visitant anònim"
+msgstr[1] "%s visitants anònims"
 
 #: templates/profile_block_membersonline.tpl:27
 #, php-format
@@ -869,12 +869,12 @@ msgstr "Darrer accés de %s"
 #: templates/profile_admin_new.tpl:12
 #: templates/profile_admin_modify.tpl:13
 msgid "Personal info item"
-msgstr "Ítem d'informació personal"
+msgstr "Element d'informació personal"
 
 #: templates/profile_admin_new.tpl:13
 #: templates/profile_admin_modify.tpl:14
 msgid "Notice: No special characters or spaces are allowed in the personal info item's label or attribute name."
-msgstr "Atenció: No es permeten els caràcters especials o espais en els ítems d'informació personal o els noms d'atributs."
+msgstr "Atenció: No es permeten els caràcters especials o espais en els elements d'informació personal o els noms d'atributs."
 
 #: templates/profile_admin_new.tpl:19
 #: templates/profile_admin_modify.tpl:20
@@ -884,12 +884,12 @@ msgstr "Feu clic a la <strong><a href=\"%s\">pàgina d'ajuda</a></strong> per ob
 
 #: templates/profile_admin_new.tpl:24
 msgid "Notice: The attribute name you enter cannot be changed afterwards, so you should choose it carefully."
-msgstr "Nota: L'atribut de nom que heu entrat no podràs ser modificat, per tant cal l'escolliu amb atenció."
+msgstr "Nota: L'atribut de nom que heu entrat no podrà ser modificat, per tant cal l'escolliu amb atenció."
 
 #: templates/profile_admin_new.tpl:27
 #: templates/profile_admin_modify.tpl:27
 msgid "Make this a 'Required' item"
-msgstr "Fes que sigui un ítem requerit"
+msgstr "Fes que sigui un element requerit"
 
 #: templates/profile_admin_new.tpl:33
 #: templates/profile_admin_modify.tpl:33
@@ -939,11 +939,11 @@ msgstr "Nota: És opcional entrar una ID. Si no especifiqueu una ID, la posició
 #: templates/profile_admin_new.tpl:59
 #: templates/profile_admin_modify.tpl:61
 msgid "Notice to display with personal info item"
-msgstr "Avís a mostrar amb ítem d'informació personal"
+msgstr "Avís a mostrar amb l'element d'informació personal"
 
 #: templates/profile_admin_modify.tpl:5
 msgid "Edit personal info item"
-msgstr "Edita l'ítem d'informació personal"
+msgstr "Edita l'element d'informació personal"
 
 #: templates/profile_admin_modify.tpl:56
 msgid "Warning! If you want to edit the ID of an option without losing associated user data in the database, its label must not be renamed simultaneously. Also, do not assign IDs and labels the same naming. You are recommended to give each option an unique ID and a unique name, and to try to avoid renaming an ID once it has been created."
@@ -979,11 +979,11 @@ msgstr "No s'han trobat comentaris recents."
 
 #: templates/profile_admin_delete.tpl:4
 msgid "Delete personal info item"
-msgstr "Esborra l'ítem d'informació personal"
+msgstr "Esborra l'element d'informació personal"
 
 #: templates/profile_admin_delete.tpl:7
 msgid "Do you really want to delete this personal info item?"
-msgstr "Voleu realment esborrar aquest ítem d'informació personal?"
+msgstr "Voleu realment esborrar aquest element d'informació personal?"
 
 #: templates/profile_admin_delete.tpl:14
 msgid "Confirmation prompt"
@@ -1023,9 +1023,9 @@ msgstr "Configuració del formulari de registre"
 
 #: templates/profile_admin_modifyconfig.tpl:52
 msgid "The personal info items that you activate below will be displayed in the user registration form if the 'Users' module is configured to display personal info items during user registration, and if the 'Profile' module is specified in the 'General settings manager' as the module to provide the site's user profile management functionality. Personal info items that are configured as 'Required' will always be displayed in the user registration form. The list below only includes properties that are not 'Required' items."
-msgstr "Els ítems d'informació personal que heu activat es mostraran en el formulari de validació si el mòdul d'usuaris està configurat per mostrar ítems d'informació personal, i si s'ha especificat en els paràmetres generals de configuració del mòdul de perfil que és el mòdul que proporciona les funcionalitats de gestió dels perfils dels usuaris. Els ítems d'informació personal que s'han configurat com a requerits sempre es mostraran en el formulari de registre d'usuaris. La llista de sota només inclou les propietats que no fan referència a ítems requerits."
+msgstr "Els elements d'informació personal que heu activat es mostraran en el formulari de validació si el mòdul d'usuaris està configurat per mostrar elements d'informació personal, i si s'ha especificat en els paràmetres generals de configuració del mòdul de perfil que és el mòdul que proporciona les funcionalitats de gestió dels perfils dels usuaris. Els elements d'informació personal que s'han configurat com a requerits sempre es mostraran en el formulari de registre d'usuaris. La llista de sota només inclou les propietats que no fan referència a elements requerits."
 
 #: templates/profile_admin_modifyconfig.tpl:54
 msgid "Personal info items to include in user registration form"
-msgstr "ítems d'informació personal a incloure en el formulari de registre"
+msgstr "Elements d'informació personal a incloure en el formulari de registre"
 

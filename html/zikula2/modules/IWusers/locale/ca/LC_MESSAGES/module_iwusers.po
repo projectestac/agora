@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: intraweb <intraweb@xtec.cat>\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 # SOME DESCRIPTIVE TITLE.
@@ -61,7 +61,7 @@ msgstr "Inclou la data i l'hora"
 #: pnadminapi.php:1038
 #: pnadminapi.php:1102
 msgid "Error! Could not do what you wanted. Please check your input."
-msgstr "No s'ha pogut carregar el que volíeu. Reviseu les dades"
+msgstr "No s'ha pogut carregar el que volí­eu. Reviseu les dades"
 
 #: pnuserapi.php:132
 #: pnuserapi.php:214
@@ -123,7 +123,7 @@ msgstr "No s'ha pogut actualitzar"
 #: pnadminapi.php:189
 #: pnadminapi.php:219
 msgid "You can not remove yourself"
-msgstr "No et pots esborrar a tu mateix/a."
+msgstr "No us podeu esborrar vós mateix/a"
 
 #: pnadminapi.php:693
 #: pnadminapi.php:759
@@ -133,7 +133,7 @@ msgstr "No s'ha trobat l'usuari/ària sobre el qual fer l'acció sol·licitada."
 
 #: pnadminapi.php:698
 msgid "Not authorized to manage users."
-msgstr "No teniu autorització per administrar els usuaris/àries."
+msgstr "No teniu autorització per administrar els usuaris."
 
 #: pntemplates/plugins/function.iwusersadminmenulinks.php:27
 #: pntemplates/IWusers_admin_new.htm:4
@@ -157,7 +157,7 @@ msgstr "Exporta a un fitxer CSV"
 #: pntemplates/plugins/function.iwusersadminmenulinks.php:43
 #: pntemplates/IWusers_admin_config.htm:5
 msgid "Configure the module"
-msgstr "Configura el mòdul"
+msgstr "Configuració"
 
 #: pntemplates/plugins/function.iwusersusermenulinks.php:20
 msgid "Shows the groups I belong"
@@ -175,7 +175,7 @@ msgstr "Mostra la llista de contactes"
 #: pntemplates/IWusers_admin_main.htm:59
 #: pntemplates/IWusers_admin_new.htm:59
 msgid "User name"
-msgstr "Nom d'usuari"
+msgstr "Nom d'usuari/ària"
 
 #: pnadmin.php:173
 #: pnadmin.php:1418
@@ -211,7 +211,7 @@ msgstr "2n cognom"
 #: pnadmin.php:620
 #: pnadmin.php:2311
 msgid "No users have chosen"
-msgstr "No has escollit usuaris"
+msgstr "No heu escollit usuaris"
 
 #: pnadmin.php:242
 #: pnadmin.php:628
@@ -257,11 +257,11 @@ msgstr "El nom d'usuari/ària"
 #: pnadmin.php:513
 #: pnadmin.php:2395
 msgid "already exists. You have to choose another."
-msgstr "ja existeix. N'hauràs de triar un altre."
+msgstr "ja existeix. N'haureu de triar un altre."
 
 #: pnadmin.php:520
 msgid "The password chosen by the user is too short. The minimum character must have the password is"
-msgstr "La contrasenya escollida per a l'usuari/ària és massa curta. El mínim de caràcter que ha de tenir la contrasenya són"
+msgstr "La contrasenya escollida per a l'usuari/ària és massa curta. El mí­nim nombre de caràcters que ha de tenir la contrasenya és de"
 
 #: pnadmin.php:530
 msgid "There was an error in the creation of the user."
@@ -275,7 +275,7 @@ msgstr "Usuaris"
 
 #: pnadmin.php:582
 msgid "The user has been created but there was an error in the entry of personal information. Create this user and makes it the right information."
-msgstr "L'usuari ha estat creat però s'ha produït un error en l'entrada de les dades personals. Edita aquest usuari/ària i posa-li les dades correctes."
+msgstr "L'usuari/ària ha estat creat però s'ha produït un error en l'entrada de les dades personals. Edita aquest usuari/ària i posa-li les dades correctes."
 
 #: pnadmin.php:591
 msgid "The user has been created but there was an error in the allocation of the initial group of the user. Put this user in a group/s that you think appropriate  from the management module group."
@@ -283,7 +283,7 @@ msgstr "L'usuari ha estat creat però s'ha produït un error en l'assignació de
 
 #: pnadmin.php:595
 msgid "We have created a user new"
-msgstr "S'ha creat un usuari/ária nou"
+msgstr "S'ha creat un usuari/ària nou"
 
 #: pnadmin.php:672
 msgid "There was an error and failed to remove the information from the user"
@@ -313,13 +313,13 @@ msgstr "Invàlid"
 #: pnadmin.php:1183
 #: pnadmin.php:1988
 msgid "Managing users who are on both tables, but have differences in data"
-msgstr "Gestiona els usuaris/àries que són a les dues taules, però que tenen diferències en les dades"
+msgstr "Gestiona els usuaris que són a les dues taules, però que tenen diferències en les dades"
 
 #: pnadmin.php:1193
 #: pnadmin.php:1381
 #: pnadmin.php:1576
 msgid "We found no users to manage in this group."
-msgstr "No s'han trobat usuaris/àries per gestionar en aquest grup."
+msgstr "No s'han trobat usuaris per gestionar en aquest grup."
 
 #: pnadmin.php:1200
 msgid "Import file"
@@ -388,7 +388,7 @@ msgstr "Gestiona els usuaris/àries que són a la taula d'importació i no a la 
 
 #: pnadmin.php:1412
 msgid "The users are only following the import table of users. In each case, select the most appropriate"
-msgstr "Els usuaris/àries següents només són a la taula d'importació d'usuaris/àries. En cada cas, trieu l'opció més oportuna"
+msgstr "Els usuaris/àries següents només són a la taula d'importació d'usuaris. En cada cas, trieu l'opció més oportuna"
 
 #: pnadmin.php:1427
 #: pnadmin.php:1454
@@ -400,11 +400,11 @@ msgstr "Opció"
 #: pnadmin.php:1430
 #: pnadmin.php:1457
 msgid "For the 'Add new user' select a user name, a password and a group"
-msgstr "Per a l'opció 'crea l'usuariària' trieu un nom d'usuari, un grup i una contrasenya'"
+msgstr "Per a l'opció 'crea l'usuari/ària' trieu un nom d'usuari, un grup i una contrasenya'"
 
 #: pnadmin.php:1433
 msgid "For the 'Link to the user', choose which user you want to associate"
-msgstr "Per a l'opció 'Associa a l'usuariària' trieu a quin usuariària el voleu associar"
+msgstr "Per a l'opció 'Associa a l'usuari/ària' trieu a quin usuariària el voleu associar"
 
 #: pnadmin.php:1437
 #: pnadmin.php:1461
@@ -436,11 +436,11 @@ msgstr "Esborra l'usuari/ària de la intranet"
 #: pnadmin.php:1568
 #: pnadmin.php:2026
 msgid "Managing users who are on the table on the intranet and not in the table to import"
-msgstr "Gestiona els usuaris/àries que són a la taula de la intranet i no a la d'importació"
+msgstr "Gestiona els usuaris que són a la taula de la intranet i no a la d'importació"
 
 #: pnadmin.php:1583
 msgid "The users are only following in the table on the intranet. In each case, select the most appropriate"
-msgstr "Els usuaris/àries següents només són a la taula de la intranet. En cada cas, trieu l'opció més oportuna"
+msgstr "Els usuaris següents només són a la taula de la intranet. En cada cas, trieu l'opció més oportuna"
 
 #: pnadmin.php:1617
 msgid "Flag"
@@ -567,11 +567,11 @@ msgstr " de la intranet"
 
 #: pnadmin.php:1901
 msgid "Association of users"
-msgstr "Associació d'usuaris/àries"
+msgstr "Associació d'usuaris"
 
 #: pnadmin.php:1911
 msgid "Low users"
-msgstr "Baixa d'usuaris/àries"
+msgstr "Baixa d'usuaris"
 
 #: pnadmin.php:1914
 #: pnadmin.php:1915
@@ -602,7 +602,7 @@ msgstr "Cancel·la els canvis"
 
 #: pnadmin.php:2060
 msgid "In the field import of users have"
-msgstr "En el fitxer d'importació d'usuaris/àries teniu "
+msgstr "En el fitxer d'importació d'usuaris teniu "
 
 #: pnadmin.php:2062
 #: pnadmin.php:2066
@@ -611,7 +611,7 @@ msgstr " registre/s per gestionar"
 
 #: pnadmin.php:2064
 msgid "In the table of users of the intranet have"
-msgstr "A la taula d'usuaris/àries de la intranet teniu "
+msgstr "A la taula d'usuaris de la intranet teniu "
 
 #: pnadmin.php:2079
 msgid "The data import was successful."
@@ -625,7 +625,7 @@ msgstr "No s'ha donat d'alta cap usuari/ària."
 #: pnadmin.php:2089
 #: pnadmin.php:2241
 msgid "Data connection of new users created"
-msgstr "Dades de connexió dels nous usuaris/àries creats/des"
+msgstr "Dades de connexió dels nous usuaris creats"
 
 #: pnadmin.php:2109
 #: pnadmin.php:2243
@@ -651,8 +651,8 @@ msgid "The configuration has changed"
 msgstr "La configuració s'ha modificat correctament"
 
 #: pnversion.php:11
-msgid "Improves the chances of users of the module"
-msgstr "Millora les possibilitats del mòdul d'usuaris"
+msgid "Improves the chances of users of the module."
+msgstr "Assignació multiple d'usuaris i grups. Configuració de l'Avatar. "
 
 #: pnversion.php:12
 msgid "Extra users"
@@ -660,7 +660,7 @@ msgstr "Usuaris Extra"
 
 #: pnversion.php:13
 msgid "IWusers"
-msgstr "IWusers"
+msgstr "Usuaris-grups"
 
 #: pntemplates/IWusers_admin_pager.htm:1
 msgid "Page"
@@ -766,7 +766,7 @@ msgstr "Canvia l'avatar"
 
 #: pntemplates/IWusers_admin_config.htm:26
 msgid "Users policy"
-msgstr "Política dels usuaris"
+msgstr "Polí­tica dels usuaris"
 
 #: pntemplates/IWusers_admin_config.htm:31
 msgid "Impossible to change mail address"
@@ -970,10 +970,10 @@ msgid "User configurable values"
 msgstr "Configuració del perfil personal"
 
 msgid "Your sex"
-msgstr "Indica el teu génere"
+msgstr "Indica el teu gí©nere"
 
 msgid "Sex"
-msgstr "Génere"
+msgstr "Gí©nere"
 
 msgid "Choose an option..."
 msgstr "Trieu una opció..."
@@ -997,7 +997,7 @@ msgid "(The avatar change required administrator validation)"
 msgstr "(El canvi de l'avatar requereix la validació d'un administrador/a)"
 
 msgid "Your avatar's image sizes must be 90x120 px aproximately with one of the next formats: jpg, gif or png."
-msgstr "La mida ideal per a la imatge de l'avatar és de 90x120 píxels en un dels formats següents: jpg, gif o png."
+msgstr "La mida ideal per a la imatge de l'avatar és de 90x120 pí­xels en un dels formats següents: jpg, gif o png."
 
 msgid "Describe yourself"
 msgstr "Descripció personal"
@@ -1009,22 +1009,22 @@ msgid "Users can manage their real names"
 msgstr "Els usuaris poden gestionar el seu nom real"
 
 msgid "Users can set their sex"
-msgstr "Els usuaris poden establir el genere (masculí/femení)"
+msgstr "Els usuaris poden establir el genere (masculí­/femení­)"
 
 msgid "Users can describe theirselves"
 msgstr "Els usuaris es poden descriure a ells mateixos"
 
 msgid "Folder where to look for the users pictures"
-msgstr "Carpeta dels àvatars dels usuaris"
+msgstr "Carpeta dels avatars dels usuaris"
 
 msgid "Users pictures directori hasn't been found"
-msgstr "No s'ha tronat la carpeta dels àvatars dels usuaris"
+msgstr "No s'ha tronat la carpeta dels avatars dels usuaris"
 
 msgid "The users can not change theirs avatars because the directori of pictures does not exist or it has not the correct permissions."
-msgstr "Els usuaris no poden canviar el seu àvatar degut a que el directori d'avatars no existeix o no té els permisos correctes."
+msgstr "Els usuaris no poden canviar el seu avatar degut a que el directori d'avatars no existeix o no tí© els permisos correctes."
 
 msgid "Avatar change request"
-msgstr "Solicituds de canvi d'avatar"
+msgstr "Sol·licituds de canvi d'avatar"
 
 msgid "This folder is not writeable."
 msgstr "No es pot escriure en aquest directori"
@@ -1042,10 +1042,10 @@ msgid "User"
 msgstr "Usuari/ària"
 
 msgid "Current avatar"
-msgstr "Àvatar actual"
+msgstr "Avatar actual"
 
 msgid "New avatar"
-msgstr "Àvatar nou"
+msgstr "Avatar nou"
 
 msgid "Not requests found"
 msgstr "No s'han trobat sol·licituds"
@@ -1054,7 +1054,7 @@ msgid "The values have changed correctly"
 msgstr "Els valors s'han canviat correctament"
 
 msgid "If you want, you can change your avatar from here:"
-msgstr "Si voleu us podeu canviar àvatar des d'aquí:"
+msgstr "Si voleu us podeu canviar l'avatar des d'aquí­:"
 
 msgid "OK"
 msgstr "D'acord"

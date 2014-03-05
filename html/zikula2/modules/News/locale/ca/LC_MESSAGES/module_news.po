@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: News 3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-21 21:08+0000\n"
-"PO-Revision-Date: 2013-09-25 17:10+0100\n"
-"Last-Translator: Xavi Meler <jmeler@xtec.cat>\n"
+"PO-Revision-Date: 2014-03-05 18:23+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
 "Language-Team: Intraweb <intraweb@xtec.cat>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -552,7 +552,7 @@ msgstr "No s'han pogut actualitzar les categories de les notícies"
 #: lib/News/Installer.php:615
 #: lib/News/Version.php:22
 msgid "News publisher"
-msgstr "Notícies publicades"
+msgstr "Notícies"
 
 #: lib/News/Installer.php:616
 #: lib/News/Version.php:23
@@ -838,7 +838,7 @@ msgstr "La notícia més llegida"
 #: lib/News/Block/Big.php:36
 #: lib/News/Block/Big.php:91
 msgid "Today's most-read article"
-msgstr "La notícia més llegida avui"
+msgstr "La notícia més llegida d'avui"
 
 #: templates/admin/modify.tpl:20
 #: templates/ajax/modify.tpl:1
@@ -1126,11 +1126,11 @@ msgstr "doble fletxa amunt"
 
 #: templates/admin/view.tpl:122
 msgid "Check all"
-msgstr "Marque'ls tots"
+msgstr "Marca'ls tots"
 
 #: templates/admin/view.tpl:122
 msgid "Uncheck all"
-msgstr "Desmarque'ls tots"
+msgstr "Desmarca'ls tots"
 
 #: templates/admin/view.tpl:124
 msgid "With selected:"
@@ -1813,7 +1813,7 @@ msgstr "Total"
 #: templates/user/categorylist.tpl:102
 #, php-format
 msgid "%s contributed by you"
-msgstr "%s enviats per vostè"
+msgstr "%s enviades per vós"
 
 #: templates/user/categorylist.tpl:61
 #: templates/user/categorylist.tpl:104
@@ -1906,7 +1906,7 @@ msgstr "Mostra la data de creació de la notícia"
 
 #: templates/contenttype/newsarticles_edit.tpl:69
 msgid "(Only shown when contributor's name is also enabled)"
-msgstr "(Només es mostra quan el nom del col·laborador està també habilitat)"
+msgstr "(Només es mostra quan el nom del col·laborador també està habilitat)"
 
 #: templates/contenttype/newsarticles_edit.tpl:73
 #: templates/block/storiesext/modify.tpl:95
@@ -1981,7 +1981,7 @@ msgstr "Mida màxima que s'ha de mostrar del resum a la pàgina d'inici"
 
 #: templates/contenttype/newsarticles_edit.tpl:143
 msgid "Suffix appended to truncated index page teaser text"
-msgstr "Sufixe per truncar el resum de la pàgina d'inici"
+msgstr "Sufix per truncar el resum de la pàgina d'inici"
 
 #: templates/contenttype/newsarticles_edit.tpl:149
 msgid "Specify a custom template"
