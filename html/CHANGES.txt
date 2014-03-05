@@ -17,6 +17,7 @@ MOODLE 2
 ZIKULA 2
 - Avoid automatic change of icon order in admin tabs
 - Added cleanup of temporary files to cron
+- Added script to fully regenerate module information from filesystem
 
 
 Changes 14.02.26
