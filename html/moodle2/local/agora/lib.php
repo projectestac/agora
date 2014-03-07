@@ -13,10 +13,20 @@ function is_xtecadmin($user=null){
 		   && $user->username=='xtecadmin';
 }
 
-function require_xtecadmin(){
+function require_xtecadmin($canbesiteadmin = false){
 	require_login(0, false);
-        if (!is_xtecadmin())
-                print_error('noxtecadmin');
+    if(!$canbesiteadmin){
+        if(!is_xtecadmin()){
+            print_error('noxtecadmin');
+        }
+    } else {
+        if(is_agora() && !is_xtecadmin()){
+            print_error('noxtecadmin');
+        }
+        if(!is_siteadmin()){
+            print_error('no_siteadmin');
+        }
+    }
 
 }
 
@@ -126,7 +136,7 @@ function run_cli_cron($background = true){
 }
 
 function local_agora_extends_settings_navigation($settingsnav, $context) {
-    if (is_siteadmin()) {
+    if(is_xtecadmin() || (!is_agora() && is_siteadmin())){
         global $CFG;
         if ($settingnode = $settingsnav->find('root', navigation_node::TYPE_SETTING)) {
             $agora_node = $settingnode->add('Àgora');
