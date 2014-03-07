@@ -6,8 +6,8 @@
     $PAGE->set_context($context_system);
     $PAGE->set_url('/local/agora/debug.php');
 
-    require_xtecadmin();
-    
+    require_xtecadmin(true);
+
 	//activa i desactiva el debug de la pàgina per cookie
 	$debug = required_param('agora_debug',PARAM_INTEGER);
 
