@@ -3,7 +3,7 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 14.03.12
 ---------------------------------------------------------------------------------------
 GENERAL
 - Added styles in portal for error.php
@@ -24,7 +24,7 @@ ZIKULA 2
 - Minor improvements to catalan translation
 
 
-Changes 14.02.26
+Changes 14.02.26 codename sarjona
 ---------------------------------------------------------------------------------------
 MOODLE 2
 - Upgrade Moodle2 to 2.4.8 version which includes:
