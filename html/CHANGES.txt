@@ -12,7 +12,9 @@ MOODLE 2
 - Fix for correct index detection when there's more than 1 Moodle in an Oracle instance
 - Hotpot report solved CONTRIB-4910
 - Repaired the display of hidden sections on simple course format
-- Debug feature enabled for all siteadmins
+- Debug feature enabled for all siteadmins outside agora
+- Re-added Catalonia to countries list
+
 
 ZIKULA 2
 - Avoid automatic change of icon order in admin tabs
