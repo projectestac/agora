@@ -25,6 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+//XTEC ************ AFEGIT - Added Catalonia to countries list
+//2012.08.22  @sarjona
+$string['CT'] = 'Cataluña';
+//************ FI
 $string['AD'] = 'Andorra';
 $string['AE'] = 'Emiratos Árabes Unidos';
 $string['AF'] = 'Afganistán';
