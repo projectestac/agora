@@ -51,11 +51,15 @@ $string['testing'] = 'Testing';
 
 // XTEC *********** AFEGIT -> Text string for the new eoicampus modules 2.2 required
 // 2012.10.22 @abertranb
+// 2013.11.19 @mespinosa
 $string['eoicampus_help'] = 'The eoicampus module allows launch EOIcampus App Flash';
 $string['eoicampus'] = 'EOICampus';
 $string['modulename_help'] = 'The eoicampus module allows launch EOIcampus App Flash';
 $string['pluginadministration'] = 'eoicampus administration';
 $string['pluginname'] = 'EOICampus';
 $string['description_help'] = 'Specifies the text to display as a description';
-//$string['eoicampus:addinstance'] = 'Add EOICampus';
+$string['eoicampus:addinstance'] = 'Add EOICampus';
+$string['eoicampus:view'] = 'View EOICampus';
+$string['eoicampus:submit'] = 'Submit EOICampus';
+
 // ********** FI
