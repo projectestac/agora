@@ -95,11 +95,31 @@ class FormUtil
                 }
             }
 
-            return $value;
+            //XTEC ************ MODIFICAT - Solving XSS issues
+            //2014.03.14 @pferre22
+            // return $value;
+            return self::securize_getPassedValue($value);
+            //FI
         }
 
         return $default;
     }
+
+    //XTEC ************ AFEGIT - Solving XSS issues
+    //2014.03.14 @pferre22
+    function securize_getPassedValue($value){
+        if(!pnUserLoggedIn()) {
+            $filtered = DataUtil::formatForStore ($value);
+            //return filter_var ($value, FILTER_SANITIZE_ENCODED);
+            //if($value != $filtered){
+            //    echo 'Original: '.$value.'<br>';
+            //    echo 'Filtered: '.$filtered.'<br>';
+            //}
+            return $filtered;
+        }
+        return $value;
+    }
+    //FI
 
     /**
      * Clean an array acquired from input. This method is safe to use for recursive arrays
@@ -294,7 +314,7 @@ class FormUtil
 
         if ($objectType) {
             return $objects[$objectType];
-        } 
+        }
 
         return $objects;
     }
