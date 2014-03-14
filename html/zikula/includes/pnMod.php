@@ -1003,6 +1003,20 @@ function pnModGetName()
         $module = FormUtil::getPassedValue('module', null, 'GETPOST');
         $name = FormUtil::getPassedValue('name', null, 'GETPOST');
 
+        //XTEC ************ AFEGIT - Protected parameters from SQL blind attacks
+        //2014.03.14 @aginard
+        $pattern = '/^[a-zA-Z0-9_-]+$/';
+        if (!empty($module) && (strlen($module) > 50 || !preg_match($pattern, $module))) {
+            $module = 'news';
+        }
+        if (!empty($name) && (strlen($name) > 50 || !preg_match($pattern, $name))) {
+            $name = 'news';
+        }
+        if (!empty($type) && (strlen($type) > 50 || !preg_match($pattern, $type))) {
+            $type = 'user';
+        }
+        //************ FI
+
         if (empty($name) && empty($module)) {
             $module = pnConfigGetVar('startpage');
         } elseif (empty($module) && !empty($name)) {

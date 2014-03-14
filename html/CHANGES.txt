@@ -3,6 +3,14 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes in progress
+---------------------------------------------------------------------------------------
+ZIKULA
+- Added protection against blind SQL attacks
+
+
+
+
 Changes 14.03.12
 ---------------------------------------------------------------------------------------
 GENERAL
@@ -14,7 +22,6 @@ MOODLE 2
 - Repaired the display of hidden sections on simple course format
 - Debug feature enabled for all siteadmins outside agora
 - Re-added Catalonia to countries list
-
 
 ZIKULA 2
 - Avoid automatic change of icon order in admin tabs
