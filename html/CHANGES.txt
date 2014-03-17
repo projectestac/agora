@@ -9,6 +9,7 @@ ZIKULA
 - Added protection against blind SQL attacks
 
 ZIKULA 2
+- IWagendas: Fixed quotes that caused an error in apache log
 - Minor improvements to filetheme.php
 - IWxtec: Updated links to intraweb.xtec.cat
 - IWbluegraceAgora: Updated links to intraweb.xtec.cat and fixed incorrect load in filetheme.php
