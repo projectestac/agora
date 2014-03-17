@@ -11,7 +11,7 @@
         <meta name="generator" content="zikula - http://zikula.org"/>
         <title>{pagegetvar name='title'}</title>
         <link rel="stylesheet" href="{$themepath}/style/style.css" type="text/css" />
-        <link rel="stylesheet" href="{IWthemepath file="$stylesheet" type="css" theme="IWbluegrace_agora"}" type="text/css" />
+        <link rel="stylesheet" href="{IWthemepath file="$stylesheet" type="css" theme="IWbluegraceAgora"}" type="text/css" />
               <link rel="alternate" title="{pagegetvar name='title'}" href="index.php?theme=rss" type="application/rss+xml" />
     </head>
 
@@ -40,7 +40,7 @@
             </div>
             {/if}	
 
-            <div id="header" style="background:url({IWthemepath file="$logotip" type="logo" theme="IWbluegrace_agora"}) no-repeat top right;">
+            <div id="header" style="background:url({IWthemepath file="$logotip" type="logo" theme="IWbluegraceAgora"}) no-repeat top right;">
                 <div id="btitle">
                     <a href="index.php">{$modvars.ZConfig.sitename}</a>
                 </div>
@@ -68,10 +68,10 @@
                 <a href="http://agora.xtec.cat" target="_blank"><img src="{$imagepath}/agora.gif" width="96" height="37" alt="" title="" /></a>
             </div>
             <div id="footerlogoright">
-                <a href="http://intraweb.xtec.cat" target="_blank"><img src="{$imagepath}/logoiw.png" width="138" height="35" alt="" title="" /></a>
+                <a href="http://projectestac.github.io/intraweb/" target="_blank"><img src="{$imagepath}/logoiw.png" width="138" height="35" alt="" title="" /></a>
             </div>
             <div id="footermenu">
-                <a href="http://zikula.org" target="_blank">{gt text="Powered by"}&nbsp;<a href="http://zikula.org" target="_blank">Zikula</a></a>
+                <a href="http://www.zikula.org"><img src="{$imagepath}/logo_zikula.gif" alt="Zikula" /></a>
             </div>
         </div>
 
