@@ -8,7 +8,11 @@ Changes in progress
 ZIKULA
 - Added protection against blind SQL attacks
 
-
+ZIKULA 2
+- Minor improvements to filetheme.php
+- IWxtec: Updated links to intraweb.xtec.cat
+- IWbluegraceAgora: Updated links to intraweb.xtec.cat and fixed incorrect load in filetheme.php
+- IWxtec2: Updated links to intraweb.xtec.cat and fixed loading of images in CSS
 
 
 Changes 14.03.12

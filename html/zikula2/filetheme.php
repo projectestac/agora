@@ -47,19 +47,21 @@ header("Content-Type: $ctype");
 $chunksize = 1 * (1024 * 1024);
 $buffer = '';
 
-$handle = fopen($fileName, 'rb');
-if ($handle === false) {
+if (file_exists($fileName)) {
+    $handle = fopen($fileName, 'rb');
+    if ($handle === false) {
+        return false;
+    }
+    while (!feof($handle)) {
+        @set_time_limit(60 * 60);
+        $buffer = fread($handle, $chunksize);
+        echo $buffer;
+        flush();
+    }
+    $status = fclose($handle);
+} else {
     return false;
 }
-
-while (!feof($handle)) {
-    @set_time_limit(60 * 60);
-    $buffer = fread($handle, $chunksize);
-    echo $buffer;
-    flush();
-}
-
-$status = fclose($handle);
 
 /**
  * get the list of information about file types based on extensions. 
