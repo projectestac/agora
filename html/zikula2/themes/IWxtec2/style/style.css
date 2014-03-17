@@ -47,7 +47,7 @@ border:0;
 
 #theme_header_top{
 	background-color: #303030; /*COLOR3*/
-	background-image:url(../images/menubar.png);
+	background-image:url('themes/IWxtec2/images/menubar.png');
 	background-position:center top;
 	background-repeat:repeat-x;
 	clear:both;
@@ -117,7 +117,6 @@ border:0;
 
 #theme_navigation_bar{
 	background-color: #D0D0D0; /*COLOR5*/
-	background-image:url("../images/navigation.png");
 	background-position:center bottom;
 	background-repeat:repeat-x;
 	border-bottom:#DDDDDD 1px solid;
@@ -157,7 +156,6 @@ border:0;
 
 #theme_navigation_bar .selected, #theme_navigation_bar li:hover{
 	background-color: #AC2013; /*COLOR2*/
-	background-image:url("../images/navigation.png");
 	background-position:center bottom;
 	background-repeat:repeat-x;
 }
@@ -253,7 +251,7 @@ background-color:inherit;
 	border-bottom-right-radius:5px;
 	box-shadow: 3px 3px 3px #bbb;
 	-webkit-box-shadow: 3px 3px 3px #bbb;
-	background-image:url("../images/borderbottom.png");
+	background-image:url('themes/IWxtec2/images/borderbottom.png');
 	background-position:center bottom;
 	background-repeat:repeat-x;
 	background-color:#FCFCFC;
@@ -284,7 +282,7 @@ h4.z-block-title{
   	border-top-right-radius:5px;
 	background-color:#AC2013; /*COLOR2*/
 	color:white;
-	background-image:url("../images/topbar.png");
+	background-image:url('themes/IWxtec2/images/topbar.png');
 	background-position:center bottom;
 	background-repeat:repeat-x;
 	border: #AC2013 1px solid; /*COLOR2*/

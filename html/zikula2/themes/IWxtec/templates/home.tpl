@@ -62,7 +62,7 @@
                 </a>
             </div>
             <div id="themefooterimageright">
-                <a href="http://intraweb.xtec.cat">
+                <a href="http://projectestac.github.io/intraweb/">
                     <img src="{$imagepath}/intraweb.gif" width="88" height="37" alt="Logo Intraweb" title="Logo Intraweb" />
                 </a>
             </div>		 
