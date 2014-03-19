@@ -28,17 +28,28 @@ function IWstats_init() {
     // create several indexes for IWstats table
     $table = pnDBGetTables();
     $c = $table['IWstats_column'];
-    if (!DBUtil::createIndex($c['moduleid'], 'IWstats', 'moduleid'))
+    if (!DBUtil::createIndex($c['moduleid'], 'IWstats', 'moduleid')) {
         return false;
-    if (!DBUtil::createIndex($c['uid'], 'IWstats', 'uid'))
+    }
+    if (!DBUtil::createIndex($c['uid'], 'IWstats', 'uid')) {
         return false;
-    if (!DBUtil::createIndex($c['ip'], 'IWstats', 'ip'))
+    }
+    if (!DBUtil::createIndex($c['ip'], 'IWstats', 'ipRemote')) {
         return false;
-    if (!DBUtil::createIndex($c['isadmin'], 'IWstats', 'isadmin'))
+    }
+    if (!DBUtil::createIndex($c['ipForward'], 'IWstats', 'ipForward')) {
         return false;
+    }
+    if (!DBUtil::createIndex($c['ipClient'], 'IWstats', 'ip')) {
+        return false;
+    }
+    if (!DBUtil::createIndex($c['userAgent'], 'IWstats', 'userAgent')) {
+        return false;
+    }
+    if (!DBUtil::createIndex($c['isadmin'], 'IWstats', 'isadmin')) {
+        return false;
+    }
 
-    // Set up config variables
-    //pnModSetVar('IWstats', 'excludeusers', '');
     // create the system init hook
     if (!pnModRegisterHook('zikula', 'systeminit', 'API', 'IWstats', 'user', 'collect')) {
         return LogUtil::registerError(__('unable to create system init hook', $dom));
@@ -53,14 +64,22 @@ function IWstats_init() {
 
 /**
  * upgrade
- *
- * @todo recode using DBUtil
+ * 
  */
 function IWstats_upgrade($oldversion) {
     switch ($oldversion) {
         case '0.1':
-            if (!DBUtil::createTable('IWstats_summary'))
+            // Add new fields. Stop in case of error
+            if (!DBUtil::changeTable('IWstats')) {
                 return false;
+            }
+
+            // Create indexes. Don't stop in case of error
+            $table = pnDBGetTables();
+            $c = $table['IWstats_column'];
+            DBUtil::createIndex($c['ipForward'], 'IWstats', 'ipForward');
+            DBUtil::createIndex($c['ipClient'], 'IWstats', 'ipClient');
+            DBUtil::createIndex($c['userAgent'], 'IWstats', 'userAgent');
     }
     // Update successful
     return true;

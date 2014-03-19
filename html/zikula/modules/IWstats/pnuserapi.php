@@ -20,22 +20,28 @@ function IWstats_userapi_collect($args) {
 
     $params = $_SERVER['QUERY_STRING'];
 
-    if (strpos($params, '&') === false && $params != '')
-        return true;
-
     $isadmin = (SecurityUtil::checkPermission('IWstats::', '::', ACCESS_ADMIN)) ? 1 : 0;
 
     $ip = '';
-    if (!empty($_SERVER['REMOTE_ADDR'])) {
+    if (isset($_SERVER['REMOTE_ADDR']) && !empty($_SERVER['REMOTE_ADDR'])) {
         $ip = pnModAPIfunc('IWstats', 'user', 'cleanremoteaddr', array('originaladdr' => $_SERVER['REMOTE_ADDR']));
     }
-    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        $ip = pnModAPIfunc('IWstats', 'user', 'cleanremoteaddr', array('originaladdr' => $_SERVER['HTTP_X_FORWARDED_FOR']));
-    }
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-        $ip = pnModAPIfunc('IWstats', 'user', 'cleanremoteaddr', array('originaladdr' => $_SERVER['HTTP_CLIENT_IP']));
-    }
 
+    $ipForward = '';
+    if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && !empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ipForward = pnModAPIfunc('IWstats', 'user', 'cleanremoteaddr', array('originaladdr' => $_SERVER['HTTP_X_FORWARDED_FOR']));
+    }
+    
+    $ipClient = '';
+    if (isset($_SERVER['HTTP_CLIENT_IP']) && !empty($_SERVER['HTTP_CLIENT_IP'])) {
+        $ipClient = pnModAPIfunc('IWstats', 'user', 'cleanremoteaddr', array('originaladdr' => $_SERVER['HTTP_CLIENT_IP']));
+    }
+    
+    $userAgent = '';
+    if (isset($_SERVER['HTTP_USER_AGENT']) && !empty($_SERVER['HTTP_USER_AGENT'])) {
+        $userAgent = DataUtil::formatForStore($_SERVER['HTTP_USER_AGENT']);
+    }
+    
     // remove skipped ips by range
     $skippedIps = pnModGetVar('IWstats', 'skippedIps');
     $skippedIpsArray = explode(',', $skippedIps);
@@ -51,6 +57,9 @@ function IWstats_userapi_collect($args) {
         'params' => $params,
         'uid' => $uid,
         'ip' => $ip,
+        'ipForward' => $ipForward,
+        'ipClient' => $ipClient,
+        'userAgent' => $userAgent,
         'datetime' => date('Y-m-d H:i:s', time()),
         'isadmin' => $isadmin,
         'skipped' => $skipped,
@@ -137,7 +146,7 @@ function IWstats_userapi_getAllRecords($args) {
 }
 
 function IWstats_userapi_cleanremoteaddr($args) {
-    $originaladdr = $args['originaladdr'];
+
     $matches = array();
     // first get all things that look like IP addresses.
     if (!preg_match_all('/(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/', $args['originaladdr'], $matches, PREG_SET_ORDER)) {

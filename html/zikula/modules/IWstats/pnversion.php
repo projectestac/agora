@@ -5,7 +5,7 @@ $modversion['name'] = 'IWstats';
 $modversion['displayname'] = __('IWstats', $dom);
 $modversion['url'] = __('IWstats', $dom);
 $modversion['description'] = __('Display site statistics.', $dom);
-$modversion['version'] = '0.1';
+$modversion['version'] = '0.2';
 $modversion['official'] = 0;
 $modversion['admin'] = 1;
 $modversion['securityschema'] = array('IWstats::' => '::');
