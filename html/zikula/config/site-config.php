@@ -63,14 +63,6 @@
     $PNConfig['DBInfo']['default']['dbname']   = $database_intranet;
     $PNConfig['System']['temp']                = $agora['server']['root'] . $agora['intranet']['datadir'] . $database_intranet . '/pnTemp';
 
-    $PNConfig['DBInfo']['moodle']['dbtype']    = $agora['intranet']['moodle_dbtype'];
-    $PNConfig['DBInfo']['moodle']['dbhost']    = $agora['moodle']['dbhost'];
-    $PNConfig['DBInfo']['moodle']['dbpass']    = $agora['moodle']['userpwd'];
-    $PNConfig['DBInfo']['moodle']['dbname']    = $school_info['database_moodle'];
-    $PNConfig['DBInfo']['moodle']['dbuname']   = $agora['moodle']['username'] . $school_info['id_moodle'];
-    $PNConfig['DBInfo']['moodle']['encoded']   = 0;
-    $PNConfig['DBInfo']['moodle']['pconnect']  = 1;
-
     $PNConfig['DBInfo']['moodle2']['dbtype']    = $agora['intranet']['moodle_dbtype'];
     $PNConfig['DBInfo']['moodle2']['dbhost']    = $agora['moodle']['dbhost'];
     $PNConfig['DBInfo']['moodle2']['dbpass']    = $agora['moodle']['userpwd'];
