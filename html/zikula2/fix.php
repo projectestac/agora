@@ -4,10 +4,15 @@
 // tables. Must be removed when all databases are fixed.
 
 global $ZConfig, $agora;
-require_once('config/config.php');
+require_once 'config/config.php';
 
-$preupgradeError = false;
-$logfile = $ZConfig['Multisites']['filesRealPath'] . '/' . $ZConfig['Multisites']['siteFilesFolder'] . '/upgrade.txt';
+// In production put all logs together
+if ($agora['server']['enviroment'] == 'PRO') {
+    $logfile = $agora['server']['root'] . $agora['intranet']['datadir'] . '/' . $ZConfig['Multisites']['siteFilesFolder'] . '/upgrade-charset.txt';
+} else {
+    $logfile = $ZConfig['Multisites']['filesRealPath'] . '/' . $ZConfig['Multisites']['siteFilesFolder'] . '/upgrade-charset.txt';
+}
+
 $dbname = $ZConfig['DBInfo']['databases']['default']['dbname'];
 $f = fopen($logfile, "a") or die('Error en obrir el fitxer de text.');
 $nodebug = (isset($_REQUEST['nodebug'])) ? true : false;
@@ -40,13 +45,16 @@ require_once('Encoding.php');
 
 // Set database charset to UTF-8
 $sql = "ALTER DATABASE $dbname DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci";
-mysql_query($sql, $con);
+if ($nodebug) {
+    mysql_query($sql, $con);
+} else {
+    echo $sql . '<br>';
+}
 
 // Get all tables
-$sql = "show tables";
+$sql = "SHOW TABLES";
 if (!$result = mysql_query($sql, $con)) {
     fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-    $preupgradeError = true;
 }
 
 while ($taula = mysql_fetch_array($result, MYSQL_NUM)) {
@@ -54,7 +62,6 @@ while ($taula = mysql_fetch_array($result, MYSQL_NUM)) {
     $sql = 'SHOW COLUMNS FROM ' . $taula[0];
     if (!$result1 = mysql_query($sql, $con)) {
         fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-        $preupgradeError = true;
     }
     $columns = array();
     while ($rscolumn = mysql_fetch_array($result1, MYSQL_NUM)) {
@@ -77,7 +84,6 @@ while ($taula = mysql_fetch_array($result, MYSQL_NUM)) {
         $sql = 'SELECT * FROM ' . $taula[0];
         if (!$result2 = mysql_query($sql, $con)) {
             fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-            $preupgradeError = true;
         }
 
         while ($registres = mysql_fetch_array($result2, MYSQL_ASSOC)) {
@@ -117,8 +123,11 @@ function connectdb() {
 
     global $ZConfig;
 
-    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['hostmigrate'] . ':' . $ZConfig['DBInfo']['databases']['default']['portmigrate'], $ZConfig['DBInfo']['databases']['default']['user'], $ZConfig['DBInfo']['databases']['default']['password']))
+    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['hostmigrate'] . ':' . $ZConfig['DBInfo']['databases']['default']['portmigrate'], 
+                              $ZConfig['DBInfo']['databases']['default']['user'], 
+                              $ZConfig['DBInfo']['databases']['default']['password'])) {
         return false;
+    }
 
     mysql_set_charset('utf8', $con);
 
