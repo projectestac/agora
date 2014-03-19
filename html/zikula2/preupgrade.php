@@ -1,12 +1,25 @@
 <?php
 
-global $ZConfig;
-require_once('config/config.php');
+global $ZConfig, $agora;
+require_once 'config/config.php';
+
+$pass = (isset($_REQUEST['pass'])) ? $_REQUEST['pass'] : false;
+
+// Security check
+if (!$pass || ($pass != $agora['config']['xtecadmin'])) {
+    echo 'Password required';
+    exit(0);
+}
 
 $preupgradeError = false;
-$logfile = $ZConfig['Multisites']['filesRealPath'] . '/' . $ZConfig['Multisites']['siteFilesFolder'] . '/upgrade.txt';
-
 $dbname = $ZConfig['DBInfo']['databases']['default']['dbname'];
+
+// In production put all logs together
+if ($agora['server']['enviroment'] == 'PRO') {
+    $logfile = $agora['server']['root'] . $agora['intranet']['datadir'] . 'usu151' . '/' . $ZConfig['Multisites']['siteFilesFolder'] . '/upgrade-charset.txt';
+} else {
+    $logfile = $ZConfig['Multisites']['filesRealPath'] . '/' . $ZConfig['Multisites']['siteFilesFolder'] . '/upgrade-charset.txt';
+}
 
 $f = fopen($logfile, "a") or die('Error en obrir el fitxer de text.');
 
@@ -46,8 +59,7 @@ foreach ($tables as $table) {
 }
 
 //******* buidem taules la informació de les quals no es necessita
-$tables = array($prefix . '_' . 'session_info',
-);
+$tables = array($prefix . '_' . 'session_info');
 
 foreach ($tables as $table) {
     if (existsTable($dbname, $table, $f, $con)) {
@@ -554,7 +566,7 @@ fclose($f);
 
 if (!$preupgradeError) {
     // launch zikula upgrader
-    header('location:upgrade.php');
+    header('location:upgrade.php?pass=' . $pass);
 }
 
 /**
