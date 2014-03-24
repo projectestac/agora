@@ -17,6 +17,7 @@ ZIKULA 2
 - IWxtec2: Updated links to intraweb.xtec.cat and fixed loading of images in CSS
 - Upgrader: Converted to unattended
 - Charset fix: Minor improvements
+- Upgrader: Improved script and moved to just one file
 
 
 Changes 14.03.12
