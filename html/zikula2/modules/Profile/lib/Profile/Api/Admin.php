@@ -380,6 +380,12 @@ class Profile_Api_Admin extends Zikula_AbstractApi
     {
         $links = array();
 
+        // Add User module links
+        $links[] = array('url' => ModUtil::url('Profile', 'admin', 'view'),
+            'text' => $this->__('Users Module'),
+            'class' => 'z-icon-es-user',
+            'links' => ModUtil::apiFunc('Users', 'admin', 'getlinks'));
+
         if (SecurityUtil::checkPermission('Profile::', '::', ACCESS_EDIT)) {
             $links[] = array('url' => ModUtil::url('Profile', 'admin', 'view'),
                 'text' => $this->__('Personal info items list'),

@@ -32,7 +32,7 @@ class Blocks_Api_User extends Zikula_AbstractApi
     {
         // create an empty items array
         $items = array();
-        
+
         // Security check
 
         
