@@ -34,13 +34,13 @@ function IWstats_init() {
     if (!DBUtil::createIndex($c['uid'], 'IWstats', 'uid')) {
         return false;
     }
-    if (!DBUtil::createIndex($c['ip'], 'IWstats', 'ipRemote')) {
+    if (!DBUtil::createIndex($c['ip'], 'IWstats', 'ip')) {
         return false;
     }
     if (!DBUtil::createIndex($c['ipForward'], 'IWstats', 'ipForward')) {
         return false;
     }
-    if (!DBUtil::createIndex($c['ipClient'], 'IWstats', 'ip')) {
+    if (!DBUtil::createIndex($c['ipClient'], 'IWstats', 'ipClient')) {
         return false;
     }
     if (!DBUtil::createIndex($c['userAgent'], 'IWstats', 'userAgent')) {

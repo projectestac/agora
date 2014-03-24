@@ -59,7 +59,6 @@ function IWstats_pntables() {
         'nips' => "I NOTNULL DEFAULT '0'",
     );
 
-
     // Return the table information
     return $table;
 }
