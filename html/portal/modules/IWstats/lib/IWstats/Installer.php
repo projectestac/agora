@@ -28,14 +28,27 @@ class IWstats_Installer extends Zikula_AbstractInstaller {
         // create several indexes for IWstats table
         $table = DBUtil::getTables();
         $c = $table['IWstats_column'];
-        if (!DBUtil::createIndex($c['moduleid'], 'IWstats', 'moduleid'))
+        if (!DBUtil::createIndex($c['moduleid'], 'IWstats', 'moduleid')) {
             return false;
-        if (!DBUtil::createIndex($c['uid'], 'IWstats', 'uid'))
+        }
+        if (!DBUtil::createIndex($c['uid'], 'IWstats', 'uid')) {
             return false;
-        if (!DBUtil::createIndex($c['ip'], 'IWstats', 'ip'))
+        }
+        if (!DBUtil::createIndex($c['ip'], 'IWstats', 'ip')) {
             return false;
-        if (!DBUtil::createIndex($c['isadmin'], 'IWstats', 'isadmin'))
+        }
+        if (!DBUtil::createIndex($c['ipForward'], 'IWstats', 'ipForward')) {
             return false;
+        }
+        if (!DBUtil::createIndex($c['ipClient'], 'IWstats', 'ipClient')) {
+            return false;
+        }
+        if (!DBUtil::createIndex($c['userAgent'], 'IWstats', 'userAgent')) {
+            return false;
+        }
+        if (!DBUtil::createIndex($c['isadmin'], 'IWstats', 'isadmin')) {
+            return false;
+        }
 
         // Set up config variables
         $this->setVar('skippedIps', '')
@@ -56,9 +69,23 @@ class IWstats_Installer extends Zikula_AbstractInstaller {
      * @todo recode using DBUtil
      */
     public function Upgrade($oldversion) {
-        switch ($oldversion) {
 
+        switch ($oldversion) {
+            case '3.0.0':
+                // Add new fields. Stop in case of error
+                if (!DBUtil::changeTable('IWstats')) {
+                    return false;
+                }
+
+                // Create indexes. Don't stop in case of error
+                $table = pnDBGetTables();
+                $c = $table['IWstats_column'];
+                DBUtil::createIndex($c['ipForward'], 'IWstats', 'ipForward');
+                DBUtil::createIndex($c['ipClient'], 'IWstats', 'ipClient');
+                DBUtil::createIndex($c['userAgent'], 'IWstats', 'userAgent');
+                break;
         }
+
         // Update successful
         return true;
     }
@@ -70,6 +97,7 @@ class IWstats_Installer extends Zikula_AbstractInstaller {
     public function uninstall() {
         // drop tables
         $tables = array('IWstats', 'IWstats_summary');
+        
         foreach ($tables as $table) {
             if (!DBUtil::dropTable($table)) {
                 return false;
@@ -77,8 +105,7 @@ class IWstats_Installer extends Zikula_AbstractInstaller {
         }
 
         // delete config variables
-        $this->delVar('skippedIps', '')
-                ->delVar('modulesSkipped', '');
+        $this->delVars();
 
         // delete the system init hook
         EventUtil::unregisterPersistentModuleHandler('IWstats', 'core.postinit', array('IWstats_Listeners', 'coreinit'));
