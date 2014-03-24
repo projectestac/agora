@@ -5,12 +5,15 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+PORTAL
+- Upgraded to Zikula 1.3.7
+
 ZIKULA
 - Added protection against blind SQL attacks
 - IWstats: Improved collection of data
 
 ZIKULA 2
-- Upgrade to Zikula 1.3.7
+- Upgraded to Zikula 1.3.7
 - IWagendas: Fixed quotes that caused an error in apache log
 - IWstats: Improved collection of data
 - Minor improvements to filetheme.php
