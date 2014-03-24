@@ -25,11 +25,6 @@ class IWstats_Listeners
      */
     public static function coreinit(Zikula_Event $event)
     {
-        // get the module name
-        $args = array();
-        $args['modulename'] = ModUtil::getName();
-        $module = $args['modulename'];
-        
         ModUtil::apiFunc('IWstats', 'user', 'collect');
     }
 }

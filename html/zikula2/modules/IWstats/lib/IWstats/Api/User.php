@@ -13,28 +13,35 @@ class IWstats_Api_User extends Zikula_AbstractApi {
         // skip modules selected as skipped in settings
         $moduleIds = unserialize(ModUtil::getVar('IWstats', 'modulesSkipped'));
         if (is_array($moduleIds)) {
-            if (in_array($modid, $moduleIds))
+            if (in_array($modid, $moduleIds)) {
                 $skippedModule = 1;
+            }
         }
 
         $params = $_SERVER['QUERY_STRING'];
 
-        if (strpos($params, '&') === false && $params != '')
-            return true;
-
         $isadmin = (SecurityUtil::checkPermission('IWstats::', '::', ACCESS_ADMIN)) ? 1 : 0;
 
         $ip = '';
-        if (!empty($_SERVER['REMOTE_ADDR'])) {
-            $ip = ModUtil::apiFunc('IWstats', 'user', 'cleanremoteaddr', array('originaladdr' => $_SERVER['REMOTE_ADDR']));
-        }
-        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ip = ModUtil::apiFunc('IWstats', 'user', 'cleanremoteaddr', array('originaladdr' => $_SERVER['HTTP_X_FORWARDED_FOR']));
-        }
-        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-            $ip = ModUtil::apiFunc('IWstats', 'user', 'cleanremoteaddr', array('originaladdr' => $_SERVER['HTTP_CLIENT_IP']));
+        if (isset($_SERVER['REMOTE_ADDR']) && !empty($_SERVER['REMOTE_ADDR'])) {
+            $ip = pnModAPIfunc('IWstats', 'user', 'cleanremoteaddr', array('originaladdr' => $_SERVER['REMOTE_ADDR']));
         }
 
+        $ipForward = '';
+        if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && !empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ipForward = pnModAPIfunc('IWstats', 'user', 'cleanremoteaddr', array('originaladdr' => $_SERVER['HTTP_X_FORWARDED_FOR']));
+        }
+
+        $ipClient = '';
+        if (isset($_SERVER['HTTP_CLIENT_IP']) && !empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ipClient = pnModAPIfunc('IWstats', 'user', 'cleanremoteaddr', array('originaladdr' => $_SERVER['HTTP_CLIENT_IP']));
+        }
+
+        $userAgent = '';
+        if (isset($_SERVER['HTTP_USER_AGENT']) && !empty($_SERVER['HTTP_USER_AGENT'])) {
+            $userAgent = DataUtil::formatForStore($_SERVER['HTTP_USER_AGENT']);
+        }
+    
         // remove skipped ips by range
         $skippedIps = ModUtil::getVar('IWstats', 'skippedIps');
         $skippedIpsArray = explode(',', $skippedIps);
@@ -50,6 +57,9 @@ class IWstats_Api_User extends Zikula_AbstractApi {
             'params' => $params,
             'uid' => $uid,
             'ip' => $ip,
+            'ipForward' => $ipForward,
+            'ipClient' => $ipClient,
+            'userAgent' => $userAgent,
             'datetime' => date('Y-m-d H:i:s', time()),
             'isadmin' => $isadmin,
             'skipped' => $skipped,
@@ -134,7 +144,7 @@ class IWstats_Api_User extends Zikula_AbstractApi {
     }
 
     public function cleanremoteaddr($args) {
-        $originaladdr = $args['originaladdr'];
+        
         $matches = array();
         // first get all things that look like IP addresses.
         if (!preg_match_all('/(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/', $args['originaladdr'], $matches, PREG_SET_ORDER)) {

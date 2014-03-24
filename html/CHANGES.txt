@@ -11,6 +11,7 @@ ZIKULA
 
 ZIKULA 2
 - IWagendas: Fixed quotes that caused an error in apache log
+- IWstats: Improved collection of data
 - Minor improvements to filetheme.php
 - IWxtec: Updated links to intraweb.xtec.cat
 - IWbluegraceAgora: Updated links to intraweb.xtec.cat and fixed incorrect load in filetheme.php
