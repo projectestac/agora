@@ -542,11 +542,8 @@ function IWstats_admin_summary() {
 
     $dom = ZLanguage::getModuleDomain('IWstats');
 
-    $days = 7;
-    $deleteFromDays = 170;
-    pnModAPIFunc('IWstats', 'admin', 'summary', array('days' => $days,
-        'deleteFromDays' => $deleteFromDays,
-    ));
+    $days = 3;
+    pnModAPIFunc('IWstats', 'admin', 'summary', array('days' => $days));
     
     return 'ok';
 

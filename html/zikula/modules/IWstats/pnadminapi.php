@@ -199,7 +199,7 @@ function IWstats_adminapi_summary($args) {
             }
         }
         
-        $keepDays = 90;
+        $keepDays = 120;
         $time = time() - $keepDays * 24 * 60 * 60;
         $keepTime = date('Y-m-d 23:59:59', $time);
         $delDate = str_replace('00:00:00', '23:59:59', $record['datetime']);
