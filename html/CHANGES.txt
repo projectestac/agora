@@ -9,6 +9,7 @@ PORTAL
 - Upgraded to Zikula 1.3.7
 - IWstats: Improved collection of data
 - Profile: Removed module as it is not used
+- Removed install.php
 
 ZIKULA
 - Added protection against blind SQL attacks
@@ -25,6 +26,7 @@ ZIKULA 2
 - Upgrader: Converted to unattended
 - Charset fix: Minor improvements
 - Upgrader: Improved script and moved to just one file
+- Removed install.php
 
 
 Changes 14.03.12
