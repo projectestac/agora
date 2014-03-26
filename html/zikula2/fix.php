@@ -30,6 +30,11 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] === false)) {
     exit(0);
 }
 
+// Use buffering in order to show text as soon as it is available
+if (ob_get_level() == 0) {
+    ob_start();
+}
+
 if ($nodebug === false) {
     echo '<div style="font-weight:bold;">Debug mode</div>';
 }
@@ -58,6 +63,16 @@ if (!$result = mysql_query($sql, $con)) {
 }
 
 while ($taula = mysql_fetch_array($result, MYSQL_NUM)) {
+    // Tables to skip
+    if ($taula[0] == 'zk_IWstats' || $taula[0] == 'IWstats' ||
+            $taula[0] == 'zk_IWstats_summary' || $taula[0] == 'IWstats_summary' ||
+            $taula[0] == 'zk_counter' || $taula[0] == 'zk_stats_date' ||
+            $taula[0] == 'zk_categories_mapobj' || $taula[0] == 'categories_mapobj' ||
+            $taula[0] == 'zk_session_info' || $taula[0] == 'session_info' ||
+            $taula[0] == 'zk_iw_bookings') {
+        continue;
+    }
+
     // Get all columns
     $sql = 'SHOW COLUMNS FROM ' . $taula[0];
     if (!$result1 = mysql_query($sql, $con)) {
@@ -74,7 +89,7 @@ while ($taula = mysql_fetch_array($result, MYSQL_NUM)) {
     $toFix = false;
     $columnsToFix = array();
     foreach ($columns as $column) {
-        if (strpos($column['data_type'], "varchar") !== false || $column['data_type'] == "text" || $column['data_type'] == "longtext") {
+        if (strpos($column['data_type'], "varchar") !== false || strpos($column['data_type'], "text") !== false) {
             $toFix = true;
             $columnsToFix[] = $column['column_name'];
         }
@@ -113,10 +128,21 @@ while ($taula = mysql_fetch_array($result, MYSQL_NUM)) {
                 }
             }
         }
+
+        $sql = 'ALTER TABLE ' . $taula[0] . ' CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;';
+        if ($nodebug) {
+            mysql_query($sql, $con);
+        } else {
+            echo $sql . '<br>';
+        }
+        echo "Taula <strong>$taula[0]</strong> completada!<br />";
+        flush();
+        ob_flush();
     }
 }
 
 echo "Operation completed successfully!";
+ob_end_flush();
 
 
 function connectdb() {
