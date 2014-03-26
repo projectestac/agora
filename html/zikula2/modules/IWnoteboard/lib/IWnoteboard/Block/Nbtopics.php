@@ -69,6 +69,7 @@ class IWnoteboard_Block_Nbtopics extends Zikula_Controller_AbstractBlock {
         $view = Zikula_View::getInstance('IWnoteboard', false);
 
         $temes = ModUtil::apiFunc('IWnoteboard', 'user', 'getalltemes');
+        $en_te = false;
         foreach ($temes as $untema) {
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
             if (ModUtil::func('IWmain', 'user', 'isMember', array('uid' => UserUtil::getVar('uid'),
