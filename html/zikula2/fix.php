@@ -68,8 +68,7 @@ while ($taula = mysql_fetch_array($result, MYSQL_NUM)) {
             $taula[0] == 'zk_IWstats_summary' || $taula[0] == 'IWstats_summary' ||
             $taula[0] == 'zk_counter' || $taula[0] == 'zk_stats_date' ||
             $taula[0] == 'zk_categories_mapobj' || $taula[0] == 'categories_mapobj' ||
-            $taula[0] == 'zk_session_info' || $taula[0] == 'session_info' ||
-            $taula[0] == 'zk_iw_bookings') {
+            $taula[0] == 'zk_session_info' || $taula[0] == 'session_info') {
         continue;
     }
 
