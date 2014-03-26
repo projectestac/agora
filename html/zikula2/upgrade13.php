@@ -178,24 +178,25 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
                 $preupgradeError = true;
             }
 
-            // Tables IWstats and IWstats_summary can contain a huge quantity of registers, so they need to processed specifically
-            if ($fila[0] == $prefix . '_' . 'IWstats' || $fila[0] == $prefix . '_' . 'IWstats_summary') {
-                $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = replace(' . $column['column_name'] . ', \'iw_\', \'IW\') WHERE ' . $column['column_name'] . ' LIKE \'%iw_%\' ';
-                if (!$result3 = mysql_query($sql, $con)) {
-                    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-                    $preupgradeError = true;
-                }
-            } else {
+            // No changes are necessary for tables IWstats and IWstats_summary, which can contain a huge quantity of registers
+            if ($fila[0] != $prefix . '_' . 'IWstats' && $fila[0] != $prefix . '_' . 'IWstats_summary') {
                 while ($value = mysql_fetch_array($result2)) {
+/*		            if ($fila[0] == $prefix . '_' . 'blocks') {
+						echo $value['columna'].'<br>';
+					}
+*/                  // Serialized values
                     if (is_serialized($value['columna'])) {
-                        //echo $value['columna'].'<br>';
                         $array = unserialize($value['columna']);
                         $newArray = rec_array_replace('iw_', 'IW', $array);
                         $newArray = rec_array_replace('Downloads', 'IWdocmanager', $newArray);
 
                         if ($column['column_name'] == 'pn_content' && $column['data_type'] == "longtext") {
-                            $newArray = rec_array_replace('[', 'index.php?module=', $newArray);
-                            $newArray = rec_array_replace(']', '', $newArray);
+                            $newArray = rec_array_replace('[', '{', $newArray);
+                            $newArray = rec_array_replace(']', '}', $newArray);
+                            $newArray = rec_array_replace('index.php?module=IWdocmanager&func=newdownload', 'index.php?module=IWdocmanager&type=user&func=newDoc', $newArray);
+                            $newArray = rec_array_replace('index.php?module=News&func=new', 'index.php?module=News&type=user&func=newitem', $newArray);
+                            $newArray = rec_array_replace('index.php?module=Pages&type=admin&func=new', 'index.php?module=Pages&type=admin&func=newitem', $newArray);
+                            $newArray = rec_array_replace('index.php?module=content&type=edit', 'index.php?module=Content&type=admin&func=main', $newArray);
                         }
                         $arraySerialized = serialize($newArray);
                         $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = \'' . mysql_real_escape_string($arraySerialized) . '\' WHERE ' . $column['column_name'] . '=\'' . mysql_real_escape_string($value[0]) . '\'';
@@ -203,12 +204,23 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
                             fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
                             $preupgradeError = true;
                         }
-                    } else {
-                        $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = replace(' . $column['column_name'] . ', \'iw_\', \'IW\') WHERE ' . $column['column_name'] . ' LIKE \'%iw_%\' ';
-                        if (!$result3 = mysql_query($sql, $con)) {
-                            fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
-                            $preupgradeError = true;
-                        }
+                    }
+/*		            if ($fila[0] == $prefix . '_' . 'blocks') {
+						echo $value['columna'].'<br>';
+					}
+*/              }
+                // Serialized and Non-serialized values
+                $sql = 'UPDATE ' . $fila[0] . ' SET ' . $column['column_name'] . ' = replace(' . $column['column_name'] . ', \'iw_\', \'IW\') WHERE ' . $column['column_name'] . ' LIKE \'%iw_%\' ';
+                if (!$result3 = mysql_query($sql, $con)) {
+                    fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+                    $preupgradeError = true;
+                }
+                // Update legacy component for News
+                if ($fila[0] == $prefix . '_' . 'group_perms') {
+                    $sql = "UPDATE $fila[0] SET pn_component = 'News::' WHERE pn_component = 'Stories::Story'";
+                    if (!$result3 = mysql_query($sql, $con)) {
+                        fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
+                        $preupgradeError = true;
                     }
                 }
             }
@@ -531,12 +543,7 @@ if (!empty($documents)) {
     }
 }
 
-
-// change links of module Downloads to IWdocmanager
-// TODO:
-// END activate the module IWdocmanager
-// activate the module XtecMailer
-// get adminmail from module vars table
+// XTECMailer: Get adminmail from module vars table
 $sql = "select pn_value from module_vars where pn_modname='/PNConfig' AND pn_name='adminmail'";
 if (!$result = mysql_query($sql, $con)) {
     fwrite($f, 'SQL: ' . substr($sql, 0, 70) . ' - ERROR: ' . mysql_error() . "\n\n");
@@ -576,7 +583,6 @@ if (!existsRegister($dbname, 'modules', 'pn_name', 'XtecMailer', $f, $con)) {
 // END activate the module XtecMailer
 
 
-
 if ($preupgradeError) {
     fwrite($f, "ERROR A LA PREPARACIÓ\n");
 } else {
@@ -587,124 +593,127 @@ fwrite($f, "===============\n");
 fclose($f);
 mysql_close($con);
 
-
-if (!$preupgradeError) {
-
-    ZLoader::addAutoloader('Users', 'system/Users/lib', '_');
-    include_once __DIR__.'/plugins/Doctrine/Plugin.php';
-    PluginUtil::loadPlugin('SystemPlugin_Doctrine_Plugin');
-    $eventManager = $core->getEventManager();
-    $eventManager->attach('core.init', 'upgrade_suppressErrors');
-
-    // load zikula core
-    define('_ZINSTALLVER', Zikula_Core::VERSION_NUM);
-    define('_Z_MINUPGVER', '1.2.0');
-
-    // Signal that upgrade is running.
-    $GLOBALS['_ZikulaUpgrader'] = array();
-
-    // include config file for retrieving name of temporary directory
-    $GLOBALS['ZConfig']['System']['multilingual'] = true;
-
-    $GLOBALS['ZConfig']['System']['Z_CONFIG_USE_OBJECT_ATTRIBUTION'] = false;
-    $GLOBALS['ZConfig']['System']['Z_CONFIG_USE_OBJECT_LOGGING'] = false;
-    $GLOBALS['ZConfig']['System']['Z_CONFIG_USE_OBJECT_META'] = false;
-
-    // Lazy load DB connection to avoid testing DSNs that are not yet valid (e.g. no DB created yet)
-    $dbEvent = new Zikula_Event('doctrine.init_connection', null, array('lazy' => true));
-    $connection = $eventManager->notify($dbEvent)->getData();
-
-    $columns = upgrade_getColumnsForTable($connection, 'modules');
-
-    if (in_array('pn_id', array_keys($columns))) {
-        upgrade_columns($connection);
-    }
-
-    if (!isset($columns['capabilities'])) {
-        Doctrine_Core::createTablesFromArray(array('Zikula_Doctrine_Model_HookArea', 'Zikula_Doctrine_Model_HookProvider', 'Zikula_Doctrine_Model_HookSubscriber', 'Zikula_Doctrine_Model_HookBinding', 'Zikula_Doctrine_Model_HookRuntime'));
-        ModUtil::dbInfoLoad('Extensions', 'Extensions', true);
-        DBUtil::changeTable('modules');
-        ModUtil::dbInfoLoad('Blocks', 'Blocks', true);
-        DBUtil::changeTable('blocks');
-    }
-
-    $installedVersion = upgrade_getCurrentInstalledCoreVersion($connection);
-
-    if (version_compare($installedVersion, '1.3.0-dev') === -1) {
-        $GLOBALS['_ZikulaUpgrader']['_ZikulaUpgradeFrom12x'] = true;
-    }
-
-    $core->init(Zikula_Core::STAGE_ALL);
-
-    $action = FormUtil::getPassedValue('action', false, 'GETPOST');
-
-    // deactivate file based shorturls
-    if (System::getVar('shorturls') && System::getVar('shorturlstype')) {
-        System::setVar('shorturls', false);
-        System::delVar('shorturlstype'); 
-        System::delVar('shorturlsext');
-        LogUtil::registerError('You were using file based shorturls. This feature will no longer be supported. The shorturls were disabled. Directory based shorturls can be activated in the General settings manager.');
-    }
-
-    // Upgrade available modules
-    $modvars = DBUtil::selectObjectArray('module_vars');
-    foreach ($modvars as $modvar) {
-        if ($modvar['value'] == '0' || $modvar['value'] == '1') {
-            $modvar['value'] = serialize($modvar['value']);
-            DBUtil::updateObject($modvar, 'module_vars');
-        }
-    }
-
-    // force load the modules admin API
-    ModUtil::loadApi('Extensions', 'admin', true);
-
-    echo '<h2>' . __('Starting upgrade') . '</h2>' . "\n";
-    echo '<ul id="upgradelist" class="check">' . "\n";
-
-    $results = ModUtil::apiFunc('Extensions', 'admin', 'upgradeall');
-    if ($results) {
-        foreach ($results as $modname => $result) {
-            if ($result) {
-                echo '<li class="passed">' . DataUtil::formatForDisplay($modname) . ' ' . __('upgraded') . '</li>' . "\n";
-            } else {
-                echo '<li class="failed">' . DataUtil::formatForDisplay($modname) . ' ' . __('not upgraded') . '</li>' . "\n";
-            }
-        }
-    }
-    echo '</ul>' . "\n";
-    if (!$results) {
-        echo '<ul class="check"><li class="passed">' . __('No modules required upgrading') . '</li></ul>';
-    }
-
-    // wipe out the deprecated modules from Modules list.
-    $modTable = 'modules';
-    $sql = "DELETE FROM $modTable WHERE name = 'Header_Footer' OR name = 'AuthPN' OR name = 'pnForm' OR name = 'Workflow' OR name = 'pnRender'";
-    DBUtil::executeSQL($sql);
-
-    // store localized displayname and description for Extensions module
-    $extensionsDisplayname = __('Extensions');
-    $extensionsDescription = __('Manage your modules and plugins.');
-    $sql = "UPDATE modules SET name = 'Extensions', displayname = '{$extensionsDisplayname}', description = '{$extensionsDescription}' WHERE modules.name = 'Extensions'";
-    DBUtil::executeSQL($sql);
-
-    // regenerate the themes list
-    ModUtil::apiFunc('Theme', 'admin', 'regenerate');
-
-    // store the recent version in a config var for later usage. This enables us to determine the version we are upgrading from
-    System::setVar('Version_Num', Zikula_Core::VERSION_NUM);
-    System::setVar('language_i18n', ZLanguage::getLanguageCode());
-
-    // Relogin the admin user to give a proper admin link
-    SessionUtil::requireSession();
-
-    echo '<p class="z-statusmsg">' . __('Finished upgrade') . " - \n";
-
-    upgrade_clear_caches();
-    $url = sprintf('<a href="%s">%s</a>', ModUtil::url('Admin', 'admin', 'adminpanel'), DataUtil::formatForDisplay(System::getVar('sitename')));
-    echo __f('Go to the admin panel for %s', $url);
-
-    echo "</p>\n";
+if ($preupgradeError) {
+    die ("ERROR A LA PREPARACIÓ\n");
 }
+
+
+// Upgrade start
+ZLoader::addAutoloader('Users', 'system/Users/lib', '_');
+include_once __DIR__.'/plugins/Doctrine/Plugin.php';
+PluginUtil::loadPlugin('SystemPlugin_Doctrine_Plugin');
+$eventManager = $core->getEventManager();
+$eventManager->attach('core.init', 'upgrade_suppressErrors');
+
+// load zikula core
+define('_ZINSTALLVER', Zikula_Core::VERSION_NUM);
+define('_Z_MINUPGVER', '1.2.0');
+
+// Signal that upgrade is running.
+$GLOBALS['_ZikulaUpgrader'] = array();
+
+// include config file for retrieving name of temporary directory
+$GLOBALS['ZConfig']['System']['multilingual'] = true;
+
+$GLOBALS['ZConfig']['System']['Z_CONFIG_USE_OBJECT_ATTRIBUTION'] = false;
+$GLOBALS['ZConfig']['System']['Z_CONFIG_USE_OBJECT_LOGGING'] = false;
+$GLOBALS['ZConfig']['System']['Z_CONFIG_USE_OBJECT_META'] = false;
+
+// Lazy load DB connection to avoid testing DSNs that are not yet valid (e.g. no DB created yet)
+$dbEvent = new Zikula_Event('doctrine.init_connection', null, array('lazy' => true));
+$connection = $eventManager->notify($dbEvent)->getData();
+
+$columns = upgrade_getColumnsForTable($connection, 'modules');
+
+if (in_array('pn_id', array_keys($columns))) {
+    upgrade_columns($connection);
+}
+
+if (!isset($columns['capabilities'])) {
+    Doctrine_Core::createTablesFromArray(array('Zikula_Doctrine_Model_HookArea', 'Zikula_Doctrine_Model_HookProvider', 'Zikula_Doctrine_Model_HookSubscriber', 'Zikula_Doctrine_Model_HookBinding', 'Zikula_Doctrine_Model_HookRuntime'));
+    ModUtil::dbInfoLoad('Extensions', 'Extensions', true);
+    DBUtil::changeTable('modules');
+    ModUtil::dbInfoLoad('Blocks', 'Blocks', true);
+    DBUtil::changeTable('blocks');
+}
+
+$installedVersion = upgrade_getCurrentInstalledCoreVersion($connection);
+
+if (version_compare($installedVersion, '1.3.0-dev') === -1) {
+    $GLOBALS['_ZikulaUpgrader']['_ZikulaUpgradeFrom12x'] = true;
+}
+
+$core->init(Zikula_Core::STAGE_ALL);
+
+$action = FormUtil::getPassedValue('action', false, 'GETPOST');
+
+// deactivate file based shorturls
+if (System::getVar('shorturls') && System::getVar('shorturlstype')) {
+    System::setVar('shorturls', false);
+    System::delVar('shorturlstype'); 
+    System::delVar('shorturlsext');
+    LogUtil::registerError('You were using file based shorturls. This feature will no longer be supported. The shorturls were disabled. Directory based shorturls can be activated in the General settings manager.');
+}
+
+// Upgrade available modules
+$modvars = DBUtil::selectObjectArray('module_vars');
+foreach ($modvars as $modvar) {
+    if ($modvar['value'] == '0' || $modvar['value'] == '1') {
+        $modvar['value'] = serialize($modvar['value']);
+        DBUtil::updateObject($modvar, 'module_vars');
+    }
+}
+
+// force load the modules admin API
+ModUtil::loadApi('Extensions', 'admin', true);
+
+echo '<h2>' . __('Starting upgrade') . '</h2>' . "\n";
+echo '<ul id="upgradelist" class="check">' . "\n";
+
+$results = ModUtil::apiFunc('Extensions', 'admin', 'upgradeall');
+if ($results) {
+    foreach ($results as $modname => $result) {
+        if ($result) {
+            echo '<li class="passed">' . DataUtil::formatForDisplay($modname) . ' ' . __('upgraded') . '</li>' . "\n";
+        } else {
+            echo '<li class="failed">' . DataUtil::formatForDisplay($modname) . ' ' . __('not upgraded') . '</li>' . "\n";
+        }
+    }
+}
+echo '</ul>' . "\n";
+if (!$results) {
+    echo '<ul class="check"><li class="passed">' . __('No modules required upgrading') . '</li></ul>';
+}
+
+// wipe out the deprecated modules from Modules list.
+$modTable = 'modules';
+$sql = "DELETE FROM $modTable WHERE name = 'Header_Footer' OR name = 'AuthPN' OR name = 'pnForm' OR name = 'Workflow' OR name = 'pnRender'";
+DBUtil::executeSQL($sql);
+
+// store localized displayname and description for Extensions module
+$extensionsDisplayname = __('Extensions');
+$extensionsDescription = __('Manage your modules and plugins.');
+$sql = "UPDATE modules SET name = 'Extensions', displayname = '{$extensionsDisplayname}', description = '{$extensionsDescription}' WHERE modules.name = 'Extensions'";
+DBUtil::executeSQL($sql);
+
+// regenerate the themes list
+ModUtil::apiFunc('Theme', 'admin', 'regenerate');
+
+// store the recent version in a config var for later usage. This enables us to determine the version we are upgrading from
+System::setVar('Version_Num', Zikula_Core::VERSION_NUM);
+System::setVar('language_i18n', ZLanguage::getLanguageCode());
+
+// Relogin the admin user to give a proper admin link
+SessionUtil::requireSession();
+
+echo '<p class="z-statusmsg">' . __('Finished upgrade') . " - \n";
+
+upgrade_clear_caches();
+$url = sprintf('<a href="%s">%s</a>', ModUtil::url('Admin', 'admin', 'adminpanel'), DataUtil::formatForDisplay(System::getVar('sitename')));
+echo __f('Go to the admin panel for %s', $url);
+
+echo "</p>\n";
+
 
 /**
  * Open a connection to the administration database
