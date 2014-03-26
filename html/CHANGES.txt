@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 PORTAL
 - Upgraded to Zikula 1.3.7
+- Minor improvements to catalan translation
 - IWstats: Improved collection of data
 - Profile: Removed module as it is not used
 - Removed install.php
@@ -18,6 +19,7 @@ ZIKULA
 
 ZIKULA 2
 - Upgraded to Zikula 1.3.7
+- Minor improvements to catalan translation
 - IWagendas: Fixed quotes that caused an error in apache log
 - IWstats: Improved collection of data
 - IWnoteboard: Fixed non existing member class call
@@ -26,7 +28,7 @@ ZIKULA 2
 - IWbluegraceAgora: Updated links to intraweb.xtec.cat and fixed incorrect load in filetheme.php
 - IWxtec2: Updated links to intraweb.xtec.cat and fixed loading of images in CSS
 - Upgrader: Converted to unattended
-- Charset fix: Minor improvements
+- Charset fix: Several improvements
 - Upgrader: Improved script and moved to just one file
 - Removed install.php
 
