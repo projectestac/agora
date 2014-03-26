@@ -505,7 +505,9 @@ class IWnoteboard_Api_User extends Zikula_AbstractApi {
         $where = "$c[titulin]<$time AND $c[titulout]>$time AND $c[titular]<>'' AND $c[caduca]>$time";
         $orderby = "$c[titulin] desc";
         if (ModUtil::getVar('IWnoteboard', 'multiLanguage') == 1) {
-            $where .= " AND $c[lang]='" . UserUtil::getLang() . "' OR $c[lang] = ''";
+            $userdata = UserUtil::getVars(UserUtil::getVar('uid'));
+            $locale = $userdata['locale'];
+            $where .= " AND $c[lang]='$locale' OR $c[lang] = ''";
         }
         $items = DBUtil::selectObjectArray('IWnoteboard', $where, $orderby, '-1', '-1', 'nid');
         // Check for an error with the database code, and if so set an appropriate
