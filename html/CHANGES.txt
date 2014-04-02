@@ -31,6 +31,7 @@ ZIKULA 2
 - Charset fix: Several improvements
 - Upgrader: Improved script and moved to just one file
 - Removed install.php
+- Pages: Changed url module from 'pages' to 'pagines' in catalan translation (full module regeneration required)
 
 
 Changes 14.03.12
