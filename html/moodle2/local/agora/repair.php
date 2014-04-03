@@ -27,10 +27,10 @@ switch($action){
 	case 'course_sections': //Ja està fet per tothom
 		repair_duplicated_course_sections($courseid);
 		break;
-	case 'course_completion':
+	case 'course_completion':  //Ja està fet per tothom
 		repair_duplicated_course_completions($courseid);
 		break;
-	case 'quiz_attempts':
+	case 'quiz_attempts':  //Ja està fet per tothom
 		repair_duplicated_quiz_attempts($courseid);
 		break;
 	case 'not_erased_activities':
