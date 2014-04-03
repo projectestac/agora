@@ -133,7 +133,7 @@ $string['commonfiltersettings'] = 'Caracterísitques comunes de fitxers';
 $string['commonsettings'] = 'Paràmetres comuns';
 $string['componentinstalled'] = 'S\'ha instal·lat el component';
 $string['computedfromlogs'] = 'Comprovats els registres des de {$a}.';
-$string['condifmodeditdefaults'] = 'Els valors que establiu aquí defineixen els que s\'utililtzen per defecte com a caracterísitques de l\'actitvitat. També podeu determinar quines característiques cal considerar com a avançades.';
+$string['condifmodeditdefaults'] = 'Els valors per defecte s\'utilitzaran en el formulari de paràmetres quan creeu una nova activitat o recurs.';
 $string['confeditorhidebuttons'] = 'Seleccioneu els botons que voleu ocultar en l\'editor HTML.';
 $string['configallcountrycodes'] = 'Aquesta és la llista de països que es pot seleccionar en alguns punts, per exemple en un perfil d\'usuari. Si es deixa en blanc (per defecte) s\'utilitza la llista del fitxer <i>countries.php</i> que hi ha al paquet d\'idioma anglès estàndard. Aquesta llista és la hi ha al ISO 3166-1.<br />
 Podeu escriure una llista de codis separats amb comes, per exemple \'CT, FR_ES\'. Si n\'hi afegiu de nous, que no són estàndards, els haureu d\'afegir a la llista <i>countries.php</i> del vostre paquet d\'idioma i al paquet \'en\' (és el cas de l\'exemple CT, que no està inclòs a les llistes de països).';
@@ -177,17 +177,15 @@ $string['configcronremotepassword'] = 'La seqüència cron.php no es podrà exec
 http://www.exemple.com/admin/cron.php?password=sesamobret
 </pre>Si deixeu la contrasenya en blanc no caldrà utilitzar-ne cap.';
 $string['configcurlcache'] = 'Temps de vida per al cau de cURL, en segons.';
-$string['configcustommenuitems'] = 'Podeu preparar un menú personalitzat que es mostrarà per temes. Cada línia conté text del menú, un enllaç URL (opcional) i una ajudeta (opcional), separats per barres verticals. Podeu marcar l\'estructura amb guions. Per exemple:
+$string['configcustommenuitems'] = 'Podeu preparar un menú personalitzat que es mostrarà per temes. Cada línia consisteix en un text de menú, un enllaç URL (opcional), un consell (opcional) i un codi de llengua o llista de codis separada per comes (opcional, per tal de mostrar-ho només als usuaris d\'aquell idioma), tot això separat per barres verticals. Podeu marcar l\'estructura amb guions. Per exemple:
 <pre>
 Comunitat Moodle|http://moodle.org
--Suport del Moodle|http://moodle.org/support
+-Suport gratuït del Moodle|http://moodle.org/support
 -Desenvolupament del Moodle|http://moodle.org/development
---Seguiment del Moodle|http://tracker.moodle.org
---Documentació del Moodle|http://docs.moodle.org/ca
+--Seguiment del Moodle|https://tracker.moodle.org
+--Documentació del Moodle|http://docs.moodle.org|Moodle Docs
+--Documentació en Català del Moodle|http://docs.moodle.org/ca|Documentació|ca
 -Novetats del Moodle|http://moodle.org/news
-Moodle mantingut
--Hostatge comercial del Moodle|http://moodle.com/hosting
--Suport comercial del Moodle|http://moodle.com/support
 </pre>';
 $string['configdbsessions'] = 'Si habiliteu aquest paràmetre, la base de dades emmagatzemarà la informació de les sessions dels usuaris. Això és especialment útil en llocs amb molts usuaris o en llocs que funcionen en clústers de servidors. Per a la majoria de llocs probablement és millor no habilitar-lo i utilitzar el disc del servidor en lloc de la base de dades. Teniu en compte que si canvieu ara aquest paràmetre tancareu les sessions de tots els usuaris (la vostra inclosa). Si utilitzeu MySQL assegureu-vos que el paràmetre \'max_allowed_packet\' de my.cnf (o my.ini) és com a mínim 4M.';
 $string['configdebug'] = 'Si activeu aquest paràmetre s\'incrementarà l\'error_reporting del PHP, de manera que es visualitzaran més avisos. Útil només per a desenvolupadors.';
@@ -377,7 +375,7 @@ $string['coursemgmt'] = 'Afegeix/edita cursos';
 $string['courseoverview'] = 'Resum del curs';
 $string['courserequestnotify'] = 'Notificació de sol·licitud de curs';
 $string['courserequestnotifyemail'] = 'L\'usuari {$a->user} ha sol·licitat un nou curs: {$a->link}';
-$string['courserequests'] = 'Sol·licituds de cursos';
+$string['courserequests'] = 'Sol·licitud de cursos';
 $string['courserequestspending'] = 'Sol·licituds de cursos pendents';
 $string['courses'] = 'Cursos';
 $string['coursesperpage'] = 'Cursos per pàgina';
@@ -409,7 +407,7 @@ $string['dbmigrate'] = 'Migració de la base de dades de Moodle';
 $string['dbmigrateconnecerror'] = 'No s\'ha pogut establir la connexió amb la base de dades especificada.';
 $string['dbmigrateencodingerror'] = 'La base de dades especificada té la codificació {$a} en lloc d\'Unicode/UTF-8, que és la requerida.<br />Si us plau, especifiqueu-ne una altra.';
 $string['dbmigratepostgres'] = 'Sembla que esteu utilitzant PostgreSQL com a servidor de base de dades. Per continuar el procés de migració necessiteu crear manualment una nova base de dades amb codificació "UNICODE" (PostgreSQL 7) o "UTF8" (PostgreSQL 8), on s\'emmagatzemaran les dades migrades. Introduïu aquí baix els paràmetres de connexió de la nova base de dades:';
-$string['dbmigratewarning'] = 'Abans de començar aquest procediment, cercioreu-vos que teniu una còpia de seguretat de la base de dades de Moodle. Contacteu amb l\'administrador del vostre sistema si no sabeu com es fa. Quan engegueu el procés de migració, aquest lloc restarà en mode de manteniment.';
+$string['dbmigratewarning'] = 'Abans de començar aquest procediment, cercioreu-vos que teniu una còpia de seguretat de la base de dades de Moodle. Contacteu amb l\'administrador del vostre sistema si no sabeu com es fa. Quan engegueu el procés de migració, aquest lloc commutarà al mode de manteniment.';
 $string['dbmigratewarning2'] = '<b>Avís: esteu a punt d\'engegar el procés de migració de la base de dades. Cercioreu-vos que teniu una còpia de seguretat de la base de dades de Moodle.</b>';
 $string['dbmigrationdeprecateddb'] = '<font color="#ff0000">Aquesta base de dades s\'ha migrat a una nova base de dades UTF8 i ja no serveix. Editeu el fitxer config.php i utilitzeu la nova base de dades amb aquest moodle.</font>';
 $string['dbmigrationdupfailed'] = 'La duplicació de la base de dades ha fallat amb aquest possible error:<font color="#ff0000"><pre>{$a}</pre></font>';
@@ -469,7 +467,7 @@ $string['editorhidebuttons'] = 'Botons ocults';
 $string['editorkillword'] = 'Filtre format Word';
 $string['editorspelling'] = 'Verificació de l\'ortografia en l\'editor';
 $string['editorspellinghelp'] = 'Habiliteu o inhabiliteu la verificació de l\'ortografia. Si l\'habiliteu, cal tenir instal·lat <strong>aspell</strong> al servidor.';
-$string['editstrings'] = 'Edita cadenes';
+$string['editstrings'] = 'Edita paraules o frases';
 $string['emailchangeconfirmation'] = 'Confirmació de canvi de correu';
 $string['emoticonalt'] = 'Text alternatiu';
 $string['emoticoncomponent'] = 'Component de la imatge';
@@ -495,12 +493,12 @@ $string['enabledevicedetection'] = 'Permet la detecció de dispositius';
 $string['enablegravatar'] = 'Permet Gravatar';
 $string['enablegravatar_help'] = 'Quan s\'habilita Moodle intentarà trobar una imatge de perfil d\'usuari de Gravatar si l\'usuari no ha penjat una imatge.';
 $string['enablegroupmembersonly'] = 'Habilita sols membres del grup';
-$string['enablemobilewebservice'] = 'Permet servei web en el mòbil';
-$string['enablerecordcache'] = 'Habilita memòria cau de registres';
+$string['enablemobilewebservice'] = 'Habilita els serveis web per als dispositius mòbils';
+$string['enablerecordcache'] = 'Habilita la memòria cau de registres';
 $string['enablerssfeeds'] = 'Habilita canals RSS';
 $string['enablesafebrowserintegration'] = 'Habilita la integració de navegadors segurs.';
 $string['enablestats'] = 'Habilita estadístiques';
-$string['enabletrusttext'] = 'Habilita Contingut de Confiança';
+$string['enabletrusttext'] = 'Habilita el contingut de confiança';
 $string['enablewebservices'] = 'Habilita els serveis web';
 $string['enablewsdocumentation'] = 'Documentació de serveis web';
 $string['enrolinstancedefaults'] = 'Instància d\'inscripció per defecte';
@@ -512,10 +510,10 @@ $string['environmenterrorupgrade'] = 'Avís: hauríeu de resoldre tots els probl
 $string['environmentmustfixsetting'] = 'El paràmetre PHP cal canviar-lo.';
 $string['environmentok'] = 'L\'entorn del vostre servidor compleix tots els requeriments mínims.';
 $string['environmentrecommendcustomcheck'] = 'si aquesta prova falla, això indica un problema en potència';
-$string['environmentrecommendinstall'] = 'es recomana instal·lar/habilitar';
+$string['environmentrecommendinstall'] = 's\'hauria d\'instal·lar i habilitar per aconseguir el millor funcionament';
 $string['environmentrecommendversion'] = 'esteu executant la versió {$a->current} i es recomana la {$a->needed}';
 $string['environmentrequirecustomcheck'] = 'cal passar aquesta prova';
-$string['environmentrequireinstall'] = 'es requereix instal·lar/habilitar';
+$string['environmentrequireinstall'] = 'cal instal·lar-lo i habilitar-lo';
 $string['environmentrequireversion'] = 'esteu executant la versió {$a->current} i es requereix la {$a->needed}';
 $string['environmentsettingok'] = 'paràmetre recomanat detectat';
 $string['environmentshouldfixsetting'] = 'el paràmetre PHP cal canviar-lo';
@@ -538,14 +536,14 @@ $string['filterall'] = 'Filtra totes les cadenes';
 $string['filtermatchoneperpage'] = 'El filtre processa una coincidència per pàgina';
 $string['filtermatchonepertext'] = 'El filtre processa una coincidència per text';
 $string['filters'] = 'Filtres';
-$string['filtersettings'] = 'Paràmetres dels filtres';
+$string['filtersettings'] = 'Gestiona els filtres';
 $string['filtersettingsgeneral'] = 'Paràmetres generals dels filtres';
 $string['filteruploadedfiles'] = 'Filtra fitxers penjats';
-$string['forcelogin'] = 'Obliga a entrar els usuaris';
+$string['forcelogin'] = 'Obliga a entrar als usuaris';
 $string['forceloginforprofileimage'] = 'Obliga els usuaris a iniciar sessió per veure les imatges dels usuaris';
 $string['forceloginforprofileimage_help'] = 'Si està habilitat, els usuaris hauran d\'iniciar sessió per veure les imatges del perfil dels usuaris i s\'utilitzarà la imatge d\'usuari per defecte en les notificacions per correu electrònic.';
 $string['forceloginforprofiles'] = 'Obliga els usuaris a iniciar sessió per veure els perfils';
-$string['forcetimezone'] = 'Imposa la zona horària per defecte';
+$string['forcetimezone'] = 'Imposa la zona horària';
 $string['formatuninstallconfirm'] = '{$a} es desinstal·larà. Actualment no hi ha cursos que l\'utilitzin. Continueu?';
 $string['formatuninstalled'] = 'Totes les dades associades amb el connector  \'{$a->plugin}\' han estat suprimides de la base de dades. Per a completar la supressió (i impedir la reinstal·lació automàtica), ara hauríeu de esborrar aquest directori del vostre servidor: {$a->directory}';
 $string['formatuninstallwithcourses'] = 'Hi ha {$a->count} cursos que utilitzen {$a->format}. El seu format canviarà a {$a->defaultformat}  (el format per defecte d\'aquest lloc). Alguns dades específiques del format es podrien perdre. Esteu segur que voleu continuar?';
@@ -564,10 +562,10 @@ $string['gdrecommended'] = 'L\'extensió GD s\'utilitza per a la manipulació d\
 $string['gdrequired'] = 'L\'extensió GD és necessària per a la conversió d\'imatges en Moodle.';
 $string['gdversion'] = 'Versió GD';
 $string['generalsettings'] = 'Paràmetres generals';
-$string['geoipfile'] = 'Fitxer de dades GeoIP City';
+$string['geoipfile'] = 'Fitxer de dades de ciutats GeoIP';
 $string['getremoteaddrconf'] = 'Font de l\'adreça IP anotada';
 $string['globalsquoteswarning'] = '<p><strong>Avís de seguretat</strong>: per a operar adequadament, Moodle necessita <br />que feu certs canvis en els paràmetres actuals del PHP.<p/><p><em>Cal</em> que definiu <code>register_globals=off</code> i/o <code>magic_quotes_gpc=on</code>. <br />Si és possible, heu de definir <code>register_globals=off</code> per millorar la seguretat <br />general del servidor. També s\'aconsella definir <code>magic_quotes_gpc=on</code>.<p/><p>Aquests paràmetres es defineixen en el fitxer <code>php.ini</code>, en la configuració d\'Apache/IIS <br />o en el fitxer <code>.htaccess</code>.</p>';
-$string['globalswarning'] = '<p><strong>Avís de seguretat</strong>: per a operar adequadament, Moodle necessita <br />que feu certs canvis en els paràmetres actuals del PHP.<p/><p><em>Cal</em> que definiu <code>register_globals=off</code>.<p>Aquest paràmetre es defineix en el fitxer <code>php.ini</code>, en la configuració d\'Apache/IIS <br />o en el fitxer <code>.htaccess</code>.</p>';
+$string['globalswarning'] = '<p><strong>AVÍS DE SEGURETAT</strong></p><p>Per a operar adequadament, Moodle necessita <br />que feu certs canvis en els paràmetres actuals del PHP.</p><p><em>Cal</em> que establiu <code>register_globals=off</code>.<p>Aquest paràmetre està definit en el fitxer <code>php.ini</code>, en la configuració d\'Apache/IIS<br />o en el fitxer <code>.htaccess</code>.</p>';
 $string['googlemapkey3'] = 'Clau de l\'API de Google Maps V3';
 $string['googlemapkey3_help'] = 'Heu d\'introduir una clau especial per a utilitzar Google Maps en la visualització de la cerca d\'adreces IP. Podeu obtenir la clau gratuïtament en <a href="https://developers.google.com/maps/documentation/javascript/tutorial#api_key" target="_blank">https://developers.google.com/maps/documentation/javascript/tutorial#api_key</a>';
 $string['gotofirst'] = 'Primera cadena no traduïda';
@@ -711,7 +709,7 @@ $string['mycoursesperpage'] = 'Nombre de cursos';
 $string['mydashboard'] = 'Tauler d\'eines per defecte del sistema';
 $string['mymoodle'] = 'El meu Moodle';
 $string['mymoodleredirect'] = 'Obliga els usuaris a utilitzar "el meu Moodle"';
-$string['mypage'] = 'Pàgina per defecte de My Moodle';
+$string['mypage'] = 'Pàgina per defecte de El meu Moodle';
 $string['mypagelocked'] = 'Bloqueja la pàgina per defecte.';
 $string['myprofile'] = 'Perfil de la pàgina per defecte';
 $string['mysql416bypassed'] = 'Tanmateix, si el vostre lloc fa servir NOMÉS llengües romàniques (iso-8859-1), podeu seguir utilitzant el MySQL 4.1.12 (o superior) instal·lat.';
@@ -926,13 +924,13 @@ $string['security'] = 'Seguretat';
 $string['selectdevice'] = 'Selecciona dispositiu';
 $string['selecttheme'] = 'Selecciona tema per al dispositiu {$a}';
 $string['server'] = 'Servidor';
-$string['serverchecks'] = 'Proves del servidor';
+$string['serverchecks'] = 'Comprovacions del servidor';
 $string['serverlimit'] = 'Límit del servidor';
 $string['sessionautostartwarning'] = '<p>S\'ha detectat un greu error de configuració, si us plau notifiqueu-ho a l\'administrador del servidor.</p> Perquè funcioni correctament, Moodle requereix que l\'administrador modifiqui la configuració de PHP.</p><code> session.auto_start </ code> s\'ha d\'establir a <code>off</code>.</p> Aquesta configuració es controla editant el fitxer <code>php.ini</code>, la configuració Apache/IIS <br /> o el fitxer <code>.htaccess</code> al servidor.</p>';
 $string['sessioncookie'] = 'Prefix de la galeta';
 $string['sessioncookiedomain'] = 'Domini de galeta';
 $string['sessioncookiepath'] = 'Camí de la galeta';
-$string['sessionhandling'] = 'Maneig de sessions';
+$string['sessionhandling'] = 'Gestió de sessions';
 $string['sessiontimeout'] = 'Temps d\'espera';
 $string['settingfileuploads'] = 'L\'enviament de fitxers és necessari per un funcionament normal. Si us plau, habiliteu-lo en els paràmetres de PHP.';
 $string['settingmemorylimit'] = 'S\'ha detectat una mida de memòria insuficient. Si us plau, establiu un límit de memòria més alt als paràmetres del PHP.';
@@ -958,8 +956,8 @@ $string['slasharguments'] = 'Utilitza arguments en barra';
 $string['smartpix'] = 'Cerca intel·ligent d\'imatges';
 $string['soaprecommended'] = 'Instal·lar l\'extensió opcional SOAP és útil pels serveis web i alguns mòduls no oficials.';
 $string['sort_fullname'] = 'Nom complet del curs';
-$string['sort_idnumber'] = 'Número ID';
-$string['sort_shortname'] = 'Nom curt';
+$string['sort_idnumber'] = 'Número ID del curs';
+$string['sort_shortname'] = 'Nom curt del curs';
 $string['sort_sortorder'] = 'Ordre';
 $string['spellengine'] = 'Motor d\'ortografia';
 $string['spelllanguagelist'] = 'Llista d\'idiomes';

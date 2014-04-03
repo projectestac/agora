@@ -25,4 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['certificate:manage'] = 'Gestiona certificat';
+$string['certificatename'] = 'Nom del certificat';
+$string['certificatereport'] = 'Informe de certificats';
+$string['certificatesfor'] = 'Certificats per';
+$string['certificate:student'] = 'Obté certificat';
+$string['certificatetype'] = 'Tipus de certificat';
+$string['certificate:view'] = 'Visualitza el certificat';
+$string['certify'] = 'Aquest document certifica que';
 $string['completiondate'] = 'Compleció del curs';
+$string['statement'] = 'ha completat el curs';

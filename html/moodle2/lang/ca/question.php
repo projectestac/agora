@@ -407,6 +407,6 @@ $string['whethercorrect_help'] = 'Això es refereix tant a la descripció textua
 $string['withselected'] = 'Amb el que s\'ha seleccionat';
 $string['wrongprefix'] = 'Nom de prefix mal format ({$a})';
 $string['xoutofmax'] = '{$a->mark} sobre {$a->max}';
-$string['yougotnright'] = 'Heu seleccionat {$a->num}.';
+$string['yougotnright'] = 'Heu seleccionat correctament {$a->num}.';
 $string['youmustselectaqtype'] = 'Cal que trieu el tipus de pregunta';
 $string['yourfileshoulddownload'] = 'El fitxer d\'exportació hauria de començar a descarregar-se immediatament. Si no passa, si us plau, feu clic <a href="{$a}">aquí</a>.';

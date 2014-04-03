@@ -48,7 +48,7 @@ Un llibre pot utilitzar-se
 * Com a manual departamental del personal
 * Com a portafolis de presentació del treball de l\'estudiantat';
 $string['modulenameplural'] = 'Llibres';
-$string['navexit'] = 'Sortir del llibre';
+$string['navexit'] = 'Surt del llibre';
 $string['navnext'] = 'Següent';
 $string['navprev'] = 'Prèvi';
 $string['nocontent'] = 'No s\'ha afegit encara cap contingut al llibre.';

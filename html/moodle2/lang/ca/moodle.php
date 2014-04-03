@@ -345,17 +345,15 @@ $string['coursehelpforce'] = 'Imposa el mode de grup del curs a totes les activi
 $string['coursehelpformat'] = 'La pàgina principal del curs es visualitzarà amb aquest format.';
 $string['coursehelphiddensections'] = 'Com es mostraran als estudiants les seccions ocultes del curs.';
 $string['coursehelpmaximumupload'] = 'Definiu la mida màxima dels fitxers que es poden penjar al curs, limitada per la configuració del lloc.';
-$string['coursehelpnewsitemsnumber'] = 'El nombre d\'elements recents que apareixen a la pàgina principal del curs, en un bloc de notícies a la columna dreta (0 vol dir que el bloc de notícies no es mostra)';
-$string['coursehelpnumberweeks'] = 'Nombre de setmanes/temes que es mostren en la pàgina principal del curs.';
+$string['coursehelpnewsitemsnumber'] = 'El nombre d\'elements recents del fòrum de notícies que apareixen al bloc d\'«últimes notícies» de la pàgina principal del curs. Si s\'estableix a zero, el bloc d\'últimes notícies no es mostrarà.';
+$string['coursehelpnumberweeks'] = 'Nombre de seccions del curs (només aplicable a alguns formats de curs).';
 $string['coursehelpshowgrades'] = 'Habiliteu la visualització del butlletí de qualificacions. Aquest paràmetre no impedeix que les qualificacions es visualitzin dins de les activitats individuals.';
 $string['coursehidden'] = 'Aquest curs no està disponible actualment per als estudiants';
 $string['courseinfo'] = 'Informació del curs';
 $string['courselegacyfiles'] = 'Fitxers del curs heretats';
-$string['courselegacyfiles_help'] = 'L\'àrea de fitxers del curs proporciona alguna compatibilitat amb Moodle 1.9 i anteriors versions. Tots els fitxers situats en aquesta àrea són accessibles per tots els participants del curs ( encara que ho enllaceu o no ho feu) i i no hi ha forma de saber com seran utilitzats aquests fitxers en Moodle.
+$string['courselegacyfiles_help'] = 'L\'àrea de fitxers del curs proporciona alguna compatibilitat amb Moodle 1.9 i anteriors versions. Tots els fitxers situats en aquesta àrea són accessibles per tots els participants del curs (tant si els enllaceu com si no) i no hi ha manera de saber com seran utilitzats aquests fitxers en Moodle.
 
-Si utilitzeu aquesta àrea per emmagatzemar fitxers de curs, us exposareu a problemes de privacitat i seguretat, com pèrdua de fitxers en còpies de seguretat, importació de cursos, o continguts compartits o re-utilitzats. Es recomana en conseqüència que no utilitzeu aquesta àrea tret que sapigueu el que esteu fent.
-
-L\'enllaç de sota proporciona més informació sobre tot això i us mostrarà alternatives per gestionar fitxers en Moodle 2.';
+Si utilitzeu aquesta àrea per emmagatzemar fitxers de curs, us exposeu a alguns problemes de privacitat i seguretat, així com a la manca de fitxers en còpies de seguretat, importació de cursos, cada vegada que compartiu o re-utilitzeu  continguts. Per tant, es recomana que no utilitzeu aquesta àrea tret que sapigueu el que esteu fent.';
 $string['courselegacyfilesofcourse'] = 'Fitxers del curs heretats: {$a}';
 $string['coursemessage'] = 'Missatge als usuaris del curs';
 $string['coursenotaccessible'] = 'Aquest curs no permet accés públic';
@@ -378,7 +376,7 @@ $string['courserequestdetails'] = 'Detalls del curs que sol·liciteu';
 $string['courserequestfailed'] = 'Per alguna raó no s\'ha pogut desar la vostra sol·licitud';
 $string['courserequestintro'] = 'Utilitzeu aquest formulari per sol·licitar la creació d\'un curs.<br />Introduïu tota la informació que pugueu per tal que<br />els administradors entenguin bé la motivació del curs.';
 $string['courserequestreason'] = 'Motivació del curs';
-$string['courserequestsuccess'] = 'S\'ha desat la vostra sol·licitud. Pròximament rebreu un correu de resposta.';
+$string['courserequestsuccess'] = 'S\'ha desat la vostra sol·licitud de nou curs. Pròximament rebreu un correu per informar-vos si la vostra petició ha estat acceptada.';
 $string['courserequestsupport'] = 'Informació complementària que voleu fer arribar a la persona que avaluarà la sol·licitud';
 $string['courserestore'] = 'Restauració del curs';
 $string['courses'] = 'Cursos';
@@ -745,7 +743,7 @@ $string['frontpagecategorycombo'] = 'Llista combinada';
 $string['frontpagecategorynames'] = 'Mostra llista de categories';
 $string['frontpagecourselist'] = 'Mostra llista de cursos';
 $string['frontpagedescription'] = 'Descripció per a la pàgina inicial';
-$string['frontpagedescriptionhelp'] = 'Aquesta descripció del lloc es mostrarà a la primera plana.';
+$string['frontpagedescriptionhelp'] = 'Aquesta descripció es pot mostrar a la primera plana fent servir el bloc de resum del curs/lloc, o bé incloent una secció de tema a la pàgina inicial.';
 $string['frontpageformat'] = 'Format de la pàgina inicial';
 $string['frontpageformatloggedin'] = 'Format per a usuaris autenticats';
 $string['frontpagenews'] = 'Mostra notícies';
@@ -1001,7 +999,7 @@ $string['maximumupload_help'] = '<p>Aquest paràmetre defineix la mida màxima d
 
 <p>És possible posar límits inferiors dins dels diversos mòdul d\'activitats.</p>';
 $string['maxnumberweeks'] = 'Nombre màxim de seccions';
-$string['maxnumberweeks_desc'] = 'Això controla les opcions màximes que apareixen al paràmetre "Nombre de setmanes/temes" per als cursos.';
+$string['maxnumberweeks_desc'] = 'El valor màxim en el menú desplegable del nombre de seccions (només és aplicable a certs formats de curs).';
 $string['maxnumcoursesincombo'] = 'Navega per els<a href="{$a->link}">{$a->numberofcourses} cursos</a>.';
 $string['maxsize'] = 'Mida màxima: {$a}';
 $string['maxsizeandareasize'] = 'Mida màxima per als fitxers nous: {$a->size}, límit global: {$a->areasize}';
@@ -1280,7 +1278,7 @@ $string['other'] = 'Altre';
 $string['outline'] = 'Esquema';
 $string['outlinereport'] = 'Informe en esquema';
 $string['page'] = 'Pàgina';
-$string['pageheaderconfigablock'] = 'S\'està configurant un bloc en %fullname%';
+$string['pageheaderconfigablock'] = 'S\'està configurant un bloc {$a->fullname}';
 $string['pagepath'] = 'Camí de la pàgina';
 $string['pageshouldredirect'] = 'Sereu redirigits de forma automàtica. Si no sou redirigits utilitzeu l\'enllaç de sota. ';
 $string['parentcategory'] = 'Categoria mare';
@@ -1530,7 +1528,7 @@ $string['selectagroup'] = 'Selecciona un grup';
 $string['selectall'] = 'Selecciona tot';
 $string['selectamodule'] = 'Heu de seleccionar un mòdul d\'activitat';
 $string['selectanaction'] = 'Selecciona una acció';
-$string['selectanoptions'] = 'Selecciona opcions';
+$string['selectanoptions'] = 'Seleccioneu una opció';
 $string['selectaregion'] = 'Seleccioneu una regió';
 $string['selectdefault'] = 'Seleccioneu el valor per defecte';
 $string['selectedfile'] = 'Fitxer seleccionat';
@@ -1538,7 +1536,7 @@ $string['selectednowmove'] = '{$a} fitxers seleccionats per moure\'ls. Ara aneu 
 $string['selectfiles'] = 'Fitxers seleccionats';
 $string['selectmoduletoviewhelp'] = 'Seleccioneu una activitat o recurs per veure la seva ajuda.
 Premeu dues vegades sobre el nom de l\'activitat o recurs per afegir-lo de forma ràpida.';
-$string['selectnos'] = 'Selecciona tot \'no\'';
+$string['selectnos'] = 'Selecciona tots els «No»';
 $string['selectperiod'] = 'Seleccioneu el període';
 $string['senddetails'] = 'Envia\'m les dades per correu';
 $string['separate'] = 'Separat';
@@ -1547,7 +1545,7 @@ $string['separateandconnectedinfo'] = 'L\'escala basada en la teoria del coneixe
 La teoria descriu dues formes diferents d\'avaluar i aprendre sobre les coses que podem veure i escoltar.   <ul><li><strong>Els coneixedors separats</strong> intenten mantindre\'s objectius sense deixar-se influir pels sentiments ni les mocions. En la discussió amb altra gent els agrada defensar les seves idees utilitzant la lògica per trobar forats en l\'argumentació de l\'oponent. </li><li><strong>El coneixedors connectats</strong> són molt més sensitius que la resta de la gent. Són experts en empatia i tendeixen a escoltar i fer preguntes fins que poden "entendre el teu punt de vista". Aprenen intentant compartir experiències  amb la resta de la gent. </li></ul>';
 $string['servererror'] = 'S\'ha produït un error mentre es comunicava amb el servidor';
 $string['serverlocaltime'] = 'Hora del servidor local';
-$string['setcategorytheme'] = 'Defineix el tema de la categoria';
+$string['setcategorytheme'] = 'Estableix el tema de la categoria';
 $string['settings'] = 'Paràmetres';
 $string['shortname'] = 'Nom curt';
 $string['shortnamecollisionwarning'] = '[*] = Aquest nom curt ja l\'utilitza un altre curs i caldrà canviar-lo quan s\'aprovi';
@@ -1803,7 +1801,7 @@ $string['userpic'] = 'Imatge de l\'usuari';
 $string['users'] = 'Usuaris';
 $string['userselectorautoselectunique'] = 'Si només un usuari coincideix amb la cerca, marca\'l automàticament';
 $string['userselectorpreserveselected'] = 'Mantén els usuaris seleccionats, encara que ja no concordin amb la cerca.';
-$string['userselectorsearchanywhere'] = 'Concorda el terme de cerca al camp nom d\'usuari.';
+$string['userselectorsearchanywhere'] = 'Prova si concorda el text de cerca arreu dels camps mostrats.';
 $string['usersnew'] = 'Nous usuaris';
 $string['usersnoaccesssince'] = 'Usuaris inactius més de';
 $string['userswithfiles'] = 'Usuaris amb fitxers';
