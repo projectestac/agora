@@ -92,7 +92,7 @@ function wrs_addElementEvents(target, doubleClickHandler, mousedownHandler, mous
 			doubleClickHandler(target, element, realEvent);
 		});
 	}
-	
+
 	if (mousedownHandler) {
 		wrs_addEvent(target, 'mousedown', function (event) {
 			var realEvent = (event) ? event : window.event;
@@ -101,7 +101,7 @@ function wrs_addElementEvents(target, doubleClickHandler, mousedownHandler, mous
 			mousedownHandler(target, element, realEvent);
 		});
 	}
-	
+
 	if (mouseupHandler) {
 		wrs_addEvent(target, 'mouseup', function (event) {
 			var realEvent = (event) ? event : window.event;
@@ -177,7 +177,7 @@ function wrs_appletCodeToImgObject(creator, appletCode, image, imageWidth, image
 	imgObject.height = imageHeight;
 	imgObject.setAttribute(_wrs_conf_CASMathmlAttribute, wrs_mathmlEncode(appletCode));
 	imgObject.className = _wrs_conf_CASClassName;
-	
+
 	return imgObject;
 }
 
@@ -193,7 +193,7 @@ function wrs_arrayContains(stack, element) {
 			return i;
 		}
 	}
-	
+
 	return -1;
 }
 
@@ -207,15 +207,15 @@ function wrs_containsClass(element, className) {
 	if (!('className' in element)){
 		return false;
 	}
-	
+
 	var currentClasses = element.className.split(' ');
-	
+
 	for (var i = currentClasses.length - 1; i >= 0; --i) {
 		if (currentClasses[i] == className) {
 			return true;
 		}
 	}
-	
+
 	return false;
 }
 
@@ -228,7 +228,7 @@ function wrs_convertOldXmlinitialtextAttribute(text){
 	//Used to fix a bug with Cas imported from Moodle 1.9 to Moodle 2.x
 	//This could be removed in future
 	var val = 'value=';
-	
+
 	var xitpos = text.indexOf('xmlinitialtext');
 	var valpos = text.indexOf(val, xitpos);
 	var quote = text.charAt(valpos + val.length);
@@ -236,19 +236,19 @@ function wrs_convertOldXmlinitialtextAttribute(text){
 	var endquote = text.indexOf(quote, startquote);
 
 	var value = text.substring(startquote, endquote);
-	
+
 	var newvalue = value.split('«').join('§lt;');
 	newvalue = newvalue.split('»').join('§gt;');
 	newvalue = newvalue.split('&').join('§');
 	newvalue = newvalue.split('¨').join('§quot;');
-	
+
 	text = text.split(value).join(newvalue);
 	return text;
 }
 
 /**
  * Cross-browser solution for creating new elements.
- * 
+ *
  * It fixes some browser bugs.
  *
  * @param string elementName The tag name of the wished element.
@@ -260,38 +260,38 @@ function wrs_createElement(elementName, attributes, creator) {
 	if (attributes === undefined) {
 		attributes = {};
 	}
-	
+
 	if (creator === undefined) {
 		creator = document;
 	}
-	
+
 	var element;
-	
+
 	/*
 	 * Internet Explorer fix:
 	 * If you create a new object dynamically, you can't set a non-standard attribute.
 	 * For example, you can't set the "src" attribute on an "applet" object.
 	 * Other browsers will throw an exception and will run the standard code.
 	 */
-	
+
 	try {
 		var html = '<' + elementName;
-		
+
 		for (var attributeName in attributes) {
 			html += ' ' + attributeName + '="' + wrs_htmlentities(attributes[attributeName]) + '"';
 		}
-		
+
 		html += '>';
 		element = creator.createElement(html);
 	}
 	catch (e) {
 		element = creator.createElement(elementName);
-		
+
 		for (var attributeName in attributes) {
 			element.setAttribute(attributeName, attributes[attributeName]);
 		}
 	}
-	
+
 	return element;
 }
 
@@ -303,11 +303,11 @@ function wrs_createHttpRequest() {
 	if (_wrs_currentPath.substr(0, 7) == 'file://') {
 		throw 'Cross site scripting is only allowed for HTTP.';
 	}
-	
+
 	if (typeof XMLHttpRequest != 'undefined') {
 		return new XMLHttpRequest();
 	}
-			
+
 	try {
 		return new ActiveXObject('Msxml2.XMLHTTP');
 	}
@@ -318,7 +318,7 @@ function wrs_createHttpRequest() {
 		catch (oc) {
 		}
 	}
-	
+
 	return false;
 }
 
@@ -332,7 +332,7 @@ function wrs_createImageCASSrc(image, appletCode) {
 		'image': image,
 		'mml': appletCode
 	};
-	
+
 	return wrs_getContent(_wrs_conf_createcasimagePath, data);
 }
 
@@ -345,20 +345,20 @@ function wrs_createImageCASSrc(image, appletCode) {
 function wrs_createImageSrc(mathml, wirisProperties) {
 	var data = (wirisProperties) ? wirisProperties : {};
 	data['mml'] = mathml;
-	
+
 	if (window._wrs_conf_useDigestInsteadOfMathml && _wrs_conf_useDigestInsteadOfMathml) {
 		data['returnDigest'] = 'true';
 	}
-	
+
 	var result = wrs_getContent(_wrs_conf_createimagePath, data);
-	
+
 	if (result.indexOf('@BASE@') != -1) {
 		// Replacing '@BASE@' with the base URL of createimage.
 		var baseParts = _wrs_conf_createimagePath.split('/');
 		baseParts.pop();
 		result = result.split('@BASE@').join(baseParts.join('/'));
 	}
-	
+
 	return result;
 }
 
@@ -375,46 +375,46 @@ function wrs_createObject(objectCode, creator) {
 	// Internet Explorer can't include "param" tag when is setting an innerHTML property.
 	objectCode = objectCode.split('<applet ').join('<span wirisObject="WirisApplet" ').split('<APPLET ').join('<span wirisObject="WirisApplet" ');	// It is a 'span' because 'span' objects can contain 'br' nodes.
 	objectCode = objectCode.split('</applet>').join('</span>').split('</APPLET>').join('</span>');
-	
+
 	objectCode = objectCode.split('<param ').join('<br wirisObject="WirisParam" ').split('<PARAM ').join('<br wirisObject="WirisParam" ');			// It is a 'br' because 'br' can't contain nodes.
 	objectCode = objectCode.split('</param>').join('</br>').split('</PARAM>').join('</br>');
-	
+
 	var container = wrs_createElement('div', {}, creator);
 	container.innerHTML = objectCode;
-	
+
 	function recursiveParamsFix(object) {
 		if (object.getAttribute && object.getAttribute('wirisObject') == 'WirisParam') {
 			var attributesParsed = {};
-			
+
 			for (var i = 0; i < object.attributes.length; ++i) {
 				if (object.attributes[i].nodeValue !== null) {
 					attributesParsed[object.attributes[i].nodeName] = object.attributes[i].nodeValue;
 				}
 			}
-			
+
 			var param = wrs_createElement('param', attributesParsed, creator);
-			
+
 			// IE fix
 			if (param.NAME) {
 				param.name = param.NAME;
 				param.value = param.VALUE;
 			}
-			
+
 			param.removeAttribute('wirisObject');
 			object.parentNode.replaceChild(param, object);
 		}
 		else if (object.getAttribute && object.getAttribute('wirisObject') == 'WirisApplet') {
 			var attributesParsed = {};
-			
+
 			for (var i = 0; i < object.attributes.length; ++i) {
 				if (object.attributes[i].nodeValue !== null) {
 					attributesParsed[object.attributes[i].nodeName] = object.attributes[i].nodeValue;
 				}
 			}
-			
+
 			var applet = wrs_createElement('applet', attributesParsed, creator);
 			applet.removeAttribute('wirisObject');
-			
+
 			for (var i = 0; i < object.childNodes.length; ++i) {
 				recursiveParamsFix(object.childNodes[i]);
 
@@ -432,7 +432,7 @@ function wrs_createObject(objectCode, creator) {
 			}
 		}
 	}
-	
+
 	recursiveParamsFix(container);
 	return container.firstChild;
 }
@@ -451,14 +451,14 @@ function wrs_createObjectCode(object) {
 				output += ' ' + object.attributes[i].name + '="' + wrs_htmlentities(object.attributes[i].value) + '"';
 			}
 		}
-		
+
 		if (object.childNodes.length > 0) {
 			output += '>';
-			
+
 			for (var i = 0; i < object.childNodes.length; ++i) {
 				output += wrs_createObjectCode(object.childNodes[i]);
 			}
-			
+
 			output += '</' + object.tagName + '>';
 		}
 		else if (object.nodeName == 'DIV' || object.nodeName == 'SCRIPT') {
@@ -470,11 +470,11 @@ function wrs_createObjectCode(object) {
 
 		return output;
 	}
-	
+
 	if (object.nodeType == 3) {		// TEXT_NODE
 		return wrs_htmlentities(object.nodeValue);
 	}
-	
+
 	return '';
 }
 
@@ -504,16 +504,16 @@ function wrs_regexpIndexOf(input, regexp, start) {
  */
 function wrs_endParseEditMode(code, wirisProperties, language) {
 	// Converting LaTeX to images.
-	
+
 	if (window._wrs_conf_parseModes !== undefined && wrs_arrayContains(_wrs_conf_parseModes, 'latex') != -1) {
 		var output = '';
 		var endPosition = 0;
 		var startPosition = code.indexOf('$$');
-		
+
 		while (startPosition != -1) {
 			output += code.substring(endPosition, startPosition);
 			endPosition = code.indexOf('$$', startPosition + 2);
-			
+
 			if (endPosition != -1) {
 				var latex = code.substring(startPosition + 2, endPosition);
 				latex = wrs_htmlentitiesDecode(latex);
@@ -526,30 +526,30 @@ function wrs_endParseEditMode(code, wirisProperties, language) {
 				output += '$$';
 				endPosition = startPosition + 2;
 			}
-			
+
 			startPosition = code.indexOf('$$', endPosition);
 		}
-		
+
 		output += code.substring(endPosition, code.length);
 		code = output;
 	}
-	
+
 	if (window._wrs_conf_defaultEditMode && _wrs_conf_defaultEditMode == 'iframes') {
 		// Converting iframes to images.
 		var output = '';
 		var pattern = ' class="' + _wrs_conf_imageClassName + '"';
 		var formulaPosition = code.indexOf(pattern);
 		var endPosition = 0;
-		
+
 		while (formulaPosition != -1) {
 			// Looking for the actual startPosition.
 			startPosition = formulaPosition;
 			var i = formulaPosition;
 			var startTagFound = false;
-			
+
 			while (i >= 0 && !startTagFound) {		// Going backwards until the start tag '<' is found.
 				var character = code.charAt(i);
-				
+
 				if (character == '"' || character == '\'') {
 					var characterNextPosition = code.lastIndexOf(character, i);
 					i = (characterNextPosition == -1) ? -1 : characterNextPosition;
@@ -561,22 +561,22 @@ function wrs_endParseEditMode(code, wirisProperties, language) {
 				else if (character == '>') {
 					i = -1;					// Break: we are inside a text node.
 				}
-				
+
 				--i;
 			}
-			
+
 			// Appending the previous code.
 			output += code.substring(endPosition, startPosition);
-			
+
 			// Looking for the endPosition.
-			
+
 			if (startTagFound) {
 				i = formulaPosition;
 				var counter = 1;
-				
+
 				while (i < code.length && counter > 0) {
 					var character = code.charAt(i);
-					
+
 					if (character == '"' || character == '\'') {
 						var characterNextPosition = code.indexOf(character, i);
 						i = (characterNextPosition == -1) ? code.length : characterNextPosition;
@@ -584,10 +584,10 @@ function wrs_endParseEditMode(code, wirisProperties, language) {
 					else if (character == '<') {
 						if (i + 1 < code.length && code.charAt(i + 1) == '/') {
 							--counter;
-							
+
 							if (counter == 0) {
 								endPosition = code.indexOf('>', i) + 1;
-								
+
 								if (endPosition == -1) {
 									// End tag stripped.
 									counter = -1;		// to be != 0 and to break the loop.
@@ -600,24 +600,24 @@ function wrs_endParseEditMode(code, wirisProperties, language) {
 					}
 					else if (character == '>' && code.charAt(i - 1) == '/') {
 						--counter;
-						
+
 						if (counter == 0) {
 							endPosition = i + 1;
 						}
 					}
-				
+
 					++i;
 				}
-				
+
 				if (counter == 0) {
 					var formulaTagCode = code.substring(startPosition, endPosition);
 					var formulaTagObject = wrs_createObject(formulaTagCode);
 					var mathml = formulaTagObject.getAttribute(_wrs_conf_imageMathmlAttribute);
-					
+
 					if (mathml == null) {
 						mathml = formulaTagObject.getAttribute('alt');
 					}
-					
+
 					var imgObject = wrs_mathmlToImgObject(document, mathml, wirisProperties, language);
 					output += wrs_createObjectCode(imgObject);
 				}
@@ -632,14 +632,14 @@ function wrs_endParseEditMode(code, wirisProperties, language) {
 				output += code.charAt(formulaPosition);
 				endPosition = formulaPosition + 1;
 			}
-			
+
 			formulaPosition = code.indexOf(pattern, endPosition);
 		}
-		
+
 		output += code.substring(endPosition, code.length);
 		code = output;
 	}
-	
+
 	return code;
 }
 
@@ -652,7 +652,7 @@ function wrs_endParseSaveMode(code) {
 	var output = '';
 	var convertToXml = false;
 	var convertToSafeXml = false;
-	
+
 	if (window._wrs_conf_saveMode) {
 		if (_wrs_conf_saveMode == 'safeXml') {
 			convertToXml = true;
@@ -662,23 +662,23 @@ function wrs_endParseSaveMode(code) {
 			convertToXml = true;
 		}
 	}
-	
+
 	var endPosition = 0;
 	var pattern = /<img/gi;
 	var patternLength = pattern.source.length;
-	
+
 	while (pattern.test(code)) {
 		var startPosition = pattern.lastIndex - patternLength;
 		output += code.substring(endPosition, startPosition);
-		
+
 		var i = startPosition + 1;
-		
+
 		while (i < code.length && endPosition <= startPosition) {
 			var character = code.charAt(i);
-			
+
 			if (character == '"' || character == '\'') {
 				var characterNextPosition = code.indexOf(character, i + 1);
-				
+
 				if (characterNextPosition == -1) {
 					i = code.length;		// End while.
 				}
@@ -689,15 +689,15 @@ function wrs_endParseSaveMode(code) {
 			else if (character == '>') {
 				endPosition = i + 1;
 			}
-			
+
 			++i;
 		}
-		
+
 		if (endPosition < startPosition) {		// The img tag is stripped.
 			output += code.substring(startPosition, code.length);
 			return output;
 		}
-		
+
 		var imgCode = code.substring(startPosition, endPosition);
 		output += wrs_getWIRISImageOutput(imgCode, convertToXml, convertToSafeXml);
 	}
@@ -717,7 +717,7 @@ function wrs_fireEvent(element, event) {
 		eventObject.initEvent(event, true, true);
 		return !element.dispatchEvent(eventObject);
     }
-    
+
 	var eventObject = document.createEventObject();
 	return element.fireEvent('on' + event, eventObject)
 }
@@ -743,7 +743,7 @@ function wrs_getCode(variableName, imageHashCode) {
 function wrs_getContent(url, postVariables) {
 	try {
 		var httpRequest = wrs_createHttpRequest();
-		
+
 		if (httpRequest) {
 			if (url.substr(0, 1) == '/' || url.substr(0, 7) == 'http://' || url.substr(0, 8) == 'https://') {
 				httpRequest.open('POST', url, false);
@@ -751,7 +751,7 @@ function wrs_getContent(url, postVariables) {
 			else {
 				httpRequest.open('POST', _wrs_currentPath + url, false);
 			}
-			
+
 			if (postVariables !== undefined) {
 				httpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
 				httpRequest.send(wrs_httpBuildQuery(postVariables));
@@ -759,15 +759,15 @@ function wrs_getContent(url, postVariables) {
 			else {
 				httpRequest.send(null);
 			}
-			
+
 			return httpRequest.responseText;
 		}
-		
+
 		alert('Your browser is not compatible with AJAX technology. Please, use the latest version of Mozilla Firefox.');
 	}
 	catch (e) {
 	}
-	
+
 	return '';
 }
 
@@ -778,11 +778,11 @@ function wrs_getContent(url, postVariables) {
  */
 function wrs_getInnerHTML(element) {
 	var innerHTML = '';
-	
+
 	for (var i = 0; i < element.childNodes.length; ++i) {
 		innerHTML += wrs_createObjectCode(element.childNodes[i]);
 	}
-	
+
 	return innerHTML;
 }
 
@@ -796,7 +796,7 @@ function wrs_getLatexFromMathML(mathml) {
 		'service': 'mathml2latex',
 		'mml': mathml
 	};
-	
+
 	return wrs_getContent(_wrs_conf_servicePath, data);
 }
 
@@ -809,80 +809,80 @@ function wrs_getLatexFromMathML(mathml) {
 function wrs_getLatexFromTextNode(textNode, caretPosition) {
 	// Looking for the first textNode.
 	var startNode = textNode;
-	
+
 	while (startNode.previousSibling && startNode.previousSibling.nodeType == 3) {		// TEXT_NODE
 		startNode = startNode.previousSibling;
 	}
-	
+
 	// Finding latex.
-	
+
 	function getNextLatexPosition(currentNode, currentPosition) {
 		var position = currentNode.nodeValue.indexOf('$$', currentPosition);
-		
+
 		while (position == -1) {
 			currentNode = currentNode.nextSibling;
-			
+
 			if (!currentNode || currentNode.nodeType != 3) {		// TEXT_NODE
 				return null;		// Not found.
 			}
-			
+
 			position = currentNode.nodeValue.indexOf('$$');
 		}
-		
+
 		return {
 			'node': currentNode,
 			'position': position
 		};
 	}
-	
+
 	function isPrevious(node, position, endNode, endPosition) {
 		if (node == endNode) {
 			return (position <= endPosition);
 		}
-		
+
 		while (node && node != endNode) {
 			node = node.nextSibling;
 		}
-		
+
 		return (node == endNode);
 	}
-	
+
 	var start;
-	
+
 	var end = {
 		'node': startNode,
 		'position': 0
 	};
-	
+
 	do {
 		var start = getNextLatexPosition(end.node, end.position);
-		
+
 		if (start == null || isPrevious(textNode, caretPosition, start.node, start.position)) {
 			return null;
 		}
-		
+
 		var end = getNextLatexPosition(start.node, start.position + 2);
-		
+
 		if (end == null) {
 			return null;
 		}
-		
+
 		end.position += 2;
 	} while (isPrevious(end.node, end.position, textNode, caretPosition));
-	
+
 	// Isolating latex.
 	var latex;
-	
+
 	if (start.node == end.node) {
 		latex = start.node.nodeValue.substring(start.position + 2, end.position - 2);
 	}
 	else {
 		latex = start.node.nodeValue.substring(start.position + 2, start.node.nodeValue.length);
 		var currentNode = start.node;
-		
+
 		do {
 			currentNode = currentNode.nextSibling;
-			
+
 			if (currentNode == end.node) {
 				latex += end.node.nodeValue.substring(0, end.position - 2);
 			}
@@ -891,7 +891,7 @@ function wrs_getLatexFromTextNode(textNode, caretPosition) {
 			}
 		} while (currentNode != end.node);
 	}
-	
+
 	return {
 		'latex': latex,
 		'startNode': start.node,
@@ -911,11 +911,11 @@ function wrs_getMathMLFromLatex(latex, includeLatexOnSemantics) {
 		'service': 'latex2mathml',
 		'latex': latex
 	};
-	
+
 	if (includeLatexOnSemantics) {
 		data['saveLatex'] = '';
 	}
-	
+
 	var mathML = wrs_getContent(_wrs_conf_servicePath, data);
 	return mathML.split("\r").join('').split("\n").join(' ');
 }
@@ -929,21 +929,21 @@ function wrs_getNodeLength(node) {
 	if (node.nodeType == 3) {		// TEXT_NODE
 		return node.nodeValue.length;
 	}
-	
+
 	if (node.nodeType == 1) {		// ELEMENT_NODE
 		var length = _wrs_staticNodeLengths[node.nodeName.toUpperCase()];
-		
+
 		if (length === undefined) {
 			length = 0;
 		}
-		
+
 		for (var i = 0; i < node.childNodes.length; ++i) {
 			length += wrs_getNodeLength(node.childNodes[i]);
 		}
-		
+
 		return length;
 	}
-	
+
 	return 0;
 }
 
@@ -956,12 +956,12 @@ function wrs_getQueryParams(windowObject) {
 	var start = windowObject.location.search.indexOf('?');
 	start = (start == -1) ? 0 : start + 1;
 	var queryStringParts = windowObject.location.search.substr(start).split('&');
-	
+
 	for (var i = 0; i < queryStringParts.length; ++i) {
 		var paramParts = queryStringParts[i].split('=', 2);
 		data[paramParts[0]] = wrs_urldecode(paramParts[1]);
 	}
-	
+
 	return data;
 }
 
@@ -974,7 +974,7 @@ function wrs_getQueryParams(windowObject) {
  */
 function wrs_getSelectedItem(target, isIframe) {
 	var windowTarget;
-	
+
 	if (isIframe) {
 		windowTarget = target.contentWindow;
 		windowTarget.focus();
@@ -983,7 +983,7 @@ function wrs_getSelectedItem(target, isIframe) {
 		windowTarget = window;
 		target.focus();
 	}
-	
+
 	if (document.selection) {
 		var range = windowTarget.document.selection.createRange();
 
@@ -994,16 +994,16 @@ function wrs_getSelectedItem(target, isIframe) {
 
 			windowTarget.document.execCommand('InsertImage', false, '#');
 			var temporalObject = range.parentElement();
-			
+
 			if (temporalObject.nodeName.toUpperCase() != 'IMG') {
 				// IE9 fix: parentElement() does not return the IMG node, returns the parent DIV node. In IE < 9, pasteHTML does not work well.
 				range.pasteHTML('<span id="wrs_openEditorWindow_temporalObject"></span>');
 				temporalObject = windowTarget.document.getElementById('wrs_openEditorWindow_temporalObject');
 			}
-			
+
 			var node;
 			var caretPosition;
-			
+
 			if (temporalObject.nextSibling && temporalObject.nextSibling.nodeType == 3) {				// TEXT_NODE
 				node = temporalObject.nextSibling;
 				caretPosition = 0;
@@ -1017,56 +1017,56 @@ function wrs_getSelectedItem(target, isIframe) {
 				temporalObject.parentNode.insertBefore(node, temporalObject);
 				caretPosition = 0;
 			}
-			
+
 			temporalObject.parentNode.removeChild(temporalObject);
-			
+
 			return {
 				'node': node,
 				'caretPosition': caretPosition
 			};
 		}
-		
+
 		if (range.length > 1) {
 			return null;
 		}
-		
+
 		return {
 			'node': range.item(0)
 		};
 	}
-	
+
 	var selection = windowTarget.getSelection();
-	
+
 	try {
 		var range = selection.getRangeAt(0);
 	}
 	catch (e) {
 		var range = windowTarget.document.createRange();
 	}
-	
+
 	var node = range.startContainer;
-	
+
 	if (node.nodeType == 3) {		// TEXT_NODE
 		if (range.startOffset != range.endOffset) {
 			return null;
 		}
-		
+
 		return {
 			'node': node,
 			'caretPosition': range.startOffset
 		};
 	}
-	
+
 	if (node.nodeType == 1) {	// ELEMENT_NODE
 		var position = range.startOffset;
-		
+
 		if (node.childNodes[position]) {
 			return {
 				'node': node.childNodes[position]
 			};
 		}
 	}
-	
+
 	return null;
 }
 
@@ -1077,23 +1077,23 @@ function wrs_getSelectedItem(target, isIframe) {
  */
 function wrs_getWIRISImageOutput(imgCode, convertToXml, convertToSafeXml) {
 	var imgObject = wrs_createObject(imgCode);
-	
+
 	if (imgObject) {
 		if (imgObject.className == _wrs_conf_imageClassName) {
 			if (!convertToXml) {
 				return imgCode;
 			}
-			
+
 			var xmlCode = imgObject.getAttribute(_wrs_conf_imageMathmlAttribute);
-			
+
 			if (xmlCode == null) {
 				xmlCode = imgObject.getAttribute('alt');
 			}
-			
+
 			if (!convertToSafeXml) {
 				xmlCode = wrs_mathmlDecode(xmlCode);
 			}
-			
+
 			return xmlCode;
 		}
 		else if (imgObject.className == _wrs_conf_CASClassName) {
@@ -1103,15 +1103,15 @@ function wrs_getWIRISImageOutput(imgCode, convertToXml, convertToSafeXml) {
 			appletObject.setAttribute('src', imgObject.src);
 			var object = appletObject;
 			var appletCodeToBeInserted = wrs_createObjectCode(appletObject);
-			
+
 			if (convertToSafeXml) {
 				appletCodeToBeInserted = wrs_mathmlEncode(appletCodeToBeInserted);
 			}
-			
+
 			return appletCodeToBeInserted;
 		}
 	}
-	
+
 	return imgCode;
 }
 
@@ -1140,13 +1140,13 @@ function wrs_htmlentitiesDecode(input) {
  */
 function wrs_httpBuildQuery(properties) {
 	var result = '';
-	
+
 	for (i in properties) {
 		if (properties[i] != null) {
 			result += wrs_urlencode(i) + '=' + wrs_urlencode(properties[i]) + '&';
 		}
 	}
-	
+
 	return result;
 }
 
@@ -1157,7 +1157,7 @@ function wrs_httpBuildQuery(properties) {
  * @return string
  */
  /* Note: The code inside this function has been inverted.
- 	If you invert again the code then you cannot use correctly LaTeX 
+ 	If you invert again the code then you cannot use correctly LaTeX
 	in Moodle.
  */
 function wrs_initParse(code, language) {
@@ -1169,15 +1169,15 @@ function wrs_initParseImgToIframes(windowTarget) {
 	if (window._wrs_conf_defaultEditMode && _wrs_conf_defaultEditMode == 'iframes') {
 		var imgList = windowTarget.document.getElementsByTagName('img');
 		var i = 0;
-		
+
 		while (i < imgList.length) {
 			if (imgList[i].className == _wrs_conf_imageClassName) {
 				var mathml = imgList[i].getAttribute(_wrs_conf_imageMathmlAttribute);
-				
+
 				if (mathml == null) {
 					mathml = imgList[i].getAttribute('alt');
 				}
-			
+
 				var iframe = wrs_mathmlToIframeObject(windowTarget, wrs_mathmlDecode(mathml));
 				imgList[i].parentNode.replaceChild(iframe, imgList[i]);
 			}
@@ -1198,30 +1198,30 @@ function wrs_initParseEditMode(code) {
 		var imgList = wrs_getElementsByNameFromString(code, 'img', true);
 		var token = 'encoding="LaTeX">';
 		var carry = 0;			// While replacing images with latex, the indexes of the found images changes respecting the original code, so this carry is needed.
-		
+
 		for (var i = 0; i < imgList.length; ++i) {
 			var imgCode = code.substring(imgList[i].start + carry, imgList[i].end + carry);
-			
+
 			if (imgCode.indexOf(' class="' + _wrs_conf_imageClassName + '"') != -1) {
 				var mathmlStartToken = ' ' + _wrs_conf_imageMathmlAttribute + '="';
 				var mathmlStart = imgCode.indexOf(mathmlStartToken);
-				
+
 				if (mathmlStart == -1) {
 					mathmlStartToken = ' alt="';
 					mathmlStart = imgCode.indexOf(mathmlStartToken);
 				}
-				
+
 				if (mathmlStart != -1) {
 					mathmlStart += mathmlStartToken.length;
 					var mathmlEnd = imgCode.indexOf('"', mathmlStart);
 					var mathml = wrs_mathmlDecode(imgCode.substring(mathmlStart, mathmlEnd));
 					var latexStartPosition = mathml.indexOf(token);
-					
+
 					if (latexStartPosition != -1) {
 						latexStartPosition += token.length;
 						var latexEndPosition = mathml.indexOf('</annotation>', latexStartPosition);
 						var latex = mathml.substring(latexStartPosition, latexEndPosition);
-						
+
 						var replaceText = '$$' + wrs_htmlentitiesDecode(latex) + '$$';
 						code = code.substring(0, imgList[i].start + carry) + replaceText + code.substring(imgList[i].end + carry);
 						carry += replaceText.length - (imgList[i].end - imgList[i].start);
@@ -1230,7 +1230,7 @@ function wrs_initParseEditMode(code) {
 			}
 		}
 	}
-	
+
 	return code;
 }
 
@@ -1245,24 +1245,24 @@ function wrs_initParseSaveMode(code, language) {
 		if (_wrs_conf_saveMode == 'safeXml') {
 			code = wrs_mathmlDecodeSafeXmlEntities(code);
 			code = wrs_parseSafeAppletsToObjects(code);
-			
+
 			// Converting XML to tags.
 			code = wrs_parseMathmlToLatex(code, _wrs_safeXmlCharacters);
 			code = wrs_parseMathmlToImg(code, _wrs_safeXmlCharacters, language);
 		}
 		else if (_wrs_conf_saveMode == 'xml') {
 			// Converting XML to tags.
-			code = wrs_parseMathmlToLatex(code, _wrs_xmlCharacters);			
+			code = wrs_parseMathmlToLatex(code, _wrs_xmlCharacters);
 			code = wrs_parseMathmlToImg(code, _wrs_xmlCharacters, language);
 		}
 	}
-	
+
 	var appletList = wrs_getElementsByNameFromString(code, 'applet', false);
 	var carry = 0;			// While replacing applets with images, the indexes of the found applets changes respecting the original code, so this carry is needed.
-	
+
 	for (var i = 0; i < appletList.length; ++i) {
 		var appletCode = code.substring(appletList[i].start + carry, appletList[i].end + carry);
-		
+
 		//The second control in the if is used to find WIRIS applet which don't have Wiriscas class (as it was in old CAS applets).
 		if (appletCode.indexOf(' class="' + _wrs_conf_CASClassName + '"') != -1 || appletCode.toUpperCase().indexOf('WIRIS') != -1) {
 			if (appletCode.indexOf(' src="') != -1){
@@ -1284,15 +1284,15 @@ function wrs_initParseSaveMode(code, language) {
 					appletCode = appletCode.split('\'').join('"');
 				}
 			}
-			
+
 			// 'Double click to edit' has been removed here.
 			var imgCode = '<img align="middle" class="' + _wrs_conf_CASClassName + '" ' + _wrs_conf_CASMathmlAttribute + '="' + wrs_mathmlEncode(appletCode) + '" src="' + src + '" />';
-			
+
 			code = code.substring(0, appletList[i].start + carry) + imgCode + code.substring(appletList[i].end + carry);
 			carry += imgCode.length - (appletList[i].end - appletList[i].start);
 		}
 	}
-	
+
 	return code;
 }
 
@@ -1310,22 +1310,22 @@ function wrs_getElementsByNameFromString(code, name, autoClosed) {
 	var code = code.toLowerCase();
 	name = name.toLowerCase();
 	var start = code.indexOf('<' + name + ' ');
-	
+
 	while (start != -1) {						// Look for nodes.
 		var endString;
-		
+
 		if (autoClosed) {
 			endString = '>';
 		}
 		else {
 			endString = '</' + name + '>';
 		}
-		
+
 		var end = code.indexOf(endString, start);
-		
+
 		if (end != -1) {
 			end += endString.length;
-			
+
 			elements.push({
 				'start': start,
 				'end': end
@@ -1334,10 +1334,10 @@ function wrs_getElementsByNameFromString(code, name, autoClosed) {
 		else {
 			end = start + 1;
 		}
-		
+
 		start = code.indexOf('<' + name + ' ', end);
 	}
-	
+
 	return elements;
 }
 
@@ -1350,21 +1350,21 @@ function wrs_getElementsByNameFromString(code, name, autoClosed) {
 function wrs_insertElementOnSelection(element, focusElement, windowTarget) {
 	try {
 		focusElement.focus();
-		
+
 		if (_wrs_isNewElement) {
 			if (document.selection) {
 				var range = windowTarget.document.selection.createRange();
 				windowTarget.document.execCommand('InsertImage', false, element.src);
-				
+
 				if (!('parentElement' in range)) {
 					windowTarget.document.execCommand('delete', false);
 					range = windowTarget.document.selection.createRange();
 					windowTarget.document.execCommand('InsertImage', false, element.src);
 				}
-				
+
 				if ('parentElement' in range) {
 					var temporalObject = range.parentElement();
-					
+
 					if (temporalObject.nodeName.toUpperCase() == 'IMG') {
 						temporalObject.parentNode.replaceChild(element, temporalObject);
 					}
@@ -1391,11 +1391,11 @@ function wrs_insertElementOnSelection(element, focusElement, windowTarget) {
 					selection.removeAllRanges();
 				}
 
-				range.deleteContents();				
-				
+				range.deleteContents();
+
 				var node = range.startContainer;
 				var position = range.startOffset;
-				
+
 				if (node.nodeType == 3) {		// TEXT_NODE
 					node = node.splitText(position);
 					node.parentNode.insertBefore(element, node);
@@ -1404,7 +1404,7 @@ function wrs_insertElementOnSelection(element, focusElement, windowTarget) {
 				else if (node.nodeType == 1) {	// ELEMENT_NODE
 					node.insertBefore(element, node.childNodes[position]);
 				}
-				
+
 				if (!isAndroid){
 					//Fix to set the caret after the inserted image
 					range.selectNode(element);
@@ -1447,11 +1447,11 @@ function wrs_isMathmlInAttribute(content, i) {
 	var atts = '(' + att + ')*';										// "blabla"=att1 "blabla"=att2
 	var regex = '^' + math_att + atts + '[\\s]+gmi<';					// "=att "blabla"=att1 "blabla"=att2 gmi<
 	var expression = new RegExp(regex);
-	
+
 	var actual_content = content.substring(0, i);
 	var reversed = actual_content.split('').reverse().join('');
 	var exists = expression.test(reversed);
-	
+
 	return exists;
 }
 
@@ -1479,7 +1479,7 @@ function wrs_mathmlDecode(input) {
 		input = input.split(_wrs_safeBadBlackboardCharacters.ltElement).join(_wrs_safeGoodBlackboardCharacters.ltElement);
 		input = input.split(_wrs_safeBadBlackboardCharacters.gtElement).join(_wrs_safeGoodBlackboardCharacters.gtElement);
 		input = input.split(_wrs_safeBadBlackboardCharacters.ampElement).join(_wrs_safeGoodBlackboardCharacters.ampElement);
-		
+
 		/*var regex = /«mtext».*[<>&].*«\/mtext»/;
 
 		var result = regex.exec(input);
@@ -1491,17 +1491,17 @@ function wrs_mathmlDecode(input) {
 			result = regex.exec(input);
 		}*/
 	}
-	
+
 	// Decoding characters.
 	input = input.split(_wrs_safeXmlCharacters.tagOpener).join(_wrs_xmlCharacters.tagOpener);
 	input = input.split(_wrs_safeXmlCharacters.tagCloser).join(_wrs_xmlCharacters.tagCloser);
 	input = input.split(_wrs_safeXmlCharacters.doubleQuote).join(_wrs_xmlCharacters.doubleQuote);
 	input = input.split(_wrs_safeXmlCharacters.ampersand).join(_wrs_xmlCharacters.ampersand);
 	input = input.split(_wrs_safeXmlCharacters.quote).join(_wrs_xmlCharacters.quote);
-	
+
 	// We are replacing $ by & for retrocompatibility. Now, the standard is replace § by &
 	input = input.split('$').join('&');
-	
+
 	return input;
 }
 
@@ -1517,7 +1517,7 @@ function wrs_mathmlEncode(input) {
 	input = input.split(_wrs_xmlCharacters.doubleQuote).join(_wrs_safeXmlCharacters.doubleQuote);
 	input = input.split(_wrs_xmlCharacters.ampersand).join(_wrs_safeXmlCharacters.ampersand);
 	input = input.split(_wrs_xmlCharacters.quote).join(_wrs_safeXmlCharacters.quote);
-	
+
 	return input;
 }
 
@@ -1528,7 +1528,7 @@ function wrs_mathmlEncode(input) {
  */
 function wrs_mathmlEntities(mathml) {
 	var toReturn = '';
-	
+
 	for (var i = 0; i < mathml.length; ++i) {
 		//parsing > 128 characters
 		if (mathml.charCodeAt(i) > 128) {
@@ -1538,7 +1538,7 @@ function wrs_mathmlEntities(mathml) {
 			toReturn += mathml.charAt(i);
 		}
 	}
-	
+
 	return toReturn;
 }
 
@@ -1553,11 +1553,11 @@ function wrs_mathmlToAccessible(mathml, language) {
 		'service': 'mathml2accessible',
 		'mml': mathml
 	};
-	
+
 	if (language) {
 		data['lang'] = language;
 	}
-	
+
 	return wrs_getContent(_wrs_conf_servicePath, data);
 }
 
@@ -1577,7 +1577,7 @@ function wrs_mathmlToIframeObject(windowTarget, mathml) {
 		container.style.cursor = 'pointer';
 		container.style.webkitUserModify = 'read-only';
 		container.style.webkitUserSelect = 'all';
-		
+
 		var formulaContainer = windowTarget.document.createElement('span');
 		formulaContainer.style.display = 'inline';
 		container.appendChild(formulaContainer);
@@ -1588,9 +1588,9 @@ function wrs_mathmlToIframeObject(windowTarget, mathml) {
 					windowTarget._wrs_viewer = new windowTarget.com.wiris.jsEditor.JsViewerMain(_wrs_conf_pluginBasePath + '/integration/editor');
 					windowTarget._wrs_viewer.insertCSS(null, windowTarget.document);
 				}
-				
+
 				windowTarget._wrs_viewer.paintFormulaOnContainer(mathml, formulaContainer, null);
-				
+
 				function prepareDiv() {
 					if (windowTarget._wrs_viewer.isReady()) {
 						container.style.height = formulaContainer.style.height;
@@ -1601,26 +1601,26 @@ function wrs_mathmlToIframeObject(windowTarget, mathml) {
 						setTimeout(prepareDiv, 100);
 					}
 				};
-				
+
 				prepareDiv();
 			}
 			else {
 				setTimeout(waitForViewer, 100);
 			}
 		}
-		
+
 		if (!('_wrs_viewerAppended' in windowTarget)) {
 			var viewerScript = windowTarget.document.createElement('script');
 			viewerScript.src = _wrs_conf_pluginBasePath + '/integration/editor/viewer.js';
 			windowTarget.document.getElementsByTagName('head')[0].appendChild(viewerScript);
 			windowTarget._wrs_viewerAppended = true;
 		}
-		
+
 		waitForViewer();
-		
+
 		return container;
 	}
-	
+
 	windowTarget.document.wrs_assignIframeEvents = function (myIframe) {
 		wrs_addEvent(myIframe.contentWindow.document, 'click', function () {
 			wrs_fireEvent(myIframe, 'dblclick');
@@ -1650,15 +1650,15 @@ function wrs_mathmlToImgObject(creator, mathml, wirisProperties, language) {
 	var imgObject = creator.createElement('img');
 	//imgObject.title = 'Double click to edit';
 	imgObject.align = 'middle';
-	
+
 	if (window._wrs_conf_enableAccessibility && _wrs_conf_enableAccessibility) {
 		imgObject.alt = wrs_mathmlToAccessible(mathml, language);
 	}
-	
+
 	imgObject.className = _wrs_conf_imageClassName;
-	
+
 	var result = wrs_createImageSrc(mathml, wirisProperties);
-	
+
 	if (window._wrs_conf_useDigestInsteadOfMathml && _wrs_conf_useDigestInsteadOfMathml) {
 		var parts = result.split(':', 2);
 		imgObject.setAttribute(_wrs_conf_imageMathmlAttribute, parts[0]);
@@ -1668,7 +1668,7 @@ function wrs_mathmlToImgObject(creator, mathml, wirisProperties, language) {
 		imgObject.setAttribute(_wrs_conf_imageMathmlAttribute, wrs_mathmlEncode(mathml));
 		imgObject.src = result;
 	}
-	
+
 	return imgObject;
 }
 
@@ -1683,20 +1683,20 @@ function wrs_openCASWindow(target, isIframe, language) {
 	if (isIframe === undefined) {
 		isIframe = true;
 	}
-	
+
 	_wrs_temporalRange = null;
-	
+
 	if (target) {
 		var selectedItem = wrs_getSelectedItem(target, isIframe);
-		
+
 		if (selectedItem != null && selectedItem.caretPosition === undefined && selectedItem.node.nodeName.toUpperCase() == 'IMG' && selectedItem.node.className == _wrs_conf_CASClassName) {
 			_wrs_temporalImage = selectedItem.node;
 			_wrs_isNewElement = false;
 		}
 	}
-	
+
 	var path = _wrs_conf_CASPath;
-	
+
 	if (language) {
 		path += '?lang=' + language;
 	}
@@ -1713,7 +1713,7 @@ function wrs_openCASWindow(target, isIframe, language) {
  */
 function wrs_openEditorWindow(language, target, isIframe) {
 	var ua = navigator.userAgent.toLowerCase();
-	var isAndroid = ua.indexOf("android") > -1; 
+	var isAndroid = ua.indexOf("android") > -1;
 	if(isAndroid) {
 		var selection = target.contentWindow.getSelection();
 		_wrs_androidRange = selection.getRangeAt(0);
@@ -1722,7 +1722,7 @@ function wrs_openEditorWindow(language, target, isIframe) {
 	if (isIframe === undefined) {
 		isIframe = true;
 	}
-	
+
 	var path = _wrs_conf_editorPath;
 
 	if (language) {
@@ -1733,13 +1733,13 @@ function wrs_openEditorWindow(language, target, isIframe) {
 	if (typeof _wrs_int_directionality != 'undefined' && wrs_arrayContains(availableDirs, _wrs_int_directionality) != -1){
 		path += '&dir=' + _wrs_int_directionality;
 	}
-	
+
 	_wrs_editMode = (window._wrs_conf_defaultEditMode) ? _wrs_conf_defaultEditMode : 'images';
 	_wrs_temporalRange = null;
-	
+
 	if (target) {
 		var selectedItem = wrs_getSelectedItem(target, isIframe);
-		
+
 		if (selectedItem != null) {
 			if (selectedItem.caretPosition === undefined) {
 				if (selectedItem.node.className == _wrs_conf_imageClassName) {
@@ -1749,7 +1749,7 @@ function wrs_openEditorWindow(language, target, isIframe) {
 					else if (selectedItem.node.nodeName.toUpperCase() == 'IFRAME') {
 						_wrs_editMode = 'iframes';
 					}
-					
+
 					_wrs_temporalImage = selectedItem.node;
 					_wrs_isNewElement = false;
 				}
@@ -1759,23 +1759,23 @@ function wrs_openEditorWindow(language, target, isIframe) {
 
 				if (latexResult != null) {
 					_wrs_editMode = 'latex';
-					
+
 					var mathml = wrs_getMathMLFromLatex(latexResult.latex);
 					_wrs_isNewElement = false;
-					
+
 					_wrs_temporalImage = document.createElement('img');
 					_wrs_temporalImage.setAttribute(_wrs_conf_imageMathmlAttribute, wrs_mathmlEncode(mathml));
 					var windowTarget = (isIframe) ? target.contentWindow : window;
-					
+
 					if (document.selection) {
 						var leftOffset = 0;
 						var previousNode = latexResult.startNode.previousSibling;
-						
+
 						while (previousNode) {
 							leftOffset += wrs_getNodeLength(previousNode);
 							previousNode = previousNode.previousSibling;
 						}
-					
+
 						_wrs_temporalRange = windowTarget.document.selection.createRange();
 						_wrs_temporalRange.moveToElementText(latexResult.startNode.parentNode);
 						_wrs_temporalRange.move('character', leftOffset + latexResult.startPosition);
@@ -1790,7 +1790,7 @@ function wrs_openEditorWindow(language, target, isIframe) {
 			}
 		}
 	}
-	
+
 	return window.open(path, 'WIRISeditor', _wrs_conf_editorAttributes);
 }
 
@@ -1808,11 +1808,11 @@ function wrs_parseMathmlToLatex(content, characters){
 	var start = content.indexOf(mathTagBegin);
 	var end = 0;
 	var mathml, startAnnotation, closeAnnotation;
-	
+
 	while (start != -1) {
 		output += content.substring(end, start);
 		end = content.indexOf(mathTagEnd, start);
-		
+
 		if (end == -1) {
 			end = content.length - 1;
 		}
@@ -1821,19 +1821,27 @@ function wrs_parseMathmlToLatex(content, characters){
 		}
 
 		mathml = content.substring(start, end);
-	
+
 		startAnnotation = mathml.indexOf(openTarget);
 		if (startAnnotation != -1){
 			startAnnotation += openTarget.length;
 			closeAnnotation = mathml.indexOf(closeTarget);
-			output += '$$' + mathml.substring(startAnnotation, closeAnnotation) + '$$';
+			//XTEC ************ MODIFICAT - Replaced wrong ampersand
+			// https://github.com/IOC/moodle-tinymce-wiris/commit/f92c97ad2f68765feda22aaa9b259b53c09877c8
+    		//2014.04.03 @pferre22
+    		fixed = mathml.substring(startAnnotation, closeAnnotation);
+ 			fixed = fixed.split('§').join('&');
+ 			output += '$$' + fixed + '$$';
+		    //************ ORIGINAL
+		    //output += '$$' + mathml.substring(startAnnotation, closeAnnotation) + '$$';
+		    //FI
 		}else{
 			output += mathml;
 		}
-		
+
 		start = content.indexOf(mathTagBegin, end);
 	}
-	
+
 	output += content.substring(end, content.length);
 	return output;
 }
@@ -1849,18 +1857,18 @@ function wrs_parseMathmlToImg(content, characters, language) {
 	var mathTagEnd = characters.tagOpener + '/math' + characters.tagCloser;
 	var start = content.indexOf(mathTagBegin);
 	var end = 0;
-	
+
 	while (start != -1) {
 		output += content.substring(end, start);
 		end = content.indexOf(mathTagEnd, start);
-		
+
 		if (end == -1) {
 			end = content.length - 1;
 		}
 		else {
 			end += mathTagEnd.length;
 		}
-		
+
 		if (!wrs_isMathmlInAttribute(content, start)){
 			var mathml = content.substring(start, end);
 			mathml = (characters == _wrs_safeXmlCharacters) ? wrs_mathmlDecode(mathml) : wrs_mathmlEntities(mathml);		// Why mathDecode is applied on safeXmlCharacters? If the mathml is encoded, it cannot be detected.
@@ -1869,10 +1877,10 @@ function wrs_parseMathmlToImg(content, characters, language) {
 		else {
 			output += content.substring(start, end);
 		}
-		
+
 		start = content.indexOf(mathTagBegin, end);
 	}
-	
+
 	output += content.substring(end, content.length);
 	return output;
 }
@@ -1890,24 +1898,24 @@ function wrs_parseSafeAppletsToObjects(content) {
 	var start = upperCaseContent.indexOf(appletTagBegin);
 	var end = 0;
 	var applet;
-	
+
 	while (start != -1) {
 		output += content.substring(end, start);
 		end = upperCaseContent.indexOf(appletTagEnd, start);
-		
+
 		if (end == -1) {
 			end = content.length - 1;
 		}
 		else {
 			end += appletTagEnd.length;
 		}
-		
+
 		applet = wrs_convertOldXmlinitialtextAttribute(content.substring(start, end));
-		
+
 		output += wrs_mathmlDecode(applet);
 		start = upperCaseContent.indexOf(appletTagBegin, end);
 	}
-	
+
 	output += content.substring(end, content.length);
 	return output;
 }
@@ -1936,24 +1944,24 @@ function wrs_splitBody(code) {
 	var prefix = '';
 	var sufix = '';
 	var bodyPosition = code.indexOf('<body');
-	
+
 	if (bodyPosition != -1) {
 		bodyPosition = code.indexOf('>', bodyPosition);
-		
+
 		if (bodyPosition != -1) {
 			++bodyPosition;
 			var endBodyPosition = code.indexOf('</body>', bodyPosition);
-			
+
 			if (endBodyPosition == -1) {
 				endBodyPosition = code.length;
 			}
-			
+
 			prefix = code.substring(0, bodyPosition);
 			sufix = code.substring(endBodyPosition, code.length);
 			code = code.substring(bodyPosition, endBodyPosition);
 		}
 	}
-	
+
 	return {
 		'prefix': prefix,
 		'code': code,
@@ -2008,7 +2016,7 @@ function wrs_updateFormula(focusElement, windowTarget, mathml, wirisProperties, 
 function wrs_updateTextarea(textarea, text) {
 	if (textarea && text) {
 		textarea.focus();
-		
+
 		if (textarea.selectionStart != null) {
 			textarea.value = textarea.value.substring(0, textarea.selectionStart) + text + textarea.value.substring(textarea.selectionEnd, textarea.value.length);
 		}
@@ -2036,6 +2044,6 @@ function wrs_urldecode(input) {
 function wrs_urlencode(clearString) {
 	var output = '';
 	//encodeURIComponent doesn't encode !'()*~
-	output = encodeURIComponent(clearString).replace(/!/g, '%21').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/~/g, '%7E');	
+	output = encodeURIComponent(clearString).replace(/!/g, '%21').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/~/g, '%7E');
 	return output;
 }
