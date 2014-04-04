@@ -10,6 +10,7 @@ MOODLE 2
 - added TreeMenu.js
 - Solved error with activities that lasts more than 99 seconds saving total_time in seconds instead of miliseconds. Now the limit is about 27 hours per activity
 - Updated Jclicplugin.js to the last version
+- Solved duplicity of topic zero in Simple course format
 
 PORTAL
 - Upgraded to Zikula 1.3.7

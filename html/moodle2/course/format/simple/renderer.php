@@ -62,7 +62,7 @@ class format_simple_renderer extends format_topics_renderer {
     public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
         global $PAGE;
 		$context = context_course::instance($course->id);
-		if (has_capability('moodle/course:update',$context)) {
+		if (has_capability('moodle/course:update',$context) && $displaysection) {
 			parent::print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection);
 			return;
 		}
@@ -91,15 +91,15 @@ class format_simple_renderer extends format_topics_renderer {
         	echo $this->course_activity_clipboard($course, $displaysection);
 		}
 
-       		if (!empty($course->showtopiczero)) {
-	        	$thissection = $modinfo->get_section_info(0);
-		        if ($thissection->summary or !empty($modinfo->sections[0])) {
-        		    echo $this->start_section_list();
-		            echo $this->section_header($thissection, $course, true, $displaysection);
-		            $this->print_simple_section($course, $thissection, null, null, true, "100%", false, $displaysection);
-        		    echo $this->section_footer();
-		            echo $this->end_section_list();
-        		}
+   		if (!empty($course->showtopiczero) || $displaysection == 0) {
+        	$thissection = $modinfo->get_section_info(0);
+	        if ($thissection->summary or !empty($modinfo->sections[0])) {
+    		    echo $this->start_section_list();
+	            echo $this->section_header($thissection, $course, true, $displaysection);
+	            $this->print_simple_section($course, $thissection, null, null, true, "100%", false, $displaysection);
+    		    echo $this->section_footer();
+	            echo $this->end_section_list();
+    		}
 		}
 
 
