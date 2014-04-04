@@ -1,33 +1,8 @@
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
-/**
- * jclicplugin.js file adapted for Moodle (instead of use the clic.xtec.cat one)
- *
- * @package    mod
- * @subpackage jclic
- * @copyright  2011 Departament d'Ensenyament de la Generalitat de Catalunya
- * @author     Sara Arjona Téllez <sarjona@xtec.cat>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
 var player_files =    "jclic.jar";
-var player_versions = "0.2.2.0";
+var player_versions = "0.2.3.4.02";
 
 var author_files =    "jclicauthor.jar";
-var author_versions = "0.2.2.0";
+var author_versions = "0.2.3.4.02";
 
 var jar_cache_files = player_files;
 var jar_cache_versions = player_versions;
@@ -148,6 +123,14 @@ function setTrace(value){
    }
 }
 
+var useMyURL=true;
+var myURL=window.location.href;
+
+var isFile=false;
+if(myURL.indexOf("file:")==0){
+    isFile=true;
+}
+
 var authorApplet=false;
 function setAuthorApplet(value){
    if(value!=null){
@@ -186,7 +169,6 @@ function writeTable(w, h, nsw, nsh, s){
 }
 
 function getPlugin(project, width, height, rWidth, rHeight){
-   var htmlcode = '';
    var w=width.toString();
    var h=height.toString();
    var nsw=w;
@@ -194,58 +176,64 @@ function getPlugin(project, width, height, rWidth, rHeight){
    if(rWidth!=null) w=rWidth.toString();
    if(rHeight!=null) h=rHeight.toString();
 
+   var htmlcode = '';
    if (_ie == true){
-      htmlcode += '<object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"' +
-        ' width="' +w+ '" height="' +h+ '">';
-      htmlcode += '<param name="code" value="' +mainClass+ '">';
-      htmlcode += '<param name="codebase" value="' +jarBase+ '">';
-      htmlcode += getCacheInfo(true);
-      htmlcode += '<param name="type" value="application/x-java-applet;jpi-version=1.4">';
-      htmlcode += '<param name="scriptable" value="false">';
-      htmlcode += getParams(project, true);
-      htmlcode += getDownloadPageInfo();
-      htmlcode += '</object>';
+      htmlcode = '<object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"' +
+        ' width="' +w+ '" height="' +h+ '">' +
+      '<param name="code" value="' +mainClass+ '">' +
+      '<param name="codebase" value="' +jarBase+ '">' +
+      getCacheInfo(true) +
+      '<param name="type" value="application/x-java-applet;jpi-version=1.5">' +
+      '<param name="scriptable" value="false">' +
+      getParams(project, true) +
+      getDownloadPageInfo() +
+      '</object>';
    }
    else if (_ns == true){
-      htmlcode += '<embed type="application/x-java-applet;version=1.4"'+
-        ' code="' +mainClass+ '" codebase="' +jarBase+ '"'+
-        ' width="' +nsw+ '" height="' +nsh +'" ';
-      htmlcode += getCacheInfo(false);
-      htmlcode += getParams(project, false);
-      htmlcode += ' scriptable="false"'+
-        ' pluginspage="http://www.java.com/">';
-      htmlcode += '<noembed>';
-      htmlcode += getDownloadPageInfo();
-      htmlcode += '</noembed>';     
-      htmlcode += "</embed>";
+      htmlcode = '<embed type="application/x-java-applet;version=1.5"'+
+      ' code="' +mainClass+ '" codebase="' +jarBase+ '"'+
+      ' width="' +nsw+ '" height="' +nsh +'" ' +
+      getCacheInfo(false) +
+      getParams(project, false) +
+      ' scriptable="false"'+
+      ' pluginspage="http://www.java.com/">' +
+      '<noembed>' + getDownloadPageInfo() + '</noembed>' +
+      '</embed>';
    }
    else{
-     htmlcode += '<applet code="' +mainClass+ '" codebase="' +jarBase+ '"';
-     htmlcode += ' archive="'+ jar_cache_files +'"';
-     htmlcode += ' width="' +nsw+ '" height="' +nsh+ '">';
-     htmlcode += '<param name="type" value="application/x-java-applet;version=1.4">';
-     htmlcode += '<param name="scriptable" value="false">';
-     htmlcode += getParams(project, true);
-     htmlcode += '</applet>';
-  }
-  return htmlcode;
-}
-function getCacheInfo(p){
-  var htmlcode = '';
-  if(p){
-    htmlcode += '<param name="cache_option" value="Plugin">';
-    htmlcode += '<param name="cache_archive" value="' +jar_cache_files+ '">';
-    htmlcode += '<param name="cache_version" value="' +jar_cache_versions+ '">';
-  }else{
-    htmlcode += ' cache_option="Plugin"';
-    htmlcode += ' cache_archive="' +jar_cache_files+ '"';
-    htmlcode += ' cache_version="' +jar_cache_versions+ '"';
+     htmlcode = '<applet code="' +mainClass+ '" codebase="' +jarBase+ '"' +
+     ' archive="'+ jar_cache_files +'"' +
+     ' width="' +nsw+ '" height="' +nsh+ '">' +
+     '<param name="type" value="application/x-java-applet;version=1.5">' +
+     '<param name="scriptable" value="false">' +
+     getParams(project, true) +
+     '</applet>';
   }
   return htmlcode;
 }
 
+function getCacheInfo(p){
+  var htmlcode = '';
+  if(p){
+    htmlcode = '<param name="cache_option" value="Plugin">' +
+               '<param name="cache_archive" value="' +jar_cache_files+ '">';
+    if(!isFile){
+      htmlcode += '<param name="cache_version" value="' +jar_cache_versions+ '">';
+    }
+  }else{
+    htmlcode = ' cache_option="Plugin"' +
+               ' cache_archive="' +jar_cache_files+ '"';
+    if(!isFile){
+      htmlcode += ' cache_version="' +jar_cache_versions+ '"';
+    }
+  }
+  return htmlcode;
+}
+
+
 function getParams(project, p){
   var htmlcode = '';
+
   if(p) htmlcode += '<param name="activityPack" value="' +project+ '">';
   else htmlcode += ' activityPack="' +project+ '"';
 
@@ -256,9 +244,9 @@ function getParams(project, p){
 
   if(useLanguage){
     if(p){
-      htmlcode += '<param name="language" value="' +language+ '">';
-      htmlcode += '<param name="country" value="' +country+ '">';
-      htmlcode += '<param name="variant" value="' +variant+ '">';
+      htmlcode += '<param name="language" value="' +language+ '">' +
+                  '<param name="country" value="' +country+ '">' +
+                  '<param name="variant" value="' +variant+ '">';
     }
     else htmlcode += ' language="' +language+ '" country="' +country+ '" variant="' +variant+ '" ';
   }
@@ -280,8 +268,8 @@ function getParams(project, p){
 
   if(useReporter){
     if(p){
-      htmlcode += '<param name="reporter" value="' +reporterClass+ '">';
-      htmlcode += '<param name="reporterParams" value="' +reporterParams+ '">';
+      htmlcode += '<param name="reporter" value="' +reporterClass+ '">' +
+                  '<param name="reporterParams" value="' +reporterParams+ '">';
     }
     else htmlcode += ' reporter="' +reporterClass+ '" reporterParams="' +reporterParams+ '" ';
   }
@@ -306,16 +294,22 @@ function getParams(project, p){
     else htmlcode += ' trace="' +trace+ '" ';
   }
 
+  if(useMyURL){
+    if(p) htmlcode += '<param name="myurl" value="' +myURL+ '">';
+    else htmlcode += ' myurl="' +myURL+ '" ';
+  }
+
   return htmlcode;
 }
 
-
 function getDownloadPageInfo(){
   var htmlcode = '';
+
   var pluginBase="http://clic.xtec.cat/";
   var pluginCat=pluginBase+"ca/jclic/instjava.htm";
   var pluginEsp=pluginBase+"es/jclic/instjava.htm";
   var pluginEng=pluginBase+"en/jclic/instjava.htm";
+
   htmlcode += '<span style="background-color: #F5DEB3; color: Black; display: block; padding: 10; font-family: Verdana,Arial; border-style: solid; border-width: thin; font-size: 12px; text-align: center; font-weight: bold;">'+
     'Per utilitzar aquesta aplicaci&oacute; cal instal&middot;lar un plug-in Java&#153; actualitzat<br><a href="'+pluginCat+'" target="_blank">Feu clic aqu&iacute; per descarregar-lo</a><br>&nbsp;<br>'+
     'Para utilizar esta aplicaci&oacute;n es necesario un plug-in Java&#153; actualizado<br><a href="'+pluginEsp+'" target="_blank">Haga clic aqu&iacute; para descargarlo</a><br>&nbsp;<br>'+
@@ -337,5 +331,5 @@ function getTable(w, h, nsw, nsh, s){
     if(nsh!=null) htmlcode += ' height='+ nsh;
   }
   htmlcode += '>';
-  return htmlcode;        
+  return htmlcode;
 }
