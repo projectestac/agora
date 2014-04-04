@@ -56,7 +56,7 @@ require_once("$CFG->libdir/filelib.php");
     */
     function jclic_get_skins(){
       return array('@default.xml' => 'default','@blue.xml' => 'blue','@orange.xml' => 'orange','@green.xml' => 'green','@simple.xml' => 'simple', '@mini.xml' => 'mini');
-    } 
+    }
 
     /**
     * Get an array with the file types
@@ -67,7 +67,7 @@ require_once("$CFG->libdir/filelib.php");
         $filetypes =  array(JCLIC_FILE_TYPE_LOCAL => get_string('filetypelocal', 'jclic'));
         $filetypes[JCLIC_FILE_TYPE_EXTERNAL] = get_string('filetypeexternal', 'jclic');
         return $filetypes;
-    }    
+    }
 
     /**
      * Display the header and top of a page
@@ -116,11 +116,11 @@ require_once("$CFG->libdir/filelib.php");
      */
     function jclic_view_dates($jclic, $cm, $timenow=null) {
         global $OUTPUT;
-        
+
         if (!$jclic->timeavailable && !$jclic->timedue) {
             return;
         }
-        
+
         if (is_null($timenow)) $timenow = time();
 
         echo $OUTPUT->box_start('generalbox boxaligncenter jclicdates', 'dates');
@@ -134,14 +134,14 @@ require_once("$CFG->libdir/filelib.php");
         }
         echo $OUTPUT->box_end();
     }
-    
+
     /**
      * Display the jclic applet
      *
      */
     function jclic_view_applet($jclic, $context, $ispreview=false, $timenow=null) {
         global $OUTPUT, $PAGE, $CFG, $USER;
-        
+
         if (is_null($timenow)) $timenow = time();
         $isopen = (empty($jclic->timeavailable) || $jclic->timeavailable < $timenow);
         $isclosed = (!empty($jclic->timedue) && $jclic->timedue < $timenow);
@@ -153,11 +153,11 @@ require_once("$CFG->libdir/filelib.php");
         } else if ( $attempts > 0 || $isopen ) {
             echo '<br><A href="#" onclick="window.open(\'action/student_results.php?id='.$context->instanceid.'\',\'JClic\',\'navigation=0,toolbar=0,resizable=1,scrollbars=1,width=700,height=400\');" >'.get_string('show_my_results', 'jclic').'</A>';
         }
-        
+
         if (!$ispreview && !$isopen){
             echo $OUTPUT->box(get_string('notopenyet', 'jclic', userdate($jclic->timeavailable)), 'generalbox boxaligncenter jclicdates');
         } else if (!$ispreview && $isclosed ) {
-            echo $OUTPUT->box(get_string('expired', 'jclic', userdate($jclic->timedue)), 'generalbox boxaligncenter jclicdates'); 
+            echo $OUTPUT->box(get_string('expired', 'jclic', userdate($jclic->timedue)), 'generalbox boxaligncenter jclicdates');
         } else {
             if ($jclic->maxattempts<0 || $attempts < $jclic->maxattempts){
               echo '<div id="jclic_applet" style="text-align:center;padding-top:10px;">';
@@ -176,13 +176,13 @@ require_once("$CFG->libdir/filelib.php");
             }else{
                 echo $OUTPUT->box(get_string('msg_noattempts', 'jclic'), 'generalbox boxaligncenter');
             }
-            jclic_view_dates($jclic, $context, $timenow);            
+            jclic_view_dates($jclic, $context, $timenow);
         }
     }
-    
+
     function jclic_get_url($jclic, $context){
         global $CFG;
-        
+
         $url = '';
         if (jclic_is_valid_external_url($jclic->url)) {
             $url = $jclic->url;
@@ -198,9 +198,9 @@ require_once("$CFG->libdir/filelib.php");
             }
 
             $path = '/'.$context->id.'/mod_jclic/content/0'.$file->get_filepath().$file->get_filename();
-            $url = file_encode_url($CFG->wwwroot.'/pluginfile.php', $path, false);            
+            $url = file_encode_url($CFG->wwwroot.'/pluginfile.php', $path, false);
         }
-        
+
         return $url;
     }
 
@@ -304,12 +304,12 @@ require_once("$CFG->libdir/filelib.php");
         if (!empty($CFG->wwwroot)) {
             $url = parse_url($CFG->wwwroot);
                     if (array_key_exists('path', $url)){
-                            $path = $url['path'];			
+                            $path = $url['path'];
                     }
         }
         return $path;
-    }    
-    
+    }
+
     function jclic_get_filemanager_options(){
         $filemanager_options = array();
         $filemanager_options['return_types'] = 3;  // 3 == FILE_EXTERNAL & FILE_INTERNAL. These two constant names are defined in repository/lib.php
@@ -330,7 +330,7 @@ require_once("$CFG->libdir/filelib.php");
         if ($draftitemid) {
             file_save_draft_area_files($draftitemid, $context->id, 'mod_jclic', 'content', 0, jclic_get_filemanager_options());
         }
-        
+
         $files = $fs->get_area_files($context->id, 'mod_jclic', 'content', 0, 'sortorder', false);
         if (count($files) == 1) {
             // only one file attached, set it as main file automatically
@@ -340,7 +340,7 @@ require_once("$CFG->libdir/filelib.php");
         }
         return $filename;
     }
-        
+
     function jclic_is_valid_external_url($url){
         return preg_match('/(http:\/\/|https:\/\/|www).*\/*.jclic.zip(\?[a-z+&\$_.-][a-z0-9;:@&%=+\/\$_.-]*)?$/i', $url);
     }
@@ -348,12 +348,12 @@ require_once("$CFG->libdir/filelib.php");
     function jclic_is_valid_file($filename){
         return preg_match('/.jclic.zip$/i', $filename);
     }
-    
-    
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // Activity sessions                                                          //
 ////////////////////////////////////////////////////////////////////////////////
-    
+
 
     /**
     * Get user sessions
@@ -364,15 +364,15 @@ require_once("$CFG->libdir/filelib.php");
     */
     function jclic_get_sessions($jclicid, $userid) {
         global $CFG, $DB;
-        
+
         $sessions=array();
         jclic_normalize_date();
         $sql = "SELECT js.*
-                FROM {jclic} j, {jclic_sessions} js 
+                FROM {jclic} j, {jclic_sessions} js
                 WHERE j.id=js.jclicid AND js.jclicid=? AND js.user_id=?
                 ORDER BY js.session_datetime";
         $params = array($jclicid, $userid);
-        
+
         if($rs = $DB->get_records_sql($sql, $params)){
             $i = 0;
             foreach($rs as $session){
@@ -382,8 +382,8 @@ require_once("$CFG->libdir/filelib.php");
             }
         }
         return $sessions;
-    }    
-    
+    }
+
     /**
     * Get session activities
     *
@@ -392,7 +392,7 @@ require_once("$CFG->libdir/filelib.php");
     */
     function jclic_get_activities($session_id) {
         global $CFG, $DB;
-        
+
         $activities = array();
         if($rs = $DB->get_records('jclic_activities', array('session_id'=>$session_id), 'activity_id')){
             $i=0;
@@ -402,8 +402,8 @@ require_once("$CFG->libdir/filelib.php");
         }
         return $activities;
     }
-    
-    
+
+
     /**
     * Get information about activities of specified session
     *
@@ -417,31 +417,31 @@ require_once("$CFG->libdir/filelib.php");
         $activity->starttime=$session->session_datetime;
         $activity->session_id=$session->session_id;
         if($rs = $DB->get_record_sql("SELECT AVG(ja.qualification) as qualification, SUM(ja.total_time) as totaltime
-                                 FROM {jclic_activities} ja 
+                                 FROM {jclic_activities} ja
                                  WHERE ja.session_id='$session->session_id'")){
-                $activity->score = round($rs->qualification,0);                
+                $activity->score = round($rs->qualification,0);
                 $activity->totaltime = jclic_format_time($rs->totaltime);
         }
         if ($rs = $DB->get_record_sql("SELECT COUNT(*) as done
-                            FROM (SELECT DISTINCT ja.activity_name 
-                                  FROM  {jclic_activities} ja 
+                            FROM (SELECT DISTINCT ja.activity_name
+                                  FROM  {jclic_activities} ja
                                   WHERE ja.session_id='$session->session_id') t")){
             $activity->done=$rs->done;
         }
-        
+
         if ($rs = $DB->get_record_sql("SELECT COUNT(*) as solved
-                                FROM (SELECT DISTINCT ja.activity_name 
-                                      FROM {jclic_activities} ja 
+                                FROM (SELECT DISTINCT ja.activity_name
+                                      FROM {jclic_activities} ja
                                       WHERE ja.session_id='$session->session_id' AND ja.activity_solved=1) t")){
             $activity->solved=$rs->solved;
         }
-        
+
         return $activity;
-    }    
-        
+    }
+
     /**
-    * Print a table data with all session activities 
-    * 
+    * Print a table data with all session activities
+    *
     * @param string $session_id The session identifier
     */
     function jclic_get_session_activities_html($session_id){
@@ -455,11 +455,11 @@ require_once("$CFG->libdir/filelib.php");
         $strscore  = get_string("score", "jclic");
         $stryes = get_string("yes");
         $strno = get_string("no");
-        
+
 
         // Print activities for each session
-        $activities = jclic_get_activities($session_id);    
-        if (sizeof($activities)>0){ 
+        $activities = jclic_get_activities($session_id);
+        if (sizeof($activities)>0){
             $table = new html_table();
             $table->attributes = array('class'=>'jclic-activities-table');
             $table->head = array($stractivity, $strsolved, $stractions, $strtime, $strscore);
@@ -474,14 +474,14 @@ require_once("$CFG->libdir/filelib.php");
         }
         return $table_html;
     }
-    
+
     /**
      * Convert specified time (in milliseconds) to XX' YY'' format
-     * 
+     *
      * @param type $time time (in milliseconds) to format
      */
     function jclic_format_time($time){
-        return floor($time/60000)."' ".round(fmod($time,60000)/1000,0)."''";
+        return floor($time/60)."' ".round(fmod($time,60))."''";
     }
 
     /**
@@ -493,56 +493,56 @@ require_once("$CFG->libdir/filelib.php");
         global $CFG, $DB;
 
         jclic_normalize_date();
-        $sessions_summary = new stdClass(); 
+        $sessions_summary = new stdClass();
         $sessions_summary->attempts = '';
         $sessions_summary->score = '';
         $sessions_summary->totaltime = '';
         $sessions_summary->starttime = '';
         $sessions_summary->done = '';
         $sessions_summary->solved = '';
-        
+
         if ($rs = $DB->get_record_sql("SELECT COUNT(*) AS attempts, AVG(t.qualification) AS qualification, SUM(t.totaltime) AS totaltime, MAX(t.starttime) AS starttime
                             FROM (SELECT AVG(ja.qualification) AS qualification, SUM(ja.total_time) AS totaltime, MAX(js.session_datetime) AS starttime
-                                  FROM {jclic} j, {jclic_sessions} js, {jclic_activities} ja  
+                                  FROM {jclic} j, {jclic_sessions} js, {jclic_activities} ja
                                   WHERE j.id=js.jclicid AND js.user_id='$userid' AND js.jclicid=$jclicid AND ja.session_id=js.session_id
                                   GROUP BY js.session_id) t")){
                 $sessions_summary->attempts=$rs->attempts;
                 $sessions_summary->score=round($rs->qualification,0);
-                $sessions_summary->totaltime= jclic_format_time($rs->totaltime);
+                $sessions_summary->totaltime = jclic_format_time($rs->totaltime);
                 $sessions_summary->starttime=$rs->starttime;
         }
 
         if ($rs = $DB->get_record_sql("SELECT COUNT(*) as done
-                            FROM (SELECT DISTINCT ja.activity_name 
-                                  FROM {jclic} j, {jclic_sessions} js, {jclic_activities} ja 
+                            FROM (SELECT DISTINCT ja.activity_name
+                                  FROM {jclic} j, {jclic_sessions} js, {jclic_activities} ja
                                   WHERE j.id=js.jclicid AND js.user_id='$userid' AND js.jclicid=$jclicid AND js.session_id=ja.session_id)  t")){
                 $sessions_summary->done=$rs->done;
         }
         if ($rs = $DB->get_record_sql("SELECT COUNT(*) as solved
-                            FROM (SELECT DISTINCT ja.activity_name 
-                                  FROM {jclic} j, {jclic_sessions} js, {jclic_activities} ja 
+                            FROM (SELECT DISTINCT ja.activity_name
+                                  FROM {jclic} j, {jclic_sessions} js, {jclic_activities} ja
                                   WHERE j.id=js.jclicid AND js.user_id='$userid' AND js.jclicid=$jclicid AND js.session_id=ja.session_id AND ja.activity_solved=1) t")){
         $sessions_summary->solved=$rs->solved;
         }
         return $sessions_summary;
-    }    
+    }
 
     /**
-    * Format time from milliseconds to string 
+    * Format time from milliseconds to string
     *
-    * @return string Formated string [x' y''], where x are the minutes and y are the seconds.	
+    * @return string Formated string [x' y''], where x are the minutes and y are the seconds.
     * @param int $time	The time (in ms)
     */
     function jclic_time2str($time){
         return round($time/60000,0)."' ".round(fmod($time,60000)/1000,0)."''";
-    } 
-    
+    }
+
 
     function jclic_print_results_table($jclic, $context, $cm, $course, $action){
         global $CFG, $DB, $OUTPUT, $PAGE;
-        
+
         $PAGE->requires->js('/mod/jclic/jclic.js');
-        
+
         // View all/summary sessions link
         if (isset($action) && $action != 'showall'){
             $url = new moodle_url('/mod/jclic/view.php', array('id' => $context->instanceid, 'action' => 'showall'));
@@ -557,7 +557,7 @@ require_once("$CFG->libdir/filelib.php");
         $url = new moodle_url('/mod/jclic/view.php', array('id' => $context->instanceid, 'action' => 'preview'));
         echo '<div id="jclic-preview-link" ><A href="'.$url.'"  >'.get_string('preview_jclic', 'jclic').'</A></div>';
 
-        
+
         // Show students list with their results
         require_once($CFG->libdir.'/gradelib.php');
         $perpage = optional_param('perpage', 10, PARAM_INT);
@@ -570,7 +570,7 @@ require_once("$CFG->libdir/filelib.php");
         $currentgroup = groups_get_activity_group($cm, true);
 
         /// Get all ppl that are allowed to submit jclic
-        list($esql, $params) = get_enrolled_sql($context, 'mod/jclic:submit', $currentgroup); 
+        list($esql, $params) = get_enrolled_sql($context, 'mod/jclic:submit', $currentgroup);
         $sql = "SELECT u.id FROM {user} u ".
                "LEFT JOIN ($esql) eu ON eu.id=u.id ".
                "WHERE u.deleted = 0 AND eu.id=u.id ";
@@ -600,7 +600,7 @@ require_once("$CFG->libdir/filelib.php");
         foreach ($extrafields as $field) {
             $extrafieldnames[] = get_user_field_name($field);
         }
-        
+
         $strstarttime = ($action=='showall')?get_string('starttime', 'jclic'):get_string('lastaccess', 'jclic');
 
         $tableheaders = array_merge(
@@ -639,11 +639,11 @@ require_once("$CFG->libdir/filelib.php");
         $table->set_attribute('class', 'results generaltable generalbox');
         $table->set_attribute('width', '100%');
 
-        $table->no_sorting('starttime'); 
-        $table->no_sorting('solveddone'); 
-        $table->no_sorting('totaltime'); 
-        $table->no_sorting('attempts'); 
-        $table->no_sorting('grade'); 
+        $table->no_sorting('starttime');
+        $table->no_sorting('solveddone');
+        $table->no_sorting('totaltime');
+        $table->no_sorting('attempts');
+        $table->no_sorting('grade');
 
         // Start working -- this is necessary as soon as the niceties are over
         $table->setup();
@@ -697,7 +697,7 @@ require_once("$CFG->libdir/filelib.php");
                                 $rowclass = null;
                                 $starttime='<a href="#" onclick="showSessionActivities(\''.$session->session_id.'\');">'.date('d/m/Y H:i',strtotime($session->starttime)).'</a>';
                                 $solveddone = $session->solved. ' / '. $session->done;
-                                $grade = $session->score; 
+                                $grade = $session->score;
                                 $totaltime = $session->totaltime;
                                 $attempts = $session->attempts;
                                 $row = array_merge(array($picture, $userlink), $extradata,
@@ -710,7 +710,7 @@ require_once("$CFG->libdir/filelib.php");
                                 $html.= '<td colspan="6" >';
                                 $html.= jclic_get_session_activities_html($session->session_id);
                                 $html.= '</td></tr>';
-                                echo $html;        
+                                echo $html;
 
                                 // Remove user information (only showed in the first row)
                                 if ($first_session){
@@ -721,7 +721,7 @@ require_once("$CFG->libdir/filelib.php");
                                     foreach ($extradata as $key=>$value){
                                         $extradata[$key] = '';
                                     }
-                                }                                    
+                                }
                             }
                         }
                     }
@@ -730,23 +730,23 @@ require_once("$CFG->libdir/filelib.php");
                     $sessions_summary = jclic_get_sessions_summary($jclic->id, $auser->id);
                     $starttime = (sizeof($sessions)>0)?get_string('totals', 'jclic'):(isset($sessions_summary->starttime)?date('d/m/Y H:i',strtotime($sessions_summary->starttime)):'-');
                     $solveddone = $sessions_summary->solved. ' / '. $sessions_summary->done;
-                    $grade = $sessions_summary->score; 
+                    $grade = $sessions_summary->score;
                     $totaltime = $sessions_summary->totaltime;
                     $attempts = $sessions_summary->attempts;
                     $row = array_merge(array($picture, $userlink), $extradata,
                             array($starttime, $attempts, $solveddone, $totaltime, $grade));
                     $rowclass = (sizeof($sessions)>0)?'summary-row':'';
                     $table->add_data($row, $rowclass);
-                    
+
                     // Forward iterator
                     $currentposition++;
                     $iterator->next();
                 }
-                $table->print_html();  /// Print the whole table    
+                $table->print_html();  /// Print the whole table
             }
-        }        
+        }
     }
- 
+
     /**
      * Workaround to fix an Oracle's bug when inserting a row with date
      */
@@ -754,6 +754,6 @@ require_once("$CFG->libdir/filelib.php");
         global $CFG, $DB;
         if ($CFG->dbtype == 'oci'){
             $sql = "ALTER SESSION SET NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'";
-            $DB->execute($sql);                        
-        }        
-    } 
+            $DB->execute($sql);
+        }
+    }

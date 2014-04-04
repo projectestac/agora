@@ -57,7 +57,7 @@ function xmldb_jclic_upgrade($oldversion) {
         $field->set_attributes(XMLDB_TYPE_CHAR, '255', null, XMLDB_NOTNULL, null, null, 'url');
         $result = $result && $dbman->add_field($table, $field);
     }
-    
+
     if ($oldversion < 2011122902) {
 
         /// Define field introformat to be added to jclic
@@ -66,7 +66,7 @@ function xmldb_jclic_upgrade($oldversion) {
         if ($dbman->field_exists($table, $field)) {
             $dbman->rename_field($table, $field, 'intro');
         }
-        
+
         $field = new xmldb_field('introformat');
         $field->set_attributes(XMLDB_TYPE_INTEGER, '4', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0', 'intro');
 
@@ -90,21 +90,21 @@ function xmldb_jclic_upgrade($oldversion) {
         /// jclic savepoint reached
         upgrade_mod_savepoint(true, 2011122902, 'jclic');
     }
-    
+
 //===== 1.9.0 upgrade line ======//
-    
+
     if ($oldversion < 2012042700) {
 
         require_once("$CFG->dirroot/mod/jclic/db/upgradelib.php");
         // Add upgrading code from 1.9 (+ new file storage system)
         // @TODO: test it!!!!
         jclic_migrate_files();
-        
+
         // Add fields grade, timeavailable and timedue on table jclic
         $table = new xmldb_table('jclic');
         $field = new xmldb_field('grade', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, '0', 'maxgrade');
         $dbman->add_field($table, $field);
-        
+
         // Update jclic.grade with the jclic.max_grade value
         if ($jclics = $DB->get_records('jclic')){
             foreach($jclics as $jclic){
@@ -119,17 +119,17 @@ function xmldb_jclic_upgrade($oldversion) {
 
         $field = new xmldb_field('timedue', XMLDB_TYPE_INTEGER, '10', XMLDB_UNSIGNED, null, null, '0', 'timeavailable');
         $dbman->add_field($table, $field);
-        
+
         // jclic savepoint reached
         upgrade_mod_savepoint(true, 2012042700, 'jclic');
     }
-    
+
     if ($oldversion < 2012050703) {
         // Remove unique restriction for jclic_sessions.session_id field
         $table = new xmldb_table('jclic_sessions');
         $key = new xmldb_index('session_id', XMLDB_INDEX_UNIQUE, array('session_id'));
         $dbman->drop_index($table, $key);
-        
+
         // Copy jclic_sessions.id to jclic_sessions.session_id and update jclic_activities.session_id
         if ($sessions = $DB->get_records('jclic_sessions')){
             foreach($sessions as $session){
@@ -140,11 +140,23 @@ function xmldb_jclic_upgrade($oldversion) {
                 $DB->update_record("jclic_sessions", $session);
             }
         }
-        
+
         // jclic savepoint reached
-        upgrade_mod_savepoint(true, 2012050703, 'jclic'); 
+        upgrade_mod_savepoint(true, 2012050703, 'jclic');
     }
-    
+
+    if ($oldversion < 2014040400) {
+        if ($activities = $DB->get_records('jclic_activities',array(),'', 'id, total_time')){
+            foreach($activities as $activity){
+                $activity->total_time =  ceil($activity->total_time/1000);
+                $DB->update_record("jclic_activities", $activity);
+            }
+        }
+
+        // jclic savepoint reached
+        upgrade_mod_savepoint(true, 2014040400, 'jclic');
+    }
+
     // Final return of upgrade result (true, all went good) to Moodle.
     return true;
 }
