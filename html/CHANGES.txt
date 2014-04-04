@@ -7,6 +7,8 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 MOODLE 2
 - Tiny_MCE Wiris Replaced wrong ampersand
+- added TreeMenu.js
+- Solved error with activities that lasts more than 99 seconds saving total_time in seconds instead of miliseconds. Now the limit is about 27 hours per activity
 
 PORTAL
 - Upgraded to Zikula 1.3.7
