@@ -562,8 +562,8 @@ ul li a.yui3-menuitem-content {
     border-top: 0px;
 }
 
-.path-mod-forum table.forumheaderlist tr,
-.path-mod-forum table.forumheaderlist td,
+.path-mod-forum .forumheaderlist tr,
+.path-mod-forum .forumheaderlist td,
 .path-mod-forum table.forumheaderlist {
     border: 0;
 }
