@@ -200,15 +200,14 @@ table.flexible th.header, table.generaltable th.header, table.generalbox th.head
     margin-top: 10px;
     background-position: bottom;
     background-repeat: repeat-x;
-    background-image: none !important;
     background-color: #fff;
     border-radius: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    /*  box-shadow: 3px 3px 3px #bbb;*/
-    -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-bottomright: 5px;
-    /*  -moz-box-shadow: 3px 3px 3px #bbb;*/
+    box-shadow: 3px 3px 3px #bbb;
+    background-image: url([[pix:theme|theme/borderbottom]]);
+    background-position: bottom;
+    background-repeat: repeat-x;
     border-color: #ddd;
 }
 
@@ -563,9 +562,13 @@ ul li a.yui3-menuitem-content {
 }
 
 .path-mod-forum .forumheaderlist tr,
-.path-mod-forum .forumheaderlist td,
-.path-mod-forum table.forumheaderlist {
+.path-mod-forum .forumheaderlist td {
     border: 0;
+}
+
+.path-mod-forum table.forumheaderlist {
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
 }
 
 div.forumheaderlist:last-of-type, div.forumpost:last-of-type {
@@ -576,6 +579,34 @@ div.forumheaderlist:last-of-type, div.forumpost:last-of-type {
     border: 1px solid #ddd;
     margin: auto;
    	border-top: 0px;
+}
+
+.forumheaderlist .discussion .author {
+    white-space: nowrap;
+}
+
+.forumheaderlist .discussion .starter {
+    background-color: #EEEEEE;
+}
+
+.discussion td {
+    border-color: #DDDDDD;
+}
+
+.forumheaderlist .discussion .starter, .discussion td {
+    border-width: 0 0 1px 0;
+    background-image: url([[pix:theme|theme/borderbottom]]);
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
+.forumheaderlist td {
+    padding: 10px !important;
+}
+
+.forumheaderlist .replies {
+    text-align: center;
+    white-space: nowrap;
 }
 
 div.content div.coursebox:only-of-type {
@@ -1014,6 +1045,12 @@ input#username, input#password {
     color: [[setting:color3]]!important;
 }
 
+.generalbox#intro {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 15px;
+}
 
 /* Must be at the end in order to override any previous style */
 [[setting:customcss]]
