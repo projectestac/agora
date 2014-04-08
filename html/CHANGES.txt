@@ -5,6 +5,11 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+Changes 14.04.09
+---------------------------------------------------------------------------------------
 MOODLE 2
 - Tiny_MCE Wiris Replaced wrong ampersand
 - added TreeMenu.js
