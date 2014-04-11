@@ -437,7 +437,11 @@ class grade_item extends grade_object {
         }
 
         if ($this->itemtype == 'mod' and !$this->is_outcome_item()) {
-            if ($this->itemnumber === 0) {
+            //XTEC MODIFICAT MDL-39740 grade: Fix grade_item::add_idnumber strict type checking
+            //2014.04.11 @pferre22
+            if ($this->itemnumber == 0) {
+            //if ($this->itemnumber === 0) {
+            // FI PATCH
                 // for activity modules, itemnumber 0 is synced with the course_modules
                 if (!$cm = get_coursemodule_from_instance($this->itemmodule, $this->iteminstance, $this->courseid)) {
                     return false;
