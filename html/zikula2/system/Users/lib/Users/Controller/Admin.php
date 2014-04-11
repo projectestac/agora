@@ -2045,8 +2045,15 @@ class Users_Controller_Admin extends Zikula_AbstractController
         } elseif ($this->request->isGet()) {
             $confirmed = false;
         } elseif ($this->request->isPost()) {
-            $this->checkCsrfToken();
-            $confirmed  = $this->request->request->get('confirmed', false);
+            
+            // XTEC ************ ELIMINAT - Removed token check because ALWAYS fails
+            // 2014.04.11 @aginard
+            /*
+              $this->checkCsrfToken();
+            */
+            //************ FI
+            
+            $confirmed = $this->request->request->get('confirmed', false);
             $exportFile = $this->request->request->get('exportFile', null);
             $delimiter  = $this->request->request->get('delimiter', null);
             $email      = $this->request->request->get('exportEmail', null);
