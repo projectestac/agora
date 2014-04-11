@@ -8,13 +8,12 @@ require_once 'config/config.php';
 
 // In production put all logs together
 if ($agora['server']['enviroment'] == 'PRO') {
-    $logfile = $agora['server']['root'] . $agora['intranet']['datadir'] . '/' . $ZConfig['Multisites']['siteFilesFolder'] . '/upgrade-charset.txt';
+    $logfile = $agora['server']['root'] . $agora['intranet']['datadir'] . 'usu151/' . $ZConfig['Multisites']['siteFilesFolder'] . '/upgrade-charset.txt';
 } else {
     $logfile = $ZConfig['Multisites']['filesRealPath'] . '/' . $ZConfig['Multisites']['siteFilesFolder'] . '/upgrade-charset.txt';
 }
 
 $dbname = $ZConfig['DBInfo']['databases']['default']['dbname'];
-$f = fopen($logfile, "a") or die('Error en obrir el fitxer de text.');
 $nodebug = (isset($_REQUEST['nodebug'])) ? true : false;
 $pass = (isset($_REQUEST['pass'])) ? $_REQUEST['pass'] : false;
 
@@ -29,6 +28,8 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] === false)) {
     show_login_form();
     exit(0);
 }
+
+$f = fopen($logfile, "a") or die('Error en obrir el fitxer de text: ' . $logfile);
 
 // Use buffering in order to show text as soon as it is available
 if (ob_get_level() == 0) {
