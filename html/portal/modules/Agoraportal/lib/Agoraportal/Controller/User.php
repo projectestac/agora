@@ -538,13 +538,16 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         if (in_array('moodle2', $activedServicesNames) && $action == 'm2x') {
             $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientInfo['client'][$clientCode]['clientId'], 'serviceName' => 'moodle2'));
             $folder = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['username'] . $clientService['activedId'] . '/repository/files/';
+
             if (is_dir($folder)) {
-                $dir_handle = opendir($folder);
                 $moodle2RepoFiles = array();
-                while ($object = readdir($dir_handle)) {
-                    if (!in_array($object, array('.', '..'))) {
-                        $filename = DataUtil::formatForDisplay($folder . $object);
-                        $file_object = array('name' => DataUtil::formatForDisplay($object),
+                $objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($folder), RecursiveIteratorIterator::SELF_FIRST);
+                foreach ($objects as $name => $object) {
+                    if (substr($name, -2) != '/.' && substr($name, -3) != '/..') {
+                        $filename = DataUtil::formatForDisplay($name);
+                        $basedir = substr($name, strlen($folder));
+                        $file_object = array('name' => DataUtil::formatForDisplay($basedir),
+                            'filename' => DataUtil::formatForDisplay($filename),
                             'size' => round((filesize($filename) / 1024) / 1024, 2),
                             'type' => filetype($filename),
                             'time' => date("j F Y, H:i", filemtime($filename)),
@@ -582,14 +585,14 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $folder = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['username'] . $clientService['activedId'] . $folder;
 
         //Check if file exists. If not returns error.
-        if (!file_exists($folder . $filename)) {
+        if (!file_exists($filename)) {
             LogUtil::registerError($this->__f('S\'ha produït algun problema en descarregar el fitxer %s', array($filename)));
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'files', array('clientCode' => $clientCode,
                                 'action' => $target)));
         }
 
         // get file size
-        $fileSize = filesize($folder . '/' . $filename);
+        $fileSize = filesize($filename);
         // Get file extension
         $fileExtension = strtolower(substr(strrchr($filename, "."), 1));
 
@@ -600,11 +603,11 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         header("Cache-Control: public");
         header("Content-Description: File Transfer");
         //Force the download
-        $header = "Content-Disposition: attachment; filename=" . $filename . ";";
+        $header = "Content-Disposition: attachment; filename=" . basename($filename) . ";";
         header($header);
         header("Content-Transfer-Encoding: binary");
         header("Content-Length: " . $fileSize);
-        @readfile($folder . '/' . $filename);
+        @readfile($filename);
         return true;
     }
 

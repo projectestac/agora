@@ -1234,16 +1234,15 @@ function showRequestMessage_failure() {
 
 function display(target){
     $('uploadFiles').style.display='none';
-    $('m19').style.display='none';
     $('m2x').style.display='none';
     $(target).style.display='block';
 }
 
-function deleteFileM2x(filename,clientCode){
-    if(!confirm("Confirmeu que voleu esborrar el fitxer '" + filename + "'.")) {
+function deleteFileM2x(filename,name,clientCode){
+    if(!confirm("Confirmeu que voleu esborrar el fitxer '" + name + "'.")) {
         return;
     }
-    var pars = "module=Agoraportal&func=deleteFileM2x&filename=" + filename + "&clientCode=" + clientCode;
+    var pars = "module=Agoraportal&func=deleteFileM2x&filename=" + filename + "&name=" + name + "&clientCode=" + clientCode;
     var myAjax = new Ajax.Request("ajax.php", 
     {
         method: 'get', 
@@ -1256,14 +1255,14 @@ function deleteFileM2x(filename,clientCode){
 
 function deleteFileM2x_response(req) {
 
-    if (req.status != 200 ) { 
+    if (req.status !== 200) { 
         pnshowajaxerror(req.responseText);
         return;
     }
     
     var json = pndejsonize(req.responseText);
 
-    $('file_' + json.filename).toggle();
+    $('file_' + json.name).toggle();
 }
 
 function deleteFileM2x_failure() {

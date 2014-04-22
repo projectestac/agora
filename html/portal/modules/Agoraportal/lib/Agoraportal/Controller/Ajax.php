@@ -529,22 +529,39 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $filename = FormUtil::getPassedValue('filename', '', 'GET');
+        $basename = basename($filename);
+
         $clientCode = FormUtil::getPassedValue('clientCode', '', 'GET');
-        
         $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
-        // remove file
-        global $agora;
-        $activedId = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientInfo['client'][$clientCode]['clientId'], 'serviceName' => 'moodle2'));
-        $folder = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['username'] . $activedId['activedId'] . '/repository/files/';
-        if (unlink($folder . $filename)) {
-            // create log in action table
-            //Resgister log 
-            ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('action' => $this->__f('S\'ha esborrat el fitxer \'%s\' del repository \'Fitxers\' de Moodle', array($filename)),
+
+        // Removal of file or dir
+        if (is_dir($filename)) {
+            if ($this->is_dir_empty($filename)) {
+                rmdir($filename);
+                // Register log
+                ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('action' => $this->__f('S\'ha esborrat el directori \'%s\' del repository \'Fitxers\' de Moodle', array($basename)),
+                    'actionCode' => 3,
+                    'clientCode' => $clientCode));
+            } else {
+                AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No es pot esborrar aquesta carpeta perquè no està buida.')));
+            }
+        } else {
+            unlink($filename);
+            // Register log
+            ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('action' => $this->__f('S\'ha esborrat el fitxer \'%s\' del repository \'Fitxers\' de Moodle', array($basename)),
                 'actionCode' => 3,
                 'clientCode' => $clientCode));
         }
-        AjaxUtil::output(array('filename' => $filename));
+        
+        AjaxUtil::output(array('name' => $basename));
+    }
+    
+    private function is_dir_empty($dir) {
+        if (!is_readable($dir)) {
+            return null;
+        }
+        return (count(scandir($dir)) == 2);
     }
 
 }

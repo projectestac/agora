@@ -154,23 +154,33 @@
             <tbody>
                 {foreach item=file from=$moodle2RepoFiles}
                 <tr id="file_{$file.name}">
-                    <td>
-                        {$file.name}
-                    </td>
-                    <td align="center">
-                        {$file.size} MB
-                    </td>
+                    {if $file.type == 'dir'}
+                        <td style="color: blue;">
+                            {$file.name}/
+                        </td>
+                        <td align="center">
+                        </td>
+                    {else}
+                        <td>
+                            {$file.name}
+                        </td>
+                        <td align="center">
+                            {$file.size} MB
+                        </td>
+                    {/if}
                     <td>
                         {$file.time}
                     </td>
                     <td>
-                        <a href="javascript:deleteFileM2x('{$file.name}', '{$clientCode}');">
+                        <a href="javascript:deleteFileM2x('{$file.filename}','{$file.name}','{$clientCode}');">
                             {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall'}
                         </a>
+                        {if $file.type != 'dir'}
                         |
-                        <a href="{modurl modname='Agoraportal' type='user' func='downloadFile' filename=$file.name clientCode=$clientCode target='m2x'}">
-                            {img modname='core' src='agt_update_recommended.png' set='icons/extrasmall' __alt='Descarrega\'t el fitxer' __title='Descarrega\'t el fitxer'}
+                        <a href="{modurl modname='Agoraportal' type='user' func='downloadFile' filename=$file.filename name=$file.name clientCode=$clientCode target='m2x'}">
+                            {img modname='core' src='agt_update_recommended.png' set='icons/extrasmall' __alt='Descarrega el fitxer' __title='Descarrega el fitxer'}
                         </a>
+                        {/if}
                     </td>
                 </tr>
                 {foreachelse}

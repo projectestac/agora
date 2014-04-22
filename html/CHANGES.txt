@@ -8,6 +8,9 @@ Changes in progress
 MOODLE 2
 - Solved MDL-39740 Updating grade_item idnumber doesn't update course_module idnumber
 
+PORTAL
+- Agoraportal: Added ability to show and delete subdirectoris in Moodle repository
+
 ZIKULA 2
 - fix.php: Fixed creation of log file in production environment
 - Users: Fixed export of users to CSV file
