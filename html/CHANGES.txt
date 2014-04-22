@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- DataCopy: Added script to copy contact info from Moodle 1.9 services to Moodle 2 in agoraportal
+
 MOODLE 2
 - Solved MDL-39740 Updating grade_item idnumber doesn't update course_module idnumber
 
