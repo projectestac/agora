@@ -14,6 +14,9 @@ MOODLE 2
 PORTAL
 - Agoraportal: Added ability to show and delete subdirectoris in Moodle repository
 
+ZIKULA
+- News: Fixed AJAX error with modern browsers
+
 ZIKULA 2
 - fix.php: Fixed creation of log file in production environment
 - Users: Fixed export of users to CSV file

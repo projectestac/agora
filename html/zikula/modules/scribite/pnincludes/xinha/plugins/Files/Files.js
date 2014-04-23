@@ -16,7 +16,7 @@ function Files(editor) {
         image    : _editor_url+"plugins/Files/img/files.gif",
         textMode : false,
         action   : function(editor) {
-                    url = document.location.pnbaseURL + document.location.entrypoint + "?module=Files&type=external&func=getFiles";
+                    url = document.pnbaseURL + document.entrypoint + "?module=Files&type=external&func=getFiles";
                     FilesFindItemXinha(editor, url);
         }
     })
