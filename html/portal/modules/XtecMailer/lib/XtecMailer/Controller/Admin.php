@@ -145,10 +145,10 @@ class XtecMailer_Controller_Admin extends Zikula_AbstractController {
             // Success
             LogUtil::registerStatus(__('Done! Message sent.'));
         } elseif ($result === false) {
-            // Failiure
+            // Failure
             LogUtil::registerError(__f('Error! Could not send message. %s', ''));
         } else {
-            // Failiure with error
+            // Failure with error
             LogUtil::registerError(__f('Error! Could not send message. %s', $result));
         }
 

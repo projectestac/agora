@@ -1,5 +1,4 @@
 {include file="xtecmailer_admin_menu.tpl"}
-{ajaxheader nobehaviour=true noscriptaculous=true modname=XtecMailer filename=advmailer_admin_modifyconfig.js}
 <div class="z-admincontainer">
     <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large' __alt='Settings' }</div>
     <h2>{gt text="Settings"}</h2>

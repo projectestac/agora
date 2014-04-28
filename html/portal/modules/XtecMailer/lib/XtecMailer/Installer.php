@@ -39,7 +39,7 @@ class XtecMailer_Installer extends Zikula_AbstractInstaller {
      */
     public function uninstall() {
         // Delete all module variables
-        $this->delVar('advMailer');
+        $this->delVar('XtecMailer');
 
         EventUtil::unregisterPersistentModuleHandler('XtecMailer');
 
