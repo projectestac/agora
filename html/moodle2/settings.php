@@ -36,7 +36,7 @@ $CFG->mailheader = '[Àgora]';
 
 //Cleanup
 $CFG->disablegradehistory = 1;
-$CFG->loglifetime = 365;
+$CFG->loglifetime = 0;
 
 //Rules
 $CFG->forceloginforprofiles = 1;
