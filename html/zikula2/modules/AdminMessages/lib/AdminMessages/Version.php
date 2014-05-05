@@ -16,7 +16,7 @@ class AdminMessages_Version extends Zikula_AbstractVersion {
         $meta = array();
         $meta['displayname'] = $this->__("AdminMessages");
         $meta['description'] = $this->__("Provides a means of publishing, editing and scheduling special announcements from the site administrator.");
-        $meta['url'] = $this->__("AdminMessages");
+        $meta['url'] = 'AdminMessages';
         $meta['version'] = '2.2.0';
 
         $meta['securityschema'] = array('AdminMessages::' => 'message title::message id');

@@ -23,6 +23,7 @@ ZIKULA 2
 - fix.php: Fixed creation of log file in production environment
 - Users: Fixed export of users to CSV file
 - XtecMailer: Synced code between portal, zikula2 and La prestatgeria
+- AdminMessages: Fixed name for URL (broken with catalan translation)
 
 
 Changes 14.04.09
