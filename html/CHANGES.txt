@@ -24,6 +24,7 @@ ZIKULA 2
 - Users: Fixed export of users to CSV file
 - XtecMailer: Synced code between portal, zikula2 and La prestatgeria
 - AdminMessages: Fixed name for URL (broken with catalan translation)
+- News: Fixed view of archived news after Zikula 1.3.7 upgrade
 
 
 Changes 14.04.09

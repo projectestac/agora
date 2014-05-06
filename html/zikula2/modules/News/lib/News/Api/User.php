@@ -219,13 +219,28 @@ class News_Api_User extends Zikula_AbstractApi
         $tables = DBUtil::getTables();
         $news_column = $tables['news_column'];
 
+// XTEC ************ MODIFICAT - Fixed view of archived news after Zikula 1.3.7 upgrade
+// 2014.05.06 @aginard
+
+        // TODO: Check syntax for other Databases (i.e. Postgres doesn't know YEAR_MONTH)
+        $order = "EXTRACT(YEAR_MONTH FROM $news_column[from])";
+
+        $date = DateUtil::getDatetime();
+        $where = "($news_column[from] < '$date' AND $news_column[published_status] = '0') GROUP BY EXTRACT(YEAR_MONTH FROM $news_column[from])";
+        $dates = DBUtil::selectFieldArray('news', 'from', $where, $order);
+
+//************ ORIGINAL
+/*        
         // TODO: Check syntax for other Databases (i.e. Postgres doesn't know YEAR_MONTH)
         $order = "GROUP BY EXTRACT(YEAR_MONTH FROM $news_column[from]) ORDER BY $news_column[from] DESC";
 
         $date = DateUtil::getDatetime();
         $where = "($news_column[from] < '$date' AND $news_column[published_status] = '0')";
         $dates = DBUtil::selectFieldArray('news', 'from', $where, $order);
-
+*/
+// ************ FI
+        
+        
         return $dates;
     }
 
