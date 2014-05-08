@@ -210,7 +210,11 @@ abstract class moodleform_mod extends moodleform {
                 $mform->getElement('completionunlocked')->setValue(1);
             } else {
                 // Has the element been unlocked?
-                if ($mform->exportValue('unlockcompletion')) {
+                //XTEC ************ MODIFICAT - MDL-45480 Mod completion cannot be changed on certain cases
+                //2014.05.08 @pferrer
+                //if ($mform->exportValue('unlockcompletion')) {
+                if ($mform->exportValue('unlockcompletion') || $mform->exportValue('completionunlocked')) {
+                //************ FI
                     // Yes, add in warning text and set the hidden variable
                     $mform->insertElementBefore(
                         $mform->createElement('static', 'completedunlocked',
@@ -703,7 +707,7 @@ abstract class moodleform_mod extends moodleform {
 			}
 		}
 
-//************ FI                                                        
+//************ FI
 
         $this->standard_hidden_coursemodule_elements();
     }
