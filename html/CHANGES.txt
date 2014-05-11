@@ -16,6 +16,7 @@ MOODLE 2
 PORTAL
 - Agoraportal: Added ability to show and delete subdirectoris in Moodle repository
 - XtecMailer: Synced code between portal, zikula2 and La prestatgeria
+- Users: Changed default hash method to md5
 
 ZIKULA
 - News: Fixed AJAX error with modern browsers
@@ -23,6 +24,7 @@ ZIKULA
 ZIKULA 2
 - fix.php: Fixed creation of log file in production environment
 - Users: Fixed export of users to CSV file
+- Users: Changed default hash method to md5
 - XtecMailer: Synced code between portal, zikula2 and La prestatgeria
 - AdminMessages: Fixed name for URL (broken with catalan translation)
 - News: Fixed view of archived news after Zikula 1.3.7 upgrade
