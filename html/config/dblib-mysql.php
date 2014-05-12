@@ -350,6 +350,10 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
                 $school_info['dbhost_intranet'] = $data[12];
                 $school_info['diskPercent_intranet'] = $data[13];
                 $school_info['version_intranet'] = $data[14];
+                $school_info['id_nodes'] = $data[15];
+                $school_info['database_nodes'] = $data[16];
+                $school_info['dbhost_nodes'] = $data[17];
+                $school_info['diskPercent_nodes'] = $data[18];
 
                 // Debug info
                 $school_info['source'] = 'Cookie';
@@ -393,7 +397,7 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
 
     // Set cookie only if there is information (a moodle or a zikula)
     if ((isset($school_info)) && 
-        (!empty($school_info['id_moodle']) || !empty($school_info['id_moodle2']) || !empty($school_info['id_intranet']))) {
+        (!empty($school_info['id_moodle']) || !empty($school_info['id_moodle2']) || !empty($school_info['id_intranet']) || !empty($school_info['id_nodes']))) {
 
         $bodycookie = $dns 
                 . '__' . (array_key_exists('clientCode', $school_info) ? $school_info['clientCode'] : '')
@@ -409,7 +413,11 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
                 . '__' . (array_key_exists('database_intranet', $school_info) ? $school_info['database_intranet'] : '')
                 . '__' . (array_key_exists('dbhost_intranet', $school_info) ? $school_info['dbhost_intranet'] : '')
                 . '__' . (array_key_exists('diskPercent_intranet', $school_info) ? $school_info['diskPercent_intranet'] : '')
-                . '__' . (array_key_exists('version_intranet', $school_info) ? $school_info['version_intranet'] : '');
+                . '__' . (array_key_exists('version_intranet', $school_info) ? $school_info['version_intranet'] : '')
+                . '__' . (array_key_exists('id_nodes', $school_info) ? $school_info['id_nodes'] : '')
+                . '__' . (array_key_exists('database_nodes', $school_info) ? $school_info['database_nodes'] : '')
+                . '__' . (array_key_exists('dbhost_nodes', $school_info) ? $school_info['dbhost_nodes'] : '')
+                . '__' . (array_key_exists('diskPercent_nodes', $school_info) ? $school_info['diskPercent_nodes'] : '');
 
         // Add hash to the text for the cookie
         $cookiesalt = $agora['admin']['username'] . substr($agora['admin']['userpwd'], 0, 3);

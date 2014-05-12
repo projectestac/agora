@@ -24,14 +24,19 @@
 	$agora['intranet']['host']     = 'localhost';     // Servidor de la base de dades
 	$agora['intranet']['datadir']  = 'zkdata/';       // Directori de dades d'usuari de la intranet
 
-	// Environment vars	
+    // Schools WordPress database access info (MySQL)
+	$agora['wordpress']['username'] = 'root';          // Usuari/ària per accedir a les bases de dades
+	$agora['wordpress']['userpwd']  = 'agora';         // Contrasenya de l'usuari/ària anterior
+	$agora['wordpress']['datadir']  = 'wpdata/';       // Directori de dades d'usuari
+
+    // Environment vars	
 	$agora['server']['root']       = '/srv/www/agora/';  // Directori base de la instal·lació d'Àgora ($BASE_AGORA)
-	$agora['server']['server']     = 'http://agora';      // URL base del servidor
+	$agora['server']['server']     = 'http://agora';     // URL base del servidor
 	$agora['server']['marsupial']  = 'http://agora-virtual.educat1x1.cat';   // URL base del servidor per utilitzar els mòduls de marsupial
 	$agora['server']['base']       = '/agora/';          // Context de l'aplicació (és a dir, el que cal escriure després del servidor per accedir a l'aplicació). En el cas d'acceptació agora-moodle i a producció res.
-	$agora['server']['cgi_base']   = '/cgi-bin/';         // Context dels CGI (és a dir, el que cal escriure després del servidor per accedir als CGI).
-	$agora['server']['userprefix'] = 'usu';               // Prefix dels esquemes dels usuaris de base de dades que s'han creat. Així, per exemple, si s'han creat usuaris de l'estil USUx (com ara USU1, USU2...), el prefix és USU.
-	$agora['server']['enviroment'] = 'LOCAL';               // Referent a l'entorn (INT, ACC, PRO)
+	$agora['server']['cgi_base']   = '/cgi-bin/';        // Context dels CGI (és a dir, el que cal escriure després del servidor per accedir als CGI).
+	$agora['server']['userprefix'] = 'usu';              // Prefix dels esquemes dels usuaris de base de dades que s'han creat. Així, per exemple, si s'han creat usuaris de l'estil USUx (com ara USU1, USU2...), el prefix és USU.
+	$agora['server']['enviroment'] = 'LOCAL';            // Referent a l'entorn (INT, ACC, PRO)
 
 	// Load vars common in all environments
 	include_once $agora['server']['root'].'html/config/config.php';

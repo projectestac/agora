@@ -24,6 +24,9 @@
     $agora['intranet']['moodle_dbtype']    = 'oci8';               // Tipus de BBDD del Moodle. El Zikula no accepta oci8po.
     $agora['intranet']['userprefix']       = $agora['server']['userprefix'];
 
+    // Params for WordPress
+    $agora['wordpress']['userprefix']      = $agora['server']['userprefix'];
+
     // General vars
     $agora['server']['school_information'] = 'http://aplitic.educacio.intranet/pls/xtec/agora_dades_centre?p_codi_centre=';
     $agora['server']['html']               = $agora['server']['server'] . $agora['server']['base'];
