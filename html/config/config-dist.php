@@ -4,13 +4,13 @@
     $agora['moodle']['current_version']    = '';                   // Current version
     $agora['moodle']['dbtype']             = 'oci8po';             // oci8po (Oracle), mysql, ...
     $agora['moodle']['dbhost']             = '';                   // Not necessary for Oracle
-    $agora['moodle']['prefix']             = 'ml';                 // Moodle tables prefix (only 2 chars)
+    $agora['moodle']['prefix']             = 'ml';                 // Moodle table prefix (only 2 chars)
     $agora['moodle']['username']           = $agora['server']['userprefix'];
     $agora['moodle']['discusagefile']      = 'diskUsageMdl.txt';
 
     // Params for Moodle2
     $agora['moodle2']['dbtype']            = 'oci8po';             // oci8po (Oracle), mysql, ...
-    $agora['moodle2']['prefix']            = 'm2';                 // Moodle 2.x tables prefix (only 2 chars)
+    $agora['moodle2']['prefix']            = 'm2';                 // Moodle 2 table prefix (only 2 chars)
     $agora['moodle2']['username']          = $agora['server']['userprefix'];
     $agora['moodle2']['discusagefile']     = 'diskUsageMdl2.txt';
     $agora['moodle2']['repository_files']  = '/repository/files/'; // folder for uploading big files, sinchronization between 1.9 and 2 files...
@@ -19,12 +19,13 @@
     $agora['intranet']['dbtype']           = 'mysql';              // oci8po (Oracle), mysql, ...
     $agora['intranet']['current_version']  = '';                   // Current version
     $agora['intranet']['adminuser']        = 'adminagora';
-    $agora['intranet']['prefix']           = 'zk';                 // Prefix de les taules
+    $agora['intranet']['prefix']           = 'zk';                 // Table prefix
     $agora['intranet']['discusagefile']    = 'diskUsageZk.txt';
     $agora['intranet']['moodle_dbtype']    = 'oci8';               // Tipus de BBDD del Moodle. El Zikula no accepta oci8po.
     $agora['intranet']['userprefix']       = $agora['server']['userprefix'];
 
     // Params for WordPress
+    $agora['wordpress']['prefix']          = 'wp';                  // Table prefix
     $agora['wordpress']['userprefix']      = $agora['server']['userprefix'];
 
     // General vars
