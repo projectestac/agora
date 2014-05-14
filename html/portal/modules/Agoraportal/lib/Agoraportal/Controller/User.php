@@ -1266,18 +1266,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $serviceName = FormUtil::getPassedValue('serviceName', isset($args['serviceName']) ? $args['serviceName'] : null, 'POST');
         $clientDNS = FormUtil::getPassedValue('clientDNS', isset($args['clientDNS']) ? $args['clientDNS'] : null, 'POST');
         
-        $serviceURL = '';
-        
-        switch($serviceName) {
-            case 'moodle2':
-                $serviceURL = 'moodle';
-                break;
-            case 'intranet':
-                $serviceURL = 'intranet';
-                break;
-        }
+        $services = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => $serviceName));
 
-        return ModUtil::getVar('Agoraportal', 'siteBaseURL') . $clientDNS . '/' . $serviceURL;
+        return ModUtil::getVar('Agoraportal', 'siteBaseURL') . $clientDNS . '/' . $services['URL'];
     }
 
     public function recalcConsume($args) {
