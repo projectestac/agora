@@ -21,10 +21,6 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
             return false;
         if (!DBUtil::createTable('agoraportal_location'))
             return false;
-        if (!DBUtil::createTable('agoraportal_client_settings'))
-            return false;
-        if (!DBUtil::createTable('agoraportal_ldap_asynchronous'))
-            return false;
         if (!DBUtil::createTable('agoraportal_client_managers'))
             return false;
         if (!DBUtil::createTable('agoraportal_clientType'))
@@ -57,11 +53,6 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
         $c = $table['agoraportal_client_services_column'];
         DBUtil::createIndex($c['serviceId'], 'agoraportal_client_services', 'serviceId');
         DBUtil::createIndex($c['clientId'], 'agoraportal_client_services', 'clientId');
-        $c = $table['agoraportal_client_settings_column'];
-        DBUtil::createIndex($c['clientCode'], 'agoraportal_client_settings', 'clientCode');
-        $c = $table['agoraportal_ldap_asynchronous_column'];
-        DBUtil::createIndex($c['clientCode'], 'agoraportal_ldap_asynchronous', 'clientCode');
-        DBUtil::createIndex($c['managerId'], 'agoraportal_ldap_asynchronous', 'managerId');
         $c = $table['agoraportal_client_managers_column'];
         DBUtil::createIndex($c['clientCode'], 'agoraportal_client_managers', 'clientCode');
         $c = $table['agoraportal_requestTypes_column'];
@@ -146,7 +137,6 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 if (!$this->isMoodle2Created()) {
                     $this->AddMoodle2Service();
                 }
-                $this->UpdateServicesData();
             case '2.0.4':
                 if (!DBUtil::createTable('agoraportal_moodle2_stats_day'))
                     return false;
@@ -183,7 +173,21 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 $this->delVar('allowedUsersAdministration');
                 $this->delVar('allowedAccessRequest');
                 $this->delVar('sqlSecurityCode');
-                
+            case '2.0.8':
+                DBUtil::dropTable('agoraportal_client_settings');
+                DBUtil::dropTable('agoraportal_ldap_asynchronous');
+                if (!$this->isNodesCreated()) {
+                    $this->AddNodesService();
+                }
+                $sql = "ALTER TABLE agoraportal_services DROP currentVersion;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_services DROP usersNameField;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_services ADD URL VARCHAR(50) NOT NULL DEFAULT '' AFTER serviceName;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_services ADD hasDB TINYINT NOT NULL DEFAULT '1' AFTER description;";
+                DBUtil::executeSQL($sql);
+
                 /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
                  * afegir una comprovació amb DBUtil::metaIndexes per saber
                  * si s'han de tornar a crear. */
@@ -239,29 +243,51 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
 
         return true;
     }
-
     /**
-     * Update services intranet and moodle in table agoraportal_services
+     * Checks if service nodes is present
      * 
      * @author Toni Ginard
      *
      * @return boolean
      */
-    private function UpdateServicesData() {
+    private function isNodesCreated() {
 
-        // Get tables
         $pntable = DBUtil::getTables();
         $c = $pntable['agoraportal_services_column'];
+        $where = "$c[serviceName]='nodes'";
+        $items = DBUtil::selectObjectArray('agoraportal_services', $where);
 
-        // Update intranet service
-        $where = "$c[serviceName]='intranet'";
-        $obj = array('version' => '128', 'currentVersion' => '128');
-        DBUtil::updateObject($obj, 'agoraportal_services', $where);
+        if ($items === false) {
+            return false;
+        }
 
-        // Update moodle service
-        $where = "$c[serviceName]='moodle'";
-        $obj = array('version' => '1912', 'currentVersion' => '1912');
-        DBUtil::updateObject($obj, 'agoraportal_services', $where);
+        if (!empty($items)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Add service nodes to table agoraportal_services
+     * 
+     * @author Toni Ginard
+     *
+     * @return boolean
+     */
+    private function AddNodesService() {
+
+        $obj = array('serviceName' => 'nodes',
+            'description' => 'Web de centre fet amb WordPress',
+            'version' => '3.9.1',
+            'defaultDiskSpace' => 500,
+            'allowedClients' => 'cap');
+
+        if (!DBUtil::insertObject($obj, 'agoraportal_services')) {
+            return false;
+        }
+
+        return true;
     }
 
 }
