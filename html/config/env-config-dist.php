@@ -25,9 +25,9 @@
 	$agora['intranet']['datadir']  = 'zkdata/';       // Directori de dades d'usuari de la intranet
 
     // Schools WordPress database access info (MySQL)
-	$agora['wordpress']['username'] = 'root';          // Usuari/ària per accedir a les bases de dades
-	$agora['wordpress']['userpwd']  = 'agora';         // Contrasenya de l'usuari/ària anterior
-	$agora['wordpress']['datadir']  = 'wpdata/';       // Directori de dades d'usuari
+	$agora['nodes']['username'] = 'root';             // Usuari/ària per accedir a les bases de dades
+	$agora['nodes']['userpwd']  = 'agora';            // Contrasenya de l'usuari/ària anterior
+	$agora['nodes']['datadir']  = 'wpdata/';          // Directori de dades d'usuari
 
     // Environment vars	
 	$agora['server']['root']       = '/srv/www/agora/';  // Directori base de la instal·lació d'Àgora ($BASE_AGORA)

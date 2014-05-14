@@ -25,8 +25,8 @@
     $agora['intranet']['userprefix']       = $agora['server']['userprefix'];
 
     // Params for WordPress
-    $agora['wordpress']['prefix']          = 'wp';                  // Table prefix
-    $agora['wordpress']['userprefix']      = $agora['server']['userprefix'];
+    $agora['nodes']['prefix']              = 'wp';                  // Table prefix
+    $agora['nodes']['userprefix']          = $agora['server']['userprefix'];
 
     // General vars
     $agora['server']['school_information'] = 'http://aplitic.educacio.intranet/pls/xtec/agora_dades_centre?p_codi_centre=';

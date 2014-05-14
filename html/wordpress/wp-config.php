@@ -22,8 +22,8 @@ global $agora;
 include_once('site-config.php');
 
 // ** MySQL settings ** //
-define('DB_USER', $agora['wordpress']['username']);
-define('DB_PASSWORD', $agora['wordpress']['userpwd']);
+define('DB_USER', $agora['nodes']['username']);
+define('DB_PASSWORD', $agora['nodes']['userpwd']);
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
 
