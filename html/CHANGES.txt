@@ -15,6 +15,7 @@ MOODLE 2
 
 PORTAL
 - Agoraportal: Added ability to show and delete subdirectoris in Moodle repository
+- Agoraportal: Created Nodes service and changes in module tables
 - XtecMailer: Synced code between portal, zikula2 and La prestatgeria
 - Users: Changed default hash method to md5
 
