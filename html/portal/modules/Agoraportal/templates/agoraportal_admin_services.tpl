@@ -8,10 +8,12 @@
                 <tr>
                     <th>{gt text="Id"}</th>
                     <th>{gt text="Nom"}</th>
+                    <th>{gt text="URL"}</th>
                     <th>{gt text="Descripció"}</th>
                     <th>{gt text="Versió"}</th>
+                    <th>{gt text="Té base de dades"}</th>
                     <th>{gt text="Prefix de la base de dades"}</th>
-                    <th>{gt text="Clients permesos*"}</th>
+                    <th>{gt text="Clients permesos *"}</th>
                     <th>{gt text="Directori base"}</th>
                     <th>{gt text="Espai disc"}</th>
                     <th>{gt text="Opcions"}</th>
@@ -27,10 +29,16 @@
                         {$service.serviceName}
                     </td>
                     <td align="left" valign="top">
+                        {$service.URL}
+                    </td>
+                    <td align="left" valign="top">
                         {$service.description}
                     </td>
                     <td>
                         {$service.version}
+                    </td>
+                    <td>
+                        {$service.hasDB}
                     </td>
                     <td>
                         {$service.tablesPrefix}

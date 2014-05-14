@@ -5,9 +5,9 @@ GENERAL
 - Modified general config.php, env-config.php, dblib-mysql.php and .htaccess to support new service Nodes
 
 PORTAL
+- Added fields URL and hasDB to service definition table
 
 WORDPRESS
 - Added WordPress 3.9.1
 - Modified wp-config.php and added site-config.php to WordPress
-
 

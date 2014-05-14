@@ -2,17 +2,6 @@
 
 class Agoraportal_Controller_User extends Zikula_AbstractController {
 
-// define possible user states
-    /*
-      define('_USERASKACCESS', -2);
-      define('_USERCONFIRMMAIL', -1);
-      define('_USERDELETED', 0);
-      define('_USERACCESSTOLADAPEXTERNALY', 1);
-      define('_USERACCESSINTRANET', 2);
-      define('_USERACCESSMOODLE', 4);
-     * 
-     */
-
     public function postInitialize() {
         $this->view->setCaching(false);
     }

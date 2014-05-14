@@ -232,15 +232,21 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $serviceName = FormUtil::getPassedValue('serviceName', -1, 'GET');
         if ($serviceName == -1)
             AjaxUtil::error('no service name');
+        $URL = FormUtil::getPassedValue('URL', -1, 'GET');
         $description = FormUtil::getPassedValue('description', -1, 'GET');
         $version = FormUtil::getPassedValue('version', -1, 'GET');
         if ($version == -1)
             AjaxUtil::error('no service version');
+        $hasDB = FormUtil::getPassedValue('hasDB', -1, 'GET');
+        if ($hasDB == -1)
+            AjaxUtil::error('no service version');
         $allowedClients = FormUtil::getPassedValue('allowedClients', -1, 'GET');
         $defaultDiskSpace = FormUtil::getPassedValue('defaultDiskSpace', -1, 'GET');
         $service = array('serviceName' => $serviceName,
+            'URL' => $URL,
             'description' => $description,
             'version' => $version,
+            'hasDB' => $hasDB,
             'allowedClients' => $allowedClients,
             'defaultDiskSpace' => $defaultDiskSpace);
         // update information in database

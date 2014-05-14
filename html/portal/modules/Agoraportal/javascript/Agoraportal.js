@@ -484,128 +484,7 @@ function sendConfig() {
 function sendUpdateRequest() {
     document.forms.editRequestForm.submit();
 }
-/*
-function createUser() {
-    var error = false;
-    var f = document.forms.createUser;
-    if(f.uname.value==""){
-        alert(_AGORAPORTALNOTUSERNAME)
-        error = true;
-    }
-    if(f.password.value=="" && !error) {
-        alert(_AGORAPORTALNOTUSERPASSWORD)
-        error = true;
-    }
-    if(f.mail.value=="" && !error) {
-        alert(_AGORAPORTALNOTUSERMAIL)
-        error = true;
-    }
-    if (echeck(f.mail.value)==false && !error) {
-        alert(_AGORAPORTALNOVALIDEMAIL)
-        error = true;
-    }
-    if(!error){
-        f.submit();
-    }
-}
 
-function editUserRow(userRow, uname, clientCode) {
-    var pars = "module=Agoraportal&func=editUserRow&userRow=" + userRow + "&uname=" + uname + "&clientCode=" + clientCode;
-    var myAjax = new Ajax.Request("ajax.php", 
-    {
-        method: 'get', 
-        parameters: pars, 
-        onComplete: editUserRow_response,
-        onFailure: editUserRow_failure
-    });
-}
-
-
-function editUserRow_response(req) {
-    if (req.status != 200 ) { 
-        pnshowajaxerror(req.responseText);
-        return;
-    }
-    var json = pndejsonize(req.responseText);
-    Element.update('userRow' + json.userRow, json.content);
-}
-
-function editUserRow_failure() {
-}
-
-function updateUserRow(userRow, uname, clientCode) {
-    var f = document.forms.importCreateUsers;
-    var pars = "module=Agoraportal&func=updateUserRow&userRow=" + userRow + "&uname=" + uname + "&clientCode=" + clientCode + "&password=" + eval('f.password_' + uname + '.value') + "&name=" + eval('f.name_' + uname + '.value') + "&surname=" + eval('f.surname_' + uname + '.value') + "&surname2=" + eval('f.surname2_' + uname + '.value') + "&mail=" + eval('f.mail_' + uname + '.value');
-    var myAjax = new Ajax.Request("ajax.php", 
-    {
-        method: 'get', 
-        parameters: pars, 
-        onComplete: updateUserRow_response,
-        onFailure: updateUserRow_failure
-    });
-}
-
-function updateUserRow_response(req) {
-    if (req.status != 200 ) { 
-        pnshowajaxerror(req.responseText);
-        return;
-    }
-    var json = pndejsonize(req.responseText);
-    Element.update('userRow' + json.userRow, json.content);
-}
-
-function updateUserRow_failure() {
-}
-
-function usersList(letter, clientCode,init) {
-    var pars = "module=Agoraportal&func=usersList&letter=" + letter + "&clientCode=" + clientCode + "&init=" + init;
-    var myAjax = new Ajax.Request("ajax.php", 
-    {
-        method: 'get', 
-        parameters: pars, 
-        onComplete: usersList_response,
-        onFailure: usersList_failure
-    });
-}
-
-function usersList_response(req) {
-    if (req.status != 200 ) { 
-        pnshowajaxerror(req.responseText);
-        return;
-    }
-    var json = pndejsonize(req.responseText);
-    Element.update('usersListContent', json.content).innerHTML;
-}
-
-function usersList_failure() {
-}
-
-function deleteUser(uid, clientCode) {
-    var response = confirm(confirmUserDeletion);
-    if(response){
-        var pars = "module=Agoraportal&func=deleteUser&uid=" + uid + "&clientCode=" + clientCode;
-        var myAjax = new Ajax.Request("ajax.php", 
-        {
-            method: 'get', 
-            parameters: pars, 
-            onComplete: deleteUser_response,
-            onFailure: deleteUser_failure
-        });
-    }
-}
-
-function deleteUser_response(req) {
-    if (req.status != 200 ) { 
-        pnshowajaxerror(req.responseText);
-        return;
-    }
-    var json = pndejsonize(req.responseText);
-    $('user_' + json.uid).toggle();
-}
-
-function deleteUser_failure() {
-}
-*/
 function editService(serviceId) {
     var pars = "module=Agoraportal&func=editService&serviceId=" + serviceId;
     var myAjax = new Ajax.Request("ajax.php", 
@@ -631,7 +510,7 @@ function editService_failure() {
 
 function updateService(serviceId) {
     var f = document.forms.servicesList;
-    var pars = "module=Agoraportal&func=updateService&serviceId=" + serviceId + "&serviceName=" + eval('f.serviceName_' + serviceId + '.value') + "&description=" + eval('f.description_' + serviceId + '.value') + "&version=" + eval('f.version_' + serviceId + '.value') + "&allowedClients=" + eval('f.allowedClients_' + serviceId + '.value') + "&defaultDiskSpace=" + eval('f.defaultDiskSpace_' + serviceId + '.value');
+    var pars = "module=Agoraportal&func=updateService&serviceId=" + serviceId + "&serviceName=" + eval('f.serviceName_' + serviceId + '.value') + "&URL=" + eval('f.URL_' + serviceId + '.value') + "&description=" + eval('f.description_' + serviceId + '.value') + "&version=" + eval('f.version_' + serviceId + '.value') + "&hasDB=" + eval('f.hasDB_' + serviceId + '.value') + "&allowedClients=" + eval('f.allowedClients_' + serviceId + '.value') + "&defaultDiskSpace=" + eval('f.defaultDiskSpace_' + serviceId + '.value');
     var myAjax = new Ajax.Request("ajax.php", 
     {
         method: 'get', 
