@@ -62,7 +62,9 @@ function Agoraportal_tables() {
     $table['agoraportal_services'] = DBUtil::getLimitedTablename('agoraportal_services');
     $table['agoraportal_services_column'] = array('serviceId' => 'serviceId',
         'serviceName' => 'serviceName',
+        'URL' => 'URL',
         'description' => 'description',
+        'hasDB' => 'hasDB',
         'version' => 'version',
         'defaultDiskSpace' => 'defaultDiskSpace',
         'allowedClients' => 'allowedClients',
@@ -70,7 +72,9 @@ function Agoraportal_tables() {
 
     $table['agoraportal_services_column_def'] = array('serviceId' => "I NOTNULL AUTO PRIMARY",
         'serviceName' => "C(150) NOTNULL DEFAULT ''",
+        'URL' => "C(50) NOTNULL DEFAULT ''",
         'description' => "C(255) NOTNULL DEFAULT ''",
+        'hasDB' => 'I(1) NOTNULL DEFAULT 0',
         'version' => "C(15) NOTNULL DEFAULT ''",
         'defaultDiskSpace' => "I(6) NOTNULL DEFAULT 0",
         'allowedClients' => "X NOTNULL",
