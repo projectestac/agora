@@ -183,9 +183,27 @@ h2#menuuserfiles a {
     font-weight: bold;
 }
 
+.askServiceFieldset {
+    width:250px; 
+    float:left; 
+    padding:10px; 
+    border: 1px solid #9BB8D9; 
+    background-color:#E6E6FF; 
+    color:#27427D;    
+}
+
+.askServiceLegend {
+    padding:3px;
+    font-size: 1.1em;
+}
+
+.askServiceDescription {
+    margin: 10px;
+}
+
 
 /*******************************************************************************/
-/* style for logs table
+/* styles for logs table
 /*******************************************************************************/
 
 table.logtable {

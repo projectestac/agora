@@ -5,7 +5,8 @@ GENERAL
 - Modified general config.php, env-config.php, dblib-mysql.php and .htaccess to support new service Nodes
 
 PORTAL
-- Added fields URL and hasDB to service definition table
+- Agoraportal: Added fields URL and hasDB to service definition table
+- Agoraportal: Added support to apply for new service Nodes
 
 WORDPRESS
 - Added WordPress 3.9.1

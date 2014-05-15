@@ -3,7 +3,7 @@
     <div class="z-pageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <h2>{gt text="Serveis disponibles que no han estat sol·licitats"}</h2>	
     {if $isAdmin}
-    {include file="agoraportal_admin_clientInfo.tpl"}
+        {include file="agoraportal_admin_clientInfo.tpl"}
     {/if}
     <div class="serviceInfo">
         {if $notsolicitedServices|@count gt 0}
@@ -12,20 +12,20 @@
                 <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
                 <input type="hidden" name="clientCode" value="{$clientCode}" />
                 <div class="serviceImgx">
-                    <div class="z-informationmsg" style="clear:both;">
-                        {gt text="Els serveis que encara no heu sol·licitat són els següents:"}
-                        <ul>
-                            {foreach item=service from=$notsolicitedServices}
-                            <li><b>{$service.serviceName}</b>. {$service.description}</li>
-                            {/foreach}                        
-                        </ul>
-                        {gt text="Marqueu només els serveis que vulgueu sol·licitar i llegiu atentament les condicions d'ús abans d'acceptar-les."}
-                    </div>
                     {foreach item=service from=$notsolicitedServices}
-                    <div class="serviceCheckbox">
-                        <input type="checkbox" id="{$service.serviceName}" name="serviceId[]" value="{$service.serviceId}" onClick="javascript:askServiceCheckActive('{$service.serviceName}');" />
-                               <img src="modules/Agoraportal/images/{$service.serviceName}.gif" alt="{$service.serviceName}" title="{$service.serviceName}" align="middle" />
-                    </div>
+                        <fieldset class="askServiceFieldset">
+                            <legend class="askServiceLegend"><strong>{$service.serviceName|capitalize}</strong></legend>
+                            <div class="askServiceDescription">
+                                <input type="checkbox" id="{$service.serviceName}" name="serviceId[]" value="{$service.serviceId}" onClick="javascript:askServiceCheckActive('{$service.serviceName}');" />
+                                <img src="modules/Agoraportal/images/{$service.serviceName}.gif" alt="{$service.serviceName}" title="{$service.serviceName}" align="middle" />
+                            </div>
+                            <div id="askServiceEduLevel{$service.serviceName}" style="margin:10px 10px 10px 30px; display: none;">
+                                <input type="radio" id="{$service.serviceName}_primaria" name="{$service.serviceName}" value="0" />&nbsp;{gt text="Maqueta per primària"}
+                                <br />
+                                <input type="radio" id="{$service.serviceName}_secundaria" name="{$service.serviceName}" value="1" />&nbsp;{gt text="Maqueta per secundària"}
+                            </div>
+                                <div class="askServiceDescription">{$service.description}</div>
+                        </fieldset>
                     {/foreach}
                 </div>
                 <br/><br/><br/>

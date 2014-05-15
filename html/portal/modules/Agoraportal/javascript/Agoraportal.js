@@ -1030,6 +1030,13 @@ function askServiceCheckActive(serviceName) {
             document.getElementById('marsupial').checked = false;
         }
     }
+    if (serviceName == 'nodes') {
+        if (document.getElementById('askServiceEduLevelnodes').style.display == 'none') {
+            document.getElementById('askServiceEduLevelnodes').style.display = 'block';
+        } else {
+            document.getElementById('askServiceEduLevelnodes').style.display = 'none';
+        }
+    }
 }
 
 

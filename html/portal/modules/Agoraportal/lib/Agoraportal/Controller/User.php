@@ -202,6 +202,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      */
     public function updateAskService($args) {
         $serviceId = FormUtil::getPassedValue('serviceId', isset($args['serviceId']) ? $args['serviceId'] : null, 'POST');
+        $nodes = FormUtil::getPassedValue('nodes', isset($args['nodes']) ? $args['nodes'] : null, 'POST');
         $contactProfile = FormUtil::getPassedValue('contactProfile', isset($args['contactProfile']) ? $args['contactProfile'] : null, 'POST');
         $acceptUseTerms = FormUtil::getPassedValue('acceptUseTerms', isset($args['acceptUseTerms']) ? $args['acceptUseTerms'] : null, 'POST');
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
@@ -209,6 +210,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
             throw new Zikula_Exception_Forbidden();
         }
+//        var_dump($serviceId); var_dump($nodes); die('dd');
         // Confirm authorisation code
         $this->checkCsrfToken();
         $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
@@ -220,6 +222,12 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                                 'contactProfile' => $contactProfile,
                                 'acceptUseTerms' => $acceptUseTerms)));
         }
+/*        if (is_null($nodes)) {
+            LogUtil::registerError($this->__('No has indicat indicat quina maqueta vols per al servei Nodes'));
+            return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
+                                'contactProfile' => $contactProfile,
+                                'acceptUseTerms' => $acceptUseTerms)));
+        }*/
         if ($contactProfile == '') {
             LogUtil::registerError($this->__('No has especificat quin és el teu càrrec en el centre.'));
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
