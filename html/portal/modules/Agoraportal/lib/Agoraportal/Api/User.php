@@ -574,7 +574,9 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     'clientId' => $clientId,
                     'state' => 0,
                     'activedId' => 0,
-                    'timeRequested' => time());
+                    'timeRequested' => time(),
+                    'observations' => $args['observations']);
+                
                 if (!DBUtil::insertObject($item, 'agoraportal_client_services', 'clientServiceId')) {
                     return LogUtil::registerError($this->__('L\'intent de creació ha fallat'));
                 }

@@ -197,7 +197,10 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
     /**
      * Update client information for service ask
+     * 
      * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
+     * @author: Toni Ginard
+     * 
      * @return:	Redirect user to the ask services information
      */
     public function updateAskService($args) {
@@ -206,44 +209,65 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $contactProfile = FormUtil::getPassedValue('contactProfile', isset($args['contactProfile']) ? $args['contactProfile'] : null, 'POST');
         $acceptUseTerms = FormUtil::getPassedValue('acceptUseTerms', isset($args['acceptUseTerms']) ? $args['acceptUseTerms'] : null, 'POST');
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
+
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
             throw new Zikula_Exception_Forbidden();
         }
-//        var_dump($serviceId); var_dump($nodes); die('dd');
+
         // Confirm authorisation code
         $this->checkCsrfToken();
+        
         $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
-        // check if all the needed values has arrived
+
+        // Check all the required values
         if ($serviceId == null) {
-            LogUtil::registerError($this->__('No has marcat cap servei'));
+            LogUtil::registerError($this->__('No heu marcat cap servei'));
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
                                 'contactProfile' => $contactProfile,
                                 'acceptUseTerms' => $acceptUseTerms)));
         }
-/*        if (is_null($nodes)) {
-            LogUtil::registerError($this->__('No has indicat indicat quina maqueta vols per al servei Nodes'));
-            return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
-                                'contactProfile' => $contactProfile,
-                                'acceptUseTerms' => $acceptUseTerms)));
-        }*/
+        
+        // Get service name
+        $service = ModUtil::apiFunc('Agoraportal', 'user', 'getService', array('serviceId' => $serviceId));
+        $serviceName = $service['serviceName'];
+
+        // If service is 'nodes' ensure that the model of service is selected
+        if (is_null($nodes)) {
+            if ($serviceName == 'nodes') {
+                LogUtil::registerError($this->__('No heu indicat indicat quina maqueta voleu per al servei Nodes'));
+                return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
+                                    'contactProfile' => $contactProfile,
+                                    'acceptUseTerms' => $acceptUseTerms)));
+            } else {
+                $nodes = '';
+            }
+        } elseif ($nodes == 0) {
+            $nodes = 'Maqueta primària';
+        } elseif ($nodes == 1) {
+            $nodes = 'Maqueta secundària';
+        }
+
         if ($contactProfile == '') {
-            LogUtil::registerError($this->__('No has especificat quin és el teu càrrec en el centre.'));
+            LogUtil::registerError($this->__('No heu indicat el vostre càrrec en el centre'));
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
                                 'contactProfile' => $contactProfile,
                                 'acceptUseTerms' => $acceptUseTerms)));
         }
+        
         if ($acceptUseTerms == null && !SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            LogUtil::registerError($this->__('No has acceptat les condicions d\'ús'));
+            LogUtil::registerError($this->__('No heu acceptat les condicions d\'ús'));
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
                                 'contactProfile' => $contactProfile,
                                 'acceptUseTerms' => $acceptUseTerms)));
         }
-        // create new service
+        
+        // Create the new service
         if (!ModUtil::apiFunc('Agoraportal', 'user', 'updateAskService', array('clientCode' => $clientCode,
                     'serviceId' => $serviceId,
-                    'contactProfile' => $contactProfile))) {
+                    'contactProfile' => $contactProfile,
+                    'observations' => $nodes))) {
             LogUtil::registerError($this->__('S\'ha produït un error en la creació del servei.'));
             if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
                 return System::redirect(ModUtil::url('Agoraportal', 'user', 'main', array('clientCode' => $clientCode)));
@@ -251,15 +275,14 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'main'));
         } else {
             LogUtil::registerStatus($this->__('La sol·licitud s\'ha rebut correctament. Quan sigui acceptada o denegada rebreu un missatge de correu electrònic a la vostra bústia de correu XTEC. S\'enviarà una còpia d\'aquest missatge a la bústia del centre.'));
-            // insert the action in logs table
-            // get servide Name
-            $service = ModUtil::apiFunc('Agoraportal', 'user', 'getService', array('serviceId' => $serviceId[0]));
             ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 1,
-                'action' => $this->__f('S\'ha fet la sol·licitud del servei %s', $service['serviceName'])));
+                'action' => $this->__f('S\'ha fet la sol·licitud del servei %s', $serviceName)));
         }
+        
         if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'myAgora', array('clientCode' => $clientCode)));
         }
+        
         return System::redirect(ModUtil::url('Agoraportal', 'user', 'myAgora'));
     }
 

@@ -184,12 +184,15 @@ h2#menuuserfiles a {
 }
 
 .askServiceFieldset {
-    width:250px; 
-    float:left; 
-    padding:10px; 
-    border: 1px solid #9BB8D9; 
-    background-color:#E6E6FF; 
-    color:#27427D;    
+    width: 220px;
+    height: 250px;
+    float: left;
+    margin: 5px;
+    margin-bottom: 15px;
+    padding: 10px; 
+    border: 1px solid #9BB8D9;
+    background-color: #E6E6FF;
+    color: #27427D;
 }
 
 .askServiceLegend {

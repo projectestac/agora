@@ -371,6 +371,18 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     }
 
     /**
+     * Activate nodes service
+     * 
+     * @author Toni Ginard
+     * 
+     * @return 	array with dummy value
+     */
+    public function activeService_nodes($args) {
+        // TODO: Add the code to calculate the DB
+        return array('db' => 1, 'password' => '');
+    }
+
+    /**
      * Activate marsupial service.
      * 
      * @author Albert Pérez Monfort (aperezm@xtec.cat)
