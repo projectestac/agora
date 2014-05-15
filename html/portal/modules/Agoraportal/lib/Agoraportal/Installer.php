@@ -176,9 +176,6 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
             case '2.0.8':
                 DBUtil::dropTable('agoraportal_client_settings');
                 DBUtil::dropTable('agoraportal_ldap_asynchronous');
-                if (!$this->isNodesCreated()) {
-                    $this->AddNodesService();
-                }
                 $sql = "ALTER TABLE agoraportal_services DROP currentVersion;";
                 DBUtil::executeSQL($sql);
                 $sql = "ALTER TABLE agoraportal_services DROP usersNameField;";
@@ -187,6 +184,9 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 DBUtil::executeSQL($sql);
                 $sql = "ALTER TABLE agoraportal_services ADD hasDB TINYINT NOT NULL DEFAULT '1' AFTER description;";
                 DBUtil::executeSQL($sql);
+                if (!$this->isNodesCreated()) {
+                    $this->AddNodesService();
+                }
 
                 /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
                  * afegir una comprovació amb DBUtil::metaIndexes per saber
