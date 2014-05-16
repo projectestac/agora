@@ -52,7 +52,7 @@ define('NONCE_SALT',       'N+=]R(*9^T2<ja;$x61F}tq6XDNO%v[iL.?3#;h9Y@lJ2-X%72>-
  * You can have multiple installations in one database if you give each a unique
  * prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix  = $agora['wordpress']['prefix'] . '_';
+$table_prefix  = $agora['nodes']['prefix'] . '_';
 
 /**
  * WordPress Localized Language, defaults to English.
