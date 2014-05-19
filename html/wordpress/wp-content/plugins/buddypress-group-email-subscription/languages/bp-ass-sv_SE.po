@@ -1,0 +1,587 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BuddyPress Group Email Subscription\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-26 13:10-0800\n"
+"PO-Revision-Date: 2010-12-20 14:38+0100\n"
+"Last-Translator: Thomas Schneider <t.schneider@tele2.se>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: /Volumes/Macintosh HD/Users/deryk/Sites/bp/wp-content/plugins/buddypress-group-email-subscription/\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: bp-activity-subscription-digest.php:49
+msgid "Your daily digest of group activity"
+msgstr "Dygnsrapport över aktiviteter"
+
+#: bp-activity-subscription-digest.php:51
+msgid "Your weekly summary of group topics"
+msgstr "Veckorapport över aktiviteter"
+
+#: bp-activity-subscription-digest.php:57
+#, php-format
+msgid "You have received this message because you are subscribed to receive a digest of activity in some of your groups on %s."
+msgstr "Du får denna rapport eftersom du bevakar aktiviteterna i dina grupper på %s."
+
+#: bp-activity-subscription-digest.php:92
+msgid "at"
+msgstr "från"
+
+#: bp-activity-subscription-digest.php:99
+#, php-format
+msgid "(%s items)"
+msgstr "(%s aktiviteter)"
+
+#: bp-activity-subscription-digest.php:110
+msgid "Group Summary"
+msgstr "Sammanfattning av aktiviteter per grupp"
+
+#: bp-activity-subscription-digest.php:115
+msgid "How to follow a topic: to get email updates for a specific topic, click the topic title - then on the webpage click the <i>Follow this topic</i> button. (If you don't see the button you need to login first.)"
+msgstr "Så här bevakar du nya trådar: För att få aktivitetsmeddelanden om en enskild forumstråd, klicka på tråden och sedan på knappen <i>Bevaka denna tråd</i>. Om du inte ser knappen, måste du logga in först. "
+
+#: bp-activity-subscription-digest.php:119
+#, php-format
+msgid "To disable these notifications please login and go to: %s where you can change your email settings for each group."
+msgstr "För att ändra dina inställningar gå till: %s "
+
+#: bp-activity-subscription-digest.php:119
+#: bp-activity-subscription-functions.php:953
+msgid "My Groups"
+msgstr "Mina grupper"
+
+#: bp-activity-subscription-digest.php:165
+msgid "DAILY DIGEST:"
+msgstr "Dygnsrapport:"
+
+#: bp-activity-subscription-digest.php:167
+msgid "WEEKLY DIGEST:"
+msgstr "Veckorapport:"
+
+#: bp-activity-subscription-digest.php:188
+#, php-format
+msgid "Group: %s"
+msgstr "Grupp: %s"
+
+#: bp-activity-subscription-digest.php:190
+#, php-format
+msgid "Group: %s weekly summary"
+msgstr "Grupp: %s veckorapprt"
+
+#: bp-activity-subscription-digest.php:194
+msgid "change "
+msgstr "Ändra "
+
+#: bp-activity-subscription-digest.php:194
+msgid "email options"
+msgstr "inställningarna"
+
+#: bp-activity-subscription-digest.php:194
+msgid "for this group"
+msgstr "för denna grupp"
+
+#: bp-activity-subscription-digest.php:255
+#: bp-activity-subscription-digest.php:285
+#, php-format
+msgid "at %s, %s"
+msgstr "%s, %s"
+
+#: bp-activity-subscription-digest.php:263
+msgid "View"
+msgstr "Visa"
+
+#: bp-activity-subscription-digest.php:281
+#, php-format
+msgid "(%s replies)"
+msgstr "(%s svar)"
+
+#: bp-activity-subscription-digest.php:383
+msgid "Once Weekly"
+msgstr "En gång per vecka "
+
+#: bp-activity-subscription-functions.php:43
+#: bp-activity-subscription-functions.php:118
+#, php-format
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"To view or reply to this topic, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"För att läsa och svara på denna tråd, logga in och gå till:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:55
+#: bp-activity-subscription-functions.php:130
+#: bp-activity-subscription-functions.php:238
+#, php-format
+msgid "To disable these notifications please log in and go to: %s"
+msgstr "För att avaktivera dessa aktivitetsmeddelanden, logga in och gå till: %s"
+
+#: bp-activity-subscription-functions.php:71
+#: bp-activity-subscription-functions.php:177
+#: bp-activity-subscription-functions.php:262
+msgid "Your email setting for this group is: "
+msgstr "Dina bevakningsinställningar för denna grupp är:"
+
+#: bp-activity-subscription-functions.php:74
+msgid ", therefore you won't receive replies to this topic. To get them, click the link to view this topic on the web then click the 'Follow this topic' button."
+msgstr ", därför får du inga aktivitetsmeddelanden från denna tråd. För att få dessa, klicka på länken till tråden och sedan på knappen <i>Bevaka denna tråd</i>."
+
+#: bp-activity-subscription-functions.php:226
+#, php-format
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"To view or reply, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"För att läsa och svara, logga in och gå till:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:358
+msgid "Email Subscription Options"
+msgstr "Bevakningsinställningar"
+
+#: bp-activity-subscription-functions.php:363
+msgid "How do you want to read this group?"
+msgstr "Hur vill du bevaka aktiviteterna i denna grupp?"
+
+#: bp-activity-subscription-functions.php:366
+#: bp-activity-subscription-functions.php:431
+#: bp-activity-subscription-functions.php:486
+#: bp-activity-subscription-functions.php:867
+msgid "No Email"
+msgstr "Inga meddelanden"
+
+#: bp-activity-subscription-functions.php:367
+#: bp-activity-subscription-functions.php:486
+msgid "I will read this group on the web"
+msgstr "Jag bevakar denna grupp själv"
+
+#: bp-activity-subscription-functions.php:371
+msgid "Weekly Summary Email"
+msgstr "Veckorapport"
+
+#: bp-activity-subscription-functions.php:372
+msgid "Get a summary of new topics each week"
+msgstr "En sammanfattning skickas en gång per vecka"
+
+#: bp-activity-subscription-functions.php:376
+msgid "Daily Digest Email"
+msgstr "Dygnsrapport"
+
+#: bp-activity-subscription-functions.php:377
+msgid "Get all the day's activity bundled into a single email"
+msgstr "En sammanfattning skickas varje dygn"
+
+#: bp-activity-subscription-functions.php:381
+msgid "New Topics Email"
+msgstr "Nya trådar"
+
+#: bp-activity-subscription-functions.php:382
+msgid "Send new topics as they arrive (but don't send replies)"
+msgstr "Info om nya trådar skickas direkt"
+
+#: bp-activity-subscription-functions.php:386
+#: bp-activity-subscription-functions.php:439
+#: bp-activity-subscription-functions.php:490
+#: bp-activity-subscription-functions.php:871
+msgid "All Email"
+msgstr "Direktbevakning"
+
+#: bp-activity-subscription-functions.php:387
+#: bp-activity-subscription-functions.php:490
+msgid "Send all group activity as it arrives"
+msgstr "Info om alla aktiviteter skickas direkt"
+
+#: bp-activity-subscription-functions.php:390
+#: bp-activity-subscription-functions.php:1185
+msgid "Save Settings"
+msgstr "Spara inställningarna"
+
+#: bp-activity-subscription-functions.php:392
+msgid "Note: Normally, you receive email notifications for topics you start or comment on. This can be changed at"
+msgstr "OBS! Vanligtvis får du E-postnotifieringar för forumstrådar som du själv har startat eller kommenterat. Dessa inställningar kan du ändra här:  "
+
+#: bp-activity-subscription-functions.php:392
+msgid "email notifications"
+msgstr "E-postnotifieringar"
+
+#: bp-activity-subscription-functions.php:419
+msgid "Your email notifications are set to "
+msgstr "Dina bevakningsinställningar är"
+
+#: bp-activity-subscription-functions.php:433
+#: bp-activity-subscription-functions.php:487
+msgid "Weekly Summary"
+msgstr "Veckorapport"
+
+#: bp-activity-subscription-functions.php:435
+#: bp-activity-subscription-functions.php:488
+msgid "Daily Digest"
+msgstr "Dygnsrapport"
+
+#: bp-activity-subscription-functions.php:437
+#: bp-activity-subscription-functions.php:489
+#: bp-activity-subscription-functions.php:870
+msgid "New Topics"
+msgstr "Ny forumstråd"
+
+#: bp-activity-subscription-functions.php:464
+msgid "Your email status is "
+msgstr "Bevakningsstatus: "
+
+#: bp-activity-subscription-functions.php:465
+msgid "change"
+msgstr "Ändra"
+
+#: bp-activity-subscription-functions.php:471
+msgid "Get email updates"
+msgstr "Aktivera bevakning"
+
+#: bp-activity-subscription-functions.php:482
+msgid "Change your email subscription options for this group"
+msgstr "Ändra dina bevakningsinställningar för denna grupp"
+
+#: bp-activity-subscription-functions.php:487
+msgid "Get a summary of topics each"
+msgstr "En sammanfattning skickas varje  "
+
+#: bp-activity-subscription-functions.php:488
+msgid "Get the day's activity bundled into one email"
+msgstr "En sammanfattning skickas varje dygn"
+
+#: bp-activity-subscription-functions.php:489
+msgid "Send new topics as they arrive (but no replies)"
+msgstr "Info om nya trådar skickas direkt"
+
+#: bp-activity-subscription-functions.php:491
+msgid "close"
+msgstr "Stäng"
+
+#: bp-activity-subscription-functions.php:564
+msgid "You successfully joined the group. Your group email status is: "
+msgstr "Du har blivit medlem i denna grupp. Din bevakningsstatus är: "
+
+#: bp-activity-subscription-functions.php:575
+msgid "Email Subscription Defaults"
+msgstr "Email Subscription - standardinställningar"
+
+#: bp-activity-subscription-functions.php:576
+msgid "When new users join this group, their default email notification settings will be:"
+msgstr "Standardinställningen för bevakningen av denna grupp för nya medlemmar:"
+
+#: bp-activity-subscription-functions.php:579
+msgid "No Email (users will read this group on the web - good for any group - the default)"
+msgstr "Inga meddelanden (Användare bevakar denna grupp själv - bra för alla grupper - standardinställningen)"
+
+#: bp-activity-subscription-functions.php:581
+msgid "Weekly Summary Email (the week's topics - good for large groups)"
+msgstr "Veckorapport (En sammanfattning av veckans aktiviteter - bra för stora grupper)"
+
+#: bp-activity-subscription-functions.php:583
+msgid "Daily Digest Email (all daily activity bundles in one email - good for medium-size groups)"
+msgstr "Dygnsrapport (En sammanfattning skickas varje dygn - bra för medelstora grupper)"
+
+#: bp-activity-subscription-functions.php:585
+msgid "New Topics Email (new topics are sent as they arrive, but not replies - good for small groups)"
+msgstr "Nya forumstrådar (Info om nya trådar skickas direkt - bra för små grupper)"
+
+#: bp-activity-subscription-functions.php:587
+msgid "All Email (send emails about everything - recommended only for working groups)"
+msgstr "Direktbevakning (Info om alla aktiviteter skickas direkt - rekommenderas bara för små arbetsgrupper)"
+
+#: bp-activity-subscription-functions.php:671
+msgid "Follow"
+msgstr "Bevaka"
+
+#: bp-activity-subscription-functions.php:672
+msgid "You are not following this topic. Click to follow it and get email updates for new posts"
+msgstr "Du bevakar inte denna tråd. Klicka här för att få aktivitetsmeddelanden per epost."
+
+#: bp-activity-subscription-functions.php:675
+msgid "Mute"
+msgstr "Avsluta bevakning"
+
+#: bp-activity-subscription-functions.php:676
+msgid "You are following this topic. Click to stop getting email updates"
+msgstr "Du bevakar denna tråd. Klicka här för att få aktivitetsmeddelanden per epost."
+
+#: bp-activity-subscription-functions.php:682
+msgid "This conversation is muted. Click to follow it"
+msgstr "Du bevakar inte denna tråd. Klicka här för att starta bevakningen"
+
+#: bp-activity-subscription-functions.php:686
+msgid "this topic"
+msgstr "denna tråd"
+
+#: bp-activity-subscription-functions.php:704
+msgid "Email"
+msgstr "Epost"
+
+#: bp-activity-subscription-functions.php:845
+#: bp-activity-subscription-functions.php:865
+msgid "Email status:"
+msgstr "Bevakningsstatus:"
+
+#: bp-activity-subscription-functions.php:866
+msgid "Change to:"
+msgstr "Ändra till:"
+
+#: bp-activity-subscription-functions.php:868
+msgid "Weekly"
+msgstr "Veckorapport"
+
+#: bp-activity-subscription-functions.php:869
+msgid "Daily"
+msgstr "Dygnsrapport"
+
+#: bp-activity-subscription-functions.php:894
+msgid "User email status changed successfully"
+msgstr "Användarens bevaknigsstatus har ändrats"
+
+#: bp-activity-subscription-functions.php:915
+msgid "Site Admin Only: update email subscription settings for ALL members to the default:"
+msgstr "Bara för administratörer: Återställ bevakningstatus för ALLA medlemmar till standardinställningen:"
+
+#: bp-activity-subscription-functions.php:915
+msgid "Warning: this is not reversible so use with caution."
+msgstr "OBS! Detta går inte att ångra, så använd detta med försiktighet!"
+
+#: bp-activity-subscription-functions.php:915
+msgid "Make it so!"
+msgstr "Gör det!"
+
+#: bp-activity-subscription-functions.php:942
+msgid "All user email status's changed successfully"
+msgstr "Alla användares bevaknigsstatus har uppdaterats"
+
+#: bp-activity-subscription-functions.php:952
+msgid "Group Email Settings"
+msgstr "Bevakningsinställningar"
+
+#: bp-activity-subscription-functions.php:953
+#, php-format
+msgid "To change the email notification settings for your groups go to %s and click change for each group."
+msgstr "För att ändra bevakningsinställningarna för dina grupper gå till %s och klicka på respektive grupp."
+
+#: bp-activity-subscription-functions.php:976
+msgid "Send an email notice to everyone in the group"
+msgstr "Skicka ett epostmeddelande till alla i gruppen"
+
+#: bp-activity-subscription-functions.php:977
+msgid "You can use the form below to send an email notice to all group members."
+msgstr "Du kan använda formuläret nedan för att skicka ett epostmeddelande till alla i gruppen."
+
+#: bp-activity-subscription-functions.php:978
+msgid "Everyone in the group will receive the email -- regardless of their email settings -- so use with caution"
+msgstr "Alla i gruppen kommer att få ett epostmeddelande oberoende av deras bevaknigsstatus, så använd denna funktion med försiktighet"
+
+#: bp-activity-subscription-functions.php:982
+msgid "Email Subject:"
+msgstr "Ämne:"
+
+#: bp-activity-subscription-functions.php:984
+msgid "Email Content:"
+msgstr "Meddelande:"
+
+#: bp-activity-subscription-functions.php:986
+msgid "Email this notice to everyone in the group"
+msgstr "Skicka detta meddelande till alla i gruppen"
+
+#: bp-activity-subscription-functions.php:1013
+msgid " - sent from the group "
+msgstr " - skickat från gruppen"
+
+#: bp-activity-subscription-functions.php:1015
+#, php-format
+msgid ""
+"This is a notice from the group '%s':\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"\n"
+"To view this group log in and follow the link below:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"Detta är ett meddelande från gruppen '%s':\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"\n"
+"För att visa denna grupp, logga in och gå till:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:1026
+msgid ""
+"Please note: admin notices are sent to everyone in the group and cannot be disabled. \n"
+"If you feel this service is being misused please speak to the website administrator."
+msgstr ""
+"OBS! Administratörsmeddelanden skickas till alla i gruppen. Detta kan inte avaktiveras. \n"
+"Om du tycker att denna funktion missbruks, kontakta webbplatsens administratör."
+
+#: bp-activity-subscription-functions.php:1038
+msgid "The email notice was sent successfully."
+msgstr "Meddelandet har skickats."
+
+#: bp-activity-subscription-functions.php:1057
+msgid "Group Forum"
+msgstr "Gruppforum"
+
+#: bp-activity-subscription-functions.php:1058
+msgid "Yes"
+msgstr "Ja"
+
+#: bp-activity-subscription-functions.php:1059
+msgid "No"
+msgstr "Nej"
+
+#: bp-activity-subscription-functions.php:1065
+msgid "A member replies in a forum topic you've started"
+msgstr "En medlem svarar på en forumstråd som du har startat."
+
+#: bp-activity-subscription-functions.php:1071
+msgid "A member replies after you in a forum topic"
+msgstr "En medlem svarar efter dig på en forumstråd."
+
+#: bp-activity-subscription-functions.php:1096
+msgid "Group Email Options"
+msgstr "Group Email-inställningar"
+
+#: bp-activity-subscription-functions.php:1118
+msgid "Group Email Subscription Settings"
+msgstr "Group Email Subscription Inställningar"
+
+#: bp-activity-subscription-functions.php:1123
+msgid "Digests & Summaries"
+msgstr "Rapporter & sammanfattningar"
+
+#: bp-activity-subscription-functions.php:1125
+msgid "View queued digest items</a></b> (in new window)<br>As admin, you can see what is currently in the email queue by adding ?sum=1 to your url. This will not fire the digest, it will just show you what is waiting to be sent."
+msgstr "Visa bevakningsmeddelanden som väntar på att skickas ut </a></b> (Nytt fönster)<br>Som administratör kan du även se vilka meddelanden som ligger i utskickskön genom att lägga till ?sum=1 till sitens webbadress. Detta skickar inte iväg några meddelande utan visar bara vilka meddelande som väntar på utskick."
+
+#: bp-activity-subscription-functions.php:1129
+msgid "<strong>Daily Digests</strong> should be sent at this time:"
+msgstr "<strong>Dygnsrapporter</strong> skickas dagligen kl.:"
+
+#: bp-activity-subscription-functions.php:1146
+msgid "<strong>Weekly Summaries</strong> should be sent on:"
+msgstr "<strong>Veckorapporter</strong> skickas varje:"
+
+#: bp-activity-subscription-functions.php:1150
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1228
+msgid "Monday"
+msgstr "Måndag"
+
+#: bp-activity-subscription-functions.php:1151
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1230
+msgid "Tuesday"
+msgstr "Tisdag"
+
+#: bp-activity-subscription-functions.php:1152
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1232
+msgid "Wednesday"
+msgstr "Onsdag"
+
+#: bp-activity-subscription-functions.php:1153
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1234
+msgid "Thursday"
+msgstr "Torsdag"
+
+#: bp-activity-subscription-functions.php:1154
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1236
+msgid "Friday"
+msgstr "Fredag"
+
+#: bp-activity-subscription-functions.php:1155
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1238
+msgid "Saturday"
+msgstr "Lördag"
+
+#: bp-activity-subscription-functions.php:1156
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1240
+msgid "Sunday"
+msgstr "Söndag"
+
+#: bp-activity-subscription-functions.php:1161
+#, php-format
+msgid "The server timezone is %s (%s); the current server time is %s (%s); and the day is %s."
+msgstr "Serverns tidszon: %s (%s) Servertiden: %s (%s) Idag: %s."
+
+#: bp-activity-subscription-functions.php:1166
+msgid "Group Admin Abilities"
+msgstr "Inställningar för gruppadminstratörer"
+
+#: bp-activity-subscription-functions.php:1167
+msgid "Allow group admins and mods to change members' email subscription settings: "
+msgstr "Tillåt gruppadministratörer och moderatorer att ändra medlemmarnas bevakningsstatus: "
+
+#: bp-activity-subscription-functions.php:1169
+#: bp-activity-subscription-functions.php:1174
+msgid "yes"
+msgstr "ja"
+
+#: bp-activity-subscription-functions.php:1170
+#: bp-activity-subscription-functions.php:1175
+msgid "no"
+msgstr "nej"
+
+#: bp-activity-subscription-functions.php:1172
+msgid "Allow group admins to override subscription settings and send an email to everyone in their group: "
+msgstr "Tillåt gruppadministratörer att köra över medlemmarnas bevakningsstatus och skicka epost till alla i gruppen: "
+
+#: bp-activity-subscription-functions.php:1179
+msgid "Spam Prevention"
+msgstr "Spamskydd"
+
+#: bp-activity-subscription-functions.php:1180
+msgid "To help protect against spam, you may wish to require a user to have been a member of the site for a certain amount of days before any group updates are emailed to the other group members. This is disabled by default."
+msgstr "För att undvika spam kan du ange här hur länge en användare måste ha varit medlem i gruppen innan andra medlemmar får meddelanden om den nya medlemmens aktiviteter. Avaktiverad i standardinställningen. "
+
+#: bp-activity-subscription-functions.php:1181
+msgid "Member must be registered for"
+msgstr "Medlemmar måste ha varit registrerade i "
+
+#: bp-activity-subscription-functions.php:1181
+msgid "days"
+msgstr "dagar"
+
+#: bp-activity-subscription-main.php:12
+msgid "Email Options"
+msgstr "Bevakningsinställningar"
+

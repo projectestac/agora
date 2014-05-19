@@ -1,0 +1,603 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BuddyPress Group Email Subscription 2.8.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-26 13:48-0800\n"
+"PO-Revision-Date: 2011-04-15 18:09+0900\n"
+"Last-Translator: BNG NET <webmaster@bng.net>\n"
+"Language-Team: BNG NET <webmaster@bng.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: /Volumes/Macintosh HD/Users/deryk/Sites/bp/wp-content/plugins/buddypress-group-email-subscription/\n"
+"X-Poedit-Language: Japanese\n"
+"X-Poedit-Country: JAPAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: bp-activity-subscription-digest.php:49
+msgid "Your daily digest of group activity"
+msgstr "グループ活動の日刊ダイジェスト"
+
+#: bp-activity-subscription-digest.php:51
+msgid "Your weekly summary of group topics"
+msgstr "グループトピックの週刊サマリー"
+
+#: bp-activity-subscription-digest.php:57
+#, php-format
+msgid "You have received this message because you are subscribed to receive a digest of activity in some of your groups on %s."
+msgstr "あなたがこのメッセージを受け取っているのは、「%s」で参加しているグループの活動ダイジェストの受信設定をしているからです。"
+
+#: bp-activity-subscription-digest.php:92
+msgid "at"
+msgstr ": "
+
+#: bp-activity-subscription-digest.php:99
+#, php-format
+msgid "(%s items)"
+msgstr "(%s件)"
+
+#: bp-activity-subscription-digest.php:110
+msgid "Group Summary"
+msgstr "グループサマリー"
+
+#: bp-activity-subscription-digest.php:115
+msgid "How to follow a topic: to get email updates for a specific topic, click the topic title - then on the webpage click the <i>Follow this topic</i> button. (If you don't see the button you need to login first.)"
+msgstr "トピックの追跡方法: 特定のトピックについて更新情報をメールで受け取るには、1) そのトピックのタイトルをクリックします。 2) ウェブページ上で「<i>フォロートピック</i>」ボタンをクリックします。(ボタンが表示されていない場合は、最初にログインする必要があります。)"
+
+#: bp-activity-subscription-digest.php:119
+#, php-format
+msgid "To disable these notifications please login and go to: %s where you can change your email settings for each group."
+msgstr "この通知を停止するには、ログインして次に移動: %s (各グループ毎に受信設定ができます)"
+
+#: bp-activity-subscription-digest.php:119
+#: bp-activity-subscription-functions.php:953
+msgid "My Groups"
+msgstr "参加グルー"
+
+#: bp-activity-subscription-digest.php:165
+msgid "DAILY DIGEST:"
+msgstr "日刊ダイジェスト:"
+
+#: bp-activity-subscription-digest.php:167
+msgid "WEEKLY DIGEST:"
+msgstr "週刊ダイジェスト:"
+
+#: bp-activity-subscription-digest.php:188
+#, php-format
+msgid "Group: %s"
+msgstr "グループ: %s"
+
+#: bp-activity-subscription-digest.php:190
+#, php-format
+msgid "Group: %s weekly summary"
+msgstr "グループ: 「%s」の週刊サマリー"
+
+#: bp-activity-subscription-digest.php:194
+msgid "change "
+msgstr "変更: "
+
+#: bp-activity-subscription-digest.php:194
+msgid "email options"
+msgstr "受信設定"
+
+#: bp-activity-subscription-digest.php:194
+msgid "for this group"
+msgstr "に設定しました。"
+
+#: bp-activity-subscription-digest.php:255
+#: bp-activity-subscription-digest.php:285
+#, php-format
+msgid "at %s, %s"
+msgstr " %s (%s)"
+
+#: bp-activity-subscription-digest.php:263
+msgid "View"
+msgstr "表示"
+
+#: bp-activity-subscription-digest.php:281
+#, php-format
+msgid "(%s replies)"
+msgstr "(%s件の返信"
+
+#: bp-activity-subscription-digest.php:383
+msgid "Once Weekly"
+msgstr "週に１回"
+
+#: bp-activity-subscription-functions.php:43
+#: bp-activity-subscription-functions.php:118
+#, php-format
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"To view or reply to this topic, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"「%s」\n"
+"\n"
+"トピックの閲覧と返信は、ログインして次に移動:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:55
+#: bp-activity-subscription-functions.php:130
+#: bp-activity-subscription-functions.php:238
+#, php-format
+msgid "To disable these notifications please log in and go to: %s"
+msgstr "これらの通知を停止するには、ログインして次に移動: %s"
+
+#: bp-activity-subscription-functions.php:71
+#: bp-activity-subscription-functions.php:177
+#: bp-activity-subscription-functions.php:262
+msgid "Your email setting for this group is: "
+msgstr "このグループにおける受信設定:"
+
+#: bp-activity-subscription-functions.php:74
+msgid ", therefore you won't receive replies to this topic. To get them, click the link to view this topic on the web then click the 'Follow this topic' button."
+msgstr "結果、このトピックに返信があった際にメールは送信されません。受信するには、ウェブ上でトピックの閲覧リンクをクリックしてから「フォロートピック」ボタンをクリックしてください。"
+
+#: bp-activity-subscription-functions.php:226
+#, php-format
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"To view or reply, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"「%s」\n"
+"\n"
+"閲覧と返信は、ログインして次に移動:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:358
+msgid "Email Subscription Options"
+msgstr "メール通知設定"
+
+#: bp-activity-subscription-functions.php:363
+msgid "How do you want to read this group?"
+msgstr "このグループの活動をどのようにして知りたいですか？"
+
+#: bp-activity-subscription-functions.php:366
+#: bp-activity-subscription-functions.php:431
+#: bp-activity-subscription-functions.php:486
+#: bp-activity-subscription-functions.php:867
+msgid "No Email"
+msgstr "メール受信はしない"
+
+#: bp-activity-subscription-functions.php:367
+#: bp-activity-subscription-functions.php:486
+msgid "I will read this group on the web"
+msgstr "このグループはウェブ上で確認します"
+
+#: bp-activity-subscription-functions.php:371
+msgid "Weekly Summary Email"
+msgstr "週刊サマリーをメールで受信"
+
+#: bp-activity-subscription-functions.php:372
+msgid "Get a summary of new topics each week"
+msgstr "毎週新しいトピックのサマリーを受信します"
+
+#: bp-activity-subscription-functions.php:376
+msgid "Daily Digest Email"
+msgstr "日刊ダイジェストをメールで受信"
+
+#: bp-activity-subscription-functions.php:377
+msgid "Get all the day's activity bundled into a single email"
+msgstr "1日の全活動をまとめて1つのメールで受信します"
+
+#: bp-activity-subscription-functions.php:381
+msgid "New Topics Email"
+msgstr "新規トピックをメールで受信"
+
+#: bp-activity-subscription-functions.php:382
+msgid "Send new topics as they arrive (but don't send replies)"
+msgstr "新しいトピックが作成されるたびに受信します(ただし、返信は送信されません)"
+
+#: bp-activity-subscription-functions.php:386
+#: bp-activity-subscription-functions.php:439
+#: bp-activity-subscription-functions.php:490
+#: bp-activity-subscription-functions.php:871
+msgid "All Email"
+msgstr "全受信"
+
+#: bp-activity-subscription-functions.php:387
+#: bp-activity-subscription-functions.php:490
+msgid "Send all group activity as it arrives"
+msgstr "グループ全活動を毎回受信します"
+
+#: bp-activity-subscription-functions.php:390
+#: bp-activity-subscription-functions.php:1185
+msgid "Save Settings"
+msgstr "設定保存"
+
+#: bp-activity-subscription-functions.php:392
+msgid "Note: Normally, you receive email notifications for topics you start or comment on. This can be changed at"
+msgstr "注意: トピックに関する通知の受信は、通常あなたが作成またはコメントしたものに限られます。この設定の変更は: "
+
+#: bp-activity-subscription-functions.php:392
+msgid "email notifications"
+msgstr "メール通知"
+
+#: bp-activity-subscription-functions.php:419
+msgid "Your email notifications are set to "
+msgstr "このグループにおけるメール通知は"
+
+#: bp-activity-subscription-functions.php:433
+#: bp-activity-subscription-functions.php:487
+msgid "Weekly Summary"
+msgstr "週刊サマリー"
+
+#: bp-activity-subscription-functions.php:435
+#: bp-activity-subscription-functions.php:488
+msgid "Daily Digest"
+msgstr "日刊ダイジェスト"
+
+#: bp-activity-subscription-functions.php:437
+#: bp-activity-subscription-functions.php:489
+#: bp-activity-subscription-functions.php:870
+msgid "New Topics"
+msgstr "新規トピック"
+
+#: bp-activity-subscription-functions.php:464
+msgid "Your email status is "
+msgstr "受信設定は"
+
+#: bp-activity-subscription-functions.php:465
+msgid "change"
+msgstr "変更"
+
+#: bp-activity-subscription-functions.php:471
+msgid "Get email updates"
+msgstr "通知設定の更新"
+
+#: bp-activity-subscription-functions.php:482
+msgid "Change your email subscription options for this group"
+msgstr "このグループにおける通知設定を変更する"
+
+#: bp-activity-subscription-functions.php:487
+msgid "Get a summary of topics each"
+msgstr "トピックのサマリーを毎週"
+
+#: bp-activity-subscription-functions.php:488
+msgid "Get the day's activity bundled into one email"
+msgstr "その日の活動を1つのメールにまとめて"
+
+#: bp-activity-subscription-functions.php:489
+msgid "Send new topics as they arrive (but no replies)"
+msgstr "新規トピックを毎回 (返信を除く)"
+
+#: bp-activity-subscription-functions.php:491
+msgid "close"
+msgstr "閉じる"
+
+#: bp-activity-subscription-functions.php:564
+msgid "You successfully joined the group. Your group email status is: "
+msgstr "グループに参加しました。このグループのメール受信設定は: "
+
+#: bp-activity-subscription-functions.php:575
+msgid "Email Subscription Defaults"
+msgstr "通知設定デフォルト"
+
+#: bp-activity-subscription-functions.php:576
+msgid "When new users join this group, their default email notification settings will be:"
+msgstr "このグループに参加する新メンバーのデフォルトの通知設定: "
+
+#: bp-activity-subscription-functions.php:579
+msgid "No Email (users will read this group on the web - good for any group - the default)"
+msgstr "メール受信はしない(ウェブ上で確認する - 全てのグループに最適 - デフォルト)"
+
+#: bp-activity-subscription-functions.php:581
+msgid "Weekly Summary Email (the week's topics - good for large groups)"
+msgstr "週刊サマリー(1週間のトピック - 大規模グループ向け)"
+
+#: bp-activity-subscription-functions.php:583
+msgid "Daily Digest Email (all daily activity bundles in one email - good for medium-size groups)"
+msgstr "日刊ダイジェスト(その日の全活動を1つのメールにまとめて通知 - 中規模グループ向け)"
+
+#: bp-activity-subscription-functions.php:585
+msgid "New Topics Email (new topics are sent as they arrive, but not replies - good for small groups)"
+msgstr "新規トピック(新規トピックが作成されるたびに通知、ただし返信を除く - 小規模グループ向け)"
+
+#: bp-activity-subscription-functions.php:587
+msgid "All Email (send emails about everything - recommended only for working groups)"
+msgstr "全受信(全活動を毎回通知 - ワーキンググループに限定することを推奨)"
+
+#: bp-activity-subscription-functions.php:671
+msgid "Follow"
+msgstr "フォロー"
+
+#: bp-activity-subscription-functions.php:672
+msgid "You are not following this topic. Click to follow it and get email updates for new posts"
+msgstr "このトピックを追跡していません。クリックするとこのトピックの更新状況を通知します"
+
+#: bp-activity-subscription-functions.php:675
+msgid "Mute"
+msgstr "ミュート"
+
+#: bp-activity-subscription-functions.php:676
+msgid "You are following this topic. Click to stop getting email updates"
+msgstr "このトピックを追跡中です。クリックすると更新状況の通知を停止します"
+
+#: bp-activity-subscription-functions.php:682
+msgid "This conversation is muted. Click to follow it"
+msgstr "このトピックはミュートになっています。クリックで追跡します"
+
+#: bp-activity-subscription-functions.php:686
+msgid "this topic"
+msgstr "トピック"
+
+#: bp-activity-subscription-functions.php:704
+msgid "Email"
+msgstr "メール"
+
+#: bp-activity-subscription-functions.php:845
+#: bp-activity-subscription-functions.php:865
+msgid "Email status:"
+msgstr "メール状況:"
+
+#: bp-activity-subscription-functions.php:866
+msgid "Change to:"
+msgstr "次に変更:"
+
+#: bp-activity-subscription-functions.php:868
+msgid "Weekly"
+msgstr "週刊"
+
+#: bp-activity-subscription-functions.php:869
+msgid "Daily"
+msgstr "日刊"
+
+#: bp-activity-subscription-functions.php:894
+msgid "User email status changed successfully"
+msgstr "メール状況を変更しました"
+
+#: bp-activity-subscription-functions.php:915
+msgid "Site Admin Only: update email subscription settings for ALL members to the default:"
+msgstr "サイト管理者限定: 全メンバーのメール通知デフォルト設定を次のとおり設定します:"
+
+#: bp-activity-subscription-functions.php:915
+msgid "Warning: this is not reversible so use with caution."
+msgstr "警告: 元に戻すことはできませんのでご注意ください。"
+
+#: bp-activity-subscription-functions.php:915
+msgid "Make it so!"
+msgstr "ただちに実行！"
+
+#: bp-activity-subscription-functions.php:942
+msgid "All user email status's changed successfully"
+msgstr "全ユーザのメール状況を変更しました"
+
+#: bp-activity-subscription-functions.php:952
+msgid "Group Email Settings"
+msgstr "グループメール設定"
+
+#: bp-activity-subscription-functions.php:953
+#, php-format
+msgid "To change the email notification settings for your groups go to %s and click change for each group."
+msgstr "参加グループのメール通知設定を変更するには、「%s」へ移動して各グループごとに変更してください。"
+
+#: bp-activity-subscription-functions.php:976
+msgid "Send an email notice to everyone in the group"
+msgstr "グループの全メンバーにメールを送信する"
+
+#: bp-activity-subscription-functions.php:977
+msgid "You can use the form below to send an email notice to all group members."
+msgstr "下のフォームを使って、グループの全メンバーにメールが送信できます。"
+
+#: bp-activity-subscription-functions.php:978
+msgid "Everyone in the group will receive the email -- regardless of their email settings -- so use with caution"
+msgstr "各自のメール設定に関係なく、グループに属する全てのメンバーにメールが送られますので、使い方には注意が必要です"
+
+#: bp-activity-subscription-functions.php:982
+msgid "Email Subject:"
+msgstr "件名:"
+
+#: bp-activity-subscription-functions.php:984
+msgid "Email Content:"
+msgstr "本文:"
+
+#: bp-activity-subscription-functions.php:986
+msgid "Email this notice to everyone in the group"
+msgstr "この通知をグループの全メンバーに送信する"
+
+#: bp-activity-subscription-functions.php:1013
+msgid " - sent from the group "
+msgstr " - 送信元グループ:"
+
+#: bp-activity-subscription-functions.php:1015
+#, php-format
+msgid ""
+"This is a notice from the group '%s':\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"\n"
+"To view this group log in and follow the link below:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"「%s」グループからの通知です:\n"
+"\n"
+"「%s」\n"
+"\n"
+"\n"
+"グループの閲覧は、ログインして次に移動:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:1026
+msgid ""
+"Please note: admin notices are sent to everyone in the group and cannot be disabled. \n"
+"If you feel this service is being misused please speak to the website administrator."
+msgstr ""
+"注意: 管理者からの通知は全員に送信されるもので、これを停止することはできません。\n"
+"ご不明な点がおありの方は、管理者にお問い合わせください。"
+
+#: bp-activity-subscription-functions.php:1038
+msgid "The email notice was sent successfully."
+msgstr "メール通知を送信しました。"
+
+#: bp-activity-subscription-functions.php:1057
+msgid "Group Forum"
+msgstr "グループフォーラム"
+
+#: bp-activity-subscription-functions.php:1058
+msgid "Yes"
+msgstr "はい"
+
+#: bp-activity-subscription-functions.php:1059
+msgid "No"
+msgstr "いいえ"
+
+#: bp-activity-subscription-functions.php:1065
+msgid "A member replies in a forum topic you've started"
+msgstr "あなたが作成したトピックに返信があります"
+
+#: bp-activity-subscription-functions.php:1071
+msgid "A member replies after you in a forum topic"
+msgstr "あなたがコメントしたトピックに新しい返信があります"
+
+#: bp-activity-subscription-functions.php:1077
+msgid "Receive notifications of your own posts?"
+msgstr "自分の投稿の通知も受ける"
+
+#: bp-activity-subscription-functions.php:1096
+msgid "Group Email Options"
+msgstr "グループメール通知設定"
+
+#: bp-activity-subscription-functions.php:1118
+msgid "Group Email Subscription Settings"
+msgstr "グループメール通知設定"
+
+#: bp-activity-subscription-functions.php:1123
+msgid "Digests & Summaries"
+msgstr "ダイジェストとサマリー"
+
+#: bp-activity-subscription-functions.php:1125
+msgid "View queued digest items</a></b> (in new window)<br>As admin, you can see what is currently in the email queue by adding ?sum=1 to your url. This will not fire the digest, it will just show you what is waiting to be sent."
+msgstr "送信キューに入っているダイジェスト内容の閲覧</a></b> (新規ウィンドウ表示)<br>管理者でログイン後、URLに ?sum=1 を追加すると、その時点で送信キューに入っている内容が閲覧できます。この機能はダイジェストの内容を閲覧するだけのもので、実際にその時点で送信したりはできません。"
+
+#: bp-activity-subscription-functions.php:1129
+msgid "<strong>Daily Digests</strong> should be sent at this time:"
+msgstr "<strong>日刊ダイジェスト</strong>の送信時刻："
+
+#: bp-activity-subscription-functions.php:1146
+msgid "<strong>Weekly Summaries</strong> should be sent on:"
+msgstr "<strong>週刊サマリー</strong>の送信日:"
+
+#: bp-activity-subscription-functions.php:1150
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1237
+msgid "Monday"
+msgstr "月曜日"
+
+#: bp-activity-subscription-functions.php:1151
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1239
+msgid "Tuesday"
+msgstr "火曜日"
+
+#: bp-activity-subscription-functions.php:1152
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1241
+msgid "Wednesday"
+msgstr "水曜日"
+
+#: bp-activity-subscription-functions.php:1153
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1243
+msgid "Thursday"
+msgstr "木曜日"
+
+#: bp-activity-subscription-functions.php:1154
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1245
+msgid "Friday"
+msgstr "金曜日"
+
+#: bp-activity-subscription-functions.php:1155
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1247
+msgid "Saturday"
+msgstr "土曜日"
+
+#: bp-activity-subscription-functions.php:1156
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1249
+msgid "Sunday"
+msgstr "日曜日"
+
+#: bp-activity-subscription-functions.php:1161
+#, php-format
+msgid "The server timezone is %s (%s); the current server time is %s (%s); and the day is %s."
+msgstr "サーバのタイムゾーンは %s (%s) で、現在のサーバ時刻は %s (%s)、曜日は %s です。"
+
+#: bp-activity-subscription-functions.php:1166
+msgid "Group Admin Abilities"
+msgstr "グループ管理者の権限"
+
+#: bp-activity-subscription-functions.php:1167
+msgid "Allow group admins and mods to change members' email subscription settings: "
+msgstr "グループ管理者とモデレータは、メンバーのメール設定を変更できる: "
+
+#: bp-activity-subscription-functions.php:1169
+#: bp-activity-subscription-functions.php:1174
+msgid "yes"
+msgstr "はい"
+
+#: bp-activity-subscription-functions.php:1170
+#: bp-activity-subscription-functions.php:1175
+msgid "no"
+msgstr "いいえ"
+
+#: bp-activity-subscription-functions.php:1172
+msgid "Allow group admins to override subscription settings and send an email to everyone in their group: "
+msgstr "グループ管理者とモデレータは、メール設定を上書きしてグループの全メンバーにメールが送信できる: "
+
+#: bp-activity-subscription-functions.php:1179
+msgid "Spam Prevention"
+msgstr "スパム対策"
+
+#: bp-activity-subscription-functions.php:1180
+msgid "To help protect against spam, you may wish to require a user to have been a member of the site for a certain amount of days before any group updates are emailed to the other group members. This is disabled by default."
+msgstr "スパマーから身を守るため、サイト登録から一定期間を経たメンバーの活動のみ他のメンバーに通知されるようにすることができます。この機能はデフォルトでは無効です。"
+
+#: bp-activity-subscription-functions.php:1181
+msgid "Member must be registered for"
+msgstr "メンバーはサイト登録から"
+
+#: bp-activity-subscription-functions.php:1181
+msgid "days"
+msgstr "日以上経過していなければならない"
+
+#: bp-activity-subscription-functions.php:1192
+#, php-format
+msgid "If you enjoy using this plugin %s please rate it %s."
+msgstr "このプラグインが気に入りましたら%s評価%sしてください。"
+
+#: bp-activity-subscription-functions.php:1193
+msgid "Please make a donation to the team to support ongoing development."
+msgstr "さらなる開発のため、開発者チームへの寄付をご検討ください。"
+
+#: bp-activity-subscription-main.php:12
+msgid "Email Options"
+msgstr "メール通知設定"
+

@@ -1,0 +1,987 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: buddypress-group-email-subscription v2.7.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-03 15:04+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: anja <anja@werkgroepen.net>\n"
+"Language-Team: werkgroepen.net <team@werkgroepen.net>\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;esc_attr_e;"
+"esc_attr__\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../bp-activity-subscription-digest.php:54
+msgid "Your daily digest of group activity"
+msgstr "De dagelijkse verwerking van groep activiteiten"
+
+#: ../bp-activity-subscription-digest.php:56
+msgid "Your weekly summary of group topics"
+msgstr "De wekelijkse samenvattingen van groep onderwerpen"
+
+#: ../bp-activity-subscription-digest.php:64
+#, php-format
+msgid ""
+"You have received this message because you are subscribed to receive a "
+"digest of activity in some of your groups on %s."
+msgstr ""
+"Je hebt dit bericht ontvangen omdat je bent ingeschreven de activiteiten van "
+"enkele van je groepen op %s per e-mail te ontvangen."
+
+#: ../bp-activity-subscription-digest.php:128
+msgid "at"
+msgstr "op"
+
+#: ../bp-activity-subscription-digest.php:136
+#, php-format
+msgid "(%s items)"
+msgstr "(%s items)"
+
+#: ../bp-activity-subscription-digest.php:147
+msgid "Group Summary"
+msgstr "Groep samenvatting"
+
+#: ../bp-activity-subscription-digest.php:154
+msgid ""
+"How to follow a topic: to get email updates for a specific topic, click the "
+"topic title - then on the webpage click the <i>Follow this topic</i> button. "
+"(If you don't see the button you need to login first.)"
+msgstr ""
+"Hoe kan ik een onderwerp volgen? Om e-mail te ontvangen op een specifiek "
+"onderwerp: klik op de titel van het onderwerp - klik op de pagina zelf "
+"vervolgens op <i> Volg dit bericht </ i> knop. (Als de knop niet getoond "
+"wordt, is het nodig om eerst in te loggen)."
+
+#: ../bp-activity-subscription-digest.php:158
+#, php-format
+msgid ""
+"To disable these notifications per group please login and go to: %s where "
+"you can change your email settings for each group."
+msgstr ""
+"Om deze notificaties uit te schakelen, login en ga naar: %s waar je de e-"
+"mail instellingen voor elke groep kunt aanpassen."
+
+#: ../bp-activity-subscription-digest.php:158
+#: ../bp-activity-subscription-functions.php:1425
+msgid "My Groups"
+msgstr "Mijn groepen"
+
+#: ../bp-activity-subscription-digest.php:162
+msgid "Disable these notifications for all my groups at once."
+msgstr "Schakel de notificaties voor al mijn groepen in een keer uit"
+
+#: ../bp-activity-subscription-digest.php:211
+msgid "DAILY DIGEST:"
+msgstr "Dagelijks overzicht:"
+
+#: ../bp-activity-subscription-digest.php:213
+msgid "WEEKLY DIGEST:"
+msgstr "Wekelijks overzicht:"
+
+#: ../bp-activity-subscription-digest.php:248
+#, php-format
+msgid "Group: %s"
+msgstr "Groep: %s"
+
+#: ../bp-activity-subscription-digest.php:250
+#, php-format
+msgid "Group: %s weekly summary"
+msgstr "Groep: %s wekelijkse samenvatting"
+
+#: ../bp-activity-subscription-digest.php:255
+msgid "To disable these notifications for this group click "
+msgstr "Om de notificaties voor deze groep uit te schakelen klik"
+
+#: ../bp-activity-subscription-digest.php:255
+msgid "unsubscribe"
+msgstr "uitschrijven"
+
+#: ../bp-activity-subscription-digest.php:256
+msgid "change "
+msgstr "Wijzig"
+
+#: ../bp-activity-subscription-digest.php:256
+msgid "email options"
+msgstr "e-mail instellingen"
+
+#: ../bp-activity-subscription-digest.php:339
+#: ../bp-activity-subscription-digest.php:373
+#, php-format
+msgid "at %s, %s"
+msgstr "om %s, %s"
+
+#: ../bp-activity-subscription-digest.php:348
+#: ../bp-activity-subscription-digest.php:350
+#: ../bp-activity-subscription-digest.php:381
+#: ../bp-activity-subscription-digest.php:383
+msgid "View"
+msgstr "Bekijk"
+
+#: ../bp-activity-subscription-digest.php:369
+#, php-format
+msgid "(%s replies)"
+msgstr "(%s reacties)"
+
+#: ../bp-activity-subscription-digest.php:478
+msgid "Once Weekly"
+msgstr "Eenmaal per week"
+
+#: ../bp-activity-subscription-functions.php:20
+#, php-format
+msgid "To disable all notifications for this group, click: %s"
+msgstr "Om alle notificaties voor deze groep uit te schakelen, klik: %s"
+
+#: ../bp-activity-subscription-functions.php:24
+#, php-format
+msgid "Or to disable notifications for *all* your groups, click: %s"
+msgstr "Of om notificaties uit te schakelen voor *al* je groepen, klik: %s"
+
+#: ../bp-activity-subscription-functions.php:102
+#, php-format
+msgid "%s started the forum topic \"%s\" in the group \"%s\""
+msgstr "%s is het forum onderwerp \"%s\" gestart in de groep \"%s\""
+
+#: ../bp-activity-subscription-functions.php:113
+#, php-format
+msgid "%s replied to the forum topic \"%s\" in the group \"%s\""
+msgstr "%s heeft gereageerd op het forum onderwerp \"%s\" in de groep \"%s\""
+
+#: ../bp-activity-subscription-functions.php:144
+msgid "To view or reply to this topic, go to:"
+msgstr "Om het onderwerp te tonen of erop te reageren, ga naar:"
+
+#: ../bp-activity-subscription-functions.php:148
+msgid "To view or reply to this topic, log in and go to:"
+msgstr "Om dit onderwerp te tonen of er op te reageren, log in en ga naar:"
+
+#: ../bp-activity-subscription-functions.php:152
+#, php-format
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"%s\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"%s\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: ../bp-activity-subscription-functions.php:211
+#: ../bp-activity-subscription-functions.php:242
+#: ../bp-activity-subscription-functions.php:474
+msgid "Your email setting for this group is: "
+msgstr "Je e-mail instelling voor deze groep is: "
+
+#: ../bp-activity-subscription-functions.php:215
+msgid ""
+", therefore you won't receive replies to this topic. To get them, click the "
+"link to view this topic on the web then click the 'Follow this topic' button."
+msgstr ""
+", dus je ontvangt geen reacties op dit onderwerp. Om deze te ontvangen, klik "
+"dan op bovenstaande link en vervolgens op de 'Dit bericht via e-mail volgen' "
+"knop"
+
+#: ../bp-activity-subscription-functions.php:219
+#: ../bp-activity-subscription-functions.php:243
+#, php-format
+msgid ""
+"To change your email setting for this group, please log in and go to: %s"
+msgstr ""
+"Om je e-mail instellingen voor deze groep te wijzigen, login en ga naar: %s"
+
+#: ../bp-activity-subscription-functions.php:256
+#: ../bp-activity-subscription-functions.php:269
+#: ../bp-activity-subscription-functions.php:282
+#, php-format
+msgid "To disable these notifications please log in and go to: %s"
+msgstr "Om deze notificaties uit te schakelen, login en ga naar: %s"
+
+#: ../bp-activity-subscription-functions.php:257
+msgid ""
+"Once you are logged in, click on the \"Mute this topic\" button to "
+"unsubscribe from the forum thread."
+msgstr ""
+"Als je ingelogd bent, klik op de \"E-mail uitschakelen voor dit bericht.\" "
+"knop om je uit te schrijven voor een forum onderwerp."
+
+#: ../bp-activity-subscription-functions.php:268
+msgid ""
+"You are currently receiving notifications to topics that you have started."
+msgstr "Je ontvang notificaties over onderwerpen die je bent gestart."
+
+#: ../bp-activity-subscription-functions.php:270
+msgid ""
+"Once you are logged in, uncheck \"A member replies in a forum topic you've "
+"started\"."
+msgstr ""
+"Als je ingelogd bent, vink \"Een lid reageerde op een forum onderwerp welke "
+"je gestart bent.\" uit."
+
+#: ../bp-activity-subscription-functions.php:281
+msgid ""
+"You are currently receiving notifications to topics that you have replied in."
+msgstr "Je ontvangt notificaties van onderwerpen waarop je gereageerd hebt."
+
+#: ../bp-activity-subscription-functions.php:283
+msgid ""
+"Once you are logged in, uncheck \"A member replies after you in a forum topic"
+"\"."
+msgstr ""
+"Als je ingelogd bent, vink \"Een lid reageerde na jou in een forum onderwerp."
+"\" uit."
+
+#: ../bp-activity-subscription-functions.php:379
+msgid "in the group"
+msgstr "voor deze groep"
+
+#: ../bp-activity-subscription-functions.php:401
+#, php-format
+msgid ""
+"%s\n"
+"\n"
+"To view or reply, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"Om dit onderwerp te bekijken of op te reageren, login en ga naar: \n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: ../bp-activity-subscription-functions.php:410
+#, php-format
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"To view or reply, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"Om dit onderwerp te bekijken, of op te reageren, login en ga naar:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: ../bp-activity-subscription-functions.php:744
+msgid "Email Subscription Options"
+msgstr "E-mail inschrijving instellingen"
+
+#: ../bp-activity-subscription-functions.php:749
+msgid "How do you want to read this group?"
+msgstr ""
+"Hoe wil je op de hoogte gehouden worden bij nieuwe activiteiten van deze "
+"groep?"
+
+#: ../bp-activity-subscription-functions.php:752
+#: ../bp-activity-subscription-functions.php:817
+#: ../bp-activity-subscription-functions.php:876
+#: ../bp-activity-subscription-functions.php:1300
+msgid "No Email"
+msgstr "Geen e-mail"
+
+#: ../bp-activity-subscription-functions.php:753
+#: ../bp-activity-subscription-functions.php:876
+msgid "I will read this group on the web"
+msgstr "Ik lees over deze groep op het web"
+
+#: ../bp-activity-subscription-functions.php:757
+msgid "Weekly Summary Email"
+msgstr "Wekelijkse samenvatting"
+
+#: ../bp-activity-subscription-functions.php:758
+msgid "Get a summary of new topics each week"
+msgstr ""
+"Ik wil een wekelijkse samenvatting van nieuwe onderwerpen en ontvang deze "
+"elke"
+
+#: ../bp-activity-subscription-functions.php:762
+msgid "Daily Digest Email"
+msgstr "Dagelijkse samenvatting"
+
+#: ../bp-activity-subscription-functions.php:763
+msgid "Get all the day's activity bundled into a single email"
+msgstr ""
+"Ik wil dagelijks &#233;&#233;n e-mail met alle activiteiten van deze groep "
+"daarin gebundeld"
+
+#: ../bp-activity-subscription-functions.php:767
+msgid "New Topics Email"
+msgstr "Nieuwe onderwerpen"
+
+#: ../bp-activity-subscription-functions.php:768
+msgid "Send new topics as they arrive (but don't send replies)"
+msgstr ""
+"Verzend alle nieuwe onderwerpen zodra deze geplaatst worden (maar stuur geen "
+"reacties)"
+
+#: ../bp-activity-subscription-functions.php:772
+#: ../bp-activity-subscription-functions.php:825
+#: ../bp-activity-subscription-functions.php:880
+#: ../bp-activity-subscription-functions.php:1304
+msgid "All Email"
+msgstr "Alle e-mail"
+
+#: ../bp-activity-subscription-functions.php:773
+#: ../bp-activity-subscription-functions.php:880
+msgid "Send all group activity as it arrives"
+msgstr "Verzend alle groepsactiviteiten zodra ze geplaatst worden"
+
+#: ../bp-activity-subscription-functions.php:776
+#: ../bp-activity-subscription-functions.php:1947
+msgid "Save Settings"
+msgstr "Instellingen opslaan"
+
+#: ../bp-activity-subscription-functions.php:778
+msgid ""
+"Note: Normally, you receive email notifications for topics you start or "
+"comment on. This can be changed at"
+msgstr ""
+"Opm.: Normaal ontvang je e-mail bij onderwerpen welke je gestart bent, of "
+"waar je op gereageerd hebt. Dit kan worden gewijzigd op "
+
+#: ../bp-activity-subscription-functions.php:778
+msgid "email notifications"
+msgstr "E-mail notificaties"
+
+#: ../bp-activity-subscription-functions.php:805
+#, php-format
+msgid "Your email notifications are set to %s for this group."
+msgstr "Je e-mail notificaties zijn ingesteld op %s voor deze groep."
+
+#: ../bp-activity-subscription-functions.php:819
+#: ../bp-activity-subscription-functions.php:877
+msgid "Weekly Summary"
+msgstr "Wekelijkse samenvatting"
+
+#: ../bp-activity-subscription-functions.php:821
+#: ../bp-activity-subscription-functions.php:878
+msgid "Daily Digest"
+msgstr "Dagelijkse verwerking"
+
+#: ../bp-activity-subscription-functions.php:823
+#: ../bp-activity-subscription-functions.php:879
+#: ../bp-activity-subscription-functions.php:1303
+msgid "New Topics"
+msgstr "Nieuwe onderwerpen"
+
+#: ../bp-activity-subscription-functions.php:854
+msgid "Your email status is "
+msgstr "Je e-mail status is "
+
+#: ../bp-activity-subscription-functions.php:855
+msgid "change"
+msgstr "wijzig"
+
+#: ../bp-activity-subscription-functions.php:861
+msgid "Get email updates"
+msgstr "E-mail updates"
+
+#: ../bp-activity-subscription-functions.php:872
+msgid "Change your email subscription options for this group"
+msgstr "Wijzig je e-mail inschrijving instellingen voor deze groep"
+
+#: ../bp-activity-subscription-functions.php:877
+msgid "Get a summary of topics each"
+msgstr "Een samenvatting van onderwerpen elke"
+
+#: ../bp-activity-subscription-functions.php:878
+msgid "Get the day's activity bundled into one email"
+msgstr ""
+"Ik wil dagelijks &#233;&#233;n e-mail met alle activiteiten van deze groep "
+"daarin gebundeld"
+
+#: ../bp-activity-subscription-functions.php:879
+msgid "Send new topics as they arrive (but no replies)"
+msgstr ""
+"Verzend alle nieuwe onderwerpen zodra deze geplaatst worden (maar stuur geen "
+"reacties)"
+
+#: ../bp-activity-subscription-functions.php:881
+msgid "close"
+msgstr "Sluit"
+
+#: ../bp-activity-subscription-functions.php:955
+msgid "You successfully joined the group. Your group email status is: "
+msgstr "Je bent met succes toegevoegd aan de groep. Je e-mail status is: "
+
+#: ../bp-activity-subscription-functions.php:966
+msgid "Email Subscription Defaults"
+msgstr "E-mail inschrijving standaards"
+
+#: ../bp-activity-subscription-functions.php:967
+msgid ""
+"When new users join this group, their default email notification settings "
+"will be:"
+msgstr ""
+"Als nieuwe gebruikers gaan meedoen met deze groep, worden hun standaard e-"
+"mail notificatie instellingen: "
+
+#: ../bp-activity-subscription-functions.php:970
+msgid ""
+"No Email (users will read this group on the web - good for any group - the "
+"default)"
+msgstr ""
+"Geen e-mail (gebruikers lezen de groepsactiviteiten op het web - goed voor "
+"elke groep - de standaard)"
+
+#: ../bp-activity-subscription-functions.php:972
+msgid "Weekly Summary Email (the week's topics - good for large groups)"
+msgstr ""
+"Wekelijkse samenvatting e-mail (de onderwerpen worden wekelijks verzonden - "
+"goed voor grote groepen)"
+
+#: ../bp-activity-subscription-functions.php:974
+msgid ""
+"Daily Digest Email (all daily activity bundles in one email - good for "
+"medium-size groups)"
+msgstr ""
+"Dagelijkse e-mail (de activiteiten worden dagelijks gebundeld in &#233;&#233;"
+"n e-mail - goed voor gemiddeld grote groepen)"
+
+#: ../bp-activity-subscription-functions.php:976
+msgid ""
+"New Topics Email (new topics are sent as they arrive, but not replies - good "
+"for small groups)"
+msgstr ""
+"Nieuwe onderwerpen e-mail (nieuwe onderwerpen worden verzonden zodra ze "
+"geplaatst zijn, reacties op onderwerpen worden niet verzonden - goed voor "
+"kleinere groepen)"
+
+#: ../bp-activity-subscription-functions.php:978
+msgid ""
+"All Email (send emails about everything - recommended only for working "
+"groups)"
+msgstr ""
+"Alle e-mail (verzend e-mail over alle activiteiten binnen de groep, zodra "
+"deze geplaatst zijn - aanbevolen voor actieve werkgroepen)"
+
+#: ../bp-activity-subscription-functions.php:1083
+#: ../bp-activity-subscription-main.php:50
+msgid "Follow"
+msgstr "Zet e-mail aan voor"
+
+#: ../bp-activity-subscription-functions.php:1084
+msgid ""
+"You are not following this topic. Click to follow it and get email updates "
+"for new posts"
+msgstr ""
+"Je volgt dit onderwerp niet via e-mail. Klik om het onderwerp te volgen en e-"
+"mail te ontvangen bij nieuwe berichten"
+
+#: ../bp-activity-subscription-functions.php:1087
+#: ../bp-activity-subscription-main.php:49
+msgid "Mute"
+msgstr "Zet e-mail uit voor"
+
+#: ../bp-activity-subscription-functions.php:1088
+msgid "You are following this topic. Click to stop getting email updates"
+msgstr ""
+"Je volgt dit onderwerp via e-mail. Klik om e-mail berichten te stoppen bij "
+"nieuwe berichten"
+
+#: ../bp-activity-subscription-functions.php:1094
+msgid "This conversation is muted. Click to follow it"
+msgstr "Dit volgen via e-mail is niet ingesteld. Klik om te volgen"
+
+#: ../bp-activity-subscription-functions.php:1098
+msgid "this topic"
+msgstr "dit onderwerp"
+
+#: ../bp-activity-subscription-functions.php:1116
+msgid "Email"
+msgstr "E-mail"
+
+#: ../bp-activity-subscription-functions.php:1278
+#: ../bp-activity-subscription-functions.php:1298
+msgid "Email status:"
+msgstr "E-mail status"
+
+#: ../bp-activity-subscription-functions.php:1299
+msgid "Change to:"
+msgstr "Wijzig naar:"
+
+#: ../bp-activity-subscription-functions.php:1301
+msgid "Weekly"
+msgstr "Wekelijks"
+
+#: ../bp-activity-subscription-functions.php:1302
+msgid "Daily"
+msgstr "Dagelijks"
+
+#: ../bp-activity-subscription-functions.php:1328
+msgid "User email status changed successfully"
+msgstr "De e-mail status is met succes gewijzigd."
+
+#: ../bp-activity-subscription-functions.php:1374
+msgid ""
+"Site Admin Only: update email subscription settings for ALL members to the "
+"default:"
+msgstr ""
+"Alleen voor de site admin: bijwerken update inschrijving instellingen voor "
+"ALLE leden naar de default:"
+
+#: ../bp-activity-subscription-functions.php:1374
+msgid "Warning: this is not reversible so use with caution."
+msgstr "Waarschuwing: dit is onomkeerbaar, dus voorzichtigheid geboden!"
+
+#: ../bp-activity-subscription-functions.php:1374
+msgid "Make it so!"
+msgstr "Maak het zo!"
+
+#: ../bp-activity-subscription-functions.php:1401
+msgid "All user email status's changed successfully"
+msgstr "Alle gebruikers e-mail status is met succes gewijzigd"
+
+#: ../bp-activity-subscription-functions.php:1417
+msgid "Individual Group Email Settings"
+msgstr "Individuele groep e-mail instellingen"
+
+#: ../bp-activity-subscription-functions.php:1425
+#, php-format
+msgid ""
+"To change the email notification settings for your groups, go to %s and "
+"click \"Change\" for each group."
+msgstr ""
+"Om de e-mail instellingen voor je groepen te wijzigen, ga naar %s en klik op "
+"\"Wijzigen\" voor iedere groep."
+
+#: ../bp-activity-subscription-functions.php:1428
+msgid "Or set all your group's email options to No Email"
+msgstr "Of stel voor alle groepen de e-mail opties in op Geen email"
+
+#: ../bp-activity-subscription-functions.php:1464
+msgid "You have been unsubscribed from all groups notifications."
+msgstr "Je bent uitgeschreven van alle groeps notificaties."
+
+#: ../bp-activity-subscription-functions.php:1466
+msgid "This user's has been unsubscribed from all groups notifications."
+msgstr "Deze gebruiker is uitgeschreven voor alle groeps notificaties."
+
+#: ../bp-activity-subscription-functions.php:1494
+#, php-format
+msgid ""
+"Your unsubscription was successful. You will no longer receive email "
+"notifications from the group %s."
+msgstr ""
+"Je uitschrijving is succesvol. Je ontvangt niet langer meer e-mail "
+"nofiticaties van de groep %s."
+
+#: ../bp-activity-subscription-functions.php:1496
+#: ../bp-activity-subscription-functions.php:1509
+#, php-format
+msgid "<a href=\"%1$s\">Continue to %2$s</a>"
+msgstr "<a href=\"%1$s\">Ga door naar %2$s</a>"
+
+#: ../bp-activity-subscription-functions.php:1507
+msgid ""
+"Your unsubscription was successful. You will no longer receive email "
+"notifications from any of your groups."
+msgstr ""
+"Je uitschrijving is succesvol. Je ontvangt niet langer meer e-mail "
+"notificaties van jouw groepen."
+
+#: ../bp-activity-subscription-functions.php:1519
+msgid "Unsubscribe from all groups notifications"
+msgstr "Uitschrijven voor alle groeps notificaties"
+
+#: ../bp-activity-subscription-functions.php:1533
+msgid "Unsubscribe"
+msgstr "Uitschrijven"
+
+#: ../bp-activity-subscription-functions.php:1538
+msgid "Do you really want to unsubscribe from all groups notifications?"
+msgstr ""
+"Weet je zeker dat je jezelf uit wilt schrijven voor alle groeps notificaties?"
+
+#: ../bp-activity-subscription-functions.php:1543
+msgid "Yes, unsubscribe from all my groups"
+msgstr "Ja, schrijf me uit bij al mijn groepen"
+
+#: ../bp-activity-subscription-functions.php:1544
+msgid "No, close"
+msgstr "Nee, sluiten"
+
+#: ../bp-activity-subscription-functions.php:1578
+msgid "Send an email notice to everyone in the group"
+msgstr "Verzend  een e-mail naar iedereen in deze groep"
+
+#: ../bp-activity-subscription-functions.php:1579
+msgid ""
+"You can use the form below to send an email notice to all group members."
+msgstr ""
+"Je kunt het onderstaande formulier gebruiken om een e-mail te verzenden naar "
+"alle groepsleden."
+
+#: ../bp-activity-subscription-functions.php:1580
+msgid ""
+"Everyone in the group will receive the email -- regardless of their email "
+"settings -- so use with caution"
+msgstr ""
+"Iedereen in de groep zal de e-mail ontvangen -- ongeacht hun e-mail "
+"instellingen -- dus wees voorzichtig"
+
+#: ../bp-activity-subscription-functions.php:1583
+#: ../bp-activity-subscription-functions.php:1612
+msgid "Email Subject:"
+msgstr "E-mail onderwerp:"
+
+#: ../bp-activity-subscription-functions.php:1588
+#: ../bp-activity-subscription-functions.php:1617
+msgid "Email Content:"
+msgstr "E-mail inhoud:"
+
+#: ../bp-activity-subscription-functions.php:1593
+msgid "Email this notice to everyone in the group"
+msgstr "Verzenden"
+
+#: ../bp-activity-subscription-functions.php:1601
+msgid "Welcome Email"
+msgstr "Welkom e-mail"
+
+#: ../bp-activity-subscription-functions.php:1602
+msgid "Send an email when a new member join the group."
+msgstr ""
+"Verzend  een e-mail als een nieuwe gebruiker zich toevoegt aan een groep."
+
+#: ../bp-activity-subscription-functions.php:1607
+msgid "Enable welcome email"
+msgstr "Activeer welkom e-mail"
+
+#: ../bp-activity-subscription-functions.php:1622
+msgid "Save"
+msgstr "Opslaan"
+
+#: ../bp-activity-subscription-functions.php:1647
+msgid "The email notice was sent not sent. Please enter email content."
+msgstr ""
+"De e-mail notificatie is niet verstuurd. Vul a.u.b. de inhoud van de e-mail "
+"in."
+
+#: ../bp-activity-subscription-functions.php:1655
+msgid " - sent from the group "
+msgstr " - verzonden van de groep "
+
+#: ../bp-activity-subscription-functions.php:1658
+#, php-format
+msgid ""
+"This is a notice from the group '%s':\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"\n"
+"To view this group log in and follow the link below:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"Dit is een notitie van de groep '%s':\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"\n"
+"Om deze groep te bekijken, login en klik op de link hieronder:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: ../bp-activity-subscription-functions.php:1669
+msgid ""
+"Please note: admin notices are sent to everyone in the group and cannot be "
+"disabled.\n"
+"If you feel this service is being misused please speak to the website "
+"administrator."
+msgstr ""
+"Opm.: Beheerder mededelingen worden naar iedereen in de groep verzonden en "
+"kunnen niet uitgeschakeld worden. \n"
+"Heb je het gevoel dat deze dienst misbruikt wordt, neem dan contact op met "
+"de website beheerder."
+
+#: ../bp-activity-subscription-functions.php:1687
+msgid "The email notice was sent successfully."
+msgstr "De e-mail is met succes verzonden."
+
+#: ../bp-activity-subscription-functions.php:1712
+msgid "The welcome email option has been saved."
+msgstr "De welkoms e-mail optie is opgeslagen."
+
+#: ../bp-activity-subscription-functions.php:1743
+#, php-format
+msgid "To disable emails from all your groups at once click: %s"
+msgstr "Om in een keer e-mails uit te schakelen van al jouw groepen klik: %s"
+
+#: ../bp-activity-subscription-functions.php:1763
+msgid "Group Forum"
+msgstr "Groep forum"
+
+#: ../bp-activity-subscription-functions.php:1764
+msgid "Yes"
+msgstr "Ja"
+
+#: ../bp-activity-subscription-functions.php:1765
+msgid "No"
+msgstr "Nee"
+
+#: ../bp-activity-subscription-functions.php:1771
+msgid "A member replies in a forum topic you've started"
+msgstr "Een lid reageerde op een forum onderwerp welke je gestart bent."
+
+#: ../bp-activity-subscription-functions.php:1777
+msgid "A member replies after you in a forum topic"
+msgstr "Een lid reageerde na jou in een forum onderwerp"
+
+#: ../bp-activity-subscription-functions.php:1783
+msgid "Receive notifications of your own posts?"
+msgstr "Ontvangen notificateis van jouw eigen berichten?"
+
+#: ../bp-activity-subscription-functions.php:1840
+msgid "Group Email Options"
+msgstr "Groep e-mail instellingen"
+
+#: ../bp-activity-subscription-functions.php:1854
+msgid "Settings saved."
+msgstr "Instellingen opgeslagen."
+
+#: ../bp-activity-subscription-functions.php:1872
+msgid "Group Email Subscription Settings"
+msgstr "Groep e-mail inschrijving instellingen"
+
+#: ../bp-activity-subscription-functions.php:1877
+msgid "Digests & Summaries"
+msgstr "Verwerking en Samenvattingen"
+
+#: ../bp-activity-subscription-functions.php:1879
+msgid ""
+"View queued digest items</a></b> (in new window)<br>As admin, you can see "
+"what is currently in the email queue by adding ?sum=1 to your url. This will "
+"not fire the digest, it will just show you what is waiting to be sent."
+msgstr ""
+"Bekijk items in een rij</a></b> (in een nieuw venster)<br>Als admin, kun je "
+"bekijken wat zich momenteel in de e-mail rij bevindt door ?sum=1 toe te "
+"voegen aan je url(internetadres). Het zal geen actie ondernemen, het toont "
+"alleen wat er in de wachtrij staat om verzonden te worden."
+
+#: ../bp-activity-subscription-functions.php:1883
+msgid "<strong>Daily Digests</strong> should be sent at this time:"
+msgstr "<strong>Dagelijkse verwerking</strong> wordt verzonden om:"
+
+#: ../bp-activity-subscription-functions.php:1900
+msgid "<strong>Weekly Summaries</strong> should be sent on:"
+msgstr "<strong>Wekelijkse samenvattingen</strong> worden verzonden op:"
+
+#: ../bp-activity-subscription-functions.php:1904
+#: ../bp-activity-subscription-functions.php:1915
+#: ../bp-activity-subscription-functions.php:2003
+msgid "Monday"
+msgstr "Maandag"
+
+#: ../bp-activity-subscription-functions.php:1905
+#: ../bp-activity-subscription-functions.php:1915
+#: ../bp-activity-subscription-functions.php:2005
+msgid "Tuesday"
+msgstr "Dinsdag"
+
+#: ../bp-activity-subscription-functions.php:1906
+#: ../bp-activity-subscription-functions.php:1915
+#: ../bp-activity-subscription-functions.php:2007
+msgid "Wednesday"
+msgstr "Woensdag"
+
+#: ../bp-activity-subscription-functions.php:1907
+#: ../bp-activity-subscription-functions.php:1915
+#: ../bp-activity-subscription-functions.php:2009
+msgid "Thursday"
+msgstr "Donderdag"
+
+#: ../bp-activity-subscription-functions.php:1908
+#: ../bp-activity-subscription-functions.php:1915
+#: ../bp-activity-subscription-functions.php:2011
+msgid "Friday"
+msgstr "Vrijdag"
+
+#: ../bp-activity-subscription-functions.php:1909
+#: ../bp-activity-subscription-functions.php:1915
+#: ../bp-activity-subscription-functions.php:2013
+msgid "Saturday"
+msgstr "Zaterdag"
+
+#: ../bp-activity-subscription-functions.php:1910
+#: ../bp-activity-subscription-functions.php:1915
+#: ../bp-activity-subscription-functions.php:2015
+msgid "Sunday"
+msgstr "Zondag"
+
+#: ../bp-activity-subscription-functions.php:1915
+#, php-format
+msgid ""
+"The server timezone is %s (%s); the current server time is %s (%s); and the "
+"day is %s."
+msgstr ""
+"De server tijdzone is %s (%s); de huidige servertijd is %s (%s); en het is "
+"vandaag %s."
+
+#: ../bp-activity-subscription-functions.php:1919
+msgid "Global Unsubscribe Link"
+msgstr "Globale Uitschrijf link"
+
+#: ../bp-activity-subscription-functions.php:1920
+msgid ""
+"Add a link in the emails and on the notifications settings page allowing "
+"users to unsubscribe from all their groups at once:"
+msgstr ""
+"Voeg een link toe aan de e-mails en de nofificatie instellingen pagina zodat "
+"gebruikers zich in een keer uit kunnen schrijven voor al hun groepen:"
+
+#: ../bp-activity-subscription-functions.php:1922
+#: ../bp-activity-subscription-functions.php:1931
+#: ../bp-activity-subscription-functions.php:1936
+msgid "yes"
+msgstr "ja"
+
+#: ../bp-activity-subscription-functions.php:1923
+#: ../bp-activity-subscription-functions.php:1932
+#: ../bp-activity-subscription-functions.php:1937
+msgid "no"
+msgstr "nee"
+
+#: ../bp-activity-subscription-functions.php:1928
+msgid "Group Admin Abilities"
+msgstr "Groep Admin rechten"
+
+#: ../bp-activity-subscription-functions.php:1929
+msgid ""
+"Allow group admins and mods to change members' email subscription settings: "
+msgstr ""
+"Laat groep admins en moderatoren de e-mail instellingen van de leden "
+"wijzigen: "
+
+#: ../bp-activity-subscription-functions.php:1934
+msgid ""
+"Allow group admins to override subscription settings and send an email to "
+"everyone in their group: "
+msgstr ""
+"Laat groep admins inschrijving instellingen overschrijven en e-mail "
+"verzenden naar iedereen in hun groep: "
+
+#: ../bp-activity-subscription-functions.php:1941
+msgid "Spam Prevention"
+msgstr "Spam preventie"
+
+#: ../bp-activity-subscription-functions.php:1942
+msgid ""
+"To help protect against spam, you may wish to require a user to have been a "
+"member of the site for a certain amount of days before any group updates are "
+"emailed to the other group members. This is disabled by default."
+msgstr ""
+"Om je tegen spam te helpen beschermen van een nieuw lid. Misschien wil je  "
+"wachten met e-mail notificatie van deze groep tot het nieuwe lid  een aantal "
+"dagen staat ingeschreven.  Dit is standaard uitgeschakeld."
+
+#: ../bp-activity-subscription-functions.php:1943
+msgid "Member must be registered for"
+msgstr "Een nieuw lid moet "
+
+#: ../bp-activity-subscription-functions.php:1943
+msgid "days"
+msgstr ""
+" dagen geregistreerd zijn, voor deze activiteiten mail van de groep  "
+"ontvangt."
+
+#: ../bp-activity-subscription-functions.php:1954
+#, php-format
+msgid "If you enjoy using this plugin %s please rate it %s."
+msgstr "Vind je deze plugin %s nuttig, geef het een waardering %s."
+
+#: ../bp-activity-subscription-functions.php:1955
+msgid "Please make a donation to the team to support ongoing development."
+msgstr ""
+"Doneer iets aan het ontwikkelteam van deze plugin, zodat ze de verdere "
+"ontwikkeling kunnen voortzetten."
+
+#: ../bp-activity-subscription-main.php:10
+msgid "Email opties"
+msgstr "E-mail instellingen"
+
+#: ../bp-activity-subscription-main.php:51
+msgid "Error"
+msgstr "Fout"
+
+#~ msgid "Email Options"
+#~ msgstr "E-mail instellingen"
+
+#~ msgid ""
+#~ "%s\n"
+#~ "\n"
+#~ "\"%s\"\n"
+#~ "\n"
+#~ "To view or reply to this topic, log in and follow the link below:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "---------------------\n"
+#~ msgstr ""
+#~ "%s\n"
+#~ "\n"
+#~ "\"%s\"\n"
+#~ "\n"
+#~ "Om dit onderwerp te bekijken, of te reageren, login en klik op "
+#~ "onderstaande link:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "---------------------\n"
+
+#~ msgid ""
+#~ "%s\n"
+#~ "\n"
+#~ "\"%s\"\n"
+#~ "\n"
+#~ "To view or reply, log in and follow the link below:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "---------------------\n"
+#~ msgstr ""
+#~ "%s\n"
+#~ "\n"
+#~ "\"%s\"\n"
+#~ "\n"
+#~ "Om te bekijken of te antwoorden, login en klik op onderstaande link:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "---------------------\n"
+
+#~ msgid "To follow, view or reply to"
+#~ msgstr "Om te volgen, bekijken of te reageren op"
+
+#~ msgid "General"
+#~ msgstr "Algemeen"
+
+#~ msgid "Activity from the group \"%s\""
+#~ msgstr "Activiteit van de groep \"%s\""
+
+#~ msgid "New topics for \"%s\""
+#~ msgstr "Nieuwe onderwerpen van \"%s\""

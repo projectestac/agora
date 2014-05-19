@@ -1,0 +1,602 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Persian BuddyPress Group Email Subscription\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-26 13:48-0800\n"
+"PO-Revision-Date: 2011-10-18 19:48+0330\n"
+"Last-Translator: Vahid Masoomi <masoomi.vahid@gmail.com>\n"
+"Language-Team: Vahid Masoomi <masoomi.vahid@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: /Volumes/Macintosh HD/Users/deryk/Sites/bp/wp-content/plugins/buddypress-group-email-subscription/\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-Country: IRAN, ISLAMIC REPUBLIC OF\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: bp-activity-subscription-digest.php:49
+msgid "Your daily digest of group activity"
+msgstr "فعالیتهای روزانه گروه محبوب شما"
+
+#: bp-activity-subscription-digest.php:51
+msgid "Your weekly summary of group topics"
+msgstr "خلاصه هفتگی موضوعات گروه"
+
+#: bp-activity-subscription-digest.php:57
+#, php-format
+msgid "You have received this message because you are subscribed to receive a digest of activity in some of your groups on %s."
+msgstr "این ایمیل به صورت خودکار برای شما ارسال می شود. چون شما قبلا در %s ، خواستار دریافت خلاصه ای از آخرین محتوا و فعالیتهای گروه محبوب خود بوده اید."
+
+#: bp-activity-subscription-digest.php:92
+msgid "at"
+msgstr "در"
+
+#: bp-activity-subscription-digest.php:99
+#, php-format
+msgid "(%s items)"
+msgstr "(%s آیتم)"
+
+#: bp-activity-subscription-digest.php:110
+msgid "Group Summary"
+msgstr "خلاصه گروه"
+
+#: bp-activity-subscription-digest.php:115
+msgid "How to follow a topic: to get email updates for a specific topic, click the topic title - then on the webpage click the <i>Follow this topic</i> button. (If you don't see the button you need to login first.)"
+msgstr "چگونه می توان یک موضوع را دنبال کرد: ابتدا بر روی عنوان موضوع مورد نظر کلیک کرده، سپس <i>اشتراک این موضوع</i> را انتخاب کنید. (درصورتی که قادر به مشاهده این گزینه نیستید، میبایست وارد حساب کاربری خود شوید.)"
+
+#: bp-activity-subscription-digest.php:119
+#, php-format
+msgid "To disable these notifications please login and go to: %s where you can change your email settings for each group."
+msgstr "برای غیرفعال سازی این اعلان، پس از وارد شدن به حساب کاربری خود، به %s ، یعنی جایی که می توانید تنظیمات اشتراک ایمیل خود را برای هر گروه تغییر دهید، مراجعه کنید."
+
+#: bp-activity-subscription-digest.php:119
+#: bp-activity-subscription-functions.php:953
+msgid "My Groups"
+msgstr "گروه های من"
+
+#: bp-activity-subscription-digest.php:165
+msgid "DAILY DIGEST:"
+msgstr "اشتراک روزانه:"
+
+#: bp-activity-subscription-digest.php:167
+msgid "WEEKLY DIGEST:"
+msgstr "اشتراک هفتگی:"
+
+#: bp-activity-subscription-digest.php:188
+#, php-format
+msgid "Group: %s"
+msgstr "گروه: %s"
+
+#: bp-activity-subscription-digest.php:190
+#, php-format
+msgid "Group: %s weekly summary"
+msgstr "گروه: %s خلاصه عملکرد هفتگی"
+
+#: bp-activity-subscription-digest.php:194
+msgid "change "
+msgstr "تغییر"
+
+#: bp-activity-subscription-digest.php:194
+msgid "email options"
+msgstr "تنظیمات ایمیل"
+
+#: bp-activity-subscription-digest.php:194
+msgid "for this group"
+msgstr "برای این گروه"
+
+#: bp-activity-subscription-digest.php:255
+#: bp-activity-subscription-digest.php:285
+#, php-format
+msgid "at %s, %s"
+msgstr "در %s، %s"
+
+#: bp-activity-subscription-digest.php:263
+msgid "View"
+msgstr "مشاهده"
+
+#: bp-activity-subscription-digest.php:281
+#, php-format
+msgid "(%s replies)"
+msgstr "(%s پاسخ)"
+
+#: bp-activity-subscription-digest.php:383
+msgid "Once Weekly"
+msgstr "یکبار در هفته"
+
+#: bp-activity-subscription-functions.php:43
+#: bp-activity-subscription-functions.php:118
+#, php-format
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"To view or reply to this topic, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"جهت مشاهده و پاسخ به این موضوع، لطفاً وارد حساب کاربری خود شوید: \n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:55
+#: bp-activity-subscription-functions.php:130
+#: bp-activity-subscription-functions.php:238
+#, php-format
+msgid "To disable these notifications please log in and go to: %s"
+msgstr "جهت لغو این اعلان، لطفا وارد حساب کاربری خود شده و روی این لینک کلیک کنید:  %s"
+
+#: bp-activity-subscription-functions.php:71
+#: bp-activity-subscription-functions.php:177
+#: bp-activity-subscription-functions.php:262
+msgid "Your email setting for this group is: "
+msgstr "تنظیمات شما برای این گروه: "
+
+#: bp-activity-subscription-functions.php:74
+msgid ", therefore you won't receive replies to this topic. To get them, click the link to view this topic on the web then click the 'Follow this topic' button."
+msgstr "،... درصورتی که مایل به دریافت پاسخ های این موضوع هستید، این لینک را کلیک کرده و سپس گزینه 'اشتراک این موضوع' را انتخاب نمائید!"
+
+#: bp-activity-subscription-functions.php:226
+#, php-format
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"To view or reply, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"جهت مشاهده و پاسخ، لطفاً وارد حساب کاربری خود شوید: \n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:358
+msgid "Email Subscription Options"
+msgstr "تنظیمات اشتراک ایمیل"
+
+#: bp-activity-subscription-functions.php:363
+msgid "How do you want to read this group?"
+msgstr "مایلید چگونه از آخرین عملکرد و آخرین محتوای این گروه مطلع شوید؟"
+
+#: bp-activity-subscription-functions.php:366
+#: bp-activity-subscription-functions.php:431
+#: bp-activity-subscription-functions.php:486
+#: bp-activity-subscription-functions.php:867
+msgid "No Email"
+msgstr "بدون اشتراک"
+
+#: bp-activity-subscription-functions.php:367
+#: bp-activity-subscription-functions.php:486
+msgid "I will read this group on the web"
+msgstr "مایلم محتوای این گروه را به صورت آنلاین بخوانم!"
+
+#: bp-activity-subscription-functions.php:371
+msgid "Weekly Summary Email"
+msgstr "هفتگی"
+
+#: bp-activity-subscription-functions.php:372
+msgid "Get a summary of new topics each week"
+msgstr "مایلم محتوای این گروه را به صورت هفتگی دریافت نمایم!"
+
+#: bp-activity-subscription-functions.php:376
+msgid "Daily Digest Email"
+msgstr "روزانه"
+
+#: bp-activity-subscription-functions.php:377
+msgid "Get all the day's activity bundled into a single email"
+msgstr "مایلم تمام محتوای روزانه این گروه را در قالب یک ایمیل دریافت نمایم!"
+
+#: bp-activity-subscription-functions.php:381
+msgid "New Topics Email"
+msgstr "موضوعات جدید"
+
+#: bp-activity-subscription-functions.php:382
+msgid "Send new topics as they arrive (but don't send replies)"
+msgstr "مایلم فقط موضوعات جدید را دریافت کنم!"
+
+#: bp-activity-subscription-functions.php:386
+#: bp-activity-subscription-functions.php:439
+#: bp-activity-subscription-functions.php:490
+#: bp-activity-subscription-functions.php:871
+msgid "All Email"
+msgstr "همه"
+
+#: bp-activity-subscription-functions.php:387
+#: bp-activity-subscription-functions.php:490
+msgid "Send all group activity as it arrives"
+msgstr "مایلم تمام عملکردهای گروه را به محض انجام شدن آنها، دریافت نمایم!"
+
+#: bp-activity-subscription-functions.php:390
+#: bp-activity-subscription-functions.php:1185
+msgid "Save Settings"
+msgstr "ذخیره تغییرات"
+
+#: bp-activity-subscription-functions.php:392
+msgid "Note: Normally, you receive email notifications for topics you start or comment on. This can be changed at"
+msgstr "توجه: در حالت عادی، ایمیل اعلان درمورد موضوعات آغاز شده توسط شما و پاسخ داده شده توسط اعضا، برایتان ارسال می شود. شما می توانید این امکان را در اینجا تغییر دهید: "
+
+#: bp-activity-subscription-functions.php:392
+msgid "email notifications"
+msgstr "اعلانات ایمیل"
+
+#: bp-activity-subscription-functions.php:419
+msgid "Your email notifications are set to "
+msgstr "اعلانات ایمیل شما تنظیم شده است بر روی "
+
+#: bp-activity-subscription-functions.php:433
+#: bp-activity-subscription-functions.php:487
+msgid "Weekly Summary"
+msgstr "هفتگی"
+
+#: bp-activity-subscription-functions.php:435
+#: bp-activity-subscription-functions.php:488
+msgid "Daily Digest"
+msgstr "روزانه"
+
+#: bp-activity-subscription-functions.php:437
+#: bp-activity-subscription-functions.php:489
+#: bp-activity-subscription-functions.php:870
+msgid "New Topics"
+msgstr "موضوعات جدید"
+
+#: bp-activity-subscription-functions.php:464
+msgid "Your email status is "
+msgstr "وضعیت دریافت ایمیل:"
+
+#: bp-activity-subscription-functions.php:465
+msgid "change"
+msgstr "تغییر"
+
+#: bp-activity-subscription-functions.php:471
+msgid "Get email updates"
+msgstr "دریافت محتوا از طریق ایمیل"
+
+#: bp-activity-subscription-functions.php:482
+msgid "Change your email subscription options for this group"
+msgstr "تغییر نحوه اشتراک موضوعات در این گروه"
+
+#: bp-activity-subscription-functions.php:487
+msgid "Get a summary of topics each"
+msgstr "مایلم محتوای این گروه را به صورت هفتگی دریافت نمایم!"
+
+#: bp-activity-subscription-functions.php:488
+msgid "Get the day's activity bundled into one email"
+msgstr "مایلم تمام محتوای روزانه این گروه را در قالب یک ایمیل دریافت نمایم!"
+
+#: bp-activity-subscription-functions.php:489
+msgid "Send new topics as they arrive (but no replies)"
+msgstr "مایلم فقط موضوعات جدید را دریافت کنم!"
+
+#: bp-activity-subscription-functions.php:491
+msgid "close"
+msgstr "بستن"
+
+#: bp-activity-subscription-functions.php:564
+msgid "You successfully joined the group. Your group email status is: "
+msgstr "شما با موفقیت به این گروه پیوستید! وضعیت اشتراک موضوعات این گروه برای شما، این چنین است: "
+
+#: bp-activity-subscription-functions.php:575
+msgid "Email Subscription Defaults"
+msgstr "تنظیمات پیشفرض اشتراک کاربران از طریق ایمیل"
+
+#: bp-activity-subscription-functions.php:576
+msgid "When new users join this group, their default email notification settings will be:"
+msgstr "هنگامی که اعضای جدید به این گروه ملحق می شوند، تنظیمات پیشفرض اشتراک ایمیل آنها، این چنین باشد:"
+
+#: bp-activity-subscription-functions.php:579
+msgid "No Email (users will read this group on the web - good for any group - the default)"
+msgstr "بدون اشتراک (اعضا باید از طریق سایت آخرین عملکرد و محتوای گروه را مشاهده کنند - مناسب برای تمام گروه ها - پیشنهاد می شود!)"
+
+#: bp-activity-subscription-functions.php:581
+msgid "Weekly Summary Email (the week's topics - good for large groups)"
+msgstr "اشتراک هفتگی (مناسب برای گروه های بزرگ با محتوای بیشتر)"
+
+#: bp-activity-subscription-functions.php:583
+msgid "Daily Digest Email (all daily activity bundles in one email - good for medium-size groups)"
+msgstr "اشتراک روزانه (مناسب برای گروه های نیمه بزرگ با محتوای نه چندان زیاد)"
+
+#: bp-activity-subscription-functions.php:585
+msgid "New Topics Email (new topics are sent as they arrive, but not replies - good for small groups)"
+msgstr "دریافت موضوعات جدید به محض ارسال شدن آنها (مناسب برای گروه های کوچک با محتوای کمتر)"
+
+#: bp-activity-subscription-functions.php:587
+msgid "All Email (send emails about everything - recommended only for working groups)"
+msgstr "اشتراک همه موضوعات، نظرات و محتوا (مناسب برای گروه های فعال)"
+
+#: bp-activity-subscription-functions.php:671
+msgid "Follow"
+msgstr "اشتراک"
+
+#: bp-activity-subscription-functions.php:672
+msgid "You are not following this topic. Click to follow it and get email updates for new posts"
+msgstr "شما هنوز مشترک این موضوع نشده اید. جهت دریافت ایمیل درمورد این موضوع، کلیک کنید!"
+
+#: bp-activity-subscription-functions.php:675
+msgid "Mute"
+msgstr "لغو"
+
+#: bp-activity-subscription-functions.php:676
+msgid "You are following this topic. Click to stop getting email updates"
+msgstr "شما مشترک این موضوع شده اید. جهت لغو دریافت ایمیل درمورد این موضوع، کلیک کنید!"
+
+#: bp-activity-subscription-functions.php:682
+msgid "This conversation is muted. Click to follow it"
+msgstr "اطلاع از آخرین ارسال در این موضوع، غیرفعال شده است. برای فعال سازی، روی اشتراک این موضوع کلیک کنید!"
+
+#: bp-activity-subscription-functions.php:686
+msgid "this topic"
+msgstr "این موضوع"
+
+#: bp-activity-subscription-functions.php:704
+msgid "Email"
+msgstr "وضعیت اشتراک"
+
+#: bp-activity-subscription-functions.php:845
+#: bp-activity-subscription-functions.php:865
+msgid "Email status:"
+msgstr "وضعیت دریافت ایمیل:"
+
+#: bp-activity-subscription-functions.php:866
+msgid "Change to:"
+msgstr "تغییر به:"
+
+#: bp-activity-subscription-functions.php:868
+msgid "Weekly"
+msgstr "هفتگی"
+
+#: bp-activity-subscription-functions.php:869
+msgid "Daily"
+msgstr "روزانه"
+
+#: bp-activity-subscription-functions.php:894
+msgid "User email status changed successfully"
+msgstr "وضعیت اشتراک موضوعات با موفقیت تغییر کرد!"
+
+#: bp-activity-subscription-functions.php:915
+msgid "Site Admin Only: update email subscription settings for ALL members to the default:"
+msgstr "فقط مدیر شبکه: بروز رسانی اشتراک ایمیل همه کاربران به عنوان اشتراک پیشفرض:"
+
+#: bp-activity-subscription-functions.php:915
+msgid "Warning: this is not reversible so use with caution."
+msgstr "هشدار: اقدام شما قابل بازیابی نیست. لطفاً با اطمینان تصمیم بگیرید!"
+
+#: bp-activity-subscription-functions.php:915
+msgid "Make it so!"
+msgstr "Make it so!"
+
+#: bp-activity-subscription-functions.php:942
+msgid "All user email status's changed successfully"
+msgstr "وضعیت اشتراک همه کاربران با موفقیت تغییر یافت!"
+
+#: bp-activity-subscription-functions.php:952
+msgid "Group Email Settings"
+msgstr "تنظیمات ایمیل گروه"
+
+#: bp-activity-subscription-functions.php:953
+#, php-format
+msgid "To change the email notification settings for your groups go to %s and click change for each group."
+msgstr "جهت تغییر اعلانات ایمیل درمورد گروه، به بخش %s رفته و تغییرات را برای هرکدام، اعمال نمائید!"
+
+#: bp-activity-subscription-functions.php:976
+msgid "Send an email notice to everyone in the group"
+msgstr "ارسال اطلاعیه عمومی به اعضای این گروه"
+
+#: bp-activity-subscription-functions.php:977
+msgid "You can use the form below to send an email notice to all group members."
+msgstr "از طریق فرم زیر می توانید اطلاعیه ای برای تمام اعضای گروه ارسال کنید!"
+
+#: bp-activity-subscription-functions.php:978
+msgid "Everyone in the group will receive the email -- regardless of their email settings -- so use with caution"
+msgstr "همه اعضای گروه، بدون درنظر گرفتن تنظیمات دریافت اعلانات، این ایمیل را دریافت خواهند کرد. بنابراین با احتیاط عمل کنید!"
+
+#: bp-activity-subscription-functions.php:982
+msgid "Email Subject:"
+msgstr "عنوان ایمیل:"
+
+#: bp-activity-subscription-functions.php:984
+msgid "Email Content:"
+msgstr "محتوای ایمیل:"
+
+#: bp-activity-subscription-functions.php:986
+msgid "Email this notice to everyone in the group"
+msgstr "این اطلاعیه را از طریق ایمیل به تمام اعضای این گروه ارسال کن"
+
+#: bp-activity-subscription-functions.php:1013
+msgid " - sent from the group "
+msgstr " - ارسال شد از گروه "
+
+#: bp-activity-subscription-functions.php:1015
+#, php-format
+msgid ""
+"This is a notice from the group '%s':\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"\n"
+"To view this group log in and follow the link below:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"این یک اطلاعیه از طرف گروه  '%s' است:\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"\n"
+"جهت مشاهده این گروه، وارد حساب کاربری خود شده و اینجا را کلیک کنید: \n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:1026
+msgid ""
+"Please note: admin notices are sent to everyone in the group and cannot be disabled. \n"
+"If you feel this service is being misused please speak to the website administrator."
+msgstr ""
+"توجه: اطلاعیه های مدیر، برای همه ارسال شده و امکان غیرفعال سازی آن وجود ندارد.\n"
+"درصورتی که احساس می کنید این اطلاعیه ها برای شما مفید نیست، با مدیریت شبکه تماس بگیرید!"
+
+#: bp-activity-subscription-functions.php:1038
+msgid "The email notice was sent successfully."
+msgstr "ایمیل حاوی اطلاعیه با موفقیت ارسال شد!"
+
+#: bp-activity-subscription-functions.php:1057
+msgid "Group Forum"
+msgstr "انجمن گروه"
+
+#: bp-activity-subscription-functions.php:1058
+msgid "Yes"
+msgstr "بله"
+
+#: bp-activity-subscription-functions.php:1059
+msgid "No"
+msgstr "نخیر"
+
+#: bp-activity-subscription-functions.php:1065
+msgid "A member replies in a forum topic you've started"
+msgstr "یکی از اعضا، در موضوعی که در انجمن آغاز کرده بودید، پاسخی ارسال کرد!"
+
+#: bp-activity-subscription-functions.php:1071
+msgid "A member replies after you in a forum topic"
+msgstr "یکی از اعضا، بعد از شما در یکی از موضوعات انجمن پاسخی ارسال کرد!"
+
+#: bp-activity-subscription-functions.php:1077
+msgid "Receive notifications of your own posts?"
+msgstr "از آخرین ارسالهای خودتان، مطلع شوید!"
+
+#: bp-activity-subscription-functions.php:1096
+msgid "Group Email Options"
+msgstr "تنظیمات ایمیل گروه"
+
+#: bp-activity-subscription-functions.php:1118
+msgid "Group Email Subscription Settings"
+msgstr "تنظیمات اشتراک ایمیل گروه"
+
+#: bp-activity-subscription-functions.php:1123
+msgid "Digests & Summaries"
+msgstr "خلاصه ها"
+
+#: bp-activity-subscription-functions.php:1125
+msgid "View queued digest items</a></b> (in new window)<br>As admin, you can see what is currently in the email queue by adding ?sum=1 to your url. This will not fire the digest, it will just show you what is waiting to be sent."
+msgstr "View queued digest items</a></b> (in new window)<br>As admin, you can see what is currently in the email queue by adding ?sum=1 to your url. This will not fire the digest, it will just show you what is waiting to be sent."
+
+#: bp-activity-subscription-functions.php:1129
+msgid "<strong>Daily Digests</strong> should be sent at this time:"
+msgstr "<strong>خلاصه روزانه</strong> باید در این ساعت ارسال شود: "
+
+#: bp-activity-subscription-functions.php:1146
+msgid "<strong>Weekly Summaries</strong> should be sent on:"
+msgstr "<strong>خلاصه هفتگی</strong> باید در این زمان ارسال شود: "
+
+#: bp-activity-subscription-functions.php:1150
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1237
+msgid "Monday"
+msgstr "دوشنبه"
+
+#: bp-activity-subscription-functions.php:1151
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1239
+msgid "Tuesday"
+msgstr "سه شنبه"
+
+#: bp-activity-subscription-functions.php:1152
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1241
+msgid "Wednesday"
+msgstr "چهارشنبه"
+
+#: bp-activity-subscription-functions.php:1153
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1243
+msgid "Thursday"
+msgstr "پنجشنبه"
+
+#: bp-activity-subscription-functions.php:1154
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1245
+msgid "Friday"
+msgstr "جمعه"
+
+#: bp-activity-subscription-functions.php:1155
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1247
+msgid "Saturday"
+msgstr "شنبه"
+
+#: bp-activity-subscription-functions.php:1156
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1249
+msgid "Sunday"
+msgstr "یکشنبه"
+
+#: bp-activity-subscription-functions.php:1161
+#, php-format
+msgid "The server timezone is %s (%s); the current server time is %s (%s); and the day is %s."
+msgstr "موقعیت زمانی سرور %s (%s) بوده و زمان فعلی سرور %s (%s) و روز %s می باشد."
+
+#: bp-activity-subscription-functions.php:1166
+msgid "Group Admin Abilities"
+msgstr "اختیارات مدیران گروه"
+
+#: bp-activity-subscription-functions.php:1167
+msgid "Allow group admins and mods to change members' email subscription settings: "
+msgstr "مدیران و ناظران گروه می توانند تنظیمات اشتراک ایمیل اعضا را تغییر دهند!"
+
+#: bp-activity-subscription-functions.php:1169
+#: bp-activity-subscription-functions.php:1174
+msgid "yes"
+msgstr "بله"
+
+#: bp-activity-subscription-functions.php:1170
+#: bp-activity-subscription-functions.php:1175
+msgid "no"
+msgstr "نخیر"
+
+#: bp-activity-subscription-functions.php:1172
+msgid "Allow group admins to override subscription settings and send an email to everyone in their group: "
+msgstr "مدیران و ناظران گروه می توانند تنظیمات اشتراک ایمیل را نادیده گفته و به همه اعضای گروه، ایمیل ارسال کنند!"
+
+#: bp-activity-subscription-functions.php:1179
+msgid "Spam Prevention"
+msgstr "پیشگیری از هرزنامه ها"
+
+#: bp-activity-subscription-functions.php:1180
+msgid "To help protect against spam, you may wish to require a user to have been a member of the site for a certain amount of days before any group updates are emailed to the other group members. This is disabled by default."
+msgstr "To help protect against spam, you may wish to require a user to have been a member of the site for a certain amount of days before any group updates are emailed to the other group members. This is disabled by default."
+
+#: bp-activity-subscription-functions.php:1181
+msgid "Member must be registered for"
+msgstr "کاربران باید تا این مدت عضو شبکه باشند: "
+
+#: bp-activity-subscription-functions.php:1181
+msgid "days"
+msgstr "روز"
+
+#: bp-activity-subscription-functions.php:1192
+#, php-format
+msgid "If you enjoy using this plugin %s please rate it %s."
+msgstr "درصورتی که از عملکرد این افزونه راضی هستید %s به آن امتیاز بدهید %s."
+
+#: bp-activity-subscription-functions.php:1193
+msgid "Please make a donation to the team to support ongoing development."
+msgstr "با کمک مالی، نویسنده این افزونه را در امر بهینه سازی هرچه بیشتر و سریعتر، یاری کنید:"
+
+#: bp-activity-subscription-main.php:12
+msgid "Email Options"
+msgstr "تنظیمات ایمیل"
+

@@ -1,0 +1,864 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BuddyPress Group Email Subscription\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/buddypress-group-email-"
+"subscription\n"
+"POT-Creation-Date: 2012-05-18 13:04:15+00:00\n"
+"PO-Revision-Date: 2012-11-27 10:50+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: bp-activity-subscription-digest.php:54
+msgid "Your daily digest of group activity"
+msgstr "Din daglige sammenfatning af gruppeaktivitet"
+
+#: bp-activity-subscription-digest.php:56
+msgid "Your weekly summary of group topics"
+msgstr "Din ugentlige sammenfatning af emner"
+
+#: bp-activity-subscription-digest.php:64
+msgid ""
+"You have received this message because you are subscribed to receive a "
+"digest of activity in some of your groups on %s."
+msgstr ""
+"Du har modtaget denne besked fordi du abonnerer på sammenfatninger af "
+"aktiviteter i nogle af dine grupper på %s."
+
+#: bp-activity-subscription-digest.php:127
+msgid "at"
+msgstr "på"
+
+#: bp-activity-subscription-digest.php:135
+msgid "(%s items)"
+msgstr "(%s emner)"
+
+#: bp-activity-subscription-digest.php:146
+msgid "Group Summary"
+msgstr "Gruppesammenfatning"
+
+#: bp-activity-subscription-digest.php:151
+msgid ""
+"How to follow a topic: to get email updates for a specific topic, click the "
+"topic title - then on the webpage click the <i>Follow this topic</i> button. "
+"(If you don't see the button you need to login first.)"
+msgstr ""
+"At følge et emne: For at få e-mail opdateringer om et bestemt emne, klik på "
+"emnets titel - på websiden klik på <i>Følg dette emne</i> knappen. (Hvis du "
+"ikke kan se knappen skal du først logge ind.)"
+
+#: bp-activity-subscription-digest.php:155
+msgid ""
+"To disable these notifications per group please login and go to: %s where "
+"you can change your email settings for each group."
+msgstr ""
+"Slå disse meddelelser fra gruppevis ved at logge ind og gå til: %s hvor du "
+"kan ændre dine e-mail indstillinger for hver gruppe."
+
+#: bp-activity-subscription-digest.php:155
+#: bp-activity-subscription-functions.php:1148
+msgid "My Groups"
+msgstr "Mine grupper"
+
+#: bp-activity-subscription-digest.php:159
+msgid "Disable these notifications for all my groups at once."
+msgstr "Slå disse meddelelser fra for alle mine grupper på en gang."
+
+#: bp-activity-subscription-digest.php:208
+msgid "DAILY DIGEST:"
+msgstr "DAGLIG SAMMENFATNING:"
+
+#: bp-activity-subscription-digest.php:210
+msgid "WEEKLY DIGEST:"
+msgstr "UGENTLIG SAMMENFATNING:"
+
+#: bp-activity-subscription-digest.php:245
+msgid "Group: %s"
+msgstr "Gruppe: %s"
+
+#: bp-activity-subscription-digest.php:247
+msgid "Group: %s weekly summary"
+msgstr "Gruppe: %s ugentlig sammenfatning"
+
+#: bp-activity-subscription-digest.php:252
+msgid "To disable these notifications for this group click "
+msgstr "Slå disse meddelelser fra for denne gruppe ved at klikke "
+
+#: bp-activity-subscription-digest.php:252
+msgid "unsubscribe"
+msgstr "afmeld"
+
+#: bp-activity-subscription-digest.php:253
+msgid "change "
+msgstr "skift"
+
+#: bp-activity-subscription-digest.php:253
+msgid "email options"
+msgstr "e-mail indstillinger"
+
+#: bp-activity-subscription-digest.php:329
+#: bp-activity-subscription-digest.php:362
+msgid "at %s, %s"
+msgstr "på %s, %s"
+
+#: bp-activity-subscription-digest.php:337
+#: bp-activity-subscription-digest.php:340
+msgid "View"
+msgstr "Se"
+
+#: bp-activity-subscription-digest.php:358
+msgid "(%s replies)"
+msgstr "(%s svar)"
+
+#: bp-activity-subscription-digest.php:468
+msgid "Once Weekly"
+msgstr "Ugentligt"
+
+#: bp-activity-subscription-functions.php:20
+msgid "To disable all notifications for this group, click: %s"
+msgstr "Slå alle meddelelser fra denne gruppe fra ved at klikke : %s"
+
+#: bp-activity-subscription-functions.php:24
+msgid "Or to disable notifications for *all* your groups, click: %s"
+msgstr "Eller for at slå meddelelser fra *alle* dine grupper fra, klik : %s"
+
+#: bp-activity-subscription-functions.php:81
+msgid "%s started the forum topic \"%s\" in the group \"%s\""
+msgstr "%s startede forumemnet \"%s\" i gruppen \"%s\""
+
+#: bp-activity-subscription-functions.php:89
+msgid "%s replied to the forum topic \"%s\" in the group \"%s\""
+msgstr "%s svarede på forumemnet \"%s\" i gruppen \"%s\""
+
+#: bp-activity-subscription-functions.php:105
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"To view or reply to this topic, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"For at læse eller svare på dette emne, log ind og gå til:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:157
+#: bp-activity-subscription-functions.php:183
+#: bp-activity-subscription-functions.php:393
+msgid "Your email setting for this group is: "
+msgstr "Din e-mail indstilling for denne gruppe er:"
+
+#: bp-activity-subscription-functions.php:161
+msgid ""
+", therefore you won't receive replies to this topic. To get them, click the "
+"link to view this topic on the web then click the 'Follow this topic' button."
+msgstr ""
+", derfor vil du ikke modtage svar til dette emne. For at modtage dem, klik "
+"på linket for at se emnet på nettet og klik så på 'Følg dette emne' knappen"
+
+#: bp-activity-subscription-functions.php:184
+msgid ""
+"To change your email setting for this group, please log in and go to: %s"
+msgstr ""
+"Du kan ændre dine e-mailindstillinger for denne gruppe ved at logge ind og "
+"gå til: %s"
+
+#: bp-activity-subscription-functions.php:197
+#: bp-activity-subscription-functions.php:210
+#: bp-activity-subscription-functions.php:223
+msgid "To disable these notifications please log in and go to: %s"
+msgstr "Slå disse meddelelser fra ved at logge ind og gå til: %s"
+
+#: bp-activity-subscription-functions.php:198
+msgid ""
+"Once you are logged in, click on the \"Mute this topic\" button to "
+"unsubscribe from the forum thread."
+msgstr ""
+"Når du er logget ind, klik på \"Følg ikke\" knappen for at afmelde "
+"notifikationer fra dette forumemne."
+
+#: bp-activity-subscription-functions.php:209
+msgid ""
+"You are currently receiving notifications to topics that you have started."
+msgstr "Du modtager i øjeblikket notifikationer om emner du har startet."
+
+#: bp-activity-subscription-functions.php:211
+msgid ""
+"Once you are logged in, uncheck \"A member replies in a forum topic you've "
+"started\"."
+msgstr ""
+"Når du er logget ind, fjern hakket ved \"En bruger svarer på et forumemne du "
+"har startet\"."
+
+#: bp-activity-subscription-functions.php:222
+msgid ""
+"You are currently receiving notifications to topics that you have replied in."
+msgstr "Du modtager i øjeblikket notifikationer om emner du har svaret på."
+
+#: bp-activity-subscription-functions.php:224
+msgid ""
+"Once you are logged in, uncheck \"A member replies after you in a forum topic"
+"\"."
+msgstr ""
+"Når du er logget ind, fjerne hakket ved \"En bruger svarer efter dig i et "
+"forumemne\"."
+
+#: bp-activity-subscription-functions.php:309
+msgid "in the group"
+msgstr "i gruppen"
+
+#: bp-activity-subscription-functions.php:329
+msgid ""
+"%s\n"
+"\n"
+"To view or reply, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"For at læse eller svare, log ind og gå til:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:338
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"To view or reply, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"For at læse eller svare, log ind og gå til:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:497
+msgid "Email Subscription Options"
+msgstr "E-mail abonnementer"
+
+#: bp-activity-subscription-functions.php:502
+msgid "How do you want to read this group?"
+msgstr "Hvordan vil du læse denne gruppe"
+
+#: bp-activity-subscription-functions.php:505
+#: bp-activity-subscription-functions.php:570
+#: bp-activity-subscription-functions.php:629
+#: bp-activity-subscription-functions.php:1023
+msgid "No Email"
+msgstr "Ingen e-mail"
+
+#: bp-activity-subscription-functions.php:506
+#: bp-activity-subscription-functions.php:629
+msgid "I will read this group on the web"
+msgstr "Jeg vil læse denne gruppe på nettet"
+
+#: bp-activity-subscription-functions.php:510
+msgid "Weekly Summary Email"
+msgstr "Ugentlig sammenfatning"
+
+#: bp-activity-subscription-functions.php:511
+msgid "Get a summary of new topics each week"
+msgstr "Få en ugentlig sammenfatning af nye emner hver uge"
+
+#: bp-activity-subscription-functions.php:515
+msgid "Daily Digest Email"
+msgstr "Daglig opsummering"
+
+#: bp-activity-subscription-functions.php:516
+msgid "Get all the day's activity bundled into a single email"
+msgstr "Få alle dagens aktiviteter samlet i en enkelt e-mail"
+
+#: bp-activity-subscription-functions.php:520
+msgid "New Topics Email"
+msgstr "Nye emner"
+
+#: bp-activity-subscription-functions.php:521
+msgid "Send new topics as they arrive (but don't send replies)"
+msgstr "Send nye emner når de startes (men send ikke svar til emnerne)"
+
+#: bp-activity-subscription-functions.php:525
+#: bp-activity-subscription-functions.php:578
+#: bp-activity-subscription-functions.php:633
+#: bp-activity-subscription-functions.php:1027
+msgid "All Email"
+msgstr "Alt"
+
+#: bp-activity-subscription-functions.php:526
+#: bp-activity-subscription-functions.php:633
+msgid "Send all group activity as it arrives"
+msgstr "Send alle gruppens aktiviteter når de finder sted"
+
+#: bp-activity-subscription-functions.php:529
+#: bp-activity-subscription-functions.php:1667
+msgid "Save Settings"
+msgstr "Gem indstillinger"
+
+#: bp-activity-subscription-functions.php:531
+msgid ""
+"Note: Normally, you receive email notifications for topics you start or "
+"comment on. This can be changed at"
+msgstr ""
+"Bemærk: Normalt modtager du e-mail om de emner du starter eller kommenterer. "
+"Dette kan ændres i"
+
+#: bp-activity-subscription-functions.php:531
+msgid "email notifications"
+msgstr "e-mail meddelelser"
+
+#: bp-activity-subscription-functions.php:558
+msgid "Your email notifications are set to %s for this group."
+msgstr "Din indstilling for e-mail meddelelser er sat til %s for denne gruppe."
+
+#: bp-activity-subscription-functions.php:572
+#: bp-activity-subscription-functions.php:630
+msgid "Weekly Summary"
+msgstr "Ugentlig sammenfatning"
+
+#: bp-activity-subscription-functions.php:574
+#: bp-activity-subscription-functions.php:631
+msgid "Daily Digest"
+msgstr "Daglig sammenfatning"
+
+#: bp-activity-subscription-functions.php:576
+#: bp-activity-subscription-functions.php:632
+#: bp-activity-subscription-functions.php:1026
+msgid "New Topics"
+msgstr "Nye emner"
+
+#: bp-activity-subscription-functions.php:607
+msgid "Your email status is "
+msgstr "Din e-mail status er "
+
+#: bp-activity-subscription-functions.php:608
+msgid "change"
+msgstr "skift"
+
+#: bp-activity-subscription-functions.php:614
+msgid "Get email updates"
+msgstr "Få e-mail opdateringer"
+
+#: bp-activity-subscription-functions.php:625
+msgid "Change your email subscription options for this group"
+msgstr "Skift dine e-mail abonnementer for denne gruppe"
+
+#: bp-activity-subscription-functions.php:630
+msgid "Get a summary of topics each"
+msgstr "Få en sammenfatning af emner hver"
+
+#: bp-activity-subscription-functions.php:631
+msgid "Get the day's activity bundled into one email"
+msgstr "Få dagens aktiviteter samlet i en e-mail"
+
+#: bp-activity-subscription-functions.php:632
+msgid "Send new topics as they arrive (but no replies)"
+msgstr "Send nye emner når de startes (men send ikke svar)"
+
+#: bp-activity-subscription-functions.php:634
+msgid "close"
+msgstr "luk"
+
+#: bp-activity-subscription-functions.php:708
+msgid "You successfully joined the group. Your group email status is: "
+msgstr "Du er nu tilmeldt gruppen. Din e-mail indstilling i gruppen er: "
+
+#: bp-activity-subscription-functions.php:719
+msgid "Email Subscription Defaults"
+msgstr "Standardindstillinger for e-mail abonnement"
+
+#: bp-activity-subscription-functions.php:720
+msgid ""
+"When new users join this group, their default email notification settings "
+"will be:"
+msgstr ""
+"Når nye brugere tilmeldes gruppen vil deres standardindstilling for e-mail "
+"meddelelser være:"
+
+#: bp-activity-subscription-functions.php:723
+msgid ""
+"No Email (users will read this group on the web - good for any group - the "
+"default)"
+msgstr ""
+"Ingen e-mail (brugere vil læse denne gruppe på nettet - god til alle grupper "
+"- standardindstillingen)"
+
+#: bp-activity-subscription-functions.php:725
+msgid "Weekly Summary Email (the week's topics - good for large groups)"
+msgstr "Ugentlig sammenfatning (ugens emner - god til store grupper)"
+
+#: bp-activity-subscription-functions.php:727
+msgid ""
+"Daily Digest Email (all daily activity bundles in one email - good for "
+"medium-size groups)"
+msgstr ""
+"Daglig sammenfatning (alle dagens aktiviteter samlet i en e-mail - god til "
+"mellemstore grupper)"
+
+#: bp-activity-subscription-functions.php:729
+msgid ""
+"New Topics Email (new topics are sent as they arrive, but not replies - good "
+"for small groups)"
+msgstr ""
+"Nye emner (nye emner sendes når de startes, men svar sendes ikke - god til "
+"mindre grupper)"
+
+#: bp-activity-subscription-functions.php:731
+msgid ""
+"All Email (send emails about everything - recommended only for working "
+"groups)"
+msgstr "Alt (send e-mails om alt - anbefales kun til arbejdsgrupper)"
+
+#: bp-activity-subscription-functions.php:821
+#: bp-activity-subscription-main.php:49
+msgid "Follow"
+msgstr "Følg"
+
+#: bp-activity-subscription-functions.php:822
+msgid ""
+"You are not following this topic. Click to follow it and get email updates "
+"for new posts"
+msgstr ""
+"Du følger ikke dette emne. Klik for at følge det og få besked om nye indlæg "
+"pr. e-mail"
+
+#: bp-activity-subscription-functions.php:825
+#: bp-activity-subscription-main.php:48
+msgid "Mute"
+msgstr "Dæmp"
+
+#: bp-activity-subscription-functions.php:826
+msgid "You are following this topic. Click to stop getting email updates"
+msgstr "Du følger dette emne. Klik for at afmelde e-mails om nye indlæg"
+
+#: bp-activity-subscription-functions.php:832
+msgid "This conversation is muted. Click to follow it"
+msgstr "Denne konversation er dæmpet. Klik for at følge den"
+
+#: bp-activity-subscription-functions.php:836
+msgid "this topic"
+msgstr "dette emne"
+
+#: bp-activity-subscription-functions.php:854
+msgid "Email"
+msgstr "E-mail"
+
+#: bp-activity-subscription-functions.php:1001
+#: bp-activity-subscription-functions.php:1021
+msgid "Email status:"
+msgstr "E-mail indstilling:"
+
+#: bp-activity-subscription-functions.php:1022
+msgid "Change to:"
+msgstr "Skift til:"
+
+#: bp-activity-subscription-functions.php:1024
+msgid "Weekly"
+msgstr "Ugentlig"
+
+#: bp-activity-subscription-functions.php:1025
+msgid "Daily"
+msgstr "Daglig"
+
+#: bp-activity-subscription-functions.php:1051
+msgid "User email status changed successfully"
+msgstr "Brugerens e-mail indstilling blev ændret korrekt"
+
+#: bp-activity-subscription-functions.php:1097
+msgid ""
+"Site Admin Only: update email subscription settings for ALL members to the "
+"default:"
+msgstr ""
+"Site Admin Only: Sæt ALLE medlemmers e-mail abonnementer til "
+"standardindstillingen:"
+
+#: bp-activity-subscription-functions.php:1097
+msgid "Warning: this is not reversible so use with caution."
+msgstr "Advarsel: Dette kan ikke fortrydes så brug med varsomhed"
+
+#: bp-activity-subscription-functions.php:1097
+msgid "Make it so!"
+msgstr "Gør det!"
+
+#: bp-activity-subscription-functions.php:1124
+msgid "All user email status's changed successfully"
+msgstr "Alle brugeres e-mail indstilling blev ændret korrekt"
+
+#: bp-activity-subscription-functions.php:1140
+msgid "Individual Group Email Settings"
+msgstr "Gruppens e-mail indstillinger"
+
+#: bp-activity-subscription-functions.php:1148
+msgid ""
+"To change the email notification settings for your groups, go to %s and "
+"click \"Change\" for each group."
+msgstr ""
+"Skift indstillinger for dine gruppers e-mail meddelelser ved at gå til %s og "
+"klik \"Skift\" for hver gruppe."
+
+#: bp-activity-subscription-functions.php:1151
+msgid "Or set all your group's email options to No Email"
+msgstr "Eller sæt alle dine gruppers e-mailindstillinger til Ingen e-mail"
+
+#: bp-activity-subscription-functions.php:1187
+msgid "You have been unsubscribed from all groups notifications."
+msgstr "Du har afmeldt notifikationer fra alle grupper"
+
+#: bp-activity-subscription-functions.php:1189
+msgid "This user's has been unsubscribed from all groups notifications."
+msgstr "Denne bruger er blevet afmeldt fra notifikationer fra alle grupper."
+
+#: bp-activity-subscription-functions.php:1217
+msgid ""
+"Your unsubscription was successful. You will no longer receive email "
+"notifications from the group %s."
+msgstr ""
+"Din afmelding blev gennemført. Du vil ikke længere modtage e-mail "
+"notifikationer fra gruppen %s."
+
+#: bp-activity-subscription-functions.php:1219
+#: bp-activity-subscription-functions.php:1232
+msgid "<a href=\"%1$s\">Continue to %2$s</a>"
+msgstr "<a href=\"%1$s\">Fortsæt til %2$s</a>"
+
+#: bp-activity-subscription-functions.php:1230
+msgid ""
+"Your unsubscription was successful. You will no longer receive email "
+"notifications from any of your groups."
+msgstr ""
+"Din afmelding blev gennemført. Du vil ikke længere modtage e-mail "
+"notifikationer fra nogen af dine grupper."
+
+#: bp-activity-subscription-functions.php:1242
+msgid "Unsubscribe from all groups notifications"
+msgstr "Afmeld notifikationer fra alle grupper"
+
+#: bp-activity-subscription-functions.php:1256
+msgid "Unsubscribe"
+msgstr "Afmeld"
+
+#: bp-activity-subscription-functions.php:1261
+msgid "Do you really want to unsubscribe from all groups notifications?"
+msgstr "Vil du virkelig afmelde notifikationer fra alle grupper?"
+
+#: bp-activity-subscription-functions.php:1266
+msgid "Yes, unsubscribe from all my groups"
+msgstr "Ja, afmeld fra alle mine grupper"
+
+#: bp-activity-subscription-functions.php:1267
+msgid "No, close"
+msgstr "Nej, luk"
+
+#: bp-activity-subscription-functions.php:1301
+msgid "Send an email notice to everyone in the group"
+msgstr "Send en e-mail til alle i gruppen"
+
+#: bp-activity-subscription-functions.php:1302
+msgid ""
+"You can use the form below to send an email notice to all group members."
+msgstr ""
+"Du kan bruge feltet herunder til at sende en e-mail til allle gruppens "
+"medlemmer"
+
+#: bp-activity-subscription-functions.php:1303
+msgid ""
+"Everyone in the group will receive the email -- regardless of their email "
+"settings -- so use with caution"
+msgstr ""
+"Alle i gruppen vil modtage denne e-mail -- uanset deres e-mail indstillinger "
+"-- så brug med varsomhed"
+
+#: bp-activity-subscription-functions.php:1306
+#: bp-activity-subscription-functions.php:1335
+msgid "Email Subject:"
+msgstr "E-mail emne:"
+
+#: bp-activity-subscription-functions.php:1311
+#: bp-activity-subscription-functions.php:1340
+msgid "Email Content:"
+msgstr "E-mail indhold:"
+
+#: bp-activity-subscription-functions.php:1316
+msgid "Email this notice to everyone in the group"
+msgstr "E-mail denne meddelelse til alle i gruppen"
+
+#: bp-activity-subscription-functions.php:1324
+msgid "Welcome Email"
+msgstr "Velkommen e-mail"
+
+#: bp-activity-subscription-functions.php:1325
+msgid "Send an email when a new member join the group."
+msgstr "Send en e-mail når et nyt medlem tilslutter sig gruppen."
+
+#: bp-activity-subscription-functions.php:1330
+msgid "Enable welcome email"
+msgstr "Slå velkomst e-mail til."
+
+#: bp-activity-subscription-functions.php:1345
+msgid "Save"
+msgstr "Gem"
+
+#: bp-activity-subscription-functions.php:1370
+msgid "The email notice was sent not sent. Please enter email content."
+msgstr "E-mailen blev ikke sendt. Angiv e-mailens indhold."
+
+#: bp-activity-subscription-functions.php:1378
+msgid " - sent from the group "
+msgstr " - sendt fra gruppen "
+
+#: bp-activity-subscription-functions.php:1380
+msgid ""
+"This is a notice from the group '%s':\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"\n"
+"To view this group log in and follow the link below:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"Dette er en meddelelse fra gruppen '%s':\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"\n"
+"For at læse denne gruppe, log ind og følg linket herunder:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:1392
+msgid ""
+"Please note: admin notices are sent to everyone in the group and cannot be "
+"disabled.\n"
+"If you feel this service is being misused please speak to the website "
+"administrator."
+msgstr ""
+"Bemærk: Administratormeddelelser sendes til alle i gruppen og kan ikke slås "
+"fra. \n"
+"Hvis du mener at denne service misbruges, så henvend dig til hjemmesidens "
+"administrator."
+
+#: bp-activity-subscription-functions.php:1407
+msgid "The email notice was sent successfully."
+msgstr "Meddelelsen blev sendt korrekt."
+
+#: bp-activity-subscription-functions.php:1432
+msgid "The welcome email option has been saved."
+msgstr "Indstillingen for velkomst e-mail er gemt."
+
+#: bp-activity-subscription-functions.php:1463
+msgid "To disable emails from all your groups at once click: %s"
+msgstr "Slå e-mails fra alle dine grupper fra samtidig, klik : %s"
+
+#: bp-activity-subscription-functions.php:1483
+msgid "Group Forum"
+msgstr "Gruppeforum"
+
+#: bp-activity-subscription-functions.php:1484
+msgid "Yes"
+msgstr "Ja"
+
+#: bp-activity-subscription-functions.php:1485
+msgid "No"
+msgstr "Nej"
+
+#: bp-activity-subscription-functions.php:1491
+msgid "A member replies in a forum topic you've started"
+msgstr "Et medlem svarer i et forumemne du har startet"
+
+#: bp-activity-subscription-functions.php:1497
+msgid "A member replies after you in a forum topic"
+msgstr "Et medlem svarer efter dig i et forumemne"
+
+#: bp-activity-subscription-functions.php:1503
+msgid "Receive notifications of your own posts?"
+msgstr "Få e-mail meddelelser om dine egne indlæg?"
+
+#: bp-activity-subscription-functions.php:1560
+msgid "Group Email Options"
+msgstr "Gruppens e-mail indstillinger"
+
+#: bp-activity-subscription-functions.php:1574
+msgid "Settings saved."
+msgstr "Indstillinger gemt."
+
+#: bp-activity-subscription-functions.php:1592
+msgid "Group Email Subscription Settings"
+msgstr "Gruppens e-mail abonnementindstillinger"
+
+#: bp-activity-subscription-functions.php:1597
+msgid "Digests & Summaries"
+msgstr "Sammenfatninger"
+
+#: bp-activity-subscription-functions.php:1599
+msgid ""
+"View queued digest items</a></b> (in new window)<br>As admin, you can see "
+"what is currently in the email queue by adding ?sum=1 to your url. This will "
+"not fire the digest, it will just show you what is waiting to be sent."
+msgstr ""
+"Se afventende emner</a></b> (i et nyt vindue) <br>>Som administrator kan du "
+"se hvad der er i e-mail køen ved at føjge ?sum=1 til din URL. Dette vil ikke "
+"afsende sammenfatningen, det vil blot vise dig hvad der venter på at blive "
+"afsendt."
+
+#: bp-activity-subscription-functions.php:1603
+msgid "<strong>Daily Digests</strong> should be sent at this time:"
+msgstr "<strong>Daglige sammenfatninger</strong> afsendes på dette tidspunkt:"
+
+#: bp-activity-subscription-functions.php:1620
+msgid "<strong>Weekly Summaries</strong> should be sent on:"
+msgstr ""
+"<strong>Ugentlige sammenfatninger</strong> afsendes på dette tidspunkt:"
+
+#: bp-activity-subscription-functions.php:1624
+#: bp-activity-subscription-functions.php:1635
+#: bp-activity-subscription-functions.php:1723
+msgid "Monday"
+msgstr "Mandag"
+
+#: bp-activity-subscription-functions.php:1625
+#: bp-activity-subscription-functions.php:1635
+#: bp-activity-subscription-functions.php:1725
+msgid "Tuesday"
+msgstr "Tirsdag"
+
+#: bp-activity-subscription-functions.php:1626
+#: bp-activity-subscription-functions.php:1635
+#: bp-activity-subscription-functions.php:1727
+msgid "Wednesday"
+msgstr "Onsdag"
+
+#: bp-activity-subscription-functions.php:1627
+#: bp-activity-subscription-functions.php:1635
+#: bp-activity-subscription-functions.php:1729
+msgid "Thursday"
+msgstr "Torsdag"
+
+#: bp-activity-subscription-functions.php:1628
+#: bp-activity-subscription-functions.php:1635
+#: bp-activity-subscription-functions.php:1731
+msgid "Friday"
+msgstr "Fredag"
+
+#: bp-activity-subscription-functions.php:1629
+#: bp-activity-subscription-functions.php:1635
+#: bp-activity-subscription-functions.php:1733
+msgid "Saturday"
+msgstr "Lørdag"
+
+#: bp-activity-subscription-functions.php:1630
+#: bp-activity-subscription-functions.php:1635
+#: bp-activity-subscription-functions.php:1735
+msgid "Sunday"
+msgstr "Søndag"
+
+#: bp-activity-subscription-functions.php:1635
+msgid ""
+"The server timezone is %s (%s); the current server time is %s (%s); and the "
+"day is %s."
+msgstr ""
+"Serverens tidszone er %s (%s); på serveren er klokken nu %s (%s); og dagen "
+"er %s."
+
+#: bp-activity-subscription-functions.php:1639
+msgid "Global Unsubscribe Link"
+msgstr "Globalt afmeldingslink"
+
+#: bp-activity-subscription-functions.php:1640
+msgid ""
+"Add a link in the emails and on the notifications settings page allowing "
+"users to unsubscribe from all their groups at once:"
+msgstr ""
+"Tilføj et link på siden med indstillinger for e-mails og notifikationer der "
+"lader brugere afmelde fra alle deres grupper på en gang."
+
+#: bp-activity-subscription-functions.php:1642
+#: bp-activity-subscription-functions.php:1651
+#: bp-activity-subscription-functions.php:1656
+msgid "yes"
+msgstr "ja"
+
+#: bp-activity-subscription-functions.php:1643
+#: bp-activity-subscription-functions.php:1652
+#: bp-activity-subscription-functions.php:1657
+msgid "no"
+msgstr "nej"
+
+#: bp-activity-subscription-functions.php:1648
+msgid "Group Admin Abilities"
+msgstr "Gruppeadministrators rettigheder"
+
+#: bp-activity-subscription-functions.php:1649
+msgid ""
+"Allow group admins and mods to change members' email subscription settings: "
+msgstr ""
+"Tillad gruppeadministratorer og moderatorer at ændre medlemmers e-mail "
+"abonnementer: "
+
+#: bp-activity-subscription-functions.php:1654
+msgid ""
+"Allow group admins to override subscription settings and send an email to "
+"everyone in their group: "
+msgstr ""
+"Tillad gruppeadministratorer at tilsidesætte abonnementindstillinger og "
+"sende e-mail til alle i deres gruppe: "
+
+#: bp-activity-subscription-functions.php:1661
+msgid "Spam Prevention"
+msgstr "Spamforebyggelse"
+
+#: bp-activity-subscription-functions.php:1662
+msgid ""
+"To help protect against spam, you may wish to require a user to have been a "
+"member of the site for a certain amount of days before any group updates are "
+"emailed to the other group members. This is disabled by default."
+msgstr ""
+"For at forebygge spam, ønsker du måske at kræve at en bruger har været "
+"medlem på hjemmesiden i et vist antal dage før nogen aktivitet i grupper "
+"bliver e-mailet til de øvrige gruppemedlemmer. Dette er slået fra som "
+"standard."
+
+#: bp-activity-subscription-functions.php:1663
+msgid "Member must be registered for"
+msgstr "Bruger skal have været medlem i"
+
+#: bp-activity-subscription-functions.php:1663
+msgid "days"
+msgstr "dag(e)"
+
+#: bp-activity-subscription-functions.php:1674
+msgid "If you enjoy using this plugin %s please rate it %s."
+msgstr "Hvis du er tilfreds med denne plugin %s så anmeld den venligst %s."
+
+#: bp-activity-subscription-functions.php:1675
+msgid "Please make a donation to the team to support ongoing development."
+msgstr "Donér venligst til holdet for at støtte fortsat udvikling."
+
+#: bp-activity-subscription-main.php:9
+msgid "Email Options"
+msgstr "E-mail indstillinger"
+
+#: bp-activity-subscription-main.php:50
+msgid "Error"
+msgstr "Fejl"

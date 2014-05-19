@@ -1,0 +1,735 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BuddyPress Group Email Subscription\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-26 13:48-0800\n"
+"PO-Revision-Date: 2010-11-26 13:48-0800\n"
+"Last-Translator: Anton Belov <info@viaestvita.net>\n"
+"Language-Team: Via est Vita <info@viaestvita.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: /Volumes/Macintosh HD/Users/deryk/Sites/bp/wp-content/plugins/buddypress-group-email-subscription/\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: bp-activity-subscription-digest.php:49
+#@ bp-ass
+msgid "Your daily digest of group activity"
+msgstr "Ваш ежедневный дайджест групп"
+
+#: bp-activity-subscription-digest.php:51
+#@ bp-ass
+msgid "Your weekly summary of group topics"
+msgstr "Ваш еженедельный обзор тем группы"
+
+#: bp-activity-subscription-digest.php:59
+#, php-format
+#@ bp-ass
+msgid "You have received this message because you are subscribed to receive a digest of activity in some of your groups on %s."
+msgstr "Вы получили это сообщение, потому что вы подписались на получение уведомлеий в некоторых из своих групп на %s."
+
+#: bp-activity-subscription-digest.php:91
+#@ bp-ass
+msgid "at"
+msgstr "в"
+
+#: bp-activity-subscription-digest.php:98
+#, php-format
+#@ bp-ass
+msgid "(%s items)"
+msgstr "( %s Пункты)"
+
+#: bp-activity-subscription-digest.php:109
+#@ bp-ass
+msgid "Group Summary"
+msgstr "Сводка группы"
+
+#: bp-activity-subscription-digest.php:114
+#@ bp-ass
+msgid "How to follow a topic: to get email updates for a specific topic, click the topic title - then on the webpage click the <i>Follow this topic</i> button. (If you don't see the button you need to login first.)"
+msgstr "Как подписаться на тему: чтобы получать уведомления для конкретной темы, щелкните на странице темы на кнопку <i>Подписаться</i>. (Если вы не видите кнопку, Вам необходимо войти на сайт.)"
+
+#: bp-activity-subscription-digest.php:118
+#, php-format
+#@ bp-ass
+msgid "To disable these notifications please login and go to: %s where you can change your email settings for each group."
+msgstr "Чтобы отключить эти уведомления пожалуйста, войдите и перейдите по ссылке:  %s , где вы можете изменить настройки подписки для каждой группы."
+
+#: bp-activity-subscription-digest.php:118
+#: bp-activity-subscription-functions.php:968
+#@ bp-ass
+msgid "My Groups"
+msgstr "Мои группы"
+
+#: bp-activity-subscription-digest.php:164
+#@ bp-ass
+msgid "DAILY DIGEST:"
+msgstr "ЕЖЕДНЕВНЫЙ ОБЗОР:"
+
+#: bp-activity-subscription-digest.php:166
+#@ bp-ass
+msgid "WEEKLY DIGEST:"
+msgstr "ЕЖЕНЕДЕЛЬНЫЙ ДАЙДЖЕСТ:"
+
+#: bp-activity-subscription-digest.php:187
+#, php-format
+#@ bp-ass
+msgid "Group: %s"
+msgstr "Группа: %s"
+
+#: bp-activity-subscription-digest.php:189
+#, php-format
+#@ bp-ass
+msgid "Group: %s weekly summary"
+msgstr "Группа: %s Еженедельный обзор"
+
+#: bp-activity-subscription-digest.php:193
+#@ bp-ass
+msgid "change "
+msgstr "изменения"
+
+#: bp-activity-subscription-digest.php:193
+#@ bp-ass
+msgid "email options"
+msgstr "Подписка"
+
+#: bp-activity-subscription-digest.php:193
+#@ bp-ass
+msgid "for this group"
+msgstr "для этой группы"
+
+#: bp-activity-subscription-digest.php:254
+#: bp-activity-subscription-digest.php:284
+#, php-format
+#@ bp-ass
+msgid "at %s, %s"
+msgstr "в %s, %s"
+
+#: bp-activity-subscription-digest.php:262
+#@ bp-ass
+msgid "View"
+msgstr "Открыть"
+
+#: bp-activity-subscription-digest.php:280
+#, php-format
+#@ bp-ass
+msgid "(%s replies)"
+msgstr "(%s ответов)"
+
+#: bp-activity-subscription-digest.php:392
+#@ bp-ass
+msgid "Once Weekly"
+msgstr "Один раз в неделю"
+
+#: bp-activity-subscription-functions.php:43
+#: bp-activity-subscription-functions.php:121
+#, php-format
+#@ bp-ass
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"To view or reply to this topic, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"Для просмотра или ответа на эту тему, войдите в систему и перейдите по ссылке:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:55
+#: bp-activity-subscription-functions.php:133
+#: bp-activity-subscription-functions.php:259
+#, php-format
+#@ bp-ass
+msgid "To disable these notifications please log in and go to: %s"
+msgstr "Чтобы отключить эти уведомления войдите в систему и перейдите по ссылке: %s"
+
+#: bp-activity-subscription-functions.php:74
+#: bp-activity-subscription-functions.php:183
+#: bp-activity-subscription-functions.php:277
+#@ bp-ass
+msgid "Your email setting for this group is: "
+msgstr "Настройки подписки для этой группы:"
+
+#: bp-activity-subscription-functions.php:77
+#@ bp-ass
+msgid ", therefore you won't receive replies to this topic. To get them, click the link to view this topic on the web then click the 'Follow this topic' button."
+msgstr ", Вы не получаете уведомления в этой теме. Чтобы подписаться, зайдите на страницу темы и нажмите сссылку 'Подписаться'"
+
+#: bp-activity-subscription-functions.php:247
+#, php-format
+#@ bp-ass
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"To view or reply, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"Чтобы просмотреть или ответить, войдите в систему и перейдите по ссылке:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:373
+#@ bp-ass
+msgid "Email Subscription Options"
+msgstr "Настройки подписки"
+
+#: bp-activity-subscription-functions.php:378
+#@ bp-ass
+msgid "How do you want to read this group?"
+msgstr "Как Вы хотите узнавать о новостях в этой группе?"
+
+#: bp-activity-subscription-functions.php:381
+#: bp-activity-subscription-functions.php:446
+#: bp-activity-subscription-functions.php:501
+#: bp-activity-subscription-functions.php:882
+#@ bp-ass
+msgid "No Email"
+msgstr "Без подписки"
+
+#: bp-activity-subscription-functions.php:382
+#: bp-activity-subscription-functions.php:501
+#@ bp-ass
+msgid "I will read this group on the web"
+msgstr "Я буду сам проверять обновления в группе"
+
+#: bp-activity-subscription-functions.php:386
+#@ bp-ass
+msgid "Weekly Summary Email"
+msgstr "Еженедельный обзор"
+
+#: bp-activity-subscription-functions.php:387
+#@ bp-ass
+msgid "Get a summary of new topics each week"
+msgstr "Получать дайджест каждую неделю"
+
+#: bp-activity-subscription-functions.php:391
+#@ bp-ass
+msgid "Daily Digest Email"
+msgstr "Ежедневный дайджест"
+
+#: bp-activity-subscription-functions.php:392
+#@ bp-ass
+msgid "Get all the day's activity bundled into a single email"
+msgstr "Получать уведомления о всех обновлениях в одном письме"
+
+#: bp-activity-subscription-functions.php:396
+#@ bp-ass
+msgid "New Topics Email"
+msgstr "Новые темы"
+
+#: bp-activity-subscription-functions.php:397
+#@ bp-ass
+msgid "Send new topics as they arrive (but don't send replies)"
+msgstr "Уведомления о новых темах (не уведомлять о новых сообщениях)"
+
+#: bp-activity-subscription-functions.php:401
+#: bp-activity-subscription-functions.php:454
+#: bp-activity-subscription-functions.php:505
+#: bp-activity-subscription-functions.php:886
+#@ bp-ass
+msgid "All Email"
+msgstr "Все уведомления"
+
+#: bp-activity-subscription-functions.php:402
+#: bp-activity-subscription-functions.php:505
+#@ bp-ass
+msgid "Send all group activity as it arrives"
+msgstr "Уведомления о всех обновлениях в группе"
+
+#: bp-activity-subscription-functions.php:405
+#: bp-activity-subscription-functions.php:1249
+#@ bp-ass
+msgid "Save Settings"
+msgstr "Сохранить"
+
+#: bp-activity-subscription-functions.php:407
+#@ bp-ass
+msgid "Note: Normally, you receive email notifications for topics you start or comment on. This can be changed at"
+msgstr "Примечание: Управлять настройками уведомлений можно в "
+
+#: bp-activity-subscription-functions.php:407
+#@ bp-ass
+msgid "email notifications"
+msgstr "настройках подписки"
+
+#: bp-activity-subscription-functions.php:448
+#: bp-activity-subscription-functions.php:502
+#@ bp-ass
+msgid "Weekly Summary"
+msgstr "Еженедельный обзор"
+
+#: bp-activity-subscription-functions.php:450
+#: bp-activity-subscription-functions.php:503
+#@ bp-ass
+msgid "Daily Digest"
+msgstr "Ежедневно"
+
+#: bp-activity-subscription-functions.php:452
+#: bp-activity-subscription-functions.php:504
+#: bp-activity-subscription-functions.php:885
+#@ bp-ass
+msgid "New Topics"
+msgstr "Новые темы"
+
+#: bp-activity-subscription-functions.php:479
+#@ bp-ass
+msgid "Your email status is "
+msgstr "Статус подписки: "
+
+#: bp-activity-subscription-functions.php:480
+#@ bp-ass
+msgid "change"
+msgstr "изменить"
+
+#: bp-activity-subscription-functions.php:486
+#@ bp-ass
+msgid "Get email updates"
+msgstr "Управление"
+
+#: bp-activity-subscription-functions.php:497
+#@ bp-ass
+msgid "Change your email subscription options for this group"
+msgstr "Изменить параметры подписки на эту группу"
+
+#: bp-activity-subscription-functions.php:502
+#@ bp-ass
+msgid "Get a summary of topics each"
+msgstr "Получать сводку каждой темы"
+
+#: bp-activity-subscription-functions.php:503
+#@ bp-ass
+msgid "Get the day's activity bundled into one email"
+msgstr "Получать уведомления в одном письме"
+
+#: bp-activity-subscription-functions.php:504
+#@ bp-ass
+msgid "Send new topics as they arrive (but no replies)"
+msgstr "Отправить новые темы по мере их поступления (без ответов)"
+
+#: bp-activity-subscription-functions.php:506
+#@ bp-ass
+msgid "close"
+msgstr "Закрыть"
+
+#: bp-activity-subscription-functions.php:579
+#@ bp-ass
+msgid "You successfully joined the group. Your group email status is: "
+msgstr "Вы успешно вступили в группу. Статус Вашей подписки в группе:"
+
+#: bp-activity-subscription-functions.php:590
+#@ bp-ass
+msgid "Email Subscription Defaults"
+msgstr "Настройки подписки по умолчанию"
+
+#: bp-activity-subscription-functions.php:591
+#@ bp-ass
+msgid "When new users join this group, their default email notification settings will be:"
+msgstr "Для новых присоединившихся к группе настройки подписки по умолчанию будут:"
+
+#: bp-activity-subscription-functions.php:594
+#@ bp-ass
+msgid "No Email (users will read this group on the web - good for any group - the default)"
+msgstr "Нет сообщений (пользователи будут посещать эту группу в Интернете - подойдет для любой группы - по умолчанию)"
+
+#: bp-activity-subscription-functions.php:596
+#@ bp-ass
+msgid "Weekly Summary Email (the week's topics - good for large groups)"
+msgstr "Еженедельный обзор (темы недели - подойдет для больших групп)"
+
+#: bp-activity-subscription-functions.php:598
+#@ bp-ass
+msgid "Daily Digest Email (all daily activity bundles in one email - good for medium-size groups)"
+msgstr "Ежедневный дайджест (все обновления группы в одном письме - подойдет для средних групп)"
+
+#: bp-activity-subscription-functions.php:600
+#@ bp-ass
+msgid "New Topics Email (new topics are sent as they arrive, but not replies - good for small groups)"
+msgstr "Новые темы (новые темы отправляются по мере их поступления, но не ответы на сообщения - подойдет для небольших групп)"
+
+#: bp-activity-subscription-functions.php:602
+#@ bp-ass
+msgid "All Email (send emails about everything - recommended only for working groups)"
+msgstr "Все уведомления (отправка сообщения всем - рекомендуется только для рабочих групп)"
+
+#: bp-activity-subscription-functions.php:686
+#@ bp-ass
+msgid "Follow"
+msgstr "Подписаться"
+
+#: bp-activity-subscription-functions.php:687
+#@ bp-ass
+msgid "You are not following this topic. Click to follow it and get email updates for new posts"
+msgstr "Вы не подписаны на эту тему. Нажмите, чтобы подписаться и получать уведомления о новых сообщениях"
+
+#: bp-activity-subscription-functions.php:690
+#@ bp-ass
+msgid "Mute"
+msgstr "Отписаться"
+
+#: bp-activity-subscription-functions.php:691
+#@ bp-ass
+msgid "You are following this topic. Click to stop getting email updates"
+msgstr "Вы подписаны на эту тему. Нажмите, чтобы отключить получение уведомлений"
+
+#: bp-activity-subscription-functions.php:697
+#@ bp-ass
+msgid "This conversation is muted. Click to follow it"
+msgstr "Отключено. Нажмите, чтобы подписаться"
+
+#: bp-activity-subscription-functions.php:701
+#@ bp-ass
+msgid "this topic"
+msgstr "эту тему"
+
+#: bp-activity-subscription-functions.php:719
+#@ bp-ass
+msgid "Email"
+msgstr "Электронная почта"
+
+#: bp-activity-subscription-functions.php:860
+#: bp-activity-subscription-functions.php:880
+#@ bp-ass
+msgid "Email status:"
+msgstr "Статус подписки:"
+
+#: bp-activity-subscription-functions.php:881
+#@ bp-ass
+msgid "Change to:"
+msgstr "Изменить на:"
+
+#: bp-activity-subscription-functions.php:883
+#@ bp-ass
+msgid "Weekly"
+msgstr "Еженедельно"
+
+#: bp-activity-subscription-functions.php:884
+#@ bp-ass
+msgid "Daily"
+msgstr "Ежедневно"
+
+#: bp-activity-subscription-functions.php:909
+#@ bp-ass
+msgid "User email status changed successfully"
+msgstr "Статус подписки пользователя  изменился успешно"
+
+#: bp-activity-subscription-functions.php:930
+#@ bp-ass
+msgid "Site Admin Only: update email subscription settings for ALL members to the default:"
+msgstr "Только для администратора: установка всех параметров уведомлений участников по умолчанию:"
+
+#: bp-activity-subscription-functions.php:930
+#@ bp-ass
+msgid "Warning: this is not reversible so use with caution."
+msgstr "Внимание: это не обратимо так что используйте с осторожностью."
+
+#: bp-activity-subscription-functions.php:930
+#@ bp-ass
+msgid "Make it so!"
+msgstr "Сделать это так!"
+
+#: bp-activity-subscription-functions.php:957
+#@ bp-ass
+msgid "All user email status's changed successfully"
+msgstr "Статусы успешно обновлены"
+
+#: bp-activity-subscription-functions.php:967
+#@ bp-ass
+msgid "Group Email Settings"
+msgstr "Настройка подписки в группах"
+
+#: bp-activity-subscription-functions.php:968
+#, php-format
+#@ bp-ass
+msgid "To change the email notification settings for your groups go to %s and click change for each group."
+msgstr "Для изменения параметров  уведомлений для групп перейдите в %s и нажмите Изменить в каждой группе."
+
+#: bp-activity-subscription-functions.php:991
+#@ bp-ass
+msgid "Send an email notice to everyone in the group"
+msgstr "Отправить  уведомление всем членам группы"
+
+#: bp-activity-subscription-functions.php:992
+#@ bp-ass
+msgid "You can use the form below to send an email notice to all group members."
+msgstr "Вы можете использовать форму ниже, чтобы отправить уведомление всем членам группы."
+
+#: bp-activity-subscription-functions.php:993
+#@ bp-ass
+msgid "Everyone in the group will receive the email -- regardless of their email settings -- so use with caution"
+msgstr "Все участники группы получат это сообщение  -  вне зависимости от их настроек - так что используйте с осторожностью"
+
+#: bp-activity-subscription-functions.php:997
+#@ bp-ass
+msgid "Email Subject:"
+msgstr "Тема  письма:"
+
+#: bp-activity-subscription-functions.php:999
+#@ bp-ass
+msgid "Email Content:"
+msgstr "Содержимое сообщения:"
+
+#: bp-activity-subscription-functions.php:1001
+#@ bp-ass
+msgid "Email this notice to everyone in the group"
+msgstr "Отправить всем участникам группы"
+
+#: bp-activity-subscription-functions.php:1029
+#@ bp-ass
+msgid " - sent from the group "
+msgstr "- Отправлено из группы "
+
+#: bp-activity-subscription-functions.php:1031
+#, php-format
+#@ bp-ass
+msgid ""
+"This is a notice from the group '%s':\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"\n"
+"To view this group log in and follow the link below:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"Это уведомление от группы  '%s':\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"\n"
+"Для просмотра этой группы войдите в систему и перейдите по ссылке \n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:1042
+#@ bp-ass
+msgid ""
+"Please note: admin notices are sent to everyone in the group and cannot be disabled. \n"
+"If you feel this service is being misused please speak to the website administrator."
+msgstr "Пожалуйста, обратите внимание:  уведомления направляются каждому в группе и не могут быть отключены. Если вы считаете, что это злоупотребление, обратитесь к администратору сайта."
+
+#: bp-activity-subscription-functions.php:1054
+#@ bp-ass
+msgid "The email notice was sent successfully."
+msgstr "Уведомление было успешно отправлено."
+
+#: bp-activity-subscription-functions.php:1073
+#@ bp-ass
+msgid "Group Forum"
+msgstr "Форум группы"
+
+#: bp-activity-subscription-functions.php:1074
+#@ bp-ass
+msgid "Yes"
+msgstr "Да"
+
+#: bp-activity-subscription-functions.php:1075
+#@ bp-ass
+msgid "No"
+msgstr "Нет"
+
+#: bp-activity-subscription-functions.php:1081
+#@ bp-ass
+msgid "A member replies in a forum topic you've started"
+msgstr "Ответы в теме, начатой тобой"
+
+#: bp-activity-subscription-functions.php:1087
+#@ bp-ass
+msgid "A member replies after you in a forum topic"
+msgstr "Ответы  участников после тебя в теме форума"
+
+#: bp-activity-subscription-functions.php:1093
+#@ bp-ass
+msgid "Receive notifications of your own posts?"
+msgstr "Получать уведомления на свои собственные сообщения?"
+
+#: bp-activity-subscription-functions.php:1150
+#@ bp-ass
+msgid "Group Email Options"
+msgstr "Подписка в группах"
+
+#: bp-activity-subscription-functions.php:1182
+#@ bp-ass
+msgid "Group Email Subscription Settings"
+msgstr "Настройки подписки в группах"
+
+#: bp-activity-subscription-functions.php:1187
+#@ bp-ass
+msgid "Digests & Summaries"
+msgstr "Дайджесты и обзоры"
+
+#: bp-activity-subscription-functions.php:1189
+#@ bp-ass
+msgid "View queued digest items</a></b> (in new window)<br>As admin, you can see what is currently in the email queue by adding ?sum=1 to your url. This will not fire the digest, it will just show you what is waiting to be sent."
+msgstr "Просмотр дайджестов</a></b> (в новом окне)<br>Как администратор, вы можете увидеть, что в настоящее время в  очереди, добавляя ?sum=1 к URL сайта. Это не будет работать для дайджеста, просто покажет Вам, что сейчас в очереди."
+
+#: bp-activity-subscription-functions.php:1193
+#@ bp-ass
+msgid "<strong>Daily Digests</strong> should be sent at this time:"
+msgstr "<strong>Ежедневный дайджест</strong> будет отправляться в это время:"
+
+#: bp-activity-subscription-functions.php:1210
+#@ bp-ass
+msgid "<strong>Weekly Summaries</strong> should be sent on:"
+msgstr "<strong>Еженедельные сводки</strong> посылать в:"
+
+#: bp-activity-subscription-functions.php:1214
+#: bp-activity-subscription-functions.php:1225
+#: bp-activity-subscription-functions.php:1302
+#@ default
+msgid "Monday"
+msgstr "Понедельник"
+
+#: bp-activity-subscription-functions.php:1215
+#: bp-activity-subscription-functions.php:1225
+#: bp-activity-subscription-functions.php:1304
+#@ default
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: bp-activity-subscription-functions.php:1216
+#: bp-activity-subscription-functions.php:1225
+#: bp-activity-subscription-functions.php:1306
+#@ default
+msgid "Wednesday"
+msgstr "Среда"
+
+#: bp-activity-subscription-functions.php:1217
+#: bp-activity-subscription-functions.php:1225
+#: bp-activity-subscription-functions.php:1308
+#@ default
+msgid "Thursday"
+msgstr "Четверг"
+
+#: bp-activity-subscription-functions.php:1218
+#: bp-activity-subscription-functions.php:1225
+#: bp-activity-subscription-functions.php:1310
+#@ default
+msgid "Friday"
+msgstr "Пятница"
+
+#: bp-activity-subscription-functions.php:1219
+#: bp-activity-subscription-functions.php:1225
+#: bp-activity-subscription-functions.php:1312
+#@ default
+msgid "Saturday"
+msgstr "Суббота"
+
+#: bp-activity-subscription-functions.php:1220
+#: bp-activity-subscription-functions.php:1225
+#: bp-activity-subscription-functions.php:1314
+#@ default
+msgid "Sunday"
+msgstr "Воскресенье"
+
+#: bp-activity-subscription-functions.php:1225
+#, php-format
+#@ bp-ass
+msgid "The server timezone is %s (%s); the current server time is %s (%s); and the day is %s."
+msgstr "Часовой пояс сайта %s (%s); текущее время сервера %s (%s);  день %s."
+
+#: bp-activity-subscription-functions.php:1230
+#@ bp-ass
+msgid "Group Admin Abilities"
+msgstr "Возможности администраторов группы"
+
+#: bp-activity-subscription-functions.php:1231
+#@ bp-ass
+msgid "Allow group admins and mods to change members' email subscription settings: "
+msgstr "Разрешить администраторам и модераторам группы изменять настройки подписки на группу:"
+
+#: bp-activity-subscription-functions.php:1233
+#: bp-activity-subscription-functions.php:1238
+#@ bp-ass
+msgid "yes"
+msgstr "да"
+
+#: bp-activity-subscription-functions.php:1234
+#: bp-activity-subscription-functions.php:1239
+#@ bp-ass
+msgid "no"
+msgstr "нет"
+
+#: bp-activity-subscription-functions.php:1236
+#@ bp-ass
+msgid "Allow group admins to override subscription settings and send an email to everyone in their group: "
+msgstr "Разрешить администраторам отправлять уведомления в своих группах:"
+
+#: bp-activity-subscription-functions.php:1243
+#@ bp-ass
+msgid "Spam Prevention"
+msgstr "Защита от спама"
+
+#: bp-activity-subscription-functions.php:1244
+#@ bp-ass
+msgid "To help protect against spam, you may wish to require a user to have been a member of the site for a certain amount of days before any group updates are emailed to the other group members. This is disabled by default."
+msgstr "Для защиты от спама, вы можете потребовать, чтобы пользователь был зарегистрирован на сайте за определенное количество дней до обновления в любой группе. По умолчанию отключено."
+
+#: bp-activity-subscription-functions.php:1245
+#@ bp-ass
+msgid "Member must be registered for"
+msgstr "Участники должны быть зарегистрированы за"
+
+#: bp-activity-subscription-functions.php:1245
+#@ bp-ass
+msgid "days"
+msgstr "дней"
+
+#: bp-activity-subscription-functions.php:1256
+#, php-format
+#@ bp-ass
+msgid "If you enjoy using this plugin %s please rate it %s."
+msgstr "Если вам нравится этот плагин %s оцените, пожалуйста, это %s."
+
+#: bp-activity-subscription-functions.php:1257
+#@ bp-ass
+msgid "Please make a donation to the team to support ongoing development."
+msgstr "Пожалуйста, сделайте пожертвование команде для дальнейшего развития."
+
+#: bp-activity-subscription-main.php:11
+#@ bp-ass
+msgid "Email Options"
+msgstr "Подписка"
+
+#: bp-activity-subscription-functions.php:234
+#@ bp-ass
+msgid "in the group"
+msgstr "в группе"
+
+#: bp-activity-subscription-functions.php:434
+#, php-format
+#@ bp-ass
+msgid "Your email notifications are set to %s for this group."
+msgstr "Статус уведомлений в этой группе -  %s "
+
+#: bp-activity-subscription-functions.php:1164
+#@ bp-ass
+msgid "Settings saved."
+msgstr "Настройки сохранены."
+

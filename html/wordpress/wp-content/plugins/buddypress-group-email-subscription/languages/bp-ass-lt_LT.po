@@ -1,0 +1,603 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BuddyPress Group Email Subscription\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-26 13:48-0800\n"
+"PO-Revision-Date: 2012-05-01 18:14+0200\n"
+"Last-Translator: \n"
+"Language-Team: J.T.\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: /Volumes/Macintosh HD/Users/deryk/Sites/bp/wp-content/plugins/buddypress-group-email-subscription/\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: bp-activity-subscription-digest.php:49
+msgid "Your daily digest of group activity"
+msgstr "Jūsų grupės veiklos dienos santrauka"
+
+#: bp-activity-subscription-digest.php:51
+msgid "Your weekly summary of group topics"
+msgstr "Jūsų grupės temų savaitinė suvestinė"
+
+#: bp-activity-subscription-digest.php:57
+#, php-format
+msgid "You have received this message because you are subscribed to receive a digest of activity in some of your groups on %s."
+msgstr "Jūs gavote šį pranešimą, nes esate veiklos santraukos prenumeratorius kai kuriose grupėse %s."
+
+#: bp-activity-subscription-digest.php:92
+msgid "at"
+msgstr "prie"
+
+#: bp-activity-subscription-digest.php:99
+#, php-format
+msgid "(%s items)"
+msgstr "(%s Elementai)"
+
+#: bp-activity-subscription-digest.php:110
+msgid "Group Summary"
+msgstr "Grupės Suvestinė"
+
+#: bp-activity-subscription-digest.php:115
+msgid "How to follow a topic: to get email updates for a specific topic, click the topic title - then on the webpage click the <i>Follow this topic</i> button. (If you don't see the button you need to login first.)"
+msgstr "Kaip sekti temą: kad gautumėte specifinės temos atnaujinimus elektroniniu paštu, spragtelkite temos antraštę, tuomet tinklapyje paspauskite <i>Sekti šią temą</i> mygtuką (jeigu nematote mygtuko, prisijunkite.)"
+
+#: bp-activity-subscription-digest.php:119
+#, php-format
+msgid "To disable these notifications please login and go to: %s where you can change your email settings for each group."
+msgstr "Norėdamas panaikinti šiuos pranešimus prašome prisijungti ir eiti į: %s, kur galite pakeisti savo elektroninio pašto nuostatas kiekvienai grupei."
+
+#: bp-activity-subscription-digest.php:119
+#: bp-activity-subscription-functions.php:953
+msgid "My Groups"
+msgstr "Mano Grupės"
+
+#: bp-activity-subscription-digest.php:165
+msgid "DAILY DIGEST:"
+msgstr "DIENINĖ ATASKAITA:"
+
+#: bp-activity-subscription-digest.php:167
+msgid "WEEKLY DIGEST:"
+msgstr "SAVAITINĖ ATASKAITA:"
+
+#: bp-activity-subscription-digest.php:188
+#, php-format
+msgid "Group: %s"
+msgstr "Grupė: %s"
+
+#: bp-activity-subscription-digest.php:190
+#, php-format
+msgid "Group: %s weekly summary"
+msgstr "Grupė: %s savaitinė suvestinė"
+
+#: bp-activity-subscription-digest.php:194
+msgid "change "
+msgstr "keisti"
+
+#: bp-activity-subscription-digest.php:194
+msgid "email options"
+msgstr "elektroninio pašto pranešimų parinktys"
+
+#: bp-activity-subscription-digest.php:194
+msgid "for this group"
+msgstr "šiai grupei"
+
+#: bp-activity-subscription-digest.php:255
+#: bp-activity-subscription-digest.php:285
+#, php-format
+msgid "at %s, %s"
+msgstr "prie %s, %s"
+
+#: bp-activity-subscription-digest.php:263
+msgid "View"
+msgstr "Peržiūrėti"
+
+#: bp-activity-subscription-digest.php:281
+#, php-format
+msgid "(%s replies)"
+msgstr "(%s atsakymus)"
+
+#: bp-activity-subscription-digest.php:383
+msgid "Once Weekly"
+msgstr "Kartą per Savaitę"
+
+#: bp-activity-subscription-functions.php:43
+#: bp-activity-subscription-functions.php:118
+#, php-format
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"To view or reply to this topic, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"Kad peržiūrėtumėte arba parašytumėte atsakymą šiai temai, prisijunkite ir eikite į:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:55
+#: bp-activity-subscription-functions.php:130
+#: bp-activity-subscription-functions.php:238
+#, php-format
+msgid "To disable these notifications please log in and go to: %s"
+msgstr "Norėdamas panaikinti šiuos pranešimus, prašome prisijungti ir eiti į: %s"
+
+#: bp-activity-subscription-functions.php:71
+#: bp-activity-subscription-functions.php:177
+#: bp-activity-subscription-functions.php:262
+msgid "Your email setting for this group is: "
+msgstr "Jūsų elektroninio pašto pranešimų nuostata šiai grupei yra:"
+
+#: bp-activity-subscription-functions.php:74
+msgid ", therefore you won't receive replies to this topic. To get them, click the link to view this topic on the web then click the 'Follow this topic' button."
+msgstr ", todėl Jūs negausite šios temos atsakymų. Norėdamas jas gauti, paspauskite nuorodą, kad peržiūrėtumėte šią temą žiniatinklyje, tuomet paspauskite 'Sekti šią temą' mygtuką."
+
+#: bp-activity-subscription-functions.php:226
+#, php-format
+msgid ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"To view or reply, log in and go to:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%s\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"Norėdamas peržiūrėti ar atsakyti, prisijunkite ir eikite į:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:358
+msgid "Email Subscription Options"
+msgstr "Elektroninio pašto pranešimų Prenumeratos Parinktys"
+
+#: bp-activity-subscription-functions.php:363
+msgid "How do you want to read this group?"
+msgstr "Ar norite skaityti šios grupės pranešimus?"
+
+#: bp-activity-subscription-functions.php:366
+#: bp-activity-subscription-functions.php:431
+#: bp-activity-subscription-functions.php:486
+#: bp-activity-subscription-functions.php:867
+msgid "No Email"
+msgstr "Be Elektroninio pašto"
+
+#: bp-activity-subscription-functions.php:367
+#: bp-activity-subscription-functions.php:486
+msgid "I will read this group on the web"
+msgstr "Aš skaitysiu šios grupės turinį žiniatinklyje"
+
+#: bp-activity-subscription-functions.php:371
+msgid "Weekly Summary Email"
+msgstr "Savaitinės Ataskaitos Elektroninio pašto pranešimas"
+
+#: bp-activity-subscription-functions.php:372
+msgid "Get a summary of new topics each week"
+msgstr "Gaukite naujų temų ataskaitą kiekvieną savaitę"
+
+#: bp-activity-subscription-functions.php:376
+msgid "Daily Digest Email"
+msgstr "Dieninės Santraukos Elektroninio pašto pranešimas"
+
+#: bp-activity-subscription-functions.php:377
+msgid "Get all the day's activity bundled into a single email"
+msgstr "Gaukite visas dieninės veiklos ataskaitas vienu kartu viename elektroninio pašto pranešime"
+
+#: bp-activity-subscription-functions.php:381
+msgid "New Topics Email"
+msgstr "Naujų Temų Elektroninio pašto pranešimas"
+
+#: bp-activity-subscription-functions.php:382
+msgid "Send new topics as they arrive (but don't send replies)"
+msgstr "Siųsti naujas temas, kai jos atsiras (bet nesiųsti atsakymų)"
+
+#: bp-activity-subscription-functions.php:386
+#: bp-activity-subscription-functions.php:439
+#: bp-activity-subscription-functions.php:490
+#: bp-activity-subscription-functions.php:871
+msgid "All Email"
+msgstr "Viskas Elektronio Pašto pranešimu"
+
+#: bp-activity-subscription-functions.php:387
+#: bp-activity-subscription-functions.php:490
+msgid "Send all group activity as it arrives"
+msgstr "Pranešti apie visą grupės veiklą, kai ji pasirodo"
+
+#: bp-activity-subscription-functions.php:390
+#: bp-activity-subscription-functions.php:1185
+msgid "Save Settings"
+msgstr "Įrašyti Nuostatas"
+
+#: bp-activity-subscription-functions.php:392
+msgid "Note: Normally, you receive email notifications for topics you start or comment on. This can be changed at"
+msgstr "Įspėjimas: Paprastai Jūs gausite elektroninio pašto pranešimus ir apie temas, kurias jūs užvedate ar komentuojate. Tai gali būti pakeista"
+
+#: bp-activity-subscription-functions.php:392
+msgid "email notifications"
+msgstr "elektroninio pašto pranešimuose"
+
+#: bp-activity-subscription-functions.php:419
+msgid "Your email notifications are set to "
+msgstr "Jūsų elektroninio pašto pranešimai nustatyti kaip"
+
+#: bp-activity-subscription-functions.php:433
+#: bp-activity-subscription-functions.php:487
+msgid "Weekly Summary"
+msgstr "Savaitinės Ataskaitos"
+
+#: bp-activity-subscription-functions.php:435
+#: bp-activity-subscription-functions.php:488
+msgid "Daily Digest"
+msgstr "Dieninės Santraukos"
+
+#: bp-activity-subscription-functions.php:437
+#: bp-activity-subscription-functions.php:489
+#: bp-activity-subscription-functions.php:870
+msgid "New Topics"
+msgstr "Naujos Temos"
+
+#: bp-activity-subscription-functions.php:464
+msgid "Your email status is "
+msgstr "Jūsų elektroninio pašto būsena yra"
+
+#: bp-activity-subscription-functions.php:465
+msgid "change"
+msgstr "pakeisti"
+
+#: bp-activity-subscription-functions.php:471
+msgid "Get email updates"
+msgstr "Gauti elektroninio pašto atnaujinimus"
+
+#: bp-activity-subscription-functions.php:482
+msgid "Change your email subscription options for this group"
+msgstr "Pakeisti Jūsų elektroninio pašto prenumeratos parinktis šiai grupei"
+
+#: bp-activity-subscription-functions.php:487
+msgid "Get a summary of topics each"
+msgstr "Gauti temų ataskaitą kiekvieną"
+
+#: bp-activity-subscription-functions.php:488
+msgid "Get the day's activity bundled into one email"
+msgstr "Gauti dienos veiklos suvestinę į vieną elektroninio pašto dėžutę"
+
+#: bp-activity-subscription-functions.php:489
+msgid "Send new topics as they arrive (but no replies)"
+msgstr "Siųsti naujas temas, kai tik jos pasirodo (bet ne atsakymus)"
+
+#: bp-activity-subscription-functions.php:491
+msgid "close"
+msgstr "uždaryti"
+
+#: bp-activity-subscription-functions.php:564
+msgid "You successfully joined the group. Your group email status is: "
+msgstr "Jūs sėkmingai prisijungėte prie grupės. Jūsų grupės elektroninio pašto būsena yra:"
+
+#: bp-activity-subscription-functions.php:575
+msgid "Email Subscription Defaults"
+msgstr "Elektroninio pašto Prenumeratos Numatymai"
+
+#: bp-activity-subscription-functions.php:576
+msgid "When new users join this group, their default email notification settings will be:"
+msgstr "Kuomet vartotojai prisijungia prie šios grupės, Jų numatytosios elektroninio pašto pranešimų nuostatos bus:"
+
+#: bp-activity-subscription-functions.php:579
+msgid "No Email (users will read this group on the web - good for any group - the default)"
+msgstr "Jokio Elektroninio pašto (vartotojai skaitys šios grupės pranešimus žiniatinklyje - gerai bet kuriai grupei - pagal numatymą)"
+
+#: bp-activity-subscription-functions.php:581
+msgid "Weekly Summary Email (the week's topics - good for large groups)"
+msgstr "Savaitės Ataskaitos Elektroninio pašto pranešimas (savaitės temos - gerai didelėms grupėms)"
+
+#: bp-activity-subscription-functions.php:583
+msgid "Daily Digest Email (all daily activity bundles in one email - good for medium-size groups)"
+msgstr "Dienos Santraukos elektroninio pašto pranešimas (visos dienos veiklos suvestinė - gerai vidutinio dydžio grupėms)"
+
+#: bp-activity-subscription-functions.php:585
+msgid "New Topics Email (new topics are sent as they arrive, but not replies - good for small groups)"
+msgstr "Naujų Temų Elektroninio pašto pranešimas (naujos temos yra išsiunčiamos, kai tik pasirodo, bet be atsakymų - gerai mažoms grupėms)"
+
+#: bp-activity-subscription-functions.php:587
+msgid "All Email (send emails about everything - recommended only for working groups)"
+msgstr "Visi Elektroninio pašto pranešimai (siųsti elektroninio pašto pranešimus apie viską - rekomenduojama tik darbinėms grupėms)"
+
+#: bp-activity-subscription-functions.php:671
+msgid "Follow"
+msgstr "Sekti"
+
+#: bp-activity-subscription-functions.php:672
+msgid "You are not following this topic. Click to follow it and get email updates for new posts"
+msgstr "Jūs nesekate šios temos. Paspauskite, norėdamas tai sekti ir gauti atnaujinimus apie naujus įrašus elektroniniu paštu"
+
+#: bp-activity-subscription-functions.php:675
+msgid "Mute"
+msgstr "Užtildyti"
+
+#: bp-activity-subscription-functions.php:676
+msgid "You are following this topic. Click to stop getting email updates"
+msgstr "Jūs sekate šią temą. Paspauskite, norėdamas nebegauti elektroninio pašto pranešimų"
+
+#: bp-activity-subscription-functions.php:682
+msgid "This conversation is muted. Click to follow it"
+msgstr "Šis pokalbis užtildytas. Paspauskite, norėdamas sekti jį"
+
+#: bp-activity-subscription-functions.php:686
+msgid "this topic"
+msgstr "ši tema"
+
+#: bp-activity-subscription-functions.php:704
+msgid "Email"
+msgstr "Elektroninis paštas"
+
+#: bp-activity-subscription-functions.php:845
+#: bp-activity-subscription-functions.php:865
+msgid "Email status:"
+msgstr "Elektroninio pašto būsena:"
+
+#: bp-activity-subscription-functions.php:866
+msgid "Change to:"
+msgstr "Pakeisti į:"
+
+#: bp-activity-subscription-functions.php:868
+msgid "Weekly"
+msgstr "Savaitinį"
+
+#: bp-activity-subscription-functions.php:869
+msgid "Daily"
+msgstr "Dieninį"
+
+#: bp-activity-subscription-functions.php:894
+msgid "User email status changed successfully"
+msgstr "Vartotojo elektroninio pašto būsena sėkmingai pakeista"
+
+#: bp-activity-subscription-functions.php:915
+msgid "Site Admin Only: update email subscription settings for ALL members to the default:"
+msgstr "Tik Puslapio Administratoriui: atnaujinti elektroninio pašto pranešimų prenumeratą VISIEMS nariams į numatytąją:"
+
+#: bp-activity-subscription-functions.php:915
+msgid "Warning: this is not reversible so use with caution."
+msgstr "Dėmesio: padariniai neatstatomi, tad naudokite šią funkciją atsargiai."
+
+#: bp-activity-subscription-functions.php:915
+msgid "Make it so!"
+msgstr "Padaryti tai!"
+
+#: bp-activity-subscription-functions.php:942
+msgid "All user email status's changed successfully"
+msgstr "Visų vartotojų elektroninio pašto pranešimų būsena pakeista sėkmingai"
+
+#: bp-activity-subscription-functions.php:952
+msgid "Group Email Settings"
+msgstr "Grupės Elektroninio pašto pranešimų Nuostatos"
+
+#: bp-activity-subscription-functions.php:953
+#, php-format
+msgid "To change the email notification settings for your groups go to %s and click change for each group."
+msgstr "Kad pakeistumėte elektroninio pašto pranešimų nuostatas Jūsų grupėms, eikite į %s ir paspauskite pakeisti kiekvienai grupei."
+
+#: bp-activity-subscription-functions.php:976
+msgid "Send an email notice to everyone in the group"
+msgstr "Siųsti elektroninio pašto įspėjima kiekvienam šioje grupėje"
+
+# naudotie
+#: bp-activity-subscription-functions.php:977
+msgid "You can use the form below to send an email notice to all group members."
+msgstr "Jūs galite naudotie formą žemiau, norėdamas išsiųsti elektroninio pašto įspėjimą visiems grupės nariams."
+
+#: bp-activity-subscription-functions.php:978
+msgid "Everyone in the group will receive the email -- regardless of their email settings -- so use with caution"
+msgstr "Visi grupės nariai gaus elektroninio pašto pranešimą - nepriklausomai nuo jų elektroninio pašto pranešimų nuostatų - naudokite tai atsargiai"
+
+#: bp-activity-subscription-functions.php:982
+msgid "Email Subject:"
+msgstr "Elektroninio laiško Tema:"
+
+#: bp-activity-subscription-functions.php:984
+msgid "Email Content:"
+msgstr "Elektroninio laiško Turinys:"
+
+#: bp-activity-subscription-functions.php:986
+msgid "Email this notice to everyone in the group"
+msgstr "Nusiųsti šį įspėjimą visiems grupės nariams elektroniniu paštu"
+
+#: bp-activity-subscription-functions.php:1013
+msgid " - sent from the group "
+msgstr "- išsiųsta iš grupės"
+
+#: bp-activity-subscription-functions.php:1015
+#, php-format
+msgid ""
+"This is a notice from the group '%s':\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"\n"
+"To view this group log in and follow the link below:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"Tai įspėjimas iš grupės '%s' <i>%s</i>:\n"
+"\n"
+"\"%s\"\n"
+"\n"
+"\n"
+"Norėdamas peržiūrėti šią grupę, prisijunkite ir sekite nuorodą žemiau:\n"
+"%s\n"
+"\n"
+"---------------------\n"
+
+#: bp-activity-subscription-functions.php:1026
+msgid ""
+"Please note: admin notices are sent to everyone in the group and cannot be disabled. \n"
+"If you feel this service is being misused please speak to the website administrator."
+msgstr ""
+"Prašome įsidėmėti: administratoriaus įspėjimai yra išsiunčiami keikvienam grupės nariui ir negali būti išjungti. \n"
+"Jeigu manote, kad šia paslauga buvo piktnaudžiaujama, nedelsiant apie tai praneškite tinklalapio administratoriui."
+
+#: bp-activity-subscription-functions.php:1038
+msgid "The email notice was sent successfully."
+msgstr "Elektroninio pašto įspėjimas sėkmingai išsiųstas."
+
+#: bp-activity-subscription-functions.php:1057
+msgid "Group Forum"
+msgstr "Grupės Forumas"
+
+#: bp-activity-subscription-functions.php:1058
+msgid "Yes"
+msgstr "Taip"
+
+#: bp-activity-subscription-functions.php:1059
+msgid "No"
+msgstr "Ne"
+
+#: bp-activity-subscription-functions.php:1065
+msgid "A member replies in a forum topic you've started"
+msgstr "Narys atsako forumo temoje, kurią Jūs užvedėte"
+
+#: bp-activity-subscription-functions.php:1071
+msgid "A member replies after you in a forum topic"
+msgstr "Narys atsako po Jūsų forumo temoje"
+
+#: bp-activity-subscription-functions.php:1077
+msgid "Receive notifications of your own posts?"
+msgstr "Ar norite gauti Jūsų paties įrašų pranešimus?"
+
+#: bp-activity-subscription-functions.php:1096
+msgid "Group Email Options"
+msgstr "Grupės Elektroninio pašto pranešimų Parinktys"
+
+#: bp-activity-subscription-functions.php:1118
+msgid "Group Email Subscription Settings"
+msgstr "Grupės Elektroninio pašto pranešimų Prenumeratos Nuostatos"
+
+#: bp-activity-subscription-functions.php:1123
+msgid "Digests & Summaries"
+msgstr "Santraukos ir Ataskaitos"
+
+#: bp-activity-subscription-functions.php:1125
+msgid "View queued digest items</a></b> (in new window)<br>As admin, you can see what is currently in the email queue by adding ?sum=1 to your url. This will not fire the digest, it will just show you what is waiting to be sent."
+msgstr "Žiūrėti eilėje esančius santraukos elementus</a></b> (naujame lange)<br>Kaip administratorius, Jūs galite matyti kas šiuo metu yra įrašytas į elektroninio pašto pranešimo eilę, pridėdamas ?sum=1 prie Jūsų universaliosios nuorodos. Tai neišplatinis santraukos, o tik parodys Jums kas yra siuntimo eilėje."
+
+#: bp-activity-subscription-functions.php:1129
+msgid "<strong>Daily Digests</strong> should be sent at this time:"
+msgstr "<strong>Dieninės Santraukos</strong> turėtų būti siunčiamos šiuo metu:"
+
+#: bp-activity-subscription-functions.php:1146
+msgid "<strong>Weekly Summaries</strong> should be sent on:"
+msgstr "<strong>Savaitinės Ataskaitos</strong> turėtų būti išsiųstos:"
+
+#: bp-activity-subscription-functions.php:1150
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1237
+msgid "Monday"
+msgstr "Pirmadienį"
+
+#: bp-activity-subscription-functions.php:1151
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1239
+msgid "Tuesday"
+msgstr "Antradienį"
+
+#: bp-activity-subscription-functions.php:1152
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1241
+msgid "Wednesday"
+msgstr "Trečiadienį"
+
+#: bp-activity-subscription-functions.php:1153
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1243
+msgid "Thursday"
+msgstr "Ketvirtadienį"
+
+#: bp-activity-subscription-functions.php:1154
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1245
+msgid "Friday"
+msgstr "Penktadienį"
+
+#: bp-activity-subscription-functions.php:1155
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1247
+msgid "Saturday"
+msgstr "Šeštadienį"
+
+#: bp-activity-subscription-functions.php:1156
+#: bp-activity-subscription-functions.php:1161
+#: bp-activity-subscription-functions.php:1249
+msgid "Sunday"
+msgstr "Sekmadienį"
+
+#: bp-activity-subscription-functions.php:1161
+#, php-format
+msgid "The server timezone is %s (%s); the current server time is %s (%s); and the day is %s."
+msgstr "Serverio laiko juosta nustatyta kaip %s (%s); dabartinis serverio laikas yra %s (%s); o diena yra %s."
+
+#: bp-activity-subscription-functions.php:1166
+msgid "Group Admin Abilities"
+msgstr "Grupės Administratoriaus Galimybės"
+
+#: bp-activity-subscription-functions.php:1167
+msgid "Allow group admins and mods to change members' email subscription settings: "
+msgstr "Leisti grupės administratoriams ir prižiūrėtojams keisti vartotojų elektroninio pašto prenumeratos nuostatas:"
+
+#: bp-activity-subscription-functions.php:1169
+#: bp-activity-subscription-functions.php:1174
+msgid "yes"
+msgstr "taip"
+
+#: bp-activity-subscription-functions.php:1170
+#: bp-activity-subscription-functions.php:1175
+msgid "no"
+msgstr "ne"
+
+#: bp-activity-subscription-functions.php:1172
+msgid "Allow group admins to override subscription settings and send an email to everyone in their group: "
+msgstr "Leisti grupės administratoriams perrašyti prenumeratos nuostatas ir siųsti elektroninio pašto pranešimus kiekvienam jų administruojamos grupės nariui:"
+
+#: bp-activity-subscription-functions.php:1179
+msgid "Spam Prevention"
+msgstr "Apsauga nuo Brukalų"
+
+#: bp-activity-subscription-functions.php:1180
+msgid "To help protect against spam, you may wish to require a user to have been a member of the site for a certain amount of days before any group updates are emailed to the other group members. This is disabled by default."
+msgstr "Ieškant pagalbos apsisaugant nuo brukalų Jums turbūt prireiks vartotojo, kuris jau yra tinklalapio vartotojas tam tikrą dienų skaičių, prieš bet kokius grupės atnaujinimus gaunančio pranešimus, kurie bus išsiųsti kitiems grupės nariams. Pagal numatytasias nuostatas tai yra išjungta."
+
+#: bp-activity-subscription-functions.php:1181
+msgid "Member must be registered for"
+msgstr "Vartotojas turi būti prisiregistravęs (trukmė)"
+
+#: bp-activity-subscription-functions.php:1181
+msgid "days"
+msgstr "dienų(-as)"
+
+#: bp-activity-subscription-functions.php:1192
+#, php-format
+msgid "If you enjoy using this plugin %s please rate it %s."
+msgstr "Jeigu Jūs manote, kad papildinys %s yra Jums naudingas, prašome įvertinti jį %s tinklalapyje."
+
+#: bp-activity-subscription-functions.php:1193
+msgid "Please make a donation to the team to support ongoing development."
+msgstr "Prašome paaukoti papildinio kūrėjų komandai ir paremti tolimesnį plėtojimą"
+
+#: bp-activity-subscription-main.php:12
+msgid "Email Options"
+msgstr "Elektroninio pašto pranešimų Nuostatos"
+

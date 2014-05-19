@@ -1,0 +1,113 @@
+ 
+h4.activity-subscription-settings-title {
+	margin:15px auto;
+	border-bottom:1px solid #EAEAEA;
+}
+
+#activity-subscription-settings-form {
+}
+
+.activity-subscription-settings-checkbox {
+	float:left;
+}
+
+.activity-subscription-radio-cell {
+	text-align: center;
+}
+
+
+.activity-admin-notice-textdiv {
+	background:none repeat scroll 0 0 #FFFFFF;
+	border:1px inset #CCCCCC;
+	margin-bottom:10px;
+	padding:8px;
+}
+
+#ass-admin-notice-textarea, #ass-welcome-email-content {
+	height: 250px;
+	margin-bottom: 10px;
+}
+
+.ass-settings-advanced { display: none; }
+
+.ass-email-type {
+	margin-top: 6px;
+	color: #333;
+	font-size: 14px;
+}
+.ass-email-type .ass-email-explain {
+	margin-left: 19px;
+	margin-bottom: 6px;
+	color: #777;
+	font-size: 12px;
+}
+
+.ass-sub-note { margin-top: 10px; font-size: 12px; color: #777; }
+
+.group-subscription-options {
+	display: none;
+	padding: 4px 6px;
+	background-color: #FFFFCC;
+	color: #888;
+	width: 330px;
+	line-height: 26px;
+	float: right !important;
+	position: absolute;
+	margin-left: 30px;
+	font-size: 11px;
+	z-index: 1;
+}
+
+#groups-dir-list .group-subscription-options,
+#groups-list .group-subscription-options {
+	position: relative;	
+	z-index: 1;
+	right: 0;
+	text-align: left;
+}
+#groups-dir-list .group-subscription-div,
+#groups-list .group-subscription-div {
+	padding-top: 6px;
+	font-size: 11px;
+}
+#groups-dir-list .group-subscription-status-desc,
+#groups-list .group-subscription-status-desc {
+	display: none;
+}
+
+.group-subscription-close {
+	float: right; 
+	display: block;
+	line-height: 12px;
+	height: 12px;
+}
+
+.single-item .group-subscription-div {
+	clear: left;
+	padding-top: 12px;
+}
+.single-item .group-subscription-options {
+	float: left !important; 
+}
+.gemail_icon{ 
+	background: url(email.png) top left no-repeat !important; 
+	padding-left: 20px !important; 
+	margin-left: 2px;
+	font-weight: bold;
+}
+
+.notifications .group-subscription-div { /* hide ajax buttons when we're on the group notification page. */
+	display: none;  
+}
+
+.group-forum-topic .ass-topic-subscribe  { width: 100%; text-align: right; margin: 10px 0; }
+
+.ass_members_status { font-size:11px; color:#aaa; margin-top:5px; } /* only admins see this */
+
+/* only admins see this */
+.ass_manage_members_links {
+	display:block;
+	padding-top: 8px;
+	font-size:11px; 
+	color:#888; 
+}
