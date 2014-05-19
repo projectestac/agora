@@ -1,0 +1,49 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: private-bp-pages\n"
+"POT-Creation-Date: 2013-09-26 23:30-0500\n"
+"PO-Revision-Date: 2013-09-26 23:30-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;__;_e\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: loader.php:26
+msgid ""
+"<strong>Private BP Pages</strong></a> requires the BuddyPress plugin to "
+"work. Please <a href=\"http://buddypress.org/download\">install BuddyPress</"
+"a> first, or <a href=\"plugins.php\">deactivate Private BP Pages</a>."
+msgstr ""
+
+#: private-bp-pages.php:44
+msgid "Private BP Pages"
+msgstr ""
+
+#: private-bp-pages.php:62
+msgid "Private BP Pages Settings"
+msgstr ""
+
+#: private-bp-pages.php:65
+msgid ""
+"Enter the slug of the page you would like logged out visitors to be "
+"redirected to in the below option."
+msgstr ""
+
+#: private-bp-pages.php:69
+msgid "Settings Updated."
+msgstr ""
+
+#: private-bp-pages.php:75
+msgid ""
+"<b>Define Your Redirect Slug<br /> Choices are:<br />register, sign-up, or "
+"wp-login.php.</b>"
+msgstr ""
+
+#: private-bp-pages.php:83
+msgid "Save Settings"
+msgstr ""
