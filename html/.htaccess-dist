@@ -23,3 +23,8 @@ RewriteRule ^([^/]*)/moodle/(.*)$ moodle2/$2?ccentre=$1 [QSA,L]
 RewriteRule ^([^/]*)/intranet/(.*)$ zikula/$2?ccentre=$1 [QSA,L]
 RewriteRule ^([^/]*)/nodes/(.*)$ wordpress/$2?ccentre=$1 [QSA,L]
 
+# Required for WordPress
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . wordpress/index.php [L]
+
