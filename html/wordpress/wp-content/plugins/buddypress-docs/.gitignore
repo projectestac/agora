@@ -1,0 +1,6 @@
+.DS_Store
+.DS_store
+*.sw*
+tests/wp-tests-config.php
+config.rb
+.sass-cache
