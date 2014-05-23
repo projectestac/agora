@@ -18,3 +18,5 @@ WORDPRESS
 - Added Buddypress Group Email Subscription 3.4
 - Added BuddyPress Docs 1.7.0
 - Removed plugins Akismet and hello.php
+- Added BBpress Enable Tinymce Visual Tab 1.0.1
+- Added Buddypress Like 0.1.7
