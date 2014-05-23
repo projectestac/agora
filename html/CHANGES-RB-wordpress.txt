@@ -20,3 +20,4 @@ WORDPRESS
 - Removed plugins Akismet and hello.php
 - Added BBpress Enable Tinymce Visual Tab 1.0.1
 - Added Buddypress Like 0.1.7
+- Added BuddyPress Moderation 0.1.7

@@ -1,0 +1,76 @@
+/* report link ****************************************************************/
+.bpm-report-link {
+	text-decoration: none;
+}
+
+.bpm-inner-text {
+	display: inline-block;
+	height: 16px;
+	line-height: 16px;
+	padding-left: 20px;
+	text-decoration: underline;
+}
+
+.bpm-no-text .bpm-inner-text {
+	width: 16px;
+	padding-left: 0px;
+}
+
+.bpm-no-images .bpm-inner-text {
+	background-image: none;
+	padding-left: 0px;
+}
+
+.bpm-inner-text {
+	background: url(sprite.png) no-repeat;
+}
+
+.bpm-unflagged .bpm-inner-text {
+	background-position: 0 0;
+}
+
+.bpm-flagged .bpm-inner-text {
+	background-position: 0 -66px;
+}
+
+.activity-meta .bpm-inner-text,
+.acomment-options .bpm-inner-text {
+    text-decoration: none;
+}
+
+/* if there is no text a square button look better */
+.activity-list li.mini div.activity-meta a.bpm-no-text {
+	padding: 3px 2px 3px 3px;
+}
+
+.bpm-report-link .ajax-loader {
+	background: url(ajax-loader.gif) center left no-repeat !important;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+}
+
+/* content type specific ******************************************************/
+.bpm-bottom-link {
+	margin-top: 12px;
+}
+
+.bpm-right-link {
+	text-align: right;
+}
+
+span.links-separator {
+	display: none;
+}
+
+#topic-post-list .admin-links a + span.links-separator {
+	display: inline;
+}
+
+p.bp-mod-pm-thread-links {
+	margin: 20px 0;
+}
+p.bp-mod-pm-thread-links span.bpm-inner-text {
+	text-decoration: none;
+}
