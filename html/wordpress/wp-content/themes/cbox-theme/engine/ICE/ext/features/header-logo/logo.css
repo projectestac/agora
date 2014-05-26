@@ -1,0 +1,10 @@
+h1.icext-feature.icext-header-logo,
+div.icext-feature.icext-header-logo {
+    margin: 0;
+}
+h1.icext-feature.icext-header-logo a,
+div.icext-feature.icext-header-logo a {
+	display: block;
+	position: absolute;
+	margin: 0;
+}

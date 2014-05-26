@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'iconSweetsRegular';
+    src: url('iconsweets-webfont.eot');
+    src: url('iconsweets-webfont.eot?#iefix') format('embedded-opentype'),
+         url('iconsweets-webfont.woff') format('woff'),
+         url('iconsweets-webfont.ttf') format('truetype'),
+         url('iconsweets-webfont.svg#iconSweetsRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+

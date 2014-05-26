@@ -1,0 +1,121 @@
+/* ====================== */
+/* ! Theme Documentation  */
+/* ====================== */
+
+.infinity-docs {
+    padding: 0;
+}
+.infinity-docs * {
+    font-family: "Helvetica","Arial",sans-serif;
+    font-size: 12px;
+	color: #222222;
+}
+.infinity-docs img {
+	padding: 3px;
+	border: 1px solid #DDD;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.infinity-docs p,
+.infinity-docs ul,
+.infinity-docs ol {
+	margin: 0 0 1.5em 0;
+}
+.infinity-docs blockquote {
+	margin: 0 0 1.5em 1em;
+	padding: 6px 12px;
+	color: #111111;
+	font-style: italic;
+	letter-spacing: 1px;
+	max-width: 70%;
+	background-color: #e4f2fd;
+	border: 1px dotted #869edf;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.infinity-docs blockquote p {
+	margin: 0;
+}
+.infinity-docs pre code {
+	display: inline-block;
+	margin: 0;
+	padding: 6px 12px;
+	color: #864304;
+	font-family: "Lucida Console","Courier New",monospace;
+	background-color: #fff;
+	border: 1px dashed darkgray;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.infinity-docs pre {
+	margin: 0 0 1.5em 1em;
+}
+.infinity-docs h1,
+.infinity-docs h2,
+.infinity-docs h3,
+.infinity-docs h4,
+.infinity-docs h5,
+.infinity-docs h6 {
+	padding: 0;
+	color: #222222;
+	font-family: "Helvetica","Arial",sans-serif;
+	font-weight: bolder;
+	font-style: normal;
+	line-height: 110%;
+	border-bottom: 1px solid #dddddd;
+}
+.infinity-docs h1 { font-size: 2em; margin: .67em 0;}
+.infinity-docs h2 { font-size: 1.5em; margin: .75em 0;}
+.infinity-docs h3 { font-size: 1.17em; margin: .83em 0; }
+.infinity-docs h4 { font-size: 1em; margin: 1.12em 0; }
+.infinity-docs h5 { font-size: .83em; margin: 1.5em 0; }
+.infinity-docs h6 { font-size: .75em; margin: 1.67em 0; }
+.infinity-docs ul,
+.infinity-docs ol {
+	margin: .3em 0 1.5em 1em;
+}
+.infinity-docs ol {
+	list-style-type: decimal;
+}
+.infinity-docs ul {
+	list-style-type: disc;
+}
+.infinity-docs ul li,
+.infinity-docs ol li {
+	margin-left: 1.4em;
+	padding-left: 0;
+}
+	.infinity-docs ul li ul,
+	.infinity-docs ol li ol {
+		margin-bottom: 0.5em;
+	}
+.infinity-docs ul.infinity-docs-menu {
+	margin-bottom: 3em;
+}
+.infinity-docs ul.infinity-docs-menu li a {
+	font-size: 1.2em;
+}
+.infinity-docs em {
+	font-weight: bold;
+}
+.infinity-docs.infinity-docs-toc {
+	float: right;
+	width: 25%;
+}
+.infinity-docs.infinity-docs-page {
+	float: left;
+	width: 65%;
+}
+
+/* ================== */
+/* ! WordPress Tweaks */
+/* ================== */
+
+/* burn in hell update nag */
+div.update-nag {
+	display: none;
+}

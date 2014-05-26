@@ -1,0 +1,204 @@
+/* ========================= */
+/* ! Control Panel Styling   */
+/* ========================= */
+
+body.appearance_page_infinity-theme {
+	background: url('../../../assets/images/design/bg.png') repeat -4px -2px;
+}
+
+/* main container */
+div#infinity-cpanel {
+	max-width: 1000px;
+	min-width: 720px;
+	margin-top: 20px;
+}
+
+div#infinity-cpanel > .juicy-browsertabs {
+	min-height: 600px;
+}
+
+div#infinity-cpanel .ui-widget a,
+div#infinity-cpanel .ui-widget a:link,
+div#infinity-cpanel .ui-widget a:active,
+div#infinity-cpanel .ui-widget a:visited,
+div#infinity-cpanel .ui-widget a:hover {
+	text-decoration: none;
+}
+
+div#infinity-cpanel .ui-widget a:hover {
+	text-decoration: underline;
+}
+
+div.infinity-cpanel .ui-button .ui-button-text {
+	font-weight: bold;
+}
+
+/* header */
+div#infinity-cpanel-header {
+	position: relative;
+	height: 65px;
+	border: 0 none;
+	margin-bottom: 10px;
+	padding: 10px 20px;
+	background: transparent;
+}
+div#infinity-cpanel-header-logo {
+	position: relative;
+	top: 10px;
+	height: 48px;
+	width: 187px;
+	background: url('../images/admin_logo.png') no-repeat scroll 0 0 transparent;
+}
+
+div#infinity-cpanel-header-version {
+	float: left;
+	position: relative;
+	top: 48px;
+	z-index: 1;
+	font-size: 10px;
+	letter-spacing: .05em;
+	color: #999999;
+}
+	div#infinity-cpanel-header-version a,
+	div#infinity-cpanel-header-version a:visited {
+		color: #777;
+	}
+
+/* toolbar */
+div#infinity-cpanel-toolbar {
+	float: right;
+	position: relative;
+	top: -80px;
+	right: 15px;
+	border-radius: 0 0 3px 3px;
+	border-top: 1px solid #D6D6D6;
+}
+	div#infinity-cpanel-toolbar .ui-button-icon-primary {
+		left: 0.2em;
+	}
+	div#infinity-cpanel-toolbar .ui-button-text {
+		line-height: 100%;
+		font-size: 10px;
+		font-weight: bold;
+	}
+	a#infinity-cpanel-menubutton {
+		margin-right: 0.8em;
+	}
+		a#infinity-cpanel-menubutton .ui-button-text {
+			font-size: 14px;
+		}
+	a#infinity-cpanel-refreshbutton,
+	input#infinity-cpanel-scrollbutton + label.ui-button {
+		float: right;
+		left: 8px;
+		right: 8px;
+		top: 3px;
+		}
+		a#infinity-cpanel-refreshbutton .ui-button-text,
+		input#infinity-cpanel-scrollbutton + label.ui-button .ui-button-text {
+			font-size: 12px;
+			padding-left: 20px;
+		}
+	div#infinity-cpanel-toolbar .juicy-buttonmenu {
+		position: absolute;
+		top: 32px;
+		left: 14px;
+		z-index: 3;
+		padding: 4px 6px 6px 8px;
+	}
+	div#infinity-cpanel-toolbar ul.ui-menu {
+		background: #fafafa;
+		border: 1px dotted #b6b6b6;
+		box-shadow: 2px 2px 6px #aaaaaa;
+		-moz-box-shadow: 2px 2px 6px #aaaaaa;
+		-webkit-box-shadow: 2px 2px 6px #aaaaaa;
+	}
+
+/* tabs */
+div#infinity-cpanel-tabs {
+	margin: 3px;
+	background: #fff none;
+}
+	div#infinity-cpanel-tabs ul.ui-tabs-nav,
+	div#infinity-cpanel-tabs ul.ui-tabs-panel {
+		min-width: 720px;
+	}
+
+div#infinity-cpanel-tab-options {
+	background: #fff none;
+}
+
+div#infinity-cpanel-tabs > ul.ui-tabs-nav {
+	margin-left: 2px;
+	border-width: 0 0 1px 0;
+	padding: 0;
+	font-size: 12px;
+	background: transparent;
+}
+	div#infinity-cpanel-tabs > ul.ui-tabs-nav li a {
+		font-size: 1.3em;
+		font-weight: bold;
+	}
+
+
+/* dialog tweaks */
+div#infinity-cpanel .ui-dialog {
+	padding: 0;
+	background: none;
+}
+	div#infinity-cpanel .ui-dialog .ui-dialog-titlebar-close {
+		right: .8em;
+		top: 55%;
+		width: 16px;
+		padding: 0;
+		height: 16px;
+	}
+	
+/* input styling */
+div#infinity-cpanel select,
+div#infinity-cpanel textarea,
+div#infinity-cpanel input[type="button"],
+div#infinity-cpanel input[type="image"],
+div#infinity-cpanel input[type="password"],
+div#infinity-cpanel input[type="reset"],
+div#infinity-cpanel input[type="submit"],
+div#infinity-cpanel input[type="text"] {
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.1) inset, 0 1px 0 rgba(255,255,255,0.2);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.1) inset, 0 1px 0 rgba(255,255,255,0.2);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1) inset, 0 1px 0 rgba(255,255,255,0.2);
+	-webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25 ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	width: 30%;
+}
+div#infinity-cpanel textarea {
+	width: 100%;
+}
+div#infinity-cpanel select:hover,
+div#infinity-cpanel textarea:hover,
+div#infinity-cpanel input[type="button"]:hover,
+div#infinity-cpanel input[type="image"]:hover,
+div#infinity-cpanel input[type="password"]:hover,
+div#infinity-cpanel input[type="reset"]:hover,
+div#infinity-cpanel input[type="submit"]:hover,
+div#infinity-cpanel input[type="text"]:hover {
+	border: 1px solid #bdbdbd;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2) inset, 0 1px 0 rgba(255,255,255,0.2);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.2) inset, 0 1px 0 rgba(255,255,255,0.2);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.2) inset, 0 1px 0 rgba(255,255,255,0.2);
+}
+div#infinity-cpanel textarea:focus,
+div#infinity-cpanel input[type="button"]:focus,
+div#infinity-cpanel input[type="image"]:focus,
+div#infinity-cpanel input[type="password"]:focus,
+div#infinity-cpanel input[type="reset"]:focus,
+div#infinity-cpanel input[type="submit"]:focus,
+div#infinity-cpanel input[type="text"]:focus {
+	border: 1px solid #95bdd4;
+	-webkit-box-shadow: 0 2px 3px rgba(161,202,226,0.5) inset, 0 1px 0 rgba(255,255,255,0.2);
+	-moz-box-shadow: 0 2px 3px rgba(161,202,226,0.5) inset, 0 1px 0 rgba(255,255,255,0.2);
+	box-shadow: 0 2px 3px rgba(161,202,226,0.5) inset, 0 1px 0 rgba(255,255,255,0.2);
+}

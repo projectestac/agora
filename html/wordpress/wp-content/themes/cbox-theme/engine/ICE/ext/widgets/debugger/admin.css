@@ -1,0 +1,15 @@
+
+div.icext-widget.icext-debugger div.ui-widget-header {
+	padding: 3px 6px;
+}
+div.icext-widget.icext-debugger div.ui-widget-content {
+	padding: 10px;
+}
+div.icext-widget.icext-debugger div.ui-widget-content ul {
+	margin-left: 10px;
+	list-style: disc;
+}
+	div.icext-widget.icext-debugger div.ui-widget-content ul li a {
+		min-width: 150px;
+		padding: 2px 6px;
+	}

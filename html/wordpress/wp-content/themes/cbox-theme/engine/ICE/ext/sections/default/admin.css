@@ -1,0 +1,9 @@
+
+div.icext-section.icext-default > div.ice-title {
+	margin: 0 0 12px 0;
+	padding: 5px 10px;
+}
+div.icext-section.icext-default > div.ice-content {
+	border: none;
+	background: transparent;
+}

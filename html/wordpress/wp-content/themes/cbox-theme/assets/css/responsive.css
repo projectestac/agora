@@ -1,0 +1,276 @@
+/*
+Theme Name: Balance Responsive Theme
+Parent styles */
+/* This stylesheet contains a bunch of extra stuff like buttons and Menu Icons you can use across your theme.*/
+/*
+ /* Columns Shortcodes*/
+
+/*RESPONSIVE TWEAKS*/
+.mobile-menu-container {
+	display: none;
+}
+.mobile-menu-container select {
+	width: 60%;
+	box-shadow: none;
+} 
+.mobile-menu-container a.button {
+    position: absolute;
+    right: 10px;
+    top: -1px;
+    box-shadow: 0 1px 1px #AFAFAF, 0 1px 0 #868686 inset;
+    font-size: 75%;
+    padding: 2px 8px;
+    text-transform: uppercase;
+    top: -1px;
+}
+.mobile-menu-container a.button:hover {
+	opacity: 0.8;
+	color: #DDD;
+}
+.mobile-menu-container #loginlogout {
+	right: 110px;
+}
+/*--------------------------------------------------------------
+1.1 - iPad Landscape
+--------------------------------------------------------------*/
+@media only screen and (max-width: 1050px) { 
+	#infinity-base div.item-options {
+	    float: none;
+	    margin-top: 0;
+	}
+}
+
+body { min-width: inherit }
+@media only screen and (max-width: 768px) { 
+	#wpadminbar,
+	.twipsy { display: block !important }
+	#sidebar { 
+		min-height: auto !important;
+	}
+	body #wrapper { 
+		margin: 0 10px 10px; 
+	}
+    .main-menu select.mobileMenu {
+	    float: right;
+    }
+	.callout-box,
+	.flex-caption,
+	#feature-box h3 { display: none }
+	.callout-box { padding: 0px }
+	html.js { margin-top: 0 !important }
+	img,
+	fieldset {
+	    max-width: 100%;
+	    height: auto;
+	}
+	.sf-menu,
+	#top-menu-wrap,
+	#sub-menu-wrap
+	{ display: none }
+	#main-menu-wrap {
+		margin: 0 !important;
+		padding: 0px !important;
+	}
+	div.item-list-tabs select {
+	    margin-left: 20px;
+	    margin-top: 10px;
+	}
+	#user-header-nav {
+		display: block !important;
+	}
+	#subnav select { margin-top: 5px }
+	.mobileMenu { margin-top: 5px }
+	.post-category,
+	.time-posted { display: none }
+	#wpadminbar{ display: none }
+	div#content .padder {
+	    margin-right: 0;
+	    width: auto;
+	    float: none;
+	    border: none;
+	}
+	#item-header-avatar img.avatar {
+    width: 40%;
+    }
+    .activity-list .activity-content {
+    	margin-left: 0;
+	}
+	.activity-avatar {
+		display: none;
+	}
+		#header {
+	    margin-top: 75px;
+	    height: 100px;
+	}
+	.mobile-menu-container {
+	width: 100%;
+    z-index: 1000;
+    background: #222;
+    border-bottom: 1px solid #292525;
+    border-top: 2px solid #525151;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+    display: block;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: -1px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    position: fixed;
+    top: 1px;
+    height: 50px;
+	}
+	.mobile-menu-container select {
+    box-shadow: none;
+    width: 60%;
+	}
+}
+/*--------------------------------------------------------------
+1.2 - iPad Portrait
+--------------------------------------------------------------*/
+@media only screen and (max-width: 640px) { 
+	div.dir-search {
+	    float: none;
+	    width: auto;
+	    text-align: left;
+	    margin: 1.25em 0 0;
+	}
+	div#item-header div#item-header-content { margin-left: 0px }
+	#div.activity-comments { margin: 0 }
+	#feature-box #callout-button {
+	    position: inherit;
+	    position: inherit;
+	    right: inherit;
+	    top: inherit;
+	}
+	li.featured-item { text-align: center }
+	div#item-header img.avatar {
+	    height: 80px !important;
+	    width: 80px !important;
+	}
+	div#item-header ul img.avatar,
+	div#item-header ul.avatars img.avatar {
+	    height: 30px !important;
+	    margin: 2px;
+	    width: 30px !important;
+	}
+	.activity-header p { line-height: 280% !important }
+	.activity-list .activity-content .activity-header img.avatar { display: none }
+	.my-account .activity-avatar {
+		display: none;
+	}
+	.pie-easy-exts-features-header-logo img {
+	    margin-top: 8px;
+	    width: 224px;
+	}
+	div.dir-search {
+	    float: none;
+	    margin: 1.25em 0 0;
+	}
+	ul.item-list li div.action {
+	    padding-left: 64px;
+	    position: relative;
+	    right: auto;
+	    text-align: left;
+	    top: 1em;
+	    margin-bottom: 1.25em;
+	}
+	.activity-list li.mini { display: none }
+	div.dir-search { position: inherit }
+	ul.item-list li div.action {
+	    padding-left: 64px;
+	    position: relative;
+	    right: auto;
+	    text-align: left;
+	    top: 1em;
+	    margin-bottom: 1.25em;
+	}
+	.activity-list .activity-content { margin-left: 0 }
+	div.activity-comments {
+    margin: 0;
+	}
+	.mobile-menu-container select {
+    box-shadow: none;
+    width: 55%;
+	}
+}
+/*--------------------------------------------------------------
+2.0 - Smartphone (any)
+--------------------------------------------------------------*/
+@media screen and (max-device-width: 480px), screen and (-webkit-min-device-pixel-ratio: 2) { 	 }
+@media only screen and (max-width: 480px) { 
+	body {
+	    width: 100%;
+	}
+	#logo-menu-wrap img {max-width: 80%;}
+	#copyright-info { text-align: center }
+	#site-title { top: 10% !important }
+	.activity-list li.mini .activity-content p { width: 440% !important }
+	.mobile-menu-container select {
+    box-shadow: none;
+    width: 45%;
+	}
+}
+/*--------------------------------------------------------------
+3.0 - iPhone
+--------------------------------------------------------------*/
+@media only screen and (max-width: 320px) { 
+	#sidebar { width: 100% !important }
+	form#groups-directory-form h3 a {
+	    display: block;
+	    margin-top: 0.6em;
+	}
+	#user-header-nav {
+		display: none !important;
+	}
+	form#whats-new-form div#whats-new-avatar { display: none }
+	form#whats-new-form h5 { margin: 0 0 0 0px }
+	form#whats-new-form #whats-new-content {
+	    margin-left: 0px;
+	    padding-left: 0px;
+	}
+	body.activity-permalink .activity-list li .activity-content { margin-left: 0 }
+	body.activity-permalink .activity-list li.mini .activity-meta { left: 0 }
+	.mobile-menu-container select {
+    box-shadow: none;
+    width: 40%;
+	}
+}
+/*--------------------------------------------------------------
+2.0 - Smartphone (any)
+--------------------------------------------------------------*/
+@media only screen and (max-width: 480px) { 
+	div.item-list-tabs ul li.last {
+	    float: none;
+	    margin: 0.3em 0.6em;
+	}
+	div#subnav.item-list-tabs ul li.last { margin-top: 1em }
+	div#subnav ul { padding-top: 0.6em }
+	div.pagination { padding: 0.6em }
+	div.item-list-tabs ul { padding-top: 0 }
+	    div.item-list-tabs ul li { margin-top: 0 }
+	form.standard-form #basic-details-section,
+	form.standard-form #blog-details-section,
+	form.standard-form #profile-details-section {
+	    float: none;
+	    width: 100%;
+	}
+	div.item-list-tabs { height: auto !important }
+	.mobile-menu-container select {
+    box-shadow: none;
+    width: 40%;
+	}
+}
+
+/* -------------------------------------------------- 
+	:: UI
+---------------------------------------------------*/
+/* Buttons */
+@media only screen and (max-width: 767px) { 
+	.button { display: block }
+	button.button {
+	    width: 100%;
+	    padding-left: 0px;
+	    padding-right: 0px;
+	}
+}

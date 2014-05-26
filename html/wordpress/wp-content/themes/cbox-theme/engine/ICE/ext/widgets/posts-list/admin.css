@@ -1,0 +1,36 @@
+
+div.icext-widget.icext-posts-list {
+	width: 700px;
+}
+div.icext-widget.icext-posts-list div.ui-widget-header a {
+	float: right;
+	font-size: 11px;
+}
+div.icext-widget.icext-posts-list div.ui-widget-header,
+div.icext-widget.icext-posts-list div.ui-widget-content {
+	padding: .5em;
+}
+	div.icext-widget.icext-posts-list ul li {
+		margin: 5px 0px 5px 0px;
+	}
+	div.icext-widget.icext-posts-list ul li div.ice-content {
+		height: 32px;
+		padding-top: 5px;
+		padding: 5px 15px 0 15px;
+	}
+	div.icext-widget.icext-posts-list ul li a.ice-title {
+		display: inline-block;
+		font-size: 14px;
+		font-weight: bold;
+		margin-top: 5px;
+	}
+	div.icext-widget.icext-posts-list ul li div.ice-controls {
+		display: inline-block;
+		float: right;
+	}
+	div.icext-widget.icext-posts-list ul li a.ice-do-trash {
+		margin-left: 10px;
+	}
+	div.icext-widget.icext-posts-list ul ul {
+		margin-left: 20px;
+	}

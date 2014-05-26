@@ -1,0 +1,135 @@
+/**
+ * Copyright (C) 2010-2011  Marshall Sorenson
+ *
+ * Contact Information:
+ *     marshall@presscrew.com
+ *     http://infinity.presscrew.com/
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/* Activity Icon */
+.ui-icon.ui-icon-ajax-loader {
+	background-image: url('../images/ajax_loader.gif');
+}
+
+/* Generic Targets */
+.ice-first, .ice-last,
+.ice-odd, .ice-even,
+.ice-top, .ice-middle, .ice-bottom,
+.ice-left, .ice-center, .ice-right,
+.ice-prev, .ice-curr, .ice-next,
+.ice-do-activate, .ice-do-deactivate,
+.ice-do-toggle, .ice-do-enable, .ice-do-disable,
+.ice-do-create, .ice-do-preview, .ice-do-save, .ice-do-delete, .ice-do-reset,
+.ice-do-trash, .ice-do-untrash,
+.ice-do-open, .ice-do-close,
+.ice-title, .ice-content, .ice-message,
+.ice-controls, .ice-viewport, .ice-wrapper,
+.ice-item, .ice-value, .ice-status {
+	/* no styling */
+}
+
+
+/* Flash Messages */
+div.ice-flash div.ui-state-default,
+div.ice-flash div.ui-state-error,
+div.ice-flash div.ui-state-highlight {
+	padding: 0 0.8em;
+}
+div.ice-flash span.ui-icon {
+	float: left;
+	margin-right: 0.3em;
+}
+div.ice-flash span.ui-icon-ajax-loader {
+	margin-top: -0.1em;
+	margin-right: 0.7em;
+}
+div.ice-flash button.ui-button {
+	margin-left: 0.5em;
+}
+div.ice-flash span.ui-button-text {
+	padding: 0.1em 0.5em;
+	font-size: 10px;
+}
+
+/* Options message container */
+div.ice-options-mesg {
+	display: none;
+}
+
+/* ======================= */
+/* ! Scroll Pane Styling   */
+/* ======================= */
+
+.ice-scroll-pane {
+	overflow: auto;
+	width: 99%;
+	margin-top: 10px;
+	border-left: none;
+}
+	.ice-scroll-pane-value {
+		float: left;
+		position: absolute;
+		z-index: 2;
+		margin-top: -1px;
+	}
+		.ice-scroll-pane-value > .ui-widget-header:first-child {
+			padding-top: 2px;
+			padding-bottom: 2px;
+			border: none;
+			font-size: 10px;
+			font-weight: bold;
+			text-align: center;
+		}
+	.ice-scroll-pane-view {
+		float: left;
+	}
+	.ice-scroll-pane-item {
+		display: block;
+		float: left;
+	}
+	.ice-scroll-pane-item-null {
+		line-height: 100px;
+		text-align: center;
+		font-size: 16px;
+	}
+	.ice-scroll-pane-bar-wrap {
+		clear: left;
+		padding: 0 4px 0 2px;
+		margin: 0 -1px -1px -1px;
+		border-left: none;
+	}
+	.ice-scroll-pane-bar-wrap .ui-slider {
+		background: none;
+		border:0;
+		height: 2em;
+		margin: 0 auto;
+	}
+	.ice-scroll-pane-bar-wrap .ui-handle-helper-parent {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		margin: 0 auto;
+	}
+	.ice-scroll-pane-bar-wrap .ui-slider-handle {
+		top:.2em;
+		height: 1.5em;
+	}
+	.ice-scroll-pane-bar-wrap .ui-slider-handle .ui-icon {
+		margin: -8px auto 0;
+		position: relative;
+		top: 50%;
+	}

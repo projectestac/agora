@@ -1,0 +1,321 @@
+/*
+----------------------------------------------------------------
+//LAYOUT
+	+ Global & Wraps
+	+ Header
+	+ Navigation Menus
+	+ Content
+	+ Sidebar
+	+ Footer
+	+ Tables
+	+ Forms
+	
+You can disable the css in this file by adding the following code to your child theme config/infinity.ini file
+
+infinity-layout-style = off
+--------------------------------------------------------------*/
+/* ================== */
+/* ! Global & Wraps   */
+/* ================== */
+body {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+}
+#wrapper {
+	padding-bottom: 20px;
+    padding-top: 20px;
+    margin: auto;
+}
+/* ========== */
+/* ! Header   */
+/* ========== */
+#header {
+    position: relative;
+}
+
+#header:after {
+    content:"";
+    clear:both;
+    display:block;
+}
+
+h1#site-title,div#site-title {
+    line-height: 180%;
+    font-weight: bold;
+    font-size: 200%;
+    margin: -15px 0 0;
+    width: auto;
+    float: left;
+}
+#site-title a {
+    margin-bottom: -29px;
+    display: block;
+}
+#site-description {
+    font-style: italic;
+    color: #999999;
+    position: relative;
+    font-size: 14px;
+    line-height: 180%;
+}
+/* ========================== */
+/* ! /* Navigation Menus */   */
+/* ========================== */
+/* Menu Wraps */
+
+/* Top Menu */
+#top-menu-wrap, #sub-menu-wrap {
+    position: relative;        /* CMW - I think this gets excluded for #sub-menu-wrap because of the declaration below */
+}
+
+#top-menu-wrap {
+    margin-bottom: -6px;
+    /* setting z-index for dropdowns. do not mess with this */
+    z-index: 120 !important; 
+}
+
+#main-menu-wrap {
+    padding: 0;
+    /* setting z-index for dropdowns. do not mess with this */
+    z-index: 110 !important;
+}
+#main-menu-wrap ul.sub-menu { z-index: 150 !important }
+
+#sub-menu-wrap {
+/* setting z-index for dropdowns. do not mess with this */
+	z-index: 100 !important;
+    margin-bottom: -3px;
+    position: relative; /* CMW - redeclaring works */
+    min-height: 36px;
+}
+
+/* ===================== */
+/* ! Base Menu Styling   */
+/* ===================== */
+#main-menu-wrap .main-menu {
+    float: right;
+    font-size: 110%;
+    width: auto;
+}
+.base-menu {
+	display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.base-menu ul li {
+    float: left;
+    position: relative;
+    list-style-type: none;
+}
+.base-menu ul li.right {
+	float: right;	
+}
+.base-menu ul li li:hover ul,
+.base-menu ul li li.sfHover ul,
+.base-menu ul li li li:hover ul,
+.base-menu ul li li li.sfHover ul,
+.base-menu ul li li li li:hover ul,
+.base-menu ul li li li li.sfHover ul {
+    /* match .nav ul width */
+    top: -5px;
+    left: 190px;
+}
+.base-menu ul li:hover {
+    visibility: inherit; /* fixes IE7 'sticky bug' */
+}
+.base-menu ul li:hover li ul,
+.base-menu ul li.sfHover li ul,
+.base-menu ul li li:hover li ul,
+.base-menu ul li li.sfHover li ul,
+.base-menu ul li li li:hover li ul,
+.base-menu ul li li li.sfHover li ul { top: -9999em }
+.base-menu ul li:hover ul,
+.base-menu ul li.sfHover ul {
+    top: 27px;
+    /* match top ul list item height */
+    left: 0px;
+    z-index: 95;
+}
+/* display as block, or hover fails to work properly when text wraps */
+.base-menu a span {
+	display: block;
+}
+.base-menu ul ul {
+    top: -9999em;
+    width: 210px;
+    /* left offset of submenus need to match (see below) */
+    margin: 3px 0 0 0;
+    padding: 15px 5px 15px 5px;
+    z-index: 50;
+    position: absolute;
+}
+.base-menu ul ul li {
+    float: left;
+    width: 180px;
+}
+.base-menu ul ul ul {
+	margin-left: -10px;
+}
+.base-menu ul ul li { width: 85% }
+.base-menu ul ul li:first-child { border-top: none }
+.base-menu ul ul li:last-child { border-bottom: none }
+.base-menu ul ul li a {
+    width: 180px;
+}
+.base-menu ul a {
+    float: left;
+    padding: 8px 10px;
+}
+ /* Page Currently being viewed */
+.base-menu li li a:hover,
+.base-menu li.sfHover li a { background: none }
+.base-menu li li a span.sf-sub-indicator,
+.base-menu li.sfHover li a span.sf-sub-indicator {
+    float: right;
+    margin: 5px 0 0 0;
+}
+.base-menu li li a span { padding: 0; color: #BBB; }
+.base-menu ul li.sfHover li a,
+.base-menu ul li.sfHover li a:hover,
+.base-menu ul li.sfHover > a span,
+.base-menu ul li.sfHover li.sfHover > a span,
+.base-menu ul li.sfHover li.sfHover li.sfHover > a span,
+.base-menu ul li.sfHover li a span:hover {
+	color: #DDD;
+}
+/*  Make sub menus appear */
+.base-menu ul li:hover ul,
+.base-menu ul li.sfHover ul {
+    top: 34px; /* match top ul list item height */
+    z-index: 150;
+}
+/* Hide all subs subs (4 levels deep) */
+.base-menu ul li:hover li ul,
+.base-menu ul li.sfHover li ul,
+.base-menu ul li li:hover li ul,
+.base-menu ul li li.sfHover li ul,
+.base-menu ul li li li:hover li ul,
+.base-menu ul li li li.sfHover li ul { top: -9999em }
+/* Displays all subs subs (4 levels deep) */
+.base-menu ul li li:hover ul,
+.base-menu ul li li.sfHover ul,
+.base-menu ul li li li:hover ul,
+.base-menu ul li li li.sfHover ul,
+.base-menu ul li li li li:hover ul,
+.base-menu ul li li li li.sfHover ul {
+	left: 190px; /* match .nav ul width */
+	top: -5px;
+}
+/* 2nd level skin */
+.base-menu ul ul {
+    position: absolute;
+    top: -9999em;
+    width: 180px; /* left offset of submenus need to match (see below) */
+    padding: 15px 5px 15px 5px;
+    margin: 3px 0 0 0;
+    background: #FFF;
+}
+.base-menu ul ul li {
+    float: left;
+    width: 180px;
+    background: none;
+}
+.base-menu li a:hover {
+    color: #DDD;
+}
+.base-menu ul ul li:first-child { border-top: none }
+.base-menu ul ul li:last-child { border-bottom: none }
+.base-menu ul ul li a {
+    width: 180px;
+}
+.base-menu ul ul li a:hover {
+	/* removed odd movement */
+	/* padding-left: 12px; */
+}
+
+.base-menu:first-child ul li:after{
+content: "";
+}
+
+.base-menu ul ul li:after {
+ content: none !important;
+}
+
+/* Don't remove this */
+#footer .sub-menu, #footer .sub-menu:before {
+background: none;
+border: 0px;
+}
+  
+/* =========== 
+ ! Content  
+ =========== */
+ 
+#content.sidebar-left {
+	float: right;
+}
+
+@media only screen and (max-width: 767px) {
+	#content.sidebar-left {
+		float: none; 
+	}
+}
+      
+/* =========== 
+ ! Sidebar   
+ =========== */
+#sidebar .widget_search { margin-top: 20px }
+#sidebar .widget_search input[type=text] {
+    width: 110px;
+    padding: 2px;
+}
+/* Widgets */
+.widget { margin-bottom: 30px }
+
+#sidebar ul {
+	padding: 0px;
+}
+
+/* ========== 
+ ! Footer   
+ ========== */
+#footer p:last-child { margin-bottom: 0 }
+.footer-widget h3 {
+    margin-bottom: 10px;
+    color: #FEDA71;
+    font-size: 16px;
+}
+#footer-widget-right { border-right: none; margin-right: 0px; }
+#footer-widget-left { border-left: none;  margin-left: 0px; }
+#footer-menu  ul li a:hover { color: #777 }
+#footer-menu ul li { display: inline }
+#footer-menu ul li a {
+    padding-right: 8px;
+}
+.footer-menu ul li:last-child a { border-right: 0px }
+#footer-info {
+    overflow: auto;
+    padding: 0px;
+}
+#powered-by {
+    min-height: 30px;
+    padding-top: 10px;
+}
+#copyright-info {
+	text-align: right;
+}
+/* ================== */
+/* ! Page Templates   */
+/* ================== */
+/*page templare sidebar left*/
+.page-template-sidebar-left-template-php #content,
+.page-template-sidebar-left-template-php #sidebar.sidebar-right { 
+	float: right !important 
+}
+
+.page-template-sidebar-left-template-php #sidebar.sidebar-left,
+.page-template-sidebar-left-template-php #sidebar.sidebar-right { 
+	float: left !important;
+}
