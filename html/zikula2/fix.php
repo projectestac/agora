@@ -19,7 +19,13 @@ $pass = (isset($_REQUEST['pass'])) ? $_REQUEST['pass'] : false;
 
 // Security check
 if ($pass) {
+//XTEC ************ ELIMINAT - Allow password validation by parameter
+//2014.05.27 @jmiro227
+/*
     $pass = md5($pass);
+*/
+//************ FI
+
     $_SESSION['loggedin'] = ($pass == $agora['config']['xtecadmin']) ? true : false;
 }
 
