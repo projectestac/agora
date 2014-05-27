@@ -16,6 +16,7 @@ MOODLE 2
 - Geogebra module updated to the last version (0.2.5+)
 - Format simple improvements showing custom images and solving duplicity of topic zero
 - Marsupial modules updated to the last version (2.0.5+)
+- Updated catalan translation (27-05-2014)
 
 PORTAL
 - Agoraportal: Added ability to show and delete subdirectoris in Moodle repository
