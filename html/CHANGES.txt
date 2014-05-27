@@ -5,6 +5,11 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+Changes 14.05.28
+---------------------------------------------------------------------------------------
 GENERAL
 - DataCopy: Added script to copy contact info from Moodle 1.9 services to Moodle 2 in agoraportal
 
