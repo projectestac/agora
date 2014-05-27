@@ -1,4 +1,4 @@
-<?PHP 
+<?PHP
 // MARSUPIAL *********** AFEGIT -> pluginname
 // 2011.11.18 @abertranb
 $string['pluginname'] ='Recursos remotos';
@@ -26,15 +26,19 @@ $string['delko'] = 'No ha sido possible borrar los datos, por favor vuelva a int
 // *********** FI
 $string['downloadbookstructures'] = 'Descargar estructura de libros';
 $string['error_authentication'] = 'Error de autenticaci&oacute;n, c&oacute;digo: ';
+
+$string['error_code_1'] = 'URL generada correctamente.';
 $string['error_code_0'] = 'Error inesperado.';
 $string['error_code_-1'] = 'Error al realizar la URL din&aacute;mica.';
-$string['error_code_-2'] = 'El c&oacute;digo de licencia no es v&aacute;lido.';
-$string['error_code_-3'] = 'El Isbn del producto no es v&aacute;lido.';
+$string['error_code_-2'] = 'El credencial/c&oacute;digo de licencia no es v&aacute;lido.';
+$string['error_code_-3'] = 'El ISBN del producto no es v&aacute;lido.';
 $string['error_code_-4'] = 'La licencia ha expirado.';
-$string['error_code_-101'] = 'Autenticaci&oacute;n incorrecta. El usuario que solicita acceso a este
-m&eacute;todo del servicio Web no es correcto.';
-$string['error_code_-102'] = 'Autenticaci&oacute;n incorrecta. El usuario que solicita acceso a este
-m&eacute;todo del servicio Web no tiene permisos suficientes.';
+$string['error_code_-5'] = 'El identificador de la unidad no es v&aacute;lido.';
+$string['error_code_-6'] = 'El identificador de la actividad no es v&aacute;lido.';
+$string['error_code_-7'] = 'Rol incorrecto';
+$string['error_code_-101'] = 'Autenticaci&oacute;n incorrecta. El usuario que solicita acceso a este m&eacute;todo del servicio Web no es correcto.';
+$string['error_code_-102'] = 'Autenticaci&oacute;n incorrecta. El usuario que solicita acceso a este m&eacute;todo del servicio Web no tiene permisos suficientes.';
+
 $string['exit'] = 'Salir';
 // MARSUPIAL ********** AFEGIT -> Insert form key
 //2011.10.24 @mmartinez
@@ -136,6 +140,11 @@ $string['with_credentials'] 		= 'Usuarios con credenciales';
 $string['back_to_stats'] 		= 'Vuelve a la portada';
 $string['good_connection'] 		= 'Conexión correcta';
 $string['bad_connection'] 		= 'Se ha producido un problema con la conexión';
+// MARSUPIAL ************ AFEGIT -> New string for bad wsdl connection.
+// 2014.01.13 @naseq
+$string['bad_wsdl_connection']          = 'Comprueba dirección del servicio web de autenticación.';
+$string['bad_wsdl_connection_alert']    = 'Comprueba direcci\u00f3n del servicio web de autenticaci\u00f3n.';
+//************ FI
 $string['books'] 			= 'libros';
 $string['atria_error_information'] 	= 'Posiblemente el error de conexión con Atria sea causado porque todavía no se ha sincronizado ningún usuario';
 $string['check_publishers'] 		= 'Comprobar la conexión';
@@ -238,4 +247,3 @@ $string['keymanager_assing_nouser'] = 'No se ha seleccionado ning&uacute;n usuar
 $string['checkcredentialko_messageempty'] = 'La credencial no puede ser vacia';
 $string['rcommon_data_store_log'] = 'Directorio para guardar el seguimiento';
 $string['rcommon_data_store_log_desc'] = 'Indique el directoro para guardar el seguimiento';
-?>

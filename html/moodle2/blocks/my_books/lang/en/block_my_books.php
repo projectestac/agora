@@ -1,9 +1,6 @@
 <?php
-// MARSUPIAL *********** AFEGIT -> pluginname
-// 2011.11.18 @abertranb
 $string['pluginname'] ='My books';
-// *********** FI
-// MARSUPIAL ********** ADDED -> English text string for my_books block
+
 
 $string['activitytypeopen'] = 'How activity have to be open';
 $string['activitytypeopeninfo'] = 'How do you want that people see the activity';
@@ -33,10 +30,7 @@ $string['viewertypeopen'] = 'How viewer have to be open';
 $string['viewertypeopeninfo'] = 'How do you want that people see the viewer';
 $string['width'] = 'Width';
 $string['widthinfo'] = 'What width should be the default width for the frame or the new popup windows?';
-// ********** END
 
-// MARSUPIAL -> EVO: credentials
-// 2012.07.06 @mmartinez
 $string['addkey_button'] = 'Add';
 $string['addkey_button_title'] = 'Add credential';
 $string['manage_button'] = 'Manage';
@@ -90,4 +84,7 @@ $string['keymanager_selectaction'] = 'To the selected credentials...';
 $string['keymanager_selectall'] = 'Select all';
 $string['keymanager_unselectall'] = 'Unselect all';
 $string['keymanager_messageunassing2'] = 'Are you sure you want to unassign the selected credential?';
-// *********** FI
+
+$string['my_books:myaddinstance'] = 'Add My Books block instance to My Moodle';
+$string['my_books:addinstance'] = 'Add My Books block instance';
+

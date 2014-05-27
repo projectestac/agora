@@ -111,17 +111,17 @@ if($rcontent->popup == 1 ){
     if (textlib::strpos($options, ',height')!==false) {
         $options = textlib::substr($options, 0, textlib::strpos($options, ',height'));
     }
-    $PAGE->requires->data_for_js('rcontentplayerdata', Array('cwidth'=>str_replace('%','',$rcontent->width),
-        'cheight'=>str_replace('%','',$rcontent->height),
-        'popupoptions' => $options), true);
+    $PAGE->requires->data_for_js('rcontentplayerdata', array('cwidth'=>str_replace('%','',$rcontent->width),
+                                                              'cheight'=>str_replace('%','',$rcontent->height),
+                                                              'popupoptions' => $options,
+                                                              'courseid' => $rcontent->course,
+                                                              'launch' => true,
+                                                              'launch_url' => $url), true);
     echo $OUTPUT->header();
 //    $link = "<a  href=\"Javascript:window.open('".$url."','popup','$rcontent->popup_options');return false;\">".get_string('popupblockedlinkname','rcontent')."</a>";
 // MARSUPIAL ************* MODIFICAT -> Open window to allow 100% in all browsers
 // 2013.04.09 @abertranb
-    $content = '<div class="rcontent-center">
-               <form id="rcontentviewform" method="post" action="'.$url.'" target="Popup">';
-    $content .= "<input type=\"submit\" value=\"".get_string('popupblockedlinkname','rcontent')."\">";
-    $content .= '<form></div>';
+    $content = '<div class="rcontent-center"><a target="_blank" href="'.$url.'">'.get_string('popupblockedlinkname','rcontent').'</a></div>';
     echo $OUTPUT->box(get_string('popupblocked','rcontent',$content));
 
 	//echo $OUTPUT->header();
@@ -140,13 +140,12 @@ if($rcontent->popup == 1 ){
     echo "window.open('$url','popup','$rcontent->popup_options')";
     echo "</script>";*/
 
-    echo html_writer::script('', $CFG->wwwroot.'/mod/rcontent/view.js');
+    $PAGE->requires->js('/mod/rcontent/view.js');
     $PAGE->requires->js_init_call('M.mod_rcontentform.init');
-    $PAGE->requires->js_init_call('M.mod_rcontentform.dosubmit');
 
 // *********** END
 
-}elseif($rcontent->frame == 1){
+} else if($rcontent->frame == 1) {
     if(empty($frameset)){
         echo $OUTPUT->header();
     	echo '<iframe height="'.$CFG->rcontent_framesize.'px" width="100%" src="'.$url.'" id="rcontent_iframe"> <a href="'.$url.'" target="_blank">Resource</a></iframe>';
@@ -244,7 +243,7 @@ if($rcontent->popup == 1 ){
 
     }*/
     // *********** FI
-}elseif($rcontent->popup == 0 and $rcontent->frame == 2 ){
+} else if($rcontent->popup == 0 and $rcontent->frame == 2 ) {
 
     echo $OUTPUT->header();
     //print_header_simple(format_string($rcontent->name),'',$navigation,'','',true,$exitlink.update_module_button($cm->id, $course->id, get_string('modulename', 'rcontent')),navmenu($course,$cm));

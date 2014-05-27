@@ -1,3 +1,8 @@
+.box.contentbox {
+	margin-top: 0px;
+	padding: 30px;
+}
+
 .import-alert{
     color: #FF9933;
 }
@@ -7,13 +12,13 @@
 }
 
 #block-block_rcommon .info{
-	float:none; 
+	float:none;
 	width: 90% !important;
 	margin: auto auto;
 }
 
 .info-manager {
-	float: none; 
+	float: none;
 	width: 90%;
 	margin: auto;
 	margin-top: 20px;
@@ -49,5 +54,5 @@ table.generaltable{width:100%}
 }
 
 #block-block_rcommon .alert{
-	
+
 }

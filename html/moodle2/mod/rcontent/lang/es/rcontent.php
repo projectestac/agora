@@ -1,4 +1,4 @@
-<?PHP 
+<?PHP
 
 // MARSUPIAL ********** AFEGIT -> Needed in Moodle 2.x
 // 2012.12.09 @abertranb
@@ -81,7 +81,8 @@ $string['details']='Detalles';
 $string['detailtypeid']='Id tipo detalle';
 $string['directlink'] = 'Enlace directo a este archivo';
 $string['directoryinfo'] = 'Se mostrarán todos los archivos en el directorio elegido.';
-$string['display'] = 'Ventana';
+$string['display'] = 'Mostrar';
+$string['displaysettings'] = 'Configuración de pantalla';
 $string['displayauto'] = 'Automático';
 $string['displaydownload'] = 'Forzar descarga';
 $string['displayembed'] = 'Incrustar';
@@ -122,7 +123,7 @@ $string['imspackageloaded'] = 'Paquete cargado.';
 $string['INCOMPLETO'] = 'INCOMPLETO';
 $string['invalidassignment'] = 'tarea incorrecta';
 $string['invalidid'] = 'ID de recurso incorrecta';
-$string['isbn']='Libro';
+$string['isbn']='Libro (ISBN)';
 $string['isbnerror']='Debe seleccionar una opción válida aquí.';
 $string['jsonerror']='La cadena ajax de respuesta no es válida';
 $string['keepnavigationvisible'] = 'Mantener visible la navegación en la misma página';
@@ -171,7 +172,7 @@ $string['noreports'] = 'No hay informes que mostrar';
 $string['notallowedlocalfileaccess'] = 'El acceso a archivos locales está desactivado en este momento: el recurso no está disponible.';
 $string['notdeployed'] = 'No desplegado';
 $string['note'] = 'Nota';
-$string['notefile'] = 'Para subir más de un archivo (y se puedan ver en la lista) utilice el 
+$string['notefile'] = 'Para subir más de un archivo (y se puedan ver en la lista) utilice el
 <A HREF={$a}>Administrador de archivos</A>.';
 $string['notmigrated'] = 'Este tipo de recurso heredado ({$a}) no ha sido trasladado aún.';
 $string['notypechosen'] = 'Necesita elegir un texto. Regrese e inténtelo de nuevo.';
@@ -194,7 +195,7 @@ $string['popupresourcelink'] = 'Si no, haga clic aquí: {$a}';
 $string['popupwidth'] = 'Anchura (en píxels) de la ventana emergente';
 $string['popupwidthexplain'] = 'Especifica la anchura por defecto de las ventanas emergentes.';
 $string['popupblocked'] = 'Si una nueva ventana no aparece, {$a}';
-//MARSUPIAL ************ AFEGIT - 
+//MARSUPIAL ************ AFEGIT -
 //2011.01.19 @mmartinez
 $string['popupblocked'] = 'Si no aparece una ventana nueva, haga clic en {$a} para abrir la actividad';
 $string['popupblockedlinkname'] = 'aquí';
@@ -293,5 +294,7 @@ $string['invalidunit']='Se ha recibido un código de unidad no valido. - Error u
 $string['invalidactivity']='Se ha recibido un código de actividad no valida. - Error actividad: ';
 $string['invalidcenter']='El código del centro no es válido.';
 $string['permitskeeptrack']='El usuario no tiene permisos para guardar seguimientos.';
-
-?>
+//MARSUPIAL ********** AFEGIT -> Add new text string for invalid idContenidoLMS
+//09/01/2014 . @naseq
+$string['invalididcontenidolms']='Se ha recibido idContenidoLMS no válido.';
+//*********** FI

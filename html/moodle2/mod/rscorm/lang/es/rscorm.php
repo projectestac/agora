@@ -389,7 +389,7 @@ $string['window'] = 'Ventana';
 
 //MARSUPIAL ********** AFEGIT - text strings
 $string['level']='Nivel';
-$string['isbn']='ISBN';
+$string['isbn']='Libro (ISBN)';
 $string['unit']='Unidad';
 $string['activity']='Actividad';
 

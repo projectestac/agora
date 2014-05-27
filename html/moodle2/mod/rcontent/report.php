@@ -516,7 +516,7 @@
 			        	 //show view resolved activity link
 			        	 //added capabilities to control when students can view report
 			        	 $href='';
-                         if($rcontentuser->urlviewresults != "" && has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
+                         if($rcontentuser->urlviewresults != "" && has_capability('mod/rcontent:viewresult', context_module::instance($cm->id))){
                              $httptest = '';
 				        	 if (textlib::strpos($rcontentuser->urlviewresults,'http://') === false){
 				        	     $httptest = 'http://';
@@ -540,13 +540,13 @@
 						 $row[] = $grade->comments;
 						 //added capabilities to control when students can view report
 				         $href='';
-				         if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
+				         if(has_capability('mod/rcontent:viewresult', context_module::instance($cm->id))){
 				             $href.= $grade->url;
 				             $showhreffield=true;
 				         }*/
 //********** FI
 
-				         if(has_capability('mod/rcontent:updatescore', get_context_instance(CONTEXT_MODULE, $cm->id))){
+				         if(has_capability('mod/rcontent:updatescore', context_module::instance($cm->id))){
 				             if($tempb == $rcontentuser->unitid && $tempc == $rcontentuser->activityid){
 				                 $popuphref = '/mod/rcontent/report.php?a='.$rcontent->id;
 				                 if ($tempb != 0){
@@ -799,7 +799,7 @@
 			                $row[] = $grade->justgrade;
 			                $row[] = $grade->justcomments;
 			                //added capabilities to control when students can view report
-		                    if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
+		                    if(has_capability('mod/rcontent:viewresult', context_module::instance($cm->id))){
 		                        $row[] = $grade->justurl;
 		                        $showhreffield=true;
 		                    }
@@ -965,11 +965,11 @@
 				                        $row[] = $grade->comments;
 				                        //added capabilities to control when students can view report
 		                                $href='';
-		                                if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
+		                                if(has_capability('mod/rcontent:viewresult', context_module::instance($cm->id))){
 		                                    $href.= $grade->url;
 		                                    $showhreffield=true;
 		                                }
-		                                if(has_capability('mod/rcontent:updatescore', get_context_instance(CONTEXT_MODULE, $cm->id))){
+		                                if(has_capability('mod/rcontent:updatescore', context_module::instance($cm->id))){
 		                                	if($DB->get_records_select('rcontent_grades',"rcontentid=$unit->rcontentid AND userid=$unit->userid AND unitid=$unit->unitid AND activityid=0 AND attempt=$unit->attempt")){
 
 		                                		//MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
@@ -1134,7 +1134,7 @@
 				                        $row[] = $grade->grade.' '.$grade->range;
 				                        $row[] = $grade->weight;
 				                        //added capabilities to control when students can view report
-				                        if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
+				                        if(has_capability('mod/rcontent:viewresult', context_module::instance($cm->id))){
 				                            $row[] = $grade->url;
 				                            $showhreffield=true;
 				                        }
@@ -1240,7 +1240,7 @@
 			            $row[] = $grade->justgrade;
 			            $row[] = $grade->justcomments;
 			            //added capabilities to control when students can view report
-			            if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
+			            if(has_capability('mod/rcontent:viewresult', context_module::instance($cm->id))){
 			                $row[] = $grade->justurl;
 			                $showhreffield=true;
 			            }
@@ -1403,11 +1403,11 @@
 				                    $row[] = $grade->comments;
 				                    //added capabilities to control when students can view report
 		                            $href='';
-		                            if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
+		                            if(has_capability('mod/rcontent:viewresult', context_module::instance($cm->id))){
 		                                $href.= $grade->url;
 		                                $showhreffield=true;
 		                            }
-		                            if(has_capability('mod/rcontent:updatescore', get_context_instance(CONTEXT_MODULE, $cm->id))){
+		                            if(has_capability('mod/rcontent:updatescore', context_module::instance($cm->id))){
 		                            	//MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
 		                            	//2012.12.18 @abertranb
 		                            	$link = new moodle_url('/mod/rcontent/report.php?a='.$a.'&b='.$b.'&c='.$activity->activityid.'&user='.$activity->userid.'&attempt='.$attempt.'&action=update');
@@ -1542,7 +1542,7 @@
 				                    $row[] = $grade->grade.' '.$grade->range;
 				                    $row[] = $grade->weight;
 				                    //added capabilities to control when students can view report
-				                    if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
+				                    if(has_capability('mod/rcontent:viewresult', context_module::instance($cm->id))){
 				                        $row[] = $grade->url;
 				                        $showhreffield=true;
 				                    }
@@ -1652,7 +1652,7 @@
 			        $row[] = $grade->justgrade;
 			        $row[] = $grade->justcomments;
 			        //added capabilities to control when students can view report
-			        if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
+			        if(has_capability('mod/rcontent:viewresult', context_module::instance($cm->id))){
 			            $row[] = $grade->justurl;
 			            $showhreffield=true;
 			        }
@@ -1743,7 +1743,7 @@
 			                $row[] = $grade->grade.' '.$grade->range;
 			                $row[] = $grade->weight;
 			                //added capabilities to control when students can view report
-			                if(has_capability('mod/rcontent:viewresult', get_context_instance(CONTEXT_MODULE, $cm->id))){
+			                if(has_capability('mod/rcontent:viewresult', context_module::instance($cm->id))){
 			                    $row[] = $grade->url;
 			                    $showhreffield=true;
 			                }

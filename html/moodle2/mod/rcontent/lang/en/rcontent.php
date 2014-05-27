@@ -1,4 +1,4 @@
-<?PHP 
+<?PHP
 // MARSUPIAL ********** AFEGIT -> Needed in Moodle 2.x
 // 2012.12.09 @abertranb
 $string['rcontent'] = 'Remote content';
@@ -73,7 +73,8 @@ $string['details']='Details';
 $string['detailtypeid']='Detail type id';
 $string['directlink'] = 'Direct link to this file';
 $string['directoryinfo'] = 'All the files in the chosen directory will be displayed.';
-$string['display'] = 'Window';
+$string['display'] = 'Display package';
+$string['displaysettings'] = 'Display Settings';
 $string['editingaresource'] = 'Editing a resource';
 $string['emptyfolder'] = 'Empty folder';
 $string['encryptedcode'] = 'Encrypted code';
@@ -98,7 +99,7 @@ $string['highestattempt'] = 'Highest attempt';
 $string['htmlfragment'] = 'HTML fragment';
 $string['imspackageloaded'] = 'Package loaded';
 $string['INCOMPLETO'] = 'INCOMPLETE';
-$string['isbn']='Book';
+$string['isbn']='Book (ISBN)';
 $string['isbnerror']='You must select a valid option here.';
 $string['jsonerror']='Invalid ajax response string';
 $string['keepnavigationvisible'] = 'Keep page navigation visible on the same page';
@@ -250,5 +251,9 @@ $string['authentication']='Authentication error. The user requesting access to t
 $string['invalidunit']='Received an invalid unit code. - Unit error: ';
 $string['invalidactivity']='Received an invalid code activity. - Activity error: ';
 $string['invalidcenter']='The center code is not valid.';
-$string['permitskeeptrack']='The user has no permissions to save follow.'; 
-?>
+$string['permitskeeptrack']='The user has no permissions to save follow.';
+//MARSUPIAL ********** AFEGIT -> Add new text string for invalid idContenidoLMS
+//09/01/2014 . @naseq
+$string['invalididcontenidolms']='Received invalid idContenidoLMS.';
+//*********** FI
+

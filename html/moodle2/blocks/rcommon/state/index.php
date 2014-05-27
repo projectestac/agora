@@ -62,7 +62,7 @@
 
     //Print information
     echo '<h2 class="headingblock header ">'.get_string('marsupialstats','block_rcommon').'</h2>';
-    echo '<div class="box generalbox generalboxcontent">';
+    echo '<div class="generalbox box contentbox">';
 
     echo '<p><b>'.get_string('user_credentials', 'block_rcommon').'</b><br/>'.get_string('users_proportion', 'block_rcommon', $a).'. <br /><a href="print_users.php">'.get_string('show_users', 'block_rcommon').'</a></p><br/>';
 

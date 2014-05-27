@@ -72,7 +72,8 @@ $string['detailtypeid']='Id tipus detall';
 $string['details']='Detalls';
 $string['directlink'] = 'Enllaç directe a aquest fitxer';
 $string['directoryinfo'] = 'Es visualitzaran tots els fitxers del directori escollit.';
-$string['display'] = 'Finestra';
+$string['display'] = 'Visualitza';
+$string['displaysettings'] = 'Configuració de pantalla';
 $string['editingaresource'] = 'S\'està editant un recurs';
 $string['emptyfolder'] = 'Carpeta buida';
 $string['encryptedcode'] = 'Codi xifrat';
@@ -97,7 +98,7 @@ $string['htmlfragment'] = 'Fragment HTML';
 $string['highestattempt'] = 'Millor intent';
 $string['imspackageloaded'] = 'S\'ha carregat el paquet.';
 $string['INCOMPLETO'] = 'INCOMPLET';
-$string['isbn']='Llibre';
+$string['isbn']='Llibre (ISBN)';
 $string['isbnerror']='Heu de seleccionar una opció vàlida aquí.';
 $string['jsonerror']='La cadena ajax de resposta no és vàlida';
 $string['keepnavigationvisible'] = 'Manté visible la navegació en la mateixa pàgina';
@@ -248,4 +249,8 @@ $string['invalidunit']='S\'ha rebut un codi d\'unitat no vàlid. - Error unitat:
 $string['invalidactivity']='S\'ha rebut un codi d\'activitat no vàlida. - Error activitat: ';
 $string['invalidcenter']='El codi del centre no és vàlid.';
 $string['permitskeeptrack']='L\'usuari/ària no té permís per a desar seguiments.';
-?>
+//MARSUPIAL ********** AFEGIT -> Add new text string for invalid idContenidoLMS
+//09/01/2014 . @naseq
+$string['invalididcontenidolms']='S\'ha rebut un idContenidoLMS no v&agrave;lid.';
+//*********** FI
+

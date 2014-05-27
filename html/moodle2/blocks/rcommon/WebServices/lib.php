@@ -81,13 +81,13 @@ function rcommond_wdsl_parser($urlwdsl) {
 
     $result = rcommon_xml2array($contents);
     //foreach to look in the array for key=definitios
-    foreach($result as $key=>$value){
+    foreach($result as $key => $value){
     	$pos = textlib::strpos($key,'definitions');
-    	if ($pos!==false){
-    		break;
+    	if ($pos !== false){
+    		return $result[$key]['attr']['targetNamespace'];
     	}
     }
-    return $result[$key]['attr']['targetNamespace'];
+    return false;
 }
 
 /**
@@ -165,8 +165,7 @@ function rcommon_xml2array($contents, $get_attributes=1) {
 
 function log_to_file($info, $tracer = 'rcontent_tracer') {
     global $CFG;
-//XTEC ************ AFEGIT - Custom folder
-//2013.03.17 @abertranb
+
     if  ($CFG->$tracer == 'checked' && isset($CFG->rcommon_data_store_log)) {
     	$directorio_log = $CFG->rcommon_data_store_log."/1";
 
@@ -178,17 +177,12 @@ function log_to_file($info, $tracer = 'rcontent_tracer') {
     	if(!is_dir($directorio_log)) {
     		mkdir($directorio_log);
     	}
-    	// ********* ORIGINAL
-//    if  ($CFG->$tracer == 'checked' )
-//    {
-//    	$directorio_log = $CFG->dataroot."/1/log_rcommon";
-// ********* FI
 
-         if ($handle = @fopen($directorio_log."/LogRcommon.log", "a")) {
-             $content = "\r\n".date("Y-m-d H:i:s")." - Data: ".$info;
-             @fwrite($handle,$content);
-             @fclose($handle);
-         }
+        if ($handle = @fopen($directorio_log."/LogRcommon.log", "a")) {
+            $content = "\r\n".date("Y-m-d H:i:s")." - Data: ".$info;
+            @fwrite($handle,$content);
+            @fclose($handle);
+        }
     }
 
 }

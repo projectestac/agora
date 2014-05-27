@@ -105,6 +105,7 @@ class mod_rscorm_mod_form extends moodleform_mod {
         }else{
         	$isbn_list_array=array('- '.get_string('isbn','rscorm').' -');
         }
+        //echo var_dump($isbn_list_array);
         if (ajaxenabled()){
         	$attrs = array('onchange' => 'javascript:rscorm_load_unit_list(this.value);');
         } else{
@@ -281,7 +282,10 @@ class mod_rscorm_mod_form extends moodleform_mod {
 
         //-------------------------------------------------------------------------------
         // grade Settings
-        $mform->addElement('header', 'gradesettings', get_string('gradesettings', 'rscorm'));
+        //XTEC ********** AFEGIT -> Added grading option in the rcontent creation form.
+        //18/02/2014 . @naseq
+        $this->standard_grading_coursemodule_elements();
+        //*********** FI
 
         // Grade Method
         $mform->addElement('select', 'grademethod', get_string('grademethod', 'rscorm'), rscorm_get_grade_method_array());
@@ -297,6 +301,13 @@ class mod_rscorm_mod_form extends moodleform_mod {
         $mform->setDefault('maxgrade', $cfg_scorm->maxgrade);
         $mform->disabledIf('maxgrade', 'grademethod', 'eq', RGRADESCOES);
         $mform->setAdvanced('maxgrade', $cfg_scorm->maxgrade_adv);
+
+        //XTEC ********** AFEGIT -> Added grading option in the rcontent creation form.
+        //18/02/2014 . @naseq
+        $mform->removeElement('grade');
+        /*$mform->addElement('hidden', 'grade', $cfg_scorm->maxgrade);
+        $mform->setType('grade', PARAM_FLOAT);*/
+        //*********** FI
 
         $mform->addElement('header', 'othersettings', get_string('othersettings', 'rscorm'));
 
@@ -385,7 +396,6 @@ class mod_rscorm_mod_form extends moodleform_mod {
         $mform->setType('redirect', PARAM_RAW);
         $mform->addElement('hidden', 'redirecturl', null);
         $mform->setType('redirecturl', PARAM_RAW);
-
         //-------------------------------------------------------------------------------
         $this->standard_coursemodule_elements();
         //-------------------------------------------------------------------------------

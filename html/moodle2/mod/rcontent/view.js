@@ -1,10 +1,12 @@
-var poptions = null;
 M.mod_rcontentform = {};
 M.mod_rcontentform.init = function(Y) {
-    var rcontentform = document.getElementById('rcontentviewform');
     var cwidth = rcontentplayerdata.cwidth;
     var cheight = rcontentplayerdata.cheight;
-    poptions = rcontentplayerdata.popupoptions;
+    var poptions = rcontentplayerdata.popupoptions;
+    var courseid = rcontentplayerdata.courseid;
+    var launch = rcontentplayerdata.launch;
+    var launch_url = rcontentplayerdata.launch_url;
+    var course_url = M.cfg.wwwroot+"/course/view.php?id="+courseid+"&sesskey="+M.cfg.sesskey;
     if ((cwidth==100) && (cheight==100)) {
         poptions = poptions+',width='+screen.availWidth+',height='+screen.availHeight+',left=0,top=0';
     } else {
@@ -16,20 +18,10 @@ M.mod_rcontentform.init = function(Y) {
         }
         poptions = poptions+',width='+cwidth+',height='+cheight;
     }
-   rcontentform.onsubmit = function() {
-        windowobj = openit();
-        windowobj.focus();
-   };
-}
-function openit() {
-    windowobj = window.open('', 'Popup', poptions); 
-    this.target='Popup';
-    return windowobj;
-}
-M.mod_rcontentform.dosubmit = function(Y) {
-   windowobj = openit();
-   var rcontentform = document.getElementById('rcontentviewform');
-   rcontentform.submit();
-   if (windowobj)
-    windowobj.focus();
+
+    if (launch == true) {
+        launch_url = launch_url+"&display=popup";
+        window.open(launch_url,'Popup', poptions);
+        parent.window.location = course_url;
+    }
 }

@@ -1,5 +1,5 @@
 <?php
-//XTEC ************ FITXER AFEGIT - Marsupial menu options
+//MARSUPIAL ************ FITXER AFEGIT - Marsupial menu options
 
 //MARSUPIAL ************ AFEGIT - speedup for non-admins, add all caps used on this page
 //2012.11.12 @abertranb

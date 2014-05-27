@@ -170,7 +170,17 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
 
 // MARSUPIAL *********** MODIFICAT -> Added proxy option
 // 2012.08.30 @mmartinez
-        $client = new soapclient($publisher->urlwsauthentication.'?wsdl', $options);
+// MARSUPIAL *********** MODIFICAT -> Added exception in case of wsdl url is wrong.
+// 2014.01.13 @naseq
+        //xdebug_disable();
+        try {
+            $client = new soapclient($publisher->urlwsauthentication . '?wsdl', $options);
+        } catch (Exception $e) {
+            echo '<script type="text/javascript">window.alert("' . get_string('bad_wsdl_connection_alert', 'block_rcommon') . '"); history.go(-1);</script>';
+            echo '<span style="color:red">' . get_string('bad_wsdl_connection', 'block_rcommon') . '</span></span>';
+            die();
+        }
+// ************* FI
 // *********** ORIGINAL
 		//$client = new soapclient($publisher->urlwsauthentication.'?wsdl', array('trace' => 1));
 // ************* FI
@@ -197,7 +207,7 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
 //2011.09.16 @sarjona
         $context = context_course::instance($data->course);
 //************** ORIGINAL
-        /* $context = get_context_instance(CONTEXT_COURSE,$SESSION->cal_course_referer);*/
+        /* $context = context_course::instance($SESSION->cal_course_referer);*/
 //************** FI
 		$iduserrole = array();
 		if ($roles = get_user_roles($context, $USER->id)) {

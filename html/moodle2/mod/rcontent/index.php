@@ -123,10 +123,10 @@ for($i=$startindex;$i<($startindex+$limit);$i++) {
 //********* ORIGINAL
 //foreach ($rcontents as $rcontent) {
 //********* FI
-	$context = get_context_instance(CONTEXT_MODULE, $rcontent->coursemodule);
+	$context = context_module::instance($rcontent->coursemodule);
     $report = '&nbsp;';
     $reportshow = '&nbsp;';
-    
+
     if (has_capability('mod/rcontent:viewreport', $context)) {
 // MARSUPIAL ********** MODIFIED -> Filter by status
 // 2011.08.31 @mmartinez
@@ -144,7 +144,7 @@ for($i=$startindex;$i<($startindex+$limit);$i++) {
         $report = rcontent_grade_user($rcontent, $USER->id);
         $reportshow = get_string('score','rcontent').": ".$report;
     }
-    
+
     if (!$rcontent->visible) {
         //Show dimmed if the mod is hidden
         $link = '<a class="dimmed" href="' . $CFG->wwwroot . '/mod/rcontent/view.php?id=' . $rcontent->coursemodule . '">' . $rcontent->name . '</a>';
@@ -163,7 +163,7 @@ for($i=$startindex;$i<($startindex+$limit);$i++) {
 }
 
 if (!isset($context)) {
-	$context = get_context_instance(CONTEXT_COURSE, $id);
+	$context = context_course::instance($id);
 }
 
 // MARSUPIAL ********** AFEGIT -> Filter by status, add select field
@@ -176,13 +176,13 @@ if (has_capability('mod/rcontent:viewreport', $context)) {
 	$menu['FINALIZADO']   = get_string('FINALIZADO', 'rcontent');
 	$menu['POR_CORREGIR'] = get_string('POR_CORREGIR', 'rcontent');
 	$menu['CORREGIDO']    = get_string('CORREGIDO', 'rcontent');
-	            
+
 // MARSUPIAL ********** MODIFICAT -> Deprected code Moodle 2.3
 // 2012.12.12 @abertranb
 	echo $OUTPUT->single_select(new moodle_url('/mod/rcontent/index.php?id='.$id), 'filterby', $menu, $filterby);
-// ******** ORIGINAL	
+// ******** ORIGINAL
 	//popup_form('', $menu, 'choosestatefilter', $filterselected, get_string('chooseaction', 'rcontent'), '', '', false, 'self');
-// ******** FI	
+// ******** FI
 }
 // ********** FI
 
