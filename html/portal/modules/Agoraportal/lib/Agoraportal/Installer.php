@@ -111,12 +111,12 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
      * @return bool true if successful, false otherwise
      */
     public function Upgrade($oldversion) {
-        $table = DBUtil::getTables();
         switch ($oldversion) {
             case '1.10':
             case '2.0.0':
                 if (!DBUtil::createTable('agoraportal_logs'))
                     return false;
+                $table = DBUtil::getTables();
                 $c = $table['agoraportal_logs_column'];
                 DBUtil::createIndex($c['clientCode'], 'agoraportal_logs', 'clientCode');
             case '2.0.1':
@@ -140,6 +140,7 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
             case '2.0.4':
                 if (!DBUtil::createTable('agoraportal_moodle2_stats_day'))
                     return false;
+                $table = DBUtil::getTables();
                 $c = $table['agoraportal_moodle2_stats_day_column'];
                 DBUtil::createIndex($c['date'], 'agoraportal_moodle2_stats_day', 'date');
                 if (!DBUtil::createTable('agoraportal_moodle2_stats_month'))
@@ -174,11 +175,6 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 $this->delVar('allowedAccessRequest');
                 $this->delVar('sqlSecurityCode');
             case '2.0.8':
-                DBUtil::dropTable('agoraportal_client_settings');
-                DBUtil::dropTable('agoraportal_ldap_asynchronous');
-                if (!$this->isNodesCreated()) {
-                    $this->AddNodesService();
-                }
                 $sql = "ALTER TABLE agoraportal_services DROP currentVersion;";
                 DBUtil::executeSQL($sql);
                 $sql = "ALTER TABLE agoraportal_services DROP usersNameField;";
@@ -187,6 +183,11 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 DBUtil::executeSQL($sql);
                 $sql = "ALTER TABLE agoraportal_services ADD hasDB TINYINT NOT NULL DEFAULT '1' AFTER description;";
                 DBUtil::executeSQL($sql);
+                if (!$this->isNodesCreated()) {
+                    $this->AddNodesService();
+                }
+                DBUtil::dropTable('agoraportal_client_settings');
+                DBUtil::dropTable('agoraportal_ldap_asynchronous');
 
                 /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
                  * afegir una comprovació amb DBUtil::metaIndexes per saber
