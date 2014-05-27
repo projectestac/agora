@@ -13,7 +13,8 @@ MOODLE 2
 - Changed loglifetime from 365 to 0 to avoid delete them (for learning analytics project)
 - Solved MDL-45480 Mod completion cannot be changed on certain cases
 - Jclic module updated to the last version (0.2.3+)
-- Gegebra module updated to the last version (0.2.5 RC+)
+- Geogebra module updated to the last version (0.2.5+)
+- Format simple improvements showing custom images and solving duplicity of topic zero
 
 PORTAL
 - Agoraportal: Added ability to show and delete subdirectoris in Moodle repository

@@ -54,18 +54,18 @@ class format_simple extends format_topics {
         	            'default' => $courseconfig->coursedisplay,
                 	    'type' => PARAM_INT,
 	                ),
-			'showtopiczero' => array(
-                            'default' => 0,
-                            'type' => PARAM_INT,
-                        ),
-			'showblocks' => array(
-                            'default' => 0,
-                            'type' => PARAM_INT,
-                        ),
-			'simpleiconsize' => array(
-                            'default' => 128,
-                            'type' => PARAM_INT,
-                        ),
+					'showtopiczero' => array(
+                        'default' => 0,
+                        'type' => PARAM_INT,
+		            ),
+					'showblocks' => array(
+                        'default' => 0,
+                        'type' => PARAM_INT,
+                    ),
+					'simpleiconsize' => array(
+                        'default' => 128,
+                        'type' => PARAM_INT,
+                    )
         	    );
 	        }
         	if ($foreditform && !isset($courseformatoptions['coursedisplay']['label'])) {
@@ -73,7 +73,7 @@ class format_simple extends format_topics {
         	    $max = $courseconfig->maxsections;
 	            if (!isset($max) || !is_numeric($max)) {
         	        $max = 52;
-	            }	
+	            }
         	    $sectionmenu = array();
 	            for ($i = 0; $i <= $max; $i++) {
         	        $sectionmenu[$i] = "$i";
@@ -128,7 +128,7 @@ class format_simple extends format_topics {
 				    48 => '48px',
                                     64 => '54px',
 				    72 => '72px',
-                                    80 => '80px',	
+                                    80 => '80px',
 				    96 => '96px',
                                     128 => '128px',
 				    256 => '256px',
@@ -175,7 +175,7 @@ class format_simple extends format_topics {
         	}
 	        return $url;
 	}
-	
+
 }
 
 function format_simple_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload){
@@ -201,11 +201,9 @@ function format_simple_pluginfile($course, $cm, $context, $filearea, $args, $for
     send_stored_file($file, 86400, $filter, $forcedownload);
 }
 
-function simple_get_current_icon_url($modname, $instanceid){
-	global $CFG, $COURSE;
-	
+function simple_get_current_icon($modname, $instanceid){
 	$context = context_module::instance($instanceid,IGNORE_MISSING);
-	if($context){ 
+	if($context){
 		// Get file
 		$fs = get_file_storage();
 		$component = 'format_simple';
@@ -213,18 +211,25 @@ function simple_get_current_icon_url($modname, $instanceid){
 		$files = $fs->get_area_files($context->id, $component, $filearea, 0, "sortorder, itemid, filepath, filename", false);
 		if(!empty($files)){
 			$file = array_pop($files);
-			$url = "{$CFG->wwwroot}/pluginfile.php/{$file->get_contextid()}/$component/$filearea";
-			return $url.$file->get_filepath().$file->get_itemid().'/'.$file->get_filename();
+			return $file;
 		}
+	}
+	return false;
+}
+
+function simple_get_current_icon_url($modname, $instanceid){
+	global $CFG;
+	if($file = simple_get_current_icon($modname, $instanceid)){
+		$url = "{$CFG->wwwroot}/pluginfile.php/{$file->get_contextid()}/format_simple/bigicon";
+		return $url.$file->get_filepath().$file->get_itemid().'/'.$file->get_filename();
 	}
 	return false;
 }
 
 //Retorna la url de la icona
 function simple_get_icon_url($mod, $instanceid = false){
-	if($instanceid){
-		$icon = simple_get_current_icon_url($mod->modname, $instanceid);
-		if($icon) return $icon;
+	if($instanceid && $icon = simple_get_current_icon_url($mod->modname, $instanceid)){
+		return $icon;
 	}
 	return simple_get_default_icon_url($mod);
 }
@@ -244,12 +249,12 @@ function simple_update_module_image($data) {
         //It's not necessary to change current image
         return;
     }
-    
+
     //First, try to erase current image if current is not selected
     if($data->simple_image == 0 && isset($data->default_image) && $data->default_image != 'current'){
     	simple_delete_module_image($data->coursemodule);
     }
-    
+
     //Then copy the image selected to the module space
     simple_add_module_image($data);
 }
@@ -257,10 +262,10 @@ function simple_update_module_image($data) {
 //Adds the selected imatge to the course module from the form
 function simple_add_module_image($data) {
 	global $CFG, $USER;
-    
+
     $cmid = $data->coursemodule;
-	
-    if($data->simple_image == 0){   	
+
+    if($data->simple_image == 0){
     	//Copy file if default is not selected
     	if($data->default_image != 'default'){
     		//Copy the file from $data->default_image
@@ -276,7 +281,7 @@ function simple_add_module_image($data) {
 			    'itemid' => 0,               // usually = ID of row in table
 			    'filepath' => '/',           // any path beginning and ending in /
 				'userid' => $USER->id); // any filename
-			
+
     		if(strpos($data->default_image,'subject/')===0){
     			$fileinfo['filename'] = $data->default_image;
 				$from_path = "$CFG->dirroot/course/format/simple/pix/".$data->default_image;
@@ -290,30 +295,30 @@ function simple_add_module_image($data) {
     			}
     		}
     	}
-    	
+
     	return;
     }
-    
+
     //Personalized image uploaded
     $fs = get_file_storage();
-    $context = get_context_instance(CONTEXT_MODULE, $cmid);
-    
+    $context = context_module::instance($cmid);
+
 	$component = 'format_simple';
 	$filearea = 'bigicon';
     $draftitemid = $data->simple_icon;
-    
-    $file_options = array('subdirs' => false, 'maxfiles' => 1, 'accepted_types' => 'image'); 
+
+    $file_options = array('subdirs' => false, 'maxfiles' => 1, 'accepted_types' => 'image');
     if ($draftitemid) {
         file_save_draft_area_files($draftitemid, $context->id, $component, $filearea, 0, $file_options);
     }
 	return;
-	
+
 }
 
 //Deletes the selected imatge to the course module from the form
 function simple_delete_module_image($cmid) {
-    
-    $context = get_context_instance(CONTEXT_MODULE, $cmid);
+
+    $context = context_module::instance($cmid);
     if($context){
     	$fs = get_file_storage();
 		$component = 'format_simple';
@@ -331,7 +336,7 @@ function simple_coursemodule_elements(&$mform, $mod) {
 
 	$courseid = $mod->course;
 	$modname = $mod->modname;
-	
+
     if ($modname == 'label') return;
 
 	$mform->addElement('header', 'simple_iconhdr', get_string('icon', 'format_simple'));
@@ -340,15 +345,15 @@ function simple_coursemodule_elements(&$mform, $mod) {
 	//$mform->addHelpButton('simple_iconhdr', 'icon', 'format_simple');
 
 	$instanceid = isset($_GET["update"]) ? $_GET["update"] : false;
-		
+
 	$default_icon = simple_get_default_icon_url($mod, $instanceid);
 	$current_icon = simple_get_current_icon_url($modname, $instanceid);
-        
+
 	//Opcions de les icones a triar
 	$icon_options = array();
 	$icons_url = array();
 	$icons_hash = array();
-	
+
 	$current_image_atts = array('id'=>'def_img', 'class'=>'simple-bigicon icon', 'alt'=>'' );
 	if ($current_icon) {
 		$current_image_atts['src'] = $current_icon;
@@ -359,11 +364,11 @@ function simple_coursemodule_elements(&$mform, $mod) {
 		$current_image_atts['src'] = $default_icon;
 	}
 	$current_image = html_writer::empty_tag('img', $current_image_atts);
-	
+
 	$icon_options['default'] = get_string('default', 'format_simple');
 	$icons_url['default'] = (string)$default_icon;
 	//$icons_hash[sha1_file($pathname)] = true;
-	
+
 	//Imatges per matèries predefinides
 	$act_icon_folder_data = "$CFG->dirroot/course/format/simple/pix/subject/";
 	if (file_exists($act_icon_folder_data) && $handle = opendir($act_icon_folder_data)) {
@@ -378,19 +383,19 @@ function simple_coursemodule_elements(&$mform, $mod) {
 		}
 		closedir($handle);
 	}
-	
+
 	$component = 'format_simple';
 	$filearea = 'bigicon';
-	
-	
+
+
 	//User and Course uploaded images
 	$contextcourse = context_course::instance($courseid);
-	
+
 	//Get child activities contexts:
 	$select = "contextlevel = :ctxlevel AND path LIKE :path";
     $params = array('path'=> $contextcourse->path.'/%', 'ctxlevel' => CONTEXT_MODULE);
     $act_contexts = $DB->get_fieldset_select('context','id',$select,$params);
-    
+
     $params = array('component'=>$component, 'filearea'=>$filearea, 'userid' => $USER->id);
 	if(!empty($act_contexts)){
 		$contexts = implode(',',$act_contexts);
@@ -405,44 +410,44 @@ function simple_coursemodule_elements(&$mform, $mod) {
 		$current_withoutslash = clean_param($current_icon, PARAM_FILE);
 		foreach($file_records as $file){
 			$file = $fs->get_file_instance($file);
-			
+
 			if(!$file->is_directory()){
 				$filename = $file->get_filename();
 				$filehash = $file->get_contenthash();
 				if($filename != $current_withoutslash && !isset($icons_hash[$filehash])){
 					$key = $file->get_id();
 					$icon_options[$key] = $filename;
-					
+
 					$url = "{$CFG->wwwroot}/pluginfile.php/{$file->get_contextid()}/$component/$filearea";
 		    		$icons_url[$key] = $url.$file->get_filepath().$file->get_itemid().'/'.$filename;
-		    		
+
 		    		$icons_hash[$filehash] = true;
 				}
 			}
 		}
 	}
-	
-	
+
+
 	$jsmodule = array(
 	    'name'     => 'format_simple',
 	    'fullpath' => '/course/format/simple/module.js',
 	    'requires' => array('base'),
 	);
 	$PAGE->requires->js_init_call('M.format_simple.init', array($icons_url), true, $jsmodule);
-	
+
 	$imagearray = array();
 	$imagearray[] = & $mform->createElement('radio', 'simple_image', '', get_string('use_existing_image', 'format_simple'), 0);
 	$imagearray[] = & $mform->createElement('select', 'default_image', '', $icon_options);
 	$imagearray[] = & $mform->createElement('radio', 'simple_image', '', get_string('upload_image', 'format_simple'), 1);
-	
+
 	$separators = array(
 		0 => '<br/>',
 		1 => $current_image . '<br/>');
-	
+
 	$mform->addGroup($imagearray, 'simple_image', '', $separators, false);
 	$mform->setDefault('simple_image', 0);
 	$mform->disabledIf('default_image', 'simple_image', 'neq', '0');
-	
+
 	$mform->addElement('filepicker', 'simple_icon',  get_string('select_file', 'format_simple'), null,
 				array('subdirs' => false, 'maxfiles' => 1, 'accepted_types' => 'image'));
 	$mform->disabledIf('simple_icon', 'simple_image', 'neq', '1');
