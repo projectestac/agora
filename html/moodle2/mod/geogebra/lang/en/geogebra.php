@@ -162,3 +162,4 @@ $string['msg_noattempts']= 'You have done this activity the maximum number of ti
 $string['lastmodifiedsubmission'] = 'Last modified (submission)';
 $string['lastmodifiedgrade'] = 'Last modified (grade)';
 $string['viewattempttab'] = 'View attempt';
+$string['extractedfromggb'] = 'extracted files from ggb';

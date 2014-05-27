@@ -558,7 +558,7 @@ function geogebra_update_grades(stdClass $geogebra, $userid = 0, $nullifnone=tru
 function geogebra_get_file_areas($course, $cm, $context) {
     return array(
         'content'           => get_string('urledit',  'geogebra'),
-        'extracted_files'   => get_string('extracted files from ggb',  'geogebra')
+        'extracted_files'   => get_string('extractedfromggb',  'geogebra')
     );
 }
 
