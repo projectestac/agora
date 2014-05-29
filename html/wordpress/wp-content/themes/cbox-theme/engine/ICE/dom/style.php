@@ -154,7 +154,31 @@ class ICE_Style extends ICE_Asset
 			// anything else needs to be resolved
 			default:
 				$path = ICE_Files::path_resolve( $this->last_dirname, $path );
-				$path = ICE_Files::file_to_uri_path( $path );
+
+                // XTEC ************ MODIFICAT - Fix for Agora multisite system (ICE_Files::file_to_uri_path() doesn't work)
+                // 2014.05.29 @aginard
+
+                // At this point, there are this values (sample values):
+                // $this->last_dirname: /srv/www/agora/html/wordpress/wp-content/themes/cbox-theme/engine/ICE/ext/options/colorpicker/
+                // $path (source) = /srv/www/agora/html/wordpress/wp-content/themes/cbox-theme/engine/ICE/ext/options/colorpicker/images/launch.png;
+                // $path (target) = http://agora/agora/usu1/nodes/wp-content/themes/cbox-theme/engine/ICE/ext/options/colorpicker/images/launch.png
+
+                global $isAgora;
+                
+                if ($isAgora) {
+                    global $agora;
+                    
+                    $base_path = $agora['server']['root'] . 'html/wordpress/';
+                    $path = WP_SITEURL . substr($path, mb_strlen($base_path));
+
+                    //************ ORIGINAL
+                    /*
+                    $path = ICE_Files::file_to_uri_path( $path );
+                    */
+                    //************ FI
+                } else {
+                    $path = ICE_Files::file_to_uri_path( $path );
+                }
 		}
 
 		// return fixed url value
