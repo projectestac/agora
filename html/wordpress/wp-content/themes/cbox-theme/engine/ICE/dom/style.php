@@ -166,19 +166,21 @@ class ICE_Style extends ICE_Asset
                 global $isAgora;
                 
                 if ($isAgora) {
+
                     global $agora;
                     
                     $base_path = $agora['server']['root'] . 'html/wordpress/';
                     $path = WP_SITEURL . substr($path, mb_strlen($base_path));
 
-                    //************ ORIGINAL
-                    /*
-                    $path = ICE_Files::file_to_uri_path( $path );
-                    */
-                    //************ FI
                 } else {
                     $path = ICE_Files::file_to_uri_path( $path );
                 }
+
+                //************ ORIGINAL
+                /*
+                $path = ICE_Files::file_to_uri_path( $path );
+                */
+                //************ FI
 		}
 
 		// return fixed url value
