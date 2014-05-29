@@ -44,7 +44,10 @@ if (!empty($school_info['new_dns'])) {
     exit(0);
 }
 
-global $agora;
+global $agora, $isAgora, $isBlocs;
+
+$isAgora = true;
+$isBlocs = false;
 
 define('DB_NAME', $agora['nodes']['userprefix'] . $school_info['id_nodes']);
 define('DB_HOST', $school_info['dbhost_nodes']);
