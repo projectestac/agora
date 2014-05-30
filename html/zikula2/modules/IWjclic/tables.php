@@ -82,7 +82,7 @@ function IWjclic_tables() {
     // IWjclic_sessions table definition
     $table['IWjclic_sessions'] = DBUtil::getLimitedTablename('IWjclic_sessions');
     $table['IWjclic_sessions_column'] = array('jsid' => 'iw_jsid',
-        'jclicid' => 'IWjclicid',
+        'jclicid' => 'iw_jclicid',
         'session_id' => 'iw_session_id',
         'user_id' => 'iw_user_id',
         'session_datetime' => 'iw_session_datetime',

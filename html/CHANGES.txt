@@ -5,6 +5,8 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+ZIKULA 2
+- IWjclic: Fixed incorrect field name in table definition of IWjclic_sessions
 
 
 
