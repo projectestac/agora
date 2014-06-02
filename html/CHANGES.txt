@@ -5,9 +5,16 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+Changes 14.06.02
+---------------------------------------------------------------------------------------
+MOODLE 2
+- Rcontent: Delete parent redirection on Rcontent activities
+
 ZIKULA 2
 - IWjclic: Fixed incorrect field name in table definition of IWjclic_sessions
-
 
 
 Changes 14.05.28
