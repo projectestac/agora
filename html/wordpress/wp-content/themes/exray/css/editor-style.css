@@ -1,0 +1,326 @@
+/*
+Theme Name: Exray
+Description: Used to style the TinyMCE editor.
+*/
+@font-face {
+  font-family: 'OswaldLight';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Oswald-Light-webfont.eot');
+  src: url('../fonts/Oswald-Light-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Oswald-Light-webfont.woff') format('woff'), url('../fonts/Oswald-Light-webfont.ttf') format('truetype'), url('../fonts/Oswald-Light-webfont.svg#OswaldLight') format('svg');
+}
+@font-face {
+  font-family: 'OswaldBook';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Oswald-Regular-webfont.eot');
+  src: url('../fonts/Oswald-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Oswald-Regular-webfont.woff') format('woff'), url('../fonts/Oswald-Regular-webfont.ttf') format('truetype'), url('../fonts/Oswald-Regular-webfont.svg#OswaldBook') format('svg');
+}
+@font-face {
+  font-family: 'WebSymbolsRegular';
+  src: url('../fonts/websymbols/websymbols-regular-webfont.eot');
+  src: url('../fonts/websymbols/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/websymbols/websymbols-regular-webfont.woff') format('woff'), url('../fonts/websymbols/websymbols-regular-webfont.ttf') format('truetype'), url('../fonts/websymbols/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+}
+/**
+ * 1.0 Body
+ * ----------------------------------------------------------------------------
+ */
+html .mceContentBody {
+  font-size: 80%;
+  max-width: 570px;
+}
+body {
+  font: 14px/21px "Helvetica Neue", Helvetica, arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  vertical-align: baseline;
+}
+p,
+ul,
+ol {
+  margin-bottom: 1.5em;
+}
+/**
+ * 2.0 Headings
+ * ----------------------------------------------------------------------------
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #333333;
+  line-height: 1.5em;
+  margin-bottom: 1em;
+  word-wrap: break-word;
+}
+h1 {
+  font-family: "OswaldBook", arial, serif;
+  font-size: 26px;
+}
+h2 {
+  font-family: "OswaldBook", arial, serif;
+  font-size: 21px;
+}
+h3 {
+  font-family: "OswaldBook", arial, serif;
+  font-size: 18px;
+}
+h4 {
+  font-family: "OswaldBook", arial, serif;
+  font-size: 16px;
+  line-height: 16px;
+}
+h5 {
+  font-size: 14px;
+  font-weight: bold;
+}
+h6 {
+  color: #c4c4c4;
+  font-size: 12px;
+}
+/**
+ * 3.0 Text Elements
+ * ----------------------------------------------------------------------------
+ */
+p,
+ul,
+ol {
+  margin-bottom: 1.5em;
+}
+i,
+cite,
+em,
+var,
+address,
+dfn {
+  font-style: italic;
+}
+ins {
+  background: #fff9c0;
+  text-decoration: none;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+small {
+  font-size: smaller;
+}
+blockquote {
+  border-left: 5px solid #dddddd;
+  color: #aaaaaa;
+  font: italic 14px/1.5em Georgia, serif;
+  margin: 1.5em 3em;
+  padding-left: 2em;
+}
+blockquote cite {
+  color: #333333;
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 21px;
+}
+pre {
+  border: 1px solid #e1e1e1;
+  color: #333333;
+  font-family: Consolas, Monaco, Lucida Console, monospace;
+  font-size: 12px;
+  margin: 24px 0;
+  overflow: auto;
+  padding: 24px;
+}
+dl {
+  margin: 0 24px;
+  margin: 0 0;
+}
+dt {
+  font-weight: bold;
+  line-height: 1.5em;
+}
+dd {
+  line-height: 1.5em;
+  margin-bottom: 24px;
+}
+ul li {
+  list-style: disc outside;
+}
+ol li {
+  list-style: decimal outside;
+}
+li {
+  margin: 0 0 0 36px;
+  margin: 0 0 0 2.571428571rem;
+}
+ul ul,
+ul ul,
+ol ol,
+ol ol,
+ul ol,
+ul ol,
+ol ul,
+ol ul {
+  margin-bottom: 0;
+}
+address {
+  display: block;
+  line-height: 1.5em;
+  margin: 0 0 24px;
+}
+code {
+  font-family: Consolas, Monaco, Lucida Console, monospace;
+  font-size: 12px;
+  line-height: 1.5em;
+}
+/**
+ * 4.0 Links
+ * ----------------------------------------------------------------------------
+ */
+a {
+  color: #0d72c7;
+  text-decoration: none;
+}
+a:hover {
+  color: #0f80df;
+  text-decoration: underline;
+}
+p a,
+h5 a {
+  color: #0d72c7;
+}
+p a:hover,
+h5 a:hover {
+  color: #0f80df;
+}
+/**
+ * 5.0 Alignment
+ * ----------------------------------------------------------------------------
+ */
+.aligncenter,
+.alignleft,
+.alignright,
+.alignnone {
+  background: #f5f5f5;
+  border: 1px solid #dddddd;
+  margin: 1.5em 0;
+  padding: 5px;
+}
+.aligncenter,
+img.center {
+  display: block;
+  margin: 1.5em auto;
+}
+.alignleft {
+  float: left;
+  margin: 1.5em 2em 1.5em 0;
+}
+.alignright {
+  float: right;
+  margin: 1.5em 0 1.5em 2em;
+}
+/**
+ * 6.0 Tables
+ * ----------------------------------------------------------------------------
+ */
+table {
+  border-bottom: 1px solid #ededed;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 14px;
+  line-height: 2;
+  margin: 0 0 20px;
+  width: 100%;
+}
+caption,
+th,
+td {
+  font-weight: normal;
+  text-align: left;
+}
+caption {
+  font-size: 16px;
+  margin: 20px 0;
+}
+th {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+td {
+  border-top: 1px solid #ededed;
+  padding: 6px 10px 6px 0;
+}
+/**
+ * 7.0 Images
+ * ----------------------------------------------------------------------------
+ */
+img,
+video,
+select {
+  height: auto;
+  max-width: 100%;
+}
+img.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.wp-caption,
+.wp-caption .wp-caption-text,
+.gallery-caption,
+.entry-caption {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 34px;
+  height: auto;
+  max-width: 100%;
+}
+.entry-attachment {
+  margin: 0em 0.5em;
+  padding: 5px 0px 0px 6px;
+}
+.mceTemp + ul,
+.mceTemp + ol {
+  list-style-position: inside;
+}
+/**
+ * 8.0 RTL
+ * ----------------------------------------------------------------------------
+ */
+html .mceContentBody.rtl {
+  direction: rtl;
+  unicode-bidi: embed;
+}
+.rtl ol,
+.rtl ul {
+  padding: 0 40px 0 0;
+}
+.rtl .wp-caption,
+.rtl tr th {
+  text-align: right;
+}
+.rtl td {
+  padding: 6px 0 6px 10px;
+  text-align: right;
+}
+.rtl blockquote blockquote {
+  margin-left: 0;
+  margin-right: 24px;
+}
+.rtl.post-format-audio:before,
+.rtl.post-format-status:before,
+.rtl.post-format-status > p:first-child:before {
+  background: none;
+  content: none;
+}
