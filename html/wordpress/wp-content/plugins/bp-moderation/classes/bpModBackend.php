@@ -45,11 +45,14 @@ class bpModBackend extends bpModeration
 
 		add_action("admin_print_styles-$hook", array(&$this, 'admin_css'));
 		add_action("admin_print_scripts-$hook", array(&$this, 'admin_js'));
-	}
+    }
 
-	function print_page_icon_style()
-	{
-		echo <<<HTML
+    
+    // XTEC ************ MODIFICAT - Fixed repetition of background image in Dashboard
+    // 2014.06.02 @aginard
+
+    function print_page_icon_style() {
+        echo <<<HTML
 <style>
 ul#adminmenu li.toplevel_page_bp-moderation .wp-menu-image {
     background-image: url('{$this->plugin_url}/css/sprite.png');
@@ -58,12 +61,34 @@ ul#adminmenu li.toplevel_page_bp-moderation .wp-menu-image {
 ul#adminmenu li.toplevel_page_bp-moderation:hover .wp-menu-image,
 ul#adminmenu li.toplevel_page_bp-moderation.current .wp-menu-image {
     background-position: 6px -61px;
+    background-repeat: no-repeat;
 }
 </style>
 HTML;
-	}
+    }
 
-	/**
+    //************ ORIGINAL
+    /*
+    function print_page_icon_style()
+    {
+        echo <<<HTML
+<style>
+ul#adminmenu li.toplevel_page_bp-moderation .wp-menu-image {
+background-image: url('{$this->plugin_url}/css/sprite.png');
+background-position: 6px 5px;
+}
+ul#adminmenu li.toplevel_page_bp-moderation:hover .wp-menu-image,
+ul#adminmenu li.toplevel_page_bp-moderation.current .wp-menu-image {
+background-position: 6px -61px;
+}
+</style>
+    HTML;
+    }
+     */
+    //************ FI
+
+
+    /**
 	 * Add info on moderation queue in the rightnow widget
 	 */
 	function rightnow_widget_section()

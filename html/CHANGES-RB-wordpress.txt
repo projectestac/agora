@@ -26,3 +26,4 @@ WORDPRESS
 - Added Invite Anyone 1.2.1
 - Added Social Articles 1.5.1
 - Added Theme exray 1.4.2
+- BP-moderation: Fixed repetition of background image in Dashboard
