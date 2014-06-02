@@ -24,3 +24,4 @@ WORDPRESS
 - Added rtMedia for WordPress, BuddyPress and bbPress (Buddypress Media) 3.6.14
 - Added Theme cbox from CUNY (https://github.com/cuny-academic-commons/cbox-theme)
 - Added Invite Anyone 1.2.1
+- Added Social Articles 1.5.1

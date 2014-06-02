@@ -1,0 +1,76 @@
+/* Option page*/
+.options-social-articles .form-table tr {
+    background: none repeat scroll 0 0 #F9F9F9;
+    border: 1px solid #E4E4E4;
+    margin: 0;
+    padding-left: 3px;
+}
+
+.options-social-articles .form-table td p {
+    color: #AAA;
+    font-size: 10px;
+}
+
+.options-social-articles .form-table label {
+    font-size: 12px;
+}
+
+.options-social-articles .form-table input {
+    width: 100%;
+    padding: 5px;
+    resize: none;
+}
+
+/* PostBox*/
+.postbox#social-articles-donation {
+    border-color: #3ac7f3;
+    border-width: 2px;
+}
+
+.postbox .submitbutton {
+    float: right;
+    margin-top: 10px;
+}
+
+strong.blue {
+    color: #3ac7f3;
+    font-weight: bold;
+    font-size: 105%;
+}
+
+/*Premium Features*/
+#social_articles_premium_options h3 span{
+    color: #3AC7F3;
+    font-weight: bold;
+}
+
+.premium-feature  .premium-title{
+    width: 100%;
+    display: block;
+    min-height: 40px;
+}
+
+.premium-feature .premium-title img {
+    float: left;
+}
+
+.premium-feature  .premium-title h1 {
+    color: #c94035;
+    float: left;
+    margin-left: 10px;
+}
+
+.premium-feature ul {
+    list-style-image: url(../images/arrow.png);
+    margin-left: 15px;
+
+}
+
+.premium-feature ul li {
+    margin-left: 15px;
+}
+
+.premium-feature ul li small {
+    color: #999;
+    display: block;
+}
