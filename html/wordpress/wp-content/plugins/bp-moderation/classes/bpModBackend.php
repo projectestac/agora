@@ -52,11 +52,13 @@ class bpModBackend extends bpModeration
     // 2014.06.02 @aginard
 
     function print_page_icon_style() {
-        echo <<<HTML
+
+            echo <<<HTML
 <style>
 ul#adminmenu li.toplevel_page_bp-moderation .wp-menu-image {
     background-image: url('{$this->plugin_url}/css/sprite.png');
     background-position: 6px 5px;
+    background-repeat: no-repeat;
 }
 ul#adminmenu li.toplevel_page_bp-moderation:hover .wp-menu-image,
 ul#adminmenu li.toplevel_page_bp-moderation.current .wp-menu-image {
@@ -66,7 +68,7 @@ ul#adminmenu li.toplevel_page_bp-moderation.current .wp-menu-image {
 </style>
 HTML;
     }
-
+    
     //************ ORIGINAL
     /*
     function print_page_icon_style()
@@ -82,7 +84,7 @@ ul#adminmenu li.toplevel_page_bp-moderation.current .wp-menu-image {
 background-position: 6px -61px;
 }
 </style>
-    HTML;
+HTML;
     }
      */
     //************ FI
