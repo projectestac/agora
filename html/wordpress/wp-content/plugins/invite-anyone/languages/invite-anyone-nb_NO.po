@@ -1,0 +1,575 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Invite Anyone 0.6.7\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/invite-anyone\n"
+"POT-Creation-Date: 2010-04-23 17:18+0000\n"
+"PO-Revision-Date: 2010-11-27 22:29+0100\n"
+"Last-Translator: Stig Ulfsby <sulfsby@online.no>\n"
+"Language-Team: Stig Ulfsby <sulfsby@online.no>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-Language: Norwegian Bokmal\n"
+"X-Poedit-Country: NORWAY\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ bp-invite-anyone
+#. #-#-#-#-#  plugin.pot (Invite Anyone 0.6 bleeding)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/admin-panel.php:4
+#: widgets/widgets.php:38
+#: widgets/widgets.php:95
+msgid "Invite Anyone"
+msgstr "Invite Anyone"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:15
+msgid "Settings"
+msgstr "Innstillinger"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:34
+msgid "Invite Anyone Settings"
+msgstr "Invite Anyone innstillinger"
+
+# @ default
+#: admin/admin-panel.php:40
+msgid "Save Changes"
+msgstr "Lagre endringer"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:53
+msgid "General Settings"
+msgstr "Generelle innstillinger"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:55
+msgid "Replacement patterns for email text fields"
+msgstr "Erstatningsmønstre for epost tekstfelt"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:57
+msgid "Text of email invitation subject line"
+msgstr "Tekst for e-post invitasjon emnefeltet"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:59
+msgid "Main text of email invitation message"
+msgstr "Hovedteksten i e-post invitasjonsmeldingen"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:61
+msgid "Footer text of email invitation message (not editable by users)"
+msgstr "Bunntekst av e-post invitasjonsmeldingen (ikke redigerbart av brukere)"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:64
+msgid "Allow users to customize invitation"
+msgstr "Tillat brukere å tilpasse invitasjon"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:67
+msgid "Number of email invitations users are permitted to send at a time"
+msgstr "Antall e-post iinvitasjoner brukere har tillatelse til å sende om gangen"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:69
+msgid "Allow users to send group invitations along with email invitations"
+msgstr "Tillat brukere å sende gruppe invitasjoner sammen med e-post invitasjoner"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:72
+msgid "Access Settings"
+msgstr "Tilgangsinnstillinger"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:74
+msgid "Allow email invitations to be sent by"
+msgstr "Tillat e-invitasjoner å sendes av"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:76
+msgid "Limit group invitations"
+msgstr "Begrens gruppe invitasjoner"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:89
+msgid "Control the default behavior of Invite Anyone."
+msgstr "Styr standard virkemåte for Invite Anyone."
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:99
+msgid "name of your website"
+msgstr "navnet på ditt nettsted"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:100
+msgid "display name of the inviter"
+msgstr "visningsnavnet for den som inviterer"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:101
+msgid "URL to the profile of the inviter"
+msgstr "URL til profilen til den som inviterer"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:102
+msgid "Link that invited users can click to accept the invitation"
+msgstr "Lenke som inviterte brukere kan klikke for å godta invitasjonen"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:103
+msgid "Link that invited users can click to opt out of future invitations"
+msgstr "Lenke som inviterte brukere kan klikke for å velge bort fremtidige invitasjoner"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:142
+msgid "Subject line"
+msgstr "Emnefeltet"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:146
+msgid "Message body"
+msgstr "Meldingsteksten"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:154
+msgid "Control which members are able to send various kinds of invitations."
+msgstr "Styr hvilke medlemmer som er i stand til å sende ulike typer invitasjoner."
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:163
+msgid "All users"
+msgstr "Alle brukere"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:165
+msgid "A limited set of users"
+msgstr "Et begrenset sett med brukere"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:169
+msgid "Only users who have been members of the site for a minimum number of days:"
+msgstr "Bare brukere som har vært medlemmer av nettstedet i et minimum antall dager:"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:174
+msgid "Only users who have at least the following role on this blog:"
+msgstr "Bare brukere som har minst følgende rolle på denne bloggen:"
+
+# @ default
+#: admin/admin-panel.php:176
+msgid "Subscriber"
+msgstr "Abonnent"
+
+# @ default
+#: admin/admin-panel.php:177
+msgid "Contributor"
+msgstr "Bidragsyter"
+
+# @ default
+#: admin/admin-panel.php:178
+msgid "Author"
+msgstr "Forfatter"
+
+# @ default
+#: admin/admin-panel.php:179
+msgid "Editor"
+msgstr "Redaktør"
+
+# @ default
+#: admin/admin-panel.php:180
+msgid "Administrator"
+msgstr "Administrator"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:185
+msgid "Provide a comma-separated list of users (identified by their numerical user ids) who <strong>cannot</strong> send invitations by email:"
+msgstr "Gi en kommaseparert liste med brukere (identifisert av sin numeriske bruker-ID) som <strong>ikke kan</strong> sende invitasjoner via e-post:"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:200
+msgid "Invite Anyone extends BuddyPress's default group invitation settings. Instead of allowing you to invite only friends to a group, this plugin allows you to invite any member of the site. Use these settings to limit possible invitees for different group roles."
+msgstr "Invite Anyone utvider BuddyPress sin standard gruppeinvitasjon innstillinger. I stedet for å tillate deg å invitere bare venner til en gruppe, muliggjør dette programtillegget å invitere et hvilket som helst medlem av nettstedet. Bruk disse innstillingene til å begrense de som kan invitere for ulike grupperoller."
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:202
+msgid "<strong>Site admins</strong> can send group invitations to: "
+msgstr "<strong>Nettsteds administrator</strong> kan sende gruppe invitasjoner til: "
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:204
+#: admin/admin-panel.php:212
+#: admin/admin-panel.php:220
+#: admin/admin-panel.php:228
+msgid "Anyone"
+msgstr "Hvem som helst"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:205
+#: admin/admin-panel.php:213
+#: admin/admin-panel.php:221
+#: admin/admin-panel.php:229
+msgid "Friends"
+msgstr "Venner"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:206
+#: admin/admin-panel.php:214
+#: admin/admin-panel.php:222
+#: admin/admin-panel.php:230
+msgid "No one"
+msgstr "Ingen"
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:210
+msgid "<strong>Group admins</strong> can send group invitations to: "
+msgstr "<strong>Gruppe administratorer</strong> kan sende gruppe invitasjoner til: "
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:218
+msgid "<strong>Group mods</strong> can send group invitations to: "
+msgstr "<strong>Gruppe mods</strong> kan sende gruppe invitasjoner til: "
+
+# @ bp-invite-anyone
+#: admin/admin-panel.php:226
+msgid "<strong>Group members</strong> can send group invitations to: "
+msgstr "<strong>Gruppemedlemmer</strong> kan sende gruppe invitasjoner til: "
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:56
+msgid "Opt Out"
+msgstr "Meld deg av"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:57
+msgid "Accept Invitation"
+msgstr "Aksepter invitasjonen"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:61
+#, php-format
+msgid "To opt out of future invitations to %s, make sure that your email is entered in the field below and click \"Opt Out\"."
+msgstr "For å melde deg av fremtidige invitasjoner til %s, sørg for at e-postadressen er skrevet inn i feltet under og klikk \"Meld av\"."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:63
+#, php-format
+msgid "If you are here by mistake and would like to accept your invitation to %s, click \"Accept Invitation\" instead."
+msgstr "Hvis du er her ved en feil og ønsker å ta imot invitasjonen til %s, klikk \"Aksepter invitasjon\" i stedet."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:76
+msgid "You have successfully opted out. No more invitation emails will be sent to you by this site."
+msgstr "Du har meldt deg av. Ingen flere invitasjons e-post vil bli sendt til deg av dette nettstedet."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:79
+msgid "Sorry, there was an error in processing your request"
+msgstr "Beklager, det oppstod en feil i behandlingen av forespørselen"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:100
+msgid "Email:"
+msgstr "E-post:"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:122
+msgid "It looks like you're trying to accept an invitation to join the site, but some information is missing. Please try again by clicking on the link in the invitation email."
+msgstr "Det ser ut som du prøver å akseptere en invitasjon til å bli med i nettsamfunnet, men noe informasjon mangler. Vennligst prøv igjen ved å klikke på lenken i invitasjons e-posten."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:164
+#, php-format
+msgid "Welcome! You've been invited %s to join the site. Please fill out the information below to create your account."
+msgstr "Velkommen! Du har blitt invitert %s til bli med i området. Vennligst fyll ut informasjonen nedenfor for å opprette kontoen."
+
+# @ buddypress
+#: by-email/by-email.php:228
+#: by-email/by-email.php:470
+#: group-invites/group-invites.php:83
+#: group-invites/group-invites.php:236
+#: group-invites/group-invites.php:334
+msgid "Send Invites"
+msgstr "Send invitasjoner"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:240
+#: by-email/by-email.php:412
+msgid "Invite New Members"
+msgstr "Inviter nye medlemmer"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:250
+#: by-email/by-email.php:524
+msgid "Sent Invites"
+msgstr "Sendte invitasjoner"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:382
+#: widgets/widgets.php:61
+msgid "email address"
+msgstr "e-postadresse"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:407
+#, php-format
+msgid "Invite friends to join %s by following these steps:"
+msgstr "Inviter venner til %s ved å følge disse trinnene:"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:416
+msgid "Enter email addresses in the fields below."
+msgstr "Skriv inn e-postadresser i feltene nedenfor."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:416
+msgid "You can only invite people whose email addresses end in one of the following domains:"
+msgstr "Du kan bare invitere folk hvis e-postadresser ender i en av følgende domener:"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:423
+msgid "(optional) Customize the subject line of the invitation email."
+msgstr "(Valgfritt) Tilpass emnelinjen i invitasjon e-posten."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:426
+msgid "Subject:"
+msgstr "Emne:"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:435
+msgid "(optional) Customize the text of the invitation."
+msgstr "(Valgfritt) Tilpass teksten i invitasjonen."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:438
+msgid "Message:"
+msgstr "Melding:"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:443
+msgid "The message will also contain a custom footer containing links to accept the invitation or opt out of further email invitations from this site."
+msgstr "Meldingen vil også inneholde en tilpasset bunntekst som inneholder lenker til å akseptere invitasjonen eller reservere deg mot ytterligere e-post invitasjoner fra dette nettstedet."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:449
+msgid "(optional) Select some groups. Invitees will receive invitations to these groups when they join the site."
+msgstr "(Valgfritt) Velg noen grupper. Inviterte vil motta invitasjoner til disse gruppene når de bli med i nettsamfunnet."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:487
+msgid "Your invitations were sent successfully!"
+msgstr "Din invitasjoner ble sendt!"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:489
+msgid "Sorry, there was a problem sending your invitations. Please try again."
+msgstr "Beklager, det var et problem å sende invitasjonene. Vennligst prøv igjen."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:528
+msgid "You have sent invitations to the following people."
+msgstr "Du har sendt invitasjoner til følgende personer."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:533
+msgid "Invited email address"
+msgstr "Invitert e-postadresse"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:534
+msgid "Group invitations"
+msgstr "Gruppe invitasjoner"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:535
+msgid "Sent"
+msgstr "Sendt"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:536
+msgid "Accepted"
+msgstr "Akseptert"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:546
+msgid "Clear this invitation"
+msgstr "Tøm denne invitasjonen"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:579
+msgid "Clear all accepted invitations"
+msgstr "Fjern alle aksepterte invitasjoner"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:580
+msgid "Clear all invitations"
+msgstr "Fjern alle invitasjoner"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:585
+msgid "You haven't sent any email invitations yet."
+msgstr "Du har ikke sendt noen e-post invitasjoner ennå."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:627
+#, php-format
+msgid "An invitation to join the %s community."
+msgstr "En invitasjon til å delta i %s samfunnet."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:651
+#, php-format
+msgid ""
+"You have been invited by %%INVITERNAME%% to join the %s community. \\n"
+"\\r\\n"
+"\\rVisit %%INVITERNAME%%'s profile at %%INVITERURL%%."
+msgstr ""
+"Du har blitt invitert av %%INVITERNAME%% å bli med i %s samfunnet. \\n"
+"\\r\\n"
+"\\rBesøk %%INVITERNAME%% sin profil på %%INVITERURL%%."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:671
+#, php-format
+msgid "To accept this invitation, please visit %%ACCEPTURL%%"
+msgstr "For å godta denne invitasjonen, kan du klikke %%ACCEPTURL%%"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:675
+#, php-format
+msgid "To opt out of future invitations to this site, please visit %%OPTOUTURL%%"
+msgstr "For å melde deg av fremtidige invitasjoner til dette området, kan du klikke %%OPTOUTURL%%"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:743
+msgid "You didn't include any email addresses!"
+msgstr "Du inkluderte ikke noen e-postadresser!"
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:753
+msgid "Sorry, $email has opted out of email invitations from this site."
+msgstr "Beklager, $email har meldt seg ut av e-post invitasjoner fra dette nettstedet."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:758
+msgid "Sorry, $email is already a registered user of the site. "
+msgstr "Beklager, $email er allerede registrert som bruker av nettstedet. "
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:763
+msgid "Sorry, $email is not a permitted email address."
+msgstr "Beklager, $email er ikke en tillatt e-postadresse."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:768
+msgid "Sorry, $email is not a valid email address. Please make sure that you have typed it correctly."
+msgstr "Beklager, $email er ikke en gyldig e-postadresse. Vennligst sørg for at du har skrevet den riktig."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:773
+msgid "Sorry, $email is not a permitted email address. Please make sure that you have typed the domain name correctly."
+msgstr "Beklager, $email er ikke en tillatt e-postadresse. Vennligst sørg for at du har skrevet domenenavnet riktig."
+
+# @ bp-invite-anyone
+#: by-email/by-email.php:779
+msgid "Please remove the email address and try again."
+msgstr "Vennligst fjern e-postadressen og prøv igjen."
+
+# @ buddypress
+#: group-invites/group-invites.php:141
+msgid "Group invites sent."
+msgstr "Gruppe invitasjoner sendt."
+
+# @ buddypress
+#: group-invites/group-invites.php:143
+msgid "Group created successfully."
+msgstr "Gruppen vellykket opprettet."
+
+# @ bp-invite-anyone
+#: group-invites/group-invites.php:176
+#: group-invites/group-invites.php:270
+msgid "Search for members to invite:"
+msgstr "Søk etter medlemmer å invitere:"
+
+# @ bp-invite-anyone
+#: group-invites/group-invites.php:184
+#: group-invites/group-invites.php:278
+msgid "Select members from the directory:"
+msgstr "Velg medlemmer fra katalogen:"
+
+# @ bp-invite-anyone
+#: group-invites/group-invites.php:199
+msgid "Select people to invite."
+msgstr "Velg folk til å invitere."
+
+# @ buddypress
+#: group-invites/group-invites.php:219
+#: group-invites/group-invites.php:315
+#: group-invites/group-invites.php:466
+msgid "Remove Invite"
+msgstr "Fjern invitasjon"
+
+# @ bp-invite-anyone
+#: group-invites/group-invites.php:260
+msgid "Want to invite someone to the group who is not yet a member of the site?"
+msgstr "Lyst til å invitere noen til gruppen som ikke er medlem ennå av nettstedet?"
+
+# @ bp-invite-anyone
+#: group-invites/group-invites.php:260
+msgid "Send invitations by email."
+msgstr "Send invitasjoner via e-post."
+
+# @ buddypress
+#: group-invites/group-invites.php:295
+msgid "Select people to invite from your friends list."
+msgstr "Velg folk å invitere fra vennelisten din."
+
+# @ bp-invite-anyone
+#: widgets/widgets.php:44
+#: widgets/widgets.php:101
+msgid "Invite friends to join the site by entering their email addresses below."
+msgstr "Inviter venner til å bli med i nettsamfunnet ved å oppgi e-postadressene nedenfor."
+
+# @ bp-invite-anyone
+#: widgets/widgets.php:77
+msgid "Continue"
+msgstr "Fortsett"
+
+# @ default
+#: widgets/widgets.php:104
+msgid "Title:"
+msgstr "Tittel:"
+
+# @ bp-invite-anyone
+#: widgets/widgets.php:106
+msgid "Text to display in widget:"
+msgstr "Tekst som skal vises i widget:"
+
+# @ bp-invite-anyone
+#: widgets/widgets.php:110
+msgid "Number of email fields to display in widget:"
+msgstr "Antall e-post felt som vises i widget:"
+
+#. Plugin URI of the plugin/theme
+msgid "http://teleogistic.net/code/buddypress/invite-anyone/"
+msgstr "http://teleogistic.net/code/buddypress/invite-anyone/"
+
+#. Description of the plugin/theme
+msgid "Allows group admins to invite any BuddyPress member to a group, whether or not they are friends"
+msgstr "Tillater gruppeadministratorer å invitere enhver BuddyPress medlem til en gruppe, uansett om de er venner eller ikke"
+
+#. Author of the plugin/theme
+msgid "Boone Gorges"
+msgstr "Boone Gorges"
+
+#. Author URI of the plugin/theme
+msgid "http://teleogistic.net"
+msgstr "http://teleogistic.net"
+

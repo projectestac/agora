@@ -1,0 +1,953 @@
+# Copyright (C) 2012 Invite Anyone
+# This file is distributed under the same license as the Invite Anyone package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Invite Anyone 1.0.11\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/invite-anyone\n"
+"POT-Creation-Date: 2012-05-21 12:38:43+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-06-08 12:23+0100\n"
+"Last-Translator: Anja Skrba <anjas@webhostinggeeks.com>\n"
+"Language-Team: Anja Skrba <anjas@webhostinggeeks.com>\n"
+"X-Generator: Poedit 1.5.5\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: sr_RS\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. #-#-#-#-#  plugin.pot (Invite Anyone 1.0.11)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/admin-panel.php:5 admin/admin-panel.php:111 widgets/widgets.php:38
+#: widgets/widgets.php:86
+msgid "Invite Anyone"
+msgstr "Invite Anyone"
+
+#: admin/admin-panel.php:23
+msgid "Settings"
+msgstr "Podešavanja"
+
+#: admin/admin-panel.php:115 admin/admin-panel.php:194
+msgid "General Settings"
+msgstr "Opšta podešavanja"
+
+#: admin/admin-panel.php:119
+msgid "Access Control"
+msgstr "Kontrola pristupa"
+
+#: admin/admin-panel.php:123 admin/admin-panel.php:175
+msgid "CloudSponge"
+msgstr "CloudSponge"
+
+#: admin/admin-panel.php:127 admin/admin-panel.php:181
+msgid "Manage Invitations"
+msgstr "Upravljanje pozivnicama"
+
+#: admin/admin-panel.php:131 admin/admin-panel.php:187
+msgid "Stats"
+msgstr "Statistike"
+
+#: admin/admin-panel.php:145
+msgid "Save Changes"
+msgstr "Sačuvati izmene"
+
+#: admin/admin-panel.php:163
+msgid "Access Settings"
+msgstr "Podešavanja pristupa"
+
+#: admin/admin-panel.php:165
+msgid "Allow email invitations to be sent by"
+msgstr "Dozvoliti da se pozivnice e-mailom šalju preko"
+
+#: admin/admin-panel.php:167
+msgid "Limit group invitations"
+msgstr "Ograničiti grupne pozivnice"
+
+#: admin/admin-panel.php:169
+msgid "Limit per-user invitations"
+msgstr "Ograničiti pozivnice po korisniku"
+
+#: admin/admin-panel.php:196
+msgid "Replacement patterns for email text fields"
+msgstr "Zamenski obrasci za e-mail tekstualna polja"
+
+#: admin/admin-panel.php:198
+msgid "Text of email invitation subject line"
+msgstr "Tekst linije sa predmetom (subject), e-mail pozivnice"
+
+#: admin/admin-panel.php:200
+msgid "Main text of email invitation message"
+msgstr "Glavni tekst e-mail pozivnice"
+
+#: admin/admin-panel.php:202
+msgid "Footer text of email invitation message (not editable by users)"
+msgstr "Tekst u podnožju e-mail pozivnice (korisnici ga ne mogu uređivati)"
+
+#: admin/admin-panel.php:204
+msgid "Allow users to customize invitation"
+msgstr "Omogućavanje korisnicima da prilagode pozivnicu"
+
+#: admin/admin-panel.php:206
+msgid "Number of email invitations users are permitted to send at a time"
+msgstr "Broj e-mail pozivnica koje korisnici mogu jednovremeno da šalju"
+
+#: admin/admin-panel.php:208
+msgid "Allow users to send group invitations along with email invitations"
+msgstr ""
+"Omogućavanje korisnicima da šalju grupne pozivnice zajedno sa e-mail "
+"pozivnicama"
+
+#: admin/admin-panel.php:210
+msgid ""
+"Allow email invitations to be accepted even when site registration is "
+"disabled"
+msgstr ""
+"Omogućavanje da e-mail pozivnice budu prihvaćene čak i kada je registracija "
+"na sajtu isključena"
+
+#: admin/admin-panel.php:222
+msgid "Control the default behavior of Invite Anyone."
+msgstr "Kontrola podrazumevanog ponašanja dodatka Invite Anyone."
+
+#: admin/admin-panel.php:230
+msgid "name of your website"
+msgstr "ime vašeg web sajta"
+
+#: admin/admin-panel.php:231
+msgid "display name of the inviter"
+msgstr "prikazati ime pozivaoca"
+
+#: admin/admin-panel.php:232
+msgid "URL to the profile of the inviter"
+msgstr "URL ka profilu pozivaoca"
+
+#: admin/admin-panel.php:233
+msgid "Link that invited users can click to accept the invitation"
+msgstr "Link na koji pozvani korisnici mogu da kliknu, da prihvate poziv"
+
+#: admin/admin-panel.php:234
+msgid "Link that invited users can click to opt out of future invitations"
+msgstr ""
+"Link na koji pozvani korisnici mogu da kliknu da izbegnu buduće pozivnice"
+
+#: admin/admin-panel.php:279
+msgid "Subject line"
+msgstr "Linija sa predmetom"
+
+#: admin/admin-panel.php:283
+msgid "Message body"
+msgstr "Telo poruke"
+
+#: admin/admin-panel.php:291
+msgid "Control which members are able to send various kinds of invitations."
+msgstr "Kontrola toga koji korisnici mogu da šalju različite vrste pozivnica."
+
+#: admin/admin-panel.php:300
+msgid "All users"
+msgstr "Svi korisnici"
+
+#: admin/admin-panel.php:302
+msgid "A limited set of users"
+msgstr "Ograničen skup korisnika"
+
+#: admin/admin-panel.php:306
+msgid ""
+"Only users who have been members of the site for a minimum number of days:"
+msgstr "Samo korisnici koji su članovi sajta najmanje ovoliko dana:"
+
+#: admin/admin-panel.php:311
+msgid "Only users who have at least the following role on this blog:"
+msgstr "Samo korisnici koji imaju najmanje sledeću ulogu na ovom blogu:"
+
+#: admin/admin-panel.php:313
+msgid "Subscriber"
+msgstr "Registrovani član"
+
+#: admin/admin-panel.php:314
+msgid "Contributor"
+msgstr "Doprinosilac"
+
+#: admin/admin-panel.php:315
+msgid "Author"
+msgstr "Autor"
+
+#: admin/admin-panel.php:316
+msgid "Editor"
+msgstr "Urednik"
+
+#: admin/admin-panel.php:317
+msgid "Administrator"
+msgstr "Administrator"
+
+#: admin/admin-panel.php:322
+msgid ""
+"Provide a comma-separated list of users (identified by their numerical user "
+"ids) who <strong>cannot</strong> send invitations by email:"
+msgstr ""
+"Navesti listu, razdvojenu zapetama, korisnika (identifikovanih pomoću "
+"njihovih numeričkih korisničkih id -ova) koji <strong>ne mogu</strong> da "
+"šalju pozivnice e-mailom:"
+
+#: admin/admin-panel.php:339
+msgid "Limit number of invites per user :"
+msgstr "Ograničiti broj poziva po korisniku :"
+
+#: admin/admin-panel.php:351
+msgid ""
+"Invite Anyone extends BuddyPress's default group invitation settings. "
+"Instead of allowing you to invite only friends to a group, this plugin "
+"allows you to invite any member of the site. Use these settings to limit "
+"possible invitees for different group roles."
+msgstr ""
+"Invite Anyone proširuje BuddyPress -ova podrazumevana podešenja za pozivanje "
+"u grupu. Umesto da vam omogući pozivanje u grupu samo prijatelja, ovaj "
+"dodatak vam omogućava da pozovete bilo kog korisnika sajta. Upotrebite ova "
+"podešavanja da ograničite broj mogućih zvanica za različite uloge u grupi."
+
+#: admin/admin-panel.php:353
+msgid "<strong>Site admins</strong> can send group invitations to: "
+msgstr ""
+"<strong>Administratori sajta</strong> mogu da šalju pozivnice za grupu: "
+
+#: admin/admin-panel.php:355 admin/admin-panel.php:363
+#: admin/admin-panel.php:371 admin/admin-panel.php:379
+msgid "Anyone"
+msgstr "Bilo kome"
+
+#: admin/admin-panel.php:356 admin/admin-panel.php:364
+#: admin/admin-panel.php:372 admin/admin-panel.php:380
+msgid "Friends"
+msgstr "Prijateljima"
+
+#: admin/admin-panel.php:357 admin/admin-panel.php:365
+#: admin/admin-panel.php:373 admin/admin-panel.php:381
+msgid "No one"
+msgstr "Nikome"
+
+#: admin/admin-panel.php:361
+msgid "<strong>Group admins</strong> can send group invitations to: "
+msgstr ""
+"<strong>Administratori grupe</strong> mogu da šalju pozivnice za grupu: "
+
+#: admin/admin-panel.php:369
+msgid "<strong>Group mods</strong> can send group invitations to: "
+msgstr "<strong>Moderatori grupe</strong> mogu da šalju pozivnice za grupu: "
+
+#: admin/admin-panel.php:377
+msgid "<strong>Group members</strong> can send group invitations to: "
+msgstr "<strong>Članovi grupe</strong> mogu da šalju pozivnice za grupu: "
+
+#: admin/admin-panel.php:398
+msgid ""
+"<a href=\"http://www.cloudsponge.com/?utm_source=invite-"
+"anyone&utm_medium=partner&utm_campaign=integrator\">CloudSponge</a> is a "
+"cool service that gives your users easy and secure access to their address "
+"books (Gmail, Yahoo, and a number of other online and desktop email "
+"clients), so that they can more easily invite friends to your site. In order "
+"to enable CloudSponge support in Invite Anyone and BuddyPress, you'll need "
+"to <a href=\"http://www.cloudsponge.com/signup?utm_source=invite-"
+"anyone&utm_medium=partner&utm_campaign=integrator\">register for a "
+"CloudSponge account</a>."
+msgstr ""
+"<a href=\"http://www.cloudsponge.com/?utm_source=invite-"
+"anyone&utm_medium=partner&utm_campaign=integrator\">CloudSponge</a> je super "
+"servis koji vašim korisnicima daje lak i siguran pristup njihovim "
+"adresarima  (na Gmail -u, Yahoo -u, i u mnogim drugim onlajn i desktop e-"
+"mail klijentima), tako da lakše mogu da pozovu prijatelje na vaš sajt. Da bi "
+"omogućili CloudSponge podršku u Invite Anyone -u i BuddyPress -u, treba da "
+"se <a href=\"http://www.cloudsponge.com/signup?utm_source=invite-"
+"anyone&utm_medium=partner&utm_campaign=integrator\">registrujete za "
+"CloudSponge nalog</a>."
+
+#: admin/admin-panel.php:400
+msgid "Enable CloudSponge?"
+msgstr "Omogućiti CloudSponge?"
+
+#: admin/admin-panel.php:404
+msgid "CloudSponge Domain Key"
+msgstr "CloudSponge domen ključ"
+
+#: admin/admin-panel.php:404
+msgid "CloudSponge integration will not work without a valid domain key."
+msgstr "CloudSponge integracija neće funkcionisati bez važećeg domen ključa."
+
+#: admin/admin-panel.php:406
+msgid ""
+"When you use CloudSponge with Invite Anyone, part of your CloudSponge "
+"monthly payment goes to the author of Invite Anyone. This is a great way to "
+"support future development of the plugin. Thanks for your support!"
+msgstr ""
+"Kada koristite CloudSponge sa dodatkom Invite Anyone, deo novca koji mesečno "
+"plaćate za CloudSponge ide autoru dodatka Invite Anyone. Ovo je sjajan način "
+"za podršku daljem razvoju ovog dodatka. Hvala vam na podršci!"
+
+#: admin/admin-panel.php:509 by-email/by-email-db.php:98
+msgid "View Invitation"
+msgstr "Pogledati pozivnicu"
+
+#: admin/admin-panel.php:549
+msgid "(no data)"
+msgstr "(nema podataka)"
+
+#: admin/admin-panel.php:573
+msgid "No invitations have been sent yet."
+msgstr "Još uvek nije poslata ni jedna pozivnica."
+
+#: admin/admin-stats.php:41
+msgid "24 Hours"
+msgstr "24 časa"
+
+#: admin/admin-stats.php:44
+msgid "3 Days"
+msgstr "3 dana"
+
+#: admin/admin-stats.php:47
+msgid "1 Week"
+msgstr "1 nedelju"
+
+#: admin/admin-stats.php:50
+msgid "4 Weeks"
+msgstr "4 nedelje"
+
+#: admin/admin-stats.php:53
+msgid "3 Months"
+msgstr "3 meseca"
+
+#: admin/admin-stats.php:56
+msgid "All Time"
+msgstr "Sve vreme"
+
+#: admin/admin-stats.php:163 by-email/by-email-db.php:370
+msgid "Yes"
+msgstr "Da"
+
+#: admin/admin-stats.php:188 admin/admin-stats.php:196
+#: admin/admin-stats.php:204
+msgid "n/a"
+msgstr "nije dostupno"
+
+#: admin/admin-stats.php:305
+msgid "In the last..."
+msgstr "U poslednjih..."
+
+#: admin/admin-stats.php:309
+msgid "Total Sent"
+msgstr "Ukupno poslato"
+
+#: admin/admin-stats.php:313
+msgid "Total Accepted"
+msgstr "Ukupno prihvaćeno"
+
+#: admin/admin-stats.php:317
+msgid "Acceptance Rate"
+msgstr "Stopa prihvatanja"
+
+#: admin/admin-stats.php:321
+msgid "Top Inviter (by #)"
+msgstr "Pozivaoc broj 1 (po # pozivnica)"
+
+#: admin/admin-stats.php:325
+msgid "Top Inviter (by % accepted)"
+msgstr "Pozivaoc broj 1 (po % prihvaćenih pozivnica)"
+
+#: admin/admin-stats.php:330
+msgid "Total Sent (CloudSponge)"
+msgstr "Ukupno poslato (CloudSponge)"
+
+#: admin/admin-stats.php:334
+msgid "Total Accepted (CloudSponge)"
+msgstr "Ukupno prihvaćeno (CloudSponge)"
+
+#: admin/admin-stats.php:338
+msgid "Acceptance Rate (CloudSponge)"
+msgstr "Stopa prihvatanja (CloudSponge)"
+
+#: admin/admin-stats.php:342
+msgid "CloudSponge Usage"
+msgstr "CloudSponge korišćenje"
+
+#: admin/admin-stats.php:346
+msgid "Top Inviter (by #) (CloudSponge)"
+msgstr "Pozivaoc broj 1 (po # pozivnica) (CloudSponge)"
+
+#: admin/admin-stats.php:350
+msgid "Top Inviter (by % accepted) (CloudSponge)"
+msgstr "Pozivaoc broj 1 (po % prihvaćenih pozivnica) (CloudSponge)"
+
+#: admin/admin-stats.php:378 admin/admin-stats.php:403
+msgid "(%d sent)"
+msgstr "(%d poslato)"
+
+#: admin/admin-stats.php:382 admin/admin-stats.php:407
+msgid "(%s accepted)"
+msgstr "(%s prihvaćeno)"
+
+#: by-email/by-email-db.php:92
+msgctxt "post type general name"
+msgid "BuddyPress Invitations"
+msgstr "BuddyPress pozivnice"
+
+#: by-email/by-email-db.php:93
+msgctxt "post type singular name"
+msgid "Invitation"
+msgstr "Pozivnica"
+
+#: by-email/by-email-db.php:94
+msgctxt "add new"
+msgid "Add New"
+msgstr "Dodati novo"
+
+#: by-email/by-email-db.php:95
+msgid "Add New Invitation"
+msgstr "Dodati novu pozivnicu"
+
+#: by-email/by-email-db.php:96
+msgid "Edit Invitation"
+msgstr "Urediti pozivnicu"
+
+#: by-email/by-email-db.php:97
+msgid "New Invitation"
+msgstr "Nova pozivnica"
+
+#: by-email/by-email-db.php:99
+msgid "Search Invitation"
+msgstr "Pretražiti pozivnice"
+
+#: by-email/by-email-db.php:100
+msgid "No Invitations found"
+msgstr "Nije pronađena ni jedna pozivnica"
+
+#: by-email/by-email-db.php:101
+msgid "No Invitations found in Trash"
+msgstr "Ni jedna pozivnica nije pronađena u otpadu (Trash)"
+
+#: by-email/by-email-db.php:107
+msgid "BuddyPress Invitations"
+msgstr "BuddyPress pozivnice"
+
+#: by-email/by-email-db.php:119 by-email/by-email-db.php:132
+msgid "Invitees"
+msgstr "Zvanice"
+
+#: by-email/by-email-db.php:120 by-email/by-email-db.php:127
+msgid "Invitee"
+msgstr "Zvanica"
+
+#: by-email/by-email-db.php:121
+msgid "Search Invitees"
+msgstr "Pretražiti zvanice"
+
+#: by-email/by-email-db.php:122
+msgid "All Invitees"
+msgstr "Sve zvanice"
+
+#: by-email/by-email-db.php:123
+msgid "Edit Invitee"
+msgstr "Urediti zvanicu"
+
+#: by-email/by-email-db.php:124
+msgid "Update Invitee"
+msgstr "Ažurirati zvanicu"
+
+#: by-email/by-email-db.php:125
+msgid "Add New Invitee"
+msgstr "Dodati novu zvanicu"
+
+#: by-email/by-email-db.php:126
+msgid "New Invitee Name"
+msgstr "Ime nove zvanice"
+
+#: by-email/by-email-db.php:140 by-email/by-email-db.php:153
+msgid "Invited Groups"
+msgstr "Pozvane grupe"
+
+#: by-email/by-email-db.php:141 by-email/by-email-db.php:148
+msgid "Invited Group"
+msgstr "Pozvana grupa"
+
+#: by-email/by-email-db.php:142
+msgid "Search Invited Groups"
+msgstr "Pretražiti pozvane grupe"
+
+#: by-email/by-email-db.php:143
+msgid "All Invited Groups"
+msgstr "Sve pozvane grupe"
+
+#: by-email/by-email-db.php:144
+msgid "Edit Invited Group"
+msgstr "Urediti pozvanu grupu"
+
+#: by-email/by-email-db.php:145
+msgid "Update Invited Group"
+msgstr "Ažurirati pozvanu grupu"
+
+#: by-email/by-email-db.php:146
+msgid "Add New Invited Group"
+msgstr "Dodati novu pozvanu grupu"
+
+#: by-email/by-email-db.php:147
+msgid "New Invited Group Name"
+msgstr "Ime nove pozvane grupe"
+
+#: by-email/by-email-db.php:370
+msgid "No"
+msgstr "Ne"
+
+#: by-email/by-email-db.php:917
+msgid "All done!"
+msgstr "Sve je urađeno!"
+
+#: by-email/by-email-db.php:919
+msgid "Finish"
+msgstr "Završiti"
+
+#: by-email/by-email-db.php:957
+msgid "Migrated Invitation"
+msgstr "Premeštena pozivnica"
+
+#: by-email/by-email-db.php:977
+msgid "Importing: %1$s invited %2$s<br />"
+msgstr "Uvoženje: %1$s je pozvao %2$s<br />"
+
+#: by-email/by-email-db.php:988
+msgid ""
+"If your browser doesn&#8217;t start loading the next page automatically, "
+"click this link:"
+msgstr ""
+"Ako vaš pregledač ne počne automatski učitavanje sledeće strane, kliknite na "
+"ovaj link:"
+
+#: by-email/by-email-db.php:988
+msgid "Next Invitations"
+msgstr "Sledeće pozivnice"
+
+#: by-email/by-email-db.php:1016
+msgid "Invite Anyone Upgrade"
+msgstr "Invite Anyone nadogradnja"
+
+#: by-email/by-email-db.php:1019
+msgid ""
+"Invite Anyone has just been updated, and needs to move some old invitation "
+"data in order to complete the upgrade. Click GO to start the process."
+msgstr ""
+"Invite Anyone je upravo ažuriran i treba da premesti neke stare podatke o "
+"pozivanju, da bi završio nadogradnju. Kliknite na KRENI (GO) da započnete "
+"proces."
+
+#: by-email/by-email.php:69
+msgid "Opt Out"
+msgstr "Ograđivanje"
+
+#: by-email/by-email.php:70
+msgid "Accept Invitation"
+msgstr "Prihvatiti poziv"
+
+#: by-email/by-email.php:74
+msgid ""
+"To opt out of future invitations to %s, make sure that your email is entered "
+"in the field below and click \"Opt Out\"."
+msgstr ""
+"Da izbegnete buduće pozivnice u %s, proverite da li ste u donje polje uneli "
+"vaš e-mail, i kliknite na \"Ograđivanje\"."
+
+#: by-email/by-email.php:76
+msgid ""
+"If you are here by mistake and would like to accept your invitation to %s, "
+"click \"Accept Invitation\" instead."
+msgstr ""
+"Ako ste greškom ovde, i želeli biste da prihvatite vašu pozivnicu u %s, "
+"umesto toga kliknite na \"Prihvatiti poziv\"."
+
+#: by-email/by-email.php:89
+msgid ""
+"You have successfully opted out. No more invitation emails will be sent to "
+"you by this site."
+msgstr ""
+"Uspešno ste se izbacili. Neće vam biti slano više e-mail pozivnica sa ovog "
+"sajta."
+
+#: by-email/by-email.php:92
+msgid "Sorry, there was an error in processing your request"
+msgstr "Žao nam je, došlo je do greške pri obradi vašeg zahteva"
+
+#: by-email/by-email.php:118
+msgid "Email:"
+msgstr "E-mail:"
+
+#: by-email/by-email.php:140
+msgid ""
+"It looks like you're trying to accept an invitation to join the site, but "
+"some information is missing. Please try again by clicking on the link in the "
+"invitation email."
+msgstr ""
+"Čini se da pokušavate da prihvatite poziv na ovaj sajt, ali neke informacije "
+"nedostaju. Molimo, pokušajte ponovo, kliknuvši na link u pozivnom e-mailu."
+
+#: by-email/by-email.php:185
+msgid ""
+"Welcome! You've been invited %s to join the site. Please fill out the "
+"information below to create your account."
+msgstr ""
+"Dobrodošli! Pozvani ste %s da se pridružite ovom sajtu. Molimo vas da "
+"popunite informacije ispod, da bi kreirali vaš nalog."
+
+#: by-email/by-email.php:273 by-email/by-email.php:631
+#: group-invites/group-invites.php:59
+#: group-invites/templates/invite-anyone.php:87
+#: group-invites/templates/invite-anyone.php:176
+msgid "Send Invites"
+msgstr "Poslati pozivnice"
+
+#: by-email/by-email.php:285 by-email/by-email.php:471
+#: by-email/by-email.php:534
+msgid "Invite New Members"
+msgstr "Pozvati nove članove"
+
+#: by-email/by-email.php:295 by-email/by-email.php:692
+msgid "Sent Invites"
+msgstr "Poslate pozivnice"
+
+#: by-email/by-email.php:417
+msgid "Invitation cleared"
+msgstr "Pozivnica je obrisana"
+
+#: by-email/by-email.php:419
+msgid "There was a problem clearing the invitation."
+msgstr "Došlo je do problema pri brisanju pozivnice."
+
+#: by-email/by-email.php:422
+msgid "Invitations cleared."
+msgstr "Pozivnice obrisane."
+
+#: by-email/by-email.php:424
+msgid "There was a problem clearing the invitations."
+msgstr "Došlo je do problema pri brisanju pozivnica."
+
+#: by-email/by-email.php:473
+msgid "You have sent the maximum allowed number of invitations."
+msgstr "Poslali ste maksimalan dozvoljen broj pozivnica."
+
+#: by-email/by-email.php:523
+msgid ""
+"Some of your invitations were not sent. Please see the errors below and "
+"resubmit the failed invitations."
+msgstr ""
+"Neke od vaših pozivnica nisu poslate. Molimo, pregledajte ispod greške i "
+"ponovo pošaljite neuspešne pozivnice."
+
+#: by-email/by-email.php:529
+msgid "Invite friends to join %s by following these steps:"
+msgstr "Pozovite prijatelje da se pridruže %s, sledeći ove korake:"
+
+#: by-email/by-email.php:552
+msgid ""
+"The site administrator has limited each user to %1$d invitations. You have "
+"%2$d invitations remaining."
+msgstr ""
+"Administrator sajta je ograničio svakog korisnika na %1$d pozivnica. "
+"Preostalo vam je %2$d pozivnica."
+
+#: by-email/by-email.php:570
+msgid "Enter email addresses below, one per line."
+msgstr "Unesite ispod e-mail adrese, jednu po liniji."
+
+#: by-email/by-email.php:570
+msgid ""
+"You can only invite people whose email addresses end in one of the following "
+"domains:"
+msgstr ""
+"Možete pozvati samo ljude čije e-mail adrese završavaju jednim od sledećih "
+"domena:"
+
+#: by-email/by-email.php:582
+msgid "(optional) Customize the subject line of the invitation email."
+msgstr "(opciono) Prilagoditi liniju predmeta pozivnog e-maila."
+
+#: by-email/by-email.php:585
+msgid "Subject: <span class=\"disabled-subject\">Subject line is fixed</span>"
+msgstr ""
+"Predmet: <span class=\"disabled-subject\">Linija predmeta je fiksna</span>"
+
+#: by-email/by-email.php:594
+msgid "(optional) Customize the text of the invitation."
+msgstr "(opciono) Prilagoditi tekst pozivnice."
+
+#: by-email/by-email.php:597
+msgid "Message:"
+msgstr "Poruka:"
+
+#: by-email/by-email.php:602
+msgid ""
+"The message will also contain a custom footer containing links to accept the "
+"invitation or opt out of further email invitations from this site."
+msgstr ""
+"Poruka će takođe sadržati prilagođeno podnožje, koje sadrži linkove za "
+"prihvatanje pozivnice ili za ograđivanje od budućih poziva sa ovog sajta."
+
+#: by-email/by-email.php:609
+msgid ""
+"(optional) Select some groups. Invitees will receive invitations to these "
+"groups when they join the site."
+msgstr ""
+"(opciono) Odaberite neke grupe. Zvanice će primiti pozivnice u ove grupe "
+"kada se pridruže sajtu."
+
+#: by-email/by-email.php:648
+msgid "Sorry, there was a problem sending your invitations. Please try again."
+msgstr ""
+"Žao nam je, došlo je do problema pri slanju vaših pozivnica. Molimo, "
+"pokušajte ponovo."
+
+#: by-email/by-email.php:699
+msgid "You have sent invitations to the following people."
+msgstr "Poslali ste pozivnice sledećim ljudima."
+
+#: by-email/by-email.php:712
+msgid ""
+"This table displays a list of all your sent invites.\n"
+"\t\t\tInvites that have been accepted are highlighted in the listings.\n"
+"\t\t\tYou may clear any individual invites, all accepted invites or all of "
+"the invites from the list."
+msgstr ""
+"Ova tabela prikazuje listu svih vaših poslatih poziva.\n"
+"\t\t\tPozivi koji su prihvaćeni su naglašeni na listama.\n"
+"\t\t\tMožete obrisati bilo koji pojedinačan poziv, sve prihvaćene pozive ili "
+"sve pozive sa liste."
+
+#: by-email/by-email.php:718
+msgid "Invited email address"
+msgstr "Pozvana e-mail adresa"
+
+#: by-email/by-email.php:719
+msgid "Group invitations"
+msgstr "Grupne pozivnice"
+
+#: by-email/by-email.php:720
+msgid "Sent"
+msgstr "Poslato"
+
+#: by-email/by-email.php:721
+msgid "Accepted"
+msgstr "Prihvaćeno"
+
+#: by-email/by-email.php:729
+msgid "Clear all accepted invites from the list"
+msgstr "Obrisati sa liste sve prihvaćene pozive"
+
+#: by-email/by-email.php:729
+msgid "Clear all accepted invitations"
+msgstr "Obrisati sve prihvaćene pozivnice"
+
+#: by-email/by-email.php:730
+msgid "Clear all your listed invites"
+msgstr "Obrisati sve vaše pozive prikazane na listi"
+
+#: by-email/by-email.php:730
+msgid "Clear all invitations"
+msgstr "Obrisati sve pozivnice"
+
+#: by-email/by-email.php:755
+msgid "Clear this invitation"
+msgstr "Obrisati ovu pozivnicu"
+
+#: by-email/by-email.php:809
+msgid "You haven't sent any email invitations yet."
+msgstr "Još uvek niste poslali ni jednu e-mail pozivnicu."
+
+#: by-email/by-email.php:842
+msgid "An invitation to join the %s community."
+msgstr "Pozivnica za pridruživanje %s zajednici."
+
+#: by-email/by-email.php:867
+msgid ""
+"You have been invited by %%INVITERNAME%% to join the %s community.\n"
+"\n"
+"Visit %%INVITERNAME%%'s profile at %%INVITERURL%%."
+msgstr ""
+"Pozvao vas je %%INVITERNAME%% da se pridružite %s zajednici.\n"
+"\n"
+"Posetite %%INVITERNAME%% -ov profil na %%INVITERURL%%."
+
+#: by-email/by-email.php:890
+msgid "To accept this invitation, please visit %%ACCEPTURL%%"
+msgstr "Da biste prihvatili ovu pozivnicu, molimo, idite na %%ACCEPTURL%%"
+
+#: by-email/by-email.php:894
+msgid ""
+"To opt out of future invitations to this site, please visit %%OPTOUTURL%%"
+msgstr ""
+"Da se ogradite od budućih pozivnica sa ovog sajta, molimo, idite na %"
+"%OPTOUTURL%%"
+
+#: by-email/by-email.php:1051
+msgid ""
+"You are only allowed to invite up to %s people at a time. Please remove some "
+"addresses and try again"
+msgstr ""
+"Dozvoljeno vam je da pozovete najviše %s ljudi odjednom. Molimo vas, "
+"uklonite neke e-mail adrese i pokušajte ponovo"
+
+#: by-email/by-email.php:1059
+msgid "You didn't include any email addresses!"
+msgstr "Niste uključili ni jednu e-mail adresu!"
+
+#: by-email/by-email.php:1070
+msgid ""
+"You are only allowed to invite %s more people. Please remove some addresses "
+"and try again"
+msgstr ""
+"Dozvoljeno vam je da pozovete samo još %s ljudi. Molimo vas, uklonite neke "
+"adrese i pokušajte ponovo"
+
+#: by-email/by-email.php:1089
+msgid "<strong>%s</strong> has opted out of email invitations from this site."
+msgstr "<strong>%s</strong> se ogradio od e-mail pozivnica sa ovog sajta."
+
+#: by-email/by-email.php:1093
+msgid "<strong>%s</strong> is already a registered user of the site."
+msgstr "<strong>%s</strong> je već registrovani korisnik sajta."
+
+#: by-email/by-email.php:1097
+msgid "<strong>%s</strong> is not a permitted email address."
+msgstr "<strong>%s</strong> nije dozvoljena e-mail adresa."
+
+#: by-email/by-email.php:1101
+msgid ""
+"<strong>%s</strong> is not a valid email address. Please make sure that you "
+"have typed it correctly."
+msgstr ""
+"<strong>%s</strong> nije važeća e-mail adresa. Molimo, proverite da li ste "
+"je ispravno upisali."
+
+#: by-email/by-email.php:1105
+msgid ""
+"<strong>%s</strong> is not a permitted email address. Please make sure that "
+"you have typed the domain name correctly."
+msgstr ""
+"<strong>%s</strong> nije dozvoljena e-mail adresa. Molimo, proverite da li "
+"ste ispravno uneli ime domena."
+
+#: by-email/by-email.php:1164
+msgid "Invitations were sent successfully to the following email addresses: %s"
+msgstr "Pozivnice su uspešno poslate na sledeće e-mail adrese: %s"
+
+#: by-email/by-email.php:1170
+msgid "Please correct your errors and resubmit."
+msgstr "Molimo, ispravite greške i pošaljite ponovo."
+
+#: by-email/by-email.php:1218
+msgid "We couldn't find any invitations associated with this email address."
+msgstr ""
+"Nismo mogli da pronađeno ni jednu pozivnicu povezanu sa ovom e-mail adresom."
+
+#: by-email/cloudsponge-integration.php:71
+msgid ""
+"You can also add email addresses <a class=\"cs_import\">from your Address "
+"Book</a>."
+msgstr ""
+"Takođe možete dodati e-mail adrese <a class=\"cs_import\">iz vašeg adresara</"
+"a>."
+
+#: group-invites/group-invites.php:89 group-invites/group-invites.php:132
+#: group-invites/group-invites.php:161
+msgid "Group invites sent."
+msgstr "Grupni pozivi su poslati."
+
+#: group-invites/group-invites.php:134
+msgid "Group created successfully."
+msgstr "Grupa je uspešno kreirana."
+
+#: group-invites/group-invites.php:354
+#: group-invites/templates/invite-anyone.php:70
+#: group-invites/templates/invite-anyone.php:157
+msgid "Remove Invite"
+msgstr "Ukloniti poziv"
+
+#: group-invites/templates/invite-anyone.php:27
+#: group-invites/templates/invite-anyone.php:115
+msgid "Search for members to invite:"
+msgstr "Potražiti članove za pozivanje:"
+
+#: group-invites/templates/invite-anyone.php:35
+#: group-invites/templates/invite-anyone.php:123
+msgid "Select members from the directory:"
+msgstr "Odabrati članove iz direktorijuma:"
+
+#: group-invites/templates/invite-anyone.php:50
+msgid "Select people to invite."
+msgstr "Odabrati ljude za pozivanje."
+
+#: group-invites/templates/invite-anyone.php:107
+msgid ""
+"Want to invite someone to the group who is not yet a member of the site?"
+msgstr "Želite da u grupu pozovete nekoga ko još uvek nije član sajta?"
+
+#: group-invites/templates/invite-anyone.php:107
+msgid "Send invitations by email."
+msgstr "Poslati pozivnice e-mailom."
+
+#: group-invites/templates/invite-anyone.php:137
+msgid "Select people to invite from your friends list."
+msgstr "Odabrati ljude za pozivanje iz liste vaših prijatelja."
+
+#: lib/bbg-cpt-pag.php:200
+msgid "Viewing %1$d - %2$d of a total of %3$d"
+msgstr "Prikaz %1$d - %2$d od ukupno of %3$d"
+
+#: lib/bbg-cpt-pag.php:221
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: lib/bbg-cpt-pag.php:222
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: widgets/widgets.php:41
+msgid "Enter one email address per line to invite friends to join this site."
+msgstr ""
+"Unesite e-mail adrese, jednu po svakoj liniji, da pozovete prijatelje da "
+"pristupe ovom sajtu."
+
+#: widgets/widgets.php:68
+msgid "Continue"
+msgstr "Nastaviti"
+
+#: widgets/widgets.php:92
+msgid ""
+"Invite friends to join the site by entering their email addresses below."
+msgstr ""
+"Pozovite prijatelje da pristupe ovom sajtu, unoseći njihove e-mail adrese "
+"ispod."
+
+#: widgets/widgets.php:95
+msgid "Title:"
+msgstr "Naslov:"
+
+#: widgets/widgets.php:97
+msgid "Text to display in widget:"
+msgstr "Tekst za prikazivanje u vidžetu:"
+
+#: widgets/widgets.php:101
+msgid "Number of email fields to display in widget:"
+msgstr "Broj e-mail polja za prikazivanje u vidžetu:"
+
+#. Plugin URI of the plugin/theme
+msgid "http://teleogistic.net/code/buddypress/invite-anyone/"
+msgstr "http://teleogistic.net/code/buddypress/invite-anyone/"
+
+#. Description of the plugin/theme
+msgid ""
+"Allows group admins to invite any member of their BuddyPress community to a "
+"group or to the site"
+msgstr ""
+"Omogućava administratorima grupe da pozovu bilo kog člana njihove BuddyPress "
+"zajednice u grupu, ili sajt"
+
+#. Author of the plugin/theme
+msgid "Boone Gorges"
+msgstr "Boone Gorges"
+
+#. Author URI of the plugin/theme
+msgid "http://boone.gorg.es"
+msgstr "http://boone.gorg.es"

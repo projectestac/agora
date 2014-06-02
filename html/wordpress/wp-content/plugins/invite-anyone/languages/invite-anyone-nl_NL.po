@@ -1,0 +1,1016 @@
+# Translation of the WordPress plugin Invite Anyone 0.6 bleeding by Boone Gorges.
+# Copyright (C) 2010 Boone Gorges
+# This file is distributed under the same license as the Invite Anyone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Invite Anyone 0.6 bleeding\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/invite-anyone\n"
+"POT-Creation-Date: 2014-02-26 19:47:27+00:00\n"
+"PO-Revision-Date: 2014-02-27 11:09+0100\n"
+"Last-Translator: Tim de Hoog <tidh@ecommany.com>\n"
+"Language-Team: Tim de Hoog <tidh@ecommany.com>\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+
+#. Plugin Name of the plugin/theme
+#: admin/admin-panel.php:6 admin/admin-panel.php:112 widgets/widgets.php:38
+#: widgets/widgets.php:86
+msgid "Invite Anyone"
+msgstr "Invite Anyone"
+
+#: admin/admin-panel.php:24
+msgid "Settings"
+msgstr "Instellingen"
+
+#: admin/admin-panel.php:116 admin/admin-panel.php:195
+msgid "General Settings"
+msgstr "Algemene Instellingen"
+
+#: admin/admin-panel.php:120
+msgid "Access Control"
+msgstr "Toegangscontrole"
+
+#: admin/admin-panel.php:124 admin/admin-panel.php:176
+msgid "CloudSponge"
+msgstr "CloudSponge"
+
+#: admin/admin-panel.php:128 admin/admin-panel.php:182
+msgid "Manage Invitations"
+msgstr "Beheer uitnodigingen"
+
+#: admin/admin-panel.php:132 admin/admin-panel.php:188
+msgid "Stats"
+msgstr "Statistieken"
+
+#: admin/admin-panel.php:146
+msgid "Save Changes"
+msgstr "Bewaar Wijzigingen"
+
+#: admin/admin-panel.php:164
+msgid "Access Settings"
+msgstr "Toegang Instellingen"
+
+#: admin/admin-panel.php:166
+msgid "Allow email invitations to be sent by"
+msgstr "Sta email uitnodigingen toe om verstuurd te worden door"
+
+#: admin/admin-panel.php:168
+msgid "Limit group invitations"
+msgstr "Beperk groep uitnodigingen"
+
+#: admin/admin-panel.php:170
+msgid "Limit per-user invitations"
+msgstr "Beperk uitnodigingen per gebruiker"
+
+#: admin/admin-panel.php:197
+msgid "Replacement patterns for email text fields"
+msgstr "Vervanging patronen voor e-mail tekstvelden"
+
+#: admin/admin-panel.php:199
+msgid "Text of email invitation subject line"
+msgstr "Tekst van de e-mail uitnodiging onderwerp"
+
+#: admin/admin-panel.php:201
+msgid "Main text of email invitation message"
+msgstr "Hoofdtekst van e-mail uitnodiging"
+
+#: admin/admin-panel.php:203
+msgid "Footer text of email invitation message (not editable by users)"
+msgstr ""
+"Footer tekst van de e-mail uitnodiging (niet bewerkbaar door de gebruikers)"
+
+#: admin/admin-panel.php:205
+msgid "Allow users to customize invitation"
+msgstr "Laat gebruikers toe uitnodiging aan te passen"
+
+#: admin/admin-panel.php:207
+msgid "Number of email invitations users are permitted to send at a time"
+msgstr "Aantal email uitnodigingen die gebruikers per keer mogen versturen"
+
+#: admin/admin-panel.php:209
+msgid "Allow users to send group invitations along with email invitations"
+msgstr ""
+"Sta gebruikers toe om groep uitnodigingen samen met e-mail uitnodigingen te "
+"verzenden"
+
+#: admin/admin-panel.php:211
+msgid ""
+"Allow email invitations to be accepted even when site registration is "
+"disabled"
+msgstr ""
+"Sta toe om e-mail uitnodigingen te accepteren zelfs wanneer website "
+"registratie uitgeschakeld is"
+
+#: admin/admin-panel.php:223
+msgid "Control the default behavior of Invite Anyone."
+msgstr "Beheer het standaard gedrag van Invite Anyone."
+
+#: admin/admin-panel.php:231
+msgid "name of your website"
+msgstr "naam van je website"
+
+#: admin/admin-panel.php:232
+msgid "display name of the inviter"
+msgstr "weergavenaam van de uitnodiger"
+
+#: admin/admin-panel.php:233
+msgid "URL to the profile of the inviter"
+msgstr "URL naar het profiel van de uitnodiger"
+
+#: admin/admin-panel.php:234
+msgid "Link that invited users can click to accept the invitation"
+msgstr ""
+"Link die uitgenodigde gebruikers kunnen klikken om de uitnodiging te "
+"accepteren"
+
+#: admin/admin-panel.php:235
+msgid "Link that invited users can click to opt out of future invitations"
+msgstr ""
+"Link die uitgenodigde gebruikers kunnen klikken om uit te schrijven voor "
+"toekomstige uitnodigingen"
+
+#: admin/admin-panel.php:280
+msgid "Subject line"
+msgstr "Onderwerp regel"
+
+#: admin/admin-panel.php:284
+msgid "Message body"
+msgstr "Bericht  "
+
+#: admin/admin-panel.php:292
+msgid "Control which members are able to send various kinds of invitations."
+msgstr ""
+"Beheer welke leden verschillende soorten uitnodigingen kunnen versturen."
+
+#: admin/admin-panel.php:301
+msgid "All users"
+msgstr "Alle gebruikers"
+
+#: admin/admin-panel.php:303
+msgid "A limited set of users"
+msgstr "Een gelimiteerd aantal gebruikers"
+
+#: admin/admin-panel.php:307
+msgid ""
+"Only users who have been members of the site for a minimum number of days:"
+msgstr ""
+"Alleen gebruikers die al een minimaal aantal dagen lid zijn van de site:"
+
+#: admin/admin-panel.php:312
+msgid "Only users who have at least the following role on this blog:"
+msgstr "Alleen gebruikers die tenminste de volgende rol op dit blog hebben:"
+
+#: admin/admin-panel.php:314
+msgid "Subscriber"
+msgstr "Subscriber"
+
+#: admin/admin-panel.php:315
+msgid "Contributor"
+msgstr "Contributor"
+
+#: admin/admin-panel.php:316
+msgid "Author"
+msgstr "Auteur"
+
+#: admin/admin-panel.php:317
+msgid "Editor"
+msgstr "Bewerker"
+
+#: admin/admin-panel.php:318
+msgid "Administrator"
+msgstr "Administrator"
+
+#: admin/admin-panel.php:323
+msgid ""
+"Provide a comma-separated list of users (identified by their numerical user "
+"ids) who <strong>cannot</strong> send invitations by email:"
+msgstr ""
+"Lever een komma gescheiden lijst van gebruikers (geïdentificeerd door hun "
+"numerieke user ids) die <strong>niet</strong> uitnodigingen per e-mail "
+"kunnen versturen:"
+
+#: admin/admin-panel.php:340
+msgid "Limit number of invites per user :"
+msgstr "Limiteer aantal uitnodigingen per gebruiker:"
+
+#: admin/admin-panel.php:352
+msgid ""
+"Invite Anyone extends BuddyPress's default group invitation settings. "
+"Instead of allowing you to invite only friends to a group, this plugin "
+"allows you to invite any member of the site. Use these settings to limit "
+"possible invitees for different group roles."
+msgstr ""
+"Invite Anyone breidt BuddyPress's standaard groep uitnodiging instellingen "
+"uit. In plaats van dat je alleen vrienden voor een groep uit kunt nodigen, "
+"staat deze plugin je toe elk lid van de site uit te nodigen. Gebruik deze "
+"instellingen om eventuele genodigden voor verschillende groepsrollen te "
+"beperken."
+
+#: admin/admin-panel.php:354
+msgid "<strong>Site admins</strong> can send group invitations to: "
+msgstr "<strong>Site admins</ strong> kunnen groep uitnodigingen sturen naar:"
+
+#: admin/admin-panel.php:356 admin/admin-panel.php:364
+#: admin/admin-panel.php:372 admin/admin-panel.php:380
+msgid "Anyone"
+msgstr "Iedereen"
+
+#: admin/admin-panel.php:357 admin/admin-panel.php:365
+#: admin/admin-panel.php:373 admin/admin-panel.php:381
+msgid "Friends"
+msgstr "Vrienden"
+
+#: admin/admin-panel.php:358 admin/admin-panel.php:366
+#: admin/admin-panel.php:374 admin/admin-panel.php:382
+msgid "No one"
+msgstr "Niemand"
+
+#: admin/admin-panel.php:362
+msgid "<strong>Group admins</strong> can send group invitations to: "
+msgstr "<strong>Groep admins</ strong> kunnen groep uitnodigingen sturen naar:"
+
+#: admin/admin-panel.php:370
+msgid "<strong>Group mods</strong> can send group invitations to: "
+msgstr "<strong>Groep mods</ strong> kunnen groep uitnodigingen sturen naar:"
+
+#: admin/admin-panel.php:378
+msgid "<strong>Group members</strong> can send group invitations to: "
+msgstr "<strong>Groep leden</ strong> kunnen groep uitnodigingen sturen naar:"
+
+#: admin/admin-panel.php:399
+msgid ""
+"<a href=\"http://www.cloudsponge.com/?utm_source=invite-"
+"anyone&utm_medium=partner&utm_campaign=integrator\">CloudSponge</a> is a "
+"cool service that gives your users easy and secure access to their address "
+"books (Gmail, Yahoo, and a number of other online and desktop email "
+"clients), so that they can more easily invite friends to your site. In order "
+"to enable CloudSponge support in Invite Anyone and BuddyPress, you'll need "
+"to <a href=\"http://www.cloudsponge.com/signup?utm_source=invite-"
+"anyone&utm_medium=partner&utm_campaign=integrator\">register for a "
+"CloudSponge account</a>."
+msgstr ""
+"<a href=\"http://www.cloudsponge.com/?utm_source=invite-"
+"anyone&utm_medium=partner&utm_campaign=integrator\">CloudSponge</a> is a "
+"cool service that gives your users easy and secure access to their address "
+"books (Gmail, Yahoo, and a number of other online and desktop email "
+"clients), so that they can more easily invite friends to your site. In order "
+"to enable CloudSponge support in Invite Anyone and BuddyPress, you'll need "
+"to <a href=\"http://www.cloudsponge.com/signup?utm_source=invite-"
+"anyone&utm_medium=partner&utm_campaign=integrator\">register for a "
+"CloudSponge account</a>."
+
+#: admin/admin-panel.php:401
+msgid "Enable CloudSponge?"
+msgstr "CloudSponge inschakelen?"
+
+#: admin/admin-panel.php:405
+msgid "CloudSponge Domain Key"
+msgstr "CloudSponge Domein sleutel"
+
+#: admin/admin-panel.php:405
+msgid "CloudSponge integration will not work without a valid domain key."
+msgstr ""
+"CloudSponge integratie zal neit werken zonder een geldige domein sleutel."
+
+#: admin/admin-panel.php:407
+msgid ""
+"When you use CloudSponge with Invite Anyone, part of your CloudSponge "
+"monthly payment goes to the author of Invite Anyone. This is a great way to "
+"support future development of the plugin. Thanks for your support!"
+msgstr ""
+"Wanneer je CloudSponge samen met Invite Anyone gebruikt zal een gedeelte van "
+"je maandelijkse CloudSponge betaling naar de auteur van Invite Anyone gaan. "
+"Dit is een goede manier om toekomstige ontwikkeling van de plug-in te "
+"ondersteunen. Bedankt voor je ondersteuning!"
+
+#: admin/admin-panel.php:510 by-email/by-email-db.php:88
+msgid "View Invitation"
+msgstr "Toon uitnodiging"
+
+#: admin/admin-panel.php:552
+msgid "(no data)"
+msgstr "(geen data)"
+
+#: admin/admin-panel.php:576
+msgid "No invitations have been sent yet."
+msgstr "Er zijn nog geen uitnodigingen verstuurd"
+
+#: admin/admin-stats.php:41
+msgid "24 Hours"
+msgstr "24 uur"
+
+#: admin/admin-stats.php:44
+msgid "3 Days"
+msgstr "3 dagen"
+
+#: admin/admin-stats.php:47
+msgid "1 Week"
+msgstr "1 week"
+
+#: admin/admin-stats.php:50
+msgid "4 Weeks"
+msgstr "4 weken"
+
+#: admin/admin-stats.php:53
+msgid "3 Months"
+msgstr "3 maanden"
+
+#: admin/admin-stats.php:56
+msgid "All Time"
+msgstr "Alle tijd"
+
+#: admin/admin-stats.php:163 by-email/by-email-db.php:352
+msgid "Yes"
+msgstr "Ja"
+
+#: admin/admin-stats.php:188 admin/admin-stats.php:196
+#: admin/admin-stats.php:204
+msgid "n/a"
+msgstr "niet beschikbaar"
+
+#: admin/admin-stats.php:305
+msgid "In the last..."
+msgstr "In de laatste"
+
+#: admin/admin-stats.php:309
+msgid "Total Sent"
+msgstr "Totaal verstuurd"
+
+#: admin/admin-stats.php:313
+msgid "Total Accepted"
+msgstr "Totaal geaccepteerd"
+
+#: admin/admin-stats.php:317
+msgid "Acceptance Rate"
+msgstr "Acceptatie percentage"
+
+#: admin/admin-stats.php:321
+msgid "Top Inviter (by #)"
+msgstr "Beste uitnodiger (bij #)"
+
+#: admin/admin-stats.php:325
+msgid "Top Inviter (by % accepted)"
+msgstr "Bester uitnodiger (bij % geaccepteerd)"
+
+#: admin/admin-stats.php:330
+msgid "Total Sent (CloudSponge)"
+msgstr "Totaal verstuurd (CloudSponge)"
+
+#: admin/admin-stats.php:334
+msgid "Total Accepted (CloudSponge)"
+msgstr "Totaal geaccepteerd (Cloud sponge)"
+
+#: admin/admin-stats.php:338
+msgid "Acceptance Rate (CloudSponge)"
+msgstr "Acceptatie percentage (CloudSponge)"
+
+#: admin/admin-stats.php:342
+msgid "CloudSponge Usage"
+msgstr "CloudSponge gebruik"
+
+#: admin/admin-stats.php:346
+msgid "Top Inviter (by #) (CloudSponge)"
+msgstr "Top uitnodiger (bij #) (CloudSponge)"
+
+#: admin/admin-stats.php:350
+msgid "Top Inviter (by % accepted) (CloudSponge)"
+msgstr "Top uitnodiger (bij % geaccepteerd) (CloudSponge)"
+
+#: admin/admin-stats.php:378 admin/admin-stats.php:403
+msgid "(%d sent)"
+msgstr "(%d verstuurd)"
+
+#: admin/admin-stats.php:382 admin/admin-stats.php:407
+msgid "(%s accepted)"
+msgstr "(%s geaccepteerd)"
+
+#: by-email/by-email-db.php:82
+msgctxt "post type general name"
+msgid "BuddyPress Invitations"
+msgstr "BuddyPress uitnodigingen"
+
+#: by-email/by-email-db.php:83
+msgctxt "post type singular name"
+msgid "Invitation"
+msgstr "Uitnodiging"
+
+#: by-email/by-email-db.php:84
+msgctxt "add new"
+msgid "Add New"
+msgstr "Voeg toe"
+
+#: by-email/by-email-db.php:85
+msgid "Add New Invitation"
+msgstr "Voeg uitnodiging toe"
+
+#: by-email/by-email-db.php:86
+msgid "Edit Invitation"
+msgstr "Bewerk uitnodiging"
+
+#: by-email/by-email-db.php:87
+msgid "New Invitation"
+msgstr "Nieuwe uitnodiging"
+
+#: by-email/by-email-db.php:89
+msgid "Search Invitation"
+msgstr "Zoek uitnodiging"
+
+#: by-email/by-email-db.php:90
+msgid "No Invitations found"
+msgstr "Geen uitnodigingen gevonden"
+
+#: by-email/by-email-db.php:91
+msgid "No Invitations found in Trash"
+msgstr "Geen uitnodigingen gevonden in de prullenbak"
+
+#: by-email/by-email-db.php:97
+msgid "BuddyPress Invitations"
+msgstr "BuddyPress uitnodigingen"
+
+#: by-email/by-email-db.php:109 by-email/by-email-db.php:122
+msgid "Invitees"
+msgstr "Uitnodigingen"
+
+#: by-email/by-email-db.php:110 by-email/by-email-db.php:117
+msgid "Invitee"
+msgstr "Uitnodiging"
+
+#: by-email/by-email-db.php:111
+msgid "Search Invitees"
+msgstr "Zoek uitnodigingen"
+
+#: by-email/by-email-db.php:112
+msgid "All Invitees"
+msgstr "Alle uitnodigingen"
+
+#: by-email/by-email-db.php:113
+msgid "Edit Invitee"
+msgstr "Bewerk uitnodiging"
+
+#: by-email/by-email-db.php:114
+msgid "Update Invitee"
+msgstr "Update uitnodiging"
+
+#: by-email/by-email-db.php:115
+msgid "Add New Invitee"
+msgstr "Voeg uitnodiging toe"
+
+#: by-email/by-email-db.php:116
+msgid "New Invitee Name"
+msgstr "Nieuwe genodigde naam"
+
+#: by-email/by-email-db.php:130 by-email/by-email-db.php:143
+msgid "Invited Groups"
+msgstr "Uitgenodigde groepen"
+
+#: by-email/by-email-db.php:131 by-email/by-email-db.php:138
+msgid "Invited Group"
+msgstr "Uitgenodigde groep"
+
+#: by-email/by-email-db.php:132
+msgid "Search Invited Groups"
+msgstr "Zoek uitgenodigde groepen"
+
+#: by-email/by-email-db.php:133
+msgid "All Invited Groups"
+msgstr "Alle uitgenodigde groepen"
+
+#: by-email/by-email-db.php:134
+msgid "Edit Invited Group"
+msgstr "Bewerk uitgenodigde groep"
+
+#: by-email/by-email-db.php:135
+msgid "Update Invited Group"
+msgstr "Update uitgenodigde groep"
+
+#: by-email/by-email-db.php:136
+msgid "Add New Invited Group"
+msgstr "Voeg uitgenodigde groep toe"
+
+#: by-email/by-email-db.php:137
+msgid "New Invited Group Name"
+msgstr "Nieuwe uitgenodigde groepsnaam"
+
+#: by-email/by-email-db.php:352
+msgid "No"
+msgstr "Nee"
+
+#: by-email/by-email-db.php:912
+msgid "All done!"
+msgstr "Alles gedaan!"
+
+#: by-email/by-email-db.php:914
+msgid "Finish"
+msgstr "Gereed"
+
+#: by-email/by-email-db.php:952
+msgid "Migrated Invitation"
+msgstr "Gemigreerde uitnodiging"
+
+#: by-email/by-email-db.php:972
+msgid "Importing: %1$s invited %2$s<br />"
+msgstr "Importeren: %1$s uitgenodigd %2$s<br />"
+
+#: by-email/by-email-db.php:983
+msgid ""
+"If your browser doesn&#8217;t start loading the next page automatically, "
+"click this link:"
+msgstr ""
+"Als je browser niet automatisch de volgende pagina laad, klik dan op deze "
+"link:"
+
+#: by-email/by-email-db.php:983
+msgid "Next Invitations"
+msgstr "Volgende uitnodigingen"
+
+#: by-email/by-email-db.php:1011
+msgid "Invite Anyone Upgrade"
+msgstr "Invite Anyone Upgrade"
+
+#: by-email/by-email-db.php:1014
+msgid ""
+"Invite Anyone has just been updated, and needs to move some old invitation "
+"data in order to complete the upgrade. Click GO to start the process."
+msgstr ""
+"Invite Anyone is zojuist bijgewerkt en moet sommige oude uitnodigingen "
+"verplaatsten om de upgrade te voltooien. Klik op GO om het proces te starten."
+
+#: by-email/by-email.php:73
+msgid "Opt Out"
+msgstr "Trek Terug"
+
+#: by-email/by-email.php:74
+msgid "Accept Invitation"
+msgstr "Accepteer Uitnodiging"
+
+#: by-email/by-email.php:78
+msgid ""
+"To opt out of future invitations to %s, make sure that your email is entered "
+"in the field below and click \"Opt Out\"."
+msgstr ""
+"Als je je wilt afmelden voor toekomstige uitnodigingen tot % s, zorg ervoor "
+"dat je e-mail is opgenomen in het onderstaande veld en klik op \"Afmelden\"."
+
+#: by-email/by-email.php:80
+msgid ""
+"If you are here by mistake and would like to accept your invitation to %s, "
+"click \"Accept Invitation\" instead."
+msgstr ""
+"Ben je hier per ongeluk en wil je je uitnodiging accepteren voor %s, klik "
+"dan op \"Accepteer Uitnodiging\"."
+
+#: by-email/by-email.php:93
+msgid ""
+"You have successfully opted out. No more invitation emails will be sent to "
+"you by this site."
+msgstr ""
+"Je hebt je succesvol afgemeld. Er worden, van deze site, geen invitatie "
+"emails meer naar je verstuurd."
+
+#: by-email/by-email.php:96
+msgid "Sorry, there was an error in processing your request"
+msgstr "Sorry, er is een fout opgetreden bij de verwerking van je aanvraag"
+
+#: by-email/by-email.php:122
+msgid "Email:"
+msgstr "E-mail:"
+
+#: by-email/by-email.php:144
+msgid ""
+"It looks like you're trying to accept an invitation to join the site, but "
+"some information is missing. Please try again by clicking on the link in the "
+"invitation email."
+msgstr ""
+"Het lijkt erop dat je probeert een uitnodiging, om lid van de site te "
+"worden, te accepteren. Maar enkele informatie is onvolledig. Probeer aub "
+"opnieuw door op de link in de invitatie e-mail te klikken."
+
+#: by-email/by-email.php:189
+msgid ""
+"Welcome! You've been invited %s to join the site. Please fill out the "
+"information below to create your account."
+msgstr ""
+"Welkom! Je bent uitgenodigd door %s om lid te worden van de site. Vul aub de "
+"onderstaande informatie in om een account te maken."
+
+#: by-email/by-email.php:277 by-email/by-email.php:677
+#: group-invites/group-invites.php:59
+#: group-invites/templates/invite-anyone.php:87
+#: group-invites/templates/invite-anyone.php:176
+msgid "Send Invites"
+msgstr "Stuur Uitnodigingen"
+
+#: by-email/by-email.php:289 by-email/by-email.php:511
+#: by-email/by-email.php:574
+msgid "Invite New Members"
+msgstr "Nodig Nieuwe Leden Uit"
+
+#: by-email/by-email.php:299 by-email/by-email.php:733
+msgid "Sent Invites"
+msgstr "Verzonden Uitnodigingen"
+
+#: by-email/by-email.php:411
+msgid "Sorry, there was a problem sending your invitations. Please try again."
+msgstr ""
+"Sorry, Er was een probleem bij het versturen van je uitnodiging. Probeer "
+"opnieuw aub."
+
+#: by-email/by-email.php:451
+msgid "Invitation cleared"
+msgstr "Uitnodiging opgeschoond"
+
+#: by-email/by-email.php:453
+msgid "There was a problem clearing the invitation."
+msgstr "Er is probleem ontstaan tijdens het opschonen van de uitnodiging."
+
+#: by-email/by-email.php:456
+msgid "Invitations cleared."
+msgstr "Uitnodigingen opgeschoond"
+
+#: by-email/by-email.php:458
+msgid "There was a problem clearing the invitations."
+msgstr "Er is probleem ontstaan tijdens het opschonen van de uitnodigingen."
+
+#: by-email/by-email.php:501
+msgid ""
+"It looks like you&#8217;ve already accepted your invitation to join the site."
+msgstr ""
+"Blijkbaar heb je jouw uitnodiging om deel te nemen aan de website al "
+"geaccepteerd."
+
+#: by-email/by-email.php:513
+msgid "You have sent the maximum allowed number of invitations."
+msgstr "Je hebt het maximaal aantal te versturen uitnodigingen bereikt"
+
+#: by-email/by-email.php:563
+msgid ""
+"Some of your invitations were not sent. Please see the errors below and "
+"resubmit the failed invitations."
+msgstr ""
+"Sommige van jouw uitnodingen waren niet verstuurd. Bekijk de foutmeldingen "
+"hieronder en verstuur de mislukte uitnodigingen opnieuw."
+
+#: by-email/by-email.php:569
+msgid "Invite friends to join %s by following these steps:"
+msgstr ""
+"Nodig vrienden uit om lid te worden van %s door de volgende stappen te "
+"volgen:"
+
+#: by-email/by-email.php:592
+msgid ""
+"The site administrator has limited each user to %1$d invitations. You have "
+"%2$d invitations remaining."
+msgstr ""
+"De site beheerder heeft iedere gebruiker gelimiteerd tot %1$d uitnodigingen. "
+"Je hebt nog %2$d uitnodigingen over."
+
+#: by-email/by-email.php:611
+msgid "Enter email addresses below, one per line."
+msgstr "Vul hieronder een e-mailadres per regel in."
+
+#: by-email/by-email.php:612
+msgid ""
+"You can only invite people whose email addresses end in one of the following "
+"domains:"
+msgstr ""
+"Je kunt alleen mensen uitnodigen wiens e-mail adressen eindigen op een van "
+"de volgende domeinen:"
+
+#: by-email/by-email.php:616
+msgid "You can invite a maximum of %s people at a time."
+msgstr "Je kan maximaal %s personen per keer uitnodigen."
+
+#: by-email/by-email.php:628
+msgid "(optional) Customize the subject line of the invitation email."
+msgstr ""
+"(optioneel) Maak de tekst van de onderwerp regel van de invitatie e-mail op "
+"maat."
+
+#: by-email/by-email.php:631
+msgid "Subject: <span class=\"disabled-subject\">Subject line is fixed</span>"
+msgstr ""
+"Onderwerp: <span class=\"disabled-subject\">onderwerpregel staat vast</span>"
+
+#: by-email/by-email.php:640
+msgid "(optional) Customize the text of the invitation."
+msgstr "(optioneel) Maak de tekst van de uitnodiging op maat."
+
+#: by-email/by-email.php:641
+msgid ""
+"The message will also contain a custom footer containing links to accept the "
+"invitation or opt out of further email invitations from this site."
+msgstr ""
+"Het bericht zal ook een aangepaste voettekst bevatten met links om de "
+"uitnodiging te accepteren of om uit te schrijven voor toekomstige "
+"uitnodigingen van deze site."
+
+#: by-email/by-email.php:644
+msgid "Message:"
+msgstr "Bericht:"
+
+#: by-email/by-email.php:655
+msgid ""
+"(optional) Select some groups. Invitees will receive invitations to these "
+"groups when they join the site."
+msgstr ""
+"(optioneel) Selecteer een aantal groepen. Genodigden ontvangen invitaties "
+"tot deze groepen wanneer ze lid van de site worden."
+
+#: by-email/by-email.php:740
+msgid "You have sent invitations to the following people."
+msgstr "Je hebt de volgende mensen uitnodigingen gestuurd."
+
+#: by-email/by-email.php:753
+msgid ""
+"This table displays a list of all your sent invites.\n"
+"\t\t\tInvites that have been accepted are highlighted in the listings.\n"
+"\t\t\tYou may clear any individual invites, all accepted invites or all of "
+"the invites from the list."
+msgstr ""
+"Deze tabel toont een lijst van verstuurde uitnodigingen.\n"
+"\t\tUitnodigingen die geaccepteerd zijn worden gemarkeerd in de lijst.\n"
+"\t\t\tJe mag individuele uitnodigingen, alle geaccepteerde uitnodigingen of "
+"alle uitnodigingen verwijderen van de lijst."
+
+#: by-email/by-email.php:759
+msgid "Invited email address"
+msgstr "Uitgenodigd e-mail adres"
+
+#: by-email/by-email.php:760
+msgid "Group invitations"
+msgstr "Groep uitnodigingen"
+
+#: by-email/by-email.php:761
+msgid "Sent"
+msgstr "Verzonden"
+
+#: by-email/by-email.php:762
+msgid "Accepted"
+msgstr "Geaccepteerd"
+
+#: by-email/by-email.php:770
+msgid "Clear all accepted invites from the list"
+msgstr "Verwijder alle geaccepteerde uitnodigingen van de lijst"
+
+#: by-email/by-email.php:770
+msgid "Clear all accepted invitations"
+msgstr "Wis alle geaccepteerde uitnodigingen"
+
+#: by-email/by-email.php:771
+msgid "Clear all your listed invites"
+msgstr "Verwijder alle getoonde uitnodigingen"
+
+#: by-email/by-email.php:771
+msgid "Clear all invitations"
+msgstr "Wis alle uitnodigingen"
+
+#: by-email/by-email.php:797
+msgid "Clear this invitation"
+msgstr "Wis deze uitnodiging"
+
+#: by-email/by-email.php:851
+msgid "You haven't sent any email invitations yet."
+msgstr "Je hebt nog geen e-mail uitnodigingen verzonden."
+
+#: by-email/by-email.php:884
+msgid "An invitation to join the %s community."
+msgstr "Een uitnodiging om lid te worden van de %s community."
+
+#: by-email/by-email.php:909
+msgid ""
+"You have been invited by %%INVITERNAME%% to join the %s community.\n"
+"\n"
+"Visit %%INVITERNAME%%'s profile at %%INVITERURL%%."
+msgstr ""
+"Je bent uitgenodigd door %%INVITERNAME%% om deel te nemen aan %s community.\n"
+"\n"
+"Bezoek %%INVITERNAME%%'s profiel op %%INVITERURL%%."
+
+#: by-email/by-email.php:932
+msgid "To accept this invitation, please visit %%ACCEPTURL%%"
+msgstr "Om deze uitnodiging te accepteren, bezoek aub %%ACCEPTURL%%"
+
+#: by-email/by-email.php:936
+msgid ""
+"To opt out of future invitations to this site, please visit %%OPTOUTURL%%"
+msgstr ""
+"Als je je wilt afmelden voor toekomstige uitnodigingen tot deze site, bezoek "
+"aub %%OPTOUTURL%%"
+
+#: by-email/by-email.php:1099
+msgid ""
+"You are only allowed to invite up to %s people at a time. Please remove some "
+"addresses and try again"
+msgstr ""
+"Je mag maar %s personen per keer uitnodigen. Verwijder een aantal adressen "
+"en probeer het nogmals."
+
+#: by-email/by-email.php:1108
+msgid "You didn't include any email addresses!"
+msgstr "Je hebt geen e-mail adressen toegevoegd!"
+
+#: by-email/by-email.php:1120
+msgid ""
+"You are only allowed to invite %s more people. Please remove some addresses "
+"and try again"
+msgstr ""
+"Je mag nog maar %s personen uitnodigen. Verwijder een aantal adressen en "
+"probeer het nogmals."
+
+#: by-email/by-email.php:1140
+msgid "<strong>%s</strong> has opted out of email invitations from this site."
+msgstr ""
+"<strong>%s</strong> heeft zich uitgeschreven voor e-mail uitnodigingen van "
+"deze website."
+
+#: by-email/by-email.php:1144
+msgid "<strong>%s</strong> is already a registered user of the site."
+msgstr "Sorry, $email is reeds een geregistreerde gebruiker van de site."
+
+#: by-email/by-email.php:1148
+msgid "<strong>%s</strong> is not a permitted email address."
+msgstr "Sorry, $email is niet een toegestaan e-mailadres."
+
+#: by-email/by-email.php:1152
+msgid ""
+"<strong>%s</strong> is not a valid email address. Please make sure that you "
+"have typed it correctly."
+msgstr ""
+"Sorry, $email is geen geldig e-mailadres. Zorg ervoor dat je het correct "
+"hebt getypt."
+
+#: by-email/by-email.php:1156
+msgid ""
+"<strong>%s</strong> is not a permitted email address. Please make sure that "
+"you have typed the domain name correctly."
+msgstr ""
+"Sorry, $email is niet een toegestaan e-mailadres. Zorg ervoor dat je de "
+"domeinnaam correct hebt getypt."
+
+#: by-email/by-email.php:1215
+msgid "Invitations were sent successfully to the following email addresses: %s"
+msgstr ""
+"Uitnodigingen zijn succesvol verstuurd naar de volgende e-mailadressen: %s"
+
+#: by-email/by-email.php:1221
+msgid "Please correct your errors and resubmit."
+msgstr "Corrigeer de foutmeldingen en verstuur opnieuw."
+
+#: by-email/by-email.php:1259
+msgid "We couldn't find any invitations associated with this email address."
+msgstr "We konden geen uitnodigingen vinden geassocieerd met dit e-mailadres."
+
+#: by-email/cloudsponge-integration.php:69
+msgid ""
+"You can also add email addresses <a class=\"cs_import\">from your Address "
+"Book</a>."
+msgstr ""
+"Je kan ook e-maialdressen toevoegen <a class=\"cs_import\">van je adresboek</"
+"a>."
+
+#: group-invites/group-invites.php:89 group-invites/group-invites.php:132
+#: group-invites/group-invites.php:161
+msgid "Group invites sent."
+msgstr "Groep uitnodigingen verstuurd."
+
+#: group-invites/group-invites.php:134
+msgid "Group created successfully."
+msgstr "Groep succesvol aangemaakt."
+
+#: group-invites/group-invites.php:359
+#: group-invites/templates/invite-anyone.php:70
+#: group-invites/templates/invite-anyone.php:157
+msgid "Remove Invite"
+msgstr "Verwijder Uitnodiging"
+
+#: group-invites/group-invites.php:529
+msgid ""
+"%1$s has invited you to the group: \"%2$s\".\n"
+"\n"
+"To view your group invites visit: %3$s\n"
+"\n"
+"To view the group visit: %4$s\n"
+"\n"
+"To view %5$s's profile visit: %6$s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%1$s heeft jou uitgenodigd voor de groep: \"%2$s\".\n"
+"\n"
+"Om je groepsuitnodigingen te tonen bezoek: %3$s\n"
+"\n"
+"Om de groep te bekijken bezoek: %4$s\n"
+"\n"
+"Om het profiel van %5$s te bekijken bezoek: %6$s\n"
+"\n"
+"---------------------\n"
+
+#: group-invites/templates/invite-anyone.php:27
+#: group-invites/templates/invite-anyone.php:115
+msgid "Search for members to invite:"
+msgstr "Zoek naar leden om uit te nodigen:"
+
+#: group-invites/templates/invite-anyone.php:35
+#: group-invites/templates/invite-anyone.php:123
+msgid "Select members from the directory:"
+msgstr "Selecteer leden uit de directory:"
+
+#: group-invites/templates/invite-anyone.php:50
+msgid "Select people to invite."
+msgstr "Selecteer mensen om uit te nodigen."
+
+#: group-invites/templates/invite-anyone.php:107
+msgid ""
+"Want to invite someone to the group who is not yet a member of the site?"
+msgstr ""
+"Wil je iemand uitnodigen voor de groep die nog geen lid is van deze site?"
+
+#: group-invites/templates/invite-anyone.php:107
+msgid "Send invitations by email."
+msgstr "Stuur uitnodigingen per e-mail."
+
+#: group-invites/templates/invite-anyone.php:137
+msgid "Select people to invite from your friends list."
+msgstr "Selecteer mensen uit je vriendenlijst om uit te nodigen."
+
+#: lib/bbg-cpt-pag.php:200
+msgid "Viewing %1$d - %2$d of a total of %3$d"
+msgstr "Toon %1$d - %2$d van in totaal %3$d"
+
+#: lib/bbg-cpt-pag.php:221
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: lib/bbg-cpt-pag.php:222
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: widgets/widgets.php:41
+msgid "Enter one email address per line to invite friends to join this site."
+msgstr "Vul e-mailadressen in het onderstaande veld in."
+
+#: widgets/widgets.php:68
+msgid "Continue"
+msgstr "Voortzetten"
+
+#: widgets/widgets.php:92
+msgid ""
+"Invite friends to join the site by entering their email addresses below."
+msgstr ""
+"Nodig vrienden uit om lid van de site te worden door het invoeren van hun e-"
+"mailadressen hieronder."
+
+#: widgets/widgets.php:95
+msgid "Title:"
+msgstr "Titel:"
+
+#: widgets/widgets.php:97
+msgid "Text to display in widget:"
+msgstr "Weer te geven tekst in widget:"
+
+#: widgets/widgets.php:101
+msgid "Number of email fields to display in widget:"
+msgstr "Aantal e-mail velden om weer te gegeven in widget:"
+
+#. Plugin URI of the plugin/theme
+msgid "http://teleogistic.net/code/buddypress/invite-anyone/"
+msgstr "http://teleogistic.net/code/buddypress/invite-anyone/"
+
+#. Description of the plugin/theme
+msgid ""
+"Allows group admins to invite any member of their BuddyPress community to a "
+"group or to the site"
+msgstr ""
+"Sta groep admins toe elk lid van de BuddyPress community uit te nodigen voor "
+"een groep of de website"
+
+#. Author of the plugin/theme
+msgid "Boone Gorges"
+msgstr "Boone Gorges"
+
+#. Author URI of the plugin/theme
+msgid "http://boone.gorg.es"
+msgstr "http://boone.gorg.es"
+
+#~ msgid "Invite Anyone Settings"
+#~ msgstr "Invite Anyone Instellingen"
+
+#~ msgid "email address"
+#~ msgstr "e-mail adres"
+
+#~ msgid "Subject:"
+#~ msgstr "Onderwerp:"
+
+#~ msgid "Your invitations were sent successfully!"
+#~ msgstr "Je uitnodigingen zijn succesvol verstuurd!"
+
+#~ msgid "Please remove the email address and try again."
+#~ msgstr "Verwijder aub het e-mail adres en probeer opnieuw."
+
+#~ msgid "http://teleogistic.net"
+#~ msgstr "http://teleogistic.net"

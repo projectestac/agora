@@ -1,0 +1,475 @@
+# Translation of the WordPress plugin Invite Anyone 0.6 bleeding by Boone Gorges.
+# Copyright (C) 2010 Boone Gorges
+# This file is distributed under the same license as the Invite Anyone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Invite Anyone 0.6 bleeding\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/invite-anyone\n"
+"POT-Creation-Date: 2010-04-23 17:18+0000\n"
+"PO-Revision-Date: 2011-02-10 10:55+0200\n"
+"Last-Translator: Stergatou Lena <stergatu@cti.gr>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Greek\n"
+"X-Poedit-Country: GREECE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#. #-#-#-#-#  plugin.pot (Invite Anyone 0.6 bleeding)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/admin-panel.php:4
+#: widgets/widgets.php:38
+#: widgets/widgets.php:95
+msgid "Invite Anyone"
+msgstr "Invite Anyone"
+
+#: admin/admin-panel.php:15
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: admin/admin-panel.php:34
+msgid "Invite Anyone Settings"
+msgstr "Ρυθμίσεις Invite Anyone"
+
+#: admin/admin-panel.php:40
+msgid "Save Changes"
+msgstr "Αποθήκευση αλλαγών"
+
+#: admin/admin-panel.php:53
+msgid "General Settings"
+msgstr "Γενικές ρυθμίσεις"
+
+#: admin/admin-panel.php:55
+msgid "Replacement patterns for email text fields"
+msgstr "Πρότυπο αντικατάστασης για τα πεδία κειμένου του email"
+
+#: admin/admin-panel.php:57
+msgid "Text of email invitation subject line"
+msgstr "Κείμενο θέματος της πρόσκλησης μέσω email"
+
+#: admin/admin-panel.php:59
+msgid "Main text of email invitation message"
+msgstr "Βασικό κείμενο του email μηνύματος πρόσκλησης"
+
+#: admin/admin-panel.php:61
+msgid "Footer text of email invitation message (not editable by users)"
+msgstr "Υποσέλιδο της πρόσκληση email (δεν μπορούν να το τροποποιήσουν οι χρήστες)"
+
+#: admin/admin-panel.php:64
+msgid "Allow users to customize invitation"
+msgstr "Επιτρέπεται στους χρήστες να επεξεργάζονται το κείμενο της πρόσκλησης"
+
+#: admin/admin-panel.php:67
+msgid "Number of email invitations users are permitted to send at a time"
+msgstr "Πλήθος προσκλήσεων μέσω email που μπορούν να σταλούν ταυτόχρονα"
+
+#: admin/admin-panel.php:69
+msgid "Allow users to send group invitations along with email invitations"
+msgstr "Επιτρέπεται στους χρήστες να αποστέλουν προσκλήσες συμμετοχής σε ομάδα μέσω email"
+
+#: admin/admin-panel.php:72
+msgid "Access Settings"
+msgstr "Ρυθμίσεις πρόσβασης"
+
+#: admin/admin-panel.php:74
+msgid "Allow email invitations to be sent by"
+msgstr "Επιτρέπεται η αποστολή προσκλήσεων email από τους"
+
+#: admin/admin-panel.php:76
+msgid "Limit group invitations"
+msgstr "Όριο προσκλήσεων σε ομάδα"
+
+#: admin/admin-panel.php:89
+msgid "Control the default behavior of Invite Anyone."
+msgstr "Καθορίζει τις τυπικές ρυθμίσεις του Invite Anyone."
+
+#: admin/admin-panel.php:99
+msgid "name of your website"
+msgstr "τίτλος του δικτυακού σας τόπου"
+
+#: admin/admin-panel.php:100
+msgid "display name of the inviter"
+msgstr "εμφάνιση ονόματος ατόμου που προσκαλεί"
+
+#: admin/admin-panel.php:101
+msgid "URL to the profile of the inviter"
+msgstr "URL προφίλ του ατόμου που αποστέλλει την πρόσκληση"
+
+#: admin/admin-panel.php:102
+msgid "Link that invited users can click to accept the invitation"
+msgstr "Σύνδεσμος τον οποίο τα προσκληθέντα άτομα μπορούν να ακολουθήσουν για να αποδεχτούν την πρόσκληση"
+
+#: admin/admin-panel.php:103
+msgid "Link that invited users can click to opt out of future invitations"
+msgstr "Σύνδεσμος τον οποίο μπορούν να ακολουθήσουν οι παραλήπτες ώστε να μην λαμβάνουν μελλοντικά άλλες προσκλήσεις από αυτό τον δικτυακό τόπο"
+
+#: admin/admin-panel.php:142
+msgid "Subject line"
+msgstr "Γραμμή θέματος"
+
+#: admin/admin-panel.php:146
+msgid "Message body"
+msgstr "Κείμενο μηνύματος"
+
+#: admin/admin-panel.php:154
+msgid "Control which members are able to send various kinds of invitations."
+msgstr "Ορισμός μελών που έχουν δικαίωμα να στέλνουν προσκλήσεις διαφόρων ειδών."
+
+#: admin/admin-panel.php:163
+msgid "All users"
+msgstr "Όλοι οι χρήστες"
+
+#: admin/admin-panel.php:165
+msgid "A limited set of users"
+msgstr "Ένα περιορισμένο πλήθος χρηστών"
+
+#: admin/admin-panel.php:169
+msgid "Only users who have been members of the site for a minimum number of days:"
+msgstr "Μόνο χρήστες οι οποίοι είναι μέλοι του δικτυακού τόπου τουλάχιστον για μέρες:"
+
+#: admin/admin-panel.php:174
+msgid "Only users who have at least the following role on this blog:"
+msgstr "Μόνοι χρήστες που έχουν τουλάχιστον τον παρακάτω ρόλο σε αυτό το ιστολόγιο:"
+
+#: admin/admin-panel.php:176
+msgid "Subscriber"
+msgstr "Συνδρομητής"
+
+#: admin/admin-panel.php:177
+msgid "Contributor"
+msgstr "Συνεργάτης"
+
+#: admin/admin-panel.php:178
+msgid "Author"
+msgstr "Συντάκτης"
+
+#: admin/admin-panel.php:179
+msgid "Editor"
+msgstr "Αρχισυντάκτης"
+
+#: admin/admin-panel.php:180
+msgid "Administrator"
+msgstr "Διαχειριστής"
+
+#: admin/admin-panel.php:185
+msgid "Provide a comma-separated list of users (identified by their numerical user ids) who <strong>cannot</strong> send invitations by email:"
+msgstr "Δώστε μία λίστα χρηστών διαχωριζόμενη με κόμμα (με το αριθμητικό τους  user ids) που <strong>δεν μπορούν</strong> να στείλουν προσκλήσεις μέσω email:"
+
+#: admin/admin-panel.php:200
+msgid "Invite Anyone extends BuddyPress's default group invitation settings. Instead of allowing you to invite only friends to a group, this plugin allows you to invite any member of the site. Use these settings to limit possible invitees for different group roles."
+msgstr "Το Invite Anyone επεκτείνει τις κλασσικές ρυθμίσεις του BuddyPress που αφορούν πρόσκληση σε ομάδα. Έτσι μπορείτε να προσκαλέσετε όχι μόνο τους φίλους σας αλλά κάθε μέλος του δικτυακού τόπου. Χρησιμοποιήστε τις ρυθμίσεις για να περιορίσετε τους πιθανούς αποστολείς προσκλήσεων σε συγκεκριμένους ρόλους ομάδας."
+
+#: admin/admin-panel.php:202
+msgid "<strong>Site admins</strong> can send group invitations to: "
+msgstr "<strong>Διαχειριστές του δικτυακού τόπου</strong> μπορούν να αποστείλουν προσκλήσεις συμμετοχής σε ομάδα προς: "
+
+#: admin/admin-panel.php:204
+#: admin/admin-panel.php:212
+#: admin/admin-panel.php:220
+#: admin/admin-panel.php:228
+msgid "Anyone"
+msgstr "Οποιοσδήποτε"
+
+#: admin/admin-panel.php:205
+#: admin/admin-panel.php:213
+#: admin/admin-panel.php:221
+#: admin/admin-panel.php:229
+msgid "Friends"
+msgstr "Φίλους"
+
+#: admin/admin-panel.php:206
+#: admin/admin-panel.php:214
+#: admin/admin-panel.php:222
+#: admin/admin-panel.php:230
+msgid "No one"
+msgstr "Κανένα"
+
+#: admin/admin-panel.php:210
+msgid "<strong>Group admins</strong> can send group invitations to: "
+msgstr "<strong>Διαχειριστές ομάδας</strong> μπορούν να αποστείλουν προσκλήσεις συμμετοχής σε ομάδα προς: "
+
+#: admin/admin-panel.php:218
+msgid "<strong>Group mods</strong> can send group invitations to: "
+msgstr "<strong>Συντονιστές ομάδας </strong> μπορούν να αποστείλουν προσκλήσεις συμμετοχής σε ομάδα προς: "
+
+#: admin/admin-panel.php:226
+msgid "<strong>Group members</strong> can send group invitations to: "
+msgstr "<strong>Τα μέλη της ομάδας</strong> μπορούν να στείλουν προσκλήσεις σε:"
+
+#: by-email/by-email.php:56
+msgid "Opt Out"
+msgstr "Opt Out"
+
+#: by-email/by-email.php:57
+msgid "Accept Invitation"
+msgstr "Αποδοχή πρόσκλησης"
+
+#: by-email/by-email.php:61
+#, php-format
+msgid "To opt out of future invitations to %s, make sure that your email is entered in the field below and click \"Opt Out\"."
+msgstr "Για να μην λάβετε άλλες προσκλήσεις για το %s, βεβαιωθείτε ότι δώσατε το email στο παρακάτω πεδίο και πατήστε \" Εξαίρεση (Opt Out)\"."
+
+#: by-email/by-email.php:63
+#, php-format
+msgid "If you are here by mistake and would like to accept your invitation to %s, click \"Accept Invitation\" instead."
+msgstr "Αν έγινε εκ παραδρομής και θέλετε να αποδεχτείτε την πρόσκληση στην ομάδα %s, πατήστε \"Αποδοχή Πρόσκλησης\"."
+
+#: by-email/by-email.php:76
+msgid "You have successfully opted out. No more invitation emails will be sent to you by this site."
+msgstr "Επιτυχής ολοκλήρωση αιτήματος εξαίρεσης. Δεν θα λάβετε στο μέλλον μήνυμα πρόσκλησης από αυτό τον δικτυακό τόπο."
+
+#: by-email/by-email.php:79
+msgid "Sorry, there was an error in processing your request"
+msgstr "Παρουσιάστηκε σφάλμα κατά την επεξεργασία του αιτήματός σας."
+
+#: by-email/by-email.php:100
+msgid "Email:"
+msgstr "Email:"
+
+#: by-email/by-email.php:122
+msgid "It looks like you're trying to accept an invitation to join the site, but some information is missing. Please try again by clicking on the link in the invitation email."
+msgstr "Μάλλον προσπαθείτε να αποδεχτείτε μία πρόσκληση για συμμετοχή στον δικτυακό τόπο, αλλά για κάποια πληροφορία λείπει.Παρακαλώ δοκιμάστε εκ νέου πατώντας στον σύνδεσμο του email πρόσκλησης. "
+
+#: by-email/by-email.php:164
+#, php-format
+msgid "Welcome! You've been invited %s to join the site. Please fill out the information below to create your account."
+msgstr "Καλωσήρθατε! Προσκληθήκατε %s να συμμετάσχετε στον δικτυακό τόπο. Παρακαλώ συμπληρώστε τα παρακάτω πεδία για να δημιουργήσετε τον λογαριασμό σας."
+
+#: by-email/by-email.php:228
+#: by-email/by-email.php:470
+#: group-invites/group-invites.php:83
+#: group-invites/group-invites.php:236
+#: group-invites/group-invites.php:334
+msgid "Send Invites"
+msgstr "Αποστολή Προσκλήσεων"
+
+#: by-email/by-email.php:240
+#: by-email/by-email.php:412
+msgid "Invite New Members"
+msgstr "Πρόσκληση νέων μελών"
+
+#: by-email/by-email.php:250
+#: by-email/by-email.php:524
+msgid "Sent Invites"
+msgstr "Αποσταλμένες προσκλήσεις"
+
+#: by-email/by-email.php:382
+#: widgets/widgets.php:61
+msgid "email address"
+msgstr "email διεύθυνση"
+
+#: by-email/by-email.php:407
+#, php-format
+msgid "Invite friends to join %s by following these steps:"
+msgstr "Προσκαλέστε τους φίλους σας να συμμετάσχουν στην ομάδα %s ακολουθώντας τα εξής βήματα:"
+
+#: by-email/by-email.php:416
+msgid "Enter email addresses in the fields below."
+msgstr "Δώστε διευθύνσεις email στα παρακάτω πεδία."
+
+#: by-email/by-email.php:416
+msgid "You can only invite people whose email addresses end in one of the following domains:"
+msgstr "Μπορείτε να προσκαλέσετε άτομα τα οποία έχουν email σε κάποιο από τα παρακάτω domains:"
+
+#: by-email/by-email.php:423
+msgid "(optional) Customize the subject line of the invitation email."
+msgstr "(προαιρετικό) Διαμορφώστε το θέμα της email πρόσκλησης ."
+
+#: by-email/by-email.php:426
+msgid "Subject:"
+msgstr "Θέμα:"
+
+#: by-email/by-email.php:435
+msgid "(optional) Customize the text of the invitation."
+msgstr "(προαιρετικό) Διαμορφώστε το κείμενο της πρόσκλησης."
+
+#: by-email/by-email.php:438
+msgid "Message:"
+msgstr "Μήνυμα:"
+
+#: by-email/by-email.php:443
+msgid "The message will also contain a custom footer containing links to accept the invitation or opt out of further email invitations from this site."
+msgstr "Το μήνυμα θα περιέχει επίσης και ένα υποσέλιδο με συνδέσμους για την αποδοχή της πρόσκλησης ή για την μη λήψη περαιτέρω προσκλήσεων από αυτό τον δικτυακό τόπο."
+
+#: by-email/by-email.php:449
+msgid "(optional) Select some groups. Invitees will receive invitations to these groups when they join the site."
+msgstr "(προαιρετικό) Επιλέξτε κάποιες ομάδες. Οι προσκληθέντες θα λάβουν τις προσκλήσεις για αυτές τις ομάδες όταν μπουν στον δικτυακό τόπο."
+
+#: by-email/by-email.php:487
+msgid "Your invitations were sent successfully!"
+msgstr "Επιτυχής αποστολή των προσκλήσεων σας!"
+
+#: by-email/by-email.php:489
+msgid "Sorry, there was a problem sending your invitations. Please try again."
+msgstr "Παρουσιάστηκε πρόβλημα κατά την αποστολή των προσκλήσεων. Παρακαλώ δοκιμάστε αργότερα."
+
+#: by-email/by-email.php:528
+msgid "You have sent invitations to the following people."
+msgstr "Έχετε στείλει προσκλήσεις στους παρακάτω."
+
+#: by-email/by-email.php:533
+msgid "Invited email address"
+msgstr "Εmail διεύθυνση που έχει προσκληθεί"
+
+#: by-email/by-email.php:534
+msgid "Group invitations"
+msgstr "Προσκλήσεις Ομάδας"
+
+#: by-email/by-email.php:535
+msgid "Sent"
+msgstr "Απεσταλμένα"
+
+#: by-email/by-email.php:536
+msgid "Accepted"
+msgstr "Έγινε αποδεκτό"
+
+#: by-email/by-email.php:546
+msgid "Clear this invitation"
+msgstr "Διαγραφή αυτής της πρόσκλησης"
+
+#: by-email/by-email.php:579
+msgid "Clear all accepted invitations"
+msgstr "Εκκαθάριση όλων των προσκλήσεων που έγιναν αποδεκτές"
+
+#: by-email/by-email.php:580
+msgid "Clear all invitations"
+msgstr "Διαγραφή όλων των προσκλήσεων"
+
+#: by-email/by-email.php:585
+msgid "You haven't sent any email invitations yet."
+msgstr "Δεν έχετε αποστείλει ακόμη κάποια πρόσκληση μέσω email."
+
+#: by-email/by-email.php:627
+#, php-format
+msgid "An invitation to join the %s community."
+msgstr "Μία πρόσκληση για να συμμετάσχετε στην κοινότητα %s."
+
+#: by-email/by-email.php:651
+#, php-format
+msgid ""
+"You have been invited by %%INVITERNAME%% to join the %s community. \\n"
+"\\r\\n"
+"\\rVisit %%INVITERNAME%%'s profile at %%INVITERURL%%."
+msgstr ""
+"Προσκληθήκατε από τον/ην  %%INVITERNAME%% να συμμετάσχετε στην κοινότητα %s. \\n"
+"\\r\\n"
+"\\rΔείτε το προφίλ του/της %%INVITERNAME%% στο %%INVITERURL%%."
+
+#: by-email/by-email.php:671
+#, php-format
+msgid "To accept this invitation, please visit %%ACCEPTURL%%"
+msgstr "Για να αποδεχτείτε την πρόσκληση, παρακαλώ επισκεφτείτε: %%ACCEPTURL%%"
+
+#: by-email/by-email.php:675
+#, php-format
+msgid "To opt out of future invitations to this site, please visit %%OPTOUTURL%%"
+msgstr "Για να μην λάβετε στο μέλλον άλλες προσκλήσεις από αυτό τον δικτυακό τόπο, παρακαλώ επισκεφτείτε %%OPTOUTURL%%"
+
+#: by-email/by-email.php:743
+msgid "You didn't include any email addresses!"
+msgstr "Δεν έχετε δώσει κάποια διεύθυνση email!"
+
+#: by-email/by-email.php:753
+msgid "Sorry, $email has opted out of email invitations from this site."
+msgstr "Λυπάμαι, αλλά το  $email έχει επιλέξει να μην λαμβάνει προσκλήσεις από αυτό τον δικτυακό τόπο."
+
+#: by-email/by-email.php:758
+msgid "Sorry, $email is already a registered user of the site. "
+msgstr "Λυπάμαι, αλλά ο $email είναι ήδη μέλος αυτού του δικτυακού τόπου."
+
+#: by-email/by-email.php:763
+msgid "Sorry, $email is not a permitted email address."
+msgstr "Λυπάμαι, αλλά το $email δεν είναι επιτρεπόμενη email διεύθυνση."
+
+#: by-email/by-email.php:768
+msgid "Sorry, $email is not a valid email address. Please make sure that you have typed it correctly."
+msgstr "Λυπάμαι, αλλά η $email δεν είναι επιτρεπτή διεύθυνση email. Παρακαλώ βεβαιωθείτε ότι την έχετε δώσει σωστά."
+
+#: by-email/by-email.php:773
+msgid "Sorry, $email is not a permitted email address. Please make sure that you have typed the domain name correctly."
+msgstr "Λυπάμαι, αλλά η $email δεν είναι επιτρεπτή διεύθυνση email. Παρακαλώ βεβαιωθείτε ότι έχετε δώσει σωστά το domain name."
+
+#: by-email/by-email.php:779
+msgid "Please remove the email address and try again."
+msgstr "Παρακαλώ αφαιρέστε την email διεύθυνση και δοκιμάστε ξανά."
+
+#: group-invites/group-invites.php:141
+msgid "Group invites sent."
+msgstr "Η πρόσκληση για συμμετοχή στην ομάδα στάλθηκε."
+
+#: group-invites/group-invites.php:143
+msgid "Group created successfully."
+msgstr "Επιτυχής δημιουργία ομάδας."
+
+#: group-invites/group-invites.php:176
+#: group-invites/group-invites.php:270
+msgid "Search for members to invite:"
+msgstr "Αναζήτηση μελών για πρόσκληση:"
+
+#: group-invites/group-invites.php:184
+#: group-invites/group-invites.php:278
+msgid "Select members from the directory:"
+msgstr "Επιλογή μελών από τον κατάλογο:"
+
+#: group-invites/group-invites.php:199
+msgid "Select people to invite."
+msgstr "Επιλέξτε άτομα που θέλετε να προσκαλέσετε."
+
+#: group-invites/group-invites.php:219
+#: group-invites/group-invites.php:315
+#: group-invites/group-invites.php:466
+msgid "Remove Invite"
+msgstr "Αφαίρεση πρόσκλησης"
+
+#: group-invites/group-invites.php:260
+msgid "Want to invite someone to the group who is not yet a member of the site?"
+msgstr "Θέλετε να προσκαλέσετε κάποιος στην ομάδα ενώ δεν είναι ακόμη μέλος του δικτυακού τόπου;"
+
+#: group-invites/group-invites.php:260
+msgid "Send invitations by email."
+msgstr "Αποστολή προσκλήσεων μέσω email."
+
+#: group-invites/group-invites.php:295
+msgid "Select people to invite from your friends list."
+msgstr "Επιλέξτε άτομα για να καλέσετε από τη λίστα των φίλων σας."
+
+#: widgets/widgets.php:44
+#: widgets/widgets.php:101
+msgid "Invite friends to join the site by entering their email addresses below."
+msgstr "Προσκαλέστε φίλους σας στο δικτυακό τόπο δίνοντας το email τους παρακάτω."
+
+#: widgets/widgets.php:77
+msgid "Continue"
+msgstr "Συνέχεια"
+
+#: widgets/widgets.php:104
+msgid "Title:"
+msgstr "Τίτλος:"
+
+#: widgets/widgets.php:106
+msgid "Text to display in widget:"
+msgstr "Κείμενο προς εμφάνιση στη μονάδα (widget):"
+
+#: widgets/widgets.php:110
+msgid "Number of email fields to display in widget:"
+msgstr "Πλήθος πεδίων email στην μονάδα (widget):"
+
+#. Plugin URI of the plugin/theme
+msgid "http://teleogistic.net/code/buddypress/invite-anyone/"
+msgstr "http://teleogistic.net/code/buddypress/invite-anyone/"
+
+#. Description of the plugin/theme
+msgid "Allows group admins to invite any BuddyPress member to a group, whether or not they are friends"
+msgstr "Επιτρέπει στους διαχειριστές ομάδας να προσκαλούν οποιοδήποτε μέλος στην ομάδα τους, ανεξάρτητα αν είναι φίλοι ή όχι"
+
+#. Author of the plugin/theme
+msgid "Boone Gorges"
+msgstr "Boone Gorges"
+
+#. Author URI of the plugin/theme
+msgid "http://teleogistic.net"
+msgstr "http://teleogistic.net"
+
