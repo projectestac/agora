@@ -28,3 +28,4 @@ WORDPRESS
 - Added Theme exray 1.4.2
 - BP-moderation: Fixed repetition of background image in Dashboard
 - Added xtec-mail to send e-mail using XTEC web service
+- Added https login

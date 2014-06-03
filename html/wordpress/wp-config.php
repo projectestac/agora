@@ -27,6 +27,12 @@ define('DB_PASSWORD', $agora['nodes']['userpwd']);
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
 
+// Force https on login
+define('FORCE_SSL_LOGIN', true);
+if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+    $_SERVER['HTTPS'] = 'on';
+}
+
 /**#@+
  * Authentication Unique Keys and Salts.
  *
