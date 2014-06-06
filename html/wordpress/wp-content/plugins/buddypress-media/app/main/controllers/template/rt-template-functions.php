@@ -128,7 +128,7 @@ function rtmedia_author_name( $show_link = true ) {
 
 	global $rtmedia_backbone;
 	if ( $rtmedia_backbone[ 'backbone' ] ){
-		echo '';
+		echo apply_filters( 'rtmedia_media_author_backbone', '',$show_link );
 	} else {
 		global $rtmedia_media;
 		$show_link = apply_filters( "rtmedia_single_media_show_profile_name_link", $show_link );
@@ -710,7 +710,8 @@ function rmedia_single_comment( $comment ) {
 	$html = "";
 	$html .= '<li class="rtmedia-comment">';
 	if ( $comment[ 'user_id' ] ){
-		$user_name   = "<a href='" . get_rtmedia_user_link( $comment[ 'user_id' ] ) . "' title='" . rtmedia_get_author_name( $comment[ 'user_id' ] ) . "'>" . rtmedia_get_author_name( $comment[ 'user_id' ] ) . "</a>";
+		$user_link = "<a href='" . get_rtmedia_user_link( $comment[ 'user_id' ] ) . "' title='" . rtmedia_get_author_name( $comment[ 'user_id' ] ) . "'>" . rtmedia_get_author_name( $comment[ 'user_id' ] ) . "</a>";
+		$user_name   =  apply_filters( 'rtmedia_comment_author_name',$user_link, $comment  ) ;
 		$profile_pic = rtmedia_author_profile_pic( $show_link = true, $echo = false, $comment[ 'user_id' ] );
 	} else {
 		$user_name   = "Annonymous";
@@ -729,10 +730,26 @@ function rmedia_single_comment( $comment ) {
 		$html .= '<i data-id="' . $comment[ 'comment_ID' ] . '" class = "rtmedia-delete-comment rtmicon-times" title="' . __( 'Delete Comment' ) . '"></i>';
 	}
 
-	$html .= '<span class ="rtmedia-comment-date"> ' . rtmedia_convert_date( $comment[ 'comment_date_gmt' ] ) . '</span>';
+	$html .= '<span class ="rtmedia-comment-date"> ' . apply_filters( 'rtmedia_comment_date_format', rtmedia_convert_date( $comment[ 'comment_date_gmt' ] ), $comment ) . '</span>';
 	$html .= '<div class="clear"></div></div></div></li>';
 
 	return apply_filters( 'rtmedia_single_comment', $html, $comment );
+}
+
+function rtmedia_get_media_comment_count( $media_id = false ) {
+	global $wpdb, $rtmedia_media;
+	if( ! $media_id ) {
+		$post_id = $rtmedia_media->media_id;
+	} else {
+		$post_id = rtmedia_media_id( $media_id );
+	}
+	$query = "SELECT count(*) FROM $wpdb->comments WHERE comment_post_ID = '" . $post_id . "'";
+	$comment_count = $wpdb->get_results( $query, ARRAY_N );
+	if( is_array( $comment_count ) && is_array( $comment_count[0] ) && isset( $comment_count[0][0] ) ) {
+		return $comment_count[0][0];
+	} else {
+		return 0;
+	}
 }
 
 function rtmedia_pagination_prev_link() {
@@ -1483,6 +1500,7 @@ function rtmedia_create_album_modal() {
 		?>
 		<div class="mfp-hide rtmedia-popup" id="rtmedia-create-album-modal">
 			<div id="rtm-modal-container">
+				<?php do_action( "rtmedia_before_create_album_modal" ); ?>
 				<h2 class="rtm-modal-title"><?php _e( 'Create New Album', 'rtmedia' ); ?></h2>
 
 				<p>
@@ -1496,6 +1514,7 @@ function rtmedia_create_album_modal() {
 							id="rtmedia_create_new_album"><?php _e( "Create Album", "rtmedia" ); ?></button>
 				</p>
 				<?php do_action( "rtmedia_add_album_privacy" ); ?>
+				<?php do_action( "rtmedia_after_create_album_modal" ); ?>
 			</div>
 		</div>
 
@@ -1839,6 +1858,7 @@ function is_rt_admin() {
 function get_rtmedia_like( $media_id = false ) {
 	$mediamodel = new RTMediaModel();
 	$actions    = $mediamodel->get( array( 'id' => rtmedia_id( $media_id ) ) );
+
 	if ( isset( $actions[ 0 ]->likes ) ){
 		$actions = intval( $actions[ 0 ]->likes );
 	} else {

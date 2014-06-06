@@ -889,7 +889,7 @@ button.rtp-lb-close {
 .rtm-drag-drop-active {
             border: 4px dashed green!important;
             opacity : 0.5;
-            height : 150px;
+            height : 100%;
             display: block;
             z-index: 9999;
         }
@@ -1467,4 +1467,19 @@ button.rtp-lb-close {
         }
     }
 
+}
+#buddypress {
+  #whats-new-options {
+    .rtmedia-plupload-container {
+      float: left;
+    }
+    #rtmedia-whts-new-upload-container {
+      margin-top: 12px;
+    }
+    #rtmedia-add-media-button-post-update {
+      margin-top: 12px;
+      float: left;
+      margin-right: 20px;
+    }
+  }
 }

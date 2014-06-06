@@ -401,6 +401,19 @@ jQuery('document').ready(function($) {
         jQuery('.mfp-arrow-left').on('click', function(e) {
             rtm_mfp.prev();
         });
+
+//       jQuery('.mfp-content .rtmedia-media').swipe({
+//           //Generic swipe handler for all directions
+//           swipeLeft:function(event, direction, distance, duration, fingerCount) 	// bind leftswipe
+//           {
+//               rtm_mfp.next();
+//           },
+//           swipeRight:function(event, direction, distance, duration, fingerCount) 	// bind rightswipe
+//           {
+//               rtm_mfp.prev();
+//           },
+//           threshold:0
+//       });
    }
 
     function rtmedia_disable_popup_navigation_comment_focus() {
@@ -428,7 +441,7 @@ jQuery('document').ready(function($) {
            .on('dragover', function(e) {
                jQuery('#rtm-media-gallery-uploader').show();
                 activityArea.addClass('rtm-drag-drop-active');
-                activityArea.css('height','150px');
+//                activityArea.css('height','150px');
                 dragArea.addClass('rtm-drag-drop-active');
                 jQuery('#rtm-drop-files-title').css('display', 'block');
                 })
@@ -494,6 +507,14 @@ jQuery('document').ready(function($) {
 	$(".rtm-more").shorten({ // shorten the media description to 100 characters
 	    "showChars" : 200
 	});
+    }
+
+//    masonry code
+    if( typeof rtmedia_masonry_layout != "undefined" && rtmedia_masonry_layout == "true" ) {
+        jQuery('.rtmedia-list-media').masonry({
+            columnWidth: 190,
+            itemSelector: '.rtmedia-list-item'
+        });
     }
 });
 
