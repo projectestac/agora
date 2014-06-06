@@ -18,7 +18,19 @@ function bp_like_list_scripts() {
 
     /* JQuery dialog for likers popup. */
    /// wp_register_script('jquery-ui-dialog', array('jquery'));
-    wp_enqueue_script(' jquery-ui-dialog');
+
+
+    // XTEC ************ MODIFICAT - Removed blank space to fix JQuery error
+    // 2014.06.06 @aginard
+
+    wp_enqueue_script('jquery-ui-dialog');
+
+    //************ ORIGINAL
+    /*
+      wp_enqueue_script(' jquery-ui-dialog');
+     */
+    //************ FI
+
 }
 
 /**
