@@ -12,6 +12,7 @@ PORTAL
 WORDPRESS
 - Added WordPress 3.9.1
 - Modified wp-config.php and added site-config.php to WordPress
+- Added file for XTEC library for WordPress (wp-includes/xtec/lib.php)
 - Added BuddyPress 2.0.1
 - Added BBPress 2.5.4
 - Added Private BP Pages 1.3

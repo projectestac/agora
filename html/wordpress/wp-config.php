@@ -14,7 +14,8 @@
  * @package WordPress
  */
 
-require_once(dirname(dirname(__FILE__)) . '/config/env-config.php');
+require_once dirname(dirname(__FILE__)) . '/config/env-config.php';
+include_once dirname(__FILE__) . '/wp-includes/xtec/lib.php';
 
 global $agora;
 
