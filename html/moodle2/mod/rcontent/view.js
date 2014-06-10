@@ -20,7 +20,7 @@ M.mod_rcontentform.init = function(Y) {
     }
 
     if (launch == true) {
-        launch_url = launch_url+"&display=popup";
+        //launch_url = launch_url+"&display=popup";
         window.open(launch_url,'Popup', poptions);
         //parent.window.location = course_url;
     }
