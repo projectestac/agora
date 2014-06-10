@@ -8,12 +8,12 @@
   * 
   */
 
-  class log4p{
+  class log4p {
   	
   	/**
   	 * Variables to use
   	 */
-  	private $log = array(), $savetofile,$savetofilepath;
+  	private $log = array(), $savetofile;
   	
   	/**
   	 * Class constructor
@@ -112,7 +112,7 @@
   	 * @param  string $delimiter      -> characters used to diference one line from other
   	 * @return bool                   -> true if saver could be switched to on or false if not
   	 */
-  	function loadsavetofile ($state = false, $savetofilepath = '', $delimiter = "\n"){
+  	function loadsavetofile ($state = false, $savetofilepath = '', $delimiter = "\n") {
   		
   		//check if parameters are set to true and are correct
   		if ($state == false || $savetofilepath == ''){
@@ -124,50 +124,23 @@
   		$savetofilepath = str_replace('\\', '/', $savetofilepath); 		
   		$filepatharray = explode("/", $savetofilepath);
   		
-// XTEC *********** DELETED -> Take out becouse now the receive the full path
-// 2011.04.01 @mmartinez
-		/*//get actuall path
-  		$pwd = dirname(__FILE__);
-  		$pwd = str_replace('\\', '/', $pwd);
-  		//go one folder up
-  		$pwdarray = explode ('/', $pwd);*/
-//*********** END
   		$pwd = "";
   		
-// XTEC ************ MODIFIED -> Parse the new full path
-// 2011.04.01 @mmartinez
   		for ($i=0;$i<count($filepatharray)-1;$i++){
   			$pwd .= $filepatharray[$i].'/';
   		}
   	    $pwd = substr($pwd, 0, strlen($pwd)-1);
-//************ ORIGINAL
-		/*for ($i=0;$i<count($pwdarray)-1;$i++){
-  			$pwd .= $pwdarray[$i].'/';
-  		}*/
-//*********** END
 
   		//check if exits log folder
-// XTEC ************ MODIFIED -> Take the new full path
-// 2011.04.01 @mmartinez
   		if (!is_dir($pwd)){
   			if (!mkdir($pwd)){
-//*********** ORIGINAL
-		/*if (!is_dir($pwd.$filepatharray[count($filepatharray)-2])){
-  			if (!mkdir($pwd.$filepatharray[count($filepatharray)-2])){*/
-//*********** END
-
   				$this->add('log4p.class.php: folder not exits and its imposible to create it', 'WARNING');
   				return false;
   			}
   		}
   		
   		//open or create log file 
-// XTEC ************ MODIFIED -> Take the new full path
-// 2011.04.01 @mmartinez
   		if (!$file = fopen($savetofilepath, "a+")){
-//*********** ORIGINAL
-		/*if (!$file = fopen($pwd.$savetofilepath, "a+")){*/
-//*********** END
   			$this->add('log4p.class.php: file not exits and its imposible to create it', 'WARNING');
   			return false;
   		}
@@ -183,5 +156,4 @@
   		$this->add('log4p.class.php: loaded correctly in '.$savetofilepath);
   		return true;
   	}
-  }
-?>
+}

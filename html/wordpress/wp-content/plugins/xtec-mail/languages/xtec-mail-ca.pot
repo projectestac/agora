@@ -1,0 +1,86 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: xtec-mail\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-06 16:28+0100\n"
+"PO-Revision-Date: 2014-06-06 16:28+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
+"Language-Team: Àgora <agora@xtec.cat>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: xtec-mail.php:31
+#: xtec-mail.php:36
+msgid "Mail"
+msgstr "Correu"
+
+#: xtec-mail.php:49
+#: xtec-mail.php:98
+msgid "XTEC Mail"
+msgstr "Correu XTEC"
+
+#: xtec-mail.php:52
+msgid "XTEC Mail is active"
+msgstr "El correu XTEC està activat"
+
+#: xtec-mail.php:86
+msgid "Options saved."
+msgstr "S'han desat els canvis"
+
+#: xtec-mail.php:102
+msgid "idApp"
+msgstr "ID de l'aplicació"
+
+#: xtec-mail.php:108
+msgid "replyto"
+msgstr "Respon a"
+
+#: xtec-mail.php:114
+msgid "Environment"
+msgstr "Entorn"
+
+#: xtec-mail.php:118
+msgid "Set in config"
+msgstr "Definit al config"
+
+#: xtec-mail.php:123
+msgid "Sender"
+msgstr "Remitent"
+
+#: xtec-mail.php:129
+msgid "Mail Log"
+msgstr "Registre de correu"
+
+#: xtec-mail.php:133
+msgid "Enable the log for the mail system"
+msgstr "Activa el registre de correu"
+
+#: xtec-mail.php:138
+msgid "Mail Debug"
+msgstr "Depuració del correu"
+
+#: xtec-mail.php:142
+msgid "Enable the debug mode for log of the mail system"
+msgstr "Activa el mode de depuració (requereix que el registre estigui activat)"
+
+#: xtec-mail.php:147
+msgid "Log Path"
+msgstr "Ubicació del registre"
+
+#: xtec-mail.php:151
+msgid "Absolute path to log file"
+msgstr "Ruta absoluta al fitxer de registre (inclou el nom del fitxer)"
+
+#: xtec-mail.php:158
+msgid "Save"
+msgstr "Desa"
+

@@ -63,20 +63,9 @@ class mailsender{
 	 * @param bool   $logdebug     -> set if a full log is wanted or just a resume log
 	 * @param string $logpath      -> set the full path where the log will be stored
 	 */	
-//XTEC ************ MODIFIED -> Add to the constructor a new parameter called $logpath to define where will be stored the log file
-//2011.04.01 @mmartinez
 	function __construct($idApp, $replyAddress = '', $sender = 'educacio', $enviroment = 'PRO', $log = false, $logdebug = false, $logpath = ''){
 		//set variables
 		$this->islogger = ($log)? $this->get_logger($logdebug, $logpath) : false;
-//*********** ORIGINAL 
-    /*function __construct($idApp, $replyAddress = '', $sender = 'educacio', $enviroment = 'PRO', $log = false, $debug = false){
-		//set variables
-		$this->islogger = ($log)? $this->get_logger($debug) : false;*/ 
-//*********** ORIGINAL 2011.03.18 ******  Add to the constructor a new parameter called $log to switch the logger on and off
-    /*function __construct($idApp, $replyAddress = '', $sender = 'educacio', $enviroment = 'PRO', $debug = false){
-		//set variables
-		$this->islogger    = $this->get_logger($debug); */
-//*********** END
 
 	    if ($this->islogger){
 		    $this->logger->add('mailsender.class.php: Loading class...');
@@ -251,14 +240,11 @@ class mailsender{
 			return false;
 		}
 		
-// XTEC ************ ADDED -> Test the charset to do conversions
-// 2011.03.16 @mmartinez
 		//test the charset of the xml
 		$xml_charset = $this->get_charset($xml);
 		if ($xml_charset != 'UTF_8'){
 			$xml = utf8_encode($xml);
 		}
-//************* END
 
 	    try {
 	    				
@@ -370,8 +356,6 @@ class mailsender{
 		
 	}
 
-// XTEC ************* ADDED -> new method to add_message by object
-// 2011.04.04 @mmartinez
 	/**
 	 * Add message object to mailsender
 	 * 
@@ -392,8 +376,8 @@ class mailsender{
 		 return $this->add_message($message->get_to(), $message->get_cc(), $message->get_bcc(), $message->get_subject(), $message->get_bodyContent(),
 		$attach[0], $attach[1], $attach[2], $attach[3], $message->get_bodyType());
 	}
-//************ END
-	/**
+
+    /**
 	 * Add messages to the request xml
 	 * 
 	 * @param array $to                 -> list of email address to send message to
@@ -472,8 +456,6 @@ class mailsender{
                                                </destination>';
         }
 
-// XTEC ************ ADDED -> Test the charset to do conversions
-// 2011.03.16 @mmartinez
         //Test de subject and bodyContent subject
         $subject_charset = $this->get_charset($subject);
         if ($subject_charset != 'UTF_8'){
@@ -483,7 +465,6 @@ class mailsender{
         if ($body_charset != 'UTF_8'){
         	$bodyContent = utf8_encode($bodyContent);
         }	
-//************ END
 
         $message .= '                     </destinationAddresses>
                              <subject><![CDATA['.$subject.']]></subject>
@@ -524,22 +505,7 @@ class mailsender{
 	                if (is_file($attachfilecontents[$cnt])){
 	                	//get file type and set it to $attachmimetypes[$cnt]
 	                	
-//XTEC ************	MODIFIED -> Call to the new method added to get file mime type
-//2011.03.18 @mmartinez
                         $attachmimetypes[$cnt] = $this->get_mime_type($attachfilecontents[$cnt]);
-//************** ORIGINAL
-	                	/*if (function_exists('finfo_file')) {  
-					        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-					        $attachmimetypes[$cnt] = finfo_file($finfo, $attachfilecontents[$cnt]);
-					        finfo_close($finfo);
-					    } else if (require_once('lib/mime.php')){
-					  	    $attachmimetypes[$cnt] = mime_content_type($attachfilecontents[$cnt]);
-					    }else {
-					  	    $file = escapeshellarg($attachfilecontents[$cnt]);
-					  	    $attachmimetypes[$cnt] = shell_exec("file -bi " . $file);     
-					    }*/
-//************** END
-					    
 	                	$attachfilecontents[$cnt] = base64_encode(fread(fopen($attachfilecontents[$cnt], 'r'), filesize($attachfilecontents[$cnt])));
 	                	
 	                } else if (empty($attachmimetypes[$cnt])){
@@ -635,19 +601,10 @@ class mailsender{
 		
 		$this->error['replyAddress'] = false;
 
-//XTEC ************ ADD -> Improved control of well-formed email
-//2011.03.18 @mmartinez
 		$replyAddress=trim($replyAddress);
         $replyAddress=strtolower($replyAddress);
         $replyAddress=addslashes($replyAddress);
-//********** END
-
-//XTEC ************ MODIFY -> Improved control of well-formed email
-//2011.03.18 @mmartinez
 		if (!eregi("^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9]+@[a-zA-Z0-9]+[a-zA-Z0-9-]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$", $replyAddress)){
-//*********** ORIGINAL
-        //if (!preg_match('/^[^0-9][a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*[@][a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*[.][a-zA-Z]{2,4}$/',$replyAddress)){
-//*********** END
 		    if ($this->islogger){
 			    $this->logger->add('mailsender.class.php: ReplyAddress KO, "'.$replyAddress.'" is not a valid email address', 'ERROR');
 		    }
@@ -845,9 +802,6 @@ class mailsender{
 		return $current_file;
 	}
 	
-// XTEC ************ ADDED -> Method to test the charset of the given string
-// 2011.03.16 @mmartinez
-
 	/**
 	 * Get charset of the given string
 	 * 
@@ -881,10 +835,7 @@ class mailsender{
 	    }
 	    return ($ascii) ? 'ASCII' : 'UTF_8';
 	}
-//*********** END
 
-// XTEC ************ ADDED -> Method to get the mime type of a given file
-// 2011.03.16 @mmartinez
     /**
      * 
      * Method to get the mime type of a given file
@@ -1114,7 +1065,6 @@ class mailsender{
       #-- done
       return $type;		
 	}
-//*********** END
 
     /**
 	 * Check if isset the logger class, else denie any log
@@ -1123,21 +1073,15 @@ class mailsender{
 	 * @param string $path -> absolute path where file log wil be stored
 	 * @return bool        -> true if logger could be loaded or false if not
 	 */
-//XTEC*********** MODIFIED -> Add parameter to define $path
-// 2011.04.01 @mmartinez
 	private function get_logger($debug = false, $path = ''){
-//*********** ORIGINAL
-	//private function get_logger($debug = false){
-//*********** END
 		
 		if (!@include_once('log4p.class.php')){
 		    $this->logger = false;
 		    $this->debug  = false;
 		    return false;
 		}		
-//XTEC ************ ADDED -> Just get actuall path when there isn't any path defined
-// 2011.04.01 @mmartinez
-		//set default path location
+
+        //set default path location
 		if (empty($path)){
 			//get actuall path
 	  		$pwd = dirname(__FILE__);
@@ -1150,14 +1094,8 @@ class mailsender{
 	  		}
 			$path = $pwd.'log/mailsender.log';
 		}
-//************* END
 
-// XTEC *********** MODIFIED -> Take the full path recived
-// 2011.04.01 @mmartinez
 		$this->logger = new log4p(true, $path);
-//*********** ORIGINAL
-		//$this->logger = new log4p(true, $pwd.'log/mailsender.log');*/
-//*********** END
 
 		if ($debug){		    	
 		    $this->debug = $debug;
@@ -1165,4 +1103,3 @@ class mailsender{
 		return true;
 	}
 }
-?>
