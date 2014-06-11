@@ -18,15 +18,16 @@ WORDPRESS
 - Added Private BP Pages 1.3
 - Added Buddypress Group Email Subscription 3.4
 - Added BuddyPress Docs 1.7.0
-- Removed plugins Akismet and hello.php
 - Added BBpress Enable Tinymce Visual Tab 1.0.1
 - Added Buddypress Like 0.1.7
 - Added BuddyPress Moderation 0.1.7
-- Added rtMedia for WordPress, BuddyPress and bbPress (Buddypress Media) 3.6.14
-- Added Theme cbox 1.0.7 from CUNY (https://github.com/cuny-academic-commons/cbox-theme)
 - Added Invite Anyone 1.2.1
 - Added Social Articles 1.5.1
+- Added BuddyPress Activity Plus 1.6
+- Added WordPress Social Login 2.1.6
+- Removed plugins Akismet and hello.php
 - Added Theme exray 1.4.2
-- BP-moderation: Fixed repetition of background image in Dashboard
+- Added Theme cbox 1.0.7 from CUNY (https://github.com/cuny-academic-commons/cbox-theme)
 - Added xtec-mail to send e-mail using XTEC web service
 - Added https login
+- BP-moderation: Fixed repetition of background image in Dashboard
