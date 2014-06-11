@@ -1,0 +1,215 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-02-19 15:30+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: /Volumes/Trunk/xampp/htdocs/bpfb/wp-content/plugins/"
+"bpfb_the_edge/\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-SearchPath-0: lib\n"
+"X-Poedit-SearchPath-1: lib/forms\n"
+
+#: lib/bpfb_group_documents.php:31
+#, fuzzy
+msgid "Add documents"
+msgstr "Add photos"
+
+#: lib/bpfb_group_documents.php:32
+msgid "Please select a group to upload to"
+msgstr ""
+
+#: lib/bpfb_group_documents.php:184
+#, php-format
+msgid "%s uploaded new file(s): %s to %s"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:32
+msgid "BuddyPress Activity Plus"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:33
+msgid "Activity Plus"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:87
+msgid "Appearance"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:91
+msgid ""
+"Your BuddyPress theme incorporates Activity Plus style overrides. Respecting "
+"the selection you make in the &quot;Appearance&quot; section is entirely up "
+"to your theme."
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:96
+msgid "Theme"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:100
+msgid "Default (legacy)"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:105
+msgid "New"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:110
+msgid "Round"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:114
+msgid "Alignment"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:117
+msgid "Left"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:121
+msgid "Right"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:128
+msgid "Functional"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:131
+msgid "oEmbed"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:134
+#, php-format
+msgid ""
+"Your oEmbed dimensions will be dictated by the <code>BPFB_OEMBED_WIDTH</"
+"code> define value (%s). Remove this define to enable this option."
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:138 lib/class_bpfb_admin_pages.php:150
+msgid "Width"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:143
+#, fuzzy
+msgid "Image thumbnails"
+msgstr "Choose thumbnail"
+
+#: lib/class_bpfb_admin_pages.php:146
+#, php-format
+msgid ""
+"Your thumbnail dimensions will be dictated by the "
+"<code>BPFB_THUMBNAIL_IMAGE_SIZE</code> define value (%s). Remove this define "
+"to enable these options."
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:154
+msgid "Height"
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:162
+msgid "Save"
+msgstr ""
+
+#: lib/class_bpfb_binder.php:135
+msgid "Add photos"
+msgstr "Add photos"
+
+#: lib/class_bpfb_binder.php:136
+msgid "Add image URL"
+msgstr ""
+
+#: lib/class_bpfb_binder.php:137
+msgid "Add another image URL"
+msgstr ""
+
+#: lib/class_bpfb_binder.php:138
+msgid "Add videos"
+msgstr "Add videos"
+
+#: lib/class_bpfb_binder.php:139
+msgid "Add video"
+msgstr "Add video"
+
+#: lib/class_bpfb_binder.php:140
+msgid "Add links"
+msgstr "Add links"
+
+#: lib/class_bpfb_binder.php:141
+msgid "Add link"
+msgstr "Add link"
+
+#: lib/class_bpfb_binder.php:142
+msgid "Add"
+msgstr "Add"
+
+#: lib/class_bpfb_binder.php:143
+msgid "Cancel"
+msgstr "Cancel"
+
+#: lib/class_bpfb_binder.php:144
+msgid "Preview"
+msgstr "Preview"
+
+#: lib/class_bpfb_binder.php:145
+msgid "Drop files here to upload"
+msgstr ""
+
+#: lib/class_bpfb_binder.php:146
+msgid "Upload a file"
+msgstr ""
+
+#: lib/class_bpfb_binder.php:147
+msgid "Choose thumbnail"
+msgstr "Choose thumbnail"
+
+#: lib/class_bpfb_binder.php:148
+#, fuzzy
+msgid "No thumbnail"
+msgstr "Choose thumbnail"
+
+#: lib/class_bpfb_binder.php:149
+msgid "Paste video URL here"
+msgstr "Paste video URL here"
+
+#: lib/class_bpfb_binder.php:150
+msgid "Paste link here"
+msgstr "Paste link here"
+
+#: lib/class_bpfb_binder.php:151
+#, php-format
+msgid "You tried to add too many images, only %d will be posted."
+msgstr ""
+
+#: lib/class_bpfb_binder.php:177 lib/class_bpfb_binder.php:194
+msgid "There has been an error processing your request"
+msgstr "There has been an error processing your request"
+
+#: lib/class_bpfb_binder.php:178 lib/class_bpfb_binder.php:195
+msgid "Processing..."
+msgstr "Processing..."
+
+#: lib/external/wpmudev-dash-notification.php:62
+#, php-format
+msgid ""
+"Easily get updates, support, and one-click WPMU DEV plugin/theme "
+"installations right from in your dashboard - <strong><a href=\"%s\" title="
+"\"Install Now &raquo;\">install the free WPMU DEV Dashboard plugin</a></"
+"strong>. &nbsp;&nbsp;&nbsp;<small><a href=\"http://premium.wpmudev.org/wpmu-"
+"dev/update-notifications-plugin-information/\">(find out more)</a></small>"
+msgstr ""
+
+#: lib/external/wpmudev-dash-notification.php:66
+#, php-format
+msgid ""
+"Updates, Support, Premium Plugins, Community - <strong><a href=\"%s\" title="
+"\"Activate Now &raquo;\">activate the WPMU DEV Dashboard plugin now</a></"
+"strong>."
+msgstr ""

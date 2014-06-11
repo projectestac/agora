@@ -1,0 +1,39 @@
+.bpfb fieldset.section {
+	margin: 2em;
+	margin-top: 0;
+}
+.bpfb fieldset.section legend {
+	font-size: 2em;
+	margin: 1em 0;
+	margin-top: 0;
+}
+
+.bpfb fieldset.option {
+	margin-top: 1em;
+	border: 1px solid #ddd;
+	padding: 1em;
+}
+.bpfb fieldset.option legend {
+	font-size: 1.4em;
+	margin: 0;
+	padding: 0 1em;
+}
+
+.bpfb fieldset.option label {
+	display: block;
+}
+
+.bpfb .theme.option img {
+    display: block;
+    margin: 0 auto;
+}
+.bpfb .theme.option label {
+    width: 150px;
+    float: left;
+    text-align: center;
+    background: #eee;
+    padding: 5px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+}
