@@ -56,36 +56,38 @@ function xtec_mail_options() {
         return ;
     }
 
-    switch ($_GET['action']) {
-        case 'siteoptions':
-            if (isset($_POST['xtec_mail_idapp'])) {
-                update_site_option('xtec_mail_idapp', $_POST['xtec_mail_idapp']);
-            }
-            if (isset($_POST['xtec_mail_replyto'])) {
-                update_site_option('xtec_mail_replyto', $_POST['xtec_mail_replyto']);
-            }
-            if (isset($_POST['xtec_mail_sender'])) {
-                update_site_option('xtec_mail_sender', $_POST['xtec_mail_sender']);
-            }
-            if (!isset($_POST['xtec_mail_log'])) {
-                update_site_option('xtec_mail_log', 0);
-            } else {
-                update_site_option('xtec_mail_log', $_POST['xtec_mail_log']);
-            }
-            if (!isset($_POST['xtec_mail_debug'])) {
-                update_site_option('xtec_mail_debug', 0);
-            } else {
-                update_site_option('xtec_mail_debug', $_POST['xtec_mail_debug']);
-            }
-            if (isset($_POST['xtec_mail_logpath'])) {
-                update_site_option('xtec_mail_logpath', $_POST['xtec_mail_logpath']);
-            }
-            ?>
-            <div id="message" class="updated">
-                <p><?php _e('Options saved.', 'xtec-mail') ?></p>
-            </div>
-            <?php
-            break;
+    if (isset($_GET['action'])) {
+        switch ($_GET['action']) {
+            case 'siteoptions':
+                if (isset($_POST['xtec_mail_idapp'])) {
+                    update_site_option('xtec_mail_idapp', $_POST['xtec_mail_idapp']);
+                }
+                if (isset($_POST['xtec_mail_replyto'])) {
+                    update_site_option('xtec_mail_replyto', $_POST['xtec_mail_replyto']);
+                }
+                if (isset($_POST['xtec_mail_sender'])) {
+                    update_site_option('xtec_mail_sender', $_POST['xtec_mail_sender']);
+                }
+                if (!isset($_POST['xtec_mail_log'])) {
+                    update_site_option('xtec_mail_log', 0);
+                } else {
+                    update_site_option('xtec_mail_log', $_POST['xtec_mail_log']);
+                }
+                if (!isset($_POST['xtec_mail_debug'])) {
+                    update_site_option('xtec_mail_debug', 0);
+                } else {
+                    update_site_option('xtec_mail_debug', $_POST['xtec_mail_debug']);
+                }
+                if (isset($_POST['xtec_mail_logpath'])) {
+                    update_site_option('xtec_mail_logpath', $_POST['xtec_mail_logpath']);
+                }
+                ?>
+                    <div id="message" class="updated">
+                        <p><?php _e('Options saved.', 'xtec-mail') ?></p>
+                    </div>
+                <?php
+                break;
+        }
     }
 
     // Check for WordPress multisite
